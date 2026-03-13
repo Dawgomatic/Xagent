@@ -275,7 +275,7 @@ function displayQuota(response) {
     const userEmail = status.email || 'N/A';
     const tier = status.userTier?.name || status.planStatus?.planInfo?.teamsTier || 'N/A';
     
-    console.log(`\n${colors.bold}🚀 Antigravity Quota Status${colors.reset}`);
+    console.log(`\n${colors.bold} Antigravity Quota Status${colors.reset}`);
     console.log('━'.repeat(45));
     console.log(`${colors.cyan}User:${colors.reset} ${userName} (${userEmail})`);
     console.log(`${colors.cyan}Tier:${colors.reset} ${tier}`);
@@ -307,7 +307,7 @@ function displayQuota(response) {
             resetDisplay = formatDelta(delta);
         }
         
-        console.log(`  ${colors.bold}${label.padEnd(30)}${colors.reset} ${color}${String(percent).padStart(3)}%${colors.reset} ${bar}  ⏱️  ${resetDisplay}`);
+        console.log(`  ${colors.bold}${label.padEnd(30)}${colors.reset} ${color}${String(percent).padStart(3)}%${colors.reset} ${bar}    ${resetDisplay}`);
     }
     
     console.log();

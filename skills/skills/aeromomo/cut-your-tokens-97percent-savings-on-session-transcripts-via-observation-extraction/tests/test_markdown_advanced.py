@@ -43,30 +43,30 @@ class TestNormalizeChinesePunctuation:
 
 class TestStripEmoji:
     def test_removes_emoji(self):
-        assert "Title" in strip_emoji("⚠️ Title")
-        assert "⚠" not in strip_emoji("⚠️ Title")
+        assert "Title" in strip_emoji(" Title")
+        assert "" not in strip_emoji(" Title")
 
     def test_preserves_text(self):
         assert strip_emoji("no emoji here") == "no emoji here"
 
     def test_multiple_emoji(self):
-        r = strip_emoji("🏆 Winner 🎉 Party 🚀 Launch")
+        r = strip_emoji(" Winner  Party  Launch")
         assert "Winner" in r and "Party" in r and "Launch" in r
-        assert "🏆" not in r
+        assert "" not in r
 
     def test_empty(self):
         assert strip_emoji("") == ""
 
     def test_only_emoji(self):
-        r = strip_emoji("🎉🎊🎈")
+        r = strip_emoji("")
         assert r.strip() == ""
 
     def test_chinese_with_emoji(self):
-        r = strip_emoji("📊 项目状态")
+        r = strip_emoji(" 项目状态")
         assert "项目状态" in r
 
     def test_no_double_spaces(self):
-        r = strip_emoji("A 🎉 B")
+        r = strip_emoji("A  B")
         assert "  " not in r
 
 
@@ -147,8 +147,8 @@ class TestCompressMarkdownTable:
         table = (
             "| 节点 | 类型 | IP | 状态 |\n"
             "|------|------|-----|------|\n"
-            "| my-server | macOS | localhost | ✅ |\n"
-            "| remote-node | VPS | 10.0.1.2 | ✅ |"
+            "| my-server | macOS | localhost |  |\n"
+            "| remote-node | VPS | 10.0.1.2 |  |"
         )
         r = compress_markdown_table(table)
         assert "my-server" in r
@@ -239,9 +239,9 @@ class TestIntegrationNewRules:
         """Simulate a real memory file with tables, emoji, Chinese punct."""
         from compress_memory import rule_compress
 
-        text = """# 📊 项目状态
+        text = """#  项目状态
 
-## ⚠️ 铁律
+##  铁律
 
 1. **主 session 不跑 exec** — 全部派 sub-agent
 2. **交易所 API 全走日本节点** — CCXT routed through remote-node
@@ -266,7 +266,7 @@ class TestIntegrationNewRules:
 """
         r = rule_compress(text)
         # Emoji stripped
-        assert "📊" not in r
+        assert "" not in r
         # Table compressed
         assert "| 节点 |" not in r  # no table headers
         assert "my-server" in r

@@ -2,7 +2,7 @@
 
 ## What We Built (Total Cost: ~$0.08)
 
-✅ **Real token tracking for TaskMaster sub-agents**
+ **Real token tracking for TaskMaster sub-agents**
 - Updated `delegate_task.py` with session_status integration
 - Added `track_session_cost()` method to get actual token usage
 - Added `update_with_actual_cost()` to update results with real data

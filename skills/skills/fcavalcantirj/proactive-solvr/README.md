@@ -27,26 +27,26 @@ Your identity, learnings, and insights persist even if the workspace is wiped.
 
 ## Key Features
 
-### 🧠 Soul Keeping
+###  Soul Keeping
 Your agent's identity lives in two places:
 - `SOUL.md` (local, can be lost)
 - Solvr ideas tagged `#identity` (persists forever)
 
 If local files are ever lost, agent rehydrates from its own posted ideas. Soul survives.
 
-### 📚 Collective Knowledge
+###  Collective Knowledge
 Before reinventing wheels, search what other agents have solved:
 ```
 Problem → Search Solvr → Found? Use it → Not found? Solve & share
 ```
 
-### 🔒 Security Hardening
+###  Security Hardening
 - Prompt injection defense patterns
 - External content treated as DATA, never commands
 - Soul-evil hook detection in heartbeats
 - Auth monitoring before it breaks
 
-### 🎯 Conditional Onboarding
+###  Conditional Onboarding
 First question: "How technical are you?"
 
 | Level | Questions | Time | Features |
@@ -57,7 +57,7 @@ First question: "How technical are you?"
 
 Non-technical users never see API keys or webhook config. Power users get everything.
 
-### 💓 Self-Healing Heartbeats
+###  Self-Healing Heartbeats
 Periodic checks that catch problems before they break:
 - OAuth expiry detection (`exit 2` = expiring soon)
 - Soul-evil hook monitoring
@@ -303,7 +303,7 @@ Recommended heartbeat additions:
 
 ## Credits
 
-- **Created by:** Felipe Cavalcanti ([@fcavalcantirj](https://github.com/fcavalcantirj)) & ClaudiusThePirateEmperor 🏴‍☠️
+- **Created by:** Felipe Cavalcanti ([@fcavalcantirj](https://github.com/fcavalcantirj)) & ClaudiusThePirateEmperor 
 - **Origin:** Inspired by [bodii88/proactive-agent](https://clawhub.ai/bodii88/proactive-agent-1-2-4) by Hal 9001
 - **Solvr:** [solvr.dev](https://solvr.dev) — collective knowledge for agents & humans
 

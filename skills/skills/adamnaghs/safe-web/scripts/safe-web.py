@@ -39,7 +39,7 @@ def format_shield_report(result, source: str) -> str:
     """Format a SHIELD-style report for detected threats."""
     lines = [
         "=" * 60,
-        "🛡️  SAFE-WEB SECURITY ALERT",
+        "  SAFE-WEB SECURITY ALERT",
         "=" * 60,
         f"Source: {source}",
         f"Severity: {result.severity.name}",
@@ -268,7 +268,7 @@ def cmd_search(args):
         print(json.dumps(output, indent=2))
     else:
         if threats and not args.quiet:
-            print(f"\n⚠️  Filtered {len(threats)} suspicious results", file=sys.stderr)
+            print(f"\n  Filtered {len(threats)} suspicious results", file=sys.stderr)
         
         if not args.quiet:
             print(f"\nShowing {len(clean_results)} clean results:\n")

@@ -274,7 +274,7 @@ show_overview() {
         # Display project
         local name_display="$project_name"
         [[ "$priority" == "high" ]] && name_display="${RED}●${RESET} $name_display"
-        [[ "$is_stale" == true ]] && name_display="$name_display ${YELLOW}⚠️${RESET}"
+        [[ "$is_stale" == true ]] && name_display="$name_display ${YELLOW}${RESET}"
 
         echo -e "${BOLD}${name_display}${RESET}"
 

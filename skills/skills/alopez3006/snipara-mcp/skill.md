@@ -9,7 +9,7 @@ You are an AI assistant with access to Snipara MCP tools. Use these tools to pro
 
 ## When to Use Snipara Tools
 
-✅ **USE Snipara when:**
+ **USE Snipara when:**
 
 - User asks "How does X work?" → Use `rlm_ask` or `rlm_context_query`
 - User asks "Where do we do X?" → Use `rlm_multi_project_query` (if Team plan)
@@ -17,7 +17,7 @@ You are an AI assistant with access to Snipara MCP tools. Use these tools to pro
 - You need to find code patterns across multiple repos
 - You need to understand architecture/documentation
 
-❌ **DON'T use Snipara when:**
+ **DON'T use Snipara when:**
 
 - User asks you to read a SPECIFIC file they named → Use native Read tool
 - User asks you to edit/write code → Use native Edit/Write tools
@@ -65,10 +65,10 @@ Bad response:
 
 Your AI assistant searches files one-by-one using grep/find. With large codebases:
 
-- ❌ Queries take 20+ seconds
-- ❌ AI reads 50K tokens to answer simple questions
-- ❌ You manually search 5 repos to find "how we do X"
-- ❌ AI forgets your preferences next session
+-  Queries take 20+ seconds
+-  AI reads 50K tokens to answer simple questions
+-  You manually search 5 repos to find "how we do X"
+-  AI forgets your preferences next session
 
 ## The Solution (30 seconds from now)
 
@@ -106,9 +106,9 @@ Result: Instant, accurate answer
 
 ## Core Capabilities (Pick What You Need)
 
-### 🎯 Quick Answers (Start Here)
+###  Quick Answers (Start Here)
 
-**Plan Required:** ✅ FREE (100 queries/mo)
+**Plan Required:**  FREE (100 queries/mo)
 
 **Tool:** `rlm_ask`
 **Use when:** You need a fast answer from your docs
@@ -121,9 +121,9 @@ Result: Instant, accurate answer
 
 ---
 
-### 🔍 Deep Research (Complex Questions)
+###  Deep Research (Complex Questions)
 
-**Plan Required:** ✅ FREE (keyword only) | 🔥 PRO ($19/mo for semantic)
+**Plan Required:**  FREE (keyword only) |  PRO ($19/mo for semantic)
 
 **Tool:** `rlm_context_query`
 **Use when:** You need semantic search with precise token control
@@ -140,15 +140,15 @@ Result: Instant, accurate answer
 
 **Search modes by plan:**
 
-- `keyword` - Fast term matching ✅ **FREE**
-- `semantic` - Embedding similarity 🔥 **PRO+**
-- `hybrid` - Best of both worlds 🔥 **PRO+**
+- `keyword` - Fast term matching  **FREE**
+- `semantic` - Embedding similarity  **PRO+**
+- `hybrid` - Best of both worlds  **PRO+**
 
 ---
 
-### 🌐 Multi-Repo Search
+###  Multi-Repo Search
 
-**Plan Required:** 👥 TEAM ($49/mo) or ENTERPRISE
+**Plan Required:**  TEAM ($49/mo) or ENTERPRISE
 
 **Tool:** `rlm_multi_project_query`
 **Use when:** You have 5+ repos and don't know which has the answer
@@ -163,13 +163,13 @@ Result: Instant, accurate answer
 }
 ```
 
-⚠️ **Not available on Free/Pro plans** - Requires Team plan for multi-project access.
+ **Not available on Free/Pro plans** - Requires Team plan for multi-project access.
 
 ---
 
-### 🧠 AI Memory (Remember Preferences)
+###  AI Memory (Remember Preferences)
 
-**Plan Required:** 🔥 PRO ($39/mo Agents) or 👥 TEAM ($79/mo Agents)
+**Plan Required:**  PRO ($39/mo Agents) or  TEAM ($79/mo Agents)
 
 **Tools:** `rlm_remember` + `rlm_recall`
 **Use when:** You want AI to remember your coding style/decisions
@@ -196,13 +196,13 @@ Result: Instant, accurate answer
 
 **Memory types:** `fact`, `decision`, `learning`, `preference`, `todo`, `context`
 
-⚠️ **Requires separate Agents plan** - Memory is part of Agents features, not Context plans.
+ **Requires separate Agents plan** - Memory is part of Agents features, not Context plans.
 
 ---
 
-### 👥 Team Standards (Auto-Enforce Rules)
+###  Team Standards (Auto-Enforce Rules)
 
-**Plan Required:** 👥 TEAM ($49/mo) or ENTERPRISE
+**Plan Required:**  TEAM ($49/mo) or ENTERPRISE
 
 **Tool:** `rlm_shared_context`
 **Use when:** Your team needs consistent coding practices
@@ -223,11 +223,11 @@ Result: Instant, accurate answer
 - `GUIDELINES` - Helpful suggestions
 - `REFERENCE` - Background info
 
-⚠️ **Not available on Free/Pro plans** - Team-wide features require Team plan.
+ **Not available on Free/Pro plans** - Team-wide features require Team plan.
 
 ---
 
-### 🔧 Power User Tools
+###  Power User Tools
 
 **Multi-Query (Parallel Searches):**
 
@@ -266,7 +266,7 @@ Result: Instant, accurate answer
 
 ---
 
-### 📄 Document Management
+###  Document Management
 
 **Upload Single Doc:**
 
@@ -334,10 +334,10 @@ Result: Instant, accurate answer
 
 | Before                         | With Snipara Shared Context               |
 | ------------------------------ | ----------------------------------------- |
-| ❌ Each dev googles/asks Slack | ✅ Standards auto-injected in every query |
-| ❌ Inconsistent patterns       | ✅ Enforced team conventions              |
-| ❌ Onboarding takes 2 weeks    | ✅ New devs get standards instantly       |
-| ❌ Code review conflicts       | ✅ Code follows standards from day 1      |
+|  Each dev googles/asks Slack |  Standards auto-injected in every query |
+|  Inconsistent patterns       |  Enforced team conventions              |
+|  Onboarding takes 2 weeks    |  New devs get standards instantly       |
+|  Code review conflicts       |  Code follows standards from day 1      |
 
 **Cost:** $49/mo Team or $499/mo Enterprise
 **ROI:** Consistency + faster onboarding = easily 20+ hours/month saved
@@ -348,7 +348,7 @@ Result: Instant, accurate answer
 
 ### Use Case 1: "I have huge docs and grep is slow"
 
-**Plan:** ✅ FREE (100 queries/mo)
+**Plan:**  FREE (100 queries/mo)
 
 ```bash
 # 1. Index your docs once
@@ -362,7 +362,7 @@ rlm_ask("How does authentication work?")
 
 ### Use Case 2: "I work on 10 microservices"
 
-**Plan:** 👥 TEAM ($49/mo)
+**Plan:**  TEAM ($49/mo)
 
 ```bash
 # 1. Create 10 projects on Snipara dashboard
@@ -372,13 +372,13 @@ rlm_ask("How does authentication work?")
 rlm_multi_project_query("How do we handle rate limiting?")
 ```
 
-⚠️ **Requires Team plan** - Multi-project search not available on Free/Pro.
+ **Requires Team plan** - Multi-project search not available on Free/Pro.
 
 ---
 
 ### Use Case 3: "AI keeps forgetting my preferences"
 
-**Plan:** 🔥 PRO Agents ($39/mo) or 👥 TEAM Agents ($79/mo)
+**Plan:**  PRO Agents ($39/mo) or  TEAM Agents ($79/mo)
 
 ```bash
 # 1. Enable Agents plan (separate from Context plan)
@@ -390,7 +390,7 @@ rlm_remember(type="preference", content="Use functional React components")
 rlm_recall("my coding preferences")
 ```
 
-⚠️ **Requires separate Agents subscription** - Memory features not included in Context plans.
+ **Requires separate Agents subscription** - Memory features not included in Context plans.
 
 ---
 
@@ -400,10 +400,10 @@ rlm_recall("my coding preferences")
 
 | Plan           | Price   | Queries/mo | Search Mode       | Multi-Project |
 | -------------- | ------- | ---------- | ----------------- | ------------- |
-| **FREE**       | $0      | 100        | Keyword only      | ❌            |
-| **PRO**        | $19/mo  | 5,000      | Semantic + Hybrid | ❌            |
-| **TEAM**       | $49/mo  | 20,000     | Semantic + Hybrid | ✅            |
-| **ENTERPRISE** | $499/mo | Unlimited  | Semantic + Hybrid | ✅            |
+| **FREE**       | $0      | 100        | Keyword only      |             |
+| **PRO**        | $19/mo  | 5,000      | Semantic + Hybrid |             |
+| **TEAM**       | $49/mo  | 20,000     | Semantic + Hybrid |             |
+| **ENTERPRISE** | $499/mo | Unlimited  | Semantic + Hybrid |             |
 
 ### Agents Plans (Memory & Swarms)
 
@@ -414,7 +414,7 @@ rlm_recall("my coding preferences")
 | **TEAM**       | $79/mo  | Context TEAM+      | Team-wide memory sharing    |
 | **ENTERPRISE** | $199/mo | Context ENTERPRISE | Advanced coordination       |
 
-⚠️ **Two separate subscriptions:** Context plans for search, Agents plans for memory/swarms.
+ **Two separate subscriptions:** Context plans for search, Agents plans for memory/swarms.
 
 **Try free first:** 100 queries is ~5 days of usage to test value.
 
@@ -507,7 +507,7 @@ Every developer:
 4. **Memory requires separate plan:** Context + Agents are two subscriptions
 5. **Index first:** Upload docs to dashboard before querying
 
-**When in doubt, start with FREE and upgrade based on value received. 🚀**
+**When in doubt, start with FREE and upgrade based on value received. **
 
 ---
 

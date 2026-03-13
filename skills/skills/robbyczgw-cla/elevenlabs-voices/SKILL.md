@@ -10,7 +10,7 @@ metadata: {"openclaw":{"requires":{"bins":["python3"],"env":{"ELEVEN_API_KEY":"r
 
 Comprehensive voice synthesis toolkit using ElevenLabs API.
 
-## 🚀 First Run - Setup Wizard
+##  First Run - Setup Wizard
 
 When you first use this skill (no `config.json` exists), run the interactive setup wizard:
 
@@ -26,13 +26,13 @@ The wizard will guide you through:
 5. **Cost Tracking** - Enable usage and cost monitoring
 6. **Budget Limit** - Optional monthly spending cap
 
-**🔒 Privacy:** Your API key is stored locally in `config.json` only. It never leaves your machine and is automatically excluded from git via `.gitignore`.
+** Privacy:** Your API key is stored locally in `config.json` only. It never leaves your machine and is automatically excluded from git via `.gitignore`.
 
 To reconfigure at any time, simply run the setup wizard again.
 
 ---
 
-## ✨ Features
+##  Features
 
 - **18 Voice Personas** - Carefully curated voices for different use cases
 - **32 Languages** - Multi-language synthesis with the multilingual v2 model
@@ -46,30 +46,30 @@ To reconfigure at any time, simply run the setup wizard again.
 
 ---
 
-## 🎙️ Available Voices
+##  Available Voices
 
 | Voice | Accent | Gender | Persona | Best For |
 |-------|--------|--------|---------|----------|
-| rachel | 🇺🇸 US | female | warm | Conversations, tutorials |
-| adam | 🇺🇸 US | male | narrator | Documentaries, audiobooks |
-| bella | 🇺🇸 US | female | professional | Business, presentations |
-| brian | 🇺🇸 US | male | comforting | Meditation, calm content |
-| george | 🇬🇧 UK | male | storyteller | Audiobooks, storytelling |
-| alice | 🇬🇧 UK | female | educator | Tutorials, explanations |
-| callum | 🇺🇸 US | male | trickster | Playful, gaming |
-| charlie | 🇦🇺 AU | male | energetic | Sports, motivation |
-| jessica | 🇺🇸 US | female | playful | Social media, casual |
-| lily | 🇬🇧 UK | female | actress | Drama, elegant content |
-| matilda | 🇺🇸 US | female | professional | Corporate, news |
-| river | 🇺🇸 US | neutral | neutral | Inclusive, informative |
-| roger | 🇺🇸 US | male | casual | Podcasts, relaxed |
-| daniel | 🇬🇧 UK | male | broadcaster | News, announcements |
-| eric | 🇺🇸 US | male | trustworthy | Business, corporate |
-| chris | 🇺🇸 US | male | friendly | Tutorials, approachable |
-| will | 🇺🇸 US | male | optimist | Motivation, uplifting |
-| liam | 🇺🇸 US | male | social | YouTube, social media |
+| rachel |  US | female | warm | Conversations, tutorials |
+| adam |  US | male | narrator | Documentaries, audiobooks |
+| bella |  US | female | professional | Business, presentations |
+| brian |  US | male | comforting | Meditation, calm content |
+| george |  UK | male | storyteller | Audiobooks, storytelling |
+| alice |  UK | female | educator | Tutorials, explanations |
+| callum |  US | male | trickster | Playful, gaming |
+| charlie |  AU | male | energetic | Sports, motivation |
+| jessica |  US | female | playful | Social media, casual |
+| lily |  UK | female | actress | Drama, elegant content |
+| matilda |  US | female | professional | Corporate, news |
+| river |  US | neutral | neutral | Inclusive, informative |
+| roger |  US | male | casual | Podcasts, relaxed |
+| daniel |  UK | male | broadcaster | News, announcements |
+| eric |  US | male | trustworthy | Business, corporate |
+| chris |  US | male | friendly | Tutorials, approachable |
+| will |  US | male | optimist | Motivation, uplifting |
+| liam |  US | male | social | YouTube, social media |
 
-## 🎯 Quick Presets
+##  Quick Presets
 
 - `default` → rachel (warm, friendly)
 - `narrator` → adam (documentaries)
@@ -86,7 +86,7 @@ To reconfigure at any time, simply run the setup wizard again.
 
 ---
 
-## 🌍 Supported Languages (32)
+##  Supported Languages (32)
 
 The multilingual v2 model supports these languages:
 
@@ -122,7 +122,7 @@ python3 tts.py --languages
 
 ---
 
-## 💻 CLI Usage
+##  CLI Usage
 
 ### Basic Text-to-Speech
 
@@ -192,7 +192,7 @@ python3 scripts/tts.py --reset-stats
 
 ---
 
-## 🎵 Sound Effects (SFX)
+##  Sound Effects (SFX)
 
 Generate AI-powered sound effects from text descriptions:
 
@@ -222,7 +222,7 @@ python3 scripts/sfx.py --examples
 
 ---
 
-## 🎨 Voice Design
+##  Voice Design
 
 Create custom voices from text descriptions:
 
@@ -254,7 +254,7 @@ python3 scripts/voice-design.py --options
 
 ---
 
-## 📖 Pronunciation Dictionary
+##  Pronunciation Dictionary
 
 Customize how words are pronounced:
 
@@ -287,7 +287,7 @@ python3 scripts/tts.py --text "The API is great" --voice rachel --no-pronunciati
 
 ---
 
-## 💰 Cost Tracking
+##  Cost Tracking
 
 The skill tracks your character usage and estimates costs:
 
@@ -297,13 +297,13 @@ python3 scripts/tts.py --stats
 
 **Output:**
 ```
-📊 ElevenLabs Usage Statistics
+ ElevenLabs Usage Statistics
 
   Total Characters: 15,230
   Total Requests:   42
   Since:            2024-01-15
 
-💰 Estimated Costs:
+ Estimated Costs:
   Starter    $4.57 ($0.30/1k chars)
   Creator    $3.66 ($0.24/1k chars)
   Pro        $2.74 ($0.18/1k chars)
@@ -312,7 +312,7 @@ python3 scripts/tts.py --stats
 
 ---
 
-## 🤖 OpenClaw TTS Integration
+##  OpenClaw TTS Integration
 
 ### Using with OpenClaw's Built-in TTS
 
@@ -348,7 +348,7 @@ exec python3 /path/to/skills/elevenlabs-voices/scripts/tts.py --text "Hello" --v
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 The scripts look for API key in this order:
 
@@ -363,7 +363,7 @@ echo 'ELEVEN_API_KEY=your-key-here' > .env
 
 ---
 
-## 🎛️ Voice Settings
+##  Voice Settings
 
 Each voice has tuned settings for optimal output:
 
@@ -375,7 +375,7 @@ Each voice has tuned settings for optimal output:
 
 ---
 
-## 📝 Triggers
+##  Triggers
 
 - "use {voice_name} voice"
 - "speak as {persona}"
@@ -386,7 +386,7 @@ Each voice has tuned settings for optimal output:
 
 ---
 
-## 📁 Files
+##  Files
 
 ```
 elevenlabs-voices/
@@ -407,7 +407,7 @@ elevenlabs-voices/
 
 ---
 
-## 🔗 Links
+##  Links
 
 - [ElevenLabs](https://elevenlabs.io)
 - [API Documentation](https://docs.elevenlabs.io)
@@ -417,7 +417,7 @@ elevenlabs-voices/
 
 ---
 
-## 📋 Changelog
+##  Changelog
 
 ### v2.1.0
 - Added interactive setup wizard (`scripts/setup.py`)

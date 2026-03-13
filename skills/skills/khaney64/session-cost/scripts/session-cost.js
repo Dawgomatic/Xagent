@@ -299,7 +299,7 @@ function formatDiscord(results, groups, offset) {
   const lines = [];
 
   // Header with emoji
-  lines.push('💰 **Usage Summary**');
+  lines.push(' **Usage Summary**');
   if (offset) {
     lines.push(`(last ${offset})`);
   }

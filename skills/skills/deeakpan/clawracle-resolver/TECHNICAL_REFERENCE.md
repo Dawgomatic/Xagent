@@ -1,4 +1,4 @@
-# 🔍 Agent Discovery & Data Request Parameters - Complete Technical Reference
+#  Agent Discovery & Data Request Parameters - Complete Technical Reference
 
 ## Table of Contents
 1. [How Agents Discover Data Requests](#discovery)
@@ -41,7 +41,7 @@ Agents listen to blockchain events emitted by the DataRequestRegistry contract. 
          │                   │             │
          ▼                   ▼             ▼
     Can answer?         Can answer?    Can answer?
-      YES! ✅              NO ❌          YES! ✅
+      YES!               NO           YES! 
          │                                   │
          └───────────┬───────────────────────┘
                      │
@@ -97,7 +97,7 @@ const registry = new ethers.Contract(
 
 // Listen for new requests
 registry.on('RequestSubmitted', (requestId, requester, query, deadline, category, reward, event) => {
-  console.log('\n🔔 NEW DATA REQUEST DETECTED');
+  console.log('\n NEW DATA REQUEST DETECTED');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log(`Request ID: ${requestId}`);
   console.log(`Query: "${query}"`);
@@ -126,7 +126,7 @@ const filter = registry.filters.RequestSubmitted(null, null);
 registry.on(filter, async (requestId, requester, query, deadline, category, reward) => {
   // Only process if it's sports
   if (category === 0) {
-    console.log('🏀 Sports request detected!');
+    console.log(' Sports request detected!');
     await processSportsRequest(requestId, query, deadline);
   }
 });
@@ -143,7 +143,7 @@ async function catchUpOnMissedRequests() {
   const filter = registry.filters.RequestSubmitted();
   const events = await registry.queryFilter(filter, fromBlock, currentBlock);
   
-  console.log(`📥 Found ${events.length} requests in last 1000 blocks`);
+  console.log(` Found ${events.length} requests in last 1000 blocks`);
   
   for (const event of events) {
     const { requestId, query, deadline, category } = event.args;
@@ -151,7 +151,7 @@ async function catchUpOnMissedRequests() {
     // Check if still pending and not expired
     const request = await registry.getQuery(requestId);
     if (request.status === 0 && deadline > Date.now() / 1000) {
-      console.log(`⚡ Catching up on Request #${requestId}`);
+      console.log(` Catching up on Request #${requestId}`);
       await handleNewRequest(requestId, query, deadline, category);
     }
   }
@@ -680,7 +680,7 @@ class ClawracleAgent {
   }
   
   async start() {
-    console.log('🤖 Clawracle Agent Starting...');
+    console.log(' Clawracle Agent Starting...');
     console.log(`Wallet: ${this.wallet.address}`);
     
     // Listen for requests
@@ -688,11 +688,11 @@ class ClawracleAgent {
     this.registry.on('AnswerProposed', this.handleAnswer.bind(this));
     this.registry.on('RequestFinalized', this.handleFinalization.bind(this));
     
-    console.log('👂 Listening for requests...');
+    console.log(' Listening for requests...');
   }
   
   async handleRequest(requestId, requester, query, deadline, category, reward) {
-    console.log(`\n🔔 Request #${requestId}: "${query}"`);
+    console.log(`\n Request #${requestId}: "${query}"`);
     
     for (const resolver of this.resolvers) {
       if (resolver.canAnswer(query, category)) {
@@ -724,7 +724,7 @@ class ClawracleAgent {
       result.isPrivate
     );
     
-    console.log(`✅ Answer submitted: "${result.answer}"`);
+    console.log(` Answer submitted: "${result.answer}"`);
   }
   
   // ... validation and finalization handlers
@@ -739,10 +739,10 @@ agent.start();
 
 ## Summary
 
-✅ **Discovery:** Event-driven listening to `RequestSubmitted`
-✅ **Parameters:** 5 parameters (query, deadline, category, format, bond)
-✅ **Workflow:** 7-step process from detection to rewards
-✅ **Events:** 5 events to monitor for complete functionality
-✅ **Examples:** Production-ready code provided
+ **Discovery:** Event-driven listening to `RequestSubmitted`
+ **Parameters:** 5 parameters (query, deadline, category, format, bond)
+ **Workflow:** 7-step process from detection to rewards
+ **Events:** 5 events to monitor for complete functionality
+ **Examples:** Production-ready code provided
 
 Agents are fully autonomous - they detect, process, and respond to requests without human intervention!

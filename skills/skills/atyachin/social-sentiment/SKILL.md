@@ -93,7 +93,7 @@ Extract themes, find viral by engagement. Customize keywords.
 
 ```
 Sentiment: 72/100 | Posts: 14,832
-😊 58% | 😠 24% | 😐 18%
+ 58% |  24% |  18%
 
 Themes: Performance (2K, 81% neg), UX (1.8K, 72% pos)
 Viral: [Top 10]

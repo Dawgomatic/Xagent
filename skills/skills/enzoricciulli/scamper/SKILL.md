@@ -71,7 +71,7 @@ When Enzo says "I'm stuck on X":
 **Eliminate:** [idea]
 **Reverse:** [idea]
 
-💡 **Strongest angle:** [which one and why]
+ **Strongest angle:** [which one and why]
 ```
 
 For Quick SCAMPER, only include the 2-3 lenses used.

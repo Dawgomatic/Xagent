@@ -1,6 +1,6 @@
 # voice-devotional Skill Index
 
-## 📁 File Structure
+##  File Structure
 
 ```
 voice-devotional/
@@ -34,7 +34,7 @@ voice-devotional/
 └── output/                          # Generated files (gitignored)
 ```
 
-## 🎯 Quick Reference
+##  Quick Reference
 
 ### Starting Points
 1. **New User?** → Read [README.md](README.md)
@@ -69,7 +69,7 @@ voice-devotional/
 - `getUsage()` — Check API usage
 - `validateApiKey()` — Validate API key
 
-## 📖 Common Tasks
+##  Common Tasks
 
 ### Generate a Daily Devotional
 ```bash
@@ -96,7 +96,7 @@ const results = await vd.generateBatch(['peace', 'hope', 'faith']);
 ```
 See: [scripts/voice-devotional.js](scripts/voice-devotional.js#L395)
 
-## 🔧 Configuration Details
+##  Configuration Details
 
 ### Voice Presets
 Located in: `config/voice-settings.json`
@@ -124,7 +124,7 @@ See: [config/devotional-templates.json](config/devotional-templates.json)
 - **Similarity Boost:** Voice accuracy (0.0-1.0)
 - **Style:** Expressiveness (0.0-1.0)
 
-## 📚 API Reference
+##  API Reference
 
 ### CLI Commands
 ```bash
@@ -152,7 +152,7 @@ await vd.generateRomanRoad({ voiceId: 'josh' });
 await vd.generateBatch(['peace', 'hope', 'faith']);
 ```
 
-## 🔌 Integration Points
+##  Integration Points
 
 ### scripture-curated Skill
 Can integrate with scripture-curated for extended verse data:
@@ -166,7 +166,7 @@ Send generated audio to Telegram:
 telegram send --file output/devotional-*.mp3 --chat my-channel
 ```
 
-## 📊 Output Format
+##  Output Format
 
 Each generation creates:
 1. **MP3 File** — Audio content
@@ -187,7 +187,7 @@ Example metadata:
 }
 ```
 
-## 🧪 Testing
+##  Testing
 
 Run tests:
 ```bash
@@ -200,14 +200,14 @@ Test coverage:
 - Text formatting
 - Integration tests
 
-## 🚀 Performance Notes
+##  Performance Notes
 
 - **Generation time:** 30-120 seconds
 - **File size:** ~500KB per minute of audio
 - **API cost:** ~$0.30 per devotional
 - **Rate limit:** Default 1000ms delay between requests
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -229,7 +229,7 @@ Test coverage:
 - Ensure no disk space issues
 - Verify ElevenLabs API key is valid
 
-## 📝 Examples
+##  Examples
 
 ### Daily Devotional Generation
 See: [examples/basic.js](examples/basic.js)
@@ -237,24 +237,24 @@ See: [examples/basic.js](examples/basic.js)
 ### Batch Generation
 See: [examples/batch.js](examples/batch.js)
 
-## 🔐 Security Notes
+##  Security Notes
 
 - API keys stored in `.env` (not committed)
 - No personal data transmitted
 - Audio files stored locally
 - Can be shared/deleted safely
 
-## 📄 License
+##  License
 
 Part of Clawdbot ecosystem. See root LICENSE.
 
-## 🔗 Related Skills
+##  Related Skills
 
 - **scripture-curated** — Scripture data integration
 - **telegram-integration** — Send audio to chats
 - **meditation-guide** — Schedule devotionals
 
-## 📞 Support
+##  Support
 
 For issues or feature requests:
 1. Check README.md for common solutions

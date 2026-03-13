@@ -104,7 +104,7 @@ format_tasks() {
   jq -r --argjson projects "$projects_json" '
     def project_icon($name):
       # If the project title starts with an emoji/symbol token (non-alnum), use that token.
-      # Example: "💸 Pagos" -> "💸".
+      # Example: " Pagos" -> "".
       ($name // "") as $n
       | ($n | split(" ")[0]) as $first
       | if ($first | test("^[A-Za-z0-9]")) then "" else $first end;
@@ -117,7 +117,7 @@ format_tasks() {
     .[]
     | ($projects[(.project_id|tostring)] // "") as $pname
     | project_icon($pname) as $icon
-    | ($icon | if length>0 then . else "🔨" end) as $glyph
+    | ($icon | if length>0 then . else "" end) as $glyph
     | "\($glyph) \(fmt_due(.due_date)) - #\(.id) \(.title)"
   '
 }

@@ -55,7 +55,7 @@ All scripts: `QLIK_TENANT="https://..." QLIK_API_KEY="..." bash scripts/<script>
 |--------|-------------|------|
 | `qlik-duplicates.sh` | Find duplicate apps (same name) | `[limit]` |
 
-### Insight Advisor ⭐ (Natural Language Queries)
+### Insight Advisor  (Natural Language Queries)
 | Script | Description | Args |
 |--------|-------------|------|
 | `qlik-insight.sh` | Ask questions, get real data back | `"question" [app-id]` |

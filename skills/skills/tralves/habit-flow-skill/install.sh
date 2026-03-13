@@ -3,17 +3,17 @@
 
 set -e
 
-echo "📦 Installing HabitFlow skill dependencies..."
+echo " Installing HabitFlow skill dependencies..."
 
 # Check for required binaries
 if ! command -v node &> /dev/null; then
-    echo "❌ Error: Node.js is required but not installed."
+    echo " Error: Node.js is required but not installed."
     echo "   Install from: https://nodejs.org/"
     exit 1
 fi
 
 if ! command -v npm &> /dev/null; then
-    echo "❌ Error: npm is required but not installed."
+    echo " Error: npm is required but not installed."
     exit 1
 fi
 
@@ -25,7 +25,7 @@ npm install
 echo "Initializing skill..."
 npx tsx scripts/init_skill.ts
 
-echo "✅ HabitFlow skill installed successfully!"
+echo " HabitFlow skill installed successfully!"
 echo ""
 echo "Next steps:"
 echo "  1. Say 'refresh skills' to your agent"

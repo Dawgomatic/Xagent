@@ -65,7 +65,7 @@ async function ingestSession(db, sessionsDir, sessionId) {
   `).run('session_watcher', sessionId, 'default', content, tokens);
 
   if (result.changes > 0) {
-    console.log(`[WATCHER] ✅ Ingested ${sessionId.slice(0, 8)}... (${tokens} tokens)`);
+    console.log(`[WATCHER]  Ingested ${sessionId.slice(0, 8)}... (${tokens} tokens)`);
   }
 }
 

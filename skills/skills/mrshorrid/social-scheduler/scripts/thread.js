@@ -35,14 +35,14 @@ async function postThread(platformName, config, tweets) {
   }
 
   if (tweets.length === 1) {
-    console.log('⚠️  Only one tweet provided - posting as single tweet, not a thread');
+    console.log('  Only one tweet provided - posting as single tweet, not a thread');
   }
 
   const platform = platforms[platformName];
   const results = [];
   let previousId = null;
 
-  console.log(`📝 Posting ${tweets.length}-tweet thread to ${platform.displayName}...`);
+  console.log(` Posting ${tweets.length}-tweet thread to ${platform.displayName}...`);
 
   for (let i = 0; i < tweets.length; i++) {
     const tweetNum = i + 1;
@@ -84,23 +84,23 @@ async function postThread(platformName, config, tweets) {
         previousId = { uri: result.uri, cid: result.cid };
       }
 
-      console.log(`✅ Posted successfully!`);
+      console.log(` Posted successfully!`);
       console.log(`   URL: ${result.url || result.uri || 'N/A'}`);
       
       // Rate limiting: Wait 1 second between posts
       if (i < tweets.length - 1) {
-        console.log('   ⏳ Waiting 1 second before next tweet...');
+        console.log('    Waiting 1 second before next tweet...');
         await new Promise(resolve => setTimeout(resolve, 1000));
       }
 
     } catch (error) {
-      console.error(`❌ Failed to post tweet ${tweetNum}:`, error.message);
+      console.error(` Failed to post tweet ${tweetNum}:`, error.message);
       throw new Error(`Thread failed at tweet ${tweetNum}: ${error.message}`);
     }
   }
 
-  console.log(`\n🎉 Thread complete! Posted ${results.length} tweets.`);
-  console.log(`\n📊 Thread Summary:`);
+  console.log(`\n Thread complete! Posted ${results.length} tweets.`);
+  console.log(`\n Thread Summary:`);
   results.forEach((result, i) => {
     console.log(`   ${i + 1}. ${result.url || result.uri || `ID: ${result.id}`}`);
   });
@@ -156,7 +156,7 @@ async function main() {
     await postThread(platformName, config, tweets);
 
   } catch (error) {
-    console.error('\n❌ Thread posting failed:', error.message);
+    console.error('\n Thread posting failed:', error.message);
     process.exit(1);
   }
 }

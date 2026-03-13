@@ -26,21 +26,21 @@ def generate_briefing(location="Columbus"):
 
     # Morning motivation
     briefing['sections'].append({
-        'title': '🌅 Good Morning!',
+        'title': ' Good Morning!',
         'content': 'Start your day with focus and intention.',
         'type': 'motivation'
     })
 
     # Weather reminder
     briefing['sections'].append({
-        'title': '🌡 Weather Check',
+        'title': ' Weather Check',
         'content': f'Check the weather in {location} before heading out. Plan your day accordingly.',
         'type': 'weather'
     })
 
     # Priority tasks
     briefing['sections'].append({
-        'title': '🎯 Today\'s Focus',
+        'title': ' Today\'s Focus',
         'content': '''Top 3 priorities:
 1. _______________________________________
 2. _______________________________________
@@ -52,7 +52,7 @@ Tip: Start with the hardest task first.''',
 
     # Habit tracking
     briefing['sections'].append({
-        'title': '✅ Daily Habits',
+        'title': ' Daily Habits',
         'content': '''Today's habits:
 □ Morning routine (exercise, meditation, journal)
 □ Hydration goals (8 glasses)
@@ -63,7 +63,7 @@ Tip: Start with the hardest task first.''',
 
     # Self-care reminder
     briefing['sections'].append({
-        'title': '💚 Self-Care',
+        'title': ' Self-Care',
         'content': '''Remember:
 • Take breaks and rest your eyes
 • Step away from screens for 5 min/hour
@@ -74,7 +74,7 @@ Tip: Start with the hardest task first.''',
 
     # Evening reflection
     briefing['sections'].append({
-        'title': '🌙 Evening Review',
+        'title': ' Evening Review',
         'content': '''Before bed:
 1. What did I accomplish today?
 2. What am I grateful for?
@@ -87,7 +87,7 @@ Tip: Start with the hardest task first.''',
 
 def format_briefing(briefing):
     """Format briefing for human-readable output."""
-    output = f"📋 Daily Briefing - {briefing['date']} ({briefing['weekday']})\n\n"
+    output = f" Daily Briefing - {briefing['date']} ({briefing['weekday']})\n\n"
 
     for section in briefing['sections']:
         output += f"{section['title']}\n"

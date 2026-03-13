@@ -103,13 +103,13 @@ if ! command -v jq &> /dev/null; then
 fi
 
 # Check ComfyUI connectivity
-echo "🔍 Checking ComfyUI connection at ${COMFYUI_URL}..."
+echo " Checking ComfyUI connection at ${COMFYUI_URL}..."
 if ! curl -s "${COMFYUI_URL}/system_stats" > /dev/null 2>&1; then
     echo "Error: Cannot connect to ComfyUI at ${COMFYUI_URL}"
     echo "Please ensure ComfyUI is running and COMFYUI_HOST/COMFYUI_PORT are set correctly"
     exit 1
 fi
-echo "✅ ComfyUI is reachable"
+echo " ComfyUI is reachable"
 
 # Generate unique client ID
 CLIENT_ID="openclaw_$(date +%s)_$$"
@@ -206,7 +206,7 @@ EOF
 )
 
 # Submit the prompt
-echo "🎯 Submitting TTS job..."
+echo " Submitting TTS job..."
 echo "   Text: ${TEXT}"
 echo "   Character: ${CHARACTER}"
 echo "   Style: ${STYLE}"
@@ -238,10 +238,10 @@ if [ -z "$PROMPT_ID" ] || [ "$PROMPT_ID" = "null" ]; then
     exit 1
 fi
 
-echo "📋 Job ID: ${PROMPT_ID}"
+echo " Job ID: ${PROMPT_ID}"
 
 # Poll for completion
-echo "⏳ Waiting for generation to complete..."
+echo " Waiting for generation to complete..."
 MAX_RETRIES=300
 RETRY_COUNT=0
 COMPLETED=false
@@ -281,7 +281,7 @@ while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
         break
     elif [ "$STATUS" = "error" ]; then
         ERROR_MSG=$(echo "$PROMPT_DATA" | jq -r '.status.messages[] | select(.[0] == "execution_error") | .[1].error // "Unknown error"')
-        echo "❌ Error during generation: ${ERROR_MSG}"
+        echo " Error during generation: ${ERROR_MSG}"
         exit 1
     fi
     
@@ -293,11 +293,11 @@ while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
 done
 
 if [ "$COMPLETED" = false ]; then
-    echo "❌ Timeout waiting for generation to complete"
+    echo " Timeout waiting for generation to complete"
     exit 1
 fi
 
-echo "✅ Generation complete!"
+echo " Generation complete!"
 
 # If job was removed from history, try to fetch it one more time
 if [ -z "$HISTORY" ] || [ "$HISTORY" = "null" ] || [ "$HISTORY" = "{}" ]; then
@@ -327,7 +327,7 @@ if [ -z "$AUDIO_FILES" ]; then
 fi
 
 if [ -z "$AUDIO_FILES" ]; then
-    echo "⚠️  Warning: Could not find audio file in outputs"
+    echo "  Warning: Could not find audio file in outputs"
     echo "   Full output: $OUTPUTS"
     exit 1
 fi
@@ -338,7 +338,7 @@ SUBFOLDER=$(echo "$AUDIO_FILES" | jq -r '.subfolder // empty' | head -1)
 TYPE=$(echo "$AUDIO_FILES" | jq -r '.type // "output"' | head -1)
 
 if [ -z "$FILENAME" ]; then
-    echo "⚠️  Warning: Could not extract filename"
+    echo "  Warning: Could not extract filename"
     exit 1
 fi
 
@@ -357,13 +357,13 @@ fi
 VIEW_URL="${VIEW_URL}&type=${TYPE}"
 
 echo ""
-echo "🎵 Audio generated successfully!"
+echo " Audio generated successfully!"
 echo "   Filename: ${FILENAME}"
 echo "   View URL: ${VIEW_URL}"
 
 # If output file specified, download it
 if [ -n "$OUTPUT_FILE" ]; then
-    echo "📥 Downloading to: ${OUTPUT_FILE}"
+    echo " Downloading to: ${OUTPUT_FILE}"
     
     # Create directory if needed
     OUTPUT_DIR=$(dirname "$OUTPUT_FILE")
@@ -372,9 +372,9 @@ if [ -n "$OUTPUT_FILE" ]; then
     fi
     
     if curl -s -o "$OUTPUT_FILE" "$VIEW_URL"; then
-        echo "✅ Saved to: ${OUTPUT_FILE}"
+        echo " Saved to: ${OUTPUT_FILE}"
     else
-        echo "⚠️  Warning: Failed to download file"
+        echo "  Warning: Failed to download file"
     fi
 fi
 

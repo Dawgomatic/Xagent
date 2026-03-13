@@ -9,7 +9,7 @@ triggers:
   - "search web"
   - "find information"
   - "look up"
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"bins":["python3"]},"config":{"env":{"SEARXNG_URL":{"description":"SearXNG instance URL","default":"http://localhost:8080","required":true}}}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]},"config":{"env":{"SEARXNG_URL":{"description":"SearXNG instance URL","default":"http://localhost:8080","required":true}}}}}
 ---
 
 # SearXNG Search
@@ -59,11 +59,11 @@ Default (if not set): `http://localhost:8080`
 
 ## Features
 
-- 🔒 Privacy-focused (uses your local instance)
-- 🌐 Multi-engine aggregation
-- 📰 Multiple search categories
-- 🎨 Rich formatted output
-- 🚀 Fast JSON mode for programmatic use
+-  Privacy-focused (uses your local instance)
+-  Multi-engine aggregation
+-  Multiple search categories
+-  Rich formatted output
+-  Fast JSON mode for programmatic use
 
 ## API
 

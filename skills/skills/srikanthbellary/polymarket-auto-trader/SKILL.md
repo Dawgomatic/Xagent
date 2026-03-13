@@ -108,7 +108,7 @@ tail -50 /opt/trader/app/cron.log
 - Typical cycle (40 evals): ~$0.04
 - Gas: negligible on Polygon (~$0.001 per trade)
 
-## ⚠️ Security Considerations
+##  Security Considerations
 
 - **Use a DEDICATED wallet with minimal funds.** Never use your main wallet's private key. Create a fresh wallet and fund it only with what you're willing to risk.
 - **PRIVATE_KEY is stored on disk** in `.env`. Harden your VPS: strict file permissions (`chmod 600 .env`), no shared access, firewall, SSH keys only.

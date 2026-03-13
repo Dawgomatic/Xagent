@@ -1,6 +1,6 @@
 ---
 name: pubmed-edirect
-description: Search and retrieve literature from PubMed using NCBI's EDirect command-line tools. ⚠️ Advanced skill requiring manual installation.
+description: Search and retrieve literature from PubMed using NCBI's EDirect command-line tools.  Advanced skill requiring manual installation.
 requires:
   bins:
     - esearch
@@ -14,11 +14,11 @@ install:
     kind: manual
     label: Manual Installation Required - Review INSTALL.md
     docs: https://www.ncbi.nlm.nih.gov/books/NBK179288/
-    note: "⚠️ User must manually download and review official installer script"
+    note: " User must manually download and review official installer script"
     security_level: elevated
 metadata:
   openclaw:
-    emoji: 🔬
+    emoji: 
     category: advanced
     security_level: elevated
     requires:
@@ -42,7 +42,7 @@ metadata:
 
 Search and retrieve literature from PubMed using NCBI's EDirect command-line tools.
 
-## ⚠️ Security Advisory
+##  Security Advisory
 
 **Important**: This skill requires installation of external command-line tools. The installation process involves:
 

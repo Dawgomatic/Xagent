@@ -289,9 +289,9 @@ ToneClone preferences:
 ## Onboarding Complete
 
 Summarize what was set up:
-- ✅ Persona: [name] — trained and ready
-- ✅ Knowledge cards: [list]
-- ✅ Workflow preferences: [summary]
+-  Persona: [name] — trained and ready
+-  Knowledge cards: [list]
+-  Workflow preferences: [summary]
 
 Remind them:
 - "You can add more personas anytime"

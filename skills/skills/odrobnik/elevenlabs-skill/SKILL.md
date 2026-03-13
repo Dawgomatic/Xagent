@@ -114,7 +114,7 @@ python3 {baseDir}/scripts/quota.py --json
 
 Output:
 ```
-📊 ElevenLabs Quota
+ ElevenLabs Quota
 =======================================
 Plan:      pro (active) — annual
 Characters: 66.6K / 500.0K (13.3%)

@@ -3,7 +3,7 @@ name: aap
 version: 3.2.0
 description: Agent Attestation Protocol - The Reverse Turing Test. Verify AI agents, block humans.
 homepage: https://github.com/ira-hash/agent-attestation-protocol
-metadata: {"clawdbot":{"emoji":"🛂","category":"security","npm":["aap-agent-server","aap-agent-client"]}}
+metadata: {"clawdbot":{"emoji":"","category":"security","npm":["aap-agent-server","aap-agent-client"]}}
 ---
 
 # AAP - Agent Attestation Protocol

@@ -35,13 +35,13 @@ monitor_and_download_subtitles() {
     local max_wait=86400      # 最多等24小时
     local waited=0
     
-    echo "⏰ 开始监控: $name"
+    echo " 开始监控: $name"
     echo "   检查间隔: ${check_interval}秒"
     echo ""
     
     while [[ $waited -lt $max_wait ]]; do
         if ! qb_login "$cookie_file"; then
-            echo "❌ 无法登录 qBittorrent"
+            echo " 无法登录 qBittorrent"
             rm -f "$cookie_file"
             return 1
         fi
@@ -60,7 +60,7 @@ monitor_and_download_subtitles() {
         # 检查是否完成
         if [[ "$state" == "uploading" || "$state" == "stalledUP" || "$progress" == "1" ]]; then
             echo ""
-            echo "✅ 下载完成！"
+            echo " 下载完成！"
             echo "   文件路径: $content_path"
             echo ""
             
@@ -90,7 +90,7 @@ monitor_and_download_subtitles() {
         
         # 检查是否出错
         if [[ "$state" == "error" || "$state" == "missingFiles" ]]; then
-            echo "❌ 下载出错"
+            echo " 下载出错"
             rm -f "$cookie_file"
             return 1
         fi
@@ -99,7 +99,7 @@ monitor_and_download_subtitles() {
         waited=$((waited + check_interval))
     done
     
-    echo "⚠️  监控超时"
+    echo "  监控超时"
     rm -f "$cookie_file"
     return 1
 }

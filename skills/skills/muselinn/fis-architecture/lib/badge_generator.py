@@ -166,7 +166,7 @@ class BadgeGenerator:
         header_y = 40
         
         # Logo and title
-        draw.text((40, header_y), "⚡", fill=self.COLORS['primary'], font=self.fonts['title'])
+        draw.text((40, header_y), "", fill=self.COLORS['primary'], font=self.fonts['title'])
         draw.text((80, header_y), "OPENCLAW 2.0", fill=self.COLORS['border'], font=self.fonts['header'])
         draw.text((80, header_y + 20), "FEDERAL INTELLIGENCE SYSTEM", 
                  fill=self.COLORS['secondary'], font=self.fonts['small'])
@@ -476,7 +476,7 @@ def generate_multi_badge_image(badge_data_list, output_path=None, layout='horizo
         output_path = generator.output_dir / f"badges_multi_{layout}_{timestamp}.png"
     
     combined.save(output_path)
-    print(f"✅ Multi-badge saved: {output_path}")
+    print(f" Multi-badge saved: {output_path}")
     
     return str(output_path)
     """Generate sample badges for different roles"""
@@ -538,7 +538,7 @@ def generate_multi_badge_image(badge_data_list, output_path=None, layout='horizo
     for data in [architect_data, worker_data, reviewer_data]:
         path = generator.create_badge(data)
         badges.append((data['role'], path))
-        print(f"✅ Generated {data['role']} badge: {path}")
+        print(f" Generated {data['role']} badge: {path}")
     
     return badges
 
@@ -553,4 +553,4 @@ if __name__ == "__main__":
     for role, path in badges:
         print(f"  {role}: {path}")
     
-    print("\n✅ All badges generated successfully!")
+    print("\n All badges generated successfully!")

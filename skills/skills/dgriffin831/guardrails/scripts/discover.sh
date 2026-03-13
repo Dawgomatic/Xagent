@@ -7,7 +7,7 @@ set -euo pipefail
 WORKSPACE="${WORKSPACE:-/home/ubuntu/.openclaw/workspace}"
 OPENCLAW_CONFIG="${HOME}/.openclaw/openclaw.json"
 
->&2 echo "🔍 Discovering workspace environment..."
+>&2 echo " Discovering workspace environment..."
 
 # Helper: safely read first N lines of a file
 read_first_lines() {
@@ -30,7 +30,7 @@ discover_skills() {
     local skills_json="[]"
     
     if [[ -d "$WORKSPACE/skills" ]]; then
-        >&2 echo "  📦 Scanning skills..."
+        >&2 echo "   Scanning skills..."
         
         for skill_dir in "$WORKSPACE/skills"/*; do
             if [[ -d "$skill_dir" ]]; then
@@ -57,7 +57,7 @@ discover_workspace_files() {
     local files_json="{}"
     local important_files=("USER.md" "MEMORY.md" "AGENTS.md" "GUARDRAILS.md" "TOOLS.md" "SOUL.md" "BOOTSTRAP.md" "HEARTBEAT.md")
     
-    >&2 echo "  📄 Checking workspace files..."
+    >&2 echo "   Checking workspace files..."
     
     for file in "${important_files[@]}"; do
         local filepath="$WORKSPACE/$file"
@@ -81,7 +81,7 @@ discover_channels() {
     local channels_json="[]"
     
     if [[ -f "$OPENCLAW_CONFIG" ]]; then
-        >&2 echo "  💬 Detecting channels..."
+        >&2 echo "   Detecting channels..."
         
         # Extract channel configurations
         channels_json=$(jq -r '[
@@ -102,7 +102,7 @@ discover_integrations() {
     local integrations_json="[]"
     local tools=("gog" "bird" "clawdhub" "gh" "git" "docker" "kubectl")
     
-    >&2 echo "  🔌 Detecting integrations..."
+    >&2 echo "   Detecting integrations..."
     
     for tool in "${tools[@]}"; do
         if has_command "$tool"; then
@@ -131,7 +131,7 @@ discover_existing_guardrails() {
     local result="{}"
     
     if [[ -f "$guardrails_file" ]]; then
-        >&2 echo "  🛡️  Found existing GUARDRAILS.md"
+        >&2 echo "    Found existing GUARDRAILS.md"
         local content=$(cat "$guardrails_file")
         result=$(echo "$result" | jq --arg content "$content" '.guardrails = {exists: true, content: $content}')
     else
@@ -139,7 +139,7 @@ discover_existing_guardrails() {
     fi
     
     if [[ -f "$config_file" ]]; then
-        >&2 echo "  ⚙️  Found existing guardrails-config.json"
+        >&2 echo "    Found existing guardrails-config.json"
         local config=$(cat "$config_file")
         result=$(echo "$result" | jq --argjson config "$config" '.config = {exists: true, data: $config}')
     else
@@ -160,7 +160,7 @@ main() {
     local existing=$(discover_existing_guardrails)
     
     >&2 echo ""
-    >&2 echo "✅ Discovery complete"
+    >&2 echo " Discovery complete"
     >&2 echo ""
     
     # Build final JSON output

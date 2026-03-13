@@ -119,7 +119,7 @@ function analyzeThaiStock(data: YahooFinanceData, format: OutputFormat): string 
   }
 
   const lines = [
-    `📊 ${data.price?.regularMarketPrice ? `${data.price.regularMarketPrice.toFixed(2)} ` : ""}— Yahoo Finance Analysis\n`,
+    ` ${data.price?.regularMarketPrice ? `${data.price.regularMarketPrice.toFixed(2)} ` : ""}— Yahoo Finance Analysis\n`,
   ];
 
   const col1 = ["Market Cap", "P/E (Trailing)", "P/E (Forward)", "Dividend Yield", "Beta", "Book Value", "P/B"];
@@ -138,11 +138,11 @@ function analyzeThaiStock(data: YahooFinanceData, format: OutputFormat): string 
   if (fd.recommendationKey) {
     let rating = "";
     switch (fd.recommendationKey) {
-      case "strongBuy": rating = "💚 Strong Buy"; break;
-      case "buy": rating = "🟢 Buy"; break;
-      case "hold": rating = "🟡 Hold"; break;
-      case "sell": rating = "🔴 Sell"; break;
-      case "strongSell": rating = "💔 Strong Sell"; break;
+      case "strongBuy": rating = " Strong Buy"; break;
+      case "buy": rating = " Buy"; break;
+      case "hold": rating = " Hold"; break;
+      case "sell": rating = " Sell"; break;
+      case "strongSell": rating = " Strong Sell"; break;
       default: rating = fd.recommendationKey;
     }
     lines.push(`\nAnalyst Consensus: ${rating}`);
@@ -162,13 +162,13 @@ export async function analyzeStock(
   ticker: string,
   format: OutputFormat = "text"
 ): Promise<string> {
-  console.log(`📊 Analyzing ${ticker}...`);
+  console.log(` Analyzing ${ticker}...`);
 
   if (isThaiTicker(ticker)) {
     console.log("  Using Yahoo Finance data (Thai market)");
     const yfData = await getYahooFinanceData(ticker);
     if (!yfData) {
-      return `❌ Could not fetch data for ${ticker}`;
+      return ` Could not fetch data for ${ticker}`;
     }
     return analyzeThaiStock(yfData, format);
   }
@@ -177,19 +177,19 @@ export async function analyzeStock(
   const cik = await secClient.resolveTickerToCik(ticker);
 
   if (!cik) {
-    return `❌ Could not find CIK for ticker ${ticker}`;
+    return ` Could not find CIK for ticker ${ticker}`;
   }
 
   const companyFacts = await secClient.getCompanyFacts(cik);
 
   if (!companyFacts) {
-    return `❌ Could not fetch SEC data for ${ticker}`;
+    return ` Could not fetch SEC data for ${ticker}`;
   }
 
   const financials = extractFinancialFacts(companyFacts);
 
   if (!financials || Object.keys(financials).length === 0) {
-    return `❌ Could not extract financial data for ${ticker}`;
+    return ` Could not extract financial data for ${ticker}`;
   }
 
   const yfFcf = await getYahooFinanceFcf(ticker);
@@ -226,13 +226,13 @@ export async function analyzeStock(
   }
 
   if (format === "telegram") {
-    const lines = [`📊 ${ticker} — Buffett Analysis`, `Score: ${score}/10 formulas passed\n`];
+    const lines = [` ${ticker} — Buffett Analysis`, `Score: ${score}/10 formulas passed\n`];
 
     const passed = results.filter((r) => r.status === "PASS");
     const failed = results.filter((r) => r.status === "FAIL");
 
     if (passed.length > 0) {
-      lines.push("✅ Strengths:");
+      lines.push(" Strengths:");
       for (let i = 0; i < Math.min(5, passed.length); i++) {
         lines.push(`  • ${passed[i].name}: ${passed[i].message}`);
       }
@@ -242,7 +242,7 @@ export async function analyzeStock(
     }
 
     if (failed.length > 0) {
-      lines.push("\n❌ Concerns:");
+      lines.push("\n Concerns:");
       for (let i = 0; i < Math.min(3, failed.length); i++) {
         lines.push(`  • ${failed[i].name}: ${failed[i].message}`);
       }
@@ -253,13 +253,13 @@ export async function analyzeStock(
 
     let verdict: string;
     if (score >= 8) {
-      verdict = "Exceptional quality ✨";
+      verdict = "Exceptional quality ";
     } else if (score >= 6) {
-      verdict = "Good quality overall 👍";
+      verdict = "Good quality overall ";
     } else if (score >= 4) {
-      verdict = "Moderate quality - mixed signals ⚠️";
+      verdict = "Moderate quality - mixed signals ";
     } else {
-      verdict = "Weak fundamentals ❌";
+      verdict = "Weak fundamentals ";
     }
 
     lines.push(`\nVerdict: ${verdict}`);
@@ -268,13 +268,13 @@ export async function analyzeStock(
   }
 
   const lines = [
-    `📊 ${ticker} — Buffett Analysis`,
+    ` ${ticker} — Buffett Analysis`,
     `Score: ${score}/10 formulas passed\n`,
     "Results:",
   ];
 
   for (const r of results) {
-    const symbol = r.status === "PASS" ? "✅" : "❌";
+    const symbol = r.status === "PASS" ? "" : "";
     lines.push(
       `  ${symbol} ${r.name}: ${r.message} (Target: ${r.target})`
     );

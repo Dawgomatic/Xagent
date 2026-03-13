@@ -259,11 +259,11 @@ function folderTreeToString(node: FolderNode, indent: string = ''): string {
     const lines: string[] = [];
 
     if (node.type === 'transcript' && node.metadata) {
-        lines.push(`${indent}📄 ${node.name}`);
+        lines.push(`${indent} ${node.name}`);
         lines.push(`${indent}   Summary: ${node.metadata.theme.summary}`);
         lines.push(`${indent}   Theme: ${node.metadata.theme.primaryTheme} > ${node.metadata.theme.subTheme}`);
     } else if (node.type === 'folder') {
-        if (indent) lines.push(`${indent}📁 ${node.name}/`);
+        if (indent) lines.push(`${indent} ${node.name}/`);
         if (node.children) {
             for (const child of node.children) {
                 lines.push(...folderTreeToString(child, indent + '  ').split('\n').filter(Boolean));
@@ -316,7 +316,7 @@ async function classifyAndOrganize(
     libraryStructure: FolderNode
 ): Promise<OrganizationPlan> {
     const estimatedTokens = estimateTokens(transcript);
-    console.log(`📊 Estimated tokens: ${estimatedTokens.toLocaleString()}`);
+    console.log(` Estimated tokens: ${estimatedTokens.toLocaleString()}`);
 
     const processedTranscript = truncateTranscript(transcript);
     const folderTreeString = folderTreeToString(libraryStructure);
@@ -443,7 +443,7 @@ async function getUrlMetadata(url: string): Promise<SourceMetadata> {
             extractor: data.extractor_key || data.extractor || 'unknown',
         };
     } catch (error: any) {
-        console.warn('⚠️  Failed to extract full metadata, falling back to basic info');
+        console.warn('  Failed to extract full metadata, falling back to basic info');
         // Fallback: try just getting the title
         try {
             const args = ['--get-title'];
@@ -627,7 +627,7 @@ export function wordsToTranscript(words: Word[]): string {
 // ---------- main -------------------------------------------------------------
 
 async function main() {
-    console.time('▶️  total');
+    console.time('  total');
 
     let audioPath: string;
     let title: string;
@@ -639,20 +639,20 @@ async function main() {
     if (isUrl(INPUT)) {
         sourceUrl = INPUT;
 
-        console.time('📹  video metadata');
+        console.time('  video metadata');
         sourceMetadata = await getUrlMetadata(INPUT);
         title = sanitizeTitle(sourceMetadata.title);
-        console.timeEnd('📹  video metadata');
+        console.timeEnd('  video metadata');
 
         // Log extracted metadata
-        console.log(`📊 Source: ${sourceMetadata.extractor}`);
+        console.log(` Source: ${sourceMetadata.extractor}`);
         if (sourceMetadata.channel) console.log(`   Channel: ${sourceMetadata.channel}`);
         if (sourceMetadata.duration_string) console.log(`   Duration: ${sourceMetadata.duration_string}`);
         if (sourceMetadata.view_count) console.log(`   Views: ${sourceMetadata.view_count.toLocaleString()}`);
 
-        console.time('⬇️  youtube');
+        console.time('  youtube');
         await downloadAudio(INPUT, TMP_AUDIO);
-        console.timeEnd('⬇️  youtube');
+        console.timeEnd('  youtube');
 
         audioPath = TMP_AUDIO;
         needsCleanup = true;
@@ -675,19 +675,19 @@ async function main() {
 
         sourceUrl = `file://${resolvedPath}`;
         
-        console.time('📹  file metadata');
+        console.time('  file metadata');
         sourceMetadata = await getLocalFileMetadata(resolvedPath);
         title = sanitizeTitle(sourceMetadata.title);
-        console.timeEnd('📹  file metadata');
+        console.timeEnd('  file metadata');
 
-        console.log(`📁 Local file: ${resolvedPath}`);
+        console.log(` Local file: ${resolvedPath}`);
         if (sourceMetadata.duration_string) console.log(`   Duration: ${sourceMetadata.duration_string}`);
 
         // extract audio if video file
         if (isVideoFile(resolvedPath)) {
-            console.time('🎬  extracting audio');
+            console.time('  extracting audio');
             await extractAudioFromVideo(resolvedPath, TMP_AUDIO);
-            console.timeEnd('🎬  extracting audio');
+            console.timeEnd('  extracting audio');
             audioPath = TMP_AUDIO;
             needsCleanup = true;
         } else {
@@ -696,9 +696,9 @@ async function main() {
     }
 
     // transcribe
-    console.time('📝  elevenlabs');
+    console.time('  elevenlabs');
     const resp = await transcribeAudio(audioPath);
-    console.timeEnd('📝  elevenlabs');
+    console.timeEnd('  elevenlabs');
 
     // convert API response words to our Word interface
     const words: Word[] = resp.words.map((w) => ({
@@ -711,17 +711,17 @@ async function main() {
     const structuredTranscript = wordsToTranscript(words);
 
     // read existing library structure
-    console.time('📚  reading library');
+    console.time('  reading library');
     const libraryStructure = await readLibraryStructure();
-    console.timeEnd('📚  reading library');
+    console.timeEnd('  reading library');
 
     // classify and organize using Claude
-    console.time('🤖  category classification');
+    console.time('  category classification');
     const plan = await classifyAndOrganize(structuredTranscript, sourceUrl, title, libraryStructure);
-    console.timeEnd('🤖  category classification');
+    console.timeEnd('  category classification');
 
     // display organization plan
-    console.log('\n📂 Category:');
+    console.log('\n Category:');
     console.log(`  ${plan.newTranscriptPath}`);
     console.log(`  Confidence: ${plan.confidence}`);
     console.log(`  Reasoning: ${plan.reasoning}\n`);
@@ -791,7 +791,7 @@ async function main() {
 
     await Promise.all(writePromises);
 
-    console.log(`\n✅ Saved files to:\n  ${outputDir}\n`);
+    console.log(`\n Saved files to:\n  ${outputDir}\n`);
     const fileList = RAW_FLAG
         ? `Files:\n  • transcript.txt\n  • metadata.json\n  • transcript-raw.json`
         : `Files:\n  • transcript.txt\n  • metadata.json`;
@@ -802,11 +802,11 @@ async function main() {
         await fs.unlink(TMP_AUDIO);
     }
 
-    console.timeEnd('▶️  total');
+    console.timeEnd('  total');
 }
 
 main().catch((err) => {
-    console.error('❌  Fatal:', err);
+    console.error('  Fatal:', err);
     fs.unlink(TMP_AUDIO).catch(() => {});
     process.exitCode = 1;
 });

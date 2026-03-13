@@ -1,7 +1,7 @@
 ---
 name: seedream-image-gen
 description: Generate images via Seedream API (doubao-seedream models). Synchronous generation.
-metadata: {"clawdbot":{"emoji":"🎨","requires":{"bins":["python3"],"env":["SEEDREAM_API_KEY"]},"primaryEnv":"SEEDREAM_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"],"env":["SEEDREAM_API_KEY"]},"primaryEnv":"SEEDREAM_API_KEY"}}
 ---
 
 # Seedream Image Generation

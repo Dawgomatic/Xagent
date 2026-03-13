@@ -1,20 +1,20 @@
 # Documentation - Binance Enhanced Skill
 
-## 📚 Language Versions
+##  Language Versions
 
-### 🇬🇧 English Documentation (Primary)
+###  English Documentation (Primary)
 - **[README.md](README.md)** - Complete English documentation (main)
 - **[SKILL.md](SKILL.md)** - Detailed skill documentation (English, main)
 - **[FAQ.md](FAQ.md)** - Frequently Asked Questions (English)
 - **[BEST_PRACTICES.md](BEST_PRACTICES.md)** - Best practices guide (English)
 
-### 🇷🇺 Русская документация  
+###  Русская документация  
 - **[README_RU.md](README_RU.md)** - Полная русская документация
 - **[SKILL_RU.md](SKILL_RU.md)** - Детальная документация навыка (русский)
 - **[FAQ.md](FAQ.md)** - Часто задаваемые вопросы (английский)
 - **[BEST_PRACTICES.md](BEST_PRACTICES.md)** - Руководство по best practices (английский)
 
-## 🎯 Quick Start Guides
+##  Quick Start Guides
 
 ### English Quick Start:
 ```bash
@@ -50,7 +50,7 @@ cp templates/.env.example .env
 docker-compose up -d
 ```
 
-## 📖 Detailed Documentation
+##  Detailed Documentation
 
 ### API Documentation:
 - **OpenAPI/Swagger**: `http://localhost:8000/docs`
@@ -67,7 +67,7 @@ docker-compose up -d
 - **[Trading Strategies](docs/TUTORIAL_STRATEGIES.md)** - How to use trading strategies
 - **[Telegram Bot](docs/TUTORIAL_TELEGRAM_BOT.md)** - Telegram bot setup and usage
 
-## 🔧 Development Documentation
+##  Development Documentation
 
 ### For Developers:
 - **[Architecture Overview](docs/ARCHITECTURE.md)** - System architecture
@@ -79,7 +79,7 @@ docker-compose up -d
 - **[Webhook API](docs/WEBHOOK_API.md)** - Webhook integration
 - **[Custom Strategies](docs/CUSTOM_STRATEGIES.md)** - Creating custom strategies
 
-## 🌐 Internationalization
+##  Internationalization
 
 ### Supported Languages:
 - **English** (primary) - Full documentation and interface
@@ -97,7 +97,7 @@ export LANGUAGE=ru  # Russian
 language: "en"  # or "ru"
 ```
 
-## 📊 Diagrams and Schemas
+##  Diagrams and Schemas
 
 ### Architecture Diagrams:
 - `docs/diagrams/architecture.png` - System architecture
@@ -109,7 +109,7 @@ language: "en"  # or "ru"
 - `docs/schemas/database.sql` - Database schema
 - `docs/schemas/config_schema.json` - Configuration schema
 
-## 🎥 Video Tutorials
+##  Video Tutorials
 
 ### English Tutorials:
 - [Getting Started Video](https://youtube.com/...) - 10 minute introduction
@@ -121,7 +121,7 @@ language: "en"  # or "ru"
 - [Настройка безопасности](https://youtube.com/...) - Конфигурация безопасности
 - [Торговые стратегии](https://youtube.com/...) - Использование торговых стратегий
 
-## 📞 Support
+##  Support
 
 ### English Support:
 - **GitHub Issues**: [Report bugs](https://github.com/s7cret/binance-enhanced/issues)
@@ -133,7 +133,7 @@ language: "en"  # or "ru"
 - **Telegram**: @s7cret (русская поддержка)
 - **Discord**: OpenClaw community (русский канал)
 
-## 🔄 Updates
+##  Updates
 
 ### Documentation Updates:
 - **Changelog**: [CHANGELOG.md](CHANGELOG.md) - Version history
@@ -147,9 +147,9 @@ language: "en"  # or "ru"
 
 ---
 
-**📢 Need help with documentation?**  
+** Need help with documentation?**  
 Open an issue on GitHub or contact support!
 
-**🌍 Help translate documentation** into other languages!
+** Help translate documentation** into other languages!
 
-**⭐ Star the repository** if you find the documentation helpful!
+** Star the repository** if you find the documentation helpful!

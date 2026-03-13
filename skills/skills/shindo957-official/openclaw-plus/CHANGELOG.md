@@ -7,11 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2026-02-15
 
-### 🎉 Initial Release
+###  Initial Release
 
 First stable release of OpenClaw+, a modular super-skill combining developer and web capabilities.
 
-### ✨ Added
+###  Added
 
 #### Developer Capabilities
 - **run_python** - Execute Python code with proper environment management
@@ -76,7 +76,7 @@ First stable release of OpenClaw+, a modular super-skill combining developer and
 - API Testing: Call → Validate → Report → Commit
 - Multi-step automation examples
 
-### 📝 Documentation
+###  Documentation
 
 - Added complete API reference for all 6 capabilities
 - Added 15+ code examples across all capabilities
@@ -84,7 +84,7 @@ First stable release of OpenClaw+, a modular super-skill combining developer and
 - Added troubleshooting section
 - Added integration examples with other skills
 
-### 🔧 Implementation Details
+###  Implementation Details
 
 - Python 3.x compatible
 - Follows PEP 8 style guidelines
@@ -92,7 +92,7 @@ First stable release of OpenClaw+, a modular super-skill combining developer and
 - MIT License
 - Modular, extensible architecture
 
-### 📦 Package Contents
+###  Package Contents
 
 ```
 openclaw-plus/
@@ -111,17 +111,17 @@ openclaw-plus/
     └── implementation.py # Reference implementation
 ```
 
-### 🎯 Key Features
+###  Key Features
 
-- ✅ Modular design - use only what you need
-- ✅ Robust error handling at every step
-- ✅ Seamless workflow composition
-- ✅ Production-ready best practices
-- ✅ Extensive documentation with examples
-- ✅ Test coverage for all capabilities
-- ✅ Integration with other skills
+-  Modular design - use only what you need
+-  Robust error handling at every step
+-  Seamless workflow composition
+-  Production-ready best practices
+-  Extensive documentation with examples
+-  Test coverage for all capabilities
+-  Integration with other skills
 
-### 📊 Statistics
+###  Statistics
 
 - Total documentation: ~55KB
 - Implementation: ~600 lines of Python
@@ -129,7 +129,7 @@ openclaw-plus/
 - Code examples: 30+ across all documentation
 - Workflow patterns: 10+ documented patterns
 
-### 🙏 Credits
+###  Credits
 
 Created by Shindo957 (choochoocharlese@gmail.com)
 

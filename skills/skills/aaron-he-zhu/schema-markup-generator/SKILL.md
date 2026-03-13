@@ -152,13 +152,13 @@ When a user requests schema markup:
    
    | Rich Result Type | Eligibility | Impact |
    |------------------|-------------|--------|
-   | FAQ | ✅/❌ | High - Expands SERP presence |
-   | How-To | ✅/❌ | Medium - Shows steps in SERP |
-   | Product | ✅/❌ | High - Shows price, availability |
-   | Review | ✅/❌ | High - Shows star ratings |
-   | Article | ✅/❌ | Medium - Shows publish date, author |
-   | Breadcrumb | ✅/❌ | Medium - Shows navigation path |
-   | Video | ✅/❌ | High - Shows video thumbnail |
+   | FAQ | / | High - Expands SERP presence |
+   | How-To | / | Medium - Shows steps in SERP |
+   | Product | / | High - Shows price, availability |
+   | Review | / | High - Shows star ratings |
+   | Article | / | Medium - Shows publish date, author |
+   | Breadcrumb | / | Medium - Shows navigation path |
+   | Video | / | High - Shows video thumbnail |
    
    **Recommended Schema Types**:
    1. [Primary schema type] - [reason]

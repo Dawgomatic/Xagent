@@ -21,7 +21,7 @@ def get_client():
     
     cookie = os.getenv('XHS_COOKIE')
     if not cookie:
-        print("❌ 错误: 未配置 XHS_COOKIE")
+        print(" 错误: 未配置 XHS_COOKIE")
         sys.exit(1)
     
     def sign_func(uri, data=None, a1="", web_session=""):
@@ -33,7 +33,7 @@ def get_client():
 def cmd_search(args):
     """搜索笔记"""
     client = get_client()
-    print(f"🔍 搜索: {args.keyword}...")
+    print(f" 搜索: {args.keyword}...")
     result = client.get_note_by_keyword(args.keyword)
     notes = result.get('items', [])
     
@@ -41,46 +41,46 @@ def cmd_search(args):
     for i, item in enumerate(notes[:args.limit], 1):
         note = item.get('note_card', {})
         print(f"{i}. {note.get('display_title', note.get('title', '无标题'))}")
-        print(f"   👤 {note.get('user', {}).get('nickname', '未知')}")
-        print(f"   ❤️  {note.get('liked_count', 0)}")
-        print(f"   🔗 ID: {note.get('note_id', 'N/A')}")
+        print(f"    {note.get('user', {}).get('nickname', '未知')}")
+        print(f"     {note.get('liked_count', 0)}")
+        print(f"    ID: {note.get('note_id', 'N/A')}")
         print()
 
 def cmd_note(args):
     """查看笔记详情"""
     client = get_client()
-    print(f"📖 获取笔记...")
+    print(f" 获取笔记...")
     note = client.get_note_by_id(args.note_id, xsec_token=args.token or "")
     
     info = note.get('note_card', note)
-    print(f"\n📝 {info.get('title', info.get('display_title', '无标题'))}")
+    print(f"\n {info.get('title', info.get('display_title', '无标题'))}")
     print(f"{'='*50}")
-    print(f"👤 作者: {info.get('user', {}).get('nickname', '未知')}")
-    print(f"❤️  点赞: {info.get('interact_info', {}).get('liked_count', 0)}")
-    print(f"⭐ 收藏: {info.get('interact_info', {}).get('collected_count', 0)}")
-    print(f"💬 评论: {info.get('interact_info', {}).get('comment_count', 0)}")
-    print(f"\n📄 内容:\n{info.get('desc', '无内容')}")
+    print(f" 作者: {info.get('user', {}).get('nickname', '未知')}")
+    print(f"  点赞: {info.get('interact_info', {}).get('liked_count', 0)}")
+    print(f" 收藏: {info.get('interact_info', {}).get('collected_count', 0)}")
+    print(f" 评论: {info.get('interact_info', {}).get('comment_count', 0)}")
+    print(f"\n 内容:\n{info.get('desc', '无内容')}")
 
 def cmd_user(args):
     """查看用户信息"""
     client = get_client()
-    print(f"👤 获取用户信息...")
+    print(f" 获取用户信息...")
     user = client.get_user_info(args.user_id)
     
     info = user.get('basic_info', user)
-    print(f"\n👤 {info.get('nickname', '未知')}")
-    print(f"🔴 小红书号: {info.get('red_id', 'N/A')}")
-    print(f"📝 简介: {info.get('desc', '无')}")
-    print(f"👥 粉丝: {info.get('fans', 0)}")
+    print(f"\n {info.get('nickname', '未知')}")
+    print(f" 小红书号: {info.get('red_id', 'N/A')}")
+    print(f" 简介: {info.get('desc', '无')}")
+    print(f" 粉丝: {info.get('fans', 0)}")
 
 def cmd_me(args):
     """查看自己的账号"""
     client = get_client()
-    print(f"👤 获取账号信息...")
+    print(f" 获取账号信息...")
     info = client.get_self_info()
     
     basic = info.get('basic_info', info)
-    print(f"\n👤 我的账号")
+    print(f"\n 我的账号")
     print(f"{'='*50}")
     print(f"昵称: {basic.get('nickname', 'N/A')}")
     print(f"小红书号: {basic.get('red_id', 'N/A')}")
@@ -97,7 +97,7 @@ def cmd_publish(args):
         with open(args.file, 'r', encoding='utf-8') as f:
             desc = f.read()
     else:
-        print("❌ 需要 --content 或 --file")
+        print(" 需要 --content 或 --file")
         sys.exit(1)
     
     # 验证图片
@@ -106,18 +106,18 @@ def cmd_publish(args):
         if os.path.exists(img):
             images.append(os.path.abspath(img))
         else:
-            print(f"⚠️ 图片不存在: {img}")
+            print(f" 图片不存在: {img}")
     
     if not images:
-        print("❌ 没有有效图片")
+        print(" 没有有效图片")
         sys.exit(1)
     
-    print(f"📤 准备发布...")
+    print(f" 准备发布...")
     print(f"   标题: {args.title}")
     print(f"   图片: {len(images)} 张")
     
     if args.dry_run:
-        print("\n⚠️ [试运行] 不会实际发布")
+        print("\n [试运行] 不会实际发布")
         return
     
     result = client.create_image_note(
@@ -127,11 +127,11 @@ def cmd_publish(args):
         is_private=args.private
     )
     
-    print(f"\n✅ 发布成功!")
+    print(f"\n 发布成功!")
     if isinstance(result, dict):
         note_id = result.get('note_id') or result.get('id')
         if note_id:
-            print(f"🔗 https://www.xiaohongshu.com/explore/{note_id}")
+            print(f" https://www.xiaohongshu.com/explore/{note_id}")
 
 def main():
     parser = argparse.ArgumentParser(description='小红书工具')
@@ -177,7 +177,7 @@ def main():
     try:
         args.func(args)
     except Exception as e:
-        print(f"❌ 错误: {e}")
+        print(f" 错误: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)

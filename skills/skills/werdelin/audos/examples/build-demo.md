@@ -14,86 +14,86 @@ To get started, what email should I use for your account?
 
 **User:** alex@example.com
 
-**Agent:** ✅ Verification code sent! Check your email for a 4-digit code.
+**Agent:**  Verification code sent! Check your email for a 4-digit code.
 
 **User:** 6422
 
-**Agent:** ✅ Verified! Building your workspace now...
+**Agent:**  Verified! Building your workspace now...
 
 ---
 
-🏗️ Building "SkiFit AI"...
+ Building "SkiFit AI"...
 
-Step 1/7 🔄 Customer Research
-Step 2/7 ⏳ Problem Mapping
-Step 3/7 ⏳ AI Tool Design
-Step 4/7 ⏳ Brand Identity
-Step 5/7 ⏳ Hero Video
-Step 6/7 ⏳ Workspace Apps
-Step 7/7 ⏳ Landing Page
+Step 1/7  Customer Research
+Step 2/7  Problem Mapping
+Step 3/7  AI Tool Design
+Step 4/7  Brand Identity
+Step 5/7  Hero Video
+Step 6/7  Workspace Apps
+Step 7/7  Landing Page
 
-⏱️ ~10 min remaining
+ ~10 min remaining
 
 ---
 
-🏗️ Building "SkiFit AI"... (43%)
+ Building "SkiFit AI"... (43%)
 
-Step 1/7 ✅ Customer Research
-Step 2/7 ✅ Problem Mapping
-Step 3/7 ✅ AI Tool Design
+Step 1/7  Customer Research
+Step 2/7  Problem Mapping
+Step 3/7  AI Tool Design
 
-Step 4/7 🔄 Brand Identity
+Step 4/7  Brand Identity
   ✓ Color palette generated
   ✓ Brand identity created
   → Designing logo...
 
-Step 5/7 ⏳ Hero Video
-Step 6/7 ⏳ Workspace Apps
-Step 7/7 ⏳ Landing Page
+Step 5/7  Hero Video
+Step 6/7  Workspace Apps
+Step 7/7  Landing Page
 
-⏱️ ~7 min remaining
+ ~7 min remaining
 
 ---
 
-🏗️ Building "SkiFit AI"... (57%)
+ Building "SkiFit AI"... (57%)
 
-Step 1/7 ✅ Customer Research
-Step 2/7 ✅ Problem Mapping
-Step 3/7 ✅ AI Tool Design
-Step 4/7 ✅ Brand Identity
+Step 1/7  Customer Research
+Step 2/7  Problem Mapping
+Step 3/7  AI Tool Design
+Step 4/7  Brand Identity
 
-Step 5/7 🔄 Hero Video
+Step 5/7  Hero Video
   ✓ Scenes generated
   ✓ Video rendered
   → Uploading to storage...
 
-Step 6/7 🔄 Workspace Apps
+Step 6/7  Workspace Apps
   → Building Plan Forge, Session Log, Crowd Lines
   → Setting up CRM, analytics, Otto
 
-Step 7/7 🔄 Landing Page
+Step 7/7  Landing Page
   ✓ Page designed
   → Generating code...
 
-⏱️ ~5 min remaining — all 3 building in parallel!
+ ~5 min remaining — all 3 building in parallel!
 
 ---
 
-🏗️ Building "SkiFit AI"... (71%)
+ Building "SkiFit AI"... (71%)
 
-Step 1/7 ✅ Customer Research
-Step 2/7 ✅ Problem Mapping
-Step 3/7 ✅ AI Tool Design
-Step 4/7 ✅ Brand Identity
-Step 5/7 🔄 Hero Video — uploading to storage...
-Step 6/7 🔄 Workspace Apps — building desktop, mini-apps, Otto...
-Step 7/7 ✅ Landing Page — LIVE! 🎉
+Step 1/7  Customer Research
+Step 2/7  Problem Mapping
+Step 3/7  AI Tool Design
+Step 4/7  Brand Identity
+Step 5/7  Hero Video — uploading to storage...
+Step 6/7  Workspace Apps — building desktop, mini-apps, Otto...
+Step 7/7  Landing Page — LIVE! 
 
-👉 Landing page is up! Workspace still cooking — a few more minutes for the apps and video.
+ Landing page is up! Workspace still cooking — a few more minutes for the apps and video.
 
 ---
 
-Your workspace is ready! 🎉
+Your workspace is ready! 
 
 Here's what Audos built for you:
 - **Landing page:** https://audos.com/site/103877 — live and ready for visitors

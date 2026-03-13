@@ -65,8 +65,8 @@ server.on('message', (msg, rinfo) => {
 
 server.on('listening', () => {
   const address = server.address();
-  console.log(`📡 UDP Camera Receiver on port ${address.port}`);
-  console.log(`📁 Photos: ${PHOTO_DIR}`);
+  console.log(` UDP Camera Receiver on port ${address.port}`);
+  console.log(` Photos: ${PHOTO_DIR}`);
   console.log('');
   console.log('Commands to trigger cameras:');
   console.log(`  echo "CAPTURE" | nc -u 192.168.1.255 ${UDP_PORT}`);
@@ -84,7 +84,7 @@ httpApp.use('/photos', express.static(PHOTO_DIR));
 httpApp.get('/', (req, res) => {
   const files = fs.readdirSync(PHOTO_DIR).filter(f => f.endsWith('.jpg')).sort().reverse();
   
-  let html = '<h1>📷 ESP32 UDP Cameras</h1>';
+  let html = '<h1> ESP32 UDP Cameras</h1>';
   html += `<p><a href="/trigger">Trigger All Cameras</a></p>`;
   html += '<h2>Latest Photos:</h2>';
   
@@ -111,5 +111,5 @@ httpApp.get('/trigger', (req, res) => {
 });
 
 httpApp.listen(HTTP_PORT, () => {
-  console.log(`🌐 Photo viewer: http://localhost:${HTTP_PORT}`);
+  console.log(` Photo viewer: http://localhost:${HTTP_PORT}`);
 });

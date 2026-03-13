@@ -106,17 +106,17 @@ def check_thresholds(percent):
         tuple: (level, emoji, color_emoji) 
     """
     if percent >= 95:
-        return "EMERGENCY", "🚨", "🟣"  # Magenta
+        return "EMERGENCY", "", ""  # Magenta
     elif percent >= 90:
-        return "CRITICAL", "🔴", "🔴"  # Red
+        return "CRITICAL", "", ""  # Red
     elif percent >= 75:
-        return "HIGH", "🔶", "🟠"  # Red-Orange
+        return "HIGH", "", ""  # Red-Orange
     elif percent >= 50:
-        return "MEDIUM", "🟠", "🟠"  # Orange
+        return "MEDIUM", "", ""  # Orange
     elif percent >= 25:
-        return "LOW", "🟡", "🟡"  # Yellow
+        return "LOW", "", ""  # Yellow
     else:
-        return "OK", "🟢", "🟢"  # Green
+        return "OK", "", ""  # Green
 
 
 def create_progress_bar(percent, total_blocks=25):
@@ -190,66 +190,66 @@ def format_alert(used, limit, percent, level, emoji):
         message = f"{emoji} Token Status\n\n"
         message += f"{progress_bar}\n"
         message += f"{used:,} / {limit:,} Tokens verwendet\n\n"
-        message += f"📊 Status: Alles im grünen Bereich!\n"
-        message += f"💡 Verbleibend: ~{remaining_k:.0f}k Tokens\n"
-        message += f"⏰ Geschätzte Sessions: {sessions_left}\n\n"
-        message += f"Tipp: Alles noch im grünen Bereich! 👍"
+        message += f" Status: Alles im grünen Bereich!\n"
+        message += f" Verbleibend: ~{remaining_k:.0f}k Tokens\n"
+        message += f" Geschätzte Sessions: {sessions_left}\n\n"
+        message += f"Tipp: Alles noch im grünen Bereich! "
         
     elif level == "LOW":
         message = f"{emoji} Token Status: Low Warning\n\n"
         message += f"{progress_bar}\n"
         message += f"{used:,} / {limit:,} Tokens verwendet\n\n"
-        message += f"📊 Status: Low Warning (Gelbe Zone)\n"
-        message += f"💡 Verbleibend: ~{remaining_k:.0f}k Tokens\n"
-        message += f"⏰ Geschätzte Sessions: {sessions_left}\n\n"
-        message += f"💡 Tipp: Noch genug Luft, aber im Blick behalten!"
+        message += f" Status: Low Warning (Gelbe Zone)\n"
+        message += f" Verbleibend: ~{remaining_k:.0f}k Tokens\n"
+        message += f" Geschätzte Sessions: {sessions_left}\n\n"
+        message += f" Tipp: Noch genug Luft, aber im Blick behalten!"
         
     elif level == "MEDIUM":
         message = f"{emoji} Token Alert: Achtung!\n\n"
         message += f"{progress_bar}\n"
         message += f"{used:,} / {limit:,} Tokens verwendet\n\n"
-        message += f"⚠️ Status: Medium Warning (Orange Zone)\n"
-        message += f"💡 Verbleibend: ~{remaining_k:.0f}k Tokens\n"
-        message += f"⏰ Geschätzte Sessions: {sessions_left}\n\n"
-        message += f"🔧 Empfehlung:\n"
-        message += f"   ✅ Token-sparend arbeiten\n"
-        message += f"   ✅ Kürzere Antworten bevorzugen"
+        message += f" Status: Medium Warning (Orange Zone)\n"
+        message += f" Verbleibend: ~{remaining_k:.0f}k Tokens\n"
+        message += f" Geschätzte Sessions: {sessions_left}\n\n"
+        message += f" Empfehlung:\n"
+        message += f"    Token-sparend arbeiten\n"
+        message += f"    Kürzere Antworten bevorzugen"
         
     elif level == "HIGH":
         message = f"{emoji} Token Alert: Achtung!\n\n"
         message += f"{progress_bar}\n"
         message += f"{used:,} / {limit:,} Tokens verwendet\n\n"
-        message += f"⚠️ Status: High Warning (Rot-Orange Zone)\n"
-        message += f"💡 Verbleibend: ~{remaining_k:.0f}k Tokens\n"
-        message += f"⏰ Geschätzte Sessions: {sessions_left}\n\n"
-        message += f"🔧 Empfehlung:\n"
-        message += f"   ✅ Wichtige Entscheidungen jetzt treffen\n"
-        message += f"   ✅ Neue Session vorbereiten\n"
-        message += f"   ✅ Token-sparend arbeiten"
+        message += f" Status: High Warning (Rot-Orange Zone)\n"
+        message += f" Verbleibend: ~{remaining_k:.0f}k Tokens\n"
+        message += f" Geschätzte Sessions: {sessions_left}\n\n"
+        message += f" Empfehlung:\n"
+        message += f"    Wichtige Entscheidungen jetzt treffen\n"
+        message += f"    Neue Session vorbereiten\n"
+        message += f"    Token-sparend arbeiten"
         
     elif level == "CRITICAL":
         message = f"{emoji} KRITISCH: Token-Limit fast erreicht!\n\n"
         message += f"{progress_bar}\n"
         message += f"{used:,} / {limit:,} Tokens verwendet\n\n"
-        message += f"🚨 Status: CRITICAL (Rote Zone)\n"
-        message += f"💡 Verbleibend: ~{remaining_k:.0f}k Tokens\n"
-        message += f"⏰ Geschätzte Sessions: {sessions_left}\n\n"
-        message += f"🔥 SOFORT HANDELN:\n"
-        message += f"   ⚡ Memory sichern (JETZT!)\n"
-        message += f"   ⚡ Session zusammenfassen\n"
-        message += f"   ⚡ NEUE SESSION STARTEN!"
+        message += f" Status: CRITICAL (Rote Zone)\n"
+        message += f" Verbleibend: ~{remaining_k:.0f}k Tokens\n"
+        message += f" Geschätzte Sessions: {sessions_left}\n\n"
+        message += f" SOFORT HANDELN:\n"
+        message += f"    Memory sichern (JETZT!)\n"
+        message += f"    Session zusammenfassen\n"
+        message += f"    NEUE SESSION STARTEN!"
         
     elif level == "EMERGENCY":
         message = f"{emoji} NOTFALL: Token-Limit erreicht!\n\n"
         message += f"{progress_bar}\n"
         message += f"{used:,} / {limit:,} Tokens verwendet\n\n"
-        message += f"💀 Status: EMERGENCY (Magenta Zone)\n"
-        message += f"💡 Verbleibend: ~{remaining_k:.0f}k Tokens (2-3 Messages!)\n"
-        message += f"⏰ Geschätzte Sessions: {sessions_left}\n\n"
-        message += f"🆘 LETZTE WARNUNG:\n"
-        message += f"   🔴 Jede weitere Message = Risiko!\n"
-        message += f"   🔴 Context wird bald abgeschnitten!\n"
-        message += f"   🔴 SOFORT NEUE SESSION STARTEN!!!"
+        message += f" Status: EMERGENCY (Magenta Zone)\n"
+        message += f" Verbleibend: ~{remaining_k:.0f}k Tokens (2-3 Messages!)\n"
+        message += f" Geschätzte Sessions: {sessions_left}\n\n"
+        message += f" LETZTE WARNUNG:\n"
+        message += f"    Jede weitere Message = Risiko!\n"
+        message += f"    Context wird bald abgeschnitten!\n"
+        message += f"    SOFORT NEUE SESSION STARTEN!!!"
     
     return message
 
@@ -270,7 +270,7 @@ def main():
     message = format_alert(used, limit, percent, level, emoji)
     
     # Add model info
-    message += f"\n\n📊 Model: {model}"
+    message += f"\n\n Model: {model}"
     
     # Output
     print(message)

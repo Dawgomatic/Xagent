@@ -8,7 +8,7 @@
 │                                                                  │
 │  ┌──────────┐    ┌──────────────┐    ┌─────────────────────┐    │
 │  │  CLI /   │    │   Gateway    │    │   Channel Adapters  │    │
-│  │  Agent   │───▶│  (HTTP API)  │◀───│  Telegram, Discord  │    │
+│  │  Agent   │───│  (HTTP API)  │───│  Telegram, Discord  │    │
 │  │  REPL    │    │  :18790      │    │  Slack, WhatsApp    │    │
 │  └────┬─────┘    └──────┬───────┘    └─────────────────────┘    │
 │       │                 │                                        │
@@ -16,11 +16,11 @@
 │  ┌──────────────────────────────────┐                            │
 │  │          AGENT LOOP              │                            │
 │  │                                  │                            │
-│  │  Context Builder ──▶ LLM Call    │                            │
+│  │  Context Builder ── LLM Call    │                            │
 │  │       ▲                  │       │                            │
 │  │       │              ToolCall?   │                            │
 │  │       │              ▼           │                            │
-│  │  Session ◀── Tool Registry ──────│──▶ Tool Execution          │
+│  │  Session ── Tool Registry ──────│── Tool Execution          │
 │  │  Manager     (sandboxed)         │                            │
 │  └──────────────────────────────────┘                            │
 │       │              │           │                                │
@@ -46,9 +46,9 @@
 
    ┌───────────────────────────────────────────────┐
    │  SYSTEMD                                       │
-   │  ollama.service        ──▶ Ollama LLM server   │
-   │  xagent-gateway.service ──▶ Xagent gateway     │
-   │  memory-bridge.service  ──▶ Qdrant bridge (opt) │
+   │  ollama.service        ── Ollama LLM server   │
+   │  xagent-gateway.service ── Xagent gateway     │
+   │  memory-bridge.service  ── Qdrant bridge (opt) │
    └───────────────────────────────────────────────┘
 ```
 
@@ -182,17 +182,17 @@ TURN (one request/response) ─────────────────�
                           │
                           ▼
                ┌─────────────────────┐
-               │   epoch.Wake()      │◀── Load last epoch journal
+               │   epoch.Wake()      │── Load last epoch journal
                │  Create new epoch   │    from workspace/epochs/
-               │  Inject prev epoch  │──▶ System prompt gets
+               │  Inject prev epoch  │── System prompt gets
                │  into context       │    "Previous Session" section
                └──────────┬──────────┘
                           │
                           ▼
                ┌─────────────────────┐
                │   Agent runs...     │
-               │  RecordEvent()      │──▶ Events logged in-memory
-               │  UpdateStats()      │──▶ Counters incremented
+               │  RecordEvent()      │── Events logged in-memory
+               │  UpdateStats()      │── Counters incremented
                └──────────┬──────────┘
                           │
                      SIGTERM/SIGINT
@@ -202,7 +202,7 @@ TURN (one request/response) ─────────────────�
                │   epoch.Sleep()     │
                │  Capture final stats│
                │  Write reflection   │
-               │  Save journal to    │──▶ workspace/epochs/
+               │  Save journal to    │── workspace/epochs/
                │  disk (atomic)      │    <timestamp>-<session>.json
                └──────────┬──────────┘
                           │
@@ -235,9 +235,9 @@ Context Builder
      ▼
 LLM Provider (Ollama / Cloud)
      │
-     ├─ Text response ──▶ Send to user
+     ├─ Text response ── Send to user
      │
-     └─ Tool call ──▶ Tool Registry
+     └─ Tool call ── Tool Registry
                          │
                          ├─ Validate (sandbox, deny-list)
                          ├─ Execute
@@ -247,7 +247,7 @@ LLM Provider (Ollama / Cloud)
                          (loop until no more tool calls)
                               │
                               ▼
-                         Final response ──▶ User
+                         Final response ── User
 ```
 
 ## Data Flow
@@ -336,13 +336,13 @@ Gateway routes to Agent Loop
 │                                                             │
 │  5. LLM Provider (Ollama / Cloud)                           │
 │     │                                                       │
-│     ├─ Text response ──▶ Send to user                       │
+│     ├─ Text response ── Send to user                       │
 │     │                                                       │
-│     └─ Tool call ──▶ Tool Middleware     ←── NEW            │
+│     └─ Tool call ── Tool Middleware     ←── NEW            │
 │                       ├─ Pre-hooks (approval gate)          │
 │                       ├─ Cache check                        │
 │                       ├─ Circuit breaker                    │
-│                       ├─ Tool Registry ──▶ Execute          │
+│                       ├─ Tool Registry ── Execute          │
 │                       ├─ Post-hooks (analytics)             │
 │                       └─ Provenance: RecordToolCall()       │
 │                                                             │
@@ -374,14 +374,14 @@ Planner: Decompose into subtasks
      ▼
 Task DAG Builder
      │
-     ├──▶ Independent tasks (parallel)
+     ├── Independent tasks (parallel)
      │     ├── Researcher (web_search, read_file)
      │     └── SysAdmin (exec, read_file)
      │
-     ├──▶ Dependent tasks (sequential, after parallel group)
+     ├── Dependent tasks (sequential, after parallel group)
      │     └── Coder (write_file, edit_file, exec)
      │
-     └──▶ Aggregator: Synthesize all results
+     └── Aggregator: Synthesize all results
                │
                ▼
           Unified Response

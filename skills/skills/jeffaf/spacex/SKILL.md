@@ -5,7 +5,7 @@ description: "CLI for AI agents to lookup SpaceX launches and rockets for their 
 homepage: https://github.com/r-spacex/SpaceX-API
 metadata:
   openclaw:
-    emoji: "🚀"
+    emoji: ""
     requires:
       bins: ["bash", "curl", "jq"]
     tags: ["spacex", "rockets", "launches", "space", "cli"]
@@ -53,34 +53,34 @@ spacex crew 5                      # First 5 crew members
 
 **Launch list output:**
 ```
-🚀 Starlink 4-36 (v1.5) — Falcon 9, 2022-10-20, Cape Canaveral
+ Starlink 4-36 (v1.5) — Falcon 9, 2022-10-20, Cape Canaveral
 ```
 
 **Launch detail output:**
 ```
-🚀 SAOCOM 1B, GNOMES-1, Tyvak-0172
+ SAOCOM 1B, GNOMES-1, Tyvak-0172
    ID: 5eb87d47ffd86e000604b38a
    Flight #: 101
    Date: 2020-08-30 (hour)
    Rocket: Falcon 9
    Launchpad: Cape Canaveral
-   Status: ✅ Success
+   Status:  Success
 
-📋 Details:
+ Details:
 [Full mission description]
 
-🎥 Webcast: https://youtu.be/P-gLOsDjE3E
-📚 Wikipedia: https://en.wikipedia.org/wiki/SAOCOM
+ Webcast: https://youtu.be/P-gLOsDjE3E
+ Wikipedia: https://en.wikipedia.org/wiki/SAOCOM
 ```
 
 **Rocket list output:**
 ```
-🛸 Falcon 9 — rocket, 2010-06-04, Active, 98% success
+ Falcon 9 — rocket, 2010-06-04, Active, 98% success
 ```
 
 **Crew output:**
 ```
-👨‍🚀 Robert Behnken — NASA, active
+ Robert Behnken — NASA, active
 ```
 
 ## Notes

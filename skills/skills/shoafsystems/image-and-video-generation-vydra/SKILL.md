@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎬",
+        "emoji": "",
         "requires": { "env": ["VYDRA_API_KEY"] },
         "primaryEnv": "VYDRA_API_KEY",
       },
@@ -53,7 +53,7 @@ Store credentials:
 }
 ```
 
-🔒 **SECURITY:** Never send your Vydra API key to any domain other than `vydra.ai`.
+ **SECURITY:** Never send your Vydra API key to any domain other than `vydra.ai`.
 
 ## Manual Setup (for humans)
 
@@ -65,7 +65,7 @@ Store credentials:
 
 ### Grok Imagine (fastest, cheapest — 8 credits)
 
-**⚠️ You MUST include `"model": "text-to-image"` or you'll be charged 150 credits for video.**
+** You MUST include `"model": "text-to-image"` or you'll be charged 150 credits for video.**
 
 ```bash
 curl -X POST https://vydra.ai/api/v1/models/grok-imagine \

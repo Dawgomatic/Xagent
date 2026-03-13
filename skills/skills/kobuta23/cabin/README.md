@@ -1,4 +1,4 @@
-# ✈️ Cabin
+#  Cabin
 
 **Search and book real flights with USDC.**
 

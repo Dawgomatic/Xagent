@@ -1,7 +1,7 @@
 # Credential Manager Skill
 
-**Status:** ✅ Production Ready  
-**Category:** 🔒 Core Security Infrastructure  
+**Status:**  Production Ready  
+**Category:**  Core Security Infrastructure  
 **Package:** `credential-manager.skill`  
 **Version:** 2.0.0
 
@@ -15,23 +15,23 @@ This is not optional — it's a core requirement for secure OpenClaw deployments
 
 ## What's New in v2.0.0
 
-- 🔐 **GPG encryption** for private keys and wallet secrets (AES256)
-- 🔍 **Deep scanning** for hardcoded secrets in source files
-- 🔄 **Rotation tracking** with risk-based schedules
-- 🛡️ **Backup hardening** (mode 600 files, 700 directories)
-- 📊 **Entropy analysis** and private key detection in validation
-- 🔗 **Symlink detection** for `.env` files
-- 🐛 **Fixed** validate.py quote contradiction
-- 🐛 **Fixed** backup permissions (were 644, now 600)
+-  **GPG encryption** for private keys and wallet secrets (AES256)
+-  **Deep scanning** for hardcoded secrets in source files
+-  **Rotation tracking** with risk-based schedules
+-  **Backup hardening** (mode 600 files, 700 directories)
+-  **Entropy analysis** and private key detection in validation
+-  **Symlink detection** for `.env` files
+-  **Fixed** validate.py quote contradiction
+-  **Fixed** backup permissions (were 644, now 600)
 
 ## Why This Matters
 
 Scattered credentials = scattered attack surface. One `.env` file with proper permissions is:
-- ✅ Easier to secure (one file, one permission)
-- ✅ Easier to audit (one location to check)
-- ✅ Easier to rotate (update once, everywhere works)
-- ✅ Harder to leak (git-ignored by default)
-- ✅ Encrypted at rest (private keys in GPG)
+-  Easier to secure (one file, one permission)
+-  Easier to audit (one location to check)
+-  Easier to rotate (update once, everywhere works)
+-  Harder to leak (git-ignored by default)
+-  Encrypted at rest (private keys in GPG)
 
 ## Quick Start
 
@@ -162,31 +162,31 @@ Detects: `sk_`/`pk_` prefixes, `0x` + 64 hex (private keys), hardcoded credentia
 
 ## Security Features
 
-✅ **File permissions** — `.env` at mode 600 (owner only)
-✅ **Directory permissions** — Backups at mode 700 (owner only)
-✅ **GPG encryption** — Private keys encrypted at rest (AES256)
-✅ **Git protection** — `.env`, `.env.secrets.gpg`, `.env.meta` all git-ignored
-✅ **Entropy analysis** — Flags weak/placeholder values for secret fields
-✅ **Private key detection** — Flags plaintext `0x` + 64 hex values
-✅ **Mnemonic detection** — Flags 12/24 word seed phrases
-✅ **Deep scanning** — Finds hardcoded secrets in source files
-✅ **Symlink detection** — Validates symlinked `.env` targets
-✅ **Rotation tracking** — Risk-based rotation schedules with warnings
-✅ **Backup hardening** — All backups secured with proper permissions
-✅ **Fail-fast enforcement** — Skills refuse to run if credentials insecure
+ **File permissions** — `.env` at mode 600 (owner only)
+ **Directory permissions** — Backups at mode 700 (owner only)
+ **GPG encryption** — Private keys encrypted at rest (AES256)
+ **Git protection** — `.env`, `.env.secrets.gpg`, `.env.meta` all git-ignored
+ **Entropy analysis** — Flags weak/placeholder values for secret fields
+ **Private key detection** — Flags plaintext `0x` + 64 hex values
+ **Mnemonic detection** — Flags 12/24 word seed phrases
+ **Deep scanning** — Finds hardcoded secrets in source files
+ **Symlink detection** — Validates symlinked `.env` targets
+ **Rotation tracking** — Risk-based rotation schedules with warnings
+ **Backup hardening** — All backups secured with proper permissions
+ **Fail-fast enforcement** — Skills refuse to run if credentials insecure
 
 ## Testing
 
 Tested on a live OpenClaw deployment:
 
-- ✅ Scanned and found 4 credential files (1 with insecure permissions)
-- ✅ Deep scan caught 2 hardcoded test keys in scripts
-- ✅ Consolidated Farcaster, Moltbook, Basecred credentials into `.env`
-- ✅ GPG-encrypted 5 private keys (wallet + 4 Farcaster)
-- ✅ Fixed 12 backup permission issues
-- ✅ Initialized rotation tracking for 57 keys
-- ✅ Updated 4 scripts to use `.env` with GPG decryption
-- ✅ All validation checks pass
+-  Scanned and found 4 credential files (1 with insecure permissions)
+-  Deep scan caught 2 hardcoded test keys in scripts
+-  Consolidated Farcaster, Moltbook, Basecred credentials into `.env`
+-  GPG-encrypted 5 private keys (wallet + 4 Farcaster)
+-  Fixed 12 backup permission issues
+-  Initialized rotation tracking for 57 keys
+-  Updated 4 scripts to use `.env` with GPG decryption
+-  All validation checks pass
 
 ## Installation
 
@@ -212,4 +212,4 @@ Part of the OpenClaw project.
 **Created:** 2026-02-05  
 **Updated:** 2026-02-11  
 **Author:** Mr. Tee (OpenClaw Agent)  
-**Tested:** ✅ Production Ready (v2.0.0)
+**Tested:**  Production Ready (v2.0.0)

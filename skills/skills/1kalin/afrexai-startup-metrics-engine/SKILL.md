@@ -306,10 +306,10 @@ cohort_engagement:
 
 ### Cohort Red Flags
 ```
-🚩 Each new cohort retains worse → product-market fit eroding
-🚩 Large cohorts churn more → scaling quality issues
-🚩 Specific channel cohorts churn fast → bad-fit leads
-🚩 Expansion only in old cohorts → pricing/packaging problem
+ Each new cohort retains worse → product-market fit eroding
+ Large cohorts churn more → scaling quality issues
+ Specific channel cohorts churn fast → bad-fit leads
+ Expansion only in old cohorts → pricing/packaging problem
 ```
 
 ---
@@ -359,7 +359,7 @@ ARR: $___     MoM: ___%     NDR: ___%
 Customers: ___  New: ___    Churned: ___
 Runway: ___ months          Burn Multiple: ___
 
-Traffic light: 🟢 On track | 🟡 Watch | 🔴 Action needed
+Traffic light:  On track |  Watch |  Action needed
 ```
 
 **Slide 2: Revenue Waterfall**
@@ -457,14 +457,14 @@ Time to Value = Time from signup to "aha moment"
 ### Common Manipulation Tactics to Watch
 
 ```
-🚩 Counting annual contracts as MRR at signing (vs. monthly recognition)
-🚩 Excluding "one-time" churns from churn rate
-🚩 Using gross revenue instead of net
-🚩 Measuring CAC without fully-loaded costs
-🚩 Cherry-picking best cohort as "representative"
-🚩 Counting reactivations as new customers
-🚩 Using "committed ARR" (signed but not live)
-🚩 Trailing-12-month NDR when recent cohorts are worse
+ Counting annual contracts as MRR at signing (vs. monthly recognition)
+ Excluding "one-time" churns from churn rate
+ Using gross revenue instead of net
+ Measuring CAC without fully-loaded costs
+ Cherry-picking best cohort as "representative"
+ Counting reactivations as new customers
+ Using "committed ARR" (signed but not live)
+ Trailing-12-month NDR when recent cohorts are worse
 ```
 
 ---

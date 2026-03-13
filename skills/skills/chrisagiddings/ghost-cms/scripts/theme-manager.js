@@ -231,45 +231,45 @@ const commands = {
   async list() {
     const result = await ghostApi('/themes/');
     if (result.themes) {
-      console.log('📦 Installed Themes:\n');
+      console.log(' Installed Themes:\n');
       result.themes.forEach(theme => {
-        const active = theme.active ? '✅ ACTIVE' : '  ';
+        const active = theme.active ? ' ACTIVE' : '  ';
         const version = theme.package?.version || 'unknown';
         console.log(`${active} ${theme.name} (v${version})`);
         if (theme.warnings?.length > 0) {
-          theme.warnings.forEach(w => console.log(`   ⚠️  ${w}`));
+          theme.warnings.forEach(w => console.log(`     ${w}`));
         }
       });
       
       // Show active theme at bottom
       const activeTheme = result.themes.find(t => t.active);
       if (activeTheme) {
-        console.log(`\n✨ Current active theme: ${activeTheme.name}`);
+        console.log(`\n Current active theme: ${activeTheme.name}`);
       }
     }
     return result;
   },
   
   async upload(zipPath, options = {}) {
-    console.log(`📤 Uploading theme: ${basename(zipPath)}...`);
+    console.log(` Uploading theme: ${basename(zipPath)}...`);
     const result = await uploadTheme(zipPath, options.activate);
     
     if (result.themes) {
       const theme = result.themes[0];
-      console.log(`✅ Theme uploaded: ${theme.name} (v${theme.package?.version})`);
+      console.log(` Theme uploaded: ${theme.name} (v${theme.package?.version})`);
       
       if (theme.warnings?.length > 0) {
-        console.log('\n⚠️  Warnings:');
+        console.log('\n  Warnings:');
         theme.warnings.forEach(w => console.log(`   - ${w}`));
       }
       
       if (options.activate) {
-        console.log(`✨ Theme activated: ${theme.name}`);
+        console.log(` Theme activated: ${theme.name}`);
       } else {
-        console.log(`\n💡 Activate with: node theme-manager.js activate ${theme.name}`);
+        console.log(`\n Activate with: node theme-manager.js activate ${theme.name}`);
       }
     } else if (result.errors) {
-      console.error('❌ Upload failed:');
+      console.error(' Upload failed:');
       result.errors.forEach(e => {
         console.error(`   ${e.message}`);
         if (e.context) console.error(`   ${e.context}`);
@@ -282,15 +282,15 @@ const commands = {
   async activate(themeName) {
     // CRITICAL: Validate theme name to prevent path traversal in API endpoint
     const validatedThemeName = validateThemeName(themeName);
-    console.log(`✨ Activating theme: ${validatedThemeName}...`);
+    console.log(` Activating theme: ${validatedThemeName}...`);
     const result = await ghostApi(`/themes/${validatedThemeName}/activate/`, 'PUT');
     
     if (result.themes) {
       const theme = result.themes[0];
-      console.log(`✅ Theme activated: ${theme.name} (v${theme.package?.version})`);
-      console.log('\n🌐 Your site appearance has been updated!');
+      console.log(` Theme activated: ${theme.name} (v${theme.package?.version})`);
+      console.log('\n Your site appearance has been updated!');
     } else if (result.errors) {
-      console.error('❌ Activation failed:');
+      console.error(' Activation failed:');
       result.errors.forEach(e => console.error(`   ${e.message}`));
     }
     
@@ -300,19 +300,19 @@ const commands = {
   async delete(themeName) {
     // CRITICAL: Validate theme name to prevent path traversal in API endpoint
     const validatedThemeName = validateThemeName(themeName);
-    console.log(`🗑️  Deleting theme: ${validatedThemeName}...`);
+    console.log(`  Deleting theme: ${validatedThemeName}...`);
     
     // Check if active first
     const list = await ghostApi('/themes/');
     const theme = list.themes?.find(t => t.name === validatedThemeName);
     
     if (!theme) {
-      console.error(`❌ Theme not found: ${validatedThemeName}`);
+      console.error(` Theme not found: ${validatedThemeName}`);
       return;
     }
     
     if (theme.active) {
-      console.error(`❌ Cannot delete active theme: ${validatedThemeName}`);
+      console.error(` Cannot delete active theme: ${validatedThemeName}`);
       console.error('   Activate a different theme first:');
       list.themes.filter(t => !t.active).forEach(t => {
         console.error(`   node theme-manager.js activate ${t.name}`);
@@ -323,9 +323,9 @@ const commands = {
     const result = await ghostApi(`/themes/${validatedThemeName}/`, 'DELETE');
     
     if (result.statusCode === 204) {
-      console.log(`✅ Theme deleted: ${validatedThemeName}`);
+      console.log(` Theme deleted: ${validatedThemeName}`);
     } else if (result.errors) {
-      console.error('❌ Deletion failed:');
+      console.error(' Deletion failed:');
       result.errors.forEach(e => console.error(`   ${e.message}`));
     }
     
@@ -333,11 +333,11 @@ const commands = {
   },
   
   async download(themeName, outputPath) {
-    console.log(`📥 Downloading theme: ${themeName}...`);
+    console.log(` Downloading theme: ${themeName}...`);
     const result = await downloadTheme(themeName, outputPath);
     
     if (result.success) {
-      console.log(`✅ Theme downloaded: ${result.path}`);
+      console.log(` Theme downloaded: ${result.path}`);
     }
     
     return result;
@@ -348,10 +348,10 @@ const commands = {
     const activeTheme = result.themes?.find(t => t.active);
     
     if (activeTheme) {
-      console.log(`✨ Active theme: ${activeTheme.name} (v${activeTheme.package?.version})`);
+      console.log(` Active theme: ${activeTheme.name} (v${activeTheme.package?.version})`);
       return activeTheme;
     } else {
-      console.log('❓ No active theme found');
+      console.log(' No active theme found');
       return null;
     }
   }
@@ -396,7 +396,7 @@ Notes:
 
 // Execute command
 if (!commands[command]) {
-  console.error(`❌ Unknown command: ${command}`);
+  console.error(` Unknown command: ${command}`);
   console.error('Run: node theme-manager.js help');
   process.exit(1);
 }
@@ -407,6 +407,6 @@ const cleanArgs = args.filter(a => a !== '--activate');
 commands[command](...cleanArgs, hasActivateFlag ? { activate: true } : {})
   .then(() => process.exit(0))
   .catch(err => {
-    console.error('❌ Error:', err.message);
+    console.error(' Error:', err.message);
     process.exit(1);
   });

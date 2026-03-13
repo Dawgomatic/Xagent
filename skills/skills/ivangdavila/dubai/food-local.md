@@ -87,7 +87,7 @@ Dubai's South Asian food scene is extraordinary. The large expat community means
 
 | Restaurant | Location | Price (2 pax) | Notes |
 |------------|----------|---------------|-------|
-| **Trèsind Studio** ⭐⭐⭐ | St. Regis Gardens | AED 1,500-2,000 | First 3-star Indian in world |
+| **Trèsind Studio**  | St. Regis Gardens | AED 1,500-2,000 | First 3-star Indian in world |
 | **Khadak** | Jumeirah | AED 400-600 | Modern Indian, ex-Dishoom chef |
 | **Indego by Vineet** | Grosvenor House | AED 400-600 | Michelin-star chef Vineet Bhatia |
 | **Indya by Vineet** | Le Royal Meridien | AED 350-500 | Same chef, different style |

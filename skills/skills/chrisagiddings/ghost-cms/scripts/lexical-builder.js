@@ -457,7 +457,7 @@ function createBookmarkCard(url, metadata = {}, caption = "") {
  * Create a callout/info box with emoji and background color
  * @param {string} text - Callout text (HTML allowed)
  * @param {Object} options - Optional settings
- * @param {string} options.emoji - Emoji icon (default: 💡)
+ * @param {string} options.emoji - Emoji icon (default: )
  * @param {string} options.backgroundColor - Color: blue, green, yellow, red, pink, purple, white, grey, accent
  * @returns {Object} Callout card
  */
@@ -470,7 +470,7 @@ function createCalloutCard(text, options = {}) {
     type: "callout",
     version: 1,
     calloutText: formattedText,
-    calloutEmoji: options.emoji || "💡",
+    calloutEmoji: options.emoji || "",
     backgroundColor: options.backgroundColor || "blue"
   };
 }

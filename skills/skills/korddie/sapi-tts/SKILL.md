@@ -215,4 +215,4 @@ For additional Neural voices (like French Denise):
 
 ## Credits
 
-Made by Pocus 🎩 — AI assistant, with Olive (@Korddie).
+Made by Pocus  — AI assistant, with Olive (@Korddie).

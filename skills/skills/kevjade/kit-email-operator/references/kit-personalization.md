@@ -157,13 +157,13 @@ Use the Kit API: `kit.listCustomFields()`
 ## Personalization Best Practices
 
 ### 1. Always Use Fallbacks
-❌ **Bad:**
+ **Bad:**
 ```
 Hey {{ subscriber.first_name }},
 ```
 If no name → "Hey ,"
 
-✅ **Good:**
+ **Good:**
 ```
 {% if subscriber.first_name %}
   Hey {{ subscriber.first_name }},
@@ -180,14 +180,14 @@ Send test email to yourself, check:
 - Unsubscribe link works
 
 ### 3. Don't Overdo It
-❌ **Bad:**
+ **Bad:**
 ```
 Hey {{ subscriber.first_name }}, I know you work at {{ subscriber.company }}
 in {{ subscriber.city }} as a {{ subscriber.job_title }}, so here's...
 ```
 Feels creepy.
 
-✅ **Good:**
+ **Good:**
 ```
 Hey {{ subscriber.first_name }},
 
@@ -243,19 +243,19 @@ P.S. - Hit reply anytime. I read every email.
 
 ## Common Mistakes
 
-❌ **Missing fallback for first_name**
+ **Missing fallback for first_name**
 → Results in "Hey ," if name not provided
 
-❌ **Using custom fields without checking they exist**
+ **Using custom fields without checking they exist**
 → Displays blank or "null"
 
-❌ **Forgetting unsubscribe link**
+ **Forgetting unsubscribe link**
 → Violates CAN-SPAM, damages deliverability
 
-❌ **Over-personalizing**
+ **Over-personalizing**
 → Feels creepy, not helpful
 
-❌ **Not testing**
+ **Not testing**
 → Broken tags go out to thousands
 
 ---

@@ -2,14 +2,14 @@
 name: yatta
 description: Personal productivity system for task and capacity management. Create and organize tasks with rich attributes (priority, effort, complexity, tags), track time and streaks, manage capacity across projects and contexts, view Eisenhower Matrix prioritization, sync calendar subscriptions, handle delegation and follow-ups, and get AI-powered insights. Supports batch operations, multi-project workflows, and real-time capacity planning to prevent overcommitment.
 homepage: https://github.com/chrisagiddings/openclaw-yatta-skill
-metadata: {"openclaw":{"emoji":"✅","requires":{"env":["YATTA_API_KEY","YATTA_API_URL"],"bins":["curl","jq"]},"primaryEnv":"YATTA_API_KEY","disable-model-invocation":true,"capabilities":["task-management","project-management","context-management","comment-management","calendar-management","destructive-operations"],"credentials":{"type":"env","variables":[{"name":"YATTA_API_KEY","description":"Yatta! API key (yatta_...)","required":true},{"name":"YATTA_API_URL","description":"Yatta! API base URL","required":false,"default":"https://zunahvofybvxpptjkwxk.supabase.co/functions/v1"}]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["YATTA_API_KEY","YATTA_API_URL"],"bins":["curl","jq"]},"primaryEnv":"YATTA_API_KEY","disable-model-invocation":true,"capabilities":["task-management","project-management","context-management","comment-management","calendar-management","destructive-operations"],"credentials":{"type":"env","variables":[{"name":"YATTA_API_KEY","description":"Yatta! API key (yatta_...)","required":true},{"name":"YATTA_API_URL","description":"Yatta! API base URL","required":false,"default":"https://zunahvofybvxpptjkwxk.supabase.co/functions/v1"}]}}}
 ---
 
 # Yatta! Skill
 
 Interact with Yatta! task management system via API. Requires an API key from your Yatta! account.
 
-## ⚠️ Security Warning
+##  Security Warning
 
 **This skill can perform DESTRUCTIVE operations on your Yatta! account:**
 
@@ -23,14 +23,14 @@ Interact with Yatta! task management system via API. Requires an API key from yo
 
 **Operation Types:**
 
-**Read-Only Operations** (✅ Safe):
+**Read-Only Operations** ( Safe):
 - List tasks, projects, contexts, comments
 - Get analytics, insights, streaks
 - View capacity and calendar data
 - Get Eisenhower Matrix view
 - All GET requests
 
-**Destructive Operations** (⚠️ Modify or delete data):
+**Destructive Operations** ( Modify or delete data):
 - Create/update/archive tasks (POST, PUT, DELETE)
 - Batch update tasks
 - Create/update projects
@@ -51,7 +51,7 @@ For detailed API operation documentation, see [API-REFERENCE.md](API-REFERENCE.m
 
 ## Setup
 
-### ⚠️ API Key Security
+###  API Key Security
 
 **Your Yatta! API key provides FULL access to your account:**
 - Can create, read, update, and delete ALL tasks, projects, contexts
@@ -336,7 +336,7 @@ curl -s "$YATTA_API_URL/projects" \
     "name": "Website Redesign",
     "description": "Complete overhaul of company site",
     "color": "#3b82f6",
-    "icon": "🌐"
+    "icon": ""
   }' \
   | jq '.'
 ```
@@ -390,7 +390,7 @@ curl -s "$YATTA_API_URL/contexts" \
   -d '{
     "name": "@deep-focus",
     "color": "#8b5cf6",
-    "icon": "🧠"
+    "icon": ""
   }' \
   | jq '.'
 ```

@@ -13,7 +13,7 @@ triggers:
   - twitter search
 metadata:
   clawdbot:
-    emoji: "🔍"
+    emoji: ""
     primaryEnv: XAI_API_KEY
     requires:
       bins: [node]

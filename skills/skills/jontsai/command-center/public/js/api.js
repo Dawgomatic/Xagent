@@ -42,7 +42,7 @@ export function connectSSE(onUpdate, onStatusChange) {
       console.log("[SSE] Connected");
       sseConnected = true;
       sseReconnectAttempts = 0;
-      onStatusChange?.("connected", "🟢 Live");
+      onStatusChange?.("connected", " Live");
       stopPolling();
     };
 
@@ -74,7 +74,7 @@ export function connectSSE(onUpdate, onStatusChange) {
       sseConnected = false;
       eventSource.close();
       eventSource = null;
-      onStatusChange?.("disconnected", "🔴 Disconnected");
+      onStatusChange?.("disconnected", " Disconnected");
 
       // Exponential backoff for reconnection
       sseReconnectAttempts++;
@@ -88,7 +88,7 @@ export function connectSSE(onUpdate, onStatusChange) {
     };
   } catch (err) {
     console.error("[SSE] Failed to create EventSource:", err);
-    onStatusChange?.("disconnected", "🔴 Error");
+    onStatusChange?.("disconnected", " Error");
     startPolling(onUpdate);
   }
 }

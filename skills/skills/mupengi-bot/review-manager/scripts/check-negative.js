@@ -78,9 +78,9 @@ function sendDiscordAlert(channelId, message) {
     // OpenClaw message tool 사용
     const cmd = `openclaw message send --channel discord --target "${channelId}" --message "${message.replace(/"/g, '\\"')}"`;
     execSync(cmd, { encoding: 'utf-8' });
-    console.log('📨 Discord 알림 전송 완료');
+    console.log(' Discord 알림 전송 완료');
   } catch (err) {
-    console.error('❌ Discord 알림 전송 실패:', err.message);
+    console.error(' Discord 알림 전송 실패:', err.message);
   }
 }
 
@@ -89,7 +89,7 @@ async function main() {
   const config = loadConfig();
   
   if (!config.alert?.enabled) {
-    console.log('⚠️  알림 기능이 비활성화되어 있습니다 (config.json)');
+    console.log('  알림 기능이 비활성화되어 있습니다 (config.json)');
     return;
   }
   
@@ -111,14 +111,14 @@ async function main() {
   }
   
   if (newNegatives.length === 0) {
-    console.log('✅ 새로운 부정 리뷰 없음');
+    console.log(' 새로운 부정 리뷰 없음');
     return;
   }
   
-  console.log(`🚨 부정 리뷰 ${newNegatives.length}개 감지!\n`);
+  console.log(` 부정 리뷰 ${newNegatives.length}개 감지!\n`);
   
   for (const { review, reason } of newNegatives) {
-    console.log(`📍 [${review.platform}] ${review.author} (⭐${review.rating})`);
+    console.log(` [${review.platform}] ${review.author} (${review.rating})`);
     console.log(`   사유: ${reason}`);
     console.log(`   내용: ${review.content}`);
     console.log('');
@@ -126,9 +126,9 @@ async function main() {
   
   // Discord 알림
   if (config.alert.channels.includes('discord') && config.alert.discordChannelId) {
-    const message = `🚨 **부정 리뷰 알림** (${newNegatives.length}건)\n\n` +
+    const message = ` **부정 리뷰 알림** (${newNegatives.length}건)\n\n` +
       newNegatives.map(({ review, reason }) => 
-        `**[${review.platform}]** ${review.author} ⭐${review.rating}\n` +
+        `**[${review.platform}]** ${review.author} ${review.rating}\n` +
         `사유: ${reason}\n` +
         `> ${review.content}\n`
       ).join('\n');
@@ -141,6 +141,6 @@ async function main() {
 }
 
 main().catch(err => {
-  console.error('❌ 오류:', err.message);
+  console.error(' 오류:', err.message);
   process.exit(1);
 });

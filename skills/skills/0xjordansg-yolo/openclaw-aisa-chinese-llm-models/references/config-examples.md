@@ -121,7 +121,7 @@ For heavy reasoning tasks, switch model in chat:
 }
 ```
 
-> ⚠️ Kimi K2.5 requires temperature=1.0. Other values cause API errors.
+>  Kimi K2.5 requires temperature=1.0. Other values cause API errors.
 
 ## Multi-Provider Setup (AIsa + Anthropic)
 
@@ -175,10 +175,10 @@ For heavy reasoning tasks, switch model in chat:
 | Common Name | Correct AIsa Model ID | Notes |
 |-------------|----------------------|-------|
 | Qwen3 Max | `aisa/qwen3-max` | Flagship, works as-is |
-| Qwen Plus | `aisa/qwen-plus-2025-12-01` | ⚠️ Must use dated version |
-| Qwen Flash | `aisa/qwen-mt-flash` | ⚠️ Use `qwen-mt-flash` not `qwen3-flash` |
+| Qwen Plus | `aisa/qwen-plus-2025-12-01` |  Must use dated version |
+| Qwen Flash | `aisa/qwen-mt-flash` |  Use `qwen-mt-flash` not `qwen3-flash` |
 | Qwen MT Lite | `aisa/qwen-mt-lite` | Even lighter alternative |
 | DeepSeek V3.1 | `aisa/deepseek-v3.1` | Works as-is |
 | DeepSeek R1 | `aisa/deepseek-r1` | Reasoning-focused variant |
-| Kimi K2.5 | `aisa/kimi-k2.5` | ⚠️ Requires temperature=1.0 |
+| Kimi K2.5 | `aisa/kimi-k2.5` |  Requires temperature=1.0 |
 | Kimi K2 Thinking | `aisa/kimi-k2-thinking` | Extended thinking variant |

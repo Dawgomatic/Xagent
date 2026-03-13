@@ -7,7 +7,7 @@ description: Automate web browser interactions using the stagehand CLI for AI ag
 
 Automate web browser interactions using the `stagehand` CLI for AI agents.
 
-**🚨 CRITICAL - READ THIS FIRST 🚨**
+** CRITICAL - READ THIS FIRST **
 
 A Browserbase session with stealth/proxy/captcha has been pre-created for you.
 
@@ -44,16 +44,16 @@ stagehand --ws $BROWSERBASE_CONNECT_URL open https://example.com
 ```
 
 **WHY:**
-- ✅ Browser runs in Browserbase cloud (NOT locally)
-- ✅ Advanced stealth mode enabled (bypasses Cloudflare)
-- ✅ Residential proxies enabled
-- ✅ CAPTCHA solving enabled
-- ✅ Session recordings at: $BROWSERBASE_DEBUG_URL
+-  Browser runs in Browserbase cloud (NOT locally)
+-  Advanced stealth mode enabled (bypasses Cloudflare)
+-  Residential proxies enabled
+-  CAPTCHA solving enabled
+-  Session recordings at: $BROWSERBASE_DEBUG_URL
 
 **IF YOU FORGET `--ws $BROWSERBASE_CONNECT_URL`:**
-- ❌ Will launch LOCAL Chrome browser
-- ❌ Will NOT use stealth/proxy/captcha
-- ❌ Will fail the evaluation
+-  Will launch LOCAL Chrome browser
+-  Will NOT use stealth/proxy/captcha
+-  Will fail the evaluation
 
 ## Quick Start Workflow
 
@@ -269,10 +269,10 @@ stagehand --ws $BROWSERBASE_CONNECT_URL snapshot -c  # Get new state
 
 ### 3. Use refs instead of selectors
 ```bash
-# ✅ Good: Use refs from snapshot
+#  Good: Use refs from snapshot
 stagehand --ws $BROWSERBASE_CONNECT_URL click @0-5
 
-# ❌ Avoid: Manual selectors (refs are more reliable)
+#  Avoid: Manual selectors (refs are more reliable)
 stagehand --ws $BROWSERBASE_CONNECT_URL click "#submit-button"
 ```
 
@@ -285,10 +285,10 @@ stagehand --ws $BROWSERBASE_CONNECT_URL snapshot -c
 
 ### 5. Always use --ws $BROWSERBASE_CONNECT_URL
 ```bash
-# ✅ Correct: Remote browser (connects to pre-created Browserbase session)
+#  Correct: Remote browser (connects to pre-created Browserbase session)
 stagehand --ws $BROWSERBASE_CONNECT_URL open https://example.com
 
-# ❌ Wrong: Local browser (will fail in evals, launches Chrome locally)
+#  Wrong: Local browser (will fail in evals, launches Chrome locally)
 stagehand open https://example.com
 ```
 

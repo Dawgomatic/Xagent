@@ -342,33 +342,33 @@ async function runDiagnostics(options = {}) {
  * Print diagnostic report to console
  */
 function printReport(report) {
-  console.log('\n🔍 SWARM DIAGNOSTICS REPORT');
+  console.log('\n SWARM DIAGNOSTICS REPORT');
   console.log('═'.repeat(50));
   
   // Machine info
-  console.log('\n📊 Machine Profile');
+  console.log('\n Machine Profile');
   console.log(`   OS: ${report.machine.os.platform} ${report.machine.os.arch}`);
   console.log(`   CPU: ${report.machine.cpu.cores} cores (${report.machine.cpu.model.substring(0, 40)})`);
   console.log(`   Memory: ${report.machine.memory.freeGb}GB free / ${report.machine.memory.totalGb}GB total`);
   console.log(`   Node.js: ${report.machine.node.version}`);
   
-  if (report.machine.os.isDocker) console.log('   ⚠️  Running in Docker');
-  if (report.machine.os.isWSL) console.log('   ℹ️  Running in WSL');
+  if (report.machine.os.isDocker) console.log('     Running in Docker');
+  if (report.machine.os.isWSL) console.log('     Running in WSL');
   
   // Test results
   if (report.tests) {
-    console.log('\n🧪 Test Results');
+    console.log('\n Test Results');
     const t = report.tests;
-    console.log(`   Unit:        ${t.unit.skipped ? '⏭️  Skipped' : t.unit.failed > 0 ? `❌ ${t.unit.passed}/${t.unit.passed + t.unit.failed}` : `✅ ${t.unit.passed} passed`}`);
-    console.log(`   Integration: ${t.integration.skipped ? '⏭️  Skipped' : t.integration.failed > 0 ? `❌ ${t.integration.passed}/${t.integration.passed + t.integration.failed}` : `✅ ${t.integration.passed} passed`}`);
-    console.log(`   E2E:         ${t.e2e.skipped ? '⏭️  Skipped (no API key)' : t.e2e.failed > 0 ? `❌ ${t.e2e.passed}/${t.e2e.passed + t.e2e.failed}` : `✅ ${t.e2e.passed} passed`}`);
+    console.log(`   Unit:        ${t.unit.skipped ? '  Skipped' : t.unit.failed > 0 ? ` ${t.unit.passed}/${t.unit.passed + t.unit.failed}` : ` ${t.unit.passed} passed`}`);
+    console.log(`   Integration: ${t.integration.skipped ? '  Skipped' : t.integration.failed > 0 ? ` ${t.integration.passed}/${t.integration.passed + t.integration.failed}` : ` ${t.integration.passed} passed`}`);
+    console.log(`   E2E:         ${t.e2e.skipped ? '  Skipped (no API key)' : t.e2e.failed > 0 ? ` ${t.e2e.passed}/${t.e2e.passed + t.e2e.failed}` : ` ${t.e2e.passed} passed`}`);
   }
   
   // Issues
   if (report.issues.length > 0) {
-    console.log('\n⚠️  Issues Found');
+    console.log('\n  Issues Found');
     for (const issue of report.issues) {
-      const icon = issue.severity === 'error' ? '❌' : '⚠️';
+      const icon = issue.severity === 'error' ? '' : '';
       console.log(`   ${icon} ${issue.message}`);
       if (issue.fix) {
         console.log(`      Fix: ${issue.fix}`);
@@ -377,7 +377,7 @@ function printReport(report) {
   }
   
   // Recommendations
-  console.log('\n💡 Recommendations');
+  console.log('\n Recommendations');
   for (const rec of report.recommendations) {
     console.log(`   • ${rec}`);
   }
@@ -385,11 +385,11 @@ function printReport(report) {
   // Status
   console.log('\n' + '─'.repeat(50));
   if (report.status === 'ok') {
-    console.log('✅ Status: All checks passed!\n');
+    console.log(' Status: All checks passed!\n');
   } else if (report.status === 'warning') {
-    console.log('⚠️  Status: Warnings found (Swarm should still work)\n');
+    console.log('  Status: Warnings found (Swarm should still work)\n');
   } else {
-    console.log('❌ Status: Errors found (Swarm may not work correctly)\n');
+    console.log(' Status: Errors found (Swarm may not work correctly)\n');
   }
 }
 

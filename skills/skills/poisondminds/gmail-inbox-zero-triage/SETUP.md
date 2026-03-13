@@ -54,10 +54,10 @@ The agent will:
 
 ## Actions Explained
 
-- **📥 Archive** - Removes from inbox (still searchable in All Mail)
-- **🔍 Filter** - Creates Gmail filter to auto-archive future emails from this sender
-- **🚫 Unsubscribe** - Finds and shows unsubscribe link
-- **📧 View** - Shows full email content
+- ** Archive** - Removes from inbox (still searchable in All Mail)
+- ** Filter** - Creates Gmail filter to auto-archive future emails from this sender
+- ** Unsubscribe** - Finds and shows unsubscribe link
+- ** View** - Shows full email content
 - **Don't click** - Skips the email (leaves in inbox)
 
 ## Tips
@@ -108,4 +108,4 @@ Then restart your terminal or run `source ~/.bashrc`.
 
 ---
 
-Happy inbox zero! 📬✨
+Happy inbox zero! 

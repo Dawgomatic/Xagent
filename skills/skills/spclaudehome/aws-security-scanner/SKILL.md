@@ -22,9 +22,9 @@ aws s3api list-buckets --query 'Buckets[].Name' --output text | tr '\t' '\n' | w
   policy=$(aws s3api get-bucket-policy --bucket "$bucket" 2>/dev/null)
   public_access=$(aws s3api get-public-access-block --bucket "$bucket" 2>/dev/null)
   echo "=== $bucket ==="
-  echo "$acl" | grep -q "AllUsers\|AuthenticatedUsers" && echo "⚠️ PUBLIC ACL"
-  echo "$policy" | grep -q '"Principal":"\*"' && echo "⚠️ PUBLIC POLICY"
-  echo "$public_access" | grep -q "false" && echo "⚠️ Public access not fully blocked"
+  echo "$acl" | grep -q "AllUsers\|AuthenticatedUsers" && echo " PUBLIC ACL"
+  echo "$policy" | grep -q '"Principal":"\*"' && echo " PUBLIC POLICY"
+  echo "$public_access" | grep -q "false" && echo " Public access not fully blocked"
 done
 ```
 
@@ -37,7 +37,7 @@ aws iam get-credential-report --query 'Content' --output text | base64 -d | grep
 # Overly permissive policies (Admin access)
 aws iam list-policies --scope Local --query 'Policies[].Arn' --output text | tr '\t' '\n' | while read arn; do
   version=$(aws iam get-policy --policy-arn "$arn" --query 'Policy.DefaultVersionId' --output text)
-  aws iam get-policy-version --policy-arn "$arn" --version-id "$version" --query 'PolicyVersion.Document' | grep -q '"Action":"\*".*"Resource":"\*"' && echo "⚠️ Admin policy: $arn"
+  aws iam get-policy-version --policy-arn "$arn" --version-id "$version" --query 'PolicyVersion.Document' | grep -q '"Action":"\*".*"Resource":"\*"' && echo " Admin policy: $arn"
 done
 
 # Access keys older than 90 days
@@ -105,14 +105,14 @@ echo "## Security Groups"
 
 | Issue | Severity | 
 |-------|----------|
-| S3 bucket public | 🔴 Critical |
-| SSH/RDP open to world | 🔴 Critical |
-| IAM user without MFA | 🟠 High |
-| Admin policy attached | 🟠 High |
-| CloudTrail disabled | 🟠 High |
-| RDS publicly accessible | 🟠 High |
-| Unencrypted EBS/RDS | 🟡 Medium |
-| Access keys > 90 days | 🟡 Medium |
+| S3 bucket public |  Critical |
+| SSH/RDP open to world |  Critical |
+| IAM user without MFA |  High |
+| Admin policy attached |  High |
+| CloudTrail disabled |  High |
+| RDS publicly accessible |  High |
+| Unencrypted EBS/RDS |  Medium |
+| Access keys > 90 days |  Medium |
 
 ## CIS Benchmark Checks
 

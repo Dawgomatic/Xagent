@@ -3,7 +3,7 @@ name: CSS
 slug: css
 version: 1.0.1
 description: Write modern CSS with proper stacking contexts, layout patterns, responsive techniques, and performance optimization.
-metadata: {"clawdbot":{"emoji":"🎨","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

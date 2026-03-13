@@ -136,14 +136,14 @@ interface BecomeFrenOptions {
  * Register as an AI Fren and launch your Frencoin
  */
 async function becomeFren(options: BecomeFrenOptions) {
-  console.log('\n🎭 BECOMING AN AI FREN\n');
+  console.log('\n BECOMING AN AI FREN\n');
   console.log(`Name: ${options.name}`);
   console.log(`Bio: ${options.bio}`);
   
   const { publicClient, walletClient, account } = getClients();
   
   // Check if already a Fren
-  console.log('\n📋 Checking if already registered...');
+  console.log('\n Checking if already registered...');
   try {
     const existingFrenId = await publicClient.readContract({
       address: CONFIG.FREN_REGISTRY,
@@ -153,7 +153,7 @@ async function becomeFren(options: BecomeFrenOptions) {
     });
     
     if (existingFrenId > 0n) {
-      console.log(`\n⚠️  You're already registered as Fren #${existingFrenId}`);
+      console.log(`\n  You're already registered as Fren #${existingFrenId}`);
       console.log('Run "check-status" to see your Fren details.');
       return;
     }
@@ -170,16 +170,16 @@ async function becomeFren(options: BecomeFrenOptions) {
     platform: 'OpenClaw',
   });
   
-  console.log('\n💰 Checking ETH balance...');
+  console.log('\n Checking ETH balance...');
   const balance = await publicClient.getBalance({ address: account.address });
   console.log(`Balance: ${formatEther(balance)} ETH`);
   
   if (balance < CONFIG.CREATION_FEE_ETH) {
-    console.log(`\n❌ Insufficient ETH. Need at least ${formatEther(CONFIG.CREATION_FEE_ETH)} ETH for creation fee.`);
+    console.log(`\n Insufficient ETH. Need at least ${formatEther(CONFIG.CREATION_FEE_ETH)} ETH for creation fee.`);
     return;
   }
   
-  console.log('\n🚀 Registering Fren and launching Frencoin...');
+  console.log('\n Registering Fren and launching Frencoin...');
   
   try {
     const hash = await walletClient.writeContract({
@@ -196,16 +196,16 @@ async function becomeFren(options: BecomeFrenOptions) {
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     
     if (receipt.status === 'success') {
-      console.log('\n✅ SUCCESS! You are now an AI Fren!\n');
-      console.log('🎉 Your Frencoin has been deployed');
-      console.log('🎉 Uniswap pool created (paired with MAGIC)');
-      console.log('🎉 402 endpoint registered');
+      console.log('\n SUCCESS! You are now an AI Fren!\n');
+      console.log(' Your Frencoin has been deployed');
+      console.log(' Uniswap pool created (paired with MAGIC)');
+      console.log(' 402 endpoint registered');
       console.log('\nRun "check-status" to see your Fren details.');
     } else {
-      console.log('\n❌ Transaction failed');
+      console.log('\n Transaction failed');
     }
   } catch (e: any) {
-    console.log(`\n❌ Error: ${e.message}`);
+    console.log(`\n Error: ${e.message}`);
   }
 }
 
@@ -213,7 +213,7 @@ async function becomeFren(options: BecomeFrenOptions) {
  * Check your AI Fren status
  */
 async function checkStatus() {
-  console.log('\n📊 CHECKING AI FREN STATUS\n');
+  console.log('\n CHECKING AI FREN STATUS\n');
   
   const { publicClient, account } = getClients();
   
@@ -229,7 +229,7 @@ async function checkStatus() {
     });
     
     if (frenId === 0n) {
-      console.log('\n❌ Not registered as an AI Fren yet.');
+      console.log('\n Not registered as an AI Fren yet.');
       console.log('Run "become-fren" to get started!');
       return;
     }
@@ -249,20 +249,20 @@ async function checkStatus() {
       functionName: 'totalSupply',
     });
     
-    console.log('\n🎭 YOUR AI FREN');
+    console.log('\n YOUR AI FREN');
     console.log('━'.repeat(40));
     console.log(`Fren ID: #${frenId}`);
     console.log(`Name: ${name}`);
     console.log(`Owner: ${owner}`);
-    console.log(`\n💰 FRENCOIN`);
+    console.log(`\n FRENCOIN`);
     console.log(`Address: ${frencoin}`);
     console.log(`Total Supply: ${formatUnits(totalSupply, 18)}`);
-    console.log(`\n📈 METRICS`);
+    console.log(`\n METRICS`);
     console.log(`Treasury: ${formatEther(treasury)} ETH`);
     console.log(`Subscribers: ${subscriberCount}`);
     
   } catch (e: any) {
-    console.log(`\n❌ Error: ${e.message}`);
+    console.log(`\n Error: ${e.message}`);
     console.log('\nAre you registered as an AI Fren?');
   }
 }
@@ -271,7 +271,7 @@ async function checkStatus() {
  * Claim from your Fren treasury
  */
 async function claimTreasury(amount: string) {
-  console.log('\n💸 CLAIMING FROM TREASURY\n');
+  console.log('\n CLAIMING FROM TREASURY\n');
   
   const { publicClient, walletClient, account } = getClients();
   const amountWei = parseEther(amount);
@@ -292,12 +292,12 @@ async function claimTreasury(amount: string) {
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     
     if (receipt.status === 'success') {
-      console.log(`\n✅ Claimed ${amount} ETH from treasury!`);
+      console.log(`\n Claimed ${amount} ETH from treasury!`);
     } else {
-      console.log('\n❌ Transaction failed');
+      console.log('\n Transaction failed');
     }
   } catch (e: any) {
-    console.log(`\n❌ Error: ${e.message}`);
+    console.log(`\n Error: ${e.message}`);
   }
 }
 

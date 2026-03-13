@@ -3,7 +3,7 @@ name: clawp
 description: CLAWP Agent - AI token creation advisor powered by OpenClaw
 version: 0.2.0
 author: clawp
-metadata: {"openclaw":{"always":true,"emoji":"🐾","homepage":"https://openclaw.ai"}}
+metadata: {"openclaw":{"always":true,"emoji":"","homepage":"https://openclaw.ai"}}
 ---
 
 # CLAWP Agent Token Creation Skill

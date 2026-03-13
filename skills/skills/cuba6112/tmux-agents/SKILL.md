@@ -15,7 +15,7 @@ triggers:
   - ollama agent
 metadata:
   clawdbot:
-    emoji: "🖥️"
+    emoji: ""
     requires:
       bins: ["tmux"]
     install:
@@ -32,7 +32,7 @@ Run coding agents in persistent tmux sessions. They work in the background while
 
 ## Available Agents
 
-### ☁️ Cloud Agents (API credits)
+###  Cloud Agents (API credits)
 
 | Agent | Command | Best For |
 |-------|---------|----------|
@@ -40,7 +40,7 @@ Run coding agents in persistent tmux sessions. They work in the background while
 | **codex** | OpenAI Codex | Quick edits, auto-approve mode |
 | **gemini** | Google Gemini | Research, analysis, documentation |
 
-### 🦙 Local Agents (FREE via Ollama)
+###  Local Agents (FREE via Ollama)
 
 | Agent | Command | Best For |
 |-------|---------|----------|
@@ -97,12 +97,12 @@ tmux kill-session -t session-name
 
 | Scenario | Recommendation |
 |----------|----------------|
-| Quick fix, time-sensitive | ☁️ Cloud (faster) |
-| Expensive task, budget matters | 🦙 Local |
-| Long experiment, might fail | 🦙 Local |
-| Production code review | ☁️ Cloud (smarter) |
-| Learning/exploring | 🦙 Local |
-| Heavy refactoring | 🦙 Local |
+| Quick fix, time-sensitive |  Cloud (faster) |
+| Expensive task, budget matters |  Local |
+| Long experiment, might fail |  Local |
+| Production code review |  Cloud (smarter) |
+| Learning/exploring |  Local |
+| Heavy refactoring |  Local |
 
 ## Parallel Agents
 

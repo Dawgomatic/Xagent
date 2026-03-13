@@ -95,7 +95,7 @@ def main():
         if f["skin_temp"]:
             print(f"  Skin Temp:     {f['skin_temp']}°C")
         if f["calibrating"]:
-            print("  ⚠️  User is calibrating")
+            print("    User is calibrating")
         print()
 
 

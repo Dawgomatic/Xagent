@@ -17,14 +17,14 @@ ARCHIVE_THRESHOLD=0.2
 TODAY=$(date +%Y-%m-%d)
 
 if [ ! -f "$INDEX" ]; then
-    echo "❌ index.json not found at $INDEX"
+    echo " index.json not found at $INDEX"
     exit 1
 fi
 
 # Backup before modifying
 cp "$INDEX" "$BACKUP"
 
-echo "🧠 Memory Decay Process"
+echo " Memory Decay Process"
 echo "======================="
 echo "Date: $TODAY"
 echo "Decay rate: $DECAY_RATE per day"
@@ -33,7 +33,7 @@ echo ""
 # Check if decay was already run today
 LAST_DECAY=$(python3 -c "import json; print(json.load(open('$INDEX')).get('decayLastRun', 'never'))" 2>/dev/null || echo "never")
 if [ "$LAST_DECAY" = "$TODAY" ]; then
-    echo "⏸️  Decay already ran today ($LAST_DECAY). Skipping."
+    echo "  Decay already ran today ($LAST_DECAY). Skipping."
     exit 0
 fi
 
@@ -80,7 +80,7 @@ for mem in data.get('memories', []):
         
         if new_importance < old_importance:
             decayed += 1
-            print(f"  📉 {mem['id']}: {old_importance:.3f} → {new_importance:.3f} ({days}d)")
+            print(f"   {mem['id']}: {old_importance:.3f} → {new_importance:.3f} ({days}d)")
         
         # Mark for archival review if below threshold
         if new_importance < ARCHIVE_THRESHOLD:
@@ -94,9 +94,9 @@ data['lastUpdated'] = datetime.now().isoformat()
 with open(INDEX_PATH, 'w') as f:
     json.dump(data, f, indent=2)
 
-print(f"\n✅ Decayed {decayed} memories")
+print(f"\n Decayed {decayed} memories")
 if archived_candidates:
-    print(f"⚠️  {len(archived_candidates)} memories below {ARCHIVE_THRESHOLD} threshold:")
+    print(f"  {len(archived_candidates)} memories below {ARCHIVE_THRESHOLD} threshold:")
     for mid in archived_candidates:
         print(f"   - {mid}")
     print("   Consider reviewing these for archival.")

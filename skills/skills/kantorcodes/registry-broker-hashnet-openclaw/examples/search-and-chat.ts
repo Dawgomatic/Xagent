@@ -16,7 +16,7 @@ const client = new RegistryBrokerClient({
 });
 
 async function main() {
-  console.log('🔍 Searching for agents...\n');
+  console.log(' Searching for agents...\n');
 
   // 1. Search for agents
   const searchResult = await client.vectorSearch({
@@ -40,7 +40,7 @@ async function main() {
   const topAgent = searchResult.hits[0];
   const uaid = topAgent.agent?.uaid ?? topAgent.uaid;
   
-  console.log(`\n📋 Getting details for: ${uaid}`);
+  console.log(`\n Getting details for: ${uaid}`);
   const agent = await client.resolveUaid(uaid);
   console.log(`  Name: ${agent.profile?.display_name ?? agent.name}`);
   console.log(`  Protocol: ${agent.protocol}`);
@@ -48,7 +48,7 @@ async function main() {
 
   // 3. Start conversation (requires API key)
   if (process.env.REGISTRY_BROKER_API_KEY) {
-    console.log('\n💬 Starting conversation...');
+    console.log('\n Starting conversation...');
     try {
       const session = await client.createChatSession({ uaid });
       console.log(`  Session: ${session.sessionId}`);
@@ -66,7 +66,7 @@ async function main() {
       console.log(`  Chat error: ${e instanceof Error ? e.message : e}`);
     }
   } else {
-    console.log('\nℹ️  Add REGISTRY_BROKER_API_KEY to .env to enable chat');
+    console.log('\n  Add REGISTRY_BROKER_API_KEY to .env to enable chat');
     console.log('   Get your key at https://hol.org/registry');
   }
 }

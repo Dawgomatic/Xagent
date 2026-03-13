@@ -98,7 +98,7 @@ func (t *LLMCheckTool) check(category string) *ToolResult {
 	if result.Ollama.Available {
 		sb.WriteString(fmt.Sprintf("Ollama: v%s (running)\n", result.Ollama.Version))
 	} else {
-		sb.WriteString(fmt.Sprintf("Ollama: not running\n"))
+		sb.WriteString("Ollama: not running\n")
 	}
 
 	if result.TopPick != nil {

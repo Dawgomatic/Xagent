@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 目录
+##  目录
 
 1. [执行摘要](#执行摘要)
 2. [测试方法](#测试方法)
@@ -35,12 +35,12 @@
 
 ### 核心发现
 
-1. ✅ **优势**:
+1.  **优势**:
    - 三级报告级别设计合理
    - 错误处理覆盖全面
    - 文档详尽，中英双语支持
 
-2. ❌ **劣势**:
+2.  **劣势**:
    - 默认文件路径配置问题
    - Telegram 消息分块发送未实现
    - 输出格式与技术文档示例不一致
@@ -59,12 +59,12 @@
 
 | 场景编号 | 测试内容 | 预期结果 | 实际结果 |
 |---------|---------|---------|---------|
-| TS-01 | Minimal 级别输出 | 简洁摘要 | ✅ 通过 |
-| TS-02 | Normal 级别输出 | 详细报告 | ✅ 通过 (格式偏差) |
-| TS-03 | Detailed 级别输出 | 完整转储 | ✅ 通过 |
-| TS-04 | 文件不存在 | 错误提示 | ✅ 通过 |
-| TS-05 | 相对路径加载 | 自动解析 | ❌ 失败 |
-| TS-06 | JSON 格式支持 | 正确解析 | ✅ 通过 |
+| TS-01 | Minimal 级别输出 | 简洁摘要 |  通过 |
+| TS-02 | Normal 级别输出 | 详细报告 |  通过 (格式偏差) |
+| TS-03 | Detailed 级别输出 | 完整转储 |  通过 |
+| TS-04 | 文件不存在 | 错误提示 |  通过 |
+| TS-05 | 相对路径加载 | 自动解析 |  失败 |
+| TS-06 | JSON 格式支持 | 正确解析 |  通过 |
 
 ### 输出质量对比
 
@@ -72,11 +72,11 @@
 
 **期望输出 (Normal)**:
 ```
-✅ 上下文已恢复
+ 上下文已恢复
 
 当前活跃项目：
-1. 🏛️ Hermes Plan - 数据分析助手（进度：80%）
-2. 🌐 Akasha Plan - 自主新闻系统（进度：45%）
+1.  Hermes Plan - 数据分析助手（进度：80%）
+2.  Akasha Plan - 自主新闻系统（进度：45%）
 
 待办任务：
 - [高] 编写数据管道测试用例
@@ -95,24 +95,24 @@
 CONTEXT RESTORE REPORT (Normal)
 ============================================================
 
-📊 Context Compression Info:
+ Context Compression Info:
    Original messages: 45
    Compressed messages: 12
    Timestamp: 2026-02-06T23:30:00.000
    Compression ratio: 26.7%
 
-🔄 Recent Operations (4)
+ Recent Operations (4)
    • **上下文已恢复**
    • 11个cron任务已转为 isolated mode
    ...
 
-📁 Hermes Plan
+ Hermes Plan
    Description: Data analysis assistant for Excel, documents, and reports
    Status: Active
 ```
 
 **差异分析**:
-1. 缺少"✅ 上下文已恢复"确认消息
+1. 缺少" 上下文已恢复"确认消息
 2. 缺少进度百分比
 3. 缺少优先级标签 [高/中/低]
 4. 缺少操作建议块
@@ -158,10 +158,10 @@ graph TD
 ```
 
 **缺失环节**:
-1. ❌ 自动上下文恢复提示
-2. ❌ 用户确认步骤
-3. ❌ 恢复后的操作建议
-4. ❌ Telegram 原生命令支持
+1.  自动上下文恢复提示
+2.  用户确认步骤
+3.  恢复后的操作建议
+4.  Telegram 原生命令支持
 
 ### 改进建议
 
@@ -182,15 +182,15 @@ graph TD
 CONTEXT RESTORE REPORT (Minimal)
 ============================================================
 
-📊 Context Status:
+ Context Status:
    Messages: 45 → 12
 
-🚀 Key Projects (3)
+ Key Projects (3)
    • Hermes Plan
    • Akasha Plan
    • Morning Brief
 
-📋 Ongoing Tasks (3)
+ Ongoing Tasks (3)
    • Isolated Sessions
    • Cron Tasks
    • Main Session
@@ -199,34 +199,34 @@ CONTEXT RESTORE REPORT (Minimal)
 ```
 
 **优点**:
-- ✅ 简洁明了
-- ✅ 信息密度适中
-- ✅ 分类清晰
+-  简洁明了
+-  信息密度适中
+-  分类清晰
 
 **问题**:
-- ❌ 缺少"上下文已恢复"确认
-- ❌ 缺少时间信息
-- ❌ 无操作建议
+-  缺少"上下文已恢复"确认
+-  缺少时间信息
+-  无操作建议
 
 #### Normal 级别 (评分: 6/10)
 
 **优点**:
-- ✅ 包含压缩率分析
-- ✅ 详细的项目描述
-- ✅ 任务状态完整
+-  包含压缩率分析
+-  详细的项目描述
+-  任务状态完整
 
 **问题**:
-- ❌ 英文分隔符 (`====`) 对中文用户不友好
-- ❌ 缺少进度百分比
-- ❌ MEMORY 高亮未触发
-- ❌ 时间格式不够友好 (`2026-02-06T23:30:00.000`)
+-  英文分隔符 (`====`) 对中文用户不友好
+-  缺少进度百分比
+-  MEMORY 高亮未触发
+-  时间格式不够友好 (`2026-02-06T23:30:00.000`)
 
 #### Detailed 级别 (评分: 5/10)
 
 **问题**:
-- ❌ JSON 格式的内部转储不适合终端用户
-- ❌ 原始内容预览过长
-- ❌ 缺少调试模式开关
+-  JSON 格式的内部转储不适合终端用户
+-  原始内容预览过长
+-  缺少调试模式开关
 
 ### 4.2 信息架构评估
 
@@ -254,10 +254,10 @@ CONTEXT RESTORE REPORT (Minimal)
 
 | 错误场景 | 当前消息 | 用户友好度 |
 |---------|---------|-----------|
-| 文件不存在 | `❌ Error: File not found: ./compressed_context/latest_compressed.json` | ⭐⭐⭐ |
-| 权限错误 | `❌ Error: Permission denied: {filepath}` | ⭐⭐⭐ |
-| 解析失败 | `❌ Unexpected error loading context: {e}` | ⭐⭐ |
-| 无效级别 | `❌ Error: Invalid level: xxx. Must be one of: minimal, normal, detailed` | ⭐⭐⭐ |
+| 文件不存在 | ` Error: File not found: ./compressed_context/latest_compressed.json` |  |
+| 权限错误 | ` Error: Permission denied: {filepath}` |  |
+| 解析失败 | ` Unexpected error loading context: {e}` |  |
+| 无效级别 | ` Error: Invalid level: xxx. Must be one of: minimal, normal, detailed` |  |
 
 ### 5.2 问题分析
 
@@ -270,18 +270,18 @@ CONTEXT RESTORE REPORT (Minimal)
 
 **当前**:
 ```
-❌ Error: File not found: ./compressed_context/latest_compressed.json
+ Error: File not found: ./compressed_context/latest_compressed.json
 ```
 
 **改进后**:
 ```
-⚠️ 未找到历史上下文文件
+ 未找到历史上下文文件
 
 可能原因：
 • 这是您的首次会话
 • 上下文文件已被清理
 
-💡 建议：从新会话开始，我将为您创建新的上下文记录。
+ 建议：从新会话开始，我将为您创建新的上下文记录。
 ```
 
 ---
@@ -318,18 +318,18 @@ CONTEXT RESTORE REPORT (Minimal)
 
 | 集成点 | 状态 | 描述 |
 |-------|------|------|
-| 关键词触发 | ✅ | 支持中英文关键词 |
-| 命令触发 | ✅ | 支持 `/context-restore` |
-| 自动触发 | ❌ | 无智能自动触发 |
-| 上下文恢复 | ✅ | 读取压缩上下文 |
-| 用户确认 | ❌ | 无确认流程 |
+| 关键词触发 |  | 支持中英文关键词 |
+| 命令触发 |  | 支持 `/context-restore` |
+| 自动触发 |  | 无智能自动触发 |
+| 上下文恢复 |  | 读取压缩上下文 |
+| 用户确认 |  | 无确认流程 |
 
 ### 7.2 Telegram 集成问题
 
-1. ❌ 无 `/restore` 命令别名
-2. ❌ 输出过长未分块
-3. ❌ 无内联按钮支持
-4. ❌ 无会话状态持久化
+1.  无 `/restore` 命令别名
+2.  输出过长未分块
+3.  无内联按钮支持
+4.  无会话状态持久化
 
 ---
 
@@ -401,17 +401,17 @@ def format_normal_report_v2(content: str) -> str:
     lines = []
     
     # 1. 确认消息
-    lines.append("✅ **上下文已恢复**")
+    lines.append(" **上下文已恢复**")
     lines.append("")
     
     # 2. 会话概览
-    lines.append("📊 **会话概览**")
+    lines.append(" **会话概览**")
     lines.append(f"• 原始消息: {original} → 压缩后: {compressed} ({ratio:.0f}%)")
     lines.append(f"• 最后活动: {format_timestamp(timestamp)}")
     lines.append("")
     
     # 3. 活跃项目
-    lines.append("🚀 **活跃项目**")
+    lines.append(" **活跃项目**")
     for i, project in enumerate(projects, 1):
         lines.append(f"{i}. **{project['name']}**")
         lines.append(f"   {project['description']}")
@@ -420,14 +420,14 @@ def format_normal_report_v2(content: str) -> str:
     lines.append("")
     
     # 4. 待办任务
-    lines.append("📋 **待办任务**")
+    lines.append(" **待办任务**")
     for task in tasks:
-        priority_emoji = {'高': '🔴', '中': '🟡', '低': '🟢'}.get(task.get('priority', ''), '⚪')
+        priority_emoji = {'高': '', '中': '', '低': ''}.get(task.get('priority', ''), '')
         lines.append(f"{priority_emoji} {task['task']}")
     lines.append("")
     
     # 5. 操作建议
-    lines.append("💡 **建议操作**")
+    lines.append(" **建议操作**")
     lines.append("• 输入任务名称继续工作")
     lines.append("• 说 \"查看详情\" 获取更多信息")
     lines.append("• 说 \"新任务\" 开始新工作")
@@ -441,26 +441,26 @@ def format_normal_report_v2(content: str) -> str:
 def format_error_message(error_type: str, details: str) -> str:
     error_messages = {
         'file_not_found': """
-⚠️ **未找到上下文文件**
+ **未找到上下文文件**
 
 这可能是以下情况：
 • 首次使用 OpenClaw
 • 上下文文件已被清理
 
-💡 从新会话开始，我将记录新的上下文。
+ 从新会话开始，我将记录新的上下文。
         """,
         'permission_denied': """
-⚠️ **无法访问上下文文件**
+ **无法访问上下文文件**
 
 权限不足，请检查文件权限或联系管理员。
         """,
         'parse_error': """
-⚠️ **上下文文件异常**
+ **上下文文件异常**
 
 文件格式损坏，正在尝试恢复...
         """
     }
-    return error_messages.get(error_type, f"❌ 错误: {details}")
+    return error_messages.get(error_type, f" 错误: {details}")
 ```
 
 ### 9.2 中期改进 (2-4周)
@@ -497,12 +497,12 @@ class TelegramContextRestore:
         return {
             'inline_keyboard': [
                 [
-                    {'text': '📋 详细报告', 'callback_data': 'ctx_detail'},
-                    {'text': '🚀 继续项目', 'callback_data': 'ctx_continue'}
+                    {'text': ' 详细报告', 'callback_data': 'ctx_detail'},
+                    {'text': ' 继续项目', 'callback_data': 'ctx_continue'}
                 ],
                 [
-                    {'text': '➡️ 直接继续', 'callback_data': 'ctx_skip'},
-                    {'text': '❓ 帮助', 'callback_data': 'ctx_help'}
+                    {'text': ' 直接继续', 'callback_data': 'ctx_skip'},
+                    {'text': ' 帮助', 'callback_data': 'ctx_help'}
                 ]
             ]
         }
@@ -534,12 +534,12 @@ class ContextRestoreTrigger:
     def get_auto_response(self, context_report: str) -> str:
         """生成自动触发时的响应"""
         return f"""
-🤖 检测到您想继续之前的工作...
+ 检测到您想继续之前的工作...
 
 {context_report}
 
 ---
-💡 输入任务名称继续，或说 "查看详情" 获取更多信息。
+ 输入任务名称继续，或说 "查看详情" 获取更多信息。
         """
 ```
 
@@ -554,7 +554,7 @@ class ContextRestoreWizard:
     STEPS = [
         {
             'name': 'welcome',
-            'message': "👋 欢迎回来！让我恢复您的工作上下文...",
+            'message': " 欢迎回来！让我恢复您的工作上下文...",
             'action': 'load_context'
         },
         {
@@ -632,39 +632,39 @@ def calculate_context_quality(context: dict) -> dict:
 
 ```markdown
 # 消息1: 确认 + 概览
-✅ **上下文已恢复**
+ **上下文已恢复**
 
-📊 **会话概览**
+ **会话概览**
 • 时间: 2小时前
 • 消息: 45 → 12 (压缩率 27%)
 • 活跃会话: 3
 
 # 消息2: 项目列表
-🚀 **活跃项目** (3)
+ **活跃项目** (3)
 
-1. **Hermes Plan** 🏛️
+1. **Hermes Plan** 
    数据分析助手，进度 80%
 
-2. **Akasha Plan** 🌐
+2. **Akasha Plan** 
    自主新闻系统，进度 45%
 
-3. **Morning Brief** 📰
+3. **Morning Brief** 
    晨间简报，每天 8 AM
 
 # 消息3: 任务 + 建议
-📋 **待办任务** (3)
+ **待办任务** (3)
 
-🔴 高优先级
+ 高优先级
    • 数据管道测试用例
 
-🟡 中优先级
+ 中优先级
    • Akasha UI 组件设计
 
-🟢 低优先级
+ 低优先级
    • README 文档更新
 
 ---
-💡 **建议操作**
+ **建议操作**
 • 输入项目名称继续
 • 说 "查看详情"
 • 说 "新任务" 开始新工作
@@ -674,22 +674,22 @@ def calculate_context_quality(context: dict) -> dict:
 
 ```bash
 ╔══════════════════════════════════════════════════════════════╗
-║                 ✅ 上下文已恢复                               ║
+║                  上下文已恢复                               ║
 ╠══════════════════════════════════════════════════════════════╣
-║ 📊 会话概览                                                   ║
+║  会话概览                                                   ║
 ║    时间: 2小时前 | 消息: 45→12 (27%) | 会话: 3               ║
 ╠══════════════════════════════════════════════════════════════╣
-║ 🚀 活跃项目                                                   ║
-║    1. Hermes Plan  🏛️  (80%) 数据分析助手                     ║
-║    2. Akasha Plan  🌐  (45%) 自主新闻系统                     ║
-║    3. Morning Brief 📰  晨间简报                              ║
+║  活跃项目                                                   ║
+║    1. Hermes Plan    (80%) 数据分析助手                     ║
+║    2. Akasha Plan    (45%) 自主新闻系统                     ║
+║    3. Morning Brief   晨间简报                              ║
 ╠══════════════════════════════════════════════════════════════╣
-║ 📋 待办任务                                                   ║
-║    🔴 数据管道测试用例                                        ║
-║    🟡 Akasha UI 组件设计                                      ║
-║    🟢 README 文档更新                                         ║
+║  待办任务                                                   ║
+║     数据管道测试用例                                        ║
+║     Akasha UI 组件设计                                      ║
+║     README 文档更新                                         ║
 ╠══════════════════════════════════════════════════════════════╣
-║ 💡 建议: 输入项目名称继续 / 查看详情 / 新任务                  ║
+║  建议: 输入项目名称继续 / 查看详情 / 新任务                  ║
 ╚══════════════════════════════════════════════════════════════╝
 ```
 
@@ -712,7 +712,7 @@ def calculate_context_quality(context: dict) -> dict:
     "projects": [
       {
         "name": "Hermes Plan",
-        "emoji": "🏛️",
+        "emoji": "",
         "description": "数据分析助手",
         "status": "active",
         "progress": 80,

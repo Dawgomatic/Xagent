@@ -14,7 +14,7 @@
       "agent": "sms-notifier",
       "action": "send_sms",
       "input": {
-        "message": "🚨 CRITICAL: {{payload.message}}"
+        "message": " CRITICAL: {{payload.message}}"
       }
     },
     {
@@ -24,7 +24,7 @@
       "agent": "telegram-notifier",
       "action": "send",
       "input": {
-        "message": "⚠️ High Priority: {{payload.message}}"
+        "message": " High Priority: {{payload.message}}"
       }
     },
     {

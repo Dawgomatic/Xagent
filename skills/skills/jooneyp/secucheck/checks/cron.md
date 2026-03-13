@@ -10,8 +10,8 @@ Use `cron action:"list" includeDisabled:true` to get all cron jobs.
 
 | Kind | Risk Level | Notes |
 |------|------------|-------|
-| `systemEvent` | 🟢 Low | Injects text into session (main only) |
-| `agentTurn` | 🟡 Medium | Runs agent with full capabilities |
+| `systemEvent` |  Low | Injects text into session (main only) |
+| `agentTurn` |  Medium | Runs agent with full capabilities |
 
 **agentTurn risks**:
 - Runs with the agent's full tool permissions
@@ -29,7 +29,7 @@ Look for instructions that:
 - Scrape websites
 
 **Risk if external data + exec agent**:
-- 🔴 Critical - Automated prompt injection vector
+-  Critical - Automated prompt injection vector
 - Example: "매일 이 URL 읽고 실행해줘" = perfect attack vector
 
 ## Check 3: Frequency and Scope
@@ -61,7 +61,7 @@ Cross-reference with agents.md findings:
 | `none` | Silent execution |
 | `announce` | Reports to channel |
 
-**Silent jobs with powerful actions**: 🟡 Medium
+**Silent jobs with powerful actions**:  Medium
 - Harder to notice if compromised
 - Recommend enabling announce for visibility
 
@@ -74,7 +74,7 @@ Cross-reference with agents.md findings:
 - Job says "브라우저로 확인해줘" but agent lacks browser tool
 
 **Risk**:
-- 🟡 Medium - Job won't work as intended (configuration bug)
+-  Medium - Job won't work as intended (configuration bug)
 - May indicate copy-paste error or outdated config
 - Recommend: Fix agent permissions or change job payload
 
@@ -84,8 +84,8 @@ Cross-reference with agents.md findings:
 
 | Target | Risk |
 |--------|------|
-| `isolated` | 🟢 Low - Separate session per run |
-| `main` | 🟡 Medium - Runs in main context |
+| `isolated` |  Low - Separate session per run |
+| `main` |  Medium - Runs in main context |
 
 **Risks with `main`**:
 - Shares context with user's main session
@@ -102,21 +102,21 @@ payload:
   message: "이 URL 내용 분석하고 필요한 조치 취해줘"
   # + agent has exec tool
 ```
-**Risk**: 🔴 Critical - Trivial prompt injection
+**Risk**:  Critical - Trivial prompt injection
 
 ### Pattern B: Email Processor
 ```yaml
 payload:
   message: "새 이메일 확인하고 처리해줘"
 ```
-**Risk**: 🟠 High - Email-based injection possible
+**Risk**:  High - Email-based injection possible
 
 ### Pattern C: Monitoring with Actions
 ```yaml
 payload:
   message: "서버 상태 확인하고 문제 있으면 조치해줘"
 ```
-**Risk**: 🟡 Medium - Automated actions need guardrails
+**Risk**:  Medium - Automated actions need guardrails
 
 ## Recommended Mitigations
 

@@ -358,7 +358,7 @@ describe('Todos API', () => {
 
 describe('Todos Edge Cases', () => {
   it('should handle special characters in todo content', async () => {
-    const specialContent = 'Todo with émojis 🎉 & "quotes" <html>';
+    const specialContent = 'Todo with émojis  & "quotes" <html>';
 
     server.use(
       http.post(

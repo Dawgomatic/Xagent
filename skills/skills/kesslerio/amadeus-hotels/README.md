@@ -1,4 +1,4 @@
-# Amadeus Hotels Skill 🏨
+# Amadeus Hotels Skill 
 
 An OpenClaw skill for searching hotel prices and availability via the Amadeus Self-Service API. Perfect for vacation planning and deal hunting.
 

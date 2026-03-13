@@ -12,12 +12,12 @@
 
 AlgoTrader is a Claude Code skill that provides expert guidance for building, optimizing, and running quantitative trading systems on Indian stock markets. It embodies **1,780 lines of real-world learnings** from production trading, including:
 
-- ✅ **65%+ win rate** signal generation strategies
-- ✅ **28x performance optimizations** (Parquet caching, vectorization)
-- ✅ **Zero-regression code modifications** with automated testing
-- ✅ **Production failure prevention** (30+ gotchas documented)
-- ✅ **Backtest-live parity** validation
-- ✅ **Risk-adjusted capital compounding**
+-  **65%+ win rate** signal generation strategies
+-  **28x performance optimizations** (Parquet caching, vectorization)
+-  **Zero-regression code modifications** with automated testing
+-  **Production failure prevention** (30+ gotchas documented)
+-  **Backtest-live parity** validation
+-  **Risk-adjusted capital compounding**
 
 ## Installation
 
@@ -64,7 +64,7 @@ pip install -r requirements.txt
 
 ## Features
 
-### 🎯 Interactive Bot Generation Wizard
+###  Interactive Bot Generation Wizard
 
 Launch `/algotrader` without parameters to enter the wizard:
 
@@ -97,7 +97,7 @@ The wizard will:
 - Create universe JSON files with latest index constituents
 - Set up logging, analytics, and risk management
 
-### 📊 Universe Fetcher (Live Index Data)
+###  Universe Fetcher (Live Index Data)
 
 Automatically fetches latest index constituents from NSE:
 
@@ -124,7 +124,7 @@ Each file includes:
   - Last updated timestamp
 ```
 
-### 🧠 16 Knowledge Domains
+###  16 Knowledge Domains
 
 1. **Zerodha Integration** - Tick size rounding, position reconciliation, SL lifecycle
 2. **Backtest-Live Parity** - Data caching, T vs T-1 alignment, VWAP reset
@@ -143,18 +143,18 @@ Each file includes:
 15. **Risk Management** - Kelly Criterion, portfolio heat, consecutive loss throttling
 16. **Capital Compounding** - Market regime detection, bull market amplification
 
-### ⚠️ 30+ Token-Burning Gotchas (NUANCES.md)
+###  30+ Token-Burning Gotchas (NUANCES.md)
 
 Common mistakes that burn hours of debugging:
 
 ```markdown
-🔥 CRITICAL: Tick Size Rounding
+ CRITICAL: Tick Size Rounding
 Mistake: kite.place_order(price=1847.35, ...)
 Error: "Tick size for this script is 5.00"
 Fix: price = round(price / tick_size) * tick_size  # 1847.35 → 1850.00
 Impact: 90% of order rejections are tick size errors
 
-🔥 CRITICAL: VWAP Must Reset Daily
+ CRITICAL: VWAP Must Reset Daily
 Mistake: Cumulative VWAP across days
 Symptom: Backtest 65% win rate, live 40%
 Fix: Reset at market open (9:15)
@@ -232,7 +232,7 @@ trading_bot/
 /algotrader check ./my_trading_bot.py
 
 # Output:
-⚠️  Found 3 issues:
+  Found 3 issues:
 1. Tick size not rounded (line 45) - will cause order rejections
 2. VWAP not reset daily (line 89) - backtest-live parity violation
 3. No symbol cooldown (line 120) - risk of revenge trading
@@ -267,7 +267,7 @@ signal = generate_fortress_signal(
 )
 
 if signal:
-    print(f"🎯 LONG signal for {signal['symbol']}")
+    print(f" LONG signal for {signal['symbol']}")
     print(f"   Entry: ₹{signal['entry_price']}")
     print(f"   Stop Loss: ₹{signal['stop_loss']}")
     print(f"   Target: ₹{signal['target']}")
@@ -290,7 +290,7 @@ print(f"Win Rate: {comparison['backtest_winrate']:.1%} → {comparison['live_win
 print(f"Delta: {comparison['winrate_delta']:.1%}")
 
 if comparison['parity_issues']:
-    print("\n⚠️  Parity Issues:")
+    print("\n  Parity Issues:")
     for issue in comparison['parity_issues']:
         print(f"  - {issue['description']}")
         print(f"    Fix: {issue['recommended_fix']}")
@@ -369,11 +369,11 @@ Comprehensive documentation of all 16 domains:
 
 Token-saving precautions that prevent hours of debugging:
 
-- 🔥 **10 Critical mistakes** that break trading (tick size, VWAP reset, SL lifecycle)
-- 🚀 **13 Performance tips** for 10x+ speedups
-- 📊 **7 Data quality checks** to prevent backtest lies
-- 💰 **5 Capital management rules** to protect capital
-- 🐛 **5 Debugging techniques** for production issues
+-  **10 Critical mistakes** that break trading (tick size, VWAP reset, SL lifecycle)
+-  **13 Performance tips** for 10x+ speedups
+-  **7 Data quality checks** to prevent backtest lies
+-  **5 Capital management rules** to protect capital
+-  **5 Debugging techniques** for production issues
 
 **Summary:** Read this FIRST before implementing anything.
 
@@ -426,7 +426,7 @@ from algotrader.analytics import generate_daily_report
 
 report = generate_daily_report(trades_file="logs/trades.jsonl")
 
-print(f"📊 Daily Performance:")
+print(f" Daily Performance:")
 print(f"   Trades: {report['total_trades']}")
 print(f"   Win Rate: {report['win_rate']:.1%}")
 print(f"   P&L: ₹{report['pnl']:,.0f}")
@@ -526,7 +526,7 @@ MIT License - see [LICENSE](LICENSE) file
 
 ## Disclaimer
 
-**⚠️ IMPORTANT:** This skill provides educational guidance for building trading systems. It does NOT:
+** IMPORTANT:** This skill provides educational guidance for building trading systems. It does NOT:
 
 - Guarantee profits or specific returns
 - Provide investment advice
@@ -548,15 +548,15 @@ Past performance (65% win rate, 51% CAGR) from backtests does NOT guarantee futu
 
 ### v1.0.0 (2026-02-14)
 
-- ✅ Initial release with 16 knowledge domains
-- ✅ Interactive bot generation wizard
-- ✅ Universe fetcher from live NSE data
-- ✅ 30+ token-burning gotchas documented
-- ✅ Fortress signal (65% win rate)
-- ✅ Backtest comparison tool
-- ✅ Production failure prevention
-- ✅ Performance optimizations (28x Parquet, 37x Polars)
-- ✅ Risk management (Kelly, regime detection)
+-  Initial release with 16 knowledge domains
+-  Interactive bot generation wizard
+-  Universe fetcher from live NSE data
+-  30+ token-burning gotchas documented
+-  Fortress signal (65% win rate)
+-  Backtest comparison tool
+-  Production failure prevention
+-  Performance optimizations (28x Parquet, 37x Polars)
+-  Risk management (Kelly, regime detection)
 
 ---
 

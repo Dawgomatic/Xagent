@@ -3,7 +3,7 @@ name: pokerpal
 description: Query PokerPal poker game data - games, players, buy-ins, settlements
 metadata:
   openclaw:
-    emoji: "♠️"
+    emoji: ""
     requires:
       env:
         - POKERPAL_API_URL

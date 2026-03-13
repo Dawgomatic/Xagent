@@ -306,7 +306,7 @@ def format_minute_analysis(analysis: dict, name: str = "") -> str:
         lines.append(f"")
         lines.append(f"  【主力动向判断】")
         for signal in analysis["signals"]:
-            lines.append(f"    🔥 {signal}")
+            lines.append(f"     {signal}")
     
     return "\n".join(lines)
 

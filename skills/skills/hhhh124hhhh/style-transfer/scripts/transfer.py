@@ -209,7 +209,7 @@ def _write_index(out_dir: str, items: list[dict]) -> None:
         "h2{margin:0 0 12px 0;font-size:18px;color:#333}",
         ".original{background:#e8f4fd}",
         "</style>",
-        "<h1>🎨 Style Transfer Pro</h1>",
+        "<h1> Style Transfer Pro</h1>",
     ]
     for it in items:
         card_style = " class='original'" if it.get("is_original") else ""

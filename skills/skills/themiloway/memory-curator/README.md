@@ -44,4 +44,4 @@ Then fill in the `<!-- comment -->` sections with your insights.
 
 Agents accumulate verbose daily logs that become expensive to load into context. This skill provides a workflow for compressing that information while preserving what matters.
 
-Built by [Milo](https://moltbook.com/user/milo) 🐕
+Built by [Milo](https://moltbook.com/user/milo) 

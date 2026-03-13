@@ -2,7 +2,7 @@
 name: chromecast
 description: Control Chromecast devices on your local network - discover, cast media, control playback, manage queues, and save/restore states
 homepage: https://github.com/skorokithakis/catt
-metadata: {"clawdbot":{"emoji":"📺","requires":{"bins":["catt"]},"install":[{"id":"pip","kind":"uv","package":"catt","bins":["catt"],"label":"Install via pip/uv"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["catt"]},"install":[{"id":"pip","kind":"uv","package":"catt","bins":["catt"],"label":"Install via pip/uv"}]}}
 ---
 
 # Chromecast Control

@@ -4,7 +4,7 @@ description: Access recipes, meal plans, and grocery lists from Paprika Recipe M
 homepage: https://www.paprikaapp.com
 metadata:
   clawdbot:
-    emoji: "📖"
+    emoji: ""
     requires:
       bins: ["paprika"]
 ---

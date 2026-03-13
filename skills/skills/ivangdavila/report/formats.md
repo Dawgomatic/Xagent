@@ -9,13 +9,13 @@ How reports are rendered.
 **Best for:** Quick updates, daily reports, alerts
 
 ```
-📊 {Report Name} — {Date}
+ {Report Name} — {Date}
 
 • Metric 1: Value (↑↓→ trend)
 • Metric 2: Value
 • Metric 3: Value
 
-⚠️ Alert: {if any}
+ Alert: {if any}
 
 {One-line insight}
 ```

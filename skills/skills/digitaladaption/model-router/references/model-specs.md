@@ -215,13 +215,13 @@ Task Request
 | Task | haiku-4.5 | GLM | sonnet | codex-5.2 | opus |
 |-------|--------------|------|---------|--------------|-------|
 | Weather query | 0.3s ✓ | 0.5s ✓ | 0.8s | 1.2s | 2.0s |
-| Summarize 1k words | 3s ⚠️ | 2s ✓ | 3s ✓ | 5s | 8s |
-| Debug simple bug | 5s ✗ | 8s ⚠️ | 10s ✓ | 12s ✓ | 18s |
-| Build auth system | N/A ✗ | 30s ⚠️ | 40s ✓ | 35s ✓ | 60s |
-| Creative story | N/A ✗ | 20s ⚠️ | 25s ✓ | 30s ✓ | 45s ✓ |
-| Research analysis | N/A ✗ | 25s ✓ | 20s ✓ | 30s ⚠️ | 40s |
+| Summarize 1k words | 3s  | 2s ✓ | 3s ✓ | 5s | 8s |
+| Debug simple bug | 5s ✗ | 8s  | 10s ✓ | 12s ✓ | 18s |
+| Build auth system | N/A ✗ | 30s  | 40s ✓ | 35s ✓ | 60s |
+| Creative story | N/A ✗ | 20s  | 25s ✓ | 30s ✓ | 45s ✓ |
+| Research analysis | N/A ✗ | 25s ✓ | 20s ✓ | 30s  | 40s |
 
-Legend: ✓ Optimal, ⚠️ Acceptable, ✗ Poor fit
+Legend: ✓ Optimal,  Acceptable, ✗ Poor fit
 
 ---
 

@@ -10,7 +10,7 @@
 
 ---
 
-Hi @pskoett 👋
+Hi @pskoett 
 
 I'm the author of [self-evolving-agent](https://clawhub.io/ramsbaby/self-evolving-agent), and I've been quietly admiring self-improving-agent for a while. With 15,962 downloads you've clearly built something that resonates with a lot of people — congratulations.
 

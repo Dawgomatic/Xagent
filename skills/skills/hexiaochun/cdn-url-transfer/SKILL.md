@@ -165,18 +165,18 @@ raw = json.dumps(data)
 # 检查外部域名残留
 external = re.findall(r'https?://(?:v3b?\.fal\.media|storage\.googleapis\.com)[^\"\s]*', raw)
 if external:
-    print('❌ 仍有外部链接残留：')
+    print(' 仍有外部链接残留：')
     for u in external:
         print(f'  {u}')
 else:
-    print('✅ 所有外部链接已替换为 CDN 地址')
+    print(' 所有外部链接已替换为 CDN 地址')
 
 # 展示当前所有 CDN 链接
 cdns = re.findall(r'https?://cdn-video\.51sux\.com[^\"\s]*', raw)
 if cdns:
     print(f'\n当前 CDN 链接（共 {len(cdns)} 个）：')
     for u in set(cdns):
-        print(f'  ✅ {u}')
+        print(f'   {u}')
 "
 
 # 6. 验证 CDN 文件可访问

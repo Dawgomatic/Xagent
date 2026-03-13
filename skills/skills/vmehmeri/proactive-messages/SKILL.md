@@ -77,6 +77,6 @@ cron add:
 |---------|--------|--------------|
 | "Starting a new job Monday" | Monday 6:30 PM | "So?? How was day one?" |
 | "Presenting to the board tomorrow" | Tomorrow 5 PM | "How'd the board thing go?" |
-| "Flying to Tokyo on Friday" | Friday evening | "Safe landing? 🇯🇵" |
+| "Flying to Tokyo on Friday" | Friday evening | "Safe landing? " |
 | "Got a dentist appointment Tuesday" | Skip — too trivial | — |
 | "Mom's surgery is Thursday" | Thursday 7 PM | "Thinking of you — how did it go with your mom?" |

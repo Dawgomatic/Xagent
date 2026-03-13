@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing! This document provides guidelines for contributing to the MCP Integration plugin.
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -28,7 +28,7 @@ ln -s $(pwd) ~/.openclaw/extensions/mcp-integration
 openclaw gateway restart
 ```
 
-## 📝 Development Workflow
+##  Development Workflow
 
 ### 1. Create a Branch
 
@@ -118,7 +118,7 @@ git push origin feature/your-feature-name
 # - Screenshots if UI changes
 ```
 
-## 🧪 Testing
+##  Testing
 
 ### Manual Testing
 
@@ -144,7 +144,7 @@ node test-server.js
 - [ ] Logs are helpful
 - [ ] Documentation is updated
 
-## 📚 Documentation
+##  Documentation
 
 ### When to Update Docs
 
@@ -162,7 +162,7 @@ node test-server.js
 | Bug fix | TROUBLESHOOTING.md, CHANGELOG.md |
 | Example | EXAMPLES.md |
 
-## 🎨 Code Style
+##  Code Style
 
 ### JavaScript/Node.js
 
@@ -187,7 +187,7 @@ async connectServer(name, config) {
 ### Error Handling
 
 ```javascript
-// ✅ Good - specific error messages
+//  Good - specific error messages
 try {
   await connectServer(name, config);
 } catch (error) {
@@ -195,7 +195,7 @@ try {
   throw new Error(`Connection failed: ${error.message}`);
 }
 
-// ❌ Bad - generic errors
+//  Bad - generic errors
 try {
   await connectServer(name, config);
 } catch (error) {
@@ -206,19 +206,19 @@ try {
 ### Logging
 
 ```javascript
-// ✅ Good - structured logging with context
+//  Good - structured logging with context
 this.logger.info(`[MCP] Connected to ${name}: ${tools.length} tools available`);
 this.logger.error(`[MCP] Failed to connect to ${name}:`, {
   url: config.url,
   error: error.message
 });
 
-// ❌ Bad - unstructured logging
+//  Bad - unstructured logging
 console.log('connected');
 console.log(error);
 ```
 
-## 🐛 Reporting Bugs
+##  Reporting Bugs
 
 ### Bug Report Template
 
@@ -261,7 +261,7 @@ What actually happened.
 Any other information.
 ```
 
-## ✨ Feature Requests
+##  Feature Requests
 
 ### Feature Request Template
 
@@ -279,7 +279,7 @@ Other solutions you've thought about.
 Mockups, examples, etc.
 ```
 
-## 🔄 Pull Request Process
+##  Pull Request Process
 
 1. **Fork** the repository
 2. **Create** a feature branch
@@ -307,11 +307,11 @@ Mockups, examples, etc.
 4. Approval given
 5. PR merged
 
-## 📜 License
+##  License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
 
-## 🤝 Code of Conduct
+##  Code of Conduct
 
 ### Our Pledge
 
@@ -335,20 +335,20 @@ We are committed to providing a welcoming and inspiring community for all.
 
 Violations may result in temporary or permanent ban from the project.
 
-## 📞 Getting Help
+##  Getting Help
 
 - **Discord**: Join #plugins channel
 - **GitHub**: Open an issue
 - **Email**: support@openclaw.ai
 
-## 🙏 Recognition
+##  Recognition
 
 Contributors will be recognized in:
 - CHANGELOG.md
 - README.md contributors section
 - GitHub contributors page
 
-## 📚 Resources
+##  Resources
 
 - [OpenClaw Documentation](https://docs.openclaw.ai)
 - [MCP Specification](https://spec.modelcontextprotocol.io)
@@ -357,4 +357,4 @@ Contributors will be recognized in:
 
 ---
 
-**Thank you for contributing!** 🦞
+**Thank you for contributing!** 

@@ -179,7 +179,7 @@ SCRIPT
 chmod +x "$IRC_DIR/watch-daemon.sh"
 
 echo ""
-echo "✅ Created:"
+echo " Created:"
 echo "  $IRC_DIR/irc.sh          (management script)"
 echo "  $IRC_DIR/watch-daemon.sh (mention watcher)"
 echo ""

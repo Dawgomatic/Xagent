@@ -4,12 +4,12 @@
 
 This update brings significant improvements to notification handling and user experience:
 
-### 🎉 Major Features
+###  Major Features
 
 1. **Three Notification Types** - Fine-grained control:
-   - 🔄 Start: "Refreshing Claude token..."
-   - ✅ Success: "Claude token refreshed!"
-   - ❌ Failure: Detailed error with troubleshooting
+   -  Start: "Refreshing Claude token..."
+   -  Success: "Claude token refreshed!"
+   -  Failure: Detailed error with troubleshooting
 
 2. **Interactive Installation** - Prompts during setup:
    - Configure which notification types you want
@@ -50,13 +50,13 @@ cd ~/clawd/skills/claude-oauth-refresher
 ```
 
 The installer will:
-1. ✅ Detect your old `config.json`
-2. ✅ Migrate to new `claude-oauth-refresh-config.json` format
-3. ✅ Add new notification type structure
-4. ✅ Preserve your existing settings
-5. ✅ Prompt for notification preferences
-6. ✅ Update the launchd job
-7. ✅ Clean up old config file
+1.  Detect your old `config.json`
+2.  Migrate to new `claude-oauth-refresh-config.json` format
+3.  Add new notification type structure
+4.  Preserve your existing settings
+5.  Prompt for notification preferences
+6.  Update the launchd job
+7.  Clean up old config file
 
 ### Manual Migration
 
@@ -141,26 +141,26 @@ If you prefer manual control:
 ### Script Updates
 
 **refresh-token.sh:**
-- ✅ Reads new config filename
-- ✅ Supports three notification types
-- ✅ Enhanced error messages with troubleshooting
-- ✅ Detailed failure notifications
-- ✅ Better HTTP error handling
-- ✅ Network timeout detection
+-  Reads new config filename
+-  Supports three notification types
+-  Enhanced error messages with troubleshooting
+-  Detailed failure notifications
+-  Better HTTP error handling
+-  Network timeout detection
 
 **install.sh:**
-- ✅ Interactive notification prompts
-- ✅ Migrates old config automatically
-- ✅ Shows notification preferences summary
-- ✅ Explains one-time installation model
-- ✅ Better user guidance
+-  Interactive notification prompts
+-  Migrates old config automatically
+-  Shows notification preferences summary
+-  Explains one-time installation model
+-  Better user guidance
 
 **verify-setup.sh:**
-- ✅ Checks for both old and new config filenames
-- ✅ Suggests migration if old config found
+-  Checks for both old and new config filenames
+-  Suggests migration if old config found
 
 **uninstall.sh:**
-- ✅ Removes both old and new config files
+-  Removes both old and new config files
 
 ---
 
@@ -224,7 +224,7 @@ Failure notifications now include:
 
 **Example:**
 ```
-❌ Claude token refresh failed
+ Claude token refresh failed
 
 Error: Network timeout connecting to auth.anthropic.com
 Details: Connection timed out after 30s
@@ -341,12 +341,12 @@ If you encounter issues and need to roll back:
 
 ## Summary
 
-✅ **Run installer to upgrade** - handles everything automatically
-✅ **Config migrated** - preserves your settings
-✅ **New notification types** - finer control
-✅ **Better error messages** - easier troubleshooting
-✅ **Clawdbot integration** - voice/text control
-✅ **No breaking workflow** - still runs every 2 hours
+ **Run installer to upgrade** - handles everything automatically
+ **Config migrated** - preserves your settings
+ **New notification types** - finer control
+ **Better error messages** - easier troubleshooting
+ **Clawdbot integration** - voice/text control
+ **No breaking workflow** - still runs every 2 hours
 
 **Recommended next steps:**
 1. Run `./install.sh`

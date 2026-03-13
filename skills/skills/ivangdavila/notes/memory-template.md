@@ -21,7 +21,7 @@ Copy to `~/notes/index.md`:
 
 **Last updated:** YYYY-MM-DD
 
-## 📁 Structure
+##  Structure
 
 ```
 ~/notes/
@@ -33,7 +33,7 @@ Copy to `~/notes/index.md`:
 └── journal/        # Daily notes
 ```
 
-## 🏷️ Tags Index
+##  Tags Index
 
 | Tag | Count | Recent |
 |-----|-------|--------|
@@ -41,14 +41,14 @@ Copy to `~/notes/index.md`:
 | #engineering | 3 | [[2026-02-18_sprint]] |
 | #1on1 | 8 | [[2026-02-17_alice-1on1]] |
 
-## 👥 People Index
+##  People Index
 
 | Person | Notes | Last |
 |--------|-------|------|
 | @alice | 12 | [[2026-02-19_product-sync]] |
 | @bob | 8 | [[2026-02-15_design-review]] |
 
-## 📅 Recent Notes
+##  Recent Notes
 
 ### This Week
 - [[2026-02-19_product-sync]] — meeting, #product
@@ -59,7 +59,7 @@ Copy to `~/notes/index.md`:
 - [[2026-02-12_quarterly-review]] — meeting, #leadership
 - [[2026-02-10_decision-pricing]] — decision, #product
 
-## 🔍 Quick Search
+##  Quick Search
 
 Common queries:
 - Meetings with @alice: `type:meeting attendees:alice`
@@ -81,25 +81,25 @@ Copy to `~/notes/actions.md`:
 
 **Last updated:** YYYY-MM-DD HH:MM
 
-## 🔴 Overdue
+##  Overdue
 
 | # | Action | Owner | Due | Source | Days Late |
 |---|--------|-------|-----|--------|-----------|
 | — | *None* | — | — | — | — |
 
-## 🟡 Due This Week
+##  Due This Week
 
 | # | Action | Owner | Due | Source |
 |---|--------|-------|-----|--------|
 | — | *None* | — | — | — |
 
-## 🟢 Upcoming
+##  Upcoming
 
 | # | Action | Owner | Due | Source |
 |---|--------|-------|-----|--------|
 | — | *None* | — | — | — |
 
-## ✅ Recently Completed
+##  Recently Completed
 
 | # | Action | Owner | Completed | Source |
 |---|--------|-------|-----------|--------|
@@ -107,7 +107,7 @@ Copy to `~/notes/actions.md`:
 
 ---
 
-## 📊 Stats
+##  Stats
 
 - **Total open:** 0
 - **Overdue:** 0
@@ -139,34 +139,34 @@ duration: 30 min
 **Facilitator:** Alice
 **Attendees:** Alice, Bob, Carol
 
-## 🎯 Meeting Goal
+##  Meeting Goal
 Align on Q1 priorities and blockers.
 
-## 📝 Key Discussion Points
+##  Key Discussion Points
 - Feature X is behind schedule
 - Customer feedback on Y is positive
 - Need decision on Z approach
 
-## ✅ Decisions Made
+##  Decisions Made
 - [DECISION] **Feature X scope:** Cut advanced mode for v1 — *Owner:* @alice | *Effective:* 2026-02-19
 - [DECISION] **Launch date:** Move to Feb 28 — *Owner:* @bob | *Effective:* 2026-02-19
 
-## ⚡ Action Items
+##  Action Items
 | # | Task | Owner | Due | Status |
 |---|------|-------|-----|--------|
-| 1 | Update roadmap doc | @alice | 2026-02-20 | ⬜ |
-| 2 | Notify stakeholders of date change | @bob | 2026-02-20 | ⬜ |
-| 3 | Draft launch comms | @carol | 2026-02-25 | ⬜ |
+| 1 | Update roadmap doc | @alice | 2026-02-20 |  |
+| 2 | Notify stakeholders of date change | @bob | 2026-02-20 |  |
+| 3 | Draft launch comms | @carol | 2026-02-25 |  |
 
-## ❓ Open Questions
+##  Open Questions
 - How to handle existing beta users? — *Needs input from:* @support
 
-## 📊 Meeting Effectiveness: 8/10
-☑ Clear agenda beforehand
-☑ Started/ended on time
-☑ Decisions were made
-☑ Actions have owners + deadlines
-☑ Could NOT have been an email
+##  Meeting Effectiveness: 8/10
+ Clear agenda beforehand
+ Started/ended on time
+ Decisions were made
+ Actions have owners + deadlines
+ Could NOT have been an email
 ```
 
 ---
@@ -192,22 +192,22 @@ Current flat pricing doesn't capture value from high-usage customers. Need to de
 ## Options Considered
 
 ### Option A: Usage-Based
-- ✅ Aligns cost with value
-- ✅ Lower barrier to entry
-- ❌ Unpredictable revenue
-- ❌ Complex to communicate
+-  Aligns cost with value
+-  Lower barrier to entry
+-  Unpredictable revenue
+-  Complex to communicate
 
 ### Option B: Tiered Plans
-- ✅ Predictable revenue
-- ✅ Easy to understand
-- ❌ May leave money on table
-- ❌ Upgrade friction
+-  Predictable revenue
+-  Easy to understand
+-  May leave money on table
+-  Upgrade friction
 
 ### Option C: Hybrid (Base + Usage)
-- ✅ Predictable base + upside
-- ✅ Fair for all segments
-- ❌ More complex billing
-- ❌ Harder to forecast
+-  Predictable base + upside
+-  Fair for all segments
+-  More complex billing
+-  Harder to forecast
 
 ## Decision
 **Chosen:** Option C — Hybrid model

@@ -79,10 +79,10 @@ def read_logs(mission_path: Path, limit: int = 20) -> list:
 def print_status(mission: dict, plan: dict, agent_results: list, logs: list):
     """상태 출력"""
     print("\n" + "="*70)
-    print("🦸 AVENGERS MONITOR - 미션 상태")
+    print(" AVENGERS MONITOR - 미션 상태")
     print("="*70)
     
-    print(f"\n📋 미션 정보:")
+    print(f"\n 미션 정보:")
     print(f"   ID: {mission['id']}")
     print(f"   상태: {mission['status']}")
     print(f"   생성: {mission['created_at']}")
@@ -90,7 +90,7 @@ def print_status(mission: dict, plan: dict, agent_results: list, logs: list):
         print(f"   업데이트: {mission['updated_at']}")
     
     if plan:
-        print(f"\n📊 에이전트 현황:")
+        print(f"\n 에이전트 현황:")
         
         completed = sum(1 for r in agent_results if r["status"] == "completed")
         total = len(agent_results)
@@ -111,13 +111,13 @@ def print_status(mission: dict, plan: dict, agent_results: list, logs: list):
             for agent in phase["agents"]:
                 result = next((r for r in agent_results if r["agent_id"] == agent["id"]), None)
                 if result:
-                    status_icon = "✅" if result["status"] == "completed" else "⏳"
+                    status_icon = "" if result["status"] == "completed" else ""
                     size_info = f"({result['output_size']} bytes)" if result["status"] == "completed" else ""
                     print(f"     {status_icon} {agent['emoji']} {agent['id']} {size_info}")
             print()
     
     if logs:
-        print(f"📜 최근 로그 (최대 5개):")
+        print(f" 최근 로그 (최대 5개):")
         for log in logs[-5:]:
             print(f"   [{log['timestamp'][:19]}] {log['event']}")
     
@@ -126,11 +126,11 @@ def print_status(mission: dict, plan: dict, agent_results: list, logs: list):
     # 다음 단계 안내
     if plan:
         if completed == total:
-            print("🎉 모든 에이전트 완료!")
-            print(f"📦 결과 통합: python3 scripts/consolidate.py --mission {mission['id']}")
+            print(" 모든 에이전트 완료!")
+            print(f" 결과 통합: python3 scripts/consolidate.py --mission {mission['id']}")
         else:
-            print("⏳ 진행 중...")
-            print(f"🔄 새로고침: python3 scripts/monitor.py --mission {mission['id']}")
+            print(" 진행 중...")
+            print(f" 새로고침: python3 scripts/monitor.py --mission {mission['id']}")
     
     print("="*70)
 
@@ -139,7 +139,7 @@ def watch_mode(mission_id: str, interval: int = 10):
     """실시간 모니터링 모드"""
     import time
     
-    print(f"👀 실시간 모니터링 시작 (갱신 간격: {interval}초)")
+    print(f" 실시간 모니터링 시작 (갱신 간격: {interval}초)")
     print("   종료하려면 Ctrl+C")
     
     try:
@@ -152,19 +152,19 @@ def watch_mode(mission_id: str, interval: int = 10):
             logs = read_logs(mission_path)
             
             print_status(mission, plan, agent_results, logs)
-            print(f"\n⏰ 다음 갱신: {interval}초 후...")
+            print(f"\n 다음 갱신: {interval}초 후...")
             
             # 완료 확인
             if plan:
                 completed = sum(1 for r in agent_results if r["status"] == "completed")
                 if completed == len(agent_results):
-                    print("\n🎉 미션 완료! 모니터링 종료.")
+                    print("\n 미션 완료! 모니터링 종료.")
                     break
             
             time.sleep(interval)
             
     except KeyboardInterrupt:
-        print("\n\n👋 모니터링 종료")
+        print("\n\n 모니터링 종료")
 
 
 def main():
@@ -179,7 +179,7 @@ def main():
     try:
         mission, plan = load_mission(args.mission)
     except FileNotFoundError:
-        print(f"❌ 미션을 찾을 수 없습니다: {args.mission}")
+        print(f" 미션을 찾을 수 없습니다: {args.mission}")
         sys.exit(1)
     
     mission_path = Path(mission["path"])

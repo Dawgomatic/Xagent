@@ -153,7 +153,7 @@ def main():
     if args.check:
         due = get_due_reminders()
         if due:
-            print(f"🔔 {len(due)} reminder(s) due:")
+            print(f" {len(due)} reminder(s) due:")
             for r in due:
                 print(f"  • {r['name']}: {r['message']}")
         else:
@@ -166,7 +166,7 @@ def main():
             print("No pending reminders.")
             return
         
-        print(f"📅 {len(reminders)} pending reminder(s):\n")
+        print(f" {len(reminders)} pending reminder(s):\n")
         for r in sorted(reminders, key=lambda x: x["remind_at"]):
             remind_at = datetime.fromisoformat(r["remind_at"])
             delta = remind_at - datetime.now()

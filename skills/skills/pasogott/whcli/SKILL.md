@@ -2,10 +2,10 @@
 name: whcli
 description: Willhaben CLI for searching Austria's largest classifieds marketplace. Search listings, view details, check seller profiles.
 homepage: https://github.com/pasogott/whcli
-metadata: {"clawdis":{"emoji":"🏠","requires":{"bins":["whcli"]},"install":[{"id":"brew","kind":"brew","formula":"pasogott/tap/whcli","bins":["whcli"],"label":"Install whcli (Homebrew)"},{"id":"source","kind":"shell","command":"git clone https://github.com/pasogott/whcli.git && cd whcli && uv sync","label":"Install from source (uv)"}]}}
+metadata: {"clawdis":{"emoji":"","requires":{"bins":["whcli"]},"install":[{"id":"brew","kind":"brew","formula":"pasogott/tap/whcli","bins":["whcli"],"label":"Install whcli (Homebrew)"},{"id":"source","kind":"shell","command":"git clone https://github.com/pasogott/whcli.git && cd whcli && uv sync","label":"Install from source (uv)"}]}}
 ---
 
-# whcli - Willhaben CLI 🏠
+# whcli - Willhaben CLI 
 
 Search and browse [willhaben.at](https://willhaben.at), Austria's largest classifieds marketplace from the command line.
 
@@ -104,7 +104,7 @@ whcli search "furniture" -l "1220" -n 50 --format csv > results.csv
 
 ## Known Limitations
 
-- ⚠️ `show` command has a bug (being fixed)
+-  `show` command has a bug (being fixed)
 - Location filter works but may include nearby regions
 - No OAuth login yet (messaging/watching not available)
 

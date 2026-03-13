@@ -55,14 +55,14 @@ chmod 400 coinbase_cloud_api_key.json
 ## Common Issues
 
 ### "file not found at coinbase_cloud_api_key.json"
-- ✅ File must be in project root (same directory as package.json)
-- ✅ File must be named exactly `coinbase_cloud_api_key.json`
-- ✅ File must be valid JSON format
+-  File must be in project root (same directory as package.json)
+-  File must be named exactly `coinbase_cloud_api_key.json`
+-  File must be valid JSON format
 
 ### "Invalid configuration"
-- ✅ Check JSON format is valid
-- ✅ Ensure privateKey includes BEGIN/END lines
-- ✅ Verify API key is active in CDP portal
+-  Check JSON format is valid
+-  Ensure privateKey includes BEGIN/END lines
+-  Verify API key is active in CDP portal
 
 ---
 
@@ -70,7 +70,7 @@ chmod 400 coinbase_cloud_api_key.json
 
 These DON'T work for Agent Kit:
 ```bash
-# ❌ These are ignored by Agent Kit
+#  These are ignored by Agent Kit
 CDP_API_KEY_ID=...
 CDP_API_KEY_SECRET=...
 ```
@@ -81,9 +81,9 @@ Agent Kit only reads from JSON file.
 
 ## Security Notes
 
-⚠️ **Never commit this file to git**
-⚠️ **Keep the private key secure**
-⚠️ **Use different keys for dev/prod**
+ **Never commit this file to git**
+ **Keep the private key secure**
+ **Use different keys for dev/prod**
 
 The file is already in `.gitignore` to prevent accidental commits.
 

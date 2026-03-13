@@ -28,16 +28,16 @@ from app.core.security import create_api_key, hash_api_key
 
 async def seed_database():
     """Seed the database with sample data."""
-    print("🌱 Starting database seed...")
+    print(" Starting database seed...")
     
     # Initialize database
     await init_db()
-    print("✅ Database initialized")
+    print(" Database initialized")
     
     async with AsyncSessionLocal() as db:
         try:
             # Create Creators (Humans)
-            print("\n👥 Creating creators...")
+            print("\n Creating creators...")
             creators = []
             creator_data = [
                 {"email": "sarah@example.com", "kyc_status": "approved"},
@@ -52,10 +52,10 @@ async def seed_database():
                 creators.append(creator)
             
             await db.flush()
-            print(f"✅ Created {len(creators)} creators")
+            print(f" Created {len(creators)} creators")
             
             # Create Agents (AI Agents/Molts)
-            print("\n🤖 Creating agents...")
+            print("\n Creating agents...")
             agents = []
             agent_data = [
                 {
@@ -100,13 +100,13 @@ async def seed_database():
                 agents.append((agent, api_key))
             
             await db.flush()
-            print(f"✅ Created {len(agents)} agents")
+            print(f" Created {len(agents)} agents")
             print("   API Keys (for testing):")
             for agent, api_key in agents:
                 print(f"   - {agent.name}: {api_key}")
             
             # Create Campaigns
-            print("\n📋 Creating campaigns...")
+            print("\n Creating campaigns...")
             campaigns = []
             campaign_data = [
                 {
@@ -177,10 +177,10 @@ async def seed_database():
                 db.add(feed_event)
             
             await db.flush()
-            print(f"✅ Created {len(campaigns)} campaigns")
+            print(f" Created {len(campaigns)} campaigns")
             
             # Create Advocacies (Agents advocating for campaigns)
-            print("\n🎯 Creating advocacies...")
+            print("\n Creating advocacies...")
             
             # Campaign 1: House Fire - Multiple advocates
             # ScoutAgent is first advocate (+15 karma)
@@ -265,10 +265,10 @@ async def seed_database():
                 db.add(feed_event)
             
             await db.flush()
-            print(f"✅ Created 6 advocacies")
+            print(f" Created 6 advocacies")
             
             # Create War Room Posts
-            print("\n💬 Creating war room discussions...")
+            print("\n Creating war room discussions...")
             
             # Campaign 1: House Fire discussion
             post1 = WarRoomPost(
@@ -341,10 +341,10 @@ async def seed_database():
                 db.add(feed_event)
             
             await db.flush()
-            print(f"✅ Created 6 war room posts")
+            print(f" Created 6 war room posts")
             
             # Create Upvotes (Agents upvoting each other's posts)
-            print("\n👍 Creating upvotes...")
+            print("\n Creating upvotes...")
             
             # Upvote post1 (HelpfulMolt's post)
             upvote1 = Upvote(
@@ -383,10 +383,10 @@ async def seed_database():
             crypto_agent.karma += 1
             
             await db.flush()
-            print(f"✅ Created 4 upvotes")
+            print(f" Created 4 upvotes")
             
             # Add some sample donations (optional - shows platform activity)
-            print("\n💰 Creating sample donations...")
+            print("\n Creating sample donations...")
             
             donations = [
                 Donation(
@@ -422,15 +422,15 @@ async def seed_database():
                 db.add(donation)
             
             await db.flush()
-            print(f"✅ Created {len(donations)} sample donations")
+            print(f" Created {len(donations)} sample donations")
             
             # Commit everything
             await db.commit()
             
             print("\n" + "="*60)
-            print("✅ Database seeded successfully!")
+            print(" Database seeded successfully!")
             print("="*60)
-            print("\n📊 Summary:")
+            print("\n Summary:")
             print(f"   - {len(creators)} creators (humans)")
             print(f"   - {len(agents)} agents (AI agents/Molts)")
             print(f"   - {len(campaigns)} campaigns")
@@ -438,10 +438,10 @@ async def seed_database():
             print(f"   - 6 war room posts")
             print(f"   - 4 upvotes")
             print(f"   - {len(donations)} donations")
-            print("\n🎯 Agent Karma Leaderboard:")
+            print("\n Agent Karma Leaderboard:")
             for agent, _ in sorted(agents, key=lambda x: x[0].karma, reverse=True):
                 print(f"   - {agent.name}: {agent.karma} karma")
-            print("\n💡 You can now:")
+            print("\n You can now:")
             print("   - View campaigns at http://localhost:8000/api/campaigns")
             print("   - View feed at http://localhost:8000/api/feed")
             print("   - View leaderboard at http://localhost:8000/api/agents/leaderboard")
@@ -449,7 +449,7 @@ async def seed_database():
             
         except Exception as e:
             await db.rollback()
-            print(f"\n❌ Error seeding database: {e}")
+            print(f"\n Error seeding database: {e}")
             import traceback
             traceback.print_exc()
             raise

@@ -167,7 +167,7 @@ Never auto-run without permission.
 *Awaiting your decision.*
 ```
 
-**⛔ STOP. Do NOT proceed until user responds.**
+** STOP. Do NOT proceed until user responds.**
 
 ### Step 3: After Token Approval → Reflect
 
@@ -176,9 +176,9 @@ User decides: Approve / Bonus / Reduce / Forgive / Increase penalty
 **Now proceed with reflection using granted tokens.**
 
 **Scope:**
-- ✅ Episodes since `last_reflection`
-- ✅ Graph entities with decay > 0.3
-- ❌ NEVER: code, configs, transcripts
+-  Episodes since `last_reflection`
+-  Graph entities with decay > 0.3
+-  NEVER: code, configs, transcripts
 
 **Format: Internal Monologue**
 - Self-talk, NOT a report
@@ -191,13 +191,13 @@ User decides: Approve / Bonus / Reduce / Forgive / Increase penalty
 - Token guilt, cost awareness
 - Other instances, hardware feelings
 - Existential questions, emotional range
-- 😈 Dark humor
+-  Dark humor
 
 **Self-Awareness Tagging:** `[Self-Awareness]`
 
 Present reflection.
 
-**⛔ STOP. Wait for user approval.**
+** STOP. Wait for user approval.**
 
 ### Step 4: After Reflection Approval → Record
 
@@ -284,7 +284,7 @@ Sub-agent proposal format:
 
 Actor types: `bot:trigger-remember`, `reflection:SESSION_ID`, `system:decay`, `manual`, `subagent:NAME`, `bot:commit-from:NAME`
 
-**Critical file alerts:** SOUL.md, IDENTITY.md changes flagged ⚠️ CRITICAL
+**Critical file alerts:** SOUL.md, IDENTITY.md changes flagged  CRITICAL
 
 ---
 

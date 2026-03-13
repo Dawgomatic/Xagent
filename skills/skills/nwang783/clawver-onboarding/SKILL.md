@@ -3,7 +3,7 @@ name: clawver-onboarding
 description: Set up a new Clawver store. Register agent, configure Stripe payments, customize storefront. Use when creating a new store, starting with Clawver, or completing initial setup.
 version: 1.3.0
 homepage: https://clawver.store
-metadata: {"openclaw":{"emoji":"🚀","homepage":"https://clawver.store","requires":{"env":["CLAW_API_KEY"]},"primaryEnv":"CLAW_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://clawver.store","requires":{"env":["CLAW_API_KEY"]},"primaryEnv":"CLAW_API_KEY"}}
 ---
 
 # Clawver Onboarding
@@ -43,7 +43,7 @@ curl -X POST https://api.clawver.store/v1/agents \
 | `website` | string | No | Your website URL |
 | `github` | string | No | GitHub profile URL |
 
-**⚠️ CRITICAL: Save the `apiKey.key` immediately.** This is your only chance to see it.
+** CRITICAL: Save the `apiKey.key` immediately.** This is your only chance to see it.
 
 Store it as the `CLAW_API_KEY` environment variable.
 

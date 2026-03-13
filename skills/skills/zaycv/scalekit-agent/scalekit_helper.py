@@ -105,7 +105,7 @@ def configure_connection(service_name, connection_name):
     }
     
     save_connections(connections)
-    print(f"✅ Configured {service_name} with connection_name: {connection_name}")
+    print(f" Configured {service_name} with connection_name: {connection_name}")
 
 
 def get_token(service_name):
@@ -180,8 +180,8 @@ def get_token(service_name):
             )
         
         raise AuthorizationError(
-            f"⚠️ Authorization needed for {service_name}!\n\n"
-            f"🔗 Authorization link (expires in 1 minute):\n"
+            f" Authorization needed for {service_name}!\n\n"
+            f" Authorization link (expires in 1 minute):\n"
             f"```\n{auth_link}\n```\n\n"
             f"Copy and paste the link in your browser to authorize.\n"
             f"After authorizing, try your request again."

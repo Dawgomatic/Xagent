@@ -156,7 +156,7 @@
 <body>
     <div class="header">
         <h1>
-            🔒 OpenClaw Security Dashboard
+             OpenClaw Security Dashboard
             <span id="overallStatus" class="status-badge status-secure">Loading...</span>
         </h1>
         <button class="refresh-btn" onclick="loadDashboard()">↻ Refresh</button>
@@ -169,7 +169,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <span class="icon">🦞</span>
+                    <span class="icon"></span>
                     OpenClaw Security
                 </div>
             </div>
@@ -182,7 +182,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <span class="icon">🌐</span>
+                    <span class="icon"></span>
                     Network Security
                 </div>
             </div>
@@ -195,7 +195,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <span class="icon">🌍</span>
+                    <span class="icon"></span>
                     Public Exposure
                 </div>
             </div>
@@ -208,7 +208,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <span class="icon">🖥️</span>
+                    <span class="icon"></span>
                     System Security
                 </div>
             </div>
@@ -221,7 +221,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <span class="icon">🔑</span>
+                    <span class="icon"></span>
                     SSH & Access Control
                 </div>
             </div>
@@ -234,7 +234,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <span class="icon">📜</span>
+                    <span class="icon"></span>
                     Certificates & TLS
                 </div>
             </div>
@@ -247,7 +247,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-title">
-                    <span class="icon">📊</span>
+                    <span class="icon"></span>
                     Resource Security
                 </div>
             </div>
@@ -391,7 +391,7 @@
 
         function metric(label, value, status) {
             const statusClass = status ? `value-${status}` : '';
-            const icon = status === 'good' ? '✓' : status === 'critical' ? '✗' : status === 'warning' ? '⚠' : '';
+            const icon = status === 'good' ? '✓' : status === 'critical' ? '✗' : status === 'warning' ? '' : '';
             return `
                 <div class="metric">
                     <span class="metric-label">${label}</span>

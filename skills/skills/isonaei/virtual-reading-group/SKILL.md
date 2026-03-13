@@ -35,7 +35,7 @@ The skill runs 4 sequential phases. Each phase must complete before the next beg
 
 ## Orchestration Procedure
 
-> ⚠️ **Important:** The prompts below are **abbreviated summaries**. For full prompt templates that produce quality output, use `references/workflow.md`. The pseudocode blocks show orchestration structure — adapt to your actual sub-agent spawning mechanism.
+>  **Important:** The prompts below are **abbreviated summaries**. For full prompt templates that produce quality output, use `references/workflow.md`. The pseudocode blocks show orchestration structure — adapt to your actual sub-agent spawning mechanism.
 
 ### 1. Validate Inputs
 
@@ -75,7 +75,7 @@ For each expert, spawn a sub-agent with:
   - Write session summary with cross-cutting themes
   - **Critical:** Quote specific passages with section labels — all claims must be traceable
 
-📄 **Full prompt template:** See `references/workflow.md` → Phase 1
+ **Full prompt template:** See `references/workflow.md` → Phase 1
 
 **Wait for all Phase 1 agents to complete before proceeding.**
 
@@ -90,7 +90,7 @@ Spawn single agent with:
   - Generate Grand Questions: 3 unsolved problems, 2 testable hypotheses, 2 methodological gaps
   - Reference specific passages — be intellectually provocative
 
-📄 **Full prompt template:** See `references/workflow.md` → Phase 2
+ **Full prompt template:** See `references/workflow.md` → Phase 2
 
 **Wait for Phase 2 to complete before proceeding.**
 
@@ -106,7 +106,7 @@ For each expert, spawn a sub-agent with:
   - Respond to Grand Questions from their domain expertise
   - Be collegial but intellectually rigorous — disagree where warranted
 
-📄 **Full prompt template:** See `references/workflow.md` → Phase 3
+ **Full prompt template:** See `references/workflow.md` → Phase 3
 
 **Wait for all Phase 3 agents to complete before proceeding.**
 
@@ -123,7 +123,7 @@ Spawn single agent with:
   - Include: Points of Consensus, Points of Disagreement, Open Questions
   - **Synthesize, don't summarize** — find the intellectual threads
 
-📄 **Full prompt template:** See `references/workflow.md` → Phase 4
+ **Full prompt template:** See `references/workflow.md` → Phase 4
 
 ### 7. Report Completion
 

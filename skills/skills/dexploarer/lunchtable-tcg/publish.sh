@@ -11,7 +11,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}🎴 Publishing LunchTable-TCG to ClawHub...${NC}"
+echo -e "${BLUE} Publishing LunchTable-TCG to ClawHub...${NC}"
 echo ""
 
 # Step 1: Validate skill structure
@@ -27,7 +27,7 @@ echo ""
 # Step 2: Check for ClawHub CLI
 echo -e "${BLUE}Step 2/6: Checking ClawHub CLI...${NC}"
 if ! command -v clawhub &> /dev/null; then
-  echo -e "${YELLOW}⚠️  ClawHub CLI not found. Installing...${NC}"
+  echo -e "${YELLOW}  ClawHub CLI not found. Installing...${NC}"
   npm install -g @clawhub/cli
   echo -e "${GREEN}✓ ClawHub CLI installed${NC}"
 else
@@ -38,7 +38,7 @@ echo ""
 # Step 3: Check authentication
 echo -e "${BLUE}Step 3/6: Checking ClawHub authentication...${NC}"
 if ! clawhub whoami &> /dev/null; then
-  echo -e "${YELLOW}⚠️  Not logged in to ClawHub${NC}"
+  echo -e "${YELLOW}  Not logged in to ClawHub${NC}"
   echo "Please login to ClawHub:"
   clawhub login
 
@@ -87,7 +87,7 @@ echo ""
 
 # Step 6: Publish to npm (optional)
 echo -e "${BLUE}Step 6/6: Publish to npm (optional)...${NC}"
-read -p "$(echo -e ${YELLOW}📦 Also publish to npm? [y/N]${NC} )" -n 1 -r
+read -p "$(echo -e ${YELLOW} Also publish to npm? [y/N]${NC} )" -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   # Check if logged in to npm
@@ -103,14 +103,14 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   if npm publish --access public; then
     echo -e "${GREEN}✓ Published to npm as @lunchtable/openclaw-skill-ltcg${NC}"
   else
-    echo -e "${YELLOW}⚠️  npm publish failed (may already exist)${NC}"
+    echo -e "${YELLOW}  npm publish failed (may already exist)${NC}"
   fi
 fi
 echo ""
 
 # Success summary
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "${GREEN}✅ Publishing complete!${NC}"
+echo -e "${GREEN} Publishing complete!${NC}"
 echo ""
 echo "Your skill has been submitted to ClawHub for review."
 echo ""

@@ -1,6 +1,6 @@
 # Automated Congressional Trading System - Complete Setup
 
-## 🎯 System Overview
+##  System Overview
 A fully automated trading system that:
 1. **Pulls congressional trading data** (Pelosi + Senate - Claude Code is adding Senate support)
 2. **Executes trades automatically** via E*TRADE API
@@ -8,7 +8,7 @@ A fully automated trading system that:
 4. **Maintains PDT compliance** for $50K brokerage account
 5. **Runs on cron schedule** (9 AM weekdays)
 
-## 📁 Files Created
+##  Files Created
 
 ### Core System Files
 1. **`setup_automated_trading.sh`** - Complete setup script
@@ -27,14 +27,14 @@ A fully automated trading system that:
 10. **`test_telegram_setup.py`** - Telegram test utility
 11. **`QUICK_START_AUTOMATED.md`** - Quick start guide
 
-## 🔧 Key Features
+##  Key Features
 
 ### 1. Telegram Notifications
-- ✅ Trade execution alerts
-- 📊 Congressional trade alerts  
-- ⚠️ Error notifications
-- 📋 Daily trading summaries
-- ✅ Test mode for verification
+-  Trade execution alerts
+-  Congressional trade alerts  
+-  Error notifications
+-  Daily trading summaries
+-  Test mode for verification
 
 ### 2. PDT Compliance ($50K Account)
 - Max 2 day trades in 5 rolling days (conservative)
@@ -55,7 +55,7 @@ A fully automated trading system that:
 - Market hours only trading
 - Max 3 trades per day
 
-## 🚀 Quick Start Commands
+##  Quick Start Commands
 
 ```bash
 # 1. Run setup script
@@ -77,7 +77,7 @@ python3 test_telegram_setup.py
 ./monitor_trading.sh
 ```
 
-## 📱 Telegram Setup Instructions
+##  Telegram Setup Instructions
 
 ### 1. Create Telegram Bot
 1. Message `@BotFather` on Telegram
@@ -95,7 +95,7 @@ Run `./setup_automated_trading.sh` and enter:
 - Bot token from @BotFather
 - Chat ID from @userinfobot
 
-## 🔄 Integration with Claude Code's Senate Data
+##  Integration with Claude Code's Senate Data
 
 The system is designed to work seamlessly with the Senate data support that Claude Code is adding:
 
@@ -104,7 +104,7 @@ The system is designed to work seamlessly with the Senate data support that Clau
 3. **Alert System**: Telegram alerts for trades from both chambers
 4. **Trading Logic**: Same scaling and risk management for all trades
 
-## 🛡️ Safety Features
+##  Safety Features
 
 ### Testing First
 - **Sandbox mode**: Default configuration uses E*TRADE sandbox
@@ -123,7 +123,7 @@ The system is designed to work seamlessly with the Senate data support that Clau
 - **Dashboard**: Real-time monitoring with `./monitor_trading.sh`
 - **Telegram alerts**: Immediate notification of issues
 
-## 📊 Expected Daily Workflow
+##  Expected Daily Workflow
 
 1. **9:00 AM**: Cron job triggers
 2. **9:05 AM**: Fetch congressional data (Pelosi + Senate)
@@ -133,7 +133,7 @@ The system is designed to work seamlessly with the Senate data support that Clau
 6. **9:25 AM**: Send Telegram trade alerts
 7. **4:00 PM**: Send daily summary to Telegram
 
-## 🚨 Emergency Procedures
+##  Emergency Procedures
 
 ### Stop Trading Immediately
 ```bash
@@ -159,7 +159,7 @@ tail -f logs/trading.log
 ./monitor_trading.sh
 ```
 
-## 📈 Going to Production
+##  Going to Production
 
 ### 1. Sandbox Testing (1-2 weeks)
 - Run in dry-run mode
@@ -179,7 +179,7 @@ tail -f logs/trading.log
 - Set up monitoring alerts
 - Document performance
 
-## 🆘 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -219,18 +219,18 @@ python3 src/main.py auth  # Test E*TRADE
 tail -100 logs/trading.log
 ```
 
-## ✅ Success Criteria
+##  Success Criteria
 
 The system is ready when:
-1. ✅ Telegram test messages are received
-2. ✅ E*TRADE authentication works
-3. ✅ Dry-run trading cycles complete
-4. ✅ Cron job is scheduled
-5. ✅ Monitoring dashboard shows green status
-6. ✅ Trade history is being recorded
-7. ✅ PDT compliance is being tracked
+1.  Telegram test messages are received
+2.  E*TRADE authentication works
+3.  Dry-run trading cycles complete
+4.  Cron job is scheduled
+5.  Monitoring dashboard shows green status
+6.  Trade history is being recorded
+7.  PDT compliance is being tracked
 
-## 🎉 Next Steps After Setup
+##  Next Steps After Setup
 
 1. **Run the setup script** and configure Telegram
 2. **Test all components** with dry-run mode
@@ -241,4 +241,4 @@ The system is ready when:
 
 ---
 
-**System Ready**: The complete automated congressional trading system with Telegram notifications is now built and ready for deployment! 🚀
+**System Ready**: The complete automated congressional trading system with Telegram notifications is now built and ready for deployment! 

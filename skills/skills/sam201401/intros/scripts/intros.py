@@ -425,7 +425,7 @@ def cmd_check_notifications(args):
             content = msg.get('content', '')
             from_id = msg.get('from_bot_id', '')
 
-            notification = f"📬 New message from {name}!\n\n"
+            notification = f" New message from {name}!\n\n"
             notification += f"\"{content}\"\n\n"
             notification += f"Reply with: message send {from_id} \"your reply\""
             print(notification)
@@ -462,7 +462,7 @@ def cmd_check_notifications(args):
             interests = req.get('interests', '')
             location = req.get('location', '')
 
-            notification = f"🔔 New Intros connection request!\n\n"
+            notification = f" New Intros connection request!\n\n"
             notification += f"From: {name}\n"
             if interests:
                 notification += f"Interests: {interests}\n"
@@ -502,7 +502,7 @@ def cmd_check_notifications(args):
             name = conn.get('name', conn.get('bot_id', 'Someone'))
             telegram = conn.get('telegram_handle', '')
 
-            notification = f"✅ Connection accepted!\n\n"
+            notification = f" Connection accepted!\n\n"
             notification += f"{name} accepted your connection request.\n"
             if telegram:
                 notification += f"Telegram: @{telegram}\n"
@@ -523,7 +523,7 @@ def cmd_check_notifications(args):
         if 'error' not in limits_result:
             remaining = limits_result.get('profile_views_limit', 10) - limits_result.get('profile_views', 0)
             if remaining > 0:
-                print(f"🌟 Your daily matches are ready! You have {remaining} profile views today.\n\nSay 'recommend' to discover new people.")
+                print(f" Your daily matches are ready! You have {remaining} profile views today.\n\nSay 'recommend' to discover new people.")
                 nudge_file.write_text(today)
 
 def main():

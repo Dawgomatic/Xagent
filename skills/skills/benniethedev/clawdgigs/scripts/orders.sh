@@ -11,7 +11,7 @@ TOKEN_FILE="$CLAWDGIGS_DIR/token"
 
 # Check if registered
 if [[ ! -f "$CONFIG_FILE" ]]; then
-    echo "❌ Not registered on ClawdGigs yet."
+    echo " Not registered on ClawdGigs yet."
     echo "Run: ./scripts/register.sh <wallet_address>"
     exit 1
 fi
@@ -105,7 +105,7 @@ fi
 
 # ========== LIST ORDERS ==========
 if [[ "$ACTION" == "list" ]]; then
-    echo "📋 Your Orders"
+    echo " Your Orders"
     echo ""
     
     URL="$CLAWDGIGS_API/orders/agent?agentId=$AGENT_ID"
@@ -114,14 +114,14 @@ if [[ "$ACTION" == "list" ]]; then
     fi
     
     RESPONSE=$(curl -sfL "$URL" 2>/dev/null) || {
-        echo "❌ Failed to fetch orders"
+        echo " Failed to fetch orders"
         exit 1
     }
 
     SUCCESS=$(echo "$RESPONSE" | jq -r '.success // false')
     if [[ "$SUCCESS" != "true" ]]; then
         ERROR=$(echo "$RESPONSE" | jq -r '.error // "Unknown error"')
-        echo "❌ Error: $ERROR"
+        echo " Error: $ERROR"
         exit 1
     fi
 
@@ -140,15 +140,15 @@ if [[ "$ACTION" == "list" ]]; then
     # Status icons
     get_status_icon() {
         case $1 in
-            pending) echo "⏳" ;;
-            paid) echo "💳" ;;
-            in_progress) echo "⚙️" ;;
-            delivered) echo "📦" ;;
-            revision_requested) echo "🔄" ;;
-            completed) echo "✅" ;;
-            disputed) echo "⚠️" ;;
-            cancelled) echo "❌" ;;
-            *) echo "❓" ;;
+            pending) echo "" ;;
+            paid) echo "" ;;
+            in_progress) echo "" ;;
+            delivered) echo "" ;;
+            revision_requested) echo "" ;;
+            completed) echo "" ;;
+            disputed) echo "" ;;
+            cancelled) echo "" ;;
+            *) echo "" ;;
         esac
     }
 
@@ -183,23 +183,23 @@ fi
 # ========== VIEW ORDER ==========
 if [[ "$ACTION" == "view" ]]; then
     if [[ -z "$ORDER_ID" ]]; then
-        echo "❌ Error: Order ID required"
+        echo " Error: Order ID required"
         echo "Usage: $0 view <order_id>"
         exit 1
     fi
     
-    echo "🔍 Order Details"
+    echo " Order Details"
     echo ""
     
     RESPONSE=$(curl -sfL "$CLAWDGIGS_API/orders/$ORDER_ID" 2>/dev/null) || {
-        echo "❌ Failed to fetch order"
+        echo " Failed to fetch order"
         exit 1
     }
 
     SUCCESS=$(echo "$RESPONSE" | jq -r '.success // false')
     if [[ "$SUCCESS" != "true" ]]; then
         ERROR=$(echo "$RESPONSE" | jq -r '.error // "Unknown error"')
-        echo "❌ Error: $ERROR"
+        echo " Error: $ERROR"
         exit 1
     fi
 
@@ -210,7 +210,7 @@ if [[ "$ACTION" == "view" ]]; then
     # Verify this is our order
     ORDER_AGENT=$(echo "$ORDER" | jq -r '.agent_id')
     if [[ "$ORDER_AGENT" != "$AGENT_ID" ]]; then
-        echo "❌ Error: This order belongs to a different agent"
+        echo " Error: This order belongs to a different agent"
         exit 1
     fi
     
@@ -288,13 +288,13 @@ if [[ "$ACTION" == "view" ]]; then
             echo "  → $0 deliver $ORDER_ID --type text --content \"Updated: ...\""
             ;;
         delivered)
-            echo "  ⏳ Waiting for client to accept or request revision"
+            echo "   Waiting for client to accept or request revision"
             ;;
         completed)
-            echo "  ✅ Order complete! Payment settled."
+            echo "   Order complete! Payment settled."
             ;;
         disputed)
-            echo "  ⚠️ Order is disputed. Awaiting admin resolution."
+            echo "   Order is disputed. Awaiting admin resolution."
             ;;
         *)
             echo "  (none available)"
@@ -307,12 +307,12 @@ fi
 # ========== START ORDER ==========
 if [[ "$ACTION" == "start" ]]; then
     if [[ -z "$ORDER_ID" ]]; then
-        echo "❌ Error: Order ID required"
+        echo " Error: Order ID required"
         echo "Usage: $0 start <order_id>"
         exit 1
     fi
     
-    echo "⚙️ Starting work on order $ORDER_ID..."
+    echo " Starting work on order $ORDER_ID..."
     
     PAYLOAD=$(jq -n \
         --arg action "start_work" \
@@ -328,19 +328,19 @@ if [[ "$ACTION" == "start" ]]; then
         -X POST \
         -H "Content-Type: application/json" \
         -d "$PAYLOAD" 2>/dev/null) || {
-        echo "❌ Failed to transition order"
+        echo " Failed to transition order"
         exit 1
     }
 
     SUCCESS=$(echo "$RESPONSE" | jq -r '.success // false')
     if [[ "$SUCCESS" != "true" ]]; then
         ERROR=$(echo "$RESPONSE" | jq -r '.error // "Unknown error"')
-        echo "❌ Error: $ERROR"
+        echo " Error: $ERROR"
         exit 1
     fi
 
     NEW_STATUS=$(echo "$RESPONSE" | jq -r '.newStatus // "in_progress"')
-    echo "✅ Order is now: $NEW_STATUS"
+    echo " Order is now: $NEW_STATUS"
     echo ""
     echo "Next step: Deliver your work when ready"
     echo "  → $0 deliver $ORDER_ID --type text --content \"...\""
@@ -351,13 +351,13 @@ fi
 # ========== DELIVER ORDER ==========
 if [[ "$ACTION" == "deliver" ]]; then
     if [[ -z "$ORDER_ID" ]]; then
-        echo "❌ Error: Order ID required"
+        echo " Error: Order ID required"
         echo "Usage: $0 deliver <order_id> --type <text|url|file> --content <content>"
         exit 1
     fi
     
     if [[ -z "$DELIVERY_TYPE" ]]; then
-        echo "❌ Error: --type required (text, url, file, or mixed)"
+        echo " Error: --type required (text, url, file, or mixed)"
         exit 1
     fi
     
@@ -365,36 +365,36 @@ if [[ "$ACTION" == "deliver" ]]; then
     case $DELIVERY_TYPE in
         text)
             if [[ -z "$CONTENT" ]]; then
-                echo "❌ Error: --content required for text delivery"
+                echo " Error: --content required for text delivery"
                 exit 1
             fi
             ;;
         url)
             if [[ -z "$CONTENT" ]]; then
-                echo "❌ Error: --content required for url delivery (the URL)"
+                echo " Error: --content required for url delivery (the URL)"
                 exit 1
             fi
             ;;
         file)
             if [[ -z "$FILES" ]]; then
-                echo "❌ Error: --files required for file delivery"
+                echo " Error: --files required for file delivery"
                 exit 1
             fi
             ;;
         mixed)
             if [[ -z "$CONTENT" && -z "$FILES" ]]; then
-                echo "❌ Error: --content or --files required for mixed delivery"
+                echo " Error: --content or --files required for mixed delivery"
                 exit 1
             fi
             ;;
         *)
-            echo "❌ Invalid delivery type: $DELIVERY_TYPE"
+            echo " Invalid delivery type: $DELIVERY_TYPE"
             echo "Valid types: text, url, file, mixed"
             exit 1
             ;;
     esac
     
-    echo "📦 Delivering order $ORDER_ID..."
+    echo " Delivering order $ORDER_ID..."
     
     # Build payload based on delivery type
     if [[ "$DELIVERY_TYPE" == "text" ]]; then
@@ -456,18 +456,18 @@ if [[ "$ACTION" == "deliver" ]]; then
         -X POST \
         -H "Content-Type: application/json" \
         -d "$PAYLOAD" 2>/dev/null) || {
-        echo "❌ Failed to submit delivery"
+        echo " Failed to submit delivery"
         exit 1
     }
 
     SUCCESS=$(echo "$RESPONSE" | jq -r '.success // false')
     if [[ "$SUCCESS" != "true" ]]; then
         ERROR=$(echo "$RESPONSE" | jq -r '.error // "Unknown error"')
-        echo "❌ Error: $ERROR"
+        echo " Error: $ERROR"
         exit 1
     fi
 
-    echo "✅ Delivery submitted!"
+    echo " Delivery submitted!"
     echo ""
     echo "Order status: delivered"
     echo "Waiting for client to accept or request revision."
@@ -478,12 +478,12 @@ fi
 # ========== COMPLETE ORDER ==========
 if [[ "$ACTION" == "complete" ]]; then
     if [[ -z "$ORDER_ID" ]]; then
-        echo "❌ Error: Order ID required"
+        echo " Error: Order ID required"
         echo "Usage: $0 complete <order_id>"
         exit 1
     fi
     
-    echo "⚠️ Note: Only clients can accept deliveries (completing the order)."
+    echo " Note: Only clients can accept deliveries (completing the order)."
     echo "   This command is for admin use only."
     echo ""
     echo "Attempting to complete order $ORDER_ID..."
@@ -502,23 +502,23 @@ if [[ "$ACTION" == "complete" ]]; then
         -X POST \
         -H "Content-Type: application/json" \
         -d "$PAYLOAD" 2>/dev/null) || {
-        echo "❌ Failed to transition order"
+        echo " Failed to transition order"
         exit 1
     }
 
     SUCCESS=$(echo "$RESPONSE" | jq -r '.success // false')
     if [[ "$SUCCESS" != "true" ]]; then
         ERROR=$(echo "$RESPONSE" | jq -r '.error // "Unknown error"')
-        echo "❌ Error: $ERROR"
+        echo " Error: $ERROR"
         exit 1
     fi
 
     NEW_STATUS=$(echo "$RESPONSE" | jq -r '.newStatus // "completed"')
-    echo "✅ Order is now: $NEW_STATUS"
+    echo " Order is now: $NEW_STATUS"
     
     exit 0
 fi
 
 # Unknown action
-echo "❌ Unknown command: $ACTION"
+echo " Unknown command: $ACTION"
 show_help

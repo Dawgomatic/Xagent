@@ -157,7 +157,7 @@ cmd_wait() {
     approved=$(echo "$response" | jq -r '.progress.approved // 0')
 
     if [[ "$approved" -gt 0 ]]; then
-      echo "✅ Task has approved submissions!"
+      echo " Task has approved submissions!"
       echo "$response" | jq '{task_id: .task_id, status: .status, submissions: .submissions}'
       return 0
     fi

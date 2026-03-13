@@ -202,7 +202,7 @@ def api_multi_growth():
 
 if __name__ == '__main__':
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 5050
-    print(f"\n🧮 Financial Calculator")
-    print(f"📊 Open: http://localhost:{port}")
+    print(f"\n Financial Calculator")
+    print(f" Open: http://localhost:{port}")
     print(f"Press Ctrl+C to stop\n")
     app.run(host='0.0.0.0', port=port, debug=False)

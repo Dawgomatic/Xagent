@@ -132,16 +132,16 @@ async function main() {
   const entries = readAuditLog(50);
   
   if (entries.length === 0) {
-    console.log('📋 沒有審計記錄');
+    console.log(' 沒有審計記錄');
     return;
   }
   
-  console.log(`📋 審計記錄 (最近 ${entries.length} 筆)`);
+  console.log(` 審計記錄 (最近 ${entries.length} 筆)`);
   console.log('═'.repeat(60));
   
   for (const entry of entries) {
     const time = new Date(entry.timestamp).toLocaleString();
-    const status = entry.success === false ? '❌' : '✅';
+    const status = entry.success === false ? '' : '';
     console.log(`${status} [${time}] ${entry.action}`);
     
     if (entry.wallet) console.log(`   錢包: ${entry.wallet}`);

@@ -28,5 +28,5 @@ curl -s "https://api.open-meteo.com/v1/forecast?latitude=38.9072&longitude=-77.0
 ## Pretty Format
 
 ```bash
-curl -s "https://api.open-meteo.com/v1/forecast?latitude=38.9072&longitude=-77.0369&current_weather=true&temperature_unit=fahrenheit" | jq -r '"\n🌤️ Washington, DC\n━━━━━━━━━━━━━━\n🌡️  \(.current_weather.temperature)°F\n💨  Wind: \(.current_weather.windspeed) mph\n🌪️  Code: \(.current_weather.weathercode)\n"'
+curl -s "https://api.open-meteo.com/v1/forecast?latitude=38.9072&longitude=-77.0369&current_weather=true&temperature_unit=fahrenheit" | jq -r '"\n Washington, DC\n━━━━━━━━━━━━━━\n  \(.current_weather.temperature)°F\n  Wind: \(.current_weather.windspeed) mph\n  Code: \(.current_weather.weathercode)\n"'
 ```

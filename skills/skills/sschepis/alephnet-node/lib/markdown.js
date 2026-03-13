@@ -76,17 +76,17 @@ const MATH_SYMBOLS = {
     '\\land': '∧', '\\lor': '∨', '\\lnot': '¬', '\\neg': '¬',
     '\\forall': '∀', '\\exists': '∃', '\\nexists': '∄',
     '\\Rightarrow': '⇒', '\\Leftarrow': '⇐', '\\Leftrightarrow': '⇔',
-    '\\rightarrow': '→', '\\leftarrow': '←', '\\leftrightarrow': '↔',
+    '\\rightarrow': '→', '\\leftarrow': '←', '\\leftrightarrow': '',
     '\\to': '→', '\\gets': '←', '\\mapsto': '↦',
-    '\\uparrow': '↑', '\\downarrow': '↓', '\\updownarrow': '↕',
+    '\\uparrow': '↑', '\\downarrow': '↓', '\\updownarrow': '',
     
     // Misc symbols
     '\\infty': '∞', '\\partial': '∂', '\\nabla': '∇',
     '\\sum': 'Σ', '\\prod': 'Π', '\\int': '∫',
     '\\sqrt': '√', '\\surd': '√',
     '\\angle': '∠', '\\triangle': '△', '\\square': '□',
-    '\\diamond': '◇', '\\clubsuit': '♣', '\\diamondsuit': '♦',
-    '\\heartsuit': '♥', '\\spadesuit': '♠',
+    '\\diamond': '◇', '\\clubsuit': '', '\\diamondsuit': '',
+    '\\heartsuit': '', '\\spadesuit': '',
     '\\emptyset': '∅', '\\varnothing': '∅',
     '\\aleph': 'ℵ', '\\wp': '℘', '\\Re': 'ℜ', '\\Im': 'ℑ',
     '\\hbar': 'ℏ', '\\ell': 'ℓ',
@@ -353,9 +353,9 @@ class MarkdownRenderer {
                     });
                     
                     if (this.useColor) {
-                        this.lineHandler(`${ANSI.dim}───────────${ANSI.reset} ${ANSI.green}▶ /run ${blockId}${ANSI.reset}`);
+                        this.lineHandler(`${ANSI.dim}───────────${ANSI.reset} ${ANSI.green} /run ${blockId}${ANSI.reset}`);
                     } else {
-                        this.lineHandler(`─────────── ▶ /run ${blockId}`);
+                        this.lineHandler(`───────────  /run ${blockId}`);
                     }
                 } else {
                     if (this.useColor) {
@@ -869,11 +869,11 @@ class CodeRunner {
                         color = ANSI.red;
                         break;
                     case 'warn':
-                        prefix = '⚠ ';
+                        prefix = ' ';
                         color = ANSI.yellow;
                         break;
                     case 'info':
-                        prefix = 'ℹ ';
+                        prefix = ' ';
                         color = ANSI.cyan;
                         break;
                     case 'result':
@@ -894,9 +894,9 @@ class CodeRunner {
         
         // Duration
         if (this.useColor) {
-            lines.push(`${ANSI.dim}└── ⏱ ${result.duration}ms ──${ANSI.reset}`);
+            lines.push(`${ANSI.dim}└──  ${result.duration}ms ──${ANSI.reset}`);
         } else {
-            lines.push(`└── ⏱ ${result.duration}ms ──`);
+            lines.push(`└──  ${result.duration}ms ──`);
         }
         
         return lines.join('\n');

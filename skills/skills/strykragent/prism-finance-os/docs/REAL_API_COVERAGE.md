@@ -461,15 +461,15 @@ Being honest about coverage gaps:
 
 | Vertical | Status |
 |----------|--------|
-| Real estate | ❌ No endpoints |
-| Bond pricing (CUSIP/OAS/DV01) | ❌ Only treasury yields |
-| FX derivatives (forwards, options, vol) | ❌ Spot quotes only |
-| Commodity futures chains | ❌ Spot prices only |
-| Options chains (equity/index) | ❌ Not available |
-| Private market / VC data | ❌ Not available |
-| ESG scores | ❌ Not available |
-| Insurance / actuarial | ❌ Not available |
-| Personal finance calculators | ❌ Not available |
+| Real estate |  No endpoints |
+| Bond pricing (CUSIP/OAS/DV01) |  Only treasury yields |
+| FX derivatives (forwards, options, vol) |  Spot quotes only |
+| Commodity futures chains |  Spot prices only |
+| Options chains (equity/index) |  Not available |
+| Private market / VC data |  Not available |
+| ESG scores |  Not available |
+| Insurance / actuarial |  Not available |
+| Personal finance calculators |  Not available |
 
 ---
 

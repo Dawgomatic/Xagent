@@ -105,7 +105,7 @@ function generateFriendLink(identity, config, tunnelUrl) {
  * Main setup
  */
 async function main() {
-  console.log('🔗 ClawLink Setup');
+  console.log(' ClawLink Setup');
   console.log('='.repeat(50));
 
   const args = process.argv.slice(2);

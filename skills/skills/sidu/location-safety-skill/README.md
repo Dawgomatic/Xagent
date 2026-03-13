@@ -1,4 +1,4 @@
-# 🛡️ Location Safety Skill
+#  Location Safety Skill
 
 **Real-time safety monitoring for AI assistants** — because your AI should watch your back.
 
@@ -23,10 +23,10 @@ Built by [@upster](https://twitter.com/upster) and [Sid Alto](https://github.com
 Your AI assistant knows a lot about you, but does it know if you're safe?
 
 This skill gives your AI the ability to:
-- 📍 **Track your location** via your phone
-- 🌦️ **Monitor for dangers** in your area (weather, earthquakes, air quality, breaking news)
-- 📱 **Alert you** when something dangerous is detected
-- 🚨 **Escalate to loved ones** if you don't respond
+-  **Track your location** via your phone
+-  **Monitor for dangers** in your area (weather, earthquakes, air quality, breaking news)
+-  **Alert you** when something dangerous is detected
+-  **Escalate to loved ones** if you don't respond
 
 ### The Problem
 
@@ -42,16 +42,16 @@ This skill creates a **safety loop**:
 
 ```mermaid
 graph LR
-    A[📱 Your Phone] -->|Location| B[🖥️ Webhook Server]
-    B --> C[🤖 AI Assistant]
-    C -->|Checks| D[🌦️ Weather APIs]
-    C -->|Checks| E[🌋 Earthquake Data]
-    C -->|Checks| F[💨 Air Quality]
-    C -->|Checks| G[📰 Local News]
+    A[ Your Phone] -->|Location| B[ Webhook Server]
+    B --> C[ AI Assistant]
+    C -->|Checks| D[ Weather APIs]
+    C -->|Checks| E[ Earthquake Data]
+    C -->|Checks| F[ Air Quality]
+    C -->|Checks| G[ Local News]
     D & E & F & G --> H{Danger?}
-    H -->|Yes| I[📱 Alert You]
-    H -->|No| J[✅ All Clear]
-    I -->|No Response| K[📧 Alert Emergency Contact]
+    H -->|Yes| I[ Alert You]
+    H -->|No| J[ All Clear]
+    I -->|No Response| K[ Alert Emergency Contact]
 ```
 
 ## How It Works
@@ -62,9 +62,9 @@ Your phone sends location updates to a webhook server running alongside your AI:
 
 ```mermaid
 sequenceDiagram
-    participant Phone as 📱 OwnTracks
-    participant Server as 🖥️ Webhook
-    participant AI as 🤖 Assistant
+    participant Phone as  OwnTracks
+    participant Server as  Webhook
+    participant AI as  Assistant
     
     Phone->>Server: POST /location (lat, lon)
     Server->>Server: Save to location.json
@@ -80,14 +80,14 @@ Every 30 minutes, your AI checks multiple data sources for your current location
 ```mermaid
 graph TB
     subgraph "Data Sources (Free APIs)"
-        NWS[🌦️ National Weather Service<br/>Severe weather, floods, storms]
-        USGS[🌋 USGS Earthquakes<br/>Seismic activity within 100km]
-        AQI[💨 Open-Meteo Air Quality<br/>AQI, PM2.5, smoke]
-        NEWS[📰 Local RSS Feeds<br/>Breaking news, emergencies]
+        NWS[ National Weather Service<br/>Severe weather, floods, storms]
+        USGS[ USGS Earthquakes<br/>Seismic activity within 100km]
+        AQI[ Open-Meteo Air Quality<br/>AQI, PM2.5, smoke]
+        NEWS[ Local RSS Feeds<br/>Breaking news, emergencies]
     end
     
     subgraph "Safety Check"
-        CHECK[🔍 Analyze all sources]
+        CHECK[ Analyze all sources]
     end
     
     NWS --> CHECK
@@ -95,8 +95,8 @@ graph TB
     AQI --> CHECK
     NEWS --> CHECK
     
-    CHECK -->|All Clear| OK[✅ Log & Continue]
-    CHECK -->|Alert Found| ALERT[⚠️ Trigger Alert Flow]
+    CHECK -->|All Clear| OK[ Log & Continue]
+    CHECK -->|Alert Found| ALERT[ Trigger Alert Flow]
 ```
 
 ### 3. Alert & Escalation Flow
@@ -105,18 +105,18 @@ When danger is detected, the AI doesn't just log it — it takes action:
 
 ```mermaid
 sequenceDiagram
-    participant AI as 🤖 Assistant
-    participant You as 👤 You
-    participant Wife as 👩 Emergency Contact
+    participant AI as  Assistant
+    participant You as  You
+    participant Wife as  Emergency Contact
     
     AI->>AI: Danger detected!
-    AI->>You: 📱 WhatsApp: "Safety alert! Are you okay?"
+    AI->>You:  WhatsApp: "Safety alert! Are you okay?"
     
     alt You respond within 15 min
         You->>AI: "I'm safe"
-        AI->>AI: Clear alert ✅
+        AI->>AI: Clear alert 
     else No response after 15 min
-        AI->>Wife: 📧 Email: "Sid hasn't responded to safety alert"
+        AI->>Wife:  Email: "Sid hasn't responded to safety alert"
         Note over Wife: Can check on you
     end
 ```
@@ -128,19 +128,19 @@ The AI also monitors threats to *itself* — the machine it runs on:
 ```mermaid
 graph TB
     subgraph "Self-Check"
-        DISK[💾 Disk Space]
-        MEM[🧠 Memory]
-        NET[🌐 Tailscale Status]
-        ENV[🌍 Environment<br/>Weather at home location]
+        DISK[ Disk Space]
+        MEM[ Memory]
+        NET[ Tailscale Status]
+        ENV[ Environment<br/>Weather at home location]
     end
     
-    DISK -->|>85% full| WARN[⚠️ Alert owner]
+    DISK -->|>85% full| WARN[ Alert owner]
     MEM -->|<40% free| WARN
     NET -->|VPN down<br/>but internet up| WARN
     ENV -->|Danger at home| WARN
 ```
 
-> ⚠️ **Note:** If the internet is fully down, I obviously can't alert you. But I *can* detect partial failures (e.g., Tailscale VPN down while internet is up) and warn you before things get worse.
+>  **Note:** If the internet is fully down, I obviously can't alert you. But I *can* detect partial failures (e.g., Tailscale VPN down while internet is up) and warn you before things get worse.
 
 ## Architecture
 
@@ -156,7 +156,7 @@ graph TB
 ┌─────────────────────────────────────────────────────────────┐
 │                   WEBHOOK SERVER (:18800)                    │
 │  ┌─────────────┐    ┌──────────────┐                        │
-│  │  server.js  │───▶│ location.json │                       │
+│  │  server.js  │───│ location.json │                       │
 │  └─────────────┘    └──────────────┘                        │
 └─────────────────────────────────────────────────────────────┘
           │
@@ -173,7 +173,7 @@ graph TB
 │          ▼                    ▼                    ▼        │
 │  ┌─────────────────────────────────────────────────────────┐│
 │  │                    ALERT ACTIONS                        ││
-│  │  📱 WhatsApp message    📧 Email escalation             ││
+│  │   WhatsApp message     Email escalation             ││
 │  └─────────────────────────────────────────────────────────┘│
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -209,12 +209,12 @@ node server.js
 ## Supported Cities
 
 Setup includes presets for:
-- 🌲 **Seattle** — KING5, Seattle Times
-- 🌹 **Portland** — Oregonian, KGW  
-- 🌉 **San Francisco** — SF Chronicle, SFGate
-- 🌴 **Los Angeles** — LA Times, ABC7
-- 🗽 **New York** — NY Times
-- 🌬️ **Chicago** — Chicago Tribune
+-  **Seattle** — KING5, Seattle Times
+-  **Portland** — Oregonian, KGW  
+-  **San Francisco** — SF Chronicle, SFGate
+-  **Los Angeles** — LA Times, ABC7
+-  **New York** — NY Times
+-  **Chicago** — Chicago Tribune
 
 Other cities are auto-geocoded; you can add custom RSS feeds.
 
@@ -242,4 +242,4 @@ MIT — Use it, modify it, keep yourself safe.
 
 ---
 
-*Built with 🛡️ by [@upster](https://twitter.com/upster) & [Sid Alto](https://github.com/sidalto1-dev) — a human and his AI, building the future Daniel Miessler described.*
+*Built with  by [@upster](https://twitter.com/upster) & [Sid Alto](https://github.com/sidalto1-dev) — a human and his AI, building the future Daniel Miessler described.*

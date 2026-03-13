@@ -172,11 +172,11 @@ Tested against:
 - Operations verified: create, read, update, list
 
 **Test results:**
-- ✅ Create posts with Lexical content
-- ✅ Update existing posts with Lexical content
-- ✅ Ghost converts Lexical → mobiledoc internally
-- ✅ HTML output renders correctly
-- ✅ Multiple paragraphs and headings work
+-  Create posts with Lexical content
+-  Update existing posts with Lexical content
+-  Ghost converts Lexical → mobiledoc internally
+-  HTML output renders correctly
+-  Multiple paragraphs and headings work
 
 ## References
 

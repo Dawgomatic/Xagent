@@ -5,7 +5,7 @@ version: 1.0.3
 homepage: https://clawic.com/skills/coding
 description: Coding style memory that adapts to your preferences, conventions, and patterns for consistent coding.
 changelog: Improve discoverability, add homepage and feedback section
-metadata: {"clawdbot":{"emoji":"💻","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

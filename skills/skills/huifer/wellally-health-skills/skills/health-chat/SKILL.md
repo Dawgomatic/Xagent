@@ -156,24 +156,24 @@ User Question -> Match Keywords -> Route to Data Source
 ### Response Structure
 
 ```markdown
-## 📊 Health Data Summary
+##  Health Data Summary
 [Brief overview based on current data]
 
-## 🎯 Key Findings
+##  Key Findings
 [Health metrics or issues needing attention]
 
-## 💡 Personalized Recommendations
+##  Personalized Recommendations
 [Personalized advice based on data]
 
-## 📈 Trend Analysis
+##  Trend Analysis
 [If applicable, show data trends]
 
-## ⚠️ Risk Alerts
+##  Risk Alerts
 [If applicable, alert on risk factors]
 
 ---
 
-⚕️ Medical Disclaimer: This health information is for reference only and cannot replace professional medical advice.
+ Medical Disclaimer: This health information is for reference only and cannot replace professional medical advice.
 Please consult a healthcare professional for health concerns.
 ```
 

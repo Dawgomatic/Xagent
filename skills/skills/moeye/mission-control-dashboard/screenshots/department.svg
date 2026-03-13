@@ -4,18 +4,18 @@
   <text x="50" y="50" font-family="monospace" font-size="24" font-weight="bold" fill="#333">Department Panel</text>
   <rect x="30" y="70" width="740" height="480" fill="#fff" stroke="#ccc" stroke-width="2"/>
   <text x="50" y="100" font-family="monospace" font-size="14" fill="#000"></text>
-  <text x="50" y="120" font-family="monospace" font-size="14" fill="#000">🤖 BOT Department - Expanded View</text>
+  <text x="50" y="120" font-family="monospace" font-size="14" fill="#000"> BOT Department - Expanded View</text>
   <text x="50" y="140" font-family="monospace" font-size="14" fill="#000"></text>
-  <text x="50" y="160" font-family="monospace" font-size="14" fill="#000">Status: 🟢 Online</text>
+  <text x="50" y="160" font-family="monospace" font-size="14" fill="#000">Status:  Online</text>
   <text x="50" y="180" font-family="monospace" font-size="14" fill="#000">Last Active: 2 minutes ago</text>
   <text x="50" y="200" font-family="monospace" font-size="14" fill="#000">Tasks Completed: 847</text>
   <text x="50" y="220" font-family="monospace" font-size="14" fill="#000"></text>
   <text x="50" y="240" font-family="monospace" font-size="14" fill="#000">Sub-Agents:</text>
-  <text x="50" y="260" font-family="monospace" font-size="14" fill="#000">├─ strategy-researcher 🔬</text>
+  <text x="50" y="260" font-family="monospace" font-size="14" fill="#000">├─ strategy-researcher </text>
   <text x="50" y="280" font-family="monospace" font-size="14" fill="#000">│  Status: Active | Win rate analysis</text>
-  <text x="50" y="300" font-family="monospace" font-size="14" fill="#000">├─ risk-manager ⚠️</text>
+  <text x="50" y="300" font-family="monospace" font-size="14" fill="#000">├─ risk-manager </text>
   <text x="50" y="320" font-family="monospace" font-size="14" fill="#000">│  Status: Active | Monitoring 3 positions</text>
-  <text x="50" y="340" font-family="monospace" font-size="14" fill="#000">└─ performance-analyst 📈</text>
+  <text x="50" y="340" font-family="monospace" font-size="14" fill="#000">└─ performance-analyst </text>
   <text x="50" y="360" font-family="monospace" font-size="14" fill="#000">   Status: Active | PnL tracking</text>
   <text x="50" y="380" font-family="monospace" font-size="14" fill="#000"></text>
   <text x="50" y="400" font-family="monospace" font-size="14" fill="#000">Current Tasks:</text>

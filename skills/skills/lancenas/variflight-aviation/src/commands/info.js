@@ -16,20 +16,20 @@ module.exports = async function info(fnum, date) {
     const client = new VariflightClient();
 
     try {
-        console.log(`🛫 查询航班 ${fnum.toUpperCase()} 在 ${date} 的信息...\n`);
+        console.log(` 查询航班 ${fnum.toUpperCase()} 在 ${date} 的信息...\n`);
 
         const result = await client.searchFlightsByNumber(fnum.toUpperCase(), date);
 
         // 解析标准响应格式
         if (!result || result.code !== 200) {
-            console.log('❌ 查询失败:', result?.message || '未知错误');
+            console.log(' 查询失败:', result?.message || '未知错误');
             return;
         }
 
         const flights = result.data || [];
 
         if (flights.length === 0) {
-            console.log('❌ 未找到航班信息');
+            console.log(' 未找到航班信息');
             return;
         }
 
@@ -71,7 +71,7 @@ module.exports = async function info(fnum, date) {
         }
 
     } catch (error) {
-        console.error(`❌ 查询失败: ${error.message}`);
+        console.error(` 查询失败: ${error.message}`);
         process.exit(1);
     } finally {
         await client.disconnect();

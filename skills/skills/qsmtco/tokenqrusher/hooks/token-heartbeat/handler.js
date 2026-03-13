@@ -122,12 +122,12 @@ function getChecksToRun(config, optimizerState) {
  */
 function getCheckEmoji(checkType) {
   const emojis = {
-    email: '📧',
-    calendar: '📅',
-    weather: '🌤️',
-    monitoring: '📊'
+    email: '',
+    calendar: '',
+    weather: '',
+    monitoring: ''
   };
-  return emojis[checkType] || '🔔';
+  return emojis[checkType] || '';
 }
 
 /**
@@ -211,7 +211,7 @@ async function handler(event) {
 
   // Check quiet hours
   if (isQuietHours(config)) {
-    console.log('[token-heartbeat] ⏸️ Quiet hours active (23:00-08:00)');
+    console.log('[token-heartbeat]  Quiet hours active (23:00-08:00)');
     console.log('[token-heartbeat] HEARTBEAT_OK');
     return;
   }
@@ -242,7 +242,7 @@ async function handler(event) {
   
   // Log result
   if (response === 'HEARTBEAT_OK') {
-    console.log('[token-heartbeat] ✅ HEARTBEAT_OK');
+    console.log('[token-heartbeat]  HEARTBEAT_OK');
     console.log(`[token-heartbeat]    Tokens: ~${tokens} (${checksToRun.length} checks)`);
   } else {
     console.log(`[token-heartbeat] ${response}`);

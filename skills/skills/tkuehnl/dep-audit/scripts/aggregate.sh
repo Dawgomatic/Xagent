@@ -148,7 +148,7 @@ echo "$UNIFIED"
 
 # Generate Markdown report to stderr
 echo "$UNIFIED" | jq -r '
-  "# 🔒 Dependency Audit Report\n" +
+  "#  Dependency Audit Report\n" +
   "**Scanned:** " +
     (if (.by_ecosystem | length) > 0
      then ([.by_ecosystem[].directory] | unique | join(", "))
@@ -162,11 +162,11 @@ echo "$UNIFIED" | jq -r '
 
   "## Summary\n\n" +
   "| Severity | Count |\n|----------|-------|\n" +
-  "| 🔴 Critical | " + (.summary.critical | tostring) + " |\n" +
-  "| 🟠 High | " + (.summary.high | tostring) + " |\n" +
-  "| 🟡 Moderate | " + (.summary.moderate | tostring) + " |\n" +
-  "| 🔵 Low | " + (.summary.low | tostring) + " |\n" +
-  "| ⚪ Unknown | " + (.summary.unknown | tostring) + " |\n" +
+  "|  Critical | " + (.summary.critical | tostring) + " |\n" +
+  "|  High | " + (.summary.high | tostring) + " |\n" +
+  "|  Moderate | " + (.summary.moderate | tostring) + " |\n" +
+  "|  Low | " + (.summary.low | tostring) + " |\n" +
+  "|  Unknown | " + (.summary.unknown | tostring) + " |\n" +
   "| **Total** | **" + (.summary.total | tostring) + "** |\n\n" +
 
   (if (.summary.critical + .summary.high) > 0 then
@@ -177,7 +177,7 @@ echo "$UNIFIED" | jq -r '
         select(.severity == "critical" or .severity == "high") |
         "| " + (.package // "unknown") +
         " | " + (.installed_version // "unknown") +
-        " | " + (if .severity == "critical" then "🔴 Critical" else "🟠 High" end) +
+        " | " + (if .severity == "critical" then " Critical" else " High" end) +
         " | " + (.id // "unknown") +
         " | `" + (.fix_command // "manual review") + "` |"
       ] | join("\n")
@@ -211,12 +211,12 @@ echo "$UNIFIED" | jq -r '
           " | " + (.id // "unknown") + " |"
         ] | join("\n")) + "\n"
       else
-        "✅ No known vulnerabilities found.\n"
+        " No known vulnerabilities found.\n"
       end)
     ] | join("\n"))
   else
     "## Results\n\nNo valid ecosystem reports were provided.\n"
   end) +
 
-  "\n---\n⚠️ This report covers known vulnerabilities in public advisory databases. It does not detect zero-days or runtime security issues."
+  "\n---\n This report covers known vulnerabilities in public advisory databases. It does not detect zero-days or runtime security issues."
 ' >&2

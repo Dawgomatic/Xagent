@@ -2,19 +2,19 @@
 
 | Platform | Content | Transcript | Search | Trending | User Feed | Notes |
 |----------|:-------:|:----------:|:------:|:--------:|:---------:|-------|
-| YouTube | ✅ | ✅ | ✅ | ✅ | ✅ | Full support; channel videos via handle or ID |
-| TikTok | ✅ | ✅ | ✅ | ✅ | ✅ | trending, popular, hashtags endpoints |
-| Instagram | ✅ | ✅ | ✅ | ❌ | ✅ | Search reels; user posts and reels |
-| Twitter/X | ✅ | ✅ | ❌ | ❌ | ✅ | Content and user tweets |
-| Facebook | ✅ | ✅ | ❌ | ❌ | ✅ | Posts and reels from pages |
-| LinkedIn | ✅ | ❌ | ❌ | ❌ | ❌ | Post content only |
-| Reddit | ✅ | ❌ | ✅ | ❌ | ❌ | Search + subreddit browsing |
-| Pinterest | ✅ | ❌ | ✅ | ❌ | ❌ | Pin content and search |
-| Threads | ✅ | ❌ | ❌ | ❌ | ✅ | Post content and user posts |
-| Bluesky | ✅ | ❌ | ❌ | ❌ | ✅ | Post content and user posts |
-| Truth Social | ✅ | ❌ | ❌ | ❌ | ✅ | Post content and user posts |
-| Twitch | ✅ | ❌ | ❌ | ❌ | ❌ | Clips only |
-| Kick | ✅ | ❌ | ❌ | ❌ | ❌ | Clips only |
+| YouTube |  |  |  |  |  | Full support; channel videos via handle or ID |
+| TikTok |  |  |  |  |  | trending, popular, hashtags endpoints |
+| Instagram |  |  |  |  |  | Search reels; user posts and reels |
+| Twitter/X |  |  |  |  |  | Content and user tweets |
+| Facebook |  |  |  |  |  | Posts and reels from pages |
+| LinkedIn |  |  |  |  |  | Post content only |
+| Reddit |  |  |  |  |  | Search + subreddit browsing |
+| Pinterest |  |  |  |  |  | Pin content and search |
+| Threads |  |  |  |  |  | Post content and user posts |
+| Bluesky |  |  |  |  |  | Post content and user posts |
+| Truth Social |  |  |  |  |  | Post content and user posts |
+| Twitch |  |  |  |  |  | Clips only |
+| Kick |  |  |  |  |  | Clips only |
 
 ## Endpoint Quick Reference
 

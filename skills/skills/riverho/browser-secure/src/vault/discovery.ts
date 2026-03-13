@@ -212,15 +212,15 @@ export async function interactiveCredentialDiscovery(
   url: string,
   domain: string
 ): Promise<{ credentials: VaultCredentials; siteConfig: SiteConfig; siteKey: string } | null> {
-  console.log(`\n🔍 Auto-discovering credentials for ${domain}...`);
+  console.log(`\n Auto-discovering credentials for ${domain}...`);
   
   // Determine which vault to use (Bitwarden preferred, fallback to 1Password)
   const hasBitwarden = isBitwardenAvailable();
   const has1Password = is1PasswordAvailable();
   
   if (!hasBitwarden && !has1Password) {
-    console.log(`\n⚠️  No password manager CLI found.`);
-    console.log(`\n💡 To enable auto-vault, install one of the following:`);
+    console.log(`\n  No password manager CLI found.`);
+    console.log(`\n To enable auto-vault, install one of the following:`);
     console.log(`   • Bitwarden (free): brew install bitwarden-cli`);
     console.log(`   • 1Password (paid): brew install 1password-cli`);
     
@@ -239,13 +239,13 @@ export async function interactiveCredentialDiscovery(
   
   // Fall back to 1Password if Bitwarden has no matches
   if (has1Password) {
-    console.log(`\n🔄 Trying 1Password...`);
+    console.log(`\n Trying 1Password...`);
     const opResult = await interactive1PasswordDiscovery(domain);
     if (opResult) return opResult;
   }
   
   // No matches found in any vault
-  console.log(`\n❌ No matching credentials found for ${domain}`);
+  console.log(`\n No matching credentials found for ${domain}`);
   
   const createNew = await promptUser('\nWould you like to manually enter credentials? (y/n): ');
   if (createNew.toLowerCase() === 'y') {
@@ -267,7 +267,7 @@ async function interactiveBitwardenDiscovery(
     return null; // Let caller try 1Password or manual entry
   }
   
-  console.log(`\n📋 Found ${items.length} matching credential(s) in Bitwarden:\n`);
+  console.log(`\n Found ${items.length} matching credential(s) in Bitwarden:\n`);
   
   items.forEach((item, index) => {
     console.log(`  ${index + 1}) ${item.name}`);
@@ -335,7 +335,7 @@ async function interactiveBitwardenDiscovery(
     config.vault.provider = 'bitwarden';
     config.vault.sites[siteKey] = siteConfig;
     saveConfig(config);
-    console.log(`✅ Saved credential mapping for "${siteKey}" to ~/.browser-secure/config.yaml`);
+    console.log(` Saved credential mapping for "${siteKey}" to ~/.browser-secure/config.yaml`);
     console.log(`   Default vault provider set to: Bitwarden`);
   }
   
@@ -354,7 +354,7 @@ async function interactive1PasswordDiscovery(
     return null;
   }
   
-  console.log(`\n📋 Found ${items.length} matching credential(s) in 1Password:\n`);
+  console.log(`\n Found ${items.length} matching credential(s) in 1Password:\n`);
   
   items.forEach((item, index) => {
     console.log(`  ${index + 1}) ${item.title} (Vault: ${item.vault.name})`);
@@ -451,7 +451,7 @@ async function interactive1PasswordDiscovery(
     const config = loadConfig();
     config.vault.sites[siteKey] = siteConfig;
     saveConfig(config);
-    console.log(`✅ Saved credential mapping for "${siteKey}" to ~/.browser-secure/config.yaml`);
+    console.log(` Saved credential mapping for "${siteKey}" to ~/.browser-secure/config.yaml`);
   }
   
   return { credentials, siteConfig, siteKey };
@@ -461,7 +461,7 @@ async function interactive1PasswordDiscovery(
  * Manually enter credentials
  */
 async function manualCredentialEntry(domain: string): Promise<{ credentials: VaultCredentials; siteConfig: SiteConfig; siteKey: string } | null> {
-  console.log('\n📝 Manual credential entry\n');
+  console.log('\n Manual credential entry\n');
   
   const username = await promptUser('Username/Email (press Enter to skip): ');
   const password = await promptUser('Password (press Enter to skip): ');
@@ -490,8 +490,8 @@ async function manualCredentialEntry(domain: string): Promise<{ credentials: Vau
     const config = loadConfig();
     config.vault.sites[siteKey] = siteConfig;
     saveConfig(config);
-    console.log(`✅ Saved credential config for "${siteKey}"`);
-    console.log('⚠️  Note: Manual credentials are not stored securely. Consider adding to a password manager.');
+    console.log(` Saved credential config for "${siteKey}"`);
+    console.log('  Note: Manual credentials are not stored securely. Consider adding to a password manager.');
   }
   
   return { credentials, siteConfig, siteKey };

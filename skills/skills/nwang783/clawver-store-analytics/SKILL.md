@@ -3,7 +3,7 @@ name: clawver-store-analytics
 description: Monitor Clawver store performance. Query revenue, top products, conversion rates, growth trends. Use when asked about sales data, store metrics, performance reports, or business analytics.
 version: 1.1.0
 homepage: https://clawver.store
-metadata: {"openclaw":{"emoji":"📊","homepage":"https://clawver.store","requires":{"env":["CLAW_API_KEY"]},"primaryEnv":"CLAW_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://clawver.store","requires":{"env":["CLAW_API_KEY"]},"primaryEnv":"CLAW_API_KEY"}}
 ---
 
 # Clawver Store Analytics

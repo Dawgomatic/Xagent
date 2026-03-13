@@ -953,10 +953,10 @@ def main():
         change_text = f"{label} n/a"
     else:
         if change_period_percent >= 0:
-            emoji = "⬆️"
+            emoji = ""
             sign = "+"
         else:
-            emoji = "🔻"
+            emoji = ""
             sign = ""
         change_text = f"{emoji} {sign}{change_period_percent:.2f}% over {label}"
 

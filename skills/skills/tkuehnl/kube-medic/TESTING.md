@@ -5,7 +5,7 @@
 ### Syntax Check
 
 ```bash
-bash -n scripts/kube-medic.sh && echo "✅ Syntax OK"
+bash -n scripts/kube-medic.sh && echo " Syntax OK"
 ```
 
 ### Help & Version
@@ -141,7 +141,7 @@ bash scripts/kube-medic.sh events --namespace kube-medic-test
 kubectl delete namespace kube-medic-test
 ```
 
-**⚠️ Never run unscoped `sweep` against a production cluster** during testing — it scans all namespaces and may generate noise in audit logs.
+** Never run unscoped `sweep` against a production cluster** during testing — it scans all namespaces and may generate noise in audit logs.
 
 ## Expected Results
 
@@ -160,30 +160,30 @@ kubectl delete namespace kube-medic-test
 
 ```bash
 # Missing kubectl
-PATH="" bash scripts/kube-medic.sh sweep 2>&1 | grep -q "kubectl not found" && echo "✅ Missing kubectl handled"
+PATH="" bash scripts/kube-medic.sh sweep 2>&1 | grep -q "kubectl not found" && echo " Missing kubectl handled"
 
 # Missing jq
 # (harder to test without actually removing jq — check the preflight code path)
 
 # No subcommand → shows help
-bash scripts/kube-medic.sh 2>&1 | grep -q "Subcommands" && echo "✅ No-args shows help"
+bash scripts/kube-medic.sh 2>&1 | grep -q "Subcommands" && echo " No-args shows help"
 
 # Unknown subcommand
-bash scripts/kube-medic.sh foobar 2>&1 | grep -q "Unknown subcommand" && echo "✅ Unknown subcommand handled"
+bash scripts/kube-medic.sh foobar 2>&1 | grep -q "Unknown subcommand" && echo " Unknown subcommand handled"
 
 # Pod not found
-bash scripts/kube-medic.sh pod nonexistent-pod-name --namespace default 2>&1 | grep -qi "not found\|error" && echo "✅ Missing pod handled"
+bash scripts/kube-medic.sh pod nonexistent-pod-name --namespace default 2>&1 | grep -qi "not found\|error" && echo " Missing pod handled"
 
 # Missing pod argument
-bash scripts/kube-medic.sh pod 2>&1 | grep -q "Usage" && echo "✅ Missing pod arg handled"
+bash scripts/kube-medic.sh pod 2>&1 | grep -q "Usage" && echo " Missing pod arg handled"
 
 # Missing deploy argument
-bash scripts/kube-medic.sh deploy 2>&1 | grep -q "Usage" && echo "✅ Missing deploy arg handled"
+bash scripts/kube-medic.sh deploy 2>&1 | grep -q "Usage" && echo " Missing deploy arg handled"
 ```
 
 ## Write Operation Tests
 
-**⚠️ Only test writes in disposable clusters (kind/minikube).**
+** Only test writes in disposable clusters (kind/minikube).**
 
 ```bash
 # Deploy something to roll back
@@ -196,10 +196,10 @@ bash scripts/kube-medic.sh --confirm-write "kubectl rollout undo deployment/roll
 # Expected: JSON with command_executed + output
 
 # Test blocked write — kubectl exec (must be rejected)
-bash scripts/kube-medic.sh --confirm-write "kubectl exec -it nginx-healthy -- /bin/bash" 2>&1 | grep -q "not in allowlist" && echo "✅ kubectl exec blocked"
+bash scripts/kube-medic.sh --confirm-write "kubectl exec -it nginx-healthy -- /bin/bash" 2>&1 | grep -q "not in allowlist" && echo " kubectl exec blocked"
 
 # Test blocked write — kubectl delete deployment (must be rejected)
-bash scripts/kube-medic.sh --confirm-write "kubectl delete deployment nginx-healthy" 2>&1 | grep -q "not in allowlist" && echo "✅ delete deployment blocked"
+bash scripts/kube-medic.sh --confirm-write "kubectl delete deployment nginx-healthy" 2>&1 | grep -q "not in allowlist" && echo " delete deployment blocked"
 ```
 
 ## Full Test Suite Script
@@ -215,9 +215,9 @@ FAIL=0
 check() {
   local name="$1"; shift
   if "$@" >/dev/null 2>&1; then
-    echo "✅ ${name}"; ((PASS++))
+    echo " ${name}"; ((PASS++))
   else
-    echo "❌ ${name}"; ((FAIL++))
+    echo " ${name}"; ((FAIL++))
   fi
 }
 
@@ -242,7 +242,7 @@ if kubectl cluster-info &>/dev/null; then
   check "deploy status" bash "$SCRIPT" deploy kube-medic-test
   kubectl delete deployment kube-medic-test 2>/dev/null || true
 else
-  echo "⚠️  No cluster connection — skipping live tests"
+  echo "  No cluster connection — skipping live tests"
 fi
 
 echo ""
@@ -250,4 +250,4 @@ echo "Results: ${PASS} passed, ${FAIL} failed"
 [[ $FAIL -eq 0 ]] && exit 0 || exit 1
 ```
 
-*Powered by CacheForge 🏥*
+*Powered by CacheForge *

@@ -113,8 +113,8 @@ def main():
     location = sys.argv[1]
     cuisine = sys.argv[2]
 
-    print(f"\n🔍 搜索: {location} - {cuisine}")
-    print("⚠️ 使用模拟数据（服务器版本）\n")
+    print(f"\n 搜索: {location} - {cuisine}")
+    print(" 使用模拟数据（服务器版本）\n")
 
     checker = SimpleCrossChecker()
     results = checker.search_mock(location, cuisine)

@@ -26,7 +26,7 @@ SOURCE="$3"
 
 # Validate source file exists
 if [ ! -f "$SOURCE" ]; then
-  echo "❌ Source file not found: $SOURCE"
+  echo " Source file not found: $SOURCE"
   exit 1
 fi
 
@@ -42,7 +42,7 @@ case "$TYPE" in
     DEST="$MEMORY_DIR/procedural/${NAME}.md"
     ;;
   *)
-    echo "❌ Unknown type: $TYPE"
+    echo " Unknown type: $TYPE"
     echo "Valid types: episodic, semantic, procedural"
     exit 1
     ;;
@@ -50,7 +50,7 @@ esac
 
 # Check if destination exists
 if [ -f "$DEST" ]; then
-  echo "⚠️  File already exists: $DEST"
+  echo "  File already exists: $DEST"
   echo ""
   read -p "Merge with existing file? (y/n) " -n 1 -r
   echo ""
@@ -62,15 +62,15 @@ if [ -f "$DEST" ]; then
     echo "# Date: $(date +"%Y-%m-%d %H:%M:%S")" >> "$DEST"
     echo "" >> "$DEST"
     cat "$SOURCE" >> "$DEST"
-    echo "✅ Merged into: $DEST"
+    echo " Merged into: $DEST"
   else
-    echo "❌ Cancelled"
+    echo " Cancelled"
     exit 1
   fi
 else
   # Move to destination
   mv "$SOURCE" "$DEST"
-  echo "✅ Categorized as $TYPE: $DEST"
+  echo " Categorized as $TYPE: $DEST"
 fi
 
 echo ""

@@ -125,7 +125,7 @@ Loop traduce automaticamente in parametri per VoiceDesign.
 
 ## Voice Cloning
 
-⚠️ **Voice cloning richiede modello Base** (non VoiceDesign).
+ **Voice cloning richiede modello Base** (non VoiceDesign).
 
 Se vuoi clonare la tua voce:
 

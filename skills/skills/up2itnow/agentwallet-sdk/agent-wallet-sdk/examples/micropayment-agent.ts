@@ -58,7 +58,7 @@ async function callAgentAPI(
   if (!service) throw new Error(`Unknown service: ${serviceId}`);
 
   const amount = parseUnits(service.priceUsd.toString(), 6);
-  console.log(`  💸 Paying ${service.name}: $${service.priceUsd}`);
+  console.log(`   Paying ${service.name}: $${service.priceUsd}`);
 
   // Pay the agent's wallet
   const hash = await agentTransferToken(wallet, {
@@ -67,7 +67,7 @@ async function callAgentAPI(
     amount,
   });
 
-  console.log(`  📝 Payment tx: ${hash}`);
+  console.log(`   Payment tx: ${hash}`);
 
   // In production: include tx hash as proof-of-payment in API call
   // const response = await fetch(service.endpoint, {
@@ -96,38 +96,38 @@ async function main() {
     walletClient,
   });
 
-  console.log(`🤖 Micropayment agent online: ${wallet.address}`);
+  console.log(` Micropayment agent online: ${wallet.address}`);
   console.log(`   Limits: $${Number(LIMITS.perTx) / 1e6}/tx, $${Number(LIMITS.perDay) / 1e6}/day\n`);
 
   // Alert on queued transactions
   const unwatch = onTransactionQueued(wallet, (event) => {
-    console.log(`\n🚨 Budget exceeded! Transaction queued (ID: ${event.txId})`);
+    console.log(`\n Budget exceeded! Transaction queued (ID: ${event.txId})`);
     console.log(`   Amount: $${Number(event.amount) / 1e6} — awaiting owner approval`);
   });
 
   // Simulate a research workflow that calls multiple agent APIs
-  console.log('📋 Starting research workflow...\n');
+  console.log(' Starting research workflow...\n');
 
   // Step 1: Get sentiment data
   console.log('Step 1: Sentiment analysis');
   const sentiment = await callAgentAPI(wallet, 'sentiment-v2', { topic: 'BTC', timeframe: '24h' });
-  console.log(`  ✅ ${sentiment.response}\n`);
+  console.log(`   ${sentiment.response}\n`);
 
   // Step 2: Get price data
   console.log('Step 2: Price oracle');
   const price = await callAgentAPI(wallet, 'price-oracle', { asset: 'BTC' });
-  console.log(`  ✅ ${price.response}\n`);
+  console.log(`   ${price.response}\n`);
 
   // Step 3: Deep research (more expensive)
   console.log('Step 3: Deep research');
   const research = await callAgentAPI(wallet, 'research-deep', {
     query: 'BTC macro outlook Q1 2026',
   });
-  console.log(`  ✅ ${research.response}\n`);
+  console.log(`   ${research.response}\n`);
 
   // Check remaining budget
   const budget = await checkBudget(wallet, USDC);
-  console.log(`💰 Remaining budget: $${Number(budget.remainingInPeriod) / 1e6} / $50`);
+  console.log(` Remaining budget: $${Number(budget.remainingInPeriod) / 1e6} / $50`);
   console.log(`   Total spent this session: $${50 - Number(budget.remainingInPeriod) / 1e6}`);
 
   unwatch();

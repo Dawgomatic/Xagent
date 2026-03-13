@@ -1,4 +1,4 @@
-# OpenClaw Search 🔍
+# OpenClaw Search 
 
 Intelligent search for autonomous agents with confidence scoring.
 

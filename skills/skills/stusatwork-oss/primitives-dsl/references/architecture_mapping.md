@@ -461,7 +461,7 @@ Check_Level_Complete:
 ### Cell SPE (2006)
 
 ```c
-// Flags via mailbox (PPE ↔ SPE communication)
+// Flags via mailbox (PPE  SPE communication)
 void spe_check_flags() {
     LevelFlags flags = fetch_flags();  // DMA get
     

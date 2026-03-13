@@ -2,7 +2,7 @@
 name: department-manager
 description: Manage a team of AI sub-agents organized into departments. Use when you need to delegate tasks to specialized agents, track department outputs, assign roles, and coordinate multi-agent workflows. Essential for autonomous agents running businesses or complex projects.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🏢", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Department Manager

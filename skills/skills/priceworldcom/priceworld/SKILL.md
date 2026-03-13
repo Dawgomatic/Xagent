@@ -9,9 +9,9 @@ Pricing data sourced from official vendor pages with last-checked dates. Answers
 
 ## Supported Categories
 
-- ✅ Email marketing (Mailchimp, Kit, Beehiiv, Buttondown)
-- 🔜 Web hosting (planned)
-- 🔜 Domain registrars (planned)
+-  Email marketing (Mailchimp, Kit, Beehiiv, Buttondown)
+-  Web hosting (planned)
+-  Domain registrars (planned)
 
 ## Commands
 

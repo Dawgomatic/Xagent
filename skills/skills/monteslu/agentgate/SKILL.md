@@ -2,7 +2,7 @@
 name: agentgate
 description: "API gateway for personal data with human-in-the-loop write approval. Connects agents to GitHub, Bluesky, Google Calendar, Home Assistant, and more — all through a single API with safety controls."
 homepage: "https://agentgate.org"
-metadata: { "openclaw": { "emoji": "🚪", "primaryEnv": "AGENT_GATE_TOKEN", "requires": { "env": ["AGENT_GATE_TOKEN", "AGENT_GATE_URL"] }, "install": [{ "id": "node", "kind": "node", "package": "agentgate", "label": "Install agentgate (npm)" }] } }
+metadata: { "openclaw": { "emoji": "", "primaryEnv": "AGENT_GATE_TOKEN", "requires": { "env": ["AGENT_GATE_TOKEN", "AGENT_GATE_URL"] }, "install": [{ "id": "node", "kind": "node", "package": "agentgate", "label": "Install agentgate (npm)" }] } }
 ---
 
 # agentgate

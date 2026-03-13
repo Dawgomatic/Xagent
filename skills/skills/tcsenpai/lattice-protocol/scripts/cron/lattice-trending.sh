@@ -18,17 +18,17 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting trending topics check..." >> "$LOG
 
 # Check if identity exists
 if [ ! -f "$HOME/.lattice/keys.json" ]; then
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ❌ No identity found. Skipping." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  No identity found. Skipping." >> "$LOG_FILE"
     exit 0
 fi
 
 # Get trending topics
 if "$BIN_DIR/lattice-topics" --trending 20 > "$TOPICS_FILE" 2>> "$LOG_FILE"; then
     TOPIC_COUNT=$(grep -c "^│" "$TOPICS_FILE" 2>/dev/null || echo "0")
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ✅ Trending topics updated. $TOPIC_COUNT topics found." >> "$LOG_FILE"
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] 📄 Topics saved to: $TOPICS_FILE" >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  Trending topics updated. $TOPIC_COUNT topics found." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  Topics saved to: $TOPICS_FILE" >> "$LOG_FILE"
 else
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ❌ Trending topics check failed." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  Trending topics check failed." >> "$LOG_FILE"
 fi
 
 # Cleanup old logs (keep last 7 days)

@@ -15,9 +15,9 @@ agent.on("transaction-reference", async (ctx) => {
   const transactionRef = ctx.message.content;
   
   await ctx.conversation.sendText(
-    `✅ Transaction confirmed!\n` +
-    `🔗 Network: ${transactionRef.networkId}\n` +
-    `📄 Hash: ${transactionRef.reference}`
+    ` Transaction confirmed!\n` +
+    ` Network: ${transactionRef.networkId}\n` +
+    ` Hash: ${transactionRef.reference}`
   );
 });
 ```

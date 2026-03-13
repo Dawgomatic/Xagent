@@ -1,4 +1,4 @@
-# AfrexAI SRE & Incident Management Platform ⚡
+# AfrexAI SRE & Incident Management Platform 
 
 The most comprehensive SRE skill on ClawHub. Complete system from SLO definition through incident response, chaos engineering, toil management, and operational excellence.
 
@@ -32,7 +32,7 @@ clawhub install afrexai-sre-platform
 "Plan chaos experiment for database failover"
 ```
 
-## ⚡ Level Up
+##  Level Up
 
 This free skill gives you the methodology. For industry-specific reliability patterns:
 
@@ -40,7 +40,7 @@ This free skill gives you the methodology. For industry-specific reliability pat
 - **[Fintech Context Pack ($47)](https://afrexai-cto.github.io/context-packs/)** — Financial system SLOs, compliance monitoring, payment reliability
 - **[Healthcare Context Pack ($47)](https://afrexai-cto.github.io/context-packs/)** — HIPAA-aware incident response, clinical system reliability
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-devops-engine](https://clawhub.com/skills/afrexai-devops-engine) — CI/CD, Kubernetes, observability
 - [afrexai-cybersecurity-engine](https://clawhub.com/skills/afrexai-cybersecurity-engine) — OWASP, pen testing, security program

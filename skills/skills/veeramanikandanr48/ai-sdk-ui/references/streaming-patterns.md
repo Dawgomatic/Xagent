@@ -11,10 +11,10 @@ UI patterns and best practices for streaming AI responses.
 ### Always Use Streaming for Long-Form Content
 
 ```tsx
-// ✅ GOOD: Streaming provides better perceived performance
+//  GOOD: Streaming provides better perceived performance
 const { messages } = useChat({ api: '/api/chat' });
 
-// ❌ BAD: Blocking - user waits for entire response
+//  BAD: Blocking - user waits for entire response
 const response = await fetch('/api/chat', { method: 'POST' });
 ```
 

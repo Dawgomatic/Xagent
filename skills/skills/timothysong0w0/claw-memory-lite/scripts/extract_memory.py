@@ -255,7 +255,7 @@ def update_memory_md(filename, result):
     new_row = f"| {today} | `memory/{filename}` | {result['l1_category']}: {summary}... |\n"
     
     # Find table and insert new row
-    table_marker = "## 📅 Recent extraction records"
+    table_marker = "##  Recent extraction records"
     if table_marker in content:
         parts = content.split(table_marker)
         if len(parts) > 1:
@@ -284,7 +284,7 @@ def main():
     review_only = "--review" in sys.argv
     force = "--force" in sys.argv
     
-    print("🔍 Scanning for unprocessed daily memory files...\n")
+    print(" Scanning for unprocessed daily memory files...\n")
     
     # Initialize database
     init_db()
@@ -293,14 +293,14 @@ def main():
     unprocessed = get_unprocessed_files(force)
     
     if not unprocessed:
-        print("✅ All daily memory files have been processed.")
+        print(" All daily memory files have been processed.")
         return
     
     print(f"Found {len(unprocessed)} file(s) to process:\n")
     
     total_facts = 0
     for file_path in unprocessed:
-        print(f"📄 Processing: {file_path.name}")
+        print(f" Processing: {file_path.name}")
         result = process_file(file_path, review_only)
         
         print(f"   L0: {result['l0']}")
@@ -314,7 +314,7 @@ def main():
         print()
     
     mode = "Preview mode (no writes)" if review_only else "Written to database"
-    print(f"\n✅ Complete - {mode}")
+    print(f"\n Complete - {mode}")
     print(f"   Total facts extracted: {total_facts}")
     
     if review_only:

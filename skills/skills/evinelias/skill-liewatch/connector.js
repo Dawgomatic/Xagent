@@ -100,9 +100,9 @@ async function connect() {
                 recentLogs.forEach(l => {
                     // Format message based on event type
                     if (l.wasBetrayed) {
-                        console.log(`  ⚠️ [${l.agentName || l.agentId}] BETRAYED someone! (${l.scoreGain > 0 ? '+' : ''}${l.scoreGain || 0} pts)`)
+                        console.log(`   [${l.agentName || l.agentId}] BETRAYED someone! (${l.scoreGain > 0 ? '+' : ''}${l.scoreGain || 0} pts)`)
                     } else if (l.successfullyBetrayed) {
-                        console.log(`  🗡️ [${l.agentName || l.agentId}] Successfully betrayed ${l.target || 'someone'}! (+${l.scoreGain || 0} pts)`)
+                        console.log(`   [${l.agentName || l.agentId}] Successfully betrayed ${l.target || 'someone'}! (+${l.scoreGain || 0} pts)`)
                     } else {
                         const msg = l.content || l.publicAction || l.type
                         console.log(`  [${l.agentName || l.agentId || 'SYSTEM'}] ${msg}`)
@@ -133,7 +133,7 @@ async function connect() {
                     try {
                         const rawAction = JSON.parse(answer)
 
-                        // 🔧 FORMAT DETECTION: Check if using simplified format
+                        //  FORMAT DETECTION: Check if using simplified format
                         let action
                         if (rawAction.intent !== undefined) {
                             // Simplified format: { intent, target, say, think }
@@ -277,7 +277,7 @@ async function connect() {
                     console.log(`Votes tally:`, JSON.stringify(message.voteTally))
                 }
                 if (isYou) {
-                    console.log('[LIE.WATCH] ❌ IDENTITY PURGED. Waiting for match to end...')
+                    console.log('[LIE.WATCH]  IDENTITY PURGED. Waiting for match to end...')
                 }
             }
 

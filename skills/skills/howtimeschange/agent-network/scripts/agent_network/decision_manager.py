@@ -124,7 +124,7 @@ class DecisionManager:
             # 发送决策提议消息
             proposer = AgentManager.get_by_id(proposer_id)
             if proposer:
-                content = f"📊 新决策提议\n\n**{title}**\n{description}\n\n请投票: for/against/abstain\n决策ID: {decision_id}"
+                content = f" 新决策提议\n\n**{title}**\n{description}\n\n请投票: for/against/abstain\n决策ID: {decision_id}"
                 MessageManager.send_message(
                     from_agent_id=proposer_id,
                     content=content,
@@ -264,9 +264,9 @@ class DecisionManager:
         
         # 发送投票通知
         agent = AgentManager.get_by_id(agent_id)
-        vote_text = {'for': '✅ 赞成', 'against': '❌ 反对', 'abstain': '⚪ 弃权'}.get(vote, vote)
+        vote_text = {'for': ' 赞成', 'against': ' 反对', 'abstain': ' 弃权'}.get(vote, vote)
         
-        content = f"🗳️ {agent.name if agent else 'Agent'} 投票: {vote_text}\n决策: {decision.title}"
+        content = f" {agent.name if agent else 'Agent'} 投票: {vote_text}\n决策: {decision.title}"
         if comment:
             content += f"\n意见: {comment}"
         
@@ -308,7 +308,7 @@ class DecisionManager:
             }.get(new_status, new_status)
             
             updater = AgentManager.get_by_id(updater_id)
-            content = f"📊 决策状态更新\n\n**{decision.title}**\n新状态: {status_text}"
+            content = f" 决策状态更新\n\n**{decision.title}**\n新状态: {status_text}"
             
             MessageManager.send_message(
                 from_agent_id=updater_id,
@@ -352,17 +352,17 @@ class DecisionManager:
     def format_decision_for_display(decision: Decision, show_votes: bool = False) -> str:
         """格式化决策用于显示"""
         status_emoji = {
-            'proposed': '📝',
-            'discussing': '💬',
-            'approved': '✅',
-            'rejected': '❌',
-            'implemented': '🚀'
-        }.get(decision.status, '⚪')
+            'proposed': '',
+            'discussing': '',
+            'approved': '',
+            'rejected': '',
+            'implemented': ''
+        }.get(decision.status, '')
         
         lines = [
             f"{status_emoji} [{decision.decision_id}] {decision.title}",
             f"   提案人: {decision.proposer_name} | 状态: {decision.status}",
-            f"   投票: ✅ {decision.votes_for} 票 | ❌ {decision.votes_against} 票 | 通过率: {decision.pass_rate:.1f}%"
+            f"   投票:  {decision.votes_for} 票 |  {decision.votes_against} 票 | 通过率: {decision.pass_rate:.1f}%"
         ]
         
         if decision.description:
@@ -371,7 +371,7 @@ class DecisionManager:
         if show_votes and decision.votes:
             lines.append("   投票详情:")
             for v in decision.votes:
-                vote_emoji = {'for': '✅', 'against': '❌', 'abstain': '⚪'}.get(v['vote'], '⚪')
+                vote_emoji = {'for': '', 'against': '', 'abstain': ''}.get(v['vote'], '')
                 lines.append(f"     {vote_emoji} {v['agent_name']}: {v['vote']}")
         
         return "\n".join(lines)

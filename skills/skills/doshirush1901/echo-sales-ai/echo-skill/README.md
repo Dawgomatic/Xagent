@@ -29,4 +29,4 @@ AI-powered sales intelligence system that transforms your email mailbox into a c
 
 ## Status
 
-🟢 Active Development
+ Active Development

@@ -26,6 +26,6 @@ Commit to repo:
 
 | Verdict | Criteria |
 |---------|----------|
-| **Ship** ✅ | All gates pass, ≥95% mutation kill, zero slop, subjective met |
-| **Caution** ⚠️ | All gates pass, mutation kill 90-95%, or minor slop in non-critical, or judge needed 2+ iterations |
-| **Blocked** 🚫 | Any gate fails, hallucinated deps, <90% mutation kill, or hard cap hit |
+| **Ship**  | All gates pass, ≥95% mutation kill, zero slop, subjective met |
+| **Caution**  | All gates pass, mutation kill 90-95%, or minor slop in non-critical, or judge needed 2+ iterations |
+| **Blocked**  | Any gate fails, hallucinated deps, <90% mutation kill, or hard cap hit |

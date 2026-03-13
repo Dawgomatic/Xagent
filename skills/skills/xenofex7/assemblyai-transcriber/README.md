@@ -1,4 +1,4 @@
-# AssemblyAI Transcriber 🎙️
+# AssemblyAI Transcriber 
 
 > Audio-Transkription mit Speaker Diarization für OpenClaw
 
@@ -14,11 +14,11 @@ Speaker A [00:06]: Lass uns starten...
 
 ## Features
 
-- 🎯 **Speaker Diarization** - Erkennt wer spricht
-- 🌍 **100+ Sprachen** - Automatische Spracherkennung
-- ⏱️ **Timestamps** - Zeitstempel pro Äusserung
-- 📁 **Alle Formate** - MP3, WAV, M4A, FLAC, OGG, WEBM
-- 💬 **Telegram Support** - Sprachnachrichten direkt transkribieren
+-  **Speaker Diarization** - Erkennt wer spricht
+-  **100+ Sprachen** - Automatische Spracherkennung
+-  **Timestamps** - Zeitstempel pro Äusserung
+-  **Alle Formate** - MP3, WAV, M4A, FLAC, OGG, WEBM
+-  **Telegram Support** - Sprachnachrichten direkt transkribieren
 
 ## Setup
 
@@ -63,4 +63,4 @@ Oder einfach eine Telegram-Sprachnachricht senden!
 
 ---
 
-*Made with 🦭 by xenofex7*
+*Made with  by xenofex7*

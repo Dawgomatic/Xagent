@@ -32,7 +32,7 @@ metadata:
 
 Dieser Skill ermöglicht den Zugriff auf die grazy CLI für Grazer Stadt-Informationen.
 
-## ⚠️ WICHTIG FÜR AGENTS
+##  WICHTIG FÜR AGENTS
 
 **Der Agent soll bei Unsicherheit IMMER zuerst `grazy help` aufrufen um alle Möglichkeiten zu sehen!**
 
@@ -63,21 +63,21 @@ npx @grazy/cli events
 
 ## Commands
 
-### 🚇 Öffentlicher Verkehr
+###  Öffentlicher Verkehr
 ```
 grazy departures <stop>     # Echtzeit-Abfahrten
 grazy search <name>          # Haltestelle suchen
 grazy route <von> <nach>    # Route planen
 ```
 
-### 🌤️ Wetter & Luftqualität
+###  Wetter & Luftqualität
 ```
 grazy weather                # Aktuelles Wetter
 grazy weather --days 7       # 7-Tage Forecast
 grazy air                   # Luftqualität (AQI, PM2.5, PM10)
 ```
 
-### 📰 News
+###  News
 ```
 grazy news                   # Alle News (ORF + Kleine Zeitung)
 grazy news --source orf     # Nur ORF
@@ -85,7 +85,7 @@ grazy news --source kleine  # Nur Kleine Zeitung
 grazy news --source sport   # Nur Sport
 ```
 
-### 📅 Events
+###  Events
 ```
 grazy events                 # Alle Events (kultur.graz.at)
 grazy events --category musik          # Nur Musik
@@ -111,7 +111,7 @@ grazy events -c musik -w wochenende
 grazy events -c theater -w woche
 ```
 
-### 🔍 POI-Suche
+###  POI-Suche
 ```
 grazy poi <type>            # POI-Typ suchen
 grazy poi help              # Alle verfügbaren Typen anzeigen
@@ -119,7 +119,7 @@ grazy poi help              # Alle verfügbaren Typen anzeigen
 
 **Verfügbare POI-Typen:** restaurant, cafe, bar, fast_food, pub, cinema, theatre, museum, library, pharmacy, hospital, doctors, parking, fuel, atm, bank, playground
 
-### 📋 Sonstiges
+###  Sonstiges
 ```
 grazy status                # API-Status prüfen
 grazy help                  # Hilfe anzeigen
@@ -135,7 +135,7 @@ grazy help                  # Hilfe anzeigen
 
 ## Nutzung als Assistant - WICHTIG
 
-### ⚡ Erster Schritt: IMMER help aufrufen!
+###  Erster Schritt: IMMER help aufrufen!
 
 ```bash
 # Bei ANY Unsicherheit - zuerst help!

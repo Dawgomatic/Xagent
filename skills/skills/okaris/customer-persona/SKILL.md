@@ -144,14 +144,14 @@ Personal:
 **Quantify whenever possible.** Vague pain = vague persona.
 
 ```
-❌ "Has trouble with reporting"
-✅ "Spends 15 hours per week creating manual reports for 4 different stakeholders"
+ "Has trouble with reporting"
+ "Spends 15 hours per week creating manual reports for 4 different stakeholders"
 
-❌ "Too many tools"
-✅ "Uses 8 different tools daily (Jira, Slack, Notion, Figma, Analytics, Sheets, Docs, Email) with no unified view"
+ "Too many tools"
+ "Uses 8 different tools daily (Jira, Slack, Notion, Figma, Analytics, Sheets, Docs, Email) with no unified view"
 
-❌ "Meetings are a problem"
-✅ "Averages 6 hours of meetings per day, leaving only 2 hours for deep work"
+ "Meetings are a problem"
+ "Averages 6 hours of meetings per day, leaving only 2 hours for deep work"
 ```
 
 ### Step 6: Jobs-to-be-Done (JTBD)

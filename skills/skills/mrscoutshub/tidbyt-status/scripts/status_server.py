@@ -19,7 +19,7 @@ def get_openclaw_status():
     
     status = {
         "agent": "Scout",
-        "emoji": "🦅",
+        "emoji": "",
         "status": "idle",
         "timestamp": datetime.now().isoformat(),
         "active_tasks": 0,
@@ -115,7 +115,7 @@ def main():
     
     server = HTTPServer(("0.0.0.0", port), StatusHandler)
     
-    print(f"🦅 Scout Status API")
+    print(f" Scout Status API")
     print(f"Listening on http://0.0.0.0:{port}/status")
     print(f"Press Ctrl+C to stop")
     

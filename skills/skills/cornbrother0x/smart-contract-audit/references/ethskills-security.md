@@ -58,8 +58,8 @@ uint256 normalized = usdcAmount * 1e12; // 6→18 decimals
 ### Integer Math
 Always multiply before dividing. Division first = precision loss.
 ```
-// ❌ a / b * c  (precision loss)
-// ✅ (a * c) / b
+//  a / b * c  (precision loss)
+//  (a * c) / b
 ```
 Use basis points (1 bp = 0.01%): `fee = (amount * feeBps) / 10_000`
 

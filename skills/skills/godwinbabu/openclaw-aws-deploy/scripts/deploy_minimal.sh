@@ -39,7 +39,7 @@ set -euo pipefail
 
 # --- log() must be defined BEFORE personality resolution ---
 log() { echo "[$(date '+%H:%M:%S')] $*"; }
-warn() { echo "[$(date '+%H:%M:%S')] ⚠️  $*" >&2; }
+warn() { echo "[$(date '+%H:%M:%S')]   $*" >&2; }
 
 usage() {
   cat <<USAGE
@@ -339,7 +339,7 @@ cleanup_on_failure() {
   if [[ $exit_code -ne 0 ]]; then
     echo "" >&2
     echo "=========================================" >&2
-    echo "  ❌ Deploy failed (exit code $exit_code)" >&2
+    echo "   Deploy failed (exit code $exit_code)" >&2
     echo "=========================================" >&2
 
     # Save partial output for diagnostics
@@ -434,7 +434,7 @@ if aws_raw iam simulate-principal-policy \
   --action-names "ec2:CreateVpc" \
   --resource-arns "*" \
   --query 'EvaluationResults[0].EvalDecision' --output text 2>/dev/null | grep -q "allowed"; then
-  log "  ✅ ec2:CreateVpc — allowed"
+  log "   ec2:CreateVpc — allowed"
 
   for action in "ec2:RunInstances" "iam:CreateRole" "ssm:PutParameter"; do
     if aws_raw iam simulate-principal-policy \
@@ -442,14 +442,14 @@ if aws_raw iam simulate-principal-policy \
       --action-names "$action" \
       --resource-arns "*" \
       --query 'EvaluationResults[0].EvalDecision' --output text 2>/dev/null | grep -q "allowed"; then
-      log "  ✅ $action — allowed"
+      log "   $action — allowed"
     else
-      warn "  ❌ $action — denied or unknown"
+      warn "   $action — denied or unknown"
       PREFLIGHT_FAIL=true
     fi
   done
 else
-  log "  ⏭️  Permission simulation unavailable (iam:SimulatePrincipalPolicy not granted) — skipping"
+  log "    Permission simulation unavailable (iam:SimulatePrincipalPolicy not granted) — skipping"
 fi
 
 # Check instance type availability in region
@@ -462,7 +462,7 @@ if [[ -z "$OFFERING" ]]; then
   warn "Instance type $INSTANCE_TYPE may not be available in $REGION"
   PREFLIGHT_FAIL=true
 else
-  log "  ✅ $INSTANCE_TYPE available in $REGION"
+  log "   $INSTANCE_TYPE available in $REGION"
 fi
 
 # Check if resources with same name already exist
@@ -480,7 +480,7 @@ if [[ "$PREFLIGHT_FAIL" == "true" && "$DRY_RUN" != "true" ]]; then
   exit 1
 fi
 
-log "Preflight checks passed ✅"
+log "Preflight checks passed "
 
 if [[ "$DRY_RUN" == "true" ]]; then
   log "[DRY RUN] Would create: VPC, subnet, IGW, SG, IAM role, SSM params, EC2 instance"
@@ -1077,10 +1077,10 @@ systemctl start openclaw
 # Wait and check
 sleep 15
 if systemctl is-active openclaw; then
-  echo "[$(date)] ✅ OpenClaw is running!"
+  echo "[$(date)]  OpenClaw is running!"
   journalctl -u openclaw -n 10 --no-pager
 else
-  echo "[$(date)] ❌ OpenClaw failed to start"
+  echo "[$(date)]  OpenClaw failed to start"
   journalctl -u openclaw -n 30 --no-pager
   exit 1
 fi
@@ -1155,9 +1155,9 @@ if [[ "$IS_BEDROCK" == "true" ]]; then
     --model-id "$BEDROCK_MODEL_ID" \
     --query 'authorizationStatus' 2>/dev/null || echo "UNKNOWN")
   if [[ "$MODEL_AVAIL" == "AUTHORIZED" ]]; then
-    log "✅ Bedrock model $BEDROCK_MODEL_ID is authorized"
+    log " Bedrock model $BEDROCK_MODEL_ID is authorized"
   else
-    log "⚠️  Bedrock model $BEDROCK_MODEL_ID status: $MODEL_AVAIL"
+    log "  Bedrock model $BEDROCK_MODEL_ID status: $MODEL_AVAIL"
     log "    You may need to enable it in the AWS Bedrock Console:"
     log "    https://console.aws.amazon.com/bedrock/home?region=${REGION}#/modelaccess"
     log "    Continuing deployment — model may fail until enabled."
@@ -1261,7 +1261,7 @@ if [[ "$MONITORING" == "true" ]]; then
       --alarm-names "$STATUS_ALARM_NAME" \
       --query 'MetricAlarms[0].AlarmArn' 2>/dev/null) || true
     [[ -n "$STATUS_ALARM_ARN" && "$STATUS_ALARM_ARN" != "None" ]] && ALARM_ARNS+=("$STATUS_ALARM_ARN")
-    log "  ✅ StatusCheckFailed alarm: $STATUS_ALARM_NAME"
+    log "   StatusCheckFailed alarm: $STATUS_ALARM_NAME"
   else
     warn "  Failed to create StatusCheckFailed alarm — check CloudWatch permissions"
   fi
@@ -1285,7 +1285,7 @@ if [[ "$MONITORING" == "true" ]]; then
       --alarm-names "$CPU_ALARM_NAME" \
       --query 'MetricAlarms[0].AlarmArn' 2>/dev/null) || true
     [[ -n "$CPU_ALARM_ARN" && "$CPU_ALARM_ARN" != "None" ]] && ALARM_ARNS+=("$CPU_ALARM_ARN")
-    log "  ✅ CPUUtilization alarm: $CPU_ALARM_NAME"
+    log "   CPUUtilization alarm: $CPU_ALARM_NAME"
   else
     warn "  Failed to create CPUUtilization alarm — check CloudWatch permissions"
   fi
@@ -1296,7 +1296,7 @@ if [[ "$MONITORING" == "true" ]]; then
     --tags "$TAG_KEY=$TAG_VALUE,$DEPLOY_TAG_KEY=$DEPLOY_ID" 2>/dev/null; then
     aws_raw logs put-retention-policy --log-group-name "/openclaw/${NAME}" \
       --retention-in-days 7 2>/dev/null || true
-    log "  ✅ Log group: /openclaw/${NAME} (7 day retention)"
+    log "   Log group: /openclaw/${NAME} (7 day retention)"
   else
     warn "  Failed to create log group — check CloudWatch Logs permissions (logs may already exist)"
   fi
@@ -1483,7 +1483,7 @@ OUTEOF
 
 log ""
 log "=========================================="
-log "  ✅ Deployment Complete!"
+log "   Deployment Complete!"
 log "=========================================="
 log ""
 log "  Instance:  $INSTANCE_ID"

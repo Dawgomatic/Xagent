@@ -116,7 +116,7 @@ bash scripts/tf-plan-review.sh plan /tmp/tf-plan-review-local 2>/dev/null | jq '
 **Verify risk classification:**
 ```bash
 bash scripts/tf-plan-review.sh plan /tmp/tf-plan-review-local 2>/dev/null | jq '.resources[0].risk'
-# Should output: "🟢 SAFE"
+# Should output: " SAFE"
 ```
 
 ## Test 7: Plan — Risk Classification (Mock)

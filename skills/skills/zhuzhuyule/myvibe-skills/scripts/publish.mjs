@@ -93,7 +93,7 @@ async function publish(options) {
       throw new Error("Please provide only one of: --file, --dir, or --url");
     }
 
-    console.log(chalk.bold("\n🚀 MyVibe Publish\n"));
+    console.log(chalk.bold("\n MyVibe Publish\n"));
     console.log(chalk.gray(`Hub: ${hub}`));
 
     // Get authorization
@@ -194,10 +194,10 @@ async function publish(options) {
             }
           },
           onCompleted: (data) => {
-            console.log(chalk.green("\n✅ Conversion completed!"));
+            console.log(chalk.green("\n Conversion completed!"));
           },
           onError: (error) => {
-            console.log(chalk.red(`\n❌ Conversion error: ${error}`));
+            console.log(chalk.red(`\n Conversion error: ${error}`));
           },
         });
       } catch (sseError) {
@@ -208,10 +208,10 @@ async function publish(options) {
             console.log(chalk.gray(`  Status: ${status.status}`));
           },
           onCompleted: (status) => {
-            console.log(chalk.green("\n✅ Conversion completed!"));
+            console.log(chalk.green("\n Conversion completed!"));
           },
           onError: (error) => {
-            console.log(chalk.red(`\n❌ Conversion error: ${error}`));
+            console.log(chalk.red(`\n Conversion error: ${error}`));
           },
         });
       }
@@ -254,7 +254,7 @@ async function publish(options) {
     const actionResult = await apiPatch(actionUrl, actionData, accessToken, hub);
 
     if (actionResult.success) {
-      console.log(chalk.green.bold("\n✅ Published successfully!\n"));
+      console.log(chalk.green.bold("\n Published successfully!\n"));
 
       let vibeUrl = actionResult.contentUrl;
       if (!vibeUrl) {
@@ -262,12 +262,12 @@ async function publish(options) {
         const vibeInfo = await apiGet(vibeInfoUrl, accessToken, hub);
         vibeUrl = joinURL(hub, vibeInfo.userDid, did);
       }
-      console.log(chalk.cyan(`🔗 ${vibeUrl}\n`));
+      console.log(chalk.cyan(` ${vibeUrl}\n`));
 
       // Upgrade prompt: updating existing project + version history not enabled
       if (existingDid && versionHistoryEnabled === false) {
         const pricingUrl = joinURL(hub, "pricing");
-        console.log(chalk.yellow("📦 Previous version overwritten. Want to keep version history?"));
+        console.log(chalk.yellow(" Previous version overwritten. Want to keep version history?"));
         console.log(chalk.yellow(`   Upgrade to Creator → ${pricingUrl}\n`));
       }
 
@@ -309,7 +309,7 @@ async function publish(options) {
       throw new Error(actionResult.error || "Publish action failed");
     }
   } catch (error) {
-    console.error(chalk.red(`\n❌ Error: ${error.message}\n`));
+    console.error(chalk.red(`\n Error: ${error.message}\n`));
     return {
       success: false,
       error: error.message,

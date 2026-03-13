@@ -7,13 +7,13 @@
 
 The WHOOP skill provides a solid foundation for accessing WHOOP API data, with comprehensive API coverage and well-structured documentation. However, there are **12 critical bugs** and **15 improvement areas** that must be addressed before production use.
 
-**Risk Level:** 🔴 **HIGH** - Multiple bugs will cause immediate failures on first use.
+**Risk Level:**  **HIGH** - Multiple bugs will cause immediate failures on first use.
 
 ---
 
 ## Critical Issues (Must Fix)
 
-### 1. Python Import Bugs ❌ BLOCKER
+### 1. Python Import Bugs  BLOCKER
 **Location:** All scripts (`get_*.py`)  
 **Issue:** Scripts use `from whoop_client import WhoopClient` without proper module path setup.
 
@@ -34,7 +34,7 @@ from whoop_client import WhoopClient
 
 ---
 
-### 2. Escape Sequence Bugs ❌ BLOCKER
+### 2. Escape Sequence Bugs  BLOCKER
 **Location:** 
 - `whoop_client.py` line 23
 - `get_recovery.py` line 58
@@ -56,7 +56,7 @@ f"Credentials not found at {CREDENTIALS_PATH}\n"
 
 ---
 
-### 3. Missing `requests` Dependency ❌ BLOCKER
+### 3. Missing `requests` Dependency  BLOCKER
 **Location:** `whoop_client.py`  
 **Issue:** Uses `requests` library without error handling or installation instructions.
 
@@ -81,7 +81,7 @@ f"Credentials not found at {CREDENTIALS_PATH}\n"
 
 ---
 
-### 4. OAuth `redirect_uri` Missing ❌ CRITICAL
+### 4. OAuth `redirect_uri` Missing  CRITICAL
 **Location:** `whoop_client.py` line 64-71  
 **Issue:** OAuth token exchange is missing `redirect_uri` parameter.
 
@@ -114,7 +114,7 @@ def authenticate(self, authorization_code: str, redirect_uri: str):
 
 ---
 
-### 5. No Error Handling in Scripts ⚠️ HIGH
+### 5. No Error Handling in Scripts  HIGH
 **Location:** All `get_*.py` scripts  
 **Issue:** No try/except blocks for API calls, file I/O, or network errors.
 
@@ -141,7 +141,7 @@ def main():
 
 ---
 
-### 6. Script Path Confusion 🟡 MEDIUM
+### 6. Script Path Confusion  MEDIUM
 **Location:** SKILL.md lines 19-21, 126-141  
 **Issue:** Script paths are inconsistent and unclear.
 
@@ -163,7 +163,7 @@ python3 /path/to/whoop/scripts/get_recovery.py --today
 
 ---
 
-### 7. Missing OAuth Workflow in SKILL.md 🟡 MEDIUM
+### 7. Missing OAuth Workflow in SKILL.md  MEDIUM
 **Location:** SKILL.md  
 **Issue:** Quick Start says "Setup OAuth" but doesn't explain the multi-step process.
 
@@ -205,7 +205,7 @@ python3 /path/to/whoop/scripts/get_recovery.py --today
 
 ## Improvement Areas
 
-### 8. No __init__.py for Package Structure 🟡 MEDIUM
+### 8. No __init__.py for Package Structure  MEDIUM
 **Location:** `whoop/scripts/`  
 **Issue:** Scripts directory is not a proper Python package.
 
@@ -213,7 +213,7 @@ python3 /path/to/whoop/scripts/get_recovery.py --today
 
 ---
 
-### 9. Token Expiry Not Tracked 🟡 MEDIUM
+### 9. Token Expiry Not Tracked  MEDIUM
 **Location:** `whoop_client.py`  
 **Issue:** Tokens include `expires_in` but it's not stored or checked.
 
@@ -230,7 +230,7 @@ def _save_token(self, access_token: str, refresh_token: Optional[str] = None, ex
 
 ---
 
-### 10. No Pagination Helper 🟡 MEDIUM
+### 10. No Pagination Helper  MEDIUM
 **Location:** `whoop_client.py`  
 **Issue:** Users have to manually handle `next_token` pagination.
 
@@ -250,7 +250,7 @@ def get_all_recovery(self, start=None, end=None):
 
 ---
 
-### 11. Missing Type Checking 🟢 LOW
+### 11. Missing Type Checking  LOW
 **Location:** All scripts  
 **Issue:** No runtime validation of API response structure.
 
@@ -262,7 +262,7 @@ if not isinstance(response.get("records"), list):
 
 ---
 
-### 12. No CLI Install Script 🟢 LOW
+### 12. No CLI Install Script  LOW
 **Location:** Skill root  
 **Enhancement:** Add `install.sh`:
 ```bash
@@ -275,7 +275,7 @@ echo "Next: Set up OAuth credentials (see references/oauth.md)"
 
 ---
 
-### 13. Hard-Coded Timezone Handling 🟢 LOW
+### 13. Hard-Coded Timezone Handling  LOW
 **Location:** All scripts  
 **Issue:** Uses `datetime.utcnow()` but WHOOP API returns timezone-aware strings.
 
@@ -283,7 +283,7 @@ echo "Next: Set up OAuth credentials (see references/oauth.md)"
 
 ---
 
-### 14. Missing Validation for Required Fields 🟡 MEDIUM
+### 14. Missing Validation for Required Fields  MEDIUM
 **Location:** `whoop_client.py`  
 **Issue:** No validation that credentials.json has required fields.
 
@@ -299,7 +299,7 @@ def _load_credentials(self):
 
 ---
 
-### 15. No Rate Limiting Handling 🟡 MEDIUM
+### 15. No Rate Limiting Handling  MEDIUM
 **Location:** `whoop_client.py`  
 **Issue:** No handling for 429 Too Many Requests.
 
@@ -316,7 +316,7 @@ if response.status_code == 429:
 
 ## Documentation Issues
 
-### 16. References Not Linked from Quick Start 🟢 LOW
+### 16. References Not Linked from Quick Start  LOW
 **Issue:** Quick Start mentions OAuth but doesn't link to `references/oauth.md` until later.
 
 **Fix:** Add link in step 1:
@@ -326,7 +326,7 @@ if response.status_code == 429:
 
 ---
 
-### 17. Missing Troubleshooting Section 🟡 MEDIUM
+### 17. Missing Troubleshooting Section  MEDIUM
 **Location:** SKILL.md  
 **Enhancement:** Add common errors and solutions:
 ```markdown
@@ -344,7 +344,7 @@ Your token expired. Re-run authorization flow.
 
 ---
 
-### 18. No Example Output in Scripts Section 🟢 LOW
+### 18. No Example Output in Scripts Section  LOW
 **Location:** SKILL.md lines 126-141  
 **Enhancement:** Show expected output for each script.
 
@@ -352,14 +352,14 @@ Your token expired. Re-run authorization flow.
 
 ## Skill Structure Analysis
 
-### ✅ Strengths
+###  Strengths
 1. **Comprehensive API Coverage**: All major endpoints documented
 2. **Good Separation**: Scripts, references properly organized
 3. **Clear Documentation**: API reference is thorough
 4. **Practical Scripts**: CLI tools cover common use cases
 5. **OAuth Guide**: Well-structured authentication flow documentation
 
-### ❌ Weaknesses
+###  Weaknesses
 1. **No Testing**: Scripts haven't been tested end-to-end
 2. **Missing Prerequisites**: Python version, dependency installation not documented
 3. **No Error Handling**: Will crash on first error

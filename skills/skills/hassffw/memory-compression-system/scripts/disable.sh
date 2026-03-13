@@ -96,7 +96,7 @@ show_final_status() {
     echo -e "${BLUE}Final Status:${NC}"
     
     if [ -f "$SKILL_DIR/.enabled" ]; then
-        echo -e "${RED}⚠️  WARNING: System still appears enabled${NC}"
+        echo -e "${RED}  WARNING: System still appears enabled${NC}"
         echo "Enabled on: $(cat "$SKILL_DIR/.enabled")"
     else
         echo -e "${YELLOW}✓ System is disabled${NC}"
@@ -106,7 +106,7 @@ show_final_status() {
     if command -v openclaw &> /dev/null; then
         local cron_jobs=$(openclaw cron list --json 2>/dev/null | grep -i "memory.compression" || true)
         if [ -n "$cron_jobs" ]; then
-            echo -e "${RED}⚠️  WARNING: Cron jobs still exist${NC}"
+            echo -e "${RED}  WARNING: Cron jobs still exist${NC}"
         else
             echo -e "${YELLOW}✓ No active cron jobs${NC}"
         fi

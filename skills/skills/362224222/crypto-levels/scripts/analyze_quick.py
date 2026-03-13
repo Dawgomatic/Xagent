@@ -78,19 +78,19 @@ class QuickCryptoAnalyzer:
         ma100_status = analysis["ma100_status"]
         
         # 格式化变化指示
-        change_color = "🟢" if change_24h >= 0 else "🔴"
+        change_color = "" if change_24h >= 0 else ""
         change_sign = "+" if change_24h >= 0 else ""
         
         # 构建输出
         output = []
-        output.append(f"📊 {symbol}-USDT 技术分析")
+        output.append(f" {symbol}-USDT 技术分析")
         output.append("")
-        output.append(f"💰 当前价格: ${current_price:,.2f}")
-        output.append(f"📈 24h变化: {change_color} {change_sign}{change_24h:.2f}%")
+        output.append(f" 当前价格: ${current_price:,.2f}")
+        output.append(f" 24h变化: {change_color} {change_sign}{change_24h:.2f}%")
         output.append("")
         
         # 压力位
-        output.append("🔴 压力位 (Resistance):")
+        output.append(" 压力位 (Resistance):")
         for i, level in enumerate(resistance, 1):
             diff_pct = ((level - current_price) / current_price) * 100
             output.append(f"   • R{i}: ${level:,.2f} (+{diff_pct:.2f}%)")
@@ -98,7 +98,7 @@ class QuickCryptoAnalyzer:
         output.append("")
         
         # 支撑位
-        output.append("🟢 支撑位 (Support):")
+        output.append(" 支撑位 (Support):")
         for i, level in enumerate(support, 1):
             diff_pct = ((current_price - level) / current_price) * 100
             output.append(f"   • S{i}: ${level:,.2f} (-{diff_pct:.2f}%)")
@@ -106,19 +106,19 @@ class QuickCryptoAnalyzer:
         output.append("")
         
         # 技术指标
-        output.append("📊 技术指标:")
+        output.append(" 技术指标:")
         
         rsi_status = "超买" if rsi > 70 else "超卖" if rsi < 30 else "中性"
-        rsi_color = "🔴" if rsi > 70 else "🟢" if rsi < 30 else "🟡"
+        rsi_color = "" if rsi > 70 else "" if rsi < 30 else ""
         output.append(f"   {rsi_color} RSI: {rsi} ({rsi_status})")
         
-        output.append(f"   📈 MA50: ${ma50:,.2f} ({ma50_status})")
-        output.append(f"   📈 MA100: ${ma100:,.2f} ({ma100_status})")
+        output.append(f"    MA50: ${ma50:,.2f} ({ma50_status})")
+        output.append(f"    MA100: ${ma100:,.2f} ({ma100_status})")
         
         output.append("")
         
         # 交易建议
-        output.append("💡 交易建议:")
+        output.append(" 交易建议:")
         
         if rsi < 30:
             output.append("   • RSI超卖，可能有反弹机会")
@@ -139,7 +139,7 @@ class QuickCryptoAnalyzer:
             output.append("   • 短期情绪: 中性")
         
         output.append("")
-        output.append("⚠️  风险提示: 本分析仅供参考，不构成投资建议。加密货币交易风险极高，请谨慎投资。")
+        output.append("  风险提示: 本分析仅供参考，不构成投资建议。加密货币交易风险极高，请谨慎投资。")
         
         return "\n".join(output)
 
@@ -179,7 +179,7 @@ def main():
             "MATIC": 0.58
         }
         price = default_prices.get(symbol.upper(), 1000)
-        print(f"⚠️  未提供价格，使用默认价格: ${price}")
+        print(f"  未提供价格，使用默认价格: ${price}")
     
     # 创建分析器
     analyzer = QuickCryptoAnalyzer()
@@ -195,7 +195,7 @@ def main():
     try:
         with open("/tmp/crypto_analysis_quick.json", "w") as f:
             json.dump(analysis, f, indent=2, ensure_ascii=False)
-        print(f"\n✅ 分析结果已保存到 /tmp/crypto_analysis_quick.json")
+        print(f"\n 分析结果已保存到 /tmp/crypto_analysis_quick.json")
     except:
         pass
 

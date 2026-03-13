@@ -117,7 +117,7 @@ When a user requests to update orders or modify order details, follow these step
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Updates order with excessive optional fields
+   #  HIGH COST - Updates order with excessive optional fields
    mutation orderUpdate($input: OrderInput!) {
      orderUpdate(input: $input) {
        order { id name customer { ... } lineItems { ... } shippingAddress { ... } billingAddress { ... } }
@@ -125,7 +125,7 @@ When a user requests to update orders or modify order details, follow these step
      }
    }
    
-   # ✅ LOW COST - Updates order with essential fields only
+   #  LOW COST - Updates order with essential fields only
    mutation orderUpdate($input: OrderInput!) {
      orderUpdate(input: $input) {
        order { id name totalPriceSet { shopMoney { amount } } }

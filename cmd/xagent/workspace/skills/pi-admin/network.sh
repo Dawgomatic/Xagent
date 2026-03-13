@@ -1,7 +1,7 @@
 #!/bin/bash
 # Network information
 
-echo "🌐 Network Information"
+echo " Network Information"
 echo "======================"
 echo ""
 

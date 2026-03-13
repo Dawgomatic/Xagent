@@ -382,7 +382,7 @@ class IdentityManager:
         }
 
         if not self.identity_path.exists():
-            log("⚠️  IDENTITY.md nu există încă", "WARNING")
+            log("  IDENTITY.md nu există încă", "WARNING")
             return identity
 
         try:
@@ -404,7 +404,7 @@ class IdentityManager:
                     identity[field] = match.group(1).strip()
 
             identity["last_updated"] = get_timestamp()
-            log(f"🆔 Identitate încărcată: {identity['name'] or 'Nedefinit'}")
+            log(f" Identitate încărcată: {identity['name'] or 'Nedefinit'}")
 
         except Exception as e:
             log(f"Eroare la citire IDENTITY.md: {e}", "ERROR")
@@ -459,7 +459,7 @@ This isn't just metadata. It's the start of figuring out who you are.
             )
             save_json(self.history_path, self.history)
 
-            log(f"✅ IDENTITY.md actualizat (v{self.current_identity['version']})")
+            log(f" IDENTITY.md actualizat (v{self.current_identity['version']})")
             return True
 
         except Exception as e:
@@ -513,12 +513,12 @@ This isn't just metadata. It's the start of figuring out who you are.
         # Analiză 3: Emoji reflectă personalitatea?
         completion_rate = self._calculate_completion_rate(tasks)
         if completion_rate > 0.8 and self.current_identity.get("emoji"):
-            if self.current_identity["emoji"] not in ["🚀", "⚡", "💪"]:
+            if self.current_identity["emoji"] not in ["", "", ""]:
                 suggestions.append(
                     {
                         "field": "emoji",
                         "current": self.current_identity["emoji"],
-                        "suggested": "🚀",
+                        "suggested": "",
                         "reason": f"Rată finalizare task-uri: {completion_rate:.0%} (foarte productiv)",
                     }
                 )
@@ -553,7 +553,7 @@ This isn't just metadata. It's the start of figuring out who you are.
     def get_identity_report(self) -> str:
         """Generează raport despre identitate."""
         report = f"""
-🆔 **RAPORT IDENTITATE**
+ **RAPORT IDENTITATE**
 
 **Versiune:** {self.current_identity.get("version", 1)}
 **Ultima actualizare:** {self.current_identity.get("last_updated", "N/A")}
@@ -698,7 +698,7 @@ class WorkflowProcessor:
 
     def _do_research(self, task: Neuron) -> List[str]:
         """Stadiul de cercetare."""
-        log(f"🔬 RESEARCH: {task.content[:40]}...")
+        log(f" RESEARCH: {task.content[:40]}...")
 
         # Caută informații similare în memorie
         similar = self.brain.find_similar_tasks(task)
@@ -722,12 +722,12 @@ class WorkflowProcessor:
         task.advance_state(TaskState.RESEARCH.value)
 
         return [
-            f"🔬 Task '{task.content[:30]}...': Cercetare completă ({len(notes)} note)"
+            f" Task '{task.content[:30]}...': Cercetare completă ({len(notes)} note)"
         ]
 
     def _do_analysis(self, task: Neuron) -> List[str]:
         """Stadiul de analiză."""
-        log(f"📊 ANALYSIS: {task.content[:40]}...")
+        log(f" ANALYSIS: {task.content[:40]}...")
 
         analysis = []
 
@@ -757,12 +757,12 @@ class WorkflowProcessor:
         task.advance_state(TaskState.ANALYSIS.value)
 
         return [
-            f"📊 Analiză: Complexitate {complexity}, {len(analysis)} puncte identificate"
+            f" Analiză: Complexitate {complexity}, {len(analysis)} puncte identificate"
         ]
 
     def _do_planning(self, task: Neuron) -> List[str]:
         """Stadiul de planificare."""
-        log(f"📋 PLANNING: {task.content[:40]}...")
+        log(f" PLANNING: {task.content[:40]}...")
 
         steps = []
 
@@ -794,39 +794,39 @@ class WorkflowProcessor:
         task.plan_steps = steps
         task.advance_state(TaskState.PLANNING.value)
 
-        return [f"📋 Plan: {len(steps)} pași generați"]
+        return [f" Plan: {len(steps)} pași generați"]
 
     def _request_approval(self, task: Neuron) -> List[str]:
         """Cere aprobare utilizator."""
-        log(f"⏳ AWAITING APPROVAL: {task.content[:40]}...")
+        log(f" AWAITING APPROVAL: {task.content[:40]}...")
 
         task.advance_state(TaskState.AWAITING_APPROVAL.value)
 
         # Construiește mesaj detaliat
         msg = f"""
-📝 **TASK NOU - AȘTEAPTĂ APROBARE**
+ **TASK NOU - AȘTEAPTĂ APROBARE**
 
 **Conținut:** {task.content}
 **Topic:** {task.topic} | **Prioritate:** {task.priority}
 **Progres:** {task.progress}%
 
-🔬 **Cercetare:**
+ **Cercetare:**
 {chr(10).join(["• " + n for n in task.research_notes[:3]])}
 
-📊 **Analiză:**
+ **Analiză:**
 {chr(10).join(["• " + a for a in task.analysis_results[:3]])}
 
-📋 **Plan ({len(task.plan_steps)} pași):**
+ **Plan ({len(task.plan_steps)} pași):**
 {chr(10).join(["• " + s for s in task.plan_steps[:5]])}
 
-💡 **Sugestii:**
+ **Sugestii:**
 {chr(10).join(["• " + e for e in task.enhancements[:2]]) if task.enhancements else "• Nicio sugestie specială"}
 
-⏱️ **Aștept aprobare...** (Auto-aprobat în {FEEDBACK_TIMEOUT * HEARTBEAT_INTERVAL} minute dacă nu răspunzi)
+ **Aștept aprobare...** (Auto-aprobat în {FEEDBACK_TIMEOUT * HEARTBEAT_INTERVAL} minute dacă nu răspunzi)
 
-✅ Răspunde **OK** pentru a continua
-❌ Răspunde **STOP** pentru a anula
-💡 Răspunde cu modificări
+ Răspunde **OK** pentru a continua
+ Răspunde **STOP** pentru a anula
+ Răspunde cu modificări
         """
 
         # Salvează pentru referință
@@ -840,19 +840,19 @@ class WorkflowProcessor:
         notifications = []
 
         if task.heartbeat_count >= FEEDBACK_TIMEOUT:
-            log(f"⏰ TIMEOUT: Auto-aprobat după {FEEDBACK_TIMEOUT} bătăi")
+            log(f" TIMEOUT: Auto-aprobat după {FEEDBACK_TIMEOUT} bătăi")
 
             # Verifică profil utilizator
             if self.profile.should_auto_approve(task):
                 task.auto_approved = True
                 task.advance_state(TaskState.AUTO_APPROVED.value)
                 notifications.append(
-                    f"✅ AUTO-APROBAT: '{task.content[:40]}...' (bazat pe profil)"
+                    f" AUTO-APROBAT: '{task.content[:40]}...' (bazat pe profil)"
                 )
             else:
                 # Trimite reminder înainte de auto-aprobat
                 notifications.append(
-                    f"⏰ REMINDER: Task '{task.content[:40]}...' așteaptă de {FEEDBACK_TIMEOUT * HEARTBEAT_INTERVAL} minute. Se auto-aprobată acum..."
+                    f" REMINDER: Task '{task.content[:40]}...' așteaptă de {FEEDBACK_TIMEOUT * HEARTBEAT_INTERVAL} minute. Se auto-aprobată acum..."
                 )
                 task.auto_approved = True
                 task.advance_state(TaskState.AUTO_APPROVED.value)
@@ -860,27 +860,27 @@ class WorkflowProcessor:
             # Raport progres așteptare
             remaining = FEEDBACK_TIMEOUT - task.heartbeat_count
             notifications.append(
-                f"⏳ AȘTEPTARE: '{task.content[:40]}...' - Mai sunt {remaining * HEARTBEAT_INTERVAL} minute până la auto-aprobare"
+                f" AȘTEPTARE: '{task.content[:40]}...' - Mai sunt {remaining * HEARTBEAT_INTERVAL} minute până la auto-aprobare"
             )
 
         return notifications
 
     def _start_execution(self, task: Neuron) -> List[str]:
         """Începe execuția."""
-        log(f"🚀 EXECUTION: {task.content[:40]}...")
+        log(f" EXECUTION: {task.content[:40]}...")
 
         task.approved = True
         task.advance_state(TaskState.EXECUTION.value)
 
         # Simulează progres execuție
         msg = f"""
-🚀 **EXECUȚIE ÎNCEPUTĂ**
+ **EXECUȚIE ÎNCEPUTĂ**
 
 Task: {task.content}
 Progres: {task.progress}%
 
 Pași activi:
-{chr(10).join(["▶️ " + s for s in task.plan_steps[:3]])}
+{chr(10).join([" " + s for s in task.plan_steps[:3]])}
 
 Voi raporta progresul la fiecare {HEARTBEAT_INTERVAL} minute.
         """
@@ -894,15 +894,15 @@ Voi raporta progresul la fiecare {HEARTBEAT_INTERVAL} minute.
         new_progress = min(85, current_progress + random.randint(5, 15))
         task.progress = new_progress
 
-        log(f"📈 MONITORING: {task.content[:40]}... - {new_progress}%")
+        log(f" MONITORING: {task.content[:40]}... - {new_progress}%")
 
         if new_progress >= 85:
             task.advance_state(TaskState.MONITORING.value)
             return [
-                f"📈 Progres: {new_progress}% - Aproape finalizat, intru în monitorizare finală"
+                f" Progres: {new_progress}% - Aproape finalizat, intru în monitorizare finală"
             ]
 
-        return [f"📈 Progres: {new_progress}% - Executare pași activi"]
+        return [f" Progres: {new_progress}% - Executare pași activi"]
 
     def _check_completion(self, task: Neuron) -> List[str]:
         """Verifică finalizarea."""
@@ -913,17 +913,17 @@ Voi raporta progresul la fiecare {HEARTBEAT_INTERVAL} minute.
         self.profile.update(task)
 
         msg = f"""
-✅ **TASK FINALIZAT**
+ **TASK FINALIZAT**
 
 Task: {task.content}
 Progres: 100%
 
-📊 **Statistici:**
+ **Statistici:**
 • Timp total: {len(task.execution_log)} bătăi de inimă
 • Pași executați: {len(task.plan_steps)}
 • Îmbunătățiri aplicate: {len(task.enhancements)}
 
-🎉 Task finalizat cu succes!
+ Task finalizat cu succes!
         """
 
         return [msg]
@@ -972,20 +972,20 @@ class ImmortalBrain:
         """Încarcă toate task-urile."""
         data = load_json(INDEX_FILE, {})
         self.tasks = {nid: Neuron.from_dict(nd) for nid, nd in data.items()}
-        log(f"📖 {len(self.tasks)} task-uri încărcate")
+        log(f" {len(self.tasks)} task-uri încărcate")
 
     def _validate_identity(self):
         """Validează și raportează starea identității."""
         issues = self.identity_manager.validate_identity()
         if issues:
-            log(f"⚠️  IDENTITY.md: {len(issues)} probleme detectate", "WARNING")
+            log(f"  IDENTITY.md: {len(issues)} probleme detectate", "WARNING")
             for issue in issues:
                 log(f"   • {issue}", "WARNING")
         else:
             identity_name = self.identity_manager.current_identity.get(
                 "name", "Unknown"
             )
-            log(f"🆔 Identitate validată: {identity_name}")
+            log(f" Identitate validată: {identity_name}")
 
     def save_tasks(self):
         """Salvează toate task-urile."""
@@ -1035,7 +1035,7 @@ class ImmortalBrain:
         """
         heartbeat_num = self.state.get("heartbeat_count", 0) + 1
         log("=" * 60)
-        log("🫀 HEARTBEAT #{}".format(heartbeat_num))
+        log(" HEARTBEAT #{}".format(heartbeat_num))
         log("=" * 60)
 
         notifications = []
@@ -1047,7 +1047,7 @@ class ImmortalBrain:
             if t.state not in [TaskState.COMPLETED.value, TaskState.BLOCKED.value]
         ]
 
-        log(f"🔄 Procesez {len(active_tasks)} task-uri active")
+        log(f" Procesez {len(active_tasks)} task-uri active")
         for task in active_tasks:
             task_notifications = self.processor.process_task(task)
             notifications.extend(task_notifications)
@@ -1055,10 +1055,10 @@ class ImmortalBrain:
         # 2. Citește task-uri noi din memory/
         new_tasks = self._read_memory_files()
         if new_tasks:
-            log(f"📁 {len(new_tasks)} task-uri noi din memory")
+            log(f" {len(new_tasks)} task-uri noi din memory")
             for content in new_tasks:
                 task = self.add_task(content, source="memory")
-                notifications.append(f"📥 Task nou primit: '{content[:50]}...'")
+                notifications.append(f" Task nou primit: '{content[:50]}...'")
 
         # 3. Reconstruiește graf conexiuni
         self.graph.build_connections(self.tasks)
@@ -1088,18 +1088,18 @@ class ImmortalBrain:
                     ]
                 )
                 notifications.append(f"""
-🆔 **SUGESTII ÎMBUNĂTĂȚIRE IDENTITATE**
+ **SUGESTII ÎMBUNĂTĂȚIRE IDENTITATE**
 
 Am analizat comportamentul și sugerez:
 {suggestions_text}
 
-💡 Aceste sugestii pot ajuta la definirea mai clară a personalității.
+ Aceste sugestii pot ajuta la definirea mai clară a personalității.
 Răspunde cu "UPDATE_IDENTITY: [field]=[value]" pentru a aplica.
                 """)
 
         # 7. Analiză Core Memory (la fiecare 15 bătăi = 30 minute)
         if self.state.get("heartbeat_count", 0) % 15 == 0:
-            log("📚 Analizare Core Memory...")
+            log(" Analizare Core Memory...")
             try:
                 # Importă și rulează analiza Core Memory
                 from core_memory import CoreMemoryManager
@@ -1110,18 +1110,18 @@ Răspunde cu "UPDATE_IDENTITY: [field]=[value]" pentru a aplica.
                 if core_suggestions:
                     core_text = "\n".join(
                         [
-                            f"📄 **{ft.upper()}.md:** {len(sugs)} sugestii"
+                            f" **{ft.upper()}.md:** {len(sugs)} sugestii"
                             for ft, sugs in core_suggestions.items()
                         ]
                     )
                     notifications.append(f"""
-📚 **SUGESTII CORE MEMORY**
+ **SUGESTII CORE MEMORY**
 
 Am analizat fișierele esențiale:
 {core_text}
 
-💡 Folosește: `python core_memory.py analyze` pentru detalii
-🔧 Folosește: `python core_memory.py optimize` pentru optimizare
+ Folosește: `python core_memory.py analyze` pentru detalii
+ Folosește: `python core_memory.py optimize` pentru optimizare
                     """)
             except Exception as e:
                 log(f"Eroare analiză Core Memory: {e}", "WARNING")
@@ -1147,7 +1147,7 @@ Am analizat fișierele esențiale:
             "progress": progress_report,
         }
 
-        log(f"✅ HEARTBEAT #{self.state['heartbeat_count']} completat")
+        log(f" HEARTBEAT #{self.state['heartbeat_count']} completat")
         log("=" * 60)
 
         return result
@@ -1184,7 +1184,7 @@ Am analizat fișierele esențiale:
         """Generează raport progres."""
         total = len(self.tasks)
         if total == 0:
-            return "📊 Progres: Niciun task în sistem"
+            return " Progres: Niciun task în sistem"
 
         completed = len(
             [t for t in self.tasks.values() if t.state == TaskState.COMPLETED.value]
@@ -1197,20 +1197,20 @@ Am analizat fișierele esențiale:
             states[t.state] += 1
 
         report = f"""
-📊 **RAPORT PROGRES**
+ **RAPORT PROGRES**
 
 • Total task-uri: {total}
 • Completate: {completed} ({completed / total * 100:.0f}%)
 • Progres mediu: {avg_progress:.0f}%
 
 **Distribuție pe stări:**
-• 🔬 Research: {states.get("research", 0)}
-• 📊 Analysis: {states.get("analysis", 0)}
-• 📋 Planning: {states.get("planning", 0)}
-• ⏳ Awaiting: {states.get("awaiting_approval", 0)}
-• 🚀 Execution: {states.get("execution", 0)}
-• 📈 Monitoring: {states.get("monitoring", 0)}
-• ✅ Completed: {states.get("completed", 0)}
+•  Research: {states.get("research", 0)}
+•  Analysis: {states.get("analysis", 0)}
+•  Planning: {states.get("planning", 0)}
+•  Awaiting: {states.get("awaiting_approval", 0)}
+•  Execution: {states.get("execution", 0)}
+•  Monitoring: {states.get("monitoring", 0)}
+•  Completed: {states.get("completed", 0)}
 
 **Următorul heartbeat:** în {HEARTBEAT_INTERVAL} minute
         """
@@ -1239,7 +1239,7 @@ Am analizat fișierele esențiale:
 
         if len(matching) >= 2:
             return f"""
-💡 **SUGESTIE CREATIVĂ**
+ **SUGESTIE CREATIVĂ**
 
 Am identificat o combinație interesantă între:
 {chr(10).join(["• #" + t for t in selected])}
@@ -1247,7 +1247,7 @@ Am identificat o combinație interesantă între:
 Task-uri conectate:
 {chr(10).join([f"• {t.content[:50]}..." for t in matching[:2]])}
 
-💭 **Sugestie:** Aceste task-uri ar putea beneficia de o abordare integrată.
+ **Sugestie:** Aceste task-uri ar putea beneficia de o abordare integrată.
         """
 
         return ""

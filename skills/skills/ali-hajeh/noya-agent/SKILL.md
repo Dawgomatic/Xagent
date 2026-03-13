@@ -1,7 +1,7 @@
 ---
 name: noya-agent
 description: Interact with the Noya AI agent for crypto trading, prediction markets, token analysis, and DCA strategies via curl. Use when the user wants to trade tokens, check portfolios, analyze markets, manage DCA strategies, or interact with Polymarket/Rain prediction markets.
-metadata: {"openclaw":{"emoji":"🤖","homepage":"https://agent.noya.ai","requires":{"env":["NOYA_API_KEY"],"bins":["curl","jq"]},"primaryEnv":"NOYA_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://agent.noya.ai","requires":{"env":["NOYA_API_KEY"],"bins":["curl","jq"]},"primaryEnv":"NOYA_API_KEY"}}
 ---
 
 # Noya Agent

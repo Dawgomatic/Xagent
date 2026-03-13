@@ -14,4 +14,4 @@ clawdbot-done() {
 }
 
 # Optional: Auto-trigger on certain commands
-alias ask='clawdbot-thinking; echo "🔴 Thinking light ON - What would you like to ask?"'
+alias ask='clawdbot-thinking; echo " Thinking light ON - What would you like to ask?"'

@@ -2,7 +2,7 @@
 name: aisa-tavily
 description: AI-optimized web search via AIsa's Tavily API proxy. Returns concise, relevant results for AI agents through AIsa's unified API gateway.
 homepage: https://aisa.one
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"bins":["node"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
 ---
 
 # AIsa Tavily Search

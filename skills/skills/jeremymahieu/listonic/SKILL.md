@@ -2,7 +2,7 @@
 name: listonic
 version: 1.0.0
 description: "Access Listonic shopping lists: list lists/items, add/check/delete items, and manage lists."
-metadata: {"clawdbot":{"emoji":"🛒","requires":{"bins":["python3"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
 # Listonic

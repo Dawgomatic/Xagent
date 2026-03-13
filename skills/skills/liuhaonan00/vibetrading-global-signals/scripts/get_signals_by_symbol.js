@@ -26,7 +26,7 @@ async function getSignalsBySymbol(symbol, signalTypes = '', limit = '', hours = 
 
     const url = `${API_BASE_URL}/signals/${symbol}?${params.toString()}`;
     
-    console.log(`📡 Fetching signals for ${symbol}`);
+    console.log(` Fetching signals for ${symbol}`);
     if (signalTypes) console.log(`   Signal types: ${signalTypes}`);
     if (limit) console.log(`   Limit: ${limit}`);
     if (hours) console.log(`   Time window: ${hours} hours`);
@@ -43,17 +43,17 @@ async function getSignalsBySymbol(symbol, signalTypes = '', limit = '', hours = 
   } catch (error) {
     if (error.response) {
       if (error.response.status === 404) {
-        console.error(`❌ No signals found for ${symbol} with the specified filters`);
+        console.error(` No signals found for ${symbol} with the specified filters`);
       } else {
-        console.error(`❌ API Error: ${error.response.status} ${error.response.statusText}`);
+        console.error(` API Error: ${error.response.status} ${error.response.statusText}`);
         if (error.response.data) {
           console.error(`   Details: ${JSON.stringify(error.response.data)}`);
         }
       }
     } else if (error.request) {
-      console.error('❌ Network Error: No response received from API');
+      console.error(' Network Error: No response received from API');
     } else {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
     }
     process.exit(1);
   }
@@ -62,10 +62,10 @@ async function getSignalsBySymbol(symbol, signalTypes = '', limit = '', hours = 
 function formatSignal(signal) {
   const payload = signal.signal_payload;
   const emoji = {
-    'BULLISH': '📈',
-    'BEARISH': '📉',
-    'NEUTRAL': '➡️'
-  }[payload.sentiment] || '❓';
+    'BULLISH': '',
+    'BEARISH': '',
+    'NEUTRAL': ''
+  }[payload.sentiment] || '';
   
   const timeAgo = getTimeAgo(new Date(signal.created_at));
   
@@ -98,7 +98,7 @@ function getTimeAgo(date) {
 
 function displayResults(signals, symbol) {
   console.log('='.repeat(60));
-  console.log(`📊 ${symbol} SIGNAL REPORT`);
+  console.log(` ${symbol} SIGNAL REPORT`);
   console.log('='.repeat(60));
   console.log(`Total Signals: ${signals.length}`);
   
@@ -119,7 +119,7 @@ function displayResults(signals, symbol) {
   // Display by type
   for (const [type, typeSignals] of Object.entries(byType)) {
     console.log('');
-    console.log(`🎯 ${type} (${typeSignals.length} signal${typeSignals.length > 1 ? 's' : ''})`);
+    console.log(` ${type} (${typeSignals.length} signal${typeSignals.length > 1 ? 's' : ''})`);
     console.log('-'.repeat(40));
     
     typeSignals.forEach((signal, index) => {
@@ -138,10 +138,10 @@ function displayResults(signals, symbol) {
   });
 
   console.log('='.repeat(60));
-  console.log('🎭 Sentiment Summary:');
-  console.log(`   📈 Bullish: ${sentimentCount.BULLISH}`);
-  console.log(`   📉 Bearish: ${sentimentCount.BEARISH}`);
-  console.log(`   ➡️  Neutral: ${sentimentCount.NEUTRAL}`);
+  console.log(' Sentiment Summary:');
+  console.log(`    Bullish: ${sentimentCount.BULLISH}`);
+  console.log(`    Bearish: ${sentimentCount.BEARISH}`);
+  console.log(`     Neutral: ${sentimentCount.NEUTRAL}`);
   
   // Overall sentiment
   const total = signals.length;
@@ -149,7 +149,7 @@ function displayResults(signals, symbol) {
   const bearishPercent = (sentimentCount.BEARISH / total * 100).toFixed(1);
   
   console.log('');
-  console.log(`📊 Overall: ${bullishPercent}% Bullish, ${bearishPercent}% Bearish`);
+  console.log(` Overall: ${bullishPercent}% Bullish, ${bearishPercent}% Bearish`);
   console.log('='.repeat(60));
 }
 

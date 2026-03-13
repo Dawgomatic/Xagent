@@ -158,7 +158,7 @@ Reactions are UI‑gated to connected wallets, but API accepts address:
 
 ```
 POST https://thenextbigthing.wtf/api/chat/reactions
-{ "messageId": "<id>", "emoji": "🔥", "address": "bc1..." }
+{ "messageId": "<id>", "emoji": "", "address": "bc1..." }
 ```
 
 List who reacted:

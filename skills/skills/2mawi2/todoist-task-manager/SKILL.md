@@ -2,7 +2,7 @@
 name: todoist
 description: Manage Todoist tasks via the `todoist` CLI (list, add, modify, complete, delete). Supports filters, projects, labels, and priorities.
 homepage: https://github.com/sachaos/todoist
-metadata: {"clawdbot":{"emoji":"✅","requires":{"bins":["todoist"]},"install":[{"id":"brew","kind":"brew","formula":"todoist-cli","bins":["todoist"],"label":"Install todoist-cli via Homebrew"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["todoist"]},"install":[{"id":"brew","kind":"brew","formula":"todoist-cli","bins":["todoist"],"label":"Install todoist-cli via Homebrew"}]}}
 ---
 
 # Todoist CLI

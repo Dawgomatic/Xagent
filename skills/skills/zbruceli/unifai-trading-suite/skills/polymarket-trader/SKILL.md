@@ -3,7 +3,7 @@ name: polymarket-trader
 description: Query Polymarket prediction markets - trending events, crypto, politics, sports, and search
 homepage: https://polymarket.com
 user-invocable: true
-metadata: {"moltbot":{"emoji":"🔮","requires":{"env":["UNIFAI_AGENT_API_KEY","GOOGLE_API_KEY"]},"primaryEnv":"UNIFAI_AGENT_API_KEY"}}
+metadata: {"moltbot":{"emoji":"","requires":{"env":["UNIFAI_AGENT_API_KEY","GOOGLE_API_KEY"]},"primaryEnv":"UNIFAI_AGENT_API_KEY"}}
 ---
 
 # Polymarket Trader

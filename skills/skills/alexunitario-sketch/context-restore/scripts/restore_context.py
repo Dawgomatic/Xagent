@@ -87,18 +87,18 @@ SECTION_SEPARATOR = "-" * 60
 
 # Emoji mappings for report sections
 EMOJI = {
-    'metadata': '📊',
-    'operations': '🔄',
-    'projects': '🚀',
-    'tasks': '📋',
-    'memory': '🧠',
-    'content': '📄',
-    'success': '✅',
-    'error': '❌',
-    'info': 'ℹ️',
-    'watch': '👀',
-    'bell': '🔔',
-    'auto': '🤖'
+    'metadata': '',
+    'operations': '',
+    'projects': '',
+    'tasks': '',
+    'memory': '',
+    'content': '',
+    'success': '',
+    'error': '',
+    'info': '',
+    'watch': '',
+    'bell': '',
+    'auto': ''
 }
 
 # Auto mode and cron integration constants
@@ -491,7 +491,7 @@ def filter_projects_only(content: str) -> str:
     for line in lines:
         # 检测是否进入项目部分
         lower_line = line.lower()
-        if any(kw in lower_line for kw in ['🚀 **项目**', 'projects', '项目:']):
+        if any(kw in lower_line for kw in [' **项目**', 'projects', '项目:']):
             in_project_section = True
             project_lines.append(line)
             continue
@@ -500,10 +500,10 @@ def filter_projects_only(content: str) -> str:
         if in_project_section:
             # 检测是否离开项目部分（遇到新的主要部分）
             if any(sep in line for sep in ['---', '==='
-                , '🔄 **最近操作**', 'operations'
-                , '📋 **任务**', 'tasks'
-                , '🧠 **记忆**', 'memory'
-                , '📊 **压缩信息**', 'metadata'
+                , ' **最近操作**', 'operations'
+                , ' **任务**', 'tasks'
+                , ' **记忆**', 'memory'
+                , ' **压缩信息**', 'metadata'
             ]) and len(line.strip()) < 20:
                 in_project_section = False
                 continue
@@ -523,7 +523,7 @@ def filter_projects_only(content: str) -> str:
 _METADATA_ORIGINAL_PATTERN = re.compile(r'原始消息数:\s*(\d+)')
 _METADATA_COMPRESSED_PATTERN = re.compile(r'压缩后消息数:\s*(\d+)')
 _METADATA_TIMESTAMP_PATTERN = re.compile(r'上下文压缩于\s*([\d\-T:.]+)')
-_OPERATION_PATTERN = re.compile(r'✅\s*(.+?)(?:\n|$)')
+_OPERATION_PATTERN = re.compile(r'\s*(.+?)(?:\n|$)')
 _CRON_PATTERN = re.compile(r'(\d+)个?cron任务.*?已转为')
 _SESSION_PATTERN = re.compile(r'(\d+)个活跃')
 _SESSION_EN_PATTERN = re.compile(r'(\d+)\s*(?:isolated sessions)', re.IGNORECASE)
@@ -536,7 +536,7 @@ COMPRESSED_COUNT_PATTERN = re.compile(r'压缩后消息数:\s*(\d+)')
 TIMESTAMP_PATTERN = re.compile(r'压缩时间:\s*(\d{4}-\d{2}-\d{2})')
 PROJECT_OPERATION_PATTERN = re.compile(r'• (.+)')
 PROJECT_NAME_PATTERN = re.compile(r'([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)')
-TASK_PATTERN = re.compile(r'📌 (.+)')
+TASK_PATTERN = re.compile(r' (.+)')
 
 
 # =============================================================================
@@ -697,14 +697,14 @@ def extract_recent_operations(content: str, max_count: int = 5) -> list[str]:
         Operations are deduplicated and ordered by appearance.
         
     Example:
-        >>> ops = extract_recent_operations("✅ Context restored\n✅ Tasks completed")
+        >>> ops = extract_recent_operations(" Context restored\n Tasks completed")
         >>> print(ops)
         ['Context restored', 'Tasks completed']
     """
     operations = []
     content_lower = normalize_content(content)  # 使用 LRU 缓存的 lowercase
     
-    # Use pre-compiled pattern for ✅ operations
+    # Use pre-compiled pattern for  operations
     matches = _OPERATION_PATTERN.findall(content)
     for match in matches:
         cleaned = match.strip()
@@ -1462,39 +1462,39 @@ def format_diff_report(diff: dict, old_file: str, new_file: str) -> str:
     lines.append("CONTEXT DIFF REPORT")
     lines.append(SEPARATOR)
     
-    lines.append(f"\n📁 Old: {old_file}")
-    lines.append(f"📁 New: {new_file}")
+    lines.append(f"\n Old: {old_file}")
+    lines.append(f" New: {new_file}")
     
     if not diff.get('success'):
-        lines.append(f"\n❌ Comparison failed: {diff.get('error', 'Unknown error')}")
+        lines.append(f"\n Comparison failed: {diff.get('error', 'Unknown error')}")
         return '\n'.join(lines)
     
     # Time difference
     time_hours = diff.get('time_diff_hours', 0)
     if time_hours > 0:
-        lines.append(f"\n⏱️  Time difference: {time_hours:.1f} hours")
+        lines.append(f"\n  Time difference: {time_hours:.1f} hours")
     else:
-        lines.append(f"\n⏱️  Time difference: N/A")
+        lines.append(f"\n  Time difference: N/A")
     
     # Projects section
-    lines.append(f"\n🚀 Projects:")
+    lines.append(f"\n Projects:")
     
     added_projects = diff.get('added_projects', [])
     removed_projects = diff.get('removed_projects', [])
     modified_projects = diff.get('modified_projects', [])
     
     if added_projects:
-        lines.append(f"   ➕ Added ({len(added_projects)}):")
+        lines.append(f"    Added ({len(added_projects)}):")
         for p in added_projects:
             lines.append(f"      - {p['name']}")
     
     if removed_projects:
-        lines.append(f"   ➖ Removed ({len(removed_projects)}):")
+        lines.append(f"    Removed ({len(removed_projects)}):")
         for p in removed_projects:
             lines.append(f"      - {p['name']}")
     
     if modified_projects:
-        lines.append(f"   🔄 Modified ({len(modified_projects)}):")
+        lines.append(f"    Modified ({len(modified_projects)}):")
         for m in modified_projects:
             lines.append(f"      - {m['name']}")
     
@@ -1502,24 +1502,24 @@ def format_diff_report(diff: dict, old_file: str, new_file: str) -> str:
         lines.append("   (No project changes)")
     
     # Tasks section
-    lines.append(f"\n📋 Tasks:")
+    lines.append(f"\n Tasks:")
     
     added_tasks = diff.get('added_tasks', [])
     removed_tasks = diff.get('removed_tasks', [])
     modified_tasks = diff.get('modified_tasks', [])
     
     if added_tasks:
-        lines.append(f"   ➕ Added ({len(added_tasks)}):")
+        lines.append(f"    Added ({len(added_tasks)}):")
         for t in added_tasks:
             lines.append(f"      - {t['task']}")
     
     if removed_tasks:
-        lines.append(f"   ➖ Removed ({len(removed_tasks)}):")
+        lines.append(f"    Removed ({len(removed_tasks)}):")
         for t in removed_tasks:
             lines.append(f"      - {t['task']}")
     
     if modified_tasks:
-        lines.append(f"   🔄 Modified ({len(modified_tasks)}):")
+        lines.append(f"    Modified ({len(modified_tasks)}):")
         for m in modified_tasks:
             lines.append(f"      - {m['task']}")
     
@@ -1527,31 +1527,31 @@ def format_diff_report(diff: dict, old_file: str, new_file: str) -> str:
         lines.append("   (No task changes)")
     
     # Operations section
-    lines.append(f"\n🔄 Operations:")
+    lines.append(f"\n Operations:")
     
     ops_added = diff.get('operations_added', [])
     ops_removed = diff.get('operations_removed', [])
     ops_change = diff.get('operations_change', {})
     
     if ops_added:
-        lines.append(f"   ➕ Added ({len(ops_added)}):")
+        lines.append(f"    Added ({len(ops_added)}):")
         for op in ops_added:
             lines.append(f"      - {op}")
     
     if ops_removed:
-        lines.append(f"   ➖ Removed ({len(ops_removed)}):")
+        lines.append(f"    Removed ({len(ops_removed)}):")
         for op in ops_removed:
             lines.append(f"      - {op}")
     
     if ops_change:
-        lines.append(f"   📊 Change: {ops_change.get('net_change', 0)} "
+        lines.append(f"    Change: {ops_change.get('net_change', 0)} "
                     f"({ops_change.get('total_old', 0)} → {ops_change.get('total_new', 0)})")
     
     if not any([ops_added, ops_removed]):
         lines.append("   (No operation changes)")
     
     # Message count section
-    lines.append(f"\n📊 Message Counts:")
+    lines.append(f"\n Message Counts:")
     msg_change = diff.get('message_count_change', {})
     lines.append(f"   Old: {msg_change.get('old_original', 'N/A')} → "
                 f"{msg_change.get('old_compressed', 'N/A')} (compressed)")
@@ -2286,17 +2286,17 @@ def generate_normal_report(content: str) -> str:
     proj_str = '\n'.join(proj_list) if proj_list else "- 无"
     
     # 生成报告 - 在最终字符串中添加 % 符号
-    report = f"""✅ **上下文已恢复**
+    report = f""" **上下文已恢复**
 
-📊 **压缩信息:**
+ **压缩信息:**
 - 原始消息: {original_count}
 - 压缩后: {compressed_count}
 - 压缩率: {ratio_value}%
 
-🔄 **最近操作:**
+ **最近操作:**
 {ops_list}
 
-🚀 **项目:**
+ **项目:**
 {proj_str}
 """
     return report
@@ -2437,7 +2437,7 @@ def format_normal_report(content: str) -> str:
     if projects:
         lines.append(f"\n{EMOJI['projects']} Key Projects")
         for project in projects:
-            lines.append(f"\n   📁 {project['name']}")
+            lines.append(f"\n    {project['name']}")
             if project.get('description'):
                 lines.append(f"      Description: {project['description']}")
             if project.get('status'):
@@ -2447,7 +2447,7 @@ def format_normal_report(content: str) -> str:
     if tasks:
         lines.append(f"\n{EMOJI['tasks']} Ongoing Tasks")
         for task in tasks:
-            lines.append(f"\n   📌 {task['task']}")
+            lines.append(f"\n    {task['task']}")
             if task.get('status'):
                 lines.append(f"      Status: {task['status']}")
             if task.get('detail'):
@@ -2694,7 +2694,7 @@ def format_timeline_report(timeline_data: dict, content: str = None) -> str:
     lines.append(SEPARATOR)
     
     # Summary
-    lines.append(f"\n📊 Summary:")
+    lines.append(f"\n Summary:")
     lines.append(f"   Period: {period_title}")
     lines.append(f"   Days covered: {total_days}")
     lines.append(f"   Total operations: {total_ops}")
@@ -2702,7 +2702,7 @@ def format_timeline_report(timeline_data: dict, content: str = None) -> str:
     
     # Timeline entries
     if timeline:
-        lines.append(f"\n📅 Timeline ({len(timeline)} entries):")
+        lines.append(f"\n Timeline ({len(timeline)} entries):")
         lines.append(SECTION_SEPARATOR)
         
         for i, entry in enumerate(timeline, 1):
@@ -2714,23 +2714,23 @@ def format_timeline_report(timeline_data: dict, content: str = None) -> str:
             
             lines.append(f"\n[{i}] {period_label}")
             if date_range:
-                lines.append(f"    📆 Period: {date_range}")
-            lines.append(f"    🔄 Operations: {ops_count}")
+                lines.append(f"     Period: {date_range}")
+            lines.append(f"     Operations: {ops_count}")
             
             if projects:
                 proj_str = ', '.join(projects[:3])
                 if len(projects) > 3:
                     proj_str += f" (+{len(projects) - 3} more)"
-                lines.append(f"    🚀 Projects: {proj_str}")
+                lines.append(f"     Projects: {proj_str}")
             
             if highlights:
-                lines.append(f"    ✨ Highlights:")
+                lines.append(f"     Highlights:")
                 for hl in highlights[:2]:
                     lines.append(f"       • {hl}")
             
             lines.append(SECTION_SEPARATOR)
     else:
-        lines.append(f"\n📭 No timeline data available")
+        lines.append(f"\n No timeline data available")
     
     # Footer
     lines.append(f"\n{SEPARATOR}")

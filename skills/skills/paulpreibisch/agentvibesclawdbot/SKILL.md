@@ -11,11 +11,11 @@ Automatically integrates AgentVibes with Clawdbot for local TTS generation on re
 
 ### What This Does
 
-- ✅ **Automatic TTS** - Every Clawdbot response speaks via AgentVibes
-- ✅ **Remote Generation** - Text sent to Android/device, audio generated locally
-- ✅ **Full Features** - Voice effects, reverb, background music
-- ✅ **Low Bandwidth** - Only text sent over SSH (~1-5 KB)
-- ✅ **Secure** - SSH key authentication, Tailscale VPN
+-  **Automatic TTS** - Every Clawdbot response speaks via AgentVibes
+-  **Remote Generation** - Text sent to Android/device, audio generated locally
+-  **Full Features** - Voice effects, reverb, background music
+-  **Low Bandwidth** - Only text sent over SSH (~1-5 KB)
+-  **Secure** - SSH key authentication, Tailscale VPN
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Automatically integrates AgentVibes with Clawdbot for local TTS generation on re
 
 ## Installation
 
-### Prerequisites First: SSH Setup ⚠️
+### Prerequisites First: SSH Setup 
 
 **Before running the skill setup, you MUST set up SSH to your remote device:**
 
@@ -88,10 +88,10 @@ bash skills/clawdbot/setup.sh
 ```
 
 The setup script will:
-- ✅ Install AgentVibes on the server (if not present)
-- ✅ Create TTS hooks and scripts
-- ✅ SSH to your remote device and auto-install AgentVibes there
-- ✅ Configure all necessary files and permissions
+-  Install AgentVibes on the server (if not present)
+-  Create TTS hooks and scripts
+-  SSH to your remote device and auto-install AgentVibes there
+-  Configure all necessary files and permissions
 
 ## What Gets Installed
 
@@ -290,10 +290,10 @@ ssh android "rm ~/.termux/agentvibes-play.sh"
 
 ## Security
 
-- ✅ SSH key-only authentication (no passwords)
-- ✅ Text-only transmission (no executable code)
-- ✅ Tailscale VPN recommended
-- ✅ Configurable SSH port (use non-standard)
+-  SSH key-only authentication (no passwords)
+-  Text-only transmission (no executable code)
+-  Tailscale VPN recommended
+-  Configurable SSH port (use non-standard)
 
 ## Performance
 
@@ -335,8 +335,8 @@ bash skills/clawdbot/setup.sh
 
 ## Support the Project
 
-⭐ **Love AgentVibes?** Star the repository to support the project:
-👉 https://github.com/paulpreibisch/AgentVibes
+ **Love AgentVibes?** Star the repository to support the project:
+ https://github.com/paulpreibisch/AgentVibes
 
 Your star helps other developers discover this project!
 
@@ -359,4 +359,4 @@ Apache-2.0 - See LICENSE file
 
 **Version:** 1.0.0  
 **Last Updated:** 2026-01-30  
-**Status:** Production Ready ✅
+**Status:** Production Ready 

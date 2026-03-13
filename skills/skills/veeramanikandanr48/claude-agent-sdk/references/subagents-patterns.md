@@ -16,7 +16,7 @@ Specialized agents with:
 
 ## When to Use Subagents
 
-### ✅ Use Subagents When:
+###  Use Subagents When:
 
 - Task requires different expertise areas
 - Some subtasks need different models (cost optimization)
@@ -24,7 +24,7 @@ Specialized agents with:
 - Clear separation of concerns needed
 - Multiple steps with specialized knowledge
 
-### ❌ Don't Use Subagents When:
+###  Don't Use Subagents When:
 
 - Single straightforward task
 - All work can be done by one agent
@@ -329,14 +329,14 @@ if (all pass) → deployer
 ### Optimization Tips
 
 ```typescript
-// ✅ Good: Match model to task
+//  Good: Match model to task
 agents: {
   "monitor": { model: "haiku" },      // Simple checks
   "reviewer": { model: "sonnet" },     // Analysis
   "architect": { model: "opus" }       // Complex design
 }
 
-// ❌ Bad: Opus for everything
+//  Bad: Opus for everything
 agents: {
   "monitor": { model: "opus" },   // Wasteful
   "reviewer": { model: "opus" },  // Wasteful
@@ -416,7 +416,7 @@ Main Agent: "Deploy to production"
 
 ## Best Practices
 
-### ✅ Do
+###  Do
 
 - Give agents clear, specific roles
 - Match model to task complexity
@@ -426,7 +426,7 @@ Main Agent: "Deploy to production"
 - Test agents independently
 - Monitor which agents are invoked
 
-### ❌ Don't
+###  Don't
 
 - Create overlapping responsibilities
 - Use Opus for simple tasks

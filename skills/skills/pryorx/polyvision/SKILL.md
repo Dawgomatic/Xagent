@@ -4,7 +4,7 @@ description: Analyze Polymarket prediction market wallets — get copy trading s
 homepage: https://polyvisionx.com
 license: MIT
 disable-model-invocation: true
-metadata: {"clawdis":{"emoji":"📊","primaryEnv":"POLYVISION_API_KEY","requires":{"env":["POLYVISION_API_KEY"]}}}
+metadata: {"clawdis":{"emoji":"","primaryEnv":"POLYVISION_API_KEY","requires":{"env":["POLYVISION_API_KEY"]}}}
 ---
 
 # PolyVision — Polymarket Wallet Analyzer

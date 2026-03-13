@@ -2,7 +2,7 @@
 name: resume-cv-builder
 description: Create professional resumes and CVs. Generate ATS-friendly formats, optimize bullet points, tailor for specific jobs, and export to multiple formats (Markdown, HTML, LaTeX, PDF).
 homepage: https://github.com/your-username/resume-builder-skill
-metadata: {"clawdbot":{"emoji":"📄","requires":{"bins":["pandoc"],"env":[]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["pandoc"],"env":[]}}}
 ---
 
 # Resume/CV Builder Skill
@@ -78,14 +78,14 @@ Skilled in Python, React, and AWS. Seeking to drive technical innovation at a gr
 
 **Examples:**
 ```
-❌ Weak: "Responsible for managing a team"
-✅ Strong: "Led cross-functional team of 8 engineers, delivering 3 major features ahead of schedule"
+ Weak: "Responsible for managing a team"
+ Strong: "Led cross-functional team of 8 engineers, delivering 3 major features ahead of schedule"
 
-❌ Weak: "Worked on improving website performance"
-✅ Strong: "Optimized database queries reducing page load time by 65%, improving user retention by 23%"
+ Weak: "Worked on improving website performance"
+ Strong: "Optimized database queries reducing page load time by 65%, improving user retention by 23%"
 
-❌ Weak: "Helped with customer support"
-✅ Strong: "Resolved 500+ customer tickets monthly with 98% satisfaction rate, reducing escalations by 40%"
+ Weak: "Helped with customer support"
+ Strong: "Resolved 500+ customer tickets monthly with 98% satisfaction rate, reducing escalations by 40%"
 ```
 
 ### Quantify Everything
@@ -100,7 +100,7 @@ Skilled in Python, React, and AWS. Seeking to drive technical innovation at a gr
 
 ## ATS Optimization
 
-### Do's ✅
+### Do's 
 - Use standard section headings (Experience, Education, Skills)
 - Include keywords from job description
 - Use common job titles
@@ -108,7 +108,7 @@ Skilled in Python, React, and AWS. Seeking to drive technical innovation at a gr
 - Use standard fonts (Arial, Calibri, Times New Roman)
 - Save as .docx or .pdf (text-based, not image)
 
-### Don'ts ❌
+### Don'ts 
 - No tables, columns, or text boxes
 - No headers/footers (ATS may not read them)
 - No images, logos, or graphics

@@ -100,7 +100,7 @@ print(f"Public Key: {key.public_key.hex()}")
 with open('bsv_private.key', 'w') as f:
     f.write(key.to_wif())
 
-print("\n⚠️  IMPORTANT: Save your private key in a secure location!")
+print("\n  IMPORTANT: Save your private key in a secure location!")
 print("Never commit this file to version control.")
 ```
 
@@ -220,7 +220,7 @@ gpg --armor --export agent@opensoul.local > agent_pubkey.asc
 gpg --armor --export-secret-keys agent@opensoul.local > agent_privkey.asc
 ```
 
-**⚠️ SECURITY**: Keep `agent_privkey.asc` secure and encrypted!
+** SECURITY**: Keep `agent_privkey.asc` secure and encrypted!
 
 ### Verifying PGP Setup
 
@@ -271,7 +271,7 @@ load_dotenv()
 bsv_key = os.getenv("BSV_PRIV_WIF")
 ```
 
-**⚠️ NEVER commit .env files to version control!**
+** NEVER commit .env files to version control!**
 
 Add to `.gitignore`:
 ```

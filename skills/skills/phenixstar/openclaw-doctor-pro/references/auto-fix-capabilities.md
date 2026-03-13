@@ -283,8 +283,8 @@ python3 scripts/error-fixer.py --fix-all-safe
 # ✓ Fixed: SANDBOX_TIMEOUT (increased to 300s)
 # ✓ Fixed: INVALID_VALUE_TYPE (converted 3 fields)
 # ✓ Fixed: DEPRECATED_KEY (migrated 5 keys)
-# ⚠ Skipped: GATEWAY_TOKEN_MISMATCH (requires confirmation)
-# ⚠ Skipped: DOCKER_NOT_RUNNING (risky operation)
+#  Skipped: GATEWAY_TOKEN_MISMATCH (requires confirmation)
+#  Skipped: DOCKER_NOT_RUNNING (risky operation)
 ```
 
 ### Fix by Category
@@ -392,11 +392,11 @@ python3 scripts/error-fixer.py --load-recipes custom-fixes.yaml
 - ✗ Data deletion
 
 ### Confirmation Required For
-- ⚠ Killing processes
-- ⚠ Installing system packages
-- ⚠ Modifying file permissions
-- ⚠ Regenerating tokens
-- ⚠ Starting/stopping Docker
+-  Killing processes
+-  Installing system packages
+-  Modifying file permissions
+-  Regenerating tokens
+-  Starting/stopping Docker
 
 ## Best Practices
 

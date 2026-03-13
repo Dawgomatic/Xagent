@@ -139,22 +139,22 @@ async function main() {
     // Sanity checks
     if (tpsl === 'tp') {
       if (isBuy && triggerPrice > currentPrice) {
-        console.log(`\n⚠️  Warning: Buy TP above current price is unusual`);
+        console.log(`\n  Warning: Buy TP above current price is unusual`);
       }
       if (!isBuy && triggerPrice < currentPrice) {
-        console.log(`\n⚠️  Warning: Sell TP below current price is unusual`);
+        console.log(`\n  Warning: Sell TP below current price is unusual`);
       }
     } else {
       if (isBuy && triggerPrice < currentPrice) {
-        console.log(`\n⚠️  Warning: Buy SL below current price - are you shorting?`);
+        console.log(`\n  Warning: Buy SL below current price - are you shorting?`);
       }
       if (!isBuy && triggerPrice > currentPrice) {
-        console.log(`\n⚠️  Warning: Sell SL above current price - are you longing?`);
+        console.log(`\n  Warning: Sell SL above current price - are you longing?`);
       }
     }
 
     if (dryRun) {
-      console.log('\n🔍 Dry run - order not placed');
+      console.log('\n Dry run - order not placed');
       return;
     }
 
@@ -177,19 +177,19 @@ async function main() {
       const statuses = response.response.data.statuses;
       for (const status of statuses) {
         if (status.resting) {
-          console.log(`✅ Trigger order placed`);
+          console.log(` Trigger order placed`);
           console.log(`   Order ID:   ${status.resting.oid}`);
           console.log(`   Trigger:    ${formatUsd(triggerPrice)}`);
           console.log(`   Limit:      ${formatUsd(limitPrice)}`);
           console.log(`\n   Order will ${isBuy ? 'BUY' : 'SELL'} ${size} ${coin} when price reaches ${formatUsd(triggerPrice)}`);
         } else if (status.error) {
-          console.log(`❌ Error: ${status.error}`);
+          console.log(` Error: ${status.error}`);
         } else {
-          console.log(`⚠️  Status:`, JSON.stringify(status, null, 2));
+          console.log(`  Status:`, JSON.stringify(status, null, 2));
         }
       }
     } else {
-      console.log(`❌ Failed: ${typeof response.response === 'string' ? response.response : JSON.stringify(response)}`);
+      console.log(` Failed: ${typeof response.response === 'string' ? response.response : JSON.stringify(response)}`);
     }
 
   } catch (error) {

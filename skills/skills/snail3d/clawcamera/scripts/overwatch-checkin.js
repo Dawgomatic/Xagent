@@ -57,11 +57,11 @@ async function captureImage() {
     });
     
     if (fs.existsSync(outputPath)) {
-      console.log(`✅ Captured: ${outputPath}`);
+      console.log(` Captured: ${outputPath}`);
       return outputPath;
     }
   } catch (err) {
-    console.error('❌ Capture failed:', err.message);
+    console.error(' Capture failed:', err.message);
   }
   return null;
 }
@@ -71,7 +71,7 @@ async function captureImage() {
  */
 async function analyzeImage(imagePath) {
   if (!GROQ_API_KEY || !fs.existsSync(imagePath)) {
-    return "📸 Snapshot captured (analysis unavailable)";
+    return " Snapshot captured (analysis unavailable)";
   }
 
   try {
@@ -110,11 +110,11 @@ async function analyzeImage(imagePath) {
     );
 
     const analysis = response.data.choices[0].message.content;
-    console.log(`✅ Analysis: ${analysis}`);
+    console.log(` Analysis: ${analysis}`);
     return analysis;
   } catch (err) {
-    console.error('⚠️ Analysis failed:', err.message);
-    return "📸 Snapshot captured";
+    console.error(' Analysis failed:', err.message);
+    return " Snapshot captured";
   }
 }
 
@@ -130,11 +130,11 @@ async function getRandomGif() {
     }).trim();
     
     if (result && result.startsWith('http')) {
-      console.log(`✅ GIF: ${result}`);
+      console.log(` GIF: ${result}`);
       return result;
     }
   } catch (err) {
-    console.error('⚠️ GIF fetch failed:', err.message);
+    console.error(' GIF fetch failed:', err.message);
   }
   return null;
 }
@@ -144,7 +144,7 @@ async function getRandomGif() {
  */
 async function sendTelegramAlert(imagePath, analysis, gifUrl) {
   if (!TELEGRAM_TOKEN || !TELEGRAM_CHAT_ID) {
-    console.log('⚠️ Telegram not configured, skipping alert');
+    console.log(' Telegram not configured, skipping alert');
     return;
   }
 
@@ -154,7 +154,7 @@ async function sendTelegramAlert(imagePath, analysis, gifUrl) {
     const formData = new FormData();
     formData.append('chat_id', TELEGRAM_CHAT_ID);
     formData.append('photo', new Blob([imageBuffer], { type: 'image/jpeg' }), 'snapshot.jpg');
-    formData.append('caption', `🕵️ **Overwatch Check-In**\n\n${analysis}`);
+    formData.append('caption', ` **Overwatch Check-In**\n\n${analysis}`);
     formData.append('parse_mode', 'Markdown');
 
     const response = await axios.post(
@@ -163,7 +163,7 @@ async function sendTelegramAlert(imagePath, analysis, gifUrl) {
       { headers: formData.getHeaders() }
     );
 
-    console.log(`✅ Photo sent to Telegram (${response.data.result.message_id})`);
+    console.log(` Photo sent to Telegram (${response.data.result.message_id})`);
 
     // Send GIF separately
     if (gifUrl) {
@@ -174,10 +174,10 @@ async function sendTelegramAlert(imagePath, analysis, gifUrl) {
           animation: gifUrl
         }
       );
-      console.log(`✅ GIF sent to Telegram`);
+      console.log(` GIF sent to Telegram`);
     }
   } catch (err) {
-    console.error('❌ Telegram alert failed:', err.message);
+    console.error(' Telegram alert failed:', err.message);
   }
 }
 
@@ -185,7 +185,7 @@ async function sendTelegramAlert(imagePath, analysis, gifUrl) {
  * Main check-in loop
  */
 async function runCheckIn() {
-  console.log(`\n📹 Overwatch Check-In at ${new Date().toISOString()}`);
+  console.log(`\n Overwatch Check-In at ${new Date().toISOString()}`);
   
   try {
     const imagePath = await captureImage();
@@ -196,9 +196,9 @@ async function runCheckIn() {
 
     await sendTelegramAlert(imagePath, analysis, gifUrl);
     
-    console.log(`✅ Check-in complete\n`);
+    console.log(` Check-in complete\n`);
   } catch (err) {
-    console.error(`❌ Check-in error: ${err.message}\n`);
+    console.error(` Check-in error: ${err.message}\n`);
   }
 }
 
@@ -206,7 +206,7 @@ async function runCheckIn() {
  * Start periodic check-ins
  */
 async function startPeriodicCheckIns() {
-  console.log(`🎬 Starting Overwatch Check-In daemon (interval: ${CHECK_IN_INTERVAL}ms)`);
+  console.log(` Starting Overwatch Check-In daemon (interval: ${CHECK_IN_INTERVAL}ms)`);
   
   // Run immediately
   await runCheckIn();

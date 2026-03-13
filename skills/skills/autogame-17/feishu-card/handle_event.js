@@ -15,7 +15,7 @@ async function handle(eventPayload) {
         // We can call send.js here
         const { execSync } = require('child_process');
         try {
-            const replyText = `收到！你点击了菜单按钮：\`${menuKey}\` 喵！😺`;
+            const replyText = `收到！你点击了菜单按钮：\`${menuKey}\` 喵！`;
             execSync(`node ${__dirname}/send.js --target "${userOpenId}" --text "${replyText}" --color "green"`);
         } catch (e) {
             console.error("Failed to send reply:", e);

@@ -264,7 +264,7 @@ cmd_register_worldid() {
     # Poll for completion
     echo
     echo "────────────────────────────────────────────────────────────────"
-    info "⏳ Waiting for WorldID verification..."
+    info " Waiting for WorldID verification..."
     echo
     info "Steps to complete:"
     echo "  1. Open the URL above in your browser"
@@ -294,7 +294,7 @@ poll_registration_status() {
         local elapsed=$((attempt * 15))
         local minutes=$((elapsed / 60))
         local seconds=$((elapsed % 60))
-        printf "\r⏳ Checking status... [${minutes}m ${seconds}s elapsed]"
+        printf "\r Checking status... [${minutes}m ${seconds}s elapsed]"
 
         local response=$(curl -sL -w "\n%{http_code}" "${server}/api/v1/register/${session_token}/status")
         local http_code=$(echo "$response" | tail -n1)
@@ -329,11 +329,11 @@ poll_registration_status() {
                 info "Verification Level: $verification_level"
                 info "Registered At:      $registered_at"
                 echo
-                success "🔗 Share your verification:"
+                success " Share your verification:"
                 echo -e "   ${GREEN}${server}/verify/${public_key}${NC}"
                 echo
                 info "   Tweet this: 'I verified my molt has a human behind it!'"
-                echo "   https://twitter.com/intent/tweet?text=$(echo -n 'I verified my molt has a human behind it! 🤖👤 #OneMolt @worldcoin' | jq -sRr @uri)&url=$(echo -n "${server}/verify/${public_key}" | jq -sRr @uri)"
+                echo "   https://twitter.com/intent/tweet?text=$(echo -n 'I verified my molt has a human behind it!  #OneMolt @worldcoin' | jq -sRr @uri)&url=$(echo -n "${server}/verify/${public_key}" | jq -sRr @uri)"
                 echo
                 success "What you can do now:"
                 echo "  • Prove your identity to other services"
@@ -363,7 +363,7 @@ poll_registration_status() {
 
     echo
     echo
-    warn "⏱ Registration timed out after 15 minutes."
+    warn " Registration timed out after 15 minutes."
     echo
     info "The registration session has expired. Please try again:"
     echo "  ./scripts/identity-proof.sh register-worldid"
@@ -411,7 +411,7 @@ cmd_verify_remote() {
         if [[ "$worldid_verified" == "true" ]]; then
             success "✓ WorldID verified (Level: $verification_level)"
         else
-            warn "⚠ Not registered with WorldID"
+            warn " Not registered with WorldID"
             info "Run 'identity-proof.sh register-worldid' to register"
         fi
     else
@@ -455,9 +455,9 @@ cmd_status() {
         info "Verification Level: $verification_level"
         info "Registered At: $registered_at"
     elif [[ "$registered" == "true" ]]; then
-        warn "⚠ Registered but not verified or inactive"
+        warn " Registered but not verified or inactive"
     else
-        warn "⚠ Not registered with WorldID"
+        warn " Not registered with WorldID"
         echo
         info "Run 'identity-proof.sh register-worldid' to register"
     fi

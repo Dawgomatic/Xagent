@@ -52,10 +52,10 @@ function statusChanged(a, b) {
 }
 function getStatusEmoji(status) {
     if (status.relay === 'down')
-        return '🔴';
+        return '';
     if (status.executor !== 'connected')
-        return '🟡';
-    return '🟢';
+        return '';
+    return '';
 }
 function formatAlert(status, state) {
     const emoji = getStatusEmoji(status);

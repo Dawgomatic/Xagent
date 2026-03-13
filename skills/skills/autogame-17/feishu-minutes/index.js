@@ -128,7 +128,7 @@ async function main() {
                 console.warn("No video_url found in Info response.");
             }
 
-            console.log(`\n✅ All Done! Output: ${outDir}`);
+            console.log(`\n All Done! Output: ${outDir}`);
 
         } catch (e) {
             console.error(`Error: ${e.message}`);

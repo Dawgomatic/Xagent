@@ -1,6 +1,6 @@
 ---
 name: secondmind
-emoji: 🧠
+emoji: 
 version: 1.4.0
 description: >
   Autonomous three-tier memory with proactive initiative, project tracking, and social intelligence.
@@ -49,7 +49,7 @@ When the user sends /new or /reset:
    ```bash
    node {baseDir}/scripts/flush.js
    ```
-2. Respond with the script's output (e.g. "💾 Session archived.")
+2. Respond with the script's output (e.g. " Session archived.")
 3. THEN allow the reset to proceed normally
 
 ## Telegram Commands (Integrated Mode)
@@ -78,7 +78,7 @@ After accepting, a **project is automatically created** to track progress.
 3. If the user agrees, start working on the task immediately
 4. Example flow:
    - User: `/accept 5`
-   - Agent: "✅ #5 akzeptiert. Soll ich dir die Guide-Liste direkt zusammenstellen?"
+   - Agent: " #5 akzeptiert. Soll ich dir die Guide-Liste direkt zusammenstellen?"
    - User: "Ja mach"
    - Agent: *starts working on the task*
 
@@ -143,7 +143,7 @@ SELECT mood, COUNT(*) as count FROM social_context
 WHERE detected_at > datetime('now', '-7 days')
 GROUP BY mood ORDER BY count DESC;
 ```
-Format with emoji: 😤frustration 🎉excitement 😰worry 🥳celebration 😫stress 🤔curiosity 😴boredom 🙏gratitude
+Format with emoji: frustration excitement worry celebration stress curiosity boredom gratitude
 
 ### /smrun or /smrun
 ```bash

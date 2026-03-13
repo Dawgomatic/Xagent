@@ -107,12 +107,12 @@ class ExecutionPlan:
         }.get(model_used, model_used)
         
         intent_emoji = {
-            Intent.CODE: "💻",
-            Intent.ANALYSIS: "🔍",
-            Intent.CREATIVE: "🎨",
-            Intent.REALTIME: "⚡",
-            Intent.GENERAL: "💬",
-        }.get(self.decision.intent, "✅")
+            Intent.CODE: "",
+            Intent.ANALYSIS: "",
+            Intent.CREATIVE: "",
+            Intent.REALTIME: "",
+            Intent.GENERAL: "",
+        }.get(self.decision.intent, "")
         
         header = f"{intent_emoji} **{model_display}** completed this task"
         
@@ -130,7 +130,7 @@ class ExecutionPlan:
     def format_failure(self, error: str, attempted_models: list[str]) -> str:
         """Format error message when all models fail."""
         return (
-            f"❌ **Task Delegation Failed**\n\n"
+            f" **Task Delegation Failed**\n\n"
             f"Unable to complete the request after trying: {', '.join(attempted_models)}\n\n"
             f"**Last error:** {error}\n\n"
             f"_Falling back to main session processing._"
@@ -432,12 +432,12 @@ class ExecutorAgent:
         }.get(model, model)
         
         intent_emoji = {
-            "REALTIME": "⚡",
-            "ANALYSIS": "🔍",
-            "CODE": "💻",
-            "CREATIVE": "🎨",
-            "GENERAL": "💬",
-        }.get(intent, "✅")
+            "REALTIME": "",
+            "ANALYSIS": "",
+            "CODE": "",
+            "CREATIVE": "",
+            "GENERAL": "",
+        }.get(intent, "")
         
         header = f"{intent_emoji} **{model_display}** completed this task"
         

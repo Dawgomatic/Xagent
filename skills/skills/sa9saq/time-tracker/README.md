@@ -1,4 +1,4 @@
-# ⏱️ time-tracker
+#  time-tracker
 
 File-based work time tracking and reporting. No external services needed.
 

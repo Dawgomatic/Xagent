@@ -25,11 +25,11 @@ def multi_worker_workflow():
     lifecycle = SubAgentLifecycle("cybermao")
     
     print("=" * 60)
-    print("🚀 FIS 3.2.0 多 Worker + Reviewer 工作流")
+    print(" FIS 3.2.0 多 Worker + Reviewer 工作流")
     print("=" * 60)
     
     # ========== Phase 1: 创建 3 个 Worker 任务 ==========
-    print("\n📋 Phase 1: 创建 Worker 任务")
+    print("\n Phase 1: 创建 Worker 任务")
     
     workers = []
     worker_configs = [
@@ -73,10 +73,10 @@ def multi_worker_workflow():
             "outputs": config["outputs"]
         })
     
-    print(f"\n✅ 已创建 {len(workers)} 个 Worker 任务")
+    print(f"\n 已创建 {len(workers)} 个 Worker 任务")
     
     # ========== Phase 1.5: 生成拼接工牌并发送 ==========
-    print("\n🎨 Phase 1.5: 生成多工牌拼接图")
+    print("\n Phase 1.5: 生成多工牌拼接图")
     
     # 导入拼接功能
     sys.path.insert(0, str(Path.home() / ".openclaw" / "workspace" / "skills" / "fis-architecture" / "lib"))
@@ -93,10 +93,10 @@ def multi_worker_workflow():
     ]
     
     multi_badge_path = generate_multi_badge(cards_data, "multi_worker_badges.png")
-    print(f"✅ 拼接工牌: {multi_badge_path}")
+    print(f" 拼接工牌: {multi_badge_path}")
     
     # 发送到 WhatsApp
-    print("\n📱 发送拼接工牌到 WhatsApp...")
+    print("\n 发送拼接工牌到 WhatsApp...")
     allowed_dir = Path.home() / ".openclaw" / "workspace" / "output"
     allowed_dir.mkdir(parents=True, exist_ok=True)
     
@@ -110,30 +110,30 @@ def multi_worker_workflow():
         "--channel", "whatsapp",
         "--target", "+8618009073880",
         "--media", str(dst),
-        "--message", f"🎫 多 Worker 任务工牌 ({len(workers)}个)\n任务: 并行研究 MCP/QMD/Session\n点击放大查看各Worker任务详情"
+        "--message", f" 多 Worker 任务工牌 ({len(workers)}个)\n任务: 并行研究 MCP/QMD/Session\n点击放大查看各Worker任务详情"
     ]
     try:
         subprocess.run(send_cmd, capture_output=True, text=True, timeout=30)
-        print("✅ 拼接工牌已发送!")
+        print(" 拼接工牌已发送!")
     except Exception as e:
-        print(f"📱 发送命令: {' '.join(send_cmd)}")
+        print(f" 发送命令: {' '.join(send_cmd)}")
     
     # ========== Phase 2: 并行启动 Workers ==========
-    print("\n🔄 Phase 2: 并行启动 Workers")
+    print("\n Phase 2: 并行启动 Workers")
     
     for w in workers:
-        print(f"\n  📤 Spawning {w['name']}...")
+        print(f"\n   Spawning {w['name']}...")
         print(f"     Ticket: {w['ticket']}")
         print(f"     Target: {w['url']}")
         # 实际使用时调用 sessions_spawn
         # sessions_spawn(task=..., label=w['name'])
     
     # ========== Phase 3: 等待 Workers 完成 ==========
-    print("\n⏳ Phase 3: 等待所有 Workers 完成...")
+    print("\n Phase 3: 等待所有 Workers 完成...")
     print("   (实际场景中，等待所有子代理返回)")
     
     # ========== Phase 4: 创建 Reviewer 任务 ==========
-    print("\n🔍 Phase 4: 创建 Reviewer 汇总任务")
+    print("\n Phase 4: 创建 Reviewer 汇总任务")
     
     reviewer_ticket, reviewer_task = lifecycle.create_task(
         agent_name="Reviewer-Master",
@@ -143,12 +143,12 @@ def multi_worker_workflow():
         deadline_days=1
     )
     
-    print(f"\n✅ Reviewer 任务已创建")
+    print(f"\n Reviewer 任务已创建")
     print(f"   Ticket: {reviewer_ticket}")
     
     # ========== Phase 5: 输出工作流信息 ==========
     print("\n" + "=" * 60)
-    print("📊 工作流摘要")
+    print(" 工作流摘要")
     print("=" * 60)
     
     workflow = {
@@ -163,14 +163,14 @@ def multi_worker_workflow():
     
     for i, w in enumerate(workers, 1):
         print(f"\n  Worker-{i}: {w['name']}")
-        print(f"    🎫 {w['ticket']}")
-        print(f"    🌐 {w['url']}")
+        print(f"     {w['ticket']}")
+        print(f"     {w['url']}")
     
     print(f"\n  Reviewer: Reviewer-Master")
-    print(f"    🎫 {reviewer_ticket}")
+    print(f"     {reviewer_ticket}")
     
     print("\n" + "=" * 60)
-    print("💡 使用命令:")
+    print(" 使用命令:")
     print("=" * 60)
     print("\n# 启动 Workers:")
     for w in workers:

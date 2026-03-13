@@ -84,7 +84,7 @@ export function formatReputationWarning(reputationInfo) {
   if (!reputationInfo || reputationInfo.score >= 70) return "";
   
   const lines = [
-    `\n⚠️  **REPUTATION WARNING** (Score: ${reputationInfo.score}/100)`,
+    `\n  **REPUTATION WARNING** (Score: ${reputationInfo.score}/100)`,
   ];
   
   if (reputationInfo.warnings.length > 0) {

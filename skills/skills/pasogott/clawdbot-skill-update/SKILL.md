@@ -2,7 +2,7 @@
 name: clawdbot-skill-update
 description: Comprehensive backup, update, and restore workflow with dynamic workspace detection
 homepage: https://github.com/pasogott/clawdbot-skill-update
-metadata: {"clawdbot":{"emoji":"💾","requires":{"bins":["bash","jq","tar","git"]},"tags":["backup","restore","update","multi-agent"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["bash","jq","tar","git"]},"tags":["backup","restore","update","multi-agent"]}}
 ---
 
 # Clawdbot Update Skill
@@ -27,12 +27,12 @@ This skill provides a complete, **modular** update workflow for Clawdbot with **
 
 ### Key Features
 
-✅ **Dynamic Workspace Detection** - Reads workspace paths from config  
-✅ **Multi-Agent Support** - Handles multiple agents automatically  
-✅ **Safe Rollback** - Full restore capability  
-✅ **Git Integration** - Tracks versions and remotes  
-✅ **Validation** - Pre/post checks included  
-✅ **Dry Run** - Preview before backup
+ **Dynamic Workspace Detection** - Reads workspace paths from config  
+ **Multi-Agent Support** - Handles multiple agents automatically  
+ **Safe Rollback** - Full restore capability  
+ **Git Integration** - Tracks versions and remotes  
+ **Validation** - Pre/post checks included  
+ **Dry Run** - Preview before backup
 
 ## Files
 
@@ -155,9 +155,9 @@ ls -lh "$BACKUP_DIR"
 ```
 
 Should contain:
-- ✅ `clawdbot.json`
-- ✅ `credentials.tar.gz`
-- ✅ `workspace-*.tar.gz` (one per agent)
+-  `clawdbot.json`
+-  `credentials.tar.gz`
+-  `workspace-*.tar.gz` (one per agent)
 
 ### Config Changes Required
 

@@ -47,11 +47,11 @@ Fiverr:
 
 ### タイトルの書き方
 ```
-✅ 良い例:
+ 良い例:
 "I will create Google Apps Script automation for your spreadsheets"
 "I will build a custom Python script for data processing"
 
-❌ 悪い例:
+ 悪い例:
 "GAS development" (短すぎる)
 "I am an expert developer" (何ができるか不明)
 ```
@@ -84,34 +84,34 @@ Premium ($200):
 
 ### 説明文テンプレート
 ```
-⭐ [WHAT YOU'LL GET] ⭐
+ [WHAT YOU'LL GET] 
 
 I will create professional Google Apps Script automation
 that saves you hours of manual work.
 
-✅ WHAT I OFFER:
+ WHAT I OFFER:
 • Custom GAS development
 • Spreadsheet automation
 • Form processing
 • Email automation
 • API integrations
 
-📌 WHY CHOOSE ME:
+ WHY CHOOSE ME:
 • [X] years of experience
 • Fast delivery
 • Clean, documented code
 • Excellent communication
 
-🔧 TECHNOLOGIES:
+ TECHNOLOGIES:
 Google Apps Script, JavaScript, REST APIs
 
-📋 PROCESS:
+ PROCESS:
 1. Share your requirements
 2. I'll analyze and provide a quote
 3. Development & testing
 4. Delivery & revisions
 
-💬 HAVE QUESTIONS?
+ HAVE QUESTIONS?
 Feel free to message me before ordering!
 ```
 
@@ -147,17 +147,17 @@ Thanks for the details!
 
 Based on your requirements, here's my proposal:
 
-📦 SCOPE:
+ SCOPE:
 • [項目1]
 • [項目2]
 • [項目3]
 
-💰 PRICING:
+ PRICING:
 • Development: $XX
 • Testing: included
 • Documentation: included
 
-⏰ DELIVERY:
+ DELIVERY:
 [X] days after order confirmation
 
 Would you like to proceed? Feel free to ask any questions!
@@ -187,14 +187,14 @@ Best regards,
 ```
 Hi [Name],
 
-Great news! Your order is complete! 🎉
+Great news! Your order is complete! 
 
-📦 DELIVERED:
+ DELIVERED:
 • [納品物1]
 • [納品物2]
 • [納品物3]
 
-📖 HOW TO USE:
+ HOW TO USE:
 [簡単な使用方法]
 
 If you need any adjustments, just let me know.
@@ -258,7 +258,7 @@ Every delivery includes:
 ### Delivery Package Template (English)
 
 ```
-📦 WHAT'S INCLUDED:
+ WHAT'S INCLUDED:
 
 1. [Main Deliverable]
    - Description

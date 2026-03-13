@@ -13,13 +13,13 @@ Provides secure command execution capabilities for OpenClaw Agents with automati
 
 ## Features
 
-- 🔍 **Automatic danger pattern detection** - Identifies risky commands before execution
-- 🚨 **Risk-based interception** - Multi-level assessment (CRITICAL/HIGH/MEDIUM/LOW)
-- 💬 **In-session notifications** - Real-time alerts in your current terminal/session
-- ✅ **User approval workflow** - Commands wait for explicit confirmation
-- 📊 **Complete audit logging** - Full traceability of all operations
-- 🤖 **Agent-friendly** - Non-interactive mode support for automated workflows
-- 🔧 **Platform-agnostic** - Works independently of communication tools (Feishu, Telegram, etc.)
+-  **Automatic danger pattern detection** - Identifies risky commands before execution
+-  **Risk-based interception** - Multi-level assessment (CRITICAL/HIGH/MEDIUM/LOW)
+-  **In-session notifications** - Real-time alerts in your current terminal/session
+-  **User approval workflow** - Commands wait for explicit confirmation
+-  **Complete audit logging** - Full traceability of all operations
+-  **Agent-friendly** - Non-interactive mode support for automated workflows
+-  **Platform-agnostic** - Works independently of communication tools (Feishu, Telegram, etc.)
 
 ## Quick Start
 
@@ -113,7 +113,7 @@ SafeExec detects the risk level and displays an in-session prompt for approval.
 
 **Example notification:**
 ```
-🚨 **Dangerous Operation Detected - Command Intercepted**
+ **Dangerous Operation Detected - Command Intercepted**
 
 **Risk Level:** CRITICAL
 **Command:** `rm -rf /tmp/test`
@@ -121,7 +121,7 @@ SafeExec detects the risk level and displays an in-session prompt for approval.
 
 **Request ID:** `req_1769938492_9730`
 
-ℹ️  This command requires user approval to execute.
+  This command requires user approval to execute.
 
 **Approval Methods:**
 1. In terminal: `safe-exec-approve req_1769938492_9730`
@@ -187,7 +187,7 @@ export SAFE_EXEC_DISABLE=1
 **Found a bug? Have a feature request?**
 
 Please report issues at:
-🔗 **https://github.com/OTTTTTO/safe-exec/issues**
+ **https://github.com/OTTTTTO/safe-exec/issues**
 
 We welcome community feedback, bug reports, and feature suggestions!
 

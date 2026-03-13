@@ -18,7 +18,7 @@ When Core runs at 10 PM:
 1. Core identifies moments from the day's conversations
 2. **Ledger plugin activates** at `post-moment-analysis` hook
 3. Ledger extracts financial data from moments and screenshots
-4. Ledger generates the `💰 Financial Summary` section
+4. Ledger generates the ` Financial Summary` section
 5. Core includes it in the daily journal
 
 ## Monthly Report Setup

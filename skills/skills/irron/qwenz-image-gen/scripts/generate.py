@@ -111,7 +111,7 @@ def generate_image(
     """
     api_key = get_api_key()
     if not api_key:
-        print("❌ 错误: 未设置 DASHSCOPE_API_KEY 环境变量")
+        print(" 错误: 未设置 DASHSCOPE_API_KEY 环境变量")
         print("请设置: export DASHSCOPE_API_KEY='your-api-key'")
         sys.exit(1)
     
@@ -120,7 +120,7 @@ def generate_image(
         if is_portrait_prompt(prompt):
             model_config = MODELS["z"]
             model_type = "z"
-            print("🔍 检测到人像/照片场景，自动使用 z-image 模型")
+            print(" 检测到人像/照片场景，自动使用 z-image 模型")
         else:
             model_config = MODELS["qwen"]
             model_type = "qwen"
@@ -161,7 +161,7 @@ def generate_image(
         # 自动添加胶片效果，除非用户已指定
         pass  # 可选：可以自动增强提示词
     
-    print(f"🎨 正在生成图片...")
+    print(f" 正在生成图片...")
     print(f"   模型: {model_config['name']}")
     print(f"   尺寸: {size_str} ({width}x{height})")
     print(f"   提示词: {prompt[:60]}{'...' if len(prompt) > 60 else ''}")
@@ -185,7 +185,7 @@ def generate_image(
         data = response.read().decode("utf-8")
         
         if response.status != 200:
-            print(f"❌ HTTP 错误 {response.status}: {data}")
+            print(f" HTTP 错误 {response.status}: {data}")
             sys.exit(1)
         
         result = json.loads(data)
@@ -203,7 +203,7 @@ def generate_image(
                     break
             
             if not image_url:
-                print(f"❌ 未找到图片 URL: {result}")
+                print(f" 未找到图片 URL: {result}")
                 sys.exit(1)
             
             # 确定输出文件名
@@ -212,7 +212,7 @@ def generate_image(
                 output = f"{model_type}_image_{timestamp}.png"
             
             # 下载图片
-            print(f"⬇️  下载图片...")
+            print(f"  下载图片...")
             parsed = urlparse(image_url)
             img_conn = http.client.HTTPSConnection(parsed.netloc, timeout=60)
             img_conn.request("GET", parsed.path + (f"?{parsed.query}" if parsed.query else ""))
@@ -222,15 +222,15 @@ def generate_image(
                 f.write(img_resp.read())
             img_conn.close()
             
-            print(f"✅ 图片已保存: {os.path.abspath(output)}")
+            print(f" 图片已保存: {os.path.abspath(output)}")
             conn.close()
             return output
         
-        print(f"❌ API 返回异常: {result}")
+        print(f" API 返回异常: {result}")
         sys.exit(1)
         
     except Exception as e:
-        print(f"❌ 错误: {e}")
+        print(f" 错误: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)

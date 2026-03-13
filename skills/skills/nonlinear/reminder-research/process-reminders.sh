@@ -2,27 +2,27 @@
 # Reminder Intelligence v3 - Smart processing with custom instructions
 # 
 # Evolution:
-#   Gen 1: 🔍 emoji trigger (manual)
+#   Gen 1:  emoji trigger (manual)
 #   Gen 2: Empty notes = auto-process (list-based behavior)
-#   Gen 3: Custom instructions in notes OR empty (💎 = already processed)
+#   Gen 3: Custom instructions in notes OR empty ( = already processed)
 #
 # Signifiers:
-#   💎 at start of notes = RESULT (already processed, skip)
-#   No 💎 = NEEDS PROCESSING (follow custom instructions or default)
+#    at start of notes = RESULT (already processed, skip)
+#   No  = NEEDS PROCESSING (follow custom instructions or default)
 
 set -e
 
 # Get all incomplete reminders
 ALL_REMINDERS=$(remindctl all --json 2>/dev/null)
 
-# Filter: needs processing = notes empty OR notes exists but no 💎
+# Filter: needs processing = notes empty OR notes exists but no 
 NEEDS_PROCESSING=$(echo "$ALL_REMINDERS" | jq '[
   .[] | 
   select(.isCompleted == false) |
   select(
     (.notes == null) or 
     (.notes == "") or
-    ((.notes != null) and (.notes != "") and (.notes | startswith("💎") | not))
+    ((.notes != null) and (.notes != "") and (.notes | startswith("") | not))
   )
 ]')
 
@@ -41,7 +41,7 @@ echo "$NEEDS_PROCESSING" | jq -c '.[]' | while read -r item; do
   NOTES=$(echo "$item" | jq -r '.notes // ""')
   
   # Skip groceries and media
-  if [ "$LIST" = "🛒 Groceries" ] || [ "$LIST" = "Media" ]; then
+  if [ "$LIST" = " Groceries" ] || [ "$LIST" = "Media" ]; then
     continue
   fi
   

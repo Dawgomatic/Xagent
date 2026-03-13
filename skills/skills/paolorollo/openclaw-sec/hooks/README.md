@@ -40,9 +40,9 @@ hook-name/
 - Obfuscation techniques
 
 **Actions:**
-- ✅ **ALLOW** - Safe input, proceed normally
-- ⚠️  **WARN** - Potential issues, allow but log
-- 🚫 **BLOCK** - Security threat detected, reject input
+-  **ALLOW** - Safe input, proceed normally
+-   **WARN** - Potential issues, allow but log
+-  **BLOCK** - Security threat detected, reject input
 
 ### 2. Security Tool Validator
 

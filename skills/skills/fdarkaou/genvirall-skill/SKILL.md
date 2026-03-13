@@ -4,7 +4,7 @@ description: Complete genviral Partner API automation. Create and schedule posts
 homepage: https://github.com/fdarkaou/genviral-skill
 metadata:
   openclaw:
-    emoji: "🎬"
+    emoji: ""
     requires:
       bins: ["curl", "jq", "bash"]
 ---

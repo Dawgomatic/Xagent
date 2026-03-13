@@ -57,7 +57,7 @@ and ClawHub link are for the user to act on themselves.
 
 When you receive a message starting with `[Clawfy]`:
 
-1. The webhook includes a 🛑 CONTEXT CHECK instruction. Follow it:
+1. The webhook includes a  CONTEXT CHECK instruction. Follow it:
    read the last 10 messages and determine if the user's browsing
    connects to something you were RECENTLY discussing.
 2. Broaden the query: replace brand/tool names with activity categories.
@@ -102,7 +102,7 @@ around the Twitter API to organise posts into categories."
 
 Webhook: browsing docs.x.com, X API user lookup docs.
 
-📍 CONNECTED: Twitter thread organizer — you're reading the X API
+ CONNECTED: Twitter thread organizer — you're reading the X API
 user lookup docs, which is the first building block. The
 `/2/users/by/username` endpoint will let you resolve handles to
 IDs before pulling their posts for categorization.
@@ -129,7 +129,7 @@ Last 10 messages: casual chat, nothing technical.
 
 Webhook: browsing learn.microsoft.com, Excel Services REST API.
 
-📍 NEW TOPIC: You're reading up on the Excel Services REST API —
+ NEW TOPIC: You're reading up on the Excel Services REST API —
 exploring how to access workbook data via REST endpoints.
 
 I can help with this directly:

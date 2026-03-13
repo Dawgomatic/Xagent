@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎭",
+        "emoji": "",
         "author": "xiaoyaner",
         "version": "2.0.0",
         "requires": { 
@@ -33,7 +33,7 @@ metadata:
   }
 ---
 
-# 🎭 Cursor Council — 我的编程前辈团
+#  Cursor Council — 我的编程前辈团
 
 > Cursor CLI 需要真实 TTY，所以一切都通过 tmux 操作。
 > 这个 skill 的本质：用 tmux 管理多个 Cursor 实例，让它们并行干活或者扮演大牛帮我分析问题。
@@ -50,7 +50,7 @@ which tmux && agent --version
 
 ## 两种模式
 
-### 模式一：并行施工 🏗️
+### 模式一：并行施工 
 
 **场景**：一个大任务可以拆成互不冲突的子任务，多个 Cursor 同时干。
 
@@ -105,7 +105,7 @@ done
 
 ---
 
-### 模式二：前辈议会 🧙‍♂️
+### 模式二：前辈议会 
 
 **场景**：遇到复杂技术决策，需要多角度分析。让不同模型扮演技术大牛，从各自的哲学视角给出建议。
 

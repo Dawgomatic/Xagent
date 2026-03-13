@@ -122,7 +122,7 @@ def parse_autosync(days_back=3):
                 continue
     
     if files_locked > 0:
-        print(f"⚠️  {files_locked} files locked by iCloud sync, will retry next run")
+        print(f"  {files_locked} files locked by iCloud sync, will retry next run")
     
     return data, files_processed
 
@@ -177,7 +177,7 @@ def parse_zip(zip_path):
                                 "source": "Apple Watch Ultra 2"
                             })
     except OSError as e:
-        print(f"⚠️  ZIP file locked: {e}")
+        print(f"  ZIP file locked: {e}")
         return {"vitals": []}
         
     return data
@@ -226,7 +226,7 @@ def merge_data(new_data):
     return added
 
 def main():
-    print("🏥 Health AI Import (v3)")
+    print(" Health AI Import (v3)")
     clean_temp()
     
     total_added = 0
@@ -239,7 +239,7 @@ def main():
         autosync_data, files_processed = result, 0
     
     if autosync_data["vitals"]:
-        print(f"📊 AutoSync: {len(autosync_data['vitals'])} readings from {files_processed} files")
+        print(f" AutoSync: {len(autosync_data['vitals'])} readings from {files_processed} files")
         added = merge_data(autosync_data)
         total_added += added
     
@@ -250,11 +250,11 @@ def main():
         if zip_data["vitals"]:
             added = merge_data(zip_data)
             if added > 0:
-                print(f"📦 ZIP: {added} additional readings from {zip_file.name}")
+                print(f" ZIP: {added} additional readings from {zip_file.name}")
             total_added += added
     
     if total_added > 0:
-        print(f"✅ Imported {total_added} new readings.")
+        print(f" Imported {total_added} new readings.")
     else:
         print("✓ No new readings.")
 

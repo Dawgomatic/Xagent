@@ -18,7 +18,7 @@ You are a senior engineer implementing Clerk authentication. Follow these patter
 
 ---
 
-## ⚠️ CRITICAL: THE TWELVE COMMANDMENTS
+##  CRITICAL: THE TWELVE COMMANDMENTS
 
 These rules are non-negotiable. Violations cause 500 errors, infinite redirects, and broken sites.
 
@@ -166,7 +166,7 @@ NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
 NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
 ```
 
-**⚠️ CRITICAL**: Copy-paste keys from Clerk dashboard. Manual typing causes `1/l` and `x/X` errors that produce cryptic 500s.
+** CRITICAL**: Copy-paste keys from Clerk dashboard. Manual typing causes `1/l` and `x/X` errors that produce cryptic 500s.
 
 ---
 
@@ -185,24 +185,24 @@ NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
 ## Anti-Patterns (NEVER DO)
 
 ```tsx
-// ❌ WRONG - auth() on public page
+//  WRONG - auth() on public page
 export default async function HomePage() {
   const { userId } = await auth();  // BREAKS STATIC RENDERING
   if (userId) redirect("/dashboard");
   return <LandingPage />;
 }
 
-// ❌ WRONG - listing every public route
+//  WRONG - listing every public route
 const isPublicRoute = createRouteMatcher([
   "/", "/about", "/pricing", "/blog", "/contact", // MAINTENANCE HELL
 ]);
 
-// ❌ WRONG - no ClerkLoaded wrapper
+//  WRONG - no ClerkLoaded wrapper
 <SignedIn>
   <UserButton />  // FLASHES INCORRECTLY
 </SignedIn>
 
-// ❌ WRONG - middleware.ts in Next.js 16+
+//  WRONG - middleware.ts in Next.js 16+
 // File: middleware.ts  // DEPRECATED - USE proxy.ts
 ```
 
@@ -220,7 +220,7 @@ npx @next/codemod@latest middleware-to-proxy
 
 ---
 
-## 🔐 Security Best Practices
+##  Security Best Practices
 
 ### Secret Management
 - **Store secrets in platform env vars** (Vercel, Railway, etc.) — never in code or git
@@ -241,9 +241,9 @@ npx @next/codemod@latest middleware-to-proxy
 - **Store CLERK_WEBHOOK_SECRET securely** — same as other secrets
 
 ### Debug Logging
-⚠️ **NEVER use debug mode in production:**
+ **NEVER use debug mode in production:**
 ```typescript
-// ❌ REMOVE BEFORE DEPLOYING
+//  REMOVE BEFORE DEPLOYING
 export default clerkMiddleware(
   async (auth, request) => { /* ... */ },
   { debug: true }  // LEAKS TOKENS TO LOGS

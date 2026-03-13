@@ -97,7 +97,7 @@ FILE_TOKEN=$(echo "$FINISH_RESPONSE" | grep -o '"token":"[^"]*"' | cut -d'"' -f4
 FILE_URL=$(echo "$FINISH_RESPONSE" | grep -o '"url":"[^"]*"' | cut -d'"' -f4)
 
 if [[ -n "$FILE_TOKEN" && -n "$FILE_URL" ]]; then
-    echo "✅ 文件上传成功!"
+    echo " 文件上传成功!"
     echo "文件Token: $FILE_TOKEN"
     echo "文件URL: $FILE_URL"
     

@@ -811,23 +811,23 @@ def generate_markdown_report(
             stats[sev] += 1
 
     is_safe = stats["CRITICAL"] == 0 and stats["HIGH"] == 0
-    status_icon = "✅" if is_safe else "❌"
+    status_icon = "" if is_safe else ""
     status_text = "APPROVED" if is_safe else "REJECTED"
 
     processed_findings = []
     for f in findings:
         emoji = (
-            "🔴"
+            ""
             if f["severity"] == "CRITICAL"
-            else "🟠"
+            else ""
             if f["severity"] == "HIGH"
-            else "🟡"
+            else ""
         )
         processed_findings.append(
             f"| {emoji} {f['severity']} | `{f['file']}:{f['line']}` | {f['issue']} |"
         )
 
-    report_content = f"""# 🛡️ Shield Pro Security Report v{__version__}
+    report_content = f"""#  Shield Pro Security Report v{__version__}
 
 **Date:** {os.popen('date -u +"%Y-%m-%dT%H:%M:%SZ"').read().strip()}
 **Scan Status:** {status_icon} **{status_text}**
@@ -835,9 +835,9 @@ def generate_markdown_report(
 ## 1. Executive Summary
 | Metric | Count | Threshold | Status |
 | :--- | :---: | :---: | :---: |
-| **Critical** | {stats["CRITICAL"]} | 0 | {"❌" if stats["CRITICAL"] > 0 else "✅"} |
-| **High** | {stats["HIGH"]} | 0 | {"❌" if stats["HIGH"] > 0 else "✅"} |
-| **Medium** | {stats["MEDIUM"]} | Manual Review | {"⚠️" if stats["MEDIUM"] > 0 else "✅"} |
+| **Critical** | {stats["CRITICAL"]} | 0 | {"" if stats["CRITICAL"] > 0 else ""} |
+| **High** | {stats["HIGH"]} | 0 | {"" if stats["HIGH"] > 0 else ""} |
+| **Medium** | {stats["MEDIUM"]} | Manual Review | {"" if stats["MEDIUM"] > 0 else ""} |
 
 > **AI Agent Directive:**
 > {status_text}. {"Proceed with integration." if is_safe else "Do not integrate. Resolve critical violations."}
@@ -845,7 +845,7 @@ def generate_markdown_report(
 ## 2. Detailed Findings
 | Severity | Location | Detected Issue |
 | :--- | :--- | :--- |
-{chr(10).join(processed_findings) if processed_findings else "| ✅ None | - | No security issues detected. |"}
+{chr(10).join(processed_findings) if processed_findings else "|  None | - | No security issues detected. |"}
 
 ## 3. Tool Capabilities Used
 - [x] Python AST Analysis (Static Analysis)

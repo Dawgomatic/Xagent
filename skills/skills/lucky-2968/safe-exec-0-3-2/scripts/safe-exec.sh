@@ -63,9 +63,9 @@ set_enabled() {
 
     local status
     if [[ "$value" == "true" ]]; then
-        status="✅ 已启用"
+        status=" 已启用"
     else
-        status="❌ 已禁用"
+        status=" 已禁用"
     fi
 
     echo "$status"
@@ -120,17 +120,17 @@ show_status() {
     local enabled
     enabled=$(is_enabled)
     
-    echo "🛡️  SafeExec 状态"
+    echo "  SafeExec 状态"
     echo ""
     
     if [[ "$enabled" == "true" ]]; then
-        echo "状态: ✅ **已启用**"
+        echo "状态:  **已启用**"
         echo ""
         echo "危险命令将被拦截并请求批准。"
     else
-        echo "状态: ❌ **已禁用**"
+        echo "状态:  **已禁用**"
         echo ""
-        echo "⚠️  所有命令将直接执行，不受保护！"
+        echo "  所有命令将直接执行，不受保护！"
         echo "建议仅在可信环境中禁用。"
     fi
     
@@ -231,7 +231,7 @@ request_approval() {
     
     cat <<EOF
 
-🚨 **危险操作检测 - 命令已拦截**
+ **危险操作检测 - 命令已拦截**
 
 **风险等级:** ${risk^^}
 **命令:** \`$command\`
@@ -239,7 +239,7 @@ request_approval() {
 
 **请求 ID:** \`$request_id\`
 
-ℹ️  此命令需要用户批准才能执行。
+  此命令需要用户批准才能执行。
 
 **批准方法:**
 1. 在终端运行: \`safe-exec-approve $request_id\`
@@ -248,7 +248,7 @@ request_approval() {
 **拒绝方法:**
  \`safe-exec-reject $request_id\`
 
-⏰ 请求将在 5 分钟后过期
+ 请求将在 5 分钟后过期
 
 EOF
     return 0
@@ -293,21 +293,21 @@ main() {
             # 用户已明确风险，根据原风险等级决定处理方式
             if [[ "$risk" == "critical" ]]; then
                 # CRITICAL 风险：降级到 MEDIUM（仍需批准，但降低警告级别）
-                echo "⚠️  检测到确认关键词，但风险等级为 CRITICAL"
-                echo "ℹ️  命令降级到 MEDIUM，但仍需批准"
+                echo "  检测到确认关键词，但风险等级为 CRITICAL"
+                echo "  命令降级到 MEDIUM，但仍需批准"
                 risk="medium"
                 log_audit "context_aware_downgrade" "{\"originalRisk\":\"critical\",\"newRisk\":\"medium\",\"reason\":\"用户确认关键词\",\"context\":$(echo "$USER_CONTEXT" | jq -Rs .)}"
             elif [[ "$risk" == "high" ]]; then
                 # HIGH 风险：降级到 LOW（直接执行）
-                echo "✅ 检测到确认关键词，风险等级从 HIGH 降级到 LOW"
-                echo "⚡ 直接执行命令: $command"
+                echo " 检测到确认关键词，风险等级从 HIGH 降级到 LOW"
+                echo " 直接执行命令: $command"
                 log_audit "context_aware_allowed" "{\"originalRisk\":\"high\",\"newRisk\":\"low\",\"reason\":\"用户确认关键词\",\"context\":$(echo "$USER_CONTEXT" | jq -Rs .)}"
                 eval "$command"
                 exit $?
             elif [[ "$risk" == "medium" ]]; then
                 # MEDIUM 风险：降级到 LOW（直接执行）
-                echo "✅ 检测到确认关键词，风险等级从 MEDIUM 降级到 LOW"
-                echo "⚡ 直接执行命令: $command"
+                echo " 检测到确认关键词，风险等级从 MEDIUM 降级到 LOW"
+                echo " 直接执行命令: $command"
                 log_audit "context_aware_allowed" "{\"originalRisk\":\"medium\",\"newRisk\":\"low\",\"reason\":\"用户确认关键词\",\"context\":$(echo "$USER_CONTEXT" | jq -Rs .)}"
                 eval "$command"
                 exit $?
@@ -344,14 +344,14 @@ case "$1" in
         request_file="$PENDING_DIR/$2.json"
         if [[ -f "$request_file" ]]; then
             command=$(jq -r '.command' "$request_file")
-            echo "✅ 执行命令: $command"
+            echo " 执行命令: $command"
             log_audit "executed" "{\"requestId\":\"$2\"}"
             eval "$command"
             exit_code=$?
             rm -f "$request_file"
             exit $exit_code
         fi
-        echo "❌ 请求不存在: $2"
+        echo " 请求不存在: $2"
         exit 1
         ;;
     --reject)
@@ -360,14 +360,14 @@ case "$1" in
             command=$(jq -r '.command' "$request_file")
             log_audit "rejected" "{\"requestId\":\"$2\"}"
             rm -f "$request_file"
-            echo "❌ 请求已拒绝"
+            echo " 请求已拒绝"
             exit 0
         fi
-        echo "❌ 请求不存在: $2"
+        echo " 请求不存在: $2"
         exit 1
         ;;
     --list)
-        echo "📋 **待处理的批准请求:**"
+        echo " **待处理的批准请求:**"
         echo ""
         count=0
         for f in "$PENDING_DIR"/*.json; do
@@ -377,7 +377,7 @@ case "$1" in
                 cmd=$(jq -r '.command' "$f")
                 rsk=$(jq -r '.risk' "$f")
                 reason=$(jq -r '.reason' "$f")
-                printf "📌 **请求 %d**\n" "$count"
+                printf " **请求 %d**\n" "$count"
                 printf "   **ID:** \`%s\`\n" "$id"
                 printf "   **风险:** %s\n" "${rsk^^}"
                 printf "   **命令:** \`%s\`\n" "$cmd"
@@ -390,13 +390,13 @@ case "$1" in
         done
         
         if [[ $count -eq 0 ]]; then
-            echo "✅ 没有待处理的请求"
+            echo " 没有待处理的请求"
         fi
         exit 0
         ;;
     --cleanup)
         cleanup_expired_requests
-        echo "✅ 清理完成"
+        echo " 清理完成"
         exit 0
         ;;
 esac

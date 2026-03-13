@@ -24,7 +24,7 @@ show_help() {
 research_checklist() {
     local company="$1"
     
-    echo "🔍 Research Checklist for: $company"
+    echo " Research Checklist for: $company"
     echo "===================================="
     echo ""
     echo "## Company Research"
@@ -116,7 +116,7 @@ create_profile() {
 EOF
     fi
     
-    echo "✅ Partner profile created: $profile_file"
+    echo " Partner profile created: $profile_file"
     echo ""
     echo "Next steps:"
     echo "  1. Fill in the profile with your research"

@@ -62,7 +62,7 @@ class ClawHubSkillExplorer:
             result = os.popen(cmd).read().strip()
             return result
         except Exception as e:
-            print(f"❌ Error executing command: {e}")
+            print(f" Error executing command: {e}")
             return ""
     
     def fetch_skills(self, limit: int = 50, force_refresh: bool = False) -> List[Skill]:
@@ -70,11 +70,11 @@ class ClawHubSkillExplorer:
         if not force_refresh:
             cached_skills = self._get_cached_skills()
             if cached_skills:
-                print("✅ Using cached skills (last updated:", 
+                print(" Using cached skills (last updated:", 
                       cached_skills[0].published_at, ")")
                 return cached_skills
         
-        print("🔄 Fetching skills from ClawHub platform...")
+        print(" Fetching skills from ClawHub platform...")
         
         try:
             # Use clawhub explore command to get skills
@@ -109,11 +109,11 @@ class ClawHubSkillExplorer:
                     ))
             
             self._cache_skills(skills)
-            print(f"✅ Fetched {len(skills)} skills from ClawHub")
+            print(f" Fetched {len(skills)} skills from ClawHub")
             return skills
         
         except Exception as e:
-            print(f"❌ Error fetching skills: {e}")
+            print(f" Error fetching skills: {e}")
             return []
     
     def _parse_time(self, time_str: str) -> str:
@@ -242,7 +242,7 @@ class ClawHubSkillExplorer:
             return details
         
         except Exception as e:
-            print(f"❌ Error getting skill details: {e}")
+            print(f" Error getting skill details: {e}")
             return {}
     
     def favorite_skill(self, slug: str) -> bool:
@@ -251,20 +251,20 @@ class ClawHubSkillExplorer:
             # Check if skill exists
             skills = self.fetch_skills()
             if slug not in [skill.slug for skill in skills]:
-                print(f"❌ Skill '{slug}' not found")
+                print(f" Skill '{slug}' not found")
                 return False
             
             output = self._execute_clawhub_cmd(f"clawhub star {slug}")
             
             if "Success" in output or "Added to favorites" in output:
-                print(f"✅ Skill '{slug}' added to favorites")
+                print(f" Skill '{slug}' added to favorites")
                 return True
             else:
-                print(f"❌ Failed to favorite skill: {output}")
+                print(f" Failed to favorite skill: {output}")
                 return False
         
         except Exception as e:
-            print(f"❌ Error favoriting skill: {e}")
+            print(f" Error favoriting skill: {e}")
             return False
     
     def get_recommendations(self, limit: int = 10) -> List[Skill]:
@@ -294,10 +294,10 @@ class ClawHubSkillExplorer:
             cursor = self.cache_db.cursor()
             cursor.execute('DELETE FROM skills')
             self.cache_db.commit()
-            print("✅ Cache cleared")
+            print(" Cache cleared")
             return True
         except Exception as e:
-            print(f"❌ Error clearing cache: {e}")
+            print(f" Error clearing cache: {e}")
             return False
     
     def list_categories(self) -> List[str]:
@@ -365,7 +365,7 @@ class ClawHubSkillExplorer:
             
             return skills
         except Exception as e:
-            print(f"❌ Error reading cache: {e}")
+            print(f" Error reading cache: {e}")
             return []
     
     def _cache_skills(self, skills: List[Skill]):
@@ -394,7 +394,7 @@ class ClawHubSkillExplorer:
             
             self.cache_db.commit()
         except Exception as e:
-            print(f"❌ Error writing cache: {e}")
+            print(f" Error writing cache: {e}")
 
 def main():
     parser = argparse.ArgumentParser(
@@ -459,61 +459,61 @@ def main():
         results = explorer.search_skills(args.query, args.limit)
         
         if results:
-            print(f"🔍 找到 {len(results)} 个匹配技能：")
+            print(f" 找到 {len(results)} 个匹配技能：")
             print("=" * 80)
             for skill in results:
-                print(f"🎯 {skill.name} ({skill.slug}@v{skill.version})")
+                print(f" {skill.name} ({skill.slug}@v{skill.version})")
                 print(f"   描述: {skill.description}")
                 print(f"   发布: {skill.published_at}")
                 print()
         else:
-            print(f"❌ 未找到与 '{args.query}' 相关的技能")
+            print(f" 未找到与 '{args.query}' 相关的技能")
     
     elif args.command == "browse":
         results = explorer.browse_category(args.category, args.limit)
         
         if results:
-            print(f"📂 分类 '{args.category}' 的技能（{len(results)}个）：")
+            print(f" 分类 '{args.category}' 的技能（{len(results)}个）：")
             print("=" * 80)
             for skill in results:
-                print(f"🎯 {skill.name} ({skill.slug}@v{skill.version})")
+                print(f" {skill.name} ({skill.slug}@v{skill.version})")
                 print(f"   描述: {skill.description}")
                 print()
         else:
-            print(f"❌ 分类 '{args.category}' 为空或未找到")
+            print(f" 分类 '{args.category}' 为空或未找到")
     
     elif args.command == "view":
         details = explorer.get_skill_details(args.slug)
         
         if details:
-            print(f"🎯 技能详情 - {args.slug}")
+            print(f" 技能详情 - {args.slug}")
             print("=" * 80)
             
             if details['basic_info']:
-                print("\n📋 基本信息:")
+                print("\n 基本信息:")
                 for key, value in details['basic_info'].items():
                     print(f"   {key}: {value}")
             
             if details['files']:
-                print("\n📁 文件列表:")
+                print("\n 文件列表:")
                 for filename, info in details['files'].items():
                     print(f"   {filename}")
             
             if details['content']:
-                print("\n📄 详细介绍:")
+                print("\n 详细介绍:")
                 print(details['content'])
         else:
-            print(f"❌ 技能 '{args.slug}' 未找到")
+            print(f" 技能 '{args.slug}' 未找到")
     
     elif args.command == "favorite":
         success = explorer.favorite_skill(args.slug)
         if not success:
-            print(f"❌ 收藏技能 '{args.slug}' 失败")
+            print(f" 收藏技能 '{args.slug}' 失败")
     
     elif args.command == "recommend":
         recommendations = explorer.get_recommendations(args.limit)
         
-        print("🌟 推荐技能：")
+        print(" 推荐技能：")
         print("=" * 80)
         for i, skill in enumerate(recommendations, 1):
             print(f"{i}. {skill.name} ({skill.slug}@v{skill.version})")
@@ -523,7 +523,7 @@ def main():
     elif args.command == "stats":
         stats = explorer.get_statistics()
         
-        print("📊 ClawHub 平台统计：")
+        print(" ClawHub 平台统计：")
         print("=" * 80)
         print(f"总技能数量: {stats['total_skills']}")
         print(f"分类: {', '.join(stats['categories'])}")
@@ -534,10 +534,10 @@ def main():
     elif args.command == "categories":
         categories = explorer.list_categories()
         
-        print("📂 所有分类：")
+        print(" 所有分类：")
         print("=" * 80)
         for category in categories:
-            print(f"🎯 {category}")
+            print(f" {category}")
     
     elif args.command == "clear-cache":
         explorer.clear_cache()
@@ -545,7 +545,7 @@ def main():
     elif args.command == "refresh":
         explorer.clear_cache()
         explorer.fetch_skills(force_refresh=True)
-        print("✅ 数据刷新完成")
+        print(" 数据刷新完成")
     
     else:
         parser.print_help()

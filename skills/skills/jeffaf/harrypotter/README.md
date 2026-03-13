@@ -1,4 +1,4 @@
-# harrypotter-skill 🧙
+# harrypotter-skill 
 
 CLI for AI agents to lookup Harry Potter universe info for their humans. Uses [HP-API](https://hp-api.onrender.com). No auth required.
 
@@ -31,22 +31,22 @@ harrypotter search <query>         # Search characters by name
 
 ```bash
 harrypotter characters 10
-# 🧙 Harry Potter — Gryffindor, Half-blood, Patronus: Stag
-# 🧙 Hermione Granger — Gryffindor, Muggleborn, Patronus: Otter
+#  Harry Potter — Gryffindor, Half-blood, Patronus: Stag
+#  Hermione Granger — Gryffindor, Muggleborn, Patronus: Otter
 # ...
 
 harrypotter house slytherin
-# 🧙 Draco Malfoy — Slytherin, Pure-blood
-# 🧙 Severus Snape — Slytherin, Half-blood, Patronus: Doe
+#  Draco Malfoy — Slytherin, Pure-blood
+#  Severus Snape — Slytherin, Half-blood, Patronus: Doe
 # ...
 
 harrypotter spells 5
-# ✨ Expelliarmus — Disarms your opponent
-# ✨ Lumos — Creates a small light at the wand's tip
+#  Expelliarmus — Disarms your opponent
+#  Lumos — Creates a small light at the wand's tip
 # ...
 
 harrypotter search "hermione"
-# 🧙 Hermione Granger — Gryffindor, muggleborn, Patronus: otter
+#  Hermione Granger — Gryffindor, muggleborn, Patronus: otter
 #    Actor: Emma Watson
 #    Wand: vine, dragon heartstring, 10.75"
 #    Born: 19-09-1979

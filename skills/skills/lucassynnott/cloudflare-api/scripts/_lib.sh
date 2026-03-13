@@ -73,7 +73,7 @@ check_error() {
     if echo "$response" | jq -e '.success == false' >/dev/null 2>&1; then
         local error=$(echo "$response" | jq -r '.errors[0].message // "Unknown error"')
         local code=$(echo "$response" | jq -r '.errors[0].code // ""')
-        echo "❌ Error: $error" >&2
+        echo " Error: $error" >&2
         [ -n "$code" ] && echo "   Code: $code" >&2
         return 1
     fi

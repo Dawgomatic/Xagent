@@ -42,7 +42,7 @@ Extract the core message, key insights, data points, and stories — then redist
 
 ---
 
-## 🔗 More AfrexAI Skills (Free on ClawHub)
+##  More AfrexAI Skills (Free on ClawHub)
 
 | Skill | Install |
 |-------|---------|
@@ -65,7 +65,7 @@ Extract the core message, key insights, data points, and stories — then redist
 | Testimonial Collector | `clawhub install afrexai-testimonial-collector` |
 | Competitor Monitor | `clawhub install afrexai-competitor-monitor` |
 
-## 🚀 Go Pro: Industry Context Packs ($47/pack)
+##  Go Pro: Industry Context Packs ($47/pack)
 
 Make your AI agent a true industry expert with deep domain knowledge.
 
@@ -73,4 +73,4 @@ Make your AI agent a true industry expert with deep domain knowledge.
 
 **Free tools:** [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) | [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)
 
-*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛*
+*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) *

@@ -16,19 +16,19 @@ Before interacting with ANY new token/contract:
 
 | Flag | Risk Level | What It Means |
 |------|------------|---------------|
-| **Can't sell** | 🔴 Critical | Honeypot — you're trapped |
-| **Owner can mint** | 🔴 Critical | Unlimited inflation |
-| **Hidden fees** | 🔴 Critical | Drains on transfer |
-| **No liquidity lock** | 🟠 High | Rug pull ready |
-| **Unverified code** | 🟠 High | Can't audit |
-| **Single owner** | 🟡 Medium | Centralization risk |
+| **Can't sell** |  Critical | Honeypot — you're trapped |
+| **Owner can mint** |  Critical | Unlimited inflation |
+| **Hidden fees** |  Critical | Drains on transfer |
+| **No liquidity lock** |  High | Rug pull ready |
+| **Unverified code** |  High | Can't audit |
+| **Single owner** |  Medium | Centralization risk |
 
 ### Quick Contract Check
 
 ```
-1. Is contract verified on explorer? (No → 🚫)
-2. TokenSniffer score > 70? (No → ⚠️)
-3. Liquidity locked > 6 months? (No → ⚠️)
+1. Is contract verified on explorer? (No → )
+2. TokenSniffer score > 70? (No → )
+3. Liquidity locked > 6 months? (No → )
 4. Ownership renounced or multisig? (No → check carefully)
 5. Audit from known firm? (Nice to have)
 ```
@@ -125,7 +125,7 @@ Let me look... [do checks]
 
 Results: [findings]
 
-⚠️ Reminder: This is technical analysis only. 
+ Reminder: This is technical analysis only. 
 No token is "safe" — all crypto carries risk of total loss.
 Do your own research before any decision.
 ```

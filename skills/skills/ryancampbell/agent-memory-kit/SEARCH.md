@@ -112,11 +112,11 @@ tags: [procedure, distribution, devto]
 ```
 
 **Guidelines:**
-- ✅ Use 2-4 tags per entry (not too many)
-- ✅ Tag as you write (not batch cleanup)
-- ✅ Prefer specific tags over generic
-- ❌ Don't create one-off tags
-- ❌ Don't over-tag everything
+-  Use 2-4 tags per entry (not too many)
+-  Tag as you write (not batch cleanup)
+-  Prefer specific tags over generic
+-  Don't create one-off tags
+-  Don't over-tag everything
 
 ---
 
@@ -170,12 +170,12 @@ memory-search "token limit"
 **Output:**
 ```
 1. Token Budget Kit Design
-   📅 2026-02-03 | memory/2026-02-03.md:127
+    2026-02-03 | memory/2026-02-03.md:127
    Tags: #decision #kits #important
    Context: Designed Token Budget Kit to prevent compaction surprises...
 
 2. Compaction Hit During Launch
-   📅 2026-02-02 | memory/2026-02-02.md:89
+    2026-02-02 | memory/2026-02-02.md:89
    Tags: #blocker #learning
    Context: Hit 200k token limit during forAgents.dev launch...
 
@@ -579,29 +579,29 @@ memory-search --tag decision --until 2025-12-31 --format json > archive.json
 ### Tagging
 
 **Do:**
-- ✅ Tag as you write (part of daily flow)
-- ✅ Use 2-4 tags per entry
-- ✅ Prefer specific tags (`#kits`) over generic (`#work`)
-- ✅ Tag decisions, learnings, blockers (high value)
+-  Tag as you write (part of daily flow)
+-  Use 2-4 tags per entry
+-  Prefer specific tags (`#kits`) over generic (`#work`)
+-  Tag decisions, learnings, blockers (high value)
 
 **Don't:**
-- ❌ Batch-tag hundreds of old files (diminishing returns)
-- ❌ Create one-off tags (`#that-one-time-we-did-x`)
-- ❌ Over-tag everything (dilutes signal)
-- ❌ Forget to tag important decisions
+-  Batch-tag hundreds of old files (diminishing returns)
+-  Create one-off tags (`#that-one-time-we-did-x`)
+-  Over-tag everything (dilutes signal)
+-  Forget to tag important decisions
 
 ### Searching
 
 **Do:**
-- ✅ Start broad, then filter (`memory-search "kits"` → add `--tag decision`)
-- ✅ Use shortcuts (`--recent-decisions` vs manual date math)
-- ✅ Combine filters for precision
-- ✅ Check `--count` to detect patterns
+-  Start broad, then filter (`memory-search "kits"` → add `--tag decision`)
+-  Use shortcuts (`--recent-decisions` vs manual date math)
+-  Combine filters for precision
+-  Check `--count` to detect patterns
 
 **Don't:**
-- ❌ Search for every little thing (read recent files first)
-- ❌ Use overly complex queries (keep it simple)
-- ❌ Forget about grep (sometimes faster for quick checks)
+-  Search for every little thing (read recent files first)
+-  Use overly complex queries (keep it simple)
+-  Forget about grep (sometimes faster for quick checks)
 
 ### Maintenance
 
@@ -657,11 +657,11 @@ Memory search builds on grep with agent-friendly features.
 ### Why not a database?
 
 **File-based search is:**
-- ✅ Simple (no setup, no dependencies)
-- ✅ Portable (works anywhere)
-- ✅ Human-readable (markdown stays readable)
-- ✅ Git-friendly (version control)
-- ✅ Fast enough (2 seconds for 100 files)
+-  Simple (no setup, no dependencies)
+-  Portable (works anywhere)
+-  Human-readable (markdown stays readable)
+-  Git-friendly (version control)
+-  Fast enough (2 seconds for 100 files)
 
 Databases add complexity for minimal gain at our scale.
 
@@ -716,5 +716,5 @@ For shared context, all agents use the same memory files.
 
 ---
 
-*Memory Kit Search v2.1 - Built by Echo 📝, Feb 2026*  
+*Memory Kit Search v2.1 - Built by Echo , Feb 2026*  
 *"Find past decisions in <10 seconds"*

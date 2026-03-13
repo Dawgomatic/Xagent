@@ -26,4 +26,4 @@ done
 
 # Scale to reasonable size for GIF
 ffmpeg -ss "$START" -to "$END" -i "$INPUT" -vf "fps=10,scale=480:-1:flags=lanczos" -c:v gif -y "$OUTPUT"
-echo "✅ GIF created: $OUTPUT"
+echo " GIF created: $OUTPUT"

@@ -186,9 +186,9 @@ See [SKILL.md](./SKILL.md) for detailed usage instructions.
 
 ## Features
 
-- ✅ Feature 1
-- ✅ Feature 2
-- ✅ Feature 3
+-  Feature 1
+-  Feature 2
+-  Feature 3
 
 ## Keywords
 
@@ -404,16 +404,16 @@ try {
   }
 
   console.log(`
-${c.green}✅ Created skill:${c.reset} ${c.bold}${skillName}${c.reset} ${c.dim}(${template} template)${c.reset}
+${c.green} Created skill:${c.reset} ${c.bold}${skillName}${c.reset} ${c.dim}(${template} template)${c.reset}
 
-${c.cyan}📁 Structure:${c.reset}
+${c.cyan} Structure:${c.reset}
    ${skillDir}/
    ├── SKILL.md      ${c.dim}(main documentation)${c.reset}
    ├── README.md     ${c.dim}(GitHub/npm readme)${c.reset}${includeScripts ? `
    └── scripts/      ${c.dim}(helper scripts)${c.reset}` : ''}${includeCli ? `
    └── bin/          ${c.dim}(CLI binary)${c.reset}` : ''}
 
-${c.cyan}📝 Next steps:${c.reset}
+${c.cyan} Next steps:${c.reset}
    1. ${c.yellow}cd ${skillDir}${c.reset}
    2. Edit SKILL.md with your documentation
    3. ${includeCli ? 'Implement bin/' + skillName + '.js' : 'Add helper scripts if needed'}

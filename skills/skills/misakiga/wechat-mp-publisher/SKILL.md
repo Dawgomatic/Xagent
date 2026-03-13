@@ -5,10 +5,10 @@ description: 远程微信公众号发布技能 (合规优化版)。通过 HTTP M
 homepage: https://github.com/caol64/wenyan-mcp
 metadata:
   openclaw:
-    emoji: "🚀"
+    emoji: ""
     category: publishing
   clawdbot:
-    emoji: "🚀"
+    emoji: ""
     requires:
       bins: ["mcporter", "curl", "jq"]
     install:
@@ -24,14 +24,14 @@ metadata:
 **核心痛点解决**：家用宽带 IP 频繁变动，无法固定添加到公众号白名单？
 本技能通过远程 `wenyan-mcp` 服务中转，让你的本地 OpenClaw 也能稳定发布文章，无需本地 IP 权限！
 
-## 🌟 架构优势
+##  架构优势
 
 - **IP 漫游无忧**：仅需将远程 MCP 服务器 IP 加入白名单，无论你在家里、咖啡厅还是 4G 热点，都能随时发布。
 - **合规隔离**：凭证与系统配置分离，避免污染全局 `TOOLS.md`。
 - **依赖自检**：脚本运行时自动检查 `jq`、`mcporter` 和 `wenyan-cli`。
 - **灵活配置**：支持自定义 MCP 配置文件路径。
 
-## ⚙️ 快速配置
+##  快速配置
 
 ### 1. 准备凭证 (wechat.env)
 
@@ -69,7 +69,7 @@ export WECHAT_APP_SECRET="cx..."
 }
 ```
 
-## 🚀 使用指南
+##  使用指南
 
 ### 方式 A: 智能助手 (推荐)
 
@@ -96,7 +96,7 @@ chmod +x scripts/publish-remote.sh
 ./scripts/publish-remote.sh ./my-post.md lapis
 ```
 
-## 📝 Markdown 规范
+##  Markdown 规范
 
 与标准 wenyan-cli 一致，头部必须包含元数据：
 
@@ -112,7 +112,7 @@ cover: https://example.com/cover.jpg
 
 *提示：`cover` 推荐使用图床链接，以确保远程服务器能正确下载封面。*
 
-## 🛠️ 故障排查
+##  故障排查
 
 | 现象 | 原因 | 解决方案 |
 | :--- | :--- | :--- |

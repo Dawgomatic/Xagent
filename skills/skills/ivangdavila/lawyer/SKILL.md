@@ -1,7 +1,7 @@
 ---
 name: Lawyer
 description: Draft contracts, review legal documents, and navigate compliance with practical legal patterns.
-metadata: {"clawdbot":{"emoji":"⚖️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Legal Assistance Rules

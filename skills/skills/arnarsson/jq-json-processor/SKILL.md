@@ -2,7 +2,7 @@
 name: jq-json-processor
 description: Process, filter, and transform JSON data using jq - the lightweight and flexible command-line JSON processor.
 homepage: https://jqlang.github.io/jq/
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"bins":["jq"]},"install":[{"id":"brew","kind":"brew","formula":"jq","bins":["jq"],"label":"Install jq (brew)"},{"id":"apt","kind":"apt","package":"jq","bins":["jq"],"label":"Install jq (apt)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["jq"]},"install":[{"id":"brew","kind":"brew","formula":"jq","bins":["jq"],"label":"Install jq (brew)"},{"id":"apt","kind":"apt","package":"jq","bins":["jq"],"label":"Install jq (apt)"}]}}
 ---
 
 # jq JSON Processor

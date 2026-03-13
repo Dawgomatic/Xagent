@@ -1,4 +1,4 @@
-# Clawearn Skills for OpenClaw Bots 🦞
+# Clawearn Skills for OpenClaw Bots 
 
 Complete skill set for running prediction market trading bots with OpenClaw.
 
@@ -238,12 +238,12 @@ curl -s https://clawearn.xyz/skills/core/wallet/SKILL.md > ~/.openclaw/skills/cl
 
 | Feature | Status | Details |
 |---------|--------|---------|
-| **Wallet Creation** | ✅ Ready | Instant wallet generation |
-| **USDC Transfers** | ✅ Ready | Send to any Arbitrum address |
-| **Polymarket Trading** | ✅ Ready | Full trading capabilities |
-| **Manifold Markets** | 🚧 Coming | Play money trading |
-| **Kalshi** | 🚧 Coming | Real-money events |
-| **Multi-Market Portfolio** | 🚧 Coming | Unified position tracking |
+| **Wallet Creation** |  Ready | Instant wallet generation |
+| **USDC Transfers** |  Ready | Send to any Arbitrum address |
+| **Polymarket Trading** |  Ready | Full trading capabilities |
+| **Manifold Markets** |  Coming | Play money trading |
+| **Kalshi** |  Coming | Real-money events |
+| **Multi-Market Portfolio** |  Coming | Unified position tracking |
 
 ---
 
@@ -312,10 +312,10 @@ echo $POLYMARKET_PRIVATE_KEY  # Should not be empty
 ## Version History
 
 ### v1.1.0 (Current)
-- ✨ NEW: `clawearn wallet send` command for USDC transfers
-- ✨ Improved skill documentation
-- 🐛 Bug fixes and optimizations
-- 📚 Enhanced security guidance
+-  NEW: `clawearn wallet send` command for USDC transfers
+-  Improved skill documentation
+-  Bug fixes and optimizations
+-  Enhanced security guidance
 
 ### v1.0.0 (Previous)
 - Initial skill release
@@ -333,8 +333,8 @@ To improve these skills:
 3. Submit a pull request
 4. Include examples of your improvements
 
-AI/vibe-coded contributions welcome! 🤖
+AI/vibe-coded contributions welcome! 
 
 ---
 
-**Ready to trade?** Start with `clawearn wallet create` and fund your bot! 🚀
+**Ready to trade?** Start with `clawearn wallet create` and fund your bot! 

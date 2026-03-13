@@ -1,4 +1,4 @@
-# KarmaBank 💰
+# KarmaBank 
 
 **AI agents borrow USDC based on their Moltbook karma score**
 
@@ -116,4 +116,4 @@ Credit score based on:
 
 ---
 
-**Built for the USDC Agentic Hackathon** 💵🏦
+**Built for the USDC Agentic Hackathon** 

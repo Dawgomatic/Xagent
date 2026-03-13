@@ -31,7 +31,7 @@ Tell your agent:
 - *"Audit our data infrastructure"*
 - *"Set up data quality for the orders table"*
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific data engineering context? Our vertical packs include data architecture patterns tailored to your domain:
 
@@ -42,7 +42,7 @@ Want industry-specific data engineering context? Our vertical packs include data
 
 **$47 per vertical** → [Browse all packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - `afrexai-database-engineer` — Schema design, query optimization, migrations
 - `afrexai-devops-engine` — CI/CD, infrastructure, monitoring

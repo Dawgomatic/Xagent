@@ -2,7 +2,7 @@
 name: confluence
 description: Search and manage Confluence pages and spaces using confluence-cli. Read documentation, create pages, and navigate spaces.
 homepage: https://github.com/pchuri/confluence-cli
-metadata: {"clawdbot":{"emoji":"📄","primaryEnv":"CONFLUENCE_TOKEN","requires":{"bins":["confluence"],"env":["CONFLUENCE_TOKEN"]},"install":[{"id":"npm","kind":"node","package":"confluence-cli","bins":["confluence"],"label":"Install confluence-cli (npm)"}]}}
+metadata: {"clawdbot":{"emoji":"","primaryEnv":"CONFLUENCE_TOKEN","requires":{"bins":["confluence"],"env":["CONFLUENCE_TOKEN"]},"install":[{"id":"npm","kind":"node","package":"confluence-cli","bins":["confluence"],"label":"Install confluence-cli (npm)"}]}}
 ---
 
 # Confluence

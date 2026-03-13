@@ -126,7 +126,7 @@ User Input: "broadcast: hello mesh"
    execSync('meshtastic --sendtext "hello mesh"')
 6. Listener process (already connected) runs command
 7. Device broadcasts message
-8. Return: "✅ Broadcast sent: 'hello mesh'"
+8. Return: " Broadcast sent: 'hello mesh'"
 ```
 
 ## Error Handling
@@ -146,7 +146,7 @@ this.commandTimeout = setTimeout(() => {
 ### Connection Lost
 ```javascript
 if (!this.connected) {
-  return '❌ Not connected to meshtastic device'
+  return ' Not connected to meshtastic device'
 }
 // User can reconnect or check device
 ```
@@ -287,9 +287,9 @@ Output:
 [Persistent] Device info retrieved successfully
 [Persistent] Setting up persistent listener...
 [Persistent] Persistent listener ready
-🔌 Connecting to Meshtastic device...
-✅ Connected!
-✅ Broadcast sent: "test"
+ Connecting to Meshtastic device...
+ Connected!
+ Broadcast sent: "test"
 ```
 
 ### Check device availability

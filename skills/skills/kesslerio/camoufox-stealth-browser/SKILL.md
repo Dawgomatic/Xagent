@@ -4,13 +4,13 @@ homepage: https://github.com/kesslerio/camoufox-stealth-browser-clawhub-skill
 description: C++ level anti-bot browser automation using Camoufox (patched Firefox) in isolated containers. Bypasses Cloudflare Turnstile, Datadome, Airbnb, Yelp. Superior to Chrome-based solutions (undetected-chromedriver, puppeteer-stealth) which only patch at JS level. Use when standard Playwright/Selenium gets blocked.
 metadata:
   openclaw:
-    emoji: "🦊"
+    emoji: ""
     requires:
       bins: ["distrobox"]
       env: []
 ---
 
-# Camoufox Stealth Browser 🦊
+# Camoufox Stealth Browser 
 
 **C++ level** anti-bot evasion using Camoufox — a custom Firefox fork with stealth patches compiled into the browser itself, not bolted on via JavaScript.
 
@@ -51,7 +51,7 @@ metadata:
 
 All scripts run in `pybox` distrobox for isolation.
 
-⚠️ **Use `python3.14` explicitly** - pybox may have multiple Python versions with different packages installed.
+ **Use `python3.14` explicitly** - pybox may have multiple Python versions with different packages installed.
 
 ### 1. Setup (First Time)
 
@@ -128,7 +128,7 @@ Sites like Airbnb/Yelp use behavioral analysis. To avoid detection:
 
 ## Headless Mode Warning
 
-⚠️ Old `--headless` flag is DETECTED. Options:
+ Old `--headless` flag is DETECTED. Options:
 
 1. **New Headless:** Use `headless="new"` (Chrome 109+)
 2. **Xvfb:** Run headed browser in virtual display
@@ -256,7 +256,7 @@ The script detects session expiry using multiple signals:
 
 If detected during `--headless` mode, you'll see:
 ```
-🔒 Login wall signals: url-path, password-form
+ Login wall signals: url-path, password-form
 ```
 
 Re-run with `--login` to refresh the session.
@@ -290,7 +290,7 @@ distrobox-enter pybox -- python3.14 scripts/camoufox-session.py \
 
 ### Security Notes
 
-⚠️ **Cookies are credentials.** Treat profile directories like passwords:
+ **Cookies are credentials.** Treat profile directories like passwords:
 - Profile dirs have `chmod 700` (owner only)
 - Cookie exports have `chmod 600`
 - Don't share profiles or exported cookies over insecure channels

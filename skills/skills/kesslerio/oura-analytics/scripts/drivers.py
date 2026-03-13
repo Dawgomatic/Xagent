@@ -21,7 +21,7 @@ class Driver:
     severity: str  # "high" | "medium" | "low"
     
     def __str__(self) -> str:
-        emoji = "✅" if self.impact == "positive" else "⚠️" if self.impact == "negative" else "➡️"
+        emoji = "" if self.impact == "positive" else "" if self.impact == "negative" else ""
         sign = "+" if self.delta > 0 else ""
         return f"{emoji} {self.metric}: {self.value} ({sign}{self.delta:.1f} vs baseline)"
 

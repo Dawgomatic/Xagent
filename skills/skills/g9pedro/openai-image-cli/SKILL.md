@@ -4,7 +4,7 @@ version: 1.0.0
 description: Generate, edit, and manage images via OpenAI's GPT Image and DALL-E models.
 metadata:
   {
-    "openclaw": { "emoji": "🎨", "requires": { "bins": ["openai-image"], "envs": ["OPENAI_API_KEY"] } },
+    "openclaw": { "emoji": "", "requires": { "bins": ["openai-image"], "envs": ["OPENAI_API_KEY"] } },
   }
 ---
 

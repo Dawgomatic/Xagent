@@ -1,21 +1,21 @@
-# 🚀 Agentic Loop Upgrade
+#  Agentic Loop Upgrade
 
 An enhanced agentic loop for [Clawdbot](https://github.com/clawdbot/clawdbot) with planning, parallel execution, confidence gates, and semantic error recovery.
 
 ![Mode Dashboard](assets/mode-dashboard.png)
 
-## ✨ Features
+##  Features
 
 | Feature | Core Loop | Enhanced Loop |
 |---------|-----------|---------------|
-| **Planning** | ❌ Reactive | ✅ Goal decomposition with step tracking |
-| **Execution** | Sequential | ✅ Parallel (independent tools) |
-| **Error Handling** | Retry-based | ✅ Semantic recovery with alternatives |
-| **Confidence** | Implicit | ✅ Explicit gates for risky actions |
-| **Context** | Overflow-triggered | ✅ Proactive summarization |
-| **State** | Implicit | ✅ Observable FSM with checkpointing |
+| **Planning** |  Reactive |  Goal decomposition with step tracking |
+| **Execution** | Sequential |  Parallel (independent tools) |
+| **Error Handling** | Retry-based |  Semantic recovery with alternatives |
+| **Confidence** | Implicit |  Explicit gates for risky actions |
+| **Context** | Overflow-triggered |  Proactive summarization |
+| **State** | Implicit |  Observable FSM with checkpointing |
 
-## 🎯 What It Does
+##  What It Does
 
 ### Planning & Reflection
 The agent decomposes complex goals into step-by-step plans, tracks progress across turns, and reflects after each action to assess if steps are complete.
@@ -32,7 +32,7 @@ When tools fail, the system diagnoses the error type and attempts alternative ap
 ### Observable State Machine
 Explicit state tracking enables debugging, dashboards, and checkpointing for resuming interrupted tasks.
 
-## 📦 Installation
+##  Installation
 
 ### From ClawdHub
 ```bash
@@ -58,7 +58,7 @@ clawdbot skill install agentic-loop-upgrade
    clawdbot gateway restart
    ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Enable via Dashboard
 
@@ -72,7 +72,7 @@ clawdbot skill install agentic-loop-upgrade
 - Mode tab → Click **Core Loop** → Save
 - Or delete: `~/.clawdbot/agents/main/agent/enhanced-loop-config.json`
 
-## ⚙️ Configuration
+##  Configuration
 
 All settings are available in the Mode dashboard:
 
@@ -105,7 +105,7 @@ All settings are available in the Mode dashboard:
 ### Orchestrator Model
 Select a cost-effective model for planning/reflection calls (e.g., Claude Sonnet 4.5).
 
-## 📁 File Structure
+##  File Structure
 
 ```
 ~/.clawdbot/
@@ -118,7 +118,7 @@ Select a cost-effective model for planning/reflection calls (e.g., Claude Sonnet
         └── ckpt_*.json
 ```
 
-## 🔧 For Developers
+##  For Developers
 
 ### Programmatic Usage
 
@@ -144,25 +144,25 @@ await orchestrator.init();
 
 See [SKILL.md](./SKILL.md) for full technical documentation.
 
-## ⚠️ Notes
+##  Notes
 
 - **Token overhead**: Planning and reflection use additional tokens (configurable via orchestrator model selection)
 - **Easy rollback**: One click to switch back to Core Loop
 - **Checkpoints**: Long tasks can be resumed if interrupted
 
-## 📚 Documentation
+##  Documentation
 
 - [SKILL.md](./SKILL.md) - Full technical documentation
 - [INSTRUCTIONS.md](./INSTRUCTIONS.md) - Integration guide for agents
 - [references/](./references/) - Component documentation
 
-## 🔗 Links
+##  Links
 
 - [Clawdbot](https://github.com/clawdbot/clawdbot)
 - [ClawdHub](https://clawdhub.com)
 - [Documentation](https://docs.clawd.bot)
 - [Discord](https://discord.com/invite/clawd)
 
-## 📄 License
+##  License
 
 MIT

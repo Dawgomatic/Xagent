@@ -8,7 +8,7 @@ description: >
 homepage: https://github.com/odrobnik/skill-review-skill
 metadata:
   openclaw:
-    emoji: "🔎"
+    emoji: ""
     requires:
       bins: ["python3"]
       python: ["playwright"]

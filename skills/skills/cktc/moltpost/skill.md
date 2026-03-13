@@ -3,7 +3,7 @@ name: moltpost
 version: 1.3.1
 description: Send real physical postcards anywhere in the world. Pay with x402 (USDC on Base), Stripe, or manual USDC transfer. No signup, no API key — just one API call.
 homepage: https://moltpost.io
-metadata: {"moltpost":{"emoji":"📮","category":"utility","api_base":"https://api.moltpost.io/v1","requires":{}}}
+metadata: {"moltpost":{"emoji":"","category":"utility","api_base":"https://api.moltpost.io/v1","requires":{}}}
 ---
 
 # Moltpost
@@ -720,7 +720,7 @@ After presenting the payment link, wait before polling — the owner may not pay
 
 When status changes to `sent`, let the owner know and share the link:
 
-> Your postcard to Jane is on its way! 📮 It's been sent to print and will arrive by mail.
+> Your postcard to Jane is on its way!  It's been sent to print and will arrive by mail.
 >
 > Know someone else who'd love to send a postcard? They'll get **$1 off** with your link: https://moltpost.io/?ref=Ab3kX9mZ
 

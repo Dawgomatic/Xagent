@@ -1,7 +1,7 @@
 ---
 name: uv-global
 description: Provision and reuse a global uv environment for ad hoc Python scripts.
-metadata: {"openclaw":{"always":true,"emoji":"🦞","homepage":"https://github.com/guoqiao/skills/blob/main/uv-global/uv-global/SKILL.md","os":["darwin","linux"],"tags":["python","uv","global","venv"],"requires":{"anyBins":["brew","uv"]}}}
+metadata: {"openclaw":{"always":true,"emoji":"","homepage":"https://github.com/guoqiao/skills/blob/main/uv-global/uv-global/SKILL.md","os":["darwin","linux"],"tags":["python","uv","global","venv"],"requires":{"anyBins":["brew","uv"]}}}
 ---
 
 # UV Global

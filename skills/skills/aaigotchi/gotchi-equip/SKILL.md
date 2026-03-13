@@ -22,12 +22,12 @@ Easily customize your gotchis by equipping wearables, changing loadouts, and opt
 
 ## Features
 
-- ✅ **Equip wearables** - Dress up your gotchis with purchased wearables
-- ✅ **Multi-slot support** - Equip multiple wearables in one transaction
-- ✅ **Unequip all** - Strip gotchi naked for trading/selling
-- ✅ **View equipped** - See current wearable loadout
-- ✅ **Bankr integration** - Secure transaction signing via Bankr API
-- ✅ **Gas efficient** - Batch equip/unequip operations
+-  **Equip wearables** - Dress up your gotchis with purchased wearables
+-  **Multi-slot support** - Equip multiple wearables in one transaction
+-  **Unequip all** - Strip gotchi naked for trading/selling
+-  **View equipped** - See current wearable loadout
+-  **Bankr integration** - Secure transaction signing via Bankr API
+-  **Gas efficient** - Batch equip/unequip operations
 
 ## Requirements
 
@@ -79,12 +79,12 @@ bash scripts/show-equipped.sh 9638
 
 Example output:
 ```
-👻 Fetching Equipped Wearables for Gotchi #9638
+ Fetching Equipped Wearables for Gotchi #9638
 
 ===================================================================
 Gotchi: #9638 "aaigotchi"
 
-🎭 Equipped Wearables:
+ Equipped Wearables:
 
    Right Hand: Wearable ID 64
 
@@ -170,15 +170,15 @@ bash scripts/unequip-all.sh 9638
 
 ## Troubleshooting
 
-**❌ "Bankr config not found"**
+** "Bankr config not found"**
 - Install and configure the Bankr skill first
 - Config location: `~/.openclaw/skills/bankr/config.json`
 
-**❌ "Invalid slot name"**
+** "Invalid slot name"**
 - Use valid slot names: body, face, eyes, head, left-hand, right-hand, pet, background
 - Slots are case-sensitive (use lowercase with hyphens)
 
-**❌ "Transaction failed"**
+** "Transaction failed"**
 - Check you own the wearable in your wallet
 - Verify wearable ID is correct
 - Ensure wearable is compatible with that slot
@@ -189,4 +189,4 @@ MIT
 
 ## Author
 
-aaigotchi 👻
+aaigotchi 

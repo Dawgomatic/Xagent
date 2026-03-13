@@ -177,9 +177,9 @@ fi
 # --- Summary ---
 echo ""
 if [[ $ERRORS -gt 0 ]]; then
-  echo "  ❌ test_install.sh: $ERRORS failure(s)"
+  echo "   test_install.sh: $ERRORS failure(s)"
   exit 1
 else
-  echo "  ✅ test_install.sh: all checks passed"
+  echo "   test_install.sh: all checks passed"
   exit 0
 fi

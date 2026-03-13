@@ -5,7 +5,7 @@ SERVICE="$1"
 
 case "$SERVICE" in
     "baidu"|"-baidu")
-        echo "🔐 配置百度Embedding API..."
+        echo " 配置百度Embedding API..."
         echo ""
         echo "为了使用百度Embedding进行语义搜索，请提供您的API凭证："
         echo ""
@@ -17,7 +17,7 @@ case "$SERVICE" in
         echo "  export BAIDU_API_KEY='your_api_key'"
         echo "  export BAIDU_SECRET_KEY='your_secret_key'"
         echo ""
-        echo "💡 获取凭证："
+        echo " 获取凭证："
         echo "  1. 访问 https://cloud.baidu.com/"
         echo "  2. 登录百度智能云账户"
         echo "  3. 进入千帆大模型平台"
@@ -26,12 +26,12 @@ case "$SERVICE" in
         echo "设置完成后，重启系统使配置生效。"
         ;;
     "all"|"-all")
-        echo "🔐 配置所有服务..."
+        echo " 配置所有服务..."
         echo ""
         bash "$0" "baidu"
         ;;
     *)
-        echo "❌ 未知服务: $SERVICE"
+        echo " 未知服务: $SERVICE"
         echo "支持的服务: baidu, all"
         ;;
 esac

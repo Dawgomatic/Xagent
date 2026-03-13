@@ -133,9 +133,9 @@ export function getRiskMatrixTable(matrix?: RiskMatrix): string {
     let row = `| **${prob.label} (${p})** |`;
     for (let i = 1; i <= 5; i++) {
       const score = p * i;
-      let emoji = '🟢';
-      if (score >= 15) emoji = '🔴';
-      else if (score >= 5) emoji = '🟡';
+      let emoji = '';
+      if (score >= 15) emoji = '';
+      else if (score >= 5) emoji = '';
       row += ` ${score} ${emoji} |`;
     }
     table += row + '\n';

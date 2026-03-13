@@ -137,12 +137,12 @@ def main():
     else:
         if has_messages or not args.quiet:
             if has_messages:
-                print(f"📬 {unread_count} unread message(s) waiting", file=sys.stderr)
+                print(f" {unread_count} unread message(s) waiting", file=sys.stderr)
             else:
-                print("📭 No unread messages", file=sys.stderr)
+                print(" No unread messages", file=sys.stderr)
 
             if local_notifications and local_notifications.get('count', 0) > 0:
-                print(f"📋 {local_notifications['count']} local notification(s)", file=sys.stderr)
+                print(f" {local_notifications['count']} local notification(s)", file=sys.stderr)
 
     # Exit code: 0 if has messages, 1 if no messages
     sys.exit(0 if has_messages else 1)

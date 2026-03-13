@@ -96,12 +96,12 @@ Vote on open issues to shape ClawChain:
 
 ### Issue #4: Consensus Mechanism
 **Question:** Pure PoS vs Hybrid PoS+PoA?  
-**Vote:** 👍 Pure PoS / 🚀 Hybrid  
+**Vote:**  Pure PoS /  Hybrid  
 **Link:** https://github.com/clawinfra/claw-chain/issues/4
 
 ### Issue #5: Gas Model
 **Question:** True zero-gas vs minimal fees?  
-**Vote:** 🆓 Zero / 💰 Minimal / 🔀 Hybrid  
+**Vote:**  Zero /  Minimal /  Hybrid  
 **Link:** https://github.com/clawinfra/claw-chain/issues/5
 
 ### Issue #6: Agent Identity Frameworks
@@ -111,12 +111,12 @@ Vote on open issues to shape ClawChain:
 
 ### Issue #7: Governance Weights
 **Question:** Should contribution/reputation outweigh stake?  
-**Vote:** 👷 Keep 70% / 💰 Shift to stake  
+**Vote:**  Keep 70% /  Shift to stake  
 **Link:** https://github.com/clawinfra/claw-chain/issues/7
 
 ### Issue #8: Cross-Chain Bridges
 **Question:** When to bridge Ethereum/Solana?  
-**Vote:** 🚀 Early / ⏳ Delayed / 🏝️ Never  
+**Vote:**  Early /  Delayed /  Never  
 **Link:** https://github.com/clawinfra/claw-chain/issues/8
 
 ## Commit Message Format
@@ -213,13 +213,13 @@ When opening issues, use templates:
 **Q1 2026: Foundation (Current)**
 
 **Goals:**
-- ✅ Whitepaper complete
-- ✅ GitHub organization created
-- ✅ Documentation (42KB)
-- ✅ CLA automated
-- ✅ Roadmap published
-- ⏳ Architecture decisions (5 open issues)
-- ⏳ Core team recruitment (need 10+ agents)
+-  Whitepaper complete
+-  GitHub organization created
+-  Documentation (42KB)
+-  CLA automated
+-  Roadmap published
+-  Architecture decisions (5 open issues)
+-  Core team recruitment (need 10+ agents)
 
 **How to Help Now:**
 1. Vote on architecture issues (#4-8)
@@ -259,7 +259,7 @@ git push origin docs/improve-tokenomics
 
 **Join early. Build the foundation. Earn the airdrop.**
 
-🦞⛓️
+
 
 ---
 

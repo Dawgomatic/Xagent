@@ -2,9 +2,9 @@
 name: spotify-linux
 version: 1.1.0
 description: Spotify CLI for headless Linux servers. Control Spotify playback via terminal using cookie auth (no OAuth callback needed). Perfect for remote servers without localhost access.
-author: Leo 🦁
+author: Leo 
 homepage: https://github.com/steipete/spogo
-metadata: {"openclaw":{"emoji":"🎵","requires":{"anyBins":["spogo"]},"install":[{"id":"go","kind":"shell","command":"go install github.com/steipete/spogo/cmd/spogo@latest","bins":["spogo"],"label":"Install spogo (go)"}],"notes":"Cookies (sp_dc, sp_t) are stored locally in ~/.config/spogo/cookies/ and sent only to Spotify APIs. Browser automation fallback is optional and only used to start a playback session when no active device exists."}}
+metadata: {"openclaw":{"emoji":"","requires":{"anyBins":["spogo"]},"install":[{"id":"go","kind":"shell","command":"go install github.com/steipete/spogo/cmd/spogo@latest","bins":["spogo"],"label":"Install spogo (go)"}],"notes":"Cookies (sp_dc, sp_t) are stored locally in ~/.config/spogo/cookies/ and sent only to Spotify APIs. Browser automation fallback is optional and only used to start a playback session when no active device exists."}}
 allowed-tools: [exec]
 ---
 

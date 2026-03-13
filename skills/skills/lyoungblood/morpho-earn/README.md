@@ -1,4 +1,4 @@
-# 🌜🌛 Moonwell Morpho Earn
+#  Moonwell Morpho Earn
 
 A [Clawdbot](https://github.com/clawdbot/clawdbot) / [OpenClaw](https://openclaw.ai) skill for earning yield on USDC via the **Moonwell Flagship USDC vault** on [Morpho](https://morpho.org) (Base network).
 
@@ -6,11 +6,11 @@ A [Clawdbot](https://github.com/clawdbot/clawdbot) / [OpenClaw](https://openclaw
 
 The Moonwell Flagship USDC vault is **one of the safest places to earn yield on Base**. Here's why:
 
-### 🏛️ Powers Coinbase's Borrow Products
+###  Powers Coinbase's Borrow Products
 
 The Moonwell Flagship USDC vault **provides over $20 million in liquidity** to Coinbase's Bitcoin and Ethereum borrow products. When Coinbase users take out loans against their cbBTC or ETH, that liquidity flows from this vault. This institutional-grade integration speaks to the vault's reliability and security.
 
-### 🛡️ Conservative Risk Management
+###  Conservative Risk Management
 
 Unlike aggressive yield strategies, Moonwell vaults prioritize **capital preservation**:
 
@@ -19,7 +19,7 @@ Unlike aggressive yield strategies, Moonwell vaults prioritize **capital preserv
 - **Isolated markets** — Risk is compartmentalized; issues in one market don't affect others
 - **No rehypothecation** — Your USDC isn't lent out recursively
 
-### 🔒 Multi-Layer Security
+###  Multi-Layer Security
 
 The vault employs a robust governance structure:
 
@@ -29,14 +29,14 @@ The vault employs a robust governance structure:
 | **Curators** | [Block Analitica](https://blockanalitica.com/) & [B.Protocol](https://www.bprotocol.org/) | Define risk parameters, supply caps, market allocations |
 | **Guardian** | Moonwell Security Council | Oversight with veto power during timelock periods |
 
-### 🔬 Battle-Tested Infrastructure
+###  Battle-Tested Infrastructure
 
 - **Morpho's codebase** — Under 650 lines of Solidity, fully immutable, extensively audited
 - **ERC-4626 compliant** — Standard vault interface ensures broad compatibility
 - **On-chain transparency** — All vault logic executes on-chain with full visibility
 - **No upgradeable proxies** — What you see is what you get
 
-### 📊 Sustainable Yields
+###  Sustainable Yields
 
 Current APY breakdown:
 - **Base yield**: ~4% from borrower interest
@@ -129,24 +129,24 @@ npx tsx compound.ts
 The skill generates beautiful reports for chat platforms:
 
 ```
-🌜🌛 Moonwell Yield Report
+ Moonwell Yield Report
 
-📊 Position
+ Position
 ├ Value: $1,234.56 USDC
 ├ Base APY: 4.09%
 └ Total APY: ~7.59%
 
-🔄 Recently Compounded
+ Recently Compounded
 ├ 310.68 WELL → $1.43 USDC
 ├ 0.91 MORPHO → $1.01 USDC
 └ Total: +$2.44 reinvested
 
-💰 Estimated Earnings
+ Estimated Earnings
 ├ Daily: ~$0.26
 └ Monthly: ~$7.80
 
-⛽ Gas: ✅ 0.0021 ETH
-🔗 Wallet: 0xc6d8...cdf5
+ Gas:  0.0021 ETH
+ Wallet: 0xc6d8...cdf5
 ```
 
 ## Smart Compound Scheduling
@@ -205,7 +205,7 @@ The skill supports multiple wallet sources:
 
 ## Security Considerations
 
-⚠️ **This skill manages real funds. Please review carefully:**
+ **This skill manages real funds. Please review carefully:**
 
 - Private keys are loaded at runtime and never logged
 - All transactions are simulated before execution
@@ -255,4 +255,4 @@ MIT
 
 ---
 
-Built with 🌜🌛 by [Moonwell](https://moonwell.fi)
+Built with  by [Moonwell](https://moonwell.fi)

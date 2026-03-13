@@ -2,7 +2,7 @@
 name: drf
 description: Django REST Framework scaffolding best practices, and gotchas.
 homepage: "https://github.com/pradeepcep/openclaw-drf"
-metadata: {"clawdbot":{"emoji":"🔥","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
 
 ---
 
@@ -273,7 +273,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-## 📝 References
+##  References
 
 -   Django documentation
 -   Django REST Framework documentation

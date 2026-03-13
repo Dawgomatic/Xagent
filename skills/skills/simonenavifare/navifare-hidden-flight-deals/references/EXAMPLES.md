@@ -28,11 +28,11 @@ Searching across multiple booking sites... This takes up to 90 seconds.
 
 *[90 seconds later, receives results]*
 
-✅ **I found a better deal!**
+ **I found a better deal!**
 
 Your reference: $450 on Skyscanner
 Best price found: **$429 on Kiwi.com**
-💰 You save: $21 (4.7%)
+ You save: $21 (4.7%)
 
 **Top 3 Options:**
 
@@ -77,11 +77,11 @@ Searching multiple booking sites...
 
 *[Results come back]*
 
-✅ **Price verified!**
+ **Price verified!**
 
 Your reference: €299 on Kayak
 Navifare best price: **€295 on Kiwi.com**
-📊 Difference: €4 (1.3%)
+ Difference: €4 (1.3%)
 
 Your price is very competitive! The best available is nearly identical.
 
@@ -126,11 +126,11 @@ Perfect! Searching now...
 
 *[Calls search with both segments]*
 
-⚠️ **Prices have changed**
+ **Prices have changed**
 
 Your reference: $890 on Google Flights
 Current best price: **$925 on Kiwi.com**
-📈 Increase: $35 (3.9%)
+ Increase: $35 (3.9%)
 
 Prices for this route have gone up slightly since you checked.
 
@@ -179,11 +179,11 @@ Thank you! Searching now...
 
 *[Builds round-trip search with both flights]*
 
-✅ **I found savings!**
+ **I found savings!**
 
 Your reference: £380 on Skyscanner
 Best price found: **£365 on Momondo**
-💰 You save: £15 (3.9%)
+ You save: £15 (3.9%)
 
 **Top 5 Options:**
 
@@ -211,11 +211,11 @@ I recommend booking with Momondo to save £15. However, verify that both flights
 I'd be happy to check if that's the best price! To search accurately, I need more details:
 
 **Missing information:**
-❌ Departure city/airport
-❌ Travel dates
-❌ Airline and flight number
-❌ Departure/arrival times
-❌ Travel class
+ Departure city/airport
+ Travel dates
+ Airline and flight number
+ Departure/arrival times
+ Travel class
 
 Could you provide:
 1. **Where are you flying from?** (e.g., "New York JFK")
@@ -242,11 +242,11 @@ Searching across multiple booking sites...
 
 *[Results]*
 
-✅ **Better prices available!**
+ **Better prices available!**
 
 Your reference: $600 on [unknown site]
 Best price found: **$565 on Kiwi.com**
-💰 You save: $35 (5.8%)
+ You save: $35 (5.8%)
 
 **Top 3 Options:**
 
@@ -280,11 +280,11 @@ Searching...
 
 *[Results show higher prices]*
 
-✅ **Your price is the best available!**
+ **Your price is the best available!**
 
 Your reference: €450 on Kayak
 Navifare best price: €450 on Kayak
-📊 Match: €0 (0%)
+ Match: €0 (0%)
 
 **All available prices:**
 
@@ -320,11 +320,11 @@ Let me check current prices for that route and date.
 **Assistant**:
 Searching...
 
-⚠️ **Peak season alert**
+ **Peak season alert**
 
 Your reference: $1,200
 Current best price: **$1,150 on Momondo**
-💰 Savings: $50 (4.2%)
+ Savings: $50 (4.2%)
 
 **Top 3 Options:**
 
@@ -359,7 +359,7 @@ Let me search for that flight.
 
 *[Searches but gets no results]*
 
-❌ **No results found**
+ **No results found**
 
 Navifare couldn't find current prices for this exact itinerary.
 
@@ -387,7 +387,7 @@ No problem! Let me search for Jet2 LS449 now.
 
 *[Searches with correct airline/flight]*
 
-✅ **Found better prices!**
+ **Found better prices!**
 ... [continues with normal results]
 
 ---
@@ -395,12 +395,12 @@ No problem! Let me search for Jet2 LS449 now.
 ## Key Patterns from Examples
 
 ### What Triggers the Skill
-1. ✅ "I found a flight for $X on [site]"
-2. ✅ "Is this a good price?"
-3. ✅ "Can you beat this deal?"
-4. ✅ Screenshot of booking site
-5. ✅ "I'm about to book..."
-6. ✅ "Should I book this flight?"
+1.  "I found a flight for $X on [site]"
+2.  "Is this a good price?"
+3.  "Can you beat this deal?"
+4.  Screenshot of booking site
+5.  "I'm about to book..."
+6.  "Should I book this flight?"
 
 ### What Information to Extract
 - **Route**: Departure and arrival airports (IATA codes)
@@ -427,14 +427,14 @@ No problem! Let me search for Jet2 LS449 now.
 7. **Recommendations** - guide user to best choice
 
 ### Edge Cases to Handle
-- ❌ No results: Verify flight details, suggest alternatives
-- ⚠️ Price increased: Warn user, explain demand
-- ✅ Price matched: Validate user's research
-- 💰 Price decreased: Celebrate savings!
-- ⏱️ Timeout: Show partial results, explain delay
-- ❓ Unclear airports: Clarify multi-airport cities
-- 🔄 Codeshares: Use operating carrier
-- 📅 Past dates: Ask for correct year/date
+-  No results: Verify flight details, suggest alternatives
+-  Price increased: Warn user, explain demand
+-  Price matched: Validate user's research
+-  Price decreased: Celebrate savings!
+-  Timeout: Show partial results, explain delay
+-  Unclear airports: Clarify multi-airport cities
+-  Codeshares: Use operating carrier
+-  Past dates: Ask for correct year/date
 
 ---
 

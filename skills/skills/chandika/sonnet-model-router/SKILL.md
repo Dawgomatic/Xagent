@@ -3,7 +3,7 @@ name: model-router
 description: Intelligent model routing for OpenClaw. Route tasks to Sonnet 4.6 or Opus 4.6 based on task complexity — faster responses, fewer rate limits, and your Claude sub lasts longer.
 version: 1.0.0
 homepage: https://github.com/chandika/openclaw-model-router
-metadata: {"clawdbot":{"emoji":"🧭"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Model Router for OpenClaw

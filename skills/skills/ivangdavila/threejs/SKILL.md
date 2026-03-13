@@ -1,7 +1,7 @@
 ---
 name: Three.js
 description: Build 3D web experiences with proper resource management and performance patterns.
-metadata: {"clawdbot":{"emoji":"🎮","requires":{"bins":["node"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Three.js Production Patterns

@@ -6,7 +6,7 @@ metadata:
   author: DeepCapt - Jeff Hubrig
   website: https://agentsignet.com
   openclaw:
-    emoji: "🛡️"
+    emoji: ""
     homepage: https://agentsignet.com/for-agents
     primaryEnv: SIGNET_API_KEY
     requires:

@@ -1,7 +1,7 @@
 ---
 name: food402
 description: Order food from TGO Yemek (Trendyol GO), Turkey's leading food delivery service. Use when user wants to order food delivery in Turkey, browse restaurants, search for foods, manage delivery addresses, check order history, or checkout with 3D Secure payment.
-metadata: {"openclaw": {"emoji": "🍕", "requires": {"bins": ["curl", "jq", "openssl"], "env": ["TGO_EMAIL", "TGO_PASSWORD", "GOOGLE_PLACES_API_KEY"]}, "primaryEnv": "TGO_EMAIL"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["curl", "jq", "openssl"], "env": ["TGO_EMAIL", "TGO_PASSWORD", "GOOGLE_PLACES_API_KEY"]}, "primaryEnv": "TGO_EMAIL"}}
 ---
 
 # Food402 - TGO Yemek Food Delivery

@@ -260,10 +260,10 @@ When a user requests content gap analysis:
    
    | Topic Area | You | Comp 1 | Comp 2 | Comp 3 | Gap? |
    |------------|-----|--------|--------|--------|------|
-   | [Topic 1] | ✅ [X] | ✅ [X] | ✅ [X] | ✅ [X] | No |
-   | [Topic 2] | ❌ 0 | ✅ [X] | ✅ [X] | ✅ [X] | **Yes** |
-   | [Topic 3] | ✅ [X] | ✅ [X] | ❌ 0 | ✅ [X] | Partial |
-   | [Topic 4] | ❌ 0 | ✅ [X] | ✅ [X] | ❌ 0 | **Yes** |
+   | [Topic 1] |  [X] |  [X] |  [X] |  [X] | No |
+   | [Topic 2] |  0 |  [X] |  [X] |  [X] | **Yes** |
+   | [Topic 3] |  [X] |  [X] |  0 |  [X] | Partial |
+   | [Topic 4] |  0 |  [X] |  [X] |  0 | **Yes** |
    
    ### Missing Topic Clusters
    
@@ -569,14 +569,14 @@ Map content coverage across competitors by topic and format:
 
 | Content Format | You | Comp A | Comp B | Comp C | Market Expectation |
 |---------------|-----|--------|--------|--------|-------------------|
-| Blog posts | ✅ | ✅ | ✅ | ✅ | Table stakes |
-| How-to guides | ✅ | ✅ | ❌ | ✅ | Expected |
-| Video content | ❌ | ✅ | ✅ | ✅ | Growing expectation |
-| Interactive tools | ❌ | ❌ | ❌ | ✅ | Differentiator |
-| Research/data | ❌ | ✅ | ❌ | ❌ | High-value linkbait |
-| Templates/downloads | ✅ | ❌ | ✅ | ❌ | Lead generation |
-| Podcasts | ❌ | ❌ | ✅ | ❌ | Emerging |
-| Comparison pages | ✅ | ✅ | ✅ | ❌ | Commercial intent |
+| Blog posts |  |  |  |  | Table stakes |
+| How-to guides |  |  |  |  | Expected |
+| Video content |  |  |  |  | Growing expectation |
+| Interactive tools |  |  |  |  | Differentiator |
+| Research/data |  |  |  |  | High-value linkbait |
+| Templates/downloads |  |  |  |  | Lead generation |
+| Podcasts |  |  |  |  | Emerging |
+| Comparison pages |  |  |  |  | Commercial intent |
 
 ## Funnel Stage Gap Analysis
 

@@ -94,7 +94,7 @@ System: [Asks for missing details like duration and reminder]
 ### Complete Event Specification
 ```
 User: "I have a doctor appointment next Friday at 2:30pm, lasts 45 minutes, please remind me 2 hours before"
-System: ✅ Created event: Doctor appointment
+System:  Created event: Doctor appointment
       Time: 2026-02-13 14:30, Duration: 45 minutes, Reminder: 120 minutes before
 ```
 
@@ -107,21 +107,21 @@ System: [Lists all events for the next 7 days]
 ### Daily Summary
 ```
 User: "Show me my schedule for today"
-System: 📅 2026年02月03日 周二
+System:  2026年02月03日 周二
 
       今日共有 3 个日程：
 
       1. 团队会议
-         ⏰ 09:00
-         📍 总部会议室
+          09:00
+          总部会议室
 
       2. 客户午餐
-         ⏰ 12:30
-         📍 赛特大厦
+          12:30
+          赛特大厦
 
       3. 项目汇报
-         ⏰ 15:00
-         📝 季度项目进展汇报
+          15:00
+          季度项目进展汇报
 
       祝您今天顺利！
 ```
@@ -140,7 +140,7 @@ openclaw cron add \
 Or via natural language:
 ```
 User: "Set up a daily reminder every morning at 9am with my calendar summary"
-System: ✅ Daily summary scheduled for 9:00 AM every day
+System:  Daily summary scheduled for 9:00 AM every day
 ```
 
 ## Architecture

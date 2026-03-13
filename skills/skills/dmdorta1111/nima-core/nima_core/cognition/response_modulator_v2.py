@@ -343,4 +343,4 @@ if __name__ == "__main__":
     print("\n4. Prompt formatting")
     print(modulator.format_for_prompt())
     
-    print("\n✅ All tests complete!")
+    print("\n All tests complete!")

@@ -1,4 +1,4 @@
-# 🏠 Home Assistant Assist
+#  Home Assistant Assist
 
 [![ClawHub](https://img.shields.io/badge/ClawHub-homeassistant--assist-blue?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHoiLz48L3N2Zz4=)](https://clawhub.com/skills/homeassistant-assist)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -8,7 +8,7 @@ An [OpenClaw](https://github.com/openclaw/openclaw) skill for controlling Home A
 
 > **Note:** This is an OpenClaw skill, not a HACS integration. It runs inside OpenClaw and communicates with your Home Assistant instance via its API.
 
-## ✨ Why This Skill?
+##  Why This Skill?
 
 Instead of the AI manually looking up entity IDs and building verbose service calls, this skill passes natural language directly to Home Assistant's built-in NLU. This is:
 
@@ -17,17 +17,17 @@ Instead of the AI manually looking up entity IDs and building verbose service ca
 | Traditional (entity lookup + service call) | High | Multiple | Fragile |
 | **Assist API** | **Low** | **One** | **Robust** |
 
-- **🚀 Faster** — Single API call instead of multiple lookups
-- **💰 Cheaper** — Fewer tokens spent on entity resolution
-- **🎯 More reliable** — Home Assistant knows your home better than any AI
+- ** Faster** — Single API call instead of multiple lookups
+- ** Cheaper** — Fewer tokens spent on entity resolution
+- ** More reliable** — Home Assistant knows your home better than any AI
 
-## 📋 Requirements
+##  Requirements
 
 - [OpenClaw](https://github.com/openclaw/openclaw) installed and running
 - Home Assistant instance with API access
 - A [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) from Home Assistant
 
-## 🚀 Installation
+##  Installation
 
 ### From ClawHub (Recommended)
 
@@ -46,7 +46,7 @@ git clone https://github.com/DevelopmentCats/homeassistant-assist.git \
   ~/.openclaw/workspace/skills/homeassistant-assist
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 Add the following to your OpenClaw config (`~/.openclaw/openclaw.json`):
 
@@ -74,7 +74,7 @@ Then restart OpenClaw:
 openclaw gateway restart
 ```
 
-## 💬 Usage
+##  Usage
 
 Just talk naturally to your OpenClaw agent:
 
@@ -93,7 +93,7 @@ The AI passes your request to Home Assistant's Assist API, which handles:
 - Area-aware commands
 - Execution
 
-## 💡 Tips & Troubleshooting
+##  Tips & Troubleshooting
 
 ### Entity Names
 Home Assistant's Assist uses **friendly names**. If "bedroom light" doesn't work but "bedroom lamp" does, that's the entity's friendly name in HA. You can:
@@ -114,16 +114,16 @@ Assist can **enable/disable** automations but cannot **trigger** them directly. 
 ### Multiple Devices with Same Name
 If Assist says "there are multiple devices called X", add unique aliases to your entities in Home Assistant.
 
-## 🔗 Links
+##  Links
 
 - **ClawHub:** [clawhub.com/skills/homeassistant-assist](https://clawhub.com/skills/homeassistant-assist)
 - **GitHub:** [github.com/DevelopmentCats/homeassistant-assist](https://github.com/DevelopmentCats/homeassistant-assist)
 - **OpenClaw:** [github.com/openclaw/openclaw](https://github.com/openclaw/openclaw)
 - **HA Conversation API Docs:** [developers.home-assistant.io](https://developers.home-assistant.io/docs/intent_conversation_api/)
 
-## 📄 License
+##  License
 
-MIT © [DevelopmentCats](https://github.com/DevelopmentCats)
+MIT  [DevelopmentCats](https://github.com/DevelopmentCats)
 
 ---
 

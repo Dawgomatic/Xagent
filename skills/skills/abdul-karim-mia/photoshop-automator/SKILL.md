@@ -28,12 +28,12 @@ This skill provides a high-performance bridge for automating Adobe Photoshop (vC
 - **playAction**: Play recorded Photoshop actions (.atn) by name and set.
 - **export**: Save the active document as a high-quality PNG or JPEG.
 
-## 🛠 AI Protocol
+##  AI Protocol
 
 ### 1. Technical Constraints (Strict)
 - **ES3 Syntax Only**: Photoshop's ExtendScript engine uses **ECMAScript 3 (ES3)**. 
-    - ❌ **DO NOT USE**: `const`, `let`, arrow functions `() => {}`, template literals `` `${}` ``, or `Map`/`Set`.
-    - ✅ **USE**: Only `var`, standard `function` declarations, and string concatenation (`'a' + b`).
+    -  **DO NOT USE**: `const`, `let`, arrow functions `() => {}`, template literals `` `${}` ``, or `Map`/`Set`.
+    -  **USE**: Only `var`, standard `function` declarations, and string concatenation (`'a' + b`).
 - **Assume Active Document**: Commands operate on the *active* document. If none is open, scripts will fail unless they call `app.documents.add()`.
 
 ### 2. Security & Side Effects

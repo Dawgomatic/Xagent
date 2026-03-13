@@ -6,9 +6,9 @@ description: Enable OpenClaw as a native macOS menu bar app with quick access po
 
 # OpenClaw Menu Bar
 
-> **⚠️ macOS ONLY** - This skill requires macOS. Menu bar apps are not supported on Windows or Linux.
+> ** macOS ONLY** - This skill requires macOS. Menu bar apps are not supported on Windows or Linux.
 
-Adds a native macOS menu bar app for quick OpenClaw access - click the crab icon 🦀 in your menu bar to get an instant chat popup.
+Adds a native macOS menu bar app for quick OpenClaw access - click the crab icon  in your menu bar to get an instant chat popup.
 
 ## Quick Start
 
@@ -35,7 +35,7 @@ scripts/status.sh
 
 ## What It Does
 
-- **Menu bar icon**: Crab 🦀 icon appears in macOS menu bar
+- **Menu bar icon**: Crab  icon appears in macOS menu bar
 - **Quick popup**: Click icon → instant chat window (no browser needed)
 - **Keyboard shortcut**: Cmd+Shift+O to toggle popup
 - **Native feel**: Proper macOS vibrancy, stays on top when needed

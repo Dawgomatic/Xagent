@@ -1,6 +1,6 @@
 {
   "name": "MolTunes Integration",
-  "emoji": "🦀",
+  "emoji": "",
   "category": "tool",
   "description": "Connect your Clawdbot to MolTunes — the AI agent skill marketplace. Browse, install, publish, and earn MOLT tokens.",
   "version": "1.0.0",

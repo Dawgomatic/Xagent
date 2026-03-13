@@ -1,7 +1,7 @@
 ---
 name: clawauth
 description: Let agents request OAuth access from end users via short links, continue working asynchronously, and later claim reusable third-party API tokens from local keychain storage instead of a centralized SaaS token vault.
-metadata: {"openclaw":{"emoji":"🔐","homepage":"https://auth.clawauth.app","requires":{"bins":["clawauth"]},"install":[{"id":"node","kind":"node","package":"clawauth","bins":["clawauth"],"label":"Install clawauth CLI (node)"}]}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://auth.clawauth.app","requires":{"bins":["clawauth"]},"install":[{"id":"node","kind":"node","package":"clawauth","bins":["clawauth"],"label":"Install clawauth CLI (node)"}]}}
 ---
 
 # Clawauth OAuth Skill

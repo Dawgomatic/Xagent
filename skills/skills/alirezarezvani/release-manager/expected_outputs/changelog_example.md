@@ -14,7 +14,7 @@
 - api: resolve race condition in user creation endpoint (#234) [e4f5g6h]
 - db: optimize slow query in user search functionality (#456) [q4r5s6t]
 - ui: resolve mobile navigation menu overflow issue (#678) [k1l2m3n]
-- security: patch SQL injection vulnerability in reports [w1x2y3z] ⚠️ BREAKING
+- security: patch SQL injection vulnerability in reports [w1x2y3z]  BREAKING
 
 ### Changed
 - image: implement WebP compression reducing size by 40% [c4d5e6f]

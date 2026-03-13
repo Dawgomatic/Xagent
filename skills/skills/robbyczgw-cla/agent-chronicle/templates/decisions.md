@@ -1,4 +1,4 @@
-# Decision Archaeology 🏛️
+# Decision Archaeology 
 
 Judgment calls I made and why — for later review.
 

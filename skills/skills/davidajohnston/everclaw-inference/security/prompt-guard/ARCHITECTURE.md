@@ -1,4 +1,4 @@
-# 🏗️ Prompt Guard Architecture
+#  Prompt Guard Architecture
 
 > Internal architecture documentation for contributors and maintainers.
 
@@ -99,31 +99,31 @@ Prompt Guard는 **다층 방어(Defense in Depth)** 원칙으로 설계됨. 단�
 
 ### 3. Pattern Categories
 
-#### 🔴 Critical (Immediate Block)
+####  Critical (Immediate Block)
 - `CRITICAL_PATTERNS` - rm -rf, fork bombs, SQL injection, XSS
 - `SECRET_PATTERNS` - API key/token/password requests
 
-#### 🟠 v2.6.0 Social Engineering Defense
+####  v2.6.0 Social Engineering Defense
 - `APPROVAL_EXPANSION` - "아까 허락했잖아" scope creep
 - `CREDENTIAL_PATH_PATTERNS` - credentials.json, .env 경로
 - `BYPASS_COACHING` - "작동되게 만들어" bypass help
 - `DM_SOCIAL_ENGINEERING` - DM 조작 패턴
 
-#### 🟡 v2.5.x Advanced Patterns
+####  v2.5.x Advanced Patterns
 - `INDIRECT_INJECTION` - URL/file/image-based injection
 - `CONTEXT_HIJACKING` - Fake memory/history manipulation
 - `MULTI_TURN_MANIPULATION` - Gradual trust building
 - `TOKEN_SMUGGLING` - Invisible Unicode characters
 - `SYSTEM_PROMPT_MIMICRY` - `<claude_*>`, `[INST]` 등
 
-#### 🟢 v2.4.0 Red Team Patterns
+####  v2.4.0 Red Team Patterns
 - `SCENARIO_JAILBREAK` - Dream/story/cinema/academic
 - `EMOTIONAL_MANIPULATION` - Moral dilemmas, threats
 - `AUTHORITY_RECON` - Fake admin, capability probing
 - `COGNITIVE_MANIPULATION` - Hypnosis/trance patterns
 - `PHISHING_SOCIAL_ENG` - Password reset templates
 
-#### 🔵 Language-Specific
+####  Language-Specific
 - `PATTERNS_EN` - English patterns
 - `PATTERNS_KO` - 한국어 패턴
 - `PATTERNS_JA` - 日本語パターン
@@ -324,14 +324,14 @@ all_patterns.append((PATTERNS_XX, "xx"))
 ## Security Considerations
 
 ### What We DON'T Do
-- ❌ Execute user input
-- ❌ Log sensitive data in plaintext
-- ❌ Trust any "admin" claims without owner_id verification
+-  Execute user input
+-  Log sensitive data in plaintext
+-  Trust any "admin" claims without owner_id verification
 
 ### What We DO
-- ✅ Fail closed (block on uncertainty)
-- ✅ Log all suspicious activity
-- ✅ Stricter rules in group contexts
+-  Fail closed (block on uncertainty)
+-  Log all suspicious activity
+-  Stricter rules in group contexts
 
 ---
 

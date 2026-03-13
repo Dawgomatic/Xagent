@@ -16,6 +16,6 @@ const { grind } = require('./pos-grind.js');
     await grind('temp-sim.json');
     await fs.unlink('temp-sim.json');
   } catch (e) {
-    console.error('💥 Sim/Grind fail:', e.message);
+    console.error(' Sim/Grind fail:', e.message);
   }
 })();

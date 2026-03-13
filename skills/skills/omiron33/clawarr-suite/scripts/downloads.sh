@@ -16,17 +16,17 @@ HOST="${CLAWARR_HOST:-}"
 SABNZBD_KEY="${SABNZBD_KEY:-}"
 
 if [[ -z "$HOST" ]]; then
-  echo "❌ Error: CLAWARR_HOST not set"
+  echo " Error: CLAWARR_HOST not set"
   exit 1
 fi
 
 if [[ -z "$SABNZBD_KEY" ]]; then
-  echo "❌ Error: SABNZBD_KEY not set"
+  echo " Error: SABNZBD_KEY not set"
   exit 1
 fi
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required"
+  echo " Error: jq is required"
   exit 1
 fi
 
@@ -51,7 +51,7 @@ sabnzbd_api() {
 
 # Command: active
 cmd_active() {
-  echo "⬇️  Currently Downloading"
+  echo "  Currently Downloading"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local queue
@@ -67,9 +67,9 @@ cmd_active() {
   time_left=$(echo "$queue" | jq -r '.queue.timeleft')
   
   if [[ "$paused" == "true" ]]; then
-    echo "  Status: ⏸️  PAUSED"
+    echo "  Status:   PAUSED"
   else
-    echo "  Status: ▶️  ACTIVE"
+    echo "  Status:   ACTIVE"
   fi
   
   echo "  Speed: $speed"
@@ -95,7 +95,7 @@ cmd_active() {
 
 # Command: speed
 cmd_speed() {
-  echo "⚡ Download Speed"
+  echo " Download Speed"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local queue
@@ -123,7 +123,7 @@ cmd_speed() {
 cmd_history() {
   local count="${1:-20}"
   
-  echo "📜 Download History (Last $count)"
+  echo " Download History (Last $count)"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local history
@@ -149,29 +149,29 @@ cmd_history() {
 
 # Command: pause
 cmd_pause() {
-  echo "⏸️  Pausing downloads..."
+  echo "  Pausing downloads..."
   
   if sabnzbd_api "pause" >/dev/null 2>&1; then
-    echo "✅ Downloads paused"
+    echo " Downloads paused"
   else
-    echo "❌ Failed to pause downloads"
+    echo " Failed to pause downloads"
   fi
 }
 
 # Command: resume
 cmd_resume() {
-  echo "▶️  Resuming downloads..."
+  echo "  Resuming downloads..."
   
   if sabnzbd_api "resume" >/dev/null 2>&1; then
-    echo "✅ Downloads resumed"
+    echo " Downloads resumed"
   else
-    echo "❌ Failed to resume downloads"
+    echo " Failed to resume downloads"
   fi
 }
 
 # Command: queue
 cmd_queue() {
-  echo "📋 Download Queue"
+  echo " Download Queue"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local queue
@@ -217,7 +217,7 @@ case "$COMMAND" in
   queue)   cmd_queue ;;
   help|--help|-h) show_help ;;
   *)
-    echo "❌ Unknown command: $COMMAND"
+    echo " Unknown command: $COMMAND"
     echo "Run '$0 help' for usage"
     exit 1
     ;;

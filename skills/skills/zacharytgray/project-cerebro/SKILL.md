@@ -3,7 +3,7 @@ name: project-cerebro
 version: 1.0.2
 description: "Project Cerebro - Control Surface: modular multi-brain execution dashboard built on OpenClaw"
 homepage: https://github.com/zacharytgray/project-cerebro
-metadata: {"clawhub":{"category":"productivity","emoji":"🧠","requiresEnv":["OPENCLAW_GATEWAY_URL","OPENCLAW_TOKEN"],"exposesHttp":true,"fileUploads":true}}
+metadata: {"clawhub":{"category":"productivity","emoji":"","requiresEnv":["OPENCLAW_GATEWAY_URL","OPENCLAW_TOKEN"],"exposesHttp":true,"fileUploads":true}}
 ---
 
 # Project Cerebro - Control Surface

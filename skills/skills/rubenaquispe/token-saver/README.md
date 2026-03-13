@@ -1,6 +1,6 @@
-# ⚡ Token Saver v3
+#  Token Saver v3
 
-> **💡 Did you know?** Every API call sends your workspace files (SOUL.md, USER.md, MEMORY.md, AGENTS.md, etc.) along with your message. These files cost real money on every message.
+> ** Did you know?** Every API call sends your workspace files (SOUL.md, USER.md, MEMORY.md, AGENTS.md, etc.) along with your message. These files cost real money on every message.
 
 **Token Saver v3 is model-aware** — it knows your model's context window and adapts recommendations accordingly.
 
@@ -28,21 +28,21 @@ That's it. You'll see a dashboard with your savings options.
 
 ```
 ╭─────────────────────────────────────────────────────────╮
-│  ⚡ TOKEN SAVER v3                                       │
+│   TOKEN SAVER v3                                       │
 │  Reduce AI costs by optimizing what gets sent each call │
 ╰─────────────────────────────────────────────────────────╯
 
-🤖 **Model:** Claude Opus 4.5 (200K context)
+ **Model:** Claude Opus 4.5 (200K context)
    Detected: openclaw.json
 
-📊 **Context Usage:** [████████░░░░░░░░░░░░] 42% (84K/200K)
+ **Context Usage:** [████████░░░░░░░░░░░░] 42% (84K/200K)
 
-📁 **WORKSPACE FILES** (sent every API call)
+ **WORKSPACE FILES** (sent every API call)
 ┌──────────────────────┬───────┬────────────────┐
 │ File                 │ Tokens│ Can Save       │
 ├──────────────────────┼───────┼────────────────┤
-│ 🔴 AGENTS.md          │  1180 │     -825 (70%) │
-│ 🟢 SOUL.md            │   235 │    ✓ optimized │
+│  AGENTS.md          │  1180 │     -825 (70%) │
+│  SOUL.md            │   235 │    ✓ optimized │
 ...
 ```
 
@@ -89,10 +89,10 @@ Same meaning. 90% fewer tokens. Real savings.
 
 ## Safety
 
-- ✅ **Auto-backup** before any changes
-- ✅ **Smart bypass** — skips already-optimized files
-- ✅ **One-command revert** — `/optimize revert`
-- ✅ **No external calls** — all local
+-  **Auto-backup** before any changes
+-  **Smart bypass** — skips already-optimized files
+-  **One-command revert** — `/optimize revert`
+-  **No external calls** — all local
 
 ## Install
 

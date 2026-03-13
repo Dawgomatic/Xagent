@@ -1016,7 +1016,7 @@ case "$CMD" in
         fi
         
         # Find similar titles from history
-        similar=$(jq -r --arg genres "$genres" '[.items[] | select(.rating >= 4) | select(.genres as $g | ($genres | split("\n")) | any(. as $x | $g | index($x)))] | .[0:2] | .[] | "• \(.title) (⭐\(.rating))"' "$HISTORY" 2>/dev/null | head -3)
+        similar=$(jq -r --arg genres "$genres" '[.items[] | select(.rating >= 4) | select(.genres as $g | ($genres | split("\n")) | any(. as $x | $g | index($x)))] | .[0:2] | .[] | "• \(.title) (\(.rating))"' "$HISTORY" 2>/dev/null | head -3)
         
         reasons_json=$(printf '%s\n' "${reasons[@]}" | jq -R . | jq -s .)
         

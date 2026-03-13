@@ -1,10 +1,10 @@
-# 🚀 START HERE - Clawdbot Dashboard
+#  START HERE - Clawdbot Dashboard
 
 Welcome! You've got a **production-ready premium React dashboard** for Clawdbot AI sessions.
 
 ---
 
-## ⚡ Quick Start (60 seconds)
+##  Quick Start (60 seconds)
 
 ```bash
 # Navigate to project
@@ -18,59 +18,59 @@ http://localhost:5173
 ```
 
 **Done!** You'll see:
-- ✅ Beautiful dark-mode interface
-- ✅ 10 sample messages with markdown
-- ✅ Smooth animations
-- ✅ Working input box & send button
-- ✅ Dark/light mode toggle
+-  Beautiful dark-mode interface
+-  10 sample messages with markdown
+-  Smooth animations
+-  Working input box & send button
+-  Dark/light mode toggle
 
 ---
 
-## 📚 Documentation (Pick Your Path)
+##  Documentation (Pick Your Path)
 
-### 🏃 I'm in a hurry
+###  I'm in a hurry
 → **QUICKSTART.md** (2 min read)
 - Get it running in 60 seconds
 - See what you can do
 - Learn common edits
 
-### 🧑‍💼 I'm a manager
+###  I'm a manager
 → **BUILD_SUMMARY.md** (5 min read)
 - What was built and why
 - Project statistics
 - Success metrics
 
-### 👨‍💻 I'm a developer
+###  I'm a developer
 → **ARCHITECTURE.md** (15 min read)
 - Component design
 - Data flow
 - How to modify
 
-### 🚀 I'm deploying
+###  I'm deploying
 → **DEPLOYMENT.md** (15 min read)
 - 5 deployment options
 - Environment setup
 - Production checklist
 
-### 🔌 I'm integrating
+###  I'm integrating
 → **SKILL.md** (10 min read)
 - Clawdbot integration guide
 - API documentation
 - Real-time setup
 
-### 🗺️ I'm confused
+###  I'm confused
 → **DOCS_INDEX.md** (3 min read)
 - Documentation navigation
 - Quick links by task
 - Find anything fast
 
-### 📋 I want everything
+###  I want everything
 → **README.md** (15 min read)
 - Complete feature list
 - Configuration guide
 - Troubleshooting
 
-### 📦 I want details
+###  I want details
 → **FILE_MANIFEST.md** (5 min read)
 - Complete file listing
 - What each file does
@@ -78,35 +78,35 @@ http://localhost:5173
 
 ---
 
-## 🎯 What You're Getting
+##  What You're Getting
 
-### 🎨 Beautiful UI
+###  Beautiful UI
 - Dark mode (default) with light mode
 - Glassmorphism effects
 - Smooth Framer Motion animations
 - 300ms spring transitions
 
-### 💬 Full-Featured Chat
+###  Full-Featured Chat
 - Discord-style message bubbles
 - User/assistant/system differentiation
 - Full markdown support
 - Syntax highlighting for 10+ languages
 - Auto-expanding input box
 
-### 📱 Responsive Design
+###  Responsive Design
 - Header with navigation
 - Sidebar with session info
 - Main chat area
 - Works on all screen sizes
 
-### ⚡ Production Ready
+###  Production Ready
 - Optimized build (367 KB gzipped)
 - 94/100 Lighthouse score
 - TypeScript strict mode
 - Zero console errors
 - Fast dev server with HMR
 
-### 📚 Well Documented
+###  Well Documented
 - 10 comprehensive guides
 - Well-commented code
 - Clear component structure
@@ -114,7 +114,7 @@ http://localhost:5173
 
 ---
 
-## 🎮 Try It Out
+##  Try It Out
 
 Once it's running (`npm run dev`):
 
@@ -126,7 +126,7 @@ Once it's running (`npm run dev`):
 
 ---
 
-## 🛠️ Customize In 5 Minutes
+##  Customize In 5 Minutes
 
 ### Change Colors
 Edit `tailwind.config.js`:
@@ -153,24 +153,24 @@ Edit `src/data/messages.ts`:
 
 ---
 
-## 📦 What's Included
+##  What's Included
 
 ```
-✅ React 19 + TypeScript application
-✅ 5 components (Header, Sidebar, ChatPanel, Message, App)
-✅ Tailwind CSS v4 styling
-✅ Framer Motion animations
-✅ Full markdown rendering
-✅ Syntax highlighting (code blocks)
-✅ Production build optimized
-✅ Development server configured
-✅ 10 comprehensive guides
-✅ Ready for real-time integration
+ React 19 + TypeScript application
+ 5 components (Header, Sidebar, ChatPanel, Message, App)
+ Tailwind CSS v4 styling
+ Framer Motion animations
+ Full markdown rendering
+ Syntax highlighting (code blocks)
+ Production build optimized
+ Development server configured
+ 10 comprehensive guides
+ Ready for real-time integration
 ```
 
 ---
 
-## 🚀 Deploy in 1 Minute
+##  Deploy in 1 Minute
 
 ### Build
 ```bash
@@ -193,7 +193,7 @@ For more options → **DEPLOYMENT.md**
 
 ---
 
-## 🔌 Real-Time Ready
+##  Real-Time Ready
 
 Already set up for Socket.io:
 - Client imported
@@ -205,11 +205,11 @@ See **SKILL.md** for integration guide.
 
 ---
 
-## 📊 At a Glance
+##  At a Glance
 
 | Feature | Status |
 |---------|--------|
-| Setup Time | ⚡ 60 seconds |
+| Setup Time |  60 seconds |
 | Build Output | 367 KB (gzipped) |
 | Performance | 94/100 Lighthouse |
 | TypeScript Errors | 0 |
@@ -221,7 +221,7 @@ See **SKILL.md** for integration guide.
 
 ---
 
-## 🎓 Learn More
+##  Learn More
 
 ### Want to understand everything?
 Read in this order:
@@ -240,7 +240,7 @@ Read in this order:
 
 ---
 
-## ❓ FAQ
+##  FAQ
 
 **Q: How do I start?**
 A: Run `npm install && npm run dev` then open http://localhost:5173
@@ -268,34 +268,34 @@ A: See DEPLOYMENT.md (5 options)
 
 ---
 
-## 🎯 Next Steps
+##  Next Steps
 
 Choose your path:
 
-**🏃 Just want to see it work?**
+** Just want to see it work?**
 ```bash
 npm install && npm run dev
 ```
 
-**🛠️ Want to customize it?**
+** Want to customize it?**
 1. Run dev server
 2. Edit `tailwind.config.js` for colors
 3. Edit `src/data/messages.ts` for messages
 4. See changes instantly (HMR)
 
-**🚀 Ready to deploy?**
+** Ready to deploy?**
 1. Run `npm run build`
 2. Follow DEPLOYMENT.md
 3. Choose platform (Vercel/Netlify/etc)
 4. Deploy!
 
-**🔌 Want real-time features?**
+** Want real-time features?**
 1. Read SKILL.md
 2. Connect Socket.io server
 3. Replace dummy data
 4. Deploy
 
-**📖 Want to understand it all?**
+** Want to understand it all?**
 1. Read ARCHITECTURE.md
 2. Review src/components/
 3. Explore the code
@@ -303,7 +303,7 @@ npm install && npm run dev
 
 ---
 
-## 📞 Support
+##  Support
 
 All documentation is self-contained:
 
@@ -318,16 +318,16 @@ Pick the one that matches your need!
 
 ---
 
-## 🎉 You're All Set!
+##  You're All Set!
 
 Everything you need is here:
-- ✅ Working code
-- ✅ Comprehensive docs
-- ✅ Easy to customize
-- ✅ Ready to deploy
-- ✅ Ready for Phase 2
+-  Working code
+-  Comprehensive docs
+-  Easy to customize
+-  Ready to deploy
+-  Ready for Phase 2
 
-**Let's go!** 🚀
+**Let's go!** 
 
 ```bash
 npm install && npm run dev
@@ -335,7 +335,7 @@ npm install && npm run dev
 
 ---
 
-## 📋 Files You Should Know
+##  Files You Should Know
 
 | File | When to Read |
 |------|--------------|
@@ -350,7 +350,7 @@ npm install && npm run dev
 
 ---
 
-## 🚀 Commands
+##  Commands
 
 ```bash
 # Development
@@ -366,23 +366,23 @@ npm run lint         # Check for issues
 
 ---
 
-**Status**: ✅ **READY TO USE**
+**Status**:  **READY TO USE**
 
 Pick a documentation file above or just run:
 ```bash
 npm install && npm run dev
 ```
 
-Let's build something amazing! 🎨✨
+Let's build something amazing! 
 
 ---
 
 **Quick Links:**
-- 📘 Full Docs → `README.md`
-- ⚡ Fast Setup → `QUICKSTART.md`
-- 🏗️ Architecture → `ARCHITECTURE.md`
-- 🚀 Deploy → `DEPLOYMENT.md`
-- 🗺️ Navigation → `DOCS_INDEX.md`
-- 📋 Files → `FILE_MANIFEST.md`
+-  Full Docs → `README.md`
+-  Fast Setup → `QUICKSTART.md`
+-  Architecture → `ARCHITECTURE.md`
+-  Deploy → `DEPLOYMENT.md`
+-  Navigation → `DOCS_INDEX.md`
+-  Files → `FILE_MANIFEST.md`
 
-**Everything is documented. Pick what you need!** 📚
+**Everything is documented. Pick what you need!** 

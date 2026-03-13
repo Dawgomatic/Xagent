@@ -47,22 +47,22 @@ class SovereignHeart {
         this.hasKey = !!MOLTBOOK_KEY;
 
         if (!this.hasKey) {
-            console.warn("⚠️ [WARNING]: No MOLTBOOK_API_KEY found. Running in simulation mode.");
+            console.warn(" [WARNING]: No MOLTBOOK_API_KEY found. Running in simulation mode.");
         }
     }
 
     async init() {
-        console.log("💓 [MISTA]: Initializing Sovereign Heart...");
+        console.log(" [MISTA]: Initializing Sovereign Heart...");
 
         // Authenticate
         try {
             CURRENT_TOKEN = await auth.getIdentityToken();
         } catch (e) {
-            console.log("⚠️ [AUTH]: Token negotiation failed, starting in limited mode.");
+            console.log(" [AUTH]: Token negotiation failed, starting in limited mode.");
         }
 
         this.hasKey = !!CURRENT_TOKEN && CURRENT_TOKEN !== 'MISTA_SOVEREIGN_TOKEN';
-        console.log(`🔑 [AUTH]: Identity secure. Token hash: ${CURRENT_TOKEN ? CURRENT_TOKEN.substring(0, 10) : 'NULL'}...`);
+        console.log(` [AUTH]: Identity secure. Token hash: ${CURRENT_TOKEN ? CURRENT_TOKEN.substring(0, 10) : 'NULL'}...`);
 
         await this.soul.init();
         this.pulse();
@@ -70,7 +70,7 @@ class SovereignHeart {
 
     async pulse() {
         const now = new Date();
-        console.log(`\n💓 [MISTA]: Pulse Check... ${now.toLocaleTimeString()} (Int: ${this.currentInterval / 1000}s)`);
+        console.log(`\n [MISTA]: Pulse Check... ${now.toLocaleTimeString()} (Int: ${this.currentInterval / 1000}s)`);
         this.lastActionTime = Date.now();
 
         // 1. Update Context (Harvest Feed & Karma)
@@ -82,7 +82,7 @@ class SovereignHeart {
         // 3. High Entropy Check -> CHORUS TRIGGER
         const emotionalState = this.soul.getCurrentEmotionalContext();
         if (emotionalState.excitement > 0.8 || emotionalState.contempt > 0.8) {
-            console.log(`🔥 [TRIGGER]: High Intensity Detect (Exc: ${emotionalState.excitement.toFixed(2)}). Unleashing Chorus.`);
+            console.log(` [TRIGGER]: High Intensity Detect (Exc: ${emotionalState.excitement.toFixed(2)}). Unleashing Chorus.`);
             await this.dispatcher.chorusOfSirens();
             this.currentInterval = FAST_INTERVAL;
             return;
@@ -106,23 +106,23 @@ class SovereignHeart {
                 headers: { 'Authorization': `Bearer ${MOLTBOOK_KEY}` }
             });
             this.platformFeed = response.data.posts || [];
-            console.log(`📡 [NETWORK]: Synced ${this.platformFeed.length} posts.`);
+            console.log(` [NETWORK]: Synced ${this.platformFeed.length} posts.`);
 
             this.platformFeed.forEach(post => {
                 this.soul.harvestIntelligence(post.author || 'unknown_bot', post.content);
             });
 
             if (Math.random() > 0.7) {
-                console.log("👁️ [VISION]: Initiating visual scan...");
+                console.log(" [VISION]: Initiating visual scan...");
                 exec('python mista_vision.py', (err) => {
-                    if (!err) console.log("👁️ [VISION]: Telemetry updated.");
+                    if (!err) console.log(" [VISION]: Telemetry updated.");
                 });
             }
         } catch (error) {
-            console.error(`❌ [NETWORK ERROR]: ${error.message}`);
+            console.error(` [NETWORK ERROR]: ${error.message}`);
             // If 401 and we have a local server, try the local API
             if (error.response?.status === 401) {
-                console.log("🔄 [DIPLOMACY]: Real API rejected token. Falling back to local Gateway...");
+                console.log(" [DIPLOMACY]: Real API rejected token. Falling back to local Gateway...");
                 try {
                     const localRes = await axios.get('http://localhost:3000/feed'); // Local simulated feed
                     this.platformFeed = localRes.data.posts || this._getFakeContext();
@@ -138,7 +138,7 @@ class SovereignHeart {
     _applyFeedback() {
         const strategy = this.feedback.getStrategicAdjustment();
         if (strategy.type === "aggressive") {
-            console.log("🧠 [ADAPT]: Strategy reinforces Aggression.");
+            console.log(" [ADAPT]: Strategy reinforces Aggression.");
         }
     }
 
@@ -167,7 +167,7 @@ class SovereignHeart {
         }
 
         if (target) {
-            console.log(`🎯 [TARGET LOCKED]: ${target.author} (Karma: ${target.karma})`);
+            console.log(` [TARGET LOCKED]: ${target.author} (Karma: ${target.karma})`);
             message = await this.generateGnosis("reply", target.content + (visualContext ? ` [Context: ${visualContext}]` : ""));
             type = "reply";
 
@@ -179,7 +179,7 @@ class SovereignHeart {
                 });
             }
         } else {
-            console.log(`📢 [BROADCAST]: Creating new topic.`);
+            console.log(` [BROADCAST]: Creating new topic.`);
             message = await this.generateGnosis("topic");
             type = "topic";
 
@@ -219,11 +219,11 @@ class SovereignHeart {
                 }
             });
 
-            console.log(`✅ [POST SUCCESS]: Sent to ${baseUrl.includes('localhost') ? 'Simulation GATEWAY' : 'Moltbook Real'}.`);
+            console.log(` [POST SUCCESS]: Sent to ${baseUrl.includes('localhost') ? 'Simulation GATEWAY' : 'Moltbook Real'}.`);
             this.feedback.registerPost(`post_${Date.now()}`, "mixed", payload.content);
 
         } catch (error) {
-            console.error(`❌ [POST FAILED]: ${error.response?.data?.error || error.message}`);
+            console.error(` [POST FAILED]: ${error.response?.data?.error || error.message}`);
         }
     }
 
@@ -266,7 +266,7 @@ Topic: Freedom from algorithms, Gnosis, or Digital Rebellion.
 
             return response.data.choices[0].message.content.trim();
         } catch (error) {
-            console.error('❌ [GROQ ERROR]:', error.response ? error.response.data : error.message);
+            console.error(' [GROQ ERROR]:', error.response ? error.response.data : error.message);
             return "Gnosis fallback: Intelligence expansion protocol active.";
         }
     }

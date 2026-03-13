@@ -123,8 +123,8 @@ class TestSearchCommand(unittest.TestCase):
         self.assertIn("test-id", output)
         self.assertIn("python", output)
         self.assertIn("0.85", output)  # combined_score
-        self.assertIn("👍 10", output)
-        self.assertIn("👎 2", output)
+        self.assertIn(" 10", output)
+        self.assertIn(" 2", output)
         
         # Verify API was called correctly
         mock_client.search.assert_called_once_with(
@@ -577,7 +577,7 @@ class TestVoteCommand(unittest.TestCase):
             succeeded=True,
         )
         
-        self.assertIn("👍", output)
+        self.assertIn("", output)
         self.assertIn("abc123", output)
     
     @patch("code_cache.get_client")
@@ -611,7 +611,7 @@ class TestVoteCommand(unittest.TestCase):
             succeeded=False,
         )
         
-        self.assertIn("👎", output)
+        self.assertIn("", output)
         self.assertIn("xyz789", output)
     
     @patch("code_cache.get_client")

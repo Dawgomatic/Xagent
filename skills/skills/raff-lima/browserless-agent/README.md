@@ -1,8 +1,8 @@
-# Browserless Agent - OpenClaw Skill 🌐
+# Browserless Agent - OpenClaw Skill 
 
 A professional, production-ready web automation skill for OpenClaw with 50+ browser actions.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Install Dependencies
 
@@ -58,7 +58,7 @@ docker run -p 3000:3000 browserless/chrome
 # No token needed
 ```
 
-## 📖 Features
+##  Features
 
 ### Navigation & Pages (10 actions)
 
@@ -139,7 +139,7 @@ docker run -p 3000:3000 browserless/chrome
 - `set_geolocation` - GPS location
 - `set_user_agent` - User agent spoofing
 
-## 💡 Usage Examples
+##  Usage Examples
 
 ### From Command Line
 
@@ -210,7 +210,7 @@ Args: {
 }
 ```
 
-## 🎯 Real-World Use Cases
+##  Real-World Use Cases
 
 ### 1. Web Scraping
 
@@ -282,7 +282,7 @@ python main.py fill_form '{
 python main.py click '{"selector": "button.submit"}'
 ```
 
-## 🔧 Advanced Configuration
+##  Advanced Configuration
 
 ### Custom Wait Strategies
 
@@ -324,7 +324,7 @@ python main.py set_viewport '{"width": 375, "height": 667}'
 python main.py set_user_agent '{"user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X)"}'
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Connection Failed
 
@@ -374,7 +374,7 @@ Error: Evaluation failed
 - Wait for page load before evaluation
 - Check browser console in Browserless debugger
 
-## 📚 API Reference
+##  API Reference
 
 ### Common Parameters
 
@@ -419,31 +419,31 @@ All actions return JSON:
 }
 ```
 
-## 🔒 Security
+##  Security
 
-- ✅ Credentials never logged
-- ✅ TLS encryption (wss://)
-- ✅ Isolated browser containers
-- ✅ No local browser required
-- ⚠️ Be careful with sensitive data in screenshots
-- ⚠️ Validate user input before navigation
-- ⚠️ Use authentication headers securely
+-  Credentials never logged
+-  TLS encryption (wss://)
+-  Isolated browser containers
+-  No local browser required
+-  Be careful with sensitive data in screenshots
+-  Validate user input before navigation
+-  Use authentication headers securely
 
-## 📦 Dependencies
+##  Dependencies
 
 ```
 playwright>=1.40.0
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Found a bug or want a new feature? Open an issue!
 
-## 📄 License
+##  License
 
 MIT License - Use freely and modify as needed.
 
-## 🌟 Tips & Best Practices
+##  Tips & Best Practices
 
 1. **Always wait for dynamic content**
 
@@ -478,7 +478,7 @@ MIT License - Use freely and modify as needed.
    # Bad: div > div > button
    ```
 
-## 🎓 Learning Resources
+##  Learning Resources
 
 - [Playwright Documentation](https://playwright.dev/python/)
 - [CSS Selectors Guide](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
@@ -487,6 +487,6 @@ MIT License - Use freely and modify as needed.
 
 ---
 
-**Made with ❤️ for OpenClaw**
+**Made with  for OpenClaw**
 
 Need help? Ask your OpenClaw agent: _"How do I use the browserless-agent skill?"_

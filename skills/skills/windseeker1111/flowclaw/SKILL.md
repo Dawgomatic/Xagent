@@ -3,7 +3,7 @@ name: flowclaw
 description: "Unkillable Agent Infrastructure. Unified usage monitoring and intelligent load balancing for Anthropic, Google, OpenAI, and Ollama. Never let your agent get stuck."
 metadata:
   openclaw:
-    emoji: "🦞"
+    emoji: ""
     os:
       - darwin
       - linux
@@ -33,16 +33,16 @@ Unified dashboard + auto-routing for all your LLM subscriptions. Uses **Earliest
 ## Commands
 
 ```bash
-# 📊 Usage Monitoring
+#  Usage Monitoring
 flowclaw status [--fresh] [--json]     # Full provider dashboard
 flowclaw monitor [--json] [--cached]   # Clean usage report (no scoring)
 
-# 🧠 Load Balancing
+#  Load Balancing
 flowclaw score [--json]                # Scored ranking of all accounts
 flowclaw optimize [--dry-run]          # Reorder OpenClaw model priority
 flowclaw auto                          # Optimize silently (for cron jobs)
 
-# 🛠 Utilities
+#  Utilities
 flowclaw test                          # Run scoring engine unit tests
 flowclaw history [N]                   # Routing decision history
 ```
@@ -103,4 +103,4 @@ score = urgency(0.30) + availability(0.25) + proximity(0.15) + weekly_headroom(0
 | Weekly headroom | `(100 - weekly%) / 100` | 7-day capacity reserve |
 | Tier bonus | Free=+0.8, Sub=0, Local=-0.3 | Cost preference |
 
-**Perishable inventory:** Both 5h session and 7d weekly windows expire. When ≤6h to weekly reset, penalty is removed — burn remaining credits. **Family-aware:** Only swaps within same capability class (Opus↔Opus, not Opus↔Gemini).
+**Perishable inventory:** Both 5h session and 7d weekly windows expire. When ≤6h to weekly reset, penalty is removed — burn remaining credits. **Family-aware:** Only swaps within same capability class (OpusOpus, not OpusGemini).

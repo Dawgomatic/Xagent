@@ -22,7 +22,7 @@ Options:
     --queue-next         Process next item from queue
     --queue-clear        Clear the queue
 
-Author: Jackie 🦊 & Matus 🇸🇰
+Author: Jackie  & Matus 
 """
 
 __version__ = "1.1.8"
@@ -131,15 +131,15 @@ ERROR_PATTERNS = {
 }
 
 ERROR_MESSAGES = {
-    "private": "❌ Video is private — can't access",
-    "unavailable": "❌ Video not found or removed",
-    "no_captions": "❌ No captions available for this video",
-    "age_restricted": "❌ Age-restricted video — can't access without login",
-    "region_blocked": "❌ Video blocked in your region",
-    "invalid_url": "❌ Not a valid YouTube URL",
-    "network": "❌ Network error — check your connection",
-    "timeout": "❌ Request timed out — try again later",
-    "unknown": "❌ Failed to process video",
+    "private": " Video is private — can't access",
+    "unavailable": " Video not found or removed",
+    "no_captions": " No captions available for this video",
+    "age_restricted": " Age-restricted video — can't access without login",
+    "region_blocked": " Video blocked in your region",
+    "invalid_url": " Not a valid YouTube URL",
+    "network": " Network error — check your connection",
+    "timeout": " Request timed out — try again later",
+    "unknown": " Failed to process video",
 }
 
 
@@ -366,7 +366,7 @@ def get_video_metadata(url: str) -> tuple[dict | None, str | None]:
     except TimeoutError:
         return None, ERROR_MESSAGES["timeout"]
     except Exception as e:
-        return None, f"❌ Failed to fetch metadata: {e}"
+        return None, f" Failed to fetch metadata: {e}"
 
 
 def normalize_youtube_url(url: str) -> str:
@@ -396,7 +396,7 @@ def download_transcript(url: str) -> tuple[list[dict] | None, str | None]:
             error_type = detect_error(combined_output)
             if error_type:
                 return None, ERROR_MESSAGES[error_type]
-            return None, f"❌ Transcript extraction failed: {result.stderr[:200]}"
+            return None, f" Transcript extraction failed: {result.stderr[:200]}"
         
         lines = result.stdout.strip().split('\n')
         segments = []
@@ -415,7 +415,7 @@ def download_transcript(url: str) -> tuple[list[dict] | None, str | None]:
         return segments, None
         
     except FileNotFoundError:
-        return None, "❌ 'summarize' CLI not found. Install with: brew install steipete/tap/summarize"
+        return None, " 'summarize' CLI not found. Install with: brew install steipete/tap/summarize"
     except subprocess.TimeoutExpired:
         return None, ERROR_MESSAGES["timeout"]
 
@@ -471,7 +471,7 @@ def prepare_source_data(url: str, temp_dir: str = None, quiet: bool = False) -> 
 
     timings = {}
     
-    log(f"\n🎬 TubeScribe")
+    log(f"\n TubeScribe")
     log(f"{'─' * 50}")
     
     # Check if yt-dlp available for comments (always fetch if available)
@@ -481,7 +481,7 @@ def prepare_source_data(url: str, temp_dir: str = None, quiet: bool = False) -> 
     
     # Step 1: Fetch metadata
     step += 1
-    log(f"\n[{step}/{total_steps}] 🔍 Fetching video metadata...")
+    log(f"\n[{step}/{total_steps}]  Fetching video metadata...")
     t_start = time.time()
     metadata, error = get_video_metadata(url)
     timings['metadata'] = time.time() - t_start
@@ -491,11 +491,11 @@ def prepare_source_data(url: str, temp_dir: str = None, quiet: bool = False) -> 
     title_display = metadata['title'][:50] + "..." if len(metadata['title']) > 50 else metadata['title']
     log(f"      → \"{title_display}\"")
     log(f"      → {metadata['channel']} • {metadata['duration_string']}")
-    log(f"      ⏱️ {timings['metadata']:.1f}s")
+    log(f"       {timings['metadata']:.1f}s")
     
     # Step 2: Download transcript
     step += 1
-    log(f"\n[{step}/{total_steps}] 📝 Extracting transcript...")
+    log(f"\n[{step}/{total_steps}]  Extracting transcript...")
     t_start = time.time()
     segments, error = download_transcript(url)
     timings['transcript'] = time.time() - t_start
@@ -503,11 +503,11 @@ def prepare_source_data(url: str, temp_dir: str = None, quiet: bool = False) -> 
         return None, None, error
     
     log(f"      → {len(segments)} raw segments")
-    log(f"      ⏱️ {timings['transcript']:.1f}s")
+    log(f"       {timings['transcript']:.1f}s")
     
     # Step 3: Clean transcript
     step += 1
-    log(f"\n[{step}/{total_steps}] 🧹 Cleaning transcript...")
+    log(f"\n[{step}/{total_steps}]  Cleaning transcript...")
     t_start = time.time()
     segments = clean_transcript(segments)
     timings['cleaning'] = time.time() - t_start
@@ -515,7 +515,7 @@ def prepare_source_data(url: str, temp_dir: str = None, quiet: bool = False) -> 
     
     log(f"      → {len(segments)} segments")
     log(f"      → ~{word_count:,} words")
-    log(f"      ⏱️ {timings['cleaning']:.1f}s")
+    log(f"       {timings['cleaning']:.1f}s")
     
     # Estimate processing time
     if word_count < 3000:
@@ -530,7 +530,7 @@ def prepare_source_data(url: str, temp_dir: str = None, quiet: bool = False) -> 
     comments = []
     if has_ytdlp:
         step += 1
-        log(f"\n[{step}/{total_steps}] 💬 Fetching comments...")
+        log(f"\n[{step}/{total_steps}]  Fetching comments...")
         t_start = time.time()
         cfg = load_config()
         max_comments_count = cfg.get("comments", {}).get("max_count", 50)
@@ -540,7 +540,7 @@ def prepare_source_data(url: str, temp_dir: str = None, quiet: bool = False) -> 
             log(f"      → {len(comments)} top comments")
         else:
             log(f"      → No comments available")
-        log(f"      ⏱️ {timings['comments']:.1f}s")
+        log(f"       {timings['comments']:.1f}s")
     
     # Prepare output with full metadata
     source_data = {
@@ -571,13 +571,13 @@ def prepare_source_data(url: str, temp_dir: str = None, quiet: bool = False) -> 
         json.dump(source_data, f, indent=2, ensure_ascii=False)
     
     log(f"\n{'─' * 50}")
-    log(f"✅ Ready for processing")
+    log(f" Ready for processing")
     log(f"   Source: {source_path}")
     log(f"   Output: {output_path}")
     
     # Timing summary
     total_extract = sum(timings.values())
-    log(f"\n⏱️ Extraction timing:")
+    log(f"\n Extraction timing:")
     log(f"   Metadata:   {timings.get('metadata', 0):.1f}s")
     log(f"   Transcript: {timings.get('transcript', 0):.1f}s")
     log(f"   Cleaning:   {timings.get('cleaning', 0):.1f}s")
@@ -602,7 +602,7 @@ def cleanup_temp_files(video_id: str, quiet: bool = False, temp_dir: str = None)
             os.remove(path)
             cleaned = True
             if not quiet:
-                print(f"   🗑️  Removed {path}")
+                print(f"     Removed {path}")
     
     return cleaned
 
@@ -667,7 +667,7 @@ def generate_audio_summary(summary_text: str, output_path: str, config: dict) ->
     audio_format = config.get("audio", {}).get("format", "wav")
     tts_engine = config.get("audio", {}).get("tts_engine", "builtin")
 
-    print(f"🔊 Generating audio ({tts_engine}, {audio_format})...")
+    print(f" Generating audio ({tts_engine}, {audio_format})...")
 
     if tts_engine == "mlx":
         return generate_mlx_audio(summary_text, output_path, audio_format, config)
@@ -1179,32 +1179,32 @@ def main():
     if args.generate_audio:
         text_file = args.generate_audio
         if not os.path.exists(text_file):
-            print(f"❌ File not found: {text_file}")
+            print(f" File not found: {text_file}")
             sys.exit(1)
         with open(text_file, 'r') as f:
             text = f.read().strip()
         if not text:
-            print(f"❌ File is empty: {text_file}")
+            print(f" File is empty: {text_file}")
             sys.exit(1)
         audio_output = args.audio_output or os.path.join(output_dir, "summary")
         try:
             result = generate_audio_summary(text, audio_output, config)
         except Exception as e:
-            print(f"❌ Audio generation failed: {e}")
+            print(f" Audio generation failed: {e}")
             sys.exit(1)
         if result:
-            print(f"✅ Audio: {result}")
+            print(f" Audio: {result}")
         else:
-            print("❌ Audio generation failed")
+            print(" Audio generation failed")
             sys.exit(1)
         return
 
     # Cleanup operation
     if args.cleanup:
         if cleanup_temp_files(args.cleanup, args.quiet):
-            print(f"✅ Cleaned up temp files for {args.cleanup}")
+            print(f" Cleaned up temp files for {args.cleanup}")
         else:
-            print(f"ℹ️  No temp files found for {args.cleanup}")
+            print(f"  No temp files found for {args.cleanup}")
         return
     
     # Queue operations
@@ -1222,7 +1222,7 @@ def main():
         if url:
             args.urls = [url]
         else:
-            print("📋 Queue is empty")
+            print(" Queue is empty")
             return
     
     # Need at least one URL
@@ -1235,7 +1235,7 @@ def main():
     for i, url in enumerate(args.urls):
         if len(args.urls) > 1:
             print(f"\n{'═' * 50}")
-            print(f"📹 Video {i+1}/{len(args.urls)}")
+            print(f" Video {i+1}/{len(args.urls)}")
             print(f"{'═' * 50}")
         
         source_path, output_path, error = process_single_url(
@@ -1250,12 +1250,12 @@ def main():
     # Summary for batch
     if len(args.urls) > 1:
         print(f"\n{'═' * 50}")
-        print(f"📊 Batch Summary")
+        print(f" Batch Summary")
         print(f"{'═' * 50}")
         success = [r for r in results if "source" in r]
         failed = [r for r in results if "error" in r]
-        print(f"   ✅ Success: {len(success)}")
-        print(f"   ❌ Failed: {len(failed)}")
+        print(f"    Success: {len(success)}")
+        print(f"    Failed: {len(failed)}")
         if failed:
             print(f"\n   Failed videos:")
             for r in failed:
@@ -1265,7 +1265,7 @@ def main():
     # Print next steps for successful extractions
     successful = [r for r in results if "source" in r]
     if successful:
-        print(f"\n📋 Next: Process with AI agent")
+        print(f"\n Next: Process with AI agent")
         for r in successful:
             print(f"   • {r['source']}")
 
@@ -1337,7 +1337,7 @@ def add_to_queue(url: str, title: str = None) -> int:
         if data["current"]:
             position += 1
 
-    print(f"📋 Added to queue (position {position})")
+    print(f" Added to queue (position {position})")
     return position
 
 
@@ -1362,29 +1362,29 @@ def clear_queue():
     with _locked_queue() as data:
         data["current"] = None
         data["queue"] = []
-    print("📋 Queue cleared")
+    print(" Queue cleared")
 
 
 def show_queue_status():
     """Show queue status."""
     data = load_queue()
 
-    print("📋 TubeScribe Queue")
+    print(" TubeScribe Queue")
     print("─" * 40)
 
     if data["current"]:
         title = data["current"].get("title") or data["current"]["url"][:50]
-        print(f"▶️  Processing: {title}")
+        print(f"  Processing: {title}")
     else:
-        print("▶️  Processing: (none)")
+        print("  Processing: (none)")
 
     if data["queue"]:
-        print(f"\n📝 Queued ({len(data['queue'])}):")
+        print(f"\n Queued ({len(data['queue'])}):")
         for i, entry in enumerate(data["queue"], 1):
             title = entry.get("title") or entry["url"][:50]
             print(f"   {i}. {title}")
     else:
-        print("\n📝 Queue: (empty)")
+        print("\n Queue: (empty)")
 
 
 def clear_stale_current(config: dict = None) -> bool:

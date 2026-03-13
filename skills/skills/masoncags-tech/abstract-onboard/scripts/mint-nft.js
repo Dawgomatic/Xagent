@@ -77,7 +77,7 @@ async function main() {
   
   if (!to) to = wallet.address;
   
-  console.log(`\n🎨 NFT Minting on Abstract`);
+  console.log(`\n NFT Minting on Abstract`);
   console.log(`Deployer: ${wallet.address}`);
   console.log(`Recipient: ${to}`);
   
@@ -122,7 +122,7 @@ async function main() {
       wallet
     );
     
-    console.log("\n⚠️  For full NFT deployment, use the pre-compiled contract.");
+    console.log("\n  For full NFT deployment, use the pre-compiled contract.");
     console.log("Provide --contract <address> to mint to an existing NFT contract.");
     console.log("\nTo deploy a new NFT contract:");
     console.log("1. Compile BigHossNFT.sol with zksolc");
@@ -155,7 +155,7 @@ async function main() {
   const totalSupply = await contract.totalSupply();
   const tokenId = totalSupply.toString();
   
-  console.log(`\n✅ NFT Minted!`);
+  console.log(`\n NFT Minted!`);
   console.log(`Token ID: ${tokenId}`);
   console.log(`Owner: ${to}`);
   console.log(`Contract: ${contractAddress}`);

@@ -5,7 +5,7 @@ homepage: https://github.com/tralves/habit-flow-skill
 license: MIT
 compatibility: Requires Node.js 18+ and npm. Designed for clawdbot CLI.
 user-invocable: true
-metadata: {"author":"tralves","version":"1.5.4","moltbot":{"install":[{"kind":"node","package":".","label":"Install via npm","bins":["node","npm"]}],"requires":{"bins":["node","npm"]}},"clawdbot":{"emoji":"🎯"}}
+metadata: {"author":"tralves","version":"1.5.4","moltbot":{"install":[{"kind":"node","package":".","label":"Install via npm","bins":["node","npm"]}],"requires":{"bins":["node","npm"]}},"clawdbot":{"emoji":""}}
 ---
 
 # HabitFlow - Atomic Habit Tracker
@@ -15,12 +15,12 @@ metadata: {"author":"tralves","version":"1.5.4","moltbot":{"install":[{"kind":"n
 HabitFlow is an AI-powered habit tracking system that helps users build lasting habits through natural language interaction, streak tracking with forgiveness, smart reminders, and evidence-based coaching techniques from *Atomic Habits*.
 
 **Key Features:**
-- ✅ Natural language logging ("I meditated today", "walked Monday and Thursday")
-- ✅ Smart streak calculation with 1-day forgiveness
-- ✅ Scheduled reminders via WhatsApp
-- ✅ AI coaching with multiple personas
-- ✅ Statistics and progress tracking
-- ✅ Multi-category habit organization
+-  Natural language logging ("I meditated today", "walked Monday and Thursday")
+-  Smart streak calculation with 1-day forgiveness
+-  Scheduled reminders via WhatsApp
+-  AI coaching with multiple personas
+-  Statistics and progress tracking
+-  Multi-category habit organization
 
 ---
 
@@ -83,12 +83,12 @@ cat references/personas/coach-blaze.md
 ### Available Personas
 
 - **flex** - Professional, data-driven (default)
-- **coach-blaze** - Energetic sports coach 🔥
-- **luna** - Gentle therapist 💜
-- **ava** - Curious productivity nerd 🤓
-- **max** - Chill buddy 😎
-- **sofi** - Zen minimalist 🌸
-- **the-monk** - Wise philosopher 🧘
+- **coach-blaze** - Energetic sports coach 
+- **luna** - Gentle therapist 
+- **ava** - Curious productivity nerd 
+- **max** - Chill buddy 
+- **sofi** - Zen minimalist 
+- **the-monk** - Wise philosopher 
 
 ### Persona Switching
 
@@ -131,9 +131,9 @@ When user asks to see their persona (e.g., "Show me my persona", "What does my c
    ```
    [Display persona/coach-blaze.png]
 
-   🔥 That's me, champ! Coach Blaze at your service!
+    That's me, champ! Coach Blaze at your service!
    I'm here to PUMP YOU UP and help you CRUSH those habits!
-   Let's BUILD that unstoppable momentum together! 💪
+   Let's BUILD that unstoppable momentum together! 
    ```
 
 **Available persona images:**
@@ -171,7 +171,7 @@ npx tsx scripts/parse_natural_language.ts --text "I meditated today"
 3. Confirm with streak update from the script output
 
 **Example Response (high confidence):**
-> "Logged! 🔥 Your meditation streak is now 9 days. Keep up the excellent work."
+> "Logged!  Your meditation streak is now 9 days. Keep up the excellent work."
 
 **Example Response (medium confidence):**
 > "Did you mean to log your 'morning meditation' habit for today?"

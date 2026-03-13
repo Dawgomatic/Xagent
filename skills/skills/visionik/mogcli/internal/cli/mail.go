@@ -538,7 +538,7 @@ func printMessage(msg Message, verbose bool) {
 	}
 	attach := "  "
 	if msg.HasAttachments {
-		attach = "📎"
+		attach = ""
 	}
 
 	from := "Unknown"

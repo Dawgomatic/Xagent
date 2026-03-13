@@ -3,7 +3,7 @@ name: content3
 version: 1.0.4
 description: Content3 API for creating videos, managing content, submitting reviews, and posting to social media.
 homepage: https://content3.app/developers
-metadata: {"clawdbot":{"emoji":"🎬"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # content3

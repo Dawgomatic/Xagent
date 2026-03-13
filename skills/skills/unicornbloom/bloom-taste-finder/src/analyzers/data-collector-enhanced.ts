@@ -89,7 +89,7 @@ export interface UserData {
 
 export class EnhancedDataCollector {
   /**
-   * ⭐ NEW: Collect data from provided conversation text (OpenClaw bot context)
+   *  NEW: Collect data from provided conversation text (OpenClaw bot context)
    *
    * This method is used when OpenClaw bot provides the conversation directly,
    * avoiding the need to read session files.
@@ -101,7 +101,7 @@ export class EnhancedDataCollector {
       skipTwitter?: boolean;
     }
   ): Promise<UserData> {
-    console.log(`📊 Collecting data from provided conversation text`);
+    console.log(` Collecting data from provided conversation text`);
 
     const userData: UserData = {
       sources: [],
@@ -128,9 +128,9 @@ export class EnhancedDataCollector {
       };
 
       userData.sources.push('Conversation');
-      console.log(`✅ Analyzed conversation: ${analysis.messageCount} messages, ${analysis.topics.length} topics`);
+      console.log(` Analyzed conversation: ${analysis.messageCount} messages, ${analysis.topics.length} topics`);
     } catch (error) {
-      console.warn('⚠️  Failed to analyze conversation text:', error);
+      console.warn('  Failed to analyze conversation text:', error);
     }
 
     // Optionally collect Twitter data
@@ -145,11 +145,11 @@ export class EnhancedDataCollector {
           if (userData.twitter.bio || userData.twitter.tweets.length > 0) {
             userData.sources.push('Twitter');
             userData.dataQuality.twitter = 'real';
-            console.log('✅ Twitter data collected (real data)');
+            console.log(' Twitter data collected (real data)');
           }
         }
       } catch (error) {
-        console.warn('⚠️  Twitter data unavailable:', error);
+        console.warn('  Twitter data unavailable:', error);
       }
     }
 
@@ -169,7 +169,7 @@ export class EnhancedDataCollector {
       includeWallet?: boolean;  // Changed: wallet is opt-in, not opt-out
     }
   ): Promise<UserData> {
-    console.log(`📊 Collecting data for user: ${userId}`);
+    console.log(` Collecting data for user: ${userId}`);
 
     const userData: UserData = {
       sources: [],
@@ -189,9 +189,9 @@ export class EnhancedDataCollector {
       userData.sources.push('Conversation');
       userData.permissions.conversation = true;
       userData.dataQuality.conversation = 'real';
-      console.log('✅ Conversation memory collected (real data)');
+      console.log(' Conversation memory collected (real data)');
     } catch (error) {
-      console.warn('⚠️  Conversation memory unavailable:', error);
+      console.warn('  Conversation memory unavailable:', error);
       userData.dataQuality.conversation = 'none';
     }
 
@@ -208,17 +208,17 @@ export class EnhancedDataCollector {
           if (userData.twitter.bio || userData.twitter.tweets.length > 0) {
             userData.sources.push('Twitter');
             userData.dataQuality.twitter = 'real';
-            console.log('✅ Twitter data collected (real data via bird CLI)');
+            console.log(' Twitter data collected (real data via bird CLI)');
           } else {
             userData.dataQuality.twitter = 'none';
-            console.log('⚠️  Twitter data empty');
+            console.log('  Twitter data empty');
           }
         } else {
-          console.log('⚠️  Twitter permission denied by user - skipping');
+          console.log('  Twitter permission denied by user - skipping');
           userData.dataQuality.twitter = 'none';
         }
       } catch (error) {
-        console.warn('⚠️  Twitter data unavailable:', error);
+        console.warn('  Twitter data unavailable:', error);
         userData.dataQuality.twitter = 'none';
       }
     }
@@ -227,18 +227,18 @@ export class EnhancedDataCollector {
     // Only collect if user explicitly provides wallet address + signature
     if (options?.includeWallet) {
       try {
-        console.log('💰 Wallet analysis requested (opt-in)');
+        console.log(' Wallet analysis requested (opt-in)');
         userData.wallet = await this.collectWalletData(userId);
         userData.sources.push('Wallet');
-        console.log('✅ Wallet data collected');
+        console.log(' Wallet data collected');
       } catch (error) {
-        console.warn('⚠️  Wallet data unavailable:', error);
+        console.warn('  Wallet data unavailable:', error);
       }
     }
 
     // Check if we have enough data
     if (userData.sources.length === 0) {
-      console.warn('⚠️  No data sources available - will fallback to manual Q&A');
+      console.warn('  No data sources available - will fallback to manual Q&A');
     }
 
     return userData;
@@ -273,7 +273,7 @@ export class EnhancedDataCollector {
       const profile = await fetchTwitterProfile(userId);
 
       if (!profile) {
-        console.warn(`⚠️  No Twitter profile found for ${userId}`);
+        console.warn(`  No Twitter profile found for ${userId}`);
         return {
           bio: '',
           following: [],
@@ -300,7 +300,7 @@ export class EnhancedDataCollector {
         interactions,
       };
     } catch (error) {
-      console.error(`❌ Failed to fetch Twitter data for ${userId}:`, error);
+      console.error(` Failed to fetch Twitter data for ${userId}:`, error);
       // Return empty data rather than failing
       return {
         bio: '',
@@ -318,7 +318,7 @@ export class EnhancedDataCollector {
   /**
    * Collect comprehensive Wallet data
    *
-   * ⚠️ OPT-IN ONLY - Not used in default personality analysis
+   *  OPT-IN ONLY - Not used in default personality analysis
    *
    * This is only called when:
    * 1. User explicitly provides wallet address
@@ -340,7 +340,7 @@ export class EnhancedDataCollector {
       const walletRecord = await walletStorage.getUserWallet(userId);
 
       if (!walletRecord) {
-        console.warn(`⚠️  No wallet found for user ${userId}`);
+        console.warn(`  No wallet found for user ${userId}`);
         return {
           address: '',
           tokens: [],
@@ -352,7 +352,7 @@ export class EnhancedDataCollector {
       }
 
       const walletAddress = walletRecord.walletAddress;
-      console.log(`✅ Found wallet address: ${walletAddress}`);
+      console.log(` Found wallet address: ${walletAddress}`);
 
       // TODO: Integrate with blockchain data providers to fetch:
       // - Tokens and balances (Alchemy/Moralis/Etherscan API)
@@ -372,7 +372,7 @@ export class EnhancedDataCollector {
         defiProtocols: [],
       };
     } catch (error) {
-      console.error(`❌ Failed to fetch wallet data for ${userId}:`, error);
+      console.error(` Failed to fetch wallet data for ${userId}:`, error);
       return {
         address: '',
         tokens: [],
@@ -388,7 +388,7 @@ export class EnhancedDataCollector {
   /**
    * Collect conversation memory from OpenClaw session files
    *
-   * ⭐ CRITICAL: Requires minimum 3 messages for valid analysis
+   *  CRITICAL: Requires minimum 3 messages for valid analysis
    * - Throws error if messageCount < 3 (no silent fallback)
    * - Forces explicit error handling in calling code
    */
@@ -401,7 +401,7 @@ export class EnhancedDataCollector {
       // Read and analyze session history
       const analysis = await sessionReader.readSessionHistory(userId);
 
-      // ⭐ CRITICAL: Minimum 3 messages required
+      //  CRITICAL: Minimum 3 messages required
       if (analysis.messageCount < 3) {
         throw new Error(
           `Insufficient conversation data: ${analysis.messageCount} messages found (minimum 3 required). ` +
@@ -409,7 +409,7 @@ export class EnhancedDataCollector {
         );
       }
 
-      console.log(`✅ Conversation analysis: ${analysis.messageCount} messages, ${analysis.topics.length} topics`);
+      console.log(` Conversation analysis: ${analysis.messageCount} messages, ${analysis.topics.length} topics`);
 
       return {
         topics: analysis.topics,
@@ -419,7 +419,7 @@ export class EnhancedDataCollector {
         messageCount: analysis.messageCount,
       };
     } catch (error) {
-      console.error('❌ Failed to read session history:', error);
+      console.error(' Failed to read session history:', error);
       // Return empty rather than failing completely
       return {
         topics: [],
@@ -434,7 +434,7 @@ export class EnhancedDataCollector {
   /**
    * Check if we have sufficient data for analysis
    *
-   * ⭐ CRITICAL REQUIREMENT: Conversation with ≥3 messages
+   *  CRITICAL REQUIREMENT: Conversation with ≥3 messages
    * - Conversation is PRIMARY (85% weight) and REQUIRED
    * - Twitter is OPTIONAL (15% weight)
    * - No silent fallback - explicit error if insufficient
@@ -453,7 +453,7 @@ export class EnhancedDataCollector {
   }
 
   /**
-   * ⭐ NEW: Analyze conversation text directly
+   *  NEW: Analyze conversation text directly
    *
    * Similar to OpenClawSessionReader but works on provided text
    */

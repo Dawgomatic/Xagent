@@ -8,12 +8,12 @@
 WORKSPACE="${WORKSPACE:-$HOME/.openclaw/workspace}"
 MEMORY_DIR="$WORKSPACE/memory"
 
-echo "🧠 Memory Consolidation"
+echo " Memory Consolidation"
 echo "======================="
 echo ""
 
 # Find daily notes from the past week
-echo "📅 Recent daily notes:"
+echo " Recent daily notes:"
 find "$MEMORY_DIR" -maxdepth 1 -name "202*.md" -mtime -7 -exec basename {} \; | sort -r
 
 echo ""

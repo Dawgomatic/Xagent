@@ -21,7 +21,7 @@ if [ -f "$PRESETS_PATH" ]; then
         }
     fi
 else
-    echo "⚠️  Warning: shapescale-presets.json not found at $PRESETS_PATH"
+    echo "  Warning: shapescale-presets.json not found at $PRESETS_PATH"
     echo "   Run without ShapeScale extensions or create the config file."
     exit 1
 fi
@@ -31,9 +31,9 @@ format_output() {
     local output="$1"
     local status="$2"
     if [ "$status" = "success" ]; then
-        echo "✅ $output"
+        echo " $output"
     else
-        echo "❌ $output"
+        echo " $output"
     fi
 }
 
@@ -43,7 +43,7 @@ shift || true
 # Stripe authentication check
 check_auth() {
     if [ -z "$STRIPE_SECRET_KEY" ]; then
-        echo "❌ Error: STRIPE_SECRET_KEY not set"
+        echo " Error: STRIPE_SECRET_KEY not set"
         exit 1
     fi
     export STRIPE_SECRET_KEY
@@ -67,7 +67,7 @@ case "$COMMAND" in
                 DEPOSIT=$(read_json "${TEMPLATE}.deposit" ".clinic_templates")
                 TERMS=$(read_json "${TEMPLATE}.terms" ".clinic_templates")
                 
-                echo "🏥 Creating clinic: $CLINIC_NAME (template: $TEMPLATE, deposit: $DEPOSIT)"
+                echo " Creating clinic: $CLINIC_NAME (template: $TEMPLATE, deposit: $DEPOSIT)"
                 
                 # Create customer with clinic metadata
                 RESULT=$(stripe customers create \
@@ -77,14 +77,14 @@ case "$COMMAND" in
                 
                 if [ $? -eq 0 ]; then
                     CUSTOMER_ID=$(echo "$RESULT" | grep -o '"id": "[^"]*"' | head -1 | sed 's/"id": "\(.*\)"/\1/')
-                    echo "✅ Clinic created: $CUSTOMER_ID"
+                    echo " Clinic created: $CUSTOMER_ID"
                     [ -n "$DEPOSIT" ] && echo "   Deposit: $DEPOSIT cents | Terms: $TERMS"
                 else
-                    echo "❌ Failed to create clinic: $RESULT"
+                    echo " Failed to create clinic: $RESULT"
                 fi
                 ;;
             "list")
-                echo "🏥 Listing clinic customers..."
+                echo " Listing clinic customers..."
                 stripe customers list --limit 100 --metadata "type=clinic" 2>&1
                 ;;
             *)
@@ -111,7 +111,7 @@ case "$COMMAND" in
                 AMOUNT=$(read_json "${PLAN}.amount" ".subscription_plans")
                 INTERVAL=$(read_json "${PLAN}.interval" ".subscription_plans")
                 
-                echo "📅 Creating $PLAN subscription for customer $CUSTOMER_ID"
+                echo " Creating $PLAN subscription for customer $CUSTOMER_ID"
                 
                 # Create price and subscription
                 PRICE_RESULT=$(stripe prices create \
@@ -130,7 +130,7 @@ case "$COMMAND" in
                     
                     format_output "$SUB_RESULT" "success" || format_output "$SUB_RESULT" "error"
                 else
-                    echo "❌ Failed to create subscription: $PRICE_RESULT"
+                    echo " Failed to create subscription: $PRICE_RESULT"
                 fi
                 ;;
             "list")
@@ -139,7 +139,7 @@ case "$COMMAND" in
                     echo "Usage: shapescale subscription list <customer_id>"
                     exit 1
                 fi
-                echo "📅 Subscriptions for customer $CUSTOMER_ID"
+                echo " Subscriptions for customer $CUSTOMER_ID"
                 stripe subscriptions list --customer "$CUSTOMER_ID" 2>&1
                 ;;
             "cancel")
@@ -148,7 +148,7 @@ case "$COMMAND" in
                     echo "Usage: shapescale subscription cancel <subscription_id>"
                     exit 1
                 fi
-                echo "🛑 Canceling subscription $SUBSCRIPTION_ID"
+                echo " Canceling subscription $SUBSCRIPTION_ID"
                 stripe subscriptions cancel "$SUBSCRIPTION_ID" 2>&1
                 ;;
             *)
@@ -173,7 +173,7 @@ case "$COMMAND" in
                 TAX_RATE=$(read_json "tax_rate" ".")
                 CURRENCY=$(read_json "default_currency" ".")
                 
-                echo "📄 Generating invoice for customer $CUSTOMER_ID"
+                echo " Generating invoice for customer $CUSTOMER_ID"
                 [ -n "$ORDER_ID" ] && echo "   Order: $ORDER_ID"
                 
                 # Create invoice item
@@ -210,7 +210,7 @@ case "$COMMAND" in
                     exit 1
                 fi
                 
-                echo "📦 Checking order status: $ORDER_ID"
+                echo " Checking order status: $ORDER_ID"
                 
                 # Look up by metadata
                 RESULT=$(stripe payment-intents list --limit 100 2>&1)
@@ -219,10 +219,10 @@ case "$COMMAND" in
                 MATCH=$(echo "$RESULT" | grep -A 5 "\"metadata\"" | grep -B 5 "\"order_id\": \"$ORDER_ID\"" || echo "")
                 
                 if [ -n "$MATCH" ]; then
-                    echo "✅ Found payment for order $ORDER_ID"
+                    echo " Found payment for order $ORDER_ID"
                     echo "$MATCH" | head -20
                 else
-                    echo "⚠️  No payment found for order $ORDER_ID"
+                    echo "  No payment found for order $ORDER_ID"
                     echo "   Make sure payments are tagged with: metadata: { order_id: '$ORDER_ID' }"
                 fi
                 ;;

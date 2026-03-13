@@ -230,47 +230,47 @@ console.log(job.logo); // CDN URLs
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `concept` | ✅ | Brand concept, vibe, industry, style direction |
-| `brandName` / `brand_name` | ❌ | Brand name (AI generates if not provided) |
-| `tagline` | ❌ | Optional tagline/slogan |
+| `concept` |  | Brand concept, vibe, industry, style direction |
+| `brandName` / `brand_name` |  | Brand name (AI generates if not provided) |
+| `tagline` |  | Optional tagline/slogan |
 
 ### Social Service (Mode 1: From Logo Service)
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `brandSystemUrl` / `brand_system_url` | ✅ | URL to brand-system.json from logo service |
+| `brandSystemUrl` / `brand_system_url` |  | URL to brand-system.json from logo service |
 
 ### Social Service (Mode 2: BYOL)
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `logoUrl` / `logo_url` | ✅ | URL to your existing logo image |
-| `brandName` / `brand_name` | ✅ | Brand name |
-| `tagline` | ❌ | Optional tagline |
-| `primaryColor` / `primary_color` | ❌ | Primary color hex (auto-extracted if not provided) |
-| `secondaryColor` / `secondary_color` | ❌ | Secondary color hex |
-| `backgroundColor` / `background_color` | ❌ | Background color hex |
-| `renderStyle` / `render_style` | ❌ | flat, gradient, glass, chrome, gold, neon, 3d |
+| `logoUrl` / `logo_url` |  | URL to your existing logo image |
+| `brandName` / `brand_name` |  | Brand name |
+| `tagline` |  | Optional tagline |
+| `primaryColor` / `primary_color` |  | Primary color hex (auto-extracted if not provided) |
+| `secondaryColor` / `secondary_color` |  | Secondary color hex |
+| `backgroundColor` / `background_color` |  | Background color hex |
+| `renderStyle` / `render_style` |  | flat, gradient, glass, chrome, gold, neon, 3d |
 
 ### GFX Service (Mode 1: From Logo Service)
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `brandSystemUrl` / `brand_system_url` | ✅ | URL to brand-system.json from logo service |
-| `prompt` | ✅ | What graphic to generate (be specific about purpose, mood, text) |
-| `aspectRatio` / `aspect_ratio` | ❌ | Output ratio: 1:1, 4:5, 16:9, 9:16, etc. (default: 1:1) |
+| `brandSystemUrl` / `brand_system_url` |  | URL to brand-system.json from logo service |
+| `prompt` |  | What graphic to generate (be specific about purpose, mood, text) |
+| `aspectRatio` / `aspect_ratio` |  | Output ratio: 1:1, 4:5, 16:9, 9:16, etc. (default: 1:1) |
 
 ### GFX Service (Mode 2: BYOL)
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `logoUrl` / `logo_url` | ✅ | URL to your existing logo image |
-| `brandName` / `brand_name` | ✅ | Brand name |
-| `prompt` | ✅ | What graphic to generate |
-| `aspectRatio` / `aspect_ratio` | ❌ | Output ratio (default: 1:1) |
-| `primaryColor` / `primary_color` | ❌ | Primary color hex (auto-extracted if not provided) |
-| `secondaryColor` / `secondary_color` | ❌ | Secondary color hex |
-| `renderStyle` / `render_style` | ❌ | flat, gradient, glass, chrome, gold, neon, 3d |
+| `logoUrl` / `logo_url` |  | URL to your existing logo image |
+| `brandName` / `brand_name` |  | Brand name |
+| `prompt` |  | What graphic to generate |
+| `aspectRatio` / `aspect_ratio` |  | Output ratio (default: 1:1) |
+| `primaryColor` / `primary_color` |  | Primary color hex (auto-extracted if not provided) |
+| `secondaryColor` / `secondary_color` |  | Secondary color hex |
+| `renderStyle` / `render_style` |  | flat, gradient, glass, chrome, gold, neon, 3d |
 
 ### GFX Aspect Ratios
 

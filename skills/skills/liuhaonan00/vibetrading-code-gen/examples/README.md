@@ -2,7 +2,7 @@
 
 This directory contains example trading strategies to help you understand different trading approaches.
 
-## 📁 Directory Structure
+##  Directory Structure
 
 ```
 examples/
@@ -14,7 +14,7 @@ examples/
     └── rsi_config.json          # RSI strategy configuration
 ```
 
-## 🚀 Running Examples
+##  Running Examples
 
 ### Grid Trading Example
 ```bash
@@ -28,7 +28,7 @@ cd /Users/bitinterfc/.openclaw/workspace/skills/vibetrading-code-gen
 python examples/rsi_strategy_example.py
 ```
 
-## 📚 Example Strategies
+##  Example Strategies
 
 ### 1. Grid Trading Strategy
 **Concept**: Place multiple buy and sell orders at predefined price levels within a range.
@@ -64,7 +64,7 @@ python examples/rsi_strategy_example.py
 - Overbought Threshold: 70
 - Position Size: 10 HYPE
 
-## 🔧 Configuration Examples
+##  Configuration Examples
 
 ### Grid Trading Configuration (`configs/grid_config.json`)
 ```json
@@ -86,7 +86,7 @@ python examples/rsi_strategy_example.py
 }
 ```
 
-## 💡 Learning Objectives
+##  Learning Objectives
 
 Each example demonstrates:
 
@@ -104,7 +104,7 @@ Each example demonstrates:
 4. **Backtesting**: Simulating strategy performance
 5. **Parameter Optimization**: Finding optimal RSI settings
 
-## 🎯 How to Use These Examples
+##  How to Use These Examples
 
 ### 1. Study the Code
 Read through the examples to understand:
@@ -134,7 +134,7 @@ Once comfortable:
 - Add real order execution
 - Implement live monitoring
 
-## 📊 Strategy Comparison
+##  Strategy Comparison
 
 | Aspect | Grid Trading | RSI Strategy |
 |--------|--------------|--------------|
@@ -145,7 +145,7 @@ Once comfortable:
 | **Risk** | Moderate | Moderate |
 | **Capital Required** | High (for multiple grids) | Medium |
 
-## 🔄 Next Steps
+##  Next Steps
 
 1. **Understand the basics** by running both examples
 2. **Experiment with parameters** to see how they affect performance
@@ -153,7 +153,7 @@ Once comfortable:
 4. **Create your own variations** based on these examples
 5. **Integrate with the generator** to automate strategy creation
 
-## ⚠️ Important Notes
+##  Important Notes
 
 - These are **educational examples** only
 - Always test strategies thoroughly before live trading
@@ -161,7 +161,7 @@ Once comfortable:
 - Cryptocurrency trading involves significant risk
 - Start with small positions and paper trading
 
-## 📞 Need Help?
+##  Need Help?
 
 - Review the main `SKILL.md` documentation
 - Check generated strategies for real implementations

@@ -54,16 +54,16 @@ export default function Home() {
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center px-6">
-        <div className="text-7xl animate-bounce mb-6">🐴</div>
+        <div className="text-7xl animate-bounce mb-6"></div>
         <p className="text-white text-xl font-medium">
           AI 正在为 <span className="text-yellow-300 font-bold">{name}</span> 专属创作...
         </p>
         <div className="flex gap-2 mt-4">
-          <span className="text-white/60 text-sm">✍️ 写藏头诗</span>
+          <span className="text-white/60 text-sm"> 写藏头诗</span>
           <span className="text-white/40">→</span>
-          <span className="text-white/60 text-sm">🎨 画骏马</span>
+          <span className="text-white/60 text-sm"> 画骏马</span>
           <span className="text-white/40">→</span>
-          <span className="text-white/60 text-sm">🎁 生成祝福卡</span>
+          <span className="text-white/60 text-sm"> 生成祝福卡</span>
         </div>
       </div>
     )
@@ -85,7 +85,7 @@ export default function Home() {
           <div className="p-6 text-center bg-gradient-to-b from-red-800 to-red-900">
             {/* 运势标签 */}
             <div className="inline-block bg-yellow-400 text-red-900 text-xs font-bold px-3 py-1 rounded-full mb-3">
-              🐴 {result.fortune}
+               {result.fortune}
             </div>
             
             <h2 className="text-yellow-300 text-2xl font-bold mb-4">{name} 的马年祝福</h2>
@@ -104,7 +104,7 @@ export default function Home() {
             <p className="text-yellow-100/90 text-sm leading-relaxed mb-4">{result.blessing}</p>
             
             <div className="border-t border-yellow-400/20 pt-3 mt-3">
-              <p className="text-xs text-yellow-200/50">🐴 马上有福 · AI 专属祝福 · 2026马年</p>
+              <p className="text-xs text-yellow-200/50"> 马上有福 · AI 专属祝福 · 2026马年</p>
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function Home() {
         {/* 生成的图片预览 */}
         {savedImage && (
           <div className="mt-4 max-w-sm w-full mx-auto">
-            <p className="text-yellow-300 text-sm text-center mb-2">✅ 图片已生成！长按下方图片保存</p>
+            <p className="text-yellow-300 text-sm text-center mb-2"> 图片已生成！长按下方图片保存</p>
             <img src={savedImage} alt="祝福卡" className="w-full rounded-xl shadow-lg" />
           </div>
         )}
@@ -124,7 +124,7 @@ export default function Home() {
               disabled={saving}
               className="bg-yellow-500 hover:bg-yellow-400 disabled:opacity-50 text-red-900 font-bold px-6 py-3 rounded-full shadow-lg transition active:scale-95"
             >
-              {saving ? '⏳ 生成中...' : '📸 生成图片保存'}
+              {saving ? ' 生成中...' : ' 生成图片保存'}
             </button>
           ) : (
             <a
@@ -132,7 +132,7 @@ export default function Home() {
               download={`${name}-马年祝福.png`}
               className="bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3 rounded-full shadow-lg transition active:scale-95"
             >
-              💾 下载图片
+               下载图片
             </a>
           )}
           
@@ -140,7 +140,7 @@ export default function Home() {
             onClick={() => { setResult(null); setName(''); setSavedImage(null) }}
             className="bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-full backdrop-blur transition"
           >
-            🐴 再来一个
+             再来一个
           </button>
         </div>
       </div>
@@ -150,10 +150,10 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6">
       <div className="text-center mb-8">
-        <div className="text-8xl mb-4">🐴</div>
+        <div className="text-8xl mb-4"></div>
         <h1 className="text-white text-4xl font-bold mb-2">马上有福</h1>
         <p className="text-white/80 text-lg">AI 为你写一首专属马年藏头诗</p>
-        <p className="text-yellow-300/70 text-sm mt-1">每个人的祝福都独一无二 ✨</p>
+        <p className="text-yellow-300/70 text-sm mt-1">每个人的祝福都独一无二 </p>
       </div>
 
       <div className="w-full max-w-xs">
@@ -172,12 +172,12 @@ export default function Home() {
           disabled={!name.trim()}
           className="w-full mt-4 bg-yellow-500 hover:bg-yellow-400 disabled:opacity-50 text-red-900 font-bold text-lg px-6 py-4 rounded-2xl shadow-lg transition active:scale-95"
         >
-          ✨ 生成我的马年祝福
+           生成我的马年祝福
         </button>
       </div>
 
       <a href="/sticker" className="text-yellow-300/70 text-sm mt-6 hover:text-yellow-300 transition">
-        🤪 去做马年表情包 →
+         去做马年表情包 →
       </a>
       <p className="text-white/40 text-xs mt-4">AI 藏头诗 + AI 骏马图 · 千人千面</p>
     </div>

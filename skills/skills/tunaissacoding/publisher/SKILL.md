@@ -11,7 +11,7 @@ Generate adoption-optimized READMEs and publish to GitHub + ClawdHub with one co
 
 ---
 
-## ⚠️ Requirements
+##  Requirements
 
 - bash
 - `jq` (for JSON parsing)
@@ -21,7 +21,7 @@ Generate adoption-optimized READMEs and publish to GitHub + ClawdHub with one co
 
 ---
 
-## 📋 What It Does
+##  What It Does
 
 Automates the complete publishing workflow:
 
@@ -43,7 +43,7 @@ Automates the complete publishing workflow:
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ```bash
 clawdhub install skill-publisher
@@ -51,7 +51,7 @@ clawdhub install skill-publisher
 
 ---
 
-## 💡 Usage
+##  Usage
 
 ```bash
 cd ~/clawd/skills/your-skill
@@ -66,7 +66,7 @@ The script will:
 
 ---
 
-## 🎯 One-Liner Generation Patterns
+##  One-Liner Generation Patterns
 
 The tool generates options using three proven patterns:
 
@@ -90,7 +90,7 @@ Example: "Automatically refresh tokens before they expire"
 
 ---
 
-## 📚 README Structure Generated
+##  README Structure Generated
 
 Follows the framework from GitHub's documentation best practices:
 
@@ -98,10 +98,10 @@ Follows the framework from GitHub's documentation best practices:
 - Title + subtitle
 - **The problem:** (1 sentence)
 - **This tool:** (1 sentence)
-- 📋 Requirements
-- ⚡ What It Does (outcome first, then features)
-- 🚀 Installation
-- 🔧 How It Works (result first, then process)
+-  Requirements
+-  What It Does (outcome first, then features)
+-  Installation
+-  How It Works (result first, then process)
 
 ### Optional Sections (collapsible)
 - Configuration options
@@ -111,7 +111,7 @@ Follows the framework from GitHub's documentation best practices:
 
 ---
 
-## 🔧 How It Works
+##  How It Works
 
 ### Phase 1: Analysis
 - Reads SKILL.md frontmatter (if exists)
@@ -143,7 +143,7 @@ Uses the template from `~/clawd/templates/README-template.md`:
 
 ---
 
-## 📁 File Structure Expected
+##  File Structure Expected
 
 ```
 your-skill/
@@ -157,7 +157,7 @@ your-skill/
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 No configuration needed. The tool auto-detects everything from:
 - `SKILL.md` (name, description, requirements)
@@ -166,7 +166,7 @@ No configuration needed. The tool auto-detects everything from:
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### "gh: command not found"
 
@@ -199,7 +199,7 @@ echo "1.0.0" > VERSION
 
 ---
 
-## 📖 References
+##  References
 
 - GitHub documentation best practices: https://docs.github.com/en/contributing/writing-for-github-docs/best-practices-for-github-docs
 - README template: `~/clawd/templates/README-template.md`

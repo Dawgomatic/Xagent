@@ -1,21 +1,21 @@
 # Word Reader 技能
 
-## 📋 概述
+##  概述
 
 Word Reader 是一个强大的 Word 文档读取工具，支持 .docx 和 .doc 格式，能够提取文本内容、表格数据、文档元信息，并提供多种输出格式。
 
-## ✨ 功能特性
+##  功能特性
 
-- ✅ **文本提取** - 提取文档中的所有段落文本
-- ✅ **表格解析** - 解析表格数据并转换为结构化格式
-- ✅ **元数据获取** - 读取文档属性（标题、作者、创建时间等）
-- ✅ **图片信息** - 获取文档中图片的基本信息
-- ✅ **多格式支持** - 支持 .docx 和 .doc 格式
-- ✅ **多种输出** - JSON、Text、Markdown 格式
-- ✅ **批量处理** - 支持处理整个目录的文档
-- ✅ **自动安装** - 一键安装所有依赖
+-  **文本提取** - 提取文档中的所有段落文本
+-  **表格解析** - 解析表格数据并转换为结构化格式
+-  **元数据获取** - 读取文档属性（标题、作者、创建时间等）
+-  **图片信息** - 获取文档中图片的基本信息
+-  **多格式支持** - 支持 .docx 和 .doc 格式
+-  **多种输出** - JSON、Text、Markdown 格式
+-  **批量处理** - 支持处理整个目录的文档
+-  **自动安装** - 一键安装所有依赖
 
-## 🚀 安装
+##  安装
 
 ### 自动安装（推荐）
 ```bash
@@ -39,7 +39,7 @@ brew install antiword
 chmod +x scripts/read_word.py
 ```
 
-## 📖 使用方法
+##  使用方法
 
 ### 基本用法
 ```bash
@@ -77,7 +77,7 @@ python3 scripts/read_word.py 文档.docx --extract tables
 python3 scripts/read_word.py 文档.docx --extract metadata
 ```
 
-## 📊 输出示例
+##  输出示例
 
 ### JSON 格式输出
 ```json
@@ -138,7 +138,7 @@ python3 scripts/read_word.py 文档.docx --extract metadata
 | 数据4 | 数据5 | 数据6 |
 ```
 
-## 🎯 应用场景
+##  应用场景
 
 - **文档内容分析** - 快速查看 Word 文档内容
 - **批量处理** - 处理大量文档
@@ -146,11 +146,11 @@ python3 scripts/read_word.py 文档.docx --extract metadata
 - **格式转换** - 转换为其他格式
 - **自动化工作流** - 集成到文档处理系统
 
-## 📤 发布到 ClawHub
+##  发布到 ClawHub
 
 要将此技能发布到 ClawHub，请参考 `PUBLISHING.md` 文件。
 
-## 🔧 故障排除
+##  故障排除
 
 ### 常见问题
 1. **ModuleNotFoundError**: 确保已安装 python-docx
@@ -162,10 +162,10 @@ python3 scripts/read_word.py 文档.docx --extract metadata
 - 大文档处理时建议使用 `--format json` 以获得更好的性能
 - 批量模式下建议使用 `--output` 参数将结果保存到文件
 
-## 🤝 贡献
+##  贡献
 
 欢迎提交 Issue 和 Pull Request 来改进这个技能！
 
-## 📄 许可证
+##  许可证
 
 MIT License

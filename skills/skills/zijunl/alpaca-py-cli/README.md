@@ -1,16 +1,16 @@
 # Alpaca Trading (Python CLI) - OpenClaw Agent Skill
 
-> **🤖 AI Agent Skill for OpenClaw**  
+> ** AI Agent Skill for OpenClaw**  
 > Enable your AI agent to trade stocks and crypto via Alpaca Markets API using natural language commands.
 
-> **⚠️ SECURITY NOTICE**  
+> ** SECURITY NOTICE**  
 > This skill requires **user interaction** for setup. Setup modifies shell configuration files and stores API keys as environment variables. Do NOT run `alpaca init` autonomously without user consent.
 
 [![ClawHub](https://img.shields.io/badge/ClawHub-alpaca--py--cli-blue)](https://clawhub.ai/skills/alpaca-py-cli)
 [![GitHub](https://img.shields.io/badge/GitHub-zijunl%2Falpaca--py--cli-green)](https://github.com/zijunl/alpaca-py-cli)
 [![Version](https://img.shields.io/badge/version-1.6.1-orange)](https://clawhub.ai/skills/alpaca-py-cli)
 
-## 🤖 What is this?
+##  What is this?
 
 This is an **OpenClaw Agent Skill** that gives your AI assistant the ability to:
 - Check stock prices and market status
@@ -37,7 +37,7 @@ You: "Buy 10 shares"
 Agent: *runs alpaca buy AAPL 10* "✓ Order placed for 10 shares of AAPL"
 ```
 
-## ⚠️ Security & Setup Requirements
+##  Security & Setup Requirements
 
 **IMPORTANT - READ BEFORE INSTALLING:**
 
@@ -51,13 +51,13 @@ When you run `alpaca init`:
 
 ### Security Considerations
 
-✅ **Good:**
+ **Good:**
 - API keys stored as environment variables (standard practice)
 - Secret key input is hidden during entry
 - Paper trading by default (virtual money, no risk)
 - User must explicitly enter keys (not auto-fetched)
 
-⚠️ **Be Aware:**
+ **Be Aware:**
 - Keys in shell config are accessible to any process in that shell
 - Agents with shell access can read environment variables
 - Setup modifies your shell configuration files
@@ -86,21 +86,21 @@ When you run `alpaca init`:
 - Let the user run setup commands themselves when possible
 
 
-## ✨ Key Features
+##  Key Features
 
-- 📈 **Real-time stock quotes** - Get current prices instantly
-- 💼 **Portfolio management** - Track your holdings and performance
-- 📊 **Account information** - View balance, buying power, P&L
-- 🔄 **Order execution** - Buy/sell with market orders
-- 📅 **Market calendar** - See upcoming trading days
-- 📉 **Portfolio history** - Analyze performance over time
-- ⏰ **Market status** - Check if market is open/closed
-- 🤖 **Intelligent setup wizard** - `alpaca init` guides users through registration
-- 🔐 **Secure credentials** - Keys stored in shell config, not in code
-- 📝 **Paper trading** - Practice with $100k virtual money (no risk!)
-- 🎯 **Agent-optimized** - Minimal token usage, runtime guidance
+-  **Real-time stock quotes** - Get current prices instantly
+-  **Portfolio management** - Track your holdings and performance
+-  **Account information** - View balance, buying power, P&L
+-  **Order execution** - Buy/sell with market orders
+-  **Market calendar** - See upcoming trading days
+-  **Portfolio history** - Analyze performance over time
+-  **Market status** - Check if market is open/closed
+-  **Intelligent setup wizard** - `alpaca init` guides users through registration
+-  **Secure credentials** - Keys stored in shell config, not in code
+-  **Paper trading** - Practice with $100k virtual money (no risk!)
+-  **Agent-optimized** - Minimal token usage, runtime guidance
 
-## 🚀 Quick Install
+##  Quick Install
 
 ### Via ClawHub (Recommended for OpenClaw users)
 
@@ -118,7 +118,7 @@ brew install python@3.11
 /opt/homebrew/bin/pip3.11 install alpaca-py pytz
 ```
 
-## 🎯 Quick Start
+##  Quick Start
 
 ### For First-Time Users
 
@@ -141,10 +141,10 @@ alpaca account       # View your account
 alpaca quote AAPL    # Get stock price
 ```
 
-## 📚 Commands
+##  Commands
 
 ```bash
-alpaca init          # 🆕 Intelligent setup wizard (first-time users)
+alpaca init          #  Intelligent setup wizard (first-time users)
 alpaca auth          # Quick API key configuration
 alpaca clock         # Market status
 alpaca calendar      # Trading calendar
@@ -157,7 +157,7 @@ alpaca buy/sell      # Execute trades
 alpaca cancel/close  # Cancel/close positions
 ```
 
-## 🤖 For AI Agents
+##  For AI Agents
 
 This skill is designed specifically for AI agents like OpenClaw:
 
@@ -179,7 +179,7 @@ This skill is designed specifically for AI agents like OpenClaw:
 - Clear, parseable CLI output
 - Agent just needs to know which commands to run
 
-## 🔗 Links
+##  Links
 
 - **ClawHub**: https://clawhub.ai/skills/alpaca-py-cli
 - **GitHub**: https://github.com/zijunl/alpaca-py-cli
@@ -187,7 +187,7 @@ This skill is designed specifically for AI agents like OpenClaw:
 - **Alpaca Markets**: https://alpaca.markets
 - **Python SDK Docs**: https://alpaca.markets/docs/python-sdk/
 
-## 🛡️ Why This Skill?
+##  Why This Skill?
 
 **Designed for AI Agents:**
 - Token-efficient skill file
@@ -213,44 +213,44 @@ This skill is designed specifically for AI agents like OpenClaw:
 - Example workflows
 - Troubleshooting guide
 
-## 🆚 Differences from Other Alpaca Skills
+##  Differences from Other Alpaca Skills
 
 | Skill | Implementation | Setup | Agent-Optimized |
 |-------|---------------|-------|-----------------|
-| **alpaca-py-cli** (this) | Python CLI | `alpaca init` wizard | ✅ Yes |
-| alpaca-trading | Rust CLI (apcacli) | Manual | ❌ No |
-| alpaca | Python scripts | Manual | ❌ No |
+| **alpaca-py-cli** (this) | Python CLI | `alpaca init` wizard |  Yes |
+| alpaca-trading | Rust CLI (apcacli) | Manual |  No |
+| alpaca | Python scripts | Manual |  No |
 
-## 🔒 Safety & Security
+##  Safety & Security
 
-- ✅ Paper trading by default (virtual money)
-- ✅ API keys stored securely in shell config
-- ✅ Secret key input is hidden
-- ✅ Market orders only (reduces complexity)
-- ✅ Confirmation required for `close-all`
-- ✅ Agent can't access keys directly
-- ✅ Clear security reminders during setup
+-  Paper trading by default (virtual money)
+-  API keys stored securely in shell config
+-  Secret key input is hidden
+-  Market orders only (reduces complexity)
+-  Confirmation required for `close-all`
+-  Agent can't access keys directly
+-  Clear security reminders during setup
 
-## 📖 Documentation
+##  Documentation
 
 - **Quick Start**: See above
 - **Full Documentation**: [SKILL.md](SKILL.md)
 - **Setup Guide**: Run `alpaca init` for interactive guide
 - **Troubleshooting**: See SKILL.md
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please open an issue or PR on GitHub.
 
-## 📄 License
+##  License
 
 MIT License - Free to use, modify, and distribute
 
-## 👤 Author
+##  Author
 
 Created for the OpenClaw community by [@zijunl](https://github.com/zijunl)
 
-## 💬 Support
+##  Support
 
 - GitHub Issues: https://github.com/zijunl/alpaca-py-cli/issues
 - OpenClaw Discord: https://discord.com/invite/clawd
@@ -259,8 +259,8 @@ Created for the OpenClaw community by [@zijunl](https://github.com/zijunl)
 ---
 
 **Latest Updates (v1.6.0):**
-- 🎯 Major refactor: Moved detailed guidance to CLI runtime
-- 📉 Reduced token usage by ~250 lines
-- ✨ Enhanced `alpaca init` with step-by-step instructions
-- 🤖 Better agent experience with minimal skill file
-- 📋 Clear progress indicators and formatted output
+-  Major refactor: Moved detailed guidance to CLI runtime
+-  Reduced token usage by ~250 lines
+-  Enhanced `alpaca init` with step-by-step instructions
+-  Better agent experience with minimal skill file
+-  Clear progress indicators and formatted output

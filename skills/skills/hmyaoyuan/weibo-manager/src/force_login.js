@@ -70,7 +70,7 @@ const TARGET_CHAT_ID = process.argv[2];
         // Send QR Code to user
         const msg = JSON.stringify({
             zh_cn: {
-                title: "请扫码登录微博 📱",
+                title: "请扫码登录微博 ",
                 content: [
                     [{ tag: "text", text: "这是刚刚生成的登录二维码，请使用微博APP扫码（有效期约1分钟）：" }],
                     [{ tag: "img", image_key: imageKey }],
@@ -102,7 +102,7 @@ const TARGET_CHAT_ID = process.argv[2];
         if (loggedIn) {
             const successMsg = JSON.stringify({
                 zh_cn: {
-                    title: "登录成功！🎉",
+                    title: "登录成功！",
                     content: [[{ tag: "text", text: "Cookie 已保存。现在可以使用微博技能了！" }]]
                 }
             });
@@ -110,7 +110,7 @@ const TARGET_CHAT_ID = process.argv[2];
         } else {
             const failMsg = JSON.stringify({
                 zh_cn: {
-                    title: "登录超时 ❌",
+                    title: "登录超时 ",
                     content: [[{ tag: "text", text: "等待扫码超时，请重新触发指令。" }]]
                 }
             });
@@ -121,7 +121,7 @@ const TARGET_CHAT_ID = process.argv[2];
         console.error('[Weibo] Error:', error);
         const errorMsg = JSON.stringify({
              zh_cn: {
-                 title: "登录流程出错 ⚠️",
+                 title: "登录流程出错 ",
                  content: [[{ tag: "text", text: `错误信息: ${error.message}` }]]
              }
          });

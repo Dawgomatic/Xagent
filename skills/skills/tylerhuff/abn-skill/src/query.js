@@ -46,7 +46,7 @@ async function querySites(filters = {}) {
   filtered.sort((a, b) => (b.da || 0) - (a.da || 0));
   
   for (const site of filtered) {
-    console.log(`📍 ${site.name}`);
+    console.log(` ${site.name}`);
     console.log(`   URL: ${site.url}`);
     console.log(`   Location: ${site.city}, ${site.state}`);
     console.log(`   Industry: ${site.industry}`);

@@ -2,7 +2,7 @@
 
 Un skill OpenClaw complet pour gérer Mantis Bug Tracker via son API REST officielle.
 
-## 🚀 Installation et Configuration
+##  Installation et Configuration
 
 ### Variables d'Environnement Requises
 
@@ -18,7 +18,7 @@ MANTIS_API_TOKEN=your_api_token_here
 3. Cliquez sur **Créer un Token API**
 4. Copiez le token généré dans votre variable d'environnement
 
-## 📖 Guide de Démarrage Rapide
+##  Guide de Démarrage Rapide
 
 ### Exemple 1 : Lister tous les tickets
 ```
@@ -44,7 +44,7 @@ User: "Affiche tous les projets"
 → GET /projects
 ```
 
-## 🔄 Gestion Multi-Instances
+##  Gestion Multi-Instances
 
 ### Basculer Entre Instances
 
@@ -85,7 +85,7 @@ User: "Reviens à l'instance par défaut"
 2. `user_token`
 3. `MANTIS_API_TOKEN` (env)
 
-## 📋 Exemples de Cas d'Usage
+##  Exemples de Cas d'Usage
 
 ### Cas 1 : Gestion de Tickets
 
@@ -214,41 +214,41 @@ User: "Ajoute une note avec un fichier log au ticket 123"
 }
 ```
 
-## 🎯 Fonctionnalités Principales
+##  Fonctionnalités Principales
 
 ### Issues (Tickets)
-- ✅ CRUD complet (Create, Read, Update, Delete)
-- ✅ Monitoring/unmonitoring
-- ✅ Gestion des tags
-- ✅ Relations entre tickets
-- ✅ Pièces jointes
-- ✅ Notes avec time tracking
-- ✅ Filtres et recherches avancées
+-  CRUD complet (Create, Read, Update, Delete)
+-  Monitoring/unmonitoring
+-  Gestion des tags
+-  Relations entre tickets
+-  Pièces jointes
+-  Notes avec time tracking
+-  Filtres et recherches avancées
 
 ### Projects
-- ✅ CRUD complet
-- ✅ Sous-projets
-- ✅ Versions/releases
-- ✅ Gestion des membres avec niveaux d'accès
+-  CRUD complet
+-  Sous-projets
+-  Versions/releases
+-  Gestion des membres avec niveaux d'accès
 
 ### Users
-- ✅ CRUD complet
-- ✅ Réinitialisation de mot de passe
-- ✅ Génération de tokens API
-- ✅ Gestion des permissions
+-  CRUD complet
+-  Réinitialisation de mot de passe
+-  Génération de tokens API
+-  Gestion des permissions
 
 ### Configuration
-- ✅ Lecture/modification des options
-- ✅ Localisation multilingue
-- ✅ Impersonation d'utilisateur
+-  Lecture/modification des options
+-  Localisation multilingue
+-  Impersonation d'utilisateur
 
 ### Multi-Instances
-- ✅ Basculement dynamique entre instances
-- ✅ Gestion de contexte (temporary/session/env)
-- ✅ Support de plusieurs clients/environnements
-- ✅ Comparaison et synchronisation cross-instance
+-  Basculement dynamique entre instances
+-  Gestion de contexte (temporary/session/env)
+-  Support de plusieurs clients/environnements
+-  Comparaison et synchronisation cross-instance
 
-## 📊 Structure des Données
+##  Structure des Données
 
 ### Statuts d'Issues
 - `new` (10) - Nouveau
@@ -285,7 +285,7 @@ User: "Ajoute une note avec un fichier log au ticket 123"
 - `manager` (70) - Manager
 - `administrator` (90) - Administrateur
 
-## ⚠️ Gestion des Erreurs
+##  Gestion des Erreurs
 
 Le skill gère automatiquement les erreurs HTTP :
 
@@ -295,7 +295,7 @@ Le skill gère automatiquement les erreurs HTTP :
 - **422 Unprocessable Entity** - Erreur de validation
 - **500 Internal Server Error** - Erreur serveur
 
-## 🔒 Sécurité
+##  Sécurité
 
 ### Bonnes Pratiques
 1. **Ne jamais commit les tokens** - Utilisez des variables d'environnement
@@ -311,14 +311,14 @@ User: "Agis comme john.doe pour cette opération"
 → Perform operation
 ```
 
-## 📖 Ressources Supplémentaires
+##  Ressources Supplémentaires
 
 - **Documentation API** : `https://your-mantis-instance.com/api/rest/swagger.yaml`
 - **GitHub Mantis BT** : https://github.com/mantisbt/mantisbt
 - **Documentation Mantis BT** : https://mantisbt.org/documentation.php
 - **Postman Collection** : Contactez votre administrateur Mantis
 
-## 🆘 Support et Dépannage
+##  Support et Dépannage
 
 ### Problème : Token invalide (401)
 **Solution :** Vérifiez que `MANTIS_API_TOKEN` est correctement défini et que le token n'a pas expiré.
@@ -338,7 +338,7 @@ User: "Agis comme john.doe pour cette opération"
 2. Testez l'accès avec curl : `curl -H "Authorization: Bearer YOUR_TOKEN" YOUR_BASE_URL/users/me`
 3. Vérifiez les pare-feu et restrictions réseau
 
-## 🔍 Vérification de la Connexion
+##  Vérification de la Connexion
 
 Pour tester votre configuration :
 ```
@@ -346,17 +346,17 @@ User: "Affiche mes informations utilisateur"
 → GET /users/me
 ```
 
-Si cela fonctionne, votre configuration est correcte ! ✅
+Si cela fonctionne, votre configuration est correcte ! 
 
-## 📝 Notes de Version
+##  Notes de Version
 
 ### v1.0 - Février 2026
-- ✅ Support complet de l'API REST Mantis BT
-- ✅ Gestion multi-instances avec résolution contextuelle
-- ✅ 60+ endpoints documentés
-- ✅ Exemples complets pour tous les cas d'usage
-- ✅ Gestion robuste des erreurs
-- ✅ Documentation exhaustive
+-  Support complet de l'API REST Mantis BT
+-  Gestion multi-instances avec résolution contextuelle
+-  60+ endpoints documentés
+-  Exemples complets pour tous les cas d'usage
+-  Gestion robuste des erreurs
+-  Documentation exhaustive
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: telnyx-network
 description: Private mesh networking and public IP exposure via Telnyx WireGuard infrastructure. Connect nodes securely or expose services to the internet.
-metadata: {"openclaw":{"emoji":"🌐","requires":{"bins":["wg"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["wg"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
 ---
 
 # Telnyx Network
@@ -103,8 +103,8 @@ Find all registered nodes on the mesh:
 
 # Output:
 # NAME            IP              HOSTNAME             REGISTERED
-# home-server     172.27.0.1      macbook.local        2026-01-31 ✅
-# work-laptop     172.27.0.2      thinkpad             2026-01-31 ✅
+# home-server     172.27.0.1      macbook.local        2026-01-31 
+# work-laptop     172.27.0.2      thinkpad             2026-01-31 
 
 # JSON output for scripts
 ./discover.sh --json

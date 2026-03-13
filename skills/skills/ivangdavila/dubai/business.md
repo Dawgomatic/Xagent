@@ -2,7 +2,7 @@
 
 > Complete guide to starting a business in Dubai: Free Zones, Mainland, costs, and comparison with global hubs.
 
-## 🏛️ Business Structures: Overview
+##  Business Structures: Overview
 
 ### Three Setup Options
 
@@ -16,7 +16,7 @@
 
 ---
 
-## 🏝️ Free Zones Comparison
+##  Free Zones Comparison
 
 ### Premium Free Zones
 
@@ -61,11 +61,11 @@
 | **Total per visa** | **~6,000 + deposit** |
 
 **DMCC Advantages:**
-- ✅ World's largest free zone by members
-- ✅ JLT premium location
-- ✅ Crypto Centre for Web3 businesses
-- ✅ Strong banking relationships
-- ✅ Networking community
+-  World's largest free zone by members
+-  JLT premium location
+-  Crypto Centre for Web3 businesses
+-  Strong banking relationships
+-  Networking community
 
 ### DIFC (Dubai International Financial Centre)
 
@@ -85,11 +85,11 @@
 - Common law jurisdiction
 
 **DIFC Advantages:**
-- ✅ Common law (English) legal system
-- ✅ Independent courts (DIFC Courts)
-- ✅ DFSA regulatory framework
-- ✅ Premium financial hub address
-- ✅ Strong institutional credibility
+-  Common law (English) legal system
+-  Independent courts (DIFC Courts)
+-  DFSA regulatory framework
+-  Premium financial hub address
+-  Strong institutional credibility
 
 **Best for:** Funds, asset managers, fintech, family offices, legal/consulting
 
@@ -106,11 +106,11 @@
 | Office Space | 25,000 - 60,000/year | Minimum requirement |
 
 **JAFZA Advantages:**
-- ✅ Jebel Ali Port access (world's largest man-made port)
-- ✅ Industrial and warehouse facilities
-- ✅ Heavy manufacturing allowed
-- ✅ Excellent for import/export
-- ✅ Customs duty exemptions
+-  Jebel Ali Port access (world's largest man-made port)
+-  Industrial and warehouse facilities
+-  Heavy manufacturing allowed
+-  Excellent for import/export
+-  Customs duty exemptions
 
 ### IFZA (International Free Zone Authority)
 
@@ -124,17 +124,17 @@
 | 2 Visa Package | 25,000 - 35,000 | For small teams |
 
 **IFZA Advantages:**
-- ✅ Lowest cost entry point
-- ✅ Fast incorporation (3-5 days)
-- ✅ Up to 3 activities per license
-- ✅ Multi-year discounts
-- ✅ No physical office required (flexi-desk)
+-  Lowest cost entry point
+-  Fast incorporation (3-5 days)
+-  Up to 3 activities per license
+-  Multi-year discounts
+-  No physical office required (flexi-desk)
 
 **Best for:** Consultants, freelancers, e-commerce, holding companies
 
 ---
 
-## 🏙️ Mainland Company Setup
+##  Mainland Company Setup
 
 ### Overview
 
@@ -191,7 +191,7 @@
 
 ---
 
-## 💰 Tax Considerations
+##  Tax Considerations
 
 ### Corporate Tax (Effective June 2023)
 
@@ -239,7 +239,7 @@
 
 ---
 
-## 🌍 Dubai vs Singapore vs London
+##  Dubai vs Singapore vs London
 
 ### Business Setup Comparison
 
@@ -289,7 +289,7 @@
 
 ---
 
-## 📋 Setup Process Step-by-Step
+##  Setup Process Step-by-Step
 
 ### Free Zone Company (Example: IFZA)
 
@@ -341,7 +341,7 @@
 
 ---
 
-## 🏦 Banking Considerations
+##  Banking Considerations
 
 ### Ease of Banking by Free Zone
 
@@ -368,7 +368,7 @@
 
 ---
 
-## ✅ Checklist: Starting a Business in Dubai
+##  Checklist: Starting a Business in Dubai
 
 ### Pre-Setup
 - [ ] Define business activity
@@ -393,7 +393,7 @@
 
 ---
 
-## 🔑 Key Takeaways
+##  Key Takeaways
 
 1. **Free Zone is usually best** for foreign entrepreneurs (100% ownership, lower cost)
 2. **IFZA/Meydan for budget** (~$3,000-5,000 Year 1)

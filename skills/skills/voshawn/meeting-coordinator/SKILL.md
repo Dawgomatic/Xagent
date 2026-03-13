@@ -3,7 +3,7 @@ name: meeting-coordinator
 description: Executive scheduling assistant for meeting coordination (email, calendar, venues, confirmations).
 metadata:
   openclaw:
-    emoji: "📅"
+    emoji: ""
     requires:
       bins:
         - gog

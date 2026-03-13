@@ -19,7 +19,7 @@ Add credentials to TOOLS.md:
 
 Get an API key: Qlik Cloud → Profile icon → Profile settings → API keys → Generate new key
 
-## ⚡ When to Use What
+##  When to Use What
 
 | You Want... | Use This | Example |
 |-------------|----------|---------|
@@ -66,7 +66,7 @@ All scripts: `QLIK_TENANT="https://..." QLIK_API_KEY="..." bash scripts/<script>
 |--------|-------------|------|
 | `qlik-duplicates.sh` | Find duplicate apps (same name) | `[limit]` |
 
-### Insight Advisor ⭐ (Natural Language Queries)
+### Insight Advisor  (Natural Language Queries)
 | Script | Description | Args |
 |--------|-------------|------|
 | `qlik-insight.sh` | Ask questions in plain English, get **real data values** back | `"question" [app-id]` |
@@ -197,9 +197,9 @@ All scripts output JSON:
 
 The following features are **Qlik Cloud exclusive** (not available on Qlik Sense Enterprise on Windows):
 
-- ⚙️ **Automations** — Low-code workflow automation
-- 🤖 **AutoML** — Machine learning experiments & deployments  
-- 💬 **Qlik Answers** — AI-powered Q&A assistants
-- 🔔 **Data Alerts** — Threshold-based notifications
-- 🔗 **Lineage (QRI)** — Data flow visualization
-- 📊 **Managed Datasets** — Centralized data management
+-  **Automations** — Low-code workflow automation
+-  **AutoML** — Machine learning experiments & deployments  
+-  **Qlik Answers** — AI-powered Q&A assistants
+-  **Data Alerts** — Threshold-based notifications
+-  **Lineage (QRI)** — Data flow visualization
+-  **Managed Datasets** — Centralized data management

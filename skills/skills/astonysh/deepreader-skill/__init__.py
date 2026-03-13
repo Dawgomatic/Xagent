@@ -93,7 +93,7 @@ def run(text: str, **kwargs: Any) -> str:
         urls = extract_urls(text)
 
         if not urls:
-            return "🔍 No URL detected in your message."
+            return " No URL detected in your message."
 
         router = _get_router()
         storage = _get_storage()
@@ -109,7 +109,7 @@ def run(text: str, **kwargs: Any) -> str:
 
             if not parse_result.success:
                 error_msg = (
-                    f"❌ Failed to read **{url}**\n"
+                    f" Failed to read **{url}**\n"
                     f"   Reason: {parse_result.error}"
                 )
                 errors.append(error_msg)
@@ -120,7 +120,7 @@ def run(text: str, **kwargs: Any) -> str:
             try:
                 filepath = storage.save(parse_result)
                 success_msg = (
-                    f"✅ **{parse_result.title or 'Untitled'}**\n"
+                    f" **{parse_result.title or 'Untitled'}**\n"
                     f"   Source: {url}\n"
                     f"   Saved to: `{filepath}`\n"
                     f"   Content: {len(parse_result.content)} characters"
@@ -129,7 +129,7 @@ def run(text: str, **kwargs: Any) -> str:
                 logger.info("Successfully saved %s", filepath)
             except OSError as exc:
                 error_msg = (
-                    f"❌ Parsed **{url}** but failed to save.\n"
+                    f" Parsed **{url}** but failed to save.\n"
                     f"   Error: {exc}"
                 )
                 errors.append(error_msg)
@@ -139,13 +139,13 @@ def run(text: str, **kwargs: Any) -> str:
         response_parts: list[str] = []
 
         if results:
-            response_parts.append(f"📚 **DeepReader** — Processed {len(results)} URL(s):\n")
+            response_parts.append(f" **DeepReader** — Processed {len(results)} URL(s):\n")
             response_parts.extend(results)
 
         if errors:
             if results:
                 response_parts.append("\n---\n")
-            response_parts.append(f"⚠️ {len(errors)} URL(s) had issues:\n")
+            response_parts.append(f" {len(errors)} URL(s) had issues:\n")
             response_parts.extend(errors)
 
         return "\n\n".join(response_parts)
@@ -153,6 +153,6 @@ def run(text: str, **kwargs: Any) -> str:
     except Exception as exc:  # noqa: BLE001
         logger.exception("DeepReader encountered an unexpected error")
         return (
-            f"🚨 DeepReader encountered an unexpected error: {exc}\n"
+            f" DeepReader encountered an unexpected error: {exc}\n"
             "The agent remains operational. Please try again or check the logs."
         )

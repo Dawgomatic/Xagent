@@ -2,7 +2,7 @@
 name: antigravity-quota
 version: 1.1.0
 description: Check Antigravity account quotas for Claude and Gemini models. Shows remaining quota and reset times with ban detection.
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Antigravity Quota Skill
@@ -50,23 +50,23 @@ TZ=Europe/London node check-quota.js
 
 ### Text mode
 ```
-📊 Antigravity Quota Check - 2026-01-08T07:08:29.268Z
-⏰ Each model type resets every 5 hours
-🌍 Times shown in: Asia/Kolkata
+ Antigravity Quota Check - 2026-01-08T07:08:29.268Z
+ Each model type resets every 5 hours
+ Times shown in: Asia/Kolkata
 
 Found 9 account(s)
 
-🔍 user@gmail.com (project-abc123)
+ user@gmail.com (project-abc123)
    claude-opus-4-5-thinking: 65.3% (resets 1:48 PM)
    gemini-3-flash: 95.0% (resets 11:41 AM)
 ```
 
 ### Table mode (`--table`)
 Sorted by Claude quota remaining, with emoji indicators:
-- 🟢 80%+ remaining
-- 🟡 50-79% remaining  
-- 🟠 20-49% remaining
-- 🔴 <20% remaining
+-  80%+ remaining
+-  50-79% remaining  
+-  20-49% remaining
+-  <20% remaining
 
 ## Integration with tablesnap
 

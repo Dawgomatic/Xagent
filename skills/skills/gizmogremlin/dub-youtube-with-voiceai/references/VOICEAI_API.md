@@ -71,7 +71,7 @@ API path prefix: `/api/v1`
 
 | Field          | Type   | Required | Default                     | Description                         |
 |----------------|--------|----------|-----------------------------|-------------------------------------|
-| `text`         | string | ✅       | —                           | Text to synthesize (max 5000 chars) |
+| `text`         | string |        | —                           | Text to synthesize (max 5000 chars) |
 | `voice_id`     | string | No       | built-in default            | Voice UUID or omit for default      |
 | `audio_format` | string | No       | `mp3`                       | `mp3`, `wav`, `pcm`, etc.           |
 | `temperature`  | number | No       | 1.0                         | Variation (0.0–2.0)                 |

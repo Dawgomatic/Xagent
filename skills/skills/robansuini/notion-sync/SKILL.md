@@ -244,7 +244,7 @@ Parsed 294 blocks from markdown
 ✓ Appended 100 blocks (100-200)
 ✓ Appended 94 blocks (200-294)
 
-✅ Successfully created Notion page!
+ Successfully created Notion page!
 ```
 
 ### 6. Notion → Markdown Sync

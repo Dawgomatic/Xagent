@@ -99,7 +99,7 @@ def api_request(path, api_key, method="GET", data=None, content_type=None, param
             last_err = e
             if e.code in _RETRY_CODES and attempt < _MAX_RETRIES:
                 delay = (attempt + 1) * 2  # 2s, 4s
-                print(f"⚠  HTTP {e.code} — retrying in {delay}s (attempt {attempt + 1}/{_MAX_RETRIES})...", file=sys.stderr)
+                print(f"  HTTP {e.code} — retrying in {delay}s (attempt {attempt + 1}/{_MAX_RETRIES})...", file=sys.stderr)
                 time.sleep(delay)
                 continue
             err_body = e.read().decode("utf-8") if e.fp else ""
@@ -114,7 +114,7 @@ def api_request(path, api_key, method="GET", data=None, content_type=None, param
             last_err = e
             if attempt < _MAX_RETRIES:
                 delay = (attempt + 1) * 2
-                print(f"⚠  Network error — retrying in {delay}s (attempt {attempt + 1}/{_MAX_RETRIES})...", file=sys.stderr)
+                print(f"  Network error — retrying in {delay}s (attempt {attempt + 1}/{_MAX_RETRIES})...", file=sys.stderr)
                 time.sleep(delay)
                 continue
             if _json_mode:
@@ -317,10 +317,10 @@ def cmd_get(args):
             if ctype == "attachment":
                 ct = cd.get("contentType", "?")
                 fname = cd.get("filename", cd.get("title", "?"))
-                print(f"  📎 {fname} [{ct}]")
+                print(f"   {fname} [{ct}]")
             elif ctype == "note":
                 note = cd.get("note", "")[:100]
-                print(f"  📝 Note: {note}...")
+                print(f"   Note: {note}...")
             else:
                 print(f"  {ctype}: {cd.get('title', '?')}")
 
@@ -366,10 +366,10 @@ def cmd_children(args):
             ct = cd.get("contentType", "?")
             fname = cd.get("filename", cd.get("title", "?"))
             link = cd.get("linkMode", "?")
-            print(f"  📎 [{cd['key']}] {fname} [{ct}] (link: {link})")
+            print(f"   [{cd['key']}] {fname} [{ct}] (link: {link})")
         elif ctype == "note":
             note = cd.get("note", "")[:200]
-            print(f"  📝 [{cd['key']}] {note}")
+            print(f"   [{cd['key']}] {note}")
         else:
             print(f"  [{cd['key']}] {ctype}: {cd.get('title', '?')}")
 
@@ -487,7 +487,7 @@ def cmd_add_identifier(args):
     if not getattr(args, "force", False) and new_items:
         existing = _check_duplicate_by_metadata(api_key, prefix, new_items[0], identifier, id_type)
         if existing:
-            print(f"⚠️  Already in library: {fmt_item_short(existing)}")
+            print(f"  Already in library: {fmt_item_short(existing)}")
             print(f"    Use --force to add anyway.")
             return "duplicate"
 
@@ -519,12 +519,12 @@ def cmd_add_identifier(args):
 
     if success:
         for idx, item in success.items():
-            print(f"✅ Added: {item['data'].get('title', 'untitled')} [{item['key']}]")
+            print(f" Added: {item['data'].get('title', 'untitled')} [{item['key']}]")
         if not failed:
             return "added"
     if failed:
         for idx, err in failed.items():
-            print(f"❌ Failed: {err.get('message', 'unknown error')}", file=sys.stderr)
+            print(f" Failed: {err.get('message', 'unknown error')}", file=sys.stderr)
         return "failed"
     return "added"
 
@@ -604,11 +604,11 @@ def cmd_check_pdfs(args):
     without_pdf = [parents[k] for k in parents if k not in pdf_parents]
 
     total = len(with_pdf) + len(without_pdf)
-    print(f"\n📊 PDF Attachment Report")
+    print(f"\n PDF Attachment Report")
     print(f"{'='*50}")
     print(f"Total items: {total}")
-    print(f"With PDF:    {len(with_pdf)} ✅")
-    print(f"Without PDF: {len(without_pdf)} ❌")
+    print(f"With PDF:    {len(with_pdf)} ")
+    print(f"Without PDF: {len(without_pdf)} ")
     print()
 
     if without_pdf:
@@ -688,19 +688,19 @@ def cmd_crossref(args):
             if not matched:
                 missing.append((author, year))
 
-    print(f"\n📊 Cross-Reference Report")
+    print(f"\n Cross-Reference Report")
     print(f"{'='*50}")
     print(f"Citations in file: {len(citations)}")
-    print(f"Found in library:  {len(found)} ✅")
-    print(f"Missing:           {len(missing)} ❌")
+    print(f"Found in library:  {len(found)} ")
+    print(f"Missing:           {len(missing)} ")
 
     if found:
-        print(f"\n✅ Found ({len(found)}):")
+        print(f"\n Found ({len(found)}):")
         for author, year, item in found:
             print(f"  {author} ({year}) → {item['data'].get('key', '?')}")
 
     if missing:
-        print(f"\n❌ Missing ({len(missing)}):")
+        print(f"\n Missing ({len(missing)}):")
         for author, year in missing:
             print(f"  {author} ({year})")
 
@@ -758,7 +758,7 @@ def _crossref_search(title, first_author):
             data = json.loads(resp.read().decode("utf-8"))
         return data.get("message", {}).get("items", [])
     except (urllib.error.URLError, urllib.error.HTTPError, Exception) as e:
-        print(f"    ⚠  CrossRef request failed: {e}", file=sys.stderr)
+        print(f"      CrossRef request failed: {e}", file=sys.stderr)
         return []
 
 
@@ -863,7 +863,7 @@ def cmd_find_dois(args):
         print(f"[{i}/{len(candidates)}] {fmt_item_short(item)}")
 
         if not title:
-            print("    ⏭  No title, skipping")
+            print("      No title, skipping")
             unmatched += 1
             continue
 
@@ -879,33 +879,33 @@ def cmd_find_dois(args):
 
         if best_match:
             doi, info = best_match
-            print(f"    ✅ Match: {doi} (title similarity: {info['similarity']}%)")
+            print(f"     Match: {doi} (title similarity: {info['similarity']}%)")
             matched += 1
 
             if apply_mode:
                 try:
                     version = item.get("version", item.get("data", {}).get("version", 0))
                     _patch_item_field(api_key, prefix, key, "DOI", doi, version)
-                    print(f"    📝 DOI written to Zotero")
+                    print(f"     DOI written to Zotero")
                 except urllib.error.HTTPError as e:
-                    print(f"    ❌ Failed to write DOI: {e.code} {e.reason}", file=sys.stderr)
+                    print(f"     Failed to write DOI: {e.code} {e.reason}", file=sys.stderr)
                 except Exception as e:
-                    print(f"    ❌ Failed to write DOI: {e}", file=sys.stderr)
+                    print(f"     Failed to write DOI: {e}", file=sys.stderr)
         else:
-            print(f"    ❌ No confident match found")
+            print(f"     No confident match found")
             unmatched += 1
 
     # Summary
     print(f"\n{'='*50}")
-    print(f"📊 find-dois Summary")
+    print(f" find-dois Summary")
     print(f"{'='*50}")
     print(f"Processed:          {len(candidates)}")
-    print(f"Matched:            {matched} ✅")
-    print(f"Unmatched:          {unmatched} ❌")
-    print(f"Already had DOI:    {skipped_has_doi} ⏭️")
-    print(f"Wrong item type:    {skipped_wrong_type} ⏭️")
+    print(f"Matched:            {matched} ")
+    print(f"Unmatched:          {unmatched} ")
+    print(f"Already had DOI:    {skipped_has_doi} ")
+    print(f"Wrong item type:    {skipped_wrong_type} ")
     if matched and not apply_mode:
-        print(f"\n💡 This was a dry run. Use --apply to write DOIs to Zotero.")
+        print(f"\n This was a dry run. Use --apply to write DOIs to Zotero.")
 
 
 # --- fetch-pdfs helpers ---
@@ -1074,7 +1074,7 @@ def _upload_pdf_to_zotero(api_key, prefix, parent_key, filepath, filename):
         with urllib.request.urlopen(auth_req, timeout=30) as resp:
             auth_data = json.loads(resp.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
-        print(f"    ⚠  Upload auth failed: {e.code}", file=sys.stderr)
+        print(f"      Upload auth failed: {e.code}", file=sys.stderr)
         return False
 
     if auth_data.get("exists"):
@@ -1098,7 +1098,7 @@ def _upload_pdf_to_zotero(api_key, prefix, parent_key, filepath, filename):
         with urllib.request.urlopen(upload_req, timeout=120) as resp:
             pass
     except urllib.error.HTTPError as e:
-        print(f"    ⚠  S3 upload failed: {e.code}", file=sys.stderr)
+        print(f"      S3 upload failed: {e.code}", file=sys.stderr)
         return False
 
     # Step 4: Register upload
@@ -1118,7 +1118,7 @@ def _upload_pdf_to_zotero(api_key, prefix, parent_key, filepath, filename):
             pass
         return True
     except urllib.error.HTTPError as e:
-        print(f"    ⚠  Upload registration failed: {e.code}", file=sys.stderr)
+        print(f"      Upload registration failed: {e.code}", file=sys.stderr)
         return False
 
 
@@ -1243,13 +1243,13 @@ def cmd_fetch_pdfs(args):
         result = _find_pdf_source(doi, sources)
 
         if not result:
-            print(f"    ❌ No open-access PDF found")
+            print(f"     No open-access PDF found")
             failed += 1
             continue
 
         pdf_url, source_url, source_name = result
         found += 1
-        print(f"    ✅ Found via {source_name}: {pdf_url[:80]}...")
+        print(f"     Found via {source_name}: {pdf_url[:80]}...")
 
         if dry_run:
             continue
@@ -1264,53 +1264,53 @@ def cmd_fetch_pdfs(args):
 
             if pdf_downloaded:
                 file_size = os.path.getsize(tmp_path)
-                print(f"    📥 Downloaded ({file_size:,} bytes)")
+                print(f"     Downloaded ({file_size:,} bytes)")
 
                 # Save locally if requested
                 if download_dir:
                     local_path = os.path.join(download_dir, pdf_filename)
                     shutil.copy2(tmp_path, local_path)
-                    print(f"    💾 Saved: {local_path}")
+                    print(f"     Saved: {local_path}")
 
                 # Upload to Zotero storage if requested
                 if upload_mode:
                     if _upload_pdf_to_zotero(api_key, prefix, key, tmp_path, pdf_filename):
-                        print(f"    📎 Uploaded to Zotero storage")
+                        print(f"     Uploaded to Zotero storage")
                         downloaded += 1
                     else:
-                        print(f"    ⚠  Upload to Zotero failed, creating linked URL instead")
+                        print(f"      Upload to Zotero failed, creating linked URL instead")
                         if _create_linked_url_attachment(api_key, prefix, key, f"{title}.pdf", source_url):
-                            print(f"    🔗 Linked URL attachment created")
+                            print(f"     Linked URL attachment created")
                             downloaded += 1
                         else:
-                            print(f"    ❌ Failed to create attachment")
+                            print(f"     Failed to create attachment")
                     continue
             else:
-                print(f"    ⚠  Direct download blocked (anti-bot), creating linked URL")
+                print(f"      Direct download blocked (anti-bot), creating linked URL")
 
             # Default: create linked URL attachment (works for both successful and failed downloads)
             if _create_linked_url_attachment(api_key, prefix, key, f"{title}.pdf", source_url):
-                print(f"    🔗 Linked URL attachment created")
+                print(f"     Linked URL attachment created")
                 downloaded += 1
             else:
-                print(f"    ❌ Failed to create attachment")
+                print(f"     Failed to create attachment")
         finally:
             # Cleanup temp
             shutil.rmtree(tmp_dir, ignore_errors=True)
 
     # Summary
     print(f"\n{'='*50}")
-    print(f"📊 fetch-pdfs Summary")
+    print(f" fetch-pdfs Summary")
     print(f"{'='*50}")
     print(f"Processed:          {len(candidates)}")
-    print(f"PDF found:          {found} ✅")
+    print(f"PDF found:          {found} ")
     if not dry_run:
-        print(f"Attached:           {downloaded} 📎")
-    print(f"Not found:          {failed} ❌")
-    print(f"No DOI:             {skipped_no_doi} ⏭️")
-    print(f"Already had PDF:    {skipped_has_pdf} ⏭️")
+        print(f"Attached:           {downloaded} ")
+    print(f"Not found:          {failed} ")
+    print(f"No DOI:             {skipped_no_doi} ")
+    print(f"Already had PDF:    {skipped_has_pdf} ")
     if dry_run:
-        print(f"\n💡 This was a dry run. Remove --dry-run to fetch and attach PDFs.")
+        print(f"\n This was a dry run. Remove --dry-run to fetch and attach PDFs.")
 
 
 def cmd_delete(args):
@@ -1326,7 +1326,7 @@ def cmd_delete(args):
         try:
             item, headers = api_get_json(f"{prefix}/items/{key}", api_key)
         except SystemExit:
-            print(f"❌ Item {key} not found", file=sys.stderr)
+            print(f" Item {key} not found", file=sys.stderr)
             continue
 
         version = headers.get("Last-Modified-Version", "0")
@@ -1352,9 +1352,9 @@ def cmd_delete(args):
             try:
                 with urllib.request.urlopen(req, timeout=30) as resp:
                     pass
-                print(f"🗑️  Permanently deleted: {title} [{key}]")
+                print(f"  Permanently deleted: {title} [{key}]")
             except urllib.error.HTTPError as e:
-                print(f"❌ Failed to delete {key}: {e.code} {e.reason}", file=sys.stderr)
+                print(f" Failed to delete {key}: {e.code} {e.reason}", file=sys.stderr)
         else:
             # Move to trash via PATCH (default — recoverable)
             patch_data = {"deleted": 1}
@@ -1370,9 +1370,9 @@ def cmd_delete(args):
             try:
                 with urllib.request.urlopen(req, timeout=30) as resp:
                     pass
-                print(f"🗑️  Trashed: {title} [{key}]")
+                print(f"  Trashed: {title} [{key}]")
             except urllib.error.HTTPError as e:
-                print(f"❌ Failed to trash {key}: {e.code} {e.reason}", file=sys.stderr)
+                print(f" Failed to trash {key}: {e.code} {e.reason}", file=sys.stderr)
 
 
 def cmd_update(args):
@@ -1453,10 +1453,10 @@ def cmd_update(args):
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
             pass
-        print("✅ Updated successfully.")
+        print(" Updated successfully.")
     except urllib.error.HTTPError as e:
         err_body = e.read().decode("utf-8") if e.fp else ""
-        print(f"❌ Update failed: {e.code} {e.reason}", file=sys.stderr)
+        print(f" Update failed: {e.code} {e.reason}", file=sys.stderr)
         if err_body:
             print(err_body[:500], file=sys.stderr)
 
@@ -1547,11 +1547,11 @@ def cmd_batch_add(args):
 
         time.sleep(1)  # Be polite to the API
 
-    print(f"\n📊 Batch Summary")
+    print(f"\n Batch Summary")
     print(f"{'='*30}")
-    print(f"Added:   {added} ✅")
-    print(f"Skipped: {skipped} ⏭️  (duplicates)")
-    print(f"Failed:  {failed} ❌")
+    print(f"Added:   {added} ")
+    print(f"Skipped: {skipped}   (duplicates)")
+    print(f"Failed:  {failed} ")
 
 
 def main():

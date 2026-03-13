@@ -34,11 +34,11 @@ Before any implementation, ask questions to clarify:
 ## Phase 3: Task Tracking Setup
 
 Set up Trello board (or similar) with columns:
-- 📝 Backlog
-- 📋 To Do
-- 🔨 In Progress
-- 🔍 Review
-- ✅ Done
+-  Backlog
+-  To Do
+-  In Progress
+-  Review
+-  Done
 
 All tasks must be tracked on the board.
 

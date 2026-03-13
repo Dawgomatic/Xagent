@@ -3,7 +3,7 @@ name: idealista
 description: Query Idealista API via idealista-cli (OAuth2 client credentials).
 license: MIT
 homepage: https://github.com/quifago/idealista-cli
-metadata: {"clawdbot": {"emoji": "🏠", "requires": {"bins": ["python3"], "env": ["IDEALISTA_API_KEY", "IDEALISTA_API_SECRET"], "primaryEnv": "IDEALISTA_API_KEY"}, "install": [{"id": "git", "kind": "git", "label": "Install idealista-cli (git clone)", "url": "https://github.com/quifago/idealista-cli", "bins": ["python3"]}]}}
+metadata: {"clawdbot": {"emoji": "", "requires": {"bins": ["python3"], "env": ["IDEALISTA_API_KEY", "IDEALISTA_API_SECRET"], "primaryEnv": "IDEALISTA_API_KEY"}, "install": [{"id": "git", "kind": "git", "label": "Install idealista-cli (git clone)", "url": "https://github.com/quifago/idealista-cli", "bins": ["python3"]}]}}
 ---
 
 # idealista

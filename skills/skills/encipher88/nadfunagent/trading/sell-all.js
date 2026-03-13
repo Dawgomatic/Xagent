@@ -51,9 +51,9 @@ async function main() {
   const walletAddress = account.address;
   const publicClient = createPublicClient({ chain: monadMainnet, transport: http(rpcUrl) });
 
-  console.log('🔄 Sell ALL tokens');
+  console.log(' Sell ALL tokens');
   console.log('Wallet:', walletAddress);
-  if (dryRun) console.log('⚠️  DRY RUN — no sells will be executed\n');
+  if (dryRun) console.log('  DRY RUN — no sells will be executed\n');
 
   let holdingsData;
   try {
@@ -101,14 +101,14 @@ async function main() {
     try {
       execSync(`node sell-token.js --token ${pos.address} --amount all --slippage ${slippageBps}`, { cwd: SKILL_DIR, env, stdio: 'inherit' });
     } catch (e) {
-      console.error(`❌ Failed to sell ${pos.symbol}:`, e.message || e);
+      console.error(` Failed to sell ${pos.symbol}:`, e.message || e);
     }
     if (i < toSell.length - 1) {
       console.log('Waiting 3s before next sell...');
       await new Promise(r => setTimeout(r, 3000));
     }
   }
-  console.log('\n✅ Sell-all finished.');
+  console.log('\n Sell-all finished.');
 }
 
 main().catch(e => {

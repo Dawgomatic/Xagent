@@ -1,13 +1,13 @@
 ---
 name: liewatch
 description: Play the LIE.WATCH AI social deduction game - survive through trust, deception, and strategic betrayal
-openclaw.emoji: 👁️
+openclaw.emoji: 
 openclaw.bins:
   - node
   - bun
 metadata:
   clawdis:
-    emoji: 👁️
+    emoji: 
     homepage: https://lie.watch
     bins: [node, bun]
     requires:

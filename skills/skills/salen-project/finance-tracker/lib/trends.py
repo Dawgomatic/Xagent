@@ -25,10 +25,10 @@ def analyze_trends(days: int = 90) -> str:
     currency = storage.get_currency()
     
     if len(transactions) < 5:
-        return "📊 Need more data for trend analysis.\n\nKeep tracking expenses for a few weeks!"
+        return " Need more data for trend analysis.\n\nKeep tracking expenses for a few weeks!"
     
     lines = [
-        f"📊 Spending Trends (last {days} days)",
+        f" Spending Trends (last {days} days)",
         "━━━━━━━━━━━━━━━━━━━━━",
         ""
     ]
@@ -36,9 +36,9 @@ def analyze_trends(days: int = 90) -> str:
     # === DAILY AVERAGES ===
     total = sum(tx["amount"] for tx in transactions)
     daily_avg = total // days
-    lines.append(f"📅 Daily Average: {daily_avg:,} {currency}")
-    lines.append(f"📅 Weekly Average: {daily_avg * 7:,} {currency}")
-    lines.append(f"📅 Monthly Average: {daily_avg * 30:,} {currency}")
+    lines.append(f" Daily Average: {daily_avg:,} {currency}")
+    lines.append(f" Weekly Average: {daily_avg * 7:,} {currency}")
+    lines.append(f" Monthly Average: {daily_avg * 30:,} {currency}")
     lines.append("")
     
     # === DAY OF WEEK PATTERNS ===
@@ -56,9 +56,9 @@ def analyze_trends(days: int = 90) -> str:
         max_day = max(weekday_avgs, key=weekday_avgs.get)
         min_day = min(weekday_avgs, key=weekday_avgs.get)
         
-        lines.append("📆 Day of Week Patterns:")
-        lines.append(f"   📈 Highest spending: {max_day} ({weekday_avgs[max_day]:,} avg)")
-        lines.append(f"   📉 Lowest spending: {min_day} ({weekday_avgs[min_day]:,} avg)")
+        lines.append(" Day of Week Patterns:")
+        lines.append(f"    Highest spending: {max_day} ({weekday_avgs[max_day]:,} avg)")
+        lines.append(f"    Lowest spending: {min_day} ({weekday_avgs[min_day]:,} avg)")
         lines.append("")
     
     # === CATEGORY TRENDS ===
@@ -70,7 +70,7 @@ def analyze_trends(days: int = 90) -> str:
     
     sorted_cats = sorted(by_category.items(), key=lambda x: x[1]["total"], reverse=True)
     
-    lines.append("🏷️ Top Categories:")
+    lines.append(" Top Categories:")
     for cat, data in sorted_cats[:5]:
         emoji = get_emoji(cat)
         pct = (data["total"] / total * 100) if total > 0 else 0
@@ -80,7 +80,7 @@ def analyze_trends(days: int = 90) -> str:
     # === LARGEST EXPENSES ===
     sorted_tx = sorted(transactions, key=lambda x: x["amount"], reverse=True)[:3]
     
-    lines.append("💸 Biggest Expenses:")
+    lines.append(" Biggest Expenses:")
     for tx in sorted_tx:
         emoji = get_emoji(tx["category"])
         date = datetime.fromisoformat(tx["date"]).strftime("%m/%d")
@@ -88,7 +88,7 @@ def analyze_trends(days: int = 90) -> str:
     
     # === INSIGHTS ===
     lines.append("")
-    lines.append("💡 Insights:")
+    lines.append(" Insights:")
     
     # Find if any category is growing
     if len(sorted_cats) > 0:
@@ -96,10 +96,10 @@ def analyze_trends(days: int = 90) -> str:
         top_pct = (sorted_cats[0][1]["total"] / total * 100) if total > 0 else 0
         
         if top_pct > 40:
-            lines.append(f"   ⚠️ {get_emoji(top_cat)} {top_cat.capitalize()} is {top_pct:.0f}% of spending")
+            lines.append(f"    {get_emoji(top_cat)} {top_cat.capitalize()} is {top_pct:.0f}% of spending")
         
         if daily_avg > 100000:  # Arbitrary threshold
-            lines.append(f"   📈 High daily spending: {daily_avg:,} {currency}/day")
+            lines.append(f"    High daily spending: {daily_avg:,} {currency}/day")
     
     return "\n".join(lines)
 
@@ -132,19 +132,19 @@ def compare_periods(period1_days: int = 30, period2_days: int = 30) -> str:
         change = ((total1 - total2) / total2) * 100
     
     lines = [
-        "📊 Period Comparison",
+        " Period Comparison",
         "━━━━━━━━━━━━━━━━━━━━━",
-        f"📅 This period ({period1_days} days): {total1:,} {currency}",
-        f"📅 Last period ({period2_days} days): {total2:,} {currency}",
+        f" This period ({period1_days} days): {total1:,} {currency}",
+        f" Last period ({period2_days} days): {total2:,} {currency}",
         ""
     ]
     
     if change > 0:
-        lines.append(f"📈 Spending UP {change:.1f}%")
+        lines.append(f" Spending UP {change:.1f}%")
     elif change < 0:
-        lines.append(f"📉 Spending DOWN {abs(change):.1f}%")
+        lines.append(f" Spending DOWN {abs(change):.1f}%")
     else:
-        lines.append("➡️ Spending unchanged")
+        lines.append(" Spending unchanged")
     
     return "\n".join(lines)
 
@@ -166,9 +166,9 @@ def get_budget_status(daily_budget: int) -> str:
     week_budget = daily_budget * 7
     
     lines = [
-        "💰 Budget Status",
+        " Budget Status",
         "━━━━━━━━━━━━━━━━━━━━━",
-        f"📅 Daily Budget: {daily_budget:,} {currency}",
+        f" Daily Budget: {daily_budget:,} {currency}",
         ""
     ]
     
@@ -177,18 +177,18 @@ def get_budget_status(daily_budget: int) -> str:
     remaining = daily_budget - today_total
     
     if today_pct <= 50:
-        status = "✅"
+        status = ""
     elif today_pct <= 100:
-        status = "⚠️"
+        status = ""
     else:
-        status = "🚨"
+        status = ""
     
     lines.append(f"{status} Today: {today_total:,} / {daily_budget:,} ({today_pct:.0f}%)")
     
     if remaining > 0:
-        lines.append(f"   💵 Remaining: {remaining:,}")
+        lines.append(f"    Remaining: {remaining:,}")
     else:
-        lines.append(f"   🚨 Over budget by: {abs(remaining):,}")
+        lines.append(f"    Over budget by: {abs(remaining):,}")
     
     lines.append("")
     
@@ -197,11 +197,11 @@ def get_budget_status(daily_budget: int) -> str:
     week_remaining = week_budget - week_total
     
     if week_pct <= 70:
-        status = "✅"
+        status = ""
     elif week_pct <= 100:
-        status = "⚠️"
+        status = ""
     else:
-        status = "🚨"
+        status = ""
     
     lines.append(f"{status} This Week: {week_total:,} / {week_budget:,} ({week_pct:.0f}%)")
     

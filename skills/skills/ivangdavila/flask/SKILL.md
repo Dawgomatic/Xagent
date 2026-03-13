@@ -1,7 +1,7 @@
 ---
 name: Flask
 description: Avoid common Flask mistakes — context errors, circular imports, session configuration, and production gotchas.
-metadata: {"clawdbot":{"emoji":"🍶","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Application Context

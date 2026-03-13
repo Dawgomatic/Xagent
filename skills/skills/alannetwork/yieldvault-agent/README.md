@@ -1,6 +1,6 @@
 # Autonomous Yield Farming Agent Skill
 
-**Status:** ✅ Production Ready | **Chain:** BNB Testnet (97) / Mainnet (56) | **Model:** Deterministic Decision Engine
+**Status:**  Production Ready | **Chain:** BNB Testnet (97) / Mainnet (56) | **Model:** Deterministic Decision Engine
 
 ## Quick Start
 
@@ -201,9 +201,9 @@ const execution = agent.decide(vaults, allocation);
 // Verify hashes
 const verification = agent.verifyRecord(execution);
 if (verification.valid) {
-  console.log('✅ Record integrity verified');
+  console.log(' Record integrity verified');
 } else {
-  console.log('❌ Hash mismatch detected:', verification.errors);
+  console.log(' Hash mismatch detected:', verification.errors);
 }
 ```
 

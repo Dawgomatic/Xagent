@@ -2,7 +2,7 @@
 name: beeper
 description: Search and browse local Beeper chat history (threads, messages, full-text search).
 homepage: https://github.com/krausefx/beeper-cli
-metadata: {"clawdbot":{"emoji":"🛰️","os":["darwin","linux"],"requires":{"bins":["beeper-cli"]},"install":[{"id":"go","kind":"go","pkg":"github.com/krausefx/beeper-cli/cmd/beeper-cli","bins":["beeper-cli"],"label":"Install beeper-cli (go install)"}]}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin","linux"],"requires":{"bins":["beeper-cli"]},"install":[{"id":"go","kind":"go","pkg":"github.com/krausefx/beeper-cli/cmd/beeper-cli","bins":["beeper-cli"],"label":"Install beeper-cli (go install)"}]}}
 ---
 
 # Beeper CLI

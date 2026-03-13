@@ -22,11 +22,11 @@ Persistent memory system that automatically captures context across sessions usi
 
 ## Features
 
-- 🧠 **Auto-capture** - Important observations saved automatically after each response
-- 🔍 **Auto-recall** - Relevant memories injected before each prompt
-- 💾 **SQLite + FTS5** - Fast full-text search across all memories
-- 🛠️ **Tools** - `memory_search`, `memory_get`, `memory_store`, `memory_delete`
-- 📊 **Progressive disclosure** - Token-efficient retrieval
+-  **Auto-capture** - Important observations saved automatically after each response
+-  **Auto-recall** - Relevant memories injected before each prompt
+-  **SQLite + FTS5** - Fast full-text search across all memories
+-  **Tools** - `memory_search`, `memory_get`, `memory_store`, `memory_delete`
+-  **Progressive disclosure** - Token-efficient retrieval
 
 ## Setup
 

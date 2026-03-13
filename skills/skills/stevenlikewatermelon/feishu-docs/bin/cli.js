@@ -59,13 +59,13 @@ program
         result = await api.createDocument(options.folderToken, options.title);
       }
       
-      console.log('✅ 文档创建成功！');
+      console.log(' 文档创建成功！');
       console.log(`文档ID: ${result.document.document_id}`);
       console.log(`文档标题: ${result.document.title}`);
       console.log(`文档URL: https://example.feishu.cn/docx/${result.document.document_id}`);
       
     } catch (error) {
-      console.error('❌ 创建文档失败:', error.message);
+      console.error(' 创建文档失败:', error.message);
       process.exit(1);
     }
   });
@@ -122,7 +122,7 @@ program
       }
       
     } catch (error) {
-      console.error('❌ 获取文档失败:', error.message);
+      console.error(' 获取文档失败:', error.message);
       process.exit(1);
     }
   });
@@ -158,14 +158,14 @@ program
       
       if (options.append) {
         await api.appendToDocument(options.documentId, newContent);
-        console.log('✅ 内容追加成功！');
+        console.log(' 内容追加成功！');
       } else {
         await api.replaceDocumentContent(options.documentId, newContent);
-        console.log('✅ 文档更新成功！');
+        console.log(' 文档更新成功！');
       }
       
     } catch (error) {
-      console.error('❌ 更新文档失败:', error.message);
+      console.error(' 更新文档失败:', error.message);
       process.exit(1);
     }
   });
@@ -187,10 +187,10 @@ program
       console.log('正在删除文档...');
       await api.deleteDocument(options.documentId);
       
-      console.log('✅ 文档删除成功！');
+      console.log(' 文档删除成功！');
       
     } catch (error) {
-      console.error('❌ 删除文档失败:', error.message);
+      console.error(' 删除文档失败:', error.message);
       process.exit(1);
     }
   });
@@ -232,7 +232,7 @@ program
       }
       
     } catch (error) {
-      console.error('❌ 搜索文档失败:', error.message);
+      console.error(' 搜索文档失败:', error.message);
       process.exit(1);
     }
   });
@@ -274,7 +274,7 @@ program
       }
       
     } catch (error) {
-      console.error('❌ 列出文件失败:', error.message);
+      console.error(' 列出文件失败:', error.message);
       process.exit(1);
     }
   });
@@ -298,12 +298,12 @@ program
       console.log('正在分享文档...');
       const result = await api.addPermissionMember(options.documentId, options.userId, 'user', options.perm);
       
-      console.log('✅ 文档分享成功！');
+      console.log(' 文档分享成功！');
       console.log(`权限: ${options.perm}`);
       console.log(`用户ID: ${options.userId}`);
       
     } catch (error) {
-      console.error('❌ 分享文档失败:', error.message);
+      console.error(' 分享文档失败:', error.message);
       process.exit(1);
     }
   });
@@ -340,7 +340,7 @@ program
       }
       
     } catch (error) {
-      console.error('❌ 获取权限成员失败:', error.message);
+      console.error(' 获取权限成员失败:', error.message);
       process.exit(1);
     }
   });
@@ -375,7 +375,7 @@ program
       console.log(`正在将${options.contentType}内容转换为文档块...`);
       const result = await api.convertContent(options.contentType, content, options.userIdType);
       
-      console.log('✅ 内容转换成功！');
+      console.log(' 内容转换成功！');
       console.log(`生成块数量: ${result.blocks?.length || 0}`);
       console.log(`一级块ID: ${result.first_level_block_ids?.join(', ') || '无'}`);
       
@@ -387,7 +387,7 @@ program
       }
       
     } catch (error) {
-      console.error('❌ 内容转换失败:', error.message);
+      console.error(' 内容转换失败:', error.message);
       process.exit(1);
     }
   });
@@ -423,7 +423,7 @@ program
         options.contentType
       );
       
-      console.log('✅ 文档创建成功！');
+      console.log(' 文档创建成功！');
       console.log(`文档ID: ${result.document.document_id}`);
       console.log(`文档标题: ${result.document.title}`);
       console.log(`文档URL: https://feishu.cn/docx/${result.document.document_id}`);
@@ -433,7 +433,7 @@ program
       }
       
     } catch (error) {
-      console.error('❌ 创建文档失败:', error.message);
+      console.error(' 创建文档失败:', error.message);
       process.exit(1);
     }
   });

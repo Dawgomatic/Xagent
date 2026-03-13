@@ -58,11 +58,11 @@ python3 scripts/memory_client.py status
 ## Testing
 
 Tested and confirmed working:
-- ✅ Agent registration with Ed25519 keypair
-- ✅ Memory storage with proper signatures
-- ✅ Memory retrieval with proper signatures
-- ✅ Service health checks
-- ✅ Database persistence
+-  Agent registration with Ed25519 keypair
+-  Memory storage with proper signatures
+-  Memory retrieval with proper signatures
+-  Service health checks
+-  Database persistence
 
 ## Requirements
 

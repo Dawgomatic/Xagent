@@ -2,7 +2,7 @@
 
 Step-by-step guide to connect Linear → Discord via Zapier.
 
-> ⚠️ **Paid Plan Required:** Zapier free plan does not include webhooks or instant triggers. You need **Zapier Starter ($19.99/mo)** or higher for real-time Linear integration. If you're on free tier, use Pipedream instead.
+>  **Paid Plan Required:** Zapier free plan does not include webhooks or instant triggers. You need **Zapier Starter ($19.99/mo)** or higher for real-time Linear integration. If you're on free tier, use Pipedream instead.
 
 ## Create Zap
 
@@ -37,7 +37,7 @@ Step-by-step guide to connect Linear → Discord via Zapier.
 6. Payload:
 ```json
 {
-  "content": "<@YOUR_BOT_ID>\n📋 New task: {{title}}\n  Status: {{state_name}}\n  ID: {{identifier}}"
+  "content": "<@YOUR_BOT_ID>\n New task: {{title}}\n  Status: {{state_name}}\n  ID: {{identifier}}"
 }
 ```
 
@@ -49,7 +49,7 @@ Step-by-step guide to connect Linear → Discord via Zapier.
 4. Message:
 ```
 <@YOUR_BOT_ID>
-📋 New task: {{1. Title}}
+ New task: {{1. Title}}
   Status: {{1. State Name}}
   ID: {{1. Identifier}}
 ```

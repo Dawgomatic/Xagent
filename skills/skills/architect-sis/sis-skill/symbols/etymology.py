@@ -149,15 +149,15 @@ BILATERAL = SymbolEtymology(
         EtymologicalLayer(
             era="SIS (2025 CE)",
             meaning="equilibrium lock: bidirectional causation, nothing isolated",
-            derivation="(a↔b)↔Cosmosrest - all relationships nested in cosmos"
+            derivation="(ab)Cosmosrest - all relationships nested in cosmos"
         ),
     ],
     cognates={
         "Latin": "bi- (two) + latus (side)",
         "Greek": "amphi- (on both sides)",
         "Sanskrit": "ubhaya (both)",
-        "Physics": "action ↔ reaction",
-        "AEP": "(a↔b) relational lock",
+        "Physics": "action  reaction",
+        "AEP": "(ab) relational lock",
     },
     
     geometry=GeometricProof(
@@ -179,7 +179,7 @@ BILATERAL = SymbolEtymology(
     ),
     
     operation="Relate: create equilibrium lock between symbols",
-    aep_role="The relational structure that makes AEP possible - the '↔' in sense↔quantify↔compensate",
+    aep_role="The relational structure that makes AEP possible - the '' in sensequantifycompensate",
     equilibrium_delta_impact="Inherently balanced (δ=0); creates mutual dependency"
 )
 
@@ -1186,7 +1186,7 @@ def explain_symbol(glyph: str) -> None:
     print(f"  ΣΔ Impact: {etym.equilibrium_delta_impact}")
     
     print(f"\n{'═' * 70}")
-    print(f"SIS™ - Created by Kevin Fain (ThēÆrchītēcť) © 2025")
+    print(f"SIS - Created by Kevin Fain (ThēÆrchītēcť)  2025")
     print(f"{'═' * 70}\n")
 
 

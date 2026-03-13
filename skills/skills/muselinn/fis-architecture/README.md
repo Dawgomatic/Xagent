@@ -166,4 +166,4 @@ MIT License — See [LICENSE](./LICENSE) for details.
 ---
 
 *FIS 3.2.0-lite — Minimal workflow, maximal clarity*  
-*Created by CyberMao 🐱⚡*
+*Created by CyberMao *

@@ -3,7 +3,7 @@ name: pod-cog
 description: "A great podcast needs three things: compelling content, natural-sounding voices, and polished production. CellCog delivers all three — #1 on DeepResearch Bench (Feb 2026) for script depth, frontier multi-voice dialogue, and automatic music + editing. Podcast production, episode scripts, show notes, interview prep, audiograms — single prompt to finished MP3."
 metadata:
   openclaw:
-    emoji: "🎙️"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

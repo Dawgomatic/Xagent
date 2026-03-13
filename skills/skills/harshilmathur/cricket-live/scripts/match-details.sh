@@ -6,7 +6,7 @@ source "$(dirname "$0")/helpers.sh"
 MATCH_ID="${1:-}"
 
 if [[ -z "$MATCH_ID" ]]; then
-    echo "❌ Usage: bash scripts/match-details.sh <match-id>"
+    echo " Usage: bash scripts/match-details.sh <match-id>"
     echo ""
     echo "Find match IDs via: bash scripts/live-scores.sh"
     echo "Or search: bash scripts/search-match.sh \"India vs Australia\""
@@ -27,10 +27,10 @@ match_type=$(echo "$response" | jq -r '.data.matchType // ""' | tr '[:lower:]' '
 venue=$(echo "$response" | jq -r '.data.venue // ""')
 date_str=$(echo "$response" | jq -r '.data.date // ""')
 
-echo "🏏 *${name}*"
-[[ -n "$match_type" ]] && echo "📋 $match_type"
-[[ -n "$venue" ]] && echo "📍 $venue"
-[[ -n "$date_str" ]] && echo "📅 $(to_ist "$date_str")"
+echo " *${name}*"
+[[ -n "$match_type" ]] && echo " $match_type"
+[[ -n "$venue" ]] && echo " $venue"
+[[ -n "$date_str" ]] && echo " $(to_ist "$date_str")"
 echo ""
 
 # Display scores summary
@@ -39,7 +39,7 @@ echo "$response" | jq -r '.data.score // []' | jq -c '.[]' 2>/dev/null | while r
     runs=$(echo "$s" | jq -r '.r // 0')
     wickets=$(echo "$s" | jq -r '.w // 0')
     overs=$(echo "$s" | jq -r '.o // 0')
-    echo "📊 *${inning}:* ${runs}/${wickets} (${overs} ov)"
+    echo " *${inning}:* ${runs}/${wickets} (${overs} ov)"
 done
 
 echo ""
@@ -51,11 +51,11 @@ echo "$response" | jq -c '.data.scorecard // [] | .[]' 2>/dev/null | while read 
     inning_num=$(echo "$innings" | jq -r '.inning // "Innings"')
     
     echo "━━━━━━━━━━━━━━━━━━━━━"
-    echo "🏏 *${inning_num}*"
+    echo " *${inning_num}*"
     echo ""
     
     # Batting
-    echo "🏏 *Batting*"
+    echo " *Batting*"
     echo "$innings" | jq -c '.batting // [] | .[]' 2>/dev/null | while read -r bat; do
         batter=$(echo "$bat" | jq -r '.batsman.name // "Unknown"')
         runs=$(echo "$bat" | jq -r '.r // 0')
@@ -67,9 +67,9 @@ echo "$response" | jq -c '.data.scorecard // [] | .[]' 2>/dev/null | while read 
         
         icon=""
         if (( runs >= 100 )); then
-            icon="💯 "
+            icon=" "
         elif (( runs >= 50 )); then
-            icon="⭐ "
+            icon=" "
         fi
         
         if [[ -z "$dismissal" ]] || [[ "$dismissal" == "null" ]] || [[ "$dismissal" == "not out" ]]; then
@@ -83,7 +83,7 @@ echo "$response" | jq -c '.data.scorecard // [] | .[]' 2>/dev/null | while read 
     echo ""
     
     # Bowling
-    echo "⚾ *Bowling*"
+    echo " *Bowling*"
     echo "$innings" | jq -c '.bowling // [] | .[]' 2>/dev/null | while read -r bowl; do
         bowler=$(echo "$bowl" | jq -r '.bowler.name // "Unknown"')
         overs=$(echo "$bowl" | jq -r '.o // 0')
@@ -94,9 +94,9 @@ echo "$response" | jq -c '.data.scorecard // [] | .[]' 2>/dev/null | while read 
         
         icon=""
         if (( wickets >= 5 )); then
-            icon="🔥 "
+            icon=" "
         elif (( wickets >= 3 )); then
-            icon="⭐ "
+            icon=" "
         fi
         
         echo "  ${icon}${bowler}: ${wickets}/${runs} (${overs} ov) Econ:${econ}"

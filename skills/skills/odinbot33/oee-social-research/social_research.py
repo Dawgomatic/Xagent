@@ -3,7 +3,7 @@
 Muninn Social Research — "What are people saying about [topic]?"
 Tiered retrieval: FxTwitter (free) → Web search → Browser (last resort)
 Part of OEE's Ravens/Muninn intel network.
-# 🐾 Hugin watches. Muninn remembers.
+#  Hugin watches. Muninn remembers.
 """
 
 import sys
@@ -19,14 +19,14 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 
-# Add parent to path for sibling imports  # 🐾
+# Add parent to path for sibling imports  # 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from ravens.fxtwitter import Tweet, search_tweets as fx_search, lookup_tweet
 
 # ─── Config ───────────────────────────────────────────────────────────
 CACHE_DIR = Path(__file__).parent / ".cache"
 LOG_DIR = Path(__file__).parent / ".logs"
-CACHE_TTL = 3600  # 1 hour  # 🐾
+CACHE_TTL = 3600  # 1 hour  # 
 DEFAULT_DAYS = 7
 MAX_RESULTS = 50
 
@@ -35,7 +35,7 @@ log = logging.getLogger("muninn")
 
 
 # ─── Usage Logging ────────────────────────────────────────────────────
-# 🐾 every step tracked
+#  every step tracked
 
 def _log_usage(tier: str, query: str, result_count: int, latency_ms: int):
     """Append usage log entry."""
@@ -54,14 +54,14 @@ def _log_usage(tier: str, query: str, result_count: int, latency_ms: int):
 
 
 # ─── Cache ────────────────────────────────────────────────────────────
-# 🐾 the raven remembers
+#  the raven remembers
 
 def _cache_key(query: str) -> str:
     return hashlib.sha256(query.encode()).hexdigest()[:16]
 
 
 def _tweet_from_dict(d: dict) -> Tweet:
-    """Reconstruct Tweet from dict, ignoring extra keys. 🐾"""
+    """Reconstruct Tweet from dict, ignoring extra keys. """
     import inspect
     valid = {f.name for f in __import__('dataclasses').fields(Tweet)}
     return Tweet(**{k: v for k, v in d.items() if k in valid})
@@ -87,7 +87,7 @@ def _cache_set(query: str, results: list[dict]):
 
 
 # ─── Query Decomposition ─────────────────────────────────────────────
-# 🐾 breaking the hunt into tracks
+#  breaking the hunt into tracks
 
 def decompose_topic(topic: str) -> list[str]:
     """Break a topic into 2-4 focused search queries for X/Twitter."""
@@ -106,7 +106,7 @@ def decompose_topic(topic: str) -> list[str]:
 
 
 # ─── Tier 1: FxTwitter (FREE) ────────────────────────────────────────
-# 🐾 silent wings, no cost
+#  silent wings, no cost
 
 def tier1_fxtwitter(query: str) -> list[Tweet]:
     """Try FxTwitter search — completely free, no auth."""
@@ -119,7 +119,7 @@ def tier1_fxtwitter(query: str) -> list[Tweet]:
 
 
 # ─── Tier 2: Web Search Fallback ─────────────────────────────────────
-# 🐾 broader sweep
+#  broader sweep
 
 def tier2_web_search(query: str) -> list[Tweet]:
     """Use web search to find tweets about the topic."""
@@ -142,7 +142,7 @@ def tier2_web_search(query: str) -> list[Tweet]:
 
 
 def _brave_search(query: str) -> list[dict]:
-    """Call Brave search API via curl, or fallback to DDG. 🐾"""
+    """Call Brave search API via curl, or fallback to DDG. """
     import urllib.request
     import urllib.parse
 
@@ -164,12 +164,12 @@ def _brave_search(query: str) -> list[dict]:
         except Exception as e:
             log.warning(f"Brave search failed: {e}")
 
-    # Fallback: try SearXNG public instances or DDG  # 🐾
+    # Fallback: try SearXNG public instances or DDG  # 
     return _searx_search(query) or _ddg_search(query)
 
 
 def _searx_search(query: str) -> list[dict]:
-    """Try SearXNG public instances. 🐾"""
+    """Try SearXNG public instances. """
     import urllib.request
     import urllib.parse
 
@@ -196,7 +196,7 @@ def _searx_search(query: str) -> list[dict]:
 
 
 def _ddg_search(query: str) -> list[dict]:
-    """DuckDuckGo HTML search — no API key needed. 🐾"""
+    """DuckDuckGo HTML search — no API key needed. """
     import urllib.request
     import urllib.parse
 
@@ -212,7 +212,7 @@ def _ddg_search(query: str) -> list[dict]:
         return []
 
     results = []
-    # Parse result snippets  # 🐾
+    # Parse result snippets  # 
     # DDG HTML results have class="result__a" for links and "result__snippet" for text
     link_pattern = re.compile(r'class="result__a"[^>]*href="([^"]*)"[^>]*>(.*?)</a>', re.S)
     snippet_pattern = re.compile(r'class="result__snippet"[^>]*>(.*?)</(?:td|div|span)', re.S)
@@ -234,7 +234,7 @@ def _ddg_search(query: str) -> list[dict]:
 
 
 def _parse_search_results(results: list[dict]) -> list[Tweet]:
-    """Extract tweet-like data from search results. 🐾"""
+    """Extract tweet-like data from search results. """
     tweets = []
     seen_urls = set()
 
@@ -251,7 +251,7 @@ def _parse_search_results(results: list[dict]) -> list[Tweet]:
         username = tweet_match.group(1)
         tweet_id = tweet_match.group(2)
 
-        # Try to enrich via FxTwitter Tier 1 lookup (still free!)  # 🐾
+        # Try to enrich via FxTwitter Tier 1 lookup (still free!)  # 
         enriched = lookup_tweet(username, tweet_id)
         if enriched:
             tweets.append(enriched)
@@ -269,12 +269,12 @@ def _parse_search_results(results: list[dict]) -> list[Tweet]:
 
 
 # ─── Tier 3: Browser Automation (Last Resort) ────────────────────────
-# 🐾 heavy wings — use sparingly
+#  heavy wings — use sparingly
 
 def tier3_browser(query: str) -> list[Tweet]:
     """
     Browser/nitter fallback. Tries multiple nitter instances.
-    EXPENSIVE — only used when Tier 1+2 return insufficient results. 🐾
+    EXPENSIVE — only used when Tier 1+2 return insufficient results. 
     """
     t0 = time.time()
     tweets = []
@@ -326,7 +326,7 @@ def tier3_browser(query: str) -> list[Tweet]:
 
 
 # ─── Filtering & Dedup ───────────────────────────────────────────────
-# 🐾 separating signal from noise
+#  separating signal from noise
 
 def filter_tweets(tweets: list[Tweet], days: int = DEFAULT_DAYS) -> list[Tweet]:
     """Filter, deduplicate, remove spam and RTs."""
@@ -346,10 +346,10 @@ def filter_tweets(tweets: list[Tweet], days: int = DEFAULT_DAYS) -> list[Tweet]:
         text_key = re.sub(r'\s+', ' ', t.text[:80].lower().strip())
         if text_key in seen_texts:
             continue
-        # Spam heuristics  # 🐾
+        # Spam heuristics  # 
         spam_signals = [
             len(re.findall(r'#\w+', t.text)) > 5,  # hashtag spam
-            t.text.count('🚀') > 2,  # rocket spam
+            t.text.count('') > 2,  # rocket spam
             re.search(r'(follow me|check my|link in bio|giveaway|airdrop)', t.text, re.I),
             len(t.text) < 15,  # too short
         ]
@@ -368,13 +368,13 @@ def filter_tweets(tweets: list[Tweet], days: int = DEFAULT_DAYS) -> list[Tweet]:
         seen_texts.add(text_key)
         filtered.append(t)
 
-    # Rank by engagement  # 🐾
+    # Rank by engagement  # 
     filtered.sort(key=lambda t: t.engagement, reverse=True)
     return filtered[:MAX_RESULTS]
 
 
 # ─── Tiered Retrieval ────────────────────────────────────────────────
-# 🐾 cheapest flight path first
+#  cheapest flight path first
 
 def research_topic(topic: str, days: int = DEFAULT_DAYS, min_results: int = 5) -> list[Tweet]:
     """Execute tiered retrieval for a topic."""
@@ -390,7 +390,7 @@ def research_topic(topic: str, days: int = DEFAULT_DAYS, min_results: int = 5) -
 
         query_tweets: list[Tweet] = []
 
-        # Tier 1: FxTwitter (free)  # 🐾
+        # Tier 1: FxTwitter (free)  # 
         query_tweets = tier1_fxtwitter(q)
 
         # Tier 2: Web search if insufficient
@@ -403,7 +403,7 @@ def research_topic(topic: str, days: int = DEFAULT_DAYS, min_results: int = 5) -
             t3 = tier3_browser(topic)  # Use original topic, not decomposed
             query_tweets.extend(t3)
 
-        # Cache results  # 🐾
+        # Cache results  # 
         _cache_set(q, [t.to_dict() for t in query_tweets])
         all_tweets.extend(query_tweets)
 
@@ -411,7 +411,7 @@ def research_topic(topic: str, days: int = DEFAULT_DAYS, min_results: int = 5) -
 
 
 # ─── Briefing Synthesis ──────────────────────────────────────────────
-# 🐾 Muninn speaks
+#  Muninn speaks
 
 def synthesize_briefing(topic: str, tweets: list[Tweet]) -> str:
     """Synthesize collected tweets into an intel briefing."""
@@ -423,7 +423,7 @@ def synthesize_briefing(topic: str, tweets: list[Tweet]) -> str:
         Topic: {topic}
         Generated: {now}
         
-        ⚠️  No significant social media activity found.
+          No significant social media activity found.
         Tiers exhausted: FxTwitter → Web Search → Browser
         
         Possible reasons:
@@ -433,7 +433,7 @@ def synthesize_briefing(topic: str, tweets: list[Tweet]) -> str:
         ═════════════════════════════
         """)
 
-    # Analyze sentiment distribution  # 🐾
+    # Analyze sentiment distribution  # 
     positive_words = {'great', 'love', 'amazing', 'good', 'best', 'excellent', 'awesome',
                       'happy', 'excited', 'bullish', 'win', 'success', 'beautiful', 'fantastic'}
     negative_words = {'bad', 'terrible', 'worst', 'hate', 'awful', 'horrible', 'disaster',
@@ -458,7 +458,7 @@ def synthesize_briefing(topic: str, tweets: list[Tweet]) -> str:
         f"Neutral: {neu_count}/{total} ({100*neu_count//total}%)"
     )
 
-    # Extract key narratives (cluster by keyword overlap)  # 🐾
+    # Extract key narratives (cluster by keyword overlap)  # 
     narratives = _extract_narratives(tweets)
 
     # Notable posts (top by engagement)
@@ -476,7 +476,7 @@ def synthesize_briefing(topic: str, tweets: list[Tweet]) -> str:
             contrarian.append(t)
     contrarian = contrarian[:3]
 
-    # Build briefing  # 🐾
+    # Build briefing  # 
     lines = [
         f"═══ MUNINN INTEL BRIEFING ═══",
         f"Topic: {topic}",
@@ -485,7 +485,7 @@ def synthesize_briefing(topic: str, tweets: list[Tweet]) -> str:
         f"",
         f"── SENTIMENT ──",
         f"{sentiment}",
-        f"Overall lean: {'POSITIVE 📈' if pos_count > neg_count else 'NEGATIVE 📉' if neg_count > pos_count else 'MIXED ↔️'}",
+        f"Overall lean: {'POSITIVE ' if pos_count > neg_count else 'NEGATIVE ' if neg_count > pos_count else 'MIXED '}",
         f"",
         f"── KEY NARRATIVES ──",
     ]
@@ -497,12 +497,12 @@ def synthesize_briefing(topic: str, tweets: list[Tweet]) -> str:
         f"── NOTABLE POSTS ──",
     ])
     for i, t in enumerate(notable, 1):
-        eng = f"❤️{t.likes} 🔁{t.retweets} 💬{t.replies}" if t.likes or t.retweets else ""
+        eng = f"{t.likes} {t.retweets} {t.replies}" if t.likes or t.retweets else ""
         text_preview = t.text[:120].replace('\n', ' ')
         lines.append(f"  {i}. @{t.author}: {text_preview}")
         if eng:
             lines.append(f"     {eng}")
-        lines.append(f"     🔗 {t.url}")
+        lines.append(f"      {t.url}")
         lines.append("")
 
     if contrarian:
@@ -510,17 +510,17 @@ def synthesize_briefing(topic: str, tweets: list[Tweet]) -> str:
         for t in contrarian:
             text_preview = t.text[:120].replace('\n', ' ')
             lines.append(f"  • @{t.author}: {text_preview}")
-            lines.append(f"    🔗 {t.url}")
+            lines.append(f"     {t.url}")
         lines.append("")
 
     lines.append("═════════════════════════════")
-    lines.append("# 🐾 Muninn has spoken.")
+    lines.append("#  Muninn has spoken.")
 
     return "\n".join(lines)
 
 
 def _extract_narratives(tweets: list[Tweet]) -> list[tuple[str, int]]:
-    """Extract dominant narrative themes via keyword frequency. 🐾"""
+    """Extract dominant narrative themes via keyword frequency. """
     # Simple keyword extraction (no ML deps needed)
     stop_words = {
         'the', 'a', 'an', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
@@ -567,13 +567,13 @@ def _extract_narratives(tweets: list[Tweet]) -> list[tuple[str, int]]:
 
 
 # ─── OpenClaw Integration ─────────────────────────────────────────────
-# 🐾 when called as a library by the agent
+#  when called as a library by the agent
 
 def inject_search_results(topic: str, search_results: list[dict], days: int = DEFAULT_DAYS) -> str:
     """
     Accept pre-fetched search results (from OpenClaw web_search tool) and
     produce a briefing. Each result should have: url, title, snippet.
-    This bypasses Tier 2/3 network calls entirely. 🐾
+    This bypasses Tier 2/3 network calls entirely. 
     """
     tweets = _parse_search_results(search_results)
 
@@ -588,7 +588,7 @@ def inject_search_results(topic: str, search_results: list[dict], days: int = DE
 
 
 # ─── Main ─────────────────────────────────────────────────────────────
-# 🐾
+# 
 
 def main():
     if len(sys.argv) < 2:
@@ -606,7 +606,7 @@ def main():
     if "--verbose" in sys.argv:
         logging.getLogger().setLevel(logging.DEBUG)
 
-    print(f"🐦‍⬛ Muninn researching: \"{topic}\"")
+    print(f" Muninn researching: \"{topic}\"")
     print(f"   Window: {days} days | Tiers: FxTwitter → Web → Browser")
     print()
 
@@ -614,13 +614,13 @@ def main():
     briefing = synthesize_briefing(topic, tweets)
     print(briefing)
 
-    # Also save to file  # 🐾
+    # Also save to file  # 
     out_dir = Path(__file__).parent / ".briefings"
     out_dir.mkdir(parents=True, exist_ok=True)
     slug = re.sub(r'[^a-z0-9]+', '-', topic.lower())[:40]
     out_file = out_dir / f"{datetime.now().strftime('%Y%m%d-%H%M')}-{slug}.txt"
     out_file.write_text(briefing)
-    print(f"\n📄 Briefing saved: {out_file}")
+    print(f"\n Briefing saved: {out_file}")
 
 
 if __name__ == "__main__":

@@ -83,13 +83,13 @@ def print_coverage_report(gaps: List[Tuple[str, Dict]]):
     print("\n=== Coverage Gap Analysis ===\n")
 
     if not gaps:
-        print("✅ All files meet coverage threshold!")
+        print(" All files meet coverage threshold!")
         return
 
     print(f"Found {len(gaps)} files with coverage gaps:\n")
 
     for filepath, analysis in gaps:
-        print(f"📄 {filepath}")
+        print(f" {filepath}")
         print(f"   Statements: {analysis['statements']['pct']:.1f}% ({analysis['statements']['covered']}/{analysis['statements']['total']})")
         print(f"   Branches:   {analysis['branches']['pct']:.1f}% ({analysis['branches']['covered']}/{analysis['branches']['total']})")
         print(f"   Functions:  {analysis['functions']['pct']:.1f}% ({analysis['functions']['covered']}/{analysis['functions']['total']})")
@@ -135,7 +135,7 @@ def main():
     print_coverage_report(gaps)
 
     if gaps:
-        print("\n🎯 Priority files to improve (top 5):")
+        print("\n Priority files to improve (top 5):")
         for filepath in get_priority_files(gaps):
             print(f"   - {filepath}")
         print()

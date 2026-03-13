@@ -1,4 +1,4 @@
-# Agent Observability Dashboard 📊
+# Agent Observability Dashboard 
 
 Production-grade observability for OpenClaw agents — metrics, traces, and insights.
 
@@ -23,11 +23,11 @@ python3 scripts/observability.py --export metrics.json
 
 ## Features
 
-✅ **Metrics tracking** — Latency, success rate, token usage, errors  
-✅ **Trace visualization** — Full tool chains per session  
-✅ **Cross-session aggregation** — Compare performance over time  
-✅ **Alert thresholds** — Notify when metrics exceed limits  
-✅ **Exportable reports** — JSON, CSV, markdown  
+ **Metrics tracking** — Latency, success rate, token usage, errors  
+ **Trace visualization** — Full tool chains per session  
+ **Cross-session aggregation** — Compare performance over time  
+ **Alert thresholds** — Notify when metrics exceed limits  
+ **Exportable reports** — JSON, CSV, markdown  
 
 ## Metrics Tracked
 

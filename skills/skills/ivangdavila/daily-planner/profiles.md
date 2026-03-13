@@ -48,7 +48,7 @@ Each profile has different planning needs. Detect or ask on first use.
 - Variable by day — track and adapt
 
 **Project tracking:**
-- Status per project: 🟢 on track / 🟡 risk / 🔴 danger
+- Status per project:  on track /  risk /  danger
 - Scope creep detector: changes vs original agreement
 - Invoice reminder: >15 days unpaid = alert
 

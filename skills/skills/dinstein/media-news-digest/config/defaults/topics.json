@@ -5,7 +5,7 @@
   "topics": [
     {
       "id": "china",
-      "emoji": "🇨🇳",
+      "emoji": "",
       "label": "China / 中国影视",
       "description": "China box office, co-productions, policy, Chinese streaming platforms, Chinese film releases, market trends",
       "search": {
@@ -43,7 +43,7 @@
     },
     {
       "id": "production",
-      "emoji": "🎬",
+      "emoji": "",
       "label": "Production / 制作动态",
       "description": "New projects greenlit, casting announcements, filming starts/wraps, director/writer attachments",
       "search": {
@@ -84,7 +84,7 @@
     },
     {
       "id": "deals",
-      "emoji": "💰",
+      "emoji": "",
       "label": "Deals & Business / 行业交易",
       "description": "M&A, rights acquisitions, talent deals, studio restructuring, layoffs, financial results",
       "search": {
@@ -114,7 +114,7 @@
     },
     {
       "id": "upcoming",
-      "emoji": "🎞️",
+      "emoji": "",
       "label": "Upcoming Releases / 北美近期上映",
       "description": "Movies opening this week and next in North American theaters, release date announcements, date changes, new trailers, scheduling moves",
       "search": {
@@ -154,7 +154,7 @@
     },
     {
       "id": "box-office",
-      "emoji": "🎟️",
+      "emoji": "",
       "label": "Box Office / 票房",
       "description": "North American and global box office results, opening weekend estimates, milestones",
       "search": {
@@ -182,7 +182,7 @@
     },
     {
       "id": "streaming",
-      "emoji": "📺",
+      "emoji": "",
       "label": "Streaming / 流媒体",
       "description": "Netflix, Disney+, Apple TV+, Amazon Prime Video, HBO Max, Peacock platform news, viewership data, content strategy",
       "search": {
@@ -213,7 +213,7 @@
     },
     {
       "id": "awards",
-      "emoji": "🏆",
+      "emoji": "",
       "label": "Awards / 颁奖季",
       "description": "Oscars, Golden Globes, Emmys, BAFTAs, SAG, Cannes Palme d'Or, Venice Golden Lion, predictions and campaigns",
       "search": {
@@ -244,7 +244,7 @@
     },
     {
       "id": "festivals",
-      "emoji": "🎪",
+      "emoji": "",
       "label": "Film Festivals / 电影节",
       "description": "Cannes, Venice, Toronto (TIFF), Berlin, Sundance, Telluride, SXSW — lineups, premieres, acquisitions",
       "search": {
@@ -275,7 +275,7 @@
     },
     {
       "id": "reviews",
-      "emoji": "⭐",
+      "emoji": "",
       "label": "Reviews & Buzz / 影评口碑",
       "description": "Critical reception, Rotten Tomatoes scores, Metacritic, audience reactions, early buzz",
       "search": {

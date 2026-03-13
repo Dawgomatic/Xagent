@@ -13,7 +13,7 @@ Personal finance memory layer. Parse statements, store transactions, query spend
 ### 1. Parse Statement
 When user shares a statement (image or PDF):
 
-**⚠️ IMPORTANT: Telegram/channel previews truncate PDFs!**
+** IMPORTANT: Telegram/channel previews truncate PDFs!**
 Always extract with pypdf first to get ALL pages:
 
 ```bash

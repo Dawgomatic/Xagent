@@ -2,7 +2,7 @@
 name: expanso
 description: Data processing pipelines for OpenClaw. Deploy skills from the Expanso marketplace to transform, analyze, and process data locally.
 homepage: https://skills.expanso.io
-emoji: "⚡"
+emoji: ""
 metadata:
   clawdis:
     always: false
@@ -104,7 +104,7 @@ OpenClaw will use the `pii-redact` skill running on your local Expanso Edge to p
 
 ```
 ┌─────────────┐     ┌───────────────┐     ┌──────────────┐
-│  OpenClaw   │────▶│ Expanso Edge  │────▶│ Your Data    │
+│  OpenClaw   │────│ Expanso Edge  │────│ Your Data    │
 │  (asks)     │     │ (processes)   │     │ (stays local)│
 └─────────────┘     └───────────────┘     └──────────────┘
                            │

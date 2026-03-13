@@ -12,7 +12,7 @@ STATE_FILE="$WORKSPACE/memory/reward-state.json"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 if [ ! -f "$STATE_FILE" ]; then
-  echo "❌ No reward state found at $STATE_FILE"
+  echo " No reward state found at $STATE_FILE"
   exit 1
 fi
 
@@ -47,7 +47,7 @@ NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 EXISTS=$(jq -r --arg item "$ITEM" '.anticipating | map(ascii_downcase) | index($item | ascii_downcase) // -1' "$STATE_FILE")
 
 if [ "$EXISTS" = "-1" ]; then
-  echo "⚠️  '$ITEM' not found in anticipating list"
+  echo "  '$ITEM' not found in anticipating list"
   echo ""
   echo "Current anticipations:"
   jq -r '.anticipating[]' "$STATE_FILE" 2>/dev/null || echo "(none)"
@@ -65,7 +65,7 @@ jq --arg item "$ITEM" --arg now "$NOW" \
    ' "$STATE_FILE" > "$STATE_FILE.tmp"
 mv "$STATE_FILE.tmp" "$STATE_FILE"
 
-echo "✨ Anticipation resolved!"
+echo " Anticipation resolved!"
 echo "   '$ITEM' happened!"
 
 # Log as reward if requested

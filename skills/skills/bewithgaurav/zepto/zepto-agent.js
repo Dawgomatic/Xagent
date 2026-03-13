@@ -200,7 +200,7 @@ function sleep(ms) {
  */
 function log(msg, level = 'info') {
   const timestamp = new Date().toISOString();
-  const prefix = level === 'error' ? '❌' : level === 'success' ? '✅' : 'ℹ️';
+  const prefix = level === 'error' ? '' : level === 'success' ? '' : '';
   console.error(`${prefix} [${timestamp}] ${msg}`);
 }
 
@@ -469,7 +469,7 @@ async function smartShop(itemsStr, options = {}) {
   const targetItems = itemsStr.split(',').map(s => s.trim());
   const clearUnwanted = options.clearUnwanted !== false; // Default true
   
-  log(`🧠 Smart shopping for: ${targetItems.join(', ')}`);
+  log(` Smart shopping for: ${targetItems.join(', ')}`);
 
   // STEP 1: Check current cart state
   const cartState = await getCart();
@@ -510,7 +510,7 @@ async function smartShop(itemsStr, options = {}) {
   // STEP 4: Get final cart state
   const finalCart = await getCart();
 
-  log(`✅ Smart shop complete: ${added.length} added, ${skipped.length} skipped, ${failed.length} failed`, 'success');
+  log(` Smart shop complete: ${added.length} added, ${skipped.length} skipped, ${failed.length} failed`, 'success');
 
   const result = {
     added: added.map(p => ({ name: p.name, price: p.price })),
@@ -532,7 +532,7 @@ async function smartShop(itemsStr, options = {}) {
  * Opens modal using JavaScript and extracts address names
  */
 async function getAvailableAddresses() {
-  log('📋 Fetching available addresses...');
+  log(' Fetching available addresses...');
   
   // Step 1: Get current page snapshot  
   const snap = await browserCmd('snapshot', {});
@@ -641,7 +641,7 @@ function fuzzyMatchAddress(input, availableAddresses) {
  * @returns {Promise<{success: boolean, address: string}>}
  */
 async function selectAddress(addressQuery) {
-  log(`📍 Selecting address: "${addressQuery}"`);
+  log(` Selecting address: "${addressQuery}"`);
   
   // Step 1: Get current address from header
   const snap1 = await browserCmd('snapshot', {});
@@ -659,7 +659,7 @@ async function selectAddress(addressQuery) {
   
   // If query matches current (case-insensitive, partial), skip
   if (currentAddress.toLowerCase().includes(addressQuery.toLowerCase())) {
-    log(`✅ Already at "${currentAddress}"`, 'success');
+    log(` Already at "${currentAddress}"`, 'success');
     return { success: true, address: currentAddress, alreadySelected: true };
   }
   
@@ -723,7 +723,7 @@ async function selectAddress(addressQuery) {
   }
   
   const clickedText = result.clicked ? result.text : result.result?.text;
-  log(`✅ Clicked: ${clickedText}`);
+  log(` Clicked: ${clickedText}`);
   
   // Step 4: Verify address change
   await sleep(2000);
@@ -732,7 +732,7 @@ async function selectAddress(addressQuery) {
   const newMatch = snapshotText2.match(/button "([^"]*(?:blr|Home|Nagar)[^"]*)"\s*\[ref=(e\d+)\]/i);
   
   if (newMatch) {
-    log(`🎉 Address changed to: ${newMatch[1]}`, 'success');
+    log(` Address changed to: ${newMatch[1]}`, 'success');
     return { success: true, address: newMatch[1] };
   }
   

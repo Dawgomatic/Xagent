@@ -156,10 +156,10 @@ export function SSRSafeTodoList() {
 /**
  * Common SSR Errors Prevented:
  *
- * ❌ "ReferenceError: window is not defined"
- * ❌ "Cannot find module '@formkit/auto-animate/react'"
- * ❌ "useEffect is not defined"
- * ❌ "document is not defined"
+ *  "ReferenceError: window is not defined"
+ *  "Cannot find module '@formkit/auto-animate/react'"
+ *  "useEffect is not defined"
+ *  "document is not defined"
  *
- * ✅ All prevented by client-only import + conditional rendering
+ *  All prevented by client-only import + conditional rendering
  */

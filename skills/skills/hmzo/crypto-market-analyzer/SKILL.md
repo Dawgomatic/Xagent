@@ -65,14 +65,14 @@ Output format (JSON):
 To create a user-friendly report, use the JSON output and format it:
 
 ```
-📊 加密货币市场分析报告
+ 加密货币市场分析报告
 生成时间: 2026-02-11 14:38
 
 ## 比特币 (BTC)
 
-💰 当前价格: $43,250.50
-📈 24h涨跌: +2.5%
-📊 7日涨跌: +5.8%
+ 当前价格: $43,250.50
+ 24h涨跌: +2.5%
+ 7日涨跌: +5.8%
 
 ### 技术指标
 - RSI (14): 58.3
@@ -82,10 +82,10 @@ To create a user-friendly report, use the JSON output and format it:
 - 阻力位: $44,000
 
 ### 市场判断
-🎯 趋势: 看涨 (Bullish)
-📊 置信度: 75%
+ 趋势: 看涨 (Bullish)
+ 置信度: 75%
 
-📝 分析理由:
+ 分析理由:
 - RSI (58.3) 显示多头动能
 - 价格位于20日和50日均线上方 - 上升趋势
 - 24小时涨幅强劲 (2.50%) - 多头信号

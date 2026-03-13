@@ -5,25 +5,25 @@ version: 1.0.0
 author: captmarbles
 ---
 
-# Solar Weather Monitor 🌞
+# Solar Weather Monitor 
 
 Track space weather conditions in real-time! Monitor solar flares, geomagnetic storms, aurora forecasts, and solar wind data from NOAA's Space Weather Prediction Center.
 
 ## Features
 
-🌞 **Current Conditions** - Real-time space weather status  
-📅 **3-Day Forecast** - Predict upcoming solar activity  
-🌌 **Aurora Forecast** - Will you see the Northern Lights?  
-🌊 **Solar Wind** - Track solar wind magnetic field  
-🚨 **Alerts** - Active space weather warnings  
-📊 **Summary** - Quick comprehensive overview  
+ **Current Conditions** - Real-time space weather status  
+ **3-Day Forecast** - Predict upcoming solar activity  
+ **Aurora Forecast** - Will you see the Northern Lights?  
+ **Solar Wind** - Track solar wind magnetic field  
+ **Alerts** - Active space weather warnings  
+ **Summary** - Quick comprehensive overview  
 
 Perfect for:
-- 📻 Ham radio operators
-- 🌌 Aurora chasers & photographers
-- 🛰️ Satellite operators
-- ⚡ Power grid operators
-- 🌍 Space weather enthusiasts
+-  Ham radio operators
+-  Aurora chasers & photographers
+-  Satellite operators
+-  Power grid operators
+-  Space weather enthusiasts
 
 ## Usage
 
@@ -35,16 +35,16 @@ python3 solar-weather.py current
 
 **Output:**
 ```
-🌞 Space Weather Conditions
+ Space Weather Conditions
    2026-01-27 18:38:00 UTC
 
-   📻 R0: none ✅
+    R0: none 
       Radio Blackouts (Solar Flares)
 
-   ☢️  S0: none ✅
+     S0: none 
       Solar Radiation Storm
 
-   🌍 G0: none ✅
+    G0: none 
       Geomagnetic Storm
 ```
 
@@ -64,7 +64,7 @@ python3 solar-weather.py aurora
 
 **Output:**
 ```
-🌌 Aurora Forecast
+ Aurora Forecast
 
 Current Conditions:
    Geomagnetic: none
@@ -73,8 +73,8 @@ Current Conditions:
 Tomorrow (2026-01-28):
    Geomagnetic: minor
 
-🔮 Aurora Outlook:
-   ⚠️  MODERATE - Aurora possible at high latitudes
+ Aurora Outlook:
+     MODERATE - Aurora possible at high latitudes
 ```
 
 ### Solar Wind Data
@@ -85,12 +85,12 @@ python3 solar-weather.py solarwind
 
 **Output:**
 ```
-🌊 Solar Wind Magnetic Field
+ Solar Wind Magnetic Field
    Time: 2026-01-27 18:36:00.000
    Bt: 8 nT (Total Magnitude)
    Bz: -2 nT (North/South Component)
 
-   ✅ Slightly negative Bz
+    Slightly negative Bz
 ```
 
 **Note:** Negative Bz (especially < -5 nT) is favorable for aurora activity!
@@ -156,12 +156,12 @@ All data comes from **NOAA Space Weather Prediction Center (SWPC)**:
 - Free public API
 - https://www.swpc.noaa.gov/
 
-## Tips for Aurora Watchers 🌌
+## Tips for Aurora Watchers 
 
 **Best conditions for aurora:**
-1. **Geomagnetic Storm** (G1 or higher) ✅
-2. **Negative Bz** (< -5 nT) ✅
-3. **Clear, dark skies** 🌙
+1. **Geomagnetic Storm** (G1 or higher) 
+2. **Negative Bz** (< -5 nT) 
+3. **Clear, dark skies** 
 4. **High latitude** (or mid-latitude during major storms)
 
 **When to watch:**
@@ -170,7 +170,7 @@ All data comes from **NOAA Space Weather Prediction Center (SWPC)**:
 - Monitor solar wind Bz component
 - Peak activity often 1-2 hours after sunset
 
-## Ham Radio Operators 📻
+## Ham Radio Operators 
 
 **HF propagation:**
 - **R-scale events** disrupt HF radio
@@ -186,4 +186,4 @@ All data comes from **NOAA Space Weather Prediction Center (SWPC)**:
 - Solar flare predictions
 - Satellite pass warnings during storms
 
-Happy space weather watching! 🌞⚡🌌
+Happy space weather watching! 

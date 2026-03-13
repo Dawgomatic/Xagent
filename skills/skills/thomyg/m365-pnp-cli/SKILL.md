@@ -34,7 +34,7 @@ metadata:
 
 This skill provides access to the **CLI for Microsoft 365** – the official PnP (Patterns and Practices) tool for Microsoft 365 management.
 
-## ⚠️ IMPORTANT FOR AGENTS
+##  IMPORTANT FOR AGENTS
 
 **When in doubt, ALWAYS call `m365 --help` first to see all possibilities!**
 
@@ -146,7 +146,7 @@ m365 entra app list          # List apps
 
 ## Usage as Assistant - IMPORTANT
 
-### ⚡ First Step: ALWAYS call help!
+###  First Step: ALWAYS call help!
 
 ```bash
 # When in doubt - call help first!

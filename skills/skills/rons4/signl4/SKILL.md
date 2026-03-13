@@ -1,7 +1,7 @@
 ---
 name: signl4
 description: Send and close SIGNL4 alerts using the SIGNL4 inbound webhook (team secret in URL).
-metadata: {"openclaw":{"emoji":"🚨","requires":{"bins":["curl"],"env":["SIGNL4_TEAM_SECRET"]},"primaryEnv":"SIGNL4_TEAM_SECRET"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl"],"env":["SIGNL4_TEAM_SECRET"]},"primaryEnv":"SIGNL4_TEAM_SECRET"}}
 ---
 
 ## Overview

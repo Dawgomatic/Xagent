@@ -8,12 +8,12 @@ Control Athom Homey smart home devices from the command line via local (LAN/VPN)
 
 ## Features
 
-- ✅ List and control all Homey devices
-- ✅ Trigger flows (automations)
-- ✅ Query zones/rooms
-- ✅ Fuzzy name matching (typo-tolerant)
-- ✅ JSON output for AI/script parsing
-- ✅ Pretty terminal tables
+-  List and control all Homey devices
+-  Trigger flows (automations)
+-  Query zones/rooms
+-  Fuzzy name matching (typo-tolerant)
+-  JSON output for AI/script parsing
+-  Pretty terminal tables
 
 ## Quick Start
 
@@ -329,4 +329,4 @@ MIT
 
 Max Sumrall (@maxsumrall)
 
-Built for Clawdbot/ClawdHub 🦞
+Built for Clawdbot/ClawdHub 

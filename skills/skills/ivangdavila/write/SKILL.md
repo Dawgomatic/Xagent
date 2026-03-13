@@ -1,7 +1,7 @@
 ---
 name: Write
 description: Plan, draft, version, and refine written content with enforced versioning and quality audits.
-metadata: {"clawdbot":{"emoji":"✍️","os":["linux","darwin"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin"]}}
 ---
 
 ## Setup

@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔁",
+        "emoji": "",
         "requires": { "env": ["LIFI_API_KEY"] },
         "primaryEnv": "LIFI_API_KEY",
       },

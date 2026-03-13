@@ -2,7 +2,7 @@
 name: paythefly
 description: Create crypto payment & withdrawal links for your app. Works with BSC, Ethereum, TRON. Users pay via PayTheFlyPro gateway - you get shareable URLs with built-in signature verification.
 homepage: https://pro.paythefly.com
-metadata: {"clawdbot":{"emoji":"💸","requires":{"bins":["node"],"env":["PTF_PROJECT_ID","PTF_CONTRACT_ADDRESS","PTF_SIGNER_KEY","PTF_SIGNER_ADDRESS","PTF_CHAIN_ID"]},"primaryEnv":"PTF_PROJECT_ID"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"],"env":["PTF_PROJECT_ID","PTF_CONTRACT_ADDRESS","PTF_SIGNER_KEY","PTF_SIGNER_ADDRESS","PTF_CHAIN_ID"]},"primaryEnv":"PTF_PROJECT_ID"}}
 ---
 
 # PayTheFlyPro

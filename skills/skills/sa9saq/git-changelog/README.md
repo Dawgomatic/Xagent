@@ -1,4 +1,4 @@
-# 📋 git-changelog
+#  git-changelog
 
 Auto-generate beautiful changelogs from your git history.
 

@@ -1,7 +1,7 @@
 ---
 name: Image Editing
 description: Edit images with AI inpainting, outpainting, background removal, upscaling, and restoration tools.
-metadata: {"clawdbot":{"emoji":"✂️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # AI Image Editing

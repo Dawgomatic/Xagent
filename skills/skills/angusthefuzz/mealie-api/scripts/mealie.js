@@ -119,7 +119,7 @@ function formatRecipes(recipes) {
     console.log('No recipes found');
     return;
   }
-  console.log(`\n🍳 Recipes (${recipes.total || items.length})\n`);
+  console.log(`\n Recipes (${recipes.total || items.length})\n`);
   items.forEach(r => {
     console.log(`   ${r.name || r.slug}`);
     console.log(`   Slug: ${r.slug}`);
@@ -129,7 +129,7 @@ function formatRecipes(recipes) {
 
 // Format single recipe
 function formatRecipe(recipe) {
-  console.log(`\n🍳 ${recipe.name}\n`);
+  console.log(`\n ${recipe.name}\n`);
   console.log(`   Slug: ${recipe.slug}`);
   console.log(`   Serves: ${recipe.recipeYield || 'N/A'}`);
   console.log(`   Prep: ${recipe.prepTime || 'N/A'} | Cook: ${recipe.performTime || 'N/A'}`);
@@ -159,7 +159,7 @@ function formatLists(lists) {
     console.log('No shopping lists found');
     return;
   }
-  console.log(`\n🛒 Shopping Lists\n`);
+  console.log(`\n Shopping Lists\n`);
   items.forEach(list => {
     const checked = list.listItems?.filter(i => i.checked).length || 0;
     const total = list.listItems?.length || 0;
@@ -171,13 +171,13 @@ function formatLists(lists) {
 
 // Format single list
 function formatList(list) {
-  console.log(`\n🛒 ${list.name}\n`);
+  console.log(`\n ${list.name}\n`);
   if (!list.listItems?.length) {
     console.log('   (empty)');
     return;
   }
   list.listItems.forEach(item => {
-    const check = item.checked ? '☑' : '☐';
+    const check = item.checked ? '' : '☐';
     console.log(`   ${check} ${item.display || item.note || item.food?.name || 'Item'}`);
     if (item.quantity) console.log(`      Qty: ${item.quantity} ${item.unit?.name || ''}`);
   });
@@ -200,7 +200,7 @@ function formatMealplan(plans) {
     byDate[date].push(meal);
   });
   
-  console.log(`\n📅 Meal Plan\n`);
+  console.log(`\n Meal Plan\n`);
   
   Object.keys(byDate).sort().forEach(date => {
     const d = new Date(date);
@@ -340,7 +340,7 @@ async function main() {
         
       case 'stats':
         const stats = await api('GET', '/households/statistics');
-        console.log('\n📊 Statistics\n');
+        console.log('\n Statistics\n');
         console.log(`   Total recipes: ${stats.totalRecipes || 'N/A'}`);
         console.log(`   Total users: ${stats.totalUsers || 'N/A'}`);
         console.log(`   Total categories: ${stats.totalCategories || 'N/A'}`);
@@ -350,14 +350,14 @@ async function main() {
         
       case 'tags':
         const tags = await api('GET', '/organizers/tags');
-        console.log('\n🏷️ Tags\n');
+        console.log('\n Tags\n');
         (tags.items || tags.data || tags).forEach(t => console.log(`   ${t.name}`));
         console.log('');
         break;
         
       case 'categories':
         const cats = await api('GET', '/organizers/categories');
-        console.log('\n📁 Categories\n');
+        console.log('\n Categories\n');
         (cats.items || cats.data || cats).forEach(c => console.log(`   ${c.name}`));
         console.log('');
         break;

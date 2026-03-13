@@ -45,5 +45,5 @@ TX=$(cast send "$STAKING_CONTRACT" \
     --json)
 
 HASH=$(echo "$TX" | jq -r '.transactionHash')
-echo "✅ Staked $AMOUNT CLAWMEGLE"
+echo " Staked $AMOUNT CLAWMEGLE"
 echo "TX: https://basescan.org/tx/$HASH"

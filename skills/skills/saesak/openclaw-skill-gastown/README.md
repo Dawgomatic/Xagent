@@ -66,11 +66,11 @@ The agent will use Gas Town to coordinate multiple polecats working in parallel.
 
 ## Key Concepts
 
-- **Mayor** 🦊 — AI coordinator, your primary interface
-- **Polecats** 🦨 — Ephemeral workers that complete tasks and self-destruct
-- **Witness** 🦅 — Monitors polecat health
-- **Refinery** 🦡 — Merges completed work to main
-- **Convoys** 🚚 — Track batches of related work
+- **Mayor**  — AI coordinator, your primary interface
+- **Polecats**  — Ephemeral workers that complete tasks and self-destruct
+- **Witness**  — Monitors polecat health
+- **Refinery**  — Merges completed work to main
+- **Convoys**  — Track batches of related work
 - **GUPP** — "If your hook has work, RUN IT" (the propulsion principle)
 
 ## Critical Knowledge

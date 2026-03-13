@@ -5,7 +5,7 @@
 
 ---
 
-## 🗺️ Overview
+##  Overview
 
 Dubai's most popular expat corridor. These three neighborhoods sit side-by-side on the western coast:
 - **Dubai Marina** — High-rise waterfront living, yacht clubs, 24/7 energy
@@ -16,7 +16,7 @@ All connected by tram and metro. Walkable. Beach accessible. This is where most 
 
 ---
 
-## ⛵ Dubai Marina
+##  Dubai Marina
 
 ### The Vibe
 The ultimate Dubai lifestyle address. 200+ towers wrapped around a man-made canal with superyachts, restaurants, and the constant hum of nightlife. If you pictured "modern Dubai" in your head — this is it.
@@ -39,23 +39,23 @@ The ultimate Dubai lifestyle address. 200+ towers wrapped around a man-made cana
 - **Occupation:** Media, marketing, tech, hospitality, finance
 - **Income:** AED 20,000-60,000/month
 
-### Walkability: ⭐⭐⭐⭐⭐
+### Walkability: 
 Peak walkability for Dubai:
 - Marina Walk — 7km waterfront promenade
 - Restaurants, cafes, groceries everywhere
 - Beach 10-15 min walk
 - Tram and metro integrated
 
-### Metro Access: ⭐⭐⭐⭐⭐
+### Metro Access: 
 - **DMCC Station** — Red Line
 - **Sobha Realty Station** — Red Line  
 - **Dubai Marina Tram** — 11 stops through the area
 
-### Beach Access: ⭐⭐⭐⭐
+### Beach Access: 
 - JBR Beach: 10-15 min walk
 - Marina Beach: 5-10 min walk (smaller, quieter)
 
-### Pros ✅
+### Pros 
 - **Most walkable area in Dubai**
 - Nightlife, restaurants, cafes 24/7
 - Strong expat community
@@ -63,14 +63,14 @@ Peak walkability for Dubai:
 - Beach close by
 - High rental yields (5.47%)
 
-### Cons ❌
+### Cons 
 - **Traffic:** Friday brunch and weekend evenings = gridlock
 - **Noise:** Parties, nightclubs, car culture
 - **Parking:** Nightmare, often paid separately
 - **Tourist presence:** Not as bad as JBR but noticeable
 - **Service charges:** Variable by tower (AED 12-20/sqft)
 
-### Best Towers 🏢
+### Best Towers 
 **Premium:**
 - Marina Gate (new, high-spec)
 - Le Reve (super premium)
@@ -84,12 +84,12 @@ Peak walkability for Dubai:
 - The Torch (check recent maintenance)
 - Marina Promenade
 
-### Hidden Gems 💎
+### Hidden Gems 
 - **Marina Mall** — Less crowded than JBR malls
 - **Pier 7** — Seven restaurants on seven floors, great views
 - **Dubai Marina Yacht Club** — Membership gets pool access
 
-### ⚠️ Warnings
+###  Warnings
 - Some towers have ongoing maintenance issues — research before signing
 - "Marina view" can mean "parking lot view" — visit unit first
 - Weekend parking can cost AED 50-100/visit if no building spot
@@ -97,7 +97,7 @@ Peak walkability for Dubai:
 
 ---
 
-## 🏖️ JBR (Jumeirah Beach Residence)
+##  JBR (Jumeirah Beach Residence)
 
 ### The Vibe
 Beachfront living. The Walk. Tourist central. If you want to wake up, walk downstairs, and be on the sand — this is it. Trade-off: you'll share it with 10,000 tourists.
@@ -120,28 +120,28 @@ Beachfront living. The Walk. Tourist central. If you want to wake up, walk downs
 - **Lifestyle:** Active, social, outdoorsy
 - **Income:** AED 25,000-70,000/month
 
-### Walkability: ⭐⭐⭐⭐
+### Walkability: 
 Great along the beach, challenging elsewhere:
 - The Walk — restaurants, shops, entertainment
 - Beach immediate access
 - BUT: further from Metro, tram stops not beach-side
 
-### Metro Access: ⭐⭐⭐
+### Metro Access: 
 - Nearest metro: DMCC (15-20 min walk)
 - Tram: JBR stations exist but far from beach-side buildings
 - **Most residents rely on taxis**
 
-### Beach Access: ⭐⭐⭐⭐⭐
+### Beach Access: 
 Direct. Walk out of building, you're on sand. This is JBR's entire selling point.
 
-### Pros ✅
+### Pros 
 - **Direct beach access** — The #1 reason to live here
 - The Walk — vibrant promenade
 - Great restaurants and cafes
 - Active community (running, cycling, beach sports)
 - Bluewaters Island nearby (Ain Dubai)
 
-### Cons ❌
+### Cons 
 - **Tourists everywhere** — Peak season is overwhelming
 - **Traffic trap** — One-way system, wrong turn = 15 min detour
 - **Limited public transport** — Car or taxi dependent
@@ -159,12 +159,12 @@ Direct. Walk out of building, you're on sand. This is JBR's entire selling point
 - Premium pricing
 - Newer buildings
 
-### Hidden Gems 💎
+### Hidden Gems 
 - **Sonder Apartments** — Flexible living option
 - **All Day Market (Bahar)** — Great casual dining
 - **Less touristy north end** — Near Bluewaters
 
-### ⚠️ Warnings
+###  Warnings
 - Ground floor = no privacy, tourists look in
 - "Partial sea view" often means "if you lean out the window"
 - Friday/Saturday beaches packed — go early
@@ -172,7 +172,7 @@ Direct. Walk out of building, you're on sand. This is JBR's entire selling point
 
 ---
 
-## 🏢 JLT (Jumeirah Lake Towers)
+##  JLT (Jumeirah Lake Towers)
 
 ### The Vibe
 Marina's younger, scrappier sibling. 26 clusters of towers around man-made lakes. More affordable, more diverse, less polished. Home to entrepreneurs, startups, and anyone who wants Marina life at 70% of the price.
@@ -195,22 +195,22 @@ Marina's younger, scrappier sibling. 26 clusters of towers around man-made lakes
 - **Occupation:** Startups, sales, IT, freelancers
 - **Income:** AED 15,000-40,000/month
 
-### Walkability: ⭐⭐⭐⭐
+### Walkability: 
 Designed for pedestrians:
 - Network of footpaths connecting all clusters
 - Lakes, parks, cafes throughout
 - BUT: spread out, some clusters isolated
 
-### Metro Access: ⭐⭐⭐⭐⭐
+### Metro Access: 
 - **DMCC Station** — Red Line (right in JLT)
 - **Sobha Realty Station** — Red Line
 - Tram access to Marina and JBR
 
-### Beach Access: ⭐⭐⭐
+### Beach Access: 
 - 10-15 min drive to JBR Beach
 - Or tram + walk (20-25 min total)
 
-### Pros ✅
+### Pros 
 - **Best value** in the Marina corridor
 - Excellent metro access
 - Pet-friendly community
@@ -218,14 +218,14 @@ Designed for pedestrians:
 - Active F&B scene
 - Higher yields for investors (6.5%+)
 
-### Cons ❌
+### Cons 
 - **No beach proximity** — Lakes, not sea
 - **Traffic & parking** — Rush hour is brutal
 - **Lack of schools** — Families need to drive kids
 - **Building quality varies** — Some clusters better than others
 - **Construction ongoing** — Some areas still developing
 
-### Best Clusters 📍
+### Best Clusters 
 **Premium:**
 - Cluster A (Lake Shore Tower)
 - Cluster C
@@ -241,20 +241,20 @@ Designed for pedestrians:
 - Clusters with ongoing construction
 - Towers with known management issues (research specific tower)
 
-### Top Buildings 🏢
+### Top Buildings 
 - **Lake Point Tower**
 - **Lake Terrace**
 - **New Dubai Gate 1**
 - **Saba Tower**
 - **Al Shera Tower**
 
-### Hidden Gems 💎
+### Hidden Gems 
 - **Lake views** — Beautiful at sunset, fraction of Marina price
 - **McGettigan's** — Irish pub, great community vibe
 - **Nola** — Excellent rooftop bar
 - **Cluster D restaurants** — Great value F&B
 
-### ⚠️ Warnings
+###  Warnings
 - "Lake view" quality varies — visit first
 - Check which cluster before signing — some are 15 min from metro
 - Parking can be challenging in busy clusters
@@ -262,7 +262,7 @@ Designed for pedestrians:
 
 ---
 
-## 📊 Side-by-Side Comparison
+##  Side-by-Side Comparison
 
 | Factor | Dubai Marina | JBR | JLT |
 |--------|--------------|-----|-----|
@@ -270,56 +270,56 @@ Designed for pedestrians:
 | **1BR Rent** | 96K | 111K | 83K |
 | **2BR Rent** | 145K | 152K | 123K |
 | **Beach** | 10-15 min | Direct | 15-20 min |
-| **Metro** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Walkability** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **Nightlife** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
-| **Family** | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ |
-| **Value** | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **Metro** |  |  |  |
+| **Walkability** |  |  |  |
+| **Nightlife** |  |  |  |
+| **Family** |  |  |  |
+| **Value** |  |  |  |
 | **Tourists** | Medium | Very High | Low |
 
 ---
 
-## 🎯 Who Should Live Where?
+##  Who Should Live Where?
 
 ### Dubai Marina
-✅ **Ideal for:**
+ **Ideal for:**
 - Social butterflies
 - Nightlife lovers
 - Those who want walkable + connected
 - Young professionals building network
 
-❌ **Avoid if:**
+ **Avoid if:**
 - You need quiet
 - You hate crowds
 - You're extremely budget-conscious
 
 ### JBR
-✅ **Ideal for:**
+ **Ideal for:**
 - Beach is non-negotiable
 - You work from home / flexible schedule
 - Active lifestyle (running, beach sports)
 - Don't mind tourists
 
-❌ **Avoid if:**
+ **Avoid if:**
 - You rely on public transport
 - You hate crowds and tourists
 - You have early morning commutes
 
 ### JLT
-✅ **Ideal for:**
+ **Ideal for:**
 - Budget-conscious young professionals
 - Entrepreneurs / freelancers
 - Those who want Marina life at 30% discount
 - Pet owners
 
-❌ **Avoid if:**
+ **Avoid if:**
 - Beach is essential
 - You want "the address" prestige
 - You have school-age children
 
 ---
 
-## 🏫 Schools & Family Considerations
+##  Schools & Family Considerations
 
 **Important:** None of these areas are ideal for families with school-age children.
 
@@ -335,7 +335,7 @@ Designed for pedestrians:
 
 ---
 
-## 🛒 Daily Life Essentials
+##  Daily Life Essentials
 
 | Need | Marina | JBR | JLT |
 |------|--------|-----|-----|
@@ -346,7 +346,7 @@ Designed for pedestrians:
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **Rent negotiation:** Market is softening — ask for 1-2 months free on annual lease
 2. **Cheques:** 4 cheques standard; 1 cheque = 5-10% discount usually

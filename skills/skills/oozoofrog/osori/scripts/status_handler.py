@@ -34,15 +34,15 @@ for p in projects:
         missing += 1
 
 root_meta = f" [root={root_filter}]" if root_filter else ""
-print(f"📊 *Project Status*{root_meta}\n")
-print(f"✅ Clean: {clean}")
-print(f"📝 Modified: {modified}")
-print(f"⚠️ Missing: {missing}")
-print(f"📁 Total: {len(projects)}")
-print(f"🧾 Registry: schema={res.registry.get('schema')} v{res.registry.get('version')}")
+print(f" *Project Status*{root_meta}\n")
+print(f" Clean: {clean}")
+print(f" Modified: {modified}")
+print(f" Missing: {missing}")
+print(f" Total: {len(projects)}")
+print(f" Registry: schema={res.registry.get('schema')} v{res.registry.get('version')}")
 
 if res.migrated:
     notes = '; '.join(res.migration_notes)
-    print(f"\nℹ️ Migrated registry: {notes}")
+    print(f"\n Migrated registry: {notes}")
     if res.backup_path:
-        print(f"ℹ️ Migration backup: {res.backup_path}")
+        print(f" Migration backup: {res.backup_path}")

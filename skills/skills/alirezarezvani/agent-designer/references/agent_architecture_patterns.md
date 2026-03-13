@@ -96,7 +96,7 @@ Specialist {
 ### 3. Swarm Pattern (Peer-to-Peer)
 
 **Description:** Multiple autonomous agents collaborate as peers
-**Structure:** Agent ↔ Agent ↔ Agent (interconnected)
+**Structure:** Agent  Agent  Agent (interconnected)
 **Complexity:** High
 
 **Characteristics:**

@@ -2,7 +2,7 @@
 name: arc-skill-gitops
 description: Automated deployment, rollback, and version management for agent workflows and skills.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🚀", "os": ["darwin", "linux"], "requires": {"bins": ["python3", "git"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3", "git"]}}}
 ---
 
 # Agent GitOps

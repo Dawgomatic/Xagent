@@ -8,7 +8,7 @@ version: 1.2.0
 
 Configure OpenCode Zen free models with intelligent fallbacks to optimize costs while maintaining reliability.
 
-> **⚠️ Important:** To use this skill, you need **two API keys**:
+> ** Important:** To use this skill, you need **two API keys**:
 > 1. **OpenCode Zen API key** - For OpenCode free models (MiniMax M2.1, Kimi K2.5, GLM 4.7, GPT 5 Nano)
 > 2. **OpenRouter API key** - For OpenRouter free models (Trinity Large and other OpenRouter providers)
 >
@@ -40,7 +40,7 @@ Apply optimal free model configuration with provider diversification:
 }
 ```
 
-## 🔑 API Keys Required
+##  API Keys Required
 
 This skill uses models from **two different providers**, so you need both API keys configured:
 

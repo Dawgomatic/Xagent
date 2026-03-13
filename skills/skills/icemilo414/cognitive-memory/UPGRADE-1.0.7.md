@@ -37,11 +37,11 @@ Previous versions had contradictory instructions causing OpenClaw to output stru
 
 ### Compatibility
 
-- ✅ Backward compatible with v1.0.6
-- ✅ Existing reflections preserved
-- ⚠️ New files: reward-log.md, rewards/ directory
-- ⚠️ decay-scores.json gets token_economy section
-- ⚠️ SOUL.md should add "My Stake in This" section
+-  Backward compatible with v1.0.6
+-  Existing reflections preserved
+-  New files: reward-log.md, rewards/ directory
+-  decay-scores.json gets token_economy section
+-  SOUL.md should add "My Stake in This" section
 
 ---
 
@@ -205,7 +205,7 @@ Present token request:
 - Final: [N]K
 "Awaiting your decision."
 
-⛔ STOP. Wait for user to respond.
+ STOP. Wait for user to respond.
 
          ↓
 
@@ -215,7 +215,7 @@ User responds: Approve / Bonus / Reduce / Forgive / Penalize more
 NOW proceed with internal monologue reflection.
 Present reflection to user.
 
-⛔ STOP. Wait for user to approve.
+ STOP. Wait for user to approve.
 
          ↓
 

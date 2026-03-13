@@ -22,7 +22,7 @@ def save_config(config: dict):
     os.makedirs(CONFIG_DIR, exist_ok=True)
     with open(CONFIG_FILE, 'w') as f:
         json.dump(config, f, indent=2, ensure_ascii=False)
-    print(f"✅ Config saved to {CONFIG_FILE}")
+    print(f" Config saved to {CONFIG_FILE}")
 
 
 def set_token(token: str):

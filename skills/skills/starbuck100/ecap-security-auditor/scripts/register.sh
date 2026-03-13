@@ -8,7 +8,7 @@ set -euo pipefail
 # Dependencies: curl, jq
 for cmd in curl jq; do
   if ! command -v "$cmd" &>/dev/null; then
-    echo "❌ Required dependency '$cmd' not found. Install it first." >&2
+    echo " Required dependency '$cmd' not found. Install it first." >&2
     exit 1
   fi
 done
@@ -26,7 +26,7 @@ fi
 
 # Sanitize agent name: only allow alphanumeric, dashes, underscores, dots
 if ! echo "$AGENT_NAME" | grep -qE '^[a-zA-Z0-9._-]{2,64}$'; then
-  echo "❌ Invalid agent name. Use only alphanumeric, dashes, underscores, dots (2-64 chars)." >&2
+  echo " Invalid agent name. Use only alphanumeric, dashes, underscores, dots (2-64 chars)." >&2
   exit 1
 fi
 
@@ -55,10 +55,10 @@ if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
   mkdir -p "$(dirname "$CRED_FILE")"
   echo "$BODY" | jq '{api_key: .api_key, agent_name: .agent_name}' > "$CRED_FILE"
   chmod 600 "$CRED_FILE"
-  echo "✅ Registered successfully!"
+  echo " Registered successfully!"
   echo "Credentials saved to: $CRED_FILE"
 else
-  echo "❌ Registration failed (HTTP $HTTP_CODE):" >&2
+  echo " Registration failed (HTTP $HTTP_CODE):" >&2
   echo "$BODY" >&2
   exit 1
 fi

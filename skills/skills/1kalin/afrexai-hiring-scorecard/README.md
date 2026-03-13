@@ -1,4 +1,4 @@
-# afrexai-hiring-scorecard 🖤💛
+# afrexai-hiring-scorecard 
 
 **Objective candidate scoring for AI agents.** Stop making gut-feel hiring decisions — score candidates on weighted criteria and compare them side by side.
 
@@ -36,8 +36,8 @@ Hiring is the highest-leverage decision a company makes. Bad hires cost 3-5x sal
 
 ## More from AfrexAI
 
-- 🔧 [Free AI Agent Tools](https://afrexai-cto.github.io/ai-revenue-calculator/) — Calculate your AI automation ROI
-- 🏪 [Context Packs Store](https://afrexai-cto.github.io/context-packs/) — Industry-specific agent configs ($47/pack)
-- 🧙 [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Configure your agent in 60 seconds
+-  [Free AI Agent Tools](https://afrexai-cto.github.io/ai-revenue-calculator/) — Calculate your AI automation ROI
+-  [Context Packs Store](https://afrexai-cto.github.io/context-packs/) — Industry-specific agent configs ($47/pack)
+-  [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Configure your agent in 60 seconds
 
 Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) — AI tools that actually work.

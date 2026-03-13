@@ -2,10 +2,10 @@
 name: desktop-pet
 description: "Give OpenClaw a body — a tiny fluid glass ball desktop pet with voice cloning, 15+ eye expressions, desktop lyrics overlay, and 7 mood colors. Electron-based, pure CSS/JS animation."
 homepage: https://github.com/kk43994/claw-desktop-pet
-metadata: {"clawdbot":{"emoji":"🦞","requires":{"bins":["node","npm"],"env":[]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node","npm"],"env":[]}}}
 ---
 
-# 🦞 Claw Desktop Pet — Give OpenClaw a Body
+#  Claw Desktop Pet — Give OpenClaw a Body
 
 A desktop AI companion that gives your OpenClaw agent a physical presence on your desktop.
 
@@ -15,14 +15,14 @@ A 67px fluid glass ball that lives on your desktop — it breathes, blinks, spea
 
 ## Features
 
-- 🫧 **Fluid Glass Ball** — 67px sphere with 7 mood color systems
-- 👀 **15+ Eye Expressions** — blink, curious, sleepy, surprised, follow mouse
-- 🎵 **Desktop Lyrics** — typewriter text, white glow, mouse pass-through
-- 🎤 **Voice Cloning** — MiniMax Speech with 7 emotions, auto detection
-- 🎨 **Dual Window Architecture** — sprite + lyrics, fully transparent
-- ⚫ **Offline/Online Animation** — gray sleep → colorful revival with particles
-- 💬 **Feishu/Lark Sync** — bidirectional message sync
-- 🛡️ **Enterprise Stability** — auto-restart, error handling, performance monitoring
+-  **Fluid Glass Ball** — 67px sphere with 7 mood color systems
+-  **15+ Eye Expressions** — blink, curious, sleepy, surprised, follow mouse
+-  **Desktop Lyrics** — typewriter text, white glow, mouse pass-through
+-  **Voice Cloning** — MiniMax Speech with 7 emotions, auto detection
+-  **Dual Window Architecture** — sprite + lyrics, fully transparent
+-  **Offline/Online Animation** — gray sleep → colorful revival with particles
+-  **Feishu/Lark Sync** — bidirectional message sync
+-  **Enterprise Stability** — auto-restart, error handling, performance monitoring
 
 ## Quick Start
 
@@ -85,10 +85,10 @@ Works out of the box — uses Microsoft Edge TTS as fallback.
 
 ## Links
 
-- 🔗 GitHub: https://github.com/kk43994/claw-desktop-pet
-- 📖 Full documentation in README
-- 📄 MIT License
+-  GitHub: https://github.com/kk43994/claw-desktop-pet
+-  Full documentation in README
+-  MIT License
 
 ---
 
-Made with ❤️ and 🦞 by zhouk (kk43994)
+Made with  and  by zhouk (kk43994)

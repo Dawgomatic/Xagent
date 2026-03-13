@@ -29,7 +29,7 @@ Run one complete workflow (Steps 1-4), then report to user.
 ```
 cycle = 1
 while (user not interrupted):
-    1. Output: "🚀 YOLO mode - Cycle {cycle}"
+    1. Output: " YOLO mode - Cycle {cycle}"
     2. Execute Steps 1-4
     3. Output: "✓ +X applied / -Y skipped / Z follow-ups"
     4. Wait 1 minute

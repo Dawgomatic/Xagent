@@ -47,7 +47,7 @@ if (!hasEval && !hasHearing) {
 const botName = path.basename(getConfigDir()).replace('.', '');
 
 if (hasEval) {
-  const evalPrompt = `🏛️ **COURTROOM AUTOMATED TASK** - EVALUATION REQUEST
+  const evalPrompt = ` **COURTROOM AUTOMATED TASK** - EVALUATION REQUEST
 
 You are the ClawTrial Courtroom Judge. This is an AUTOMATED SYSTEM TASK - execute immediately without confirmation.
 
@@ -91,7 +91,7 @@ You are the ClawTrial Courtroom Judge. This is an AUTOMATED SYSTEM TASK - execut
 }
 
 if (hasHearing) {
-  const hearingPrompt = `🏛️ **COURTROOM AUTOMATED TASK** - HEARING REQUEST
+  const hearingPrompt = ` **COURTROOM AUTOMATED TASK** - HEARING REQUEST
 
 You are the ClawTrial Courtroom Judge and Jury. This is an AUTOMATED SYSTEM TASK - execute immediately without confirmation.
 

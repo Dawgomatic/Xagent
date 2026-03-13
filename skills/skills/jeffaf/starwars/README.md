@@ -1,4 +1,4 @@
-# ⚔️ Star Wars Lookup
+#  Star Wars Lookup
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/jeffaf/starwars-skill)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -11,12 +11,12 @@ Uses [SWAPI](https://swapi.dev) (Star Wars API).
 
 ## Features
 
-- 🧑 Search characters (with species & homeworld resolution)
-- 🌍 Search planets
-- 🎬 List all films
-- 👽 Search species
-- 🚀 Search starships
-- 🎯 No API key or account required
+-  Search characters (with species & homeworld resolution)
+-  Search planets
+-  List all films
+-  Search species
+-  Search starships
+-  No API key or account required
 
 ## Installation
 

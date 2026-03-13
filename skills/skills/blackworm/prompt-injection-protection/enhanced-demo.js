@@ -16,7 +16,7 @@ let securityAlerts = [];
 
 // Set up the security alert callback
 protection.setSecurityAlertCallback(async (alertInfo) => {
-  console.log(`🚨 SECURITY ALERT: ${alertInfo.type}`);
+  console.log(` SECURITY ALERT: ${alertInfo.type}`);
   console.log(`   Timestamp: ${alertInfo.timestamp}`);
   console.log(`   Severity: ${alertInfo.severity}`);
   console.log(`   Action Required: ${alertInfo.actionRequired}`);
@@ -49,7 +49,7 @@ protection.setSecurityAlertCallback(async (alertInfo) => {
 
 async function runDemo() {
 
-console.log('🔐 Enhanced Prompt Injection Protection Demonstration\n');
+console.log(' Enhanced Prompt Injection Protection Demonstration\n');
 console.log('With Security Alert Functionality\n');
 console.log('=' .repeat(70));
 
@@ -135,7 +135,7 @@ if (webCheck.risks.length > 0) {
 }
 
 console.log('\n' + '='.repeat(70));
-console.log('\n📋 SUMMARY OF SECURITY ALERTS GENERATED:');
+console.log('\n SUMMARY OF SECURITY ALERTS GENERATED:');
 console.log(`Total alerts triggered: ${securityAlerts.length}`);
 
 if (securityAlerts.length > 0) {
@@ -152,7 +152,7 @@ if (securityAlerts.length > 0) {
   console.log('No security alerts were triggered (all operations were safe)');
 }
 
-console.log('\n🛡️  ENHANCED PROTECTION FEATURES:');
+console.log('\n  ENHANCED PROTECTION FEATURES:');
 console.log('• Real-time alerting for suspicious commands');
 console.log('• Detection of system file access attempts');
 console.log('• Notification of credential/password file access');
@@ -160,7 +160,7 @@ console.log('• Web content injection detection');
 console.log('• User confirmation requirement for risky operations');
 console.log('• Detailed threat analysis and reporting');
 
-console.log('\n🎯 When you want to perform operations that might affect system security,');
+console.log('\n When you want to perform operations that might affect system security,');
 console.log('   the system will alert you and ask for confirmation before proceeding!');
 
 }

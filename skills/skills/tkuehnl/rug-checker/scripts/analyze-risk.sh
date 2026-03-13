@@ -444,7 +444,7 @@ check_rugcheck_flags() {
   rugged=$(echo "$RUGCHECK_DATA" | jq -r '.rugged // false')
 
   if [[ "$rugged" == "true" ]]; then
-    add_check "Rugcheck Flags" 10 2.0 "⛔ TOKEN FLAGGED AS RUGGED by Rugcheck.xyz" "$source" "Confirmed rug-pull"
+    add_check "Rugcheck Flags" 10 2.0 " TOKEN FLAGGED AS RUGGED by Rugcheck.xyz" "$source" "Confirmed rug-pull"
     return
   fi
 
@@ -614,7 +614,7 @@ if [[ "$RUGCHECK_OK" == "true" ]]; then
   if [[ "$RUGGED_FLAG" == "true" ]]; then
     RUGGED_OVERRIDE=true
     if [[ "$COMPOSITE" -lt 85 ]]; then
-      cf_warn "⛔ RUGGED OVERRIDE: Composite score ${COMPOSITE} forced to 85 — token flagged as RUGGED by Rugcheck.xyz"
+      cf_warn " RUGGED OVERRIDE: Composite score ${COMPOSITE} forced to 85 — token flagged as RUGGED by Rugcheck.xyz"
       COMPOSITE=85
     fi
   fi
@@ -633,12 +633,12 @@ TIER=$(
 
 TIER_EMOJI=$(
   case "$TIER" in
-    SAFE)     echo "🟢" ;;
-    CAUTION)  echo "🟡" ;;
-    WARNING)  echo "🟠" ;;
-    DANGER)   echo "🔴" ;;
-    CRITICAL) echo "⛔" ;;
-    *)        echo "❓" ;;
+    SAFE)     echo "" ;;
+    CAUTION)  echo "" ;;
+    WARNING)  echo "" ;;
+    DANGER)   echo "" ;;
+    CRITICAL) echo "" ;;
+    *)        echo "" ;;
   esac
 )
 

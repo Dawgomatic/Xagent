@@ -40,7 +40,7 @@ if (images.length > 0) {
 }
 
 const cardContent = [
-    [{ tag: "text", text: "📝 收到新的微博发布请求，需要审核：" }],
+    [{ tag: "text", text: " 收到新的微博发布请求，需要审核：" }],
     [{ tag: "text", text: `\n内容：${content}`, style: ["bold"] }]
 ];
 
@@ -60,7 +60,7 @@ cardContent.push([
 
 const msg = JSON.stringify({
     zh_cn: {
-        title: "微博审核提醒 🚦",
+        title: "微博审核提醒 ",
         content: cardContent
     }
 });

@@ -9,6 +9,6 @@ items.append({
     "detail": "Running low—next run will be sad water unless someone grabs a box.",
     "priority": "medium",
     "category": "supplies",
-    "icon": "🧼"
+    "icon": ""
 })
 path.write_text(json.dumps(mind, indent=2, ensure_ascii=False), encoding='utf-8')

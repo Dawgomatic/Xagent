@@ -69,11 +69,11 @@ Exclude:
 ### LTV:CAC Health Check
 | Ratio | Status | Action |
 |-------|--------|--------|
-| <1:1 | 🔴 Burning cash | Stop spending. Fix product-market fit or pricing. |
-| 1:1 - 2:1 | 🟡 Unsustainable | Optimize channels. Cut worst performers. |
-| 3:1 | 🟢 Healthy | Standard target. Keep optimizing. |
-| 4:1 - 5:1 | 🟢 Strong | Consider investing more in growth. |
-| >5:1 | 🔵 Under-investing | You're leaving growth on the table. Spend more. |
+| <1:1 |  Burning cash | Stop spending. Fix product-market fit or pricing. |
+| 1:1 - 2:1 |  Unsustainable | Optimize channels. Cut worst performers. |
+| 3:1 |  Healthy | Standard target. Keep optimizing. |
+| 4:1 - 5:1 |  Strong | Consider investing more in growth. |
+| >5:1 |  Under-investing | You're leaving growth on the table. Spend more. |
 
 ### Payback Period
 ```

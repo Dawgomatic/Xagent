@@ -152,7 +152,7 @@ See [references/AUTH.md](references/AUTH.md) for a detailed guide on setting up 
 ## Bug Reports & Contributing
 
 Found a bug? Please raise an issue at:
-👉 https://github.com/tanchunsiong/zoom-unofficial-community-skill/issues
+ https://github.com/tanchunsiong/zoom-unofficial-community-skill/issues
 
 Pull requests are also welcome!
 

@@ -9,7 +9,7 @@
 set -euo pipefail
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ jq is required. Install with: brew install jq (macOS) or apt install jq (Linux)"
+  echo " jq is required. Install with: brew install jq (macOS) or apt install jq (Linux)"
   exit 1
 fi
 
@@ -35,7 +35,7 @@ if [[ -z "$HOST" ]]; then
 fi
 
 if [[ -z "$HOST" ]]; then
-  echo "❌ No host provided. Exiting."
+  echo " No host provided. Exiting."
   exit 1
 fi
 
@@ -53,9 +53,9 @@ elif curl -s --connect-timeout 3 -o /dev/null "http://${HOST}:8989/" 2>/dev/null
 fi
 
 if [[ "$REACHABLE" == true ]]; then
-  echo "  ✅ Host $HOST is reachable"
+  echo "   Host $HOST is reachable"
 else
-  echo "  ❌ Cannot reach $HOST"
+  echo "   Cannot reach $HOST"
   echo ""
   echo "  Troubleshooting:"
   echo "    - Is the machine powered on?"
@@ -122,9 +122,9 @@ check_service() {
 
   if [[ "$http_code" =~ ^(200|301|302|303|400|401|403)$ ]]; then
     if [[ "$http_code" == "200" ]]; then
-      echo "  ✅ $name — http://${HOST}:${port}"
+      echo "   $name — http://${HOST}:${port}"
     else
-      echo "  ✅ $name — http://${HOST}:${port} (auth required)"
+      echo "   $name — http://${HOST}:${port} (auth required)"
     fi
     FOUND_APPS="${FOUND_APPS} ${name}"
     # Store port in the app-specific variable (bash 3.2 compatible)
@@ -151,7 +151,7 @@ FOUND_COUNT=$(echo "$FOUND_APPS" | wc -w | tr -d ' ')
 echo ""
 
 if [[ "$FOUND_COUNT" -eq 0 ]]; then
-  echo "❌ No services detected on standard ports."
+  echo " No services detected on standard ports."
   echo ""
   echo "  Possible causes:"
   echo "    - Services aren't running (check Docker/systemd)"
@@ -189,10 +189,10 @@ get_api_key() {
 
   if [[ -n "$key" ]]; then
     local masked="${key:0:4}...${key: -4}"
-    echo "  ✅ $app API key: $masked"
+    echo "   $app API key: $masked"
     set_key_var "$app" "$key"
   else
-    echo "  ⚠️  $app — couldn't auto-detect key"
+    echo "    $app — couldn't auto-detect key"
     echo "     → Find it in $app: Settings → General → API Key"
   fi
 }
@@ -223,9 +223,9 @@ verify_arr() {
   if [[ -n "$resp" ]]; then
     local version
     version=$(echo "$resp" | jq -r '.version // "unknown"' 2>/dev/null)
-    echo "  ✅ $app v${version} — connected"
+    echo "   $app v${version} — connected"
   else
-    echo "  ❌ $app — connection failed"
+    echo "   $app — connection failed"
     ALL_OK=false
   fi
 }
@@ -240,7 +240,7 @@ verify_arr Prowlarr "$PROWLARR_PORT" "$PROWLARR_KEY" v1
 if [[ -n "$PLEX_PORT" ]]; then
   plex_resp=$(curl -sf "http://${HOST}:${PLEX_PORT}/identity" 2>/dev/null || echo "")
   if [[ -n "$plex_resp" ]]; then
-    echo "  ✅ Plex — reachable (use X-Plex-Token for full access)"
+    echo "   Plex — reachable (use X-Plex-Token for full access)"
   fi
 fi
 
@@ -249,7 +249,7 @@ if [[ -n "$OVERSEERR_PORT" ]]; then
   os_resp=$(curl -sf "http://${HOST}:${OVERSEERR_PORT}/api/v1/status" 2>/dev/null || echo "")
   if [[ -n "$os_resp" ]]; then
     ver=$(echo "$os_resp" | jq -r '.version // "unknown"' 2>/dev/null)
-    echo "  ✅ Overseerr v${ver} — connected"
+    echo "   Overseerr v${ver} — connected"
   fi
 fi
 
@@ -277,9 +277,9 @@ echo "  scripts/search.sh \"Breaking Bad\" series"
 echo ""
 
 if [[ "$ALL_OK" == true ]]; then
-  echo "✅ All connections verified. You're good to go!"
+  echo " All connections verified. You're good to go!"
 else
-  echo "⚠️  Some connections need attention. Check warnings above."
+  echo "  Some connections need attention. Check warnings above."
   echo ""
   echo "Common fixes:"
   echo "  - API key wrong? Check Settings → General → API Key in the app's web UI"

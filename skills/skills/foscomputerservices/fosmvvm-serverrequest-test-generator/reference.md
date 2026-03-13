@@ -12,7 +12,7 @@ Complete file templates for generating ServerRequest tests.
 Before using these templates, remember:
 
 ```swift
-// ✅ Use app.testing().test() with typed ServerRequest
+//  Use app.testing().test() with typed ServerRequest
 let request = MyRequest(query: .init(...))
 try await app.testing().test(request, locale: en) { response in
     // response is TestingServerRequestResponse<MyRequest>
@@ -20,10 +20,10 @@ try await app.testing().test(request, locale: en) { response in
     #expect(response.body?.someField == expected)
 }
 
-// ❌ NEVER do this - manual URL/path
+//  NEVER do this - manual URL/path
 try await app.test(.GET, "/my_request?id=123") { response in }
 
-// ❌ NEVER do this - manual HTTP construction
+//  NEVER do this - manual HTTP construction
 let url = URL(string: "http://localhost/path")!
 let data = try await URLSession.shared.data(from: url)
 ```

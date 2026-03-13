@@ -48,7 +48,7 @@ This dashboard reads both files and displays them in one place.
    ```
 3. **Read the printed URL** — it includes the auto-generated token:
    ```
-   🏠 AI COMMANDER DASHBOARD READY
+    AI COMMANDER DASHBOARD READY
    Access URL: http://YOUR_IP:19195/?token=a3f9c2...
    ```
 

@@ -1,7 +1,7 @@
 ---
 name: elastic
 description: Search and analyze data via Elasticsearch API. Index, search, and manage clusters.
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"env":["ELASTICSEARCH_URL","ELASTICSEARCH_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["ELASTICSEARCH_URL","ELASTICSEARCH_API_KEY"]}}}
 ---
 # Elasticsearch
 Distributed search and analytics.

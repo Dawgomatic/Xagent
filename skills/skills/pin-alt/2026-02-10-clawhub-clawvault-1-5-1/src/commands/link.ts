@@ -69,7 +69,7 @@ export async function linkCommand(file: string | undefined, options: LinkOptions
     const orphans = result.orphans
       .slice()
       .sort((a, b) => a.target.localeCompare(b.target) || a.source.localeCompare(b.source));
-    console.log(`⚠ ${orphans.length} orphan link(s) found`);
+    console.log(` ${orphans.length} orphan link(s) found`);
     for (const orphan of orphans) {
       console.log(`  - ${orphan.source} → [[${orphan.target}]]`);
     }
@@ -164,7 +164,7 @@ function toVaultId(vaultPath: string, filePath: string): string {
 
 function logSuggestions(filePath: string, suggestions: Array<{ alias: string; path: string; line: number }>): void {
   if (suggestions.length === 0) return;
-  console.log(`\n💡 Suggested links in ${path.basename(filePath)}`);
+  console.log(`\n Suggested links in ${path.basename(filePath)}`);
   for (const suggestion of suggestions) {
     console.log(`  Line ${suggestion.line}: "${suggestion.alias}" → [[${suggestion.path}]]`);
   }
@@ -183,7 +183,7 @@ async function linkFile(
   if (dryRun) {
     const matches = dryRunLink(content, index);
     if (matches.length > 0) {
-      console.log(`\n📄 ${filePath}`);
+      console.log(`\n ${filePath}`);
       for (const m of matches) {
         console.log(`  Line ${m.line}: "${m.alias}" → [[${m.path}]]`);
       }

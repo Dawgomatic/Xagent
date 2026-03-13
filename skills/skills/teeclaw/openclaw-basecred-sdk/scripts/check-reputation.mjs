@@ -20,7 +20,7 @@ const flags = {
 // Show help
 if (flags.help || !address) {
   console.log(`
-📊 BaseCred SDK - Reputation Check
+ BaseCred SDK - Reputation Check
 
 USAGE:
   node check-reputation.mjs <ethereum_address> [options]
@@ -65,7 +65,7 @@ NOTE:
       if (flags.json) {
         console.log(JSON.stringify(result, null, 2));
       } else {
-        console.error(`❌ Error: ${result.message}`);
+        console.error(` Error: ${result.message}`);
       }
       process.exit(1);
     }
@@ -88,7 +88,7 @@ NOTE:
     process.exit(0);
 
   } catch (error) {
-    console.error('❌ Unexpected error:', error.message);
+    console.error(' Unexpected error:', error.message);
     process.exit(1);
   }
 })();

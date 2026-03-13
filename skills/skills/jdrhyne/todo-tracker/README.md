@@ -1,4 +1,4 @@
-# 📋 TODO Tracker Skill
+#  TODO Tracker Skill
 
 A persistent TODO scratch pad for [Clawdbot](https://clawdbot.com) that tracks tasks across sessions with priorities, completion tracking, and heartbeat reminders.
 
@@ -25,9 +25,9 @@ Just talk naturally to your agent:
 
 ## Priorities
 
-- 🔴 **High** — Urgent items
-- 🟡 **Medium** — Normal priority (default)
-- 🟢 **Nice to Have** — Low priority / future ideas
+-  **High** — Urgent items
+-  **Medium** — Normal priority (default)
+-  **Nice to Have** — Low priority / future ideas
 
 ## TODO.md Format
 
@@ -38,16 +38,16 @@ The skill maintains a `TODO.md` file in your workspace:
 
 *Last updated: 2026-01-17*
 
-## 🔴 High Priority
+##  High Priority
 - [ ] Important task (added: 2026-01-17)
 
-## 🟡 Medium Priority
+##  Medium Priority
 - [ ] Regular task (added: 2026-01-17)
 
-## 🟢 Nice to Have
+##  Nice to Have
 - [ ] Future idea (added: 2026-01-17)
 
-## ✅ Done
+##  Done
 - [x] Completed task (done: 2026-01-17)
 ```
 
@@ -91,11 +91,11 @@ On each heartbeat:
 ## Example Summary Output
 
 ```
-📋 TODO: 7 items (2 high, 2 medium, 3 low)
-🔴 High priority items:
+ TODO: 7 items (2 high, 2 medium, 3 low)
+ High priority items:
   • Ingest low-code docs
   • Fix critical bug
-⚠️ 1 stale item (>7 days old)
+ 1 stale item (>7 days old)
 ```
 
 ## License
@@ -104,4 +104,4 @@ MIT — use freely!
 
 ---
 
-Made for Clawdbot 🤖
+Made for Clawdbot 

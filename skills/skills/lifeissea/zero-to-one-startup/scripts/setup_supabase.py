@@ -53,24 +53,24 @@ RAON_API_URL    = os.environ.get("RAON_API_URL", "")
 
 # ─── 사전 검사 ───────────────────────────────────────────────────────────────
 if RAON_API_URL:
-    print("ℹ️  RAON_API_URL 설정됨 (SaaS 모드)")
+    print("  RAON_API_URL 설정됨 (SaaS 모드)")
     print(f"   Supabase는 {RAON_API_URL} 서버에서 중앙 관리됩니다.")
     print("   이 스크립트는 로컬 모드 전용입니다.")
     sys.exit(0)
 
 if not SUPABASE_URL:
-    print("❌ SUPABASE_URL 미설정 (~/.openclaw/.env 확인)")
+    print(" SUPABASE_URL 미설정 (~/.openclaw/.env 확인)")
     sys.exit(1)
 
 if not ACCESS_TOKEN:
-    print("❌ SUPABASE_ACCESS_TOKEN 미설정")
+    print(" SUPABASE_ACCESS_TOKEN 미설정")
     print("   ~/.openclaw/.env에 추가: SUPABASE_ACCESS_TOKEN=sbp_xxx...")
     sys.exit(1)
 
 # project-ref: https://{ref}.supabase.co → ref 추출
 PROJECT_REF = SUPABASE_URL.split("//")[-1].split(".")[0]
 
-print(f"🎯 Supabase 프로젝트: {PROJECT_REF}")
+print(f" Supabase 프로젝트: {PROJECT_REF}")
 print(f"   URL: {SUPABASE_URL}")
 print()
 
@@ -181,36 +181,36 @@ ALTER TABLE raon_evaluations ENABLE ROW LEVEL SECURITY;
 ALTER TABLE raon_feedback    ENABLE ROW LEVEL SECURITY;
 """.strip()
 
-print("🔍 테이블 존재 여부 확인...")
+print(" 테이블 존재 여부 확인...")
 eval_ok, fb_ok = check_tables()
-print(f"   raon_evaluations : {'✅ 존재' if eval_ok else '❌ 없음'}")
-print(f"   raon_feedback    : {'✅ 존재' if fb_ok else '❌ 없음'}")
+print(f"   raon_evaluations : {' 존재' if eval_ok else ' 없음'}")
+print(f"   raon_feedback    : {' 존재' if fb_ok else ' 없음'}")
 
 if eval_ok and fb_ok:
     print()
-    print("✅ 모든 테이블이 이미 존재합니다. 파이프라인 준비 완료!")
+    print(" 모든 테이블이 이미 존재합니다. 파이프라인 준비 완료!")
     sys.exit(0)
 
 print()
-print("📦 Management API로 테이블 생성 중...")
+print(" Management API로 테이블 생성 중...")
 success, msg = execute_sql(CREATE_SQL)
 
 if success:
-    print(f"   ✅ SQL 실행 성공")
+    print(f"    SQL 실행 성공")
 else:
-    print(f"   ❌ 실패: {msg}")
+    print(f"    실패: {msg}")
     sys.exit(1)
 
 # ─── 최종 확인 ───────────────────────────────────────────────────────────────
 print()
-print("🔍 최종 확인...")
+print(" 최종 확인...")
 eval_ok, fb_ok = check_tables()
-print(f"   raon_evaluations : {'✅ 존재' if eval_ok else '⚠️  확인 필요'}")
-print(f"   raon_feedback    : {'✅ 존재' if fb_ok else '⚠️  확인 필요'}")
+print(f"   raon_evaluations : {' 존재' if eval_ok else '  확인 필요'}")
+print(f"   raon_feedback    : {' 존재' if fb_ok else '  확인 필요'}")
 print()
 
 if eval_ok and fb_ok:
-    print("✅ 피드백 수집 파이프라인 준비 완료!")
+    print(" 피드백 수집 파이프라인 준비 완료!")
     print()
     print("   다음 단계:")
     print("   1. 서버 재시작: launchctl stop/start com.yeomyeonggeori.raon-os")
@@ -218,6 +218,6 @@ if eval_ok and fb_ok:
     print("   3. 피드백 전송: curl -X POST http://localhost:8400/v1/feedback ...")
     sys.exit(0)
 else:
-    print("⚠️  테이블이 생성됐으나 REST API로 아직 확인되지 않습니다.")
+    print("  테이블이 생성됐으나 REST API로 아직 확인되지 않습니다.")
     print("   잠시 후 다시 실행해보세요 (Supabase cache refresh 필요할 수 있음).")
     sys.exit(0)

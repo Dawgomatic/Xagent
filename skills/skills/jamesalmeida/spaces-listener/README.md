@@ -1,4 +1,4 @@
-# 🎧 spaces-listener
+#  spaces-listener
 
 Version: 1.4.1
 
@@ -8,12 +8,12 @@ Record and transcribe X/Twitter Spaces — live or replays.
 
 ## Features
 
-- 📥 **Audio recording** — Direct download via yt-dlp
-- 📝 **Auto-transcription** — Local Whisper (no API key)
-- 🧠 **Auto-summarization** — OpenAI summaries (optional)
-- ⏺️ **Live Spaces** — Record in real-time as they happen
-- 🔄 **Replays** — Download at full speed
-- 💰 **Free** — No API costs, no rate limits
+-  **Audio recording** — Direct download via yt-dlp
+-  **Auto-transcription** — Local Whisper (no API key)
+-  **Auto-summarization** — OpenAI summaries (optional)
+-  **Live Spaces** — Record in real-time as they happen
+-  **Replays** — Download at full speed
+-  **Free** — No API costs, no rate limits
 
 ## Installation
 
@@ -115,7 +115,7 @@ Want video of the Space UI? Use **QuickTime Player**:
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   X Space   │────▶│   yt-dlp    │────▶│    .m4a     │
+│   X Space   │────│   yt-dlp    │────│    .m4a     │
 │    (URL)    │     │  (download) │     │   (audio)   │
 └─────────────┘     └─────────────┘     └──────┬──────┘
                                                │
@@ -166,11 +166,11 @@ Notable Moments
 
 | Model | Speed | Accuracy | Download |
 |-------|-------|----------|----------|
-| tiny | ⚡⚡⚡⚡ | ⭐ | 39 MB |
-| base | ⚡⚡⚡ | ⭐⭐ | 142 MB |
-| small | ⚡⚡ | ⭐⭐⭐ | 466 MB |
-| medium | ⚡ | ⭐⭐⭐⭐ | 1.5 GB |
-| large | 🐢 | ⭐⭐⭐⭐⭐ | 2.9 GB |
+| tiny |  |  | 39 MB |
+| base |  |  | 142 MB |
+| small |  |  | 466 MB |
+| medium |  |  | 1.5 GB |
+| large |  |  | 2.9 GB |
 
 First run downloads the model. Subsequent runs use the cached model.
 

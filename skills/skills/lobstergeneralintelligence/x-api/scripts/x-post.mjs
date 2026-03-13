@@ -30,7 +30,7 @@ function loadCredentials() {
       try {
         return JSON.parse(readFileSync(configPath, 'utf8'));
       } catch (e) {
-        console.error(`❌ Failed to parse ${configPath}:`, e.message);
+        console.error(` Failed to parse ${configPath}:`, e.message);
       }
     }
   }
@@ -41,7 +41,7 @@ function loadCredentials() {
 const credentials = loadCredentials();
 
 if (!credentials) {
-  console.error(`❌ No credentials found.
+  console.error(` No credentials found.
 
 Set environment variables:
   export X_API_KEY="..."
@@ -78,9 +78,9 @@ try {
   const { data } = await client.v2.tweet(text);
   // Get username from the access token (first part before the dash is user ID)
   const userId = credentials.accessToken.split('-')[0];
-  console.log(`✅ Posted: https://x.com/i/status/${data.id}`);
+  console.log(` Posted: https://x.com/i/status/${data.id}`);
 } catch (err) {
-  console.error('❌ Failed:', err.message);
+  console.error(' Failed:', err.message);
   if (err.data) console.error(JSON.stringify(err.data, null, 2));
   process.exit(1);
 }

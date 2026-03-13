@@ -89,7 +89,7 @@ export function loadSavedContact() {
     const contact = JSON.parse(fs.readFileSync(CONTACT_FILE, 'utf8'));
     return contact;
   } catch (error) {
-    console.error(`⚠️  Error reading saved contact: ${error.message}`);
+    console.error(`  Error reading saved contact: ${error.message}`);
     return null;
   }
 }

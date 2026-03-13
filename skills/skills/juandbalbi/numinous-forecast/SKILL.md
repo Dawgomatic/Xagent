@@ -2,7 +2,7 @@
 name: numinous-forecast
 description: Get calibrated probabilities from Numinous (Bittensor Subnet 6) with metadata/provenance.
 homepage: https://numinouslabs.io/
-metadata: {"clawdbot":{"emoji":"🔮","homepage":"https://numinouslabs.io/","requires":{"bins":["python3"],"env":["NUMINOUS_X402_EVM_PRIVATE_KEY"]},"primaryEnv":"NUMINOUS_X402_EVM_PRIVATE_KEY","install":[{"id":"uv-evm","kind":"uv","module":"x402[httpx,evm]","label":"Install x402 (httpx + EVM) (uv)"},{"id":"uv-evm-svm","kind":"uv","module":"x402[httpx,evm,svm]","label":"Install x402 (httpx + EVM + SVM) (uv)"}]}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://numinouslabs.io/","requires":{"bins":["python3"],"env":["NUMINOUS_X402_EVM_PRIVATE_KEY"]},"primaryEnv":"NUMINOUS_X402_EVM_PRIVATE_KEY","install":[{"id":"uv-evm","kind":"uv","module":"x402[httpx,evm]","label":"Install x402 (httpx + EVM) (uv)"},{"id":"uv-evm-svm","kind":"uv","module":"x402[httpx,evm,svm]","label":"Install x402 (httpx + EVM + SVM) (uv)"}]}}
 ---
 
 # Numinous Forecast

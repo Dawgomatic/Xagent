@@ -31,7 +31,7 @@ await executeIntent({
 });
 ```
 
-## ⚠️ Important
+##  Important
 Always provide `refundAddress` when swapping FROM non-NEAR chains!
 
 See SKILL.md for full documentation.

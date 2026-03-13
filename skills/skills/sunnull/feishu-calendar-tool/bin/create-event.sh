@@ -21,7 +21,7 @@ DEFAULT_USER_ID=$(jq -r '.default_user_id' "$CONFIG_FILE")
 
 # 验证配置
 if [ -z "$APP_ID" ] || [ "$APP_ID" = "null" ]; then
-  echo "❌ 配置文件中缺少 app_id" >&2
+  echo " 配置文件中缺少 app_id" >&2
   exit 1
 fi
 
@@ -73,7 +73,7 @@ RESPONSE=$(curl -s -X POST \
 CODE=$(echo "$RESPONSE" | jq -r '.code')
 
 if [ "$CODE" != "0" ]; then
-  echo "❌ 创建失败: $(echo "$RESPONSE" | jq -r '.msg')" >&2
+  echo " 创建失败: $(echo "$RESPONSE" | jq -r '.msg')" >&2
   exit 1
 fi
 
@@ -96,7 +96,7 @@ curl -s -X POST \
   }" > /dev/null
 
 # 输出结果
-echo "✅ 日程创建成功"
+echo " 日程创建成功"
 echo "标题: $SUMMARY"
 echo "时间: $START_TIME - $END_TIME"
 echo "链接: $APP_LINK"

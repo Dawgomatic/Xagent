@@ -5,7 +5,7 @@ description: Query Strava activities, stats, and workout data using Python/strav
 homepage: https://www.strava.com
 metadata:
   openclaw:
-    emoji: 🏃
+    emoji: 
     requires:
       bins:
         - python3

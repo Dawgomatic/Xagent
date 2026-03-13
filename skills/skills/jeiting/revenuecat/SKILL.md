@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "😻",
+        "emoji": "",
         "requires": { "bins": ["curl"], "env": ["RC_API_KEY"] },
         "primaryEnv": "RC_API_KEY",
       },

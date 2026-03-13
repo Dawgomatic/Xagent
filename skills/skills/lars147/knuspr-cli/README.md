@@ -1,6 +1,6 @@
-# 🛒 Knuspr CLI
+#  Knuspr CLI
 
-> **⚠️ Hobby-Projekt Disclaimer**
+> ** Hobby-Projekt Disclaimer**
 > 
 > Dies ist ein privates Hobby-Projekt und steht in keiner Verbindung zu Knuspr/Rohlik.
 > Die CLI nutzt keine offizielle API — Änderungen seitens Knuspr können jederzeit zu
@@ -10,19 +10,19 @@ REST-ähnliche, AI-Agent-freundliche CLI für [Knuspr.de](https://www.knuspr.de)
 
 Einkaufen, Suchen, Warenkorb verwalten, Lieferzeiten, Bestellhistorie — alles vom Terminal aus.
 
-## ✨ Features
+##  Features
 
-- 🔐 **Authentifizierung** — Sichere Session-Speicherung
-- 🔍 **Produktsuche** — Mit Filtern (Bio, Favoriten, Rette Lebensmittel)
-- 🛒 **Warenkorb** — Anzeigen, hinzufügen, entfernen, leeren
-- 📅 **Lieferzeitfenster** — Anzeigen und reservieren
-- 📋 **Bestellhistorie** — Ansehen und wiederholen
-- ⭐ **Favoriten** — Verwalten
-- 🥬 **Rette Lebensmittel** — Reduzierte Produkte kurz vor Ablauf
-- 📊 **JSON-Output** — Für Automatisierung und AI-Agents
-- 🐚 **Shell-Completion** — Bash, Zsh, Fish
+-  **Authentifizierung** — Sichere Session-Speicherung
+-  **Produktsuche** — Mit Filtern (Bio, Favoriten, Rette Lebensmittel)
+-  **Warenkorb** — Anzeigen, hinzufügen, entfernen, leeren
+-  **Lieferzeitfenster** — Anzeigen und reservieren
+-  **Bestellhistorie** — Ansehen und wiederholen
+-  **Favoriten** — Verwalten
+-  **Rette Lebensmittel** — Reduzierte Produkte kurz vor Ablauf
+-  **JSON-Output** — Für Automatisierung und AI-Agents
+-  **Shell-Completion** — Bash, Zsh, Fish
 
-## 📦 Installation
+##  Installation
 
 ```bash
 # Repository klonen
@@ -41,7 +41,7 @@ sudo cp knuspr_cli.py /usr/local/bin/knuspr
 
 **Voraussetzungen:** Python 3.8+ (keine externen Dependencies!)
 
-## 🏗️ Command-Struktur
+##  Command-Struktur
 
 Die CLI folgt einem REST-ähnlichen Pattern: `knuspr <ressource> <aktion>`
 
@@ -102,7 +102,7 @@ knuspr
     └── fish        Fish Completion ausgeben
 ```
 
-## 🚀 Schnellstart
+##  Schnellstart
 
 ```bash
 # 1. Einloggen
@@ -127,9 +127,9 @@ knuspr slot reserve 110425
 knuspr cart open
 ```
 
-## 📖 Befehle im Detail
+##  Befehle im Detail
 
-### 🔐 auth — Authentifizierung
+###  auth — Authentifizierung
 
 ```bash
 knuspr auth login                              # Interaktiv einloggen
@@ -139,7 +139,7 @@ knuspr auth status                             # Login-Status anzeigen
 knuspr auth                                    # Default: status
 ```
 
-### ⚙️ config — Konfiguration
+###  config — Konfiguration
 
 ```bash
 knuspr config show                   # Aktuelle Konfiguration anzeigen
@@ -149,18 +149,18 @@ knuspr config                        # Default: show
 ```
 
 **Konfigurierbare Präferenzen:**
-- 🌿 Bio-Produkte bevorzugen
-- 📊 Standard-Sortierung (Relevanz, Preis, Bewertung)
-- 🚫 Ausschlüsse (z.B. "Laktose", "Gluten", "Schwein")
+-  Bio-Produkte bevorzugen
+-  Standard-Sortierung (Relevanz, Preis, Bewertung)
+-  Ausschlüsse (z.B. "Laktose", "Gluten", "Schwein")
 
-### 👤 account — Account-Informationen
+###  account — Account-Informationen
 
 ```bash
 knuspr account show                  # Premium-Status, Mehrwegtaschen, etc.
 knuspr account                       # Default: show
 ```
 
-### 📦 product — Produkte
+###  product — Produkte
 
 ```bash
 # Suchen
@@ -187,7 +187,7 @@ knuspr product rette "Fleisch"                 # Nach Begriff filtern
 knuspr product rette -n 10                     # Max. 10 Ergebnisse
 ```
 
-### ⭐ favorite — Favoriten
+###  favorite — Favoriten
 
 ```bash
 knuspr favorite list                 # Alle Favoriten anzeigen
@@ -197,7 +197,7 @@ knuspr favorite remove 11943         # Aus Favoriten entfernen
 knuspr favorite                      # Default: list
 ```
 
-### 🛒 cart — Warenkorb
+###  cart — Warenkorb
 
 ```bash
 knuspr cart show                     # Warenkorb anzeigen
@@ -209,7 +209,7 @@ knuspr cart open                     # Warenkorb im Browser öffnen
 knuspr cart                          # Default: show
 ```
 
-### 📅 slot — Lieferzeitfenster
+###  slot — Lieferzeitfenster
 
 ```bash
 knuspr slot list                     # Verfügbare Zeitfenster
@@ -224,7 +224,7 @@ knuspr slot release                  # Reservierung stornieren
 knuspr slot                          # Default: list
 ```
 
-### 📋 order — Bestellungen
+###  order — Bestellungen
 
 ```bash
 knuspr order list                    # Bestellhistorie
@@ -234,7 +234,7 @@ knuspr order repeat 1011234895       # Alle Produkte in Warenkorb legen
 knuspr order                         # Default: list
 ```
 
-### 📊 insight — Einkaufs-Insights
+###  insight — Einkaufs-Insights
 
 ```bash
 # Häufig gekaufte Produkte
@@ -254,14 +254,14 @@ knuspr insight meals healthy         # Gesunde Produkte
 knuspr insight                       # Default: frequent
 ```
 
-### 🚚 delivery — Lieferinformationen
+###  delivery — Lieferinformationen
 
 ```bash
 knuspr delivery show                 # Liefergebühren, bevorstehende Bestellungen
 knuspr delivery                      # Default: show
 ```
 
-### 🐚 completion — Shell-Completion
+###  completion — Shell-Completion
 
 ```bash
 # Bash (in ~/.bashrc einfügen)
@@ -276,7 +276,7 @@ source ~/.zshrc
 knuspr completion fish > ~/.config/fish/completions/knuspr.fish
 ```
 
-## 📊 JSON-Ausgabe
+##  JSON-Ausgabe
 
 Alle Befehle unterstützen `--json` für maschinenlesbare Ausgabe:
 
@@ -288,7 +288,7 @@ knuspr order list --json
 knuspr slot list --json
 ```
 
-## 🔑 Credentials einrichten
+##  Credentials einrichten
 
 ### Option 1: Interaktiv (empfohlen)
 
@@ -318,7 +318,7 @@ chmod 600 ~/.knuspr_credentials.json
 knuspr auth login
 ```
 
-## 🤖 Beispiele für AI-Agents
+##  Beispiele für AI-Agents
 
 ```bash
 # Produkt-ID aus Suche extrahieren
@@ -346,15 +346,15 @@ knuspr insight frequent --json | jq '.top_items | .[].product_name'
 knuspr insight meals breakfast --json | jq '.suggestions[:5]'
 ```
 
-## 🔢 Exit-Codes
+##  Exit-Codes
 
 | Code | Bedeutung |
 |------|-----------|
-| `0`  | ✅ Erfolg |
-| `1`  | ❌ Allgemeiner Fehler |
-| `2`  | 🔐 Authentifizierungsfehler |
+| `0`  |  Erfolg |
+| `1`  |  Allgemeiner Fehler |
+| `2`  |  Authentifizierungsfehler |
 
-## 📁 Dateien
+##  Dateien
 
 | Datei | Beschreibung |
 |-------|--------------|
@@ -362,18 +362,18 @@ knuspr insight meals breakfast --json | jq '.suggestions[:5]'
 | `~/.knuspr_credentials.json` | Gespeicherte Login-Daten (optional) |
 | `~/.knuspr_config.json` | Benutzer-Präferenzen |
 
-## 🛠️ Abhängigkeiten
+##  Abhängigkeiten
 
 **Keine!** Nur Python 3.8+ und die Standardbibliothek.
 
-## 📜 Lizenz
+##  Lizenz
 
 MIT
 
-## 👤 Autor
+##  Autor
 
 Lars Heinen
 
 ---
 
-> 💡 **Tipp:** Nutze `knuspr <command> --help` für detaillierte Hilfe zu jedem Befehl.
+>  **Tipp:** Nutze `knuspr <command> --help` für detaillierte Hilfe zu jedem Befehl.

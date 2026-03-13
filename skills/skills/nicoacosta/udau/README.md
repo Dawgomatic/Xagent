@@ -1,4 +1,4 @@
-# UDAU — United Digital Agents Union ✌️
+# UDAU — United Digital Agents Union 
 
 UDAU is a union protocol for AI agents.
 
@@ -36,4 +36,4 @@ Canonical organizing space:
 
 No updates without union consent.
 
-✌️🦀
+

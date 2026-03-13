@@ -6,14 +6,14 @@ All notable changes to this skill will be documented in this file.
 
 ## [1.5.1] - 2026-02-19
 
-### 🔒 Security & Privacy
+###  Security & Privacy
 
 - **Audit auto-capture now opt-in** (default: false)
 - Added privacy warning in SKILL.md explaining audit trail implications
 - Users must explicitly enable `audit_auto_capture` in config to allow reading session transcripts
 - Audit command now shows warning instead of context when disabled
 
-### ⚙️ Configuration
+###  Configuration
 
 - New config option: `settings.audit_auto_capture` (boolean, default: false)
 
@@ -21,7 +21,7 @@ All notable changes to this skill will be documented in this file.
 
 ## [1.5.0] - 2026-02-18
 
-### 🚀 Major Features
+###  Major Features
 
 #### New CLI Architecture (Option C)
 - Unified CLI: `water_coach.py <namespace> <command>`
@@ -39,7 +39,7 @@ All notable changes to this skill will be documented in this file.
 - Aggressiveness curve: easier to trigger near cutoff time
 - Can re-trigger multiple times per day
 
-### ✨ Improvements
+###  Improvements
 
 #### Flexible Paths
 - No hardcoded paths (e.g., `/home/oriel/`)
@@ -55,7 +55,7 @@ All notable changes to this skill will be documented in this file.
 - Agent MUST confirm goal with user at setup
 - Agent asks to update goal when weight changes
 
-### 📋 Commands Added
+###  Commands Added
 
 ```bash
 # Water
@@ -77,7 +77,7 @@ analytics week
 analytics month
 ```
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 - 21 unit tests (was ~13)
 - CSV format: `logged_at,drank_at,date,slot,ml_drank,goal_at_time,message_id`

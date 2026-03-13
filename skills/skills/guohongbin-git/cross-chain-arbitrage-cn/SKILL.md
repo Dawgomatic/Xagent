@@ -3,7 +3,7 @@ name: cross-chain-arbitrage-cn
 description: "跨链套利 | Cross-Chain Arbitrage. Uniswap 跨链套利机会 | Uniswap cross-chain arbitrage. 发现不同链上的价格差异 | Find price differences across chains. 触发词：跨链、套利、Uniswap、arbitrage."
 metadata:
   openclaw:
-    emoji: ⛓️
+    emoji: 
     fork-of: "https://clawhub.ai"
 ---
   assesses risk, and executes if profitable. Uses ERC-7683 for cross-chain

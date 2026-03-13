@@ -78,7 +78,7 @@ const alert = {
 };
 
 fs.appendFileSync(alertsFile, JSON.stringify(alert) + '\n');
-console.log(`📢 Alert queued`);
+console.log(` Alert queued`);
 ```
 
 ### Step 2: Create `alert-forwarder.js`
@@ -111,7 +111,7 @@ async function sendToMainSession(alert) {
   return new Promise((resolve, reject) => {
     const payload = {
       sessionKey: 'agent:main:main',
-      message: `🎥 **MOTION ALERT** [${alert.severity}]\n\n📸 File: ${alert.file}\nTime: ${alert.timestamp}\n\n${alert.analysis}`,
+      message: ` **MOTION ALERT** [${alert.severity}]\n\n File: ${alert.file}\nTime: ${alert.timestamp}\n\n${alert.analysis}`,
     };
 
     const postData = JSON.stringify(payload);
@@ -152,7 +152,7 @@ async function sendToMainSession(alert) {
  * Poll alerts.jsonl for new alerts
  */
 function startMonitoring() {
-  console.log(`📊 Monitoring ${alertsFile} for new alerts...\n`);
+  console.log(` Monitoring ${alertsFile} for new alerts...\n`);
 
   setInterval(async () => {
     if (!fs.existsSync(alertsFile)) return;
@@ -167,15 +167,15 @@ function startMonitoring() {
 
           if (sentAlerts.has(key)) continue;
 
-          console.log(`📢 Sending alert: ${alert.file}`);
+          console.log(` Sending alert: ${alert.file}`);
           await sendToMainSession(alert);
 
           sentAlerts.add(key);
           fs.appendFileSync(sentFile, key + '\n');
 
-          console.log(`✅ Alert sent to main session\n`);
+          console.log(` Alert sent to main session\n`);
         } catch (e) {
-          console.error(`⚠️  Error processing alert: ${e.message}`);
+          console.error(`  Error processing alert: ${e.message}`);
         }
       }
     } catch (e) {
@@ -185,10 +185,10 @@ function startMonitoring() {
 }
 
 startMonitoring();
-console.log(`🚀 Alert Forwarder ready.\n`);
+console.log(` Alert Forwarder ready.\n`);
 
 process.on('SIGINT', () => {
-  console.log('\n👋 Shutting down...');
+  console.log('\n Shutting down...');
   process.exit(0);
 });
 ```
@@ -246,23 +246,23 @@ const services = [
 
 ## Next Steps After Implementation
 
-1. ✅ Get the basic forwarder working
-2. 📊 Add severity-based filtering (only send "suspicious" or "match" alerts, suppress pure "motion")
-3. 🖼️ Attach actual image files to alerts (Clawdbot's message tool supports `filePath`)
-4. 🎯 Add BOLOs from sentry-mode-skill integration (cross-check images against your BOLO list)
-5. 📱 Send summary reports at end of day (collect 10+ alerts, consolidate, send once)
+1.  Get the basic forwarder working
+2.  Add severity-based filtering (only send "suspicious" or "match" alerts, suppress pure "motion")
+3.  Attach actual image files to alerts (Clawdbot's message tool supports `filePath`)
+4.  Add BOLOs from sentry-mode-skill integration (cross-check images against your BOLO list)
+5.  Send summary reports at end of day (collect 10+ alerts, consolidate, send once)
 
 ---
 
 ## Files to Modify/Create
 
-- ✏️ `~/clawd/clawdsense-skill/scripts/analyzer.js` — Add `alerts.jsonl` writing
-- ✨ `~/clawd/clawdsense-skill/scripts/alert-forwarder.js` — **NEW** Alert distribution service
-- ✏️ `~/clawd/clawdsense-skill/scripts/health-monitor.js` — Add alert-forwarder to monitored services
-- ✏️ `~/clawd/clawdsense-skill/SKILL.md` — Document the new architecture
+-  `~/clawd/clawdsense-skill/scripts/analyzer.js` — Add `alerts.jsonl` writing
+-  `~/clawd/clawdsense-skill/scripts/alert-forwarder.js` — **NEW** Alert distribution service
+-  `~/clawd/clawdsense-skill/scripts/health-monitor.js` — Add alert-forwarder to monitored services
+-  `~/clawd/clawdsense-skill/SKILL.md` — Document the new architecture
 
 ---
 
 **You're building a closed-loop system.** When it's done, every photo from ClawdSense will automatically flow into your main session with analysis attached. That's the foundation for everything else (sentry mode alerts, BOLO matching, anomaly detection, etc.).
 
-Go build it! 🚀
+Go build it! 

@@ -18,17 +18,17 @@ SKILL_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 MODE="${1:-}"
 
-echo "🧠 Self-Evolving Agent v4.0 — Demo Recorder"
+echo " Self-Evolving Agent v4.0 — Demo Recorder"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
 # ── Step 1: Check dependencies ──────────────────────────────
 if [[ "$MODE" != "--text" ]]; then
   if command -v vhs &>/dev/null; then
-    echo "✅ vhs found: $(vhs --version 2>/dev/null || echo 'installed')"
+    echo " vhs found: $(vhs --version 2>/dev/null || echo 'installed')"
     USE_VHS=true
   else
-    echo "⚠️  vhs not found. Install with: brew install vhs"
+    echo "  vhs not found. Install with: brew install vhs"
     echo "   Falling back to text output only."
     USE_VHS=false
   fi
@@ -38,7 +38,7 @@ fi
 
 # ── Step 2: Run pipeline and capture output ──────────────────
 echo ""
-echo "📡 Running v4.0 pipeline (DRY_RUN=true, VERBOSE=true)..."
+echo " Running v4.0 pipeline (DRY_RUN=true, VERBOSE=true)..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -49,16 +49,16 @@ DRY_RUN=true VERBOSE=true bash scripts/v4/orchestrator.sh 2>&1 \
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "✅ Raw output saved: demo/demo-output.txt"
+echo " Raw output saved: demo/demo-output.txt"
 
 # ── Step 3: Generate GIF ────────────────────────────────────
 if [[ "$USE_VHS" == "true" ]]; then
   echo ""
-  echo "🎬 Generating GIF with vhs..."
+  echo " Generating GIF with vhs..."
   cd "$SCRIPT_DIR"
-  vhs demo.tape && echo "✅ GIF saved: demo/demo.gif" \
-    || echo "⚠️  GIF generation failed. Check demo.tape and vhs installation."
+  vhs demo.tape && echo " GIF saved: demo/demo.gif" \
+    || echo "  GIF generation failed. Check demo.tape and vhs installation."
 fi
 
 echo ""
-echo "🏁 Done!"
+echo " Done!"

@@ -130,7 +130,7 @@ async function main() {
       }
   } catch (e) {
       console.error('Failed to check holiday API (using default: Workday):', e.message);
-      holidayCheckWarning = `⚠️ *Warning*: Holiday check failed (${e.message}). Assumed Workday.`;
+      holidayCheckWarning = ` *Warning*: Holiday check failed (${e.message}). Assumed Workday.`;
   }
 
   // Safety: If holiday check failed, DO NOT spam users with DMs. Only report to admin.
@@ -250,7 +250,7 @@ async function main() {
     const cardElements = [];
     
     // Summary Element
-    const statusEmoji = (!report.late.length && !report.early.length && !report.absent.length) ? '✅' : '⚠️';
+    const statusEmoji = (!report.late.length && !report.early.length && !report.absent.length) ? '' : '';
     let summaryText = `**Type**: ${dayType} ${!isWorkday ? '(No Absent Checks)' : ''}\n**Total Checked**: ${report.total}`;
     if (holidayCheckWarning) summaryText += `\n${holidayCheckWarning}`;
     if (argv.dryRun) summaryText += `\n(DRY RUN: No messages sent)`;
@@ -266,21 +266,21 @@ async function main() {
         cardElements.push({ tag: 'hr' });
         cardElements.push({
             tag: 'div',
-            text: { tag: 'lark_md', content: `🔴 **Late**:\n${report.late.join(', ')}` }
+            text: { tag: 'lark_md', content: ` **Late**:\n${report.late.join(', ')}` }
         });
     }
     if (report.early.length > 0) {
         cardElements.push({ tag: 'hr' });
         cardElements.push({
             tag: 'div',
-            text: { tag: 'lark_md', content: `🟡 **Early Leave**:\n${report.early.join(', ')}` }
+            text: { tag: 'lark_md', content: ` **Early Leave**:\n${report.early.join(', ')}` }
         });
     }
     if (report.absent.length > 0) {
         cardElements.push({ tag: 'hr' });
         cardElements.push({
             tag: 'div',
-            text: { tag: 'lark_md', content: `⚫ **Absent**:\n${report.absent.join(', ')}` }
+            text: { tag: 'lark_md', content: ` **Absent**:\n${report.absent.join(', ')}` }
         });
     }
 
@@ -288,7 +288,7 @@ async function main() {
         cardElements.push({ tag: 'hr' });
         cardElements.push({
             tag: 'div',
-            text: { tag: 'lark_md', content: "✅ **All Good!** No anomalies detected today." }
+            text: { tag: 'lark_md', content: " **All Good!** No anomalies detected today." }
         });
     }
 
@@ -301,7 +301,7 @@ async function main() {
         const records = res.records || [];
         if (records.length > 0) {
             const r = records[0]; 
-            details += `- ${userName}: In ${r.check_in_record_id ? '✅' : '❌'} | Out ${r.check_out_record_id ? '✅' : '❌'}\n`;
+            details += `- ${userName}: In ${r.check_in_record_id ? '' : ''} | Out ${r.check_out_record_id ? '' : ''}\n`;
         } else {
              details += `- ${userName}: No shift\n`;
         }
@@ -317,7 +317,7 @@ async function main() {
 
     const card = {
         header: {
-            title: { tag: 'plain_text', content: `📋 Attendance Report (${dateStr})` },
+            title: { tag: 'plain_text', content: ` Attendance Report (${dateStr})` },
             template: cardColor
         },
         elements: cardElements

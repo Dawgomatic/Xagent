@@ -237,18 +237,18 @@ python scripts/merge_audio.py -i ../../../dialogue_output/dialogue.json -o ../..
 ```
 对话音频已生成！
 
-📁 输出文件：
+ 输出文件：
 - dialogue.html - 展示页面（用浏览器打开）
 - dialogue.json - 对话数据
 
-🎭 角色音色：
+ 角色音色：
 - 小明: male-qn-qingse (青涩青年音色)
 - 小红: female-shaonv (少女音色)
 
-🎵 音频数量：4 段
-⏱️ 预计总时长：约 30 秒
+ 音频数量：4 段
+ 预计总时长：约 30 秒
 
-💡 提示：在浏览器中打开 dialogue.html 即可播放
+ 提示：在浏览器中打开 dialogue.html 即可播放
 ```
 
 ## 注意事项

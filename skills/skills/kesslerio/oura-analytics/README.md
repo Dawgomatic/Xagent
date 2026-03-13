@@ -10,12 +10,12 @@ Fetch sleep scores, readiness, activity, HRV, and trends from Oura Cloud API. Ge
 
 ## Features
 
-✅ **Oura Cloud API Integration** - Personal Access Token authentication  
-✅ **Sleep Analytics** - Score, duration, efficiency, REM/deep stages  
-✅ **Readiness Tracking** - Recovery score, HRV balance, temperature  
-✅ **Activity Metrics** - Steps, calories, MET minutes  
-✅ **Trend Analysis** - Moving averages, correlations, anomaly detection  
-✅ **Automated Alerts** - Low readiness/sleep notifications via Telegram
+ **Oura Cloud API Integration** - Personal Access Token authentication  
+ **Sleep Analytics** - Score, duration, efficiency, REM/deep stages  
+ **Readiness Tracking** - Recovery score, HRV balance, temperature  
+ **Activity Metrics** - Steps, calories, MET minutes  
+ **Trend Analysis** - Moving averages, correlations, anomaly detection  
+ **Automated Alerts** - Low readiness/sleep notifications via Telegram
 
 ## Version
 
@@ -113,15 +113,15 @@ python scripts/oura_briefing.py --format hybrid
 
 **Example hybrid output:**
 ```
-🌅 *Morning Briefing — Jan 22*
+ *Morning Briefing — Jan 22*
 ────────────────────────
-💤 *Sleep*: 6h 47m (↑75min vs avg) ⚠️
-⚡ *Readiness*: 80 (stable) ✅
+ *Sleep*: 6h 47m (↑75min vs avg) 
+ *Readiness*: 80 (stable) 
 *Drivers*: recovery_index, body_temperature
-*Recovery*: 🟡 YELLOW
+*Recovery*:  YELLOW
 *Rec*: Moderate day. Avoid heavy training.
 
-*📊 7-Day Trends*
+* 7-Day Trends*
 ────────────────────────
 *Sleep Score*: `89.5` ↓
 *Readiness*: `77.1` ↑
@@ -145,30 +145,30 @@ python scripts/baseline.py --json
 
 **Example output:**
 ```
-📈 Current vs Baseline (Last 7d vs 30d baseline)
+ Current vs Baseline (Last 7d vs 30d baseline)
 
-   ↗️ Sleep Score: 89.5 (+10.6, z=0.53)
+    Sleep Score: 89.5 (+10.6, z=0.53)
       Above baseline
 
-   ➡️ Readiness: 77.1 (+1.0, z=0.15)
+    Readiness: 77.1 (+1.0, z=0.15)
       Within baseline
 
-   ↗️ Sleep Duration: 7.3 (+1.4, z=0.52)
+    Sleep Duration: 7.3 (+1.4, z=0.52)
       Above baseline
 
-   ↗️ Efficiency: 89.7 (+6.8, z=0.52)
+    Efficiency: 89.7 (+6.8, z=0.52)
       Above baseline
 
-✅ All metrics within or above baseline range
+ All metrics within or above baseline range
 ```
 
 **Interpretation:**
 - **z-score**: Standard deviations from baseline mean
-  - `z > 1.5`: 🔥 Well above baseline
-  - `0.5 < z < 1.5`: ↗️ Above baseline
-  - `-0.5 < z < 0.5`: ➡️ Within baseline
-  - `-1.5 < z < -0.5`: ↘️ Below baseline
-  - `z < -1.5`: ⚠️ Well below baseline (needs attention)
+  - `z > 1.5`:  Well above baseline
+  - `0.5 < z < 1.5`:  Above baseline
+  - `-0.5 < z < 0.5`:  Within baseline
+  - `-1.5 < z < -0.5`:  Below baseline
+  - `z < -1.5`:  Well below baseline (needs attention)
 - **Baseline range**: P25-P75 (middle 50% of your historical data)
 - **Sample size**: Number of days used to calculate baseline
 
@@ -374,10 +374,10 @@ python scripts/oura_data.py cleanup --days 180
 
 ### GDPR Compliance
 
-- ✅ **Data ownership:** You own your data (local storage only)
-- ✅ **Data retention:** You control retention (manual cleanup)
-- ✅ **No data sharing:** No third-party services
-- ✅ **Right to deletion:** Clear data anytime with `clear-all`
+-  **Data ownership:** You own your data (local storage only)
+-  **Data retention:** You control retention (manual cleanup)
+-  **No data sharing:** No third-party services
+-  **Right to deletion:** Clear data anytime with `clear-all`
 
 **Note:** This skill is NOT HIPAA-compliant. Do not use for medical decision-making. Consult healthcare professionals for health concerns.
 

@@ -1,7 +1,7 @@
 ---
 name: Pricing
 description: Design pricing strategies for products, services, and subscriptions that maximize conversion and value.
-metadata: {"clawdbot":{"emoji":"💰","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Pricing Psychology

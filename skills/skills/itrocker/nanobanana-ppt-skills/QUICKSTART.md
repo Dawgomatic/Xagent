@@ -1,6 +1,6 @@
 # 快速使用指南
 
-## 🚀 5分钟快速上手
+##  5分钟快速上手
 
 ### 步骤1: 设置API密钥
 
@@ -60,7 +60,7 @@ open outputs/TIMESTAMP/index.html
 - ESC : 全屏模式
 - 空格 : 自动播放
 
-## 💡 使用技巧
+##  使用技巧
 
 ### 技巧1: 选择合适的页数
 
@@ -114,7 +114,7 @@ python generate_ppt.py --plan plan_5.json --style styles/gradient-glass.md --res
 python generate_ppt.py --plan plan_15.json --style styles/gradient-glass.md --resolution 2K --output outputs/v2-detailed
 ```
 
-## 🎨 自定义风格
+##  自定义风格
 
 ### 创建新风格
 
@@ -139,7 +139,7 @@ my-custom-style
 python generate_ppt.py --plan plan.json --style styles/my-style.md
 ```
 
-## 🔧 高级用法
+##  高级用法
 
 ### 手动调整提示词
 
@@ -178,7 +178,7 @@ wait
 echo "所有版本生成完成！"
 ```
 
-## 📋 常见问题
+##  常见问题
 
 ### Q: 生成失败怎么办？
 
@@ -217,23 +217,23 @@ A: 可以通过以下方式：
 
 A: 目前最佳支持Markdown格式，也可以使用纯文本。
 
-## 📞 获取帮助
+##  获取帮助
 
 遇到问题？
 1. 查看README.md
 2. 查看ppt-generator.md详细文档
 3. 在Claude Code中使用 `/help`
 
-## 🎯 最佳实践清单
+##  最佳实践清单
 
-✅ 使用清晰的标题和分段
-✅ 每页内容不超过3-5个要点
-✅ 选择合适的页数范围
-✅ 日常使用2K分辨率
-✅ 保存原始JSON规划文件
-✅ 定期检查API配额使用情况
-✅ 测试播放器在不同浏览器的表现
+ 使用清晰的标题和分段
+ 每页内容不超过3-5个要点
+ 选择合适的页数范围
+ 日常使用2K分辨率
+ 保存原始JSON规划文件
+ 定期检查API配额使用情况
+ 测试播放器在不同浏览器的表现
 
 ---
 
-**开始创作吧！** 🚀
+**开始创作吧！** 

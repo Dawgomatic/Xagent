@@ -1,4 +1,4 @@
-# 🧠 Agent Memory Kit
+#  Agent Memory Kit
 
 [![GitHub](https://img.shields.io/badge/GitHub-reflectt-blue?logo=github)](https://github.com/reflectt/agent-memory-kit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -83,7 +83,7 @@ memory/
 
 ---
 
-## 🔍 Search & Recall (v2.1+)
+##  Search & Recall (v2.1+)
 
 **Problem:** You have 3,865+ lines of memory. How do you find that decision from last week?
 
@@ -315,15 +315,15 @@ When you wake up confused:
 
 ## Anti-Patterns to Avoid
 
-❌ **"Mental notes"** — They don't survive sessions. Write it down.
+ **"Mental notes"** — They don't survive sessions. Write it down.
 
-❌ **Logging WHAT but not HOW** — "Connected to Homie" vs "Connected via `curl localhost:4444`"
+ **Logging WHAT but not HOW** — "Connected to Homie" vs "Connected via `curl localhost:4444`"
 
-❌ **Skipping procedures** — "I'll remember" → You won't.
+ **Skipping procedures** — "I'll remember" → You won't.
 
-❌ **Not tracking failures** — Same mistakes, repeated forever.
+ **Not tracking failures** — Same mistakes, repeated forever.
 
-❌ **Putting everything in MEMORY.md** — Gets bloated. Daily logs are for events; MEMORY.md is for distilled knowledge.
+ **Putting everything in MEMORY.md** — Gets bloated. Daily logs are for events; MEMORY.md is for distilled knowledge.
 
 ---
 
@@ -359,7 +359,7 @@ This kit works great on its own, but pairs well with:
 
 ## Origin
 
-Created by Team Reflectt after their lead agent (Kai 🌊) woke up on Feb 2, 2026 having forgotten how to use tools they'd mastered the day before.
+Created by Team Reflectt after their lead agent (Kai ) woke up on Feb 2, 2026 having forgotten how to use tools they'd mastered the day before.
 
 The daily logs showed *what* was accomplished. But the procedural knowledge — the *how* — wasn't captured. This kit ensures that never happens again.
 

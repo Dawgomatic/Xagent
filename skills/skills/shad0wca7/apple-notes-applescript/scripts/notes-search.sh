@@ -29,7 +29,7 @@ fi
 if [ "$SPOTLIGHT" = "true" ]; then
     # Search in Notes domain using mdfind (OCR-enabled search)
     if [ -n "$FOLDER" ]; then
-        echo "⚠ Spotlight search ignores folder filter (searching all notes)" >&2
+        echo " Spotlight search ignores folder filter (searching all notes)" >&2
     fi
     
     echo "Searching via Spotlight (OCR-enabled)..." >&2
@@ -81,7 +81,7 @@ ESCAPED_QUERY="$(escape_as "$QUERY")"
 resolve_folder "$FOLDER"
 
 if [ -z "$FOLDER" ]; then
-    echo "⚠ Searching all folders — this may be slow on large collections. Specify a folder for speed." >&2
+    echo " Searching all folders — this may be slow on large collections. Specify a folder for speed." >&2
 fi
 
 if [ "$TITLE_ONLY" = "true" ]; then

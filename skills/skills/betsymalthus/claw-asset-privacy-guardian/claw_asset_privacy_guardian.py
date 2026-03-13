@@ -705,9 +705,9 @@ class PrivacyGuardian:
         
         # 隐私保护声明
         if has_color:
-            report_lines.append(f"{Fore.BLUE}🔒 隐私保护声明:{Style.RESET_ALL}")
+            report_lines.append(f"{Fore.BLUE} 隐私保护声明:{Style.RESET_ALL}")
         else:
-            report_lines.append("🔒 隐私保护声明:")
+            report_lines.append(" 隐私保护声明:")
         report_lines.append("  • 所有报告均已匿名化处理")
         report_lines.append("  • 不包含具体敏感信息")
         report_lines.append("  • 仅显示问题类型和建议")
@@ -716,9 +716,9 @@ class PrivacyGuardian:
         # 风险统计
         stats = report.risk_statistics()
         if has_color:
-            report_lines.append(f"{Fore.YELLOW}📊 风险统计:{Style.RESET_ALL}")
+            report_lines.append(f"{Fore.YELLOW} 风险统计:{Style.RESET_ALL}")
         else:
-            report_lines.append("📊 风险统计:")
+            report_lines.append(" 风险统计:")
         
         for level_name, count in stats.items():
             if has_color:
@@ -737,9 +737,9 @@ class PrivacyGuardian:
         
         if not report.findings:
             if has_color:
-                report_lines.append(f"{Fore.GREEN}✅ 未发现隐私和安全问题！{Style.RESET_ALL}")
+                report_lines.append(f"{Fore.GREEN} 未发现隐私和安全问题！{Style.RESET_ALL}")
             else:
-                report_lines.append("✅ 未发现隐私和安全问题！")
+                report_lines.append(" 未发现隐私和安全问题！")
         else:
             # 按风险等级分组
             critical_high = [f for f in report.findings if f.risk_level in [RiskLevel.CRITICAL, RiskLevel.HIGH]]
@@ -747,9 +747,9 @@ class PrivacyGuardian:
             
             if critical_high:
                 if has_color:
-                    report_lines.append(f"{Fore.RED}⚠️  严重/高风险问题 ({len(critical_high)}个):{Style.RESET_ALL}")
+                    report_lines.append(f"{Fore.RED}  严重/高风险问题 ({len(critical_high)}个):{Style.RESET_ALL}")
                 else:
-                    report_lines.append(f"⚠️  严重/高风险问题 ({len(critical_high)}个):")
+                    report_lines.append(f"  严重/高风险问题 ({len(critical_high)}个):")
                 
                 for finding in critical_high[:5]:  # 只显示前5个
                     if has_color:
@@ -793,17 +793,17 @@ class PrivacyGuardian:
         report_lines.append("")
         
         # 隐私保护声明
-        report_lines.append("## 🔒 隐私保护声明")
+        report_lines.append("##  隐私保护声明")
         report_lines.append("")
         report_lines.append("本报告已进行匿名化处理：")
-        report_lines.append("- ✅ 不包含具体敏感信息")
-        report_lines.append("- ✅ 仅显示问题类型和建议")
-        report_lines.append("- ✅ 所有分析在本地完成")
+        report_lines.append("-  不包含具体敏感信息")
+        report_lines.append("-  仅显示问题类型和建议")
+        report_lines.append("-  所有分析在本地完成")
         report_lines.append("")
         
         # 风险统计
         stats = report.risk_statistics()
-        report_lines.append("## 📊 风险统计")
+        report_lines.append("##  风险统计")
         report_lines.append("")
         report_lines.append("| 风险等级 | 数量 |")
         report_lines.append("|----------|------|")
@@ -813,7 +813,7 @@ class PrivacyGuardian:
         report_lines.append("")
         
         if not report.findings:
-            report_lines.append("## ✅ 扫描结果")
+            report_lines.append("##  扫描结果")
             report_lines.append("")
             report_lines.append("**未发现隐私和安全问题！**")
             report_lines.append("")
@@ -824,7 +824,7 @@ class PrivacyGuardian:
             medium_low = [f for f in report.findings if f.risk_level in [RiskLevel.MEDIUM, RiskLevel.LOW]]
             
             if critical_high:
-                report_lines.append("## ⚠️ 严重/高风险问题")
+                report_lines.append("##  严重/高风险问题")
                 report_lines.append("")
                 for i, finding in enumerate(critical_high, 1):
                     report_lines.append(f"### {i}. [{finding.category.value.upper()}] {finding.issue_type}")

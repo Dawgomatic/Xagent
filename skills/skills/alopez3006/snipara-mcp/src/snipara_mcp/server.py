@@ -1108,7 +1108,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
                         lines.append(f"Variables: {', '.join(template['variables'])}")
                     missing = data.get("missing_variables", [])
                     if missing:
-                        lines.append(f"\n⚠️ Missing variables: {', '.join(missing)}")
+                        lines.append(f"\n Missing variables: {', '.join(missing)}")
                     lines.append("\n**Rendered Prompt:**\n```")
                     lines.append(data.get("rendered_prompt", template.get("prompt", "")))
                     lines.append("```")

@@ -43,16 +43,16 @@ User shares list → parse line by line, deduplicate
 
 When user requests organized list:
 ```
-🥬 Produce
+ Produce
 - Lettuce
 - Tomatoes (2kg)
 - Onions (1kg)
 
-🥛 Dairy
+ Dairy
 - Milk (4L)
 - Greek yogurt (x4)
 
-🧊 Frozen
+ Frozen
 - Peas
 - Ice cream
 ```

@@ -363,9 +363,9 @@ def cmd_check_milestones(args):
                 meter["completed_fired"] = True
                 desc = meter.get("description", name)
                 if mode == "down":
-                    msg = f"⏰ COUNTDOWN COMPLETE: {desc}"
+                    msg = f" COUNTDOWN COMPLETE: {desc}"
                 else:
-                    msg = f"🏁 JOURNEY COMPLETE: {desc} (100%)"
+                    msg = f" JOURNEY COMPLETE: {desc} (100%)"
                 
                 triggered.append({
                     "meter": name,
@@ -480,7 +480,7 @@ def generate_verification_email(meter_name: str, paper_code: str, full_hash: str
                                  description: str, lock_time: str) -> tuple[str, str, str]:
     """Generate email subject, HTML content, and text content for verification email."""
     
-    subject = f"🔒 Hour Meter Verification Code: {meter_name}"
+    subject = f" Hour Meter Verification Code: {meter_name}"
     
     text_content = f"""HOUR METER VERIFICATION CODE
 {'='*40}
@@ -489,7 +489,7 @@ Meter: {meter_name}
 Description: {description or 'N/A'}
 Locked: {lock_time}
 
-📋 PAPER CODE (save this!):
+ PAPER CODE (save this!):
 
     {paper_code}
 
@@ -526,7 +526,7 @@ Keep this email - you'll need the paper code to verify.
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔒 Meter Locked</h1>
+            <h1> Meter Locked</h1>
             <p style="color: #666;">Your verification code is below</p>
         </div>
         
@@ -574,7 +574,7 @@ def send_milestone_email(to_email: str, meter_name: str, milestone_message: str,
     if not from_email:
         from_email = os.environ.get("SENDGRID_FROM_EMAIL", "hour-meter@noreply.example.com")
     
-    subject = f"🎯 Milestone: {meter_name}"
+    subject = f" Milestone: {meter_name}"
     
     text_content = f"""HOUR METER MILESTONE REACHED!
 {'='*40}
@@ -582,10 +582,10 @@ def send_milestone_email(to_email: str, meter_name: str, milestone_message: str,
 Meter: {meter_name}
 Description: {description or 'N/A'}
 
-🎯 MILESTONE:
+ MILESTONE:
 {milestone_message}
 
-⏱️ Elapsed: {elapsed_str}
+ Elapsed: {elapsed_str}
 
 ---
 Sent by Hour Meter
@@ -608,7 +608,7 @@ Sent by Hour Meter
 <body>
     <div class="container">
         <div class="header">
-            <h1>🎯 Milestone Reached!</h1>
+            <h1> Milestone Reached!</h1>
         </div>
         
         <div class="milestone-box">
@@ -622,7 +622,7 @@ Sent by Hour Meter
         </div>
         
         <div class="footer">
-            <p>⏱️ Sent by Hour Meter</p>
+            <p> Sent by Hour Meter</p>
         </div>
     </div>
 </body>
@@ -666,7 +666,7 @@ def generate_mailto_link(meter_name: str, paper_code: str, full_hash: str,
     """Generate a mailto: link for emailing the verification code to yourself."""
     import urllib.parse
     
-    subject = f"🔒 Hour Meter Verification Code: {meter_name}"
+    subject = f" Hour Meter Verification Code: {meter_name}"
     
     body = f"""HOUR METER VERIFICATION CODE
 ============================
@@ -675,7 +675,7 @@ Meter: {meter_name}
 Description: {description or 'N/A'}
 Locked: {lock_time}
 
-📋 PAPER CODE (save this!):
+ PAPER CODE (save this!):
 
     {paper_code}
 
@@ -718,7 +718,7 @@ def cmd_lock(args):
     
     save_meters(data)
     
-    print(f"🔒 LOCKED: {args.name}")
+    print(f" LOCKED: {args.name}")
     print()
     print(f"╔══════════════════════════════════════════════════════════════╗")
     print(f"║  PAPER CODE (write this down):                               ║")
@@ -727,15 +727,15 @@ def cmd_lock(args):
     print(f"║                                                              ║")
     print(f"╚══════════════════════════════════════════════════════════════╝")
     print()
-    print(f"📋 FOUR WAYS TO SAVE THIS:")
+    print(f" FOUR WAYS TO SAVE THIS:")
     print()
-    print(f"   1️⃣  PAPER: Write the code above on paper/sticky note")
+    print(f"     PAPER: Write the code above on paper/sticky note")
     print(f"       It has a checksum - we'll catch typos when you verify")
     print()
-    print(f"   2️⃣  PHOTO: Take a screenshot or photo of this screen")
+    print(f"     PHOTO: Take a screenshot or photo of this screen")
     print(f"       Store in your camera roll or cloud photos")
     print()
-    print(f"   3️⃣  WITNESS FILE: Auto-saved to:")
+    print(f"     WITNESS FILE: Auto-saved to:")
     
     # Save to witness file
     witness_path = append_witness(
@@ -753,21 +753,21 @@ def cmd_lock(args):
         args.name, paper_code, full_hash,
         meter.get("description", ""), lock_time_str
     )
-    print(f"   4️⃣  EMAIL TO SELF: Click or copy this link:")
+    print(f"     EMAIL TO SELF: Click or copy this link:")
     print(f"       {mailto_link[:80]}...")
     print()
     
     # Also output a compact version for easy copying
-    print(f"   📧 Or copy this ready-to-paste message:")
+    print(f"    Or copy this ready-to-paste message:")
     print(f"   ─────────────────────────────────────────")
-    print(f"   🔒 {args.name} | Code: {paper_code} | Locked: {lock_time_str}")
+    print(f"    {args.name} | Code: {paper_code} | Locked: {lock_time_str}")
     print(f"   ─────────────────────────────────────────")
     print()
     
     # Try to generate QR code
     qr_path = Path(f"{args.name}-verify.png")
     if generate_qr_code(f"meter:{args.name}:{paper_code}", str(qr_path)):
-        print(f"   🔲 QR CODE: Saved to {qr_path}")
+        print(f"    QR CODE: Saved to {qr_path}")
         print()
     
     print(f"   Full hash (for nerds): {full_hash}")
@@ -777,7 +777,7 @@ def cmd_lock(args):
     # Send email if requested
     if hasattr(args, 'email') and args.email:
         print()
-        print(f"   📧 Sending verification email...")
+        print(f"    Sending verification email...")
         subject, html_content, text_content = generate_verification_email(
             args.name, paper_code, full_hash,
             meter.get("description", ""), lock_time_str
@@ -785,9 +785,9 @@ def cmd_lock(args):
         from_email = getattr(args, 'from_email', None)
         success, message = send_email_sendgrid(args.email, subject, html_content, text_content, from_email)
         if success:
-            print(f"   ✅ {message}")
+            print(f"    {message}")
         else:
-            print(f"   ❌ {message}")
+            print(f"    {message}")
 
 def cmd_check(args):
     """Check a meter's status."""
@@ -806,30 +806,30 @@ def cmd_check(args):
     
     mode = meter.get("mode", "up")
     
-    print(f"⏱️  Meter: {meter['name']} ({mode.upper()})")
+    print(f"  Meter: {meter['name']} ({mode.upper()})")
     if meter["description"]:
         print(f"   {meter['description']}")
     print()
     
     if mode == "up":
-        print(f"   📍 Started: {start_dt.strftime('%Y-%m-%d %H:%M:%S')} UTC")
-        print(f"   ⏱️  Elapsed: {format_elapsed(elapsed_seconds)}")
-        print(f"   🕐 Hours:   {format_hours(elapsed_seconds)}")
+        print(f"    Started: {start_dt.strftime('%Y-%m-%d %H:%M:%S')} UTC")
+        print(f"     Elapsed: {format_elapsed(elapsed_seconds)}")
+        print(f"    Hours:   {format_hours(elapsed_seconds)}")
         if elapsed_seconds > 86400:
-            print(f"   📅 Days:    {elapsed_seconds / 86400:,.1f}")
+            print(f"    Days:    {elapsed_seconds / 86400:,.1f}")
         
     elif mode == "down":
         end_dt = datetime.fromtimestamp(meter["end_ms"] / 1000, tz=timezone.utc)
         remaining_ms = meter["end_ms"] - now_ms
         remaining_seconds = remaining_ms / 1000
         
-        print(f"   🎯 Target: {end_dt.strftime('%Y-%m-%d %H:%M:%S')} UTC")
+        print(f"    Target: {end_dt.strftime('%Y-%m-%d %H:%M:%S')} UTC")
         
         if remaining_seconds <= 0:
-            print(f"   ✅ COMPLETE! ({format_elapsed(-remaining_seconds)} ago)")
+            print(f"    COMPLETE! ({format_elapsed(-remaining_seconds)} ago)")
         else:
-            print(f"   ⏳ Remaining: {format_elapsed(remaining_seconds)}")
-            print(f"   🕐 Hours:     {format_hours(remaining_seconds)}")
+            print(f"    Remaining: {format_elapsed(remaining_seconds)}")
+            print(f"    Hours:     {format_hours(remaining_seconds)}")
         
     elif mode == "between":
         end_dt = datetime.fromtimestamp(meter["end_ms"] / 1000, tz=timezone.utc)
@@ -840,17 +840,17 @@ def cmd_check(args):
         percent = (elapsed_ms / total_ms) * 100 if total_ms > 0 else 0
         percent = min(100, max(0, percent))
         
-        print(f"   📍 Start:     {start_dt.strftime('%Y-%m-%d %H:%M:%S')} UTC")
-        print(f"   🎯 End:       {end_dt.strftime('%Y-%m-%d %H:%M:%S')} UTC")
+        print(f"    Start:     {start_dt.strftime('%Y-%m-%d %H:%M:%S')} UTC")
+        print(f"    End:       {end_dt.strftime('%Y-%m-%d %H:%M:%S')} UTC")
         print()
         print(f"   {format_progress_bar(percent)}")
         print()
-        print(f"   ✅ Elapsed:   {format_elapsed(elapsed_seconds)} ({elapsed_seconds/3600:,.0f} hrs)")
+        print(f"    Elapsed:   {format_elapsed(elapsed_seconds)} ({elapsed_seconds/3600:,.0f} hrs)")
         
         if remaining_seconds <= 0:
-            print(f"   🎉 COMPLETE!")
+            print(f"    COMPLETE!")
         else:
-            print(f"   ⏳ Remaining: {format_elapsed(remaining_seconds)} ({remaining_seconds/3600:,.0f} hrs)")
+            print(f"    Remaining: {format_elapsed(remaining_seconds)} ({remaining_seconds/3600:,.0f} hrs)")
     
     if meter["milestones"]:
         print()
@@ -864,12 +864,12 @@ def cmd_check(args):
     if meter["locked"]:
         expected_hash = compute_hash(meter["name"], meter["start_ms"], meter["salt"])
         if expected_hash == meter["integrity_hash"]:
-            print(f"   🔒 LOCKED ✓ (integrity verified)")
-            print(f"   📋 Paper code: {meter.get('paper_code', 'N/A')}")
+            print(f"    LOCKED ✓ (integrity verified)")
+            print(f"    Paper code: {meter.get('paper_code', 'N/A')}")
         else:
-            print(f"   ⚠️  TAMPERED! Hash mismatch!")
+            print(f"     TAMPERED! Hash mismatch!")
     else:
-        print(f"   🔓 UNLOCKED")
+        print(f"    UNLOCKED")
 
 def cmd_verify(args):
     """Verify against paper code or full hash."""
@@ -896,7 +896,7 @@ def cmd_verify(args):
         prefix, checksum_valid = paper_code_to_hash_prefix(input_code)
         
         if not checksum_valid:
-            print(f"⚠️  CHECKSUM ERROR!")
+            print(f"  CHECKSUM ERROR!")
             print(f"   The paper code has a typo. Double-check what you wrote.")
             print(f"   You entered: {input_code}")
             if prefix:
@@ -904,13 +904,13 @@ def cmd_verify(args):
             sys.exit(1)
         
         if expected_hash.startswith(prefix):
-            print(f"✅ VERIFIED!")
+            print(f" VERIFIED!")
             print(f"   Paper code matches. Meter '{args.name}' has NOT been tampered with.")
             print()
             print(f"   Paper code: {meter.get('paper_code')}")
             print(f"   Created:    {datetime.fromtimestamp(meter['start_ms']/1000, tz=timezone.utc).strftime('%Y-%m-%d')}")
         else:
-            print(f"❌ MISMATCH!")
+            print(f" MISMATCH!")
             print(f"   Paper code does NOT match stored hash.")
             print(f"   The meter may have been TAMPERED with!")
             print()
@@ -920,9 +920,9 @@ def cmd_verify(args):
     else:
         # Treat as full hash
         if clean_input.lower() == expected_hash.lower():
-            print(f"✅ VERIFIED! Full hash matches.")
+            print(f" VERIFIED! Full hash matches.")
         else:
-            print(f"❌ MISMATCH! Hashes do not match.")
+            print(f" MISMATCH! Hashes do not match.")
             print(f"   External:  {input_code}")
             print(f"   Computed:  {expected_hash}")
             sys.exit(1)
@@ -933,7 +933,7 @@ def cmd_witness(args):
     
     if args.show:
         if witness_path.exists():
-            print(f"📋 Witness file: {witness_path}")
+            print(f" Witness file: {witness_path}")
             print()
             print(witness_path.read_text())
         else:
@@ -963,7 +963,7 @@ def cmd_list(args):
     
     for name, meter in sorted(data["meters"].items()):
         mode = meter.get("mode", "up")
-        status = "🔒" if meter["locked"] else "🔓"
+        status = "" if meter["locked"] else ""
         
         elapsed_ms = now_ms - meter["start_ms"]
         elapsed_hours = elapsed_ms / (1000 * 3600)
@@ -1031,12 +1031,12 @@ def cmd_career(args):
         elapsed_years = elapsed_seconds / (365.25 * 24 * 3600)
         hours_worked = elapsed_years * args.hours_per_year
         career_start = datetime.fromtimestamp(meter["start_ms"] / 1000, tz=timezone.utc)
-        print(f"📊 Career Inventory Projection")
+        print(f" Career Inventory Projection")
         print(f"   Based on: {args.meter}")
         print(f"   Started:  {career_start.strftime('%Y-%m-%d')}")
     else:
         hours_worked = args.hours_worked or 0
-        print(f"📊 Career Inventory Projection")
+        print(f" Career Inventory Projection")
     
     total_hours = args.total_hours
     hours_per_year = args.hours_per_year
@@ -1048,14 +1048,14 @@ def cmd_career(args):
     years_worked = hours_worked / hours_per_year
     
     print()
-    print(f"   ⏱️  Hours worked:     {hours_worked:>12,.0f} hrs ({years_worked:.1f} yrs)")
-    print(f"   ⏳ Hours remaining:  {hours_remaining:>12,.0f} hrs ({years_remaining:.1f} yrs)")
-    print(f"   📦 Total inventory:  {total_hours:>12,.0f} hrs ({total_hours/hours_per_year:.0f} yrs)")
+    print(f"     Hours worked:     {hours_worked:>12,.0f} hrs ({years_worked:.1f} yrs)")
+    print(f"    Hours remaining:  {hours_remaining:>12,.0f} hrs ({years_remaining:.1f} yrs)")
+    print(f"    Total inventory:  {total_hours:>12,.0f} hrs ({total_hours/hours_per_year:.0f} yrs)")
     print()
     print(f"   {format_progress_bar((hours_worked/total_hours)*100)}")
     print()
-    print(f"   💰 Current rate:     {format_money(hourly_rate)}/hr")
-    print(f"   📈 Annual raise:     {args.raise_pct}%")
+    print(f"    Current rate:     {format_money(hourly_rate)}/hr")
+    print(f"    Annual raise:     {args.raise_pct}%")
     print()
     
     total_earnings = 0
@@ -1081,7 +1081,7 @@ def cmd_career(args):
         year += 1
     
     print()
-    print(f"   🎯 REMAINING EARNING POTENTIAL: {format_money(total_earnings)}")
+    print(f"    REMAINING EARNING POTENTIAL: {format_money(total_earnings)}")
 
 def main():
     parser = argparse.ArgumentParser(description="Hour Meter - Life event tracker")

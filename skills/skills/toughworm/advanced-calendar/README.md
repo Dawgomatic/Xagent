@@ -2,7 +2,7 @@
 
 A sophisticated calendar management skill that understands natural language and seamlessly integrates with your workflow.
 
-## 🌟 Features
+##  Features
 
 - **Natural Language Processing**: Talk to your calendar in everyday language
 - **Smart Event Creation**: Automatically extracts dates, times, durations, and reminders
@@ -14,23 +14,23 @@ A sophisticated calendar management skill that understands natural language and 
 - **Local Storage**: All data stored privately on your system
 - **Zero External Dependencies**: Works completely offline
 
-## 🚀 Quick Start
+##  Quick Start
 
 After installation, simply talk to your OpenClaw assistant:
 
 ```
 You: "Schedule a meeting with the team tomorrow at 2pm, lasting 1 hour, remind me 30 minutes before"
-OpenClaw: ✅ Created event: meeting with the team
+OpenClaw:  Created event: meeting with the team
          Time: 2026-02-03 14:00, Duration: 60 minutes, Reminder: 30 minutes before
 ```
 
-## 🛠️ Installation
+##  Installation
 
 ```bash
 clawhub install advanced-calendar
 ```
 
-## 📖 Examples
+##  Examples
 
 ### Natural Language Commands
 - `"Create a dentist appointment next Friday at 10am, remind me 2 hours before"`
@@ -44,7 +44,7 @@ calendar create --title "Team Meeting" --date 2026-02-15 --time 14:00 --reminder
 calendar list --days 7
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 The skill works out-of-the-box with sensible defaults. Optional configuration includes:
 
@@ -52,7 +52,7 @@ The skill works out-of-the-box with sensible defaults. Optional configuration in
 - Adjusting default reminder times
 - Modifying natural language parsing rules
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Feel free to:
 - Report bugs and issues
@@ -60,10 +60,10 @@ We welcome contributions! Feel free to:
 - Submit pull requests
 - Improve documentation
 
-## 📄 License
+##  License
 
 MIT License - see LICENSE file for details.
 
-## 🆘 Support
+##  Support
 
 For support, please open an issue in the repository or visit the OpenClaw community forums.

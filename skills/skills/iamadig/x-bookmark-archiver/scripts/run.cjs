@@ -40,15 +40,15 @@ function main() {
   
   // Step 1: Fetch (always run unless --force)
   if (!force) {
-    console.log('📥 STEP 1: Fetching bookmarks\n');
+    console.log(' STEP 1: Fetching bookmarks\n');
     runScript('fetch.cjs');
     console.log('');
   } else {
-    console.log('⚡ Force mode: skipping fetch, processing existing pending\n');
+    console.log(' Force mode: skipping fetch, processing existing pending\n');
   }
   
   // Step 2: Process
-  console.log('📤 STEP 2: Processing bookmarks\n');
+  console.log(' STEP 2: Processing bookmarks\n');
   runScript('process.cjs');
   
   console.log('\n═══════════════════════════════════════');

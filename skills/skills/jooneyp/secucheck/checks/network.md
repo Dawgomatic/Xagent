@@ -10,9 +10,9 @@ Network-related settings from config.
 
 | Value | Risk Level | Notes |
 |-------|------------|-------|
-| `localhost` / `127.0.0.1` | 🟢 Low | Local only |
-| `lan` | 🟡 Medium | LAN accessible |
-| `0.0.0.0` | 🟠 High | All interfaces |
+| `localhost` / `127.0.0.1` |  Low | Local only |
+| `lan` |  Medium | LAN accessible |
+| `0.0.0.0` |  High | All interfaces |
 | (specific IP) | Varies | Check if public |
 
 **If binding to non-localhost**:
@@ -25,15 +25,15 @@ Network-related settings from config.
 
 | Mode | Risk Level | Notes |
 |------|------------|-------|
-| `token` | 🟢 Good | Requires token |
-| `password` | 🟢 Good | Requires password |
-| `none` / disabled | 🔴 Critical | No auth |
+| `token` |  Good | Requires token |
+| `password` |  Good | Requires password |
+| `none` / disabled |  Critical | No auth |
 
 **Weak token check** (entropy-based):
-- Token is common word/phrase: 🔴 Critical
-- Token < 16 chars with low entropy: 🟠 High
-- Token 16-24 chars with high entropy: 🟢 OK
-- Token 24+ chars: 🟢 OK regardless
+- Token is common word/phrase:  Critical
+- Token < 16 chars with low entropy:  High
+- Token 16-24 chars with high entropy:  OK
+- Token 24+ chars:  OK regardless
 
 **Note**: A high-entropy 24-char token is fine. Don't flag based on length alone.
 
@@ -43,13 +43,13 @@ Network-related settings from config.
 
 | Setting | Risk |
 |---------|------|
-| `allowInsecureAuth: true` | 🟡 Medium - No device pairing |
-| `dangerouslyDisableDeviceAuth: true` | 🔴 Critical |
-| Missing `allowedOrigins` | 🟡 Medium |
+| `allowInsecureAuth: true` |  Medium - No device pairing |
+| `dangerouslyDisableDeviceAuth: true` |  Critical |
+| Missing `allowedOrigins` |  Medium |
 
 **HTTPS check**:
-- Control UI over HTTP (not localhost): 🟠 High
-- Token visible in URL parameters: 🟡 Medium
+- Control UI over HTTP (not localhost):  High
+- Token visible in URL parameters:  Medium
 
 ## Check 4: Tailscale Configuration
 
@@ -64,7 +64,7 @@ Network-related settings from config.
 **If funnel enabled**:
 - Bot accessible from internet
 - Verify authentication is strong
-- 🟠 High if combined with powerful tools
+-  High if combined with powerful tools
 
 ## Check 5: Trusted Proxies
 
@@ -74,7 +74,7 @@ Network-related settings from config.
 - Should list proxy IPs
 - Missing config = IP spoofing possible
 
-**No trustedProxies + reverse proxy detected**: 🟡 Medium
+**No trustedProxies + reverse proxy detected**:  Medium
 
 ## Check 6: Plugin Network Access
 

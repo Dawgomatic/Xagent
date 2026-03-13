@@ -45,7 +45,7 @@ Turn your AI agent into an alpha-hunting machine. This skill enables agents to s
 ## Example Daily Report
 
 ```markdown
-# 🦅 Alpha Report — Feb 10, 2026
+#  Alpha Report — Feb 10, 2026
 
 ### 1. Good Morning
 Rise and grind — market's showing some life.
@@ -96,23 +96,23 @@ Rise and grind — market's showing some life.
 When you ask about a specific asset, you get:
 
 ```
-📊 CT Sentiments:
+ CT Sentiments:
 [4-5 line summary of what CT is saying]
 
-📈 Overall: [Bullish/Bearish/Neutral]
+ Overall: [Bullish/Bearish/Neutral]
 
-🐋 Takes of High-Rep Accounts:
+ Takes of High-Rep Accounts:
 [@username: "their take" — Bullish/Bearish]
 [Or: No noticeable activity — Bearish]
 
-⚠️ Red Flags:
+ Red Flags:
 [Any issues found]
 
-📊 Score: XX/100
+ Score: XX/100
 
-✅ Verdict: [High/Medium/Low confidence — Sentiment]
+ Verdict: [High/Medium/Low confidence — Sentiment]
 
-⚡ NFA / DYOR
+ NFA / DYOR
 ```
 
 ## How It Works
@@ -132,4 +132,4 @@ MIT — Use it, fork it, build on it.
 
 ---
 
-Built for the agent economy. 🦅
+Built for the agent economy. 

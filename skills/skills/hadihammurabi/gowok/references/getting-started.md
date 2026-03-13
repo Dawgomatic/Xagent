@@ -3,7 +3,7 @@ name: getting-started
 description: starting new project
 ---
 
-# Getting Started 🏁
+# Getting Started 
 
 ## Installation
 Run this command inside your project.
@@ -43,7 +43,7 @@ It will show output like this:
 2025/01/13 10:43:09 INFO starting web
 ```
 
-Your project now ready to use 🔥
+Your project now ready to use 
 
 Let's try to send a request using `curl`!
 

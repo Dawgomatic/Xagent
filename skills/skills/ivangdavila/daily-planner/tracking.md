@@ -101,7 +101,7 @@ For things waiting on others:
 
 - [ ] **Response from Client Y on proposal** — Sent: Mon
   - Follow-up if no reply by: Thu
-  - Status: ⏳ waiting
+  - Status:  waiting
 ```
 
 ---

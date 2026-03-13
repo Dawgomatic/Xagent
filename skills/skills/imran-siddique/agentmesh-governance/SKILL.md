@@ -16,7 +16,7 @@ metadata:
       bins:
         - python3
         - pip
-    emoji: "🛡️"
+    emoji: ""
     homepage: https://github.com/imran-siddique/agentmesh-integrations/tree/master/openclaw-skill
 ---
 

@@ -22,19 +22,19 @@
 
 ## Features
 
-### ✅ Task Management
+###  Task Management
 - Create tasks with simple commands
 - Mark tasks complete
 - View all pending tasks
 - Archive completed tasks
 
-### 🎯 Goal Tracking
+###  Goal Tracking
 - Create goals with streak counters
 - Track daily completions
 - View current streaks
 - Automatic streak calculation
 
-### 📊 Simple Commands
+###  Simple Commands
 
 | Command | Description |
 |---------|-------------|
@@ -65,13 +65,13 @@ git clone https://github.com/Steffano198/goalgetter.git ~/.openclaw/workspace/sk
 
 ```
 You: Add task: Finish SAAS research
-GoalGetter: ✅ Task added: "Finish SAAS research"
+GoalGetter:  Task added: "Finish SAAS research"
 
 You: New goal: Morning meditation
-GoalGetter: ✅ Goal created: "Morning meditation" (streak: 0)
+GoalGetter:  Goal created: "Morning meditation" (streak: 0)
 
 You: Did meditation
-GoalGetter: 🔥 Streak updated! "Morning meditation" is now at 1 day
+GoalGetter:  Streak updated! "Morning meditation" is now at 1 day
 ```
 
 ## Data Storage
@@ -137,11 +137,11 @@ All data is stored in: `~/.openclaw/goalgetter/`
 
 | Feature | GoalGetter | Habitica | Todoist |
 |--------|------------|----------|---------|
-| Local Only | ✅ | ❌ | ❌ |
-| No API Keys | ✅ | ❌ | ❌ |
-| Open Source | ✅ | Partial | ❌ |
-| Free Forever | ✅ | Freemium | Freemium |
-| Markdown Based | ✅ | ❌ | ❌ |
+| Local Only |  |  |  |
+| No API Keys |  |  |  |
+| Open Source |  | Partial |  |
+| Free Forever |  | Freemium | Freemium |
+| Markdown Based |  |  |  |
 
 ## Contributing
 
@@ -155,8 +155,8 @@ Contributions are welcome! Please open an issue or PR.
 
 ## Support
 
-- 📖 [Documentation](README.md)
-- 🐛 [Issue Tracker](https://github.com/Steffano198/goalgetter/issues)
+-  [Documentation](README.md)
+-  [Issue Tracker](https://github.com/Steffano198/goalgetter/issues)
 
 ## Keywords
 
@@ -168,4 +168,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-Made with 🦔 by [DevSef](https://github.com/Steffano198)
+Made with  by [DevSef](https://github.com/Steffano198)

@@ -30,14 +30,14 @@ async function extractWalletConnectURI(url, timeout) {
     const page = await browser.newPage();
     
     // Navigate to login page
-    console.error('📧 Navigating to EtherMail...');
+    console.error(' Navigating to EtherMail...');
     await page.goto(url, { waitUntil: 'networkidle2', timeout });
     
     // Wait for page to stabilize
     await page.waitForTimeout(2000);
     
     // Click the wallet login button
-    console.error('🔑 Looking for wallet login button...');
+    console.error(' Looking for wallet login button...');
     const walletButton = await page.$('[data-testid="wallet-login"], button:has-text("wallet"), [class*="wallet"]');
     if (walletButton) {
       await walletButton.click();
@@ -45,7 +45,7 @@ async function extractWalletConnectURI(url, timeout) {
     }
     
     // Search Shadow DOM for WalletConnect URI
-    console.error('🔍 Searching Shadow DOM for WalletConnect URI...');
+    console.error(' Searching Shadow DOM for WalletConnect URI...');
     const wcUri = await page.evaluate(() => {
       function searchShadow(root, depth = 0) {
         if (depth > 10) return null;
@@ -65,11 +65,11 @@ async function extractWalletConnectURI(url, timeout) {
     });
     
     if (wcUri) {
-      console.error('✅ Found WalletConnect URI!');
+      console.error(' Found WalletConnect URI!');
       console.log(wcUri);
       return wcUri;
     } else {
-      console.error('❌ Could not find WalletConnect URI in Shadow DOM');
+      console.error(' Could not find WalletConnect URI in Shadow DOM');
       console.error('   Make sure the WalletConnect modal is open');
       process.exit(1);
     }

@@ -46,17 +46,17 @@ def is_running(project_name):
 def start_daemon(project_name, image_path, changes_path, vm_path=None):
     """Start development daemon for a project."""
     if is_running(project_name):
-        print(f"✅ Daemon already running for {project_name}")
+        print(f" Daemon already running for {project_name}")
         return True
     
     image_path = Path(image_path)
     changes_path = Path(changes_path)
     
     if not image_path.exists():
-        print(f"❌ Image not found: {image_path}")
+        print(f" Image not found: {image_path}")
         return False
     if not changes_path.exists():
-        print(f"❌ Changes not found: {changes_path}")
+        print(f" Changes not found: {changes_path}")
         return False
     
     # Find VM
@@ -65,7 +65,7 @@ def start_daemon(project_name, image_path, changes_path, vm_path=None):
             '/home/johnmci/Squeak6.0-22148-64bit-202312181441-Linux-x64/bin/squeak')
     
     if not Path(vm_path).exists():
-        print(f"❌ VM not found: {vm_path}")
+        print(f" VM not found: {vm_path}")
         return False
     
     socket_path = get_socket_path(project_name)
@@ -79,7 +79,7 @@ def start_daemon(project_name, image_path, changes_path, vm_path=None):
         '--mcp'  # Still use MCP protocol for communication
     ]
     
-    print(f"🚀 Starting development daemon for {project_name}...")
+    print(f" Starting development daemon for {project_name}...")
     print(f"   Image: {image_path}")
     print(f"   Changes: {changes_path}")
     
@@ -105,10 +105,10 @@ def start_daemon(project_name, image_path, changes_path, vm_path=None):
     time.sleep(5)
     
     if proc.poll() is None:
-        print(f"✅ Development daemon started (PID {proc.pid})")
+        print(f" Development daemon started (PID {proc.pid})")
         return True
     else:
-        print(f"❌ Daemon failed to start")
+        print(f" Daemon failed to start")
         pid_file.unlink(missing_ok=True)
         return False
 
@@ -116,21 +116,21 @@ def stop_daemon(project_name):
     """Stop development daemon for a project."""
     pid_file = get_pid_file(project_name)
     if not pid_file.exists():
-        print(f"ℹ️  No daemon running for {project_name}")
+        print(f"  No daemon running for {project_name}")
         return
     
     try:
         pid = int(pid_file.read_text().strip())
-        print(f"🛑 Stopping daemon for {project_name} (PID {pid})...")
+        print(f" Stopping daemon for {project_name} (PID {pid})...")
         os.kill(pid, signal.SIGTERM)
         time.sleep(2)
         try:
             os.kill(pid, signal.SIGKILL)
         except ProcessLookupError:
             pass
-        print(f"✅ Daemon stopped")
+        print(f" Daemon stopped")
     except Exception as e:
-        print(f"⚠️  Error stopping daemon: {e}")
+        print(f"  Error stopping daemon: {e}")
     finally:
         pid_file.unlink(missing_ok=True)
         socket_path = get_socket_path(project_name)
@@ -141,9 +141,9 @@ def status_daemon(project_name=None):
     if project_name:
         if is_running(project_name):
             pid = get_pid_file(project_name).read_text().strip()
-            print(f"✅ {project_name}: Running (PID {pid})")
+            print(f" {project_name}: Running (PID {pid})")
         else:
-            print(f"❌ {project_name}: Not running")
+            print(f" {project_name}: Not running")
     else:
         # List all running daemons
         if not SOCKET_DIR.exists():
@@ -155,14 +155,14 @@ def status_daemon(project_name=None):
             print("No development daemons running.")
             return
         
-        print("🔧 Development Daemons:")
+        print(" Development Daemons:")
         for pid_file in pids:
             name = pid_file.stem
             if is_running(name):
                 pid = pid_file.read_text().strip()
-                print(f"   ✅ {name} (PID {pid})")
+                print(f"    {name} (PID {pid})")
             else:
-                print(f"   ❌ {name} (stale)")
+                print(f"    {name} (stale)")
 
 if __name__ == '__main__':
     import argparse
@@ -177,14 +177,14 @@ if __name__ == '__main__':
     
     if args.command == 'start':
         if not args.project or not args.image:
-            print("❌ --project and --image required for start")
+            print(" --project and --image required for start")
             sys.exit(1)
         changes = args.changes or str(Path(args.image).with_suffix('.changes'))
         start_daemon(args.project, args.image, changes, args.vm)
     
     elif args.command == 'stop':
         if not args.project:
-            print("❌ --project required for stop")
+            print(" --project required for stop")
             sys.exit(1)
         stop_daemon(args.project)
     
@@ -193,7 +193,7 @@ if __name__ == '__main__':
     
     elif args.command == 'restart':
         if not args.project or not args.image:
-            print("❌ --project and --image required for restart")
+            print(" --project and --image required for restart")
             sys.exit(1)
         stop_daemon(args.project)
         time.sleep(2)

@@ -1,7 +1,7 @@
 ---
 name: cabin
 description: Search and book real flights with USDC payments. Gives your AI agent the power to find flights across 500+ airlines and complete bookings paid in USDC on Base. No credit cards, no banks — crypto-native travel commerce.
-metadata: {"clawdbot":{"emoji":"✈️","homepage":"https://github.com/yolo-maxi/cabin","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://github.com/yolo-maxi/cabin","requires":{"bins":["node"]}}}
 ---
 
 # Cabin — Flight Search & Booking with USDC

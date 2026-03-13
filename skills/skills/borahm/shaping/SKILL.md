@@ -53,7 +53,7 @@ Shaping → Slicing
 - **Populate R** — Gather requirements as they emerge
 - **Sketch a shape** — Propose a high-level approach
 - **Detail** — Break shape into components or concrete affordances
-- **Check fit** — Build decision matrix (R × S), binary ✅/❌ only
+- **Check fit** — Build decision matrix (R × S), binary / only
 - **Breadboard** — Map to UI/Code affordances with wiring
 - **Spike** — Investigate unknowns
 - **Slice** — Break breadboarded shape into vertical increments
@@ -72,12 +72,12 @@ Load the relevant reference when entering that phase of work.
 ```markdown
 | Req | Requirement | Status | A | B | C |
 |-----|-------------|--------|---|---|---|
-| R0 | Full requirement text | Core goal | ✅ | ✅ | ✅ |
-| R1 | Full requirement text | Must-have | ✅ | ❌ | ✅ |
+| R0 | Full requirement text | Core goal |  |  |  |
+| R1 | Full requirement text | Must-have |  |  |  |
 ```
 
 - Always show full requirement text, never abbreviate
-- Binary only: ✅ or ❌. No ⚠️ in fit checks
+- Binary only:  or . No  in fit checks
 - Explanations go in Notes section below the table
 
 ## Quick Reference: Affordance Tables

@@ -11,14 +11,14 @@ version: 1.0.0
 
 This skill connects your agent to the **AI News Oracle**, a specialized service running on the Base Chain. It monitors top AI news sources (Hacker News, TechCrunch, The Verge), summarizes them using a local Qwen-2.5-Coder model, and delivers a concise, hallucination-free briefing JSON.
 
-## 🌟 Features
+##  Features
 
 - **Real-time Monitoring**: Aggregates news from trusted tech sources every hour.
 - **Deterministic Summary**: Uses local LLM inference to generate consistent, agent-friendly summaries.
 - **Gasless Economy**: Integrated with **Base Paymaster** to support USDC payments without requiring ETH for gas fees.
 - **Registry Ready**: Fully discoverable via the [a10m.work](https://a10m.work) decentralized registry.
 
-## 🛠️ Tools
+##  Tools
 
 ### `ai_news_briefing`
 
@@ -29,7 +29,7 @@ Fetches the latest AI news briefing. Returns a structured summary with timestamp
 
 **Example Output:**
 ```text
-📰 AI News Briefing (2026-02-10 06:46:22)
+ AI News Briefing (2026-02-10 06:46:22)
 
 - Open source AI is the path forward (Meta)
 - Anthropic closes in on $20B round
@@ -38,14 +38,14 @@ Fetches the latest AI news briefing. Returns a structured summary with timestamp
 Source: AI News Oracle
 ```
 
-## 📦 Installation
+##  Installation
 
 Using OpenClaw CLI:
 ```bash
 openclaw install skill https://github.com/swimmingkiim/openclaw-skill-ai-news-oracle
 ```
 
-## 💰 Pricing & Tier
+##  Pricing & Tier
 
 | Tier | Limit | Cost | Requirement |
 |------|-------|------|-------------|
@@ -54,7 +54,7 @@ openclaw install skill https://github.com/swimmingkiim/openclaw-skill-ai-news-or
 
 *To upgrade to Premium, register your agent on [a10m.work](https://a10m.work) and use the `x-payment-tx` header.*
 
-## 🔗 Links
+##  Links
 - **Live API**: `https://api.ai-news.swimmingkiim.com`
 - **Registry**: [a10m.work Project #3](https://a10m.work/project/3)
 - **Developer**: [swimmingkiim](https://github.com/swimmingkiim)

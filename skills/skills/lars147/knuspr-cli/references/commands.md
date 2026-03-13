@@ -48,7 +48,7 @@ List discounted products near expiry. Optional query to filter. Supports `-n`.
 | `cart show` | Show cart contents and total |
 | `cart add <id> [-q N]` | Add product (default qty 1) |
 | `cart remove <id>` | Remove product from cart |
-| `cart clear` | Empty entire cart ⚠️ |
+| `cart clear` | Empty entire cart  |
 | `cart open` | Open cart in browser (for checkout) |
 
 ---
@@ -60,7 +60,7 @@ List discounted products near expiry. Optional query to filter. Supports `-n`.
 | `slot list [-n days] [--detailed]` | Available delivery windows. `--detailed` shows 15-min slot IDs |
 | `slot reserve <id> [--type VIRTUAL\|ON_TIME]` | Reserve slot. ON_TIME=15min (default), VIRTUAL=1h |
 | `slot current` | Show current reservation |
-| `slot release` | Cancel reservation ⚠️ |
+| `slot release` | Cancel reservation  |
 
 ---
 
@@ -70,7 +70,7 @@ List discounted products near expiry. Optional query to filter. Supports `-n`.
 |---------|-------------|
 | `list show [list_id]` | All lists, or products in a specific list |
 | `list create "<name>"` | Create new shopping list |
-| `list delete <id>` | Delete list ⚠️ |
+| `list delete <id>` | Delete list  |
 | `list rename <id> "<name>"` | Rename list |
 | `list add <list_id> <product_id>` | Add product to list |
 | `list remove <list_id> <product_id>` | Remove product from list |

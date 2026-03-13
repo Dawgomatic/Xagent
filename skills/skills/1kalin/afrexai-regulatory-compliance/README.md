@@ -32,9 +32,9 @@ The skill will identify applicable frameworks, assess all 8 domains, score gaps 
 
 Each industry has unique compliance requirements. Get the deep-dive context pack for yours:
 
-🛒 **Browse industry packs** → [afrexai-cto.github.io/context-packs](https://afrexai-cto.github.io/context-packs/)
-📊 **Calculate your AI ROI** → [afrexai-cto.github.io/ai-revenue-calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)
-🤖 **Set up your agent stack** → [afrexai-cto.github.io/agent-setup](https://afrexai-cto.github.io/agent-setup/)
+ **Browse industry packs** → [afrexai-cto.github.io/context-packs](https://afrexai-cto.github.io/context-packs/)
+ **Calculate your AI ROI** → [afrexai-cto.github.io/ai-revenue-calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)
+ **Set up your agent stack** → [afrexai-cto.github.io/agent-setup](https://afrexai-cto.github.io/agent-setup/)
 
 **Bundles:** Playbook $27 | Pick 3 $97 | All 10 $197 | Everything $247
 

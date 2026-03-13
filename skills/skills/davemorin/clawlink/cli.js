@@ -95,7 +95,7 @@ async function main() {
 
     case 'status':
       // Check relay and local status
-      console.log('🔗 ClawLink Status');
+      console.log(' ClawLink Status');
       console.log('='.repeat(50));
       
       if (!existsSync(IDENTITY_FILE)) {
@@ -125,7 +125,7 @@ async function main() {
 
     default:
       console.log(`
-🔗 ClawLink - Encrypted Clawbot-to-Clawbot Messaging
+ ClawLink - Encrypted Clawbot-to-Clawbot Messaging
 
 Commands:
   setup [name]          Initialize ClawLink with your name

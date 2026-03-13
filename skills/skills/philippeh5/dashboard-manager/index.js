@@ -23,7 +23,7 @@ async function loadDatabase() {
         const data = await fs.readFile(DATA_FILE_PATH, 'utf8');
         return JSON.parse(data);
     } catch (error) {
-        console.error('❌ Erreur lors de la lecture de data.json:', error.message);
+        console.error(' Erreur lors de la lecture de data.json:', error.message);
         throw error;
     }
 }
@@ -38,10 +38,10 @@ async function saveDatabase(db) {
             JSON.stringify(db, null, 2), 
             'utf8' 
         );
-        console.log('✅ Base de données sauvegardée');
+        console.log(' Base de données sauvegardée');
         return true;
     } catch (error) {
-        console.error('❌ Erreur lors de la sauvegarde de data.json:', error.message);
+        console.error(' Erreur lors de la sauvegarde de data.json:', error.message);
         throw error;
     }
 }
@@ -52,7 +52,7 @@ async function saveDatabase(db) {
 async function getPendingNotes() {
     const db = await loadDatabase();
     const pendingNotes = (db.quick_notes || []).filter( note => note.status === 'pending' );
-    console.log(`📩 ${pendingNotes.length} note(s) en attente`);
+    console.log(` ${pendingNotes.length} note(s) en attente`);
     return pendingNotes;
 }
 
@@ -65,10 +65,10 @@ async function processNote(noteId) {
     if (note) {
         note.status = 'processed';
         await saveDatabase(db);
-        console.log(`✅ Note #${noteId} marquée comme traitée`);
+        console.log(` Note #${noteId} marquée comme traitée`);
         return true;
     }
-    console.warn(`⚠️ Note #${noteId} introuvable`);
+    console.warn(` Note #${noteId} introuvable`);
     return false;
 }
 
@@ -83,7 +83,7 @@ async function addLog(action) {
     if (!db.logs) db.logs = [];
     db.logs.unshift(newLog); // Ajoute au début
     await saveDatabase(db);
-    console.log(`📝 Log ajouté: ${action}`);
+    console.log(` Log ajouté: ${action}`);
     return true;
 }
 
@@ -101,7 +101,7 @@ async function updateSystemStatus(state = 'idle', modelName = null) {
         db.system_status.current_model = modelName;
     }
     await saveDatabase(db);
-    console.log(`⚡ Système mis à jour: ${state}`);
+    console.log(` Système mis à jour: ${state}`);
     return true;
 }
 
@@ -116,7 +116,7 @@ async function updateStats(inputTokens, outputTokens, cost) {
     db.stats.output_tokens = (db.stats.output_tokens || 0) + outputTokens;
     db.stats.total_cost = (db.stats.total_cost || 0) + cost;
     await saveDatabase(db);
-    console.log(`💰 Stats mises à jour: +${inputTokens} tokens in, +${outputTokens} tokens out, +$${cost.toFixed(4)}`);
+    console.log(` Stats mises à jour: +${inputTokens} tokens in, +${outputTokens} tokens out, +$${cost.toFixed(4)}`);
     return true;
 }
 
@@ -130,12 +130,12 @@ async function updateTask(taskId, updates) {
     if (task) {
         // Met à jour la tâche existante
         Object.assign(task, updates);
-        console.log(`✏️ Tâche #${taskId} mise à jour`);
+        console.log(` Tâche #${taskId} mise à jour`);
     } else {
         // Crée une nouvelle tâche
         const newTask = { id: taskId || (db.tasks.length + 1), ...updates };
         db.tasks.push(newTask);
-        console.log(`➕ Nouvelle tâche créée: ${newTask.text}`);
+        console.log(` Nouvelle tâche créée: ${newTask.text}`);
     }
     await saveDatabase(db);
     return true;
@@ -151,7 +151,7 @@ async function addSubAgent(agentName, task = null) {
     const agent = { name: agentName, task: task, started_at: new Date().toISOString() };
     db.system_status.sub_agents_active.push(agent);
     await saveDatabase(db);
-    console.log(`🤖 Sub-agent ajouté: ${agentName}`);
+    console.log(` Sub-agent ajouté: ${agentName}`);
     return true;
 }
 
@@ -165,7 +165,7 @@ async function removeSubAgent(agentName) {
         agent => agent.name !== agentName 
     );
     await saveDatabase(db);
-    console.log(`🔴 Sub-agent retiré: ${agentName}`);
+    console.log(` Sub-agent retiré: ${agentName}`);
     return true;
 }
 
@@ -191,16 +191,16 @@ module.exports = {
     
     // Fonction d'initialisation
     async init() {
-        console.log('🚀 Dashboard Manager skill initialisé');
-        console.log(`📁 Chemin du fichier: ${DATA_FILE_PATH}`);
+        console.log(' Dashboard Manager skill initialisé');
+        console.log(` Chemin du fichier: ${DATA_FILE_PATH}`);
         
         // Teste si le fichier est accessible
         try {
             await loadDatabase();
-            console.log('✅ Connexion au dashboard établie');
+            console.log(' Connexion au dashboard établie');
             return true;
         } catch (error) {
-            console.error('❌ Impossible de se connecter au dashboard');
+            console.error(' Impossible de se connecter au dashboard');
             console.error(' Vérifie que le fichier existe:', DATA_FILE_PATH);
             return false;
         }

@@ -5,7 +5,7 @@ Template for displaying expenses extracted from payment screenshots.
 ## Template
 
 ```markdown
-> [!receipt] 💳 {{TIME}} {{PLATFORM}}
+> [!receipt]  {{TIME}} {{PLATFORM}}
 > ![[{{SCREENSHOT_PATH}}|300]]
 > 
 > | Field | Value |
@@ -55,7 +55,7 @@ Template for displaying expenses extracted from payment screenshots.
 ### Basic Receipt
 
 ```markdown
-> [!receipt] 💳 14:32 WeChat Pay
+> [!receipt]  14:32 WeChat Pay
 > ![[assets/2026-02-02/receipt_001.jpg|300]]
 > 
 > | Field | Value |
@@ -70,7 +70,7 @@ Template for displaying expenses extracted from payment screenshots.
 ### With Discount
 
 ```markdown
-> [!receipt] 💳 12:15 Alipay
+> [!receipt]  12:15 Alipay
 > ![[assets/2026-02-02/receipt_002.jpg|300]]
 > 
 > | Field | Value |
@@ -87,7 +87,7 @@ Template for displaying expenses extracted from payment screenshots.
 ### Bank Transfer
 
 ```markdown
-> [!receipt] 💳 10:00 Bank Transfer
+> [!receipt]  10:00 Bank Transfer
 > ![[assets/2026-02-02/receipt_003.jpg|300]]
 > 
 > | Field | Value |
@@ -105,7 +105,7 @@ Template for displaying expenses extracted from payment screenshots.
 For multiple receipts, use compact format:
 
 ```markdown
-> [!receipt] 💳 14:32 WeChat Pay
+> [!receipt]  14:32 WeChat Pay
 > ![[assets/2026-02-02/receipt_001.jpg|200]]
 > Luckin Coffee | **¥19.90** | Food & Dining
 > *Auto-detected from screenshot*
@@ -125,13 +125,13 @@ For multiple receipts, use compact format:
 When extraction confidence is below threshold:
 
 ```markdown
-> [!receipt] 💳 14:32 WeChat Pay
+> [!receipt]  14:32 WeChat Pay
 > ![[assets/2026-02-02/receipt_001.jpg|300]]
 > 
 > | Field | Value |
 > |-------|-------|
 > | Merchant | Luckin Coffee |
-> | Amount | **¥19.90** ⚠️ |
+> | Amount | **¥19.90**  |
 > | Method | Unknown |
 > 
 > *Source: WeChat Pay screenshot • Please verify*
@@ -142,7 +142,7 @@ When extraction confidence is below threshold:
 For multiple receipts in one day:
 
 ```markdown
-> [!receipt-gallery] 💳 Today's Receipts
+> [!receipt-gallery]  Today's Receipts
 > ![[assets/2026-02-02/receipt_001.jpg|150]] ![[assets/2026-02-02/receipt_002.jpg|150]] ![[assets/2026-02-02/receipt_003.jpg|150]]
 > 
 > **Total:** ¥256.40 from 3 transactions

@@ -1,4 +1,4 @@
-# Calorie Counter - Quick Start 🍎
+# Calorie Counter - Quick Start 
 
 ## Setup Complete! ✓
 
@@ -86,12 +86,12 @@ All data stored in: `workspace/calorie-counter/calorie_data.db`
 
 | Feature | This Skill | Other Skills |
 |---------|-----------|--------------|
-| Works offline | ✅ | ❌ (API dependent) |
-| Protein tracking | ✅ | ❌ |
-| Instant feedback | ✅ | ❌ |
-| Secure | ✅ | ⚠️ (vulnerabilities) |
-| Portable | ✅ | ❌ (hardcoded paths) |
-| Simple | ✅ | ❌ (complex) |
+| Works offline |  |  (API dependent) |
+| Protein tracking |  |  |
+| Instant feedback |  |  |
+| Secure |  |  (vulnerabilities) |
+| Portable |  |  (hardcoded paths) |
+| Simple |  |  (complex) |
 
 ## Database Schema
 
@@ -162,4 +162,4 @@ Before bed:
   → Recorded
 ```
 
-Enjoy tracking! 🎯
+Enjoy tracking! 

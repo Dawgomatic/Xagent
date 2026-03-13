@@ -73,5 +73,5 @@ for domain in domain_order:
 with open(OUTPUT_PATH, 'w') as f:
     f.write('\n'.join(lines))
 
-print(f"✅ Synced {len(core)} core memories to {OUTPUT_PATH}")
+print(f" Synced {len(core)} core memories to {OUTPUT_PATH}")
 PYTHON

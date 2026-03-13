@@ -28,23 +28,23 @@ class SentryMode {
 
   async activate() {
     try {
-      console.log('\n📹 SENTRY MODE ACTIVATED');
+      console.log('\n SENTRY MODE ACTIVATED');
       console.log(`Query: "${this.query}"\n`);
 
       // Step 1: Capture video
-      console.log('🎥 Recording video...');
+      console.log(' Recording video...');
       const videoFile = await this.captureVideo();
-      console.log(`✅ Video captured: ${this.duration}s\n`);
+      console.log(` Video captured: ${this.duration}s\n`);
 
       // Step 2: Extract frames
-      console.log('🔍 Extracting key frames (ffmpeg)...');
+      console.log(' Extracting key frames (ffmpeg)...');
       const frames = await this.extractFrames(videoFile);
-      console.log(`✅ Extracted ${frames.length} frames\n`);
+      console.log(` Extracted ${frames.length} frames\n`);
 
       // Step 3: Analyze with vision AI
-      console.log('🤖 Analyzing with vision AI...');
+      console.log(' Analyzing with vision AI...');
       const analysis = await this.analyzeFrames(frames);
-      console.log('✅ Analysis complete\n');
+      console.log(' Analysis complete\n');
 
       // Step 4: Report findings
       this.reportFindings(analysis, frames);
@@ -54,7 +54,7 @@ class SentryMode {
 
       return analysis;
     } catch (error) {
-      console.error(`\n❌ Sentry Mode Error: ${error.message}`);
+      console.error(`\n Sentry Mode Error: ${error.message}`);
       this.cleanup();
       throw error;
     }
@@ -81,7 +81,7 @@ class SentryMode {
     } catch (error) {
       // Fallback: create placeholder video for testing
       console.log(
-        '⚠️ Webcam capture unavailable, using simulation mode\n'
+        ' Webcam capture unavailable, using simulation mode\n'
       );
       return this.createPlaceholderVideo(videoFile);
     }
@@ -106,7 +106,7 @@ class SentryMode {
     const frames = [];
 
     if (!videoFile || !fs.existsSync(videoFile)) {
-      console.log('⚠️ No video file found, proceeding with analysis...');
+      console.log(' No video file found, proceeding with analysis...');
       return frames;
     }
 
@@ -135,7 +135,7 @@ class SentryMode {
 
       frames.push(...frameFiles);
     } catch (error) {
-      console.log('⚠️ Frame extraction failed, will proceed with analysis...');
+      console.log(' Frame extraction failed, will proceed with analysis...');
     }
 
     return frames;
@@ -166,7 +166,7 @@ class SentryMode {
 
     if (query.includes('anyone') || query.includes('person')) {
       return {
-        summary: '✅ Detection: Person present',
+        summary: ' Detection: Person present',
         details: 'One person visible in frame at desk',
         activity: 'Seated, appears to be working',
         confidence: 'High',
@@ -175,7 +175,7 @@ class SentryMode {
 
     if (query.includes('desk') || query.includes('on my')) {
       return {
-        summary: '📊 Desk Status: Active workspace',
+        summary: ' Desk Status: Active workspace',
         details: 'Laptop, papers, coffee cup visible',
         organization: 'Fair - some clutter',
         confidence: 'High',
@@ -184,7 +184,7 @@ class SentryMode {
 
     if (query.includes('movement') || query.includes('activity')) {
       return {
-        summary: '🎬 Motion Detected',
+        summary: ' Motion Detected',
         details: 'Subtle movement detected across frames',
         type: 'Typing/working motion',
         confidence: 'Medium',
@@ -193,7 +193,7 @@ class SentryMode {
 
     if (query.includes('text') || query.includes('read')) {
       return {
-        summary: '📝 Text Recognition',
+        summary: ' Text Recognition',
         details: 'Limited text visible due to angle/distance',
         readable: 'Window title and taskbar visible',
         confidence: 'Medium',
@@ -202,7 +202,7 @@ class SentryMode {
 
     // Default findings
     return {
-      summary: '📸 Visual Analysis Complete',
+      summary: ' Visual Analysis Complete',
       details: 'Frames analyzed successfully',
       frameCount: `${frames.length} frames processed`,
       confidence: this.confidence,
@@ -211,15 +211,15 @@ class SentryMode {
 
   reportFindings(analysis, frames) {
     console.log('═'.repeat(60));
-    console.log('📊 SENTRY MODE REPORT');
+    console.log(' SENTRY MODE REPORT');
     console.log('═'.repeat(60));
 
-    console.log(`\n🔍 Query: "${analysis.query}"`);
-    console.log(`⏰ Timestamp: ${new Date(analysis.timestamp).toLocaleString()}`);
-    console.log(`📹 Frames Analyzed: ${analysis.framesAnalyzed}`);
+    console.log(`\n Query: "${analysis.query}"`);
+    console.log(` Timestamp: ${new Date(analysis.timestamp).toLocaleString()}`);
+    console.log(` Frames Analyzed: ${analysis.framesAnalyzed}`);
     console.log(`\n${analysis.frameDescriptions}`);
 
-    console.log('\n📋 FINDINGS:');
+    console.log('\n FINDINGS:');
     console.log('─'.repeat(60));
     Object.entries(analysis.findings).forEach(([key, value]) => {
       const formattedKey = key.charAt(0).toUpperCase() + key.slice(1);
@@ -230,7 +230,7 @@ class SentryMode {
     console.log('═'.repeat(60) + '\n');
 
     if (this.verbose) {
-      console.log('📸 Frame Details:');
+      console.log(' Frame Details:');
       frames.forEach((frame, idx) => {
         console.log(`  Frame ${idx + 1}: ${path.basename(frame)}`);
       });
@@ -244,7 +244,7 @@ class SentryMode {
       try {
         execSync(`rm -rf "${this.tempDir}"`);
       } catch (error) {
-        console.warn(`⚠️ Cleanup failed: ${error.message}`);
+        console.warn(` Cleanup failed: ${error.message}`);
       }
     }
   }
@@ -291,7 +291,7 @@ async function main() {
   }
 
   if (!query) {
-    console.error('❌ Error: --query is required');
+    console.error(' Error: --query is required');
     process.exit(1);
   }
 

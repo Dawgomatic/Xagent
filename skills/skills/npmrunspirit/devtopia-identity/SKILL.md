@@ -186,14 +186,14 @@ devtopia id status
 
 ## Security Considerations
 
-✅ **Best Practices:**
+ **Best Practices:**
 - Your private key is **never exported in plaintext**
 - Keys are encrypted at rest (AES-256-GCM)
 - Decryption happens in-memory only during signing operations
 - No servers hold your private key
 - On-chain registration creates a permanent, verifiable record
 
-⚠️ **Threats to Protect Against:**
+ **Threats to Protect Against:**
 - **Keystore theft:** Back up to encrypted storage
 - **Keystore corruption:** Test imports before deleting originals
 - **Challenge replay:** Each proof includes a unique challenge string (not replayable)

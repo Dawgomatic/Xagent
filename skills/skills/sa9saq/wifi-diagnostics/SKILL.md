@@ -56,21 +56,21 @@ ping -c 5 1.1.1.1 | tail -1
 
 ### Output format
 ```
-## 📶 Wi-Fi Diagnostics — <timestamp>
+##  Wi-Fi Diagnostics — <timestamp>
 
 **Network**: MyWiFi | **Channel**: 6 (2.4GHz) | **Signal**: 72%
 
 | Test | Result | Status |
 |------|--------|--------|
-| Signal | -45 dBm (72%) | 🟢 Good |
-| Download | 48.2 Mbps | 🟢 Good |
-| Upload | 12.1 Mbps | 🟡 Fair |
-| DNS Latency | 15ms | 🟢 Good |
-| Ping (8.8.8.8) | 22ms avg | 🟢 Good |
+| Signal | -45 dBm (72%) |  Good |
+| Download | 48.2 Mbps |  Good |
+| Upload | 12.1 Mbps |  Fair |
+| DNS Latency | 15ms |  Good |
+| Ping (8.8.8.8) | 22ms avg |  Good |
 
 **Channel Congestion**: Ch 6 has 8 networks. Consider switching to Ch 1 or 11.
 
-**Thresholds**: Signal: 🟢>60% 🟡30-60% 🔴<30% | Speed: 🟢>25Mbps 🟡>5Mbps 🔴<5Mbps
+**Thresholds**: Signal: >60% 30-60% <30% | Speed: >25Mbps >5Mbps <5Mbps
 ```
 
 ## Edge Cases

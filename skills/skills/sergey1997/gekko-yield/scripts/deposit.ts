@@ -36,7 +36,7 @@ async function main() {
   const amountArg = args[0];
 
   if (!isValidUSDCAmount(amountArg)) {
-    console.error('❌ Invalid amount format');
+    console.error(' Invalid amount format');
     console.error('   Use a number like: 100, 100.50, 1,000.00');
     process.exit(1);
   }
@@ -44,22 +44,22 @@ async function main() {
   const depositAmount = parseUSDC(amountArg);
 
   if (depositAmount <= 0n) {
-    console.error('❌ Amount must be greater than 0');
+    console.error(' Amount must be greater than 0');
     process.exit(1);
   }
 
   const config = loadConfig();
   const { publicClient, walletClient, account } = getClients(config);
 
-  console.log('🦎 Gekko Yield — Deposit\n');
+  console.log(' Gekko Yield — Deposit\n');
   console.log(`Wallet: ${account.address}`);
   console.log(`Amount: ${formatUSDC(depositAmount)} USDC\n`);
 
   // Verify contracts
-  console.log('🔐 Verifying contracts...');
+  console.log(' Verifying contracts...');
   try {
     await verifyContracts(publicClient);
-    console.log('   ✅ Contracts verified\n');
+    console.log('    Contracts verified\n');
   } catch (err) {
     handleError(err, 'Contract verification failed');
   }
@@ -73,7 +73,7 @@ async function main() {
   });
 
   if (usdcBalance < depositAmount) {
-    console.error(`❌ Insufficient USDC balance`);
+    console.error(` Insufficient USDC balance`);
     console.error(`   Available: ${formatUSDC(usdcBalance)} USDC`);
     console.error(`   Required:  ${formatUSDC(depositAmount)} USDC`);
     process.exit(1);
@@ -82,7 +82,7 @@ async function main() {
   // Check ETH for gas
   const ethBalance = await publicClient.getBalance({ address: account.address });
   if (ethBalance < BigInt(1e14)) {
-    console.error(`❌ Insufficient ETH for gas`);
+    console.error(` Insufficient ETH for gas`);
     console.error(`   Available: ${(Number(ethBalance) / 1e18).toFixed(6)} ETH`);
     console.error(`   Need at least 0.0001 ETH for transactions`);
     process.exit(1);
@@ -97,7 +97,7 @@ async function main() {
   });
 
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('📋 Transaction Preview');
+  console.log(' Transaction Preview');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log(`Depositing:        ${formatUSDC(depositAmount)} USDC`);
   console.log(`Expected shares:   ${formatUSDC(expectedShares)} mwUSDC`);
@@ -114,7 +114,7 @@ async function main() {
 
   // Step 1: Approve if needed
   if (currentAllowance < depositAmount) {
-    console.log('📝 Step 1/2: Approving USDC spend...');
+    console.log(' Step 1/2: Approving USDC spend...');
 
     try {
       const approveHash = await approveAndVerify(
@@ -127,16 +127,16 @@ async function main() {
         'USDC'
       );
       console.log(`   Tx: ${approveHash}`);
-      console.log('   ✅ Approved and verified!\n');
+      console.log('    Approved and verified!\n');
     } catch (err) {
       handleError(err, 'Approve failed');
     }
   } else {
-    console.log('📝 Step 1/2: USDC already approved ✅\n');
+    console.log(' Step 1/2: USDC already approved \n');
   }
 
   // Step 2: Deposit
-  console.log('📝 Step 2/2: Depositing into vault...');
+  console.log(' Step 2/2: Depositing into vault...');
 
   try {
     const depositHash = await simulateAndWrite(publicClient, walletClient, {
@@ -153,7 +153,7 @@ async function main() {
     const receipt = await waitForTransaction(publicClient, depositHash);
 
     if (receipt.status === 'success') {
-      console.log('   ✅ Deposit successful!\n');
+      console.log('    Deposit successful!\n');
 
       // Wait briefly for RPC state to sync
       await sleep(1000);
@@ -189,7 +189,7 @@ async function main() {
           if (attempt < 3) {
             await sleep(500 * attempt); // 0.5s, 1s delays
           } else {
-            console.log('   ⚠️  Could not read updated position (RPC sync delay)');
+            console.log('     Could not read updated position (RPC sync delay)');
             console.log('   Check your position with: npx tsx status.ts\n');
           }
         }
@@ -202,7 +202,7 @@ async function main() {
       });
 
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-      console.log('🎉 Deposit Complete!');
+      console.log(' Deposit Complete!');
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
       console.log(`Total shares:      ${formatUSDC(newShares)} mwUSDC`);
       console.log(`Position value:    ${formatUSDC(positionValue)} USDC`);

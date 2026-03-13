@@ -1,15 +1,15 @@
 ---
 name: portainer
 description: Control Docker containers and stacks via Portainer API. List containers, start/stop/restart, view logs, and redeploy stacks from git.
-metadata: {"clawdbot":{"emoji":"🐳","requires":{"bins":["curl","jq"],"env":["PORTAINER_API_KEY"]},"primaryEnv":"PORTAINER_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq"],"env":["PORTAINER_API_KEY"]},"primaryEnv":"PORTAINER_API_KEY"}}
 ---
 
-# 🐳 Portainer Skill
+#  Portainer Skill
 
 ```
     ╔═══════════════════════════════════════════════════════════╗
     ║                                                           ║
-    ║   🐳  P O R T A I N E R   C O N T R O L   C L I  🐳      ║
+    ║     P O R T A I N E R   C O N T R O L   C L I        ║
     ║                                                           ║
     ║       Manage Docker containers via Portainer API          ║
     ║            Start, stop, deploy, redeploy                  ║
@@ -17,25 +17,25 @@ metadata: {"clawdbot":{"emoji":"🐳","requires":{"bins":["curl","jq"],"env":["P
     ╚═══════════════════════════════════════════════════════════╝
 ```
 
-> *"Docker containers? I'll handle them from my lily pad."* 🐸
+> *"Docker containers? I'll handle them from my lily pad."* 
 
 ---
 
-## 📖 What Does This Skill Do?
+##  What Does This Skill Do?
 
 The **Portainer Skill** gives you control over your Docker infrastructure through Portainer's REST API. Manage containers, stacks, and deployments without touching the web UI.
 
 **Features:**
-- 📊 **Status** — Check Portainer server status
-- 🖥️ **Endpoints** — List all Docker environments
-- 📦 **Containers** — List, start, stop, restart containers
-- 📚 **Stacks** — List and manage Docker Compose stacks
-- 🔄 **Redeploy** — Pull from git and redeploy stacks
-- 📜 **Logs** — View container logs
+-  **Status** — Check Portainer server status
+-  **Endpoints** — List all Docker environments
+-  **Containers** — List, start, stop, restart containers
+-  **Stacks** — List and manage Docker Compose stacks
+-  **Redeploy** — Pull from git and redeploy stacks
+-  **Logs** — View container logs
 
 ---
 
-## ⚙️ Requirements
+##  Requirements
 
 | What | Details |
 |------|---------|
@@ -58,11 +58,11 @@ The **Portainer Skill** gives you control over your Docker infrastructure throug
    PORTAINER_API_KEY=ptr_your_token_here
    ```
 
-3. **Ready!** 🚀
+3. **Ready!** 
 
 ---
 
-## 🛠️ Commands
+##  Commands
 
 ### `status` — Check Portainer Server
 
@@ -146,7 +146,7 @@ minecraft                running    Up 6 weeks (healthy)
 
 ---
 
-### `redeploy` — Pull & Redeploy Stack 🔄
+### `redeploy` — Pull & Redeploy Stack 
 
 ```bash
 ./portainer.sh redeploy 25
@@ -199,23 +199,23 @@ This will:
 
 ---
 
-## 🎯 Example Workflows
+##  Example Workflows
 
-### 🚀 "Deploy Website Update"
+###  "Deploy Website Update"
 ```bash
 # After merging PR
 ./portainer.sh redeploy 25
 ./portainer.sh logs steinbergerraum-web-1 4 20
 ```
 
-### 🔧 "Debug Container"
+###  "Debug Container"
 ```bash
 ./portainer.sh containers
 ./portainer.sh logs cora-web-1
 ./portainer.sh restart cora-web-1
 ```
 
-### 📊 "System Overview"
+###  "System Overview"
 ```bash
 ./portainer.sh status
 ./portainer.sh endpoints
@@ -225,9 +225,9 @@ This will:
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
-### ❌ "Authentication required / Repository not found"
+###  "Authentication required / Repository not found"
 
 **Problem:** Stack redeploy fails with git auth error
 
@@ -235,7 +235,7 @@ This will:
 
 ---
 
-### ❌ "Container not found"
+###  "Container not found"
 
 **Problem:** Container name doesn't match
 
@@ -245,7 +245,7 @@ This will:
 
 ---
 
-### ❌ "PORTAINER_URL and PORTAINER_API_KEY must be set"
+###  "PORTAINER_URL and PORTAINER_API_KEY must be set"
 
 **Problem:** Credentials not configured
 
@@ -258,7 +258,7 @@ echo "PORTAINER_API_KEY=ptr_your_token" >> ~/.clawdbot/.env
 
 ---
 
-## 🔗 Integration with Clawd
+##  Integration with Clawd
 
 ```
 "Redeploy the website"
@@ -276,7 +276,7 @@ echo "PORTAINER_API_KEY=ptr_your_token" >> ~/.clawdbot/.env
 
 ---
 
-## 📜 Changelog
+##  Changelog
 
 | Version | Date | Changes |
 |---------|------|---------|
@@ -284,7 +284,7 @@ echo "PORTAINER_API_KEY=ptr_your_token" >> ~/.clawdbot/.env
 
 ---
 
-## 🐸 Credits
+##  Credits
 
 ```
   @..@
@@ -293,7 +293,7 @@ echo "PORTAINER_API_KEY=ptr_your_token" >> ~/.clawdbot/.env
  ^^  ^^     for your code to hop around!"
 ```
 
-**Author:** Andy Steinberger (with help from his Clawdbot Owen the Frog 🐸)  
+**Author:** Andy Steinberger (with help from his Clawdbot Owen the Frog )  
 **Powered by:** [Portainer](https://portainer.io/) API  
 **Part of:** [Clawdbot](https://clawdhub.com) Skills Collection
 
@@ -301,8 +301,8 @@ echo "PORTAINER_API_KEY=ptr_your_token" >> ~/.clawdbot/.env
 
 <div align="center">
 
-**Made with 💚 for the Clawdbot Community**
+**Made with  for the Clawdbot Community**
 
-*Ribbit!* 🐸
+*Ribbit!* 
 
 </div>

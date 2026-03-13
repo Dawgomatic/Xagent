@@ -1,7 +1,7 @@
 ---
 name: quickbooks
 description: Manage QuickBooks Online accounting - invoices, customers, payments, and reports via Intuit API.
-metadata: {"clawdbot":{"emoji":"💰","requires":{"env":["QUICKBOOKS_ACCESS_TOKEN","QUICKBOOKS_REALM_ID"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["QUICKBOOKS_ACCESS_TOKEN","QUICKBOOKS_REALM_ID"]}}}
 ---
 
 # QuickBooks Online

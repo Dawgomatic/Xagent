@@ -5,18 +5,18 @@
 
 Complete Mayar.id payment integration for Clawdbot. Enable your AI agent to generate invoices, payment links, and track transactions via Indonesian payment platform.
 
-## 🎯 Features
+##  Features
 
-- ✅ Create payment invoices with itemized billing
-- ✅ Generate payment links for customers  
-- ✅ Track transactions & payment status
-- ✅ Support ALL Indonesian payment methods (bank transfer, e-wallet, QRIS)
-- ✅ WhatsApp/Telegram/Discord payment workflows
-- ✅ Membership/subscription management
-- ✅ Complete MCP (Model Context Protocol) integration
-- ✅ 15 ready-to-use MCP tools
+-  Create payment invoices with itemized billing
+-  Generate payment links for customers  
+-  Track transactions & payment status
+-  Support ALL Indonesian payment methods (bank transfer, e-wallet, QRIS)
+-  WhatsApp/Telegram/Discord payment workflows
+-  Membership/subscription management
+-  Complete MCP (Model Context Protocol) integration
+-  15 ready-to-use MCP tools
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -86,9 +86,9 @@ mcporter list mayar
 mcporter call mayar.get_balance
 ```
 
-If you see 15 available tools → Installation successful! ✅
+If you see 15 available tools → Installation successful! 
 
-## 💡 Usage Examples
+##  Usage Examples
 
 ### Create Payment Invoice
 
@@ -116,14 +116,14 @@ const invoice = /* mcporter call mayar.create_invoice ... */;
 
 // Format message
 const message = `
-✅ *Order Confirmed!*
+ *Order Confirmed!*
 
 *Total: Rp ${total.toLocaleString('id-ID')}*
 
-💳 Pembayaran:
+ Pembayaran:
 ${invoice.data.link}
 
-⏰ Berlaku sampai: ${expiryDate}
+ Berlaku sampai: ${expiryDate}
 `.trim();
 
 // Send via WhatsApp
@@ -152,14 +152,14 @@ mcporter call mayar.get_transactions_by_time_period \
   sortOrder:"DESC"
 ```
 
-## 📚 Documentation
+##  Documentation
 
 - **[SKILL.md](SKILL.md)** - Main skill guide with setup & workflows
 - **[MCP Tools Reference](references/mcp-tools.md)** - Complete list of 15 MCP tools
 - **[Integration Examples](references/integration-examples.md)** - Real-world patterns (WhatsApp bots, subscriptions, events, etc.)
 - **[API Reference](references/api-reference.md)** - REST API documentation (alternative to MCP)
 
-## 🎯 Use Cases
+##  Use Cases
 
 - **E-commerce bots** - Automated order processing via WhatsApp/Telegram
 - **Service marketplace** - Sell services with instant payment links
@@ -170,7 +170,7 @@ mcporter call mayar.get_transactions_by_time_period \
 - **Wedding services** - Sell templates/packages
 - **Freelance payments** - Professional invoicing
 
-## 🔧 Available MCP Tools
+##  Available MCP Tools
 
 ### Payment Generation
 - `create_invoice` - Create itemized invoice with payment link
@@ -191,7 +191,7 @@ mcporter call mayar.get_transactions_by_time_period \
 
 [See full tool reference →](references/mcp-tools.md)
 
-## 🌍 Payment Methods Supported
+##  Payment Methods Supported
 
 Mayar.id supports all major Indonesian payment methods:
 
@@ -199,7 +199,7 @@ Mayar.id supports all major Indonesian payment methods:
 **E-Wallet:** GoPay, OVO, DANA, LinkAja, ShopeePay  
 **Others:** QRIS, Virtual Account, Credit/Debit Card
 
-## 🛠️ Troubleshooting
+##  Troubleshooting
 
 ### "MCP server not found"
 ```bash
@@ -227,7 +227,7 @@ curl -X POST https://api.mayar.id/hl/v1/webhook/register \
 2. Ensure URL is publicly accessible
 3. Must respond with 200 status
 
-## 📊 Skill Architecture
+##  Skill Architecture
 
 ```
 mayar-payment/
@@ -245,7 +245,7 @@ Following Clawdbot skill best practices:
 - Real-world examples
 - Production-ready patterns
 
-## 🌐 Environments
+##  Environments
 
 **Production:**
 - Dashboard: https://web.mayar.id
@@ -257,7 +257,7 @@ Following Clawdbot skill best practices:
 
 Always test in sandbox first before using production!
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please:
 1. Fork the repository
@@ -266,28 +266,28 @@ Contributions welcome! Please:
 4. Push to branch (`git push origin feature/amazing`)
 5. Open Pull Request
 
-## 📝 License
+##  License
 
 MIT License - Free to use, modify, and distribute.
 
 See [LICENSE](LICENSE) file for details.
 
-## 🙏 Credits
+##  Credits
 
 Created by [Samara](https://github.com/ahsanatha) / TSR Labs for the Clawdbot community.
 
 Based on [Mayar.id](https://mayar.id) API and MCP server.
 
-## 📞 Support
+##  Support
 
 - **Issues:** [GitHub Issues](https://github.com/ahsanatha/mayar-payment-skill/issues)
 - **Mayar Community:** https://t.me/mcngroup
 - **Mayar Docs:** https://docs.mayar.id
 
-## ⭐ Star History
+##  Star History
 
-If this skill helps you, please star the repo! ⭐
+If this skill helps you, please star the repo! 
 
 ---
 
-**Made with ❤️ for the Clawdbot community**
+**Made with  for the Clawdbot community**

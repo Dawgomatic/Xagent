@@ -6,13 +6,13 @@ Complete documentation of all API operations, their behaviors, network calls, an
 
 | API | Endpoints | Read-Only | Destructive | Real-time Sync |
 |-----|-----------|-----------|-------------|----------------|
-| **Tasks** | 6 | List, Get | Create, Update, Archive, Batch | ✅ |
-| **Projects** | 4 | List, Get Tasks | Create, Update | ✅ |
-| **Contexts** | 5 | List, Get Tasks | Create, Assign | ✅ |
-| **Comments** | 4 | List | Create, Update, Delete | ✅ |
-| **Follow-Ups** | 4 | List, Get by Date | Mark Complete, Update Schedule | ✅ |
-| **Calendar** | 4 | List Subscriptions, List Events | Create, Sync | ✅ |
-| **Capacity** | 3 | Get Today, Get Range | Trigger Compute | ✅ |
+| **Tasks** | 6 | List, Get | Create, Update, Archive, Batch |  |
+| **Projects** | 4 | List, Get Tasks | Create, Update |  |
+| **Contexts** | 5 | List, Get Tasks | Create, Assign |  |
+| **Comments** | 4 | List | Create, Update, Delete |  |
+| **Follow-Ups** | 4 | List, Get by Date | Mark Complete, Update Schedule |  |
+| **Calendar** | 4 | List Subscriptions, List Events | Create, Sync |  |
+| **Capacity** | 3 | Get Today, Get Range | Trigger Compute |  |
 | **Analytics** | 5 | All (read-only) | None | N/A |
 | **Matrix** | 1 | Get View | None | N/A |
 
@@ -24,7 +24,7 @@ Complete documentation of all API operations, their behaviors, network calls, an
 
 ### Tasks API (6 operations)
 
-#### 1. List Tasks (Read-Only) ✅
+#### 1. List Tasks (Read-Only) 
 
 **Endpoint:** `GET /tasks`
 
@@ -53,7 +53,7 @@ curl -s "$YATTA_API_URL/tasks?status=todo&priority=high" \
 
 ---
 
-#### 2. Get Task (Read-Only) ✅
+#### 2. Get Task (Read-Only) 
 
 **Endpoint:** `GET /tasks/:id`
 
@@ -71,7 +71,7 @@ curl -s "$YATTA_API_URL/tasks/$TASK_ID" \
 
 ---
 
-#### 3. Create Task (Destructive) ⚠️
+#### 3. Create Task (Destructive) 
 
 **Endpoint:** `POST /tasks`
 
@@ -86,10 +86,10 @@ curl -s "$YATTA_API_URL/tasks" \
 ```
 
 **Side Effects:**
-- ⚠️ Creates new task in your account
-- ⚠️ Appears in UI immediately
-- ⚠️ Affects capacity calculations
-- ⚠️ Can trigger notifications
+-  Creates new task in your account
+-  Appears in UI immediately
+-  Affects capacity calculations
+-  Can trigger notifications
 
 **Required Fields:** `title`
 
@@ -99,7 +99,7 @@ curl -s "$YATTA_API_URL/tasks" \
 
 ---
 
-#### 4. Update Task (Destructive) ⚠️
+#### 4. Update Task (Destructive) 
 
 **Endpoint:** `PUT /tasks`
 
@@ -114,11 +114,11 @@ curl -s -X PUT "$YATTA_API_URL/tasks" \
 ```
 
 **Side Effects:**
-- ⚠️ Modifies task data
-- ⚠️ Changes appear in UI immediately
-- ⚠️ Affects analytics and capacity
-- ⚠️ Updating status to "done" marks task complete
-- ⚠️ Can trigger recurrence if task has recurrence rule
+-  Modifies task data
+-  Changes appear in UI immediately
+-  Affects analytics and capacity
+-  Updating status to "done" marks task complete
+-  Can trigger recurrence if task has recurrence rule
 
 **Required Fields:** `id`
 
@@ -128,7 +128,7 @@ curl -s -X PUT "$YATTA_API_URL/tasks" \
 
 ---
 
-#### 5. Batch Update Tasks (Destructive) ⚠️
+#### 5. Batch Update Tasks (Destructive) 
 
 **Endpoint:** `PUT /tasks` (with `ids` array)
 
@@ -143,10 +143,10 @@ curl -s -X PUT "$YATTA_API_URL/tasks" \
 ```
 
 **Side Effects:**
-- ⚠️ **AFFECTS MULTIPLE TASKS** - Be very careful
-- ⚠️ All specified tasks updated with same values
-- ⚠️ Changes appear in UI immediately
-- ⚠️ Can accidentally change many tasks if IDs wrong
+-  **AFFECTS MULTIPLE TASKS** - Be very careful
+-  All specified tasks updated with same values
+-  Changes appear in UI immediately
+-  Can accidentally change many tasks if IDs wrong
 
 **Required Fields:** `ids` (array of UUIDs)
 
@@ -156,7 +156,7 @@ curl -s -X PUT "$YATTA_API_URL/tasks" \
 
 ---
 
-#### 6. Archive Task (Destructive) ⚠️
+#### 6. Archive Task (Destructive) 
 
 **Endpoint:** `DELETE /tasks`
 
@@ -171,10 +171,10 @@ curl -s -X DELETE "$YATTA_API_URL/tasks" \
 ```
 
 **Side Effects:**
-- ⚠️ Archives the task (sets `archived=true`)
-- ⚠️ Removes from active views
-- ⚠️ Affects analytics (completion metrics)
-- ⚠️ Can be recovered via UI
+-  Archives the task (sets `archived=true`)
+-  Removes from active views
+-  Affects analytics (completion metrics)
+-  Can be recovered via UI
 
 **Required Fields:** `id`
 
@@ -184,7 +184,7 @@ curl -s -X DELETE "$YATTA_API_URL/tasks" \
 
 ### Projects API (4 operations)
 
-#### 1. List Projects (Read-Only) ✅
+#### 1. List Projects (Read-Only) 
 
 **Endpoint:** `GET /projects`
 
@@ -206,7 +206,7 @@ curl -s "$YATTA_API_URL/projects?with_counts=true" \
 
 ---
 
-#### 2. Create Project (Destructive) ⚠️
+#### 2. Create Project (Destructive) 
 
 **Endpoint:** `POST /projects`
 
@@ -221,9 +221,9 @@ curl -s "$YATTA_API_URL/projects" \
 ```
 
 **Side Effects:**
-- ⚠️ Creates new project
-- ⚠️ Appears in UI immediately
-- ⚠️ Can be assigned to tasks
+-  Creates new project
+-  Appears in UI immediately
+-  Can be assigned to tasks
 
 **Required Fields:** `name`
 
@@ -233,7 +233,7 @@ curl -s "$YATTA_API_URL/projects" \
 
 ---
 
-#### 3. Update Project (Destructive) ⚠️
+#### 3. Update Project (Destructive) 
 
 **Endpoint:** `PUT /projects`
 
@@ -248,9 +248,9 @@ curl -s -X PUT "$YATTA_API_URL/projects" \
 ```
 
 **Side Effects:**
-- ⚠️ Modifies project data
-- ⚠️ Changes appear in UI and all associated tasks
-- ⚠️ Renaming affects task organization
+-  Modifies project data
+-  Changes appear in UI and all associated tasks
+-  Renaming affects task organization
 
 **Required Fields:** `id`
 
@@ -260,7 +260,7 @@ curl -s -X PUT "$YATTA_API_URL/projects" \
 
 ---
 
-#### 4. Get Project Tasks (Read-Only) ✅
+#### 4. Get Project Tasks (Read-Only) 
 
 **Endpoint:** `GET /projects/:id/tasks`
 
@@ -280,7 +280,7 @@ curl -s "$YATTA_API_URL/projects/$PROJECT_ID/tasks" \
 
 ### Contexts API (5 operations)
 
-#### 1. List Contexts (Read-Only) ✅
+#### 1. List Contexts (Read-Only) 
 
 **Endpoint:** `GET /contexts`
 
@@ -301,7 +301,7 @@ curl -s "$YATTA_API_URL/contexts?with_counts=true" \
 
 ---
 
-#### 2. Create Context (Destructive) ⚠️
+#### 2. Create Context (Destructive) 
 
 **Endpoint:** `POST /contexts`
 
@@ -316,9 +316,9 @@ curl -s "$YATTA_API_URL/contexts" \
 ```
 
 **Side Effects:**
-- ⚠️ Creates new context
-- ⚠️ Appears in UI immediately
-- ⚠️ Can be assigned to tasks
+-  Creates new context
+-  Appears in UI immediately
+-  Can be assigned to tasks
 
 **Required Fields:** `name`
 
@@ -328,7 +328,7 @@ curl -s "$YATTA_API_URL/contexts" \
 
 ---
 
-#### 3. Assign Context to Task (Destructive) ⚠️
+#### 3. Assign Context to Task (Destructive) 
 
 **Endpoint:** `POST /contexts/assign`
 
@@ -343,9 +343,9 @@ curl -s -X POST "$YATTA_API_URL/contexts/assign" \
 ```
 
 **Side Effects:**
-- ⚠️ Adds context tags to task
-- ⚠️ Affects task filtering and organization
-- ⚠️ Changes appear in UI immediately
+-  Adds context tags to task
+-  Affects task filtering and organization
+-  Changes appear in UI immediately
 
 **Required Fields:** `task_id`, `context_ids` (array)
 
@@ -353,7 +353,7 @@ curl -s -X POST "$YATTA_API_URL/contexts/assign" \
 
 ---
 
-#### 4. Get Task Contexts (Read-Only) ✅
+#### 4. Get Task Contexts (Read-Only) 
 
 **Endpoint:** `GET /tasks/:id/contexts`
 
@@ -371,7 +371,7 @@ curl -s "$YATTA_API_URL/tasks/$TASK_ID/contexts" \
 
 ---
 
-#### 5. Get Context Tasks (Read-Only) ✅
+#### 5. Get Context Tasks (Read-Only) 
 
 **Endpoint:** `GET /contexts/:id/tasks`
 
@@ -391,7 +391,7 @@ curl -s "$YATTA_API_URL/contexts/$CONTEXT_ID/tasks" \
 
 ### Comments API (4 operations)
 
-#### 1. List Task Comments (Read-Only) ✅
+#### 1. List Task Comments (Read-Only) 
 
 **Endpoint:** `GET /tasks/:id/comments`
 
@@ -409,7 +409,7 @@ curl -s "$YATTA_API_URL/tasks/$TASK_ID/comments" \
 
 ---
 
-#### 2. Create Comment (Destructive) ⚠️
+#### 2. Create Comment (Destructive) 
 
 **Endpoint:** `POST /tasks/:id/comments`
 
@@ -424,9 +424,9 @@ curl -s -X POST "$YATTA_API_URL/tasks/$TASK_ID/comments" \
 ```
 
 **Side Effects:**
-- ⚠️ Adds comment to task
-- ⚠️ Appears in UI immediately
-- ⚠️ Helps track task progress
+-  Adds comment to task
+-  Appears in UI immediately
+-  Helps track task progress
 
 **Required Fields:** `content`
 
@@ -434,7 +434,7 @@ curl -s -X POST "$YATTA_API_URL/tasks/$TASK_ID/comments" \
 
 ---
 
-#### 3. Update Comment (Destructive) ⚠️
+#### 3. Update Comment (Destructive) 
 
 **Endpoint:** `PUT /task-comments`
 
@@ -449,9 +449,9 @@ curl -s -X PUT "$YATTA_API_URL/task-comments" \
 ```
 
 **Side Effects:**
-- ⚠️ Modifies comment text
-- ⚠️ Changes appear in UI immediately
-- ⚠️ No edit history (overwrites previous content)
+-  Modifies comment text
+-  Changes appear in UI immediately
+-  No edit history (overwrites previous content)
 
 **Required Fields:** `id`, `content`
 
@@ -459,7 +459,7 @@ curl -s -X PUT "$YATTA_API_URL/task-comments" \
 
 ---
 
-#### 4. Delete Comment (Destructive) ⚠️
+#### 4. Delete Comment (Destructive) 
 
 **Endpoint:** `DELETE /task-comments`
 
@@ -474,9 +474,9 @@ curl -s -X DELETE "$YATTA_API_URL/task-comments" \
 ```
 
 **Side Effects:**
-- ⚠️ **PERMANENTLY DELETES COMMENT**
-- ⚠️ Cannot be recovered
-- ⚠️ Removes from UI immediately
+-  **PERMANENTLY DELETES COMMENT**
+-  Cannot be recovered
+-  Removes from UI immediately
 
 **Required Fields:** `id`
 
@@ -486,7 +486,7 @@ curl -s -X DELETE "$YATTA_API_URL/task-comments" \
 
 ### Follow-Ups API (4 operations)
 
-#### 1. Get Today's Follow-Ups (Read-Only) ✅
+#### 1. Get Today's Follow-Ups (Read-Only) 
 
 **Endpoint:** `GET /follow-ups`
 
@@ -504,7 +504,7 @@ curl -s "$YATTA_API_URL/follow-ups" \
 
 ---
 
-#### 2. Get Follow-Ups by Date (Read-Only) ✅
+#### 2. Get Follow-Ups by Date (Read-Only) 
 
 **Endpoint:** `GET /follow-ups?date=YYYY-MM-DD`
 
@@ -522,7 +522,7 @@ curl -s "$YATTA_API_URL/follow-ups?date=2026-02-15" \
 
 ---
 
-#### 3. Mark Follow-Up Complete (Destructive) ⚠️
+#### 3. Mark Follow-Up Complete (Destructive) 
 
 **Endpoint:** `POST /tasks/:id/follow-up`
 
@@ -537,10 +537,10 @@ curl -s -X POST "$YATTA_API_URL/tasks/$TASK_ID/follow-up" \
 ```
 
 **Side Effects:**
-- ⚠️ Marks current follow-up complete
-- ⚠️ Schedules next follow-up based on recurrence rule
-- ⚠️ Updates task's `next_follow_up` date
-- ⚠️ Changes appear in UI immediately
+-  Marks current follow-up complete
+-  Schedules next follow-up based on recurrence rule
+-  Updates task's `next_follow_up` date
+-  Changes appear in UI immediately
 
 **Required Fields:** None (empty JSON object)
 
@@ -548,7 +548,7 @@ curl -s -X POST "$YATTA_API_URL/tasks/$TASK_ID/follow-up" \
 
 ---
 
-#### 4. Update Follow-Up Schedule (Destructive) ⚠️
+#### 4. Update Follow-Up Schedule (Destructive) 
 
 **Endpoint:** `PUT /tasks/:id/follow-up-schedule`
 
@@ -563,9 +563,9 @@ curl -s -X PUT "$YATTA_API_URL/tasks/$TASK_ID/follow-up-schedule" \
 ```
 
 **Side Effects:**
-- ⚠️ Changes follow-up recurrence pattern
-- ⚠️ Affects when task appears in follow-up list
-- ⚠️ Updates next follow-up date
+-  Changes follow-up recurrence pattern
+-  Affects when task appears in follow-up list
+-  Updates next follow-up date
 
 **Required Fields:** `type`, schedule fields depend on type
 
@@ -581,7 +581,7 @@ curl -s -X PUT "$YATTA_API_URL/tasks/$TASK_ID/follow-up-schedule" \
 
 ### Calendar API (4 operations)
 
-#### 1. List Calendar Subscriptions (Read-Only) ✅
+#### 1. List Calendar Subscriptions (Read-Only) 
 
 **Endpoint:** `GET /calendar/subscriptions`
 
@@ -599,7 +599,7 @@ curl -s "$YATTA_API_URL/calendar/subscriptions" \
 
 ---
 
-#### 2. Add Calendar Subscription (Destructive) ⚠️
+#### 2. Add Calendar Subscription (Destructive) 
 
 **Endpoint:** `POST /calendar/subscriptions`
 
@@ -614,10 +614,10 @@ curl -s -X POST "$YATTA_API_URL/calendar/subscriptions" \
 ```
 
 **Side Effects:**
-- ⚠️ Creates calendar integration
-- ⚠️ Fetches events from external calendar
-- ⚠️ Can create tasks from calendar events
-- ⚠️ May trigger initial sync
+-  Creates calendar integration
+-  Fetches events from external calendar
+-  Can create tasks from calendar events
+-  May trigger initial sync
 
 **Required Fields:** `name`, `ical_url`
 
@@ -627,7 +627,7 @@ curl -s -X POST "$YATTA_API_URL/calendar/subscriptions" \
 
 ---
 
-#### 3. Trigger Calendar Sync (Destructive) ⚠️
+#### 3. Trigger Calendar Sync (Destructive) 
 
 **Endpoint:** `POST /calendar/subscriptions/:id/sync`
 
@@ -640,10 +640,10 @@ curl -s -X POST "$YATTA_API_URL/calendar/subscriptions/$SUB_ID/sync" \
 ```
 
 **Side Effects:**
-- ⚠️ Fetches latest events from external calendar
-- ⚠️ May create new tasks from events
-- ⚠️ May update existing calendar-linked tasks
-- ⚠️ Changes appear in UI immediately
+-  Fetches latest events from external calendar
+-  May create new tasks from events
+-  May update existing calendar-linked tasks
+-  Changes appear in UI immediately
 
 **Required Fields:** None
 
@@ -651,7 +651,7 @@ curl -s -X POST "$YATTA_API_URL/calendar/subscriptions/$SUB_ID/sync" \
 
 ---
 
-#### 4. List Calendar Events (Read-Only) ✅
+#### 4. List Calendar Events (Read-Only) 
 
 **Endpoint:** `GET /calendar/events?start=YYYY-MM-DD&end=YYYY-MM-DD`
 
@@ -671,7 +671,7 @@ curl -s "$YATTA_API_URL/calendar/events?start=2026-02-10&end=2026-02-17" \
 
 ### Capacity API (3 operations)
 
-#### 1. Get Today's Capacity (Read-Only) ✅
+#### 1. Get Today's Capacity (Read-Only) 
 
 **Endpoint:** `GET /capacity/today`
 
@@ -689,7 +689,7 @@ curl -s "$YATTA_API_URL/capacity/today" \
 
 ---
 
-#### 2. Get Capacity for Date Range (Read-Only) ✅
+#### 2. Get Capacity for Date Range (Read-Only) 
 
 **Endpoint:** `GET /capacity?start=YYYY-MM-DD&end=YYYY-MM-DD`
 
@@ -707,7 +707,7 @@ curl -s "$YATTA_API_URL/capacity?start=2026-02-10&end=2026-02-17" \
 
 ---
 
-#### 3. Trigger Capacity Computation (Destructive) ⚠️
+#### 3. Trigger Capacity Computation (Destructive) 
 
 **Endpoint:** `POST /capacity/compute`
 
@@ -720,10 +720,10 @@ curl -s -X POST "$YATTA_API_URL/capacity/compute" \
 ```
 
 **Side Effects:**
-- ⚠️ Recalculates capacity metrics
-- ⚠️ Updates capacity status for all days
-- ⚠️ Changes appear in UI immediately
-- ⚠️ May affect capacity bar colors/percentages
+-  Recalculates capacity metrics
+-  Updates capacity status for all days
+-  Changes appear in UI immediately
+-  May affect capacity bar colors/percentages
 
 **Required Fields:** None
 
@@ -731,7 +731,7 @@ curl -s -X POST "$YATTA_API_URL/capacity/compute" \
 
 ---
 
-### Analytics API (5 operations - All Read-Only) ✅
+### Analytics API (5 operations - All Read-Only) 
 
 #### 1. Get Summary Insights
 
@@ -813,7 +813,7 @@ curl -s "$YATTA_API_URL/analytics/insights" \
 
 ---
 
-### Matrix API (1 operation - Read-Only) ✅
+### Matrix API (1 operation - Read-Only) 
 
 #### 1. Get Eisenhower Matrix View
 
@@ -868,7 +868,7 @@ curl -s "$YATTA_API_URL/tasks/$TASK_ID" \
 ### Batch Operations - Extra Caution:
 
 ```bash
-# ⚠️ DANGER: This updates ALL tasks with these IDs
+#  DANGER: This updates ALL tasks with these IDs
 # Always list the tasks first to verify what you're changing
 
 # 1. Get the tasks

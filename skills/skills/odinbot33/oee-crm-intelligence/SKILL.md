@@ -1,4 +1,4 @@
-# 🐾 CRM Intelligence — Smart Contact Filtering
+#  CRM Intelligence — Smart Contact Filtering
 
 > by Odin's Eye Enterprises — Ancient Wisdom. Modern Intelligence.
 
@@ -49,4 +49,4 @@ Run from the skill directory. Filter results come as JSON on stdout.
 python crm_filter.py filter contacts.json --top 10
 ```
 
-<!-- 🐾 Huginn watches, Muninn remembers -->
+<!--  Huginn watches, Muninn remembers -->

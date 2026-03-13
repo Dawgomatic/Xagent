@@ -5,7 +5,7 @@ const mockdata = require('./mockdata.json');
  * Unit tests for YieldFarmingAgent
  */
 
-console.log('🧪 Running tests...\n');
+console.log(' Running tests...\n');
 
 const agent = new YieldFarmingAgent();
 let testsPassed = 0;
@@ -13,10 +13,10 @@ let testsFailed = 0;
 
 function assert(condition, message) {
   if (condition) {
-    console.log(`✅ ${message}`);
+    console.log(` ${message}`);
     testsPassed++;
   } else {
-    console.log(`❌ ${message}`);
+    console.log(` ${message}`);
     testsFailed++;
   }
 }
@@ -156,14 +156,14 @@ assert(
 
 // Summary
 console.log('\n' + '='.repeat(50));
-console.log(`✅ Passed: ${testsPassed}`);
-console.log(`❌ Failed: ${testsFailed}`);
+console.log(` Passed: ${testsPassed}`);
+console.log(` Failed: ${testsFailed}`);
 console.log('='.repeat(50));
 
 if (testsFailed === 0) {
-  console.log('\n🎉 All tests passed!');
+  console.log('\n All tests passed!');
   process.exit(0);
 } else {
-  console.log(`\n⚠️  ${testsFailed} test(s) failed`);
+  console.log(`\n  ${testsFailed} test(s) failed`);
   process.exit(1);
 }

@@ -34,7 +34,7 @@ def send_email(to_email, subject, content, attachment_path=None):
         bool: 发送是否成功
     """
     if not all([SMTP_SERVER, SMTP_PORT, SENDER_EMAIL, AUTHORIZATION_CODE]):
-        print("❌ 错误：请配置环境变量 EMAIL_SMTP_SERVER, EMAIL_SMTP_PORT, EMAIL_SENDER, EMAIL_SMTP_PASSWORD（在 ~/.openclaw/openclaw.json skills.entries.send-email.env）")
+        print(" 错误：请配置环境变量 EMAIL_SMTP_SERVER, EMAIL_SMTP_PORT, EMAIL_SENDER, EMAIL_SMTP_PASSWORD（在 ~/.openclaw/openclaw.json skills.entries.send-email.env）")
         return False
 
     try:
@@ -73,13 +73,13 @@ def send_email(to_email, subject, content, attachment_path=None):
         server.sendmail(SENDER_EMAIL, [to_email], msg.as_string())
         server.quit()
 
-        print(f"✅ 邮件已成功发送到: {to_email}")
+        print(f" 邮件已成功发送到: {to_email}")
         if attachment_path:
             print(f"   附件: {os.path.basename(attachment_path)}")
         return True
 
     except Exception as e:
-        print(f"❌ 发送失败: {e}")
+        print(f" 发送失败: {e}")
         return False
 
 if __name__ == "__main__":

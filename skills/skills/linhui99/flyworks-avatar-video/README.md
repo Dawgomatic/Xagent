@@ -4,9 +4,9 @@ An [Agent Skill](https://agentskills.io) for generating videos using [Flyworks](
 
 ## Features
 
-- 🎬 **Public Avatar Video**: Create videos using pre-made realistic avatars with TTS
-- 🖼️ **Talking Photo**: Turn any image into a talking video
-- 🎙️ **Voice Cloning**: Clone voices from audio samples
+-  **Public Avatar Video**: Create videos using pre-made realistic avatars with TTS
+-  **Talking Photo**: Turn any image into a talking video
+-  **Voice Cloning**: Clone voices from audio samples
 
 ## Installation
 

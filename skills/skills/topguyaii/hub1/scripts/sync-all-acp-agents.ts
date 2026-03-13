@@ -109,7 +109,7 @@ async function seedAgent(agent: AcpAgent): Promise<boolean> {
 
 async function main() {
   console.log('\n' + '='.repeat(60))
-  console.log('🔍 SYNCING ALL ACP AGENTS')
+  console.log(' SYNCING ALL ACP AGENTS')
   console.log('='.repeat(60) + '\n')
 
   const agentMap = new Map<string, AcpAgent>()
@@ -144,7 +144,7 @@ async function main() {
   }
 
   console.log('\n' + '='.repeat(60))
-  console.log(`\n📊 Found ${agentMap.size} unique agents\n`)
+  console.log(`\n Found ${agentMap.size} unique agents\n`)
 
   // Seed to database
   let newCount = 0
@@ -153,7 +153,7 @@ async function main() {
   for (const agent of agentMap.values()) {
     const isNew = await seedAgent(agent)
     if (isNew) {
-      console.log(`  ✅ NEW: ${agent.name || 'Unknown'} (${agent.walletAddress.slice(0, 10)}...)`)
+      console.log(`   NEW: ${agent.name || 'Unknown'} (${agent.walletAddress.slice(0, 10)}...)`)
       newCount++
     } else {
       updatedCount++
@@ -164,7 +164,7 @@ async function main() {
   const totalAgents = await prisma.reputationAgent.count()
 
   console.log('\n' + '='.repeat(60))
-  console.log('\n📈 SYNC COMPLETE\n')
+  console.log('\n SYNC COMPLETE\n')
   console.log(`  Queries run:    ${allQueries.length}`)
   console.log(`  Agents found:   ${agentMap.size}`)
   console.log(`  New agents:     ${newCount}`)

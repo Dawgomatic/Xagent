@@ -15,13 +15,13 @@ OUT="$WS/quest-board.html"
 TITLE="${QUEST_BOARD_TITLE:-Quest Board}"
 
 if [[ ! -f "$REG" ]]; then
-  echo "❌ Registry not found: $REG"
+  echo " Registry not found: $REG"
   echo "   Run 'bash $SKILL_DIR/src/init.sh' first."
   exit 1
 fi
 
 if [[ ! -f "$TEMPLATE" ]]; then
-  echo "❌ Template not found: $TEMPLATE"
+  echo " Template not found: $TEMPLATE"
   exit 1
 fi
 
@@ -56,6 +56,6 @@ awk -v data="$DATA" '{
 
 cp "$TMPFILE" "$OUT"
 
-echo "✅ Built: $OUT"
+echo " Built: $OUT"
 echo "   Title: $TITLE"
 echo "   Registry: $REG"

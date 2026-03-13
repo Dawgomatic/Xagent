@@ -39,7 +39,7 @@ EOF
 
 print_success() {
   printf "\n${MAGENTA}    /\\_/\\  ${GREEN}═══════════════════════════════════════${NC}\n"
-  printf "${MAGENTA}   ( o.o ) ${GREEN}  ✨ Skills Installed Successfully!${NC}\n"
+  printf "${MAGENTA}   ( o.o ) ${GREEN}   Skills Installed Successfully!${NC}\n"
   printf "${MAGENTA}    > ^ <  ${GREEN}═══════════════════════════════════════${NC}\n\n"
 }
 

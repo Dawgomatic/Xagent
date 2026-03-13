@@ -65,7 +65,7 @@
         "cd ~/openclaw && git rebase --abort 2>/dev/null; rm -f BOOTSTRAP.md; git checkou",
         "cd ~/Documents/dev && rm -rf ramsbaby-blog-starter && git clone https://github.c",
         "rm -f ~/openclaw/memory/emergency-recovery-20260208-1246.log ~/openclaw/memory/.",
-        "rm -rf ~/.openclaw/workspace-default && echo \"✅ 삭제 완료\""
+        "rm -rf ~/.openclaw/workspace-default && echo \" 삭제 완료\""
       ]
     },
     {

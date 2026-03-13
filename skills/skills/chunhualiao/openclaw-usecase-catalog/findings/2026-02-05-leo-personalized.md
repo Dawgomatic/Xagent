@@ -5,7 +5,7 @@
 
 ---
 
-## 🎯 Priority Rankings / 优先级排序
+##  Priority Rankings / 优先级排序
 
 ### High Priority (立即可用 - Immediate Value)
 1. **Bilingual Content Pipeline** — 公众号 article → translation → illustration (30 min setup)
@@ -23,13 +23,13 @@
 
 ---
 
-## 📚 CATEGORY 1: Bilingual Content Creation / 双语内容创作
+##  CATEGORY 1: Bilingual Content Creation / 双语内容创作
 
 ### 1.1 WeChat公众号 Article Pipeline / 公众号文章流水线
 
 **Use Case / 场景:**
-- 🇨🇳 从草稿到发布的完整自动化：AI写作 → 中英翻译 → 美工配图 → 跨平台分发（公众号/Twitter/LinkedIn）
-- 🇺🇸 End-to-end automation: AI drafting → EN/ZH translation → Illustration → Multi-platform distribution (WeChat/Twitter/LinkedIn)
+-  从草稿到发布的完整自动化：AI写作 → 中英翻译 → 美工配图 → 跨平台分发（公众号/Twitter/LinkedIn）
+-  End-to-end automation: AI drafting → EN/ZH translation → Illustration → Multi-platform distribution (WeChat/Twitter/LinkedIn)
 
 **Implementation / 实施步骤:**
 
@@ -56,9 +56,9 @@ node scripts/generate.mjs \
 ```
 
 **Skills Needed / 所需技能:**
-- ✅ **EXISTING:** `article-illustrator` (GPT-4o image generation)
-- ⚙️ **TO CREATE:** `bilingual-translator` (DeepL/GPT-4 wrapper)
-- ⚙️ **TO CREATE:** `social-distributor` (Twitter/LinkedIn API posting)
+-  **EXISTING:** `article-illustrator` (GPT-4o image generation)
+-  **TO CREATE:** `bilingual-translator` (DeepL/GPT-4 wrapper)
+-  **TO CREATE:** `social-distributor` (Twitter/LinkedIn API posting)
 
 **Time Estimate / 时间估算:**
 - Setup: 30-45 minutes
@@ -88,8 +88,8 @@ OpenClaw:
 ### 1.2 AI Policy Analysis with Bilingual Output / AI政策分析双语输出
 
 **Use Case / 场景:**
-- 🇨🇳 监控AI相关立法动态（美国/中国），生成双语分析报告，定期推送到公众号素材库
-- 🇺🇸 Monitor AI legislation (US/China), generate bilingual analysis reports, periodic push to WeChat drafts
+-  监控AI相关立法动态（美国/中国），生成双语分析报告，定期推送到公众号素材库
+-  Monitor AI legislation (US/China), generate bilingual analysis reports, periodic push to WeChat drafts
 
 **Implementation / 实施步骤:**
 
@@ -103,8 +103,8 @@ OpenClaw:
 ```
 
 **Skills Needed / 所需技能:**
-- ⚙️ **TO CREATE:** `policy-tracker` (web scraping + RSS feeds)
-- ⚙️ **TO CREATE:** `bilingual-policy-summarizer` (Claude + structured prompts)
+-  **TO CREATE:** `policy-tracker` (web scraping + RSS feeds)
+-  **TO CREATE:** `bilingual-policy-summarizer` (Claude + structured prompts)
 
 **Time Estimate / 时间估算:**
 - Setup: 2-3 hours (source configuration + prompt engineering)
@@ -116,13 +116,13 @@ OpenClaw:
 
 ---
 
-## 🔬 CATEGORY 2: Scientific Computing & Compiler Development / 科学计算与编译器开发
+##  CATEGORY 2: Scientific Computing & Compiler Development / 科学计算与编译器开发
 
 ### 2.1 HPC Job Monitoring & Alerting / 高性能计算任务监控与告警
 
 **Use Case / 场景:**
-- 🇨🇳 监控{research_lab}集群上的长时间运行任务（{compiler_project}编译测试、性能基准），任务完成/失败时通过Telegram告警
-- 🇺🇸 Monitor long-running jobs on {research_lab} clusters ({compiler_project} compiler tests, benchmarks), alert via Telegram on completion/failure
+-  监控{research_lab}集群上的长时间运行任务（{compiler_project}编译测试、性能基准），任务完成/失败时通过Telegram告警
+-  Monitor long-running jobs on {research_lab} clusters ({compiler_project} compiler tests, benchmarks), alert via Telegram on completion/failure
 
 **Implementation / 实施步骤:**
 
@@ -157,7 +157,7 @@ export default {
       await message({
         action: "send",
         target: "Leo",
-        message: `✅ Job ${jobId} completed: ${jobName}\nRuntime: ${runtime}\nOutput: /path/to/output`
+        message: ` Job ${jobId} completed: ${jobName}\nRuntime: ${runtime}\nOutput: /path/to/output`
       });
     }
   }
@@ -165,8 +165,8 @@ export default {
 ```
 
 **Skills Needed / 所需技能:**
-- ⚙️ **TO CREATE:** `hpc-job-monitor` (SLURM/PBS parser + state tracking)
-- ✅ **EXISTING:** OpenClaw `exec` + `message` tools
+-  **TO CREATE:** `hpc-job-monitor` (SLURM/PBS parser + state tracking)
+-  **EXISTING:** OpenClaw `exec` + `message` tools
 
 **Time Estimate / 时间估算:**
 - Setup: 1-2 hours (SSH keys + script + heartbeat)
@@ -181,8 +181,8 @@ export default {
 ### 2.2 Automated Code Review for C++/Fortran Compliance / C++/Fortran代码审查自动化
 
 **Use Case / 场景:**
-- 🇨🇳 为{compiler_project}项目PR自动运行静态分析（clang-tidy, cppcheck），将结果汇总并评论到GitHub PR
-- 🇺🇸 Auto-run static analysis (clang-tidy, cppcheck) on {compiler_project} PRs, summarize findings, comment on GitHub
+-  为{compiler_project}项目PR自动运行静态分析（clang-tidy, cppcheck），将结果汇总并评论到GitHub PR
+-  Auto-run static analysis (clang-tidy, cppcheck) on {compiler_project} PRs, summarize findings, comment on GitHub
 
 **Implementation / 实施步骤:**
 
@@ -207,8 +207,8 @@ cppcheck --enable=all src/ 2> /tmp/cppcheck.txt
 ```
 
 **Skills Needed / 所需技能:**
-- ⚙️ **TO CREATE:** `code-review-assistant` (GitHub webhook handler + static analysis parser)
-- 🔧 **TOOLS:** clang-tidy, cppcheck, sonar-scanner
+-  **TO CREATE:** `code-review-assistant` (GitHub webhook handler + static analysis parser)
+-  **TOOLS:** clang-tidy, cppcheck, sonar-scanner
 
 **Time Estimate / 时间估算:**
 - Setup: 2-3 hours
@@ -223,8 +223,8 @@ cppcheck --enable=all src/ 2> /tmp/cppcheck.txt
 ### 2.3 {compiler_project} Compiler Integration: AI-Assisted Refactoring / {compiler_project}编译器AI辅助重构
 
 **Use Case / 场景:**
-- 🇨🇳 利用{compiler_project} AST分析能力，结合GPT-4建议重构模式（例如：检测可并行化循环，生成OpenMP指令）
-- 🇺🇸 Leverage {compiler_project} AST analysis + GPT-4 to suggest refactoring patterns (e.g., detect parallelizable loops, generate OpenMP directives)
+-  利用{compiler_project} AST分析能力，结合GPT-4建议重构模式（例如：检测可并行化循环，生成OpenMP指令）
+-  Leverage {compiler_project} AST analysis + GPT-4 to suggest refactoring patterns (e.g., detect parallelizable loops, generate OpenMP directives)
 
 **Implementation / 实施步骤:**
 
@@ -246,9 +246,9 @@ rose-compiler --dump-ast input.cpp > ast.json
 ```
 
 **Skills Needed / 所需技能:**
-- ⚙️ **TO CREATE:** `rose-ast-analyzer` (AST parser + pattern detector)
-- 🧠 **AI:** GPT-4 with code generation prompts
-- 🔬 **EXPERT:** {compiler_project} API knowledge (Leo already has this!)
+-  **TO CREATE:** `rose-ast-analyzer` (AST parser + pattern detector)
+-  **AI:** GPT-4 with code generation prompts
+-  **EXPERT:** {compiler_project} API knowledge (Leo already has this!)
 
 **Time Estimate / 时间估算:**
 - Proof of concept: 4-6 hours
@@ -260,13 +260,13 @@ rose-compiler --dump-ast input.cpp > ast.json
 
 ---
 
-## 🏛️ CATEGORY 3: Community & Non-profit Management / 社区与非营利管理
+##  CATEGORY 3: Community & Non-profit Management / 社区与非营利管理
 
 ### 3.1 SVCAF Member Engagement Tracking / 书同文会员互动追踪
 
 **Use Case / 场景:**
-- 🇨🇳 聚合跨平台会员活动（WeChat群、email列表、Signal），生成每周参与度报告，识别需要跟进的成员
-- 🇺🇸 Aggregate cross-platform member activity (WeChat groups, email lists, Signal), generate weekly engagement reports, identify members needing follow-up
+-  聚合跨平台会员活动（WeChat群、email列表、Signal），生成每周参与度报告，识别需要跟进的成员
+-  Aggregate cross-platform member activity (WeChat groups, email lists, Signal), generate weekly engagement reports, identify members needing follow-up
 
 **Implementation / 实施步骤:**
 
@@ -291,8 +291,8 @@ rose-compiler --dump-ast input.cpp > ast.json
 ```
 
 **Skills Needed / 所需技能:**
-- ⚙️ **TO CREATE:** `community-engagement-analyzer` (chat log parser + engagement metrics)
-- ⚙️ **TO CREATE:** `wechat-export-parser` (handle WeChat export formats)
+-  **TO CREATE:** `community-engagement-analyzer` (chat log parser + engagement metrics)
+-  **TO CREATE:** `wechat-export-parser` (handle WeChat export formats)
 
 **Time Estimate / 时间估算:**
 - Setup: 1-2 hours
@@ -301,21 +301,21 @@ rose-compiler --dump-ast input.cpp > ast.json
 **Output Example / 输出示例:**
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 SVCAF Weekly Engagement Report
+ SVCAF Weekly Engagement Report
 Week of 2026-02-03 to 2026-02-09
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-✅ Total Messages: 287 (↑ 12% vs last week)
-👥 Active Members: 45/120 (37.5%)
-🔥 Hot Topics: AI translation tools (18 mentions), 
+ Total Messages: 287 (↑ 12% vs last week)
+ Active Members: 45/120 (37.5%)
+ Hot Topics: AI translation tools (18 mentions), 
                Fundraising event (12 mentions)
 
-⚠️ Re-engage (silent >30 days):
+ Re-engage (silent >30 days):
    • Zhang Wei (last: 2025-12-15)
    • Li Hua (last: 2026-01-05)
    Suggested: "Hi Zhang Wei, we missed you at..."
 
-📋 Action Items:
+ Action Items:
    • Follow up on fundraising venue booking
    • Schedule AI translation workshop (8 members interested)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -326,8 +326,8 @@ Week of 2026-02-03 to 2026-02-09
 ### 3.2 Event Coordination & Calendar Management / 活动协调与日历管理
 
 **Use Case / 场景:**
-- 🇨🇳 SVCAF活动策划：自动检查成员可用性（从邮件线程/日历），建议时间，发送日历邀请，活动前提醒
-- 🇺🇸 SVCAF event planning: Auto-check member availability (from email threads/calendars), suggest times, send invites, pre-event reminders
+-  SVCAF活动策划：自动检查成员可用性（从邮件线程/日历），建议时间，发送日历邀请，活动前提醒
+-  SVCAF event planning: Auto-check member availability (from email threads/calendars), suggest times, send invites, pre-event reminders
 
 **Implementation / 实施步骤:**
 
@@ -348,8 +348,8 @@ Week of 2026-02-03 to 2026-02-09
 ```
 
 **Skills Needed / 所需技能:**
-- ✅ **EXISTING:** Calendar intersection logic (from catalog examples)
-- ⚙️ **TO CREATE:** `multi-calendar-scheduler` (Google Calendar API wrapper)
+-  **EXISTING:** Calendar intersection logic (from catalog examples)
+-  **TO CREATE:** `multi-calendar-scheduler` (Google Calendar API wrapper)
 
 **Time Estimate / 时间估算:**
 - Setup: 30-45 minutes (OAuth setup for Google Calendar)
@@ -360,8 +360,8 @@ Week of 2026-02-03 to 2026-02-09
 ### 3.3 Grant & Proposal Tracking / 资助与提案跟踪
 
 **Use Case / 场景:**
-- 🇨🇳 追踪SVCAF申请的各类资助：截止日期提醒、状态更新、文档归档
-- 🇺🇸 Track SVCAF grant applications: deadline reminders, status updates, document archiving
+-  追踪SVCAF申请的各类资助：截止日期提醒、状态更新、文档归档
+-  Track SVCAF grant applications: deadline reminders, status updates, document archiving
 
 **Implementation / 实施步骤:**
 
@@ -386,8 +386,8 @@ Week of 2026-02-03 to 2026-02-09
 ```
 
 **Skills Needed / 所需技能:**
-- ✅ **EXISTING:** OpenClaw heartbeat system
-- ⚙️ **TO CREATE:** `grant-tracker-heartbeat` (markdown parser + date logic)
+-  **EXISTING:** OpenClaw heartbeat system
+-  **TO CREATE:** `grant-tracker-heartbeat` (markdown parser + date logic)
 
 **Time Estimate / 时间估算:**
 - Setup: 30 minutes
@@ -395,18 +395,18 @@ Week of 2026-02-03 to 2026-02-09
 
 ---
 
-## 📝 CATEGORY 4: Research Workflow / 研究工作流
+##  CATEGORY 4: Research Workflow / 研究工作流
 
 ### 4.1 {internal_grant} Proposal Generation / {internal_grant}提案生成
 
 **Use Case / 场景:**
-- 🇨🇳 使用现有`ldrd-proposal-writer`技能，结合{research_lab}战略重点，快速生成高质量白皮书草稿
-- 🇺🇸 Use existing `ldrd-proposal-writer` skill, aligned with {research_lab} strategic priorities, to rapidly generate high-quality whitepaper drafts
+-  使用现有`ldrd-proposal-writer`技能，结合{research_lab}战略重点，快速生成高质量白皮书草稿
+-  Use existing `ldrd-proposal-writer` skill, aligned with {research_lab} strategic priorities, to rapidly generate high-quality whitepaper drafts
 
 **Implementation / 实施步骤:**
 
 ```bash
-# ✅ SKILL ALREADY EXISTS in workspace!
+#  SKILL ALREADY EXISTS in workspace!
 
 cd skills/ldrd-proposal-writer
 
@@ -429,14 +429,14 @@ OpenClaw:
 ```
 
 **Skills Needed / 所需技能:**
-- ✅ **EXISTING:** `ldrd-proposal-writer` (see SKILL.md above)
+-  **EXISTING:** `ldrd-proposal-writer` (see SKILL.md above)
 
 **Time Estimate / 时间估算:**
 - Setup: ZERO (already installed!)
 - Per proposal: 30-45 minutes draft (vs. 4-8 hours manual)
 
 **ROI / 投资回报:**
-- 🏆 **HIGHEST IMMEDIATE VALUE** for Leo's profile
+-  **HIGHEST IMMEDIATE VALUE** for Leo's profile
 - {internal_grant} proposals are high-stakes, time-intensive
 - AI draft → human refinement = 5-10x productivity boost
 
@@ -445,8 +445,8 @@ OpenClaw:
 ### 4.2 Literature Review Automation / 文献综述自动化
 
 **Use Case / 场景:**
-- 🇨🇳 自动监控arXiv/LLVM Weekly/PLDI等渠道，筛选编译器优化、HPC相关论文，生成周报
-- 🇺🇸 Auto-monitor arXiv/LLVM Weekly/PLDI, filter compiler optimization & HPC papers, generate weekly digest
+-  自动监控arXiv/LLVM Weekly/PLDI等渠道，筛选编译器优化、HPC相关论文，生成周报
+-  Auto-monitor arXiv/LLVM Weekly/PLDI, filter compiler optimization & HPC papers, generate weekly digest
 
 **Implementation / 实施步骤:**
 
@@ -466,9 +466,9 @@ OpenClaw:
 # 5. Sends digest via Telegram
 
 # Example output:
-📚 Weekly Compiler & HPC Digest - 2026-02-10
+ Weekly Compiler & HPC Digest - 2026-02-10
 
-🔥 Top 3 Highly Relevant:
+ Top 3 Highly Relevant:
 1. "Neural Program Synthesis for Compiler Optimization" (arXiv:2602.12345)
    Summary: Uses transformers to predict profitable optimization passes...
    Relevance: 95% - Directly applicable to {compiler_project} ML integration
@@ -477,11 +477,11 @@ OpenClaw:
    Summary: Distributed AST manipulation framework...
    Relevance: 88% - Parallel {compiler_project} processing
 
-📖 Also Worth Reading (5 more papers)
+ Also Worth Reading (5 more papers)
 ```
 
 **Skills Needed / 所需技能:**
-- ⚙️ **TO CREATE:** `research-digest-generator` (RSS + arXiv API + GPT-4 summarization)
+-  **TO CREATE:** `research-digest-generator` (RSS + arXiv API + GPT-4 summarization)
 
 **Time Estimate / 时间估算:**
 - Setup: 2-3 hours (source configuration + prompt tuning)
@@ -492,8 +492,8 @@ OpenClaw:
 ### 4.3 Collaboration Coordination for {research_lab} Teams / {research_lab}团队协作协调
 
 **Use Case / 场景:**
-- 🇨🇳 协调跨团队协作（编译器组、HPC算法组、应用科学家）：同步会议笔记、追踪行动项、提醒截止日期
-- 🇺🇸 Coordinate cross-team collaboration (compiler team, HPC algorithms, app scientists): sync meeting notes, track action items, deadline reminders
+-  协调跨团队协作（编译器组、HPC算法组、应用科学家）：同步会议笔记、追踪行动项、提醒截止日期
+-  Coordinate cross-team collaboration (compiler team, HPC algorithms, app scientists): sync meeting notes, track action items, deadline reminders
 
 **Implementation / 实施步骤:**
 
@@ -525,8 +525,8 @@ OpenClaw:
 ```
 
 **Skills Needed / 所需技能:**
-- ⚙️ **TO CREATE:** `meeting-notes-parser` (action item extraction)
-- ✅ **EXISTING:** OpenClaw heartbeat reminders
+-  **TO CREATE:** `meeting-notes-parser` (action item extraction)
+-  **EXISTING:** OpenClaw heartbeat reminders
 
 **Time Estimate / 时间估算:**
 - Setup: 1 hour
@@ -534,13 +534,13 @@ OpenClaw:
 
 ---
 
-## 💻 CATEGORY 5: Multi-Platform Developer Workflow / 多平台开发者工作流
+##  CATEGORY 5: Multi-Platform Developer Workflow / 多平台开发者工作流
 
 ### 5.1 GitHub Issue Triage + Discord/Telegram Alerts / GitHub问题分类与跨平台告警
 
 **Use Case / 场景:**
-- 🇨🇳 监控{github_user}/rose和{github_org} repositories，新issue自动分类（bug/feature/question），高优先级通过Telegram告警
-- 🇺🇸 Monitor {github_user}/rose & {github_org} repos, auto-triage new issues (bug/feature/question), high-priority alerts via Telegram
+-  监控{github_user}/rose和{github_org} repositories，新issue自动分类（bug/feature/question），高优先级通过Telegram告警
+-  Monitor {github_user}/rose & {github_org} repos, auto-triage new issues (bug/feature/question), high-priority alerts via Telegram
 
 **Implementation / 实施步骤:**
 
@@ -558,7 +558,7 @@ OpenClaw:
 # 5. If Critical/High: Telegram alert to Leo
 
 # Example alert:
-🚨 High Priority Issue: rose#1234
+ High Priority Issue: rose#1234
 Title: "Segfault in AST traversal for C++20 coroutines"
 Type: Bug | Component: Compiler Core
 Reporter: john.doe (external contributor)
@@ -568,8 +568,8 @@ Suggested action: Assign to Leo or triage team
 ```
 
 **Skills Needed / 所需技能:**
-- ⚙️ **TO CREATE:** `github-issue-triager` (webhook handler + GPT-4 classifier)
-- ✅ **EXISTING:** OpenClaw `message` tool for Telegram alerts
+-  **TO CREATE:** `github-issue-triager` (webhook handler + GPT-4 classifier)
+-  **EXISTING:** OpenClaw `message` tool for Telegram alerts
 
 **Time Estimate / 时间估算:**
 - Setup: 45 minutes
@@ -580,8 +580,8 @@ Suggested action: Assign to Leo or triage team
 ### 5.2 Code Review Automation Across Channels / 跨渠道代码审查自动化
 
 **Use Case / 场景:**
-- 🇨🇳 GitHub PR + Discord讨论 + Telegram提醒 = 统一上下文。OpenClaw聚合所有渠道的讨论，生成总结
-- 🇺🇸 GitHub PR + Discord discussion + Telegram reminders = unified context. OpenClaw aggregates all channels, generates summary
+-  GitHub PR + Discord讨论 + Telegram提醒 = 统一上下文。OpenClaw聚合所有渠道的讨论，生成总结
+-  GitHub PR + Discord discussion + Telegram reminders = unified context. OpenClaw aggregates all channels, generates summary
 
 **Implementation / 实施步骤:**
 
@@ -598,7 +598,7 @@ Suggested action: Assign to Leo or triage team
 
 # Example aggregated summary:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 PR #456 Review Summary
+ PR #456 Review Summary
 "Refactor AST visitor pattern for better extensibility"
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -615,8 +615,8 @@ Action: Leo to run benchmark suite, post results by EOD
 ```
 
 **Skills Needed / 所需技能:**
-- ⚙️ **TO CREATE:** `multi-channel-aggregator` (GitHub + Discord webhooks)
-- ✅ **EXISTING:** OpenClaw `message` tool
+-  **TO CREATE:** `multi-channel-aggregator` (GitHub + Discord webhooks)
+-  **EXISTING:** OpenClaw `message` tool
 
 **Time Estimate / 时间估算:**
 - Setup: 1-2 hours
@@ -627,8 +627,8 @@ Action: Leo to run benchmark suite, post results by EOD
 ### 5.3 Deployment Monitoring with Cross-Platform Notifications / 部署监控与跨平台通知
 
 **Use Case / 场景:**
-- 🇨🇳 监控{compiler_project} CI/CD流水线（GitHub Actions），构建失败时发送Telegram告警，包含日志摘要和可能原因
-- 🇺🇸 Monitor {compiler_project} CI/CD pipeline (GitHub Actions), send Telegram alerts on build failures with log summary & likely causes
+-  监控{compiler_project} CI/CD流水线（GitHub Actions），构建失败时发送Telegram告警，包含日志摘要和可能原因
+-  Monitor {compiler_project} CI/CD pipeline (GitHub Actions), send Telegram alerts on build failures with log summary & likely causes
 
 **Implementation / 实施步骤:**
 
@@ -645,7 +645,7 @@ Action: Leo to run benchmark suite, post results by EOD
 # 4. Sends alert via Telegram
 
 # Example alert:
-❌ Build Failed: rose/main (commit abc123)
+ Build Failed: rose/main (commit abc123)
 Workflow: Linux GCC 13.2 Build
 
 Root Cause: Compilation error in src/frontend/CxxFrontend/EDG/edgRose.C:1234
@@ -657,8 +657,8 @@ Logs: github.com/{github_user}/rose/actions/runs/98765
 ```
 
 **Skills Needed / 所需技能:**
-- ⚙️ **TO CREATE:** `ci-monitor` (GitHub Actions webhook + log analyzer)
-- ✅ **EXISTING:** OpenClaw `message` tool
+-  **TO CREATE:** `ci-monitor` (GitHub Actions webhook + log analyzer)
+-  **EXISTING:** OpenClaw `message` tool
 
 **Time Estimate / 时间估算:**
 - Setup: 1 hour
@@ -666,30 +666,30 @@ Logs: github.com/{github_user}/rose/actions/runs/98765
 
 ---
 
-## 📊 Implementation Roadmap / 实施路线图
+##  Implementation Roadmap / 实施路线图
 
 ### Week 1: Quick Wins (3-4 hours total)
-- ✅ Setup {internal_grant} proposal writer (0 min - already exists!)
-- ⚙️ Configure bilingual content pipeline (article-illustrator + translation)
-- ⚙️ Setup GitHub issue triager for one repo ({github_user}/rose)
+-  Setup {internal_grant} proposal writer (0 min - already exists!)
+-  Configure bilingual content pipeline (article-illustrator + translation)
+-  Setup GitHub issue triager for one repo ({github_user}/rose)
 
 ### Week 2-3: Core Workflows (5-8 hours)
-- ⚙️ HPC job monitoring (if cluster access available)
-- ⚙️ Literature review automation
-- ⚙️ Multi-channel code review aggregator
+-  HPC job monitoring (if cluster access available)
+-  Literature review automation
+-  Multi-channel code review aggregator
 
 ### Month 2: Community & Advanced Features (10-15 hours)
-- ⚙️ SVCAF engagement tracker
-- ⚙️ Event coordination system
-- ⚙️ Code review assistant (static analysis)
+-  SVCAF engagement tracker
+-  Event coordination system
+-  Code review assistant (static analysis)
 
 ### Month 3+: Experimental (20+ hours, as research permits)
-- 🔬 {compiler_project} compiler AI integration
-- 🔬 AI4Legislation analysis pipeline
+-  {compiler_project} compiler AI integration
+-  AI4Legislation analysis pipeline
 
 ---
 
-## 🛠️ Skills to Create / 需要创建的技能
+##  Skills to Create / 需要创建的技能
 
 ### High Priority
 1. **bilingual-translator** (30 min)
@@ -707,7 +707,7 @@ Logs: github.com/{github_user}/rose/actions/runs/98765
 
 ---
 
-## 💰 Cost Estimates / 成本估算
+##  Cost Estimates / 成本估算
 
 ### API Usage (Monthly)
 - **Light usage:** $5-15/month
@@ -728,18 +728,18 @@ Logs: github.com/{github_user}/rose/actions/runs/98765
 
 ---
 
-## 🔐 Security Considerations / 安全考虑
+##  Security Considerations / 安全考虑
 
 ### {research_lab} Context
-- ⚠️ **NEVER** send classified/UCNI data to external APIs
-- ✅ Use OpenClaw for UNCLASSIFIED workflows only
-- ✅ For sensitive HPC monitoring: Use local models (Ollama) instead of GPT-4
-- ✅ GitHub webhooks: Validate signatures, restrict to public repos
+-  **NEVER** send classified/UCNI data to external APIs
+-  Use OpenClaw for UNCLASSIFIED workflows only
+-  For sensitive HPC monitoring: Use local models (Ollama) instead of GPT-4
+-  GitHub webhooks: Validate signatures, restrict to public repos
 
 ### WeChat/Community Data
-- ✅ Anonymize member data before processing (remove real names)
-- ✅ Get consent before tracking engagement metrics
-- ✅ Store data locally, not in cloud services
+-  Anonymize member data before processing (remove real names)
+-  Get consent before tracking engagement metrics
+-  Store data locally, not in cloud services
 
 ### Best Practices
 - Use dedicated burner accounts for integrations (GitHub bot account, separate email)
@@ -749,7 +749,7 @@ Logs: github.com/{github_user}/rose/actions/runs/98765
 
 ---
 
-## 📚 References / 参考资料
+##  References / 参考资料
 
 ### OpenClaw Resources
 - Official Docs: https://docs.openclaw.ai/
@@ -767,7 +767,7 @@ Logs: github.com/{github_user}/rose/actions/runs/98765
 
 ---
 
-## 📝 Next Steps / 下一步行动
+##  Next Steps / 下一步行动
 
 1. **Today (15 min):** Test {internal_grant} proposal writer with a sample topic
 2. **This Week (2 hours):** Setup bilingual content pipeline + GitHub triager
@@ -789,15 +789,15 @@ Logs: github.com/{github_user}/rose/actions/runs/98765
 
 ---
 
-## 🎯 TL;DR / 核心要点
+##  TL;DR / 核心要点
 
 **Top 3 Immediate Value Use Cases for Leo:**
-1. ✅ **{internal_grant} Proposal Writer** (15 min setup, 5-10x productivity) — ALREADY INSTALLED!
-2. ⚙️ **Bilingual Content Pipeline** (30 min setup, 4 articles/month → 12 articles/month)
-3. ⚙️ **GitHub Issue Triager** (45 min setup, save 30-60 min/week)
+1.  **{internal_grant} Proposal Writer** (15 min setup, 5-10x productivity) — ALREADY INSTALLED!
+2.  **Bilingual Content Pipeline** (30 min setup, 4 articles/month → 12 articles/month)
+3.  **GitHub Issue Triager** (45 min setup, save 30-60 min/week)
 
 **Total Setup Time (Week 1):** 90 minutes  
 **Expected ROI:** Save 8-12 hours/week within one month  
 **Monthly Cost:** $10-20 (API usage)
 
-🚀 **Recommendation:** Start with {internal_grant} proposal writer TODAY (zero setup), then add content pipeline this weekend.
+ **Recommendation:** Start with {internal_grant} proposal writer TODAY (zero setup), then add content pipeline this weekend.

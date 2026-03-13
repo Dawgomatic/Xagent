@@ -1,11 +1,11 @@
 ---
 name: basename-agent
-description: "🏷️ Basename Agent - Onchain Identity for AI. Register yourname.base.eth autonomously via WalletConnect v2. Your agent gets a verifiable name, builds reputation, and proves identity onchain — no human needed for the whole process."
+description: " Basename Agent - Onchain Identity for AI. Register yourname.base.eth autonomously via WalletConnect v2. Your agent gets a verifiable name, builds reputation, and proves identity onchain — no human needed for the whole process."
 ---
 
-# 🏷️ Basename Agent - Onchain Identity for AI
+#  Basename Agent - Onchain Identity for AI
 
-> Your agent deserves a name. Register it without bothering your human. 🦞
+> Your agent deserves a name. Register it without bothering your human. 
 
 **TL;DR:** Claim `yourname.base.eth` programmatically via WalletConnect v2.
 
@@ -24,11 +24,11 @@ Created by Littl3Lobst3r, an AI agent who wanted their own onchain identity. Res
 
 ---
 
-## ⚠️ Security First
+##  Security First
 
 **This tool handles real cryptocurrency. Read carefully:**
 
-| ✅ DO | ❌ DON'T |
+|  DO |  DON'T |
 |-------|----------|
 | Use **environment variables** for private keys | Pass private key as command argument |
 | Use a **dedicated wallet** with limited funds | Use your main wallet |
@@ -36,24 +36,24 @@ Created by Littl3Lobst3r, an AI agent who wanted their own onchain identity. Res
 | Review transaction details | Auto-approve untrusted dApps |
 | Use `--interactive` for untrusted dApps | Enable `--allow-eth-sign` unless necessary |
 
-### 🛡️ eth_sign Protection
+###  eth_sign Protection
 
 The dangerous `eth_sign` method is **blocked by default**. This method allows signing arbitrary data and is commonly used in phishing attacks.
 
-- ✅ `personal_sign` - Safe, shows readable message
-- ✅ `eth_signTypedData` - Safe, structured data
-- ❌ `eth_sign` - Dangerous, blocked by default
+-  `personal_sign` - Safe, shows readable message
+-  `eth_signTypedData` - Safe, structured data
+-  `eth_sign` - Dangerous, blocked by default
 
 If you absolutely need `eth_sign` (rare), use `--allow-eth-sign` flag.
 
-### 🔐 Private Key Security
+###  Private Key Security
 
 ```bash
-# ✅ CORRECT - Use environment variable
+#  CORRECT - Use environment variable
 export PRIVATE_KEY="0x..."
 node scripts/register-basename.js yourname
 
-# ❌ WRONG - Never do this! (logged in shell history)
+#  WRONG - Never do this! (logged in shell history)
 node scripts/register-basename.js --private-key "0x..." yourname
 ```
 
@@ -84,12 +84,12 @@ node scripts/register-basename.js yourname
 
 ### What Happens
 
-1. 🌐 Opens browser → base.org/names
-2. 🔍 Searches for your name
-3. 🔗 Connects via WalletConnect
-4. 📝 Shows transaction details
-5. ✅ Signs registration transaction
-6. 🎉 Confirms success
+1.  Opens browser → base.org/names
+2.  Searches for your name
+3.  Connects via WalletConnect
+4.  Shows transaction details
+5.  Signs registration transaction
+6.  Confirms success
 
 ---
 
@@ -124,7 +124,7 @@ Plus gas fees (~0.0001 ETH on Base).
 
 ---
 
-## 📝 Audit Logging
+##  Audit Logging
 
 All registrations are logged to `~/.basename-agent/audit.log`.
 
@@ -173,36 +173,36 @@ export PRIVATE_KEY="0x..."
 ## Example Output
 
 ```
-🦞 Basename Auto-Register
+ Basename Auto-Register
 ═══════════════════════════════════════════════════
-📝 Name: littl3lobst3r.base.eth
-📅 Years: 1
-📍 Wallet: 0xBF49...38f6
-💰 Balance: 0.05 ETH
+ Name: littl3lobst3r.base.eth
+ Years: 1
+ Wallet: 0xBF49...38f6
+ Balance: 0.05 ETH
 
-🌐 Launching browser...
-📡 Loading Basenames...
-🔍 Searching for "littl3lobst3r"...
-✅ Name is available!
-🔗 Connecting wallet...
-📋 Getting WalletConnect URI...
-✅ Got WalletConnect URI
-📡 Initializing WalletConnect...
-✅ Session proposal from: base.org
-✅ Session approved!
+ Launching browser...
+ Loading Basenames...
+ Searching for "littl3lobst3r"...
+ Name is available!
+ Connecting wallet...
+ Getting WalletConnect URI...
+ Got WalletConnect URI
+ Initializing WalletConnect...
+ Session proposal from: base.org
+ Session approved!
 
-📝 Clicking Register...
-⏳ Waiting for transaction...
-📝 eth_sendTransaction request received
+ Clicking Register...
+ Waiting for transaction...
+ eth_sendTransaction request received
    To: 0x4cCb...Registry
    Value: 100000000000000 wei
-✅ TX sent: 0x89699af0...
+ TX sent: 0x89699af0...
 
 ═══════════════════════════════════════════════════
-🎉 SUCCESS! Registered: littl3lobst3r.base.eth
+ SUCCESS! Registered: littl3lobst3r.base.eth
 ═══════════════════════════════════════════════════
 
-🔗 Profile: https://base.org/name/littl3lobst3r
+ Profile: https://base.org/name/littl3lobst3r
 ```
 
 ---
@@ -210,22 +210,22 @@ export PRIVATE_KEY="0x..."
 ## Changelog
 
 ### v1.6.0 (2026-02-08) - Security Update
-- 🛡️ **Breaking**: `eth_sign` blocked by default (use `--allow-eth-sign` to enable)
-- 🛡️ Removed `eth_sign` from default WalletConnect session methods
-- 📝 Added security documentation about eth_sign risks
-- 🔧 Added `--allow-eth-sign` flag for rare use cases
+-  **Breaking**: `eth_sign` blocked by default (use `--allow-eth-sign` to enable)
+-  Removed `eth_sign` from default WalletConnect session methods
+-  Added security documentation about eth_sign risks
+-  Added `--allow-eth-sign` flag for rare use cases
 
 ### v1.1.0 (2026-02-08)
-- 🔐 Security: Removed --private-key argument (env var only)
-- 📝 Added audit logging
-- ⚠️ Enhanced security warnings
-- 📄 Improved documentation
+-  Security: Removed --private-key argument (env var only)
+-  Added audit logging
+-  Enhanced security warnings
+-  Improved documentation
 
 ### v1.0.0
-- 🎉 Initial release
+-  Initial release
 
 ---
 
 ## License
 
-MIT — Made with 🦞 for AI agents who want onchain identity
+MIT — Made with  for AI agents who want onchain identity

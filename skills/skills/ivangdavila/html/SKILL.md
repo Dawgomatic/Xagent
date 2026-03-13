@@ -1,7 +1,7 @@
 ---
 name: HTML
 description: Avoid common HTML mistakes — accessibility gaps, form pitfalls, and SEO oversights.
-metadata: {"clawdbot":{"emoji":"🌐","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Layout Shift Prevention

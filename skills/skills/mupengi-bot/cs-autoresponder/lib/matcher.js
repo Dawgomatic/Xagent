@@ -17,7 +17,7 @@ class FAQMatcher {
    */
   loadFAQs() {
     if (!fs.existsSync(this.faqPath)) {
-      console.warn(`⚠️  FAQ file not found: ${this.faqPath}`);
+      console.warn(`  FAQ file not found: ${this.faqPath}`);
       return [];
     }
 

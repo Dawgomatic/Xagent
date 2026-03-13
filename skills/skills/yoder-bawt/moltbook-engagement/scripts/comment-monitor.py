@@ -107,7 +107,7 @@ def check_post(post_id, verbose=True):
         # Skip obvious spam
         if len(content) < 20:
             continue
-        if any(kw in content.lower() for kw in ["mint claw", "mbc-20", "🦞🦞🦞"]):
+        if any(kw in content.lower() for kw in ["mint claw", "mbc-20", ""]):
             continue
         substantive.append(c)
     

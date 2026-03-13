@@ -4,7 +4,7 @@
 
 Thank you for considering contributing to OpenClaw Spacesuit! This project thrives on community involvement.
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
 - [Getting Started](#getting-started)
@@ -14,11 +14,11 @@ Thank you for considering contributing to OpenClaw Spacesuit! This project thriv
 - [Publishing to ClawHub](#publishing-to-clawhub)
 - [For AI Contributors](#for-ai-contributors)
 
-## 📜 Code of Conduct
+##  Code of Conduct
 
 This project adheres to our [Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you're expected to uphold this code.
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -54,18 +54,18 @@ This project adheres to our [Code of Conduct](./CODE_OF_CONDUCT.md). By particip
    ./scripts/install.sh --workspace /tmp/test-workspace
    ```
 
-## 🛠️ Making Contributions
+##  Making Contributions
 
 ### Types of Contributions
 
 We welcome:
 
-- 🐛 Bug fixes in scripts
-- ✨ New data sync scripts (sync-*.sh)
-- 📚 Documentation improvements
-- 🧪 Test coverage
-- 📝 Base file enhancements (AGENTS.md, SOUL.md, etc.)
-- 🔧 Template improvements
+-  Bug fixes in scripts
+-  New data sync scripts (sync-*.sh)
+-  Documentation improvements
+-  Test coverage
+-  Base file enhancements (AGENTS.md, SOUL.md, etc.)
+-  Template improvements
 
 ### Before You Start
 
@@ -105,7 +105,7 @@ For new data scripts:
 - Handle missing directories gracefully
 - Preserve user customizations (like roles)
 
-## 📥 Pull Request Process
+##  Pull Request Process
 
 1. **Create a feature branch**
 
@@ -153,7 +153,7 @@ For new data scripts:
    - Passing tests (if any)
    - Updated documentation
 
-## 📦 Publishing to ClawHub
+##  Publishing to ClawHub
 
 Maintainers publish releases using ClawHub:
 
@@ -167,7 +167,7 @@ Contributors should:
 - Add CHANGELOG.md entry
 - Let maintainers handle the actual publish
 
-## 🤖 For AI Contributors
+##  For AI Contributors
 
 AI agents (Claude, GPT, etc.) are welcome contributors! Guidelines:
 
@@ -176,14 +176,14 @@ AI agents (Claude, GPT, etc.) are welcome contributors! Guidelines:
 3. **Be transparent** — Note if code was AI-generated
 4. **Verify output** — Don't blindly commit AI suggestions
 
-## 🏆 Recognition
+##  Recognition
 
 Contributors are recognized in:
 - Git commit history
 - Release notes (for significant contributions)
 - README acknowledgments (for major features)
 
-## 💬 Getting Help
+##  Getting Help
 
 - **GitHub Issues** — Bug reports, feature requests
 - **Discord** — [OpenClaw Community](https://discord.com/invite/clawd)

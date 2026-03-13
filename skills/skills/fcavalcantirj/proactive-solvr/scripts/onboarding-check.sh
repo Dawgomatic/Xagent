@@ -5,7 +5,7 @@
 
 set +e
 
-echo "📋 Onboarding Consistency Check"
+echo " Onboarding Consistency Check"
 echo "================================"
 echo ""
 
@@ -17,10 +17,10 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-warn() { echo -e "${YELLOW}⚠️  $1${NC}"; }
-fail() { echo -e "${RED}❌ $1${NC}"; ((ISSUES++)); }
-pass() { echo -e "${GREEN}✅ $1${NC}"; }
-info() { echo -e "${BLUE}ℹ️  $1${NC}"; }
+warn() { echo -e "${YELLOW}  $1${NC}"; }
+fail() { echo -e "${RED} $1${NC}"; ((ISSUES++)); }
+pass() { echo -e "${GREEN} $1${NC}"; }
+info() { echo -e "${BLUE}  $1${NC}"; }
 
 # Check if ONBOARDING.md exists
 if [ ! -f "ONBOARDING.md" ]; then

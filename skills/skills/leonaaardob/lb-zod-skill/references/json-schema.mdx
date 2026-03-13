@@ -7,7 +7,7 @@ import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Callout } from "fumadocs-ui/components/callout"
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
-<Callout icon={'💎'}>
+<Callout icon={''}>
   **New** — Zod 4 introduces a new feature: native [JSON Schema](https://json-schema.org/) conversion. JSON Schema is a standard for describing the structure of JSON (with JSON). It's widely used in [OpenAPI](https://www.openapis.org/) definitions and defining [structured outputs](https://platform.openai.com/docs/guides/structured-outputs?api-mode=chat) for AI.
 </Callout>
 
@@ -60,17 +60,17 @@ z.toJSONSchema(schema)
 All schema & checks are converted to their closest JSON Schema equivalent. Some types have no analog and cannot be reasonably represented. See the [`unrepresentable`](#unrepresentable) section below for more information on handling these cases.
 
 ```ts
-z.bigint(); // ❌
-z.int64(); // ❌
-z.symbol(); // ❌
-z.undefined(); // ❌
-z.void(); // ❌
-z.date(); // ❌
-z.map(); // ❌
-z.set(); // ❌
-z.transform(); // ❌
-z.nan(); // ❌
-z.custom(); // ❌
+z.bigint(); // 
+z.int64(); // 
+z.symbol(); // 
+z.undefined(); // 
+z.void(); // 
+z.date(); // 
+z.map(); // 
+z.set(); // 
+z.transform(); // 
+z.nan(); // 
+z.custom(); // 
 ```
 
 
@@ -207,17 +207,17 @@ z.toJSONSchema(schema);
 The following APIs are not representable in JSON Schema. By default, Zod will throw an error if they are encountered. It is unsound to attempt a conversion to JSON Schema; you should modify your schemas  as they have no equivalent in JSON. An error will be thrown if any of these are encountered.
 
 ```ts
-z.bigint(); // ❌
-z.int64(); // ❌
-z.symbol(); // ❌
-z.undefined(); // ❌
-z.void(); // ❌
-z.date(); // ❌
-z.map(); // ❌
-z.set(); // ❌
-z.transform(); // ❌
-z.nan(); // ❌
-z.custom(); // ❌
+z.bigint(); // 
+z.int64(); // 
+z.symbol(); // 
+z.undefined(); // 
+z.void(); // 
+z.date(); // 
+z.map(); // 
+z.set(); // 
+z.transform(); // 
+z.nan(); // 
+z.custom(); // 
 ```
 
 By default, Zod will throw an error if any of these are encountered. 

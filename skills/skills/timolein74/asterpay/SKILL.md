@@ -1,7 +1,7 @@
 ---
 name: asterpay
 description: EUR settlement and crypto data API for AI agents. Convert USDC to EUR via SEPA Instant. Access 16 pay-per-call endpoints for market data, AI tools, and crypto analytics.
-metadata: {"clawdbot":{"emoji":"💶","requires":{"bins":["npx"],"env":[]},"primaryEnv":""}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["npx"],"env":[]},"primaryEnv":""}}
 ---
 
 # AsterPay — EUR Settlement for AI Agents

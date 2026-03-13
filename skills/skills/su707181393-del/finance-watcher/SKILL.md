@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📈",
+        "emoji": "",
         "requires": { "bins": ["node", "npm"] },
         "install":
           [
@@ -27,11 +27,11 @@ Monitor stock and cryptocurrency prices with ease. Set alerts, track your portfo
 
 ## Features
 
-- ✅ **Real-time Prices** - Crypto (CoinGecko) & Stocks (Yahoo Finance)
-- ✅ **Price Alerts** - Get notified when prices hit your targets
-- ✅ **Portfolio Tracking** - Watchlist for all your assets
-- ✅ **Daily Reports** - Markdown reports with price changes
-- ✅ **No API Key** - Free data sources, no registration needed
+-  **Real-time Prices** - Crypto (CoinGecko) & Stocks (Yahoo Finance)
+-  **Price Alerts** - Get notified when prices hit your targets
+-  **Portfolio Tracking** - Watchlist for all your assets
+-  **Daily Reports** - Markdown reports with price changes
+-  **No API Key** - Free data sources, no registration needed
 
 ## Quick Start
 

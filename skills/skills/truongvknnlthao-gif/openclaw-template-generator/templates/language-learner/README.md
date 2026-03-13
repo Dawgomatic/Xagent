@@ -22,11 +22,11 @@ Your personal language tutor that helps you:
 
 ## Features
 
-- 📚 Vocabulary management
-- 🔔 Daily practice reminders
-- 📊 Progress tracking
-- 🎯 Spaced repetition
-- 🎉 Streak celebrations
+-  Vocabulary management
+-  Daily practice reminders
+-  Progress tracking
+-  Spaced repetition
+-  Streak celebrations
 
 ## Customization
 

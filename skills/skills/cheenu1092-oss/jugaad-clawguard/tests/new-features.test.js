@@ -93,4 +93,4 @@ test('Plugin - extractCommand and extractUrls logic', async () => {
     assert.ok(metadata.hooks.includes('before_tool_call'));
 });
 
-console.log('✅ All new feature tests passed!');
+console.log(' All new feature tests passed!');

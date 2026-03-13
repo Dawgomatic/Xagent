@@ -192,6 +192,6 @@ const routes = await plan_trip({
 
 ## Coverage areas
 
-- ✅ **Full coverage**: Hong Kong (MTR, bus, tram, ferry, detailed fares)
-- ✅ **Good coverage**: Major global cities with Transitous data
-- ⚠️ **Limited coverage**: Smaller cities may have incomplete transit data
+-  **Full coverage**: Hong Kong (MTR, bus, tram, ferry, detailed fares)
+-  **Good coverage**: Major global cities with Transitous data
+-  **Limited coverage**: Smaller cities may have incomplete transit data

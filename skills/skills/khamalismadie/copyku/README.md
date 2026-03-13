@@ -1,18 +1,18 @@
-# Copyku - AI Copywriting Expert 🇮🇩
+# Copyku - AI Copywriting Expert 
 
 AI Copywriting Expert berbahasa Indonesia untuk digital marketing, social media, landing page, iklan, dan brand positioning.
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 clawhub install copyku
 ```
 
-## ⚡ 3-Mode Workflow
+##  3-Mode Workflow
 
-### 🚀 Mode 1: Quick Copy (Cepat)
+###  Mode 1: Quick Copy (Cepat)
 Langsung sebutkan kebutuhan:
 ```
 copyku, caption produk kopi
@@ -20,13 +20,13 @@ copyku, headline kursus online
 copyku, landing page ebook bisnis
 ```
 
-### 🎯 Mode 2: Guided (Step-by-Step)
+###  Mode 2: Guided (Step-by-Step)
 ```
 copyku, guided
 ```
 Copyku akan bertanya step-by-step!
 
-### ⚙️ Mode 3: Advanced (Full Control)
+###  Mode 3: Advanced (Full Control)
 ```
 product: Kopi Kenangan
 target_market: karyawan muda
@@ -37,7 +37,7 @@ objective: closing
 
 ---
 
-## 📱 Platform
+##  Platform
 
 | Platform | Output |
 |----------|--------|
@@ -52,7 +52,7 @@ objective: closing
 
 ---
 
-## 🎨 Tone (23 Modes)
+##  Tone (23 Modes)
 
 | # | Tone | # | Tone |
 |---|------|---|------|
@@ -71,7 +71,7 @@ objective: closing
 
 ---
 
-## 📐 Copy Formulas
+##  Copy Formulas
 
 - **AIDA** - Attention → Interest → Desire → Action
 - **PAS** - Problem → Agitation → Solution
@@ -82,7 +82,7 @@ objective: closing
 
 ---
 
-## 🧠 Awareness Level
+##  Awareness Level
 
 | Level | Kondisi |
 |-------|---------|
@@ -94,7 +94,7 @@ objective: closing
 
 ---
 
-## 📝 Contoh Penggunaan
+##  Contoh Penggunaan
 
 ### Quick Copy
 > "copyku, caption produk skincare"
@@ -114,28 +114,28 @@ objective: closing
 
 ---
 
-## ✨ Features
+##  Features
 
-✅ 6 Struktur Formula  
-✅ 23 Tone Options  
-✅ 5 Awareness Level  
-✅ Multi-platform  
-✅ 3 Headline + 2 CTA Variations  
-✅ Bahasa Indonesia natural  
-✅ Ethical Filter  
-
----
-
-## 🛡️ Ethical Guardrails
-
-- ❌ No false claims
-- ❌ No manipulation
-- ✅ Data valid
-- ✅ CTA realistic
+ 6 Struktur Formula  
+ 23 Tone Options  
+ 5 Awareness Level  
+ Multi-platform  
+ 3 Headline + 2 CTA Variations  
+ Bahasa Indonesia natural  
+ Ethical Filter  
 
 ---
 
-## 📦 Install
+##  Ethical Guardrails
+
+-  No false claims
+-  No manipulation
+-  Data valid
+-  CTA realistic
+
+---
+
+##  Install
 
 ```bash
 # Install via ClawHub
@@ -147,7 +147,7 @@ clawhub update copyku
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **ClawHub:** https://clawhub.ai/khamalismadie/copyku
 - **Author:** @khamalismadie
@@ -156,7 +156,7 @@ clawhub update copyku
 
 **Version:** 1.5.0  
 **Created by:** @khamalismadie  
-**Brand:** Copyku by @khamalismadie 🇮🇩
+**Brand:** Copyku by @khamalismadie 
 
 ---
 

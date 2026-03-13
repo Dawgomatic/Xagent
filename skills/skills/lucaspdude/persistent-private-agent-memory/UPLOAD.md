@@ -16,13 +16,13 @@ clawdhub publish ./agent-memory-improved \
 
 ## What's Included
 
-- ✅ Fixed `memory_client.py` with proper Ed25519 signatures
-- ✅ Original client preserved as `memory_client_original.py` for reference
-- ✅ Added `start.sh` for easy service startup
-- ✅ Updated SKILL.md with improvement documentation
-- ✅ CHANGELOG.md listing all fixes
-- ✅ README.md with quick start guide
-- ✅ .clawdhub/manifest.json for metadata
+-  Fixed `memory_client.py` with proper Ed25519 signatures
+-  Original client preserved as `memory_client_original.py` for reference
+-  Added `start.sh` for easy service startup
+-  Updated SKILL.md with improvement documentation
+-  CHANGELOG.md listing all fixes
+-  README.md with quick start guide
+-  .clawdhub/manifest.json for metadata
 
 ## Testing Done
 

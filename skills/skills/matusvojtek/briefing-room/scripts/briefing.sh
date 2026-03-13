@@ -184,7 +184,7 @@ cmd_open() {
 
 cmd_list() {
     if [ -d "$BRIEFINGS_DIR" ]; then
-        echo "📻 Available Briefings:"
+        echo " Available Briefings:"
         echo ""
         local found=false
         for dir in "$BRIEFINGS_DIR"/20*/; do

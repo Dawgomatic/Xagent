@@ -218,17 +218,17 @@ Ensure keyboard is dismissed before tapping Post. The bot does this automaticall
 
 ### Comment Quality
 
-✅ **Good:**
+ **Good:**
 - Specific observations or questions
 - 10-25 words
 - Genuine enthusiasm
 - No emojis (sounds more real)
 
-❌ **Bad:**
+ **Bad:**
 - Generic praise ("nice video!")
 - Spam or self-promotion
 - Too short ("first!")
-- Low-value ("🔥🔥🔥")
+- Low-value ("")
 
 ### Rate Limits
 

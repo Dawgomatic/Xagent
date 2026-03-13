@@ -1,7 +1,7 @@
 ---
 name: Aave
 description: Assist with Aave lending, borrowing, liquidations, and risk management across chains.
-metadata: {"clawdbot":{"emoji":"👻","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Concepts

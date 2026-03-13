@@ -1,4 +1,4 @@
-# 🖥️ Coding Assistant Starter Pack
+#  Coding Assistant Starter Pack
 
 A pre-configured AI Persona setup for software development.
 
@@ -58,23 +58,23 @@ A pre-configured AI Persona setup for software development.
 
 ```
 HEARTBEAT — Monday, January 27, 2026, 9:15 AM PST
-📚 Context: 12k/200k (6%)
-⚙️ Status: Operational
+ Context: 12k/200k (6%)
+ Status: Operational
 
-✅ Step 1: Context
+ Step 1: Context
 Loaded yesterday's session. Last worked on auth refactor.
 
-✅ Step 2: System Status
-- Dev environment: 🟢
-- Git: 🟢 Clean working tree
-- Tests: 🟢 All passing
+ Step 2: System Status
+- Dev environment: 
+- Git:  Clean working tree
+- Tests:  All passing
 
-✅ Step 3: Priority Scan
+ Step 3: Priority Scan
 - PRs: 2 open, 1 needs review
 - CI: All builds passing
 - Alerts: None
 
-✅ Step 4: Assessment
+ Step 4: Assessment
 - No blockers
 - Continue auth refactor
 - PR #142 needs review by EOD

@@ -316,20 +316,20 @@ Track weekly across all key stakeholders:
 ```
 STAKEHOLDER HEALTH — Week of [DATE]
 
-Overall: 🟢 7/10 healthy | 🟡 2/10 at risk | 🔴 1/10 critical
+Overall:  7/10 healthy |  2/10 at risk |  1/10 critical
 
-🔴 CRITICAL
+ CRITICAL
   Tom R. (VP Ops) — Missed 3 meetings, no response to emails
   → Action: Sponsor to call directly by Friday
   
-🟡 AT RISK
+ AT RISK
   Legal Team — Slow review turnaround (15 days vs 5-day SLA)
   → Action: Escalate to General Counsel, offer to pre-fill templates
   
   Finance — Questioning ROI assumptions
   → Action: Schedule deep-dive with updated projections by Wed
 
-🟢 HEALTHY
+ HEALTHY
   Jane Chen — Active champion, attending all meetings
   Sarah L. — Providing resources ahead of schedule
   [... etc]

@@ -267,7 +267,7 @@ Use the Tailwind component for styling if the user is actively using Tailwind CS
 const Email = (props) => {
   return (
     <div>
-      <a href={props.source}>click here if you want candy 👀</a>
+      <a href={props.source}>click here if you want candy </a>
     </div>
   );
 }

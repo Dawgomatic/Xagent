@@ -471,10 +471,10 @@ def run_scanner(config: ScanConfig) -> list[ScannerResult]:
     """
     # Load tickers
     tickers = load_tickers(config.universe)
-    print(f"📊 Loaded {len(tickers)} tickers from {config.universe}")
-    print(f"🔍 Scanning for EXECUTE-tier plays (conviction >= {EXECUTE_THRESHOLD})")
-    print(f"⏱️  Rate limit: {config.delay}s delay between calls")
-    print(f"💰 Account value: ${config.account_value:.0f}")
+    print(f" Loaded {len(tickers)} tickers from {config.universe}")
+    print(f" Scanning for EXECUTE-tier plays (conviction >= {EXECUTE_THRESHOLD})")
+    print(f"  Rate limit: {config.delay}s delay between calls")
+    print(f" Account value: ${config.account_value:.0f}")
     print()
     
     all_results: list[ScannerResult] = []
@@ -531,8 +531,8 @@ def run_scanner(config: ScanConfig) -> list[ScannerResult]:
             time.sleep(config.delay)
     
     print()
-    print(f"✅ Scan complete: {processed} tickers processed, {errors} errors")
-    print(f"🎯 Found {len(all_results)} total EXECUTE play(s)")
+    print(f" Scan complete: {processed} tickers processed, {errors} errors")
+    print(f" Found {len(all_results)} total EXECUTE play(s)")
     
     return all_results
 
@@ -544,7 +544,7 @@ def run_scanner(config: ScanConfig) -> list[ScannerResult]:
 def print_table(results: list[ScannerResult]) -> None:
     """Print results as a formatted table."""
     if not results:
-        print("\n❌ No EXECUTE-tier plays found matching criteria.\n")
+        print("\n No EXECUTE-tier plays found matching criteria.\n")
         return
     
     # Header
@@ -580,7 +580,7 @@ def print_table(results: list[ScannerResult]) -> None:
     # Detail view for executable plays
     executable = [r for r in results if r.position_recommendation == "EXECUTE"]
     if executable:
-        print(f"\n📋 DETAILED EXECUTABLE PLAYS ({len(executable)}):\n")
+        print(f"\n DETAILED EXECUTABLE PLAYS ({len(executable)}):\n")
         for r in executable:
             print(f"{'='*70}")
             print(f"  {r.ticker} — {r.strategy.upper()}")

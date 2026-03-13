@@ -112,7 +112,7 @@ class TwitterParser(BaseParser):
         # ----- Both strategies failed -----
         return ParseResult.failure(
             url,
-            f"⚠️ All strategies failed for this tweet.\n"
+            f" All strategies failed for this tweet.\n"
             f"FxTwitter error: {result.error}\n"
             f"Nitter error: {nitter_result.error}\n\n"
             f"The tweet URL was: {url}\n"
@@ -183,11 +183,11 @@ class TwitterParser(BaseParser):
 
         # --- Engagement stats ---
         stats_line = (
-            f"❤️ {tweet.get('likes', 0):,}  "
-            f"🔁 {tweet.get('retweets', 0):,}  "
-            f"🔖 {tweet.get('bookmarks', 0):,}  "
-            f"👁️ {tweet.get('views', 0):,}  "
-            f"💬 {tweet.get('replies', 0):,}"
+            f" {tweet.get('likes', 0):,}  "
+            f" {tweet.get('retweets', 0):,}  "
+            f" {tweet.get('bookmarks', 0):,}  "
+            f" {tweet.get('views', 0):,}  "
+            f" {tweet.get('replies', 0):,}"
         )
 
         content_parts: list[str] = []
@@ -202,12 +202,12 @@ class TwitterParser(BaseParser):
             )
             word_count = len(article_text.split())
 
-            title = f"📝 {article_title}" if article_title else f"X Article by @{screen_name}"
+            title = f" {article_title}" if article_title else f"X Article by @{screen_name}"
 
             content_parts.append(f"# {article_title}\n")
             content_parts.append(f"**By @{screen_name}** ({author}) · {created_at}\n")
-            content_parts.append(f"📊 {stats_line}\n")
-            content_parts.append(f"📐 {word_count:,} words\n")
+            content_parts.append(f" {stats_line}\n")
+            content_parts.append(f" {word_count:,} words\n")
             content_parts.append("---\n")
             content_parts.append(article_text)
 
@@ -218,25 +218,25 @@ class TwitterParser(BaseParser):
                 title += f" ({created_at})"
 
             content_parts.append(f"**@{screen_name}** ({author})\n")
-            content_parts.append(f"🕐 {created_at}\n")
-            content_parts.append(f"📊 {stats_line}\n")
+            content_parts.append(f" {created_at}\n")
+            content_parts.append(f" {stats_line}\n")
             content_parts.append("---\n")
             content_parts.append(tweet_text)
 
             if is_note:
-                content_parts.append("\n\n> 📝 *This is a Note Tweet (long-form)*")
+                content_parts.append("\n\n>  *This is a Note Tweet (long-form)*")
 
         # --- Quoted tweet ---
         quote = tweet.get("quote")
         if quote:
             qt_author = quote.get("author", {}).get("screen_name", "unknown")
             qt_text = quote.get("text", "")
-            content_parts.append("\n\n---\n### 🔁 Quoted Tweet\n")
+            content_parts.append("\n\n---\n###  Quoted Tweet\n")
             content_parts.append(f"> **@{qt_author}**: {qt_text}\n")
             qt_stats = (
-                f"> ❤️ {quote.get('likes', 0):,}  "
-                f"🔁 {quote.get('retweets', 0):,}  "
-                f"👁️ {quote.get('views', 0):,}"
+                f">  {quote.get('likes', 0):,}  "
+                f" {quote.get('retweets', 0):,}  "
+                f" {quote.get('views', 0):,}"
             )
             content_parts.append(qt_stats)
 
@@ -244,16 +244,16 @@ class TwitterParser(BaseParser):
         media = tweet.get("media", {})
         all_media = media.get("all", [])
         if all_media:
-            content_parts.append("\n\n---\n### 🖼️ Media\n")
+            content_parts.append("\n\n---\n###  Media\n")
             for i, item in enumerate(all_media, 1):
                 media_type = item.get("type", "unknown")
                 media_url = item.get("url", "")
                 if media_type == "photo":
                     content_parts.append(f"![Image {i}]({media_url})\n")
                 elif media_type == "video":
-                    content_parts.append(f"🎬 Video: [{media_url}]({media_url})\n")
+                    content_parts.append(f" Video: [{media_url}]({media_url})\n")
                 elif media_type == "gif":
-                    content_parts.append(f"🎞️ GIF: [{media_url}]({media_url})\n")
+                    content_parts.append(f" GIF: [{media_url}]({media_url})\n")
 
         full_content = clean_text("\n".join(content_parts))
 

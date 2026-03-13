@@ -2,7 +2,7 @@
 name: docker-essentials
 description: Essential Docker commands and workflows for container management, image operations, and debugging.
 homepage: https://docs.docker.com/
-metadata: {"clawdbot":{"emoji":"🐳","requires":{"bins":["docker"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["docker"]}}}
 ---
 
 # Docker Essentials

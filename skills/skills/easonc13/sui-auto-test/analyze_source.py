@@ -169,10 +169,10 @@ def print_report(uncovered: List[UncoveredSegment], module_name: str):
     print("=" * 70)
     
     if not uncovered:
-        print("\n✅ All code is covered!")
+        print("\n All code is covered!")
         return
     
-    print(f"\n🔴 Found {len(uncovered)} uncovered code segment(s)")
+    print(f"\n Found {len(uncovered)} uncovered code segment(s)")
     print("-" * 70)
     
     # Group by line
@@ -187,12 +187,12 @@ def print_report(uncovered: List[UncoveredSegment], module_name: str):
     
     for line_num in sorted(by_line.keys()):
         info = by_line[line_num]
-        print(f"\n📍 Line {line_num}:")
+        print(f"\n Line {line_num}:")
         print(f"   {info['full_line']}")
         
         for seg in info['segments']:
             # Show the uncovered part with markers
-            print(f"   └─ 🔴 Uncovered: \"{seg.uncovered_text}\"")
+            print(f"   └─  Uncovered: \"{seg.uncovered_text}\"")
             if seg.context_before or seg.context_after:
                 ctx = f"...{seg.context_before}[{seg.uncovered_text}]{seg.context_after}..."
                 print(f"      Context: {ctx}")
@@ -200,7 +200,7 @@ def print_report(uncovered: List[UncoveredSegment], module_name: str):
     print("\n" + "=" * 70)
     
     # Summary of what to test
-    print("\n💡 SUGGESTIONS:")
+    print("\n SUGGESTIONS:")
     print("-" * 70)
     
     # Identify patterns
@@ -208,13 +208,13 @@ def print_report(uncovered: List[UncoveredSegment], module_name: str):
     func_names = [s for s in uncovered if s.uncovered_text.isidentifier()]
     
     if assertions:
-        print("\n🧪 Test assertion failure paths:")
+        print("\n Test assertion failure paths:")
         for seg in assertions:
             print(f"   - Line {seg.line_num}: {seg.uncovered_text}")
             print(f"     → Write a test where this assertion FAILS")
     
     if func_names:
-        print("\n🧪 Call these uncovered functions:")
+        print("\n Call these uncovered functions:")
         for seg in func_names:
             print(f"   - {seg.uncovered_text}()")
     
@@ -246,10 +246,10 @@ def generate_markdown(uncovered: List[UncoveredSegment], module_name: str) -> st
     lines.append("")
     
     if not uncovered:
-        lines.append("✅ **All code is covered!**")
+        lines.append(" **All code is covered!**")
         return '\n'.join(lines)
     
-    lines.append(f"🔴 **Found {len(uncovered)} uncovered code segment(s)**")
+    lines.append(f" **Found {len(uncovered)} uncovered code segment(s)**")
     lines.append("")
     
     # Group by line
@@ -275,7 +275,7 @@ def generate_markdown(uncovered: List[UncoveredSegment], module_name: str) -> st
         lines.append("")
         
         for seg in info['segments']:
-            lines.append(f"- ❌ **Uncovered:** `{seg.uncovered_text}`")
+            lines.append(f"-  **Uncovered:** `{seg.uncovered_text}`")
         lines.append("")
     
     # Suggestions

@@ -26,7 +26,7 @@ sys.path.insert(0, r'C:\\Users\\Chocomint\\.openclaw\\workspace\\xiaohongshu\\sc
 from request.web.xhs_session import create_xhs_session
 
 async def main():
-    # ✅ 推荐：不强制代理（有代理再填 proxy）
+    #  推荐：不强制代理（有代理再填 proxy）
     # 说明：当前小红书接口经常对“未登录/游客”限制搜索能力。
     # 如果 search 报 code=-104（未登录无权限），请提供 web_session。
     xhs = await create_xhs_session(proxy=None, web_session="YOUR_WEB_SESSION_OR_NONE")

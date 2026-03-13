@@ -1,7 +1,7 @@
 ---
 name: Recipes
 description: Build a personal recipe collection with ingredients, scaling, and meal planning.
-metadata: {"clawdbot":{"emoji":"🍳","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

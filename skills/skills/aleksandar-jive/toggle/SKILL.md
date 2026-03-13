@@ -9,7 +9,7 @@ metadata:
       bins:
         - python3
     primaryEnv: TOGGLE_API_KEY
-    emoji: "📊"
+    emoji: ""
     homepage: https://x.toggle.pro
 ---
 

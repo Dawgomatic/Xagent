@@ -16,10 +16,10 @@ if [ -z "$TOKEN" ]; then
 fi
 
 mkdir -p "$OUTPUT_DIR/conversations"
-echo "📁 Output directory: $OUTPUT_DIR"
+echo " Output directory: $OUTPUT_DIR"
 
 # Fetch conversation list
-echo "📋 Fetching conversation list..."
+echo " Fetching conversation list..."
 OFFSET=0
 LIMIT=100
 ALL_IDS=""
@@ -35,7 +35,7 @@ while true; do
   if [ "$OFFSET" -eq 0 ]; then
     echo "$RESP" | jq '.items' > "$OUTPUT_DIR/index.json"
     TOTAL=$(echo "$RESP" | jq '.total // .items | length')
-    echo "📊 Found $TOTAL conversations"
+    echo " Found $TOTAL conversations"
   else
     # Append to index
     jq -s '.[0] + .[1]' "$OUTPUT_DIR/index.json" <(echo "$RESP" | jq '.items') > "$OUTPUT_DIR/index.tmp.json"
@@ -56,7 +56,7 @@ done
 
 # Count total
 TOTAL_IDS=$(echo "$ALL_IDS" | wc -w)
-echo "📥 Fetching $TOTAL_IDS conversations..."
+echo " Fetching $TOTAL_IDS conversations..."
 
 # Fetch each conversation
 EXPORTED=0
@@ -72,7 +72,7 @@ for ID in $ALL_IDS; do
   
   # Check for error
   if echo "$CONV" | jq -e '.detail' > /dev/null 2>&1; then
-    echo "❌ [$EXPORTED/$TOTAL_IDS] Error fetching $ID"
+    echo " [$EXPORTED/$TOTAL_IDS] Error fetching $ID"
     ERRORS=$((ERRORS + 1))
     continue
   fi
@@ -109,7 +109,7 @@ for ID in $ALL_IDS; do
       else "## ChatGPT\n\n\(.content)\n\n---\n" end'
   } > "$OUTPUT_DIR/conversations/${ID}_${SLUG}.md"
   
-  printf "✅ [%d/%d] %s\r" "$EXPORTED" "$TOTAL_IDS" "$TITLE"
+  printf " [%d/%d] %s\r" "$EXPORTED" "$TOTAL_IDS" "$TITLE"
   
   # Rate limit
   sleep 0.1
@@ -117,7 +117,7 @@ done
 
 echo ""
 echo ""
-echo "🎉 Export complete!"
-echo "   📁 $OUTPUT_DIR"
-echo "   ✅ Exported: $((EXPORTED - ERRORS))"
-echo "   ❌ Errors: $ERRORS"
+echo " Export complete!"
+echo "    $OUTPUT_DIR"
+echo "    Exported: $((EXPORTED - ERRORS))"
+echo "    Errors: $ERRORS"

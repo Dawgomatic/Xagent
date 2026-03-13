@@ -79,21 +79,21 @@ schema: screening/schema.json
 
 ### HPV阴性
 ```
-✅ HPV阴性
+ HPV阴性
 风险评估：低
 管理建议：继续常规筛查
 ```
 
 ### HPV 16/18阳性（最高危）
 ```
-🚨 HPV 16/18阳性（最高危）
+ HPV 16/18阳性（最高危）
 风险评估：高
 立即行动：立即进行阴道镜检查
 ```
 
 ### 其他高危HPV阳性
 ```
-⚠️ 高危HPV阳性
+ 高危HPV阳性
 风险评估：中-高
 管理建议：1年后复查 或 立即阴道镜
 ```
@@ -102,21 +102,21 @@ schema: screening/schema.json
 
 #### ASC-US
 ```
-⚠️ TCT结果：ASC-US
+ TCT结果：ASC-US
 风险评估：CIN 2+风险约5-10%
 管理方案：反射HPV检测
 ```
 
 #### LSIL
 ```
-⚠️ TCT结果：LSIL
+ TCT结果：LSIL
 风险评估：CIN 2+风险约15-20%
 管理方案：1年后复查TCT+HPV
 ```
 
 #### HSIL
 ```
-🚨 TCT结果：HSIL
+ TCT结果：HSIL
 风险评估：CIN 2+风险>50%
 立即行动：立即阴道镜检查+活检
 ```

@@ -47,11 +47,11 @@ Paris invented modern dining. From croissants to Michelin stars, every meal matt
 
 | Restaurant | Stars | Price | Notes |
 |------------|-------|-------|-------|
-| **L'Ambroisie** | ⭐⭐⭐ | €300+ | Place des Vosges, classic |
-| **Le Cinq** | ⭐⭐⭐ | €250+ | Four Seasons, elegant |
-| **Septime** | ⭐ | €130 | Book 3 weeks ahead |
-| **Arpège** | ⭐⭐⭐ | €400+ | Vegetable-focused |
-| **L'Astrance** | ⭐⭐ | €200+ | Tasting only |
+| **L'Ambroisie** |  | €300+ | Place des Vosges, classic |
+| **Le Cinq** |  | €250+ | Four Seasons, elegant |
+| **Septime** |  | €130 | Book 3 weeks ahead |
+| **Arpège** |  | €400+ | Vegetable-focused |
+| **L'Astrance** |  | €200+ | Tasting only |
 
 **Booking tips:**
 - Top spots: Book 2-4 weeks ahead via LaFourchette/TheFork

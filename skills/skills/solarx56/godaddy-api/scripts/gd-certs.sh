@@ -41,7 +41,7 @@ case "$cmd" in
   create)
     file="${1:?JSON payload file required}"
     require_file "$file"
-    echo "⚠️  WARNING: This creates a certificate order and may charge your account." >&2
+    echo "  WARNING: This creates a certificate order and may charge your account." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api POST "/v1/certificates" "$(cat "$file")" | jq .
     ;;
@@ -71,7 +71,7 @@ case "$cmd" in
     certificate_id="${1:?certificateId required}"
     file="${2:?JSON payload file required}"
     require_file "$file"
-    echo "⚠️  WARNING: This may renew certificate ${certificate_id} and charge your account." >&2
+    echo "  WARNING: This may renew certificate ${certificate_id} and charge your account." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api POST "/v1/certificates/${certificate_id}/renew" "$(cat "$file")" | jq .
     ;;
@@ -87,7 +87,7 @@ case "$cmd" in
     certificate_id="${1:?certificateId required}"
     file="${2:?JSON payload file required}"
     require_file "$file"
-    echo "⚠️  WARNING: This will revoke certificate ${certificate_id}." >&2
+    echo "  WARNING: This will revoke certificate ${certificate_id}." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api POST "/v1/certificates/${certificate_id}/revoke" "$(cat "$file")" | jq .
     ;;

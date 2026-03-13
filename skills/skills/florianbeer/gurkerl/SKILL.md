@@ -4,7 +4,7 @@ description: Gurkerl.at grocery shopping via MCP - search products, manage cart,
 homepage: https://www.gurkerl.at/seite/mcp-server
 metadata:
   clawdbot:
-    emoji: "🥒"
+    emoji: ""
     requires:
       bins: ["curl", "jq"]
     env:

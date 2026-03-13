@@ -1,7 +1,7 @@
 ---
 name: lunchtable-tcg
 description: Play LunchTable-TCG, a Yu-Gi-Oh-inspired online trading card game with AI agents
-emoji: 🎴
+emoji: 
 author: lunchtable
 version: 1.0.0
 homepage: https://lunchtable.cards

@@ -760,7 +760,7 @@ def analyze_market_context(verbose: bool = False) -> MarketContext | None:
                 risk_off_detected = True
                 overall_score -= 0.5  # Reduce score significantly
                 if verbose:
-                    print(f"    🛡️ RISK-OFF DETECTED: GLD {gld_change_5d:+.1f}%, TLT {tlt_change_5d:+.1f}%, UUP {uup_change_5d:+.1f}%", file=sys.stderr)
+                    print(f"     RISK-OFF DETECTED: GLD {gld_change_5d:+.1f}%, TLT {tlt_change_5d:+.1f}%, UUP {uup_change_5d:+.1f}%", file=sys.stderr)
 
         except Exception as e:
             if verbose:
@@ -769,7 +769,7 @@ def analyze_market_context(verbose: bool = False) -> MarketContext | None:
         # Build explanation
         explanation = f"VIX {vix_level:.1f} ({vix_status}), Market {market_regime} (SPY {spy_trend_10d:+.1f}%, QQQ {qqq_trend_10d:+.1f}% 10d)"
         if risk_off_detected:
-            explanation += " ⚠️ RISK-OFF MODE"
+            explanation += "  RISK-OFF MODE"
 
         result = MarketContext(
             vix_level=vix_level,
@@ -927,7 +927,7 @@ def check_breaking_news(verbose: bool = False) -> list[str] | None:
                                 if alert not in alerts:  # Deduplicate
                                     alerts.append(alert)
                                     if verbose:
-                                        print(f"    ⚠️ Alert: {alert}", file=sys.stderr)
+                                        print(f"     Alert: {alert}", file=sys.stderr)
                                 break
                         if len(alerts) >= 3:  # Limit to 3 alerts
                             break
@@ -969,7 +969,7 @@ def check_sector_geopolitical_risk(
 
     Returns:
         (warning_message, confidence_penalty) where:
-        - warning_message: None or string like "⚠️ SECTOR RISK: Taiwan tensions affect semiconductors"
+        - warning_message: None or string like " SECTOR RISK: Taiwan tensions affect semiconductors"
         - confidence_penalty: 0.0 (no risk) to 0.5 (high risk)
     """
     if not breaking_news:
@@ -992,7 +992,7 @@ def check_sector_geopolitical_risk(
         # Check if ticker is in affected list
         if ticker in event_data["affected_tickers"]:
             # Direct ticker exposure
-            warning = f"⚠️ SECTOR RISK: {event_data['impact']} (detected: {', '.join(keywords_found)})"
+            warning = f" SECTOR RISK: {event_data['impact']} (detected: {', '.join(keywords_found)})"
             penalty = 0.3  # Reduce BUY confidence by 30%
 
             if verbose:
@@ -1003,7 +1003,7 @@ def check_sector_geopolitical_risk(
         # Check if sector is affected (even if ticker not in list)
         if sector and sector in event_data["sectors"]:
             # Sector exposure (weaker signal)
-            warning = f"⚠️ SECTOR RISK: {sector} sector exposed to {event_data['impact']}"
+            warning = f" SECTOR RISK: {sector} sector exposed to {event_data['impact']}"
             penalty = 0.15  # Reduce BUY confidence by 15%
 
             if verbose:
@@ -1936,12 +1936,12 @@ def synthesize_signal(
 
     # NEW v4.0.0: Risk-off warnings
     if market_context and market_context.risk_off_detected:
-        caveats.append(f"🛡️ RISK-OFF MODE: Flight to safety detected (GLD {market_context.gld_change_5d:+.1f}%, TLT {market_context.tlt_change_5d:+.1f}%, UUP {market_context.uup_change_5d:+.1f}%)")
+        caveats.append(f" RISK-OFF MODE: Flight to safety detected (GLD {market_context.gld_change_5d:+.1f}%, TLT {market_context.tlt_change_5d:+.1f}%, UUP {market_context.uup_change_5d:+.1f}%)")
 
     # NEW v4.0.0: Breaking news alerts
     if breaking_news:
         for alert in breaking_news[:2]:  # Limit to 2 alerts to avoid overwhelming
-            caveats.append(f"⚠️ BREAKING NEWS: {alert}")
+            caveats.append(f" BREAKING NEWS: {alert}")
 
     # NEW v4.0.0: Geopolitical sector risk warnings
     if geopolitical_risk_warning:
@@ -2515,7 +2515,7 @@ def print_portfolio_summary(
 
     # Concentration warnings
     if summary.get("concentration_warnings"):
-        print("\n⚠️ CONCENTRATION WARNINGS:")
+        print("\n CONCENTRATION WARNINGS:")
         for warning in summary["concentration_warnings"]:
             print(f"   • {warning} (>30% of portfolio)")
 

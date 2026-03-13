@@ -22,8 +22,8 @@ Also me: Bought because chart looked like a cat
 
 **The Contrast:**
 ```
-❌ Buying index funds responsibly
-✅ Leveraged semis at all-time highs
+ Buying index funds responsibly
+ Leveraged semis at all-time highs
 ```
 
 **The Hot Take:**

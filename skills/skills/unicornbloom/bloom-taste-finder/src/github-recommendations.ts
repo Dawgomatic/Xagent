@@ -68,14 +68,14 @@ export class GitHubRecommendations {
    * Get GitHub repository recommendations based on identity
    */
   async getRecommendations(identity: IdentityData, limit = 10): Promise<GitHubRecommendation[]> {
-    console.log('🔍 Searching GitHub for repositories...');
+    console.log(' Searching GitHub for repositories...');
 
     try {
       // Build search topics from user's categories
       const searchTopics = this.buildSearchTopics(identity);
 
       if (searchTopics.length === 0) {
-        console.log('⚠️  No matching GitHub topics found');
+        console.log('  No matching GitHub topics found');
         return [];
       }
 
@@ -87,12 +87,12 @@ export class GitHubRecommendations {
 
       // Return top N
       const topRecommendations = recommendations.slice(0, limit);
-      console.log(`✅ Found ${topRecommendations.length} GitHub repositories`);
+      console.log(` Found ${topRecommendations.length} GitHub repositories`);
 
       return topRecommendations;
 
     } catch (error) {
-      console.error('❌ GitHub search failed:', error);
+      console.error(' GitHub search failed:', error);
       return [];
     }
   }
@@ -146,7 +146,7 @@ export class GitHubRecommendations {
         const response = await fetch(url, { headers });
 
         if (!response.ok) {
-          console.warn(`⚠️  GitHub API returned ${response.status} for topic: ${topic}`);
+          console.warn(`  GitHub API returned ${response.status} for topic: ${topic}`);
           continue;
         }
 
@@ -161,7 +161,7 @@ export class GitHubRecommendations {
         }
 
       } catch (error) {
-        console.warn(`⚠️  Failed to search topic: ${topic}`, error);
+        console.warn(`  Failed to search topic: ${topic}`, error);
       }
 
       // Small delay to avoid rate limiting

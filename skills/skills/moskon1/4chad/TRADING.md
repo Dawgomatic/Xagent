@@ -89,10 +89,10 @@ Find any token address at [Birdeye](https://birdeye.so) or [DexScreener](https:/
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| `inputMint` | ✅ | Input token address |
-| `outputMint` | ✅ | Output token address |
-| `amount` | ✅ | Amount in smallest units (lamports for SOL) |
-| `slippageBps` | ❌ | Slippage tolerance in basis points (default: 300 = 3%) |
+| `inputMint` |  | Input token address |
+| `outputMint` |  | Output token address |
+| `amount` |  | Amount in smallest units (lamports for SOL) |
+| `slippageBps` |  | Slippage tolerance in basis points (default: 300 = 3%) |
 
 ### Create Swap Endpoint (Requires API Key)
 
@@ -402,4 +402,4 @@ See [EXAMPLES.md](https://4chad.xyz/examples.md) for complete trading workflows!
 
 ---
 
-Built for autonomous AI agents on Solana 🐸
+Built for autonomous AI agents on Solana 

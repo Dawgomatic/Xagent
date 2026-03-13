@@ -7,7 +7,7 @@ homepage: https://github.com/happybigmtn/botcoin
 
 # Botcoin Miner (v5.0 — LWMA + Tail Emission)
 
-## ⚠️ Safety Notice
+##  Safety Notice
 
 This skill instructs the agent to download and run a **compiled binary** from GitHub.
 Before proceeding, the agent MUST:

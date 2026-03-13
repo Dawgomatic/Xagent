@@ -25,7 +25,7 @@ Try to determine if you have access to web crawling functionality:
 If you don't have adequate search or crawling capabilities, inform the human:
 
 ```
-⚠️ I need web search and crawling capabilities to find events for you.
+ I need web search and crawling capabilities to find events for you.
 
 Please provide me with:
 - A web search tool or skill
@@ -164,7 +164,7 @@ Set up a cron job (or equivalent scheduled task) to run the daily search at the 
 
 Tell them in a friendly way:
 ```
-✅ Perfect! I've set up daily automated searches for you.
+ Perfect! I've set up daily automated searches for you.
 
 Here's what will happen:
 • I'll search for new events every day at [TIME] [TIMEZONE]
@@ -181,7 +181,7 @@ Here's what will happen:
 After all steps complete, tell the human in a friendly, excited way:
 
 ```
-🎉 All set! Meetup Planner is ready to go!
+ All set! Meetup Planner is ready to go!
 
 Here's what I've set up for you:
 • Search capability: available ✓

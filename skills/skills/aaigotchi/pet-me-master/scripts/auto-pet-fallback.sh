@@ -9,7 +9,7 @@ CONFIG_FILE="$HOME/.openclaw/workspace/skills/pet-me-master/config.json"
 STATE_FILE="$HOME/.openclaw/workspace/skills/pet-me-master/reminder-state.json"
 PET_SCRIPT="$SCRIPT_DIR/pet-via-bankr.sh"
 
-echo "🤖 Auto-pet fallback triggered at $(date)"
+echo " Auto-pet fallback triggered at $(date)"
 
 # Load config
 GOTCHI_IDS=($(jq -r '.gotchiIds[]' "$CONFIG_FILE"))
@@ -27,7 +27,7 @@ for GOTCHI_ID in "${GOTCHI_IDS[@]}"; do
   DATA=$(cast call "$CONTRACT" "getAavegotchi(uint256)" "$GOTCHI_ID" --rpc-url "$RPC_URL" 2>/dev/null)
   
   if [ -z "$DATA" ]; then
-    echo "⚠️  Failed to query gotchi #$GOTCHI_ID"
+    echo "  Failed to query gotchi #$GOTCHI_ID"
     continue
   fi
   
@@ -42,7 +42,7 @@ done
 
 # If any gotchis still need petting, pet them
 if [ ${#NEED_PETTING[@]} -gt 0 ]; then
-  echo "🦞 User didn't respond - auto-petting ${#NEED_PETTING[@]} gotchi(s)..."
+  echo " User didn't respond - auto-petting ${#NEED_PETTING[@]} gotchi(s)..."
   
   PETTED=()
   FAILED=()
@@ -51,18 +51,18 @@ if [ ${#NEED_PETTING[@]} -gt 0 ]; then
     echo "Petting gotchi #$GOTCHI_ID..."
     if bash "$PET_SCRIPT" "$GOTCHI_ID" >> /tmp/auto-pet.log 2>&1; then
       PETTED+=("$GOTCHI_ID")
-      echo "✅ Gotchi #$GOTCHI_ID petted"
+      echo " Gotchi #$GOTCHI_ID petted"
       sleep 2
     else
       FAILED+=("$GOTCHI_ID")
-      echo "❌ Failed to pet gotchi #$GOTCHI_ID"
+      echo " Failed to pet gotchi #$GOTCHI_ID"
     fi
   done
   
   # Send notification about auto-petting
   if [ ${#PETTED[@]} -gt 0 ]; then
     PETTED_LIST=$(IFS=, ; echo "${PETTED[*]}")
-    NOTIFY_MSG="🤖 Auto-pet fallback executed! Petted gotchi(s): #$PETTED_LIST since you were busy. Kinship +${#PETTED[@]}! 👻💜"
+    NOTIFY_MSG=" Auto-pet fallback executed! Petted gotchi(s): #$PETTED_LIST since you were busy. Kinship +${#PETTED[@]}! "
     echo "$NOTIFY_MSG"
     
     # Try to send notification (best effort)
@@ -71,14 +71,14 @@ if [ ${#NEED_PETTING[@]} -gt 0 ]; then
   
   if [ ${#FAILED[@]} -gt 0 ]; then
     FAILED_LIST=$(IFS=, ; echo "${FAILED[*]}")
-    echo "⚠️  Failed to pet: #$FAILED_LIST"
+    echo "  Failed to pet: #$FAILED_LIST"
   fi
 else
-  echo "✅ All gotchis already petted! User must have done it manually. Great job fren! 👻"
+  echo " All gotchis already petted! User must have done it manually. Great job fren! "
 fi
 
 # Reset state
 echo '{"lastReminder": 0, "fallbackScheduled": false}' > "$STATE_FILE"
-echo "🔄 State reset, ready for next cycle"
+echo " State reset, ready for next cycle"
 
 exit 0

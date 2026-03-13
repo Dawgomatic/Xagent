@@ -107,7 +107,7 @@ PREFERENCES: {preferences or "none"}
 DELIVERY_NOTES: {delivery_notes or "none"}
 ADDRESS: {address or "use saved default"}
 
-⚠️ ALLERGY/DIETARY RULES:
+ ALLERGY/DIETARY RULES:
 - NEVER add items containing allergens listed above
 - When customizing items, REMOVE ingredients that conflict (e.g., "no peanuts")
 - If an item cannot be made safe → skip it, note why in report
@@ -142,10 +142,10 @@ BROWSER STEPS:
 9. Wait for confirmation, capture order number and ETA
 
 REPORT FORMAT:
-✅ Order confirmed: {restaurant} via {service}, ETA {time}, total ${amount}
+ Order confirmed: {restaurant} via {service}, ETA {time}, total ${amount}
    Allergy accommodations: {what was modified or "N/A"}
 — OR —
-❌ Failed: {reason}
+ Failed: {reason}
 
 Do NOT checkout if cart doesn't match requested items.
 Do NOT checkout if allergen safety cannot be confirmed.
@@ -174,7 +174,7 @@ CRITERIA:
 - Dietary: {dietary or "none"}
 - Preferences: {preferences}
 
-⚠️ ALLERGY/DIETARY RULES:
+ ALLERGY/DIETARY RULES:
 - Only recommend restaurants where allergen-safe options clearly exist
 - Flag any restaurant where the menu is ambiguous about allergens
 - When noting menu highlights, confirm dishes are safe given stated allergies/dietary

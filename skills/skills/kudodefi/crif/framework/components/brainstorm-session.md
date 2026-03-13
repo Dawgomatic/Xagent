@@ -18,7 +18,7 @@
 
 ### 1.1 Read Dependencies
 
-> ⚠️ **CRITICAL:** All dependencies must read successfully
+>  **CRITICAL:** All dependencies must read successfully
 
 - Read `objectives.md` from workflow folder
 - Read `brainstorming-guide.md` from guides folder
@@ -30,7 +30,7 @@ Present options to user:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🧠 BRAINSTORM SESSION
+ BRAINSTORM SESSION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Session mode:
@@ -96,7 +96,7 @@ Present summary for confirmation:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 FRAMING
+ FRAMING
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Topic: {summarized topic}
@@ -116,7 +116,7 @@ Once confirmed:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🚀 STARTING EXPLORATION
+ STARTING EXPLORATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Starting with {technique/approach based on mode}.
@@ -174,7 +174,7 @@ Starting with {technique/approach based on mode}.
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📝 MILESTONE
+ MILESTONE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Insights so far:
@@ -183,10 +183,10 @@ Insights so far:
 • {Insight 3}
 
 Options:
-1. 💾 Save & continue - Save progress, continue exploring
-2. ➡️ Continue - Continue without saving
-3. 🔄 Switch technique - Try a different approach
-4. ✅ End session - Finish and synthesize
+1.  Save & continue - Save progress, continue exploring
+2.  Continue - Continue without saving
+3.  Switch technique - Try a different approach
+4.  End session - Finish and synthesize
 
 Select: ___
 ```
@@ -211,7 +211,7 @@ Select: ___
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔄 TECHNIQUE SUGGESTION
+ TECHNIQUE SUGGESTION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Current: {current technique/mode}
@@ -233,7 +233,7 @@ Switch? (y/n): ___
 Every 5-7 exchanges, briefly summarize:
 
 ```
-📊 Quick recap: We've explored {count} ideas about {topic}.
+ Quick recap: We've explored {count} ideas about {topic}.
 Key threads: {thread 1}, {thread 2}, {thread 3}.
 Continue with {current direction}?
 ```
@@ -250,7 +250,7 @@ When user chooses to end session.
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 SESSION COMPLETE
+ SESSION COMPLETE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -289,13 +289,13 @@ Synthesize all accumulated insights:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💾 SAVE SESSION?
+ SAVE SESSION?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Save this session summary?
 
-1. 💾 Yes - Save to workspace
-2. ❌ No - End without saving
+1.  Yes - Save to workspace
+2.  No - End without saving
 
 Select: ___
 ```

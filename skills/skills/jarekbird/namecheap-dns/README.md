@@ -2,16 +2,16 @@
 
 Safe DNS record management for Namecheap domains. Prevents accidental DNS wipeout by the Namecheap API's destructive `setHosts` method.
 
-## ⚠️ Why This Exists
+##  Why This Exists
 
 The Namecheap API's `setHosts` method **replaces ALL DNS records** at once. One wrong call = your entire DNS is gone. This skill wraps the API with safety features:
 
-- ✅ Always fetches existing records first
-- ✅ Merges new records with existing (no accidental wipeout)
-- ✅ Shows diff preview before applying
-- ✅ Auto-backups before every change
-- ✅ Dry-run mode for safe testing
-- ✅ One-command rollback
+-  Always fetches existing records first
+-  Merges new records with existing (no accidental wipeout)
+-  Shows diff preview before applying
+-  Auto-backups before every change
+-  Dry-run mode for safe testing
+-  One-command rollback
 
 ## Quick Start
 

@@ -69,7 +69,7 @@ Uses xAI's Responses API with the `x_search` tool:
 ## Output Example
 
 ```
-🔍 Searching X: "Remotion Claude Code" (last 30 days)...
+ Searching X: "Remotion Claude Code" (last 30 days)...
 
 **@rknkhanna** (Rahul K)
 "made a launch video using remotion. the remotion team published a skill
@@ -77,7 +77,7 @@ that teaches claude their best practices. fed it my design system.
 described 6 scenes. got working animation code."
 https://x.com/rknkhanna/status/2014504411981295928
 
-📎 Citations (5):
+ Citations (5):
    https://x.com/i/status/2014504411981295928
    ...
 ```

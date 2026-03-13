@@ -402,7 +402,7 @@ const server = Bun.serve({
       pendingRequests.set(requestId, pendingRequest);
       
       // Notify via console (agent will poll /pending)
-      console.log(`\n🔔 New ${method} request from ${origin}`);
+      console.log(`\n New ${method} request from ${origin}`);
       console.log(`   Request ID: ${requestId}`);
       console.log(`   Approve: curl -X POST http://localhost:${PORT}/approve/${requestId}`);
       console.log(`   Reject:  curl -X POST http://localhost:${PORT}/reject/${requestId}`);
@@ -468,7 +468,7 @@ const server = Bun.serve({
         
         pendingRequests.set(requestId, pendingRequest);
         
-        console.log(`\n🔔 New ${method} request from ${origin}`);
+        console.log(`\n New ${method} request from ${origin}`);
         console.log(`   Request ID: ${requestId}`);
         
         try {
@@ -489,7 +489,7 @@ const server = Bun.serve({
   }
 });
 
-console.log(`\n🚀 Sui Agent Wallet Server running on http://localhost:${PORT}`);
+console.log(`\n Sui Agent Wallet Server running on http://localhost:${PORT}`);
 console.log(`   WebSocket: ws://localhost:${PORT}/ws`);
 console.log(`\nWallet Info:`);
 console.log(`   Address: ${wallet.getAddress()}`);

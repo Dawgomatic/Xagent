@@ -1,5 +1,5 @@
 /**
- * 💰 Cost Monitor
+ *  Cost Monitor
  * 
  * Monitors API usage costs for OpenAI/Anthropic
  */

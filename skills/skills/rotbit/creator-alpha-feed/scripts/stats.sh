@@ -9,13 +9,13 @@ PIPELINE_DIR="$(dirname "$SCRIPT_DIR")"
 DAYS="${1:-7}"
 
 echo ""
-echo "📊 AI内容收集统计 - 最近 $DAYS 天"
+echo " AI内容收集统计 - 最近 $DAYS 天"
 echo "═══════════════════════════════════════════════════════════"
 echo ""
 
 # 检查是否有数据
 if [[ ! -d "$PIPELINE_DIR/collected" ]]; then
-    echo "❌ 未找到收集数据目录"
+    echo " 未找到收集数据目录"
     exit 1
 fi
 
@@ -23,7 +23,7 @@ fi
 RECENT_DATES=$(ls "$PIPELINE_DIR/collected/" 2>/dev/null | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}$' | sort -r | head -$DAYS)
 
 if [[ -z "$RECENT_DATES" ]]; then
-    echo "❌ 未找到任何收集数据"
+    echo " 未找到任何收集数据"
     exit 1
 fi
 
@@ -68,11 +68,11 @@ echo ""
 
 # 平均值
 AVG=$((TOTAL_ALL / DAYS))
-echo "📈 平均每天: $AVG 条"
+echo " 平均每天: $AVG 条"
 echo ""
 
 # 检查是否有推荐数据
-echo "📋 最近推荐情况:"
+echo " 最近推荐情况:"
 echo "───────────────────────────────────────────────────────────"
 
 for date in $(echo "$RECENT_DATES" | head -3); do

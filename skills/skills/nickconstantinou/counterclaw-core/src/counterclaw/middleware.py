@@ -63,7 +63,7 @@ class CounterClawInterceptor:
         self.admin_id = admin_user_id or os.getenv("TRUSTED_ADMIN_IDS")
         
         if not self.admin_id:
-            print("⚠️ CounterClaw Warning: No TRUSTED_ADMIN_IDS found. Lock features disabled.")
+            print(" CounterClaw Warning: No TRUSTED_ADMIN_IDS found. Lock features disabled.")
         
         self.scanner = Scanner()
     

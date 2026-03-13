@@ -83,12 +83,12 @@ async function main() {
   if (opts.json) {
     output(result, true);
   } else {
-    console.log(`🤖 Agent Identity: ${result.name}`);
+    console.log(` Agent Identity: ${result.name}`);
     console.log('');
     console.log(`Identity Hash: ${identityHash}`);
     console.log(`Owner: ${result.owner}`);
     console.log(`Signing Key: ${result.signingKey}`);
-    console.log(`Status: ${active ? '✅ Active' : '❌ Inactive'}`);
+    console.log(`Status: ${active ? ' Active' : ' Inactive'}`);
     console.log('');
     console.log(`Stake: ${result.stakedAmount} USDC`);
     console.log(`Vouches: ${result.totalVouches} USDC`);

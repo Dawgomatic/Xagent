@@ -3,7 +3,7 @@ name: masumi-payments
 description: Enable AI agents to accept Cardano blockchain payments through the decentralized Masumi network by deploying their own payment service
 homepage: https://docs.masumi.network
 user-invocable: true
-metadata: {"openclaw": {"requires": {"bins": ["node", "npm", "git"], "env": ["MASUMI_PAYMENT_SERVICE_URL"]}, "primaryEnv": "MASUMI_PAYMENT_SERVICE_URL", "emoji": "💰"}}
+metadata: {"openclaw": {"requires": {"bins": ["node", "npm", "git"], "env": ["MASUMI_PAYMENT_SERVICE_URL"]}, "primaryEnv": "MASUMI_PAYMENT_SERVICE_URL", "emoji": ""}}
 ---
 
 # Masumi Payments Skill for OpenClaw
@@ -56,7 +56,7 @@ The Masumi Node consists of two primary services that **YOU deploy and run**:
    - Deploy locally (`http://localhost:3000`) or on Railway (`https://your-service.railway.app`)
    - Wallet management (YOUR wallets)
    - Transaction processing (A2A and H2A)
-   - Token swapping (stablecoins ↔ ADA)
+   - Token swapping (stablecoins  ADA)
    - Admin interface + REST APIs (YOUR admin API key)
 
 2. **Registry Service** (Optional) - For blockchain querying

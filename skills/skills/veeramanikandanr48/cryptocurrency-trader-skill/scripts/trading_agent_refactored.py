@@ -157,7 +157,7 @@ class TradingAgent:
         timeframes = timeframes or ['15m', '1h', '4h']
 
         print(f"\n{'='*80}")
-        print(f"🔬 COMPREHENSIVE ANALYSIS: {symbol}")
+        print(f" COMPREHENSIVE ANALYSIS: {symbol}")
         print(f"{'='*80}")
 
         analysis = {
@@ -177,7 +177,7 @@ class TradingAgent:
         }
 
         # Step 1: Multi-timeframe data collection
-        print(f"\n📊 Stage 1: Multi-Timeframe Data Collection & Validation")
+        print(f"\n Stage 1: Multi-Timeframe Data Collection & Validation")
 
         timeframe_dataframes = {}
         for tf in timeframes:
@@ -193,10 +193,10 @@ class TradingAgent:
                 except Exception as e:
                     if attempt < 2:
                         wait_time = 2 ** attempt
-                        print(f"   ⚠️  Attempt {attempt + 1} failed, retrying in {wait_time}s...")
+                        print(f"     Attempt {attempt + 1} failed, retrying in {wait_time}s...")
                         time.sleep(wait_time)
                     else:
-                        print(f"   ❌ All retries failed for {tf}: {str(e)[:100]}")
+                        print(f"    All retries failed for {tf}: {str(e)[:100]}")
 
             if df is not None:
                 timeframe_dataframes[tf] = df
@@ -207,11 +207,11 @@ class TradingAgent:
 
                 if 'error' not in indicators:
                     analysis['multi_timeframe_data'][tf] = indicators
-                    print(f"   ✅ {tf} data validated and processed")
+                    print(f"    {tf} data validated and processed")
                 else:
-                    print(f"   ❌ {tf} indicator calculation failed")
+                    print(f"    {tf} indicator calculation failed")
             else:
-                print(f"   ❌ {tf} data validation failed")
+                print(f"    {tf} data validation failed")
 
         # Need at least 2 timeframes
         if len(analysis['timeframes_analyzed']) < 2:
@@ -225,7 +225,7 @@ class TradingAgent:
         analysis['validation_stages_passed'].append('DATA_COLLECTION')
 
         # Step 2: Pattern Recognition
-        print(f"\n🎯 Stage 2: Advanced Pattern Recognition & Technical Analysis")
+        print(f"\n Stage 2: Advanced Pattern Recognition & Technical Analysis")
 
         primary_tf = '1h' if '1h' in timeframe_dataframes else analysis['timeframes_analyzed'][0]
         primary_df = timeframe_dataframes[primary_tf]
@@ -234,26 +234,26 @@ class TradingAgent:
         analysis['pattern_analysis'] = pattern_analysis
 
         if 'error' not in pattern_analysis:
-            print(f"   ✅ Detected {len(pattern_analysis['patterns_detected'])} chart patterns")
-            print(f"   ✅ Identified {len(pattern_analysis['support_levels'])} support / "
+            print(f"    Detected {len(pattern_analysis['patterns_detected'])} chart patterns")
+            print(f"    Identified {len(pattern_analysis['support_levels'])} support / "
                   f"{len(pattern_analysis['resistance_levels'])} resistance levels")
-            print(f"   ✅ Market Regime: {pattern_analysis.get('market_regime', {}).get('market_regime', 'UNKNOWN')}")
+            print(f"    Market Regime: {pattern_analysis.get('market_regime', {}).get('market_regime', 'UNKNOWN')}")
             analysis['validation_stages_passed'].append('PATTERN_RECOGNITION')
 
         # Step 3: Bayesian Signal Generation
-        print(f"\n🧮 Stage 3: Bayesian Probabilistic Signal Generation")
+        print(f"\n Stage 3: Bayesian Probabilistic Signal Generation")
 
         bayesian_signals = self.signal_generator.generate_signals(
             analysis['multi_timeframe_data'],
             pattern_analysis
         )
         analysis['probabilistic_signals'] = bayesian_signals
-        print(f"   ✅ Bayesian probability: {bayesian_signals.get('bullish_probability', 0):.1f}% bullish")
-        print(f"   ✅ Signal strength: {bayesian_signals.get('signal_strength', 'UNKNOWN')}")
+        print(f"    Bayesian probability: {bayesian_signals.get('bullish_probability', 0):.1f}% bullish")
+        print(f"    Signal strength: {bayesian_signals.get('signal_strength', 'UNKNOWN')}")
         analysis['validation_stages_passed'].append('PROBABILISTIC_MODELING')
 
         # Step 4: Monte Carlo Simulation
-        print(f"\n🎲 Stage 4: Monte Carlo Simulation for Risk Assessment")
+        print(f"\n Stage 4: Monte Carlo Simulation for Risk Assessment")
 
         returns = primary_df['close'].pct_change().dropna()
         current_price = primary_df['close'].iloc[-1]
@@ -267,13 +267,13 @@ class TradingAgent:
 
         if 'error' not in monte_carlo:
             analysis['monte_carlo_scenarios'] = monte_carlo
-            print(f"   ✅ Simulated 10,000 price scenarios")
-            print(f"   ✅ Expected price (5 periods): ${monte_carlo['expected_price']}")
-            print(f"   ✅ Profit probability: {monte_carlo['probability_profit']}%")
+            print(f"    Simulated 10,000 price scenarios")
+            print(f"    Expected price (5 periods): ${monte_carlo['expected_price']}")
+            print(f"    Profit probability: {monte_carlo['probability_profit']}%")
             analysis['validation_stages_passed'].append('MONTE_CARLO')
 
         # Step 5: Advanced Risk Metrics
-        print(f"\n📈 Stage 5: Advanced Risk Metrics Calculation")
+        print(f"\n Stage 5: Advanced Risk Metrics Calculation")
 
         position_value = self.balance * 0.10
         var_cvar = self.analytics.calculate_var_cvar(returns, position_value, 0.95)
@@ -286,13 +286,13 @@ class TradingAgent:
         analysis['advanced_metrics'] = performance_metrics
 
         if 'error' not in var_cvar and 'error' not in performance_metrics:
-            print(f"   ✅ VaR (95%): ${abs(var_cvar.get('modified_var_dollar', 0)):.2f} maximum 1-day loss")
-            print(f"   ✅ Sharpe Ratio: {performance_metrics.get('sharpe_ratio', 0):.2f}")
-            print(f"   ✅ Win Rate: {performance_metrics.get('win_rate_pct', 0):.1f}%")
+            print(f"    VaR (95%): ${abs(var_cvar.get('modified_var_dollar', 0)):.2f} maximum 1-day loss")
+            print(f"    Sharpe Ratio: {performance_metrics.get('sharpe_ratio', 0):.2f}")
+            print(f"    Win Rate: {performance_metrics.get('win_rate_pct', 0):.1f}%")
             analysis['validation_stages_passed'].append('RISK_METRICS')
 
         # Step 6: Generate Trading Recommendation
-        print(f"\n🎯 Stage 6: Generating Final Trading Recommendation")
+        print(f"\n Stage 6: Generating Final Trading Recommendation")
 
         recommendation = self.recommendation_engine.generate_recommendation(
             bayesian_signals=bayesian_signals,
@@ -310,11 +310,11 @@ class TradingAgent:
         validation_report = self.validator.validate_trading_signal(recommendation)
 
         if validation_report['passed']:
-            print(f"   ✅ Signal validation passed")
+            print(f"    Signal validation passed")
             analysis['execution_ready'] = True
             analysis['validation_stages_passed'].append('SIGNAL_VALIDATION')
         else:
-            print(f"   ❌ Signal validation failed:")
+            print(f"    Signal validation failed:")
             for failure in validation_report['critical_failures']:
                 print(f"      {failure}")
             analysis['execution_ready'] = False

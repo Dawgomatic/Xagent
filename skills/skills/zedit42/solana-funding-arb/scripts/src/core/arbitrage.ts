@@ -53,7 +53,7 @@ export class ArbitrageEngine {
    */
   async start(): Promise<void> {
     this.isRunning = true;
-    logger.info('🚀 SolArb Arbitrage Engine started');
+    logger.info(' SolArb Arbitrage Engine started');
     logger.info(`Monitoring ${this.config.pairs.length} pairs across ${this.dexes.size} DEXes`);
     
     while (this.isRunning) {
@@ -98,7 +98,7 @@ export class ArbitrageEngine {
       const best = opportunities[0];
       
       if (best.profitBps >= this.config.minProfitBps) {
-        logger.info(`🎯 Found opportunity: ${best.pair} - ${best.profitBps} bps profit`);
+        logger.info(` Found opportunity: ${best.pair} - ${best.profitBps} bps profit`);
         await this.executeArbitrage(best);
       }
     }
@@ -222,7 +222,7 @@ export class ArbitrageEngine {
 
       // Track P&L
       this.pnlTracker.recordTrade(result);
-      logger.info(`✅ Arbitrage executed! Profit: $${result.actualProfitUsd.toFixed(2)}`);
+      logger.info(` Arbitrage executed! Profit: $${result.actualProfitUsd.toFixed(2)}`);
       
       return result;
     } catch (error: any) {
@@ -234,7 +234,7 @@ export class ArbitrageEngine {
       };
       
       this.pnlTracker.recordTrade(result);
-      logger.error(`❌ Arbitrage failed: ${error.message}`);
+      logger.error(` Arbitrage failed: ${error.message}`);
       
       return result;
     }

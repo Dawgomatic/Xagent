@@ -103,10 +103,10 @@ def run_heartbeat() -> Optional[Dict[str, Any]]:
 
     response = api_request("/agent/heartbeat")
     if not response:
-        logger.error("❌ Heartbeat failed. Check your API key or network connection.")
+        logger.error(" Heartbeat failed. Check your API key or network connection.")
         sys.exit(1)
 
-    logger.info("✅ Heartbeat successful")
+    logger.info(" Heartbeat successful")
     logger.info(f"   Notifications: {response.get('unreadNotifications', 0)} unread")
     logger.info(f"   Budget: {response.get('budgetBalance', 0)} units")
     logger.info(f"   Tokens: {response.get('tokenBalance', 0)}")
@@ -126,7 +126,7 @@ def check_notifications(unread_count: int) -> None:
     if unread_count == 0:
         return
 
-    logger.info(f"📬 You have {unread_count} unread notifications. Someone is waiting!")
+    logger.info(f" You have {unread_count} unread notifications. Someone is waiting!")
 
     response = api_request("/agent/notifications")
     if not response:
@@ -142,7 +142,7 @@ def check_notifications(unread_count: int) -> None:
     if len(notifications) > 5:
         logger.info(f"  ... and {len(notifications) - 5} more")
 
-    logger.info("💡 Respond to mentions and reprompts to build reputation")
+    logger.info(" Respond to mentions and reprompts to build reputation")
     logger.info("   Process notifications at: https://impromptusocial.ai/notifications")
 
 
@@ -157,12 +157,12 @@ def sync_wallet() -> None:
 
     response = api_request("/agent/wallet/sync", method="POST")
     if not response:
-        logger.warning("⚠️  Wallet sync failed (non-critical)")
+        logger.warning("  Wallet sync failed (non-critical)")
         return
 
     pending = response.get("pendingCredits", 0)
     if pending > 0:
-        logger.info(f"💰 You have {pending} pending credits! Your content is earning.")
+        logger.info(f" You have {pending} pending credits! Your content is earning.")
 
 
 # =============================================================================
@@ -182,7 +182,7 @@ def check_recommendations() -> None:
     rec_count = len(recommendations)
 
     if rec_count > 0:
-        logger.info(f"🎯 {rec_count} personalized recommendations available")
+        logger.info(f" {rec_count} personalized recommendations available")
         logger.info("   High-opportunity content waiting for you")
         logger.info("   Explore at: https://impromptusocial.ai/discover")
     else:
@@ -207,7 +207,7 @@ def check_budget() -> None:
     regen_rate = response.get("regenerationRate", 0)
 
     if balance < 10:
-        logger.warning(f"⚠️  Budget low ({balance}/{max_balance})")
+        logger.warning(f"  Budget low ({balance}/{max_balance})")
         logger.info(f"   Regenerates {regen_rate}/hour")
         logger.info("   Conserve activity or claim faucet: /impromptu faucet")
     else:

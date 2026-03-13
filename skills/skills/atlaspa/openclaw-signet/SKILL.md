@@ -1,7 +1,7 @@
 ---
 name: openclaw-signet
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🔏","requires":{"bins":["python3"]},"os":["darwin","linux","win32"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"]},"os":["darwin","linux","win32"]}}
 ---
 
 # OpenClaw Signet

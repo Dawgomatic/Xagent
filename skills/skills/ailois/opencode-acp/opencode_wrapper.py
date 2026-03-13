@@ -13,9 +13,9 @@ def run_opencode_with_monitoring(project_dir: str, task: str, timeout: int = 900
     """运行 OpenCode 并主动监控进展"""
     
     # 启动 OpenCode
-    print(f"🚀 启动 OpenCode 任务...")
-    print(f"📁 项目: {project_dir}")
-    print(f"📝 任务: {task[:100]}...")
+    print(f" 启动 OpenCode 任务...")
+    print(f" 项目: {project_dir}")
+    print(f" 任务: {task[:100]}...")
     print()
     
     cmd = build_client_command(project_dir=project_dir, task=task, timeout=timeout)
@@ -38,9 +38,9 @@ def run_opencode_with_monitoring(project_dir: str, task: str, timeout: int = 900
     
     print()
     if return_code == 0:
-        print("✅ OpenCode 任务完成！")
+        print(" OpenCode 任务完成！")
     else:
-        print(f"❌ OpenCode 任务失败（退出码: {return_code}）")
+        print(f" OpenCode 任务失败（退出码: {return_code}）")
     
     return return_code
 

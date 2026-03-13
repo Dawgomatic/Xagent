@@ -5,7 +5,7 @@ Template for the finance section integrated into PhoenixClaw daily journals.
 ## Section Structure
 
 ```markdown
-## 💰 Financial Summary
+##  Financial Summary
 
 {{TRANSACTIONS}}
 
@@ -18,7 +18,7 @@ Template for the finance section integrated into PhoenixClaw daily journals.
 ## Full Template
 
 ```markdown
-## 💰 Financial Summary
+##  Financial Summary
 
 {{#each EXPENSES}}
 > [!expense] {{icon}} {{time}} {{description}}
@@ -28,7 +28,7 @@ Template for the finance section integrated into PhoenixClaw daily journals.
 {{/each}}
 
 {{#each RECEIPTS}}
-> [!receipt] 💳 {{time}} {{platform}}
+> [!receipt]  {{time}} {{platform}}
 > ![[{{screenshot_path}}|300]]
 > {{merchant}} | **{{currency}}{{amount}}** | {{category}}
 > *Source: Screenshot*
@@ -44,7 +44,7 @@ Template for the finance section integrated into PhoenixClaw daily journals.
 {{/if}}
 
 {{#if INSIGHT}}
-> [!insight] 💡 {{INSIGHT}}
+> [!insight]  {{INSIGHT}}
 {{/if}}
 ```
 
@@ -75,18 +75,18 @@ Template for the finance section integrated into PhoenixClaw daily journals.
 ### Normal Day
 
 ```markdown
-## 💰 Financial Summary
+##  Financial Summary
 
-> [!expense] 🍜 12:30 Lunch
+> [!expense]  12:30 Lunch
 > Hotpot with colleagues | **¥150.00** | Food & Dining
 > *Source: Conversation*
 
-> [!receipt] 💳 14:32 WeChat Pay
+> [!receipt]  14:32 WeChat Pay
 > ![[assets/2026-02-02/receipt_001.jpg|300]]
 > Luckin Coffee | **¥19.90** | Food & Dining
 > *Source: Screenshot*
 
-> [!expense] 🛒 18:00 Shopping
+> [!expense]  18:00 Shopping
 > New earbuds | **¥299.00** | Electronics
 > *Source: Conversation*
 
@@ -98,13 +98,13 @@ Template for the finance section integrated into PhoenixClaw daily journals.
 ### With Budget Warning
 
 ```markdown
-## 💰 Financial Summary
+##  Financial Summary
 
-> [!expense] 🍜 12:30 Lunch
+> [!expense]  12:30 Lunch
 > Restaurant | **¥85.00** | Food & Dining
 > *Source: Conversation*
 
-> [!expense] 🛒 15:00 Shopping
+> [!expense]  15:00 Shopping
 > Clothing | **¥450.00** | Shopping
 > *Source: Conversation*
 
@@ -112,16 +112,16 @@ Template for the finance section integrated into PhoenixClaw daily journals.
 **Today:** ¥535.00 spent
 **This month:** ¥4,283.00 / ¥5,000.00 (86%)
 
-> [!warning] ⚠️ Budget at 86% with 8 days remaining
+> [!warning]  Budget at 86% with 8 days remaining
 > Daily allowance: ¥89.63
 ```
 
 ### With Insight
 
 ```markdown
-## 💰 Financial Summary
+##  Financial Summary
 
-> [!receipt] 💳 19:30 Alipay
+> [!receipt]  19:30 Alipay
 > ![[assets/2026-02-02/receipt_001.jpg|300]]
 > Restaurant | **¥320.00** | Food & Dining
 > *Source: Screenshot*
@@ -130,31 +130,31 @@ Template for the finance section integrated into PhoenixClaw daily journals.
 **Today:** ¥320.00 spent
 **This month:** ¥2,100.00 / ¥5,000.00 (42%)
 
-> [!insight] 💡 Weekend dining averages ¥280 vs ¥65 on weekdays
+> [!insight]  Weekend dining averages ¥280 vs ¥65 on weekdays
 ```
 
 ### No Spending Day
 
 ```markdown
-## 💰 Financial Summary
+##  Financial Summary
 
-*No expenses recorded today* ✨
+*No expenses recorded today* 
 
 ---
 **This month:** ¥2,100.00 / ¥5,000.00 (42%)
-**Streak:** 2 no-spend days 🎉
+**Streak:** 2 no-spend days 
 ```
 
 ### Income Day
 
 ```markdown
-## 💰 Financial Summary
+##  Financial Summary
 
-> [!income] 💰 10:00 Salary
+> [!income]  10:00 Salary
 > Monthly salary | **+¥15,000.00** | Income
 > *Source: Conversation*
 
-> [!expense] 🍜 12:30 Lunch
+> [!expense]  12:30 Lunch
 > Celebration lunch | **¥280.00** | Food & Dining
 > *Source: Conversation*
 
@@ -189,7 +189,7 @@ In the journal, Financial Summary appears at order 45:
 ```
 0-19:  Highlights
 20-39: Moments
-40-59: 💰 Financial Summary ← HERE
+40-59:  Financial Summary ← HERE
 60-79: Reflections
 80-89: Other plugins
 90-100: Growth Notes

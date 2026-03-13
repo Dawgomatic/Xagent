@@ -161,7 +161,7 @@ Examples of when TO use tools (with full paths):
             // Add history demarcation end - CRITICAL for response targeting
             messages.push({
                 role: 'system',
-                content: '--- END OF HISTORY ---\n\n⚠️ IMPORTANT: The user\'s CURRENT message follows. You MUST respond specifically to THIS message, not to anything from the history above.'
+                content: '--- END OF HISTORY ---\n\n IMPORTANT: The user\'s CURRENT message follows. You MUST respond specifically to THIS message, not to anything from the history above.'
             });
         }
         
@@ -190,7 +190,7 @@ Examples of when TO use tools (with full paths):
                 messages.push(...filteredMemory);
                 messages.push({
                     role: 'system',
-                    content: '--- END OF CONTEXT ---\n\n⚠️ IMPORTANT: Respond to the user\'s CURRENT message below.'
+                    content: '--- END OF CONTEXT ---\n\n IMPORTANT: Respond to the user\'s CURRENT message below.'
                 });
             }
         }

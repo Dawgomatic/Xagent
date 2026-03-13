@@ -1,7 +1,7 @@
 ---
 name: remind-me
 description: Set reminders using natural language. Automatically creates one-time cron jobs and logs to markdown.
-metadata: {"clawdbot":{"emoji":"⏰","requires":{"bins":["bash","date"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["bash","date"]}}}
 ---
 
 # Remind Me

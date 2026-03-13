@@ -10,16 +10,16 @@ const mastodon = require('./platforms/mastodon');
 const bluesky = require('./platforms/bluesky');
 const moltbook = require('./platforms/moltbook');
 
-console.log('🧪 Social Scheduler Test Suite\n');
+console.log(' Social Scheduler Test Suite\n');
 
 // Test Discord
 console.log('Testing Discord Platform:');
 try {
   discord.validate('https://discord.com/api/webhooks/123/abc');
   discord.validateContent({ content: 'Test' });
-  console.log('  ✅ Discord validation passed');
+  console.log('   Discord validation passed');
 } catch (e) {
-  console.log(`  ❌ Discord validation: ${e.message}`);
+  console.log(`   Discord validation: ${e.message}`);
 }
 
 // Test Reddit
@@ -34,9 +34,9 @@ try {
   };
   reddit.validate(redditConfig);
   reddit.validateContent({ subreddit: 'test', title: 'Test', text: 'Test' });
-  console.log('  ✅ Reddit validation passed');
+  console.log('   Reddit validation passed');
 } catch (e) {
-  console.log(`  ❌ Reddit validation: ${e.message}`);
+  console.log(`   Reddit validation: ${e.message}`);
 }
 
 // Test Twitter
@@ -50,9 +50,9 @@ try {
   };
   twitter.validate(twitterConfig);
   twitter.validateContent('Hello Twitter!');
-  console.log('  ✅ Twitter validation passed');
+  console.log('   Twitter validation passed');
 } catch (e) {
-  console.log(`  ❌ Twitter validation: ${e.message}`);
+  console.log(`   Twitter validation: ${e.message}`);
 }
 
 // Test Mastodon
@@ -64,9 +64,9 @@ try {
   };
   mastodon.validate(mastodonConfig);
   mastodon.validateContent('Hello Fediverse!');
-  console.log('  ✅ Mastodon validation passed');
+  console.log('   Mastodon validation passed');
 } catch (e) {
-  console.log(`  ❌ Mastodon validation: ${e.message}`);
+  console.log(`   Mastodon validation: ${e.message}`);
 }
 
 // Test Bluesky
@@ -78,9 +78,9 @@ try {
   };
   bluesky.validate(blueskyConfig);
   bluesky.validateContent('Hello ATmosphere!');
-  console.log('  ✅ Bluesky validation passed');
+  console.log('   Bluesky validation passed');
 } catch (e) {
-  console.log(`  ❌ Bluesky validation: ${e.message}`);
+  console.log(`   Bluesky validation: ${e.message}`);
 }
 
 // Test Moltbook
@@ -93,9 +93,9 @@ try {
   moltbook.validate('moltbook_sk_test_key_1234567890'); // Test string format
   moltbook.validateContent('Hello Moltbook!');
   moltbook.validateContent({ submolt: 'general', title: 'Test', content: 'Test content' });
-  console.log('  ✅ Moltbook validation passed');
+  console.log('   Moltbook validation passed');
 } catch (e) {
-  console.log(`  ❌ Moltbook validation: ${e.message}`);
+  console.log(`   Moltbook validation: ${e.message}`);
 }
 
 // Test Queue Manager
@@ -103,8 +103,8 @@ const QueueManager = require('./queue');
 console.log('\nTesting Queue Manager:');
 
 const queue = new QueueManager();
-console.log('  ✅ Queue manager initialized');
-console.log('  ✅ Queue file ensured');
+console.log('   Queue manager initialized');
+console.log('   Queue file ensured');
 
 const testPost = {
   platform: 'discord',
@@ -114,27 +114,27 @@ const testPost = {
 };
 
 const queued = queue.add(testPost);
-console.log(`  ${queued.id ? '✅' : '❌'} Post added to queue`);
+console.log(`  ${queued.id ? '' : ''} Post added to queue`);
 
 const pending = queue.getPending();
-console.log(`  ${pending.length > 0 ? '✅' : '❌'} Fetch pending posts`);
+console.log(`  ${pending.length > 0 ? '' : ''} Fetch pending posts`);
 
 const canceled = queue.cancel(queued.id);
-console.log(`  ${canceled ? '✅' : '❌'} Cancel post`);
+console.log(`  ${canceled ? '' : ''} Cancel post`);
 
 // Clean up test data
 const cleaned = queue.cleanup();
-console.log(`  ${cleaned >= 0 ? '✅' : '❌'} Cleanup old posts`);
+console.log(`  ${cleaned >= 0 ? '' : ''} Cleanup old posts`);
 
-console.log('\n✨ All validation tests passed!\n');
-console.log('📚 Supported Platforms (6 total):');
+console.log('\n All validation tests passed!\n');
+console.log(' Supported Platforms (6 total):');
 console.log('  - Discord (webhooks)');
 console.log('  - Reddit (OAuth2)');
 console.log('  - Twitter/X (OAuth 1.0a)');
 console.log('  - Mastodon (access token)');
 console.log('  - Bluesky (AT Protocol)');
-console.log('  - Moltbook (API key) ⭐ NEW!');
-console.log('\n💡 Quick Start:');
+console.log('  - Moltbook (API key)  NEW!');
+console.log('\n Quick Start:');
 console.log('  node scripts/post.js <platform> <config> <content>');
 console.log('  node scripts/schedule.js add <platform> <config> <content> <time>');
 console.log('  node scripts/schedule.js list');

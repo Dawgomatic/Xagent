@@ -1,7 +1,7 @@
 ---
 name: fitness-finder
 description: "Search for gyms, yoga studios, swimming pools, and sports facilities using Camino AI's location intelligence with AI-powered ranking."
-metadata: {"clawdbot":{"emoji":"💪","requires":{"env":["CAMINO_API_KEY"]},"primaryEnv":"CAMINO_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["CAMINO_API_KEY"]},"primaryEnv":"CAMINO_API_KEY"}}
 ---
 
 ## Installation

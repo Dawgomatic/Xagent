@@ -19,7 +19,7 @@ const ERC20_ABI = [
 ];
 
 async function watchBlocks(provider) {
-  console.log("👀 Watching new blocks on Abstract...\n");
+  console.log(" Watching new blocks on Abstract...\n");
   console.log("Press Ctrl+C to stop\n");
   
   let lastBlock = await provider.getBlockNumber();
@@ -32,7 +32,7 @@ async function watchBlocks(provider) {
       if (currentBlock > lastBlock) {
         for (let i = lastBlock + 1; i <= currentBlock; i++) {
           const block = await provider.getBlock(i);
-          console.log(`📦 Block ${i} | Txs: ${block.transactions.length} | Time: ${new Date(block.timestamp * 1000).toISOString()}`);
+          console.log(` Block ${i} | Txs: ${block.transactions.length} | Time: ${new Date(block.timestamp * 1000).toISOString()}`);
         }
         lastBlock = currentBlock;
       }
@@ -43,7 +43,7 @@ async function watchBlocks(provider) {
 }
 
 async function watchEthTransfers(provider, wallet) {
-  console.log(`👀 Watching ETH transfers for ${wallet}...\n`);
+  console.log(` Watching ETH transfers for ${wallet}...\n`);
   console.log("Press Ctrl+C to stop\n");
   
   let lastBlock = await provider.getBlockNumber();
@@ -59,7 +59,7 @@ async function watchEthTransfers(provider, wallet) {
               if (tx.from?.toLowerCase() === wallet.toLowerCase() || 
                   tx.to?.toLowerCase() === wallet.toLowerCase()) {
                 const direction = tx.from.toLowerCase() === wallet.toLowerCase() ? "OUT" : "IN";
-                console.log(`💸 ${direction} | ${ethers.formatEther(tx.value)} ETH | ${tx.hash}`);
+                console.log(` ${direction} | ${ethers.formatEther(tx.value)} ETH | ${tx.hash}`);
               }
             }
           }
@@ -73,7 +73,7 @@ async function watchEthTransfers(provider, wallet) {
 }
 
 async function watchERC20Transfers(provider, tokenAddress, wallet) {
-  console.log(`👀 Watching ERC20 transfers for ${wallet}...\n`);
+  console.log(` Watching ERC20 transfers for ${wallet}...\n`);
   console.log(`Token: ${tokenAddress}`);
   console.log("Press Ctrl+C to stop\n");
   
@@ -105,7 +105,7 @@ async function watchERC20Transfers(provider, tokenAddress, wallet) {
               to.toLowerCase() === wallet.toLowerCase()) {
             const direction = from.toLowerCase() === wallet.toLowerCase() ? "OUT" : "IN";
             const amount = ethers.formatUnits(value, decimals);
-            console.log(`💰 ${direction} | ${amount} ${symbol} | Block ${event.blockNumber}`);
+            console.log(` ${direction} | ${amount} ${symbol} | Block ${event.blockNumber}`);
           }
         }
         
@@ -118,7 +118,7 @@ async function watchERC20Transfers(provider, tokenAddress, wallet) {
 }
 
 async function watchContractEvents(provider, contractAddress, eventName = null) {
-  console.log(`👀 Watching events on contract ${contractAddress}...\n`);
+  console.log(` Watching events on contract ${contractAddress}...\n`);
   if (eventName) console.log(`Filtering for: ${eventName}`);
   console.log("Press Ctrl+C to stop\n");
   
@@ -136,7 +136,7 @@ async function watchContractEvents(provider, contractAddress, eventName = null) 
         });
         
         for (const log of logs) {
-          console.log(`📝 Event | Block ${log.blockNumber} | Topic: ${log.topics[0]?.slice(0, 10)}...`);
+          console.log(` Event | Block ${log.blockNumber} | Topic: ${log.topics[0]?.slice(0, 10)}...`);
           console.log(`   Data: ${log.data.slice(0, 66)}...`);
         }
         
@@ -153,7 +153,7 @@ async function main() {
   const provider = new ethers.JsonRpcProvider(ABSTRACT_RPC);
   
   if (!action) {
-    console.log("👀 Abstract Event Watcher\n");
+    console.log(" Abstract Event Watcher\n");
     console.log("Usage:");
     console.log("  node watch-events.js blocks                        # Watch new blocks");
     console.log("  node watch-events.js transfers <wallet>            # Watch ETH transfers");

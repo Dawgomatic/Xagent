@@ -101,8 +101,8 @@ For each renewal:
 
 This skill handles the audit and optimization framework. For full industry-specific automation contexts:
 
-🔗 **[AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/)** — $47 per industry. SaaS, Fintech, Healthcare, Legal, and 7 more verticals with complete agent configurations.
+ **[AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/)** — $47 per industry. SaaS, Fintech, Healthcare, Legal, and 7 more verticals with complete agent configurations.
 
-🔗 **[AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)** — Find out how much your org is losing to manual processes.
+ **[AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)** — Find out how much your org is losing to manual processes.
 
-🔗 **[Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)** — Configure your AI agent stack in minutes.
+ **[Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)** — Configure your AI agent stack in minutes.

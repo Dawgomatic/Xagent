@@ -2,13 +2,13 @@
 updated: {{UPDATED_DATE}}
 ---
 
-# 🔥 Life Timeline
+#  Life Timeline
 
 ## {{YEAR}}
 
 ### {{MONTH}}
 
-<!-- Format: **YYYY-MM-DD** 🎯|🎉|💡 [Type] Description → [[daily/YYYY-MM-DD]] -->
+<!-- Format: **YYYY-MM-DD** || [Type] Description → [[daily/YYYY-MM-DD]] -->
 {{EVENTS}}
 
 ---

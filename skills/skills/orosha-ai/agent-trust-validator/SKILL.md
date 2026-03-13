@@ -1,4 +1,4 @@
-# Agent Trust Validator 🛡️
+# Agent Trust Validator 
 
 Unified verification layer for agent credentials across multiple trust protocols (ERC-8004, ANP, KYA, SATI).
 
@@ -65,11 +65,11 @@ Result: 0.0 (untrusted) to 1.0 (fully trusted)
 
 | Protocol | Status | Check Method |
 |----------|---------|--------------|
-| **ERC-8004** | ✅ Partial | Ethereum RPC (reputation score) |
-| **ANS** | 🔄 Planned | Agent Name Service lookup |
-| **A2A Registry** | 🔄 Planned | AWS registry API |
-| **KYA** | 📋 Reference | KYA protocol spec |
-| **SATI** | 📋 Reference | SATI infrastructure |
+| **ERC-8004** |  Partial | Ethereum RPC (reputation score) |
+| **ANS** |  Planned | Agent Name Service lookup |
+| **A2A Registry** |  Planned | AWS registry API |
+| **KYA** |  Reference | KYA protocol spec |
+| **SATI** |  Reference | SATI infrastructure |
 
 ## Requirements
 

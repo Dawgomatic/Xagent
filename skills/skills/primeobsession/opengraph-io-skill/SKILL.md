@@ -3,7 +3,7 @@ name: opengraph-io
 version: 1.4.0
 description: "Extract web data, capture screenshots, scrape content, and generate AI images via OpenGraph.io. Use when working with URLs (unfurling, previews, metadata), capturing webpage screenshots, scraping HTML content, asking questions about webpages, or generating images (diagrams, icons, social cards, QR codes). Triggers: 'get the OG tags', 'screenshot this page', 'scrape this URL', 'generate a diagram', 'create a social card', 'what does this page say about'."
 homepage: https://www.opengraph.io
-metadata: {"clawdbot":{"emoji":"🔗","requires":{"bins":["curl"],"env":["OPENGRAPH_APP_ID"]},"primaryEnv":"OPENGRAPH_APP_ID","install":[{"id":"mcp","kind":"npm","package":"opengraph-io-mcp","global":true,"bins":["opengraph-io-mcp"],"label":"Install MCP server (optional, for other AI clients)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"],"env":["OPENGRAPH_APP_ID"]},"primaryEnv":"OPENGRAPH_APP_ID","install":[{"id":"mcp","kind":"npm","package":"opengraph-io-mcp","global":true,"bins":["opengraph-io-mcp"],"label":"Install MCP server (optional, for other AI clients)"}]}}
 ---
 
 # OpenGraph.io
@@ -12,7 +12,7 @@ metadata: {"clawdbot":{"emoji":"🔗","requires":{"bins":["curl"],"env":["OPENGR
 
 Extract web data, capture screenshots, and generate AI-powered images via OpenGraph.io APIs.
 
-> 🤖 **AI Agents:** For complete parameter docs and patterns, also read [references/for-ai-agents.md](references/for-ai-agents.md).
+>  **AI Agents:** For complete parameter docs and patterns, also read [references/for-ai-agents.md](references/for-ai-agents.md).
 
 ---
 
@@ -24,7 +24,7 @@ Extract web data, capture screenshots, and generate AI-powered images via OpenGr
 | Meta tags / link preview data | `GET /site/{url}` |
 | Raw HTML content | `GET /scrape/{url}` (add `use_proxy=true` if geo-blocked) |
 | Specific elements (h1, h2, p) | `GET /extract/{url}?html_elements=h1,h2,p` |
-| AI answer about the page | `POST /query/{url}` ⚠️ paid |
+| AI answer about the page | `POST /query/{url}`  paid |
 | Visual screenshot | `GET /screenshot/{url}` |
 
 ### "I need to generate an image"
@@ -50,7 +50,7 @@ with floating 3D spheres, glowing accents, 'SCAN TO DOWNLOAD' call-to-action"
 ### Diagram Tips
 - Use `diagramCode` + `diagramFormat` for reliable syntax (bypasses AI generation)
 - Use `outputStyle: "standard"` for structure-critical diagrams (premium may alter layout)
-- ❌ Don't mix syntax with description: `"graph LR A-->B make it pretty"` will fail
+-  Don't mix syntax with description: `"graph LR A-->B make it pretty"` will fail
 
 ---
 
@@ -58,14 +58,14 @@ with floating 3D spheres, glowing accents, 'SCAN TO DOWNLOAD' call-to-action"
 
 | Feature | Free Tier | Paid Plans |
 |---------|-----------|------------|
-| Site/Unfurl | ✅ 100/month | Unlimited |
-| Screenshot | ✅ 100/month | Unlimited |
-| Scrape | ✅ 100/month | Unlimited |
-| Extract | ✅ 100/month | Unlimited |
-| Query (AI) | ❌ | ✅ |
-| **Image Generation** | ✅ **4/month** | Unlimited |
+| Site/Unfurl |  100/month | Unlimited |
+| Screenshot |  100/month | Unlimited |
+| Scrape |  100/month | Unlimited |
+| Extract |  100/month | Unlimited |
+| Query (AI) |  |  |
+| **Image Generation** |  **4/month** | Unlimited |
 
-> 💡 **Try image generation free!** Get 4 premium image generations per month on the free plan — no credit card required.
+>  **Try image generation free!** Get 4 premium image generations per month on the free plan — no credit card required.
 
 Sign up at [dashboard.opengraph.io](https://dashboard.opengraph.io/register)
 

@@ -19,7 +19,7 @@ When given a contract or agreement:
 
 ### 2. Risk Analysis
 
-Flag each risk as: 🔴 High | 🟡 Medium | 🟢 Low
+Flag each risk as:  High |  Medium |  Low
 
 Common risks to check:
 - **Liability caps** — Are they reasonable? Unlimited liability?

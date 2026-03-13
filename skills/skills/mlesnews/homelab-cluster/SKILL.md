@@ -11,7 +11,7 @@ metadata:
   author: mlesnews
   org: Lumina Homelab
   domain: luminahomelab.ai
-  emoji: "🏠"
+  emoji: ""
   tags:
     - homelab
     - infrastructure

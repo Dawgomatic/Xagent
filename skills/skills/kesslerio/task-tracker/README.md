@@ -4,14 +4,14 @@ Personal task management with daily standups and weekly reviews.
 
 ## Features
 
-- 📋 **Task Management:** Create, list, complete, and archive tasks
-- 📊 **Daily Standup:** See today's priorities, blockers, and recent completions
-- 📅 **Weekly Review:** Summarize progress and plan the week ahead
-- 🏷️ **Priority Levels:** High (🔴), Medium (🟡), Low/Delegated (🟢)
-- ⏰ **Due Dates:** Track deadlines and filter by due date
-- 🚧 **Blockers:** Identify tasks blocking team members
-- 📱 **Telegram Integration:** Slash commands for quick access
-- 🤖 **Automated Briefings:** Optional cron jobs for daily/weekly summaries
+-  **Task Management:** Create, list, complete, and archive tasks
+-  **Daily Standup:** See today's priorities, blockers, and recent completions
+-  **Weekly Review:** Summarize progress and plan the week ahead
+-  **Priority Levels:** High (), Medium (), Low/Delegated ()
+-  **Due Dates:** Track deadlines and filter by due date
+-  **Blockers:** Identify tasks blocking team members
+-  **Telegram Integration:** Slash commands for quick access
+-  **Automated Briefings:** Optional cron jobs for daily/weekly summaries
 
 ## Quick Start
 
@@ -53,7 +53,7 @@ python3 ~/clawd/skills/task-tracker/scripts/weekly_review.py
 Tasks are stored in `~/clawd/memory/work/TASKS.md` using this format:
 
 ```markdown
-## 🔴 High Priority (This Week)
+##  High Priority (This Week)
 
 - [ ] **Task title** — Brief description
   - Owner: martin
@@ -63,9 +63,9 @@ Tasks are stored in `~/clawd/memory/work/TASKS.md` using this format:
 ```
 
 ### Priority Levels
-- **🔴 High:** Blocking others, critical deadline, revenue impact
-- **🟡 Medium:** Important but not urgent
-- **🟢 Low/Delegated:** Monitoring, no deadline pressure
+- ** High:** Blocking others, critical deadline, revenue impact
+- ** Medium:** Important but not urgent
+- ** Low/Delegated:** Monitoring, no deadline pressure
 
 ### Statuses
 - `Todo` → `In Progress` → `Done`
@@ -80,10 +80,10 @@ python3 scripts/standup.py
 ```
 
 Output:
-- 🎯 #1 Priority
-- ⏰ Due today
-- 🔴 High priority tasks
-- ✅ Recently completed
+-  #1 Priority
+-  Due today
+-  High priority tasks
+-  Recently completed
 
 ### Weekly Review
 ```bash

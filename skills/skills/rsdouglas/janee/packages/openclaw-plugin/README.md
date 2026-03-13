@@ -6,9 +6,9 @@ OpenClaw plugin for [Janee](https://github.com/rsdouglas/janee) — secure secre
 
 This plugin gives your OpenClaw agent secure access to API credentials through Janee's MCP server. Instead of storing API keys directly in your agent config, Janee acts as a gatekeeper:
 
-- 🔐 Keys stay encrypted in `~/.janee/`
-- 📝 Every API call is logged with timestamp, service, endpoint, and reason
-- 🚦 Future: LLM adjudication for sensitive operations (crypto trades, account changes, etc.)
+-  Keys stay encrypted in `~/.janee/`
+-  Every API call is logged with timestamp, service, endpoint, and reason
+-  Future: LLM adjudication for sensitive operations (crypto trades, account changes, etc.)
 
 ## Installation
 

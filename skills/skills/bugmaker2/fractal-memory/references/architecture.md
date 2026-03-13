@@ -113,22 +113,22 @@ Scripts handle rollups so you don't have to remember to do it.
 ## Comparison with Current System
 
 ### Current (Manual)
-- ✅ Daily files (`memory/YYYY-MM-DD.md`)
-- ✅ MEMORY.md (curated)
-- ✅ Semantic search (memory_search)
-- ❌ Manual curation (no automation)
-- ❌ Flat structure (no hierarchy)
+-  Daily files (`memory/YYYY-MM-DD.md`)
+-  MEMORY.md (curated)
+-  Semantic search (memory_search)
+-  Manual curation (no automation)
+-  Flat structure (no hierarchy)
 
 ### New (Fractal)
-- ✅ Hierarchical compression (daily → weekly → monthly)
-- ✅ Automated rollups (cron jobs)
-- ✅ Sticky-notes for timeless facts
-- ✅ State tracking (avoid duplicate processing)
-- ✅ Attention-optimized loading
+-  Hierarchical compression (daily → weekly → monthly)
+-  Automated rollups (cron jobs)
+-  Sticky-notes for timeless facts
+-  State tracking (avoid duplicate processing)
+-  Attention-optimized loading
 
 ## Implementation Plan
 
-### Phase 1: Structure Setup ✅
+### Phase 1: Structure Setup 
 - [x] Create directory structure
 - [x] Document architecture
 - [ ] Migrate existing daily files

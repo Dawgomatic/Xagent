@@ -139,9 +139,9 @@ if risk_score < 4:
 
 ## Risk Scoring
 
-- **8.0–10.0** 🟢 Low Risk – Safe to install
-- **4.0–7.9** 🟡 Moderate – Review before use
-- **0.0–3.9** 🔴 High Risk – Quarantine recommended
+- **8.0–10.0**  Low Risk – Safe to install
+- **4.0–7.9**  Moderate – Review before use
+- **0.0–3.9**  High Risk – Quarantine recommended
 
 ---
 

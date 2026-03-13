@@ -36,14 +36,14 @@ This skill enables autonomous agents to execute real-world e-commerce purchases 
 
 ## When to Use This Skill
 
-✅ **Use when:**
+ **Use when:**
 - User requests a physical product purchase
 - Budget is specified (e.g., "Buy USB cable under $15")
 - Escrow funds are available or user confirms payment method
 - Delivery address is already saved (agent cannot add new addresses)
 - User wants autonomous execution (not just price research)
 
-❌ **Don't use when:**
+ **Don't use when:**
 - User is browsing/researching only ("What are good headphones?")
 - No budget specified or unclear intent ("Maybe I need...")
 - User wants multiple price comparisons across sites (use search tool)
@@ -247,7 +247,7 @@ async function releaseOnProof(escrowId, proofHash) {
 
 ## Negative Examples (When NOT to Use)
 
-### ❌ Example 1: Vague Intent
+###  Example 1: Vague Intent
 **User:** "I think I might need some office supplies sometime"
 
 **Why NOT to use this skill:** No clear purchase intent, no budget, "might" and "sometime" indicate research phase, not purchase decision.
@@ -256,7 +256,7 @@ async function releaseOnProof(escrowId, proofHash) {
 
 ---
 
-### ❌ Example 2: Price Research Only
+###  Example 2: Price Research Only
 **User:** "What's the cheapest 4K monitor on Amazon?"
 
 **Why NOT to use this skill:** User wants comparison, not purchase. "Cheapest" suggests price research, not buying decision.
@@ -265,7 +265,7 @@ async function releaseOnProof(escrowId, proofHash) {
 
 ---
 
-### ❌ Example 3: Complex Configuration
+###  Example 3: Complex Configuration
 **User:** "Build me a custom gaming PC from parts on Newegg"
 
 **Why NOT to use this skill:** Requires compatibility checking, multiple vendors, custom builds need expert review before purchase.
@@ -274,7 +274,7 @@ async function releaseOnProof(escrowId, proofHash) {
 
 ---
 
-### ❌ Example 4: Sensitive Purchase
+###  Example 4: Sensitive Purchase
 **User:** "Order me some prescription medication"
 
 **Why NOT to use this skill:** Requires prescriptions, medical validation, sensitive personal health data.

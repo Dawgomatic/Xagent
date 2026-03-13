@@ -44,7 +44,7 @@ fi
 
 # Show what will be deleted
 echo ""
-echo -e "${YELLOW}⚠️  This will delete:${NC}"
+echo -e "${YELLOW}  This will delete:${NC}"
 echo ""
 python3 << EOF
 import json
@@ -117,4 +117,4 @@ rm -f "$SCRIPT_DIR"/wg-*.conf
 rm -f "$CONFIG_FILE"
 
 echo ""
-echo -e "${GREEN}✅ Teardown complete${NC}"
+echo -e "${GREEN} Teardown complete${NC}"

@@ -289,7 +289,7 @@ export async function cmdAuthDoctor(args: string[]): Promise<void> {
     return;
   }
 
-  const icon = (status: StatusLevel) => status === "ok" ? "✅" : status === "warn" ? "⚠️" : "❌";
+  const icon = (status: StatusLevel) => status === "ok" ? "" : status === "warn" ? "" : "";
   console.log(`${icon(report.overall_status)} Auth Doctor (${report.checked_at})`);
   console.log(`- Bearer: ${icon(report.bearer.status)} ${report.bearer.message}`);
   console.log(`- xAI: ${icon(report.xai.status)} ${report.xai.message}`);
@@ -337,7 +337,7 @@ export async function cmdHealth(args: string[]): Promise<void> {
     return;
   }
 
-  const icon = (status: StatusLevel) => status === "ok" ? "✅" : status === "warn" ? "⚠️" : "❌";
+  const icon = (status: StatusLevel) => status === "ok" ? "" : status === "warn" ? "" : "";
   console.log(`${icon(report.overall_status)} xint Health (${report.checked_at})`);
   console.log(`- Auth status: ${icon(report.auth.overall_status)} ${report.auth.overall_status}`);
   console.log(`- Budget: ${report.budget.allowed ? "within limit" : "exceeded"} ($${report.budget.spent_usd.toFixed(2)} / $${report.budget.limit_usd.toFixed(2)})`);

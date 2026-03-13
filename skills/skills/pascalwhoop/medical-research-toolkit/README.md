@@ -38,17 +38,17 @@ medical-research-toolkit/
 
 ## Key Features
 
-✅ **14+ Databases** — ChEMBL, PubMed, ClinicalTrials, OpenTargets, OpenFDA, OMIM, Reactome, UniProt, KEGG, GWAS, and more
+ **14+ Databases** — ChEMBL, PubMed, ClinicalTrials, OpenTargets, OpenFDA, OMIM, Reactome, UniProt, KEGG, GWAS, and more
 
-✅ **No Setup** — Use the production endpoint immediately (https://mcp.cloud.curiloo.com)
+ **No Setup** — Use the production endpoint immediately (https://mcp.cloud.curiloo.com)
 
-✅ **Real Examples** — Every database has actual curl commands you can run
+ **Real Examples** — Every database has actual curl commands you can run
 
-✅ **Complete Workflows** — Full drug repurposing pipeline with all steps
+ **Complete Workflows** — Full drug repurposing pipeline with all steps
 
-✅ **Clear Documentation** — Written for researchers (medical jargon included but explained)
+ **Clear Documentation** — Written for researchers (medical jargon included but explained)
 
-✅ **Multiple Use Cases** — Drug repurposing, target discovery, clinical evidence, literature mining
+ **Multiple Use Cases** — Drug repurposing, target discovery, clinical evidence, literature mining
 
 ## Common Use Cases
 

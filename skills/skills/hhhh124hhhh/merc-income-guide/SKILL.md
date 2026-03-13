@@ -124,13 +124,13 @@ Mercor uses its own time tracking system - no additional setup needed.
 ## Profile Optimization Tips
 
 ### 1. Complete All Sections
-- ✅ Professional photo
-- ✅ Complete bio
-- ✅ Skills list (prioritize top skills)
-- ✅ Work history with achievements
-- ✅ Portfolio links
-- ✅ Education
-- ✅ Certifications
+-  Professional photo
+-  Complete bio
+-  Skills list (prioritize top skills)
+-  Work history with achievements
+-  Portfolio links
+-  Education
+-  Certifications
 
 ### 2. Use Keywords Strategically
 Include keywords from your target job descriptions:

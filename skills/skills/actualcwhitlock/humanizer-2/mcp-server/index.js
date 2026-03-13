@@ -112,7 +112,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     switch (name) {
       case 'score': {
         const s = score(args.text);
-        const badge = s <= 25 ? '🟢' : s <= 50 ? '🟡' : s <= 75 ? '🟠' : '🔴';
+        const badge = s <= 25 ? '' : s <= 50 ? '' : s <= 75 ? '' : '';
         return {
           content: [
             {
@@ -178,7 +178,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         let output = `## Humanization Suggestions\n\n`;
         
         if (suggestions.critical?.length > 0) {
-          output += `### 🔴 Critical (Dead giveaways)\n`;
+          output += `###  Critical (Dead giveaways)\n`;
           for (const s of suggestions.critical) {
             output += `- ${s}\n`;
           }
@@ -186,7 +186,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
         
         if (suggestions.important?.length > 0) {
-          output += `### 🟠 Important (Noticeable patterns)\n`;
+          output += `###  Important (Noticeable patterns)\n`;
           for (const s of suggestions.important) {
             output += `- ${s}\n`;
           }
@@ -194,7 +194,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
         
         if (suggestions.guidance?.length > 0) {
-          output += `### 🟡 Guidance (Writing tips)\n`;
+          output += `###  Guidance (Writing tips)\n`;
           for (const s of suggestions.guidance.slice(0, 5)) {
             output += `- ${s}\n`;
           }
@@ -202,7 +202,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
         
         if (args.autofix && suggestions.autofix?.text) {
-          output += `### ✅ Auto-fixed Text\n\n${suggestions.autofix.text}\n`;
+          output += `###  Auto-fixed Text\n\n${suggestions.autofix.text}\n`;
         }
         
         return { content: [{ type: 'text', text: output }] };

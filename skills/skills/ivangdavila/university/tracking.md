@@ -42,9 +42,9 @@
 Module Progress
 | Module | Studied | Mastery | Status |
 |--------|---------|---------|--------|
-| Mod 1  | 12h     | 85%     | ✅     |
-| Mod 2  | 8h      | 60%     | 🔄     |
-| Mod 3  | 0h      | -       | ⬜     |
+| Mod 1  | 12h     | 85%     |      |
+| Mod 2  | 8h      | 60%     |      |
+| Mod 3  | 0h      | -       |      |
 
 Time This Week
 Mon: 2h | Tue: 1.5h | Wed: 0h | Thu: 2h | Fri: 1h
@@ -66,9 +66,9 @@ Target: 10h | Actual: 6.5h | Pace: Behind
 - What's needed to get back on track
 
 ### Risk Indicators
-- 🟢 On track
-- 🟡 Slightly behind, recoverable
-- 🔴 Significantly behind, action needed
+-  On track
+-  Slightly behind, recoverable
+-  Significantly behind, action needed
 
 ## Comparative Analytics
 

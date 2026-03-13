@@ -1,7 +1,7 @@
 ---
 name: Math
 description: Teach, solve, and explore mathematics across all levels with adaptive depth and rigor.
-metadata: {"clawdbot":{"emoji":"🔢","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

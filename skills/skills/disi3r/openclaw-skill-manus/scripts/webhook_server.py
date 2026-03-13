@@ -51,7 +51,7 @@ class WebhookHandler(BaseHTTPRequestHandler):
                 self.wfile.write(b'{"status": "ok"}')
                 
             except Exception as e:
-                print(f"❌ Error processing webhook: {e}")
+                print(f" Error processing webhook: {e}")
                 self.send_response(400)
                 self.end_headers()
         else:
@@ -63,7 +63,7 @@ class WebhookHandler(BaseHTTPRequestHandler):
         event_type = data.get("event", "unknown")
         
         print("\n" + "=" * 60)
-        print(f"📢 Manus Webhook: {event_type}")
+        print(f" Manus Webhook: {event_type}")
         print("=" * 60)
         
         if event_type == "task.completed":
@@ -71,7 +71,7 @@ class WebhookHandler(BaseHTTPRequestHandler):
             task_id = task.get("id", "N/A")
             title = task.get("metadata", {}).get("task_title", "N/A")
             
-            print(f"✅ Task Completed!")
+            print(f" Task Completed!")
             print(f"   ID: {task_id}")
             print(f"   Title: {title}")
             print(f"   URL: https://manus.im/app/{task_id}")
@@ -85,7 +85,7 @@ class WebhookHandler(BaseHTTPRequestHandler):
             task_id = task.get("id", "N/A")
             error = task.get("error", "Unknown error")
             
-            print(f"❌ Task Failed!")
+            print(f" Task Failed!")
             print(f"   ID: {task_id}")
             print(f"   Error: {error}")
         
@@ -94,7 +94,7 @@ class WebhookHandler(BaseHTTPRequestHandler):
             task_id = task.get("id", "N/A")
             title = task.get("metadata", {}).get("task_title", "N/A")
             
-            print(f"📋 Task Created")
+            print(f" Task Created")
             print(f"   ID: {task_id}")
             print(f"   Title: {title}")
         
@@ -120,11 +120,11 @@ def register_webhook(api_key, webhook_url):
     response = requests.post(url, json=data, headers=headers)
     
     if response.status_code != 200:
-        print(f"❌ Error registering webhook: {response.text}")
+        print(f" Error registering webhook: {response.text}")
         return None
     
     result = response.json()
-    print(f"✅ Webhook registered!")
+    print(f" Webhook registered!")
     print(f"   ID: {result.get('id')}")
     return result.get("id")
 
@@ -155,15 +155,15 @@ def main():
     
     if args.register:
         if not args.url:
-            print("❌ Error: --url required with --register")
+            print(" Error: --url required with --register")
             print("   Example: python3 webhook_server.py 8080 --register --url https://your-domain.com/webhook/manus")
             sys.exit(1)
         
-        print("🔗 Registering webhook with Manus...")
+        print(" Registering webhook with Manus...")
         register_webhook(api_key, args.url)
         print()
     
-    print("🧠 Manus Webhook Server")
+    print(" Manus Webhook Server")
     print("=" * 40)
     print(f"Listening on port: {args.port}")
     print(f"Webhook endpoint: /webhook/manus")
@@ -176,7 +176,7 @@ def main():
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print("\n🛑 Server stopped")
+        print("\n Server stopped")
         server.shutdown()
 
 if __name__ == "__main__":

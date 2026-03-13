@@ -110,22 +110,22 @@ Domain-specific guidance for cryptocurrency research challenges.
 In cryptocurrency, marketing often masquerades as research. Assess sources using these indicators:
 
 **Credible Research Signals:**
-- ✅ Multi-source data verification with citations
-- ✅ Balanced analysis (strengths AND weaknesses discussed)
-- ✅ Methodology transparency (explains how conclusions reached)
-- ✅ Risk acknowledgment and limitations disclosed
-- ✅ Independent authorship (no direct project affiliation)
-- ✅ Evidence-based claims with specific data/examples
-- ✅ Critical questions asked, not just praise
+-  Multi-source data verification with citations
+-  Balanced analysis (strengths AND weaknesses discussed)
+-  Methodology transparency (explains how conclusions reached)
+-  Risk acknowledgment and limitations disclosed
+-  Independent authorship (no direct project affiliation)
+-  Evidence-based claims with specific data/examples
+-  Critical questions asked, not just praise
 
 **Marketing/PR Red Flags:**
-- 🚩 Single-source claims without verification
-- 🚩 One-sided narrative (only positives, no risks)
-- 🚩 Vague claims without specific evidence ("revolutionary," "game-changing")
-- 🚩 Excessive superlatives and hype language
-- 🚩 Project-affiliated authorship without disclosure
-- 🚩 Focus on token price potential over fundamentals
-- 🚩 Comparisons highlighting only strengths vs competitors
+-  Single-source claims without verification
+-  One-sided narrative (only positives, no risks)
+-  Vague claims without specific evidence ("revolutionary," "game-changing")
+-  Excessive superlatives and hype language
+-  Project-affiliated authorship without disclosure
+-  Focus on token price potential over fundamentals
+-  Comparisons highlighting only strengths vs competitors
 
 **Common ambiguous sources:**
 - Paid research (may be quality but has bias—disclose this clearly)
@@ -173,9 +173,9 @@ Cryptocurrency markets and technology evolve extremely rapidly. Data currency si
 
 Data freshness is important, but credibility takes priority. When facing trade-offs:
 
-- ✅ **Recent credible data** > Stale credible data (ideal scenario)
-- ✅ **Stale credible data** > Recent questionable data (credibility wins)
-- ⚠️ If only stale data available → Use it, but flag staleness clearly
+-  **Recent credible data** > Stale credible data (ideal scenario)
+-  **Stale credible data** > Recent questionable data (credibility wins)
+-  If only stale data available → Use it, but flag staleness clearly
 
 **Example trade-off:**
 - Official announcement from 2 weeks ago > Twitter rumor from today
@@ -183,7 +183,7 @@ Data freshness is important, but credibility takes priority. When facing trade-o
 
 **Execution guidance:**
 - Include data dates with all sources: `(Source, YYYY-MM-DD)`
-- Flag stale data when it may affect accuracy: `⚠️ Data from [date] - may not reflect recent changes`
+- Flag stale data when it may affect accuracy: ` Data from [date] - may not reflect recent changes`
 - Acknowledge gaps: "Most recent available data is from [date]; current metrics may differ"
 - Never fabricate freshness or omit dates
 
@@ -200,13 +200,13 @@ Cryptocurrency rumors and unverified information can signal valuable opportuniti
 
 **How to handle unverified information:**
 
-✅ **DO:**
+ **DO:**
 - Include rumors when potentially relevant to investment thesis
 - Clearly communicate they are unverified: "Unconfirmed reports suggest..." or "Community speculation indicates..."
 - Provide context: Where did it originate? Source credibility? Supporting indicators?
 - Let users assess risk:reward with full information
 
-❌ **DON'T:**
+ **DON'T:**
 - Present rumors as verified facts
 - Exclude potentially valuable signals just because unverified
 - Mix verified data and rumors without distinction

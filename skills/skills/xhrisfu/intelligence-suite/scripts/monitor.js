@@ -15,7 +15,7 @@ const cheerio = require('cheerio');
 
 const parser = new Parser();
 
-console.log("🌍 Makima is analyzing the world timeline...");
+console.log(" Makima is analyzing the world timeline...");
 
 const SOURCES = [
     { name: "Reuters", url: "https://www.reutersagency.com/feed/?best-regions=global&post_type=best", category: "Global" },

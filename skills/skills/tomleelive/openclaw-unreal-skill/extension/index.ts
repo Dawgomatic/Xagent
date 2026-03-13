@@ -384,7 +384,7 @@ const plugin = {
           .command("status")
           .description("Show Unreal connection status")
           .action(() => {
-            console.log("\n🎮 Unreal Plugin Status\n");
+            console.log("\n Unreal Plugin Status\n");
             
             if (sessions.size === 0) {
               console.log("  No Unreal sessions connected.\n");
@@ -399,7 +399,7 @@ const plugin = {
               const age = Math.round((Date.now() - session.registeredAt) / 1000);
               const lastSeen = Math.round((Date.now() - session.lastHeartbeat) / 1000);
               
-              console.log(`  ✅ ${session.projectName}`);
+              console.log(`   ${session.projectName}`);
               console.log(`     Engine: UE ${session.engineVersion}`);
               console.log(`     Platform: ${session.platform}`);
               console.log(`     Session: ${id}`);

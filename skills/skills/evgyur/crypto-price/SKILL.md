@@ -1,7 +1,7 @@
 ---
 name: crypto-price
 description: Get cryptocurrency token price and generate candlestick charts via CoinGecko API or Hyperliquid API. Use when user asks for token price, crypto price, price chart, or cryptocurrency market data.
-metadata: {"clawdbot":{"emoji":"📈","requires":{"bins":["python3"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
 # Crypto Price & Chart

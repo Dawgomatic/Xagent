@@ -4,14 +4,14 @@
 
 ## What This Skill Does
 
-✅ Deploy existing projects to Vercel (production/preview)  
-✅ Manage environment variables  
-✅ Check deployment status and logs  
-✅ Troubleshoot deployment issues  
+ Deploy existing projects to Vercel (production/preview)  
+ Manage environment variables  
+ Check deployment status and logs  
+ Troubleshoot deployment issues  
 
-❌ No code generation  
-❌ No "describe your app" builders  
-❌ No magic deployments of non-existent projects  
+ No code generation  
+ No "describe your app" builders  
+ No magic deployments of non-existent projects  
 
 ## Quick Start
 

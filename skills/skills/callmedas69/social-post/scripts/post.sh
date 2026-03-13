@@ -373,8 +373,8 @@ if [ "$POST_FARCASTER" = true ]; then
 fi
 
 if [ "$SUCCESS" = true ]; then
-  echo "✅ Done!"
+  echo " Done!"
 else
-  echo "⚠️ Some posts failed. Check output above."
+  echo " Some posts failed. Check output above."
   exit 1
 fi

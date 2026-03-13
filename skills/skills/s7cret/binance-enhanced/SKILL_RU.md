@@ -3,9 +3,9 @@
 **Улучшенный навык для торговли на Binance с OpenClaw**  
 *Версия 2.0 — создано с помощью параллельных агентов за 20 минут*
 
-## 🚀 Особенности
+##  Особенности
 
-### 🔧 Основные улучшения
+###  Основные улучшения
 1. **Полная тестовая инфраструктура** — mock-файлы, интеграционные тесты, проверка подключения
 2. **Безопасность** — система лимитов, шифрование ключей, детальное логирование
 3. **UX/UI** — парсер natural language команд, интерактивный диалог, Telegram-бот
@@ -14,7 +14,7 @@
 6. **Торговые стратегии** — DCA, grid-торговля, арбитраж, backtesting
 7. **Документация** — шаблоны конфигурации, FAQ, гайды, лучшие практики
 
-## 📁 Структура пакета
+##  Структура пакета
 
 ```
 binance-enhanced/
@@ -88,7 +88,7 @@ binance-enhanced/
     └── README.md
 ```
 
-## 🛠️ Быстрый старт
+##  Быстрый старт
 
 ### 1. Установка зависимостей
 ```bash
@@ -147,7 +147,7 @@ cd monitoring/dashboard
 FLASK_APP=app.py flask run --host=0.0.0.0 --port=8080
 ```
 
-## 🔐 Безопасность
+##  Безопасность
 
 ### Система лимитов
 ```bash
@@ -179,7 +179,7 @@ log_txn --type order --symbol BTCUSDT --side BUY --qty 0.001 --price 40000 --sta
 query_logs BTCUSDT
 ```
 
-## 🤖 Использование
+##  Использование
 
 ### Natural Language Commands
 ```python
@@ -233,7 +233,7 @@ results = engine.run()
 print(results.metrics)
 ```
 
-## 📊 Мониторинг
+##  Мониторинг
 
 ### Уведомления
 ```python
@@ -261,7 +261,7 @@ FLASK_APP=app.py flask run --host=0.0.0.0 --port=8080
 # http://localhost:8080
 ```
 
-## 🧪 Тестирование
+##  Тестирование
 
 ### Unit тесты
 ```bash
@@ -281,7 +281,7 @@ python3 -c "import json; json.load(open('test/mocks/ping.json'))"
 BINANCE_TESTNET_URL=https://testnet.binance.vision ./test/test_integration.sh
 ```
 
-## 🔧 Производительность
+##  Производительность
 
 ### Кэширование
 ```python
@@ -316,7 +316,7 @@ async def main():
 asyncio.run(main())
 ```
 
-## 📈 Метрики и бенчмарки
+##  Метрики и бенчмарки
 ```bash
 # Запуск бенчмарков
 cd performance
@@ -326,7 +326,7 @@ python3 benchmark.py
 cat metrics.json | jq .
 ```
 
-## 🚀 Развёртывание
+##  Развёртывание
 
 ### Docker
 ```dockerfile
@@ -359,7 +359,7 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-## 🔄 Интеграция с OpenClaw
+##  Интеграция с OpenClaw
 
 ### Конфигурация OpenClaw
 ```json
@@ -389,18 +389,18 @@ openclaw binance portfolio
 openclaw binance alerts status
 ```
 
-## 📝 Лицензия
+##  Лицензия
 
 MIT License — свободное использование, модификация и распространение.
 
-## 🤝 Вклад в развитие
+##  Вклад в развитие
 
 1. Форкните репозиторий
 2. Создайте ветку для вашей функции
 3. Добавьте тесты
 4. Отправьте pull request
 
-## 🐛 Поддержка
+##  Поддержка
 
 - **Issues:** https://github.com/your-username/binance-enhanced/issues
 - **Discord:** https://discord.gg/openclaw

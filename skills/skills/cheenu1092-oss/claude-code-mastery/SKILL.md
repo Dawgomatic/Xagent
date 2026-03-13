@@ -4,7 +4,7 @@ version: "1.4.3"
 description: "Master Claude Code for coding tasks. Includes setup scripts, dev team subagents (starter pack or full team), self-improving learning system, diagnostics, and troubleshooting."
 author: "Clawdbot Community"
 license: "MIT"
-metadata: {"openclaw":{"emoji":"🧑‍💻"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # Claude Code Mastery
@@ -15,18 +15,18 @@ Complete skill for setting up, optimizing, and mastering Claude Code with a full
 
 ---
 
-## ⚡ Quick Check: Is Setup Complete?
+##  Quick Check: Is Setup Complete?
 
 **Run this first:**
 ```bash
-command -v claude >/dev/null && echo "✅ Claude Code installed - SKIP to 'Daily Use' section" || echo "❌ Not installed - follow 'First-Time Setup' below"
+command -v claude >/dev/null && echo " Claude Code installed - SKIP to 'Daily Use' section" || echo " Not installed - follow 'First-Time Setup' below"
 ```
 
 If Claude Code is already installed, **skip directly to the "Daily Use" section below.**
 
 ---
 
-# 🔧 FIRST-TIME SETUP (Skip if already installed)
+#  FIRST-TIME SETUP (Skip if already installed)
 
 > **Note to bot:** Only follow this section if Claude Code is NOT installed. Check with the command above. Once setup is complete, this section can be ignored on future invocations.
 
@@ -80,7 +80,7 @@ After setup, add the maintenance task to your HEARTBEAT.md (see "Heartbeat Maint
 
 ---
 
-# 📘 DAILY USE (Always relevant)
+#  DAILY USE (Always relevant)
 
 This section covers ongoing usage - reference this for all coding tasks.
 

@@ -65,10 +65,10 @@ Categorize each variable:
 
 | Category | Pattern | Examples |
 |----------|---------|---------|
-| 🔴 Secrets | `*KEY*`, `*SECRET*`, `*TOKEN*`, `*PASSWORD*`, `*CREDENTIAL*` | `API_KEY`, `JWT_SECRET` |
-| 🟡 Service URLs | `*URL*`, `*HOST*`, `*ENDPOINT*`, `*URI*` | `DATABASE_URL`, `REDIS_HOST` |
-| 🟢 Configuration | `*PORT*`, `*ENV*`, `*MODE*`, `*LEVEL*`, `*DEBUG*` | `PORT`, `NODE_ENV`, `LOG_LEVEL` |
-| ⚪ Other | Everything else | `APP_NAME`, `MAX_RETRIES` |
+|  Secrets | `*KEY*`, `*SECRET*`, `*TOKEN*`, `*PASSWORD*`, `*CREDENTIAL*` | `API_KEY`, `JWT_SECRET` |
+|  Service URLs | `*URL*`, `*HOST*`, `*ENDPOINT*`, `*URI*` | `DATABASE_URL`, `REDIS_HOST` |
+|  Configuration | `*PORT*`, `*ENV*`, `*MODE*`, `*LEVEL*`, `*DEBUG*` | `PORT`, `NODE_ENV`, `LOG_LEVEL` |
+|  Other | Everything else | `APP_NAME`, `MAX_RETRIES` |
 
 ### 4. Generate .env.example
 
@@ -88,7 +88,7 @@ LOG_LEVEL=info
 # --- Database ---
 DATABASE_URL=postgresql://user:password@localhost:5432/dbname
 
-# --- Authentication (🔴 SECRET — never commit real values) ---
+# --- Authentication ( SECRET — never commit real values) ---
 JWT_SECRET=change-me-in-production
 API_KEY=your-api-key-here
 
@@ -100,7 +100,7 @@ Rules:
 - Secrets get placeholder values (`change-me`, `your-xxx-here`)
 - Config vars get sensible defaults
 - Group by category with comment headers
-- Add `🔴 SECRET` warning on sensitive vars
+- Add ` SECRET` warning on sensitive vars
 
 ### 5. Validate Current .env
 
@@ -109,14 +109,14 @@ If `.env` exists, compare against discovered variables:
 ```markdown
 ## .env Validation Report
 
-### ❌ Missing (required by code but not in .env)
+###  Missing (required by code but not in .env)
 - `STRIPE_SECRET_KEY` — referenced in src/billing.ts:14
 - `SMTP_PASSWORD` — referenced in src/email.ts:8
 
-### ⚠️ Unused (in .env but not referenced in code)
+###  Unused (in .env but not referenced in code)
 - `OLD_API_ENDPOINT` — may be safe to remove
 
-### ✅ Present and referenced
+###  Present and referenced
 - `DATABASE_URL` ✓
 - `PORT` ✓
 - `NODE_ENV` ✓
@@ -152,11 +152,11 @@ If found, warn the user that secrets may be in git history and suggest `git filt
 | Metric | Count |
 |--------|-------|
 | Total vars found | 15 |
-| 🔴 Secrets | 4 |
-| ❌ Missing from .env | 2 |
-| ⚠️ Unused in .env | 1 |
-| ✅ Properly configured | 12 |
-| .gitignore protection | ✅ |
+|  Secrets | 4 |
+|  Missing from .env | 2 |
+|  Unused in .env | 1 |
+|  Properly configured | 12 |
+| .gitignore protection |  |
 ```
 
 ## Edge Cases

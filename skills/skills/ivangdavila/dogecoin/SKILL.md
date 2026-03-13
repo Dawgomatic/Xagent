@@ -1,7 +1,7 @@
 ---
 name: Dogecoin
 description: Assist with Dogecoin DOGE transactions, wallet management, and network characteristics.
-metadata: {"clawdbot":{"emoji":"🐕","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Network Basics

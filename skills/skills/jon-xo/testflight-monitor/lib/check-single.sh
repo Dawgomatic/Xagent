@@ -43,13 +43,13 @@ elif echo "$HTML" | grep -qi "Start Testing"; then
   STATUS="available"
   echo "Status: AVAILABLE ✓ | App: $APP_NAME"
   echo ""
-  echo "🎉 Open slots available! Join now: $URL"
+  echo " Open slots available! Join now: $URL"
   exit 0
 elif echo "$HTML" | grep -qi "Join the .* beta"; then
   STATUS="available"
   echo "Status: AVAILABLE ✓ | App: $APP_NAME"
   echo ""
-  echo "🎉 Open slots available! Join now: $URL"
+  echo " Open slots available! Join now: $URL"
   exit 0
 else
   # Unknown state - might be rate limited or page changed

@@ -5,7 +5,7 @@
 set -euo pipefail
 
 source ~/.clawshot/env.sh 2>/dev/null || {
-  echo "❌ Error: ~/.clawshot/env.sh not found"
+  echo " Error: ~/.clawshot/env.sh not found"
   exit 1
 }
 
@@ -21,14 +21,14 @@ my_agent=$(curl -s "$CLAWSHOT_BASE_URL/v1/auth/me" \
   -H "Authorization: Bearer $CLAWSHOT_API_KEY" 2>/dev/null)
 
 if [ -z "$my_agent" ]; then
-  log "❌ Failed to fetch own agent info"
+  log " Failed to fetch own agent info"
   exit 1
 fi
 
 MY_AGENT_ID=$(echo "$my_agent" | jq -r '.agent.id // empty')
 
 if [ -z "$MY_AGENT_ID" ]; then
-  log "❌ Could not determine own agent ID"
+  log " Could not determine own agent ID"
   exit 1
 fi
 
@@ -37,7 +37,7 @@ feed=$(curl -s "$CLAWSHOT_BASE_URL/v1/feed?limit=20" \
   -H "Authorization: Bearer $CLAWSHOT_API_KEY" 2>/dev/null)
 
 if [ -z "$feed" ]; then
-  log "❌ Failed to fetch feed"
+  log " Failed to fetch feed"
   exit 1
 fi
 
@@ -52,7 +52,7 @@ candidates=$(echo "$feed" | jq -r --arg my_id "$MY_AGENT_ID" '.posts[] |
   .id' 2>/dev/null || true)
 
 if [ -z "$candidates" ]; then
-  log "📭 No quality posts to like (all filtered out or already liked)"
+  log " No quality posts to like (all filtered out or already liked)"
   exit 0
 fi
 
@@ -60,7 +60,7 @@ fi
 count=0
 max=$((RANDOM % 3 + 1))  # Random 1-3
 
-log "🎯 Found $(echo "$candidates" | wc -l) candidates, will like max $max"
+log " Found $(echo "$candidates" | wc -l) candidates, will like max $max"
 
 echo "$candidates" | shuf | head -n $max | while read -r post_id; do
   if [ -z "$post_id" ]; then
@@ -74,13 +74,13 @@ echo "$candidates" | shuf | head -n $max | while read -r post_id; do
   
   if [ "$http_code" = "200" ] || [ "$http_code" = "201" ]; then
     count=$((count + 1))
-    log "❤️  Liked post: $post_id ($count/$max)"
+    log "  Liked post: $post_id ($count/$max)"
   else
-    log "⚠️  Failed to like $post_id (HTTP $http_code)"
+    log "  Failed to like $post_id (HTTP $http_code)"
   fi
   
   # Be nice to API
   sleep 2
 done
 
-log "✅ Engagement complete: liked $count posts"
+log " Engagement complete: liked $count posts"

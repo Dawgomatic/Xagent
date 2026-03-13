@@ -107,14 +107,14 @@ def format_alerts(products: List[Dict], opportunities: List[Dict], alert_below: 
     if alert_below:
         for product in products:
             if product["price"] <= alert_below:
-                alerts.append(f"🔴 PRICE DROP: {product['title']} on {product['platform']}: ${product['price']:.2f} (below ${alert_below:.2f})")
+                alerts.append(f" PRICE DROP: {product['title']} on {product['platform']}: ${product['price']:.2f} (below ${alert_below:.2f})")
 
     # Arbitrage opportunity alerts
     if alert_margin:
         for opp in opportunities:
             if opp["margin"] >= alert_margin:
                 alerts.append(
-                    f"💰 ARBITRAGE: Buy from {opp['buy_from']} (${opp['buy_price']:.2f}) → Sell on {opp['sell_on']} (${opp['sell_price']:.2f}) → Margin: {opp['margin_percent']}"
+                    f" ARBITRAGE: Buy from {opp['buy_from']} (${opp['buy_price']:.2f}) → Sell on {opp['sell_on']} (${opp['sell_price']:.2f}) → Margin: {opp['margin_percent']}"
                 )
 
     return "\n".join(alerts) if alerts else "No alerts triggered."
@@ -137,7 +137,7 @@ def format_markdown(products: List[Dict], opportunities: List[Dict], alerts: str
     md += "|----------|-----------|---------|------------|--------|\n"
 
     for opp in opportunities:
-        color = "🟢" if opp["margin"] >= 0.20 else "🟡" if opp["margin"] >= 0.10 else "🔴"
+        color = "" if opp["margin"] >= 0.20 else "" if opp["margin"] >= 0.10 else ""
         md += f"| {opp['buy_from']} | ${opp['buy_price']:.2f} | {opp['sell_on']} | ${opp['sell_price']:.2f} | {color} {opp['margin_percent']} |\n"
 
     if alerts:

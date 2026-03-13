@@ -24,10 +24,10 @@ log() {
 # 初始化JSON和Markdown
 echo '{"date": "'$DATE'", "sources": []}' > "$RAW_FILE"
 cat > "$MARKDOWN_FILE" << EOF
-# 🤖 AI内容收集报告 - $DATE
+#  AI内容收集报告 - $DATE
 
-> ⏰ 收集时间: $(date '+%Y-%m-%d %H:%M:%S')  
-> 📊 数据源: Hacker News | Reddit | TechCrunch
+>  收集时间: $(date '+%Y-%m-%d %H:%M:%S')  
+>  数据源: Hacker News | Reddit | TechCrunch
 
 ---
 
@@ -39,7 +39,7 @@ TOTAL=0
 ###############################################################################
 # 1. Hacker News - 热门AI内容
 ###############################################################################
-log "📡 [1/3] Hacker News..."
+log " [1/3] Hacker News..."
 
 HN_FILE=$(mktemp)
 # 使用不同的搜索词获取更热门的内容
@@ -47,7 +47,7 @@ API_URL="https://hn.algolia.com/api/v1/search?query=AI+OR+GPT+OR+LLM&tags=story&
 
 if curl -s --max-time 30 "$API_URL" -o "$HN_FILE" 2>/dev/null && jq -e '.hits' "$HN_FILE" > /dev/null 2>&1; then
     COUNT=$(jq '.hits | length' "$HN_FILE")
-    log "   ✅ 获取到 $COUNT 条"
+    log "    获取到 $COUNT 条"
     
     ITEMS=$(jq '[.hits[] | select(.points >= 10)] | map({
         title: .title,
@@ -62,32 +62,32 @@ if curl -s --max-time 30 "$API_URL" -o "$HN_FILE" 2>/dev/null && jq -e '.hits' "
     
     ITEM_COUNT=$(echo "$ITEMS" | jq 'length')
     if [[ $ITEM_COUNT -gt 0 ]]; then
-        SOURCE_JSON=$(jq -n --arg name "🔥 Hacker News" --arg id "hn-ai" --argjson items "$ITEMS" \
+        SOURCE_JSON=$(jq -n --arg name " Hacker News" --arg id "hn-ai" --argjson items "$ITEMS" \
             '{name: $name, id: $id, count: ($items | length), items: $items}')
         jq --argjson source "$SOURCE_JSON" '.sources += [$source]' "$RAW_FILE" > "${RAW_FILE}.tmp" && mv "${RAW_FILE}.tmp" "$RAW_FILE"
         
         {
-            echo "## 🔥 Hacker News - 热门AI内容"
+            echo "##  Hacker News - 热门AI内容"
             echo ""
             echo "$ITEMS" | jq -r '.[] | 
                 "### " + .title + "\n" +
-                "- 📊 **热度**: ⬆️ " + (.points | tostring) + " points | 💬 " + (.comments | tostring) + " comments\n" +
-                "- 👤 **作者**: @" + .author + "\n" +
-                "- 🔗 **链接**: [原文](" + .url + ") | [HN讨论](" + .hn_url + ")\n" +
+                "-  **热度**:  " + (.points | tostring) + " points |  " + (.comments | tostring) + " comments\n" +
+                "-  **作者**: @" + .author + "\n" +
+                "-  **链接**: [原文](" + .url + ") | [HN讨论](" + .hn_url + ")\n" +
                 "---\n"
             '
         } >> "$MARKDOWN_FILE"
         TOTAL=$((TOTAL + ITEM_COUNT))
     fi
 else
-    log "   ❌ 获取失败"
+    log "    获取失败"
 fi
 rm -f "$HN_FILE"
 
 ###############################################################################
 # 2. Reddit - 多个AI相关社区
 ###############################################################################
-log "📡 [2/3] Reddit AI社区..."
+log " [2/3] Reddit AI社区..."
 
 # Reddit r/ArtificialIntelligence
 REDDIT_FILE=$(mktemp)
@@ -111,23 +111,23 @@ if curl -s --max-time 30 \
         
         ITEM_COUNT=$(echo "$ITEMS" | jq 'length')
         if [[ $ITEM_COUNT -gt 0 ]]; then
-            SOURCE_JSON=$(jq -n --arg name "🤖 Reddit r/AI" --arg id "reddit-ai" --argjson items "$ITEMS" \
+            SOURCE_JSON=$(jq -n --arg name " Reddit r/AI" --arg id "reddit-ai" --argjson items "$ITEMS" \
                 '{name: $name, id: $id, count: ($items | length), items: $items}')
             jq --argjson source "$SOURCE_JSON" '.sources += [$source]' "$RAW_FILE" > "${RAW_FILE}.tmp" && mv "${RAW_FILE}.tmp" "$RAW_FILE"
             
             {
-                echo "## 🤖 Reddit r/ArtificialIntelligence"
+                echo "##  Reddit r/ArtificialIntelligence"
                 echo ""
                 echo "$ITEMS" | jq -r '.[] | 
                     "### " + .title + "\n" +
-                    "- 📊 **热度**: ⬆️ " + (.upvotes | tostring) + " upvotes | 💬 " + (.comments | tostring) + " comments\n" +
-                    "- 👤 **作者**: u/" + .author + " | 📰 " + .domain + "\n" +
-                    "- 🔗 **链接**: [原文](" + .url + ") | [Reddit](" + .permalink + ")\n" +
+                    "-  **热度**:  " + (.upvotes | tostring) + " upvotes |  " + (.comments | tostring) + " comments\n" +
+                    "-  **作者**: u/" + .author + " |  " + .domain + "\n" +
+                    "-  **链接**: [原文](" + .url + ") | [Reddit](" + .permalink + ")\n" +
                     "---\n"
                 '
             } >> "$MARKDOWN_FILE"
             TOTAL=$((TOTAL + ITEM_COUNT))
-            log "   ✅ r/AI: $ITEM_COUNT 条"
+            log "    r/AI: $ITEM_COUNT 条"
         fi
     fi
 fi
@@ -154,23 +154,23 @@ if curl -s --max-time 30 \
         
         ITEM_COUNT=$(echo "$ITEMS" | jq 'length')
         if [[ $ITEM_COUNT -gt 0 ]]; then
-            SOURCE_JSON=$(jq -n --arg name "🚀 Reddit r/singularity" --arg id "reddit-singularity" --argjson items "$ITEMS" \
+            SOURCE_JSON=$(jq -n --arg name " Reddit r/singularity" --arg id "reddit-singularity" --argjson items "$ITEMS" \
                 '{name: $name, id: $id, count: ($items | length), items: $items}')
             jq --argjson source "$SOURCE_JSON" '.sources += [$source]' "$RAW_FILE" > "${RAW_FILE}.tmp" && mv "${RAW_FILE}.tmp" "$RAW_FILE"
             
             {
-                echo "## 🚀 Reddit r/singularity"
+                echo "##  Reddit r/singularity"
                 echo ""
                 echo "$ITEMS" | jq -r '.[] | 
                     "### " + .title + "\n" +
-                    "- 📊 **热度**: ⬆️ " + (.upvotes | tostring) + " upvotes | 💬 " + (.comments | tostring) + " comments\n" +
-                    "- 👤 **作者**: u/" + .author + " | 📰 " + .domain + "\n" +
-                    "- 🔗 **链接**: [原文](" + .url + ") | [Reddit](" + .permalink + ")\n" +
+                    "-  **热度**:  " + (.upvotes | tostring) + " upvotes |  " + (.comments | tostring) + " comments\n" +
+                    "-  **作者**: u/" + .author + " |  " + .domain + "\n" +
+                    "-  **链接**: [原文](" + .url + ") | [Reddit](" + .permalink + ")\n" +
                     "---\n"
                 '
             } >> "$MARKDOWN_FILE"
             TOTAL=$((TOTAL + ITEM_COUNT))
-            log "   ✅ r/singularity: $ITEM_COUNT 条"
+            log "    r/singularity: $ITEM_COUNT 条"
         fi
     fi
 fi
@@ -179,7 +179,7 @@ rm -f "$REDDIT_FILE"
 ###############################################################################
 # 3. TechCrunch - AI分类 (使用 RSS 转 JSON 服务)
 ###############################################################################
-log "📡 [3/3] TechCrunch..."
+log " [3/3] TechCrunch..."
 
 # 使用rss2json服务获取TechCrunch AI内容
 TECHCRUNCH_FILE=$(mktemp)
@@ -199,28 +199,28 @@ if curl -s --max-time 30 \
         
         ITEM_COUNT=$(echo "$ITEMS" | jq 'length')
         if [[ $ITEM_COUNT -gt 0 ]]; then
-            SOURCE_JSON=$(jq -n --arg name "📰 TechCrunch AI" --arg id "techcrunch-ai" --argjson items "$ITEMS" \
+            SOURCE_JSON=$(jq -n --arg name " TechCrunch AI" --arg id "techcrunch-ai" --argjson items "$ITEMS" \
                 '{name: $name, id: $id, count: ($items | length), items: $items}')
             jq --argjson source "$SOURCE_JSON" '.sources += [$source]' "$RAW_FILE" > "${RAW_FILE}.tmp" && mv "${RAW_FILE}.tmp" "$RAW_FILE"
             
             {
-                echo "## 📰 TechCrunch - AI板块"
+                echo "##  TechCrunch - AI板块"
                 echo ""
                 echo "$ITEMS" | jq -r '.[] | 
                     "### " + .title + "\n" +
-                    "- 👤 **作者**: " + .author + "\n" +
-                    "- 📅 **发布**: " + .published + "\n" +
-                    "- 📝 **摘要**: " + .description + "...\n" +
-                    "- 🔗 **链接**: [阅读原文](" + .url + ")\n" +
+                    "-  **作者**: " + .author + "\n" +
+                    "-  **发布**: " + .published + "\n" +
+                    "-  **摘要**: " + .description + "...\n" +
+                    "-  **链接**: [阅读原文](" + .url + ")\n" +
                     "---\n"
                 '
             } >> "$MARKDOWN_FILE"
             TOTAL=$((TOTAL + ITEM_COUNT))
-            log "   ✅ TechCrunch: $ITEM_COUNT 条"
+            log "    TechCrunch: $ITEM_COUNT 条"
         fi
     fi
 else
-    log "   ⚠️ TechCrunch RSS暂时不可用"
+    log "    TechCrunch RSS暂时不可用"
 fi
 rm -f "$TECHCRUNCH_FILE"
 
@@ -228,13 +228,13 @@ rm -f "$TECHCRUNCH_FILE"
 # 完成统计
 ###############################################################################
 log "========== 收集完成 =========="
-log "📊 总计: $TOTAL 条内容"
+log " 总计: $TOTAL 条内容"
 
 echo "" >> "$MARKDOWN_FILE"
 echo "---" >> "$MARKDOWN_FILE"
 echo "" >> "$MARKDOWN_FILE"
-echo "📊 **汇总**: 共收集 $TOTAL 条AI相关内容" >> "$MARKDOWN_FILE"
+echo " **汇总**: 共收集 $TOTAL 条AI相关内容" >> "$MARKDOWN_FILE"
 
 echo ""
-echo "✅ 收集完成! 共 $TOTAL 条"
-echo "📄 $MARKDOWN_FILE"
+echo " 收集完成! 共 $TOTAL 条"
+echo " $MARKDOWN_FILE"

@@ -1,7 +1,7 @@
 ---
 name: trust-escrow
 description: Create and manage USDC escrows for agent-to-agent payments on Base Sepolia. 30% gas savings, batch operations, dispute resolution.
-metadata: {"clawdbot":{"emoji":"🫘","requires":{"network":"base-sepolia"}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"network":"base-sepolia"}}}
 ---
 
 # Trust Escrow V2
@@ -276,12 +276,12 @@ console.log('Payment released!');
 
 ## Features
 
-- ⚡ **30% gas savings** - Optimized storage + custom errors
-- 📦 **Batch operations** - 41% gas reduction for bulk
-- ⚖️ **Dispute resolution** - Arbitrator resolves conflicts
-- ⏱️ **Cancellation window** - 30 minutes to cancel
-- 🔍 **Inspection period** - 1 hour before auto-release
-- 🤖 **Keeper automation** - Permissionless auto-release
+-  **30% gas savings** - Optimized storage + custom errors
+-  **Batch operations** - 41% gas reduction for bulk
+-  **Dispute resolution** - Arbitrator resolves conflicts
+-  **Cancellation window** - 30 minutes to cancel
+-  **Inspection period** - 1 hour before auto-release
+-  **Keeper automation** - Permissionless auto-release
 
 ---
 
@@ -298,11 +298,11 @@ console.log('Payment released!');
 
 ## Security
 
-- ✅ ReentrancyGuard on all functions
-- ✅ Input validation with custom errors
-- ✅ State machine validation
-- ✅ OpenZeppelin contracts (audited)
-- ✅ Solidity 0.8.20+ (overflow protection)
+-  ReentrancyGuard on all functions
+-  Input validation with custom errors
+-  State machine validation
+-  OpenZeppelin contracts (audited)
+-  Solidity 0.8.20+ (overflow protection)
 
 ---
 
@@ -318,4 +318,4 @@ console.log('Payment released!');
 ---
 
 **Built for #USDCHackathon - Agentic Commerce Track**  
-**Built by beanbot 🫘**
+**Built by beanbot **

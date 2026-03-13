@@ -30,25 +30,25 @@ The skill walks your agent through a structured process: discovery → scoring �
 
 ## What's Inside
 
-- 📋 **Process Mapping Template** — YAML schema for documenting any business process
-- 📊 **Automation Scoring Matrix** — 5-dimension scoring to prioritize which processes to automate first
-- 🔧 **6 Complete Workflow Patterns** — Lead processing, invoicing, onboarding, reporting, support escalation, content publishing
-- 🏗️ **Implementation Templates** — Cron jobs, scripts, API integrations, data mappings
-- 📈 **Monitoring Dashboard** — Track reliability, impact, quality, and cost savings
-- 💰 **ROI Calculator** — Prove the business case with real numbers
-- ⚠️ **Edge Case Guide** — Timezone handling, rate limits, partial failures, duplicate processing, schema changes
+-  **Process Mapping Template** — YAML schema for documenting any business process
+-  **Automation Scoring Matrix** — 5-dimension scoring to prioritize which processes to automate first
+-  **6 Complete Workflow Patterns** — Lead processing, invoicing, onboarding, reporting, support escalation, content publishing
+-  **Implementation Templates** — Cron jobs, scripts, API integrations, data mappings
+-  **Monitoring Dashboard** — Track reliability, impact, quality, and cost savings
+-  **ROI Calculator** — Prove the business case with real numbers
+-  **Edge Case Guide** — Timezone handling, rate limits, partial failures, duplicate processing, schema changes
 
-## ⚡ Level Up
+##  Level Up
 
 This free skill covers workflow design and implementation. For **industry-specific automation playbooks** with pre-built workflows, compliance checklists, and vendor integration guides:
 
-- 🏢 [SaaS Operations Pack](https://afrexai-cto.github.io/context-packs/) — $47
-- 🏭 [Manufacturing Pack](https://afrexai-cto.github.io/context-packs/) — $47
-- 💼 [Professional Services Pack](https://afrexai-cto.github.io/context-packs/) — $47
+-  [SaaS Operations Pack](https://afrexai-cto.github.io/context-packs/) — $47
+-  [Manufacturing Pack](https://afrexai-cto.github.io/context-packs/) — $47
+-  [Professional Services Pack](https://afrexai-cto.github.io/context-packs/) — $47
 
 Each pack includes 5 deep-dive context files tailored to your industry's specific automation needs.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Full lead generation & prospecting engine
 - [afrexai-budget-tracker](https://clawhub.com/skills/afrexai-budget-tracker) — Financial tracking with smart insights

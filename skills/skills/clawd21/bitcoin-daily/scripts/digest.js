@@ -105,7 +105,7 @@ async function fetchMailingList() {
 
     return threads;
   } catch (e) {
-    console.error(`⚠️ Mailing list fetch error: ${e.message}`);
+    console.error(` Mailing list fetch error: ${e.message}`);
     return [];
   }
 }
@@ -168,7 +168,7 @@ async function fetchThread(thread) {
       fetchedAt: new Date().toISOString()
     };
   } catch (e) {
-    console.error(`⚠️ Failed to fetch thread ${thread.id}: ${e.message}`);
+    console.error(` Failed to fetch thread ${thread.id}: ${e.message}`);
     return null;
   }
 }
@@ -183,7 +183,7 @@ async function fetchCommits(since) {
   });
 
   if (res.status !== 200) {
-    console.error(`❌ Failed to fetch commits (${res.status})`);
+    console.error(` Failed to fetch commits (${res.status})`);
     return [];
   }
 
@@ -199,7 +199,7 @@ async function fetchCommits(since) {
       url: c.html_url
     }));
   } catch (e) {
-    console.error(`❌ Failed to parse commits: ${e.message}`);
+    console.error(` Failed to parse commits: ${e.message}`);
     return [];
   }
 }
@@ -240,7 +240,7 @@ function archiveData(date, data) {
     fs.writeFileSync(path.join(dir, 'summary.md'), data.summary);
   }
 
-  console.log(`📁 Archived to ${dir}`);
+  console.log(` Archived to ${dir}`);
   return dir;
 }
 
@@ -254,7 +254,7 @@ function generateSummary(date, threads, commits) {
   lines.push('');
 
   // Mailing list section
-  lines.push('## 📧 Mailing List Activity');
+  lines.push('##  Mailing List Activity');
   lines.push('');
 
   const validThreads = threads.filter(Boolean);
@@ -275,7 +275,7 @@ function generateSummary(date, threads, commits) {
   }
 
   // Commits section
-  lines.push('## 💻 Bitcoin Core Commits (master)');
+  lines.push('##  Bitcoin Core Commits (master)');
   lines.push('');
 
   if (commits.length === 0) {
@@ -308,11 +308,11 @@ async function main() {
       const targetDate = args[1] ? new Date(args[1] + 'T00:00:00') : getYesterday();
       const dateStr = formatDate(targetDate);
 
-      console.log(`📰 Bitcoin Dev Digest for ${dateStr}`);
+      console.log(` Bitcoin Dev Digest for ${dateStr}`);
       console.log('='.repeat(40));
 
       // Fetch mailing list threads
-      console.log('📧 Fetching mailing list...');
+      console.log(' Fetching mailing list...');
       const threadList = await fetchMailingList();
       console.log(`  Found ${threadList.length} threads on front page`);
 
@@ -329,7 +329,7 @@ async function main() {
       console.log(`  Fetched ${threads.length} threads`);
 
       // Fetch commits
-      console.log('💻 Fetching Bitcoin Core commits...');
+      console.log(' Fetching Bitcoin Core commits...');
       const sinceDate = new Date(targetDate);
       sinceDate.setHours(0, 0, 0, 0);
       const commits = await fetchCommits(sinceDate);
@@ -355,7 +355,7 @@ async function main() {
         .sort()
         .reverse();
 
-      console.log(`📁 Archive (${dates.length} days)`);
+      console.log(` Archive (${dates.length} days)`);
       console.log('='.repeat(40));
       for (const d of dates) {
         const dir = path.join(ARCHIVE_DIR, d);
@@ -378,7 +378,7 @@ async function main() {
       }
       const summaryPath = path.join(ARCHIVE_DIR, dateStr, 'summary.md');
       if (!fs.existsSync(summaryPath)) {
-        console.error(`❌ No archive for ${dateStr}`);
+        console.error(` No archive for ${dateStr}`);
         process.exit(1);
       }
       console.log(fs.readFileSync(summaryPath, 'utf8'));
@@ -387,7 +387,7 @@ async function main() {
 
     default:
       console.log(`
-📰 Bitcoin Dev Daily Digest
+ Bitcoin Dev Daily Digest
 
 Commands:
   digest [YYYY-MM-DD]    Fetch & summarize (default: yesterday)
@@ -400,6 +400,6 @@ Archive: ~/workspace/bitcoin-dev-archive/
 }
 
 main().catch(e => {
-  console.error(`❌ ${e.message}`);
+  console.error(` ${e.message}`);
   process.exit(1);
 });

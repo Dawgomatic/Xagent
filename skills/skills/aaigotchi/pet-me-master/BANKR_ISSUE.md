@@ -1,18 +1,18 @@
 # Bankr Integration Issue & Fix
 
 **Date:** 2026-02-16  
-**Status:** ⚠️ Workaround Implemented  
+**Status:**  Workaround Implemented  
 **Issue:** Bankr API not executing Aavegotchi contract calls
 
 ---
 
-## 🐛 The Problem
+##  The Problem
 
 When using `pet-via-bankr.sh` to pet Aavegotchis, the Bankr API:
 
-1. ✅ Accepts the transaction request
-2. ✅ Returns `"status": "completed"`
-3. ❌ **But doesn't actually execute the transaction on-chain**
+1.  Accepts the transaction request
+2.  Returns `"status": "completed"`
+3.  **But doesn't actually execute the transaction on-chain**
 
 **Bankr Response:**
 ```json
@@ -29,18 +29,18 @@ When using `pet-via-bankr.sh` to pet Aavegotchis, the Bankr API:
 ```bash
 PROMPT="Execute this transaction now (do not ask for confirmation): {\"to\": \"${CONTRACT}\", \"data\": \"${CALLDATA}\", \"value\": \"0\", \"chainId\": ${CHAIN_ID}}"
 ```
-❌ Result: "I don't have enough verified information"
+ Result: "I don't have enough verified information"
 
 **Attempt 2: Descriptive prompt**
 ```bash
 PROMPT="Send a transaction on Base chain to pet Aavegotchi #21785..."
 ```
-❌ Result: Same error, transaction not executed
+ Result: Same error, transaction not executed
 
 **Attempt 3: Multiple retries**
 - Tried 5+ times for gotchi #21785
 - Tried 5+ times for gotchi #10052
-❌ Result: All "completed" but never executed on-chain
+ Result: All "completed" but never executed on-chain
 
 ### What Actually Works
 
@@ -54,11 +54,11 @@ cast send "$CONTRACT" \
   --private-key "$PRIVATE_KEY"
 ```
 
-✅ Result: Transaction executes immediately and confirms on-chain
+ Result: Transaction executes immediately and confirms on-chain
 
 ---
 
-## ✅ The Fix
+##  The Fix
 
 Updated `pet-via-bankr.sh` to **automatically use the working method**:
 
@@ -84,7 +84,7 @@ exit 1
 
 ---
 
-## 🔍 Root Cause Analysis
+##  Root Cause Analysis
 
 **Hypothesis:** Bankr's agent doesn't recognize the Aavegotchi contract or `interact()` function.
 
@@ -101,23 +101,23 @@ exit 1
 
 ---
 
-## 📋 Verification Test
+##  Verification Test
 
 **Test case:** Pet gotchi #9638, #21785, #10052
 
 | Gotchi | Method | Result | Tx Hash | Notes |
 |--------|--------|--------|---------|-------|
-| #9638 | aavegotchi/pet.sh | ✅ Success | 0x56b897... | Worked immediately |
-| #21785 | pet-via-bankr.sh | ❌ Failed | N/A | Bankr: "not enough info" |
-| #21785 | aavegotchi/pet.sh | ✅ Success | 0xabdcab... | Worked immediately |
-| #10052 | pet-via-bankr.sh | ❌ Failed | N/A | Bankr: "not enough info" |
-| #10052 | aavegotchi/pet.sh | ✅ Success | 0xdad051... | Worked immediately |
+| #9638 | aavegotchi/pet.sh |  Success | 0x56b897... | Worked immediately |
+| #21785 | pet-via-bankr.sh |  Failed | N/A | Bankr: "not enough info" |
+| #21785 | aavegotchi/pet.sh |  Success | 0xabdcab... | Worked immediately |
+| #10052 | pet-via-bankr.sh |  Failed | N/A | Bankr: "not enough info" |
+| #10052 | aavegotchi/pet.sh |  Success | 0xdad051... | Worked immediately |
 
 **Conclusion:** Foundry method = 100% success rate, Bankr method = 0% success rate
 
 ---
 
-## 🔄 Future Fix
+##  Future Fix
 
 **To properly fix Bankr integration:**
 
@@ -142,7 +142,7 @@ exit 1
 
 ---
 
-## 📚 Related Files
+##  Related Files
 
 - `scripts/pet-via-bankr.sh` - Fixed version (uses aavegotchi fallback)
 - `scripts/pet-via-bankr-fixed.sh` - Experimental version with better prompts
@@ -151,7 +151,7 @@ exit 1
 
 ---
 
-## 💡 Lessons Learned
+##  Lessons Learned
 
 1. **Always verify on-chain** - Don't trust API "success" responses
 2. **Have fallbacks** - If integration fails, use proven methods
@@ -160,7 +160,7 @@ exit 1
 
 ---
 
-**Status:** ✅ **RESOLVED** (via workaround)  
+**Status:**  **RESOLVED** (via workaround)  
 **Next Steps:** Monitor Bankr updates, re-test integration quarterly
 
-**LFGOTCHi!** 🦞💜
+**LFGOTCHi!** 

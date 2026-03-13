@@ -422,7 +422,7 @@ def export_calendar(zone, output_file, custom_plants=None):
     # Security: Validate output path
     output_path = Path(output_file)
     if not is_safe_path(output_path):
-        print(f"❌ Security error: Cannot write to '{output_path}'")
+        print(f" Security error: Cannot write to '{output_path}'")
         print("   Path must be within workspace or home directory (not system paths)")
         return False
     
@@ -504,7 +504,7 @@ def main():
         plants = get_plant(args.zone, db["custom"])
         
         month = get_current_month().capitalize()
-        print(f"\n🌱 Planting in {month} for Zone {args.zone.upper()}")
+        print(f"\n Planting in {month} for Zone {args.zone.upper()}")
         print("-" * 70)
         
         if not plants:
@@ -533,7 +533,7 @@ def main():
         db = load_db()
         plants = get_plants_for_month(args.month, args.zone, db["custom"])
         
-        print(f"\n🌱 Planting in {args.month.capitalize()} for Zone {args.zone.upper()}")
+        print(f"\n Planting in {args.month.capitalize()} for Zone {args.zone.upper()}")
         print("-" * 70)
         
         if not plants:
@@ -556,7 +556,7 @@ def main():
         else:
             calendar = get_year_calendar(args.zone, db["custom"])
             
-            print(f"\n📅 Full Year Calendar - Zone {args.zone.upper()}")
+            print(f"\n Full Year Calendar - Zone {args.zone.upper()}")
             print("=" * 70)
             
             months = list(month_name)[1:]
@@ -578,16 +578,16 @@ def main():
         results = search_plants(sys.argv[2], db["custom"])
         
         if not results:
-            print(f"🔍 No plants found for '{sys.argv[2]}'")
+            print(f" No plants found for '{sys.argv[2]}'")
             return
         
-        print(f"\n🔍 Search results for '{sys.argv[2]}':")
+        print(f"\n Search results for '{sys.argv[2]}':")
         print("-" * 70)
         for r in results:
             zones_str = ", ".join(r["zones"])
             months_str = ", ".join(r["planting"])
             notes = f"\n  Notes: {r['notes']}" if r['notes'] else ""
-            print(f"\n  🌿 {r['name']} ({r['category']})")
+            print(f"\n   {r['name']} ({r['category']})")
             print(f"     Zones: {zones_str}")
             print(f"     Planting: {months_str}{notes}")
         print()
@@ -600,7 +600,7 @@ def main():
         plant = show_plant(sys.argv[2], db["custom"])
         
         if not plant:
-            print(f"❌ Plant '{sys.argv[2]}' not found.")
+            print(f" Plant '{sys.argv[2]}' not found.")
             print("   Use 'search' to find plants.")
             return
         
@@ -608,7 +608,7 @@ def main():
         months_str = ", ".join(plant["planting"])
         notes = f"\n  Notes: {plant['notes']}" if plant['notes'] else ""
         
-        print(f"\n🌿 {plant['name']}")
+        print(f"\n {plant['name']}")
         print("=" * 70)
         print(f"Category: {plant['category']}")
         print(f"Zones: {zones_str}")
@@ -626,7 +626,7 @@ def main():
         add_plant(args.name, args.planting, args.zone, args.category, args.notes)
 
     else:
-        print(f"❌ Unknown command: {command}")
+        print(f" Unknown command: {command}")
 
 if __name__ == "__main__":
     main()

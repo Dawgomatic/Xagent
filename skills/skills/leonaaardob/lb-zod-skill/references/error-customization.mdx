@@ -67,13 +67,13 @@ This custom error will show up as the `message` property of any validation issue
 
 ```ts
 z.string("Not a string!").parse(12);
-// ❌ throws ZodError {
+//  throws ZodError {
 //   issues: [
 //     {
 //       expected: 'string',
 //       code: 'invalid_type',
 //       path: [],
-//       message: 'Not a string!'   <-- 👀 custom error message
+//       message: 'Not a string!'   <--  custom error message
 //     }
 //   ]
 // }
@@ -250,7 +250,7 @@ z.string().parse(12, {
 //   {
 //     "expected": "string",
 //     "code": "invalid_type",
-//     "input": 12, // 👀
+//     "input": 12, // 
 //     "path": [],
 //     "message": "Invalid input: expected string, received number"
 //   }

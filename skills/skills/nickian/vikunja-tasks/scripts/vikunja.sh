@@ -55,7 +55,7 @@ format_tasks() {
     if length == 0 then "No tasks found."
     else
       .[] |
-      "[\(if .done then "✅" else "⬜" end)] \(.title)" +
+      "[\(if .done then "" else "" end)] \(.title)" +
       (if .due_date != null and .due_date != "0001-01-01T00:00:00Z" then "\n    Due: \(.due_date[0:10])" else "" end) +
       (if .priority > 0 then "\n    Priority: \(.priority)/5" else "" end) +
       "\n    ID: \(.id)\n"
@@ -209,7 +209,7 @@ cmd_complete() {
   if echo "$RESPONSE" | jq -e '.done' > /dev/null 2>&1; then
     local TITLE
     TITLE=$(echo "$RESPONSE" | jq -r '.title')
-    echo "Completed: $TITLE (id: $ID) ✅"
+    echo "Completed: $TITLE (id: $ID) "
   else
     echo "Error completing task:" >&2
     echo "$RESPONSE" | jq . 2>/dev/null || echo "$RESPONSE" >&2

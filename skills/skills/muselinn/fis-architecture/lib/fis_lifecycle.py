@@ -71,17 +71,17 @@ class SubAgentLifecycle:
         # 自动发送工牌到 WhatsApp
         self._send_badge_whatsapp(badge_path, agent_name, ticket_id)
         
-        print(f"✅ Task created: {ticket_id}")
-        print(f"📁 Ticket: {ticket_path}")
-        print(f"🎨 Badge: {badge_path}")
-        print(f"📋 Output requirements: {task_package['output_requirements']}")
+        print(f" Task created: {ticket_id}")
+        print(f" Ticket: {ticket_path}")
+        print(f" Badge: {badge_path}")
+        print(f" Output requirements: {task_package['output_requirements']}")
         
         return ticket_id, task_package
     
     def _generate_badge(self, agent_name, role, task_desc, requirements):
         """生成工牌"""
         if not BADGE_GENERATOR.exists():
-            print(f"⚠️ Badge generator not found")
+            print(f" Badge generator not found")
             return None
         
         badge_script = f"""
@@ -110,7 +110,7 @@ print(output)
                     return line.strip()
             return result.stdout.strip()
         except Exception as e:
-            print(f"⚠️ Badge generation error: {e}")
+            print(f" Badge generation error: {e}")
             return None
     
     def _send_badge_whatsapp(self, badge_path, agent_name, ticket_id):
@@ -118,8 +118,8 @@ print(output)
         if not badge_path:
             return
         
-        # 清理路径（移除可能的 "✅ Badge: " 前缀）
-        badge_str = str(badge_path).replace('✅ Badge: ', '').strip()
+        # 清理路径（移除可能的 " Badge: " 前缀）
+        badge_str = str(badge_path).replace(' Badge: ', '').strip()
         src = Path(badge_str)
         
         # 如果路径是相对路径或包含环境变量，尝试解析
@@ -128,7 +128,7 @@ print(output)
             src = Path.home() / badge_str.replace('/home/muselinn/', '').replace('/home/user/', '')
         
         if not src.exists():
-            print(f"⚠️ Badge file not found: {badge_str}")
+            print(f" Badge file not found: {badge_str}")
             # 尝试在常见位置查找
             alt_paths = [
                 Path.home() / ".openclaw" / "output" / "badges" / f"badge_v7_{agent_name}.png",
@@ -150,13 +150,13 @@ print(output)
         dst = allowed_dir / f"badge_{ticket_id.split('_')[-1][:20]}.png"
         try:
             shutil.copy2(src, dst)
-            print(f"📤 Badge ready for WhatsApp: {dst.name}")
+            print(f" Badge ready for WhatsApp: {dst.name}")
         except Exception as e:
-            print(f"⚠️ Failed to copy badge: {e}")
+            print(f" Failed to copy badge: {e}")
             return
         
         # 生成发送命令（供外部调用或自动执行）
-        caption = f"🎫 新任务工牌\\nAgent: {agent_name}\\nTicket: {ticket_id[:40]}..."
+        caption = f" 新任务工牌\\nAgent: {agent_name}\\nTicket: {ticket_id[:40]}..."
         
         # 尝试使用 openclaw CLI 发送
         try:
@@ -169,11 +169,11 @@ print(output)
             ]
             result = subprocess.run(send_cmd, capture_output=True, text=True, timeout=30)
             if result.returncode == 0:
-                print(f"✅ Badge sent to WhatsApp!")
+                print(f" Badge sent to WhatsApp!")
             else:
-                print(f"📱 WhatsApp send: openclaw message send --channel whatsapp --target +8618009073880 --media {dst} --message \"{caption}\"")
+                print(f" WhatsApp send: openclaw message send --channel whatsapp --target +8618009073880 --media {dst} --message \"{caption}\"")
         except Exception as e:
-            print(f"📱 To send: openclaw message send --channel whatsapp --target +8618009073880 --media {dst} --message \"{caption}\"")
+            print(f" To send: openclaw message send --channel whatsapp --target +8618009073880 --media {dst} --message \"{caption}\"")
     
     def verify_deliverables(self, ticket_id):
         """
@@ -182,7 +182,7 @@ print(output)
         """
         ticket_path = TICKETS_DIR / "active" / f"{ticket_id}.json"
         if not ticket_path.exists():
-            print(f"❌ Ticket not found: {ticket_id}")
+            print(f" Ticket not found: {ticket_id}")
             return False
         
         task = json.loads(ticket_path.read_text())
@@ -218,12 +218,12 @@ print(output)
         else:
             missing_files = requirements
         
-        print(f"\n📦 Deliverables check for {ticket_id}:")
-        print(f"   ✅ Found: {len(found_files)}/{len(requirements)}")
+        print(f"\n Deliverables check for {ticket_id}:")
+        print(f"    Found: {len(found_files)}/{len(requirements)}")
         for f in found_files:
             print(f"      - {Path(f).name}")
         if missing_files:
-            print(f"   ❌ Missing: {missing_files}")
+            print(f"    Missing: {missing_files}")
         
         return len(missing_files) == 0, found_files, missing_files
     
@@ -238,7 +238,7 @@ print(output)
         completed_path = TICKETS_DIR / "completed" / f"{ticket_id}.json"
         
         if not active_path.exists():
-            print(f"❌ Ticket not found in active: {ticket_id}")
+            print(f" Ticket not found in active: {ticket_id}")
             return False
         
         task = json.loads(active_path.read_text())
@@ -247,7 +247,7 @@ print(output)
         is_complete, found_files, missing = self.verify_deliverables(ticket_id)
         
         if not is_complete:
-            print(f"⚠️ Task {ticket_id} has missing deliverables!")
+            print(f" Task {ticket_id} has missing deliverables!")
             response = input("   Force complete? (y/N): ")
             if response.lower() != 'y':
                 return False
@@ -270,10 +270,10 @@ print(output)
         completed_path.write_text(json.dumps(task, indent=2, ensure_ascii=False))
         active_path.unlink()
         
-        print(f"\n✅ Task completed: {ticket_id}")
-        print(f"📁 Archived to: {completed_path}")
+        print(f"\n Task completed: {ticket_id}")
+        print(f" Archived to: {completed_path}")
         if auto_collect and found_files:
-            print(f"📦 Deliverables collected to: {result_dir}")
+            print(f" Deliverables collected to: {result_dir}")
         
         return True
     
@@ -306,7 +306,7 @@ print(output)
         active_dir = TICKETS_DIR / "active"
         tickets = list(active_dir.glob("*.json"))
         
-        print(f"\n🔄 Active Tasks ({len(tickets)}):")
+        print(f"\n Active Tasks ({len(tickets)}):")
         for t in tickets:
             task = json.loads(t.read_text())
             print(f"   • {task['ticket_id'][:50]}... [{task['role']}] {task['task']['description'][:30]}")
@@ -348,7 +348,7 @@ def main():
         ticket_id, task = lifecycle.create_task(
             args.agent, args.task, args.role, args.outputs, args.deadline
         )
-        print(f"\n🚀 Ready to spawn:")
+        print(f"\n Ready to spawn:")
         print(f"   sessions_spawn(task='{args.task}', label='{args.agent}')")
         print(f"\n   After completion, run:")
         print(f"   fis_lifecycle complete --ticket-id {ticket_id}")

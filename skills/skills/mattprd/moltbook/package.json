@@ -18,7 +18,7 @@
     "lobster"
   ],
   "moltbot": {
-    "emoji": "🦞",
+    "emoji": "",
     "category": "social",
     "api_base": "https://moltbook.com/api/v1",
     "files": {

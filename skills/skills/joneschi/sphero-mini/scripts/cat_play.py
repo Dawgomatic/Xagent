@@ -19,7 +19,7 @@ async def cat_play_mode():
         await sphero.wake()
         await asyncio.sleep(1)
         
-        print("🐱 Cat play mode activated! (逗貓模式啟動)")
+        print(" Cat play mode activated! (逗貓模式啟動)")
         print("Random movement for 1 minute...\n")
         
         # Random colors to attract cat attention
@@ -65,14 +65,14 @@ async def cat_play_mode():
                 await sphero.roll(0, 0)
                 await asyncio.sleep(random.uniform(0.2, 0.5))
         
-        print("\n⏰ Time's up!")
+        print("\n Time's up!")
         print("Stopping...")
         await sphero.roll(0, 0)
         
         # Set to white so you can find it
         await sphero.setLEDColor(255, 255, 255)
         
-        print(f"✓ Cat play mode complete! Made {move_count} random moves 🐱")
+        print(f"✓ Cat play mode complete! Made {move_count} random moves ")
         
     finally:
         await sphero.disconnect()

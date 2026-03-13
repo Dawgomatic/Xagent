@@ -18,7 +18,7 @@ export async function revokeCommand(sessionIdPrefix: string): Promise<void> {
     const sessionsFile = path.join(getConfigDir(), 'sessions.json');
 
     if (!fs.existsSync(sessionsFile)) {
-      console.error('❌ No sessions file found');
+      console.error(' No sessions file found');
       process.exit(1);
     }
 
@@ -29,14 +29,14 @@ export async function revokeCommand(sessionIdPrefix: string): Promise<void> {
     const session = sessions.find(s => s.id.startsWith(sessionIdPrefix));
 
     if (!session) {
-      console.error(`❌ Session not found: ${sessionIdPrefix}`);
+      console.error(` Session not found: ${sessionIdPrefix}`);
       console.error('');
       console.error('Run: janee sessions');
       process.exit(1);
     }
 
     if (session.revoked) {
-      console.log(`⚠️  Session already revoked: ${session.id.substring(0, 20)}...`);
+      console.log(`  Session already revoked: ${session.id.substring(0, 20)}...`);
       return;
     }
 
@@ -46,7 +46,7 @@ export async function revokeCommand(sessionIdPrefix: string): Promise<void> {
     // Save back
     fs.writeFileSync(sessionsFile, JSON.stringify(sessions, null, 2), { mode: 0o600 });
 
-    console.log(`✅ Session revoked: ${session.id.substring(0, 20)}...`);
+    console.log(` Session revoked: ${session.id.substring(0, 20)}...`);
     console.log('');
     console.log(`   Capability: ${session.capability}`);
     console.log(`   Service: ${session.service}`);
@@ -58,9 +58,9 @@ export async function revokeCommand(sessionIdPrefix: string): Promise<void> {
 
   } catch (error) {
     if (error instanceof Error) {
-      console.error('❌ Error:', error.message);
+      console.error(' Error:', error.message);
     } else {
-      console.error('❌ Unknown error occurred');
+      console.error(' Unknown error occurred');
     }
     process.exit(1);
   }

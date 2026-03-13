@@ -4,64 +4,64 @@ Visual reference for the skill package structure.
 
 ---
 
-## 📁 Package Layout
+##  Package Layout
 
 ```
 clawdbot-for-vcs/                    [172 KB total]
 │
-├── 📘 README.md                     [12 KB]    ⭐ START HERE
+├──  README.md                     [12 KB]     START HERE
 │   └─ Package overview, quick-start guide, examples, FAQ
 │
-├── 📗 QUICKSTART.md                 [6.7 KB]   ⚡ FAST SETUP
+├──  QUICKSTART.md                 [6.7 KB]    FAST SETUP
 │   └─ Ultra-condensed 30-minute setup guide
 │
-├── 📙 BOOTSTRAP.md                  [14 KB]    📋 DETAILED SETUP
+├──  BOOTSTRAP.md                  [14 KB]     DETAILED SETUP
 │   └─ Step-by-step installation and configuration
 │
-├── 📕 SKILL.md                      [31 KB]    📚 COMPLETE REFERENCE
+├──  SKILL.md                      [31 KB]     COMPLETE REFERENCE
 │   └─ Full workflow documentation (email, CRM, memos, calendar, briefings)
 │
-├── 📄 CONTRIBUTING.md               [7.4 KB]
+├──  CONTRIBUTING.md               [7.4 KB]
 │   └─ How to contribute improvements and features
 │
-├── 📄 CHANGELOG.md                  [4.7 KB]
+├──  CHANGELOG.md                  [4.7 KB]
 │   └─ Version history and roadmap (v1.1, v2.0)
 │
-├── 📄 PACKAGE-SUMMARY.md            [9.8 KB]
+├──  PACKAGE-SUMMARY.md            [9.8 KB]
 │   └─ High-level overview with metrics and key info
 │
-├── 📄 COMPLETION-REPORT.md          [25 KB]
+├──  COMPLETION-REPORT.md          [25 KB]
 │   └─ Detailed build report and verification
 │
-├── 📄 STRUCTURE.md                  [This file]
+├──  STRUCTURE.md                  [This file]
 │   └─ Visual directory layout and navigation guide
 │
-├── 📜 LICENSE                       [1.1 KB]
+├──  LICENSE                       [1.1 KB]
 │   └─ MIT License
 │
-├── ⚙️ skill.json                    [5.4 KB]
+├──  skill.json                    [5.4 KB]
 │   └─ ClawdHub metadata (searchable package info)
 │
-└── 📂 templates/                    [4.0 KB]
+└──  templates/                    [4.0 KB]
     │
-    ├── 📄 AGENTS.md.example         [11 KB]
+    ├──  AGENTS.md.example         [11 KB]
     │   └─ VC workflow automation config
     │
-    ├── 📄 USER.md.example           [4.2 KB]
+    ├──  USER.md.example           [4.2 KB]
     │   └─ Investment partner profile template
     │
-    ├── 📄 TOOLS.md.example          [10 KB]
+    ├──  TOOLS.md.example          [10 KB]
     │   └─ Local configuration (IDs, keys, booking links)
     │
-    └── 📄 SOUL.md.example           [8.1 KB]
+    └──  SOUL.md.example           [8.1 KB]
         └─ AI personality and behavior template
 ```
 
 ---
 
-## 🗺️ Navigation Guide
+##  Navigation Guide
 
-### 👋 New Users
+###  New Users
 **Goal:** Get up and running quickly
 
 1. **Start:** [README.md](./README.md) - 5 min overview
@@ -69,7 +69,7 @@ clawdbot-for-vcs/                    [172 KB total]
 3. **Configure:** Copy templates from `templates/` to your workspace
 4. **Reference:** [SKILL.md](./SKILL.md) when you need workflow details
 
-### 🛠️ Setting Up
+###  Setting Up
 **Goal:** Complete installation and configuration
 
 1. **Prerequisites:** Check [BOOTSTRAP.md](./BOOTSTRAP.md) Section 1
@@ -79,7 +79,7 @@ clawdbot-for-vcs/                    [172 KB total]
 5. **Configure:** Edit USER.md, TOOLS.md, AGENTS.md (Section 6)
 6. **Test:** Run first triage (Section 7)
 
-### 📖 Learning Workflows
+###  Learning Workflows
 **Goal:** Understand how everything works
 
 1. **Email Triage:** [SKILL.md](./SKILL.md) Section 1
@@ -88,7 +88,7 @@ clawdbot-for-vcs/                    [172 KB total]
 4. **Calendar Management:** [SKILL.md](./SKILL.md) Section 4
 5. **Daily Briefings:** [SKILL.md](./SKILL.md) Section 5
 
-### 🔧 Customizing
+###  Customizing
 **Goal:** Adapt to your specific workflow
 
 1. **Email templates:** [SKILL.md](./SKILL.md) Section 1 → Pass email template
@@ -97,7 +97,7 @@ clawdbot-for-vcs/                    [172 KB total]
 4. **Investment thesis:** [TOOLS.md.example](./templates/TOOLS.md.example) → Focus areas
 5. **AI personality:** [SOUL.md.example](./templates/SOUL.md.example) → Core truths, vibe
 
-### 🐛 Troubleshooting
+###  Troubleshooting
 **Goal:** Fix issues quickly
 
 1. **Setup problems:** [BOOTSTRAP.md](./BOOTSTRAP.md) Section 9 (Common Issues)
@@ -105,7 +105,7 @@ clawdbot-for-vcs/                    [172 KB total]
 3. **Quick fixes:** [QUICKSTART.md](./QUICKSTART.md) Troubleshooting section
 4. **Ask for help:** GitHub Issues or Discussions
 
-### 🤝 Contributing
+###  Contributing
 **Goal:** Improve the skill for everyone
 
 1. **Read:** [CONTRIBUTING.md](./CONTRIBUTING.md) - How to contribute
@@ -115,7 +115,7 @@ clawdbot-for-vcs/                    [172 KB total]
 
 ---
 
-## 📋 File Categories
+##  File Categories
 
 ### Core Documentation (4 files, 64 KB)
 User-facing documentation for learning and reference:
@@ -146,7 +146,7 @@ Internal documentation and reports:
 
 ---
 
-## 🎯 Quick Reference
+##  Quick Reference
 
 ### Starting Points by Role
 
@@ -164,7 +164,7 @@ Internal documentation and reports:
 
 ---
 
-## 📊 File Sizes
+##  File Sizes
 
 | File | Size | Type |
 |------|------|------|
@@ -188,7 +188,7 @@ Internal documentation and reports:
 
 ---
 
-## 📍 Installation Locations
+##  Installation Locations
 
 When you install this skill, files go here:
 
@@ -225,7 +225,7 @@ When you install this skill, files go here:
 
 ---
 
-## 🔗 Cross-References
+##  Cross-References
 
 ### Setup Flow
 1. **README.md** → Links to QUICKSTART.md or BOOTSTRAP.md
@@ -247,7 +247,7 @@ When you install this skill, files go here:
 
 ---
 
-## 🎨 File Purposes
+##  File Purposes
 
 ### Documentation Files
 
@@ -338,7 +338,7 @@ When you install this skill, files go here:
 
 ---
 
-## 🚀 Usage Patterns
+##  Usage Patterns
 
 ### First-Time Installation
 ```
@@ -385,31 +385,31 @@ Identify: Bug or improvement
 
 ---
 
-## 📌 Important Notes
+##  Important Notes
 
 ### Files You Should Edit
-✏️ Copy from templates/ and customize:
+ Copy from templates/ and customize:
 - USER.md (your profile)
 - TOOLS.md (your IDs, keys, links)
 - AGENTS.md (your workflow preferences)
 - SOUL.md (AI personality)
 
 ### Files You Should Read
-📖 Reference documentation:
+ Reference documentation:
 - README.md (overview)
 - SKILL.md (workflows)
 - BOOTSTRAP.md (setup)
 - CONTRIBUTING.md (if helping)
 
 ### Files You Shouldn't Touch
-🔒 Metadata and templates:
+ Metadata and templates:
 - LICENSE (legal)
 - skill.json (ClawdHub metadata)
 - templates/*.example (keep as reference)
 
 ---
 
-## 🎓 Learning Path
+##  Learning Path
 
 ### Week 1: Setup & Basic Usage
 1. Day 1: Read README, install (BOOTSTRAP or QUICKSTART)
@@ -437,7 +437,7 @@ Identify: Bug or improvement
 
 ---
 
-## 💡 Tips
+##  Tips
 
 **Navigation:**
 - Use README.md as central hub with links to everything

@@ -20,15 +20,15 @@ MAGENTA='\033[0;35m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
-log_info() { echo -e "${BLUE}ℹ️${NC} $1"; }
-log_success() { echo -e "${GREEN}✅${NC} $1"; }
-log_warning() { echo -e "${YELLOW}⚠️${NC} $1"; }
-log_error() { echo -e "${RED}❌${NC} $1"; }
+log_info() { echo -e "${BLUE}${NC} $1"; }
+log_success() { echo -e "${GREEN}${NC} $1"; }
+log_warning() { echo -e "${YELLOW}${NC} $1"; }
+log_error() { echo -e "${RED}${NC} $1"; }
 
 main() {
-    echo -e "${MAGENTA}🚀 AIUSD Skill Installer${NC}"
+    echo -e "${MAGENTA} AIUSD Skill Installer${NC}"
     echo -e "${MAGENTA}========================${NC}"
-    echo -e "${BLUE}📦 Version: 1.0.0${NC}"
+    echo -e "${BLUE} Version: 1.0.0${NC}"
     echo ""
 
     # Check dependencies
@@ -89,11 +89,11 @@ main() {
     echo ""
     log_success "AIUSD Skill installed successfully!"
     echo ""
-    echo -e "${YELLOW}🚀 Next Steps:${NC}"
+    echo -e "${YELLOW} Next Steps:${NC}"
     echo -e "${BLUE}1. cd aiusd-skill${NC}"
     echo -e "${BLUE}2. npm run setup${NC}"
     echo ""
-    echo -e "${CYAN}💡 Usage Examples:${NC}"
+    echo -e "${CYAN} Usage Examples:${NC}"
     echo -e "${BLUE}• Check balance: npm start -- balances${NC}"
     echo -e "${BLUE}• List tools: npm start -- tools${NC}"
     echo -e "${BLUE}• Get help: npm start -- --help${NC}"

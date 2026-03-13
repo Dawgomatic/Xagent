@@ -11,7 +11,7 @@
 6. Show summary:
 
 ```
-🔍 Scan Complete
+ Scan Complete
 
 Found 132 anti-patterns:
 ├── CRITICAL: 28 (21%)
@@ -33,10 +33,10 @@ Next: Run /anti-pattern-czar review to start fixing
 
    **b. Explain problem:**
    ```
-   ⚠️ Issue #3/28 [CRITICAL] - NO_LOGGING_IN_CATCH
+    Issue #3/28 [CRITICAL] - NO_LOGGING_IN_CATCH
 
    File: src/services/worker-service.ts:142
-   Critical Path: YES ⛔
+   Critical Path: YES 
 
    try {
      await this.processJob(job);
@@ -63,7 +63,7 @@ Next: Run /anti-pattern-czar review to start fixing
 
 ## AUTO Mode
 
-> ⚠️ Requires explicit user confirmation before starting
+>  Requires explicit user confirmation before starting
 
 1. Ask: "Auto mode will fix X issues automatically. Proceed?"
 2. For each **non-critical-path** issue:
@@ -74,7 +74,7 @@ Next: Run /anti-pattern-czar review to start fixing
 4. Generate final summary report
 
 ### Auto-eligible patterns
-Only auto-fix patterns marked ✅ in the pattern catalog: EMPTY_CATCH, NO_LOGGING_IN_CATCH, PROMISE_EMPTY_CATCH, PARTIAL_ERROR_LOGGING, PROMISE_CATCH_NO_LOGGING.
+Only auto-fix patterns marked  in the pattern catalog: EMPTY_CATCH, NO_LOGGING_IN_CATCH, PROMISE_EMPTY_CATCH, PARTIAL_ERROR_LOGGING, PROMISE_CATCH_NO_LOGGING.
 
 Never auto-fix: LARGE_TRY_BLOCK, GENERIC_CATCH, ERROR_STRING_MATCHING, ERROR_MESSAGE_GUESSING, CATCH_AND_CONTINUE_CRITICAL_PATH.
 
@@ -128,7 +128,7 @@ Anti-pattern cleanup complete!
 Before:  ISSUES: 28
 After:   ISSUES: 0  |  APPROVED OVERRIDES: 15
 
-All anti-patterns resolved! 🎉
+All anti-patterns resolved! 
 ```
 
 ## Error Handling

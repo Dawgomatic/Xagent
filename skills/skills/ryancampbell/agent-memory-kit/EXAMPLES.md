@@ -18,12 +18,12 @@ memory-search --today
 **Output example:**
 ```
 1. Memory Kit Search Implementation
-   📅 2026-02-04 | memory/2026-02-04.md:89
+    2026-02-04 | memory/2026-02-04.md:89
    Tags: #win #kits #implementation
    Preview: Built Memory Kit Search system per spec. CLI working, tests passing...
 
 2. ClawHub Launch Discussion
-   📅 2026-02-04 | memory/2026-02-04.md:145
+    2026-02-04 | memory/2026-02-04.md:145
    Tags: #decision #distribution
    Preview: Decided to publish kits after testing search system...
 
@@ -57,12 +57,12 @@ memory-search --recent-decisions
 **Output example:**
 ```
 1. ClawHub Publishing Decision
-   📅 2026-02-03 | memory/2026-02-03.md:45
+    2026-02-03 | memory/2026-02-03.md:45
    Tags: #decision #kits #distribution
    Preview: Decided to publish all 5 kits to ClawHub immediately...
 
 2. Memory Kit Search Priority
-   📅 2026-02-03 | memory/2026-02-03.md:127
+    2026-02-03 | memory/2026-02-03.md:127
    Tags: #decision #kits
    Preview: Prioritized search feature for Memory Kit v2.1...
 ```
@@ -122,7 +122,7 @@ memory-search --procedure "DEV.to"
 
 **Output:**
 ```
-📄 Procedure | memory/procedures/devto-posting.md
+ Procedure | memory/procedures/devto-posting.md
 Tags: #procedure #distribution #content
 Preview: How to publish articles to DEV.to platform...
 ```
@@ -582,7 +582,7 @@ vim memory/procedures/devto-posting.md
 
 ## Common Anti-Patterns
 
-### ❌ Over-Filtering
+###  Over-Filtering
 
 ```bash
 # Too specific, likely no results
@@ -593,7 +593,7 @@ memory-search "exact phrase" --tag tag1 --tag tag2 --tag tag3 --project "Project
 
 ---
 
-### ❌ Forgetting to Tag
+###  Forgetting to Tag
 
 **Problem:** Search can't find untagged entries by tag.
 
@@ -601,7 +601,7 @@ memory-search "exact phrase" --tag tag1 --tag tag2 --tag tag3 --project "Project
 
 ---
 
-### ❌ Not Using Shortcuts
+###  Not Using Shortcuts
 
 ```bash
 # Don't type this every time:
@@ -613,7 +613,7 @@ memory-search --recent-decisions
 
 ---
 
-### ❌ Searching for Everything
+###  Searching for Everything
 
 **Problem:** Reading search results for every little thing.
 

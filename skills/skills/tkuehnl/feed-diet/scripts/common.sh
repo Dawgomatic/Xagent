@@ -21,13 +21,13 @@ CATEGORIES=(
   "meta"
 )
 
-CATEGORY_EMOJI_deep_technical="🔬"
-CATEGORY_EMOJI_news="📰"
-CATEGORY_EMOJI_opinion="💬"
-CATEGORY_EMOJI_drama="🔥"
-CATEGORY_EMOJI_entertainment="🎮"
-CATEGORY_EMOJI_tutorial="📚"
-CATEGORY_EMOJI_meta="🪞"
+CATEGORY_EMOJI_deep_technical=""
+CATEGORY_EMOJI_news=""
+CATEGORY_EMOJI_opinion=""
+CATEGORY_EMOJI_drama=""
+CATEGORY_EMOJI_entertainment=""
+CATEGORY_EMOJI_tutorial=""
+CATEGORY_EMOJI_meta=""
 
 CATEGORY_DESC_deep_technical="In-depth technical content, papers, systems design"
 CATEGORY_DESC_news="Current events, announcements, releases"
@@ -42,7 +42,7 @@ CATEGORY_DESC_meta="Navel-gazing about tech industry, AI hype, meta-discussion"
 get_category_emoji() {
   local cat="$1"
   local var="CATEGORY_EMOJI_${cat//-/_}"
-  echo "${!var:-❓}"
+  echo "${!var:-}"
 }
 
 get_category_desc() {
@@ -122,24 +122,24 @@ progress() {
   local total="$2"
   local label="${3:-items}"
   if [ -t 2 ]; then
-    printf "\r  ⏳ Fetching %s... %d/%d" "$label" "$current" "$total" >&2
+    printf "\r   Fetching %s... %d/%d" "$label" "$current" "$total" >&2
   fi
 }
 
 progress_done() {
   if [ -t 2 ]; then
-    printf "\r  ✅ Done!                              \n" >&2
+    printf "\r   Done!                              \n" >&2
   fi
 }
 
 err() {
-  echo "❌ Error: $*" >&2
+  echo " Error: $*" >&2
 }
 
 info() {
-  echo "ℹ️  $*" >&2
+  echo "  $*" >&2
 }
 
 warn() {
-  echo "⚠️  $*" >&2
+  echo "  $*" >&2
 }

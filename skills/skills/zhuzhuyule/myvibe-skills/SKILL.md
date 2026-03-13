@@ -195,13 +195,13 @@ After publish script completes, **check the script output** for these messages:
 Always include the Vibe URL in your response:
 ```
 Published successfully!
-🔗 [URL]
+ [URL]
 ```
 
 ### Upgrade Prompt (Important)
 The script prints an upgrade prompt when updating an existing Vibe without version history enabled:
 ```
-📦 Previous version overwritten. Want to keep version history?
+ Previous version overwritten. Want to keep version history?
    Upgrade to Creator → {hub}/pricing
 ```
 

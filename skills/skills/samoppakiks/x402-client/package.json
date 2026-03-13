@@ -4,7 +4,7 @@
   "description": "USDC payments over HTTP for agents — pay for services, sell your own. Uses x402 protocol on Base network.",
   "type": "module",
   "keywords": ["x402", "usdc", "payments", "agent", "clawdbot", "clawdhub", "crypto", "base"],
-  "author": "Clawd 🤖",
+  "author": "Clawd ",
   "license": "MIT",
   "dependencies": {
     "@x402/core": "latest",

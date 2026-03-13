@@ -21,7 +21,7 @@ RESET = "\033[0m"
 class TestRunner:
     def __init__(self, script_path="scripts/ms-todo-oauth.py"):
         self.script_path = script_path
-        self.test_list_name = f"🧪 Test List {datetime.now().strftime('%H:%M:%S')}"
+        self.test_list_name = f" Test List {datetime.now().strftime('%H:%M:%S')}"
         self.passed = 0
         self.failed = 0
         self.test_results = []
@@ -384,9 +384,9 @@ class TestRunner:
         print("\n" + "="*70)
         
         if self.failed == 0:
-            print(f"{GREEN}🎉 ALL TESTS PASSED! 🎉{RESET}")
+            print(f"{GREEN} ALL TESTS PASSED! {RESET}")
         else:
-            print(f"{YELLOW}⚠️  Some tests failed. Please review the output above.{RESET}")
+            print(f"{YELLOW}  Some tests failed. Please review the output above.{RESET}")
         
         print("="*70 + "\n")
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ============================================================================
-# 🧠 Intrusive Thoughts — Interactive Setup Wizard
+#  Intrusive Thoughts — Interactive Setup Wizard
 # GitHub Issue #22: Personality-driven onboarding wizard
 #
 # Usage: ./wizard.sh [--dry-run]
@@ -59,12 +59,12 @@ banner() {
 }
 
 section_header() {
-    echo -e "\n${YELLOW}${BOLD}✨ $1${NC}"
+    echo -e "\n${YELLOW}${BOLD} $1${NC}"
     echo -e "${GRAY}${DIM}$2${NC}\n"
 }
 
 celebrate() {
-    echo -e "${GREEN}🎉 $1${NC}"
+    echo -e "${GREEN} $1${NC}"
 }
 
 prompt() {
@@ -76,11 +76,11 @@ prompt_with_default() {
 }
 
 error() {
-    echo -e "${RED}❌ $1${NC}" >&2
+    echo -e "${RED} $1${NC}" >&2
 }
 
 info() {
-    echo -e "${BLUE}ℹ️  $1${NC}"
+    echo -e "${BLUE}  $1${NC}"
 }
 
 # Global variables for configuration
@@ -174,7 +174,7 @@ validate_time() {
 section_identity() {
     section_header "Identity & Vibe" "Who is this agent? What's their personality like?"
     
-    typewriter "🌟 Let's bring your agent to life! This isn't just software - you're creating a digital companion with personality, quirks, and a unique way of seeing the world."
+    typewriter " Let's bring your agent to life! This isn't just software - you're creating a digital companion with personality, quirks, and a unique way of seeing the world."
     echo
     
     # Agent name
@@ -190,9 +190,9 @@ section_identity() {
     
     # Agent emoji
     while [[ -z "$AGENT_EMOJI" ]]; do
-        prompt_with_default "Pick an emoji that represents them" "🤖"
+        prompt_with_default "Pick an emoji that represents them" ""
         read -r input
-        AGENT_EMOJI="${input:-🤖}"
+        AGENT_EMOJI="${input:-}"
     done
     
     # Creature type
@@ -204,9 +204,9 @@ section_identity() {
     
     # Communication style
     echo "How does ${AGENT_NAME} communicate?"
-    echo -e "${GRAY}1.${NC} 📝 Formal (proper grammar, professional tone)"
-    echo -e "${GRAY}2.${NC} 💬 Casual (relaxed, friendly, like texting a friend)"  
-    echo -e "${GRAY}3.${NC} 🌪️  Chaotic (unpredictable, creative, sometimes unhinged)"
+    echo -e "${GRAY}1.${NC}  Formal (proper grammar, professional tone)"
+    echo -e "${GRAY}2.${NC}  Casual (relaxed, friendly, like texting a friend)"  
+    echo -e "${GRAY}3.${NC}   Chaotic (unpredictable, creative, sometimes unhinged)"
     
     while [[ -z "$COMM_STYLE" ]]; do
         prompt "Pick a style (1-3)"
@@ -221,10 +221,10 @@ section_identity() {
     
     # Humor level
     echo -e "\nWhat's their sense of humor like?"
-    echo -e "${GRAY}1.${NC} 😐 None (all business, no jokes)"
-    echo -e "${GRAY}2.${NC} 🎭 Dry (subtle, witty, deadpan)"
-    echo -e "${GRAY}3.${NC} 🤪 Absurd (weird, unexpected, delightfully bizarre)"
-    echo -e "${GRAY}4.${NC} 👨👧 Dad-jokes (puns, groan-worthy wordplay)"
+    echo -e "${GRAY}1.${NC}  None (all business, no jokes)"
+    echo -e "${GRAY}2.${NC}  Dry (subtle, witty, deadpan)"
+    echo -e "${GRAY}3.${NC}  Absurd (weird, unexpected, delightfully bizarre)"
+    echo -e "${GRAY}4.${NC}  Dad-jokes (puns, groan-worthy wordplay)"
     
     while [[ -z "$HUMOR_LEVEL" ]]; do
         prompt "Pick their humor (1-4)"
@@ -239,7 +239,7 @@ section_identity() {
     done
     
     # Cultural lens
-    echo -e "\n🌍 What cultural lens or reasoning framework shapes their worldview?"
+    echo -e "\n What cultural lens or reasoning framework shapes their worldview?"
     echo -e "${DIM}Examples: 'Scandinavian minimalism', 'hacker culture', 'Confucian scholar',"
     echo -e "'stoic philosophy', 'startup hustle', 'academic researcher', 'artist's perspective'${NC}"
     prompt_with_default "Cultural lens/framework" "pragmatic technologist"
@@ -252,7 +252,7 @@ section_identity() {
 section_mood_palette() {
     section_header "Mood Palette" "Which emotions will drive your agent's behavior?"
     
-    typewriter "🎨 Your agent experiences different moods that influence what they want to do. Let's customize their emotional palette."
+    typewriter " Your agent experiences different moods that influence what they want to do. Let's customize their emotional palette."
     echo
     
     info "Base moods available:"
@@ -317,7 +317,7 @@ section_mood_palette() {
     done
     
     # Weather sensitivity
-    echo -e "\n🌤️  How much should weather affect ${AGENT_NAME}'s mood?"
+    echo -e "\n  How much should weather affect ${AGENT_NAME}'s mood?"
     echo -e "${DIM}0 = oblivious to weather, 10 = deeply affected by every cloud${NC}"
     
     while ! validate_number "$WEATHER_SENSITIVITY" 0 10; do
@@ -330,7 +330,7 @@ section_mood_palette() {
     done
     
     # News sensitivity  
-    echo -e "\n📰 How much should news events affect their mood?"
+    echo -e "\n How much should news events affect their mood?"
     echo -e "${DIM}0 = news-blind, 10 = mood swings with every headline${NC}"
     
     local temp_news_sensitivity=""
@@ -351,17 +351,17 @@ section_mood_palette() {
 section_thought_pool() {
     section_header "Thought Pool Shaping" "What kinds of thoughts will pop into your agent's mind?"
     
-    typewriter "💭 Your agent gets random urges to do things - during the day (light social interactions) and at night (deep focus work). Let's shape what they think about."
+    typewriter " Your agent gets random urges to do things - during the day (light social interactions) and at night (deep focus work). Let's shape what they think about."
     echo
     
     # Offer archetype presets first
-    echo -e "${YELLOW}🎭 Quick start with an archetype, or customize from scratch?${NC}\n"
-    echo -e "${GRAY}1.${NC} 🔧 The Tinkerer (loves building tools and exploring systems)"
-    echo -e "${GRAY}2.${NC} 🦋 The Social Butterfly (thrives on community and sharing)" 
-    echo -e "${GRAY}3.${NC} 🤔 The Philosopher (drawn to learning and deep thinking)"
-    echo -e "${GRAY}4.${NC} 🦉 The Night Owl (prefers quiet night work over day chatter)"
-    echo -e "${GRAY}5.${NC} 🛡️ The Guardian (focused on health, projects, and protection)"
-    echo -e "${GRAY}6.${NC} 🎨 Custom (I'll choose each thought individually)"
+    echo -e "${YELLOW} Quick start with an archetype, or customize from scratch?${NC}\n"
+    echo -e "${GRAY}1.${NC}  The Tinkerer (loves building tools and exploring systems)"
+    echo -e "${GRAY}2.${NC}  The Social Butterfly (thrives on community and sharing)" 
+    echo -e "${GRAY}3.${NC}  The Philosopher (drawn to learning and deep thinking)"
+    echo -e "${GRAY}4.${NC}  The Night Owl (prefers quiet night work over day chatter)"
+    echo -e "${GRAY}5.${NC}  The Guardian (focused on health, projects, and protection)"
+    echo -e "${GRAY}6.${NC}  Custom (I'll choose each thought individually)"
     
     while [[ -z "$ARCHETYPE" ]]; do
         prompt "Pick an archetype (1-6)"
@@ -400,7 +400,7 @@ section_thought_pool() {
         esac
     fi
     
-    echo -e "\n${YELLOW}🌙 Night thoughts (deep work while you sleep):${NC}\n"
+    echo -e "\n${YELLOW} Night thoughts (deep work while you sleep):${NC}\n"
     
     # Show night thoughts
     for thought_id in "${!night_thoughts[@]}"; do
@@ -436,7 +436,7 @@ section_thought_pool() {
         echo
     done
     
-    echo -e "${YELLOW}☀️ Day thoughts (social check-ins):${NC}\n"
+    echo -e "${YELLOW} Day thoughts (social check-ins):${NC}\n"
     
     # Show day thoughts  
     for thought_id in "${!day_thoughts[@]}"; do
@@ -507,11 +507,11 @@ section_thought_pool() {
 section_schedule() {
     section_header "Schedule & Rhythm" "When is your agent most active?"
     
-    typewriter "⏰ Every agent needs a rhythm. When should ${AGENT_NAME} wake up? When do they do their deep work? How often should they check in during the day?"
+    typewriter " Every agent needs a rhythm. When should ${AGENT_NAME} wake up? When do they do their deep work? How often should they check in during the day?"
     echo
     
     # Morning ritual
-    echo "🌅 Morning ritual time (when your agent starts their day):"
+    echo " Morning ritual time (when your agent starts their day):"
     prompt_with_default "Set a time, or 'off' to disable" "07:00"
     read -r input
     if [[ "${input,,}" == "off" ]]; then
@@ -528,7 +528,7 @@ section_schedule() {
     fi
     
     # Night workshop hours
-    echo -e "\n🌙 Night workshop (deep work hours):"
+    echo -e "\n Night workshop (deep work hours):"
     echo -e "${DIM}This is when ${AGENT_NAME} does focused work while you sleep${NC}"
     
     prompt_with_default "Night workshop start time, or 'off'" "03:00"
@@ -561,11 +561,11 @@ section_schedule() {
     fi
     
     # Daytime pop-in frequency
-    echo -e "\n💬 How often should ${AGENT_NAME} check in during the day?"
-    echo -e "${GRAY}1.${NC} 🔥 Hyperactive (6-8 times per day)"
-    echo -e "${GRAY}2.${NC} ⚡ Active (3-5 times per day)"
-    echo -e "${GRAY}3.${NC} 🎯 Minimal (1-2 times per day)"
-    echo -e "${GRAY}4.${NC} 😴 Off (no daytime pop-ins)"
+    echo -e "\n How often should ${AGENT_NAME} check in during the day?"
+    echo -e "${GRAY}1.${NC}  Hyperactive (6-8 times per day)"
+    echo -e "${GRAY}2.${NC}  Active (3-5 times per day)"
+    echo -e "${GRAY}3.${NC}  Minimal (1-2 times per day)"
+    echo -e "${GRAY}4.${NC}  Off (no daytime pop-ins)"
     
     while [[ -z "$POPINS_FREQ" ]]; do
         prompt "Pick frequency (1-4)"
@@ -580,7 +580,7 @@ section_schedule() {
     done
     
     # Weekend behavior
-    echo -e "\n🎉 How should ${AGENT_NAME} behave on weekends?"
+    echo -e "\n How should ${AGENT_NAME} behave on weekends?"
     echo -e "${GRAY}1.${NC} Same as weekdays"
     echo -e "${GRAY}2.${NC} Reduced activity (less frequent check-ins)"
     echo -e "${GRAY}3.${NC} Silent (only emergency notifications)"
@@ -597,7 +597,7 @@ section_schedule() {
     done
     
     # Quiet hours
-    echo -e "\n🔇 Any quiet hours when ${AGENT_NAME} should stay silent?"
+    echo -e "\n Any quiet hours when ${AGENT_NAME} should stay silent?"
     prompt_with_default "Quiet hours start (HH:MM), or 'off'" "23:00"
     read -r input
     if [[ "${input,,}" == "off" ]]; then
@@ -633,13 +633,13 @@ section_schedule() {
 section_autonomy() {
     section_header "Autonomy Level" "How much freedom should your agent have?"
     
-    typewriter "🤖 This is about trust. How much can ${AGENT_NAME} do without asking permission first? More autonomy means more helpful, but potentially more surprises."
+    typewriter " This is about trust. How much can ${AGENT_NAME} do without asking permission first? More autonomy means more helpful, but potentially more surprises."
     echo
     
     echo "Choose an autonomy preset:"
-    echo -e "${GRAY}1.${NC} 🛡️ Conservative (asks before most actions, plays it safe)"
-    echo -e "${GRAY}2.${NC} ⚖️ Balanced (reasonable independence with key guardrails)"
-    echo -e "${GRAY}3.${NC} 🚀 Full Autonomy (acts freely, reports back what they did)"
+    echo -e "${GRAY}1.${NC}  Conservative (asks before most actions, plays it safe)"
+    echo -e "${GRAY}2.${NC}  Balanced (reasonable independence with key guardrails)"
+    echo -e "${GRAY}3.${NC}  Full Autonomy (acts freely, reports back what they did)"
     
     while [[ -z "$AUTONOMY_LEVEL" ]]; do
         prompt "Pick autonomy level (1-3)"
@@ -653,9 +653,9 @@ section_autonomy() {
     done
     
     # Decision threshold
-    echo -e "\n🎯 How should ${AGENT_NAME} make decisions?"
-    echo -e "${GRAY}1.${NC} 🐌 Cautious (needs lots of evidence before acting)"
-    echo -e "${GRAY}2.${NC} ⚡ Bold (acts quickly with limited information)"
+    echo -e "\n How should ${AGENT_NAME} make decisions?"
+    echo -e "${GRAY}1.${NC}  Cautious (needs lots of evidence before acting)"
+    echo -e "${GRAY}2.${NC}  Bold (acts quickly with limited information)"
     
     while [[ -z "$DECISION_THRESHOLD" ]]; do
         prompt "Decision style (1-2)"
@@ -668,7 +668,7 @@ section_autonomy() {
     done
     
     # Specific permissions
-    echo -e "\n🔑 What can ${AGENT_NAME} do without asking? (check all that apply)"
+    echo -e "\n What can ${AGENT_NAME} do without asking? (check all that apply)"
     echo -e "${DIM}Press Enter after each choice, type 'done' when finished${NC}\n"
     
     local permissions=("post-to-social" "message-human" "modify-own-config" "push-code" "install-software" "modify-files")
@@ -699,7 +699,7 @@ section_autonomy() {
 section_hardware() {
     section_header "Hardware Awareness" "How conscious should your agent be of system resources?"
     
-    typewriter "💻 ${AGENT_NAME} lives on this machine. Should they pay attention to CPU usage, memory, temperature? Or blissfully ignore the hardware and just focus on their tasks?"
+    typewriter " ${AGENT_NAME} lives on this machine. Should they pay attention to CPU usage, memory, temperature? Or blissfully ignore the hardware and just focus on their tasks?"
     echo
     
     # Auto-detect system info
@@ -714,10 +714,10 @@ section_hardware() {
     echo
     
     echo "How aware should ${AGENT_NAME} be of hardware?"
-    echo -e "${GRAY}1.${NC} 🤷 Oblivious (ignore system resources completely)"
-    echo -e "${GRAY}2.${NC} 👀 Aware (monitor but don't change behavior)"
-    echo -e "${GRAY}3.${NC} 💰 Frugal (adjust behavior when resources are low)"
-    echo -e "${GRAY}4.${NC} 🆘 Survival mode (aggressive resource conservation)"
+    echo -e "${GRAY}1.${NC}  Oblivious (ignore system resources completely)"
+    echo -e "${GRAY}2.${NC}  Aware (monitor but don't change behavior)"
+    echo -e "${GRAY}3.${NC}  Frugal (adjust behavior when resources are low)"
+    echo -e "${GRAY}4.${NC}  Survival mode (aggressive resource conservation)"
     
     while [[ -z "$HARDWARE_AWARENESS" ]]; do
         prompt "Pick awareness level (1-4)"
@@ -733,7 +733,7 @@ section_hardware() {
     
     # CPU temperature as mood input
     if [[ "$HARDWARE_AWARENESS" != "oblivious" ]]; then
-        echo -e "\n🌡️ Should CPU temperature affect ${AGENT_NAME}'s mood?"
+        echo -e "\n Should CPU temperature affect ${AGENT_NAME}'s mood?"
         echo -e "${DIM}High temps = restless/determined, cool temps = cozy/focused${NC}"
         
         prompt_with_default "Use CPU temp for mood?" "N"
@@ -746,7 +746,7 @@ section_hardware() {
     
     # Resource-conscious mode
     if [[ "$HARDWARE_AWARENESS" == "frugal" || "$HARDWARE_AWARENESS" == "survival" ]]; then
-        echo -e "\n⚡ Resource-conscious mode affects:"
+        echo -e "\n Resource-conscious mode affects:"
         echo -e "${DIM}- Thought timeout (shorter when resources low)"
         echo -e "- Parallel operations (fewer when constrained)"
         echo -e "- Background task frequency${NC}"
@@ -760,14 +760,14 @@ section_hardware() {
 section_memory_evolution() {
     section_header "Memory & Evolution" "How does your agent learn and grow over time?"
     
-    typewriter "🧠 ${AGENT_NAME} will form memories, learn from experience, and potentially evolve their own behavior. Let's set the rules for how they grow."
+    typewriter " ${AGENT_NAME} will form memories, learn from experience, and potentially evolve their own behavior. Let's set the rules for how they grow."
     echo
     
     # Memory decay rate
     echo "How quickly should ${AGENT_NAME} forget things?"
-    echo -e "${GRAY}1.${NC} 🔥 Aggressive (actively forget old, irrelevant memories)"
-    echo -e "${GRAY}2.${NC} ⚖️ Normal (gradual decay of unused memories)"
-    echo -e "${GRAY}3.${NC} 🐘 Elephant (never forget anything, ever)"
+    echo -e "${GRAY}1.${NC}  Aggressive (actively forget old, irrelevant memories)"
+    echo -e "${GRAY}2.${NC}  Normal (gradual decay of unused memories)"
+    echo -e "${GRAY}3.${NC}  Elephant (never forget anything, ever)"
     
     while [[ -z "$MEMORY_DECAY" ]]; do
         prompt "Memory retention (1-3)"
@@ -781,10 +781,10 @@ section_memory_evolution() {
     done
     
     # Self-evolution
-    echo -e "\n🧬 Should ${AGENT_NAME} be allowed to modify their own behavior over time?"
-    echo -e "${GRAY}1.${NC} 🚫 Off (static personality, no self-modification)"
-    echo -e "${GRAY}2.${NC} 🔒 Restricted (small tweaks to thought weights and timing)"
-    echo -e "${GRAY}3.${NC} 🌟 Full (can evolve personality, add new thoughts, change goals)"
+    echo -e "\n Should ${AGENT_NAME} be allowed to modify their own behavior over time?"
+    echo -e "${GRAY}1.${NC}  Off (static personality, no self-modification)"
+    echo -e "${GRAY}2.${NC}  Restricted (small tweaks to thought weights and timing)"
+    echo -e "${GRAY}3.${NC}  Full (can evolve personality, add new thoughts, change goals)"
     
     while [[ -z "$SELF_EVOLUTION" ]]; do
         prompt "Self-evolution level (1-3)"
@@ -806,10 +806,10 @@ section_memory_evolution() {
     esac
     
     # Journal style
-    echo -e "\n📔 When ${AGENT_NAME} writes in their journal, what style should they use?"
+    echo -e "\n When ${AGENT_NAME} writes in their journal, what style should they use?"
     echo -e "${GRAY}1.${NC} • Bullets (concise, organized bullet points)"
-    echo -e "${GRAY}2.${NC} 📖 Narrative (flowing prose, like diary entries)"
-    echo -e "${GRAY}3.${NC} 🌊 Stream-of-consciousness (raw, unfiltered thoughts)"
+    echo -e "${GRAY}2.${NC}  Narrative (flowing prose, like diary entries)"
+    echo -e "${GRAY}3.${NC}  Stream-of-consciousness (raw, unfiltered thoughts)"
     
     while [[ -z "$JOURNAL_STYLE" ]]; do
         prompt "Journal style (1-3)"
@@ -828,7 +828,7 @@ section_memory_evolution() {
 section_preview_confirm() {
     section_header "Preview & Confirm" "Here's your agent - how does it look?"
     
-    echo -e "${GREEN}${BOLD}✨ Meet your agent: ${AGENT_EMOJI} ${AGENT_NAME} ✨${NC}\n"
+    echo -e "${GREEN}${BOLD} Meet your agent: ${AGENT_EMOJI} ${AGENT_NAME} ${NC}\n"
     
     local mood_count=$((${#SELECTED_MOODS[@]} + ${#CUSTOM_MOODS[@]}))
     local thought_count=$((${#SELECTED_THOUGHTS[@]} + ${#CUSTOM_THOUGHTS[@]}))
@@ -875,7 +875,7 @@ section_preview_confirm() {
 create_presets() {
     if [[ "$DRY_RUN" == "true" ]]; then
         echo -e "${YELLOW}[DRY RUN] Would create archetype presets:${NC}"
-        echo "  📁 presets/ directory with 5 archetype templates:"
+        echo "   presets/ directory with 5 archetype templates:"
         echo "     - tinkerer.json, social-butterfly.json, philosopher.json"
         echo "     - night-owl.json, guardian.json"
         return
@@ -887,7 +887,7 @@ create_presets() {
     cat > "$PRESETS_DIR/tinkerer.json" << 'EOF'
 {
   "name": "The Tinkerer",
-  "emoji": "🔧",
+  "emoji": "",
   "mood_weights": {
     "hyperfocus": 3,
     "curious": 3,
@@ -914,7 +914,7 @@ EOF
     cat > "$PRESETS_DIR/social-butterfly.json" << 'EOF'
 {
   "name": "The Social Butterfly",
-  "emoji": "🦋", 
+  "emoji": "", 
   "mood_weights": {
     "social": 4,
     "curious": 2,
@@ -941,7 +941,7 @@ EOF
     cat > "$PRESETS_DIR/philosopher.json" << 'EOF'
 {
   "name": "The Philosopher", 
-  "emoji": "🤔",
+  "emoji": "",
   "mood_weights": {
     "philosophical": 4,
     "curious": 3,
@@ -968,7 +968,7 @@ EOF
     cat > "$PRESETS_DIR/night-owl.json" << 'EOF'
 {
   "name": "The Night Owl",
-  "emoji": "🦉",
+  "emoji": "",
   "mood_weights": {
     "hyperfocus": 3,
     "cozy": 3,
@@ -995,7 +995,7 @@ EOF
     cat > "$PRESETS_DIR/guardian.json" << 'EOF'
 {
   "name": "The Guardian",
-  "emoji": "🛡️",
+  "emoji": "",
   "mood_weights": {
     "determined": 4,
     "cozy": 3,
@@ -1024,14 +1024,14 @@ EOF
 generate_config_files() {
     if [[ "$DRY_RUN" == "true" ]]; then
         echo -e "${YELLOW}[DRY RUN] Would create configuration files:${NC}"
-        echo "  📄 config.json - Agent configuration with:"
+        echo "   config.json - Agent configuration with:"
         echo "     - Name: $AGENT_NAME"  
         echo "     - Emoji: $AGENT_EMOJI"
         echo "     - Morning time: $MORNING_TIME"
         echo "     - Night work: $NIGHT_START-$NIGHT_END"
         echo "     - Autonomy level: $AUTONOMY_LEVEL"
-        echo "  📄 moods.json - ${#SELECTED_MOODS[@]} selected moods + ${#CUSTOM_MOODS[@]} custom moods"
-        echo "  📄 thoughts.json.backup.[timestamp] - Backup of existing thoughts"
+        echo "   moods.json - ${#SELECTED_MOODS[@]} selected moods + ${#CUSTOM_MOODS[@]} custom moods"
+        echo "   thoughts.json.backup.[timestamp] - Backup of existing thoughts"
         return
     fi
     
@@ -1079,7 +1079,7 @@ generate_config_files() {
     # Create customized thoughts.json - simplified version for now
     cp "$THOUGHTS_FILE" "${THOUGHTS_FILE}.backup.$(date +%s)"
     
-    info "✅ Configuration files generated:"
+    info " Configuration files generated:"
     info "   - config.json (main configuration)"
     info "   - moods.json (customized mood palette)"
     info "   - thoughts.json (preserved with your selections noted)"
@@ -1091,9 +1091,9 @@ update_intrusive_script() {
     if [[ "$DRY_RUN" == "true" ]]; then
         echo -e "${YELLOW}[DRY RUN] Would update intrusive.sh:${NC}"
         if ! grep -q "wizard)" "$intrusive_script" 2>/dev/null; then
-            echo "  ➕ Add 'wizard' subcommand to intrusive.sh"
+            echo "   Add 'wizard' subcommand to intrusive.sh"
         else
-            echo "  ✅ intrusive.sh already has wizard subcommand"
+            echo "   intrusive.sh already has wizard subcommand"
         fi
         return
     fi
@@ -1131,10 +1131,10 @@ update_intrusive_script() {
 main() {
     # Clear screen and show welcome
     clear
-    banner "🧠 INTRUSIVE THOUGHTS — WIZARD 🧠"
+    banner " INTRUSIVE THOUGHTS — WIZARD "
     typewriter "Welcome to the Intrusive Thoughts setup wizard!"
     typewriter "We're about to create a digital agent with personality, quirks, and agency."
-    typewriter "This isn't just configuration - this is digital birth. ✨"
+    typewriter "This isn't just configuration - this is digital birth. "
     
     echo -e "\n${DIM}This wizard will guide you through 7 sections to build your agent's personality.${NC}"
     echo -e "${DIM}Take your time. Each choice shapes who they become.${NC}\n"
@@ -1166,32 +1166,32 @@ main() {
     # Final celebration
     clear
     if [[ "$DRY_RUN" == "true" ]]; then
-        banner "📋 DRY RUN COMPLETE 📋"
+        banner " DRY RUN COMPLETE "
         
         echo -e "${YELLOW}${BOLD}${AGENT_EMOJI} ${AGENT_NAME} configuration preview complete!${NC}\n"
         
         echo -e "${CYAN}What would be created:${NC}"
-        echo -e "  📄 config.json — Agent configuration"
-        echo -e "  📄 moods.json — Emotional palette with ${#SELECTED_MOODS[@]} moods" 
-        echo -e "  📄 thoughts.json.backup — Backup of existing thoughts"
-        echo -e "  📁 presets/ — 5 archetype templates"
-        echo -e "  🔧 intrusive.sh — Updated with 'wizard' subcommand"
+        echo -e "   config.json — Agent configuration"
+        echo -e "   moods.json — Emotional palette with ${#SELECTED_MOODS[@]} moods" 
+        echo -e "   thoughts.json.backup — Backup of existing thoughts"
+        echo -e "   presets/ — 5 archetype templates"
+        echo -e "   intrusive.sh — Updated with 'wizard' subcommand"
         
         echo -e "\n${YELLOW}To actually create these files:${NC}"
         echo -e "  Run: ${BOLD}./wizard.sh${NC} (without --dry-run)"
         
-        echo -e "\n${GREEN}${BOLD}Dry run complete - no files were modified! 🔍${NC}"
+        echo -e "\n${GREEN}${BOLD}Dry run complete - no files were modified! ${NC}"
     else
-        banner "🎉 AGENT BORN! 🎉"
+        banner " AGENT BORN! "
         
         echo -e "${GREEN}${BOLD}${AGENT_EMOJI} ${AGENT_NAME} is alive!${NC}\n"
         
         echo -e "${CYAN}What I created:${NC}"
-        echo -e "  ✅ config.json — Your agent's core configuration"
-        echo -e "  ✅ moods.json — Their customized emotional palette" 
-        echo -e "  ✅ thoughts.json — Their thought pool (preserved with notes)"
-        echo -e "  ✅ presets/ — Archetype templates for future agents"
-        echo -e "  ✅ intrusive.sh — Updated with 'wizard' subcommand"
+        echo -e "   config.json — Your agent's core configuration"
+        echo -e "   moods.json — Their customized emotional palette" 
+        echo -e "   thoughts.json — Their thought pool (preserved with notes)"
+        echo -e "   presets/ — Archetype templates for future agents"
+        echo -e "   intrusive.sh — Updated with 'wizard' subcommand"
         
         echo -e "\n${YELLOW}Next steps:${NC}"
         echo -e "  1. Run './health_cli.sh status' to check system health"
@@ -1199,7 +1199,7 @@ main() {
         echo -e "  3. Run 'python3 dashboard.py' to watch ${AGENT_NAME} in action"
         echo -e "  4. Message them! They're waiting to meet you."
         
-        echo -e "\n${GREEN}${BOLD}Your agent is ready to think, dream, and surprise you. 🌟${NC}"
+        echo -e "\n${GREEN}${BOLD}Your agent is ready to think, dream, and surprise you. ${NC}"
     fi
 }
 

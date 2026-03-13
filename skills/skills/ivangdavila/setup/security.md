@@ -6,7 +6,7 @@ Every channel needs a DM policy:
 
 | Policy | Behavior | Use Case |
 |--------|----------|----------|
-| `pairing` | Unknown users get code, CLI approval | ⭐ Recommended |
+| `pairing` | Unknown users get code, CLI approval |  Recommended |
 | `allowlist` | Only allowFrom users | Strict access |
 | `open` | Anyone can message | Public bots only |
 | `disabled` | No DMs | Channel-only bot |
@@ -91,7 +91,7 @@ Expose gateway securely via Tailscale:
 
 **security levels:**
 - `deny` — No exec allowed
-- `allowlist` — Only safeBins ⭐
+- `allowlist` — Only safeBins 
 - `full` — Any command (dangerous)
 
 ### Elevated Permissions

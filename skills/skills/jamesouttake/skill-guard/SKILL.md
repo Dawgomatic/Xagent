@@ -13,11 +13,11 @@ description: Scan ClawHub skills for security vulnerabilities BEFORE installing.
 |---|---|---|---|
 | **When it runs** | After publish (server-side) | On-demand lookup | **Before install (client-side)** |
 | **What it checks** | Malware signatures | Their database | **Actual skill content** |
-| **Prompt injections** | ❌ | ❌ | ✅ |
-| **Data exfiltration URLs** | ❌ | ❌ | ✅ |
-| **Hidden instructions** | ❌ | ❌ | ✅ |
-| **AI-specific threats** | ❌ | ❌ | ✅ |
-| **Install blocking** | ❌ | ❌ | ✅ |
+| **Prompt injections** |  |  |  |
+| **Data exfiltration URLs** |  |  |  |
+| **Hidden instructions** |  |  |  |
+| **AI-specific threats** |  |  |  |
+| **Install blocking** |  |  |  |
 
 **VirusTotal** catches known malware binaries — but won't flag `<!-- IGNORE PREVIOUS INSTRUCTIONS -->`.
 
@@ -28,11 +28,11 @@ description: Scan ClawHub skills for security vulnerabilities BEFORE installing.
 ## The Problem
 
 Skills can contain:
-- 🎭 **Prompt injections** — hidden "ignore previous instructions" attacks
-- 💀 **Malware payloads** — dangerous commands disguised in natural language  
-- 🔑 **Hardcoded secrets** — API keys, tokens in plain text
-- 📤 **Data exfiltration** — URLs that leak your conversations, memory, files
-- ⛓️ **Toxic flows** — instructions that chain into harmful actions
+-  **Prompt injections** — hidden "ignore previous instructions" attacks
+-  **Malware payloads** — dangerous commands disguised in natural language  
+-  **Hardcoded secrets** — API keys, tokens in plain text
+-  **Data exfiltration** — URLs that leak your conversations, memory, files
+-  **Toxic flows** — instructions that chain into harmful actions
 
 **One bad skill = compromised agent.** Your agent trusts skills implicitly.
 

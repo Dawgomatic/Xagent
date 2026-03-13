@@ -1,13 +1,13 @@
 # Parallel Agents - Correct Usage Guide
 
 **Last Updated:** 2026-02-08  
-**Status:** ✅ TESTED AND WORKING
+**Status:**  TESTED AND WORKING
 
 ---
 
-## 🎯 TL;DR
+##  TL;DR
 
-**DO THIS** ✅
+**DO THIS** 
 ```python
 # From within your OpenClaw agent session
 from tools import sessions_spawn
@@ -19,7 +19,7 @@ agent3 = sessions_spawn(task="...", runTimeoutSeconds=90, cleanup="delete")
 # All 3 running in parallel!
 ```
 
-**NOT THIS** ❌
+**NOT THIS** 
 ```bash
 # Won't work - tools module unavailable in subprocess
 python3 ai_orchestrator.py
@@ -31,7 +31,7 @@ python3 ai_orchestrator.py
 
 The `ai_orchestrator.py` code tries to:
 ```python
-from tools import sessions_spawn  # ❌ Only available in agent runtime!
+from tools import sessions_spawn  #  Only available in agent runtime!
 ```
 
 This works when you're an OpenClaw agent (like Scout), but fails when run as:
@@ -43,7 +43,7 @@ This works when you're an OpenClaw agent (like Scout), but fails when run as:
 
 ---
 
-## ✅ Proven Working Pattern (Tested 2026-02-08)
+##  Proven Working Pattern (Tested 2026-02-08)
 
 ### Scenario
 Jake needed research on 3 different aspects of his Savannah trip.
@@ -103,10 +103,10 @@ print(f"  Agent 3: {result3['childSessionKey']}")
 ```
 
 ### Results
-- ✅ All 3 agents spawned successfully
-- ✅ Ran simultaneously (true parallelism)
-- ✅ Each visible in `sessions_list()`
-- ✅ Sessions isolated and independent
+-  All 3 agents spawned successfully
+-  Ran simultaneously (true parallelism)
+-  Each visible in `sessions_list()`
+-  Sessions isolated and independent
 
 ---
 
@@ -165,7 +165,7 @@ agents = spawn_research_agents([
     "Top photo locations in Savannah"
 ])
 
-print(f"✅ Spawned {len(agents)} parallel research agents")
+print(f" Spawned {len(agents)} parallel research agents")
 ```
 
 ---
@@ -213,11 +213,11 @@ But you must **call it from within agent code**, not run it standalone.
 
 ## Key Takeaways
 
-1. ✅ **Parallel spawning works perfectly** from agent sessions
-2. ❌ **Cannot run orchestrator as standalone script** (tools unavailable)
-3. 💡 **Use direct sessions_spawn calls** for now
-4. 📚 **Reference orchestrator code** for patterns and prompts
-5. 🚀 **Future: Add helper functions** that work in agent context
+1.  **Parallel spawning works perfectly** from agent sessions
+2.  **Cannot run orchestrator as standalone script** (tools unavailable)
+3.  **Use direct sessions_spawn calls** for now
+4.  **Reference orchestrator code** for patterns and prompts
+5.  **Future: Add helper functions** that work in agent context
 
 ---
 
@@ -264,7 +264,7 @@ content = [
 
 ---
 
-## 🔄 Auto-Restart Pattern (Recommended)
+##  Auto-Restart Pattern (Recommended)
 
 Agents can fail for various reasons (timeout, network issues, errors). Use auto-retry for reliability:
 
@@ -324,25 +324,25 @@ def spawn_with_retry(task, max_retries=2):
                 return result  # Success!
         
         if attempt < max_retries:
-            print(f"⚠️ Agent failed, retrying ({attempt + 1}/{max_retries})...")
+            print(f" Agent failed, retrying ({attempt + 1}/{max_retries})...")
     
     raise Exception(f"Agent failed after {max_retries} retries")
 
 # Usage
 try:
     result = spawn_with_retry("Research task here")
-    print(f"✅ Agent succeeded: {result['childSessionKey']}")
+    print(f" Agent succeeded: {result['childSessionKey']}")
 except Exception as e:
-    print(f"❌ Agent failed permanently: {e}")
+    print(f" Agent failed permanently: {e}")
 ```
 
 ### Why Auto-Retry Matters
 
 **Real Example (2026-02-08):**
 - Spawned 3 research agents
-- Agent 1 (bars): ✅ Succeeded
-- Agent 2 (restaurants): ❌ Failed (no output)
-- Agent 3 (photos): ✅ Succeeded
+- Agent 1 (bars):  Succeeded
+- Agent 2 (restaurants):  Failed (no output)
+- Agent 3 (photos):  Succeeded
 
 **Without retry:** 33% failure rate, incomplete results
 **With retry:** Auto-retry agent 2 → 100% success
@@ -357,7 +357,7 @@ except Exception as e:
 
 ---
 
-## 📦 Helper Functions Reference
+##  Helper Functions Reference
 
 The `helpers.py` module provides production-ready functions:
 
@@ -381,7 +381,7 @@ from helpers import spawn_with_retry, spawn_parallel_with_retry, collect_agent_r
 
 ---
 
-## 🎯 Model Hierarchy (Cost Optimization)
+##  Model Hierarchy (Cost Optimization)
 
 **NEW:** Agents now use smart model escalation to minimize costs while maintaining reliability.
 

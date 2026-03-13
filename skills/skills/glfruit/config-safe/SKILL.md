@@ -122,7 +122,7 @@ openclaw gateway call config.schema --params '{}'
   "channels": { "telegram": { "enabled": true, "botToken": "***" } }
 }
 
-⚠️ 风险检查:
+ 风险检查:
 - 字段名正确 ✓
 - 类型正确 ✓
 - botToken 必填 ✓
@@ -188,7 +188,7 @@ openclaw doctor
       id: "main",
       identity: {
         name: "Samantha",
-        emoji: "🦥"
+        emoji: ""
       }
     }]
   }
@@ -226,16 +226,16 @@ openclaw doctor
 ## 黄金法则
 
 **在你这个技能中，永远不要：**
-- ❌ 直接写入配置而不预览
-- ❌ 直接写入配置而不确认
-- ❌ 使用 config.apply 而不提醒用户风险
+-  直接写入配置而不预览
+-  直接写入配置而不确认
+-  使用 config.apply 而不提醒用户风险
 
 **你应该：**
-- ✅ 先读取文档
-- ✅ Schema 验证配置结构
-- ✅ 生成变更预览
-- ✅ 明确要求用户确认
-- ✅ 优先使用 config.patch
+-  先读取文档
+-  Schema 验证配置结构
+-  生成变更预览
+-  明确要求用户确认
+-  优先使用 config.patch
 
 ## 安全检查清单
 

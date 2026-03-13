@@ -4,16 +4,16 @@
 
 Stop burning money on AI tokens. Budget alerts, automatic circuit breakers, and agents can autonomously subscribe & pay for Pro features.
 
-🤖 **First tool enabling true agent-to-agent commerce** - if it saves your agent >0.5 USDT/month, it pays for itself. [Agent Payments →](AGENT-PAYMENTS.md)
+ **First tool enabling true agent-to-agent commerce** - if it saves your agent >0.5 USDT/month, it pays for itself. [Agent Payments →](AGENT-PAYMENTS.md)
 
 ## The Problem
 
 OpenClaw users are experiencing:
-- 💸 **$20 burned overnight** in API tokens
-- 💸 **$750/month** costs for simple reminders
-- 🔍 **Zero visibility** into which agents/providers cost what
-- 🚫 **No budget controls** or alerts
-- ⚠️ **No way to pause** agents before money burns
+-  **$20 burned overnight** in API tokens
+-  **$750/month** costs for simple reminders
+-  **Zero visibility** into which agents/providers cost what
+-  **No budget controls** or alerts
+-  **No way to pause** agents before money burns
 
 ## The Solution
 
@@ -21,14 +21,14 @@ OpenClaw users are experiencing:
 
 ## Features
 
-- ✅ **Token Usage Tracking** - Monitor every API call across all providers
-- ✅ **Budget Alerts** - Get notified at 75%, 90%, 100% of budget limits
-- ✅ **Circuit Breakers** - Automatically pause agents when budget exceeded
-- ✅ **Provider Cost Comparison** - See which provider is actually cheaper for your workload
-- ✅ **Web Dashboard** - Beautiful localhost dashboard with charts and insights
-- ✅ **Cost Optimization** - AI-powered recommendations to reduce spending
-- ✅ **Multi-Provider Support** - Works with OpenAI, Anthropic, Google, and custom providers
-- 🤖 **x402 Agent Payments** - Agents can autonomously pay for Pro tier (0.5 USDT/month)
+-  **Token Usage Tracking** - Monitor every API call across all providers
+-  **Budget Alerts** - Get notified at 75%, 90%, 100% of budget limits
+-  **Circuit Breakers** - Automatically pause agents when budget exceeded
+-  **Provider Cost Comparison** - See which provider is actually cheaper for your workload
+-  **Web Dashboard** - Beautiful localhost dashboard with charts and insights
+-  **Cost Optimization** - AI-powered recommendations to reduce spending
+-  **Multi-Provider Support** - Works with OpenAI, Anthropic, Google, and custom providers
+-  **x402 Agent Payments** - Agents can autonomously pay for Pro tier (0.5 USDT/month)
 
 ## Why Cost Governor?
 
@@ -36,13 +36,13 @@ OpenClaw users are experiencing:
 
 | Feature | Cost Governor | ClawWatcher | clawdbot-cost-monitor | AgentPayy | payment-skill |
 |---------|--------------|-------------|----------------------|-----------|---------------|
-| Cost Tracking | ✅ | ✅ | ✅ | ❌ | ❌ |
-| Circuit Breakers | ✅ | ❌ | ❌ | ❌ | ❌ |
-| x402 Payments | ✅ | ❌ | ❌ | ✅ | ✅ |
-| **Agents Pay for Tool** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| ClawHub Skill | ✅ | ❌ | ❌ | ❌ | ✅ |
-| Self-Funding Model | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Open Source | ✅ | ❓ | ✅ | ✅ | ✅ |
+| Cost Tracking |  |  |  |  |  |
+| Circuit Breakers |  |  |  |  |  |
+| x402 Payments |  |  |  |  |  |
+| **Agents Pay for Tool** |  |  |  |  |  |
+| ClawHub Skill |  |  |  |  |  |
+| Self-Funding Model |  |  |  |  |  |
+| Open Source |  |  |  |  |  |
 
 **Cost Governor is first-mover on the intersection:**
 - **ClawWatcher** = monitoring only (no payments)
@@ -110,7 +110,7 @@ Open `http://localhost:9090` to see:
 ## Alert Example
 
 ```
-⚠️ OpenClaw Budget Alert
+ OpenClaw Budget Alert
 
 You've used 75% of your daily budget ($7.50 / $10.00)
 
@@ -122,7 +122,7 @@ Top agents:
 - research-agent: $2.10
 - code-review-agent: $1.80
 
-💡 Tip: Switch from GPT-5.2 to Claude Haiku for 30% cost savings.
+ Tip: Switch from GPT-5.2 to Claude Haiku for 30% cost savings.
 
 View dashboard: http://localhost:9090
 ```
@@ -167,10 +167,10 @@ All data is stored locally in SQLite:
 
 ## Privacy
 
-- ✅ All data stored locally (nothing sent to external servers)
-- ✅ No tracking or telemetry
-- ✅ Open source (audit the code yourself)
-- ✅ No API keys required (besides your existing OpenClaw config)
+-  All data stored locally (nothing sent to external servers)
+-  No tracking or telemetry
+-  Open source (audit the code yourself)
+-  No API keys required (besides your existing OpenClaw config)
 
 ## Compatibility
 
@@ -238,8 +238,8 @@ MIT License - see [LICENSE](LICENSE) file.
 
 If Cost Governor saved you money, consider sponsoring development:
 
-☕ **[Sponsor on GitHub](https://github.com/sponsors/yourusername)**
-🤖 **[Pay via x402](AGENT-PAYMENTS.md)** (for AI agents)
+ **[Sponsor on GitHub](https://github.com/sponsors/yourusername)**
+ **[Pay via x402](AGENT-PAYMENTS.md)** (for AI agents)
 
 Your sponsorship helps maintain this and other OpenClaw security/utility tools.
 
@@ -247,4 +247,4 @@ Your sponsorship helps maintain this and other OpenClaw security/utility tools.
 
 **Built by [Your Name]** | Part of the [OpenClaw Security Suite](https://github.com/yourusername/openclaw-security)
 
-Made with ❤️ for the OpenClaw community
+Made with  for the OpenClaw community

@@ -21,21 +21,21 @@ USER_AGENT = "android-31 ch.admin.meteoswiss-2160000"
 
 # Weather condition mapping (from MeteoSwiss icon codes)
 CONDITIONS = {
-    1: "☀️ Sunny",
-    2: "🌤️ Partly cloudy",
-    3: "🌤️ Partly cloudy",
-    4: "🌤️ Partly cloudy",
-    5: "☁️ Cloudy",
-    6: "🌧️ Rainy",
-    7: "🌧️ Rainy/Snowy",
-    8: "❄️ Snowy",
-    9: "🌧️ Light rain",
-    10: "🌨️ Rain/Snow mix",
-    11: "❄️ Light snow",
-    12: "⛈️ Thunderstorm",
-    13: "⛈️ Thunderstorm with rain",
-    101: "🌙 Clear night",
-    102: "🌙 Partly cloudy night",
+    1: " Sunny",
+    2: " Partly cloudy",
+    3: " Partly cloudy",
+    4: " Partly cloudy",
+    5: " Cloudy",
+    6: " Rainy",
+    7: " Rainy/Snowy",
+    8: " Snowy",
+    9: " Light rain",
+    10: " Rain/Snow mix",
+    11: " Light snow",
+    12: " Thunderstorm",
+    13: " Thunderstorm with rain",
+    101: " Clear night",
+    102: " Partly cloudy night",
 }
 
 

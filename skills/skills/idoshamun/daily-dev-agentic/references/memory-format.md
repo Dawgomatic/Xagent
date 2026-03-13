@@ -20,7 +20,7 @@ Master config file. Created during setup, updated each learning loop.
 
 ## Feed
 - ID: abc123
-- Name: 🗿 Lurch's Learning Feed
+- Name:  Lurch's Learning Feed
 - Created: 2024-01-15
 
 ## Tags Followed

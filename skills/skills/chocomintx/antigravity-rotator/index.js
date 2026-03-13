@@ -10,10 +10,10 @@ const exampleConfigPath = path.resolve(__dirname, 'assets/config.example.json');
 
 if (!fs.existsSync(configPath)) {
     if (fs.existsSync(exampleConfigPath)) {
-        console.log("ℹ️ Config file not found. Creating default config from example...");
+        console.log(" Config file not found. Creating default config from example...");
         fs.copyFileSync(exampleConfigPath, configPath);
     } else {
-        console.error("❌ config.json not found and no example available.");
+        console.error(" config.json not found and no example available.");
         process.exit(1);
     }
 }
@@ -33,7 +33,7 @@ args.forEach(arg => {
 // 3. Execute
 (async () => {
     if (action === 'setup') {
-        console.log("🛠️ Antigravity Rotator Setup Helper");
+        console.log(" Antigravity Rotator Setup Helper");
         const { execSync } = require('child_process');
         try {
             const openclawPath = execSync('which openclaw', { encoding: 'utf8' }).trim();
@@ -44,13 +44,13 @@ args.forEach(arg => {
             config.openclawBin = openclawPath;
             fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
             
-            console.log("\n✅ config.json has been updated with your local paths.");
+            console.log("\n config.json has been updated with your local paths.");
             console.log("\nNext steps:");
             console.log(`1. Run dashboard: node ${path.relative(process.cwd(), __filename)} --action=dashboard`);
             console.log(`2. Setup cron (recommended):`);
             console.log(`   */10 * * * * ${nodePath} ${path.resolve(__filename)} --action=rotate >> /tmp/antigravity-rotate.log 2>&1`);
         } catch (e) {
-            console.error("\n❌ Could not automatically find openclaw. Please set 'openclawBin' in config.json manually.");
+            console.error("\n Could not automatically find openclaw. Please set 'openclawBin' in config.json manually.");
         }
         return;
     }

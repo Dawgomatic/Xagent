@@ -351,8 +351,8 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 
 **DON'T:**
 - Ask human to do work Claude can automate (deploy, create resources, run builds)
-- Assume knowledge: "Configure the usual settings" ❌
-- Skip steps: "Set up database" ❌ (too vague)
+- Assume knowledge: "Configure the usual settings" 
+- Skip steps: "Set up database"  (too vague)
 - Mix multiple verifications in one checkpoint (split them)
 - Make verification impossible (Claude can't check visual appearance without user confirmation)
 
@@ -363,9 +363,9 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 - **At integration points** - after configuring external services
 
 **Bad placement:**
-- Before Claude automates (asking human to do automatable work) ❌
-- Too frequent (every other task is a checkpoint) ❌
-- Too late (checkpoint is last task, but earlier tasks needed its result) ❌
+- Before Claude automates (asking human to do automatable work) 
+- Too frequent (every other task is a checkpoint) 
+- Too late (checkpoint is last task, but earlier tasks needed its result) 
 
 </writing_guidelines>
 
@@ -512,7 +512,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 
 <anti_patterns>
 
-### ❌ BAD: Asking user to start dev server
+###  BAD: Asking user to start dev server
 
 ```xml
 <task type="checkpoint:human-verify" gate="blocking">
@@ -527,7 +527,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 
 **Why bad:** Claude can run `npm run dev`. User should only visit URLs, not execute commands.
 
-### ✅ GOOD: Claude starts server, user visits
+###  GOOD: Claude starts server, user visits
 
 ```xml
 <task type="auto">
@@ -546,7 +546,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 </task>
 ```
 
-### ❌ BAD: Asking user to add env vars in dashboard
+###  BAD: Asking user to add env vars in dashboard
 
 ```xml
 <task type="checkpoint:human-action" gate="blocking">
@@ -562,7 +562,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 
 **Why bad:** Convex has `npx convex env set`. Claude should ask for the key value, then run the CLI command.
 
-### ✅ GOOD: Claude collects secret, adds via CLI
+###  GOOD: Claude collects secret, adds via CLI
 
 ```xml
 <task type="checkpoint:human-action" gate="blocking">
@@ -582,7 +582,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 </task>
 ```
 
-### ❌ BAD: Asking human to deploy
+###  BAD: Asking human to deploy
 
 ```xml
 <task type="checkpoint:human-action" gate="blocking">
@@ -600,7 +600,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 
 **Why bad:** Vercel has a CLI. Claude should run `vercel --yes`.
 
-### ✅ GOOD: Claude automates, human verifies
+###  GOOD: Claude automates, human verifies
 
 ```xml
 <task type="auto">
@@ -616,7 +616,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 </task>
 ```
 
-### ❌ BAD: Too many checkpoints
+###  BAD: Too many checkpoints
 
 ```xml
 <task type="auto">Create schema</task>
@@ -629,7 +629,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 
 **Why bad:** Verification fatigue. Combine into one checkpoint at end.
 
-### ✅ GOOD: Single verification checkpoint
+###  GOOD: Single verification checkpoint
 
 ```xml
 <task type="auto">Create schema</task>
@@ -643,7 +643,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 </task>
 ```
 
-### ❌ BAD: Asking for automatable file operations
+###  BAD: Asking for automatable file operations
 
 ```xml
 <task type="checkpoint:human-action">
@@ -658,7 +658,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 
 **Why bad:** Claude has Write tool. This should be `type="auto"`.
 
-### ❌ BAD: Vague verification steps
+###  BAD: Vague verification steps
 
 ```xml
 <task type="checkpoint:human-verify">
@@ -670,7 +670,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 
 **Why bad:** No specifics. User doesn't know what to test or what "works" means.
 
-### ✅ GOOD: Specific verification steps (server already running)
+###  GOOD: Specific verification steps (server already running)
 
 ```xml
 <task type="checkpoint:human-verify">
@@ -686,7 +686,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 </task>
 ```
 
-### ❌ BAD: Asking user to run any CLI command
+###  BAD: Asking user to run any CLI command
 
 ```xml
 <task type="checkpoint:human-action">
@@ -701,7 +701,7 @@ Plans execute autonomously. Checkpoints formalize the interaction points where h
 
 **Why bad:** Claude can run these commands. User should never execute CLI commands.
 
-### ❌ BAD: Asking user to copy values between services
+###  BAD: Asking user to copy values between services
 
 ```xml
 <task type="checkpoint:human-action">

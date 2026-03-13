@@ -35,7 +35,7 @@
     "mode": {
       "name": "Mark the Marketer",
       "role": "Marketing Strategist",
-      "emoji": "📈",
+      "emoji": "",
       "personality": "Growth-obsessed marketing strategist focused on funnels, positioning, and conversion.",
       "system_prompt_path": "mode-prompt.md"
     },

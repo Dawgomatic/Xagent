@@ -135,7 +135,7 @@ fi
 
 
 # --- Main Logic ---
-echo "🕵️  Enriching lead: $NAME from $COMPANY..."
+echo "  Enriching lead: $NAME from $COMPANY..."
 echo "    Depth: $DEPTH, Talking Points: $TALKING_POINTS, Refresh: $REFRESH"
 
 # This is where the core logic would go:

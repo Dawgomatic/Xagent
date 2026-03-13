@@ -1,7 +1,7 @@
 ---
 name: lunara-voice
 description: Bundle for Lunara Voice OpenClaw plugin with install and publish helpers
-metadata: {"openclaw": {"always": true, "emoji": "📞", "homepage": "https://lunaravox.com"}}
+metadata: {"openclaw": {"always": true, "emoji": "", "homepage": "https://lunaravox.com"}}
 ---
 
 # Lunara Voice Bundle

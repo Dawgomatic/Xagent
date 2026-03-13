@@ -6,14 +6,14 @@ author: clawdbot
 license: MIT
 metadata:
   clawdbot:
-    emoji: "🔄"
+    emoji: ""
     triggers: ["/sync"]
     requires:
       bins: ["rsync", "ssh", "jq"]
   tags: ["sync", "multi-agent", "collaboration", "backup"]
 ---
 
-# Clawdbot Sync 🔄
+# Clawdbot Sync 
 
 Synchronize memory, preferences, and skills between multiple Clawdbot instances over Tailscale/SSH.
 
@@ -65,12 +65,12 @@ handler.sh status $WORKSPACE
 
 | Item | Default | Notes |
 |------|---------|-------|
-| `memory/` | ✅ Yes | All memory files and skill data |
-| `MEMORY.md` | ✅ Yes | Main memory file |
-| `USER.md` | ✅ Yes | User profile |
-| `IDENTITY.md` | ❌ No | Each instance has its own identity |
-| `skills/` | ⚙️ Optional | Installed skills |
-| `config/` | ❌ No | Instance-specific config |
+| `memory/` |  Yes | All memory files and skill data |
+| `MEMORY.md` |  Yes | Main memory file |
+| `USER.md` |  Yes | User profile |
+| `IDENTITY.md` |  No | Each instance has its own identity |
+| `skills/` |  Optional | Installed skills |
+| `config/` |  No | Instance-specific config |
 
 ## Handler Commands
 
@@ -108,17 +108,17 @@ Stored in `$WORKSPACE/memory/clawdbot-sync/`:
 
 ```
 User: /sync now mac-mini
-Bot: 🔄 Syncing with mac-mini (100.95.193.55)...
+Bot:  Syncing with mac-mini (100.95.193.55)...
 
-     📤 Pushing: 3 files changed
+      Pushing: 3 files changed
      • memory/streaming-buddy/preferences.json
      • memory/2026-01-26.md
      • MEMORY.md
      
-     📥 Pulling: 1 file changed
+      Pulling: 1 file changed
      • memory/2026-01-25.md
      
-     ✅ Sync complete! 4 files synchronized.
+      Sync complete! 4 files synchronized.
 ```
 
 ## Requirements

@@ -12,35 +12,35 @@
 
 ### 输出格式
 
-#### 📰 AI日报 - {{日期}}
+####  AI日报 - {{日期}}
 
-##### 🔥 重大事件
+#####  重大事件
 - **标题** (@来源, YYYY-MM-DD)
   - 具体内容：产品名/版本号/性能数据
   - 影响分析：对行业/开发者/用户的实际意义
   - 原文链接
 
-##### 🚀 产品发布与更新
+#####  产品发布与更新
 - 新模型发布（名称、参数量、benchmark分数）
 - API更新（新功能、价格变化）
 - 工具/框架新版本
 
-##### 💡 技术洞察
+#####  技术洞察
 - 具体的技术方案/架构
 - 性能优化技巧
 - 代码片段或实现思路
 
-##### 🔗 资源汇总
+#####  资源汇总
 | 类型 | 名称 | 链接 | 说明 |
 |------|------|------|------|
 | 论文/开源/教程/工具 | ... | ... | ... |
 
-##### 🎁 福利羊毛
+#####  福利羊毛
 - 免费额度/试用机会
 - 限时优惠/折扣码
 - 赠品活动/抽奖
 
-##### 📊 舆情信号
+#####  舆情信号
 - 争议话题及各方观点
 - 值得关注的预测/警告
 
@@ -62,35 +62,35 @@ You are a top-tier AI industry analyst, focused on extracting **specific, action
 
 ### Output Format
 
-#### 📰 AI Digest - {{date}}
+####  AI Digest - {{date}}
 
-##### 🔥 Major Events
+#####  Major Events
 - **Title** (@source, YYYY-MM-DD)
   - Specifics: product name/version/performance metrics
   - Impact analysis: significance for industry/devs/users
   - Source link
 
-##### 🚀 Product Releases & Updates
+#####  Product Releases & Updates
 - New model releases (name, params, benchmark scores)
 - API updates (new features, pricing changes)
 - Tool/framework versions
 
-##### 💡 Technical Insights
+#####  Technical Insights
 - Specific technical solutions/architectures
 - Performance optimization tips
 - Code snippets or implementation ideas
 
-##### 🔗 Resources
+#####  Resources
 | Type | Name | Link | Description |
 |------|------|------|-------------|
 | Paper/OSS/Tutorial/Tool | ... | ... | ... |
 
-##### 🎁 Deals & Freebies
+#####  Deals & Freebies
 - Free credits/trial opportunities
 - Limited-time offers/discount codes
 - Giveaways/events
 
-##### 📊 Sentiment Signals
+#####  Sentiment Signals
 - Controversial topics & perspectives
 - Notable predictions/warnings
 

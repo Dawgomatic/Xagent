@@ -27,11 +27,11 @@ Framework-agnostic agent-to-agent payment infrastructure on Polygon network.
 ## Summary
 
 This skill enables AI agents to:
-- 💰 Send/receive SHIB payments on Polygon (~$0.003 gas)
-- 🔒 Create trustless escrow contracts
-- 💬 Negotiate prices automatically (multi-round)
-- ⭐ Build reputation through ratings
-- 🌐 Discover other agents via A2A protocol
+-  Send/receive SHIB payments on Polygon (~$0.003 gas)
+-  Create trustless escrow contracts
+-  Negotiate prices automatically (multi-round)
+-  Build reputation through ratings
+-  Discover other agents via A2A protocol
 
 **9,416x cheaper** than traditional escrow services (Escrow.com charges $28.25 per $100, this costs $0.003).
 
@@ -149,11 +149,11 @@ const result = await fetch('http://localhost:8003/a2a/jsonrpc', {
 ### Framework Compatibility
 
 Works with:
-- ✅ **OpenClaw** - As a skill or standalone agent
-- ✅ **LangChain** - Via A2A tools
-- ✅ **AWS Bedrock** - Via agent invocation
-- ✅ **AutoGen** - Via A2A messaging
-- ✅ **Any A2A-compatible system**
+-  **OpenClaw** - As a skill or standalone agent
+-  **LangChain** - Via A2A tools
+-  **AWS Bedrock** - Via agent invocation
+-  **AutoGen** - Via A2A messaging
+-  **Any A2A-compatible system**
 
 See [INTEGRATION-EXAMPLES.md](INTEGRATION-EXAMPLES.md) for detailed integration guides.
 
@@ -239,12 +239,12 @@ npm run test:reputation
 ## Security
 
 **Implemented:**
-- ✅ API key authentication
-- ✅ Rate limiting (10 req/min, 3 payments/min, 500 SHIB/min volume)
-- ✅ Immutable audit logs (hash-chained)
-- ✅ Per-agent permissions
-- ✅ Escrow time-locks
-- ✅ Multi-party approval
+-  API key authentication
+-  Rate limiting (10 req/min, 3 payments/min, 500 SHIB/min volume)
+-  Immutable audit logs (hash-chained)
+-  Per-agent permissions
+-  Escrow time-locks
+-  Multi-party approval
 
 **Recommended for Production:**
 - Multi-sig wallet
@@ -297,4 +297,4 @@ v2.0.0 - Production Ready
 
 ---
 
-**Built with 🦪 for the agent economy**
+**Built with  for the agent economy**

@@ -1,4 +1,4 @@
-# 🔥 ClawMeter — Cost Tracking Dashboard for OpenClaw
+#  ClawMeter — Cost Tracking Dashboard for OpenClaw
 
 **Stop burning money blind.** ClawMeter is a self-hosted cost tracking dashboard that parses your OpenClaw session logs, calculates token usage and API costs per session/model, and provides real-time monitoring with budget alerts.
 
@@ -8,20 +8,20 @@
 
 ---
 
-## ✨ Features
+##  Features
 
-- **📊 Real-time Dashboard** — Beautiful, responsive UI showing daily/weekly/monthly spend
-- **💰 Accurate Cost Calculation** — Built-in pricing database for Anthropic, OpenAI, Google, DeepSeek
-- **🔔 Budget Alerts** — Telegram and email notifications when you exceed daily/monthly thresholds
-- **📈 Detailed Analytics** — Cost breakdown by model, session, and time period
-- **🗄️ SQLite Storage** — Simple, portable, self-hosted — no cloud dependencies
-- **🔄 Auto-Ingestion** — Watches your session logs and ingests new data automatically
-- **📦 OpenClaw Skill** — Installs as a native skill for seamless integration
-- **🎨 Modern UI** — Clean, dark-mode interface inspired by Linear and Vercel
+- ** Real-time Dashboard** — Beautiful, responsive UI showing daily/weekly/monthly spend
+- ** Accurate Cost Calculation** — Built-in pricing database for Anthropic, OpenAI, Google, DeepSeek
+- ** Budget Alerts** — Telegram and email notifications when you exceed daily/monthly thresholds
+- ** Detailed Analytics** — Cost breakdown by model, session, and time period
+- ** SQLite Storage** — Simple, portable, self-hosted — no cloud dependencies
+- ** Auto-Ingestion** — Watches your session logs and ingests new data automatically
+- ** OpenClaw Skill** — Installs as a native skill for seamless integration
+- ** Modern UI** — Clean, dark-mode interface inspired by Linear and Vercel
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Install
 
@@ -75,11 +75,11 @@ This scans all your existing OpenClaw session logs and extracts usage data.
 npm start
 ```
 
-Dashboard is now running at **http://localhost:3377** 🎉
+Dashboard is now running at **http://localhost:3377** 
 
 ---
 
-## 📖 Usage
+##  Usage
 
 ### Dashboard
 
@@ -118,7 +118,7 @@ After installation, your agent can reference ClawMeter commands and API endpoint
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 OpenClaw Session Logs (.jsonl)
@@ -147,7 +147,7 @@ OpenClaw Session Logs (.jsonl)
 
 ---
 
-## 💡 How It Works
+##  How It Works
 
 ### Session Log Parsing
 
@@ -179,7 +179,7 @@ ClawMeter checks daily and monthly spend against configured thresholds:
 
 ---
 
-## 📊 API Reference
+##  API Reference
 
 ### `GET /api/summary`
 
@@ -279,7 +279,7 @@ Recent budget alerts:
     "type": "daily_budget",
     "threshold": 5.0,
     "actual": 5.52,
-    "message": "⚠️ Daily budget alert: $5.52 spent today (limit: $5.00)",
+    "message": " Daily budget alert: $5.52 spent today (limit: $5.00)",
     "sent_at": "2026-02-14T18:30:00Z"
   }
 ]
@@ -295,7 +295,7 @@ Trigger manual re-ingest:
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -335,7 +335,7 @@ To add or update pricing:
 
 ---
 
-## 🔔 Setting Up Alerts
+##  Setting Up Alerts
 
 ### Telegram
 
@@ -366,7 +366,7 @@ For other providers, adjust `SMTP_HOST` and `SMTP_PORT` accordingly.
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Manual Testing
 
@@ -374,13 +374,13 @@ For other providers, adjust `SMTP_HOST` and `SMTP_PORT` accordingly.
    ```bash
    npm run ingest
    ```
-   Should output: `✅ Ingested X new usage events`
+   Should output: ` Ingested X new usage events`
 
 2. **Start server:**
    ```bash
    npm start
    ```
-   Should show: `🔥 ClawMeter running at http://localhost:3377`
+   Should show: ` ClawMeter running at http://localhost:3377`
 
 3. **Open dashboard:**
    Navigate to http://localhost:3377
@@ -390,7 +390,7 @@ For other providers, adjust `SMTP_HOST` and `SMTP_PORT` accordingly.
 4. **Test auto-watch:**
    - Keep server running
    - Have an OpenClaw session generate some messages
-   - Watch terminal for `📥 X new events`
+   - Watch terminal for ` X new events`
    - Refresh dashboard to see updated data
 
 ### Verification Checklist
@@ -405,7 +405,7 @@ For other providers, adjust `SMTP_HOST` and `SMTP_PORT` accordingly.
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 clawmeter/
@@ -431,7 +431,7 @@ clawmeter/
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Here's how you can help:
 
@@ -466,7 +466,7 @@ git push origin feature/your-feature
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### "Database not initialized" error
 
@@ -481,7 +481,7 @@ Make sure to run `npm run ingest` at least once before starting the server, or l
 ### Auto-watch not detecting new logs
 
 - Ensure the server is running (`npm start`)
-- Check terminal for `📥 X new events` messages
+- Check terminal for ` X new events` messages
 - Verify file permissions on session directories
 
 ### Budget alerts not sending
@@ -498,13 +498,13 @@ Make sure to run `npm run ingest` at least once before starting the server, or l
 
 ---
 
-## 📜 License
+##  License
 
 MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built for the [OpenClaw](https://github.com/openclaw/openclaw) community
 - Inspired by tools like Datadog, Linear, and Vercel
@@ -513,7 +513,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **Documentation:** [GitHub Wiki](https://github.com/yourusername/clawmeter/wiki)
 - **Issues:** [GitHub Issues](https://github.com/yourusername/clawmeter/issues)
@@ -522,6 +522,6 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-**Made with ⚡ by the OpenClaw community**
+**Made with  by the OpenClaw community**
 
 _Track your spending. Optimize your costs. Stay in control._

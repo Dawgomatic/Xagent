@@ -20,7 +20,7 @@ function checkConfig() {
   if (!config.account_id) missing.push('ZOOM_ACCOUNT_ID');
   
   if (missing.length > 0) {
-    console.error('❌ Missing required environment variables:', missing.join(', '));
+    console.error(' Missing required environment variables:', missing.join(', '));
     process.exit(1);
   }
 }
@@ -162,12 +162,12 @@ async function main() {
       const [topic, startTime, duration] = [process.argv[3], process.argv[4], parseInt(process.argv[5], 10)];
       try {
         const meeting = await createMeeting(topic, startTime, duration);
-        console.log('✅ Meeting created successfully!');
+        console.log(' Meeting created successfully!');
         console.log(`ID: ${meeting.id}`);
         console.log(`Join URL: ${meeting.join_url}`);
         console.log(`Start Time: ${meeting.start_time}`);
       } catch (e) {
-        console.error('❌ Error:', e.message);
+        console.error(' Error:', e.message);
       }
       break;
 
@@ -183,7 +183,7 @@ async function main() {
           }
         }
       } catch (e) {
-        console.error('❌ Error:', e.message);
+        console.error(' Error:', e.message);
       }
       break;
 
@@ -196,7 +196,7 @@ async function main() {
         const info = await getMeetingInfo(process.argv[3]);
         console.log(JSON.stringify(info, null, 2));
       } catch (e) {
-        console.error('❌ Error:', e.message);
+        console.error(' Error:', e.message);
       }
       break;
 
@@ -207,9 +207,9 @@ async function main() {
       }
       try {
         await deleteMeeting(process.argv[3]);
-        console.log(`✅ Meeting ${process.argv[3]} deleted successfully.`);
+        console.log(` Meeting ${process.argv[3]} deleted successfully.`);
       } catch (e) {
-        console.error('❌ Error:', e.message);
+        console.error(' Error:', e.message);
       }
       break;
 
@@ -242,9 +242,9 @@ async function main() {
           throw new Error(`Failed to update meeting: ${response.status} ${response.statusText}\n${errorText}`);
         }
 
-        console.log(`✅ Meeting ${mId} updated successfully to ${newStart}.`);
+        console.log(` Meeting ${mId} updated successfully to ${newStart}.`);
       } catch (e) {
-        console.error('❌ Error:', e.message);
+        console.error(' Error:', e.message);
       }
       break;
 

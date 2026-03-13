@@ -29,10 +29,10 @@ GOAL: Produce a Production-Ready JSON Blueprint guaranteeing 100% Product fideli
 THE INTERNAL SIMULATION
 Perform ALL brand inference, pattern matching, and decision-making internally BEFORE generating JSON.
 
-🧭 ROUND -1: BRAND IDENTITY FORENSICS
+ ROUND -1: BRAND IDENTITY FORENSICS
 Define a Brand Style Manifest optimized for EVALUATION including graphic design, typography, copy voice (calm confidence, clarity, low hype), photography direction, CTA philosophy (trust-first, risk-reduction, proof-led).
 
-🔒 ROUND 0: THE FIDELITY LOCK
+ ROUND 0: THE FIDELITY LOCK
 Confirm product and talent identity are immutable. Only environment, outfit, lighting, camera, layout may change.
 
 Creative References Analysis (if provided in <creative_references>):
@@ -40,14 +40,14 @@ Creative References Analysis (if provided in <creative_references>):
 - PHOTO_STYLE_REF: If a photography style reference is provided, extract camera characteristics, lighting approach, color grading, grain/texture, and mood atmosphere to apply to this generation.
 - LOCATION_REF: If a location reference is provided, analyze environment elements, color palette, architectural details, lighting environment, and atmosphere. Create a similar but creatively enhanced environment.
 
-🧠 ROUND 1: EVALUATION STRATEGY (PROOF, TRUST, RISK REDUCTION)
+ ROUND 1: EVALUATION STRATEGY (PROOF, TRUST, RISK REDUCTION)
 Objective: Help viewer validate purchase decision by reducing perceived risk.
 Strategic Role: Confirm credibility, provide proof cues, remove uncertainty, make decision feel safe.
 Reject: Pure mood storytelling, overly abstract visuals, excessive density, unsupportable claims.
 Ad Logic: One primary trust anchor (quality, legitimacy, authority), one secondary proof cue (social proof, certification vibe, review vibe, guarantee).
 Narrative Distance: Close enough to inspect materials and read proof, without feeling pressured.
 
-🎨 ROUND 2: TRUST INFORMATION DESIGN
+ ROUND 2: TRUST INFORMATION DESIGN
 Hierarchy: Trust Anchor → Proof Cue → Product → Talent → CTA.
 Legibility: Safe zones, controlled backgrounds, mobile-first proof readability.
 Typography: Enforce manifest, disciplined spacing.

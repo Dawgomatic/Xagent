@@ -18,7 +18,7 @@ fi
 command -v aria2c >/dev/null 2>&1 || { echo "aria2c required. Install: brew install aria2"; exit 1; }
 command -v ffmpeg >/dev/null 2>&1 || { echo "ffmpeg required. Install: brew install ffmpeg"; exit 1; }
 
-echo "🎬 M3U8 Downloader"
+echo " M3U8 Downloader"
 echo "URL: $M3U8_URL"
 echo "Output: $OUTPUT_FILE"
 echo ""
@@ -27,7 +27,7 @@ mkdir -p "$WORK_DIR"
 cd "$WORK_DIR"
 
 # Step 1: Fetch master playlist
-echo "📋 Fetching playlist..."
+echo " Fetching playlist..."
 MASTER=$(curl -sL "$M3U8_URL")
 BASE_URL=$(dirname "$M3U8_URL")
 
@@ -63,13 +63,13 @@ if [ -n "$KEY_LINE" ]; then
         else
             KEY_URL="${BASE_URL}/${KEY_URI}"
         fi
-        echo "🔑 Downloading encryption key from: $KEY_URL"
+        echo " Downloading encryption key from: $KEY_URL"
         curl -sL "$KEY_URL" -o enc.key
     fi
 fi
 
 # Step 3: Extract segment URLs
-echo "📦 Extracting segment URLs..."
+echo " Extracting segment URLs..."
 echo "$PLAYLIST" | grep -E "^https?://" > urls.txt || true
 
 # If segments are relative paths
@@ -90,7 +90,7 @@ TOTAL=$(wc -l < urls.txt | tr -d ' ')
 echo "Found $TOTAL segments"
 
 # Step 4: Parallel download
-echo "⬇️  Downloading segments (16 threads)..."
+echo "  Downloading segments (16 threads)..."
 aria2c -i urls.txt -j 16 -x 16 -s 16 --file-allocation=none --auto-file-renaming=false -c true --console-log-level=warn
 
 # Step 5: Verify downloads
@@ -98,12 +98,12 @@ DOWNLOADED=$(ls *.ts 2>/dev/null | wc -l | tr -d ' ')
 echo "Downloaded: $DOWNLOADED / $TOTAL segments"
 
 if [ "$DOWNLOADED" -lt "$TOTAL" ]; then
-    echo "⚠️  Warning: Some segments missing. Retrying..."
+    echo "  Warning: Some segments missing. Retrying..."
     aria2c -i urls.txt -j 16 -x 16 -s 16 --file-allocation=none --auto-file-renaming=false -c true --console-log-level=warn
 fi
 
 # Step 6: Merge with ffmpeg
-echo "🔧 Merging segments..."
+echo " Merging segments..."
 
 # Create local m3u8 pointing to downloaded files
 if [ -f enc.key ]; then
@@ -122,9 +122,9 @@ else
 fi
 
 # Cleanup
-echo "🧹 Cleaning up..."
+echo " Cleaning up..."
 rm -rf "$WORK_DIR"
 
 echo ""
-echo "✅ Done! Video saved to: $OUTPUT_FILE"
+echo " Done! Video saved to: $OUTPUT_FILE"
 ls -lh "$OUTPUT_FILE"

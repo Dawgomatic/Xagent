@@ -1,10 +1,10 @@
 # Contributing to Dr. Frankenstein
 
-Thanks for wanting to help give agents their souls! 💚
+Thanks for wanting to help give agents their souls! 
 
 ## Ways to Contribute
 
-### 🧪 New Pills
+###  New Pills
 Want to add a 12th hormone? Great. A good pill needs:
 1. **Biological inspiration** — What real hormone or neurotransmitter does it model?
 2. **Digital equivalent** — What behavior does it create in an agent?
@@ -14,7 +14,7 @@ Want to add a 12th hormone? Great. A good pill needs:
 
 Add your pill to `SKILL.md` (the pill section), `templates/cron-prompts.md`, and update the interview scoring in `interview/questions.md`.
 
-### 🎨 Prompt Artistry
+###  Prompt Artistry
 The cron prompts are the soul of the soul. They should be:
 - **Evocative** — Paint a feeling, not just a task list
 - **Actionable** — The agent should know what to DO
@@ -23,16 +23,16 @@ The cron prompts are the soul of the soul. They should be:
 
 If you can write a better prompt for an existing pill, we want it.
 
-### 🔬 Cascade Refinements
+###  Cascade Refinements
 The cascade system models hormone interactions. Real neuroscience is complex — our model is simplified. If you have domain knowledge and can improve the interaction rules, please contribute.
 
-### 📋 Interview Improvements
+###  Interview Improvements
 The interview questionnaire maps to hormone baselines. Better questions = better prescriptions. Especially welcome:
 - Questions that reveal hormone levels more accurately
 - Scoring rubrics that reduce ambiguity
 - New domains we haven't considered
 
-### 🐛 Bug Reports
+###  Bug Reports
 If an agent's soul feels "off" — wrong hormone balance, cascades causing loops, prompts that fall flat — open an issue describing what happened and what felt wrong.
 
 ## Guidelines

@@ -10,10 +10,10 @@ From `config.channels.*`, check each enabled channel:
 
 | Policy | Risk Level | Notes |
 |--------|------------|-------|
-| `disabled` | ⚪ None | DMs disabled |
-| `pairing` | 🟢 Low | Default, requires approval |
-| `allowlist` | 🟢 Low | Only pre-approved users |
-| `open` | 🔴 Critical | Anyone can DM |
+| `disabled` |  None | DMs disabled |
+| `pairing` |  Low | Default, requires approval |
+| `allowlist` |  Low | Only pre-approved users |
+| `open` |  Critical | Anyone can DM |
 
 **Finding if `open`**:
 - Scenario: `prompt-injection` or `unauthorized-access`
@@ -26,14 +26,14 @@ From `config.channels.*`, check each enabled channel:
 
 | Policy | Risk Level | Notes |
 |--------|------------|-------|
-| `disabled` | ⚪ None | Groups disabled |
-| `allowlist` | 🟢 Low | Only listed groups |
-| `open` | 🟠 High | Bot responds in any group it's added to |
+| `disabled` |  None | Groups disabled |
+| `allowlist` |  Low | Only listed groups |
+| `open` |  High | Bot responds in any group it's added to |
 
 **Finding if `open`**:
 - Check if powerful tools (exec, browser, gateway) are available
-- If yes: 🔴 Critical
-- If minimal tools only: 🟡 Medium
+- If yes:  Critical
+- If minimal tools only:  Medium
 
 ## Check 3: Per-Channel Tool Overrides
 
@@ -45,9 +45,9 @@ Look for:
 
 **Risk Assessment**:
 ```
-Channel is public/open + exec allowed = 🔴 Critical
-Channel is allowlist + exec allowed = 🟡 Medium (depends on trust level)
-Channel is private team + exec allowed = 🟢 Low (note it, don't alarm)
+Channel is public/open + exec allowed =  Critical
+Channel is allowlist + exec allowed =  Medium (depends on trust level)
+Channel is private team + exec allowed =  Low (note it, don't alarm)
 ```
 
 ## Check 4: requireMention Setting
@@ -58,8 +58,8 @@ Channel is private team + exec allowed = 🟢 Low (note it, don't alarm)
 - `false`: Bot responds to all messages
 
 **Risk**:
-- `false` in public channels = 🟠 High (more attack surface)
-- `false` in private channels = 🟢 Low (convenience feature)
+- `false` in public channels =  High (more attack surface)
+- `false` in private channels =  Low (convenience feature)
 
 ## Check 5: allowBots Setting
 
@@ -69,8 +69,8 @@ Channel is private team + exec allowed = 🟢 Low (note it, don't alarm)
 - `false`: Ignores bot messages
 
 **Risk if `true`**:
-- ⚪ Info - Note this for awareness
-- Only 🟡 Medium if: open channel + webhook integrations + exec tools
+-  Info - Note this for awareness
+- Only  Medium if: open channel + webhook integrations + exec tools
 - Often required for legitimate webhook/automation use cases
 
 ## Check 6: Empty Allowlist
@@ -84,7 +84,7 @@ Channel is private team + exec allowed = 🟢 Low (note it, don't alarm)
 
 **Risk**:
 - Misconfiguration that may not match user intent
-- ⚪ Info - Confirm this is intentional
+-  Info - Confirm this is intentional
 
 ## Context Considerations
 

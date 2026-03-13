@@ -136,7 +136,7 @@ class RAGSystem:
             )
 
             all_ids.extend(ids)
-            print(f"✅ Added batch {i//batch_size + 1}: {len(ids)} documents")
+            print(f" Added batch {i//batch_size + 1}: {len(ids)} documents")
 
         return all_ids
 
@@ -183,7 +183,7 @@ class RAGSystem:
             self.collection.delete(ids=[doc_id])
             return True
         except Exception as e:
-            print(f"❌ Error deleting document {doc_id}: {e}")
+            print(f" Error deleting document {doc_id}: {e}")
             return False
 
     def delete_by_filter(self, filter_dict: Dict) -> int:
@@ -205,7 +205,7 @@ class RAGSystem:
         count = len(results['ids'])
         self.collection.delete(ids=results['ids'])
 
-        print(f"✅ Deleted {count} documents matching filter")
+        print(f" Deleted {count} documents matching filter")
         return count
 
     def get_stats(self) -> Dict:
@@ -237,7 +237,7 @@ class RAGSystem:
     def reset_collection(self):
         """Delete all documents and reset the collection"""
         self.collection.delete(where={})
-        print("✅ Collection reset - all documents deleted")
+        print(" Collection reset - all documents deleted")
 
     def close(self):
         """Close the connection"""
@@ -247,11 +247,11 @@ class RAGSystem:
 
 def main():
     """Test the RAG system"""
-    print("🚀 Testing OpenClaw RAG System...\n")
+    print(" Testing OpenClaw RAG System...\n")
 
     # Initialize
     rag = RAGSystem()
-    print(f"✅ Initialized RAG system")
+    print(f" Initialized RAG system")
     print(f"   Collection: {rag.collection_name}")
     print(f"   Storage: {rag.persist_directory}\n")
 
@@ -266,7 +266,7 @@ def main():
     }
 
     doc_id = rag.add_document(test_doc["text"], test_doc["metadata"])
-    print(f"✅ Added test document: {doc_id}\n")
+    print(f" Added test document: {doc_id}\n")
 
     # Search
     results = rag.search(
@@ -274,14 +274,14 @@ def main():
         n_results=5
     )
 
-    print("🔍 Search Results:")
+    print(" Search Results:")
     for i, result in enumerate(results, 1):
         print(f"\n{i}. [{result['metadata'].get('source', '?')}]")
         print(f"   {result['text'][:200]}...")
 
     # Stats
     stats = rag.get_stats()
-    print(f"\n📊 Stats:")
+    print(f"\n Stats:")
     print(f"   Total documents: {stats['total_documents']}")
 
 

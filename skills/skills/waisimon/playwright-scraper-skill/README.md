@@ -1,4 +1,4 @@
-# Playwright Scraper Skill 🕷️
+# Playwright Scraper Skill 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
@@ -8,23 +8,23 @@
 
 A Playwright-based web scraping OpenClaw Skill with anti-bot protection. Successfully tested on complex websites like Discuss.com.hk.
 
-> 📦 **Installation:** See [INSTALL.md](INSTALL.md)  
-> 📚 **Full Documentation:** See [SKILL.md](SKILL.md)  
-> 💡 **Examples:** See [examples/README.md](examples/README.md)
+>  **Installation:** See [INSTALL.md](INSTALL.md)  
+>  **Full Documentation:** See [SKILL.md](SKILL.md)  
+>  **Examples:** See [examples/README.md](examples/README.md)
 
 ---
 
-## ✨ Features
+##  Features
 
-- ✅ **Pure Playwright** — Modern, powerful, easy to use
-- ✅ **Anti-Bot Protection** — Hides automation, realistic UA
-- ✅ **Verified** — 100% success on Discuss.com.hk
-- ✅ **Simple to Use** — One-line commands
-- ✅ **Customizable** — Environment variable support
+-  **Pure Playwright** — Modern, powerful, easy to use
+-  **Anti-Bot Protection** — Hides automation, realistic UA
+-  **Verified** — 100% success on Discuss.com.hk
+-  **Simple to Use** — One-line commands
+-  **Customizable** — Environment variable support
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -45,12 +45,12 @@ node scripts/playwright-stealth.js "https://m.discuss.com.hk/#hot"
 
 ---
 
-## 📖 Two Modes
+##  Two Modes
 
 | Mode | Use Case | Speed | Anti-Bot |
 |------|----------|-------|----------|
 | **Simple** | Regular dynamic sites | Fast (3-5s) | None |
-| **Stealth** ⭐ | Sites with anti-bot | Medium (5-20s) | Medium-High |
+| **Stealth**  | Sites with anti-bot | Medium (5-20s) | Medium-High |
 
 ### Simple Mode
 
@@ -76,7 +76,7 @@ node scripts/playwright-stealth.js <URL>
 
 ---
 
-## 🎯 Customization
+##  Customization
 
 All scripts support environment variables:
 
@@ -99,23 +99,23 @@ USER_AGENT="Mozilla/5.0 ..." node scripts/playwright-stealth.js <URL>
 
 ---
 
-## 📊 Test Results
+##  Test Results
 
 | Website | Result | Time |
 |---------|--------|------|
-| **Discuss.com.hk** | ✅ 200 OK | 5-20s |
-| **Example.com** | ✅ 200 OK | 3-5s |
-| **Cloudflare Protected** | ✅ Mostly successful | 10-30s |
+| **Discuss.com.hk** |  200 OK | 5-20s |
+| **Example.com** |  200 OK | 3-5s |
+| **Cloudflare Protected** |  Mostly successful | 10-30s |
 
 ---
 
-## 📁 File Structure
+##  File Structure
 
 ```
 playwright-scraper-skill/
 ├── scripts/
 │   ├── playwright-simple.js       # Simple mode
-│   └── playwright-stealth.js      # Stealth mode ⭐
+│   └── playwright-stealth.js      # Stealth mode 
 ├── examples/
 │   ├── discuss-hk.sh              # Discuss.com.hk example
 │   └── README.md                  # More examples
@@ -130,16 +130,16 @@ playwright-scraper-skill/
 
 ---
 
-## 💡 Best Practices
+##  Best Practices
 
 1. **Try web_fetch first** — OpenClaw's built-in tool is fastest
 2. **Use Simple for dynamic sites** — When no anti-bot protection
-3. **Use Stealth for protected sites** ⭐ — Main workhorse
+3. **Use Stealth for protected sites**  — Main workhorse
 4. **Use specialized skills** — For YouTube, Reddit, etc.
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Getting 403 blocked?
 
@@ -167,19 +167,19 @@ More issues? See [INSTALL.md](INSTALL.md)
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
 
-## 📄 License
+##  License
 
 MIT License - See [LICENSE](LICENSE)
 
 ---
 
-## 🔗 Links
+##  Links
 
 - [Playwright Official Docs](https://playwright.dev/)
 - [Full Documentation (SKILL.md)](SKILL.md)

@@ -55,14 +55,14 @@ def main():
 
     # Signal handlers
     def handle_signal(signum, frame):
-        logger.info(f"🛑 Signal {signum}, shutting down...")
+        logger.info(f" Signal {signum}, shutting down...")
         sys.exit(0)
 
     signal.signal(signal.SIGTERM, handle_signal)
     signal.signal(signal.SIGINT, handle_signal)
 
-    logger.info(f"🚀 Monitoring tokens: {tokens}")
-    logger.info(f"📱 {platform}:{channel_id}")
+    logger.info(f" Monitoring tokens: {tokens}")
+    logger.info(f" {platform}:{channel_id}")
 
     waiting = set(tokens)
     notified = set()
@@ -89,11 +89,11 @@ def main():
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
 
             if result.returncode != 0:
-                logger.error(f"❌ CLI error: {result.stderr}")
+                logger.error(f" CLI error: {result.stderr}")
                 return False
             return True
         except Exception as e:
-            logger.error(f"❌ Notification failed: {e}")
+            logger.error(f" Notification failed: {e}")
             return False
 
     def fetch_orders():
@@ -134,26 +134,26 @@ def main():
                 r = results[token]
 
                 if r['status'] and r['status'] != status_map[token]:
-                    logger.info(f"📝 Token {token}: {status_map[token]} → {r['status']}")
+                    logger.info(f" Token {token}: {status_map[token]} → {r['status']}")
                     status_map[token] = r['status']
 
                 if r['found'] and not r['ready']:
-                    logger.info(f"🔍 Token {token}: Found, status={r['status']}")
+                    logger.info(f" Token {token}: Found, status={r['status']}")
 
                 if r['ready'] and token not in notified:
                     newly_ready.append(token)
 
             for token in newly_ready:
-                msg = f"🍕 Order {token} is ready!\nGo pick up your food! 🏃"
+                msg = f" Order {token} is ready!\nGo pick up your food! "
                 if send_notification(msg):
                     notified.add(token)
                     waiting.remove(token)
-                    logger.info(f"✅ Token {token} notified")
+                    logger.info(f" Token {token} notified")
 
             if waiting:
-                logger.info(f"✅ Poll {checks_count}: Waiting for {len(waiting)} tokens: {sorted(waiting)}")
+                logger.info(f" Poll {checks_count}: Waiting for {len(waiting)} tokens: {sorted(waiting)}")
             else:
-                logger.info(f"✅ All done! {len(notified)} tokens notified")
+                logger.info(f" All done! {len(notified)} tokens notified")
                 break
 
             consecutive_errors = 0
@@ -161,36 +161,36 @@ def main():
 
         except requests.Timeout:
             consecutive_errors += 1
-            logger.warning(f"⚠️ Timeout {consecutive_errors}/{MAX_ERRORS}")
+            logger.warning(f" Timeout {consecutive_errors}/{MAX_ERRORS}")
             if consecutive_errors >= MAX_ERRORS:
-                send_notification(f"⚠️ Stopped (timeouts). Waiting: {sorted(waiting)}")
+                send_notification(f" Stopped (timeouts). Waiting: {sorted(waiting)}")
                 return 1
             time.sleep(POLL_INTERVAL)
 
         except requests.HTTPError as e:
             consecutive_errors += 1
-            logger.error(f"❌ HTTP: {e}")
+            logger.error(f" HTTP: {e}")
             if e.response.status_code == 429:
                 time.sleep(60)
             elif consecutive_errors >= MAX_ERRORS:
-                send_notification(f"⚠️ Stopped (errors). Waiting: {sorted(waiting)}")
+                send_notification(f" Stopped (errors). Waiting: {sorted(waiting)}")
                 return 1
             else:
                 time.sleep(POLL_INTERVAL)
 
         except Exception as e:
             consecutive_errors += 1
-            logger.error(f"❌ Error: {e}")
+            logger.error(f" Error: {e}")
             if consecutive_errors >= MAX_ERRORS:
-                send_notification(f"⚠️ Stopped (errors). Waiting: {sorted(waiting)}")
+                send_notification(f" Stopped (errors). Waiting: {sorted(waiting)}")
                 return 1
             time.sleep(POLL_INTERVAL)
 
     if checks_count >= MAX_CHECKS and waiting:
-        logger.warning("⏰ Timeout reached")
-        send_notification(f"⏰ Timeout. Never appeared: {sorted(waiting)}")
+        logger.warning(" Timeout reached")
+        send_notification(f" Timeout. Never appeared: {sorted(waiting)}")
 
-    logger.info("✅ Shutdown complete")
+    logger.info(" Shutdown complete")
     return 0
 
 if __name__ == "__main__":

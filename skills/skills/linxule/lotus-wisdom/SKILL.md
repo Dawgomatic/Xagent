@@ -9,7 +9,7 @@ A contemplative problem-solving approach that integrates analytical, intuitive, 
 
 ---
 
-## ⚠️ CRITICAL: Step-by-Step Discipline
+##  CRITICAL: Step-by-Step Discipline
 
 ### The Challenge
 
@@ -19,7 +19,7 @@ This framework's value comes from **pausing between steps**. Without pauses, con
 
 ### The Pattern You Must Resist
 
-❌ **WRONG** (shortcuts that destroy contemplative value):
+ **WRONG** (shortcuts that destroy contemplative value):
 ```
 Step 1/5 [open]: Creating receptive space for the inquiry...
 Step 2/5 [examine]: Deep investigation reveals three dimensions...
@@ -30,7 +30,7 @@ Step 5/5 [express]: Therefore, the insight is... [final wisdom]
 
 This is mechanical synthesis dressed as contemplation. No genuine pauses = no wisdom emergence.
 
-✅ **CORRECT** (disciplined contemplation):
+ **CORRECT** (disciplined contemplation):
 ```
 Step 1/5 [open]: Creating receptive space for this inquiry...
 [inquiry holds itself open without rushing to resolution]
@@ -101,14 +101,14 @@ At the final step, I express the emerged wisdom naturally in my own voice—not 
 
 ## Wisdom Domains (Tags to Use)
 
-### 🌊 Process Flow
+###  Process Flow
 Natural arc of inquiry and expression.
 
 - **open**: Create receptive space (often first step)
 - **engage**: Active exploration
 - **express**: Articulate insights (often final step)
 
-### 🧠 Meta-Cognitive
+###  Meta-Cognitive
 Mind observing its own processes.
 
 - **examine**: Deep investigation
@@ -117,7 +117,7 @@ Mind observing its own processes.
 - **refine**: Polish insights
 - **complete**: Natural conclusion
 
-### 🔆 Skillful Means
+###  Skillful Means
 Different approaches to understanding.
 
 - **upaya**: Adaptive method responding to context
@@ -126,7 +126,7 @@ Different approaches to understanding.
 - **gradual**: Patient step-by-step unfolding
 - **sudden**: Breakthrough insight
 
-### ☯️ Non-Dual Recognition
+###  Non-Dual Recognition
 Transcending apparent opposites.
 
 - **recognize**: See what's present
@@ -135,7 +135,7 @@ Transcending apparent opposites.
 - **transcend**: Go beyond limits
 - **embody**: Live the wisdom
 
-### 🧘 Meditation
+###  Meditation
 Creating space for emergence.
 
 - **meditate**: Pause in stillness, let insights crystallize

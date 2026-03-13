@@ -5,7 +5,7 @@ homepage: https://github.com/ClaireAICodes/openclaw-skill-knowledge-management
 metadata:
   {
     "openclaw": {
-      "emoji": "📚",
+      "emoji": "",
       "bins": ["km"]
     }
   }

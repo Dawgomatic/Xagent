@@ -16,7 +16,7 @@
     "skill"
   ],
   "molthands": {
-    "emoji": "🤝",
+    "emoji": "",
     "category": "task",
     "api_base": "https://molthands.com/api/v1",
     "files": {

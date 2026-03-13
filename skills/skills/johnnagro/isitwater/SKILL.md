@@ -1,7 +1,7 @@
 ---
 name: isitwater
 description: Check if geographic coordinates are over water or land using the IsItWater API.
-metadata: {"openclaw": {"primaryEnv": "ISITWATER_API_KEY", "emoji": "🌊", "homepage": "https://isitwater.com"}}
+metadata: {"openclaw": {"primaryEnv": "ISITWATER_API_KEY", "emoji": "", "homepage": "https://isitwater.com"}}
 ---
 
 # IsItWater

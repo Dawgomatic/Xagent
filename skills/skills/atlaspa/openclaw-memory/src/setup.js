@@ -13,42 +13,42 @@ import { MemoryStorage } from './storage.js';
  */
 
 async function setup() {
-  console.log('\n🧠 OpenClaw Memory System - Database Setup\n');
+  console.log('\n OpenClaw Memory System - Database Setup\n');
 
   try {
     // 1. Determine data directory
     const dataDir = process.env.OPENCLAW_MEMORY_DIR
       || join(homedir(), '.openclaw', 'openclaw-memory');
 
-    console.log(`📁 Data directory: ${dataDir}`);
+    console.log(` Data directory: ${dataDir}`);
 
     // 2. Create data directory if it doesn't exist
     if (!existsSync(dataDir)) {
       console.log('   Creating data directory...');
       mkdirSync(dataDir, { recursive: true });
-      console.log('   ✅ Directory created');
+      console.log('    Directory created');
     } else {
-      console.log('   ✅ Directory exists');
+      console.log('    Directory exists');
     }
 
     // 3. Initialize database
     const dbPath = join(dataDir, 'memory.db');
-    console.log(`\n💾 Database path: ${dbPath}`);
+    console.log(`\n Database path: ${dbPath}`);
 
     const storage = new MemoryStorage(dbPath);
 
     // 4. Run migrations
-    console.log('\n🔧 Running migrations...');
+    console.log('\n Running migrations...');
 
     console.log('   [1/2] Creating core memory tables (001-init.sql)...');
     console.log('   [2/2] Creating x402 payment tables (002-x402-payments.sql)...');
 
     storage.initialize();
 
-    console.log('   ✅ All migrations completed');
+    console.log('    All migrations completed');
 
     // 5. Verify setup
-    console.log('\n🔍 Verifying database setup...');
+    console.log('\n Verifying database setup...');
 
     const tables = storage.db.prepare(`
       SELECT name FROM sqlite_master
@@ -56,27 +56,27 @@ async function setup() {
       ORDER BY name
     `).all();
 
-    console.log(`   ✅ Found ${tables.length} tables:`);
+    console.log(`    Found ${tables.length} tables:`);
     tables.forEach(table => {
       console.log(`      - ${table.name}`);
     });
 
     // 6. Display schema info
-    console.log('\n📊 Database Configuration:');
+    console.log('\n Database Configuration:');
     console.log(`   Journal Mode: ${storage.db.pragma('journal_mode', { simple: true })}`);
     console.log(`   Page Size: ${storage.db.pragma('page_size', { simple: true })} bytes`);
     console.log(`   Encoding: ${storage.db.pragma('encoding', { simple: true })}`);
 
     // 7. Initialize default quota for test
-    console.log('\n🎯 Memory System Features:');
-    console.log('   ✅ Semantic search (cosine similarity)');
-    console.log('   ✅ Memory relations (graph connections)');
-    console.log('   ✅ Access tracking');
-    console.log('   ✅ Quota management (free: 100 memories, pro: unlimited)');
-    console.log('   ✅ x402 payment protocol (0.5 USDT/month for Pro tier)');
+    console.log('\n Memory System Features:');
+    console.log('    Semantic search (cosine similarity)');
+    console.log('    Memory relations (graph connections)');
+    console.log('    Access tracking');
+    console.log('    Quota management (free: 100 memories, pro: unlimited)');
+    console.log('    x402 payment protocol (0.5 USDT/month for Pro tier)');
 
     // 8. Display usage examples
-    console.log('\n📚 Usage:');
+    console.log('\n Usage:');
     console.log('   Import: import { MemoryStorage } from "openclaw-memory";');
     console.log('   Create: const storage = new MemoryStorage(dbPath);');
     console.log('   Store:  storage.recordMemory({ memory_id, content, ... });');
@@ -86,9 +86,9 @@ async function setup() {
     // 9. Close database
     storage.close();
 
-    console.log('\n✅ Setup complete! Memory System is ready to use.\n');
-    console.log(`📂 Database location: ${dbPath}`);
-    console.log(`🌐 Data directory: ${dataDir}\n`);
+    console.log('\n Setup complete! Memory System is ready to use.\n');
+    console.log(` Database location: ${dbPath}`);
+    console.log(` Data directory: ${dataDir}\n`);
 
     return {
       success: true,
@@ -98,7 +98,7 @@ async function setup() {
     };
 
   } catch (error) {
-    console.error('\n❌ Setup failed:', error.message);
+    console.error('\n Setup failed:', error.message);
     console.error(error.stack);
     process.exit(1);
   }

@@ -1,4 +1,4 @@
-# 📝 Daily Progress — {{DATE}}
+#  Daily Progress — {{DATE}}
 
 ## Completed
 - {{TASK_1}}

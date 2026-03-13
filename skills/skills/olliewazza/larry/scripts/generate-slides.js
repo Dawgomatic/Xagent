@@ -56,7 +56,7 @@ if (!apiKey && provider !== 'local') {
 
 // Warn if using gpt-image-1 instead of 1.5
 if (provider === 'openai' && model && !model.includes('1.5')) {
-  console.warn(`\n⚠️  WARNING: You're using "${model}" — this produces noticeably AI-looking images.`);
+  console.warn(`\n  WARNING: You're using "${model}" — this produces noticeably AI-looking images.`);
   console.warn(`   STRONGLY RECOMMENDED: Switch to "gpt-image-1.5" in your config for photorealistic results.`);
   console.warn(`   The quality difference is massive and directly impacts views.\n`);
 }
@@ -173,7 +173,7 @@ async function withRetry(fn, retries = 2, timeoutMs = 120000) {
     } catch (e) {
       if (attempt < retries) {
         const isTimeout = e.name === 'AbortError' || e.message?.includes('timeout') || e.message?.includes('abort');
-        console.log(`  ⚠️ ${isTimeout ? 'Timeout' : 'Error'}: ${e.message}. Retrying (${attempt + 1}/${retries})...`);
+        console.log(`   ${isTimeout ? 'Timeout' : 'Error'}: ${e.message}. Retrying (${attempt + 1}/${retries})...`);
         await new Promise(r => setTimeout(r, 3000 * (attempt + 1)));
       } else {
         throw e;
@@ -198,18 +198,18 @@ async function generate(prompt, outPath) {
   }
   console.log(`  Generating ${path.basename(outPath)} [${provider}/${model}]...`);
   await withRetry(() => fn(prompt, outPath));
-  console.log(`  ✅ ${path.basename(outPath)}`);
+  console.log(`   ${path.basename(outPath)}`);
 }
 
 (async () => {
-  console.log(`🎬 Generating 6 slides for ${config.app?.name || 'app'} using ${provider}/${model}\n`);
+  console.log(` Generating 6 slides for ${config.app?.name || 'app'} using ${provider}/${model}\n`);
   let success = 0;
   let skipped = 0;
   for (let i = 0; i < 6; i++) {
     const outPath = path.join(outputDir, `slide${i + 1}_raw.png`);
     // Skip if already exists (resume from partial run)
     if (fs.existsSync(outPath) && fs.statSync(outPath).size > 10000) {
-      console.log(`  ⏭ slide${i + 1}_raw.png already exists, skipping`);
+      console.log(`   slide${i + 1}_raw.png already exists, skipping`);
       success++;
       skipped++;
       continue;
@@ -219,13 +219,13 @@ async function generate(prompt, outPath) {
       await generate(fullPrompt, outPath);
       success++;
     } catch (e) {
-      console.error(`  ❌ Slide ${i + 1} failed after retries: ${e.message}`);
+      console.error(`   Slide ${i + 1} failed after retries: ${e.message}`);
       console.error(`     Re-run this script to retry — completed slides will be skipped.`);
     }
   }
-  console.log(`\n✨ Generated ${success}/6 slides in ${outputDir}${skipped > 0 ? ` (${skipped} skipped — already existed)` : ''}`);
+  console.log(`\n Generated ${success}/6 slides in ${outputDir}${skipped > 0 ? ` (${skipped} skipped — already existed)` : ''}`);
   if (success < 6) {
-    console.error(`\n⚠️  ${6 - success} slides failed. Re-run to retry — completed slides are preserved.`);
+    console.error(`\n  ${6 - success} slides failed. Re-run to retry — completed slides are preserved.`);
     process.exit(1);
   }
 })();

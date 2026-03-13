@@ -89,7 +89,7 @@ class ContextSwitchTracker:
     def _deny_switch(self, attempted_context: str, switch_count: int) -> bool:
         """Gently deny context switch"""
         message = (
-            f"⚠️ Context Switch Budget Exceeded\n\n"
+            f" Context Switch Budget Exceeded\n\n"
             f"You've already switched {switch_count} times today.\n\n"
             f"Current context: **{self.current_context}**\n"
             f"Attempted switch to: {attempted_context}\n\n"

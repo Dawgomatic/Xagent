@@ -74,4 +74,4 @@
 - Charles Dickens: "No one is useless in this world who lightens the burdens of another."
 - Dr. Seuss: "Maybe Christmas doesn't come from a store."
 
-> 💡 Agent 在執行時應根據節日氣氛自行挑選或創造應景的名言，不限於此清單。
+>  Agent 在執行時應根據節日氣氛自行挑選或創造應景的名言，不限於此清單。

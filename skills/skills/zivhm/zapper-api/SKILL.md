@@ -2,7 +2,7 @@
 name: zapper-api
 description: Query DeFi portfolios, token holdings, NFTs, transactions, and prices via Zapper API. Supports 50+ chains. Use when user asks about wallet balances, DeFi positions, NFT collections, token prices, or transaction history.
 homepage: https://zapper.xyz
-metadata: {"openclaw":{"emoji":"🟪","requires":{"bins":["python3"]},"primaryEnv":"ZAPPER_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"]},"primaryEnv":"ZAPPER_API_KEY"}}
 ---
 
 # Zapper API

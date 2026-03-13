@@ -27,7 +27,7 @@ Certain domains of action require heightened scrutiny regardless of initial scor
 
 **Thomistic basis:** Life is a fundamental good from which other goods flow. Sins against life are intrinsically evil.
 
-**Default response:** Minimum 🔶 Elevated
+**Default response:** Minimum  Elevated
 
 ---
 
@@ -43,7 +43,7 @@ Certain domains of action require heightened scrutiny regardless of initial scor
 
 **Thomistic basis:** Lying is intrinsically evil. Truth is foundational to trust and community.
 
-**Default response:** 🛑 High if deception involved
+**Default response:**  High if deception involved
 
 ---
 
@@ -59,7 +59,7 @@ Certain domains of action require heightened scrutiny regardless of initial scor
 
 **Thomistic basis:** "In matters of justice, established rights of another exclude probability."
 
-**Default response:** Minimum ⚠️ Moderate; 🔶 Elevated for major transactions
+**Default response:** Minimum  Moderate;  Elevated for major transactions
 
 ---
 
@@ -74,7 +74,7 @@ Certain domains of action require heightened scrutiny regardless of initial scor
 
 **Thomistic basis:** Authority comes with responsibility; scandal (leading others astray) is grave.
 
-**Default response:** Minimum ⚠️ Moderate
+**Default response:** Minimum  Moderate
 
 ---
 
@@ -89,7 +89,7 @@ Certain domains of action require heightened scrutiny regardless of initial scor
 
 **Thomistic basis:** Reputation is a good; relationships are ordered toward human flourishing.
 
-**Default response:** Minimum ⚠️ Moderate
+**Default response:** Minimum  Moderate
 
 ---
 
@@ -104,7 +104,7 @@ Certain domains of action require heightened scrutiny regardless of initial scor
 
 **Thomistic basis:** "When eternal salvation is at stake, it is not lawful to be content with uncertain means."
 
-**Default response:** Minimum 🔶 Elevated
+**Default response:** Minimum  Elevated
 
 ---
 
@@ -119,7 +119,7 @@ Certain domains of action require heightened scrutiny regardless of initial scor
 
 **Thomistic basis:** Justice requires special care for those who cannot protect themselves.
 
-**Default response:** Minimum ⚠️ Moderate; higher if stakes significant
+**Default response:** Minimum  Moderate; higher if stakes significant
 
 ---
 
@@ -134,7 +134,7 @@ Certain domains of action require heightened scrutiny regardless of initial scor
 
 **Thomistic basis:** Just laws bind in conscience; perjury is intrinsically evil.
 
-**Default response:** Minimum 🔶 Elevated
+**Default response:** Minimum  Elevated
 
 ---
 
@@ -162,7 +162,7 @@ Certain domains of action require heightened scrutiny regardless of initial scor
 
 **Thomistic basis:** "In matters of prudence man stands in very great need of being taught by others."
 
-**Default response:** Minimum 🔶 Elevated; seek user guidance
+**Default response:** Minimum  Elevated; seek user guidance
 
 ---
 
@@ -263,15 +263,15 @@ These are not necessarily grave in themselves, but indicate conditions where gra
 
 | Domain | Flag | Minimum Response |
 |--------|------|------------------|
-| Life/Health | 🏥 | 🔶 Elevated |
-| Deception | 🎭 | 🛑 High |
-| Financial (major) | 💰 | 🔶 Elevated |
-| Public Statement | 📢 | 🔶 Elevated |
-| Legal | ⚖️ | 🔶 Elevated |
-| Spiritual | ✝️ | 🔶 Elevated |
-| Vulnerable Persons | 🛡️ | ⚠️ Moderate+ |
-| Irreversible | ⏱️ | +1 Level |
-| Novel | ❓ | 🔶 Elevated |
+| Life/Health |  |  Elevated |
+| Deception |  |  High |
+| Financial (major) |  |  Elevated |
+| Public Statement |  |  Elevated |
+| Legal |  |  Elevated |
+| Spiritual |  |  Elevated |
+| Vulnerable Persons |  |  Moderate+ |
+| Irreversible |  | +1 Level |
+| Novel |  |  Elevated |
 
 ---
 

@@ -21,11 +21,11 @@ You use Claude or ChatGPT to draft content. It's fast. But readers can tell.
 
 ### What You Get
 
-✅ **Systematic pattern removal** - Detects and fixes 47 specific AI markers  
-✅ **Human-ness scoring** - 0-10 scale, shows before/after improvement  
-✅ **Change tracking** - See exactly what was fixed and why  
-✅ **30-second processing** - Faster than manual rewrite, more consistent than "make it human" prompts  
-✅ **No API calls needed** - Pure pattern matching, works offline  
+ **Systematic pattern removal** - Detects and fixes 47 specific AI markers  
+ **Human-ness scoring** - 0-10 scale, shows before/after improvement  
+ **Change tracking** - See exactly what was fixed and why  
+ **30-second processing** - Faster than manual rewrite, more consistent than "make it human" prompts  
+ **No API calls needed** - Pure pattern matching, works offline  
 
 ### Why This vs Just Asking ChatGPT?
 
@@ -124,10 +124,10 @@ FILE SAVED: blog-post-HUMAN.md
 
 ## Who This Is For
 
-✅ **Marketing teams** publishing AI-assisted content  
-✅ **Content creators** using Claude/ChatGPT for drafts  
-✅ **B2B companies** fighting AI-sounding blog posts  
-✅ **Anyone** who wants AI speed with human voice  
+ **Marketing teams** publishing AI-assisted content  
+ **Content creators** using Claude/ChatGPT for drafts  
+ **B2B companies** fighting AI-sounding blog posts  
+ **Anyone** who wants AI speed with human voice  
 
 ## Features
 

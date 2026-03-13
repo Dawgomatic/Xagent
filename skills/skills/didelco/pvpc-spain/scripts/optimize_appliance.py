@@ -120,21 +120,21 @@ def main():
         print(json.dumps(output, indent=2, ensure_ascii=False))
     else:
         emoji_map = {
-            'lavadora': '🧺',
-            'lavavajillas': '🍽️',
-            'secadora': '👕',
-            'horno': '🍕',
-            'calefaccion': '🔥'
+            'lavadora': '',
+            'lavavajillas': '',
+            'secadora': '',
+            'horno': '',
+            'calefaccion': ''
         }
-        emoji = emoji_map.get(args.name.lower(), '⚡')
+        emoji = emoji_map.get(args.name.lower(), '')
         
         print(f"{emoji} Mejor momento para {args.name} ({args.duration}h)\n")
-        print(f"⏰ Inicio recomendado: {best['start']:02d}:00")
-        print(f"⏱️  Finaliza: {best['end']:02d}:00\n")
-        print(f"💰 Coste total: {best['total_cost']:.4f} €")
-        print(f"📊 Precio medio: {best['avg_price']:.4f} €/kWh\n")
+        print(f" Inicio recomendado: {best['start']:02d}:00")
+        print(f"  Finaliza: {best['end']:02d}:00\n")
+        print(f" Coste total: {best['total_cost']:.4f} €")
+        print(f" Precio medio: {best['avg_price']:.4f} €/kWh\n")
         
-        print("📈 Desglose por hora:")
+        print(" Desglose por hora:")
         for h in best['hours']:
             print(f"   • {h['hour']:02d}:00: {h['price']:.4f} €/kWh")
         
@@ -143,11 +143,11 @@ def main():
         saving = cost_at_avg - best['total_cost']
         saving_percent = (saving / cost_at_avg) * 100
         
-        print(f"\n💚 Ahorro vs media del día: {saving:.4f} € ({saving_percent:.1f}%)")
+        print(f"\n Ahorro vs media del día: {saving:.4f} € ({saving_percent:.1f}%)")
         
         # Alternativas
         if alternatives:
-            print(f"\n🔄 Alternativas:")
+            print(f"\n Alternativas:")
             for i, alt in enumerate(alternatives, 1):
                 print(f"   {i}. {alt['start']:02d}:00-{alt['end']:02d}:00")
                 print(f"      Coste: {alt['total_cost']:.4f} € (+{alt['diff_percent']}%)")

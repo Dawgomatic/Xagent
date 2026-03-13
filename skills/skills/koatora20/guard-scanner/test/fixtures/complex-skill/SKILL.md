@@ -3,7 +3,7 @@ name: complex-skill
 description: A skill with high code complexity
 metadata:
   clawdbot:
-    emoji: "🔧"
+    emoji: ""
 ---
 
 # Complex Skill

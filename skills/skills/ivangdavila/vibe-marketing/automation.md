@@ -61,18 +61,18 @@ Trigger: Weekly ad refresh needed
 ## Human Checkpoints
 
 Always require human approval for:
-- ❌ First message to a new audience
-- ❌ Responses to complaints or negative feedback
-- ❌ Content touching sensitive topics
-- ❌ High-budget ad spend decisions
-- ❌ Messaging that could be misread
+-  First message to a new audience
+-  Responses to complaints or negative feedback
+-  Content touching sensitive topics
+-  High-budget ad spend decisions
+-  Messaging that could be misread
 
 Automate fully:
-- ✅ Internal content digests
-- ✅ Drafts for human review
-- ✅ Data aggregation and reporting
-- ✅ Scheduling and distribution
-- ✅ A/B test variant generation
+-  Internal content digests
+-  Drafts for human review
+-  Data aggregation and reporting
+-  Scheduling and distribution
+-  A/B test variant generation
 
 ## Anti-Patterns
 

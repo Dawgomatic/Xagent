@@ -13,7 +13,7 @@ Life event tracker with three modes, milestone notifications, and tamper-evident
 ```bash
 # Quit smoking tracker
 meter.py create smoke-free --start "2025-06-15T08:00:00Z" -d "Last cigarette"
-meter.py milestone smoke-free -t hours -v 720 -m "🎉 30 days smoke-free!"
+meter.py milestone smoke-free -t hours -v 720 -m " 30 days smoke-free!"
 meter.py lock smoke-free  # → Gives you paper code to save
 ```
 
@@ -21,14 +21,14 @@ meter.py lock smoke-free  # → Gives you paper code to save
 ```bash
 # Baby due date
 meter.py create baby --start "2026-01-15" --end "2026-10-15" --mode down -d "Baby arriving!"
-meter.py milestone baby -t percent -v 33 -m "👶 First trimester complete!"
+meter.py milestone baby -t percent -v 33 -m " First trimester complete!"
 ```
 
 ### COUNT BETWEEN — Journey from start to end
 ```bash
 # Career span
 meter.py create career --start "1998-05-15" --end "2038-05-15" -d "40-year career"
-meter.py milestone career -t percent -v 50 -m "📊 Halfway through career!"
+meter.py milestone career -t percent -v 50 -m " Halfway through career!"
 meter.py career --meter career --rate 85 --raise-pct 2.5
 ```
 
@@ -45,26 +45,26 @@ When you lock a meter, you get a **paper code** — a short, checksummed code yo
 
 ### Four Ways to Save (Non-Technical)
 
-**1️⃣ PAPER** — Write the code on paper/sticky note
+** PAPER** — Write the code on paper/sticky note
 - 20 characters with dashes, easy to copy
 - Built-in checksum catches typos when verifying
 - Keep in wallet, safe, or taped to equipment
 
-**2️⃣ PHOTO** — Screenshot or photograph the lock screen
+** PHOTO** — Screenshot or photograph the lock screen
 - Store in camera roll, cloud photos
 - Visual backup, no typing required
 
-**3️⃣ WITNESS FILE** — Auto-saved to `~/.openclaw/meter-witness.txt`
+** WITNESS FILE** — Auto-saved to `~/.openclaw/meter-witness.txt`
 - Append-only log of all locked meters
 - Sync folder to Dropbox/iCloud/Google Drive for cloud backup
 - Contains paper code + full hash + timestamp
 
-**4️⃣ EMAIL TO SELF** — Click the mailto: link or copy the one-liner
+** EMAIL TO SELF** — Click the mailto: link or copy the one-liner
 - Opens your email client with pre-filled subject and body
-- Or copy the compact message: `🔒 my-meter | Code: XXXX-XXXX-XXXX-XXXX-C | Locked: 2026-02-02`
+- Or copy the compact message: ` my-meter | Code: XXXX-XXXX-XXXX-XXXX-C | Locked: 2026-02-02`
 - Send to yourself, search inbox later to verify
 
-**5️⃣ SENDGRID EMAIL** — Auto-send verification email on lock
+** SENDGRID EMAIL** — Auto-send verification email on lock
 ```bash
 # Set your SendGrid API key
 export SENDGRID_API_KEY=SG.xxxxx
@@ -83,9 +83,9 @@ meter.py lock my-meter --email you@example.com
 # With paper code (catches typos!)
 meter.py verify my-meter "318B-3229-C523-2F9C-V"
 
-# → ✅ VERIFIED! Paper code matches.
-# → ⚠️ CHECKSUM ERROR! (if you have a typo)
-# → ❌ MISMATCH! (if tampered)
+# →  VERIFIED! Paper code matches.
+# →  CHECKSUM ERROR! (if you have a typo)
+# →  MISMATCH! (if tampered)
 ```
 
 ## Milestones
@@ -108,7 +108,7 @@ meter.py create my-meter \
   -d "My tracked event"
 
 # Add milestones as usual
-meter.py milestone my-meter -t hours -v 24 -m "🎉 24 hours complete!"
+meter.py milestone my-meter -t hours -v 24 -m " 24 hours complete!"
 
 # When check-milestones runs and a milestone fires, email is sent automatically
 meter.py check-milestones
@@ -116,9 +116,9 @@ meter.py check-milestones
 ```
 
 **Email includes:**
-- 🎯 Milestone message
-- ⏱️ Current elapsed time
-- 📝 Meter description
+-  Milestone message
+-  Current elapsed time
+-  Meter description
 
 Requires `SENDGRID_API_KEY` environment variable.
 
@@ -136,7 +136,7 @@ Prefix milestone messages with `ACTION:` to trigger agent execution instead of j
 
 ```bash
 # Just posts the message
-meter.py milestone my-meter -t hours -v 24 -m "🎉 24 hours complete!"
+meter.py milestone my-meter -t hours -v 24 -m " 24 hours complete!"
 
 # Triggers agent to EXECUTE the instruction
 meter.py milestone my-meter -t hours -v 24 -m "ACTION: Check the weather and post a summary"
@@ -150,7 +150,7 @@ Configure in HEARTBEAT.md:
 
 **Alternative: CRON** (precise timing)
 - Use when exact timing matters (e.g., countdown to event)
-- ⚠️ **Cost warning:** Cron at 1-minute intervals = 1,440 API calls/day = expensive!
+-  **Cost warning:** Cron at 1-minute intervals = 1,440 API calls/day = expensive!
 - If using cron, keep intervals ≥15 minutes to manage costs
 - Best for one-shot reminders, not continuous monitoring
 
@@ -211,12 +211,12 @@ python sendgrid_webhook.py --process-events --json
 
 | Event | Emoji | Description |
 |-------|-------|-------------|
-| delivered | ✅ | Email reached recipient |
-| open | 👀 | Recipient opened email |
-| click | 🔗 | Recipient clicked a link |
-| bounce | ⚠️ | Email bounced |
-| unsubscribe | 🔕 | Recipient unsubscribed |
-| spamreport | 🚨 | Marked as spam |
+| delivered |  | Email reached recipient |
+| open |  | Recipient opened email |
+| click |  | Recipient clicked a link |
+| bounce |  | Email bounced |
+| unsubscribe |  | Recipient unsubscribed |
+| spamreport |  | Marked as spam |
 
 ### Environment Variables
 

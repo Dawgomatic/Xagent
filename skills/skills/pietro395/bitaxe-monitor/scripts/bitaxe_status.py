@@ -67,8 +67,8 @@ def set_ip_in_config(ip: str) -> None:
     config = load_config()
     config['bitaxe_ip'] = ip
     save_config(config)
-    print(f"📝 Saved Bitaxe IP to {get_config_file()}")
-    print(f"📡 IP: {ip}")
+    print(f" Saved Bitaxe IP to {get_config_file()}")
+    print(f" IP: {ip}")
 
 
 def fetch_bitaxe_status(ip: str) -> dict:
@@ -87,30 +87,30 @@ def format_text(data: dict) -> str:
     """Format status data as human-readable text."""
     lines = [
         "═" * 40,
-        "   📊 BITAXE GAMMA STATUS",
+        "    BITAXE GAMMA STATUS",
         "═" * 40,
         "",
-        f"⚡ Power:       {data.get('power', 'N/A'):.2f} W",
-        f"🌡️  Temperature:  {data.get('temp', 'N/A'):.1f}°C (ASIC)",
-        f"🌡️  VR Temp:      {data.get('vrTemp', 'N/A'):.1f}°C" if data.get('vrTemp') != -1 else "",
-        f"💨 Fan Speed:   {data.get('fanspeed', 'N/A'):.1f}% ({data.get('fanrpm', 'N/A')} RPM)",
+        f" Power:       {data.get('power', 'N/A'):.2f} W",
+        f"  Temperature:  {data.get('temp', 'N/A'):.1f}°C (ASIC)",
+        f"  VR Temp:      {data.get('vrTemp', 'N/A'):.1f}°C" if data.get('vrTemp') != -1 else "",
+        f" Fan Speed:   {data.get('fanspeed', 'N/A'):.1f}% ({data.get('fanrpm', 'N/A')} RPM)",
         f"",
-        f"⛏️  Hashrate:     {data.get('hashRate', 'N/A'):.2f} GH/s",
-        f"⛏️  Hashrate 1m:  {data.get('hashRate_1m', 'N/A'):.2f} GH/s",
-        f"⛏️  Hashrate 10m: {data.get('hashRate_10m', 'N/A'):.2f} GH/s",
+        f"  Hashrate:     {data.get('hashRate', 'N/A'):.2f} GH/s",
+        f"  Hashrate 1m:  {data.get('hashRate_1m', 'N/A'):.2f} GH/s",
+        f"  Hashrate 10m: {data.get('hashRate_10m', 'N/A'):.2f} GH/s",
         f"",
-        f"🎯 Best Diff:    {data.get('bestDiff', 'N/A'):,}",
-        f"🎯 Best Session: {data.get('bestSessionDiff', 'N/A'):,}",
+        f" Best Diff:    {data.get('bestDiff', 'N/A'):,}",
+        f" Best Session: {data.get('bestSessionDiff', 'N/A'):,}",
         f"",
-        f"✅ Shares Accepted:  {data.get('sharesAccepted', 'N/A')}",
-        f"❌ Shares Rejected:  {data.get('sharesRejected', 'N/A')}",
+        f" Shares Accepted:  {data.get('sharesAccepted', 'N/A')}",
+        f" Shares Rejected:  {data.get('sharesRejected', 'N/A')}",
         f"",
-        f"🌐 WiFi: {data.get('wifiStatus', 'N/A')} (RSSI: {data.get('wifiRSSI', 'N/A')} dBm)",
-        f"🔗 Pool: {data.get('stratumURL', 'N/A')}:{data.get('stratumPort', 'N/A')}",
-        f"🔄 Uptime: {data.get('uptimeSeconds', 0) // 3600}h {(data.get('uptimeSeconds', 0) % 3600) // 60}m",
+        f" WiFi: {data.get('wifiStatus', 'N/A')} (RSSI: {data.get('wifiRSSI', 'N/A')} dBm)",
+        f" Pool: {data.get('stratumURL', 'N/A')}:{data.get('stratumPort', 'N/A')}",
+        f" Uptime: {data.get('uptimeSeconds', 0) // 3600}h {(data.get('uptimeSeconds', 0) % 3600) // 60}m",
         f"",
-        f"📋 Version: {data.get('version', 'N/A')} | Board: {data.get('boardVersion', 'N/A')}",
-        f"🔧 ASIC: {data.get('ASICModel', 'N/A')} @ {data.get('frequency', 'N/A')} MHz",
+        f" Version: {data.get('version', 'N/A')} | Board: {data.get('boardVersion', 'N/A')}",
+        f" ASIC: {data.get('ASICModel', 'N/A')} @ {data.get('frequency', 'N/A')} MHz",
         "═" * 40,
     ]
     return "\n".join(line for line in lines if line)
@@ -145,7 +145,7 @@ def main():
                 "  - Set BITAXE_IP environment variable"
             )
         source = "config file" if load_config().get('bitaxe_ip') else "environment variable"
-        print(f"📡 Using Bitaxe IP from {source}: {ip}\n")
+        print(f" Using Bitaxe IP from {source}: {ip}\n")
 
     # Fetch and display status
     try:

@@ -34,7 +34,7 @@ def preflight_check(operation_type="standard"):
     data = check_usage()
     
     if "error" in data:
-        return False, f"⚠️ Could not check usage: {data['error']}", data
+        return False, f" Could not check usage: {data['error']}", data
     
     usage = data.get('weekly_usage_percent', 50)
     remaining = 100 - usage
@@ -49,11 +49,11 @@ def preflight_check(operation_type="standard"):
     min_remaining = thresholds.get(operation_type, 25)
     
     if remaining >= min_remaining:
-        return True, f"🟢 {operation_type.title()} operation approved ({remaining}% remaining)", data
+        return True, f" {operation_type.title()} operation approved ({remaining}% remaining)", data
     elif remaining >= min_remaining // 2:
-        return True, f"🟡 Proceeding with caution ({remaining}% remaining, wanted {min_remaining}%)", data
+        return True, f" Proceeding with caution ({remaining}% remaining, wanted {min_remaining}%)", data
     else:
-        return False, f"🔴 {operation_type.title()} operation blocked — only {remaining}% remaining (need {min_remaining}%)", data
+        return False, f" {operation_type.title()} operation blocked — only {remaining}% remaining (need {min_remaining}%)", data
 
 if __name__ == "__main__":
     op_type = sys.argv[1] if len(sys.argv) > 1 else "standard"

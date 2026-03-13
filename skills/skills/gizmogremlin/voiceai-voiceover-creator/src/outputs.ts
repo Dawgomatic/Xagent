@@ -193,7 +193,7 @@ export function buildReviewHtml(
   const masterSection = hasMaster
     ? `
     <section class="master-section">
-      <h2>🎧 Master Audio</h2>
+      <h2> Master Audio</h2>
       <audio controls preload="metadata" src="master.wav" style="width:100%"></audio>
     </section>`
     : '';
@@ -357,7 +357,7 @@ export function buildReviewHtml(
     ${masterSection}
 
     <section>
-      <h2 style="margin-bottom: 1rem; font-size: 1.2rem;">📝 Segments</h2>
+      <h2 style="margin-bottom: 1rem; font-size: 1.2rem;"> Segments</h2>
       ${segmentCards}
     </section>
 

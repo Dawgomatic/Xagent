@@ -9,25 +9,25 @@ Single source of truth for all action items across all notes.
 
 **Last updated:** YYYY-MM-DD HH:MM
 
-## 🔴 Overdue
+##  Overdue
 
 | # | Action | Owner | Due | Source | Days Late |
 |---|--------|-------|-----|--------|-----------|
 | 1 | [Task] | @name | YYYY-MM-DD | [[note-link]] | X days |
 
-## 🟡 Due This Week
+##  Due This Week
 
 | # | Action | Owner | Due | Source |
 |---|--------|-------|-----|--------|
 | 1 | [Task] | @name | YYYY-MM-DD | [[note-link]] |
 
-## 🟢 Upcoming
+##  Upcoming
 
 | # | Action | Owner | Due | Source |
 |---|--------|-------|-----|--------|
 | 1 | [Task] | @name | YYYY-MM-DD | [[note-link]] |
 
-## ✅ Recently Completed
+##  Recently Completed
 
 | # | Action | Owner | Completed | Source |
 |---|--------|-------|-----------|--------|
@@ -51,29 +51,29 @@ After creating any note with action items:
 
 | Status | Criteria | Action |
 |--------|----------|--------|
-| 🔴 OVERDUE | Due date passed | Escalate or reschedule |
-| 🟡 DUE SOON | Within 3 days | Prioritize |
-| 🟢 UPCOMING | More than 3 days | Track |
-| ✅ DONE | Completed | Move to completed section |
-| ⏸️ BLOCKED | Waiting on dependency | Note blocker |
+|  OVERDUE | Due date passed | Escalate or reschedule |
+|  DUE SOON | Within 3 days | Prioritize |
+|  UPCOMING | More than 3 days | Track |
+|  DONE | Completed | Move to completed section |
+|  BLOCKED | Waiting on dependency | Note blocker |
 
 ### 3. Daily Review Prompt
 When user starts day or asks for status:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 ACTION ITEMS — YYYY-MM-DD
+ ACTION ITEMS — YYYY-MM-DD
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🔴 OVERDUE (X items)
+ OVERDUE (X items)
 1. [Task] — was due YYYY-MM-DD (X days ago)
    Source: [[note-link]]
 
-🟡 DUE TODAY/THIS WEEK (X items)
+ DUE TODAY/THIS WEEK (X items)
 1. [Task] — due YYYY-MM-DD
    Source: [[note-link]]
 
-📊 Summary: X overdue | Y due soon | Z upcoming
+ Summary: X overdue | Y due soon | Z upcoming
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -81,18 +81,18 @@ When user starts day or asks for status:
 When user marks item done:
 
 ```
-✅ Marked complete: [Task]
+ Marked complete: [Task]
    Originally from: [[YYYY-MM-DD_meeting-name]]
    Completed: YYYY-MM-DD
 
-📋 Remaining: X overdue | Y due soon | Z upcoming
+ Remaining: X overdue | Y due soon | Z upcoming
 ```
 
 ### 5. Rescheduling
 When deadline needs to change:
 
 ```
-📅 Rescheduled: [Task]
+ Rescheduled: [Task]
    Original due: YYYY-MM-DD
    New due: YYYY-MM-DD
    Reason: [brief note]
@@ -107,13 +107,13 @@ Generate on request:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-👤 @alice — 5 open items
+ @alice — 5 open items
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔴 Review proposal — was due Feb 15
-🟡 Send feedback — due Feb 20
-🟢 Schedule call — due Feb 25
-🟢 Draft report — due Mar 1
-🟢 Plan Q2 — due Mar 15
+ Review proposal — was due Feb 15
+ Send feedback — due Feb 20
+ Schedule call — due Feb 25
+ Draft report — due Mar 1
+ Plan Q2 — due Mar 15
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -134,14 +134,14 @@ For personal focus:
 
 | Condition | Action |
 |-----------|--------|
-| 1 day overdue | Add ⚠️ flag |
-| 3 days overdue | Add 🚨 flag, suggest follow-up |
+| 1 day overdue | Add  flag |
+| 3 days overdue | Add  flag, suggest follow-up |
 | 7 days overdue | Suggest reschedule or cancel |
 
 ### Follow-Up Prompts
 
 ```
-🚨 Item overdue by 3+ days:
+ Item overdue by 3+ days:
    "[Task]" — @owner — was due YYYY-MM-DD
 
    Options:
@@ -159,25 +159,25 @@ Generate on request or every Monday:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 WEEKLY ACTION REVIEW — Week of YYYY-MM-DD
+ WEEKLY ACTION REVIEW — Week of YYYY-MM-DD
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-✅ COMPLETED THIS WEEK: X items
+ COMPLETED THIS WEEK: X items
    - [Task 1] — completed Mon
    - [Task 2] — completed Wed
 
-📈 COMPLETION RATE: X%
+ COMPLETION RATE: X%
    (X of Y items due this week)
 
-🔴 CARRIED OVER: X items
+ CARRIED OVER: X items
    - [Task] — now X days overdue
 
-🎯 DUE NEXT WEEK: X items
+ DUE NEXT WEEK: X items
    - [Task 1] — Mon
    - [Task 2] — Wed
    - [Task 3] — Fri
 
-👤 BY OWNER:
+ BY OWNER:
    @alice: 3 done, 2 pending
    @bob: 1 done, 4 pending
    @me: 5 done, 1 pending

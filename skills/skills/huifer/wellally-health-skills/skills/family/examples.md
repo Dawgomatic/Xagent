@@ -5,7 +5,7 @@
 ```
 User: /family add-member father ZhangSan 1960-05-15 blood_type_A
 
-AI: ✅ Family member added
+AI:  Family member added
 
 Basic Information:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -25,7 +25,7 @@ Saved to family health record
 ```
 User: /family add-member mother LiSi 1962-08-20 blood_type_B
 
-AI: ✅ Family member added
+AI:  Family member added
 
 Basic Information:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -45,7 +45,7 @@ Saved to family health record
 ```
 User: /family add-history father hypertension diagnosed_at_50
 
-AI: ✅ Family medical history recorded
+AI:  Family medical history recorded
 
 Medical History Information:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -63,7 +63,7 @@ Saved to family medical history records
 ```
 User: /family list
 
-AI: 📋 Family Member List
+AI:  Family Member List
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Immediate Family
@@ -96,14 +96,14 @@ Total: 4 family members
 ```
 User: /family risk
 
-AI: 📊 Genetic Risk Assessment Report
+AI:  Genetic Risk Assessment Report
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Assessment Date: 2026-02-03
 
 High-Risk Diseases
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔴 Hypertension
+ Hypertension
 Risk Level: High Risk (75%)
 Affected Members: Father
 Risk Factors:
@@ -117,7 +117,7 @@ Recommendations:
 • Start regular checkups at age 35
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🟠 Diabetes
+ Diabetes
 Risk Level: Medium Risk (55%)
 Affected Members: Mother
 Risk Factors:
@@ -134,7 +134,7 @@ Recommendations:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Low-Risk Diseases
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🟢 Coronary Heart Disease
+ Coronary Heart Disease
 Risk Level: Low Risk (25%)
 Note: Only distant relatives affected, sporadic cases
 
@@ -160,7 +160,7 @@ Please consult a professional physician or genetic counselor for specific risks.
 ```
 User: /family report
 
-AI: 📊 Family Health Analysis Report
+AI:  Family Health Analysis Report
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Family Overview
@@ -226,7 +226,7 @@ Please consult a professional physician for all medical decisions.
 ```
 User: /family track father blood_pressure 135/85
 
-AI: ✅ Health data recorded
+AI:  Health data recorded
 
 Member: ZhangSan (Father)
 Data Type: Blood Pressure

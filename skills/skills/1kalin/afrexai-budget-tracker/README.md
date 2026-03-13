@@ -1,4 +1,4 @@
-# 💰 Budget & Expense Tracker — by AfrexAI
+#  Budget & Expense Tracker — by AfrexAI
 
 Turn your AI agent into a personal finance command center. Track expenses through natural conversation, enforce budgets automatically, get spending insights, and build toward savings goals — all locally, no external APIs.
 
@@ -37,24 +37,24 @@ Most budget skills just log numbers. This one thinks:
 - **Actionable suggestions** like "move $100 from unused transport budget to savings"
 - **Financial health scoring** gives you one number to track over time
 
-## ⚡ Level Up Your Financial Operations
+##  Level Up Your Financial Operations
 
 This skill handles personal budgeting. For **business financial automation** — invoicing, cash flow forecasting, revenue tracking, P&L analysis — check out our professional context packs:
 
-- 💼 [SaaS Operations Pack](https://afrexai-cto.github.io/context-packs/) — MRR tracking, churn analysis, unit economics ($47)
-- 🏭 [Manufacturing Pack](https://afrexai-cto.github.io/context-packs/) — cost accounting, inventory finance, margin optimization ($47)
-- 🏢 [Professional Services Pack](https://afrexai-cto.github.io/context-packs/) — utilization tracking, project profitability, billing ($47)
+-  [SaaS Operations Pack](https://afrexai-cto.github.io/context-packs/) — MRR tracking, churn analysis, unit economics ($47)
+-  [Manufacturing Pack](https://afrexai-cto.github.io/context-packs/) — cost accounting, inventory finance, margin optimization ($47)
+-  [Professional Services Pack](https://afrexai-cto.github.io/context-packs/) — utilization tracking, project profitability, billing ($47)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
-- 📧 [afrexai-email-to-calendar](https://clawhub.com/skills/afrexai-email-to-calendar) — Extract events from emails automatically
-- 🎯 [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Find and qualify leads with 100-point scoring
-- ✍️ [afrexai-humanizer](https://clawhub.com/skills/afrexai-humanizer) — Make AI content sound human
-- 📬 [afrexai-email-triager](https://clawhub.com/skills/afrexai-email-triager) — Smart inbox triage and prioritization
-- 🔍 [afrexai-prospect-researcher](https://clawhub.com/skills/afrexai-prospect-researcher) — Deep prospect intelligence
+-  [afrexai-email-to-calendar](https://clawhub.com/skills/afrexai-email-to-calendar) — Extract events from emails automatically
+-  [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Find and qualify leads with 100-point scoring
+-  [afrexai-humanizer](https://clawhub.com/skills/afrexai-humanizer) — Make AI content sound human
+-  [afrexai-email-triager](https://clawhub.com/skills/afrexai-email-triager) — Smart inbox triage and prioritization
+-  [afrexai-prospect-researcher](https://clawhub.com/skills/afrexai-prospect-researcher) — Deep prospect intelligence
 
-👉 **Full catalog:** [afrexai-cto.github.io/context-packs](https://afrexai-cto.github.io/context-packs/)
+ **Full catalog:** [afrexai-cto.github.io/context-packs](https://afrexai-cto.github.io/context-packs/)
 
 ---
 
-*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) — AI automation that actually works.* 🖤💛
+*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) — AI automation that actually works.* 

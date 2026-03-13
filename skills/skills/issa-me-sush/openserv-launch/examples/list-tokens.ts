@@ -78,14 +78,14 @@ async function main() {
   const addressIndex = args.indexOf('--address')
   if (addressIndex !== -1 && args[addressIndex + 1]) {
     const address = args[addressIndex + 1]
-    console.log(`📋 Fetching token: ${address}\n`)
+    console.log(` Fetching token: ${address}\n`)
 
     try {
       const result = await getToken(address)
       console.log(JSON.stringify(result, null, 2))
     } catch (error) {
       if (axios.isAxiosError(error) && error.response?.status === 404) {
-        console.error('❌ Token not found')
+        console.error(' Token not found')
       } else {
         throw error
       }
@@ -97,7 +97,7 @@ async function main() {
   const creatorIndex = args.indexOf('--creator')
   const creator = creatorIndex !== -1 ? args[creatorIndex + 1] : undefined
 
-  console.log('📋 Listing tokens...\n')
+  console.log(' Listing tokens...\n')
 
   const result = await listTokens({
     limit: 10,
@@ -119,7 +119,7 @@ async function main() {
     console.log('')
   }
 
-  console.log(`📊 Pagination:`)
+  console.log(` Pagination:`)
   console.log(`   Page ${result.pagination.page} of ${result.pagination.totalPages}`)
   console.log(`   Total tokens: ${result.pagination.totalDocs}`)
 

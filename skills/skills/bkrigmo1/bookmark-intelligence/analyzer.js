@@ -104,7 +104,7 @@ function callLLM(prompt, bookmark) {
   const tier = TIERS[licenseStatus.tier];
   
   if (!tier.llmAnalysis) {
-    console.error('⚠️  LLM analysis disabled on Free tier. Using fallback heuristics.');
+    console.error('  LLM analysis disabled on Free tier. Using fallback heuristics.');
     console.error('   Upgrade to Pro for full AI-powered analysis: npm run license:upgrade');
     return createFallbackAnalysis(bookmark);
   }

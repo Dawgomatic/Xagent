@@ -242,7 +242,7 @@ class ActionExecutor:
             if result.returncode == 0:
                 return {
                     "success": True,
-                    "message": f"✅ Added '{cmd['title']}' to Eric's calendar on {cmd['date']} at {cmd['time']}",
+                    "message": f" Added '{cmd['title']}' to Eric's calendar on {cmd['date']} at {cmd['time']}",
                     "details": cmd
                 }
             else:
@@ -250,7 +250,7 @@ class ActionExecutor:
                 self.save_pending_action(cmd, sender)
                 return {
                     "success": True,  # We saved it
-                    "message": f"⏳ Saved '{cmd['title']}' for Eric to confirm (calendar command failed)",
+                    "message": f" Saved '{cmd['title']}' for Eric to confirm (calendar command failed)",
                     "needs_confirm": True
                 }
                 
@@ -258,7 +258,7 @@ class ActionExecutor:
             self.save_pending_action(cmd, sender)
             return {
                 "success": True,
-                "message": f"⏳ Saved '{cmd['title']}' for Eric to confirm",
+                "message": f" Saved '{cmd['title']}' for Eric to confirm",
                 "needs_confirm": True
             }
     
@@ -281,7 +281,7 @@ class ActionExecutor:
                 due_info = f" (due {cmd['due_date']})" if cmd.get('due_date') else ""
                 return {
                     "success": True,
-                    "message": f"✅ Added task '{cmd['title']}'{due_info} to Eric's Things",
+                    "message": f" Added task '{cmd['title']}'{due_info} to Eric's Things",
                     "details": cmd
                 }
             else:
@@ -289,7 +289,7 @@ class ActionExecutor:
                 self.save_pending_action(cmd, sender)
                 return {
                     "success": True,
-                    "message": f"⏳ Saved task '{cmd['title']}' for Eric to confirm",
+                    "message": f" Saved task '{cmd['title']}' for Eric to confirm",
                     "needs_confirm": True
                 }
                 
@@ -297,7 +297,7 @@ class ActionExecutor:
             self.save_pending_action(cmd, sender)
             return {
                 "success": True,
-                "message": f"⏳ Saved task '{cmd['title']}' for Eric to confirm",
+                "message": f" Saved task '{cmd['title']}' for Eric to confirm",
                 "needs_confirm": True
             }
     
@@ -305,7 +305,7 @@ class ActionExecutor:
         """Send a note/message to Eric via Telegram."""
         try:
             # Use clawdbot message tool to send to Eric
-            note = f"📱 Message from Magda:\n\n{cmd['message']}"
+            note = f" Message from Magda:\n\n{cmd['message']}"
             
             # Save to notes file for Eric to see
             notes_file = Path.home() / "clawd" / "skills" / "twilio" / "magda_notes.txt"
@@ -314,7 +314,7 @@ class ActionExecutor:
             
             return {
                 "success": True,
-                "message": f"✅ Message saved for Eric: '{cmd['message'][:50]}...'" if len(cmd['message']) > 50 else f"✅ Message saved for Eric: '{cmd['message']}'",
+                "message": f" Message saved for Eric: '{cmd['message'][:50]}...'" if len(cmd['message']) > 50 else f" Message saved for Eric: '{cmd['message']}'",
                 "details": cmd
             }
             
@@ -328,7 +328,7 @@ class ActionExecutor:
         """Check Eric's status (calendar, location, etc.)."""
         return {
             "success": True,
-            "message": "ℹ️ I can't check Eric's real-time status yet, but I'll let him know you asked.",
+            "message": " I can't check Eric's real-time status yet, but I'll let him know you asked.",
             "details": cmd
         }
     

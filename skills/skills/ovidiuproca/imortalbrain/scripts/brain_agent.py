@@ -4,11 +4,11 @@ IMMORTAL BRAIN v4.0 - AUTONOMOUS AGENT
 Agent autonom de memorie neuronală biologic inspirat pentru OpenClaw
 
 Arhitectură Microservicii:
-├── 🔴 KERNEL (Inima)         - Event Loop & Scheduler
-├── 🧠 BRAIN (Creierul)       - LLM Integration & Processing
-├── 📡 NERVOUS (Sistemul Nervos) - Telegram/Webhook Communication
-├── 🌐 MEMORY (Glia)          - File System Watcher & Graph Logic
-└── ✨ CURIOSITY (Entropie)   - Generator de Idei Noi
+├──  KERNEL (Inima)         - Event Loop & Scheduler
+├──  BRAIN (Creierul)       - LLM Integration & Processing
+├──  NERVOUS (Sistemul Nervos) - Telegram/Webhook Communication
+├──  MEMORY (Glia)          - File System Watcher & Graph Logic
+└──  CURIOSITY (Entropie)   - Generator de Idei Noi
 
 Flux Autonom:
 [EVENT LOOP] → [DECIZIE PROBABILISTICĂ] → [ACȚIUNE] → [COMUNICARE]
@@ -85,12 +85,12 @@ WIKI_LINK_PATTERN = re.compile(r"\[\[(.*?)\]\]")
 TAG_PATTERN = re.compile(r"#(\w+)")
 ID_PATTERN = re.compile(r"<!--\s*ID:\s*(\w+)\s*-->")
 PRIORITY_EMOJI = {
-    "urgent": "🔥",
-    "active": "⚡",
-    "hold": "⏳",
-    "done": "✅",
-    "archive": "📦",
-    "low": "🐢",
+    "urgent": "",
+    "active": "",
+    "hold": "",
+    "done": "",
+    "archive": "",
+    "low": "",
 }
 
 # =============================================================================
@@ -197,7 +197,7 @@ class GliaSystem:
 
     def maintenance_cycle(self):
         """Ciclu complet de mentenanță."""
-        log("🧹 GLIA: Începe ciclu de mentenanță")
+        log(" GLIA: Începe ciclu de mentenanță")
 
         # 1. Procesează memoria nouă
         self._process_memory_files()
@@ -211,7 +211,7 @@ class GliaSystem:
         # 4. Actualizare index
         self.brain.save_index()
 
-        log("✅ GLIA: Ciclu completat")
+        log(" GLIA: Ciclu completat")
 
     def _process_memory_files(self):
         """Procesează fișierele din memory/."""
@@ -219,7 +219,7 @@ class GliaSystem:
         if not files:
             return
 
-        log(f"📁 GLIA: {len(files)} fișiere de procesat")
+        log(f" GLIA: {len(files)} fișiere de procesat")
         for f in files:
             try:
                 with open(f, "r", encoding="utf-8") as file:
@@ -248,7 +248,7 @@ class GliaSystem:
 
                 log(f"   ✓ {f.name}: {new_neurons} neuroni")
             except Exception as e:
-                log(f"   ❌ Eroare {f.name}: {e}", "ERROR")
+                log(f"    Eroare {f.name}: {e}", "ERROR")
 
     def _cleanup_old_neurons(self):
         """Elimină neuroni vechi și inactivi."""
@@ -267,7 +267,7 @@ class GliaSystem:
             del self.brain.neurons[nid]
 
         if to_remove:
-            log(f"🧹 GLIA: {len(to_remove)} neuroni curățați")
+            log(f" GLIA: {len(to_remove)} neuroni curățați")
 
     def _reorganize_files(self):
         """Reorganizează fișierele după topic."""
@@ -281,7 +281,7 @@ class GliaSystem:
         for topic, neurons in topics.items():
             filepath = BRAIN_DIR / f"{topic}.md"
             with open(filepath, "w", encoding="utf-8") as f:
-                f.write(f"# 🧠 {topic}\n")
+                f.write(f"#  {topic}\n")
                 f.write(
                     f"*Actualizat: {datetime.now().strftime('%Y-%m-%d %H:%M')}*\n\n"
                 )
@@ -305,7 +305,7 @@ class MemorySystem:
 
     def memory_cycle(self):
         """Ciclu de explorare a memoriei."""
-        log("🔗 MEMORIE: Explorare conexiuni")
+        log(" MEMORIE: Explorare conexiuni")
 
         # 1. Detectează link-uri wiki orfane
         self._find_orphan_links()
@@ -315,12 +315,12 @@ class MemorySystem:
 
         # 3. Trimite notificări dacă găsim ceva interesant
         if suggestions:
-            message = "🔗 Conexiuni descoperite:\n\n"
+            message = " Conexiuni descoperite:\n\n"
             for s in suggestions[:3]:
                 message += f"• {s}\n"
             self.brain.notify(message)
 
-        log("✅ MEMORIE: Ciclu completat")
+        log(" MEMORIE: Ciclu completat")
 
     def _find_orphan_links(self):
         """Găsește link-uri wiki care nu duc nicăieri."""
@@ -334,7 +334,7 @@ class MemorySystem:
 
         orphans = all_links - all_topics
         if orphans:
-            log(f"⚠️  Link-uri orfane: {', '.join(orphans)}")
+            log(f"  Link-uri orfane: {', '.join(orphans)}")
 
     def _suggest_connections(self) -> List[str]:
         """Sugerează conexiuni între neuroni similari."""
@@ -385,7 +385,7 @@ class CuriositySystem:
 
     def curiosity_cycle(self):
         """Generează o idee/curiozitate nouă."""
-        log("✨ CURIOSITATE: Generare entropie")
+        log(" CURIOSITATE: Generare entropie")
 
         # 1. Colectează tag-uri existente
         existing_tags = set()
@@ -403,21 +403,21 @@ class CuriositySystem:
             # 3. Generează o "curiozitate"
             curiosity_msg = self._generate_curiosity_message(concept)
 
-            log(f"✨ Concept nou descoperit: {concept}")
+            log(f" Concept nou descoperit: {concept}")
             self.brain.notify(curiosity_msg)
 
             # 4. Salvează ca neuron potențial
             neuron = Neuron(f"Explorare: {concept} #research #curiosity #active")
             self.brain.add_neuron(neuron)
         else:
-            log("✨ Nicio curiozitate nouă astăzi")
+            log(" Nicio curiozitate nouă astăzi")
 
     def _generate_curiosity_message(self, concept: str) -> str:
         """Generează un mesaj de curiozitate."""
         templates = [
-            f"✨ *Concept nou descoperit*: **{concept}**\n\nAcest concept nu există încă în memoria ta. Vrei să îl explorezi?\n\nSugestie: Caută informații despre {concept} și adaugă-le în sistem.",
-            f"🧠 *Curiozitate*: Ai auzit de **{concept}**?\n\nEste un concept interesant care ar putea completa cunoștințele tale.",
-            f"🌟 *Descoperire*: **{concept}**\n\nSistemul a identificat acest concept ca fiind relevant pentru domeniile tale de interes.",
+            f" *Concept nou descoperit*: **{concept}**\n\nAcest concept nu există încă în memoria ta. Vrei să îl explorezi?\n\nSugestie: Caută informații despre {concept} și adaugă-le în sistem.",
+            f" *Curiozitate*: Ai auzit de **{concept}**?\n\nEste un concept interesant care ar putea completa cunoștințele tale.",
+            f" *Descoperire*: **{concept}**\n\nSistemul a identificat acest concept ca fiind relevant pentru domeniile tale de interes.",
         ]
         return random.choice(templates)
 
@@ -438,7 +438,7 @@ class CommunicationSystem:
         """Trimite mesaj pe Telegram sau în consolă."""
         if not self.config.get("enabled"):
             # Mod offline - doar log
-            log(f"📨 NOTIFICARE: {message[:100]}...")
+            log(f" NOTIFICARE: {message[:100]}...")
             return True
 
         try:
@@ -447,7 +447,7 @@ class CommunicationSystem:
             chat_id = self.config.get("chat_id")
 
             if not token or not chat_id:
-                log("⚠️  Telegram neconfigurat", "WARNING")
+                log("  Telegram neconfigurat", "WARNING")
                 return False
 
             url = f"https://api.telegram.org/bot{token}/sendMessage"
@@ -470,15 +470,15 @@ class CommunicationSystem:
         """Trimite status periodic."""
         stats = self.brain.get_stats()
         message = f"""
-🧠 *Immortal Brain - Status*
+ *Immortal Brain - Status*
 
-📊 Statistici:
+ Statistici:
 • Neuroni: {stats["total"]}
 • Activi: {stats["active"]}
 • Arhivați: {stats["archived"]}
 
-🔄 Ultima acțiune: {stats["last_action"]}
-⏱️ Uptime: {stats["uptime"]}
+ Ultima acțiune: {stats["last_action"]}
+ Uptime: {stats["uptime"]}
 
 _Următorul puls în 60 secunde..._
         """
@@ -516,13 +516,13 @@ class AutonomousBrain:
         self.comm = CommunicationSystem(self)
 
         self.load_index()
-        log("🧠 AUTONOMOUS BRAIN v4.0 inițializat")
+        log(" AUTONOMOUS BRAIN v4.0 inițializat")
 
     def load_index(self):
         """Încarcă indexul neuronal."""
         data = load_json(INDEX_FILE, {})
         self.neurons = {nid: Neuron.from_dict(ndata) for nid, ndata in data.items()}
-        log(f"📖 Index încărcat: {len(self.neurons)} neuroni")
+        log(f" Index încărcat: {len(self.neurons)} neuroni")
 
     def save_index(self):
         """Salvează indexul."""
@@ -583,7 +583,7 @@ class AutonomousBrain:
         """
         # Verifică histerezis (nu rula dacă ești ocupat)
         if self.state.get("is_busy"):
-            log("⏸️  Sistem ocupat, sărim pulsul")
+            log("  Sistem ocupat, sărim pulsul")
             return
 
         self.state["is_busy"] = True
@@ -594,7 +594,7 @@ class AutonomousBrain:
             self.state["last_action"] = action
             self.state["action_count"][action] += 1
 
-            log(f"🫀 PULS: Acțiune selectată [{action.upper()}]")
+            log(f" PULS: Acțiune selectată [{action.upper()}]")
 
             # Execută acțiunea
             if action == "maintenance":
@@ -608,7 +608,7 @@ class AutonomousBrain:
             save_json(STATE_FILE, self.state)
 
         except Exception as e:
-            log(f"❌ Eroare în puls: {e}", "ERROR")
+            log(f" Eroare în puls: {e}", "ERROR")
         finally:
             self.state["is_busy"] = False
 
@@ -616,8 +616,8 @@ class AutonomousBrain:
         """
         Rulează ca daemon - buclă infinită.
         """
-        log("🤖 DAEMON MODE ACTIVAT")
-        log("🫀 Inima începe să bată...")
+        log(" DAEMON MODE ACTIVAT")
+        log(" Inima începe să bată...")
 
         # Salvează PID
         PID_FILE.write_text(str(os.getpid()))
@@ -639,7 +639,7 @@ class AutonomousBrain:
                 time.sleep(1)
 
         except KeyboardInterrupt:
-            log("🛑 Daemon oprit de utilizator")
+            log(" Daemon oprit de utilizator")
         finally:
             if PID_FILE.exists():
                 PID_FILE.unlink()
@@ -652,22 +652,22 @@ class AutonomousBrain:
         """Afișează statusul."""
         stats = self.get_stats()
         print("\n" + "=" * 60)
-        print("🧠 IMMORTAL BRAIN v4.0 - STATUS")
+        print(" IMMORTAL BRAIN v4.0 - STATUS")
         print("=" * 60)
-        print(f"\n📊 Neuroni:")
+        print(f"\n Neuroni:")
         print(f"   Total: {stats['total']}")
         print(f"   Activi: {stats['active']}")
         print(f"   Arhivați: {stats['archived']}")
-        print(f"\n⏱️ Uptime: {stats['uptime']}")
-        print(f"🔄 Ultima acțiune: {stats['last_action']}")
-        print(f"\n📈 Acțiuni efectuate:")
+        print(f"\n Uptime: {stats['uptime']}")
+        print(f" Ultima acțiune: {stats['last_action']}")
+        print(f"\n Acțiuni efectuate:")
         for action, count in stats["actions"].items():
             print(f"   • {action}: {count}")
 
         if PID_FILE.exists():
-            print(f"\n🤖 Daemon: ACTIVE (PID: {PID_FILE.read_text()})")
+            print(f"\n Daemon: ACTIVE (PID: {PID_FILE.read_text()})")
         else:
-            print(f"\n😴 Daemon: INACTIVE")
+            print(f"\n Daemon: INACTIVE")
         print("=" * 60 + "\n")
 
 
@@ -693,11 +693,11 @@ def print_help():
 ║  config              - Configurează Telegram și alte setări      ║
 ║                                                                  ║
 ║  ARHITECTURĂ:                                                    ║
-║    🔴 Kernel     - Event Loop & Scheduler (Inima)               ║
-║    🧠 Brain      - LLM Integration & Processing                 ║
-║    📡 Nervous    - Telegram/Webhook Communication               ║
-║    🌐 Glia       - Maintenance & File Organization              ║
-║    ✨ Curiosity  - Novel Concept Generator                      ║
+║     Kernel     - Event Loop & Scheduler (Inima)               ║
+║     Brain      - LLM Integration & Processing                 ║
+║     Nervous    - Telegram/Webhook Communication               ║
+║     Glia       - Maintenance & File Organization              ║
+║     Curiosity  - Novel Concept Generator                      ║
 ║                                                                  ║
 ║  PROBABILITĂȚI:                                                  ║
 ║    • 70% Mentenanță (Glia)                                      ║
@@ -733,14 +733,14 @@ def main():
                 pid = int(PID_FILE.read_text())
                 os.kill(pid, 9)
                 PID_FILE.unlink()
-                print("🛑 Daemon oprit")
+                print(" Daemon oprit")
             except Exception as e:
-                print(f"❌ Eroare la oprire: {e}")
+                print(f" Eroare la oprire: {e}")
         else:
-            print("ℹ️  Daemonul nu rulează")
+            print("  Daemonul nu rulează")
 
     elif command == "config":
-        print("\n⚙️  CONFIGURARE")
+        print("\n  CONFIGURARE")
         print("\nEditarează fișierul:")
         print(f"  {CONFIG_FILE}")
         print("\nExemplu config:")
@@ -765,7 +765,7 @@ def main():
         print_help()
 
     else:
-        print(f"❌ Comandă necunoscută: {command}")
+        print(f" Comandă necunoscută: {command}")
         print_help()
 
 

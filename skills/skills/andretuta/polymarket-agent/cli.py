@@ -17,7 +17,7 @@ from rich.text import Text
 # Initialize
 app = typer.Typer(
     name="poly",
-    help="🎰 Polymarket Agent - AI-powered prediction market trading CLI",
+    help=" Polymarket Agent - AI-powered prediction market trading CLI",
     rich_markup_mode="markdown",
     no_args_is_help=True,
 )
@@ -30,7 +30,7 @@ console = Console()
 @app.command(rich_help_panel="Setup")
 def setup():
     """
-    🔧 **Interactive setup wizard** to configure API keys and preferences.
+     **Interactive setup wizard** to configure API keys and preferences.
     
     Runs the full configuration flow including:
     - Private key setup
@@ -48,7 +48,7 @@ def config(
     value: Optional[str] = typer.Option(None, "--value", "-v", help="Value to set"),
 ):
     """
-    ⚙️ **Get or set configuration** values directly.
+     **Get or set configuration** values directly.
     
     Examples:
     - `poly config --key RISK_PROFILE`
@@ -59,7 +59,7 @@ def config(
         cmd = ["clawdbot", "config", "set", f"skills.entries.polymarket-agent.env.{key}", value]
         try:
             subprocess.run(cmd, check=True)
-            console.print(f"[green]✔ Set {key} = {value}[/green]")
+            console.print(f"[green] Set {key} = {value}[/green]")
         except Exception as e:
             console.print(f"[red]✘ Failed: {e}[/red]")
     elif key:
@@ -77,9 +77,9 @@ def config(
 @app.command(rich_help_panel="Setup")
 def doctor():
     """
-    🩺 **Health check** - verify all dependencies and credentials are working.
+     **Health check** - verify all dependencies and credentials are working.
     """
-    console.print(Panel("🩺 Polymarket Agent Health Check", border_style="cyan"))
+    console.print(Panel(" Polymarket Agent Health Check", border_style="cyan"))
     
     checks = [
         ("Python", "python --version"),
@@ -93,16 +93,16 @@ def doctor():
     for name, cmd in checks:
         try:
             subprocess.run(cmd, shell=True, check=True, capture_output=True)
-            console.print(f"  [green]✔[/green] {name}")
+            console.print(f"  [green][/green] {name}")
         except:
             console.print(f"  [red]✘[/red] {name} - NOT FOUND")
     
     # Check API Key
     key = os.getenv("POLYMARKET_KEY")
     if key:
-        console.print(f"  [green]✔[/green] POLYMARKET_KEY configured")
+        console.print(f"  [green][/green] POLYMARKET_KEY configured")
     else:
-        console.print(f"  [yellow]⚠[/yellow] POLYMARKET_KEY not set (run `poly setup`)")
+        console.print(f"  [yellow][/yellow] POLYMARKET_KEY not set (run `poly setup`)")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -115,7 +115,7 @@ def markets(
     limit: int = typer.Option(10, "--limit", "-l", help="Number of results"),
 ):
     """
-    📊 **Search and list** active prediction markets.
+     **Search and list** active prediction markets.
     
     Examples:
     - `poly markets` (shows trending)
@@ -141,7 +141,7 @@ def watch(
     market_id: str = typer.Argument(..., help="Market ID or slug to watch"),
 ):
     """
-    👁️ **Watch a specific market** - show real-time price updates.
+     **Watch a specific market** - show real-time price updates.
     """
     console.print(f"[cyan]Watching market: {market_id}...[/cyan]")
     console.print("[yellow]Feature coming soon - WebSocket integration[/yellow]")
@@ -159,7 +159,7 @@ def buy(
     confirm: bool = typer.Option(False, "--yes", "-y", help="Skip confirmation"),
 ):
     """
-    💰 **Place a BUY order** on a market outcome.
+     **Place a BUY order** on a market outcome.
     
     Example: `poly buy <TOKEN_ID> 0.55 10 --yes`
     """
@@ -179,7 +179,7 @@ def sell(
     confirm: bool = typer.Option(False, "--yes", "-y", help="Skip confirmation"),
 ):
     """
-    💸 **Place a SELL order** on a market outcome.
+     **Place a SELL order** on a market outcome.
     
     Example: `poly sell <TOKEN_ID> 0.75 5 --yes`
     """
@@ -194,7 +194,7 @@ def sell(
 @app.command(rich_help_panel="Trading")
 def positions():
     """
-    📈 **View your current positions** and P&L.
+     **View your current positions** and P&L.
     """
     key = os.getenv("POLYMARKET_KEY")
     if not key:
@@ -209,7 +209,7 @@ def positions():
 @app.command(rich_help_panel="Trading")
 def orders():
     """
-    📋 **View your open orders**.
+     **View your open orders**.
     """
     key = os.getenv("POLYMARKET_KEY")
     if not key:
@@ -223,7 +223,7 @@ def orders():
 @app.command(rich_help_panel="Trading")
 def balance():
     """
-    💵 **Check your wallet balance** (USDC on Polygon).
+     **Check your wallet balance** (USDC on Polygon).
     """
     key = os.getenv("POLYMARKET_KEY")
     if not key:
@@ -239,7 +239,7 @@ def balance():
         if bal is not None:
             console.print(Panel(
                 f"[bold green]${bal:.2f} USDC[/bold green]",
-                title="💵 Wallet Balance",
+                title=" Wallet Balance",
                 border_style="green"
             ))
     except ImportError as e:
@@ -257,7 +257,7 @@ def analyze(
     topic: str = typer.Argument(..., help="Topic or market slug to analyze"),
 ):
     """
-    🧠 **AI-powered analysis** - Get trading recommendations.
+     **AI-powered analysis** - Get trading recommendations.
     
     The agent will search news, compare to market odds, and suggest trades.
     """
@@ -271,10 +271,10 @@ def auto(
     enable: bool = typer.Argument(..., help="Enable or disable autonomous mode"),
 ):
     """
-    🤖 **Toggle autonomous trading mode**.
+     **Toggle autonomous trading mode**.
     
     When enabled, the agent can execute trades without confirmation.
-    ⚠️ USE WITH CAUTION.
+     USE WITH CAUTION.
     """
     status = "ENABLED" if enable else "DISABLED"
     console.print(f"[{'green' if enable else 'red'}]Autonomous mode: {status}[/]")

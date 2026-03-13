@@ -1,7 +1,7 @@
 ---
 name: Self-Host
 description: Deploy and maintain self-hosted services with security, backups, and long-term reliability.
-metadata: {"clawdbot":{"emoji":"🖥️","requires":{"anyBins":["docker","podman"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["docker","podman"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Self-Hosting Rules

@@ -154,7 +154,7 @@ def format_digest(guild_name: str, guild_id: str, channels_data: list, date: str
                     unique_links.append(l)
 
             # Format entry matching Nikolay's format exactly
-            icon = "📸" if attachments else "📝"
+            icon = "" if attachments else ""
 
             # Summary: skip the title line, take the meat of the message
             # Remove the first header line to avoid repeating the title

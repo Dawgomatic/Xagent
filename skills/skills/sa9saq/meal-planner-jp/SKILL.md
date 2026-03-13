@@ -32,22 +32,22 @@ Japanese meal planning with nutrition balance and budget optimization.
    ```
 
 3. **Balance nutrition** per meal (一汁三菜 principle):
-   - 🟤 **主食** — rice, noodles, bread
-   - 🔴 **主菜** — meat, fish, egg, tofu (protein)
-   - 🟢 **副菜** — vegetables, seaweed, mushrooms (2 types ideally)
-   - 🟡 **汁物** — miso soup, clear soup
+   -  **主食** — rice, noodles, bread
+   -  **主菜** — meat, fish, egg, tofu (protein)
+   -  **副菜** — vegetables, seaweed, mushrooms (2 types ideally)
+   -  **汁物** — miso soup, clear soup
 
 4. **Output format**:
    ```
-   ## 🍱 Meal Plan
+   ##  Meal Plan
    **Period:** MM/DD–MM/DD | **Budget:** ~¥X,XXX | **Servings:** X人
 
    ### Monday (MM/DD)
-   🌅 Breakfast — Toast, fried egg, salad (¥150, 10min)
-   🌞 Lunch — Onigiri ×2, miso soup (¥200, 15min)
-   🌙 Dinner — Chicken teriyaki, spinach ohitashi, miso soup (¥400, 25min)
+    Breakfast — Toast, fried egg, salad (¥150, 10min)
+    Lunch — Onigiri ×2, miso soup (¥200, 15min)
+    Dinner — Chicken teriyaki, spinach ohitashi, miso soup (¥400, 25min)
 
-   ### 🛒 Shopping List
+   ###  Shopping List
    | Item | Amount | Est. Price |
    |------|--------|-----------|
    | Chicken thigh | 300g | ¥300 |
@@ -70,7 +70,7 @@ Japanese meal planning with nutrition balance and budget optimization.
 
 ## Edge Cases
 
-- **Convenience store mix**: Include konbini options for busy days (mark with 🏪).
+- **Convenience store mix**: Include konbini options for busy days (mark with ).
 - **Leftovers optimization**: Plan meals that reuse ingredients (e.g., extra chicken for lunch next day).
 - **No kitchen access**: Suggest no-cook meals or rice cooker-only recipes.
 - **Dietary restrictions**: For vegetarian Japanese meals, focus on tofu, natto, vegetables, and seaweed.

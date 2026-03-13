@@ -42,7 +42,7 @@ case "${1:-help}" in
             echo "✓ Logged in successfully (User ID: $USER_ID)"
             echo "$RESPONSE" | jq '.result | {id, username, firstname, lastname}'
         else
-            echo "⚠ Login failed:"
+            echo " Login failed:"
             echo "$RESPONSE" | jq '.'
         fi
         ;;

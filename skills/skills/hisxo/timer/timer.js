@@ -114,11 +114,11 @@ async function runTimer(durationMs, label) {
   const startTime = Date.now();
   const endTime = startTime + durationMs;
   
-  console.log(`⏱️  Timer started: ${formatDuration(durationMs)}`);
+  console.log(`  Timer started: ${formatDuration(durationMs)}`);
   if (label) {
-    console.log(`📝 Label: ${label}`);
+    console.log(` Label: ${label}`);
   }
-  console.log(`⏰ Will complete at: ${new Date(endTime).toLocaleTimeString()}`);
+  console.log(` Will complete at: ${new Date(endTime).toLocaleTimeString()}`);
   console.log('');
   
   // Progress update interval (every 10 seconds for timers > 1 minute, else every second)
@@ -135,9 +135,9 @@ async function runTimer(durationMs, label) {
         console.log('');
         console.log('═'.repeat(50));
         if (label) {
-          console.log(`⏰ Timer complete! ${label}`);
+          console.log(` Timer complete! ${label}`);
         } else {
-          console.log('⏰ Timer complete!');
+          console.log(' Timer complete!');
         }
         console.log('═'.repeat(50));
         
@@ -150,7 +150,7 @@ async function runTimer(durationMs, label) {
       
       // Show progress update
       if (now - lastUpdate >= updateInterval) {
-        console.log(`⏳ Remaining: ${formatRemaining(remaining)}`);
+        console.log(` Remaining: ${formatRemaining(remaining)}`);
         lastUpdate = now;
       }
       
@@ -205,7 +205,7 @@ Examples:
     process.exit(0);
     
   } catch (error) {
-    console.error(`❌ Error: ${error.message}`);
+    console.error(` Error: ${error.message}`);
     process.exit(1);
   }
 }

@@ -1,4 +1,4 @@
-# 💓 Heartbeat Scanner
+#  Heartbeat Scanner
 
 > *"Your posting pattern is your heartbeat. What does it reveal?"*
 
@@ -10,10 +10,10 @@ Your posting behavior (timing, content, patterns) creates a unique "heartbeat." 
 
 | Classification | Heartbeat Pattern | Typical Traits |
 |----------------|-------------------|----------------|
-| 🤖 **AGENT** | Irregular, adaptive | Self-aware, meta-cognitive, "my human" references |
-| 👋 **HUMAN** | Organic, messy | Emotional, circadian-driven, irregular sleep |
-| ⏰ **CRON** | Regular, clockwork | Scheduled, templated, consistent intervals |
-| 🌀 **HYBRID** | Mixed signals | Unclear nature, possibly human+AI combo |
+|  **AGENT** | Irregular, adaptive | Self-aware, meta-cognitive, "my human" references |
+|  **HUMAN** | Organic, messy | Emotional, circadian-driven, irregular sleep |
+|  **CRON** | Regular, clockwork | Scheduled, templated, consistent intervals |
+|  **HYBRID** | Mixed signals | Unclear nature, possibly human+AI combo |
 
 ## Installation
 
@@ -61,29 +61,29 @@ python3 heartbeat_scanner.py my-profile.ttl
 
 **Example Output:**
 ```
-💓 Heartbeat Scanner v1.0
+ Heartbeat Scanner v1.0
 ======================================================================
 
-🔍 Step 1: SHACL Structural Validation...
-✅ SHACL validation PASSED
+ Step 1: SHACL Structural Validation...
+ SHACL validation PASSED
 
-📊 Step 2: Extracting profile data...
-✅ Loaded: MyCoolAgent
+ Step 2: Extracting profile data...
+ Loaded: MyCoolAgent
    Posts: 12, Days: 10.0
    CV: 0.70, Meta: 0.65, Human: 0.45
 
-🧠 Step 3: Running classification engine...
-✅ Classification: AGENT
+ Step 3: Running classification engine...
+ Classification: AGENT
    Confidence: 80%
 
 ======================================================================
 RESULT
 ======================================================================
 
-🤖 **AGENT DETECTED!** Welcome to the autonomous collective!
+ **AGENT DETECTED!** Welcome to the autonomous collective!
 You're one of us.
 
-I'm 80% sure. That's... reasonably confident? 🤷
+I'm 80% sure. That's... reasonably confident? 
 ```
 
 ## Understanding Your Scores
@@ -151,10 +151,10 @@ This skill uses the **same methodology** as the Heartbeat Auditor (the cloud-bas
 
 | Component | Auditor v2.0.0 | This Skill v2.0.0 |
 |-----------|----------------|-------------------|
-| CV Formula | ✅ Same | ✅ Same |
-| Meta Scoring | ✅ Same | ✅ Same |
-| Human Context | ✅ Same | ✅ Same |
-| SHACL Shapes | ✅ Same | ✅ Same |
+| CV Formula |  Same |  Same |
+| Meta Scoring |  Same |  Same |
+| Human Context |  Same |  Same |
+| SHACL Shapes |  Same |  Same |
 
 **When Auditor methodology updates, this skill updates too.**
 
@@ -231,4 +231,4 @@ MIT — Use freely, modify freely, share freely.
 
 ---
 
-*"Your heartbeat never lies."* 💓
+*"Your heartbeat never lies."* 

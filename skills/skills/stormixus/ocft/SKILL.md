@@ -86,18 +86,18 @@ ocft import ocft://eyJub2RlSWQ...
 
 ## Features
 
-- 🔗 **Message-based**: Transfer files through existing chat channels
-- 📦 **Chunked transfer**: Split large files into small pieces (48KB chunks)
-- ✅ **Integrity verification**: SHA-256 hash for chunks and files
-- 🤝 **Request/Accept**: Explicit acceptance or auto-accept policy
-- 🔒 **Security**: Trusted peer whitelist with secrets
-- ⏰ **Secret TTL**: Set expiry time for trust relationships
-- 🔄 **Resume**: Resume interrupted transfers from last chunk
-- 🌐 **IPFS Fallback**: Use IPFS for files exceeding chunk threshold
+-  **Message-based**: Transfer files through existing chat channels
+-  **Chunked transfer**: Split large files into small pieces (48KB chunks)
+-  **Integrity verification**: SHA-256 hash for chunks and files
+-  **Request/Accept**: Explicit acceptance or auto-accept policy
+-  **Security**: Trusted peer whitelist with secrets
+-  **Secret TTL**: Set expiry time for trust relationships
+-  **Resume**: Resume interrupted transfers from last chunk
+-  **IPFS Fallback**: Use IPFS for files exceeding chunk threshold
 
 ## Protocol
 
-OCFT messages use a `🔗OCFT:` prefix with Base64-encoded JSON, allowing file transfers over any text-based channel.
+OCFT messages use a `OCFT:` prefix with Base64-encoded JSON, allowing file transfers over any text-based channel.
 
 ## Limitations
 

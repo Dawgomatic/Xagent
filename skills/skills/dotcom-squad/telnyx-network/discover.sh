@@ -41,7 +41,7 @@ done
 
 # Check telnyx CLI
 if ! command -v telnyx &> /dev/null; then
-    echo "❌ Telnyx CLI not found. Install with: npm install -g @telnyx/api-cli"
+    echo " Telnyx CLI not found. Install with: npm install -g @telnyx/api-cli"
     exit 1
 fi
 
@@ -50,7 +50,7 @@ if ! telnyx storage bucket list 2>/dev/null | grep -q "$BUCKET"; then
     if $OUTPUT_JSON; then
         echo "[]"
     else
-        echo "⚠️  No mesh registry found (bucket: $BUCKET)"
+        echo "  No mesh registry found (bucket: $BUCKET)"
         echo "   Register a node first: scripts/register.sh --name <name>"
     fi
     exit 0
@@ -67,7 +67,7 @@ if [[ -z "$NODE_FILES" ]]; then
     if $OUTPUT_JSON; then
         echo "[]"
     else
-        echo "📭 No nodes registered yet"
+        echo " No nodes registered yet"
         echo "   Register with: scripts/register.sh --name <name>"
     fi
     rm -rf "$TEMP_DIR"
@@ -75,7 +75,7 @@ if [[ -z "$NODE_FILES" ]]; then
 fi
 
 if ! $OUTPUT_JSON; then
-    echo "🔍 Discovering nodes on mesh ($BUCKET)..."
+    echo " Discovering nodes on mesh ($BUCKET)..."
     echo ""
     printf "%-15s %-15s %-20s %s\n" "NAME" "IP" "HOSTNAME" "REGISTERED"
     printf "%-15s %-15s %-20s %s\n" "----" "--" "--------" "----------"
@@ -108,7 +108,7 @@ for NODE_FILE in $NODE_FILES; do
                 REACHABLE=""
                 if [[ "$IP" != "unknown" ]] && command -v ping &>/dev/null; then
                     if ping -c 1 -W 1 "$IP" &>/dev/null 2>&1; then
-                        REACHABLE=" ✅"
+                        REACHABLE=" "
                     fi
                 fi
                 printf "%-15s %-15s %-20s %s%s\n" "$NAME" "$IP" "$HOSTNAME" "${REGISTERED:0:10}" "$REACHABLE"
@@ -122,7 +122,7 @@ if $OUTPUT_JSON; then
     echo "$JSON_ARRAY" | python3 -m json.tool
 else
     echo ""
-    echo "💡 Tip: Use --json for machine-readable output"
+    echo " Tip: Use --json for machine-readable output"
 fi
 
 rm -rf "$TEMP_DIR"

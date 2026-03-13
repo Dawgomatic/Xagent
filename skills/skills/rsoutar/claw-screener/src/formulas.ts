@@ -315,7 +315,7 @@ if (import.meta.main) {
   console.log(`Score: ${engine.getScore()}/10\n`);
 
   for (const result of results) {
-    const symbol = result.status === "PASS" ? "✅" : "❌";
+    const symbol = result.status === "PASS" ? "" : "";
     console.log(
       `${symbol} ${result.name}: ${result.message} (Target: ${result.target})`
     );

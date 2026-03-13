@@ -109,7 +109,7 @@ const commands = {
   'key:generate': async (args) => {
     const { options } = args;
     
-    console.log('🔐 Generating new controller key...\n');
+    console.log(' Generating new controller key...\n');
     
     const keyPair = generateKeyPair();
     
@@ -120,7 +120,7 @@ const commands = {
       const password = options.password || process.env.UP_KEYSTORE_PASSWORD;
       
       if (!password) {
-        console.log('\n⚠️ No password provided. Use --password <password> or set UP_KEYSTORE_PASSWORD');
+        console.log('\n No password provided. Use --password <password> or set UP_KEYSTORE_PASSWORD');
         console.log('\nPrivate Key (save this securely!):');
         console.log(keyPair.privateKey);
         return;
@@ -128,7 +128,7 @@ const commands = {
       
       await encryptAndStoreKey(keyPair.privateKey, password);
       console.log(`\n✓ Key saved to encrypted keystore`);
-      console.log('\n⚠️ IMPORTANT: Remember your password! It cannot be recovered.');
+      console.log('\n IMPORTANT: Remember your password! It cannot be recovered.');
     } else {
       console.log('\nPrivate Key (save this securely!):');
       console.log(keyPair.privateKey);
@@ -172,12 +172,12 @@ const commands = {
     // Check keystore
     const keys = await listKeys();
     if (keys.length > 0) {
-      console.log(`\n📋 Stored Keys: ${keys.length}`);
+      console.log(`\n Stored Keys: ${keys.length}`);
       for (const key of keys) {
         console.log(`   - ${key.address}`);
       }
     } else {
-      console.log('\n⚠️ No keys stored. Run: up key generate --save');
+      console.log('\n No keys stored. Run: up key generate --save');
     }
     
     // Check chain connectivity
@@ -228,7 +228,7 @@ const commands = {
     // Check if valid UP
     const isUP = await isUniversalProfile(upAddress, provider);
     if (!isUP) {
-      console.log(`⚠️ ${upAddress} does not appear to be a Universal Profile`);
+      console.log(` ${upAddress} does not appear to be a Universal Profile`);
       return null;
     }
     
@@ -270,7 +270,7 @@ const commands = {
     // Verify it's a UP
     const isUP = await isUniversalProfile(upAddress, provider);
     if (!isUP) {
-      console.log(`⚠️ ${upAddress} does not appear to be a Universal Profile`);
+      console.log(` ${upAddress} does not appear to be a Universal Profile`);
       return null;
     }
     
@@ -281,7 +281,7 @@ const commands = {
     }
     
     if (!kmAddress) {
-      console.log(`⚠️ Could not find Key Manager for ${upAddress}`);
+      console.log(` Could not find Key Manager for ${upAddress}`);
       console.log('Specify manually with --key-manager <address>');
       return null;
     }
@@ -351,10 +351,10 @@ const commands = {
     
     for (const preset of presets) {
       const riskIcon = {
-        LOW: '🟢',
-        MEDIUM: '🟡',
-        HIGH: '🟠',
-        CRITICAL: '🔴',
+        LOW: '',
+        MEDIUM: '',
+        HIGH: '',
+        CRITICAL: '',
       }[preset.riskLevel];
       
       console.log(`${riskIcon} ${preset.key}`);
@@ -362,7 +362,7 @@ const commands = {
       console.log(`   Permissions: ${preset.permissions.join(', ')}`);
       console.log(`   Hex: ${preset.permissionsHex.slice(0, 18)}...`);
       if (preset.warning) {
-        console.log(`   ⚠️ ${preset.warning}`);
+        console.log(`    ${preset.warning}`);
       }
       console.log('');
     }
@@ -385,10 +385,10 @@ const commands = {
     const result = validatePermissions(permHex);
     
     const levelIcon = {
-      LOW: '🟢',
-      MEDIUM: '🟡',
-      HIGH: '🟠',
-      CRITICAL: '🔴',
+      LOW: '',
+      MEDIUM: '',
+      HIGH: '',
+      CRITICAL: '',
     }[result.riskLevel];
     
     console.log(`${levelIcon} Risk Level: ${result.riskLevel}\n`);
@@ -397,13 +397,13 @@ const commands = {
     result.permissions.forEach(p => console.log(`  - ${p}`));
     
     if (result.risks.length > 0) {
-      console.log('\n⚠️ SECURITY RISKS:');
-      result.risks.forEach(r => console.log(`  🔴 ${r}`));
+      console.log('\n SECURITY RISKS:');
+      result.risks.forEach(r => console.log(`   ${r}`));
     }
     
     if (result.warnings.length > 0) {
-      console.log('\n⚡ Warnings:');
-      result.warnings.forEach(w => console.log(`  🟡 ${w}`));
+      console.log('\n Warnings:');
+      result.warnings.forEach(w => console.log(`   ${w}`));
     }
     
     if (result.valid) {
@@ -510,7 +510,7 @@ const commands = {
     const { options } = args;
     const network = options.chain === 'lukso-testnet' ? 'testnet' : 'mainnet';
     
-    console.log('🔍 Checking relay quota...\n');
+    console.log(' Checking relay quota...\n');
     
     const { getRelayQuota } = await import('./lib/execute/relay.js');
     const data = await getRelayQuota({ network });
@@ -519,7 +519,7 @@ const commands = {
     const pct = ((data.quota / data.totalQuota) * 100).toFixed(1);
     const resetDate = new Date(data.resetDate * 1000);
     
-    console.log(`⛽ Relay Quota`);
+    console.log(` Relay Quota`);
     console.log(`  Remaining: ${data.quota.toLocaleString()} ${data.unit} (${pct}%)`);
     console.log(`  Used:      ${used.toLocaleString()} ${data.unit}`);
     console.log(`  Total:     ${data.totalQuota.toLocaleString()} ${data.unit}`);

@@ -4,7 +4,7 @@
 
 ---
 
-## 📦 安装要求 / Installation Requirements
+##  安装要求 / Installation Requirements
 
 ### 环境要求 / Environment Requirements
 
@@ -17,7 +17,7 @@
 
 ---
 
-## 📥 安装步骤 / Installation Steps
+##  安装步骤 / Installation Steps
 
 ### 方式一：通过 ClawHub 安装 / Install via ClawHub (Recommended)
 
@@ -116,7 +116,7 @@ openclaw gateway restart
 
 ---
 
-## 🚀 快速开始 / Quick Start
+##  快速开始 / Quick Start
 
 ### 1. 初始化新书 / Initialize a New Book
 
@@ -157,7 +157,7 @@ python -m scripts.v2.cli finalize --run-dir <path>
 
 ---
 
-## 📋 CLI 命令参考 / CLI Command Reference
+##  CLI 命令参考 / CLI Command Reference
 
 | 命令 Command | 说明 Description | 示例 Example |
 |------------|-----------------|--------------|
@@ -182,7 +182,7 @@ python -m scripts.v2.cli finalize --run-dir <path>
 
 ---
 
-## ⚙️ 配置说明 / Configuration
+##  配置说明 / Configuration
 
 ### 0-book-config.json
 
@@ -217,7 +217,7 @@ python -m scripts.v2.cli finalize --run-dir <path>
 
 ---
 
-## 💰 成本管理 / Cost Management
+##  成本管理 / Cost Management
 
 ### 费率表 / Price Table
 
@@ -243,7 +243,7 @@ cat logs/cost-report.jsonl
 
 ---
 
-## 🔧 高级功能 / Advanced Features
+##  高级功能 / Advanced Features
 
 ### 1. 状态面板 / State Panels
 
@@ -279,7 +279,7 @@ v2.0 使用7个状态面板追踪写作进度：
 
 ---
 
-## 🐛 故障排查 / Troubleshooting
+##  故障排查 / Troubleshooting
 
 ### 技能未加载 / Skill Not Loading
 
@@ -314,7 +314,7 @@ python -m scripts.v2.cli write --run-dir <path> --resume force
 
 ---
 
-## 📊 性能优化 / Performance Optimization
+##  性能优化 / Performance Optimization
 
 ### 减少Token消耗
 
@@ -330,7 +330,7 @@ python -m scripts.v2.cli write --run-dir <path> --resume force
 
 ---
 
-## 📄 文件结构 / File Structure
+##  文件结构 / File Structure
 
 ```
 novels/
@@ -352,7 +352,7 @@ novels/
 
 ---
 
-## 🔄 从 v1.0 迁移 / Migration from v1.0
+##  从 v1.0 迁移 / Migration from v1.0
 
 v2.0 保持向后兼容：
 
@@ -365,7 +365,7 @@ python -m scripts.v2.cli write --run-dir <v1_book_path> --resume auto
 
 ---
 
-## 📞 支持 / Support
+##  支持 / Support
 
 - **文档**: 参见 `SKILL.md`
 - **问题反馈**: GitHub Issues
@@ -373,12 +373,12 @@ python -m scripts.v2.cli write --run-dir <v1_book_path> --resume auto
 
 ---
 
-## 📄 许可证 / License
+##  许可证 / License
 
 MIT License - 可自由使用、修改、分发。
 
 ---
 
-**Happy Writing! 🎉**
+**Happy Writing! **
 
-**创作愉快! 🎉**
+**创作愉快! **

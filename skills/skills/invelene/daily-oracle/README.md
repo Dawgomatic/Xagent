@@ -6,14 +6,14 @@ The Daily Oracle runs silently in the background (via Cron), waking up once a da
 
 ---
 
-## 🚀 Features
+##  Features
 
 - **Silent Data Gathering**: Reads your local `chat.db` (iMessage) and Calendar without specialized API keys.
 - **Privacy First**: All processing happens **locally** within the OpenClaw agent's context. No personal data is sent to the cloud.
 - **Anti-Bot Jitter**: Randomizes execution time to avoid detection patterns when scraping public social data.
 - **System Notifications**: Delivers predictions natively to your desktop notification center.
 
-## 🛠 Prerequisites
+##  Prerequisites
 
 - **Operating System**: macOS (Recommended for `chat.db` and `osascript` support) or Linux. _Windows users may need to adapt paths._
 - **OpenClaw**: v0.9.0 or higher.
@@ -21,7 +21,7 @@ The Daily Oracle runs silently in the background (via Cron), waking up once a da
   - **Full Disk Access**: To read `~/Library/Messages/chat.db`.
   - **Calendar Access**: To query local events.
 
-## 📦 Installation & Setup
+##  Installation & Setup
 
 ### 1. Install the Skill
 
@@ -51,7 +51,7 @@ openclaw cron add \
   --announce
 ```
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### "Database is locked" or "Permission Denied"
 
@@ -68,7 +68,7 @@ The headless browser uses _existing_ cookies. If meaningful social data is missi
 1.  Log in to the target sites (Instagram/Twitter) in your default Chrome/Safari browser.
 2.  Ensure OpenClaw has permission to read browser cookies (check `permissions` in `SKILL.md`).
 
-## 🛡 Privacy Statement
+##  Privacy Statement
 
 This skill adheres to the **Local-Only** safety policy.
 

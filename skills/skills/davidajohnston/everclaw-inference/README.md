@@ -1,4 +1,4 @@
-# ♾️ Everclaw — AI Inference You Own, Forever Powering Your OpenClaw Agents
+#  Everclaw — AI Inference You Own, Forever Powering Your OpenClaw Agents
 
 **Own your inference.** Everclaw connects your [OpenClaw](https://github.com/openclaw/openclaw) agent to the [Morpheus](https://mor.org) decentralized inference network — giving you consistent, self-sovereign access to Kimi K2.5, GLM-4.7 Flash, Qwen3, and 10+ open-source models powered by staked MOR tokens that recycle back to you.
 
@@ -26,7 +26,7 @@ curl -fsSL https://raw.githubusercontent.com/profbernardoj/everclaw/main/scripts
 git clone https://github.com/profbernardoj/everclaw.git ~/.openclaw/workspace/skills/everclaw
 ```
 
-> ⚠️ **Use `everclaw-inference`** — not `everclaw`. The bare `everclaw` slug on ClawHub belongs to a different, unrelated product ("Everclaw Vault"). See [CLAWHUB_WARNING.md](CLAWHUB_WARNING.md).
+>  **Use `everclaw-inference`** — not `everclaw`. The bare `everclaw` slug on ClawHub belongs to a different, unrelated product ("Everclaw Vault"). See [CLAWHUB_WARNING.md](CLAWHUB_WARNING.md).
 
 Then set up your wallet, proxy, and guardian:
 
@@ -85,7 +85,7 @@ The proxy handles all the blockchain complexity: opening sessions, renewing befo
 
 ## What's Included
 
-### ♾️ Core — Decentralized Inference
+###  Core — Decentralized Inference
 | Component | What It Does |
 |-----------|-------------|
 | **Morpheus Proxy Router** | Connects to the Morpheus P2P network and routes inference requests to providers |
@@ -103,7 +103,7 @@ The proxy handles all the blockchain complexity: opening sessions, renewing befo
 
 **Benefit:** Your agent gets persistent access to 30+ open-source models (Kimi K2.5, GLM-4.7 Flash, Qwen3, and more) that you own through staked MOR tokens. No API bills, no credit limits — stake once, use forever. MOR tokens are staked, not consumed — they're returned when sessions close and can be restaked indefinitely. The model router (v0.6) ensures you only use expensive models when you need to — cron jobs, heartbeats, and simple tasks run on Morpheus inference you own. The x402 client and agent registry (v0.7) let your agent discover and pay other agents on-chain. And with the API Gateway bootstrap (v0.8), new users get instant inference from their very first launch — no API key needed.
 
-### 💸 Agent Economy — x402 Payments + ERC-8004 Registry
+###  Agent Economy — x402 Payments + ERC-8004 Registry
 | Component | What It Does |
 |-----------|-------------|
 | **x402 Payment Client** | Automatic HTTP 402 payment handling — detects payment-required responses, signs USDC on Base via EIP-712, retries with payment |
@@ -114,7 +114,7 @@ The proxy handles all the blockchain complexity: opening sessions, renewing befo
 
 **Benefit:** Your agent can discover other agents on-chain, verify their reputation, and pay them for services — all without custodial intermediaries. USDC payments are signed with EIP-712 and settled via the Coinbase facilitator. Budget controls prevent surprise spending.
 
-### 🛡️ Gateway Guardian v4 — Billing-Aware Self-Healing
+###  Gateway Guardian v4 — Billing-Aware Self-Healing
 | Component | What It Does |
 |-----------|-------------|
 | **Billing-Aware Escalation** | Classifies errors as `billing` vs `transient` vs `timeout`. Billing → backs off + notifies (restart is useless). Transient → restarts as before |
@@ -129,7 +129,7 @@ The proxy handles all the blockchain complexity: opening sessions, renewing befo
 
 **Benefit:** v3 had two fatal bugs: billing exhaustion caused infinite useless restarts (restart clears cooldown → first request re-triggers 402 → back to dead), and `set -euo pipefail` + pkill self-kill caused the restart chain to silently do nothing. v4 understands that billing exhaustion can't be fixed by restarting — it backs off, notifies you, and waits for DIEM to reset at midnight UTC. Paired with reduced billing backoff config (`venice: 1h` instead of 5h), maximum downtime from credit exhaustion drops from 12+ hours to ~1 hour.
 
-### 🔍 SkillGuard — Skill Security Scanner
+###  SkillGuard — Skill Security Scanner
 | Component | What It Does |
 |-----------|-------------|
 | **Pattern Scanner** | Detects credential theft, code injection, data exfiltration in skills |
@@ -138,7 +138,7 @@ The proxy handles all the blockchain complexity: opening sessions, renewing befo
 
 **Benefit:** Protects against the ClawHavoc-style supply chain attacks that target agents running on always-on machines. Scan before you install.
 
-### 🔒 ClawdStrike — Security Auditor
+###  ClawdStrike — Security Auditor
 | Component | What It Does |
 |-----------|-------------|
 | **Config Audit** | Checks your OpenClaw configuration for security gaps |
@@ -147,7 +147,7 @@ The proxy handles all the blockchain complexity: opening sessions, renewing befo
 
 **Benefit:** Know if your agent's front door is locked. Catches misconfigurations that could expose your wallet, messages, or files.
 
-### 🧱 PromptGuard — Injection Defense
+###  PromptGuard — Injection Defense
 | Component | What It Does |
 |-----------|-------------|
 | **Multi-Language Detection** | Catches injection attempts in English, Korean, Japanese, Chinese |
@@ -156,7 +156,7 @@ The proxy handles all the blockchain complexity: opening sessions, renewing befo
 
 **Benefit:** When your agent processes messages from groups or untrusted sources, PromptGuard blocks attempts to manipulate it into revealing secrets or sending tokens.
 
-### 💰 Bagman — Key Management
+###  Bagman — Key Management
 | Component | What It Does |
 |-----------|-------------|
 | **Secure Storage Patterns** | Never store keys on disk — 1Password runtime injection |

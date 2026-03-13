@@ -22,7 +22,7 @@
   ],
   "clawdhub": {
     "category": "productivity",
-    "emoji": "💰",
+    "emoji": "",
     "commands": ["finance"],
     "dataDir": "~/.finance-tracker",
     "requirements": {

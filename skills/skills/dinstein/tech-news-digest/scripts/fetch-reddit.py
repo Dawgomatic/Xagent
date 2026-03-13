@@ -254,7 +254,7 @@ Examples:
                 with open(args.output) as f:
                     existing = json.load(f)
                 if existing.get('subreddits'):
-                    logger.info(f"⏭️  Skipping fetch: {args.output} is {age:.0f}s old (< {RESUME_MAX_AGE_SECONDS}s). Use --force to override.")
+                    logger.info(f"  Skipping fetch: {args.output} is {age:.0f}s old (< {RESUME_MAX_AGE_SECONDS}s). Use --force to override.")
                     print(f"Output (cached): {args.output}")
                     return 0
         except (json.JSONDecodeError, KeyError):
@@ -282,7 +282,7 @@ Examples:
             print(f"Output (empty): {args.output}")
             return 0
         
-        logger.info(f"📡 Fetching {len(sources)} subreddits (cutoff: {cutoff.strftime('%Y-%m-%d %H:%M')} UTC)")
+        logger.info(f" Fetching {len(sources)} subreddits (cutoff: {cutoff.strftime('%Y-%m-%d %H:%M')} UTC)")
         
         results = []
         total_posts = 0
@@ -313,12 +313,12 @@ Examples:
         with open(args.output, "w", encoding='utf-8') as f:
             f.write(json_str)
         
-        logger.info(f"✅ Fetched {ok_count}/{len(results)} subreddits, {total_posts} posts")
+        logger.info(f" Fetched {ok_count}/{len(results)} subreddits, {total_posts} posts")
         print(f"Output: {args.output}")
         return 0
     
     except Exception as e:
-        logger.error(f"💥 Reddit fetch failed: {e}")
+        logger.error(f" Reddit fetch failed: {e}")
         return 1
 
 

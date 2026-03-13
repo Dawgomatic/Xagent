@@ -179,7 +179,7 @@ def print_cache_stats():
     """Print cache statistics to stderr."""
     stats = get_cache_stats()
     
-    print(f"\n📦 Transcript Cache Stats", file=sys.stderr)
+    print(f"\n Transcript Cache Stats", file=sys.stderr)
     print(f"   Location: {CACHE_DIR}", file=sys.stderr)
     print(f"   Cached videos: {stats['count']}", file=sys.stderr)
     print(f"   Total size: {stats['total_size']:,} bytes ({stats['total_size'] / 1024:.1f} KB)", file=sys.stderr)
@@ -389,7 +389,7 @@ def process_batch(batch_file, api_token, use_cache, language, output_json):
     for i, url in enumerate(urls, 1):
         video_id = extract_video_id(url)
         if not video_id:
-            print(f"[{i}/{len(urls)}] ❌ Invalid URL: {url}", file=sys.stderr)
+            print(f"[{i}/{len(urls)}]  Invalid URL: {url}", file=sys.stderr)
             failed += 1
             continue
         

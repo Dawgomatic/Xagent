@@ -828,13 +828,13 @@ def generate_athletic_report(genotypes: Dict[str, str]) -> str:
     recommendations = generate_training_recommendations(profile)
     
     lines = []
-    lines.append("🏃 ATHLETIC GENETIC PROFILE")
+    lines.append(" ATHLETIC GENETIC PROFILE")
     lines.append("=" * 50)
     lines.append("")
     
     # Athletic Type
     at = profile["athletic_type"]
-    lines.append("💪 POWER vs ENDURANCE")
+    lines.append(" POWER vs ENDURANCE")
     lines.append(f"   Type: {at['description']}")
     lines.append(f"   Power Score: {at['power_score']} | Endurance Score: {at['endurance_score']}")
     lines.append(f"   Confidence: {at['confidence']}")
@@ -849,13 +849,13 @@ def generate_athletic_report(genotypes: Dict[str, str]) -> str:
     
     # Recovery
     rec = profile["recovery_profile"]
-    lines.append("⚡ RECOVERY PROFILE")
+    lines.append(" RECOVERY PROFILE")
     lines.append(f"   {rec['description']}")
     lines.append("")
     
     # Injury Risk
     inj = profile["injury_risk"]
-    lines.append("🩹 INJURY SUSCEPTIBILITY")
+    lines.append(" INJURY SUSCEPTIBILITY")
     lines.append(f"   Risk Level: {inj['level'].upper()}")
     lines.append(f"   {inj['description']}")
     if inj["concerns"]:
@@ -866,7 +866,7 @@ def generate_athletic_report(genotypes: Dict[str, str]) -> str:
     
     # Training Recommendations
     lines.append("-" * 50)
-    lines.append("📋 TRAINING RECOMMENDATIONS")
+    lines.append(" TRAINING RECOMMENDATIONS")
     lines.append("-" * 50)
     for rec in recommendations:
         lines.append(f"\n{rec['recommendation']}")

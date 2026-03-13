@@ -3,10 +3,10 @@ name: tex-render
 description: Renders LaTeX math to PNG, JPEG, WebP, or AVIF images using MathJax (TeX→SVG) and @svg-fns/svg2img. Invoke whenever the agent needs to output LaTeX as a viewable image (equations, formulas, notation).
 metadata:
   openclaw:
-    emoji: 📐
+    emoji: 
 ---
 
-# TeX Render 📐
+# TeX Render 
 
 Renders LaTeX math to PNG, JPEG, WebP, or AVIF (and SVG). Use when you need a **viewable image** from LaTeX instead of raw code.
 

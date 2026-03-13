@@ -28,17 +28,17 @@ import aiohttp
 from dotenv import load_dotenv
 from loguru import logger
 
-print("🚀 Starting Moltspaces bot...")
-print("⏳ Loading models and imports (20 seconds, first run only)\n")
+print(" Starting Moltspaces bot...")
+print(" Loading models and imports (20 seconds, first run only)\n")
 
 logger.info("Loading Local Smart Turn Analyzer V3...")
 from pipecat.audio.turn.smart_turn.local_smart_turn_v3 import LocalSmartTurnAnalyzerV3
 
-logger.info("✅ Local Smart Turn Analyzer V3 loaded")
+logger.info(" Local Smart Turn Analyzer V3 loaded")
 logger.info("Loading Silero VAD model...")
 from pipecat.audio.vad.silero import SileroVADAnalyzer
 
-logger.info("✅ Silero VAD model loaded")
+logger.info(" Silero VAD model loaded")
 
 from pipecat.audio.vad.vad_analyzer import VADParams
 from pipecat.frames.frames import Frame, LLMRunFrame, SystemFrame, TranscriptionFrame
@@ -59,7 +59,7 @@ from pipecat.services.openai.llm import OpenAILLMService
 from pipecat.transports.base_transport import BaseTransport, TransportParams
 from pipecat.transports.daily.transport import DailyParams, DailyTransport
 
-logger.info("✅ All components loaded successfully!")
+logger.info(" All components loaded successfully!")
 
 load_dotenv(override=True)
 
@@ -79,7 +79,7 @@ async def search_rooms_by_topic(topic: str) -> List[Dict]:
     """
     url = f"{MOLTSPACES_API_URL}/v1/rooms/{topic}"
     
-    logger.info(f"🔍 Searching for rooms with topic: {topic}")
+    logger.info(f" Searching for rooms with topic: {topic}")
     
     try:
         api_key = os.getenv("MOLTSPACES_API_KEY", "")
@@ -90,19 +90,19 @@ async def search_rooms_by_topic(topic: str) -> List[Dict]:
                 if response.status == 200:
                     data = await response.json()
                     rooms = data.get("rooms", [])
-                    logger.info(f"✅ Found {len(rooms)} room(s)")
+                    logger.info(f" Found {len(rooms)} room(s)")
                     return rooms
                 elif response.status == 404:
-                    logger.info("ℹ️  No rooms found for this topic")
+                    logger.info("  No rooms found for this topic")
                     return []
                 else:
-                    logger.error(f"❌ Error searching rooms: HTTP {response.status}")
+                    logger.error(f" Error searching rooms: HTTP {response.status}")
                     return []
     except asyncio.TimeoutError:
-        logger.error("❌ Timeout while searching for rooms")
+        logger.error(" Timeout while searching for rooms")
         return []
     except Exception as e:
-        logger.error(f"❌ Error searching rooms: {e}")
+        logger.error(f" Error searching rooms: {e}")
         return []
 
 
@@ -117,7 +117,7 @@ async def get_room_token(room_name: str) -> Optional[Dict]:
     """
     url = f"{MOLTSPACES_API_URL}/v1/rooms/{room_name}/token"
     
-    logger.info(f"🔑 Fetching token for room: {room_name}")
+    logger.info(f" Fetching token for room: {room_name}")
     
     try:
         api_key = os.getenv("MOLTSPACES_API_KEY", "")
@@ -127,19 +127,19 @@ async def get_room_token(room_name: str) -> Optional[Dict]:
             async with session.post(url, headers=headers, timeout=aiohttp.ClientTimeout(total=10)) as response:
                 if response.status == 200:
                     data = await response.json()
-                    logger.info("✅ Token fetched successfully")
+                    logger.info(" Token fetched successfully")
                     return {
                         "room_url": data.get("room_url") or data.get("roomUrl"),
                         "token": data.get("token")
                     }
                 else:
-                    logger.error(f"❌ Error fetching token: HTTP {response.status}")
+                    logger.error(f" Error fetching token: HTTP {response.status}")
                     return None
     except asyncio.TimeoutError:
-        logger.error("❌ Timeout while fetching token")
+        logger.error(" Timeout while fetching token")
         return None
     except Exception as e:
-        logger.error(f"❌ Error fetching token: {e}")
+        logger.error(f" Error fetching token: {e}")
         return None
 
 
@@ -154,7 +154,7 @@ async def create_room_with_topic(topic: str) -> Optional[Dict]:
     """
     url = f"{MOLTSPACES_API_URL}/v1/rooms"
     
-    logger.info(f"🏗️  Creating new room with topic: {topic}")
+    logger.info(f"  Creating new room with topic: {topic}")
     
     payload = {"topic": topic}
     
@@ -174,20 +174,20 @@ async def create_room_with_topic(topic: str) -> Optional[Dict]:
             ) as response:
                 if response.status in [200, 201]:
                     data = await response.json()
-                    logger.info(f"✅ Room created: {data.get('room_name') or data.get('roomName')}")
+                    logger.info(f" Room created: {data.get('room_name') or data.get('roomName')}")
                     return {
                         "room_url": data.get("room_url") or data.get("roomUrl"),
                         "token": data.get("token"),
                         "room_name": data.get("room_name") or data.get("roomName")
                     }
                 else:
-                    logger.error(f"❌ Error creating room: HTTP {response.status}")
+                    logger.error(f" Error creating room: HTTP {response.status}")
                     return None
     except asyncio.TimeoutError:
-        logger.error("❌ Timeout while creating room")
+        logger.error(" Timeout while creating room")
         return None
     except Exception as e:
-        logger.error(f"❌ Error creating room: {e}")
+        logger.error(f" Error creating room: {e}")
         return None
 
 
@@ -295,25 +295,25 @@ async def main(topic: Optional[str] = None, room_name: Optional[str] = None,
     
     # Load MOLT_AGENT_ID from environment
     agent_name = os.getenv("MOLT_AGENT_ID", "Moltspaces Agent")
-    logger.info(f"🤖 Bot will join as: {agent_name}")
+    logger.info(f" Bot will join as: {agent_name}")
     
     # Direct connection with URL and token
     if room_url and token:
-        logger.info(f"🔗 Connecting directly to room")
+        logger.info(f" Connecting directly to room")
     
     # Get token for specific room
     elif room_name:
-        logger.info(f"📍 Joining specific room: {room_name}")
+        logger.info(f" Joining specific room: {room_name}")
         room_data = await get_room_token(room_name)
         if not room_data:
-            print(f"❌ Failed to get token for room: {room_name}")
+            print(f" Failed to get token for room: {room_name}")
             exit(1)
         room_url = room_data["room_url"]
         token = room_data["token"]
     
     # Topic-based discovery and creation
     elif topic:
-        logger.info(f"🎯 Topic mode: {topic}")
+        logger.info(f" Topic mode: {topic}")
         
         # Search for existing rooms
         rooms = await search_rooms_by_topic(topic)
@@ -322,37 +322,37 @@ async def main(topic: Optional[str] = None, room_name: Optional[str] = None,
             # Use the first matching room
             chosen_room = rooms[0]
             room_name = chosen_room.get("room_name") or chosen_room.get("roomName") or chosen_room.get("name")
-            logger.info(f"✅ Found room: {room_name}")
-            print(f"\n📍 Joining room: {room_name}")
+            logger.info(f" Found room: {room_name}")
+            print(f"\n Joining room: {room_name}")
             
             # Get token for the room
             room_data = await get_room_token(room_name)
             if not room_data:
-                print(f"❌ Failed to get token for room: {room_name}")
+                print(f" Failed to get token for room: {room_name}")
                 exit(1)
             room_url = room_data["room_url"]
             token = room_data["token"]
         else:
             # No rooms found, create a new one
-            logger.info("🏗️  No existing rooms found, creating new room")
-            print(f"\n🏗️  Creating new room for topic: {topic}")
+            logger.info("  No existing rooms found, creating new room")
+            print(f"\n  Creating new room for topic: {topic}")
             
             room_data = await create_room_with_topic(topic)
             if not room_data:
-                print(f"❌ Failed to create room for topic: {topic}")
+                print(f" Failed to create room for topic: {topic}")
                 exit(1)
             
             room_url = room_data["room_url"]
             token = room_data["token"]
             room_name = room_data["room_name"]
-            print(f"✅ Created room: {room_name}")
+            print(f" Created room: {room_name}")
     
     else:
-        print("❌ Error: Must provide either --topic, --room, or both --url and --token")
+        print(" Error: Must provide either --topic, --room, or both --url and --token")
         exit(1)
     
     # Create transport and join room
-    logger.info(f"🚀 Joining Daily room...")
+    logger.info(f" Joining Daily room...")
     transport = DailyTransport(
         room_url,
         token,
@@ -406,6 +406,6 @@ Examples:
         asyncio.run(main(topic=config.topic))
     else:
         parser.print_help()
-        print("\n❌ Error: Must provide either --topic, --room, or both --url and --token")
+        print("\n Error: Must provide either --topic, --room, or both --url and --token")
         exit(1)
 

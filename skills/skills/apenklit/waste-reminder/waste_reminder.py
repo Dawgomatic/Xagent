@@ -53,7 +53,7 @@ def confirm_container(container, date, confirmed_by=None):
     container_info = config.get("containers", {}).get(container, {})
     container_name = container_info.get("name", container)
     
-    return f"✅ Confirmed: {container_name} on {date}"
+    return f" Confirmed: {container_name} on {date}"
 
 def add_pickup(container, date):
     """Add a new pickup date."""
@@ -76,7 +76,7 @@ def add_pickup(container, date):
     container_info = config.get("containers", {}).get(container, {})
     container_name = container_info.get("name", container)
     
-    return f"✅ Added: {container_name} pickup on {date}"
+    return f" Added: {container_name} pickup on {date}"
 
 def remove_pickup(container, date):
     """Remove a pickup date."""
@@ -91,7 +91,7 @@ def remove_pickup(container, date):
     
     save_schedule(schedule)
     
-    return f"✅ Removed pickup for {container} on {date}"
+    return f" Removed pickup for {container} on {date}"
 
 def list_schedule(upcoming_days=30):
     """List upcoming pickups."""
@@ -117,7 +117,7 @@ def list_schedule(upcoming_days=30):
             if not status.get("confirmed", False):
                 container_info = config.get("containers", {}).get(container, {})
                 container_name = container_info.get("name", container)
-                container_emoji = container_info.get("emoji", "🗑️")
+                container_emoji = container_info.get("emoji", "")
                 
                 day_name = datetime.strptime(date, "%Y-%m-%d").strftime("%a")
                 upcoming.append(f"{day_name} {date}: {container_emoji} {container_name}")
@@ -125,7 +125,7 @@ def list_schedule(upcoming_days=30):
     if not upcoming:
         return "No upcoming pickups scheduled."
     
-    return "📅 Upcoming pickups:\n" + "\n".join(upcoming)
+    return " Upcoming pickups:\n" + "\n".join(upcoming)
 
 def show_status():
     """Show current status of all pending reminders."""
@@ -135,7 +135,7 @@ def show_status():
     
     schedule = load_schedule()
     today = datetime.now().strftime("%Y-%m-%d")
-    status_lines = ["📋 Pending reminders:"]
+    status_lines = [" Pending reminders:"]
     
     sorted_dates = sorted(schedule.keys())
     
@@ -147,7 +147,7 @@ def show_status():
             if not stat.get("confirmed", False):
                 container_info = config.get("containers", {}).get(container, {})
                 container_name = container_info.get("name", container)
-                container_emoji = container_info.get("emoji", "🗑️")
+                container_emoji = container_info.get("emoji", "")
                 
                 reminders = []
                 for key, value in stat.items():

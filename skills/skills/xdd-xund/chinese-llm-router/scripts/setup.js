@@ -104,7 +104,7 @@ function ask(question) {
 }
 
 async function main() {
-  console.log('\n🇨🇳 Chinese LLM Router - Setup\n');
+  console.log('\n Chinese LLM Router - Setup\n');
   console.log('Configure API keys for Chinese AI models.');
   console.log('Skip any provider by pressing Enter.\n');
 
@@ -155,7 +155,7 @@ async function main() {
   // Save
   if (!fs.existsSync(CONFIG_DIR)) fs.mkdirSync(CONFIG_DIR, { recursive: true });
   fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
-  console.log(`\n✅ Config saved to ${CONFIG_FILE}`);
+  console.log(`\n Config saved to ${CONFIG_FILE}`);
   console.log(`\nConfigured ${configured.length} provider(s). Your OpenClaw can now use Chinese LLMs!`);
 
   rl.close();

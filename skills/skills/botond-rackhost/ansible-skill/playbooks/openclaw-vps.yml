@@ -314,7 +314,7 @@
     - name: Summary
       ansible.builtin.debug:
         msg: |
-          ✅ VPS Setup Complete!
+           VPS Setup Complete!
           
           Server: {{ inventory_hostname }} ({{ ansible_host }})
           User: {{ deploy_user }}

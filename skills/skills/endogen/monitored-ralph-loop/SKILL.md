@@ -316,7 +316,7 @@ Each Codex notifies independently. Check `.ralph/pending-notification.txt` in ea
 
 ## Safety
 
-⚠️ **Auto-approve flags are dangerous.** Always:
+ **Auto-approve flags are dangerous.** Always:
 1. Run in a dedicated directory/branch
 2. Use a sandbox (Docker/VM) for untrusted projects
 3. Have `git reset --hard` ready as escape hatch

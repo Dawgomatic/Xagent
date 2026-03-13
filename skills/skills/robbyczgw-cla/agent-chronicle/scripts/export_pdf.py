@@ -91,8 +91,8 @@ def load_entries(diary_path: Path):
 
 def parse_entry_title(content: str, date_str: str):
     """Extract title from markdown content"""
-    # Try: # 📔 Cami's Diary - Saturday, January 31st, 2026
-    match = re.search(r"^#\s*📔?\s*Cami'?s?\s*Diary\s*[-—–]\s*(.+)$", content, re.MULTILINE | re.IGNORECASE)
+    # Try: #  Cami's Diary - Saturday, January 31st, 2026
+    match = re.search(r"^#\s*?\s*Cami'?s?\s*Diary\s*[-—–]\s*(.+)$", content, re.MULTILINE | re.IGNORECASE)
     if match:
         title = match.group(1).strip()
         # Don't use if it's just the date repeated
@@ -152,7 +152,7 @@ def extract_quote_of_day(content: str) -> str | None:
 
 def extract_highlight(content: str) -> str | None:
     """Extract today's highlight if present"""
-    match = re.search(r"##\s*🌟\s*Today'?s?\s*Highlight\s*\n+(.+?)(?=\n##|\Z)", content, re.IGNORECASE | re.DOTALL)
+    match = re.search(r"##\s*\s*Today'?s?\s*Highlight\s*\n+(.+?)(?=\n##|\Z)", content, re.IGNORECASE | re.DOTALL)
     if match:
         text = match.group(1).strip()
         # Get first paragraph only
@@ -844,7 +844,7 @@ def build_html(entries):
         <div class="cover-ornament-top">◆ ◆ ◆</div>
         
         <div class="cover-content">
-            <div class="cover-emoji">🦎</div>
+            <div class="cover-emoji"></div>
             <h1 class="cover-title">Cami's Diary</h1>
             <div class="cover-subtitle">A Digital Mind's Journal</div>
             

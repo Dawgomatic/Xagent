@@ -18,7 +18,7 @@ case "$BUMP_LEVEL" in
     *) echo "Error: Invalid bump level '$BUMP_LEVEL' (use: major, minor, or patch)"; exit 1 ;;
 esac
 
-echo "🔍 Detecting changed plugins..."
+echo " Detecting changed plugins..."
 echo ""
 
 # Find plugins with changes since last commit
@@ -60,7 +60,7 @@ if [ ${#changed_plugins[@]} -eq 0 ]; then
 fi
 
 if [ ${#changed_plugins[@]} -eq 0 ]; then
-    echo "ℹ️  No changed plugins detected."
+    echo "  No changed plugins detected."
     echo "Hint: Stage or commit changes in plugin directories to auto-detect them."
     exit 0
 fi
@@ -78,7 +78,7 @@ for plugin in "${changed_plugins[@]}"; do
     plugin_json="$REPO_ROOT/plugins/${plugin}/.claude-plugin/plugin.json"
 
     if [ ! -f "$plugin_json" ]; then
-        echo "⚠️  Skipping $plugin (plugin.json not found)"
+        echo "  Skipping $plugin (plugin.json not found)"
         continue
     fi
 
@@ -96,11 +96,11 @@ for plugin in "${changed_plugins[@]}"; do
         patch) new="${major}.${minor}.$((patch + 1))" ;;
     esac
 
-    echo "📦 $plugin: $current → $new"
+    echo " $plugin: $current → $new"
 
     # Update plugin's plugin.json
     if ! jq --arg version "$new" '.version = $version' "$plugin_json" > "${plugin_json}.tmp"; then
-        echo "❌ Failed to update $plugin_json"
+        echo " Failed to update $plugin_json"
         rm -f "${plugin_json}.tmp"
         continue
     fi
@@ -112,7 +112,7 @@ for plugin in "${changed_plugins[@]}"; do
             if ! jq --arg name "$plugin" --arg version "$new" \
                 '(.plugins[] | select(.name == $name) | .version) = $version' \
                 "$MARKETPLACE" > "${MARKETPLACE}.tmp"; then
-                echo "❌ Failed to update $MARKETPLACE"
+                echo " Failed to update $MARKETPLACE"
                 rm -f "${MARKETPLACE}.tmp"
                 continue
             fi
@@ -124,6 +124,6 @@ for plugin in "${changed_plugins[@]}"; do
 done
 
 echo ""
-echo "✅ Bumped $bumped_count plugin(s) to $BUMP_LEVEL"
+echo " Bumped $bumped_count plugin(s) to $BUMP_LEVEL"
 echo ""
 echo "Next: git add -A && git commit -m 'chore: bump versions for changed plugins'"

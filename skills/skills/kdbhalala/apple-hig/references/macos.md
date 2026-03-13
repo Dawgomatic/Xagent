@@ -32,9 +32,9 @@ Complete guide to macOS-specific design patterns, windows, and interactions.
 
 ### Window Controls
 **Traffic Lights (left side):**
-- 🔴 Close: Closes window (not app, unless last window)
-- 🟡 Minimize: Sends to Dock
-- 🟢 Zoom: Toggles full screen or maximizes
+-  Close: Closes window (not app, unless last window)
+-  Minimize: Sends to Dock
+-  Zoom: Toggles full screen or maximizes
 
 **Full Screen:**
 - Green button (hold for options)
@@ -152,7 +152,7 @@ Complete guide to macOS-specific design patterns, windows, and interactions.
 ### Buttons
 **Types:**
 - **Push Button:** Standard action (rounded rect)
-- **Default Button:** Primary action (blue, ↩ activates)
+- **Default Button:** Primary action (blue,  activates)
 - **Bevel Button:** Icon-only, toolbar style
 - **Help Button:** Small (?) for contextual help
 
@@ -352,38 +352,38 @@ Complete guide to macOS-specific design patterns, windows, and interactions.
 
 ## Design Checklist
 
-✅ **Window Management**
+ **Window Management**
 - Resizable windows (with min/max sizes)
 - Remembers window position and size
 - Full screen support (if appropriate)
 
-✅ **Navigation**
+ **Navigation**
 - Clear hierarchy (sidebar or tabs)
 - Keyboard shortcuts for common actions
 - Context menus for quick access
 
-✅ **Toolbars**
+ **Toolbars**
 - Customizable toolbar
 - Relevant actions visible
 - Icon + text labels
 
-✅ **Menu Bar**
+ **Menu Bar**
 - Standard menus (File, Edit, View, Window, Help)
 - Keyboard shortcuts documented
 - Disabled items when not applicable
 
-✅ **Input**
+ **Input**
 - Tab order logical
 - Keyboard shortcuts intuitive
 - Drag & drop supported
 
-✅ **Accessibility**
+ **Accessibility**
 - VoiceOver labels on all controls
 - Full keyboard access
 - Reduce Motion respected
 - High contrast support
 
-✅ **macOS Integration**
+ **macOS Integration**
 - Uses system font (SF Pro)
 - Supports Light and Dark mode
 - Respects system preferences

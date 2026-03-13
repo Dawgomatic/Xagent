@@ -2,7 +2,7 @@
 name: browser-use
 version: 1.0.0
 description: Cloud browser automation via Browser Use API. Use when you need AI-driven web browsing, scraping, form filling, or multi-step web tasks without local browser control. Triggers on "browser use", "cloud browser", "scrape website", "automate web task", or when local browser isn't available/suitable.
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"env":["BROWSER_USE_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["BROWSER_USE_API_KEY"]}}}
 ---
 
 # Browser Use

@@ -2,7 +2,7 @@
 name: icloud-findmy
 description: Query Find My locations and battery status for family devices via iCloud.
 homepage: https://github.com/picklepete/pyicloud
-metadata: {"clawdbot":{"emoji":"📍","requires":{"bins":["icloud"]},"install":[{"id":"pipx","kind":"shell","command":"brew install pipx && pipx install pyicloud","bins":["icloud"],"label":"Install PyiCloud (pipx)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["icloud"]},"install":[{"id":"pipx","kind":"shell","command":"brew install pipx && pipx install pyicloud","bins":["icloud"],"label":"Install PyiCloud (pipx)"}]}}
 ---
 
 # iCloud Find My

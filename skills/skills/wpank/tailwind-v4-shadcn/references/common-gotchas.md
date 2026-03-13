@@ -4,7 +4,7 @@
 
 ### 1. `:root` Inside `@layer base`
 
-❌ **WRONG:**
+ **WRONG:**
 ```css
 @layer base {
   :root {
@@ -13,7 +13,7 @@
 }
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```css
 :root {
   --background: hsl(0 0% 100%);
@@ -32,7 +32,7 @@
 
 ### 2. Nested `@theme` Directive
 
-❌ **WRONG:**
+ **WRONG:**
 ```css
 @theme {
   --color-primary: hsl(0 0% 0%);
@@ -45,7 +45,7 @@
 }
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```css
 :root {
   --primary: hsl(0 0% 0%);
@@ -66,7 +66,7 @@
 
 ### 3. Double `hsl()` Wrapping
 
-❌ **WRONG:**
+ **WRONG:**
 ```css
 @layer base {
   body {
@@ -75,7 +75,7 @@
 }
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```css
 @layer base {
   body {
@@ -90,7 +90,7 @@
 
 ### 4. Colors in `tailwind.config.ts`
 
-❌ **WRONG:**
+ **WRONG:**
 ```typescript
 // tailwind.config.ts
 export default {
@@ -104,7 +104,7 @@ export default {
 }
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```typescript
 // Delete tailwind.config.ts entirely OR leave it empty
 export default {}
@@ -123,7 +123,7 @@ export default {}
 
 ### 5. Missing `@theme inline` Mapping
 
-❌ **WRONG:**
+ **WRONG:**
 ```css
 :root {
   --background: hsl(0 0% 100%);
@@ -134,7 +134,7 @@ export default {}
 
 Result: `bg-background` class doesn't exist
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```css
 :root {
   --background: hsl(0 0% 100%);
@@ -153,7 +153,7 @@ Result: `bg-background` class doesn't exist
 
 ### 6. Wrong components.json Config
 
-❌ **WRONG:**
+ **WRONG:**
 ```json
 {
   "tailwind": {
@@ -162,7 +162,7 @@ Result: `bg-background` class doesn't exist
 }
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```json
 {
   "tailwind": {
@@ -175,7 +175,7 @@ Result: `bg-background` class doesn't exist
 
 ### 7. Using PostCSS Instead of Vite Plugin
 
-❌ **WRONG:**
+ **WRONG:**
 ```typescript
 // vite.config.ts
 export default defineConfig({
@@ -185,7 +185,7 @@ export default defineConfig({
 })
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```typescript
 import tailwindcss from '@tailwindcss/vite'
 
@@ -198,13 +198,13 @@ export default defineConfig({
 
 ### 8. Missing Path Aliases
 
-❌ **WRONG:**
+ **WRONG:**
 ```typescript
 // tsconfig.json has no paths
 import { Button } from '../../components/ui/button'
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```json
 // tsconfig.app.json
 {
@@ -227,12 +227,12 @@ import { Button } from '@/components/ui/button'
 
 ### 9. Using `dark:` Variants for Semantic Colors
 
-❌ **WRONG:**
+ **WRONG:**
 ```tsx
 <div className="bg-primary dark:bg-primary-dark" />
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```tsx
 <div className="bg-primary" />
 ```
@@ -243,12 +243,12 @@ import { Button } from '@/components/ui/button'
 
 ### 10. Hardcoded Color Values
 
-❌ **WRONG:**
+ **WRONG:**
 ```tsx
 <div className="bg-blue-600 dark:bg-blue-400" />
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```tsx
 <div className="bg-primary" />  {/* Or bg-info, bg-success, etc. */}
 ```
@@ -261,12 +261,12 @@ import { Button } from '@/components/ui/button'
 
 ### 11. Missing `cn()` Utility
 
-❌ **WRONG:**
+ **WRONG:**
 ```tsx
 <div className={`base ${isActive && 'active'}`} />
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```tsx
 import { cn } from '@/lib/utils'
 <div className={cn("base", isActive && "active")} />
@@ -278,12 +278,12 @@ import { cn } from '@/lib/utils'
 
 ### 12. Empty String in Radix Select
 
-❌ **WRONG:**
+ **WRONG:**
 ```tsx
 <SelectItem value="">Select an option</SelectItem>
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```tsx
 <SelectItem value="placeholder">Select an option</SelectItem>
 ```
@@ -296,12 +296,12 @@ import { cn } from '@/lib/utils'
 
 ### 13. Wrong Tailwind Package
 
-❌ **WRONG:**
+ **WRONG:**
 ```bash
 npm install tailwindcss@^3.4.0  # v3
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```bash
 npm install tailwindcss@^4.1.0  # v4
 npm install @tailwindcss/vite
@@ -311,7 +311,7 @@ npm install @tailwindcss/vite
 
 ### 14. Missing Dependencies
 
-❌ **WRONG:**
+ **WRONG:**
 ```json
 {
   "dependencies": {
@@ -321,7 +321,7 @@ npm install @tailwindcss/vite
 }
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```json
 {
   "dependencies": {
@@ -340,7 +340,7 @@ npm install @tailwindcss/vite
 
 ### 17. tw-animate-css Import Error (REAL-WORLD ISSUE)
 
-❌ **WRONG:**
+ **WRONG:**
 ```bash
 npm install tailwindcss-animate  # Deprecated package
 ```
@@ -349,7 +349,7 @@ npm install tailwindcss-animate  # Deprecated package
 @import "tw-animate-css";  # Package doesn't exist in v4
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```bash
 # Don't install tailwindcss-animate at all
 # Use native CSS animations or @tailwindcss/motion
@@ -367,7 +367,7 @@ npm install tailwindcss-animate  # Deprecated package
 
 ### 18. Duplicate @layer base After shadcn init (REAL-WORLD ISSUE)
 
-❌ **WRONG:**
+ **WRONG:**
 ```css
 /* After running shadcn init, you might have: */
 @layer base {
@@ -383,7 +383,7 @@ npm install tailwindcss-animate  # Deprecated package
 }
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```css
 /* Merge into single @layer base block */
 @layer base {
@@ -417,10 +417,10 @@ npm install tailwindcss-animate  # Deprecated package
 
 ### 15. Not Testing Both Themes
 
-❌ **WRONG:**
+ **WRONG:**
 Only testing in light mode
 
-✅ **CORRECT:**
+ **CORRECT:**
 Test in:
 - Light mode
 - Dark mode
@@ -431,10 +431,10 @@ Test in:
 
 ### 16. Not Checking Contrast
 
-❌ **WRONG:**
+ **WRONG:**
 Colors look good but fail WCAG
 
-✅ **CORRECT:**
+ **CORRECT:**
 - Use browser DevTools Lighthouse
 - Check contrast ratios (4.5:1 minimum)
 - Test with actual users

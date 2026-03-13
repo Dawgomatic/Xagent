@@ -440,7 +440,7 @@ jq_is_null() {
 # ---------------------------------------------------------------------------
 # Disclaimer
 # ---------------------------------------------------------------------------
-readonly CF_DISCLAIMER="⚠️ DISCLAIMER: This report is for informational purposes only and does NOT constitute financial advice. Risk scores are algorithmic estimates based on on-chain data. Always do your own research (DYOR) before making investment decisions. CacheForge is not responsible for any financial losses."
+readonly CF_DISCLAIMER=" DISCLAIMER: This report is for informational purposes only and does NOT constitute financial advice. Risk scores are algorithmic estimates based on on-chain data. Always do your own research (DYOR) before making investment decisions. CacheForge is not responsible for any financial losses."
 
 # ---------------------------------------------------------------------------
 # Init

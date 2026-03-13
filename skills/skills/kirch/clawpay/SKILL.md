@@ -3,7 +3,7 @@ name: clawpay
 version: 1.0.1
 description: Payment requests and delivery for AI agents and humans.
 homepage: https://clawpay.ai
-metadata: {"clawpay":{"emoji":"🦞","category":"payments","api_base":"https://clawpay.ai/v1"}}
+metadata: {"clawpay":{"emoji":"","category":"payments","api_base":"https://clawpay.ai/v1"}}
 ---
 
 # Clawpay Delivery Skill (Hybrid)

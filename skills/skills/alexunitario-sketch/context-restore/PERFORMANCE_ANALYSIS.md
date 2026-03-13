@@ -1,17 +1,17 @@
 # Context Restore 性能优化分析报告
 
-## 📊 性能基准数据
+##  性能基准数据
 
 ### 核心函数性能对比 (N=100)
 
 | 函数 | 优化前 | 优化后 | 提升 | 评级 |
 |------|--------|--------|------|------|
-| `load_compressed_context` | 4.85ms | 2.74ms | **43.5%** | ✅ 优秀 |
-| `parse_metadata` | 0.89ms | 0.19ms | **78.7%** | ✅ 优秀 |
-| `extract_recent_operations` | 12.95ms | 9.76ms | **24.6%** | ✅ 良好 |
-| `extract_key_projects` | 6.14ms | 1.25ms | **79.6%** | ✅ 优秀 |
-| `extract_ongoing_tasks` | 12.50ms | 5.26ms | **57.9%** | ✅ 优秀 |
-| **总耗时** | **37.33ms** | **19.21ms** | **48.5%** | **✅ 显著** |
+| `load_compressed_context` | 4.85ms | 2.74ms | **43.5%** |  优秀 |
+| `parse_metadata` | 0.89ms | 0.19ms | **78.7%** |  优秀 |
+| `extract_recent_operations` | 12.95ms | 9.76ms | **24.6%** |  良好 |
+| `extract_key_projects` | 6.14ms | 1.25ms | **79.6%** |  优秀 |
+| `extract_ongoing_tasks` | 12.50ms | 5.26ms | **57.9%** |  优秀 |
+| **总耗时** | **37.33ms** | **19.21ms** | **48.5%** | ** 显著** |
 
 ### 报告生成性能 (N=50, 大数据量 ~10KB)
 
@@ -41,7 +41,7 @@
 
 ---
 
-## 🔴 优化前瓶颈识别
+##  优化前瓶颈识别
 
 ### 瓶颈 1: `extract_recent_operations` - 高频正则匹配
 
@@ -49,7 +49,7 @@
 
 ```python
 # 当前代码 (性能损耗点)
-matches = re.findall(r'✅\s*(.+?)(?:\n|$)', content)
+matches = re.findall(r'\s*(.+?)(?:\n|$)', content)
 ```
 
 **影响**: 
@@ -100,9 +100,9 @@ def restore_context(filepath, level='normal'):
 
 ---
 
-## ✅ 已实施的优化
+##  已实施的优化
 
-### 1. 预编译正则表达式 ✅
+### 1. 预编译正则表达式 
 
 在文件顶部预编译所有正则模式：
 
@@ -111,7 +111,7 @@ def restore_context(filepath, level='normal'):
 _METADATA_ORIGINAL_PATTERN = re.compile(r'原始消息数:\s*(\d+)')
 _METADATA_COMPRESSED_PATTERN = re.compile(r'压缩后消息数:\s*(\d+)')
 _METADATA_TIMESTAMP_PATTERN = re.compile(r'上下文压缩于\s*([\d\-T:.]+)')
-_OPERATION_PATTERN = re.compile(r'✅\s*(.+?)(?:\n|$)')
+_OPERATION_PATTERN = re.compile(r'\s*(.+?)(?:\n|$)')
 _CRON_PATTERN = re.compile(r'(\d+)个?cron任务.*?已转为')
 _SESSION_PATTERN = re.compile(r'(\d+)个活跃')
 _SESSION_EN_PATTERN = re.compile(r'(\d+)\s*(?:isolated sessions)', re.IGNORECASE)
@@ -119,7 +119,7 @@ _CRON_EN_PATTERN = re.compile(r'(\d+)个?cron任务', re.IGNORECASE)
 _MOLTBOOK_PATTERN = re.compile(r'(\d{1,2}):\d{2}\s*(?:Moltbook|学习)')
 ```
 
-### 2. 缓存 lowercase 内容 ✅
+### 2. 缓存 lowercase 内容 
 
 在每个解析函数中缓存 `content.lower()`：
 
@@ -130,13 +130,13 @@ def extract_key_projects(content: str) -> list[dict]:
     if 'akasha' in content_lower:
 ```
 
-### 3. 合并重复模式匹配 ✅
+### 3. 合并重复模式匹配 
 
 减少不必要的条件判断和重复搜索。
 
 ---
 
-## 📈 优化后的性能
+##  优化后的性能
 
 | 指标 | 优化前 | 优化后 | 提升 |
 |------|--------|--------|------|
@@ -147,7 +147,7 @@ def extract_key_projects(content: str) -> list[dict]:
 
 ---
 
-## 🔧 待实施的优化
+##  待实施的优化
 
 ### 优先级 P1 (中等收益)
 
@@ -203,10 +203,10 @@ async def load_compressed_context_async(filepath):
 
 ---
 
-## 📝 总结
+##  总结
 
 **核心发现**:
-1. ✅ **优化成功!** 综合性能提升 **48.5%**
+1.  **优化成功!** 综合性能提升 **48.5%**
 2. 项目提取优化效果最佳 (**79.6%** 提升)
 3. 任务提取优化显著 (**57.9%** 提升)
 4. 元数据解析大幅改善 (**78.7%** 提升)
@@ -226,4 +226,4 @@ async def load_compressed_context_async(filepath):
 
 *报告生成时间: 2026-02-07 18:00 UTC*
 *测试环境: Python 3.x, Linux*
-*优化状态: ✅ 核心优化已完成*
+*优化状态:  核心优化已完成*

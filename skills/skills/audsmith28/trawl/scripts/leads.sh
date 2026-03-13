@@ -15,7 +15,7 @@ TRAWL_DIR="${TRAWL_DIR:-$HOME/.config/trawl}"
 LEADS_FILE="$TRAWL_DIR/leads.json"
 
 if [ ! -f "$LEADS_FILE" ]; then
-  echo "❌ No leads file. Run setup.sh first."
+  echo " No leads file. Run setup.sh first."
   exit 1
 fi
 
@@ -110,7 +110,7 @@ case "$ACTION" in
 
         if [ -n "$API_KEY" ] && [ -n "$CONV_ID" ] && [ "$CONV_ID" != "null" ]; then
           curl -s -f -X POST "$API_BASE/agents/dm/requests/$CONV_ID/approve" \
-            -H "Authorization: Bearer $API_KEY" > /dev/null 2>&1 && echo "   ✓ DM request approved via API" || echo "   ⚠ API approve failed (will retry next qualify cycle)"
+            -H "Authorization: Bearer $API_KEY" > /dev/null 2>&1 && echo "   ✓ DM request approved via API" || echo "    API approve failed (will retry next qualify cycle)"
         fi
       elif [ "$CURRENT_STATE" = "QUALIFIED" ] || [ "$CURRENT_STATE" = "PROFILE_SCORED" ]; then
         NEW_STATE="REPORTED"
@@ -139,7 +139,7 @@ case "$ACTION" in
     ;;
 
   stats)
-    echo "📊 Lead Stats"
+    echo " Lead Stats"
     echo "━━━━━━━━━━━━━"
     jq -r '.leads | to_entries | group_by(.value.state) | .[] | "\(.[0].value.state): \(length)"' "$LEADS_FILE"
     echo ""
@@ -151,7 +151,7 @@ case "$ACTION" in
     ;;
 
   reset)
-    echo "⚠ This will clear ALL leads, seen posts, conversations, and sweep logs."
+    echo " This will clear ALL leads, seen posts, conversations, and sweep logs."
     echo '{"leads":{}}' > "$LEADS_FILE"
     echo '{"posts":{}}' > "$TRAWL_DIR/seen-posts.json" 2>/dev/null || true
     echo '{"conversations":{}}' > "$TRAWL_DIR/conversations.json" 2>/dev/null || true

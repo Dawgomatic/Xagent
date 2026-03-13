@@ -1,12 +1,12 @@
 # US Stock Analyst v1.0 - ClawHub 专用发布包
 
-## ✅ ClawHub 兼容版本
+##  ClawHub 兼容版本
 
 这是一个专门为 ClawHub.ai 准备的干净发布包，**已移除所有非文本文件**。
 
 ---
 
-## 📦 包含文件（9 个）
+##  包含文件（9 个）
 
 ```
 us-stock-clean/
@@ -25,15 +25,15 @@ us-stock-clean/
 
 ---
 
-## ✅ 已移除的文件
+##  已移除的文件
 
 根据 ClawHub 要求，已移除以下文件：
-- ❌ `LICENSE` - 许可文件
-- ❌ `.gitignore` - Git 配置文件
+-  `LICENSE` - 许可文件
+-  `.gitignore` - Git 配置文件
 
 ---
 
-## 📊 文件统计
+##  文件统计
 
 - **文件数量**: 9 个纯文本文件
 - **未压缩大小**: ~45 KB
@@ -42,7 +42,7 @@ us-stock-clean/
 
 ---
 
-## 🚀 上传方式
+##  上传方式
 
 ### 推荐：直接上传 ZIP
 下载并上传 **us-stock-analyst-v1.0.zip** 到 ClawHub
@@ -52,17 +52,17 @@ us-stock-clean/
 
 ---
 
-## ✅ ClawHub 验证清单
+##  ClawHub 验证清单
 
-- ✅ 只包含文本文件（.md, .py, .txt）
-- ✅ 没有 LICENSE 文件
-- ✅ 没有 .gitignore 文件
-- ✅ 没有 .DS_Store 或其他系统文件
-- ✅ 符合 ClawHub 要求
+-  只包含文本文件（.md, .py, .txt）
+-  没有 LICENSE 文件
+-  没有 .gitignore 文件
+-  没有 .DS_Store 或其他系统文件
+-  符合 ClawHub 要求
 
 ---
 
-## 📋 文件详情
+##  文件详情
 
 ### 文档文件
 
@@ -90,36 +90,36 @@ us-stock-clean/
 
 ---
 
-## 🎯 功能特性
+##  功能特性
 
 ### 财务数据（MarketPulse APIs）
-- ✅ 实时财务指标（市值、P/E、收入、利润率等）
-- ✅ 历史股价（任意时间间隔）
-- ✅ 财务报表（损益表、资产负债表、现金流）
-- ✅ 分析师预测和评级
-- ✅ 内部交易活动
-- ✅ 机构持股
-- ✅ SEC 文件（10-K, 10-Q, 8-K）
+-  实时财务指标（市值、P/E、收入、利润率等）
+-  历史股价（任意时间间隔）
+-  财务报表（损益表、资产负债表、现金流）
+-  分析师预测和评级
+-  内部交易活动
+-  机构持股
+-  SEC 文件（10-K, 10-Q, 8-K）
 
 ### 新闻与研究
-- ✅ 公司新闻聚合
-- ✅ 网络搜索（文章和分析）
-- ✅ 学术研究论文
-- ✅ YouTube 内容（财报电话会、分析师视频）
+-  公司新闻聚合
+-  网络搜索（文章和分析）
+-  学术研究论文
+-  YouTube 内容（财报电话会、分析师视频）
 
 ### 社交情绪
-- ✅ Twitter 提及和趋势
-- ✅ AI 驱动的情绪分析
+-  Twitter 提及和趋势
+-  AI 驱动的情绪分析
 
 ### AI 分析
-- ✅ 多模型 LLM（GPT-4, Claude, Gemini, Qwen, DeepSeek, Grok）
-- ✅ 投资论文生成
-- ✅ 情绪综合
-- ✅ 估值评估
+-  多模型 LLM（GPT-4, Claude, Gemini, Qwen, DeepSeek, Grok）
+-  投资论文生成
+-  情绪综合
+-  估值评估
 
 ---
 
-## 💰 定价
+##  定价
 
 | 分析模式 | 时间 | 成本 | 数据源 |
 |---------|------|------|--------|
@@ -131,11 +131,11 @@ us-stock-clean/
 - Bloomberg Terminal: $2,000/月
 - FactSet: $1,000/月
 - 传统分析师报告: $50-500 每份
-- **AIsa 股票分析**: $0.02-0.10 每份 ✨
+- **AIsa 股票分析**: $0.02-0.10 每份 
 
 ---
 
-## 🔧 快速开始
+##  快速开始
 
 ### 1. 设置环境
 ```bash
@@ -161,7 +161,7 @@ python examples/batch_analysis.py
 
 ---
 
-## 📝 使用示例
+##  使用示例
 
 ### Python 代码示例
 
@@ -200,7 +200,7 @@ python scripts/stock_analyst.py analyze --ticker GOOGL --output report.json
 
 ---
 
-## 📖 输出格式
+##  输出格式
 
 ```json
 {
@@ -230,7 +230,7 @@ python scripts/stock_analyst.py analyze --ticker GOOGL --output report.json
 
 ---
 
-## 🎓 用例场景
+##  用例场景
 
 1. **投资研究** - 买入前的全面分析
 2. **投资组合监控** - 持仓的每日更新
@@ -241,7 +241,7 @@ python scripts/stock_analyst.py analyze --ticker GOOGL --output report.json
 
 ---
 
-## ⚠️ 合规声明
+##  合规声明
 
 所有分析都包含监管免责声明：
 
@@ -251,7 +251,7 @@ python scripts/stock_analyst.py analyze --ticker GOOGL --output report.json
 
 ---
 
-## 📞 支持
+##  支持
 
 - **文档**: https://aisa.mintlify.app
 - **API 参考**: https://aisa.mintlify.app/api-reference/introduction
@@ -260,7 +260,7 @@ python scripts/stock_analyst.py analyze --ticker GOOGL --output report.json
 
 ---
 
-## 🏢 关于 AIsa
+##  关于 AIsa
 
 统一的 AI 代理 API 基础设施。
 
@@ -275,28 +275,28 @@ python scripts/stock_analyst.py analyze --ticker GOOGL --output report.json
 
 ---
 
-## ✅ 准备就绪
+##  准备就绪
 
-**现在可以直接上传到 ClawHub！** 🚀
+**现在可以直接上传到 ClawHub！** 
 
-**这个版本已通过 ClawHub 文件类型验证！** ✨
+**这个版本已通过 ClawHub 文件类型验证！** 
 
 ---
 
-## 🆚 版本对比
+##  版本对比
 
 | 方面 | 原始包 | ClawHub 版本 |
 |------|--------|-------------|
-| LICENSE | ✅ 包含 | ❌ 已移除 |
-| .gitignore | ✅ 包含 | ❌ 已移除 |
-| 文档文件 | ✅ 4 个 | ✅ 4 个 |
-| 脚本文件 | ✅ 2 个 | ✅ 2 个 |
-| 示例文件 | ✅ 3 个 | ✅ 3 个 |
+| LICENSE |  包含 |  已移除 |
+| .gitignore |  包含 |  已移除 |
+| 文档文件 |  4 个 |  4 个 |
+| 脚本文件 |  2 个 |  2 个 |
+| 示例文件 |  3 个 |  3 个 |
 | **总计** | 11 个 | **9 个** |
 
 ---
 
-## 📌 注意事项
+##  注意事项
 
 1. **功能完整**: 所有核心功能都保留，只移除了配置文件
 2. **文档齐全**: README、SKILL、TEST_REPORT 都包含
@@ -305,4 +305,4 @@ python scripts/stock_analyst.py analyze --ticker GOOGL --output report.json
 
 ---
 
-**祝你在 ClawHub 上发布成功！** 🎉
+**祝你在 ClawHub 上发布成功！** 

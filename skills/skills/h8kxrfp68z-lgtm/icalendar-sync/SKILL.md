@@ -2,7 +2,7 @@
 
 Synchronizes calendar events between local system and iCloud.
 
-## ⚠️ Security Requirements
+##  Security Requirements
 
 **CRITICAL - Read before installation:**
 
@@ -143,12 +143,12 @@ python -m icalendar_sync delete --calendar "Personal" --uid "event-uid-here"
 
 ## Security Features
 
-- ✅ OS keyring integration for credential storage
-- ✅ App-specific password requirement (not main password)
-- ✅ SSL/TLS verification enforced
-- ✅ Rate limiting (10 calls per 60 seconds)
-- ✅ Automatic credential redaction in logs
-- ✅ Input validation on all user inputs
+-  OS keyring integration for credential storage
+-  App-specific password requirement (not main password)
+-  SSL/TLS verification enforced
+-  Rate limiting (10 calls per 60 seconds)
+-  Automatic credential redaction in logs
+-  Input validation on all user inputs
 
 ## License
 

@@ -100,7 +100,7 @@ class DebugLogger {
     const errors = recent.filter(l => l.level === 'ERROR');
     const warnings = recent.filter(l => l.level === 'WARN');
 
-    console.log('\n🏛️  ClawTrial Debug Status\n');
+    console.log('\n  ClawTrial Debug Status\n');
     console.log('===========================\n');
     console.log(`Total logs in memory: ${this.logs.length}`);
     console.log(`Logs in last hour: ${recent.length}`);
@@ -117,7 +117,7 @@ class DebugLogger {
   }
 
   printFullLog(limit = 50) {
-    console.log('\n🏛️  ClawTrial Full Debug Log\n');
+    console.log('\n  ClawTrial Full Debug Log\n');
     console.log('=============================\n');
     
     const logs = this.logs.slice(-limit);

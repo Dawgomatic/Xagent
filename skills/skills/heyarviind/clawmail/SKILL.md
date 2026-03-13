@@ -1,7 +1,7 @@
 ---
 name: clawmail
 description: Email API for AI agents. Send and receive emails programmatically via ClawMail.
-metadata: {"openclaw": {"emoji": "📧", "homepage": "https://clawmail.cc", "primaryEnv": "CLAWMAIL_SYSTEM_ID"}}
+metadata: {"openclaw": {"emoji": "", "homepage": "https://clawmail.cc", "primaryEnv": "CLAWMAIL_SYSTEM_ID"}}
 ---
 
 # ClawMail

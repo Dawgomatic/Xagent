@@ -11,10 +11,10 @@ author: Jowin
 
 ## 功能特点
 
-- 🔍 全网搜索，结果准确
-- 📝 可选返回网页摘要 (summary)
-- ⏰ 支持时间范围过滤
-- 🌐 Response 格式兼容 Bing Search API
+-  全网搜索，结果准确
+-  可选返回网页摘要 (summary)
+-  支持时间范围过滤
+-  Response 格式兼容 Bing Search API
 
 ## 配置
 
@@ -45,10 +45,10 @@ node scripts/search.js <query> [options]
 
 | 参数 | 类型 | 必填 | 说明 |
 |------|------|------|------|
-| `<query>` | string | ✅ | 搜索关键词 |
-| `--count <n>` | number | ❌ | 返回结果数量，范围 1-50，默认 10 |
-| `--freshness <v>` | string | ❌ | 时间范围过滤，默认 noLimit |
-| `--summary` | flag | ❌ | 是否返回网页摘要 |
+| `<query>` | string |  | 搜索关键词 |
+| `--count <n>` | number |  | 返回结果数量，范围 1-50，默认 10 |
+| `--freshness <v>` | string |  | 时间范围过滤，默认 noLimit |
+| `--summary` | flag |  | 是否返回网页摘要 |
 
 ### freshness 取值说明
 
@@ -62,7 +62,7 @@ node scripts/search.js <query> [options]
 | `YYYY-MM-DD..YYYY-MM-DD` | 自定义日期范围，如 `2025-01-01..2025-04-06` |
 | `YYYY-MM-DD` | 指定日期，如 `2025-04-06` |
 
-> ⚠️ 推荐使用 `noLimit`，搜索算法会自动优化时间范围。指定时间范围可能导致无结果。
+>  推荐使用 `noLimit`，搜索算法会自动优化时间范围。指定时间范围可能导致无结果。
 
 ## 示例
 

@@ -4,7 +4,7 @@ version: 1.0.0
 description: Generate and edit images with Gemini API using the OpenAI Python SDK.
 metadata:
   openclaw:
-    emoji: "🎨"
+    emoji: ""
     requires:
       env: ["GOOGLE_PROXY_API_KEY", "GOOGLE_PROXY_BASE_URL"]
 ---
@@ -18,11 +18,11 @@ Generate and edit images using **Gemini 3 Pro Image** via the OpenAI Python SDK 
 | Feature                  | This Skill                | Others (nano-banana-pro, etc.) |
 | ------------------------ | ------------------------- | ------------------------------ |
 | **Dependencies**         | openai (SDK)              | google-genai, pillow, etc.     |
-| **Requires pip/uv**      | ✅ Yes                    | ✅ Yes                         |
-| **Works on Fly.io free** | ✅ Yes (with pip)         | ❌ Fails                       |
-| **Works in containers**  | ✅ Yes (with pip)         | ❌ Often fails                 |
-| **Image generation**     | ✅ Full                   | ✅ Full                        |
-| **Image editing**        | ✅ Yes                    | ✅ Yes                         |
+| **Requires pip/uv**      |  Yes                    |  Yes                         |
+| **Works on Fly.io free** |  Yes (with pip)         |  Fails                       |
+| **Works in containers**  |  Yes (with pip)         |  Often fails                 |
+| **Image generation**     |  Full                   |  Full                        |
+| **Image editing**        |  Yes                    |  Yes                         |
 | **Setup complexity**     | Install SDK + set API key | Install packages first         |
 
 **Bottom line:** This skill uses the OpenAI SDK, so you must install `openai` once with pip.

@@ -376,9 +376,9 @@ def show_balance():
         print()
 
         if allowance == 0:
-            print("⚠ No approval set. Run /pvp approve to enable betting.")
+            print(" No approval set. Run /pvp approve to enable betting.")
         elif allowance < balance:
-            print(f"⚠ Approval ({allowance:,.2f}) is less than balance ({balance:,.2f}).")
+            print(f" Approval ({allowance:,.2f}) is less than balance ({balance:,.2f}).")
             print("  Run /pvp approve to increase approval.")
         else:
             print("✓ Ready to bet!")

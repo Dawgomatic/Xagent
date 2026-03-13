@@ -139,7 +139,7 @@ def list_tasks(conn, status=None, owner=None, mine_agent=None, include_all=False
             ELSE 6 END, created_at ASC"""
     rows = conn.execute(
         f"""SELECT id, subject,
-            CASE status WHEN 'done' THEN '✓' WHEN 'in_progress' THEN '▶' WHEN 'claimed' THEN '◉'
+            CASE status WHEN 'done' THEN '✓' WHEN 'in_progress' THEN '' WHEN 'claimed' THEN '◉'
                  WHEN 'blocked' THEN '✗' WHEN 'review' THEN '⟳' ELSE '○' END AS icon,
             status, COALESCE(owner,'-') AS owner,
             CASE priority WHEN 2 THEN '!!!' WHEN 1 THEN '!' ELSE '' END AS pri
@@ -388,7 +388,7 @@ def mark_messages_read(conn, agent, message_ids=None):
 def get_fleet(conn):
     rows = conn.execute(
         """SELECT name, role,
-            CASE status WHEN 'busy' THEN '▶ busy' WHEN 'idle' THEN '○ idle' ELSE '✗ offline' END AS status,
+            CASE status WHEN 'busy' THEN ' busy' WHEN 'idle' THEN '○ idle' ELSE '✗ offline' END AS status,
             COALESCE((SELECT subject FROM tasks WHERE owner=agents.name AND status='in_progress' LIMIT 1), '-') AS working_on,
             substr(last_seen,1,16) AS last_seen
         FROM agents ORDER BY status, name"""

@@ -8,11 +8,11 @@ Dubai has a modern, efficient transport system managed by the Roads & Transport 
 
 ---
 
-## 🚇 Dubai Metro
+##  Dubai Metro
 
 ### Network Overview
-- **Red Line:** 52 stations, 52 km (Rashidiya ↔ UAE Exchange/Expo 2020)
-- **Green Line:** 20 stations, 23 km (Etisalat ↔ Creek)
+- **Red Line:** 52 stations, 52 km (Rashidiya  UAE Exchange/Expo 2020)
+- **Green Line:** 20 stations, 23 km (Etisalat  Creek)
 - **Operating Hours:**
   - Saturday–Wednesday: 5:00 AM – 12:00 AM (midnight)
   - Thursday: 5:00 AM – 1:00 AM
@@ -48,15 +48,15 @@ Dubai is divided into **7 zones**. Fares depend on zones crossed, not distance.
 | All Zones | 350 ($95) | 700 ($191) |
 
 ### Metro Tips & Rules
-- ✅ Children under 5: **FREE**
-- ✅ Ages 5-10: **50% discount**
-- ❌ **Fines:**
+-  Children under 5: **FREE**
+-  Ages 5-10: **50% discount**
+-  **Fines:**
   - No valid ticket: AED 200
   - Eating/drinking: AED 100
   - Sleeping on seats: AED 300
   - Gold Class without ticket: AED 100
-- ⚠️ Women-only cabin in each train (first car)
-- 📱 **Contactless payments** coming late 2025
+-  Women-only cabin in each train (first car)
+-  **Contactless payments** coming late 2025
 
 ### Apps
 - **RTA Dubai** (official) – route planning, Nol top-up
@@ -64,7 +64,7 @@ Dubai is divided into **7 zones**. Fares depend on zones crossed, not distance.
 
 ---
 
-## 🚌 Buses
+##  Buses
 
 Integrated with metro via Nol card. Same zone-based system.
 
@@ -78,7 +78,7 @@ Integrated with metro via Nol card. Same zone-based system.
 
 ---
 
-## 🚕 Taxis & Ride-Hailing
+##  Taxis & Ride-Hailing
 
 ### RTA Taxis (Metered)
 
@@ -107,7 +107,7 @@ Integrated with metro via Nol card. Same zone-based system.
 
 ---
 
-## 🚗 Driving in Dubai
+##  Driving in Dubai
 
 ### Driving License Exchange (2025)
 
@@ -159,7 +159,7 @@ Integrated with metro via Nol card. Same zone-based system.
 
 ---
 
-## 💳 Salik (Toll System) – 2025 Variable Pricing
+##  Salik (Toll System) – 2025 Variable Pricing
 
 As of **January 31, 2025**, Dubai introduced variable toll pricing.
 
@@ -192,7 +192,7 @@ As of **January 31, 2025**, Dubai introduced variable toll pricing.
 | Petrol station | 100 | 50 |
 | Online (delivery) | 120 | 50 |
 
-**⚠️ Penalty:** Driving without Salik tag = **AED 100+ fine**
+** Penalty:** Driving without Salik tag = **AED 100+ fine**
 
 **Dual-gate rule:** Al Safa North/South and Al Mamzar North/South = charged only once if passed within 1 hour.
 
@@ -203,7 +203,7 @@ As of **January 31, 2025**, Dubai introduced variable toll pricing.
 
 ---
 
-## 🚢 Water Transport
+##  Water Transport
 
 ### Abra (Traditional Boat)
 - **Route:** Cross Dubai Creek
@@ -216,7 +216,7 @@ As of **January 31, 2025**, Dubai introduced variable toll pricing.
 
 ---
 
-## 📱 Essential Transport Apps
+##  Essential Transport Apps
 
 | App | Purpose |
 |-----|---------|
@@ -229,7 +229,7 @@ As of **January 31, 2025**, Dubai introduced variable toll pricing.
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **For tourists:** Get a Nol Red Day Pass (AED 20) for unlimited metro/bus travel
 2. **For residents:** Silver Nol + monthly pass saves 40% vs per-trip

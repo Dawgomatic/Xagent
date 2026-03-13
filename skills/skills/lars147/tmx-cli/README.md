@@ -5,7 +5,7 @@
 <h1 align="center">tmx-cli</h1>
 
 <p align="center">
-  <strong>🍳 Your Thermomix®/Cookidoo® in the terminal — meal plans, recipes, shopping lists</strong>
+  <strong> Your Thermomix/Cookidoo in the terminal — meal plans, recipes, shopping lists</strong>
 </p>
 
 <p align="center">
@@ -27,15 +27,15 @@
 
 ## What is this?
 
-**tmx-cli** brings Cookidoo® to your terminal. No more browser hassle — manage your weekly meal plan, search 24,000+ recipes, and generate shopping lists directly from the command line.
+**tmx-cli** brings Cookidoo to your terminal. No more browser hassle — manage your weekly meal plan, search 24,000+ recipes, and generate shopping lists directly from the command line.
 
-> ⚠️ **Disclaimer:** This is a hobby project for personal use. Not officially affiliated with or endorsed by Vorwerk/Cookidoo®.
+>  **Disclaimer:** This is a hobby project for personal use. Not officially affiliated with or endorsed by Vorwerk/Cookidoo.
 
 It's fast (no slow web apps), hackable (pipe recipes into other tools, automate your meal prep), and runs anywhere with zero dependencies — just pure Python standard library.
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # With uvx (recommended) — runs instantly without installation
@@ -47,20 +47,20 @@ uvx --from git+https://github.com/Lars147/tmx-cli tmx search "Pasta"
 
 ---
 
-## ✨ Features
+##  Features
 
 | Feature | Description |
 |---------|-------------|
-| 🎯 **Setup** | Interactive onboarding — configure TM version, diet preferences, max cooking time |
-| 🔐 **Login** | Secure OAuth authentication with your Cookidoo account |
-| 📅 **Meal Plan** | View, sync, add/move recipes |
-| 🔍 **Search** | Browse 24,000+ recipes with filters (time, difficulty, category) — auto-applies your config preferences |
-| ❤️ **Favorites** | Manage your favorite recipes |
-| 📖 **Recipe Details** | Ingredients, steps, nutrition — all in the terminal |
-| 🛒 **Shopping List** | Auto-generate, export (Markdown/JSON) |
-| ⚡ **Shell Completion** | Tab completion for Bash, Zsh, Fish |
-| 📦 **Zero Deps** | Python standard library only, no dependencies |
-| 🤖 **AI-Agent Friendly** | Perfect for Claude, Codex, OpenClaw & other AI assistants |
+|  **Setup** | Interactive onboarding — configure TM version, diet preferences, max cooking time |
+|  **Login** | Secure OAuth authentication with your Cookidoo account |
+|  **Meal Plan** | View, sync, add/move recipes |
+|  **Search** | Browse 24,000+ recipes with filters (time, difficulty, category) — auto-applies your config preferences |
+|  **Favorites** | Manage your favorite recipes |
+|  **Recipe Details** | Ingredients, steps, nutrition — all in the terminal |
+|  **Shopping List** | Auto-generate, export (Markdown/JSON) |
+|  **Shell Completion** | Tab completion for Bash, Zsh, Fish |
+|  **Zero Deps** | Python standard library only, no dependencies |
+|  **AI-Agent Friendly** | Perfect for Claude, Codex, OpenClaw & other AI assistants |
 
 ### Works great with AI Agents
 
@@ -68,7 +68,7 @@ The CLI approach makes tmx-cli ideal for AI coding assistants like **Claude Code
 
 ---
 
-## 🎬 Demo
+##  Demo
 
 ### View meal plan
 
@@ -76,7 +76,7 @@ The CLI approach makes tmx-cli ideal for AI coding assistants like **Claude Code
 $ tmx plan show
 
 ╔══════════════════════════════════════════════════════════╗
-║  🍳 COOKIDOO WOCHENPLAN                                  ║
+║   COOKIDOO WOCHENPLAN                                  ║
 ╠══════════════════════════════════════════════════════════╣
 ║  Stand: 2026-02-03 19:39 UTC                             ║
 ║  Ab: 2026-02-08                                          ║
@@ -95,20 +95,20 @@ $ tmx plan show
 ```
 $ tmx search "Pasta" -n 3
 
-🔍 Suche in Cookidoo: 'Pasta'
+ Suche in Cookidoo: 'Pasta'
 ──────────────────────────────────────────────────
 Gefunden: 24044 Rezepte (zeige 3)
 
    1. Tomaten-Knoblauch-Pasta
-      ⏱ 30 Min  ⭐ 4.1
+       30 Min   4.1
       https://cookidoo.de/recipes/recipe/de-DE/r130616
 
    2. Garnelen-Pasta mit Pesto-Sauce
-      ⏱ 25 Min  ⭐ 4.8
+       25 Min   4.8
       https://cookidoo.de/recipes/recipe/de-DE/r792997
 
    3. Curry-Nudeln mit gebratenem Schweinefilet
-      ⏱ 45 Min  ⭐ 4.6
+       45 Min   4.6
       https://cookidoo.de/recipes/recipe/de-DE/r447830
 ```
 
@@ -120,12 +120,12 @@ $ tmx recipe r130616
 ╔══════════════════════════════════════════════════════════╗
 ║  Tomaten-Knoblauch-Pasta                                 ║
 ╠══════════════════════════════════════════════════════════╣
-║  📊 Einfach  │  ⏱ 30 Min  │  🍽 3 Portionen               ║
+║   Einfach  │   30 Min  │   3 Portionen               ║
 ╚══════════════════════════════════════════════════════════╝
 
-🔗 https://cookidoo.de/recipes/recipe/de-DE/r130616
+ https://cookidoo.de/recipes/recipe/de-DE/r130616
 
-📝 ZUTATEN
+ ZUTATEN
 ────────────────────────────────────────
   • 50 g Parmesan (in Stücken)
   • 1 rote Chilischote, getrocknet
@@ -139,7 +139,7 @@ $ tmx recipe r130616
   • 1 TL Salz
   • 340 g Tagliatelle
 
-👨🍳 ZUBEREITUNG
+ ZUBEREITUNG
 ────────────────────────────────────────
 
   1. Parmesan in den Mixtopf geben, 10 Sek./Stufe 8
@@ -156,17 +156,17 @@ $ tmx recipe r130616
 ```
 $ tmx shopping show
 
-🛒 Einkaufsliste
+ Einkaufsliste
 ──────────────────────────────────────────────────
 
-📖 Rezepte (5):
+ Rezepte (5):
   • Auberginen-Pasta  [r292049]
   • Butter-Paneer-Masala  [r762577]
   • Tofu-Curry mit Gemüse  [r821223]
   • Pilzragout mit Spätzle  [r784889]
   • Halloumi-Wraps  [r823455]
 
-🥕 Zutaten (70):
+ Zutaten (70):
 
   [ ] 2  Auberginen
   [ ] 4.5 TL Salz
@@ -179,7 +179,7 @@ $ tmx shopping show
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### Option 1: uvx (recommended)
 
@@ -215,9 +215,9 @@ python3 tmx_cli.py --help
 
 ---
 
-## 📖 Usage
+##  Usage
 
-### 🎯 Setup & Configuration
+###  Setup & Configuration
 
 ```bash
 tmx setup                        # Interactive onboarding
@@ -227,7 +227,7 @@ tmx setup                        # Interactive onboarding
                                  # Searches automatically use these preferences!
 ```
 
-### 🔐 Authentication
+###  Authentication
 
 ```bash
 tmx login                                    # Interactive login
@@ -235,7 +235,7 @@ tmx login --email user@example.com --password secret  # With credentials
 tmx status                                   # Check login status
 ```
 
-### 📅 Meal Plan
+###  Meal Plan
 
 ```bash
 tmx plan show                    # Show plan (from cache)
@@ -250,7 +250,7 @@ tmx plan remove r130616 --date 2026-02-10    # Remove
 tmx plan move r130616 --from 2026-02-10 --to 2026-02-15  # Move
 ```
 
-### 🔍 Search
+###  Search
 
 ```bash
 tmx search "Pasta"                      # Simple search
@@ -261,25 +261,25 @@ tmx search "Suppe" --tm TM6             # TM6 recipes only
 tmx search "" --category vegetarisch    # Browse by category
 tmx search "Pasta" -t 30 -d easy        # Combine filters
 
-# 💡 Pro tip: Run `tmx setup` once — searches will auto-apply your
+#  Pro tip: Run `tmx setup` once — searches will auto-apply your
 #    TM version, diet preferences, and max time filters!
 ```
 
-### 📂 Categories
+###  Categories
 
 ```bash
 tmx categories                  # List all categories
 tmx categories sync             # Fetch current from Cookidoo
 ```
 
-### 📖 Recipe Details
+###  Recipe Details
 
 ```bash
 tmx recipe r130616              # Ingredients, steps, nutrition
 tmx recipe show r130616         # Same — detailed view with nutrition info
 ```
 
-### ❤️ Favorites
+###  Favorites
 
 ```bash
 tmx favorites                   # Show all favorites
@@ -287,7 +287,7 @@ tmx favorites add r130616       # Add to favorites
 tmx favorites remove r130616    # Remove from favorites
 ```
 
-### 🛒 Shopping List
+###  Shopping List
 
 ```bash
 # View
@@ -309,14 +309,14 @@ tmx shopping export -f markdown -r        # Grouped by recipe
 tmx shopping export -f json -o list.json  # JSON to file
 ```
 
-### 🗑️ Cache
+###  Cache
 
 ```bash
 tmx cache clear                 # Clear cache
 tmx cache clear --all           # Also session (requires re-login)
 ```
 
-### ⚡ Shell Completion
+###  Shell Completion
 
 ```bash
 # Bash (add to ~/.bashrc)
@@ -331,7 +331,7 @@ tmx completion fish > ~/.config/fish/completions/tmx.fish
 
 ---
 
-## 🔧 How It Works
+##  How It Works
 
 | Component | Technology |
 |-----------|------------|
@@ -352,7 +352,7 @@ tmx completion fish > ~/.config/fish/completions/tmx.fish
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome!
 
@@ -371,20 +371,20 @@ Contributions are welcome!
 
 ---
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
-This is an **unofficial** tool. Cookidoo® and Thermomix® are registered trademarks of the Vorwerk Group.
+This is an **unofficial** tool. Cookidoo and Thermomix are registered trademarks of the Vorwerk Group.
 
 This project is not affiliated with, endorsed, or sponsored by Vorwerk. Please respect Cookidoo's terms of service.
 
 ---
 
-## 📄 License
+##  License
 
-MIT © [Lars Heinen](https://github.com/Lars147)
+MIT  [Lars Heinen](https://github.com/Lars147)
 
 ---
 
 <p align="center">
-  <sub>Made with ❤️ for Thermomix nerds who live in the terminal</sub>
+  <sub>Made with  for Thermomix nerds who live in the terminal</sub>
 </p>

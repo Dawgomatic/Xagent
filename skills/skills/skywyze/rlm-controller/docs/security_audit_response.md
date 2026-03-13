@@ -15,9 +15,9 @@ The OpenClaw security scanner flagged two medium-confidence items:
 2. **Persistence & Privilege**: The skill does not set `disableModelInvocation: true`, so the model may invoke it autonomously, combined with powerful tools.
 
 Three items passed cleanly:
-- ✅ **Purpose & Capability**: Name/description align with scripts.
-- ✅ **Install Mechanism**: No external installer or network download.
-- ✅ **Credentials**: No credentials or environment variables requested.
+-  **Purpose & Capability**: Name/description align with scripts.
+-  **Install Mechanism**: No external installer or network download.
+-  **Credentials**: No credentials or environment variables requested.
 
 ---
 

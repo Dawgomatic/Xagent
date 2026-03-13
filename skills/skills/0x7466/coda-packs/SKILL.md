@@ -7,20 +7,20 @@ description: Manage Coda Packs via REST API v1. Supports listing, creating, upda
 
 Manage Coda Packs through the REST API v1. Create, list, update, and delete private Packs.
 
-## ⚠️ API Limitations
+##  API Limitations
 
 The Coda REST API v1 has limited Pack management capabilities:
 
 | Feature | REST API | Pack SDK CLI |
 |---------|----------|--------------|
-| **List Packs** | ✅ Available | ✅ |
-| **Create Pack** | ✅ Available | ✅ |
-| **Update Pack** | ✅ Available | ✅ |
-| **Delete Pack** | ✅ Available | ✅ |
-| **Build Versions** | ❌ Not available | ✅ Required |
-| **Gallery Submit** | ❌ Not available | ✅ Required |
-| **Analytics** | ❌ Not available | ✅ Required |
-| **Collaborators** | ❌ Not available | ✅ Required |
+| **List Packs** |  Available |  |
+| **Create Pack** |  Available |  |
+| **Update Pack** |  Available |  |
+| **Delete Pack** |  Available |  |
+| **Build Versions** |  Not available |  Required |
+| **Gallery Submit** |  Not available |  Required |
+| **Analytics** |  Not available |  Required |
+| **Collaborators** |  Not available |  Required |
 
 **For builds, gallery submission, and advanced features, use:**
 ```bash

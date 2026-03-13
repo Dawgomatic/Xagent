@@ -102,7 +102,7 @@ When a user requests to create automatic discounts or manage automatic discount 
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Creates discount with excessive condition logic
+   #  HIGH COST - Creates discount with excessive condition logic
    mutation discountAutomaticAppCreate($input: DiscountAutomaticAppInput!) {
      discountAutomaticAppCreate(input: $input) {
        discount { id title conditions { ... } 
@@ -111,7 +111,7 @@ When a user requests to create automatic discounts or manage automatic discount 
      }
    }
    
-   # ✅ LOW COST - Creates discount with essential fields only
+   #  LOW COST - Creates discount with essential fields only
    mutation discountAutomaticAppCreate($input: DiscountAutomaticAppInput!) {
      discountAutomaticAppCreate(input: $input) {
        discount {

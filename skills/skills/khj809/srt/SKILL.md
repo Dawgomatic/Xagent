@@ -7,7 +7,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🚅",
+        "emoji": "",
         "requires": { "bins": ["python3", "uv"], "env": ["SRT_PHONE", "SRT_PASSWORD"] },
         "install": [
           {"id": "uv", "kind": "uv", "package": "SRTrain", "label": "Install SRTrain from PyPI (uv) — source: https://pypi.org/project/SRTrain / https://github.com/ryanking13/SRT"}
@@ -27,8 +27,8 @@ metadata:
 **Environment variables:**
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `SRT_PHONE` | ✅ | SRT account phone number (hyphens required: `010-XXXX-XXXX`) |
-| `SRT_PASSWORD` | ✅ | SRT account password |
+| `SRT_PHONE` |  | SRT account phone number (hyphens required: `010-XXXX-XXXX`) |
+| `SRT_PASSWORD` |  | SRT account password |
 | `SRT_DATA_DIR` | optional | Directory for logs, cache, and state files. Defaults to system temp dir (`/tmp/srt`). |
 
 **Station names** (Korean only):

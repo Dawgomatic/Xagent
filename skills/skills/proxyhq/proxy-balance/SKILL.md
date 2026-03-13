@@ -16,7 +16,7 @@ Get current balance and spending power.
 ## Output Format
 
 ```
-💰 Proxy Balance
+ Proxy Balance
 ────────────────
 Available:  $X,XXX.XX USD
 Pending:    X intents ($XXX.XX reserved)
@@ -26,11 +26,11 @@ Net Available: $X,XXX.XX
 
 If balance is low (< $100), add:
 ```
-💡 Low balance. Use /proxy-fund for deposit instructions.
+ Low balance. Use /proxy-fund for deposit instructions.
 ```
 
 If there are pending approval intents, list them:
 ```
-⏳ Pending Approval:
+ Pending Approval:
   • $XXX.XX - Merchant Name (intent_id)
 ```

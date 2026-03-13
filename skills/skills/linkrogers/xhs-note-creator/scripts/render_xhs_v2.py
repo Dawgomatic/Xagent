@@ -291,7 +291,7 @@ def generate_cover_html(metadata: dict, style_key: str = "purple") -> str:
     """生成封面 HTML"""
     style = STYLES.get(style_key, STYLES["purple"])
     
-    emoji = metadata.get('emoji', '📝')
+    emoji = metadata.get('emoji', '')
     title = metadata.get('title', '标题')
     subtitle = metadata.get('subtitle', '')
     
@@ -560,7 +560,7 @@ async def render_html_to_image(html_content: str, output_path: str,
                 type='png'
             )
             
-            print(f"  ✅ 已生成: {output_path}")
+            print(f"   已生成: {output_path}")
             
         finally:
             await browser.close()
@@ -628,8 +628,8 @@ async def process_and_render_cards(card_contents: List[str], output_dir: str,
 
 async def render_markdown_to_cards(md_file: str, output_dir: str, style_key: str = "purple"):
     """主渲染函数：将 Markdown 文件渲染为多张卡片图片"""
-    print(f"\n🎨 开始渲染: {md_file}")
-    print(f"🎨 使用样式: {STYLES[style_key]['name']}")
+    print(f"\n 开始渲染: {md_file}")
+    print(f" 使用样式: {STYLES[style_key]['name']}")
     
     # 确保输出目录存在
     os.makedirs(output_dir, exist_ok=True)
@@ -641,17 +641,17 @@ async def render_markdown_to_cards(md_file: str, output_dir: str, style_key: str
     
     # 分割正文内容（基于用户手动分隔符）
     card_contents = split_content_by_separator(body)
-    print(f"  📄 检测到 {len(card_contents)} 个内容块")
+    print(f"   检测到 {len(card_contents)} 个内容块")
     
     # 处理内容，智能分页
-    print("  🔍 分析内容高度并智能分页...")
+    print("   分析内容高度并智能分页...")
     processed_cards = await process_and_render_cards(card_contents, output_dir, style_key)
     total_cards = len(processed_cards)
-    print(f"  📄 将生成 {total_cards} 张卡片")
+    print(f"   将生成 {total_cards} 张卡片")
     
     # 生成封面
     if metadata.get('emoji') or metadata.get('title'):
-        print("  📷 生成封面...")
+        print("   生成封面...")
         cover_html = generate_cover_html(metadata, style_key)
         cover_path = os.path.join(output_dir, 'cover.png')
         await render_html_to_image(cover_html, cover_path)
@@ -663,7 +663,7 @@ async def render_markdown_to_cards(md_file: str, output_dir: str, style_key: str
         
         try:
             for i, content in enumerate(processed_cards, 1):
-                print(f"  📷 生成卡片 {i}/{total_cards}...")
+                print(f"   生成卡片 {i}/{total_cards}...")
                 card_html = generate_card_html(content, i, total_cards, style_key)
                 card_path = os.path.join(output_dir, f'card_{i}.png')
                 
@@ -675,18 +675,18 @@ async def render_markdown_to_cards(md_file: str, output_dir: str, style_key: str
                     clip={'x': 0, 'y': 0, 'width': CARD_WIDTH, 'height': CARD_HEIGHT},
                     type='png'
                 )
-                print(f"  ✅ 已生成: {card_path}")
+                print(f"   已生成: {card_path}")
         
         finally:
             await browser.close()
     
-    print(f"\n✨ 渲染完成！共生成 {total_cards} 张卡片，保存到: {output_dir}")
+    print(f"\n 渲染完成！共生成 {total_cards} 张卡片，保存到: {output_dir}")
     return total_cards
 
 
 def list_styles():
     """列出所有可用样式"""
-    print("\n📋 可用样式列表：")
+    print("\n 可用样式列表：")
     print("-" * 40)
     for key, style in STYLES.items():
         print(f"  {key:12} - {style['name']}")
@@ -737,7 +737,7 @@ def main():
         sys.exit(1)
     
     if not os.path.exists(args.markdown_file):
-        print(f"❌ 错误: 文件不存在 - {args.markdown_file}")
+        print(f" 错误: 文件不存在 - {args.markdown_file}")
         sys.exit(1)
     
     asyncio.run(render_markdown_to_cards(args.markdown_file, args.output_dir, args.style))

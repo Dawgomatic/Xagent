@@ -148,7 +148,7 @@ ls "${PHASE_DIR}"/*-RESEARCH.md 2>/dev/null
 **If RESEARCH.md missing OR `--research` flag set:**
 
 Display stage banner:
-🚀 **GSD → Researching Phase {X}**
+ **GSD → Researching Phase {X}**
 
 ◆ Spawning researcher...
 
@@ -255,7 +255,7 @@ UAT_CONTENT=$(cat "${PHASE_DIR}"/*-UAT.md 2>/dev/null)
 ## 8. Spawn gsd-planner Agent
 
 Display stage banner:
-🚀 **GSD → Planning Phase {X}**
+ **GSD → Planning Phase {X}**
 
 ◆ Spawning planner...
 
@@ -346,7 +346,7 @@ Parse planner output:
 ## 10. Spawn gsd-plan-checker Agent
 
 Display:
-🚀 **GSD → Verifying Plans**
+ **GSD → Verifying Plans**
 
 ◆ Spawning plan checker...
 
@@ -490,7 +490,7 @@ Then stop. Do NOT output the "Next Up" section or any guidance.
 
 Output this markdown directly (not as a code block):
 
-🚀 **GSD → Phase {X} Planned** ✓
+ **GSD → Phase {X} Planned** ✓
 
 **Phase {X}: {Name}** — {N} plan(s) in {M} wave(s)
 
@@ -502,7 +502,7 @@ Output this markdown directly (not as a code block):
 Research: {Completed | Used existing | Skipped}
 Verification: {Passed | Passed with override | Skipped}
 
-**▶ Next Up**
+** Next Up**
 
 **Execute Phase {X}** — run all {N} plans
 

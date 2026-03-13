@@ -984,7 +984,7 @@ class QualityReportFormatter:
         if report.improvement_roadmap:
             lines.append("IMPROVEMENT ROADMAP:")
             for i, item in enumerate(report.improvement_roadmap[:5], 1):
-                priority_symbol = "🔴" if item["priority"] == "HIGH" else "🟡" if item["priority"] == "MEDIUM" else "🟢"
+                priority_symbol = "" if item["priority"] == "HIGH" else "" if item["priority"] == "MEDIUM" else ""
                 lines.append(f"  {i}. {priority_symbol} [{item['dimension']}] {item['suggestion']}")
             lines.append("")
             

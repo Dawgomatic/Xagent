@@ -2,7 +2,7 @@
 name: swarm
 description: Cut your LLM costs by 200x. Offload parallel, batch, and research work to Gemini Flash workers instead of burning your expensive primary model.
 homepage: https://github.com/Chair4ce/node-scaling
-metadata: {"clawdbot":{"emoji":"🐝","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Swarm — Cut Your LLM Costs by 200x

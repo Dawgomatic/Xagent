@@ -2,14 +2,14 @@
 name: patrick
 description: Access Patrick's expertise library for executive decision infrastructure. List, fetch, and manage structured expertise with context variables. Use for executive briefings, decision framing, and strategic analysis.
 homepage: https://patrickbot.io
-metadata: {"openclaw":{"emoji":"🤖","requires":{"bins":["patrick-cli"]},"install":[{"id":"patrick-install","kind":"script","script":"install.sh","bins":["patrick-cli"],"label":"Install Patrick CLI"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["patrick-cli"]},"install":[{"id":"patrick-install","kind":"script","script":"install.sh","bins":["patrick-cli"],"label":"Install Patrick CLI"}]}}
 ---
 
 # Patrick Skill
 
 **Patrick is a licensed expertise management system** that provides executive decision infrastructure through structured, context-aware expertise.
 
-**⚠️ If Patrick isn't working:** Check `{baseDir}/install.md` for complete setup instructions including license configuration and initialization.
+** If Patrick isn't working:** Check `{baseDir}/install.md` for complete setup instructions including license configuration and initialization.
 
 ## Setup Workflow
 
@@ -400,7 +400,7 @@ This deletes all stored data in `~/.patrick/data/` and saves the new license. Yo
 - Expertise content is verified with SHA256 checksums
 - Only expertise listed in your license are accessible
 
-**⚠️ IMPORTANT: Do not manually edit files in `~/.patrick/`**
+** IMPORTANT: Do not manually edit files in `~/.patrick/`**
 
 All data stored in `~/.patrick/` is signed with HMAC-SHA256 tied to your verified customer identity:
 - **`license.jwt`** - Your license token

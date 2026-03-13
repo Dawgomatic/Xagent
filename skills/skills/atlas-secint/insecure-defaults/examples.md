@@ -4,7 +4,7 @@ This document provides detailed examples for each category in the Quick Verifica
 
 ## Fallback Secrets
 
-### ❌ VULNERABLE - Report These
+###  VULNERABLE - Report These
 
 **Python: Environment variable with fallback**
 ```python
@@ -38,7 +38,7 @@ Rails.application.credentials.secret_key_base =
 ```
 **Why vulnerable:** Rails session encryption uses weak known key as fallback.
 
-### ✅ SECURE - Skip These
+###  SECURE - Skip These
 
 **Fail-secure: Crashes without config**
 ```python
@@ -71,7 +71,7 @@ def test_token_creation():
 
 ## Default Credentials
 
-### ❌ VULNERABLE - Report These
+###  VULNERABLE - Report These
 
 **Hardcoded admin account**
 ```python
@@ -108,7 +108,7 @@ private static final String DB_URL = System.getenv().getOrDefault(
 ```
 **Why vulnerable:** Hardcoded database credentials as fallback.
 
-### ✅ SECURE - Skip These
+###  SECURE - Skip These
 
 **Disabled default account**
 ```python
@@ -146,7 +146,7 @@ def test_user():
 
 ## Fail-Open Security
 
-### ❌ VULNERABLE - Report These
+###  VULNERABLE - Report These
 
 **Authentication disabled by default**
 ```python
@@ -181,7 +181,7 @@ if DEBUG:
 ```
 **Why vulnerable:** Debug mode default. Stack traces leak sensitive info in production.
 
-### ✅ SECURE - Skip These
+###  SECURE - Skip These
 
 **Authentication required by default**
 ```python
@@ -213,7 +213,7 @@ DEBUG = os.getenv('DEBUG', 'false').lower() == 'true'  # Default: false
 
 ## Weak Crypto
 
-### ❌ VULNERABLE - Report These
+###  VULNERABLE - Report These
 
 **MD5 for password hashing**
 ```python
@@ -249,7 +249,7 @@ function verifySignature(payload, signature) {
 ```
 **Why vulnerable:** SHA1 collisions exist. Use SHA256 or better.
 
-### ✅ SECURE - Skip These
+###  SECURE - Skip These
 
 **Weak crypto for non-security checksums**
 ```python
@@ -281,7 +281,7 @@ Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
 
 ## Permissive Access
 
-### ❌ VULNERABLE - Report These
+###  VULNERABLE - Report These
 
 **File permissions world-writable**
 ```python
@@ -314,7 +314,7 @@ def after_request(response):
 ```
 **Why vulnerable:** CORS misconfiguration. Allows credential theft from any site.
 
-### ✅ SECURE - Skip These
+###  SECURE - Skip These
 
 **Explicitly configured permissiveness with justification**
 ```python
@@ -340,7 +340,7 @@ def create_storage_bucket(name, public=False):
 
 ## Debug Features
 
-### ❌ VULNERABLE - Report These
+###  VULNERABLE - Report These
 
 **Stack traces in API responses**
 ```python
@@ -377,7 +377,7 @@ catch (SQLException e) {
 ```
 **Why vulnerable:** SQL error messages reveal database structure.
 
-### ✅ SECURE - Skip These
+###  SECURE - Skip These
 
 **Debug features in logging only**
 ```python

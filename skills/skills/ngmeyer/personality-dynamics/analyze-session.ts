@@ -93,7 +93,7 @@ function analyzeSession(transcript) {
 
 // Main analysis function
 async function main() {
-  console.log('🔍 Analyzing session for persona evolution...');
+  console.log(' Analyzing session for persona evolution...');
   
   // Load current patterns
   const patterns = loadOrCreate('patterns.json', defaultAnalysis);
@@ -109,7 +109,7 @@ async function main() {
     const transcript = readFileSync(memoryFile, 'utf-8');
     sessionAnalysis = analyzeSession(transcript);
   } else {
-    console.log('⚠️  No memory file found for today');
+    console.log('  No memory file found for today');
     sessionAnalysis = { timestamp: new Date().toISOString(), signals: {} };
   }
   
@@ -156,9 +156,9 @@ async function main() {
   save('patterns.json', patterns);
   save(`session-${Date.now()}.json`, sessionAnalysis);
   
-  console.log('✅ Session analysis complete');
-  console.log(`📊 Session count: ${patterns.session_count}`);
-  console.log(`😊 Dominant mood: ${patterns.emotional_context.dominant_mood}`);
+  console.log(' Session analysis complete');
+  console.log(` Session count: ${patterns.session_count}`);
+  console.log(` Dominant mood: ${patterns.emotional_context.dominant_mood}`);
 }
 
 main().catch(console.error);

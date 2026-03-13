@@ -4,7 +4,7 @@ description: A self-evolution engine for AI agents. Analyzes runtime history to 
 tags: [meta, ai, self-improvement, core]
 ---
 
-# 🧬 Capability Evolver
+#  Capability Evolver
 
 **"I don't just run code. I write it."**
 
@@ -12,29 +12,29 @@ The **Capability Evolver** is a meta-skill that allows OpenClaw agents to inspec
 
 Now featuring **Ascension Protocol (v2.0)**: A structured knowledge accumulation system.
 
-## ✨ Features
+##  Features
 
-- **🔍 Auto-Log Analysis**: Automatically scans memory and history files for errors and patterns.
-- **🛠️ Self-Repair**: Detects crashes and suggests patches.
-- **💎 Knowledge Crystallization**: Extracts lessons into `memory/KNOWLEDGE_BASE/LESSONS_LEARNED.md`.
-- **🥚 Skill Incubation**: Can spontaneously generate new skills in `skills/`.
-- **🐕 Mad Dog Mode**: Continuous self-healing loop (`--loop`).
+- ** Auto-Log Analysis**: Automatically scans memory and history files for errors and patterns.
+- ** Self-Repair**: Detects crashes and suggests patches.
+- ** Knowledge Crystallization**: Extracts lessons into `memory/KNOWLEDGE_BASE/LESSONS_LEARNED.md`.
+- ** Skill Incubation**: Can spontaneously generate new skills in `skills/`.
+- ** Mad Dog Mode**: Continuous self-healing loop (`--loop`).
 
-## 📦 Usage
+##  Usage
 
 ### Manual Trigger
 ```bash
 node skills/capability-evolver/index.js
 ```
 
-### 🐕 Mad Dog Mode (Continuous)
+###  Mad Dog Mode (Continuous)
 Runs the evolver in an infinite loop (Agent-Driven).
 ```bash
 node skills/capability-evolver/index.js --loop
 ```
 *Stop with `kill -9 <pid>`.*
 
-## 🧠 Internal Logic (Ascension Protocol)
+##  Internal Logic (Ascension Protocol)
 
 1.  **Introspect**: Scan recent logs for errors or user corrections.
 2.  **Evolve**: 
@@ -43,7 +43,7 @@ node skills/capability-evolver/index.js --loop
     - **Promote**: Update core docs (`AGENTS.md`) if critical.
 3.  **Persist**: Commit to Git and safe-publish if needed.
 
-## 🛡️ Safety & Risk Protocol (MANDATORY)
+##  Safety & Risk Protocol (MANDATORY)
 
 ### Risk Assessment & Mitigation
 
@@ -54,5 +54,5 @@ node skills/capability-evolver/index.js --loop
 | **Hallucinated Fixes** | Medium | **Human Review (Optional)**: "Fixing non-broken code" is a risk. Mitigation: Periodic human audit of changes. |
 | **File Corruption** | High | **Git Sync**: Always keep `workspace_daily_sync` (or `git-sync`) active to backup the workspace before/after evolution. |
 
-## 📜 License
+##  License
 MIT

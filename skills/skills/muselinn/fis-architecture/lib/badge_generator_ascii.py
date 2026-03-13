@@ -33,12 +33,12 @@ def render_badge_html(card: dict) -> str:
     
     # Emoji by role
     emoji_map = {
-        'worker': '🔧',
-        'reviewer': '👁️',
-        'researcher': '🔬',
-        'formatter': '🎨'
+        'worker': '',
+        'reviewer': '',
+        'researcher': '',
+        'formatter': ''
     }
-    emoji = emoji_map.get(card['role'], '🤖')
+    emoji = emoji_map.get(card['role'], '')
     
     # Parse deadline
     deadline = card['task']['deadline'][:16].replace('T', ' ')
@@ -61,7 +61,7 @@ def render_badge_html(card: dict) -> str:
     html = re.sub(r'status-active', status_class, html)
     html = re.sub(r'status-dot status-active', f'status-dot {status_dot_class}', html)
     html = re.sub(r'ACTIVE', status_display, html)
-    html = re.sub(r'🤖', emoji, html)
+    html = re.sub(r'', emoji, html)
     html = re.sub(r'cybermao', card['parent'], html)
     html = re.sub(r'2026-02-17 22:48', deadline, html)
     
@@ -173,7 +173,7 @@ if __name__ == "__main__":
     sys.path.insert(0, str(Path(__file__).parent))
     from subagent_lifecycle import SubAgentLifecycleManager
     
-    print("🎫 FIS 3.1 Badge Image Generator")
+    print(" FIS 3.1 Badge Image Generator")
     print("=" * 50)
     
     # Load existing subagents
@@ -191,17 +191,17 @@ if __name__ == "__main__":
             
             # Generate multi-badge HTML
             html_path = save_badge_html(subagents, "all_badges.html")
-            print(f"\n✅ Multi-badge HTML saved: {html_path}")
+            print(f"\n Multi-badge HTML saved: {html_path}")
             
             # Also generate individual badges
             for card in subagents[:2]:  # Limit to first 2 for demo
                 single_path = save_badge_html(card, f"badge_{card['employee_id']}.html")
-                print(f"✅ Single badge: {single_path.name}")
+                print(f" Single badge: {single_path.name}")
             
-            print("\n💡 To generate image, use OpenClaw canvas:")
+            print("\n To generate image, use OpenClaw canvas:")
             print(f"   canvas snapshot --url file://{html_path}")
         else:
-            print("\n⚠️  No subagents found. Create one first:")
+            print("\n  No subagents found. Create one first:")
             print("   python3 -m subagent_lifecycle")
     else:
-        print("\n⚠️  Registry not found. Initialize FIS 3.1 first.")
+        print("\n  Registry not found. Initialize FIS 3.1 first.")

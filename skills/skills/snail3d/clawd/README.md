@@ -1,22 +1,22 @@
-# 📹 ClawCamera — Multi-Camera Surveillance with AI
+#  ClawCamera — Multi-Camera Surveillance with AI
 
 **Professional-grade office/home monitoring system** with motion detection, continuous monitoring (Overwatch), and AI-powered analysis. Built for OpenClaw.
 
 [![GitHub](https://img.shields.io/badge/GitHub-Snail3D%2FClawCamera-blue)](https://github.com/Snail3D/ClawCamera)
 [![License](https://img.shields.io/badge/License-MIT-green)](#license)
 
-## 🎯 What It Does
+##  What It Does
 
-✅ **Instant snapshots** — Ask "Is anyone here?" and get AI-powered visual answers  
-✅ **Motion detection** — Alerts when movement is detected (configurable modes)  
-✅ **Overwatch mode** — 24/7 background monitoring with random check-in GIFs  
-✅ **BOLO matching** — "Be on the lookout" for specific people/items with feature matching  
-✅ **Multi-camera** — USB webcams, Wyze RTSP, ESP32-CAM all supported  
-✅ **GIF reactions** — Fun, conversational alerts with Tenor GIFs  
-✅ **Telegram integration** — Instant notifications with images  
-✅ **No secrets in git** — Comprehensive .gitignore + env-based config  
+ **Instant snapshots** — Ask "Is anyone here?" and get AI-powered visual answers  
+ **Motion detection** — Alerts when movement is detected (configurable modes)  
+ **Overwatch mode** — 24/7 background monitoring with random check-in GIFs  
+ **BOLO matching** — "Be on the lookout" for specific people/items with feature matching  
+ **Multi-camera** — USB webcams, Wyze RTSP, ESP32-CAM all supported  
+ **GIF reactions** — Fun, conversational alerts with Tenor GIFs  
+ **Telegram integration** — Instant notifications with images  
+ **No secrets in git** — Comprehensive .gitignore + env-based config  
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Install
 ```bash
@@ -61,14 +61,14 @@ export TELEGRAM_CHAT_ID=your_chat_id
 # → Configurable: cooldown, threshold, interval
 ```
 
-## 📚 Documentation
+##  Documentation
 
 - **[SKILL.md](./SKILL.md)** — Full feature list, configuration, and integration guide (for OpenClaw Hub)
 - **[guides/esp32-setup.md](./guides/esp32-setup.md)** — ESP32-CAM firmware & deployment
 - **[guides/wyze-setup.md](./guides/wyze-setup.md)** — Wyze camera RTSP configuration
 - **[guides/troubleshooting.md](./guides/troubleshooting.md)** — Common issues & solutions
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────────┐
@@ -104,21 +104,21 @@ export TELEGRAM_CHAT_ID=your_chat_id
         └────────────────────────────┘
 ```
 
-## 🎯 Three Monitoring Modes
+##  Three Monitoring Modes
 
-### 🔴 Report-All
+###  Report-All
 Alert on **any motion** — great for detecting presence.
 ```bash
 ./scripts/motion-detect.sh --mode report-all
 ```
 
-### 🟡 Report-Suspicious
+###  Report-Suspicious
 Alert only on **threats** — weapons, breaking/entering, suspicious behavior.
 ```bash
 ./scripts/motion-detect.sh --mode report-suspicious
 ```
 
-### 🟢 Report-Match
+###  Report-Match
 Alert on **exact BOLO match** — specific people/items with strict feature matching.
 ```bash
 # Upload a photo
@@ -127,7 +127,7 @@ Alert on **exact BOLO match** — specific people/items with strict feature matc
 # Exact matching: blonde girl with glasses won't trigger on "blonde girl without glasses"
 ```
 
-## 📸 Multi-Camera Support
+##  Multi-Camera Support
 
 ### USB Webcam (Instant)
 Plug in any USB webcam and capture immediately.
@@ -149,7 +149,7 @@ Deploy an ESP32-CAM to remote locations with OV2640 sensor + WiFi.
 ./scripts/esp32-watch.sh --ip 192.168.1.50
 ```
 
-## 🎬 GIF Check-Ins
+##  GIF Check-Ins
 
 Overwatch sends random GIF updates when monitoring:
 - "spy camera" → `https://media.tenor.com/U0aBgKUsXs4AAAAC/cop-watch-camera-man.gif`
@@ -159,30 +159,30 @@ Overwatch sends random GIF updates when monitoring:
 
 Makes monitoring fun and conversational! 
 
-## 🔐 Security & Privacy
+##  Security & Privacy
 
-### ✅ No Secrets in Git
+###  No Secrets in Git
 - Comprehensive `.gitignore` blocks all sensitive files
 - API keys stored in `.env` (never committed)
 - Credentials in `credentials.h` or `config.json` are ignored
 - `auth.json`, `secrets/` folder all blocked
 
-### ✅ Local Storage
+###  Local Storage
 - All images stored in `~/.clawdbot/overwatch/`
 - No cloud uploads (except Groq Vision API for analysis)
 - Automatic cleanup/retention policies
 
-### ✅ Encrypted Transit
+###  Encrypted Transit
 - Groq API calls use HTTPS
 - Telegram API calls use HTTPS
 - All credentials passed via environment variables only
 
-### ✅ Privacy Modes
+###  Privacy Modes
 - Can disable Overwatch at any time
 - Configurable retention (auto-delete old images)
 - No persistent logging of sensitive data
 
-## 📊 Performance
+##  Performance
 
 | Feature | Speed | Notes |
 |---------|-------|-------|
@@ -193,7 +193,7 @@ Makes monitoring fun and conversational!
 | Overwatch Check-In | 2-5s | Includes AI analysis |
 | Groq Vision Analysis | 1-2s | Cloud API, varies by image |
 
-## 🛠️ Requirements
+##  Requirements
 
 ### System
 - macOS / Linux / Raspberry Pi
@@ -210,7 +210,7 @@ Makes monitoring fun and conversational!
 - **Wyze Account** — For RTSP camera access
 - **ESP32-CAM** — For wireless remote monitoring
 
-## 📥 Installation
+##  Installation
 
 ```bash
 # Clone the repo
@@ -231,7 +231,7 @@ cp .env.example .env
 ./scripts/capture.sh
 ```
 
-## 🔗 OpenClaw Integration
+##  OpenClaw Integration
 
 Add to your OpenClaw session:
 
@@ -249,13 +249,13 @@ openclaw office-cam watch --mode all
 openclaw office-cam status
 ```
 
-## 📖 Examples
+##  Examples
 
 ### "Is anyone in the office?"
 ```bash
 ./scripts/capture.sh
 # Groq analyzes: "One person at desk, blue shirt, working on laptop"
-# Telegram alert: Photo + "🕵️ Spy Mode Active" GIF
+# Telegram alert: Photo + " Spy Mode Active" GIF
 ```
 
 ### "Start watching for movement"
@@ -274,7 +274,7 @@ openclaw office-cam status
 # Only alerts on exact matches (red backpack MUST be visible)
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Camera not detected
 ```bash
@@ -311,7 +311,7 @@ echo $GROQ_API_KEY
 
 See **[guides/troubleshooting.md](./guides/troubleshooting.md)** for more.
 
-## 🤝 Contributing
+##  Contributing
 
 Found a bug? Have a feature request? PRs welcome!
 
@@ -321,13 +321,13 @@ Found a bug? Have a feature request? PRs welcome!
 4. Push to branch (`git push origin feature/my-feature`)
 5. Open a Pull Request
 
-## 📄 License
+##  License
 
 MIT License — See [LICENSE](./LICENSE) for details.
 
 ---
 
-**Built with ❤️ by Clawd for Snail**  
-🦾 AI Assistant • 📹 Camera Surveillance • 🎬 Conversational Alerts
+**Built with  by Clawd for Snail**  
+ AI Assistant •  Camera Surveillance •  Conversational Alerts
 
 **Questions?** Check the docs or open an issue on GitHub.

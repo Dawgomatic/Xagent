@@ -33,13 +33,13 @@ async function yieldOptimizerAgent(
   minApy: number = 8,
   maxRiskScore: number = 40
 ): Promise<void> {
-  console.log('\n🔮 PRISM OS — Yield Optimizer Agent\n');
+  console.log('\n PRISM OS — Yield Optimizer Agent\n');
   console.log(`Wallet: ${walletAddress}`);
   console.log(`Target: APY > ${minApy}%, Risk < ${maxRiskScore}/100\n`);
 
   // ─── STEP 1: SEE — Gather intelligence ───
 
-  console.log('📊 [See] Fetching market context...');
+  console.log(' [See] Fetching market context...');
   const [globalMetrics, fearGreed] = await Promise.all([
     prism.market.getGlobalMetrics(),
     prism.market.getFearGreedIndex(),
@@ -50,7 +50,7 @@ async function yieldOptimizerAgent(
 
   // ─── STEP 2: SEE — Get current positions ───
 
-  console.log('\n💼 [See] Scanning current portfolio...');
+  console.log('\n [See] Scanning current portfolio...');
 
   // Resolve assets we care about
   const assets = await prism.assets.batchResolve(['ETH', 'USDC', 'SOL', 'stETH']);
@@ -62,7 +62,7 @@ async function yieldOptimizerAgent(
 
   // ─── STEP 3: SEE — Find best yields for USDC ───
 
-  console.log('\n🌾 [See] Scanning yield opportunities for USDC...');
+  console.log('\n [See] Scanning yield opportunities for USDC...');
   const usdcYields = await prism.assets.getRelatedYields('prism:ethereum:usdc');
 
   console.log(`  Found ${usdcYields.length} yield opportunities`);
@@ -76,7 +76,7 @@ async function yieldOptimizerAgent(
 
   // ─── STEP 4: THINK — Risk check the top opportunities ───
 
-  console.log('\n⚠️  [Think] Risk-checking top opportunities...');
+  console.log('\n  [Think] Risk-checking top opportunities...');
 
   const approvedOpportunities: Array<YieldOpportunity & { riskScore: number }> = [];
 
@@ -87,25 +87,25 @@ async function yieldOptimizerAgent(
       const counterpartyRisk = await prism.risk.getCounterpartyRisk(yieldOpp.protocol);
 
       if (counterpartyRisk.score <= maxRiskScore) {
-        console.log(`✅ PASS (risk: ${counterpartyRisk.score}/100)`);
+        console.log(` PASS (risk: ${counterpartyRisk.score}/100)`);
         approvedOpportunities.push({ ...yieldOpp, riskScore: counterpartyRisk.score });
       } else {
-        console.log(`❌ FAIL (risk: ${counterpartyRisk.score}/100 — too high)`);
+        console.log(` FAIL (risk: ${counterpartyRisk.score}/100 — too high)`);
       }
     } catch {
-      console.log(`⚠️  SKIP (risk check unavailable)`);
+      console.log(`  SKIP (risk check unavailable)`);
     }
   }
 
   if (approvedOpportunities.length === 0) {
-    console.log('\n⛔ No opportunities passed risk checks. Holding USDC.');
+    console.log('\n No opportunities passed risk checks. Holding USDC.');
     return;
   }
 
   // ─── STEP 5: THINK — Select best opportunity ───
 
   const best = approvedOpportunities[0];
-  console.log(`\n🎯 [Think] Best opportunity identified:`);
+  console.log(`\n [Think] Best opportunity identified:`);
   console.log(`  Protocol: ${best.protocol}`);
   console.log(`  APY: ${best.apy.toFixed(2)}%`);
   console.log(`  TVL: $${(best.tvl / 1e6).toFixed(1)}M`);
@@ -114,7 +114,7 @@ async function yieldOptimizerAgent(
 
   // ─── STEP 6: THINK — Check prediction markets for macro risk ───
 
-  console.log('\n🔮 [Think] Checking prediction market signals...');
+  console.log('\n [Think] Checking prediction market signals...');
   const cryptoMarkets = await prism.predictions.getMarkets({
     category: 'crypto',
     status: 'open',
@@ -126,17 +126,17 @@ async function yieldOptimizerAgent(
   );
 
   if (bearishMarkets.length > 0) {
-    console.log(`  ⚠️  ${bearishMarkets.length} bearish signal(s) in prediction markets`);
+    console.log(`    ${bearishMarkets.length} bearish signal(s) in prediction markets`);
     console.log(`  Reducing position size by 50%`);
   } else {
-    console.log(`  ✅ No major bearish signals detected`);
+    console.log(`   No major bearish signals detected`);
   }
 
   // ─── STEP 7: ACT — Dry run first ───
 
   const positionSize = bearishMarkets.length > 0 ? '500' : '1000';
 
-  console.log(`\n🔍 [Act] Simulating execution (amount: $${positionSize} USDC)...`);
+  console.log(`\n [Act] Simulating execution (amount: $${positionSize} USDC)...`);
 
   const swapSimulation = await prism.dex.simulateSwap({
     fromQuery: 'USDC',
@@ -146,23 +146,23 @@ async function yieldOptimizerAgent(
     chain: best.chain as any ?? 'ethereum',
   });
 
-  console.log(`  Will succeed: ${swapSimulation.willSucceed ? '✅' : '❌'}`);
+  console.log(`  Will succeed: ${swapSimulation.willSucceed ? '' : ''}`);
   console.log(`  Expected output: ${swapSimulation.expectedOutput}`);
   console.log(`  Price impact: ${(swapSimulation.priceImpact * 100).toFixed(3)}%`);
   console.log(`  Gas estimate: $${swapSimulation.gasEstimate}`);
 
   if (swapSimulation.warnings.length > 0) {
-    console.log(`  ⚠️  Warnings: ${swapSimulation.warnings.join(', ')}`);
+    console.log(`    Warnings: ${swapSimulation.warnings.join(', ')}`);
   }
 
   // ─── STEP 8: ACT — Execute (demo: just logs) ───
 
   if (!swapSimulation.willSucceed) {
-    console.log('\n❌ Simulation failed. Aborting.');
+    console.log('\n Simulation failed. Aborting.');
     return;
   }
 
-  console.log('\n⚡ [Act] Ready for execution...');
+  console.log('\n [Act] Ready for execution...');
   console.log(`  (In production: prism.execute.batch([swap, deposit_to_${best.protocol}]))`);
 
   // Production batch example:
@@ -193,7 +193,7 @@ async function yieldOptimizerAgent(
 
   // ─── STEP 9: MONITOR — Set up alerts ───
 
-  console.log('\n🔔 [Monitor] Setting up alerts...');
+  console.log('\n [Monitor] Setting up alerts...');
   const watchResult = await prism.risk.watchProtocol(best.protocol, {
     webhookUrl: process.env.WEBHOOK_URL ?? 'https://my-agent.example.com/alerts',
     liquidityDropThreshold: 0.2,
@@ -204,7 +204,7 @@ async function yieldOptimizerAgent(
   // ─── SUMMARY ───
 
   console.log('\n' + '─'.repeat(50));
-  console.log('✅ AGENT EXECUTION SUMMARY');
+  console.log(' AGENT EXECUTION SUMMARY');
   console.log('─'.repeat(50));
   console.log(`Opportunity: ${best.protocol} @ ${best.apy.toFixed(2)}% APY`);
   console.log(`Position Size: $${positionSize} USDC`);
@@ -219,7 +219,7 @@ async function yieldOptimizerAgent(
 // ─────────────────────────────────────────────
 
 async function predictionMarketAgent(targetAsset: string): Promise<void> {
-  console.log('\n🎲 PRISM OS — Prediction Market Alpha Agent\n');
+  console.log('\n PRISM OS — Prediction Market Alpha Agent\n');
 
   // 1. Find all prediction markets for target asset
   const markets = await prism.predictions.getMarketsByAsset(targetAsset);
@@ -234,7 +234,7 @@ async function predictionMarketAgent(targetAsset: string): Promise<void> {
   // 3. Check for cross-platform arb
   const arb = await prism.predictions.getArbitrageOpps();
   if (arb.length > 0) {
-    console.log(`\n💰 Arb opportunities found:`);
+    console.log(`\n Arb opportunities found:`);
     arb.slice(0, 3).forEach((a) => {
       console.log(`  ${a.event}: ${a.arbPct.toFixed(2)}% arb between ${a.venue1} and ${a.venue2}`);
     });
@@ -244,7 +244,7 @@ async function predictionMarketAgent(targetAsset: string): Promise<void> {
   if (markets.length > 0) {
     const topMarket = markets[0];
     const strategy = await prism.predictions.agentBet(topMarket.marketId, 'sharp_follow');
-    console.log(`\n🤖 Agent Bet Strategy for "${topMarket.title}":`);
+    console.log(`\n Agent Bet Strategy for "${topMarket.title}":`);
     console.log(`  Side: ${strategy.recommendedSide.toUpperCase()}`);
     console.log(`  Size: $${strategy.recommendedSize}`);
     console.log(`  Expected Value: ${strategy.expectedValue.toFixed(3)}`);

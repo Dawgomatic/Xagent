@@ -30,6 +30,6 @@ Pair with [AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/) 
 
 ## Built by AfrexAI
 
-- 🔗 [Context Packs Store](https://afrexai-cto.github.io/context-packs/) — $47/pack, 10 industries
-- 🔗 [Revenue Leak Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — free tool
-- 🔗 [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — configure fast
+-  [Context Packs Store](https://afrexai-cto.github.io/context-packs/) — $47/pack, 10 industries
+-  [Revenue Leak Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — free tool
+-  [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — configure fast

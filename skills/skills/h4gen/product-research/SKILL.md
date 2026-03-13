@@ -4,7 +4,7 @@ description: Meta-skill for finding e-commerce winning products by correlating s
 homepage: https://clawhub.ai
 user-invocable: true
 disable-model-invocation: false
-metadata: {"openclaw":{"emoji":"🕵️","requires":{"bins":["node","npx","goplaces"],"env":["TAVILY_API_KEY","GOOGLE_PLACES_API_KEY","MATON_API_KEY"],"config":[]},"note":"Requires local installation of tavily-search, goplaces, api-gateway, and at least one deployment path (woocommerce or shopify)."}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node","npx","goplaces"],"env":["TAVILY_API_KEY","GOOGLE_PLACES_API_KEY","MATON_API_KEY"],"config":[]},"note":"Requires local installation of tavily-search, goplaces, api-gateway, and at least one deployment path (woocommerce or shopify)."}}
 ---
 
 # Purpose

@@ -70,15 +70,15 @@ class GGShieldSkill:
 
     def _format_success(self, message: str) -> str:
         """Format success message with emoji."""
-        return f"✅ {message}"
+        return f" {message}"
 
     def _format_error(self, message: str) -> str:
         """Format error message with emoji."""
-        return f"❌ {message}"
+        return f" {message}"
 
     def _format_scanning(self, message: str) -> str:
         """Format scanning message with emoji."""
-        return f"🔍 {message}"
+        return f" {message}"
 
     def _is_git_repository(self, path: str = ".") -> bool:
         """Check if the given path is inside a git repository."""

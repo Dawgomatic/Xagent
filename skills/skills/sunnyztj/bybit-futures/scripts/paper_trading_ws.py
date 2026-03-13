@@ -112,7 +112,7 @@ class PaperTrader:
         self.save_state()
 
         coin = symbol.replace("USDT", "")
-        msg = f"📝 <b>[Paper] {strategy} OPEN</b>\n{coin} {side.upper()} @ ${price:,.2f}\nMargin: ${margin:.2f} | {leverage}x\nSL: ${sl:,.2f} | TP: ${tp:,.2f}"
+        msg = f" <b>[Paper] {strategy} OPEN</b>\n{coin} {side.upper()} @ ${price:,.2f}\nMargin: ${margin:.2f} | {leverage}x\nSL: ${sl:,.2f} | TP: ${tp:,.2f}"
         log.info(msg)
         send_tg(msg)
 
@@ -140,7 +140,7 @@ class PaperTrader:
         self.save_state()
 
         coin = pos["symbol"].replace("USDT", "")
-        emoji = "💚" if net_pnl > 0 else "🔴"
+        emoji = "" if net_pnl > 0 else ""
         msg = f"{emoji} <b>[Paper] {strategy} CLOSE</b>\n{coin} {pos['side'].upper()} | {reason}\n${pos['entry_price']:,.2f} → ${price:,.2f}\nPnL: ${net_pnl:+.2f} ({net_pnl/pos['margin']*100:+.1f}%)\nBalance: ${self.capital:.2f}"
         log.info(msg)
         send_tg(msg)

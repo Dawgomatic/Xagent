@@ -1,7 +1,7 @@
 ---
 name: TimescaleDB
 description: Store and query time-series data with hypertables, compression, and continuous aggregates.
-metadata: {"clawdbot":{"emoji":"⏱️","requires":{"anyBins":["psql"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["psql"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Hypertables

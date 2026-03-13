@@ -257,48 +257,48 @@ class SecurityAudit:
                     mode = int(parts[1], 8)
                     path = Path(parts[2]).expanduser()
                     os.chmod(path, mode)
-                    print(f"✅ Fixed: {fix}")
+                    print(f" Fixed: {fix}")
                     fixed += 1
                 except Exception as e:
-                    print(f"❌ Cannot fix: {fix} ({e})")
+                    print(f" Cannot fix: {fix} ({e})")
             else:
-                print(f"⚠️ Manual fix needed: {fix}")
+                print(f" Manual fix needed: {fix}")
         
         return fixed
     
     def print_report(self, verbose: bool = False):
         """Print audit report."""
         print("=" * 60)
-        print("🛡️  CLAWDBOT SECURITY AUDIT")
+        print("  CLAWDBOT SECURITY AUDIT")
         print("=" * 60)
         
         if self.issues:
-            print(f"\n🚨 ISSUES ({len(self.issues)})")
+            print(f"\n ISSUES ({len(self.issues)})")
             for issue in self.issues:
-                print(f"  ❌ {issue['check']}")
+                print(f"   {issue['check']}")
                 print(f"     {issue['message']}")
                 if issue.get('fix'):
                     print(f"     Fix: {issue['fix']}")
         
         if self.warnings:
-            print(f"\n⚠️  WARNINGS ({len(self.warnings)})")
+            print(f"\n  WARNINGS ({len(self.warnings)})")
             for warn in self.warnings:
-                print(f"  ⚠️ {warn['check']}")
+                print(f"   {warn['check']}")
                 print(f"     {warn['message']}")
         
         if verbose and self.passed:
-            print(f"\n✅ PASSED ({len(self.passed)})")
+            print(f"\n PASSED ({len(self.passed)})")
             for p in self.passed:
-                print(f"  ✅ {p}")
+                print(f"   {p}")
         
         print("\n" + "=" * 60)
         total = len(self.issues) + len(self.warnings) + len(self.passed)
         if self.issues:
-            print(f"❌ {len(self.issues)} issues need attention")
+            print(f" {len(self.issues)} issues need attention")
         elif self.warnings:
-            print(f"⚠️ {len(self.warnings)} warnings, but no critical issues")
+            print(f" {len(self.warnings)} warnings, but no critical issues")
         else:
-            print(f"✅ All {total} checks passed!")
+            print(f" All {total} checks passed!")
         print("=" * 60)
 
 
@@ -315,7 +315,7 @@ def main():
     issues, warnings, passed = audit.run_audit(quick=args.quick)
     
     if args.fix:
-        print("\n🔧 Attempting to fix issues...\n")
+        print("\n Attempting to fix issues...\n")
         fixed = audit.fix_issues()
         print(f"\nFixed {fixed} issues.")
         # Re-run audit

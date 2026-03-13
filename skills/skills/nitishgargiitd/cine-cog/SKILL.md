@@ -3,7 +3,7 @@ name: cine-cog
 description: "If you can imagine it, CellCog can film it. Grand widescreen cinematics with consistent characters — what previously required million-dollar production budgets, now generated from a single prompt. Short films, music videos, brand films, cinematic productions — epic compositions, cinematic lighting, visual storytelling at scale. Grand cinema, accessible to everyone."
 metadata:
   openclaw:
-    emoji: "🎬"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

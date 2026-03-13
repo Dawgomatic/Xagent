@@ -13,7 +13,7 @@
 | BSIK | Postes ouverts fournisseurs | BUKRS + LIFNR | Obsolète → ACDOCA |
 | BSAK | Postes soldés fournisseurs | BUKRS + LIFNR | Obsolète → ACDOCA |
 
-> ⚠️ **S/4HANA** : Les tables BSIS, BSAS, BSID, BSAD, BSIK, BSAK sont des **vues de compatibilité** sur ACDOCA. Elles existent encore mais ne sont plus des tables physiques.
+>  **S/4HANA** : Les tables BSIS, BSAS, BSID, BSAD, BSIK, BSAK sont des **vues de compatibilité** sur ACDOCA. Elles existent encore mais ne sont plus des tables physiques.
 
 ## FI — Tables de référence
 
@@ -33,10 +33,10 @@
 
 | Table | Description | S/4HANA |
 |-------|-------------|---------|
-| ANLA | Données de base immobilisation | ✅ (maintenue) |
-| ANLB | Depreciation terms | ✅ → FAAT_DOC_IT |
-| ANLC | Valeurs cumulées immo | ✅ → FAAT_PLAN_VALUES |
-| ANLH | Historique immobilisation | ✅ |
+| ANLA | Données de base immobilisation |  (maintenue) |
+| ANLB | Depreciation terms |  → FAAT_DOC_IT |
+| ANLC | Valeurs cumulées immo |  → FAAT_PLAN_VALUES |
+| ANLH | Historique immobilisation |  |
 | ANLP | Valeurs périodiques amortissement | → ACDOCA |
 | ANEK | En-tête pièce immobilisation | → ACDOCA |
 | ANEP | Postes pièce immobilisation | → ACDOCA |
@@ -53,7 +53,7 @@
 | COEP | Postes individuels CO | OBJNR + GJAHR + BUZEI |
 | COEJ | Postes individuels CO (exercice) | OBJNR + GJAHR |
 
-> ⚠️ **S/4HANA** : COSS, COSP, COBK, COEP sont des **vues de compatibilité** sur ACDOCA.
+>  **S/4HANA** : COSS, COSP, COBK, COEP sont des **vues de compatibilité** sur ACDOCA.
 
 ## CO — Tables de référence
 

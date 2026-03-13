@@ -2,7 +2,7 @@
 
 A powerful toolkit to monitor your Meta (Facebook/Instagram) advertising performance directly through chat. This bundle includes analytics reporting and an event discovery tool to ensure accurate tracking.
 
-## 🚀 Capabilities
+##  Capabilities
 
 1.  **Ad Performance Reporting:**
     * Calculates **Spend**, **Conversions**, and **CAC (Cost Per Acquisition)**.
@@ -15,7 +15,7 @@ A powerful toolkit to monitor your Meta (Facebook/Instagram) advertising perform
 
 ---
 
-## ⚙️ Configuration (.env)
+##  Configuration (.env)
 
 To use this skill, you must set the following environment variables in your OpenClaw setup:
 
@@ -27,7 +27,7 @@ To use this skill, you must set the following environment variables in your Open
 
 ---
 
-## 🔑 How to Get Credentials
+##  How to Get Credentials
 
 ### 1. Get Access Token
 1.  Go to [Meta Graph API Explorer](https://developers.facebook.com/tools/explorer/).
@@ -42,7 +42,7 @@ To use this skill, you must set the following environment variables in your Open
 
 ---
 
-## 💬 Example Commands
+##  Example Commands
 
 ### check Analytics
 > "Show me yesterday's ad performance"
@@ -56,7 +56,7 @@ To use this skill, you must set the following environment variables in your Open
 
 ---
 
-## ⚠️ Troubleshooting
+##  Troubleshooting
 
 **Q: My conversion count is 0, but I have sales.**
 **A:** The default event is `offsite_conversion.fb_pixel_custom`. Your pixel might be using a different name like `purchase`, `lead`, or `start_trial`.

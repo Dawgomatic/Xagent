@@ -8,25 +8,25 @@ Meeting Notes Pro turns your AI assistant into a meeting productivity expert. It
 
 ## Features
 
-### 📝 Meeting Summary Generator
+###  Meeting Summary Generator
 Paste raw notes or transcripts → get structured summaries with Key Decisions, Action Items (owner + deadline), Open Questions, and a Parking Lot. Every action item gets an owner and deadline, or gets flagged.
 
-### 📋 Action Item Tracker
+###  Action Item Tracker
 Track open items across multiple meetings. See overdue, due-soon, and upcoming items at a glance. Generate follow-up reminder emails with one prompt.
 
-### 📅 Meeting Agenda Builder
+###  Meeting Agenda Builder
 Build professional agendas with timeboxing, topic types (Info/Discussion/Decision), facilitator notes, and pre-read materials. Includes anti-pattern detection — the skill will push back on bloated agendas.
 
-### 👥 1:1 Meeting Templates
+###  1:1 Meeting Templates
 Ready-to-use templates for:
-- **Manager ↔ Report weekly 1:1s** — with check-in, blockers, growth topics
+- **Manager  Report weekly 1:1s** — with check-in, blockers, growth topics
 - **Coaching conversations** — using the GROW framework
 - **Quarterly performance check-ins** — with self-assessment and mutual feedback
 
-### 📖 Decision Log
+###  Decision Log
 Document decisions with full context: options considered, rationale, trade-offs accepted, and revisit criteria. Never wonder "why did we decide that?" again.
 
-### 📊 Meeting Effectiveness Score
+###  Meeting Effectiveness Score
 Rate any meeting on 6 dimensions (Goal, People, Time, Preparation, Outcomes, Engagement) and get a score out of 10 with specific improvement recommendations.
 
 ## Example Prompts

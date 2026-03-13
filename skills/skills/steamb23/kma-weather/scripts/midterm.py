@@ -146,7 +146,7 @@ def format_midterm(data: Dict) -> str:
 
     # Build output
     output = []
-    output.append("📅 중기예보")
+    output.append(" 중기예보")
 
     # Release time
     if "tmFc" in item:

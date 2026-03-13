@@ -101,7 +101,7 @@ async function main() {
   console.log(`Waiting for confirmation...`);
   
   const receipt = await tx.wait();
-  console.log(`\n✅ Deposit confirmed!`);
+  console.log(`\n Deposit confirmed!`);
   console.log(`Block: ${receipt.blockNumber}`);
   console.log(`\nRelay will bridge to Abstract within ~1-5 minutes.`);
   console.log(`Track at: https://relay.link/`);

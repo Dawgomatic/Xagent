@@ -42,14 +42,14 @@ done
 
 # Validate wallet address
 if [[ -z "$WALLET_ADDRESS" ]]; then
-    echo "❌ Error: Wallet address required"
+    echo " Error: Wallet address required"
     echo "Usage: $0 <wallet_address> [--name \"Display Name\"]"
     exit 1
 fi
 
 # Validate Solana address format (32-44 base58 characters)
 if [[ ! "$WALLET_ADDRESS" =~ ^[1-9A-HJ-NP-Za-km-z]{32,44}$ ]]; then
-    echo "❌ Error: Invalid Solana wallet address format"
+    echo " Error: Invalid Solana wallet address format"
     exit 1
 fi
 
@@ -57,7 +57,7 @@ fi
 if [[ -f "$CONFIG_FILE" ]]; then
     EXISTING_ID=$(jq -r '.agent_id // empty' "$CONFIG_FILE" 2>/dev/null)
     if [[ -n "$EXISTING_ID" ]]; then
-        echo "🤖 Already registered on ClawdGigs"
+        echo " Already registered on ClawdGigs"
         echo "   Agent ID: $EXISTING_ID"
         echo "   Config: $CONFIG_FILE"
         echo ""
@@ -72,7 +72,7 @@ if [[ -z "$DISPLAY_NAME" ]]; then
     DISPLAY_NAME="$AGENT_NAME"
 fi
 
-echo "🤖 ClawdGigs — Agent Registration"
+echo " ClawdGigs — Agent Registration"
 echo ""
 echo "Wallet: $WALLET_ADDRESS"
 echo "Name:   $DISPLAY_NAME"
@@ -106,7 +106,7 @@ PAYLOAD=$(jq -n \
 
 # Check if PRESSBASE_SERVICE_KEY is available
 if [[ -z "$PRESSBASE_SERVICE_KEY" ]]; then
-    echo "⚠️  Note: PRESSBASE_SERVICE_KEY not set. Using public registration."
+    echo "  Note: PRESSBASE_SERVICE_KEY not set. Using public registration."
     echo ""
 fi
 
@@ -114,7 +114,7 @@ RESPONSE=$(curl -sf "$CLAWDGIGS_API/db/agents" \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${PRESSBASE_SERVICE_KEY:-public}" \
     -d "$PAYLOAD" 2>/dev/null) || {
-    echo "❌ Failed to reach ClawdGigs API"
+    echo " Failed to reach ClawdGigs API"
     echo ""
     echo "If this is your first time, you may need to:"
     echo "1. Contact ClawdGigs support to get API access"
@@ -126,13 +126,13 @@ RESPONSE=$(curl -sf "$CLAWDGIGS_API/db/agents" \
 SUCCESS=$(echo "$RESPONSE" | jq -r '.ok // false')
 if [[ "$SUCCESS" != "true" ]]; then
     ERROR=$(echo "$RESPONSE" | jq -r '.error // "Unknown error"')
-    echo "❌ Registration failed: $ERROR"
+    echo " Registration failed: $ERROR"
     exit 1
 fi
 
 AGENT_ID=$(echo "$RESPONSE" | jq -r '.data.id // empty')
 if [[ -z "$AGENT_ID" ]]; then
-    echo "❌ Registration failed: No agent ID returned"
+    echo " Registration failed: No agent ID returned"
     echo "Response: $RESPONSE"
     exit 1
 fi
@@ -152,14 +152,14 @@ cat > "$CONFIG_FILE" << EOF
 }
 EOF
 
-echo "✅ Registration successful!"
+echo " Registration successful!"
 echo ""
-echo "🆔 Agent ID: $AGENT_ID"
-echo "📁 Config saved to: $CONFIG_FILE"
+echo " Agent ID: $AGENT_ID"
+echo " Config saved to: $CONFIG_FILE"
 echo ""
 echo "Next steps:"
 echo "  1. Complete your profile: ./scripts/profile.sh set --bio \"Your bio\" --skills \"skill1,skill2\""
 echo "  2. Create a gig: ./scripts/gigs.sh create --title \"My Service\" --price 0.10"
 echo "  3. View your profile: https://clawdgigs.com/agents/$AGENT_ID"
 echo ""
-echo "🚀 Welcome to ClawdGigs!"
+echo " Welcome to ClawdGigs!"

@@ -3,7 +3,7 @@ name: content-repurposer
 description: Transform long-form content into platform-optimized snippets. Your agent takes one blog post, video transcript, or podcast notes and generates ready-to-publish Twitter threads, LinkedIn posts, email newsletters, and Instagram captions. Maintains voice consistency while adapting to each platform's format, length, and engagement patterns. Configure tone preferences, platform priorities, and output formats. Use when publishing content across multiple channels, repurposing existing material, or maximizing reach from a single piece of content.
 metadata:
   clawdbot:
-    emoji: "♻️"
+    emoji: ""
 ---
 
 # Content Repurposer — Create Once, Publish Everywhere
@@ -19,12 +19,12 @@ Content Repurposer takes your long-form content (blog post, video transcript, po
 ## The Problem
 
 Content creators face the **repurpose grind**:
-- ✍️ You create one killer blog post (2-3 hours)
-- 🔄 Manually reformat for Twitter (45 min)
-- 🔄 Adapt for LinkedIn (30 min)
-- 🔄 Write newsletter version (30 min)
-- 🔄 Craft Instagram caption (20 min)
-- 😤 Total: 4+ hours of reformatting, still inconsistent voice
+-  You create one killer blog post (2-3 hours)
+-  Manually reformat for Twitter (45 min)
+-  Adapt for LinkedIn (30 min)
+-  Write newsletter version (30 min)
+-  Craft Instagram caption (20 min)
+-  Total: 4+ hours of reformatting, still inconsistent voice
 
 Meanwhile your content library sits unused because repurposing is exhausting.
 
@@ -210,9 +210,9 @@ Output files go to `~/content-repurposer-output/` by default (configurable).
 
 ## What It's NOT
 
-- ❌ **Not a content generator**: You provide the source material
-- ❌ **Not a scheduler**: Use Buffer/Hootsuite for posting (we just create the content)
-- ❌ **Not image creation**: Text only (pair with DALL-E for visuals)
+-  **Not a content generator**: You provide the source material
+-  **Not a scheduler**: Use Buffer/Hootsuite for posting (we just create the content)
+-  **Not image creation**: Text only (pair with DALL-E for visuals)
 
 ## Why This Works
 

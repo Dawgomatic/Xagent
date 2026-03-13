@@ -52,7 +52,7 @@ export async function login(keypair: Keypair): Promise<string> {
     const signature = nacl.sign.detached(messageBytes, keypair.secretKey);
     const signatureBase58 = bs58.encode(signature);
 
-    console.log("🔐 正在进行 SIWS 签名登录...");
+    console.log(" 正在进行 SIWS 签名登录...");
 
     // 调用 verify 接口
     const resp = await fetch("https://api.trends.fun/v1/siws/verify", {
@@ -89,6 +89,6 @@ export async function login(keypair: Keypair): Promise<string> {
         );
     }
 
-    console.log("✅ 登录成功，获取到 Bearer Token");
+    console.log(" 登录成功，获取到 Bearer Token");
     return result.data.token;
 }

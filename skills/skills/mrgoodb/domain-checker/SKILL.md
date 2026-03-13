@@ -1,7 +1,7 @@
 ---
 name: domain-checker
 description: Check domain name availability across multiple TLDs. Fast bulk checking for domain research and brainstorming.
-metadata: {"clawdbot":{"emoji":"🌐"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Domain Checker
@@ -12,15 +12,15 @@ Check if domains are available for registration.
 
 ```bash
 # Single domain
-whois example.com 2>/dev/null | grep -iE "no match|not found|available|no data found" && echo "✅ AVAILABLE" || echo "❌ TAKEN"
+whois example.com 2>/dev/null | grep -iE "no match|not found|available|no data found" && echo " AVAILABLE" || echo " TAKEN"
 
 # Multiple TLDs at once
 for tld in com ai io co net; do
   result=$(whois "myname.$tld" 2>/dev/null | grep -iE "no match|not found|available|no data found|^No " | head -1)
   if [ -n "$result" ]; then
-    echo "✅ myname.$tld - AVAILABLE"
+    echo " myname.$tld - AVAILABLE"
   else
-    echo "❌ myname.$tld - taken"
+    echo " myname.$tld - taken"
   fi
 done
 ```
@@ -40,9 +40,9 @@ check_domains() {
     # Use timeout to avoid hanging on slow WHOIS servers
     result=$(timeout 5 whois "$domain" 2>/dev/null | grep -iE "no match|not found|available|no data found|^No |status: free" | head -1)
     if [ -n "$result" ]; then
-      echo "✅ $domain"
+      echo " $domain"
     else
-      echo "❌ $domain"
+      echo " $domain"
     fi
   done
 }
@@ -84,7 +84,7 @@ curl -s "https://domainr.p.rapidapi.com/v2/status?domain=example.com" \
   -H "X-RapidAPI-Key: YOUR_KEY"
 
 # Or DNS-based check (not 100% reliable but fast)
-dig +short "$domain" | grep -q . && echo "❌ Has DNS" || echo "🤔 No DNS (might be available)"
+dig +short "$domain" | grep -q . && echo " Has DNS" || echo " No DNS (might be available)"
 ```
 
 ## Tips

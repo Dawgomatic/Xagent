@@ -4,7 +4,7 @@ slug: fishing
 version: 1.0.0
 homepage: https://clawic.com/skills/fishing
 description: Track fishing spots, gear, catches, and conditions with personalized recommendations.
-metadata: {"clawdbot":{"emoji":"🎣","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

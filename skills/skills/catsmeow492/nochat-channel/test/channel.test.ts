@@ -169,7 +169,7 @@ describe("NoChatChannel", () => {
         json: () => Promise.resolve({ ok: true }),
       });
 
-      const result = await channel.react("conv-1", "msg-1", "👍");
+      const result = await channel.react("conv-1", "msg-1", "");
       expect(result.ok).toBe(true);
     });
 

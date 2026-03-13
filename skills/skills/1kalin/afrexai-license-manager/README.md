@@ -25,6 +25,6 @@ Install in OpenClaw, then:
 
 ## More from AfrexAI
 
-- 🛒 [Context Packs](https://afrexai-cto.github.io/context-packs/) — $47/industry, 10 verticals
-- 📊 [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)
-- ⚙️ [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)
+-  [Context Packs](https://afrexai-cto.github.io/context-packs/) — $47/industry, 10 verticals
+-  [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)
+-  [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)

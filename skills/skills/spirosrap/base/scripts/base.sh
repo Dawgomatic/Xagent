@@ -5,7 +5,7 @@
 set -euo pipefail
 
 RPC_URL="https://1rpc.io/base"
-EMOJIS="🟣"
+EMOJIS=""
 
 # Helper function to make JSON-RPC calls
 rpc_call() {
@@ -248,7 +248,7 @@ cmd_tx() {
     echo "${EMOJIS} Transaction Status"
     echo "━━━━━━━━━━━━━━━━━━━━━━━"
     echo "Hash:   $txhash"
-    echo "Status: $([ "$status" = "0x1" ] && echo "✅ Confirmed" || echo "⏳ Pending/Failed")"
+    echo "Status: $([ "$status" = "0x1" ] && echo " Confirmed" || echo " Pending/Failed")"
     echo "Block:  $([[ "$block_number" = "pending" ]] && echo "Pending" || echo "$((block_number))")"
     echo "Gas:    $gas_used_decimal"
 }

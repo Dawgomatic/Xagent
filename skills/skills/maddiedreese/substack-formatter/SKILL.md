@@ -9,10 +9,10 @@ description: Transform plain text into Substack article format with proper HTML 
 Transform plain text into professional Substack format. Handles the technical formatting to ensure bold/italic/headers work correctly when pasted into Substack editor.
 
 ## What This Skill Does
-- ✅ **Formats text for Substack** with proper structure and spacing
-- ✅ **Converts to HTML format** that Substack editor recognizes
-- ✅ **Preserves your content** - only changes visual presentation
-- ✅ **Ensures copy-paste works** with bold, italic, headers, bullets preserved
+-  **Formats text for Substack** with proper structure and spacing
+-  **Converts to HTML format** that Substack editor recognizes
+-  **Preserves your content** - only changes visual presentation
+-  **Ensures copy-paste works** with bold, italic, headers, bullets preserved
 
 ## Technical Solution
 **Problem:** Substack editor treats raw markdown as plain text  

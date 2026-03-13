@@ -1,6 +1,6 @@
 # Frontend Design Ultimate
 
-🎨 Create distinctive, production-grade static sites with React, Tailwind CSS, and shadcn/ui — no mockups needed.
+ Create distinctive, production-grade static sites with React, Tailwind CSS, and shadcn/ui — no mockups needed.
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![ClawHub](https://img.shields.io/badge/ClawHub-frontend--design--ultimate-purple)](https://clawhub.ai/skills/frontend-design-ultimate)
@@ -10,11 +10,11 @@
 An OpenClaw/Claude Code skill that generates bold, memorable web designs from plain text requirements. No Figma, no wireframes — just describe what you want.
 
 **Key Features:**
-- 🚫 **Anti-AI-slop** — Explicit guidance to avoid generic designs (no Inter, no purple gradients, no centered layouts)
-- 📱 **Mobile-first patterns** — Responsive CSS that actually works
-- ⚡ **Two workflows** — Vite (pure static) or Next.js (Vercel deploy)
-- 🧩 **shadcn/ui components** — 10 common components pre-installed, add more with CLI
-- 📦 **Single-file bundling** — Bundle entire sites to one HTML file
+-  **Anti-AI-slop** — Explicit guidance to avoid generic designs (no Inter, no purple gradients, no centered layouts)
+-  **Mobile-first patterns** — Responsive CSS that actually works
+-  **Two workflows** — Vite (pure static) or Next.js (Vercel deploy)
+-  **shadcn/ui components** — 10 common components pre-installed, add more with CLI
+-  **Single-file bundling** — Bundle entire sites to one HTML file
 
 ## Quick Start
 
@@ -113,4 +113,4 @@ Built on the shoulders of:
 
 ---
 
-Made with 🎨 by [Kessler.io](https://kessler.io)
+Made with  by [Kessler.io](https://kessler.io)

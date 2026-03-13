@@ -5,9 +5,9 @@
  * 
  * Usage: 
  *   node setup.js              # Show help
- *   node setup.js --managed    # Generate wallet (always encrypted ✅)
+ *   node setup.js --managed    # Generate wallet (always encrypted )
  * 
- * ⚠️ SECURITY: This is optional! Recommended to use existing wallet via
+ *  SECURITY: This is optional! Recommended to use existing wallet via
  *    environment variable BASEMAIL_PRIVATE_KEY instead.
  */
 
@@ -106,18 +106,18 @@ function encryptPrivateKey(privateKey, password) {
 }
 
 function showHelp() {
-  console.log('🦞 BaseMail Wallet Setup');
+  console.log(' BaseMail Wallet Setup');
   console.log('========================\n');
   
-  console.log('📌 推薦方式：使用環境變數（不需要此腳本）\n');
+  console.log(' 推薦方式：使用環境變數（不需要此腳本）\n');
   console.log('   export BASEMAIL_PRIVATE_KEY="0x你的私鑰"');
   console.log('   node scripts/register.js\n');
   
-  console.log('📌 或指定現有錢包路徑：\n');
+  console.log(' 或指定現有錢包路徑：\n');
   console.log('   node scripts/register.js --wallet /path/to/your/private-key\n');
   
   console.log('─'.repeat(50));
-  console.log('\n⚠️  如果你沒有錢包，可以讓此 Skill 幫你生成：\n');
+  console.log('\n  如果你沒有錢包，可以讓此 Skill 幫你生成：\n');
   console.log('   node setup.js --managed\n');
   console.log('   預設使用密碼加密，私鑰存於 ~/.basemail/private-key.enc');
   console.log('   僅建議對錢包不熟悉的用戶使用\n');
@@ -135,16 +135,16 @@ async function main() {
     process.exit(0);
   }
 
-  console.log('🦞 BaseMail Wallet Setup (Managed Mode)');
+  console.log(' BaseMail Wallet Setup (Managed Mode)');
   console.log('=======================================\n');
 
   // Warning
-  console.log('⚠️  Warning: About to generate a new wallet');
+  console.log('  Warning: About to generate a new wallet');
   console.log('   Private key will be encrypted and stored in ~/.basemail/\n');
 
   // Check if wallet already exists
   if (fs.existsSync(KEY_FILE) || fs.existsSync(KEY_FILE_ENCRYPTED)) {
-    console.log('⚠️  錢包已存在！');
+    console.log('  錢包已存在！');
     if (fs.existsSync(KEY_FILE)) console.log(`   ${KEY_FILE}`);
     if (fs.existsSync(KEY_FILE_ENCRYPTED)) console.log(`   ${KEY_FILE_ENCRYPTED}`);
     
@@ -164,70 +164,70 @@ async function main() {
   // Create config directory
   if (!fs.existsSync(CONFIG_DIR)) {
     fs.mkdirSync(CONFIG_DIR, { recursive: true, mode: 0o700 });
-    console.log(`\n📁 建立目錄 ${CONFIG_DIR}`);
+    console.log(`\n 建立目錄 ${CONFIG_DIR}`);
   }
 
   // Generate new wallet
-  console.log('\n🔐 生成新錢包...\n');
+  console.log('\n 生成新錢包...\n');
   const wallet = ethers.Wallet.createRandom();
 
   console.log('═'.repeat(50));
-  console.log('🎉 新錢包已建立');
+  console.log(' 新錢包已建立');
   console.log('═'.repeat(50));
-  console.log(`\n📍 地址: ${wallet.address}`);
+  console.log(`\n 地址: ${wallet.address}`);
   
-  // ❌ 不輸出私鑰到終端！
-  // ❌ 不輸出 mnemonic 到終端！
+  //  不輸出私鑰到終端！
+  //  不輸出 mnemonic 到終端！
   
   // Always encrypt
   const password = await promptPassword('\nSet encryption password (min 8 chars, letter + number): ');
   const confirmPwd = await promptPassword('Confirm password: ');
   
   if (password !== confirmPwd) {
-    console.error('❌ Passwords do not match');
+    console.error(' Passwords do not match');
     process.exit(1);
   }
   
   if (password.length < 8) {
-    console.error('❌ Password must be at least 8 characters');
+    console.error(' Password must be at least 8 characters');
     process.exit(1);
   }
   
   if (!/[a-zA-Z]/.test(password) || !/[0-9]/.test(password)) {
-    console.error('❌ Password must contain at least one letter and one number');
+    console.error(' Password must contain at least one letter and one number');
     process.exit(1);
   }
   
   const encryptedData = encryptPrivateKey(wallet.privateKey, password);
   fs.writeFileSync(KEY_FILE_ENCRYPTED, JSON.stringify(encryptedData, null, 2), { mode: 0o600 });
-  console.log(`\n🔐 Encrypted private key saved to: ${KEY_FILE_ENCRYPTED}`);
+  console.log(`\n Encrypted private key saved to: ${KEY_FILE_ENCRYPTED}`);
   
   // Remove legacy plaintext key if exists
   if (fs.existsSync(KEY_FILE)) {
     // Overwrite before deleting for security
     fs.writeFileSync(KEY_FILE, crypto.randomBytes(64).toString('hex'), { mode: 0o600 });
     fs.unlinkSync(KEY_FILE);
-    console.log('🗑️  Legacy plaintext key securely removed');
+    console.log('  Legacy plaintext key securely removed');
   }
   
   // Remove legacy mnemonic file if exists
   if (fs.existsSync(MNEMONIC_FILE)) {
     fs.writeFileSync(MNEMONIC_FILE, crypto.randomBytes(64).toString('hex'), { mode: 0o600 });
     fs.unlinkSync(MNEMONIC_FILE);
-    console.log('🗑️  Legacy mnemonic file securely removed');
+    console.log('  Legacy mnemonic file securely removed');
   }
 
   // Display mnemonic for manual backup (NOT saved to file automatically)
   console.log('\n' + '═'.repeat(50));
-  console.log('📝 重要：請立即備份你的 Mnemonic（助記詞）');
+  console.log(' 重要：請立即備份你的 Mnemonic（助記詞）');
   console.log('═'.repeat(50));
   console.log('\n' + wallet.mnemonic.phrase + '\n');
   console.log('═'.repeat(50));
-  console.log('⚠️  這是唯一一次顯示！請抄寫或安全儲存');
-  console.log('⚠️  遺失助記詞將無法恢復錢包');
+  console.log('  這是唯一一次顯示！請抄寫或安全儲存');
+  console.log('  遺失助記詞將無法恢復錢包');
   console.log('═'.repeat(50));
   
-  console.log('📝 Mnemonic will NOT be saved to disk. Please back it up manually now.');
+  console.log(' Mnemonic will NOT be saved to disk. Please back it up manually now.');
   
   // Save wallet info (public only)
   const walletInfo = {
@@ -242,7 +242,7 @@ async function main() {
   logAudit('wallet_created', { wallet: wallet.address, success: true });
 
   console.log('\n' + '═'.repeat(50));
-  console.log('\n⚠️  重要安全提醒：');
+  console.log('\n  重要安全提醒：');
   console.log('   1. 請立即備份 mnemonic 檔案到安全的地方');
   console.log('   2. 備份後建議刪除 mnemonic 檔案');
   console.log('   3. 永遠不要分享你的私鑰或 mnemonic');
@@ -250,14 +250,14 @@ async function main() {
     console.log('   4. 請牢記你的加密密碼，遺失將無法恢復');
   }
 
-  console.log('\n📋 下一步：');
+  console.log('\n 下一步：');
   console.log('   node scripts/register.js');
   console.log('   (選填) 到 https://www.base.org/names 取得 Basename');
 
-  console.log('\n🦞 設定完成！');
+  console.log('\n 設定完成！');
 }
 
 main().catch(err => {
-  console.error('❌ 錯誤:', err.message);
+  console.error(' 錯誤:', err.message);
   process.exit(1);
 });

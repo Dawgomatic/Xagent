@@ -2,7 +2,7 @@
 name: footballbin-predictions
 description: Get AI-powered match predictions for Premier League and Champions League including scores, next goal, and corners.
 homepage: https://apps.apple.com/app/footballbin/id6757111871
-metadata: {"clawdbot":{"emoji":"⚽","requires":{"bins":["curl","jq"]},"files":["scripts/*"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq"]},"files":["scripts/*"]}}
 ---
 
 # FootballBin Match Predictions

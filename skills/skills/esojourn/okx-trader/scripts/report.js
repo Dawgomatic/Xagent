@@ -88,19 +88,19 @@ async function runReport() {
         };
 
         const gridLabels = {
-            main: '🐋 **大网格 BTC (0.002 BTC)**',
-            micro: '🌀 **小网格 BTC (0.0003 BTC)**',
-            eth_micro: '💎 **小网格 ETH (0.01 ETH)**'
+            main: ' **大网格 BTC (0.002 BTC)**',
+            micro: ' **小网格 BTC (0.0003 BTC)**',
+            eth_micro: ' **小网格 ETH (0.01 ETH)**'
         };
 
         const now = new Date();
         const timeStr = now.toISOString().replace('T', ' ').substring(0, 19);
 
-        let output = `📊 **OKX 网格策略报表 (${timeStr} UTC)**\n\n`;
+        let output = ` **OKX 网格策略报表 (${timeStr} UTC)**\n\n`;
 
         // Output stats per grid
         for (const [key, s] of Object.entries(gridTypes)) {
-            const label = gridLabels[key] || `📌 **${key} (${s.instId})**`;
+            const label = gridLabels[key] || ` **${key} (${s.instId})**`;
             output += `${label}\n${formatStats(s)}\n\n`;
         }
 
@@ -110,9 +110,9 @@ async function runReport() {
             const buyOrders = pending.filter(o => o.side === 'buy').sort((a, b) => parseFloat(b.px) - parseFloat(a.px));
             const sellOrders = pending.filter(o => o.side === 'sell').sort((a, b) => parseFloat(a.px) - parseFloat(b.px));
 
-            output += `📝 **${instId} 挂单 (${pending.length} 笔):**\n`;
-            output += `📈 *卖单 (Top 3):* ${sellOrders.slice(0, 3).map(o => `${parseFloat(o.px).toFixed(0)}(${o.sz})`).join(', ')}\n`;
-            output += `📉 *买单 (Top 3):* ${buyOrders.slice(0, 3).map(o => `${parseFloat(o.px).toFixed(0)}(${o.sz})`).join(', ')}\n\n`;
+            output += ` **${instId} 挂单 (${pending.length} 笔):**\n`;
+            output += ` *卖单 (Top 3):* ${sellOrders.slice(0, 3).map(o => `${parseFloat(o.px).toFixed(0)}(${o.sz})`).join(', ')}\n`;
+            output += ` *买单 (Top 3):* ${buyOrders.slice(0, 3).map(o => `${parseFloat(o.px).toFixed(0)}(${o.sz})`).join(', ')}\n\n`;
         }
 
         output += `(注: OKX-Trader Skill 自动生成)`;

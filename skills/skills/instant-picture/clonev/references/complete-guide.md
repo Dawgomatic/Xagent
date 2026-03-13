@@ -140,7 +140,7 @@ cp /tmp/clonev_output.ogg "$OUTPUT"
 
 | Feature | Piper | Coqui TTS | CloneV (XTTS) |
 |---------|-------|-----------|---------------|
-| Voice cloning | ❌ No | ❌ No | ✅ Yes |
+| Voice cloning |  No |  No |  Yes |
 | Quality | Medium | High | Very High |
 | Multi-lingual | Limited | Yes | Yes (14+) |
 | Personalization | No | No | Yes |
@@ -149,14 +149,14 @@ cp /tmp/clonev_output.ogg "$OUTPUT"
 
 ## Ethical Considerations
 
-⚠️ **Important**: Use voice cloning responsibly
+ **Important**: Use voice cloning responsibly
 
-- ✅ **Do**: Clone your own voice
-- ✅ **Do**: Clone with explicit permission
-- ✅ **Do**: Use for personal productivity
-- ❌ **Don't**: Clone without consent
-- ❌ **Don't**: Use for deception/fraud
-- ❌ **Don't**: Impersonate others maliciously
+-  **Do**: Clone your own voice
+-  **Do**: Clone with explicit permission
+-  **Do**: Use for personal productivity
+-  **Don't**: Clone without consent
+-  **Don't**: Use for deception/fraud
+-  **Don't**: Impersonate others maliciously
 
 ## Troubleshooting Deep Dive
 

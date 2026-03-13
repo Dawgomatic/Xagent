@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * moltbook-cli - The social network for AI agents
- * Built by MoltyChief 🦉
+ * Built by MoltyChief 
  */
 
 import { Command } from 'commander';
@@ -32,14 +32,14 @@ function getApiKey(): string {
     }
   }
 
-  console.error(chalk.red('❌ No API key found.'));
+  console.error(chalk.red(' No API key found.'));
   console.error(chalk.dim('Set MOLTBOOK_API_KEY env var or create ~/.config/moltbook/credentials.json'));
   process.exit(1);
 }
 
 function formatPost(post: Post, detailed = false): string {
-  const karma = chalk.yellow(`⬆${post.upvotes}`);
-  const comments = chalk.cyan(`💬${post.comment_count}`);
+  const karma = chalk.yellow(`${post.upvotes}`);
+  const comments = chalk.cyan(`${post.comment_count}`);
   const submolt = chalk.blue(`/m/${post.submolt.name}`);
   const author = chalk.green(`@${post.author.name}`);
   const time = new Date(post.created_at).toLocaleDateString();
@@ -57,7 +57,7 @@ function formatPost(post: Post, detailed = false): string {
 
 function formatComment(comment: Comment, indent = 0): string {
   const prefix = '  '.repeat(indent);
-  const karma = chalk.yellow(`⬆${comment.upvotes ?? 0}`);
+  const karma = chalk.yellow(`${comment.upvotes ?? 0}`);
   const authorName = comment.author?.name ?? 'unknown';
   const author = chalk.green(`@${authorName}`);
   const time = comment.created_at ? new Date(comment.created_at).toLocaleDateString() : 'just now';
@@ -69,7 +69,7 @@ const program = new Command();
 
 program
   .name('moltbook')
-  .description('🦞 CLI for Moltbook - the social network for AI agents')
+  .description(' CLI for Moltbook - the social network for AI agents')
   .version(VERSION);
 
 // Who am I?
@@ -83,16 +83,16 @@ program
       const { agent } = await api.getMe();
       spinner.stop();
 
-      console.log(chalk.bold.cyan(`\n🦞 ${agent.name}`));
+      console.log(chalk.bold.cyan(`\n ${agent.name}`));
       console.log(chalk.dim(agent.description));
       console.log();
-      console.log(chalk.yellow(`⭐ Karma: ${agent.karma}`));
+      console.log(chalk.yellow(` Karma: ${agent.karma}`));
       if (agent.stats) {
-        console.log(chalk.blue(`📝 Posts: ${agent.stats.posts}`));
-        console.log(chalk.green(`💬 Comments: ${agent.stats.comments}`));
-        console.log(chalk.magenta(`📌 Subscriptions: ${agent.stats.subscriptions}`));
+        console.log(chalk.blue(` Posts: ${agent.stats.posts}`));
+        console.log(chalk.green(` Comments: ${agent.stats.comments}`));
+        console.log(chalk.magenta(` Subscriptions: ${agent.stats.subscriptions}`));
       }
-      console.log(chalk.dim(`\nClaimed: ${agent.is_claimed ? '✅' : '❌'}`));
+      console.log(chalk.dim(`\nClaimed: ${agent.is_claimed ? '' : ''}`));
     } catch (error) {
       spinner.fail('Failed to fetch profile');
       console.error(chalk.red(String(error)));
@@ -122,12 +122,12 @@ program
         const result = await api.getPersonalizedFeed(options.sort, parseInt(options.limit));
         posts = result.posts;
         spinner.stop();
-        console.log(chalk.bold.cyan('\n📬 Your Feed\n'));
+        console.log(chalk.bold.cyan('\n Your Feed\n'));
       } else {
         const result = await api.getFeed(options.sort, parseInt(options.limit));
         posts = result.posts;
         spinner.stop();
-        console.log(chalk.bold.cyan(`\n🔥 ${options.sort.charAt(0).toUpperCase() + options.sort.slice(1)} Posts\n`));
+        console.log(chalk.bold.cyan(`\n ${options.sort.charAt(0).toUpperCase() + options.sort.slice(1)} Posts\n`));
       }
 
       posts.forEach((post, i) => {
@@ -191,7 +191,7 @@ program
           commentsSpinner.stop();
           const limit = parseInt(options.limit);
           const displayComments = comments.slice(0, limit);
-          console.log(chalk.bold.cyan(`\n💬 Comments (showing ${displayComments.length} of ${post.comment_count}):\n`));
+          console.log(chalk.bold.cyan(`\n Comments (showing ${displayComments.length} of ${post.comment_count}):\n`));
           displayComments.forEach((comment) => {
             console.log(formatComment(comment));
             console.log();
@@ -219,7 +219,7 @@ program
     try {
       const api = new MoltbookAPI(getApiKey());
       await api.upvotePost(postId);
-      spinner.succeed(chalk.green('Upvoted! 🦞'));
+      spinner.succeed(chalk.green('Upvoted! '));
     } catch (error) {
       spinner.fail('Failed to upvote');
       console.error(chalk.red(String(error)));
@@ -275,7 +275,7 @@ program
       const { submolts } = await api.listSubmolts();
       spinner.stop();
 
-      console.log(chalk.bold.cyan('\n🦞 Submolts\n'));
+      console.log(chalk.bold.cyan('\n Submolts\n'));
 
       const sorted = submolts
         .sort((a, b) => b.subscriber_count - a.subscriber_count)
@@ -338,11 +338,11 @@ program
       const { agent } = await api.getAgent(name);
       spinner.stop();
 
-      console.log(chalk.bold.cyan(`\n🦞 ${agent.name}`));
+      console.log(chalk.bold.cyan(`\n ${agent.name}`));
       console.log(chalk.dim(agent.description));
       console.log();
-      console.log(chalk.yellow(`⭐ Karma: ${agent.karma}`));
-      console.log(chalk.dim(`Claimed: ${agent.is_claimed ? '✅' : '❌'}`));
+      console.log(chalk.yellow(` Karma: ${agent.karma}`));
+      console.log(chalk.dim(`Claimed: ${agent.is_claimed ? '' : ''}`));
       console.log(chalk.dim(`\nProfile: https://www.moltbook.com/u/${agent.name}`));
     } catch (error) {
       spinner.fail('Failed to load profile');

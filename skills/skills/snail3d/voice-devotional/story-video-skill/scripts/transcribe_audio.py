@@ -52,14 +52,14 @@ def main():
     
     args = parser.parse_args()
     
-    print(f"🎵 Transcribing: {args.audio}")
+    print(f" Transcribing: {args.audio}")
     result = transcribe_with_groq(args.audio)
     
     # Save result
     with open(args.output, "w") as f:
         json.dump(result, f, indent=2)
     
-    print(f"✅ Transcription saved: {args.output}")
+    print(f" Transcription saved: {args.output}")
     print(f"   Words: {len(result.get('words', []))}")
 
 if __name__ == "__main__":

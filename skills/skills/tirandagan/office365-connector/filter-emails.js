@@ -11,7 +11,7 @@ getRecent(30).then(emails => {
   
   recentEmails.forEach(e => {
     const date = new Date(e.receivedDateTime);
-    const isUnread = e.isRead === false ? '🔵 ' : '';
+    const isUnread = e.isRead === false ? ' ' : '';
     const from = e.from?.emailAddress?.name || e.from?.emailAddress?.address || 'Unknown';
     
     console.log(`${isUnread}${e.subject}`);

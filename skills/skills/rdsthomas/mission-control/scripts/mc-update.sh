@@ -254,7 +254,7 @@ for t in data['tasks']:
     if t['id'] == task_id:
         # Check if already being processed
         if t.get('processingStartedAt'):
-            print(f'⚠ Task \"{t[\"title\"]}\" is already being processed since {t[\"processingStartedAt\"]}')
+            print(f' Task \"{t[\"title\"]}\" is already being processed since {t[\"processingStartedAt\"]}')
             sys.exit(1)
         
         # Set processing timestamp
@@ -267,7 +267,7 @@ for t in data['tasks']:
         comment = {
             'id': f'c_{int(datetime.now().timestamp()*1000)}',
             'author': 'MoltBot',
-            'text': '🤖 Processing started',
+            'text': ' Processing started',
             'createdAt': now
         }
         t['comments'].append(comment)

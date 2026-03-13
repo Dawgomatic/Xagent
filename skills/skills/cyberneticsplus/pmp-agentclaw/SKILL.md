@@ -5,7 +5,7 @@ description: AI project management assistant for planning, tracking, and managin
 
 user-invocable: true
 disable-model-invocation: false
-metadata: {"openclaw": {"emoji": "📊", "requires": {"bins": ["node"]}, "install": [{"id": "pmp-agent-install", "kind": "download", "label": "Install Project Management skill"}]}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["node"]}, "install": [{"id": "pmp-agent-install", "kind": "download", "label": "Install Project Management skill"}]}}
 ---
 
 # PMP-Agentclaw: AI Project Management Assistant

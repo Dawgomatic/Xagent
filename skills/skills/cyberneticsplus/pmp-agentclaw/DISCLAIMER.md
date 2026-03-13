@@ -23,16 +23,16 @@ PMP-Agentclaw implements general project management concepts that are:
 ### What's Different
 
 We do **NOT**:
-- ❌ Reproduce PMBOK Guide content
-- ❌ Claim PMP certification
-- ❌ Use PMI trademarks or logos
-- ❌ Copy text from PMI publications
+-  Reproduce PMBOK Guide content
+-  Claim PMP certification
+-  Use PMI trademarks or logos
+-  Copy text from PMI publications
 
 We **DO**:
-- ✅ Implement public-domain EVM formulas (BAC, PV, EV, AC, CPI, SPI)
-- ✅ Use generic project management terms
-- ✅ Reference open Agile/Scrum practices
-- ✅ Create original templates and code
+-  Implement public-domain EVM formulas (BAC, PV, EV, AC, CPI, SPI)
+-  Use generic project management terms
+-  Reference open Agile/Scrum practices
+-  Create original templates and code
 
 ### Academic References
 
@@ -43,16 +43,16 @@ Our EVM calculations are based on:
 
 ### Trademarks
 
-- **PMP**® is a registered trademark of Project Management Institute, Inc.
-- **PMBOK**® is a registered trademark of Project Management Institute, Inc.
-- **PMI**® is a registered trademark of Project Management Institute, Inc.
-- **PMI-ACP**® is a registered trademark of Project Management Institute, Inc.
+- **PMP** is a registered trademark of Project Management Institute, Inc.
+- **PMBOK** is a registered trademark of Project Management Institute, Inc.
+- **PMI** is a registered trademark of Project Management Institute, Inc.
+- **PMI-ACP** is a registered trademark of Project Management Institute, Inc.
 
 ### License
 
 MIT License — See package.json for full license text.
 
-Copyright © 2026 CyberneticsPlus
+Copyright  2026 CyberneticsPlus
 
 ---
 

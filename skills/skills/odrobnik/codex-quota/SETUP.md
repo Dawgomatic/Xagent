@@ -16,7 +16,7 @@ The skill reads from:
 - `~/.codex/sessions/` — Codex session logs containing rate limit data
 - `~/.codex/auth.json` — Current Codex authentication (for `--fresh` option)
 
-⚠️ With `--all --yes`, the skill temporarily overwrites `~/.codex/auth.json` to switch between accounts (restored afterwards). Ensure you have saved accounts via the `codex-account-switcher` skill first.
+ With `--all --yes`, the skill temporarily overwrites `~/.codex/auth.json` to switch between accounts (restored afterwards). Ensure you have saved accounts via the `codex-account-switcher` skill first.
 
 ## Configuration
 

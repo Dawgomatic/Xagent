@@ -36,7 +36,7 @@ for (const file of files) {
 }
 
 if (!booking) {
-  console.error(`❌ Booking not found: ${bookingId}`);
+  console.error(` Booking not found: ${bookingId}`);
   process.exit(1);
 }
 
@@ -45,12 +45,12 @@ const index = bookings.findIndex(b => b.id === bookingId);
 bookings.splice(index, 1);
 fs.writeFileSync(bookingFile, JSON.stringify(bookings, null, 2));
 
-console.log('✅ Booking cancelled:');
+console.log(' Booking cancelled:');
 console.log(JSON.stringify(booking, null, 2));
 
 // Notify waitlist if requested
 if (notifyWaitlist) {
-  console.log('\n📋 Checking waitlist...');
+  console.log('\n Checking waitlist...');
   const { execSync } = require('child_process');
   const scriptPath = path.join(__dirname, 'waitlist.js');
   
@@ -60,7 +60,7 @@ if (notifyWaitlist) {
     });
     console.log(output);
   } catch (error) {
-    console.log('ℹ️  No waitlist to notify or notification failed');
+    console.log('  No waitlist to notify or notification failed');
   }
 }
 

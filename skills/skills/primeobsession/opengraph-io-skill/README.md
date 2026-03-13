@@ -16,12 +16,12 @@
 
 A [Clawdbot](https://github.com/clawdbot/clawdbot) skill that gives your AI assistant the power to:
 
-- 🔗 **Extract OpenGraph data** — Get titles, descriptions, images from any URL
-- 📸 **Capture screenshots** — Render webpages as images
-- 🌐 **Scrape content** — Fetch HTML with JavaScript rendering
-- 🔍 **Extract elements** — Pull specific HTML elements (h1, p, etc.)
-- 🤖 **Query pages** — Ask AI questions about any webpage
-- 🎨 **Generate images** — Create diagrams, icons, social cards, QR codes
+-  **Extract OpenGraph data** — Get titles, descriptions, images from any URL
+-  **Capture screenshots** — Render webpages as images
+-  **Scrape content** — Fetch HTML with JavaScript rendering
+-  **Extract elements** — Pull specific HTML elements (h1, p, etc.)
+-  **Query pages** — Ask AI questions about any webpage
+-  **Generate images** — Create diagrams, icons, social cards, QR codes
 
 ## Quick Start
 
@@ -152,11 +152,11 @@ Assistant: [fetches full HTML content via residential proxy, returns page data]
 
 | Feature | Free Tier | Paid Plans |
 |---------|-----------|------------|
-| Web extraction (unfurl, scrape, screenshot) | ✅ 100/month | Unlimited |
-| AI Query | ❌ | ✅ |
-| **Image Generation** | ✅ **4/month** | Unlimited |
+| Web extraction (unfurl, scrape, screenshot) |  100/month | Unlimited |
+| AI Query |  |  |
+| **Image Generation** |  **4/month** | Unlimited |
 
-> **🎉 Try it free!** Get 4 premium image generations per month — no credit card required. [Sign up →](https://dashboard.opengraph.io/register)
+> ** Try it free!** Get 4 premium image generations per month — no credit card required. [Sign up →](https://dashboard.opengraph.io/register)
 
 ### Paid Plans
 
@@ -260,9 +260,9 @@ See [examples/EXAMPLES.md](examples/EXAMPLES.md) for more prompts, settings, and
 
 ## Support
 
-- 📖 [OpenGraph.io Documentation](https://www.opengraph.io/documentation)
-- 💬 [Clawdbot Discord](https://discord.com/invite/clawd)
-- 🐛 [Report Issues](https://github.com/securecoders/opengraph-io-skill/issues)
+-  [OpenGraph.io Documentation](https://www.opengraph.io/documentation)
+-  [Clawdbot Discord](https://discord.com/invite/clawd)
+-  [Report Issues](https://github.com/securecoders/opengraph-io-skill/issues)
 
 ## License
 
@@ -271,5 +271,5 @@ MIT
 ---
 
 <p align="center">
-  Made with 🎯 by <a href="https://securecoders.com">SecureCoders</a>
+  Made with  by <a href="https://securecoders.com">SecureCoders</a>
 </p>

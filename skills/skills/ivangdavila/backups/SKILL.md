@@ -1,7 +1,7 @@
 ---
 name: Backup
 description: Implement reliable backup strategies avoiding data loss, failed restores, and security gaps.
-metadata: {"clawdbot":{"emoji":"💾","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## The Only Rule That Matters

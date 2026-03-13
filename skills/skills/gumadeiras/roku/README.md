@@ -4,11 +4,11 @@ A pure Bash CLI to control your Roku from the terminal. Built on [python-roku](h
 
 ## Features
 
-- 🔍 **Discover** Roku devices on your network
-- 🎮 **Control** playback and navigation
-- ⌨️ **Text entry** for search fields
-- 📱 **Launch** apps by name or ID
-- 📊 **Status** monitoring (active app, device info)
+-  **Discover** Roku devices on your network
+-  **Control** playback and navigation
+-  **Text entry** for search fields
+-  **Launch** apps by name or ID
+-  **Status** monitoring (active app, device info)
 
 ## Requirements
 
@@ -112,4 +112,4 @@ MIT
 
 ---
 
-Built with ❤️ using [python-roku](https://github.com/jcarbaugh/python-roku)
+Built with  using [python-roku](https://github.com/jcarbaugh/python-roku)

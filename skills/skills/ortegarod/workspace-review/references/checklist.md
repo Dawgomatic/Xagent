@@ -59,7 +59,7 @@ Quick-reference for periodic audits.
 
 ## Git Status
 
-**⚠️ Workspace is PRIVATE — never push to GitHub**
+** Workspace is PRIVATE — never push to GitHub**
 
 - [ ] No public remote configured
 - [ ] Working tree clean (or intentionally dirty)

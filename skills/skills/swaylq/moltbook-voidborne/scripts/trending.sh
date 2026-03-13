@@ -13,7 +13,7 @@ if (posts.error) {
     process.exit(1);
 }
 posts.forEach((p, i) => {
-    console.log(\`\${i+1}. [\${p.upvotes}⬆] \${p.title}\`);
+    console.log(\`\${i+1}. [\${p.upvotes}] \${p.title}\`);
     console.log(\`   by @\${p.author} in \${p.submolt} | \${p.comments} comments\`);
     console.log(\`   ID: \${p.id}\`);
     console.log();

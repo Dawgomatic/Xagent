@@ -163,13 +163,13 @@ launchctl unload ~/Library/LaunchAgents/com.openclaw.healthcheck.plist
 
 **알림 형식:**
 ```
-🚨 긴급: OpenClaw 자가복구 실패
+ 긴급: OpenClaw 자가복구 실패
 
 시간: YYYY-MM-DD-HHMM
 상태:
-- Level 1 (Watchdog) ❌
-- Level 2 (Health Check) ❌  
-- Level 3 (Claude Recovery) ❌
+- Level 1 (Watchdog) 
+- Level 2 (Health Check)   
+- Level 3 (Claude Recovery) 
 
 수동 개입 필요합니다.
 
@@ -265,9 +265,9 @@ cat > ~/openclaw/memory/emergency-recovery-test-$(date +%Y-%m-%d-%H%M).log << 'E
 [2026-02-05 20:30:00] Gateway still unhealthy after Claude recovery (HTTP 500)
 
 === MANUAL INTERVENTION REQUIRED ===
-Level 1 (Watchdog) ❌
-Level 2 (Health Check) ❌
-Level 3 (Claude Recovery) ❌
+Level 1 (Watchdog) 
+Level 2 (Health Check) 
+Level 3 (Claude Recovery) 
 EOF
 
 # Monitor 스크립트 실행 (또는 크론 대기)

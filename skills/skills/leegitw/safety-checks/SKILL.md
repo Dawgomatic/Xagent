@@ -142,7 +142,7 @@ model:
 | Condition | Result |
 |-----------|--------|
 | Version matches | ✓ Pinned |
-| Version differs, strict=false | ⚠ Warning |
+| Version differs, strict=false |  Warning |
 | Version differs, strict=true | ✗ Fail |
 
 ### Fallback Chain Validation
@@ -167,7 +167,7 @@ Prevents use of outdated cached data:
 | Age | TTL | Status |
 |-----|-----|--------|
 | < TTL | Any | ✓ Fresh |
-| > TTL | Not critical | ⚠ Stale warning |
+| > TTL | Not critical |  Stale warning |
 | > TTL | Critical | ✗ Stale fail |
 
 ### Cross-Session State
@@ -241,7 +241,7 @@ Storage Chain:
 
 ```
 [CACHE CHECK]
-Status: ⚠ STALE ENTRIES FOUND
+Status:  STALE ENTRIES FOUND
 
 Cache Statistics:
   Total entries: 156
@@ -361,7 +361,7 @@ These checks should run periodically via HEARTBEAT:
 ```
 /sc model --strict
 [MODEL CHECK]
-Status: ⚠ VERSION DRIFT
+Status:  VERSION DRIFT
 
 Expected: anthropic-opus-4-5-20251101
 Actual:   anthropic-opus-4-5-20260101

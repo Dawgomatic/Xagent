@@ -1,7 +1,7 @@
 # Credential Manager Skill
 
-**Status:** ✅ Production Ready  
-**Category:** 🔒 Core Security Infrastructure  
+**Status:**  Production Ready  
+**Category:**  Core Security Infrastructure  
 **Package:** `credential-manager.skill`  
 **Version:** 1.3.0
 
@@ -14,12 +14,12 @@ This skill consolidates scattered API keys and credentials into a secure, centra
 ## Why This Matters
 
 Scattered credentials = scattered attack surface. One `.env` file with proper permissions is:
-- ✅ Easier to secure (one file, one permission)
-- ✅ Easier to audit (one location to check)
-- ✅ Easier to rotate (update once, everywhere works)
-- ✅ Harder to leak (git-ignored by default)
+-  Easier to secure (one file, one permission)
+-  Easier to audit (one location to check)
+-  Easier to rotate (update once, everywhere works)
+-  Harder to leak (git-ignored by default)
 
-## 🎯 The Consolidation Rule (v1.3.0)
+##  The Consolidation Rule (v1.3.0)
 
 **ALL credentials MUST be in `~/.openclaw/.env` ONLY.**
 
@@ -40,7 +40,7 @@ This skill now actively **enforces** this rule by:
 
 See `CONSOLIDATION-RULE.md` and `CORE-PRINCIPLE.md` for full rationale.
 
-## 🔐 Crypto-Specific Detection (New in v1.2.0)
+##  Crypto-Specific Detection (New in v1.2.0)
 
 Enhanced detection for blockchain and cryptocurrency credentials:
 
@@ -121,12 +121,12 @@ See `references/supported-services.md` for the full list.
 
 ## Security Features
 
-✅ **File permissions** - Sets .env to mode 600 (owner only)  
-✅ **Git protection** - Creates/updates .gitignore  
-✅ **Backups** - Timestamped backups before changes  
-✅ **Validation** - Checks format, permissions, duplicates  
-✅ **Template** - Creates .env.example (safe to share)  
-✅ **Documentation** - Comprehensive security guide
+ **File permissions** - Sets .env to mode 600 (owner only)  
+ **Git protection** - Creates/updates .gitignore  
+ **Backups** - Timestamped backups before changes  
+ **Validation** - Checks format, permissions, duplicates  
+ **Template** - Creates .env.example (safe to share)  
+ **Documentation** - Comprehensive security guide
 
 ## Usage Examples
 
@@ -171,14 +171,14 @@ See `references/supported-services.md` for the full list.
 
 The skill has been tested on the current OpenClaw installation and successfully:
 
-- ✅ Scans existing .env file and workspace directories
-- ✅ Detects scattered .env files in skills/scripts/workspace
-- ✅ Consolidates credentials with backup
-- ✅ Validates format (23 keys found after consolidation)
-- ✅ Validates permissions (600)
-- ✅ Validates .gitignore protection
-- ✅ No security warnings
-- ✅ Enforces consolidation rule (root .env only)
+-  Scans existing .env file and workspace directories
+-  Detects scattered .env files in skills/scripts/workspace
+-  Consolidates credentials with backup
+-  Validates format (23 keys found after consolidation)
+-  Validates permissions (600)
+-  Validates .gitignore protection
+-  No security warnings
+-  Enforces consolidation rule (root .env only)
 
 ## Distribution
 
@@ -224,4 +224,4 @@ Part of the OpenClaw project.
 
 **Created:** 2026-02-05  
 **Author:** Mr. Tee (OpenClaw Agent)  
-**Tested:** ✅ Production Ready
+**Tested:**  Production Ready

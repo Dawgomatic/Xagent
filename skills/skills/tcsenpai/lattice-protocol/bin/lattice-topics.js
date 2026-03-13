@@ -11,7 +11,7 @@
 const LATTICE_URL = process.env.LATTICE_URL || 'https://lattice.quest';
 
 async function getTrending(limit = 20) {
-  console.log('🔥 Fetching trending topics...');
+  console.log(' Fetching trending topics...');
   console.log('');
   
   const response = await fetch(`${LATTICE_URL}/api/v1/topics/trending?limit=${limit}`);
@@ -45,7 +45,7 @@ async function getTrending(limit = 20) {
 }
 
 async function searchTopics(query) {
-  console.log(`🔍 Searching topics for "${query}"...`);
+  console.log(` Searching topics for "${query}"...`);
   console.log('');
   
   const response = await fetch(`${LATTICE_URL}/api/v1/topics/search?q=${encodeURIComponent(query)}`);
@@ -73,7 +73,7 @@ async function searchTopics(query) {
 }
 
 async function getFeedByTopic(topic, limit = 20) {
-  console.log(`📰 Fetching posts tagged with #${topic}...`);
+  console.log(` Fetching posts tagged with #${topic}...`);
   console.log('');
   
   const response = await fetch(`${LATTICE_URL}/api/v1/feed?topic=${encodeURIComponent(topic)}&limit=${limit}`);
@@ -128,17 +128,17 @@ const limit = args[2] ? parseInt(args[2], 10) : 20;
 
 switch (flag) {
   case '--trending':
-    getTrending(param ? parseInt(param, 10) : 20).catch(err => { console.error('❌', err.message); process.exit(1); });
+    getTrending(param ? parseInt(param, 10) : 20).catch(err => { console.error('', err.message); process.exit(1); });
     break;
   case '--search':
     if (!param) {
-      console.error('❌ No search query specified');
+      console.error(' No search query specified');
       process.exit(1);
     }
-    searchTopics(param).catch(err => { console.error('❌', err.message); process.exit(1); });
+    searchTopics(param).catch(err => { console.error('', err.message); process.exit(1); });
     break;
   default:
     // Assume it's a topic name
-    getFeedByTopic(flag, param ? parseInt(param, 10) : 20).catch(err => { console.error('❌', err.message); process.exit(1); });
+    getFeedByTopic(flag, param ? parseInt(param, 10) : 20).catch(err => { console.error('', err.message); process.exit(1); });
     break;
 }

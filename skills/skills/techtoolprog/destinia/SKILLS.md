@@ -42,7 +42,7 @@ The configuration you should as is this:
 
 Alternatively you can ask openclaw to setup the mcp by itself using a prompt.
 
-⚠️⚠️⚠️ Replace `<api_key>` with you api key before executing the prompt ⚠️⚠️⚠️
+ Replace `<api_key>` with you api key before executing the prompt 
 
 You can use a prompt like the following and openclaw will do all the magic for you:
 

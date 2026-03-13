@@ -1,4 +1,4 @@
-# Agent Trust Validator 🛡️
+# Agent Trust Validator 
 
 Verify agent credentials across multiple trust protocols and get a unified trust score.
 
@@ -20,10 +20,10 @@ python3 scripts/verify-agent.py --audit audit.json
 
 ## Features
 
-✅ **Multi-protocol** — ERC-8004, ANS, DID (planned)  
-✅ **Trust scoring** — Aggregates signals with custom weights  
-✅ **Audit trail** — Logs all verification attempts  
-✅ **Local-only** — No private keys stored  
+ **Multi-protocol** — ERC-8004, ANS, DID (planned)  
+ **Trust scoring** — Aggregates signals with custom weights  
+ **Audit trail** — Logs all verification attempts  
+ **Local-only** — No private keys stored  
 
 ## Trust Score
 
@@ -36,10 +36,10 @@ python3 scripts/verify-agent.py --audit audit.json
 
 | Protocol | Status |
 |----------|---------|
-| ERC-8004 | ✅ MVP |
-| ANS | 🔄 Planned |
-| A2A Registry | 🔄 Planned |
-| DID | 🔄 Planned |
+| ERC-8004 |  MVP |
+| ANS |  Planned |
+| A2A Registry |  Planned |
+| DID |  Planned |
 
 ## Installation
 

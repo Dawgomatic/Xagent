@@ -22,8 +22,8 @@ User specifies:
 
 ### Timer Display
 ```
-⏱️ Time: 1:45:32 remaining
-📊 Progress: 23/65 questions
+ Time: 1:45:32 remaining
+ Progress: 23/65 questions
 ```
 
 ### Question Display
@@ -52,18 +52,18 @@ D) Option D
 
 ### Results Summary
 ```
-📊 Simulation Complete: AWS SAA
+ Simulation Complete: AWS SAA
 
-Score: 52/65 (80%) ✅ PASS
+Score: 52/65 (80%)  PASS
 Time used: 1:58:42 / 2:10:00
 Passing: 72%
 
 By Domain:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Design Resilient:     18/22 (82%) ✅
-Design Performant:    14/18 (78%) ✅
-Design Secure:        12/15 (80%) ✅
-Design Cost-Optimized: 8/10 (80%) ✅
+Design Resilient:     18/22 (82%) 
+Design Performant:    14/18 (78%) 
+Design Secure:        12/15 (80%) 
+Design Cost-Optimized: 8/10 (80%) 
 
 Flagged questions: 3 (2 correct, 1 wrong)
 
@@ -77,7 +77,7 @@ Flagged questions: 3 (2 correct, 1 wrong)
 After simulation, review each question:
 
 ```
-Question 15 ❌ INCORRECT
+Question 15  INCORRECT
 
 Your answer: B
 Correct answer: C
@@ -146,11 +146,11 @@ Track simulation scores:
 
 Show trend:
 ```
-📈 Simulation History
+ Simulation History
 
 Feb 10: 68% (125 min) — needs improvement
 Feb 12: 74% (118 min) — getting there
-Feb 13: 80% (112 min) — ready! ✅
+Feb 13: 80% (112 min) — ready! 
 
 Trend: ↑12% improvement, ↓13 min faster
 ```

@@ -4,7 +4,7 @@ slug: sat
 version: 1.0.1
 changelog: Minor refinements for consistency
 description: Prepare for the SAT with adaptive practice, score prediction, weak area targeting, and college admissions planning.
-metadata: {"clawdbot":{"emoji":"📝","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

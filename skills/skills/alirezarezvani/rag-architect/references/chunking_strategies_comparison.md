@@ -16,11 +16,11 @@ Document chunking is the foundation of effective RAG systems. This analysis comp
 - Overlap: 0%, 10%, 20%
 
 **Performance Metrics**:
-- Processing Speed: ⭐⭐⭐⭐⭐ (Fastest)
-- Boundary Quality: ⭐⭐ (Poor - breaks mid-sentence)
-- Semantic Coherence: ⭐⭐ (Low - ignores content structure)
-- Implementation: ⭐⭐⭐⭐⭐ (Simplest)
-- Memory Efficiency: ⭐⭐⭐⭐⭐ (Predictable sizes)
+- Processing Speed:  (Fastest)
+- Boundary Quality:  (Poor - breaks mid-sentence)
+- Semantic Coherence:  (Low - ignores content structure)
+- Implementation:  (Simplest)
+- Memory Efficiency:  (Predictable sizes)
 
 **Best For**: 
 - Large-scale processing where speed is critical
@@ -42,11 +42,11 @@ Document chunking is the foundation of effective RAG systems. This analysis comp
 - Overlap: 1-2 sentences for context preservation
 
 **Performance Metrics**:
-- Processing Speed: ⭐⭐⭐⭐ (Fast)
-- Boundary Quality: ⭐⭐⭐⭐ (Good - respects sentence boundaries)
-- Semantic Coherence: ⭐⭐⭐ (Medium - sentences may be topically unrelated)
-- Implementation: ⭐⭐⭐ (Moderate complexity)
-- Memory Efficiency: ⭐⭐⭐ (Variable sizes)
+- Processing Speed:  (Fast)
+- Boundary Quality:  (Good - respects sentence boundaries)
+- Semantic Coherence:  (Medium - sentences may be topically unrelated)
+- Implementation:  (Moderate complexity)
+- Memory Efficiency:  (Variable sizes)
 
 **Best For**:
 - Narrative text (articles, books, blogs)
@@ -68,11 +68,11 @@ Document chunking is the foundation of effective RAG systems. This analysis comp
 - Hierarchical splitting for oversized paragraphs
 
 **Performance Metrics**:
-- Processing Speed: ⭐⭐⭐⭐ (Fast)
-- Boundary Quality: ⭐⭐⭐⭐⭐ (Excellent - natural breaks)
-- Semantic Coherence: ⭐⭐⭐⭐ (Good - paragraphs often topically coherent)
-- Implementation: ⭐⭐⭐ (Moderate complexity)
-- Memory Efficiency: ⭐⭐ (Highly variable sizes)
+- Processing Speed:  (Fast)
+- Boundary Quality:  (Excellent - natural breaks)
+- Semantic Coherence:  (Good - paragraphs often topically coherent)
+- Implementation:  (Moderate complexity)
+- Memory Efficiency:  (Highly variable sizes)
 
 **Best For**:
 - Well-structured documents
@@ -94,11 +94,11 @@ Document chunking is the foundation of effective RAG systems. This analysis comp
 - Recursive splitting respecting hierarchy
 
 **Performance Metrics**:
-- Processing Speed: ⭐⭐ (Slow - requires analysis)
-- Boundary Quality: ⭐⭐⭐⭐⭐ (Excellent - respects document structure)
-- Semantic Coherence: ⭐⭐⭐⭐⭐ (Excellent - maintains topic coherence)
-- Implementation: ⭐⭐ (Complex)
-- Memory Efficiency: ⭐⭐ (Highly variable)
+- Processing Speed:  (Slow - requires analysis)
+- Boundary Quality:  (Excellent - respects document structure)
+- Semantic Coherence:  (Excellent - maintains topic coherence)
+- Implementation:  (Complex)
+- Memory Efficiency:  (Highly variable)
 
 **Best For**:
 - Technical documentation
@@ -121,11 +121,11 @@ Document chunking is the foundation of effective RAG systems. This analysis comp
 - Fallback hierarchy: document → section → paragraph → sentence → character
 
 **Performance Metrics**:
-- Processing Speed: ⭐⭐ (Slow - multiple passes)
-- Boundary Quality: ⭐⭐⭐⭐ (Good - adapts to content)
-- Semantic Coherence: ⭐⭐⭐⭐ (Good - preserves context when possible)
-- Implementation: ⭐⭐ (Complex logic)
-- Memory Efficiency: ⭐⭐⭐ (Optimizes chunk count)
+- Processing Speed:  (Slow - multiple passes)
+- Boundary Quality:  (Good - adapts to content)
+- Semantic Coherence:  (Good - preserves context when possible)
+- Implementation:  (Complex logic)
+- Memory Efficiency:  (Optimizes chunk count)
 
 **Best For**:
 - Mixed document types

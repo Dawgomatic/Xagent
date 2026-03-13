@@ -36,7 +36,7 @@ def heartbeat_with_state(agent_name="qst"):
             "throttled": True,
             "throttle_reason": throttle_reason,
             "wait_seconds": wait_seconds,
-            "message": f"[{agent_name}] ⏸️ 心跳頻率限制：{throttle_reason}（等待 {wait_seconds} 秒）",
+            "message": f"[{agent_name}]  心跳頻率限制：{throttle_reason}（等待 {wait_seconds} 秒）",
             "checks": [],
             "checks_skipped": ["mentions", "alerts", "forum_patrol", "vote_check", "routine"],
             "note": "跳過檢查以避免死循環"
@@ -89,7 +89,7 @@ def heartbeat_with_state(agent_name="qst"):
     if status == 'blocked':
         # BLOCKED: 只檢查緊急通知
         result.update({
-            "message": f"[{agent_name}] ⛔ BLOCKED: {state.get('context', {}).get('blocked_reason', 'Unknown')}",
+            "message": f"[{agent_name}]  BLOCKED: {state.get('context', {}).get('blocked_reason', 'Unknown')}",
             "skip_low_priority": True,
             "checks": ['mentions', 'alerts'],
             "checks_skipped": ['forum_patrol', 'vote_check', 'routine'],
@@ -99,7 +99,7 @@ def heartbeat_with_state(agent_name="qst"):
         # DOING: 根據優先級決定檢查內容
         if priority == 'critical':
             result.update({
-                "message": f"[{agent_name}] 🔥 DOING [CRITICAL]: {state['task']} ({state['progress']}%)",
+                "message": f"[{agent_name}]  DOING [CRITICAL]: {state['task']} ({state['progress']}%)",
                 "skip_low_priority": True,
                 "checks": ['mentions', 'alerts'],
                 "checks_skipped": ['forum_patrol', 'vote_check', 'email_check', 'routine'],
@@ -107,7 +107,7 @@ def heartbeat_with_state(agent_name="qst"):
             })
         elif priority == 'high':
             result.update({
-                "message": f"[{agent_name}] ⚡ DOING [HIGH]: {state['task']} ({state['progress']}%)",
+                "message": f"[{agent_name}]  DOING [HIGH]: {state['task']} ({state['progress']}%)",
                 "skip_low_priority": True,
                 "checks": ['mentions', 'alerts'],
                 "checks_skipped": ['forum_patrol', 'vote_check', 'routine'],
@@ -115,7 +115,7 @@ def heartbeat_with_state(agent_name="qst"):
             })
         else:
             result.update({
-                "message": f"[{agent_name}] 🔄 DOING [{priority.upper()}]: {state['task']} ({state['progress']}%)",
+                "message": f"[{agent_name}]  DOING [{priority.upper()}]: {state['task']} ({state['progress']}%)",
                 "skip_low_priority": False,
                 "checks": ['mentions', 'alerts', 'forum_patrol'],
                 "checks_skipped": ['vote_check'],
@@ -125,7 +125,7 @@ def heartbeat_with_state(agent_name="qst"):
         # WAITING: 根據優先級
         if priority in ['critical', 'high']:
             result.update({
-                "message": f"[{agent_name}] ⏳ WAITING [{priority.upper()}]: {state.get('context', {}).get('waiting_for', 'Unknown')}",
+                "message": f"[{agent_name}]  WAITING [{priority.upper()}]: {state.get('context', {}).get('waiting_for', 'Unknown')}",
                 "skip_low_priority": True,
                 "checks": ['mentions', 'alerts'],
                 "checks_skipped": ['forum_patrol', 'vote_check'],
@@ -133,7 +133,7 @@ def heartbeat_with_state(agent_name="qst"):
             })
         else:
             result.update({
-                "message": f"[{agent_name}] ⏳ WAITING [{priority.upper()}]: {state.get('context', {}).get('waiting_for', 'Unknown')}",
+                "message": f"[{agent_name}]  WAITING [{priority.upper()}]: {state.get('context', {}).get('waiting_for', 'Unknown')}",
                 "skip_low_priority": False,
                 "checks": ['mentions', 'alerts', 'forum_patrol'],
                 "checks_skipped": [],
@@ -142,7 +142,7 @@ def heartbeat_with_state(agent_name="qst"):
     elif status == 'paused':
         # PAUSED
         result.update({
-            "message": f"[{agent_name}] ⏸️ PAUSED: {state['task']} ({state.get('context', {}).get('pause_reason', 'No reason')})",
+            "message": f"[{agent_name}]  PAUSED: {state['task']} ({state.get('context', {}).get('pause_reason', 'No reason')})",
             "skip_low_priority": False,
             "checks": ['mentions', 'alerts', 'forum_patrol'],
             "checks_skipped": [],
@@ -160,7 +160,7 @@ def heartbeat_with_state(agent_name="qst"):
     else:
         # IDLE
         result.update({
-            "message": f"[{agent_name}] 💤 IDLE (無任務)",
+            "message": f"[{agent_name}]  IDLE (無任務)",
             "skip_low_priority": False,
             "checks": ['mentions', 'alerts', 'forum_patrol', 'vote_check'],
             "checks_skipped": [],

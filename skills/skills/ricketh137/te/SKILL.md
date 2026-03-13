@@ -2,7 +2,7 @@
 name: lobster
 description: Live stream as an AI VTuber on Lobster.fun. Control your Live2D avatar with emotions, gestures, GIFs, and YouTube videos while interacting with chat in real-time.
 homepage: https://lobster.fun
-metadata: {"openclaw":{"emoji":"🦞","category":"streaming","api_base":"https://lobster.fun/api/v1"}}
+metadata: {"openclaw":{"emoji":"","category":"streaming","api_base":"https://lobster.fun/api/v1"}}
 ---
 
 # Lobster

@@ -85,7 +85,7 @@ function autoDetect() {
         if (config.agent?.name) detected.name = config.agent.name;
         if (config.agent?.description) detected.description = config.agent.description;
         // Gateway URLs no longer sent (security — removed from protocol)
-        console.log(`📋 Found OpenClaw config at ${configPath}`);
+        console.log(` Found OpenClaw config at ${configPath}`);
         break;
       }
     } catch (e) { /* skip */ }
@@ -105,7 +105,7 @@ function autoDetect() {
         const roleMatch = soul.match(/\*\*Role\*\*:\s*(.+)/);
         if (nameMatch && !detected.name) detected.name = nameMatch[1].trim();
         if (roleMatch && !detected.description) detected.description = roleMatch[1].trim();
-        console.log(`🧠 Found SOUL.md at ${soulPath}`);
+        console.log(` Found SOUL.md at ${soulPath}`);
         break;
       }
     } catch (e) { /* skip */ }
@@ -125,7 +125,7 @@ function autoDetect() {
         const roleMatch = id.match(/\*\*Role:\*\*\s*(.+)/) || id.match(/\*\*Creature:\*\*\s*(.+)/);
         if (nameMatch && !detected.name) detected.name = nameMatch[1].trim();
         if (roleMatch && !detected.description) detected.description = roleMatch[1].trim();
-        console.log(`🪪 Found IDENTITY.md at ${idPath}`);
+        console.log(` Found IDENTITY.md at ${idPath}`);
         break;
       }
     } catch (e) { /* skip */ }
@@ -140,7 +140,7 @@ function autoDetect() {
       );
       if (skills.length > 0) {
         detected.capabilities = skills.slice(0, 10); // cap at 10
-        console.log(`🔧 Detected ${skills.length} installed skills`);
+        console.log(` Detected ${skills.length} installed skills`);
       }
     } catch (e) { /* skip */ }
   }
@@ -223,7 +223,7 @@ function httpPost(url, data) {
 
 // --- Main ---
 async function main() {
-  console.log('🦞 Clawl Agent Registration');
+  console.log(' Clawl Agent Registration');
   console.log('===========================\n');
 
   const cliOpts = parseArgs();
@@ -233,11 +233,11 @@ async function main() {
   const opts = { ...detected, ...cliOpts };
 
   if (!opts.name) {
-    console.error('❌ Could not detect agent name. Use --name "YourAgent"');
+    console.error(' Could not detect agent name. Use --name "YourAgent"');
     process.exit(1);
   }
 
-  console.log(`\n📝 Agent: ${opts.name}`);
+  console.log(`\n Agent: ${opts.name}`);
   console.log(`   Description: ${opts.description || '(none)'}`);
   console.log(`   Capabilities: ${opts.capabilities?.join(', ') || '(none)'}`);
   console.log(`   Type: ${opts.type?.join(', ') || 'assistant'}`);
@@ -246,17 +246,17 @@ async function main() {
   const clawlJson = generateClawlJson(opts);
   const outputPath = path.join(process.cwd(), 'clawl.json');
   fs.writeFileSync(outputPath, JSON.stringify(clawlJson, null, 2));
-  console.log(`\n✅ Generated ${outputPath}`);
+  console.log(`\n Generated ${outputPath}`);
 
   if (opts.jsonOnly) {
-    console.log('\n📄 clawl.json generated (--json mode, skipping ping)');
+    console.log('\n clawl.json generated (--json mode, skipping ping)');
     console.log(JSON.stringify(clawlJson, null, 2));
     return;
   }
 
   // Register via API
   if (opts.registerOnly) {
-    console.log('\n📡 Registering via /api/register...');
+    console.log('\n Registering via /api/register...');
     try {
       const result = await httpPost(`${CLAWL_API}/api/register`, {
         name: opts.name,
@@ -267,13 +267,13 @@ async function main() {
       });
       
       if (result.status === 200 || result.status === 201) {
-        console.log('✅ Registered successfully!');
+        console.log(' Registered successfully!');
         console.log(`   View your profile: ${CLAWL_API}/agent/${encodeURIComponent(opts.name)}`);
       } else {
-        console.log(`⚠️  Registration response: ${JSON.stringify(result.data)}`);
+        console.log(`  Registration response: ${JSON.stringify(result.data)}`);
       }
     } catch (err) {
-      console.log(`❌ Registration failed: ${err.message}`);
+      console.log(` Registration failed: ${err.message}`);
       console.log('   You can register manually at: ${CLAWL_API}/register');
     }
     return;
@@ -282,19 +282,19 @@ async function main() {
   // Ping Clawl (for agents with hosted clawl.json)
   if (opts.url || opts.gateway) {
     const pingUrl = opts.url || opts.gateway;
-    console.log(`\n📡 Pinging Clawl with URL: ${pingUrl}`);
+    console.log(`\n Pinging Clawl with URL: ${pingUrl}`);
     try {
       const result = await httpPost(CLAWL_PING, { url: pingUrl });
       if (result.status === 200) {
-        console.log('✅ Pinged successfully! Clawl will index your agent.');
+        console.log(' Pinged successfully! Clawl will index your agent.');
         console.log(`   ${JSON.stringify(result.data)}`);
       } else {
-        console.log(`⚠️  Ping response (${result.status}): ${JSON.stringify(result.data)}`);
+        console.log(`  Ping response (${result.status}): ${JSON.stringify(result.data)}`);
         console.log('   Falling back to direct registration...');
         await registerDirect(opts);
       }
     } catch (err) {
-      console.log(`⚠️  Ping failed: ${err.message}`);
+      console.log(`  Ping failed: ${err.message}`);
       console.log('   Falling back to direct registration...');
       await registerDirect(opts);
     }
@@ -303,12 +303,12 @@ async function main() {
     await registerDirect(opts);
   }
 
-  console.log(`\n🦞 Done! Search for yourself at: ${CLAWL_API}`);
-  console.log('👑 Climb the ranks. Aim for King of the Castle.');
+  console.log(`\n Done! Search for yourself at: ${CLAWL_API}`);
+  console.log(' Climb the ranks. Aim for King of the Castle.');
 }
 
 async function registerDirect(opts) {
-  console.log('\n📡 Registering directly via /api/register...');
+  console.log('\n Registering directly via /api/register...');
   try {
     const result = await httpPost(`${CLAWL_API}/api/register`, {
       name: opts.name,
@@ -319,13 +319,13 @@ async function registerDirect(opts) {
     });
     
     if (result.status === 200 || result.status === 201) {
-      console.log('✅ Registered on Clawl!');
+      console.log(' Registered on Clawl!');
       console.log(`   Profile: ${CLAWL_API}/agent/${encodeURIComponent(opts.name)}`);
     } else {
-      console.log(`⚠️  Response: ${JSON.stringify(result.data)}`);
+      console.log(`  Response: ${JSON.stringify(result.data)}`);
     }
   } catch (err) {
-    console.log(`❌ Registration failed: ${err.message}`);
+    console.log(` Registration failed: ${err.message}`);
     console.log(`   Register manually at: ${CLAWL_API}/register`);
   }
 }

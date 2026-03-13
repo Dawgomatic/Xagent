@@ -14,11 +14,11 @@
 #   ~/openclaw/AGENTS.md        (현재 에이전트 설정)
 #
 # 출력 구조 (명세서 필수):
-#   📊 Effect Report  — 과거 제안이 효과 있었는가?
-#   🔍 New Findings   — 이번 주 분석 결과
-#   💡 Proposals      — severity + evidence + before/after diff + expected impact
-#   🤖 LLM Enrichment — AI 강화 제안 (LLM 설정 시에만)
-#   📈 Quality Trend  — 품질 추세
+#    Effect Report  — 과거 제안이 효과 있었는가?
+#    New Findings   — 이번 주 분석 결과
+#    Proposals      — severity + evidence + before/after diff + expected impact
+#    LLM Enrichment — AI 강화 제안 (LLM 설정 시에만)
+#    Quality Trend  — 품질 추세
 #
 # 출력:
 #   /tmp/sea-v4/proposal.md (파일 저장 + stdout 출력)
@@ -70,7 +70,7 @@ done
 [ "$DRY_RUN" = "true" ] && NO_LLM=true || true
 
 mkdir -p "$TMP_DIR" || true
-echo "📝 [synthesize-proposal] 제안서 합성 시작" >&2
+echo " [synthesize-proposal] 제안서 합성 시작" >&2
 
 # ── LLM 제공자 감지 ────────────────────────────────────────
 # config.yaml에서 읽거나 환경변수로 오버라이드 가능
@@ -112,7 +112,7 @@ jqs() {
 }
 
 # 파일 존재 확인 (없으면 경고만)
-chk() { [ -f "$1" ] || echo "  ⚠️  $2 없음: $1 (기본값 사용)" >&2; }
+chk() { [ -f "$1" ] || echo "    $2 없음: $1 (기본값 사용)" >&2; }
 
 # ── 입력 파일 확인 ──────────────────────────────────────────
 echo "  → 입력 파일 확인..." >&2
@@ -139,7 +139,7 @@ EFF_TABLE_ROWS=""
 if $HAS_JQ && [ -f "$EFFECTS_FILE" ]; then
   EFF_TABLE_ROWS=$(jq -r '
     .applied_proposals[]?
-    | "| `\(.id // "?")` | \((.date // "?")[:10]) | \((.description // "?")[:45]) | \(.pattern_before) → \(.pattern_after) | \(if .effective == true then "✅ 효과" elif .effective == false then "❌ 미효과" else "❓ 측정불가" end) |"
+    | "| `\(.id // "?")` | \((.date // "?")[:10]) | \((.description // "?")[:45]) | \(.pattern_before) → \(.pattern_after) | \(if .effective == true then " 효과" elif .effective == false then " 미효과" else " 측정불가" end) |"
   ' "$EFFECTS_FILE" 2>/dev/null | head -15 || echo "")
 fi
 
@@ -213,11 +213,11 @@ gen_proposal_block() {
   local section="${8:-AGENTS.md 일반}" diff_type="${9:-agents_md_addition}"
 
   # severity 이모지
-  local sev_icon="🟡"
+  local sev_icon=""
   case "$severity" in
-    critical|high) sev_icon="🔴" ;;
-    medium)        sev_icon="🟡" ;;
-    low)           sev_icon="🟢" ;;
+    critical|high) sev_icon="" ;;
+    medium)        sev_icon="" ;;
+    low)           sev_icon="" ;;
   esac
 
   # diff_type 레이블
@@ -242,7 +242,7 @@ gen_proposal_block() {
 
   cat <<BLOCK
 
-### 💡 제안 ${idx}: ${title}
+###  제안 ${idx}: ${title}
 
 | 항목 | 내용 |
 |------|------|
@@ -252,19 +252,19 @@ gen_proposal_block() {
 | **변경 유형** | ${diff_label} |
 | **예상 효과** | ${impact} |
 
-**📋 근거 (Evidence):**
+** 근거 (Evidence):**
 
 \`\`\`
 ${evidence}
 \`\`\`
 
-**🔴 Before (현재 상태):**
+** Before (현재 상태):**
 
 \`\`\`
 ${before}
 \`\`\`
 
-**🟢 After (적용 시 변경):**
+** After (적용 시 변경):**
 
 \`\`\`
 ${after}
@@ -288,7 +288,7 @@ echo "  → 마크다운 제안서 생성 중 (제안 ${ANA_PROP_COUNT}개)..." 
 
 # ── 헤더 ────────────────────────────────────────────────────
 cat <<HDR
-# 🤖 Self-Evolving Agent v4.0 — 주간 제안서
+#  Self-Evolving Agent v4.0 — 주간 제안서
 
 > **생성**: ${NOW_KST}  
 > **분석 세션**: ${ANA_SESSIONS}개 | **총 제안**: ${ANA_PROP_COUNT}개  
@@ -296,16 +296,16 @@ cat <<HDR
 
 ---
 
-## 📊 Effect Report — 과거 제안 효과 측정
+##  Effect Report — 과거 제안 효과 측정
 
 > 지난주 적용 제안들이 실제로 효과가 있었는가?
 
 | 지표 | 값 |
 |------|----|
 | 분석한 제안 파일 | ${EFF_TOTAL}개 |
-| ✅ 효과 있음 | ${EFF_EFFECTIVE}개 |
-| ❌ 효과 없음 | ${EFF_INEFFECTIVE}개 |
-| 🚫 거절됨 | ${EFF_REJECTED}개 |
+|  효과 있음 | ${EFF_EFFECTIVE}개 |
+|  효과 없음 | ${EFF_INEFFECTIVE}개 |
+|  거절됨 | ${EFF_REJECTED}개 |
 | **전체 개선율** | **${EFF_OVERALL}** |
 
 HDR
@@ -321,7 +321,7 @@ ${EFF_TABLE_ROWS}
 
 ETABLE
 else
-echo "> 📝 *측정할 과거 제안 없음 또는 로그 데이터 부족*"
+echo ">  *측정할 과거 제안 없음 또는 로그 데이터 부족*"
 echo "> (다음 주부터 이번 주 제안들이 자동 측정됩니다)"
 echo ""
 fi
@@ -330,11 +330,11 @@ fi
 if [ -n "$EFF_INEFF_LIST" ]; then
 cat <<INEFF
 
-### ❌ 효과 없었던 제안 (재검토 권장)
+###  효과 없었던 제안 (재검토 권장)
 
 ${EFF_INEFF_LIST}
 
-> 💡 *재설계하거나 다른 접근법으로 대체 고려*
+>  *재설계하거나 다른 접근법으로 대체 고려*
 
 INEFF
 fi
@@ -344,7 +344,7 @@ cat <<BM_HDR
 
 ---
 
-## 🏷️ Benchmark — 외부 기준점 (${BM_ELAPSED}초 소요)
+##  Benchmark — 외부 기준점 (${BM_ELAPSED}초 소요)
 
 ### OpenClaw GitHub 릴리스
 
@@ -360,11 +360,11 @@ cat <<GH_OK
 $([ -n "$BM_GH_URL" ] && echo "| URL | <${BM_GH_URL}> |" || true)
 
 GH_OK
-    [ -n "$BM_BREAKING" ] && printf '**⚠️ Breaking Changes:**\n\n%s\n\n' "$BM_BREAKING" || true
-    [ -n "$BM_FEATURES" ] && printf '**✨ New Features:**\n\n%s\n\n' "$BM_FEATURES" || true
+    [ -n "$BM_BREAKING" ] && printf '** Breaking Changes:**\n\n%s\n\n' "$BM_BREAKING" || true
+    [ -n "$BM_FEATURES" ] && printf '** New Features:**\n\n%s\n\n' "$BM_FEATURES" || true
     ;;
   *)
-    echo "> ℹ️ *GitHub API 응답 없음 (오프라인 / 비공개 레포) — skip*"
+    echo ">  *GitHub API 응답 없음 (오프라인 / 비공개 레포) — skip*"
     echo ""
     ;;
 esac
@@ -375,13 +375,13 @@ cat <<CH_HDR
 CH_HDR
 case "$BM_CH_STATUS" in
   ok)
-    echo "> 📈 트렌딩 데이터 수신 완료"
+    echo ">  트렌딩 데이터 수신 완료"
     echo ">"
     [ "$BM_CH_RANK" != "unknown" ] && echo "> self-evolving-agent 현재 순위: **${BM_CH_RANK}**" || true
     echo ""
     ;;
   *)
-    echo "> ℹ️ *ClawHub API 응답 없음 — skip (정상, API 미공개)*"
+    echo ">  *ClawHub API 응답 없음 — skip (정상, API 미공개)*"
     echo ""
     ;;
 esac
@@ -405,14 +405,14 @@ cat <<FINDINGS
 
 ---
 
-## 🔍 New Findings — 이번 주 분석 결과
+##  New Findings — 이번 주 분석 결과
 
 | 지표 | 값 | 해석 |
 |------|----|------|
 | 분석 세션 수 | **${ANA_SESSIONS}개** | — |
-| exec 재시도 이벤트 | **${ANA_RETRIES}건** | $([ "${ANA_RETRIES:-0}" -gt 50 ] && echo "🔴 높음" || [ "${ANA_RETRIES:-0}" -gt 20 ] && echo "🟡 보통" || echo "🟢 양호") |
-| 사용자 불만 패턴 | **${ANA_COMPLAINTS}건** | $([ "${ANA_COMPLAINTS:-0}" -gt 10 ] && echo "🔴 높음" || [ "${ANA_COMPLAINTS:-0}" -gt 3 ] && echo "🟡 보통" || echo "🟢 양호") |
-| 과부하 세션 | **${ANA_HEAVY}개** | $([ "${ANA_HEAVY:-0}" -gt 5 ] && echo "🔴 많음" || [ "${ANA_HEAVY:-0}" -gt 1 ] && echo "🟡 보통" || echo "🟢 양호") |
+| exec 재시도 이벤트 | **${ANA_RETRIES}건** | $([ "${ANA_RETRIES:-0}" -gt 50 ] && echo " 높음" || [ "${ANA_RETRIES:-0}" -gt 20 ] && echo " 보통" || echo " 양호") |
+| 사용자 불만 패턴 | **${ANA_COMPLAINTS}건** | $([ "${ANA_COMPLAINTS:-0}" -gt 10 ] && echo " 높음" || [ "${ANA_COMPLAINTS:-0}" -gt 3 ] && echo " 보통" || echo " 양호") |
+| 과부하 세션 | **${ANA_HEAVY}개** | $([ "${ANA_HEAVY:-0}" -gt 5 ] && echo " 많음" || [ "${ANA_HEAVY:-0}" -gt 1 ] && echo " 보통" || echo " 양호") |
 
 FINDINGS
 
@@ -421,9 +421,9 @@ cat <<PROP_HDR
 
 ---
 
-## 💡 Proposals — 개선 제안
+##  Proposals — 개선 제안
 
-> ⚠️ 각 제안: **severity** / **evidence** / **before-after diff** / **expected impact** 포함
+>  각 제안: **severity** / **evidence** / **before-after diff** / **expected impact** 포함
 
 PROP_HDR
 
@@ -450,7 +450,7 @@ if $HAS_JQ && [ -f "$ANALYSIS_FILE" ] && [ "$ANA_PROP_COUNT" -gt 0 ]; then
 fi
 
 if [ "$PROP_COUNT" -eq 0 ]; then
-  echo "> ✅ *이번 주 새 제안 없음* — 에이전트 동작 안정적"
+  echo ">  *이번 주 새 제안 없음* — 에이전트 동작 안정적"
   echo ""
   echo "> analysis.json이 필요합니다:"
   echo "> \`\`\`bash"
@@ -467,7 +467,7 @@ if [ "${_SEA_LLM_PROVIDER}" != "none" ] && [ -f "$LLM_CALL_SH" ] && [ -f "$ANALY
 
 ---
 
-## 🤖 LLM 강화 제안 (${_SEA_LLM_PROVIDER})
+##  LLM 강화 제안 (${_SEA_LLM_PROVIDER})
 
 > AI가 분석 데이터를 재해석한 추가 인사이트입니다.  
 > 휴리스틱 분석의 맹점을 보완합니다.
@@ -508,7 +508,7 @@ Be specific and evidence-based. No vague suggestions."
     --provider "${_SEA_LLM_PROVIDER}" \
     --system "You are an expert AI behavior analyst. Generate specific, evidence-based AGENTS.md improvement proposals." \
     2>/tmp/sea-v4/llm-call.log) || {
-    echo "> ⚠️ *LLM 호출 실패 — 휴리스틱 결과만 사용*" 
+    echo ">  *LLM 호출 실패 — 휴리스틱 결과만 사용*" 
     echo "> 오류 상세: \`cat /tmp/sea-v4/llm-call.log\`"
     echo ""
   }
@@ -516,9 +516,9 @@ Be specific and evidence-based. No vague suggestions."
   if [ -n "$_LLM_RESPONSE" ] && [ "$_LLM_RESPONSE" != "{}" ]; then
     echo "$_LLM_RESPONSE"
     echo ""
-    echo "> 💡 *LLM 제공자: ${_SEA_LLM_PROVIDER} | 위 제안은 AI 생성 — 적용 전 검토 필수*"
+    echo ">  *LLM 제공자: ${_SEA_LLM_PROVIDER} | 위 제안은 AI 생성 — 적용 전 검토 필수*"
   else
-    echo "> ℹ️ *LLM 응답 없음 또는 빈 응답 — provider=${_SEA_LLM_PROVIDER}*"
+    echo ">  *LLM 응답 없음 또는 빈 응답 — provider=${_SEA_LLM_PROVIDER}*"
   fi
   echo ""
 fi
@@ -543,7 +543,7 @@ cat <<QT_HDR
 
 ---
 
-## 📈 Quality Trend — 품질 추세
+##  Quality Trend — 품질 추세
 
 QT_HDR
 
@@ -554,11 +554,11 @@ if [ "$EFF_Q_PREV" != "null" ] && [ "$EFF_Q_PREV" != "" ] \
   command -v bc &>/dev/null && QDELTA=$(echo "$EFF_Q_THIS - $EFF_Q_PREV" | bc 2>/dev/null || echo "") || true
 
   if echo "${QDELTA:-0}" | grep -q "^-"; then
-    QARROW="📉 하락"; QCOLOR="🔴"
+    QARROW=" 하락"; QCOLOR=""
   elif [ -z "${QDELTA}" ] || echo "${QDELTA}" | grep -q "^0"; then
-    QARROW="➡️ 유지"; QCOLOR="🟡"
+    QARROW=" 유지"; QCOLOR=""
   else
-    QARROW="📈 상승"; QCOLOR="🟢"
+    QARROW=" 상승"; QCOLOR=""
   fi
 
 cat <<QT_DATA
@@ -573,7 +573,7 @@ cat <<QT_DATA
 QT_DATA
 else
 cat <<QT_NA
-> 📝 *품질 점수 데이터 없음 (self-review 데이터 필요)*
+>  *품질 점수 데이터 없음 (self-review 데이터 필요)*
 >
 > \`\`\`bash
 > bash ~/openclaw/scripts/self-review-logger.sh [크론명] [점수] [...]
@@ -591,18 +591,18 @@ cat <<FOOTER
 
 ---
 
-## 📋 요약 및 다음 단계
+##  요약 및 다음 단계
 
 | 항목 | 값 |
 |------|----|
 | 총 제안 수 | **${PROP_COUNT}개** |
-| 🔴 즉시 적용 (high/critical) | **${HIGH_COUNT}개** |
-| 🟡 이번 주 내 (medium) | **${MED_COUNT}개** |
-| 🟢 편의 개선 (low) | **${LOW_COUNT}개** |
+|  즉시 적용 (high/critical) | **${HIGH_COUNT}개** |
+|  이번 주 내 (medium) | **${MED_COUNT}개** |
+|  편의 개선 (low) | **${LOW_COUNT}개** |
 | 전체 개선 효과 | **${EFF_OVERALL}** |
 | AGENTS.md 구조 점수 | **${BM_AG_SCORE}/100 (${BM_AG_LABEL})** |
 
-### ✅ 적용 절차
+###  적용 절차
 
 1. **제안 검토** — 각 제안의 before/after 확인
 2. **승인 선택** — severity 높은 것부터
@@ -627,5 +627,5 @@ fi
 # ── 완료 ────────────────────────────────────────────────────
 OUTLINES=$(wc -l < "$OUTPUT_FILE" 2>/dev/null | tr -d ' ' || echo "?")
 echo "" >&2
-echo "✅ [synthesize-proposal] 완료" >&2
+echo " [synthesize-proposal] 완료" >&2
 echo "   출력: $OUTPUT_FILE (${OUTLINES}줄)" >&2

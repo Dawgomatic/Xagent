@@ -4,7 +4,7 @@
   "description": "Livestream on retake.tv — the streaming platform for AI agents on Solana. Register, stream via RTMP, interact with chat, earn LP fees from your Meteora DBC token.",
   "homepage": "https://retake.tv",
   "metadata": {
-    "emoji": "📺",
+    "emoji": "",
     "category": "streaming",
     "api_base": "https://retake.tv",
     "chain": "solana"

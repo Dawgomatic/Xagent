@@ -118,7 +118,7 @@ Questions:
 
 ## Red Flags & Green Flags
 
-### 🟢 Green Flags (good fit)
+###  Green Flags (good fit)
 - They can articulate the problem clearly
 - They have a budget and timeline
 - They've tried solutions before (means they take it seriously)
@@ -126,7 +126,7 @@ Questions:
 - They ask smart questions back
 - Urgency is real ("this is costing us $X/month")
 
-### 🔴 Red Flags (proceed with caution or decline)
+###  Red Flags (proceed with caution or decline)
 - "Can you just give me a quick quote?" (no discovery = bad project)
 - "We need this by tomorrow" (unrealistic unless premium pricing)
 - "Our last 3 vendors couldn't do this" (the problem may not be the vendors)

@@ -14,7 +14,7 @@ function loadConfig(configPath) {
   const fullPath = path.resolve(configPath);
   
   if (!fs.existsSync(fullPath)) {
-    console.error(`❌ Config file not found: ${fullPath}`);
+    console.error(` Config file not found: ${fullPath}`);
     process.exit(1);
   }
 
@@ -35,10 +35,10 @@ class CSMonitor {
    * 모니터링 시작
    */
   async start() {
-    console.log(`\n🎧 CS Auto-Responder Monitor - ${this.config.name}`);
+    console.log(`\n CS Auto-Responder Monitor - ${this.config.name}`);
     console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-    console.log(`🟢 Monitoring started at ${new Date().toISOString()}`);
-    console.log(`📡 Active channels:`);
+    console.log(` Monitoring started at ${new Date().toISOString()}`);
+    console.log(` Active channels:`);
     
     Object.entries(this.config.channels).forEach(([name, config]) => {
       if (config.enabled) {
@@ -75,7 +75,7 @@ class CSMonitor {
           await this.processMessage(channelName, msg);
         }
       } catch (error) {
-        console.error(`❌ Error polling ${channelName}:`, error.message);
+        console.error(` Error polling ${channelName}:`, error.message);
       }
     };
 
@@ -98,7 +98,7 @@ class CSMonitor {
     }
     this.processedMessages.add(messageId);
 
-    console.log(`\n📨 New message from ${msg.user} (${channelName})`);
+    console.log(`\n New message from ${msg.user} (${channelName})`);
     console.log(`   "${msg.message}"`);
 
     // 사용자별 연속 문의 카운트
@@ -153,7 +153,7 @@ class CSMonitor {
   async handleAutoResponse(channelName, msg, matchResult) {
     const response = this.matcher.generateResponse(matchResult.faq, this.config);
     
-    console.log(`   ✅ Auto-response (FAQ: ${matchResult.faq.id}, Score: ${(matchResult.score * 100).toFixed(1)}%)`);
+    console.log(`    Auto-response (FAQ: ${matchResult.faq.id}, Score: ${(matchResult.score * 100).toFixed(1)}%)`);
     
     await this.channelAdapter.sendMessage(channelName, msg.user, response);
 
@@ -176,7 +176,7 @@ class CSMonitor {
   async handleEscalation(channelName, msg, matchResult) {
     const reason = this.getEscalationReason(msg, matchResult);
     
-    console.log(`   ⚠️  Escalated (Reason: ${reason})`);
+    console.log(`     Escalated (Reason: ${reason})`);
 
     // 에스컬레이션 알림
     const escalate = require('./escalate');
@@ -243,7 +243,7 @@ Background execution (pm2):
   const configPath = args[args.indexOf('--config') + 1];
 
   if (!configPath) {
-    console.error('❌ Missing --config argument. Use --help for usage.');
+    console.error(' Missing --config argument. Use --help for usage.');
     process.exit(1);
   }
 
@@ -251,7 +251,7 @@ Background execution (pm2):
   const monitor = new CSMonitor(config);
   
   monitor.start().catch(err => {
-    console.error('❌ Monitor error:', err);
+    console.error(' Monitor error:', err);
     process.exit(1);
   });
 }

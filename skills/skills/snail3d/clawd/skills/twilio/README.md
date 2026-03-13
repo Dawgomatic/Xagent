@@ -71,13 +71,13 @@ Response JSON
 
 ## Security Notes
 
-✅ **Good Practices Implemented:**
+ **Good Practices Implemented:**
 - No hardcoded credentials in code
 - All sensitive data from environment variables
 - Clear error messages without exposing secrets
 - E.164 phone number validation
 
-⚠️ **Additional Safety Tips:**
+ **Additional Safety Tips:**
 - Never commit `.env` files with real credentials
 - Use strong auth tokens
 - Rotate credentials periodically

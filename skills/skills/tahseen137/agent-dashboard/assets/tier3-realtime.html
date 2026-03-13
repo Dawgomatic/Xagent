@@ -291,7 +291,7 @@
     <!-- Password Protection -->
     <div id="password-overlay">
         <div class="password-box">
-            <h2>🔐 Mission Control</h2>
+            <h2> Mission Control</h2>
             <p>Enter your PIN to access the dashboard</p>
             <input type="password" id="pin-input" placeholder="••••••" maxlength="20" autofocus aria-label="PIN input">
             <button onclick="checkPassword()">Access Dashboard</button>
@@ -303,12 +303,12 @@
     <div class="container" id="main-content" style="display: none;">
         <header>
             <div class="logo">
-                <div class="logo-icon">🚀</div>
+                <div class="logo-icon"></div>
                 <h1>Mission Control</h1>
             </div>
             <div class="header-status">
                 <button class="refresh-btn" onclick="forceUpdate()" id="refresh-btn" aria-label="Force update">
-                    <span class="icon">🔄</span>
+                    <span class="icon"></span>
                     <span class="spinner">⟳</span>
                     Update
                 </button>
@@ -322,7 +322,7 @@
 
         <div class="alert-banner" id="action-required">
             <div class="alert-header">
-                <span>🚨</span>
+                <span></span>
                 <h2>Action Required</h2>
             </div>
             <div class="alert-items" id="action-items"></div>
@@ -333,14 +333,14 @@
         <div class="grid">
             <div class="card">
                 <div class="card-header">
-                    <span class="icon">⚡</span>
+                    <span class="icon"></span>
                     <h2>Active Now</h2>
                 </div>
                 <div id="active-tasks"></div>
             </div>
             <div class="card">
                 <div class="card-header">
-                    <span class="icon">📋</span>
+                    <span class="icon"></span>
                     <h2>Recent Activity</h2>
                 </div>
                 <div class="activity-list" id="activity-list"></div>
@@ -349,7 +349,7 @@
 
         <div class="card" style="margin-bottom: 24px;">
             <div class="card-header">
-                <span class="icon">📊</span>
+                <span class="icon"></span>
                 <h2>Products</h2>
             </div>
             <div class="product-grid" id="products-grid"></div>
@@ -357,7 +357,7 @@
 
         <div class="card">
             <div class="card-header">
-                <span class="icon">⏰</span>
+                <span class="icon"></span>
                 <h2>Cron Jobs</h2>
             </div>
             <div class="cron-table" id="cron-table"></div>
@@ -534,7 +534,7 @@
                     `;
                 }).join('');
             } else {
-                activeTasks.innerHTML = '<div class="empty-state">✨ All quiet — no active tasks</div>';
+                activeTasks.innerHTML = '<div class="empty-state"> All quiet — no active tasks</div>';
             }
 
             // Products
@@ -565,7 +565,7 @@
                     return 0;
                 });
                 cronTable.innerHTML = sortedCrons.map(cron => {
-                    const statusIcon = cron.status === 'ok' ? '✅' : cron.status === 'error' ? '❌' : cron.status === 'paused' ? '⏸️' : '⚪';
+                    const statusIcon = cron.status === 'ok' ? '' : cron.status === 'error' ? '' : cron.status === 'paused' ? '' : '';
                     return `
                         <div class="cron-row ${cron.errors > 0 ? 'has-error' : ''}" onclick="this.classList.toggle('expanded')">
                             <div>

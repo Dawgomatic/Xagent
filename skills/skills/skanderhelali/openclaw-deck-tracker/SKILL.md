@@ -4,7 +4,7 @@ version: 0.1.1
 description: Track OpenClaw tasks on NextCloud Deck board. Auto-add tasks to Queue, move through states.
 metadata:
   openclaw:
-    emoji: "📋"
+    emoji: ""
 ---
 
 # Deck Tracker v1.0.0
@@ -126,7 +126,7 @@ deck delete <card_id>
 5. **Memory Synthesis:** Before archiving, use `deck dump-done` to parse the day's work and reinforce long-term memory.
 6. **Daily cleanup** → `deck archive-done`.
 
-### 🚨 AI Protocol: Complex Descriptions
+###  AI Protocol: Complex Descriptions
 
 When updating cards with multi-line markdown descriptions, ALWAYS use the **temp file method** to prevent shell expansion errors:
 

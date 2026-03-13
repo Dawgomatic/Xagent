@@ -1,4 +1,4 @@
-# 📋 CLI Reference
+#  CLI Reference
 
 Complete reference for all CLI commands.
 

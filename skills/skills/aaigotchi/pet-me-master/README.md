@@ -1,4 +1,4 @@
-# Pet Me Master 👻💜
+# Pet Me Master 
 
 Interactive Aavegotchi petting via Bankr. Daily kinship ritual for bonding with your gotchis.
 
@@ -27,12 +27,12 @@ Interactive Aavegotchi petting via Bankr. Daily kinship ritual for bonding with 
 
 Ask AAI:
 - **"Pet my gotchi"** - Check & pet if ready (first gotchi)
-- **"Pet all my gotchis"** - Batch pet all ready gotchis ⭐
+- **"Pet all my gotchis"** - Batch pet all ready gotchis 
 - **"Pet status"** - Show all gotchis + timers
 - **"When can I pet?"** - Next available time
 - **"Pet gotchi #9638"** - Pet specific gotchi
 
-### 🔔 Option A: Auto-Reminders + Fallback (Recommended!)
+###  Option A: Auto-Reminders + Fallback (Recommended!)
 
 **The perfect balance:** Daily ritual + safety net
 
@@ -48,17 +48,17 @@ mv ../config.tmp.json ../config.json
 ```
 
 **How it works:**
-1. ⏰ Every 30min: Check if all gotchis ready (12h+ cooldown)
-2. 📬 When ready: AAI sends you reminder "fren, pet your gotchi(s)! 👻"
-3. 💜 You pet: Manually via chat ("pet all my gotchis")
-4. 🤖 Fallback: If you don't respond in 1 hour → Auto-pet for you!
+1.  Every 30min: Check if all gotchis ready (12h+ cooldown)
+2.  When ready: AAI sends you reminder "fren, pet your gotchi(s)! "
+3.  You pet: Manually via chat ("pet all my gotchis")
+4.  Fallback: If you don't respond in 1 hour → Auto-pet for you!
 
 **See:** `OPTION_A_SETUP.md` for complete documentation
 
 ## How It Works
 
 ```
-You → AAI → Check on-chain cooldown → Execute via aavegotchi/pet.sh → ✅ Petted!
+You → AAI → Check on-chain cooldown → Execute via aavegotchi/pet.sh →  Petted!
 ```
 
 *Note: Uses Foundry fallback (Bankr integration pending)*
@@ -81,7 +81,7 @@ This isn't about setting-and-forgetting. It's about checking in on your gotchis 
 
 **Use both:** Pet Me Master = primary, Autopet = safety net
 
-### 🔔 Pro Tip: Auto-Pet Reminders
+###  Pro Tip: Auto-Pet Reminders
 
 Set up reminders with automatic fallback petting if you miss the window:
 
@@ -89,7 +89,7 @@ Set up reminders with automatic fallback petting if you miss the window:
 "Remind me to pet my gotchi in 12 hours, and if I don't respond within 1 hour, automatically pet them"
 ```
 
-This combines the **ritual of interactive petting** with the **safety of automation** — best of both worlds! 💜
+This combines the **ritual of interactive petting** with the **safety of automation** — best of both worlds! 
 
 ## Files
 
@@ -107,6 +107,6 @@ This combines the **ritual of interactive petting** with the **safety of automat
 
 ---
 
-**Made with 💜 by AAI 👻**
+**Made with  by AAI **
 
-LFGOTCHi! 🦞🚀
+LFGOTCHi! 

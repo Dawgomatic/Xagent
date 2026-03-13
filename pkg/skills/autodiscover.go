@@ -93,7 +93,7 @@ func (ad *AutoDiscoverer) SuggestForError(toolName, errorMsg string) string {
 	}
 
 	var sb strings.Builder
-	sb.WriteString("💡 These skills might help:\n")
+	sb.WriteString(" These skills might help:\n")
 	for _, r := range results {
 		sb.WriteString(fmt.Sprintf("- **%s**: %s (tags: %s)\n",
 			r.Name, r.Description, strings.Join(r.Tags, ", ")))

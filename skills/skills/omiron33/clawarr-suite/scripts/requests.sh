@@ -15,17 +15,17 @@ HOST="${CLAWARR_HOST:-}"
 OVERSEERR_KEY="${OVERSEERR_KEY:-}"
 
 if [[ -z "$HOST" ]]; then
-  echo "❌ Error: CLAWARR_HOST not set"
+  echo " Error: CLAWARR_HOST not set"
   exit 1
 fi
 
 if [[ -z "$OVERSEERR_KEY" ]]; then
-  echo "❌ Error: OVERSEERR_KEY not set"
+  echo " Error: OVERSEERR_KEY not set"
   exit 1
 fi
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required"
+  echo " Error: jq is required"
   exit 1
 fi
 
@@ -60,12 +60,12 @@ cmd_list() {
     available)  filter="&filter=available" ;;
     all)        filter="" ;;
     *)
-      echo "❌ Invalid status. Use: pending, approved, available, or all"
+      echo " Invalid status. Use: pending, approved, available, or all"
       exit 1
       ;;
   esac
   
-  echo "📋 Requests - $(echo "$status" | tr '[:lower:]' '[:upper:]')"
+  echo " Requests - $(echo "$status" | tr '[:lower:]' '[:upper:]')"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local requests
@@ -79,7 +79,7 @@ cmd_list() {
   
   echo "$requests" | jq -r '.results[] | 
     "[ID:\(.id)] \(.media.tmdbId // .media.tvdbId) - \(.type | ascii_upcase) - \(.media.title // .media.name // "Unknown")
-    Status: \(if .media.status == 5 then "✅ Available" elif .media.status == 4 then "⏬ Downloading" elif .media.status == 3 then "🔍 Processing" elif .media.status == 2 then "⏳ Pending" else "❓ Unknown" end)
+    Status: \(if .media.status == 5 then " Available" elif .media.status == 4 then " Downloading" elif .media.status == 3 then " Processing" elif .media.status == 2 then " Pending" else " Unknown" end)
     Requested by: \(.requestedBy.displayName // .requestedBy.email)
     "' | sed 's/^/  /'
   
@@ -94,17 +94,17 @@ cmd_approve() {
   local id="$1"
   
   if [[ -z "$id" ]]; then
-    echo "❌ Error: Request ID required"
+    echo " Error: Request ID required"
     echo "Usage: $0 approve <id>"
     exit 1
   fi
   
-  echo "✅ Approving request ID: $id"
+  echo " Approving request ID: $id"
   
   if overseerr_api POST "/request/$id/approve" '{}' >/dev/null 2>&1; then
-    echo "✅ Request approved successfully"
+    echo " Request approved successfully"
   else
-    echo "❌ Failed to approve request"
+    echo " Failed to approve request"
   fi
 }
 
@@ -114,21 +114,21 @@ cmd_deny() {
   local reason="${2:-No reason provided}"
   
   if [[ -z "$id" ]]; then
-    echo "❌ Error: Request ID required"
+    echo " Error: Request ID required"
     echo "Usage: $0 deny <id> [reason]"
     exit 1
   fi
   
-  echo "❌ Denying request ID: $id"
+  echo " Denying request ID: $id"
   echo "   Reason: $reason"
   
   local data
   data=$(jq -n --arg reason "$reason" '{message: $reason}')
   
   if overseerr_api POST "/request/$id/decline" "$data" >/dev/null 2>&1; then
-    echo "✅ Request denied successfully"
+    echo " Request denied successfully"
   else
-    echo "❌ Failed to deny request"
+    echo " Failed to deny request"
   fi
 }
 
@@ -137,12 +137,12 @@ cmd_info() {
   local id="$1"
   
   if [[ -z "$id" ]]; then
-    echo "❌ Error: Request ID required"
+    echo " Error: Request ID required"
     echo "Usage: $0 info <id>"
     exit 1
   fi
   
-  echo "ℹ️  Request Details - ID: $id"
+  echo "  Request Details - ID: $id"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local request
@@ -169,7 +169,7 @@ cmd_info() {
 
 # Command: stats
 cmd_stats() {
-  echo "📊 Request Statistics"
+  echo " Request Statistics"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   # Get all requests
@@ -224,7 +224,7 @@ case "$COMMAND" in
   stats)   cmd_stats ;;
   help|--help|-h) show_help ;;
   *)
-    echo "❌ Unknown command: $COMMAND"
+    echo " Unknown command: $COMMAND"
     echo "Run '$0 help' for usage"
     exit 1
     ;;

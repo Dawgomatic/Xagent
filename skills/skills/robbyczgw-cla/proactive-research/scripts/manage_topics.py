@@ -40,7 +40,7 @@ def add_topic(args):
     # Check for duplicates
     existing_ids = [t.get("id") for t in config.get("topics", [])]
     if topic_id in existing_ids:
-        print(f"❌ Topic with ID '{topic_id}' already exists", file=sys.stderr)
+        print(f" Topic with ID '{topic_id}' already exists", file=sys.stderr)
         sys.exit(1)
     
     # Build topic
@@ -65,7 +65,7 @@ def add_topic(args):
     config["topics"].append(topic)
     save_config(config)
     
-    print(f"✅ Added topic: {args.name} ({topic_id})")
+    print(f" Added topic: {args.name} ({topic_id})")
     print(f"   Query: {args.query}")
     print(f"   Frequency: {args.frequency}")
     print(f"   Importance: {args.importance}")
@@ -80,7 +80,7 @@ def list_topics(args):
         print("No topics configured")
         return
     
-    print(f"\n📋 Configured Topics ({len(topics)})\n")
+    print(f"\n Configured Topics ({len(topics)})\n")
     
     for topic in topics:
         print(f"{'='*60}")
@@ -109,7 +109,7 @@ def edit_topic(args):
             break
     
     if topic_idx is None:
-        print(f"❌ Topic '{args.topic_id}' not found", file=sys.stderr)
+        print(f" Topic '{args.topic_id}' not found", file=sys.stderr)
         sys.exit(1)
     
     topic = topics[topic_idx]
@@ -137,7 +137,7 @@ def edit_topic(args):
     config["topics"] = topics
     save_config(config)
     
-    print(f"✅ Updated topic: {topic.get('name')} ({args.topic_id})")
+    print(f" Updated topic: {topic.get('name')} ({args.topic_id})")
 
 
 def remove_topic(args):
@@ -149,13 +149,13 @@ def remove_topic(args):
     new_topics = [t for t in topics if t.get("id") != args.topic_id]
     
     if len(new_topics) == len(topics):
-        print(f"❌ Topic '{args.topic_id}' not found", file=sys.stderr)
+        print(f" Topic '{args.topic_id}' not found", file=sys.stderr)
         sys.exit(1)
     
     config["topics"] = new_topics
     save_config(config)
     
-    print(f"✅ Removed topic: {args.topic_id}")
+    print(f" Removed topic: {args.topic_id}")
 
 
 def test_topic(args):
@@ -163,10 +163,10 @@ def test_topic(args):
     topic = get_topic(args.topic_id)
     
     if not topic:
-        print(f"❌ Topic '{args.topic_id}' not found", file=sys.stderr)
+        print(f" Topic '{args.topic_id}' not found", file=sys.stderr)
         sys.exit(1)
     
-    print(f"🧪 Testing topic: {topic.get('name')}\n")
+    print(f" Testing topic: {topic.get('name')}\n")
     
     # Run monitor in dry-run mode
     state = load_state()
@@ -227,7 +227,7 @@ def main():
     try:
         args.func(args)
     except FileNotFoundError as e:
-        print(f"❌ {e}", file=sys.stderr)
+        print(f" {e}", file=sys.stderr)
         sys.exit(1)
 
 

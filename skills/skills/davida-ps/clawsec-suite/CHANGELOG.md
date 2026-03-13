@@ -100,21 +100,21 @@ When creating a new release, copy this template to the GitHub release notes:
 ## Security Improvements
 
 ### Transport Security
-✅ TLS 1.2+ enforcement (eliminated TLS 1.0, 1.1)
-✅ Strict certificate validation
-✅ Domain allowlist (prompt.security, github.com only)
-✅ Modern cipher suites (AES-GCM, ChaCha20-Poly1305)
+ TLS 1.2+ enforcement (eliminated TLS 1.0, 1.1)
+ Strict certificate validation
+ Domain allowlist (prompt.security, github.com only)
+ Modern cipher suites (AES-GCM, ChaCha20-Poly1305)
 
 ### Signature & Checksum Verification
-✅ Unverified files never published (temp directory workflow)
-✅ Proper schema fields in generated checksums.json
-✅ Graceful fallback when checksums missing (GitHub raw)
-✅ Legacy manifest format support (backward compatible)
+ Unverified files never published (temp directory workflow)
+ Proper schema fields in generated checksums.json
+ Graceful fallback when checksums missing (GitHub raw)
+ Legacy manifest format support (backward compatible)
 
 ### Testing
 All verification tests passed:
-- ✅ Unit tests: 14/14 passed
-- ✅ Parser lenience: 3/3 legacy formats accepted
-- ✅ Remote loading: Gracefully handles missing checksums
-- ✅ Workflow security: Temp directory prevents unverified publication
+-  Unit tests: 14/14 passed
+-  Parser lenience: 3/3 legacy formats accepted
+-  Remote loading: Gracefully handles missing checksums
+-  Workflow security: Temp directory prevents unverified publication
 ```

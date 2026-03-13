@@ -21,9 +21,9 @@ jq -r "select(.timestamp > $LAST_ID) | select(.text | test(\"\\bmeeting\\b|\\brd
     TIME_HINT=$(echo "$TEXT" | grep -oE "(demain|aujourd|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|[0-9]{1,2}h|[0-9]{1,2}:[0-9]{2})" | head -1 || echo "")
     
     if [ -n "$TIME_HINT" ]; then
-      ALERT="🗓️ Meeting: $TIME_HINT"
+      ALERT=" Meeting: $TIME_HINT"
     else
-      ALERT="🗓️ Meeting detected"
+      ALERT=" Meeting detected"
     fi
     
     bash "$SCRIPT_DIR/send-alert.sh" "$ALERT" 2>/dev/null

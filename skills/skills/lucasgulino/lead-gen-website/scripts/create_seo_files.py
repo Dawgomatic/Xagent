@@ -18,7 +18,7 @@ Sitemap: https://{domain}/sitemap.xml
     output_file = Path(output_dir) / "robots.txt"
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(content)
-    print(f"✅ Created {output_file}")
+    print(f" Created {output_file}")
 
 def create_sitemap_xml(domain, pages, output_dir):
     """Create sitemap.xml file."""
@@ -38,7 +38,7 @@ def create_sitemap_xml(domain, pages, output_dir):
     output_file = Path(output_dir) / "sitemap.xml"
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(content)
-    print(f"✅ Created {output_file}")
+    print(f" Created {output_file}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
@@ -57,4 +57,4 @@ if __name__ == "__main__":
     create_robots_txt(domain, output_dir)
     create_sitemap_xml(domain, pages, output_dir)
     
-    print(f"\n✨ SEO files created for {domain}")
+    print(f"\n SEO files created for {domain}")

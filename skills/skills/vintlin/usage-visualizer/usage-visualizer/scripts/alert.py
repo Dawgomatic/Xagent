@@ -63,10 +63,10 @@ def check_budget(
     
     if exceeded:
         pct_over = ((cost - budget_usd) / budget_usd) * 100
-        message = f"⚠️ ALERT: {period_name}{provider_str} cost ${cost:.2f} exceeded budget ${budget_usd:.2f} by {pct_over:.1f}%"
+        message = f" ALERT: {period_name}{provider_str} cost ${cost:.2f} exceeded budget ${budget_usd:.2f} by {pct_over:.1f}%"
     else:
         pct_left = ((budget_usd - cost) / budget_usd) * 100
-        message = f"✅ {period_name}{provider_str} cost ${cost:.2f} is within budget ${budget_usd:.2f} ({pct_left:.1f}% remaining)"
+        message = f" {period_name}{provider_str} cost ${cost:.2f} is within budget ${budget_usd:.2f} ({pct_left:.1f}% remaining)"
     
     return {
         "exceeded": exceeded,

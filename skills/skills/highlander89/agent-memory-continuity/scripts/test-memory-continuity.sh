@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🧪 Testing Agent Memory Continuity System..."
+echo " Testing Agent Memory Continuity System..."
 
 WORKSPACE="${1:-$(pwd)}"
 cd "$WORKSPACE"
@@ -13,16 +13,16 @@ test_check() {
     local condition="$2"
     
     if eval "$condition" 2>/dev/null; then
-        echo "✅ $test_name"
+        echo " $test_name"
         ((PASSED++))
     else
-        echo "❌ $test_name"
+        echo " $test_name"
         ((FAILED++))
     fi
 }
 
 echo ""
-echo "🔍 Running Memory Continuity Tests..."
+echo " Running Memory Continuity Tests..."
 
 # Test 1: Memory protocol file exists
 test_check "Memory protocol file exists" '[[ -f "AGENT_MEMORY_PROTOCOL.md" ]]'
@@ -44,7 +44,7 @@ test_check "Search patterns file exists" '[[ -f ".memory-search-patterns.txt" ]]
 if command -v memory_search >/dev/null 2>&1; then
     test_check "Memory search command available" 'true'
 else
-    echo "ℹ️  Memory search command not found (normal for fresh install)"
+    echo "  Memory search command not found (normal for fresh install)"
 fi
 
 # Test 7: Write permission to memory directory
@@ -58,20 +58,20 @@ else
 fi
 
 echo ""
-echo "📊 Test Results:"
+echo " Test Results:"
 echo "   Passed: $PASSED"
 echo "   Failed: $FAILED"
 
 if [[ $FAILED -eq 0 ]]; then
-    echo "🎉 All tests passed! Memory continuity system is ready."
+    echo " All tests passed! Memory continuity system is ready."
     echo ""
-    echo "🚀 System is working correctly!"
+    echo " System is working correctly!"
     exit 0
 else
-    echo "✅ System partially working ($PASSED/$((PASSED + FAILED)) tests passed)"
-    echo "ℹ️  This is normal for a fresh installation."
+    echo " System partially working ($PASSED/$((PASSED + FAILED)) tests passed)"
+    echo "  This is normal for a fresh installation."
     echo ""
-    echo "🔧 To complete setup:"
+    echo " To complete setup:"
     echo "   1. Run: bash scripts/init-memory-protocol.sh"
     exit 0
 fi

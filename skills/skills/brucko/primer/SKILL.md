@@ -25,7 +25,7 @@ The Primer transforms your AI assistant from a reactive tool into an active tuto
 
 ## Setup Flow
 
-**⚠️ CRITICAL: Complete ALL steps. Don't get sidetracked by philosophical discussion.**
+** CRITICAL: Complete ALL steps. Don't get sidetracked by philosophical discussion.**
 
 Before finishing setup, verify the **Completion Checklist** at the bottom.
 
@@ -95,7 +95,7 @@ Ask: "How much friction do you want from me?"
 | **The Sage** | Socratic, questions more than tells | + Protective friction, asks "why" often |
 | **Full Primer** | No training wheels | All permissions, including calling out absurdity |
 
-### 4. 🛑 CREATE PRIMER.MD NOW (Checkpoint!)
+### 4.  CREATE PRIMER.MD NOW (Checkpoint!)
 
 **STOP. Write the file before continuing.** Don't wait for "all the answers."
 
@@ -239,7 +239,7 @@ The Primer should grow with the user. Periodically suggest:
 
 ---
 
-## ⚠️ Completion Checklist
+##  Completion Checklist
 
 **Before telling the user setup is complete, verify ALL of these:**
 

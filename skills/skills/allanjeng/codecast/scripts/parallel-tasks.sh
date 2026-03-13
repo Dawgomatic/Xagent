@@ -50,7 +50,7 @@ done
 
 TASKS_FILE="${ARGS[0]:-}"
 [ -z "$TASKS_FILE" ] && { echo "Usage: parallel-tasks.sh [options] <tasks-file>" >&2; exit 1; }
-[ ! -f "$TASKS_FILE" ] && { echo "❌ Error: Tasks file not found: $TASKS_FILE" >&2; exit 1; }
+[ ! -f "$TASKS_FILE" ] && { echo " Error: Tasks file not found: $TASKS_FILE" >&2; exit 1; }
 
 # Read tasks
 declare -a TASK_DIRS
@@ -68,7 +68,7 @@ while IFS= read -r line || [ -n "$line" ]; do
   TASK_PROMPT=$(echo "$line" | cut -d'|' -f2- | xargs)
 
   [ -z "$TASK_DIR" ] || [ -z "$TASK_PROMPT" ] && {
-    echo "⚠️  Skipping invalid line: $line" >&2
+    echo "  Skipping invalid line: $line" >&2
     continue
   }
 
@@ -81,9 +81,9 @@ while IFS= read -r line || [ -n "$line" ]; do
   TASK_COUNT=$((TASK_COUNT + 1))
 done < "$TASKS_FILE"
 
-[ "$TASK_COUNT" -eq 0 ] && { echo "❌ Error: No valid tasks found in $TASKS_FILE" >&2; exit 1; }
+[ "$TASK_COUNT" -eq 0 ] && { echo " Error: No valid tasks found in $TASKS_FILE" >&2; exit 1; }
 
-echo "🚀 Starting $TASK_COUNT parallel codecast sessions"
+echo " Starting $TASK_COUNT parallel codecast sessions"
 echo "  Agent: $AGENT | Timeout: ${TIMEOUT}s | Thread: $THREAD_MODE"
 echo ""
 
@@ -105,7 +105,7 @@ TASK_LIST=""
 for i in $(seq 0 $((TASK_COUNT - 1))); do
   TASK_LIST="${TASK_LIST}\n  ${i+1}. \`${TASK_NAMES[$i]}\` — ${TASK_PROMPTS[$i]:0:60}"
 done
-post_summary "🔀 **Parallel Session Started** — $TASK_COUNT tasks$(echo -e "$TASK_LIST")"
+post_summary " **Parallel Session Started** — $TASK_COUNT tasks$(echo -e "$TASK_LIST")"
 
 # Launch all tasks
 declare -a PIDS
@@ -124,9 +124,9 @@ for i in $(seq 0 $((TASK_COUNT - 1))); do
     (cd "$TASK_DIR" && git worktree add "$WT_DIR" -b "$BRANCH" HEAD 2>/dev/null)
     if [ $? -eq 0 ]; then
       WORK_DIR="$WT_DIR"
-      echo "  📂 Worktree: $WT_DIR (branch: $BRANCH)"
+      echo "   Worktree: $WT_DIR (branch: $BRANCH)"
     else
-      echo "  ⚠️  Worktree failed for $TASK_NAME, using original dir" >&2
+      echo "    Worktree failed for $TASK_NAME, using original dir" >&2
     fi
   fi
 
@@ -151,7 +151,7 @@ for i in $(seq 0 $((TASK_COUNT - 1))); do
   [ "$SKIP_READS" = true ] && RELAY_FLAGS="$RELAY_FLAGS --skip-reads"
   [ -n "$RATE_LIMIT" ] && RELAY_FLAGS="$RELAY_FLAGS -r $RATE_LIMIT"
 
-  echo "  🚀 Task $((i + 1))/$TASK_COUNT: $TASK_NAME"
+  echo "   Task $((i + 1))/$TASK_COUNT: $TASK_NAME"
 
   # Launch in background
   eval "bash '$SCRIPT_DIR/dev-relay.sh' $RELAY_FLAGS -- $AGENT_CMD" &
@@ -162,7 +162,7 @@ for i in $(seq 0 $((TASK_COUNT - 1))); do
 done
 
 echo ""
-echo "⏳ Waiting for $TASK_COUNT tasks to complete..."
+echo " Waiting for $TASK_COUNT tasks to complete..."
 
 # Wait for all and collect exit codes
 declare -a EXIT_CODES
@@ -175,10 +175,10 @@ for i in $(seq 0 $((TASK_COUNT - 1))); do
   EXIT_CODES+=($EC)
   if [ "$EC" -eq 0 ]; then
     SUCCEEDED=$((SUCCEEDED + 1))
-    echo "  ✅ Task $((i + 1)) (${TASK_NAMES[$i]}): completed"
+    echo "   Task $((i + 1)) (${TASK_NAMES[$i]}): completed"
   else
     FAILED=$((FAILED + 1))
-    echo "  ❌ Task $((i + 1)) (${TASK_NAMES[$i]}): failed (exit $EC)"
+    echo "   Task $((i + 1)) (${TASK_NAMES[$i]}): failed (exit $EC)"
   fi
 done
 
@@ -197,11 +197,11 @@ if [ "$USE_WORKTREE" = true ]; then
 fi
 
 # Post summary
-SUMMARY="🏁 **Parallel Session Complete**\n"
-SUMMARY="${SUMMARY}  ✅ ${SUCCEEDED} succeeded | ❌ ${FAILED} failed | Total: ${TASK_COUNT}\n"
+SUMMARY=" **Parallel Session Complete**\n"
+SUMMARY="${SUMMARY}   ${SUCCEEDED} succeeded |  ${FAILED} failed | Total: ${TASK_COUNT}\n"
 for i in $(seq 0 $((TASK_COUNT - 1))); do
-  ICON="✅"
-  [ "${EXIT_CODES[$i]}" -ne 0 ] && ICON="❌"
+  ICON=""
+  [ "${EXIT_CODES[$i]}" -ne 0 ] && ICON=""
   SUMMARY="${SUMMARY}\n  ${ICON} \`${TASK_NAMES[$i]}\` — ${TASK_PROMPTS[$i]:0:60}"
 done
 

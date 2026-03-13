@@ -7,7 +7,7 @@ compatibility: Python 3.10+, OpenRouter API key
 metadata: {"openclaw": {"emoji": "\ud83c\udfdb\ufe0f", "requires": {"env": ["OPENROUTER_API_KEY"]}, "primaryEnv": "OPENROUTER_API_KEY", "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# Model Council 🏛️
+# Model Council 
 
 **Get consensus from multiple AI models on any question.**
 
@@ -78,24 +78,24 @@ Question: What's the best way to handle auth in a microservices architecture?
 
 ── Council Member Responses ──
 
-🤖 anthropic/claude-sonnet-4 ($0.0043)
+ anthropic/claude-sonnet-4 ($0.0043)
 Use a centralized auth service with JWT tokens...
 
-🤖 openai/gpt-4o ($0.0038)
+ openai/gpt-4o ($0.0038)
 Implement OAuth 2.0 with an API gateway...
 
-🤖 google/gemini-2.0-flash-001 ($0.0012)
+ google/gemini-2.0-flash-001 ($0.0012)
 Consider using service mesh with mTLS...
 
 ── Judge Verdict (anthropic/claude-opus-4-6, $0.0125) ──
 
-🏆 Winner: anthropic/claude-sonnet-4
+ Winner: anthropic/claude-sonnet-4
 Reasoning: Most comprehensive and practical approach...
 
-📝 Synthesized Answer:
+ Synthesized Answer:
 The best approach combines elements from all three...
 
-💰 Total Cost: $0.0218
+ Total Cost: $0.0218
 ```
 
 ## Credits
@@ -103,4 +103,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

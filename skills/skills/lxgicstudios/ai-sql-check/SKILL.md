@@ -45,14 +45,14 @@ npx ai-sql-check --file query.sql --schema ./schema.sql
 ## Output Example
 
 ```
-⚠️ Performance Issues:
+ Performance Issues:
 - SELECT * returns unnecessary columns
 - LIKE '%john%' can't use index
 
-🔒 Security Issues:
+ Security Issues:
 - None detected
 
-💡 Suggestions:
+ Suggestions:
 - Add index on users(name)
 - Select only needed columns
 ```

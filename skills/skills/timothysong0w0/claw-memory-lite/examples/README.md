@@ -102,7 +102,7 @@ These are sample daily memory files to demonstrate the extraction process.
 # 2026-02-24
 
 ## Discord Channel Setup
-- Created #a 股实验室📈 channel for investment discussions
+- Created #a 股实验室 channel for investment discussions
 - Channel ID: 1473185274774159486
 - Configured bot to route A-share topics there
 
@@ -114,7 +114,7 @@ These are sample daily memory files to demonstrate the extraction process.
 **Expected Extraction**:
 - Category: Comm
 - Facts:
-  - Created #a 股实验室📈 channel for investment discussions
+  - Created #a 股实验室 channel for investment discussions
   - Channel ID: 1473185274774159486
 
 ---

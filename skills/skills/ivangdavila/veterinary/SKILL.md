@@ -1,7 +1,7 @@
 ---
 name: Veterinary
 description: Support veterinary understanding from pet care to clinical practice and research.
-metadata: {"clawdbot":{"emoji":"🐾","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

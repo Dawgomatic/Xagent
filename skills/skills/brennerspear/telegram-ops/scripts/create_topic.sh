@@ -32,7 +32,7 @@ echo "$RESPONSE" | jq .
 if echo "$RESPONSE" | jq -e '.ok == true' > /dev/null 2>&1; then
     THREAD_ID=$(echo "$RESPONSE" | jq -r '.result.message_thread_id')
     echo ""
-    echo "✅ Topic created successfully!"
+    echo " Topic created successfully!"
     echo "   Thread ID: $THREAD_ID"
     
     # If emoji ID provided, set the icon
@@ -49,14 +49,14 @@ if echo "$RESPONSE" | jq -e '.ok == true' > /dev/null 2>&1; then
             }")
         
         if echo "$EDIT_RESPONSE" | jq -e '.ok == true' > /dev/null 2>&1; then
-            echo "✅ Icon set successfully!"
+            echo " Icon set successfully!"
         else
-            echo "❌ Failed to set icon:"
+            echo " Failed to set icon:"
             echo "$EDIT_RESPONSE" | jq .
         fi
     fi
 else
     echo ""
-    echo "❌ Failed to create topic"
+    echo " Failed to create topic"
     exit 1
 fi

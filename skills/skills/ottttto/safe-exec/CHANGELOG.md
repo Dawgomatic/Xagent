@@ -23,28 +23,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `FIX_REPORT_v0.2.3.md` - Detailed fix report with test results
 - Smart environment detection logic (TTY + environment variables)
-- Visual indicator for non-interactive mode: `🤖 非交互式环境 - 自动跳过确认`
+- Visual indicator for non-interactive mode: ` 非交互式环境 - 自动跳过确认`
 
 ### Security
-- ✅ All security features preserved
-- ✅ Danger pattern detection unchanged
-- ✅ Risk assessment mechanism unchanged
-- ✅ Approval workflow intact
-- ✅ Audit logging complete
-- ✅ Human users still get confirmation prompt in terminals
+-  All security features preserved
+-  Danger pattern detection unchanged
+-  Risk assessment mechanism unchanged
+-  Approval workflow intact
+-  Audit logging complete
+-  Human users still get confirmation prompt in terminals
 
 ### Testing
-- ✅ Agent call scenario: Pass (no hang, completes in <1s)
-- ✅ Environment variable detection: Pass
-- ✅ Human terminal usage: Pass (confirmation preserved)
-- ✅ Command execution: Pass (successful)
-- ✅ Request cleanup: Pass
+-  Agent call scenario: Pass (no hang, completes in <1s)
+-  Environment variable detection: Pass
+-  Human terminal usage: Pass (confirmation preserved)
+-  Command execution: Pass (successful)
+-  Request cleanup: Pass
 
 ### Backwards Compatibility
-- ✅ Fully backwards compatible
-- ✅ Existing usage patterns unchanged
-- ✅ Human user experience unchanged
-- ✅ Agent calls automatically adapt
+-  Fully backwards compatible
+-  Existing usage patterns unchanged
+-  Human user experience unchanged
+-  Agent calls automatically adapt
 
 ## [0.2.3] - 2026-02-01
 
@@ -86,7 +86,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - This ensures SafeExec can be properly toggled on/off
 
 ### Security Note
-⚠️ **Warning**: When SafeExec is disabled, ALL commands execute directly without protection!
+ **Warning**: When SafeExec is disabled, ALL commands execute directly without protection!
 Only disable in trusted environments.
 
 ## [0.1.3] - 2026-02-01

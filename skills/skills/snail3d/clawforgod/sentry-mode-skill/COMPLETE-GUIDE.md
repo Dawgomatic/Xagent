@@ -199,14 +199,14 @@ node scripts/sentry-mode.js activate --query "Are any windows open?"
 - Accessory: glasses
 
 **WILL TRIGGER:**
-- ✅ "Blonde girl wearing glasses"
-- ✅ "Blonde woman in glasses"
-- ✅ "Young blonde girl with spectacles"
+-  "Blonde girl wearing glasses"
+-  "Blonde woman in glasses"
+-  "Young blonde girl with spectacles"
 
 **WON'T TRIGGER:**
-- ❌ "Blonde girl" (no glasses)
-- ❌ "Girl with glasses" (not blonde)
-- ❌ "Blonde woman without glasses"
+-  "Blonde girl" (no glasses)
+-  "Girl with glasses" (not blonde)
+-  "Blonde woman without glasses"
 
 ### Vehicle BOLO: "Blue sedan with license plate ABC123"
 
@@ -216,13 +216,13 @@ node scripts/sentry-mode.js activate --query "Are any windows open?"
 - License plate: ABC123 (exact)
 
 **WILL TRIGGER:**
-- ✅ "Blue sedan ABC123"
-- ✅ "Blue four-door car, plate ABC123"
+-  "Blue sedan ABC123"
+-  "Blue four-door car, plate ABC123"
 
 **WON'T TRIGGER:**
-- ❌ "Blue sedan XYZ789" (wrong plate)
-- ❌ "Red sedan ABC123" (wrong color)
-- ❌ "Blue SUV ABC123" (wrong type)
+-  "Blue sedan XYZ789" (wrong plate)
+-  "Red sedan ABC123" (wrong color)
+-  "Blue SUV ABC123" (wrong type)
 
 ### Person BOLO: "Blonde girl with mole on left cheek"
 
@@ -232,12 +232,12 @@ node scripts/sentry-mode.js activate --query "Are any windows open?"
 - Facial feature: mole on LEFT cheek (exact location)
 
 **WILL TRIGGER:**
-- ✅ "Blonde girl with mole on left cheek"
+-  "Blonde girl with mole on left cheek"
 
 **WON'T TRIGGER:**
-- ❌ "Blonde girl with mole on right cheek" (wrong location)
-- ❌ "Blonde girl with freckles" (not a mole)
-- ❌ "Dark-haired girl with mole on left cheek" (wrong hair color)
+-  "Blonde girl with mole on right cheek" (wrong location)
+-  "Blonde girl with freckles" (not a mole)
+-  "Dark-haired girl with mole on left cheek" (wrong hair color)
 
 ---
 
@@ -433,7 +433,7 @@ node scripts/sentry-mode.js activate --query "What do you see on the screen?"
 
 ## Privacy & Legal
 
-⚠️ **Important Reminders:**
+ **Important Reminders:**
 - Only monitor spaces you control
 - Comply with local surveillance laws
 - Inform others if recording
@@ -464,4 +464,4 @@ node scripts/sentry-mode.js activate --query "What do you see on the screen?"
 
 ---
 
-**Status:** ✅ **PRODUCTION READY** - Full surveillance suite with visual fingerprinting
+**Status:**  **PRODUCTION READY** - Full surveillance suite with visual fingerprinting

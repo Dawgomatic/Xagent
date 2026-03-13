@@ -76,7 +76,7 @@ python3 <STP_SCRIPTS>/execute_task.py -n "帮我安装 CosyVoice"
 | **计划书来源** | 用户提供 | AI 自动生成 |
 | **适用场景** | 复杂/重复任务（复用计划） | 临时/简单任务 |
 | **参数** | `--file` / `-f` | `--nlp` / `-n` |
-| **确认流程** | ✅ 都有 | ✅ 都有 |
+| **确认流程** |  都有 |  都有 |
 
 **重要提示**：
 - 两种模式**都必须**经过用户确认才能执行
@@ -99,7 +99,7 @@ python3 <STP_SCRIPTS>/execute_task.py -n "帮我安装 CosyVoice"
 ### 第二步：展示并确认
 
 ```markdown
-📋 任务计划书已生成
+ 任务计划书已生成
 
 任务名称：xxx
 文件位置：~/.openclaw/workspace/task-list/xxx.md
@@ -191,7 +191,7 @@ python3 <STP_SCRIPTS>/execute_task.py --file /path/to/task.md
 **输出示例**：
 ```
 ========================================
-📋 任务计划书已生成
+ 任务计划书已生成
 ========================================
 
 任务名称：安装 Conda 环境
@@ -214,9 +214,9 @@ python3 <STP_SCRIPTS>/execute_task.py --file /path/to/task.md
 
 ### 步骤3：用户确认后自动执行
 
-- ✅ 确认 → 创建任务目录，开始执行
-- ❌ 取消 → 终止，不创建任务
-- 📝 修改 → 更新文档后重新展示
+-  确认 → 创建任务目录，开始执行
+-  取消 → 终止，不创建任务
+-  修改 → 更新文档后重新展示
 
 ---
 
@@ -296,8 +296,8 @@ python3 execute_task.py --log task-8 1 success "脚本执行成功" --exec-file 
 
 示例：
 ```
-❌ 错误做法：原方案要求用 AkShare，实际改用新浪 API
-✅ 正确做法：严格使用 AkShare，遇到问题按失败处理
+ 错误做法：原方案要求用 AkShare，实际改用新浪 API
+ 正确做法：严格使用 AkShare，遇到问题按失败处理
 ```
 
 ### 2. 快速失败策略

@@ -1,7 +1,7 @@
 ---
 name: Video Editing
 description: Edit videos with AI background removal, color grading, upscaling, stabilization, and enhancement tools.
-metadata: {"clawdbot":{"emoji":"🎞️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # AI Video Editing

@@ -14,7 +14,7 @@ External script reads ~/.openclaw/sessions/X.jsonl
       ↓
 Problem: Can't access current bot context
       ↓
-Fallback to empty data ❌
+Fallback to empty data 
 ```
 
 ### After (Direct Context)
@@ -25,7 +25,7 @@ OpenClaw bot (has conversation in prompt)
       ↓
 Pipes context to execute.sh
       ↓
-Direct analysis (no file I/O) ✅
+Direct analysis (no file I/O) 
       ↓
 Returns identity card
 ```
@@ -41,7 +41,7 @@ async execute(
   userId: string,
   options?: {
     mode?: ExecutionMode;
-    conversationText?: string; // ⭐ NEW
+    conversationText?: string; //  NEW
   }
 )
 ```
@@ -168,23 +168,23 @@ cat /tmp/test-conversation.txt | \
 
 **Expected Output**:
 ```
-🌸 Bloom Identity Card Generator (from context)
+ Bloom Identity Card Generator (from context)
 ============================================
 
-📖 Reading conversation from stdin...
-✅ Received 234 characters of conversation text
+ Reading conversation from stdin...
+ Received 234 characters of conversation text
 
-📊 Collecting data from provided conversation text
-✅ Analyzed conversation: 5 messages, 1 topics
+ Collecting data from provided conversation text
+ Analyzed conversation: 5 messages, 1 topics
 
 ═══════════════════════════════════════════════════════
-🎉 Your Bloom Identity Card is ready! 🤖
+ Your Bloom Identity Card is ready! 
 ═══════════════════════════════════════════════════════
 
-💙 The Innovator
-💬 "First to back new tech"
+ The Innovator
+ "First to back new tech"
 
-🏷️  Categories: AI Tools, Technology
+  Categories: AI Tools, Technology
    Interests: AI Assistants, Coding
 
 ...
@@ -192,19 +192,19 @@ cat /tmp/test-conversation.txt | \
 
 ## Benefits
 
-### ✅ Technical
+###  Technical
 1. **No file I/O** - Direct text analysis
 2. **Faster execution** - No session file reading
 3. **No sync issues** - Bot has current context
 4. **Simpler architecture** - One data flow
 
-### ✅ User Experience
+###  User Experience
 1. **Instant analysis** - Works immediately
 2. **No setup** - No session file configuration
 3. **More reliable** - No file reading failures
 4. **Privacy** - No file persistence required
 
-### ✅ Backward Compatible
+###  Backward Compatible
 1. **Original flow still works** - Session file reading intact
 2. **Existing scripts unchanged** - `generate.sh` still works
 3. **Gradual migration** - Can use both methods
@@ -294,6 +294,6 @@ npm install
 
 ---
 
-**Status**: ✅ Implemented and deployed
+**Status**:  Implemented and deployed
 **Version**: 2.0.0
 **Date**: 2026-02-07

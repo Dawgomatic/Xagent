@@ -74,7 +74,7 @@ export class CaptchaAvoidanceService {
    */
   recordCaptchaEncounter(): void {
     this.backoffMultiplier = Math.min(this.backoffMultiplier * 3, 10) // Max 10x multiplier
-    console.warn(`🚫 CAPTCHA encountered. Increasing rate limit backoff to ${this.backoffMultiplier}x`)
+    console.warn(` CAPTCHA encountered. Increasing rate limit backoff to ${this.backoffMultiplier}x`)
   }
 
   /**
@@ -82,7 +82,7 @@ export class CaptchaAvoidanceService {
    */
   recordSuccessfulAuth(): void {
     this.backoffMultiplier = Math.max(this.backoffMultiplier * 0.8, 1) // Slowly reduce
-    console.log(`✅ Successful auth. Backoff multiplier now ${this.backoffMultiplier.toFixed(1)}x`)
+    console.log(` Successful auth. Backoff multiplier now ${this.backoffMultiplier.toFixed(1)}x`)
   }
 
   /**

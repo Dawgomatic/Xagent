@@ -98,7 +98,7 @@ export function setupTimeoutWatcher(onTimeout) {
         }
         if (isSessionExpired()) {
             clearInterval(checkInterval);
-            console.log('\n⚠️  Session timed out. Closing browser...');
+            console.log('\n  Session timed out. Closing browser...');
             onTimeout();
         }
     }, 5000); // Check every 5 seconds

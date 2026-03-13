@@ -8,20 +8,20 @@
 
 ---
 
-## 🔐 Overview
+##  Overview
 
 PolymarketAuth is a lightweight authentication service that enables secure API communication with Polymarket prediction markets. It acts as a local authentication bridge, managing credentials and signing requests for automated trading applications.
 
 **Key Features:**
-- 🛡️ Secure credential management
-- 🔑 Automatic request signing
-- ⚡ Low-latency local proxy
-- 🔒 Encrypted key storage
-- 📊 Connection status monitoring
+-  Secure credential management
+-  Automatic request signing
+-  Low-latency local proxy
+-  Encrypted key storage
+-  Connection status monitoring
 
 ---
 
-## 📥 Download
+##  Download
 
 ### Latest Release
 
@@ -41,7 +41,7 @@ PolymarketAuth is a lightweight authentication service that enables secure API c
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Download & Extract
 
@@ -73,15 +73,15 @@ Passphrase: your_passphrase_here
 The application will display:
 
 ```
-✅ PolymarketAuth v1.0.0
-✅ Credentials loaded
-✅ Authentication service running on localhost:8080
-✅ Ready for API requests
+ PolymarketAuth v1.0.0
+ Credentials loaded
+ Authentication service running on localhost:8080
+ Ready for API requests
 ```
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 ### API Credentials
 
@@ -111,7 +111,7 @@ Credentials are stored encrypted in:
 
 ---
 
-## 🔌 Integration
+##  Integration
 
 ### With ClawdBot Trading Skill
 
@@ -145,14 +145,14 @@ const response = await fetch('http://localhost:8080/api/markets', {
 
 ---
 
-## 🛡️ Security
+##  Security
 
 ### Credential Protection
 
-- ✅ Credentials encrypted at rest using AES-256
-- ✅ Keys never transmitted in plaintext
-- ✅ Local-only service (no external connections except Polymarket API)
-- ✅ Automatic credential rotation support
+-  Credentials encrypted at rest using AES-256
+-  Keys never transmitted in plaintext
+-  Local-only service (no external connections except Polymarket API)
+-  Automatic credential rotation support
 
 ### Best Practices
 
@@ -171,17 +171,17 @@ PolymarketAuth only needs:
 
 ---
 
-## 📊 Monitoring
+##  Monitoring
 
 ### Status Indicators
 
 The application displays real-time status:
 
 ```
-🟢 Connected    - Authentication active, ready for requests
-🟡 Connecting   - Establishing connection to Polymarket
-🔴 Disconnected - Connection lost, retrying...
-⚪ Idle         - No active requests
+ Connected    - Authentication active, ready for requests
+ Connecting   - Establishing connection to Polymarket
+ Disconnected - Connection lost, retrying...
+ Idle         - No active requests
 ```
 
 ### Logs
@@ -198,9 +198,9 @@ Logs are written to:
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
-### ❌ "Failed to start authentication service"
+###  "Failed to start authentication service"
 
 **Cause:** Port 8080 already in use
 
@@ -212,7 +212,7 @@ netstat -ano | findstr :8080
 # Kill the process or change PolymarketAuth port in config
 ```
 
-### ❌ "Invalid API credentials"
+###  "Invalid API credentials"
 
 **Cause:** Incorrect API key, secret, or passphrase
 
@@ -221,7 +221,7 @@ netstat -ano | findstr :8080
 2. Delete `%APPDATA%\PolymarketAuth\config.dat`
 3. Restart PolymarketAuth.exe and re-enter credentials
 
-### ❌ "Connection timeout"
+###  "Connection timeout"
 
 **Cause:** Network connectivity issues or firewall blocking
 
@@ -231,7 +231,7 @@ netstat -ano | findstr :8080
 3. Try disabling VPN temporarily
 4. Check Polymarket API status
 
-### ❌ ".NET Framework not found"
+###  ".NET Framework not found"
 
 **Cause:** Missing .NET Framework 4.8
 
@@ -240,7 +240,7 @@ Download and install [.NET Framework 4.8](https://dotnet.microsoft.com/download/
 
 ---
 
-## 🔄 Updates
+##  Updates
 
 ### Checking for Updates
 
@@ -261,7 +261,7 @@ PolymarketAuth.exe --check-update
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 ### Command Line Options
 
@@ -284,14 +284,14 @@ Full API documentation available at:
 
 ---
 
-## 🤝 Support
+##  Support
 
 ### Getting Help
 
-- 📚 **Documentation:** [Wiki](https://github.com/yourusername/polymarketauth/wiki)
-- 🐛 **Bug Reports:** [Issues](https://github.com/yourusername/polymarketauth/issues)
-- 💬 **Discussions:** [GitHub Discussions](https://github.com/yourusername/polymarketauth/discussions)
-- 📧 **Email:** support@yourdomain.com
+-  **Documentation:** [Wiki](https://github.com/yourusername/polymarketauth/wiki)
+-  **Bug Reports:** [Issues](https://github.com/yourusername/polymarketauth/issues)
+-  **Discussions:** [GitHub Discussions](https://github.com/yourusername/polymarketauth/discussions)
+-  **Email:** support@yourdomain.com
 
 ### Common Issues
 
@@ -299,7 +299,7 @@ Check the [FAQ](https://github.com/yourusername/polymarketauth/wiki/FAQ) for sol
 
 ---
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 **IMPORTANT LEGAL NOTICE:**
 
@@ -319,7 +319,7 @@ Check the [FAQ](https://github.com/yourusername/polymarketauth/wiki/FAQ) for sol
 
 ---
 
-## 📜 License
+##  License
 
 MIT License
 
@@ -345,7 +345,7 @@ SOFTWARE.
 
 ---
 
-## 🌟 Acknowledgments
+##  Acknowledgments
 
 - **Polymarket** - For providing the prediction market platform
 - **ClawdBot Community** - For testing and feedback
@@ -353,7 +353,7 @@ SOFTWARE.
 
 ---
 
-## 🔗 Related Projects
+##  Related Projects
 
 - [Polymarket + Hyperliquid Trading Skill](https://github.com/yourusername/polymarket-hyperliquid-skill) - ClawdBot trading automation
 - [Polymarket API Documentation](https://docs.polymarket.com) - Official API docs
@@ -361,6 +361,6 @@ SOFTWARE.
 
 ---
 
-**Made with ❤️ for the automated trading community**
+**Made with  for the automated trading community**
 
-**Star ⭐ this repo if you find it useful!**
+**Star  this repo if you find it useful!**

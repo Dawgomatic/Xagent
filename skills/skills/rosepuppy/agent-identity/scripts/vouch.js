@@ -52,12 +52,12 @@ async function main() {
   const currentVouches = Number(identity[7]) / 1e6;
 
   if (!opts.json && !opts.yes) {
-    console.log('📝 Vouch Details:');
+    console.log(' Vouch Details:');
     console.log(`  Target: ${targetName} (${opts.identity.slice(0, 10)}...)`);
     console.log(`  Amount: ${opts.amount} USDC`);
     console.log(`  Current vouches: ${currentVouches.toFixed(2)} USDC`);
     console.log('');
-    console.log('⚠️  Your stake is at risk if this agent acts maliciously.');
+    console.log('  Your stake is at risk if this agent acts maliciously.');
     console.log('');
     console.log('Run with --yes to confirm, or Ctrl+C to cancel.');
     process.exit(0);
@@ -125,7 +125,7 @@ async function main() {
     output(result, true);
   } else {
     console.log('');
-    console.log('✅ Vouch submitted!');
+    console.log(' Vouch submitted!');
     console.log('');
     console.log(`You vouched ${opts.amount} USDC for ${targetName}`);
     console.log(`Total vouches: ${newVouches.toFixed(2)} USDC`);

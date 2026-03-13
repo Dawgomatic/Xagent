@@ -127,10 +127,10 @@ Increases Node.js heap from 4GB to 16GB.
 | Output quality | ~100 lines typical | 600+ lines with specifics |
 
 ```typescript
-// ❌ WRONG - Remote API call
+//  WRONG - Remote API call
 const response = await fetch('https://api.anthropic.com/v1/messages', {...})
 
-// ✅ CORRECT - Use Task tool
+//  CORRECT - Use Task tool
 // Invoke Task with subagent_type: "general-purpose"
 ```
 

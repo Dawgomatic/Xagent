@@ -5,7 +5,7 @@
   "topics": [
     {
       "id": "llm",
-      "emoji": "🧠",
+      "emoji": "",
       "label": "LLM / Large Models",
       "description": "Large Language Models, foundation models, model releases, benchmarks, and breakthroughs in generative AI",
       "search": {
@@ -21,7 +21,7 @@
     },
     {
       "id": "ai-agent",
-      "emoji": "🤖",
+      "emoji": "",
       "label": "AI Agent",
       "description": "Autonomous agents, agent frameworks, AI assistants, and agentic AI systems",
       "search": {
@@ -37,7 +37,7 @@
     },
     {
       "id": "crypto",
-      "emoji": "💰",
+      "emoji": "",
       "label": "Cryptocurrency",
       "description": "Bitcoin, Ethereum, DeFi, NFTs, blockchain technology, and crypto market developments",
       "search": {
@@ -53,7 +53,7 @@
     },
     {
       "id": "frontier-tech",
-      "emoji": "🔬",
+      "emoji": "",
       "label": "Frontier Tech",
       "description": "Cutting-edge technology, research breakthroughs, quantum computing, biotech, and emerging technologies",
       "search": {

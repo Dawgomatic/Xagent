@@ -12,7 +12,7 @@ appointments=(
   "Jane Doe|+15559876543|2026-02-05 2:30 PM|Dr. Williams"
 )
 
-echo "📞 Starting appointment reminder calls..."
+echo " Starting appointment reminder calls..."
 echo ""
 
 for appointment in "${appointments[@]}"; do
@@ -34,4 +34,4 @@ for appointment in "${appointments[@]}"; do
   echo ""
 done
 
-echo "✅ All reminder calls completed!"
+echo " All reminder calls completed!"

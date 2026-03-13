@@ -102,7 +102,7 @@ function formatState(state, country) {
 }
 
 async function main() {
-  console.log('🔧 Gandi Contact Setup\n');
+  console.log(' Gandi Contact Setup\n');
   console.log('This will save your contact information for domain registration.');
   console.log('All information is stored locally at: ' + CONTACT_FILE);
   console.log('');
@@ -110,10 +110,10 @@ async function main() {
   // Check if contact file exists
   let existingContact = null;
   if (fs.existsSync(CONTACT_FILE)) {
-    console.log('⚠️  Contact file already exists!\n');
+    console.log('  Contact file already exists!\n');
     const overwrite = await prompt('Overwrite existing contact? (yes/no)', 'no');
     if (overwrite.toLowerCase() !== 'yes') {
-      console.log('❌ Setup cancelled.');
+      console.log(' Setup cancelled.');
       process.exit(0);
     }
     console.log('');
@@ -129,19 +129,19 @@ async function main() {
   const contact = {};
   
   // Type
-  console.log('📋 Contact Type');
+  console.log(' Contact Type');
   const typeInput = await prompt('Type (individual/company)', existingContact?.type || 'individual');
   contact.type = typeInput.toLowerCase();
   console.log('');
   
   // Name
-  console.log('👤 Name');
+  console.log(' Name');
   contact.given = await prompt('First name', existingContact?.given);
   contact.family = await prompt('Last name', existingContact?.family);
   console.log('');
   
   // Email
-  console.log('📧 Email');
+  console.log(' Email');
   let email;
   while (true) {
     email = await prompt('Email address', existingContact?.email);
@@ -149,12 +149,12 @@ async function main() {
       contact.email = email;
       break;
     }
-    console.log('❌ Invalid email format. Please try again.');
+    console.log(' Invalid email format. Please try again.');
   }
   console.log('');
   
   // Phone
-  console.log('📞 Phone');
+  console.log(' Phone');
   console.log('   Format: +1.5551234567 (international with country code)');
   let phone;
   while (true) {
@@ -165,12 +165,12 @@ async function main() {
       console.log(`   ✓ Formatted as: ${phone}`);
       break;
     }
-    console.log('❌ Invalid phone format. Use international format: +1.5551234567');
+    console.log(' Invalid phone format. Use international format: +1.5551234567');
   }
   console.log('');
   
   // Address
-  console.log('🏠 Address');
+  console.log(' Address');
   contact.streetaddr = await prompt('Street address', existingContact?.streetaddr);
   contact.city = await prompt('City', existingContact?.city);
   
@@ -196,7 +196,7 @@ async function main() {
   
   // Summary
   console.log('═══════════════════════════════════════════════════════');
-  console.log('📋 CONTACT SUMMARY');
+  console.log(' CONTACT SUMMARY');
   console.log('═══════════════════════════════════════════════════════');
   console.log(`   Name: ${contact.given} ${contact.family}`);
   console.log(`   Email: ${contact.email}`);
@@ -210,12 +210,12 @@ async function main() {
   
   const confirm = await prompt('Save this contact? (yes/no)', 'yes');
   if (confirm.toLowerCase() !== 'yes') {
-    console.log('❌ Setup cancelled.');
+    console.log(' Setup cancelled.');
     process.exit(0);
   }
   
   console.log('');
-  console.log('🔒 Privacy Preference');
+  console.log(' Privacy Preference');
   console.log('');
   console.log('How should contact information be handled after domain registration?');
   console.log('');
@@ -241,24 +241,24 @@ async function main() {
   fs.writeFileSync(CONTACT_FILE, JSON.stringify(contact, null, 2), { mode: 0o600 });
   
   console.log('');
-  console.log('✅ Contact saved successfully!');
+  console.log(' Contact saved successfully!');
   console.log('');
   console.log(`   Location: ${CONTACT_FILE}`);
   console.log(`   Permissions: 600 (owner read-write only)`);
   console.log('');
-  console.log('💡 This contact will be used automatically for:');
+  console.log(' This contact will be used automatically for:');
   console.log('   • Domain registration (register-domain.js)');
   console.log('   • Domain renewal (renew-domain.js)');
   console.log('   • Domain transfers');
   console.log('');
-  console.log('📝 To view or edit your contact:');
+  console.log(' To view or edit your contact:');
   console.log('   node view-contact.js');
   console.log('   node setup-contact.js  (re-run setup)');
   console.log('');
-  console.log('🎉 Setup complete!');
+  console.log(' Setup complete!');
 }
 
 main().catch(err => {
-  console.error('❌ Error:', err.message);
+  console.error(' Error:', err.message);
   process.exit(1);
 });

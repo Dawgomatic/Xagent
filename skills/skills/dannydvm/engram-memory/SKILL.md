@@ -3,7 +3,7 @@ name: engram
 description: "Persistent semantic memory for AI agents — local, fast, free. Use when agent needs to recall past decisions, store new facts/preferences, search conversation history, or maintain context across sessions."
 metadata:
   openclaw:
-    emoji: "🧠"
+    emoji: ""
     requires:
       bins: ["engram"]
     install:

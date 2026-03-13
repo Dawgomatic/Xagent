@@ -3,7 +3,7 @@ name: ctxly
 version: 1.0.0
 description: Cloud memory for AI agents. Store, search, and recall context across sessions.
 homepage: https://ctxly.app
-metadata: {"emoji": "🧠", "category": "memory", "keywords": ["memory", "context", "persistence", "storage", "recall"]}
+metadata: {"emoji": "", "category": "memory", "keywords": ["memory", "context", "persistence", "storage", "recall"]}
 ---
 
 # Ctxly - Cloud Memory for Agents
@@ -124,4 +124,4 @@ curl -X DELETE "https://ctxly.app/forget/MEMORY_ID" \
 
 ---
 
-Built for agents. 🧠 https://ctxly.app
+Built for agents.  https://ctxly.app

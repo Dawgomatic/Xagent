@@ -54,7 +54,7 @@ program
         const outputPath = path.resolve(options.output);
         const outputContent = JSON.stringify(session, null, 2);
         fs.writeFileSync(outputPath, outputContent);
-        console.log(`\n💾 结果已保存: ${outputPath}`);
+        console.log(`\n 结果已保存: ${outputPath}`);
       }
 
       // 根据状态设置退出码

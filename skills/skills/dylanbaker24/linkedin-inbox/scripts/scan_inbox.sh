@@ -10,7 +10,7 @@ SCREENSHOT_PATH="$OUTPUT_DIR/inbox_$TIMESTAMP.png"
 
 mkdir -p "$OUTPUT_DIR"
 
-echo "📨 Scanning LinkedIn inbox..."
+echo " Scanning LinkedIn inbox..."
 
 # Ensure Chrome is running
 if ! pgrep -x "Google Chrome" > /dev/null; then
@@ -44,8 +44,8 @@ peekaboo image \
     --app "Google Chrome" \
     --path "$SCREENSHOT_PATH"
 
-echo "✅ Inbox captured: $SCREENSHOT_PATH"
-echo "📋 Analysis JSON: $OUTPUT_DIR/inbox_$TIMESTAMP.json"
+echo " Inbox captured: $SCREENSHOT_PATH"
+echo " Analysis JSON: $OUTPUT_DIR/inbox_$TIMESTAMP.json"
 
 # Output path for agent consumption
 echo "$SCREENSHOT_PATH"

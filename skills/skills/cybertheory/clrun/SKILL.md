@@ -78,7 +78,7 @@ When you `tail` a session and see a prompt, identify its type:
 |---------|------|--------|
 | `◆  Project name: │  default` | Text input | `clrun <id> "name"` or `clrun key <id> enter` |
 | `● Option1  ○ Option2  ○ Option3` | Single-select | `clrun key <id> down... enter` |
-| `◻ Option1  ◻ Option2  ◻ Option3` | Multi-select | `clrun key <id> space down... enter` |
+| ` Option1   Option2   Option3` | Multi-select | `clrun key <id> space down... enter` |
 | `● Yes / ○ No` | Confirm | `clrun key <id> enter` or `clrun key <id> right enter` |
 | `(y/n)`, `[Y/n]` | Simple confirm | `clrun <id> "y"` or `clrun <id> "n"` |
 | `package name: (default)` | Readline | `clrun <id> "value"` or `clrun <id> ""` |

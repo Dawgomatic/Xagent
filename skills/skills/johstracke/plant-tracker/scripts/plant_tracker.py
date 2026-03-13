@@ -44,7 +44,7 @@ def add_plant(name, species=None, location=None, planted=None, notes=None):
     plants = db["plants"]
 
     if name in plants:
-        print(f"❌ Plant '{name}' already exists. Use 'show' to view details.")
+        print(f" Plant '{name}' already exists. Use 'show' to view details.")
         return False
 
     plants[name] = {
@@ -72,15 +72,15 @@ def list_plants():
     plants = db["plants"]
 
     if not plants:
-        print("🌱 No plants in your collection yet.")
+        print(" No plants in your collection yet.")
         print("   Use 'add' to start tracking your plants.")
         return
 
-    print("\n🌿 Your Plants:")
+    print("\n Your Plants:")
     print("-" * 70)
     for name, data in sorted(plants.items()):
         species = f" ({data['species']})" if data.get('species') else ""
-        location = f" | 📍 {data['location']}" if data.get('location') else ""
+        location = f" |  {data['location']}" if data.get('location') else ""
         care_count = len(data.get('care_history', []))
         last_care = ""
         if care_count > 0:
@@ -94,12 +94,12 @@ def show_plant(name):
     plants = db["plants"]
 
     if name not in plants:
-        print(f"❌ Plant '{name}' not found.")
+        print(f" Plant '{name}' not found.")
         print("   Use 'list' to see all plants.")
         return False
 
     data = plants[name]
-    print(f"\n🌿 {name}")
+    print(f"\n {name}")
     print("=" * 70)
 
     if data.get('species'):
@@ -115,7 +115,7 @@ def show_plant(name):
 
     care_history = data.get('care_history', [])
     if care_history:
-        print(f"\n📝 Care History ({len(care_history)} entries):")
+        print(f"\n Care History ({len(care_history)} entries):")
         print("-" * 70)
         # Show last 10 entries in reverse order
         recent = list(reversed(care_history))[-10:]
@@ -127,7 +127,7 @@ def show_plant(name):
         if len(care_history) > 10:
             print(f"  ... and {len(care_history) - 10} more entries")
     else:
-        print(f"\n📝 No care history yet.")
+        print(f"\n No care history yet.")
 
     print()
     return True
@@ -138,12 +138,12 @@ def record_care(name, action, notes=None):
     plants = db["plants"]
 
     if name not in plants:
-        print(f"❌ Plant '{name}' not found.")
+        print(f" Plant '{name}' not found.")
         print("   Use 'list' to see all plants.")
         return False
 
     if action not in VALID_ACTIONS:
-        print(f"❌ Invalid action: {action}")
+        print(f" Invalid action: {action}")
         print(f"   Valid actions: {', '.join(VALID_ACTIONS)}")
         return False
 
@@ -166,7 +166,7 @@ def search(query):
     plants = db["plants"]
 
     if not plants:
-        print("🌱 No plants to search.")
+        print(" No plants to search.")
         return
 
     query_lower = query.lower()
@@ -202,14 +202,14 @@ def search(query):
             })
 
     if not results:
-        print(f"🔍 No results for '{query}'")
+        print(f" No results for '{query}'")
         return
 
-    print(f"\n🔍 Search results for '{query}':")
+    print(f"\n Search results for '{query}':")
     print("-" * 70)
     for r in results:
         matches_str = ", ".join(sorted(r["matches"]))
-        print(f"\n  🌿 {r['name']} (matched: {matches_str})")
+        print(f"\n   {r['name']} (matched: {matches_str})")
         if r['data'].get('species'):
             print(f"     Species: {r['data']['species']}")
         if r['data'].get('location'):
@@ -222,13 +222,13 @@ def export_plants(output_file):
     plants = db["plants"]
 
     if not plants:
-        print("🌱 No plants to export.")
+        print(" No plants to export.")
         return False
 
     # Security: Validate output path
     output_path = Path(output_file)
     if not is_safe_path(output_path):
-        print(f"❌ Security error: Cannot write to '{output_path}'")
+        print(f" Security error: Cannot write to '{output_path}'")
         print("   Path must be within workspace or home directory (not system paths)")
         return False
 
@@ -355,7 +355,7 @@ def main():
         export_plants(sys.argv[2])
 
     else:
-        print(f"❌ Unknown command: {command}")
+        print(f" Unknown command: {command}")
 
 if __name__ == "__main__":
     main()

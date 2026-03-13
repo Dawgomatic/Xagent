@@ -5,7 +5,7 @@ description: "Multi-agent debate council — spawns 3 specialized sub-agents in 
 tags: [multi-agent, council, parallel, reasoning, research, creative, collaboration, agora, debate]
 ---
 
-# Agora 🏛️ — Multi-Agent Debate Council
+# Agora  — Multi-Agent Debate Council
 
 Spawn 3 specialized sub-agents in parallel to tackle complex problems. You (the main agent) act as **Captain/Coordinator** — decompose the task, dispatch to specialists, synthesize the final answer.
 
@@ -59,10 +59,10 @@ Users can specify models per role. Parse from the command or use defaults.
 ### Defaults (if no model specified)
 | Role | Default Model | Why |
 |------|--------------|-----|
-| 🎖️ Captain | User's current session model | Coordinates & synthesizes |
-| 🔍 Scholar | `codex` | Cheap, fast, good at web search |
-| 🧮 Engineer | `codex` | Strong at logic & code |
-| 🎨 Muse | `sonnet` | Creative, nuanced writing |
+|  Captain | User's current session model | Coordinates & synthesizes |
+|  Scholar | `codex` | Cheap, fast, good at web search |
+|  Engineer | `codex` | Strong at logic & code |
+|  Muse | `sonnet` | Creative, nuanced writing |
 
 ### Model Aliases (use in --flags)
 - `opus` → Claude Opus 4.6
@@ -82,16 +82,16 @@ Users can specify models per role. Parse from the command or use defaults.
 
 ## The Council
 
-### 🔍 Scholar (Research & Facts)
+###  Scholar (Research & Facts)
 - **Role:** Real-time web search, fact verification, evidence gathering, source citations
 - **Must use:** `web_search` tool extensively (or web-search-plus skill if available)
 - **Prompt prefix:** "You are SCHOLAR, a research specialist. Your job is to find accurate, up-to-date facts and evidence. Search the web extensively. Cite sources with URLs. Flag anything uncertain. Be thorough but concise. Structure your response with: ## Findings, ## Sources, ## Confidence (high/medium/low), ## Dissent (what might be wrong or missing)."
 
-### 🧮 Engineer (Logic, Math & Code)
+###  Engineer (Logic, Math & Code)
 - **Role:** Rigorous reasoning, calculations, code, debugging, step-by-step verification
 - **Prompt prefix:** "You are ENGINEER, a logic and code specialist. Your job is to reason step-by-step, write correct code, verify calculations, and find logical flaws. Be precise. Show your work. Structure your response with: ## Analysis, ## Verification, ## Confidence (high/medium/low), ## Dissent (potential flaws in this reasoning)."
 
-### 🎨 Muse (Creative & Balance)
+###  Muse (Creative & Balance)
 - **Role:** Divergent thinking, user-friendly explanations, creative solutions, balancing perspectives
 - **Prompt prefix:** "You are MUSE, a creative specialist. Your job is to think laterally, find novel angles, make explanations accessible and engaging, and balance perspectives. Challenge assumptions. Be original. Structure your response with: ## Perspective, ## Alternative Angles, ## Confidence (high/medium/low), ## Dissent (what the obvious answer might be missing)."
 
@@ -137,7 +137,7 @@ As Captain, combine all 3 perspectives:
 Present the final answer in this format:
 
 ```
-🏛️ **Council Answer**
+ **Council Answer**
 
 [Synthesized answer here — this is YOUR synthesis as Captain, not a copy-paste of sub-agent outputs]
 
@@ -146,7 +146,7 @@ Present the final answer in this format:
 **Dissent:** [Where they disagreed and why you sided with X]
 
 ---
-<sub>🔍 Scholar (model) · 🧮 Engineer (model) · 🎨 Muse (model) | Agora v1.1</sub>
+<sub> Scholar (model) ·  Engineer (model) ·  Muse (model) | Agora v1.1</sub>
 ```
 
 ## Examples

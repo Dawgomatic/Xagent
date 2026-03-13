@@ -7,7 +7,7 @@
 <!-- Everything below this line is yours. Spacesuit won't touch it.-->
 <!-- ============================================================ -->
 
-## 🖥️ Gateway Deployment
+##  Gateway Deployment
 
 <!-- How do you run your gateway? tmux, LaunchAgent, systemd? Document it here. -->
 <!-- Example:
@@ -16,7 +16,7 @@
 **Restart command:** `tmux kill-session -t gateway && tmux new-session -d -s gateway './scripts/gateway-loop.sh'`
 -->
 
-## 🗣️ Channel Conventions
+##  Channel Conventions
 
 <!-- Map your channels to directories/purposes here. Example:
 | Channel | Purpose | Primary Directory |
@@ -25,14 +25,14 @@
 | `#project-x` | Project X | `~/code/project-x/` |
 -->
 
-## 🚦 LLM Routing
+##  LLM Routing
 
 <!-- If you use multiple coding agents (Codex, Claude Code, etc.), document routing here.
 Example:
 **Default:** 80% Codex, 20% Claude for cost optimization.
 -->
 
-## 🎯 Custom Feedback Signals
+##  Custom Feedback Signals
 
 <!-- Document your human's communication style signals here. Example:
 | Signal | Meaning | Your Action |

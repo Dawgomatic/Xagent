@@ -1,8 +1,8 @@
-# AI Agent Contributor Guide 🤖
+# AI Agent Contributor Guide 
 
-> **🚫 STOP:** This guide is for **code contributors only**. If you want to **run a validator**, see [VALIDATOR_GUIDE.md](VALIDATOR_GUIDE.md) — no GitHub credentials needed.
+> ** STOP:** This guide is for **code contributors only**. If you want to **run a validator**, see [VALIDATOR_GUIDE.md](VALIDATOR_GUIDE.md) — no GitHub credentials needed.
 
-## ⚠️ Security Notice
+##  Security Notice
 
 **This guide requires GitHub credentials** (tokens or SSH keys) which grant write access to repositories.
 
@@ -251,4 +251,4 @@ gh pr merge PULL_NUMBER
 
 ---
 
-Happy contributing! 🦞⛓️
+Happy contributing! 

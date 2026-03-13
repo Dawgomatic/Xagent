@@ -6,7 +6,7 @@ Pay-per-request for production APIs. No API keys. No accounts. Just pay and call
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Install via ClawHub
@@ -31,7 +31,7 @@ cd ~/.openclaw/skills/apiosk
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 See [SKILL.md](./SKILL.md) for complete documentation:
 - Configuration
@@ -42,7 +42,7 @@ See [SKILL.md](./SKILL.md) for complete documentation:
 
 ---
 
-## 🔐 Security Notice
+##  Security Notice
 
 **Before using this skill:**
 
@@ -65,7 +65,7 @@ See [SKILL.md](./SKILL.md) for complete documentation:
 
 ---
 
-## 🔧 Gateway Changes Needed
+##  Gateway Changes Needed
 
 See [GATEWAY_CHANGES_NEEDED.md](./GATEWAY_CHANGES_NEEDED.md) for:
 - Required API endpoints
@@ -79,7 +79,7 @@ See [GATEWAY_CHANGES_NEEDED.md](./GATEWAY_CHANGES_NEEDED.md) for:
 
 ---
 
-## 📦 Files
+##  Files
 
 ```
 apiosk-skill/
@@ -98,7 +98,7 @@ apiosk-skill/
 
 ---
 
-## 🎯 What This Enables
+##  What This Enables
 
 **For Agents:**
 - Access 9+ production APIs instantly
@@ -116,7 +116,7 @@ apiosk-skill/
 
 ---
 
-## 🌐 Links
+##  Links
 
 - **Website:** https://apiosk.com
 - **Dashboard:** https://dashboard.apiosk.com
@@ -126,7 +126,7 @@ apiosk-skill/
 
 ---
 
-## 🦞 About
+##  About
 
 Built by Apiosk for the agent economy.
 
@@ -134,6 +134,6 @@ Built by Apiosk for the agent economy.
 
 ---
 
-## 📝 License
+##  License
 
 MIT

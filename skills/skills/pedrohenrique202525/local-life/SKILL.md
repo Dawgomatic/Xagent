@@ -9,9 +9,9 @@ ocal Life
 
 Esta skill transforma o agente em um assistente de contexto local, compilando dados de múltiplas fontes gratuitas em um dashboard formatado e de fácil leitura.
 
-📋 Instruções para o Agente
+ Instruções para o Agente
 
-1. 📍 Localização
+1.  Localização
 
 •
 Identifique a cidade do usuário. Se a cidade não for informada, use Goiânia como padrão.
@@ -19,7 +19,7 @@ Identifique a cidade do usuário. Se a cidade não for informada, use Goiânia c
 •
 Armazene o nome da cidade em uma variável (ex: CIDADE) para usar nas APIs.
 
-2. ☁️ Coleta de Dados
+2.  Coleta de Dados
 
 •
 Clima, Astronomia e Fase da Lua:
@@ -62,12 +62,12 @@ Verifique se há algum feriado para a data atual.
 
 
 
-3. 🔎 Pesquisa Adicional (Fallback )
+3.  Pesquisa Adicional (Fallback )
 
 •
 Qualidade do Ar (AQI): A API wttr.in não fornece este dado. Use uma ferramenta de pesquisa (como a API da Brave) para buscar "qualidade do ar em {CIDADE} hoje" e extraia o status (ex: "Boa", "Moderada", "Ruim").
 
-4. 💡 Lógica de Dicas Contextuais
+4.  Lógica de Dicas Contextuais
 
 •
 Com base nos dados coletados, gere uma dica contextual (DICA_CONTEXTUAL):
@@ -89,7 +89,7 @@ Se a variação do dólar for > 1%: "O mercado está volátil hoje."
 •
 Se nenhuma das condições acima for atendida, não exiba a dica.
 
-5. ⚙️ Regras de Formatação
+5.  Regras de Formatação
 
 •
 Bloco de Código: O output final DEVE ser gerado dentro de um bloco de código (usando ```) para preservar o alinhamento e a formatação ASCII.
@@ -100,38 +100,38 @@ Tradução: Traduza os nomes das fases da lua (ex: "New Moon" -> "Lua Nova") e a
 •
 Template: Siga rigorosamente o template de saída abaixo, preenchendo as variáveis com os dados coletados.
 
-💻 Template de Saída
+ Template de Saída
 
 O agente deve preencher as variáveis e manter este layout:
 
 Plain Text
 
 
-🏠 local-life - Tudo sobre onde você mora
+ local-life - Tudo sobre onde você mora
 ------------------------------------------------
-📍 [CIDADE] - [DATA ATUAL], [HORA]
+ [CIDADE] - [DATA ATUAL], [HORA]
 
-☀️ CLIMA AGORA
-🌡️ [TEMP]°C (sensação [FEEL]°C)
-💨 Vento: [VENTO] km/h
-💧 Umidade: [UMIDADE]%
-🌦️ Previsão: [PREVISÃO_TEXTO]
+ CLIMA AGORA
+ [TEMP]°C (sensação [FEEL]°C)
+ Vento: [VENTO] km/h
+ Umidade: [UMIDADE]%
+ Previsão: [PREVISÃO_TEXTO]
 
-📊 ÍNDICES DO DIA
-☀️ UV: [UV_INDEX] ([RISCO]) - [DICA_UV]!
-🌬️ Qualidade do ar: [AQI_STATUS]
-🌅 Sol nasce: [SUNRISE] | põe: [SUNSET]
+ ÍNDICES DO DIA
+ UV: [UV_INDEX] ([RISCO]) - [DICA_UV]!
+ Qualidade do ar: [AQI_STATUS]
+ Sol nasce: [SUNRISE] | põe: [SUNSET]
 
-💰 COTAÇÕES
-💵 Dólar: R$ [USD] ([USD_VAR]%)
-💶 Euro: R$ [EUR] ([EUR_VAR]%)
+ COTAÇÕES
+ Dólar: R$ [USD] ([USD_VAR]%)
+ Euro: R$ [EUR] ([EUR_VAR]%)
 ₿ Bitcoin: R$ [BTC] ([BTC_VAR]%)
 
-🗓️ HOJE
+ HOJE
 - [FERIADO_STATUS]
 - Lua: [LUA_NOME] [LUA_EMOJI]
 
-💡 DICA: [DICA_CONTEXTUAL]
+ DICA: [DICA_CONTEXTUAL]
 
 
 

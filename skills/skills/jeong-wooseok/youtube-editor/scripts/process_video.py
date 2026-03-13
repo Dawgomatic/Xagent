@@ -59,7 +59,7 @@ def validate_youtube_url(url: str) -> bool:
 
 
 def extract_audio(input_file, output_audio):
-    print(f"🎬 Extracting audio from {input_file}...")
+    print(f" Extracting audio from {input_file}...")
     cmd = [
         "ffmpeg", "-i", input_file, "-vn",
         "-acodec", "libmp3lame", "-q:a", "4", "-y",
@@ -75,7 +75,7 @@ def extract_audio(input_file, output_audio):
         exit(1)
 
 def transcribe_audio(audio_file, output_srt, output_txt):
-    print("🗣️ Transcribing audio with Whisper...")
+    print(" Transcribing audio with Whisper...")
     client = OpenAI()
     
     try:
@@ -103,7 +103,7 @@ def transcribe_audio(audio_file, output_srt, output_txt):
         exit(1)
 
 def analyze_content(transcript_text):
-    print("🧠 Analyzing content with GPT-4...")
+    print(" Analyzing content with GPT-4...")
     client = OpenAI()
     
     prompt = f"""
@@ -146,7 +146,7 @@ def generate_image(prompt, output_file, input_image=None):
     This is a legitimate cross-skill integration for AI image generation.
     Review nano-banana-pro skill separately before allowing this to run.
     """
-    print(f"🎨 Generating image: {prompt}")
+    print(f" Generating image: {prompt}")
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     # SECURITY: Fixed paths only - no user-supplied script execution
@@ -157,7 +157,7 @@ def generate_image(prompt, output_file, input_image=None):
 
     skill_path = next((p for p in possible_paths if os.path.exists(p)), None)
     if not skill_path:
-        print("⚠️ Nano Banana Pro skill not found.")
+        print(" Nano Banana Pro skill not found.")
         return False
 
     cmd = [
@@ -169,7 +169,7 @@ def generate_image(prompt, output_file, input_image=None):
     
     # Image-to-Image support
     if input_image and os.path.exists(input_image):
-        print(f"🖼️ Using input image for style transfer: {input_image}")
+        print(f" Using input image for style transfer: {input_image}")
         cmd.extend(["--input-image", input_image])
     
     api_key = os.getenv("NANO_BANANA_KEY")
@@ -181,11 +181,11 @@ def generate_image(prompt, output_file, input_image=None):
         subprocess.run(cmd, check=True, timeout=900)
         return True
     except subprocess.CalledProcessError:
-        print("⚠️ Image generation failed.")
+        print(" Image generation failed.")
         return False
 
 def remove_background(input_path, output_path):
-    print(f"✂️ Removing background...")
+    print(f" Removing background...")
     try:
         with open(input_path, 'rb') as i:
             with open(output_path, 'wb') as o:
@@ -194,11 +194,11 @@ def remove_background(input_path, output_path):
                 o.write(output_image)
         return True
     except Exception as e:
-        print(f"⚠️ Background removal failed: {e}")
+        print(f" Background removal failed: {e}")
         return False
 
 def render_thumbnail(title, sub_title, author, avatar_path, output_file):
-    print(f"🖼️ Rendering final thumbnail...")
+    print(f" Rendering final thumbnail...")
     
     script_dir = os.path.dirname(os.path.abspath(__file__))
     font_path = os.path.join(script_dir, "../assets/fonts/Paperlogy-ExtraBold.ttf")
@@ -206,7 +206,7 @@ def render_thumbnail(title, sub_title, author, avatar_path, output_file):
     if not os.path.exists(font_path):
          font_family = "sans-serif"
          font_src = ""
-         print("⚠️ Font file not found, using system font.")
+         print(" Font file not found, using system font.")
     else:
          font_family = "Paperlogy"
          font_src = f"src: url('{font_path}') format('truetype');"
@@ -325,11 +325,11 @@ def render_thumbnail(title, sub_title, author, avatar_path, output_file):
             page.goto(f"file://{os.path.abspath(html_path)}")
             page.screenshot(path=output_file)
             browser.close()
-        print(f"✅ Thumbnail saved to {output_file}")
+        print(f" Thumbnail saved to {output_file}")
     except ImportError:
-        print("⚠️ Playwright not installed. Run 'pip install playwright && playwright install chromium'")
+        print(" Playwright not installed. Run 'pip install playwright && playwright install chromium'")
     except Exception as e:
-        print(f"⚠️ Screenshot failed: {e}")
+        print(f" Screenshot failed: {e}")
 
 def main():
     parser = argparse.ArgumentParser(description="YouTube AI Editor")
@@ -348,7 +348,7 @@ def main():
     video_path = args.input
     
     if args.url:
-        print(f"📥 Downloading from URL: {args.url}")
+        print(f" Downloading from URL: {args.url}")
         video_path = os.path.join(output_dir, "downloaded_video.mp4")
         if not validate_youtube_url(args.url):
             print("Error: Invalid or unsafe URL. Only YouTube URLs are allowed.")
@@ -409,7 +409,7 @@ def main():
         if char_action:
             # Generate new pose using base avatar
             prompt = f"A cute pirate lobster character, {char_action}, adventurous anime style, white background, high quality 3d render. Keep the character design consistent with the input image."
-            print(f"🤖 Generating character variant: {prompt}")
+            print(f" Generating character variant: {prompt}")
             gen_char_path = os.path.join(output_dir, "generated_character.png")
             
             # Pass input image for style consistency
@@ -425,12 +425,12 @@ def main():
         if not remove_background(avatar_path, avatar_final_path):
             avatar_final_path = avatar_path 
     else:
-        print("⚠️ No avatar found. Thumbnail will be text-only.")
+        print(" No avatar found. Thumbnail will be text-only.")
 
     thumbnail_path = os.path.join(output_dir, "thumbnail.png")
     render_thumbnail(title_text, sub_title, args.author, avatar_final_path, thumbnail_path)
 
-    print(f"✅ All done! Check the '{output_dir}' folder.")
+    print(f" All done! Check the '{output_dir}' folder.")
 
 if __name__ == "__main__":
     main()

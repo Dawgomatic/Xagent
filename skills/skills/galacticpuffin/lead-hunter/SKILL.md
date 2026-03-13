@@ -27,7 +27,7 @@ Your agent can do this 24/7. Better. Faster. Cheaper.
 
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│    DISCOVER     │ ──▶ │     ENRICH      │ ──▶ │     SCORE       │
+│    DISCOVER     │ ── │     ENRICH      │ ── │     SCORE       │
 │                 │     │                 │     │                 │
 │ • X/Twitter     │     │ • Email finder  │     │ • ICP match     │
 │ • LinkedIn*     │     │ • Phone lookup  │     │ • Intent signals│

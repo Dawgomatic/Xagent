@@ -1,7 +1,7 @@
 ---
 name: Google Cloud
 description: Deploy, monitor, and manage GCP services with battle-tested patterns.
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"anyBins":["gcloud"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["gcloud"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Google Cloud Production Rules

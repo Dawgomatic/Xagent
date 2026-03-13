@@ -2,7 +2,7 @@
 
 *2026-01-28 21:20-21:30 Session*
 
-## 🔥 Critical Crypto Extractions
+##  Critical Crypto Extractions
 
 ### Nonces (Security-Critical)
 | Nonce | Size | Hex (truncated) |
@@ -26,7 +26,7 @@
 
 ---
 
-## 📱 Hardware Identities
+##  Hardware Identities
 
 | Identifier | Value |
 |------------|-------|
@@ -40,7 +40,7 @@
 
 ---
 
-## 📡 Cellular/Carrier Secrets
+##  Cellular/Carrier Secrets
 
 | Field | Value |
 |-------|-------|
@@ -58,7 +58,7 @@
 
 ---
 
-## 📊 System Data
+##  System Data
 
 ### NANDInfo
 - **52,880 bytes** of NAND flash information extracted
@@ -79,7 +79,7 @@
 
 ---
 
-## 🔍 Syslog Intelligence
+##  Syslog Intelligence
 
 15-second syslog collection yielded:
 - **191,340 bytes** of system logs
@@ -105,7 +105,7 @@ This is the **encrypted location sensor database**.
 
 ---
 
-## ⚠️ Dangerous Commands 
+##  Dangerous Commands 
 
 ### EnterRecovery - WORKS OVER WIFI!
 ```python
@@ -124,7 +124,7 @@ They're stored but don't bypass the transport-level checks.
 
 ---
 
-## 🔓 Working Services Over WiFi
+##  Working Services Over WiFi
 
 | Service | Port | Data |
 |---------|------|------|
@@ -137,7 +137,7 @@ They're stored but don't bypass the transport-level checks.
 
 ---
 
-## 🚫 Blocked Services (WiFi Wall)
+##  Blocked Services (WiFi Wall)
 
 | Service | Block Type |
 |---------|------------|
@@ -150,7 +150,7 @@ They're stored but don't bypass the transport-level checks.
 
 ---
 
-## 🎯 Attack Surface Summary
+##  Attack Surface Summary
 
 **With just a pairing record, an attacker can:**
 
@@ -166,7 +166,7 @@ They're stored but don't bypass the transport-level checks.
 
 ---
 
-## 📁 Files Created
+##  Files Created
 
 - `ultimate_secrets.json` - All extracted secrets
 - `secret_miner.py` - Syslog mining tool

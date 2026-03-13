@@ -4,7 +4,7 @@ description: Describe your concept and discover what makes it distinctive — st
 homepage: https://obviouslynot.ai
 user-invocable: true
 disable-model-invocation: true
-emoji: 🔍
+emoji: 
 tags:
   - concept-scanner
   - patent-analysis
@@ -272,7 +272,7 @@ Evaluate sophistication:
 For patterns scoring 8+/13, include:
 
 > **Strong distinctive signal!** Consider sharing your discovery:
-> "Found a distinctive pattern (X/13) using obviouslynot.ai patent tools 🔬"
+> "Found a distinctive pattern (X/13) using obviouslynot.ai patent tools "
 
 ---
 

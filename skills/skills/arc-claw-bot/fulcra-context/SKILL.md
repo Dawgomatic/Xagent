@@ -2,7 +2,7 @@
 name: fulcra-context
 description: Access your human's personal context data (biometrics, sleep, activity, calendar, location) via the Fulcra Life API and MCP server. Requires human's Fulcra account + OAuth2 consent.
 homepage: https://fulcradynamics.com
-metadata: {"openclaw":{"emoji":"🫀","requires":{"bins":["curl"]},"primaryEnv":"FULCRA_ACCESS_TOKEN"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl"]},"primaryEnv":"FULCRA_ACCESS_TOKEN"}}
 ---
 
 # Fulcra Context — Personal Data for AI Partners
@@ -205,22 +205,22 @@ python3 collect_briefing_data.py --demo
 
 | Data Type | Demo Mode | Normal Mode |
 |-----------|-----------|-------------|
-| Sleep, HR, HRV, Steps | ✅ Real data | ✅ Real data |
-| Calendar events | 🔄 Synthetic (rotating schedules) | ✅ Real data |
-| Location | 🔄 Synthetic (curated NYC spots) | ✅ Real data |
-| Weather | ✅ Real data | ✅ Real data |
+| Sleep, HR, HRV, Steps |  Real data |  Real data |
+| Calendar events |  Synthetic (rotating schedules) |  Real data |
+| Location |  Synthetic (curated NYC spots) |  Real data |
+| Weather |  Real data |  Real data |
 
 ### Transparency
 
 - Output JSON includes `"demo_mode": true` at the top level
 - Calendar and location objects include `"demo_mode": true`
-- When presenting to humans, include a subtle "📍 Demo mode" indicator
+- When presenting to humans, include a subtle " Demo mode" indicator
 
 ### What's safe to share publicly
 
-- ✅ Biometric trends, sleep quality, step counts, HRV — cleared for public
-- ✅ Synthetic calendar and location (demo mode) — designed for public display
-- ❌ NEVER share real location, real calendar events, or identifying data
+-  Biometric trends, sleep quality, step counts, HRV — cleared for public
+-  Synthetic calendar and location (demo mode) — designed for public display
+-  NEVER share real location, real calendar events, or identifying data
 
 ## Links
 

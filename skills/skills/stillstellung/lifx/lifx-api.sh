@@ -86,9 +86,9 @@ for l in lights:
     if g not in groups: groups[g] = []
     groups[g].append(l)
 for name in sorted(groups):
-    print(f'📍 {name}')
+    print(f' {name}')
     for l in groups[name]:
-        power = '🟢' if l['power'] == 'on' else '⚫'
+        power = '' if l['power'] == 'on' else ''
         bri = int(l.get('brightness', 0) * 100)
         c = l.get('color', {})
         if c.get('saturation', 0) < 0.1:

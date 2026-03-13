@@ -25,7 +25,7 @@ logger = logging.getLogger("actions_demo")
 
 async def demo_navigation():
     """Demo: Navigate to pose action"""
-    print("\n🧭 NAVIGATION ACTION DEMO")
+    print("\n NAVIGATION ACTION DEMO")
     print("=" * 60)
     
     # Create action client for navigation
@@ -38,17 +38,17 @@ async def demo_navigation():
     # Connect to action server
     connected = await client.connect()
     if not connected:
-        print("⚠️  Using mock action client (no real ROS)")
+        print("  Using mock action client (no real ROS)")
     
     # Register feedback callback
     def on_feedback(feedback: ActionFeedback):
         data = feedback.feedback_data
         if "distance_remaining" in data:
-            print(f"  📍 Distance: {data['distance_remaining']:.2f}m, "
+            print(f"   Distance: {data['distance_remaining']:.2f}m, "
                   f"Speed: {data.get('current_speed', 0):.2f}m/s")
     
     def on_result(result: ActionResult):
-        status = "✅" if result.success else "❌"
+        status = "" if result.success else ""
         print(f"\n{status} Navigation {result.status.name}")
         print(f"   Time: {result.execution_time_sec:.1f}s")
         if result.error_message:
@@ -70,17 +70,17 @@ async def demo_navigation():
         result = await client.send_goal(goal_data, timeout_sec=30.0)
         
         if not result.success:
-            print(f"   ⚠️  Navigation failed: {result.error_message}")
+            print(f"     Navigation failed: {result.error_message}")
         
         await asyncio.sleep(1)
     
     await client.disconnect()
-    print("\n✅ Navigation demo complete!")
+    print("\n Navigation demo complete!")
 
 
 async def demo_manipulation():
     """Demo: Follow joint trajectory action"""
-    print("\n🦾 MANIPULATION ACTION DEMO")
+    print("\n MANIPULATION ACTION DEMO")
     print("=" * 60)
     
     client = create_action_client(
@@ -94,7 +94,7 @@ async def demo_manipulation():
     def on_feedback(feedback: ActionFeedback):
         data = feedback.feedback_data
         if "progress" in data:
-            print(f"  🔧 Progress: {data['progress']*100:.0f}%")
+            print(f"   Progress: {data['progress']*100:.0f}%")
     
     client.register_feedback_callback(on_feedback)
     
@@ -113,14 +113,14 @@ async def demo_manipulation():
     print("\nExecuting joint trajectory...")
     result = await client.send_goal(goal_data, timeout_sec=15.0)
     
-    print(f"\n{'✅' if result.success else '❌'} Trajectory {result.status.name}")
+    print(f"\n{'' if result.success else ''} Trajectory {result.status.name}")
     
     await client.disconnect()
 
 
 async def demo_cancel():
     """Demo: Cancel ongoing action"""
-    print("\n🛑 CANCEL ACTION DEMO")
+    print("\n CANCEL ACTION DEMO")
     print("=" * 60)
     
     client = create_action_client(
@@ -140,13 +140,13 @@ async def demo_cancel():
     # Let it run for 3 seconds
     await asyncio.sleep(3)
     
-    print("\n⏹️  Cancelling goal...")
+    print("\n  Cancelling goal...")
     cancelled = await client.cancel_goal()
     
     if cancelled:
-        print("✅ Goal cancelled successfully")
+        print(" Goal cancelled successfully")
     else:
-        print("⚠️  Could not cancel (may already be complete)")
+        print("  Could not cancel (may already be complete)")
     
     # Wait for result
     result = await goal_task
@@ -157,7 +157,7 @@ async def demo_cancel():
 
 async def interactive_mode():
     """Interactive action control via WebSocket"""
-    print("\n🎮 INTERACTIVE ACTION CONTROL")
+    print("\n INTERACTIVE ACTION CONTROL")
     print("=" * 60)
     print("WebSocket: ws://localhost:8773")
     print("\nAvailable commands:")
@@ -180,7 +180,7 @@ async def main():
     await bridge.start()
     
     print("=" * 60)
-    print("⚡ ROS ACTIONS DEMO")
+    print(" ROS ACTIONS DEMO")
     print("=" * 60)
     print("ROS Actions provide:")
     print("  • Goal → Feedback → Result lifecycle")
@@ -198,12 +198,12 @@ async def main():
             await demo_cancel()
         else:
             await interactive_mode()
-            print("\n⏳ Waiting... (Press Ctrl+C to stop)")
+            print("\n Waiting... (Press Ctrl+C to stop)")
             while True:
                 await asyncio.sleep(1)
     
     except KeyboardInterrupt:
-        print("\n\n⏹️  Stopping...")
+        print("\n\n  Stopping...")
     finally:
         await bridge.stop()
 

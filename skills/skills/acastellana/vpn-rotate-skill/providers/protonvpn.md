@@ -10,7 +10,7 @@ Sign up at https://protonvpn.com (Free tier works, Plus recommended)
 2. Copy your **OpenVPN username** (looks like: `AbCdEfGhIjKlMnOpQrStUvWx`)
 3. Copy your **OpenVPN password**
 
-⚠️ These are NOT your ProtonVPN login credentials!
+ These are NOT your ProtonVPN login credentials!
 
 ## 3. Download Configs
 

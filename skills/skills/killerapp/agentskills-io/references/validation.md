@@ -58,8 +58,8 @@ uvx --from git+https://github.com/agentskills/agentskills#subdirectory=skills-re
 Per spec: Keep file references one level deep.
 
 ```markdown
-✅ Good: [API](references/api.md)
-❌ Bad:  [API](references/v2/api.md)
+ Good: [API](references/api.md)
+ Bad:  [API](references/v2/api.md)
 ```
 
 ### Manual Check

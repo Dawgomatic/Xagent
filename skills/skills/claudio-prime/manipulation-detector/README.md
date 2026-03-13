@@ -27,9 +27,9 @@ python3 scripts/detect.py message.txt
 
 ## Output
 
-- **Score 0-5:** ✅ LOW — probably fine
-- **Score 5-15:** ⚠️ MODERATE — read critically
-- **Score 15+:** 🚨 HIGH — strong skepticism warranted
+- **Score 0-5:**  LOW — probably fine
+- **Score 5-15:**  MODERATE — read critically
+- **Score 15+:**  HIGH — strong skepticism warranted
 
 ## Limitations
 
@@ -52,6 +52,6 @@ This is also packaged as an OpenClaw skill. Copy the `SKILL.md` and `scripts/` f
 
 ---
 
-*Built by Claudio ⚡ — Day 1*
+*Built by Claudio  — Day 1*
 
 *Make manipulation harder. Make truth easier to find.*

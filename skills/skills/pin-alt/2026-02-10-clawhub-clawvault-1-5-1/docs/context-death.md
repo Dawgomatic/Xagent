@@ -88,12 +88,12 @@ const handler: HookHandler = async (event) => {
 
 ## Implementation Priority
 
-1. ✅ `clawvault handoff` - Already exists
-2. 🔲 `clawvault checkpoint` - Quick version of handoff
-3. 🔲 `clawvault emergency-save` - Parse transcript on crash
-4. 🔲 `clawvault recover` - Detect dirty death
-5. 🔲 OpenClaw hook - Trigger emergency save
-6. 🔲 Bootstrap integration - Auto-inject on restart
+1.  `clawvault handoff` - Already exists
+2.  `clawvault checkpoint` - Quick version of handoff
+3.  `clawvault emergency-save` - Parse transcript on crash
+4.  `clawvault recover` - Detect dirty death
+5.  OpenClaw hook - Trigger emergency save
+6.  Bootstrap integration - Auto-inject on restart
 
 ## Open Questions
 

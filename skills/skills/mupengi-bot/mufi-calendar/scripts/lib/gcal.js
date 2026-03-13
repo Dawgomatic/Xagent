@@ -28,7 +28,7 @@ async function getCalendar() {
     const token = JSON.parse(tokenContent);
     oauth2Client.setCredentials(token);
   } catch (err) {
-    console.error('❌ 토큰이 없습니다. 먼저 인증하세요: node scripts/auth.js');
+    console.error(' 토큰이 없습니다. 먼저 인증하세요: node scripts/auth.js');
     process.exit(1);
   }
 

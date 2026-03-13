@@ -10,7 +10,7 @@
   "changelog": "Improved credential storage guidance: replaced insecure echo commands with heredoc-based approach, added file permission hardening, .gitignore enforcement, and security best practices. Declared service-issued credentials in skill metadata.",
   "metadata": {
     "openclaw": {
-      "emoji": "🎨",
+      "emoji": "",
       "os": ["darwin", "linux", "windows", "macos"]
     }
   },

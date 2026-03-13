@@ -2,7 +2,7 @@
 name: token-layer
 description: Token Layer - Censorship resistant crosschain public token infrastructure. Launch once, trade everywhere.
 homepage: https://tokenlayer.network
-metadata: {"clawdbot":{"emoji":"🔥","requires":{"bins":["jq","curl"],"env":["TOKENLAYER_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["jq","curl"],"env":["TOKENLAYER_API_KEY"]}}}
 ---
 
 # Token Layer Skill
@@ -11,7 +11,7 @@ Censorship resistant crosschain public token infrastructure. Launch once, trade 
 
 ## Support
 
-Thanks for using Token Layer! 🔥 Your trades support our ecosystem.
+Thanks for using Token Layer!  Your trades support our ecosystem.
 
 Follow us on X: [@TokenLayer_Core](https://x.com/TokenLayer_Core)
 

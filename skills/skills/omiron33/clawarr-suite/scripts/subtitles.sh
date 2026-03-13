@@ -14,17 +14,17 @@ HOST="${CLAWARR_HOST:-}"
 BAZARR_KEY="${BAZARR_KEY:-}"
 
 if [[ -z "$HOST" ]]; then
-  echo "❌ Error: CLAWARR_HOST not set"
+  echo " Error: CLAWARR_HOST not set"
   exit 1
 fi
 
 if [[ -z "$BAZARR_KEY" ]]; then
-  echo "❌ Error: BAZARR_KEY not set"
+  echo " Error: BAZARR_KEY not set"
   exit 1
 fi
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required"
+  echo " Error: jq is required"
   exit 1
 fi
 
@@ -50,7 +50,7 @@ bazarr_api() {
 
 # Command: wanted
 cmd_wanted() {
-  echo "📋 Missing Subtitles"
+  echo " Missing Subtitles"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   echo ""
@@ -84,7 +84,7 @@ cmd_wanted() {
 cmd_history() {
   local count="${1:-20}"
   
-  echo "📜 Recent Subtitle Downloads (Last $count)"
+  echo " Recent Subtitle Downloads (Last $count)"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local history
@@ -109,12 +109,12 @@ cmd_search() {
   local id="$2"
   
   if [[ -z "$type" || -z "$id" ]]; then
-    echo "❌ Error: Type and ID required"
+    echo " Error: Type and ID required"
     echo "Usage: $0 search <series|movie> <id>"
     exit 1
   fi
   
-  echo "🔍 Searching subtitles for $type ID: $id"
+  echo " Searching subtitles for $type ID: $id"
   
   if [[ "$type" == "series" ]]; then
     # Trigger episode subtitle search
@@ -122,9 +122,9 @@ cmd_search() {
     data=$(jq -n --arg id "$id" '{seriesId: $id}')
     
     if bazarr_api "/episodes/search" "POST" "$data" >/dev/null 2>&1; then
-      echo "✅ Search triggered for series $id"
+      echo " Search triggered for series $id"
     else
-      echo "❌ Failed to trigger search"
+      echo " Failed to trigger search"
     fi
   elif [[ "$type" == "movie" ]]; then
     # Trigger movie subtitle search
@@ -132,19 +132,19 @@ cmd_search() {
     data=$(jq -n --arg id "$id" '{radarrId: $id}')
     
     if bazarr_api "/movies/search" "POST" "$data" >/dev/null 2>&1; then
-      echo "✅ Search triggered for movie $id"
+      echo " Search triggered for movie $id"
     else
-      echo "❌ Failed to trigger search"
+      echo " Failed to trigger search"
     fi
   else
-    echo "❌ Invalid type. Use 'series' or 'movie'"
+    echo " Invalid type. Use 'series' or 'movie'"
     exit 1
   fi
 }
 
 # Command: languages
 cmd_languages() {
-  echo "🌐 Configured Languages"
+  echo " Configured Languages"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   # Get system settings
@@ -177,7 +177,7 @@ case "$COMMAND" in
   languages) cmd_languages ;;
   help|--help|-h) show_help ;;
   *)
-    echo "❌ Unknown command: $COMMAND"
+    echo " Unknown command: $COMMAND"
     echo "Run '$0 help' for usage"
     exit 1
     ;;

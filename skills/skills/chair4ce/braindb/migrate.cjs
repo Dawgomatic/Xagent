@@ -566,12 +566,12 @@ async function encodeFact(fact, source) {
 // ─── Main ────────────────────────────────────────────────
 
 async function main() {
-  console.log('🧠 BrainDB Memory Migration v2');
+  console.log(' BrainDB Memory Migration v2');
   console.log('═'.repeat(50));
 
   if (SINGLE_FILE) {
     if (!fs.existsSync(SINGLE_FILE)) {
-      console.error(`❌ File not found: ${SINGLE_FILE}`);
+      console.error(` File not found: ${SINGLE_FILE}`);
       process.exit(1);
     }
     const files = [{ path: path.resolve(SINGLE_FILE), relative: path.basename(SINGLE_FILE), shard: 'mixed', priority: 1, desc: path.basename(SINGLE_FILE), type: 'single' }];
@@ -579,16 +579,16 @@ async function main() {
   }
 
   const wsPath = path.resolve(WORKSPACE);
-  console.log(`📂 Workspace: ${wsPath}`);
+  console.log(` Workspace: ${wsPath}`);
   
   const files = discoverFiles(wsPath);
   if (files.length === 0) {
-    console.log('\n⚠️  No files found to migrate.');
+    console.log('\n  No files found to migrate.');
     process.exit(0);
   }
 
   if (SCAN_ONLY) {
-    console.log(`\n📋 Found ${files.length} files to migrate:\n`);
+    console.log(`\n Found ${files.length} files to migrate:\n`);
     for (const f of files) {
       const size = fs.statSync(f.path).size;
       const kb = (size / 1024).toFixed(1);
@@ -605,20 +605,20 @@ async function migrateFiles(files) {
   try {
     const health = await httpGet(`${BRAINDB_URL}/health`);
     if (!health?.status) throw new Error('no response');
-    console.log(`✅ BrainDB: ${health.status} (${health.totalMemories || 0} existing memories)`);
+    console.log(` BrainDB: ${health.status} (${health.totalMemories || 0} existing memories)`);
   } catch (e) {
-    console.error(`❌ Can't reach BrainDB at ${BRAINDB_URL}`);
+    console.error(` Can't reach BrainDB at ${BRAINDB_URL}`);
     process.exit(1);
   }
 
   const useSwarm = USE_SWARM;
   if (useSwarm) {
-    console.log('🐝 Using Gemini Flash extraction (⚠️ sends data to Google API)');
+    console.log(' Using Gemini Flash extraction ( sends data to Google API)');
   } else {
-    console.log('📦 Using smart local extraction (fully local, no external API)');
+    console.log(' Using smart local extraction (fully local, no external API)');
   }
   
-  console.log(`📋 Files: ${files.length}`);
+  console.log(` Files: ${files.length}`);
   if (DRY_RUN) console.log('   (DRY RUN)');
   console.log('');
 
@@ -627,7 +627,7 @@ async function migrateFiles(files) {
   for (const file of files) {
     const content = fs.readFileSync(file.path, 'utf8');
     if (content.trim().length < 20) {
-      if (VERBOSE) console.log(`   ⏭️  ${file.relative}: too short`);
+      if (VERBOSE) console.log(`     ${file.relative}: too short`);
       continue;
     }
 
@@ -656,10 +656,10 @@ async function migrateFiles(files) {
     const summaryFacts = generateSummaryFacts(content, file.relative);
     if (summaryFacts.length > 0) {
       facts.push(...summaryFacts);
-      if (VERBOSE) console.log(`      📋 +${summaryFacts.length} summary facts`);
+      if (VERBOSE) console.log(`       +${summaryFacts.length} summary facts`);
     }
 
-    console.log(`   📄 ${file.relative}: ${facts.length} facts`);
+    console.log(`    ${file.relative}: ${facts.length} facts`);
     totalFacts += facts.length;
 
     if (DRY_RUN) {
@@ -675,7 +675,7 @@ async function migrateFiles(files) {
         if (result?.ok) {
           if (result.deduplicated) totalDedup++;
           else totalEncoded++;
-          if (VERBOSE) console.log(`      ✅ ${fact.trigger.substring(0, 50)}`);
+          if (VERBOSE) console.log(`       ${fact.trigger.substring(0, 50)}`);
         } else {
           errors++;
         }
@@ -687,12 +687,12 @@ async function migrateFiles(files) {
 
   console.log('');
   console.log('═'.repeat(50));
-  console.log('📊 Migration Complete');
+  console.log(' Migration Complete');
   console.log(`   Files: ${files.length} | Facts: ${totalFacts} | Encoded: ${totalEncoded} | Dedup: ${totalDedup} | Errors: ${errors}`);
   console.log('═'.repeat(50));
 
   if (totalEncoded > 0) {
-    console.log('\n✅ Your memories are loaded! Test with:');
+    console.log('\n Your memories are loaded! Test with:');
     console.log(`   curl -s -X POST ${BRAINDB_URL}/memory/recall \\`);
     console.log(`     -H "Content-Type: application/json" \\`);
     console.log(`     -d '{"query":"who am I","limit":3}'`);

@@ -7,7 +7,7 @@ compatibility: OpenClaw agent with cron jobs
 metadata: {"openclaw": {"emoji": "\ud83c\udfaf", "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# Founder Coach 🎯
+# Founder Coach 
 
 **Your AI-powered founder accountability system.**
 
@@ -34,7 +34,7 @@ python3 {baseDir}/scripts/founder_checkin.py history --days 7
 
 ---
 
-## 🌅 Morning Brief Template
+##  Morning Brief Template
 
 Use this every morning to set your day:
 
@@ -62,7 +62,7 @@ Pick one to reflect on:
 
 ---
 
-## 🌙 Evening Reflection Template
+##  Evening Reflection Template
 
 ### Wins
 - What went well today?
@@ -82,7 +82,7 @@ Rate 1-5: Energy [ ] Focus [ ] Motivation [ ]
 
 ---
 
-## 📊 Weekly Strategy Review
+##  Weekly Strategy Review
 
 Run every Sunday or Monday. Takes 30-60 minutes.
 
@@ -131,7 +131,7 @@ Run every Sunday or Monday. Takes 30-60 minutes.
 
 ---
 
-## 📓 Decision Journal Format
+##  Decision Journal Format
 
 For important decisions, use this format:
 
@@ -168,7 +168,7 @@ Lesson:
 
 ---
 
-## 📈 Accountability System
+##  Accountability System
 
 ### How It Works
 1. **Morning:** Set 3 commitments
@@ -190,7 +190,7 @@ Lesson:
 
 ---
 
-## 🤖 AI-Era Founder Questions Bank
+##  AI-Era Founder Questions Bank
 
 Rotate through these in morning briefs:
 
@@ -237,4 +237,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

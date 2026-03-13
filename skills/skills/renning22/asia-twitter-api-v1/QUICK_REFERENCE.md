@@ -1,10 +1,10 @@
 # OpenClaw Twitter Security Improvements - Quick Reference
 
-## 📦 What You're Getting
+##  What You're Getting
 
 Enhanced security version of OpenClaw Twitter skill responding to VirusTotal security scan findings.
 
-## 📁 Files Included
+##  Files Included
 
 ### Core Files (Replace Originals)
 1. **README.md** - User-facing documentation with security warnings
@@ -22,7 +22,7 @@ Enhanced security version of OpenClaw Twitter skill responding to VirusTotal sec
 9. **PACKAGE_HYGIENE.md** - Guide for clean packages
 10. **cleanup.sh** - Automated cleanup script
 
-## 🎯 Key Improvements At a Glance
+##  Key Improvements At a Glance
 
 | Aspect | Before | After |
 |--------|--------|-------|
@@ -33,7 +33,7 @@ Enhanced security version of OpenClaw Twitter skill responding to VirusTotal sec
 | **User Guidance** | Limited | Detailed best practices |
 | **Incident Response** | None | Complete procedures |
 
-## ⚡ Quick Start
+##  Quick Start
 
 ### Option 1: Quick Deployment
 ```bash
@@ -63,12 +63,12 @@ find . -name ".DS_Store"  # Should return nothing
 3. Review `DEPLOYMENT_GUIDE.md` for full deployment process
 4. Then deploy using Option 1
 
-## 🛡️ Security Improvements Summary
+##  Security Improvements Summary
 
 ### 1. Documentation Enhancements
-- ⚠️ Prominent security notice in README and SKILL.md
+-  Prominent security notice in README and SKILL.md
 - Clear distinction between safe (read) and risky (write) operations
-- Visual indicators (✅ safe, ⚠️ risky) throughout
+- Visual indicators ( safe,  risky) throughout
 - Comprehensive SECURITY.md guide with threat model
 
 ### 2. Code Improvements
@@ -89,37 +89,37 @@ find . -name ".DS_Store"  # Should return nothing
 - Monitoring recommendations
 - Account isolation strategies
 
-## 📊 Risk Classification
+##  Risk Classification
 
-### ✅ SAFE: Read Operations (Recommended)
+###  SAFE: Read Operations (Recommended)
 - user-info, tweets, search, trends, followers, followings
 - No authentication required
 - No credentials transmitted
 - Use these by default
 
-### ⚠️ HIGH RISK: Write Operations (Use with Caution)
+###  HIGH RISK: Write Operations (Use with Caution)
 - login, post, like, retweet
 - Requires transmitting credentials to third-party API
 - Only use with dedicated test accounts
 - Assume account may be suspended
 
-## 🎓 User Journey
+##  User Journey
 
 ### For Monitoring/Research Users (95% of use cases)
 ```
 Read README → See "Read operations are safe" 
   → Use search/trends/user-info 
-  → No warnings, works great ✅
+  → No warnings, works great 
 ```
 
 ### For Automation Users (5% of use cases)
 ```
 Read all security warnings → Review SECURITY.md 
   → Create dedicated test account 
-  → See runtime warnings → Use with caution ⚠️
+  → See runtime warnings → Use with caution 
 ```
 
-## 📋 Pre-Deployment Checklist
+##  Pre-Deployment Checklist
 
 - [ ] Backed up original files
 - [ ] Reviewed all security improvements
@@ -138,7 +138,7 @@ Read all security warnings → Review SECURITY.md
 - [ ] Verified package size is reasonable: `du -sh .`
 - [ ] Created clean archive: `git archive HEAD -o package.zip`
 
-## 🔍 What Changed vs Original
+##  What Changed vs Original
 
 ### Same Functionality ✓
 - All read operations work identically
@@ -156,7 +156,7 @@ Read all security warnings → Review SECURITY.md
 **Before:** Features presented equally, minimal warnings
 **After:** Safe features promoted, risky features warned
 
-## 📈 Success Metrics
+##  Success Metrics
 
 Track these after deployment:
 1. Reduced security incidents
@@ -165,7 +165,7 @@ Track these after deployment:
 4. Positive feedback on transparency
 5. Fewer compromised primary accounts
 
-## ❓ FAQs
+##  FAQs
 
 **Q: Do I need to remove write operations?**
 A: No. They have legitimate uses. Goal is informed consent.
@@ -179,27 +179,27 @@ A: We've provided proper disclosure. They accept the risk.
 **Q: Should I add technical controls?**
 A: Consider: rate limiting, security quiz, monitoring, optional 2FA.
 
-## 🆘 Support
+##  Support
 
 - **Technical Issues:** See DEPLOYMENT_GUIDE.md
 - **Security Questions:** See SECURITY.md
 - **Change Details:** See SECURITY_IMPROVEMENTS.md
 - **Visual Comparison:** See BEFORE_AFTER_COMPARISON.md
 
-## 📜 License
+##  License
 
 Maintains original license terms. Credit OpenClaw and AIsa teams.
 
-## 🎯 Bottom Line
+##  Bottom Line
 
 **The API still transmits credentials for write operations.**
 
 **But now users:**
-- ✅ Can't miss the warnings
-- ✅ Understand the risks
-- ✅ Know how to stay safe
-- ✅ Have safer alternatives
-- ✅ Can make informed decisions
+-  Can't miss the warnings
+-  Understand the risks
+-  Know how to stay safe
+-  Have safer alternatives
+-  Can make informed decisions
 
 **Result:** Responsible disclosure protects users and the project.
 
@@ -207,10 +207,10 @@ Maintains original license terms. Credit OpenClaw and AIsa teams.
 
 ## Next Steps
 
-1. ✅ Review the files (you are here)
-2. ⏭️ Read SECURITY_IMPROVEMENTS.md for full details
-3. ⏭️ Follow DEPLOYMENT_GUIDE.md to deploy
-4. ⏭️ Update ClawHub listing
-5. ⏭️ Notify users of security improvements
+1.  Review the files (you are here)
+2.  Read SECURITY_IMPROVEMENTS.md for full details
+3.  Follow DEPLOYMENT_GUIDE.md to deploy
+4.  Update ClawHub listing
+5.  Notify users of security improvements
 
 **Remember:** Transparency > Obscurity. Informed users are safe users.

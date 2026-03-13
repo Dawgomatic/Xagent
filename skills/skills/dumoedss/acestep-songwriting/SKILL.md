@@ -85,8 +85,8 @@ Lyrics controls how music unfolds over time. It carries:
 Use `-` for finer control, but keep it concise:
 
 ```
-✅ [Chorus - anthemic]
-❌ [Chorus - anthemic - stacked harmonies - high energy - powerful - epic]
+ [Chorus - anthemic]
+ [Chorus - anthemic - stacked harmonies - high energy - powerful - epic]
 ```
 
 Put complex style descriptions in Caption, not in tags.
@@ -94,9 +94,9 @@ Put complex style descriptions in Caption, not in tags.
 ### Caption-Lyrics Consistency
 
 **Models are not good at resolving conflicts.** Checklist:
-- Instruments in Caption ↔ Instrumental section tags in Lyrics
-- Emotion in Caption ↔ Energy tags in Lyrics
-- Vocal description in Caption ↔ Vocal control tags in Lyrics
+- Instruments in Caption  Instrumental section tags in Lyrics
+- Emotion in Caption  Energy tags in Lyrics
+- Vocal description in Caption  Vocal control tags in Lyrics
 
 ### Vocal Control Tags
 

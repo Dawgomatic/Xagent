@@ -7,7 +7,7 @@ description: |
   多引擎精细化搜索：支持域名过滤、日期范围、深度搜索、新闻模式、内容提取。
   根据查询类型和可用 API Key 自动选择最优引擎。
 homepage: https://github.com/Zjianru/web-search-pro
-metadata: {"clawdbot":{"emoji":"🔎","requires":{"bins":["node"],"env_any":["TAVILY_API_KEY","EXA_API_KEY","SERPER_API_KEY","SERPAPI_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"],"env_any":["TAVILY_API_KEY","EXA_API_KEY","SERPER_API_KEY","SERPAPI_API_KEY"]}}}
 ---
 
 # Web Search Pro

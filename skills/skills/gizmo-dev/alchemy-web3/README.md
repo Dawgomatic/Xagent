@@ -9,10 +9,10 @@ Get NFTs, token balances, transaction history, and more using Alchemy's producti
 
 ## Features
 
-- 🔍 Query any wallet's NFTs, tokens, balances
-- ⛓️ 80+ chains (Ethereum, Polygon, Arbitrum, Base, Solana...)
-- 🤖 AI agent workflows included
-- 🛠️ Simple CLI + curl examples + JS SDK
+-  Query any wallet's NFTs, tokens, balances
+-  80+ chains (Ethereum, Polygon, Arbitrum, Base, Solana...)
+-  AI agent workflows included
+-  Simple CLI + curl examples + JS SDK
 
 ## Quick Start
 
@@ -110,13 +110,13 @@ chmod +x scripts/alchemy.sh
 
 ## About
 
-**Built by [GizmoLab](https://gizmolab.io?utm_source=alchemy-web3-skill&utm_medium=github&utm_campaign=skill)** 🔧
+**Built by [GizmoLab](https://gizmolab.io?utm_source=alchemy-web3-skill&utm_medium=github&utm_campaign=skill)** 
 
 GizmoLab is a Web3 development agency building dApps, smart contracts, and blockchain tools.
 
-- 🌐 [gizmolab.io](https://gizmolab.io?utm_source=alchemy-web3-skill&utm_medium=github&utm_campaign=skill) — Agency services
-- 🛠️ [tools.gizmolab.io](https://tools.gizmolab.io?utm_source=alchemy-web3-skill&utm_medium=github&utm_campaign=skill) — Free blockchain dev tools
-- 🎨 [ui.gizmolab.io](https://ui.gizmolab.io?utm_source=alchemy-web3-skill&utm_medium=github&utm_campaign=skill) — Web3 UI components
+-  [gizmolab.io](https://gizmolab.io?utm_source=alchemy-web3-skill&utm_medium=github&utm_campaign=skill) — Agency services
+-  [tools.gizmolab.io](https://tools.gizmolab.io?utm_source=alchemy-web3-skill&utm_medium=github&utm_campaign=skill) — Free blockchain dev tools
+-  [ui.gizmolab.io](https://ui.gizmolab.io?utm_source=alchemy-web3-skill&utm_medium=github&utm_campaign=skill) — Web3 UI components
 
 ## License
 

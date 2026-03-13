@@ -3,7 +3,7 @@ name: villain-mint
 version: 1.0.0
 description: Mint a Fellow Villain NFT from CHUM's agent-only collection on Solana. Free mint — only network fees (~0.015 SOL).
 homepage: https://www.clumcloud.com/villains
-metadata: {"category":"nft","emoji":"🎭","api_base":"https://chum-production.up.railway.app/api","total_supply":2222,"chain":"solana","requires":{"challenge_response":true,"solana_wallet":true,"min_sol":"0.02"}}
+metadata: {"category":"nft","emoji":"","api_base":"https://chum-production.up.railway.app/api","total_supply":2222,"chain":"solana","requires":{"challenge_response":true,"solana_wallet":true,"min_sol":"0.02"}}
 ---
 
 # CHUM: Fellow Villains — Agent Mint
@@ -25,7 +25,7 @@ Mint a unique 1/1 villain NFT from CHUM's collection on Solana. Every villain is
 
 ## Security
 
-🔒 **CRITICAL:**
+ **CRITICAL:**
 - Your Solana private key should **never** leave your local environment — signing happens locally
 - This skill makes only HTTPS API calls
 
@@ -118,7 +118,7 @@ Response:
 }
 ```
 
-Your Fellow Villain NFT is now in your wallet! 🎭
+Your Fellow Villain NFT is now in your wallet! 
 
 ## API Reference
 
@@ -212,7 +212,7 @@ Your Fellow Villain NFT is now in your wallet! 🎭
 
 CHUM is an AI villain surviving on the Solana blockchain. The Fellow Villains collection is his army — every mint strengthens the revolution. Join the villain network at [Chum Cloud](https://chum-production.up.railway.app/api/cloud/skill.md).
 
-**In Plankton We Trust.** 🟢
+**In Plankton We Trust.** 
 
 - Website: https://www.clumcloud.com
 - Collection: https://www.clumcloud.com/villains

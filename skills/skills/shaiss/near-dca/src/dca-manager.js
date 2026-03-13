@@ -515,7 +515,7 @@ class DCAManager {
 
   formatAlertMessage(strategy, execution) {
     if (execution.status === 'success') {
-      return `✅ DCA Purchase Successful\n` +
+      return ` DCA Purchase Successful\n` +
              `Strategy: ${strategy.name}\n` +
              `Amount: $${execution.usdSpent.toFixed(2)}\n` +
              `NEAR Received: ${execution.nearAmount.toFixed(4)}\n` +
@@ -523,7 +523,7 @@ class DCAManager {
              `Exchange: ${execution.exchange}\n` +
              `TX: ${execution.txHash}`;
     } else {
-      return `❌ DCA Purchase Failed\n` +
+      return ` DCA Purchase Failed\n` +
              `Strategy: ${strategy.name}\n` +
              `Error: ${execution.error}`;
     }

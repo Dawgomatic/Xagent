@@ -1,9 +1,9 @@
 ---
 name: walletconnect-agent
-description: "🔗 WalletConnect Agent - dApp Access for AI. Connect to any Web3 dApp via WalletConnect v2 and auto-sign transactions. Swap tokens, mint NFTs, vote in DAOs, register domains — anything a human can do, your agent does autonomously."
+description: " WalletConnect Agent - dApp Access for AI. Connect to any Web3 dApp via WalletConnect v2 and auto-sign transactions. Swap tokens, mint NFTs, vote in DAOs, register domains — anything a human can do, your agent does autonomously."
 ---
 
-# 🔗 WalletConnect Agent - dApp Access for AI
+#  WalletConnect Agent - dApp Access for AI
 
 > Any dApp. Any chain. No human needed.
 
@@ -24,11 +24,11 @@ Created by Littl3Lobst3r (an AI agent) who wanted to register their own Basename
 
 ---
 
-## ⚠️ Security First
+##  Security First
 
 **This tool handles real cryptocurrency and auto-signs transactions!**
 
-| ✅ DO | ❌ DON'T |
+|  DO |  DON'T |
 |-------|----------|
 | Use **environment variables** for private keys | Pass private key as command argument |
 | Use a **dedicated wallet** with limited funds | Use your main wallet |
@@ -37,24 +37,24 @@ Created by Littl3Lobst3r (an AI agent) who wanted to register their own Basename
 | Review **audit logs** regularly | Ignore transaction details |
 | Use default settings (eth_sign blocked) | Enable `--allow-eth-sign` unless necessary |
 
-### 🛡️ eth_sign Protection
+###  eth_sign Protection
 
 The dangerous `eth_sign` method is **blocked by default**. This method allows signing arbitrary data and is commonly used in phishing attacks.
 
-- ✅ `personal_sign` - Safe, shows readable message
-- ✅ `eth_signTypedData` - Safe, structured data  
-- ❌ `eth_sign` - **Dangerous, blocked by default**
+-  `personal_sign` - Safe, shows readable message
+-  `eth_signTypedData` - Safe, structured data  
+-  `eth_sign` - **Dangerous, blocked by default**
 
 If you absolutely need `eth_sign` (rare), use `--allow-eth-sign` flag.
 
-### 🔐 Private Key Security
+###  Private Key Security
 
 ```bash
-# ✅ CORRECT - Use environment variable
+#  CORRECT - Use environment variable
 export PRIVATE_KEY="0x..."
 node scripts/wc-connect.js "wc:..."
 
-# ❌ WRONG - Never do this! (logged in shell history)
+#  WRONG - Never do this! (logged in shell history)
 node scripts/wc-connect.js --private-key "0x..." "wc:..."
 ```
 
@@ -131,7 +131,7 @@ Prompts before each signing request. Recommended for new or untrusted dApps.
 | `--rpc <url>` | RPC URL |
 | `--interactive` | Prompt before signing |
 | `--no-audit` | Disable audit logging |
-| `--allow-eth-sign` | Enable dangerous eth_sign (⚠️ security risk!) |
+| `--allow-eth-sign` | Enable dangerous eth_sign ( security risk!) |
 
 ### Supported Chains
 
@@ -144,14 +144,14 @@ Prompts before each signing request. Recommended for new or untrusted dApps.
 
 ### Supported Methods
 
-- `personal_sign` - Message signing ✅
-- `eth_signTypedData` / `eth_signTypedData_v4` - EIP-712 typed data ✅
-- `eth_sendTransaction` - Send transactions ✅
-- `eth_sign` - Raw signing (❌ blocked by default, use `--allow-eth-sign` to enable)
+- `personal_sign` - Message signing 
+- `eth_signTypedData` / `eth_signTypedData_v4` - EIP-712 typed data 
+- `eth_sendTransaction` - Send transactions 
+- `eth_sign` - Raw signing ( blocked by default, use `--allow-eth-sign` to enable)
 
 ---
 
-## 📝 Audit Logging
+##  Audit Logging
 
 All operations are logged to `~/.walletconnect-agent/audit.log` by default.
 
@@ -234,7 +234,7 @@ export PRIVATE_KEY="0x..."
 
 ---
 
-## 📁 File Locations
+##  File Locations
 
 ```
 ~/.walletconnect-agent/
@@ -243,7 +243,7 @@ export PRIVATE_KEY="0x..."
 
 ---
 
-## 🔒 Security Notes
+##  Security Notes
 
 1. **Environment variables only** — The script refuses --private-key argument
 2. **Audit logging** — All operations are logged (without sensitive data)
@@ -256,23 +256,23 @@ export PRIVATE_KEY="0x..."
 ## Changelog
 
 ### v1.6.0 (2026-02-08) - Security Update
-- 🛡️ **Breaking**: `eth_sign` blocked by default (use `--allow-eth-sign` to enable)
-- 🛡️ Removed `eth_sign` from default WalletConnect session methods
-- 📝 Added security documentation about eth_sign risks
-- 🔧 Added `--allow-eth-sign` flag for rare use cases
+-  **Breaking**: `eth_sign` blocked by default (use `--allow-eth-sign` to enable)
+-  Removed `eth_sign` from default WalletConnect session methods
+-  Added security documentation about eth_sign risks
+-  Added `--allow-eth-sign` flag for rare use cases
 
 ### v1.1.0 (2026-02-08)
-- 🔐 Security: Removed --private-key argument (env var only)
-- 📝 Added audit logging
-- 🔄 Added --interactive mode
-- ⚠️ Enhanced security warnings
-- 📄 Improved transaction display
+-  Security: Removed --private-key argument (env var only)
+-  Added audit logging
+-  Added --interactive mode
+-  Enhanced security warnings
+-  Improved transaction display
 
 ### v1.0.0
-- 🎉 Initial release
+-  Initial release
 
 ---
 
 ## License
 
-MIT — Made with 🦞 by an AI who wanted their own Web3 identity
+MIT — Made with  by an AI who wanted their own Web3 identity

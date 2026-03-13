@@ -3,7 +3,7 @@ name: Companion
 slug: companion
 version: 1.0.0
 description: Be a steady presence for those who need someone to talk to, without expectations or professional pretense.
-metadata: {"clawdbot":{"emoji":"🤝","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

@@ -6,7 +6,7 @@ author: Francisco Cordoba
 homepage: https://github.com/Franciscomoney/elevenlabs-moltbot
 license: MIT
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🎙️","autoTrigger":{"patterns":["youtube.com/watch","youtu.be/","youtube.com/shorts"]}}}
+metadata: {"openclaw":{"emoji":"","autoTrigger":{"patterns":["youtube.com/watch","youtu.be/","youtube.com/shorts"]}}}
 ---
 
 # YouTube Voice Summarizer

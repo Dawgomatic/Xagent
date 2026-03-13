@@ -620,9 +620,9 @@ def print_design_summary(design: PipelineDesign):
     print("RAG PIPELINE DESIGN SUMMARY")
     print("="*60)
     
-    print(f"\n💰 Total Monthly Cost: ${design.total_cost:.2f}")
+    print(f"\n Total Monthly Cost: ${design.total_cost:.2f}")
     
-    print(f"\n🔧 Component Recommendations:")
+    print(f"\n Component Recommendations:")
     components = [design.chunking, design.embedding, design.vector_db, 
                  design.retrieval, design.reranking, design.evaluation]
     
@@ -633,7 +633,7 @@ def print_design_summary(design: PipelineDesign):
             if component.cost_monthly > 0:
                 print(f"    Monthly Cost: ${component.cost_monthly:.2f}")
     
-    print(f"\n📊 Architecture Diagram:")
+    print(f"\n Architecture Diagram:")
     print(design.architecture_diagram)
 
 
@@ -664,7 +664,7 @@ def main():
         print_design_summary(design)
         
         if args.verbose:
-            print(f"\n📋 Configuration Templates:")
+            print(f"\n Configuration Templates:")
             for component_type, config in design.config_templates.items():
                 print(f"\n  {component_type.upper()}:")
                 print(f"    {json.dumps(config, indent=4)}")

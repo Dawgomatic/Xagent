@@ -3,7 +3,7 @@ name: pikaboard
 description: "Interact with PikaBoard task management API. Use when creating, updating, listing, or managing tasks. Agent-first kanban for AI teams. Triggers on: tasks, kanban, board, todo, backlog, sprint."
 metadata:
   openclaw:
-    emoji: "📋"
+    emoji: ""
     requires:
       bins: ["node", "npm"]
     install:

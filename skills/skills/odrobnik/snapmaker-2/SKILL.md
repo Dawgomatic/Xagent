@@ -8,7 +8,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🖨️",
+        "emoji": "",
         "requires": { "bins": ["python3"] },
       },
   }

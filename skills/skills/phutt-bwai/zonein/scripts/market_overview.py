@@ -73,7 +73,7 @@ def main():
         for s in perp_sigs:
             c = round(s.get("consensus", 0) * 100)
             d = s.get("direction", "")
-            icon = "🟢" if d == "LONG" else "🔴"
+            icon = "" if d == "LONG" else ""
             print(f"    {icon} {d:5s} ${s.get('coin', ''):5s} {c}% "
                   f"({s.get('total_wallets')}w) | "
                   f"L:${s.get('long_value', 0):,.0f} S:${s.get('short_value', 0):,.0f}")

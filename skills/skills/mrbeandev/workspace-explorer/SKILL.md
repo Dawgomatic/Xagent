@@ -34,13 +34,13 @@ The script will:
 Example output:
 ```
 ============================================================
-✅ WORKSPACE READY!
+ WORKSPACE READY!
 ============================================================
-🌐 URL:      https://random-words.trycloudflare.com
-🔑 Password: xY7kL9mN2pQ4
+ URL:      https://random-words.trycloudflare.com
+ Password: xY7kL9mN2pQ4
 ============================================================
 
-💡 Share the URL and password with your owner.
+ Share the URL and password with your owner.
    Press Ctrl+C to terminate the session.
 ```
 

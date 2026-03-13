@@ -4,7 +4,7 @@ description: Convert a WordPress website to a static site and deploy to Cloudfla
 disable-model-invocation: true
 argument-hint: "[site-url]"
 allowed-tools: Bash, Read, Write, Edit, Grep, Glob, Task, WebFetch
-metadata: {"openclaw":{"requires":{"bins":["ssh","ssh-agent","rsync","curl","git","gh","wrangler"],"env":["WP_SSH_HOST","WP_SSH_USER","WP_SSH_PORT","WP_SSH_KEY","WP_SITE_URL","WP_SITE_NAME"]},"emoji":"🔄","os":["darwin","linux"]}}
+metadata: {"openclaw":{"requires":{"bins":["ssh","ssh-agent","rsync","curl","git","gh","wrangler"],"env":["WP_SSH_HOST","WP_SSH_USER","WP_SSH_PORT","WP_SSH_KEY","WP_SITE_URL","WP_SITE_NAME"]},"emoji":"","os":["darwin","linux"]}}
 ---
 
 # WordPress to Static Site (Cloudflare Pages)

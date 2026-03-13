@@ -6,17 +6,17 @@ set -e
 WORKSPACE="${OPENCLAW_WORKSPACE:-$HOME/.openclaw/workspace}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "🔧 Installing Memory Maintenance Skill..."
+echo " Installing Memory Maintenance Skill..."
 
 # Check dependencies
 echo "Checking dependencies..."
 if ! command -v gemini &> /dev/null; then
-    echo "⚠️  Gemini CLI not found. Install with: brew install gemini-cli"
+    echo "  Gemini CLI not found. Install with: brew install gemini-cli"
     exit 1
 fi
 
 if ! command -v jq &> /dev/null; then
-    echo "⚠️  jq not found. Install with: brew install jq"
+    echo "  jq not found. Install with: brew install jq"
     exit 1
 fi
 
@@ -30,11 +30,11 @@ if [ -z "$GEMINI_API_KEY" ]; then
 fi
 
 if [ -z "$GEMINI_API_KEY" ]; then
-    echo "⚠️  GEMINI_API_KEY not set. Add to $WORKSPACE/.env"
+    echo "  GEMINI_API_KEY not set. Add to $WORKSPACE/.env"
     exit 1
 fi
 
-echo "✅ Dependencies OK"
+echo " Dependencies OK"
 
 # Create directories
 mkdir -p "$WORKSPACE/agents/memory/archive"
@@ -93,7 +93,7 @@ if ! openclaw cron list 2>/dev/null | grep -q "memory-maintenance"; then
 fi
 
 echo ""
-echo "✅ Memory Maintenance Skill installed!"
+echo " Memory Maintenance Skill installed!"
 echo ""
 echo "Next steps:"
 echo "  1. Review config: $WORKSPACE/skills/memory-maintenance/config/settings.json"

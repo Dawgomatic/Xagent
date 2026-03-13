@@ -2,7 +2,7 @@
 name: front
 description: Front.app API for managing conversations, messages, comments, and team collaboration.
 homepage: https://front.com
-metadata: {"clawdbot":{"emoji":"📬","requires":{"bins":["curl"],"env":["FRONT_API_TOKEN"]},"primaryEnv":"FRONT_API_TOKEN"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"],"env":["FRONT_API_TOKEN"]},"primaryEnv":"FRONT_API_TOKEN"}}
 ---
 
 # Front

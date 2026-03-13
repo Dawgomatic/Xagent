@@ -3,7 +3,7 @@
 
 set -euo pipefail
 
-echo "🎭 Claude Code Agent Teams - Monitor"
+echo " Claude Code Agent Teams - Monitor"
 echo "===================================="
 echo ""
 echo "This script monitors your active Claude Code team."
@@ -86,13 +86,13 @@ monitor_team() {
     
     # Check if Claude Code is running
     if ! check_claude_process; then
-        echo -e "${RED}❌ No Claude Code process detected${NC}"
+        echo -e "${RED} No Claude Code process detected${NC}"
         echo ""
         echo "Start Claude Code with: claude --pty"
         return 1
     fi
     
-    echo -e "${GREEN}✅ Claude Code process running${NC}"
+    echo -e "${GREEN} Claude Code process running${NC}"
     echo ""
     
     # NOTE: This is a placeholder. Actual implementation would:
@@ -101,19 +101,19 @@ monitor_team() {
     # 3. Read message queue
     # 4. Display structured output
     
-    echo "📋 Task List:"
+    echo " Task List:"
     echo "  (Use Ctrl+T in Claude Code to view full task list)"
     echo ""
     
-    echo "👥 Active Teammates:"
+    echo " Active Teammates:"
     echo "  (Teammate status appears in Claude Code session)"
     echo ""
     
-    echo "💬 Recent Messages:"
+    echo " Recent Messages:"
     echo "  (Inter-agent messages visible in Claude Code)"
     echo ""
     
-    echo "ℹ️  Tip: For real-time monitoring, use Ctrl+T in Claude Code"
+    echo "  Tip: For real-time monitoring, use Ctrl+T in Claude Code"
     echo "         to toggle task list and teammate status view."
     echo ""
     

@@ -1,4 +1,4 @@
-# Temp 🗑️
+# Temp 
 
 **Scratch space** for temporary files.
 

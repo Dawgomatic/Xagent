@@ -6,10 +6,10 @@
 
 | 方法 | Windows | Linux | 自动化友好 |
 |------|---------|-------|-----------|
-| paramiko | ✅ | ✅ | ✅ |
-| sshpass | ❌ | ✅ | ⚠️ |
-| plink | ⚠️ | ⚠️ | ⚠️ |
-| OpenSSH | ⚠️ | ✅ | ❌ |
+| paramiko |  |  |  |
+| sshpass |  |  |  |
+| plink |  |  |  |
+| OpenSSH |  |  |  |
 
 ## 安装 paramiko
 

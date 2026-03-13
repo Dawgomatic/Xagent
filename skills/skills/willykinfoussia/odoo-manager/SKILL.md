@@ -2,12 +2,12 @@
 name: odoo-manager
 description: Manage Odoo (contacts, any business objects, and metadata) via the official External XML-RPC API. Supports generic CRUD operations on any model using execute_kw, with ready-made flows for res.partner and model introspection. Features dynamic instance and database switching with context-aware URL, database, and credential resolution.
 homepage: https://www.odoo.com/documentation/
-metadata: {"openclaw":{"emoji":"🏢","requires":{"env":["ODOO_URL","ODOO_DB","ODOO_USERNAME","ODOO_PASSWORD"]},"primaryEnv":"ODOO_PASSWORD"}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["ODOO_URL","ODOO_DB","ODOO_USERNAME","ODOO_PASSWORD"]},"primaryEnv":"ODOO_PASSWORD"}}
 ---
 
 # Odoo Manager Skill
 
-## 🔐 URL, Database & Credential Resolution
+##  URL, Database & Credential Resolution
 
 ### URL Resolution
 
@@ -85,7 +85,7 @@ These are computed using the precedence rules above.
 
 ---
 
-## 🔄 Context Management
+##  Context Management
 
 > The `temporary_*` and `user_*` names are **runtime context variables used by the skill logic**, not OpenClaw metadata fields. OpenClaw does **not** have an `optional.context` metadata key; context is resolved dynamically at runtime as described below.
 
@@ -155,7 +155,7 @@ Current Odoo Context:
 
 ---
 
-## ⚙️ Odoo XML-RPC Basics
+##  Odoo XML-RPC Basics
 
 Odoo exposes part of its server framework over **XML-RPC** (not REST).
 The External API is documented here: https://www.odoo.com/documentation/18.0/fr/developer/reference/external_api.html
@@ -226,7 +226,7 @@ All ORM operations in this skill are expressed in terms of `execute_kw`.
 
 ---
 
-## 🔍 Domains & Data Types (Odoo ORM)
+##  Domains & Data Types (Odoo ORM)
 
 ### Domain Filters
 
@@ -258,7 +258,7 @@ Common operators:
 
 ---
 
-## 🧩 Generic ORM Operations (execute_kw)
+##  Generic ORM Operations (execute_kw)
 
 Each subsection below shows typical user queries and the corresponding
 `execute_kw` usage. They are applicable to **any** model (not only `res.partner`).
@@ -432,7 +432,7 @@ Result is a list of `[id, display_name]`.
 
 ---
 
-## 👥 Contacts / Partners (res.partner)
+##  Contacts / Partners (res.partner)
 
 `res.partner` is the core model for contacts, companies, and many business relations in Odoo.
 
@@ -536,7 +536,7 @@ models.execute_kw(
 
 ---
 
-## 🧱 Model Introspection (ir.model, ir.model.fields, fields_get)
+##  Model Introspection (ir.model, ir.model.fields, fields_get)
 
 ### Discover Fields of a Model (fields_get)
 
@@ -609,7 +609,7 @@ fields_meta = models.execute_kw(
 
 ---
 
-## ⚠️ Error Handling & Best Practices
+##  Error Handling & Best Practices
 
 ### Typical Errors
 
@@ -640,7 +640,7 @@ The skill should:
 
 ---
 
-## 🚀 Quick End-to-End Examples
+##  Quick End-to-End Examples
 
 ### Example 1: Check Connection & List Company Partners
 
@@ -663,7 +663,7 @@ The skill should:
 
 ---
 
-## 📚 References & Capabilities Summary
+##  References & Capabilities Summary
 
 - Official Odoo External API documentation (XML-RPC): https://www.odoo.com/documentation/18.0/fr/developer/reference/external_api.html
 - Requires an Odoo plan with External API access (Custom plans; not available on One App Free / Standard).

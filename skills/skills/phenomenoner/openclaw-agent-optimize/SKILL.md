@@ -12,7 +12,7 @@ triggers:
   - improve OpenClaw setup
   - agent best practices
   - OpenClaw optimization
-metadata: { "openclaw": { "emoji": "🧰" } }
+metadata: { "openclaw": { "emoji": "" } }
 ---
 
 # OpenClaw Agent Optimization

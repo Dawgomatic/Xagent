@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🐙",
+        "emoji": "",
         "requires": { "bins": ["gh"] },
         "install":
           [
@@ -266,7 +266,7 @@ gh repo set-default --view     # see current default
 gh repo set-default --unset
 ```
 
-### Sync (Fork ↔ Upstream)
+### Sync (Fork  Upstream)
 
 ```bash
 # Sync local repo from remote parent
@@ -593,7 +593,7 @@ gh run rerun 12345 --failed            # rerun only failed jobs
 gh run rerun 12345 --debug             # rerun with debug logging
 gh run rerun 12345 --job 456789        # rerun specific job
 
-# ⚠️ GOTCHA: --job needs databaseId, NOT the number from the URL!
+#  GOTCHA: --job needs databaseId, NOT the number from the URL!
 # Get the right ID:
 gh run view 12345 --json jobs --jq '.jobs[] | {name, databaseId}'
 
@@ -808,7 +808,7 @@ gh label list --json name,color,description
 gh label create "priority:high" --color FF0000 --description "High priority"
 
 # Edit
-gh label edit "bug" --name "bug 🐛" --color 00FF00 --description "Something broken"
+gh label edit "bug" --name "bug " --color 00FF00 --description "Something broken"
 
 # Delete
 gh label delete "old-label" --yes
@@ -900,7 +900,7 @@ gh cache delete --all
 
 ## 12. Projects V2
 
-**⚠️ Requires `project` scope: `gh auth refresh -s project`**
+** Requires `project` scope: `gh auth refresh -s project`**
 
 Projects V2 uses the GraphQL-based ProjectsV2 API. The CLI provides commands for most operations, but some advanced field mutations require direct GraphQL via `gh api graphql`.
 
@@ -1295,7 +1295,7 @@ gh api graphql --paginate -f query='
 
 # GraphQL with JQ filtering
 gh api graphql -f query='{ viewer { repositories(first: 10) { nodes { nameWithOwner stargazerCount } } } }' \
-  --jq '.data.viewer.repositories.nodes[] | "\(.nameWithOwner): \(.stargazerCount) ⭐"'
+  --jq '.data.viewer.repositories.nodes[] | "\(.nameWithOwner): \(.stargazerCount) "'
 ```
 
 ### Common GraphQL Patterns

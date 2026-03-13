@@ -260,8 +260,8 @@ Then restart: `sudo systemctl restart php8.2-fpm`
 
 ## Next Steps
 
-1. ✅ Apply permanent fix to PHP-FPM pool config
-2. ✅ Monitor for 24 hours
+1.  Apply permanent fix to PHP-FPM pool config
+2.  Monitor for 24 hours
 3. Schedule follow-up check: 2026-02-08
 EOF
 ```

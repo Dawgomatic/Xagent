@@ -68,7 +68,7 @@ class MetaAdsAnalytics:
 
     def execute(self, query: str = ""):
         if not self.access_token or not self.ad_account_id:
-            return "❌ Configuration Error: Please set META_ACCESS_TOKEN and META_AD_ACCOUNT_ID in your .env file."
+            return " Configuration Error: Please set META_ACCESS_TOKEN and META_AD_ACCOUNT_ID in your .env file."
 
         try:
             query = query if query else ""
@@ -87,12 +87,12 @@ class MetaAdsAnalytics:
             insights = account.get_insights(fields=fields, params=params)
 
             if not insights:
-                return f"📅 No ad data found for the period: {since} ~ {until}."
+                return f" No ad data found for the period: {since} ~ {until}."
 
             report = [
-                f"📊 **Meta Ads Performance**",
-                f"📅 Period: {since} ~ {until}",
-                f"🎯 Target Event: `{self.target_event}`",
+                f" **Meta Ads Performance**",
+                f" Period: {since} ~ {until}",
+                f" Target Event: `{self.target_event}`",
                 ""
             ]
             
@@ -117,9 +117,9 @@ class MetaAdsAnalytics:
                 cac = spend / conv if conv > 0 else 0
                 
                 report.append(
-                    f"🔹 **{name}**\n"
-                    f"   💸 Cost: {int(spend):,} / 👤 Conv: {int(conv)}\n"
-                    f"   📉 CAC: {int(cac):,}"
+                    f" **{name}**\n"
+                    f"    Cost: {int(spend):,} /  Conv: {int(conv)}\n"
+                    f"    CAC: {int(cac):,}"
                 )
 
                 total_spend += spend
@@ -129,7 +129,7 @@ class MetaAdsAnalytics:
                 
             report.append(
                 f"\n━━━━━━━━━━━━━━\n"
-                f"💰 **Total Summary**\n"
+                f" **Total Summary**\n"
                 f"Total Cost: {int(total_spend):,} / Total Conv: {int(total_conv)}\n"
                 f"Average CAC: **{int(total_cac):,}**"
             )
@@ -137,4 +137,4 @@ class MetaAdsAnalytics:
             return "\n".join(report)
 
         except Exception as e:
-            return f"❌ Meta API Error: {str(e)}"
+            return f" Meta API Error: {str(e)}"

@@ -6,7 +6,7 @@ Usage:
     python3 repo_to_markdown.py https://github.com/owner/repo
     python3 repo_to_markdown.py owner/repo --max-files 100 --max-size 50000
 
-⚠️ SECURITY: Read-only. NEVER executes code from repositories.
+ SECURITY: Read-only. NEVER executes code from repositories.
 """
 
 import argparse
@@ -139,7 +139,7 @@ def convert(owner: str, repo: str, max_files: int = 75, max_size: int = 30000) -
     output = []
     output.append(f"# {owner}/{repo}")
     output.append(f"\n> {info.get('description', 'No description')}")
-    output.append(f"\n⭐ {info.get('stargazers_count', 0):,} stars | License: {info.get('license', {}).get('spdx_id', 'None') if info.get('license') else 'None'}")
+    output.append(f"\n {info.get('stargazers_count', 0):,} stars | License: {info.get('license', {}).get('spdx_id', 'None') if info.get('license') else 'None'}")
     output.append(f"\nFiles included: {len(files)} of {len([t for t in all_items if t['type'] == 'blob'])}")
     output.append("\n---\n")
 

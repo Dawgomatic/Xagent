@@ -5,21 +5,21 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PLATFORM_DIR="$(dirname "$SCRIPT_DIR")/platform"
 
-echo "🚀 Deploying Write My Blog to Cloudflare..."
+echo " Deploying Write My Blog to Cloudflare..."
 cd "$PLATFORM_DIR"
 
 # Check if wrangler CLI is installed
 if ! command -v wrangler &> /dev/null; then
-  echo "❌ Wrangler CLI not found. Install with: npm i -g wrangler"
+  echo " Wrangler CLI not found. Install with: npm i -g wrangler"
   exit 1
 fi
 
 # Build first
-echo "📦 Building..."
+echo " Building..."
 npm run build
 
 # Deploy
-echo "☁️  Deploying to Cloudflare Workers..."
+echo "  Deploying to Cloudflare Workers..."
 wrangler deploy
 
-echo "✅ Deployed to Cloudflare!"
+echo " Deployed to Cloudflare!"

@@ -10,7 +10,7 @@ command-tool: exec
 command-arg-mode: raw
 metadata:
   openclaw:
-    emoji: "🦞"
+    emoji: ""
     homepage: "https://github.com/ChenKuanSun/openclaw-bullybuddy"
     requires:
       bins:

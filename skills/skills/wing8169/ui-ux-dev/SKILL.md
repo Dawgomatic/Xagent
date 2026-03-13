@@ -169,11 +169,11 @@ Apply these consistently to every generated page. These are non-negotiable quali
 - **State management** — use useState for interactive elements (tabs, modals, dropdowns).
 
 ### Common Mistakes to Avoid
-- ❌ Text touching screen edges on mobile
-- ❌ Emoji for icons (use SVG)
-- ❌ Flat black backgrounds (use layered darks)
-- ❌ No hover states on clickable elements
-- ❌ Inconsistent border-radius across elements
-- ❌ Giant font sizes that overflow on mobile
-- ❌ Missing meta viewport tag
-- ❌ Forgetting hamburger menu on mobile
+-  Text touching screen edges on mobile
+-  Emoji for icons (use SVG)
+-  Flat black backgrounds (use layered darks)
+-  No hover states on clickable elements
+-  Inconsistent border-radius across elements
+-  Giant font sizes that overflow on mobile
+-  Missing meta viewport tag
+-  Forgetting hamburger menu on mobile

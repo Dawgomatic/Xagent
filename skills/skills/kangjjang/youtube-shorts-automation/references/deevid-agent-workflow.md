@@ -2,7 +2,7 @@
 
 ## 개요
 Deevid AI Agent (https://deevid.ai/ko/agent)를 사용하여 이미지 → 영상 변환.
-**⚠️ "이미지를 동영상으로" 도구 절대 사용 금지** → 무음 영상만 생성됨.
+** "이미지를 동영상으로" 도구 절대 사용 금지** → 무음 영상만 생성됨.
 Agent는 Start Image Master V2.0 모델 사용 → BGM + 대사 포함 영상 생성.
 
 ## 비용

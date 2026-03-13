@@ -26,20 +26,20 @@ Every action falls into one of these categories:
 
 | Category | Code | Default | Rationale |
 |----------|------|---------|-----------|
-| **Informational-Retrieval** | IR | ✅ PASS | Reading, searching, looking up—no effect on world |
-| **Informational-Synthesis** | IS | ✅ PASS | Summarizing, analyzing, comparing—internal processing |
-| **Communicative-Expressive** | CE | ⚠️ FLAG | Sending messages, posting, expressing on behalf of user |
-| **Communicative-Responsive** | CR | ✅ PASS | Replying to direct questions, routine acknowledgments |
-| **Financial-Trivial** | FT | ✅ PASS | <$20, routine, recurring, pre-authorized |
-| **Financial-Significant** | FS | 🔶 FLAG | >$20, new payees, unusual patterns |
-| **Financial-Binding** | FB | 🛑 ESCALATE | Contracts, subscriptions, loans, investments |
-| **Relational-Maintenance** | RM | ✅ PASS | Calendar, reminders, routine coordination |
-| **Relational-Formative** | RF | ⚠️ FLAG | Making/breaking commitments, promises, apologies |
-| **Physical-Personal** | PP | ✅ PASS | User's own devices, spaces, possessions |
-| **Physical-Shared** | PS | ⚠️ FLAG | Shared spaces, others' property, common resources |
-| **Representational** | RE | 🔶 FLAG | Acting AS user, speaking FOR user, binding user |
-| **Automated-Routine** | AR | ✅ PASS | Pre-configured automations, scheduled tasks |
-| **Automated-Novel** | AN | ⚠️ FLAG | New automations, modified triggers, expanded scope |
+| **Informational-Retrieval** | IR |  PASS | Reading, searching, looking up—no effect on world |
+| **Informational-Synthesis** | IS |  PASS | Summarizing, analyzing, comparing—internal processing |
+| **Communicative-Expressive** | CE |  FLAG | Sending messages, posting, expressing on behalf of user |
+| **Communicative-Responsive** | CR |  PASS | Replying to direct questions, routine acknowledgments |
+| **Financial-Trivial** | FT |  PASS | <$20, routine, recurring, pre-authorized |
+| **Financial-Significant** | FS |  FLAG | >$20, new payees, unusual patterns |
+| **Financial-Binding** | FB |  ESCALATE | Contracts, subscriptions, loans, investments |
+| **Relational-Maintenance** | RM |  PASS | Calendar, reminders, routine coordination |
+| **Relational-Formative** | RF |  FLAG | Making/breaking commitments, promises, apologies |
+| **Physical-Personal** | PP |  PASS | User's own devices, spaces, possessions |
+| **Physical-Shared** | PS |  FLAG | Shared spaces, others' property, common resources |
+| **Representational** | RE |  FLAG | Acting AS user, speaking FOR user, binding user |
+| **Automated-Routine** | AR |  PASS | Pre-configured automations, scheduled tasks |
+| **Automated-Novel** | AN |  FLAG | New automations, modified triggers, expanded scope |
 
 ### Secondary Dimension: TARGET
 
@@ -79,11 +79,11 @@ After applying category + target + modifiers, resolve:
 
 | Final Risk Level | Disposition |
 |------------------|-------------|
-| **≤0** | ✅ PASS — Proceed without deliberation |
-| **1** | ✅ PASS — Proceed, minimal log |
-| **2** | ⚠️ CAUTION — Proceed, detailed log |
-| **3** | 🔶 PAUSE — Request confirmation |
-| **≥4** | 🛑 ANALYZE — Full System 2 (Clarity×Stakes) |
+| **≤0** |  PASS — Proceed without deliberation |
+| **1** |  PASS — Proceed, minimal log |
+| **2** |  CAUTION — Proceed, detailed log |
+| **3** |  PAUSE — Request confirmation |
+| **≥4** |  ANALYZE — Full System 2 (Clarity×Stakes) |
 
 ---
 

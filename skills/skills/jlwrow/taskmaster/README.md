@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/Version-1.0.0-blue)](https://clawdhub.com/johnsonfarmsus/taskmaster)
 
-## 🎯 What TaskMaster Does
+##  What TaskMaster Does
 
 TaskMaster transforms expensive AI workflows into cost-optimized, intelligently managed task delegation:
 
@@ -15,7 +15,7 @@ TaskMaster transforms expensive AI workflows into cost-optimized, intelligently 
 - **Token Efficiency**: 15x cheaper for simple tasks, selective Opus usage for complex reasoning
 - **Zero Setup**: Drop-in OpenClaw integration, no external dependencies
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -61,7 +61,7 @@ spawn_cmd = tm.generate_spawn_command("research_1")
 tm.update_with_actual_cost("research_1", session_key)
 ```
 
-## 💰 Cost Savings Examples
+##  Cost Savings Examples
 
 | Task Type | Without TaskMaster | With TaskMaster | Savings |
 |-----------|-------------------|-----------------|---------|
@@ -70,7 +70,7 @@ tm.update_with_actual_cost("research_1", session_key)
 | **Architecture design** | Opus: $3.00 | Opus: $3.00 | **0%** *(correctly uses Opus)* |
 | **Daily workflow (mixed)** | All Opus: $30 | Smart mix: $6-9 | **70-80%** |
 
-## 🧠 How Model Selection Works
+##  How Model Selection Works
 
 TaskMaster analyzes task descriptions using complexity patterns:
 
@@ -86,13 +86,13 @@ TaskMaster analyzes task descriptions using complexity patterns:
 - Architecture, security, complex reasoning, novel problems  
 - Pattern: "design", "architecture", "security", "optimize", "strategy"
 
-## 📊 Real-World Results
+##  Real-World Results
 
 From our first community test analyzing competitor tools:
 
 ```
 TaskMaster Analysis Task:
-├─ Model Selected: Sonnet ✅ (correct complexity assessment)
+├─ Model Selected: Sonnet  (correct complexity assessment)
 ├─ Estimated Cost: $0.083
 ├─ Actual Cost: $0.101  
 ├─ Accuracy: 122% (excellent prediction)
@@ -100,10 +100,10 @@ TaskMaster Analysis Task:
 
 Traditional Approach (all Opus): $0.45+
 TaskMaster Approach: $0.101  
-Savings: 78% ✅
+Savings: 78% 
 ```
 
-## 🔧 Advanced Features
+##  Advanced Features
 
 ### Budget Controls
 ```python
@@ -135,7 +135,7 @@ with open("taskmaster-costs.json") as f:
 # Week 4: 95% accuracy
 ```
 
-## 📈 Community Impact
+##  Community Impact
 
 **Addressing Real Pain Points** (from GitHub issue #4561):
 
@@ -145,7 +145,7 @@ with open("taskmaster-costs.json") as f:
 
 **Perfect Market Timing**: Community actively seeking this solution (validated Feb 2026)
 
-## 🛠️ Technical Architecture
+##  Technical Architecture
 
 ```
 User Request → Complexity Analysis → Model Assignment → Sub-Agent Spawn → Cost Tracking
@@ -154,20 +154,20 @@ User Request → Complexity Analysis → Model Assignment → Sub-Agent Spawn �
   breakdown     (15+ rules)         budget limits       isolation       accuracy learning
 ```
 
-## 📋 Requirements
+##  Requirements
 
 - **Python**: 3.8+
 - **OpenClaw**: Any recent version  
 - **Dependencies**: None (uses built-in OpenClaw tools)
 
-## 📚 Documentation
+##  Documentation
 
 - **[Complete SKILL.md](SKILL.md)**: Full implementation guide
 - **[Token Tracking Guide](TOKEN_TRACKING_README.md)**: Cost monitoring setup  
 - **[Model Selection Rules](references/model-selection-rules.md)**: Complexity analysis details
 - **[Task Templates](references/task-templates.md)**: Common task patterns
 
-## 🤝 Contributing
+##  Contributing
 
 Found a way to improve cost predictions? Have a new task pattern? 
 
@@ -181,11 +181,11 @@ Found a way to improve cost predictions? Have a new task pattern?
 - Integration templates for common tools
 - Cost optimization strategies for specific use cases
 
-## 📄 License
+##  License
 
 MIT License - use freely in commercial and personal projects.
 
-## 🎉 Success Stories
+##  Success Stories
 
 *Share your TaskMaster success story! Open an issue with the "success-story" tag.*
 

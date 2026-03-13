@@ -64,7 +64,7 @@ When a user requests to update catalogs or manage catalog data, follow these ste
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Updates catalog with excessive fields
+   #  HIGH COST - Updates catalog with excessive fields
    mutation catalogUpdate($input: CatalogInput!) {
      catalogUpdate(input: $input) {
        catalog { id name settings { ... } publication { ... } }
@@ -72,7 +72,7 @@ When a user requests to update catalogs or manage catalog data, follow these ste
      }
    }
    
-   # ✅ LOW COST - Updates catalog with only changed fields
+   #  LOW COST - Updates catalog with only changed fields
    mutation catalogUpdate($input: CatalogInput!) {
      catalogUpdate(input: $input) {
        catalog {

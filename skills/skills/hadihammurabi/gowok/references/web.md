@@ -91,7 +91,7 @@ Now, you have routes of products CRUD.
 
 Easy, right?
 
-Your career brighter right now 😎
+Your career brighter right now 
 
 ## Conclusion
 ```go

@@ -213,8 +213,8 @@ Output to console
 
 | Variable | Required | Default | Usage |
 |----------|----------|---------|-------|
-| `POSTIZ_API_KEY` | ✅ Yes | - | Authentication token |
-| `POSTIZ_API_URL` | ❌ No | `https://api.postiz.com` | Custom API endpoint |
+| `POSTIZ_API_KEY` |  Yes | - | Authentication token |
+| `POSTIZ_API_URL` |  No | `https://api.postiz.com` | Custom API endpoint |
 
 ## Dependencies
 

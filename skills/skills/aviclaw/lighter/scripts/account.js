@@ -22,7 +22,7 @@ async function main() {
 
   try {
     await client.initialize();
-    console.log('✅ Lighter client initialized');
+    console.log(' Lighter client initialized');
     
     // Get account info
     const account = await client.getAccount();
@@ -30,7 +30,7 @@ async function main() {
     console.log(JSON.stringify(account, null, 2));
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📽️",
+        "emoji": "",
         "requires": { "anyBins": ["marp"] },
       },
   }
@@ -16,7 +16,7 @@ metadata:
 
 Convert Markdown to presentations via CLI. Output HTML, PDF, PowerPoint (PPTX), and images (PNG/JPEG).
 
-**Browser requirement:** Conversions marked with 🌐 require a compatible browser (Chrome, Edge, or Firefox) installed on your system.
+**Browser requirement:** Conversions marked with  require a compatible browser (Chrome, Edge, or Firefox) installed on your system.
 
 ## Quick Start
 
@@ -34,7 +34,7 @@ marp --pptx slide-deck.md
 marp --images png slide-deck.md
 ```
 
-📖 **Detailed guide:** [QUICKSTART.md](QUICKSTART.md)
+ **Detailed guide:** [QUICKSTART.md](QUICKSTART.md)
 
 ## Format conversion
 
@@ -44,7 +44,7 @@ marp slide-deck.md
 marp slide-deck.md -o output.html
 ```
 
-### PDF 🌐
+### PDF 
 ```bash
 marp --pdf slide-deck.md
 marp slide-deck.md -o output.pdf
@@ -56,7 +56,7 @@ marp --pdf --pdf-outlines slide-deck.md
 marp --pdf --pdf-notes slide-deck.md
 ```
 
-### PowerPoint (PPTX) 🌐
+### PowerPoint (PPTX) 
 ```bash
 marp --pptx slide-deck.md
 marp slide-deck.md -o output.pptx
@@ -65,7 +65,7 @@ marp slide-deck.md -o output.pptx
 marp --pptx --pptx-editable slide-deck.md
 ```
 
-### Images 🌐
+### Images 
 ```bash
 # Multiple images
 marp --images png slide-deck.md

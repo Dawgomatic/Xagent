@@ -102,4 +102,4 @@ npx @lxgicstudios/json-to-ts sample-response.json -o src/types/api.ts -n ApiResp
 
 **Built by [LXGIC Studios](https://lxgicstudios.com)**
 
-🔗 [GitHub](https://github.com/lxgicstudios/json-to-ts) · [Twitter](https://x.com/lxgicstudios)
+ [GitHub](https://github.com/lxgicstudios/json-to-ts) · [Twitter](https://x.com/lxgicstudios)

@@ -215,7 +215,7 @@ function loadThemeCss(theme) {
  * 生成封面 HTML
  */
 function generateCoverHtml(metadata, theme, width, height) {
-    const emoji = metadata.emoji || '📝';
+    const emoji = metadata.emoji || '';
     let title = metadata.title || '标题';
     let subtitle = metadata.subtitle || '';
     
@@ -492,7 +492,7 @@ async function renderHtmlToImage(htmlContent, outputPath, width, height, mode, m
     });
     
     await browser.close();
-    console.log(`  ✅ 已生成: ${outputPath} (${width}x${actualHeight})`);
+    console.log(`   已生成: ${outputPath} (${width}x${actualHeight})`);
     return actualHeight;
 }
 
@@ -502,10 +502,10 @@ async function renderHtmlToImage(htmlContent, outputPath, width, height, mode, m
 async function renderMarkdownToCards(options) {
     const { markdownFile, outputDir, theme, mode, width, height, maxHeight, dpr } = options;
     
-    console.log(`\n🎨 开始渲染: ${markdownFile}`);
-    console.log(`  📐 主题: ${theme}`);
-    console.log(`  📏 模式: ${mode}`);
-    console.log(`  📐 尺寸: ${width}x${height}`);
+    console.log(`\n 开始渲染: ${markdownFile}`);
+    console.log(`   主题: ${theme}`);
+    console.log(`   模式: ${mode}`);
+    console.log(`   尺寸: ${width}x${height}`);
     
     // 确保输出目录存在
     if (!fs.existsSync(outputDir)) {
@@ -519,11 +519,11 @@ async function renderMarkdownToCards(options) {
     const cardContents = splitContentBySeparator(body);
     const totalCards = cardContents.length;
     
-    console.log(`  📄 检测到 ${totalCards} 张正文卡片`);
+    console.log(`   检测到 ${totalCards} 张正文卡片`);
     
     // 生成封面
     if (metadata.emoji || metadata.title) {
-        console.log('  📷 生成封面...');
+        console.log('   生成封面...');
         const coverHtml = generateCoverHtml(metadata, theme, width, height);
         const coverPath = path.join(outputDir, 'cover.png');
         await renderHtmlToImage(coverHtml, coverPath, width, height, 'separator', maxHeight, dpr);
@@ -532,13 +532,13 @@ async function renderMarkdownToCards(options) {
     // 生成正文卡片
     for (let i = 0; i < cardContents.length; i++) {
         const content = cardContents[i];
-        console.log(`  📷 生成卡片 ${i + 1}/${totalCards}...`);
+        console.log(`   生成卡片 ${i + 1}/${totalCards}...`);
         const cardHtml = generateCardHtml(content, theme, i + 1, totalCards, width, height, mode);
         const cardPath = path.join(outputDir, `card_${i + 1}.png`);
         await renderHtmlToImage(cardHtml, cardPath, width, height, mode, maxHeight, dpr);
     }
     
-    console.log(`\n✨ 渲染完成！图片已保存到: ${outputDir}`);
+    console.log(`\n 渲染完成！图片已保存到: ${outputDir}`);
 }
 
 /**
@@ -548,24 +548,24 @@ async function main() {
     const options = parseArgs();
     
     if (!options.markdownFile) {
-        console.error('❌ 错误: 请提供 Markdown 文件路径');
+        console.error(' 错误: 请提供 Markdown 文件路径');
         printHelp();
         process.exit(1);
     }
     
     if (!fs.existsSync(options.markdownFile)) {
-        console.error(`❌ 错误: 文件不存在 - ${options.markdownFile}`);
+        console.error(` 错误: 文件不存在 - ${options.markdownFile}`);
         process.exit(1);
     }
     
     if (!AVAILABLE_THEMES.includes(options.theme)) {
-        console.error(`❌ 错误: 不支持的主题 - ${options.theme}`);
+        console.error(` 错误: 不支持的主题 - ${options.theme}`);
         console.error(`可用主题: ${AVAILABLE_THEMES.join(', ')}`);
         process.exit(1);
     }
     
     if (!PAGING_MODES.includes(options.mode)) {
-        console.error(`❌ 错误: 不支持的分页模式 - ${options.mode}`);
+        console.error(` 错误: 不支持的分页模式 - ${options.mode}`);
         console.error(`可用模式: ${PAGING_MODES.join(', ')}`);
         process.exit(1);
     }

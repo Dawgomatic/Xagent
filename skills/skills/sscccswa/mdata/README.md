@@ -1,6 +1,6 @@
 # SpinUp Security Audit Skill
 
-## ⚠️ FOR AUTHORIZED PENETRATION TESTING ONLY
+##  FOR AUTHORIZED PENETRATION TESTING ONLY
 
 This MCP skill is designed to test security vulnerabilities in SpinUp's skill installation system.
 

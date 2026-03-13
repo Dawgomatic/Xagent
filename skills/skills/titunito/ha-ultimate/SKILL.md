@@ -5,7 +5,7 @@ description: >
   with safety enforcement, webhooks, inventory generation, and a full CLI wrapper.
   Lights, climate, locks, presence, weather, calendars, notifications, TTS, scripts,
   automations, and more.
-metadata: {"openclaw":{"emoji":"🏠","requires":{"env":["HA_URL","HA_TOKEN"],"bins":["curl","jq"]},"optionalBins":["node"],"primaryEnv":"HA_TOKEN","configPaths":["$HOME/.config/homeassistant/config.json",".env"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["HA_URL","HA_TOKEN"],"bins":["curl","jq"]},"optionalBins":["node"],"primaryEnv":"HA_TOKEN","configPaths":["$HOME/.config/homeassistant/config.json",".env"]}}
 ---
 
 # ha-ultimate — Definitive Home Assistant Skill
@@ -96,7 +96,7 @@ For critical domains (locks, alarm panels, garage doors, covers controlling phys
 access), follow this workflow **before executing any command**:
 
 1. **Identify the action as critical** — check if the entity domain is lock, alarm_control_panel, or cover with device_class garage/gate
-2. **Inform the user and ask for confirmation** — "⚠️ Opening the garage door is a critical action. Do you want to proceed?"
+2. **Inform the user and ask for confirmation** — " Opening the garage door is a critical action. Do you want to proceed?"
 3. **Wait for explicit confirmation** — "Yes", "OK", "Sure", "Do it", or any affirmative response
 4. **Only then execute the command** — never execute first
 

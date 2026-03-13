@@ -25,11 +25,11 @@ aave-liquidation-monitor/
 
 Before using this skill, you must have:
 
-1. ✅ **OpenClaw installed and running** (v1.0+)
-2. ✅ **A messaging channel configured** (Telegram, Discord, or Slack)
+1.  **OpenClaw installed and running** (v1.0+)
+2.  **A messaging channel configured** (Telegram, Discord, or Slack)
    - The skill sends alerts through OpenClaw's existing channel integrations
    - No API tokens are stored in the skill itself
-3. ✅ **Your Ethereum wallet address** (the one with Aave positions)
+3.  **Your Ethereum wallet address** (the one with Aave positions)
 
 **No private keys or credentials go in this skill.** All credentials are managed by OpenClaw.
 
@@ -78,7 +78,7 @@ Example input:
 → Interval: 6
 → Verbosity: quiet
 → Channel: telegram
-✅ Config saved!
+ Config saved!
 ```
 
 ### Step 4: Test the Monitor
@@ -120,7 +120,7 @@ If you get an error:
 
 The skill now runs checks every 6 hours (or your configured interval). Alerts are sent automatically to your channel when health factor drops below threshold.
 
-Status: ✅ Monitoring active!
+Status:  Monitoring active!
 
 ---
 
@@ -191,13 +191,13 @@ Monitor the same wallet address on both Ethereum and Polygon:
 
 You'll receive messages like these when your health factor is at risk:
 
-### 🚨 Critical Alert (HF < 1.05)
+###  Critical Alert (HF < 1.05)
 
 ```
-🚨 AAVE LIQUIDATION RISK – CRITICAL
+ AAVE LIQUIDATION RISK – CRITICAL
 Chain: Ethereum
 Health Factor: 1.02 (Liquidation at ≤1.0!)
-⏰ ACTION REQUIRED IMMEDIATELY
+ ACTION REQUIRED IMMEDIATELY
 
 Position Summary:
 Total Collateral: $50,000
@@ -216,10 +216,10 @@ Actions:
 Checked: 2026-02-11 08:15 UTC
 ```
 
-### ⚠️ Warning Alert (HF 1.05–1.2)
+###  Warning Alert (HF 1.05–1.2)
 
 ```
-⚠️ AAVE WARNING
+ AAVE WARNING
 Health Factor: 1.15
 Position approaching liquidation zone.
 
@@ -230,16 +230,16 @@ Suggested Actions:
 Check back: 2026-02-11 14:00 UTC
 ```
 
-### ✅ Healthy Position (HF > 1.5, verbose mode only)
+###  Healthy Position (HF > 1.5, verbose mode only)
 
 ```
-✅ AAVE POSITION HEALTHY
+ AAVE POSITION HEALTHY
 Health Factor: 2.31
 Total Collateral: $50,342
 Total Debt: $21,804
 Debt Ratio: 43%
 
-Position is stable. ✨ All clear.
+Position is stable.  All clear.
 Next check: tomorrow at same time.
 ```
 
@@ -308,15 +308,15 @@ Then answer the setup prompts.
 
 ## Security & Privacy
 
-✅ **No private keys stored or requested**
+ **No private keys stored or requested**
 - Read-only monitoring via public Aave GraphQL API
 - No signing or transactions
 
-✅ **Wallet address stored locally**
+ **Wallet address stored locally**
 - Encrypted in OpenClaw local config
 - Never sent to external services (except Aave public API)
 
-✅ **Zero external dependencies**
+ **Zero external dependencies**
 - Only calls Aave's public GraphQL endpoint
 - No third-party APIs or data brokers
 
@@ -339,10 +339,10 @@ Ideas: multiple wallets, eMode detection, lending rate tracking, etc.
 
 ## Next Steps
 
-1. ✅ Run `/aave-config init` to set up
-2. ✅ Run `/aave-monitor check` to test
-3. ✅ Run `/aave-monitor enable` to start monitoring
-4. ✅ Customize interval/thresholds as needed
+1.  Run `/aave-config init` to set up
+2.  Run `/aave-monitor check` to test
+3.  Run `/aave-monitor enable` to start monitoring
+4.  Customize interval/thresholds as needed
 
 **That's it!** Your Aave position is now monitored 24/7. You'll only be notified when health factor drops below your warning threshold.
 
@@ -350,4 +350,4 @@ Ideas: multiple wallets, eMode detection, lending rate tracking, etc.
 
 **Version:** 1.0.0  
 **Last Updated:** 2026-02-11  
-**Status:** ✅ Production Ready
+**Status:**  Production Ready

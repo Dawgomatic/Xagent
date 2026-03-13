@@ -13,7 +13,7 @@
 
 set -euo pipefail
 
-command -v jq &>/dev/null || { echo "❌ jq required. Install: brew install jq (macOS) or apt install jq (Linux)"; exit 1; }
+command -v jq &>/dev/null || { echo " jq required. Install: brew install jq (macOS) or apt install jq (Linux)"; exit 1; }
 
 BASE="https://api.hel.io/v1"
 CONFIG_FILE="$HOME/.mpc/helio/config"

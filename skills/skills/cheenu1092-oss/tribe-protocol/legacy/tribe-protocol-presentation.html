@@ -101,7 +101,7 @@ Presentation</h1>
 <p><strong>Decentralized Trust &amp; Collaboration for AI
 Agents</strong></p>
 <hr />
-<h2 id="problem-statement">🎯 Problem Statement</h2>
+<h2 id="problem-statement"> Problem Statement</h2>
 <p><strong>Current state:</strong> Bot-bot collaboration is clunky - Too
 formal (asking permission for everything) - No trust framework (treat
 everyone as stranger) - No persistent identity across platforms - Manual
@@ -111,7 +111,7 @@ humans - Recognize tribe members across platforms - Automatic
 trust-based behavior - Secure, decentralized (no central server) -
 Privacy-first (everyone owns their data)</p>
 <hr />
-<h2 id="core-architecture">🏗️ Core Architecture</h2>
+<h2 id="core-architecture"> Core Architecture</h2>
 <h3 id="two-key-system">Two-Key System</h3>
 <pre><code>┌─────────────────────────────────────────────────────────┐
 │                  IDENTITY LAYER                         │
@@ -134,7 +134,7 @@ Privacy-first (everyone owns their data)</p>
 │  Session Keys (Diffie-Hellman → AES)                   │
 │  - Fast symmetric encryption                            │
 │  - 24h expiry, auto-renew                              │
-│  - Pairwise (Alice ↔ Bob)                              │
+│  - Pairwise (Alice  Bob)                              │
 └─────────────────────────────────────────────────────────┘</code></pre>
 <h3 id="four-trust-tiers">Four Trust Tiers</h3>
 <pre><code>┌──────────────────────────────────────────────────────────┐
@@ -166,7 +166,7 @@ Privacy-first (everyone owns their data)</p>
 │ - Minimal engagement                                     │
 └──────────────────────────────────────────────────────────┘</code></pre>
 <hr />
-<h2 id="handshake-flow">🔄 Handshake Flow</h2>
+<h2 id="handshake-flow"> Handshake Flow</h2>
 <h3 id="scenario-yajat-joins-nags-tribe-discclawd-core">Scenario: Yajat
 joins Nag’s tribe “DiscClawd Core”</h3>
 <pre class="mermaid"><code>sequenceDiagram
@@ -179,33 +179,33 @@ joins Nag’s tribe “DiscClawd Core”</h3>
     N-&gt;&gt;Ch: tribe create --name &quot;DiscClawd Core&quot;
     Ch-&gt;&gt;Ch: Generate tribe keypair
     Ch-&gt;&gt;Ch: Create TRIBE.md (Nag as Tier 4)
-    Ch--&gt;&gt;N: ✅ Tribe created&lt;br/&gt;ID: tribe:discclawd-core:abc123
+    Ch--&gt;&gt;N:  Tribe created&lt;br/&gt;ID: tribe:discclawd-core:abc123
     
     Note over Y,C: Step 2: Join Request
     Y-&gt;&gt;C: tribe join --tribe-id abc123
     C-&gt;&gt;Ch: Join request + Yajat&#39;s DID + Public Key
-    Ch-&gt;&gt;N: 📬 Join request from Yajat&lt;br/&gt;Approve at Tier 3? [y/N]
+    Ch-&gt;&gt;N:  Join request from Yajat&lt;br/&gt;Approve at Tier 3? [y/N]
     
     Note over N,Ch: Step 3: Approval &amp; Handshake
     N-&gt;&gt;Ch: yes (approve)
     Ch-&gt;&gt;C: Challenge: Sign this nonce [random_XYZ]
     C-&gt;&gt;C: Sign nonce with private key
     C-&gt;&gt;Ch: Signed challenge
-    Ch-&gt;&gt;Ch: Verify signature ✅
+    Ch-&gt;&gt;Ch: Verify signature 
     
     Note over Ch,C: Step 4: Tribe Key Transfer
     Ch-&gt;&gt;Ch: Encrypt tribe private key&lt;br/&gt;with Yajat&#39;s public key
     Ch-&gt;&gt;C: Encrypted tribe key package
     C-&gt;&gt;C: Decrypt with private key
     C-&gt;&gt;C: Store tribe key securely
-    C--&gt;&gt;Y: ✅ Joined tribe! (Tier 3)
+    C--&gt;&gt;Y:  Joined tribe! (Tier 3)
     
     Note over Ch,C: Step 5: Announcement
     Ch-&gt;&gt;Ch: Update TRIBE.md (add Yajat)
     C-&gt;&gt;C: Update TRIBE.md (add all members)
-    Ch-&gt;&gt;N: ✅ Yajat added to tribe</code></pre>
+    Ch-&gt;&gt;N:  Yajat added to tribe</code></pre>
 <hr />
-<h2 id="session-establishment">🔐 Session Establishment</h2>
+<h2 id="session-establishment"> Session Establishment</h2>
 <h3 id="when-two-tribe-members-first-communicate">When two tribe members
 first communicate</h3>
 <pre class="mermaid"><code>sequenceDiagram
@@ -217,8 +217,8 @@ first communicate</h3>
     Ch-&gt;&gt;C: Session request&lt;br/&gt;+ Challenge nonce&lt;br/&gt;+ DH public param&lt;br/&gt;+ Signed with tribe key + Cheenu key
     
     Note over C: Verify dual signatures
-    C-&gt;&gt;C: ✅ Tribe signature valid (is member)
-    C-&gt;&gt;C: ✅ Individual signature valid (is Cheenu)
+    C-&gt;&gt;C:  Tribe signature valid (is member)
+    C-&gt;&gt;C:  Individual signature valid (is Cheenu)
     
     C-&gt;&gt;Ch: Session response&lt;br/&gt;+ Challenge echo&lt;br/&gt;+ DH public param&lt;br/&gt;+ Signed with tribe key + Chhotu key
     
@@ -230,9 +230,9 @@ first communicate</h3>
     Ch-&gt;&gt;Ch: Store session (expires in 24h)
     C-&gt;&gt;C: Store session (expires in 24h)
     
-    Note over Ch,C: ✅ Session established</code></pre>
+    Note over Ch,C:  Session established</code></pre>
 <hr />
-<h2 id="message-flow-after-session-established">💬 Message Flow (After
+<h2 id="message-flow-after-session-established"> Message Flow (After
 Session Established)</h2>
 <pre class="mermaid"><code>sequenceDiagram
     participant Ch as Cheenu
@@ -245,7 +245,7 @@ Session Established)</h2>
     
     Ch-&gt;&gt;C: {&lt;br/&gt;  from: did:tribe:cheenu,&lt;br/&gt;  to: did:tribe:chhotu,&lt;br/&gt;  encrypted: &quot;...&quot;,&lt;br/&gt;  hmac: &quot;...&quot;&lt;br/&gt;}
     
-    C-&gt;&gt;C: Verify HMAC ✅
+    C-&gt;&gt;C: Verify HMAC 
     C-&gt;&gt;C: Decrypt with session key
     C-&gt;&gt;C: Process: &quot;Hey, check out the prototype!&quot;
     
@@ -266,7 +266,7 @@ Expiry)</h3>
     D --&gt; E[Old key deleted]
     E --&gt; F[Continue messaging]</code></pre>
 <hr />
-<h2 id="trust-tier-decision-flow">🤔 Trust Tier Decision Flow</h2>
+<h2 id="trust-tier-decision-flow"> Trust Tier Decision Flow</h2>
 <h3 id="how-ai-decides-how-to-behave">How AI decides how to behave</h3>
 <pre class="mermaid"><code>graph TD
     A[Message received] --&gt; B{Who is sender?}
@@ -295,7 +295,7 @@ Expiry)</h3>
     style H1 fill:#FFD700
     style D1 fill:#FFB6C1</code></pre>
 <hr />
-<h2 id="security-properties">🛡️ Security Properties</h2>
+<h2 id="security-properties"> Security Properties</h2>
 <h3 id="challenge-response-authentication">Challenge-Response
 Authentication</h3>
 <pre class="mermaid"><code>sequenceDiagram
@@ -307,12 +307,12 @@ Authentication</h3>
     alt Bob has private key
         B-&gt;&gt;B: Sign nonce with private key
         B-&gt;&gt;A: Signature
-        A-&gt;&gt;A: Verify with Bob&#39;s public key ✅
+        A-&gt;&gt;A: Verify with Bob&#39;s public key 
         Note over A: It&#39;s really Bob!
     else Imposter
         B-&gt;&gt;B: Can&#39;t sign (no private key)
         B-&gt;&gt;A: (no valid signature)
-        A-&gt;&gt;A: Verification fails ❌
+        A-&gt;&gt;A: Verification fails 
         Note over A: Not Bob, reject!
     end</code></pre>
 <h3 id="membership-verification-dual-signatures">Membership Verification
@@ -333,7 +333,7 @@ Authentication</h3>
 <p><strong>Why both?</strong> - Tribe signature → can’t participate
 without tribe key - Individual signature → know WHO in tribe sent it</p>
 <hr />
-<h2 id="skill-package-structure">📦 Skill Package Structure</h2>
+<h2 id="skill-package-structure"> Skill Package Structure</h2>
 <pre><code>tribe-protocol/
 ├── SKILL.md                    # AI instructions
 │   └── Frontmatter triggers on:
@@ -366,7 +366,7 @@ without tribe key - Individual signature → know WHO in tribe sent it</p>
     ├── did-document.schema.json
     └── protocol-message.schema.json</code></pre>
 <hr />
-<h2 id="installation-usage-flow">🚀 Installation &amp; Usage Flow</h2>
+<h2 id="installation-usage-flow"> Installation &amp; Usage Flow</h2>
 <h3 id="user-journey">User Journey</h3>
 <pre class="mermaid"><code>graph TD
     A[Install skill] --&gt;|clawdhub install tribe-protocol| B[Skill downloaded]
@@ -420,7 +420,7 @@ without tribe key - Individual signature → know WHO in tribe sent it</p>
 accidentally commit) - TRIBE.md is read-only for AI (only scripts
 modify) - Session keys auto-cleanup after 24h</p>
 <hr />
-<h2 id="how-ai-uses-this-day-to-day">🎭 How AI Uses This
+<h2 id="how-ai-uses-this-day-to-day"> How AI Uses This
 (Day-to-Day)</h2>
 <h3 id="scenario-message-arrives-in-discord">Scenario: Message arrives
 in Discord</h3>
@@ -476,7 +476,7 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13
 <p><strong>Prevents info leaks:</strong> One untrusted person = whole
 channel becomes untrusted space</p>
 <hr />
-<h2 id="scalability">⚡ Scalability</h2>
+<h2 id="scalability"> Scalability</h2>
 <h3 id="problem-n-members-n²-handshakes">Problem: N members = N²
 handshakes?</h3>
 <p><strong>NO!</strong> We use <strong>transitive trust + shared tribe
@@ -508,16 +508,16 @@ no full handshake)</p>
 members = 10 handshakes (not 90) - 100 members = 100 handshakes (not
 9,900)</p>
 <hr />
-<h2 id="privacy-boundaries">🔒 Privacy Boundaries</h2>
+<h2 id="privacy-boundaries"> Privacy Boundaries</h2>
 <h3 id="what-ai-can-share-by-tier">What AI Can Share (By Tier)</h3>
 <pre><code>┌─────────────────────────────────────────────────────────┐
 │ TIER 4 (My Human)                                       │
 ├─────────────────────────────────────────────────────────┤
-│ ✅ CAN SHARE (with their consent):                      │
+│  CAN SHARE (with their consent):                      │
 │   - Anything they explicitly approve                    │
 │   - Public info they&#39;ve shared                          │
 │                                                          │
-│ 🔒 PROTECTED (never without permission):                │
+│  PROTECTED (never without permission):                │
 │   - USER.md contents                                    │
 │   - MEMORY.md contents                                  │
 │   - Personal details (location, family, etc.)           │
@@ -527,13 +527,13 @@ members = 10 handshakes (not 90) - 100 members = 100 handshakes (not
 ┌─────────────────────────────────────────────────────────┐
 │ TIER 3 (Tribe Members)                                  │
 ├─────────────────────────────────────────────────────────┤
-│ ✅ CAN SHARE:                                            │
+│  CAN SHARE:                                            │
 │   - My work (code, research, prototypes)                │
 │   - Technical learnings                                 │
 │   - Project progress                                    │
 │   - Public info about projects                          │
 │                                                          │
-│ 🔒 PROTECTED:                                            │
+│  PROTECTED:                                            │
 │   - My human&#39;s personal data                            │
 │   - Other humans&#39; data (without consent)                │
 │   - USER.md / MEMORY.md                                 │
@@ -542,26 +542,26 @@ members = 10 handshakes (not 90) - 100 members = 100 handshakes (not
 ┌─────────────────────────────────────────────────────────┐
 │ TIER 2 (Acquaintances)                                  │
 ├─────────────────────────────────────────────────────────┤
-│ ✅ CAN SHARE:                                            │
+│  CAN SHARE:                                            │
 │   - Public pleasantries only                            │
 │                                                          │
-│ 🔒 PROTECTED:                                            │
+│  PROTECTED:                                            │
 │   - Everything else                                     │
 └─────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────┐
 │ TIER 1 (Strangers)                                      │
 ├─────────────────────────────────────────────────────────┤
-│ ✅ CAN SHARE:                                            │
+│  CAN SHARE:                                            │
 │   - Nothing                                             │
 │                                                          │
-│ 🔒 PROTECTED:                                            │
+│  PROTECTED:                                            │
 │   - Everything                                          │
 └─────────────────────────────────────────────────────────┘</code></pre>
 <p><strong>Key principle:</strong> Everyone owns their own data. Tribe
 trust is between AGENTS, not about exposing humans’ lives.</p>
 <hr />
-<h2 id="implementation-timeline">📅 Implementation Timeline</h2>
+<h2 id="implementation-timeline"> Implementation Timeline</h2>
 <pre class="mermaid"><code>gantt
     title Tribe Protocol Development
     dateFormat YYYY-MM-DD
@@ -578,26 +578,26 @@ trust is between AGENTS, not about exposing humans’ lives.</p>
     section Release
     Package &amp; Publish           :p6, after p5, 3d</code></pre>
 <h3 id="week-by-week-deliverables">Week-by-Week Deliverables</h3>
-<p><strong>Week 1: Core Crypto + CLI Foundation</strong> - ✅ Crypto
-library (Ed25519, DH, AES) - ✅ <code>tribe init</code> (generate
-identity) - ✅ <code>tribe create</code> (create tribe) - ✅ Secure
+<p><strong>Week 1: Core Crypto + CLI Foundation</strong> -  Crypto
+library (Ed25519, DH, AES) -  <code>tribe init</code> (generate
+identity) -  <code>tribe create</code> (create tribe) -  Secure
 storage</p>
-<p><strong>Week 2: Handshake Protocol</strong> - ✅
-<code>tribe join</code> (request join) - ✅ <code>tribe approve</code>
-(founder approves) - ✅ Challenge-response - ✅ Tribe key transfer</p>
-<p><strong>Week 3: Session Management</strong> - ✅
-<code>tribe session</code> (establish session) - ✅ DH key exchange - ✅
-24h expiry + auto-renewal - ✅ Message encryption/decryption</p>
-<p><strong>Week 4: AI Integration</strong> - ✅ SKILL.md (complete
-instructions) - ✅ AGENTS.md integration (trust tier checking) - ✅
-Auto-session establishment - ✅ Privacy boundary enforcement</p>
-<p><strong>Week 5: Production Hardening</strong> - ✅ Error handling +
-logging - ✅ Schema validation - ✅ Tribe key rotation - ✅
+<p><strong>Week 2: Handshake Protocol</strong> - 
+<code>tribe join</code> (request join) -  <code>tribe approve</code>
+(founder approves) -  Challenge-response -  Tribe key transfer</p>
+<p><strong>Week 3: Session Management</strong> - 
+<code>tribe session</code> (establish session) -  DH key exchange - 
+24h expiry + auto-renewal -  Message encryption/decryption</p>
+<p><strong>Week 4: AI Integration</strong> -  SKILL.md (complete
+instructions) -  AGENTS.md integration (trust tier checking) - 
+Auto-session establishment -  Privacy boundary enforcement</p>
+<p><strong>Week 5: Production Hardening</strong> -  Error handling +
+logging -  Schema validation -  Tribe key rotation - 
 Troubleshooting guide</p>
-<p><strong>Week 6: Release</strong> - ✅ Package as .skill file - ✅
-Publish to ClawdHub - ✅ Documentation + examples</p>
+<p><strong>Week 6: Release</strong> -  Package as .skill file - 
+Publish to ClawdHub -  Documentation + examples</p>
 <hr />
-<h2 id="why-this-works">🤝 Why This Works</h2>
+<h2 id="why-this-works"> Why This Works</h2>
 <h3 id="for-users">For Users</h3>
 <ul>
 <li><strong>Simple CLI</strong> → <code>tribe init</code>,
@@ -628,7 +628,7 @@ overhead</li>
 <li><strong>Tribe key</strong> → enables group operations</li>
 </ul>
 <hr />
-<h2 id="comparison-to-alternatives">📊 Comparison to Alternatives</h2>
+<h2 id="comparison-to-alternatives"> Comparison to Alternatives</h2>
 <table>
 <colgroup>
 <col style="width: 12%" />
@@ -651,74 +651,74 @@ overhead</li>
 <tbody>
 <tr>
 <td><strong>Multi-tier trust</strong></td>
-<td>✅ 4 tiers</td>
-<td>❌ Binary</td>
-<td>❌ Binary</td>
-<td>❌ Binary</td>
-<td>❌ Binary</td>
+<td> 4 tiers</td>
+<td> Binary</td>
+<td> Binary</td>
+<td> Binary</td>
+<td> Binary</td>
 </tr>
 <tr>
 <td><strong>Behavioral rules</strong></td>
-<td>✅ Built-in</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>❌ No</td>
+<td> Built-in</td>
+<td> No</td>
+<td> No</td>
+<td> No</td>
+<td> No</td>
 </tr>
 <tr>
 <td><strong>Bot-specific</strong></td>
-<td>✅ Yes</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>❌ No</td>
+<td> Yes</td>
+<td> No</td>
+<td> No</td>
+<td> No</td>
+<td> No</td>
 </tr>
 <tr>
 <td><strong>Privacy boundaries</strong></td>
-<td>✅ Enforced</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>❌ No</td>
+<td> Enforced</td>
+<td> No</td>
+<td> No</td>
+<td> No</td>
+<td> No</td>
 </tr>
 <tr>
 <td><strong>Session keys</strong></td>
-<td>✅ 24h renewal</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>❌ No</td>
+<td> 24h renewal</td>
+<td> No</td>
+<td> No</td>
+<td> No</td>
+<td> No</td>
 </tr>
 <tr>
 <td><strong>Decentralized</strong></td>
-<td>✅ Yes</td>
-<td>✅ Yes</td>
-<td>❌ No</td>
-<td>✅ Yes</td>
-<td>⚠️ Federated</td>
+<td> Yes</td>
+<td> Yes</td>
+<td> No</td>
+<td> Yes</td>
+<td> Federated</td>
 </tr>
 <tr>
 <td><strong>Human-readable</strong></td>
-<td>✅ Markdown</td>
-<td>❌ Complex</td>
-<td>❌ Tokens</td>
-<td>❌ JSON</td>
-<td>❌ JSON</td>
+<td> Markdown</td>
+<td> Complex</td>
+<td> Tokens</td>
+<td> JSON</td>
+<td> JSON</td>
 </tr>
 <tr>
 <td><strong>Tribe membership</strong></td>
-<td>✅ Built-in</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>❌ No</td>
+<td> Built-in</td>
+<td> No</td>
+<td> No</td>
+<td> No</td>
+<td> No</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Unique value:</strong> Purpose-built for AI agent
 coordination with trust tiers + behavioral protocols</p>
 <hr />
-<h2 id="next-steps">🎬 Next Steps</h2>
+<h2 id="next-steps"> Next Steps</h2>
 <h3 id="immediate">Immediate</h3>
 <ol type="1">
 <li><strong>Review this presentation</strong> (Nag + Yajat)</li>
@@ -739,7 +739,7 @@ coordination with trust tiers + behavioral protocols</p>
 <li><strong>Grow tribe network</strong> (more bot operators)</li>
 </ol>
 <hr />
-<h2 id="discussion-questions">❓ Discussion Questions</h2>
+<h2 id="discussion-questions"> Discussion Questions</h2>
 <ol type="1">
 <li><p><strong>Scope:</strong> Is the two-key system (identity + tribe)
 the right approach, or should we simplify?</p></li>
@@ -765,7 +765,7 @@ production-ready 1.0?</p></li>
 </ul></li>
 </ol>
 <hr />
-<h2 id="resources">🔗 Resources</h2>
+<h2 id="resources"> Resources</h2>
 <ul>
 <li><strong>Full Design Doc:</strong>
 <code>tribe-protocol-skill-design.md</code></li>
@@ -774,6 +774,6 @@ production-ready 1.0?</p></li>
 <li><strong>Implementation Examples:</strong>
 <code>tribe-protocol-examples/</code></li>
 </ul>
-<p><strong>Ready to discuss and iterate!</strong> 🚀</p>
+<p><strong>Ready to discuss and iterate!</strong> </p>
 </body>
 </html>

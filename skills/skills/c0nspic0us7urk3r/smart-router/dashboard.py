@@ -78,18 +78,18 @@ class RouterDashboard:
         lines = [
             "```",
             "╔═══════════════════════════════════════════════════════════╗",
-            "║            🤖 SMART ROUTER DASHBOARD                      ║",
+            "║             SMART ROUTER DASHBOARD                      ║",
             "╠═══════════════════════════════════════════════════════════╣",
         ]
         
         # Mode indicator
         mode = self.config.get("routing", {}).get("mode", "dry_run")
-        mode_icon = "🟢 LIVE" if mode == "live" else "🟡 DRY RUN" if mode == "dry_run" else "🔵 SHADOW"
+        mode_icon = " LIVE" if mode == "live" else " DRY RUN" if mode == "dry_run" else " SHADOW"
         lines.append(f"║  Mode: {mode_icon:<51}║")
         lines.append("╠═══════════════════════════════════════════════════════════╣")
         
         # Circuit Breaker Status
-        lines.append("║  📊 CIRCUIT BREAKER STATUS                                ║")
+        lines.append("║   CIRCUIT BREAKER STATUS                                ║")
         lines.append("╟───────────────────────────────────────────────────────────╢")
         
         circuits = self.state.get_all_circuits()
@@ -99,13 +99,13 @@ class RouterDashboard:
                 failures = circuit.get("failure_count", 0)
                 
                 if state == "OPEN":
-                    icon = "🔴"
+                    icon = ""
                     status = f"COOLDOWN ({failures} failures)"
                 elif state == "HALF_OPEN":
-                    icon = "🟡"
+                    icon = ""
                     status = "TESTING"
                 else:
-                    icon = "🟢"
+                    icon = ""
                     status = "HEALTHY"
                 
                 line = f"║  {icon} {model:<12} {status:<40}║"
@@ -115,7 +115,7 @@ class RouterDashboard:
         
         # Token Efficiency
         lines.append("╠═══════════════════════════════════════════════════════════╣")
-        lines.append("║  💰 TOKEN EFFICIENCY (Today)                              ║")
+        lines.append("║   TOKEN EFFICIENCY (Today)                              ║")
         lines.append("╟───────────────────────────────────────────────────────────╢")
         
         efficiency = self._calculate_efficiency()
@@ -126,7 +126,7 @@ class RouterDashboard:
         
         # Security Summary
         lines.append("╠═══════════════════════════════════════════════════════════╣")
-        lines.append("║  🔒 SECURITY LOG (Today)                                  ║")
+        lines.append("║   SECURITY LOG (Today)                                  ║")
         lines.append("╟───────────────────────────────────────────────────────────╢")
         
         security = self._get_security_summary()
@@ -136,7 +136,7 @@ class RouterDashboard:
         
         # Recent Activity
         lines.append("╠═══════════════════════════════════════════════════════════╣")
-        lines.append("║  📈 RECENT ROUTING DECISIONS                              ║")
+        lines.append("║   RECENT ROUTING DECISIONS                              ║")
         lines.append("╟───────────────────────────────────────────────────────────╢")
         
         recent = self.state.get_recent_decisions(5)
@@ -159,7 +159,7 @@ class RouterDashboard:
     def render_status(self) -> str:
         """Render quick status check."""
         mode = self.config.get("routing", {}).get("mode", "dry_run")
-        mode_icon = "🟢" if mode == "live" else "🟡"
+        mode_icon = "" if mode == "live" else ""
         
         circuits = self.state.get_all_circuits()
         open_circuits = sum(1 for c in circuits.values() if c.get("state") == "OPEN")
@@ -169,8 +169,8 @@ class RouterDashboard:
         return (
             f"**Smart Router Status**\n"
             f"{mode_icon} Mode: {mode.upper()}\n"
-            f"🔌 Models: {len(circuits)} tracked, {open_circuits} in cooldown\n"
-            f"📊 Today: {efficiency['total_requests']} requests, ${efficiency['savings']:.2f} saved"
+            f" Models: {len(circuits)} tracked, {open_circuits} in cooldown\n"
+            f" Today: {efficiency['total_requests']} requests, ${efficiency['savings']:.2f} saved"
         )
     
     def render_circuits(self) -> str:
@@ -186,13 +186,13 @@ class RouterDashboard:
             failures = circuit.get("failure_count", 0)
             
             if state == "OPEN":
-                icon = "🔴"
+                icon = ""
                 lines.append(f"{icon} **{model}**: COOLDOWN ({failures} failures)")
             elif state == "HALF_OPEN":
-                icon = "🟡"
+                icon = ""
                 lines.append(f"{icon} **{model}**: Testing recovery...")
             else:
-                icon = "🟢"
+                icon = ""
                 lines.append(f"{icon} **{model}**: Healthy")
         
         return "\n".join(lines)
@@ -203,9 +203,9 @@ class RouterDashboard:
         
         return (
             f"**Security Log (Today)**\n\n"
-            f"🚫 Requests blocked: {security['blocked']}\n"
-            f"⚠️ PII warnings: {security['pii_warnings']}\n"
-            f"🔑 Credentials caught: {security['credentials']}\n\n"
+            f" Requests blocked: {security['blocked']}\n"
+            f" PII warnings: {security['pii_warnings']}\n"
+            f" Credentials caught: {security['credentials']}\n\n"
             f"_Security filter active: credentials auto-blocked_"
         )
     
@@ -215,10 +215,10 @@ class RouterDashboard:
         
         return (
             f"**Token Efficiency Stats**\n\n"
-            f"📊 Requests analyzed: {efficiency['total_requests']}\n"
-            f"🔄 Switches recommended: {efficiency['switches']}\n"
-            f"💰 Estimated savings: **${efficiency['savings']:.2f}**\n"
-            f"📉 Avg cost reduction: {efficiency['avg_reduction']}\n\n"
+            f" Requests analyzed: {efficiency['total_requests']}\n"
+            f" Switches recommended: {efficiency['switches']}\n"
+            f" Estimated savings: **${efficiency['savings']:.2f}**\n"
+            f" Avg cost reduction: {efficiency['avg_reduction']}\n\n"
             f"_Based on routing optimizations vs always using Opus_"
         )
     
@@ -267,12 +267,12 @@ class RouterDashboard:
     def render_semantic(self, query: str, context_tokens: int = 0) -> str:
         """Render semantic analysis for a query."""
         if not self.semantic_router:
-            return "❌ Semantic Router not initialized"
+            return " Semantic Router not initialized"
         
         decision = self.semantic_router.route(query, context_tokens)
         
         lines = [
-            "**🧠 Semantic Analysis (Phase G)**\n",
+            "** Semantic Analysis (Phase G)**\n",
             f"**Query:** {query[:80]}{'...' if len(query) > 80 else ''}\n",
         ]
         
@@ -285,11 +285,11 @@ class RouterDashboard:
         
         # Risk override
         if decision.risk_override:
-            lines.append(f"⚠️ **RISK DOMAIN:** `{decision.risk_override}` — Mandatory routing enforced\n")
+            lines.append(f" **RISK DOMAIN:** `{decision.risk_override}` — Mandatory routing enforced\n")
         
         # Context override
         if decision.context_override:
-            lines.append(f"📄 **CONTEXT OVERRIDE:** {context_tokens:,} tokens (Gemini required)\n")
+            lines.append(f" **CONTEXT OVERRIDE:** {context_tokens:,} tokens (Gemini required)\n")
         
         # Model rankings
         lines.append("**Model Rankings:**")
@@ -307,17 +307,17 @@ class RouterDashboard:
         
         # HITL warning
         if decision.hitl_required:
-            lines.append(f"\n🚨 **HITL REQUIRED:** {decision.hitl_message}")
+            lines.append(f"\n **HITL REQUIRED:** {decision.hitl_message}")
         
         return "\n".join(lines)
     
     def render_expert_matrix(self) -> str:
         """Render the expert matrix configuration."""
         if not self.semantic_router:
-            return "❌ Semantic Router not initialized"
+            return " Semantic Router not initialized"
         
         lines = [
-            "**📊 Expert Matrix (Phase G)**\n",
+            "** Expert Matrix (Phase G)**\n",
             "```",
             "MODEL           │ TOP DOMAINS                    │ COST",
             "────────────────┼────────────────────────────────┼─────",

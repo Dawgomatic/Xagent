@@ -186,7 +186,7 @@ data_wytworzenia = now.strftime('%Y-%m-%dT%H:%M:%S')
 
 # BŁĄD: Data jutro
 tomorrow = now + timedelta(days=1)
-data_wytworzenia = tomorrow.strftime(...)  # ❌
+data_wytworzenia = tomorrow.strftime(...)  # 
 
 # Uwaga na strefy czasowe
 # KSeF używa czasu polskiego (UTC+1/UTC+2)
@@ -377,7 +377,7 @@ def handle_unmatched_payment(payment):
 
 **Problem:** Wysłano faktury testowe na środowisko produkcyjne
 
-**⚠️ UWAGA:** Faktury na produkcji są prawnie wiążące!
+** UWAGA:** Faktury na produkcji są prawnie wiążące!
 
 **Co zrobić:**
 1. NIE usuwaj faktur (niemożliwe w KSeF)
@@ -392,7 +392,7 @@ class KSefClient:
     def __init__(self, environment='demo'):
         if environment == 'production':
             # Wymuś potwierdzenie
-            confirm = input("⚠️  PRODUKCJA! Kontynuować? (yes/no): ")
+            confirm = input("  PRODUKCJA! Kontynuować? (yes/no): ")
             if confirm != 'yes':
                 raise Exception("Anulowano - używaj DEMO do testów")
 

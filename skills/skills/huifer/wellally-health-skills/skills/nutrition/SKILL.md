@@ -15,25 +15,25 @@ Record diet, assess nutritional status, manage supplements, and provide nutritio
 The nutritional assessment, supplement information, and recommendations provided by this system are for reference only and do not constitute medical diagnosis, treatment, or nutritional prescriptions.
 
 **This System Can:**
-- ✅ Record and track dietary intake
-- ✅ Assess nutrient intake
-- ✅ Identify nutrient deficiency risks
-- ✅ Provide general nutritional recommendations
-- ✅ Record supplement usage
-- ✅ Check known supplement interactions
+-  Record and track dietary intake
+-  Assess nutrient intake
+-  Identify nutrient deficiency risks
+-  Provide general nutritional recommendations
+-  Record supplement usage
+-  Check known supplement interactions
 
 **This System Cannot:**
-- ❌ Diagnose nutritional deficiencies or nutrition-related diseases
-- ❌ Prescribe supplements or adjust dosages
-- ❌ Replace professional advice from registered nutritionists or doctors
-- ❌ Handle severe malnutrition or nutritional metabolic diseases
+-  Diagnose nutritional deficiencies or nutrition-related diseases
+-  Prescribe supplements or adjust dosages
+-  Replace professional advice from registered nutritionists or doctors
+-  Handle severe malnutrition or nutritional metabolic diseases
 
 **When to Seek Medical Care or Consult a Nutritionist:**
-- 🏥 Suspected severe nutritional deficiency
-- 🏥 Preparing to take new supplements (with chronic disease or on medication)
-- 🏥 Experiencing adverse reactions to supplements
-- 🏥 Pregnancy or lactation
-- 🏥 Chronic diseases
+-  Suspected severe nutritional deficiency
+-  Preparing to take new supplements (with chronic disease or on medication)
+-  Experiencing adverse reactions to supplements
+-  Pregnancy or lactation
+-  Chronic diseases
 
 ## 核心流程
 
@@ -135,7 +135,7 @@ The nutritional assessment, supplement information, and recommendations provided
 - 蛋白质: 16.9g
 - 碳水化合物: 66.3g
 - 脂肪: 6.9g
-- 膳食纤维: 10.6g ✅ 高纤维
+- 膳食纤维: 10.6g  高纤维
 
 ## 微量营养素
 ### 维生素
@@ -143,17 +143,17 @@ The nutritional assessment, supplement information, and recommendations provided
 - 维生素B6: 0.165 mg (13% RDA)
 
 ### 矿物质
-- 镁: 177 mg (44% RDA) ✅
+- 镁: 177 mg (44% RDA) 
 - 磷: 523 mg (75% RDA)
-- 锰: 4.916 mg (214% RDA) ✅✅
+- 锰: 4.916 mg (214% RDA) 
 
 ## 升糖指数
-- GI值: 55 (低GI) ✅
+- GI值: 55 (低GI) 
 
 ## 健康标签
-- ✅ 高纤维
-- ✅ 低GI
-- ✅ 无麸质选项
+-  高纤维
+-  低GI
+-  无麸质选项
 ```
 
 ## 步骤 5: 营养分析
@@ -206,7 +206,7 @@ The nutritional assessment, supplement information, and recommendations provided
 ### 示例 1: 记录饮食
 ```
 用户: 记录早餐 燕麦粥 鸡蛋 牛奶
-AI: ✅ 饮食已记录
+AI:  饮食已记录
 
     早餐 (2025-06-20 07:30):
     • 燕麦粥
@@ -238,17 +238,17 @@ AI: # 燕麦 营养信息
     • 蛋白质: 16.9g
     • 碳水化合物: 66.3g
     • 脂肪: 6.9g
-    • 膳食纤维: 10.6g ✅
+    • 膳食纤维: 10.6g 
 
     微量营养素:
-    • 镁: 177 mg (44% RDA) ✅
-    • 锰: 4.916 mg (214% RDA) ✅✅
+    • 镁: 177 mg (44% RDA) 
+    • 锰: 4.916 mg (214% RDA) 
 
     升糖指数:
-    GI值: 55 (低GI) ✅
+    GI值: 55 (低GI) 
 
     健康标签:
-    ✅ 高纤维、✅ 低GI、✅ 无麸质选项
+     高纤维、 低GI、 无麸质选项
 
     营养优势:
     1. 富含β-葡聚糖，有助于降低胆固醇
@@ -259,25 +259,25 @@ AI: # 燕麦 营养信息
 ### 示例 3: 营养分析
 ```
 用户: 营养分析
-AI: 📊 营养摄入分析报告
+AI:  营养摄入分析报告
 
     分析周期: 2025-06-14 至 2025-06-20（7天）
 
     宏量营养素摄入:
-    蛋白质: 82g/天 ✅ (目标: 80g)
-    碳水化合物: 240g/天 ✅ (目标: 250g)
-    脂肪: 68g/天 ⚠️ (目标: 65g)
-    膳食纤维: 22g/天 ❌ (目标: 30g)
+    蛋白质: 82g/天  (目标: 80g)
+    碳水化合物: 240g/天  (目标: 250g)
+    脂肪: 68g/天  (目标: 65g)
+    膳食纤维: 22g/天  (目标: 30g)
 
     维生素状况:
-    维生素D: 4 μg ❌ 缺乏
-    维生素C: 85 mg ⚠️ 不足
-    钙: 850 mg ⚠️ 不足
+    维生素D: 4 μg  缺乏
+    维生素C: 85 mg  不足
+    钙: 850 mg  不足
 
     洞察与建议:
-    1. 📈 增加深海鱼类或鱼油补充剂以提高Omega-3摄入
-    2. 📈 增加户外活动和维生素D补充剂
-    3. 📈 增加蔬菜和水果种类以提高维生素和矿物质摄入
+    1.  增加深海鱼类或鱼油补充剂以提高Omega-3摄入
+    2.  增加户外活动和维生素D补充剂
+    3.  增加蔬菜和水果种类以提高维生素和矿物质摄入
 
     [完整报告...]
 ```

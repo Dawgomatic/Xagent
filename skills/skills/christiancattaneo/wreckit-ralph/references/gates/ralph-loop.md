@@ -51,6 +51,6 @@ Each role is a prompt prefix. One worker, one role, one task.
 
 ## Stopping Conditions
 
-- ✅ All tasks complete + all gates pass
-- ⚠️ Hard cap hit (default: 50 iterations) → Blocked with all evidence
-- 🛑 Manual stop (`/stop` or `/subagents kill all`)
+-  All tasks complete + all gates pass
+-  Hard cap hit (default: 50 iterations) → Blocked with all evidence
+-  Manual stop (`/stop` or `/subagents kill all`)

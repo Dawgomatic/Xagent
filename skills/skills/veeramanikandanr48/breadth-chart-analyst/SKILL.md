@@ -226,7 +226,7 @@ Apply the backtested strategy rules with STRICT confirmation requirements:
 3. ✓ **Confirmation Achieved**: Has 8MA risen for 2-3 CONSECUTIVE periods after the trough?
 4. ✓ **No Recent Reversal**: Based on Step 4.1.5 analysis, is 8MA CURRENTLY rising (not falling)?
 5. ✓ **Sustained Move**: Has 8MA maintained the upward trajectory without rolling over?
-6. ⭐ **Optional but Strong**: Is 8MA below or near 23% (extreme oversold) at trough?
+6.  **Optional but Strong**: Is 8MA below or near 23% (extreme oversold) at trough?
 
 **BUY Signal Status**:
 - **CONFIRMED**: All 5 required criteria met → ENTER LONG

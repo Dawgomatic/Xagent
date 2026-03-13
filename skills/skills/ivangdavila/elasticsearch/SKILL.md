@@ -1,7 +1,7 @@
 ---
 name: Elasticsearch
 description: Query and index Elasticsearch with proper mappings, analyzers, and search patterns.
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"anyBins":["curl"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["curl"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Mapping Mistakes

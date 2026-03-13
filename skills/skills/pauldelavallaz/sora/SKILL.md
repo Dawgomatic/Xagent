@@ -3,13 +3,13 @@ name: sora
 description: |
   Generate videos from text prompts or reference images using OpenAI Sora.
   
-  ✅ USE WHEN:
+   USE WHEN:
   - Need AI-generated video from text description
   - Want image-to-video (animate a still image)
   - Creating cinematic/artistic video content
   - Need motion/animation without lip-sync
   
-  ❌ DON'T USE WHEN:
+   DON'T USE WHEN:
   - Need lip-sync (person speaking) → use veed-ugc or ugc-manual
   - Just need image generation → use nano-banana-pro or morpheus
   - Editing existing videos → use Remotion

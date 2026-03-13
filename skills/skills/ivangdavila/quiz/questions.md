@@ -103,17 +103,17 @@ Best for: Processes, timelines, procedures.
 ## Common Mistakes
 
 **Double-barreled questions:**
-❌ "Do you understand variables and loops?"
-✅ Split into two questions
+ "Do you understand variables and loops?"
+ Split into two questions
 
 **Testing trivia vs objectives:**
-❌ "In what year was Python created?"
-✅ "What does the `len()` function return?"
+ "In what year was Python created?"
+ "What does the `len()` function return?"
 
 **Clues in the question:**
-❌ "What is the largest mammal in the ocean?"
+ "What is the largest mammal in the ocean?"
 (ocean = hint toward whale)
-✅ "What is the largest mammal on Earth?"
+ "What is the largest mammal on Earth?"
 
 **Correct answer longer than distractors:**
 People tend to pick the most detailed answer. Make all options similar length.

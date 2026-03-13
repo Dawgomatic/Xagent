@@ -13,5 +13,5 @@ APPROVAL_DIR="/tmp/claude-approvals"
 RESPONSE_FILE="$APPROVAL_DIR/${SESSION}.response"
 
 echo "$RESPONSE" > "$RESPONSE_FILE"
-echo "✅ Response recorded: $RESPONSE"
+echo " Response recorded: $RESPONSE"
 echo "Interactive approver will act on it within 1-2 seconds."

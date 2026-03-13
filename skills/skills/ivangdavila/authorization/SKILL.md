@@ -4,7 +4,7 @@ slug: authorization
 version: 1.0.0
 homepage: https://clawic.com/skills/authorization
 description: Build secure access control with RBAC, ABAC, permissions, policies, and scope-based authorization.
-metadata: {"clawdbot":{"emoji":"🔐","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use
@@ -66,10 +66,10 @@ Consistent naming prevents ambiguity.
 
 ### 7. Never Hardcode
 ```javascript
-// ❌ Bad — hardcoded role check
+//  Bad — hardcoded role check
 if (user.role === 'admin') { ... }
 
-// ✅ Good — permission check
+//  Good — permission check
 if (can(user, 'settings:update')) { ... }
 ```
 

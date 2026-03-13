@@ -73,7 +73,7 @@ def check_funpay():
         # 2. Проверка на согласие
         if chat_id in state["auto_replied_chats"]:
             if any(x in last_msg_lower for x in ["давай", "согласен", "заходи", "окей", "ок", "хорошо"]):
-                notifications.append(f"🔔 СРОЧНО: Покупатель {chat.name} согласен на вход в аккаунт! (ID: {chat_id})")
+                notifications.append(f" СРОЧНО: Покупатель {chat.name} согласен на вход в аккаунт! (ID: {chat_id})")
                 state["auto_replied_chats"].remove(chat_id)
                 continue
 
@@ -87,7 +87,7 @@ def check_funpay():
 
         # 4. Пересылка админу
         if "подтвердил успешное выполнение заказа" not in last_msg_lower:
-             notifications.append(f"📩 Сообщение от {chat.name}:\n\"{msg_text}\"\n(ID: {chat_id})")
+             notifications.append(f" Сообщение от {chat.name}:\n\"{msg_text}\"\n(ID: {chat_id})")
 
     save_state(state)
     return notifications

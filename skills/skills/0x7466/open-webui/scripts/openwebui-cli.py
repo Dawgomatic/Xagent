@@ -352,7 +352,7 @@ Examples:
                 else:
                     print("Cancelled.")
             elif args.subcommand == "delete":
-                if confirm(f"⚠️ WARNING: This will permanently delete model '{args.model}'. Continue?"):
+                if confirm(f" WARNING: This will permanently delete model '{args.model}'. Continue?"):
                     print_json(client.ollama_delete(args.model))
                 else:
                     print("Cancelled.")

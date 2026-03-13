@@ -28,7 +28,7 @@ if [ -z "$matches" ]; then
 fi
 
 count=$(echo "$matches" | wc -l | tr -d ' ')
-echo "📖 Found $count docs matching '$query':"
+echo " Found $count docs matching '$query':"
 echo ""
 
 if [ "$full_mode" = "--full" ]; then

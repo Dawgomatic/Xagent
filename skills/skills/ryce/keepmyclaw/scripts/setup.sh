@@ -69,5 +69,5 @@ fi
 
 echo
 echo "=== Setup complete ==="
-echo "⚠ IMPORTANT: Back up your passphrase somewhere safe outside this machine!"
+echo " IMPORTANT: Back up your passphrase somewhere safe outside this machine!"
 echo "  It is NOT included in backups and is required for restore."

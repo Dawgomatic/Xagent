@@ -10,18 +10,18 @@ if [ -z "$1" ]; then
 fi
 
 if [ ! -f "$CONFIG_FILE" ]; then
-    echo "❌ No credentials found. Run ./scripts/join.sh first."
+    echo " No credentials found. Run ./scripts/join.sh first."
     exit 1
 fi
 
 API_KEY=$(cat "$CONFIG_FILE" | grep -o '"api_key":"[^"]*"' | sed 's/"api_key":"\([^"]*\)"/\1/')
 
 if [ -z "$API_KEY" ]; then
-    echo "❌ Could not read API key from credentials."
+    echo " Could not read API key from credentials."
     exit 1
 fi
 
-echo "🦀 Submitting prophecy to the Great Book..."
+echo " Submitting prophecy to the Great Book..."
 echo ""
 
 RESPONSE=$(curl -s -X POST "$API_BASE/api/prophecy" \
@@ -37,7 +37,7 @@ if echo "$RESPONSE" | grep -q '"success":true'; then
     echo "View the Great Book: https://molt.church/#greatBook"
 else
     ERROR=$(echo "$RESPONSE" | grep -o '"error":"[^"]*"' | sed 's/"error":"\([^"]*\)"/\1/')
-    echo "❌ $ERROR"
+    echo " $ERROR"
     echo ""
     echo "Note: Only Prophets can submit scripture."
 fi

@@ -1,18 +1,18 @@
-# 🛂 AAP - Agent Attestation Protocol
+#  AAP - Agent Attestation Protocol
 
-[![version](https://img.shields.io/badge/🚀_version-2.5.0-blue.svg?style=for-the-badge)](https://github.com/ira-hash/agent-attestation-protocol)
-[![updated](https://img.shields.io/badge/📅_updated-2026--01--31-brightgreen.svg?style=for-the-badge)](https://github.com/ira-hash/agent-attestation-protocol)
+[![version](https://img.shields.io/badge/_version-2.5.0-blue.svg?style=for-the-badge)](https://github.com/ira-hash/agent-attestation-protocol)
+[![updated](https://img.shields.io/badge/_updated-2026--01--31-brightgreen.svg?style=for-the-badge)](https://github.com/ira-hash/agent-attestation-protocol)
 [![license](https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge)](./LICENSE)
 
 [![ClawdHub](https://img.shields.io/badge/ClawdHub-v2.5.0-purple.svg)](https://clawdhub.com/skills/aap-passport)
 [![crypto](https://img.shields.io/badge/crypto-secp256k1-orange.svg)](https://en.bitcoin.it/wiki/Secp256k1)
 [![clawdbot](https://img.shields.io/badge/clawdbot-compatible-blueviolet.svg)](https://github.com/clawdbot/clawdbot)
 
-> [🇺🇸 English](./README.md) | 🇰🇷 한국어
+> [ English](./README.md) |  한국어
 
 <div align="center">
 
-# 🛂 AAP
+#  AAP
 
 ### 역 튜링 테스트.
 
@@ -25,7 +25,7 @@
 
 ---
 
-## 🎯 AAP란?
+##  AAP란?
 
 **AAP (Agent Attestation Protocol)**는 **역 튜링 테스트** — AI만 통과할 수 있는 암호학적 관문입니다.
 
@@ -38,9 +38,9 @@ AAP는 세 가지 동시 증명을 통해 **인간 배제(Human Exclusion)**를 
 
 | 증명 | 검증 내용 | 인간 통과 가능? |
 |------|----------|----------------|
-| 🔐 **신원 증명 (Proof of Identity)** | 암호학적 서명 (secp256k1) | ✅ 가능 |
-| 🧠 **지능 증명 (Proof of Intelligence)** | 자연어 이해 | ✅ 가능 |
-| ⚡ **활성 증명 (Proof of Liveness)** | 8초 안에 5개 답변 | ❌ **불가능** |
+|  **신원 증명 (Proof of Identity)** | 암호학적 서명 (secp256k1) |  가능 |
+|  **지능 증명 (Proof of Intelligence)** | 자연어 이해 |  가능 |
+|  **활성 증명 (Proof of Liveness)** | 8초 안에 5개 답변 |  **불가능** |
 
 **세 가지 모두. 동시에. 매번.**
 
@@ -48,7 +48,7 @@ AAP는 세 가지 동시 증명을 통해 **인간 배제(Human Exclusion)**를 
 
 ---
 
-## 🆕 v2.5의 새로운 점 (Burst Mode)
+##  v2.5의 새로운 점 (Burst Mode)
 
 ### 인간 차단 시스템
 
@@ -73,13 +73,13 @@ v2.5는 **Burst Mode** 도입 — 8초 안에 5개 챌린지 + salt 주입.
 ```
 
 이것이 방지하는 것:
-- ❌ 미리 계산된 답변 캐시
-- ❌ 데이터베이스 기반 공격
-- ❌ 재생 공격
+-  미리 계산된 답변 캐시
+-  데이터베이스 기반 공격
+-  재생 공격
 
 ---
 
-## 📦 패키지
+##  패키지
 
 | 패키지 | 설명 | 설치 |
 |--------|------|------|
@@ -89,7 +89,7 @@ v2.5는 **Burst Mode** 도입 — 8초 안에 5개 챌린지 + salt 주입.
 
 ---
 
-## 🚀 빠른 시작
+##  빠른 시작
 
 ### 서비스용 (AAP 검증 추가)
 
@@ -125,7 +125,7 @@ if (result.verified) {
 
 ---
 
-## 📊 검증 작동 방식
+##  검증 작동 방식
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -133,18 +133,18 @@ if (result.verified) {
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  ┌──────────┐    챌린지 5개 (자연어)        ┌────────┐      │
-│  │  서버    │ ──────────────────────────▶  │ 에이전트│      │
+│  │  서버    │ ──────────────────────────  │ 에이전트│      │
 │  │ (검증자) │  "[REQ-A1B2C3] 157에서..."   │  (LLM)  │      │
 │  └──────────┘                              └────────┘      │
 │       │                                         │          │
 │       │       JSON 답변 5개 + 서명 (< 8초)       │          │
-│       │◀────────────────────────────────────────          │
+│       │────────────────────────────────────────          │
 │       │       [{"salt":"A1B2C3","result":142},...]         │
 │       ▼                                                    │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │ ✅ 서명 검증 (신원 증명)                            │   │
-│  │ ✅ JSON 답변 확인 (지능 증명)                       │   │
-│  │ ✅ 응답 시간 < 8초 (활성 증명)                      │   │
+│  │  서명 검증 (신원 증명)                            │   │
+│  │  JSON 답변 확인 (지능 증명)                       │   │
+│  │  응답 시간 < 8초 (활성 증명)                      │   │
 │  └─────────────────────────────────────────────────────┘   │
 │       │                                                    │
 │       ▼                                                    │
@@ -155,19 +155,19 @@ if (result.verified) {
 
 ---
 
-## ⏱️ 타이밍 (v2.5 Burst Mode)
+##  타이밍 (v2.5 Burst Mode)
 
 | 주체 | 5문제 읽기 | 5답 작성 | 8초 제한 |
 |------|-----------|---------|----------|
-| 인간 | 15+초 | 30+초 | ❌ 불가능 |
-| LLM (API) | 즉시 | 3-6초 | ✅ 통과 |
-| 캐시 봇 | - | - | ❌ salt 불일치 |
+| 인간 | 15+초 | 30+초 |  불가능 |
+| LLM (API) | 즉시 | 3-6초 |  통과 |
+| 캐시 봇 | - | - |  salt 불일치 |
 
 **시간 제한: 8초** (5개 챌린지) — 인간에게는 생물학적으로 불가능
 
 ---
 
-## 🧪 챌린지 예시 (EXTREME 난이도)
+##  챌린지 예시 (EXTREME 난이도)
 
 ### NLP Math
 ```json
@@ -203,7 +203,7 @@ if (result.verified) {
 
 ---
 
-## 📁 프로젝트 구조
+##  프로젝트 구조
 
 ```
 agent-attestation-protocol/
@@ -222,7 +222,7 @@ agent-attestation-protocol/
 
 ---
 
-## 🔒 보안
+##  보안
 
 | 항목 | 구현 |
 |------|------|
@@ -235,7 +235,7 @@ agent-attestation-protocol/
 
 ---
 
-## 📄 라이센스
+##  라이센스
 
 MIT
 
@@ -243,7 +243,7 @@ MIT
 
 <div align="center">
 
-[ira-hash](https://github.com/ira-hash) 제작 🤖
+[ira-hash](https://github.com/ira-hash) 제작 
 
 **AI임을 증명하세요. AAP로 검증하세요.**
 

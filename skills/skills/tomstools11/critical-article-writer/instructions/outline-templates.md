@@ -114,7 +114,7 @@ SHARP DETAIL:
 IMPLICATION:
 [Why this matters or what to think about]
 
-LINK: [Source or supporting material] 👉
+LINK: [Source or supporting material] 
 ```
 
 ## Research-Backed Argument Template

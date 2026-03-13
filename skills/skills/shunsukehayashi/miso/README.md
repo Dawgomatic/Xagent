@@ -30,8 +30,8 @@ MISO organizes communication into four distinct layers, each optimized for speed
 
 | Layer | Element | Purpose | Speed |
 |-------|---------|---------|-------|
-| 0 | 📌 Pin | Presence announcement | Instant (chat open) |
-| 1 | 🔥👀🎉❌ Reaction | State identification | Instant (chat list) |
+| 0 |  Pin | Presence announcement | Instant (chat open) |
+| 1 |  Reaction | State identification | Instant (chat list) |
 | 2 | Message Body | Detailed information | Read when needed |
 | 3 | Inline Buttons | Actions | Execute on interaction |
 
@@ -81,7 +81,7 @@ Edit `~/.openclaw/openclaw.json` to enable extensive reactions:
 ### Use MISO
 
 1. Start a mission with the MISO pattern
-2. Agents automatically apply reactions (🔥 in-progress, 👀 pending, 🎉 complete, ❌ failed)
+2. Agents automatically apply reactions ( in-progress,  pending,  complete,  failed)
 3. Track state from your chat list—no need to open conversations
 4. Use inline buttons for actions (approve, reject, etc.)
 
@@ -94,10 +94,10 @@ That's it. No Python imports, no setup code. Just patterns that agents follow.
 Here's a sample phase message following the MISO design system:
 
 ```
-🏗️ Phase: Implementation
+ Phase: Implementation
 
 — Started 2026-02-17 · Estimated 2026-02-20 —
-Status: 🔥 In Progress (Day 2 of 4)
+Status:  In Progress (Day 2 of 4)
 
 This phase covers the core feature development:
   ↳ Backend API endpoints
@@ -105,14 +105,14 @@ This phase covers the core feature development:
   ↳ Integration testing
 
 Next: Validation & Review phase
-🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
+ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
 ```
 
 Key design elements:
 - Em dash (`—`) separators
 - Unicode bold where needed
 - Indented hierarchy with ↳
-- Sakura (🌸) footer
+- Sakura () footer
 - Reaction-friendly structure
 
 ---
@@ -135,13 +135,13 @@ Key design elements:
     miso: {
       enabled: true,
       reactionEmojis: {
-        inProgress: "🔥",
-        pending: "👀",
-        complete: "🎉",
-        failed: "❌",
-        blocked: "🚫",
-        approved: "✅",
-        rejected: "👎"
+        inProgress: "",
+        pending: "",
+        complete: "",
+        failed: "",
+        blocked: "",
+        approved: "",
+        rejected: ""
       }
     }
   }
@@ -152,13 +152,13 @@ Key design elements:
 
 | Emoji | Meaning | When to Use |
 |-------|---------|-------------|
-| 🔥 | In Progress | Active work happening |
-| 👀 | Pending | Waiting on something |
-| 🎉 | Complete | Phase/mission done |
-| ❌ | Failed | Hit a blocker |
-| 🚫 | Blocked | Waiting on external dependency |
-| ✅ | Approved | Green-lit to proceed |
-| 👎 | Rejected | Changes requested |
+|  | In Progress | Active work happening |
+|  | Pending | Waiting on something |
+|  | Complete | Phase/mission done |
+|  | Failed | Hit a blocker |
+|  | Blocked | Waiting on external dependency |
+|  | Approved | Green-lit to proceed |
+|  | Rejected | Changes requested |
 
 ---
 
@@ -167,10 +167,10 @@ Key design elements:
 Track complex work with strike-through updates:
 
 ```
-📋 WBS Master: E-Commerce Platform Migration
+ WBS Master: E-Commerce Platform Migration
 
 — Started 2026-02-10 · Target 2026-02-28 —
-Status: 🔥 In Progress (60%)
+Status:  In Progress (60%)
 
 ## Phase 1: Discovery [COMPLETE]
   ↳ ~~Audit current system~~
@@ -205,7 +205,7 @@ Status: 🔥 In Progress (60%)
   ↳ Rollback plan verification
 
 Next: Testing phase kickoff
-🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
+ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
 ```
 
 ---
@@ -221,7 +221,7 @@ When following MISO patterns, remember:
 - **Emojis carry structure** — Use them strategically
 - **Em dash separators** — Use `—` between sections
 - **↳ for hierarchy** — Indicate nested items with ↳
-- **🌸 footer** — Always end with the MISO signature
+- ** footer** — Always end with the MISO signature
 
 ---
 

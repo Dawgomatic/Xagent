@@ -2,7 +2,7 @@
 name: revolut
 description: "Revolut Business API CLI — accounts, balances, transactions, counterparties, payments, FX exchange, CSV export. Auto-refreshes OAuth tokens. Business accounts only (not personal)."
 version: 1.0.0
-metadata: {"clawdbot":{"emoji":"💶","requires":{"bins":["python3"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
 # Revolut Business API

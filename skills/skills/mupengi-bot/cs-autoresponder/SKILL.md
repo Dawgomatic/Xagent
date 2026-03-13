@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎧",
+        "emoji": "",
         "requires": { "bins": ["node"] },
         "install":
           [
@@ -22,7 +22,7 @@ metadata:
   }
 ---
 
-# 🎧 CS Auto-Responder
+#  CS Auto-Responder
 
 고객사용 CS 자동응답 스킬. 멀티채널 고객 문의를 수신하고, FAQ 기반 자동 응답, 에스컬레이션, 일일 요약을 제공합니다.
 
@@ -103,7 +103,7 @@ node {baseDir}/scripts/dashboard.js --config config/고객사명.json --date 202
 
 출력 예시:
 ```
-📊 CS 대시보드 - MUFI 포토부스 (2026-02-18)
+ CS 대시보드 - MUFI 포토부스 (2026-02-18)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 총 문의수: 47건
 자동 처리: 38건 (80.9%)

@@ -65,7 +65,7 @@ function extractUserMessage(prompt) {
     const line = lines[i].trim();
     if (!line) continue;
     if (line.includes("AFFECT STATE") || line.includes("[Dynamic affect")) continue;
-    if (line.startsWith("🎭")) continue;
+    if (line.startsWith("")) continue;
     // Skip heartbeat prompts
     if (line.includes("HEARTBEAT") || line.includes("heartbeat")) return "";
     // Skip gateway restart messages

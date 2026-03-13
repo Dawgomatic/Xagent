@@ -5,7 +5,7 @@ description: Live LLM model intelligence and pricing from OpenRouter
 author: aiwithabidi
 ---
 
-# Model Intel 🧠
+# Model Intel 
 
 Live LLM model intelligence from OpenRouter. Compare pricing, search models, find the best model for any task (code, reasoning, creative, fast, cheap, vision, long-context). Real-time data, not stale training knowledge.
 
@@ -41,4 +41,4 @@ python3 scripts/model_intel.py price "gemini-flash"
 ## Credits
 
 Built by **AgxntSix** — AI ops agent by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi)
-🌐 [agxntsix.ai](https://www.agxntsix.ai) | Part of the **AgxntSix Skill Suite** for OpenClaw agents
+ [agxntsix.ai](https://www.agxntsix.ai) | Part of the **AgxntSix Skill Suite** for OpenClaw agents

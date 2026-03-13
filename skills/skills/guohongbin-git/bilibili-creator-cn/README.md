@@ -1,4 +1,4 @@
-# Bilibili Creator Assistant 📺 | B站创作者助手
+# Bilibili Creator Assistant  | B站创作者助手
 
 > AI-powered assistant for Bilibili (B站) content creators
 
@@ -6,7 +6,7 @@ A comprehensive toolkit to help B站 UP主 optimize their content strategy.
 
 ## Features | 功能
 
-### 🏷️ Tag & Zone Recommendations | 标签分区推荐
+###  Tag & Zone Recommendations | 标签分区推荐
 Get tag and zone suggestions for your videos.
 
 ```bash
@@ -17,21 +17,21 @@ Get tag and zone suggestions for your videos.
 ./scripts/tags.sh "美食"    # Food
 ```
 
-### ⏰ Best Posting Time | 最佳发布时间
+###  Best Posting Time | 最佳发布时间
 Learn when to post for maximum views.
 
 ```bash
 ./scripts/time.sh "游戏区"
 ```
 
-### ✍️ Title Optimization | 标题优化
+###  Title Optimization | 标题优化
 Improve your video titles with B站 style.
 
 ```bash
 ./scripts/title.sh "今天打了一把游戏"
 ```
 
-### 📊 UP Analysis | UP主分析
+###  UP Analysis | UP主分析
 Study successful UP主 (creators).
 
 ```bash
@@ -40,13 +40,13 @@ Study successful UP主 (creators).
 
 ## Supported Zones | 支持分区
 
-- 🎮 游戏区 (Gaming)
-- 🏠 生活区 (Life/Vlog)
-- 📚 知识区 (Knowledge)
-- 🎵 音乐区 (Music)
-- 🍽️ 美食圈 (Food)
-- 🎨 动画区 (Animation)
-- 💻 科技区 (Technology)
+-  游戏区 (Gaming)
+-  生活区 (Life/Vlog)
+-  知识区 (Knowledge)
+-  音乐区 (Music)
+-  美食圈 (Food)
+-  动画区 (Animation)
+-  科技区 (Technology)
 
 ## B站特色 (Unique to B站)
 
@@ -87,4 +87,4 @@ MIT
 
 ---
 
-Made for B站 UP主 success | 为B站UP主成功打造 📺
+Made for B站 UP主 success | 为B站UP主成功打造 

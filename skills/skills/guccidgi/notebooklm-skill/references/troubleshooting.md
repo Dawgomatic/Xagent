@@ -16,11 +16,11 @@
 Most issues are solved by using the run.py wrapper:
 
 ```bash
-# ✅ CORRECT - Always:
+#  CORRECT - Always:
 python scripts/run.py auth_manager.py status
 python scripts/run.py ask_question.py --question "..."
 
-# ❌ WRONG - Never:
+#  WRONG - Never:
 python scripts/auth_manager.py status  # ModuleNotFoundError!
 ```
 

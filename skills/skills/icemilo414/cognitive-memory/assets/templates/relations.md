@@ -2,7 +2,7 @@
 
 ## Structural
 - `develops` — person → project
-- `uses` / `used-by` — project ↔ tool/concept
+- `uses` / `used-by` — project  tool/concept
 - `part-of` / `contains` — hierarchical
 - `depends-on` — dependency
 

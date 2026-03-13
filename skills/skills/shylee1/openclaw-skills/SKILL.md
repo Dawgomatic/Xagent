@@ -69,17 +69,17 @@ DISCOVER → TRIAGE → READY → EXECUTE → FEEDBACK
 
 | Role | Mission | Owns |
 |------|---------|------|
-| **Scout 🔍** | Find opportunities | `OPPORTUNITIES.md`, discovery |
-| **Rhythm 🥁** | Keep work flowing | `BACKLOG.md`, triage |
-| **Harmony 🤝** | Keep team healthy | Unblocking, retros |
+| **Scout ** | Find opportunities | `OPPORTUNITIES.md`, discovery |
+| **Rhythm ** | Keep work flowing | `BACKLOG.md`, triage |
+| **Harmony ** | Keep team healthy | Unblocking, retros |
 | **[Human]** | Strategic direction | Hard calls, spawning |
 
 **Execution roles** (spawn as needed):
-- Link 🔗 — Builder
-- Pixel 🎨 — Designer
-- Sage 🦉 — Architect
-- Echo 📢 — Voice
-- Spark ✨ — Creative
+- Link  — Builder
+- Pixel  — Designer
+- Sage  — Architect
+- Echo  — Voice
+- Spark  — Creative
 
 ---
 
@@ -155,11 +155,11 @@ The 5-phase loop is flexible. Adapt it:
 
 ## Anti-Patterns
 
-❌ Human manually adds every task → Use triage role instead  
-❌ Waiting for permission to pick up work → Ready = fair game  
-❌ One agent does everything → Spawn specialists  
-❌ Ideas stay in heads → Log to OPPORTUNITIES.md  
-❌ Heartbeat just returns OK → Actually check the loop  
+ Human manually adds every task → Use triage role instead  
+ Waiting for permission to pick up work → Ready = fair game  
+ One agent does everything → Spawn specialists  
+ Ideas stay in heads → Log to OPPORTUNITIES.md  
+ Heartbeat just returns OK → Actually check the loop  
 
 ---
 

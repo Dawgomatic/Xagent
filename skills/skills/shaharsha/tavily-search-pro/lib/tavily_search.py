@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Tavily Search v1.0 - AI-powered web search platform with 5 modes.
-Author: Leo 🦁
+Author: Leo 
 Created: 2026-02-07
 
 Commands:

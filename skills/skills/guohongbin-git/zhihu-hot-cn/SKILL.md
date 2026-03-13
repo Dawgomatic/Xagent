@@ -3,7 +3,7 @@ name: zhihu-hot-cn
 description: 知乎热榜监控 - 获取知乎热门话题、问题和趋势分析（Quora 中国版）
 metadata:
   openclaw:
-    emoji: "🔥"
+    emoji: ""
     category: "social"
     tags: ["zhihu", "trending", "china", "social-media"]
 ---
@@ -14,10 +14,10 @@ metadata:
 
 ## 功能
 
-- 🔥 获取知乎实时热榜
-- 📊 分析热门话题趋势
-- 🏷️ 按类别筛选（科技、娱乐、财经等）
-- 💾 导出为 Markdown/JSON
+-  获取知乎实时热榜
+-  分析热门话题趋势
+-  按类别筛选（科技、娱乐、财经等）
+-  导出为 Markdown/JSON
 
 ## 使用方法
 
@@ -70,8 +70,8 @@ metadata:
 ```markdown
 # 知乎热榜 - 2026-02-19
 
-1. [如何评估 AI Agent 的商业价值？](https://zhihu.com/question/xxx) 🔥 999万热度
-2. [2026 年最值得学习的编程语言？](https://zhihu.com/question/xxx) 💬 523 回答
+1. [如何评估 AI Agent 的商业价值？](https://zhihu.com/question/xxx)  999万热度
+2. [2026 年最值得学习的编程语言？](https://zhihu.com/question/xxx)  523 回答
 3. ...
 ```
 
@@ -94,9 +94,9 @@ metadata:
 
 ## 热度指标
 
-- **🔥 热度值**: 综合浏览量、互动量计算
-- **💬 回答数**: 问题下的回答数量
-- **⏰ 在榜时间**: 持续在热榜的天数
+- ** 热度值**: 综合浏览量、互动量计算
+- ** 回答数**: 问题下的回答数量
+- ** 在榜时间**: 持续在热榜的天数
 
 ## 与其他平台对比
 

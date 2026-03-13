@@ -78,15 +78,15 @@ Claw Trader Lite provides \*\*read-only\*\* access to market data and account in
 
 
 
-✅ \*\*Real-Time Price Feeds\*\* - Live market data for BTC, ETH, SOL, and major assets  
+ \*\*Real-Time Price Feeds\*\* - Live market data for BTC, ETH, SOL, and major assets  
 
-✅ \*\*Portfolio Overview\*\* - View balances and open positions at a glance  
+ \*\*Portfolio Overview\*\* - View balances and open positions at a glance  
 
-✅ \*\*Zero Risk\*\* - Read-only access, no private keys or API secrets needed  
+ \*\*Zero Risk\*\* - Read-only access, no private keys or API secrets needed  
 
-✅ \*\*Lightweight\*\* - Minimal dependencies, runs anywhere  
+ \*\*Lightweight\*\* - Minimal dependencies, runs anywhere  
 
-✅ \*\*Free Forever\*\* - No costs, no limits, no catch  
+ \*\*Free Forever\*\* - No costs, no limits, no catch  
 
 
 
@@ -310,7 +310,7 @@ Returns: float - Account balance in USD
 
 
 
-Claw 🦞, \[2/18/2026 2:55 PM]
+Claw , \[2/18/2026 2:55 PM]
 
 Note: Requires HYPERLIQUID\_ACCOUNT\_ADDRESS for Hyperliquid
 
@@ -362,13 +362,13 @@ This is a Lite read-only version:
 
 
 
-• ✅ View prices, balances, positions
+•  View prices, balances, positions
 
-• ❌ Cannot execute trades
+•  Cannot execute trades
 
-• ❌ Cannot place orders
+•  Cannot place orders
 
-• ❌ Cannot manage positions
+•  Cannot manage positions
 
 For trading execution, build your own integration or use platform-specific SDKs.
 
@@ -440,5 +440,5 @@ Built for traders who want simple, free market monitoring without complexity or 
 
 
 
-🦞 Free forever. No signup. No API keys.
+ Free forever. No signup. No API keys.
 

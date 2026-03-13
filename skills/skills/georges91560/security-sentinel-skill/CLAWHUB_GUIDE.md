@@ -74,7 +74,7 @@ Tags:
 
 ### Step 5: Upload Icon (Optional)
 
-- Create a 512x512 PNG with shield emoji 🛡️
+- Create a 512x512 PNG with shield emoji 
 - Or use: https://openmoji.org/library/emoji-1F6E1/ (shield)
 
 ### Step 6: Set Pricing (if applicable)
@@ -492,7 +492,7 @@ If someone reports a bypass:
 
 ---
 
-**Good luck with your launch! 🚀🛡️**
+**Good luck with your launch! **
 
 If you have questions, the community is here to help.
 

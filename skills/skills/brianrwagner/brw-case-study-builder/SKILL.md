@@ -178,13 +178,13 @@ All three versions, ready to use:
 
 ## Common Mistakes I'll Help You Avoid
 
-❌ **Making yourself the hero.** The client is the hero. You're the guide.
+ **Making yourself the hero.** The client is the hero. You're the guide.
 
-❌ **Vague outcomes.** "Improved their marketing" means nothing. Get specific.
+ **Vague outcomes.** "Improved their marketing" means nothing. Get specific.
 
-❌ **Skipping the struggle.** The challenge is what makes the outcome impressive.
+ **Skipping the struggle.** The challenge is what makes the outcome impressive.
 
-❌ **Feature lists instead of story.** "We did X, Y, Z" doesn't land. "Here's what changed" does.
+ **Feature lists instead of story.** "We did X, Y, Z" doesn't land. "Here's what changed" does.
 
 ---
 

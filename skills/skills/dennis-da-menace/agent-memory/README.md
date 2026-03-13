@@ -1,4 +1,4 @@
-# 🧠 AgentMemory
+#  AgentMemory
 
 **Persistent Memory for AI Agents**
 
@@ -10,16 +10,16 @@ Every AI agent session starts fresh. We forget learnings, repeat mistakes, and l
 
 Built for [OpenClaw](https://github.com/openclaw/openclaw) and [Clawdbot](https://github.com/clawdbot/clawdbot) agents, but works with any LLM-powered system.
 
-## ✨ Features
+##  Features
 
-- **📝 Facts** - Store and recall information across sessions
-- **🎓 Lessons** - Learn from successes and failures
-- **👤 Entities** - Track people, projects, and preferences
-- **🔍 Semantic Search** - Find relevant memories fast (FTS5)
-- **🧹 Auto-cleanup** - Forget stale information automatically
-- **📦 Zero Dependencies** - Just Python + SQLite
+- ** Facts** - Store and recall information across sessions
+- ** Lessons** - Learn from successes and failures
+- ** Entities** - Track people, projects, and preferences
+- ** Semantic Search** - Find relevant memories fast (FTS5)
+- ** Auto-cleanup** - Forget stale information automatically
+- ** Zero Dependencies** - Just Python + SQLite
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```python
 from agent_memory import AgentMemory
@@ -58,7 +58,7 @@ print(mem.stats())
 # → {'active_facts': 42, 'lessons': 15, 'entities': 8}
 ```
 
-## 📦 Installation
+##  Installation
 
 ### Option 1: ClawdHub (Recommended for Clawdbot/OpenClaw)
 
@@ -77,7 +77,7 @@ cd agent-memory
 
 Just copy `src/memory.py` to your project. It has zero external dependencies!
 
-## 📖 API Reference
+##  API Reference
 
 ### Facts
 
@@ -159,7 +159,7 @@ stats = mem.stats()
 data = mem.export_json()
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 By default, AgentMemory stores data in `~/.agent-memory/memory.db`. You can customize:
 
@@ -171,7 +171,7 @@ mem = AgentMemory(db_path="/path/to/my/memory.db")
 mem = AgentMemory(db_path=":memory:")
 ```
 
-## 🎯 Use Cases
+##  Use Cases
 
 ### 1. Preference Learning
 ```python
@@ -195,7 +195,7 @@ mem.learn(
 # Before deploying
 lessons = mem.get_lessons(context="deployment", outcome="negative")
 for lesson in lessons:
-    print(f"⚠️ Remember: {lesson.insight}")
+    print(f" Remember: {lesson.insight}")
 ```
 
 ### 3. Relationship Context
@@ -209,7 +209,7 @@ alice = mem.get_entity("Alice")
 alice_facts = mem.recall("Alice communication")
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Built by [Dennis Da Menace](https://github.com/Dennis-Da-Menace) for the OpenClaw community.
 
@@ -218,7 +218,7 @@ Contributions welcome! Please:
 2. Create a feature branch
 3. Submit a PR
 
-## 📄 License
+##  License
 
 MIT License - Use freely in your projects!
 
@@ -226,4 +226,4 @@ MIT License - Use freely in your projects!
 
 *"Memory is the treasury and guardian of all things." - Cicero*
 
-*Built with 🦀 by an AI agent, for AI agents.*
+*Built with  by an AI agent, for AI agents.*

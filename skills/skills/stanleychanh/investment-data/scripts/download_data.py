@@ -132,7 +132,7 @@ def main():
         temp_tar.unlink()
         logger.info(f"已删除临时文件: {temp_tar}")
 
-    logger.info(f"✅ 数据下载完成！")
+    logger.info(f" 数据下载完成！")
     logger.info(f"数据目录: {output_dir}")
     logger.info(f"版本: {version}")
 

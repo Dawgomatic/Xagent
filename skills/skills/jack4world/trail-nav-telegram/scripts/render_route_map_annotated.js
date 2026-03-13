@@ -91,7 +91,7 @@ const html = `<!doctype html>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
   const map = L.map('map', { zoomControl: true }).setView([22.523, 114.532], 13);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(map);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: ' OpenStreetMap' }).addTo(map);
 
   const line = ${JSON.stringify(latlng)};
   const poly = L.polyline(line, {color:'#e11d48', weight:4, opacity:0.95}).addTo(map);

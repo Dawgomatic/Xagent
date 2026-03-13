@@ -28,7 +28,7 @@ CONFIG_FILE = Path.home() / ".openclaw" / "config.json"
 def load_config() -> Dict[str, Any]:
     """Load OpenClaw configuration."""
     if not CONFIG_FILE.exists():
-        print(f"❌ Config not found: {CONFIG_FILE}")
+        print(f" Config not found: {CONFIG_FILE}")
         sys.exit(1)
     
     with open(CONFIG_FILE, 'r') as f:
@@ -42,7 +42,7 @@ def get_discord_info(config: Dict[str, Any]) -> tuple[str, str]:
         guild_id = list(config['channels']['discord']['guilds'].keys())[0]
         return token, guild_id
     except (KeyError, IndexError):
-        print("❌ Discord configuration not found in config")
+        print(" Discord configuration not found in config")
         sys.exit(1)
 
 
@@ -64,11 +64,11 @@ def rename_discord_channel(token: str, channel_id: str, new_name: str) -> bool:
     
     try:
         with urlopen(req) as response:
-            print(f"✅ Renamed Discord channel to #{new_name}")
+            print(f" Renamed Discord channel to #{new_name}")
             return True
     except HTTPError as e:
         error_body = e.read().decode('utf-8')
-        print(f"❌ Failed to rename channel: {e.code} - {error_body}")
+        print(f" Failed to rename channel: {e.code} - {error_body}")
         return False
 
 
@@ -146,7 +146,7 @@ def main():
     new_name = args.new_name.lower()
     workspace_dir = args.workspace or os.environ.get("OPENCLAW_WORKSPACE")
     
-    print(f"🔧 Renaming channel: #{old_name} → #{new_name}")
+    print(f" Renaming channel: #{old_name} → #{new_name}")
     
     # Load config
     config = load_config()
@@ -159,33 +159,33 @@ def main():
     # 2. Check if systemPrompt needs updating
     old_prompt = check_system_prompt_references(config, guild_id, channel_id, old_name)
     if old_prompt:
-        print(f"\n⚠️  systemPrompt contains '{old_name}' - needs updating")
+        print(f"\n  systemPrompt contains '{old_name}' - needs updating")
         patch = build_system_prompt_patch(guild_id, channel_id, old_prompt, old_name, new_name)
-        print(f"\n📝 Run this command to update systemPrompt:")
+        print(f"\n Run this command to update systemPrompt:")
         print(f"\nopenclaw gateway config.patch --raw '{json.dumps(patch)}'")
     else:
-        print(f"✅ systemPrompt does not reference old name - no update needed")
+        print(f" systemPrompt does not reference old name - no update needed")
     
     # 3. Update workspace files (if workspace specified)
     if workspace_dir:
         workspace = Path(workspace_dir).expanduser()
         if not workspace.exists():
-            print(f"\n⚠️  Workspace not found: {workspace}")
+            print(f"\n  Workspace not found: {workspace}")
         else:
-            print(f"\n🔍 Searching workspace for references to #{old_name}...")
+            print(f"\n Searching workspace for references to #{old_name}...")
             updated_files = update_workspace_files(workspace, old_name, new_name)
             
             if updated_files:
-                print(f"\n✅ Updated {len(updated_files)} files:")
+                print(f"\n Updated {len(updated_files)} files:")
                 for file in updated_files:
                     print(f"   - {file}")
-                print(f"\n📝 Commit changes:")
+                print(f"\n Commit changes:")
                 print(f"   git add -A")
                 print(f"   git commit -m \"Rename channel {old_name} → {new_name}\"")
             else:
-                print(f"✅ No workspace files needed updating")
+                print(f" No workspace files needed updating")
     
-    print(f"\n✅ Channel rename complete!")
+    print(f"\n Channel rename complete!")
 
 
 if __name__ == "__main__":

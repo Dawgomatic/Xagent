@@ -82,7 +82,7 @@ def safe_function():
 
 def test_basic_scan():
     """测试基本扫描功能"""
-    print("🧪 测试基本扫描功能...")
+    print(" 测试基本扫描功能...")
     
     # 创建测试目录
     test_dir = create_test_directory()
@@ -110,7 +110,7 @@ def test_basic_scan():
         has_critical_high = report.has_critical_or_high()
         print(f"  有严重/高风险: {has_critical_high}")
         
-        print("  ✅ 基本扫描测试通过")
+        print("   基本扫描测试通过")
         return True
         
     finally:
@@ -119,7 +119,7 @@ def test_basic_scan():
 
 def test_anonymization():
     """测试匿名化功能"""
-    print("🧪 测试匿名化功能...")
+    print(" 测试匿名化功能...")
     
     from claw_asset_privacy_guardian import Anonymizer
     
@@ -139,21 +139,21 @@ def test_anonymization():
         
         # 验证匿名化
         if expected_pattern in anonymized:
-            print(f"    ✅ {original[:30]}... → 匿名化成功")
+            print(f"     {original[:30]}... → 匿名化成功")
         else:
-            print(f"    ❌ {original[:30]}... → 匿名化失败: {anonymized}")
+            print(f"     {original[:30]}... → 匿名化失败: {anonymized}")
             all_passed = False
     
     if all_passed:
-        print("  ✅ 匿名化测试通过")
+        print("   匿名化测试通过")
     else:
-        print("  ❌ 匿名化测试失败")
+        print("   匿名化测试失败")
     
     return all_passed
 
 def test_report_generation():
     """测试报告生成"""
-    print("🧪 测试报告生成...")
+    print(" 测试报告生成...")
     
     # 创建测试目录
     test_dir = create_test_directory()
@@ -176,7 +176,7 @@ def test_report_generation():
         for finding in json_data["findings"]:
             assert finding["anonymized"] == True, "报告应该已匿名化"
         
-        print("    ✅ JSON报告生成和解析成功")
+        print("     JSON报告生成和解析成功")
         
         # 测试控制台报告
         console_report = guardian.generate_report(report, "console")
@@ -188,18 +188,18 @@ def test_report_generation():
         assert "test@example.com" not in console_report, "不应该包含具体电子邮件"
         assert "sk_test_" not in console_report, "不应该包含API密钥"
         
-        print("    ✅ 控制台报告生成成功")
+        print("     控制台报告生成成功")
         
         # 测试Markdown报告
         md_report = guardian.generate_report(report, "markdown")
         print(f"  Markdown报告长度: {len(md_report)} 字符")
         
         assert "# Claw Asset & Privacy Guardian" in md_report
-        assert "## 🔒 隐私保护声明" in md_report or "## Privacy" in md_report
+        assert "##  隐私保护声明" in md_report or "## Privacy" in md_report
         
-        print("    ✅ Markdown报告生成成功")
+        print("     Markdown报告生成成功")
         
-        print("  ✅ 报告生成测试通过")
+        print("   报告生成测试通过")
         return True
         
     finally:
@@ -208,7 +208,7 @@ def test_report_generation():
 
 def test_cli():
     """测试命令行接口"""
-    print("🧪 测试命令行接口...")
+    print(" 测试命令行接口...")
     
     # 创建测试目录
     test_dir = create_test_directory()
@@ -232,9 +232,9 @@ def test_cli():
             assert "Claw Asset & Privacy Guardian" in result.stdout
             assert "隐私保护声明" in result.stdout or "Privacy" in result.stdout
             
-            print("    ✅ 命令行扫描测试通过")
+            print("     命令行扫描测试通过")
         else:
-            print(f"    ❌ 命令行扫描失败: {result.stderr}")
+            print(f"     命令行扫描失败: {result.stderr}")
             return False
         
         # 测试JSON输出
@@ -251,15 +251,15 @@ def test_cli():
                 json_data = json.loads(result.stdout)
                 assert "scan_id" in json_data
                 assert "findings" in json_data
-                print("    ✅ JSON输出测试通过")
+                print("     JSON输出测试通过")
             except json.JSONDecodeError:
-                print(f"    ❌ JSON解析失败: {result.stdout[:100]}")
+                print(f"     JSON解析失败: {result.stdout[:100]}")
                 return False
         else:
-            print(f"    ❌ JSON输出失败: {result.stderr}")
+            print(f"     JSON输出失败: {result.stderr}")
             return False
         
-        print("  ✅ 命令行接口测试通过")
+        print("   命令行接口测试通过")
         return True
         
     finally:
@@ -268,7 +268,7 @@ def test_cli():
 
 def run_all_tests():
     """运行所有测试"""
-    print("🔬 运行 Claw Asset & Privacy Guardian 测试套件")
+    print(" 运行 Claw Asset & Privacy Guardian 测试套件")
     print("=" * 50)
     
     tests = [
@@ -288,20 +288,20 @@ def run_all_tests():
             else:
                 failed += 1
         except AssertionError as e:
-            print(f"  ❌ 测试失败: {e}")
+            print(f"   测试失败: {e}")
             failed += 1
         except Exception as e:
-            print(f"  ❌ 测试异常: {e}")
+            print(f"   测试异常: {e}")
             failed += 1
     
     print("=" * 50)
     print(f"测试结果: {passed} 通过, {failed} 失败")
     
     if failed == 0:
-        print("🎉 所有测试通过！")
+        print(" 所有测试通过！")
         return 0
     else:
-        print("⚠️  部分测试失败")
+        print("  部分测试失败")
         return 1
 
 if __name__ == "__main__":

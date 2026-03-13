@@ -218,25 +218,25 @@ Action:
 Return exactly ONE final message with this structure:
 
 ```
-✅ 状态：完成（dry_run=<true|false>, max=<N>）
-🗑️ 垃圾邮件处理：<S> 封
+ 状态：完成（dry_run=<true|false>, max=<N>）
+ 垃圾邮件处理：<S> 封
 - <发件人> — <主题>
 ...
 
-⚠️ 非垃圾/不确定（未处理）：<K> 封
+ 非垃圾/不确定（未处理）：<K> 封
 - <发件人> — <主题>
 ...
 ```
 
 If stopped for manual verification:
 ```
-⛔ 状态：需要人工验证（验证码/二次验证）
+ 状态：需要人工验证（验证码/二次验证）
 说明：检测到登录需要验证码/二次验证，请先在同一浏览器 profile 中手动完成一次验证，然后再次运行本技能。
 ```
 
 If secrets missing:
 ```
-⛔ 状态：缺少配置（secrets.json）
+ 状态：缺少配置（secrets.json）
 说明：请在 ~/.openclaw/workspace/skills/ztpc-spam-sweep/secrets.json 填写用户名与密码。
 ```
 

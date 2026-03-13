@@ -5,7 +5,7 @@ user-invocable: true
 command-dispatch: tool
 command-tool: Bash
 command-arg-mode: raw
-metadata: {"openclaw":{"requires":{"bins":["curl","jq"],"env":["TWEXAPI_KEY"]},"primaryEnv":"TWEXAPI_KEY","emoji":"🦅","os":["darwin","linux"]}}
+metadata: {"openclaw":{"requires":{"bins":["curl","jq"],"env":["TWEXAPI_KEY"]},"primaryEnv":"TWEXAPI_KEY","emoji":"","os":["darwin","linux"]}}
 ---
 
 falcon

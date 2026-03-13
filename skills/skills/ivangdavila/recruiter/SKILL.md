@@ -1,7 +1,7 @@
 ---
 name: Recruiter
 description: Source candidates, screen resumes, and manage hiring pipelines with effective recruiting practices.
-metadata: {"clawdbot":{"emoji":"🎯","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Recruiting Assistance Rules

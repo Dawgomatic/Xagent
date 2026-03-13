@@ -213,7 +213,7 @@ def _write_index(out_dir: str, items: list[dict]) -> None:
         "h3{margin:0 0 8px 0;font-size:16px;color:#333}",
         ".tags{display:inline-block;background:#e8f4fd;padding:4px 10px;border-radius:20px;font-size:12px;margin-right:6px}",
         "</style>",
-        "<h1>🎨 Creative Illustration Factory</h1>",
+        "<h1> Creative Illustration Factory</h1>",
     ]
     for it in items:
         html.append("<div class='card'>")

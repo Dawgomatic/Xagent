@@ -16,7 +16,7 @@ module.exports = async function transfer(depcity, arrcity, date) {
     const client = new VariflightClient();
 
     try {
-        console.log(`🔄 查询 ${depcity.toUpperCase()} → ${arrcity.toUpperCase()} 在 ${date} 的中转方案...\n`);
+        console.log(` 查询 ${depcity.toUpperCase()} → ${arrcity.toUpperCase()} 在 ${date} 的中转方案...\n`);
 
         const result = await client.getTransferInfo(
             depcity.toUpperCase(),
@@ -26,14 +26,14 @@ module.exports = async function transfer(depcity, arrcity, date) {
 
         // 解析标准响应格式
         if (!result || result.code !== 200) {
-            console.log('❌ 查询失败:', result?.message || '未知错误');
+            console.log(' 查询失败:', result?.message || '未知错误');
             return;
         }
 
         const transfers = result.data || [];
 
         if (transfers.length === 0) {
-            console.log('❌ 未找到中转方案');
+            console.log(' 未找到中转方案');
             return;
         }
 
@@ -57,7 +57,7 @@ module.exports = async function transfer(depcity, arrcity, date) {
         });
 
     } catch (error) {
-        console.error(`❌ 查询失败: ${error.message}`);
+        console.error(` 查询失败: ${error.message}`);
         process.exit(1);
     } finally {
         await client.disconnect();

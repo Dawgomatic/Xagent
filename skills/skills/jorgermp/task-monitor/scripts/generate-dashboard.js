@@ -15,7 +15,7 @@ try {
   sessions.sort((a, b) => b.updatedAt - a.updatedAt);
 
   // 3. Generate Markdown
-  let md = '# 🚀 OpenClaw Task Dashboard\n\n';
+  let md = '#  OpenClaw Task Dashboard\n\n';
   md += `**Last Updated:** ${new Date().toLocaleString()}\n`;
   md += `**Total Sessions:** ${data.count}\n\n`;
 
@@ -23,26 +23,26 @@ try {
   const subagents = sessions.filter(s => s.key.includes(':subagent:'));
   
   if (subagents.length > 0) {
-    md += '## 🛠️ Active Background Tasks\n\n';
+    md += '##  Active Background Tasks\n\n';
     
     subagents.forEach(s => {
       const age = formatAge(s.ageMs);
-      const status = s.abortedLastRun ? '❌ Aborted' : '✅ Running/Idle';
+      const status = s.abortedLastRun ? ' Aborted' : ' Running/Idle';
       const shortId = s.sessionId.substring(0, 8);
       const description = getTaskDescription(s.sessionId);
       
-      md += `### 📌 Task: \`${shortId}\`\n`;
+      md += `###  Task: \`${shortId}\`\n`;
       md += `**Description:** ${description}\n`;
       md += `**Model:** ${s.model} | **Age:** ${age} | **Status:** ${status} | **Tokens:** ${s.totalTokens}\n\n`;
     });
   } else {
-    md += '## 🛠️ Active Background Tasks\n\n_No active sub-agents._\n\n';
+    md += '##  Active Background Tasks\n\n_No active sub-agents._\n\n';
   }
 
   // Cron Jobs (Recent)
   const crons = sessions.filter(s => s.key.includes(':cron:'));
   if (crons.length > 0) {
-    md += '## 🕒 Recent Cron Jobs\n\n';
+    md += '##  Recent Cron Jobs\n\n';
     md += '| Job ID | Last Run | Model |\n';
     md += '|--------|----------|-------|\n';
     

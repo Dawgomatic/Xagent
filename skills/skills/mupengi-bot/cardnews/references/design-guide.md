@@ -23,7 +23,7 @@
 - **Center-aligned text** vertically and horizontally
 - **Dark background with subtle light effects** (purple glow streaks, lens flares)
 - **No busy backgrounds** — text readability is priority #1
-- **Slide 5:** Include 🐧 penguin at bottom center as brand mark
+- **Slide 5:** Include  penguin at bottom center as brand mark
 - **Consistent style across all 5 slides** — same background treatment, same text style
 
 ## Prompt Template

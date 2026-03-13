@@ -284,7 +284,7 @@ python scripts/rice_prioritizer.py features.csv --capacity 15
 RICE PRIORITIZATION RESULTS
 ============================================================
 
-📊 TOP PRIORITIZED FEATURES
+ TOP PRIORITIZED FEATURES
 
 1. Onboarding Flow
    RICE Score: 16000.0
@@ -306,20 +306,20 @@ RICE PRIORITIZATION RESULTS
    RICE Score: 2133.33
    Reach: 8000 | Impact: medium | Confidence: high | Effort: s
 
-📈 PORTFOLIO ANALYSIS
+ PORTFOLIO ANALYSIS
 
 Total Features: 5
 Total Effort: 19 person-months
 Total Reach: 65,000 users
 Average RICE Score: 5969.07
 
-🎯 Quick Wins: 2 features
+ Quick Wins: 2 features
    • Onboarding Flow (RICE: 16000.0)
    • Dark Mode (RICE: 2133.33)
 
-🚀 Big Bets: 0 features
+ Big Bets: 0 features
 
-📅 SUGGESTED ROADMAP
+ SUGGESTED ROADMAP
 
 Q1 - Capacity: 11/15 person-months
    • Onboarding Flow (RICE: 16000.0)
@@ -368,11 +368,11 @@ python scripts/customer_interview_analyzer.py interview.txt
 CUSTOMER INTERVIEW ANALYSIS
 ============================================================
 
-📋 INTERVIEW METADATA
+ INTERVIEW METADATA
 Segments found: 1
 Lines analyzed: 15
 
-😟 PAIN POINTS (3 found)
+ PAIN POINTS (3 found)
 
 1. [HIGH] Lack of real-time collaboration
    "I have to constantly ping my team on Slack to get updates"
@@ -383,29 +383,29 @@ Lines analyzed: 15
 3. [HIGH] Time wasted on communication
    "waste 30 minutes just on back-and-forth messages"
 
-💡 FEATURE REQUESTS (2 found)
+ FEATURE REQUESTS (2 found)
 
 1. Real-time collaboration - Priority: High
 2. Seamless tool integration - Priority: Medium
 
-🎯 JOBS TO BE DONE
+ JOBS TO BE DONE
 
 When working on PRDs with tight deadlines
 I want real-time visibility into team updates
 So I can avoid wasted time on status checks
 
-📊 SENTIMENT ANALYSIS
+ SENTIMENT ANALYSIS
 
 Overall: Negative (pain-focused interview)
 Key emotions: Frustration, Time pressure
 
-💬 KEY QUOTES
+ KEY QUOTES
 
 • "It's really frustrating to wait for responses"
 • "I'd pay extra for something that just worked seamlessly"
 • "It's my biggest pain point right now"
 
-🏷️ THEMES
+ THEMES
 
 - Collaboration friction
 - Tool fragmentation

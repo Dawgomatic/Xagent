@@ -1,7 +1,7 @@
 ---
 name: local-stt
 description: Local STT with selectable backends - Parakeet (best accuracy) or Whisper (fastest, multilingual).
-metadata: {"openclaw":{"emoji":"🎙️","requires":{"bins":["ffmpeg"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["ffmpeg"]}}}
 ---
 
 # Local STT (Parakeet / Whisper)

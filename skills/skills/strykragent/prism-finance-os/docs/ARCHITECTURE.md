@@ -49,7 +49,7 @@ Agent asks: "Buy $1000 of ETH on Base"
    │
    ▼
 [2] risk.getTokenScore("prism:ethereum:eth")
-    → score: 2/100 ✅ (proceed)
+    → score: 2/100  (proceed)
    │
    ▼
 [3] dex.getQuote({ from: "USDC", to: "ETH", amount: "1000", chain: "base" })
@@ -57,7 +57,7 @@ Agent asks: "Buy $1000 of ETH on Base"
    │
    ▼
 [4] risk.simulateTx(quoteTx, "base")
-    → success: true, no MEV risk ✅
+    → success: true, no MEV risk 
    │
    ▼
 [5] dex.executeSwap(quote, signer)
@@ -65,7 +65,7 @@ Agent asks: "Buy $1000 of ETH on Base"
    │
    ▼
 [6] risk.watchAsset("ETH", { priceChangeThreshold: 0.05 })
-    → watchId: watch_xyz, active ✅
+    → watchId: watch_xyz, active 
 ```
 
 ## Canonical Asset Schema

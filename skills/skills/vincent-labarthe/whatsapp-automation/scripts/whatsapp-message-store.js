@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * WhatsApp Automation Skill - Message Store Service
- * Copyright © 2026 OpenClaw Contributors
+ * Copyright  2026 OpenClaw Contributors
  * License: CC BY-ND-NC 4.0 (Non-commercial, no modifications)
  * 
  * Receives webhooks from WAHA and stores messages locally.
@@ -68,20 +68,20 @@ const server = http.createServer((req, res) => {
             JSON.stringify(message) + '\n'
           );
 
-          console.log(`✅ Message stored: ${message.contact} - "${message.text.substring(0, 50)}"`);
+          console.log(` Message stored: ${message.contact} - "${message.text.substring(0, 50)}"`);
           res.writeHead(200);
           res.end(JSON.stringify({ ok: true, stored: true }));
         } else if (payload.event === 'session.status') {
-          console.log(`📊 Session status: ${payload.payload?.status || 'unknown'}`);
+          console.log(` Session status: ${payload.payload?.status || 'unknown'}`);
           res.writeHead(200);
           res.end(JSON.stringify({ ok: true, stored: false }));
         } else {
-          console.log(`❓ Unknown event: ${payload.event}`);
+          console.log(` Unknown event: ${payload.event}`);
           res.writeHead(200);
           res.end(JSON.stringify({ ok: true, stored: false }));
         }
       } catch (e) {
-        console.error('❌ Error parsing webhook:', e.message);
+        console.error(' Error parsing webhook:', e.message);
         res.writeHead(400);
         res.end(JSON.stringify({ error: e.message }));
       }
@@ -112,13 +112,13 @@ function countMessages() {
 }
 
 server.listen(PORT, () => {
-  console.log(`🎯 WhatsApp Message Store running on http://localhost:${PORT}`);
-  console.log(`📂 Messages stored in: ${MESSAGES_FILE}`);
-  console.log(`\n📨 Webhook URL: http://localhost:${PORT}/webhook`);
-  console.log(`💚 Health check: http://localhost:${PORT}/health`);
+  console.log(` WhatsApp Message Store running on http://localhost:${PORT}`);
+  console.log(` Messages stored in: ${MESSAGES_FILE}`);
+  console.log(`\n Webhook URL: http://localhost:${PORT}/webhook`);
+  console.log(` Health check: http://localhost:${PORT}/health`);
 });
 
 server.on('error', (e) => {
-  console.error('❌ Server error:', e.message);
+  console.error(' Server error:', e.message);
   process.exit(1);
 });

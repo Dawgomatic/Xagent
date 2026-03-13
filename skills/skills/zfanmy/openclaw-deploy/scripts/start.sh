@@ -30,7 +30,7 @@ echo "=========================================="
 
 # Stop existing container if running
 if docker ps -a --format '{{.Names}}' | grep -q "^$CONTAINER_NAME$"; then
-    echo "🛑 Stopping existing container: $CONTAINER_NAME"
+    echo " Stopping existing container: $CONTAINER_NAME"
     docker stop "$CONTAINER_NAME" 2>/dev/null || true
     docker rm "$CONTAINER_NAME" 2>/dev/null || true
 fi
@@ -54,7 +54,7 @@ docker run -d \
     "openclaw:$VERSION"
 
 echo ""
-echo "✅ Container started: $CONTAINER_NAME"
+echo " Container started: $CONTAINER_NAME"
 echo ""
 echo "Access URLs:"
 echo "  - WebUI: http://localhost:$PORT"

@@ -182,14 +182,14 @@ forge script script/Deploy.s.sol:DeployScript \
 **Deploy script must NOT hardcode addresses:**
 
 ```solidity
-// ✅ Correct - reads private key from --private-key flag
+//  Correct - reads private key from --private-key flag
 function run() external {
     vm.startBroadcast();
     new MyContract();
     vm.stopBroadcast();
 }
 
-// ❌ Wrong - hardcodes address, causes "No associated wallet" error
+//  Wrong - hardcodes address, causes "No associated wallet" error
 function run() external {
     vm.startBroadcast(0x1234...);
 }

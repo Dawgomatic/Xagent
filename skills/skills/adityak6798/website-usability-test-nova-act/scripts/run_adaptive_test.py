@@ -38,18 +38,18 @@ def _generate_partial_report():
     test_start_time = _shutdown_state['test_start_time']
     
     if not results or not page_analysis:
-        print("\n⚠️ No results to save on shutdown")
+        print("\n No results to save on shutdown")
         return
     
     print("\n" + "="*60)
-    print("⚠️ INTERRUPTED - Generating partial report...")
+    print(" INTERRUPTED - Generating partial report...")
     print("="*60)
     
     try:
         # Save whatever results we have
         with open(RESULTS_FILE, 'w') as f:
             json.dump(results, f, indent=2)
-        print(f"✅ Saved {len(results)} test results to {RESULTS_FILE}")
+        print(f" Saved {len(results)} test results to {RESULTS_FILE}")
         
         # Get trace files from this run
         if test_start_time:
@@ -71,16 +71,16 @@ def _generate_partial_report():
         from enhanced_report_generator import generate_enhanced_report
         report_path = generate_enhanced_report(page_analysis, results, traces)
         
-        print(f"✅ Generated PARTIAL report: {report_path}")
+        print(f" Generated PARTIAL report: {report_path}")
         print(f"   ({_shutdown_state['completed_tests']}/{_shutdown_state['total_planned_tests']} tests completed)")
         
     except Exception as e:
-        print(f"❌ Failed to generate partial report: {e}")
+        print(f" Failed to generate partial report: {e}")
 
 def _signal_handler(signum, frame):
     """Handle SIGTERM/SIGINT gracefully."""
     sig_name = signal.Signals(signum).name
-    print(f"\n\n🛑 Received {sig_name} - shutting down gracefully...")
+    print(f"\n\n Received {sig_name} - shutting down gracefully...")
     _generate_partial_report()
     sys.exit(128 + signum)
 
@@ -116,10 +116,10 @@ def load_cookbook() -> str:
     try:
         with open(cookbook_path, 'r') as f:
             content = f.read()
-            print(f"✅ Loaded Nova Act cookbook ({len(content)} chars)")
+            print(f" Loaded Nova Act cookbook ({len(content)} chars)")
             return content
     except Exception as e:
-        print(f"⚠️ Could not load cookbook: {e}")
+        print(f" Could not load cookbook: {e}")
         return ""
 
 class NavigationLinks(BaseModel):
@@ -134,7 +134,7 @@ def analyze_page(url: str) -> Dict:
     """
     Step 1: Analyze the page with graceful error handling.
     """
-    print(f"\n🔍 ANALYZING PAGE: {url}")
+    print(f"\n ANALYZING PAGE: {url}")
     print("="*60)
     
     analysis = {
@@ -157,7 +157,7 @@ def analyze_page(url: str) -> Dict:
                 analysis['title'] = response.get('title', 'Unknown')
                 print(f"  Title: {analysis['title']}")
             else:
-                print(f"  ⚠️ Could not extract title: {error}")
+                print(f"   Could not extract title: {error}")
             
             if is_session_healthy(nova):
                 print("→ Analyzing navigation...")
@@ -172,7 +172,7 @@ def analyze_page(url: str) -> Dict:
                     analysis['navigation'] = [link.strip() for link in nav_text.split(',') if link.strip()]
                     print(f"  Navigation: {analysis['navigation']}")
                 else:
-                    print(f"  ⚠️ Could not extract navigation: {error}")
+                    print(f"   Could not extract navigation: {error}")
             
             if is_session_healthy(nova):
                 print("→ Understanding page purpose...")
@@ -186,7 +186,7 @@ def analyze_page(url: str) -> Dict:
                     analysis['purpose'] = response.get('purpose', 'Unknown purpose')
                     print(f"  Purpose: {analysis['purpose']}")
                 else:
-                    print(f"  ⚠️ Could not extract purpose: {error}")
+                    print(f"   Could not extract purpose: {error}")
             
             # Get visible sections/areas on the page for agent analysis
             if is_session_healthy(nova):
@@ -201,14 +201,14 @@ def analyze_page(url: str) -> Dict:
                     analysis['visible_sections'] = response.get('sections', '')
                     print(f"  Sections: {analysis['visible_sections']}")
                 else:
-                    print(f"  ⚠️ Could not identify sections: {error}")
+                    print(f"   Could not identify sections: {error}")
             
             # Note: The orchestrating AI agent will analyze this data
             # and determine what's important based on title, navigation, 
             # purpose, and visible sections. No need for hardcoded checks.
     
     except Exception as e:
-        print(f"⚠️ Page analysis encountered error: {str(e)}")
+        print(f" Page analysis encountered error: {str(e)}")
         print("   Continuing with default analysis...")
     
     return analysis
@@ -311,7 +311,7 @@ Return EXACTLY 3 user types as a JSON array with this structure:
         import anthropic
         api_key = os.environ.get('ANTHROPIC_API_KEY')
         if not api_key:
-            print("  ⚠️ ANTHROPIC_API_KEY not set, using fallback personas")
+            print("   ANTHROPIC_API_KEY not set, using fallback personas")
             return []
         
         client = anthropic.Anthropic(api_key=api_key)
@@ -330,19 +330,19 @@ Return EXACTLY 3 user types as a JSON array with this structure:
         
         user_types = extract_json_safely(content)
         if user_types and len(user_types) >= 2:
-            print(f"  ✅ AI identified {len(user_types)} plausible user types:")
+            print(f"   AI identified {len(user_types)} plausible user types:")
             for ut in user_types:
                 print(f"     • {ut.get('name', '?')} ({ut.get('archetype', '?')}): {ut.get('description', '?')}")
             return user_types[:3]  # Return top 3
         elif user_types:
-            print(f"  ⚠️ AI returned only {len(user_types)} user types, need at least 2")
+            print(f"   AI returned only {len(user_types)} user types, need at least 2")
             return []
         else:
-            print("  ⚠️ Could not parse JSON from AI response")
+            print("   Could not parse JSON from AI response")
             return []
             
     except Exception as e:
-        print(f"  ⚠️ AI inference failed: {e}")
+        print(f"   AI inference failed: {e}")
         return []
 
 def generate_personas_from_fallback_categories(page_analysis: Dict) -> tuple:
@@ -519,7 +519,7 @@ def generate_personas(page_analysis: Dict, user_persona_request: Optional[str] =
     Returns:
         List of persona dictionaries
     """
-    print(f"\n👥 GENERATING PERSONAS")
+    print(f"\n GENERATING PERSONAS")
     print("="*60)
     
     personas = []
@@ -605,7 +605,7 @@ def generate_personas(page_analysis: Dict, user_persona_request: Optional[str] =
         }
         
         personas.append(custom_persona)
-        print(f"  ✅ Created: {name} ({archetype}, {tech_level} proficiency)")
+        print(f"   Created: {name} ({archetype}, {tech_level} proficiency)")
         print(f"     Goals: {', '.join(goals[:2])}...")
         
         # Add one complementary persona for comparison
@@ -619,7 +619,7 @@ def generate_personas(page_analysis: Dict, user_persona_request: Optional[str] =
                 "goals": ["Understand the basics", "Navigate without getting lost", "Find help if needed"],
                 "description": "First-time visitor with basic tech skills"
             })
-            print(f"  ✅ Added contrast persona: Pat Wilson (beginner)")
+            print(f"   Added contrast persona: Pat Wilson (beginner)")
     else:
         # No custom persona - use AI to infer plausible user types
         print(f"→ Auto-generating personas based on website exploration...")
@@ -630,7 +630,7 @@ def generate_personas(page_analysis: Dict, user_persona_request: Optional[str] =
         if ai_user_types and len(ai_user_types) >= 2:
             # Success! Use AI-generated personas
             personas = ai_user_types
-            print(f"  ✅ Using AI-generated personas")
+            print(f"   Using AI-generated personas")
         else:
             # Fallback to category-based detection
             print(f"  → Falling back to category-based persona generation...")
@@ -723,7 +723,7 @@ def execute_exploration_step_adaptive(nova, step: Dict, persona: Dict, step_inde
     print(f"   Action: {action[:80]}...")
     print(f"   Expected: {rationale}")
     if is_safety_stop:
-        print(f"   ⚠️  SAFETY STOP: Will query only, no execution")
+        print(f"     SAFETY STOP: Will query only, no execution")
     
     result = {
         'step_number': step_num,
@@ -792,8 +792,8 @@ def execute_exploration_step_adaptive(nova, step: Dict, persona: Dict, step_inde
             if response_text:
                 result['api_success'] = True
                 result['raw_response'] = response_text
-                print(f"   📝 Response: {response_text[:80]}...")
-                print(f"   ⏳ (Agent will analyze if goal achieved)")
+                print(f"    Response: {response_text[:80]}...")
+                print(f"    (Agent will analyze if goal achieved)")
                 result['attempts'].append(attempt_result)
                 
                 # Check for obvious negatives to try alternatives
@@ -807,30 +807,30 @@ def execute_exploration_step_adaptive(nova, step: Dict, persona: Dict, step_inde
                 if obvious_negative and attempt < max_attempts:
                     alt_prompt = generate_alternative_approach(adapted_action, response_text, attempt)
                     if alt_prompt:
-                        print(f"   🔄 Response appears negative, trying alternative...")
+                        print(f"    Response appears negative, trying alternative...")
                         current_prompt = alt_prompt
                         continue
                 
                 # Got a response - return it for agent analysis
                 return result
             else:
-                print(f"   ❌ No response: {attempt_result.get('error', 'Unknown error')}")
+                print(f"    No response: {attempt_result.get('error', 'Unknown error')}")
                 result['error'] = attempt_result.get('error')
                 
                 if attempt < max_attempts:
                     alt_prompt = generate_alternative_approach(adapted_action, "No response", attempt)
                     if alt_prompt:
                         current_prompt = alt_prompt
-                        print(f"   🔄 Retrying with different approach...")
+                        print(f"    Retrying with different approach...")
         
         except Exception as e:
-            print(f"   ❌ Exception: {str(e)}")
+            print(f"    Exception: {str(e)}")
             attempt_result['error'] = str(e)
             result['error'] = str(e)
         
         result['attempts'].append(attempt_result)
     
-    print(f"   ❌ All {max_attempts} attempts exhausted")
+    print(f"    All {max_attempts} attempts exhausted")
     return result
 
 
@@ -844,8 +844,8 @@ def iterative_test_dynamic(persona: Dict, test_case: str, page_analysis: Dict, c
     Execute one test case iteratively with dynamic strategy generation.
     """
     print(f"\n{'='*80}")
-    print(f"🎭 TESTING: {persona['name']} ({persona['archetype']})")
-    print(f"📋 TEST CASE: {test_case}")
+    print(f" TESTING: {persona['name']} ({persona['archetype']})")
+    print(f" TEST CASE: {test_case}")
     print(f"{'='*80}")
     
     result = {
@@ -863,11 +863,11 @@ def iterative_test_dynamic(persona: Dict, test_case: str, page_analysis: Dict, c
         steps = generate_exploration_strategy(test_case, persona, page_analysis, cookbook)
         
         if not steps:
-            print("⚠️ Failed to generate exploration strategy")
+            print(" Failed to generate exploration strategy")
             result['error'] = "Failed to generate exploration strategy"
             return result
         
-        print(f"\n📝 Generated {len(steps)} exploration steps")
+        print(f"\n Generated {len(steps)} exploration steps")
         
         # Capture existing trace files BEFORE this test
         trace_pattern = os.path.join(LOGS_DIR, "**", "*.html")
@@ -882,12 +882,12 @@ def iterative_test_dynamic(persona: Dict, test_case: str, page_analysis: Dict, c
                 
                 # If a step fails completely (API error), stop
                 if not step_result.get('api_success') and not step_result.get('is_safety_stop'):
-                    print(f"\n⚠️ Step {idx} failed (API error), stopping test")
+                    print(f"\n Step {idx} failed (API error), stopping test")
                     break
                 
                 # If goal not achieved after all retries, continue but note it
                 if step_result.get('api_success') and not step_result.get('goal_achieved'):
-                    print(f"   📝 Step {idx}: API worked but goal not achieved")
+                    print(f"    Step {idx}: API worked but goal not achieved")
                 
                 # Small delay between steps
                 time.sleep(0.5)
@@ -897,7 +897,7 @@ def iterative_test_dynamic(persona: Dict, test_case: str, page_analysis: Dict, c
         new_traces = sorted(all_traces - existing_traces, key=os.path.getmtime)
         result['trace_files'] = new_traces
         if new_traces:
-            print(f"\n🎬 Captured {len(new_traces)} trace file(s) for this test")
+            print(f"\n Captured {len(new_traces)} trace file(s) for this test")
         
         # Count API successes - goal achievement will be determined by the orchestrating agent
         api_successes = sum(1 for s in result['steps'] if s.get('api_success', False))
@@ -918,13 +918,13 @@ def iterative_test_dynamic(persona: Dict, test_case: str, page_analysis: Dict, c
             result['completion_status'] = 'incomplete'
         
         print(f"\n{'='*80}")
-        print(f"📊 Raw data collected: {api_successes}/{total_steps} API calls succeeded")
-        print(f"⏳ AWAITING AGENT ANALYSIS")
+        print(f" Raw data collected: {api_successes}/{total_steps} API calls succeeded")
+        print(f" AWAITING AGENT ANALYSIS")
         print(f"   Agent must interpret raw_response in each step to determine goal achievement")
         print(f"{'='*80}")
     
     except Exception as e:
-        print(f"\n❌ Test failed with exception: {str(e)}")
+        print(f"\n Test failed with exception: {str(e)}")
         result['error'] = str(e)
         result['completion_status'] = 'error'
     
@@ -960,37 +960,37 @@ def main():
     if persona_arg:
         # Check if it's a JSON file path
         if persona_arg.endswith('.json') and os.path.exists(persona_arg):
-            print(f"\n🎯 Testing {WEBSITE_URL}")
-            print(f"👥 Loading AI-generated personas from: {persona_arg}\n")
+            print(f"\n Testing {WEBSITE_URL}")
+            print(f" Loading AI-generated personas from: {persona_arg}\n")
             try:
                 with open(persona_arg, 'r') as f:
                     ai_generated_personas = json.load(f)
-                    print(f"✅ Loaded {len(ai_generated_personas)} personas from file")
+                    print(f" Loaded {len(ai_generated_personas)} personas from file")
             except Exception as e:
-                print(f"❌ Failed to load personas from {persona_arg}: {e}")
+                print(f" Failed to load personas from {persona_arg}: {e}")
                 print("   Falling back to auto-generation")
                 ai_generated_personas = None
         
         # Check if it's a JSON string (starts with [ or {)
         elif persona_arg.strip().startswith(('[', '{')):
-            print(f"\n🎯 Testing {WEBSITE_URL}")
-            print(f"👥 Using AI-generated personas from argument\n")
+            print(f"\n Testing {WEBSITE_URL}")
+            print(f" Using AI-generated personas from argument\n")
             try:
                 ai_generated_personas = json.loads(persona_arg)
-                print(f"✅ Parsed {len(ai_generated_personas)} personas from JSON")
+                print(f" Parsed {len(ai_generated_personas)} personas from JSON")
             except Exception as e:
-                print(f"❌ Failed to parse JSON personas: {e}")
+                print(f" Failed to parse JSON personas: {e}")
                 print("   Treating as custom persona description instead")
                 user_persona_request = persona_arg
         
         # Otherwise, treat as custom persona description
         else:
-            print(f"\n🎯 Testing {WEBSITE_URL}")
-            print(f"👤 Custom persona: {persona_arg}\n")
+            print(f"\n Testing {WEBSITE_URL}")
+            print(f" Custom persona: {persona_arg}\n")
             user_persona_request = persona_arg
     else:
-        print(f"\n🎯 Testing {WEBSITE_URL}")
-        print(f"👤 Auto-generating personas (fallback mode)\n")
+        print(f"\n Testing {WEBSITE_URL}")
+        print(f" Auto-generating personas (fallback mode)\n")
     
     # Start status reporter (60-second updates)
     reporter_process = start_status_reporter()
@@ -1009,7 +1009,7 @@ def main():
         
         # Generate or use provided personas
         if ai_generated_personas:
-            print(f"\n👥 USING AI-GENERATED PERSONAS")
+            print(f"\n USING AI-GENERATED PERSONAS")
             print("="*60)
             personas = ai_generated_personas
             for p in personas:
@@ -1019,7 +1019,7 @@ def main():
             personas = generate_personas(page_analysis, user_persona_request)
         
         if not personas:
-            print("❌ Failed to generate personas")
+            print(" Failed to generate personas")
             mark_complete(success=False)
             return
         
@@ -1034,7 +1034,7 @@ def main():
             update_status(f"Testing persona {i}/{len(personas)}: {persona['name']}...")
             
             test_cases = generate_test_cases(persona, page_analysis)
-            print(f"\n📋 Generated {len(test_cases)} test cases for {persona['name']}")
+            print(f"\n Generated {len(test_cases)} test cases for {persona['name']}")
             
             for j, test_case in enumerate(test_cases, 1):
                 update_status(f"Running test {j}/{len(test_cases)} for {persona['name']}...")
@@ -1060,23 +1060,23 @@ def main():
         report_path = generate_enhanced_report(page_analysis, all_results, traces)
         
         print(f"\n{'='*80}")
-        print(f"✅ ALL TESTS COMPLETE")
+        print(f" ALL TESTS COMPLETE")
         print(f"{'='*80}")
-        print(f"📊 Report: {report_path}")
-        print(f"📁 Results: {RESULTS_FILE}")
-        print(f"🎬 Traces: {LOGS_DIR}")
+        print(f" Report: {report_path}")
+        print(f" Results: {RESULTS_FILE}")
+        print(f" Traces: {LOGS_DIR}")
         
         # Calculate success rate
         successful_tests = sum(1 for r in all_results if r['overall_success'])
         total_tests = len(all_results)
         success_rate = (successful_tests / total_tests * 100) if total_tests > 0 else 0
         
-        print(f"\n✅ Complete: {successful_tests}/{total_tests} tests passed ({success_rate:.0f}%)")
+        print(f"\n Complete: {successful_tests}/{total_tests} tests passed ({success_rate:.0f}%)")
         mark_complete(success=True)
         emit_final()
     
     except Exception as e:
-        print(f"\n❌ FATAL ERROR: {str(e)}")
+        print(f"\n FATAL ERROR: {str(e)}")
         import traceback
         traceback.print_exc()
         mark_complete(success=False)

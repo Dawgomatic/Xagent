@@ -206,10 +206,10 @@ export class PlanStateManager {
         ];
         for (const step of this.state.plan.steps) {
             const isActive = step.id === this.state.activeStepId;
-            const icon = step.status === "complete" ? "✅" :
-                step.status === "failed" ? "❌" :
-                    step.status === "in_progress" ? "🔄" :
-                        isActive ? "👉" : "⬜";
+            const icon = step.status === "complete" ? "" :
+                step.status === "failed" ? "" :
+                    step.status === "in_progress" ? "" :
+                        isActive ? "" : "";
             lines.push(`${icon} **${step.title}**${isActive ? " ← current" : ""}`);
             if (step.result && step.status !== "pending") {
                 lines.push(`   _${step.result}_`);

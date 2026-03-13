@@ -6,13 +6,13 @@ description: >
   Crawl (website crawling), Map (sitemap discovery), and Research (deep research with citations).
   Use for: web search with LLM answers, content extraction, site crawling, deep research.
 version: 1.0.0
-author: Leo 🦁
+author: Leo 
 tags: [search, tavily, web, news, finance, extract, crawl, research, api]
-metadata: {"clawdbot":{"emoji":"🔎","requires":{"env":["TAVILY_API_KEY"]},"primaryEnv":"TAVILY_API_KEY","install":[{"id":"pip","kind":"pip","package":"tavily-python","label":"Install dependencies (pip)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["TAVILY_API_KEY"]},"primaryEnv":"TAVILY_API_KEY","install":[{"id":"pip","kind":"pip","package":"tavily-python","label":"Install dependencies (pip)"}]}}
 allowed-tools: [exec]
 ---
 
-# Tavily Search 🔎
+# Tavily Search 
 
 AI-powered web search platform with 5 modes: Search, Extract, Crawl, Map, and Research.
 

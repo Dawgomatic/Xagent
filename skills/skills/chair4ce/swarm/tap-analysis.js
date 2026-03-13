@@ -113,7 +113,7 @@ async function fetchAndAnalyze(url) {
 }
 
 async function processBatch(urls, batchNum, totalBatches) {
-  console.log(`\n📦 Batch ${batchNum}/${totalBatches} (${urls.length} URLs)`);
+  console.log(`\n Batch ${batchNum}/${totalBatches} (${urls.length} URLs)`);
   const start = Date.now();
   
   const results = await Promise.all(urls.map(fetchAndAnalyze));
@@ -126,7 +126,7 @@ async function processBatch(urls, batchNum, totalBatches) {
 }
 
 async function main() {
-  console.log('🐝 TAP URL ANALYZER - Swarm Mode');
+  console.log(' TAP URL ANALYZER - Swarm Mode');
   console.log('═'.repeat(60));
   
   // Load URLs
@@ -137,9 +137,9 @@ async function main() {
     .filter(u => !u.includes('...'))  // Skip truncated
     .filter(u => u.length > 15 && u.length < 150);  // Reasonable length
   
-  console.log(`\n📊 Found ${allUrls.length} URLs to analyze`);
-  console.log(`👤 Analyzing for: transitioning service member`);
-  console.log(`⚡ Batch size: ${BATCH_SIZE} parallel requests`);
+  console.log(`\n Found ${allUrls.length} URLs to analyze`);
+  console.log(` Analyzing for: transitioning service member`);
+  console.log(` Batch size: ${BATCH_SIZE} parallel requests`);
   
   const totalStart = Date.now();
   const allResults = [];
@@ -168,7 +168,7 @@ async function main() {
   const errors = allResults.filter(r => r.error);
   
   console.log('\n' + '═'.repeat(60));
-  console.log('📈 ANALYSIS COMPLETE');
+  console.log(' ANALYSIS COMPLETE');
   console.log('─'.repeat(60));
   console.log(`   Total time: ${totalTime}s`);
   console.log(`   URLs processed: ${allResults.length}`);
@@ -194,16 +194,16 @@ async function main() {
   
   fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
-  console.log(`\n💾 Results saved to: ${OUTPUT_FILE}`);
+  console.log(`\n Results saved to: ${OUTPUT_FILE}`);
   
   // Print top resources
-  console.log('\n🏆 TOP 15 MOST RELEVANT RESOURCES:');
+  console.log('\n TOP 15 MOST RELEVANT RESOURCES:');
   console.log('─'.repeat(60));
   relevant.slice(0, 15).forEach((r, i) => {
     console.log(`\n${i + 1}. [${r.score}/10] ${r.category?.toUpperCase() || 'N/A'}`);
     console.log(`   ${r.url}`);
     console.log(`   ${r.summary || 'No summary'}`);
-    if (r.timeline) console.log(`   ⏰ Timeline: ${r.timeline}`);
+    if (r.timeline) console.log(`    Timeline: ${r.timeline}`);
   });
   
   // Print questions needing context
@@ -217,7 +217,7 @@ async function main() {
   });
   
   if (allQuestions.length > 0) {
-    console.log('\n\n❓ QUESTIONS TO REFINE ANALYSIS:');
+    console.log('\n\n QUESTIONS TO REFINE ANALYSIS:');
     console.log('─'.repeat(60));
     allQuestions.slice(0, 15).forEach((q, i) => {
       console.log(`${i + 1}. ${q}`);

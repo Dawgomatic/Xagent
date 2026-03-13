@@ -4,22 +4,22 @@
 
 ## What's Included
 
-### 📖 Documentation (100% Complete)
+###  Documentation (100% Complete)
 
-✅ **SKILL.md** (9.7 KB)
+ **SKILL.md** (9.7 KB)
 - 30-second quick start
 - 5 copy-paste ready recipes
 - Complete use cases (repurposing, target discovery, etc.)
 - API endpoint info
 - Troubleshooting guide
 
-✅ **README.md** (5 KB)
+ **README.md** (5 KB)
 - Package overview
 - Installation instructions  
 - Quick reference table
 - Structure guide
 
-✅ **6 Database Guides** (37 KB total)
+ **6 Database Guides** (37 KB total)
 - `pubmed.md` — Literature search (4.2 KB)
 - `clinical-trials.md` — Trial discovery (5.8 KB)
 - `chembl.md` — Drug-target data (7.5 KB)
@@ -35,13 +35,13 @@ Each guide includes:
 - Copy-paste curl commands
 - Workflow patterns
 
-✅ **Workflow Script** (10.6 KB)
+ **Workflow Script** (10.6 KB)
 - Complete 8-step drug repurposing pipeline
 - All curl commands with explanations
 - Example output templates
 - Tips for success
 
-✅ **Supporting Docs** (5 KB)
+ **Supporting Docs** (5 KB)
 - `OPENCLAW-USAGE.md` — How to use in OpenClaw
 - `TESTING-CHECKLIST.md` — What's been tested
 - `RELEASE-NOTES.md` (this file)
@@ -50,7 +50,7 @@ Each guide includes:
 
 ## Testing Status
 
-### ✅ Verified Working
+###  Verified Working
 - [x] Production endpoint accessible
 - [x] ChEMBL: molecule search, drug discovery
 - [x] OpenTargets: disease search, target associations
@@ -59,7 +59,7 @@ Each guide includes:
 - [x] Response formats documented
 - [x] curl command examples tested
 
-### ⏳ Not Yet Tested
+###  Not Yet Tested
 - [ ] PubMed complex queries (multiple parameters)
 - [ ] OMIM (requires API key)
 - [ ] Full Reactome workflows
@@ -68,7 +68,7 @@ Each guide includes:
 - [ ] GWAS/variant queries
 - [ ] Batch operations
 
-### ℹ️ Known Issues
+###  Known Issues
 - None blocking publication
 
 ---
@@ -130,24 +130,24 @@ medical-research-toolkit/
 
 ## Key Features
 
-✅ **No Setup Required**
+ **No Setup Required**
 - Production endpoint live at: https://mcp.cloud.curiloo.com
 - No authentication needed
 - All databases unified into one
 
-✅ **Real Examples**
+ **Real Examples**
 - Every database guide has copy-paste curl commands
 - Expected output shown for each query
 - Troubleshooting with common issues
 
-✅ **Multiple Workflows**
+ **Multiple Workflows**
 - Drug repurposing (5 steps)
 - Target discovery (4 steps)
 - Literature review (3 steps)
 - Safety assessment (2 steps)
 - ID mapping (1 step)
 
-✅ **Professional Documentation**
+ **Professional Documentation**
 - Medical terminology explained
 - Database selection guidance
 - Best practices for complex queries

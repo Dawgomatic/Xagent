@@ -58,7 +58,7 @@ Address: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh
 Order ID: a1b2c3d4-e5f6-7890-abcd-ef1234567890
 
 > status a1b2c3d4-e5f6-7890-abcd-ef1234567890
-Order Status: ✅ Complete
+Order Status:  Complete
 
 Plan: Germany 1GB 7Days
 Data: 1024 MB remaining

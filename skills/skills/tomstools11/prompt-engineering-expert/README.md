@@ -154,7 +154,7 @@ Design prompts for vision, embeddings, and files.
 
 ## Best Practices Summary
 
-### Do's ✅
+### Do's 
 - Be clear and specific
 - Provide examples
 - Specify format
@@ -164,7 +164,7 @@ Design prompts for vision, embeddings, and files.
 - Use progressive disclosure
 - Handle edge cases
 
-### Don'ts ❌
+### Don'ts 
 - Be vague or ambiguous
 - Assume understanding
 - Skip format specification

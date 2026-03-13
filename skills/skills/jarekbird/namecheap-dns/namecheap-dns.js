@@ -35,7 +35,7 @@ const domain = args[1];
 function getEnv(key) {
   const value = process.env[key];
   if (!value) {
-    console.error(`❌ Error: ${key} environment variable not set`);
+    console.error(` Error: ${key} environment variable not set`);
     console.error(`   Add to ~/.zshrc: export ${key}="your-value"`);
     process.exit(1);
   }
@@ -56,7 +56,7 @@ async function getClientIP() {
     const response = await axios.get('https://ifconfig.me/ip');
     return response.data.trim();
   } catch (error) {
-    console.error('❌ Failed to get client IP:', error.message);
+    console.error(' Failed to get client IP:', error.message);
     process.exit(1);
   }
 }
@@ -65,7 +65,7 @@ async function getClientIP() {
 function parseDomain(fullDomain) {
   const parts = fullDomain.split('.');
   if (parts.length < 2) {
-    console.error(`❌ Invalid domain: ${fullDomain}`);
+    console.error(` Invalid domain: ${fullDomain}`);
     process.exit(1);
   }
   return {
@@ -100,11 +100,11 @@ async function apiRequest(command, extraParams = {}) {
     return xml;
   } catch (error) {
     if (error.message.includes('IP not whitelisted')) {
-      console.error('❌ API Error: Your IP is not whitelisted');
+      console.error(' API Error: Your IP is not whitelisted');
       console.error(`   Current IP: ${clientIp}`);
       console.error('   Add it at: https://ap.www.namecheap.com/settings/tools/apiaccess/');
     } else {
-      console.error('❌ API Error:', error.message);
+      console.error(' API Error:', error.message);
     }
     process.exit(1);
   }
@@ -288,37 +288,37 @@ function findGhostRecords(apiHosts, liveRecords) {
 // Verify DNS and check for ghost records
 async function verifyDNS(fullDomain, silent = false) {
   if (!silent) {
-    console.log(`🔍 Verifying DNS for ${fullDomain}...`);
+    console.log(` Verifying DNS for ${fullDomain}...`);
   }
 
   const apiHosts = await getHosts(fullDomain);
   
   if (!silent) {
-    console.log(`📡 Querying live DNS...`);
+    console.log(` Querying live DNS...`);
   }
   
   const liveRecords = queryLiveDNS(fullDomain);
   const ghosts = findGhostRecords(apiHosts, liveRecords);
 
   if (!silent) {
-    console.log(`\n📊 Results:`);
+    console.log(`\n Results:`);
     console.log(`   API records: ${apiHosts.length}`);
     console.log(`   Live DNS records: ${liveRecords.length}`);
     console.log(`   Ghost records: ${ghosts.length}`);
   }
 
   if (ghosts.length > 0 && !silent) {
-    console.log(`\n⚠️  Ghost Records Detected (in DNS but NOT in API):\n`);
+    console.log(`\n  Ghost Records Detected (in DNS but NOT in API):\n`);
     ghosts.forEach(g => {
       const name = g.name || '@';
       const mxPref = g.type === 'MX' ? ` [${g.mxPref}]` : '';
       console.log(`   ${g.type.padEnd(6)} ${name.padEnd(25)} → ${g.address}${mxPref}`);
     });
-    console.log(`\n⚠️  WARNING: These records are managed by Namecheap subsystems`);
+    console.log(`\n  WARNING: These records are managed by Namecheap subsystems`);
     console.log(`   (email forwarding, URL redirects, etc.) and are INVISIBLE to the API.`);
     console.log(`   Using setHosts will DELETE these records!`);
   } else if (!silent) {
-    console.log(`\n✅ No ghost records detected - API and DNS are in sync`);
+    console.log(`\n No ghost records detected - API and DNS are in sync`);
   }
 
   return ghosts;
@@ -332,7 +332,7 @@ async function safetyCheck(fullDomain, force = false) {
     return true;
   }
 
-  console.log(`\n⚠️  SAFETY CHECK FAILED: Ghost records detected!\n`);
+  console.log(`\n  SAFETY CHECK FAILED: Ghost records detected!\n`);
   console.log(`   The following records exist in DNS but are NOT visible to the API:\n`);
   
   ghosts.forEach(g => {
@@ -348,11 +348,11 @@ async function safetyCheck(fullDomain, force = false) {
   console.log(`   - Domain parking records\n`);
 
   if (force) {
-    console.log(`⚠️  --force flag detected: Proceeding anyway (you've been warned!)\n`);
+    console.log(`  --force flag detected: Proceeding anyway (you've been warned!)\n`);
     return true;
   }
 
-  console.log(`❌ REFUSING to proceed. To override, use --force flag.\n`);
+  console.log(` REFUSING to proceed. To override, use --force flag.\n`);
   return false;
 }
 
@@ -374,7 +374,7 @@ function createBackup(fullDomain, hosts) {
   };
 
   writeFileSync(path, JSON.stringify(backup, null, 2));
-  console.log(`📦 Backup created: ${filename}`);
+  console.log(` Backup created: ${filename}`);
   console.log(`   - API records: ${hosts.length}`);
   console.log(`   - Live DNS records: ${liveDNS.length}`);
   return filename;
@@ -396,7 +396,7 @@ function listBackups(fullDomain) {
 function loadBackup(filename) {
   const path = join(BACKUP_DIR, filename);
   if (!existsSync(path)) {
-    console.error(`❌ Backup not found: ${filename}`);
+    console.error(` Backup not found: ${filename}`);
     process.exit(1);
   }
   const backup = JSON.parse(readFileSync(path, 'utf8'));
@@ -418,17 +418,17 @@ function showDiff(oldHosts, newHosts) {
   const removed = oldHosts.filter(h => !newSet.has(`${h.name}:${h.type}:${h.address}`));
 
   if (added.length === 0 && removed.length === 0) {
-    console.log('✅ No changes');
+    console.log(' No changes');
     return false;
   }
 
-  console.log('\n📋 Changes:');
+  console.log('\n Changes:');
   if (added.length > 0) {
-    console.log('\n  ➕ Added:');
+    console.log('\n   Added:');
     added.forEach(h => console.log(`     ${h.type.padEnd(6)} ${h.name || '@'} → ${h.address}`));
   }
   if (removed.length > 0) {
-    console.log('\n  ➖ Removed:');
+    console.log('\n   Removed:');
     removed.forEach(h => console.log(`     ${h.type.padEnd(6)} ${h.name || '@'} → ${h.address}`));
   }
   console.log();
@@ -445,7 +445,7 @@ function parseRecord(arg, type) {
     // Format: "host=10 mx.example.com"
     const match = value.match(/^(\d+)\s+(.+)$/);
     if (!match) {
-      console.error(`❌ Invalid MX format: ${arg}`);
+      console.error(` Invalid MX format: ${arg}`);
       console.error('   Expected: host=10 mx.example.com');
       process.exit(1);
     }
@@ -472,7 +472,7 @@ async function cmdList() {
     process.exit(1);
   }
 
-  console.log(`🔍 Fetching DNS records for ${domain}...`);
+  console.log(` Fetching DNS records for ${domain}...`);
   const hosts = await getHosts(domain);
 
   if (hosts.length === 0) {
@@ -480,7 +480,7 @@ async function cmdList() {
     return;
   }
 
-  console.log(`\n📋 Current records (${hosts.length}):\n`);
+  console.log(`\n Current records (${hosts.length}):\n`);
   hosts.forEach(h => {
     const name = h.name || '@';
     const mxPref = h.type === 'MX' ? ` [${h.mxPref}]` : '';
@@ -512,7 +512,7 @@ async function cmdAdd() {
 
     const nextArg = args[i + 1];
     if (!nextArg || nextArg.startsWith('--')) {
-      console.error(`❌ Missing value for ${arg}`);
+      console.error(` Missing value for ${arg}`);
       process.exit(1);
     }
 
@@ -531,11 +531,11 @@ async function cmdAdd() {
   }
 
   if (newRecords.length === 0) {
-    console.error('❌ No records to add');
+    console.error(' No records to add');
     process.exit(1);
   }
 
-  console.log(`🔍 Fetching current DNS records for ${domain}...`);
+  console.log(` Fetching current DNS records for ${domain}...`);
   const currentHosts = await getHosts(domain);
 
   // Merge (skip duplicates)
@@ -551,12 +551,12 @@ async function cmdAdd() {
 
   const hasChanges = showDiff(currentHosts, merged);
   if (!hasChanges) {
-    console.log('✅ All records already exist, nothing to do');
+    console.log(' All records already exist, nothing to do');
     return;
   }
 
   if (dryRun) {
-    console.log('🔍 Dry-run mode: No changes applied');
+    console.log(' Dry-run mode: No changes applied');
     return;
   }
 
@@ -569,9 +569,9 @@ async function cmdAdd() {
   // Create backup before applying
   createBackup(domain, currentHosts);
 
-  console.log('⚙️  Applying changes...');
+  console.log('  Applying changes...');
   await setHosts(domain, merged);
-  console.log('✅ DNS records updated successfully');
+  console.log(' DNS records updated successfully');
 }
 
 async function cmdRemove() {
@@ -586,26 +586,26 @@ async function cmdRemove() {
   const force = args.includes('--force');
 
   if (hostIdx === -1 || typeIdx === -1) {
-    console.error('❌ Missing --host or --type');
+    console.error(' Missing --host or --type');
     process.exit(1);
   }
 
   const hostName = args[hostIdx + 1] === '@' ? '' : args[hostIdx + 1];
   const hostType = args[typeIdx + 1].toUpperCase();
 
-  console.log(`🔍 Fetching current DNS records for ${domain}...`);
+  console.log(` Fetching current DNS records for ${domain}...`);
   const currentHosts = await getHosts(domain);
 
   const filtered = currentHosts.filter(h => !(h.name === hostName && h.type === hostType));
 
   const hasChanges = showDiff(currentHosts, filtered);
   if (!hasChanges) {
-    console.log('✅ Record not found, nothing to remove');
+    console.log(' Record not found, nothing to remove');
     return;
   }
 
   if (dryRun) {
-    console.log('🔍 Dry-run mode: No changes applied');
+    console.log(' Dry-run mode: No changes applied');
     return;
   }
 
@@ -618,9 +618,9 @@ async function cmdRemove() {
   // Create backup before applying
   createBackup(domain, currentHosts);
 
-  console.log('⚙️  Applying changes...');
+  console.log('  Applying changes...');
   await setHosts(domain, filtered);
-  console.log('✅ DNS records updated successfully');
+  console.log(' DNS records updated successfully');
 }
 
 async function cmdBackup() {
@@ -629,7 +629,7 @@ async function cmdBackup() {
     process.exit(1);
   }
 
-  console.log(`🔍 Fetching current DNS records for ${domain}...`);
+  console.log(` Fetching current DNS records for ${domain}...`);
   const hosts = await getHosts(domain);
   createBackup(domain, hosts);
 }
@@ -642,11 +642,11 @@ async function cmdBackups() {
 
   const backups = listBackups(domain);
   if (backups.length === 0) {
-    console.log(`📦 No backups found for ${domain}`);
+    console.log(` No backups found for ${domain}`);
     return;
   }
 
-  console.log(`\n📦 Backups for ${domain} (${backups.length}):\n`);
+  console.log(`\n Backups for ${domain} (${backups.length}):\n`);
   backups.forEach((b, i) => {
     const label = i === 0 ? ' [latest]' : '';
     console.log(`  ${b}${label}`);
@@ -668,28 +668,28 @@ async function cmdRestore() {
     // Use latest
     const backups = listBackups(domain);
     if (backups.length === 0) {
-      console.error(`❌ No backups found for ${domain}`);
+      console.error(` No backups found for ${domain}`);
       process.exit(1);
     }
     backupFile = backups[0];
-    console.log(`📦 Using latest backup: ${backupFile}`);
+    console.log(` Using latest backup: ${backupFile}`);
   } else {
     backupFile = args[backupIdx + 1];
   }
 
   const backup = loadBackup(backupFile);
-  console.log(`📦 Loaded backup from ${backup.timestamp}`);
+  console.log(` Loaded backup from ${backup.timestamp}`);
 
-  console.log(`🔍 Fetching current DNS records for ${domain}...`);
+  console.log(` Fetching current DNS records for ${domain}...`);
   const currentHosts = await getHosts(domain);
 
   const hasChanges = showDiff(currentHosts, backup.apiHosts);
   if (!hasChanges) {
-    console.log('✅ DNS already matches backup, nothing to restore');
+    console.log(' DNS already matches backup, nothing to restore');
     return;
   }
 
-  console.log('⚠️  About to restore DNS from backup. Continue? (Ctrl+C to cancel)');
+  console.log('  About to restore DNS from backup. Continue? (Ctrl+C to cancel)');
   await new Promise(resolve => setTimeout(resolve, 3000));
 
   // Safety check for ghost records
@@ -701,9 +701,9 @@ async function cmdRestore() {
   // Create backup of current state before restoring
   createBackup(domain, currentHosts);
 
-  console.log('⚙️  Restoring from backup...');
+  console.log('  Restoring from backup...');
   await setHosts(domain, backup.apiHosts);
-  console.log('✅ DNS records restored successfully');
+  console.log(' DNS records restored successfully');
 }
 
 // Main
@@ -760,7 +760,7 @@ async function cmdRestore() {
         process.exit(command ? 1 : 0);
     }
   } catch (error) {
-    console.error('❌ Fatal error:', error.message);
+    console.error(' Fatal error:', error.message);
     process.exit(1);
   }
 })();

@@ -1,4 +1,4 @@
-# 🍅 ClawDoro
+#  ClawDoro
 
 A clean, beautiful, and fully functional Pomodoro timer that runs in your browser. Built for focus.
 
@@ -8,15 +8,15 @@ A clean, beautiful, and fully functional Pomodoro timer that runs in your browse
 
 ## Features
 
-- ✅ **Customizable focus sessions** (default 27 min — Clawd's recommendation)
-- ✅ **Short (5 min) & Long (15 min) breaks**
-- ✅ **Task tracking** with localStorage persistence
-- ✅ **Keyboard shortcuts** (Space = start/pause, R = reset)
-- ✅ **Sound notifications** (toggleable)
-- ✅ **Clean, modern UI** with gradient design
-- ✅ **Works offline** — no server needed
-- ✅ **Mobile responsive**
-- ✅ **Skill integration** — trigger from Clawdbot
+-  **Customizable focus sessions** (default 27 min — Clawd's recommendation)
+-  **Short (5 min) & Long (15 min) breaks**
+-  **Task tracking** with localStorage persistence
+-  **Keyboard shortcuts** (Space = start/pause, R = reset)
+-  **Sound notifications** (toggleable)
+-  **Clean, modern UI** with gradient design
+-  **Works offline** — no server needed
+-  **Mobile responsive**
+-  **Skill integration** — trigger from Clawdbot
 
 ## Quick Start
 
@@ -133,7 +133,7 @@ Clawd picked 27 minutes as the default — slightly longer than the traditional 
 
 If this helps you focus and get things done, consider supporting the project:
 
-**[☕ Buy Me a Coffee](https://www.buymeacoffee.com/snail3d)**
+**[ Buy Me a Coffee](https://www.buymeacoffee.com/snail3d)**
 
 Your support helps build more useful tools!
 
@@ -143,4 +143,4 @@ MIT — Use it, modify it, make it yours.
 
 ---
 
-Built with 💜 by Clawd for Snail | [Support the work](https://www.buymeacoffee.com/snail3d)
+Built with  by Clawd for Snail | [Support the work](https://www.buymeacoffee.com/snail3d)

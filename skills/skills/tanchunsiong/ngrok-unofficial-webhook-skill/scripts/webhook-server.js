@@ -33,15 +33,15 @@ if (!NGROK_AUTHTOKEN) {
  */
 function notifyUser(message) {
   if (!NOTIFY_TARGET) {
-    console.error('⚠️ OPENCLAW_NOTIFY_TARGET not set — skipping notification.');
+    console.error(' OPENCLAW_NOTIFY_TARGET not set — skipping notification.');
     return;
   }
   const args = ['message', 'send', '--channel', NOTIFY_CHANNEL, '--target', NOTIFY_TARGET, '--message', message];
   execFile(OPENCLAW_BIN, args, { timeout: 30000 }, (err) => {
     if (err) {
-      console.error('❌ Failed to notify user:', err.message);
+      console.error(' Failed to notify user:', err.message);
     } else {
-      console.error('✅ User notified');
+      console.error(' User notified');
     }
   });
 }
@@ -74,7 +74,7 @@ function discoverWebhookSkills() {
           name: skillJson.name || entry.name,
           description: skillJson.description || '',
           folder: entry.name,
-          emoji: skillConfig?.emoji || '📦',
+          emoji: skillConfig?.emoji || '',
           events: webhookEvents,
           forwardPort: skillConfig?.forwardPort || null,
           forwardPath: skillConfig?.forwardPath || '/',
@@ -83,7 +83,7 @@ function discoverWebhookSkills() {
       } catch { /* skip malformed skill.json */ }
     }
   } catch (err) {
-    console.error('⚠️ Failed to discover skills:', err.message);
+    console.error(' Failed to discover skills:', err.message);
   }
   return skills;
 }
@@ -125,9 +125,9 @@ function formatWebhookMessage(event) {
     options = `_No webhook-capable skills installed._\n`;
   }
 
-  options += `\n0. 🚫 Ignore / do nothing`;
+  options += `\n0.  Ignore / do nothing`;
 
-  return `🔗 *Incoming Webhook Received*
+  return ` *Incoming Webhook Received*
 
 *Event:* ${eventType}
 *Method:* ${event.method}
@@ -176,10 +176,10 @@ async function autoForward(body) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
-      console.error(`⚡ Auto-forwarded ${eventType} to ${match.name} (port ${match.forwardPort}) — ${resp.status}`);
+      console.error(` Auto-forwarded ${eventType} to ${match.name} (port ${match.forwardPort}) — ${resp.status}`);
       return true;
     } catch (err) {
-      console.error(`❌ Auto-forward to ${match.name} failed:`, err.message);
+      console.error(` Auto-forward to ${match.name} failed:`, err.message);
       return false;
     }
   }
@@ -191,25 +191,25 @@ async function autoForward(body) {
     const meetingId = resolvePath(body, cmdConfig.meetingIdPath || 'payload.object.id') || '';
 
     if (!meetingId) {
-      console.error(`⚠️ Could not extract meeting ID from path "${cmdConfig.meetingIdPath}" for ${eventType}`);
+      console.error(` Could not extract meeting ID from path "${cmdConfig.meetingIdPath}" for ${eventType}`);
       return false;
     }
 
     command = command.replace('{{meeting_id}}', meetingId);
     const skillDir = join(__dirname, '..', '..', match.folder);
 
-    console.error(`⚡ Running command for ${eventType}: ${command}`);
+    console.error(` Running command for ${eventType}: ${command}`);
     return new Promise((resolve) => {
       execFile('sh', ['-c', command], { cwd: skillDir, timeout: 120000 }, (err, stdout, stderr) => {
         if (err) {
-          console.error(`❌ Command failed for ${eventType}:`, err.message);
+          console.error(` Command failed for ${eventType}:`, err.message);
           if (stderr) console.error(stderr);
-          notifyUser(`❌ *Auto-action failed for ${eventType}*\n\n${cmdConfig.description || ''}\nMeeting: ${meetingId}\nError: ${err.message}`);
+          notifyUser(` *Auto-action failed for ${eventType}*\n\n${cmdConfig.description || ''}\nMeeting: ${meetingId}\nError: ${err.message}`);
           resolve(false);
         } else {
-          console.error(`✅ Command completed for ${eventType}`);
+          console.error(` Command completed for ${eventType}`);
           if (stdout) console.error(stdout);
-          notifyUser(`✅ *${cmdConfig.description || eventType}*\n\nMeeting: ${meetingId}\n\n${stdout.slice(0, 500)}`);
+          notifyUser(` *${cmdConfig.description || eventType}*\n\nMeeting: ${meetingId}\n\n${stdout.slice(0, 500)}`);
           resolve(true);
         }
       });
@@ -241,7 +241,7 @@ app.all(WEBHOOK_PATH, async (req, res) => {
 
   // Notify the user either way
   const message = forwarded
-    ? `⚡ *Auto-forwarded webhook to matching skill*\n\n*Event:* ${req.body?.event || 'unknown'}\n*Stream:* ${req.body?.payload?.rtms_stream_id || 'n/a'}\n\nForwarded automatically. Reply if you need to intervene.`
+    ? ` *Auto-forwarded webhook to matching skill*\n\n*Event:* ${req.body?.event || 'unknown'}\n*Stream:* ${req.body?.payload?.rtms_stream_id || 'n/a'}\n\nForwarded automatically. Reply if you need to intervene.`
     : formatWebhookMessage(event);
   notifyUser(message);
 });
@@ -278,7 +278,7 @@ const server = app.listen(PORT, async () => {
     console.error(`Listening on port ${PORT}`);
 
     // Notify user that the webhook listener is ready
-    notifyUser(`⚡ Ngrok webhook listener started!\n\n*URL:* ${url}${WEBHOOK_PATH}\n\nI'll notify you when webhooks come in and ask how to handle them.`);
+    notifyUser(` Ngrok webhook listener started!\n\n*URL:* ${url}${WEBHOOK_PATH}\n\nI'll notify you when webhooks come in and ask how to handle them.`);
   } catch (err) {
     console.error('Failed to start ngrok tunnel:', err.message);
     process.exit(1);

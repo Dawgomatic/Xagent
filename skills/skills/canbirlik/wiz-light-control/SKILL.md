@@ -2,7 +2,7 @@
 name: wiz-light-control
 description: Controls Wiz smart bulbs (turn on/off, RGB colors, disco mode) via local WiFi.
 author: "@canbirlik"
-emoji: "💡"
+emoji: ""
 platforms:
   - darwin
   - linux
@@ -16,10 +16,10 @@ dependencies:
 
 This skill allows the agent to control physical Wiz smart lights on the local network. 
 
-⚠️ **IMPORTANT CONFIGURATION:**
+ **IMPORTANT CONFIGURATION:**
 The IP address `192.168.1.109` used in examples is a placeholder. You **MUST** find the actual Local IP address of the Wiz Bulb on the network before running commands.
 
-## 🛠️ Installation & Setup (READ FIRST)
+##  Installation & Setup (READ FIRST)
 
 **Before running the script for the first time, you MUST set up the Python environment.**
 The agent should verify if `venv` exists. If not, run this setup command block automatically:

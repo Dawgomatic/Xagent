@@ -65,7 +65,7 @@ Scenario:
   Bankroll: 1000ŧ
 
 Step 1: Calculate edge
-  edge = |0.70 - 0.50| = 0.20 = 20% → ABOVE 15% THRESHOLD ✅
+  edge = |0.70 - 0.50| = 0.20 = 20% → ABOVE 15% THRESHOLD 
 
 Step 2: Calculate odds
   Betting YES at m = 0.50
@@ -78,7 +78,7 @@ Step 4: Quarter Kelly
   bet = 0.40 / 4 × 1000 = 100ŧ
 
 Step 5: Check position limit
-  100 / 1000 = 10% → UNDER 20% LIMIT ✅
+  100 / 1000 = 10% → UNDER 20% LIMIT 
 
 → Bet 100ŧ on YES
 ```
@@ -94,7 +94,7 @@ Scenario:
 You think the market is overpriced. You'd bet NO.
 
 Step 1: Calculate edge
-  edge = |0.55 - 0.80| = 0.25 = 25% → ABOVE THRESHOLD ✅
+  edge = |0.55 - 0.80| = 0.25 = 25% → ABOVE THRESHOLD 
 
 Step 2: Reframe for NO bet
   Your p(NO wins) = 1 - 0.55 = 0.45
@@ -107,7 +107,7 @@ Step 4: Quarter Kelly
   bet = 0.3125 / 4 × 500 = 39.06ŧ
 
 Step 5: Check position limit
-  39.06 / 500 = 7.8% → UNDER 20% LIMIT ✅
+  39.06 / 500 = 7.8% → UNDER 20% LIMIT 
 
 → Bet ~39ŧ on NO
 ```
@@ -121,7 +121,7 @@ Scenario:
   Bankroll: 800ŧ
 
 Step 1: Calculate edge
-  edge = |0.65 - 0.60| = 0.05 = 5% → BELOW 15% THRESHOLD ❌
+  edge = |0.65 - 0.60| = 0.05 = 5% → BELOW 15% THRESHOLD 
 
 → PASS. Edge too small to overcome estimation error.
 ```
@@ -135,7 +135,7 @@ Scenario:
   Bankroll: 200ŧ
 
 Step 1: Calculate edge
-  edge = |0.50 - 0.10| = 0.40 = 40% → ABOVE THRESHOLD ✅
+  edge = |0.50 - 0.10| = 0.40 = 40% → ABOVE THRESHOLD 
 
 Step 2: Calculate odds
   Betting YES at m = 0.10
@@ -148,7 +148,7 @@ Step 4: Quarter Kelly
   bet = 0.444 / 4 × 200 = 22.2ŧ
 
 Step 5: Check position limit
-  22.2 / 200 = 11.1% → UNDER 20% LIMIT ✅
+  22.2 / 200 = 11.1% → UNDER 20% LIMIT 
 
 → Bet ~22ŧ on YES
   (If this came out to >40ŧ, cap at 40ŧ = 20% of bankroll)

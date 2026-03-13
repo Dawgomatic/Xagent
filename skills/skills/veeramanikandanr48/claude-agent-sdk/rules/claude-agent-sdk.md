@@ -9,10 +9,10 @@ This uses **@anthropic-ai/claude-agent-sdk v0.1.50**.
 ## MCP Tool Naming Convention
 
 ```typescript
-/* ❌ Wrong naming */
+/*  Wrong naming */
 const tool = 'mcp_server_tool'
 
-/* ✅ Double underscores required */
+/*  Double underscores required */
 const tool = 'mcp__server-name__tool-name'
 // Format: mcp__<server-name>__<tool-name>
 ```
@@ -20,13 +20,13 @@ const tool = 'mcp__server-name__tool-name'
 ## No Default System Prompt
 
 ```typescript
-/* ❌ Assuming default instructions */
+/*  Assuming default instructions */
 const agent = new Agent({
   model: 'claude-sonnet-4-5-20250929',
   // No system prompt...
 })
 
-/* ✅ Always provide custom system instruction */
+/*  Always provide custom system instruction */
 const agent = new Agent({
   model: 'claude-sonnet-4-5-20250929',
   system: 'You are a helpful assistant that...',
@@ -36,7 +36,7 @@ const agent = new Agent({
 ## Permission Control
 
 ```typescript
-/* ✅ Implement canUseTool for security */
+/*  Implement canUseTool for security */
 const agent = new Agent({
   model: 'claude-sonnet-4-5-20250929',
   canUseTool: async (tool) => {
@@ -56,7 +56,7 @@ const agent = new Agent({
 ## Session Forking (Unique Feature)
 
 ```typescript
-/* ✅ Create branch without modifying original */
+/*  Create branch without modifying original */
 const forkedSession = await session.fork()
 // Original session unchanged
 // Forked session can diverge
@@ -65,10 +65,10 @@ const forkedSession = await session.fork()
 ## Subagent Definitions
 
 ```typescript
-/* ❌ Missing required fields */
+/*  Missing required fields */
 const subagent = { prompt: 'Do task' }
 
-/* ✅ Include description and prompt */
+/*  Include description and prompt */
 const subagent = {
   description: 'Handles data processing tasks',
   prompt: 'Process the provided data and return results',

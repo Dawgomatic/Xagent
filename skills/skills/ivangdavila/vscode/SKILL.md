@@ -1,7 +1,7 @@
 ---
 name: VSCode
 description: Avoid common VSCode mistakes — settings conflicts, debugger setup, and extension clashes.
-metadata: {"clawdbot":{"emoji":"💻","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Settings Precedence

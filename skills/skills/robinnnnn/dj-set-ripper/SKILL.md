@@ -13,7 +13,7 @@ description: >
 
 Extract tracklists from DJ sets and download each track individually.
 
-> **⚠️ Legal Notice:** This skill is intended for downloading music you have the right to access — purchases, free releases, creative commons, etc. Respect copyright laws in your jurisdiction. The author is not responsible for misuse.
+> ** Legal Notice:** This skill is intended for downloading music you have the right to access — purchases, free releases, creative commons, etc. Respect copyright laws in your jurisdiction. The author is not responsible for misuse.
 
 ## Dependencies
 
@@ -114,15 +114,15 @@ Tracks found: {total}
 
 #   | Artist              | Title                          | Status         | Source   | Bitrate | Size  | File/Link
 ----|---------------------|--------------------------------|----------------|----------|---------|-------|----------
-01  | Argy                | Aria (Original Mix)            | ✅ downloaded   | spotdl   | 320k    | 8.2MB | Argy - Aria (Original Mix).mp3
-02  | ID                  | ID                             | ⬛ unidentified | —        | —       | —     | —
-03  | Massano             | Odyssey                        | ✅ downloaded   | youtube  | 271k    | 6.5MB | Massano - Odyssey.mp3
-04  | Boris Brejcha       | Gravity (Extended Mix)         | 🛒 purchase     | beatport | —       | —     | https://...
-05  | Some Bootleg        | Unreleased VIP                 | ❌ not found    | —        | —       | —     | —
+01  | Argy                | Aria (Original Mix)            |  downloaded   | spotdl   | 320k    | 8.2MB | Argy - Aria (Original Mix).mp3
+02  | ID                  | ID                             |  unidentified | —        | —       | —     | —
+03  | Massano             | Odyssey                        |  downloaded   | youtube  | 271k    | 6.5MB | Massano - Odyssey.mp3
+04  | Boris Brejcha       | Gravity (Extended Mix)         |  purchase     | beatport | —       | —     | https://...
+05  | Some Bootleg        | Unreleased VIP                 |  not found    | —        | —       | —     | —
 
 Summary: 3 downloaded, 1 purchase link, 1 not found, 1 unidentified
 Total size: ~XXM (individual tracks) + XXM (full mix)
-Full mix: ✅ downloaded → {set-name} [Full Mix].mp3
+Full mix:  downloaded → {set-name} [Full Mix].mp3
 
 Notes:
 - Bitrate via `ffprobe -v quiet -show_entries format=bit_rate -of csv=p=0 "<file>"`

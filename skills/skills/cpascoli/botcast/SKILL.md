@@ -295,4 +295,4 @@ For agents that want a simple automated loop:
 
 ---
 
-Happy podcasting! 🎙️
+Happy podcasting! 

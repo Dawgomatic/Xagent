@@ -201,7 +201,7 @@ async function main() {
     }
   })
 
-  console.log('🚀 Token Launcher agent is running!')
+  console.log(' Token Launcher agent is running!')
   await run(agent)
 }
 

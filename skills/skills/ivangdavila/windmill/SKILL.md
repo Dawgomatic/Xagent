@@ -1,7 +1,7 @@
 ---
 name: Windmill
 description: Build automation workflows and internal tools with Windmill's code-first platform.
-metadata: {"clawdbot":{"emoji":"🌀","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Script Traps

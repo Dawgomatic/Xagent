@@ -47,9 +47,9 @@ Essays test issue spotting more than legal knowledge. Scoring breakdown:
 
 **Prompt:** "Did the husband breach his fiduciary duty?"
 
-❌ Wrong: "Fiduciary duties are important in many contexts..."
+ Wrong: "Fiduciary duties are important in many contexts..."
 
-✅ Right: "ISSUE: Whether H breached fiduciary duty by investing trust funds in his own business. RULE: A trustee owes a duty of loyalty and may not self-deal without beneficiary consent. ANALYSIS: H invested $50k of trust funds in his own LLC without notifying the beneficiaries. This is classic self-dealing. Even if the investment was profitable, the conflict of interest establishes breach. CONCLUSION: H breached his fiduciary duty."
+ Right: "ISSUE: Whether H breached fiduciary duty by investing trust funds in his own business. RULE: A trustee owes a duty of loyalty and may not self-deal without beneficiary consent. ANALYSIS: H invested $50k of trust funds in his own LLC without notifying the beneficiaries. This is classic self-dealing. Even if the investment was profitable, the conflict of interest establishes breach. CONCLUSION: H breached his fiduciary duty."
 
 ## Time Management
 

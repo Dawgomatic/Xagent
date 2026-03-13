@@ -28,39 +28,39 @@ class Formatter:
         timestamp = report.get("timestamp", "")
         
         # Header
-        lines.append("🔥 Trending Skills Report")
+        lines.append(" Trending Skills Report")
         lines.append("=" * 60)
-        lines.append(f"📅 {timestamp}")
+        lines.append(f" {timestamp}")
         lines.append("")
         
         # New Skills
         new_skills = report.get("new_skills", [])
         if new_skills:
-            lines.append("✨ NEW RELEASES (Last 7 Days)")
+            lines.append(" NEW RELEASES (Last 7 Days)")
             lines.append("-" * 60)
             for skill in new_skills[:10]:
                 lines.append(self._format_skill_compact(skill, "new"))
             lines.append("")
         else:
-            lines.append("✨ NEW RELEASES - No new skills found")
+            lines.append(" NEW RELEASES - No new skills found")
             lines.append("")
         
         # Trending Skills
         trending_skills = report.get("trending_skills", [])
         if trending_skills:
-            lines.append("🔝 COMMUNITY FAVORITES (Most Installed)")
+            lines.append(" COMMUNITY FAVORITES (Most Installed)")
             lines.append("-" * 60)
             for i, skill in enumerate(trending_skills[:10], 1):
                 lines.append(self._format_skill_ranked(skill, i))
             lines.append("")
         else:
-            lines.append("🔝 COMMUNITY FAVORITES - No trending skills found")
+            lines.append(" COMMUNITY FAVORITES - No trending skills found")
             lines.append("")
         
         # Recently Updated
         updated_skills = report.get("updated_skills", [])
         if updated_skills:
-            lines.append("🔄 RECENT UPDATES")
+            lines.append(" RECENT UPDATES")
             lines.append("-" * 60)
             for skill in updated_skills[:5]:
                 lines.append(self._format_skill_updated(skill))
@@ -69,7 +69,7 @@ class Formatter:
         # Summary
         total = len(new_skills) + len(trending_skills)
         lines.append("=" * 60)
-        lines.append(f"📊 Total skills: {total}")
+        lines.append(f" Total skills: {total}")
         
         return "\n".join(lines)
     
@@ -78,13 +78,13 @@ class Formatter:
         lines = []
         timestamp = report.get("timestamp", "")
         
-        lines.append("# 🔥 Trending Skills Report\n")
+        lines.append("#  Trending Skills Report\n")
         lines.append(f"*{timestamp}*\n")
         
         # New Skills
         new_skills = report.get("new_skills", [])
         if new_skills:
-            lines.append("## ✨ New Releases\n")
+            lines.append("##  New Releases\n")
             for skill in new_skills[:10]:
                 lines.append(self._format_skill_markdown_item(skill))
             lines.append("")
@@ -92,7 +92,7 @@ class Formatter:
         # Trending
         trending_skills = report.get("trending_skills", [])
         if trending_skills:
-            lines.append("## 🔝 Community Favorites\n")
+            lines.append("##  Community Favorites\n")
             for i, skill in enumerate(trending_skills[:10], 1):
                 lines.append(f"{i}. {self._format_skill_markdown_item(skill)}")
             lines.append("")
@@ -100,7 +100,7 @@ class Formatter:
         # Updated
         updated_skills = report.get("updated_skills", [])
         if updated_skills:
-            lines.append("## 🔄 Recently Updated\n")
+            lines.append("##  Recently Updated\n")
             for skill in updated_skills[:5]:
                 lines.append(self._format_skill_markdown_item(skill))
             lines.append("")
@@ -125,7 +125,7 @@ class Formatter:
             created = skill.get("created_at", "")
             age_str = f" | Created: {created[:10]}"
         
-        return f"  📦 {name}\n     Downloads: {downloads:,} | {description}...{age_str}"
+        return f"   {name}\n     Downloads: {downloads:,} | {description}...{age_str}"
     
     def _format_skill_ranked(self, skill: Dict[str, Any], rank: int) -> str:
         """Format skill with ranking"""
@@ -134,9 +134,9 @@ class Formatter:
         rating = skill.get("rating", 0)
         category = skill.get("category", "")
         
-        medal = ["🥇", "🥈", "🥉"][min(rank - 1, 2)]
+        medal = ["", "", ""][min(rank - 1, 2)]
         
-        return f"  {medal} #{rank}. {name}\n     📥 {installs:,} installs | ⭐ {rating:.1f} | 📁 {category}"
+        return f"  {medal} #{rank}. {name}\n      {installs:,} installs |  {rating:.1f} |  {category}"
     
     def _format_skill_updated(self, skill: Dict[str, Any]) -> str:
         """Format skill with update info"""
@@ -145,7 +145,7 @@ class Formatter:
         updated = skill.get("updated_at", "")[:10]
         changelog = skill.get("changelog", "")[:50]
         
-        return f"  🆕 {name} (v{version})\n     Updated: {updated} | {changelog}"
+        return f"   {name} (v{version})\n     Updated: {updated} | {changelog}"
     
     def _format_skill_markdown_item(self, skill: Dict[str, Any]) -> str:
         """Markdown format for a single skill"""
@@ -157,4 +157,4 @@ class Formatter:
         rating = skill.get("rating", 0)
         version = skill.get("version", "1.0.0")
         
-        return f"**{name}** (v{version}) by {author}  \n{description}  \n📥 {installs:,} installs | ⭐ {rating:.1f} | 📊 {downloads:,} downloads"
+        return f"**{name}** (v{version}) by {author}  \n{description}  \n {installs:,} installs |  {rating:.1f} |  {downloads:,} downloads"

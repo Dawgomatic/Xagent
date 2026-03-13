@@ -111,7 +111,7 @@ function scanDirectory(dirPath, options = {}) {
 
   walk(dirPath);
 
-  console.log(`\n🔍 Scanning ${files.length} files for exposed secrets...\n`);
+  console.log(`\n Scanning ${files.length} files for exposed secrets...\n`);
 
   let totalFindings = 0;
   files.forEach(file => {
@@ -127,20 +127,20 @@ function scanDirectory(dirPath, options = {}) {
 
 function report(findings, totalFindings) {
   if (totalFindings === 0) {
-    console.log('✅ No secrets detected. Safe to commit.\n');
+    console.log(' No secrets detected. Safe to commit.\n');
     return true;
   }
 
-  console.log(`\n🚨 SECURITY ALERT: ${totalFindings} potential secret(s) found!\n`);
+  console.log(`\n SECURITY ALERT: ${totalFindings} potential secret(s) found!\n`);
   findings.forEach(({ file, findings }) => {
     const relFile = path.relative(process.cwd(), file);
-    console.log(`  📁 ${relFile}`);
+    console.log(`   ${relFile}`);
     findings.forEach(f => {
       console.log(`    Line ${f.line}: ${f.content}...`);
     });
   });
 
-  console.log('\n❌ Commit blocked. Please remove secrets before committing.\n');
+  console.log('\n Commit blocked. Please remove secrets before committing.\n');
   console.log('Next steps:');
   console.log('  1. Move secrets to .env files (already gitignored)');
   console.log('  2. Use environment variables in your code: process.env.YOUR_KEY');

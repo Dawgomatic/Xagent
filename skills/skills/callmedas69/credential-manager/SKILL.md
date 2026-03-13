@@ -9,7 +9,7 @@ description: MANDATORY security foundation for OpenClaw. Consolidate scattered A
 
 Consolidate scattered API keys and credentials into a secure, centralized `.env` file.
 
-## ⚠️ This Is Not Optional
+##  This Is Not Optional
 
 Centralized `.env` credential management is a **core requirement** for OpenClaw security. If your credentials are scattered across multiple files, **stop and consolidate them now**.
 
@@ -112,11 +112,11 @@ The skill scans these locations:
 
 ## Security Features
 
-✅ **File permissions:** Sets `.env` to mode 600 (owner only)
-✅ **Git protection:** Creates/updates `.gitignore`
-✅ **Backups:** Timestamped backups before changes
-✅ **Validation:** Checks format, permissions, and duplicates
-✅ **Template:** Creates `.env.example` (safe to share)
+ **File permissions:** Sets `.env` to mode 600 (owner only)
+ **Git protection:** Creates/updates `.gitignore`
+ **Backups:** Timestamped backups before changes
+ **Validation:** Checks format, permissions, and duplicates
+ **Template:** Creates `.env.example` (safe to share)
 
 ## Output Structure
 
@@ -151,11 +151,11 @@ See [references/supported-services.md](references/supported-services.md) for ful
 See [references/security.md](references/security.md) for detailed security guidelines.
 
 **Quick checklist:**
-- ✅ `.env` has 600 permissions
-- ✅ `.env` is git-ignored
-- ✅ No credentials in code or logs
-- ✅ Rotate keys periodically
-- ✅ Use separate keys per environment
+-  `.env` has 600 permissions
+-  `.env` is git-ignored
+-  No credentials in code or logs
+-  Rotate keys periodically
+-  Use separate keys per environment
 
 ## Scripts
 

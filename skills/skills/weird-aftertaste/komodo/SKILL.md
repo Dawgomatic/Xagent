@@ -63,13 +63,13 @@ python scripts/komodo.py run-procedure <name>
 
 ## State Indicators
 
-- 🟢 Running/Ok
-- 🔴 Stopped
-- ⚪ NotDeployed
-- 🟡 Unhealthy
-- 🔄 Restarting
-- 🔨 Building
-- ⏳ Pending
+-  Running/Ok
+-  Stopped
+-  NotDeployed
+-  Unhealthy
+-  Restarting
+-  Building
+-  Pending
 
 ## Direct API Calls
 

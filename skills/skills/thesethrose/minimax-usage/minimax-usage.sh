@@ -9,11 +9,11 @@ API_KEY="${MINIMAX_CODING_API_KEY}"
 GROUP_ID="${MINIMAX_GROUP_ID}"
 
 if [ -z "$API_KEY" ] || [ -z "$GROUP_ID" ]; then
-  echo "❌ Error: MINIMAX_CODING_API_KEY and MINIMAX_GROUP_ID required in .env"
+  echo " Error: MINIMAX_CODING_API_KEY and MINIMAX_GROUP_ID required in .env"
   exit 1
 fi
 
-echo "🔍 Checking Minimax Coding Plan usage..."
+echo " Checking Minimax Coding Plan usage..."
 
 RESPONSE=$(curl --location "https://platform.minimax.io/v1/api/openplatform/coding_plan/remains?GroupId=${GROUP_ID}" \
   --header "accept: application/json, text/plain, */*" \
@@ -30,7 +30,7 @@ if [ "$STATUS" = "200" ]; then
   ERROR_CODE=$(echo "$BODY" | jq -r '.base_resp.status_code' 2>/dev/null)
   
   if [ "$ERROR_CODE" != "0" ]; then
-    echo "❌ API Error: $(echo "$BODY" | jq -r '.base_resp.status_msg' 2>/dev/null)"
+    echo " API Error: $(echo "$BODY" | jq -r '.base_resp.status_msg' 2>/dev/null)"
     exit 1
   fi
   
@@ -47,31 +47,31 @@ if [ "$STATUS" = "200" ]; then
     HOURS=$((REMAINS_TIME / 3600000))
     MINUTES=$(((REMAINS_TIME % 3600000) / 60000))
     
-    echo "✅ Usage retrieved successfully:"
+    echo " Usage retrieved successfully:"
     echo ""
-    echo "📊 Coding Plan Status (${MODEL}):"
+    echo " Coding Plan Status (${MODEL}):"
     echo "   Used:      ${USED} / ${TOTAL} prompts (${PERCENT}%)"
     echo "   Remaining: ${REMAINS} prompts"
     echo "   Resets in: ${HOURS}h ${MINUTES}m"
     echo ""
     
     if [ "$PERCENT" -gt 90 ]; then
-      echo "🚨 CRITICAL: ${PERCENT}% used! Stop all AI work immediately."
+      echo " CRITICAL: ${PERCENT}% used! Stop all AI work immediately."
     elif [ "$PERCENT" -gt 75 ]; then
-      echo "⚠️  WARNING: ${PERCENT}% used. Approaching limit."
+      echo "  WARNING: ${PERCENT}% used. Approaching limit."
     elif [ "$PERCENT" -gt 60 ]; then
-      echo "⚠️  CAUTION: ${PERCENT}% used. Target is 60%."
+      echo "  CAUTION: ${PERCENT}% used. Target is 60%."
     else
-      echo "💚 GREEN: ${PERCENT}% used. Plenty of buffer."
+      echo " GREEN: ${PERCENT}% used. Plenty of buffer."
     fi
   else
-    echo "⚠️  Could not parse usage data"
+    echo "  Could not parse usage data"
   fi
   
 elif [ "$STATUS" = "401" ] || [ "$STATUS" = "403" ]; then
-  echo "❌ Authorization failed. Check API key."
+  echo " Authorization failed. Check API key."
 elif [ "$STATUS" = "500" ] || [ "$STATUS" = "502" ]; then
-  echo "⚠️  Server error. Try again later."
+  echo "  Server error. Try again later."
 else
-  echo "❌ Error (HTTP $STATUS)"
+  echo " Error (HTTP $STATUS)"
 fi

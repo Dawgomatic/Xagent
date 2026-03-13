@@ -6,7 +6,7 @@ user-invocable: true
 disable-model-invocation: true
 metadata:
   openclaw:
-    emoji: "📊"
+    emoji: ""
     requires:
       bins: [python3]
 ---

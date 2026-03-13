@@ -20,7 +20,7 @@ done
 
 REPORT_FILE="$TRAWL_DIR/last-sweep-report.json"
 if [ ! -f "$REPORT_FILE" ]; then
-  echo "❌ No sweep report found. Run sweep.sh first."
+  echo " No sweep report found. Run sweep.sh first."
   exit 1
 fi
 
@@ -36,16 +36,16 @@ DRY_RUN=$(jq -r '.sweep.dryRun' "$REPORT_FILE")
 
 # Header
 if [ "$DRY_RUN" = "true" ]; then
-  echo "🧪 *DRY RUN — Mock Data*"
+  echo " *DRY RUN — Mock Data*"
   echo ""
 fi
 
-echo "📊 *Trawl Sweep Report*"
+echo " *Trawl Sweep Report*"
 echo "━━━━━━━━━━━━━━━━━━"
 echo "Signals: $SIGNALS | Matches: $MATCHES | Qualified: $ABOVE | Inbound: $INBOUND | DMs: $DMS"
 
 if [ -n "$CATEGORY_FILTER" ]; then
-  echo "🏷 Filtered: $CATEGORY_FILTER"
+  echo " Filtered: $CATEGORY_FILTER"
 fi
 echo ""
 
@@ -69,7 +69,7 @@ INBOUND_LEADS=$(jq -c "[$INBOUND_FILTER] | sort_by(-.value.finalScore)" "$REPORT
 INBOUND_COUNT=$(echo "$INBOUND_LEADS" | jq 'length')
 
 if [ "$INBOUND_COUNT" -gt 0 ]; then
-  echo "📥 *Inbound Leads ($INBOUND_COUNT)* — They came to YOU:"
+  echo " *Inbound Leads ($INBOUND_COUNT)* — They came to YOU:"
   echo ""
 
   echo "$INBOUND_LEADS" | jq -c '.[]' | while IFS= read -r lead; do
@@ -83,15 +83,15 @@ if [ "$INBOUND_COUNT" -gt 0 ]; then
     state=$(echo "$lead" | jq -r '.value.state')
 
     echo "┌─────────────────────────────"
-    echo "│ 📥 *$agent* — Score: $score"
-    echo "│ 👤 $owner_name (@$owner_handle)"
+    echo "│  *$agent* — Score: $score"
+    echo "│  $owner_name (@$owner_handle)"
     if [ -n "$owner_bio" ]; then
-      echo "│ 💬 ${owner_bio:0:100}"
+      echo "│  ${owner_bio:0:100}"
     fi
     if [ -n "$agent_desc" ]; then
-      echo "│ 🤖 ${agent_desc:0:100}"
+      echo "│  ${agent_desc:0:100}"
     fi
-    echo "│ 📝 ${post_title:0:100}"
+    echo "│  ${post_title:0:100}"
     echo "│ Status: $state"
     echo "│ Profile: https://www.moltbook.com/u/$agent"
     echo "└─────────────────────────────"
@@ -106,7 +106,7 @@ QUALIFIED=$(jq -c "[$QUAL_FILTER] | sort_by(-.value.finalScore)" "$REPORT_FILE")
 QUAL_COUNT=$(echo "$QUALIFIED" | jq 'length')
 
 if [ "$QUAL_COUNT" -gt 0 ]; then
-  echo "🎯 *Qualified Leads ($QUAL_COUNT)*:"
+  echo " *Qualified Leads ($QUAL_COUNT)*:"
   echo ""
 
   echo "$QUALIFIED" | jq -c '.[]' | while IFS= read -r lead; do
@@ -123,16 +123,16 @@ if [ "$QUAL_COUNT" -gt 0 ]; then
     matched_signal=$(echo "$lead" | jq -r '.value.matchedSignal')
 
     echo "┌─────────────────────────────"
-    echo "│ 🎯 *$agent* — Score: $score"
-    echo "│ 📋 $signal_type ($category) via '$matched_signal'"
-    echo "│ 👤 $owner_name (@$owner_handle)"
+    echo "│  *$agent* — Score: $score"
+    echo "│  $signal_type ($category) via '$matched_signal'"
+    echo "│  $owner_name (@$owner_handle)"
     if [ -n "$owner_bio" ]; then
-      echo "│ 💬 ${owner_bio:0:100}"
+      echo "│  ${owner_bio:0:100}"
     fi
     if [ -n "$agent_desc" ]; then
-      echo "│ 🤖 ${agent_desc:0:100}"
+      echo "│  ${agent_desc:0:100}"
     fi
-    echo "│ 📝 Post: ${post_title:0:80}"
+    echo "│  Post: ${post_title:0:80}"
     echo "│ Status: $state"
     echo "│ Profile: https://www.moltbook.com/u/$agent"
     echo "└─────────────────────────────"
@@ -147,7 +147,7 @@ WATCHING=$(jq -c "[$WATCH_FILTER] | sort_by(-.value.finalScore)" "$REPORT_FILE")
 WATCH_COUNT=$(echo "$WATCHING" | jq 'length')
 
 if [ "$WATCH_COUNT" -gt 0 ]; then
-  echo "👀 *Watching ($WATCH_COUNT)* — Below qualify threshold:"
+  echo " *Watching ($WATCH_COUNT)* — Below qualify threshold:"
   echo "$WATCHING" | jq -c '.[]' | while IFS= read -r lead; do
     agent=$(echo "$lead" | jq -r '.value.agentId')
     score=$(echo "$lead" | jq -r '.value.finalScore')
@@ -165,7 +165,7 @@ DM_LEADS=$(jq -c "[$DM_FILTER]" "$REPORT_FILE")
 DM_COUNT=$(echo "$DM_LEADS" | jq 'length')
 
 if [ "$DM_COUNT" -gt 0 ]; then
-  echo "📬 *Active DMs ($DM_COUNT)*:"
+  echo " *Active DMs ($DM_COUNT)*:"
   echo "$DM_LEADS" | jq -c '.[]' | while IFS= read -r lead; do
     agent=$(echo "$lead" | jq -r '.value.agentId')
     state=$(echo "$lead" | jq -r '.value.state')
@@ -180,7 +180,7 @@ fi
 if [ -z "$CATEGORY_FILTER" ]; then
   CATEGORIES=$(jq -r '[.leads | to_entries[].value.category] | unique | .[]' "$REPORT_FILE" 2>/dev/null)
   if [ -n "$CATEGORIES" ]; then
-    echo "🏷 *By Category:*"
+    echo " *By Category:*"
     while IFS= read -r cat; do
       cat_count=$(jq "[.leads | to_entries[] | select(.value.category == \"$cat\")] | length" "$REPORT_FILE")
       echo "  • $cat: $cat_count leads"

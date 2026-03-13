@@ -1,4 +1,4 @@
-# ADHD Daily Planner 📝🧠
+# ADHD Daily Planner 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-skill-blue)](https://openclaw.ai)
@@ -48,11 +48,11 @@ chmod +x scripts/plan.sh
 No rigid time slots. Work in whichever swim lane matches your CURRENT energy:
 
 ```
-🎯 MUST HAPPEN   → Today's ONE thing
-🔥 HIGH ENERGY   → Deep work, creative tasks
-💧 MEDIUM ENERGY → Standard tasks, calls
-❄️ LOW ENERGY    → Admin, easy wins
-🚫 NOT TODAY     → Captured but deferred
+ MUST HAPPEN   → Today's ONE thing
+ HIGH ENERGY   → Deep work, creative tasks
+ MEDIUM ENERGY → Standard tasks, calls
+ LOW ENERGY    → Admin, easy wins
+ NOT TODAY     → Captured but deferred
 ```
 
 ### Evening: Learn From the Day
@@ -84,7 +84,7 @@ List wins, note what worked, migrate unfinished tasks, capture one lesson for to
 | `<` | Scheduled for future date |
 | `★` | Today's ONE thing |
 | `☆` | If-energy (nice to have) |
-| `💀` | Dread task (needs extra support) |
+| `` | Dread task (needs extra support) |
 
 ## Core Principles
 
@@ -130,7 +130,7 @@ This planner is a free, fully functional daily planning system. It's also part o
 
 **No rigid schedules. No time-shaming. Just flexible, dopamine-friendly planning.**
 
-🔗 **[adhd-founder.com](https://adhd-founder.com)**
+ **[adhd-founder.com](https://adhd-founder.com)**
 
 ---
 

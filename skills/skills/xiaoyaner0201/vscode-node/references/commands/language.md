@@ -6,9 +6,9 @@ These commands leverage the IDE's language server (TypeScript, ESLint, etc.).
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `path` | string | ✅ | File path |
-| `line` | number | ✅ | Line number (0-indexed) |
-| `character` | number | ✅ | Column number (0-indexed) |
+| `path` | string |  | File path |
+| `line` | number |  | Line number (0-indexed) |
+| `character` | number |  | Column number (0-indexed) |
 
 **Returns:** `{ locations: [{ path, line, character }] }`
 
@@ -16,10 +16,10 @@ These commands leverage the IDE's language server (TypeScript, ESLint, etc.).
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `path` | string | ✅ | File path |
-| `line` | number | ✅ | Line (0-indexed) |
-| `character` | number | ✅ | Column (0-indexed) |
-| `includeDeclaration` | boolean | ❌ | Include declaration (default: true) |
+| `path` | string |  | File path |
+| `line` | number |  | Line (0-indexed) |
+| `character` | number |  | Column (0-indexed) |
+| `includeDeclaration` | boolean |  | Include declaration (default: true) |
 
 **Returns:** `{ locations: [{ path, line, character }] }`
 
@@ -27,9 +27,9 @@ These commands leverage the IDE's language server (TypeScript, ESLint, etc.).
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `path` | string | ✅ | File path |
-| `line` | number | ✅ | Line (0-indexed) |
-| `character` | number | ✅ | Column (0-indexed) |
+| `path` | string |  | File path |
+| `line` | number |  | Line (0-indexed) |
+| `character` | number |  | Column (0-indexed) |
 
 **Returns:** `{ contents: [string] }` — Markdown-formatted type info
 
@@ -39,13 +39,13 @@ These commands leverage the IDE's language server (TypeScript, ESLint, etc.).
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `path` | string | ✅ | File path |
+| `path` | string |  | File path |
 
 **Workspace search** (provide `query`):
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `query` | string | ✅ | Search query |
+| `query` | string |  | Search query |
 
 **Returns:** `{ symbols: [{ name, kind, path, line, endLine }] }`
 
@@ -55,10 +55,10 @@ Paginates at 200 symbols per response.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `path` | string | ✅ | File path |
-| `line` | number | ✅ | Line (0-indexed) |
-| `character` | number | ✅ | Column (0-indexed) |
-| `newName` | string | ✅ | New symbol name |
+| `path` | string |  | File path |
+| `line` | number |  | Line (0-indexed) |
+| `character` | number |  | Column (0-indexed) |
+| `newName` | string |  | New symbol name |
 
 **Returns:** `{ ok: true, filesChanged: number, editsApplied: number }`
 
@@ -68,9 +68,9 @@ Uses the language server for semantic safety.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `path` | string | ✅ | File path |
-| `line` | number | ✅ | Line number |
-| `kind` | string | ❌ | Filter: `quickfix`, `refactor`, `source` |
+| `path` | string |  | File path |
+| `line` | number |  | Line number |
+| `kind` | string |  | Filter: `quickfix`, `refactor`, `source` |
 
 **Returns:** `{ actions: [{ title, kind, isPreferred, index }] }`
 
@@ -78,10 +78,10 @@ Uses the language server for semantic safety.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `path` | string | ✅ | File path |
-| `line` | number | ✅ | Line number |
-| `kind` | string | ❌ | Filter kind |
-| `index` | number | ✅ | Index from `codeActions` result |
+| `path` | string |  | File path |
+| `line` | number |  | Line number |
+| `kind` | string |  | Filter kind |
+| `index` | number |  | Index from `codeActions` result |
 
 **Returns:** `{ ok: true, title: string }`
 
@@ -89,6 +89,6 @@ Uses the language server for semantic safety.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `path` | string | ✅ | File path |
+| `path` | string |  | File path |
 
 **Returns:** `{ ok: true, editsApplied: number }`

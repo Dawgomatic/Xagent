@@ -77,7 +77,7 @@ async function formatMessage(msg, depth = 0, recursive = false) {
     const time = new Date(parseInt(msg.create_time)).toISOString().replace('T', ' ').substring(0, 19);
     
     if (msg.msg_type === 'merge_forward') {
-        output += `${indent}📂 [Merged Forward] (${time})\n`;
+        output += `${indent} [Merged Forward] (${time})\n`;
         // If recursive is true, we should try to fetch the merged content if it's not present
         // But standard message API doesn't return merged content unless specific params are used?
         // Actually for merge_forward, the content is usually just a placeholder or list of IDs.
@@ -94,7 +94,7 @@ async function formatMessage(msg, depth = 0, recursive = false) {
         }
     } else {
         const content = parseContent(msg.body);
-        output += `${indent}💬 [${sender}] ${time}: ${content}\n`;
+        output += `${indent} [${sender}] ${time}: ${content}\n`;
     }
     
     return output;
@@ -119,7 +119,7 @@ program
                 console.log(JSON.stringify(data, null, 2));
             } else {
                 if (data.items && data.items.length > 0) {
-                    console.log(`📦 Merged Message Container (${data.items.length} items):\n`);
+                    console.log(` Merged Message Container (${data.items.length} items):\n`);
                     for (const item of data.items) {
                         if (item.message_id === messageId && data.items.length > 1) continue; 
                         console.log(await formatMessage(item, 0, options.recursive));

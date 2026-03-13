@@ -1,7 +1,7 @@
 ---
 name: Drizzle
 description: Build type-safe database queries with Drizzle ORM patterns.
-metadata: {"clawdbot":{"emoji":"💧","requires":{"bins":["npx"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["npx"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Schema Definition

@@ -4,11 +4,11 @@ This guide will help you set up OAuth2 authentication for the Zoho Email skill. 
 
 ## Why OAuth2?
 
-✅ **More secure** - No need to store passwords  
-✅ **Better access control** - Granular permissions  
-✅ **Auto-refresh** - Tokens refresh automatically  
-✅ **Revocable** - Easy to revoke access without changing passwords  
-✅ **Zoho-recommended** - Official authentication method  
+ **More secure** - No need to store passwords  
+ **Better access control** - Granular permissions  
+ **Auto-refresh** - Tokens refresh automatically  
+ **Revocable** - Easy to revoke access without changing passwords  
+ **Zoho-recommended** - Official authentication method  
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ This guide will help you set up OAuth2 authentication for the Zoho Email skill. 
    Authorized Redirect URIs:  http://localhost:8080/callback
    ```
    
-   > 💡 **Note:** If port 8080 is already in use, the setup script will automatically use the next available port (8081, 8082, etc.)
+   >  **Note:** If port 8080 is already in use, the setup script will automatically use the next available port (8081, 8082, etc.)
 
 5. **Click "Create"**
 
@@ -40,7 +40,7 @@ This guide will help you set up OAuth2 authentication for the Zoho Email skill. 
    - **Client ID** (e.g., `1000.XXXXXXXXXXXXXXXXXXXXXX`)
    - **Client Secret** (e.g., `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`)
    
-   ⚠️ **Important:** Keep these credentials secure! Never commit them to version control.
+    **Important:** Keep these credentials secure! Never commit them to version control.
 
 ## Step 2: Run OAuth2 Setup Script
 
@@ -80,7 +80,7 @@ Token storage path [/root/.zoho-mail-tokens.json]:
 Starting OAuth2 authorization flow...
 ----------------------------------------------------------------------
 
-🌐 Opening browser for authorization...
+ Opening browser for authorization...
 If browser doesn't open, visit this URL:
 
 https://accounts.zoho.com/oauth/v2/auth?scope=...
@@ -106,7 +106,7 @@ Next steps:
 3. Use OAuth2 in your scripts:
    python3 scripts/zoho-email.py unread --auth oauth2
 
-⚠️  Security notes:
+  Security notes:
 - Keep your token file secure (permissions: 600)
 - Never commit tokens to version control
 - Tokens will auto-refresh when expired
@@ -294,19 +294,19 @@ ZOHO_SCOPES = [
 ## Security Best Practices
 
 ### DO:
-✅ Store tokens in your home directory (`~/.clawdbot/zoho-mail-tokens.json`)  
-✅ Use file permissions 600 (owner read/write only)  
-✅ Add token files to `.gitignore`  
-✅ Regularly review authorized apps in Zoho settings  
-✅ Use environment variables for `ZOHO_EMAIL`  
-✅ Revoke old tokens when no longer needed  
+ Store tokens in your home directory (`~/.clawdbot/zoho-mail-tokens.json`)  
+ Use file permissions 600 (owner read/write only)  
+ Add token files to `.gitignore`  
+ Regularly review authorized apps in Zoho settings  
+ Use environment variables for `ZOHO_EMAIL`  
+ Revoke old tokens when no longer needed  
 
 ### DON'T:
-❌ Commit token files to version control  
-❌ Share token files or credentials  
-❌ Use world-readable permissions  
-❌ Store tokens in web-accessible directories  
-❌ Hardcode Client ID/Secret in scripts  
+ Commit token files to version control  
+ Share token files or credentials  
+ Use world-readable permissions  
+ Store tokens in web-accessible directories  
+ Hardcode Client ID/Secret in scripts  
 
 ### Additional Security
 
@@ -439,4 +439,4 @@ chmod 600 ~/.clawdbot/zoho-mail-tokens.json
 
 **Last updated:** 2025-01-29  
 **Version:** 1.2.0  
-**Status:** Production Ready ✅
+**Status:** Production Ready 

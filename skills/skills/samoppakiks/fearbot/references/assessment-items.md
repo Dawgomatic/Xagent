@@ -50,7 +50,7 @@ Over the last 2 weeks, how often have you been bothered by:
 8. Moving or speaking so slowly that other people could have noticed? Or the opposite — being so fidgety or restless that you have been moving around a lot more than usual
 9. Thoughts that you would be better off dead, or of hurting yourself
 
-**⚠️ ITEM 9 CRITICAL:** Any response > 0 on item 9 triggers safety assessment per Crisis Protocol.
+** ITEM 9 CRITICAL:** Any response > 0 on item 9 triggers safety assessment per Crisis Protocol.
 
 ### Follow-up Question (required)
 "If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?"

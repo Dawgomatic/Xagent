@@ -2,7 +2,7 @@
 name: postiz
 description: Postiz is a tool to schedule social media and chat posts to 28+ channels X, LinkedIn, LinkedIn Page, Reddit, Instagram, Facebook Page, Threads, YouTube, Google My Business, TikTok, Pinterest, Dribbble, Discord, Slack, Kick, Twitch, Mastodon, Bluesky, Lemmy, Farcaster, Telegram, Nostr, VK, Medium, Dev.to, Hashnode, WordPress, ListMonk
 homepage: https://docs.postiz.com/public-api/introduction
-metadata: {"clawdbot":{"emoji":"🌎","requires":{"bins":[],"env":["POSTIZ_API_URL","POSTIZ_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[],"env":["POSTIZ_API_URL","POSTIZ_API_KEY"]}}}
 ---
 
 ## Install Postiz if it doesn't exist
@@ -155,7 +155,7 @@ postiz analytics:post <post-id> -d 30
 
 Returns an array of metrics (e.g. Followers, Impressions, Likes, Comments) with daily data points and percentage change over the period.
 
-**⚠️ IMPORTANT: Missing Release ID Handling**
+** IMPORTANT: Missing Release ID Handling**
 
 If `analytics:post` returns `{"missing": true}` instead of an analytics array, the post was published but the platform didn't return a usable post ID. You **must** resolve this before analytics will work:
 
@@ -190,7 +190,7 @@ Returns an empty array if the provider doesn't support this feature or if the po
 
 ### Media Upload
 
-**⚠️ IMPORTANT:** Always upload files to Postiz before using them in posts. Many platforms (TikTok, Instagram, YouTube) **require verified URLs** and will reject external links.
+** IMPORTANT:** Always upload files to Postiz before using them in posts. Many platforms (TikTok, Instagram, YouTube) **require verified URLs** and will reject external links.
 
 ```bash
 # Upload file and get URL
@@ -277,7 +277,7 @@ postiz posts:create \
 
 ```bash
 postiz posts:create \
-  -c "🧵 Thread starter (1/4)" -m "intro.jpg" \
+  -c " Thread starter (1/4)" -m "intro.jpg" \
   -c "Point one (2/4)" -m "point1.jpg" \
   -c "Point two (3/4)" -m "point2.jpg" \
   -c "Conclusion (4/4)" -m "outro.jpg" \
@@ -358,9 +358,9 @@ DATES=(
 )
 
 CONTENT=(
-  "Monday motivation 💪"
-  "Tuesday tips 💡"
-  "Wednesday wisdom 🧠"
+  "Monday motivation "
+  "Tuesday tips "
+  "Wednesday wisdom "
 )
 
 for i in "${!DATES[@]}"; do
@@ -657,7 +657,7 @@ https://clawhub.ai/nevo-david/agent-media
 1. **API Key not set** - Always `export POSTIZ_API_KEY=key` before using CLI
 2. **Invalid integration ID** - Run `integrations:list` to get current IDs
 3. **Settings schema mismatch** - Check `integrations:settings` for required fields
-4. **Media MUST be uploaded to Postiz first** - ⚠️ **CRITICAL:** TikTok, Instagram, YouTube, and many platforms only accept verified URLs. Upload files via `postiz upload` first, then use the returned URL in `-m`. External URLs will be rejected!
+4. **Media MUST be uploaded to Postiz first** -  **CRITICAL:** TikTok, Instagram, YouTube, and many platforms only accept verified URLs. Upload files via `postiz upload` first, then use the returned URL in `-m`. External URLs will be rejected!
 5. **JSON escaping in shell** - Use single quotes for JSON: `--settings '{...}'`
 6. **Date format** - Must be ISO 8601: `"2024-12-31T12:00:00Z"` and is REQUIRED
 7. **Tool not found** - Check available tools in `integrations:settings` output

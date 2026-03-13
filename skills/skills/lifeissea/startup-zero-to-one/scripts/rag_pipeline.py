@@ -282,7 +282,7 @@ def load_all_chunks(data_dir: Path) -> list[dict]:
                 c["meta"]["file"] = jsonl_file.name
             all_chunks.extend(chunks)
             count += 1
-        print(f"  📄 {jsonl_file.name}: {count}건 → {len([c for c in all_chunks if c['meta'].get('file') == jsonl_file.name])} chunks")
+        print(f"   {jsonl_file.name}: {count}건 → {len([c for c in all_chunks if c['meta'].get('file') == jsonl_file.name])} chunks")
     return all_chunks
 
 
@@ -307,13 +307,13 @@ def embed_chunks(chunks: list[dict], model: str = EMBED_MODEL, batch_size: int =
         batch = chunks[batch_start:batch_start + batch_size]
         texts = [c["text"] for c in batch]
         if batch_start == 0 or (batch_start + batch_size) % 500 == 0:
-            print(f"  🔄 임베딩 {batch_start + 1}–{min(batch_start + batch_size, total)}/{total}...")
+            print(f"   임베딩 {batch_start + 1}–{min(batch_start + batch_size, total)}/{total}...")
         embeddings = get_embeddings_batch(texts, model)
         for chunk, emb in zip(batch, embeddings):
             chunk["embedding"] = emb
     # 임베딩 실패한 것 제거
     valid = [c for c in chunks if c.get("embedding")]
-    print(f"  ✅ 임베딩 완료: {len(valid)}/{total} 성공")
+    print(f"   임베딩 완료: {len(valid)}/{total} 성공")
     return valid
 
 
@@ -330,7 +330,7 @@ def save_vector_store(chunks: list[dict], path: Path = VECTOR_STORE_PATH):
         })
     path.write_text(json.dumps(store, ensure_ascii=False))
     size_mb = path.stat().st_size / 1024 / 1024
-    print(f"  💾 저장: {path.name} ({len(store)}건, {size_mb:.1f}MB)")
+    print(f"   저장: {path.name} ({len(store)}건, {size_mb:.1f}MB)")
 
 
 def load_vector_store(path: Path = VECTOR_STORE_PATH) -> list[dict]:
@@ -371,7 +371,7 @@ def rerank(query: str, candidates: list, top_k: int = 3,
 
     response_text = _raon_chat(prompt_to_messages(prompt)) or ""
     if not response_text:
-        print(f"  ⚠️ Rerank LLM 호출 실패, 원본 순서 반환")
+        print(f"   Rerank LLM 호출 실패, 원본 순서 반환")
         return candidates[:top_k]
 
     # 응답에서 숫자 추출
@@ -404,7 +404,7 @@ def search(query: str, top_k: int = 3, model: str = EMBED_MODEL,
     if store is None:
         store = load_vector_store()
     if not store:
-        print("❌ 벡터 저장소가 비어있습니다. 먼저 ingest를 실행하세요.")
+        print(" 벡터 저장소가 비어있습니다. 먼저 ingest를 실행하세요.")
         return []
     
     q_emb = get_embedding(query, model)
@@ -427,12 +427,12 @@ def cmd_ingest(args):
     data_dir = Path(args.data_dir) if args.data_dir else EVAL_DATA_DIR
     model = args.model or EMBED_MODEL
 
-    print(f"🚀 RAG 인제스트 시작")
+    print(f" RAG 인제스트 시작")
     print(f"   데이터: {data_dir}")
     print(f"   모델: {model}")
 
     # 1) Chunk
-    print(f"\n📦 1단계: 청킹")
+    print(f"\n 1단계: 청킹")
     chunks = load_all_chunks(data_dir)
     print(f"   총 {len(chunks)} chunks")
 
@@ -440,26 +440,26 @@ def cmd_ingest(args):
     embed_prov = detect_embed_provider()
 
     if embed_prov == "none":
-        print(f"\n⚠️ 임베딩 프로바이더 없음 — BM25 keyword 검색 모드로 동작")
+        print(f"\n 임베딩 프로바이더 없음 — BM25 keyword 검색 모드로 동작")
         print(f"   벡터 검색 사용: ~/.openclaw/.env 에 GEMINI_API_KEY 또는 OPENAI_API_KEY 추가")
         # 임베딩 없이 청크 저장 (BM25 전용)
         for c in chunks:
             c["embedding"] = []
-        print(f"\n💾 2단계: 저장 (BM25 전용)")
+        print(f"\n 2단계: 저장 (BM25 전용)")
         save_vector_store(chunks)
-        print(f"\n✅ 인제스트 완료 (BM25 모드)! {len(chunks)}건 저장")
+        print(f"\n 인제스트 완료 (BM25 모드)! {len(chunks)}건 저장")
         return
 
     # 2) Embed
-    print(f"\n🧠 2단계: 임베딩")
+    print(f"\n 2단계: 임베딩")
     print(f"   엔진: {embed_prov}")
     chunks = embed_chunks(chunks, model)
 
     # 3) Save
-    print(f"\n💾 3단계: 저장")
+    print(f"\n 3단계: 저장")
     save_vector_store(chunks)
 
-    print(f"\n✅ 인제스트 완료! {len(chunks)}건 벡터 저장소 생성")
+    print(f"\n 인제스트 완료! {len(chunks)}건 벡터 저장소 생성")
 
 
 def cmd_search(args):
@@ -470,11 +470,11 @@ def cmd_search(args):
     if use_rerank:
         # Top-10 후보 → LLM rerank → Top-k
         candidates = hybrid_search(args.query, top_k=10, model=model)
-        print(f"\n🔍 쿼리: {args.query} (rerank: ON, 후보 {len(candidates)}건)")
+        print(f"\n 쿼리: {args.query} (rerank: ON, 후보 {len(candidates)}건)")
         results = rerank(args.query, candidates, top_k=args.top_k)
     else:
         results = hybrid_search(args.query, top_k=args.top_k, model=model)
-        print(f"\n🔍 쿼리: {args.query}")
+        print(f"\n 쿼리: {args.query}")
 
     print(f"   결과: {len(results)}건\n")
     for i, r in enumerate(results, 1):
@@ -502,10 +502,10 @@ def cmd_eval(args):
     model = args.model or EMBED_MODEL
     store = load_vector_store()
     if not store:
-        print("❌ 벡터 저장소 없음. 먼저 ingest 실행 필요.")
+        print(" 벡터 저장소 없음. 먼저 ingest 실행 필요.")
         return
     
-    print(f"📊 RAG 품질 검증 (모델: {model}, 저장소: {len(store)}건)")
+    print(f" RAG 품질 검증 (모델: {model}, 저장소: {len(store)}건)")
     print(f"{'='*70}\n")
     
     results_log = []
@@ -547,11 +547,11 @@ def cmd_eval(args):
     # 결과 저장
     report_path = BASE_DIR / "rag_eval_report.json"
     report_path.write_text(json.dumps(results_log, ensure_ascii=False, indent=2))
-    print(f"📝 결과 저장: {report_path.name}")
+    print(f" 결과 저장: {report_path.name}")
     
     # 요약
     print(f"\n{'='*70}")
-    print("📈 요약")
+    print(" 요약")
     high_count = sum(1 for q in results_log for r in q["results"] if r["relevance"] == "HIGH")
     med_count = sum(1 for q in results_log for r in q["results"] if r["relevance"] == "MED")
     low_count = sum(1 for q in results_log for r in q["results"] if r["relevance"] == "LOW")

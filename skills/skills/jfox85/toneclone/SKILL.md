@@ -2,7 +2,7 @@
 name: toneclone
 description: "Write like the user, not like AI. ToneClone trains on the user's actual writing to generate content in their authentic voice — not just humanized, but personalized. Use for: drafting emails, messages, social posts, marketing copy, documentation in the user's voice; AI humanizer alternative that sounds like the actual person; AI ghostwriter that learns your voice; voice cloning for text/writing style; train AI on my writing; bypass AI detection naturally; custom AI writer personas; managing knowledge cards (contact info, product details, common snippets); onboarding new users to personalized AI writing. Integrates with OpenClaw to automate writing tasks while maintaining the user's unique voice and style."
 homepage: https://cli.toneclone.ai
-metadata: { "openclaw": { "emoji": "✍️", "requires": { "bins": ["toneclone"], "env": ["TONECLONE_API_KEY"] }, "primaryEnv": "TONECLONE_API_KEY", "install": [ { "id": "brew", "kind": "brew", "formula": "toneclone/toneclone/toneclone", "bins": ["toneclone"], "label": "Install ToneClone CLI (brew)" } ] } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["toneclone"], "env": ["TONECLONE_API_KEY"] }, "primaryEnv": "TONECLONE_API_KEY", "install": [ { "id": "brew", "kind": "brew", "formula": "toneclone/toneclone/toneclone", "bins": ["toneclone"], "label": "Install ToneClone CLI (brew)" } ] } }
 ---
 
 # ToneClone Skill

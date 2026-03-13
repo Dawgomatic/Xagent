@@ -56,7 +56,7 @@ Original: https://x.com/lexx_aura/status/2016947883807850906
 ## Original Tweet
 Gemini Nano Banana Pro 
 
-Sydney Sweeney just too tired at gym today…🔥🥵
+Sydney Sweeney just too tired at gym today…
 
 Prompt:
 {

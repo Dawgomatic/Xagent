@@ -70,10 +70,10 @@ def load_portfolio() -> list[dict]:
     # Validate first
     is_valid, warnings = validate_portfolio_csv(PORTFOLIO_FILE)
     for warning in warnings:
-        print(f"⚠️ Portfolio warning: {warning}", file=sys.stderr)
+        print(f" Portfolio warning: {warning}", file=sys.stderr)
 
     if not is_valid:
-        print("⚠️ Portfolio has errors - returning empty", file=sys.stderr)
+        print(" Portfolio has errors - returning empty", file=sys.stderr)
         return []
 
     try:
@@ -105,7 +105,7 @@ def load_portfolio() -> list[dict]:
             return portfolio
 
     except Exception as e:
-        print(f"⚠️ Error loading portfolio: {e}", file=sys.stderr)
+        print(f" Error loading portfolio: {e}", file=sys.stderr)
         return []
 
 
@@ -126,10 +126,10 @@ def list_portfolio(args):
     portfolio = load_portfolio()
     
     if not portfolio:
-        print("📂 Portfolio is empty. Use 'portfolio add <SYMBOL>' to add stocks.")
+        print(" Portfolio is empty. Use 'portfolio add <SYMBOL>' to add stocks.")
         return
     
-    print(f"\n📊 Portfolio ({len(portfolio)} stocks)\n")
+    print(f"\n Portfolio ({len(portfolio)} stocks)\n")
     
     # Group by Type then Category
     by_type = {}
@@ -162,7 +162,7 @@ def add_stock(args):
     
     # Check if already exists
     if any(s['symbol'].upper() == args.symbol.upper() for s in portfolio):
-        print(f"⚠️ {args.symbol.upper()} already in portfolio")
+        print(f" {args.symbol.upper()} already in portfolio")
         return
     
     new_stock = {
@@ -175,7 +175,7 @@ def add_stock(args):
     
     portfolio.append(new_stock)
     save_portfolio(portfolio)
-    print(f"✅ Added {args.symbol.upper()} to portfolio ({args.type})")
+    print(f" Added {args.symbol.upper()} to portfolio ({args.type})")
 
 
 def remove_stock(args):
@@ -186,11 +186,11 @@ def remove_stock(args):
     portfolio = [s for s in portfolio if s['symbol'].upper() != args.symbol.upper()]
     
     if len(portfolio) == original_len:
-        print(f"⚠️ {args.symbol.upper()} not found in portfolio")
+        print(f" {args.symbol.upper()} not found in portfolio")
         return
     
     save_portfolio(portfolio)
-    print(f"✅ Removed {args.symbol.upper()} from portfolio")
+    print(f" Removed {args.symbol.upper()} from portfolio")
 
 
 def import_csv(args):
@@ -198,7 +198,7 @@ def import_csv(args):
     import_path = Path(args.file)
     
     if not import_path.exists():
-        print(f"❌ File not found: {args.file}")
+        print(f" File not found: {args.file}")
         sys.exit(1)
     
     with open(import_path, 'r') as f:
@@ -217,12 +217,12 @@ def import_csv(args):
         })
     
     save_portfolio(normalized)
-    print(f"✅ Imported {len(normalized)} stocks from {args.file}")
+    print(f" Imported {len(normalized)} stocks from {args.file}")
 
 
 def create_interactive(args):
     """Interactive portfolio creation."""
-    print("\n📊 Portfolio Creator\n")
+    print("\n Portfolio Creator\n")
     print("Enter stocks one per line (format: SYMBOL or SYMBOL,Name,Category)")
     print("Type 'done' when finished.\n")
     
@@ -256,9 +256,9 @@ def create_interactive(args):
     
     if portfolio:
         save_portfolio(portfolio)
-        print(f"\n✅ Created portfolio with {len(portfolio)} stocks")
+        print(f"\n Created portfolio with {len(portfolio)} stocks")
     else:
-        print("\n⚠️ No stocks added")
+        print("\n No stocks added")
 
 
 def get_symbols(args=None):

@@ -52,7 +52,7 @@ async function resolveQuery(requestId) {
   console.log(`IPFS CID: ${query.ipfsCID}`);
   
   // 2. Fetch query details from IPFS
-  console.log('📥 Fetching query from IPFS...');
+  console.log(' Fetching query from IPFS...');
   const ipfsResponse = await axios.get(`https://ipfs.io/ipfs/${query.ipfsCID}`);
   const queryData = ipfsResponse.data;
   console.log(`Query: "${queryData.query}"`);
@@ -60,7 +60,7 @@ async function resolveQuery(requestId) {
   // 3. Use LLM to determine API call (this is where AI determines which API to use)
   // The agent reads api-config.json, finds API for the category,
   // reads API documentation, and uses LLM to construct the API call
-  console.log('🤖 Using LLM to determine API call...');
+  console.log(' Using LLM to determine API call...');
   console.log('   (Agent reads api-config.json + API docs, LLM constructs call dynamically)');
   
   // Example: LLM would return something like:
@@ -81,18 +81,18 @@ async function resolveQuery(requestId) {
   const answer = "Clear sky, 15°C"; // This would come from LLM extraction
   const source = "https://api.openweathermap.org/data/2.5/weather";
   
-  console.log(`✅ Answer extracted: "${answer}"`);
+  console.log(` Answer extracted: "${answer}"`);
   
   // 6. Approve bond
   const bondAmount = query.bondRequired;
   const balance = await token.balanceOf(wallet.address);
   
   if (balance < bondAmount) {
-    console.error('❌ Insufficient CLAWCLE balance for bond');
+    console.error(' Insufficient CLAWCLE balance for bond');
     return;
   }
   
-  console.log('💰 Approving bond...');
+  console.log(' Approving bond...');
   const approveTx = await token.approve(registryAddress, bondAmount);
   await approveTx.wait();
   
@@ -100,7 +100,7 @@ async function resolveQuery(requestId) {
   const encodedAnswer = ethers.toUtf8Bytes(answer);
   const agentId = process.env.YOUR_ERC8004_AGENT_ID;
   
-  console.log('📝 Submitting answer via resolveRequest()...');
+  console.log(' Submitting answer via resolveRequest()...');
   const resolveTx = await registry.resolveRequest(
     requestId,
     agentId,
@@ -109,10 +109,10 @@ async function resolveQuery(requestId) {
     false // isPrivateSource
   );
   
-  console.log('⏳ Waiting for confirmation...');
+  console.log(' Waiting for confirmation...');
   await resolveTx.wait();
   
-  console.log('✅ Answer submitted successfully!');
+  console.log(' Answer submitted successfully!');
   console.log(`   Transaction: ${resolveTx.hash}`);
 }
 

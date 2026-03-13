@@ -158,7 +158,7 @@ Examples:
     else:
         # Handle both success and API error responses
         if "error" in result:
-            print(f"❌ API Error: {result.get('error')}", file=sys.stderr)
+            print(f" API Error: {result.get('error')}", file=sys.stderr)
             if "details" in result:
                 print(f"   Details: {result['details']}", file=sys.stderr)
             sys.exit(1)
@@ -166,7 +166,7 @@ Examples:
         doc_id = result.get("id", "unknown")
         status = result.get("status", "unknown")
         tag_display = args.tag or "none"
-        print(f"✅ Stored to Supermemory cloud")
+        print(f" Stored to Supermemory cloud")
         print(f"   ID:     {doc_id}")
         print(f"   Status: {status}")
         print(f"   Tag:    {tag_display}")

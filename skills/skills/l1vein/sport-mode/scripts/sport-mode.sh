@@ -24,14 +24,14 @@ if [ "$ACTION" == "on" ]; then
         exit 1
     fi
 
-    echo "🏎️  Activating Sport Mode (Interval: $INTERVAL)..."
+    echo "  Activating Sport Mode (Interval: $INTERVAL)..."
     
     # 1. Patch Config
     openclaw config set agents.defaults.heartbeat.every "$INTERVAL"
     
     # 2. Update HEARTBEAT.md
     cat > "$HEARTBEAT_FILE" <<EOF
-# 🏎️ Sport Mode Active
+#  Sport Mode Active
 Target: High-frequency monitoring ($INTERVAL)
 
 ## Task
@@ -42,10 +42,10 @@ If the task is complete, run:
 \`skills/sport-mode/scripts/sport-mode.sh off\`
 EOF
     
-    echo "✅ Heartbeat set to $INTERVAL. Task written to HEARTBEAT.md."
+    echo " Heartbeat set to $INTERVAL. Task written to HEARTBEAT.md."
 
 elif [ "$ACTION" == "off" ]; then
-    echo "🐢 Deactivating Sport Mode..."
+    echo " Deactivating Sport Mode..."
     
     # 1. Patch Config (Default Frequency)
     openclaw config set agents.defaults.heartbeat.every "30m"
@@ -53,7 +53,7 @@ elif [ "$ACTION" == "off" ]; then
     # 2. Clear HEARTBEAT.md
     echo "" > "$HEARTBEAT_FILE"
     
-    echo "✅ Heartbeat reset to 30m. HEARTBEAT.md cleared."
+    echo " Heartbeat reset to 30m. HEARTBEAT.md cleared."
 
 else
     echo "Usage: $0 [on --task '...'] | [off]"

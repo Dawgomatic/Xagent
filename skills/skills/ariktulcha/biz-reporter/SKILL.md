@@ -14,7 +14,7 @@ description: >
   Notion, or Markdown file.
 metadata:
   openclaw:
-    emoji: "📊"
+    emoji: ""
 ---
 
 # Biz Reporter
@@ -63,25 +63,25 @@ Biz Reporter connects to the user's business tools, pulls key metrics, applies t
 Quick pulse check — 2-3 minutes to generate, meant for morning review.
 
 ```
-📊 Daily KPI Snapshot — [Date]
+ Daily KPI Snapshot — [Date]
 
-🌐 Website: [sessions] sessions ([+/-]% vs yesterday)
+ Website: [sessions] sessions ([+/-]% vs yesterday)
    Top page: [page] ([views] views)
    
-💰 Revenue: $[amount] ([+/-]% vs yesterday)
+ Revenue: $[amount] ([+/-]% vs yesterday)
    New customers: [count]
    
-📱 Social: [total engagement] across platforms
+ Social: [total engagement] across platforms
    Best post: [platform] — [description] ([engagement])
 
-⚡ Quick take: [One sentence AI analysis of the day]
+ Quick take: [One sentence AI analysis of the day]
 ```
 
 ### Weekly Marketing Report
 Comprehensive marketing performance overview.
 
 ```
-📈 Weekly Marketing Report — [Date Range]
+ Weekly Marketing Report — [Date Range]
 
 EXECUTIVE SUMMARY
 [2-3 sentence overview: what went well, what needs attention, key number]

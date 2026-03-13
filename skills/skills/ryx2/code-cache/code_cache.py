@@ -67,7 +67,7 @@ def cmd_search(args: argparse.Namespace) -> None:
         print(f"    ID: {cb.id}")
         print(f"    Language: {cb.language}")
         print(f"    Score: {match.combined_score:.2f} (similarity: {match.vector_score:.2f}, verdict: {match.verdict_score:.2f})")
-        print(f"    Votes: 👍 {match.thumbs_up} / 👎 {match.thumbs_down}")
+        print(f"    Votes:  {match.thumbs_up} /  {match.thumbs_down}")
         print(f"    Description: {cb.description[:100]}..." if len(cb.description) > 100 else f"    Description: {cb.description}")
         print()
     
@@ -100,7 +100,7 @@ def cmd_files(args: argparse.Namespace) -> None:
     for f in result.files:
         file_path = cache_path / f.filename
         file_path.write_text(f.source)
-        print(f"  📄 {file_path}")
+        print(f"   {file_path}")
     
     print(f"\n--- Add to LLM prompt ---\n{result.add_to_llm_prompt}")
 
@@ -144,7 +144,7 @@ def cmd_vote(args: argparse.Namespace) -> None:
         succeeded=args.up,
     )
     
-    vote = "👍" if args.up else "👎"
+    vote = "" if args.up else ""
     print(f"✓ Voted {vote} on code block: {args.code_block_id}")
 
 

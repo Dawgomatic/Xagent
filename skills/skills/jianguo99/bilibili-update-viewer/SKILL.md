@@ -1,7 +1,7 @@
 ---
 name: bilibili-update-viewer
 description: 查看B站UP主的最新视频、动态，检查UP主今天是否更新。触发词：B站、UP主、视频更新、今天更新了吗、最新视频、最新动态、查看UP主
-metadata: {"openclaw":{"emoji":"📺","requires":{"bins":["python3"]},"os":["darwin","linux","win32"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"]},"os":["darwin","linux","win32"]}}
 ---
 
 # B站UP主查看器

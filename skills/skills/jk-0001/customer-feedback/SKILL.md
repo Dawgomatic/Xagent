@@ -179,10 +179,10 @@ Not all feedback is equal. Some is gold. Most is noise. Your job is to filter.
 
 | Feedback | Frequency | Value Segment | Strategic Fit | Act? |
 |---|---|---|---|---|
-| "Add bulk export" | 15 mentions | Power users | Yes | ✅ Yes (high freq + strategic fit) |
-| "Support Android app" | 2 mentions | SMB | No | ❌ No (low freq + not strategic) |
-| "Dashboard loads slowly" | 30 mentions | All segments | Yes | ✅ Yes (high freq + prevents churn) |
-| "Can you integrate with [obscure tool]?" | 1 mention | One user | No | ❌ No (one-off request) |
+| "Add bulk export" | 15 mentions | Power users | Yes |  Yes (high freq + strategic fit) |
+| "Support Android app" | 2 mentions | SMB | No |  No (low freq + not strategic) |
+| "Dashboard loads slowly" | 30 mentions | All segments | Yes |  Yes (high freq + prevents churn) |
+| "Can you integrate with [obscure tool]?" | 1 mention | One user | No |  No (one-off request) |
 
 **How to say no to feedback:**
 ```

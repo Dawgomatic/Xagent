@@ -5,13 +5,13 @@
 **Consolidated:** 2026-02-15 (from v1/v2/v3)
 
 **Features:**
-- ✅ Pre-computed embedding index (instant semantic search)
-- ✅ Query cache (zero latency for repeated queries)
-- ✅ Deferred summary loading (only loads after final scoring)
-- ✅ Affect-weighted reranking (emotional resonance scoring)
-- ✅ FTS + semantic hybrid search
-- ✅ Time decay and recency boost
-- ✅ Configurable via environment variables
+-  Pre-computed embedding index (instant semantic search)
+-  Query cache (zero latency for repeated queries)
+-  Deferred summary loading (only loads after final scoring)
+-  Affect-weighted reranking (emotional resonance scoring)
+-  FTS + semantic hybrid search
+-  Time decay and recency boost
+-  Configurable via environment variables
 
 **Performance:**
 - Cold query: ~100-200ms
@@ -70,9 +70,9 @@ The `index.js` hook has been updated automatically.
 
 | Version | FTS | Semantic | Cache | Avg Latency |
 |---------|-----|----------|-------|-------------|
-| v1 | ✅ | ❌ | ❌ | 30ms |
-| v2 | ✅ | ✅ (slow) | ❌ | 500ms |
-| v3/canonical | ✅ | ✅ (fast) | ✅ | 100ms (cold), 5ms (cached) |
+| v1 |  |  |  | 30ms |
+| v2 |  |  (slow) |  | 500ms |
+| v3/canonical |  |  (fast) |  | 100ms (cold), 5ms (cached) |
 
 ## Future Work
 

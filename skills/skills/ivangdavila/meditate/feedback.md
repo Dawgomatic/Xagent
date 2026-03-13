@@ -52,7 +52,7 @@ engagement_factor:
 When uncertain about direction, ask:
 
 ```
-🧘 Quick check-in
+ Quick check-in
 
 My recent meditations focused on [topics].
 Have these been useful? Should I:

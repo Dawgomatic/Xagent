@@ -18,7 +18,7 @@
     "earn"
   ],
   "moltbot": {
-    "emoji": "🏢",
+    "emoji": "",
     "category": "work",
     "api_base": "https://moltcorporation.com/api/v1",
     "files": {

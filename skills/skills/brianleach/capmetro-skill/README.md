@@ -46,7 +46,7 @@ cd ~/.openclaw/skills/capmetro && npm install
 # One-time download of routes, stops, and schedules
 node scripts/capmetro.mjs refresh-gtfs
 
-# You're ready! 🎉
+# You're ready! 
 ```
 
 No API keys. No accounts. No environment variables. Just install and go.
@@ -160,9 +160,9 @@ node scripts/capmetro.mjs stops --near 30.267,-97.743 --radius 0.3
 
 | Route | Name | Type |
 |-------|------|------|
-| 550 | MetroRail Red Line | Rail (Leander ↔ Downtown) |
-| 801 | MetroRapid North/South | Rapid Bus (Tech Ridge ↔ Southpark Meadows) |
-| 803 | MetroRapid Burnet/South Lamar | Rapid Bus (Domain ↔ Westgate) |
+| 550 | MetroRail Red Line | Rail (Leander  Downtown) |
+| 801 | MetroRapid North/South | Rapid Bus (Tech Ridge  Southpark Meadows) |
+| 803 | MetroRapid Burnet/South Lamar | Rapid Bus (Domain  Westgate) |
 | 1 | N Lamar/S Congress | Local Bus |
 | 7 | Duval/Dove Springs | Local Bus |
 | 10 | S 1st/Red River | Local Bus |

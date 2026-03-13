@@ -28,11 +28,11 @@ else
 fi
 
 # Emojis
-SHIELD="🦞"
-CHECK="✅"
-WARN="⚠️"
-DANGER="🚨"
-SKULL="☠️"
+SHIELD=""
+CHECK=""
+WARN=""
+DANGER=""
+SKULL=""
 
 # Output mode
 JSON_OUTPUT=false
@@ -622,7 +622,7 @@ scan_skill() {
         done
         ;;
       blocked)
-        echo -e "  ${RED}⛔ BLOCKED${NC} — Skill or publisher is blocked"
+        echo -e "  ${RED} BLOCKED${NC} — Skill or publisher is blocked"
         for i in "${issues[@]}"; do
           echo -e "    ${RED}•${NC} $i"
         done

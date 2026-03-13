@@ -20,15 +20,15 @@
 ## Testing
 
 All 12 feature tests passing:
-- ✅ --help flag
-- ✅ --format markdown
-- ✅ --format plain
-- ✅ --no-color
-- ✅ --max-related 2
-- ✅ --max-related 10
-- ✅ --quiet
-- ✅ Combined options (--format markdown --no-color)
-- ✅ Combined options (--quiet --max-related 3)
-- ✅ Output to file
-- ✅ Invalid format validation
-- ✅ Default format (text with colors)
+-  --help flag
+-  --format markdown
+-  --format plain
+-  --no-color
+-  --max-related 2
+-  --max-related 10
+-  --quiet
+-  Combined options (--format markdown --no-color)
+-  Combined options (--quiet --max-related 3)
+-  Output to file
+-  Invalid format validation
+-  Default format (text with colors)

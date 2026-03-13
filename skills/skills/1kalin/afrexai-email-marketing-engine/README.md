@@ -36,7 +36,7 @@ clawhub install afrexai-email-marketing-engine
 "Set up email authentication for mydomain.com"
 ```
 
-## ⚡ Level Up
+##  Level Up
 
 This skill gives you the methodology. Want the full industry playbook?
 
@@ -47,7 +47,7 @@ This skill gives you the methodology. Want the full industry playbook?
 - **Ecommerce Pack** — Cart recovery, post-purchase flows, seasonal campaigns
 - **Recruitment Pack** — Candidate outreach, employer branding, talent nurture
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Find and qualify leads
 - [afrexai-seo-content-engine](https://clawhub.com/skills/afrexai-seo-content-engine) — SEO content at scale

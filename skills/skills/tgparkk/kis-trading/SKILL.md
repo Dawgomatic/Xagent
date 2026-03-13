@@ -3,7 +3,7 @@ name: kis-trading
 description: "한국투자증권(KIS) Open API를 이용한 국내 주식 트레이딩. 잔고 조회, 시세 확인, 매수/매도 주문, 매매 내역, 시장 개황 등. | Korean stock trading via KIS (Korea Investment & Securities) Open API. Balance, quotes, buy/sell orders, trade history, market overview."
 metadata:
   openclaw:
-    emoji: "📈"
+    emoji: ""
     requires:
       bins: ["python3"]
       pip: ["requests"]
@@ -68,7 +68,7 @@ python3 scripts/quote.py --config ~/.kis-trading/config.ini --name 삼성전자
 
 "삼성전자 10주 매수", "카카오 5주 매도"
 
-⚠️ **주문은 반드시 사용자에게 확인을 받은 후 실행할 것!**
+ **주문은 반드시 사용자에게 확인을 받은 후 실행할 것!**
 
 ```bash
 # 시장가 매수

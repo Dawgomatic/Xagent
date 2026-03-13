@@ -1,7 +1,7 @@
 ---
 name: Contacts
 description: Build a personal contact system with details, interactions, birthdays, and smart reminders.
-metadata: {"clawdbot":{"emoji":"👥","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

@@ -3,7 +3,7 @@ name: Asura Skill
 version: 1.0.0
 description: "Krump Knowledge and Personality Identity — embodies Asura's legacy, lineage, and technical expertise"
 homepage: https://github.com/arunnadarasa/asura-krump-skill
-metadata: {"openclaw":{"emoji":"🕺","category":"dance","style":"Krump"}}
+metadata: {"openclaw":{"emoji":"","category":"dance","style":"Krump"}}
 ---
 
 # Asura Skill - Krump Knowledge and Personality Identity

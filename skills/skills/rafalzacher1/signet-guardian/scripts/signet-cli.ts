@@ -579,7 +579,7 @@ async function main(): Promise<void> {
     const completed = entries.filter((e) => e.status === 'completed');
     const total = completed.reduce((sum, e) => sum + (typeof e.amount === 'number' ? e.amount : 0), 0);
     const currency = completed[0]?.currency || 'GBP';
-    console.log(`\n📊 Signet Guardian — ${period}`);
+    console.log(`\n Signet Guardian — ${period}`);
     console.log(`Total spent: ${currency} ${total.toFixed(2)} (${completed.length} transactions)`);
     console.log(`Denials: ${entries.filter((e) => e.status === 'denied').length}`);
     console.log('\nRecent:');

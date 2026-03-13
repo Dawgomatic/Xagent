@@ -240,11 +240,11 @@ Continuing with the review...
 ```
 Here's what I've found so far:
 
-1. ✅ Input validation looks good
-2. ✅ SQL injection prevention is solid
-3. ⚠️ Rate limiting could be improved (line 45)
-4. 🔴 Password hashing concern (waiting for human input on phrasing)
-5. ✅ Session management is correct
+1.  Input validation looks good
+2.  SQL injection prevention is solid
+3.  Rate limiting could be improved (line 45)
+4.  Password hashing concern (waiting for human input on phrasing)
+5.  Session management is correct
 ```
 
 **[5 minutes later, agent checks pending questions]**

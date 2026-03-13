@@ -243,7 +243,7 @@ Based on analysis, recommend one of:
 Create one per direct competitor:
 
 ```markdown
-# 🏆 Battlecard: Us vs [Competitor]
+#  Battlecard: Us vs [Competitor]
 **Last Updated:** YYYY-MM-DD | **Confidence:** High/Medium/Low
 
 ## Quick Stats
@@ -268,7 +268,7 @@ Create one per direct competitor:
 1. **[Reason 1]**: [And how to counter it]
 2. **[Reason 2]**: [And how to counter it]
 
-## Landmines to Plant 🧨
+## Landmines to Plant 
 Questions to ask the prospect that expose competitor weaknesses:
 1. "Ask them how they handle [weakness area] — you'll find it requires [workaround]"
 2. "Request a demo of [specific feature] — it's not as deep as it looks"
@@ -413,16 +413,16 @@ Set up monitoring for each direct competitor:
 ```markdown
 ## Competitive Intel Brief — Week of [Date]
 
-### 🔴 Critical (action needed)
+###  Critical (action needed)
 - [Competitor X] launched [feature] that directly competes with our [feature]
   - Impact: [assessment]
   - Recommended response: [action]
 
-### 🟡 Notable (monitor)
+###  Notable (monitor)
 - [Competitor Y] raised Series C ($40M) — expect aggressive hiring/marketing
 - [Competitor Z] changed pricing model from per-seat to usage-based
 
-### 🟢 Informational
+###  Informational
 - [Competitor X] published blog post about [topic]
 - [Competitor Y] hiring 3 new enterprise AEs in EMEA
 
@@ -503,13 +503,13 @@ After mapping all competitors, look for:
 - Track platform's acquisition history in your space
 
 ### Competitor Intelligence Ethics
-- ✅ Public information (websites, press, job postings, reviews, patents)
-- ✅ Customer feedback about competitors (win/loss interviews)
-- ✅ Product trials and demos (sign up normally)
-- ❌ Fake identities to access gated content
-- ❌ Poaching employees for intel
-- ❌ Accessing confidential documents
-- ❌ Reverse engineering protected code
+-  Public information (websites, press, job postings, reviews, patents)
+-  Customer feedback about competitors (win/loss interviews)
+-  Product trials and demos (sign up normally)
+-  Fake identities to access gated content
+-  Poaching employees for intel
+-  Accessing confidential documents
+-  Reverse engineering protected code
 
 ---
 

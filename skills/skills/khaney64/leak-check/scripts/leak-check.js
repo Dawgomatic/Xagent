@@ -195,15 +195,15 @@ function scanFile(filePath, credentials, matchers) {
 }
 
 function formatDiscordOutput(leaks, filesScanned, credsChecked) {
-  const lines = ['🔐 **Credential Leak Check**'];
+  const lines = [' **Credential Leak Check**'];
 
   if (leaks.length === 0) {
-    lines.push(`✅ No leaked credentials found (checked ${filesScanned} files, ${credsChecked} credentials)`);
+    lines.push(` No leaked credentials found (checked ${filesScanned} files, ${credsChecked} credentials)`);
     return lines.join('\n');
   }
 
   lines.push('');
-  lines.push(`⚠️ **${leaks.length} leaked credential${leaks.length === 1 ? '' : 's'} found**`);
+  lines.push(` **${leaks.length} leaked credential${leaks.length === 1 ? '' : 's'} found**`);
 
   // Group by credential name
   const grouped = {};
@@ -276,7 +276,7 @@ function main() {
         message: 'No credentials configured'
       }, null, 2));
     } else {
-      console.log('🔐 **Credential Leak Check**');
+      console.log(' **Credential Leak Check**');
       console.log('No credentials configured in leak-check.json');
     }
     return;

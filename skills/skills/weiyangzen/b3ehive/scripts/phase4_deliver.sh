@@ -6,7 +6,7 @@ set -euo pipefail
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 readonly WORKSPACE="${SCRIPT_DIR}/workspace"
 
-echo "🐝 Phase 4: Final Delivery..."
+echo " Phase 4: Final Delivery..."
 
 # Create final directory
 mkdir -p "${WORKSPACE}/final"
@@ -183,7 +183,7 @@ if [[ $assertions_passed -ne $assertions_total ]]; then
 fi
 
 echo ""
-echo "✅ Phase 4 complete: Final solution delivered"
-echo "📁 Results: ${WORKSPACE}/final/"
-echo "📊 Report: ${WORKSPACE}/COMPARISON_REPORT.md"
-echo "📝 Rationale: ${WORKSPACE}/DECISION_RATIONALE.md"
+echo " Phase 4 complete: Final solution delivered"
+echo " Results: ${WORKSPACE}/final/"
+echo " Report: ${WORKSPACE}/COMPARISON_REPORT.md"
+echo " Rationale: ${WORKSPACE}/DECISION_RATIONALE.md"

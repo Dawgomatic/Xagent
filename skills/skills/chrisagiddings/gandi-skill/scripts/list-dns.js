@@ -22,11 +22,11 @@ let domain;
 try {
   domain = sanitizeDomain(rawDomain);
 } catch (error) {
-  console.error(`❌ Invalid domain: ${error.message}`);
+  console.error(` Invalid domain: ${error.message}`);
   process.exit(1);
 }
 
-console.log(`🔍 Fetching DNS records for ${domain}...\n`);
+console.log(` Fetching DNS records for ${domain}...\n`);
 
 try {
   // First verify domain exists and uses LiveDNS
@@ -35,8 +35,8 @@ try {
     domainInfo = await getDomain(domain);
   } catch (error) {
     if (error.statusCode === 404) {
-      console.log(`❌ Domain "${domain}" not found in your account.`);
-      console.log('\n💡 Run: node list-domains.js');
+      console.log(` Domain "${domain}" not found in your account.`);
+      console.log('\n Run: node list-domains.js');
       process.exit(1);
     }
     throw error;
@@ -44,9 +44,9 @@ try {
   
   // Check if using LiveDNS
   if (!domainInfo.services || !domainInfo.services.includes('gandilivedns')) {
-    console.log(`⚠️  Domain "${domain}" is not using Gandi LiveDNS.`);
+    console.log(`  Domain "${domain}" is not using Gandi LiveDNS.`);
     console.log('\nCurrent services:', domainInfo.services?.join(', ') || 'none');
-    console.log('\n💡 To use LiveDNS, attach it in Gandi admin panel.');
+    console.log('\n To use LiveDNS, attach it in Gandi admin panel.');
     process.exit(1);
   }
   
@@ -106,12 +106,12 @@ try {
   }
   
 } catch (error) {
-  console.log('❌ Error:', error.message);
+  console.log(' Error:', error.message);
   
   if (error.statusCode === 401 || error.statusCode === 403) {
-    console.log('\n💡 Authentication error. Run: node test-auth.js');
+    console.log('\n Authentication error. Run: node test-auth.js');
   } else if (error.statusCode === 404) {
-    console.log('\n💡 Domain not found. Check spelling or run: node list-domains.js');
+    console.log('\n Domain not found. Check spelling or run: node list-domains.js');
   }
   
   process.exit(1);

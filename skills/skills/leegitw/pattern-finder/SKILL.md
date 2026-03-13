@@ -3,7 +3,7 @@ name: Pattern Finder
 description: Discover what two sources agree on — find the signal in the noise.
 homepage: https://github.com/Obviously-Not/patent-skills/tree/main/pattern-finder
 user-invocable: true
-emoji: 🧭
+emoji: 
 tags:
   - pattern-discovery
   - comparison

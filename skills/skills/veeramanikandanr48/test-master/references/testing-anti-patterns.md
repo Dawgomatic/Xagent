@@ -17,7 +17,7 @@ When tests verify mock behavior instead of actual functionality, they provide fa
 **The Problem:** Verifying that mocks exist and were called, rather than testing actual component output.
 
 ```typescript
-// ❌ BAD: Testing the mock, not the behavior
+//  BAD: Testing the mock, not the behavior
 it('should call the API', () => {
   const mockApi = jest.fn().mockResolvedValue({ data: 'test' });
   const service = new UserService(mockApi);
@@ -29,7 +29,7 @@ it('should call the API', () => {
 ```
 
 ```typescript
-// ✅ GOOD: Testing actual behavior
+//  GOOD: Testing actual behavior
 it('should return user data from API', async () => {
   const mockApi = jest.fn().mockResolvedValue({ id: 1, name: 'Alice' });
   const service = new UserService(mockApi);
@@ -49,7 +49,7 @@ it('should return user data from API', async () => {
 **The Problem:** Adding methods to production classes solely for test setup or cleanup.
 
 ```typescript
-// ❌ BAD: Production code polluted with test concerns
+//  BAD: Production code polluted with test concerns
 class UserCache {
   private cache: Map<number, User> = new Map();
 
@@ -65,7 +65,7 @@ class UserCache {
 ```
 
 ```typescript
-// ✅ GOOD: Test utilities separate from production
+//  GOOD: Test utilities separate from production
 // production/UserCache.ts
 class UserCache {
   private cache: Map<number, User> = new Map();
@@ -90,7 +90,7 @@ function createFreshCache(): UserCache {
 **The Problem:** Over-mocking without grasping side effects, leading to tests that pass but hide real issues.
 
 ```typescript
-// ❌ BAD: Mocking everything without understanding
+//  BAD: Mocking everything without understanding
 it('should process order', async () => {
   jest.mock('./inventory');
   jest.mock('./payment');
@@ -104,7 +104,7 @@ it('should process order', async () => {
 ```
 
 ```typescript
-// ✅ GOOD: Strategic mocking with real components where possible
+//  GOOD: Strategic mocking with real components where possible
 it('should process order with real inventory check', async () => {
   // Real inventory service against test database
   const inventory = new InventoryService(testDb);
@@ -129,7 +129,7 @@ it('should process order with real inventory check', async () => {
 **The Problem:** Partial mock responses missing downstream fields that production code expects.
 
 ```typescript
-// ❌ BAD: Incomplete mock response
+//  BAD: Incomplete mock response
 const mockUserApi = jest.fn().mockResolvedValue({
   id: 1,
   name: 'Test User'
@@ -140,7 +140,7 @@ const mockUserApi = jest.fn().mockResolvedValue({
 ```
 
 ```typescript
-// ✅ GOOD: Complete mock matching real API response
+//  GOOD: Complete mock matching real API response
 const mockUserApi = jest.fn().mockResolvedValue({
   id: 1,
   name: 'Test User',
@@ -168,7 +168,7 @@ const mockUserApi = jest.fn().mockResolvedValue(
 **The Problem:** Treating testing as optional follow-up work rather than integral to development.
 
 ```typescript
-// ❌ BAD: "We'll add tests later"
+//  BAD: "We'll add tests later"
 // Day 1: Write 500 lines of code
 // Day 2: Write 500 more lines
 // Day 3: "We need to ship, tests can wait"
@@ -177,7 +177,7 @@ const mockUserApi = jest.fn().mockResolvedValue(
 ```
 
 ```typescript
-// ✅ GOOD: Tests are part of implementation
+//  GOOD: Tests are part of implementation
 // Write failing test
 it('should reject duplicate usernames', async () => {
   await createUser({ username: 'alice' });

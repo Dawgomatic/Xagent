@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="https://uxdecisions.com">📖 Learn more at uxdecisions.com</a> •
+  <a href="https://uxdecisions.com"> Learn more at uxdecisions.com</a> •
   <a href="https://clawdhub.com/skills/ux-decisions">ClawdHub</a> •
   <a href="https://npmjs.com/package/ux-decisions">npm</a>
 </p>

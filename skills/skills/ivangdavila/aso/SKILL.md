@@ -1,7 +1,7 @@
 ---
 name: ASO
 description: Optimize app store listings with keyword research, A/B testing, and conversion tactics for iOS and Android.
-metadata: {"clawdbot":{"emoji":"📲","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # App Store Optimization Rules

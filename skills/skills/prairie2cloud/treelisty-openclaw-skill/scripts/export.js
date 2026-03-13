@@ -274,7 +274,7 @@ function toHTML(tree, options = {}) {
             html += '<ul style="list-style: none; padding-left: 20px;">';
             for (const subtask of item.subtasks) {
               const done = subtask.tracking?.status === 'completed';
-              const icon = done ? '✅' : '⬜';
+              const icon = done ? '' : '';
               html += `<li>${icon} ${escapeHtml(subtask.name)}</li>`;
             }
             html += '</ul>';

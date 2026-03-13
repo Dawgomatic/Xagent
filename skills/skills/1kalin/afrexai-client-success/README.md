@@ -1,4 +1,4 @@
-# Client Success & Revenue Expansion 🖤💛
+# Client Success & Revenue Expansion 
 
 **The complete retention operating system for AI agents.** Health scoring, onboarding playbooks, QBR frameworks, churn prevention, expansion revenue, payment recovery, and reactivation campaigns — all in one skill.
 
@@ -33,21 +33,21 @@ Tell your agent:
 
 | Feature | Others | This |
 |---|---|---|
-| Health scoring model | ❌ | ✅ 5-dimension, 0-100 weighted |
+| Health scoring model |  |  5-dimension, 0-100 weighted |
 | Onboarding framework | Basic checklist | 90-day day-by-day playbook |
 | Save playbook | "Reach out" | 14 signals + 5-stage intervention |
 | Payment recovery | Not covered | Full involuntary churn prevention |
 | Expansion playbook | "Upsell more" | 5 triggers + pricing psychology |
 | Reactivation | Generic emails | 6-stage timed sequence with benchmarks |
-| Industry benchmarks | ❌ | ✅ 6 industries |
+| Industry benchmarks |  |  6 industries |
 
-## ⚡ Level Up
+##  Level Up
 
 This free skill gives you the complete retention framework. Want industry-specific context packs with vertical playbooks, competitor intelligence, and revenue optimization?
 
 **[$47 Context Packs](https://afrexai-cto.github.io/context-packs/)** — Available for SaaS, Healthcare, Legal, Construction, Ecommerce, Fintech, Real Estate, Recruitment, Manufacturing, and Professional Services.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Automated lead generation & enrichment
 - [afrexai-proposal-engine](https://clawhub.com/skills/afrexai-proposal-engine) — Win more deals with structured proposals

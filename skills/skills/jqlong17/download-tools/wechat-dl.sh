@@ -19,7 +19,7 @@ echo "============================================"
 echo "  微信文章下载工具"
 echo "============================================"
 echo ""
-echo "📥 正在下载: $URL"
+echo " 正在下载: $URL"
 
 curl -s -L "$URL" \
     -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
@@ -28,7 +28,7 @@ curl -s -L "$URL" \
     > /tmp/wechat_tmp.html
 
 if ! grep -q "js_content" /tmp/wechat_tmp.html; then
-    echo "❌ 获取页面失败"
+    echo " 获取页面失败"
     rm -f /tmp/wechat_tmp.html
     exit 1
 fi
@@ -46,9 +46,9 @@ sed -n '/id="js_content"/,/<\/div>/p' /tmp/wechat_tmp.html | \
 rm -f /tmp/wechat_tmp.html
 
 if [ -s "${OUTPUT}.txt" ]; then
-    echo "✅ 成功保存到: ${OUTPUT}.txt"
-    echo "📊 文件大小: $(ls -lh ${OUTPUT}.txt | awk '{print $5}')"
+    echo " 成功保存到: ${OUTPUT}.txt"
+    echo " 文件大小: $(ls -lh ${OUTPUT}.txt | awk '{print $5}')"
 else
-    echo "❌ 提取内容失败，可能需要微信登录"
+    echo " 提取内容失败，可能需要微信登录"
     exit 1
 fi

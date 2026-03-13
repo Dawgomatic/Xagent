@@ -34,7 +34,7 @@ class ResearchAgent:
     
     async def search_with_memory(self, query):
         """Perform search but check if we've researched this before"""
-        print(f"\n🔍 Researching: '{query}'")
+        print(f"\n Researching: '{query}'")
         
         # Retrieve all past logs
         print("   Checking past research...")
@@ -57,13 +57,13 @@ class ResearchAgent:
         
         # Report findings
         if similar_searches:
-            print(f"   💡 Found {len(similar_searches)} similar past search(es):")
+            print(f"    Found {len(similar_searches)} similar past search(es):")
             for search in similar_searches[:3]:  # Show first 3
                 print(f"      - '{search['query']}' ({search['timestamp']})")
             if len(similar_searches) > 3:
                 print(f"      ... and {len(similar_searches) - 3} more")
         else:
-            print("   ℹ️  No similar past searches found")
+            print("     No similar past searches found")
         
         # Simulate new search
         results_count = 10
@@ -87,7 +87,7 @@ class ResearchAgent:
     
     async def analyze_trends(self):
         """Analyze research patterns from history"""
-        print("\n📊 Analyzing research trends...")
+        print("\n Analyzing research trends...")
         
         history = await self.logger.get_history()
         
@@ -122,7 +122,7 @@ class ResearchAgent:
     
     async def generate_summary(self):
         """Generate session summary"""
-        print("\n📝 Generating session summary...")
+        print("\n Generating session summary...")
         
         history = await self.logger.get_history()
         
@@ -172,23 +172,23 @@ class ResearchAgent:
         """Complete session and flush logs"""
         await self.generate_summary()
         
-        print("\n💾 Flushing logs to blockchain...")
+        print("\n Flushing logs to blockchain...")
         try:
             tx_id = await self.logger.flush()
             print(f"✓ Session archived to blockchain")
-            print(f"🔗 Transaction: https://whatsonchain.com/tx/{tx_id}")
+            print(f" Transaction: https://whatsonchain.com/tx/{tx_id}")
             return tx_id
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f" Error: {e}")
             return None
 
 
 async def main():
-    print("🧠 OpenSoul Research Agent Example\n")
+    print(" OpenSoul Research Agent Example\n")
     
     # Check prerequisites
     if not os.getenv("BSV_PRIV_WIF"):
-        print("❌ Error: BSV_PRIV_WIF not set")
+        print(" Error: BSV_PRIV_WIF not set")
         return
     
     # Create agent
@@ -205,7 +205,7 @@ async def main():
     # Finish session
     await agent.finish()
     
-    print("\n✅ Research session complete!")
+    print("\n Research session complete!")
 
 
 if __name__ == "__main__":

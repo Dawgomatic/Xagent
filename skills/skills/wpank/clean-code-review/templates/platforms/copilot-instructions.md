@@ -17,16 +17,16 @@ Apply these principles to every piece of code:
 
 ```
 // Variables — reveal intent
-✅ userCount, isAuthenticated, orderTotal
-❌ n, flag, x
+ userCount, isAuthenticated, orderTotal
+ n, flag, x
 
 // Functions — verb + noun
-✅ getUserById(), calculateTotal(), sendEmail()
-❌ user(), calc(), email()
+ getUserById(), calculateTotal(), sendEmail()
+ user(), calc(), email()
 
 // Booleans — question form
-✅ isActive, hasPermission, canEdit
-❌ active, permission, edit
+ isActive, hasPermission, canEdit
+ active, permission, edit
 ```
 
 ## Function Structure
@@ -34,7 +34,7 @@ Apply these principles to every piece of code:
 Keep functions small (5–20 lines), with max 3 arguments. Use guard clauses:
 
 ```typescript
-// ✅ Guard clauses — flat and readable
+//  Guard clauses — flat and readable
 function processOrder(order: Order): Result {
   if (!order) return { error: 'No order' };
   if (!order.items.length) return { error: 'Empty order' };

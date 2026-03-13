@@ -10,13 +10,13 @@ CYAN='\033[0;36m'
 DIM='\033[2m'
 NC='\033[0m'
 
-echo -e "${CYAN}🦾 JARVIS UI Setup${NC}"
+echo -e "${CYAN} JARVIS UI Setup${NC}"
 echo ""
 
 # 檢查依賴
 echo "Checking dependencies..."
-command -v node >/dev/null 2>&1 || { echo -e "${RED}❌ Node.js required (v20+)${NC}"; exit 1; }
-command -v npm >/dev/null 2>&1 || { echo -e "${RED}❌ npm required${NC}"; exit 1; }
+command -v node >/dev/null 2>&1 || { echo -e "${RED} Node.js required (v20+)${NC}"; exit 1; }
+command -v npm >/dev/null 2>&1 || { echo -e "${RED} npm required${NC}"; exit 1; }
 
 # npm install
 echo "Installing dependencies..."
@@ -44,21 +44,21 @@ if [ ! -f ".env" ] || ! grep -q "GATEWAY_TOKEN" .env 2>/dev/null; then
   
   if [ -n "$TOKEN" ]; then
     echo "GATEWAY_TOKEN=$TOKEN" > .env
-    echo -e "${GREEN}✅ Gateway token auto-detected and saved to .env${NC}"
+    echo -e "${GREEN} Gateway token auto-detected and saved to .env${NC}"
   else
-    echo -e "${CYAN}⚠️  Could not auto-detect Gateway token.${NC}"
+    echo -e "${CYAN}  Could not auto-detect Gateway token.${NC}"
     echo -e "   Set it manually: ${DIM}echo \"GATEWAY_TOKEN=your_token\" > .env${NC}"
     echo -e "   Find it in: ${DIM}~/.openclaw/openclaw.json → gateway.token${NC}"
   fi
 fi
 
 echo ""
-echo -e "${GREEN}✅ Installation complete!${NC}"
+echo -e "${GREEN} Installation complete!${NC}"
 echo ""
 
 # edge-tts 檢查
 if ! python3 -m edge_tts --version >/dev/null 2>&1; then
-  echo -e "${CYAN}📢 TTS setup (optional):${NC}"
+  echo -e "${CYAN} TTS setup (optional):${NC}"
   echo -e "     ${DIM}pip install edge-tts${NC}"
   echo ""
 fi
@@ -77,7 +77,7 @@ echo -e "     ${DIM}# Edit config.local.json — change name, emoji, port, etc.$
 echo ""
 echo -e "${DIM}For production (auto-restart): npm i -g pm2 && pm2 start server/index.js --name jarvis --node-args=\"--env-file=.env\"${NC}"
 echo ""
-echo -e "${CYAN}🦾 Enjoy your JARVIS!${NC}"
+echo -e "${CYAN} Enjoy your JARVIS!${NC}"
 echo ""
-echo -e "${DIM}⚠️  Remote access? Add to ~/.openclaw/openclaw.json:${NC}"
+echo -e "${DIM}  Remote access? Add to ~/.openclaw/openclaw.json:${NC}"
 echo -e "${DIM}   { \"gateway\": { \"controlUi\": { \"allowInsecureAuth\": true } } }${NC}"

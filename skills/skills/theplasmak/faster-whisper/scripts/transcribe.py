@@ -504,7 +504,7 @@ def to_html(result):
   </style>
 </head>
 <body>
-  <h1>📝 {file_name}</h1>
+  <h1> {file_name}</h1>
   <div class="meta">Language: {language} &nbsp;·&nbsp; Duration: {dur_str}</div>
   <div class="transcript">
     {"".join(segs_html)}
@@ -565,7 +565,7 @@ def extract_channel(audio_path, channel, quiet=False):
 
     if not shutil.which("ffmpeg"):
         if not quiet:
-            print("⚠️  ffmpeg not found — cannot extract channel; using full mix", file=sys.stderr)
+            print("  ffmpeg not found — cannot extract channel; using full mix", file=sys.stderr)
         return audio_path, None
 
     pan = "c0" if channel == "left" else "c1"
@@ -577,13 +577,13 @@ def extract_channel(audio_path, channel, quiet=False):
         tmp_path,
     ]
     if not quiet:
-        print(f"🎚️  Extracting {channel} channel...", file=sys.stderr)
+        print(f"  Extracting {channel} channel...", file=sys.stderr)
     try:
         subprocess.run(cmd, check=True, capture_output=True)
         return tmp_path, tmp_path
     except subprocess.CalledProcessError:
         if not quiet:
-            print("⚠️  Channel extraction failed; using full mix", file=sys.stderr)
+            print("  Channel extraction failed; using full mix", file=sys.stderr)
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
         return audio_path, None
@@ -784,14 +784,14 @@ def burn_subtitles(video_path, srt_content, output_path, quiet=False):
             output_path,
         ]
         if not quiet:
-            print(f"🎬 Burning subtitles into {output_path}...", file=sys.stderr)
+            print(f" Burning subtitles into {output_path}...", file=sys.stderr)
             subprocess.run(cmd, check=True)
         else:
             subprocess.run(cmd, check=True, capture_output=True)
         if not quiet:
-            print(f"✅ Burned: {output_path}", file=sys.stderr)
+            print(f" Burned: {output_path}", file=sys.stderr)
     except subprocess.CalledProcessError as e:
-        print(f"⚠️  Burn-in failed: {e}", file=sys.stderr)
+        print(f"  Burn-in failed: {e}", file=sys.stderr)
     finally:
         if tmp_srt and os.path.exists(tmp_srt):
             os.unlink(tmp_srt)
@@ -821,7 +821,7 @@ def download_url(url, quiet=False):
     cmd.append(url)
 
     if not quiet:
-        print("⬇️  Downloading audio from URL...", file=sys.stderr)
+        print("  Downloading audio from URL...", file=sys.stderr)
 
     try:
         subprocess.run(cmd, check=True, capture_output=quiet)
@@ -853,7 +853,7 @@ def fetch_rss_episodes(rss_url, latest=5, quiet=False):
     import xml.etree.ElementTree as ET
 
     if not quiet:
-        print(f"📡 Fetching RSS feed: {rss_url}", file=sys.stderr)
+        print(f" Fetching RSS feed: {rss_url}", file=sys.stderr)
 
     try:
         req = urllib.request.Request(
@@ -936,14 +936,14 @@ def preprocess_audio(audio_path, normalize=False, denoise=False, quiet=False):
             labels.append("normalizing")
         if denoise:
             labels.append("denoising")
-        print(f"🔧 Preprocessing: {' + '.join(labels)}...", file=sys.stderr)
+        print(f" Preprocessing: {' + '.join(labels)}...", file=sys.stderr)
 
     try:
         subprocess.run(cmd, check=True, capture_output=True)
         return tmp_path, tmp_path
     except subprocess.CalledProcessError:
         if not quiet:
-            print("⚠️  Preprocessing failed, using original audio", file=sys.stderr)
+            print("  Preprocessing failed, using original audio", file=sys.stderr)
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
         return audio_path, None
@@ -980,7 +980,7 @@ def run_alignment(audio_path, segments, quiet=False):
         sys.exit(1)
 
     if not quiet:
-        print("🎯 Refining word timestamps (wav2vec2)...", file=sys.stderr)
+        print(" Refining word timestamps (wav2vec2)...", file=sys.stderr)
 
     # --- load / cache model ---------------------------------------------------
     if "model" not in _align_cache:
@@ -1115,7 +1115,7 @@ def run_diarization(audio_path, segments, quiet=False, min_speakers=None, max_sp
         sys.exit(1)
 
     if not quiet:
-        print("🔊 Running speaker diarization...", file=sys.stderr)
+        print(" Running speaker diarization...", file=sys.stderr)
 
     try:
         pretrained_kwargs = {}
@@ -1265,7 +1265,7 @@ def export_speakers_audio(audio_path, segments, output_dir, quiet=False):
     Requires ffmpeg and diarized segments (speaker field on each segment).
     """
     if not shutil.which("ffmpeg"):
-        print("⚠️  --export-speakers requires ffmpeg in PATH", file=sys.stderr)
+        print("  --export-speakers requires ffmpeg in PATH", file=sys.stderr)
         return
 
     # Group by speaker
@@ -1278,7 +1278,7 @@ def export_speakers_audio(audio_path, segments, output_dir, quiet=False):
 
     if not speaker_ranges:
         print(
-            "⚠️  No speaker-labeled segments found — diarization produced no speakers.\n"
+            "  No speaker-labeled segments found — diarization produced no speakers.\n"
             "     This usually means no speech was detected in the audio.",
             file=sys.stderr,
         )
@@ -1304,7 +1304,7 @@ def export_speakers_audio(audio_path, segments, output_dir, quiet=False):
         total_dur = sum(e - s for s, e in ranges)
         if not quiet:
             print(
-                f"🎤 Exporting {speaker}: {len(ranges)} segment(s), "
+                f" Exporting {speaker}: {len(ranges)} segment(s), "
                 f"{format_duration(total_dur)}...",
                 file=sys.stderr,
             )
@@ -1312,12 +1312,12 @@ def export_speakers_audio(audio_path, segments, output_dir, quiet=False):
         try:
             subprocess.run(cmd, check=True, stderr=subprocess.DEVNULL if quiet else None)
             if not quiet:
-                print(f"   💾 {out_file}", file=sys.stderr)
+                print(f"    {out_file}", file=sys.stderr)
         except subprocess.CalledProcessError as e:
-            print(f"⚠️  Failed to export {speaker}: {e}", file=sys.stderr)
+            print(f"  Failed to export {speaker}: {e}", file=sys.stderr)
 
     if not quiet:
-        print(f"✅ Speaker audio saved to: {out_dir}", file=sys.stderr)
+        print(f" Speaker audio saved to: {out_dir}", file=sys.stderr)
 
 
 # ---------------------------------------------------------------------------
@@ -1491,7 +1491,7 @@ def format_search_results(matches, query):
     if not matches:
         return f'No matches found for: "{query}"'
 
-    lines = [f'🔍 {len(matches)} match(es) for "{query}":']
+    lines = [f' {len(matches)} match(es) for "{query}":']
     for m in matches:
         ts = _fmt_chapter_ts(m["start"])
         speaker = f"[{m['speaker']}] " if m.get("speaker") else ""
@@ -1710,7 +1710,7 @@ def transcribe_file(audio_path, pipeline, args):
         )
         if conflicts:
             print(
-                "⚠️  --no-timestamps ignored: incompatible with "
+                "  --no-timestamps ignored: incompatible with "
                 "--word-timestamps / --format srt/vtt/tsv/lrc/ass/ttml / --diarize",
                 file=sys.stderr,
             )
@@ -1740,7 +1740,7 @@ def transcribe_file(audio_path, pipeline, args):
             ids = [int(x.strip()) for x in args.suppress_tokens.split(",") if x.strip()]
             kw["suppress_tokens"] = [-1] + ids
         except ValueError:
-            print(f"⚠️  Invalid --suppress-tokens value: {args.suppress_tokens!r} — skipped", file=sys.stderr)
+            print(f"  Invalid --suppress-tokens value: {args.suppress_tokens!r} — skipped", file=sys.stderr)
 
     if args.max_initial_timestamp is not None:
         kw["max_initial_timestamp"] = args.max_initial_timestamp
@@ -1836,7 +1836,7 @@ def transcribe_file(audio_path, pipeline, args):
     if not args.quiet:
         task_label = "translated" if args.translate else "transcribed"
         print(
-            f"✅ {result['file']}: {format_duration(dur)} {task_label} in "
+            f" {result['file']}: {format_duration(dur)} {task_label} in "
             f"{format_duration(elapsed)} ({rt}× realtime)",
             file=sys.stderr,
         )
@@ -1936,7 +1936,7 @@ def main():
             _fw_version = importlib.metadata.version("faster-whisper")
         except Exception:
             _fw_version = "unknown"
-        print(f"✅ faster-whisper updated to {_fw_version}")
+        print(f" faster-whisper updated to {_fw_version}")
         sys.exit(0)
 
     p = argparse.ArgumentParser(
@@ -2451,26 +2451,26 @@ def main():
         args.no_condition_on_previous_text = True
         if not args.quiet:
             print(
-                "ℹ️  distil model detected: auto-disabling condition_on_previous_text "
+                "  distil model detected: auto-disabling condition_on_previous_text "
                 "(reduces repetition loops; pass --condition-on-previous-text to override)",
                 file=sys.stderr,
             )
 
     # Warn when --speaker-names is used without --diarize (has no effect)
     if getattr(args, "speaker_names", None) and not args.diarize:
-        print("⚠️  --speaker-names has no effect without --diarize; ignoring", file=sys.stderr)
+        print("  --speaker-names has no effect without --diarize; ignoring", file=sys.stderr)
 
     # Streaming mode disables post-processing that needs all segments
     if args.stream:
         if args.diarize:
-            print("⚠️  --stream disables --diarize (needs all segments)", file=sys.stderr)
+            print("  --stream disables --diarize (needs all segments)", file=sys.stderr)
             args.diarize = False
         if args.word_timestamps:
-            print("⚠️  --stream disables word-level alignment (needs all segments)", file=sys.stderr)
+            print("  --stream disables word-level alignment (needs all segments)", file=sys.stderr)
 
     # Conflict check: --chunk-length requires batched mode
     if args.chunk_length is not None and args.no_batch:
-        print("⚠️  --chunk-length ignored with --no-batch (only valid for batched inference)", file=sys.stderr)
+        print("  --chunk-length ignored with --no-batch (only valid for batched inference)", file=sys.stderr)
         args.chunk_length = None
 
     # ---- Resolve inputs (including stdin '-') ----
@@ -2487,7 +2487,7 @@ def main():
         )
         if not args.quiet:
             for _, title in rss_episodes:
-                print(f"   📻 {title}", file=sys.stderr)
+                print(f"    {title}", file=sys.stderr)
         raw_inputs = [url for url, _ in rss_episodes] + raw_inputs
 
     # Check for stdin '-' usage
@@ -2496,7 +2496,7 @@ def main():
             print("Error: stdin '-' cannot be combined with other inputs in batch mode", file=sys.stderr)
             sys.exit(1)
         if not args.quiet:
-            print("📥 Reading audio from stdin...", file=sys.stderr)
+            print(" Reading audio from stdin...", file=sys.stderr)
         stdin_data = sys.stdin.buffer.read()
         stdin_tmp = tempfile.NamedTemporaryFile(
             delete=False, suffix=".audio", prefix="fw-stdin-"
@@ -2529,7 +2529,7 @@ def main():
     if device == "auto":
         device = "cuda" if cuda_ok else "cpu"
         if device == "cpu" and not args.quiet:
-            print("⚠️  CUDA not available — using CPU (this will be slow!)", file=sys.stderr)
+            print("  CUDA not available — using CPU (this will be slow!)", file=sys.stderr)
             print("   To enable GPU: pip install torch --index-url https://download.pytorch.org/whl/cu121", file=sys.stderr)
 
     if compute_type == "auto":
@@ -2539,7 +2539,7 @@ def main():
         import re as _re
         gpu_name = gpu_name or ""
         if _re.search(r"RTX 30[0-9]{2}", gpu_name, _re.IGNORECASE):
-            print(f"💡 Tip: For {gpu_name}, --compute-type int8_float16 saves ~1GB VRAM with minimal quality loss", file=sys.stderr)
+            print(f" Tip: For {gpu_name}, --compute-type int8_float16 saves ~1GB VRAM with minimal quality loss", file=sys.stderr)
 
     use_batched = not args.no_batch
 
@@ -2548,9 +2548,9 @@ def main():
         gpu_str = f" on {gpu_name}" if device == "cuda" and gpu_name else ""
         task_str = " [translate→en]" if args.translate else ""
         stream_str = " [streaming]" if args.stream else ""
-        print(f"🎙️  {args.model} ({device}/{compute_type}){gpu_str} [{mode}]{task_str}{stream_str}", file=sys.stderr)
+        print(f"  {args.model} ({device}/{compute_type}){gpu_str} [{mode}]{task_str}{stream_str}", file=sys.stderr)
         if is_batch:
-            print(f"📁 {len(audio_files)} files queued", file=sys.stderr)
+            print(f" {len(audio_files)} files queued", file=sys.stderr)
 
     # ---- Load model ----
     try:
@@ -2624,7 +2624,7 @@ def main():
                 )
                 if all_exist:
                     if not args.quiet:
-                        print(f"⏭️  Skip (exists): {Path(audio_path).name}", file=sys.stderr)
+                        print(f"  Skip (exists): {Path(audio_path).name}", file=sys.stderr)
                     _skip_count[0] += 1
                     return True
         return False
@@ -2632,12 +2632,12 @@ def main():
     if getattr(args, "parallel", None) and args.parallel > 1 and is_batch:
         if device == "cuda" and not args.quiet:
             print(
-                f"⚠️  --parallel on GPU: each call uses the full GPU; "
+                f"  --parallel on GPU: each call uses the full GPU; "
                 "benefit is limited vs sequential batched mode",
                 file=sys.stderr,
             )
         if args.retries and not args.quiet:
-            print("⚠️  --retries is not supported with --parallel (ignored)", file=sys.stderr)
+            print("  --retries is not supported with --parallel (ignored)", file=sys.stderr)
         pending = [af for af in audio_files if not _should_skip(af)]
         with ThreadPoolExecutor(max_workers=args.parallel) as executor:
             # Build per-file args copies with language-map overrides
@@ -2662,7 +2662,7 @@ def main():
                     results.append(r)
                     total_audio += r["duration"]
                 except Exception as e:
-                    print(f"❌ {name}: {e}", file=sys.stderr)
+                    print(f" {name}: {e}", file=sys.stderr)
                     failed_files.append((af, str(e)))
     else:
         # ETA tracking for sequential batch mode
@@ -2680,7 +2680,7 @@ def main():
             # Per-file language override via --language-map
             file_lang = resolve_file_language(audio_path, lang_map, args.language)
             if lang_map and file_lang != args.language and not args.quiet and is_batch:
-                print(f"   🌐 Language override: {file_lang}", file=sys.stderr)
+                print(f"    Language override: {file_lang}", file=sys.stderr)
 
             # Build per-file args (only copy if language differs to avoid overhead)
             file_args = args
@@ -2698,11 +2698,11 @@ def main():
                     eta_sec = avg_per_file * remaining
                     eta_str = format_duration(eta_sec)
                     print(
-                        f"▶️  [{current_idx}/{pending_total}] {name}  |  ETA: {eta_str}",
+                        f"  [{current_idx}/{pending_total}] {name}  |  ETA: {eta_str}",
                         file=sys.stderr,
                     )
                 else:
-                    print(f"▶️  [{current_idx}/{pending_total}] {name}", file=sys.stderr)
+                    print(f"  [{current_idx}/{pending_total}] {name}", file=sys.stderr)
 
             success = False
             last_error = None
@@ -2722,7 +2722,7 @@ def main():
                     if attempt < args.retries:
                         wait = 2 ** (attempt + 1)
                         print(
-                            f"⚠️  {name}: attempt {attempt + 1}/{max_attempts} failed: {e}. "
+                            f"  {name}: attempt {attempt + 1}/{max_attempts} failed: {e}. "
                             f"Retrying in {wait}s...",
                             file=sys.stderr,
                         )
@@ -2730,7 +2730,7 @@ def main():
 
             if not success:
                 print(
-                    f"❌ {name}: failed after {max_attempts} attempt(s): {last_error}",
+                    f" {name}: failed after {max_attempts} attempt(s): {last_error}",
                     file=sys.stderr,
                 )
                 failed_files.append((audio_path, str(last_error)))
@@ -2742,7 +2742,7 @@ def main():
     for td in temp_dirs:
         if getattr(args, "keep_temp", False):
             if not args.quiet:
-                print(f"📁 Temp files kept: {td}", file=sys.stderr)
+                print(f" Temp files kept: {td}", file=sys.stderr)
         else:
             shutil.rmtree(td, ignore_errors=True)
     if stdin_tmp and os.path.exists(stdin_tmp.name):
@@ -2768,7 +2768,7 @@ def main():
         if getattr(args, "export_speakers", None):
             if not args.diarize:
                 if not args.quiet:
-                    print("⚠️  --export-speakers requires --diarize; skipping", file=sys.stderr)
+                    print("  --export-speakers requires --diarize; skipping", file=sys.stderr)
             else:
                 audio_src = r.get("_audio_path", r["file"])
                 export_speakers_audio(
@@ -2825,7 +2825,7 @@ def main():
                     dest = out_path
                 dest.write_text(search_output, encoding="utf-8")
                 if not args.quiet:
-                    print(f"💾 {dest}", file=sys.stderr)
+                    print(f" {dest}", file=sys.stderr)
             else:
                 if is_batch:
                     print(f"\n=== {r['file']} ===")
@@ -2835,7 +2835,7 @@ def main():
             formats = getattr(args, "_formats", [args.format])
             if len(formats) > 1 and not args.output:
                 print(
-                    f"⚠️  Multiple formats requested but no -o DIR specified; "
+                    f"  Multiple formats requested but no -o DIR specified; "
                     f"showing only '{formats[0]}' on stdout. "
                     f"Use -o <dir> to write all formats.",
                     file=sys.stderr,
@@ -2866,7 +2866,7 @@ def main():
                         dest = out_path
                     dest.write_text(output, encoding="utf-8")
                     if not args.quiet:
-                        print(f"💾 {dest}", file=sys.stderr)
+                        print(f" {dest}", file=sys.stderr)
                 else:
                     # Only print first format to stdout
                     if fmt_idx == 0:
@@ -2881,13 +2881,13 @@ def main():
             if not args.quiet:
                 if not chapters or len(chapters) == 1:
                     print(
-                        f"ℹ️  Chapter detection: only 1 chapter found "
+                        f"  Chapter detection: only 1 chapter found "
                         f"(no silence gaps ≥ {args.chapter_gap}s)",
                         file=sys.stderr,
                     )
                 else:
                     print(
-                        f"📑 {len(chapters)} chapter(s) detected "
+                        f" {len(chapters)} chapter(s) detected "
                         f"(gap threshold: {args.chapter_gap}s):",
                         file=sys.stderr,
                     )
@@ -2897,7 +2897,7 @@ def main():
                 Path(chapters_dest).parent.mkdir(parents=True, exist_ok=True)
                 Path(chapters_dest).write_text(chapters_output, encoding="utf-8")
                 if not args.quiet:
-                    print(f"📑 Chapters saved: {chapters_dest}", file=sys.stderr)
+                    print(f" Chapters saved: {chapters_dest}", file=sys.stderr)
             else:
                 # Print to stdout after transcript — clear header so agents can parse it separately
                 print(f"\n=== CHAPTERS ({len(chapters)}) ===\n{chapters_output}")
@@ -2909,10 +2909,10 @@ def main():
         if getattr(args, "burn_in", None):
             if is_batch:
                 if not args.quiet:
-                    print("⚠️  --burn-in is only supported for single-file mode; skipping", file=sys.stderr)
+                    print("  --burn-in is only supported for single-file mode; skipping", file=sys.stderr)
             elif not r.get("segments"):
                 if not args.quiet:
-                    print("⚠️  --burn-in skipped: no speech segments detected", file=sys.stderr)
+                    print("  --burn-in skipped: no speech segments detected", file=sys.stderr)
             else:
                 srt_content = to_srt(r["segments"])
                 src_path = r.get("_audio_path", r["file"])
@@ -2924,12 +2924,12 @@ def main():
         rt = total_audio / wall if wall > 0 else 0
         skip_note = f" ({_skip_count[0]} skipped)" if _skip_count[0] else ""
         print(
-            f"\n📊 Done: {len(results)} files{skip_note}, {format_duration(total_audio)} audio "
+            f"\n Done: {len(results)} files{skip_note}, {format_duration(total_audio)} audio "
             f"in {format_duration(wall)} ({rt:.1f}× realtime)",
             file=sys.stderr,
         )
         if failed_files:
-            print(f"❌ Failed: {len(failed_files)} file(s):", file=sys.stderr)
+            print(f" Failed: {len(failed_files)} file(s):", file=sys.stderr)
             for path, err in failed_files:
                 print(f"   • {Path(path).name}: {err}", file=sys.stderr)
 
@@ -2972,9 +2972,9 @@ def _write_stats(r, args):
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(json.dumps(stats, indent=2, ensure_ascii=False), encoding="utf-8")
         if not getattr(args, "quiet", False):
-            print(f"📈 Stats: {dest}", file=sys.stderr)
+            print(f" Stats: {dest}", file=sys.stderr)
     except Exception as e:
-        print(f"⚠️  Failed to write stats file {dest}: {e}", file=sys.stderr)
+        print(f"  Failed to write stats file {dest}: {e}", file=sys.stderr)
 
 
 if __name__ == "__main__":

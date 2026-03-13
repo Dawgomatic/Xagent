@@ -211,14 +211,14 @@ if __name__ == "__main__":
     
     # Display result
     status_emoji = {
-        'not_started': '⚪',
-        'in_progress': '🔵',
-        'waiting': '🟡', 
-        'completed': '✅',
-        'cancelled': '❌'
+        'not_started': '',
+        'in_progress': '',
+        'waiting': '', 
+        'completed': '',
+        'cancelled': ''
     }
     
-    emoji = status_emoji.get(new_status, '⚪')
+    emoji = status_emoji.get(new_status, '')
     old_status_name = format_status_name(task['status'])
     new_status_name = format_status_name(new_status)
     

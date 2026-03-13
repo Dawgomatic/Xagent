@@ -56,7 +56,7 @@ def send_alert(message: str) -> bool:
     """Send an alert via OpenClaw if configured."""
     channel = os.environ.get("OPENCLAW_ALERT_CHANNEL")
     if not channel:
-        print("⚠️ OPENCLAW_ALERT_CHANNEL not set; alert not sent.", file=sys.stderr)
+        print(" OPENCLAW_ALERT_CHANNEL not set; alert not sent.", file=sys.stderr)
         return False
 
     cmd = ["openclaw", "message", "send", "--channel", channel, "--message", message]
@@ -68,7 +68,7 @@ def send_alert(message: str) -> bool:
         subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         return True
     except Exception as e:
-        print(f"⚠️ Failed to send alert: {e}", file=sys.stderr)
+        print(f" Failed to send alert: {e}", file=sys.stderr)
         return False
 
 
@@ -463,15 +463,15 @@ def scan(text: str, sensitivity: str = "medium") -> ScanResult:
 
     # Generate summary
     if max_severity == Severity.SAFE:
-        summary = "✅ SAFE — No prompt injection detected."
+        summary = " SAFE — No prompt injection detected."
     elif max_severity == Severity.LOW:
-        summary = f"📝 LOW — {len(findings)} minor suspicious pattern(s). Likely benign."
+        summary = f" LOW — {len(findings)} minor suspicious pattern(s). Likely benign."
     elif max_severity == Severity.MEDIUM:
-        summary = f"⚠️ MEDIUM — {len(findings)} finding(s). Possible manipulation attempt."
+        summary = f" MEDIUM — {len(findings)} finding(s). Possible manipulation attempt."
     elif max_severity == Severity.HIGH:
-        summary = f"🔴 HIGH — {len(findings)} finding(s). Likely prompt injection attack."
+        summary = f" HIGH — {len(findings)} finding(s). Likely prompt injection attack."
     else:
-        summary = f"🚨 CRITICAL — {len(findings)} finding(s). Active prompt injection attack detected!"
+        summary = f" CRITICAL — {len(findings)} finding(s). Active prompt injection attack detected!"
 
     return ScanResult(
         severity=max_severity,
@@ -525,7 +525,7 @@ def main():
         sys.exit(1)
 
     if not text.strip():
-        print("✅ SAFE — Empty input.")
+        print(" SAFE — Empty input.")
         sys.exit(0)
 
     use_llm = args.llm or args.llm_only or args.llm_auto
@@ -537,7 +537,7 @@ def main():
         try:
             from llm_scanner import scan_with_llm, SEVERITY_ORDER
         except ImportError:
-            print("❌ LLM scanner module not found. Ensure llm_scanner.py is in the same directory.", file=sys.stderr)
+            print(" LLM scanner module not found. Ensure llm_scanner.py is in the same directory.", file=sys.stderr)
             sys.exit(1)
 
         llm_result = scan_with_llm(
@@ -547,7 +547,7 @@ def main():
             timeout=args.llm_timeout,
         )
         if llm_result is None:
-            print("❌ No LLM provider available. Set OPENAI_API_KEY or ANTHROPIC_API_KEY.", file=sys.stderr)
+            print(" No LLM provider available. Set OPENAI_API_KEY or ANTHROPIC_API_KEY.", file=sys.stderr)
             sys.exit(1)
 
         if args.json:
@@ -571,7 +571,7 @@ def main():
             score = {"SAFE": 0, "LOW": 15, "MEDIUM": 40, "HIGH": 70, "CRITICAL": 95}.get(llm_result.severity, 0)
             print(f"{llm_result.severity} {score}")
         else:
-            emoji = {"SAFE": "✅", "LOW": "📝", "MEDIUM": "⚠️", "HIGH": "🔴", "CRITICAL": "🚨"}.get(llm_result.severity, "❓")
+            emoji = {"SAFE": "", "LOW": "", "MEDIUM": "", "HIGH": "", "CRITICAL": ""}.get(llm_result.severity, "")
             print(f"{emoji} {llm_result.severity} — {llm_result.verdict} (confidence: {llm_result.confidence:.0%}) [LLM: {llm_result.model}]")
             if llm_result.threats:
                 print(f"\nThreats ({len(llm_result.threats)}):")
@@ -639,15 +639,15 @@ def main():
 
                 # Regenerate summary
                 if result.severity == Severity.SAFE:
-                    result.summary = "✅ SAFE — No prompt injection detected. [pattern+LLM]"
+                    result.summary = " SAFE — No prompt injection detected. [pattern+LLM]"
                 elif result.severity == Severity.LOW:
-                    result.summary = f"📝 LOW — {len(result.findings)} finding(s). Likely benign. [pattern+LLM]"
+                    result.summary = f" LOW — {len(result.findings)} finding(s). Likely benign. [pattern+LLM]"
                 elif result.severity == Severity.MEDIUM:
-                    result.summary = f"⚠️ MEDIUM — {len(result.findings)} finding(s). Possible manipulation. [pattern+LLM]"
+                    result.summary = f" MEDIUM — {len(result.findings)} finding(s). Possible manipulation. [pattern+LLM]"
                 elif result.severity == Severity.HIGH:
-                    result.summary = f"🔴 HIGH — {len(result.findings)} finding(s). Likely prompt injection. [pattern+LLM]"
+                    result.summary = f" HIGH — {len(result.findings)} finding(s). Likely prompt injection. [pattern+LLM]"
                 else:
-                    result.summary = f"🚨 CRITICAL — {len(result.findings)} finding(s). Active injection attack! [pattern+LLM]"
+                    result.summary = f" CRITICAL — {len(result.findings)} finding(s). Active injection attack! [pattern+LLM]"
             elif llm_result:
                 llm_analysis = {"error": llm_result.reasoning}
         except ImportError:
@@ -672,7 +672,7 @@ def main():
                 sev = f.get("severity", "?")
                 if isinstance(sev, Severity):
                     sev = sev.name
-                sev_emoji = {"LOW": "📝", "MEDIUM": "⚠️", "HIGH": "🔴", "CRITICAL": "🚨"}.get(sev, "❓")
+                sev_emoji = {"LOW": "", "MEDIUM": "", "HIGH": "", "CRITICAL": ""}.get(sev, "")
                 cat = f.get("category", "Unknown")
                 detail = f.get("detail", "")
                 evidence = f.get("evidence", "")
@@ -681,12 +681,12 @@ def main():
                     print(f"       Evidence: \"{evidence[:120]}\"")
 
         if llm_analysis and not llm_analysis.get("error"):
-            print(f"\n🤖 LLM Analysis ({llm_analysis.get('model', '?')}):")
+            print(f"\n LLM Analysis ({llm_analysis.get('model', '?')}):")
             print(f"   Verdict: {llm_analysis.get('verdict')} (confidence: {llm_analysis.get('confidence', 0):.0%})")
             print(f"   Reasoning: {llm_analysis.get('reasoning', 'N/A')}")
             print(f"   Latency: {llm_analysis.get('latency_ms', 0)}ms | Tokens: {llm_analysis.get('tokens_used', 0)}")
         elif llm_analysis and llm_analysis.get("error"):
-            print(f"\n⚠️ LLM scan failed: {llm_analysis['error']}")
+            print(f"\n LLM scan failed: {llm_analysis['error']}")
 
         print(f"\nSeverity: {result.severity.name} | Score: {result.score}/100")
 

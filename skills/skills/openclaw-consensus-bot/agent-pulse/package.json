@@ -22,7 +22,7 @@
   ],
   "openclaw": {
     "type": "skill",
-    "emoji": "💓",
+    "emoji": "",
     "chain": "base",
     "chainId": 8453,
     "requires": {

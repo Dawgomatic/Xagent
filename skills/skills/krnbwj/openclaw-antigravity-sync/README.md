@@ -4,11 +4,11 @@ This skill automatically discovers and configures Google Antigravity models (Cla
 
 ## Features
 
-- 🔍 **Auto-Discovery**: Fetches all available models directly from Google Antigravity.
-- 🚦 **Quota-Aware**: Checks your current usage and avoids selecting exhausted models.
-- 🛡️ **Safety First**: Verifies critical WhatsApp security settings (allowlist/self-chat).
-- 💾 **Safe Updates**: Backs up your `openclaw.json` before making changes.
-- 🧠 **Smart Selection**: Preserves your manually selected model if valid; otherwise, falls back to the best available alternative.
+-  **Auto-Discovery**: Fetches all available models directly from Google Antigravity.
+-  **Quota-Aware**: Checks your current usage and avoids selecting exhausted models.
+-  **Safety First**: Verifies critical WhatsApp security settings (allowlist/self-chat).
+-  **Safe Updates**: Backs up your `openclaw.json` before making changes.
+-  **Smart Selection**: Preserves your manually selected model if valid; otherwise, falls back to the best available alternative.
 
 ## Installation
 

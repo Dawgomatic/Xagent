@@ -38,7 +38,7 @@ def create_project(api_key, name, description=""):
     response = requests.post(url, json=data, headers=headers)
     
     if response.status_code != 200:
-        print(f"❌ Error: {response.text}")
+        print(f" Error: {response.text}")
         sys.exit(1)
     
     return response.json()
@@ -53,10 +53,10 @@ def main():
     
     api_key = get_api_key()
     
-    print("📁 Creating project...")
+    print(" Creating project...")
     project = create_project(api_key, name, description)
     
-    print(f"✅ Project created!")
+    print(f" Project created!")
     print(f"   ID: {project.get('id')}")
     print(f"   Name: {project.get('name')}")
 

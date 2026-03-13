@@ -13,12 +13,12 @@ python3 /path/to/zoho-email/scripts/clawdbot_extension.py summary
 
 This will output something like:
 ```
-📭 No unread emails
+ No unread emails
 ```
 
 Or if you have unread messages:
 ```
-📧 3 unread emails
+ 3 unread emails
 ```
 
 ## Integration Example 1: Morning Briefing (Cron)
@@ -33,12 +33,12 @@ Create a cron job that includes email status in your morning briefing:
 EMAIL_SUMMARY=$(python3 /path/to/zoho-email/scripts/clawdbot_extension.py summary)
 
 # Build briefing
-BRIEFING="🌅 Good Morning!
+BRIEFING=" Good Morning!
 
 $EMAIL_SUMMARY
 
-🌤️ Weather: [your weather command here]
-✅ Tasks: [your tasks command here]
+ Weather: [your weather command here]
+ Tasks: [your tasks command here]
 "
 
 # Send to Clawdbot messaging system
@@ -66,7 +66,7 @@ if [ -f "$STATE_FILE" ]; then
   PREVIOUS=$(cat "$STATE_FILE")
   if [ "$CURRENT" -gt "$PREVIOUS" ]; then
     NEW_COUNT=$((CURRENT - PREVIOUS))
-    echo "🔔 $NEW_COUNT new email(s)" | clawdbot send-to-telegram
+    echo " $NEW_COUNT new email(s)" | clawdbot send-to-telegram
   fi
 fi
 
@@ -92,7 +92,7 @@ jobs:
       tz: UTC
     payload:
       kind: systemEvent
-      text: "📧 Email status: "  # Triggered message
+      text: " Email status: "  # Triggered message
 ```
 
 Then in your Clawdbot session, add a handler:
@@ -124,7 +124,7 @@ python3 /path/to/zoho-email/scripts/clawdbot_extension.py search "$SEARCH_QUERY"
 # Compare with previous result
 if [ -f "$LAST_CHECK" ]; then
   if ! diff -q "$LAST_CHECK" /tmp/invoice-search.txt > /dev/null; then
-    echo "📬 New invoice email found!" | clawdbot send-to-telegram
+    echo " New invoice email found!" | clawdbot send-to-telegram
   fi
 fi
 
@@ -139,7 +139,7 @@ Combine with Clawdbot for scheduled email cleanup:
 #!/bin/bash
 # weekly-cleanup.sh - Run every Sunday
 
-echo "🧹 Email cleanup starting..."
+echo " Email cleanup starting..."
 
 # Mark old newsletters as read
 python3 /path/to/zoho-email/scripts/zoho_email.py bulk-action \
@@ -148,7 +148,7 @@ python3 /path/to/zoho-email/scripts/zoho_email.py bulk-action \
   --action mark-read \
   --dry-run
 
-echo "✅ Cleanup complete"
+echo " Cleanup complete"
 ```
 
 ## Environment Setup
@@ -237,19 +237,19 @@ source ~/.clawdbot/credentials.sh
 
 # Build briefing
 cat << EOF
-🌅 **Morning Briefing** — $(date '+%A, %B %d')
+ **Morning Briefing** — $(date '+%A, %B %d')
 
-📧 **Email Status**
+ **Email Status**
 $(python3 scripts/clawdbot_extension.py summary)
 
-🌤️ **Weather**
+ **Weather**
 $(curl -s "wttr.in/London?format=3")
 
-✅ **To-Do List**
+ **To-Do List**
 - Build Morning Briefing System
 - Update GitHub documentation
 
-🖥️ **Server Health**
+ **Server Health**
 Disk: $(df -h / | tail -1 | awk '{print $5}' $1)
 
 ---
@@ -264,7 +264,7 @@ Then schedule:
 
 ## Next Steps
 
-- ✅ [Set up OAuth2](../OAUTH2_SETUP.md) for REST API mode
-- 📚 [Full SKILL.md documentation](../SKILL.md)
-- 🚀 [Additional examples](.)
+-  [Set up OAuth2](../OAUTH2_SETUP.md) for REST API mode
+-  [Full SKILL.md documentation](../SKILL.md)
+-  [Additional examples](.)
 

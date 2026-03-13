@@ -26,12 +26,12 @@ description: Create, publish, and monetize Udemy courses with curriculum design,
 
 ## AI Content Policy (Nov 2025)
 
-- ✅ AI-assisted content creation (outlines, scripts, drafts)
-- ✅ AI-generated visuals/graphics (if high quality)
-- ✅ AI for research and information gathering
-- ❌ Fully AI-generated courses with minimal instructor input
-- ❌ Low-quality AI outputs without human polish
-- ❌ Hiding AI usage from students
+-  AI-assisted content creation (outlines, scripts, drafts)
+-  AI-generated visuals/graphics (if high quality)
+-  AI for research and information gathering
+-  Fully AI-generated courses with minimal instructor input
+-  Low-quality AI outputs without human polish
+-  Hiding AI usage from students
 
 **Disclosure required**: "This course contains content created with the assistance of AI tools."
 

@@ -39,7 +39,7 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-echo -e "${RED}⚠️  SECURITY WARNING: This example uses simple passwords!${NC}"
+echo -e "${RED}  SECURITY WARNING: This example uses simple passwords!${NC}"
 echo -e "${RED}   For production, implement proper credential management.${NC}"
 echo ""
 read -p "Continue with example setup? (y/n) " -n 1 -r
@@ -76,7 +76,7 @@ create_agent() {
         
         echo "  ✓ Created identity: $principal"
         echo ""
-        echo -e "  ${RED}⚠️  SAVE THIS SEED PHRASE for $name:${NC}"
+        echo -e "  ${RED}  SAVE THIS SEED PHRASE for $name:${NC}"
         echo "  $mnemonic"
         echo ""
         

@@ -119,7 +119,7 @@ test.describe('Authentication', () => {
     expect(hasError || redirectedToLogin || stuckOnSpinner).toBe(true);
     
     if (stuckOnSpinner && !hasError && !redirectedToLogin) {
-      console.warn('⚠ Known issue: verify page stuck on spinner for invalid tokens');
+      console.warn(' Known issue: verify page stuck on spinner for invalid tokens');
     }
   });
 });

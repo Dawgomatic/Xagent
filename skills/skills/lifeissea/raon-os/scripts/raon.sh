@@ -203,7 +203,7 @@ investor_match() {
 # --- Help ---
 show_help() {
   cat <<EOF
-🌅 Raon OS — Startup Companion
+ Raon OS — Startup Companion
    @yeomyeonggeori/raon-os
 
 Usage: raon.sh <module> <command> [options]
@@ -258,8 +258,8 @@ Environment (우선순위 순):
   ANTHROPIC_API_KEY    Claude
   OPENAI_API_KEY       OpenAI + 임베딩
 
-  ✅ 위 키 중 하나만 있으면 Ollama 없이 바로 사용 가능
-  ⚙️  키 없을 경우 → 로컬 Ollama 자동 사용 (raon.sh install-model 로 설치)
+   위 키 중 하나만 있으면 Ollama 없이 바로 사용 가능
+    키 없을 경우 → 로컬 Ollama 자동 사용 (raon.sh install-model 로 설치)
   가입: https://k-startup.ai
 EOF
 }
@@ -268,16 +268,16 @@ EOF
 RAON_INIT_FILE="${HOME}/.raon-os-init"
 if [ ! -f "$RAON_INIT_FILE" ]; then
   echo ""
-  echo -e "${GREEN}🌅 라온 OS에 오신 걸 환영합니다!${NC}"
+  echo -e "${GREEN} 라온 OS에 오신 걸 환영합니다!${NC}"
   echo ""
   echo "  한국 스타트업 파운더를 위한 AI 비서입니다."
   echo "  사업계획서 평가, 정부 지원사업 매칭, 투자자 연결을 도와드려요."
   echo ""
   # 이미 API 키가 있으면 → 바로 사용 가능 메시지
   if [ -n "$OPENROUTER_API_KEY" ] || [ -n "$GEMINI_API_KEY" ] || [ -n "$ANTHROPIC_API_KEY" ] || [ -n "$OPENAI_API_KEY" ]; then
-    echo -e "  ${GREEN}✅ API 키 감지됨 — 바로 사용 가능합니다!${NC}"
+    echo -e "  ${GREEN} API 키 감지됨 — 바로 사용 가능합니다!${NC}"
   else
-    echo -e "  ${YELLOW}⚙️  API 키 미설정 — 두 가지 방법 중 선택:${NC}"
+    echo -e "  ${YELLOW}  API 키 미설정 — 두 가지 방법 중 선택:${NC}"
     echo ""
     echo -e "  ${BLUE}방법 1 (권장)${NC} — Cloud API 키 설정:"
     echo "    echo 'GEMINI_API_KEY=your-key' >> ~/.openclaw/.env"
@@ -338,32 +338,32 @@ case "$MODULE" in
   install-model)
     MODEL="${COMMAND:-qwen3:8b}"
     echo ""
-    echo -e "${BLUE}🤖 로컬 LLM 모델 설치: $MODEL${NC}"
+    echo -e "${BLUE} 로컬 LLM 모델 설치: $MODEL${NC}"
     echo "   (Cloud API 키가 있으면 이 단계는 불필요합니다)"
     echo ""
     # Ollama 설치 확인
     if ! command -v ollama &>/dev/null; then
       echo -e "${YELLOW}Ollama 미설치 — 자동 설치 시도...${NC}"
       if command -v brew &>/dev/null; then
-        brew install ollama && echo -e "${GREEN}✅ Ollama 설치 완료${NC}"
+        brew install ollama && echo -e "${GREEN} Ollama 설치 완료${NC}"
       else
         echo -e "${YELLOW}Homebrew 미설치. 아래 명령어로 수동 설치하세요:${NC}"
         echo "  curl -fsSL https://ollama.ai/install.sh | sh"
         exit 1
       fi
     else
-      echo -e "${GREEN}✅ Ollama 감지됨: $(ollama --version 2>/dev/null)${NC}"
+      echo -e "${GREEN} Ollama 감지됨: $(ollama --version 2>/dev/null)${NC}"
     fi
     echo ""
-    echo -e "${BLUE}📥 모델 다운로드 중: $MODEL${NC}"
+    echo -e "${BLUE} 모델 다운로드 중: $MODEL${NC}"
     echo "   (qwen3:8b 기준 약 4.7GB, 인터넷 속도에 따라 수 분 소요)"
     echo ""
     if ollama pull "$MODEL"; then
       echo ""
-      echo -e "${GREEN}🎉 설치 완료! 이제 라온 OS를 사용할 수 있습니다.${NC}"
+      echo -e "${GREEN} 설치 완료! 이제 라온 OS를 사용할 수 있습니다.${NC}"
       echo -e "   시작: ${BLUE}raon.sh biz-plan evaluate --file 사업계획서.pdf${NC}"
     else
-      echo -e "${YELLOW}⚠️  모델 다운로드 실패. 직접 실행: ollama pull $MODEL${NC}"
+      echo -e "${YELLOW}  모델 다운로드 실패. 직접 실행: ollama pull $MODEL${NC}"
       exit 1
     fi
     ;;

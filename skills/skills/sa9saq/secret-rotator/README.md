@@ -1,6 +1,6 @@
 # Secret Rotator
 
-🔐 Manage and rotate API keys, tokens, and secrets safely.
+ Manage and rotate API keys, tokens, and secrets safely.
 
 ## Features
 

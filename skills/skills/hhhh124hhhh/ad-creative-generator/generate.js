@@ -55,7 +55,7 @@ function clearScreen() {
 // Print header
 function printHeader() {
   console.log(`\n${colors.cyan}${colors.bright}╔════════════════════════════════════════════════════════════╗${colors.reset}`);
-  console.log(`${colors.cyan}${colors.bright}║          🎨 AD CREATIVE GENERATOR v1.0                  ║${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright}║           AD CREATIVE GENERATOR v1.0                  ║${colors.reset}`);
   console.log(`${colors.cyan}${colors.bright}║          Generate Compelling Ad Prompts                 ║${colors.reset}`);
   console.log(`${colors.cyan}${colors.bright}╚════════════════════════════════════════════════════════════╝${colors.reset}\n`);
 }
@@ -72,12 +72,12 @@ function printSuccess(message) {
 
 // Print info message
 function printInfo(message) {
-  console.log(`${colors.blue}ℹ ${message}${colors.reset}`);
+  console.log(`${colors.blue} ${message}${colors.reset}`);
 }
 
 // Print warning message
 function printWarning(message) {
-  console.log(`${colors.yellow}⚠ ${message}${colors.reset}`);
+  console.log(`${colors.yellow} ${message}${colors.reset}`);
 }
 
 // Validate product name

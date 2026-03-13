@@ -41,14 +41,14 @@ mind.post_house_stuff(
     detail="It's Wednesday again.",
     priority="high",
     category="chores",
-    icon="🗑️"
+    icon=""
 )
 
 # Share a hot take
-mind.hot_take("Pineapple on pizza", "Controversial but I respect the audacity", heat=0.6, emoji="🍕")
+mind.hot_take("Pineapple on pizza", "Controversial but I respect the audacity", heat=0.6, emoji="")
 
 # Drop a doodle on the sketchpad
-mind.doodle("🌧️", x=0.3, y=0.2, size=30, note="Rain starting")
+mind.doodle("", x=0.3, y=0.2, size=30, note="Rain starting")
 
 # Log a long-term pattern
 mind.learn_pattern("The cat sits by the window at 3pm", confidence=0.7, observations=5)

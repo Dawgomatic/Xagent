@@ -12,12 +12,12 @@ from pathlib import Path
 
 def validate_skill(skill_path: Path) -> bool:
     """Validate skill structure and content"""
-    print("🔍 Validating skill...")
+    print(" Validating skill...")
     
     # Check SKILL.md exists
     skill_md = skill_path / "SKILL.md"
     if not skill_md.exists():
-        print("❌ SKILL.md not found")
+        print(" SKILL.md not found")
         return False
     
     # Read and parse SKILL.md
@@ -43,30 +43,30 @@ def validate_skill(skill_path: Path) -> bool:
                 
                 # Check required fields
                 if 'name' not in frontmatter:
-                    print("❌ Missing 'name' in frontmatter")
+                    print(" Missing 'name' in frontmatter")
                     return False
                 
                 if 'description' not in frontmatter:
-                    print("❌ Missing 'description' in frontmatter")
+                    print(" Missing 'description' in frontmatter")
                     return False
                 
                 # Validate name format
                 name = frontmatter['name']
                 if not name.replace('-', '').replace('_', '').isalnum():
-                    print(f"❌ Invalid name format: {name}")
+                    print(f" Invalid name format: {name}")
                     return False
                 
-                print(f"✅ Skill name: {name}")
-                print(f"✅ Description: {frontmatter['description'][:50]}...")
+                print(f" Skill name: {name}")
+                print(f" Description: {frontmatter['description'][:50]}...")
                 
             except Exception as e:
-                print(f"❌ Invalid frontmatter: {e}")
+                print(f" Invalid frontmatter: {e}")
                 return False
         else:
-            print("❌ Invalid SKILL.md format (missing frontmatter)")
+            print(" Invalid SKILL.md format (missing frontmatter)")
             return False
     else:
-        print("❌ SKILL.md missing frontmatter")
+        print(" SKILL.md missing frontmatter")
         return False
     
     # Check resource directories
@@ -76,24 +76,24 @@ def validate_skill(skill_path: Path) -> bool:
         if resource_dir.exists():
             files = list(resource_dir.iterdir())
             if files:
-                print(f"✅ {resource}/: {len(files)} file(s)")
+                print(f" {resource}/: {len(files)} file(s)")
             else:
-                print(f"⚠️  {resource}/ is empty")
+                print(f"  {resource}/ is empty")
     
     # Check main script
     main_script = skill_path / "scripts" / "analyze_levels.py"
     if not main_script.exists():
-        print("❌ Main script analyze_levels.py not found")
+        print(" Main script analyze_levels.py not found")
         return False
     
-    print("✅ Main script found")
+    print(" Main script found")
     
     return True
 
 
 def package_skill(skill_path: Path, output_dir: Path = None) -> bool:
     """Package skill into .skill file"""
-    print(f"\n📦 Packaging skill...")
+    print(f"\n Packaging skill...")
     
     # Get skill name from frontmatter
     skill_md = skill_path / "SKILL.md"
@@ -136,7 +136,7 @@ def package_skill(skill_path: Path, output_dir: Path = None) -> bool:
                         arcname = file_path.relative_to(skill_path)
                         zipf.write(file_path, arcname)
     
-    print(f"✅ Created: {skill_file}")
+    print(f" Created: {skill_file}")
     print(f"   Size: {skill_file.stat().st_size:,} bytes")
     
     return True
@@ -152,7 +152,7 @@ def main():
     skill_path = Path(sys.argv[1])
     
     if not skill_path.exists():
-        print(f"❌ Skill path does not exist: {skill_path}")
+        print(f" Skill path does not exist: {skill_path}")
         sys.exit(1)
     
     output_dir = None
@@ -161,15 +161,15 @@ def main():
     
     # Validate
     if not validate_skill(skill_path):
-        print("\n❌ Validation failed")
+        print("\n Validation failed")
         sys.exit(1)
     
     # Package
     if not package_skill(skill_path, output_dir):
-        print("\n❌ Packaging failed")
+        print("\n Packaging failed")
         sys.exit(1)
     
-    print("\n🎉 Skill packaged successfully!")
+    print("\n Skill packaged successfully!")
     print("   Upload to ClawHub: clawhub publish <path-to-skill>")
 
 

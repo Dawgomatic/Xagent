@@ -57,7 +57,7 @@ while [[ $# -gt 0 ]]; do
       exit 0
       ;;
     *)
-      echo "❌ Unknown option: $1"
+      echo " Unknown option: $1"
       echo "Run with --help for usage"
       exit 1
       ;;
@@ -66,7 +66,7 @@ done
 
 # Validate required arguments
 if [[ -z "$DATABASE" ]] || [[ -z "$BRANCH" ]]; then
-  echo "❌ Error: --database and --branch are required"
+  echo " Error: --database and --branch are required"
   echo "Run with --help for usage"
   exit 1
 fi
@@ -75,7 +75,7 @@ fi
 ORG_FLAG=""
 [[ -n "$ORG" ]] && ORG_FLAG="--org $ORG"
 
-echo "🔄 Syncing branch with main..."
+echo " Syncing branch with main..."
 echo "  Database: $DATABASE"
 echo "  Branch: $BRANCH"
 [[ -n "$ORG" ]] && echo "  Org: $ORG"
@@ -85,7 +85,7 @@ echo ""
 pscale branch refresh-schema "$DATABASE" "$BRANCH" $ORG_FLAG
 
 echo ""
-echo "✅ Branch schema refreshed!"
+echo " Branch schema refreshed!"
 echo ""
 echo "Next steps:"
 echo "  1. Verify schema:"

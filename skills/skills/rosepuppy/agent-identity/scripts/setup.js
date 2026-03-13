@@ -61,9 +61,9 @@ async function main() {
       message: opts.import ? 'Imported existing key' : 'Generated new keypair',
     }, true);
   } else {
-    console.log('✅ Agent identity keypair created!');
-    console.log(`📍 Address: ${account.address}`);
-    console.log(`📁 Key file: ${KEY_FILE}`);
+    console.log(' Agent identity keypair created!');
+    console.log(` Address: ${account.address}`);
+    console.log(` Key file: ${KEY_FILE}`);
     console.log('');
     console.log('Next steps:');
     console.log('1. Fund this address with Base Sepolia ETH and USDC');

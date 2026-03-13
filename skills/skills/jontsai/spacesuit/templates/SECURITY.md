@@ -7,7 +7,7 @@
 <!-- Everything below this line is yours. Spacesuit won't touch it.-->
 <!-- ============================================================ -->
 
-## 📢 Alert Channels
+##  Alert Channels
 
 <!-- Where should your AI alert you during security incidents?
 Example:
@@ -16,7 +16,7 @@ Example:
 - Telegram: @your-handle
 -->
 
-## 🔐 Additional Security Rules
+##  Additional Security Rules
 
 <!-- Add any security rules specific to your setup.
 Example:

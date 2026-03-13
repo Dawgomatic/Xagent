@@ -1,15 +1,15 @@
-# 🎬 Cinematic Script Writer Skill v1.3
+#  Cinematic Script Writer Skill v1.3
 
 Create professional cinematic scripts for comic/animated videos with:
-- ✅ **Google Drive Integration** - Save all content organized in folders
-- ✅ **Character Consistency** - Same character appearance across all shots
-- ✅ **Voice Consistency** - Distinct, consistent voice for each character  
-- ✅ **Environment Consistency** - Era-appropriate architecture, clothing, props
-- ✅ **Anachronism Detection** - No modern elements in historical settings
-- ✅ **Comprehensive Cinematography** - 20+ camera angles, 30+ lighting, 25+ styles
-- ✅ **YouTube Metadata** - Titles, descriptions, SEO tags
+-  **Google Drive Integration** - Save all content organized in folders
+-  **Character Consistency** - Same character appearance across all shots
+-  **Voice Consistency** - Distinct, consistent voice for each character  
+-  **Environment Consistency** - Era-appropriate architecture, clothing, props
+-  **Anachronism Detection** - No modern elements in historical settings
+-  **Comprehensive Cinematography** - 20+ camera angles, 30+ lighting, 25+ styles
+-  **YouTube Metadata** - Titles, descriptions, SEO tags
 
-## ✨ What's New in v1.3
+##  What's New in v1.3
 
 ### Google Drive Storage
 
@@ -23,7 +23,7 @@ Create professional cinematic scripts for comic/animated videos with:
 
 Generated folder structure:
 ```
-📁 Story Title/
+ Story Title/
 ├── 00_INDEX.md (navigation)
 ├── 01_SCRIPT_README.md (human-readable script)
 ├── 02_IMAGE_PROMPTS.md (copy-paste AI prompts)
@@ -33,7 +33,7 @@ Generated folder structure:
 └── 99_CONTEXT_INFO.md (background)
 ```
 
-## ✨ What's New in v1.2
+##  What's New in v1.2
 
 ### Consistency System
 
@@ -58,7 +58,7 @@ Generated folder structure:
 | **Visual Aesthetics** | 25+ | Pixar-3D, anime, film-noir, indian-miniature, spider-verse |
 | **Genre Cinematography** | 15+ | horror, comedy, action, romance, sci-fi, fantasy |
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Create Your First Context
 
@@ -128,7 +128,7 @@ const script = await skill.createCinematicScript(context.id, ideas[0].id, ideas[
 const metadata = await skill.generateYouTubeMetadata(script.id);
 ```
 
-### 4. Save to Google Drive 🆕
+### 4. Save to Google Drive 
 
 ```typescript
 // Ask where to store
@@ -160,7 +160,7 @@ console.log("Saved to:", result.shareLink);
 // https://drive.google.com/drive/folders/...
 ```
 
-## 📚 Complete API Reference
+##  Complete API Reference
 
 ### Context Management
 
@@ -181,7 +181,7 @@ console.log("Saved to:", result.shareLink);
 | `generateYouTubeMetadata(scriptId)` | `YouTubeMetadata` | Generate YouTube data |
 | `exportScript(scriptId, format)` | `string` | Export as JSON/text/markdown |
 
-### 💾 Storage (Google Drive)
+###  Storage (Google Drive)
 
 | Method | Returns | Description |
 |--------|---------|-------------|
@@ -192,7 +192,7 @@ console.log("Saved to:", result.shareLink);
 | `saveScriptToStorage(title, contextId, scriptId, options?)` | `SaveResult` | Save complete project |
 | `disconnectStorage()` | `void` | Disconnect from storage |
 
-### 🎥 Camera Techniques (20+ Angles, 25+ Shots)
+###  Camera Techniques (20+ Angles, 25+ Shots)
 
 #### Camera Angles
 
@@ -289,7 +289,7 @@ skill.suggestCameraTechnique('intimacy', 'beginner')
 // Returns: { angles, movements, shots } for intimacy scenes
 ```
 
-### 💡 Lighting Techniques (30+ Methods)
+###  Lighting Techniques (30+ Methods)
 
 ```typescript
 // Get all techniques
@@ -317,7 +317,7 @@ skill.suggestLighting('interior-night', 'horror')
 - Modern: `neon`, `fluorescent`, `tungsten`, `strobe`
 - Atmospheric: `god-rays`, `volume-light`, `lens-flare`
 
-### 📐 Composition Rules (20+ Guidelines)
+###  Composition Rules (20+ Guidelines)
 
 ```typescript
 // Get all composition rules
@@ -340,7 +340,7 @@ skill.getCompositionRule('rule-of-thirds')
 - Balance: `visual-weight`, `rule-of-odds`, `headroom`, `nose-room`
 - Patterns: `patterns-textures`, `center-composition`
 
-### 🎨 Color Grading (20+ Styles)
+###  Color Grading (20+ Styles)
 
 ```typescript
 // Get all styles
@@ -366,7 +366,7 @@ skill.suggestColorGrading('sci-fi')
 - Creative: `dayglow`, `cross-process`, `duotone`, `matrix-green`
 - Temperature: `warm`, `cool`, `golden`, `natural`
 
-### 🎭 Visual Aesthetics (25+ Styles)
+###  Visual Aesthetics (25+ Styles)
 
 ```typescript
 // Get all aesthetics
@@ -401,7 +401,7 @@ skill.getAestheticsByType('animation')
 - Genre: `horror`, `sci-fi`, `fantasy`, `western`, `war`, `romance`, `comedy`
 - Indian: `indian-miniature`, `indian-classical-art`
 
-### 🎬 Genre Cinematography (15+ Genres)
+###  Genre Cinematography (15+ Genres)
 
 ```typescript
 // Get all genre conventions
@@ -421,7 +421,7 @@ skill.getGenreCinematography('horror')
 **Available Genres:**
 `action`, `comedy`, `drama`, `horror`, `romance`, `sci-fi`, `fantasy`, `thriller`, `documentary`, `musical`, `western`, `war`, `period-drama`, `noir`, `animation-comedy`
 
-### 🇮🇳 Indian Cinematography
+###  Indian Cinematography
 
 ```typescript
 // Get all Indian styles
@@ -443,7 +443,7 @@ skill.getIndianCinematography('bollywood-masala')
 - `mythological-epic` - Devotional epics
 - `period-historical-indian` - Historical dramas
 
-### 🎯 Complete Scene Packages
+###  Complete Scene Packages
 
 ```typescript
 // Get everything for a scene
@@ -476,7 +476,7 @@ skill.searchCinematography('dramatic')
 // Returns: { angles, movements, shots, lighting } matching "dramatic"
 ```
 
-## 📖 Example: Complete Workflow with Cinematography
+##  Example: Complete Workflow with Cinematography
 
 ```typescript
 const skill = agent.tools['cinematic-script-writer'];
@@ -539,7 +539,7 @@ const prompt = skill.generateCinematicPrompt(
 const metadata = await skill.generateYouTubeMetadata(script.id);
 ```
 
-## 🎨 Camera Angle Reference
+##  Camera Angle Reference
 
 | Angle | Impact | Best For |
 |-------|--------|----------|
@@ -553,7 +553,7 @@ const metadata = await skill.generateYouTubeMetadata(script.id);
 | `over-shoulder` | Conversation intimacy | Dialogue scenes |
 | `reflection` | Introspection | Mirrors, self-examination |
 
-## 💡 Lighting Quick Reference
+##  Lighting Quick Reference
 
 | Technique | Mood | Best For |
 |-----------|------|----------|
@@ -566,7 +566,7 @@ const metadata = await skill.generateYouTubeMetadata(script.id);
 | `neon` | Urban, cyberpunk | City nights, sci-fi |
 | `practical` | Realistic, natural | Documentary, realism |
 
-## 🎨 Color Grading Reference
+##  Color Grading Reference
 
 | Style | Mood | Genre |
 |-------|------|-------|
@@ -579,7 +579,7 @@ const metadata = await skill.generateYouTubeMetadata(script.id);
 | `warm` | Cozy, romantic | Romance, feel-good |
 | `cool` | Clinical, isolated | Horror, isolation |
 
-## 📁 File Structure
+##  File Structure
 
 ```
 cinematic-script-writer/
@@ -600,7 +600,7 @@ cinematic-script-writer/
 └── EXAMPLE-STORAGE.md            # Google Drive storage example
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ```json
 {
@@ -612,7 +612,7 @@ cinematic-script-writer/
 }
 ```
 
-## 📝 Notes
+##  Notes
 
 - All cinematography data is embedded - no internet required
 - Techniques include difficulty levels (beginner/intermediate/advanced)
@@ -620,6 +620,6 @@ cinematic-script-writer/
 - Indian cinematography styles included for cultural content
 - Search function finds techniques across all categories
 
-## 📄 License
+##  License
 
 MIT

@@ -42,7 +42,7 @@
 - Scan documents: `./workspaces/{workspace_id}/documents/*`
 - Filter: Exclude current workflow outputs (avoid recursion)
 - Sort: By modification time (newest first)
-- Mark recommended sources based on confirmed scope (⭐)
+- Mark recommended sources based on confirmed scope ()
 
 ### 2.2 Present Sources
 
@@ -52,17 +52,17 @@ Display outputs and documents separately, sorted by time (newest first):
 Additional sources available (optional):
 
 OUTPUTS (previous workflow results):
-⭐ 1. {filename} ({workflow_type}, {date}, {word_count} words)
+ 1. {filename} ({workflow_type}, {date}, {word_count} words)
    2. {filename} ({workflow_type}, {date}, {word_count} words)
-⭐ 3. {filename} ({workflow_type}, {date}, {word_count} words)
+ 3. {filename} ({workflow_type}, {date}, {word_count} words)
    ...
 
 DOCUMENTS (user-provided materials):
    4. {filename} ({file_type}, uploaded {date})
-⭐ 5. {filename} ({file_type}, uploaded {date})
+ 5. {filename} ({file_type}, uploaded {date})
    ...
 
-⭐ = Recommended based on your scope
+ = Recommended based on your scope
 
 Select numbers to include (e.g., '1 3 5'), or Enter to skip: ___
 ```

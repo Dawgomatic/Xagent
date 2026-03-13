@@ -81,19 +81,19 @@ function main() {
         const content = fs.readFileSync(registryPath, 'utf8');
         const agents = parseRegistry(content);
         
-        console.log(`✅ Found ${agents.length} agents: ${agents.map(a => a.id).join(', ')}`);
+        console.log(` Found ${agents.length} agents: ${agents.map(a => a.id).join(', ')}`);
         
         const errors = validateHierarchy(agents);
         if (errors.length > 0) {
-            console.error('❌ Validation Errors:');
+            console.error(' Validation Errors:');
             errors.forEach(e => console.error(`  - ${e}`));
             process.exit(1);
         } else {
-            console.log('✅ Registry structure is valid.');
+            console.log(' Registry structure is valid.');
         }
 
     } catch (e) {
-        console.error('❌ Validation Failed:', e.message);
+        console.error(' Validation Failed:', e.message);
         process.exit(1);
     }
 }

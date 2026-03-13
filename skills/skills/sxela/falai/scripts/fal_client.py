@@ -189,10 +189,10 @@ def submit(model_id: str, input_data: dict, skip_validation: bool = False) -> di
         is_valid, errors, warnings = validate_input(model_id, input_data)
         
         for warn in warnings:
-            print(f"⚠️  {warn}", file=sys.stderr)
+            print(f"  {warn}", file=sys.stderr)
         
         if not is_valid:
-            print("❌ Validation failed:", file=sys.stderr)
+            print(" Validation failed:", file=sys.stderr)
             for err in errors:
                 print(f"   - {err}", file=sys.stderr)
             raise ValueError(f"Validation failed: {'; '.join(errors)}")

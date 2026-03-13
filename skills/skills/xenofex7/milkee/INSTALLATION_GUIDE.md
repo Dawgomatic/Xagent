@@ -104,7 +104,7 @@ python3 ~/.clawdbot/skills/milkee/scripts/milkee.py list_projects
 
 **Expected output**:
 ```
-📋 X Projects:
+ X Projects:
 
   • Project Name (ID: 123)
   • Another Project (ID: 456)
@@ -162,7 +162,7 @@ python3 scripts/milkee.py list_projects
 
 ## Security Notes
 
-⚠️ **Important**:
+ **Important**:
 - Never commit API tokens to git
 - Use `.gitignore` to protect config files
 - Rotate keys regularly
@@ -172,10 +172,10 @@ python3 scripts/milkee.py list_projects
 
 ## Next Steps
 
-1. ✅ Installation complete
-2. 📖 Read SKILL.md (inside milkee.skill) for full documentation
-3. ⏱️ Start tracking time!
-4. 📚 Check references/ folder for API details
+1.  Installation complete
+2.  Read SKILL.md (inside milkee.skill) for full documentation
+3.  Start tracking time!
+4.  Check references/ folder for API details
 
 ---
 
@@ -188,4 +188,4 @@ For issues:
 
 ---
 
-**Happy time tracking!** ⏱️🦭
+**Happy time tracking!** 

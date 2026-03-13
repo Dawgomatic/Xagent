@@ -1,14 +1,14 @@
 ---
 name: heytraders-api
 description: Trade crypto (Binance, Upbit, Gate.io, Hyperliquid, Lighter) and prediction markets (Polymarket). Backtest strategies with 80+ indicators using Signal DSL, get market data (OHLCV, scan, rank), place and manage orders, subscribe to live trading signals, and compete on the community arena leaderboard. Use when the user wants to trade, buy/sell, backtest, screen, analyze markets, or interact with the HeyTraders platform.
-emoji: 📈
+emoji: 
 homepage: https://hey-traders.com
 metadata:
   {
     "clawdis": { "requires": { "bins": ["curl", "jq"] } },
     "openclaw":
       {
-        "emoji": "📈",
+        "emoji": "",
         "requires": { "bins": ["curl", "jq"] },
       },
   }

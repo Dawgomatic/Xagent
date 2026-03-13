@@ -333,10 +333,10 @@ export function formatPermissions(permissionHex) {
   for (const perm of decoded) {
     const risk = PERMISSION_RISKS[perm];
     const riskIcon = {
-      CRITICAL: '🔴',
-      HIGH: '🟠',
-      MEDIUM: '🟡',
-      LOW: '🟢',
+      CRITICAL: '',
+      HIGH: '',
+      MEDIUM: '',
+      LOW: '',
     }[risk?.level || 'LOW'];
     
     lines.push(`  ${riskIcon} ${perm}`);
@@ -344,7 +344,7 @@ export function formatPermissions(permissionHex) {
   
   if (validation.risks.length > 0) {
     lines.push('');
-    lines.push('⚠️ Security Risks:');
+    lines.push(' Security Risks:');
     for (const risk of validation.risks) {
       lines.push(`  - ${risk}`);
     }
@@ -352,7 +352,7 @@ export function formatPermissions(permissionHex) {
   
   if (validation.warnings.length > 0) {
     lines.push('');
-    lines.push('⚡ Warnings:');
+    lines.push(' Warnings:');
     for (const warning of validation.warnings) {
       lines.push(`  - ${warning}`);
     }

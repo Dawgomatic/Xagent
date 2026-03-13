@@ -15,7 +15,7 @@ metadata:
 
 **Use when** you need your OpenClaw agent to remember and recall information across conversations using semantic search.
 
-⚠️ **Privacy Notice**: The optional `autoCapture` feature (disabled by default) can capture PII like emails and phone numbers if you enable `allowPIICapture`. Only enable if you understand the privacy implications.
+ **Privacy Notice**: The optional `autoCapture` feature (disabled by default) can capture PII like emails and phone numbers if you enable `allowPIICapture`. Only enable if you understand the privacy implications.
 
 Local semantic memory plugin powered by vector search and Transformers.js embeddings. Zero configuration, fully local, no API keys required.
 

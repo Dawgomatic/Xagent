@@ -36,7 +36,7 @@ It emphasizes:
 - Host-level access (NOT container-restricted environments)
 - systemd-based systems preferred
 
-> ⚠️ If running inside Docker, Kubernetes, LXC, or other containers, firewall, audit, and service commands may not reflect the host system.
+>  If running inside Docker, Kubernetes, LXC, or other containers, firewall, audit, and service commands may not reflect the host system.
 
 ---
 
@@ -151,7 +151,7 @@ lsof -p <PID>
 strace -p <PID>
 ```
 
-> ⚠️ `strace` may change process behavior. Use carefully during live compromise.
+>  `strace` may change process behavior. Use carefully during live compromise.
 
 ### Kernel Modules
 ```bash

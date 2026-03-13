@@ -4,12 +4,12 @@ Privacy-first web search with DuckDuckGo-style bangs for OpenClaw.
 
 ## Features
 
-- 🛡️ **Privacy-First** - Randomized browser fingerprints, IP masking, no tracking
-- 🎯 **Bangs Support** - DuckDuckGo-style shortcuts (!w, !yt, !gh, !r, etc.)
-- 📊 **250+ Engines** - Aggregates results from multiple search engines
-- 🗂️ **Multi-Category** - Search general, news, images, videos, science
-- 🚫 **Ad-Free** - Pure search results without advertising
-- 🔓 **No API Keys** - Free and unlimited
+-  **Privacy-First** - Randomized browser fingerprints, IP masking, no tracking
+-  **Bangs Support** - DuckDuckGo-style shortcuts (!w, !yt, !gh, !r, etc.)
+-  **250+ Engines** - Aggregates results from multiple search engines
+-  **Multi-Category** - Search general, news, images, videos, science
+-  **Ad-Free** - Pure search results without advertising
+-  **No API Keys** - Free and unlimited
 
 ## Quick Start
 
@@ -58,19 +58,19 @@ python3 scripts/search.py "Python Tutorial" --lang de
 In Germany, 90% of search traffic goes through Google, 5% through Bing. These services track users extensively using browser fingerprints – a unique combination of browser version, OS, screen resolution, language preferences, and more.
 
 **What SearXNG does differently:**
-- 🎭 **Randomized Fingerprints** - Generates a random browser profile for each query
-- 🚫 **No Cookies** - Never sends cookies to external search engines
-- 🔒 **IP Masking** - Uses SearXNG instance IP, not user IP
-- 📊 **Result Aggregation** - Queries 250+ search engines simultaneously
-- 🧹 **No Ads** - Pure results without advertising ballast
+-  **Randomized Fingerprints** - Generates a random browser profile for each query
+-  **No Cookies** - Never sends cookies to external search engines
+-  **IP Masking** - Uses SearXNG instance IP, not user IP
+-  **Result Aggregation** - Queries 250+ search engines simultaneously
+-  **No Ads** - Pure results without advertising ballast
 
 ### Self-Hosting Benefits
 
 When you run your own SearXNG instance:
-- ✅ Complete control over your data
-- ✅ Shared household anonymity (multiple users = more privacy)
-- ✅ No rate limits or API restrictions
-- ✅ Optional Tor/Proxy routing for extra anonymity
+-  Complete control over your data
+-  Shared household anonymity (multiple users = more privacy)
+-  No rate limits or API restrictions
+-  Optional Tor/Proxy routing for extra anonymity
 
 ### vs. Brave Search API
 

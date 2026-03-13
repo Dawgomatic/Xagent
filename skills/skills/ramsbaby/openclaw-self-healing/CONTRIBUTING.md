@@ -4,9 +4,9 @@
 
 ---
 
-## 🌟 Ways to Contribute
+##  Ways to Contribute
 
-### 1. **Bug Reports** 🐛
+### 1. **Bug Reports** 
 Found something broken? [Open an issue](https://github.com/ramsbaby/openclaw-self-healing/issues/new?template=bug_report.md).
 
 **Please include:**
@@ -16,7 +16,7 @@ Found something broken? [Open an issue](https://github.com/ramsbaby/openclaw-sel
 - Relevant logs (last 50 lines of `healthcheck-*.log` or `emergency-recovery-*.log`)
 - Steps to reproduce
 
-### 2. **Feature Requests** 💡
+### 2. **Feature Requests** 
 Have an idea? [Open an issue](https://github.com/ramsbaby/openclaw-self-healing/issues/new?template=feature_request.md).
 
 **We're especially interested in:**
@@ -25,7 +25,7 @@ Have an idea? [Open an issue](https://github.com/ramsbaby/openclaw-self-healing/
 - Prometheus/Grafana metrics
 - Additional notification channels (Slack, Telegram, etc.)
 
-### 3. **Pull Requests** 🔧
+### 3. **Pull Requests** 
 Code contributions are welcome!
 
 **Good first PRs:**
@@ -34,14 +34,14 @@ Code contributions are welcome!
 - New notification channels
 - systemd equivalent for Linux
 
-### 4. **Documentation** 📚
+### 4. **Documentation** 
 Help others by improving docs:
 - Fix typos or unclear sections
 - Add examples or tutorials
 - Translate documentation
 - Write blog posts/guides
 
-### 5. **Testing & Validation** 🧪
+### 5. **Testing & Validation** 
 Help verify the system works in different environments:
 - Test on different macOS versions
 - Test with different OpenClaw configurations
@@ -49,7 +49,7 @@ Help verify the system works in different environments:
 
 ---
 
-## 🚀 Development Setup
+##  Development Setup
 
 ### Prerequisites
 
@@ -102,7 +102,7 @@ chk() {
 
 ---
 
-## 🔀 Pull Request Process
+##  Pull Request Process
 
 ### 1. Fork & Branch
 
@@ -227,7 +227,7 @@ Maintainers will review your PR. Be responsive to feedback:
 
 ---
 
-## 📐 Coding Standards
+##  Coding Standards
 
 ### Bash Best Practices
 
@@ -292,7 +292,7 @@ Maintainers will review your PR. Be responsive to feedback:
 
 ---
 
-## 🧪 Testing Requirements
+##  Testing Requirements
 
 ### Unit Tests (Manual)
 
@@ -325,7 +325,7 @@ echo "Exit code: $?"
 
 ---
 
-## 🏷️ Commit Message Guidelines
+##  Commit Message Guidelines
 
 Follow [Conventional Commits](https://www.conventionalcommits.org/):
 
@@ -353,7 +353,7 @@ refactor(discord): Extract notification function
 
 ---
 
-## 🚧 WIP (Work in Progress) Contributions
+##  WIP (Work in Progress) Contributions
 
 Have an idea but not finished? That's OK!
 
@@ -364,7 +364,7 @@ Have an idea but not finished? That's OK!
 
 ---
 
-## 📜 Code of Conduct
+##  Code of Conduct
 
 ### Be Respectful
 
@@ -386,7 +386,7 @@ Have an idea but not finished? That's OK!
 
 ---
 
-## 🎁 Recognition
+##  Recognition
 
 Contributors are recognized in:
 - **README.md** — "Contributors" section
@@ -395,7 +395,7 @@ Contributors are recognized in:
 
 ---
 
-## 📞 Questions?
+##  Questions?
 
 - **GitHub Discussions:** [github.com/ramsbaby/openclaw-self-healing/discussions](https://github.com/ramsbaby/openclaw-self-healing/discussions)
 - **OpenClaw Discord:** [discord.com/invite/clawd](https://discord.com/invite/clawd) (mention @ramsbaby)
@@ -404,5 +404,5 @@ Contributors are recognized in:
 ---
 
 <p align="center">
-  <strong>Thank you for making OpenClaw Self-Healing better! 🦞</strong>
+  <strong>Thank you for making OpenClaw Self-Healing better! </strong>
 </p>

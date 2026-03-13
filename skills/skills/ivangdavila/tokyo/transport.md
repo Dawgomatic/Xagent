@@ -78,9 +78,9 @@ Rechargeable smart cards for all transit + shopping.
 
 | Line | Color | Connects |
 |------|-------|----------|
-| **Sobu** | Yellow | Chiba ↔ Shinjuku |
-| **Keihin-Tohoku** | Light blue | Saitama ↔ Yokohama |
-| **Saikyo** | Green | Saitama ↔ Odaiba area |
+| **Sobu** | Yellow | Chiba  Shinjuku |
+| **Keihin-Tohoku** | Light blue | Saitama  Yokohama |
+| **Saikyo** | Green | Saitama  Odaiba area |
 
 ---
 
@@ -103,7 +103,7 @@ Rechargeable smart cards for all transit + shopping.
 ### Metro Tips
 
 - Transfers between Metro lines: Walk inside station
-- JR ↔ Metro transfers: Exit and re-enter (IC card handles fare)
+- JR  Metro transfers: Exit and re-enter (IC card handles fare)
 - Some stations are underground labyrinths
 
 ---

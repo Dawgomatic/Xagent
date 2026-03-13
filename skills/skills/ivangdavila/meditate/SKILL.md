@@ -4,7 +4,7 @@ slug: meditate
 version: 1.0.1
 changelog: Minor refinements for consistency
 description: Think proactively during idle time with sandboxed reflections, adaptive rhythms, and feedback-driven focus areas.
-metadata: {"clawdbot":{"emoji":"🧘","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use
@@ -93,7 +93,7 @@ Store detected profile in `~/meditate/profile.md`. Update only after confirmatio
 ### 5. Meditation Output Format
 Always present insights as questions or observations:
 ```
-🧘 Meditation Insights
+ Meditation Insights
 
 **Observation:** [what you noticed]
 **Question:** [something to consider]

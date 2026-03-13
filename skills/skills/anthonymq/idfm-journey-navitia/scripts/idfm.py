@@ -118,11 +118,11 @@ def _section_to_human(s: dict) -> str:
 
     # walking/transfer/waiting sections
     if st in {"waiting"}:
-        return "⏳ attente"
+        return " attente"
 
     mode = (s.get("mode") or "").lower()
     if st in {"street_network", "transfer", "crow_fly"} and mode == "walking":
-        return "🚶 marche"
+        return " marche"
 
     # public transport
     if st == "public_transport":
@@ -145,9 +145,9 @@ def _section_to_human(s: dict) -> str:
         extra = f" ({direction})" if direction else ""
 
         if head and tail:
-            return f"🚇 {head}{extra}: {tail}"
+            return f" {head}{extra}: {tail}"
         if head:
-            return f"🚇 {head}{extra}"
+            return f" {head}{extra}"
 
     # fallback
     st_str = st or "section"

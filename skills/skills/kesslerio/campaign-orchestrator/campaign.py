@@ -98,7 +98,7 @@ def cmd_start(args):
     # Check exclusion list
     exclusion = check_exclusions(data, lead_name)
     if exclusion:
-        print(f"❌ CANNOT START CAMPAIGN: '{lead_name}' is in exclusion list")
+        print(f" CANNOT START CAMPAIGN: '{lead_name}' is in exclusion list")
         print(f"   Reason: {exclusion.get('reason', 'Unknown')}")
         print(f"   Added: {exclusion.get('added_at', 'Unknown')}")
         sys.exit(1)
@@ -150,7 +150,7 @@ def cmd_start(args):
     data["campaigns"][lead_name] = campaign
     save_campaigns(data)
 
-    print(f"✅ Campaign started for '{lead_name}'")
+    print(f" Campaign started for '{lead_name}'")
     print(f"   Template: {template_name}")
     print(f"   Steps: {len(steps)}")
     print(f"   First step: {steps[0]['type']} at {steps[0]['scheduled']}")
@@ -175,9 +175,9 @@ def cmd_status(args):
     print(f"  Step: {campaign['current_step'] + 1}/{len(campaign['steps'])}")
 
     for i, step in enumerate(campaign["steps"]):
-        status_icon = "✅" if step["status"] == "completed" else "⏳" if step["status"] == "pending" else "❌"
+        status_icon = "" if step["status"] == "completed" else "" if step["status"] == "pending" else ""
         sent = step.get("sent_at", "not sent")
-        response = "❌ No" if not step.get("response_received") else "✅ Yes"
+        response = " No" if not step.get("response_received") else " Yes"
         print(f"  {status_icon} Step {i+1}: {step['type']} - {step['status']}")
         print(f"      Scheduled: {step['scheduled']}")
         print(f"      Sent: {sent}")
@@ -229,7 +229,7 @@ def cmd_stop(args):
 
     save_campaigns(data)
 
-    print(f"❌ Campaign terminated for '{lead_name}'")
+    print(f" Campaign terminated for '{lead_name}'")
     print(f"   Reason: {reason}")
     print(f"   Steps completed: {campaign['current_step']}/{len(campaign['steps'])}")
 
@@ -249,7 +249,7 @@ def cmd_remove(args):
     removed_campaign = campaigns.pop(lead_name)
     save_campaigns(data)
 
-    print(f"🗑️  Removed '{lead_name}' from campaigns")
+    print(f"  Removed '{lead_name}' from campaigns")
     print(f"   Template: {campaign['template']}")
     print(f"   Steps completed: {campaign['current_step']}/{len(campaign['steps'])}")
     print(f"   History preserved in state for records")
@@ -278,15 +278,15 @@ def cmd_check(args):
             response = step.get("response_received", False)
             if response:
                 has_response = True
-                print(f"  ✅ Step {i+1} ({step['type']}): Response received!")
+                print(f"   Step {i+1} ({step['type']}): Response received!")
             else:
-                print(f"  ⏳ Step {i+1} ({step['type']}): No response")
+                print(f"   Step {i+1} ({step['type']}): No response")
 
     if has_response:
-        print("\n⚠️  Lead has responded - consider terminating campaign")
+        print("\n  Lead has responded - consider terminating campaign")
         print(f"   Use: /campaign stop \"{lead_name}\" --reason \"lead_replied\"")
     else:
-        print("\n✅ No responses detected - safe to proceed with next step")
+        print("\n No responses detected - safe to proceed with next step")
 
     campaign["last_checked"] = datetime.now().isoformat()
     save_campaigns(data)
@@ -381,7 +381,7 @@ def cmd_exclude(args):
     # Check if already excluded
     for exclusion in data["exclusions"]:
         if exclusion.get("name") == lead_name:
-            print(f"⚠️  '{lead_name}' is already in exclusion list")
+            print(f"  '{lead_name}' is already in exclusion list")
             print(f"   Reason: {exclusion.get('reason')}")
             return
 
@@ -396,7 +396,7 @@ def cmd_exclude(args):
     data["exclusions"].append(exclusion)
     save_campaigns(data)
 
-    print(f"✅ Added '{lead_name}' to exclusion list")
+    print(f" Added '{lead_name}' to exclusion list")
     print(f"   Reason: {reason}")
     if email:
         print(f"   Email: {email}")

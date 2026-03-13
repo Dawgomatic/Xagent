@@ -215,7 +215,7 @@
     }
   },
   "openclaw": {
-    "emoji": "📦",
+    "emoji": "",
     "category": "security",
     "requires": {
       "bins": [

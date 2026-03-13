@@ -69,27 +69,27 @@ def index_memory():
     # Resolve workspace directory (parent of vector_memory/)
     workspace_dir = BASE_DIR
 
-    print("🧠 Loading Sentence Transformer...")
+    print(" Loading Sentence Transformer...")
     model = SentenceTransformer('all-MiniLM-L6-v2')
 
-    print("📂 Connecting to ChromaDB...")
+    print(" Connecting to ChromaDB...")
     client = chromadb.PersistentClient(path=VECTOR_DB_PATH)
     collection = client.get_or_create_collection(name=COLLECTION_NAME)
 
-    print("📄 Parsing all knowledge files...")
+    print(" Parsing all knowledge files...")
     all_files = gather_all_files(workspace_dir)
     chunks = []
     for f in all_files:
         file_chunks = parse_markdown(f, workspace_dir)
-        print(f"   📄 {os.path.relpath(f, workspace_dir)}: {len(file_chunks)} chunks")
+        print(f"    {os.path.relpath(f, workspace_dir)}: {len(file_chunks)} chunks")
         chunks.extend(file_chunks)
 
     if not chunks:
-        print("⚠️ No content found")
+        print(" No content found")
         return
 
     # Update knowledge graph
-    print("🕸️  Updating Knowledge Graph...")
+    print("  Updating Knowledge Graph...")
     graph = MemoryGraph()
     graph.build_from_chunks(chunks)
 
@@ -97,10 +97,10 @@ def index_memory():
     documents = [c['content'] for c in chunks]
     metadatas = [c['metadata'] for c in chunks]
 
-    print(f"🔢 Generating embeddings for {len(chunks)} chunks...")
+    print(f" Generating embeddings for {len(chunks)} chunks...")
     embeddings = model.encode(documents).tolist()
 
-    print("💾 Storing in Vector DB (upsert)...")
+    print(" Storing in Vector DB (upsert)...")
     collection.upsert(
         ids=ids,
         documents=documents,
@@ -114,9 +114,9 @@ def index_memory():
         orphan_ids = [f"mem_{i}" for i in range(len(chunks), existing)]
         if orphan_ids:
             collection.delete(ids=orphan_ids)
-            print(f"🧹 Cleaned {len(orphan_ids)} orphaned entries.")
+            print(f" Cleaned {len(orphan_ids)} orphaned entries.")
 
-    print("✅ Indexing Complete!")
+    print(" Indexing Complete!")
 
 
 if __name__ == "__main__":

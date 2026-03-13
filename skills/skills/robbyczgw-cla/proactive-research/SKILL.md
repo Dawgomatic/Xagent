@@ -172,12 +172,12 @@ Output format:
 ```markdown
 # Weekly Research Digest - [Date Range]
 
-## 🔥 Highlights
+##  Highlights
 
 - **AI Models**: Claude 4.5 released with improved reasoning
 - **Security**: Critical CVE patched in popular framework
 
-## 📊 By Topic
+##  By Topic
 
 ### AI Model Releases
 - [3 findings this week]
@@ -185,7 +185,7 @@ Output format:
 ### Security Vulnerabilities
 - [1 finding this week]
 
-## 💡 Recommendations
+##  Recommendations
 
 Based on your interests, you might want to monitor:
 - "Kubernetes security" (mentioned 3x this week)
@@ -260,7 +260,7 @@ Learning data stored in `.learning_data.json` (privacy-safe, never shared).
 Proactive Research connects to your conversation history:
 
 **Example alert:**
-> 🔔 **Dirac Live Update**
+>  **Dirac Live Update**
 > 
 > Version 3.8 released with the room correction improvements you asked about last week.
 > 
@@ -310,8 +310,8 @@ Requires OpenClaw message tool:
     "chat_id": "@your_username",
     "silent": false,
     "effects": {
-      "high_importance": "🔥",
-      "medium_importance": "📌"
+      "high_importance": "",
+      "medium_importance": ""
     }
   }
 }

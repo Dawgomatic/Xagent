@@ -1,7 +1,7 @@
 ---
 name: encoding-formats
 description: Encode, decode, and convert between data formats. Use when working with Base64, URL encoding, hex, Unicode, JWT tokens, hashing, checksums, or converting between serialization formats like JSON, MessagePack, and protobuf wire format.
-metadata: {"clawdbot":{"emoji":"🔢","requires":{"anyBins":["base64","python3","openssl","xxd"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["base64","python3","openssl","xxd"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Encoding & Formats
@@ -217,7 +217,7 @@ Normalization (NFC vs NFD):
   Python: import unicodedata; unicodedata.normalize('NFC', text)
 
 Mojibake (wrong encoding):
-  "café" appears as "cafÃ©" → file is UTF-8 but read as Latin-1
+  "café" appears as "cafÃ" → file is UTF-8 but read as Latin-1
   Fix: re-read with correct encoding
 ```
 
@@ -349,7 +349,7 @@ cmp file1.bin file2.bin && echo "Identical" || echo "Different"
 
 ## Serialization Formats
 
-### JSON ↔ other formats
+### JSON  other formats
 
 ```bash
 # JSON to YAML

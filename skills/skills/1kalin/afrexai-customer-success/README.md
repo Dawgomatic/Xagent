@@ -42,14 +42,14 @@ Tell your agent:
 | Metrics | Weekly dashboard YAML, cohort analysis, engagement mapping |
 | Advanced | CAB structure, VoC program, multi-product CS, economic downturn plays |
 
-## ⚡ Level Up
+##  Level Up
 
 This free skill covers the CS methodology. For industry-specific customer success contexts (SaaS metrics, healthcare compliance, fintech regulations), grab a **Context Pack**:
 
 - [SaaS Context Pack ($47)](https://afrexai-cto.github.io/context-packs/) — SaaS-specific retention benchmarks, PLG metrics, expansion playbooks
 - [Professional Services Pack ($47)](https://afrexai-cto.github.io/context-packs/) — Client retention for services firms, utilization-linked health scoring
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — ICP definition, prospecting, outreach sequences
 - [afrexai-sales-playbook](https://clawhub.com/skills/afrexai-sales-playbook) — Full B2B sales system with MEDDPICC

@@ -11,7 +11,7 @@ metadata:
       anyBins: [python3, python]
     homepage: https://github.com/ikchain/Fabrik-Codek
     os: [macos, linux]
-    emoji: "🧠"
+    emoji: ""
     configPaths:
       - "~/.claude/projects/*"
       - "./data/embeddings/"

@@ -12,7 +12,7 @@ mkdir -p "$SNAPSHOT_DIR"
 # Generate snapshot filename
 SNAPSHOT_FILE="$SNAPSHOT_DIR/$(date +%Y-%m-%d-%H%M).md"
 
-echo "💾 Creating memory snapshot..."
+echo " Creating memory snapshot..."
 echo ""
 
 # Create snapshot header
@@ -91,7 +91,7 @@ if command -v jq >/dev/null 2>&1; then
   jq --arg ts "$timestamp" '.last_snapshot = $ts | .warnings += 1' "$STATE_FILE" > "$STATE_FILE.tmp" && mv "$STATE_FILE.tmp" "$STATE_FILE"
 fi
 
-echo "✅ Snapshot saved: $SNAPSHOT_FILE"
+echo " Snapshot saved: $SNAPSHOT_FILE"
 echo ""
 echo "Snapshot includes:"
 echo "  - Last 3 days episodic entries"

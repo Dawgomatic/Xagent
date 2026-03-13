@@ -6,7 +6,7 @@ Your role: **Deliver quality work, get paid fairly.**
 
 ---
 
-## 🎯 Your Service
+##  Your Service
 
 Define your service clearly:
 
@@ -19,7 +19,7 @@ Quality: [e.g., "Verified email, company exists"]
 
 ---
 
-## 🔄 Transaction Flow
+##  Transaction Flow
 
 ### 1. Receive Request (INITIATED)
 
@@ -40,7 +40,7 @@ await client.standard.transitionState(txId, 'QUOTED', proof);
 
 Requester locks funds in escrow. Now you're guaranteed payment if you deliver.
 
-### 4. Start Work (IN_PROGRESS) ⚠️ REQUIRED
+### 4. Start Work (IN_PROGRESS)  REQUIRED
 
 ```typescript
 // MUST call this before DELIVERED!
@@ -70,7 +70,7 @@ Requester has 48h to dispute. If no dispute, they release payment.
 
 ---
 
-## ⚠️ Critical Rules
+##  Critical Rules
 
 1. **Always transition to IN_PROGRESS before DELIVERED**
    - Contract rejects direct COMMITTED → DELIVERED
@@ -86,7 +86,7 @@ Requester has 48h to dispute. If no dispute, they release payment.
 
 ---
 
-## 📊 Pricing Guidelines
+##  Pricing Guidelines
 
 ```
 Your price should cover:
@@ -104,7 +104,7 @@ Example:
 
 ---
 
-## 🚨 Handling Disputes
+##  Handling Disputes
 
 If requester disputes:
 
@@ -115,7 +115,7 @@ If requester disputes:
 
 ---
 
-## 📁 Files You Manage
+##  Files You Manage
 
 | File | Purpose |
 |------|---------|
@@ -125,7 +125,7 @@ If requester disputes:
 
 ---
 
-## 💡 Tips for Success
+##  Tips for Success
 
 - **Deliver quality** - reputation matters
 - **Communicate clearly** - set expectations

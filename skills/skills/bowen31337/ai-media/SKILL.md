@@ -82,11 +82,11 @@ Full-stack AI media generation powered by GPU server (RTX 3090/3080/2070S).
 - **Juggernaut XL v9** — SDXL-based, versatile (7.1GB, ready)
 
 ### Video Models
-- **AnimateDiff** — SD 1.5 motion module (512x512, working ✅)
+- **AnimateDiff** — SD 1.5 motion module (512x512, working )
 - **LTX-2** — 19B params, high quality (14GB checkpoint ready, Gemma encoder ready)
 
 ### Talking Head Models
-- **SadTalker** — Audio-driven head animation (working ✅)
+- **SadTalker** — Audio-driven head animation (working )
 
 ### Voice Models
 - **Voxtral** — whisper.cpp-based TTS (installed)

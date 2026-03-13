@@ -3,7 +3,7 @@ name: ACT
 slug: act-prep
 version: 1.0.0
 description: Prepare for the ACT with adaptive practice, score tracking, weak area analysis, and college targeting.
-metadata: {"clawdbot":{"emoji":"📝","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

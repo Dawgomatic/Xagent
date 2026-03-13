@@ -143,7 +143,7 @@ You're now in Dissonance. The question is whether you retreat or advance.
 ## Summary Template
 
 ```
-✅ **Session 5 Complete: The Dissonance Engine**
+ **Session 5 Complete: The Dissonance Engine**
 
 **Contradiction:**
 Believe: {from 1.1}
@@ -169,5 +169,5 @@ Do: {contradicting behavior}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ready for Session 6: The Cybernetic Debugger?
-[▶️ Continue] [⏸ Take a Break]
+[ Continue] [ Take a Break]
 ```

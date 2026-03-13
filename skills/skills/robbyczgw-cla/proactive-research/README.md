@@ -6,13 +6,13 @@ Proactive Research transforms your assistant from reactive to proactive by conti
 
 ## Features
 
-- 🔍 **Automated Monitoring** - Scheduled web searches for your topics
-- 🧠 **AI Importance Scoring** - Smart filtering: alert vs digest vs ignore
-- 📱 **Multi-Channel Alerts** - Telegram, Discord, Email
-- 📊 **Weekly Digests** - Curated summaries of interesting findings
-- 🧩 **Memory Integration** - Contextual alerts referencing your past conversations
-- ⚡ **Rate Limiting** - Prevent alert fatigue
-- 🎯 **Custom Conditions** - Fine-tune when to alert
+-  **Automated Monitoring** - Scheduled web searches for your topics
+-  **AI Importance Scoring** - Smart filtering: alert vs digest vs ignore
+-  **Multi-Channel Alerts** - Telegram, Discord, Email
+-  **Weekly Digests** - Curated summaries of interesting findings
+-  **Memory Integration** - Contextual alerts referencing your past conversations
+-  **Rate Limiting** - Prevent alert fatigue
+-  **Custom Conditions** - Fine-tune when to alert
 
 ## Quick Start
 
@@ -37,19 +37,19 @@ python3 scripts/setup_cron.py
 
 ## Use Cases
 
-### 📈 Price Monitoring
+###  Price Monitoring
 Track product prices, SaaS pricing changes, or market trends with alerts on significant changes.
 
-### 🔧 Product Updates
+###  Product Updates
 Monitor software releases, patches, and feature announcements.
 
-### 📰 News Tracking
+###  News Tracking
 Stay updated on specific topics without drowning in noise.
 
-### 🏢 Competitor Analysis
+###  Competitor Analysis
 Track competitor product launches, funding, and news.
 
-### 🎓 Research Papers
+###  Research Papers
 Monitor arXiv, GitHub, or academic publications in your field.
 
 ## How It Works

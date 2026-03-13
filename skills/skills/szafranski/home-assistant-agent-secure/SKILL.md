@@ -1,7 +1,7 @@
 ---
 name: home-assistant-agent-secure
 description: Control Home Assistant smart home devices securely using the Assist (Conversation) API. Passes natural language to Home Assistant's built-in NLU for safe, token-efficient device control. Designed to work with a restricted non-admin HA user for minimal access exposure.
-metadata: {"openclaw":{"emoji":"🏠","requires":{"bins":["curl"],"env":["HOME_ASSISTANT_URL","HOME_ASSISTANT_TOKEN"]},"primaryEnv":"HOME_ASSISTANT_TOKEN"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl"],"env":["HOME_ASSISTANT_URL","HOME_ASSISTANT_TOKEN"]},"primaryEnv":"HOME_ASSISTANT_TOKEN"}}
 ---
 
 # Home Assistant Agent (Secure)

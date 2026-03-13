@@ -63,7 +63,7 @@ if [[ -z "$SUBTITLE" && "$NO_SUBTITLE" != true ]]; then
   AUTO_SRT="$OUTDIR/lyrics.srt"
   if [[ -f "$AUTO_SRT" ]]; then
     SUBTITLE="$AUTO_SRT"
-    echo "📝 Auto-detected lyrics: $AUTO_SRT"
+    echo " Auto-detected lyrics: $AUTO_SRT"
   fi
 fi
 
@@ -83,7 +83,7 @@ fi
 
 # Get audio duration
 AUDIO_DUR=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 "$AUDIO" 2>/dev/null | cut -d. -f1)
-echo "🎵 Audio: $AUDIO (${AUDIO_DUR}s)"
+echo " Audio: $AUDIO (${AUDIO_DUR}s)"
 
 IFS='x' read -r OUT_W OUT_H <<< "$RESOLUTION"
 
@@ -96,7 +96,7 @@ print(m.get('mode', 'slideshow'))
 " "$OUTDIR/visuals_meta.json")
 fi
 MODE="${MODE:-slideshow}"
-echo "📽 Mode: $MODE"
+echo " Mode: $MODE"
 
 # Collect files (use find to avoid pipefail issues with ls on missing dirs)
 mapfile -t IMAGES < <(find "$OUTDIR/images" -name "scene_*.png" 2>/dev/null | sort)
@@ -287,13 +287,13 @@ esac
 if [[ -f "$OUTPUT" ]]; then
   FSIZE=$(du -h "$OUTPUT" | cut -f1)
   echo ""
-  echo "🎬 Music Video Complete!"
+  echo " Music Video Complete!"
   echo "━━━━━━━━━━━━━━━━━━━━━━"
-  echo "  📁 File: $OUTPUT"
-  echo "  📏 Size: $FSIZE"
-  echo "  ⏱ Duration: ~${AUDIO_DUR}s"
+  echo "   File: $OUTPUT"
+  echo "   Size: $FSIZE"
+  echo "   Duration: ~${AUDIO_DUR}s"
   echo "━━━━━━━━━━━━━━━━━━━━━━"
 else
-  echo "❌ Assembly failed — check ffmpeg output" >&2
+  echo " Assembly failed — check ffmpeg output" >&2
   exit 1
 fi

@@ -139,13 +139,13 @@ cron add --schedule "0 14 * * *" \
 
 ### Bad (Wasteful)
 ```bash
-# ❌ Using Opus for simple check
+#  Using Opus for simple check
 cron add --schedule "*/15 * * * *" \
   --payload '{"kind":"agentTurn","message":"Check email","model":"anthropic/claude-opus-4"}' \
   --sessionTarget isolated
 # → Should be Haiku! 60x more expensive for no benefit
 
-# ❌ Using Sonnet for parsing
+#  Using Sonnet for parsing
 cron add --schedule "0 2 * * *" \
   --payload '{"kind":"agentTurn","message":"Parse CSV","model":"anthropic/claude-sonnet-4-5"}' \
   --sessionTarget isolated
@@ -196,13 +196,13 @@ If daily costs are high, audit your cronjobs:
 
 ## Summary
 
-✅ **Default to Haiku** for 90% of cronjobs  
-✅ **Specify model explicitly** in payload (don't rely on defaults)  
-✅ **Use isolated sessions** for background tasks  
-✅ **Monitor costs** regularly  
+ **Default to Haiku** for 90% of cronjobs  
+ **Specify model explicitly** in payload (don't rely on defaults)  
+ **Use isolated sessions** for background tasks  
+ **Monitor costs** regularly  
 
-❌ **Never use Opus** for scheduled tasks  
-❌ **Don't use Sonnet** unless content quality matters  
-❌ **Don't forget to specify model** (defaults can be expensive)  
+ **Never use Opus** for scheduled tasks  
+ **Don't use Sonnet** unless content quality matters  
+ **Don't forget to specify model** (defaults can be expensive)  
 
 **Savings:** Using Haiku instead of Opus for 10 daily cronjobs = **$17.70/month saved**

@@ -11,7 +11,7 @@ async function runTest() {
   const archivePath = path.join(testRoot, 'test.oca');
   const password = 'test-password';
 
-  console.log('🚀 Starting Path Healing Test...');
+  console.log(' Starting Path Healing Test...');
 
   // 1. Prepare Mock Source
   await fs.emptyDir(testRoot);
@@ -36,11 +36,11 @@ async function runTest() {
   // We need to temporarily mock os.homedir() for the archive to think it's 'olduser'
   // But since we can't easily mock os.homedir in a child process without complex tools,
   // we will manually edit the manifest after archive creation to simulate a foreign archive.
-  console.log('📦 Creating archive...');
+  console.log(' Creating archive...');
   await createArchive([sourceDir, path.join(sourceDir, '.openclaw')], archivePath, password);
 
   // 3. Restore and Fix
-  console.log('🔓 Restoring archive...');
+  console.log(' Restoring archive...');
   await fs.ensureDir(restoreDir);
   await restoreArchive(archivePath, restoreDir, password);
 
@@ -50,7 +50,7 @@ async function runTest() {
   manifest.home = "/Users/olduser"; 
   await fs.writeJson(manifestPath, manifest);
 
-  console.log('🔧 Running fixPaths...');
+  console.log(' Running fixPaths...');
   await fixPaths(restoreDir);
 
   // 4. Verify
@@ -65,9 +65,9 @@ async function runTest() {
                    fixedConfig.skills.custom.includes(currentHome);
 
   if (isHealed) {
-    console.log('\n✅ TEST PASSED: All paths healed successfully.');
+    console.log('\n TEST PASSED: All paths healed successfully.');
   } else {
-    console.log('\n❌ TEST FAILED: Paths were not correctly healed.');
+    console.log('\n TEST FAILED: Paths were not correctly healed.');
     console.log(JSON.stringify(fixedConfig, null, 2));
     process.exit(1);
   }

@@ -80,7 +80,7 @@ def load_test_set(path: Optional[str] = None) -> list:
     """Load the standard test set."""
     p = Path(path) if path else SCRIPT_DIR / "testset.json"
     if not p.exists():
-        print(f"❌ Test set not found at {p}")
+        print(f" Test set not found at {p}")
         sys.exit(1)
     return json.loads(p.read_text())
 
@@ -198,7 +198,7 @@ Respond with ONLY a single digit 1-5, nothing else."""
             rating = int(text[0]) if text and text[0].isdigit() else 3
             return max(1, min(5, rating))
     except Exception as e:
-        print(f"    ⚠️ Judge error: {e}")
+        print(f"     Judge error: {e}")
         return 3  # neutral fallback
 
 def judge_with_embeddings(query: str, result_content: str) -> int:
@@ -390,7 +390,7 @@ def main():
 
     db_path = Path(args.db) if args.db else find_db()
     if not db_path or not db_path.exists():
-        print("❌ Memory database not found. Use --db PATH")
+        print(" Memory database not found. Use --db PATH")
         sys.exit(1)
 
     conn = sqlite3.connect(str(db_path))
@@ -403,7 +403,7 @@ def main():
     # Setup judge
     api_key = args.api_key or os.environ.get("OPENAI_API_KEY", "")
     if args.judge == "openai" and not api_key:
-        print("⚠️ No OPENAI_API_KEY found. Falling back to local embedding judge.")
+        print(" No OPENAI_API_KEY found. Falling back to local embedding judge.")
         print("   Note: local judge is weaker. Use --judge openai with API key for best results.")
         args.judge = "local"
 
@@ -414,7 +414,7 @@ def main():
         judge_fn = judge_with_embeddings
         judge_method = "local/embedding-similarity"
 
-    print(f"📊 Memory Retrieval Assessment")
+    print(f" Memory Retrieval Assessment")
     print(f"   Database: {db_path}")
     print(f"   Test set: {len(test_queries)} queries")
     print(f"   Judge: {judge_method}")
@@ -423,7 +423,7 @@ def main():
 
     # --- Inter-rater reliability: run both judges if openai available ---
     if args.judge == "openai":
-        print("\n📏 Inter-rater reliability check (first 5 queries)...")
+        print("\n Inter-rater reliability check (first 5 queries)...")
         irr_queries = test_queries[:5]
         openai_ratings_flat = []
         local_ratings_flat = []
@@ -459,7 +459,7 @@ def main():
 
             kappa = cohens_kappa(openai_ratings_flat, local_ratings_flat)
             print(f"  Cohen's κ (openai vs local): {kappa:.3f}  (N={len(openai_ratings_flat)} pairs)")
-            print(f"  {'✅ Good agreement' if kappa > 0.4 else '⚠️ Weak agreement — prefer openai judge'}")
+            print(f"  {' Good agreement' if kappa > 0.4 else ' Weak agreement — prefer openai judge'}")
 
     # Main run (with activation)
     agg_main, _ = run_assessment(
@@ -491,7 +491,7 @@ def main():
             print(f"  {name:15s}: {direction} {abs(delta):.3f}  ({d2:.3f} → {d1:.3f})")
 
     conn.close()
-    print(f"\n✅ Results saved to retrieval_log table.")
+    print(f"\n Results saved to retrieval_log table.")
     print(f"   Run `collect.py` to generate the submission report.")
 
 if __name__ == "__main__":

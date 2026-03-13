@@ -6,9 +6,9 @@
 "We need to send more photos to parents"
 
 ### Assumptions Challenged
-1. ❌ Parents want MORE photos → Actually: they want the RIGHT photos
-2. ❌ All moments are equal → Actually: moments with THEIR child matter
-3. ❌ Staff should curate → Actually: staff time is expensive and inconsistent
+1.  Parents want MORE photos → Actually: they want the RIGHT photos
+2.  All moments are equal → Actually: moments with THEIR child matter
+3.  Staff should curate → Actually: staff time is expensive and inconsistent
 
 ### Fundamental Truths
 - Parents want proof their specific child is safe/happy
@@ -28,9 +28,9 @@ Staff takes photos freely → System sorts and delivers automatically
 "Our enrollment process is too slow"
 
 ### Assumptions Challenged
-1. ❌ We need all info upfront → Actually: we need enough to make a decision
-2. ❌ Forms must be comprehensive → Actually: forms create friction
-3. ❌ Parents want to give info → Actually: parents want to RECEIVE confirmation
+1.  We need all info upfront → Actually: we need enough to make a decision
+2.  Forms must be comprehensive → Actually: forms create friction
+3.  Parents want to give info → Actually: parents want to RECEIVE confirmation
 
 ### Fundamental Truths
 - Enrollment = exchange of commitment (parent commits child, school commits spot)
@@ -51,9 +51,9 @@ Result: 10x faster, higher conversion
 "Golfers need to order food on the course"
 
 ### Assumptions Challenged
-1. ❌ Need full restaurant menu → Actually: simplified menu works better
-2. ❌ Need precise delivery time → Actually: "by hole X" is enough
-3. ❌ Complex payment flow → Actually: charge to room/tab, settle later
+1.  Need full restaurant menu → Actually: simplified menu works better
+2.  Need precise delivery time → Actually: "by hole X" is enough
+3.  Complex payment flow → Actually: charge to room/tab, settle later
 
 ### Fundamental Truths
 - Golfer's hands are often dirty/gloved
@@ -73,9 +73,9 @@ No menu browsing, no payment friction, no address entry
 "Staff scheduling is complex and time-consuming"
 
 ### Assumptions Challenged
-1. ❌ Manager must create schedule → Actually: AI can draft, manager approves
-2. ❌ Staff preferences are unpredictable → Actually: patterns emerge over time
-3. ❌ Ratio compliance is manual → Actually: this is pure math
+1.  Manager must create schedule → Actually: AI can draft, manager approves
+2.  Staff preferences are unpredictable → Actually: patterns emerge over time
+3.  Ratio compliance is manual → Actually: this is pure math
 
 ### Fundamental Truths
 - Child:staff ratios are legally mandated (deterministic)

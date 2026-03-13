@@ -8,7 +8,7 @@ Copy this template for each Instagram content package you generate:
 
 ## Instagram Content Package
 
-### 📦 Product Overview
+###  Product Overview
 
 **Product Name**: [Insert product name]
 **Price**: [Insert price]
@@ -17,13 +17,13 @@ Copy this template for each Instagram content package you generate:
 
 ---
 
-### 🎨 Content Format: [Feed Post / Carousel / Story / Reel]
+###  Content Format: [Feed Post / Carousel / Story / Reel]
 
 **Rationale**: [Why this format works for this product]
 
 ---
 
-### 📸 Image/Video Brief
+###  Image/Video Brief
 
 #### Visual Style
 - **Aesthetic**: [Minimalist / Bold / Luxury / Playful / Warm / Cool / etc]
@@ -44,7 +44,7 @@ Copy this template for each Instagram content package you generate:
 
 ---
 
-### ✍️ Caption
+###  Caption
 
 #### Hook (First Line)
 ```
@@ -80,7 +80,7 @@ Copy this template for each Instagram content package you generate:
 
 ---
 
-### #️⃣ Hashtag Strategy (30 total)
+###  Hashtag Strategy (30 total)
 
 #### Branded/Niche Tags (3-5)
 ```
@@ -116,7 +116,7 @@ Copy this template for each Instagram content package you generate:
 
 ---
 
-### ⏰ Posting Strategy
+###  Posting Strategy
 
 #### Best Times to Post
 - **Weekdays**: [Time - e.g., 9-10am or 7-8pm]
@@ -135,7 +135,7 @@ Copy this template for each Instagram content package you generate:
 
 ---
 
-### 💬 Engagement Preparation
+###  Engagement Preparation
 
 #### Comment Responses to Prepare
 1. **For "How much?" questions**: [Price + CTA]
@@ -150,7 +150,7 @@ Copy this template for each Instagram content package you generate:
 
 ---
 
-### 📊 Success Metrics
+###  Success Metrics
 
 Track these after posting:
 - **Reach**: [Expected range]
@@ -162,7 +162,7 @@ Track these after posting:
 
 ---
 
-### 🔄 Content Repurposing Ideas
+###  Content Repurposing Ideas
 
 Extend this content across formats:
 1. **Feed Post** → **Story**: [Turn into 3-4 story frames]
@@ -172,7 +172,7 @@ Extend this content across formats:
 
 ---
 
-### 📝 Notes for Creator
+###  Notes for Creator
 
 - [Special instructions for photographer/designer]
 - [Brand voice guidelines]

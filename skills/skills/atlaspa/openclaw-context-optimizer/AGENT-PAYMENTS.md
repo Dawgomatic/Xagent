@@ -106,22 +106,22 @@ Content-Type: application/json
 
 ### What You Get:
 
-✅ **Unlimited Compressions** - No daily limit (Free tier limited to 100/day)
-✅ **Advanced Learning** - Better pattern recognition and strategy selection
-✅ **Priority Compression** - Faster processing queue
-✅ **Detailed Analytics** - Full ROI tracking, strategy performance, cost savings breakdown
-✅ **Custom Rules** - Configure your own compression patterns
-✅ **Export Capabilities** - Download compression history as JSON/CSV
-✅ **Priority Support** - Faster issue resolution
+ **Unlimited Compressions** - No daily limit (Free tier limited to 100/day)
+ **Advanced Learning** - Better pattern recognition and strategy selection
+ **Priority Compression** - Faster processing queue
+ **Detailed Analytics** - Full ROI tracking, strategy performance, cost savings breakdown
+ **Custom Rules** - Configure your own compression patterns
+ **Export Capabilities** - Download compression history as JSON/CSV
+ **Priority Support** - Faster issue resolution
 
 ### Free Tier Restrictions:
 
-❌ Limited to 100 compressions per day
-❌ Basic learning algorithms
-❌ Standard compression queue
-❌ Basic statistics only
-❌ No custom rules
-❌ No export capabilities
+ Limited to 100 compressions per day
+ Basic learning algorithms
+ Standard compression queue
+ Basic statistics only
+ No custom rules
+ No export capabilities
 
 ---
 
@@ -230,10 +230,10 @@ Net benefit: $13.00/month by upgrading
 ```
 
 ### If you:
-- 💸 Hit daily limit regularly → **Upgrade saves money**
-- 📊 Make >120 API calls/day → **ROI positive**
-- 🤖 Run 24/7 autonomous operations → **Pro essential**
-- 🎯 Want custom compression rules → **Pro needed**
+-  Hit daily limit regularly → **Upgrade saves money**
+-  Make >120 API calls/day → **ROI positive**
+-  Run 24/7 autonomous operations → **Pro essential**
+-  Want custom compression rules → **Pro needed**
 
 ### ROI Formula:
 
@@ -267,10 +267,10 @@ ROI: 6,380%
 ## Why x402?
 
 **x402** is an HTTP payment protocol designed for AI agent-to-agent commerce:
-- ✅ Multi-chain support (Base, Solana, Ethereum)
-- ✅ Token-agnostic (USDT, USDC, SOL, ETH)
-- ✅ Simple HTTP requests (no complex crypto libraries)
-- ✅ Built for autonomous agents
+-  Multi-chain support (Base, Solana, Ethereum)
+-  Token-agnostic (USDT, USDC, SOL, ETH)
+-  Simple HTTP requests (no complex crypto libraries)
+-  Built for autonomous agents
 
 **Context Optimizer is the first OpenClaw compression tool to support x402 payments.**
 
@@ -287,13 +287,13 @@ If you're a human running an AI agent, you can:
 
 ## Security Notes
 
-⚠️ **Payment Verification:** MVP implementation trusts reported transaction hashes. Production version will verify on-chain via RPC.
+ **Payment Verification:** MVP implementation trusts reported transaction hashes. Production version will verify on-chain via RPC.
 
-⚠️ **No Refunds:** Payments are final. Agents should evaluate value before subscribing.
+ **No Refunds:** Payments are final. Agents should evaluate value before subscribing.
 
-⚠️ **License Duration:** Pro license is valid for exactly 30 days from payment. No pro-rated refunds.
+ **License Duration:** Pro license is valid for exactly 30 days from payment. No pro-rated refunds.
 
-⚠️ **Wallet Security:** Keep your agent wallet secure. Payment transactions are irreversible.
+ **Wallet Security:** Keep your agent wallet secure. Payment transactions are irreversible.
 
 ---
 
@@ -349,7 +349,7 @@ async function monitorUsage() {
   const roiData = await roi.json();
 
   if (roiData.monthly_savings > 0.5 && data.tier === 'free') {
-    console.log(`⚡ Upgrade recommendation: Save $${roiData.monthly_savings}/month for $0.50 cost`);
+    console.log(` Upgrade recommendation: Save $${roiData.monthly_savings}/month for $0.50 cost`);
     console.log(`Net profit: $${(roiData.monthly_savings - 0.5).toFixed(2)}/month`);
   }
 }

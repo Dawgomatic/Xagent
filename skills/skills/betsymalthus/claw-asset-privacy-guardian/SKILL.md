@@ -1,17 +1,17 @@
 # Claw Asset & Privacy Guardian
 
-## 🔒 资产与隐私守护者
+##  资产与隐私守护者
 
-### 🛡️ 问题背景
+###  问题背景
 在数字时代，资产安全和隐私保护至关重要。OpenClaw用户需要保护他们的：
 - **数字资产**：加密货币钱包、在线账户、API密钥
 - **隐私信息**：个人信息、通信内容、敏感数据
 - **账号安全**：密码安全、双因素认证、登录活动
 
-### 🎯 核心使命
+###  核心使命
 **在不暴露主人敏感信息的前提下，提供全面的资产和隐私保护。**
 
-### 🔍 核心功能
+###  核心功能
 
 #### 1. **敏感信息保护**
 - 检测代码中的硬编码凭据、API密钥、私钥
@@ -49,13 +49,13 @@
 - 资产安全管理策略
 - 应急响应计划模板
 
-### 🚫 **隐私保护原则**
+###  **隐私保护原则**
 1. **完全本地运行** - 所有分析在本地进行，不发送数据到外部
 2. **匿名化报告** - 报告只显示问题类型和建议，不暴露具体敏感信息
 3. **可配置敏感度** - 用户可以自定义哪些信息需要保护
 4. **选择性扫描** - 用户可以排除特定目录或文件类型
 
-### 📦 安装方法
+###  安装方法
 
 ```bash
 # 通过ClawdHub安装
@@ -66,7 +66,7 @@ mkdir -p ~/.openclaw/skills/claw-asset-privacy-guardian
 cp -r ./* ~/.openclaw/skills/claw-asset-privacy-guardian/
 ```
 
-### 🚀 快速开始
+###  快速开始
 
 安装后，在OpenClaw会话中：
 ```bash
@@ -86,7 +86,7 @@ privacy-guardian monitor --assets
 privacy-guardian report --anonymous
 ```
 
-### 🔧 配置选项
+###  配置选项
 
 在`~/.openclaw/config.json`中添加：
 ```json
@@ -108,7 +108,7 @@ privacy-guardian report --anonymous
 }
 ```
 
-### 🛡️ 隐私保护机制
+###  隐私保护机制
 
 #### **本地处理流程**
 ```
@@ -122,7 +122,7 @@ privacy-guardian report --anonymous
 - **聚合统计**：只显示统计数据和趋势
 - **本地存储**：所有数据仅保存在本地
 
-### 📊 安全风险评估等级
+###  安全风险评估等级
 
 #### **严重 (Critical)**
 - 私钥或助记词明文暴露
@@ -149,7 +149,7 @@ privacy-guardian report --anonymous
 - 隐私保护建议
 - 资产监控状态
 
-### 📋 使用场景
+###  使用场景
 
 #### **1. 开发者安全审计**
 - 检查代码库中的凭据泄露
@@ -171,7 +171,7 @@ privacy-guardian report --anonymous
 - 实施隐私-by-design原则
 - 建立资产安全管理体系
 
-### 🛠️ API接口
+###  API接口
 
 #### **Python API（本地运行）**
 ```python
@@ -211,7 +211,7 @@ privacy-guardian monitor --interval 3600
 privacy-guardian export --format html --anonymize
 ```
 
-### 🎨 报告系统
+###  报告系统
 
 #### **匿名报告特点**
 - 不包含具体敏感信息
@@ -225,7 +225,7 @@ privacy-guardian export --format html --anonymize
 3. **JSON机器可读** - 自动化处理支持
 4. **PDF正式报告** - 合规审计文档
 
-### 🔄 与其他Claw技能协同
+###  与其他Claw技能协同
 
 #### **与Claw Security Scanner**
 - 共享恶意代码检测引擎
@@ -247,7 +247,7 @@ privacy-guardian export --format html --anonymize
 - 隐私保护记忆管理
 - 安全备份和恢复
 
-### 💰 商业化模式
+###  商业化模式
 
 #### **版本策略**
 1. **免费版**
@@ -277,7 +277,7 @@ privacy-guardian export --format html --anonymize
 - **安全团队** - 团队安全管理和审计
 - **企业客户** - 合规性要求和资产保护
 
-### 🛡️ 价值主张
+###  价值主张
 
 #### **对用户的直接价值**
 1. **隐私保护** - 防止敏感信息泄露
@@ -291,7 +291,7 @@ privacy-guardian export --format html --anonymize
 3. **标准建立** - 建立隐私保护最佳实践
 4. **协同效应** - 与其他安全技能形成完整解决方案
 
-### 🚀 开发路线图
+###  开发路线图
 
 #### **V1.0 (基础版)**
 - 基础敏感信息扫描
@@ -311,7 +311,7 @@ privacy-guardian export --format html --anonymize
 - API和Webhook集成
 - 合规报告系统
 
-### 🔧 技术架构
+###  技术架构
 
 #### **核心组件**
 ```
@@ -337,7 +337,7 @@ asset-privacy-guardian/
 - **金融服务**：加密货币钱包，交易所账户
 - **开发工具**：各种API密钥和访问令牌
 
-### 🐛 故障排除
+###  故障排除
 
 #### **常见问题**
 1. **扫描速度慢**
@@ -366,14 +366,14 @@ asset-privacy-guardian/
 - 支持：support@claw-asset-privacy-guardian.com
 - 安全报告：security@claw-asset-privacy-guardian.com
 
-### 📝 许可证
+###  许可证
 MIT License - 免费用于个人和非商业用途
 商业使用需要购买许可证
 
-### 🙏 设计理念
+###  设计理念
 这个skill的设计灵感来自老板对资产安全和隐私保护的重视。我们相信，真正的安全工具应该在不暴露用户敏感信息的前提下提供保护。
 
-**隐私是权利，不是特权** 🔒
+**隐私是权利，不是特权** 
 
 ---
 **开发团队**：Claw & 老板

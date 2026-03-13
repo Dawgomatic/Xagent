@@ -24,7 +24,7 @@ Markdown-Formatter is a powerful tool for formatting, linting, and beautifying m
 
 ## Features
 
-### ✅ Formatter Engine
+###  Formatter Engine
 - Multiple style guides (CommonMark, GitHub, custom)
 - Preserves document structure
 - Handles nested lists, code blocks, tables
@@ -32,21 +32,21 @@ Markdown-Formatter is a powerful tool for formatting, linting, and beautifying m
 - Smart heading normalization
 - Link reference optimization
 
-### ✅ Linting & Cleanup
+###  Linting & Cleanup
 - Remove trailing whitespace
 - Normalize line endings (LF vs CRLF)
 - Fix inconsistent list markers
 - Remove empty lines at end
 - Fix multiple consecutive blank lines
 
-### ✅ Beautification
+###  Beautification
 - Improve heading hierarchy
 - Optimize list formatting
 - Format code blocks with proper spacing
 - Wrap long lines at configured width
 - Add proper spacing around emphasis
 
-### ✅ Validation
+###  Validation
 - Check markdown syntax validity
 - Report linting errors
 - Suggest improvements
@@ -356,4 +356,4 @@ MIT
 
 ---
 
-**Format markdown. Keep your docs beautiful.** 🔮
+**Format markdown. Keep your docs beautiful.** 

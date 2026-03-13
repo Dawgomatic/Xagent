@@ -38,7 +38,7 @@ scoped permissions. Ensure the token has the required scopes for your operations
 | Download model | `model_download()` | `kaggle models instances versions download` | Yes | Yes |
 | Download competition data | `competition_download()` | `kaggle competitions download` | Yes | Yes |
 | Download notebook output | `notebook_output_download()` | `kaggle kernels output` | Yes | Yes |
-| Load dataset to DataFrame | `dataset_load()` ⚠️ | — | — | — |
+| Load dataset to DataFrame | `dataset_load()`  | — | — | — |
 | Execute notebook (KKB) | — | `kaggle kernels push/status/output` | Yes | Yes |
 | Register for competition | — | — (accept rules via UI) | Yes | Yes |
 | Submit to competition | — | `kaggle competitions submit` | Yes | Yes |

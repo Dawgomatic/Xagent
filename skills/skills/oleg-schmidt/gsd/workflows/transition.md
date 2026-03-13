@@ -66,7 +66,7 @@ Phase [X] has incomplete plans:
 - {phase}-02-SUMMARY.md ✗ Missing
 - {phase}-03-SUMMARY.md ✗ Missing
 
-⚠️ Safety rail: Skipping plans requires confirmation (destructive action)
+ Safety rail: Skipping plans requires confirmation (destructive action)
 
 Options:
 1. Continue current phase (execute remaining plans)
@@ -210,7 +210,7 @@ Count total phases and identify the highest phase number.
 
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **Phase [X+1]: [Name]** — [Goal from ROADMAP.md]
 
@@ -233,11 +233,11 @@ Count total phases and identify the highest phase number.
 ```
 ## ✓ Phase {X}: {Phase Name} Complete
 
-🎉 Milestone {version} is 100% complete — all {N} phases finished!
+ Milestone {version} is 100% complete — all {N} phases finished!
 
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **Complete Milestone {version}** — archive and prepare for next
 

@@ -2,7 +2,7 @@
 name: clauditor
 description: Tamper-resistant audit watchdog for Clawdbot agents. Detects and logs suspicious filesystem activity with HMAC-chained evidence.
 homepage: https://github.com/apollostreetcompany/clauditor
-metadata: {"clawdbot":{"emoji":"🛡️","requires":{"bins":["cargo","systemctl"],"os":"linux"}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["cargo","systemctl"],"os":"linux"}}}
 ---
 
 # Clauditor

@@ -43,7 +43,7 @@ function saveState(state) {
 
 // Format alert message
 function formatAlert(balance, threshold, provider) {
-  const emoji = balance < 1 ? '🚨' : balance < threshold ? '⚠️' : '💡';
+  const emoji = balance < 1 ? '' : balance < threshold ? '' : '';
   const urgency = balance < 1 ? 'URGENT' : balance < threshold ? 'WARNING' : 'NOTICE';
   
   return {

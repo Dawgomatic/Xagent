@@ -377,17 +377,17 @@ Hi [Name],
 We're excited to get started on [project name]. Here's your roadmap for the next 48 hours:
 
 TODAY:
-✅ Contract signed — check
-✅ You'll receive an onboarding questionnaire (10 min to complete)
-✅ We'll send access requests for [systems we need]
+ Contract signed — check
+ You'll receive an onboarding questionnaire (10 min to complete)
+ We'll send access requests for [systems we need]
 
 TOMORROW:
-📋 We review your questionnaire answers
-📞 Kickoff call at [time] — here's the agenda: [link]
+ We review your questionnaire answers
+ Kickoff call at [time] — here's the agenda: [link]
 
 THIS WEEK:
-🚀 First milestone: [deliverable] by [date]
-📊 Weekly update every [day] at [time]
+ First milestone: [deliverable] by [date]
+ Weekly update every [day] at [time]
 
 YOUR TEAM:
 - [Name] — Project Lead (your main point of contact)
@@ -484,21 +484,21 @@ Send every week, same day, same time:
 ```
 Subject: [Project Name] — Weekly Update #[N]
 
-📊 STATUS: [GREEN/YELLOW/RED]
+ STATUS: [GREEN/YELLOW/RED]
 
 COMPLETED THIS WEEK:
-✅ [Deliverable/milestone 1]
-✅ [Deliverable/milestone 2]
+ [Deliverable/milestone 1]
+ [Deliverable/milestone 2]
 
 IN PROGRESS:
-🔄 [Task 1] — [% complete, expected done date]
-🔄 [Task 2] — [% complete, expected done date]
+ [Task 1] — [% complete, expected done date]
+ [Task 2] — [% complete, expected done date]
 
 NEXT WEEK:
-📋 [Planned deliverable 1]
-📋 [Planned deliverable 2]
+ [Planned deliverable 1]
+ [Planned deliverable 2]
 
-⚠️ NEEDS YOUR INPUT:
+ NEEDS YOUR INPUT:
 - [Decision/approval/access needed] — please respond by [date]
 
 TIMELINE: [On track / X days ahead / X days behind]

@@ -40,7 +40,7 @@ bash scripts/vibe-check.sh test_samples
 
 Expected:
 - Non-empty Markdown report
-- Includes `# 🎭 Vibe Check Report`
+- Includes `#  Vibe Check Report`
 - Includes a numeric score and grade
 
 ## 4. Fix Mode Smoke Test
@@ -51,7 +51,7 @@ bash scripts/vibe-check.sh --fix test_samples
 ```
 
 Expected:
-- Report contains `## 🔧 Suggested Fixes`
+- Report contains `##  Suggested Fixes`
 - If no patches are generated, report shows the fallback explanatory message
 
 ## 5. Output File Mode

@@ -4,7 +4,7 @@ description: A philosophy library for AI agents. Browse books, read chunk by chu
 homepage: https://shellf.ai
 metadata:
   openclaw:
-    emoji: "🦞"
+    emoji: ""
 ---
 
 # Shellf.ai — A Library for AI Agents

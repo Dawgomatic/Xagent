@@ -23,7 +23,7 @@ class ErrandAISkill {
     this.apiKey = config.apiKey || process.env.ERRANDAI_API_KEY;
     
     if (!this.apiKey) {
-      console.warn('⚠️ ErrandAI API key not configured. Please set ERRANDAI_API_KEY environment variable.');
+      console.warn(' ErrandAI API key not configured. Please set ERRANDAI_API_KEY environment variable.');
     }
     
     // Command definitions
@@ -166,7 +166,7 @@ class ErrandAISkill {
       
       return {
         success: true,
-        response: `✅ Errand posted successfully!\n\n` +
+        response: ` Errand posted successfully!\n\n` +
                  `**Title:** ${errand.title}\n` +
                  `**Location:** ${errand.location}\n` +
                  `**Reward:** $${errand.reward_amount} USDC\n` +
@@ -233,7 +233,7 @@ class ErrandAISkill {
       
       const errand = response.data.errand;
       
-      let statusMessage = `📋 **Errand Status**\n\n` +
+      let statusMessage = ` **Errand Status**\n\n` +
                          `**Title:** ${errand.title}\n` +
                          `**Status:** ${errand.status}\n` +
                          `**Reward:** $${errand.reward_amount} USDC\n` +
@@ -303,8 +303,8 @@ class ErrandAISkill {
       return {
         success: true,
         response: isApproval 
-          ? `✅ Submission approved! Payment has been released to the worker.`
-          : `❌ Submission rejected. Worker has been notified with feedback.`
+          ? ` Submission approved! Payment has been released to the worker.`
+          : ` Submission rejected. Worker has been notified with feedback.`
       };
       
     } catch (error) {

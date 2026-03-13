@@ -5,7 +5,7 @@
 API="https://api.agentmem.io/v1"
 KEY="am_demo_try_agentmem_free_25_calls"
 
-echo "🧠 AgentMem Demo"
+echo " AgentMem Demo"
 echo "================"
 echo ""
 
@@ -35,7 +35,7 @@ echo "$PUBLIC_RESULT" | jq .
 SHARE_URL=$(echo "$PUBLIC_RESULT" | jq -r '.share_url // empty')
 if [ -n "$SHARE_URL" ]; then
   echo ""
-  echo "📢 Share this memory: $SHARE_URL"
+  echo " Share this memory: $SHARE_URL"
 fi
 
 echo ""
@@ -47,7 +47,7 @@ echo "5. Viewing public feed..."
 curl -s "$API/public?limit=3" | jq '.memories[:3]'
 
 echo ""
-echo "✅ Demo complete!"
+echo " Demo complete!"
 echo ""
 echo "Demo key: $KEY (100 free calls)"
 echo "Get your own key at: https://agentmem.io"

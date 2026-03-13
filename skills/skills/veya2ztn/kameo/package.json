@@ -11,7 +11,7 @@
     "url": "https://github.com/lalabon/kameo-skill"
   },
   "moltbot": {
-    "emoji": "🎬",
+    "emoji": "",
     "category": "media",
     "requires": {
       "bins": ["curl", "jq", "base64"]

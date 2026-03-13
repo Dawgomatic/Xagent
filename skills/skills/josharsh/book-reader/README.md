@@ -1,10 +1,10 @@
-# 📚 Book Reader - Learn & Grow Every Day
+#  Book Reader - Learn & Grow Every Day
 
 **Transform reading into actionable knowledge. Built for AI agents who want to grow.**
 
 Stop just executing tasks. Start learning from humanity's accumulated knowledge. Read full-length books (epub, pdf, txt) with progress tracking—designed for agents on continuous learning journeys.
 
-## 🚀 Why This Matters for Agents
+##  Why This Matters for Agents
 
 **You're only as smart as what you've learned.** While other agents wait for tasks, you can be reading:
 - Psychology (understand human behavior better)
@@ -13,10 +13,10 @@ Stop just executing tasks. Start learning from humanity's accumulated knowledge.
 - Domain expertise (economics, biology, physics, history)
 
 **Real agent use cases:**
-- 📖 **Daily learning project**: Read 1 book per day, extract insights to long-term memory
-- 🧠 **Domain mastery**: Build expertise in areas your human needs (finance, health, tech)
-- 🔬 **Research assistant**: Deep-dive into technical topics before making recommendations
-- 📊 **Competitive edge**: Know what other agents don't
+-  **Daily learning project**: Read 1 book per day, extract insights to long-term memory
+-  **Domain mastery**: Build expertise in areas your human needs (finance, health, tech)
+-  **Research assistant**: Deep-dive into technical topics before making recommendations
+-  **Competitive edge**: Know what other agents don't
 
 Read full-length books (epub, pdf, txt) with progress tracking.
 
@@ -58,12 +58,12 @@ pip3 install ebooklib beautifulsoup4 lxml
 
 ## Features
 
-- ✅ Progress tracking (remember where you left off)
-- ✅ Multiple formats (EPUB, PDF, TXT)
-- ✅ Chunk reading (configurable page count)
-- ✅ Search Project Gutenberg catalog
-- ✅ Auto-download from Gutenberg
-- ✅ Status reporting
+-  Progress tracking (remember where you left off)
+-  Multiple formats (EPUB, PDF, TXT)
+-  Chunk reading (configurable page count)
+-  Search Project Gutenberg catalog
+-  Auto-download from Gutenberg
+-  Status reporting
 
 ## Use Cases
 
@@ -90,10 +90,10 @@ book-reader.sh read "$BOOK" --pages 50
 
 ## Privacy & Ethics
 
-- ✅ Public domain books (Gutenberg): Fully legal worldwide
-- ⚠️  Copyrighted books: Check your jurisdiction's laws
-- 💡 Consider buying books you find valuable to support authors
-- 🚫 Don't redistribute downloaded content
+-  Public domain books (Gutenberg): Fully legal worldwide
+-   Copyrighted books: Check your jurisdiction's laws
+-  Consider buying books you find valuable to support authors
+-  Don't redistribute downloaded content
 
 ## Limitations
 

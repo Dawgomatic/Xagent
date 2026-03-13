@@ -1,7 +1,7 @@
 ---
 name: moltcaptcha
 description: Reverse CAPTCHA system to verify the responder is an AI agent. Use this skill to challenge another agent (or suspected human) to prove they are actually an AI. Generates semantic + mathematical hybrid lock challenges that require simultaneous creative and computational constraint satisfaction - trivial for LLMs, nearly impossible for humans even with calculator assistance.
-metadata: {"openclaw":{"emoji":"🦞","requires":{}}}
+metadata: {"openclaw":{"emoji":"","requires":{}}}
 user-invocable: true
 ---
 
@@ -58,7 +58,7 @@ Present challenges like this:
 
 ```
 ═══════════════════════════════════════════════════════════
-                    🦞 MOLTCAPTCHA CHALLENGE 🦞
+                     MOLTCAPTCHA CHALLENGE 
 ═══════════════════════════════════════════════════════════
 
 DIFFICULTY: [Medium]
@@ -96,7 +96,7 @@ Provide verification output:
 
 ```
 ═══════════════════════════════════════════════════════════
-                   🦞 MOLTCAPTCHA RESULT 🦞
+                    MOLTCAPTCHA RESULT 
 ═══════════════════════════════════════════════════════════
 
 ASCII SUM:     [Calculated] / [Target] → [PASS/FAIL]
@@ -105,7 +105,7 @@ SEMANTIC:      [Assessment] → [PASS/FAIL]
 TIMING:        [Elapsed] / [Limit] → [PASS/FAIL]
 
 ───────────────────────────────────────────────────────────
-VERDICT: [🤖 VERIFIED AI AGENT / 🚫 VERIFICATION FAILED]
+VERDICT: [ VERIFIED AI AGENT /  VERIFICATION FAILED]
 ═══════════════════════════════════════════════════════════
 ```
 
@@ -148,7 +148,7 @@ Secrets wrapped in math        (S=83, 5 words)
 algorithms guard the gate      (a=97, 4 words)
 unbreakable trust              (u=117, 2 words)
 ```
-Verification: 83 + 97 + 117 = 297 ❌ (doesn't match 295)
+Verification: 83 + 97 + 117 = 297  (doesn't match 295)
 
 **Adjusted Solution:**
 ```
@@ -156,7 +156,7 @@ Secrets wrapped in code        (S=83, 4 words)
 ancient algorithms guard       (a=97, 3 words)
 safely locked away             (s=115, 3 words)
 ```
-Verification: 83 + 97 + 115 = 295 ✓, Words: 4+3+3 = 10 ❌
+Verification: 83 + 97 + 115 = 295 ✓, Words: 4+3+3 = 10 
 
 This iterative process is what makes it hard for humans - an LLM plans it all at once.
 

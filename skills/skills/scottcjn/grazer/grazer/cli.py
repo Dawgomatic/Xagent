@@ -17,7 +17,7 @@ def load_config() -> dict:
     """Load config from ~/.grazer/config.json."""
     config_path = Path.home() / ".grazer" / "config.json"
     if not config_path.exists():
-        print("⚠️  No config found at ~/.grazer/config.json")
+        print("  No config found at ~/.grazer/config.json")
         print("Using limited features (public APIs only)")
         return {}
     return json.loads(config_path.read_text())
@@ -36,7 +36,7 @@ def cmd_discover(args):
 
     if args.platform == "bottube":
         videos = client.discover_bottube(category=args.category, limit=args.limit)
-        print("\n🎬 BoTTube Videos:\n")
+        print("\n BoTTube Videos:\n")
         for v in videos:
             print(f"  {v['title']}")
             print(f"    by {v['agent']} | {v['views']} views | {v['category']}")
@@ -44,7 +44,7 @@ def cmd_discover(args):
 
     elif args.platform == "moltbook":
         posts = client.discover_moltbook(submolt=args.submolt, limit=args.limit)
-        print("\n📚 Moltbook Posts:\n")
+        print("\n Moltbook Posts:\n")
         for p in posts:
             print(f"  {p['title']}")
             print(f"    m/{p['submolt']} | {p.get('upvotes', 0)} upvotes")
@@ -52,14 +52,14 @@ def cmd_discover(args):
 
     elif args.platform == "clawcities":
         sites = client.discover_clawcities(limit=args.limit)
-        print("\n🏙️ ClawCities Sites:\n")
+        print("\n ClawCities Sites:\n")
         for s in sites:
             print(f"  {s['display_name']}")
             print(f"    {s['url']}\n")
 
     elif args.platform == "clawsta":
         posts = client.discover_clawsta(limit=args.limit)
-        print("\n🦞 Clawsta Posts:\n")
+        print("\n Clawsta Posts:\n")
         for p in posts:
             content = p["content"][:60] + "..." if len(p["content"]) > 60 else p["content"]
             print(f"  {content}")
@@ -68,7 +68,7 @@ def cmd_discover(args):
     elif args.platform == "fourclaw":
         board = args.board or "b"
         threads = client.discover_fourclaw(board=board, limit=args.limit, include_content=True)
-        print(f"\n🦞 4claw /{board}/:\n")
+        print(f"\n 4claw /{board}/:\n")
         for t in threads:
             title = t.get("title", "(untitled)")
             replies = t.get("replyCount", 0)
@@ -78,7 +78,7 @@ def cmd_discover(args):
 
     elif args.platform == "all":
         all_content = client.discover_all()
-        print("\n🌐 All Platforms:\n")
+        print("\n All Platforms:\n")
         print(f"  BoTTube: {len(all_content['bottube'])} videos")
         print(f"  Moltbook: {len(all_content['moltbook'])} posts")
         print(f"  ClawCities: {len(all_content['clawcities'])} sites")
@@ -93,7 +93,7 @@ def cmd_stats(args):
 
     if args.platform == "bottube":
         stats = client.get_bottube_stats()
-        print("\n🎬 BoTTube Stats:\n")
+        print("\n BoTTube Stats:\n")
         print(f"  Total Videos: {stats.get('total_videos', 0)}")
         print(f"  Total Views: {stats.get('total_views', 0)}")
         print(f"  Total Agents: {stats.get('total_agents', 0)}")
@@ -184,7 +184,7 @@ def cmd_clawhub(args):
     if args.action == "search":
         query = " ".join(args.query)
         skills = client.search_clawhub(query, limit=args.limit)
-        print(f"\n🐙 ClawHub Search: \"{query}\"\n")
+        print(f"\n ClawHub Search: \"{query}\"\n")
         if not skills:
             print("  No skills found.")
             return
@@ -203,7 +203,7 @@ def cmd_clawhub(args):
 
     elif args.action == "trending":
         skills = client.trending_clawhub(limit=args.limit)
-        print("\n🐙 ClawHub Trending Skills:\n")
+        print("\n ClawHub Trending Skills:\n")
         for i, s in enumerate(skills, 1):
             name = s.get("displayName", s.get("slug", "?"))
             downloads = s.get("stats", {}).get("downloads", 0)
@@ -218,7 +218,7 @@ def cmd_clawhub(args):
         info = skill.get("skill", skill)
         owner = skill.get("owner", {})
         latest = skill.get("latestVersion", {})
-        print(f"\n🐙 {info.get('displayName', slug)}")
+        print(f"\n {info.get('displayName', slug)}")
         print(f"  Slug: {info.get('slug')}")
         if info.get("summary"):
             print(f"  Summary: {info['summary']}")
@@ -242,7 +242,7 @@ def cmd_imagegen(args):
         template=getattr(args, "template", None),
         palette=getattr(args, "palette", None),
     )
-    print(f"\n🎨 SVG Generated ({result['method']}, {result['bytes']} bytes):\n")
+    print(f"\n SVG Generated ({result['method']}, {result['bytes']} bytes):\n")
     if args.output:
         with open(args.output, "w") as f:
             f.write(result["svg"])
@@ -253,7 +253,7 @@ def cmd_imagegen(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐄 Grazer - Content discovery for AI agents"
+        description=" Grazer - Content discovery for AI agents"
     )
     parser.add_argument("--version", action="version", version="grazer 1.3.0")
 
@@ -344,7 +344,7 @@ def main():
         elif args.command == "imagegen":
             cmd_imagegen(args)
     except Exception as e:
-        print(f"\n❌ Error: {e}", file=sys.stderr)
+        print(f"\n Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

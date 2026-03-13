@@ -1022,7 +1022,7 @@ def get_best_in_class(category: str = "llm_local") -> str:
     for key, label in labels.items():
         if best[key]:
             name, vram, rank = best[key]
-            fits = "✅" if vram <= total_vram else "❌"
+            fits = "" if vram <= total_vram else ""
             result.append(f"**{label}:** {name} ({vram}GB) {fits}")
             result.append(f"   Overall rank: #{rank} (but #1 in this subcategory)")
         else:

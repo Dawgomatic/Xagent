@@ -8,19 +8,19 @@
 
 ## 1. Correct Import Patterns
 
-### 1.1 ✅ CORRECT: Client Imports (Sync)
+### 1.1  CORRECT: Client Imports (Sync)
 ```python
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
 ```
 
-### 1.2 ✅ CORRECT: Client Imports (Async)
+### 1.2  CORRECT: Client Imports (Async)
 ```python
 from azure.ai.projects.aio import AIProjectClient
 from azure.identity.aio import DefaultAzureCredential
 ```
 
-### 1.3 ✅ CORRECT: Project-Level Model Imports
+### 1.3  CORRECT: Project-Level Model Imports
 ```python
 from azure.ai.projects.models import (
     # Agent models
@@ -49,7 +49,7 @@ from azure.ai.projects.models import (
 )
 ```
 
-### 1.4 ✅ CORRECT: Low-Level Tool Imports (from azure.ai.agents.models)
+### 1.4  CORRECT: Low-Level Tool Imports (from azure.ai.agents.models)
 ```python
 from azure.ai.agents.models import (
     # Core tools
@@ -75,7 +75,7 @@ from azure.ai.agents.models import (
 )
 ```
 
-### 1.5 ✅ CORRECT: Streaming Handler Import
+### 1.5  CORRECT: Streaming Handler Import
 ```python
 # Sync handler
 from azure.ai.agents.models import AgentEventHandler
@@ -86,7 +86,7 @@ from azure.ai.agents.aio import AsyncAgentEventHandler
 
 ### 1.6 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Importing from wrong module
+####  INCORRECT: Importing from wrong module
 ```python
 # WRONG - AIProjectClient is not in azure.ai.projects.models
 from azure.ai.projects.models import AIProjectClient
@@ -98,7 +98,7 @@ from azure.ai.projects import CodeInterpreterTool
 from azure.ai.agents.models import PromptAgentDefinition
 ```
 
-#### ❌ INCORRECT: Using deprecated/non-existent classes
+####  INCORRECT: Using deprecated/non-existent classes
 ```python
 # WRONG - AgentsClient is from azure.ai.agents, not azure.ai.projects
 from azure.ai.projects import AgentsClient
@@ -107,7 +107,7 @@ from azure.ai.projects import AgentsClient
 from azure.ai.projects.models import Agent, Thread, Message, Run
 ```
 
-#### ❌ INCORRECT: Mixing async and sync imports
+####  INCORRECT: Mixing async and sync imports
 ```python
 # WRONG - mixing sync client with async credential
 from azure.ai.projects import AIProjectClient  # sync
@@ -118,7 +118,7 @@ from azure.identity.aio import DefaultAzureCredential  # async - wrong!
 
 ## 2. Client Creation Patterns
 
-### 2.1 ✅ CORRECT: Sync Client with Context Manager
+### 2.1  CORRECT: Sync Client with Context Manager
 ```python
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
@@ -134,7 +134,7 @@ with project_client:
     agent = project_client.agents.create_agent(...)
 ```
 
-### 2.2 ✅ CORRECT: Async Client with Context Manager
+### 2.2  CORRECT: Async Client with Context Manager
 ```python
 import os
 import asyncio
@@ -154,7 +154,7 @@ async def main():
 asyncio.run(main())
 ```
 
-### 2.3 ✅ CORRECT: Get OpenAI Client
+### 2.3  CORRECT: Get OpenAI Client
 ```python
 # Get OpenAI-compatible client from project
 openai_client = project_client.get_openai_client(
@@ -168,7 +168,7 @@ response = openai_client.chat.completions.create(
 )
 ```
 
-### 2.4 ✅ CORRECT: Get OpenAI Client with Specific Connection
+### 2.4  CORRECT: Get OpenAI Client with Specific Connection
 ```python
 openai_client = project_client.get_openai_client(
     api_version="2024-10-21",
@@ -178,7 +178,7 @@ openai_client = project_client.get_openai_client(
 
 ### 2.5 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Wrong parameter names
+####  INCORRECT: Wrong parameter names
 ```python
 # WRONG - using 'url' instead of 'endpoint'
 client = AIProjectClient(url=endpoint, credential=cred)
@@ -190,7 +190,7 @@ client = AIProjectClient(project_endpoint=endpoint, credential=cred)
 client = AIProjectClient(endpoint, credential)  # Must use keyword args
 ```
 
-#### ❌ INCORRECT: Not using context manager
+####  INCORRECT: Not using context manager
 ```python
 # WRONG - client should be used with context manager or explicitly closed
 client = AIProjectClient(endpoint=endpoint, credential=credential)
@@ -198,7 +198,7 @@ agent = client.agents.create_agent(...)
 # Missing: client.close() or using 'with' statement
 ```
 
-#### ❌ INCORRECT: Mixing sync credential with async client
+####  INCORRECT: Mixing sync credential with async client
 ```python
 # WRONG - sync credential with async client
 from azure.ai.projects.aio import AIProjectClient
@@ -215,7 +215,7 @@ async with AIProjectClient(
 
 ## 3. Agent Operations
 
-### 3.1 ✅ CORRECT: Basic Agent Creation
+### 3.1  CORRECT: Basic Agent Creation
 ```python
 agent = project_client.agents.create_agent(
     model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
@@ -228,7 +228,7 @@ print(f"Created agent, ID: {agent.id}")
 project_client.agents.delete_agent(agent.id)
 ```
 
-### 3.2 ✅ CORRECT: Versioned Agent with PromptAgentDefinition
+### 3.2  CORRECT: Versioned Agent with PromptAgentDefinition
 ```python
 from azure.ai.projects.models import PromptAgentDefinition
 
@@ -245,7 +245,7 @@ agent = project_client.agents.create_version(
 print(f"Agent: id={agent.id}, name={agent.name}, version={agent.version}")
 ```
 
-### 3.3 ✅ CORRECT: Agent with Tools (Versioned)
+### 3.3  CORRECT: Agent with Tools (Versioned)
 ```python
 from azure.ai.agents.models import CodeInterpreterTool, FileSearchTool
 from azure.ai.projects.models import PromptAgentDefinition
@@ -260,7 +260,7 @@ agent = project_client.agents.create_version(
 )
 ```
 
-### 3.4 ✅ CORRECT: Agent with JSON Response Format
+### 3.4  CORRECT: Agent with JSON Response Format
 ```python
 # JSON mode
 agent = project_client.agents.create_agent(
@@ -271,7 +271,7 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-### 3.5 ✅ CORRECT: Agent with JSON Schema Response Format
+### 3.5  CORRECT: Agent with JSON Schema Response Format
 ```python
 agent = project_client.agents.create_agent(
     model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
@@ -295,7 +295,7 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-### 3.6 ✅ CORRECT: List Agents by Kind
+### 3.6  CORRECT: List Agents by Kind
 ```python
 from azure.ai.projects.models import AgentKind
 
@@ -305,14 +305,14 @@ for agent in agents:
     print(f"Agent: {agent.name}")
 ```
 
-### 3.7 ✅ CORRECT: Delete Agent
+### 3.7  CORRECT: Delete Agent
 ```python
 project_client.agents.delete_agent(agent.id)
 ```
 
 ### 3.8 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Missing required parameters
+####  INCORRECT: Missing required parameters
 ```python
 # WRONG - missing model parameter
 agent = project_client.agents.create_agent(
@@ -321,7 +321,7 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-#### ❌ INCORRECT: Using wrong method for versioned agents
+####  INCORRECT: Using wrong method for versioned agents
 ```python
 # WRONG - create_agent doesn't support versioning
 agent = project_client.agents.create_agent(
@@ -342,13 +342,13 @@ agent = project_client.agents.create_version(
 
 ## 4. Thread, Message, and Run Operations
 
-### 4.1 ✅ CORRECT: Create Thread
+### 4.1  CORRECT: Create Thread
 ```python
 thread = project_client.agents.threads.create()
 print(f"Created thread, ID: {thread.id}")
 ```
 
-### 4.2 ✅ CORRECT: Create Thread with Tool Resources
+### 4.2  CORRECT: Create Thread with Tool Resources
 ```python
 from azure.ai.agents.models import FileSearchTool
 
@@ -359,7 +359,7 @@ thread = project_client.agents.threads.create(
 )
 ```
 
-### 4.3 ✅ CORRECT: Create Message
+### 4.3  CORRECT: Create Message
 ```python
 message = project_client.agents.messages.create(
     thread_id=thread.id,
@@ -369,7 +369,7 @@ message = project_client.agents.messages.create(
 print(f"Created message, ID: {message.id}")
 ```
 
-### 4.4 ✅ CORRECT: Create Message with Attachment
+### 4.4  CORRECT: Create Message with Attachment
 ```python
 from azure.ai.agents.models import MessageAttachment, FileSearchTool
 
@@ -386,7 +386,7 @@ message = project_client.agents.messages.create(
 )
 ```
 
-### 4.5 ✅ CORRECT: List Messages
+### 4.5  CORRECT: List Messages
 ```python
 messages = project_client.agents.messages.list(thread_id=thread.id)
 for msg in messages:
@@ -396,7 +396,7 @@ for msg in messages:
             print(f"Content: {content.text.value}")
 ```
 
-### 4.6 ✅ CORRECT: Create and Process Run
+### 4.6  CORRECT: Create and Process Run
 ```python
 run = project_client.agents.runs.create_and_process(
     thread_id=thread.id,
@@ -408,7 +408,7 @@ if run.status == "failed":
     print(f"Run failed: {run.last_error}")
 ```
 
-### 4.7 ✅ CORRECT: Create and Process Run with ToolSet
+### 4.7  CORRECT: Create and Process Run with ToolSet
 ```python
 from azure.ai.agents.models import FunctionTool, ToolSet
 
@@ -430,7 +430,7 @@ run = project_client.agents.runs.create_and_process(
 )
 ```
 
-### 4.8 ✅ CORRECT: Streaming Run with Event Handler
+### 4.8  CORRECT: Streaming Run with Event Handler
 ```python
 from azure.ai.agents.models import AgentEventHandler
 
@@ -452,7 +452,7 @@ with project_client.agents.runs.stream(
 
 ### 4.9 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Wrong role value
+####  INCORRECT: Wrong role value
 ```python
 # WRONG - role must be "user" for messages from user
 message = project_client.agents.messages.create(
@@ -462,7 +462,7 @@ message = project_client.agents.messages.create(
 )
 ```
 
-#### ❌ INCORRECT: Not checking run status
+####  INCORRECT: Not checking run status
 ```python
 # WRONG - not handling failed runs
 run = project_client.agents.runs.create_and_process(
@@ -478,7 +478,7 @@ elif run.status == "failed":
     print(f"Run failed: {run.last_error}")
 ```
 
-#### ❌ INCORRECT: Using wrong streaming handler
+####  INCORRECT: Using wrong streaming handler
 ```python
 # WRONG - using sync handler with async client
 from azure.ai.agents.models import AgentEventHandler  # This is sync
@@ -494,7 +494,7 @@ from azure.ai.agents.aio import AsyncAgentEventHandler
 
 ## 5. Connections Operations
 
-### 5.1 ✅ CORRECT: List All Connections
+### 5.1  CORRECT: List All Connections
 ```python
 connections = project_client.connections.list()
 for conn in connections:
@@ -503,7 +503,7 @@ for conn in connections:
     print(f"ID: {conn.id}")
 ```
 
-### 5.2 ✅ CORRECT: List Connections by Type
+### 5.2  CORRECT: List Connections by Type
 ```python
 from azure.ai.projects.models import ConnectionType
 
@@ -520,14 +520,14 @@ for conn in project_client.connections.list(
     print(f"AI Search: {conn.name}")
 ```
 
-### 5.3 ✅ CORRECT: Get Connection by Name
+### 5.3  CORRECT: Get Connection by Name
 ```python
 connection = project_client.connections.get(connection_name="my-search-connection")
 print(f"Name: {connection.name}")
 print(f"Type: {connection.connection_type}")
 ```
 
-### 5.4 ✅ CORRECT: Get Connection with Credentials
+### 5.4  CORRECT: Get Connection with Credentials
 ```python
 connection = project_client.connections.get(
     connection_name="my-search-connection",
@@ -536,7 +536,7 @@ connection = project_client.connections.get(
 print(f"Endpoint: {connection.endpoint_url}")
 ```
 
-### 5.5 ✅ CORRECT: Get Default Connection
+### 5.5  CORRECT: Get Default Connection
 ```python
 from azure.ai.projects.models import ConnectionType
 
@@ -553,7 +553,7 @@ default_aoai = project_client.connections.get_default(
 )
 ```
 
-### 5.6 ✅ CORRECT: Available ConnectionType Values
+### 5.6  CORRECT: Available ConnectionType Values
 ```python
 from azure.ai.projects.models import ConnectionType
 
@@ -570,7 +570,7 @@ from azure.ai.projects.models import ConnectionType
 
 ### 5.7 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Wrong ConnectionType values
+####  INCORRECT: Wrong ConnectionType values
 ```python
 # WRONG - using string instead of enum
 connections = project_client.connections.list(connection_type="AzureOpenAI")
@@ -582,7 +582,7 @@ connections = project_client.connections.list(
 )
 ```
 
-#### ❌ INCORRECT: Using wrong parameter name
+####  INCORRECT: Using wrong parameter name
 ```python
 # WRONG - parameter is connection_name, not name
 connection = project_client.connections.get(name="my-connection")
@@ -595,7 +595,7 @@ connection = project_client.connections.get(connection_name="my-connection")
 
 ## 6. Deployments Operations
 
-### 6.1 ✅ CORRECT: List All Deployments
+### 6.1  CORRECT: List All Deployments
 ```python
 deployments = project_client.deployments.list()
 for deployment in deployments:
@@ -604,21 +604,21 @@ for deployment in deployments:
     print(f"Publisher: {deployment.model_publisher}")
 ```
 
-### 6.2 ✅ CORRECT: Filter Deployments by Publisher
+### 6.2  CORRECT: Filter Deployments by Publisher
 ```python
 # List only OpenAI model deployments
 for deployment in project_client.deployments.list(model_publisher="OpenAI"):
     print(f"{deployment.name}: {deployment.model_name}")
 ```
 
-### 6.3 ✅ CORRECT: Filter Deployments by Model Name
+### 6.3  CORRECT: Filter Deployments by Model Name
 ```python
 # List deployments of a specific model
 for deployment in project_client.deployments.list(model_name="gpt-4o"):
     print(f"{deployment.name}: {deployment.model_version}")
 ```
 
-### 6.4 ✅ CORRECT: Get Deployment
+### 6.4  CORRECT: Get Deployment
 ```python
 from azure.ai.projects.models import ModelDeployment
 
@@ -633,7 +633,7 @@ if isinstance(deployment, ModelDeployment):
     print(f"Capabilities: {deployment.capabilities}")
 ```
 
-### 6.5 ✅ CORRECT: Dynamic Model Selection
+### 6.5  CORRECT: Dynamic Model Selection
 ```python
 # Find available GPT-4 deployments
 gpt4_deployments = [
@@ -653,7 +653,7 @@ if gpt4_deployments:
 
 ### 6.6 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Wrong property access
+####  INCORRECT: Wrong property access
 ```python
 # WRONG - model property doesn't exist
 deployment = project_client.deployments.get("my-deployment")
@@ -667,12 +667,12 @@ print(deployment.model_name)
 
 ## 7. OpenAI Client and Evaluations
 
-### 7.1 ✅ CORRECT: Get OpenAI Client
+### 7.1  CORRECT: Get OpenAI Client
 ```python
 openai_client = project_client.get_openai_client()
 ```
 
-### 7.2 ✅ CORRECT: Define Data Source Configuration
+### 7.2  CORRECT: Define Data Source Configuration
 ```python
 from azure.ai.projects.models import DataSourceConfigCustom
 
@@ -690,7 +690,7 @@ data_source_config = DataSourceConfigCustom(
 )
 ```
 
-### 7.3 ✅ CORRECT: Define Testing Criteria (Evaluators)
+### 7.3  CORRECT: Define Testing Criteria (Evaluators)
 ```python
 testing_criteria = [
     {
@@ -723,7 +723,7 @@ testing_criteria = [
 ]
 ```
 
-### 7.4 ✅ CORRECT: Create Evaluation
+### 7.4  CORRECT: Create Evaluation
 ```python
 eval_object = openai_client.evals.create(
     name="Agent Quality Evaluation",
@@ -733,7 +733,7 @@ eval_object = openai_client.evals.create(
 print(f"Created evaluation: {eval_object.id}")
 ```
 
-### 7.5 ✅ CORRECT: Run Evaluation
+### 7.5  CORRECT: Run Evaluation
 ```python
 # Define test data
 data_source = {
@@ -771,7 +771,7 @@ eval_run = openai_client.evals.runs.create(
 print(f"Evaluation run created: {eval_run.id}")
 ```
 
-### 7.6 ✅ CORRECT: Built-in Evaluators Reference
+### 7.6  CORRECT: Built-in Evaluators Reference
 ```python
 # Available built-in evaluators:
 # - builtin.violence: Detects violent content
@@ -785,7 +785,7 @@ print(f"Evaluation run created: {eval_run.id}")
 
 ### 7.7 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Creating evaluation on wrong client
+####  INCORRECT: Creating evaluation on wrong client
 ```python
 # WRONG - evals are on openai_client, not project_client
 eval_object = project_client.evals.create(...)
@@ -795,7 +795,7 @@ openai_client = project_client.get_openai_client()
 eval_object = openai_client.evals.create(...)
 ```
 
-#### ❌ INCORRECT: Wrong data_source_config type
+####  INCORRECT: Wrong data_source_config type
 ```python
 # WRONG - type must be "custom"
 data_source_config = DataSourceConfigCustom(
@@ -814,7 +814,7 @@ data_source_config = DataSourceConfigCustom(
 
 ## 8. Tools
 
-### 8.1 ✅ CORRECT: CodeInterpreterTool
+### 8.1  CORRECT: CodeInterpreterTool
 ```python
 from azure.ai.agents.models import CodeInterpreterTool
 
@@ -829,7 +829,7 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-### 8.2 ✅ CORRECT: CodeInterpreterTool with File Upload
+### 8.2  CORRECT: CodeInterpreterTool with File Upload
 ```python
 from azure.ai.agents.models import CodeInterpreterTool, FilePurpose
 
@@ -850,7 +850,7 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-### 8.3 ✅ CORRECT: FileSearchTool with Vector Store
+### 8.3  CORRECT: FileSearchTool with Vector Store
 ```python
 from azure.ai.agents.models import FileSearchTool, FilePurpose
 
@@ -876,7 +876,7 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-### 8.4 ✅ CORRECT: FunctionTool
+### 8.4  CORRECT: FunctionTool
 ```python
 from azure.ai.agents.models import FunctionTool
 
@@ -898,7 +898,7 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-### 8.5 ✅ CORRECT: FunctionTool with ToolSet and Auto-Execution
+### 8.5  CORRECT: FunctionTool with ToolSet and Auto-Execution
 ```python
 from azure.ai.agents.models import FunctionTool, ToolSet
 
@@ -928,7 +928,7 @@ run = project_client.agents.runs.create_and_process(
 )
 ```
 
-### 8.6 ✅ CORRECT: BingGroundingTool (Low-Level)
+### 8.6  CORRECT: BingGroundingTool (Low-Level)
 ```python
 from azure.ai.agents.models import BingGroundingTool
 
@@ -943,7 +943,7 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-### 8.7 ✅ CORRECT: BingGroundingAgentTool (Project-Level)
+### 8.7  CORRECT: BingGroundingAgentTool (Project-Level)
 ```python
 from azure.ai.projects.models import (
     PromptAgentDefinition,
@@ -976,7 +976,7 @@ agent = project_client.agents.create_version(
 )
 ```
 
-### 8.8 ✅ CORRECT: AzureAISearchAgentTool (Project-Level)
+### 8.8  CORRECT: AzureAISearchAgentTool (Project-Level)
 ```python
 from azure.ai.projects.models import (
     AzureAISearchAgentTool,
@@ -1014,7 +1014,7 @@ agent = project_client.agents.create_version(
 )
 ```
 
-### 8.9 ✅ CORRECT: AzureAISearchQueryType Values
+### 8.9  CORRECT: AzureAISearchQueryType Values
 ```python
 from azure.ai.projects.models import AzureAISearchQueryType
 
@@ -1026,7 +1026,7 @@ from azure.ai.projects.models import AzureAISearchQueryType
 # - AzureAISearchQueryType.VECTOR_SEMANTIC_HYBRID: Vector + semantic hybrid
 ```
 
-### 8.10 ✅ CORRECT: OpenApiTool
+### 8.10  CORRECT: OpenApiTool
 ```python
 from azure.ai.agents.models import OpenApiTool, OpenApiAnonymousAuthDetails
 
@@ -1065,7 +1065,7 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-### 8.11 ✅ CORRECT: McpTool
+### 8.11  CORRECT: McpTool
 ```python
 from azure.ai.agents.models import McpTool
 
@@ -1083,7 +1083,7 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-### 8.12 ✅ CORRECT: ConnectedAgentTool
+### 8.12  CORRECT: ConnectedAgentTool
 ```python
 from azure.ai.agents.models import ConnectedAgentTool
 
@@ -1102,7 +1102,7 @@ orchestrator = project_client.agents.create_agent(
 )
 ```
 
-### 8.13 ✅ CORRECT: ToolSet with Multiple Tools
+### 8.13  CORRECT: ToolSet with Multiple Tools
 ```python
 from azure.ai.agents.models import ToolSet, FunctionTool, CodeInterpreterTool
 
@@ -1134,7 +1134,7 @@ run = project_client.agents.runs.create_and_process(
 
 ### 8.14 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Wrong tool import path
+####  INCORRECT: Wrong tool import path
 ```python
 # WRONG - CodeInterpreterTool is in azure.ai.agents.models
 from azure.ai.projects.models import CodeInterpreterTool
@@ -1143,7 +1143,7 @@ from azure.ai.projects.models import CodeInterpreterTool
 from azure.ai.agents.models import CodeInterpreterTool
 ```
 
-#### ❌ INCORRECT: Missing tool_resources for File Search
+####  INCORRECT: Missing tool_resources for File Search
 ```python
 # WRONG - FileSearchTool requires tool_resources
 agent = project_client.agents.create_agent(
@@ -1162,7 +1162,7 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-#### ❌ INCORRECT: Passing FunctionTool object instead of definitions
+####  INCORRECT: Passing FunctionTool object instead of definitions
 ```python
 # WRONG - pass .definitions, not the tool object
 functions = FunctionTool(functions=[my_func])
@@ -1182,7 +1182,7 @@ agent = project_client.agents.create_agent(
 
 ## 9. Async Patterns
 
-### 9.1 ✅ CORRECT: Async Client Setup
+### 9.1  CORRECT: Async Client Setup
 ```python
 import os
 import asyncio
@@ -1213,7 +1213,7 @@ async def main():
 asyncio.run(main())
 ```
 
-### 9.2 ✅ CORRECT: Async Full Conversation Flow
+### 9.2  CORRECT: Async Full Conversation Flow
 ```python
 import os
 import asyncio
@@ -1264,7 +1264,7 @@ async def async_conversation():
 asyncio.run(async_conversation())
 ```
 
-### 9.3 ✅ CORRECT: Async Iteration over Connections/Deployments
+### 9.3  CORRECT: Async Iteration over Connections/Deployments
 ```python
 async with AIProjectClient(...) as client:
     # List connections
@@ -1278,7 +1278,7 @@ async with AIProjectClient(...) as client:
         print(f"Deployment: {deployment.name}")
 ```
 
-### 9.4 ✅ CORRECT: Async Streaming with AsyncAgentEventHandler
+### 9.4  CORRECT: Async Streaming with AsyncAgentEventHandler
 ```python
 from azure.ai.agents.aio import AsyncAgentEventHandler
 
@@ -1299,7 +1299,7 @@ async with AIProjectClient(...) as client:
         await stream.until_done()
 ```
 
-### 9.5 ✅ CORRECT: Concurrent Operations with asyncio.gather
+### 9.5  CORRECT: Concurrent Operations with asyncio.gather
 ```python
 import asyncio
 
@@ -1334,7 +1334,7 @@ async with AIProjectClient(...) as client:
     results = await process_multiple_queries(client, agent.id, queries)
 ```
 
-### 9.6 ✅ CORRECT: Async Error Handling
+### 9.6  CORRECT: Async Error Handling
 ```python
 from azure.core.exceptions import HttpResponseError
 
@@ -1350,7 +1350,7 @@ async with AIProjectClient(...) as client:
 
 ### 9.7 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Using sync credential with async client
+####  INCORRECT: Using sync credential with async client
 ```python
 # WRONG - sync credential with async client
 from azure.ai.projects.aio import AIProjectClient
@@ -1363,7 +1363,7 @@ async with AIProjectClient(
     ...
 ```
 
-#### ❌ INCORRECT: Forgetting await
+####  INCORRECT: Forgetting await
 ```python
 # WRONG - missing await
 async with AIProjectClient(...) as client:
@@ -1374,7 +1374,7 @@ async with AIProjectClient(...) as client:
     agent = await client.agents.create_agent(...)
 ```
 
-#### ❌ INCORRECT: Using sync handler with async client
+####  INCORRECT: Using sync handler with async client
 ```python
 # WRONG - using sync AgentEventHandler with async client
 from azure.ai.agents.models import AgentEventHandler  # This is sync!
@@ -1394,7 +1394,7 @@ from azure.ai.agents.aio import AsyncAgentEventHandler
 
 ## 10. Datasets and Indexes
 
-### 10.1 ✅ CORRECT: Upload Dataset File
+### 10.1  CORRECT: Upload Dataset File
 ```python
 from azure.ai.projects.models import DatasetVersion
 
@@ -1407,7 +1407,7 @@ dataset = project_client.datasets.upload_file(
 print(f"Dataset uploaded: {dataset.name} v{dataset.version}")
 ```
 
-### 10.2 ✅ CORRECT: Upload Dataset Folder
+### 10.2  CORRECT: Upload Dataset Folder
 ```python
 import re
 from azure.ai.projects.models import DatasetVersion
@@ -1422,14 +1422,14 @@ dataset = project_client.datasets.upload_folder(
 print(f"Folder uploaded: {dataset.name} v{dataset.version}")
 ```
 
-### 10.3 ✅ CORRECT: Get Dataset
+### 10.3  CORRECT: Get Dataset
 ```python
 dataset = project_client.datasets.get(name="my-dataset", version="1.0")
 print(f"Name: {dataset.name}")
 print(f"Version: {dataset.version}")
 ```
 
-### 10.4 ✅ CORRECT: Get Dataset Credentials
+### 10.4  CORRECT: Get Dataset Credentials
 ```python
 credentials = project_client.datasets.get_credentials(
     name="my-dataset",
@@ -1438,7 +1438,7 @@ credentials = project_client.datasets.get_credentials(
 # Use credentials to access dataset storage
 ```
 
-### 10.5 ✅ CORRECT: List Datasets
+### 10.5  CORRECT: List Datasets
 ```python
 # List all datasets
 for dataset in project_client.datasets.list():
@@ -1449,12 +1449,12 @@ for dataset in project_client.datasets.list_versions(name="my-dataset"):
     print(f"Version: {dataset.version}")
 ```
 
-### 10.6 ✅ CORRECT: Delete Dataset
+### 10.6  CORRECT: Delete Dataset
 ```python
 project_client.datasets.delete(name="my-dataset", version="1.0")
 ```
 
-### 10.7 ✅ CORRECT: Create or Update Index
+### 10.7  CORRECT: Create or Update Index
 ```python
 from azure.ai.projects.models import AzureAISearchIndex
 
@@ -1469,14 +1469,14 @@ index = project_client.indexes.create_or_update(
 print(f"Index created: {index.name} v{index.version}")
 ```
 
-### 10.8 ✅ CORRECT: Get Index
+### 10.8  CORRECT: Get Index
 ```python
 index = project_client.indexes.get(name="my-index", version="1.0")
 print(f"Name: {index.name}")
 print(f"Version: {index.version}")
 ```
 
-### 10.9 ✅ CORRECT: List Indexes
+### 10.9  CORRECT: List Indexes
 ```python
 # List all indexes
 for index in project_client.indexes.list():
@@ -1487,14 +1487,14 @@ for index in project_client.indexes.list_versions(name="my-index"):
     print(f"Version: {index.version}")
 ```
 
-### 10.10 ✅ CORRECT: Delete Index
+### 10.10  CORRECT: Delete Index
 ```python
 project_client.indexes.delete(name="my-index", version="1.0")
 ```
 
 ### 10.11 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Missing version parameter
+####  INCORRECT: Missing version parameter
 ```python
 # WRONG - version is required
 dataset = project_client.datasets.upload_file(
@@ -1512,7 +1512,7 @@ dataset = project_client.datasets.upload_file(
 )
 ```
 
-#### ❌ INCORRECT: Using wrong parameter name for folders
+####  INCORRECT: Using wrong parameter name for folders
 ```python
 # WRONG - parameter is folder, not folder_path
 dataset = project_client.datasets.upload_folder(
@@ -1535,7 +1535,7 @@ dataset = project_client.datasets.upload_folder(
 
 ## 11. File and Vector Store Operations
 
-### 11.1 ✅ CORRECT: Upload File
+### 11.1  CORRECT: Upload File
 ```python
 from azure.ai.agents.models import FilePurpose
 
@@ -1546,7 +1546,7 @@ file = project_client.agents.files.upload_and_poll(
 print(f"Uploaded file, ID: {file.id}")
 ```
 
-### 11.2 ✅ CORRECT: Create Vector Store
+### 11.2  CORRECT: Create Vector Store
 ```python
 vector_store = project_client.agents.vector_stores.create_and_poll(
     file_ids=[file.id],
@@ -1555,7 +1555,7 @@ vector_store = project_client.agents.vector_stores.create_and_poll(
 print(f"Created vector store, ID: {vector_store.id}")
 ```
 
-### 11.3 ✅ CORRECT: File with Code Interpreter
+### 11.3  CORRECT: File with Code Interpreter
 ```python
 from azure.ai.agents.models import FilePurpose, CodeInterpreterTool
 
@@ -1577,7 +1577,7 @@ agent = project_client.agents.create_agent(
 
 ### 11.4 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Wrong FilePurpose
+####  INCORRECT: Wrong FilePurpose
 ```python
 # WRONG - FilePurpose.ASSISTANTS doesn't exist
 from azure.ai.agents.models import FilePurpose
@@ -1594,7 +1594,7 @@ file = project_client.agents.files.upload_and_poll(
 )
 ```
 
-#### ❌ INCORRECT: Missing purpose parameter
+####  INCORRECT: Missing purpose parameter
 ```python
 # WRONG - purpose is required
 file = project_client.agents.files.upload_and_poll(
@@ -1614,7 +1614,7 @@ file = project_client.agents.files.upload_and_poll(
 
 ## 12. Complete Example: Full Workflow
 
-### 12.1 ✅ CORRECT: Complete Agent Workflow
+### 12.1  CORRECT: Complete Agent Workflow
 ```python
 import os
 from azure.ai.projects import AIProjectClient

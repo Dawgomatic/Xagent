@@ -30,7 +30,7 @@ class MockBlockchainTest {
     };
     this.results.tests.push(result);
     
-    const emoji = status === 'PASS' ? '✓' : status === 'FAIL' ? '✗' : '⚠';
+    const emoji = status === 'PASS' ? '✓' : status === 'FAIL' ? '✗' : '';
     console.log(`${emoji} [${status}] ${name}`);
     if (details.message) console.log(`  → ${details.message}`);
   }
@@ -368,7 +368,7 @@ class MockBlockchainTest {
     console.log(`Total Tests: ${this.results.tests.length}`);
     console.log(`✓ Passed: ${passed}`);
     console.log(`✗ Failed: ${failed}`);
-    console.log(`⚠ Warned: ${warned}`);
+    console.log(` Warned: ${warned}`);
     console.log(`Duration: ${duration}s`);
     console.log(`\nStatus: ${failed === 0 ? '✓ ALL TESTS PASSED' : `✗ ${failed} TESTS FAILED`}`);
 

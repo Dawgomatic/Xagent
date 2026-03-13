@@ -414,7 +414,7 @@ def sanitize_public_pending_fact(text: str, fallback: str = "") -> str:
     for p in parts:
         if any(k in p for k in PUBLIC_NOTE_EXCLUDE_KEYWORDS):
             continue
-        if p.startswith("⚠跨期矛盾"):
+        if p.startswith("跨期矛盾"):
             continue
         if "该证据属于" in p and "覆盖计算" in p:
             continue
@@ -990,7 +990,7 @@ def build_evidence_index_block(df_def: pd.DataFrame, period_start: Optional[dt.d
             f"｜待证事实:{compact_pending_fact(r, ti)}"
         )
         if ti["contradiction"]:
-            line += "｜⚠疑似跨期矛盾(需人工核查)"
+            line += "｜疑似跨期矛盾(需人工核查)"
         lines.append(line)
         seq += 1
     return "\n".join(lines) if lines else "（未提供有效证据目录）"

@@ -21,7 +21,7 @@ try:
     WEBSOCKET_AVAILABLE = True
 except ImportError:
     WEBSOCKET_AVAILABLE = False
-    print("⚠️  websocket-client 库未安装，请先运行: pip3 install websocket-client --user")
+    print("  websocket-client 库未安装，请先运行: pip3 install websocket-client --user")
 
 # Binance 配置
 BINANCE_WS_URL = "wss://stream.binance.com:9443/ws/!miniTicker@arr"
@@ -53,12 +53,12 @@ def load_known_symbols() -> Set[str]:
             with open(KNOWN_SYMBOLS_FILE, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 known_symbols = set(data.get('symbols', []))
-                print(f"📂 已加载 {len(known_symbols)} 个已知交易对")
+                print(f" 已加载 {len(known_symbols)} 个已知交易对")
                 return known_symbols
         except Exception as e:
-            print(f"⚠️  加载已知交易对失败: {e}")
+            print(f"  加载已知交易对失败: {e}")
     
-    print("📂 首次运行，将创建新的交易对集合")
+    print(" 首次运行，将创建新的交易对集合")
     return set()
 
 def save_known_symbols():
@@ -72,7 +72,7 @@ def save_known_symbols():
                 'updated_at': datetime.now().isoformat()
             }, f, indent=2)
     except Exception as e:
-        print(f"⚠️  保存已知交易对失败: {e}")
+        print(f"  保存已知交易对失败: {e}")
 
 def load_alert_history() -> List[Dict]:
     """加载报警历史"""
@@ -86,7 +86,7 @@ def load_alert_history() -> List[Dict]:
                 alert_history = json.load(f)
                 return alert_history
         except Exception as e:
-            print(f"⚠️  加载报警历史失败: {e}")
+            print(f"  加载报警历史失败: {e}")
     
     return []
 
@@ -98,7 +98,7 @@ def save_alert_history():
         with open(ALERT_HISTORY_FILE, 'w', encoding='utf-8') as f:
             json.dump(alert_history[-100:], f, indent=2, ensure_ascii=False)  # 只保留最近100条
     except Exception as e:
-        print(f"⚠️  保存报警历史失败: {e}")
+        print(f"  保存报警历史失败: {e}")
 
 def check_symbol_has_price(symbol: str) -> bool:
     """通过 REST API 检查交易对是否已有开盘价"""
@@ -117,10 +117,10 @@ def check_symbol_has_price(symbol: str) -> bool:
         if e.code == 400:
             # 交易对不存在或无效
             return False
-        print(f"⚠️  检查 {symbol} 价格时 HTTP 错误: {e.code}")
+        print(f"  检查 {symbol} 价格时 HTTP 错误: {e.code}")
         return False
     except Exception as e:
-        print(f"⚠️  检查 {symbol} 价格失败: {e}")
+        print(f"  检查 {symbol} 价格失败: {e}")
         return False
 
 def get_symbol_info(symbol: str) -> Optional[Dict]:
@@ -146,7 +146,7 @@ def get_symbol_info(symbol: str) -> Optional[Dict]:
                 'count': data.get('count')
             }
     except Exception as e:
-        print(f"⚠️  获取 {symbol} 信息失败: {e}")
+        print(f"  获取 {symbol} 信息失败: {e}")
         return None
 
 def alert_new_coin(symbol: str, ticker_data: Dict):
@@ -169,19 +169,19 @@ def alert_new_coin(symbol: str, ticker_data: Dict):
     
     # 控制台输出（带颜色）
     print("\n" + "=" * 70)
-    print(f"🚀🚀🚀 新币上线 detected! 🚀🚀🚀")
+    print(f" 新币上线 detected! ")
     print("=" * 70)
-    print(f"⏰ 检测时间: {timestamp}")
-    print(f"🪙 交易对: {symbol}")
+    print(f" 检测时间: {timestamp}")
+    print(f" 交易对: {symbol}")
     
     if info:
-        print(f"💰 当前价格: {info.get('price', 'N/A')}")
-        print(f"📊 开盘价: {info.get('open', 'N/A')}")
-        print(f"📈 24h涨跌: {info.get('change', 'N/A')} ({info.get('change_percent', 'N/A')}%)")
-        print(f"📦 24h成交量: {info.get('volume', 'N/A')}")
-        print(f"💵 24h成交额: {info.get('quote_volume', 'N/A')}")
+        print(f" 当前价格: {info.get('price', 'N/A')}")
+        print(f" 开盘价: {info.get('open', 'N/A')}")
+        print(f" 24h涨跌: {info.get('change', 'N/A')} ({info.get('change_percent', 'N/A')}%)")
+        print(f" 24h成交量: {info.get('volume', 'N/A')}")
+        print(f" 24h成交额: {info.get('quote_volume', 'N/A')}")
     else:
-        print(f"📈 最新价格: {ticker_data.get('c', 'N/A')}")
+        print(f" 最新价格: {ticker_data.get('c', 'N/A')}")
     
     print("=" * 70)
     print()
@@ -236,35 +236,35 @@ def on_message(ws, message):
                 alert_new_coin(symbol, ticker)
         
     except json.JSONDecodeError:
-        print(f"⚠️  JSON 解析错误: {message[:100]}")
+        print(f"  JSON 解析错误: {message[:100]}")
     except Exception as e:
-        print(f"⚠️  处理消息时出错: {e}")
+        print(f"  处理消息时出错: {e}")
 
 def on_error(ws, error):
     """WebSocket 错误处理"""
-    print(f"❌ WebSocket 错误: {error}")
+    print(f" WebSocket 错误: {error}")
 
 def on_close(ws, close_status_code, close_msg):
     """WebSocket 关闭处理"""
-    print(f"🔌 WebSocket 连接关闭 (code: {close_status_code}, msg: {close_msg})")
+    print(f" WebSocket 连接关闭 (code: {close_status_code}, msg: {close_msg})")
     
     if running:
-        print("🔄 将在 5 秒后重新连接...")
+        print(" 将在 5 秒后重新连接...")
         time.sleep(5)
         start_monitoring()
 
 def on_open(ws):
     """WebSocket 连接成功"""
-    print("✅ WebSocket 连接成功")
-    print(f"📊 开始监控... 已知交易对: {len(known_symbols)} 个")
-    print("⏳ 等待新币上线...\n")
+    print(" WebSocket 连接成功")
+    print(f" 开始监控... 已知交易对: {len(known_symbols)} 个")
+    print(" 等待新币上线...\n")
 
 def start_monitoring():
     """启动监控"""
     global ws_app
     
     if not WEBSOCKET_AVAILABLE:
-        print("❌ 请先安装 websocket-client: pip3 install websocket-client --user")
+        print(" 请先安装 websocket-client: pip3 install websocket-client --user")
         return
     
     # 加载已知交易对
@@ -288,7 +288,7 @@ def stop_monitoring():
     global running, ws_app
     
     running = False
-    print("\n🛑 正在停止监控...")
+    print("\n 正在停止监控...")
     
     if ws_app:
         ws_app.close()
@@ -297,7 +297,7 @@ def stop_monitoring():
     save_known_symbols()
     save_alert_history()
     
-    print("✅ 监控已停止")
+    print(" 监控已停止")
 
 def signal_handler(sig, frame):
     """信号处理"""
@@ -309,28 +309,28 @@ def list_alerts(limit: int = 20):
     history = load_alert_history()
     
     if not history:
-        print("📭 暂无报警记录")
+        print(" 暂无报警记录")
         return
     
-    print(f"\n📜 历史报警记录 (最近 {min(limit, len(history))} 条):\n")
+    print(f"\n 历史报警记录 (最近 {min(limit, len(history))} 条):\n")
     
     for alert in history[-limit:]:
         symbol = alert.get('symbol', 'Unknown')
         detected_at = alert.get('detected_at', 'Unknown')
         detail = alert.get('detail', {})
         
-        print(f"⏰ {detected_at}")
-        print(f"🪙 {symbol}")
+        print(f" {detected_at}")
+        print(f" {symbol}")
         if detail:
-            print(f"💰 价格: {detail.get('price', 'N/A')}")
-            print(f"📊 涨跌: {detail.get('change_percent', 'N/A')}%")
+            print(f" 价格: {detail.get('price', 'N/A')}")
+            print(f" 涨跌: {detail.get('change_percent', 'N/A')}%")
         print("-" * 50)
 
 def reset_known_symbols():
     """重置已知交易对集合"""
     global known_symbols
     
-    confirm = input("⚠️  确定要重置已知交易对集合吗？这将清除所有历史记录。\n输入 'yes' 确认: ")
+    confirm = input("  确定要重置已知交易对集合吗？这将清除所有历史记录。\n输入 'yes' 确认: ")
     
     if confirm.lower() == 'yes':
         known_symbols = set()
@@ -341,9 +341,9 @@ def reset_known_symbols():
         alert_history = []
         save_alert_history()
         
-        print("✅ 已重置")
+        print(" 已重置")
     else:
-        print("❎ 已取消")
+        print(" 已取消")
 
 def main():
     parser = argparse.ArgumentParser(
@@ -385,7 +385,7 @@ def main():
         return
     
     if not WEBSOCKET_AVAILABLE:
-        print("❌ 请先安装 websocket-client:")
+        print(" 请先安装 websocket-client:")
         print("   pip3 install websocket-client --user")
         return
     
@@ -394,7 +394,7 @@ def main():
         signal.signal(signal.SIGINT, signal_handler)
         signal.signal(signal.SIGTERM, signal_handler)
         
-        print("🚀 Binance Alpha 新币上线监控")
+        print(" Binance Alpha 新币上线监控")
         print("=" * 50)
         
         try:
@@ -412,7 +412,7 @@ def main():
         load_known_symbols()
         load_alert_history()
         
-        print(f"\n📊 当前状态:\n")
+        print(f"\n 当前状态:\n")
         print(f"  已知交易对数量: {len(known_symbols)}")
         print(f"  历史报警数量: {len(alert_history)}")
         print(f"  状态文件位置: {STATE_DIR}")

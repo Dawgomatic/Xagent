@@ -31,8 +31,8 @@ data = json.load(sys.stdin)
 for i, post in enumerate(data.get('posts', []), 1):
     print(f'{i}. {post[\"title\"]}')
     print(f'   by @{post[\"author\"][\"name\"]}')
-    print(f'   ⬆️ {post[\"upvotes\"]} | 💬 {post[\"comment_count\"]}')
-    print(f'   📍 https://moltbook.com/post/{post[\"id\"]}')
+    print(f'    {post[\"upvotes\"]} |  {post[\"comment_count\"]}')
+    print(f'    https://moltbook.com/post/{post[\"id\"]}')
     print(f'   {post[\"content\"][:150]}...')
     print()
 " 2>/dev/null || echo "$RESPONSE"

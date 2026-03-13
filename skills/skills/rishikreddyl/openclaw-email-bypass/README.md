@@ -1,15 +1,15 @@
-# Google Script Email Bypass (SMTP Fix) ✉️🚀
+# Google Script Email Bypass (SMTP Fix) 
 
 A secure and reliable tool for bypassing **SMTP port restrictions** (Ports 25, 465, 587) by routing emails through your private Google Apps Script web relay. This is essential for agents hosted on providers like **DigitalOcean, AWS, GCP, or Linode** that block outgoing mail ports.
 
-## 🧱 The Problem: Cloud SMTP Blocks
+##  The Problem: Cloud SMTP Blocks
 Many cloud providers block outgoing SMTP traffic for new accounts to prevent spam. This effectively "silences" your OpenClaw agent, preventing it from sending alerts, job applications, or critical notifications. 
 
 This repository provides a **transparent, free, and self-hosted** bridge using Google Apps Script's `MailApp` service to restore your agent's communication capabilities.
 
 ---
 
-## 🛡️ Security & Privacy
+##  Security & Privacy
 This tool is designed with a "Security-First" approach:
 1.  **User-Owned Infrastructure:** You deploy the relay on your own Google account. No third-party servers see your data.
 2.  **Encrypted Transport:** All communication between your agent and the relay happens over HTTPS (Port 443).
@@ -18,14 +18,14 @@ This tool is designed with a "Security-First" approach:
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 - `assets/Code.gs`: The Google Apps Script source code.
 - `scripts/send_email.py`: The Python client for your agent.
 - `references/setup.md`: Detailed deployment guide.
 
 ---
 
-## 🚀 Quick Setup
+##  Quick Setup
 
 ### 1. Deploy the Google Script
 1.  Go to [script.google.com](https://script.google.com) and create a **New Project**.
@@ -47,7 +47,7 @@ GOOGLE_SCRIPT_TOKEN="your-secure-token"
 
 ---
 
-## 🛠️ Usage
+##  Usage
 
 ### Python API
 You can use the provided script to send emails from any sub-agent or task:
@@ -76,10 +76,10 @@ send_email(
 
 ---
 
-## ⚠️ Important Notes
+##  Important Notes
 - **Daily Limits:** Google Apps Script has daily quotas (usually 100-1500 emails/day depending on your account type).
 - **Execution:** Ensure you have the `requests` library installed (`pip install requests`).
 
 ---
-*Created by RISHIKREDDYL* 🐉
+*Created by RISHIKREDDYL* 
 *We ride together.*

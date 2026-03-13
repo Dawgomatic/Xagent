@@ -131,7 +131,7 @@ Real change requires changing your goals, not your discipline.
 ## Summary Template
 
 ```
-✅ **Session 2 Complete: The Hidden Goal Decoder**
+ **Session 2 Complete: The Hidden Goal Decoder**
 
 **Key Findings:**
 - Stated goal: {from 1.1}
@@ -151,5 +151,5 @@ I'm succeeding at {hidden goal}."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ready for Session 3: The Identity Construction Tracer?
-[▶️ Continue] [⏸ Take a Break]
+[ Continue] [ Take a Break]
 ```

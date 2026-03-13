@@ -14,7 +14,7 @@ try:
     from garth import Client
     from garminconnect import Garmin
 except ImportError:
-    print("❌ Dependencies not installed. Run: pip install -r requirements.txt")
+    print(" Dependencies not installed. Run: pip install -r requirements.txt")
     sys.exit(1)
 
 def load_garth_session():
@@ -22,7 +22,7 @@ def load_garth_session():
     session_file = Path.home() / ".garth" / "session.json"
     
     if not session_file.exists():
-        print(f"❌ No OAuth session found at {session_file}")
+        print(f" No OAuth session found at {session_file}")
         print("\nRun: python3 garmin-auth.py <email> <password>")
         return None
     
@@ -31,7 +31,7 @@ def load_garth_session():
         client.load(str(session_file))
         return client
     except Exception as e:
-        print(f"❌ Failed to load session: {e}")
+        print(f" Failed to load session: {e}")
         return None
 
 def make_garmin_client(garth_client):
@@ -69,7 +69,7 @@ def get_daily_summary(garth_client, date_str):
         data['distance_km'] = round(summary.get('totalDistance', 0) / 1000, 2)
         
     except Exception as e:
-        print(f"⚠️  Daily summary error: {e}", file=sys.stderr)
+        print(f"  Daily summary error: {e}", file=sys.stderr)
     
     return data
 
@@ -104,7 +104,7 @@ def get_sleep_data(garth_client, date_str):
             data['awake_minutes'] = round(s.get('awakeTimeSeconds', 0) / 60, 0)
         
     except Exception as e:
-        print(f"⚠️  Sleep data error: {e}", file=sys.stderr)
+        print(f"  Sleep data error: {e}", file=sys.stderr)
     
     return data
 
@@ -132,7 +132,7 @@ def get_workouts(garth_client):
             workouts.append(workout)
     
     except Exception as e:
-        print(f"⚠️  Workouts error: {e}", file=sys.stderr)
+        print(f"  Workouts error: {e}", file=sys.stderr)
     
     return workouts
 

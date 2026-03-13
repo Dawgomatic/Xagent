@@ -6,7 +6,7 @@ const APP_SECRET = process.env.FEISHU_APP_SECRET;
 const client = new Lark.Client({ appId: APP_ID, appSecret: APP_SECRET });
 
 (async () => {
-    console.log('🧹 Deep Cleaning Calendar...');
+    console.log(' Deep Cleaning Calendar...');
     
     // 1. Find Bot Calendar
     let botCalendarId;
@@ -66,7 +66,7 @@ const client = new Lark.Client({ appId: APP_ID, appSecret: APP_SECRET });
                 // If it is already deleted/cancelled (status="cancelled"), skip
                 if (evt.status === 'cancelled') continue;
 
-                console.log(`🗑️ Deleting Empty Event: ${evt.event_id}`);
+                console.log(` Deleting Empty Event: ${evt.event_id}`);
                 try {
                     await client.request({
                         method: 'DELETE',

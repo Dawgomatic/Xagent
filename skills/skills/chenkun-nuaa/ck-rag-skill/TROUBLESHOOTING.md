@@ -30,8 +30,8 @@ python3 /home/onestack/.openclaw/workspace/ragflow-kb/scripts/quick_test.py
 **方案1：使用简单问题**
 ```bash
 # 建议：使用更具体、简短的问题
-python3 scripts/query_ragflow.py "容器挂了怎么办"  # ✅ 快速
-python3 scripts/query_ragflow.py "Docker基本概念"   # ⚠️ 可能很慢
+python3 scripts/query_ragflow.py "容器挂了怎么办"  #  快速
+python3 scripts/query_ragflow.py "Docker基本概念"   #  可能很慢
 ```
 
 **方案2：调整超时时间**

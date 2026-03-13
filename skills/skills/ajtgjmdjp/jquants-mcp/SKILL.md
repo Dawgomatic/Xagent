@@ -1,7 +1,7 @@
 ---
 name: jquants-mcp
 description: "Access JPX stock market data via J-Quants API — search stocks, get daily OHLCV prices, financial summaries (revenue, profit, EPS, ROE), and earnings calendar for Tokyo Stock Exchange (TSE) listed companies. Japan stock price data."
-metadata: {"openclaw":{"emoji":"💹","requires":{"bins":["jquants-mcp"],"env":["JQUANTS_MAIL_ADDRESS","JQUANTS_PASSWORD"]},"install":[{"id":"uv","kind":"uv","package":"jquants-mcp","bins":["jquants-mcp"],"label":"Install jquants-mcp (uv)"}],"tags":["japan","stock","jpx","tse","price","ohlcv","finance","mcp","jquants"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["jquants-mcp"],"env":["JQUANTS_MAIL_ADDRESS","JQUANTS_PASSWORD"]},"install":[{"id":"uv","kind":"uv","package":"jquants-mcp","bins":["jquants-mcp"],"label":"Install jquants-mcp (uv)"}],"tags":["japan","stock","jpx","tse","price","ohlcv","finance","mcp","jquants"]}}
 ---
 
 # J-Quants: JPX Stock Market Data

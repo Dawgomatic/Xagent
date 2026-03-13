@@ -79,11 +79,11 @@ def main(check, update, docs_only, skills_only, json_output):
         table.add_row("ClawHub CLI", "-", "-", cli_status)
 
         # Docs
-        docs_status = "[green]✓ Reachable[/green]" if docs_reachable else "[yellow]⚠ Unreachable[/yellow]"
+        docs_status = "[green]✓ Reachable[/green]" if docs_reachable else "[yellow] Unreachable[/yellow]"
         table.add_row("Documentation", "-", "-", docs_status)
 
         # Cache
-        cache_status = "[green]✓ Fresh[/green]" if cache_fresh else "[yellow]⚠ Stale[/yellow]"
+        cache_status = "[green]✓ Fresh[/green]" if cache_fresh else "[yellow] Stale[/yellow]"
         table.add_row("Skill Cache", "-", "-", cache_status)
 
         console.print(table)
@@ -109,7 +109,7 @@ def main(check, update, docs_only, skills_only, json_output):
             elif success:
                 console.print("[green]✓[/green] Documentation already up to date")
             else:
-                console.print("[yellow]⚠[/yellow] Could not fetch documentation updates")
+                console.print("[yellow][/yellow] Could not fetch documentation updates")
 
         # Update skill cache
         if (update and not docs_only) or skills_only:
@@ -119,7 +119,7 @@ def main(check, update, docs_only, skills_only, json_output):
                     updates.append("Refreshed ClawHub skill cache")
                     console.print("[green]✓[/green] Skill cache refreshed")
                 else:
-                    console.print("[yellow]⚠[/yellow] Could not refresh skill cache")
+                    console.print("[yellow][/yellow] Could not refresh skill cache")
             else:
                 console.print("[red]✗[/red] ClawHub CLI not available")
 

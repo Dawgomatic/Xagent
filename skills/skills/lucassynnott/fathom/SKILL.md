@@ -8,7 +8,7 @@ read_when:
   - User wants to set up Fathom integration
 metadata:
   clawdbot:
-    emoji: "📞"
+    emoji: ""
     requires:
       bins: ["curl", "jq"]
 ---

@@ -22,7 +22,7 @@ function addClient(name, options) {
   
   // 중복 체크
   if (clients.some(c => c.name === name)) {
-    console.error(`❌ 이미 존재하는 거래처입니다: ${name}`);
+    console.error(` 이미 존재하는 거래처입니다: ${name}`);
     process.exit(1);
   }
 
@@ -38,7 +38,7 @@ function addClient(name, options) {
 
   clients.push(client);
   saveClients(clients);
-  console.log(`✅ 거래처 추가: ${name}`);
+  console.log(` 거래처 추가: ${name}`);
 }
 
 function editClient(name, options) {
@@ -46,7 +46,7 @@ function editClient(name, options) {
   const client = clients.find(c => c.name === name);
 
   if (!client) {
-    console.error(`❌ 거래처를 찾을 수 없습니다: ${name}`);
+    console.error(` 거래처를 찾을 수 없습니다: ${name}`);
     process.exit(1);
   }
 
@@ -57,7 +57,7 @@ function editClient(name, options) {
   if (options.email) client.email = options.email;
 
   saveClients(clients);
-  console.log(`✅ 거래처 수정: ${name}`);
+  console.log(` 거래처 수정: ${name}`);
 }
 
 function removeClient(name) {
@@ -65,12 +65,12 @@ function removeClient(name) {
   const filtered = clients.filter(c => c.name !== name);
 
   if (filtered.length === clients.length) {
-    console.error(`❌ 거래처를 찾을 수 없습니다: ${name}`);
+    console.error(` 거래처를 찾을 수 없습니다: ${name}`);
     process.exit(1);
   }
 
   saveClients(filtered);
-  console.log(`✅ 거래처 삭제: ${name}`);
+  console.log(` 거래처 삭제: ${name}`);
 }
 
 function listClients() {
@@ -96,7 +96,7 @@ function viewClient(name) {
   const client = clients.find(c => c.name === name);
 
   if (!client) {
-    console.error(`❌ 거래처를 찾을 수 없습니다: ${name}`);
+    console.error(` 거래처를 찾을 수 없습니다: ${name}`);
     process.exit(1);
   }
 

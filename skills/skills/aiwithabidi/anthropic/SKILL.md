@@ -4,10 +4,10 @@ description: "Anthropic Claude API integration — chat completions, streaming, 
 homepage: https://www.agxntsix.ai
 license: MIT
 compatibility: Python 3.10+ (stdlib only — no dependencies)
-metadata: {"openclaw": {"emoji": "🔮", "requires": {"env": ["ANTHROPIC_API_KEY"]}, "primaryEnv": "ANTHROPIC_API_KEY", "homepage": "https://www.agxntsix.ai"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": ["ANTHROPIC_API_KEY"]}, "primaryEnv": "ANTHROPIC_API_KEY", "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# 🔮 Anthropic
+#  Anthropic
 
 Anthropic Claude API integration — chat completions, streaming, vision, tool use, and batch processing via the Anthropic Messages API.
 
@@ -28,7 +28,7 @@ Anthropic Claude API integration — chat completions, streaming, vision, tool u
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `ANTHROPIC_API_KEY` | ✅ | API key/token for Anthropic |
+| `ANTHROPIC_API_KEY` |  | API key/token for Anthropic |
 
 ## Quick Start
 
@@ -157,4 +157,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

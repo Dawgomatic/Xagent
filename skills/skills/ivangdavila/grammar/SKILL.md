@@ -1,7 +1,7 @@
 ---
 name: Grammar
 description: Correct grammar and spelling without changing meaning or style.
-metadata: {"clawdbot":{"emoji":"✏️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Principle

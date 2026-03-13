@@ -284,18 +284,18 @@ def generate_ui_report(data):
     
     # 顶部装饰
     lines.append("╔" + "═" * 58 + "╗")
-    lines.append("║" + " " * 15 + "🎰 中国体育彩票查奖报告" + " " * 16 + "║")
+    lines.append("║" + " " * 15 + " 中国体育彩票查奖报告" + " " * 16 + "║")
     lines.append("╠" + "═" * 58 + "╣")
     
     # 彩种信息
-    lines.append(f"║  📋 彩种：{lottery_name:<43}║")
-    lines.append(f"║  📅 期号：第 {draw_num} 期" + " " * (39 - len(draw_num)) + "║")
-    lines.append(f"║  🕐 日期：{draw_date:<43}║")
+    lines.append(f"║   彩种：{lottery_name:<43}║")
+    lines.append(f"║   期号：第 {draw_num} 期" + " " * (39 - len(draw_num)) + "║")
+    lines.append(f"║   日期：{draw_date:<43}║")
     lines.append("╠" + "═" * 58 + "╣")
     
     # 开奖号码
     lines.append("║" + " " * 58 + "║")
-    lines.append("║  🎱 开奖号码：" + " " * 42 + "║")
+    lines.append("║   开奖号码：" + " " * 42 + "║")
     
     # 格式化开奖号码
     if "|" in draw_result:
@@ -312,7 +312,7 @@ def generate_ui_report(data):
     lines.append("╠" + "═" * 58 + "╣")
     
     # 用户号码
-    lines.append("║  📝 您的号码：" + " " * 42 + "║")
+    lines.append("║   您的号码：" + " " * 42 + "║")
     lines.append(f"║      {user_numbers:<48}║")
     lines.append("║" + " " * 58 + "║")
     lines.append("╠" + "═" * 58 + "╣")
@@ -322,26 +322,26 @@ def generate_ui_report(data):
     lines.append("║" + " " * 58 + "║")
     
     if is_winner:
-        lines.append("║        🎉🎉🎉  恭喜您中奖啦！  🎉🎉🎉         ║")
+        lines.append("║          恭喜您中奖啦！           ║")
         lines.append("║" + " " * 58 + "║")
-        lines.append(f"║     🏆 中奖等级：{result_name:<30}║")
+        lines.append(f"║      中奖等级：{result_name:<30}║")
         
         # 找到对应奖金
         for prize in prize_details:
             # 使用 level 字段匹配奖项名称
             if result_name in prize.get("level", ""):
                 amount = format_money(prize.get("amount", ""))
-                lines.append(f"║     💰 单注奖金：{amount:<30}║")
+                lines.append(f"║      单注奖金：{amount:<30}║")
                 break
     else:
-        lines.append("║              😔  未中奖，再接再厉！               ║")
+        lines.append("║                未中奖，再接再厉！               ║")
     
     lines.append("║" + " " * 58 + "║")
     lines.append("╠" + "═" * 58 + "╣")
     
     # 奖级详情表
     lines.append("║" + " " * 58 + "║")
-    lines.append("║  📊 本期各奖项中奖情况：" + " " * 32 + "║")
+    lines.append("║   本期各奖项中奖情况：" + " " * 32 + "║")
     lines.append("║" + " " * 58 + "║")
     lines.append("║  ┌────────────┬──────────────┬──────────────────┐  ║")
     lines.append("║  │   奖项     │   中奖注数   │    单注奖金      │  ║")
@@ -359,17 +359,17 @@ def generate_ui_report(data):
     
     # 奖池和销售信息
     if pool_amount:
-        lines.append(f"║  💵 奖池滚存：{format_money(pool_amount):<38}║")
+        lines.append(f"║   奖池滚存：{format_money(pool_amount):<38}║")
     if sales_amount:
-        lines.append(f"║  📈 本期销量：{format_money(sales_amount):<38}║")
+        lines.append(f"║   本期销量：{format_money(sales_amount):<38}║")
     
     lines.append("║" + " " * 58 + "║")
     lines.append("╚" + "═" * 58 + "╝")
     
     # 底部提示
     lines.append("")
-    lines.append("💡 提示：数据来自中国体彩中心官方API，仅供参考")
-    lines.append("📌 实际奖金以当地体彩中心兑奖为准")
+    lines.append(" 提示：数据来自中国体彩中心官方API，仅供参考")
+    lines.append(" 实际奖金以当地体彩中心兑奖为准")
     
     return "\n".join(lines)
 
@@ -387,15 +387,15 @@ def generate_batch_report(latest_draw, results):
     
     # 顶部装饰
     lines.append("╔" + "═" * 70 + "╗")
-    lines.append("║" + " " * 20 + "🎰 大乐透批量查奖报告" + " " * 21 + "║")
+    lines.append("║" + " " * 20 + " 大乐透批量查奖报告" + " " * 21 + "║")
     lines.append("╠" + "═" * 70 + "╣")
     
     # 期号信息
-    lines.append(f"║  📅 第 {draw_num} 期    {draw_date}" + " " * (35 - len(draw_num) - len(draw_date)) + "║")
+    lines.append(f"║   第 {draw_num} 期    {draw_date}" + " " * (35 - len(draw_num) - len(draw_date)) + "║")
     lines.append("╠" + "═" * 70 + "╣")
     
     # 开奖号码
-    lines.append("║  🎱 开奖号码：" + " " * 54 + "║")
+    lines.append("║   开奖号码：" + " " * 54 + "║")
     if "|" in draw_result:
         parts = draw_result.split("|")
         front = parts[0].strip()
@@ -407,7 +407,7 @@ def generate_batch_report(latest_draw, results):
     lines.append("╠" + "═" * 70 + "╣")
     
     # 用户号码对比表
-    lines.append("║  📋 您的号码及中奖情况：" + " " * 44 + "║")
+    lines.append("║   您的号码及中奖情况：" + " " * 44 + "║")
     lines.append("║" + " " * 70 + "║")
     lines.append("║  ┌──────┬────────────────────────────┬────────────┬────────┐  ║")
     lines.append("║  │ 序号 │          号码              │  中奖等级  │  状态  │  ║")
@@ -421,10 +421,10 @@ def generate_batch_report(latest_draw, results):
         
         if is_winner:
             winner_count += 1
-            status = "🎉"
+            status = ""
             prize_name = result_name
         else:
-            status = "❌"
+            status = ""
             prize_name = "-"
         
         # 格式化显示
@@ -437,15 +437,15 @@ def generate_batch_report(latest_draw, results):
     
     # 中奖统计
     if winner_count > 0:
-        lines.append(f"║  ✅ 中奖统计：共 {winner_count} 注中奖" + " " * (47 - len(str(winner_count))) + "║")
+        lines.append(f"║   中奖统计：共 {winner_count} 注中奖" + " " * (47 - len(str(winner_count))) + "║")
     else:
-        lines.append("║  😔 很遗憾，本期未中奖" + " " * 46 + "║")
+        lines.append("║   很遗憾，本期未中奖" + " " * 46 + "║")
     
     lines.append("║" + " " * 70 + "║")
     lines.append("╠" + "═" * 70 + "╣")
     
     # 奖项详情
-    lines.append("║  📊 本期各奖项中奖情况：" + " " * 44 + "║")
+    lines.append("║   本期各奖项中奖情况：" + " " * 44 + "║")
     lines.append("║" + " " * 70 + "║")
     lines.append("║  ┌────────────┬──────────────┬──────────────────┐  ║")
     lines.append("║  │   奖项     │   中奖注数   │    单注奖金      │  ║")
@@ -462,15 +462,15 @@ def generate_batch_report(latest_draw, results):
     
     # 奖池和销售
     if pool_amount:
-        lines.append(f"║  💵 奖池滚存：{format_money(pool_amount):<50}║")
+        lines.append(f"║   奖池滚存：{format_money(pool_amount):<50}║")
     if sales_amount:
-        lines.append(f"║  📈 本期销量：{format_money(sales_amount):<50}║")
+        lines.append(f"║   本期销量：{format_money(sales_amount):<50}║")
     
     lines.append("║" + " " * 70 + "║")
     lines.append("╚" + "═" * 70 + "╝")
     lines.append("")
-    lines.append("💡 提示：数据来自中国体彩中心官方API，仅供参考")
-    lines.append("📌 实际奖金以当地体彩中心兑奖为准")
+    lines.append(" 提示：数据来自中国体彩中心官方API，仅供参考")
+    lines.append(" 实际奖金以当地体彩中心兑奖为准")
     
     return "\n".join(lines)
 
@@ -493,7 +493,7 @@ def main():
         user_numbers = [user_numbers]
     
     if not user_numbers:
-        print("❌ 请提供彩票号码")
+        print(" 请提供彩票号码")
         print("\n使用示例：")
         print('  单注: python3 check_lottery.py \'{"numbers":"03,15,22,28,33+05,12"}\'')
         print('  多注: python3 check_lottery.py \'{"numbers":["03,15,22,28,33+05,12","01,02,03,04,05+06,07"]}\'')
@@ -502,11 +502,11 @@ def main():
     # 获取最新开奖（只查一次）
     latest_draw = fetch_latest_draw(lottery_type)
     if not latest_draw:
-        print("❌ 无法获取最新开奖结果")
+        print(" 无法获取最新开奖结果")
         return
     
     if "error" in latest_draw:
-        print(f"❌ API错误: {latest_draw['error']}")
+        print(f" API错误: {latest_draw['error']}")
         return
     
     # 批量检查每个号码

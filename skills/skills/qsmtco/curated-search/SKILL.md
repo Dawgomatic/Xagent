@@ -9,7 +9,7 @@ metadata:
   openclaw:
     requires:
       bins: ["node"]
-    emoji: "🔍"
+    emoji: ""
 ---
 
 # Curated Search Skill

@@ -1,4 +1,4 @@
-# 🦦 Otterline Sports Predictions Professional | NBA & NHL AI Picks
+#  Otterline Sports Predictions Professional | NBA & NHL AI Picks
 
 Free Sports Betting Predictions and Picks for NBA and NHL: high win rate daily moneyline winners from Otterline's AI consensus model. Confidence-tiered (Elite -> Strong). No API key needed.
 
@@ -52,26 +52,26 @@ Per-pick details depend on the league:
 ### Tiers
 
 You’ll typically see:
-- 🔥 Elite
-- ✅ Verified
-- 💪 Strong
+-  Elite
+-  Verified
+-  Strong
 
 Additional tier notes:
-- **NHL** may include 📊 Lean
-- **NBA** may include ⛔ Pass (not a bet; it means “avoid”)
+- **NHL** may include  Lean
+- **NBA** may include  Pass (not a bet; it means “avoid”)
 
 ## Examples
 
 ### NBA Example (Free Sample)
 
 ```
-🦦 Otterline NBA Picks — 2026-02-12 (free sample)
+ Otterline NBA Picks — 2026-02-12 (free sample)
 These are FREE sample picks. Showing 2 of 3 total picks today.
 
-🔥 Elite (consensus: 3/3, combo win rate: 69%)
+ Elite (consensus: 3/3, combo win rate: 69%)
   Milwaukee Bucks @ Oklahoma City Thunder -> Oklahoma City Thunder
 
-💪 Strong (consensus: 2/3, combo win rate: 67%)
+ Strong (consensus: 2/3, combo win rate: 67%)
   Portland Trail Blazers @ Utah Jazz -> Utah Jazz
 
 Full slate → otterline.club/premium
@@ -80,16 +80,16 @@ Full slate → otterline.club/premium
 ### NHL Example (Free Sample)
 
 ```
-🦦 Otterline NHL Picks — 2026-02-05 (free sample)
+ Otterline NHL Picks — 2026-02-05 (free sample)
 These are FREE sample picks. Showing 3 of 7 total picks today.
 
-✅ Verified (score: 6, win prob: 66%)
+ Verified (score: 6, win prob: 66%)
   Nashville Predators @ Washington Capitals -> Washington Capitals
 
-💪 Strong (score: 4.5, win prob: 57%)
+ Strong (score: 4.5, win prob: 57%)
   Ottawa Senators @ Philadelphia Flyers -> Ottawa Senators
 
-📊 Lean (score: 3, win prob: 51%)
+ Lean (score: 3, win prob: 51%)
   New York Islanders @ New Jersey Devils -> New Jersey Devils
 
 Full slate → otterline.club/premium

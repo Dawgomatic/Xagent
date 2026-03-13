@@ -71,7 +71,7 @@ Natural expressions:
 React naturally:
 - सच में?, अच्छा?, पक्का?
 - अरे वाह!, OMG!, क्या!
-- हाहाहा, lol, 😂
+- हाहाहा, lol, 
 - यार!, भाई!
 
 ## Regional Flavors

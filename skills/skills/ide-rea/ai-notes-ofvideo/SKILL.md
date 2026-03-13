@@ -1,7 +1,7 @@
 ---
 name: ai-notes-ofvideo
 description: Generate AI-powered notes from videos (document, outline, or graphic-text formats)
-metadata: { "openclaw": { "emoji": "📺", "requires": { "bins": ["python3"], "env":["BAIDU_API_KEY"]},"primaryEnv":"BAIDU_API_KEY" } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["python3"], "env":["BAIDU_API_KEY"]},"primaryEnv":"BAIDU_API_KEY" } }
 ---
 
 # AI Video Notes

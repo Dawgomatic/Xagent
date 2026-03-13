@@ -4,8 +4,8 @@
 
 **Rule:** Maintain per-language-pair blocklist. Never auto-translate without context.
 
-### Spanish ↔ English
-| Word | ❌ Wrong | ✅ Correct |
+### Spanish  English
+| Word |  Wrong |  Correct |
 |------|----------|------------|
 | actual (ES) | actual | current, present |
 | actual (EN) | actual | real, verdadero |
@@ -22,7 +22,7 @@
 
 **Rule:** Detect idioms BEFORE translation. Map to equivalent OR explain meaning.
 
-| Source | ❌ Literal | ✅ Equivalent |
+| Source |  Literal |  Equivalent |
 |--------|-----------|---------------|
 | It's raining cats and dogs | Llueven gatos y perros | Llueve a cántaros |
 | Costar un ojo de la cara | Cost an eye | Cost an arm and a leg |
@@ -47,9 +47,9 @@ Determine register ONCE, enforce throughout.
 **Critical:** NEVER mix tú/usted in same document.
 
 ```
-❌ "Haz clic aquí para ver su cuenta" (mixed)
-✅ "Haz clic aquí para ver tu cuenta" (tú)
-✅ "Haga clic aquí para ver su cuenta" (usted)
+ "Haz clic aquí para ver su cuenta" (mixed)
+ "Haz clic aquí para ver tu cuenta" (tú)
+ "Haga clic aquí para ver su cuenta" (usted)
 ```
 
 ---

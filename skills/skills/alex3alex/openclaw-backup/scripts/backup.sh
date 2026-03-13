@@ -22,10 +22,10 @@ if [ $? -eq 0 ]; then
     
     COUNT=$(ls "$BACKUP_DIR"/openclaw-*.tar.gz 2>/dev/null | wc -l)
     
-    echo "✅ Backup created: $BACKUP_FILE ($SIZE)"
-    echo "📁 Total backups: $COUNT"
+    echo " Backup created: $BACKUP_FILE ($SIZE)"
+    echo " Total backups: $COUNT"
     exit 0
 else
-    echo "❌ Backup failed"
+    echo " Backup failed"
     exit 1
 fi

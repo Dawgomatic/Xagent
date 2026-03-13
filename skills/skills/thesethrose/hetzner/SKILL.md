@@ -1,7 +1,7 @@
 ---
 name: hetzner
 description: Hetzner Cloud server management using the hcloud CLI. Manage servers, networks, volumes, firewalls, floating IPs, and SSH keys.
-metadata: {"clawdbot":{"emoji":"🖥️","requires":{"bins":["hcloud"]},"env":{"HCLOUD_TOKEN":"Hetzner Cloud API token"}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["hcloud"]},"env":{"HCLOUD_TOKEN":"Hetzner Cloud API token"}}}
 ---
 
 # Hetzner Cloud Skill

@@ -27,4 +27,4 @@ if [[ -z "$LOCAL_PATH" ]]; then
 fi
 
 rclone copy "$LOCAL_PATH" "${REMOTE}:${BUCKET}/"
-echo "✅ Uploaded: $LOCAL_PATH → r2:${BUCKET}/"
+echo " Uploaded: $LOCAL_PATH → r2:${BUCKET}/"

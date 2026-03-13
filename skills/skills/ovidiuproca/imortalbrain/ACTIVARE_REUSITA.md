@@ -1,74 +1,74 @@
-# ✅ ACTIVARE REUȘITĂ - Immortal Brain v5.0 Agent Autonom Proactiv
+#  ACTIVARE REUȘITĂ - Immortal Brain v5.0 Agent Autonom Proactiv
 
-## 🎉 SISTEMUL ESTE LIVE ȘI FUNCȚIONAL!
+##  SISTEMUL ESTE LIVE ȘI FUNCȚIONAL!
 
 ### Test efectuat cu succes:
 ```bash
-🫀 HEARTBEAT #1
-🔄 Procesez 382 task-uri active
-🔬 RESEARCH: 382 task-uri cercetate
-📊 Progres mediu: 10%
-💡 Sugestie creativă generată
+ HEARTBEAT #1
+ Procesez 382 task-uri active
+ RESEARCH: 382 task-uri cercetate
+ Progres mediu: 10%
+ Sugestie creativă generată
 ```
 
 ---
 
-## 🚀 Ce ai acum:
+##  Ce ai acum:
 
 ### 1. **Agent AI Autonom** (1100+ linii cod)
-📁 `scripts/brain_service.py`
+ `scripts/brain_service.py`
 
 **Capabilități**:
-- ✅ **Workflow automat**: research → analysis → planning → execution → complete
-- ✅ **Progres procentual**: 0% → 10% → 25% → 40% → 50% → 60-85% → 100%
-- ✅ **Timeout inteligent**: 6 minute → auto-aprobat
-- ✅ **Conexiuni task-uri**: Graf automat între task-uri similare
-- ✅ **Sugestii creative**: Combinări tag-uri pentru idei noi
-- ✅ **Profil utilizator**: Învățare din comportament
-- ✅ **Bătăi inimii**: La fiecare 2 minute
+-  **Workflow automat**: research → analysis → planning → execution → complete
+-  **Progres procentual**: 0% → 10% → 25% → 40% → 50% → 60-85% → 100%
+-  **Timeout inteligent**: 6 minute → auto-aprobat
+-  **Conexiuni task-uri**: Graf automat între task-uri similare
+-  **Sugestii creative**: Combinări tag-uri pentru idei noi
+-  **Profil utilizator**: Învățare din comportament
+-  **Bătăi inimii**: La fiecare 2 minute
 
 ### 2. **HEARTBEAT.md Complet** 
-📁 `HEARTBEAT.md` - 200+ linii configurare
+ `HEARTBEAT.md` - 200+ linii configurare
 
 **Automatizări**:
-- ⏱️ **2 minute**: Heartbeat cu procesare workflow
-- 📥 **Instant**: Detecție task-uri Telegram/memory
-- ⏳ **6 minute**: Timeout și auto-aprobare
-- 📊 **10 minute**: Raport detaliat cu sugestii
-- 🎯 **Zilnic**: Recomandări proactive
+-  **2 minute**: Heartbeat cu procesare workflow
+-  **Instant**: Detecție task-uri Telegram/memory
+-  **6 minute**: Timeout și auto-aprobare
+-  **10 minute**: Raport detaliat cu sugestii
+-  **Zilnic**: Recomandări proactive
 
 ### 3. **Documentație Completă**
-📁 `SKILL.md` - Ghid utilizare complet
+ `SKILL.md` - Ghid utilizare complet
 
 ---
 
-## 🔄 Workflow în Acțiune:
+##  Workflow în Acțiune:
 
 ```
 TU: Trimizi "Implementare API #dev #urgent" (Telegram/Memory)
     ↓
 SISTEM ( automat la 2 minute ):
-    🔬 Cercetează task-uri similare
-    📊 Analizează complexitatea
-    📋 Generează plan (7 pași)
-    ⏳ Cere aprobare (notificare detaliată)
+     Cercetează task-uri similare
+     Analizează complexitatea
+     Generează plan (7 pași)
+     Cere aprobare (notificare detaliată)
     ↓
 TU: (Opțional) Răspunzi "OK" / "STOP" / "Modifică X"
     ↓
 SISTEM (dacă nu răspunzi în 6 min):
-    ✅ Auto-aprobat
-    🚀 Începe execuția
-    📈 Raportează progres: 25%... 45%... 65%...
+     Auto-aprobat
+     Începe execuția
+     Raportează progres: 25%... 45%... 65%...
     ↓
 SISTEM (la final):
-    ✅ Task finalizat 100%
-    💡 Sugerează task-uri conexe
-    📊 Raportează statistici
+     Task finalizat 100%
+     Sugerează task-uri conexe
+     Raportează statistici
 ```
 
 ---
 
-## ⏱️ Frecvență și Timing:
+##  Frecvență și Timing:
 
 | Eveniment | Frecvență | Acțiune |
 |-----------|-----------|---------|
@@ -84,7 +84,7 @@ SISTEM (la final):
 
 ---
 
-## 🧠 Inteligență Implementată:
+##  Inteligență Implementată:
 
 ### 1. **Conexiuni Task-uri**
 ```
@@ -105,7 +105,7 @@ Din task-uri completate similare:
 
 ### 3. **Combinări Creative**
 ```
-💡 Sugestie: #dev + #research
+ Sugestie: #dev + #research
 Task-uri care ar putea fi integrate:
 • "Implementare feature X"
 • "Research soluții Y"
@@ -124,7 +124,7 @@ Task-uri care ar putea fi integrate:
 
 ---
 
-## 📊 Comenzi Disponibile:
+##  Comenzi Disponibile:
 
 ```bash
 # Rulează heartbeat (apelat automat la 2 min)
@@ -139,20 +139,20 @@ python scripts/brain_service.py list
 
 ---
 
-## 📝 Exemplu Notificări:
+##  Exemplu Notificări:
 
 ### 1. Task Nou Primit:
 ```
-📥 Task nou primit de pe Telegram:
+ Task nou primit de pe Telegram:
 "Implementare OAuth2 #dev #urgent"
 
-🔬 Încep cercetarea și analiza automat...
-⏱️ Voi reveni cu planul în câteva minute.
+ Încep cercetarea și analiza automat...
+ Voi reveni cu planul în câteva minute.
 ```
 
 ### 2. Research Complet:
 ```
-🔬 CERCETARE COMPLETĂ
+ CERCETARE COMPLETĂ
 
 Task: "Implementare OAuth2"
 
@@ -167,7 +167,7 @@ Trec la analiza complexității...
 
 ### 3. Planificare + Aprobare:
 ```
-📋 PLANIFICARE COMPLETĂ
+ PLANIFICARE COMPLETĂ
 
 **Plan (7 pași):**
 1. Definire cerințe
@@ -179,33 +179,33 @@ Trec la analiza complexității...
 7. Deployment
 
 **Aștept aprobarea ta...**
-⏱️ Auto-aprobat în 6 minute.
+ Auto-aprobat în 6 minute.
 
-✅ Răspunde "OK" pentru a continua
-❌ Răspunde "STOP" pentru a anula
-💡 Sau propune modificări
+ Răspunde "OK" pentru a continua
+ Răspunde "STOP" pentru a anula
+ Sau propune modificări
 ```
 
 ### 4. Progres:
 ```
-📈 PROGRES: "Implementare OAuth2"
+ PROGRES: "Implementare OAuth2"
 
 • Progres: 65%
 • Stare: În execuție
 • ETA: ~4 minute
 
 **Pași finalizați:**
-✅ Definire cerințe
-✅ Research
-✅ Proiectare
+ Definire cerințe
+ Research
+ Proiectare
 
 **Pași activi:**
-▶️ Implementare (60%)
+ Implementare (60%)
 ```
 
 ### 5. Finalizare:
 ```
-✅ TASK FINALIZAT
+ TASK FINALIZAT
 
 Task: "Implementare OAuth2"
 Progres: 100%
@@ -215,16 +215,16 @@ Progres: 100%
 • Pași executați: 7
 • Îmbunătățiri aplicate: 3
 
-🎉 Task finalizat cu succes!
+ Task finalizat cu succes!
 
-💡 Sugerez să explorezi:
+ Sugerez să explorezi:
 • "Testare integrare OAuth2"
 • "Documentare API automată"
 ```
 
 ---
 
-## 🎯 Tu doar:
+##  Tu doar:
 
 ### 1. Trimizi Task-uri:
 ```bash
@@ -238,10 +238,10 @@ echo "- [ ] Task nou #topic #status" >> memory/note.md
 ### 2. (Opțional) Răspunzi:
 ```
 La cerere aprobare:
-✅ "OK" → Aprobă
-❌ "STOP" → Anulează  
-💡 "Modifică X" → Ajustează
-🤐 Nimic → Auto-aprobat în 6 min
+ "OK" → Aprobă
+ "STOP" → Anulează  
+ "Modifică X" → Ajustează
+ Nimic → Auto-aprobat în 6 min
 ```
 
 ### 3. Primești:
@@ -253,7 +253,7 @@ La cerere aprobare:
 
 ---
 
-## 🔧 Cum să activezi în OpenClaw:
+##  Cum să activezi în OpenClaw:
 
 ### Metoda 1: Include în HEARTBEAT.md principal
 ```markdown
@@ -270,7 +270,7 @@ copy D:\OpenClaw_Setup\skills\immortal-brain\HEARTBEAT.md ^
 
 ---
 
-## 📁 Structura creată:
+##  Structura creată:
 
 ```
 skills/immortal-brain/
@@ -301,24 +301,24 @@ workspace/
 
 ---
 
-## 🎊 REZULTAT FINAL:
+##  REZULTAT FINAL:
 
 **Ai un AGENT AI AUTONOM care:**
-- ✅ Gândește și cercetează SINGUR
-- ✅ Analizează și planifică automat
-- ✅ Execută și monitorizează continuu
-- ✅ Raportează progres în timp real
-- ✅ Sugerează îmbunătățiri inteligente
-- ✅ Generează idei creative
-- ✅ Învață din comportamentul tău
-- ✅ Nu doarme niciodată (bătăi la 2 min)
+-  Gândește și cercetează SINGUR
+-  Analizează și planifică automat
+-  Execută și monitorizează continuu
+-  Raportează progres în timp real
+-  Sugerează îmbunătățiri inteligente
+-  Generează idei creative
+-  Învață din comportamentul tău
+-  Nu doarme niciodată (bătăi la 2 min)
 
-**Tu doar îi dai task-uri și primești rezultate!** 🤖🧠✨
+**Tu doar îi dai task-uri și primești rezultate!** 
 
 ---
 
-**Testat și funcțional:** ✅
-**Ready for production:** ✅
-**Documentație completă:** ✅
+**Testat și funcțional:** 
+**Ready for production:** 
+**Documentație completă:** 
 
-**Immortal Brain v5.0 - Agent Autonom Proactiv** 🚀
+**Immortal Brain v5.0 - Agent Autonom Proactiv** 

@@ -17,11 +17,11 @@ Use this skill when users want to:
 
 ## Core Capabilities
 
-✅ **Natural Language to SPARQL**: Convert user questions into valid Wikidata SPARQL
-✅ **Query Execution**: Execute queries against Wikidata Query Service
-✅ **HTML Generation**: Create beautiful, interactive HTML result pages
-✅ **Multiple Output Formats**: JSON, Markdown tables, or HTML
-✅ **Label Service**: Automatic label resolution for human-readable results
+ **Natural Language to SPARQL**: Convert user questions into valid Wikidata SPARQL
+ **Query Execution**: Execute queries against Wikidata Query Service
+ **HTML Generation**: Create beautiful, interactive HTML result pages
+ **Multiple Output Formats**: JSON, Markdown tables, or HTML
+ **Label Service**: Automatic label resolution for human-readable results
 
 ## Wikidata Endpoint
 

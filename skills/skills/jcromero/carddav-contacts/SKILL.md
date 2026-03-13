@@ -1,7 +1,7 @@
 ---
 name: carddav-contacts
 description: Sync and manage CardDAV contacts (Google, iCloud, Nextcloud, etc.) using vdirsyncer + khard.
-metadata: {"clawdbot":{"emoji":"📇","os":["linux"],"requires":{"bins":["vdirsyncer","khard"]},"install":[{"id":"apt","kind":"apt","packages":["vdirsyncer","khard"],"bins":["vdirsyncer","khard"],"label":"Install vdirsyncer + khard via apt"}]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux"],"requires":{"bins":["vdirsyncer","khard"]},"install":[{"id":"apt","kind":"apt","packages":["vdirsyncer","khard"],"bins":["vdirsyncer","khard"],"label":"Install vdirsyncer + khard via apt"}]}}
 ---
 
 # CardDAV Contacts (vdirsyncer + khard)

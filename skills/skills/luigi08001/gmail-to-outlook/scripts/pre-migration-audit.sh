@@ -49,29 +49,29 @@ echo ""
 echo "--- Assessment ---"
 MX=$(dig MX "$DOMAIN" +short 2>/dev/null)
 if echo "$MX" | grep -qi "outlook\|microsoft\|protection.outlook"; then
-  echo "✅ MX already points to Microsoft 365"
+  echo " MX already points to Microsoft 365"
 elif echo "$MX" | grep -qi "google\|gmail\|aspmx"; then
-  echo "⚠️  MX points to Google — migration source confirmed"
+  echo "  MX points to Google — migration source confirmed"
 else
-  echo "ℹ️  MX points to: $(echo "$MX" | head -1 | awk '{print $2}')"
+  echo "  MX points to: $(echo "$MX" | head -1 | awk '{print $2}')"
 fi
 
 SPF=$(dig TXT "$DOMAIN" +short 2>/dev/null | grep -i "spf" || true)
 if echo "$SPF" | grep -qi "protection.outlook.com"; then
-  echo "✅ SPF includes Microsoft 365"
+  echo " SPF includes Microsoft 365"
 elif echo "$SPF" | grep -qi "google"; then
-  echo "⚠️  SPF includes Google — will need update during cutover"
+  echo "  SPF includes Google — will need update during cutover"
 else
-  echo "ℹ️  Current SPF: $SPF"
+  echo "  Current SPF: $SPF"
 fi
 
 AUTODISCOVER=$(dig CNAME "autodiscover.$DOMAIN" +short 2>/dev/null)
 if echo "$AUTODISCOVER" | grep -qi "outlook.com"; then
-  echo "✅ Autodiscover points to Microsoft"
+  echo " Autodiscover points to Microsoft"
 elif echo "$AUTODISCOVER" | grep -qi "google"; then
-  echo "⚠️  Autodiscover points to Google — needs update"
+  echo "  Autodiscover points to Google — needs update"
 else
-  echo "ℹ️  Autodiscover: $AUTODISCOVER"
+  echo "  Autodiscover: $AUTODISCOVER"
 fi
 
 echo ""

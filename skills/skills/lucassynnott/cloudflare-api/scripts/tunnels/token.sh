@@ -31,13 +31,13 @@ fi
 
 TOKEN=$(get_token)
 if [ -z "$TOKEN" ]; then
-    echo "❌ No API token. Run ./scripts/setup.sh first." >&2
+    echo " No API token. Run ./scripts/setup.sh first." >&2
     exit 1
 fi
 
 ACCOUNT_ID=$(get_account_id)
 if [ -z "$ACCOUNT_ID" ]; then
-    echo "❌ Could not get account ID" >&2
+    echo " Could not get account ID" >&2
     exit 1
 fi
 
@@ -47,7 +47,7 @@ TUNNEL_ID=$(echo "$TUNNELS" | jq -r '.result[0].id // empty')
 TUNNEL_TOKEN=$(echo "$TUNNELS" | jq -r '.result[0].token // empty')
 
 if [ -z "$TUNNEL_ID" ]; then
-    echo "❌ Tunnel '$TUNNEL_NAME' not found" >&2
+    echo " Tunnel '$TUNNEL_NAME' not found" >&2
     exit 1
 fi
 
@@ -60,7 +60,7 @@ else
         # Build token from credentials
         echo "$TUNNELS" | jq -r '.result[0].token // .result[0].id'
     else
-        echo "❌ Token not available. You may need to recreate the tunnel." >&2
+        echo " Token not available. You may need to recreate the tunnel." >&2
         exit 1
     fi
 fi

@@ -77,16 +77,16 @@ def spin(bet_type: str, bet_value: Optional[int], amount: float):
 
         print()
         print("=" * 40)
-        print(f"  🎰 ROULETTE RESULT: {num} ({color.upper()})")
+        print(f"   ROULETTE RESULT: {num} ({color.upper()})")
         print("=" * 40)
         print()
 
         if won:
-            print(f"  ✅ YOU WIN!")
+            print(f"   YOU WIN!")
             print(f"  Payout: ${payout:.2f}")
             print(f"  Profit: +${profit:.2f}")
         else:
-            print(f"  ❌ You lose")
+            print(f"   You lose")
             print(f"  Lost: ${abs(profit):.2f}")
 
         print()
@@ -110,7 +110,7 @@ def show_rule():
         rule = result["rule"]
         print()
         print("=" * 50)
-        print("  🎰 EUROPEAN ROULETTE RULES")
+        print("   EUROPEAN ROULETTE RULES")
         print("=" * 50)
         print()
         print(f"  Wheel: {rule['wheel']}")
@@ -157,7 +157,7 @@ def show_history(limit: int = 20):
         for s in spin_list[:20]:  # Show max 20
             num = s["result"]
             color = get_color(num)
-            won = "✅" if s["won"] else "❌"
+            won = "" if s["won"] else ""
             payout = s["payout"]
             bet = s["bet_amount"]
 
@@ -190,7 +190,7 @@ def show_stat():
         stat = result["stat"]
         print()
         print("=" * 40)
-        print("  🎰 YOUR ROULETTE STATS")
+        print("   YOUR ROULETTE STATS")
         print("=" * 40)
         print()
         print(f"  Total Spins: {stat['total_spin']}")

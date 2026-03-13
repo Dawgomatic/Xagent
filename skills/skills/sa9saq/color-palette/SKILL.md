@@ -30,15 +30,15 @@ Generate harmonious color palettes and verify accessibility compliance.
 
 4. **Output format**:
    ```
-   🎨 Palette: Analogous from #3B82F6
+    Palette: Analogous from #3B82F6
    | Role      | Hex     | RGB           | Name       |
    |-----------|---------|---------------|------------|
    | Primary   | #3B82F6 | 59, 130, 246  | Blue       |
    | Secondary | #6366F1 | 99, 102, 241  | Indigo     |
    | Accent    | #22D3EE | 34, 211, 238  | Cyan       |
 
-   ✅ #1E293B on #F8FAFC → 15.4:1 (AAA Pass)
-   ❌ #94A3B8 on #F8FAFC → 2.8:1 (AA Fail — try #64748B)
+    #1E293B on #F8FAFC → 15.4:1 (AAA Pass)
+    #94A3B8 on #F8FAFC → 2.8:1 (AA Fail — try #64748B)
    ```
 
 5. **Export**: Generate CSS custom properties or Tailwind config:

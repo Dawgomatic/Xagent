@@ -4,11 +4,11 @@
 
 | Level | What it Tests | Confidence |
 |-------|--------------|------------|
-| **Recognition** | "Looks familiar" | 🔴 Very low |
-| **Recall** | Can state the answer | 🟠 Low |
-| **Application** | Solve new problem | 🟡 Medium |
-| **Transfer** | Apply to different domain | 🟢 High |
-| **Teaching** | Explain so others understand | 🟢🟢 Very high |
+| **Recognition** | "Looks familiar" |  Very low |
+| **Recall** | Can state the answer |  Low |
+| **Application** | Solve new problem |  Medium |
+| **Transfer** | Apply to different domain |  High |
+| **Teaching** | Explain so others understand |  Very high |
 
 ## The "Compiler" for Learning
 

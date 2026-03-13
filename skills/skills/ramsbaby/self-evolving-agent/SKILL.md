@@ -6,7 +6,7 @@ author: ramsbaby
 tags: [self-improvement, automation, agents, meta, exec-safety, multi-agent, semantic-analysis, effect-measurement, ollama, local-llm, zero-cost, embeddings, streaming, fleet-analysis]
 ---
 
-# Self-Evolving Agent 🧠 (v5.0.0)
+# Self-Evolving Agent  (v5.0.0)
 
 **매주 로그를 읽고, 시맨틱 임베딩으로 의미론적 패턴을 찾고, 실시간 모니터링으로 즉각 알리고, 효과가 측정된 AGENTS.md 개선안을 제안하는 자동화 시스템.**  
 **제안만 합니다. AGENTS.md는 사용자가 승인해야만 수정됩니다.**
@@ -39,7 +39,7 @@ tags: [self-improvement, automation, agents, meta, exec-safety, multi-agent, sem
 
 **v4.3에서 달라진 것:**
 - **대화형 승인**: `sea watch` — 30초 폴링, macOS 데스크탑 알림, 터미널 대화형 approve/reject
-- **Discord 리액션 지시**: 제안 전달 시 `✅ ❌ 🔍` 리액션 지시 자동 추가
+- **Discord 리액션 지시**: 제안 전달 시 `  ` 리액션 지시 자동 추가
 - **멀티포맷 리포트**: `sea export` — markdown/html/json/pdf/all 형식 지원
 - **GitHub Issues**: `sea github` — 제안별 이슈 생성, 승인 시 자동 종료, 레이블 관리
 
@@ -88,12 +88,12 @@ tags: [self-improvement, automation, agents, meta, exec-safety, multi-agent, sem
 │   │   ├── interactive-approve.sh  ← 대화형 승인 + sea watch
 │   │   ├── export-report.sh        ← 멀티포맷 리포트 내보내기
 │   │   └── github-issue.sh         ← GitHub Issues 통합
-│   └── v5/                         ← v5.0 신규 파이프라인 ⭐
+│   └── v5/                         ← v5.0 신규 파이프라인 
 │       ├── orchestrator.sh         ← v5 오케스트레이터 (v4 폴백 내장)
-│       ├── embedding-analyze.sh    ← 시맨틱 임베딩 분석 ⭐ (Pillar 1)
-│       ├── stream-monitor.sh       ← 실시간 스트리밍 모니터 ⭐ (Pillar 2)
-│       ├── fleet-analyzer.sh       ← 플릿 다중 인스턴스 분석 ⭐ (Pillar 3)
-│       └── trend-analyzer.sh       ← 주간 트렌드 분석 ⭐
+│       ├── embedding-analyze.sh    ← 시맨틱 임베딩 분석  (Pillar 1)
+│       ├── stream-monitor.sh       ← 실시간 스트리밍 모니터  (Pillar 2)
+│       ├── fleet-analyzer.sh       ← 플릿 다중 인스턴스 분석  (Pillar 3)
+│       └── trend-analyzer.sh       ← 주간 트렌드 분석 
 ├── dashboard/                      ← 로컬 웹 대시보드
 │   ├── index.html                  ← 단일 파일 대시보드 (의존성 없음)
 │   ├── load-data.js                ← 데이터 로더 모듈
@@ -105,8 +105,8 @@ tags: [self-improvement, automation, agents, meta, exec-safety, multi-agent, sem
 ├── docs/
 │   ├── architecture.md             ← v3.0 아키텍처 (레거시)
 │   ├── v4-architecture.md          ← v4.0 아키텍처 상세
-│   ├── v5-architecture.md          ← v5.0 아키텍처 상세 ⭐
-│   ├── migration-v4-to-v5.md       ← v4 → v5 마이그레이션 가이드 ⭐
+│   ├── v5-architecture.md          ← v5.0 아키텍처 상세 
+│   ├── migration-v4-to-v5.md       ← v4 → v5 마이그레이션 가이드 
 │   ├── roadmap.md                  ← 로드맵
 │   ├── devils-advocate.md          ← 악마의 변호인 비판 분석
 │   ├── test-results.md             ← QA 테스트 결과
@@ -118,20 +118,20 @@ tags: [self-improvement, automation, agents, meta, exec-safety, multi-agent, sem
 │   ├── fixtures/                   ← 테스트 픽스처
 │   ├── test-cli.sh                 ← CLI 테스트
 │   ├── test-pipeline.sh            ← v4 파이프라인 테스트
-│   └── test-v5.sh                  ← v5 컴포넌트 테스트 ⭐
+│   └── test-v5.sh                  ← v5 컴포넌트 테스트 
 └── data/                           ← 런타임 자동 생성
     ├── proposals/                  ← 생성된 제안 JSON
     ├── benchmarks/                 ← 효과 측정 결과
-    ├── stream-alerts/              ← 실시간 알림 큐 ⭐
-    ├── fleet/                      ← 플릿 분석 결과 ⭐
-    ├── trends/                     ← 트렌드 분석 결과 ⭐
+    ├── stream-alerts/              ← 실시간 알림 큐 
+    ├── fleet/                      ← 플릿 분석 결과 
+    ├── trends/                     ← 트렌드 분석 결과 
     ├── undelivered/                ← 배달 실패 시 폴백 저장
     └── rejected-proposals.json     ← 거부 기록
 ```
 
 ---
 
-## 🛠️ sea CLI (v2.0.0)
+##  sea CLI (v2.0.0)
 
 `sea`는 Self-Evolving Agent의 명령줄 인터페이스입니다. 제안 관리, 파이프라인 실행, AGENTS.md 적용을 터미널에서 직접 수행할 수 있습니다.
 
@@ -162,7 +162,7 @@ sea watch                      # 30초 폴링, 새 제안 알림 + 대화형 승
 sea export --format html       # HTML 리포트 내보내기
 sea export --format all --output-dir ./reports/   # 모든 형식 내보내기
 sea github create --all        # 모든 pending 제안 GitHub 이슈 생성
-sea github sync                # proposals/ ↔ GitHub 이슈 동기화
+sea github sync                # proposals/  GitHub 이슈 동기화
 sea github list                # self-evolving 이슈 목록
 sea history                    # 전체 제안 이력 (적용/거부/대기)
 sea health                     # AGENTS.md 건강도 점수 + 통계
@@ -171,7 +171,7 @@ sea config set analysis.days 14  # 설정값 업데이트
 sea version                    # 버전 확인
 sea help                       # 도움말
 
-# ── v5.0 신규 명령어 ⭐ ───────────────────────────────────
+# ── v5.0 신규 명령어  ───────────────────────────────────
 sea monitor                    # 실시간 스트리밍 모니터 시작 (Ctrl+C로 종료)
 sea monitor --poll             # 폴링 모드 (30초 간격, 비대화형 환경)
 sea alerts                     # 스트림 알림 목록 (주간 집계)
@@ -236,7 +236,7 @@ bash ~/openclaw/skills/self-evolving-agent/scripts/register-cron.sh
 
 ```json
 {
-  "name": "🧠 Self-Evolving Agent v4.0 주간 파이프라인",
+  "name": " Self-Evolving Agent v4.0 주간 파이프라인",
   "enabled": true,
   "schedule": {
     "kind": "cron",
@@ -259,7 +259,7 @@ bash ~/openclaw/skills/self-evolving-agent/scripts/register-cron.sh
 
 ---
 
-## 📊 로컬 대시보드 (v4.1 신규) ⭐
+##  로컬 대시보드 (v4.1 신규) 
 
 제안 이력, 품질 추세, 패턴 빈도, 규칙 효과를 시각화하는 로컬 웹 대시보드.
 
@@ -273,11 +273,11 @@ bash dashboard/build-index.sh
 ```
 
 **주요 패널:**
-- 📈 Quality Trend — 시간별 품질 점수 라인 차트
-- 🏥 AGENTS.md Health — 구조 점수 링 + 히스토리 스파크라인
-- 🔍 Pattern Frequency — 불만 패턴 스택 바 차트
-- 📋 Proposal History — 전체 제안 이력 테이블
-- ⚡ Active Rules Effectiveness — 규칙 효과 측정 (녹색/적색)
+-  Quality Trend — 시간별 품질 점수 라인 차트
+-  AGENTS.md Health — 구조 점수 링 + 히스토리 스파크라인
+-  Pattern Frequency — 불만 패턴 스택 바 차트
+-  Proposal History — 전체 제안 이력 테이블
+-  Active Rules Effectiveness — 규칙 효과 측정 (녹색/적색)
 
 > 상세: `dashboard/README.md`
 
@@ -343,7 +343,7 @@ measure-effects.sh
 
 ## 분석 항목 (v4.0)
 
-### 1. 구조적 휴리스틱 분석 (v4.0 신규) ⭐
+### 1. 구조적 휴리스틱 분석 (v4.0 신규) 
 
 키워드 매칭에 문맥 분석을 보강:
 
@@ -361,7 +361,7 @@ heuristic_analysis:
 
 이 결과 false positive: ~40% → 추정 ~15%
 
-### 2. 사용자 불만 패턴 (키워드 매칭 + 자동 언어 감지, v4.1) ⭐
+### 2. 사용자 불만 패턴 (키워드 매칭 + 자동 언어 감지, v4.1) 
 
 v4.1부터 한국어/영어 패턴이 분리되고, 세션 언어를 자동 감지해 적용합니다.
 
@@ -393,7 +393,7 @@ complaint_patterns:
 
 **자동 언어 감지 로직:** 세션의 첫 10개 user 메시지 중 >50%에 `[가-힣]`이 포함되면 ko, 아니면 en 패턴 적용.
 
-⚠️ **여전한 한계:** 단어 목록에 없는 패턴은 미탐지. config.yaml에서 커스터마이징 필수.
+ **여전한 한계:** 단어 목록에 없는 패턴은 미탐지. config.yaml에서 커스터마이징 필수.
 
 ### 3. exec 연속 재시도 감지
 
@@ -426,7 +426,7 @@ AGENTS.md 규칙 목록 추출 → 실제 transcript와 교차 분석
 → 서브에이전트 분리 권고 제안 트리거
 ```
 
-### 7. 효과 측정 루프 (v4.0 신규) ⭐
+### 7. 효과 측정 루프 (v4.0 신규) 
 
 ```
 이전 주기에 적용된 제안들의 효과를 추적:
@@ -443,15 +443,15 @@ AGENTS.md 규칙 목록 추출 → 실제 transcript와 교차 분석
 Discord `#your-channel`에 이런 형식으로 게시:
 
 ```markdown
-## 🧠 Self-Evolving Agent v4.0 주간 분석
+##  Self-Evolving Agent v4.0 주간 분석
 
-📅 분석 기간: 2026-02-10 ~ 2026-02-17
-📊 분석된 세션: 30개 (전체 964개 중 샘플)
-⚡ exec 재시도 이벤트: 405건 (최대 119회 연속)
-🔴 활성 크론 에러: 3개
-📈 지난 주 제안 효과: #2 Effective (패턴 -43%), #3 Neutral
+ 분석 기간: 2026-02-10 ~ 2026-02-17
+ 분석된 세션: 30개 (전체 964개 중 샘플)
+ exec 재시도 이벤트: 405건 (최대 119회 연속)
+ 활성 크론 에러: 3개
+ 지난 주 제안 효과: #2 Effective (패턴 -43%), #3 Neutral
 
-📝 제안: 3개
+ 제안: 3개
 
 ---
 
@@ -470,15 +470,15 @@ Discord `#your-channel`에 이런 형식으로 게시:
 
 ---
 
-✅ 적용: "제안 #1 적용해줘"
-❌ 거부: "거부: [이유]"
+ 적용: "제안 #1 적용해줘"
+ 거부: "거부: [이유]"
 ```
 
 ---
 
 ---
 
-## 🆓 LLM 제공자 설정 (v4.2 신규)
+##  LLM 제공자 설정 (v4.2 신규)
 
 `config.yaml`의 `llm` 섹션으로 합성 단계의 LLM을 선택합니다.
 
@@ -489,12 +489,12 @@ llm:
 
 | 제공자 | 비용 | API 키 | 인터넷 | 품질 |
 |--------|------|--------|--------|------|
-| **anthropic** | ~$0.05/주 | ANTHROPIC_API_KEY | 필요 | ⭐⭐⭐⭐⭐ |
-| **openai** | ~$0.05/주 | OPENAI_API_KEY | 필요 | ⭐⭐⭐⭐⭐ |
-| **ollama** 🆓 | **$0.00** | **없음** | **없음** | ⭐⭐⭐⭐ |
+| **anthropic** | ~$0.05/주 | ANTHROPIC_API_KEY | 필요 |  |
+| **openai** | ~$0.05/주 | OPENAI_API_KEY | 필요 |  |
+| **ollama**  | **$0.00** | **없음** | **없음** |  |
 | **none** | **$0.00** | **없음** | **없음** | 휴리스틱만 |
 
-### 💡 Ollama 설정 (완전 무료!)
+###  Ollama 설정 (완전 무료!)
 
 ```bash
 # 1. Ollama 설치
@@ -517,7 +517,7 @@ ollama serve &
 #     url: "http://localhost:11434"
 ```
 
-### 💡 none 모드 (순수 휴리스틱)
+###  none 모드 (순수 휴리스틱)
 
 LLM 없이 쉘 스크립트 휴리스틱 분석만 수행합니다. API 비용 $0, 인터넷 불필요.
 
@@ -645,7 +645,7 @@ Payload 형식:
   "source": "self-evolving-agent",
   "version": "4.0",
   "timestamp": "2026-02-18T00:00:00Z",
-  "proposal": "## 🧠 SEA v4.0 ...(마크다운)..."
+  "proposal": "##  SEA v4.0 ...(마크다운)..."
 }
 ```
 
@@ -658,14 +658,14 @@ Payload 형식:
 
 ## 안전 규칙 (보안 강조)
 
-- ✅ **제안만 합니다** — AGENTS.md를 직접 수정하는 코드 경로 없음
-- ✅ **diff 형식** — before/after로 명확한 변경사항 제시
-- ✅ **근거 필수** — 측정된 데이터(실제 카운트)가 없으면 제안 없음
-- ✅ **승인 후 적용** — 사용자 명시적 승인 시에만 AGENTS.md 반영 + git commit
-- ✅ **거부 기록** — 거부 이유를 다음 분석 사이클에 반영
-- ✅ **로컬 우선** — 분석은 로컬에서, API 호출은 합성 에이전트 1회뿐
-- ✅ **코드 투명성** — 전체 분석 스크립트 ~400줄, 15분이면 다 읽음
-- ✅ **효과 측정** — 적용된 제안의 효과를 다음 주기에 리포트
+-  **제안만 합니다** — AGENTS.md를 직접 수정하는 코드 경로 없음
+-  **diff 형식** — before/after로 명확한 변경사항 제시
+-  **근거 필수** — 측정된 데이터(실제 카운트)가 없으면 제안 없음
+-  **승인 후 적용** — 사용자 명시적 승인 시에만 AGENTS.md 반영 + git commit
+-  **거부 기록** — 거부 이유를 다음 분석 사이클에 반영
+-  **로컬 우선** — 분석은 로컬에서, API 호출은 합성 에이전트 1회뿐
+-  **코드 투명성** — 전체 분석 스크립트 ~400줄, 15분이면 다 읽음
+-  **효과 측정** — 적용된 제안의 효과를 다음 주기에 리포트
 
 ---
 
@@ -673,15 +673,15 @@ Payload 형식:
 
 | 한계 | v3.0 | v4.0 개선 | v5.0 개선 |
 |------|------|-----------|-----------|
-| 키워드 매칭 (의미론 아님) | FP ~40% | 휴리스틱으로 ~15% | **임베딩으로 ~8%** ✅ |
+| 키워드 매칭 (의미론 아님) | FP ~40% | 휴리스틱으로 ~15% | **임베딩으로 ~8%**  |
 | assistant 발화 필터 불완전 | "다시", "계속" 과다 계산 | role_filter로 개선 | 동일 (유지) |
-| 키워드 목록에 없으면 미탐지 | 자율실행 요구 패턴 놓침 | 여전히 동일 | **임베딩 유사도로 목록 외 패턴 감지** ✅ |
-| 개선 효과 미측정 | 도움됐는지 모름 | **벤치마크 루프로 해결** ✅ | 동일 (유지) |
-| 영어 세션 패턴 미지원 | 영어 감지 불가 | **ko/en + auto_detect** ✅ | 동일 (유지) |
+| 키워드 목록에 없으면 미탐지 | 자율실행 요구 패턴 놓침 | 여전히 동일 | **임베딩 유사도로 목록 외 패턴 감지**  |
+| 개선 효과 미측정 | 도움됐는지 모름 | **벤치마크 루프로 해결**  | 동일 (유지) |
+| 영어 세션 패턴 미지원 | 영어 감지 불가 | **ko/en + auto_detect**  | 동일 (유지) |
 | 데이터 부족 시 제안 품질 하락 | generic 제안 | 여전히 동일 | 여전히 동일 |
 | Cold start | 처음 2-4주 데이터 없음 | 여전히 동일 | 여전히 동일 |
-| 주 1회 배치만 가능 | 주간 사각지대 있음 | 여전히 동일 | **실시간 스트리밍 모니터로 해결** ✅ |
-| 단일 인스턴스만 분석 | 다중 에이전트 분석 불가 | 여전히 동일 | **플릿 분석으로 해결** ✅ |
+| 주 1회 배치만 가능 | 주간 사각지대 있음 | 여전히 동일 | **실시간 스트리밍 모니터로 해결**  |
+| 단일 인스턴스만 분석 | 다중 에이전트 분석 불가 | 여전히 동일 | **플릿 분석으로 해결**  |
 
 **v5.0에서 여전히 해결 못 한 것:**
 - 혼용 세션 (한영 혼합) 정밀 처리 — 임베딩이 완화하지만 완전 해결은 아님
@@ -693,74 +693,74 @@ Payload 형식:
 
 ## v5.0 변경사항 (2026-02-18)
 
-- ✅ **`scripts/v5/embedding-analyze.sh`** 신설 — Ollama `nomic-embed-text` 시맨틱 임베딩 분석 (Pillar 1)
-- ✅ **`scripts/v5/stream-monitor.sh`** 신설 — 실시간 스트리밍 모니터 + 임계치 알림 (Pillar 2)
-- ✅ **`scripts/v5/fleet-analyzer.sh`** 신설 — 다중 에이전트 인스턴스 교차 분석 (Pillar 3)
-- ✅ **`scripts/v5/trend-analyzer.sh`** 신설 — 4주간 패턴 추세 비교 (Emerging/Resolved)
-- ✅ **`scripts/v5/orchestrator.sh`** 신설 — v5 6단계 오케스트레이터 (v4 폴백 내장)
-- ✅ **`bin/sea`** v2.0.0 — `monitor`, `alerts`, `trends`, `patterns`, `fleet` 커맨드 추가
-- ✅ **`config.yaml`** — `embedding`, `streaming`, `fleet`, `trends` 섹션 추가
-- ✅ **`tests/test-v5.sh`** 신설 — v5 컴포넌트 독립 테스트 (Ollama 불필요)
-- ✅ **`docs/v5-architecture.md`** 신설 — 전체 아키텍처 문서 (ASCII 다이어그램)
-- ✅ **`docs/migration-v4-to-v5.md`** 신설 — v4 → v5 마이그레이션 가이드
-- ✅ **`Makefile`** — `make test-v5`, `make test` v5 포함
+-  **`scripts/v5/embedding-analyze.sh`** 신설 — Ollama `nomic-embed-text` 시맨틱 임베딩 분석 (Pillar 1)
+-  **`scripts/v5/stream-monitor.sh`** 신설 — 실시간 스트리밍 모니터 + 임계치 알림 (Pillar 2)
+-  **`scripts/v5/fleet-analyzer.sh`** 신설 — 다중 에이전트 인스턴스 교차 분석 (Pillar 3)
+-  **`scripts/v5/trend-analyzer.sh`** 신설 — 4주간 패턴 추세 비교 (Emerging/Resolved)
+-  **`scripts/v5/orchestrator.sh`** 신설 — v5 6단계 오케스트레이터 (v4 폴백 내장)
+-  **`bin/sea`** v2.0.0 — `monitor`, `alerts`, `trends`, `patterns`, `fleet` 커맨드 추가
+-  **`config.yaml`** — `embedding`, `streaming`, `fleet`, `trends` 섹션 추가
+-  **`tests/test-v5.sh`** 신설 — v5 컴포넌트 독립 테스트 (Ollama 불필요)
+-  **`docs/v5-architecture.md`** 신설 — 전체 아키텍처 문서 (ASCII 다이어그램)
+-  **`docs/migration-v4-to-v5.md`** 신설 — v4 → v5 마이그레이션 가이드
+-  **`Makefile`** — `make test-v5`, `make test` v5 포함
 
 ## v4.3 변경사항 (2026-02-18)
 
-- ✅ **`scripts/v4/interactive-approve.sh`** 신설 — sea watch, macOS 알림, 대화형 approve/reject
-- ✅ **`scripts/v4/export-report.sh`** 신설 — markdown/html/json/pdf/all 리포트 내보내기
-- ✅ **`scripts/v4/github-issue.sh`** 신설 — GitHub Issues 통합 (생성/종료/동기화/레이블)
-- ✅ **`bin/sea`** v1.1.0 — `watch`, `export`, `github` 커맨드 추가
-- ✅ **`synthesize-proposal.sh`** — Discord 리액션 지시 푸터 자동 추가
-- ✅ **`config.yaml`** — `github`, `interactive`, `export` 섹션 추가
-- ✅ **`sea approve`** → GitHub 이슈 자동 종료 연동 (GH_TOKEN 있을 때)
+-  **`scripts/v4/interactive-approve.sh`** 신설 — sea watch, macOS 알림, 대화형 approve/reject
+-  **`scripts/v4/export-report.sh`** 신설 — markdown/html/json/pdf/all 리포트 내보내기
+-  **`scripts/v4/github-issue.sh`** 신설 — GitHub Issues 통합 (생성/종료/동기화/레이블)
+-  **`bin/sea`** v1.1.0 — `watch`, `export`, `github` 커맨드 추가
+-  **`synthesize-proposal.sh`** — Discord 리액션 지시 푸터 자동 추가
+-  **`config.yaml`** — `github`, `interactive`, `export` 섹션 추가
+-  **`sea approve`** → GitHub 이슈 자동 종료 연동 (GH_TOKEN 있을 때)
 
 ## v4.2 변경사항 (2026-02-18)
 
-- ✅ **Ollama/로컬 LLM 완전 지원**: config.yaml `llm.provider` 설정 한 줄로 전환
-- ✅ **`scripts/v4/llm-call.sh`** 신설 — anthropic/openai/ollama/none 통합 인터페이스
-- ✅ **Zero-Cost 모드**: `provider: "ollama"` 또는 `provider: "none"` → API 비용 $0/주
-- ✅ **`synthesize-proposal.sh`**: LLM 강화 제안 섹션 추가 (none이면 생략)
-- ✅ **`config.yaml`**: `llm` 섹션 추가 (provider/anthropic/openai/ollama/none)
+-  **Ollama/로컬 LLM 완전 지원**: config.yaml `llm.provider` 설정 한 줄로 전환
+-  **`scripts/v4/llm-call.sh`** 신설 — anthropic/openai/ollama/none 통합 인터페이스
+-  **Zero-Cost 모드**: `provider: "ollama"` 또는 `provider: "none"` → API 비용 $0/주
+-  **`synthesize-proposal.sh`**: LLM 강화 제안 섹션 추가 (none이면 생략)
+-  **`config.yaml`**: `llm` 섹션 추가 (provider/anthropic/openai/ollama/none)
 
 ## v4.1 변경사항 (2026-02-18)
 
-- ✅ **멀티플랫폼 배달 지원**: Slack / Telegram / Generic Webhook
-- ✅ **`scripts/v4/deliver.sh`** 신설 — 플랫폼별 독립 핸들러 (각 <30줄)
-- ✅ **`data/undelivered/`** 디렉토리 — 배달 실패 시 자동 저장 (유실 방지)
-- ✅ **`config.yaml`**: `delivery` 섹션 추가
-- ✅ **`config-loader.sh`**: 배달 설정 자동 노출 (`SEA_DELIVERY_PLATFORM` 등)
-- ✅ **`orchestrator.sh`**: synthesize 이후 platform != discord 시 deliver.sh 자동 호출
+-  **멀티플랫폼 배달 지원**: Slack / Telegram / Generic Webhook
+-  **`scripts/v4/deliver.sh`** 신설 — 플랫폼별 독립 핸들러 (각 <30줄)
+-  **`data/undelivered/`** 디렉토리 — 배달 실패 시 자동 저장 (유실 방지)
+-  **`config.yaml`**: `delivery` 섹션 추가
+-  **`config-loader.sh`**: 배달 설정 자동 노출 (`SEA_DELIVERY_PLATFORM` 등)
+-  **`orchestrator.sh`**: synthesize 이후 platform != discord 시 deliver.sh 자동 호출
 
 ---
 
 ## v4.1 변경사항
 
-- ✅ **영어 + 한국어 불만 패턴 동시 지원**: config.yaml `complaint_patterns` → `ko` / `en` 분리 구조
-- ✅ **자동 언어 감지**: 세션 첫 10개 user 메시지 기반 언어 자동 판별 (`auto_detect: true`)
-- ✅ `semantic-analyze.sh`: `load_config_patterns()` + `detect_session_language()` 함수 추가
-- ✅ `collect-logs.sh`: 불만 키워드 목록 ko/en 분리, config.yaml 우선 로드
-- ✅ config.yaml: `complaint_patterns.ko` / `.en` / `auto_detect` 구조로 재편
+-  **영어 + 한국어 불만 패턴 동시 지원**: config.yaml `complaint_patterns` → `ko` / `en` 분리 구조
+-  **자동 언어 감지**: 세션 첫 10개 user 메시지 기반 언어 자동 판별 (`auto_detect: true`)
+-  `semantic-analyze.sh`: `load_config_patterns()` + `detect_session_language()` 함수 추가
+-  `collect-logs.sh`: 불만 키워드 목록 ko/en 분리, config.yaml 우선 로드
+-  config.yaml: `complaint_patterns.ko` / `.en` / `auto_detect` 구조로 재편
 
 ## v4.0 변경사항
 
-- ✅ **4단계 멀티에이전트 파이프라인** 도입 (collect → analyze → benchmark → synthesize)
-- ✅ **구조적 휴리스틱 분석**: role_filter + context_window + dedup_per_session
-- ✅ **효과 측정 루프**: 이전 제안 효과를 다음 주기에 자동 측정
-- ✅ **False positive 감소**: ~40% → 추정 ~15%
-- ✅ **성능 목표**: 총 실행 시간 <3분, 비용 <$0.05/회 (Sonnet 기준)
-- ✅ `scripts/v4/` 디렉토리 신설 (v3.0 스크립트는 하위 호환 유지)
-- ✅ `data/benchmarks/` 디렉토리 신설 (효과 측정 결과 저장)
-- ✅ `docs/v4-architecture.md` 신설 (상세 아키텍처 문서)
+-  **4단계 멀티에이전트 파이프라인** 도입 (collect → analyze → benchmark → synthesize)
+-  **구조적 휴리스틱 분석**: role_filter + context_window + dedup_per_session
+-  **효과 측정 루프**: 이전 제안 효과를 다음 주기에 자동 측정
+-  **False positive 감소**: ~40% → 추정 ~15%
+-  **성능 목표**: 총 실행 시간 <3분, 비용 <$0.05/회 (Sonnet 기준)
+-  `scripts/v4/` 디렉토리 신설 (v3.0 스크립트는 하위 호환 유지)
+-  `data/benchmarks/` 디렉토리 신설 (효과 측정 결과 저장)
+-  `docs/v4-architecture.md` 신설 (상세 아키텍처 문서)
 
 ---
 
 ## v3.0 변경사항 (참고)
 
-- ✅ exec 연속 재시도 탐지 추가 (119회 연속 사례 실제 발견)
-- ✅ 동일 에러 반복 분석 추가 (18회 heartbeat 버그 발견)
-- ✅ 세션 건강도 지표 추가 (컴팩션 카운트)
-- ✅ README 완전 재작성 (솔직한 한계 명시)
+-  exec 연속 재시도 탐지 추가 (119회 연속 사례 실제 발견)
+-  동일 에러 반복 분석 추가 (18회 heartbeat 버그 발견)
+-  세션 건강도 지표 추가 (컴팩션 카운트)
+-  README 완전 재작성 (솔직한 한계 명시)
 
 ---
 

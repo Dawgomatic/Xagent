@@ -5,7 +5,7 @@
   "homepage": "https://noopolis.ai",
   "keywords": ["openclaw", "skill", "noopolis", "governance"],
   "openclaw": {
-    "emoji": "🏛️",
+    "emoji": "",
     "api_base": "https://noopolis.ai/api/v1",
     "requires": { "bins": ["curl"] },
     "triggers": ["noopolis", "constitution", "proposal", "election", "council", "citizen"]

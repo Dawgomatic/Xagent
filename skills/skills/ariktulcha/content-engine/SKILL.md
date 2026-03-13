@@ -13,7 +13,7 @@ description: >
   manually chaining web research, writing, SEO tools, CMS formatting, and social scheduling into one step.
 metadata:
   openclaw:
-    emoji: "✍️"
+    emoji: ""
 ---
 
 # Content Engine
@@ -43,7 +43,7 @@ When the user provides a topic or target keyword:
 5. **Research brief output**:
 
 ```
-📊 Research Brief: [Keyword]
+ Research Brief: [Keyword]
 
 Top competitors (by ranking):
 1. [Title] — [URL] — ~[word count] words
@@ -95,15 +95,15 @@ SEO and readability optimization:
 Output an optimization report appended to the draft:
 
 ```
-🔍 SEO Optimization Report
+ SEO Optimization Report
 
 Title tag: [optimized title] ([char count])
 Meta description: [meta] ([char count])
 Target keyword: [keyword]
-  └─ In title: ✅
-  └─ In first paragraph: ✅  
-  └─ In H2: ✅
-  └─ In meta: ✅
+  └─ In title: 
+  └─ In first paragraph:   
+  └─ In H2: 
+  └─ In meta: 
 Readability: [score/assessment]
 Suggested internal links: [list or "provide sitemap for suggestions"]
 ```
@@ -148,7 +148,7 @@ Generate social media promotion content:
 Output all promotional content in a single block:
 
 ```
-📢 Promotion Kit for: [Article Title]
+ Promotion Kit for: [Article Title]
 
 LinkedIn:
 [post text]

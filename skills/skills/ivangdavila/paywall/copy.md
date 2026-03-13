@@ -109,7 +109,7 @@ No credit card required (if true)
 ### Social Proof Snippets
 ```
 Join 2,000,000+ users
-⭐ 4.8 on App Store
+ 4.8 on App Store
 Trusted by teams at [logos]
 ```
 

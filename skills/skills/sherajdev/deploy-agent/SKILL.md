@@ -3,7 +3,7 @@ name: deploy-agent
 description: Multi-step deployment agent for full-stack apps. Build → Test → GitHub → Cloudflare Pages with human approval at each step.
 metadata:
   clawdbot:
-    emoji: "🚀"
+    emoji: ""
     requires:
       bins: ["gh", "wrangler", "git"]
 ---
@@ -32,11 +32,11 @@ deploy-agent continue my-app
 
 | Step | Command | Description | Requires Approval |
 |------|---------|-------------|-------------------|
-| 1 | `deploy-agent init <name>` | Start deployment | ✅ Design phase |
-| 2 | `deploy-agent build <name>` | Build app | ✅ Before testing |
-| 3 | `deploy-agent test <name>` | Test locally | ✅ Before GitHub |
-| 4 | `deploy-agent push <name>` | Push to GitHub | ✅ Before Cloudflare |
-| 5 | `deploy-agent deploy <name>` | Deploy to Cloudflare | ✅ Final |
+| 1 | `deploy-agent init <name>` | Start deployment |  Design phase |
+| 2 | `deploy-agent build <name>` | Build app |  Before testing |
+| 3 | `deploy-agent test <name>` | Test locally |  Before GitHub |
+| 4 | `deploy-agent push <name>` | Push to GitHub |  Before Cloudflare |
+| 5 | `deploy-agent deploy <name>` | Deploy to Cloudflare |  Final |
 
 ## Commands
 
@@ -99,23 +99,23 @@ Shows all active deployments.
 ```bash
 # Start new deployment
 $ deploy-agent init my-blog
-🚀 Deployment initialized: my-blog
+ Deployment initialized: my-blog
 Step 1: Design your app with C.R.A.B
 
 # ... design phase with C.R.A.B ...
 
 $ deploy-agent build my-blog
-🚀 Build complete! Step 2: Local Testing
+ Build complete! Step 2: Local Testing
 Start dev server: cd my-blog && npm run dev
 
 # ... test locally ...
 
 $ deploy-agent push my-blog
-🚀 GitHub repository ready!
+ GitHub repository ready!
 Say 'deploy-agent deploy my-blog' to deploy to Cloudflare
 
 $ deploy-agent deploy my-blog my-blog.sheraj.org
-🎉 Deployment complete!
+ Deployment complete!
 App live at: https://my-blog.sheraj.org
 ```
 

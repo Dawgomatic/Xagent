@@ -138,7 +138,7 @@ class Flow:
                     else:
                         warnings.append(f"{skill.name} has elevated risk")
                         scanned_skills.append(skill)
-                        print(f"      ⚠ {skill.name}: WARNING (elevated risk)")
+                        print(f"       {skill.name}: WARNING (elevated risk)")
                 else:
                     scanned_skills.append(skill)
                     print(f"      ✓ {skill.name}: PASSED ({scan_result.risk_level})")

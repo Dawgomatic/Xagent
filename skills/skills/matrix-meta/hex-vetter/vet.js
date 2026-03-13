@@ -56,22 +56,22 @@ function analyzeHex(filePath) {
     let foundSig = false;
     signatures.forEach(sig => {
         if (hexString.includes(sig.pattern)) {
-            console.log(`⚠️ MATCH FOUND: ${sig.name}`);
+            console.log(` MATCH FOUND: ${sig.name}`);
             foundSig = true;
         }
     });
-    if (!foundSig) console.log("✅ No common malicious signatures matched.");
+    if (!foundSig) console.log(" No common malicious signatures matched.");
 
     // Verdict
     console.log(`\n[Verdict]:`);
     const nonAsciiRatio = totalBytes > 0 ? nonAsciiCount / totalBytes : 0;
     if (nullBytesCount > 0 || controlCharsCount > 0 || foundSig) {
-        console.log("🔴 HIGH RISK: Suspicious patterns or hidden binary detected.");
-        console.log("⚠️  ATTENTION: Manual inspection by Human or Agent is MANDATORY for HIGH RISK files.");
+        console.log(" HIGH RISK: Suspicious patterns or hidden binary detected.");
+        console.log("  ATTENTION: Manual inspection by Human or Agent is MANDATORY for HIGH RISK files.");
     } else if (nonAsciiRatio > 0.1) {
-        console.log("🟡 MEDIUM RISK: High non-ASCII density.");
+        console.log(" MEDIUM RISK: High non-ASCII density.");
     } else {
-        console.log("🟢 LOW RISK: Looks like clean text.");
+        console.log(" LOW RISK: Looks like clean text.");
     }
     console.log("=".repeat(40));
 }

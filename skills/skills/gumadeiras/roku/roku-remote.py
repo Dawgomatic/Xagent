@@ -15,9 +15,9 @@ def main():
     """Output remote keyboard JSON for Clawdbot message tool."""
     buttons = [
         [
-            {"text": "🔇", "callback_data": "roku_mute"},
+            {"text": "", "callback_data": "roku_mute"},
             {"text": "↑", "callback_data": "roku_up"},
-            {"text": "🏠", "callback_data": "roku_home"},
+            {"text": "", "callback_data": "roku_home"},
         ],
         [
             {"text": "←", "callback_data": "roku_left"},
@@ -25,26 +25,26 @@ def main():
             {"text": "→", "callback_data": "roku_right"},
         ],
         [
-            {"text": "⬅️", "callback_data": "roku_back"},
+            {"text": "", "callback_data": "roku_back"},
             {"text": "↓", "callback_data": "roku_down"},
-            {"text": "ℹ️", "callback_data": "roku_info"},
+            {"text": "", "callback_data": "roku_info"},
         ],
         [
-            {"text": "⏪", "callback_data": "roku_rev"},
-            {"text": "⏯️", "callback_data": "roku_play"},
-            {"text": "⏩", "callback_data": "roku_fwd"},
+            {"text": "", "callback_data": "roku_rev"},
+            {"text": "", "callback_data": "roku_play"},
+            {"text": "", "callback_data": "roku_fwd"},
         ],
         [
-            {"text": "🔈-", "callback_data": "roku_voldown"},
-            {"text": "🔊+", "callback_data": "roku_volup"},
-            {"text": "🔍", "callback_data": "roku_search"},
+            {"text": "-", "callback_data": "roku_voldown"},
+            {"text": "+", "callback_data": "roku_volup"},
+            {"text": "", "callback_data": "roku_search"},
         ],
     ]
 
     msg = {
         "action": "send",
         "channel": "telegram",
-        "message": "📺 Roku Remote",
+        "message": " Roku Remote",
         "buttons": buttons,
     }
     print(json.dumps(msg))

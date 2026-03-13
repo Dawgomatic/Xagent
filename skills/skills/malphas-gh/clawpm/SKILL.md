@@ -2,7 +2,7 @@
 name: clawpm
 description: Multi-project task and research management (JSON-first CLI)
 user-invocable: true
-metadata: { "openclaw": { "requires": { "bins": ["clawpm"] }, "emoji": "📋", "install": [{ "id": "uv", "kind": "uv", "package": "git+https://github.com/malphas-gh/clawpm", "bins": ["clawpm"], "label": "Install clawpm (uv)" }] } }
+metadata: { "openclaw": { "requires": { "bins": ["clawpm"] }, "emoji": "", "install": [{ "id": "uv", "kind": "uv", "package": "git+https://github.com/malphas-gh/clawpm", "bins": ["clawpm"], "label": "Install clawpm (uv)" }] } }
 ---
 
 # ClawPM Skill

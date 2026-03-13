@@ -208,7 +208,7 @@ def generate_report(pop_results, haplogroups):
     lines.append("ANCESTRY & ETHNICITY ANALYSIS")
     lines.append("=" * 70)
     lines.append("")
-    lines.append("⚠️  Note: This analysis uses a limited set of ancestry-informative")
+    lines.append("  Note: This analysis uses a limited set of ancestry-informative")
     lines.append("    markers. For comprehensive ancestry analysis, use services like")
     lines.append("    23andMe, AncestryDNA, or professional genetic genealogy tools.")
     lines.append("")

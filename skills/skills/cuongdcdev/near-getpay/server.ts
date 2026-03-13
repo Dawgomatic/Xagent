@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 const apiKey = process.env.PINGPAY_API_KEY;
 if (!apiKey) {
-  console.error('❌ PINGPAY_API_KEY not found in .env');
+  console.error(' PINGPAY_API_KEY not found in .env');
   process.exit(1);
 }
 
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buy Me a Coffee ☕ - NEAR Payment</title>
+  <title>Buy Me a Coffee  - NEAR Payment</title>
   <style>
     * {
       margin: 0;
@@ -257,7 +257,7 @@ app.get('/', (req, res) => {
 <body>
   <div class="container">
     <div class="header">
-      <div class="avatar">☕</div>
+      <div class="avatar"></div>
       <h1>Buy Me a Coffee</h1>
       <p class="subtitle">Support my work on NEAR Protocol</p>
       <span class="recipient">→ meteorkent.near</span>
@@ -277,7 +277,7 @@ app.get('/', (req, res) => {
             <span class="payment-usd">~$2</span>
           </div>
         </div>
-        <div class="emoji">☕</div>
+        <div class="emoji"></div>
       </div>
 
       <div class="payment-card" data-amount="1" data-token="NEAR" data-chain="NEAR">
@@ -288,7 +288,7 @@ app.get('/', (req, res) => {
             <span class="payment-usd">~$4</span>
           </div>
         </div>
-        <div class="emoji">☕☕</div>
+        <div class="emoji"></div>
       </div>
 
       <div class="payment-card" data-amount="5" data-token="USDC" data-chain="Base">
@@ -298,7 +298,7 @@ app.get('/', (req, res) => {
             $5 USDC
           </div>
         </div>
-        <div class="emoji">🍔</div>
+        <div class="emoji"></div>
       </div>
 
       <div class="payment-card" data-amount="10" data-token="USDC" data-chain="Base">
@@ -308,7 +308,7 @@ app.get('/', (req, res) => {
             $10 USDC
           </div>
         </div>
-        <div class="emoji">❤️</div>
+        <div class="emoji"></div>
       </div>
     </div>
 
@@ -322,7 +322,7 @@ app.get('/', (req, res) => {
     </div>
 
     <div class="footer">
-      <p>✨ Powered by NEAR Intents - Pay from any chain</p>
+      <p> Powered by NEAR Intents - Pay from any chain</p>
       <p class="powered-by">
         Built with <a href="https://pingpay.io" target="_blank">PingPay</a>
       </p>
@@ -429,7 +429,7 @@ app.post('/create-session', async (req, res) => {
       return res.json({ success: false, error: 'Unsupported token' });
     }
 
-    console.log(`\n💳 Creating session: ${amount} ${token} on ${chain}`);
+    console.log(`\n Creating session: ${amount} ${token} on ${chain}`);
     console.log(`   Amount in smallest unit: ${amountSmallest}`);
 
     // Create checkout session
@@ -449,8 +449,8 @@ app.post('/create-session', async (req, res) => {
       }
     });
 
-    console.log(`✅ Session created: ${session.session.sessionId}`);
-    console.log(`🔗 Checkout URL: ${session.sessionUrl}`);
+    console.log(` Session created: ${session.session.sessionId}`);
+    console.log(` Checkout URL: ${session.sessionUrl}`);
 
     res.json({
       success: true,
@@ -459,7 +459,7 @@ app.post('/create-session', async (req, res) => {
     });
 
   } catch (error: any) {
-    console.error('❌ Error creating session:', error.message);
+    console.error(' Error creating session:', error.message);
     res.json({
       success: false,
       error: error.message
@@ -473,7 +473,7 @@ app.get('/success', (req, res) => {
     <!DOCTYPE html>
     <html>
     <head>
-      <title>Payment Successful! ✅</title>
+      <title>Payment Successful! </title>
       <style>
         body {
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -519,10 +519,10 @@ app.get('/success', (req, res) => {
     </head>
     <body>
       <div class="container">
-        <div class="success-icon">✅</div>
+        <div class="success-icon"></div>
         <h1>Payment Successful!</h1>
         <p>Thank you for your support! Your payment has been processed successfully via NEAR Intents.</p>
-        <a href="/" class="button">Buy Another Coffee ☕</a>
+        <a href="/" class="button">Buy Another Coffee </a>
       </div>
     </body>
     </html>
@@ -581,7 +581,7 @@ app.get('/cancel', (req, res) => {
     </head>
     <body>
       <div class="container">
-        <div class="cancel-icon">❌</div>
+        <div class="cancel-icon"></div>
         <h1>Payment Cancelled</h1>
         <p>No worries! Your payment was cancelled. Feel free to try again anytime.</p>
         <a href="/" class="button">Try Again</a>
@@ -592,9 +592,9 @@ app.get('/cancel', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`\n🚀 Buy Me a Coffee server started!`);
-  console.log(`📍 Local: http://localhost:${PORT}`);
-  console.log(`\n🔗 Starting tunnel...\n`);
+  console.log(`\n Buy Me a Coffee server started!`);
+  console.log(` Local: http://localhost:${PORT}`);
+  console.log(`\n Starting tunnel...\n`);
 });
 
 export default app;

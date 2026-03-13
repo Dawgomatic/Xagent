@@ -238,7 +238,7 @@ def format_list(categories):
     # type: (List[Dict]) -> str
     """카테고리 목록을 보기 좋게 포맷."""
     lines = [
-        "🌅 창업 아이디어 데이터베이스 (YC RFS + a16z Big Ideas)",
+        " 창업 아이디어 데이터베이스 (YC RFS + a16z Big Ideas)",
         "=" * 55,
         "  총 %d개 아이디어" % len(categories),
         "",
@@ -262,23 +262,23 @@ def format_detail(cat):
     # type: (Dict) -> str
     """카테고리 상세 정보를 보기 좋게 포맷."""
     lines = [
-        "🌅 [%d] %s" % (cat['id'], cat['name']),
+        " [%d] %s" % (cat['id'], cat['name']),
         "   %s" % cat['subtitle'],
-        "   📎 %s" % cat.get("source", "N/A"),
+        "    %s" % cat.get("source", "N/A"),
         "",
-        "📋 설명: %s" % cat.get('description', 'N/A'),
+        " 설명: %s" % cat.get('description', 'N/A'),
         "",
-        "⏰ 왜 지금인지:",
+        " 왜 지금인지:",
         cat.get("why_now", "N/A"),
         "",
-        "👤 적합한 창업자: %s" % cat.get('founder_profile', 'N/A'),
+        " 적합한 창업자: %s" % cat.get('founder_profile', 'N/A'),
         "",
-        "🇰🇷 한국 시장 적용:",
+        " 한국 시장 적용:",
         cat.get("korea_market", "N/A"),
     ]
     if cat.get("keywords"):
         lines.append("")
-        lines.append("🏷️ 키워드: %s" % ", ".join(cat["keywords"]))
+        lines.append(" 키워드: %s" % ", ".join(cat["keywords"]))
     return "\n".join(lines)
 
 
@@ -286,23 +286,23 @@ def format_suggest(result):
     # type: (Dict) -> str
     """추천 결과를 보기 좋게 포맷."""
     if "error" in result:
-        return "❌ %s" % result['error']
+        return " %s" % result['error']
     
     lines = [
-        "🌅 라온의 YC RFS & a16z 기반 창업 아이디어 추천",
+        " 라온의 YC RFS & a16z 기반 창업 아이디어 추천",
         "=" * 55,
         "배경: %s" % result['background'],
         "관심사: %s" % result['interests'],
         "",
     ]
-    medals = ["🥇", "🥈", "🥉"]
+    medals = ["", "", ""]
     for i, match in enumerate(result.get("matches", [])):
         lines.append("%s %s (매칭: %s) [%s]" % (medals[i], match['name'], match['match_score'], match.get('source', '')))
         lines.append("   %s" % match['subtitle'])
         if match.get("founder_profile"):
-            lines.append("   👤 %s" % match['founder_profile'])
+            lines.append("    %s" % match['founder_profile'])
         if match.get("korea_market"):
-            lines.append("   🇰🇷 %s..." % match['korea_market'][:100])
+            lines.append("    %s..." % match['korea_market'][:100])
         lines.append("")
     
     return "\n".join(lines)
@@ -332,14 +332,14 @@ def cli_main(args=None):
     if parsed.command == "list":
         cats = list_categories(source=parsed.source, season=parsed.season)
         if not cats:
-            print("❌ 조건에 맞는 아이디어가 없습니다.", file=sys.stderr)
+            print(" 조건에 맞는 아이디어가 없습니다.", file=sys.stderr)
             sys.exit(1)
         print(format_list(cats))
 
     elif parsed.command == "detail":
         cat = get_category_detail(parsed.number)
         if not cat:
-            print("❌ 카테고리 %d을 찾을 수 없습니다." % parsed.number, file=sys.stderr)
+            print(" 카테고리 %d을 찾을 수 없습니다." % parsed.number, file=sys.stderr)
             sys.exit(1)
         print(format_detail(cat))
 
@@ -348,8 +348,8 @@ def cli_main(args=None):
         interests = parsed.interests
         if not bg and not interests:
             # Interactive
-            bg = input("🗣️ 배경 (경력/전공): ").strip()
-            interests = input("🗣️ 관심 분야: ").strip()
+            bg = input(" 배경 (경력/전공): ").strip()
+            interests = input(" 관심 분야: ").strip()
         result = suggest_ideas(bg, interests)
         if getattr(parsed, "json", False):
             print(json.dumps(result, ensure_ascii=False, indent=2))

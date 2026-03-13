@@ -3,7 +3,7 @@
 
 set -e
 
-echo "🔧 Setting up ClawBack..."
+echo " Setting up ClawBack..."
 echo "=========================="
 
 # Check Python version
@@ -72,15 +72,15 @@ echo "Creating symlink to CLI..."
 sudo ln -sf "$(pwd)/bin/clawback.py" /usr/local/bin/clawback 2>/dev/null || true
 
 echo ""
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
-echo "📝 Next steps:"
+echo " Next steps:"
 echo "1. Edit ~/.clawback/config.json with your broker credentials"
 echo "2. Run 'clawback setup' to complete configuration"
 echo "3. Run 'clawback status' to check system status"
 echo ""
-echo "💡 To activate the virtual environment:"
+echo " To activate the virtual environment:"
 echo "   source venv/bin/activate"
 echo ""
-echo "🚀 To start trading:"
+echo " To start trading:"
 echo "   clawback run"

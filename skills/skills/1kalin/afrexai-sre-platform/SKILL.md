@@ -210,7 +210,7 @@ Track weekly:
 
 | Metric | Current | Trend | Status |
 |--------|---------|-------|--------|
-| Budget remaining (%) | | ↑↓→ | 🟢🟡🔴 |
+| Budget remaining (%) | | ↑↓→ |  |
 | Budget consumed this week | | | |
 | Burn rate (1h / 6h / 24h) | | | |
 | Incidents consuming budget | | | |
@@ -376,7 +376,7 @@ Step 6: REVIEW (within 5 business days)
 
 **Initial notification (internal):**
 ```
-🔴 INCIDENT: [Title]
+ INCIDENT: [Title]
 Severity: SEV[X]
 Impact: [Who/what is affected]
 Status: Investigating
@@ -397,7 +397,7 @@ We will provide an update within [time].
 
 **Resolution notification:**
 ```
-✅ RESOLVED: [Title]
+ RESOLVED: [Title]
 Duration: [X hours Y minutes]
 Impact: [Summary]
 Root cause: [One sentence]

@@ -2,7 +2,7 @@
 name: polymarket-elon-tweets
 displayName: Polymarket Elon Tweet Trader
 description: 'Trade Polymarket "Elon Musk # tweets" markets using XTracker post count data. Buys adjacent range buckets when combined cost < $1 for structural edge. Use when user wants to trade tweet count markets, automate Elon tweet bets, check XTracker stats, or run noovd-style trading.'
-metadata: {"clawdbot":{"emoji":"🐦","requires":{"env":["SIMMER_API_KEY"],"pip":["simmer-sdk"]},"cron":null,"autostart":false}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SIMMER_API_KEY"],"pip":["simmer-sdk"]},"cron":null,"autostart":false}}
 authors:
   - Simmer (@simmer_markets)
 attribution: "Strategy inspired by @noovd"
@@ -175,34 +175,34 @@ All trades are tagged with `source: "sdk:elon-tweets"`. This means:
 ## Example Output
 
 ```
-🐦 Simmer Elon Tweet Trader
+ Simmer Elon Tweet Trader
 ==================================================
 
-⚙️ Configuration:
+ Configuration:
   Max bucket sum:  $0.90
   Max position:    $5.00
   Bucket spread:   1 (center ± 1 = 3 buckets)
   Exit threshold:  65%
   Data source:     xtracker
 
-📊 XTracker Stats:
+ XTracker Stats:
   Tracking: Elon Musk # tweets Feb 13 - Feb 20
   Current count: 187 posts
   Pace: 243 projected
   Days remaining: 2.3
 
-🎯 Target cluster: 240-259 (center) + 220-239, 260-279
+ Target cluster: 240-259 (center) + 220-239, 260-279
   240-259: $0.35
   220-239: $0.22
   260-279: $0.18
-  Cluster sum: $0.75 (< $0.90 threshold) ✅
+  Cluster sum: $0.75 (< $0.90 threshold) 
 
   Executing trades...
-  ✅ Bought 14.3 shares of 240-259 @ $0.35
-  ✅ Bought 22.7 shares of 220-239 @ $0.22
-  ✅ Bought 27.8 shares of 260-279 @ $0.18
+   Bought 14.3 shares of 240-259 @ $0.35
+   Bought 22.7 shares of 220-239 @ $0.22
+   Bought 27.8 shares of 260-279 @ $0.18
 
-📊 Summary:
+ Summary:
   Events scanned: 2
   Clusters evaluated: 2
   Trades executed: 3

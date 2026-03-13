@@ -243,7 +243,7 @@ interface VerificationModule {
 
 **Discord message:**
 ```
-🔐 TRIBE_MEMBERSHIP {"v":3,"type":"MEMBERSHIP","card":{...},"proofSig":"...","ts":...,"nonce":"...","ch":"..."}
+ TRIBE_MEMBERSHIP {"v":3,"type":"MEMBERSHIP","card":{...},"proofSig":"...","ts":...,"nonce":"...","ch":"..."}
 ```
 
 ### 2.5 `lib/nonce-cache.js` — Replay Protection
@@ -561,7 +561,7 @@ Examples:
   clawdbot tribe revoke 123456789 --reason "left_tribe"
 
 Output:
-  ⚠️ Revoked member: chhotu (ID: 123456789)
+   Revoked member: chhotu (ID: 123456789)
     Reason: key_compromised
     Revoked at: 2025-02-02T12:00:00Z
     

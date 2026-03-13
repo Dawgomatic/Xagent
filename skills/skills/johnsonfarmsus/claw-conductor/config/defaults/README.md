@@ -49,11 +49,11 @@ All ratings are 1-5 stars based on:
 
 ### Rating Scale
 
-- ⭐ **1 star**: Beginner - basic functionality only
-- ⭐⭐ **2 stars**: Simple - straightforward tasks
-- ⭐⭐⭐ **3 stars**: Intermediate - moderate complexity
-- ⭐⭐⭐⭐ **4 stars**: Advanced - handles most scenarios
-- ⭐⭐⭐⭐⭐ **5 stars**: Expert - production-ready, minimal iteration
+-  **1 star**: Beginner - basic functionality only
+-  **2 stars**: Simple - straightforward tasks
+-  **3 stars**: Intermediate - moderate complexity
+-  **4 stars**: Advanced - handles most scenarios
+-  **5 stars**: Expert - production-ready, minimal iteration
 
 ## Customizing Ratings
 

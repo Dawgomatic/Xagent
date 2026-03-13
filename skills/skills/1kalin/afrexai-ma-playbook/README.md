@@ -26,4 +26,4 @@ Includes 2026 valuation multiples across sectors: SaaS (4-15x ARR), services (1-
 
 Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) — AI-powered business operations frameworks.
 
-📊 [Free AI Revenue Leak Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) | 🛒 [Context Packs ($47/pack)](https://afrexai-cto.github.io/context-packs/) | ⚙️ [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)
+ [Free AI Revenue Leak Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) |  [Context Packs ($47/pack)](https://afrexai-cto.github.io/context-packs/) |  [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)

@@ -1,4 +1,4 @@
-# 🧠 Mengram Memory — OpenClaw Skill
+#  Mengram Memory — OpenClaw Skill
 
 **Give your OpenClaw agent human-like long-term memory with 3 types.**
 

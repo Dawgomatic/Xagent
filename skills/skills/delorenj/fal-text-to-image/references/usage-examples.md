@@ -255,20 +255,20 @@ uv run python fal-text-to-image \
 
 ### Be Specific
 ```bash
-# ❌ Vague
+#  Vague
 uv run python fal-text-to-image "a car"
 
-# ✅ Specific
+#  Specific
 uv run python fal-text-to-image \
   "Red sports car on coastal highway, sunset lighting, cinematic angle, 4k quality"
 ```
 
 ### Use Technical Terms
 ```bash
-# ❌ Generic
+#  Generic
 uv run python fal-text-to-image "nice photo of person"
 
-# ✅ Technical
+#  Technical
 uv run python fal-text-to-image \
   -m flux-pro/v1.1-ultra \
   "Professional portrait, 85mm lens, f/1.8 aperture, studio lighting, grey backdrop"
@@ -276,7 +276,7 @@ uv run python fal-text-to-image \
 
 ### Layer Details
 ```bash
-# ✅ Layered description
+#  Layered description
 uv run python fal-text-to-image \
   "Ancient library interior | towering bookshelves | warm candlelight | dust particles in air | mysterious atmosphere | fantasy setting"
 ```

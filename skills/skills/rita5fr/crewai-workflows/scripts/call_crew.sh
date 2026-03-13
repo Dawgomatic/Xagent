@@ -45,7 +45,7 @@ fi
 PAYLOAD=$(jq -n --argjson input "$INPUT_JSON" '{input: $input}')
 
 # Make the request
-echo "🚀 Calling $CREW_NAME crew..."
+echo " Calling $CREW_NAME crew..."
 echo ""
 
 RESPONSE=$(curl -s --max-time "$TIMEOUT" \
@@ -56,18 +56,18 @@ RESPONSE=$(curl -s --max-time "$TIMEOUT" \
 
 # Check for errors
 if echo "$RESPONSE" | jq -e '.error != null' >/dev/null 2>&1; then
-  echo "❌ Error occurred:"
+  echo " Error occurred:"
   echo "$RESPONSE" | jq -r '.error'
   exit 1
 fi
 
 # Extract and display result
 if echo "$RESPONSE" | jq -e '.ok == true' >/dev/null 2>&1; then
-  echo "✅ Success!"
+  echo " Success!"
   echo ""
-  echo "📋 Trace ID: $(echo "$RESPONSE" | jq -r '.trace_id')"
+  echo " Trace ID: $(echo "$RESPONSE" | jq -r '.trace_id')"
   echo ""
-  echo "📄 Output:"
+  echo " Output:"
   echo "─────────────────────────────────────────────────────────────"
   echo "$RESPONSE" | jq -r '.result.output'
   echo "─────────────────────────────────────────────────────────────"
@@ -76,9 +76,9 @@ if echo "$RESPONSE" | jq -e '.ok == true' >/dev/null 2>&1; then
   # Save full response to temp file for inspection
   TEMP_FILE="/tmp/crewai_response_$(date +%s).json"
   echo "$RESPONSE" | jq '.' > "$TEMP_FILE"
-  echo "💾 Full response saved to: $TEMP_FILE"
+  echo " Full response saved to: $TEMP_FILE"
 else
-  echo "❌ Unexpected response format:"
+  echo " Unexpected response format:"
   echo "$RESPONSE" | jq '.'
   exit 1
 fi

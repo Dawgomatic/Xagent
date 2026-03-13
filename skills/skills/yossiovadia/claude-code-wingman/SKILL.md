@@ -1,7 +1,7 @@
 ---
 name: claude-code-wingman
 description: Your Claude Code wingman - orchestrate multiple Claude Code sessions across projects, monitor them all from WhatsApp
-metadata: {"clawdbot":{"emoji":"🦅","requires":{"anyBins":["claude","tmux"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["claude","tmux"]}}}
 ---
 
 # Claude Code Wingman
@@ -10,7 +10,7 @@ Your multi-session orchestrator - manage multiple Claude Code instances working 
 
 **GitHub:** https://github.com/yossiovadia/claude-code-orchestrator
 
-## ⚡ CRITICAL: Handle Approval Commands First
+##  CRITICAL: Handle Approval Commands First
 
 **When a user message matches these patterns, IMMEDIATELY run the corresponding command:**
 
@@ -51,15 +51,15 @@ Orchestrates multiple Claude Code sessions in parallel, each working on differen
 - **You orchestrate everything** via Clawdbot (this assistant) from WhatsApp
 - **Real-time dashboard** showing all active sessions and their status
 
-## 🎯 Real-World Example: Multi-Session Orchestration
+##  Real-World Example: Multi-Session Orchestration
 
 **Morning - You (via WhatsApp):** "Start work on VSR issue #1131, Clawdbot authentication feature, and refactor the proxy"
 
 **Clawdbot spawns 3 sessions:**
 ```
-✅ Session: vsr-issue-1131     (~/code/semantic-router)
-✅ Session: clawdbot-auth      (~/code/clawdbot)
-✅ Session: proxy-refactor     (~/code/claude-code-proxy)
+ Session: vsr-issue-1131     (~/code/semantic-router)
+ Session: clawdbot-auth      (~/code/clawdbot)
+ Session: proxy-refactor     (~/code/claude-code-proxy)
 ```
 
 **During lunch - You:** "Show me the dashboard"
@@ -69,9 +69,9 @@ Orchestrates multiple Claude Code sessions in parallel, each working on differen
 ┌─────────────────────────────────────────────────────────┐
 │ Active Claude Code Sessions                             │
 ├─────────────────┬──────────────────────┬────────────────┤
-│ vsr-issue-1131  │ semantic-router      │ ✅ Working     │
-│ clawdbot-auth   │ clawdbot             │ ✅ Working     │
-│ proxy-refactor  │ claude-code-proxy    │ ⏳ Waiting approval │
+│ vsr-issue-1131  │ semantic-router      │  Working     │
+│ clawdbot-auth   │ clawdbot             │  Working     │
+│ proxy-refactor  │ claude-code-proxy    │  Waiting approval │
 └─────────────────┴──────────────────────┴────────────────┘
 ```
 
@@ -84,7 +84,7 @@ Orchestrates multiple Claude Code sessions in parallel, each working on differen
 
 **Clawdbot sends command** to that specific session.
 
-**Result:** 3 parallel tasks, full remote control from your phone. 🎯
+**Result:** 3 parallel tasks, full remote control from your phone. 
 
 ## Installation
 
@@ -116,10 +116,10 @@ chmod +x *.sh lib/*.sh
 **CRITICAL:** When interacting with Claude Code sessions, ALWAYS use the wingman script (`claude-wingman.sh`). Never run raw tmux commands directly.
 
 **Why:**
-- ✅ Ensures proper Enter key handling (C-m)
-- ✅ Consistent session management
-- ✅ Future-proof for dashboard/tracking features
-- ✅ Avoids bugs from manual tmux commands
+-  Ensures proper Enter key handling (C-m)
+-  Consistent session management
+-  Future-proof for dashboard/tracking features
+-  Avoids bugs from manual tmux commands
 
 **Wrong (DON'T DO THIS):**
 ```bash
@@ -187,9 +187,9 @@ Spawning Claude Code session for this...
 
 [Runs wingman script]
 
-✅ Session started: vsr-bug-fix
-📂 Directory: ~/code/semantic-router
-🎯 Task: Fix bug in api.py
+ Session started: vsr-bug-fix
+ Directory: ~/code/semantic-router
+ Task: Fix bug in api.py
 ```
 
 **User:** "What's the status?"
@@ -274,9 +274,9 @@ Shows all active Claude Code sessions:
 ├─────────────────┬──────────────────────┬────────────────┤
 │ Session         │ Directory            │ Status         │
 ├─────────────────┼──────────────────────┼────────────────┤
-│ vsr-issue-1131  │ ~/code/semantic-...  │ ✅ Working     │
-│ clawdbot-feat   │ ~/code/clawdbot      │ ⏳ Waiting approval │
-│ proxy-refactor  │ ~/code/claude-co...  │ ❌ Error       │
+│ vsr-issue-1131  │ ~/code/semantic-...  │  Working     │
+│ clawdbot-feat   │ ~/code/clawdbot      │  Waiting approval │
+│ proxy-refactor  │ ~/code/claude-co...  │  Error       │
 └─────────────────┴──────────────────────┴────────────────┘
 
 Total: 3 sessions | Working: 1 | Waiting: 1 | Error: 1
@@ -289,7 +289,7 @@ Session: vsr-issue-1131
 Directory: ~/code/semantic-router
 Started: 2h 15m ago
 Last activity: 30s ago
-Status: ✅ Working
+Status:  Working
 Current task: Running pytest tests
 Progress: 8/10 tests passing
 ```
@@ -308,7 +308,7 @@ Progress: 8/10 tests passing
 3. **Auto-approver handles permissions** in background
 4. **Clawdbot monitors and reports** progress
 5. **User can attach anytime** to see/control directly
-6. **Claude Code does the work** autonomously ✅
+6. **Claude Code does the work** autonomously 
 
 ## Trust Prompt (First Time Only)
 
@@ -329,13 +329,13 @@ Press Enter to approve, then Ctrl+B followed by D to detach.
 
 ### When to Use Orchestrator
 
-✅ **Use orchestrator for:**
+ **Use orchestrator for:**
 - Heavy code generation/refactoring
 - Multi-file changes
 - Long-running tasks
 - Repetitive coding work
 
-❌ **Don't use orchestrator for:**
+ **Don't use orchestrator for:**
 - Quick file reads
 - Simple edits
 - When conversation is needed
@@ -367,7 +367,7 @@ After successful tasks, update `TOOLS.md`:
 
 ```markdown
 ### Recent Claude Code Sessions
-- 2026-01-26: VSR AWS check - verified vLLM server running ✅
+- 2026-01-26: VSR AWS check - verified vLLM server running 
 - Session pattern: vsr-* for semantic-router work
 ```
 
@@ -380,7 +380,7 @@ After successful tasks, update `TOOLS.md`:
 
 ---
 
-## 🔔 Approval Handling (WhatsApp Integration)
+##  Approval Handling (WhatsApp Integration)
 
 The master monitor daemon sends WhatsApp notifications when sessions need approval. Handle them with these commands:
 
@@ -404,7 +404,7 @@ When you receive an approval notification, respond with:
 
 **Notification received:**
 ```
-🔒 Session 'vsr-bugfix' needs approval
+ Session 'vsr-bugfix' needs approval
 
 Bash(rm -rf ./build && npm run build)
 

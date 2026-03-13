@@ -38,7 +38,7 @@ def check_upcoming():
     data = load_events()
     events = data.get("events", [])
     links = data.get("links", {})
-    country_flag = data.get("flag", "🏅")
+    country_flag = data.get("flag", "")
     
     now = datetime.now()
     state = load_state()
@@ -61,12 +61,12 @@ def check_upcoming():
             
             alert = f"{country_flag} {time_msg}\n{event_name}"
             if athletes:
-                alert += f"\n👤 {athletes}"
+                alert += f"\n {athletes}"
             
             # Add streaming links
             if links:
                 link_parts = [f"[{name}]({url})" for name, url in links.items()]
-                alert += f"\n\n📺 {' | '.join(link_parts)}"
+                alert += f"\n\n {' | '.join(link_parts)}"
             
             alerts.append(alert)
             state["notified"].append(event_id)
@@ -144,7 +144,7 @@ if __name__ == "__main__":
     elif sys.argv[1] == "list":
         events = list_upcoming()
         if events:
-            print("📅 다가오는 경기:\n")
+            print(" 다가오는 경기:\n")
             print("\n".join(events))
         else:
             print("남은 경기 없음")

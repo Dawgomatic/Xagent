@@ -65,15 +65,15 @@ In `~/follow/alerts.md`:
 ```
 ## Follow Digest — Feb 13
 
-### 🔴 High Priority
+###  High Priority
 - @naval: New thread on AI and leverage (12 tweets)
 - Competitor X: Pricing page changed (diff attached)
 
-### 📊 Updates
+###  Updates
 - 3 sources discussed "AI agents" yesterday
 - New episode: @lexfridman with @sama
 
-### 📁 Logged
+###  Logged
 - 14 items archived, nothing urgent
 ```
 

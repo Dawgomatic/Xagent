@@ -31,7 +31,7 @@ writeFileSync(join(SOPHIE_DIR, 'identity.json'), JSON.stringify(sophieData, null
 writeFileSync(join(SOPHIE_DIR, 'config.json'), JSON.stringify({ displayName: 'Sophie Bakalar' }, null, 2));
 writeFileSync(join(SOPHIE_DIR, 'friends.json'), JSON.stringify({ friends: [] }, null, 2));
 
-console.log('🧪 Created Sophie Bakalar identity');
+console.log(' Created Sophie Bakalar identity');
 console.log('');
 
 // Load Dave's identity

@@ -1,7 +1,7 @@
 ---
 name: "Listen"
 description: "Improve transcription accuracy over time. Learn corrections, configure STT."
-metadata: {"clawdbot":{"emoji":"👂","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Active Listening

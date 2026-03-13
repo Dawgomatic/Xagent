@@ -14,10 +14,10 @@ Generate images using SiliconFlow API with support for FLUX.1, Stable Diffusion,
 
 ## Features
 
-- 🎨 **Multiple Models**: FLUX.1-schnell (free), FLUX.1-dev, Stable Diffusion 3.5
-- 🔑 **Auto API Key Detection**: Reads from environment or OpenClaw config
-- 💾 **Auto Download**: Saves generated images locally
-- 📱 **OpenClaw Ready**: Designed for OpenClaw Agent integration
+-  **Multiple Models**: FLUX.1-schnell (free), FLUX.1-dev, Stable Diffusion 3.5
+-  **Auto API Key Detection**: Reads from environment or OpenClaw config
+-  **Auto Download**: Saves generated images locally
+-  **OpenClaw Ready**: Designed for OpenClaw Agent integration
 
 ## Requirements
 

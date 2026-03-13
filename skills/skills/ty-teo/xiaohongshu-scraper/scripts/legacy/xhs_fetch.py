@@ -241,7 +241,7 @@ def main():
     # 加载 cookie
     cookie = args.cookie or load_cookies()
     if not cookie:
-        print("❌ 未找到 Cookie，请先登录小红书")
+        print(" 未找到 Cookie，请先登录小红书")
         return
     
     print("✓ Cookie 已加载")
@@ -265,7 +265,7 @@ def main():
     try:
         html = fetch_html(url, cookie)
     except Exception as e:
-        print(f"❌ 获取页面失败: {e}")
+        print(f" 获取页面失败: {e}")
         return
     
     # 解析数据
@@ -273,7 +273,7 @@ def main():
     data = parse_initial_state(html)
     
     if not data:
-        print("❌ 解析数据失败")
+        print(" 解析数据失败")
         # 保存 HTML 用于调试
         debug_file = Path(args.output) / 'debug.html'
         debug_file.parent.mkdir(parents=True, exist_ok=True)
@@ -284,14 +284,14 @@ def main():
     # 提取笔记信息
     note = extract_note_data(data)
     
-    print(f"\n📝 标题: {note['title']}")
-    print(f"👤 作者: {note['author']['nickname']}")
-    print(f"📄 描述: {note['desc'][:100]}..." if len(note['desc']) > 100 else f"📄 描述: {note['desc']}")
-    print(f"❤️  点赞: {note['interact']['liked_count']} | 收藏: {note['interact']['collected_count']} | 评论: {note['interact']['comment_count']}")
-    print(f"🏷️  标签: {', '.join(note['tags'])}")
-    print(f"🖼️  图片: {len(note['images'])} 张")
+    print(f"\n 标题: {note['title']}")
+    print(f" 作者: {note['author']['nickname']}")
+    print(f" 描述: {note['desc'][:100]}..." if len(note['desc']) > 100 else f" 描述: {note['desc']}")
+    print(f"  点赞: {note['interact']['liked_count']} | 收藏: {note['interact']['collected_count']} | 评论: {note['interact']['comment_count']}")
+    print(f"  标签: {', '.join(note['tags'])}")
+    print(f"  图片: {len(note['images'])} 张")
     if note['video']:
-        print(f"🎬 视频: {note['video']['quality']}")
+        print(f" 视频: {note['video']['quality']}")
     
     # 创建输出目录
     output_dir = Path(args.output)
@@ -395,7 +395,7 @@ def main():
         f.write(md)
     
     print(f"\n" + "=" * 60)
-    print("✅ 抓取完成!")
+    print(" 抓取完成!")
     print("=" * 60)
     print(f"\n输出目录: {output_dir}")
     print(f"  - note.json    (结构化数据)")

@@ -6,10 +6,10 @@ description: >
   Triggers: When BOOTSTRAP.md exists, SOUL.md doesn't exist, or user mentions 
   "awakening", "onboarding", "first start", etc.
   Output: Auto-generates SOUL.md, SELF.md, USER.md.
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
-# Awakening Protocol 🐧
+# Awakening Protocol 
 
 When an agent is first born, a protocol to awaken its self through conversation.
 
@@ -120,4 +120,4 @@ Then delete `BOOTSTRAP.md` if it exists.
 5. **Language Adaptation** — Match user's language (Korean/English).
 
 ---
-> 🐧 Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill
+>  Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill

@@ -155,7 +155,7 @@ Health Index: 72/100 (Good)
 Improving: Sleep quality, Exercise level
 Needs Attention: BMI, Medication adherence
 
-🎯 Risk Prediction:
+ Risk Prediction:
 Hypertension Risk: 32% (Moderate Risk)
 Diabetes Risk: 18% (Low Risk)
 ```
@@ -165,9 +165,9 @@ Diabetes Risk: 18% (Low Risk)
 User: AI predict hypertension risk
 
 Output:
-🎯 Hypertension Risk Prediction Report
+ Hypertension Risk Prediction Report
 Risk Probability: 32%
-Risk Grade: 🟡 Moderate Risk
+Risk Grade:  Moderate Risk
 
 Major Risk Factors:
 1. BMI: 24.9 (Approaching overweight)

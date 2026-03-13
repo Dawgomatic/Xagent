@@ -21,7 +21,7 @@
   ],
   "openclaw": {
     "minVersion": "2026.1.0",
-    "emoji": "🧠",
+    "emoji": "",
     "category": "wellness",
     "requires": {
       "bins": ["bash", "jq"]

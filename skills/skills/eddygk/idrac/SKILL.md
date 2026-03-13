@@ -18,7 +18,7 @@ description: |
 
   Helper script: scripts/idrac.sh (relative to this skill)
   Configuration: ~/.config/idrac-skill/config
-metadata: { "openclaw": { "emoji": "🖥️", "requires": { "bins": ["curl", "jq"] }, "os": ["darwin", "linux"] } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["curl", "jq"] }, "os": ["darwin", "linux"] } }
 ---
 
 # iDRAC Skill

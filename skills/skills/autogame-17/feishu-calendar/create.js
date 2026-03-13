@@ -101,7 +101,7 @@ async function createEvent() {
         }
 
         const evt = response.data.event;
-        console.log(`✅ Event Created: ${evt.summary}`);
+        console.log(` Event Created: ${evt.summary}`);
         console.log(`   Time: ${new Date(parseInt(evt.start_time.timestamp)*1000).toLocaleString()}`);
         console.log(`   Link: ${evt.app_link}`);
 

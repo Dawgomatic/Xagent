@@ -56,7 +56,7 @@ function validateRepoUrl(url) {
     }
     return true;
   } catch (err) {
-    console.error(`❌ Invalid repository URL: ${err.message}`);
+    console.error(` Invalid repository URL: ${err.message}`);
     process.exit(1);
   }
 }
@@ -67,10 +67,10 @@ function validateToken(token) {
   // GitLab tokens are typically glpat-
   const validPrefixes = ['ghp_', 'gho_', 'ghu_', 'ghs_', 'ghr_', 'glpat-'];
   if (!validPrefixes.some(p => token.startsWith(p))) {
-    console.warn('⚠️  Token format not recognized. Proceeding anyway...');
+    console.warn('  Token format not recognized. Proceeding anyway...');
   }
   if (token.length < 20) {
-    console.error('❌ Token appears too short');
+    console.error(' Token appears too short');
     process.exit(1);
   }
 }
@@ -81,7 +81,7 @@ function checkConfig() {
   const token = process.env.BACKUP_TOKEN;
 
   if (!repo || !token) {
-    console.error('❌ Sync not configured!');
+    console.error(' Sync not configured!');
     console.error('');
     console.error('Create ~/.openclaw/.backup.env with:');
     console.error('  BACKUP_REPO=https://github.com/username/repo');
@@ -90,7 +90,7 @@ function checkConfig() {
   }
 
   if (token.includes('xxxx') || token.includes('YOUR_')) {
-    console.error('❌ Please replace the placeholder token with your real token');
+    console.error(' Please replace the placeholder token with your real token');
     process.exit(1);
   }
 
@@ -106,12 +106,12 @@ function sanitizeForGit(str) {
 // Copy file with optional transform
 function copyFile(src, dest, transform = null) {
   if (!fs.existsSync(src)) {
-    if (!DRY_RUN) console.log(`⏭️  Skipping (not found): ${path.basename(src)}`);
+    if (!DRY_RUN) console.log(`  Skipping (not found): ${path.basename(src)}`);
     return false;
   }
 
   if (DRY_RUN) {
-    console.log(`  📄 ${path.basename(src)}`);
+    console.log(`   ${path.basename(src)}`);
     return true;
   }
 
@@ -119,7 +119,7 @@ function copyFile(src, dest, transform = null) {
   let content = fs.readFileSync(src, 'utf8');
   if (transform) content = transform(content);
   fs.writeFileSync(dest, content);
-  console.log(`✅ ${path.basename(src)}`);
+  console.log(` ${path.basename(src)}`);
   return true;
 }
 
@@ -160,9 +160,9 @@ async function main() {
   const tagName = generateTagName();
 
   if (DRY_RUN) {
-    console.log('🔍 DRY RUN - showing what would be synced:\n');
+    console.log(' DRY RUN - showing what would be synced:\n');
   } else {
-    console.log('🔧 Preparing sync...\n');
+    console.log(' Preparing sync...\n');
   }
 
   // Clean staging area
@@ -174,7 +174,7 @@ async function main() {
   }
 
   // Memory files
-  console.log('📝 Memory files:');
+  console.log(' Memory files:');
   const memoryFiles = ['MEMORY.md', 'USER.md', 'SOUL.md', 'IDENTITY.md', 'TOOLS.md', 'AGENTS.md'];
   for (const file of memoryFiles) {
     copyFile(
@@ -186,7 +186,7 @@ async function main() {
   // Daily logs
   const memoryDir = path.join(WORKSPACE_DIR, 'memory');
   if (fs.existsSync(memoryDir)) {
-    console.log('\n📅 Daily logs:');
+    console.log('\n Daily logs:');
     if (!DRY_RUN) fs.mkdirSync(path.join(STAGING_DIR, 'workspace/memory'), { recursive: true });
     const logs = fs.readdirSync(memoryDir).filter(f => f.endsWith('.md'));
     for (const file of logs) {
@@ -200,24 +200,24 @@ async function main() {
   // Custom skills
   const skillsDir = path.join(WORKSPACE_DIR, 'skills');
   if (fs.existsSync(skillsDir)) {
-    console.log('\n🔧 Skills:');
+    console.log('\n Skills:');
     if (!DRY_RUN) fs.mkdirSync(path.join(STAGING_DIR, 'workspace/skills'), { recursive: true });
     for (const skill of fs.readdirSync(skillsDir)) {
       const skillPath = path.join(skillsDir, skill);
       const destPath = path.join(STAGING_DIR, 'workspace/skills', skill);
       if (fs.statSync(skillPath).isDirectory()) {
         if (DRY_RUN) {
-          console.log(`  📦 skills/${skill}`);
+          console.log(`   skills/${skill}`);
         } else {
           fs.cpSync(skillPath, destPath, { recursive: true });
-          console.log(`✅ skills/${skill}`);
+          console.log(` skills/${skill}`);
         }
       }
     }
   }
 
   if (DRY_RUN) {
-    console.log('\n✅ Dry run complete. No changes made.');
+    console.log('\n Dry run complete. No changes made.');
     return;
   }
 
@@ -234,7 +234,7 @@ async function main() {
   );
 
   // Git operations
-  console.log('\n📤 Pushing to remote...');
+  console.log('\n Pushing to remote...');
 
   const repoUrl = repo.replace('https://', `https://${token}@`);
 
@@ -256,13 +256,13 @@ async function main() {
     safeExec(`git tag ${tagName}`, { stdio: 'ignore' });
     safeExec(`git push ${repoUrl} ${tagName}`, { stdio: 'pipe' });
 
-    console.log('\n✅ Sync complete!');
-    console.log(`🏷️  Version: ${tagName}`);
-    console.log(`🕐 ${timestamp}`);
-    console.log(`📁 ${repo}`);
+    console.log('\n Sync complete!');
+    console.log(`  Version: ${tagName}`);
+    console.log(` ${timestamp}`);
+    console.log(` ${repo}`);
 
   } catch (err) {
-    console.error('\n❌ Sync failed:', err.message);
+    console.error('\n Sync failed:', err.message);
     process.exit(1);
   } finally {
     // Cleanup
@@ -274,6 +274,6 @@ async function main() {
 }
 
 main().catch(err => {
-  console.error('❌ Error:', err.message);
+  console.error(' Error:', err.message);
   process.exit(1);
 });

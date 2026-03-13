@@ -4,10 +4,10 @@
 
 ## 特性
 
-- ✅ **零依赖** - 纯 Python 标准库，无需安装 MCP
-- ✅ **多客户端支持** - OpenClaw、Claude Code、Cursor、GitHub Actions 等
-- ✅ **灵活配置** - 环境变量、配置文件、命令行参数
-- ✅ **完整功能** - 航班查询、火车票、天气、价格等
+-  **零依赖** - 纯 Python 标准库，无需安装 MCP
+-  **多客户端支持** - OpenClaw、Claude Code、Cursor、GitHub Actions 等
+-  **灵活配置** - 环境变量、配置文件、命令行参数
+-  **完整功能** - 航班查询、火车票、天气、价格等
 
 ## 安装
 

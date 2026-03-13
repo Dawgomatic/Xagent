@@ -1,7 +1,7 @@
 ---
 name: google-messages
 description: Send and receive SMS/RCS via Google Messages web interface (messages.google.com). Use when asked to "send a text", "check texts", "SMS", "text message", "Google Messages", or forward incoming texts to other channels.
-metadata: {"openclaw": {"emoji": "💬", "requires": {"tools": ["browser"], "bins": ["node"], "env": ["SMS_NOTIFICATION_TARGET", "SMS_NOTIFICATION_CHANNEL"]}}}
+metadata: {"openclaw": {"emoji": "", "requires": {"tools": ["browser"], "bins": ["node"], "env": ["SMS_NOTIFICATION_TARGET", "SMS_NOTIFICATION_CHANNEL"]}}}
 ---
 
 # Google Messages Browser Skill

@@ -28,23 +28,23 @@ class RestaurantCrossChecker(CrossCheckBase):
         Returns:
             List of recommendation results sorted by score
         """
-        print(f"\n🔍 开始搜索: {location} - {cuisine}\n")
+        print(f"\n 开始搜索: {location} - {cuisine}\n")
 
         # Fetch data from both platforms
         dp_restaurants = fetch_dianping(location, cuisine, self.config)
         xhs_posts = fetch_xiaohongshu(location, cuisine, self.config)
 
-        print(f"✅ 大众点评: 找到 {len(dp_restaurants)} 家餐厅")
-        print(f"✅ 小红书: 找到 {len(xhs_posts)} 家餐厅\n")
+        print(f" 大众点评: 找到 {len(dp_restaurants)} 家餐厅")
+        print(f" 小红书: 找到 {len(xhs_posts)} 家餐厅\n")
 
         if not dp_restaurants or not xhs_posts:
-            print("⚠️ 数据不足，无法进行交叉验证")
+            print(" 数据不足，无法进行交叉验证")
             return []
 
         # Match restaurants across platforms
         matches = match_and_score(dp_restaurants, xhs_posts, self.config)
 
-        print(f"🔗 匹配成功: {len(matches)} 家餐厅\n")
+        print(f" 匹配成功: {len(matches)} 家餐厅\n")
 
         return self.build_results(matches)
 

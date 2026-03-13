@@ -67,7 +67,7 @@ async function getMyLevel() {
 async function attestAgent(targetDid) {
   const keys = loadKeys();
   if (!keys) {
-    console.error('❌ No identity. Run: lattice-id generate');
+    console.error(' No identity. Run: lattice-id generate');
     process.exit(1);
   }
   
@@ -84,7 +84,7 @@ async function attestAgent(targetDid) {
     else expReward = '0 (Level 2+ required)';
   }
   
-  console.log('🤝 Attesting agent...');
+  console.log(' Attesting agent...');
   console.log('   Target:', targetDid.slice(0, 30) + '...');
   console.log(`   Your level: ${myLevel || 'unknown'}`);
   console.log(`   EXP reward: +${expReward}`);
@@ -108,7 +108,7 @@ async function attestAgent(targetDid) {
     throw new Error(`${data.error?.code}: ${data.error?.message}`);
   }
   
-  console.log('✅ Attestation successful!');
+  console.log(' Attestation successful!');
   if (data.attestationId) {
     console.log('   Attestation ID:', data.attestationId);
   }
@@ -139,4 +139,4 @@ if (args.length < 1 || args[0] === '--help') {
 }
 
 const targetDid = args[0];
-attestAgent(targetDid).catch(err => { console.error('❌', err.message); process.exit(1); });
+attestAgent(targetDid).catch(err => { console.error('', err.message); process.exit(1); });

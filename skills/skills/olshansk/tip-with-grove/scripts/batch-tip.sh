@@ -109,7 +109,7 @@ declare -a amounts=()
 declare -a results=()
 
 # Parse input file
-echo -e "${BLUE}📋 Parsing input file: $INPUT_FILE${NC}"
+echo -e "${BLUE} Parsing input file: $INPUT_FILE${NC}"
 
 line_num=0
 while IFS= read -r line || [[ -n "$line" ]]; do
@@ -134,7 +134,7 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 
     # Validate
     if [[ -z "$dest" ]] || [[ -z "$amt" ]]; then
-        echo -e "${YELLOW}⚠️  Line $line_num: Skipping invalid entry${NC}"
+        echo -e "${YELLOW}  Line $line_num: Skipping invalid entry${NC}"
         continue
     fi
 
@@ -153,7 +153,7 @@ echo -e "${GREEN}✓ Found $total_count destinations${NC}"
 echo ""
 
 # Validate all destinations first
-echo -e "${BLUE}🔍 Validating destinations...${NC}"
+echo -e "${BLUE} Validating destinations...${NC}"
 
 validation_failed=0
 for i in "${!destinations[@]}"; do
@@ -173,7 +173,7 @@ done
 echo ""
 
 if [[ $validation_failed -gt 0 ]]; then
-    echo -e "${YELLOW}⚠️  Warning: $validation_failed destination(s) failed validation${NC}"
+    echo -e "${YELLOW}  Warning: $validation_failed destination(s) failed validation${NC}"
     read -p "Continue anyway? [y/N] " -n 1 -r
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -184,7 +184,7 @@ fi
 
 # Dry run - stop here
 if [[ "$DRY_RUN" == "true" ]]; then
-    echo -e "${YELLOW}🚫 Dry run mode - no tips will be sent${NC}"
+    echo -e "${YELLOW} Dry run mode - no tips will be sent${NC}"
     echo ""
     echo "Would tip:"
     for i in "${!destinations[@]}"; do
@@ -194,7 +194,7 @@ if [[ "$DRY_RUN" == "true" ]]; then
 fi
 
 # Check balance before starting
-echo -e "${BLUE}💰 Checking balance...${NC}"
+echo -e "${BLUE} Checking balance...${NC}"
 balance_json=$(grove balance --json)
 total_balance=$(echo "$balance_json" | jq -r '.total_balance')
 
@@ -215,7 +215,7 @@ if (( $(echo "$total_balance < $total_amount" | bc -l) )); then
 fi
 
 # Confirm before proceeding
-echo -e "${YELLOW}⚠️  About to send $total_count tips (total: $total_amount USDC)${NC}"
+echo -e "${YELLOW}  About to send $total_count tips (total: $total_amount USDC)${NC}"
 read -p "Continue? [y/N] " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -226,7 +226,7 @@ fi
 echo ""
 
 # Send tips
-echo -e "${BLUE}💸 Sending tips...${NC}"
+echo -e "${BLUE} Sending tips...${NC}"
 
 success_count=0
 failed_count=0
@@ -255,7 +255,7 @@ done
 echo ""
 
 # Summary report
-echo -e "${BLUE}📊 Summary Report${NC}"
+echo -e "${BLUE} Summary Report${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Total tips:     $total_count"
 echo -e "Success:        ${GREEN}$success_count${NC}"
@@ -282,7 +282,7 @@ if [[ $failed_count -gt 0 ]]; then
 fi
 
 # Check final balance
-echo -e "${BLUE}💰 Final balance:${NC}"
+echo -e "${BLUE} Final balance:${NC}"
 grove balance
 
 exit 0

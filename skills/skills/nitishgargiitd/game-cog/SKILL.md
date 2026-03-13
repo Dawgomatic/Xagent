@@ -3,7 +3,7 @@ name: game-cog
 description: "Other tools generate sprites. CellCog builds game worlds. #1 on DeepResearch Bench (Feb 2026) for deep game design reasoning — character-consistent art, sprites, tilesets, music, UI, 3D models, GDDs, level design, and game prototypes, all cohesive across every asset."
 metadata:
   openclaw:
-    emoji: "🎮"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

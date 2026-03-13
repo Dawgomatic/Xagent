@@ -3,12 +3,12 @@
 
 set -e
 
-echo "🚀 Installing Binance Enhanced Skill for OpenClaw"
+echo " Installing Binance Enhanced Skill for OpenClaw"
 echo "=================================================="
 
 # Check if running as root
 if [ "$EUID" -eq 0 ]; then 
-  echo "❌ Please do not run as root/sudo"
+  echo " Please do not run as root/sudo"
   exit 1
 fi
 
@@ -18,7 +18,7 @@ PYTHON_MAJOR=$(echo $PYTHON_VERSION | cut -d. -f1)
 PYTHON_MINOR=$(echo $PYTHON_VERSION | cut -d. -f2)
 
 if [ "$PYTHON_MAJOR" -lt 3 ] || ([ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -lt 11 ]); then
-  echo "❌ Python 3.11 or higher is required. Found: $PYTHON_VERSION"
+  echo " Python 3.11 or higher is required. Found: $PYTHON_VERSION"
   exit 1
 fi
 
@@ -26,7 +26,7 @@ echo "✓ Python $PYTHON_VERSION detected"
 
 # Check OpenClaw installation
 if ! command -v openclaw &> /dev/null; then
-  echo "❌ OpenClaw is not installed or not in PATH"
+  echo " OpenClaw is not installed or not in PATH"
   echo "   Please install OpenClaw first: https://docs.openclaw.ai/installation"
   exit 1
 fi
@@ -36,7 +36,7 @@ echo "✓ OpenClaw detected: $OPENCLAW_VERSION"
 
 # Create installation directory
 INSTALL_DIR="$HOME/.openclaw/skills/binance-enhanced"
-echo "📁 Installing to: $INSTALL_DIR"
+echo " Installing to: $INSTALL_DIR"
 
 # Create directory structure
 mkdir -p "$INSTALL_DIR"
@@ -45,7 +45,7 @@ mkdir -p "$INSTALL_DIR/data"
 mkdir -p "$INSTALL_DIR/logs"
 
 # Copy files
-echo "📦 Copying files..."
+echo " Copying files..."
 cp -r ./* "$INSTALL_DIR/" 2>/dev/null || true
 
 # Remove installation script from target
@@ -59,7 +59,7 @@ chmod +x "$INSTALL_DIR/security/logger.sh"
 chmod +x "$INSTALL_DIR/security/security_checks.sh"
 
 # Create configuration templates
-echo "⚙️  Creating configuration templates..."
+echo "  Creating configuration templates..."
 if [ ! -f "$INSTALL_DIR/config/.env" ]; then
   cp "$INSTALL_DIR/templates/.env.example" "$INSTALL_DIR/config/.env"
   echo "   Created: $INSTALL_DIR/config/.env (please edit with your API keys)"
@@ -76,7 +76,7 @@ if [ ! -f "$INSTALL_DIR/monitoring/config.yaml" ]; then
 fi
 
 # Install Python dependencies
-echo "📦 Installing Python dependencies..."
+echo " Installing Python dependencies..."
 cd "$INSTALL_DIR"
 
 # Create virtual environment if it doesn't exist
@@ -95,7 +95,7 @@ pip install requests python-dotenv pyyaml pycryptodome
 
 # Ask about optional dependencies
 echo ""
-echo "📊 Optional dependencies:"
+echo " Optional dependencies:"
 echo "   1) Telegram bot and web interface (Flask, python-telegram-bot)"
 echo "   2) Performance optimizations (aiohttp, orjson, jq)"
 echo "   3) Trading strategies and analytics (pandas, numpy)"
@@ -130,7 +130,7 @@ case $OPTION in
 esac
 
 # Test installation
-echo "🧪 Testing installation..."
+echo " Testing installation..."
 cd "$INSTALL_DIR"
 
 # Test Python imports
@@ -142,7 +142,7 @@ echo "   Testing security scripts..."
 source security/security_checks.sh 2>/dev/null && echo "✓ Security scripts loaded"
 
 # Register with OpenClaw
-echo "🔗 Registering with OpenClaw..."
+echo " Registering with OpenClaw..."
 OPENCLAW_SKILLS_DIR="$HOME/.openclaw/skills"
 
 # Create symlink if skills directory exists
@@ -161,7 +161,7 @@ cat > "$INSTALL_DIR/activate.sh" << 'EOF'
 
 SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "🔧 Activating Binance Enhanced Skill"
+echo " Activating Binance Enhanced Skill"
 echo "====================================="
 
 # Add to Python path
@@ -185,7 +185,7 @@ if [ -f "$SKILL_DIR/config/.env" ]; then
   echo "✓ Environment loaded from $SKILL_DIR/config/.env"
 fi
 
-echo "✅ Binance Enhanced Skill activated!"
+echo " Binance Enhanced Skill activated!"
 echo ""
 echo "Available commands:"
 echo "  • test-connection    - Test Binance API connection"
@@ -239,7 +239,7 @@ EOF
 chmod +x "$INSTALL_DIR"/*.sh
 
 echo ""
-echo "🎉 Installation complete!"
+echo " Installation complete!"
 echo "========================"
 echo ""
 echo "Next steps:"
@@ -269,11 +269,11 @@ echo "       }"
 echo "     }"
 echo "   }"
 echo ""
-echo "📚 Documentation:"
+echo " Documentation:"
 echo "   • Full documentation: $INSTALL_DIR/SKILL.md"
 echo "   • FAQ: $INSTALL_DIR/FAQ.md"
 echo "   • Troubleshooting: $INSTALL_DIR/TROUBLESHOOTING.md"
 echo ""
 echo "Need help? Check the documentation or open an issue on GitHub."
 echo ""
-echo "Happy trading! 🚀"
+echo "Happy trading! "

@@ -11,10 +11,10 @@ Clawic is a curated collection of high-quality tools and skills for AI agents.
 
 Visit **[clawic.com](https://clawic.com)** to discover:
 
-- 🔧 **Productivity tools** — Calendar, tasks, time tracking, notes
-- 💻 **Development tools** — Git, Docker, deployment, monitoring
-- 📨 **Communication tools** — Email, Slack, Discord, notifications
-- 📊 **Analytics tools** — Dashboards, metrics, reporting
+-  **Productivity tools** — Calendar, tasks, time tracking, notes
+-  **Development tools** — Git, Docker, deployment, monitoring
+-  **Communication tools** — Email, Slack, Discord, notifications
+-  **Analytics tools** — Dashboards, metrics, reporting
 
 ## How to Use
 

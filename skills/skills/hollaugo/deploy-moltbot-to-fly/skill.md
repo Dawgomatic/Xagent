@@ -253,7 +253,7 @@ if (requestId) {
 
 ### 5.4 Refresh Browser
 
-After approval, refresh your browser. You should now be connected! 🎉
+After approval, refresh your browser. You should now be connected! 
 
 ## Troubleshooting
 

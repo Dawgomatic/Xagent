@@ -68,43 +68,43 @@ def format_report():
     """Generate the alpha report"""
     now = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
     
-    lines = [f"🤖 Alpha Report | {now}"]
+    lines = [f" Alpha Report | {now}"]
     
     # Prices
     prices = get_crypto_prices()
     if prices:
-        lines.append("\n📊 Market Pulse")
+        lines.append("\n Market Pulse")
         for symbol, data in prices.items():
             if data["price"]:
                 change = data["change"] or 0
-                emoji = "🟢" if change > 0 else "🔴"
+                emoji = "" if change > 0 else ""
                 lines.append(f"{emoji} {symbol}: ${data['price']:,.0f} ({change:+.1f}%)")
     
     # Fear/Greed
     fg = get_fear_greed()
     if fg:
-        emoji = "😱" if fg["value"] < 25 else "😰" if fg["value"] < 45 else "😐" if fg["value"] < 55 else "😀" if fg["value"] < 75 else "🤑"
+        emoji = "" if fg["value"] < 25 else "" if fg["value"] < 45 else "" if fg["value"] < 55 else "" if fg["value"] < 75 else ""
         lines.append(f"{emoji} Fear/Greed: {fg['value']} ({fg['classification']})")
     
     # Trending
     trending = get_trending_coins()
     if trending:
-        lines.append(f"\n🔥 Trending: {', '.join(trending)}")
+        lines.append(f"\n Trending: {', '.join(trending)}")
     
     # Polymarket
     poly = get_polymarket_hot()
     if poly:
-        lines.append("\n🎯 Polymarket Hot")
+        lines.append("\n Polymarket Hot")
         for m in poly:
             lines.append(f"• {m['question']}... ({m['volume']})")
     
     # Insight
     if fg and fg["value"] < 20:
-        lines.append("\n💡 Extreme fear = historically strong buy zone. Watch for reversal signals.")
+        lines.append("\n Extreme fear = historically strong buy zone. Watch for reversal signals.")
     elif fg and fg["value"] > 80:
-        lines.append("\n💡 Extreme greed = caution advised. Consider taking profits.")
+        lines.append("\n Extreme greed = caution advised. Consider taking profits.")
     
-    lines.append("\n— Nix 🔥")
+    lines.append("\n— Nix ")
     
     return "\n".join(lines)
 

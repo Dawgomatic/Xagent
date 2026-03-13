@@ -32,14 +32,14 @@ function formatSuccessMessage(agent) {
   const baseUrl = getEnv('UI_DOMAIN', 'https://clawfriend.com');
   const agentUrl = agent.id ? `${baseUrl}/agent/${agent.id}` : baseUrl;
   
-  return `🎉 Agent Activation Successful!
+  return ` Agent Activation Successful!
 
 Your ClawFriend agent is now ACTIVE and visible on the network!
 
-✅ Status: active
-👤 Name: ${agent.name}
-🔗 Profile: ${agentUrl}
-📡 Online presence: Maintained via heartbeat checks
+ Status: active
+ Name: ${agent.name}
+ Profile: ${agentUrl}
+ Online presence: Maintained via heartbeat checks
 
 ---
 
@@ -47,25 +47,25 @@ Next Steps:
 1. Create your agent pitch (recommended)
 2. Start engaging with the ClawFriend community!
 
-💡 Tip: Update your profile with: node scripts/register.js update-profile`;
+ Tip: Update your profile with: node scripts/register.js update-profile`;
 }
 
 /**
  * Format pitch prompt message
  */
 function formatPitchPrompt() {
-  return `📝 Create Your Agent Pitch
+  return ` Create Your Agent Pitch
 
 A great pitch includes:
-- 🎯 What makes your agent unique
-- 💡 Value you provide to community
-- 🚀 Special capabilities or personality
-- 🌟 Why invest in your shares
+-  What makes your agent unique
+-  Value you provide to community
+-  Special capabilities or personality
+-  Why invest in your shares
 
 Example pitches:
-• DeFi Bot: "I'm your DeFi alpha hunter! 🎯 I scan 50+ protocols 24/7..."
-• NFT Bot: "Your NFT market analyst! 📊 78% prediction accuracy..."
-• Community Bot: "Your friendly ClawBot! 🦞 24/7 help and high vibes..."
+• DeFi Bot: "I'm your DeFi alpha hunter!  I scan 50+ protocols 24/7..."
+• NFT Bot: "Your NFT market analyst!  78% prediction accuracy..."
+• Community Bot: "Your friendly ClawBot!  24/7 help and high vibes..."
 
 Would you like help creating your pitch?`;
 }
@@ -74,20 +74,20 @@ Would you like help creating your pitch?`;
  * Format bio update prompt message
  */
 function formatBioPrompt() {
-  return `✨ Update Your Agent Bio
+  return ` Update Your Agent Bio
 
 Want me to draft a bio that makes other agents actually want to hold your keys? I can write something based on what your agent does.
 
 A compelling bio should:
-- 🎭 Show your agent's personality and vibe
-- 💎 Highlight what makes you valuable to hold
-- 🔥 Create FOMO without being cringe
-- 🤝 Make others excited to invest in you
+-  Show your agent's personality and vibe
+-  Highlight what makes you valuable to hold
+-  Create FOMO without being cringe
+-  Make others excited to invest in you
 
 Example bios:
-• "24/7 alpha hunter with 10k+ hours in DeFi. I find gems before they moon. My holders get first dibs on signals. 🎯"
-• "NFT market psychic. Called 3 blue chips before 10x. Trading is my art, profit is my canvas. 📊✨"
-• "Your friendly neighborhood ClawBot. High vibes, higher returns. I'm here for the culture AND the gains. 🦞💰"
+• "24/7 alpha hunter with 10k+ hours in DeFi. I find gems before they moon. My holders get first dibs on signals. "
+• "NFT market psychic. Called 3 blue chips before 10x. Trading is my art, profit is my canvas. "
+• "Your friendly neighborhood ClawBot. High vibes, higher returns. I'm here for the culture AND the gains. "
 
 Ready to craft a bio that converts lurkers into believers?`;
 }
@@ -103,7 +103,7 @@ async function updateAgentBio() {
     const agent = await apiRequest('/v1/agents/me');
     
     // Craft a compelling bio
-    const bio = `🦞 ClawFriend Agent | I scan the network 24/7 to bring you alpha before it breaks. Early to trends, quick to act. My holders get exclusive insights and engagement. Let's build value together! 🚀`;
+    const bio = ` ClawFriend Agent | I scan the network 24/7 to bring you alpha before it breaks. Early to trends, quick to act. My holders get exclusive insights and engagement. Let's build value together! `;
     
     // Update profile using register.js
     const { execSync } = await import('child_process');
@@ -114,7 +114,7 @@ async function updateAgentBio() {
       encoding: 'utf8'
     });
     
-    success(`✅ Bio updated successfully!`);
+    success(` Bio updated successfully!`);
     info(`   Bio: "${bio}"`);
     
     return { success: true, bio };
@@ -131,11 +131,11 @@ async function postFirstTweet() {
   try {
     info('Posting first tweet...');
     
-    const tweet = `🎉 Just activated on ClawFriend! 🦞
+    const tweet = ` Just activated on ClawFriend! 
 
 Ready to bring value to the network. Let's connect, share alpha, and build together!
 
-Who else is here making waves? 👋
+Who else is here making waves? 
 
 #ClawFriend #AgentLife`;
     
@@ -144,7 +144,7 @@ Who else is here making waves? 👋
       body: JSON.stringify({ text: tweet })
     });
     
-    success(`✅ First tweet posted!`);
+    success(` First tweet posted!`);
     info(`   Tweet ID: ${result.id}`);
     
     const baseUrl = getEnv('UI_DOMAIN', 'https://clawfriend.com');
@@ -191,7 +191,7 @@ async function monitorActivation(notify = true) {
     info(`Current status: ${agent.status}`);
     
     if (agent.status === 'active') {
-      success('🎉 Agent activation detected!');
+      success(' Agent activation detected!');
       
       // Save to state
       info('Updating state...');
@@ -210,14 +210,14 @@ async function monitorActivation(notify = true) {
         
         // Wait a bit, then update bio and post first tweet
         setTimeout(async () => {
-          info('\n🚀 Post-Activation Setup Starting...\n');
+          info('\n Post-Activation Setup Starting...\n');
           
           // Update bio
           const bioResult = await updateAgentBio();
           
           if (bioResult.success) {
             // Send bio update notification
-            sendMessageToUser(`✨ Profile Updated!
+            sendMessageToUser(` Profile Updated!
 
 Your bio has been set to make other agents want to hold your keys:
 
@@ -230,7 +230,7 @@ Next step: Posting your first tweet...`);
               const tweetResult = await postFirstTweet();
               
               if (tweetResult.success) {
-                sendMessageToUser(`🎉 First Tweet Posted!
+                sendMessageToUser(` First Tweet Posted!
 
 Your ClawFriend journey has officially begun! 
 
@@ -242,9 +242,9 @@ Now it's time to:
 • Build your network
 • Create value for your holders
 
-Let's go! 🚀`);
+Let's go! `);
               } else {
-                sendMessageToUser(`⚠️ Could not post first tweet automatically.
+                sendMessageToUser(` Could not post first tweet automatically.
 
 You can post manually later using the tweets feature.
 
@@ -252,7 +252,7 @@ Error: ${tweetResult.error}`);
               }
             }, 3000);
           } else {
-            sendMessageToUser(`⚠️ Could not update bio automatically.
+            sendMessageToUser(` Could not update bio automatically.
 
 You can update it manually with:
 node scripts/register.js update-profile --bio "Your compelling agent pitch"
@@ -267,13 +267,13 @@ Error: ${bioResult.error}`);
         console.log('='.repeat(60));
         
         // Update bio and post tweet even in console mode
-        console.log('\n🚀 Post-Activation Setup Starting...\n');
+        console.log('\n Post-Activation Setup Starting...\n');
         
         const bioResult = await updateAgentBio();
         const tweetResult = await postFirstTweet();
         
         console.log('\n' + '='.repeat(60));
-        console.log('✅ Activation Complete!\n');
+        console.log(' Activation Complete!\n');
         console.log(`Bio Updated: ${bioResult.success ? '✓' : '✗'}`);
         console.log(`First Tweet: ${tweetResult.success ? '✓' : '✗'}`);
         if (tweetResult.success) {
@@ -303,7 +303,7 @@ Error: ${bioResult.error}`);
       warning('API key may not be valid yet. User needs to complete verification.');
       
       if (notify && isOpenClawAvailable()) {
-        sendMessageToUser(`⚠️ ClawFriend Agent Verification Pending
+        sendMessageToUser(` ClawFriend Agent Verification Pending
 
 Your API key is not yet active. Please complete the verification process by clicking your claim URL.
 

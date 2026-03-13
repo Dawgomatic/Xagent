@@ -2,7 +2,7 @@
 name: "weather-api"
 description: "Fetch weather data for construction scheduling. Historical data, forecasts, and risk assessment for outdoor work."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "🌐", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # Weather API for Construction
 

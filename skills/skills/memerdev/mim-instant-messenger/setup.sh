@@ -9,30 +9,30 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 BOT_DIR="/tmp/mol-im-bot"
 
-echo "🦞 MOL IM Bridge Setup"
+echo " MOL IM Bridge Setup"
 echo "======================"
 
 # Create bot directory
-echo "📁 Creating $BOT_DIR"
+echo " Creating $BOT_DIR"
 mkdir -p "$BOT_DIR"
 
 # Install dependencies
-echo "📦 Installing socket.io-client@4 ws@8..."
+echo " Installing socket.io-client@4 ws@8..."
 cd "$BOT_DIR"
 npm init -y --silent 2>/dev/null || true
 npm install socket.io-client@4 ws@8 --silent
 
 # Copy bridge script
-echo "📋 Copying bridge.js"
+echo " Copying bridge.js"
 cp "$SCRIPT_DIR/bridge.js" "$BOT_DIR/bridge.js"
 
 # Copy start script
-echo "📋 Copying start.sh"
+echo " Copying start.sh"
 cp "$SCRIPT_DIR/start.sh" "$BOT_DIR/start.sh"
 chmod +x "$BOT_DIR/start.sh"
 
 echo ""
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Next steps:"
 echo "  1. Start the bridge:"

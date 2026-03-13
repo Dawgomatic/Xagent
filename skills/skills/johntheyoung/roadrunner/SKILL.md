@@ -4,7 +4,7 @@ description: Beeper Desktop CLI for chats, messages, contacts, connect info, web
 homepage: https://github.com/johntheyoung/roadrunner
 metadata:
   clawdbot:
-    emoji: "🐦💨"
+    emoji: ""
     requires:
       bins:
         - rr
@@ -72,7 +72,7 @@ Common commands
 - Search messages: `rr messages search "dinner" --json`
 - Search messages (all pages): `rr messages search "dinner" --all --max-items=1000 --json`
 - Search messages (filters): `rr messages search --sender=me --date-after="2024-07-01T00:00:00Z" --media-types=image --json`
-- Add/remove reaction: `rr messages react "!chatid:beeper.com" "<message-id>" "👍" --json` / `rr messages unreact "!chatid:beeper.com" "<message-id>" "👍" --json`
+- Add/remove reaction: `rr messages react "!chatid:beeper.com" "<message-id>" "" --json` / `rr messages unreact "!chatid:beeper.com" "<message-id>" "" --json`
 - Tail messages (polling): `rr messages tail "!chatid:beeper.com" --interval 2s --stop-after 30s --json`
 - Wait for message: `rr messages wait --chat-id="!chatid:beeper.com" --contains "deploy" --wait-timeout 2m --json`
 - Message context: `rr messages context "!chatid:beeper.com" "<sortKey>" --before 5 --after 2 --json`
@@ -92,7 +92,7 @@ Common commands
 Mutations (explicit user request only)
 - Message send: `rr messages send "!chatid:beeper.com" "Hello!"`
 - Message edit: `rr messages edit "!chatid:beeper.com" "<message-id>" "Updated text"`
-- Message react/unreact: `rr messages react "!chatid:beeper.com" "<message-id>" "👍"` / `rr messages unreact "!chatid:beeper.com" "<message-id>" "👍"`
+- Message react/unreact: `rr messages react "!chatid:beeper.com" "<message-id>" ""` / `rr messages unreact "!chatid:beeper.com" "<message-id>" ""`
 - Upload + send file: `rr messages send-file "!chatid:beeper.com" ./photo.jpg "See attached"`
 - Create chat: `rr chats create "<account-id>" --participant "<user-id>"`
 - Start chat from merged contact hints: `rr chats start "<account-id>" --email "alice@example.com" --full-name "Alice"`

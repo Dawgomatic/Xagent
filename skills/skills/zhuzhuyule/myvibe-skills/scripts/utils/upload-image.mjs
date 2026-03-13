@@ -177,7 +177,7 @@ async function uploadImageFile(filePath, hubUrl, accessToken) {
     throw new Error("No URL found in the upload response");
   }
 
-  console.log(chalk.green(`✅ Image uploaded: ${uploadedUrl}`));
+  console.log(chalk.green(` Image uploaded: ${uploadedUrl}`));
 
   return { url: uploadedUrl };
 }
@@ -208,7 +208,7 @@ export async function uploadImage(options) {
       throw new Error(`Not an image file: ${filePath}`);
     }
 
-    console.log(chalk.bold("\n📷 MyVibe Image Upload\n"));
+    console.log(chalk.bold("\n MyVibe Image Upload\n"));
     console.log(chalk.gray(`Hub: ${hub}`));
 
     // Get authorization
@@ -217,15 +217,15 @@ export async function uploadImage(options) {
     // Upload image
     const result = await uploadImageFile(filePath, hub, accessToken);
 
-    console.log(chalk.green.bold("\n✅ Upload complete!\n"));
-    console.log(chalk.cyan(`🔗 ${result.url}\n`));
+    console.log(chalk.green.bold("\n Upload complete!\n"));
+    console.log(chalk.cyan(` ${result.url}\n`));
 
     return {
       success: true,
       url: result.url,
     };
   } catch (error) {
-    console.error(chalk.red(`\n❌ Error: ${error.message}\n`));
+    console.error(chalk.red(`\n Error: ${error.message}\n`));
     return {
       success: false,
       error: error.message,

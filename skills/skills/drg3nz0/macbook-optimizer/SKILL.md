@@ -6,14 +6,14 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "💻",
+        "emoji": "",
         "os": ["darwin"],
         "requires": { "bins": ["system_profiler", "top", "ps", "df", "du"] },
       },
   }
 ---
 
-# 💻 MacBook Optimizer
+#  MacBook Optimizer
 
 _Complete MacBook health & performance suite - No installation required_
 
@@ -21,18 +21,18 @@ A comprehensive, user-friendly skill for monitoring, optimizing, and troubleshoo
 
 ## Why This Skill is Better
 
-✅ **No installation required** - Uses built-in macOS tools  
-✅ **Works on all Macs** - Intel & Apple Silicon  
-✅ **Actionable recommendations** - Not just metrics, but solutions  
-✅ **Automated fixes** - Can clean up and optimize automatically  
-✅ **User-friendly** - Plain language, not technical jargon  
-✅ **Complete suite** - Monitoring + troubleshooting + optimization  
-✅ **GUI-first** - Opens visual tools automatically for non-technical users  
-✅ **Visual reports** - Charts, graphs, and emoji indicators for easy understanding  
+ **No installation required** - Uses built-in macOS tools  
+ **Works on all Macs** - Intel & Apple Silicon  
+ **Actionable recommendations** - Not just metrics, but solutions  
+ **Automated fixes** - Can clean up and optimize automatically  
+ **User-friendly** - Plain language, not technical jargon  
+ **Complete suite** - Monitoring + troubleshooting + optimization  
+ **GUI-first** - Opens visual tools automatically for non-technical users  
+ **Visual reports** - Charts, graphs, and emoji indicators for easy understanding  
 
 ## Capabilities
 
-### 🔍 System Monitoring
+###  System Monitoring
 - **CPU Analysis**: Real-time CPU usage, temperature (via `powermetrics`), load averages, per-process breakdown
 - **Memory Health**: RAM usage, memory pressure, swap usage, identify memory leaks
 - **Disk Intelligence**: Space analysis, find large files/folders, duplicate detection, cache locations
@@ -40,14 +40,14 @@ A comprehensive, user-friendly skill for monitoring, optimizing, and troubleshoo
 - **Thermal Monitoring**: System temperature, thermal state, identify overheating causes
 - **Network Activity**: Bandwidth usage, active connections, identify bandwidth hogs
 
-### ⚡ Optimization Tools
+###  Optimization Tools
 - **Smart Cleanup**: Automatically find and remove caches, logs, temp files, downloads, duplicates
 - **Process Management**: Identify resource hogs, suggest optimizations, safe process termination
 - **Startup Optimization**: Manage login items, background apps, reduce boot time
 - **Storage Optimization**: Find large files, suggest deletions, empty trash, clear caches
 - **Performance Tuning**: System settings recommendations, disable unnecessary services
 
-### 🛠 Troubleshooting
+###  Troubleshooting
 - **Slowdown Diagnosis**: Identify bottlenecks (CPU/memory/disk/network), root cause analysis
 - **Overheating Solutions**: Find hot processes, suggest cooling strategies, thermal management
 - **Memory Issues**: Detect leaks, suggest app restarts, memory optimization
@@ -155,19 +155,19 @@ The agent intelligently uses these macOS tools:
 
 **Visual Reports:**
 - Generate HTML reports with charts (CPU, Memory, Disk usage over time)
-- Create visual summaries with emoji indicators (🟢 Good, 🟡 Warning, 🔴 Critical)
+- Create visual summaries with emoji indicators ( Good,  Warning,  Critical)
 - Open relevant System Settings panels automatically based on findings
 
-## 🎨 GUI-First Experience
+##  GUI-First Experience
 
 **For users who prefer visual interfaces**, the agent can:
 
-- 📊 **Open Activity Monitor** automatically when showing system stats
-- ⚙️ **Navigate System Settings** to relevant panels (Battery, Storage, Privacy)
-- 📁 **Open Finder** to specific folders (Caches, Downloads, Large files)
-- 📈 **Generate visual reports** with charts and graphs (HTML format)
-- 🎯 **Highlight issues** in GUI apps with clear indicators
-- 🔍 **Show step-by-step** with screenshots or GUI navigation
+-  **Open Activity Monitor** automatically when showing system stats
+-  **Navigate System Settings** to relevant panels (Battery, Storage, Privacy)
+-  **Open Finder** to specific folders (Caches, Downloads, Large files)
+-  **Generate visual reports** with charts and graphs (HTML format)
+-  **Highlight issues** in GUI apps with clear indicators
+-  **Show step-by-step** with screenshots or GUI navigation
 
 **Example GUI Workflow:**
 1. User: "My Mac is slow"
@@ -178,27 +178,27 @@ The agent intelligently uses these macOS tools:
 ## Intelligent Automation
 
 The agent can:
-- ✅ **Automatically clean** safe caches and temp files (with user confirmation)
-- ✅ **Suggest optimizations** based on system analysis
-- ✅ **Provide step-by-step fixes** for common issues (with GUI navigation)
-- ✅ **Monitor continuously** if requested (via cron jobs)
-- ✅ **Generate visual reports** with charts, graphs, and actionable recommendations
-- ✅ **Open GUI tools** automatically when showing system information
+-  **Automatically clean** safe caches and temp files (with user confirmation)
+-  **Suggest optimizations** based on system analysis
+-  **Provide step-by-step fixes** for common issues (with GUI navigation)
+-  **Monitor continuously** if requested (via cron jobs)
+-  **Generate visual reports** with charts, graphs, and actionable recommendations
+-  **Open GUI tools** automatically when showing system information
 
 ## Safety & Privacy
 
-- 🔒 **Always asks before** deleting files or killing processes
-- 🔒 **Protects system files** and critical processes
-- 🔒 **Reviews before action** - shows what will be deleted
-- 🔒 **No data collection** - everything runs locally
-- 🔒 **Respects privacy** - never sends data externally
+-  **Always asks before** deleting files or killing processes
+-  **Protects system files** and critical processes
+-  **Reviews before action** - shows what will be deleted
+-  **No data collection** - everything runs locally
+-  **Respects privacy** - never sends data externally
 
 ## Requirements
 
-- ✅ **macOS only** (Intel & Apple Silicon)
-- ✅ **No installation needed** - uses built-in tools
-- ✅ **Optional**: `htop` for prettier process view (`brew install htop`)
-- ✅ **Optional**: `mactop` for Apple Silicon detailed metrics (`brew install mactop`)
+-  **macOS only** (Intel & Apple Silicon)
+-  **No installation needed** - uses built-in tools
+-  **Optional**: `htop` for prettier process view (`brew install htop`)
+-  **Optional**: `mactop` for Apple Silicon detailed metrics (`brew install mactop`)
 
 ## How to Use GUI Tools
 
@@ -207,7 +207,7 @@ When the user asks for visual information or mentions they're not technical:
 1. **Always open Activity Monitor** when showing CPU/Memory/Process info
 2. **Navigate to relevant System Settings** panels automatically
 3. **Open Finder** to specific folders when discussing files
-4. **Generate visual summaries** with emoji indicators (🟢🟡🔴)
+4. **Generate visual summaries** with emoji indicators ()
 5. **Provide step-by-step GUI navigation** instructions
 
 **GUI Navigation Commands:**
@@ -222,12 +222,12 @@ When the user asks for visual information or mentions they're not technical:
 
 | Feature | macbook-optimizer | mactop |
 |---------|------------------|--------|
-| Installation required | ❌ No | ✅ Yes (brew) |
-| Works on Intel Macs | ✅ Yes | ❌ No (Apple Silicon only) |
-| Actionable recommendations | ✅ Yes | ❌ No (metrics only) |
-| Automated cleanup | ✅ Yes | ❌ No |
-| Troubleshooting | ✅ Yes | ❌ No |
-| User-friendly | ✅ Yes | ⚠️ Technical |
-| Complete suite | ✅ Yes | ⚠️ Monitoring only |
-| GUI-first experience | ✅ Yes | ❌ CLI only |
-| Visual reports | ✅ Yes | ❌ Text only |
+| Installation required |  No |  Yes (brew) |
+| Works on Intel Macs |  Yes |  No (Apple Silicon only) |
+| Actionable recommendations |  Yes |  No (metrics only) |
+| Automated cleanup |  Yes |  No |
+| Troubleshooting |  Yes |  No |
+| User-friendly |  Yes |  Technical |
+| Complete suite |  Yes |  Monitoring only |
+| GUI-first experience |  Yes |  CLI only |
+| Visual reports |  Yes |  Text only |

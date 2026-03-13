@@ -59,7 +59,7 @@ git clone https://github.com/hyddd/taskboard_skill.git taskboard
 1.  **Perform the work:** Use available tools (web_search, etc.) to fulfill the task.
 2.  **If Blocked:**
     - Move card to "Blocked" column.
-    - Update Content: Add a section `**⚠️ BLOCKER:** [Reason]`.
+    - Update Content: Add a section `** BLOCKER:** [Reason]`.
     - Notify user of the blocker.
 3.  **If Successful:**
     - Update Content: Append the **FINAL RESULT/SUMMARY** to the card content. This is crucial for future reference.
@@ -130,7 +130,7 @@ For the best experience, it is recommended to add the following protocol to your
 1.  **Perform the work:** Use available tools (web_search, etc.) to fulfill the task.
 2.  **If Blocked:**
     - Move card to "Blocked" column.
-    - Update Content: Add a section `**⚠️ BLOCKER:** [Reason]`.
+    - Update Content: Add a section `** BLOCKER:** [Reason]`.
     - Notify user of the blocker.
 3.  **If Successful:**
     - Update Content: Append the **FINAL RESULT/SUMMARY** to the card content. This is crucial for future reference.

@@ -462,16 +462,16 @@
 |------------------------|-----|------|--------|-------|-----|----------|
 | Middle East War | ↑↑ | ↑↑ | ↓ | ↑ | ↑ | ↓↓ |
 | Russia-Ukraine | ↑↑ | ↑↑ | ↓ | ↑↑ | ↑ | ↓↓ |
-| US-China Trade War | ↓ | ↑ | ↓↓ | ↔ | ↑ | ↓ |
+| US-China Trade War | ↓ | ↑ | ↓↓ |  | ↑ | ↓ |
 | Taiwan Conflict | ↑ | ↑↑ | ↓↓ | ↑ | ↑↑ | ↓↓↓ |
-| Emerging Market Crisis | ↓ | ↑ | ↓↓ | ↔ | ↑↑ | ↓↓ |
+| Emerging Market Crisis | ↓ | ↑ | ↓↓ |  | ↑↑ | ↓↓ |
 | Banking Crisis | ↓↓ | ↑↑ | ↓↓ | ↓ | ↑ | ↓↓↓ |
 
 **Legend:**
 - ↑↑↑ = Very strong positive
 - ↑↑ = Strong positive
 - ↑ = Moderate positive
-- ↔ = Neutral/mixed
+-  = Neutral/mixed
 - ↓ = Moderate negative
 - ↓↓ = Strong negative
 - ↓↓↓ = Very strong negative

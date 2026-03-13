@@ -77,7 +77,7 @@
 
 ---
 
-## ⚠️ Airbnb Warning (Critical)
+##  Airbnb Warning (Critical)
 
 **NYC Airbnb regulations (since Sept 2023) are strictest in US:**
 - Host MUST be present during stay

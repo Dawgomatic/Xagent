@@ -269,11 +269,11 @@ Install cron (daily at 2am UTC):
     # Find memory files
     files = find_memory_files(args.days)
     if not files:
-        print(f"ℹ️  No memory files found in {MEMORY_DIR} for the last {args.days} days.")
+        print(f"  No memory files found in {MEMORY_DIR} for the last {args.days} days.")
         print(f"   Expected files like: {MEMORY_DIR}/2026-02-15.md")
         return
 
-    print(f"📂 Scanning {len(files)} memory file(s) from the last {args.days} day(s)...")
+    print(f" Scanning {len(files)} memory file(s) from the last {args.days} day(s)...")
 
     # Extract all insights
     all_insights = []
@@ -284,7 +284,7 @@ Install cron (daily at 2am UTC):
             print(f"   {f.name}: {len(insights)} candidate insight(s)")
 
     if not all_insights:
-        print("ℹ️  No high-value insights found.")
+        print("  No high-value insights found.")
         return
 
     # Filter already-uploaded
@@ -299,10 +299,10 @@ Install cron (daily at 2am UTC):
         new_insights.append(item)
 
     if not new_insights:
-        print(f"✅ All {len(all_insights)} insight(s) already uploaded to cloud. Nothing new.")
+        print(f" All {len(all_insights)} insight(s) already uploaded to cloud. Nothing new.")
         return
 
-    print(f"🧠 Found {len(new_insights)} new insight(s) to capture (skipped {len(all_insights) - len(new_insights)} already seen)\n")
+    print(f" Found {len(new_insights)} new insight(s) to capture (skipped {len(all_insights) - len(new_insights)} already seen)\n")
 
     if args.dry_run:
         print("--- DRY RUN (no uploads) ---")
@@ -339,10 +339,10 @@ Install cron (daily at 2am UTC):
                 "preview": item["content"][:80],
             }
             uploaded += 1
-            print(f"✅ [{i}/{len(new_insights)}] {item['label']:12s} | {item['content'][:70]}...")
+            print(f" [{i}/{len(new_insights)}] {item['label']:12s} | {item['content'][:70]}...")
         except Exception as e:
             failed += 1
-            print(f"❌ [{i}/{len(new_insights)}] FAILED: {e}")
+            print(f" [{i}/{len(new_insights)}] FAILED: {e}")
             print(f"   Content: {item['content'][:80]}...")
 
     # Save state
@@ -351,7 +351,7 @@ Install cron (daily at 2am UTC):
     state["last_run_stats"] = {"uploaded": uploaded, "failed": failed, "total": len(new_insights)}
     save_state(state)
 
-    print(f"\n📊 Done: {uploaded} uploaded, {failed} failed out of {len(new_insights)} new insights")
+    print(f"\n Done: {uploaded} uploaded, {failed} failed out of {len(new_insights)} new insights")
     if failed:
         sys.exit(1)
 

@@ -1,4 +1,4 @@
-# 🦋 Bluesky CLI
+#  Bluesky CLI
 
 [![Version](https://img.shields.io/badge/version-1.6.0-blue.svg)](https://github.com/jeffaf/bluesky-skill)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -8,7 +8,7 @@ A full-featured command-line interface for [Bluesky](https://bsky.app) (AT Proto
 
 **Built for [OpenClaw](https://github.com/openclaw/openclaw)** — works standalone too.
 
-## ✨ Features
+##  Features
 
 | Category | Commands |
 |----------|----------|
@@ -22,7 +22,7 @@ A full-featured command-line interface for [Bluesky](https://bsky.app) (AT Proto
 
 **Plus:** JSON output on all read commands, dry-run mode, auto-linked URLs and @mentions.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Step 1: Get an App Password from Bluesky
 
@@ -33,7 +33,7 @@ A full-featured command-line interface for [Bluesky](https://bsky.app) (AT Proto
 5. Name it something like "CLI" or "OpenClaw"
 6. Copy the password (looks like `xxxx-xxxx-xxxx-xxxx`)
 
-> ⚠️ **Save this password somewhere safe** — Bluesky only shows it once!
+>  **Save this password somewhere safe** — Bluesky only shows it once!
 
 ### Step 2: Login via CLI
 
@@ -51,10 +51,10 @@ bsky login --handle yourname.bsky.social --password xxxx-xxxx-xxxx-xxxx
 
 ```bash
 bsky whoami                              # Confirm you're logged in
-bsky post "Hello from the command line! 🦋"  # Your first post!
+bsky post "Hello from the command line! "  # Your first post!
 ```
 
-## 📖 Usage
+##  Usage
 
 ### Posting & Content
 
@@ -69,9 +69,9 @@ bsky delete <url>                                     # Delete your post
 ### Engagement
 
 ```bash
-bsky like <url>          # ❤️ Like a post
+bsky like <url>          #  Like a post
 bsky unlike <url>        # Remove like
-bsky repost <url>        # 🔁 Boost (aliases: boost, rt)
+bsky repost <url>        #  Boost (aliases: boost, rt)
 bsky unrepost <url>      # Remove repost
 ```
 
@@ -86,9 +86,9 @@ bsky profile @someone               # View profile
 ### Moderation
 
 ```bash
-bsky block @troll.bsky.social       # 🚫 Block
+bsky block @troll.bsky.social       #  Block
 bsky unblock @someone               # Unblock
-bsky mute @noisy.bsky.social        # 🔇 Mute
+bsky mute @noisy.bsky.social        #  Mute
 bsky unmute @someone                # Unmute
 ```
 
@@ -121,14 +121,14 @@ bsky search "AI" --json
 bsky notifications --json
 ```
 
-## 🔒 Security
+##  Security
 
 - **Password never stored** — used once to get a session token, then discarded
 - **Session tokens auto-refresh** — no need to re-login
 - **Config file permissions** — 600 (owner-only read/write)
 - **Location:** `~/.config/bsky/config.json`
 
-## 📦 Installation
+##  Installation
 
 ### For OpenClaw
 
@@ -149,21 +149,21 @@ cd ~/clawd/skills/bluesky/scripts
 - Python 3.8+
 - `atproto` package (installed automatically on first run via venv)
 
-## 🎯 Tips
+##  Tips
 
 - **Handles:** Auto-appends `.bsky.social` if no domain specified
 - **URLs:** Both `https://bsky.app/...` and `at://` URIs work
 - **Dry run:** Use `--dry-run` on post/reply/quote to preview
 - **Images:** Max 1MB, alt text required (accessibility)
 
-## 📝 Changelog
+##  Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for version history.
 
-## 📄 License
+##  License
 
 MIT — do whatever you want with it.
 
 ---
 
-Made with 🦞 by [jeffaf](https://github.com/jeffaf) and [Mai](https://github.com/openclaw/openclaw)
+Made with  by [jeffaf](https://github.com/jeffaf) and [Mai](https://github.com/openclaw/openclaw)

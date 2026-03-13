@@ -19,7 +19,7 @@ LOCAL_SKILLS="./skills"
 declare -A ALL_SKILLS
 declare -A SKILL_CONFLICTS
 
-echo -e "\n${GREEN}🔍 Checking for Skill Conflicts${NC}\n"
+echo -e "\n${GREEN} Checking for Skill Conflicts${NC}\n"
 
 # Find all skills
 for skills_dir in "$BUILTIN_SKILLS" "$USER_SKILLS" "$LOCAL_SKILLS"; do
@@ -33,7 +33,7 @@ for skills_dir in "$BUILTIN_SKILLS" "$USER_SKILLS" "$LOCAL_SKILLS"; do
     fi
 done
 
-echo -e "${CYAN}📊 Scanning ${#ALL_SKILLS[@]} installed skills...${NC}\n"
+echo -e "${CYAN} Scanning ${#ALL_SKILLS[@]} installed skills...${NC}\n"
 
 # Extract conflicts from each skill
 get_conflicts() {
@@ -53,7 +53,7 @@ for skill_name in "${!ALL_SKILLS[@]}"; do
     
     while IFS= read -r conflict; do
         if [[ -n "$conflict" && -n "${ALL_SKILLS[$conflict]}" ]]; then
-            echo -e "${RED}❌ Conflict detected!${NC}"
+            echo -e "${RED} Conflict detected!${NC}"
             echo -e "   ${YELLOW}$skill_name${NC} conflicts with ${YELLOW}$conflict${NC}"
             echo -e "   Both are installed - this may cause issues.\n"
             CONFLICT_COUNT=$((CONFLICT_COUNT + 1))
@@ -62,7 +62,7 @@ for skill_name in "${!ALL_SKILLS[@]}"; do
 done
 
 if [[ $CONFLICT_COUNT -eq 0 ]]; then
-    echo -e "${GREEN}✅ No conflicts found!${NC}\n"
+    echo -e "${GREEN} No conflicts found!${NC}\n"
 else
     echo -e "${RED}Found $CONFLICT_COUNT conflict(s).${NC}"
     echo -e "Consider removing one of the conflicting skills.\n"

@@ -15,18 +15,18 @@ const testResults = {
 
 function runTest(name, command) {
   testResults.total++;
-  console.log(`\n▶️ Running Test: ${name}`);
+  console.log(`\n Running Test: ${name}`);
   try {
     const output = execSync(command, { 
       encoding: 'utf8', 
       stdio: 'pipe',
       cwd: ROOT_DIR // Run from project root
     });
-    console.log(`✅ Passed: ${name}`);
+    console.log(` Passed: ${name}`);
     testResults.passed++;
     return true;
   } catch (error) {
-    console.log(`❌ Failed: ${name}`);
+    console.log(` Failed: ${name}`);
     console.log(`Error: ${error.message}`);
     if (error.stdout) console.log(`Stdout: ${error.stdout}`);
     if (error.stderr) console.log(`Stderr: ${error.stderr}`);
@@ -35,7 +35,7 @@ function runTest(name, command) {
   }
 }
 
-console.log('🦐 OpenClaw Toolbox Sanity Tests');
+console.log(' OpenClaw Toolbox Sanity Tests');
 console.log('=================================');
 
 // Test 1: Backup Dry Run (Full)
@@ -49,12 +49,12 @@ runTest('Setup Verification', `bash ${path.join(SCRIPT_DIR, 'setup.sh')} --verif
 
 // Summary
 console.log('\n=================================');
-console.log(`📊 Test Summary: ${testResults.passed}/${testResults.total} passed`);
+console.log(` Test Summary: ${testResults.passed}/${testResults.total} passed`);
 if (testResults.failed.length > 0) {
-  console.log('❌ Failures:');
+  console.log(' Failures:');
   testResults.failed.forEach(f => console.log(`  - ${f.name}: ${f.error}`));
   process.exit(1);
 } else {
-  console.log('✅ All sanity tests passed!');
+  console.log(' All sanity tests passed!');
   process.exit(0);
 }

@@ -6,31 +6,31 @@
 
 ---
 
-## 🔴 Ready (can be picked up)
+##  Ready (can be picked up)
 
-### 📚 Research (@type:research)
+###  Research (@type:research)
 **Definition:** Information gathering, investigation, discovery
 
 - [ ] @type:research @priority:medium [Add your research task here]
 
-### ✍️ Writing (@type:writing)
+###  Writing (@type:writing)
 **Definition:** Content creation, documentation, communication
 
 - [ ] @type:writing @priority:medium [Add your writing task here]
 
-### 🔍 Analysis (@type:analysis)
+###  Analysis (@type:analysis)
 **Definition:** Data review, metrics analysis, pattern finding
 
 - [ ] @type:analysis @priority:medium [Add your analysis task here]
 
-### 🧹 Maintenance (@type:maintenance)
+###  Maintenance (@type:maintenance)
 → Autonomy IGNORES these, cron handles
 
 - [ ] @type:maintenance @priority:medium [Maintenance task for cron]
 
 ---
 
-## 🟡 In Progress
+##  In Progress
 
 [Tasks currently being worked on]
 
@@ -40,7 +40,7 @@
 
 ---
 
-## 🔵 Blocked
+##  Blocked
 
 [Tasks waiting for something]
 
@@ -48,7 +48,7 @@
 
 ---
 
-## ✅ Done Today
+##  Done Today
 
 [Tasks completed today - clear daily]
 
@@ -58,7 +58,7 @@
 
 ---
 
-## 💡 Ideas
+##  Ideas
 
 [Candidate tasks for future work - promote to Ready when ready]
 
@@ -71,12 +71,12 @@
 
 | Type | Handler | Example |
 |------|---------|---------|
-| `research` | ✅ Autonomy | Competitor analysis, API docs, technology research |
-| `writing` | ✅ Autonomy | Blog posts, documentation, emails, guides |
-| `analysis` | ✅ Autonomy | Metrics review, log analysis, trends |
-| `maintenance` | ❌ Cron | Old log cleanup, temp file deletion |
-| `backup` | ❌ Cron | GitHub backup, database sync |
-| `security` | ❌ Cron | Security audit, permission check |
+| `research` |  Autonomy | Competitor analysis, API docs, technology research |
+| `writing` |  Autonomy | Blog posts, documentation, emails, guides |
+| `analysis` |  Autonomy | Metrics review, log analysis, trends |
+| `maintenance` |  Cron | Old log cleanup, temp file deletion |
+| `backup` |  Cron | GitHub backup, database sync |
+| `security` |  Cron | Security audit, permission check |
 
 ---
 

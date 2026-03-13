@@ -10,7 +10,7 @@
  * - KV storage for sessions (strong consistency)
  * - Rate limiting with KV
  *
- * ⚠️ CRITICAL: better-auth requires Drizzle ORM or Kysely for D1
+ *  CRITICAL: better-auth requires Drizzle ORM or Kysely for D1
  * There is NO direct d1Adapter()!
  */
 
@@ -74,7 +74,7 @@ function createAuth(db: Database, env: Env) {
     // Secret for signing tokens
     secret: env.BETTER_AUTH_SECRET,
 
-    // ⚠️ CRITICAL: Use Drizzle adapter with SQLite provider
+    //  CRITICAL: Use Drizzle adapter with SQLite provider
     // There is NO direct d1Adapter()!
     database: drizzleAdapter(db, {
       provider: "sqlite",

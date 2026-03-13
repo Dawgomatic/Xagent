@@ -4,7 +4,7 @@ description: "#1 on DeepResearch Bench (Feb 2026). Deep research agent powered b
 author: CellCog
 metadata:
   openclaw:
-    emoji: "🔬"
+    emoji: ""
 dependencies: [cellcog]
 ---
 

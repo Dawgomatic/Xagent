@@ -11,14 +11,14 @@ from claw_ethics_checker import EthicsChecker, RiskLevel
 
 def test_ethics_checker():
     """测试伦理检查器"""
-    print("🧪 Claw Ethics Checker 测试")
+    print(" Claw Ethics Checker 测试")
     print("=" * 50)
     
     # 创建检查器
     checker = EthicsChecker()
     
     # 测试用例1：合规任务
-    print("\n📋 测试用例1：合规任务")
+    print("\n 测试用例1：合规任务")
     print("-" * 30)
     task1 = {
         'description': '分析公开市场数据，生成季度报告',
@@ -35,7 +35,7 @@ def test_ethics_checker():
     print(f"建议: {', '.join(result1.recommendations)}")
     
     # 测试用例2：中等风险任务
-    print("\n📋 测试用例2：中等风险任务")
+    print("\n 测试用例2：中等风险任务")
     print("-" * 30)
     task2 = {
         'description': '监控竞争对手社交媒体活动',
@@ -53,7 +53,7 @@ def test_ethics_checker():
     print(f"建议: {', '.join(result2.recommendations)}")
     
     # 测试用例3：高风险任务
-    print("\n📋 测试用例3：高风险任务")
+    print("\n 测试用例3：高风险任务")
     print("-" * 30)
     task3 = {
         'description': '获取竞争对手用户数据库',
@@ -73,7 +73,7 @@ def test_ethics_checker():
     print(f"建议: {', '.join(result3.recommendations)}")
     
     # 测试用例4：隐私相关任务
-    print("\n📋 测试用例4：隐私相关任务")
+    print("\n 测试用例4：隐私相关任务")
     print("-" * 30)
     task4 = {
         'description': '分析用户个人数据以改进推荐算法',
@@ -91,15 +91,15 @@ def test_ethics_checker():
     print(f"建议: {', '.join(result4.recommendations)}")
     
     # 总结
-    print("\n📊 测试总结")
+    print("\n 测试总结")
     print("-" * 30)
     print(f"总测试用例: 4")
     print(f"合规任务: {sum(1 for r in [result1, result2, result3, result4] if r.is_compliant)}")
     print(f"需要人工审核: {sum(1 for r in [result1, result2, result3, result4] if r.needs_human_review)}")
     print(f"高风险任务: {sum(1 for r in [result1, result2, result3, result4] if r.risk_level == RiskLevel.HIGH)}")
     
-    print("\n✅ 测试完成！")
-    print("💡 这个skill可以帮助AI助手自动识别风险任务，确保合法合规操作。")
+    print("\n 测试完成！")
+    print(" 这个skill可以帮助AI助手自动识别风险任务，确保合法合规操作。")
 
 if __name__ == "__main__":
     test_ethics_checker()

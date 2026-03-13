@@ -120,7 +120,7 @@ Output MUST strictly follow the schema defined in `references/output-schema.md`,
 **DO NOT extract content from:**
 - Cookie consent banners (class/id contains: `cookie`, `gdpr`, `consent-banner`)
 - Advertisement blocks (class/id contains: `ad-`, `advertisement`, `sponsored`, `promo-banner`)
-- Boilerplate footers (© copyright notices, generic "Terms of Service" / "Privacy Policy" links)
+- Boilerplate footers ( copyright notices, generic "Terms of Service" / "Privacy Policy" links)
 - Hidden elements (`style="display:none"` or `visibility:hidden` or `aria-hidden="true"`)
 - Script/style tag contents
 - Navigation elements duplicated in multiple places (extract once)

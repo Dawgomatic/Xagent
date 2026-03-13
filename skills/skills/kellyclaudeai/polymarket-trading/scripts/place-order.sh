@@ -110,10 +110,10 @@ ORDER_ID=$(echo "$RESPONSE" | jq -r '.orderId')
 
 if [[ -n "$ORDER_ID" && "$ORDER_ID" != "null" ]]; then
   echo ""
-  echo "✅ Order placed successfully!"
+  echo " Order placed successfully!"
   echo "Order ID: $ORDER_ID"
 else
   echo ""
-  echo "❌ Order failed"
+  echo " Order failed"
   exit 1
 fi

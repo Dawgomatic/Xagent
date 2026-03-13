@@ -20,9 +20,9 @@ class ImageBoloAnalyzer {
    * Analyze uploaded image and create BOLO
    */
   async analyzeBolo(boloName, boloType = 'auto-detect') {
-    console.log(`\n🔍 ANALYZING IMAGE BOLO: "${boloName}"`);
-    console.log(`📸 Image: ${path.basename(this.imagePath)}`);
-    console.log(`🏷️ Type: ${boloType}\n`);
+    console.log(`\n ANALYZING IMAGE BOLO: "${boloName}"`);
+    console.log(` Image: ${path.basename(this.imagePath)}`);
+    console.log(` Type: ${boloType}\n`);
 
     // Verify image exists
     if (!fs.existsSync(this.imagePath)) {
@@ -66,7 +66,7 @@ class ImageBoloAnalyzer {
    * Analyze person image
    */
   async analyzePerson() {
-    console.log('👤 ANALYZING PERSON\n');
+    console.log(' ANALYZING PERSON\n');
 
     // In production: Call Claude vision API with image
     // For now: Create detailed analysis template
@@ -225,7 +225,7 @@ class ImageBoloAnalyzer {
    * Analyze vehicle image
    */
   async analyzeVehicle() {
-    console.log('🚗 ANALYZING VEHICLE\n');
+    console.log(' ANALYZING VEHICLE\n');
 
     const analysis = {
       physical: {
@@ -324,7 +324,7 @@ class ImageBoloAnalyzer {
    * Analyze object image
    */
   async analyzeObject() {
-    console.log('📦 ANALYZING OBJECT\n');
+    console.log(' ANALYZING OBJECT\n');
 
     const analysis = {
       type: 'firearm',
@@ -402,8 +402,8 @@ class ImageBoloAnalyzer {
 
     fs.writeFileSync(filepath, JSON.stringify(this.bolo, null, 2));
 
-    console.log(`✅ BOLO saved: ${filepath}\n`);
-    console.log(`📋 BOLO Summary:`);
+    console.log(` BOLO saved: ${filepath}\n`);
+    console.log(` BOLO Summary:`);
     console.log(`  Name: ${this.bolo.name}`);
     console.log(`  Type: ${this.bolo.type}`);
     console.log(`  Critical features: ${this.bolo.features.critical.length}`);
@@ -444,7 +444,7 @@ async function main() {
     await analyzer.analyzeBolo(boloName, boloType);
     analyzer.saveBolo(process.cwd());
   } catch (error) {
-    console.error(`❌ Error: ${error.message}`);
+    console.error(` Error: ${error.message}`);
     process.exit(1);
   }
 }

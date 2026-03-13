@@ -5,7 +5,7 @@
 
 ---
 
-## Highlights 🌟
+## Highlights 
 
 ### Top Wins
 {{top_wins}}

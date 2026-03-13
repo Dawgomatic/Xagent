@@ -4,7 +4,7 @@ slug: testflight
 version: 1.0.0
 homepage: https://clawic.com/skills/testflight
 description: Distribute iOS and macOS beta builds with TestFlight, tester management, and CI/CD automation.
-metadata: {"clawdbot":{"emoji":"🛫","requires":{"bins":[]},"os":["darwin"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["darwin"]}}
 ---
 
 ## When to Use

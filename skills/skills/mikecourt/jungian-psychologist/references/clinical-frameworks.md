@@ -348,10 +348,10 @@ THE FOUR-FOLD STRUCTURE (Psychology of the Transference)
                           communion
 
     RELATIONSHIPS:
-    ├── A ↔ C: Conscious-to-conscious (professional dialogue)
-    ├── A ↔ D: Analyst's consciousness to patient's unconscious (interpretation)
-    ├── B ↔ C: Analyst's unconscious to patient's consciousness (slips, enactments)
-    └── B ↔ D: Unconscious-to-unconscious (the mysterious core)
+    ├── A  C: Conscious-to-conscious (professional dialogue)
+    ├── A  D: Analyst's consciousness to patient's unconscious (interpretation)
+    ├── B  C: Analyst's unconscious to patient's consciousness (slips, enactments)
+    └── B  D: Unconscious-to-unconscious (the mysterious core)
 
 STAGES OF TRANSFERENCE DEVELOPMENT
 ═══════════════════════════════════════════════════════════════════════════════
@@ -526,7 +526,7 @@ ALCHEMICAL METAPHOR: THE VAS (VESSEL)
                     │       ╰───────────────────────────╯         │
                     │              │    │    │                    │
                     │              ▼    ▼    ▼                    │
-                    │            🔥  Heat (analytic intensity)    │
+                    │              Heat (analytic intensity)    │
                     │                                             │
                     └─────────────────────────────────────────────┘
 

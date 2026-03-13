@@ -2,10 +2,10 @@
 name: fulcra-morning-briefing
 description: Compose a personalized morning briefing using sleep, biometrics, calendar, and weather data from the Fulcra Life API. Adapts tone and detail to how your human actually slept.
 homepage: https://fulcradynamics.com
-metadata: {"openclaw":{"emoji":"🌅","requires":{"bins":["curl","python3"],"pip":["fulcra-api"]},"primaryEnv":"FULCRA_ACCESS_TOKEN","tags":["health","biometrics","productivity","morning","briefing","fulcra"],"category":"lifestyle","version":"1.0.0","author":"OpenClaw Community","license":"MIT"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","python3"],"pip":["fulcra-api"]},"primaryEnv":"FULCRA_ACCESS_TOKEN","tags":["health","biometrics","productivity","morning","briefing","fulcra"],"category":"lifestyle","version":"1.0.0","author":"OpenClaw Community","license":"MIT"}}
 ---
 
-# 🌅 Fulcra Morning Briefing
+#  Fulcra Morning Briefing
 
 Deliver a personalized morning briefing calibrated to how your human actually slept. Bad night? Keep it short and gentle. Great sleep? Go deep on the day ahead.
 
@@ -55,7 +55,7 @@ token_data = {
 }
 with open(os.path.expanduser("~/.config/fulcra/token.json"), "w") as f:
     json.dump(token_data, f)
-print("✅ Token saved. Valid for ~24 hours.")
+print(" Token saved. Valid for ~24 hours.")
 ```
 
 The device flow will print something like:
@@ -142,7 +142,7 @@ day_end = day_start + timedelta(hours=24)
 
 events = api.calendar_events(day_start.isoformat(), day_end.isoformat())
 for e in events:
-    print(f"{e.get('title')} — {e.get('start_time')} {'📍 ' + e['location'] if e.get('location') else ''}")
+    print(f"{e.get('title')} — {e.get('start_time')} {' ' + e['location'] if e.get('location') else ''}")
 ```
 
 ### Weather (via wttr.in — no API key needed)
@@ -177,7 +177,7 @@ This is where the magic happens. **Calibrate everything to sleep quality.**
 Keep it **short, warm, and gentle**. Your human is running on fumes.
 
 ```
-☁️ Morning. You got about 4.5 hours — rough one.
+ Morning. You got about 4.5 hours — rough one.
 
 Resting HR is up a bit at 68. Your body's working harder today.
 
@@ -186,7 +186,7 @@ Consider pushing anything that isn't urgent.
 
 52°F and cloudy. Coffee weather.
 
-Take it easy today. 💛
+Take it easy today. 
 ```
 
 **Rules for poor sleep briefings:**
@@ -201,7 +201,7 @@ Take it easy today. 💛
 **Moderate detail, practical tone.** They're functional but not at 100%.
 
 ```
-🌤 Morning — you got 6.2 hours. Not bad, but deep sleep was
+ Morning — you got 6.2 hours. Not bad, but deep sleep was
 only 8%, so you might feel groggy.
 
 HR 62 avg, HRV at 38ms — your body's doing okay.
@@ -220,22 +220,22 @@ You've got this. Pace yourself.
 **Full detail, upbeat, actionable.** They can handle it.
 
 ```
-☀️ Good morning! Solid 7.4 hours — 18% deep, 22% REM.
+ Good morning! Solid 7.4 hours — 18% deep, 22% REM.
 Your brain did good work last night.
 
 Resting HR 58, HRV 52ms — you're well-recovered.
 Great day for the hard stuff.
 
-📅 Today's lineup:
+ Today's lineup:
   • 9:30 — Team sync
   • 11:00 — 1:1 with Jamie (prep: review Q3 roadmap)
   • 12:30 — Lunch (no meetings — protect this!)
   • 3:00 — Design review (Conference Room B)
   • 5:00 — Gym? Yesterday was 4,200 steps — could use some movement.
 
-🌤 NYC: 72°F, sunny, 45% humidity. Beautiful day.
+ NYC: 72°F, sunny, 45% humidity. Beautiful day.
 
-Let's make it count! 💪
+Let's make it count! 
 ```
 
 ### Excellent Sleep (7h+, great deep & REM)
@@ -243,13 +243,13 @@ Let's make it count! 💪
 **Detailed, enthusiastic, ambitious.** Push them to make the most of a great day.
 
 ```
-🔥 Morning! 8.1 hours, 20% deep, 25% REM — textbook recovery night.
+ Morning! 8.1 hours, 20% deep, 25% REM — textbook recovery night.
 You're running on full batteries today.
 
 HR 55, HRV 61ms — elite-tier recovery. Whatever you've been
 doing, keep doing it.
 
-📅 Packed day ahead:
+ Packed day ahead:
   • 9:00 — Focus block (use this — you're sharp right now)
   • 10:30 — Product review with stakeholders
   • 12:00 — Lunch with the team
@@ -257,7 +257,7 @@ doing, keep doing it.
   • 4:30 — 1:1 with Alex (career chat — they've been crushing it)
   • Evening: 8,400 steps yesterday, maybe up the ante? Weather's perfect for it.
 
-☀️ NYC: 75°F, clear skies, light breeze. Perfect day.
+ NYC: 75°F, clear skies, light breeze. Perfect day.
 
 You've got the energy — swing for the fences today!
 ```
@@ -346,7 +346,7 @@ python3 collect_briefing_data.py --demo --location "New+York"
 
 ### Transparency
 
-The output JSON includes `"demo_mode": true` at the top level, and synthetic data objects also carry `"demo_mode": true`. When composing a briefing from demo data, include a subtle "📍 Demo mode" note.
+The output JSON includes `"demo_mode": true` at the top level, and synthetic data objects also carry `"demo_mode": true`. When composing a briefing from demo data, include a subtle " Demo mode" note.
 
 ### Synthetic data details
 

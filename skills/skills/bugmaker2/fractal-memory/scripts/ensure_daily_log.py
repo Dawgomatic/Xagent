@@ -35,7 +35,7 @@ def ensure_daily_exists():
         
         content = f"# {date} ({weekday})\n\n"
         today_path.write_text(content, encoding="utf-8")
-        print(f"✅ Created daily log: {today_path}")
+        print(f" Created daily log: {today_path}")
         return True
     
     return False
@@ -53,7 +53,7 @@ def append_event(title, details=""):
     with open(today_path, "a", encoding="utf-8") as f:
         f.write(event)
     
-    print(f"✅ Appended event: {title}")
+    print(f" Appended event: {title}")
 
 def check_pending_events():
     """Check if there are pending events to record from heartbeat state."""
@@ -71,7 +71,7 @@ def check_pending_events():
         
         return pending
     except Exception as e:
-        print(f"⚠️ Error reading state: {e}")
+        print(f" Error reading state: {e}")
         return []
 
 def main():
@@ -89,9 +89,9 @@ def main():
             append_event(title, details)
     
     if created or pending:
-        print(f"📝 Daily log updated: {get_today_path()}")
+        print(f" Daily log updated: {get_today_path()}")
     else:
-        print(f"✅ Daily log exists: {get_today_path()}")
+        print(f" Daily log exists: {get_today_path()}")
 
 if __name__ == "__main__":
     main()

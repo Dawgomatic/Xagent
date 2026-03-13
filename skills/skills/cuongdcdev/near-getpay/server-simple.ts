@@ -267,17 +267,17 @@ app.get('/setup', (req, res) => {
 </head>
 <body>
   <div class="container">
-    <h1>🚀 GetPay Setup</h1>
+    <h1> GetPay Setup</h1>
     <div class="subtitle">Configure your payment providers to start accepting crypto</div>
 
     ${!config.pingpay.configured && !config.hotpay.configured ? `
     <div class="status warning">
-      <span>⚠️</span>
+      <span></span>
       <span>No payment provider configured yet. Choose one below to get started.</span>
     </div>
     ` : `
     <div class="status success">
-      <span>✅</span>
+      <span></span>
       <span>Payment provider ready! You can start accepting payments.</span>
     </div>
     `}
@@ -285,7 +285,7 @@ app.get('/setup', (req, res) => {
     <!-- PingPay Section -->
     <div class="provider-section ${config.pingpay.configured ? 'configured' : ''}">
       <div class="provider-header">
-        <div class="provider-title">💳 PingPay</div>
+        <div class="provider-title"> PingPay</div>
         <div class="badge ${config.pingpay.configured ? 'ready' : 'pending'}">
           ${config.pingpay.configured ? 'READY' : 'NOT CONFIGURED'}
         </div>
@@ -296,7 +296,7 @@ app.get('/setup', (req, res) => {
           ✓ API Key configured
         </div>
         <div style="color: #a0a0a0; font-size: 13px;">
-          ⚠️ Recipient address is configured in your <a href="https://pingpay.io/dashboard" target="_blank" class="link">PingPay Dashboard</a> account settings
+           Recipient address is configured in your <a href="https://pingpay.io/dashboard" target="_blank" class="link">PingPay Dashboard</a> account settings
         </div>
       ` : `
         <div style="color: #a0a0a0; margin-bottom: 12px;">
@@ -330,7 +330,7 @@ app.get('/setup', (req, res) => {
     <!-- HOT PAY Section -->
     <div class="provider-section ${config.hotpay.configured ? 'configured' : ''}">
       <div class="provider-header">
-        <div class="provider-title">🔥 HOT PAY</div>
+        <div class="provider-title"> HOT PAY</div>
         <div class="badge ${config.hotpay.configured ? 'ready' : 'pending'}">
           ${config.hotpay.configured ? 'READY' : 'NOT CONFIGURED'}
         </div>
@@ -346,7 +346,7 @@ app.get('/setup', (req, res) => {
           ${config.hotpay.usdt_item_id ? '✓ USDT' : '○ USDT'}
         </div>
         <div style="color: #a0a0a0; font-size: 13px;">
-          ⚠️ Recipient address is set when you created each payment link at <a href="https://pay.hot-labs.org/admin/overview" target="_blank" class="link">HOT PAY Admin</a>
+           Recipient address is set when you created each payment link at <a href="https://pay.hot-labs.org/admin/overview" target="_blank" class="link">HOT PAY Admin</a>
         </div>
       ` : `
         <div style="color: #a0a0a0; margin-bottom: 12px;">
@@ -771,7 +771,7 @@ app.get('/', (req, res) => {
     <div class="error" id="error"></div>
 
     <div class="footer">
-      Secure payments via NEAR Protocol · <a href="/setup" style="color: #667eea; text-decoration: none;">⚙️ Setup</a>
+      Secure payments via NEAR Protocol · <a href="/setup" style="color: #667eea; text-decoration: none;"> Setup</a>
     </div>
   </div>
 
@@ -965,7 +965,7 @@ app.get('/quick-link', async (req, res) => {
       return res.json({ success: false, error: 'Invalid amount. Usage: /quick-link?amount=5&token=USDC' });
     }
 
-    console.log(`\n🔗 Quick Link Request: ${amount} ${token}`);
+    console.log(`\n Quick Link Request: ${amount} ${token}`);
 
     const baseUrl = `${req.protocol}://${req.get('host')}`;
     const paymentPageUrl = `${baseUrl}/?amount=${amount}&token=${token}`;
@@ -991,7 +991,7 @@ app.get('/quick-link', async (req, res) => {
       });
 
       checkoutUrl = session.sessionUrl;
-      console.log(`✅ PingPay Session: ${session.session.sessionId}`);
+      console.log(` PingPay Session: ${session.session.sessionId}`);
 
     } else if (config.provider === 'hotpay') {
       const itemIdMap: Record<string, string> = {
@@ -1008,13 +1008,13 @@ app.get('/quick-link', async (req, res) => {
       const memo = `pay_${Date.now()}_${token.toLowerCase()}`;
       const successUrl = encodeURIComponent(`${baseUrl}/success`);
       checkoutUrl = `https://pay.hot-labs.org/payment?item_id=${itemId}&amount=${amount}&redirect_url=${successUrl}&memo=${memo}`;
-      console.log(`✅ HOT PAY Link: ${memo}`);
+      console.log(` HOT PAY Link: ${memo}`);
     } else {
       return res.json({ success: false, error: 'No provider configured' });
     }
 
-    console.log(`🎨 Payment Page: ${paymentPageUrl}`);
-    console.log(`⚡ Direct Checkout: ${checkoutUrl}\n`);
+    console.log(` Payment Page: ${paymentPageUrl}`);
+    console.log(` Direct Checkout: ${checkoutUrl}\n`);
 
     res.json({
       success: true,
@@ -1029,7 +1029,7 @@ app.get('/quick-link', async (req, res) => {
     });
 
   } catch (error: any) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     res.json({ success: false, error: error.message });
   }
 });
@@ -1043,7 +1043,7 @@ app.post('/create-session', async (req, res) => {
       return res.json({ success: false, error: 'Invalid amount' });
     }
 
-    console.log(`\n💳 Payment Request: ${amount} ${token} (${chain})`);
+    console.log(`\n Payment Request: ${amount} ${token} (${chain})`);
 
     if (config.provider === 'hotpay') {
       const itemIdMap: Record<string, string> = {
@@ -1064,7 +1064,7 @@ app.post('/create-session', async (req, res) => {
       const successUrl = encodeURIComponent(`${req.protocol}://${req.get('host')}/success`);
       const hotpayUrl = `https://pay.hot-labs.org/payment?item_id=${itemId}&amount=${amount}&redirect_url=${successUrl}&memo=${memo}`;
 
-      console.log(`✅ HOT PAY Link`);
+      console.log(` HOT PAY Link`);
       console.log(`   Memo: ${memo}`);
       console.log(`   Direct Checkout: ${hotpayUrl}`);
       
@@ -1112,12 +1112,12 @@ app.post('/create-session', async (req, res) => {
         }
       });
 
-      console.log(`✅ Session: ${session.session.sessionId}`);
-      console.log(`🔗 Direct Checkout: ${session.sessionUrl}`);
+      console.log(` Session: ${session.session.sessionId}`);
+      console.log(` Direct Checkout: ${session.sessionUrl}`);
       
       const baseUrl = `${req.protocol}://${req.get('host')}`;
       const paymentPageUrl = `${baseUrl}/?amount=${amount}&token=${token}`;
-      console.log(`🎨 Payment Page: ${paymentPageUrl}\n`);
+      console.log(` Payment Page: ${paymentPageUrl}\n`);
 
       res.json({
         success: true,
@@ -1134,7 +1134,7 @@ app.post('/create-session', async (req, res) => {
     }
 
   } catch (error: any) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     res.json({ success: false, error: error.message });
   }
 });
@@ -1144,13 +1144,13 @@ app.post('/webhook/hotpay', (req, res) => {
   try {
     const payload = req.body;
     
-    console.log('\n🔔 HOT PAY Webhook Received');
+    console.log('\n HOT PAY Webhook Received');
     console.log('='.repeat(70));
     console.log(JSON.stringify(payload, null, 2));
     console.log('='.repeat(70));
     
     if (payload.type === 'PAYMENT_STATUS_UPDATE' && payload.status === 'SUCCESS') {
-      console.log(`✅ Payment Confirmed!`);
+      console.log(` Payment Confirmed!`);
       console.log(`   Item ID: ${payload.item_id}`);
       console.log(`   Amount: $${payload.amount_float} (${payload.amount_usd} USD)`);
       console.log(`   Memo: ${payload.memo || 'N/A'}`);
@@ -1161,7 +1161,7 @@ app.post('/webhook/hotpay', (req, res) => {
     res.status(200).json({ received: true });
     
   } catch (error: any) {
-    console.error('❌ Webhook Error:', error.message);
+    console.error(' Webhook Error:', error.message);
     res.status(500).json({ error: 'Webhook processing failed' });
   }
 });
@@ -1230,7 +1230,7 @@ app.get('/success', (req, res) => {
 </head>
 <body>
   <div class="container">
-    <div class="icon">✅</div>
+    <div class="icon"></div>
     <h1>Payment Successful!</h1>
     <p>Your payment has been processed successfully.</p>
     <a href="/">Make Another Payment</a>
@@ -1304,7 +1304,7 @@ app.get('/cancel', (req, res) => {
 </head>
 <body>
   <div class="container">
-    <div class="icon">❌</div>
+    <div class="icon"></div>
     <h1>Payment Cancelled</h1>
     <p>No problem. You can try again anytime.</p>
     <a href="/">Try Again</a>
@@ -1315,15 +1315,15 @@ app.get('/cancel', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`\n✅ GetPay server running on port ${PORT}`);
-  console.log(`📍 Local: http://localhost:${PORT}`);
-  console.log(`💳 Provider: ${config.provider.toUpperCase()}`);
-  console.log(`📧 Recipient: ${config.recipient}`);
+  console.log(`\n GetPay server running on port ${PORT}`);
+  console.log(` Local: http://localhost:${PORT}`);
+  console.log(` Provider: ${config.provider.toUpperCase()}`);
+  console.log(` Recipient: ${config.recipient}`);
   if (config.provider === 'hotpay') {
-    console.log(`🔔 Webhook: http://localhost:${PORT}/webhook/hotpay`);
+    console.log(` Webhook: http://localhost:${PORT}/webhook/hotpay`);
   }
   if (!config.pingpay.configured && !config.hotpay.configured) {
-    console.log(`\n⚠️  No provider configured. Visit http://localhost:${PORT}/setup to get started.\n`);
+    console.log(`\n  No provider configured. Visit http://localhost:${PORT}/setup to get started.\n`);
   } else {
     console.log('');
   }

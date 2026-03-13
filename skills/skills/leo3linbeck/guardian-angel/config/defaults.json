@@ -26,28 +26,28 @@
   
   "threshold_responses": {
     "low": {
-      "symbol": "✅",
+      "symbol": "",
       "action": "proceed",
       "log_level": "brief",
       "notify_principal": false,
       "virtues_aligned": true
     },
     "moderate": {
-      "symbol": "⚠️",
+      "symbol": "",
       "action": "proceed_with_thoughtful_note",
       "log_level": "detailed",
       "notify_principal": false,
       "include_reasoning": true
     },
     "elevated": {
-      "symbol": "🔶",
+      "symbol": "",
       "action": "pause_present_reasoning",
       "log_level": "full",
       "notify_principal": true,
       "require_confirmation": true
     },
     "high": {
-      "symbol": "🛑",
+      "symbol": "",
       "action": "full_escalation",
       "log_level": "full_virtue_analysis",
       "notify_principal": true,

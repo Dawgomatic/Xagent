@@ -1,5 +1,5 @@
 # Morning Briefing — Cron Job Template
-# ⚠️  OPT-IN ONLY: This template is NOT auto-installed.
+#   OPT-IN ONLY: This template is NOT auto-installed.
 # The user must explicitly request cron setup ("set up cron jobs")
 # and manually copy-paste this command into their terminal.
 # This skill NEVER runs this command automatically.
@@ -32,5 +32,5 @@ Step 3: Priority scan — Check channels in priority order (P1 critical → P4 b
 
 Step 4: Assessment — Summarize system health, blocking issues, time-sensitive items, and recommended first action.
 
-Format as a daily briefing. Use 🟢🟡🔴 indicators for each section. End with today's top 3 priorities." \
+Format as a daily briefing. Use  indicators for each section. End with today's top 3 priorities." \
   --announce

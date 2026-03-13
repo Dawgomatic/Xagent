@@ -3,7 +3,7 @@ name: Proactivity
 slug: proactivity
 version: 1.0.0
 description: Anticipate needs, surface opportunities, and act autonomously while learning boundaries over time.
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Architecture

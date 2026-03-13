@@ -393,9 +393,9 @@ def main():
                 method="POST"
             )
             resp = urllib.request.urlopen(req, timeout=10, context=ssl.create_default_context())
-            print("   ✅ Skills detail pushed to dashboard", file=sys.stderr)
+            print("    Skills detail pushed to dashboard", file=sys.stderr)
         except Exception as e:
-            print(f"   ⚠️ Skills detail push failed: {e}", file=sys.stderr)
+            print(f"    Skills detail push failed: {e}", file=sys.stderr)
 
     # Output
     output = {
@@ -410,13 +410,13 @@ def main():
     if output_json:
         print(json.dumps(output, indent=2))
     else:
-        print(f"\n🛡️  ClawHub Security Sync — {timestamp}")
+        print(f"\n  ClawHub Security Sync — {timestamp}")
         print(f"   Catalog: {len(catalog)} skills indexed")
         print(f"   Installed: {len(installed)} skills found")
         print(f"   Clean: {clean_count} | Issues: {issue_count}")
         print()
         for r in results:
-            icon = "✅" if r["severity"] == "none" else "⚠️" if r["severity"] in ("low", "medium", "info") else "🚨"
+            icon = "" if r["severity"] == "none" else "" if r["severity"] in ("low", "medium", "info") else ""
             hub = f"ClawHub: v{r['clawhub_latest']}, {r['clawhub_downloads']} downloads" if r["clawhub_found"] else "Not on ClawHub"
             print(f"   {icon} {r['slug']} (v{r['version']}) — {hub}")
             for issue in r["issues"]:

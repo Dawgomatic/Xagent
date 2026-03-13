@@ -104,16 +104,16 @@ kubectl-skill/
 
 ## Key Features
 
-✅ Query and inspect Kubernetes resources  
-✅ Deploy and update applications  
-✅ Debug pods and containers  
-✅ Manage cluster configuration  
-✅ Monitor resource usage and health  
-✅ Execute commands in running containers  
-✅ View logs and events  
-✅ Port forwarding for local testing  
-✅ Node maintenance operations  
-✅ Dry-run support for safe operations  
+ Query and inspect Kubernetes resources  
+ Deploy and update applications  
+ Debug pods and containers  
+ Manage cluster configuration  
+ Monitor resource usage and health  
+ Execute commands in running containers  
+ View logs and events  
+ Port forwarding for local testing  
+ Node maintenance operations  
+ Dry-run support for safe operations  
 
 ## Environment Variables
 

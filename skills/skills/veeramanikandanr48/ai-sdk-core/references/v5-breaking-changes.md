@@ -473,7 +473,7 @@ const test1 = await generateText({
   model: openai('gpt-4'),
   prompt: 'Hello',
 });
-console.log('✅ Basic generation:', test1.text);
+console.log(' Basic generation:', test1.text);
 
 // Test streaming
 const test2 = streamText({
@@ -483,7 +483,7 @@ const test2 = streamText({
 for await (const chunk of test2.textStream) {
   process.stdout.write(chunk);
 }
-console.log('\n✅ Streaming works');
+console.log('\n Streaming works');
 
 // Test structured output
 const test3 = await generateObject({
@@ -491,7 +491,7 @@ const test3 = await generateObject({
   schema: z.object({ name: z.string() }),
   prompt: 'Generate a person',
 });
-console.log('✅ Structured output:', test3.object);
+console.log(' Structured output:', test3.object);
 
 // Test tools
 const test4 = await generateText({
@@ -505,7 +505,7 @@ const test4 = await generateText({
   },
   prompt: 'Use the test tool with value "hello"',
 });
-console.log('✅ Tools work');
+console.log(' Tools work');
 ```
 
 ---

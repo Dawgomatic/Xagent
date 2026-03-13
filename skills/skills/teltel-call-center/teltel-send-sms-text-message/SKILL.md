@@ -1,7 +1,7 @@
 ---
 name: teltel-send-sms-text-message
 description: Send SMS text messages via TelTel (teltel.io) using the REST API (api.teltel.io). Includes bulk send, delivery report, and bulk sms.
-metadata: {"openclaw":{"emoji":"💬","homepage":"https://www.teltel.io/","primaryEnv":"TELTEL_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://www.teltel.io/","primaryEnv":"TELTEL_API_KEY"}}
 ---
 
 Use the bundled Node scripts to send SMS via the TelTel API.

@@ -1,7 +1,7 @@
 ---
 name: valyu-search
 description: "Use Valyu (valyu.ai) to search the web, extract content from web pages, answer with sources, and do deepresearch."
-metadata: {"openclaw":{"emoji":"🔎","requires":{"bins":["node"],"env":["VALYU_API_KEY"]},"primaryEnv":"VALYU_API_KEY","homepage":"https://docs.valyu.ai"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"],"env":["VALYU_API_KEY"]},"primaryEnv":"VALYU_API_KEY","homepage":"https://docs.valyu.ai"}}
 ---
 
 # Valyu Search

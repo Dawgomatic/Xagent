@@ -22,6 +22,6 @@ cat > "$VERSION_FILE" << EOF
 }
 EOF
 
-echo "✅ Updated version.json"
+echo " Updated version.json"
 echo "   Build Hash: $BUILD_HASH"
 echo "   Build Time: $BUILD_TIME"

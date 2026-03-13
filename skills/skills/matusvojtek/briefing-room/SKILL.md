@@ -5,19 +5,19 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📻",
+        "emoji": "",
         "requires": { "bins": ["curl"] }
       }
   }
 ---
 
-# Briefing Room 📻
+# Briefing Room 
 
 **Your personal daily news briefing — audio + document.**
 
 On demand, research and compose a comprehensive ~10 minute news briefing in a conversational radio-host style. Output: audio file (MP3) + formatted document (DOCX).
 
-### 💸 100% Free
+###  100% Free
 
 - **No subscriptions, API keys, or paid services**
 - Uses free public APIs (Open-Meteo weather, Coinbase prices, Google Trends RSS), web search, and local TTS
@@ -51,7 +51,7 @@ When user asks for a briefing (e.g. "give me a briefing", "morning update", "wha
 1. Check config exists (run setup if not)
 2. Play notification sound: `afplay /System/Library/Sounds/Blow.aiff &`
 3. Spawn a sub-agent with the full pipeline task **immediately**
-4. Reply: "📻 Briefing Room is firing up — gathering today's news. I'll ping you when it's ready!"
+4. Reply: " Briefing Room is firing up — gathering today's news. I'll ping you when it's ready!"
 5. **DO NOT BLOCK** — spawn and move on instantly
 
 **Language override:** If user says "po slovensky", "v slovenčine", "auf deutsch", "en français", etc. → pass that to the sub-agent. Otherwise use the configured default language. Any language macOS supports will work — the agent writes the script in that language and TTS auto-detects a matching voice.
@@ -195,14 +195,14 @@ curl -s "$BASE?latitude=$LAT&longitude=$LON\
 Or use the helper: `bash SKILL_DIR/scripts/briefing.sh weather`
 
 Map `weather_code` to descriptions:
-- 0: Clear sky ☀️
-- 1-3: Partly cloudy ⛅
-- 45-48: Fog 🌫️
-- 51-55: Drizzle 🌦️
-- 61-65: Rain 🌧️
-- 71-75: Snow ❄️
-- 80-82: Rain showers 🌦️
-- 95-99: Thunderstorm ⛈️
+- 0: Clear sky 
+- 1-3: Partly cloudy 
+- 45-48: Fog 
+- 51-55: Drizzle 
+- 61-65: Rain 
+- 71-75: Snow 
+- 80-82: Rain showers 
+- 95-99: Thunderstorm 
 
 ### Step 2: Gather Data — News (Web Search)
 
@@ -240,7 +240,7 @@ web_search("EU politics news today {date}", count=5)
 web_search("geopolitics news today", count=5)
 ```
 
-**⚠️ Source diversity:** All sources have bias. For balanced reporting:
+** Source diversity:** All sources have bias. For balanced reporting:
 - Search the same story with different framing
 - Present what happened factually, note what each side says
 - Don't adopt any outlet's framing as truth
@@ -336,7 +336,7 @@ Only include sections from the configured `sections` list. Skip sections the use
 Save as `/tmp/briefing_draft_$TIMESTAMP.md` (working file).
 
 **For the markdown**, include:
-- Section headers with emojis: `## 🌤️ Weather`, `## 🌍 World`, `## 📜 This Day in History`, etc.
+- Section headers with emojis: `##  Weather`, `##  World`, `##  This Day in History`, etc.
 - Source links after key facts
 - Key data in bold
 

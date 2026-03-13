@@ -219,47 +219,47 @@ export class VibeScoreCalculator {
 
     // Bio keywords
     if (breakdown.bioKeywords >= 20) {
-      reasons.push('✅ Strong builder identity in bio');
+      reasons.push(' Strong builder identity in bio');
     } else if (breakdown.bioKeywords >= 10) {
-      reasons.push('👍 Some builder keywords in bio');
+      reasons.push(' Some builder keywords in bio');
     } else {
-      reasons.push('⚠️  Limited builder keywords in bio');
+      reasons.push('  Limited builder keywords in bio');
     }
 
     // Activity
     if (breakdown.activityLevel >= 15) {
-      reasons.push('✅ Very active on X (tweets regularly)');
+      reasons.push(' Very active on X (tweets regularly)');
     } else if (breakdown.activityLevel >= 10) {
-      reasons.push('👍 Moderately active');
+      reasons.push(' Moderately active');
     } else {
-      reasons.push('⚠️  Low activity level');
+      reasons.push('  Low activity level');
     }
 
     // Followers
     if (breakdown.followerRange >= 15) {
-      reasons.push(`✅ Sweet spot follower count (${profile.followerCount.toLocaleString()})`);
+      reasons.push(` Sweet spot follower count (${profile.followerCount.toLocaleString()})`);
     } else if (breakdown.followerRange >= 10) {
-      reasons.push(`👍 Acceptable follower count (${profile.followerCount.toLocaleString()})`);
+      reasons.push(` Acceptable follower count (${profile.followerCount.toLocaleString()})`);
     } else {
-      reasons.push(`⚠️  Follower count outside ideal range (${profile.followerCount.toLocaleString()})`);
+      reasons.push(`  Follower count outside ideal range (${profile.followerCount.toLocaleString()})`);
     }
 
     // Engagement
     if (breakdown.engagementRate >= 12) {
-      reasons.push(`✅ Excellent engagement rate (${profile.engagementRate}%)`);
+      reasons.push(` Excellent engagement rate (${profile.engagementRate}%)`);
     } else if (breakdown.engagementRate >= 8) {
-      reasons.push(`👍 Good engagement rate (${profile.engagementRate}%)`);
+      reasons.push(` Good engagement rate (${profile.engagementRate}%)`);
     } else {
-      reasons.push(`⚠️  Low engagement rate (${profile.engagementRate}%)`);
+      reasons.push(`  Low engagement rate (${profile.engagementRate}%)`);
     }
 
     // Network
     if (breakdown.builderNetwork >= 10) {
-      reasons.push('✅ Well-connected in builder community');
+      reasons.push(' Well-connected in builder community');
     } else if (breakdown.builderNetwork >= 5) {
-      reasons.push('👍 Some builder network connections');
+      reasons.push(' Some builder network connections');
     } else {
-      reasons.push('⚠️  Limited builder network');
+      reasons.push('  Limited builder network');
     }
 
     return reasons;

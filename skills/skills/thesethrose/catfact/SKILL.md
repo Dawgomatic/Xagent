@@ -5,7 +5,7 @@ read_when:
   - Wanting random cat facts
   - Looking up cat breeds
   - Building fun bot responses
-metadata: {"clawdbot":{"emoji":"🐱","requires":{"bins":["curl"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
 # Cat Fact

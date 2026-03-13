@@ -41,7 +41,7 @@ export class CircleWalletClient {
    * If a wallet doesn't exist for a chain, create one automatically.
    */
   async init() {
-    console.log("🔐 Initializing Circle Programmable Wallets...");
+    console.log(" Initializing Circle Programmable Wallets...");
 
     // List existing wallets in the set
     const response = await this.client.listWallets({
@@ -97,7 +97,7 @@ export class CircleWalletClient {
     }
     this.address = firstWallet.address;
 
-    console.log(`   ✅ Wallet address: ${this.address}`);
+    console.log(`    Wallet address: ${this.address}`);
     for (const [name, w] of Object.entries(this.wallets)) {
       console.log(`   • ${w.blockchain}: ${w.walletId}`);
     }

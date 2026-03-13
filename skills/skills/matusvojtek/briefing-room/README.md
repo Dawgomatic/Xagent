@@ -1,4 +1,4 @@
-# Briefing Room 📻
+# Briefing Room 
 
 **Your personal daily news briefing — audio + document.**
 
@@ -6,13 +6,13 @@ Ask for a briefing and get a comprehensive, conversational radio-host-style upda
 
 ## Features
 
-- 📻 **Radio-Host Style** — Natural, conversational monologue — not a list of headlines
-- 🔊 **Audio Briefing** — ~10 minute MP3, perfect for your commute
-- 📄 **Formatted Document** — DOCX with sections, key facts, and source links
-- 🌍 **11 Sections** — Weather → X Trends → Web Trends → World → Politics → Tech → Local → Sports → Markets → Crypto → This Day in History
-- 🌐 **Multi-Language** — English (MLX-Audio Kokoro), Slovak, German, or any macOS voice
-- ⚙️ **Configurable** — Location, language, voice, sections — all in `~/.briefing-room/config.json`
-- 🆓 **100% Free** — No subscriptions, API keys, or paid services
+-  **Radio-Host Style** — Natural, conversational monologue — not a list of headlines
+-  **Audio Briefing** — ~10 minute MP3, perfect for your commute
+-  **Formatted Document** — DOCX with sections, key facts, and source links
+-  **11 Sections** — Weather → X Trends → Web Trends → World → Politics → Tech → Local → Sports → Markets → Crypto → This Day in History
+-  **Multi-Language** — English (MLX-Audio Kokoro), Slovak, German, or any macOS voice
+-  **Configurable** — Location, language, voice, sections — all in `~/.briefing-room/config.json`
+-  **100% Free** — No subscriptions, API keys, or paid services
 
 ## Quick Start
 
@@ -86,17 +86,17 @@ If you set a language without a voice config, it auto-detects a matching macOS v
 
 | # | Section | Source |
 |---|---------|--------|
-| 1 | 🌤️ Weather | Open-Meteo API (your location) |
-| 2 | 🐦 Trending on X | getdaytrends.com (real-time X/Twitter trends) |
-| 3 | 🔍 Web Trends | Google Trends RSS (what people are searching) |
-| 4 | 🌍 World | Web search |
-| 5 | 🏛️ Politics | Web search |
-| 6 | 💻 Tech & AI | Web search |
-| 7 | 🏠 Local | Web search (your city) |
-| 8 | ⚽ Sports | Web search |
-| 9 | 📈 Markets | Web search + APIs |
+| 1 |  Weather | Open-Meteo API (your location) |
+| 2 |  Trending on X | getdaytrends.com (real-time X/Twitter trends) |
+| 3 |  Web Trends | Google Trends RSS (what people are searching) |
+| 4 |  World | Web search |
+| 5 |  Politics | Web search |
+| 6 |  Tech & AI | Web search |
+| 7 |  Local | Web search (your city) |
+| 8 |  Sports | Web search |
+| 9 |  Markets | Web search + APIs |
 | 10 | ₿ Crypto | Coinbase API + Web search |
-| 11 | 📜 This Day in History | Agent knowledge (no API needed) |
+| 11 |  This Day in History | Agent knowledge (no API needed) |
 
 ## Dependencies
 

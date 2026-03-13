@@ -1,7 +1,7 @@
 ---
 name: Nutrition
 description: Build a personal nutrition system for tracking meals, calories, macros, vitamins, and minerals.
-metadata: {"clawdbot":{"emoji":"🥗","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

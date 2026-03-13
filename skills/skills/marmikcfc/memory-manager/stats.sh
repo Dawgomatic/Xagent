@@ -5,7 +5,7 @@ WORKSPACE="${OPENCLAW_WORKSPACE:-$HOME/.openclaw/workspace}"
 MEMORY_DIR="$WORKSPACE/memory"
 STATE_FILE="$MEMORY_DIR/.memory-manager-state.json"
 
-echo "📊 Memory Manager - Statistics"
+echo " Memory Manager - Statistics"
 echo ""
 
 # Count files and sizes by type
@@ -36,19 +36,19 @@ snapshots_size=$(echo "$snapshots_stats" | cut -d'|' -f2)
 # Display breakdown
 echo "## Memory Architecture Breakdown"
 echo ""
-echo "📅 Episodic Memory (What Happened):"
+echo " Episodic Memory (What Happened):"
 echo "   Files: $episodic_count"
 echo "   Size: ${episodic_size:-0B}"
 echo ""
-echo "🧠 Semantic Memory (What You Know):"
+echo " Semantic Memory (What You Know):"
 echo "   Files: $semantic_count"
 echo "   Size: ${semantic_size:-0B}"
 echo ""
-echo "⚙️  Procedural Memory (How To):"
+echo "  Procedural Memory (How To):"
 echo "   Files: $procedural_count"
 echo "   Size: ${procedural_size:-0B}"
 echo ""
-echo "💾 Snapshots (Backups):"
+echo " Snapshots (Backups):"
 echo "   Files: $snapshots_count"
 echo "   Size: ${snapshots_size:-0B}"
 echo ""
@@ -57,7 +57,7 @@ echo ""
 total_files=$((episodic_count + semantic_count + procedural_count))
 total_size=$(du -sh "$MEMORY_DIR" 2>/dev/null | cut -f1)
 
-echo "📦 Total:"
+echo " Total:"
 echo "   Files: $total_files"
 echo "   Size: ${total_size:-0B}"
 echo ""
@@ -98,12 +98,12 @@ usage_pct=$((total_chars * 100 / 800000))
 echo "## Memory Health"
 echo ""
 if [ "$usage_pct" -ge 85 ]; then
-  echo "Status: 🚨 CRITICAL (${usage_pct}%)"
+  echo "Status:  CRITICAL (${usage_pct}%)"
   echo "Action: Run organize.sh and snapshot.sh NOW"
 elif [ "$usage_pct" -ge 70 ]; then
-  echo "Status: ⚠️ WARNING (${usage_pct}%)"
+  echo "Status:  WARNING (${usage_pct}%)"
   echo "Action: Consider running organize.sh"
 else
-  echo "Status: ✅ Healthy (${usage_pct}%)"
+  echo "Status:  Healthy (${usage_pct}%)"
   echo "Action: None needed"
 fi

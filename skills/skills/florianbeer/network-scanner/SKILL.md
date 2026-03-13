@@ -4,7 +4,7 @@ description: Scan networks to discover devices, gather MAC addresses, vendors, a
 homepage: https://clawhub.com/skills/network-scanner
 metadata:
   openclaw:
-    emoji: "🔍"
+    emoji: ""
     requires:
       bins: ["nmap", "dig"]
     tags:
@@ -90,11 +90,11 @@ The scanner includes multiple safety checks to prevent accidental abuse:
 ```bash
 # Blocked - public IP range
 $ python3 scripts/scan.py 8.8.8.0/24
-❌ BLOCKED: Target 8.8.8.0/24 is a PUBLIC IP range
+ BLOCKED: Target 8.8.8.0/24 is a PUBLIC IP range
 
 # Blocked - in blocklist  
 $ python3 scripts/scan.py 10.99.0.0/24
-❌ BLOCKED: 10.99.0.0/24 is blocklisted
+ BLOCKED: 10.99.0.0/24 is blocklisted
 
 # Allowed - configured trusted network
 $ python3 scripts/scan.py home

@@ -4,18 +4,18 @@ This is what you'll receive when the skill finds high-value insights:
 
 ---
 
-## 📚 New Bookmark Insight from @ai_researcher
+##  New Bookmark Insight from @ai_researcher
 
 **Article describes a novel approach to AI agent memory using vector embeddings and semantic search for persistent context across sessions, particularly useful for long-running automation.**
 
-### 🎯 Actionable Items:
+###  Actionable Items:
 
 1. Implement vector embedding storage for agent conversations
 2. Add semantic search to retrieve relevant past interactions
 3. Create session context summarization to reduce token usage
 4. Build memory pruning strategy to maintain performance
 
-### 💡 Key Concepts:
+###  Key Concepts:
 
 • vector embeddings
 • semantic search
@@ -23,7 +23,7 @@ This is what you'll receive when the skill finds high-value insights:
 • context retention
 • long-running automation
 
-### 🔨 Implementation Suggestions:
+###  Implementation Suggestions:
 
 **For agent memory:**
 Replace current file-based memory with vector database (Pinecone/Weaviate) for semantic retrieval of past conversations
@@ -37,10 +37,10 @@ Add context persistence layer to automation workflows so they remember previous 
 Store market analysis results as embeddings to identify similar historical patterns and improve decision making
 *Effort: high*
 
-### 🔗 Relevant Projects:
+###  Relevant Projects:
 agent memory, automation, trading bot
 
-### 📎 Source:
+###  Source:
 https://x.com/ai_researcher/status/1234567890123456789
 
 ---

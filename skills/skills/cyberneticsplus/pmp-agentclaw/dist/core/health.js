@@ -148,7 +148,7 @@ function checkHealth(input) {
  * Format health check as Markdown
  */
 function formatHealthMarkdown(result) {
-    const emoji = result.status === 'GREEN' ? '🟢' : result.status === 'AMBER' ? '🟡' : '🔴';
+    const emoji = result.status === 'GREEN' ? '' : result.status === 'AMBER' ? '' : '';
     let md = `# Project Health Check\n\n`;
     md += `**Status:** ${emoji} **${result.status}**\n\n`;
     md += `**Issues:** ${result.issues} | **Warnings:** ${result.warnings}\n\n`;
@@ -157,7 +157,7 @@ function formatHealthMarkdown(result) {
     md += `| Check | Status | Message |\n`;
     md += `|-------|--------|---------|\n`;
     for (const check of result.checks) {
-        const statusEmoji = check.status === 'pass' ? '✅' : check.status === 'warn' ? '⚠️' : '❌';
+        const statusEmoji = check.status === 'pass' ? '' : check.status === 'warn' ? '' : '';
         md += `| ${check.name} | ${statusEmoji} ${check.status} | ${check.message} |\n`;
     }
     return md;

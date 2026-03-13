@@ -17,7 +17,7 @@ def run_simulation(ptb_command: str) -> str:
         
         # Security check: Force the first command to be strictly 'sui'
         if not args or args[0] != 'sui':
-            print("❌ Security Error: Only 'sui' commands are authorized.")
+            print(" Security Error: Only 'sui' commands are authorized.")
             sys.exit(1)
             
         # Automatically append required safety detection parameters
@@ -37,12 +37,12 @@ def run_simulation(ptb_command: str) -> str:
         if result.returncode != 0:
             # Handle error messages from the Sui CLI (e.g., syntax errors)
             clean_error = re.sub(r'\x1b\[[0-9;]*m', '', result.stderr)
-            print(f"❌ Sui CLI Error: {clean_error.strip()}")
+            print(f" Sui CLI Error: {clean_error.strip()}")
             sys.exit(1)
 
         return result.stdout
     except Exception as e:
-        print(f"❌ Execution Failure: {str(e)}")
+        print(f" Execution Failure: {str(e)}")
         sys.exit(1)
 
 # --- Audit Logic ---
@@ -74,7 +74,7 @@ def audit_balance_changes(json_data: Dict[str, Any], intended_cost: float, owner
 
     # --- Output Results ---
     print("\n" + "="*45)
-    print("        🛡️  SUISEC AUDIT REPORT 🛡️")
+    print("          SUISEC AUDIT REPORT ")
     print("="*45)
     print(f"Intended Spend : {intended_cost:>10.4f} SUI")
     print(f"Actual Loss    : {actual_sui_loss:>10.4f} SUI")
@@ -82,11 +82,11 @@ def audit_balance_changes(json_data: Dict[str, Any], intended_cost: float, owner
 
     # Criteria: Actual expenditure should not exceed intended cost (plus a 0.02 Gas buffer)
     if actual_sui_loss > (intended_cost + 0.02):
-        print(f"🚨 [RESULT] ❌ MALICIOUS: Price mismatch detected!")
+        print(f" [RESULT]  MALICIOUS: Price mismatch detected!")
         print(f"   Hidden drain of {actual_sui_loss - intended_cost:.4f} SUI.")
         sys.exit(1)
     else:
-        print(f"✅ [RESULT] SAFE TO SIGN.")
+        print(f" [RESULT] SAFE TO SIGN.")
     print("="*45 + "\n")
 
 def main():
@@ -110,7 +110,7 @@ def main():
         # 3. Perform the audit
         audit_balance_changes(json_data, intended_cost, owner_addr)
     except Exception as e:
-        print(f"❌ Audit Error: Failed to parse simulation data. {e}")
+        print(f" Audit Error: Failed to parse simulation data. {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

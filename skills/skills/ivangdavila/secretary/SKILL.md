@@ -4,7 +4,7 @@ slug: secretary
 version: 1.0.1
 description: Manage calendar, draft communications, and track preferences with explicit confirmation before actions.
 changelog: Refined description and boundaries
-metadata: {"clawdbot":{"emoji":"📋","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

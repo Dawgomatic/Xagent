@@ -65,7 +65,7 @@ curl -X POST 'https://api.notion.com/v1/databases' \
   -H 'Content-Type: application/json' \
   -d '{
     "parent": {"page_id": "YOUR_PAGE_ID"},
-    "icon": {"emoji": "🔍"},
+    "icon": {"emoji": ""},
     "title": [{"text": {"content": "ACT I: Hidden Narratives"}}],
     "properties": {
       "Narrative": {"title": {}},

@@ -3,7 +3,7 @@
 ## 1.1.0 (2026-02-11)
 
 - Added security policy engine with human-readable risk explanations per finding
-- Each finding now includes "⚠ WHY this is risky" + "🛡 ACTION to take"
+- Each finding now includes " WHY this is risky" + " ACTION to take"
 - Policy references real-world incidents (ClawHavoc, Atomic Stealer, memory poisoning)
 - JSON output enriched with policy blurbs for programmatic consumption
 - Thanks to @neynar on Moltbook for the suggestion!

@@ -96,14 +96,14 @@ export GHOST_API_URL="http://192.168.1.100:3000"
 ### URL Format Rules
 
 **Always:**
-- ✅ Include protocol (`http://` or `https://`)
-- ✅ Use your actual domain/IP
-- ✅ Include `:PORT` if Ghost runs on non-standard port
+-  Include protocol (`http://` or `https://`)
+-  Use your actual domain/IP
+-  Include `:PORT` if Ghost runs on non-standard port
 
 **Never:**
-- ❌ Include trailing slash
-- ❌ Include `/ghost/api/admin` (added automatically by scripts)
-- ❌ Use HTTP over public networks (security risk)
+-  Include trailing slash
+-  Include `/ghost/api/admin` (added automatically by scripts)
+-  Use HTTP over public networks (security risk)
 
 ### Security: HTTP vs HTTPS
 

@@ -3,7 +3,7 @@ name: tautulli
 description: Monitor Plex activity and stats via Tautulli API. Check who's watching, view history, get library stats, and see server info.
 metadata:
   openclaw:
-    emoji: 📊
+    emoji: 
     requires:
       bins:
         - curl

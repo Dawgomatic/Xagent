@@ -55,14 +55,14 @@ Interested?
 ```
 Hey {{name}} — circling back!
 
-Still happy to do that quick visual audit for {{brand_name}} if you're interested. Takes me 60 seconds to record. 🎥
+Still happy to do that quick visual audit for {{brand_name}} if you're interested. Takes me 60 seconds to record. 
 ```
 
 ### Follow-up (Day 7 - Last)
 ```
 Last ping! If product visuals aren't a focus right now, totally get it.
 
-If you have a launch coming up and need quick turnaround, I'm here. ✌️
+If you have a launch coming up and need quick turnaround, I'm here. 
 ```
 
 ## Output Format

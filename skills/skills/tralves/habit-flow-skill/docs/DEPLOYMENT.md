@@ -39,7 +39,7 @@ User: "refresh skills"
 
 If you're using a separate gateway, restart it to pick up the new skill.
 
-**Status:** ✅ Skill will be automatically discovered
+**Status:**  Skill will be automatically discovered
 
 ## Verification
 
@@ -194,9 +194,9 @@ npx tsx scripts/log_habit.ts --habit-id h_exact_id_here --status completed
 
 ### Issue: "Low confidence in natural language parsing"
 **Solution:** Be more specific:
-- ❌ "I did it" (too vague)
-- ✅ "I meditated today" (clear)
-- ✅ "Completed morning meditation" (very clear)
+-  "I did it" (too vague)
+-  "I meditated today" (clear)
+-  "Completed morning meditation" (very clear)
 
 ### Issue: "Streak seems incorrect"
 **Solution:**
@@ -343,6 +343,6 @@ Before regular use:
 
 ---
 
-**Status:** ✅ Ready for production use
+**Status:**  Ready for production use
 **Last Updated:** 2026-01-28
 **Version:** 1.0.0

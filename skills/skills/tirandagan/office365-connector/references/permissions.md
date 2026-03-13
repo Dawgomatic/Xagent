@@ -37,7 +37,7 @@ Microsoft Graph supports two permission types:
 - Displaying "Signed in as: user@example.com"
 - Personalizing email signatures
 
-**Risk level:** ⬛️ Low
+**Risk level:**  Low
 
 ---
 
@@ -60,7 +60,7 @@ Microsoft Graph supports two permission types:
 - Checking email without signing in every time
 - Background calendar synchronization
 
-**Risk level:** ⬛️ Low
+**Risk level:**  Low
 
 ---
 
@@ -89,7 +89,7 @@ Microsoft Graph supports two permission types:
 - "Search for emails about the project"
 - "What attachments did I receive this week?"
 
-**Risk level:** ⬛️⬛️ Medium
+**Risk level:**  Medium
 
 ---
 
@@ -118,7 +118,7 @@ Microsoft Graph supports two permission types:
 - "Delete emails older than 6 months"
 - "Create a draft email to save for later"
 
-**Risk level:** ⬛️⬛️⬛️ Medium-High
+**Risk level:**  Medium-High
 
 ---
 
@@ -145,7 +145,7 @@ Microsoft Graph supports two permission types:
 - "Reply to the latest email from john@example.com"
 - "Forward this PDF to sarah@example.com"
 
-**Risk level:** ⬛️⬛️⬛️⬛️ High
+**Risk level:**  High
 
 ---
 
@@ -175,7 +175,7 @@ Microsoft Graph supports two permission types:
 - "Check my availability next Tuesday"
 - "Show me all events with Jane this month"
 
-**Risk level:** ⬛️⬛️ Medium
+**Risk level:**  Medium
 
 ---
 
@@ -206,7 +206,7 @@ Microsoft Graph supports two permission types:
 - "Move my Friday meeting to Thursday"
 - "Accept all meeting invitations from this week"
 
-**Risk level:** ⬛️⬛️⬛️ Medium-High
+**Risk level:**  Medium-High
 
 ---
 
@@ -236,7 +236,7 @@ Microsoft Graph supports two permission types:
 - "Show me all contacts from Microsoft"
 - "What's John's phone number?"
 
-**Risk level:** ⬛️⬛️ Medium
+**Risk level:**  Medium
 
 ---
 
@@ -266,7 +266,7 @@ Microsoft Graph supports two permission types:
 - "Delete all contacts from Contoso company"
 - "Create a contact group for my project team"
 
-**Risk level:** ⬛️⬛️⬛️ Medium-High
+**Risk level:**  Medium-High
 
 ---
 

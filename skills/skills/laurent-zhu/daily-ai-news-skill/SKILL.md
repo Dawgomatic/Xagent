@@ -110,30 +110,30 @@ When the same story appears in multiple sources:
 
 Organize news into 5 categories:
 
-### 🔥 Major Announcements
+###  Major Announcements
 - Product launches (new AI tools, services, features)
 - Model releases (GPT updates, Claude features, Gemini capabilities)
 - Major company announcements (OpenAI, Google, Anthropic, Microsoft, Meta)
 
-### 🔬 Research & Papers
+###  Research & Papers
 - Academic breakthroughs
 - New research papers from top conferences
 - Novel techniques or methodologies
 - Benchmark achievements
 
-### 💰 Industry & Business
+###  Industry & Business
 - Funding rounds and investments
 - Mergers and acquisitions
 - Partnerships and collaborations
 - Market trends and analysis
 
-### 🛠️ Tools & Applications
+###  Tools & Applications
 - New AI tools and frameworks
 - Practical AI applications
 - Open source releases
 - Developer resources
 
-### 🌍 Policy & Ethics
+###  Policy & Ethics
 - AI regulations and policies
 - Safety and ethics discussions
 - Social impact studies
@@ -144,7 +144,7 @@ Organize news into 5 categories:
 Use the following template for consistent output:
 
 ```markdown
-# 📰 Daily AI News Briefing
+#  Daily AI News Briefing
 
 **Date**: [Current Date, e.g., December 24, 2025]
 **Sources**: [X] articles from [Y] sources
@@ -152,7 +152,7 @@ Use the following template for consistent output:
 
 ---
 
-## 🔥 Major Announcements
+##  Major Announcements
 
 ### [Headline 1]
 
@@ -165,8 +165,8 @@ Use the following template for consistent output:
 
 **Impact**: [Why this matters - 1 sentence]
 
-📅 **Source**: [Publication Name] • [Publication Date]
-🔗 **Link**: [URL to original article]
+ **Source**: [Publication Name] • [Publication Date]
+ **Link**: [URL to original article]
 
 ---
 
@@ -176,7 +176,7 @@ Use the following template for consistent output:
 
 ---
 
-## 🔬 Research & Papers
+##  Research & Papers
 
 ### [Headline 3]
 
@@ -184,7 +184,7 @@ Use the following template for consistent output:
 
 ---
 
-## 💰 Industry & Business
+##  Industry & Business
 
 ### [Headline 4]
 
@@ -192,7 +192,7 @@ Use the following template for consistent output:
 
 ---
 
-## 🛠️ Tools & Applications
+##  Tools & Applications
 
 ### [Headline 5]
 
@@ -200,7 +200,7 @@ Use the following template for consistent output:
 
 ---
 
-## 🌍 Policy & Ethics
+##  Policy & Ethics
 
 ### [Headline 6]
 
@@ -208,7 +208,7 @@ Use the following template for consistent output:
 
 ---
 
-## 🎯 Key Takeaways
+##  Key Takeaways
 
 1. [The biggest news of the day - 1 sentence]
 2. [Second most important development - 1 sentence]

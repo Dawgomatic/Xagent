@@ -1,7 +1,7 @@
 ---
 name: Stellar
 description: Assist with Stellar XLM transactions, anchors, memo requirements, and cross-border payments.
-metadata: {"clawdbot":{"emoji":"🚀","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Memo Field (Critical)

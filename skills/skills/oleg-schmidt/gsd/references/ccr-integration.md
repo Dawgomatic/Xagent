@@ -475,11 +475,11 @@ Total cost accumulates across all phases.
 <summary>
 
 CCR integration with GSD Autopilot provides:
-- ✅ **Cost Optimization**: Route simple tasks to cheap models
-- ✅ **Capability Matching**: Use premium models only where needed
-- ✅ **Provider Flexibility**: Mix Anthropic, OpenAI, Z-AI, OpenRouter
-- ✅ **Automatic Fallback**: Works without CCR if not configured
-- ✅ **Transparent**: Model selection logged for debugging
+-  **Cost Optimization**: Route simple tasks to cheap models
+-  **Capability Matching**: Use premium models only where needed
+-  **Provider Flexibility**: Mix Anthropic, OpenAI, Z-AI, OpenRouter
+-  **Automatic Fallback**: Works without CCR if not configured
+-  **Transparent**: Model selection logged for debugging
 
 Start with the template configuration, test on a small project, then optimize for your specific needs!
 

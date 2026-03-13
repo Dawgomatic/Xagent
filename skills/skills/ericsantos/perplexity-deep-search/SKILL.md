@@ -2,7 +2,7 @@
 name: perplexity
 description: "Deep search via Perplexity API. Three modes: search (quick facts), reason (complex analysis), research (in-depth reports). Returns AI-grounded answers with citations."
 homepage: https://docs.perplexity.ai
-metadata: {"clawdbot":{"emoji":"🔮","requires":{"bins":["curl","jq"]},"primaryEnv":"PERPLEXITY_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq"]},"primaryEnv":"PERPLEXITY_API_KEY"}}
 ---
 
 # Perplexity Deep Search

@@ -30,4 +30,4 @@ We believe that vocabulary learning should feel natural and integrated, not like
 
 Voc is currently in *namespace reservation* status. The structure, brand, and scripting foundations are in place. Full flashcard and spaced repetition features are planned for future releases.
 
-Copyright © 2025 Netsnek e.U.
+Copyright  2025 Netsnek e.U.

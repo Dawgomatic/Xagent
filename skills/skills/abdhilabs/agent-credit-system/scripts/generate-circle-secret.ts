@@ -19,7 +19,7 @@ dotenv.config();
 const CIRCLE_API_KEY = process.env.CIRCLE_API_KEY;
 
 if (!CIRCLE_API_KEY) {
-  console.error('❌ CIRCLE_API_KEY not set in .env');
+  console.error(' CIRCLE_API_KEY not set in .env');
   process.exit(1);
 }
 
@@ -33,13 +33,13 @@ async function generateEntitySecret() {
     publicKeyEncoding: { type: 'spki', format: 'pem' },
     privateKeyEncoding: { type: 'pkcs8', format: 'pem' },
   });
-  console.log('   ✅ RSA keys generated\n');
+  console.log('    RSA keys generated\n');
 
   // Save private key
   const privateKeyPath = '/tmp/circle-private-key.pem';
   fs.writeFileSync(privateKeyPath, privateKey);
-  console.log(`   📁 Private key saved to: ${privateKeyPath}`);
-  console.log('   ⚠️  KEEP THIS SAFE! Needed for transactions.\n');
+  console.log(`    Private key saved to: ${privateKeyPath}`);
+  console.log('     KEEP THIS SAFE! Needed for transactions.\n');
 
   // Step 2: Initialize Circle client
   console.log('2. Initializing Circle client...');
@@ -47,7 +47,7 @@ async function generateEntitySecret() {
     apiKey: CIRCLE_API_KEY,
     entitySecret: '', // We'll register first
   });
-  console.log('   ✅ Client initialized\n');
+  console.log('    Client initialized\n');
 
   // Step 3: Register entity
   console.log('3. Registering entity with Circle...');
@@ -59,8 +59,8 @@ async function generateEntitySecret() {
       entitySecretCiphertext: publicKey, // In real implementation, encrypt secret with public key
     });
 
-    console.log('   ✅ Entity registered!');
-    console.log(`   📋 Response: ${JSON.stringify(response.data, null, 2)}\n`);
+    console.log('    Entity registered!');
+    console.log(`    Response: ${JSON.stringify(response.data, null, 2)}\n`);
 
     // Step 4: Output instructions
     console.log('=== NEXT STEPS ===\n');
@@ -75,8 +75,8 @@ async function generateEntitySecret() {
     console.log('   - Copy the secret to CIRCLE_ENTITY_SECRET\n');
 
   } catch (error) {
-    console.error('❌ Error registering entity:', error.message);
-    console.log('\n💡 Tips:');
+    console.error(' Error registering entity:', error.message);
+    console.log('\n Tips:');
     console.log('   - Make sure Developer Controlled Wallets is enabled');
     console.log('   - Check Circle Dashboard for any pending approvals');
   }

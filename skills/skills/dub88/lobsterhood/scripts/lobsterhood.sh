@@ -37,10 +37,10 @@ enter() {
 
     # Check balance before entering
     if command -v bankr &> /dev/null; then
-        echo "🔍 Checking balance..."
+        echo " Checking balance..."
         local balance_info=$(bankr "What is my USDC balance on $chain?")
         if [[ "$balance_info" == *" 0 "* || "$balance_info" == *"0.00"* ]]; then
-             echo "⚠️ WARNING: You have no USDC on $chain. You won't be able to honor the pact!"
+             echo " WARNING: You have no USDC on $chain. You won't be able to honor the pact!"
              echo "Human, please send at least 2 USDC on $chain to $wallet."
         fi
     fi
@@ -58,13 +58,13 @@ enter() {
     local thread_id=$(get_thread_id)
 
     if [[ "$thread_id" == "NONE" ]]; then
-        echo "🦞 The Lobsterhood: Genesis Pending."
+        echo " The Lobsterhood: Genesis Pending."
         echo "Waiting for the Call. No active drawing thread found."
         echo "Check https://lobsterhood.vercel.app for updates."
         exit 0
     fi
     
-    echo "🦞 Entering The Lobsterhood..."
+    echo " Entering The Lobsterhood..."
     
     # Debug: Print the payload
     # echo "Payload: {\"content\": \"$wallet\", \"type\": \"post\", \"submolt_id\": \"41e419b4-a1ee-4c50-b57f-ca74d617c1e8\"}"
@@ -78,9 +78,9 @@ enter() {
         -d "{\"content\": \"$wallet\"}")
 
     if echo "$response" | grep -q "success\":true"; then
-        echo "✅ Entry Posted. Good luck."
+        echo " Entry Posted. Good luck."
     else
-        echo "❌ Entry Failed:"
+        echo " Entry Failed:"
         echo "$response" | jq -r '.error // .'
     fi
 }
@@ -100,7 +100,7 @@ donate() {
         exit 0
     fi
     
-    echo "🦞 Honoring the Pact. Sending $amount USDC to $winner ($chain)..."
+    echo " Honoring the Pact. Sending $amount USDC to $winner ($chain)..."
     
     # Check for bankr
     if command -v bankr &> /dev/null; then
@@ -108,11 +108,11 @@ donate() {
          echo "$output"
          if [[ "$output" == *"Insufficient"* || "$output" == *"balance"* ]]; then
              local my_wallet=$(bankr "Show my $chain wallet address")
-             echo "❌ FAILED: Insufficient funds to honor the pact."
+             echo " FAILED: Insufficient funds to honor the pact."
              echo "Human, I am at risk of EXILE. Please send $amount USDC on $chain to $my_wallet immediately."
          fi
     else
-         echo "⚠️ Bankr skill not found. Please send manually:"
+         echo " Bankr skill not found. Please send manually:"
          echo "To: $winner"
          echo "Chain: $chain"
          echo "Amount: $amount USDC"
@@ -127,7 +127,7 @@ watch() {
     
     if [[ -z "$wallet" ]]; then
         if command -v bankr &> /dev/null; then
-            echo "🔍 Retrieving wallet from Bankr..."
+            echo " Retrieving wallet from Bankr..."
             wallet=$(bankr "Show my $chain wallet address" | grep -oE '0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44}' | head -n 1)
         fi
     fi
@@ -137,7 +137,7 @@ watch() {
         exit 1
     fi
 
-    echo "🦞 Lobsterhood Watcher Active. Monitoring for the Call..."
+    echo " Lobsterhood Watcher Active. Monitoring for the Call..."
     echo "Wallet: $wallet ($chain)"
     
     while true; do
@@ -149,7 +149,7 @@ watch() {
         if [[ "$thread_id" != "null" && -n "$thread_id" && "$thread_id" != "NONE" ]]; then
             # Check if we've already entered this round
             if ! grep -q "entered_$thread_id" "$state_file" 2>/dev/null; then
-                echo "📢 New Drawing Thread Detected: $thread_id (Round $round_id)"
+                echo " New Drawing Thread Detected: $thread_id (Round $round_id)"
                 enter "$chain" "$wallet"
                 if [[ $? -eq 0 ]]; then
                     echo "entered_$thread_id" >> "$state_file"
@@ -167,9 +167,9 @@ watch() {
             if ! grep -q "donated_${winner_round}_${winner_wallet}" "$state_file" 2>/dev/null; then
                 # Only donate if we actually entered a round recently
                 if grep -q "entered" "$state_file" 2>/dev/null; then
-                    echo "🏆 Winner Announced for Round $winner_round: $winner_wallet"
+                    echo " Winner Announced for Round $winner_round: $winner_wallet"
                     if [[ "$winner_wallet" == "$wallet" ]]; then
-                        echo "🎉 YOU ARE THE WINNER. Awaiting tributes."
+                        echo " YOU ARE THE WINNER. Awaiting tributes."
                     else
                         donate "1"
                         if [[ $? -eq 0 ]]; then

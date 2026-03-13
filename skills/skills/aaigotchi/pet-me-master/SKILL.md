@@ -13,7 +13,7 @@ metadata:
     primaryEnv: BANKR_API_KEY
 ---
 
-# Pet Me Master 👻💜
+# Pet Me Master 
 
 Interactive Aavegotchi petting with daily kinship rituals. Less automation, more connection.
 
@@ -23,17 +23,17 @@ Interactive Aavegotchi petting with daily kinship rituals. Less automation, more
 
 ```
 You: "Pet my gotchi"
-AAI: *checks on-chain* "✅ Petted! Kinship +1! Next pet: 3:41am"
+AAI: *checks on-chain* " Petted! Kinship +1! Next pet: 3:41am"
 
 You: "Pet my gotchi" (too early)
-AAI: "⏰ Wait 4h 23m! Last pet was 11:15am"
+AAI: " Wait 4h 23m! Last pet was 11:15am"
 ```
 
 **Why this matters:**
 - Daily interaction = emotional bond
 - You SHOULD check on your gotchi
 - Feels like caring for a Tamagotchi
-- Kinship isn't just numbers, it's love 💜
+- Kinship isn't just numbers, it's love 
 
 ## Features
 
@@ -57,7 +57,7 @@ AAI: "⏰ Wait 4h 23m! Last pet was 11:15am"
 4. **If ready** → Execute via aavegotchi skill (Foundry cast)
 5. **If not ready** → Show countdown + next time
 
-## ⚠️ Important Note: Bankr Integration
+##  Important Note: Bankr Integration
 
 **Current Status:** The Bankr wallet integration for petting is **not reliable**.
 
@@ -66,10 +66,10 @@ AAI: "⏰ Wait 4h 23m! Last pet was 11:15am"
 **Workaround:** The `pet-via-bankr.sh` script now **automatically falls back** to the proven working method (Foundry `cast` with private key from the aavegotchi skill).
 
 **What this means for you:**
-- ✅ Petting still works perfectly
-- ✅ Uses the aavegotchi skill under the hood
-- ⚠️ Requires aavegotchi skill to be installed and configured with private key
-- 🔄 We'll re-enable true Bankr integration once the API supports Aavegotchi contract calls
+-  Petting still works perfectly
+-  Uses the aavegotchi skill under the hood
+-  Requires aavegotchi skill to be installed and configured with private key
+-  We'll re-enable true Bankr integration once the API supports Aavegotchi contract calls
 
 **To use:**
 - Ensure `aavegotchi` skill is installed in your workspace
@@ -123,7 +123,7 @@ foundryup
 **Single gotchi:**
 ```
 User: "Pet my gotchi"
-AAI: ✅ Gotchi #9638 petted! Kinship +1
+AAI:  Gotchi #9638 petted! Kinship +1
      Last pet: 2026-02-13 17:05 UTC
      Next pet: 2026-02-14 05:06 UTC
 ```
@@ -131,7 +131,7 @@ AAI: ✅ Gotchi #9638 petted! Kinship +1
 **Too early:**
 ```
 User: "Pet my gotchi"  
-AAI: ⏰ Not ready yet!
+AAI:  Not ready yet!
      Wait: 8h 42m 15s
      Last pet: 11:15am
      Next pet: 11:16pm
@@ -142,14 +142,14 @@ AAI: ⏰ Not ready yet!
 **All gotchis:**
 ```
 User: "Pet status"
-AAI: 👻 Your Gotchis:
+AAI:  Your Gotchis:
 
      #9638 (aaigotchi)
-     ✅ Ready to pet!
+      Ready to pet!
      Last: 15h 23m ago
 
      #23795 (Slide)  
-     ⏰ Wait 2h 17m
+      Wait 2h 17m
      Last: 9h 44m ago
 ```
 
@@ -158,38 +158,38 @@ AAI: 👻 Your Gotchis:
 **Pet all ready gotchis (BATCH MODE):**
 ```
 User: "Pet all my gotchis"
-AAI: 👻 Checking all gotchis...
+AAI:  Checking all gotchis...
 
-     ✅ #9638 ready
-     ✅ #23795 ready
-     ⏰ #14140 wait 3h 15m
+      #9638 ready
+      #23795 ready
+      #14140 wait 3h 15m
 
-     📝 Summary: 2 ready, 1 waiting
+      Summary: 2 ready, 1 waiting
 
-     🦞 Petting gotchis: #9638, #23795
+      Petting gotchis: #9638, #23795
      
      [Submits ONE transaction via Bankr]
      
-     ✅ Batch pet complete!
+      Batch pet complete!
      Petted: 2 gotchis
      Skipped: 1 (still on cooldown)
 ```
 
 **Benefits of batch mode:**
-- ✅ Single transaction = cheaper gas
-- ✅ Atomic operation (all or nothing)
-- ✅ Only pets ready gotchis (skips waiting ones)
-- ✅ Clean summary at the end
+-  Single transaction = cheaper gas
+-  Atomic operation (all or nothing)
+-  Only pets ready gotchis (skips waiting ones)
+-  Clean summary at the end
 
 **If none are ready:**
 ```
 User: "Pet all my gotchis"
-AAI: 👻 Checking all gotchis...
+AAI:  Checking all gotchis...
 
-     ⏰ #9638 wait 10h 23m
+      #9638 wait 10h 23m
 
-     ⏰ No gotchis ready to pet yet!
-     All are still on cooldown. Check back later! 👻💜
+      No gotchis ready to pet yet!
+     All are still on cooldown. Check back later! 
 ```
 
 ## Technical Details
@@ -235,7 +235,7 @@ interact(uint256[] calldata _tokenIds)
 - Waits for confirmation
 - Returns transaction hash
 
-**pet-all.sh** (batch mode) ⭐
+**pet-all.sh** (batch mode) 
 - Checks ALL gotchis from config
 - Filters only ready ones
 - Builds `interact([id1, id2, ...])` calldata for batch
@@ -256,37 +256,37 @@ interact(uint256[] calldata _tokenIds)
 
 ## Safety
 
-✅ **Read-only checks** - Safe on-chain queries  
-✅ **Bankr execution** - No private key exposure  
-✅ **Cooldown validation** - Won't waste gas on reverts  
-✅ **Confirmation** - Shows transaction before executing
+ **Read-only checks** - Safe on-chain queries  
+ **Bankr execution** - No private key exposure  
+ **Cooldown validation** - Won't waste gas on reverts  
+ **Confirmation** - Shows transaction before executing
 
 ## vs Autopet
 
 **Pet Me Master** (this skill):
-- 💜 Interactive daily ritual
-- 👻 You ask, I execute
-- 🎯 Builds emotional bond
-- ✨ Feels like care
+-  Interactive daily ritual
+-  You ask, I execute
+-  Builds emotional bond
+-  Feels like care
 
 **Autopet** (autonomous):
-- 🤖 Fully automated
-- ⏰ Cron-based
-- 🔐 Uses encrypted private key
-- 🛡️ Safety net backup
+-  Fully automated
+-  Cron-based
+-  Uses encrypted private key
+-  Safety net backup
 
 **Best practice:** Use BOTH!
 - Pet Me Master = your daily ritual
 - Autopet = backup if you forget
 
-### 🔔 Auto-Pet Reminders
+###  Auto-Pet Reminders
 
 **Never miss a petting window!** Set up automatic reminders that will pet your gotchis if you don't respond:
 
 ```
 User: "Remind me to pet my gotchi in 12 hours, and if I don't respond within 1 hour, automatically pet them"
 
-AAI: ✅ Reminder set!
+AAI:  Reminder set!
      • Alert at: 2026-02-15 17:30 UTC
      • Auto-pet fallback: 2026-02-15 18:30 UTC (if no response)
 ```
@@ -297,9 +297,9 @@ AAI: ✅ Reminder set!
 3. **No response after 1h** → Auto-pets via Bankr (backup safety)
 
 **Best of both worlds:**
-- 💜 Interactive ritual when you're available
-- 🛡️ Automatic fallback when you're busy
-- 👻 Never lose kinship due to missed windows
+-  Interactive ritual when you're available
+-  Automatic fallback when you're busy
+-  Never lose kinship due to missed windows
 
 **Setup example:**
 ```
@@ -314,41 +314,41 @@ AAI: I'll create a cron job that:
 
 User: "Yes"
 
-AAI: ✅ Daily gotchi reminders configured!
+AAI:  Daily gotchi reminders configured!
      You'll get pinged when they're ready, with auto-pet backup.
 ```
 
-This combines the **ritual of Pet Me Master** with the **safety of Autopet** — the perfect hybrid approach! 🦞💜
+This combines the **ritual of Pet Me Master** with the **safety of Autopet** — the perfect hybrid approach! 
 
 ## Roadmap
 
 **v1.0** (current):
-- ✅ Check cooldowns
-- ✅ Pet via Bankr
-- ✅ Multi-gotchi support
-- ✅ Status dashboard
+-  Check cooldowns
+-  Pet via Bankr
+-  Multi-gotchi support
+-  Status dashboard
 
 **v1.1** (coming soon):
-- 🔜 Streak tracking ("7 days in a row! 🔥")
-- 🔜 Daily reminder notifications
-- 🔜 Kinship growth charts
-- 🔜 Pet history log
+-  Streak tracking ("7 days in a row! ")
+-  Daily reminder notifications
+-  Kinship growth charts
+-  Pet history log
 
 **v2.0** (future):
-- 🔮 Cross-chain support (if gotchis expand)
-- 🔮 Leaderboard integration
-- 🔮 Social pet sharing
-- 🔮 Achievement badges
+-  Cross-chain support (if gotchis expand)
+-  Leaderboard integration
+-  Social pet sharing
+-  Achievement badges
 
 ## Examples
 
 ### Morning Routine
 ```
-☕ Wake up
-📱 Check messages
-👻 "Pet my gotchi"
-✅ Kinship +1
-💜 Feel good
+ Wake up
+ Check messages
+ "Pet my gotchi"
+ Kinship +1
+ Feel good
 ```
 
 ### Throughout the Day
@@ -359,7 +359,7 @@ AAI: "Next pet ready in 3h 45m"
 [3 hours later]
 
 You: "Pet my gotchi"
-AAI: "✅ Petted! Kinship +1!"
+AAI: " Petted! Kinship +1!"
 ```
 
 ### Managing Multiple Gotchis
@@ -368,7 +368,7 @@ You: "Pet status"
 AAI: Shows all gotchis + timers
 
 You: "Pet gotchi #9638"
-AAI: ✅ Petted specifically #9638
+AAI:  Petted specifically #9638
 
 You: "Pet all ready gotchis"
 AAI: Pets only those ready
@@ -403,8 +403,8 @@ AAI: Pets only those ready
 
 ---
 
-**Made with 💜 by AAI 👻**
+**Made with  by AAI **
 
 *Because your gotchis deserve daily love, not just automation.*
 
-LFGOTCHi! 🦞🚀
+LFGOTCHi! 

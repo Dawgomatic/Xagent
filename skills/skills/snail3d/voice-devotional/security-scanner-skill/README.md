@@ -67,9 +67,9 @@ security-scanner --help
 
 | Level | Color | Action | Next Step |
 |-------|-------|--------|-----------|
-| 🟢 **SAFE** | Green | Install | Deploy the skill |
-| 🟡 **CAUTION** | Yellow | Quarantine | Review findings before installing |
-| 🔴 **DANGEROUS** | Red | Reject | Do not install, request code review |
+|  **SAFE** | Green | Install | Deploy the skill |
+|  **CAUTION** | Yellow | Quarantine | Review findings before installing |
+|  **DANGEROUS** | Red | Reject | Do not install, request code review |
 
 ## Exit Codes
 
@@ -112,11 +112,11 @@ RISK_LEVEL=$(jq -r '.riskLevel' /tmp/scan-report.json)
 
 case "$RISK_LEVEL" in
   DANGEROUS)
-    echo "❌ REJECT - Dangerous patterns detected"
+    echo " REJECT - Dangerous patterns detected"
     exit 2
     ;;
   CAUTION)
-    echo "⚠️  QUARANTINE - Manual review required"
+    echo "  QUARANTINE - Manual review required"
     exit 1
     ;;
   SAFE)
@@ -223,29 +223,29 @@ $ security-scanner examples/example-dangerous.js --output json
 
 ## Detected Patterns
 
-### Code Execution (🔴 DANGEROUS)
+### Code Execution ( DANGEROUS)
 - `eval()` - Executes arbitrary JavaScript
 - `exec()` - Executes arbitrary commands
 - Dynamic `require('./path' + variable)` - Loads arbitrary code
 
-### Credential Theft (🟡 CAUTION)
+### Credential Theft ( CAUTION)
 - `process.env.API_KEY`, `process.env.SECRET`, etc.
 - `process.env[variableName]` - Dynamic access
 - Reading from system files: `/etc/passwd`, `~/.ssh/`
 
-### Network/Data Exfiltration (🟡 CAUTION)
+### Network/Data Exfiltration ( CAUTION)
 - `fetch()` to unknown external domains
 - HTTP requests via `http.get()`, `http.post()`
 - Low-level socket access (`net`, `dgram`)
 
-### Obfuscation (🟡 CAUTION)
+### Obfuscation ( CAUTION)
 - Minified code (unusual density of symbols)
 - Hex-encoded strings: `\x41\x42\x43`
 - Unicode escapes: `\u0041\u0042`
 
 ## What It CAN'T Detect
 
-⚠️ **Limitations of static analysis:**
+ **Limitations of static analysis:**
 
 - Runtime tricks (code decoded at runtime)
 - Complex control flow analysis
@@ -294,14 +294,14 @@ spawn('npm', ['install']);  // Hardcoded command and args
 **Severity:** CAUTION (depends on the domain)
 
 **Legitimate domains:**
-- ✅ `api.github.com`
-- ✅ `api.weather.gov`
-- ✅ Known services (Stripe, AWS, etc.)
+-  `api.github.com`
+-  `api.weather.gov`
+-  Known services (Stripe, AWS, etc.)
 
 **Suspicious domains:**
-- ❌ `malware-site.ru`
-- ❌ `random-analytics.xyz`
-- ❌ Domains in unexpected countries
+-  `malware-site.ru`
+-  `random-analytics.xyz`
+-  Domains in unexpected countries
 
 ### "Code appears to be minified or obfuscated"
 **Issue:** Source code is intentionally hidden.
@@ -375,7 +375,7 @@ In your GitHub Actions workflow:
     fi
     
     if [ "$RISK" = "CAUTION" ]; then
-      echo "⚠️  Warning: Suspicious patterns found - manual review recommended"
+      echo "  Warning: Suspicious patterns found - manual review recommended"
       jq '.findings[]' security-report.json
     fi
 

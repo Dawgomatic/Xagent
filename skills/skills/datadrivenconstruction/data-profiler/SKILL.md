@@ -2,7 +2,7 @@
 name: "data-profiler"
 description: "Profile construction data to understand characteristics, distributions, quality metrics, and patterns. Essential for data quality assessment and ETL planning."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "🏷️", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # Data Profiler for Construction
 

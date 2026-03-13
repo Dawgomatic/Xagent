@@ -7,7 +7,7 @@
 TOPIC="${1:-Should I continue with this project?}"
 SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-echo "🎭 Multi-Viewpoint Debate"
+echo " Multi-Viewpoint Debate"
 echo "=============================="
 echo ""
 echo "Topic: $TOPIC"
@@ -133,6 +133,6 @@ EOF
 echo ""
 echo "---"
 echo ""
-echo "✅ After all three complete, save responses to a debate file using the template:"
+echo " After all three complete, save responses to a debate file using the template:"
 echo "   /home/nick/clawd/skills/multi-viewpoint-debates/assets/debate-template.md"
 echo ""

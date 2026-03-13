@@ -1,7 +1,7 @@
 ---
 name: PowerShell
 description: Avoid common PowerShell mistakes — output behavior, array traps, and comparison operator gotchas.
-metadata: {"clawdbot":{"emoji":"🔵","requires":{"bins":["pwsh"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["pwsh"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Output Behavior

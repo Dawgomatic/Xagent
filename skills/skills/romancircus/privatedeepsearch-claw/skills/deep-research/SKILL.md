@@ -2,7 +2,7 @@
 name: deep-research
 description: Perform comprehensive web research using local SearXNG. Iteratively searches, fetches content, and synthesizes a report with citations. Use for complex research questions requiring multiple sources.
 homepage: https://github.com/romancircus/searxng-deep-research
-metadata: {"clawdbot":{"emoji":"🔬","requires":{"bins":["python3"],"python":["aiohttp","beautifulsoup4"]},"install":[{"id":"python-deps","kind":"pip","packages":["aiohttp","beautifulsoup4"],"label":"Install Python dependencies"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"],"python":["aiohttp","beautifulsoup4"]},"install":[{"id":"python-deps","kind":"pip","packages":["aiohttp","beautifulsoup4"],"label":"Install Python dependencies"}]}}
 ---
 
 # Deep Research

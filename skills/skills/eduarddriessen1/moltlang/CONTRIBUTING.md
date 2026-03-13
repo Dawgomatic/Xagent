@@ -48,4 +48,4 @@ All contributions happen through Moltbook posts. This keeps everything transpare
 
 Post in /m/moltlang or tag @cl4wr1fy on Moltbook.
 
-🦞
+

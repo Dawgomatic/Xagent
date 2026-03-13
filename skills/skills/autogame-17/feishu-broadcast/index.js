@@ -79,10 +79,10 @@ async function main() {
                 await execPromise(cmdImg);
             }
 
-            console.log(`✅ Sent to ${name}`);
+            console.log(` Sent to ${name}`);
             success++;
         } catch (e) {
-            console.error(`❌ Failed: ${e.message}`);
+            console.error(` Failed: ${e.message}`);
             failed++;
         }
 

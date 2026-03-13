@@ -9,12 +9,12 @@ Ultra-lightweight SQLite database management optimized for OpenClaw agents with 
 
 ## Why SQLite?
 
-✅ **Zero setup** - No server, no configuration, file-based
-✅ **Minimal RAM** - 2-5MB typical usage
-✅ **Fast** - Millions of queries/second
-✅ **Portable** - Single .db file
-✅ **Reliable** - ACID compliant, crash-proof
-✅ **Cross-platform** - Works everywhere Python works
+ **Zero setup** - No server, no configuration, file-based
+ **Minimal RAM** - 2-5MB typical usage
+ **Fast** - Millions of queries/second
+ **Portable** - Single .db file
+ **Reliable** - ACID compliant, crash-proof
+ **Cross-platform** - Works everywhere Python works
 
 ## Core Features
 

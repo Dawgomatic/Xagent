@@ -86,7 +86,7 @@ After individual coins, include:
 ## K-line Analysis Method
 
 For each timeframe (15m/1h/4h), fetch 10 candles and compute:
-- **Trend**: 3 consecutive candles direction → 📈Bullish/📉Bearish/↔️Sideways
+- **Trend**: 3 consecutive candles direction → Bullish/Bearish/Sideways
 - **Bull/bear ratio**: count of green vs red candles out of 10
 - **MA alignment**: MA3 vs MA7 → Bullish alignment/Bearish alignment
 - **Volume change**: avg volume of last 3 candles vs previous 3 → percentage

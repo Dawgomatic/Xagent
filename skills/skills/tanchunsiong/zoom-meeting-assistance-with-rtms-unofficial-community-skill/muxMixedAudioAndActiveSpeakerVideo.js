@@ -11,7 +11,7 @@ export async function muxMixedAudioAndActiveSpeakerVideo(streamId) {
   const folderPath = getRecordingsPath(streamId);
 
   if (!fs.existsSync(folderPath)) {
-    console.error(`❌ Meeting folder does not exist: ${folderPath}`);
+    console.error(` Meeting folder does not exist: ${folderPath}`);
     return;
   }
 
@@ -19,7 +19,7 @@ export async function muxMixedAudioAndActiveSpeakerVideo(streamId) {
   const videoPath = path.join(folderPath, 'activespeakervideo.mp4');
 
   if (!fs.existsSync(audioPath) || !fs.existsSync(videoPath)) {
-    console.error('❌ Cannot find mixedaudio.wav and/or activespeakervideo.mp4 to mux.');
+    console.error(' Cannot find mixedaudio.wav and/or activespeakervideo.mp4 to mux.');
     return;
   }
   const outputPath = path.join(folderPath, 'final_output.mp4');
@@ -27,12 +27,12 @@ export async function muxMixedAudioAndActiveSpeakerVideo(streamId) {
   const offsetSeconds = 0.0; // You can adjust this offset
   const command = `ffmpeg -i "${audioPath}" -i "${videoPath}" -itsoffset ${offsetSeconds} -i "${audioPath}" -map 1:v:0 -map 2:a:0 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 64k -ar 16000 -ac 1 -shortest "${outputPath}"`;
 
-  console.log(`🎥 Muxing activespeakervideo.mp4 + mixedaudio.wav -> final_output.mp4`);
+  console.log(` Muxing activespeakervideo.mp4 + mixedaudio.wav -> final_output.mp4`);
 
   try {
     await runFFmpegCommand(command);
-    console.log('✅ Muxing completed. Output file created:', outputPath);
+    console.log(' Muxing completed. Output file created:', outputPath);
   } catch (error) {
-    console.error('❌ Muxing failed:', error.message);
+    console.error(' Muxing failed:', error.message);
   }
 }

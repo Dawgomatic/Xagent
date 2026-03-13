@@ -54,10 +54,10 @@ git clone https://github.com/ryancnelson/otp-skill.git otp
 After installation, verify required dependencies:
 ```bash
 # Check what's available
-which jq && echo "✅ jq available" || echo "❌ Install: brew install jq"
-which python3 && echo "✅ python3 available" || echo "❌ Install: brew install python3"
-which oathtool && echo "✅ oathtool available" || echo "❌ Install: brew install oath-toolkit"
-which qrencode && echo "✅ qrencode available" || echo "⚠️  Optional: brew install qrencode (for QR codes)"
+which jq && echo " jq available" || echo " Install: brew install jq"
+which python3 && echo " python3 available" || echo " Install: brew install python3"
+which oathtool && echo " oathtool available" || echo " Install: brew install oath-toolkit"
+which qrencode && echo " qrencode available" || echo "  Optional: brew install qrencode (for QR codes)"
 ```
 
 **Note:** `oathtool` is optional - the skill includes a built-in TOTP generator, but `oathtool` provides additional validation.
@@ -122,11 +122,11 @@ security:
 ```bash
 # Get current code from your authenticator app (6 digits)
 ./verify.sh "testuser" "123456"  # Replace with actual code
-# Should show: ✅ OTP verified for testuser (valid for 24 hours)
+# Should show:  OTP verified for testuser (valid for 24 hours)
 
 # Check verification status
 ./check-status.sh "testuser"
-# Should show: ✅ Valid for 23 more hours
+# Should show:  Valid for 23 more hours
 ```
 
 ---
@@ -174,7 +174,7 @@ export YUBIKEY_SECRET_KEY="your-base64-secret-key"
 ```bash
 # Touch your YubiKey when prompted
 ./verify.sh "testuser" "cccccccccccc..."  # paste YubiKey output
-# Should show: ✅ YubiKey verified for testuser (valid for 24 hours)
+# Should show:  YubiKey verified for testuser (valid for 24 hours)
 ```
 
 ### Using Both TOTP and YubiKey
@@ -223,12 +223,12 @@ OTP_CODE="$2"
 
 # Challenge the user
 if ! verify_otp "$USER_ID" "$OTP_CODE"; then
-  echo "❌ OTP verification failed. Run: /otp <code>"
+  echo " OTP verification failed. Run: /otp <code>"
   exit 1
 fi
 
 # Proceed with sensitive action
-echo "✅ Identity verified. Proceeding with deployment..."
+echo " Identity verified. Proceeding with deployment..."
 kubectl apply -f production.yaml
 ```
 
@@ -239,9 +239,9 @@ kubectl apply -f production.yaml
 source ../otp/check-status.sh
 
 if check_otp_status "$USER_ID"; then
-  echo "✅ User verified within last 24 hours"
+  echo " User verified within last 24 hours"
 else
-  echo "⚠️ Verification expired. User must verify again."
+  echo " Verification expired. User must verify again."
 fi
 ```
 
@@ -250,10 +250,10 @@ fi
 When prompted by a skill:
 ```
 User: deploy to production
-Agent: 🔒 This action requires identity verification. Please provide your OTP code.
+Agent:  This action requires identity verification. Please provide your OTP code.
 
 User: /otp 123456
-Agent: ✅ Identity verified. Deploying to production...
+Agent:  Identity verified. Deploying to production...
 ```
 
 ### Deploy Command with OTP
@@ -270,12 +270,12 @@ SERVICE="$3"
 
 # Require OTP for production deploys
 if ! verify_otp "$USER" "$CODE"; then
-  echo "🔒 Production deployment requires OTP verification"
+  echo " Production deployment requires OTP verification"
   echo "Usage: deploy production <service> --otp <code>"
   exit 1
 fi
 
-echo "✅ Identity verified. Deploying $SERVICE to production..."
+echo " Identity verified. Deploying $SERVICE to production..."
 # ... deployment logic ...
 ```
 
@@ -293,12 +293,12 @@ RECIPIENT="$3"
 
 # Check if user verified recently
 if ! check_otp_status "$USER"; then
-  echo "💳 Large transfer requires fresh identity verification"
+  echo " Large transfer requires fresh identity verification"
   echo "Please verify with: /otp <code>"
   exit 1
 fi
 
-echo "✅ Processing transfer of \$$AMOUNT to $RECIPIENT"
+echo " Processing transfer of \$$AMOUNT to $RECIPIENT"
 # ... transfer logic ...
 ```
 
@@ -321,7 +321,7 @@ The hook receives these environment variables:
 #!/bin/bash
 # shutdown-if-impersonator.sh
 if [ "$OTP_HOOK_EVENT" = "RATE_LIMIT_HIT" ]; then
-  echo "🚨 OTP rate limit hit for $OTP_HOOK_USER at $OTP_HOOK_TIMESTAMP" | \
+  echo " OTP rate limit hit for $OTP_HOOK_USER at $OTP_HOOK_TIMESTAMP" | \
     slack-notify "#alerts"
   pkill -f openclaw
 fi

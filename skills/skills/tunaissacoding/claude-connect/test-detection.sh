@@ -62,7 +62,7 @@ EOF
             echo "No claude-oauth-refresh-config.json found - run ./install.sh to create"
         fi
     else
-        echo -e "${YELLOW}⚠ Auto-detection failed${NC}"
+        echo -e "${YELLOW} Auto-detection failed${NC}"
         echo ""
         echo "Possible reasons:"
         echo "  • Clawdbot config not found (~/.clawdbot/clawdbot.json)"
@@ -73,7 +73,7 @@ EOF
         echo "See SKILL.md section: 'Finding Your Target ID'"
     fi
 else
-    echo -e "${YELLOW}⚠ Detection script not found${NC}"
+    echo -e "${YELLOW} Detection script not found${NC}"
     echo "Run: chmod +x $SCRIPT_DIR/detect-notification-config.sh"
 fi
 

@@ -5,7 +5,7 @@ homepage: https://nton2.com
 user-invocable: true
 ---
 
-# 🔍 N2 Free Search — MCP Server Skill
+#  N2 Free Search — MCP Server Skill
 
 Free, private, unlimited web search for your AI agent. No API keys, no credit cards, no rate limits.
 

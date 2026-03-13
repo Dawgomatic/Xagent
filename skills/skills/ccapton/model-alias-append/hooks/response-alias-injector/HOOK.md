@@ -22,7 +22,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🏷️",
+        "emoji": "",
         "events": ["response:pre-send"],
         "requires": { "config": ["models"] },
         "install": [{ "id": "skill-component", "kind": "skill", "label": "Part of model-alias-append skill" }],
@@ -34,7 +34,7 @@ metadata:
 
 > Intercepts responses and appends model alias with configuration change detection
 
-## 🔧 What It Does
+##  What It Does
 
 - Intercepts responses before sending
 - Detects the model used for the response

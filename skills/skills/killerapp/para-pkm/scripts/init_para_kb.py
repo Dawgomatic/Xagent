@@ -20,7 +20,7 @@ def create_para_structure(kb_name: str, base_path: Path) -> None:
     kb_path = base_path / kb_name
 
     if kb_path.exists():
-        print(f"❌ Directory already exists: {kb_path}")
+        print(f" Directory already exists: {kb_path}")
         sys.exit(1)
 
     # Create main PARA folders
@@ -33,12 +33,12 @@ def create_para_structure(kb_name: str, base_path: Path) -> None:
         "archives",
     ]
 
-    print(f"🚀 Creating PARA knowledge base: {kb_name}")
+    print(f" Creating PARA knowledge base: {kb_name}")
     print(f"   Location: {kb_path}\n")
 
     for folder in folders:
         (kb_path / folder).mkdir(parents=True, exist_ok=True)
-        print(f"✅ Created {folder}/")
+        print(f" Created {folder}/")
 
     # Create README
     readme_content = f"""# {kb_name}
@@ -72,7 +72,7 @@ For more about PARA: https://fortelabs.com/blog/para/
 """
 
     (kb_path / "README.md").write_text(readme_content)
-    print(f"✅ Created README.md")
+    print(f" Created README.md")
 
     # Create basic AGENTS.md
     agents_content = """# AI Agent Navigation Index
@@ -102,9 +102,9 @@ Use grep to find specific topics. Use glob for file patterns.
 """
 
     (kb_path / "AGENTS.md").write_text(agents_content)
-    print(f"✅ Created AGENTS.md")
+    print(f" Created AGENTS.md")
 
-    print(f"\n✅ PARA knowledge base '{kb_name}' initialized successfully!")
+    print(f"\n PARA knowledge base '{kb_name}' initialized successfully!")
     print(f"\nNext steps:")
     print(f"1. cd {kb_path}")
     print(f"2. Start adding projects to projects/active/")

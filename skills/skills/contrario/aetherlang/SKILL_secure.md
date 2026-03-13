@@ -114,8 +114,8 @@ AetherLang supports bilingual output:
 
 - **Platform**: [aetherlang.neurodoc.app](https://aetherlang.neurodoc.app)
 - **Documentation**: [docs.neurodoc.app](https://docs.neurodoc.app)
-- **Status**: Production ✅
+- **Status**: Production 
 
 ---
 
-*Built by NeuroAether — From Kitchen to Code* 🧠
+*Built by NeuroAether — From Kitchen to Code* 

@@ -181,7 +181,7 @@ async function main() {
     console.log('[Setup] Validating ElevenLabs API key...');
     const validation = await vd.ttsGen.validateApiKey();
     if (!validation.valid) {
-      console.error('❌ API Key validation failed:', validation.error);
+      console.error(' API Key validation failed:', validation.error);
       console.error('Please check your ELEVEN_LABS_API_KEY in .env');
       process.exit(1);
     }
@@ -252,7 +252,7 @@ async function main() {
     process.exit(0);
 
   } catch (err) {
-    console.error('\n❌ Error:', err.message);
+    console.error('\n Error:', err.message);
     process.exit(1);
   }
 }
@@ -261,7 +261,7 @@ async function main() {
  * Display result
  */
 function displayResult(result, title) {
-  console.log(`\n📖 ${title}`);
+  console.log(`\n ${title}`);
   console.log('─'.repeat(50));
   
   if (result.metadata) {
@@ -294,7 +294,7 @@ function displayResult(result, title) {
  */
 function displayPlanResult(result) {
   const manifest = result.manifest;
-  console.log(`\n📚 Reading Plan: ${manifest.topic}`);
+  console.log(`\n Reading Plan: ${manifest.topic}`);
   console.log(`─`.repeat(50));
   console.log(`Days:     ${manifest.days}`);
   console.log(`Voice:    ${manifest.voiceId}`);
@@ -313,7 +313,7 @@ function displayPlanResult(result) {
  * Display batch result
  */
 function displayBatchResult(results) {
-  console.log(`\n🎯 Batch Generated`);
+  console.log(`\n Batch Generated`);
   console.log('─'.repeat(50));
   console.log(`Total:    ${results.length} devotionals`);
   

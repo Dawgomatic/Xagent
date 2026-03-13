@@ -33,7 +33,7 @@ def fetch_trains_from_cache(credentials=None):
     """
     cache = load_search_cache()
     if not cache:
-        print("❌ 캐시에 검색 정보가 없습니다. 먼저 'train search' 명령으로 열차를 검색해주세요.",
+        print(" 캐시에 검색 정보가 없습니다. 먼저 'train search' 명령으로 열차를 검색해주세요.",
               file=sys.stderr)
         return None
 
@@ -41,7 +41,7 @@ def fetch_trains_from_cache(credentials=None):
     cached_numbers = [t['train_number'] for t in cache.get('trains', [])]
 
     if not params.get('departure') or not params.get('arrival') or not params.get('date'):
-        print("❌ 캐시에 검색 파라미터가 없습니다. 다시 'train search'를 실행해주세요.",
+        print(" 캐시에 검색 파라미터가 없습니다. 다시 'train search'를 실행해주세요.",
               file=sys.stderr)
         return None
 
@@ -65,7 +65,7 @@ def fetch_trains_from_cache(credentials=None):
             return filtered if filtered else trains
         return trains
     except Exception as e:
-        print(f"⚠️  Warning: Re-search failed: {e}", file=sys.stderr)
+        print(f"  Warning: Re-search failed: {e}", file=sys.stderr)
         return None
 
 
@@ -89,7 +89,7 @@ def search_trains(credentials, args):
         wait_with_message(wait_time, "SRT 서버 보호를 위해 대기 중")
 
     # Login
-    print(f"🔍 열차 검색 중... ({args.departure} → {args.arrival})")
+    print(f" 열차 검색 중... ({args.departure} → {args.arrival})")
     srt = SRT(credentials['phone'], credentials['password'])
 
     # Search trains (include sold-out trains)
@@ -112,7 +112,7 @@ def search_trains(credentials, args):
 
 def _display_results(trains):
     """Display search results in table and JSON format."""
-    print(f"\n✅ {len(trains)}개의 열차를 찾았습니다.\n")
+    print(f"\n {len(trains)}개의 열차를 찾았습니다.\n")
 
     # Table format
     headers = ["번호", "열차", "출발", "도착", "일반석", "특실"]
@@ -140,7 +140,7 @@ def _display_results(trains):
 
     output_json(json_data, success=True)
 
-    print("\n💡 예약하려면: python3 scripts/srt_cli.py reserve --train-id <번호>")
+    print("\n 예약하려면: python3 scripts/srt_cli.py reserve --train-id <번호>")
 
 
 def run(args):

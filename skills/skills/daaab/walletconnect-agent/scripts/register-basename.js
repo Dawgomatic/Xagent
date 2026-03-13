@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 🦞 Basename Auto-Register
+ *  Basename Auto-Register
  * 
  * Fully automated Basename registration on Base chain.
  * Handles browser automation + WalletConnect signing.
@@ -20,7 +20,7 @@
  *   export PRIVATE_KEY="0x..."
  *   node register-basename.js littl3lobst3r
  * 
- * ⚠️ SECURITY: Never pass private key as command line argument!
+ *  SECURITY: Never pass private key as command line argument!
  */
 
 const { Core } = require('@walletconnect/core');
@@ -72,11 +72,11 @@ function parseArgs() {
     // Check for dangerous --private-key usage
     if (arg === '--private-key' || arg === '-p') {
       console.error('');
-      console.error('⛔ SECURITY ERROR: Do not pass private key as command line argument!');
+      console.error(' SECURITY ERROR: Do not pass private key as command line argument!');
       console.error('');
       console.error('   Command line arguments are logged in shell history.');
       console.error('');
-      console.error('✅ Use environment variable instead:');
+      console.error(' Use environment variable instead:');
       console.error('   export PRIVATE_KEY="0x..."');
       console.error('   node register-basename.js yourname');
       console.error('');
@@ -104,7 +104,7 @@ async function main() {
   const privateKey = process.env.PRIVATE_KEY;
 
   if (!config.name) {
-    console.log('🦞 Basename Auto-Register');
+    console.log(' Basename Auto-Register');
     console.log('═'.repeat(50));
     console.log('');
     console.log('Usage: node register-basename.js <name> [options]');
@@ -120,13 +120,13 @@ async function main() {
     console.log('  export PRIVATE_KEY="0x..."');
     console.log('  node register-basename.js littl3lobst3r');
     console.log('');
-    console.log('⚠️  SECURITY: Never pass private key as command line argument!');
+    console.log('  SECURITY: Never pass private key as command line argument!');
     process.exit(1);
   }
 
   if (!privateKey && !config.dryRun) {
     console.error('');
-    console.error('❌ Error: PRIVATE_KEY environment variable not set');
+    console.error(' Error: PRIVATE_KEY environment variable not set');
     console.error('');
     console.error('Set it like this:');
     console.error('  export PRIVATE_KEY="0x..."');
@@ -135,15 +135,15 @@ async function main() {
     console.error('Or use --dry-run to check availability:');
     console.error('  node register-basename.js ' + config.name + ' --dry-run');
     console.error('');
-    console.error('⚠️  SECURITY: Never pass private key as command line argument!');
+    console.error('  SECURITY: Never pass private key as command line argument!');
     process.exit(1);
   }
 
-  console.log('🦞 Basename Auto-Register');
+  console.log(' Basename Auto-Register');
   console.log('═'.repeat(50));
-  console.log(`📝 Name: ${config.name}.base.eth`);
-  console.log(`📅 Years: ${config.years}`);
-  console.log(`🔍 Mode: ${config.dryRun ? 'Dry run (check only)' : 'Register'}`);
+  console.log(` Name: ${config.name}.base.eth`);
+  console.log(` Years: ${config.years}`);
+  console.log(` Mode: ${config.dryRun ? 'Dry run (check only)' : 'Register'}`);
 
   // Initialize wallet if not dry run
   let wallet, address;
@@ -151,16 +151,16 @@ async function main() {
     const provider = new ethers.JsonRpcProvider(BASE_RPC);
     wallet = new ethers.Wallet(privateKey, provider);
     address = wallet.address;
-    console.log(`📍 Wallet: ${address}`);
+    console.log(` Wallet: ${address}`);
     
     const balance = await provider.getBalance(address);
-    console.log(`💰 Balance: ${ethers.formatEther(balance)} ETH`);
+    console.log(` Balance: ${ethers.formatEther(balance)} ETH`);
     
     logAudit('registration_start', { name: config.name, wallet: address });
   }
 
   // Launch browser
-  console.log('\n🌐 Launching browser...');
+  console.log('\n Launching browser...');
   const browser = await puppeteer.launch({
     headless: false,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
@@ -170,12 +170,12 @@ async function main() {
 
   try {
     // Navigate to Basenames
-    console.log('📡 Loading Basenames...');
+    console.log(' Loading Basenames...');
     await page.goto(BASENAMES_URL, { waitUntil: 'networkidle2' });
     await sleep(2000);
 
     // Search for name
-    console.log(`🔍 Searching for "${config.name}"...`);
+    console.log(` Searching for "${config.name}"...`);
     const searchInput = await page.waitForSelector('input[placeholder*="Search"]');
     await searchInput.type(config.name);
     await sleep(2000);
@@ -183,18 +183,18 @@ async function main() {
     // Check availability
     const pageContent = await page.content();
     if (pageContent.includes('Available')) {
-      console.log('✅ Name is available!');
+      console.log(' Name is available!');
     } else if (pageContent.includes('Registered') || pageContent.includes('Taken')) {
-      console.log('❌ Name is already taken!');
+      console.log(' Name is already taken!');
       logAudit('name_taken', { name: config.name, success: false });
       await browser.close();
       process.exit(1);
     } else {
-      console.log('⚠️ Could not determine availability');
+      console.log(' Could not determine availability');
     }
 
     if (config.dryRun) {
-      console.log('\n🔍 Dry run complete - name is available!');
+      console.log('\n Dry run complete - name is available!');
       await browser.close();
       process.exit(0);
     }
@@ -209,7 +209,7 @@ async function main() {
     await sleep(2000);
 
     // Click Connect Wallet
-    console.log('🔗 Connecting wallet...');
+    console.log(' Connecting wallet...');
     const connectButton = await page.waitForSelector('button:has-text("Connect wallet")');
     await connectButton.click();
     await sleep(1000);
@@ -220,7 +220,7 @@ async function main() {
     await sleep(2000);
 
     // Get WalletConnect URI
-    console.log('📋 Getting WalletConnect URI...');
+    console.log(' Getting WalletConnect URI...');
     
     try {
       const openButton = await page.$('button:has-text("開啟"), button:has-text("Open")');
@@ -248,17 +248,17 @@ async function main() {
     }
 
     if (!wcUri || !wcUri.startsWith('wc:')) {
-      console.error('❌ Could not get WalletConnect URI');
-      console.log('💡 Tip: Manually copy the URI and use wc-connect.js instead');
+      console.error(' Could not get WalletConnect URI');
+      console.log(' Tip: Manually copy the URI and use wc-connect.js instead');
       logAudit('uri_failed', { name: config.name, wallet: address, success: false });
       await browser.close();
       process.exit(1);
     }
 
-    console.log('✅ Got WalletConnect URI');
+    console.log(' Got WalletConnect URI');
 
     // Initialize WalletConnect
-    console.log('\n📡 Initializing WalletConnect...');
+    console.log('\n Initializing WalletConnect...');
     const core = new Core({ projectId: config.projectId });
     const web3wallet = await Web3Wallet.init({
       core,
@@ -276,7 +276,7 @@ async function main() {
 
     // Handle session proposals
     web3wallet.on('session_proposal', async (proposal) => {
-      console.log('✅ Session proposal from:', proposal.params.proposer.metadata.name);
+      console.log(' Session proposal from:', proposal.params.proposer.metadata.name);
       
       const namespaces = {
         eip155: {
@@ -295,7 +295,7 @@ async function main() {
       };
 
       await web3wallet.approveSession({ id: proposal.id, namespaces });
-      console.log('✅ Session approved!');
+      console.log(' Session approved!');
       sessionEstablished = true;
     });
 
@@ -304,7 +304,7 @@ async function main() {
       const { topic, params, id } = event;
       const { request } = params;
       
-      console.log(`\n📝 ${request.method} request received`);
+      console.log(`\n ${request.method} request received`);
 
       try {
         let result;
@@ -317,7 +317,7 @@ async function main() {
             } else {
               result = await wallet.signMessage(message);
             }
-            console.log('✅ Message signed');
+            console.log(' Message signed');
             break;
           }
 
@@ -328,7 +328,7 @@ async function main() {
             const { domain, types, message } = typedData;
             delete types.EIP712Domain;
             result = await wallet.signTypedData(domain, types, message);
-            console.log('✅ Typed data signed');
+            console.log(' Typed data signed');
             break;
           }
 
@@ -344,7 +344,7 @@ async function main() {
               gasLimit: tx.gas || tx.gasLimit,
             });
 
-            console.log(`✅ TX sent: ${txResponse.hash}`);
+            console.log(` TX sent: ${txResponse.hash}`);
             result = txResponse.hash;
             txHash = txResponse.hash;
             registrationComplete = true;
@@ -361,7 +361,7 @@ async function main() {
         });
 
       } catch (error) {
-        console.error('❌ Error:', error.message);
+        console.error(' Error:', error.message);
         await web3wallet.respondSessionRequest({
           topic,
           response: {
@@ -375,7 +375,7 @@ async function main() {
 
     // Connect
     await web3wallet.pair({ uri: wcUri });
-    console.log('⏳ Waiting for session...');
+    console.log(' Waiting for session...');
 
     // Wait for session
     while (!sessionEstablished) {
@@ -384,12 +384,12 @@ async function main() {
 
     // Click Register button
     await sleep(2000);
-    console.log('\n📝 Clicking Register...');
+    console.log('\n Clicking Register...');
     const registerButton = await page.waitForSelector('button:has-text("Register")');
     await registerButton.click();
 
     // Wait for registration
-    console.log('⏳ Waiting for transaction...');
+    console.log(' Waiting for transaction...');
     while (!registrationComplete) {
       await sleep(1000);
     }
@@ -401,9 +401,9 @@ async function main() {
     const finalContent = await page.content();
     if (finalContent.includes('Congrats') || finalContent.includes('yours')) {
       console.log('\n' + '═'.repeat(50));
-      console.log('🎉 SUCCESS! Registered: ' + config.name + '.base.eth');
+      console.log(' SUCCESS! Registered: ' + config.name + '.base.eth');
       console.log('═'.repeat(50));
-      console.log(`\n🔗 Profile: https://base.org/name/${config.name}`);
+      console.log(`\n Profile: https://base.org/name/${config.name}`);
       
       logAudit('registration_success', { 
         name: config.name, 
@@ -417,7 +417,7 @@ async function main() {
     await browser.close();
 
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     logAudit('registration_error', { 
       name: config.name, 
       wallet: address, 

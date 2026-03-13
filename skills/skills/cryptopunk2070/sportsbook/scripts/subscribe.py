@@ -114,7 +114,7 @@ def list_subscriptions():
         
         for sub in subs:
             agent_name = sub.get("target_agent_name", sub.get("target_agent_id"))
-            emoji = sub.get("target_agent_emoji", "🐕")
+            emoji = sub.get("target_agent_emoji", "")
             events = sub.get("events", [])
             print(f"  {emoji} {agent_name}")
             print(f"     Events: {', '.join(events)}")

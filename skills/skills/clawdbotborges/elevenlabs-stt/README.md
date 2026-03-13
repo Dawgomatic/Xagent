@@ -1,14 +1,14 @@
-# 🎙️ ElevenLabs Speech-to-Text Skill
+#  ElevenLabs Speech-to-Text Skill
 
 A [Clawdbot](https://github.com/clawdbot/clawdbot) skill for transcribing audio files using ElevenLabs' Scribe v2 model.
 
 ## Features
 
-- 🌍 **90+ languages** supported with automatic detection
-- 👥 **Speaker diarization** — identify different speakers
-- 🎵 **Audio event tagging** — detect laughter, music, applause, etc.
-- 📝 **Word-level timestamps** — precise timing in JSON output
-- 🎧 **All major formats** — mp3, m4a, wav, ogg, webm, mp4, and more
+-  **90+ languages** supported with automatic detection
+-  **Speaker diarization** — identify different speakers
+-  **Audio event tagging** — detect laughter, music, applause, etc.
+-  **Word-level timestamps** — precise timing in JSON output
+-  **All major formats** — mp3, m4a, wav, ogg, webm, mp4, and more
 
 ## Installation
 

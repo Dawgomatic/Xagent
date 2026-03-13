@@ -63,7 +63,7 @@ export async function get_cost_report() {
       stats[model].count += 1;
     }
 
-    let report = "## 💰 Estimated Cost Report (Last 24h)\n\n";
+    let report = "##  Estimated Cost Report (Last 24h)\n\n";
     if (Object.keys(stats).length === 0) {
       return report + "No active sessions found in the last 24 hours.";
     }
@@ -157,5 +157,5 @@ export async function get_recent_errors() {
   }
 
   // 3. Combined Output
-  return `## 🖥️ System Logs (Journalctl)\n${systemLogsOutput}\n\n## 💥 Failed Sessions\n${sessionErrorsOutput}`;
+  return `##  System Logs (Journalctl)\n${systemLogsOutput}\n\n##  Failed Sessions\n${sessionErrorsOutput}`;
 }

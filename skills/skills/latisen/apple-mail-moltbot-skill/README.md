@@ -1,13 +1,13 @@
-# Apple Mail Moltbot Skill 📧
+# Apple Mail Moltbot Skill 
 
 En Moltbot skill som gör det möjligt att läsa och interagera med Apple Mail via osascript på macOS.
 
 ## Funktioner
 
-- ✅ Lista alla mailkonton
-- ✅ Lista mailboxar (mappar) för ett specifikt konto
-- ✅ Hämta lista över mail från en mailbox med filtrering
-- ✅ Läsa det fullständiga innehållet i specifika mail
+-  Lista alla mailkonton
+-  Lista mailboxar (mappar) för ett specifikt konto
+-  Hämta lista över mail från en mailbox med filtrering
+-  Läsa det fullständiga innehållet i specifika mail
 
 ## Krav
 
@@ -106,7 +106,7 @@ apple-mail-moltbot-skill/
 
 ## Säkerhet
 
-⚠️ **Viktigt:** Denna skill ger åtkomst till dina mail. Se till att:
+ **Viktigt:** Denna skill ger åtkomst till dina mail. Se till att:
 - Endast använda med betrodda AI-modeller
 - Vara medveten om vilka mail som delas med AI:n
 - Granska känslig information innan den delas

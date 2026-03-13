@@ -39,7 +39,7 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 Add whatever helps you do your job. This is your cheat sheet.
 
-## 🛠️ Installed Skills Quick Reference
+##  Installed Skills Quick Reference
 
 ### Search & Research
 - **tavily-search** - AI-optimized web search (requires TAVILY_API_KEY)
@@ -56,7 +56,7 @@ Add whatever helps you do your job. This is your cheat sheet.
 - **healthcheck** - Security audits and system hardening
 - **skill-creator** - Create and package new skills
 
-## 🦞 Proactive Agent Tool Tips
+##  Proactive Agent Tool Tips
 
 ### When to Spawn Sub-agents
 - Research tasks that need web search + analysis
@@ -75,7 +75,7 @@ When deprecating tools, update:
 - [ ] Skills referencing the tool
 - [ ] Templates and examples
 
-## 🔍 Finding Past Context
+##  Finding Past Context
 
 When looking for something:
 1. `memory_search("query")` - semantic search daily notes + MEMORY.md

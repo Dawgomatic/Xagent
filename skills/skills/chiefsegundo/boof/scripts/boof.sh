@@ -77,7 +77,7 @@ SAFE_NAME=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g
 COLLECTION="${COLLECTION:-$SAFE_NAME}"
 
 # --- Step 1: Convert to markdown ---
-echo "🍑 Boofing: $INPUT_FILE"
+echo " Boofing: $INPUT_FILE"
 echo "   → Converting to markdown..."
 mkdir -p "$OUTPUT_DIR"
 
@@ -99,7 +99,7 @@ if [[ -z "$MD_FILE" ]]; then
   exit 1
 fi
 
-echo "   ✅ Markdown: $MD_FILE"
+echo "    Markdown: $MD_FILE"
 
 # --- Step 2: Index with QMD ---
 echo "   → Indexing for RAG retrieval..."
@@ -108,14 +108,14 @@ echo "   → Indexing for RAG retrieval..."
 if "$QMD_BIN" collection add "$(dirname "$MD_FILE")" --name "$COLLECTION" --mask "*.md" 2>&1 | sed 's/^/   /'; then
   echo "   → Building embeddings..."
   "$QMD_BIN" embed 2>&1 | tail -3 | sed 's/^/   /'
-  echo "   ✅ Indexed as collection: $COLLECTION"
+  echo "    Indexed as collection: $COLLECTION"
 else
-  echo "   ⚠️  QMD indexing failed (non-fatal). Markdown file still available." >&2
+  echo "     QMD indexing failed (non-fatal). Markdown file still available." >&2
 fi
 
 # --- Done ---
 echo ""
-echo "🍑 Boofed successfully!"
+echo " Boofed successfully!"
 echo "   Markdown: $MD_FILE"
 echo "   Collection: $COLLECTION"
 echo ""

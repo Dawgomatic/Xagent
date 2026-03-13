@@ -195,7 +195,7 @@ const winner = metricsA.better(metricsB) ? approachA : approachB;
 
 ## Session Best Practices
 
-### ✅ Do
+###  Do
 
 - Always capture `session_id` from init message
 - Store session IDs for later use
@@ -204,7 +204,7 @@ const winner = metricsA.better(metricsB) ? approachA : approachB;
 - Test resuming before deploying
 - Consider session lifetime limits
 
-### ❌ Don't
+###  Don't
 
 - Forget to capture session ID
 - Assume sessions last forever
@@ -372,14 +372,14 @@ class SessionManager {
   async start(name: string, prompt: string): Promise<string> {
     const id = await startSession(prompt);
     this.sessions.set(name, id);
-    console.log(`✨ Started: ${name}`);
+    console.log(` Started: ${name}`);
     return id;
   }
 
   async resume(name: string, prompt: string): Promise<void> {
     const id = this.sessions.get(name);
     if (!id) throw new Error(`Session ${name} not found`);
-    console.log(`↪️  Resuming: ${name}`);
+    console.log(`  Resuming: ${name}`);
     await resumeSession(id, prompt);
   }
 
@@ -390,7 +390,7 @@ class SessionManager {
   ): Promise<string> {
     const fromId = this.sessions.get(fromName);
     if (!fromId) throw new Error(`Session ${fromName} not found`);
-    console.log(`🔀 Forking: ${fromName} → ${newName}`);
+    console.log(` Forking: ${fromName} → ${newName}`);
     const newId = await forkSession(fromId, prompt);
     this.sessions.set(newName, newId);
     return newId;

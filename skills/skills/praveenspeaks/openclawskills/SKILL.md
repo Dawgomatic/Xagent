@@ -4,7 +4,7 @@ version: 1.4.0
 description: "Create professional cinematic scripts for AI video generation with character consistency and cinematography knowledge. Use when the user wants to write a cinematic script, create story contexts with characters, generate image prompts for AI video tools (Midjourney, Sora, Veo), or needs cinematography guidance (camera angles, lighting, color grading). Also use for character consistency sheets, voice profiles, anachronism detection, and saving scripts to Google Drive."
 metadata:
   openclaw:
-    emoji: "🎬"
+    emoji: ""
     requires:
       bins:
         - node

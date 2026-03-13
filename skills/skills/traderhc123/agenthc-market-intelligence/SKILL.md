@@ -4,7 +4,7 @@ description: Real-time stock market data and trading intelligence API. 85 intell
 homepage: https://api.traderhc.com/docs
 metadata:
   clawdbot:
-    emoji: "📊"
+    emoji: ""
     requires:
       env: ["AGENTHC_API_KEY"]
       bins: ["curl", "jq", "python3"]

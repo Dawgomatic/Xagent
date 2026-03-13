@@ -419,9 +419,9 @@ Suckers enable cross-chain token transfers between Juicebox projects. When a use
 
 ### Supported Bridges
 
-- `JBOptimismSucker` - Ethereum ↔ Optimism
-- `JBBaseSucker` - Ethereum ↔ Base
-- `JBArbitrumSucker` - Ethereum ↔ Arbitrum
+- `JBOptimismSucker` - Ethereum  Optimism
+- `JBBaseSucker` - Ethereum  Base
+- `JBArbitrumSucker` - Ethereum  Arbitrum
 
 ### Core Functions
 

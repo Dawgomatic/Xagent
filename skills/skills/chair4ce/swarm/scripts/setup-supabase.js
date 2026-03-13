@@ -9,14 +9,14 @@ const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY;
 
 if (!SUPABASE_URL || !SUPABASE_KEY) {
-  console.error('❌ SUPABASE_URL and SUPABASE_SERVICE_KEY environment variables required');
+  console.error(' SUPABASE_URL and SUPABASE_SERVICE_KEY environment variables required');
   process.exit(1);
 }
 
 async function setup() {
   const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
   
-  console.log('🔧 Setting up swarm_blackboard table...');
+  console.log(' Setting up swarm_blackboard table...');
   
   // Test connection
   const { data, error } = await supabase.from('swarm_blackboard').select('count').limit(1);
@@ -33,7 +33,7 @@ async function setup() {
     process.exit(1);
   }
   
-  console.log('✅ swarm_blackboard table exists');
+  console.log(' swarm_blackboard table exists');
   
   // Test insert
   const testInsert = await supabase.from('swarm_blackboard').insert({
@@ -49,13 +49,13 @@ async function setup() {
     process.exit(1);
   }
   
-  console.log('✅ Insert test passed');
+  console.log(' Insert test passed');
   
   // Cleanup test
   await supabase.from('swarm_blackboard').delete().eq('task_id', 'setup-test');
-  console.log('✅ Cleanup test passed');
+  console.log(' Cleanup test passed');
   
-  console.log('\n🎉 Supabase swarm setup complete!');
+  console.log('\n Supabase swarm setup complete!');
 }
 
 setup().catch(console.error);

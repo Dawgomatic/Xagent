@@ -5,22 +5,22 @@ description: This skill helps users automatically extract Amazon product reviews
 
 # Amazon Reviews Automation Extraction Skill
 
-## 📖 Introduction
+##  Introduction
 This skill provides a one-stop Amazon review collection service through BrowserAct's Amazon Reviews API template. It can directly extract structured review results from Amazon product pages. By simply providing an ASIN, you can get clean, usable review data without building crawler scripts or requiring an Amazon account login.
 
-## ✨ Features
+##  Features
 1. **No Hallucination, Ensuring Stable and Accurate Extraction**: Preset workflows avoid AI-generated hallucinations.
 2. **No Anti-Bot Issues**: Built-in mechanisms bypass reCAPTCHA and other verification challenges.
 3. **No IP Restrictions or Geofencing**: Breaks through regional IP limits to ensure stable global access.
 4. **Agile Execution**: Tasks run faster than pure AI-driven browser automation solutions.
 5. **High Cost-Efficiency**: Significantly reduces data acquisition costs compared to token-heavy AI schemes.
 
-## 🔑 API Key Setup Flow
+##  API Key Setup Flow
 Before running, you must check for the `BROWSERACT_API_KEY` environment variable. If it's not set, do not take other actions; instead, request and wait for the user to provide it.
 **Agent must inform the user**:
 > "Since you haven't configured the BrowserAct API Key, please go to the [BrowserAct Console](https://www.browseract.com/reception/integrations) to get your Key and provide it to me here."
 
-## 🛠️ Input Parameters
+##  Input Parameters
 When calling the script, the Agent should flexibly configure parameters based on user needs:
 
 1. **ASIN (Amazon Standard Identification Number)**
@@ -28,7 +28,7 @@ When calling the script, the Agent should flexibly configure parameters based on
    - **Description**: The unique identifier for the product on Amazon.
    - **Example**: `B07TS6R1SF`, `B08N5WRWJ6`
 
-## 🚀 Usage (Recommended)
+##  Usage (Recommended)
 The Agent should execute the following standalone script to "get results in one line":
 
 ```bash
@@ -36,14 +36,14 @@ The Agent should execute the following standalone script to "get results in one 
 python -u ./scripts/amazon_reviews_api.py "ASIN_HERE"
 ```
 
-### ⏳ Runtime Monitoring
+###  Runtime Monitoring
 Since this task involves automated browser operations, it may take several minutes. The script will **continuously output status logs with timestamps** (e.g., `[14:30:05] Task Status: running`).
 **Agent Note**:
 - Keep monitoring the terminal output while waiting for results.
 - As long as the terminal is outputting new status logs, the task is running normally; do not misjudge it as stuck or unresponsive.
 - Only consider retrying if the status remains unchanged for a long time or the script stops outputting without returning results.
 
-## 📊 Output Data
+##  Output Data
 After successful execution, the script will parse and print results directly from the API response. Each review item includes:
 - `Commentator`: Reviewer's name
 - `Commenter profile link`: Link to the reviewer's profile
@@ -55,7 +55,7 @@ After successful execution, the script will parse and print results directly fro
 - `Variant`: Product variant info (if available)
 - `Is Verified`: Whether it's a verified purchase
 
-## ⚠️ Error Handling & Retry
+##  Error Handling & Retry
 If an error occurs (e.g., network issues or task failure), follow this logic:
 
 1. **Check Output**:
@@ -65,7 +65,7 @@ If an error occurs (e.g., network issues or task failure), follow this logic:
 2. **Retry Limit**:
    - Automatic retry is limited to **once**. If the second attempt fails, stop and report the specific error to the user.
 
-## 🌟 Typical Use Cases
+##  Typical Use Cases
 1. **Competitor Analysis**: Extract reviews for competitors' products to understand their strengths and weaknesses.
 2. **Product Feedback**: Summarize feedback for your own products to identify areas for improvement.
 3. **Market Research**: Collect data on customer preferences and common complaints in a specific category.

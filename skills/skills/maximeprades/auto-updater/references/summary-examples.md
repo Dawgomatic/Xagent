@@ -5,7 +5,7 @@ Reference examples for formatting the update report message.
 ## Full Update (Everything Changed)
 
 ```
-🔄 Daily Auto-Update Complete
+ Daily Auto-Update Complete
 
 **Clawdbot**
 Updated: v2026.1.9 → v2026.1.10
@@ -23,13 +23,13 @@ Key changes in this release:
 **Skills Already Current (5)**
 gemini, sag, things-mac, himalaya, peekaboo
 
-✅ All updates completed successfully.
+ All updates completed successfully.
 ```
 
 ## No Updates Available
 
 ```
-🔄 Daily Auto-Update Check
+ Daily Auto-Update Check
 
 **Clawdbot**: v2026.1.10 (already latest)
 
@@ -41,7 +41,7 @@ Nothing to update today.
 ## Partial Update (Skills Only)
 
 ```
-🔄 Daily Auto-Update Complete
+ Daily Auto-Update Complete
 
 **Clawdbot**: v2026.1.10 (no update available)
 
@@ -54,34 +54,34 @@ Nothing to update today.
 **Skills Already Current (6)**
 prd, gemini, browser, sag, things-mac, peekaboo
 
-✅ Skill updates completed.
+ Skill updates completed.
 ```
 
 ## Update With Errors
 
 ```
-🔄 Daily Auto-Update Complete (with issues)
+ Daily Auto-Update Complete (with issues)
 
-**Clawdbot**: v2026.1.9 → v2026.1.10 ✅
+**Clawdbot**: v2026.1.9 → v2026.1.10 
 
 **Skills Updated (1)**
-1. prd: 2.0.3 → 2.0.4 ✅
+1. prd: 2.0.3 → 2.0.4 
 
 **Skills Failed (1)**
-1. ❌ nano-banana-pro: Update failed
+1.  nano-banana-pro: Update failed
    Error: Network timeout while downloading v3.1.2
    Recommendation: Run `clawdhub update nano-banana-pro` manually
 
 **Skills Already Current (6)**
 gemini, sag, things-mac, himalaya, peekaboo, browser
 
-⚠️ Completed with 1 error. See above for details.
+ Completed with 1 error. See above for details.
 ```
 
 ## First Run / Setup Confirmation
 
 ```
-🔄 Auto-Updater Configured
+ Auto-Updater Configured
 
 Daily updates will run at 4:00 AM (America/Los_Angeles).
 
@@ -101,7 +101,7 @@ To disable: `clawdbot cron remove "Daily Auto-Update"`
 
 ## Formatting Guidelines
 
-1. **Use emojis sparingly** - just the 🔄 header and ✅/❌ for status
+1. **Use emojis sparingly** - just the  header and / for status
 2. **Lead with the most important info** - what changed
 3. **Group similar items** - updated skills together, current skills together
 4. **Include version numbers** - always show before → after

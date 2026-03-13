@@ -5,34 +5,34 @@ description: Taobao Hot Products Discovery - Find trending products, hot categor
 license: MIT
 ---
 
-# Taobao Hot Products Discovery 🛒
+# Taobao Hot Products Discovery 
 
 AI-powered tool for discovering trending products on Taobao (淘宝).
 
 ## Features
 
-### 1. Hot Products 📊
+### 1. Hot Products 
 Browse top-selling products by category.
 
 ```bash
 ./scripts/hot.sh "女装"
 ```
 
-### 2. Trending Categories 🏷️
+### 2. Trending Categories 
 Discover trending product categories.
 
 ```bash
 ./scripts/categories.sh
 ```
 
-### 3. Price Analysis 💰
+### 3. Price Analysis 
 Analyze price trends for products.
 
 ```bash
 ./scripts/price.sh "手机" 1000-3000
 ```
 
-### 4. Seasonal Trends 📈
+### 4. Seasonal Trends 
 Discover seasonal trending products.
 
 ```bash

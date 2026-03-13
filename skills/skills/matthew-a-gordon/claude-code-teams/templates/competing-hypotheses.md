@@ -2,13 +2,13 @@
 
 ## When to Use This Pattern
 
-✅ **Use when:**
+ **Use when:**
 - Debugging a complex issue with multiple plausible causes
 - Root cause is unclear after initial investigation
 - Issue spans multiple systems/layers
 - Want to avoid confirmation bias (testing only one theory)
 
-❌ **Don't use when:**
+ **Don't use when:**
 - Root cause is obvious (single clear culprit)
 - Issue is easily reproducible in isolation
 - Only one hypothesis is plausible
@@ -119,10 +119,10 @@ Spawn 3 investigators using Sonnet (tactical investigation):
 ## Confidence Level: MEDIUM
 
 ## Evidence Found
-- ✅ Slow query log shows 15 queries >2s (normally <5)
-- ✅ Connection pool utilization 85% (normally 40-50%)
-- ❌ No missing indexes detected
-- ❌ No lock contention in logs
+-  Slow query log shows 15 queries >2s (normally <5)
+-  Connection pool utilization 85% (normally 40-50%)
+-  No missing indexes detected
+-  No lock contention in logs
 
 ## Key Finding
 New search algorithm generates complex JOIN with 4 tables. Query plan shows full table scan on `search_terms` table (2M rows).
@@ -150,10 +150,10 @@ New search algorithm generates complex JOIN with 4 tables. Query plan shows full
 ## Confidence Level: HIGH
 
 ## Evidence Found
-- ✅ CPU spike on application servers (30% → 90%)
-- ✅ New ranking algorithm has O(n²) sorting step
-- ✅ Profiling shows 80% time in `rankResults()` function
-- ✅ Algorithm complexity scales with result set size
+-  CPU spike on application servers (30% → 90%)
+-  New ranking algorithm has O(n²) sorting step
+-  Profiling shows 80% time in `rankResults()` function
+-  Algorithm complexity scales with result set size
 
 ## Key Finding
 New ranking algorithm sorts results twice:
@@ -187,10 +187,10 @@ With 500-1000 results per search, this causes massive CPU spike.
 ## Confidence Level: LOW
 
 ## Evidence Found
-- ❌ Network latency to database normal (2-3ms)
-- ❌ No AWS throttling or service limits hit
-- ✅ CPU utilization high (see Hypothesis B)
-- ❌ External API latency normal (<50ms)
+-  Network latency to database normal (2-3ms)
+-  No AWS throttling or service limits hit
+-  CPU utilization high (see Hypothesis B)
+-  External API latency normal (<50ms)
 
 ## Key Finding
 No infrastructure issues detected. High CPU usage found, but likely caused by application logic (see Hypothesis B).
@@ -282,14 +282,14 @@ For very complex issues, add:
 
 ## Success Metrics
 
-✅ **Successful if:**
+ **Successful if:**
 - All investigators complete within 35 minutes
 - Evidence is concrete (logs, metrics, traces, not speculation)
 - Confidence levels are realistic (not all "HIGH")
 - Debate leads to clear conclusion
 - Remediation plan is actionable
 
-❌ **Red flags:**
+ **Red flags:**
 - All hypotheses rated "HIGH" confidence (suggests lack of evidence evaluation)
 - Vague findings without concrete evidence
 - Lead concluding before debate

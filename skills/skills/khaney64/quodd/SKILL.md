@@ -1,7 +1,7 @@
 ---
 name: quodd
 description: Fetch real-time stock quotes via Quodd API. Get current prices, daily high/low, and after-hours data for US equities. Use when the user asks for stock prices, quotes, market data, or ticker information.
-metadata: {"openclaw":{"emoji":"📈","requires":{"bins":["python3"],"env":["QUODD_USERNAME","QUODD_PASSWORD"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"],"env":["QUODD_USERNAME","QUODD_PASSWORD"]}}}
 ---
 
 # Quodd Stock Quotes

@@ -1,7 +1,7 @@
 ---
 name: relationship
 description: "Calculate spatial relationships between two points including distance, direction, travel time, and human-readable descriptions. Use when you need to understand how locations relate to each other."
-metadata: {"clawdbot":{"emoji":"📐","requires":{"env":["CAMINO_API_KEY"]},"primaryEnv":"CAMINO_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["CAMINO_API_KEY"]},"primaryEnv":"CAMINO_API_KEY"}}
 ---
 
 ## Installation

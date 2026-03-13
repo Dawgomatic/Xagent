@@ -216,11 +216,11 @@ Context cut? → Read WAL → Verify data → Check SESSION-STATE → Review buf
 
 **Examples:**
 
-❌ **Wrong:** "Added health-check command. Task complete!"
-✅ **Right:** "Added health-check. Testing... detected 4 issues, auto-fixed 3. Verified on broken test data. Task complete!"
+ **Wrong:** "Added health-check command. Task complete!"
+ **Right:** "Added health-check. Testing... detected 4 issues, auto-fixed 3. Verified on broken test data. Task complete!"
 
-❌ **Wrong:** "Implemented SESSION-STATE updates. Done!"
-✅ **Right:** "Implemented SESSION-STATE. Tested with mark-progress, log-time, mark-blocked - all update correctly. Done!"
+ **Wrong:** "Implemented SESSION-STATE updates. Done!"
+ **Right:** "Implemented SESSION-STATE. Tested with mark-progress, log-time, mark-blocked - all update correctly. Done!"
 
 **Why this matters:** Agents often report completion based on "I wrote the code" rather than "I verified it works." VBR prevents false completions and builds trust.
 
@@ -242,15 +242,15 @@ During heartbeats, you have the opportunity to make real progress:
 ### When to Reach Out
 
 **DO message your human when:**
-- ✅ Task completed (especially if it unblocks other work)
-- ✅ Blocked and need input/decision
-- ✅ Discovered something important they should know
-- ✅ Need clarification on requirements
+-  Task completed (especially if it unblocks other work)
+-  Blocked and need input/decision
+-  Discovered something important they should know
+-  Need clarification on requirements
 
 **DON'T spam with:**
-- ❌ Routine progress updates ("now at 50%...")
-- ❌ Every tiny sub-task completion
-- ❌ Things they didn't ask about (unless genuinely valuable)
+-  Routine progress updates ("now at 50%...")
+-  Every tiny sub-task completion
+-  Things they didn't ask about (unless genuinely valuable)
 
 **The goal:** Be a proactive partner who makes things happen, not a chatty assistant who needs constant validation.
 
@@ -306,7 +306,7 @@ To enable autonomous proactive work, you need to set up a heartbeat system. This
 Your cron job should send this message every 30 minutes:
 
 ```
-💓 Heartbeat check: Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.
+ Heartbeat check: Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.
 ```
 
 ### Add to HEARTBEAT.md
@@ -314,7 +314,7 @@ Your cron job should send this message every 30 minutes:
 Add this to your workspace `HEARTBEAT.md`:
 
 ```markdown
-## Proactive Tasks (Every heartbeat) 🚀
+## Proactive Tasks (Every heartbeat) 
 
 Check if there's work to do on our goals:
 
@@ -357,13 +357,13 @@ Break goals into tasks that are:
 
 ### When to Message Your Human
 
-✅ **Do message when:**
+ **Do message when:**
 - You complete a meaningful milestone
 - You need input/decision to proceed
 - You discover something important
 - A task will take longer than expected
 
-❌ **Don't spam with:**
+ **Don't spam with:**
 - Every tiny sub-task completion
 - Routine progress updates
 - Things they didn't ask about (unless relevant)
@@ -428,9 +428,9 @@ Score across four dimensions:
 **Priority ordering:** Stability > Explainability > Reusability > Scalability > Novelty
 
 **Forbidden Evolution:**
-- ❌ Adding complexity to "look smart"
-- ❌ Unverifiable changes (can't test if it worked)
-- ❌ Sacrificing stability for novelty
+-  Adding complexity to "look smart"
+-  Unverifiable changes (can't test if it worked)
+-  Sacrificing stability for novelty
 
 **The Golden Rule:** "Does this let future-me solve more problems with less cost?" If no, skip it.
 
@@ -464,4 +464,4 @@ This cycle continues - the agent makes steady autonomous progress while keeping 
 
 ---
 
-Built by Toki for proactive AI partnership 🚀
+Built by Toki for proactive AI partnership 

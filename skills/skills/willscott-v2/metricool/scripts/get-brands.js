@@ -71,7 +71,7 @@ async function main() {
   const { token, userId } = loadCredentials();
   
   if (!token || !userId) {
-    console.error('❌ Missing Metricool credentials');
+    console.error(' Missing Metricool credentials');
     console.error('Set METRICOOL_USER_TOKEN and METRICOOL_USER_ID in environment');
     process.exit(1);
   }
@@ -87,13 +87,13 @@ async function main() {
       return;
     }
     
-    console.log('\n📊 Metricool Brands\n');
+    console.log('\n Metricool Brands\n');
     
     const brandList = Array.isArray(brands) ? brands : [brands];
     
     brandList.forEach((brand, i) => {
       console.log(`${i + 1}. ${brand.label || brand.name || brand.brandName || 'Unknown'}`);
-      console.log(`   🆔 Blog ID: ${brand.id || brand.blogId}`);
+      console.log(`    Blog ID: ${brand.id || brand.blogId}`);
       
       // List connected networks
       if (brand.networksData) {
@@ -102,14 +102,14 @@ async function main() {
           .filter(n => n !== 'web')
           .map(n => n.charAt(0).toUpperCase() + n.slice(1));
         if (networks.length > 0) {
-          console.log(`   📱 Networks: ${networks.join(', ')}`);
+          console.log(`    Networks: ${networks.join(', ')}`);
         }
       }
       console.log('');
     });
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

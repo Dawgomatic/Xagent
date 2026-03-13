@@ -144,7 +144,7 @@ async function listDevices(options) {
     ]);
   }
 
-  console.log(chalk.bold(`\n📱 Found ${devices.length} devices:\n`));
+  console.log(chalk.bold(`\n Found ${devices.length} devices:\n`));
   console.log(table.toString());
 }
 
@@ -268,7 +268,7 @@ async function inspectDevice(name, options) {
     return;
   }
 
-  console.log(chalk.bold(`\n🔎 Device: ${device.name}\n`));
+  console.log(chalk.bold(`\n Device: ${device.name}\n`));
   console.log(`  ${chalk.cyan('ID:')} ${device.id}`);
   console.log(`  ${chalk.cyan('Class:')} ${device.class}`);
   console.log(`  ${chalk.cyan('Zone:')} ${device.zoneName || device.zoneId || '-'}`);
@@ -340,7 +340,7 @@ async function getDeviceCapabilities(name, options) {
     return;
   }
 
-  console.log(chalk.bold(`\n🧩 Capabilities: ${device.name}\n`));
+  console.log(chalk.bold(`\n Capabilities: ${device.name}\n`));
 
   if (!settable.length) {
     console.log(chalk.yellow('No settable capabilities found (device may be read-only).'));
@@ -399,7 +399,7 @@ async function getDeviceValues(name, options) {
     return;
   }
 
-  console.log(chalk.bold(`\n📟 Values: ${device.name}\n`));
+  console.log(chalk.bold(`\n Values: ${device.name}\n`));
 
   const table = new Table({
     head: [chalk.cyan('Capability'), chalk.cyan('Value'), chalk.cyan('Units')],
@@ -449,7 +449,7 @@ async function listFlows(options) {
     ]);
   }
 
-  console.log(chalk.bold(`\n⚡ Found ${flows.length} flows:\n`));
+  console.log(chalk.bold(`\n Found ${flows.length} flows:\n`));
   console.log(table.toString());
 }
 
@@ -496,7 +496,7 @@ async function listZones(options) {
     ]);
   }
 
-  console.log(chalk.bold(`\n🏠 Found ${zones.length} zones:\n`));
+  console.log(chalk.bold(`\n Found ${zones.length} zones:\n`));
   console.log(table.toString());
 }
 
@@ -512,7 +512,7 @@ async function showStatus(options) {
     return;
   }
 
-  console.log(chalk.bold('\n🏠 Homey Status:\n'));
+  console.log(chalk.bold('\n Homey Status:\n'));
   console.log(`  ${chalk.cyan('Name:')} ${status.name}`);
   console.log(`  ${chalk.cyan('Connection:')} ${status.connectionMode || '-'}${status.address ? ` (${status.address})` : ''}`);
   console.log(`  ${chalk.cyan('Platform:')} ${status.platform} ${status.platformVersion ?? ''}`);
@@ -745,7 +745,7 @@ async function authDiscoverLocal(options) {
     return;
   }
 
-  console.log(chalk.bold(`\n🔎 Discovered ${candidates.length} local Homey candidate(s):\n`));
+  console.log(chalk.bold(`\n Discovered ${candidates.length} local Homey candidate(s):\n`));
   for (const c of formatCandidates(candidates)) {
     console.log(`  [${c.index}] ${c.address}${c.homeyId ? `  (id: ${c.homeyId})` : ''}`);
   }
@@ -804,7 +804,7 @@ async function authStatus(options) {
   const localLast4 = localToken.token ? localToken.token.slice(-4) : null;
   const cloudLast4 = cloud.token ? cloud.token.slice(-4) : null;
 
-  console.log(chalk.bold('\n🔐 Auth Status:\n'));
+  console.log(chalk.bold('\n Auth Status:\n'));
   console.log(`  ${chalk.cyan('Mode (wanted):')} ${data.modeWanted} (${data.modeWantedSource})`);
   console.log(`  ${chalk.cyan('Mode (selected):')} ${data.modeSelected}`);
   console.log(`  ${chalk.cyan('Config path:')} ${data.path}`);
@@ -848,7 +848,7 @@ async function snapshot(options) {
     return;
   }
 
-  console.log(chalk.bold('\n📸 Snapshot:\n'));
+  console.log(chalk.bold('\n Snapshot:\n'));
   console.log(`  ${chalk.cyan('Homey:')} ${status.name} (${status.platform} ${status.platformVersion})`);
   console.log(`  ${chalk.cyan('Devices:')} ${devices.length}`);
   console.log(`  ${chalk.cyan('Zones:')} ${zones.length}`);

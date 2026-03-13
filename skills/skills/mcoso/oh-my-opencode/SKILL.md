@@ -3,7 +3,7 @@ name: oh-my-opencode
 description: Multi-agent orchestration plugin for OpenCode. Use when the user wants to install, configure, or operate oh-my-opencode — including agent delegation, ultrawork mode, Prometheus planning, background tasks, category-based task routing, model resolution, tmux integration, or any oh-my-opencode feature. Covers installation, configuration, all agents (Sisyphus, Oracle, Librarian, Explore, Atlas, Prometheus, Metis, Momus), all categories, slash commands, hooks, skills, MCPs, and troubleshooting.
 metadata:
   clawdbot:
-    emoji: "🏔️"
+    emoji: ""
     homepage: "https://github.com/code-yeongyu/oh-my-opencode"
     requires:
       bins: ["opencode"]

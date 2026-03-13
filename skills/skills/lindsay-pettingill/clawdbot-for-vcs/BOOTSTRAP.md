@@ -510,9 +510,9 @@ gog gmail messages search "to:founder@company.com" --account your.email@firm.com
 ## Next Steps
 
 ### Week 1: Foundation
-- ✅ Complete all setup steps
-- ✅ Test each workflow manually
-- ✅ Build trust with your AI
+-  Complete all setup steps
+-  Test each workflow manually
+-  Build trust with your AI
 
 ### Week 2: Automation
 - Enable daily briefings at a set time
@@ -566,18 +566,18 @@ Before going live:
 
 You'll know setup is complete when:
 
-1. ✅ Your AI can read and triage Gmail
-2. ✅ Your AI can create draft emails
-3. ✅ Your AI can log companies to Affinity
-4. ✅ Your AI can generate investment memos
-5. ✅ Your AI can check your calendar and share booking links
-6. ✅ You receive a useful daily briefing
+1.  Your AI can read and triage Gmail
+2.  Your AI can create draft emails
+3.  Your AI can log companies to Affinity
+4.  Your AI can generate investment memos
+5.  Your AI can check your calendar and share booking links
+6.  You receive a useful daily briefing
 
 **Time to value:** Should be handling real workflows within 1 hour of setup completion.
 
 ---
 
-## Congratulations! 🎉
+## Congratulations! 
 
 Your VC workflow AI assistant is ready. Start with morning triage, build trust gradually, and iterate based on real usage.
 

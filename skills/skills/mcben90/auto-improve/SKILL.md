@@ -80,7 +80,7 @@ recall_memory(tags=["mistakes", project_name])
 
 # 3. Warnung bei bekannten Fehlern
 if relevant_mistakes:
-    warn(f"⚠️ Bekannte Fehler für {project}: {mistakes}")
+    warn(f" Bekannte Fehler für {project}: {mistakes}")
 ```
 
 ## Phase 2: Pre-Action Check
@@ -168,7 +168,7 @@ Track diese Werte über Zeit:
 
 ## Anti-Patterns
 
-| ❌ DON'T | ✅ DO |
+|  DON'T |  DO |
 |----------|-------|
 | Fehler ignorieren | Jeden Fehler speichern |
 | Nur aktuelle Session | Cross-Session lernen |

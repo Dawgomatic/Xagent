@@ -36,4 +36,4 @@ Use this skill when working on the BlueBubbles channel plugin.
 - Action gating: `channels.bluebubbles.actions.reactions` (default true).
 
 ## Message tool notes
-- **Reactions:** The `react` action requires a `target` (phone number or chat identifier) in addition to `messageId`. Example: `action=react target=+15551234567 messageId=ABC123 emoji=❤️`
+- **Reactions:** The `react` action requires a `target` (phone number or chat identifier) in addition to `messageId`. Example: `action=react target=+15551234567 messageId=ABC123 emoji=`

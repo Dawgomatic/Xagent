@@ -328,12 +328,12 @@ def cmd_swap(args):
 
     if exec_result and exec_result.get("status") == "Success":
         signature = exec_result.get("signature")
-        print(f"\n✅ Swap successful!")
+        print(f"\n Swap successful!")
         print(f"◎ Signature: {signature}")
         print(f"◎ Explorer: https://solscan.io/tx/{signature}")
     else:
         error = exec_result.get("error") if exec_result else "Unknown error"
-        print(f"\n❌ Swap failed: {error}")
+        print(f"\n Swap failed: {error}")
         sys.exit(1)
 
 

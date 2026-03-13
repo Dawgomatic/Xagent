@@ -1,10 +1,10 @@
 ---
 name: irish-takeaway
 description: Find nearby takeaways in Ireland and browse menus via Deliveroo/Just Eat. Uses Google Places API for discovery and browser automation for menu scraping.
-metadata: {"clawdbot":{"emoji":"🍕","requires":{"bins":["goplaces"],"env":["GOOGLE_PLACES_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["goplaces"],"env":["GOOGLE_PLACES_API_KEY"]}}}
 ---
 
-# Irish Takeaway Finder 🍕🇮🇪
+# Irish Takeaway Finder 
 
 Find nearby takeaways and get their menus from Deliveroo or Just Eat.
 

@@ -3,7 +3,7 @@ name: tube-cog
 description: YouTube content creation powered by CellCog. Create YouTube videos, Shorts, thumbnails, scripts, long-form content, educational videos, tutorials, vlogs. AI-powered YouTube creator tools.
 metadata:
   openclaw:
-    emoji: "📺"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

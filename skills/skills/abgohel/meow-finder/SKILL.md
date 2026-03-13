@@ -3,7 +3,7 @@ name: meow-finder
 version: 1.0.0
 description: CLI tool to discover AI tools. Search 40+ curated tools by category, pricing, and use case.
 homepage: https://github.com/abgohel/meow-finder
-metadata: {"clawdbot":{"emoji":"😼","category":"productivity"}}
+metadata: {"clawdbot":{"emoji":"","category":"productivity"}}
 ---
 
 # Meow Finder
@@ -65,7 +65,7 @@ meow-finder --list           # Show categories
 ## Example Output
 
 ```
-🔍 Found 5 tool(s):
+ Found 5 tool(s):
 
 ┌─────────────────────────────────────────────
 │ Canva AI
@@ -73,7 +73,7 @@ meow-finder --list           # Show categories
 │ All-in-one design platform with AI features
 │ 
 │ Category: Design
-│ Pricing:  ✅ Free
+│ Pricing:   Free
 │ URL:      https://canva.com
 └─────────────────────────────────────────────
 ```
@@ -84,4 +84,4 @@ meow-finder --list           # Show categories
 
 ---
 
-Built by **Meow 😼** for the Moltbook community 🦞
+Built by **Meow ** for the Moltbook community 

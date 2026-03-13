@@ -34,13 +34,13 @@ Multi-stage builds create smaller, more secure images by:
 ### 1. Base Image Selection
 
 ```dockerfile
-# ✅ Good: Alpine images (smallest)
+#  Good: Alpine images (smallest)
 FROM node:18-alpine
 
-# ⚠️ Okay: Slim images (small)
+#  Okay: Slim images (small)
 FROM node:18-slim
 
-# ❌ Avoid: Full images (large)
+#  Avoid: Full images (large)
 FROM node:18
 ```
 
@@ -106,10 +106,10 @@ USER nextjs
 ### 2. Use Specific Image Tags
 
 ```dockerfile
-# ✅ Good: Specific version
+#  Good: Specific version
 FROM node:18.17.0-alpine
 
-# ❌ Bad: Latest (unpredictable)
+#  Bad: Latest (unpredictable)
 FROM node:latest
 ```
 
@@ -184,13 +184,13 @@ docker run -e API_URL=https://api.example.com app:latest
 ### Secrets Management
 
 ```bash
-# ❌ Never do this
+#  Never do this
 ENV API_SECRET=my-secret-key
 
-# ✅ Use secrets
+#  Use secrets
 docker run --env-file .env.production app:latest
 
-# ✅ Or use Docker secrets (Swarm)
+#  Or use Docker secrets (Swarm)
 docker secret create api_key ./api_key.txt
 ```
 
@@ -415,16 +415,16 @@ nextjs-app    latest    180MB
 
 Before deploying to production, ensure:
 
-- ✅ Using multi-stage builds
-- ✅ Running as non-root user
-- ✅ Using specific image tags (not latest)
-- ✅ .dockerignore file present
-- ✅ Health checks configured
-- ✅ Resource limits set
-- ✅ Logging to STDOUT/STDERR
-- ✅ Secrets not hardcoded
-- ✅ Image scanned for vulnerabilities
-- ✅ Tested in staging environment
+-  Using multi-stage builds
+-  Running as non-root user
+-  Using specific image tags (not latest)
+-  .dockerignore file present
+-  Health checks configured
+-  Resource limits set
+-  Logging to STDOUT/STDERR
+-  Secrets not hardcoded
+-  Image scanned for vulnerabilities
+-  Tested in staging environment
 
 ---
 

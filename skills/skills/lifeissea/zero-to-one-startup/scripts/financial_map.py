@@ -185,17 +185,17 @@ class FinancialMap:
             return "현재 조건에 맞는 금융 상품이 없습니다. 소진공(1357)에 문의해 보세요."
 
         # 기본 텍스트 포맷 (LLM 없이도 동작)
-        lines = ["💰 **맞춤 금융 상품 추천**\n"]
+        lines = [" **맞춤 금융 상품 추천**\n"]
         for i, p in enumerate(products[:4], 1):
-            emoji = ["🥇", "🥈", "🥉", "4️⃣"][i - 1] if i <= 4 else f"{i}."
+            emoji = ["", "", "", ""][i - 1] if i <= 4 else f"{i}."
             lines.append(f"{emoji} **{p['name']}** ({p['provider']})")
             lines.append(f"   - 유형: {p['type']}")
             lines.append(f"   - 대상: {p['target']}")
             lines.append(f"   - 최대 금액: {p['max_amount']}")
             if p.get("rate"):
                 lines.append(f"   - 금리: {p['rate']}")
-            lines.append(f"   - 💡 {p['description']}")
-            lines.append(f"   - 🔗 {p['url']}")
+            lines.append(f"   -  {p['description']}")
+            lines.append(f"   -  {p['url']}")
             lines.append("")
 
         basic_text = "\n".join(lines)
@@ -218,7 +218,7 @@ class FinancialMap:
                 )
                 llm_result = chat(prompt_to_messages(prompt))
                 if llm_result:
-                    return basic_text + "\n---\n🤖 **라온의 맞춤 설명:**\n" + llm_result
+                    return basic_text + "\n---\n **라온의 맞춤 설명:**\n" + llm_result
             except Exception as e:
                 print(f"[FinancialMap] LLM 추천 실패: {e}", file=sys.stderr)
 

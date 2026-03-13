@@ -21,22 +21,22 @@ This skill uses browser automation instead. Zero API costs.
 
 ## Features
 
-✅ **Trend Scraping**
+ **Trend Scraping**
 - Navigates to X.com/explore
 - Extracts trending topics from "For You" tab
 - Saves to JSON for AI processing
 
-✅ **Tweet Generation**
+ **Tweet Generation**
 - AI generates 3-5 tweet ideas based on trends
 - Customizable tone/voice
 - Length optimization (150-250 chars for engagement)
 
-✅ **Scheduled Posting**
+ **Scheduled Posting**
 - Space tweets throughout the day
 - Human-like delays between posts
 - Approval queue workflow
 
-✅ **Browser Automation**
+ **Browser Automation**
 - Uses OpenClaw browser control
 - Requires one-time login
 - Session persists across runs

@@ -21,10 +21,10 @@ WARNINGS=0
 
 pass() { echo -e "${GREEN}✓${NC} $1"; }
 fail() { echo -e "${RED}✗${NC} $1"; ((ERRORS++)); }
-warn() { echo -e "${YELLOW}⚠${NC} $1"; ((WARNINGS++)); }
+warn() { echo -e "${YELLOW}${NC} $1"; ((WARNINGS++)); }
 
 echo ""
-echo "🔍 Auditing skill: $(basename "$(pwd)")"
+echo " Auditing skill: $(basename "$(pwd)")"
 echo "   Path: $(pwd)"
 echo ""
 
@@ -224,7 +224,7 @@ if [ $ERRORS -gt 0 ]; then
     echo "  Fix errors before publishing!"
     exit 1
 elif [ $WARNINGS -gt 0 ]; then
-    echo -e "${YELLOW}⚠ PASSED WITH WARNINGS${NC} - $WARNINGS warning(s)"
+    echo -e "${YELLOW} PASSED WITH WARNINGS${NC} - $WARNINGS warning(s)"
     echo "  Review warnings before publishing."
     exit 0
 else

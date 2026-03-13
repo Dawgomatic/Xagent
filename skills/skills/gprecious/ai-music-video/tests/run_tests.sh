@@ -16,19 +16,19 @@ TIER="${1:-}"
 
 case "$TIER" in
   --cheap)
-    echo "🧪 Running Tier 1 (free) + Tier 2 (cheap API calls)..."
+    echo " Running Tier 1 (free) + Tier 2 (cheap API calls)..."
     python3 -m pytest test_dry_run.py test_integration.py -v -s -m "free or cheap" --tb=short
     ;;
   --full)
-    echo "🧪 Running ALL tiers (including E2E — costs money!)..."
+    echo " Running ALL tiers (including E2E — costs money!)..."
     python3 -m pytest test_dry_run.py test_integration.py test_e2e.py -v -s --tb=short
     ;;
   --e2e-only)
-    echo "🧪 Running Tier 3 only (E2E pipeline)..."
+    echo " Running Tier 3 only (E2E pipeline)..."
     python3 -m pytest test_e2e.py -v -s --tb=short
     ;;
   *)
-    echo "🧪 Running Tier 1 only (free, no API calls)..."
+    echo " Running Tier 1 only (free, no API calls)..."
     python3 -m pytest test_dry_run.py -v -s -m "free" --tb=short
     ;;
 esac

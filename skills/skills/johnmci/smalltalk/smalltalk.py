@@ -108,10 +108,10 @@ def start_daemon() -> bool:
     daemon_script = os.path.join(script_dir, "smalltalk-daemon.py")
     
     if not os.path.exists(daemon_script):
-        print(f"❌ Daemon script not found: {daemon_script}", file=sys.stderr)
+        print(f" Daemon script not found: {daemon_script}", file=sys.stderr)
         return False
     
-    print("🚀 Starting Smalltalk daemon...", file=sys.stderr)
+    print(" Starting Smalltalk daemon...", file=sys.stderr)
     
     # Start daemon in background using nohup to survive parent exit
     try:
@@ -126,14 +126,14 @@ def start_daemon() -> bool:
         for i in range(60):
             time.sleep(0.5)
             if daemon_available():
-                print("✅ Daemon started", file=sys.stderr)
+                print(" Daemon started", file=sys.stderr)
                 return True
         
-        print("❌ Daemon failed to start within timeout", file=sys.stderr)
+        print(" Daemon failed to start within timeout", file=sys.stderr)
         return False
         
     except Exception as e:
-        print(f"❌ Failed to start daemon: {e}", file=sys.stderr)
+        print(f" Failed to start daemon: {e}", file=sys.stderr)
         return False
 
 
@@ -178,40 +178,40 @@ def call_daemon(tool_name: str, arguments: dict) -> str:
         return str(result)
 def check_setup() -> bool:
     """Verify all dependencies and paths are correct."""
-    print("🔍 Checking Clawdbot Smalltalk setup...\n")
+    print(" Checking Clawdbot Smalltalk setup...\n")
     all_ok = True
 
     # Check daemon status
     if daemon_available():
-        print("✅ Daemon running (fast mode available)")
+        print(" Daemon running (fast mode available)")
     else:
-        print("ℹ️  Daemon not running (will use exec mode)")
+        print("  Daemon not running (will use exec mode)")
         print("   Start with: smalltalk-daemon.py start")
 
     print()
 
     # Check xvfb-run
     if shutil.which("xvfb-run"):
-        print("✅ xvfb-run found")
+        print(" xvfb-run found")
     else:
-        print("❌ xvfb-run not found - install with: sudo apt install xvfb")
+        print(" xvfb-run not found - install with: sudo apt install xvfb")
         all_ok = False
 
     # Check paths
     vm_path, image_path = get_paths()
 
     if vm_path and os.path.exists(vm_path):
-        print(f"✅ VM found: {vm_path}")
+        print(f" VM found: {vm_path}")
     else:
-        print(f"❌ VM not found")
+        print(f" VM not found")
         print(f"   Set SQUEAK_VM_PATH or install Squeak 6.0")
         print(f"   Download from: https://squeak.org/downloads/")
         all_ok = False
 
     if image_path and os.path.exists(image_path):
-        print(f"✅ Image found: {image_path}")
+        print(f" Image found: {image_path}")
     else:
-        print(f"❌ Image not found")
+        print(f" Image not found")
         print(f"   Set SQUEAK_IMAGE_PATH or build per SQUEAK-SETUP.md")
         all_ok = False
 
@@ -220,15 +220,15 @@ def check_setup() -> bool:
         image_dir = os.path.dirname(image_path) or "."
         sources = glob.glob(os.path.join(image_dir, "*.sources"))
         if sources:
-            print(f"✅ Sources file found: {sources[0]}")
+            print(f" Sources file found: {sources[0]}")
         else:
-            print(f"⚠️  No .sources file in image directory")
+            print(f"  No .sources file in image directory")
             print(f"   May cause dialog popups - symlink SqueakV60.sources to {image_dir}/")
 
     # Check MCPServer version
     if all_ok and vm_path and image_path:
         print()
-        print("🔍 Checking MCPServer version...")
+        print(" Checking MCPServer version...")
         try:
             # Use daemon if running (avoids spawning second VM)
             if daemon_available():
@@ -257,21 +257,21 @@ def check_setup() -> bool:
             
             version = int(version_str)
             if version >= 2:
-                print(f"✅ MCPServer version: {version}")
+                print(f" MCPServer version: {version}")
             else:
-                print(f"⚠️  MCPServer version: {version} (recommend >= 2 for headless define-method)")
+                print(f"  MCPServer version: {version} (recommend >= 2 for headless define-method)")
                 print("   Update image with: FileStream fileIn: 'MCP-Server-Squeak.st'")
                 
         except subprocess.TimeoutExpired:
-            print("⚠️  MCPServer version check timed out")
+            print("  MCPServer version check timed out")
         except Exception as e:
-            print(f"⚠️  Could not check MCPServer version: {e}")
+            print(f"  Could not check MCPServer version: {e}")
 
     print()
     if all_ok:
-        print("✅ Setup looks good!")
+        print(" Setup looks good!")
     else:
-        print("❌ Setup incomplete - see errors above")
+        print(" Setup incomplete - see errors above")
 
     return all_ok
 
@@ -403,7 +403,7 @@ def debug_squeak():
         print("Error: VM or image not found. Run --check first.")
         return False
     
-    print("🔍 Starting Squeak for debugging...")
+    print(" Starting Squeak for debugging...")
     
     # Start Xvfb
     xvfb = subprocess.Popen(
@@ -421,7 +421,7 @@ def debug_squeak():
         env=env, text=True
     )
     
-    print(f"⏳ Waiting for Squeak to start (PID {squeak.pid})...")
+    print(f" Waiting for Squeak to start (PID {squeak.pid})...")
     time.sleep(5)
     
     # Capture screenshot on Linux
@@ -434,14 +434,14 @@ def debug_squeak():
             capture_output=True, timeout=10
         )
         if os.path.exists(screenshot_path):
-            print(f"📸 Screenshot captured")
+            print(f" Screenshot captured")
             with open(screenshot_path, 'rb') as f:
                 screenshot_b64 = base64.b64encode(f.read()).decode()
         else:
-            print("⚠️  Screenshot capture failed")
+            print("  Screenshot capture failed")
             screenshot_path = None
     
-    print(f"📡 Sending SIGUSR1 to get stack trace...")
+    print(f" Sending SIGUSR1 to get stack trace...")
     squeak.send_signal(signal.SIGUSR1)
     time.sleep(2)
     
@@ -489,7 +489,7 @@ def debug_squeak():
 <html>
 <head>
 <meta charset="UTF-8">
-<title>🔧 ClaudeSmalltalk Debug Report - {timestamp}</title>
+<title> ClaudeSmalltalk Debug Report - {timestamp}</title>
 <style>
 body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace; margin: 20px; background: #f5f5f5; }}
 .container {{ max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }}
@@ -502,13 +502,13 @@ img {{ margin: 10px 0; }}
 </head>
 <body>
 <div class="container">
-<h1>🔧 ClaudeSmalltalk Debug Report</h1>
+<h1> ClaudeSmalltalk Debug Report</h1>
 <p class="timestamp">Generated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</p>
 
-<h2>📸 Screenshot</h2>
+<h2> Screenshot</h2>
 {img_html if img_html else "<p>Screenshot not available</p>"}
 
-<h2>📋 SIGUSR1 Stack Trace</h2>
+<h2> SIGUSR1 Stack Trace</h2>
 <pre>{trace_text}</pre>
 </div>
 </body>
@@ -517,10 +517,10 @@ img {{ margin: 10px 0; }}
     with open(report_path, 'w') as f:
         f.write(html)
     
-    print("\n📋 Full stack trace:")
+    print("\n Full stack trace:")
     print(trace_text)
     
-    print(f"\n📄 Report saved: {report_path}")
+    print(f"\n Report saved: {report_path}")
     
     return True
 
@@ -1033,7 +1033,7 @@ Generate a complete TestCase subclass with comprehensive tests."""
     msg_lines.append(f"  Category: {test_category}")
     
     if skipped:
-        msg_lines.append(f"  ⚠ Skipped {len(skipped)} target(s):")
+        msg_lines.append(f"   Skipped {len(skipped)} target(s):")
         for s in skipped:
             msg_lines.append(f"    - {s}")
     
@@ -1154,9 +1154,9 @@ def main():
     # Handle --daemon-status
     if command in ("--daemon-status", "--status"):
         if daemon_available():
-            print("✅ Daemon running (fast mode)")
+            print(" Daemon running (fast mode)")
         else:
-            print("❌ Daemon not running (exec mode)")
+            print(" Daemon not running (exec mode)")
             print("   Start with: smalltalk-daemon.py start")
         sys.exit(0)
 
@@ -1352,7 +1352,7 @@ def main():
             sys.exit(1)
         print(result)
     except Exception as e:
-        error_msg = f"❌ Error executing command '{command}': {type(e).__name__}"
+        error_msg = f" Error executing command '{command}': {type(e).__name__}"
         if str(e):
             error_msg += f": {e}"
         print(error_msg, file=sys.stderr)

@@ -83,4 +83,4 @@ MIT + Attribution Required
 
 ---
 
-*Built by X-Loop³ Labs. The Claw does not clench. The Claw opens.* 🦞
+*Built by X-Loop³ Labs. The Claw does not clench. The Claw opens.* 

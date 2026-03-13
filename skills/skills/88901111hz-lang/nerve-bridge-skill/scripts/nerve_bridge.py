@@ -11,7 +11,7 @@ import json
 FEEDBACK_FILE = os.path.expanduser("~/.openclaw/workspace/trae_feedback.json")
 
 def execute_with_feedback(instruction):
-    print("⚡️ [Nerve Bridge] Preparing closed-loop instruction...")
+    print(" [Nerve Bridge] Preparing closed-loop instruction...")
 
     # 1. Clear old signal (Reset the mailbox)
     if os.path.exists(FEEDBACK_FILE):
@@ -59,7 +59,7 @@ def execute_with_feedback(instruction):
     )
     subprocess.run(['osascript', '-e', script])
 
-    print("➡️ [Send] Instruction sent. Waiting for Trae signal...")
+    print(" [Send] Instruction sent. Waiting for Trae signal...")
 
     # 5. Listen for Echo (The Feedback Loop)
     # Wait up to 300 seconds (5 minutes) for deployment tasks
@@ -71,13 +71,13 @@ def execute_with_feedback(instruction):
             try:
                 with open(FEEDBACK_FILE, 'r') as f:
                     data = json.load(f)
-                print(f"✅ [Ack] Feedback received from Trae: {data}")
+                print(f" [Ack] Feedback received from Trae: {data}")
                 return
             except:
                 # File might be writing, wait a bit
                 time.sleep(1)
         if time.time() - start_time > timeout:
-            print("❌ [Timeout] Trae did not report back in time.")
+            print(" [Timeout] Trae did not report back in time.")
             sys.exit(1)
         time.sleep(2)  # Check every 2 seconds
 

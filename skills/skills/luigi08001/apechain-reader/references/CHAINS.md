@@ -4,92 +4,92 @@ This document lists all supported blockchain networks in the ApeChain Reader ski
 
 ## Chain Status Legend
 
-✅ **RELIABLE** - Consistently working, recommended for production use  
-🟡 **INTERMITTENT** - Works but may have occasional timeouts or performance issues  
-❌ **PROBLEMATIC** - Frequent issues, use with caution  
+ **RELIABLE** - Consistently working, recommended for production use  
+ **INTERMITTENT** - Works but may have occasional timeouts or performance issues  
+ **PROBLEMATIC** - Frequent issues, use with caution  
 
 ---
 
 ## Supported Networks
 
-### ✅ ApeChain (Primary)
+###  ApeChain (Primary)
 - **Chain ID:** 33139
 - **RPC:** `https://apechain.calderachain.xyz/http`
 - **Symbol:** APE
 - **Explorer:** [apescan.io](https://apescan.io)
-- **Status:** ✅ RELIABLE
+- **Status:**  RELIABLE
 - **Notes:** Primary target chain, consistently fast responses (<1s), excellent reliability
 - **Recommended:** Primary choice for all operations
 
-### ✅ Ethereum Mainnet
+###  Ethereum Mainnet
 - **Chain ID:** 1
 - **RPC:** `https://eth.llamarpc.com`
 - **Symbol:** ETH
 - **Explorer:** [etherscan.io](https://etherscan.io)
-- **Status:** ✅ RELIABLE
+- **Status:**  RELIABLE
 - **Notes:** Stable performance, good for high-value addresses, moderate response times
 - **Recommended:** Reliable for production use
 
-### ✅ Base
+###  Base
 - **Chain ID:** 8453
 - **RPC:** `https://base.llamarpc.com`
 - **Symbol:** ETH
 - **Explorer:** [basescan.org](https://basescan.org)
-- **Status:** ✅ RELIABLE
+- **Status:**  RELIABLE
 - **Notes:** Fast responses, growing ecosystem, good reliability
 - **Recommended:** Reliable for production use
 
-### ✅ Arbitrum One
+###  Arbitrum One
 - **Chain ID:** 42161
 - **RPC:** `https://arb1.arbitrum.io/rpc`
 - **Symbol:** ETH
 - **Explorer:** [arbiscan.io](https://arbiscan.io)
-- **Status:** ✅ RELIABLE
+- **Status:**  RELIABLE
 - **Notes:** Fast and reliable, official RPC endpoint
 - **Recommended:** Reliable for production use
 
-### 🟡 Polygon
+###  Polygon
 - **Chain ID:** 137
 - **RPC:** `https://polygon.llamarpc.com`
 - **Symbol:** MATIC
 - **Explorer:** [polygonscan.com](https://polygonscan.com)
-- **Status:** 🟡 INTERMITTENT
+- **Status:**  INTERMITTENT
 - **Notes:** Frequent timeouts during testing, RPC endpoint may be unreliable
 - **Recommendation:** Use with retry logic, consider alternative RPC endpoints
 - **Alternative RPCs:** 
   - `https://polygon-rpc.com`
   - `https://rpc-mainnet.maticvigil.com`
 
-### 🟡 Optimism
+###  Optimism
 - **Chain ID:** 10
 - **RPC:** `https://optimism.llamarpc.com`
 - **Symbol:** ETH
 - **Explorer:** [optimistic.etherscan.io](https://optimistic.etherscan.io)
-- **Status:** 🟡 INTERMITTENT
+- **Status:**  INTERMITTENT
 - **Notes:** Timeout issues observed during testing
 - **Recommendation:** Use with retry logic, consider alternative RPC endpoints
 - **Alternative RPCs:** 
   - `https://mainnet.optimism.io`
   - `https://opt-mainnet.g.alchemy.com/v2/demo`
 
-### 🟡 BNB Smart Chain (BSC)
+###  BNB Smart Chain (BSC)
 - **Chain ID:** 56
 - **RPC:** `https://bsc.llamarpc.com`
 - **Symbol:** BNB
 - **Explorer:** [bscscan.com](https://bscscan.com)
-- **Status:** 🟡 INTERMITTENT
+- **Status:**  INTERMITTENT
 - **Notes:** Timeout issues observed, may need alternative endpoints
 - **Recommendation:** Use with caution, consider alternative RPC endpoints
 - **Alternative RPCs:** 
   - `https://bsc-dataseed.binance.org`
   - `https://bsc-dataseed1.defibit.io`
 
-### 🟡 Avalanche C-Chain
+###  Avalanche C-Chain
 - **Chain ID:** 43114
 - **RPC:** `https://avalanche.drpc.org`
 - **Symbol:** AVAX
 - **Explorer:** [snowscan.xyz](https://snowscan.xyz)
-- **Status:** 🟡 INTERMITTENT
+- **Status:**  INTERMITTENT
 - **Notes:** Limited testing, may have performance issues
 - **Recommendation:** Test thoroughly before production use
 - **Alternative RPCs:** 

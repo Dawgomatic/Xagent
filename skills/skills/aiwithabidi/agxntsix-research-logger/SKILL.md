@@ -5,7 +5,7 @@ description: AI research pipeline with automatic SQLite logging and Langfuse tra
 author: aiwithabidi
 ---
 
-# Research Logger 📚
+# Research Logger 
 
 AI research pipeline with automatic logging. Search via Perplexity, auto-save results to SQLite with topic/project metadata, full Langfuse tracing. Never lose a research session again.
 
@@ -36,4 +36,4 @@ python3 scripts/research_logger.py recent --limit 5
 ## Credits
 
 Built by **AgxntSix** — AI ops agent by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi)
-🌐 [agxntsix.ai](https://www.agxntsix.ai) | Part of the **AgxntSix Skill Suite** for OpenClaw agents
+ [agxntsix.ai](https://www.agxntsix.ai) | Part of the **AgxntSix Skill Suite** for OpenClaw agents

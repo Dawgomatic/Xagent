@@ -88,11 +88,11 @@ wait_for_completion() {
     local waited=0
     
     echo ""
-    echo "⏳ 等待下载完成（最多 ${max_wait_minutes} 分钟）..."
+    echo " 等待下载完成（最多 ${max_wait_minutes} 分钟）..."
     
     # 登录
     if ! qb_login "$qb_url" "$username" "$password" "$cookie_file"; then
-        echo "❌ 无法登录 qBittorrent"
+        echo " 无法登录 qBittorrent"
         rm -f "$cookie_file"
         return 1
     fi
@@ -112,7 +112,7 @@ wait_for_completion() {
         # 检查是否完成
         if [[ "$state" == "uploading" || "$state" == "stalledUP" ]] || [[ "$progress" == "1" ]]; then
             echo ""
-            echo "✅ 下载完成！"
+            echo " 下载完成！"
             rm -f "$cookie_file"
             return 0
         fi
@@ -120,7 +120,7 @@ wait_for_completion() {
         # 检查是否出错
         if [[ "$state" == "error" || "$state" == "missingFiles" ]]; then
             echo ""
-            echo "❌ 下载出错"
+            echo " 下载出错"
             rm -f "$cookie_file"
             return 1
         fi
@@ -130,7 +130,7 @@ wait_for_completion() {
     done
     
     echo ""
-    echo "⚠️  等待超时，下载仍在进行中"
+    echo "  等待超时，下载仍在进行中"
     rm -f "$cookie_file"
     return 1
 }
@@ -220,7 +220,7 @@ echo "qBittorrent: $QB_URL"
 echo ""
 
 # 第一步：搜索种子
-echo "🔍 正在搜索种子..."
+echo " 正在搜索种子..."
 
 # 构建搜索URL
 JACKETT_URL="${JACKETT_URL%/}"
@@ -233,7 +233,7 @@ SEARCH_RESPONSE=$(curl -s "$SEARCH_URL")
 
 # 检查响应
 if [[ -z "$SEARCH_RESPONSE" ]]; then
-    echo "❌ 搜索失败：未收到响应"
+    echo " 搜索失败：未收到响应"
     exit 1
 fi
 
@@ -241,24 +241,24 @@ fi
 RESULTS_COUNT=$(echo "$SEARCH_RESPONSE" | jq -r '.Results | length')
 
 if [[ "$RESULTS_COUNT" -eq 0 ]]; then
-    echo "❌ 未找到任何结果"
+    echo " 未找到任何结果"
     echo "提示：尝试使用英文电影名称搜索"
     exit 1
 fi
 
-echo "✅ 找到 $RESULTS_COUNT 个结果"
+echo " 找到 $RESULTS_COUNT 个结果"
 echo ""
 
 JSON_PART="$SEARCH_RESPONSE"
 
 if [[ -z "$JSON_PART" ]]; then
-    echo "❌ 未找到任何种子"
+    echo " 未找到任何种子"
     exit 1
 fi
 
 # 解析JSON并选择最高质量种子
 echo ""
-echo "📊 正在分析种子质量..."
+echo " 正在分析种子质量..."
 
 # 使用jq选择最高质量的种子
 BEST_TORRENT=$(echo "$JSON_PART" | jq -r '
@@ -283,7 +283,7 @@ BEST_TORRENT=$(echo "$JSON_PART" | jq -r '
 
 # 检查是否找到有效种子
 if [[ "$BEST_TORRENT" == "null" ]]; then
-    echo "❌ 无法解析搜索结果"
+    echo " 无法解析搜索结果"
     exit 1
 fi
 
@@ -293,18 +293,18 @@ MAGNET=$(echo "$BEST_TORRENT" | jq -r '.MagnetUri')
 SIZE=$(echo "$BEST_TORRENT" | jq -r '.Size')
 SEEDERS=$(echo "$BEST_TORRENT" | jq -r '.Seeders')
 
-echo "✅ 找到最佳种子："
-echo "   📽️  标题: $TITLE"
-echo "   📏 大小: $SIZE"
-echo "   🌱 种子数: $SEEDERS"
+echo " 找到最佳种子："
+echo "     标题: $TITLE"
+echo "    大小: $SIZE"
+echo "    种子数: $SEEDERS"
 
 if [[ -z "$MAGNET" || "$MAGNET" == "null" ]]; then
-    echo "❌ 无法获取磁力链接"
+    echo " 无法获取磁力链接"
     exit 1
 fi
 
 echo ""
-echo "🎬 正在添加到下载队列..."
+echo " 正在添加到下载队列..."
 
 # 第二步：添加到qBittorrent
 QB_SCRIPT="$(dirname "$0")/qbittorrent-add.sh"
@@ -316,7 +316,7 @@ sed -e "s|QB_URL=.*|QB_URL=\"$QB_URL\"|" \
 chmod +x "$TEMP_QB_SCRIPT"
 
 if ! "$TEMP_QB_SCRIPT" -m "$MAGNET"; then
-    echo "❌ 添加到qBittorrent失败"
+    echo " 添加到qBittorrent失败"
     rm -f "$TEMP_QB_SCRIPT"
     exit 1
 fi
@@ -324,9 +324,9 @@ fi
 rm -f "$TEMP_QB_SCRIPT"
 
 echo ""
-echo "🎉 下载任务已成功添加！"
-echo "📁 文件将自动下载到qBittorrent指定的目录"
-echo "🔄 你可以在qBittorrent中监控下载进度"
+echo " 下载任务已成功添加！"
+echo " 文件将自动下载到qBittorrent指定的目录"
+echo " 你可以在qBittorrent中监控下载进度"
 
 # 提取磁力链接 hash
 TORRENT_HASH=$(extract_magnet_hash "$MAGNET")
@@ -334,15 +334,15 @@ TORRENT_HASH=$(extract_magnet_hash "$MAGNET")
 # 如果启用了字幕下载，等待下载完成后处理
 if [[ "$WITH_SUBTITLE" == "true" ]]; then
     if [[ -z "$TORRENT_HASH" ]]; then
-        echo "⚠️  无法获取 torrent hash，跳过字幕下载"
+        echo "  无法获取 torrent hash，跳过字幕下载"
     elif [[ "$WAIT_COMPLETION" == "true" ]]; then
         echo ""
-        echo "📝 字幕下载已启用，等待下载完成..."
+        echo " 字幕下载已启用，等待下载完成..."
         
         if wait_for_completion "$QB_URL" "$QB_USERNAME" "$QB_PASSWORD" "$TORRENT_HASH"; then
             # 获取下载路径并下载字幕
             echo ""
-            echo "🔍 查找下载的文件..."
+            echo " 查找下载的文件..."
             
             # 等待一下让文件系统稳定
             sleep 2
@@ -359,26 +359,26 @@ if [[ "$WITH_SUBTITLE" == "true" ]]; then
                 rm -f "$cookie_file"
                 
                 if [[ -n "$CONTENT_PATH" && -d "$CONTENT_PATH" ]]; then
-                    echo "📂 找到下载目录: $CONTENT_PATH"
+                    echo " 找到下载目录: $CONTENT_PATH"
                     echo ""
                     "$SCRIPT_DIR/subtitle-download.sh" -d "$CONTENT_PATH" -l "$SUBTITLE_LANGUAGES"
                 elif [[ -n "$SAVE_PATH" && -d "$SAVE_PATH" ]]; then
-                    echo "📂 找到保存目录: $SAVE_PATH"
+                    echo " 找到保存目录: $SAVE_PATH"
                     echo ""
                     "$SCRIPT_DIR/subtitle-download.sh" -d "$SAVE_PATH" -l "$SUBTITLE_LANGUAGES"
                 else
-                    echo "⚠️  无法确定下载路径，请手动运行字幕下载:"
+                    echo "  无法确定下载路径，请手动运行字幕下载:"
                     echo "    subtitle-download.sh -d <下载目录> -l $SUBTITLE_LANGUAGES"
                 fi
             fi
         else
-            echo "⚠️  下载未完成或超时，跳过字幕下载"
+            echo "  下载未完成或超时，跳过字幕下载"
             echo "    下载完成后可手动运行:"
             echo "    subtitle-download.sh -d <下载目录> -l $SUBTITLE_LANGUAGES"
         fi
     else
         echo ""
-        echo "💡 提示：下载完成后运行以下命令下载字幕："
+        echo " 提示：下载完成后运行以下命令下载字幕："
         echo "    subtitle-download.sh -d <下载目录> -l $SUBTITLE_LANGUAGES"
     fi
 fi

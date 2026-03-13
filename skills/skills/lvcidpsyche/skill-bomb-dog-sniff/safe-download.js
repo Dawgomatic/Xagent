@@ -200,7 +200,7 @@ function cleanQuarantine(quarantinePath) {
 
 // Download skill from various sources
 async function downloadSkill(source, quarantinePath) {
-  console.error(`📥 Downloading skill from: ${source}`);
+  console.error(` Downloading skill from: ${source}`);
   
   // Check if it's a GitHub URL
   if (source.includes('github.com')) {
@@ -290,7 +290,7 @@ async function downloadFromClawhub(skillName, quarantinePath) {
     throw new Error('Invalid skill name. Use alphanumeric characters, hyphens, and underscores only.');
   }
   
-  console.error(`🔍 Fetching ${skillName} from clawhub...`);
+  console.error(` Fetching ${skillName} from clawhub...`);
   
   // Sanitize skill name
   const sanitizedName = sanitizePath(skillName);
@@ -388,7 +388,7 @@ async function installSkill(skillPath, skillName, options = {}) {
       const random = crypto.randomBytes(4).toString('hex');
       const backupPath = path.join(SAFE_INSTALL_DIR, `${skillName}.backup-${timestamp}-${random}`);
       
-      console.error(`⚠️  Skill ${skillName} already exists. Creating backup...`);
+      console.error(`  Skill ${skillName} already exists. Creating backup...`);
       fs.renameSync(targetPath, backupPath);
       
       // Keep only last 5 backups
@@ -422,7 +422,7 @@ async function installSkill(skillPath, skillName, options = {}) {
     throw new Error('Installation verification failed');
   }
   
-  console.error(`✅ Installed to: ${targetPath}`);
+  console.error(` Installed to: ${targetPath}`);
   return targetPath;
 }
 
@@ -437,7 +437,7 @@ async function safeDownload(source, options = {}) {
   
   let quarantinePath = null;
   
-  console.error('🛡️  Bomb-Dog-Sniff Safe Download');
+  console.error('  Bomb-Dog-Sniff Safe Download');
   console.error('====================================\n');
   
   try {
@@ -449,10 +449,10 @@ async function safeDownload(source, options = {}) {
     const downloadedPath = await downloadSkill(source, quarantinePath);
     const skillName = path.basename(downloadedPath);
     
-    console.error(`📦 Downloaded to quarantine: ${downloadedPath}\n`);
+    console.error(` Downloaded to quarantine: ${downloadedPath}\n`);
     
     // Step 3: Scan
-    console.error('🔍 Scanning for malicious patterns...\n');
+    console.error(' Scanning for malicious patterns...\n');
     const scanResult = scanSkill(downloadedPath, { verbose });
     
     // Display scan results
@@ -475,7 +475,7 @@ async function safeDownload(source, options = {}) {
     
     // Step 4: Decision
     if (scanResult.riskScore > riskThreshold) {
-      console.error(`❌ BLOCKED: Risk score ${scanResult.riskScore} exceeds threshold (${riskThreshold})`);
+      console.error(` BLOCKED: Risk score ${scanResult.riskScore} exceeds threshold (${riskThreshold})`);
       console.error(`Recommendation: ${scanResult.recommendation}\n`);
       
       // Clean up quarantine
@@ -490,11 +490,11 @@ async function safeDownload(source, options = {}) {
       };
     }
     
-    console.error(`✅ PASSED: Risk score ${scanResult.riskScore} is within safe threshold\n`);
+    console.error(` PASSED: Risk score ${scanResult.riskScore} is within safe threshold\n`);
     
     // Step 5: Install if requested
     if (autoInstall) {
-      console.error('📥 Installing skill...');
+      console.error(' Installing skill...');
       const installedPath = await installSkill(downloadedPath, skillName, { dryRun });
       
       // Clean up quarantine (only if not dry-run, since install moves the directory)
@@ -606,7 +606,7 @@ Examples:
     if (options.json) {
       console.log(JSON.stringify(result, null, 2));
     } else if (!result.installed && result.success) {
-      console.error(`\n📋 ${result.message}`);
+      console.error(`\n ${result.message}`);
       console.error(`   Location: ${result.quarantinePath}`);
     }
     
@@ -619,7 +619,7 @@ Examples:
       process.exitCode = 0;
     }
   } catch (err) {
-    console.error(`\n❌ Error: ${err.message}`);
+    console.error(`\n Error: ${err.message}`);
     process.exitCode = 1;
   }
 }

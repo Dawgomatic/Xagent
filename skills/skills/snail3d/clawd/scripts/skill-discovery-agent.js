@@ -99,7 +99,7 @@ function analyzeWorkspaceInterests() {
 async function searchClawdHubSkills(interests) {
   const discoveredSkills = [];
 
-  console.log(`\n🔍 Identified interests: ${Object.keys(interests).join(', ')}`);
+  console.log(`\n Identified interests: ${Object.keys(interests).join(', ')}`);
   console.log('Searching ClawdHub for matching skills...\n');
 
   // Map interests to search queries
@@ -142,7 +142,7 @@ function isSkillOldEnough(skill) {
 
 // Run security scanner on skill
 async function securityScanSkill(skillName) {
-  console.log(`  🔒 Running security scan on "${skillName}"...`);
+  console.log(`   Running security scan on "${skillName}"...`);
 
   try {
     // Attempt to run security-scanner skill
@@ -167,7 +167,7 @@ async function securityScanSkill(skillName) {
 
 // Attempt to install skill
 async function installSkill(skillName) {
-  console.log(`  ⬇️  Installing "${skillName}"...`);
+  console.log(`    Installing "${skillName}"...`);
 
   try {
     const result = await runClawdbotCmd(['skills', 'install', skillName]);
@@ -181,16 +181,16 @@ async function installSkill(skillName) {
 // Main sub-agent function
 async function runSkillDiscoveryAgent() {
   console.log('═══════════════════════════════════════════════════════════');
-  console.log('🎯 SKILL DISCOVERY SUB-AGENT STARTED');
+  console.log(' SKILL DISCOVERY SUB-AGENT STARTED');
   console.log('═══════════════════════════════════════════════════════════\n');
 
   try {
     // Step 1: Analyze workspace context
-    console.log('📊 Analyzing workspace context...\n');
+    console.log(' Analyzing workspace context...\n');
     const interests = analyzeWorkspaceInterests();
 
     if (Object.keys(interests).length === 0) {
-      console.log('⚠️  No clear interests detected in workspace');
+      console.log('  No clear interests detected in workspace');
       return;
     }
 
@@ -214,20 +214,20 @@ async function runSkillDiscoveryAgent() {
       { name: 'openai-reasoning-agent', category: 'AGENTIC_CODING', createdAt: '2024-01-18T00:00:00Z' }
     ];
 
-    console.log(`\n🔎 Found ${candidateSkills.length} candidate skills\n`);
+    console.log(`\n Found ${candidateSkills.length} candidate skills\n`);
 
     for (const skill of candidateSkills) {
       results.reviewed++;
 
       // Check if skill matches detected interests
       if (!interests[skill.category]) {
-        console.log(`⏭️  Skipping "${skill.name}" (category not in interests)`);
+        console.log(`  Skipping "${skill.name}" (category not in interests)`);
         continue;
       }
 
       // Validate age
       if (!isSkillOldEnough(skill)) {
-        console.log(`⏭️  Skipping "${skill.name}" (too new, <2 days old)`);
+        console.log(`  Skipping "${skill.name}" (too new, <2 days old)`);
         results.rejected.push({
           name: skill.name,
           reason: 'Age requirement not met (<2 days)'
@@ -239,7 +239,7 @@ async function runSkillDiscoveryAgent() {
       const securityResult = await securityScanSkill(skill.name);
 
       if (securityResult.status === 'DANGEROUS') {
-        console.log(`❌ REJECTED "${skill.name}" - Security status: DANGEROUS`);
+        console.log(` REJECTED "${skill.name}" - Security status: DANGEROUS`);
         console.log(`   Details: ${securityResult.details.slice(0, 100)}...`);
         results.rejected.push({
           name: skill.name,
@@ -249,7 +249,7 @@ async function runSkillDiscoveryAgent() {
       }
 
       if (securityResult.status === 'CAUTION') {
-        console.log(`⚠️  CAUTION on "${skill.name}" - Review recommended`);
+        console.log(`  CAUTION on "${skill.name}" - Review recommended`);
         console.log(`   Details: ${securityResult.details.slice(0, 100)}...`);
         results.rejected.push({
           name: skill.name,
@@ -259,7 +259,7 @@ async function runSkillDiscoveryAgent() {
       }
 
       // Install SAFE skill
-      console.log(`✅ SAFE "${skill.name}" - Installing...`);
+      console.log(` SAFE "${skill.name}" - Installing...`);
       const installed = await installSkill(skill.name);
 
       if (installed) {
@@ -278,26 +278,26 @@ async function runSkillDiscoveryAgent() {
     // Step 4: Generate summary report
     const summaryReport = `
 ═══════════════════════════════════════════════════════════
-🎯 SKILL DISCOVERY SUMMARY
+ SKILL DISCOVERY SUMMARY
 ═══════════════════════════════════════════════════════════
 
-📊 Results:
+ Results:
   • Skills reviewed: ${results.reviewed}
   • Skills installed: ${results.installed}
   • Skills rejected: ${results.rejected.length}
 
-✅ Successfully installed:
+ Successfully installed:
 ${results.safeInstalls.length > 0 
   ? results.safeInstalls.map(s => `  • ${s}`).join('\n')
   : '  (None)'}
 
-❌ Rejected skills:
+ Rejected skills:
 ${results.rejected.length > 0
   ? results.rejected.map(s => `  • ${s.name}: ${s.reason}`).join('\n')
   : '  (None)'}
 
 ═══════════════════════════════════════════════════════════
-✨ Skill discovery complete! Check the morning briefing above.
+ Skill discovery complete! Check the morning briefing above.
 ═══════════════════════════════════════════════════════════
 `;
 

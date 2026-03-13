@@ -1,21 +1,21 @@
-# 📅 Luma Event Manager
+#  Luma Event Manager
 
 A Clawdbot skill for managing [Luma](https://lu.ma) events as both host and attendee. Discover nearby events, view guest lists, and track your RSVPs — all via web scraping (no API key required).
 
 ## Features
 
 ### Public Access (No Auth)
-- 🔍 Search events by topic, theme, or keyword
-- 📍 Discover events near any location
-- 📄 View event details (title, date, location, host)
-- 🌍 Geographic search with radius filtering
+-  Search events by topic, theme, or keyword
+-  Discover events near any location
+-  View event details (title, date, location, host)
+-  Geographic search with radius filtering
 
 ### Authenticated Access (With Cookies)
-- 📋 View your RSVP'd events
-- 🎯 View events you're hosting
-- 👥 Access guest lists for your events
-- ✅ RSVP to events
-- 📆 Sync events to Google Calendar (via `gog` CLI)
+-  View your RSVP'd events
+-  View events you're hosting
+-  Access guest lists for your events
+-  RSVP to events
+-  Sync events to Google Calendar (via `gog` CLI)
 
 ## Installation
 
@@ -161,4 +161,4 @@ MIT
 
 ---
 
-Built for [Clawdbot](https://github.com/clawdbot/clawdbot) 🦞
+Built for [Clawdbot](https://github.com/clawdbot/clawdbot) 

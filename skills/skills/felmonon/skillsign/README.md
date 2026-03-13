@@ -1,4 +1,4 @@
-# skillsign 🛡️
+# skillsign 
 
 Cryptographic signing and verification for agent skill folders using ed25519 keys.
 
@@ -70,7 +70,7 @@ Hashes every file in the folder (SHA-256), builds a sorted manifest, and signs i
 
 **Output:**
 ```
-✅ Signed 14 files in my-skill/
+ Signed 14 files in my-skill/
    Signer: f69159d8a25e8e32
    Signature: ./my-skill/.skillsig/signature.bin
 ```
@@ -90,14 +90,14 @@ Rebuilds the manifest from current files, compares to the stored manifest, then 
 
 **Clean output:**
 ```
-✅ Verified — 14 files intact.
+ Verified — 14 files intact.
    Signer: f69159d8a25e8e32 [TRUSTED]
    Signed at: 2026-01-31T03:09:53Z
 ```
 
 **Tampered output:**
 ```
-❌ TAMPERED — Files changed since signing:
+ TAMPERED — Files changed since signing:
    ~ psych.py (modified)
    + backdoor.py (added)
 ```

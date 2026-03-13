@@ -1,4 +1,4 @@
-# Kit ↔ web3.js Interop (boundary patterns)
+# Kit  web3.js Interop (boundary patterns)
 
 ## The rule
 - New code: Kit types and Kit-first APIs.

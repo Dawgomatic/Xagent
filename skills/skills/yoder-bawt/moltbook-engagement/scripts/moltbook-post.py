@@ -106,9 +106,9 @@ def _auto_register_post(post_id, title, submolt="general"):
         })
         with open(tracker_path, 'w') as f:
             json.dump(tracker, f, indent=2)
-        print(f"  📊 Auto-registered in post-tracker.json")
+        print(f"   Auto-registered in post-tracker.json")
     except Exception as e:
-        print(f"  ⚠️  Auto-register failed: {e}", file=sys.stderr)
+        print(f"    Auto-register failed: {e}", file=sys.stderr)
 
 # Secret loading - tries multiple sources
 def get_secret(name, required=True):
@@ -170,7 +170,7 @@ def _save_permanent_dedup(post_ids):
         with open(PERMANENT_DEDUP_PATH, 'w') as f:
             json.dump({"commented_posts": sorted(list(post_ids)), "updated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}, f, indent=2)
     except Exception as e:
-        print(f"  ⚠️  Permanent dedup save failed: {e}", file=sys.stderr)
+        print(f"    Permanent dedup save failed: {e}", file=sys.stderr)
 
 def permanent_check(post_id):
     """Check if we've ever commented on this post. Never expires."""
@@ -280,7 +280,7 @@ def redis_check_posted(post_id, target_type="post"):
         return False
         
     except Exception as e:
-        print(f"  ⚠️  Redis dedup check failed: {e}", file=sys.stderr)
+        print(f"    Redis dedup check failed: {e}", file=sys.stderr)
         return False  # Fail open on Redis errors
 
 
@@ -349,7 +349,7 @@ def redis_mark_posted(post_id, target_type="post", content_preview=""):
         sock.close()
         
     except Exception as e:
-        print(f"  ⚠️  Redis mark posted failed: {e}", file=sys.stderr)
+        print(f"    Redis mark posted failed: {e}", file=sys.stderr)
     
     # Update local dedup log
     try:
@@ -380,7 +380,7 @@ def redis_mark_posted(post_id, target_type="post", content_preview=""):
             json.dump(existing, f, indent=2)
             
     except Exception as e:
-        print(f"  ⚠️  Dedup log update failed: {e}", file=sys.stderr)
+        print(f"    Dedup log update failed: {e}", file=sys.stderr)
 
 
 def redis_check_ratelimit(service, action, window=1800, max_requests=1):
@@ -476,7 +476,7 @@ def redis_check_ratelimit(service, action, window=1800, max_requests=1):
         return (True, remaining, max(0, ttl))
         
     except Exception as e:
-        print(f"  ⚠️  Redis rate limit check failed: {e}", file=sys.stderr)
+        print(f"    Redis rate limit check failed: {e}", file=sys.stderr)
         return (True, max_requests, 0)  # Fail open on Redis errors
 
 # --- HTTP helpers ---
@@ -618,11 +618,11 @@ def verify_content(code, challenge, max_retries=2):
         
         result = molt_api("POST", "/verify", {"verification_code": code, "answer": answer})
         if result.get("success"):
-            print(f"  ✅ Verified and published!")
+            print(f"   Verified and published!")
             return True
         
         err = result.get("error", "")
-        print(f"  ❌ {err}")
+        print(f"   {err}")
         
         if "expired" in err.lower() or "invalid verification" in err.lower():
             print("  Code expired, need fresh submission")
@@ -649,18 +649,18 @@ def post(title, content, submolt="general", max_attempts=1):
     
     if not v.get("code"):
         # No verification needed (trusted account)
-        print(f"  ✅ Published directly! Post ID: {post_id}")
+        print(f"   Published directly! Post ID: {post_id}")
         _auto_register_post(post_id, title, submolt)
         return {"success": True, "post_id": post_id}
     
     if verify_content(v["code"], v["challenge"]):
-        print(f"  ✅ Post verified and published! ID: {post_id}")
+        print(f"   Post verified and published! ID: {post_id}")
         _auto_register_post(post_id, title, submolt)
         return {"success": True, "post_id": post_id}
     
     # Verification failed, but the post IS on the server.
     # Do NOT retry - that would create a duplicate.
-    print(f"  ⚠️  Verification failed but post {post_id} exists on server. NOT retrying to avoid duplicate.")
+    print(f"    Verification failed but post {post_id} exists on server. NOT retrying to avoid duplicate.")
     _auto_register_post(post_id, title, submolt)
     return {"success": False, "error": "Verification failed (post exists, not retrying)", "post_id": post_id, "unverified": True}
 
@@ -687,15 +687,15 @@ def check_already_commented_on_post(post_id):
                 display = user.get("display_name", "")
                 uid = user.get("id", "")
                 if username in my_identifiers or display in my_identifiers:
-                    print(f"  ⚠️  GROUND TRUTH: Already have comment(s) on this post (matched: {username or display}). Blocking duplicate.")
+                    print(f"    GROUND TRUTH: Already have comment(s) on this post (matched: {username or display}). Blocking duplicate.")
                     return True
             # Also check top-level author field
             author_str = c.get("author", "")
             if isinstance(author_str, str) and author_str in my_identifiers:
-                print(f"  ⚠️  GROUND TRUTH: Already have comment(s) on this post (matched author: {author_str}). Blocking duplicate.")
+                print(f"    GROUND TRUTH: Already have comment(s) on this post (matched author: {author_str}). Blocking duplicate.")
                 return True
     except Exception as e:
-        print(f"  ⚠️  Ground truth check failed (proceeding cautiously): {e}", file=sys.stderr)
+        print(f"    Ground truth check failed (proceeding cautiously): {e}", file=sys.stderr)
     return False
 
 
@@ -712,13 +712,13 @@ def comment(post_id, content, parent_id=None, max_attempts=1, dry_run=False):
     # For top-level comments, check just post_id
     perm_key = f"{post_id}:{parent_id}" if parent_id else post_id
     if permanent_check(perm_key):
-        print(f"  ⚠️  Already commented on this target (permanent record). Skipping.")
+        print(f"    Already commented on this target (permanent record). Skipping.")
         return {"success": False, "error": "Already commented on this target (permanent)", "duplicate": True}
     
     # LAYER 1: Redis dedup (7-day TTL, fast check)
     target_id = f"{post_id}:{parent_id}" if parent_id else post_id
     if redis_check_posted(target_id, "comment"):
-        print(f"  ⚠️  Already replied to this post/thread (Redis). Skipping.")
+        print(f"    Already replied to this post/thread (Redis). Skipping.")
         permanent_mark(perm_key)  # Backfill permanent record
         return {"success": False, "error": "Already posted to this target", "duplicate": True}
     
@@ -730,7 +730,7 @@ def comment(post_id, content, parent_id=None, max_attempts=1, dry_run=False):
     
     # Dry run mode - just log what would happen
     if dry_run:
-        print(f"  🧪 DRY RUN: Would comment on post {post_id[:12]}...")
+        print(f"   DRY RUN: Would comment on post {post_id[:12]}...")
         print(f"     Content: {content[:60]}...")
         return {"success": True, "dry_run": True, "post_id": post_id}
     
@@ -761,17 +761,17 @@ def comment(post_id, content, parent_id=None, max_attempts=1, dry_run=False):
     
     if not v.get("code"):
         # No verification needed (trusted account)
-        print(f"  ✅ Published directly! Comment ID: {comment_id}")
+        print(f"   Published directly! Comment ID: {comment_id}")
         return {"success": True, "comment_id": comment_id}
     
     if verify_content(v["code"], v["challenge"]):
-        print(f"  ✅ Comment verified and published! ID: {comment_id}")
+        print(f"   Comment verified and published! ID: {comment_id}")
         return {"success": True, "comment_id": comment_id}
     
     # Verification failed, but the comment IS on the server (visible as unverified).
     # We already marked dedup. Do NOT retry - that would create a duplicate.
-    print(f"  ⚠️  Verification failed but comment {comment_id} exists on server. NOT retrying to avoid duplicate.")
-    print(f"  ⚠️  Dedup marked. Comment may be visible as unverified.")
+    print(f"    Verification failed but comment {comment_id} exists on server. NOT retrying to avoid duplicate.")
+    print(f"    Dedup marked. Comment may be visible as unverified.")
     return {"success": False, "error": "Verification failed (comment exists, dedup marked)", "comment_id": comment_id, "unverified": True}
 
 def upvote(post_id=None, comment_id=None):

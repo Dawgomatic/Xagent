@@ -346,15 +346,15 @@ select_provider.sh "gemini" "3-pro"      # Not just "pro"
 
 ## Best Practices
 
-✅ Update cache at workflow start
-✅ Use specific model names when critical
-✅ Provide fallback to default
-✅ Check provider availability before complex workflows
-✅ Keep cache updated after connecting new providers
+ Update cache at workflow start
+ Use specific model names when critical
+ Provide fallback to default
+ Check provider availability before complex workflows
+ Keep cache updated after connecting new providers
 
-❌ Don't hardcode provider IDs
-❌ Don't assume all providers available
-❌ Don't use outdated cache
-❌ Don't forget OpenCode free option
+ Don't hardcode provider IDs
+ Don't assume all providers available
+ Don't use outdated cache
+ Don't forget OpenCode free option
 ---
 **Author:** [Malek RSH](https://github.com/malek262) | **Repository:** [OpenCode-CLI-Controller](https://github.com/malek262/opencode-api-control-skill)

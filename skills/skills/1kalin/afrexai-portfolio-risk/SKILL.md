@@ -61,7 +61,7 @@ Calculate ALL of the following for every portfolio analysis:
 
 ```
 Position Concentration:
-- Any single position >20% of portfolio = HIGH RISK ⚠️
+- Any single position >20% of portfolio = HIGH RISK 
 - Any single position >10% = MODERATE RISK
 - Top 3 positions >50% = CONCENTRATED
 
@@ -266,7 +266,7 @@ scenarios:
 
 For each scenario:
 ```
-📉 SCENARIO: [Name]
+ SCENARIO: [Name]
 
 | Position | Current Value | Stressed Value | Loss |
 |----------|--------------|----------------|------|

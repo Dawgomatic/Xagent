@@ -1,4 +1,4 @@
-# OpenClaw+ 🚀
+# OpenClaw+ 
 
 A modular super-skill for Claude that combines essential developer tools and web capabilities into a unified, powerful workflow.
 
@@ -18,11 +18,11 @@ OpenClaw+ is a comprehensive skill that integrates seven core capabilities:
 
 ## Key Features
 
-✅ **Modular Design** - Use only what you need, when you need it
-✅ **Robust Error Handling** - Graceful failure recovery at every step
-✅ **Workflow Composition** - Chain operations seamlessly
-✅ **Production-Ready** - Follows industry best practices
-✅ **Well-Documented** - Clear examples and patterns
+ **Modular Design** - Use only what you need, when you need it
+ **Robust Error Handling** - Graceful failure recovery at every step
+ **Workflow Composition** - Chain operations seamlessly
+ **Production-Ready** - Follows industry best practices
+ **Well-Documented** - Clear examples and patterns
 
 ## Common Use Cases
 
@@ -88,4 +88,4 @@ OpenClaw+ is designed to be extensible. Contributions are welcome for:
 
 ---
 
-**Created for developers who need powerful, integrated workflows with Claude** 🚀
+**Created for developers who need powerful, integrated workflows with Claude** 

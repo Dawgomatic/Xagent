@@ -10,7 +10,7 @@ SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 
 # Validate inputs
 if [ $# -lt 2 ]; then
-    echo "❌ Usage: equip.sh <gotchi-id> <slot=wearableId> [slot2=wearableId2] ..."
+    echo " Usage: equip.sh <gotchi-id> <slot=wearableId> [slot2=wearableId2] ..."
     echo ""
     echo "Valid slots: body, face, eyes, head, left-hand, right-hand, pet, background"
     echo ""
@@ -28,7 +28,7 @@ WEARABLES_JSON="{"
 FIRST=true
 for arg in "$@"; do
     if [[ ! "$arg" =~ ^([a-z-]+)=([0-9]+)$ ]]; then
-        echo "❌ Invalid format: $arg"
+        echo " Invalid format: $arg"
         echo "   Expected: slot=wearableId (e.g., right-hand=64)"
         exit 1
     fi
@@ -46,7 +46,7 @@ for arg in "$@"; do
 done
 WEARABLES_JSON+="}"
 
-echo "👻 Equipping Wearables on Gotchi #$GOTCHI_ID"
+echo " Equipping Wearables on Gotchi #$GOTCHI_ID"
 echo ""
 echo "==================================================================="
 echo "Gotchi ID: $GOTCHI_ID"
@@ -68,7 +68,7 @@ const wearables = $WEARABLES_JSON;
 try {
     const txData = buildEquipTransaction(gotchiId, wearables);
     
-    console.log('📋 Transaction prepared:');
+    console.log(' Transaction prepared:');
     console.log('   To:', txData.transaction.to);
     console.log('   Chain:', txData.transaction.chainId);
     console.log('   Description:', txData.description);
@@ -77,10 +77,10 @@ try {
     // Save for Bankr submission
     const outFile = '$SKILL_DIR/equip-tx.json';
     fs.writeFileSync(outFile, JSON.stringify(txData, null, 2));
-    console.log('💾 Saved transaction to:', outFile);
+    console.log(' Saved transaction to:', outFile);
     console.log('');
 } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
 }
 EOF
@@ -90,12 +90,12 @@ cd "$SKILL_DIR"
 node "$TEMP_SCRIPT"
 
 # Submit via Bankr
-echo "🚀 Submitting transaction via Bankr..."
+echo " Submitting transaction via Bankr..."
 echo ""
 
 BANKR_CONFIG="$HOME/.openclaw/skills/bankr/config.json"
 if [ ! -f "$BANKR_CONFIG" ]; then
-    echo "❌ Bankr config not found: $BANKR_CONFIG"
+    echo " Bankr config not found: $BANKR_CONFIG"
     exit 1
 fi
 
@@ -114,13 +114,13 @@ if [ "$SUCCESS" = "true" ]; then
     TX_HASH=$(echo "$RESPONSE" | jq -r '.transactionHash')
     echo ""
     echo "==================================================================="
-    echo "🎉 SUCCESS! Wearables equipped!"
+    echo " SUCCESS! Wearables equipped!"
     echo "==================================================================="
     echo "Transaction: $TX_HASH"
     echo "View on BaseScan: https://basescan.org/tx/$TX_HASH"
     echo ""
 else
     echo ""
-    echo "❌ Transaction failed!"
+    echo " Transaction failed!"
     exit 1
 fi

@@ -22,9 +22,9 @@ The following examples have been moved to `../archive/deprecated/`:
 
 | Example | Status | Replacement |
 |---------|--------|-------------|
-| `init_fis31.py` | ❌ Deprecated | Manual directory creation |
-| `setup_agent_extension.py` | ❌ Deprecated | Not needed in 3.2 |
-| `subagent_pipeline.py` | ❌ Deprecated | Native `sessions_spawn` |
+| `init_fis31.py` |  Deprecated | Manual directory creation |
+| `setup_agent_extension.py` |  Deprecated | Not needed in 3.2 |
+| `subagent_pipeline.py` |  Deprecated | Native `sessions_spawn` |
 
 ---
 

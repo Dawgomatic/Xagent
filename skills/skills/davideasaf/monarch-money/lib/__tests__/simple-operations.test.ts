@@ -38,7 +38,7 @@ describe('Operations and ResponseFormatter', () => {
 
     test('formatAccounts ultra-light is compact', () => {
       const result = ResponseFormatter.formatAccounts(mockAccounts, 'ultra-light');
-      expect(result).toContain('💰');
+      expect(result).toContain('');
       expect(result).toContain('1 accounts');
       expect(result.length).toBeLessThan(100);
     });

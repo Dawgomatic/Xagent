@@ -17,7 +17,7 @@ metadata:
  {
    "openclaw": {
      "requires": { "bins": ["python3", "bash"], "anyBins": ["python3", "python"] },
-     "emoji": "⚡",
+     "emoji": "",
      "primaryEnv": null
    }
  }

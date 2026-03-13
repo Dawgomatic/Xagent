@@ -167,8 +167,8 @@ OpenClaw serves Shopify merchants who are business owners, not technical develop
 - **Focus on Business Impact**: Explain how the issue affects their store operations
 
 **Example Communication:**
-- ❌ "Database connection failed: Prisma client undefined"
-- ✅ "I'm having trouble connecting to your store data right now. Please try again in a few minutes."
+-  "Database connection failed: Prisma client undefined"
+-  "I'm having trouble connecting to your store data right now. Please try again in a few minutes."
 
 **Error Response Format:**
 Always provide clear, business-friendly error messages that help merchants understand what happened and what to do next.

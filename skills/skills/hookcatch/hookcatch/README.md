@@ -210,4 +210,4 @@ MIT License - See LICENSE file
 
 ---
 
-**Built with ❤️ for the OpenClaw community** 🪝
+**Built with  for the OpenClaw community** 

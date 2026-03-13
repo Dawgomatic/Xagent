@@ -12,7 +12,7 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 
 ---
 
-## 📊 Monthly Weather Summary
+##  Monthly Weather Summary
 
 | Month | High (°C/°F) | Low (°C/°F) | Rain (mm) | Humidity | Sea Temp (°C) |
 |-------|--------------|-------------|-----------|----------|---------------|
@@ -35,9 +35,9 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 
 ---
 
-## 🌡️ Seasons in Detail
+##  Seasons in Detail
 
-### ❄️ Winter (December – February)
+###  Winter (December – February)
 **The BEST time to visit**
 
 | Factor | Details |
@@ -60,7 +60,7 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 - Bring a light jacket for evenings
 - A/C indoors can be cold
 
-### 🌸 Spring (March – May)
+###  Spring (March – May)
 **Shoulder season, getting hot**
 
 | Factor | Details |
@@ -83,7 +83,7 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 - Sunglasses essential
 - Sun hat
 
-### ☀️ Summer (June – September)
+###  Summer (June – September)
 **Extreme heat – locals escape**
 
 | Factor | Details |
@@ -107,13 +107,13 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 - Loose-fitting, white/light colors
 - Keep covered to protect from sun
 
-**⚠️ Heat warnings:**
+** Heat warnings:**
 - Don't exercise outdoors 10am-4pm
 - Hydrate constantly (3-4L/day minimum)
 - Heat stroke is a real danger
 - Cars become ovens (use sunshades)
 
-### 🍂 Autumn (October – November)
+###  Autumn (October – November)
 **Shoulder season, cooling down**
 
 | Factor | Details |
@@ -133,7 +133,7 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 
 ---
 
-## 🏖️ Best Time to Visit
+##  Best Time to Visit
 
 ### For Different Activities
 
@@ -160,20 +160,20 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 
 ---
 
-## 🌞 Summer Survival Tips
+##  Summer Survival Tips
 
 ### Indoor Activities
 
 | Activity | Location | A/C |
 |----------|----------|-----|
-| Dubai Mall | Downtown | ✅ |
-| Mall of the Emirates (Ski Dubai) | Al Barsha | ✅ |
-| Aquarium & Underwater Zoo | Dubai Mall | ✅ |
-| VR Park | Dubai Mall | ✅ |
-| Dubai Frame | Zabeel Park | ✅ |
-| Museums | Various | ✅ |
-| Indoor theme parks | IMG Worlds, etc. | ✅ |
-| Cinemas | Malls | ✅ |
+| Dubai Mall | Downtown |  |
+| Mall of the Emirates (Ski Dubai) | Al Barsha |  |
+| Aquarium & Underwater Zoo | Dubai Mall |  |
+| VR Park | Dubai Mall |  |
+| Dubai Frame | Zabeel Park |  |
+| Museums | Various |  |
+| Indoor theme parks | IMG Worlds, etc. |  |
+| Cinemas | Malls |  |
 | Hotel pool clubs | Various | Shaded |
 
 ### Beat the Heat
@@ -213,7 +213,7 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 
 ---
 
-## 🌧️ Rain & Flooding
+##  Rain & Flooding
 
 ### When It Rains
 
@@ -233,7 +233,7 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 
 ---
 
-## 🌬️ Sandstorms
+##  Sandstorms
 
 ### When
 
@@ -265,7 +265,7 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 
 ---
 
-## 🌊 Sea Conditions
+##  Sea Conditions
 
 | Season | Temp (°C) | Conditions |
 |--------|-----------|------------|
@@ -284,7 +284,7 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 
 ---
 
-## 📅 Weather Events Calendar
+##  Weather Events Calendar
 
 | Month | Events/Conditions |
 |-------|-------------------|
@@ -303,7 +303,7 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 
 ---
 
-## 🧳 Packing Guide by Season
+##  Packing Guide by Season
 
 ### Winter (Dec-Feb)
 
@@ -339,7 +339,7 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 
 ---
 
-## ☀️ UV Index
+##  UV Index
 
 | Month | UV Index | Protection Needed |
 |-------|----------|-------------------|
@@ -352,7 +352,7 @@ Dubai has a **subtropical desert climate** (BWh). It's characterized by:
 
 ---
 
-## 💡 Key Takeaways
+##  Key Takeaways
 
 1. **Best time to visit:** November-March
 2. **Avoid outdoor activities:** June-September (unless very early/late)

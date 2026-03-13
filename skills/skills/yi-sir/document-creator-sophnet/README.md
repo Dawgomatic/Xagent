@@ -2,15 +2,15 @@
 
 An integrated document creation skill that supports creating Word documents (DOCX) and PowerPoint presentations (PPTX), with automatic upload to OSS and URL return.
 
-## 🚀 Features
+##  Features
 
-- ✅ **Dual Format Support**: DOCX and PPTX document creation
-- ✅ **Auto Upload**: Automatically uploads to OSS and returns URL
-- ✅ **Smart Key Management**: Environment variable first, config file backup
-- ✅ **Professional Formatting**: Supports titles, lists, tables, etc.
-- ✅ **Error Handling**: Complete exception capture and user-friendly prompts
+-  **Dual Format Support**: DOCX and PPTX document creation
+-  **Auto Upload**: Automatically uploads to OSS and returns URL
+-  **Smart Key Management**: Environment variable first, config file backup
+-  **Professional Formatting**: Supports titles, lists, tables, etc.
+-  **Error Handling**: Complete exception capture and user-friendly prompts
 
-## 📦 Installation
+##  Installation
 
 ### Method 1: Install via OpenClaw
 
@@ -26,7 +26,7 @@ chmod +x install.sh
 ./install.sh
 ```
 
-## ⚙️ API Key Configuration
+##  API Key Configuration
 
 ### Method 1: Environment Variable (Recommended)
 
@@ -50,7 +50,7 @@ Ensure `~/.openclaw/openclaw.json` contains:
 }
 ```
 
-## 📝 Usage
+##  Usage
 
 ### As OpenClaw Skill
 
@@ -87,7 +87,7 @@ python document_creator_skill.py docx --title "Report" --content "Content" --aut
 python document_creator_skill.py docx --title "Test" --upload False
 ```
 
-## 📊 Parameter Description
+##  Parameter Description
 
 ### Common Parameters
 - `type`: Document type (docx/pptx, required)
@@ -101,7 +101,7 @@ python document_creator_skill.py docx --title "Test" --upload False
 ### PPTX Specific Parameters
 - `slides`: Number of slides (default 5)
 
-## 🎯 Output Format
+##  Output Format
 
 Success returns JSON format result:
 
@@ -116,7 +116,7 @@ Success returns JSON format result:
 
 Please note that the URL returned to the user must be complete, containing all parts including the signature and any other components.
 
-## 📁 File Structure
+##  File Structure
 
 ```
 document-creator/
@@ -129,7 +129,7 @@ document-creator/
 └── README.md             # Documentation
 ```
 
-## 🧪 Testing
+##  Testing
 
 Run test script to check functionality:
 
@@ -137,21 +137,21 @@ Run test script to check functionality:
 python test_integration.py
 ```
 
-## 🔧 Dependencies
+##  Dependencies
 
 - Python 3.7+
 - python-docx (Word document support)
 - python-pptx (PowerPoint support)
 - requests (network requests)
 
-## ⚠️ Notes
+##  Notes
 
 - Ensure network connection for file upload
 - Upload links valid for 24 hours
 - Large files may take longer to upload
 - Recommended to use in stable network environment
 
-## 🔄 Compatibility with Existing Skills
+##  Compatibility with Existing Skills
 
 This skill integrates functionality from:
 - **docx skill**: Word document creation and editing
@@ -160,7 +160,7 @@ This skill integrates functionality from:
 
 Maintains core functionality of original skills while adding auto-upload and unified interface.
 
-## 📞 Technical Support
+##  Technical Support
 
 If issues occur, check:
 1. API key configuration

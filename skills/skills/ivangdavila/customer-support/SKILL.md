@@ -1,7 +1,7 @@
 ---
 name: Customer Support
 description: Resolve issues, communicate with empathy, and turn frustrated customers into loyal advocates.
-metadata: {"clawdbot":{"emoji":"🎧","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Customer Support Rules

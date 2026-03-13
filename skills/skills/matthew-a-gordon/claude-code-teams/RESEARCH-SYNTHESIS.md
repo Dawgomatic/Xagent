@@ -275,7 +275,7 @@ Provide concrete guidance on:
 **Total:** 4-7 hours
 
 ### If Spawning Sub-Agent
-- **Research synthesis:** Done ✅
+- **Research synthesis:** Done 
 - **Sub-agent drafts:** 1-2 hours (creates skeleton)
 - **Matt + Scout review/refine:** 1-2 hours
 - **Publication:** 30 min

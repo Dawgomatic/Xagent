@@ -11,10 +11,10 @@ BIN="$SCRIPT_DIR/bin/elevenlabs"
 # Source common utilities
 source "$SCRIPTS_DIR/common.sh" 2>/dev/null || {
     # Fallback if common.sh doesn't exist
-    log_info() { echo "ℹ $1"; }
+    log_info() { echo " $1"; }
     log_success() { echo "✓ $1"; }
     log_error() { echo "✗ $1" >&2; }
-    log_warning() { echo "⚠ $1"; }
+    log_warning() { echo " $1"; }
 }
 
 # Test counter

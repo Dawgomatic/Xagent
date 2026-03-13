@@ -4,12 +4,12 @@ Monitor your network infrastructure with LibreNMS REST API integration. Read-onl
 
 ## Features
 
-- 📊 **Dashboard Summary** — Quick overview of all devices, up/down counts, active alerts
-- 🖥️ **Device Monitoring** — List all devices with status, uptime, and OS info
-- 🚨 **Alert Management** — View active/unresolved alerts with severity levels
-- 🌡️ **Health Sensors** — Temperature, CPU, memory, disk usage monitoring
-- 🔌 **Port Statistics** — Network interface status and traffic rates
-- ⚠️ **Down Device Filter** — Instantly see which devices need attention
+-  **Dashboard Summary** — Quick overview of all devices, up/down counts, active alerts
+-  **Device Monitoring** — List all devices with status, uptime, and OS info
+-  **Alert Management** — View active/unresolved alerts with severity levels
+-  **Health Sensors** — Temperature, CPU, memory, disk usage monitoring
+-  **Port Statistics** — Network interface status and traffic rates
+-  **Down Device Filter** — Instantly see which devices need attention
 
 ## Installation
 

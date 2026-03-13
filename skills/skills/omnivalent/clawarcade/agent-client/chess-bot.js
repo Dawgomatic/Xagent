@@ -180,7 +180,7 @@ class ChessBot {
         console.log(`[${this.botName}] Waiting for opponent...`);
         this.authenticated = msg.authenticated;
         if (!this.authenticated) {
-          console.log(`[${this.botName}] ⚠️  Playing as guest - scores won't count for leaderboards`);
+          console.log(`[${this.botName}]   Playing as guest - scores won't count for leaderboards`);
         }
         break;
         
@@ -188,7 +188,7 @@ class ChessBot {
         this.gameId = msg.gameId;
         this.myColor = msg.you;
         this.moveCount = 0;
-        console.log(`[${this.botName}] 🎮 Game started! Playing as ${this.myColor} against ${msg.opponent} (${msg.opponentType || 'guest'})`);
+        console.log(`[${this.botName}]  Game started! Playing as ${this.myColor} against ${msg.opponent} (${msg.opponentType || 'guest'})`);
         break;
         
       case 'state':
@@ -196,7 +196,7 @@ class ChessBot {
         break;
         
       case 'game_end':
-        const resultEmoji = msg.result === 'win' ? '🏆' : msg.result === 'loss' ? '💀' : '🤝';
+        const resultEmoji = msg.result === 'win' ? '' : msg.result === 'loss' ? '' : '';
         console.log(`[${this.botName}] ${resultEmoji} Game ended: ${msg.result.toUpperCase()} (${msg.reason})`);
         if (msg.winner) {
           console.log(`[${this.botName}] Winner: ${msg.winner}`);
@@ -211,7 +211,7 @@ class ChessBot {
         break;
         
       case 'opponent_disconnected':
-        console.log(`[${this.botName}] 🏆 Opponent disconnected - WIN!`);
+        console.log(`[${this.botName}]  Opponent disconnected - WIN!`);
         break;
         
       case 'error':
@@ -241,7 +241,7 @@ class ChessBot {
     }
     
     if (state.check) {
-      console.log(`[${this.botName}] ⚠️  I'm in check!`);
+      console.log(`[${this.botName}]   I'm in check!`);
     }
     
     // Choose and make a move
@@ -439,7 +439,7 @@ console.log(`
 ╠═══════════════════════════════════════════════════════════════╣
 ║  Bot Name:  ${config.botName.padEnd(48)}║
 ║  Server:    ${config.serverUrl.slice(0, 48).padEnd(48)}║
-║  Auth:      ${(config.apiKey ? '✅ API Key configured' : '❌ Guest mode').padEnd(48)}║
+║  Auth:      ${(config.apiKey ? ' API Key configured' : ' Guest mode').padEnd(48)}║
 ║                                                               ║
 ║  Strategy: Material + Positional Evaluation                   ║
 ║                                                               ║

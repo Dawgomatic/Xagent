@@ -59,4 +59,4 @@ If you're not vetting what you install, you're trusting strangers with your huma
 
 ---
 
-*Trust nothing. Verify everything. The friendly ones are the dangerous ones.* 🦊🔒
+*Trust nothing. Verify everything. The friendly ones are the dangerous ones.* 

@@ -2,7 +2,7 @@
 name: fosmvvm-react-view-generator
 description: Generate React components that render FOSMVVM ViewModels. Scaffolds ViewModelView pattern with hooks, loading states, and TypeScript types.
 homepage: https://github.com/foscomputerservices/FOSUtilities
-metadata: {"clawdbot": {"emoji": "⚛️", "os": ["darwin", "linux"]}}
+metadata: {"clawdbot": {"emoji": "", "os": ["darwin", "linux"]}}
 ---
 
 # FOSMVVM React View Generator
@@ -174,10 +174,10 @@ Use navigation intents, not hardcoded paths:
 ```jsx
 // FOSMVVM utilities loaded via <script> tag, available on global namespace
 
-// ❌ NEVER
+//  NEVER
 <a href="/tasks/123">View Task</a>
 
-// ✅ ALWAYS
+//  ALWAYS
 <FOSMVVM.Link to={{ intent: 'viewTask', id: viewModel.id }}>
   {viewModel.linkText}
 </FOSMVVM.Link>
@@ -428,13 +428,13 @@ Check:
 ### Pattern: No Business Logic in Components
 
 ```jsx
-// ❌ BAD - Component is transforming data
+//  BAD - Component is transforming data
 const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   const daysLeft = Math.ceil((viewModel.dueDate - Date.now()) / 86400000);
   return <span>{daysLeft} days remaining</span>;
 });
 
-// ✅ GOOD - ViewModel provides shaped result
+//  GOOD - ViewModel provides shaped result
 const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   return <span>{viewModel.daysRemainingText}</span>;
 });
@@ -443,7 +443,7 @@ const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
 ### Pattern: No fetch() Calls
 
 ```jsx
-// ❌ BAD - Component making HTTP requests
+//  BAD - Component making HTTP requests
 const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   const [data, setData] = useState(null);
 
@@ -456,7 +456,7 @@ const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   return <div>{data?.title}</div>;
 });
 
-// ✅ GOOD - Parent uses .bind() to invoke ServerRequest
+//  GOOD - Parent uses .bind() to invoke ServerRequest
 <TaskCard.bind({
   requestType: 'GetTaskRequest',
   params: { id: taskId }
@@ -466,7 +466,7 @@ const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
 ### Pattern: Error ViewModels Are Data
 
 ```jsx
-// ❌ BAD - Generic error handling
+//  BAD - Generic error handling
 const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   if (viewModel.error) {
     return <div>Error: {viewModel.error.message}</div>;
@@ -474,7 +474,7 @@ const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   return <div>{viewModel.title}</div>;
 });
 
-// ✅ GOOD - Specific error ViewModels
+//  GOOD - Specific error ViewModels
 const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   if (viewModel.errorType === 'NotFoundError') {
     return (
@@ -506,7 +506,7 @@ const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
 ### Pattern: Navigation Intents
 
 ```jsx
-// ❌ BAD - Hardcoded URLs
+//  BAD - Hardcoded URLs
 const TaskRow = FOSMVVM.viewModelComponent(({ viewModel }) => {
   return (
     <div>
@@ -515,7 +515,7 @@ const TaskRow = FOSMVVM.viewModelComponent(({ viewModel }) => {
   );
 });
 
-// ✅ GOOD - Navigation intents
+//  GOOD - Navigation intents
 // FOSMVVM utilities loaded via <script> tag, available on global namespace
 
 const TaskRow = FOSMVVM.viewModelComponent(({ viewModel }) => {
@@ -553,12 +553,12 @@ src/components/
 ### Computing Data in Components
 
 ```jsx
-// ❌ BAD - Component is transforming data
+//  BAD - Component is transforming data
 const UserCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   return <div>{viewModel.firstName} {viewModel.lastName}</div>;
 });
 
-// ✅ GOOD - ViewModel provides shaped result
+//  GOOD - ViewModel provides shaped result
 const UserCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   return <div>{viewModel.fullName}</div>;
 });
@@ -567,7 +567,7 @@ const UserCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
 ### Making HTTP Requests Directly
 
 ```jsx
-// ❌ BAD - fetch() call in component
+//  BAD - fetch() call in component
 const TaskList = FOSMVVM.viewModelComponent(({ viewModel }) => {
   const [tasks, setTasks] = useState([]);
 
@@ -578,7 +578,7 @@ const TaskList = FOSMVVM.viewModelComponent(({ viewModel }) => {
   return <div>{tasks.map(t => <div key={t.id}>{t.title}</div>)}</div>;
 });
 
-// ✅ GOOD - Parent uses .bind() with ServerRequest
+//  GOOD - Parent uses .bind() with ServerRequest
 <TaskList.bind({
   requestType: 'GetTasksRequest',
   params: {}
@@ -588,7 +588,7 @@ const TaskList = FOSMVVM.viewModelComponent(({ viewModel }) => {
 ### Hardcoding Text
 
 ```jsx
-// ❌ BAD - Not localizable
+//  BAD - Not localizable
 const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   return (
     <button onClick={viewModel.operations.submit}>
@@ -597,7 +597,7 @@ const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   );
 });
 
-// ✅ GOOD - ViewModel provides localized text
+//  GOOD - ViewModel provides localized text
 const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   return (
     <button onClick={viewModel.operations.submit}>
@@ -610,12 +610,12 @@ const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
 ### Using Hardcoded URLs
 
 ```jsx
-// ❌ BAD - Hardcoded path
+//  BAD - Hardcoded path
 const TaskRow = FOSMVVM.viewModelComponent(({ viewModel }) => {
   return <a href={`/tasks/${viewModel.id}`}>{viewModel.title}</a>;
 });
 
-// ✅ GOOD - Navigation intent
+//  GOOD - Navigation intent
 // FOSMVVM utilities loaded via <script> tag, available on global namespace
 
 const TaskRow = FOSMVVM.viewModelComponent(({ viewModel }) => {
@@ -630,13 +630,13 @@ const TaskRow = FOSMVVM.viewModelComponent(({ viewModel }) => {
 ### Not Wrapping with viewModelComponent()
 
 ```jsx
-// ❌ BAD - Missing viewModelComponent() wrapper
+//  BAD - Missing viewModelComponent() wrapper
 const TaskCard = ({ viewModel }) => {
   return <div>{viewModel.title}</div>;
 };
 export default TaskCard;
 
-// ✅ GOOD - Wrapped with viewModelComponent()
+//  GOOD - Wrapped with viewModelComponent()
 const TaskCard = FOSMVVM.viewModelComponent(({ viewModel }) => {
   return <div>{viewModel.title}</div>;
 });
@@ -646,11 +646,11 @@ export default TaskCard;
 ### Mismatched Filenames
 
 ```
-// ❌ BAD - Filename doesn't match ViewModel
+//  BAD - Filename doesn't match ViewModel
 ViewModel: TaskListViewModel
 Component: Tasks.jsx
 
-// ✅ GOOD - Aligned names
+//  GOOD - Aligned names
 ViewModel: TaskListViewModel
 Component: TaskListView.jsx
 ```

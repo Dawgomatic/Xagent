@@ -22,12 +22,12 @@ start() {
         sleep 1
         if grep -q "Loaded.*tools" "$LOG_FILE" 2>/dev/null; then
             TOOLS=$(grep "Loaded.*tools" "$LOG_FILE" | tail -1 | grep -oP '\d+(?= tools)')
-            echo "✅ Browser connected with $TOOLS tools"
+            echo " Browser connected with $TOOLS tools"
             return 0
         fi
     done
     
-    echo "⚠️ Browser not connected yet. Make sure telebiz.io is open."
+    echo " Browser not connected yet. Make sure telebiz.io is open."
     return 1
 }
 
@@ -52,18 +52,18 @@ status() {
         if ss -tlnp 2>/dev/null | grep -q ":9716"; then
             if grep -q "Loaded.*tools" "$LOG_FILE" 2>/dev/null; then
                 TOOLS=$(grep "Loaded.*tools" "$LOG_FILE" | tail -1 | grep -oP '\d+(?= tools)')
-                echo "✅ Running (PID $PID) - Browser connected with $TOOLS tools"
+                echo " Running (PID $PID) - Browser connected with $TOOLS tools"
                 return 0
             else
-                echo "🟡 Running (PID $PID) - Waiting for browser"
+                echo " Running (PID $PID) - Waiting for browser"
                 return 1
             fi
         else
-            echo "❌ Process exists but port not listening"
+            echo " Process exists but port not listening"
             return 2
         fi
     else
-        echo "❌ Not running"
+        echo " Not running"
         return 2
     fi
 }

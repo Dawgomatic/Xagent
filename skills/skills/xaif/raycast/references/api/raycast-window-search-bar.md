@@ -91,7 +91,7 @@ export default function Command() {
     }, 3000);
   }, []);
 
-  return <Detail markdown="See you soon 👋" />;
+  return <Detail markdown="See you soon " />;
 }
 ```
 

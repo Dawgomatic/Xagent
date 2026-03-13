@@ -90,17 +90,17 @@ def generate_markdown(ranked_tweets, output_dir, criteria):
         normal = [t for t in ranked_tweets if t['score'] < 60]
         
         if high:
-            f.write("## 🔥 High Priority (Score 80+)\n\n")
+            f.write("##  High Priority (Score 80+)\n\n")
             for t in high:
                 write_tweet(f, t, criteria)
         
         if medium:
-            f.write("## ⭐ Medium Priority (Score 60-79)\n\n")
+            f.write("##  Medium Priority (Score 60-79)\n\n")
             for t in medium:
                 write_tweet(f, t, criteria)
         
         if normal:
-            f.write("## 📌 Standard Priority (Score <60)\n\n")
+            f.write("##  Standard Priority (Score <60)\n\n")
             for t in normal:
                 write_tweet(f, t, criteria)
     
@@ -111,21 +111,21 @@ def analyze_value(tweet, criteria):
     matched = tweet.get('_matched_categories', [])
     
     if not matched:
-        return "📌 High engagement in your interest areas"
+        return " High engagement in your interest areas"
     
     # Map categories to user-friendly value statements
     value_map = {
-        'london_transition': "🎯 Relevant to your London move",
-        'career_growth': "📈 Career advancement",
-        'crypto_insights': "💰 Crypto work insights",
-        'investment_strategy': "📊 Investment strategy",
-        'founder_mindset': "🚀 Builder mindset",
-        'growth_strategy': "📈 Growth/scaling",
-        'relationship_dynamics': "❤️ Relationship insights",
-        'psychology': "🧠 Psychology/behavior",
-        'productivity_systems': "⚡ Productivity",
-        'business_models': "💼 Business model",
-        'technical_depth': "🔧 Technical depth"
+        'london_transition': " Relevant to your London move",
+        'career_growth': " Career advancement",
+        'crypto_insights': " Crypto work insights",
+        'investment_strategy': " Investment strategy",
+        'founder_mindset': " Builder mindset",
+        'growth_strategy': " Growth/scaling",
+        'relationship_dynamics': " Relationship insights",
+        'psychology': " Psychology/behavior",
+        'productivity_systems': " Productivity",
+        'business_models': " Business model",
+        'technical_depth': " Technical depth"
     }
     
     values = []
@@ -135,13 +135,13 @@ def analyze_value(tweet, criteria):
         elif category.startswith('discovered_'):
             # Auto-discovered category
             topic = category.replace('discovered_', '').title()
-            values.append(f"🔍 {topic}")
+            values.append(f" {topic}")
         else:
             # Use description from criteria
             desc = criteria['value_categories'].get(category, {}).get('description', category)
             values.append(f"• {desc}")
     
-    return " • ".join(values) if values else "📌 Matches your interests"
+    return " • ".join(values) if values else " Matches your interests"
 
 def write_tweet(f, tweet, criteria):
     """Write single tweet to markdown with value analysis"""
@@ -150,8 +150,8 @@ def write_tweet(f, tweet, criteria):
     f.write(f"### {tweet['rank']}. @{tweet['author']} (Score: {tweet['score']})\n\n")
     f.write(f"**Why this matters:** {value_statement}\n\n")
     f.write(f"{tweet['text']}\n\n")
-    f.write(f"👍 {tweet['likes']} | 🔁 {tweet['retweets']}\n\n")
-    f.write(f"🔗 {tweet['url']}\n\n")
+    f.write(f" {tweet['likes']} |  {tweet['retweets']}\n\n")
+    f.write(f" {tweet['url']}\n\n")
     f.write("---\n\n")
 
 def main():
@@ -200,15 +200,15 @@ def main():
     # Generate markdown
     output_file, top5 = generate_markdown(ranked, output_dir, criteria)
     
-    print(f"✅ Reading list saved: {output_file}")
-    print(f"✅ Top 5 bookmarks (scores: {[t['score'] for t in top5]})")
+    print(f" Reading list saved: {output_file}")
+    print(f" Top 5 bookmarks (scores: {[t['score'] for t in top5]})")
     
     # Save top 5 for notification
     top5_file = Path(output_dir) / f"twitter-top5-{datetime.now().strftime('%Y-%m-%d')}.json"
     with open(top5_file, 'w') as f:
         json.dump(top5, f, indent=2)
     
-    print(f"✅ Top 5 saved for notification: {top5_file}")
+    print(f" Top 5 saved for notification: {top5_file}")
 
 if __name__ == '__main__':
     main()

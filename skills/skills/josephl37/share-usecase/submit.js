@@ -153,7 +153,7 @@ async function main() {
   // Add author info if not anonymous
   if (!args.anonymous) {
     if (!args.author_username || !args.author_handle || !args.author_platform) {
-      console.error('❌ Missing author info. Either provide --author-username, --author-handle, --author-platform, or use --anonymous');
+      console.error(' Missing author info. Either provide --author-username, --author-handle, --author-platform, or use --anonymous');
       process.exit(1);
     }
     
@@ -175,28 +175,28 @@ async function main() {
   // Validate
   const errors = validate(data);
   if (errors.length > 0) {
-    console.error('❌ Validation failed:');
+    console.error(' Validation failed:');
     errors.forEach(err => console.error(`  - ${err}`));
     process.exit(1);
   }
   
   // Submit
   try {
-    console.error('📤 Submitting use case...');
+    console.error(' Submitting use case...');
     const result = await submit(data);
     
     // Output result as JSON for the assistant to parse
     console.log(JSON.stringify(result, null, 2));
     
   } catch (err) {
-    console.error('❌ Submission failed:', err.message);
+    console.error(' Submission failed:', err.message);
     
     // Check for specific error codes
     if (err.message.includes('429')) {
-      console.error('⏰ Rate limit reached (10 submissions per day)');
+      console.error(' Rate limit reached (10 submissions per day)');
       console.error('Try again tomorrow!');
     } else if (err.message.includes('400')) {
-      console.error('📝 Validation error - check your inputs');
+      console.error(' Validation error - check your inputs');
     }
     
     process.exit(1);

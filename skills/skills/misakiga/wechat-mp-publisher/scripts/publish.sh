@@ -27,7 +27,7 @@ check_wenyan() {
         echo -e "${YELLOW}wenyan-cli 未安装，使用 npx 运行...${NC}"
         WENYAN_CMD="npx @wenyan-md/cli"
     else
-        echo -e "${RED}❌ wenyan-cli 和 npx 均未安装！${NC}"
+        echo -e "${RED} wenyan-cli 和 npx 均未安装！${NC}"
         echo -e "${YELLOW}请安装 Node.js 或手动运行: npm install -g @wenyan-md/cli${NC}"
         exit 1
     fi
@@ -36,7 +36,7 @@ check_wenyan() {
 # 从 wechat.env 读取环境变量
 load_credentials() {
     if [ -f "$CONFIG_FILE" ]; then
-        echo -e "${YELLOW}📖 从 wechat.env 读取凭证...${NC}"
+        echo -e "${YELLOW} 从 wechat.env 读取凭证...${NC}"
         # Source only specific vars to avoid polluting env
         export WECHAT_APP_ID=$(grep "^export WECHAT_APP_ID=" "$CONFIG_FILE" | cut -d'"' -f2)
         export WECHAT_APP_SECRET=$(grep "^export WECHAT_APP_SECRET=" "$CONFIG_FILE" | cut -d'"' -f2)
@@ -48,7 +48,7 @@ check_env() {
     load_credentials
     
     if [ -z "$WECHAT_APP_ID" ] || [ -z "$WECHAT_APP_SECRET" ]; then
-        echo -e "${RED}❌ 环境变量未设置！${NC}"
+        echo -e "${RED} 环境变量未设置！${NC}"
         echo -e "${YELLOW}请在 wechat.env 中配置微信公众号凭证：${NC}"
         echo ""
         echo "  export WECHAT_APP_ID=your_app_id"
@@ -62,7 +62,7 @@ check_env() {
 check_file() {
     local file="$1"
     if [ ! -f "$file" ]; then
-        echo -e "${RED}❌ 文件不存在: $file${NC}"
+        echo -e "${RED} 文件不存在: $file${NC}"
         exit 1
     fi
 }
@@ -73,7 +73,7 @@ publish() {
     local theme="${2:-$DEFAULT_THEME}"
     local highlight="${3:-$DEFAULT_HIGHLIGHT}"
     
-    echo -e "${GREEN}📝 准备发布文章...${NC}"
+    echo -e "${GREEN} 准备发布文章...${NC}"
     echo "  文件: $file"
     echo "  主题: $theme"
     echo "  代码高亮: $highlight"
@@ -84,13 +84,13 @@ publish() {
     
     if [ $? -eq 0 ]; then
         echo ""
-        echo -e "${GREEN}✅ 发布成功！${NC}"
-        echo -e "${YELLOW}📱 请前往微信公众号后台草稿箱查看：${NC}"
+        echo -e "${GREEN} 发布成功！${NC}"
+        echo -e "${YELLOW} 请前往微信公众号后台草稿箱查看：${NC}"
         echo "  https://mp.weixin.qq.com/"
     else
         echo ""
-        echo -e "${RED}❌ 发布失败！${NC}"
-        echo -e "${YELLOW}💡 常见问题：${NC}"
+        echo -e "${RED} 发布失败！${NC}"
+        echo -e "${YELLOW} 常见问题：${NC}"
         echo "  1. IP 未在白名单 → 添加到公众号后台"
         echo "  2. Frontmatter 缺失 → 文件顶部添加 title + cover"
         echo "  3. API 凭证错误 → 检查 wechat.env 中的凭证"

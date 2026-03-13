@@ -54,11 +54,11 @@ python3 {scripts}/scanner.py --fetch-clawhub <skill-name>
 ## Interpreting Results
 
 ### Risk Levels
-- **🔴 CRITICAL (≥50)** — Do NOT install. Likely malicious.
-- **🟠 HIGH (25-49)** — Review manually before installing. Multiple suspicious patterns.
-- **🟡 MEDIUM (10-24)** — Some flags, likely false positives but worth checking.
-- **🟢 LOW (1-9)** — Minor flags, generally safe.
-- **✅ CLEAN (0)** — No issues detected.
+- ** CRITICAL (≥50)** — Do NOT install. Likely malicious.
+- ** HIGH (25-49)** — Review manually before installing. Multiple suspicious patterns.
+- ** MEDIUM (10-24)** — Some flags, likely false positives but worth checking.
+- ** LOW (1-9)** — Minor flags, generally safe.
+- ** CLEAN (0)** — No issues detected.
 
 ### False Positive Likelihood
 Each finding includes a FP estimate (low/medium/high):

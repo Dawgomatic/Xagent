@@ -19,7 +19,7 @@ async function flush() {
   }
 
   if (!current) {
-    console.log('💾 No active session found.');
+    console.log(' No active session found.');
     return;
   }
 
@@ -31,14 +31,14 @@ async function flush() {
   ).get(sessionId);
 
   if (existing) {
-    console.log('💾 Session already archived.');
+    console.log(' Session already archived.');
     return;
   }
 
   // Read session JSONL
   const jsonlPath = path.join(sessionsDir, `${sessionId}.jsonl`);
   if (!fs.existsSync(jsonlPath)) {
-    console.log('💾 Session file not found.');
+    console.log(' Session file not found.');
     return;
   }
 
@@ -46,7 +46,7 @@ async function flush() {
   const messages = parseJSONL(rawContent);
 
   if (messages.length === 0) {
-    console.log('💾 Empty session.');
+    console.log(' Empty session.');
     return;
   }
 
@@ -59,9 +59,9 @@ async function flush() {
     try {
       const summary = await flushSession(content);
       saveContent = JSON.stringify(summary);
-      console.log(`💾 Session summarized (${tokens} → ~${estimateTokens(saveContent)} tokens)`);
+      console.log(` Session summarized (${tokens} → ~${estimateTokens(saveContent)} tokens)`);
     } catch (err) {
-      console.log(`💾 Summary failed, saving raw: ${err.message}`);
+      console.log(` Summary failed, saving raw: ${err.message}`);
     }
   }
 
@@ -71,10 +71,10 @@ async function flush() {
     VALUES (?, ?, ?, ?, ?, 1)
   `).run('skill_hook', sessionId, current.channel || 'default', saveContent, estimateTokens(saveContent));
 
-  console.log(`💾 Session archived. (${sessionId.slice(0, 8)}...)`);
+  console.log(` Session archived. (${sessionId.slice(0, 8)}...)`);
 }
 
 flush().catch(err => {
-  console.error('💾 Flush error:', err.message);
+  console.error(' Flush error:', err.message);
   process.exit(1);
 });

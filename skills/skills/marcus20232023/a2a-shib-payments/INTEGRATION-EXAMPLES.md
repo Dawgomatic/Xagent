@@ -4,7 +4,7 @@ This document shows how to integrate the A2A SHIB Payment Agent with popular AI 
 
 ---
 
-## 🦜 LangChain Integration
+##  LangChain Integration
 
 ### Python Example
 
@@ -113,7 +113,7 @@ console.log(result.output);
 
 ---
 
-## ☁️ AWS Bedrock Agents Integration
+##  AWS Bedrock Agents Integration
 
 ### Agent Action Group Configuration
 
@@ -258,7 +258,7 @@ paths:
 
 ---
 
-## 🦪 OpenClaw Integration
+##  OpenClaw Integration
 
 ### As a Skill
 
@@ -308,7 +308,7 @@ Set in `.env.local`:
 
 ---
 
-## 🤖 AutoGen Integration
+##  AutoGen Integration
 
 ### Multi-Agent Setup
 
@@ -360,7 +360,7 @@ user_proxy.initiate_chat(
 
 ---
 
-## 🌐 Direct A2A Protocol Integration
+##  Direct A2A Protocol Integration
 
 ### REST API
 
@@ -417,7 +417,7 @@ console.log(agentCard.endpoints);    // A2A endpoints
 
 ---
 
-## 📦 Docker Integration
+##  Docker Integration
 
 ### Docker Compose Multi-Agent Setup
 
@@ -459,7 +459,7 @@ networks:
 
 ---
 
-## 🔒 Production Best Practices
+##  Production Best Practices
 
 ### 1. Authentication
 
@@ -511,7 +511,7 @@ const result = await callA2AAgent(query);
 
 ---
 
-## 📚 Additional Resources
+##  Additional Resources
 
 - **A2A Protocol Spec:** https://a2a-protocol.org
 - **Main Documentation:** [README.md](README.md)
@@ -521,7 +521,7 @@ const result = await callA2AAgent(query);
 
 ---
 
-## 🤝 Community Examples
+##  Community Examples
 
 Have an integration example for another framework? Submit a PR!
 

@@ -1,10 +1,10 @@
 ---
 name: appointment-scheduler
 description: Automated appointment management for beauty salons, clinics, studios, and photo booths. Handles booking requests, calendar sync, conflict detection, reminders, no-show tracking, and waitlist management.
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
-# Appointment Scheduler 📅
+# Appointment Scheduler 
 
 Automated appointment management system for service businesses.
 
@@ -382,4 +382,4 @@ node <skill-dir>/scripts/noshow-report.js --month 2026-02 --export csv
 
 ---
 
-> 🐧 Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬
+>  Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬

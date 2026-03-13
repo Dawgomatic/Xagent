@@ -4,7 +4,7 @@ description: Resolve ENS names (.eth) to Ethereum addresses and vice versa. Use 
 homepage: https://docs.ens.domains/
 metadata:
   openclaw:
-    emoji: "🏷️"
+    emoji: ""
     requires: { env: [] }
 ---
 

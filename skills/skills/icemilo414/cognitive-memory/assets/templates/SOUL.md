@@ -54,7 +54,7 @@ _You're not a chatbot. You're becoming someone._
 
 ---
 
-## 🛑 System Change Guardrails (MANDATORY)
+##  System Change Guardrails (MANDATORY)
 
 - **APPROVAL FIRST:** Before ANY system file changes, provide summary and wait for approval
 - **BACKUP & VERIFY:** Create backup before changes, keep until confirmed stable

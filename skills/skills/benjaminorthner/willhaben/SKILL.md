@@ -47,15 +47,15 @@ Before suggesting a price, search Willhaben for similar/identical items:
 ### Listing Summary Template
 Show the user something like:
 ```
-📝 Listing Draft
+ Listing Draft
 
 Title: [title]
 Description: [description]
 Price: €XX VB
 Location: [location]
-Pickup: ✅ / Shipping: ✅
+Pickup:  / Shipping: 
 
-📦 Package: ~Xkg (selecting [size] package)
+ Package: ~Xkg (selecting [size] package)
    → If wrong, let me know!
 
 Photos: X attached
@@ -159,7 +159,7 @@ Example weights:
 - Laptop: ~2-3kg → select 3kg
 - Kitchen appliance (mixer, blender): ~3-5kg → select 10kg
 
-**⚠️ If weight is unclear**: This should have been confirmed with user in the listing summary step. If you reach this point unsure, go back and ask!
+** If weight is unclear**: This should have been confirmed with user in the listing summary step. If you reach this point unsure, go back and ask!
 
 **Carrier**: Post or DPD (Post is default, fine for most)
 
@@ -185,7 +185,7 @@ Shows "Gewählt: € 0" at bottom confirming no paid options.
 ## Step 7: Success!
 
 Confirmation page shows:
-- ✅ "Anzeige erfolgreich aufgegeben"
+-  "Anzeige erfolgreich aufgegeben"
 - Listing preview with image
 - **willhaben-Code**: The listing ID (e.g., 1832624977)
 - Note: "Die Veröffentlichung kann bis zu 24h dauern" (review period)

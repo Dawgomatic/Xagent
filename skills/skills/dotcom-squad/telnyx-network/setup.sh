@@ -68,7 +68,7 @@ if [ -z "$REGION" ]; then
 fi
 
 echo ""
-echo -e "${GREEN}🔧 Telnyx Network Setup${NC}"
+echo -e "${GREEN} Telnyx Network Setup${NC}"
 echo "========================"
 echo ""
 echo "Region: $REGION"
@@ -129,7 +129,7 @@ cat > "$CONFIG_FILE" << EOF
 EOF
 
 echo ""
-echo -e "${GREEN}✅ Setup complete!${NC}"
+echo -e "${GREEN} Setup complete!${NC}"
 echo ""
 echo "WireGuard Gateway:"
 echo "  Endpoint: $WG_ENDPOINT"

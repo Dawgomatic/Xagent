@@ -87,12 +87,12 @@ function formatEmail(email, includeBody = false) {
   const date = new Date(email.receivedDateTime);
   const from = email.from?.emailAddress?.name || email.from?.emailAddress?.address || 'Unknown';
   
-  let output = `📧 ${email.subject}\n`;
+  let output = ` ${email.subject}\n`;
   output += `   From: ${from}\n`;
   output += `   Date: ${date.toLocaleString('en-US')}\n`;
   
   if (email.isRead === false) {
-    output += `   Status: 🔵 Unread\n`;
+    output += `   Status:  Unread\n`;
   }
   
   if (includeBody) {
@@ -131,7 +131,7 @@ if (require.main === module) {
       console.log(`Found ${emails.length} email(s):\n`);
       emails.forEach(email => console.log(formatEmail(email)));
     }).catch(err => {
-      console.error('❌ Error:', err.message);
+      console.error(' Error:', err.message);
       process.exit(1);
     });
   } else if (command === 'from' && arg) {
@@ -143,7 +143,7 @@ if (require.main === module) {
       console.log(`Found ${emails.length} email(s) from ${arg}:\n`);
       emails.forEach(email => console.log(formatEmail(email)));
     }).catch(err => {
-      console.error('❌ Error:', err.message);
+      console.error(' Error:', err.message);
       process.exit(1);
     });
   } else if (command === 'recent') {
@@ -156,14 +156,14 @@ if (require.main === module) {
       console.log(`${emails.length} most recent email(s):\n`);
       emails.forEach(email => console.log(formatEmail(email)));
     }).catch(err => {
-      console.error('❌ Error:', err.message);
+      console.error(' Error:', err.message);
       process.exit(1);
     });
   } else if (command === 'read' && arg) {
     getEmailById(arg, accountName).then(email => {
       console.log(formatEmail(email, true));
     }).catch(err => {
-      console.error('❌ Error:', err.message);
+      console.error(' Error:', err.message);
       process.exit(1);
     });
   } else {

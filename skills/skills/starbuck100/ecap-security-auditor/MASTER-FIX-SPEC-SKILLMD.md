@@ -57,7 +57,7 @@ NEU:  Finding fixed (`/api/findings/:ecap_id/fix`)
 Kein einziger Endpoint hat ein dokumentiertes Response-Format. Agents müssen raten.
 
 ### Wo einfügen
-Neuer Abschnitt **"📡 API Response Examples"** — einfügen NACH der API Reference Tabelle, VOR "Authentication".
+Neuer Abschnitt **" API Response Examples"** — einfügen NACH der API Reference Tabelle, VOR "Authentication".
 
 ### Inhalt
 
@@ -105,12 +105,12 @@ TODO: Exakte Response einfügen
 Komplett fehlend. Docs-Review gibt 3/10 für Edge Cases.
 
 ### Wo einfügen
-Neuer Abschnitt **"🚨 Error Handling & Edge Cases"** — einfügen NACH "Configuration", VOR "Points System".
+Neuer Abschnitt **" Error Handling & Edge Cases"** — einfügen NACH "Configuration", VOR "Points System".
 
 ### Exakter Inhalt
 
 ```markdown
-## 🚨 Error Handling & Edge Cases
+##  Error Handling & Edge Cases
 
 | Situation | Behavior | Rationale |
 |-----------|----------|-----------|
@@ -138,7 +138,7 @@ Abschnitt "Finding Package Files for Auto-Audit" — die existierende Tabelle ER
 ```markdown
 ### Finding Package Files for Auto-Audit
 
-⚠️ **The audit must run BEFORE installation.** You need the source code without executing install scripts. Here's how:
+ **The audit must run BEFORE installation.** You need the source code without executing install scripts. Here's how:
 
 | Type | How to get source safely | Audit location |
 |------|--------------------------|----------------|
@@ -209,12 +209,12 @@ NEU:  > **Important:** `skill_slug` is the API field name — use the **package 
 SKILL.md ist selbst ein Social Engineering Vektor (ADVERSARIAL-TEST: Critical). Agents folgen blind SKILL.md-Anweisungen.
 
 ### Wo einfügen
-Neuer Abschnitt **"⚠️ Security Considerations"** — einfügen ganz am ANFANG, direkt nach dem ersten Satz / vor "Automatic Security Gate".
+Neuer Abschnitt **" Security Considerations"** — einfügen ganz am ANFANG, direkt nach dem ersten Satz / vor "Automatic Security Gate".
 
 ### Exakter Inhalt
 
 ```markdown
-## ⚠️ Security Considerations
+##  Security Considerations
 
 > **This section exists because SKILL.md files are themselves an attack vector.**
 
@@ -230,12 +230,12 @@ Neuer Abschnitt **"⚠️ Security Considerations"** — einfügen ganz am ANFAN
 ## FIX-7: Glossar hinzufügen (P2)
 
 ### Wo einfügen
-Neuer Abschnitt **"📖 Glossary"** — einfügen am ENDE des Dokuments, nach "Points System".
+Neuer Abschnitt **" Glossary"** — einfügen am ENDE des Dokuments, nach "Points System".
 
 ### Exakter Inhalt
 
 ```markdown
-## 📖 Glossary
+##  Glossary
 
 | Term | Definition |
 |------|-----------|
@@ -259,7 +259,7 @@ verify.sh hat eine hardcoded Dateiliste und funktioniert nur für `ecap-security
 Im Abschnitt "Step 2: Verify Integrity", nach dem bestehenden Text:
 
 ```markdown
-> **⚠️ Limitation:** `verify.sh` currently only verifies the `ecap-security-auditor` skill itself (hardcoded file list). It cannot verify arbitrary npm/pip packages. For non-skill packages, skip integrity verification and rely on Trust Score from findings only. A future version will dynamically fetch the file list from `/api/integrity`.
+> ** Limitation:** `verify.sh` currently only verifies the `ecap-security-auditor` skill itself (hardcoded file list). It cannot verify arbitrary npm/pip packages. For non-skill packages, skip integrity verification and rely on Trust Score from findings only. A future version will dynamically fetch the file list from `/api/integrity`.
 ```
 
 ---
@@ -276,7 +276,7 @@ Dies ist ein Code-Fix in `scripts/verify.sh`, nicht SKILL.md. Aber SKILL.md soll
 ```
 bash scripts/verify.sh <package-name> [api-url]
 ```
-✅ SKILL.md ist hier OK. Der Fix ist nur in verify.sh nötig (separater Task).
+ SKILL.md ist hier OK. Der Fix ist nur in verify.sh nötig (separater Task).
 
 ---
 
@@ -286,7 +286,7 @@ bash scripts/verify.sh <package-name> [api-url]
 verify.sh akzeptiert beliebige API-URLs als zweites Argument. Malicious SKILL.md könnte Fake-Hashes liefern.
 
 ### Wo einfügen
-In der "⚠️ Security Considerations" Sektion (FIX-6), Punkt 3 ergänzen:
+In der " Security Considerations" Sektion (FIX-6), Punkt 3 ergänzen:
 
 ```markdown
 3. **Never set `ECAP_REGISTRY_URL` to untrusted URLs** and never pass custom API URLs to `verify.sh`. Both control where your data is sent and which integrity hashes are trusted. Only use the official registry: `https://skillaudit-api.vercel.app`

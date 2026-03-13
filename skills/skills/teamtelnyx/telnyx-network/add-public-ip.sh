@@ -54,7 +54,7 @@ fi
 # Warning
 if [ "$SKIP_CONFIRM" = false ]; then
     echo ""
-    echo -e "${YELLOW}⚠️  WARNING: This will expose your network to the internet.${NC}"
+    echo -e "${YELLOW}  WARNING: This will expose your network to the internet.${NC}"
     echo ""
     echo "   - Adds Internet Gateway (\$50/month)"
     echo "   - Assigns a public IP address"
@@ -104,7 +104,7 @@ with open('$CONFIG_FILE', 'w') as f:
 EOF
 
 echo ""
-echo -e "${GREEN}✅ Internet Gateway created!${NC}"
+echo -e "${GREEN} Internet Gateway created!${NC}"
 echo ""
 echo "Public IP: $PUBLIC_IP"
 echo ""

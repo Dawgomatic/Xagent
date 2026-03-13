@@ -1,4 +1,4 @@
-## 🧠 Memory System (Memory Mastery)
+##  Memory System (Memory Mastery)
 
 ### Three-Layer Architecture
 | Layer | Location | Purpose |
@@ -17,7 +17,7 @@
 2. **Important decisions** → Write to L1 AND update `MEMORY.md` (L2)
 3. **"Remember this"** → Write to file immediately. No mental notes!
 4. **Mistakes & lessons** → Record in L1 + update relevant docs
-5. **Text > Brain** — if you want to remember it, WRITE IT DOWN 📝
+5. **Text > Brain** — if you want to remember it, WRITE IT DOWN 
 
 ### Searching
 - Use `memory_search` tool to semantically search across all memory files

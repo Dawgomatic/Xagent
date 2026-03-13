@@ -534,9 +534,9 @@ if __name__ == "__main__":
 
     try:
         version = client.version()
-        print(f"✅ Connected. Backend={client.rpc_backend}. Server version: {version}")
+        print(f" Connected. Backend={client.rpc_backend}. Server version: {version}")
         if client.authenticate():
-            print(f"✅ Authenticated successfully! UID: {client.uid}")
+            print(f" Authenticated successfully! UID: {client.uid}")
             partners = client.search_read(
                 "res.partner", limit=5, fields=["name", "email"]
             )
@@ -544,8 +544,8 @@ if __name__ == "__main__":
             for p in partners:
                 print(f"- {p['name']} ({p.get('email') or 'No email'})")
         else:
-            print("❌ Authentication failed.")
+            print(" Authentication failed.")
             sys.exit(2)
     except Exception as e:
-        print(f"❌ Odoo connection failed: {e}")
+        print(f" Odoo connection failed: {e}")
         sys.exit(2)

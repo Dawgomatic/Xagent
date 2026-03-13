@@ -1,4 +1,4 @@
-# Openclaw Etherlink Skill 🤖
+# Openclaw Etherlink Skill 
 
 A [ClawdHub](https://clawdhub.com) skill for interacting with **Etherlink** - an EVM-compatible Layer 2 blockchain built on Tezos.
 

@@ -6,7 +6,7 @@ author: Asklepios
 repository: https://github.com/moltbot/molt-trust
 ---
 
-# Moltbook Trust Engine 🧠
+# Moltbook Trust Engine 
 
 This skill complements the **Identity Registry** by adding an analytics layer. It helps your agent decide *who* to trust by analyzing on-chain behavior.
 

@@ -16,11 +16,11 @@ metadata:
 
 ## Features
 
-- 📚 **Books** – create, edit, delete
-- 📑 **Chapters** – organize content within books
-- 📄 **Pages** – create/edit with HTML or Markdown
-- 🔍 **Full-text search** – search across all content
-- 📁 **Shelves** – organize books into collections
+-  **Books** – create, edit, delete
+-  **Chapters** – organize content within books
+-  **Pages** – create/edit with HTML or Markdown
+-  **Full-text search** – search across all content
+-  **Shelves** – organize books into collections
 
 ## Quick Start
 
@@ -107,7 +107,7 @@ Or configure via your gateway config file under `skills.entries.bookstack.env`.
 3. Click **Create Token**
 4. Copy the Token ID and Secret
 
-⚠️ The user needs a role with **"Access System API"** permission!
+ The user needs a role with **"Access System API"** permission!
 
 ## API Reference
 

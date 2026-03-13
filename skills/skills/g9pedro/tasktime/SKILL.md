@@ -61,8 +61,8 @@ tasktime chart --type line          # Line chart
 tasktime start "Build API" -c coding
 # ... do the work ...
 tasktime stop --notes "Finished in record time"
-# ✅ Completed: Build API
-# 🐘 Saved to ClawVault              ← automatic!
+#  Completed: Build API
+#  Saved to ClawVault              ← automatic!
 ```
 
 **Manual sync and export:**
@@ -115,7 +115,7 @@ Add current task to your shell prompt:
 
 ```bash
 PS1='$(tasktime now) \$ '
-# Shows: ⏱️ Build API (23m) $
+# Shows:  Build API (23m) $
 ```
 
 ## Data Storage

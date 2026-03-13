@@ -20,19 +20,19 @@ This skill integrates Claude Code capabilities into OpenClaw, providing access t
 
 ## What You Can Do
 
-### 📚 Documentation Queries
+###  Documentation Queries
 - Query Claude Code documentation
 - Get best practices and workflows
 - Learn about settings and customization
 - Troubleshoot common issues
 
-### 🤖 Subagent Management
+###  Subagent Management
 - Create coding subagents
 - Manage agent teams
 - Execute complex development tasks
 - Automate code reviews and PR workflows
 
-### 🛠️ Development Workflows
+###  Development Workflows
 - Best practices for AI-assisted coding
 - Common workflows and patterns
 - Settings and configuration

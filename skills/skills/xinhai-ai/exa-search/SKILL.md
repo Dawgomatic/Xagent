@@ -1,7 +1,7 @@
 ---
 name: exa-search
 description: Use Exa (exa.ai) Search API to search the web and return structured results (title/url/snippet/text) via a local Node script. Trigger when the user asks to enable Exa search, configure Exa API key, or perform web search using Exa.
-metadata: {"openclaw":{"emoji":"🔎","requires":{"bins":["node"],"env":["EXA_API_KEY"]},"primaryEnv":"EXA_API_KEY","homepage":"https://exa.ai/docs"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"],"env":["EXA_API_KEY"]},"primaryEnv":"EXA_API_KEY","homepage":"https://exa.ai/docs"}}
 ---
 
 # Exa Search

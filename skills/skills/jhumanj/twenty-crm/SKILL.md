@@ -1,7 +1,7 @@
 ---
 name: twenty-crm
 description: Interact with Twenty CRM (self-hosted) via REST/GraphQL.
-metadata: {"clawdbot":{"emoji":"🗂️","os":["darwin","linux"]}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin","linux"]}}
 ---
 
 # Twenty CRM

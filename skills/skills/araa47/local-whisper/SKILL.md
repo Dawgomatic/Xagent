@@ -1,7 +1,7 @@
 ---
 name: local-whisper
 description: Local speech-to-text using OpenAI Whisper. Runs fully offline after model download. High quality transcription with multiple model sizes.
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"bins":["ffmpeg"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["ffmpeg"]}}}
 ---
 
 # Local Whisper STT

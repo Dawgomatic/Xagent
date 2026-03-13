@@ -25,7 +25,7 @@ cat > "$STATE_MD" << 'HEADER'
 HEADER
 
 # Add active patterns
-jq -r '.activePatterns | to_entries[] | "### " + (if .value.severity == "critical" then "🔴 CRITICAL" elif .value.severity == "warning" then "⚠️ WARNING" else "📝" end) + ": " + .key + " (" + (.value.count|tostring) + " occurrences)\n**Last seen:** " + .value.lastSeen + "\n**Context:** " + (.value.context | split("\n")[0] | .[0:100]) + "...\n"' "$STATE_JSON" >> "$STATE_MD"
+jq -r '.activePatterns | to_entries[] | "### " + (if .value.severity == "critical" then " CRITICAL" elif .value.severity == "warning" then " WARNING" else "" end) + ": " + .key + " (" + (.value.count|tostring) + " occurrences)\n**Last seen:** " + .value.lastSeen + "\n**Context:** " + (.value.context | split("\n")[0] | .[0:100]) + "...\n"' "$STATE_JSON" >> "$STATE_MD"
 
 cat >> "$STATE_MD" << FOOTER
 
@@ -45,4 +45,4 @@ The ACC watches for correction signals ("no that's wrong", "???", etc.) and trac
 - Last updated: $LAST_UPDATED
 FOOTER
 
-echo "✅ Synced ACC_STATE.md"
+echo " Synced ACC_STATE.md"

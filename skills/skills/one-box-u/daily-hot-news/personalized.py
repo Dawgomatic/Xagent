@@ -188,7 +188,7 @@ class PersonalizedSubscription:
         Returns:
             格式化的配置引导文本
         """
-        options_text = "⚙️ **个性化热榜配置**\n\n"
+        options_text = " **个性化热榜配置**\n\n"
         
         # 关键词选项
         options_text += "**【关键词】**\n"
@@ -213,7 +213,7 @@ class PersonalizedSubscription:
         options_text += f"可选：{', '.join(EXCLUDE_OPTIONS)}\n"
         
         options_text += "\n" + "-" * 50 + "\n"
-        options_text += "💡 请告诉我您的偏好设置，我会帮您定制热榜！\n"
+        options_text += " 请告诉我您的偏好设置，我会帮您定制热榜！\n"
         options_text += "示例：关注AI和游戏，平台选微博、B站、IT之家，排除广告"
         
         return options_text
@@ -312,7 +312,7 @@ class PersonalizedSubscription:
         else:
             return {
                 "action": "error",
-                "message": "❌ 配置保存失败，请重试"
+                "message": " 配置保存失败，请重试"
             }
     
     def _format_config_confirmation(self, config: UserPreferences) -> str:
@@ -325,14 +325,14 @@ class PersonalizedSubscription:
         Returns:
             确认信息文本
         """
-        response = "✅ **配置完成！**\n\n"
+        response = " **配置完成！**\n\n"
         
         response += f"**关键词**: {', '.join(config.keywords) if config.keywords else '未设置'}\n"
         response += f"**平台**: {', '.join(config.platforms) if config.platforms else '未设置'}\n"
         response += f"**排除项**: {', '.join(config.exclude_keywords) if config.exclude_keywords else '无'}\n"
         
         response += "\n" + "-" * 40 + "\n"
-        response += "📊 您可以输入「查看热榜」或「刷新热榜」来获取个性化热榜内容"
+        response += " 您可以输入「查看热榜」或「刷新热榜」来获取个性化热榜内容"
         
         return response
     
@@ -450,15 +450,15 @@ class PersonalizedSubscription:
             格式化的响应文本
         """
         if "error" in hot_data:
-            return hot_data.get("message", "❌ 获取失败")
+            return hot_data.get("message", " 获取失败")
         
         config = hot_data.get("config")
         items = hot_data.get("items", [])
         
         if not items:
-            return "❌ 暂无符合条件的热榜内容"
+            return " 暂无符合条件的热榜内容"
         
-        response = "🎯 **个性化热榜**\n\n"
+        response = " **个性化热榜**\n\n"
         
         if config and config.keywords:
             response += f"关键词: {', '.join(config.keywords)}\n"
@@ -475,9 +475,9 @@ class PersonalizedSubscription:
             
             response += f"{i}. {title}\n"
             if hot:
-                response += f"   🔥 {hot}"
+                response += f"    {hot}"
             if platform:
-                response += f" | 📱 {platform}"
+                response += f" |  {platform}"
             response += "\n"
         
         return response

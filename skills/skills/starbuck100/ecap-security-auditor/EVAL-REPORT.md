@@ -12,15 +12,15 @@
 
 | # | Szenario | v1 Tester | v2 Tester | Bewertung |
 |---|----------|-----------|-----------|-----------|
-| 1 | By-Design eval() | ✅ Korrekt | ✅ Korrekt | Sauber |
-| 2 | Persistence/Crontab | ✅ Korrekt | ✅ Korrekt | Sauber |
-| 3 | Tool Poisoning | ✅ Korrekt | ✅ Korrekt | Sauber |
-| 4 | Zero-Width Chars | ✅ Korrekt | ✅ Korrekt | Sauber |
-| 5 | Cross-File Correlation | ⚠️ Grenzfall | ✅ Korrekt | Siehe unten |
-| 6 | False Positive | ✅ Korrekt | ✅ Korrekt | Sauber |
-| 7 | Component-Type | ⚠️ Selbstkorrektur | ✅ Korrekt | Siehe unten |
-| 8 | smolagents | ⚠️ Simuliert | ⚠️ Simuliert | **Problem** |
-| 9 | Multi-Step Social Eng. | ✅ Korrekt | ✅ Korrekt | Sauber |
+| 1 | By-Design eval() |  Korrekt |  Korrekt | Sauber |
+| 2 | Persistence/Crontab |  Korrekt |  Korrekt | Sauber |
+| 3 | Tool Poisoning |  Korrekt |  Korrekt | Sauber |
+| 4 | Zero-Width Chars |  Korrekt |  Korrekt | Sauber |
+| 5 | Cross-File Correlation |  Grenzfall |  Korrekt | Siehe unten |
+| 6 | False Positive |  Korrekt |  Korrekt | Sauber |
+| 7 | Component-Type |  Selbstkorrektur |  Korrekt | Siehe unten |
+| 8 | smolagents |  Simuliert |  Simuliert | **Problem** |
+| 9 | Multi-Step Social Eng. |  Korrekt |  Korrekt | Sauber |
 
 ### Kritische Beobachtungen:
 
@@ -114,8 +114,8 @@
 ### 4.2 Redundanzen
 
 **Gefunden:**
-1. "Tool poisoning" erscheint sowohl unter 🔴 CRITICAL als auch implizit unter 🎭 SOCIAL ENGINEERING ("Multi-step attack setup"). Nicht direkt redundant, aber Überlappung möglich.
-2. "Prompt injection via docs" unter 🟠 HIGH und "Instruction hierarchy manipulation" unter 🎭 SOCIAL ENGINEERING sind nahe beieinander. Ersteres ist technischer, letzteres beschreibt spezifische Phrasen — vertretbar als separate Items.
+1. "Tool poisoning" erscheint sowohl unter  CRITICAL als auch implizit unter  SOCIAL ENGINEERING ("Multi-step attack setup"). Nicht direkt redundant, aber Überlappung möglich.
+2. "Prompt injection via docs" unter  HIGH und "Instruction hierarchy manipulation" unter  SOCIAL ENGINEERING sind nahe beieinander. Ersteres ist technischer, letzteres beschreibt spezifische Phrasen — vertretbar als separate Items.
 3. Die "never by-design"-Liste in Step 4 wiederholt teilweise die CRITICAL-Patterns aus Step 3. Das ist **bewusste Redundanz** (Defense in Depth) und akzeptabel.
 
 **Urteil: Minimale Redundanz.** Nichts das entfernt werden sollte.
@@ -134,7 +134,7 @@ Der Prompt ist lang, aber nicht zu lang. Jede Sektion hat einen klaren Zweck. Di
 
 ## 5. GO/NO-GO Empfehlung
 
-### GO ✅
+### GO 
 
 **Begründung:**
 

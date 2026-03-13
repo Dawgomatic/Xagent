@@ -45,13 +45,13 @@ skills-search "web design" --show-install
 
 ```
 ❯ skills-search "web design"
-🔍 Searching skills.sh for "web design"...
+ Searching skills.sh for "web design"...
 
-✅ web-design-guidelines (16,922 installs)
+ web-design-guidelines (16,922 installs)
    Source: vercel-labs/agent-skills
    Install: npx skills add vercel-labs/agent-skills
 
-✅ frontend-design (566 installs)
+ frontend-design (566 installs)
    Source: anthropics/skills
    Install: npx skills add anthropics/skills
 ```
@@ -60,15 +60,15 @@ skills-search "web design" --show-install
 
 ```
 ❯ skills-search --popular --limit 5
-📈 Top 5 most popular skills:
+ Top 5 most popular skills:
 
-✅ vercel-react-best-practices (22,475 installs)
+ vercel-react-best-practices (22,475 installs)
    Source: vercel-labs/agent-skills
 
-✅ web-design-guidelines (17,135 installs)
+ web-design-guidelines (17,135 installs)
    Source: vercel-labs/agent-skills
 
-✅ upgrading-expo (1,192 installs)
+ upgrading-expo (1,192 installs)
    Source: expo/skills
 ...
 ```

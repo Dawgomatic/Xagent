@@ -215,13 +215,13 @@ A complete outreach doc for each prospect:
 
 ## What Kills Outreach
 
-❌ "I'd love to pick your brain"
-❌ "Can I get 15 minutes of your time?"
-❌ Long paragraphs about yourself
-❌ Immediate pitch in connection request
-❌ Same message to everyone
-❌ Following up every 2 days
-❌ "Hope this finds you well"
+ "I'd love to pick your brain"
+ "Can I get 15 minutes of your time?"
+ Long paragraphs about yourself
+ Immediate pitch in connection request
+ Same message to everyone
+ Following up every 2 days
+ "Hope this finds you well"
 
 ---
 

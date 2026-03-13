@@ -1,4 +1,4 @@
-# 🦾 JARVIS UI
+#  JARVIS UI
 
 A JARVIS-style HUD dashboard for [OpenClaw](https://github.com/openclaw/openclaw) agents.
 
@@ -18,67 +18,67 @@ Interactive 3D orb that visualizes your agent's state in real-time — thinking,
 
 ## Features
 
-### 🔮 3D Orb
+###  3D Orb
 Interactive Three.js orb with real-time agent state visualization. Shows **IDLE**, **THINKING**, or **RESPONDING** status with color-coded text. Draggable, audio-reactive, with orbiting particle system.
 
-### 💬 Live Chat
+###  Live Chat
 Real-time streaming chat via OpenClaw Gateway WebSocket.
 - Markdown rendering (code blocks, links, lists)
 - Chat history — loads previous conversations on page load (configurable: 20/50/100/200 messages)
 - File upload — drag & drop, paperclip button, or Ctrl+V paste for images
 - Bubble-style UI with timestamps and sender labels
 
-### 📊 System Monitor
+###  System Monitor
 Live system metrics pushed via SSE.
 - CPU usage, memory, uptime
 - Current model name and token count
 - Auto-updating, no polling
 
-### 🎵 Audio Visualizer
+###  Audio Visualizer
 Three-layer audio visualization that reacts to TTS playback:
 - **Spectrum** — frequency bar graph
 - **Ring** — concentric circles that pulse with audio
 - **Waveform** — oscilloscope-style wave display
 
-### 📋 Task Manager
+###  Task Manager
 Full CRUD task board with real-time sync.
 - Priority levels, progress tracking, tags
 - Persistent storage (server-side JSON)
 - SSE push — updates appear instantly across tabs
 
-### 🧠 Memory Timeline
+###  Memory Timeline
 Displays daily topics extracted from your agent's `memory/*.md` files.
 - Shows `##` headings as topic entries per day
 - Collapsible days, TODAY/YESTERDAY labels
 - "More" button to load older entries (7 days at a time)
 
-### ⏰ Schedule
+###  Schedule
 View and control your agent's scheduled tasks.
 - **Heartbeat** — shows system heartbeat status and interval
 - **Cron Jobs** — toggle enable/disable directly from the UI
 
-### 🔧 Skills Browser
+###  Skills Browser
 Scans and displays all installed skills (workspace + global).
 
-### 🗣️ TTS (Text-to-Speech)
+###  TTS (Text-to-Speech)
 Dual engine support:
 - **Edge TTS** (default) — free, 300+ voices, multilingual
 - **macOS `say`** — offline fallback, requires ffmpeg
 - Switchable from the Controls panel
 
-### 🎨 Theme System
+###  Theme System
 One-click color scheme switching via HSL hue rotation.
 - 6-color palette in Controls panel (red, orange, green, cyan, blue, purple)
 - Affects entire UI: panels, orb, particles, spectrum, background
 - Persisted in localStorage
 
-### ⚡ Power Save Mode
+###  Power Save Mode
 Reduce resource usage for background monitoring.
 - Throttles render from 60fps to 15fps
 - Disables background animations, particles, scan lines
 - Toggle from Controls panel, persisted in localStorage
 
-### 📱 Mobile Ready
+###  Mobile Ready
 Responsive UI with touch gestures.
 - Swipe up/down on chat header for fullscreen/collapse
 - Floating toolbar for quick panel access
@@ -104,7 +104,7 @@ node --env-file=.env server/index.js
 
 Open `http://localhost:9999`
 
-### ⚠️ Remote Access (non-localhost)
+###  Remote Access (non-localhost)
 
 If running JARVIS on a remote server (not localhost), OpenClaw Gateway requires a secure context. Add this to `~/.openclaw/openclaw.json`:
 
@@ -136,7 +136,7 @@ cp config.json config.local.json
   "name": "My Agent HUD",
   "agent": {
     "name": "Friday",
-    "emoji": "💎",
+    "emoji": "",
     "sessionKey": "agent:main:main"
   },
   "server": {
@@ -157,7 +157,7 @@ cp config.json config.local.json
 |-----|-------------|---------|
 | `name` | Dashboard title | `"JARVIS"` |
 | `agent.name` | Agent display name | `"JARVIS"` |
-| `agent.emoji` | Agent emoji | `"🤖"` |
+| `agent.emoji` | Agent emoji | `""` |
 | `agent.sessionKey` | OpenClaw session to connect | `"agent:main:main"` |
 | `server.port` | Server port | `9999` |
 | `server.gatewayUrl` | Gateway WebSocket URL | `"ws://127.0.0.1:18789"` |

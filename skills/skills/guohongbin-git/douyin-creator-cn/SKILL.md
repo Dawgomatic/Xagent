@@ -5,34 +5,34 @@ description: Douyin Creator Assistant - Tag recommendations, best posting times,
 license: MIT
 ---
 
-# Douyin Creator Assistant 🎬
+# Douyin Creator Assistant 
 
 AI-powered assistant for Douyin (TikTok China) content creators.
 
 ## Features
 
-### 1. Tag Recommendations 🏷️
+### 1. Tag Recommendations 
 Get personalized hashtag suggestions.
 
 ```bash
 ./scripts/tags.sh "美食"
 ```
 
-### 2. Best Posting Time ⏰
+### 2. Best Posting Time 
 Learn when to post for maximum engagement.
 
 ```bash
 ./scripts/time.sh "美食博主"
 ```
 
-### 3. Title Optimization ✍️
+### 3. Title Optimization 
 Improve your video titles.
 
 ```bash
 ./scripts/title.sh "今天做了红烧肉"
 ```
 
-### 4. Competitor Analysis 📊
+### 4. Competitor Analysis 
 Study successful accounts.
 
 ```bash

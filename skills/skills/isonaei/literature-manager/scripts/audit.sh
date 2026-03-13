@@ -17,7 +17,7 @@ echo ""
 # 0. Check dependencies
 for cmd in pdftotext python3 curl file; do
   if ! command -v "$cmd" &>/dev/null; then
-    echo "❌ Missing dependency: $cmd"
+    echo " Missing dependency: $cmd"
     ERRORS=$((ERRORS + 1))
   fi
 done
@@ -29,13 +29,13 @@ while IFS= read -r -d '' pdf; do
   basename_pdf=$(basename "$pdf")
   
   if ! file -b "$pdf" | grep -q "PDF"; then
-    echo "❌ Not valid PDF: $pdf"
+    echo " Not valid PDF: $pdf"
     ERRORS=$((ERRORS + 1))
   else
     # Check title extractable
     title=$(pdftotext "$pdf" - 2>/dev/null | head -10 | grep -v '^$' | head -1)
     if [[ -z "$title" ]]; then
-      echo "⚠️  No title extracted: $basename_pdf"
+      echo "  No title extracted: $basename_pdf"
       WARNINGS=$((WARNINGS + 1))
     fi
   fi
@@ -48,7 +48,7 @@ echo "--- Markdown Verification ---"
 while IFS= read -r -d '' md; do
   TOTAL_MD=$((TOTAL_MD + 1))
   if [[ ! -s "$md" ]]; then
-    echo "❌ Empty markdown: $md"
+    echo " Empty markdown: $md"
     ERRORS=$((ERRORS + 1))
   fi
 done < <(find "$REFDIR" -path "*/markdown/*.md" -print0 2>/dev/null)
@@ -62,7 +62,7 @@ while IFS= read -r -d '' pdf; do
   category_dir=$(dirname "$(dirname "$pdf")")
   expected_md="$category_dir/markdown/${basename_noext}.md"
   if [[ ! -f "$expected_md" ]]; then
-    echo "❌ Missing markdown for: $(basename "$pdf")"
+    echo " Missing markdown for: $(basename "$pdf")"
     ERRORS=$((ERRORS + 1))
   fi
 done < <(find "$REFDIR" -path "*/papers/*.pdf" -print0 2>/dev/null)
@@ -77,7 +77,7 @@ if [[ -f "$INDEX" ]]; then
     echo "index.json entries: $PAPER_COUNT"
     
     if [[ "$PAPER_COUNT" -ne "$TOTAL_PDF" ]]; then
-      echo "⚠️  index.json ($PAPER_COUNT) != PDF count ($TOTAL_PDF)"
+      echo "  index.json ($PAPER_COUNT) != PDF count ($TOTAL_PDF)"
       WARNINGS=$((WARNINGS + 1))
     fi
     
@@ -94,11 +94,11 @@ for p in papers:
             print(f'Missing: {path}')
 " 2>/dev/null)
     if [[ -n "$MISSING" ]]; then
-      echo "❌ Files referenced in index.json but missing:"
+      echo " Files referenced in index.json but missing:"
       echo "$MISSING"
       ERRORS=$((ERRORS + $(echo "$MISSING" | grep -c .)))
     else
-      echo "✅ All index.json paths verified"
+      echo " All index.json paths verified"
     fi
     
     # Check for duplicate IDs
@@ -113,17 +113,17 @@ for i in ids:
     seen.add(i)
 " 2>/dev/null)
     if [[ -n "$DUPES" ]]; then
-      echo "❌ $DUPES"
+      echo " $DUPES"
       ERRORS=$((ERRORS + $(echo "$DUPES" | grep -c .)))
     else
-      echo "✅ No duplicate IDs"
+      echo " No duplicate IDs"
     fi
   else
-    echo "❌ index.json is not valid JSON"
+    echo " index.json is not valid JSON"
     ERRORS=$((ERRORS + 1))
   fi
 else
-  echo "⚠️  No index.json found"
+  echo "  No index.json found"
   WARNINGS=$((WARNINGS + 1))
 fi
 
@@ -135,11 +135,11 @@ if [[ -f "$README" ]]; then
   echo "--- README.md ---"
   echo "Size: $README_SIZE bytes"
   if [[ $README_SIZE -lt 1000 ]]; then
-    echo "⚠️  README seems small"
+    echo "  README seems small"
     WARNINGS=$((WARNINGS + 1))
   fi
 else
-  echo "⚠️  No README.md found"
+  echo "  No README.md found"
   WARNINGS=$((WARNINGS + 1))
 fi
 
@@ -149,9 +149,9 @@ echo "=== Summary ==="
 echo "PDFs: $TOTAL_PDF | Markdowns: $TOTAL_MD"
 echo "Errors: $ERRORS | Warnings: $WARNINGS"
 if [[ $ERRORS -eq 0 ]]; then
-  echo "✅ AUDIT PASSED"
+  echo " AUDIT PASSED"
   exit 0
 else
-  echo "❌ AUDIT FAILED"
+  echo " AUDIT FAILED"
   exit 1
 fi

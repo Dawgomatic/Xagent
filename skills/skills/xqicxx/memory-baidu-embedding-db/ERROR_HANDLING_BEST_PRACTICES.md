@@ -30,7 +30,7 @@ if not api_string or not secret_key:
 
 # 推荐
 if not api_string or not secret_key:
-    print("❌ 错误: 缺少必要的API凭据!")
+    print(" 错误: 缺少必要的API凭据!")
     print("   请设置以下环境变量:")
     print("   export BAIDU_API_STRING='your_bce_v3_api_string'")
     print("   export BAIDU_SECRET_KEY='${BAIDU_SECRET_KEY}'")
@@ -49,26 +49,26 @@ def add_memory(self, content: str, tags: List[str] = None, metadata: Dict = None
     try:
         # 输入验证
         if not content or not isinstance(content, str):
-            print("❌ 错误: 内容不能为空且必须是字符串")
+            print(" 错误: 内容不能为空且必须是字符串")
             return False
         
         if len(content) > 10000:  # 限制内容长度
-            print("❌ 错误: 内容过长，请保持在10000字符以内")
+            print(" 错误: 内容过长，请保持在10000字符以内")
             return False
             
         if tags is not None and not isinstance(tags, list):
-            print("❌ 错误: 标签必须是字符串列表")
+            print(" 错误: 标签必须是字符串列表")
             return False
             
         if metadata is not None and not isinstance(metadata, dict):
-            print("❌ 错误: 元数据必须是字典类型")
+            print(" 错误: 元数据必须是字典类型")
             return False
         
         # 继续执行业务逻辑
         # ...
         
     except Exception as e:
-        print(f"❌ 添加记忆时发生未知错误: {str(e)}")
+        print(f" 添加记忆时发生未知错误: {str(e)}")
         print("   详细错误信息:")
         traceback.print_exc()
         return False
@@ -103,7 +103,7 @@ def get_all_memories(self) -> List[Dict]:
                     "metadata": json.loads(row[5]) if row[5] else {},
                 })
             except json.JSONDecodeError:
-                print(f"⚠️ 警告: 无法解析记忆ID {row[0]} 的元数据，使用空字典")
+                print(f" 警告: 无法解析记忆ID {row[0]} 的元数据，使用空字典")
                 results.append({
                     "id": row[0],
                     "content": row[1],
@@ -113,17 +113,17 @@ def get_all_memories(self) -> List[Dict]:
                     "metadata": {},
                 })
             except Exception as e:
-                print(f"⚠️ 警告: 处理记忆ID {row[0]} 时出错: {str(e)}，跳过该记录")
+                print(f" 警告: 处理记忆ID {row[0]} 时出错: {str(e)}，跳过该记录")
                 continue
         
         return results
         
     except sqlite3.Error as e:
-        print(f"❌ 获取所有记忆时数据库错误: {str(e)}")
+        print(f" 获取所有记忆时数据库错误: {str(e)}")
         print("   可能原因: 数据库损坏、权限问题或连接失败")
         return []
     except Exception as e:
-        print(f"❌ 获取所有记忆时发生未知错误: {str(e)}")
+        print(f" 获取所有记忆时发生未知错误: {str(e)}")
         print("   详细错误信息:")
         traceback.print_exc()
         return []
@@ -205,10 +205,10 @@ def retry_on_failure(func: Callable[[], T], max_retries: int = 3, delay: float =
             return func()
         except Exception as e:
             if attempt == max_retries - 1:  # 最后一次尝试
-                print(f"❌ 经过 {max_retries} 次尝试后仍失败: {e}")
+                print(f" 经过 {max_retries} 次尝试后仍失败: {e}")
                 return None
             
-            print(f"⚠️ 第 {attempt + 1} 次尝试失败，{delay}秒后重试...")
+            print(f" 第 {attempt + 1} 次尝试失败，{delay}秒后重试...")
             time.sleep(delay)
     
     return None
@@ -246,9 +246,9 @@ def safe_search(query: str):
 ## 用户体验考虑
 
 ### 1. 清晰的错误级别标识
-- ❌ 表示严重错误，操作失败
-- ⚠️ 表示警告，操作继续但可能不完整
-- ✅ 表示成功操作
+-  表示严重错误，操作失败
+-  表示警告，操作继续但可能不完整
+-  表示成功操作
 
 ### 2. 提供解决建议
 每个错误信息都应该包括如何解决的建议。

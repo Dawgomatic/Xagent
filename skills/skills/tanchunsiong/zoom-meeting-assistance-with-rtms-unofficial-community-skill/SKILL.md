@@ -57,7 +57,7 @@ node index.js
 
 This starts an Express server listening for Zoom webhook events on `PORT`.
 
-**⚠️ Important:** Before forwarding webhooks to this service, always check if it's running:
+** Important:** Before forwarding webhooks to this service, always check if it's running:
 
 ```bash
 # Check if service is listening on port 3000
@@ -84,18 +84,18 @@ Each stream folder contains:
 
 | File | Content | Searchable |
 |------|---------|-----------|
-| `metadata.json` | Meeting metadata (UUID, stream ID, operator, start time) | ✅ |
-| `transcript.txt` | Plain text transcript with timestamps and speaker names | ✅ Best for searching — grep-friendly, one line per utterance |
-| `transcript.vtt` | VTT format transcript with timing cues | ✅ |
-| `transcript.srt` | SRT format transcript | ✅ |
-| `events.log` | Participant join/leave, active speaker changes (JSON lines) | ✅ |
-| `chat.txt` | Chat messages with timestamps | ✅ |
-| `ai_summary.md` | AI-generated meeting summary (markdown) | ✅ Key document — read this first for meeting overview |
-| `ai_dialog.json` | AI dialog suggestions | ✅ |
-| `ai_sentiment.json` | Sentiment analysis per participant | ✅ |
-| `mixedaudio.raw` | Mixed audio stream (raw PCM) | ❌ Binary |
-| `activespeakervideo.h264` | Active speaker video (raw H.264) | ❌ Binary |
-| `processed/screenshare.pdf` | Deduplicated screenshare frames as PDF | ❌ Binary |
+| `metadata.json` | Meeting metadata (UUID, stream ID, operator, start time) |  |
+| `transcript.txt` | Plain text transcript with timestamps and speaker names |  Best for searching — grep-friendly, one line per utterance |
+| `transcript.vtt` | VTT format transcript with timing cues |  |
+| `transcript.srt` | SRT format transcript |  |
+| `events.log` | Participant join/leave, active speaker changes (JSON lines) |  |
+| `chat.txt` | Chat messages with timestamps |  |
+| `ai_summary.md` | AI-generated meeting summary (markdown) |  Key document — read this first for meeting overview |
+| `ai_dialog.json` | AI dialog suggestions |  |
+| `ai_sentiment.json` | Sentiment analysis per participant |  |
+| `mixedaudio.raw` | Mixed audio stream (raw PCM) |  Binary |
+| `activespeakervideo.h264` | Active speaker video (raw H.264) |  Binary |
+| `processed/screenshare.pdf` | Deduplicated screenshare frames as PDF |  Binary |
 
 All summaries are also copied to a central folder for easy access:
 ```

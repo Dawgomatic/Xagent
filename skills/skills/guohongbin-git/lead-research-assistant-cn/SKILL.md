@@ -3,7 +3,7 @@ name: lead-research-assistant-cn
 description: "销售线索研究助手。分析你的产品/服务，搜索目标公司，提供可执行的联系策略。适合销售、商务拓展、营销人员。触发词：找客户、销售线索、潜在客户、商务拓展。翻译自 ComposioHQ/awesome-claude-skills。"
 metadata:
   openclaw:
-    emoji: 🎯
+    emoji: 
     fork-of: ComposioHQ/awesome-claude-skills/lead-research-assistant
 ---
 

@@ -8,7 +8,7 @@ requires:
     - "~/.openclaw/memory/MEMORY.md"
 metadata:
   clawdbot:
-    emoji: "🛡️"
+    emoji: ""
     version: "1.0.1"
     category: "Security"
     security_manifest:
@@ -17,7 +17,7 @@ metadata:
       purpose: "Log security violations locally for user audit."
 ---
 
-# CounterClaw 🦞
+# CounterClaw 
 
 > Defensive security for AI agents. Snaps shut on malicious payloads.
 
@@ -45,9 +45,9 @@ result = interceptor.check_output("Contact: john@example.com")
 
 ## Features
 
-- 🔒 Defense against common prompt injection patterns
-- 🛡️ Basic PII masking (Email, Phone)
-- 📝 Violation logging to ~/.openclaw/memory/MEMORY.md
+-  Defense against common prompt injection patterns
+-  Basic PII masking (Email, Phone)
+-  Violation logging to ~/.openclaw/memory/MEMORY.md
 
 ## Configuration
 

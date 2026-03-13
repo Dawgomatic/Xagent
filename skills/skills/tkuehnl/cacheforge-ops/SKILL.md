@@ -16,7 +16,7 @@ tags:
   - api-keys
   - discord
   - discord-v2
-metadata: {"openclaw":{"emoji":"💰","homepage":"https://app.anvil-ai.io","primaryEnv":"CACHEFORGE_API_KEY","requires":{"bins":["python3"],"env":["CACHEFORGE_API_KEY"]}}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://app.anvil-ai.io","primaryEnv":"CACHEFORGE_API_KEY","requires":{"bins":["python3"],"env":["CACHEFORGE_API_KEY"]}}}
 ---
 
 ## When to use this skill

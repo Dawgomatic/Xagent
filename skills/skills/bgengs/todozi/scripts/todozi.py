@@ -559,9 +559,9 @@ def todozi_create_task(
             description=description, thread_id=thread_id, tags=tag_list,
             estimated_duration=estimated_minutes,
         ))
-        return f"✅ Task created: {task.title} [ID: {task.id}]"
+        return f" Task created: {task.title} [ID: {task.id}]"
     except Exception as e:
-        return f"❌ Error creating task: {str(e)}"
+        return f" Error creating task: {str(e)}"
 
 
 @tool
@@ -580,18 +580,18 @@ def todozi_list_tasks(
         if not tasks:
             return "No tasks found"
         
-        status_icon = {"done": "✅", "in_progress": "🔄", "todo": "○"}
-        priority_icon = {"critical": "🔴", "high": "🟠", "medium": "🟡", "low": "🟢"}
+        status_icon = {"done": "", "in_progress": "", "todo": "○"}
+        priority_icon = {"critical": "", "high": "", "medium": "", "low": ""}
         
-        lines = [f"📋 Tasks ({len(tasks)}):"]
+        lines = [f" Tasks ({len(tasks)}):"]
         for task in tasks:
             s = status_icon.get(task.status, "○")
-            p = priority_icon.get(task.priority, "⚪")
+            p = priority_icon.get(task.priority, "")
             due = f" (due: {task.due_date})" if task.due_date else ""
             lines.append(f"  {s} {p} {task.title}{due}")
         return "\n".join(lines)
     except Exception as e:
-        return f"❌ Error listing tasks: {str(e)}"
+        return f" Error listing tasks: {str(e)}"
 
 
 @tool
@@ -602,9 +602,9 @@ def todozi_complete_task(task_id: str) -> str:
         if not client:
             return "Todozi not configured."
         success = asyncio.run(client.complete_item(task_id))
-        return f"✅ Task {task_id} completed!" if success else f"❌ Could not complete {task_id}"
+        return f" Task {task_id} completed!" if success else f" Could not complete {task_id}"
     except Exception as e:
-        return f"❌ Error: {str(e)}"
+        return f" Error: {str(e)}"
 
 
 @tool
@@ -616,7 +616,7 @@ def todozi_get_stats() -> str:
             return "Todozi not configured."
         stats = asyncio.run(client.get_stats())
         rate = round((stats.completed_tasks / stats.total_tasks * 100), 1) if stats.total_tasks > 0 else 0
-        return f"""📊 Todozi Stats
+        return f""" Todozi Stats
 ────────────────
 Tasks: {stats.total_tasks} ({stats.completed_tasks} done, {rate}% complete)
 Overdue: {stats.overdue_tasks}
@@ -624,7 +624,7 @@ Goals: {stats.total_goals}
 Notes: {stats.total_notes}
 Matrices: {stats.total_matrices}"""
     except Exception as e:
-        return f"❌ Error: {str(e)}"
+        return f" Error: {str(e)}"
 
 
 @tool
@@ -643,12 +643,12 @@ def todozi_search(
         results = asyncio.run(client.search(query, type_=type_, status=status, priority=priority, limit=limit))
         if not results:
             return "No results found"
-        lines = [f"🔍 Search results for '{query}':"]
+        lines = [f" Search results for '{query}':"]
         for item in results[:limit]:
             lines.append(f"  • {item.title} [{item.type}] [ID: {item.id}]")
         return "\n".join(lines)
     except Exception as e:
-        return f"❌ Error: {str(e)}"
+        return f" Error: {str(e)}"
 
 
 @tool
@@ -661,12 +661,12 @@ def todozi_list_matrices() -> str:
         matrices = asyncio.run(client.list_matrices())
         if not matrices:
             return "No matrices found"
-        lines = ["📁 Matrices:"]
+        lines = [" Matrices:"]
         for m in matrices:
             lines.append(f"  • {m.name} [{m.category}] ({m.task_count} tasks)")
         return "\n".join(lines)
     except Exception as e:
-        return f"❌ Error: {str(e)}"
+        return f" Error: {str(e)}"
 
 
 TODOZI_TOOLS = [

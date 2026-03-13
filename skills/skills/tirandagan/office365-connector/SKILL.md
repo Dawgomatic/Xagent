@@ -25,13 +25,13 @@ It solves the common challenge of connecting to Office 365 from automation tools
 
 **Major Enhancements by Matthew Gordon:**
 
-- ✨ **Multi-Account Management** - Handle multiple Microsoft 365 identities from one skill
-- 🔐 **Per-Account Token Isolation** - Separate, secure token storage for each account
-- 🔄 **Easy Account Switching** - Use `--account=name` flag across all operations
-- ⚙️ **Default Account Selection** - Set your preferred account for convenience
-- 📦 **Legacy Import Tool** - Migrate existing single-account setups seamlessly
-- 🎯 **Account Management CLI** - Simple add/remove/list/default commands
-- ✅ **Full Backward Compatibility** - Existing single-account setups work unchanged
+-  **Multi-Account Management** - Handle multiple Microsoft 365 identities from one skill
+-  **Per-Account Token Isolation** - Separate, secure token storage for each account
+-  **Easy Account Switching** - Use `--account=name` flag across all operations
+-  **Default Account Selection** - Set your preferred account for convenience
+-  **Legacy Import Tool** - Migrate existing single-account setups seamlessly
+-  **Account Management CLI** - Simple add/remove/list/default commands
+-  **Full Backward Compatibility** - Existing single-account setups work unchanged
 
 See [CHANGELOG.md](CHANGELOG.md) for complete version history.
 

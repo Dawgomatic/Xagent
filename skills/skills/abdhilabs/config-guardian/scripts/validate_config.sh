@@ -17,7 +17,7 @@ CONFIG_PATH="$HOME/.openclaw/openclaw.json"
 DANGEROUS_KEYS=("system" "eval" "exec" "shell" "sudo")
 for key in "${DANGEROUS_KEYS[@]}"; do
     if grep -q "\"$key\"" "$CONFIG_PATH" 2>/dev/null; then
-        echo "⚠️  Warning: Found potentially dangerous key: $key"
+        echo "  Warning: Found potentially dangerous key: $key"
     fi
 done
 
@@ -36,7 +36,7 @@ for m in all_used:
 " 2>/dev/null)
 
 if [ -n "$MODELS_CONFIG" ]; then
-    echo "❌ Invalid model IDs found:"
+    echo " Invalid model IDs found:"
     echo "$MODELS_CONFIG" | while read line; do
         if [[ "$line" == INVALID_MODEL:* ]]; then
             MODEL_ID="${line#INVALID_MODEL:}"
@@ -55,4 +55,4 @@ for m in allowed:
     exit 1
 fi
 
-echo "✅ Validation complete"
+echo " Validation complete"

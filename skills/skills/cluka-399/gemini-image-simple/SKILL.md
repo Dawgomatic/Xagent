@@ -4,7 +4,7 @@ version: 1.1.0
 description: Generate and edit images with Gemini API using pure Python stdlib. Zero dependencies - works on locked-down environments where pip/uv aren't available.
 metadata:
   openclaw:
-    emoji: "🎨"
+    emoji: ""
     requires:
       env: ["GEMINI_API_KEY"]
 ---
@@ -18,11 +18,11 @@ Generate and edit images using Google's **Nano Banana Pro** (Gemini 3 Pro Image)
 | Feature | This Skill | Others (nano-banana-pro, etc.) |
 |---------|------------|-------------------------------|
 | **Dependencies** | None (stdlib only) | google-genai, pillow, etc. |
-| **Requires pip/uv** | ❌ No | ✅ Yes |
-| **Works on Fly.io free** | ✅ Yes | ❌ Fails |
-| **Works in containers** | ✅ Yes | ❌ Often fails |
-| **Image generation** | ✅ Full | ✅ Full |
-| **Image editing** | ✅ Yes | ✅ Yes |
+| **Requires pip/uv** |  No |  Yes |
+| **Works on Fly.io free** |  Yes |  Fails |
+| **Works in containers** |  Yes |  Often fails |
+| **Image generation** |  Full |  Full |
+| **Image editing** |  Yes |  Yes |
 | **Setup complexity** | Just set API key | Install packages first |
 
 **Bottom line:** This skill works anywhere Python 3 exists. No package managers, no virtual environments, no permission issues.

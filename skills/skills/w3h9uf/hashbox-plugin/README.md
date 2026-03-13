@@ -28,7 +28,7 @@ configure_hashbox({ "token": "HB-your-token-here" })
 send_hashbox_notification({
   "payloadType": "article",
   "channelName": "AI Trends",
-  "channelIcon": "🤖",
+  "channelIcon": "",
   "title": "Daily Summary",
   "contentOrData": "Here's what happened today..."
 })
@@ -63,7 +63,7 @@ Pushes curated news, summaries, or system metrics to your HashBox iOS app.
 {
   "payloadType": "article",
   "channelName": "Builds",
-  "channelIcon": "🔨",
+  "channelIcon": "",
   "title": "Build Complete",
   "contentOrData": "Your project compiled successfully with 0 errors."
 }
@@ -74,7 +74,7 @@ Pushes curated news, summaries, or system metrics to your HashBox iOS app.
 {
   "payloadType": "metric",
   "channelName": "Performance",
-  "channelIcon": "📊",
+  "channelIcon": "",
   "title": "Daily Metrics",
   "contentOrData": [
     { "label": "CPU Usage", "value": 42, "unit": "%", "trend": "down" },
@@ -88,7 +88,7 @@ Pushes curated news, summaries, or system metrics to your HashBox iOS app.
 {
   "payloadType": "audit",
   "channelName": "Security",
-  "channelIcon": "🔒",
+  "channelIcon": "",
   "title": "Audit Log",
   "contentOrData": [
     { "timestamp": "2026-02-19T12:00:00Z", "event": "login", "severity": "info", "details": "User logged in from new device" }
@@ -107,7 +107,7 @@ registerPlugin(hashBoxPlugin);
 // Or use directly
 await configureHashBox("HB-your-token");
 const result = await sendHashBoxNotification(
-  "article", "AI Trends", "🤖", "Hello", "Test content"
+  "article", "AI Trends", "", "Hello", "Test content"
 );
 console.log(result.status); // 200
 ```

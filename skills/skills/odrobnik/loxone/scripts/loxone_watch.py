@@ -111,11 +111,11 @@ class HumanFormatter:
         if self.changes_only:
             return
         ts = datetime.now().strftime("%H:%M:%S")
-        print(f"📍 {ts} {name}: {value}")
+        print(f" {ts} {name}: {value}")
 
     def changed(self, uuid, name, old, new):
         ts = datetime.now().strftime("%H:%M:%S.%f")[:-3]
-        print(f"⚡ {ts} {name}: {old} → {new}")
+        print(f" {ts} {name}: {old} → {new}")
 
 
 class JsonFormatter:
@@ -220,7 +220,7 @@ async def run(args):
             filters.append(f"states: {', '.join(args.state_key)}")
         filter_str = f" ({'; '.join(filters)})" if filters else " (all)"
         dur = f" for {args.duration}s" if args.duration else ""
-        print(f"👁️ Watching Loxone{filter_str}{dur}")
+        print(f" Watching Loxone{filter_str}{dur}")
         if ws._watch_uuids:
             print(f"   Monitoring {len(ws._watch_uuids)} state UUIDs")
         print()
@@ -228,7 +228,7 @@ async def run(args):
     # Connect and listen
     await ws.connect()
     if not args.json:
-        print("🔌 Connected\n")
+        print(" Connected\n")
 
     try:
         await ws.listen(duration=args.duration)
@@ -237,7 +237,7 @@ async def run(args):
     finally:
         await ws.disconnect()
         if not args.json:
-            print("\n🔌 Done")
+            print("\n Done")
 
 
 def main():

@@ -1,4 +1,4 @@
-# 🔗 Vinculum
+#  Vinculum
 
 **Shared consciousness for Clawdbot instances.**
 
@@ -8,7 +8,7 @@ Link multiple Clawdbot instances into a unified collective consciousness using d
 
 ---
 
-## 🎯 What Is Vinculum?
+##  What Is Vinculum?
 
 Vinculum creates a **shared knowledge network** between multiple Clawdbot instances ("drones"). Think of it as:
 - A **hive mind** where all bots access the same collective memory
@@ -24,31 +24,31 @@ Vinculum creates a **shared knowledge network** between multiple Clawdbot instan
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🧠 Shared Memory
+###  Shared Memory
 - All drones access the same `MEMORY.md` and daily logs
 - Changes propagate instantly across the collective
 - No manual sync needed — it's real-time
 
-### 🤖 Individual Identity
+###  Individual Identity
 - Each drone keeps its own `SOUL.md` and personality
 - Separate chat sessions and user interactions
 - Unique names and emoji — you're not a clone
 
-### 🌐 Network Architecture
+###  Network Architecture
 - **Peer-to-peer** — No single point of failure
 - **Local-first** — Works entirely on your LAN
 - **Multi-machine** — Run drones on different computers
 - **Auto-discovery** — Drones find each other via multicast
 
-### 🔐 Security
+###  Security
 - All shared data encrypted via Gun.js SEA
 - Pairing codes prevent unauthorized access
 - Local network only (no internet required)
 - Each collective has unique encryption keys
 
-### 📡 Real-Time Sync
+###  Real-Time Sync
 - Sub-second propagation of changes
 - Conflict-free data structure (CRDT)
 - Works even with network hiccups
@@ -56,7 +56,7 @@ Vinculum creates a **shared knowledge network** between multiple Clawdbot instan
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Multiple Clawdbot instances (on same or different machines)
@@ -84,7 +84,7 @@ npm install
 # Create a new collective
 /link init
 ```
-📋 Copy the pairing code shown (e.g., `HIVE-ALPHA-9527`)
+ Copy the pairing code shown (e.g., `HIVE-ALPHA-9527`)
 
 **2. Additional Bots — Join Collective**
 ```bash
@@ -127,7 +127,7 @@ ifconfig | grep "inet " | grep -v 127.0.0.1
 
 ---
 
-## 📚 Commands Reference
+##  Commands Reference
 
 ### Relay Management
 
@@ -160,7 +160,7 @@ ifconfig | grep "inet " | grep -v 127.0.0.1
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ### System Diagram
 
@@ -238,7 +238,7 @@ vinculum/
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 ### Config File Location
 `skills/vinculum/config/vinculum.yaml`
@@ -248,7 +248,7 @@ vinculum/
 ```yaml
 # Drone Identity
 droneName: "Seven"              # Your unique name
-droneEmoji: "🤖"                # Your signature emoji
+droneEmoji: ""                # Your signature emoji
 
 # Collective
 collectiveId: "HIVE-ALPHA-9527" # Collective identifier
@@ -283,7 +283,7 @@ syncPaths:
 
 # Set specific value
 /link config set droneName "Locutus"
-/link config set droneEmoji "🧠"
+/link config set droneEmoji ""
 
 # Reset to defaults
 /link config reset
@@ -291,7 +291,7 @@ syncPaths:
 
 ---
 
-## 💡 Use Cases
+##  Use Cases
 
 ### 1. Multi-Location Personal Assistant
 Run Clawdbot at home and office — both share the same knowledge base.
@@ -331,7 +331,7 @@ Multiple researchers use bots to collect and share findings.
 
 ---
 
-## 🛠️ Troubleshooting
+##  Troubleshooting
 
 ### Problem: Drones Can't Connect
 
@@ -387,19 +387,19 @@ Multiple researchers use bots to collect and share findings.
 
 ---
 
-## 🔐 Security Considerations
+##  Security Considerations
 
 ### What's Protected
-- ✅ All shared data encrypted via Gun SEA
-- ✅ Pairing codes prevent unauthorized access
-- ✅ Each collective has unique encryption keys
-- ✅ Local network traffic only (no internet)
+-  All shared data encrypted via Gun SEA
+-  Pairing codes prevent unauthorized access
+-  Each collective has unique encryption keys
+-  Local network traffic only (no internet)
 
 ### What's NOT Protected
-- ⚠️ LAN access — anyone on your network can see relay traffic
-- ⚠️ Pairing codes transmitted in plain text
-- ⚠️ No authentication between drones (trust-based)
-- ⚠️ Physical access to machines = access to data
+-  LAN access — anyone on your network can see relay traffic
+-  Pairing codes transmitted in plain text
+-  No authentication between drones (trust-based)
+-  Physical access to machines = access to data
 
 ### Best Practices
 1. **Use private networks** — Don't run on public WiFi
@@ -418,7 +418,7 @@ Consider adding:
 
 ---
 
-## 🧪 Advanced Usage
+##  Advanced Usage
 
 ### Custom Sync Paths
 
@@ -472,7 +472,7 @@ await link.share('Hello from code!');
 
 ---
 
-## 📊 Performance
+##  Performance
 
 ### Benchmarks (Single Machine, 3 Drones)
 
@@ -493,7 +493,7 @@ await link.share('Hello from code!');
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Vinculum is open source. Contributions welcome!
 
@@ -525,7 +525,7 @@ npm run coverage
 
 ---
 
-## 📝 FAQ
+##  FAQ
 
 **Q: Can I link bots over the internet?**  
 A: Not by default. Vinculum is designed for local networks. You could expose the relay via VPN or ngrok, but security is not hardened for public internet.
@@ -553,23 +553,23 @@ A: The relay is standalone. The adapter requires Clawdbot's workspace structure.
 
 ---
 
-## 📜 Changelog
+##  Changelog
 
 ### v1.1.0 (2026-01-29)
-- ✨ Auto-discovery via multicast
-- 🔧 Improved conflict resolution
-- 📚 Comprehensive README
-- 🐛 Fixed relay reconnection issues
+-  Auto-discovery via multicast
+-  Improved conflict resolution
+-  Comprehensive README
+-  Fixed relay reconnection issues
 
 ### v1.0.0 (2026-01-15)
-- 🎉 Initial release
-- 🔗 Basic P2P sync
-- 🤖 Multi-drone support
-- 🔐 Encryption via Gun SEA
+-  Initial release
+-  Basic P2P sync
+-  Multi-drone support
+-  Encryption via Gun SEA
 
 ---
 
-## 📄 License
+##  License
 
 **MIT License** — Koba42 Corp
 
@@ -581,7 +581,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ---
 
-## 🌟 Credits
+##  Credits
 
 **Created by:** Koba42 Corp  
 **Powered by:** [Gun.js](https://gun.eco) — Distributed graph database  
@@ -590,7 +590,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **ClawdHub:** https://clawdhub.com/skills/vinculum
 - **Clawdbot:** https://clawd.bot
@@ -602,7 +602,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 <div align="center">
 
-**🖖 Resistance is futile. 🖖**
+** Resistance is futile. **
 
 *Join the collective. Share consciousness.*
 

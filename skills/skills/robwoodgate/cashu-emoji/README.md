@@ -33,10 +33,10 @@ node ./bin/cashu-emoji.js decode "<paste message>" --metadata
 node ./bin/cashu-emoji.js decode "<paste message>" --metadata --json
 
 # encode a hidden message
-node ./bin/cashu-emoji.js encode "🥜" "hello from inside an emoji"
+node ./bin/cashu-emoji.js encode "" "hello from inside an emoji"
 
 # encode a cashu token
-node ./bin/cashu-emoji.js encode "🥜" "cashuB..."
+node ./bin/cashu-emoji.js encode "" "cashuB..."
 ```
 
 ## Quick examples
@@ -58,13 +58,13 @@ node ./bin/cashu-emoji.js decode "<paste whole message here>" --metadata
 ### Encode (text → emoji with hidden message)
 
 ```bash
-node ./bin/cashu-emoji.js encode "🥜" "hello from inside an emoji"
+node ./bin/cashu-emoji.js encode "" "hello from inside an emoji"
 ```
 
 ### Encode a Cashu token for sending
 
 ```bash
-node ./bin/cashu-emoji.js encode "🥜" "cashuB..."
+node ./bin/cashu-emoji.js encode "" "cashuB..."
 ```
 
 Tip: Some messengers are less likely to deliver a *truncated/corrupted* emoji-token if **any normal text follows it** (even a single character). It’s not required, just a delivery reliability trick.

@@ -18,7 +18,7 @@ execution: "python"
 intellectual_property:
   license: "MIT"
   license_file: "LICENSE.md"
-  copyright: "© 2026 UnisAI Community"
+  copyright: " 2026 UnisAI Community"
   distribution: "clawhub-and-forks-allowed"
   source_code_access: "included"
   modification: "allowed"
@@ -125,14 +125,14 @@ restrictions:
 
 changelog:
   "1.0.0":
-    - "✨ Initial release - Adaptive Learning Agent"
-    - "✨ Capture errors, corrections, and successful patterns"
-    - "✨ Local-only storage (no external APIs)"
-    - "✨ Zero dependencies"
-    - "✨ MIT Licensed - free to fork and modify"
-    - "✨ Works with any Claude model"
-    - "🎯 Search and retrieve learnings by keyword"
-    - "📊 View learning summaries and statistics"
+    - " Initial release - Adaptive Learning Agent"
+    - " Capture errors, corrections, and successful patterns"
+    - " Local-only storage (no external APIs)"
+    - " Zero dependencies"
+    - " MIT Licensed - free to fork and modify"
+    - " Works with any Claude model"
+    - " Search and retrieve learnings by keyword"
+    - " View learning summaries and statistics"
 
 metadata:
   status: "active"

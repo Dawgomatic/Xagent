@@ -2,7 +2,7 @@
 
 Command-line tool for signing HTTP requests with ERC-8128. Think of it as curl with built-in Ethereum authentication.
 
-📚 **Full CLI guide:** [erc8128.slice.so/guides/cli](https://erc8128.slice.so/guides/cli)
+ **Full CLI guide:** [erc8128.slice.so/guides/cli](https://erc8128.slice.so/guides/cli)
 
 ## Install
 
@@ -44,7 +44,7 @@ erc8128 curl [options] <url>
 | `--keystore <path>` | Encrypted keystore file |
 | `--password <pass>` | Keystore password (or prompts) |
 | `--keyfile <path>` | Raw private key file (`-` for stdin) |
-| `--private-key <key>` | Raw private key (⚠️ insecure) |
+| `--private-key <key>` | Raw private key ( insecure) |
 | `--ledger` | Use Ledger hardware wallet (not yet implemented) |
 | `--trezor` | Use Trezor hardware wallet (not yet implemented) |
 
@@ -163,4 +163,4 @@ Store defaults in `.erc8128rc.json` (cwd, home, or `--config`):
 - **Avoid scripts with raw keys** — Use environment variables injected at runtime
 - **Use short TTLs** — Default 60s is good; shorter is better for sensitive operations
 
-📖 See [CLI Guide](https://erc8128.slice.so/guides/cli) for more details.
+ See [CLI Guide](https://erc8128.slice.so/guides/cli) for more details.

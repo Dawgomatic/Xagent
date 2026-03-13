@@ -414,7 +414,7 @@ Examples:
                 "topics": results
             }
             
-            logger.info(f"✅ Searched {ok_topics}/{len(results)} topics, "
+            logger.info(f" Searched {ok_topics}/{len(results)} topics, "
                        f"{total_articles} articles found")
             
         else:
@@ -447,7 +447,7 @@ Examples:
                 ]
             }
             
-            logger.info(f"✅ Generated search interface for {len(results)} topics")
+            logger.info(f" Generated search interface for {len(results)} topics")
 
         # Write output
         json_str = json.dumps(output, ensure_ascii=False, indent=2)
@@ -458,7 +458,7 @@ Examples:
         return 0
         
     except Exception as e:
-        logger.error(f"💥 Web search failed: {e}")
+        logger.error(f" Web search failed: {e}")
         return 1
 
 

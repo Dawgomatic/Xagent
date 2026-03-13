@@ -8,7 +8,7 @@ This guide covers everything you need to know about relocating to Dubai: visas, 
 
 ---
 
-## 📋 Pre-Move Checklist
+##  Pre-Move Checklist
 
 ### 6 Months Before
 
@@ -59,7 +59,7 @@ This guide covers everything you need to know about relocating to Dubai: visas, 
 
 ---
 
-## 🛂 Visa Types
+##  Visa Types
 
 ### Employment Visa (Most Common)
 
@@ -115,7 +115,7 @@ This guide covers everything you need to know about relocating to Dubai: visas, 
 
 ---
 
-## 📦 Shipping Belongings
+##  Shipping Belongings
 
 ### Options
 
@@ -196,7 +196,7 @@ This guide covers everything you need to know about relocating to Dubai: visas, 
 
 ---
 
-## 🐕 Pet Relocation
+##  Pet Relocation
 
 ### Requirements
 
@@ -283,7 +283,7 @@ The following breeds are **banned** in UAE:
 
 ---
 
-## 🏠 Finding Accommodation
+##  Finding Accommodation
 
 ### Rental Process
 
@@ -328,7 +328,7 @@ The following breeds are **banned** in UAE:
 
 ---
 
-## 🏫 Schools (For Families)
+##  Schools (For Families)
 
 ### Application Timeline
 
@@ -361,7 +361,7 @@ The following breeds are **banned** in UAE:
 
 ---
 
-## 📝 First Week Checklist
+##  First Week Checklist
 
 ### Day 1-3
 
@@ -396,7 +396,7 @@ The following breeds are **banned** in UAE:
 
 ---
 
-## 🛒 What to Bring
+##  What to Bring
 
 ### Essential Documents (Carry-On)
 
@@ -440,7 +440,7 @@ The following breeds are **banned** in UAE:
 
 ---
 
-## 💰 Budget for First Month
+##  Budget for First Month
 
 ### Single Professional
 
@@ -472,7 +472,7 @@ The following breeds are **banned** in UAE:
 
 ---
 
-## 🆘 Settling In Tips
+##  Settling In Tips
 
 ### Making Friends
 
@@ -520,7 +520,7 @@ The following breeds are **banned** in UAE:
 
 ---
 
-## ✅ 90-Day Milestone Checklist
+##  90-Day Milestone Checklist
 
 By 3 months, you should have:
 
@@ -539,7 +539,7 @@ By 3 months, you should have:
 
 ---
 
-## 💡 Final Tips
+##  Final Tips
 
 1. **Join expat groups early** – invaluable for advice and friendship
 2. **Budget conservatively** – first months are expensive

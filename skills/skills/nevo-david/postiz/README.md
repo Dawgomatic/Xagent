@@ -169,7 +169,7 @@ postiz analytics:post <post-id> -d 30
 
 Returns metrics like likes, comments, shares, and impressions for a specific published post.
 
-**⚠️ If `analytics:post` returns `{"missing": true}`**, the post was published but the platform didn't return a usable post ID. You must resolve this before analytics will work:
+** If `analytics:post` returns `{"missing": true}`**, the post was published but the platform didn't return a usable post ID. You must resolve this before analytics will work:
 
 ```bash
 # 1. List available content from the provider
@@ -209,7 +209,7 @@ postiz posts:connect <post-id> --release-id "<content-id>"
 postiz upload <file-path>
 ```
 
-**⚠️ IMPORTANT: Upload Files Before Posting**
+** IMPORTANT: Upload Files Before Posting**
 
 You **must** upload media files to Postiz before using them in posts. Many platforms (especially TikTok, Instagram, and YouTube) require verified/trusted URLs and will reject external links.
 
@@ -304,7 +304,7 @@ postiz posts:create \
 ```bash
 # Create thread
 postiz posts:create \
-  -c "Thread 1/3 🧵" \
+  -c "Thread 1/3 " \
   -c "Thread 2/3" \
   -c "Thread 3/3" \
   -s "2024-12-31T12:00:00Z" \
@@ -469,7 +469,7 @@ postiz posts:create \
 ```bash
 #!/bin/bash
 DATES=("2024-02-14T09:00:00Z" "2024-02-15T09:00:00Z" "2024-02-16T09:00:00Z")
-CONTENT=("Monday motivation 💪" "Tuesday tips 💡" "Wednesday wisdom 🧠")
+CONTENT=("Monday motivation " "Tuesday tips " "Wednesday wisdom ")
 
 for i in "${!DATES[@]}"; do
   postiz posts:create \
@@ -526,7 +526,7 @@ The CLI interacts with these Postiz API endpoints:
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `POSTIZ_API_KEY` | ✅ Yes | - | Your Postiz API key |
+| `POSTIZ_API_KEY` |  Yes | - | Your Postiz API key |
 | `POSTIZ_API_URL` | No | `https://api.postiz.com` | Custom API endpoint |
 
 ---

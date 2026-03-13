@@ -86,7 +86,7 @@ Example:
 
 ## Routing Anti-Patterns
 
-- ❌ Routing to inactive/retired employees
-- ❌ Routing outside employee's permissions
-- ❌ Auto-delegating without checking autonomy level
-- ❌ Routing urgent tasks to shadow-level employees
+-  Routing to inactive/retired employees
+-  Routing outside employee's permissions
+-  Auto-delegating without checking autonomy level
+-  Routing urgent tasks to shadow-level employees

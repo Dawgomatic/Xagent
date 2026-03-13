@@ -3,7 +3,7 @@ name: Taxi
 slug: taxi
 version: 1.0.0
 description: Handle everything for ground transportation, from price comparison to booking, tracking, disputes, and expense management.
-metadata: {"clawdbot":{"emoji":"🚕","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

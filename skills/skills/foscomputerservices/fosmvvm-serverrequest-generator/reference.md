@@ -11,10 +11,10 @@ Complete file templates for generating ServerRequest flows.
 Before using these templates, remember:
 
 ```swift
-// ✅ Import your shared module (contains ServerRequests AND SystemVersion)
+//  Import your shared module (contains ServerRequests AND SystemVersion)
 import ViewModels  // ← See "The Shared Module Pattern" in FOSMVVMArchitecture.md
 
-// ✅ Configure MVVMEnvironment ONCE at app/tool startup
+//  Configure MVVMEnvironment ONCE at app/tool startup
 let mvvmEnv = await MVVMEnvironment(
     currentVersion: .currentApplicationVersion,  // From shared module's SystemVersion extension
     appBundle: Bundle.module,
@@ -22,15 +22,15 @@ let mvvmEnv = await MVVMEnvironment(
 )
 // Version headers (X-FOS-Version) are AUTOMATIC via SystemVersion.current
 
-// ✅ Client invocation - ALWAYS use mvvmEnv
+//  Client invocation - ALWAYS use mvvmEnv
 let request = {Action}Request(requestBody: .init(...))
 try await request.processRequest(mvvmEnv: mvvmEnv)
 let result = request.responseBody
 
-// ❌ NEVER do this - violates DRY
+//  NEVER do this - violates DRY
 try await request.processRequest(baseURL: someURL, headers: someHeaders)
 
-// ❌ NEVER do this - hand-written HTTP
+//  NEVER do this - hand-written HTTP
 let url = URL(string: "http://server/api/something")!
 ```
 

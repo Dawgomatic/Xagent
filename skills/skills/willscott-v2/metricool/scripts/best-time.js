@@ -135,7 +135,7 @@ Examples:
   const networkId = PLATFORM_IDS[platform];
   
   if (!networkId) {
-    console.error(`❌ Unknown platform: ${platform}`);
+    console.error(` Unknown platform: ${platform}`);
     console.log('Valid platforms:', Object.keys(PLATFORM_IDS).join(', '));
     process.exit(1);
   }
@@ -143,7 +143,7 @@ Examples:
   const { token, userId } = loadCredentials();
   
   if (!token || !userId) {
-    console.error('❌ Missing Metricool credentials');
+    console.error(' Missing Metricool credentials');
     process.exit(1);
   }
   
@@ -155,9 +155,9 @@ Examples:
     try {
       const brand = await getFirstBrandId(token, userId);
       blogId = brand.id;
-      console.log(`📌 Using brand: ${brand.label} (${blogId})\n`);
+      console.log(` Using brand: ${brand.label} (${blogId})\n`);
     } catch (e) {
-      console.error('❌ No blogId specified and could not auto-detect');
+      console.error(' No blogId specified and could not auto-detect');
       process.exit(1);
     }
   }
@@ -173,7 +173,7 @@ Examples:
       return;
     }
     
-    console.log(`⏰ Best Time to Post on ${platform.charAt(0).toUpperCase() + platform.slice(1)}\n`);
+    console.log(` Best Time to Post on ${platform.charAt(0).toUpperCase() + platform.slice(1)}\n`);
     
     // Parse and display best times
     if (result.days || result.hours) {
@@ -192,7 +192,7 @@ Examples:
     }
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

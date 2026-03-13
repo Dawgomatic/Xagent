@@ -7,7 +7,7 @@ description: Generate images via OpenRouter (google/gemini-2.5-flash-image) and 
 
 ## Workflow
 
-1. Immediately notify user in Telegram: `"⏳ Идёт генерация, подождите немного..."`
+1. Immediately notify user in Telegram: `" Идёт генерация, подождите немного..."`
 2. Use OpenRouter model `google/gemini-2.5-flash-image`.
 3. Read API key from env: `OPENROUTER_API_KEY`.
 4. Run script to generate and save image locally.
@@ -26,7 +26,7 @@ The script prints a JSON object with `paths`.
 
 ```
 # step 1: waiting message
-message action=send channel=telegram text="⏳ Идёт генерация, подождите немного..."
+message action=send channel=telegram text=" Идёт генерация, подождите немного..."
 
 # step 5: send image
 message action=send channel=telegram media="/root/.openclaw/workspace/tmp/openrouter_image_*.png" caption="Generated: <prompt>"

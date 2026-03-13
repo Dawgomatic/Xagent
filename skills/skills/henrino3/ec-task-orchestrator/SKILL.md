@@ -1,7 +1,7 @@
 ---
 name: task-orchestrator
 description: Autonomous multi-agent task orchestration with dependency analysis, parallel tmux/Codex execution, and self-healing heartbeat monitoring. Use for large projects with multiple issues/tasks that need coordinated parallel execution.
-metadata: {"clawdbot":{"emoji":"🎭","requires":{"anyBins":["tmux","codex","gh"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["tmux","codex","gh"]}}}
 ---
 
 # Task Orchestrator

@@ -69,7 +69,7 @@ echo "  Current debt: $DEBT $SYMBOL"
 echo ""
 
 if [ "$DEBT_RAW" = "0" ]; then
-  echo -e "${YELLOW}⚠ No outstanding $SYMBOL debt for delegator${NC}"
+  echo -e "${YELLOW} No outstanding $SYMBOL debt for delegator${NC}"
   exit 0
 fi
 

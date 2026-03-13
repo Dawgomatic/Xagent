@@ -147,7 +147,7 @@ def main():
     args = parser.parse_args()
     
     if args.list:
-        print("\n📋 Available Templates:\n")
+        print("\n Available Templates:\n")
         for key, tmpl in sorted(TEMPLATES.items()):
             print(f"  {key:20s} | {tmpl['name']:30s} | {tmpl['boxes']} text boxes | Keywords: {', '.join(tmpl['keywords'][:3])}")
         return
@@ -161,20 +161,20 @@ def main():
         template_key = args.template or select_template(args.topic or " ".join(args.captions))
         tmpl = TEMPLATES[template_key]
         
-        print(f"\n🎭 Generating: {tmpl['name']}")
+        print(f"\n Generating: {tmpl['name']}")
         url = make_meme_image(tmpl["id"], args.captions)
         
         if url:
             if args.json:
                 print(json.dumps({"url": url, "template": tmpl["name"], "captions": args.captions}))
             else:
-                print(f"✅ Meme created!")
-                print(f"🖼️  {url}")
-                print(f"📝 Template: {tmpl['name']}")
+                print(f" Meme created!")
+                print(f"  {url}")
+                print(f" Template: {tmpl['name']}")
                 for i, cap in enumerate(args.captions, 1):
                     print(f"   Box {i}: {cap}")
         else:
-            print("❌ Failed to generate image", file=sys.stderr)
+            print(" Failed to generate image", file=sys.stderr)
             sys.exit(1)
         return
     
@@ -188,10 +188,10 @@ def main():
     if args.json:
         print(json.dumps(result, indent=2))
     else:
-        print(f"\n🎭 Best template: {result['template_name']}")
-        print(f"🆔 Template ID: {result['template_id']}")
-        print(f"📦 Text boxes: {result['boxes']}")
-        print(f"\n💡 To generate the image, call again with captions:")
+        print(f"\n Best template: {result['template_name']}")
+        print(f" Template ID: {result['template_id']}")
+        print(f" Text boxes: {result['boxes']}")
+        print(f"\n To generate the image, call again with captions:")
         print(f"   python3 generate_meme.py --template {result['template_key']} --captions \"text1\" \"text2\"")
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
 name: lawclaw
 description: Drop a contract, get answers. lawclaw rips through PDFs, spots risky clauses, diffs redlines, checks citations, and searches thousands of discovery docs—locally, so nothing leaves your machine. Built for attorneys and paralegals who bill by the hour and can't waste one.
 homepage: https://github.com/legal-tools/lawclaw
-metadata: {"clawdbot":{"emoji":"⚖️","requires":{"bins":["pdftotext","diff","grep","pandoc"]},"install":[{"id":"brew-poppler","kind":"brew","formula":"poppler","bins":["pdftotext"],"label":"Install pdftotext (brew)"},{"id":"brew-pandoc","kind":"brew","formula":"pandoc","bins":["pandoc"],"label":"Install pandoc (brew)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["pdftotext","diff","grep","pandoc"]},"install":[{"id":"brew-poppler","kind":"brew","formula":"poppler","bins":["pdftotext"],"label":"Install pdftotext (brew)"},{"id":"brew-pandoc","kind":"brew","formula":"pandoc","bins":["pandoc"],"label":"Install pandoc (brew)"}]}}
 ---
 
 # lawclaw

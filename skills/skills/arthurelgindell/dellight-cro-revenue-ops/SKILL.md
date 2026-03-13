@@ -14,8 +14,8 @@ DELLIGHT.AI is an AI startup in DIFC, Dubai. Four products at various stages. Th
 
 ## Revenue Products
 Media Production Engine, Stage=Live, Revenue Model=B2B service + per-project, Priority= IMMEDIATE
-Superhuman X, Stage=Final testing, Revenue Model=Play Store + freemium, Priority=🟡 NEXT
-GAZE, Stage=Development, Revenue Model=Consumer subscription, Priority=🟢 PIPELINE
+Superhuman X, Stage=Final testing, Revenue Model=Play Store + freemium, Priority= NEXT
+GAZE, Stage=Development, Revenue Model=Consumer subscription, Priority= PIPELINE
 GLADIATOR, Stage=Early, Revenue Model=Enterprise license, Priority= FUTURE
 
 ## CRO Operating Framework

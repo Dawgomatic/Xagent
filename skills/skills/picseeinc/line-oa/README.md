@@ -4,10 +4,10 @@ Operate LINE Official Account Manager (chat.line.biz) via browser automation.
 
 ## Features
 
-- ✅ Check unread messages across all chats
-- ✅ Reply to customer messages
-- ✅ Manage tags and notes for each chat
-- ✅ Switch between multiple official accounts
+-  Check unread messages across all chats
+-  Reply to customer messages
+-  Manage tags and notes for each chat
+-  Switch between multiple official accounts
 
 ## Installation
 

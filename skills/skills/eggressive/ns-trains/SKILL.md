@@ -1,7 +1,7 @@
 ---
 name: ns-trains
 description: Check Dutch train schedules, departures, disruptions, and plan journeys using the NS API. Perfect for daily commute checks.
-metadata: {"openclaw":{"emoji":"🚆","requires":{"bins":["node"],"env":["NS_SUBSCRIPTION_KEY"]},"primaryEnv":"NS_SUBSCRIPTION_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"],"env":["NS_SUBSCRIPTION_KEY"]},"primaryEnv":"NS_SUBSCRIPTION_KEY"}}
 ---
 
 # NS Trains Skill
@@ -32,7 +32,7 @@ For security, prefer injecting these env vars via your runtime secret mechanism 
 
 ## Quick Usage
 
-### 🚆 Commute shortcuts
+###  Commute shortcuts
 ```bash
 node {baseDir}/scripts/commute.mjs --to-work   # Morning: Home → Work
 node {baseDir}/scripts/commute.mjs --to-home   # Evening: Work → Home
@@ -83,7 +83,7 @@ Returns journey options with:
 - Transfers
 - Platform numbers
 - Disruption warnings
-- Crowdedness forecast (🟢 low / 🟡 medium / 🔴 high)
+- Crowdedness forecast ( low /  medium /  high)
 
 ## Commands Reference
 

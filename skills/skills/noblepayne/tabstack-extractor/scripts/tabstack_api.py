@@ -133,9 +133,9 @@ if __name__ == "__main__":
     
     if command == "test":
         if test_connection():
-            print("✅ Tabstack API connection successful")
+            print(" Tabstack API connection successful")
         else:
-            print("❌ Tabstack API connection failed")
+            print(" Tabstack API connection failed")
             print("Set TABSTACK_API_KEY environment variable")
     
     elif command == "markdown":

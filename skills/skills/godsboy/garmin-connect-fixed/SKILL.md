@@ -6,10 +6,10 @@ description: "Garmin Connect integration for Clawdbot: sync fitness data (steps,
 # Garmin Connect Skill
 
 Sync all your Garmin fitness data to Clawdbot:
-- 🚶 **Daily Activity**: Steps, heart rate, calories, active minutes, distance
-- 😴 **Sleep**: Duration, quality, deep/REM/light sleep breakdown
-- 🏋️ **Workouts**: Recent activities with distance, duration, calories, heart rate
-- ⏱️ **Real-time sync**: Every 5 minutes via cron
+-  **Daily Activity**: Steps, heart rate, calories, active minutes, distance
+-  **Sleep**: Duration, quality, deep/REM/light sleep breakdown
+-  **Workouts**: Recent activities with distance, duration, calories, heart rate
+-  **Real-time sync**: Every 5 minutes via cron
 
 ## Quick Start
 
@@ -66,12 +66,12 @@ print(f"Steps today: {data['summary']['steps']}")
 
 ## Features
 
-✅ OAuth-based (secure, no password storage)
-✅ All metrics: activity, sleep, workouts
-✅ Local caching (fast access)
-✅ Cron-friendly (5-minute intervals)
-✅ Easy Clawdbot integration
-✅ Multi-user support
+ OAuth-based (secure, no password storage)
+ All metrics: activity, sleep, workouts
+ Local caching (fast access)
+ Cron-friendly (5-minute intervals)
+ Easy Clawdbot integration
+ Multi-user support
 
 ## Data Captured
 

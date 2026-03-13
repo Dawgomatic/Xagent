@@ -11,7 +11,7 @@ Control a VS Code or Cursor IDE remotely through the OpenClaw Node protocol.
 
 ## Prerequisites
 
-- Extension `openclaw-node-vscode` installed and connected (status bar 🟢)
+- Extension `openclaw-node-vscode` installed and connected (status bar )
 - Node visible in `nodes status`
 - Commands in Gateway's `allowCommands` whitelist
 

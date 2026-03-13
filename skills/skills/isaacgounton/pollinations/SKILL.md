@@ -2,7 +2,7 @@
 name: pollinations
 version: 1.0.2
 description: "Pollinations.ai API for AI generation and analysis - text, images, videos, audio, vision, and transcription. Use when user requests AI-powered content (text completion, image generation/editing, video generation, audio/TTS, image/video analysis, audio transcription) or mentions Pollinations. Supports 25+ models with OpenAI-compatible endpoints."
-metadata: {"openclaw":{"emoji":"🧬","homepage":"https://pollinations.ai","os":["darwin","linux","win32"],"requires":{"bins":["curl","jq","base64"],"env":["POLLINATIONS_API_KEY"]},"primaryEnv":"POLLINATIONS_API_KEY","install":[{"id":"jq-brew","kind":"brew","formula":"jq","bins":["jq"],"label":"Install jq via Homebrew","os":["darwin"]},{"id":"jq-apt","kind":"shell","command":"sudo apt-get install -y jq","bins":["jq"],"label":"Install jq via apt","os":["linux"]}]}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://pollinations.ai","os":["darwin","linux","win32"],"requires":{"bins":["curl","jq","base64"],"env":["POLLINATIONS_API_KEY"]},"primaryEnv":"POLLINATIONS_API_KEY","install":[{"id":"jq-brew","kind":"brew","formula":"jq","bins":["jq"],"label":"Install jq via Homebrew","os":["darwin"]},{"id":"jq-apt","kind":"shell","command":"sudo apt-get install -y jq","bins":["jq"],"label":"Install jq via apt","os":["linux"]}]}}
 ---
 
 # Pollinations v1.0.2

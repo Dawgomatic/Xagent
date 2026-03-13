@@ -13,7 +13,7 @@
   "wakeMode": "now",
   "payload": {
     "kind": "agentTurn",
-    "message": "⏰ REMINDER: <message>. Deliver this reminder now."
+    "message": " REMINDER: <message>. Deliver this reminder now."
   },
   "delivery": {
     "mode": "announce",
@@ -38,7 +38,7 @@
   "wakeMode": "now",
   "payload": {
     "kind": "agentTurn",
-    "message": "⏰ REMINDER: <message>. Deliver this reminder now."
+    "message": " REMINDER: <message>. Deliver this reminder now."
   },
   "delivery": {
     "mode": "announce",
@@ -64,7 +64,7 @@
   "wakeMode": "now",
   "payload": {
     "kind": "agentTurn",
-    "message": "⏰ RECURRING: <message>"
+    "message": " RECURRING: <message>"
   },
   "delivery": {
     "mode": "announce",

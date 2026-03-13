@@ -1,7 +1,7 @@
 ---
 name: sunday
 description: "Agent identity provider — own email address and E2E-encrypted credential vault. Use when storing or retrieving passwords for services, logging into services with stored credentials, checking email inbox, receiving OTP/verification codes via email, signing up for services, getting your agent's email address, or any task where the agent needs its own identity separate from the user's. Replaces 1Password + AgentMail with a single skill — no desktop app, no tmux, fully autonomous."
-metadata: {"openclaw": {"emoji": "☀️", "requires": {"bins": ["sunday"]}, "install": [{"id": "brew", "kind": "brew", "formula": "ravi-technologies/tap/sunday", "bins": ["sunday"], "label": "Install Sunday CLI via Homebrew"}]}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["sunday"]}, "install": [{"id": "brew", "kind": "brew", "formula": "ravi-technologies/tap/sunday", "bins": ["sunday"], "label": "Install Sunday CLI via Homebrew"}]}}
 ---
 
 # Sunday

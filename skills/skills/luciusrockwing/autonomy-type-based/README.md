@@ -8,13 +8,13 @@
 
 The agent pulls from `tasks/QUEUE.md` but **only works on specific task types**:
 
-- ✅ **Research** (`@type:research`) - Information gathering, investigation
-- ✅ **Writing** (`@type:writing`) - Content creation, documentation
-- ✅ **Analysis** (`@type:analysis`) - Data review, metrics, patterns
+-  **Research** (`@type:research`) - Information gathering, investigation
+-  **Writing** (`@type:writing`) - Content creation, documentation
+-  **Analysis** (`@type:analysis`) - Data review, metrics, patterns
 
-- ❌ **Maintenance** (`@type:maintenance`) - Cron handles cleanup, backup
-- ❌ **Backup** (`@type:backup`) - Scheduled by cron
-- ❌ **Security** (`@type:security`) - Monthly audit by cron
+-  **Maintenance** (`@type:maintenance`) - Cron handles cleanup, backup
+-  **Backup** (`@type:backup`) - Scheduled by cron
+-  **Security** (`@type:security`) - Monthly audit by cron
 
 ---
 

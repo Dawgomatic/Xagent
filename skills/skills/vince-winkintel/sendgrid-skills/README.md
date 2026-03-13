@@ -12,7 +12,7 @@ AI agent skills for SendGrid email platform integration. Send transactional emai
 
 ## Available Skills
 
-### 📤 [`send-email`](./send-email)
+###  [`send-email`](./send-email)
 Send transactional emails and notifications via SendGrid's Mail Send API. Supports:
 - Simple text/HTML emails
 - Attachments
@@ -22,7 +22,7 @@ Send transactional emails and notifications via SendGrid's Mail Send API. Suppor
 
 **Common use cases:** Welcome emails, password resets, receipts, notifications, automated alerts
 
-### 📥 [`sendgrid-inbound`](./sendgrid-inbound)
+###  [`sendgrid-inbound`](./sendgrid-inbound)
 Receive and parse inbound emails via SendGrid's Inbound Parse Webhook. Covers:
 - MX record setup and DNS configuration
 - Webhook endpoint implementation
@@ -111,11 +111,11 @@ Value: mx.sendgrid.net
 
 ## Features
 
-✅ **Comprehensive workflows** - Step-by-step guides for common tasks  
-✅ **Decision trees** - "Plain send vs Dynamic Templates", "How to secure webhooks"  
-✅ **Troubleshooting** - Self-service problem solving for common issues  
-✅ **Multi-language support** - Examples for 8+ programming languages  
-✅ **Security best practices** - Webhook authentication, rate limiting, input validation  
+ **Comprehensive workflows** - Step-by-step guides for common tasks  
+ **Decision trees** - "Plain send vs Dynamic Templates", "How to secure webhooks"  
+ **Troubleshooting** - Self-service problem solving for common issues  
+ **Multi-language support** - Examples for 8+ programming languages  
+ **Security best practices** - Webhook authentication, rate limiting, input validation  
 
 ## Documentation
 

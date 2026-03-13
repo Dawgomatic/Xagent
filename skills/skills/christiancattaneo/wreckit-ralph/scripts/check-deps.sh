@@ -90,7 +90,7 @@ fi
 if [ ${#HALLUCINATED[@]} -gt 0 ]; then
   echo "HALLUCINATED DEPENDENCIES FOUND:"
   for h in "${HALLUCINATED[@]}"; do
-    echo "  ❌ $h"
+    echo "   $h"
   done
   exit 1
 else

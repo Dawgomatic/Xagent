@@ -14,7 +14,7 @@ try:
     HAS_FUZZ = True
 except ImportError:
     HAS_FUZZ = False
-    print("💡 提示: 安装 thefuzz 可获得更好的匹配效果: pip3 install thefuzz")
+    print(" 提示: 安装 thefuzz 可获得更好的匹配效果: pip3 install thefuzz")
 
 
 # 连锁店常见后缀（来自原始 match_restaurants.py）

@@ -126,7 +126,7 @@ When a message is blocked, a metadata record is created:
 When a message is blocked:
 
 ```
-🛑 Message blocked
+ Message blocked
 
 ID: `q-7f3a2b`
 Agent: moltbook-scanner
@@ -241,12 +241,12 @@ Different agents need different security postures:
 
 | Category | Risk | Description |
 |----------|------|-------------|
-| `command_injection` | 🔴 Critical | Shell commands, code execution |
-| `credential_theft` | 🔴 Critical | API key extraction attempts |
-| `data_exfiltration` | 🔴 Critical | Data leak to external URLs |
-| `instruction_override` | 🔴 High | Jailbreaks, "ignore previous" |
-| `impersonation` | 🔴 High | Fake system/admin messages |
-| `discovery` | ⚠️ Medium | API/capability probing |
+| `command_injection` |  Critical | Shell commands, code execution |
+| `credential_theft` |  Critical | API key extraction attempts |
+| `data_exfiltration` |  Critical | Data leak to external URLs |
+| `instruction_override` |  High | Jailbreaks, "ignore previous" |
+| `impersonation` |  High | Fake system/admin messages |
+| `discovery` |  Medium | API/capability probing |
 
 ---
 

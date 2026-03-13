@@ -3,7 +3,7 @@ name: calmly
 description: Manage macOS Calendar events from the command line using EventKit. Use when creating, listing, or viewing calendar events on macOS without AppleScript dialogs or UI prompts. Supports all-day events, multi-day events, and timed events. Works with iCloud, local, and CalDAV calendars.
 metadata:
   openclaw:
-    emoji: "📅"
+    emoji: ""
     os: ["darwin"]
     requires:
       bins: ["calmly"]
@@ -77,7 +77,7 @@ For recurring events, loop in bash:
 ```bash
 # Morning practice every Tuesday/Thursday for 6 weeks
 for d in 2025-02-04 2025-02-06 2025-02-11 2025-02-13; do
-  calmly addtimed Kids "🏊 AM Practice" "$d" 07:00 08:30
+  calmly addtimed Kids " AM Practice" "$d" 07:00 08:30
 done
 ```
 

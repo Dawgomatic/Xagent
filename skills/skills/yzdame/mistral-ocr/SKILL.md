@@ -10,7 +10,7 @@ registry:
       - MISTRAL_API_KEY
 ---
 
-# ⚠️ Privacy Warning - 隐私警告
+#  Privacy Warning - 隐私警告
 
 **IMPORTANT - READ BEFORE INSTALLING:**
 
@@ -40,10 +40,10 @@ cd Mistral-OCR-SKILL
 pip install -r requirements.txt
 ```
 
-## 🔑 API Key Setup (Required)
+##  API Key Setup (Required)
 
 **Get your API key:**
-👉 https://console.mistral.ai/home
+ https://console.mistral.ai/home
 
 **Set the environment variable:**
 

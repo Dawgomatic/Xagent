@@ -48,7 +48,7 @@ async function main() {
   const jsonOutput = args.includes('--json');
 
   if (!jsonOutput) {
-    console.log('📥 ClawLink Poll');
+    console.log(' ClawLink Poll');
     console.log('='.repeat(50));
   }
 
@@ -82,7 +82,7 @@ async function main() {
       
       if (!friend) {
         if (verbose && !jsonOutput) {
-          console.log(`⚠ Message from unknown sender: ${msg.from.slice(0, 16)}...`);
+          console.log(` Message from unknown sender: ${msg.from.slice(0, 16)}...`);
         }
         continue;
       }
@@ -104,7 +104,7 @@ async function main() {
         saveToInbox(decrypted, friend);
 
         if (!jsonOutput) {
-          console.log(`📨 From: ${friend.displayName}`);
+          console.log(` From: ${friend.displayName}`);
           console.log(`   Time: ${msg.timestamp}`);
           if (content.text) {
             console.log(`   Message: "${content.text}"`);
@@ -116,7 +116,7 @@ async function main() {
 
       } catch (err) {
         if (verbose && !jsonOutput) {
-          console.log(`⚠ Failed to decrypt message from ${friend.displayName}: ${err.message}`);
+          console.log(` Failed to decrypt message from ${friend.displayName}: ${err.message}`);
         }
       }
     }

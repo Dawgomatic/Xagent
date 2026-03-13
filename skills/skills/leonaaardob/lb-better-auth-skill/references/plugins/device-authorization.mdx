@@ -433,8 +433,8 @@ const authClient = createAuthClient({
 });
 
 async function authenticateCLI() {
-  console.log("🔐 Better Auth Device Authorization Demo");
-  console.log("⏳ Requesting device authorization...");
+  console.log(" Better Auth Device Authorization Demo");
+  console.log(" Requesting device authorization...");
   
   try {
     // Request device code
@@ -444,7 +444,7 @@ async function authenticateCLI() {
     });
     
     if (error || !data) {
-      console.error("❌ Error:", error?.error_description);
+      console.error(" Error:", error?.error_description);
       process.exit(1);
     }
     
@@ -456,21 +456,21 @@ async function authenticateCLI() {
       interval = 5,
     } = data;
     
-    console.log("\n📱 Device Authorization in Progress");
+    console.log("\n Device Authorization in Progress");
     console.log(`Please visit: ${verification_uri}`);
     console.log(`Enter code: ${user_code}\n`);
     
     // Open browser to verification page
     const urlToOpen = verification_uri_complete || verification_uri;
-    console.log("🌐 Opening browser...");
+    console.log(" Opening browser...");
     await open(urlToOpen);
     
-    console.log(`⏳ Waiting for authorization... (polling every ${interval}s)`);
+    console.log(` Waiting for authorization... (polling every ${interval}s)`);
     
     // Poll for token
     await pollForToken(device_code, interval);
   } catch (err) {
-    console.error("❌ Error:", err.message);
+    console.error(" Error:", err.message);
     process.exit(1);
   }
 }
@@ -510,23 +510,23 @@ async function pollForToken(deviceCode: string, interval: number) {
               break;
             case "slow_down":
               pollingInterval += 5;
-              console.log(`⚠️  Slowing down polling to ${pollingInterval}s`);
+              console.log(`  Slowing down polling to ${pollingInterval}s`);
               break;
             case "access_denied":
-              console.error("❌ Access was denied by the user");
+              console.error(" Access was denied by the user");
               process.exit(1);
               break;
             case "expired_token":
-              console.error("❌ The device code has expired. Please try again.");
+              console.error(" The device code has expired. Please try again.");
               process.exit(1);
               break;
             default:
-              console.error("❌ Error:", error.error_description);
+              console.error(" Error:", error.error_description);
               process.exit(1);
           }
         }
       } catch (err) {
-        console.error("❌ Network error:", err.message);
+        console.error(" Network error:", err.message);
         process.exit(1);
       }
       
@@ -541,7 +541,7 @@ async function pollForToken(deviceCode: string, interval: number) {
 
 // Run the authentication flow
 authenticateCLI().catch((err) => {
-  console.error("❌ Fatal error:", err);
+  console.error(" Fatal error:", err);
   process.exit(1);
 });
 ```

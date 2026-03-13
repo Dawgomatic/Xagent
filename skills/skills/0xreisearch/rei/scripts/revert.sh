@@ -20,4 +20,4 @@ echo "Restarting Clawdbot gateway..."
 clawdbot gateway restart
 
 echo ""
-echo "✅ Reverted to previous config"
+echo " Reverted to previous config"

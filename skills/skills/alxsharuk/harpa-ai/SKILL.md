@@ -3,7 +3,7 @@ name: harpa-grid
 description: Automate web browsers, scrape pages, search the web, and run AI prompts on live websites via HARPA AI Grid REST API
 user-invocable: true
 homepage: https://harpa.ai/grid/web-automation
-metadata: {"openclaw":{"emoji":"🌐","requires":{"anyBins":["curl","wget"],"env":["HARPA_API_KEY"]},"primaryEnv":"HARPA_API_KEY","homepage":"https://harpa.ai/grid/web-automation","skillKey":"harpa-grid"}}
+metadata: {"openclaw":{"emoji":"","requires":{"anyBins":["curl","wget"],"env":["HARPA_API_KEY"]},"primaryEnv":"HARPA_API_KEY","homepage":"https://harpa.ai/grid/web-automation","skillKey":"harpa-grid"}}
 ---
 
 # HARPA Grid — Browser Automation API

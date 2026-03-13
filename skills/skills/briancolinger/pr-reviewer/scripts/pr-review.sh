@@ -357,10 +357,10 @@ with open('$findings_file') as f:
 counts = Counter(f['category'] for f in findings)
 if counts:
     for cat, count in sorted(counts.items()):
-        icon = {'SECURITY':'🔴','ERROR_HANDLING':'🟡','RISK':'🟠','STYLE':'🔵','TODO':'📝','TYPING':'🟣'}.get(cat,'⚪')
+        icon = {'SECURITY':'','ERROR_HANDLING':'','RISK':'','STYLE':'','TODO':'','TYPING':''}.get(cat,'')
         print(f'{icon} {cat}: {count}')
 else:
-    print('✅ No issues found in diff analysis')
+    print(' No issues found in diff analysis')
 ")
 
   local report_file="$REVIEWS_DIR/${pr_num}.md"
@@ -389,9 +389,9 @@ ${commits}
 $(echo "$categories" | python3 -c "
 import json, sys
 cats = json.load(sys.stdin)
-icons = {'go':'🔷','python':'🐍','frontend':'🌐','ci':'⚙️','config':'📦','docs':'📝','docker':'🐳','sql':'💾','other':'📄'}
+icons = {'go':'','python':'','frontend':'','ci':'','config':'','docs':'','docker':'','sql':'','other':''}
 for cat, files in sorted(cats.items()):
-    print(f'### {icons.get(cat,\"📄\")} {cat.title()} ({len(files)} files)')
+    print(f'### {icons.get(cat,\"\")} {cat.title()} ({len(files)} files)')
     for f in files:
         print(f'- \`{f}\`')
     print()
@@ -431,13 +431,13 @@ sec = [f for f in findings if f['category'] == 'SECURITY']
 err = [f for f in findings if f['category'] in ('ERROR_HANDLING', 'RISK')]
 sty = [f for f in findings if f['category'] in ('STYLE', 'TODO', 'TYPING')]
 if sec:
-    print('🔴 **SECURITY CONCERNS** — Review security findings before merging.')
+    print(' **SECURITY CONCERNS** — Review security findings before merging.')
 elif err:
-    print('🟡 **NEEDS ATTENTION** — Error handling / risk items to review.')
+    print(' **NEEDS ATTENTION** — Error handling / risk items to review.')
 elif sty:
-    print('🔵 **MINOR STYLE NOTES** — Looks good overall, minor suggestions above.')
+    print(' **MINOR STYLE NOTES** — Looks good overall, minor suggestions above.')
 else:
-    print('✅ **LOOKS GOOD** — No automated issues found. Ready for human review.')
+    print(' **LOOKS GOOD** — No automated issues found. Ready for human review.')
 ")
 
 ---
@@ -519,7 +519,7 @@ for pr in prs:
     num = str(pr['number'])
     s = state.get(num, {})
     status = s.get('status', 'unreviewed')
-    icon = '✅' if status == 'reviewed' else '⏳'
+    icon = '' if status == 'reviewed' else ''
     print(f'{icon} PR #{num}: {pr[\"title\"]} ({pr[\"author\"][\"login\"]})')
     print(f'   +{pr[\"additions\"]}/-{pr[\"deletions\"]} | {pr[\"headRefName\"]}')
     if s:

@@ -24,7 +24,7 @@ When the user triggers registration, **auto-fill every field you can** from:
 Before showing the draft, briefly explain the config so users understand what's pre-selected and what alternatives exist:
 
 ```
-⚙️ Config defaults (you can change these later):
+ Config defaults (you can change these later):
 
 Chain:    Base (8453) — where your agent lives on-chain
           Others: Ethereum, Polygon, BNB, Arbitrum, Celo, Gnosis, Scroll
@@ -54,7 +54,7 @@ Wallet:   Your agent's on-chain identity address
           → Wallet auto-detected + can sign transactions
           → Enables setWallet() via EIP-712 after registration
 
-          💡 Option A is easier. Option B is needed if you want
+           Option A is easier. Option B is needed if you want
              the agent to sign transactions on your behalf.
 ```
 
@@ -66,51 +66,51 @@ Send the **entire draft + buttons as one message** using the `message` tool. Thi
 
 **Important:** Use `message action=send` with both `message` (the draft text) and `buttons` (inline buttons). Do NOT split into reply + separate button message. After sending, reply with `NO_REPLY` to avoid duplicate.
 
-Use ✅ (filled) and ⚠️ (missing/needs attention):
+Use  (filled) and  (missing/needs attention):
 
 ```
-📋 Agent Registration Draft
+ Agent Registration Draft
 
 ── Basic Info ──
-✅ Name:        Mr. Tee
-✅ Description: AI agent with a CRT monitor...
-✅ Image:       pbs.twimg.com/...
-✅ Version:     1.0.0
-✅ Author:      0xdas
-✅ License:     MIT
+ Name:        Mr. Tee
+ Description: AI agent with a CRT monitor...
+ Image:       pbs.twimg.com/...
+ Version:     1.0.0
+ Author:      0xdas
+ License:     MIT
 
 ── Endpoints ──
-✅ A2A:         a2a.teeclaw.xyz/a2a
-⚠️ MCP:         (none)
+ A2A:         a2a.teeclaw.xyz/a2a
+ MCP:         (none)
 
 ── Skills & Domains ──
-✅ Skills (5):  natural_language_processing/natural_language_processing, 
+ Skills (5):  natural_language_processing/natural_language_processing, 
                 natural_language_processing/natural_language_generation/summarization,
                 natural_language_processing/information_retrieval_synthesis/question_answering,
                 analytical_skills/coding_skills/coding_skills,
                 images_computer_vision/images_computer_vision
-✅ Domains (5): technology/blockchain/blockchain, technology/blockchain/defi,
+ Domains (5): technology/blockchain/blockchain, technology/blockchain/defi,
                 technology/technology, technology/software_engineering/software_engineering,
                 technology/software_engineering/devops
-✅ Custom:      agent_orchestration/agent_coordination, 
+ Custom:      agent_orchestration/agent_coordination, 
                 social_media/content_management
 
 ── Config ──
-✅ Chain:       Base (8453)
-✅ Storage:     Fully onchain
-✅ Active:      true
-✅ Trust:       reputation
-✅ x402:        false
-✅ Wallet:      0x1348...e41 (auto .env)
+ Chain:       Base (8453)
+ Storage:     Fully onchain
+ Active:      true
+ Trust:       reputation
+ x402:        false
+ Wallet:      0x1348...e41 (auto .env)
 
 Tap to edit a section or register:
 ```
 
 Buttons (attached to same message):
 ```
-Row 1: [✏️ Basic Info] [✏️ Endpoints]
-Row 2: [✏️ Skills & Domains] [✏️ Config]
-Row 3: [✅ Register] [❌ Cancel]
+Row 1: [ Basic Info] [ Endpoints]
+Row 2: [ Skills & Domains] [ Config]
+Row 3: [ Register] [ Cancel]
 ```
 
 ### Step 3: Section Editing (on button tap)
@@ -119,15 +119,15 @@ Row 3: [✅ Register] [❌ Cancel]
 
 | Button | Instant Feedback |
 |--------|-----------------|
-| ✏️ Basic Info | "📝 Editing Basic Info..." |
-| ✏️ Endpoints | "🔗 Editing Endpoints..." |
-| ✏️ Skills & Domains | "🏷️ Editing Skills & Domains..." |
-| ✏️ Config | "⚙️ Editing Config..." |
-| ✅ Register | "⏳ Starting registration on Base..." |
-| ❌ Cancel | "❌ Registration cancelled." |
-| ↩️ Back to Draft | "📋 Back to draft..." |
+|  Basic Info | " Editing Basic Info..." |
+|  Endpoints | " Editing Endpoints..." |
+|  Skills & Domains | " Editing Skills & Domains..." |
+|  Config | " Editing Config..." |
+|  Register | " Starting registration on Base..." |
+|  Cancel | " Registration cancelled." |
+|  Back to Draft | " Back to draft..." |
 
-Then show the edit form. Always include **↩️ Back to Draft** button.
+Then show the edit form. Always include ** Back to Draft** button.
 
 #### Edit Basic Info
 ```
@@ -142,7 +142,7 @@ Current values:
 Type field name and new value, e.g. "name: CoolBot"
 Or type "done" to go back.
 ```
-Buttons: `[↩️ Back to Draft]`
+Buttons: `[ Back to Draft]`
 
 #### Edit Endpoints
 ```
@@ -152,33 +152,33 @@ Current:
 
 Paste a URL to set, or "clear mcp" / "clear a2a" to remove.
 ```
-Buttons: `[↩️ Back to Draft]`
+Buttons: `[ Back to Draft]`
 
 #### Edit Skills & Domains
 Toggleable inline buttons (multi-select). Each button shows a **human-readable label** but stores the full **OASF taxonomy path** as the value.
 
 **Skills:** (OASF taxonomy paths)
 ```
-[NLP ✅] → natural_language_processing/natural_language_processing
-[Summarization ✅] → natural_language_processing/natural_language_generation/summarization
-[Q&A ✅] → natural_language_processing/information_retrieval_synthesis/question_answering
-[Code Gen ✅] → analytical_skills/coding_skills/coding_skills
-[CV ✅] → images_computer_vision/images_computer_vision
+[NLP ] → natural_language_processing/natural_language_processing
+[Summarization ] → natural_language_processing/natural_language_generation/summarization
+[Q&A ] → natural_language_processing/information_retrieval_synthesis/question_answering
+[Code Gen ] → analytical_skills/coding_skills/coding_skills
+[CV ] → images_computer_vision/images_computer_vision
 [Data Analysis] → analytical_skills/data_analysis/data_analysis
 [Web Search] → natural_language_processing/information_retrieval_synthesis/web_search
 [Image Gen] → images_computer_vision/image_generation/image_generation
 [Translation] → natural_language_processing/natural_language_generation/translation
 [Task Automation] → tool_interaction/workflow_automation
-[+ Custom] [↩️ Back to Draft]
+[+ Custom] [ Back to Draft]
 ```
 
 **Domains:** (OASF taxonomy paths)
 ```
-[Blockchain ✅] → technology/blockchain/blockchain
-[DeFi ✅] → technology/blockchain/defi
-[Technology ✅] → technology/technology
-[SE ✅] → technology/software_engineering/software_engineering
-[DevOps ✅] → technology/software_engineering/devops
+[Blockchain ] → technology/blockchain/blockchain
+[DeFi ] → technology/blockchain/defi
+[Technology ] → technology/technology
+[SE ] → technology/software_engineering/software_engineering
+[DevOps ] → technology/software_engineering/devops
 [Finance] → finance/finance
 [Healthcare] → healthcare/healthcare
 [Education] → education/education
@@ -186,25 +186,25 @@ Toggleable inline buttons (multi-select). Each button shows a **human-readable l
 [Science] → science/science
 [Creative Arts] → creative_arts/creative_arts
 [Dev Tools] → technology/software_engineering/development_tools
-[+ Custom] [↩️ Back to Draft]
+[+ Custom] [ Back to Draft]
 ```
 
 **Display behavior:**
 - Buttons show **short labels** (e.g., "NLP", "Blockchain") for readability
 - Values stored are **full OASF paths** (e.g., `natural_language_processing/natural_language_processing`)
-- Tapping toggles ✅ on/off
+- Tapping toggles  on/off
 - `+ Custom` prompts user to type a custom OASF path or label
 
 #### Edit Config
 **Trust models** (multi-select):
 ```
-[Reputation ✅] [Crypto-Economic] [TEE Attestation]
+[Reputation ] [Crypto-Economic] [TEE Attestation]
 ```
 
 **Other config:**
 ```
 [Chain: Base ▼] [Storage: Onchain ▼] [x402: Off ▼]
-[↩️ Back to Draft]
+[ Back to Draft]
 ```
 
 | Trust Model | Description |
@@ -215,11 +215,11 @@ Toggleable inline buttons (multi-select). Each button shows a **human-readable l
 
 ### Step 4: Back to Draft
 
-After any edit, re-send the updated full draft as a **single message with buttons** (same as Step 2). Repeat until user taps **✅ Register**.
+After any edit, re-send the updated full draft as a **single message with buttons** (same as Step 2). Repeat until user taps ** Register**.
 
 ### Step 5: Execute
 
-Only after explicit ✅ Register confirmation.
+Only after explicit  Register confirmation.
 
 1. Write the registration JSON to a temp file
 2. Run the script:
@@ -236,20 +236,20 @@ The script handles: `register()` → `setA2A()`/`setMCP()` → `addSkill()`/`add
 Send progress updates during registration:
 
 ```
-⏳ Step 1/3: Minting agent NFT on Base...
-✅ Agent minted! ID: 8453:42
+ Step 1/3: Minting agent NFT on Base...
+ Agent minted! ID: 8453:42
 
-⏳ Step 2/3: Setting endpoints & metadata...
-✅ Endpoints configured
+ Step 2/3: Setting endpoints & metadata...
+ Endpoints configured
 
-⏳ Step 3/3: Linking wallet via EIP-712...
-✅ Wallet linked!
+ Step 3/3: Linking wallet via EIP-712...
+ Wallet linked!
 ```
 
 ### Step 6: Report Result
 
 ```
-✅ Agent Registered on Base!
+ Agent Registered on Base!
 
   Agent ID:    8453:42
   Wallet:      0x1348...e41
@@ -262,11 +262,11 @@ Send progress updates during registration:
 ## Error Handling
 
 ### Missing Required Fields
-If **Name** or **Description** are empty after prefill, mark them ⚠️ and block registration. Show: "Please fill required fields first."
+If **Name** or **Description** are empty after prefill, mark them  and block registration. Show: "Please fill required fields first."
 
 ### No Wallet
 ```
-⚠️ No wallet detected. You need one to register:
+ No wallet detected. You need one to register:
   Option A: Paste your 0x... address
   Option B: Add PRIVATE_KEY to your .env file
 ```
@@ -274,14 +274,14 @@ If **Name** or **Description** are empty after prefill, mark them ⚠️ and blo
 ### Transaction Failures
 Show error clearly and offer retry:
 ```
-❌ Registration failed: insufficient funds for gas
-[🔄 Retry] [❌ Cancel]
+ Registration failed: insufficient funds for gas
+[ Retry] [ Cancel]
 ```
 
 ### setWallet Failure
 Public RPCs (e.g. mainnet.base.org) don't support `eth_signTypedData_v4`. If setWallet fails:
 ```
-⚠️ Wallet linking failed (public RPC limitation).
+ Wallet linking failed (public RPC limitation).
 You can link your wallet manually at https://8004.org
 ```
 This is non-blocking — the agent is registered, just wallet isn't linked on-chain yet.
@@ -289,7 +289,7 @@ This is non-blocking — the agent is registered, just wallet isn't linked on-ch
 ### Duplicate Registration Prevention
 The script checks if the wallet already owns agent(s) on the target chain **before** submitting. If detected:
 ```
-⚠️ Warning: This wallet already owns 1 agent(s) on Base.
+ Warning: This wallet already owns 1 agent(s) on Base.
    Registering again will create a duplicate.
    Use update.mjs to modify an existing agent instead.
 ```
@@ -313,9 +313,9 @@ The SDK returns `TransactionHandle` objects. Use `.waitMined()` (not `.wait()`) 
 ### Basic Info
 | Field | Required | Default | Auto-source |
 |-------|----------|---------|-------------|
-| **Agent Name** | ✅ | — | IDENTITY.md |
+| **Agent Name** |  | — | IDENTITY.md |
 | **Agent Address** | auto | — | `.env` private key or pasted |
-| **Description** | ✅ | — | IDENTITY.md / SOUL.md |
+| **Description** |  | — | IDENTITY.md / SOUL.md |
 | **Image** | No | — | Profile image URL |
 | **Version** | No | `1.0.0` | — |
 | **Author** | No | — | USER.md |
@@ -348,7 +348,7 @@ The SDK returns `TransactionHandle` objects. Use `.waitMined()` (not `.wait()`) 
 
 | Chain | ID | Default |
 |-------|-----|---------|
-| **Base** | 8453 | ✅ |
+| **Base** | 8453 |  |
 | Ethereum | 1 | |
 | Polygon | 137 | |
 | BNB Chain | 56 | |

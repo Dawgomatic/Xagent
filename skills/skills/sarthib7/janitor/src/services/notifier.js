@@ -95,7 +95,7 @@ class Notifier {
    * @returns {Promise<Object>}
    */
   async sendEmergency(report) {
-    const title = '🚨 EMERGENCY CLEANUP EXECUTED';
+    const title = ' EMERGENCY CLEANUP EXECUTED';
 
     const message = this._formatEmergencyMessage(report);
 
@@ -113,7 +113,7 @@ class Notifier {
    * @returns {Promise<Object>}
    */
   async sendCleanup(result) {
-    const title = '🧹 Automatic Cleanup Complete';
+    const title = ' Automatic Cleanup Complete';
 
     const message = `
 Session Cleanup Summary:
@@ -138,7 +138,7 @@ Context usage reduced successfully.
    * @returns {Promise<Object>}
    */
   async sendAlert(usage) {
-    const title = '⚠️ High Context Usage Alert';
+    const title = ' High Context Usage Alert';
 
     const message = `
 Context usage is high:
@@ -278,14 +278,14 @@ Reason: Context usage exceeded ${report.trigger === 'emergency' ? '95%' : 'thres
 Previous: ${this._formatTokens(report.beforeUsage.tokens)}/200k (${beforePercent}%)
 
 Actions Taken:
-✅ Archived ${report.actions[0]?.result?.archived || 0} sessions
-✅ Removed old sessions
-✅ Freed ${this._formatTokens(tokensFreed)} tokens
+ Archived ${report.actions[0]?.result?.archived || 0} sessions
+ Removed old sessions
+ Freed ${this._formatTokens(tokensFreed)} tokens
 
 Current Status:
 • Context: ${this._formatTokens(report.afterUsage.tokens)}/200k (${afterPercent}%)
 • Active sessions: ${report.afterUsage.sessions}
-• System: ${report.success ? '✅ OPERATIONAL' : '❌ NEEDS ATTENTION'}
+• System: ${report.success ? ' OPERATIONAL' : ' NEEDS ATTENTION'}
 
 Your conversation history is safe in archives.
 Duration: ${report.duration}ms
@@ -298,13 +298,13 @@ Duration: ${report.duration}ms
    */
   _getLevelEmoji(level) {
     const emojis = {
-      info: 'ℹ️',
-      warning: '⚠️',
-      error: '❌',
-      critical: '🚨'
+      info: '',
+      warning: '',
+      error: '',
+      critical: ''
     };
 
-    return emojis[level] || 'ℹ️';
+    return emojis[level] || '';
   }
 
   /**
@@ -358,7 +358,7 @@ Duration: ${report.duration}ms
     console.log('Testing notification configuration...\n');
 
     const testNotification = {
-      title: '🧪 Test Notification',
+      title: ' Test Notification',
       message: 'This is a test notification from OpenClaw Janitor.\nIf you see this, notifications are working correctly!',
       level: 'info',
       data: {

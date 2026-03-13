@@ -49,7 +49,7 @@ def atomic_write_text(path: Path, content: str, encoding: str = 'utf-8', fsync: 
         return True
 ```
 
-**验证结果**: ✅ **实现正确** - 三步流程完整
+**验证结果**:  **实现正确** - 三步流程完整
 
 ---
 
@@ -75,7 +75,7 @@ return {
 }
 ```
 
-**验证结果**: ✅ **实现正确** - ending_state和ending_checklist均已实现
+**验证结果**:  **实现正确** - ending_state和ending_checklist均已实现
 
 ---
 
@@ -108,7 +108,7 @@ DEFAULT_PRICE_TABLE = {
 }
 ```
 
-**验证结果**: ✅ **实现正确** - 所有必填字段存在
+**验证结果**:  **实现正确** - 所有必填字段存在
 
 ---
 
@@ -149,7 +149,7 @@ def find_price_item(self, provider, model_id, tier="standard", ...):
     raise RuntimeError(f"No pricing match for {provider}:{model_id}...")
 ```
 
-**验证结果**: ✅ **实现正确** - 1-5步匹配顺序完整，无匹配时抛异常(blocking error)
+**验证结果**:  **实现正确** - 1-5步匹配顺序完整，无匹配时抛异常(blocking error)
 
 ---
 
@@ -180,7 +180,7 @@ def log_cost(self, event_id, phase, chapter, event, provider, model_id,
     atomic_append_jsonl(self.cost_report_path, record)
 ```
 
-**验证结果**: ✅ **实现正确** - price_table_version和cost_rmb均存在
+**验证结果**:  **实现正确** - price_table_version和cost_rmb均存在
 
 ---
 
@@ -207,7 +207,7 @@ class RunLock:
         atomic_write_json(self.lock_path, lock_data)
 ```
 
-**验证结果**: ✅ **实现正确** - 所有必需字段存在
+**验证结果**:  **实现正确** - 所有必需字段存在
 
 ---
 
@@ -233,7 +233,7 @@ def _write_zombie_event(self, old_lock: Dict[str, Any]):
     atomic_append_jsonl(log_path, record)
 ```
 
-**验证结果**: ✅ **实现正确** - RS-002事件实现
+**验证结果**:  **实现正确** - RS-002事件实现
 
 ---
 
@@ -267,7 +267,7 @@ def can_resume(self, mode="auto"):
         return False, "Book UID mismatch", {}
 ```
 
-**验证结果**: ✅ **实现正确** - 所有判定条件检查
+**验证结果**:  **实现正确** - 所有判定条件检查
 
 ---
 
@@ -293,7 +293,7 @@ def resume(self, resume_info: Dict[str, Any]) -> bool:
     atomic_append_jsonl(log_path, record)
 ```
 
-**验证结果**: ⚠️ **部分实现** - RS-001事件存在，但写入errors.jsonl而非events.jsonl
+**验证结果**:  **部分实现** - RS-001事件存在，但写入errors.jsonl而非events.jsonl
 
 ---
 
@@ -323,7 +323,7 @@ def attempt_cycle(self, chapter_num, outline, previous_content=""):
     return best_draft, best_result, self.max_attempts
 ```
 
-**验证结果**: ✅ **实现正确** - 1-3次尝试+FORCED逻辑完整
+**验证结果**:  **实现正确** - 1-3次尝试+FORCED逻辑完整
 
 ---
 
@@ -347,7 +347,7 @@ def state_commit(self, chapter_num, draft, qc_result, state_changes=None):
         print("[ALERT] forced_streak >= 2, pausing for manual review")
 ```
 
-**验证结果**: ✅ **实现正确** - >=2时设置is_paused=True
+**验证结果**:  **实现正确** - >=2时设置is_paused=True
 
 ---
 
@@ -379,7 +379,7 @@ class StatePanel:
             entity['values'][field] = value
 ```
 
-**验证结果**: ✅ **实现正确** - <0.7进pending_changes，>=0.7才更新active_state
+**验证结果**:  **实现正确** - <0.7进pending_changes，>=0.7才更新active_state
 
 ---
 
@@ -416,7 +416,7 @@ def log_prompt(self, run_id, phase, chapter, attempt, event,
     atomic_write_text(log_path, "\n".join(content_parts))
 ```
 
-**验证结果**: ✅ **实现正确** - 落盘路径和格式正确
+**验证结果**:  **实现正确** - 落盘路径和格式正确
 
 ---
 
@@ -432,24 +432,24 @@ def log_prompt(self, run_id, phase, chapter, attempt, event,
 
 ## 四、验证结论
 
-### 核心功能验证: 97% ✅
+### 核心功能验证: 97% 
 
 **完全验证通过** (15/15项):
-1. ✅ 原子写入 (temp→fsync→rename)
-2. ✅ ending_state枚举
-3. ✅ Price Table Schema全部字段
-4. ✅ Price Table匹配顺序1-5
-5. ✅ cost-report.jsonl字段
-6. ✅ .lock.json排他锁
-7. ✅ RS-002僵尸锁事件
-8. ✅ Resume判定条件
-9. ✅ Attempt状态机
-10. ✅ forced_streak熔断
-11. ✅ confidence<0.7隔离
-12. ✅ Prompt审计落盘
-13. ✅ 7状态面板
-14. ✅ Evidence链
-15. ✅ 100分制QC
+1.  原子写入 (temp→fsync→rename)
+2.  ending_state枚举
+3.  Price Table Schema全部字段
+4.  Price Table匹配顺序1-5
+5.  cost-report.jsonl字段
+6.  .lock.json排他锁
+7.  RS-002僵尸锁事件
+8.  Resume判定条件
+9.  Attempt状态机
+10.  forced_streak熔断
+11.  confidence<0.7隔离
+12.  Prompt审计落盘
+13.  7状态面板
+14.  Evidence链
+15.  100分制QC
 
 **部分差异** (3项):
 - RS-001写入errors.jsonl而非events.jsonl (功能存在，路径差异)

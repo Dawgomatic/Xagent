@@ -223,7 +223,7 @@ export async function migrateLegacyToken() {
     return null;
   }
   
-  console.log('📦 Migrating legacy token to profile system...');
+  console.log(' Migrating legacy token to profile system...');
   
   try {
     const token = fs.readFileSync(LEGACY_TOKEN_FILE, 'utf8').trim();
@@ -234,13 +234,13 @@ export async function migrateLegacyToken() {
     // Rename legacy file as backup
     fs.renameSync(LEGACY_TOKEN_FILE, `${LEGACY_TOKEN_FILE}.backup`);
     
-    console.log('✅ Migration complete! Legacy token backed up.');
+    console.log(' Migration complete! Legacy token backed up.');
     console.log('   Profile "default" created.');
     console.log('');
     
     return 'default';
   } catch (error) {
-    console.error(`⚠️  Migration failed: ${error.message}`);
+    console.error(`  Migration failed: ${error.message}`);
     return null;
   }
 }

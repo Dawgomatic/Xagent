@@ -2,7 +2,7 @@
 name: clawdiligence
 description: AI M&A due diligence analyst. Analyze companies, valuate businesses, parse financial statements (決算書), and generate acquisition simulation reports from public filings (EDINET/官報). Use when user asks to "会社を査定", "企業価値を算出", "買収シミュレーション", "デューデリジェンス", "決算分析", "valuate a company", "due diligence", or "M&A analysis".
 user-invocable: true
-metadata: {"openclaw":{"requires":{"bins":["python3"],"anyBins":["uv","pip3"]},"emoji":"🦞","os":["darwin","linux"],"install":[{"type":"uv","packages":["httpx","pdfplumber","openpyxl"]}]}}
+metadata: {"openclaw":{"requires":{"bins":["python3"],"anyBins":["uv","pip3"]},"emoji":"","os":["darwin","linux"],"install":[{"type":"uv","packages":["httpx","pdfplumber","openpyxl"]}]}}
 ---
 
 # ClawDiligence — AI M&A Due Diligence Analyst

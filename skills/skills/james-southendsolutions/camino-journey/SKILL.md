@@ -1,7 +1,7 @@
 ---
 name: journey
 description: "Plan multi-waypoint journeys with route optimization, feasibility analysis, and time budget constraints. Use when you need to plan trips with multiple stops or check if an itinerary is achievable."
-metadata: {"clawdbot":{"emoji":"🗺️","requires":{"env":["CAMINO_API_KEY"]},"primaryEnv":"CAMINO_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["CAMINO_API_KEY"]},"primaryEnv":"CAMINO_API_KEY"}}
 ---
 
 ## Installation

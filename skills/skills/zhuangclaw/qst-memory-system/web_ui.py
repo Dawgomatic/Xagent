@@ -274,18 +274,18 @@ def create_demo_templates():
 <body>
     <div class="container">
         <header>
-            <h1>🧠 QST Memory System</h1>
+            <h1> QST Memory System</h1>
             <p>基於 QST Matrix 的高效記憶存取系統</p>
         </header>
         
         <div class="grid">
             <div class="card">
-                <h2>📊 統計</h2>
+                <h2> 統計</h2>
                 <div class="stats" id="stats"></div>
             </div>
             
             <div class="card">
-                <h2>🔍 檢索</h2>
+                <h2> 檢索</h2>
                 <input type="text" id="query" placeholder="輸入查詢...">
                 <button onclick="search()">檢索</button>
                 <div id="results"></div>
@@ -294,13 +294,13 @@ def create_demo_templates():
         
         <div class="grid" style="margin-top: 20px;">
             <div class="card">
-                <h2>💬 上下文</h2>
+                <h2> 上下文</h2>
                 <div class="context-box" id="context"></div>
                 <button onclick="refreshContext()" style="margin-top:10px;">刷新</button>
             </div>
             
             <div class="card">
-                <h2>📝 存儲記憶</h2>
+                <h2> 存儲記憶</h2>
                 <textarea id="content" placeholder="輸入記憶內容..." rows="3"></textarea>
                 <input type="text" id="contextLabel" placeholder="上下文標籤 (可選)">
                 <button onclick="store()">存儲</button>
@@ -308,7 +308,7 @@ def create_demo_templates():
         </div>
         
         <div class="card" style="margin-top: 20px;">
-            <h2>🗂️ 所有記憶</h2>
+            <h2> 所有記憶</h2>
             <button onclick="refreshMemories()">刷新列表</button>
             <div class="memory-list" id="memoryList"></div>
             <button onclick="clearAll()" style="margin-top:10px; background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);">清空所有</button>

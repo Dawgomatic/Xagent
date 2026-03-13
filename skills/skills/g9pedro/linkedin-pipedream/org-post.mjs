@@ -38,7 +38,7 @@ const client = new PipedreamClient({
 async function postAsOrg(text, options = {}) {
   const { orgId = DEFAULTS.orgId, userId = DEFAULTS.userId, authProvisionId = DEFAULTS.authProvisionId } = options;
   
-  console.log(`📝 Posting to organization ${orgId}...`);
+  console.log(` Posting to organization ${orgId}...`);
   console.log(`   User: ${userId}`);
   console.log(`   Text: ${text.substring(0, 100)}${text.length > 100 ? '...' : ''}`);
   
@@ -53,11 +53,11 @@ async function postAsOrg(text, options = {}) {
       },
     });
     
-    console.log('\n✅ Posted successfully!');
+    console.log('\n Posted successfully!');
     console.log(JSON.stringify(result, null, 2));
     return result;
   } catch (error) {
-    console.error('\n❌ Failed to post:', error.message);
+    console.error('\n Failed to post:', error.message);
     throw error;
   }
 }
@@ -80,7 +80,7 @@ Options:
   --help         Show this help
 
 Examples:
-  node org-post.mjs "Excited to announce our new product! 🚀"
+  node org-post.mjs "Excited to announce our new product! "
   node org-post.mjs --org 105382747 "Company update post"
 `);
   process.exit(0);
@@ -102,7 +102,7 @@ for (let i = 0; i < args.length; i++) {
 }
 
 if (!text) {
-  console.error('❌ No post content provided');
+  console.error(' No post content provided');
   process.exit(1);
 }
 

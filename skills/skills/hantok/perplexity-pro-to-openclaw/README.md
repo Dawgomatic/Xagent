@@ -1,10 +1,10 @@
 # Perplexity PRO for OpenClaw
 
-🔍 **Undetectable Perplexity PRO integration for OpenClaw with persistent sessions**
+ **Undetectable Perplexity PRO integration for OpenClaw with persistent sessions**
 
 This skill enables OpenClaw agents to search Perplexity PRO while bypassing Cloudflare protection through stealth browser automation.
 
-## ⚠️ What the Agent Will Ask You To Do
+##  What the Agent Will Ask You To Do
 
 **Before installing, understand that this skill requires:**
 
@@ -29,7 +29,7 @@ git clone https://github.com/Hantok/Perplexity-PRO-to-OpenClaw.git
 
 ### Step 1: Install Google Chrome
 
-**⚠️ Remove Snap Chromium first (it doesn't work with this setup):**
+** Remove Snap Chromium first (it doesn't work with this setup):**
 
 ```bash
 sudo snap remove chromium
@@ -122,7 +122,7 @@ Or use Finder → Cmd+K → `vnc://your-server-ip:5900`
 3. Click "Sign in with Google"
 4. **Use your actual Google password** (not App Password)
 5. Complete 2FA if enabled
-6. ✅ Session persists permanently!
+6.  Session persists permanently!
 
 ## Usage
 
@@ -170,7 +170,7 @@ openclaw browser open "https://www.perplexity.ai/search?q=latest+AI+news"
 
 ## Security Notes
 
-⚠️ **Important:**
+ **Important:**
 - Default VNC password is "openclaw" - change in production
 - Profile stored in `~/.openclaw/browser-profile/` (persistent)
 - OAuth tokens survive reboots - secure your server

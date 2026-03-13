@@ -57,9 +57,9 @@ memory/
 ```
 
 Output:
-- ✅ Safe (<70% full)
-- ⚠️ WARNING (70-85% full)
-- 🚨 CRITICAL (>85% full)
+-  Safe (<70% full)
+-  WARNING (70-85% full)
+-  CRITICAL (>85% full)
 
 ### 3. Organize Memories
 
@@ -134,8 +134,8 @@ Monitors all memory types:
 Estimates total context usage across all memory types.
 
 **Thresholds:**
-- 70%: ⚠️ WARNING - organize/prune recommended
-- 85%: 🚨 CRITICAL - snapshot NOW
+- 70%:  WARNING - organize/prune recommended
+- 85%:  CRITICAL - snapshot NOW
 
 ### Memory Organization
 
@@ -303,6 +303,6 @@ MIT - do whatever you want with it.
 
 ---
 
-Built by margent 🤘 for the agent economy.
+Built by margent  for the agent economy.
 
 *"Knowledge graphs beat flat vector retrieval by 18.5%." - Zep team research*

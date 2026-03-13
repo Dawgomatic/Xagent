@@ -2,7 +2,7 @@
 
 wechat-publisher skill 的常见问题和解决方案。
 
-## 1. ❌ IP 不在白名单
+## 1.  IP 不在白名单
 
 **错误信息：**
 ```
@@ -30,7 +30,7 @@ Error: ip not in whitelist
 
 ---
 
-## 2. ❌ wenyan-cli 未安装
+## 2.  wenyan-cli 未安装
 
 **错误信息：**
 ```
@@ -49,7 +49,7 @@ wenyan --help
 
 ---
 
-## 3. ❌ 环境变量未设置
+## 3.  环境变量未设置
 
 **错误信息：**
 ```
@@ -85,7 +85,7 @@ source ~/.zshrc  # 或 source ~/.bashrc
 
 ---
 
-## 4. ❌ Frontmatter 缺失（最常见！）
+## 4.  Frontmatter 缺失（最常见！）
 
 **错误信息：**
 ```
@@ -94,7 +94,7 @@ Error: 未能找到文章封面
 
 **原因：** Markdown 文件缺少必需的 frontmatter（特别是 `title` 字段）。
 
-**⚠️ 重要：** wenyan-cli **强制要求** frontmatter，必须在 Markdown 文件顶部添加！
+** 重要：** wenyan-cli **强制要求** frontmatter，必须在 Markdown 文件顶部添加！
 
 **解决方法：**
 
@@ -122,7 +122,7 @@ title: 你的文章标题
 内容...
 ```
 
-**⚠️ 关键点：**
+** 关键点：**
 - `title` 字段是**必须的**，缺少会报错 "未能找到文章封面"
 - `cover` 字段可选：如果正文中有图片，wenyan 会自动使用第一张图作为封面
 - frontmatter 必须在文件最顶部，前面不能有空行或其他内容
@@ -137,7 +137,7 @@ title: 你的文章标题
 
 ---
 
-## 5. ❌ 图片上传失败
+## 5.  图片上传失败
 
 **错误信息：**
 ```
@@ -176,7 +176,7 @@ Error: Failed to upload image
 
 ---
 
-## 6. ❌ API 凭证错误
+## 6.  API 凭证错误
 
 **错误信息：**
 ```
@@ -200,7 +200,7 @@ Error: invalid credential
 
 ---
 
-## 7. ❌ Node.js 版本过低
+## 7.  Node.js 版本过低
 
 **错误信息：**
 ```
@@ -226,7 +226,7 @@ Error: Requires Node.js >= 14.0.0
 
 ---
 
-## 8. ❌ 网络连接问题
+## 8.  网络连接问题
 
 **错误信息：**
 ```
@@ -256,7 +256,7 @@ Error: connect ETIMEDOUT
 
 ---
 
-## 9. 🐛 调试模式
+## 9.  调试模式
 
 如果以上方法都不行，启用详细日志：
 
@@ -274,7 +274,7 @@ wenyan publish -f article.md -t lapis -h solarized-light
 
 ---
 
-## 10. 📞 获取帮助
+## 10.  获取帮助
 
 **wenyan-cli 帮助：**
 ```bash
@@ -296,7 +296,7 @@ cd /Users/leebot/.openclaw/workspace/wechat-publisher
 
 ---
 
-## 💡 最佳实践
+##  最佳实践
 
 **1. 始终添加 frontmatter**
 ```markdown
@@ -319,10 +319,10 @@ wenyan publish -f article.md -t lapis -h solarized-light
 ```
 
 **4. 检查列表**
-- ✅ frontmatter 中有 title
-- ✅ 正文有至少一张图片（或 frontmatter 有 cover）
-- ✅ 环境变量已设置
-- ✅ IP 在白名单中
+-  frontmatter 中有 title
+-  正文有至少一张图片（或 frontmatter 有 cover）
+-  环境变量已设置
+-  IP 在白名单中
 
 ---
 

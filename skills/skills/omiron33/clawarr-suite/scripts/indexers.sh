@@ -13,17 +13,17 @@ HOST="${CLAWARR_HOST:-}"
 PROWLARR_KEY="${PROWLARR_KEY:-}"
 
 if [[ -z "$HOST" ]]; then
-  echo "❌ Error: CLAWARR_HOST not set"
+  echo " Error: CLAWARR_HOST not set"
   exit 1
 fi
 
 if [[ -z "$PROWLARR_KEY" ]]; then
-  echo "❌ Error: PROWLARR_KEY not set"
+  echo " Error: PROWLARR_KEY not set"
   exit 1
 fi
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required"
+  echo " Error: jq is required"
   exit 1
 fi
 
@@ -49,7 +49,7 @@ prowlarr_api() {
 
 # Command: list
 cmd_list() {
-  echo "📡 Configured Indexers"
+  echo " Configured Indexers"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local indexers
@@ -64,7 +64,7 @@ cmd_list() {
   echo "$indexers" | jq -r '.[] | 
     "[ID:\(.id)] \(.name)
     Protocol: \(.protocol | ascii_upcase) | Priority: \(.priority)
-    Status: \(if .enable then "✅ Enabled" else "⏸️  Disabled" end)
+    Status: \(if .enable then " Enabled" else "  Disabled" end)
     "' | sed 's/^/  /'
   
   local total
@@ -81,7 +81,7 @@ cmd_test() {
   local id="${1:-}"
   
   if [[ -z "$id" ]]; then
-    echo "🧪 Testing All Indexers"
+    echo " Testing All Indexers"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     # Get all indexers
@@ -105,13 +105,13 @@ cmd_test() {
       }')
       
       if prowlarr_api POST "/indexer/test" "$test_data" >/dev/null 2>&1; then
-        echo "✅ OK"
+        echo " OK"
       else
-        echo "❌ FAILED"
+        echo " FAILED"
       fi
     done
   else
-    echo "🧪 Testing Indexer ID: $id"
+    echo " Testing Indexer ID: $id"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     # Get indexer config
@@ -135,9 +135,9 @@ cmd_test() {
     }')
     
     if prowlarr_api POST "/indexer/test" "$test_data" >/dev/null 2>&1; then
-      echo "✅ OK"
+      echo " OK"
     else
-      echo "❌ FAILED"
+      echo " FAILED"
     fi
   fi
   
@@ -146,7 +146,7 @@ cmd_test() {
 
 # Command: stats
 cmd_stats() {
-  echo "📊 Indexer Performance Statistics"
+  echo " Indexer Performance Statistics"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   # Get indexer stats from history
@@ -204,7 +204,7 @@ case "$COMMAND" in
   stats) cmd_stats ;;
   help|--help|-h) show_help ;;
   *)
-    echo "❌ Unknown command: $COMMAND"
+    echo " Unknown command: $COMMAND"
     echo "Run '$0 help' for usage"
     exit 1
     ;;

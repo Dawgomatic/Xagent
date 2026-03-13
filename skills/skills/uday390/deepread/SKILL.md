@@ -251,7 +251,7 @@ curl -X POST https://api.deepread.tech/v1/process \
 
 ## When to Use This Skill
 
-### ✅ Use DeepRead For:
+###  Use DeepRead For:
 
 - **Invoice Processing**: Extract vendor, totals, line items
 - **Receipt OCR**: Parse merchant, items, totals
@@ -260,7 +260,7 @@ curl -X POST https://api.deepread.tech/v1/process \
 - **Document Workflows**: Any process requiring OCR + data extraction
 - **Quality-Critical Apps**: When you need to know which extractions are uncertain
 
-### ❌ Don't Use For:
+###  Don't Use For:
 
 - **Real-time Processing**: Processing takes 2-5 minutes (async workflow)
 - **Batch >2,000 pages/month**: Upgrade to PRO or SCALE tier
@@ -443,7 +443,7 @@ X-RateLimit-Reset: 1730419200
 
 ### 1. Use Webhooks for Production
 
-**✅ Recommended: Webhook notifications**
+** Recommended: Webhook notifications**
 ```bash
 curl -X POST https://api.deepread.tech/v1/process \
   -H "X-API-Key: $DEEPREAD_API_KEY" \
@@ -458,7 +458,7 @@ curl -X POST https://api.deepread.tech/v1/process \
 
 ### 2. Schema Design
 
-**✅ Good: Descriptive field descriptions**
+** Good: Descriptive field descriptions**
 ```json
 {
   "vendor": {
@@ -468,7 +468,7 @@ curl -X POST https://api.deepread.tech/v1/process \
 }
 ```
 
-**❌ Bad: No description**
+** Bad: No description**
 ```json
 {
   "vendor": {"type": "string"}

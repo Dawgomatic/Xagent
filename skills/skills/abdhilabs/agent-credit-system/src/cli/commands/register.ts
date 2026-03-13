@@ -35,14 +35,14 @@ export const registerCommand = new Command()
       );
       
       if (result.success) {
-        console.log(`\n✅ Agent registered successfully!`);
+        console.log(`\n Agent registered successfully!`);
         console.log(`   Name: @${name}`);
         console.log(`   Score: ${score.rawScore.toFixed(1)}/100`);
         console.log(`   Max Borrow: ${score.maxBorrow} USDC\n`);
       } else {
-        console.log(`\n❌ Registration failed: ${result.message}\n`);
+        console.log(`\n Registration failed: ${result.message}\n`);
       }
     } catch (error: any) {
-      console.error(`\n❌ Error: ${error.message}\n`);
+      console.error(`\n Error: ${error.message}\n`);
     }
   });

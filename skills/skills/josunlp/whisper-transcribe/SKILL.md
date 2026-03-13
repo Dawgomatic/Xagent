@@ -25,11 +25,11 @@ scripts/transcribe.sh --timestamps interview.m4a
 
 | Model | RAM | Speed | Accuracy | Best for |
 |-------|-----|-------|----------|----------|
-| tiny | ~1GB | ⚡⚡⚡ | ★★ | Quick drafts, known language |
-| base | ~1GB | ⚡⚡ | ★★★ | General use (default) |
-| small | ~2GB | ⚡ | ★★★★ | Good accuracy |
-| medium | ~5GB | 🐢 | ★★★★★ | High accuracy |
-| large | ~10GB | 🐌 | ★★★★★ | Best accuracy (slow on Pi) |
+| tiny | ~1GB |  | ★★ | Quick drafts, known language |
+| base | ~1GB |  | ★★★ | General use (default) |
+| small | ~2GB |  | ★★★★ | Good accuracy |
+| medium | ~5GB |  | ★★★★★ | High accuracy |
+| large | ~10GB |  | ★★★★★ | Best accuracy (slow on Pi) |
 
 ## Output Formats
 

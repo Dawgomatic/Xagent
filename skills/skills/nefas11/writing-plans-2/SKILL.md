@@ -58,10 +58,10 @@ Before finalizing plan:
 
 ## Anti-Patterns
 
-❌ Vague tasks ("Improve caching")
-❌ No verification steps
-❌ Tasks without file paths
-❌ Monster tasks (>10 min)
+ Vague tasks ("Improve caching")
+ No verification steps
+ Tasks without file paths
+ Monster tasks (>10 min)
 
 ## Example
 

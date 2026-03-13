@@ -1,7 +1,7 @@
 ---
 name: Cassandra
 description: Design Cassandra tables, write efficient queries, and avoid distributed database pitfalls.
-metadata: {"clawdbot":{"emoji":"👁️","requires":{"anyBins":["cqlsh","nodetool"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["cqlsh","nodetool"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Data Modeling Mistakes

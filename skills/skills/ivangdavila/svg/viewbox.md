@@ -3,12 +3,12 @@
 ## viewBox vs width/height
 
 ```svg
-<!-- ✅ Scales to any container size -->
+<!--  Scales to any container size -->
 <svg viewBox="0 0 24 24">
   <circle cx="12" cy="12" r="10"/>
 </svg>
 
-<!-- ❌ Fixed 24x24, never scales -->
+<!--  Fixed 24x24, never scales -->
 <svg width="24" height="24">
   <circle cx="12" cy="12" r="10"/>
 </svg>
@@ -21,7 +21,7 @@
 Elements outside viewBox bounds are **invisible**:
 
 ```svg
-<!-- ❌ Circle at 500,500 but viewBox only covers 0-100 -->
+<!--  Circle at 500,500 but viewBox only covers 0-100 -->
 <svg viewBox="0 0 100 100">
   <circle cx="500" cy="500" r="40"/>  <!-- invisible -->
 </svg>
@@ -30,10 +30,10 @@ Elements outside viewBox bounds are **invisible**:
 ## viewBox Is Unitless
 
 ```svg
-<!-- ❌ WRONG — units break viewBox -->
+<!--  WRONG — units break viewBox -->
 <svg viewBox="0 0 100px 100px">
 
-<!-- ✅ Correct — no units -->
+<!--  Correct — no units -->
 <svg viewBox="0 0 100 100">
 ```
 
@@ -53,10 +53,10 @@ Default `xMidYMid meet` is usually correct. Only override with intent:
 Exports often include viewBox offset from artboard position:
 
 ```svg
-<!-- ❌ Exported with offset -->
+<!--  Exported with offset -->
 <svg viewBox="234 567 100 100">
 
-<!-- ✅ Normalized -->
+<!--  Normalized -->
 <svg viewBox="0 0 100 100">
 ```
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Archive a Telegram forum topic
 # - Renames to "[ARCHIVED] {name}"
-# - Sets folder icon (📁)
+# - Sets folder icon ()
 # - Closes the topic
 #
 # Usage: ./archive_topic.sh <bot_token> <chat_id> <topic_id> <current_name>
@@ -41,9 +41,9 @@ EDIT_RESPONSE=$(curl -s -X POST "https://api.telegram.org/bot${TOKEN}/editForumT
     }")
 
 if echo "$EDIT_RESPONSE" | jq -e '.ok == true' > /dev/null 2>&1; then
-    echo "✅ Renamed to: ${ARCHIVED_NAME}"
+    echo " Renamed to: ${ARCHIVED_NAME}"
 else
-    echo "❌ Failed to rename topic:"
+    echo " Failed to rename topic:"
     echo "$EDIT_RESPONSE" | jq .
     exit 1
 fi
@@ -58,15 +58,15 @@ CLOSE_RESPONSE=$(curl -s -X POST "https://api.telegram.org/bot${TOKEN}/closeForu
     }")
 
 if echo "$CLOSE_RESPONSE" | jq -e '.ok == true' > /dev/null 2>&1; then
-    echo "✅ Topic closed"
+    echo " Topic closed"
 else
-    echo "❌ Failed to close topic:"
+    echo " Failed to close topic:"
     echo "$CLOSE_RESPONSE" | jq .
     exit 1
 fi
 
 echo ""
-echo "✅ Topic archived successfully!"
+echo " Topic archived successfully!"
 echo ""
 echo "Next steps (OpenClaw session):"
 echo "  1. Export session: openclaw sessions history 'agent:main:telegram:group:${CHAT_ID}:topic:${TOPIC_ID}' > archive.md"

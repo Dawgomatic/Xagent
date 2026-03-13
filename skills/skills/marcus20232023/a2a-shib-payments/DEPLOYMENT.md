@@ -1,9 +1,9 @@
 # SHIB Payment Agent - Deployment Guide
 
-## 🚀 Deployment Options
+##  Deployment Options
 
 ### Option 1: Local Deployment (Current)
-**Status:** ✅ Running on localhost:8003
+**Status:**  Running on localhost:8003
 
 **Pros:**
 - Already working
@@ -231,7 +231,7 @@ sudo certbot --nginx -d shib-agent.your-domain.com
 
 ---
 
-## 🔒 Security Checklist
+##  Security Checklist
 
 ### Before Public Deployment:
 
@@ -259,7 +259,7 @@ LOG_LEVEL=info
 
 ---
 
-## 📊 Monitoring Setup
+##  Monitoring Setup
 
 ### Prometheus Metrics (Future Enhancement)
 ```javascript
@@ -289,7 +289,7 @@ const escrowsGauge = new prometheus.Gauge({
 
 ---
 
-## 🔄 Backup Strategy
+##  Backup Strategy
 
 **Critical Files:**
 ```bash
@@ -336,7 +336,7 @@ find $BACKUP_DIR -name "*.tar.gz" -mtime +7 -delete
 
 ---
 
-## 🧪 Testing Deployment
+##  Testing Deployment
 
 ### Health Check Endpoint
 Add to agent:
@@ -373,7 +373,7 @@ tail -f audit-logs/audit-*.jsonl
 
 ---
 
-## 🚀 Recommended: Cloudflare Tunnel + Systemd
+##  Recommended: Cloudflare Tunnel + Systemd
 
 **Best Production Setup:**
 
@@ -404,13 +404,13 @@ chmod +x backup.sh
 sudo systemctl start shib-payment-agent
 cloudflared tunnel run shib-agent &
 
-echo "✅ Deployment complete!"
+echo " Deployment complete!"
 echo "Agent running at: https://shib-agent.your-domain.com"
 ```
 
 ---
 
-## 📝 Post-Deployment
+##  Post-Deployment
 
 ### Update Registry
 Add your agent to public registry:
@@ -434,7 +434,7 @@ Add your agent to public registry:
 
 ---
 
-## 💰 Cost Estimate
+##  Cost Estimate
 
 **Monthly Costs:**
 - **Local (current):** $0 (electricity only)
@@ -450,7 +450,7 @@ Add your agent to public registry:
 
 ---
 
-## ✅ Quick Start (Local Production)
+##  Quick Start (Local Production)
 
 ```bash
 # 1. Go to agent directory

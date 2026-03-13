@@ -30,13 +30,13 @@ Most "competitor analysis" skills stop at SEO keywords. This one covers the **fu
 "Compare our pricing against [competitor 1] and [competitor 2]"
 ```
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific competitive frameworks with pre-built battlecards, pricing benchmarks, and market maps?
 
 **[AfrexAI Context Packs — $47](https://afrexai-cto.github.io/context-packs/)** include competitive intelligence tailored to your vertical: SaaS, Fintech, Healthcare, Legal, Construction, Ecommerce, Real Estate, Recruitment, Manufacturing, and Professional Services.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — ICP-driven prospecting engine
 - [afrexai-pricing-strategy](https://clawhub.com/skills/afrexai-pricing-strategy) — Full pricing system

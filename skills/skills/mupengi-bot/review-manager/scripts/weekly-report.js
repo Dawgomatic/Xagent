@@ -139,28 +139,28 @@ function saveReport(config, report) {
   const filepath = path.join(reportsDir, filename);
   
   fs.writeFileSync(filepath, JSON.stringify(report, null, 2));
-  console.log(`💾 리포트 저장: ${filename}`);
+  console.log(` 리포트 저장: ${filename}`);
 }
 
 // Discord로 전송
 function sendToDiscord(channelId, report) {
   if (report.totalReviews === 0) {
-    console.log('📊 리포트가 비어있어 전송하지 않습니다.');
+    console.log(' 리포트가 비어있어 전송하지 않습니다.');
     return;
   }
   
-  const message = `📊 **주간 리뷰 리포트** (${report.period})
+  const message = ` **주간 리뷰 리포트** (${report.period})
 
 **총 리뷰 수**: ${report.totalReviews}개
-**평균 별점**: ⭐ ${report.avgRating} / 5.0
+**평균 별점**:  ${report.avgRating} / 5.0
 
 **감성 분석**:
-- 긍정 (⭐4-5): ${report.sentiment.positive}개 (${((report.sentiment.positive / report.totalReviews) * 100).toFixed(1)}%)
-- 중립 (⭐3): ${report.sentiment.neutral}개 (${((report.sentiment.neutral / report.totalReviews) * 100).toFixed(1)}%)
-- 부정 (⭐1-2): ${report.sentiment.negative}개 (${((report.sentiment.negative / report.totalReviews) * 100).toFixed(1)}%)
+- 긍정 (4-5): ${report.sentiment.positive}개 (${((report.sentiment.positive / report.totalReviews) * 100).toFixed(1)}%)
+- 중립 (3): ${report.sentiment.neutral}개 (${((report.sentiment.neutral / report.totalReviews) * 100).toFixed(1)}%)
+- 부정 (1-2): ${report.sentiment.negative}개 (${((report.sentiment.negative / report.totalReviews) * 100).toFixed(1)}%)
 
 **플랫폼별**:
-${Object.entries(report.platforms).map(([p, s]) => `- ${p}: ${s.count}개 (평균 ⭐${s.avgRating})`).join('\n')}
+${Object.entries(report.platforms).map(([p, s]) => `- ${p}: ${s.count}개 (평균 ${s.avgRating})`).join('\n')}
 
 **주요 키워드**:
 ${report.keywords.slice(0, 5).map(([word, count]) => `- ${word} (${count}회)`).join('\n')}
@@ -169,9 +169,9 @@ ${report.keywords.slice(0, 5).map(([word, count]) => `- ${word} (${count}회)`).
   try {
     const cmd = `openclaw message send --channel discord --target "${channelId}" --message "${message.replace(/"/g, '\\"')}"`;
     execSync(cmd, { encoding: 'utf-8' });
-    console.log('📨 Discord 전송 완료');
+    console.log(' Discord 전송 완료');
   } catch (err) {
-    console.error('❌ Discord 전송 실패:', err.message);
+    console.error(' Discord 전송 실패:', err.message);
   }
 }
 
@@ -183,7 +183,7 @@ async function main() {
   const config = loadConfig();
   const reviews = loadAllReviews(config);
   
-  console.log('📊 주간 리포트 생성 중...\n');
+  console.log(' 주간 리포트 생성 중...\n');
   
   const report = generateReport(reviews);
   
@@ -191,7 +191,7 @@ async function main() {
   console.log(`총 리뷰: ${report.totalReviews}개`);
   
   if (report.totalReviews > 0) {
-    console.log(`평균 별점: ⭐ ${report.avgRating}`);
+    console.log(`평균 별점:  ${report.avgRating}`);
     console.log(`\n감성:`);
     console.log(`  긍정: ${report.sentiment.positive}개`);
     console.log(`  중립: ${report.sentiment.neutral}개`);
@@ -210,6 +210,6 @@ async function main() {
 }
 
 main().catch(err => {
-  console.error('❌ 오류:', err.message);
+  console.error(' 오류:', err.message);
   process.exit(1);
 });

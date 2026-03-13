@@ -4,7 +4,7 @@ Secure web fetch and search with **PromptGuard** scanning.
 
 ## Status
 
-✅ Working
+ Working
 
 ## Purpose
 
@@ -122,7 +122,7 @@ Fetching: https://suspicious-site.com
 Fetched 2048 characters
 Scanning with PromptGuard...
 ============================================================
-🛡️  SAFE-WEB SECURITY ALERT
+  SAFE-WEB SECURITY ALERT
 ============================================================
 Source: https://suspicious-site.com
 Severity: CRITICAL
@@ -171,11 +171,11 @@ Use standard `web_fetch`/`web_search` tools only for:
 
 | Feature | Native `web_fetch` | `safe-web fetch` |
 |---------|-------------------|------------------|
-| Fetches HTML | ✅ | ✅ |
-| Extracts text | ✅ | ✅ |
-| Injection scanning | ❌ | ✅ |
-| JSON output | ✅ | ✅ |
-| Save to file | ❌ | ✅ |
+| Fetches HTML |  |  |
+| Extracts text |  |  |
+| Injection scanning |  |  |
+| JSON output |  |  |
+| Save to file |  |  |
 | Exit codes | 0/1 | 0/1/2 (security) |
 
 ## Dependencies

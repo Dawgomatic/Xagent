@@ -204,10 +204,10 @@ Common issues and solutions when using the OpenGraph.io API.
 
 3. **Don't mix syntax with description:**
    ```json
-   // ❌ WRONG
+   //  WRONG
    {"prompt": "graph LR A-->B make it beautiful"}
    
-   // ✅ CORRECT  
+   //  CORRECT  
    {
      "diagramCode": "graph LR\n  A-->B",
      "diagramFormat": "mermaid",

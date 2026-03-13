@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": "task_api_v2",
-      "title": "🚀 Launch API v2.0 with GraphQL Support",
+      "title": " Launch API v2.0 with GraphQL Support",
       "description": "Major API upgrade introducing GraphQL alongside REST.\n\n**Scope:**\n- GraphQL schema design\n- Query/mutation resolvers\n- Authentication middleware\n- Rate limiting\n- Documentation\n\n**Resources:**\n- [GraphQL Spec](https://graphql.org/)\n- [Apollo Server Docs](https://apollographql.com/docs/)",
       "status": "done",
       "priority": "high",
@@ -50,12 +50,12 @@
       "comments": [
         {
           "author": "AI Assistant",
-          "text": "📋 **Implementation Plan**\n\n**Phase 1: Schema Design** ✅\n- Defined types for User, Project, Task, Comment\n- Added input types for mutations\n- Implemented custom scalars (DateTime, JSON)\n\n**Phase 2: Resolvers** (in progress)\n- Query resolvers complete\n- Working on mutations now",
+          "text": " **Implementation Plan**\n\n**Phase 1: Schema Design** \n- Defined types for User, Project, Task, Comment\n- Added input types for mutations\n- Implemented custom scalars (DateTime, JSON)\n\n**Phase 2: Resolvers** (in progress)\n- Query resolvers complete\n- Working on mutations now",
           "createdAt": "2026-02-01T10:15:00.000Z"
         },
         {
           "author": "AI Assistant",
-          "text": "⚡ **Progress Update**\n\nMutation resolvers 70% complete:\n- `createProject` ✅\n- `updateProject` ✅\n- `deleteProject` ✅\n- `createTask` 🔄 in progress\n\nETA: ~2 hours for remaining mutations.",
+          "text": " **Progress Update**\n\nMutation resolvers 70% complete:\n- `createProject` \n- `updateProject` \n- `deleteProject` \n- `createTask`  in progress\n\nETA: ~2 hours for remaining mutations.",
           "createdAt": "2026-02-01T23:50:00.000Z"
         }
       ],
@@ -65,7 +65,7 @@
     },
     {
       "id": "task_mobile_push",
-      "title": "📱 Implement Push Notifications for Mobile App",
+      "title": " Implement Push Notifications for Mobile App",
       "description": "Add push notification support for iOS and Android.\n\n**Requirements:**\n- Firebase Cloud Messaging integration\n- iOS APNs setup\n- Notification preferences UI\n- Background sync\n\n**Priority notifications:**\n- Task assignments\n- Due date reminders\n- Mentions in comments",
       "status": "done",
       "priority": "high",
@@ -107,7 +107,7 @@
       "comments": [
         {
           "author": "AI Assistant",
-          "text": "✅ Firebase and APNs configured. Android handler working. Moving to preferences UI next.",
+          "text": " Firebase and APNs configured. Android handler working. Moving to preferences UI next.",
           "createdAt": "2026-02-01T15:30:00.000Z"
         }
       ],
@@ -118,7 +118,7 @@
     },
     {
       "id": "task_security_audit",
-      "title": "🔒 Q1 Security Audit & Penetration Testing",
+      "title": " Q1 Security Audit & Penetration Testing",
       "description": "Comprehensive security review of all production systems.\n\n**Scope:**\n- OWASP Top 10 assessment\n- Dependency vulnerability scan\n- Authentication flow review\n- API endpoint security\n- Infrastructure hardening\n\n**Compliance:** SOC 2 Type II preparation",
       "status": "done",
       "priority": "critical",
@@ -165,7 +165,7 @@
       "comments": [
         {
           "author": "AI Assistant",
-          "text": "🔍 **Audit Complete**\n\n**Findings:**\n- 0 Critical vulnerabilities\n- 2 Medium (patched)\n- 5 Low (documented)\n\n**Recommendations:**\n1. Upgrade bcrypt to v5.1\n2. Add rate limiting to /auth endpoints\n3. Enable HSTS preloading\n\nFull report attached to task.",
+          "text": " **Audit Complete**\n\n**Findings:**\n- 0 Critical vulnerabilities\n- 2 Medium (patched)\n- 5 Low (documented)\n\n**Recommendations:**\n1. Upgrade bcrypt to v5.1\n2. Add rate limiting to /auth endpoints\n3. Enable HSTS preloading\n\nFull report attached to task.",
           "createdAt": "2026-02-01T17:45:00.000Z"
         }
       ],
@@ -176,7 +176,7 @@
     },
     {
       "id": "task_ml_recommendations",
-      "title": "🤖 Build ML-Powered Recommendation Engine",
+      "title": " Build ML-Powered Recommendation Engine",
       "description": "Implement personalized content recommendations using collaborative filtering.\n\n**Algorithm:**\n- Matrix factorization (ALS)\n- Content-based filtering hybrid\n- Real-time inference via Redis\n\n**Metrics:**\n- Target CTR improvement: 15%\n- A/B test duration: 2 weeks",
       "status": "done",
       "priority": "high",
@@ -218,7 +218,7 @@
       "comments": [
         {
           "author": "AI Assistant",
-          "text": "📊 **Model Performance**\n\n| Metric | Value |\n|--------|-------|\n| RMSE | 0.82 |\n| Precision@10 | 0.34 |\n| Recall@10 | 0.28 |\n\nReady for A/B testing. Staging deployment complete.",
+          "text": " **Model Performance**\n\n| Metric | Value |\n|--------|-------|\n| RMSE | 0.82 |\n| Precision@10 | 0.34 |\n| Recall@10 | 0.28 |\n\nReady for A/B testing. Staging deployment complete.",
           "createdAt": "2026-02-01T11:30:00.000Z"
         }
       ],
@@ -229,7 +229,7 @@
     },
     {
       "id": "task_dashboard_redesign",
-      "title": "🎨 Dashboard UI Redesign",
+      "title": " Dashboard UI Redesign",
       "description": "Modern redesign of the main dashboard with improved UX.\n\n**Goals:**\n- Cleaner visual hierarchy\n- Better mobile responsiveness\n- Dark mode support\n- Faster load times\n\n**Design system:** Tailwind CSS + Radix UI",
       "status": "done",
       "priority": "medium",
@@ -270,7 +270,7 @@
     },
     {
       "id": "task_k8s_migration",
-      "title": "☸️ Migrate to Kubernetes",
+      "title": " Migrate to Kubernetes",
       "description": "Move from Docker Compose to Kubernetes for better scalability.\n\n**Infrastructure:**\n- GKE cluster (3 nodes)\n- Helm charts for all services\n- ArgoCD for GitOps\n- Prometheus + Grafana monitoring\n\n**Timeline:** 4 weeks",
       "status": "done",
       "priority": "high",
@@ -316,7 +316,7 @@
     },
     {
       "id": "task_analytics_pipeline",
-      "title": "📊 Real-time Analytics Pipeline",
+      "title": " Real-time Analytics Pipeline",
       "description": "Build streaming analytics for real-time dashboards.\n\n**Tech stack:**\n- Apache Kafka for event streaming\n- Apache Flink for processing\n- ClickHouse for storage\n- Grafana for visualization",
       "status": "done",
       "priority": "medium",
@@ -357,7 +357,7 @@
     },
     {
       "id": "task_docs_overhaul",
-      "title": "📚 Documentation Overhaul",
+      "title": " Documentation Overhaul",
       "description": "Complete rewrite of developer documentation.\n\n**Sections:**\n- Getting started guide\n- API reference (OpenAPI)\n- Architecture overview\n- Deployment guides\n- Troubleshooting",
       "status": "done",
       "priority": "low",
@@ -397,7 +397,7 @@
     },
     {
       "id": "task_oauth_providers",
-      "title": "🔐 Add OAuth Providers (Google, GitHub, Apple)",
+      "title": " Add OAuth Providers (Google, GitHub, Apple)",
       "description": "Expand authentication options with social login.\n\n**Providers:**\n- Google (highest priority)\n- GitHub (for developer users)\n- Apple (iOS requirement)\n\n**Requirements:**\n- Account linking\n- Profile sync\n- Token refresh handling",
       "status": "done",
       "priority": "high",
@@ -440,7 +440,7 @@
       "comments": [
         {
           "author": "AI Assistant",
-          "text": "✅ All OAuth providers implemented and tested. Account linking works seamlessly.",
+          "text": " All OAuth providers implemented and tested. Account linking works seamlessly.",
           "createdAt": "2026-01-28T15:45:00.000Z"
         }
       ],
@@ -450,7 +450,7 @@
     },
     {
       "id": "task_perf_optimization",
-      "title": "⚡ Performance Optimization Sprint",
+      "title": " Performance Optimization Sprint",
       "description": "Reduce page load time by 40%.\n\n**Optimizations:**\n- Code splitting\n- Image lazy loading\n- API response caching\n- Database query optimization",
       "status": "done",
       "priority": "high",
@@ -487,7 +487,7 @@
       "comments": [
         {
           "author": "AI Assistant",
-          "text": "📈 **Results:**\n- LCP: 2.8s → 1.4s (-50%)\n- FCP: 1.2s → 0.8s (-33%)\n- Bundle size: 450KB → 280KB (-38%)",
+          "text": " **Results:**\n- LCP: 2.8s → 1.4s (-50%)\n- FCP: 1.2s → 0.8s (-33%)\n- Bundle size: 450KB → 280KB (-38%)",
           "createdAt": "2026-01-26T13:30:00.000Z"
         }
       ],
@@ -497,7 +497,7 @@
     },
     {
       "id": "task_ci_pipeline",
-      "title": "🔧 CI/CD Pipeline Improvements",
+      "title": " CI/CD Pipeline Improvements",
       "description": "Faster and more reliable CI/CD pipeline.\n\n**Goals:**\n- Reduce build time by 50%\n- Add E2E tests\n- Implement canary deployments",
       "status": "done",
       "priority": "medium",
@@ -538,7 +538,7 @@
     },
     {
       "id": "task_user_research",
-      "title": "👥 User Research: Power User Interviews",
+      "title": " User Research: Power User Interviews",
       "description": "Interview top 20 power users to understand pain points and feature requests.",
       "status": "done",
       "priority": "medium",
@@ -579,7 +579,7 @@
     },
     {
       "id": "template_code_review",
-      "title": "📝 Code Review Checklist",
+      "title": " Code Review Checklist",
       "description": "Standard checklist for PR reviews.\n\n**Use this template** when reviewing pull requests to ensure consistency.",
       "status": "template",
       "priority": "medium",
@@ -627,7 +627,7 @@
     },
     {
       "id": "template_sprint_retro",
-      "title": "🔄 Sprint Retrospective",
+      "title": " Sprint Retrospective",
       "description": "Template for bi-weekly sprint retrospectives.\n\n**Format:** Start, Stop, Continue",
       "status": "template",
       "priority": "medium",
@@ -671,7 +671,7 @@
     },
     {
       "id": "template_incident_response",
-      "title": "🚨 Incident Response",
+      "title": " Incident Response",
       "description": "Template for handling production incidents.\n\n**Severity levels:**\n- P1: Full outage\n- P2: Partial degradation\n- P3: Minor issue",
       "status": "template",
       "priority": "critical",
@@ -738,61 +738,61 @@
       "id": "backend",
       "name": "Backend",
       "color": "#8b5cf6",
-      "icon": "⚙️"
+      "icon": ""
     },
     {
       "id": "frontend",
       "name": "Frontend",
       "color": "#3b82f6",
-      "icon": "🎨"
+      "icon": ""
     },
     {
       "id": "mobile",
       "name": "Mobile App",
       "color": "#10b981",
-      "icon": "📱"
+      "icon": ""
     },
     {
       "id": "devops",
       "name": "DevOps",
       "color": "#f59e0b",
-      "icon": "🔧"
+      "icon": ""
     },
     {
       "id": "security",
       "name": "Security",
       "color": "#ef4444",
-      "icon": "🔒"
+      "icon": ""
     },
     {
       "id": "ml",
       "name": "ML/AI",
       "color": "#ec4899",
-      "icon": "🤖"
+      "icon": ""
     },
     {
       "id": "data",
       "name": "Data",
       "color": "#06b6d4",
-      "icon": "📊"
+      "icon": ""
     },
     {
       "id": "docs",
       "name": "Documentation",
       "color": "#84cc16",
-      "icon": "📚"
+      "icon": ""
     },
     {
       "id": "product",
       "name": "Product",
       "color": "#a855f7",
-      "icon": "💡"
+      "icon": ""
     },
     {
       "id": "engineering",
       "name": "Engineering",
       "color": "#6366f1",
-      "icon": "👨‍💻"
+      "icon": ""
     }
   ],
   "version": 2,
@@ -831,7 +831,7 @@
     {
       "type": "moved",
       "actor": "rdsthomas",
-      "task": "📚 Documentation Overhaul",
+      "task": " Documentation Overhaul",
       "from": "backlog",
       "to": "done",
       "time": "just now"
@@ -839,7 +839,7 @@
     {
       "type": "moved",
       "actor": "rdsthomas",
-      "task": "📊 Real-time Analytics Pipeline",
+      "task": " Real-time Analytics Pipeline",
       "from": "backlog",
       "to": "done",
       "time": "just now"
@@ -847,7 +847,7 @@
     {
       "type": "moved",
       "actor": "rdsthomas",
-      "task": "🎨 Dashboard UI Redesign",
+      "task": " Dashboard UI Redesign",
       "from": "backlog",
       "to": "done",
       "time": "just now"
@@ -855,7 +855,7 @@
     {
       "type": "moved",
       "actor": "rdsthomas",
-      "task": "☸️ Migrate to Kubernetes",
+      "task": " Migrate to Kubernetes",
       "from": "backlog",
       "to": "done",
       "time": "just now"
@@ -863,7 +863,7 @@
     {
       "type": "moved",
       "actor": "rdsthomas",
-      "task": "📱 Implement Push Notifications for Mobile App",
+      "task": " Implement Push Notifications for Mobile App",
       "from": "in_progress",
       "to": "done",
       "time": "just now"

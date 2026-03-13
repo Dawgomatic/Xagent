@@ -35,10 +35,10 @@ See `docs/` for:
 
 ## Performance
 
-- Search: <20ms average ✅
-- Capture: <50ms average ✅  
-- Stats: <10ms ✅
-- All operations: <100ms ✅
+- Search: <20ms average 
+- Capture: <50ms average   
+- Stats: <10ms 
+- All operations: <100ms 
 
 ## Built by
 

@@ -2,7 +2,7 @@
 
 A professional OpenClaw (Moltbot) skill for managing and monitoring Duplicati backup jobs. This skill is built for the modern Duplicati REST API (v2.1+) and uses secure JWT Bearer tokens for authentication.
 
-## 🚀 Features
+##  Features
 
 - **Modern Security**: Uses 10-year "Forever Tokens" instead of passing raw passwords.
 - **Natural Language Support**: Ask for backups by name (e.g., "Start the SSD backup") and the skill handles the ID mapping.
@@ -10,7 +10,7 @@ A professional OpenClaw (Moltbot) skill for managing and monitoring Duplicati ba
 - **Storage Insights**: Automatically reports destination free space during status checks.
 - **Log Parsing**: Quickly retrieves and explains recent backup failures or warnings.
 
-## 🛠 Installation
+##  Installation
 
 Clone this repository into your OpenClaw skills directory:
 
@@ -33,7 +33,7 @@ git clone [https://github.com/robnew/duplicati-skill
 
 
 
-## 🔑 How to Get Your API Token
+##  How to Get Your API Token
 
 Since Duplicati uses secure JWT tokens, you must generate a "Forever Token" to allow the OpenClaw agent to talk to the server.
 

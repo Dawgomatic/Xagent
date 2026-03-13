@@ -3,7 +3,7 @@ name: BlogBurst
 description: AI content creation & distribution. Brainstorm titles, generate blog posts, and create optimized content for 9 platforms (Twitter, LinkedIn, Bluesky, Telegram, Discord, Reddit, TikTok, YouTube, Threads).
 homepage: https://blogburst.ai
 metadata:
-  {"openclaw": {"emoji": "📝", "requires": {"env": ["BLOGBURST_API_KEY"]}, "primaryEnv": "BLOGBURST_API_KEY"}}
+  {"openclaw": {"emoji": "", "requires": {"env": ["BLOGBURST_API_KEY"]}, "primaryEnv": "BLOGBURST_API_KEY"}}
 ---
 
 # BlogBurst - AI Content Creation & Distribution

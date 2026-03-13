@@ -149,7 +149,7 @@ def load_config() -> dict:
                 user_config = json.load(f)
             config = deep_merge(config, user_config)
         except json.JSONDecodeError as e:
-            print(f"⚠️  Config corrupted: {e}",
+            print(f"  Config corrupted: {e}",
                   file=sys.stderr)
             print(f"   Using defaults. Fix or delete: "
                   f"{CONFIG_FILE}", file=sys.stderr)
@@ -343,7 +343,7 @@ def print_status() -> None:
     loc = config["location"]
     lang = config["language"]
 
-    print("📻 Briefing Room — Configuration")
+    print(" Briefing Room — Configuration")
     print("=" * 45)
     print(f"Config: {CONFIG_FILE}")
     print()
@@ -402,7 +402,7 @@ if __name__ == "__main__":
         if set_value(key, value):
             print(f"Set {key} = {value}")
         else:
-            print(f"⚠️  Could not set {key} (invalid path?)")
+            print(f"  Could not set {key} (invalid path?)")
 
     elif sys.argv[1] == "reset":
         reset_to_defaults()

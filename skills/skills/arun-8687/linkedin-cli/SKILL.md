@@ -2,7 +2,7 @@
 name: linkedin-cli
 description: A bird-like LinkedIn CLI for searching profiles, checking messages, and summarizing your feed using session cookies.
 homepage: https://github.com/clawdbot/linkedin-cli
-metadata: {"clawdbot":{"emoji":"💼","requires":{"bins":["python3"],"env":["LINKEDIN_LI_AT","LINKEDIN_JSESSIONID"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"],"env":["LINKEDIN_LI_AT","LINKEDIN_JSESSIONID"]}}}
 ---
 
 # LinkedIn CLI (lk)
@@ -37,4 +37,4 @@ pip install linkedin-api
 ```
 
 ## Authors
-- Built by Fido 🐶
+- Built by Fido 

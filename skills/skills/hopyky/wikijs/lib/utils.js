@@ -73,11 +73,11 @@ export function error(message) {
 }
 
 export function warn(message) {
-  console.log(chalk.yellow('⚠') + ' ' + message);
+  console.log(chalk.yellow('') + ' ' + message);
 }
 
 export function info(message) {
-  console.log(chalk.blue('ℹ') + ' ' + message);
+  console.log(chalk.blue('') + ' ' + message);
 }
 
 export function parseIdOrPath(input) {

@@ -30,16 +30,16 @@ async function checkHealth(agentId) {
 
 function getStatusEmoji(status) {
     switch (status) {
-        case 'healthy': return '🟢';
-        case 'slow': return '🟡';
-        case 'offline': return '🔴';
-        case 'error': return '🔴';
-        default: return '❓';
+        case 'healthy': return '';
+        case 'slow': return '';
+        case 'offline': return '';
+        case 'error': return '';
+        default: return '';
     }
 }
 
 async function main() {
-    console.log('🏥 Agent Health Check');
+    console.log(' Agent Health Check');
     console.log('──────────────────────────────────────');
     console.log('Agent                Status     Latency');
     console.log('──────────────────────────────────────');
@@ -52,7 +52,7 @@ async function main() {
 
         // Auto-recovery hint (simplified)
         if (result.status === 'error' || result.status === 'offline') {
-            console.log(`  └─ ⚠️ Action required: Check logs or restart agent.`);
+            console.log(`  └─  Action required: Check logs or restart agent.`);
         }
     }
     console.log('──────────────────────────────────────');

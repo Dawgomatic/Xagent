@@ -2,7 +2,7 @@
 name: linear
 description: Query and manage Linear issues, projects, and team workflows.
 homepage: https://linear.app
-metadata: {"clawdis":{"emoji":"📊","requires":{"env":["LINEAR_API_KEY"]}}}
+metadata: {"clawdis":{"emoji":"","requires":{"env":["LINEAR_API_KEY"]}}}
 ---
 
 # Linear
@@ -74,7 +74,7 @@ Shows: your todos, blocked items across team, recently completed, what's in revi
 {baseDir}/scripts/linear.sh urgent    # See what needs attention
 ```
 
-## Git Workflow (Linear ↔ GitHub Integration)
+## Git Workflow (Linear  GitHub Integration)
 
 **Always use Linear-derived branch names** to enable automatic issue status tracking.
 
@@ -101,7 +101,7 @@ cd .worktrees/team-212
 git push -u origin "$BRANCH"
 ```
 
-**⚠️ Never modify files on main.** All changes happen in worktrees only.
+** Never modify files on main.** All changes happen in worktrees only.
 
 ### Why This Matters
 - Linear's GitHub integration tracks PRs by branch name pattern

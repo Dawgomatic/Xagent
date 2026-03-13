@@ -4,7 +4,7 @@ description: Search the web using a self-hosted SearXNG metasearch engine. Aggre
 homepage: https://docs.searxng.org
 command-dispatch: cli
 command: python3 {baseDir}/scripts/searxng_search.py
-metadata: {"moltbot":{"emoji":"🔍","requires":{"bins":["python3"],"env":["SEARXNG_URL"]}}}
+metadata: {"moltbot":{"emoji":"","requires":{"bins":["python3"],"env":["SEARXNG_URL"]}}}
 ---
 
 # SearXNG Web Search

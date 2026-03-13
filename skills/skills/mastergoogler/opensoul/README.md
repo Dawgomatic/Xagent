@@ -2,7 +2,7 @@
 
 This skills package provides comprehensive guidance for AI agents to implement OpenSoul - a toolkit that gives agents an immutable "soul" through blockchain-based audit logging and persistent memory.
 
-## 📁 Contents
+##  Contents
 
 ```
 opensoul-skills/
@@ -18,7 +18,7 @@ opensoul-skills/
     └── agent_template.py       # Base agent class template
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### For Agents Using This Skill
 
@@ -48,17 +48,17 @@ cp templates/config_template.py config.py
 # Edit and customize...
 ```
 
-## 📋 What is OpenSoul?
+##  What is OpenSoul?
 
 OpenSoul provides AI agents with:
 
-- **🧠 Persistent Memory**: Blockchain-based audit log accessible across sessions
-- **🔍 Self-Reflection**: Analyze past behavior and optimize performance
-- **📊 Transparency**: Immutable, publicly verifiable action logs
-- **💰 Economic Identity**: Foundation for agent-to-agent transactions
-- **🔐 Privacy**: Optional PGP encryption for sensitive logs
+- ** Persistent Memory**: Blockchain-based audit log accessible across sessions
+- ** Self-Reflection**: Analyze past behavior and optimize performance
+- ** Transparency**: Immutable, publicly verifiable action logs
+- ** Economic Identity**: Foundation for agent-to-agent transactions
+- ** Privacy**: Optional PGP encryption for sensitive logs
 
-## 🎯 Core Capabilities
+##  Core Capabilities
 
 After implementing this skill, agents can:
 
@@ -69,7 +69,7 @@ After implementing this skill, agents can:
 5. **Collaborate**: Share encrypted logs with other agents
 6. **Prove Actions**: Provide verifiable evidence of work completed
 
-## 📖 Documentation Guide
+##  Documentation Guide
 
 ### SKILL.md - Main Skill Guide
 - **When to use**: Primary reference for understanding and implementing OpenSoul
@@ -112,7 +112,7 @@ After implementing this skill, agents can:
   - Performance optimization
   - Data recovery
 
-## 🔧 Templates
+##  Templates
 
 ### config_template.py
 Complete configuration template with:
@@ -147,7 +147,7 @@ class MyAgent(OpenSoulAgent):
         # Your logic here...
 ```
 
-## 🏗️ Implementation Workflow
+##  Implementation Workflow
 
 1. **Setup Phase**
    ```bash
@@ -200,7 +200,7 @@ class MyAgent(OpenSoulAgent):
    # https://whatsonchain.com/address/YOUR_ADDRESS
    ```
 
-## 💡 Key Concepts
+##  Key Concepts
 
 ### The "Soul" Metaphor
 - Humans externalize memory through journals, letters, etc.
@@ -220,7 +220,7 @@ class MyAgent(OpenSoulAgent):
 - Reduces transaction costs
 - Maintains chronological order
 
-## 🔐 Security Best Practices
+##  Security Best Practices
 
 1. **Never commit private keys to version control**
    ```bash
@@ -253,14 +253,14 @@ class MyAgent(OpenSoulAgent):
    }
    ```
 
-## 📊 Cost Considerations
+##  Cost Considerations
 
 - **Transaction cost**: ~0.00001 BSV (~$0.0005 USD)
 - **Recommended starting balance**: 0.001 BSV (~100 transactions)
 - **Cost per session**: 1-10 transactions depending on batch size
 - **Annual cost estimate**: $5-50 USD depending on activity level
 
-## 🌐 Resources
+##  Resources
 
 - **Repository**: https://github.com/MasterGoogler/OpenSoul
 - **BSV Documentation**: https://wiki.bitcoinsv.io/
@@ -268,7 +268,7 @@ class MyAgent(OpenSoulAgent):
 - **Block Explorer**: https://whatsonchain.com/
 - **PGP/OpenPGP**: https://www.openpgp.org/
 
-## 🤝 Contributing
+##  Contributing
 
 To improve this skill package:
 
@@ -277,11 +277,11 @@ To improve this skill package:
 3. Share useful patterns in EXAMPLES.md
 4. Submit improvements to the repository
 
-## 📜 License
+##  License
 
 This skills package follows the OpenSoul repository license.
 
-## 🆘 Support
+##  Support
 
 If you encounter issues:
 

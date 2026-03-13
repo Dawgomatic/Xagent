@@ -62,10 +62,10 @@ client-manager replaces all of them with one skill that lives in your OpenClaw c
 
 ```
 You: "good morning"
-Agent: ☀️ GOOD MORNING — Feb 19, 2026
-       💰 This month: $1,200 earned | $700 pending
-       🔥 TODAY: Send John revised mockup (deadline tomorrow!)
-       ⏳ OVERDUE: Mike Chen owes $200 (5 days)
+Agent:  GOOD MORNING — Feb 19, 2026
+        This month: $1,200 earned | $700 pending
+        TODAY: Send John revised mockup (deadline tomorrow!)
+        OVERDUE: Mike Chen owes $200 (5 days)
 
 You: "new lead"
 Agent: Lead name? → "Lisa Park"
@@ -73,30 +73,30 @@ Agent: Lead name? → "Lisa Park"
        Need? → "Landing page"
        Budget? → "$800"
        Temperature? → "Hot"
-       ✅ Lead added! Lisa Park — Hot — $800
+        Lead added! Lisa Park — Hot — $800
 
 You: "start timer Portfolio Website"
-Agent: ⏱️ Timer started for Portfolio Website (John Smith)
+Agent:  Timer started for Portfolio Website (John Smith)
 
 You: "stop timer"
-Agent: ⏱️ 2h 15m logged. Total this week: 6h 30m
+Agent:  2h 15m logged. Total this week: 6h 30m
 
 You: "log John — sent revised mockup"
-Agent: 📝 Logged: John Smith — sent revised mockup
+Agent:  Logged: John Smith — sent revised mockup
 
 You: "invoice John"
-Agent: 📄 Invoice #INV-2026-004 — $500.00
+Agent:  Invoice #INV-2026-004 — $500.00
        Send via email? Save as PDF?
 
 You: "John paid"
-Agent: ✅ $500 from John Smith — marked as PAID!
+Agent:  $500 from John Smith — marked as PAID!
 
 You: "earnings"
-Agent: 💰 This month: $1,700 | Best client: Sarah ($2,000 all-time)
-       📊 Top source: Twitter/X (42% of revenue)
+Agent:  This month: $1,700 | Best client: Sarah ($2,000 all-time)
+        Top source: Twitter/X (42% of revenue)
 
 You: "export"
-Agent: 📁 5 CSV files exported to exports folder.
+Agent:  5 CSV files exported to exports folder.
 ```
 
 ## Install

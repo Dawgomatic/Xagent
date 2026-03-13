@@ -1,7 +1,7 @@
 ---
 name: Events
 description: Build a personal event system for tracking concerts, conferences, parties, appointments, and everything in between.
-metadata: {"clawdbot":{"emoji":"📅","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

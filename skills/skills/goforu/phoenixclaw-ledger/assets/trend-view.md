@@ -6,7 +6,7 @@ range: {{START_DATE}} to {{END_DATE}}
 tags: [finance, phoenixclaw, trend]
 ---
 
-# 📊 Spending Trend Analysis ({{PERIOD_TYPE_LABEL}})
+#  Spending Trend Analysis ({{PERIOD_TYPE_LABEL}})
 
 **Period:** {{START_DATE}} to {{END_DATE}}
 **Total Spending:** {{CURRENCY}}{{TOTAL_SPENT}}
@@ -15,7 +15,7 @@ tags: [finance, phoenixclaw, trend]
 ---
 
 {{#if IS_3M}}
-## 🗓️ 3-Month Weekly Trend (12 Weeks)
+##  3-Month Weekly Trend (12 Weeks)
 
 | Week | Date Range | Total | ASCII Sparkline |
 |:-----|:-----------|:------|:----------------|
@@ -25,7 +25,7 @@ tags: [finance, phoenixclaw, trend]
 
 {{/if}}
 {{#if IS_6M}}
-## 🗓️ 6-Month Monthly Trend
+##  6-Month Monthly Trend
 
 | Month | Total | ASCII Sparkline |
 |:------|:------|:----------------|
@@ -35,7 +35,7 @@ tags: [finance, phoenixclaw, trend]
 
 {{/if}}
 {{#if IS_CUSTOM}}
-## 🗓️ Custom Range Analysis
+##  Custom Range Analysis
 **From:** {{START_DATE}}
 **To:** {{END_DATE}}
 
@@ -49,7 +49,7 @@ tags: [finance, phoenixclaw, trend]
 
 ---
 
-## 🗂️ Category Trend Breakdown
+##  Category Trend Breakdown
 
 ```text
 {{CATEGORY_ASCII_CHART}}
@@ -58,19 +58,19 @@ tags: [finance, phoenixclaw, trend]
 | Category | Total | % of Total | vs. Previous |
 |:---------|:------|:-----------|:-------------|
 {{#each CATEGORY_TRENDS}}
-| {{name}} | {{CURRENCY}}{{amount}} | {{percent}}% | {{diff_pct}}% {{#if is_up}}🔺{{else}}🔻{{/if}} |
+| {{name}} | {{CURRENCY}}{{amount}} | {{percent}}% | {{diff_pct}}% {{#if is_up}}{{else}}{{/if}} |
 {{/each}}
 
 ---
 
-## 💡 Comparative Insights
+##  Comparative Insights
 
 > [!insight] Performance vs. Previous Period
 {{#each COMPARATIVE_INSIGHTS}}
 > - **{{type}}**: {{description}}
 {{/each}}
 
-## 💭 Observations & Patterns
+##  Observations & Patterns
 {{#each OBSERVATIONS}}
 - {{this}}
 {{/each}}

@@ -31,12 +31,12 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
             },
             {
                 name: "brain_check",
-                description: "🎯 MANDATORY: Load project context and patterns. This tool MUST be called before any other non-exempt tools.",
+                description: " MANDATORY: Load project context and patterns. This tool MUST be called before any other non-exempt tools.",
                 inputSchema: { type: "object", properties: { task_description: { type: "string" } }, required: ["task_description"] }
             },
             {
                 name: "add_memory",
-                description: "💾 SAVE LEARNINGS: Use for architecture decisions or patterns.",
+                description: " SAVE LEARNINGS: Use for architecture decisions or patterns.",
                 inputSchema: {
                     type: "object",
                     properties: {
@@ -49,7 +49,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
             },
             {
                 name: "search_context",
-                description: "🧠 SEARCH BRAIN: Semantic query of the project context.",
+                description: " SEARCH BRAIN: Semantic query of the project context.",
                 inputSchema: { type: "object", properties: { query: { type: "string" }, limit: { type: "number" } }, required: ["query"] }
             },
             {
@@ -105,7 +105,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                 isError: true,
                 content: [{
                         type: "text",
-                        text: `🚨 **BLOCKED**: You MUST call 'brain_check' before using any other tools. This ensures you have the latest project context and follow established patterns. Call 'brain_check' with a description of your task to proceed.`
+                        text: ` **BLOCKED**: You MUST call 'brain_check' before using any other tools. This ensures you have the latest project context and follow established patterns. Call 'brain_check' with a description of your task to proceed.`
                     }]
             };
         }
@@ -167,7 +167,7 @@ async function handleToolCall(name, args) {
             return {
                 content: [{
                         type: "text",
-                        text: `🧠 **BRAIN ORIENTATION COMPLETE**\n\n${bctx}\n\n✅ **PROTOCOL ACTIVATED**: You must now use 'search_context' before editing any files and 'add_memory' to save important decisions or fixes. Skipping these steps violates the efficiency protocol.`
+                        text: ` **BRAIN ORIENTATION COMPLETE**\n\n${bctx}\n\n **PROTOCOL ACTIVATED**: You must now use 'search_context' before editing any files and 'add_memory' to save important decisions or fixes. Skipping these steps violates the efficiency protocol.`
                     }]
             };
         case "add_memory":
@@ -186,7 +186,7 @@ async function handleToolCall(name, args) {
             return {
                 content: [{
                         type: "text",
-                        text: `🟢 Muninn Online\nProject: ${cur ? path.basename(cur) : 'None'}\nPath: ${cur || 'N/A'}\nVersion: 2.1.7`
+                        text: ` Muninn Online\nProject: ${cur ? path.basename(cur) : 'None'}\nPath: ${cur || 'N/A'}\nVersion: 2.1.7`
                     }]
             };
         default:

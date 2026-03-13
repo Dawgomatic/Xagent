@@ -136,7 +136,7 @@ function renderKeyCard(key: DiscoveredKey, props: ApiKeysProps) {
                 title="Get API key"
                 style="white-space: nowrap;"
               >
-                Get key ↗
+                Get key 
               </a>`
             : nothing}
         </div>

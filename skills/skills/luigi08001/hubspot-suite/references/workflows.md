@@ -464,25 +464,25 @@ curl -H "Authorization: Bearer $HUBSPOT_ACCESS_TOKEN" \
 ## Best Practices
 
 ### Workflow Design
-✅ Start simple, add complexity gradually  
-✅ Test workflows with small groups first  
-✅ Use clear, descriptive names  
-✅ Document workflow logic  
-✅ Set up proper enrollment criteria  
+ Start simple, add complexity gradually  
+ Test workflows with small groups first  
+ Use clear, descriptive names  
+ Document workflow logic  
+ Set up proper enrollment criteria  
 
 ### Performance Optimization
-✅ Use specific enrollment triggers  
-✅ Limit workflow complexity  
-✅ Regular performance reviews  
-✅ Clean up unused workflows  
-✅ Monitor enrollment numbers  
+ Use specific enrollment triggers  
+ Limit workflow complexity  
+ Regular performance reviews  
+ Clean up unused workflows  
+ Monitor enrollment numbers  
 
 ### Data Quality
-✅ Validate data before workflow actions  
-✅ Handle edge cases (empty properties)  
-✅ Test with different contact types  
-✅ Monitor error rates  
-✅ Set up fallback actions  
+ Validate data before workflow actions  
+ Handle edge cases (empty properties)  
+ Test with different contact types  
+ Monitor error rates  
+ Set up fallback actions  
 
 ## Troubleshooting
 

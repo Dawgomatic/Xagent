@@ -39,7 +39,7 @@ Open `http://localhost:3000` in a browser, scan the QR code with WhatsApp on you
 - Base URL: `http://localhost:3000`
 - GOWA auto-connects to the device stored in the database — no `X-Device-Id` header needed for single-device setups.
 
-**⚠️ Important:** Use REST API (port 3000) only. Do NOT use MCP mode - all schedulers and automation depend on REST.
+** Important:** Use REST API (port 3000) only. Do NOT use MCP mode - all schedulers and automation depend on REST.
 
 ## Quick Examples
 
@@ -81,7 +81,7 @@ curl http://localhost:3000/app/status | jq .
 **Send Text with Ghost Mention:**
 - Endpoint: `POST /send/message`
 - Body: `{"phone": "group@g.us", "message": "text", "mentions": ["@everyone"]}`
-- **@everyone** mentions all members without showing @ in text ✅
+- **@everyone** mentions all members without showing @ in text 
 
 **Reply to Message:**
 - Body: `{"phone": "...", "message": "...", "reply_message_id": "msg_id"}`
@@ -227,7 +227,7 @@ curl http://localhost:3000/app/status | jq .
 
 **React to Message:**
 - `POST /message/{message_id}/reaction`
-- Body: `{"emoji": "👍"}`
+- Body: `{"emoji": ""}`
 
 **Edit Message:**
 - `POST /message/{message_id}/update`
@@ -254,7 +254,7 @@ curl http://localhost:3000/app/status | jq .
 - Use `"mentions": ["@everyone"]` in `/send/message`
 - All group members get notification
 - **No @ symbol shown in message text** (true ghost mention)
-- Tested and confirmed working ✅
+- Tested and confirmed working 
 
 **Example for schedulers:**
 ```bash

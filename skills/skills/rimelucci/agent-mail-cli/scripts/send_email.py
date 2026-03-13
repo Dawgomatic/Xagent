@@ -18,7 +18,7 @@ def main():
     
     # Check config exists
     if not os.path.exists(CONFIG_PATH):
-        print(f"❌ Config not found at {CONFIG_PATH}")
+        print(f" Config not found at {CONFIG_PATH}")
         print("Run setup first. See SKILL.md for instructions.")
         sys.exit(1)
     
@@ -30,7 +30,7 @@ def main():
     inbox_id = config.get('email')
     
     if not api_key or not inbox_id:
-        print("❌ Config missing 'apiKey' or 'email' field")
+        print(" Config missing 'apiKey' or 'email' field")
         sys.exit(1)
     
     client = AgentMail(api_key=api_key)
@@ -43,10 +43,10 @@ def main():
             subject=args.subject,
             text=args.body
         )
-        print(f"✅ Email sent to {args.to}")
+        print(f" Email sent to {args.to}")
         print(f"Subject: {args.subject}")
     except Exception as e:
-        print(f"❌ Failed to send email: {e}")
+        print(f" Failed to send email: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

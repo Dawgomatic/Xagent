@@ -130,7 +130,7 @@ def convert_twitter(md: str) -> str:
 
     # Hook tweet
     hook = title if title else "Thread incoming"
-    hook_tweet = f"🧵 {hook}"
+    hook_tweet = f" {hook}"
     if len(hook_tweet) > MAX_TWEET:
         hook_tweet = hook_tweet[: MAX_TWEET - 1] + "…"
     tweets.append(hook_tweet)
@@ -155,7 +155,7 @@ def convert_twitter(md: str) -> str:
     if len(tweets) > MAX_TWEETS:
         tweets = tweets[: MAX_TWEETS - 1]
     # CTA tweet
-    cta = "🔥 That's the wrap. Follow for more insights like this!"
+    cta = " That's the wrap. Follow for more insights like this!"
     tweets.append(cta)
 
     # Add numbering if >= 3 tweets
@@ -191,11 +191,11 @@ def convert_linkedin(md: str) -> str:
 
     # Hook (first ~2 lines visible before "see more")
     if title:
-        lines.append(f"🚀 {title}")
+        lines.append(f" {title}")
         lines.append("")
 
     # Build body from sections
-    emojis = ["💡", "🔑", "⚡", "🎯", "📊", "🌍", "✅", "🔥", "👀", "🤖"]
+    emojis = ["", "", "", "", "", "", "", "", "", ""]
     ei = 0
     for sec in sections:
         plain = md_to_plain(sec["body"])
@@ -326,7 +326,7 @@ def main():
             path = os.path.join(args.output, EXTENSIONS[p])
             with open(path, "w", encoding="utf-8") as f:
                 f.write(content)
-            print(f"✅ {path}")
+            print(f" {path}")
     else:
         for p, content in results.items():
             print(f"\n{'='*60}")

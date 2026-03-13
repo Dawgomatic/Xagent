@@ -10,7 +10,7 @@
   "scripts": {
     "test": "node tests/run.js",
     "cli": "node scripts/cli.js",
-    "postinstall": "echo '✅ Vinculum installed. Use /link relay start to begin.'",
+    "postinstall": "echo ' Vinculum installed. Use /link relay start to begin.'",
     "relay:start": "node scripts/cli.js relay start",
     "relay:stop": "node scripts/cli.js relay stop",
     "relay:status": "node scripts/cli.js relay status"

@@ -1,7 +1,7 @@
 ---
 name: Biology
 description: Explore and explain biology with depth adapted to any learner or expert.
-metadata: {"clawdbot":{"emoji":"🧬","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

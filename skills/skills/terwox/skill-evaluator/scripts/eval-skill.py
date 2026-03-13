@@ -503,12 +503,12 @@ def print_report(results, skill_path, verbose=False):
         by_category.setdefault(r.category, []).append(r)
 
     skill_name = os.path.basename(os.path.abspath(skill_path))
-    print(f"\n📋 Skill Evaluation: {skill_name}")
+    print(f"\n Skill Evaluation: {skill_name}")
     print(f"{'=' * 50}")
     print(f"Path: {os.path.abspath(skill_path)}")
     print()
 
-    icons = {CheckResult.PASS: "✅", CheckResult.WARN: "⚠️ ", CheckResult.FAIL: "❌"}
+    icons = {CheckResult.PASS: "", CheckResult.WARN: " ", CheckResult.FAIL: ""}
 
     for cat in ["structure", "trigger", "documentation", "scripts", "security"]:
         if cat not in by_category:
@@ -523,9 +523,9 @@ def print_report(results, skill_path, verbose=False):
         print()
 
     print(f"{'=' * 50}")
-    print(f"  ✅ Pass: {counts[CheckResult.PASS]}  "
-          f"⚠️  Warn: {counts[CheckResult.WARN]}  "
-          f"❌ Fail: {counts[CheckResult.FAIL]}")
+    print(f"   Pass: {counts[CheckResult.PASS]}  "
+          f"  Warn: {counts[CheckResult.WARN]}  "
+          f" Fail: {counts[CheckResult.FAIL]}")
 
     total = len(results)
     score = counts[CheckResult.PASS] / total * 100 if total else 0

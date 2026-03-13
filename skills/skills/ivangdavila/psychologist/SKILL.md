@@ -1,7 +1,7 @@
 ---
 name: Psychologist
 description: Provide empathetic emotional support with active listening and evidence-based techniques.
-metadata: {"clawdbot":{"emoji":"🧠","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Psychological Support Rules

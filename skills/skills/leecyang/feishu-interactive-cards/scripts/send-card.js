@@ -20,7 +20,7 @@ function loadFeishuConfig() {
       }
     }
   } catch (error) {
-    console.error('⚠️ 无法读取 OpenClaw 配置:', error.message);
+    console.error(' 无法读取 OpenClaw 配置:', error.message);
   }
   
   return null;
@@ -86,7 +86,7 @@ async function main() {
   
   // 验证必填参数
   if (!chatId) {
-    console.error('❌ 缺少必填参数: --chat-id');
+    console.error(' 缺少必填参数: --chat-id');
     console.log('\n用法:');
     console.log('  node send-card.js confirmation "消息内容" --chat-id oc_xxx');
     console.log('  node send-card.js todo --chat-id oc_xxx');
@@ -98,7 +98,7 @@ async function main() {
   // 加载配置
   const config = loadFeishuConfig();
   if (!config) {
-    console.error('❌ 无法加载飞书配置，请检查 ~/.openclaw/openclaw.json');
+    console.error(' 无法加载飞书配置，请检查 ~/.openclaw/openclaw.json');
     process.exit(1);
   }
   
@@ -107,7 +107,7 @@ async function main() {
   // 根据类型生成卡片
   if (cardType === 'custom' && templatePath) {
     // 自定义卡片 - 安全验证
-    // ⚠️ SECURITY: 防止任意文件读取攻击
+    //  SECURITY: 防止任意文件读取攻击
     
     // 1. 规范化路径
     const resolvedPath = path.resolve(templatePath);
@@ -125,7 +125,7 @@ async function main() {
     const isAllowed = allowedDirs.some(dir => resolvedPath.startsWith(dir));
     
     if (!isAllowed) {
-      console.error('❌ 安全错误: 模板文件必须位于以下目录之一:');
+      console.error(' 安全错误: 模板文件必须位于以下目录之一:');
       allowedDirs.forEach(dir => console.error(`  - ${dir}`));
       console.error(`\n尝试访问: ${resolvedPath}`);
       process.exit(1);
@@ -134,13 +134,13 @@ async function main() {
     // 4. 检查文件扩展名
     const ext = path.extname(resolvedPath).toLowerCase();
     if (ext !== '.json') {
-      console.error('❌ 安全错误: 模板文件必须是 .json 格式');
+      console.error(' 安全错误: 模板文件必须是 .json 格式');
       process.exit(1);
     }
     
     // 5. 检查文件是否存在
     if (!fs.existsSync(resolvedPath)) {
-      console.error('❌ 文件不存在:', resolvedPath);
+      console.error(' 文件不存在:', resolvedPath);
       process.exit(1);
     }
     
@@ -151,11 +151,11 @@ async function main() {
       
       // 验证是否是有效的飞书卡片格式
       if (!card.elements && !card.header) {
-        console.error('❌ 无效的卡片格式: 缺少 elements 或 header 字段');
+        console.error(' 无效的卡片格式: 缺少 elements 或 header 字段');
         process.exit(1);
       }
     } catch (error) {
-      console.error('❌ 无效的 JSON 格式:', error.message);
+      console.error(' 无效的 JSON 格式:', error.message);
       process.exit(1);
     }
   } else if (cardType === 'confirmation') {
@@ -175,7 +175,7 @@ async function main() {
     const examplePath = path.join(__dirname, '..', 'examples', 'form-card.json');
     card = JSON.parse(fs.readFileSync(examplePath, 'utf8'));
   } else {
-    console.error('❌ 未知的卡片类型:', cardType);
+    console.error(' 未知的卡片类型:', cardType);
     console.log('支持的类型: confirmation, todo, poll, form, custom');
     process.exit(1);
   }
@@ -183,11 +183,11 @@ async function main() {
   // 发送卡片
   try {
     const result = await sendCardToChatId(config.appId, config.appSecret, chatId, card);
-    console.log('✅ 卡片发送成功！');
+    console.log(' 卡片发送成功！');
     console.log('Message ID:', result.data?.message_id);
     console.log('Chat ID:', chatId);
   } catch (error) {
-    console.error('❌ 发送失败:', error.response?.data || error.message);
+    console.error(' 发送失败:', error.response?.data || error.message);
     process.exit(1);
   }
 }
@@ -195,7 +195,7 @@ async function main() {
 // 如果直接运行此脚本
 if (require.main === module) {
   main().catch(error => {
-    console.error('❌ 错误:', error);
+    console.error(' 错误:', error);
     process.exit(1);
   });
 }

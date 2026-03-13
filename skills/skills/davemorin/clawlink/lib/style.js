@@ -51,10 +51,10 @@ export function formatForDelivery(message, prefs) {
 function getGreeting(fromName, greetingStyle, tone) {
   const greetings = {
     friendly: {
-      natural: `📨 **${fromName}** sent you a message:`,
-      casual: `📨 Message from **${fromName}**:`,
-      formal: `📨 You have received a message from **${fromName}**:`,
-      brief: `📨 **${fromName}**:`
+      natural: ` **${fromName}** sent you a message:`,
+      casual: ` Message from **${fromName}**:`,
+      formal: ` You have received a message from **${fromName}**:`,
+      brief: ` **${fromName}**:`
     },
     minimal: {
       natural: `**${fromName}:**`,
@@ -63,10 +63,10 @@ function getGreeting(fromName, greetingStyle, tone) {
       brief: `**${fromName}:**`
     },
     warm: {
-      natural: `📨 **${fromName}** reached out to you:`,
-      casual: `📨 Hey, **${fromName}** says:`,
-      formal: `📨 **${fromName}** has sent the following message:`,
-      brief: `📨 **${fromName}**:`
+      natural: ` **${fromName}** reached out to you:`,
+      casual: ` Hey, **${fromName}** says:`,
+      formal: ` **${fromName}** has sent the following message:`,
+      brief: ` **${fromName}**:`
     }
   };
   
@@ -80,17 +80,17 @@ function formatContext(content) {
   const parts = [];
   
   if (content.urgency && content.urgency !== 'normal') {
-    const urgencyEmoji = content.urgency === 'urgent' ? '🔴' : '💭';
+    const urgencyEmoji = content.urgency === 'urgent' ? '' : '';
     parts.push(`${urgencyEmoji} *${content.urgency}*`);
   }
   
   if (content.context) {
-    parts.push(`📌 *${content.context}*`);
+    parts.push(` *${content.context}*`);
   }
   
   if (content.respondBy) {
     const date = new Date(content.respondBy);
-    parts.push(`⏰ *Response requested by ${date.toLocaleDateString()}*`);
+    parts.push(` *Response requested by ${date.toLocaleDateString()}*`);
   }
   
   return parts.length > 0 ? parts.join(' · ') : '';
@@ -163,7 +163,7 @@ export function formatFriendRequest(request, prefs) {
   const style = prefs.style;
   
   const parts = [
-    `🔗 **Friend request from ${request.from}**`,
+    ` **Friend request from ${request.from}**`,
     '',
     `"${request.message}"`,
     '',
@@ -191,7 +191,7 @@ export function formatBatch(messages, prefs) {
   }
   
   const parts = [
-    `📬 **${messages.length} new messages:**`,
+    ` **${messages.length} new messages:**`,
     ''
   ];
   

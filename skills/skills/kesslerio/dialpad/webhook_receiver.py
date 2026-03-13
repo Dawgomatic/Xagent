@@ -58,10 +58,10 @@ def handle_sms_webhook(data: dict) -> dict:
 def format_notification(response: dict) -> str:
     """Format a stored message for notification"""
     if response.get("status") != "success":
-        return f"❌ Failed to store message: {response.get('error', 'Unknown error')}"
+        return f" Failed to store message: {response.get('error', 'Unknown error')}"
     
     msg = response.get("message", {})
-    direction_emoji = "📥" if msg.get("direction") == "inbound" else "📤"
+    direction_emoji = "" if msg.get("direction") == "inbound" else ""
     contact = msg.get("contact_name", "Unknown")
     number = msg.get("from", "")
     preview = msg.get("preview", "")

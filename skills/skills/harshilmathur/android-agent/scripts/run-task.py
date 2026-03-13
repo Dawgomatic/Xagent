@@ -51,15 +51,15 @@ def detect_serial(explicit: str | None) -> str:
     output = adb("", "devices", check=False)
     lines = [l for l in output.splitlines()[1:] if l.strip() and "device" in l and "offline" not in l]
     if not lines:
-        print("❌ No Android device found. Connect via USB or set ANDROID_SERIAL.")
+        print(" No Android device found. Connect via USB or set ANDROID_SERIAL.")
         sys.exit(1)
     if len(lines) > 1:
-        print("⚠️  Multiple devices found. Set ANDROID_SERIAL or use --serial:")
+        print("  Multiple devices found. Set ANDROID_SERIAL or use --serial:")
         for l in lines:
             print(f"   {l.split()[0]}")
         sys.exit(1)
     serial = lines[0].split()[0]
-    print(f"📱 Auto-detected device: {serial}")
+    print(f" Auto-detected device: {serial}")
     return serial
 
 
@@ -71,7 +71,7 @@ def wake_screen(serial: str) -> None:
     """Wake the screen if it's off."""
     display_state = adb(serial, "shell", "dumpsys", "power", check=False)
     if any(x in display_state for x in ["mWakefulness=Asleep", "mWakefulness=Dozing", "getWakefulnessLocked()=Asleep", "getWakefulnessLocked()=Dozing", "Display Power: state=OFF"]):
-        print("💡 Waking screen...")
+        print(" Waking screen...")
         adb(serial, "shell", "input", "keyevent", "KEYCODE_WAKEUP")
         time.sleep(1)
 
@@ -92,16 +92,16 @@ def is_locked(serial: str) -> bool:
 def unlock_phone(serial: str) -> None:
     """Unlock the phone using ANDROID_PIN env var."""
     if not is_locked(serial):
-        print("🔓 Phone already unlocked")
+        print(" Phone already unlocked")
         return
 
     pin = os.environ.get("ANDROID_PIN")
     if not pin:
-        print("🔒 Phone is locked but ANDROID_PIN not set — skipping unlock")
+        print(" Phone is locked but ANDROID_PIN not set — skipping unlock")
         print("   Set ANDROID_PIN environment variable or unlock manually")
         return
 
-    print("🔑 Unlocking phone...")
+    print(" Unlocking phone...")
     # Swipe up to reveal PIN pad
     adb(serial, "shell", "input", "swipe", "540", "1800", "540", "800", "300")
     time.sleep(1)
@@ -115,12 +115,12 @@ def unlock_phone(serial: str) -> None:
     time.sleep(1)
 
     if is_locked(serial):
-        print("⚠️  PIN entry via input text didn't work.")
+        print("  PIN entry via input text didn't work.")
         print("   Your device may need tap-based PIN entry.")
         print("   Find your PIN pad coordinates with: adb shell getevent -l")
         print("   Then tap each digit manually or unlock the phone by hand.")
     else:
-        print("🔓 Phone unlocked!")
+        print(" Phone unlocked!")
 
 
 def set_keep_awake(serial: str) -> None:
@@ -175,27 +175,27 @@ async def run_droidrun(serial: str, goal: str, model: str, timeout: int, verbose
         from droidrun.agent.utils.llm_picker import load_llm
         from droidrun.config_manager.config_manager import DroidrunConfig, AgentConfig
     except ImportError:
-        print("❌ DroidRun not installed. Run: pip install -r requirements.txt")
+        print(" DroidRun not installed. Run: pip install -r requirements.txt")
         sys.exit(1)
 
     if not os.environ.get("OPENAI_API_KEY"):
-        print("❌ OPENAI_API_KEY not set. Export it first:")
+        print(" OPENAI_API_KEY not set. Export it first:")
         print('   export OPENAI_API_KEY="sk-..."')
         sys.exit(1)
 
     if verbose:
-        print(f"🤖 Model: {model}")
-        print(f"⏱️  Timeout: {timeout}s")
-        print(f"🎯 Goal: {goal}")
+        print(f" Model: {model}")
+        print(f"  Timeout: {timeout}s")
+        print(f" Goal: {goal}")
 
-    print("📡 Connecting to device...")
+    print(" Connecting to device...")
     tools = AdbTools(serial=serial)
     await tools.connect()
 
-    print("🧠 Loading LLM...")
+    print(" Loading LLM...")
     llm = load_llm(provider_name="OpenAI", model=model, temperature=0.2)
 
-    print(f"🚀 Running task: {goal}")
+    print(f" Running task: {goal}")
     print("   (this may take a minute — the AI is looking at the screen and deciding what to do)")
     print()
 
@@ -251,9 +251,9 @@ def main():
     print()
     print("=" * 60)
     if args.screenshot:
-        print("📸 Action: Take screenshot")
+        print(" Action: Take screenshot")
     else:
-        print(f"🎯 Task: {args.goal}")
+        print(f" Task: {args.goal}")
     print("=" * 60)
     print()
 
@@ -275,18 +275,18 @@ def main():
 
         print()
         print("=" * 60)
-        print("✅ Task completed!")
+        print(" Task completed!")
         print("=" * 60)
         if result:
             print(result)
 
     except KeyboardInterrupt:
-        print("\n⏹️  Task cancelled by user")
+        print("\n  Task cancelled by user")
         sys.exit(130)
     except Exception as e:
         print()
         print("=" * 60)
-        print(f"❌ Task failed: {e}")
+        print(f" Task failed: {e}")
         print("=" * 60)
         if args.verbose:
             import traceback

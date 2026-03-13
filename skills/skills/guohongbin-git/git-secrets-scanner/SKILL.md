@@ -3,7 +3,7 @@ name: git-secrets-scanner
 description: Git 安全扫描器 - 检查提交中的敏感信息泄露（API keys、密码、token）
 metadata:
   openclaw:
-    emoji: "🔒"
+    emoji: ""
     category: "security"
     tags: ["security", "git", "secrets", "scanner", "gitleaks", "trufflehog"]
     requires:
@@ -132,7 +132,7 @@ jobs:
 - GitHub Tokens
 - Slack Tokens
 - Stripe Keys
-- Moltbook API Keys ✨
+- Moltbook API Keys 
 
 ### 密码
 - 数据库密码

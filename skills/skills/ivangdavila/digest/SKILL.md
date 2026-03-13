@@ -69,16 +69,16 @@ Check `dimensions.md` for all trackable dimensions.
 ## Output Format (Default)
 
 ```
-📰 [DIGEST TYPE] — [DATE/TIME]
+ [DIGEST TYPE] — [DATE/TIME]
 
-🔥 HIGHLIGHTS
+ HIGHLIGHTS
 • [Top item with 1-line summary]
 • [Second item]
 
-📋 FULL DIGEST
+ FULL DIGEST
 [Items organized per user's structure preference]
 
-💡 WORTH NOTING
+ WORTH NOTING
 [Lower priority but interesting items]
 
 ---

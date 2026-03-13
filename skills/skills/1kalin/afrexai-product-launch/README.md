@@ -1,4 +1,4 @@
-# Product Launch Playbook 🚀
+# Product Launch Playbook 
 
 The complete product launch system — from pre-launch validation through post-launch growth. Works for SaaS, physical products, services, marketplaces, and content products.
 
@@ -29,7 +29,7 @@ Just tell your agent:
 - "Build my launch day schedule" — hour-by-hour playbook
 - "Run my 30-day retrospective" — learn from what happened
 
-## ⚡ Level Up
+##  Level Up
 
 This free skill covers the launch framework. For complete industry-specific context (competitive landscape, buyer personas, regulatory requirements, pricing benchmarks):
 
@@ -37,7 +37,7 @@ This free skill covers the launch framework. For complete industry-specific cont
 
 Available for: SaaS, Fintech, Healthcare, Legal, Construction, Ecommerce, Real Estate, Recruitment, Manufacturing, Professional Services.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-brand-strategy](https://clawhub.com/skills/afrexai-brand-strategy) — Brand positioning & GTM
 - [afrexai-prd-engine](https://clawhub.com/skills/afrexai-prd-engine) — Product requirements docs
@@ -49,4 +49,4 @@ Available for: SaaS, Fintech, Healthcare, Legal, Construction, Ecommerce, Real E
 
 ---
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

@@ -29,8 +29,8 @@ Before writing any code that reads configuration, data, or credentials:
 - Environment? (different shells, different tools available)
 
 **Example from OAuth refresher:**
-- ❌ Assumed: Account is always "claude"
-- ✅ Reality: Could be "claude", "Claude Code", "default", etc.
+-  Assumed: Account is always "claude"
+-  Reality: Could be "claude", "Claude Code", "default", etc.
 
 **Action:** List variables, make them configurable or auto-discoverable
 
@@ -52,8 +52,8 @@ BEFORE:
 - Expires: 1769189639000
 
 AFTER:
-- Access Token: 01v0RrFG...eOE9QAA ✅ Different
-- Expires: 1769190268000 ✅ Extended
+- Access Token: 01v0RrFG...eOE9QAA  Different
+- Expires: 1769190268000  Extended
 ```
 
 **Action:** Always show data transformation with real values
@@ -82,13 +82,13 @@ Before pushing to production:
 
 ### Pattern 1: Explicit Over Implicit
 
-**❌ Wrong:**
+** Wrong:**
 ```bash
 # Ambiguous - returns first match
 security find-generic-password -s "Service" -w
 ```
 
-**✅ Correct:**
+** Correct:**
 ```bash
 # Explicit - returns specific entry
 security find-generic-password -s "Service" -a "account" -w
@@ -100,13 +100,13 @@ security find-generic-password -s "Service" -a "account" -w
 
 ### Pattern 2: Validate Before Use
 
-**❌ Wrong:**
+** Wrong:**
 ```bash
 DATA=$(read_config)
 USE_VALUE="$DATA"  # Hope it's valid
 ```
 
-**✅ Correct:**
+** Correct:**
 ```bash
 DATA=$(read_config)
 if ! validate_structure "$DATA"; then
@@ -121,12 +121,12 @@ USE_VALUE="$DATA"
 
 ### Pattern 3: Fallback Chains
 
-**❌ Wrong:**
+** Wrong:**
 ```bash
 ACCOUNT="claude"  # Hardcoded
 ```
 
-**✅ Correct:**
+** Correct:**
 ```bash
 # Try configured → Try common → Error with help
 ACCOUNT="${CONFIG_ACCOUNT}"
@@ -147,12 +147,12 @@ fi
 
 ### Pattern 4: Helpful Errors
 
-**❌ Wrong:**
+** Wrong:**
 ```bash
 [[ -z "$TOKEN" ]] && error "No token"
 ```
 
-**✅ Correct:**
+** Correct:**
 ```bash
 [[ -z "$TOKEN" ]] && error "No token found
 
@@ -201,8 +201,8 @@ BEFORE:
 - Field2: <exact_value>
 
 AFTER:
-- Field1: <new_value> ✅ Changed
-- Field2: <new_value> ✅ Changed
+- Field1: <new_value>  Changed
+- Field2: <new_value>  Changed
 
 PROOF: Values are different
 ```
@@ -280,7 +280,7 @@ DATA=$(security find-generic-password -s "$SERVICE" -a "$ACCOUNT" -w 2>&1)
 if validate_data "$DATA"; then
     log "✓ Using account: $ACCOUNT"
 else
-    log "⚠ Trying fallback accounts..."
+    log " Trying fallback accounts..."
     for fallback in "claude" "Claude Code" "default"; do
         DATA=$(security find-generic-password -s "$SERVICE" -a "$fallback" -w 2>&1)
         if validate_data "$DATA"; then
@@ -299,10 +299,10 @@ REFRESH_TOKEN=$(echo "$DATA" | jq -r '.claudeAiOauth.refreshToken')
 ```
 
 **Improvements:**
-- ✅ Explicit account parameter
-- ✅ Validates data structure
-- ✅ Automatic fallback to common names
-- ✅ Helpful error with verification command
+-  Explicit account parameter
+-  Validates data structure
+-  Automatic fallback to common names
+-  Helpful error with verification command
 
 ---
 
@@ -424,11 +424,11 @@ When building new skills:
 
 A tool is **portable** when:
 
-1. ✅ Works on different devices without modification
-2. ✅ Auto-discovers common variations in setup
-3. ✅ Fails gracefully with actionable error messages
-4. ✅ Can be debugged by reading the error output
-5. ✅ Documentation covers "what if my setup differs"
+1.  Works on different devices without modification
+2.  Auto-discovers common variations in setup
+3.  Fails gracefully with actionable error messages
+4.  Can be debugged by reading the error output
+5.  Documentation covers "what if my setup differs"
 
 **Test:** Give it to someone with a different setup. If they need to ask you questions, the tool isn't portable yet.
 

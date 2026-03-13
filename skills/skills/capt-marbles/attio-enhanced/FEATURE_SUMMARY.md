@@ -2,7 +2,7 @@
 
 This document summarizes all the enhancements implemented in the Attio skill compared to the basic version.
 
-## ✅ Batch Operations for Bulk Imports
+##  Batch Operations for Bulk Imports
 
 ### Implemented Features:
 - **Async batch processing** with configurable chunk sizes
@@ -16,7 +16,7 @@ This document summarizes all the enhancements implemented in the Attio skill com
 - Async implementation for better performance
 - Comprehensive error handling per batch item
 
-## ✅ Enhanced Error Handling with Retry Logic
+##  Enhanced Error Handling with Retry Logic
 
 ### Implemented Features:
 - **Rate limit detection** and automatic retry
@@ -31,7 +31,7 @@ This document summarizes all the enhancements implemented in the Attio skill com
 - HTTP error classification and appropriate handling
 - Rate limit detection with `Retry-After` header parsing
 
-## ✅ Data Validation for CRM Scenarios
+##  Data Validation for CRM Scenarios
 
 ### Implemented Features:
 - **Type-specific validation** (person, organization, deal, etc.)
@@ -46,7 +46,7 @@ This document summarizes all the enhancements implemented in the Attio skill com
 - Detailed error reporting with field-specific messages
 - Integration with batch operations for pre-processing
 
-## ✅ General-Purpose Enrichment Functions
+##  General-Purpose Enrichment Functions
 
 ### Implemented Features:
 - **Contact data enrichment** from multiple sources
@@ -61,7 +61,7 @@ This document summarizes all the enhancements implemented in the Attio skill com
 - Timestamp tracking for enrichment operations
 - Fallback mechanisms for unavailable sources
 
-## ✅ Robust Task Management Features
+##  Robust Task Management Features
 
 ### Implemented Features:
 - **Task lifecycle management** (start, run, complete, fail)
@@ -76,7 +76,7 @@ This document summarizes all the enhancements implemented in the Attio skill com
 - Integration with other operations for tracking
 - Flexible parameter system for custom task types
 
-## 🔄 Additional Enhancements
+##  Additional Enhancements
 
 ### Performance Improvements:
 - **Async/await support** for concurrent operations
@@ -97,7 +97,7 @@ This document summarizes all the enhancements implemented in the Attio skill com
 - **Setup script** for easy installation
 - **Configuration validation** and error checking
 
-## 📁 Directory Structure
+##  Directory Structure
 
 ```
 skills/attio-enhanced/
@@ -117,7 +117,7 @@ skills/attio-enhanced/
 └── FEATURE_SUMMARY.md      # This file
 ```
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. Install dependencies: `pip install -r requirements.txt`
 2. Set environment variables: `export ATTIO_API_KEY=...`

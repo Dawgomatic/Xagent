@@ -88,20 +88,20 @@ def get_openclaw_news():
     # New skills
     recent_skills = get_recent_skills(days=14)
     if recent_skills:
-        skill_text = f"📦 Skills ({count_skills()} total): Recent additions include "
+        skill_text = f" Skills ({count_skills()} total): Recent additions include "
         skill_names = [f"{s['name']}" for s in recent_skills[:2]]
         skill_text += " and ".join(skill_names)
         sections.append(skill_text)
     else:
-        sections.append(f"📦 Skills: You have {count_skills()} skills installed")
+        sections.append(f" Skills: You have {count_skills()} skills installed")
     
     # Community highlight (rotating content)
     highlights = [
-        "💡 Tip: Use '/reasoning' to toggle deep reasoning mode for complex tasks",
-        "💡 Tip: Heartbeats are great for periodic checks; cron for exact timing",
-        "💡 Tip: Skills use progressive disclosure - metadata is always loaded, details on demand",
-        "💡 Tip: The 'web_search' tool supports freshness filters like 'pd' (past day)",
-        "💡 Tip: Canvas snapshots can capture rendered UI for documentation",
+        " Tip: Use '/reasoning' to toggle deep reasoning mode for complex tasks",
+        " Tip: Heartbeats are great for periodic checks; cron for exact timing",
+        " Tip: Skills use progressive disclosure - metadata is always loaded, details on demand",
+        " Tip: The 'web_search' tool supports freshness filters like 'pd' (past day)",
+        " Tip: Canvas snapshots can capture rendered UI for documentation",
     ]
     import random
     sections.append(random.choice(highlights))
@@ -118,7 +118,7 @@ def get_deep_dive():
     
     # Suggestions
     lines.append("")
-    lines.append("🎯 Worth exploring:")
+    lines.append(" Worth exploring:")
     for suggestion in get_skill_suggestions():
         lines.append(f"   • {suggestion}")
     

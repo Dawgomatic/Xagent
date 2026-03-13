@@ -2,7 +2,7 @@
 name: snapog
 description: Generate social images and OG cards from professional templates via the SnapOG API. One API call = one pixel-perfect PNG.
 homepage: https://snapog.dev
-metadata: {"openclaw":{"emoji":"⚡","primaryEnv":"SNAPOG_API_KEY","requires":{"env":["SNAPOG_API_KEY"]}}}
+metadata: {"openclaw":{"emoji":"","primaryEnv":"SNAPOG_API_KEY","requires":{"env":["SNAPOG_API_KEY"]}}}
 ---
 
 # SnapOG — Social Image Generation

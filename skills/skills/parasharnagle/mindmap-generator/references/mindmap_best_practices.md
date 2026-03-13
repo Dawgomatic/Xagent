@@ -9,14 +9,14 @@
 
 | Situation | Use Mindmap? | Why |
 |---|---|---|
-| 3+ priorities competing for attention | ✅ Yes | Visual hierarchy helps triage |
-| Simple to-do list (1-3 items) | ❌ No | Text is faster, less overhead |
-| Decision with multiple factors | ✅ Yes | Seeing pros/cons/risks spatially aids judgment |
-| Meeting recap with action items | ✅ Only if 3+ owners/threads | Otherwise a bullet list is clearer |
-| Goal decomposition | ✅ Yes | Shows dependencies and hierarchy |
-| Single status update | ❌ No | Text message is appropriate |
-| Weekly review | ✅ Yes | Comparing completed vs. pending is visual |
-| "I'm overwhelmed" | ✅ Yes | Externalizing structure reduces cognitive load |
+| 3+ priorities competing for attention |  Yes | Visual hierarchy helps triage |
+| Simple to-do list (1-3 items) |  No | Text is faster, less overhead |
+| Decision with multiple factors |  Yes | Seeing pros/cons/risks spatially aids judgment |
+| Meeting recap with action items |  Only if 3+ owners/threads | Otherwise a bullet list is clearer |
+| Goal decomposition |  Yes | Shows dependencies and hierarchy |
+| Single status update |  No | Text message is appropriate |
+| Weekly review |  Yes | Comparing completed vs. pending is visual |
+| "I'm overwhelmed" |  Yes | Externalizing structure reduces cognitive load |
 
 **Rule of thumb:** If the content has **hierarchy AND 3+ branches**, a mindmap helps. If it's flat or small, stick to text.
 
@@ -82,12 +82,12 @@ Don't use shapes randomly. Use them as a **visual language** the user learns ove
 - Rendering can fail (Node.js not available, complex syntax, etc.)
 - Always have a **text fallback** using Unicode tree characters:
   ```
-  📊 Today's Priorities
-  ├── 🔴 Client Proposal (due 2pm)
+   Today's Priorities
+  ├──  Client Proposal (due 2pm)
   │   ├── Review pricing
   │   └── Add case studies
-  ├── 🟡 Standup (11am)
-  └── 🟢 Follow up with Rajesh
+  ├──  Standup (11am)
+  └──  Follow up with Rajesh
   ```
 
 ---

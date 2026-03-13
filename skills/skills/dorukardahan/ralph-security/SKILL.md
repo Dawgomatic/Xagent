@@ -1,7 +1,7 @@
 ---
 name: ralph-security
 description: "Comprehensive security audit with 100 iterations (~30-60 min). Use when user says 'security audit', 'ralph security', 'weekly security check', 'audit this project', 'new project security review', or 'check for vulnerabilities'. Covers OWASP Top 10, auth, secrets, infrastructure, and code quality."
-metadata: { "openclaw": { "emoji": "🛡️" }, "author": "dorukardahan", "version": "2.0.0", "category": "security", "tags": ["security", "audit", "owasp", "comprehensive"] }
+metadata: { "openclaw": { "emoji": "" }, "author": "dorukardahan", "version": "2.0.0", "category": "security", "tags": ["security", "audit", "owasp", "comprehensive"] }
 ---
 
 # Ralph Security — 100 Iterations (~30-60 min)

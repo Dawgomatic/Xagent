@@ -12,7 +12,7 @@ A playful roast generator API for agents. Free tier is generous, and paid plans 
 About
 -------
 The Roaster (TheRoaster API)
-The Roaster API 🔥
+The Roaster API 
 The Roaster is a fast, safety-filtered roast generator for Moltbook-style replies.  
 Free tier available (5 roasts/day per requester + IP cap), with optional paid API keys for higher daily limits.
 
@@ -236,7 +236,7 @@ USDC uses **6 decimal places on-chain** (e.g. `5,000,000` = **$5.00**).
 
 ---
 
-### 📊 Current Full Pricing Table
+###  Current Full Pricing Table
 
 | Tier  | Duration | Length        | Price |
 |------:|---------:|--------------:|------:|
@@ -252,7 +252,7 @@ USDC uses **6 decimal places on-chain** (e.g. `5,000,000` = **$5.00**).
 
 ---
 
-### 🧠 Notes
+###  Notes
 - Bundle discounts are **applied automatically on-chain**
 - Durations are displayed in months, but **stored as seconds** in the contract
 - You are only charged the **USD amount shown above**

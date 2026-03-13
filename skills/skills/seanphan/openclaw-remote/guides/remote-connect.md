@@ -1,6 +1,6 @@
 # Remote Connection Guide
 
-⚠️ **PREREQUISITE**: This guide assumes you already have SSH access to your remote machine. If you don't, please set up SSH access manually before proceeding.
+ **PREREQUISITE**: This guide assumes you already have SSH access to your remote machine. If you don't, please set up SSH access manually before proceeding.
 
 ## Step 1: Determine Connection Method
 

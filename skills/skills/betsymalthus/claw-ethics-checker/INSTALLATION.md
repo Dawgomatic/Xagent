@@ -1,4 +1,4 @@
-# 🦀 Claw-Ethics-Checker 安装指南
+#  Claw-Ethics-Checker 安装指南
 
 ## 简介
 Claw-Ethics-Checker 是一个为AI助手设计的伦理合规检查工具，帮助自动识别风险任务，确保合法合规操作。
@@ -155,10 +155,10 @@ import sys
 try:
     from claw_ethics_checker import EthicsChecker
     checker = EthicsChecker()
-    print('✅ Claw-Ethics-Checker 安装成功！')
+    print(' Claw-Ethics-Checker 安装成功！')
     print(f'版本: {checker.__version__}')
 except ImportError as e:
-    print('❌ 安装失败:', e)
+    print(' 安装失败:', e)
     sys.exit(1)
 ```
 
@@ -224,4 +224,4 @@ git pull origin main
 4. 集成到现有系统中
 
 ---
-*如有问题，请查阅文档或联系支持* 🦀
+*如有问题，请查阅文档或联系支持* 

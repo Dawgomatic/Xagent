@@ -114,26 +114,26 @@ z.object({
 ### Best Practices
 
 ```typescript
-// ✅ Good: Clear descriptions
+//  Good: Clear descriptions
 {
   location: z.string().describe("City name or coordinates (e.g., 'San Francisco, CA')"),
   radius: z.number().min(1).max(100).describe("Search radius in kilometers")
 }
 
-// ❌ Bad: No descriptions
+//  Bad: No descriptions
 {
   location: z.string(),
   radius: z.number()
 }
 
-// ✅ Good: Validation constraints
+//  Good: Validation constraints
 {
   email: z.string().email(),
   age: z.number().int().min(0).max(120),
   role: z.enum(["admin", "user", "guest"])
 }
 
-// ❌ Bad: No validation
+//  Bad: No validation
 {
   email: z.string(),
   age: z.number(),
@@ -334,7 +334,7 @@ options: {
 
 ## Best Practices
 
-### ✅ Do
+###  Do
 
 - Use clear tool names and descriptions
 - Add `.describe()` to all Zod fields
@@ -345,7 +345,7 @@ options: {
 - Use unique tool names across servers
 - Version your servers
 
-### ❌ Don't
+###  Don't
 
 - Use generic names like "process" or "run"
 - Skip input validation

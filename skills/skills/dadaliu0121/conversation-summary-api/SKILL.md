@@ -1,7 +1,7 @@
 ---
 name: conversation-summary
 description: Generate summaries for conversation content with incremental update support.
-emoji: 📝
+emoji: 
 author: dadaliu0121
 version: 1.0.0
 license: MIT

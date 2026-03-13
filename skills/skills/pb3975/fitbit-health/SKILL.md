@@ -1,7 +1,7 @@
 ---
 name: fitbit
 description: Query Fitbit health data (activity, sleep, heart rate, weight) via CLI. Use when answering health/fitness questions that require Fitbit data, or when the user asks about their steps, sleep, heart rate, or weight from Fitbit.
-metadata: {"clawdbot":{"emoji":"💪","requires":{"bins":["fitbit"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["fitbit"]}}}
 ---
 
 # Fitbit CLI

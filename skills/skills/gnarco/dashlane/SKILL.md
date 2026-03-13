@@ -2,7 +2,7 @@
 name: dashlane
 description: Access passwords, secure notes, secrets and OTP codes from Dashlane vault.
 homepage: https://cli.dashlane.com
-metadata: {"clawdbot":{"emoji":"🔐","requires":{"bins":["dcli"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["dcli"]}}}
 ---
 
 # Dashlane CLI
@@ -24,7 +24,7 @@ dcli sync
 
 **Steps:**
 1. Enter your Dashlane email
-2. **⚠️ IMPORTANT: Open the URL shown in your browser** (device registration)
+2. ** IMPORTANT: Open the URL shown in your browser** (device registration)
 3. Enter the code received by email
 4. Enter your Master Password
 

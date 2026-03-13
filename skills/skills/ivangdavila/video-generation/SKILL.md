@@ -1,7 +1,7 @@
 ---
 name: Video Generation
 description: Create AI videos with optimized prompts, motion control, and platform-ready output.
-metadata: {"clawdbot":{"emoji":"🎬","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # AI Video Generation

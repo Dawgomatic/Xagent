@@ -1,7 +1,7 @@
 ---
 name: oktk
 version: 2.4.0
-description: LLM Token Optimizer - Reduce AI API costs by 60-90%. Compresses CLI outputs (git, docker, kubectl) before sending to GPT-4/Claude. AI auto-learning included. By Buba Draugelis 🇱🇹
+description: LLM Token Optimizer - Reduce AI API costs by 60-90%. Compresses CLI outputs (git, docker, kubectl) before sending to GPT-4/Claude. AI auto-learning included. By Buba Draugelis 
 author: Buba Draugelis
 license: MIT
 homepage: https://github.com/satnamra/openclaw-workspace/tree/main/skills/oktk
@@ -16,7 +16,7 @@ requires:
   bins:
     - node
 openclaw:
-  emoji: 🔪
+  emoji: 
   category: optimization
 ---
 
@@ -56,7 +56,7 @@ oktk sits between your commands and the LLM, compressing outputs intelligently:
 | `git status` | Shows only: branch, ahead/behind, file counts | **90%** |
 | `git log` | One line per commit: hash + message + author | **85%** |
 | `git diff` | Summary: X files, +Y/-Z lines, file list | **80%** |
-| `npm test` | Just: ✅ passed or ❌ failed + count | **98%** |
+| `npm test` | Just:  passed or  failed + count | **98%** |
 | `ls -la` | Groups by type, shows sizes, skips details | **83%** |
 | `curl` | Status code + key headers + truncated body | **97%** |
 | `grep` | Match count + first N matches | **80%** |
@@ -95,10 +95,10 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 ### After oktk (80 tokens sent to LLM):
 ```
-📍 main
+ main
 ↑ Ahead 3 commits
-✏️  Modified: 6
-❓ Untracked: 3
+  Modified: 6
+ Untracked: 3
 ```
 
 **Same information. 90% fewer tokens. Same cost savings.**
@@ -192,12 +192,12 @@ The recommended approach is:
 After 1 week of normal usage:
 
 ```
-📊 Token Savings
+ Token Savings
 ━━━━━━━━━━━━━━━━
 Commands filtered: 1,247
 Tokens saved:      456,789 (78%)
 
-💰 At $0.01/1K tokens = $4.57 saved
+ At $0.01/1K tokens = $4.57 saved
 ```
 
 ## Installation
@@ -210,4 +210,4 @@ clawhub install oktk
 
 ---
 
-**Made with ❤️ in Lithuania 🇱🇹**
+**Made with  in Lithuania **

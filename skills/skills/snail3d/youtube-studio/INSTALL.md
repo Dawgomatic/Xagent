@@ -145,15 +145,15 @@ youtube-studio auth
 youtube-studio stats
 
 # Expected output:
-# 📊 Channel Statistics
-# 📈 Overall Metrics:
+#  Channel Statistics
+#  Overall Metrics:
 #   Total Views: X,XXX
 #   Subscribers: XXX
 #   Watch Time (hours): XXX
 #   Video Count: XX
 ```
 
-If this works, you're ready to go! 🎉
+If this works, you're ready to go! 
 
 ## Troubleshooting
 
@@ -271,22 +271,22 @@ crontab -e
 
 After successful installation:
 
-1. ✅ **Upload your first video:**
+1.  **Upload your first video:**
    ```bash
    youtube-studio upload --file my-video.mp4 --title "My First Video"
    ```
 
-2. ✅ **Check comments:**
+2.  **Check comments:**
    ```bash
    youtube-studio comments
    ```
 
-3. ✅ **Generate ideas:**
+3.  **Generate ideas:**
    ```bash
    youtube-studio ideas --trending
    ```
 
-4. ✅ **Monitor quota:**
+4.  **Monitor quota:**
    ```bash
    youtube-studio quota-status
    ```
@@ -343,10 +343,10 @@ npm unlink -g youtube-studio
 
 ## Support & Updates
 
-- 📖 Full documentation: See `SKILL.md`
-- 👤 User guide: See `README.md`
-- 🐛 Issues: Check logs in `~/.clawd-youtube/logs/`
+-  Full documentation: See `SKILL.md`
+-  User guide: See `README.md`
+-  Issues: Check logs in `~/.clawd-youtube/logs/`
 
 ---
 
-Enjoy managing your YouTube channel! 🎬
+Enjoy managing your YouTube channel! 

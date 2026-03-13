@@ -31,7 +31,7 @@ TOKEN_ID = os.environ.get("CRISP_TOKEN_ID")
 TOKEN_KEY = os.environ.get("CRISP_TOKEN_KEY")
 
 if not WEBSITE_ID or not TOKEN_ID or not TOKEN_KEY:
-    print("❌ Error: CRISP_WEBSITE_ID, CRISP_TOKEN_ID, and CRISP_TOKEN_KEY environment variables required")
+    print(" Error: CRISP_WEBSITE_ID, CRISP_TOKEN_ID, and CRISP_TOKEN_KEY environment variables required")
     print("Set them with:")
     print("  export CRISP_WEBSITE_ID='your_website_id'")
     print("  export CRISP_TOKEN_ID='your_token_identifier'")
@@ -90,8 +90,8 @@ def inbox_list(page=1, per_page=20, filter_type=None):
     result = api_request("GET", endpoint, params)
     
     if result.get("error"):
-        print(f"❌ API Error: {result.get('reason')}")
-        print(f"🔗 URL: {API_BASE}/{WEBSITE_ID}/{endpoint}")
+        print(f" API Error: {result.get('reason')}")
+        print(f" URL: {API_BASE}/{WEBSITE_ID}/{endpoint}")
         return []
     
     return result.get("data", [])
@@ -102,7 +102,7 @@ def conversation_get(session_id: str):
     result = api_request("GET", endpoint)
     
     if result.get("error"):
-        print(f"❌ Error: {result.get('reason')}")
+        print(f" Error: {result.get('reason')}")
         return None
     
     return result.get("data")
@@ -115,7 +115,7 @@ def messages_get(session_id: str, max_results: int = 20):
     result = api_request("GET", endpoint, params)
     
     if result.get("error"):
-        print(f"❌ Error: {result.get('reason')}")
+        print(f" Error: {result.get('reason')}")
         return None
     
     messages = result.get("data", [])
@@ -137,10 +137,10 @@ def message_send(session_id: str, text: str):
     result = api_request("POST", endpoint, payload)
     
     if result.get("error"):
-        print(f"❌ Error: {result.get('reason')}")
+        print(f" Error: {result.get('reason')}")
         return False
     
-    print(f"✅ Message sent to conversation {session_id}")
+    print(f" Message sent to conversation {session_id}")
     return True
 
 def conversation_mark_read(session_id: str):
@@ -155,10 +155,10 @@ def conversation_mark_read(session_id: str):
     result = api_request("PATCH", endpoint, payload)
     
     if result.get("error"):
-        print(f"❌ Error: {result.get('reason')}")
+        print(f" Error: {result.get('reason')}")
         return False
     
-    print(f"✅ Conversation {session_id} marked as read")
+    print(f" Conversation {session_id} marked as read")
     return True
 
 def conversation_resolve(session_id: str):
@@ -172,10 +172,10 @@ def conversation_resolve(session_id: str):
     result = api_request("PATCH", endpoint, payload)
     
     if result.get("error"):
-        print(f"❌ Error: {result.get('reason')}")
+        print(f" Error: {result.get('reason')}")
         return False
     
-    print(f"✅ Conversation {session_id} resolved")
+    print(f" Conversation {session_id} resolved")
     return True
 
 def conversations_search(query: str, filter_type: Optional[str] = None, max_results: int = 10):
@@ -196,7 +196,7 @@ def conversations_search(query: str, filter_type: Optional[str] = None, max_resu
     result = api_request("GET", endpoint, params)
     
     if result.get("error"):
-        print(f"❌ Error: {result.get('reason')}")
+        print(f" Error: {result.get('reason')}")
         return None
     
     conversations = result.get("data", [])
@@ -220,14 +220,14 @@ def format_conversation(conv, brief=False):
     email = meta.get("email", "N/A")
     nickname = meta.get("nickname", "Visitor")
     
-    status_emoji = "🟢" if state == "unresolved" else "✅"
+    status_emoji = "" if state == "unresolved" else ""
     
     if brief:
         return f"{status_emoji} {session_id}: {nickname} ({email or 'Guest'}) - {last_msg[:50]}"
     
     return f"""
 {'─'*60}
-📋 Conversation: {session_id}
+ Conversation: {session_id}
    State: {status_emoji} {state}
    Visitor: {nickname}
    Email: {email}
@@ -239,7 +239,7 @@ def format_conversation(conv, brief=False):
 def format_message(msg):
     """Format message for display."""
     from_user = msg.get("from", "user")
-    sender = "👤 Visitor" if from_user == "user" else "💬 Operator"
+    sender = " Visitor" if from_user == "user" else " Operator"
     content = msg.get("content", "")
     
     if isinstance(content, str):
@@ -268,11 +268,11 @@ def main():
         result = api_request("GET", endpoint, {"per_page": 1})
         
         if result.get("error"):
-            print(f"❌ API Error: {result.get('reason')}")
+            print(f" API Error: {result.get('reason')}")
             return
         
         data = result.get("data", {})
-        print(f"🌐 Websites:")
+        print(f" Websites:")
         print(f"  Website ID: {WEBSITE_ID}")
         if result.get("data"):
             print(f"  Response data structure: {json.dumps(result, indent=2)}")
@@ -304,7 +304,7 @@ def main():
                 return
         
         conversations = inbox_list(page, max_results, filter_type)
-        print(f"\n📬 Inbox (page {page}) - {len(conversations)} conversations")
+        print(f"\n Inbox (page {page}) - {len(conversations)} conversations")
         for conv in conversations:
             print(format_conversation(conv, brief=True))
     
@@ -328,7 +328,7 @@ def main():
             conversation_resolve(session_id)
         
         else:
-            print(f"❌ Unknown conversation action: {action}")
+            print(f" Unknown conversation action: {action}")
             print(__doc__)
     
     elif command == "messages":
@@ -350,7 +350,7 @@ def main():
         
         messages = messages_get(session_id, max_results)
         if messages:
-            print(f"\n💬 Messages in conversation {session_id}")
+            print(f"\n Messages in conversation {session_id}")
             for msg in messages:
                 print(format_message(msg))
     
@@ -384,12 +384,12 @@ def main():
                 return
         
         conversations = conversations_search(query, filter_type, max_results)
-        print(f"\n🔍 Search results for '{query}' - {len(conversations)} found")
+        print(f"\n Search results for '{query}' - {len(conversations)} found")
         for conv in conversations:
             print(format_conversation(conv, brief=True))
     
     else:
-        print(f"❌ Unknown command: {command}")
+        print(f" Unknown command: {command}")
         print(__doc__)
         sys.exit(1)
 

@@ -49,16 +49,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MIT License
 
 ### Features
-- ✅ Step-by-step task planning
-- 🔒 Built-in security validation
-- 🔄 Rollback checkpoint system
-- 📝 JSON plan persistence
-- 🎨 Integrity checksums
-- ⚡ Execution control (dry-run, auto-approve, stop-on-error)
-- 📊 Real-time progress tracking
-- 🔍 Comprehensive logging
-- 🛡️ Dangerous operation detection
-- ✨ Zero external dependencies (pure Python)
+-  Step-by-step task planning
+-  Built-in security validation
+-  Rollback checkpoint system
+-  JSON plan persistence
+-  Integrity checksums
+-  Execution control (dry-run, auto-approve, stop-on-error)
+-  Real-time progress tracking
+-  Comprehensive logging
+-  Dangerous operation detection
+-  Zero external dependencies (pure Python)
 
 ### Documentation
 - Complete README with examples

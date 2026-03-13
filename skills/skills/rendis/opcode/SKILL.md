@@ -21,7 +21,7 @@ metadata:
   primary-env: "OPCODE_VAULT_KEY"
   platforms: "darwin linux"
   requires-bins: "go gcc|clang"
-  openclaw-emoji: "⚙️"
+  openclaw-emoji: ""
   openclaw-os: "darwin linux"
   openclaw-user-invocable: "true"
   openclaw-install-type: "go"

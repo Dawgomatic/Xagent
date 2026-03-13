@@ -1,4 +1,4 @@
-# 🎵 Play Music Skill
+#  Play Music Skill
 
 **Controlled music player with pause/resume/stop support**  
 Single entry point, background server for full control
@@ -47,12 +47,12 @@ The skill has **one clear entry point**: `./play-music`
 
 ## Features
 
-✅ **Single entry point** - No confusion about which script to use  
-✅ **Full playback control** - Play, pause, resume, stop  
-✅ **Resource-efficient** - Server auto-starts when needed, auto-stops when music stops  
-✅ **Clean architecture** - Client-server separation  
-✅ **Pygame-based** - High quality audio playback  
-✅ **Cross-platform** - macOS/Windows/Linux compatible  
+ **Single entry point** - No confusion about which script to use  
+ **Full playback control** - Play, pause, resume, stop  
+ **Resource-efficient** - Server auto-starts when needed, auto-stops when music stops  
+ **Clean architecture** - Client-server separation  
+ **Pygame-based** - High quality audio playback  
+ **Cross-platform** - macOS/Windows/Linux compatible  
 
 ## Setup
 

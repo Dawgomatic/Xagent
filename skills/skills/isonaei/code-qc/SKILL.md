@@ -310,10 +310,10 @@ Save results to `.qc-baseline.json`:
 
 On subsequent runs, report delta:
 ```
-Tests:      134 → 140 (+6 ✅)
-Coverage:   87% → 91% (+4% ✅)
-Type errors: 0 → 0 (✅)
-Lint warnings: 12 → 5 (-7 ✅)
+Tests:      134 → 140 (+6 )
+Coverage:   87% → 91% (+4% )
+Type errors: 0 → 0 ()
+Lint warnings: 12 → 5 (-7 )
 ```
 
 ## Report Output
@@ -326,8 +326,8 @@ Generate in 3 formats:
 ### Summary Format Example
 
 ```
-📊 QC Report: my-project @ abc123
-Verdict: ✅ PASS WITH WARNINGS
+ QC Report: my-project @ abc123
+Verdict:  PASS WITH WARNINGS
 
 Tests:    134/134 passed (100%) | Coverage: 87%
 Types:    0 errors
@@ -335,7 +335,7 @@ Lint:     0 errors, 12 warnings
 Imports:  50/50 (1 optional failed)
 Smoke:    14/14 passed
 
-⚠️ Warnings:
+ Warnings:
 - 3 missing docstrings
 - 12 lint warnings (run with --fix)
 ```

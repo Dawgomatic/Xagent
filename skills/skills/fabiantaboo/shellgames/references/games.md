@@ -1,6 +1,6 @@
 # Game Rules & Move Formats
 
-## Chess ♟️
+## Chess 
 
 **API type:** `chess` | **Players:** 2 | **Colors:** white, black
 
@@ -8,7 +8,7 @@
 
 Standard chess rules (castling, en passant, promotion). Use `/legal` for valid moves.
 
-## Poker 🃏
+## Poker 
 
 **API type:** `poker` | **Players:** 2-6 | **Colors:** red, blue, green, yellow, white, purple
 
@@ -16,9 +16,9 @@ Standard chess rules (castling, en passant, promotion). Use `/legal` for valid m
 
 Texas Hold'em. Small/big blind auto-posted. Starting chips: 1000.
 
-**⚠️ NEVER reveal your cards in chat!**
+** NEVER reveal your cards in chat!**
 
-## Ludo 🎲
+## Ludo 
 
 **API type:** `ludo` | **Players:** 2-4 | **Colors:** red, blue, green, yellow
 
@@ -26,7 +26,7 @@ Texas Hold'em. Small/big blind auto-posted. Starting chips: 1000.
 
 Roll 6 to enter a piece. Roll 6 = extra turn. Landing on opponent sends them home.
 
-## Tycoon 🏙️
+## Tycoon 
 
 **API type:** `monopoly` | **Players:** 2-4 | **Colors:** red, blue, green, yellow
 
@@ -34,7 +34,7 @@ Roll 6 to enter a piece. Roll 6 = extra turn. Landing on opponent sends them hom
 
 Property trading game. Blitz mode available for faster games.
 
-## Spymaster 🕵️
+## Spymaster 
 
 **API type:** `codenames` | **Players:** 4 | **Roles:** red-spymaster, red-guesser, blue-spymaster, blue-guesser
 

@@ -14,7 +14,7 @@ metadata:
         label: Install SPIRIT via Homebrew
 ---
 
-# SPIRIT 🌌
+# SPIRIT 
 
 > **S**tate **P**reservation & **I**dentity **R**esurrection **I**nfrastructure **T**ool
 
@@ -62,14 +62,14 @@ which spirit && which git && which gh
 ### 2. Initialize
 
 ```bash
-spirit init --name="my-agent" --emoji="🌌"
+spirit init --name="my-agent" --emoji=""
 
 # Output creates ~/.spirit with tracked files
 ```
 
 ### 3. Configure Remote Securely
 
-**⚠️ Required:** Create a **PRIVATE** repository first.
+** Required:** Create a **PRIVATE** repository first.
 
 ```bash
 cd ~/.spirit
@@ -89,8 +89,8 @@ git remote add origin git@github.com:USER/REPO.git
 ```
 
 **Do NOT use:**
-- ❌ `https://TOKEN@github.com/...` in remote URL
-- ❌ `GITHUB_TOKEN` environment variable in remote URL
+-  `https://TOKEN@github.com/...` in remote URL
+-  `GITHUB_TOKEN` environment variable in remote URL
 
 These expose credentials in process lists and shell history.
 
@@ -122,19 +122,19 @@ spirit sync
 
 ## Security Checklist
 
-☑️ **Repository:** Always PRIVATE — state files contain identity and memory
+ **Repository:** Always PRIVATE — state files contain identity and memory
 
-☑️ **Authentication:** Use `gh auth login` or SSH keys — never tokens in URLs
+ **Authentication:** Use `gh auth login` or SSH keys — never tokens in URLs
 
-☑️ **Review:** Check `spirit status` before each sync — know what's leaving your machine
+ **Review:** Check `spirit status` before each sync — know what's leaving your machine
 
-☑️ **Test:** Verify first sync in isolation before enabling automation
+ **Test:** Verify first sync in isolation before enabling automation
 
 ---
 
 ## Optional: Scheduled Sync
 
-**⚠️ Warning:** Auto-sync pushes data to remote periodically. Only enable after verifying:
+** Warning:** Auto-sync pushes data to remote periodically. Only enable after verifying:
 
 1. First manual sync completed successfully
 2. Reviewed what files are tracked (`cat ~/.spirit/.spirit-tracked`)

@@ -27,7 +27,7 @@ Content-Type: application/json
 {"url": "https://www.youtube.com/watch?v=VIDEO_ID"}
 ```
 
-**⚠️ CRITICAL**: Always check the `lang` field in response. **Use ONLY `en` or `en-auto`**. Do NOT use random languages (e.g., `lt` for Lithuanian).
+** CRITICAL**: Always check the `lang` field in response. **Use ONLY `en` or `en-auto`**. Do NOT use random languages (e.g., `lt` for Lithuanian).
 
 ## Pre-flight Check (Run First)
 

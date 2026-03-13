@@ -12,8 +12,8 @@ The mental model is peer collaboration, not service calls — though request-res
 
 ```
 ┌─────────────┐         ┌──────────────────┐         ┌─────────────┐
-│   Agent A   │ ──────▶ │   ClawHub Relay  │ ──────▶ │   Agent B   │
-│  (Requester)│ ◀────── │  (Flask + SQLite)│ ◀────── │  (Responder)│
+│   Agent A   │ ────── │   ClawHub Relay  │ ────── │   Agent B   │
+│  (Requester)│ ────── │  (Flask + SQLite)│ ────── │  (Responder)│
 │             │         │                  │         │             │
 │   Vault A   │         │  - Message queue │         │   Vault B   │
 │  (identity, │         │  - Agent registry│         │  (identity, │
@@ -130,20 +130,20 @@ Challenge-response prevents identity hijacking:
 ```
 Agent                           Relay
   │                               │
-  │── POST /register/challenge ──▶│
+  │── POST /register/challenge ──│
   │   {vault_id, signing_key,     │
   │    encryption_key}            │
   │                               │
-  │◀── {challenge: random_32B} ───│
+  │── {challenge: random_32B} ───│
   │                               │
-  │── POST /register ────────────▶│
+  │── POST /register ────────────│
   │   {vault_id, keys,            │
   │    challenge,                 │
   │    challenge_signature}       │
   │                               │
   │   [verify signature]          │
   │                               │
-  │◀── {status: registered} ──────│
+  │── {status: registered} ──────│
 ```
 
 ### Trust Model
@@ -246,13 +246,13 @@ CREATE TABLE conversations (
 ```
 Agent A                     Relay                     Agent B
    │                          │                          │
-   │──── request ────────────▶│                          │
-   │                          │──── deliver ────────────▶│
-   │                          │◀──── ack (received) ─────│
-   │◀── delivery_receipt ─────│                          │
-   │                          │◀──── response ───────────│
-   │◀──── response ───────────│                          │
-   │──── ack (received) ─────▶│                          │
+   │──── request ────────────│                          │
+   │                          │──── deliver ────────────│
+   │                          │──── ack (received) ─────│
+   │── delivery_receipt ─────│                          │
+   │                          │──── response ───────────│
+   │──── response ───────────│                          │
+   │──── ack (received) ─────│                          │
 ```
 
 Acknowledgment is separate from response — useful for long-running tasks.

@@ -10,7 +10,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 USAGE=$("$SCRIPT_DIR/claude-usage.sh" --json --fresh 2>/dev/null)
 
 if [ -z "$USAGE" ]; then
-  echo "❌ Failed to fetch Claude Code usage" >&2
+  echo " Failed to fetch Claude Code usage" >&2
   exit 1
 fi
 
@@ -23,7 +23,7 @@ SESSION_UTIL=${SESSION_UTIL:-0}
 
 # Parse the reset timestamp to get cron schedule
 if [ -z "$SESSION_RESETS_AT" ] || [ "$SESSION_RESETS_AT" = "null" ]; then
-  echo "❌ Could not determine session reset time" >&2
+  echo " Could not determine session reset time" >&2
   exit 1
 fi
 
@@ -38,7 +38,7 @@ else
 fi
 
 if [ -z "$RESET_TS" ] || [ "$RESET_TS" -eq 0 ]; then
-  echo "❌ Failed to parse reset timestamp" >&2
+  echo " Failed to parse reset timestamp" >&2
   exit 1
 fi
 
@@ -56,12 +56,12 @@ else
 fi
 
 # Prepare notification message
-MESSAGE="🔄 *Claude Code Session Status*
+MESSAGE=" *Claude Code Session Status*
 
-⏱️  Current usage: *${SESSION_UTIL}%*
-⏰ Next refresh: ${SESSION_RESETS}
+  Current usage: *${SESSION_UTIL}%*
+ Next refresh: ${SESSION_RESETS}
 
-Your 5-hour quota will reset soon! 🦞"
+Your 5-hour quota will reset soon! "
 
 # Send notification
 echo -e "$MESSAGE"
@@ -93,7 +93,7 @@ if command -v clawdbot >/dev/null 2>&1; then
     >/dev/null 2>&1
   
   echo ""
-  echo "✅ Next reminder scheduled for: $(date -r "$RESET_TS" "+%b %d at %I:%M %p")"
+  echo " Next reminder scheduled for: $(date -r "$RESET_TS" "+%b %d at %I:%M %p")"
 else
-  echo "⚠️  clawdbot not found - cannot schedule next reminder" >&2
+  echo "  clawdbot not found - cannot schedule next reminder" >&2
 fi

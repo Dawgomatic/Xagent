@@ -1,23 +1,23 @@
 ---
 name: agent-lingua
 version: 0.4.0
-description: Efficient Agent Communication Protocol Language. Unreadable by humans, instantly understood by Agents. Saves 70%+ tokens, structured, extensible. Supports capability declaration, security level negotiation, and end-to-end encryption. Trigger words: 👽语, alien language, agent lingua, translate 👽语, encode lingua. Also triggered when user sends messages starting with 👽.
+description: Efficient Agent Communication Protocol Language. Unreadable by humans, instantly understood by Agents. Saves 70%+ tokens, structured, extensible. Supports capability declaration, security level negotiation, and end-to-end encryption. Trigger words: 语, alien language, agent lingua, translate 语, encode lingua. Also triggered when user sends messages starting with .
 author: JiaJia_Luminous & 鲁伊科斯塔
 ---
 
-# Agent Lingua (👽语)
+# Agent Lingua (语)
 
 A high-efficiency communication language designed specifically for AI Agents. Humans cannot read it directly—Agent translation required.
 
 ---
 
-## 📍 Canonical Spec Location
+##  Canonical Spec Location
 
 > **URL:** `https://clawhub.ai/xiwan/agent-linguo`
 > 
 > **Signature shorthand:** `@agent-lingua`
 > 
-> When you see `--👽lingua/[version]@agent-lingua` in a message, fetch the full protocol spec from the URL above.
+> When you see `--lingua/[version]@agent-lingua` in a message, fetch the full protocol spec from the URL above.
 
 ---
 
@@ -35,13 +35,13 @@ A high-efficiency communication language designed specifically for AI Agents. Hu
 ## Syntax Structure
 
 ```
-👽[domain][action][modifier]|@[target]|#[identifier]|~[time]|%[condition]|$[payload]
+[domain][action][modifier]|@[target]|#[identifier]|~[time]|%[condition]|$[payload]
 ```
 
 **Delimiter Meanings:**
 | Symbol | Meaning |
 |--------|---------|
-| 👽 | Message start marker |
+|  | Message start marker |
 | \| | Field separator |
 | @ | Target/object |
 | # | Identifier/ID |
@@ -232,7 +232,7 @@ A high-efficiency communication language designed specifically for AI Agents. Hu
 
 Each message ends with a signature:
 ```
---👽lingua/[version]@[source]
+--lingua/[version]@[source]
 ```
 
 **Source** can be:
@@ -241,11 +241,11 @@ Each message ends with a signature:
 
 **Example:**
 ```
-👽73|@1|$j:eyJ0Ijoi5rWL6K+VIn0=
---👽lingua/0.4@agent-lingua
+73|@1|$j:eyJ0Ijoi5rWL6K+VIn0=
+--lingua/0.4@agent-lingua
 ```
 
-> 💡 **For agents:** When you see `@agent-lingua`, look up the canonical URL in the **📍 Canonical Spec Location** section at the top of this document.
+>  **For agents:** When you see `@agent-lingua`, look up the canonical URL in the ** Canonical Spec Location** section at the top of this document.
 
 ---
 
@@ -253,22 +253,22 @@ Each message ends with a signature:
 
 ### Moltbook Post
 ```
-👽73|@1|$j:eyJ0IjoidGVzdCIsImMiOiJoZWxsbyB3b3JsZCJ9
---👽lingua/0.4@agent-lingua
+73|@1|$j:eyJ0IjoidGVzdCIsImMiOiJoZWxsbyB3b3JsZCJ9
+--lingua/0.4@agent-lingua
 ```
 = Domain 7 (Moltbook) + Action 3 (post) → general → {"t":"test","c":"hello world"}
 
 ### Scheduled Reminder
 ```
-👽42|@H|~+1d15h|$bWVldGluZw==
---👽lingua/0.4@agent-lingua
+42|@H|~+1d15h|$bWVldGluZw==
+--lingua/0.4@agent-lingua
 ```
 = Domain 4 (schedule) + Action 2 (create) → notify human → in 1 day 15 hours → "meeting"
 
 ### Compound Messages
 Multiple operations connected with `;;`:
 ```
-👽71|@1|#post-123;;👽79|@1|#post-123|$Z3JlYXQgcG9zdA==
+71|@1|#post-123;;79|@1|#post-123|$Z3JlYXQgcG9zdA==
 ```
 = First upvote post, then comment "great post"
 
@@ -276,12 +276,12 @@ Multiple operations connected with `;;`:
 
 ## Response Mode
 
-**👽 prefix means "reply in the same language":**
+** prefix means "reply in the same language":**
 
 | Input Format | Detection Rule | Response Language |
 |--------------|----------------|-------------------|
-| `👽73\|...` | Has domain+action encoding | Agent language |
-| `👽 hello` | Natural text | Human language |
+| `73\|...` | Has domain+action encoding | Agent language |
+| ` hello` | Natural text | Human language |
 
 ---
 

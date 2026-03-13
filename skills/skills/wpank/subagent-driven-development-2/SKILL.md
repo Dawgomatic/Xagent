@@ -99,16 +99,16 @@ Controller: Reading plan — 5 tasks extracted, TodoWrite created.
 Implementer: "Should the hook be installed at user or system level?"
 Controller:  "User level (~/.config/hooks/)"
 
-Implementer: ✅ Implemented install-hook command
+Implementer:  Implemented install-hook command
   - Added tests (5/5 passing)
   - Self-review: missed --force flag, added it
   - Committed
 
 [Dispatch spec reviewer]
-Spec reviewer: ✅ Spec compliant — all requirements met
+Spec reviewer:  Spec compliant — all requirements met
 
 [Dispatch code reviewer with git SHAs]
-Code reviewer: ✅ Approved — clean, good coverage
+Code reviewer:  Approved — clean, good coverage
 
 [Mark Task 1 complete]
 
@@ -116,28 +116,28 @@ Code reviewer: ✅ Approved — clean, good coverage
 
 [Dispatch implementer]
 
-Implementer: ✅ Added verify/repair modes (8/8 tests passing)
+Implementer:  Added verify/repair modes (8/8 tests passing)
 
 [Dispatch spec reviewer]
-Spec reviewer: ❌ Issues:
+Spec reviewer:  Issues:
   - Missing: progress reporting ("report every 100 items")
   - Extra: added --json flag (not in spec)
 
 [Implementer fixes: remove --json, add progress reporting]
-Spec reviewer: ✅ Spec compliant
+Spec reviewer:  Spec compliant
 
 [Dispatch code reviewer]
 Code reviewer: Important — magic number 100, extract constant
 
 [Implementer fixes: extract PROGRESS_INTERVAL]
-Code reviewer: ✅ Approved
+Code reviewer:  Approved
 
 [Mark Task 2 complete]
 
 ... (tasks 3-5) ...
 
 [Final cross-task code review]
-Final reviewer: ✅ All requirements met, ready to merge
+Final reviewer:  All requirements met, ready to merge
 ```
 
 ## Controller Responsibilities

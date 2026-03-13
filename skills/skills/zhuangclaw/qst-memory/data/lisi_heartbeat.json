@@ -25,7 +25,7 @@
       "vote_check",
       "routine"
     ],
-    "message": "[lisi] ⛔ BLOCKED: 任務停滯過久: 執行時間 90 分鐘超限（閾值：45 分鐘）",
+    "message": "[lisi]  BLOCKED: 任務停滯過久: 執行時間 90 分鐘超限（閾值：45 分鐘）",
     "skip_low_priority": true,
     "note": "任務受阻，僅檢查緊急通知"
   },
@@ -58,7 +58,7 @@
           "email_check",
           "routine"
         ],
-        "message": "[lisi] 🔥 DOING [CRITICAL]: 測試防死循環保護 (0%)",
+        "message": "[lisi]  DOING [CRITICAL]: 測試防死循環保護 (0%)",
         "skip_low_priority": true,
         "note": "關鍵任務執行中，最小化干擾"
       }
@@ -75,7 +75,7 @@
         "throttled": true,
         "throttle_reason": "Too frequent (0s < 30s)",
         "wait_seconds": 29,
-        "message": "[lisi] ⏸️ 心跳頻率限制：Too frequent (0s < 30s)（等待 29 秒）",
+        "message": "[lisi]  心跳頻率限制：Too frequent (0s < 30s)（等待 29 秒）",
         "checks": [],
         "checks_skipped": [
           "mentions",
@@ -99,7 +99,7 @@
         "throttled": true,
         "throttle_reason": "Too frequent (28s < 30s)",
         "wait_seconds": 2,
-        "message": "[lisi] ⏸️ 心跳頻率限制：Too frequent (28s < 30s)（等待 2 秒）",
+        "message": "[lisi]  心跳頻率限制：Too frequent (28s < 30s)（等待 2 秒）",
         "checks": [],
         "checks_skipped": [
           "mentions",
@@ -138,7 +138,7 @@
           "vote_check",
           "routine"
         ],
-        "message": "[lisi] ⛔ BLOCKED: 任務停滯過久: 執行時間 90 分鐘超限（閾值：45 分鐘）",
+        "message": "[lisi]  BLOCKED: 任務停滯過久: 執行時間 90 分鐘超限（閾值：45 分鐘）",
         "skip_low_priority": true,
         "note": "任務受阻，僅檢查緊急通知"
       }

@@ -97,7 +97,7 @@ export default function ChatPage() {
           // Empty state
           <div className="flex items-center justify-center h-full">
             <div className="text-center space-y-4">
-              <div className="text-4xl">💬</div>
+              <div className="text-4xl"></div>
               <div>
                 <h2 className="text-xl font-semibold text-gray-900">
                   Start a conversation
@@ -181,7 +181,7 @@ export default function ChatPage() {
         <div className="p-4 bg-red-50 border-t border-red-200">
           <div className="flex items-center justify-between max-w-4xl mx-auto">
             <div className="flex items-center space-x-2 text-red-700">
-              <span className="text-xl">⚠️</span>
+              <span className="text-xl"></span>
               <div>
                 <div className="font-semibold">Error</div>
                 <div className="text-sm">{error.message}</div>

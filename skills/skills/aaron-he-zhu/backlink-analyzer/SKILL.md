@@ -176,22 +176,22 @@ When a user requests backlink analysis:
    
    | Type | Count | Percentage | Assessment |
    |------|-------|------------|------------|
-   | Editorial | [X] | [Y]% | ✅ High quality |
-   | Guest posts | [X] | [Y]% | ✅ Good |
-   | Resource pages | [X] | [Y]% | ✅ Good |
-   | Directory | [X] | [Y]% | ⚠️ Moderate |
-   | Forum/Comments | [X] | [Y]% | ⚠️ Low quality |
-   | Sponsored/Paid | [X] | [Y]% | ⚠️ Risky |
+   | Editorial | [X] | [Y]% |  High quality |
+   | Guest posts | [X] | [Y]% |  Good |
+   | Resource pages | [X] | [Y]% |  Good |
+   | Directory | [X] | [Y]% |  Moderate |
+   | Forum/Comments | [X] | [Y]% |  Low quality |
+   | Sponsored/Paid | [X] | [Y]% |  Risky |
    
    ### Anchor Text Analysis
    
    | Anchor Type | Count | Percentage | Status |
    |-------------|-------|------------|--------|
-   | Brand name | [X] | [Y]% | ✅ Natural |
-   | Exact match | [X] | [Y]% | ⚠️ [Warning if >30%] |
-   | Partial match | [X] | [Y]% | ✅ Natural |
-   | URL/Naked | [X] | [Y]% | ✅ Natural |
-   | Generic | [X] | [Y]% | ✅ Natural |
+   | Brand name | [X] | [Y]% |  Natural |
+   | Exact match | [X] | [Y]% |  [Warning if >30%] |
+   | Partial match | [X] | [Y]% |  Natural |
+   | URL/Naked | [X] | [Y]% |  Natural |
+   | Generic | [X] | [Y]% |  Natural |
    
    **Top Anchor Texts**:
    1. "[anchor 1]" - [X] links
@@ -273,7 +273,7 @@ When a user requests backlink analysis:
    
    **Links only you have**: [X] domains
    **Links competitors share**: [X] domains  
-   **Links competitors have, you don't**: [X] domains ⬅️ Opportunity
+   **Links competitors have, you don't**: [X] domains  Opportunity
    
    ### Link Intersection Analysis
    
@@ -281,9 +281,9 @@ When a user requests backlink analysis:
    
    | Domain | DA | Links to Comp 1 | Comp 2 | Comp 3 | Opportunity |
    |--------|-----|-----------------|--------|--------|-------------|
-   | [domain 1] | [DA] | ✅ | ✅ | ✅ | High - All competitors |
-   | [domain 2] | [DA] | ✅ | ✅ | ❌ | High - 2 competitors |
-   | [domain 3] | [DA] | ✅ | ❌ | ❌ | Medium - 1 competitor |
+   | [domain 1] | [DA] |  |  |  | High - All competitors |
+   | [domain 2] | [DA] |  |  |  | High - 2 competitors |
+   | [domain 3] | [DA] |  |  |  | Medium - 1 competitor |
    
    ### Content Getting Most Links (Competitor Analysis)
    
@@ -345,11 +345,11 @@ When a user requests backlink analysis:
    
    | Opportunity Type | Effort | Impact | Priority |
    |------------------|--------|--------|----------|
-   | Link intersection | Medium | High | ⭐⭐⭐⭐⭐ |
-   | Broken links | Low | Medium | ⭐⭐⭐⭐ |
-   | Unlinked mentions | Low | Medium | ⭐⭐⭐⭐ |
-   | Resource pages | Medium | High | ⭐⭐⭐⭐ |
-   | Guest posts | High | High | ⭐⭐⭐ |
+   | Link intersection | Medium | High |  |
+   | Broken links | Low | Medium |  |
+   | Unlinked mentions | Low | Medium |  |
+   | Resource pages | Medium | High |  |
+   | Guest posts | High | High |  |
    ```
 
 6. **Track Link Changes**
@@ -409,14 +409,14 @@ When a user requests backlink analysis:
    
    ## Profile Strengths
    
-   1. ✅ [Strength 1]
-   2. ✅ [Strength 2]
-   3. ✅ [Strength 3]
+   1.  [Strength 1]
+   2.  [Strength 2]
+   3.  [Strength 3]
    
    ## Areas of Concern
    
-   1. ⚠️ [Concern 1]
-   2. ⚠️ [Concern 2]
+   1.  [Concern 1]
+   2.  [Concern 2]
    
    ## Opportunities Identified
    
@@ -503,10 +503,10 @@ When running `domain-authority-auditor` after this analysis, the following data 
 
 | Domain | DA | HubSpot | Salesforce | Mailchimp | Opportunity |
 |--------|-----|---------|------------|-----------|-------------|
-| g2.com | 91 | ✅ | ✅ | ✅ | Get listed/reviewed |
-| capterra.com | 89 | ✅ | ✅ | ✅ | Submit for review |
-| entrepreneur.com | 92 | ✅ | ✅ | ❌ | Pitch guest post |
-| techcrunch.com | 94 | ✅ | ❌ | ✅ | PR/news pitch |
+| g2.com | 91 |  |  |  | Get listed/reviewed |
+| capterra.com | 89 |  |  |  | Submit for review |
+| entrepreneur.com | 92 |  |  |  | Pitch guest post |
+| techcrunch.com | 94 |  |  |  | PR/news pitch |
 
 ### Top 5 Immediate Opportunities
 

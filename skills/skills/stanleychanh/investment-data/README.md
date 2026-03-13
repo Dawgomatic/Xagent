@@ -5,16 +5,16 @@
 
 高质量 A 股投资数据获取工具，基于 [investment_data](https://github.com/chenditc/investment_data) 项目。
 
-## ✨ 特性
+##  特性
 
-- 🚀 **开箱即用** - 一键下载最新数据
-- 📊 **高质量数据** - 多数据源交叉验证
-- 🔄 **每日更新** - 自动化 CI/CD 流程
-- 📈 **完整性好** - 包含退市公司数据
-- 🛠️ **多格式支持** - Qlib、CSV、JSON、Excel
-- 🔌 **OpenClaw 集成** - 支持自动化工作流
+-  **开箱即用** - 一键下载最新数据
+-  **高质量数据** - 多数据源交叉验证
+-  **每日更新** - 自动化 CI/CD 流程
+-  **完整性好** - 包含退市公司数据
+-  **多格式支持** - Qlib、CSV、JSON、Excel
+-  **OpenClaw 集成** - 支持自动化工作流
 
-## 📥 安装
+##  安装
 
 ### 方法 1：通过 ClawHub（推荐）
 
@@ -30,7 +30,7 @@ cd investment-data-skill
 pip install -r requirements.txt
 ```
 
-## 🚀 快速开始
+##  快速开始
 
 ### 1. 下载最新数据
 
@@ -71,7 +71,7 @@ python scripts/query_batch.py --file stocks.txt --start 2024-01-01 --output json
 python scripts/export.py --stock 000001.SZ --format excel
 ```
 
-## 📊 数据类型
+##  数据类型
 
 ### 1. 日终价格（final_a_stock_eod_price）
 
@@ -97,7 +97,7 @@ python scripts/export.py --stock 000001.SZ --format excel
 | down_limit | 跌停价 | float |
 | limit_status | 涨跌停状态 | str |
 
-## 🔧 配置
+##  配置
 
 ### 环境变量
 
@@ -124,7 +124,7 @@ query:
   date_format: "%Y-%m-%d"
 ```
 
-## 📝 使用示例
+##  使用示例
 
 ### 批量查询导出
 
@@ -154,7 +154,7 @@ top_10 = weights.nlargest(10, 'weight')
 print(top_10)
 ```
 
-## 🔄 自动化
+##  自动化
 
 ### OpenClaw 定时任务
 
@@ -183,7 +183,7 @@ while True:
     time.sleep(60)
 ```
 
-## 📖 API 文档
+##  API 文档
 
 ### InvestmentData 类
 
@@ -216,14 +216,14 @@ while True:
 #### `update_data()`
 更新数据到最新版本
 
-## ⚠️ 注意事项
+##  注意事项
 
 1. **数据延迟**：T+1 数据，每日更新
 2. **存储空间**：需要约 5GB
 3. **网络要求**：需访问 GitHub
 4. **Tushare Token**：实时更新需要
 
-## 🤝 贡献
+##  贡献
 
 欢迎贡献代码、报告问题或提出建议！
 
@@ -236,16 +236,16 @@ pip install -r requirements.txt
 python -m pytest tests/
 ```
 
-## 📄 许可证
+##  许可证
 
 Apache License 2.0
 
-## 🙏 致谢
+##  致谢
 
 - [chenditc/investment_data](https://github.com/chenditc/investment_data) - 原始数据项目
 - [dmnsn7](https://github.com/dmnsn7) - 提供 Tushare token
 
-## 📚 相关资源
+##  相关资源
 
 - **GitHub**：https://github.com/StanleyChanH/investment-data-skill
 - **原始项目**：https://github.com/chenditc/investment_data

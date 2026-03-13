@@ -87,5 +87,5 @@ shadcn-ui/
 
 ## License
 
-Documentation content © shadcn.
-Skill package © OpenClaw Community, MIT License.
+Documentation content  shadcn.
+Skill package  OpenClaw Community, MIT License.

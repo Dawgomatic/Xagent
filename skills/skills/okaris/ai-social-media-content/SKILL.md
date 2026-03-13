@@ -75,7 +75,7 @@ infsh app run falai/flux-dev --input '{
 
 # Post with Twitter automation
 infsh app run twitter/post-tweet --input '{
-  "text": "The future of AI is here. Here are the top 5 trends reshaping tech in 2024 🧵",
+  "text": "The future of AI is here. Here are the top 5 trends reshaping tech in 2024 ",
   "media_url": "<image-url>"
 }'
 ```

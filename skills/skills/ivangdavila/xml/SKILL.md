@@ -1,7 +1,7 @@
 ---
 name: XML
 description: Parse, generate, and transform XML with correct namespace handling and encoding.
-metadata: {"clawdbot":{"emoji":"📄","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Namespaces

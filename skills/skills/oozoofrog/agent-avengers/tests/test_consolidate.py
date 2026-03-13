@@ -136,7 +136,7 @@ class TestGenerateSummary:
         assert "test_123" in summary
         assert "Test mission" in summary
         assert "Research findings here" in summary
-        assert "✅ 성공" in summary
+        assert " 성공" in summary
     
     def test_summary_with_issues(self):
         mission = {
@@ -160,7 +160,7 @@ class TestGenerateSummary:
         
         summary = generate_summary(mission, results, validation)
         
-        assert "⚠️ 일부 실패" in summary
+        assert " 일부 실패" in summary
         assert "누락: a1" in summary
 
 

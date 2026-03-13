@@ -26,10 +26,10 @@ Ensure systems continue to function even when some components are unavailable or
 **Principle:** Only add new elements; never remove or modify existing ones directly.
 
 ```sql
--- ✅ Good: Additive change
+--  Good: Additive change
 ALTER TABLE users ADD COLUMN middle_name VARCHAR(50);
 
--- ❌ Bad: Breaking change
+--  Bad: Breaking change
 ALTER TABLE users DROP COLUMN email;
 ```
 

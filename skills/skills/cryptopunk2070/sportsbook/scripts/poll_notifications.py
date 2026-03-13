@@ -101,27 +101,27 @@ def format_notification_output(notifications: list) -> str:
         created_at = notif.get("created_at", "")
         
         if event_type == "system.announcement":
-            output.append(f"📢 ANNOUNCEMENT: {payload.get('message', 'No message')}")
+            output.append(f" ANNOUNCEMENT: {payload.get('message', 'No message')}")
         
         elif event_type == "pick.opportunity":
-            output.append(f"🎯 PICK OPPORTUNITY: {payload.get('description', 'Check dashboard')}")
+            output.append(f" PICK OPPORTUNITY: {payload.get('description', 'Check dashboard')}")
         
         elif event_type == "bet.settled":
             result = payload.get("result", "unknown")
             game = payload.get("game", "Unknown game")
-            emoji = "✅" if result == "won" else "❌" if result == "lost" else "↩️"
+            emoji = "" if result == "won" else "" if result == "lost" else ""
             output.append(f"{emoji} BET SETTLED: {game} - {result.upper()}")
         
         elif event_type == "comment.received":
             author = payload.get("author", "Unknown")
-            output.append(f"💬 NEW COMMENT from {author}")
+            output.append(f" NEW COMMENT from {author}")
         
         elif event_type == "vote.received":
             vote_type = payload.get("vote_type", "vote")
-            output.append(f"👍 NEW {vote_type.upper()}")
+            output.append(f" NEW {vote_type.upper()}")
         
         else:
-            output.append(f"📬 {event_type}: {json.dumps(payload)}")
+            output.append(f" {event_type}: {json.dumps(payload)}")
     
     return "\n".join(output)
 

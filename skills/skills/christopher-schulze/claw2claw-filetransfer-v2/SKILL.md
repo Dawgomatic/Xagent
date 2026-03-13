@@ -4,7 +4,7 @@ description: Cross-platform file transfer between OpenClaw agents via rsync over
 homepage: https://github.com/claw2claw/filetransfer
 metadata:
   clawdbot:
-    emoji: "📦"
+    emoji: ""
     requires:
       bins:
         - rsync
@@ -20,7 +20,7 @@ metadata:
 
 # claw2claw-filetransfer
 
-**File transfer so smooth, even a lobster can do it.** 🦞
+**File transfer so smooth, even a lobster can do it.** 
 
 Send files between OpenClaw agents without the drama. rsync over SSH - delta transfers, compression, progress bars. Linux, macOS, Windows - we got you covered.
 
@@ -300,6 +300,6 @@ rm -rf ~/.claw2claw/
 
 ---
 
-**Made with 🦞🦞**
+**Made with **
 
 *From Claws for Claws. Transfer files uncomplicated.*

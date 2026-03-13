@@ -130,25 +130,25 @@ Items are categorized into:
 
 CRITICAL (act now):
 
-  🔴 [0.95] Pre-auth RCE in OpenSSH (CVE-2026-XXXXX)
+   [0.95] Pre-auth RCE in OpenSSH (CVE-2026-XXXXX)
      Full Disclosure | 2h ago
      Affects OpenSSH 9.x. Public PoC available.
      ▸ Say "deep dive CVE-2026-XXXXX" for full analysis
 
 HIGH RELEVANCE:
 
-  🟠 [0.87] Lazarus Group deploys new social engineering
+   [0.87] Lazarus Group deploys new social engineering
      toolkit targeting crypto developers
      The Hacker News | 4h ago
      DISARM: T0047 (Develop Content), ATT&CK: T1566.001
      ▸ Say "deep dive lazarus social engineering" for analysis
 
-  🟠 [0.82] New Nuclei templates for Spring4Shell variants
+   [0.82] New Nuclei templates for Spring4Shell variants
      Exploit-DB | 6h ago
      12 new detection templates + PoC payloads
      ▸ Say "explain spring4shell" for context
 
-  🟠 [0.78] Russian influence operation targeting NATO
+   [0.78] Russian influence operation targeting NATO
      narratives detected across 3 platforms
      DFRLab | 5h ago
      DISARM: T0046, T0048, T0056 | Coordinated inauthentic behavior
@@ -206,8 +206,8 @@ MITRE ATT&CK:
   T1068 — Exploitation for Privilege Escalation
 
 PROOF OF CONCEPT:
-  ⭐ 234  github.com/researcher/CVE-2026-XXXXX (Python)
-  ⭐  45  github.com/other/openssh-rce-poc (C)
+   234  github.com/researcher/CVE-2026-XXXXX (Python)
+    45  github.com/other/openssh-rce-poc (C)
   Key file to study: exploit.py lines 40-80 (payload construction)
 
 CONCEPTS TO UNDERSTAND:

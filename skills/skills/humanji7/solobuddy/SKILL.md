@@ -2,7 +2,7 @@
 name: solobuddy
 description: Build-in-public companion for indie hackers — content workflow, Twitter engagement, project soul creation. A living assistant, not a tool.
 homepage: https://github.com/gHashTag/bip-buddy
-metadata: {"clawdbot":{"emoji":"🎯","requires":{"bins":["gh"],"optional":["bird"]},"config":["solobuddy.dataPath","solobuddy.voice"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["gh"],"optional":["bird"]},"config":["solobuddy.dataPath","solobuddy.voice"]}}
 ---
 
 # SoloBuddy
@@ -152,9 +152,9 @@ When responding in Telegram, include inline buttons for actions.
 ```bash
 clawdbot message send --channel telegram --to "$CHAT_ID" --message "Text" \
   --buttons '[
-    [{"text":"📋 Backlog","callback_data":"sb:backlog"}],
-    [{"text":"✍️ Drafts","callback_data":"sb:drafts"}],
-    [{"text":"💡 New Idea","callback_data":"sb:new_idea"}]
+    [{"text":" Backlog","callback_data":"sb:backlog"}],
+    [{"text":" Drafts","callback_data":"sb:drafts"}],
+    [{"text":" New Idea","callback_data":"sb:new_idea"}]
   ]'
 ```
 
@@ -175,10 +175,10 @@ All callbacks use prefix `sb:`:
 Trigger: "menu", "start", or after completing action:
 ```json
 [
-  [{"text":"📋 Ideas","callback_data":"sb:backlog"}, {"text":"✍️ Drafts","callback_data":"sb:drafts"}],
-  [{"text":"📊 Activity","callback_data":"sb:activity"}],
-  [{"text":"💡 Add idea","callback_data":"sb:new_idea"}],
-  [{"text":"🎯 Generate post","callback_data":"sb:generate_menu"}]
+  [{"text":" Ideas","callback_data":"sb:backlog"}, {"text":" Drafts","callback_data":"sb:drafts"}],
+  [{"text":" Activity","callback_data":"sb:activity"}],
+  [{"text":" Add idea","callback_data":"sb:new_idea"}],
+  [{"text":" Generate post","callback_data":"sb:generate_menu"}]
 ]
 ```
 
@@ -187,17 +187,17 @@ Trigger: "menu", "start", or after completing action:
 After showing backlog:
 ```json
 [
-  [{"text":"1️⃣","callback_data":"sb:generate:1"}, {"text":"2️⃣","callback_data":"sb:generate:2"}, {"text":"3️⃣","callback_data":"sb:generate:3"}],
-  [{"text":"◀️ Back","callback_data":"sb:menu"}]
+  [{"text":"","callback_data":"sb:generate:1"}, {"text":"","callback_data":"sb:generate:2"}, {"text":"","callback_data":"sb:generate:3"}],
+  [{"text":" Back","callback_data":"sb:menu"}]
 ]
 ```
 
 After generating content:
 ```json
 [
-  [{"text":"💾 Save draft","callback_data":"sb:save_draft"}],
-  [{"text":"🔄 Regenerate","callback_data":"sb:regenerate"}],
-  [{"text":"◀️ Menu","callback_data":"sb:menu"}]
+  [{"text":" Save draft","callback_data":"sb:save_draft"}],
+  [{"text":" Regenerate","callback_data":"sb:regenerate"}],
+  [{"text":" Menu","callback_data":"sb:menu"}]
 ]
 ```
 

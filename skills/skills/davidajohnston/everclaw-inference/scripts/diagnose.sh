@@ -34,9 +34,9 @@ WARN=0
 FAIL=0
 
 # ─── Output Helpers ──────────────────────────────────────────────────────────
-pass() { echo -e "  ${GREEN}✅${NC} $1"; ((PASS++)); }
-warn() { echo -e "  ${YELLOW}⚠️${NC}  $1"; ((WARN++)); }
-fail() { echo -e "  ${RED}❌${NC} $1"; ((FAIL++)); }
+pass() { echo -e "  ${GREEN}${NC} $1"; ((PASS++)); }
+warn() { echo -e "  ${YELLOW}${NC}  $1"; ((WARN++)); }
+fail() { echo -e "  ${RED}${NC} $1"; ((FAIL++)); }
 fix()  { echo -e "     ${BLUE}→${NC} $1"; }
 info() { echo -e "     ${NC}$1"; }
 
@@ -60,7 +60,7 @@ done
 
 # ─── Banner ──────────────────────────────────────────────────────────────────
 echo ""
-echo -e "${BOLD}♾️  Everclaw Diagnostic${NC}"
+echo -e "${BOLD}  Everclaw Diagnostic${NC}"
 echo "─────────────────────────────────────"
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -424,7 +424,7 @@ else:
     info "  Skipping inference test (--quick mode)"
   else
     echo ""
-    echo -e "  ${BLUE}🔬${NC} Testing live inference (morpheus/kimi-k2.5)..."
+    echo -e "  ${BLUE}${NC} Testing live inference (morpheus/kimi-k2.5)..."
 
     local infer_result
     infer_result=$(curl -s --max-time 60 http://127.0.0.1:8083/v1/chat/completions \
@@ -522,6 +522,6 @@ elif [[ "$WARN" -gt 0 ]]; then
   echo -e "${YELLOW}Mostly healthy — review warnings above.${NC}"
   exit 2
 else
-  echo -e "${GREEN}${BOLD}All clear! ✨${NC}"
+  echo -e "${GREEN}${BOLD}All clear! ${NC}"
   exit 0
 fi

@@ -205,7 +205,7 @@ def format_status_card(player):
     next_xp = next_rank["min_xp"] if next_rank else "MAX"
 
     lines = [
-        "📋 HUNTER STATUS",
+        " HUNTER STATUS",
         "",
         f"Player: {player['name']}",
         f"Rank: {player['rank']}-Rank | Level: {player['level']}",
@@ -219,11 +219,11 @@ def format_status_card(player):
         lines.append(f"{stat} {bar} {val}")
     lines.extend([
         "",
-        f"🔥 Streak: {player['streak']} days (Best: {player['best_streak']})",
-        f"🏆 Titles: {', '.join(player['titles']) if player['titles'] else 'None yet'}",
-        f"⚔️ Active Dungeon: {player['active_dungeon'] or 'None'}",
+        f" Streak: {player['streak']} days (Best: {player['best_streak']})",
+        f" Titles: {', '.join(player['titles']) if player['titles'] else 'None yet'}",
+        f" Active Dungeon: {player['active_dungeon'] or 'None'}",
         "",
-        f"📊 Quests: {player['total_quests_completed']} completed / {player['total_quests_failed']} failed",
+        f" Quests: {player['total_quests_completed']} completed / {player['total_quests_failed']} failed",
     ])
 
     # Show quest counters if any

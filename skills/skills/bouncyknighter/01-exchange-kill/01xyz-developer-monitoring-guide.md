@@ -1,6 +1,6 @@
 # Monitoring Guide: Safe Mode Operations
 
-> ✅ **100% Safe** — These operations require no authentication and cannot spend funds.
+>  **100% Safe** — These operations require no authentication and cannot spend funds.
 
 This guide covers read-only data access for monitoring 01.xyz markets, prices, and network status. Perfect for building dashboards, alerts, and market analysis tools.
 
@@ -317,7 +317,7 @@ async function scanMarkets() {
   try {
     const info = await fetch(`${BASE_URL}/info`).json();
     
-    console.log('🔍 01.xyz Market Scanner\n');
+    console.log(' 01.xyz Market Scanner\n');
     
     for (const market of info.markets) {
       const stats = await fetch(`${BASE_URL}/market/${market.id}/stats`).json();
@@ -378,7 +378,7 @@ async function analyzeOrderbook(marketId, size) {
     const sellVWAP = getVWAP(bids, size);
     const markPrice = stats.perpStats.mark_price;
     
-    console.log(`📊 Orderbook Analysis: ${symbol}`);
+    console.log(` Orderbook Analysis: ${symbol}`);
     console.log(`Target Size: ${size} contracts\n`);
     
     if (buyVWAP) {
@@ -434,12 +434,12 @@ async function checkFunding() {
     }
     
     if (alerts.length > 0) {
-      console.log('🚨 HIGH FUNDING RATES DETECTED:\n');
+      console.log(' HIGH FUNDING RATES DETECTED:\n');
       alerts.forEach(a => {
         console.log(`${a.symbol}: ${a.direction} ${a.apr} APR`);
       });
     } else {
-      console.log('✅ All funding rates within normal ranges');
+      console.log(' All funding rates within normal ranges');
     }
     
   } catch (error) {
@@ -497,10 +497,10 @@ async function safeFetch(url, retries = 3) {
 
 ## Next Steps
 
-- ✅ You've mastered safe, read-only operations
-- 📖 Read [risk-management.md](risk-management.md) to understand margin calculations
-- ⚠️ Review [safety-first.md](safety-first.md) before any trading operations
-- 💻 See [examples/](examples/) for working code
+-  You've mastered safe, read-only operations
+-  Read [risk-management.md](risk-management.md) to understand margin calculations
+-  Review [safety-first.md](safety-first.md) before any trading operations
+-  See [examples/](examples/) for working code
 
 ---
 

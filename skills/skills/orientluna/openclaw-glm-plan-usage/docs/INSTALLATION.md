@@ -162,7 +162,7 @@ bash ~/.openclaw/skills/glm-plan-usage/scripts/query-usage.sh
 
 Expected output:
 ```
-📊 GLM 编码套餐使用统计
+ GLM 编码套餐使用统计
 
 提供商: zhipu
 统计时间: 2026-02-13 20:30:15

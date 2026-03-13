@@ -34,9 +34,9 @@ Handle: @sarahchen_tech
 Score: **91.3** / 100
 
 #### Why This Match
-- ✅ Explicitly mentioned looking for marketing automation partners in recent post
-- ✅ Company is in growth phase, recently raised Series B
-- ✅ Vertical match: B2B SaaS, AI/ML
+-  Explicitly mentioned looking for marketing automation partners in recent post
+-  Company is in growth phase, recently raised Series B
+-  Vertical match: B2B SaaS, AI/ML
 
 #### Evidence
 - [LinkedIn Profile](https://linkedin.com/in/sarahchen-tech)
@@ -71,7 +71,7 @@ January 30, 2026
 > Alex
 
 #### Recommended Action
-🟢 **REACH OUT** (High Priority)  
+ **REACH OUT** (High Priority)  
 Reason: High intent signal, explicit need for marketing automation partners, recent activity
 
 ---
@@ -82,16 +82,16 @@ Handle: @marcusrod
 Score: **80.9** / 100
 
 #### Why This Match
-- ✅ Posted about seeking marketing tech partners 2 weeks ago
-- ✅ Company focus on agency services aligns with our ICP
-- ✅ Active in SaaS community, high engagement
+-  Posted about seeking marketing tech partners 2 weeks ago
+-  Company focus on agency services aligns with our ICP
+-  Active in SaaS community, high engagement
 
 #### Evidence
 - [LinkedIn Profile](https://linkedin.com/in/marcus-rodriguez-growth)
 - [Company Team Page](https://growthhub.io/team/marcus)
 
 #### Risk Flags
-- ⚠️ low_evidence - Only 2 evidence sources
+-  low_evidence - Only 2 evidence sources
 
 #### Last Activity
 January 28, 2026
@@ -118,7 +118,7 @@ January 28, 2026
 > Alex
 
 #### Recommended Action
-🟢 **REACH OUT** (High Priority)  
+ **REACH OUT** (High Priority)  
 Reason: Partnership role, actively seeking partners, good fit for agency services
 
 ---
@@ -129,9 +129,9 @@ Handle: @emwatson
 Score: **80.1** / 100
 
 #### Why This Match
-- ✅ Founder in content tech space, potential acquisition or partnership target
-- ✅ Recently mentioned on podcast looking for distribution partners
-- ✅ Complementary product offering
+-  Founder in content tech space, potential acquisition or partnership target
+-  Recently mentioned on podcast looking for distribution partners
+-  Complementary product offering
 
 #### Evidence
 - [Company Website](https://contentscale.io)
@@ -166,7 +166,7 @@ January 25, 2026
 > Alex
 
 #### Recommended Action
-🟡 **WARM INTRO VIA** SaaS Founders Slack community (Medium Priority)  
+ **WARM INTRO VIA** SaaS Founders Slack community (Medium Priority)  
 Reason: Founder-to-founder intro would be more effective than cold outreach
 
 ---
@@ -177,24 +177,24 @@ Use this section to track your decisions:
 
 | Candidate | Decision | Notes | Date |
 |-----------|----------|-------|------|
-| Sarah Chen | ⬜ Pending | | |
-| Marcus Rodriguez | ⬜ Pending | | |
-| Emily Watson | ⬜ Pending | | |
+| Sarah Chen |  Pending | | |
+| Marcus Rodriguez |  Pending | | |
+| Emily Watson |  Pending | | |
 
 ### Decision Options
-- ✅ **APPROVED** - Proceed with outreach
-- ❌ **REJECTED** - Do not contact
-- 🔄 **DEFERRED** - Research more before deciding
-- 📝 **MODIFIED** - Use with edited message
+-  **APPROVED** - Proceed with outreach
+-  **REJECTED** - Do not contact
+-  **DEFERRED** - Research more before deciding
+-  **MODIFIED** - Use with edited message
 
 ---
 
 ## Reminders
 
-⚠️ **Human Approval Required**  
+ **Human Approval Required**  
 All outreach drafts are suggestions only. Review and personalize before sending.
 
-⚠️ **No Auto-Send**  
+ **No Auto-Send**  
 This system does not automatically send messages. Copy drafts to your preferred outreach tool.
 
 ---

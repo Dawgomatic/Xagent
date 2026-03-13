@@ -49,7 +49,7 @@ Some APIs are available through **x402** — a pay-per-use protocol using USDC o
 4. Retry request with payment proof
 5. Receive API response
 
-### ⚠️ Important Safety Notice
+###  Important Safety Notice
 
 **x402 payments require explicit setup and should not be automated without safeguards:**
 

@@ -5,7 +5,7 @@ homepage: https://www.talentir.com/api/v1
 metadata:
   {
     "openclaw":
-      { "emoji": "💸", "requires": { "bins": ["curl", "jq"], "env": ["TALENTIR_API_KEY"] }, "primaryEnv": "TALENTIR_API_KEY" },
+      { "emoji": "", "requires": { "bins": ["curl", "jq"], "env": ["TALENTIR_API_KEY"] }, "primaryEnv": "TALENTIR_API_KEY" },
   }
 ---
 

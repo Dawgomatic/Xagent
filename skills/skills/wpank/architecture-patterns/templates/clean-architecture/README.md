@@ -46,7 +46,7 @@ src/
 │   │   └── prisma-user.repository.ts
 │   ├── presenters/             # Response formatters
 │   │   └── user.presenter.ts
-│   └── mappers/                # Entity ↔ persistence model mapping
+│   └── mappers/                # Entity  persistence model mapping
 │       └── user.mapper.ts
 │
 ├── infrastructure/             # Layer 4: Frameworks & Drivers

@@ -38,4 +38,4 @@ You'll get a complete OpenAPI spec, formatted reference docs, and integration qu
 - [AI Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — deploy your first AI agent in 15 minutes
 - [Context Packs](https://afrexai-cto.github.io/context-packs/) — industry-specific AI configurations ($47/pack)
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

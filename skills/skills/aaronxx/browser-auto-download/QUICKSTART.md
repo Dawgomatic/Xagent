@@ -1,8 +1,8 @@
-# 🚀 Quick Start Guide
+#  Quick Start Guide
 
 Get started with Browser Auto Download in 5 minutes!
 
-## 📦 Installation
+##  Installation
 
 ### Step 1: Install Dependencies
 
@@ -15,7 +15,7 @@ playwright install chromium
 
 Download `browser-auto-download.skill` from [ClawHub](https://clawhub.com/skills/browser-auto-download) and place it in your OpenClaw skills directory.
 
-## 🎯 Basic Usage
+##  Basic Usage
 
 ### Option 1: Command Line (Simplest)
 
@@ -49,7 +49,7 @@ python skills/browser-auto-download/scripts/auto_download.py --wechat
 python skills/browser-auto-download/scripts/auto_download.py --meitu
 ```
 
-## 📝 Common Use Cases
+##  Common Use Cases
 
 ### Download from Chinese Website
 
@@ -89,7 +89,7 @@ result = auto_download(
 )
 ```
 
-## 🔧 Advanced Options
+##  Advanced Options
 
 ### Headless Mode (No Browser Window)
 
@@ -123,7 +123,7 @@ python skills/browser-auto-download/scripts/auto_download.py \
   --no-auto-navigate
 ```
 
-## 🎓 Examples
+##  Examples
 
 ### Example 1: Batch Downloads
 
@@ -168,7 +168,7 @@ result = auto_download(
 # - Linux x64 on x86_64
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Download Not Starting
 
@@ -219,14 +219,14 @@ result = auto_download(
 )
 ```
 
-## 📚 Next Steps
+##  Next Steps
 
 - **Full Documentation:** See [README.md](README.md)
 - **More Examples:** See [examples.py](examples.py)
 - **Contributing:** See [CONTRIBUTING.md](CONTRIBUTING.md)
 - **Report Issues:** https://github.com/your-repo/browser-auto-download/issues
 
-## 💡 Tips
+##  Tips
 
 1. **Start with visible mode** (`headless=False`) to see what's happening
 2. **Check stderr output** for detailed progress information
@@ -234,7 +234,7 @@ result = auto_download(
 4. **Use auto_navigate=True** for multi-page download flows
 5. **JSON output** is printed to stdout for programmatic use
 
-## 🆘 Getting Help
+##  Getting Help
 
 - **Discord:** https://discord.gg/clawd
 - **Issues:** https://github.com/your-repo/browser-auto-download/issues
@@ -242,4 +242,4 @@ result = auto_download(
 
 ---
 
-**Happy Downloading! 🚀**
+**Happy Downloading! **

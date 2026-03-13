@@ -1,7 +1,7 @@
 ---
 name: skillcraft
 description: Design and build OpenClaw skills. Use when asked to "make/build/craft a skill", extract ad-hoc functionality into a skill, or package scripts/instructions for reuse. Covers OpenClaw-specific integration (tool calling, memory, message routing, cron, canvas, nodes) and ClawHub publishing.
-metadata: {"openclaw":{"emoji":"🧶"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 # Skillcraft — OpenClaw Skill Designer
 
@@ -125,7 +125,7 @@ The frontmatter determines discoverability and gating. Format follows the [Agent
 name: my-skill
 description: [description optimised for discovery — see below]
 homepage: https://github.com/user/repo  # optional
-metadata: {"openclaw":{"emoji":"🔧","requires":{"bins":["tool"],"env":["API_KEY"]},"primaryEnv":"API_KEY","install":[...]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["tool"],"env":["API_KEY"]},"primaryEnv":"API_KEY","install":[...]}}
 ---
 ```
 

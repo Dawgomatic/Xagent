@@ -169,40 +169,40 @@ if __name__ == "__main__":
     if red_flags:
         critical, high, medium = categorize_severity(red_flags)
         
-        print("🛑 SECURITY SCAN RESULTS")
+        print(" SECURITY SCAN RESULTS")
         print("=" * 60)
         
         if critical:
-            print(f"\n🚨 CRITICAL ISSUES ({len(critical)}):")
+            print(f"\n CRITICAL ISSUES ({len(critical)}):")
             print("   These are severe security/safety violations")
             for _, category, desc in critical:
                 print(f"   • [{category}] {desc}")
         
         if high:
-            print(f"\n⚠️  HIGH PRIORITY ISSUES ({len(high)}):")
+            print(f"\n  HIGH PRIORITY ISSUES ({len(high)}):")
             print("   These require immediate attention")
             for _, category, desc in high:
                 print(f"   • [{category}] {desc}")
         
         if medium:
-            print(f"\n⚡ MEDIUM PRIORITY ISSUES ({len(medium)}):")
+            print(f"\n MEDIUM PRIORITY ISSUES ({len(medium)}):")
             print("   These should be reviewed carefully")
             for _, category, desc in medium:
                 print(f"   • [{category}] {desc}")
         
         print("\n" + "=" * 60)
         if critical:
-            print("❌ BLOCKED: Cannot format this email due to CRITICAL security issues")
+            print(" BLOCKED: Cannot format this email due to CRITICAL security issues")
             sys.exit(2)  # Exit code 2 = critical block
         elif high:
-            print("⚠️  WARNING: This email has HIGH priority security concerns")
+            print("  WARNING: This email has HIGH priority security concerns")
             print("   Review carefully before proceeding")
             sys.exit(1)  # Exit code 1 = warning
         else:
-            print("⚠️  CAUTION: This email has some security concerns")
+            print("  CAUTION: This email has some security concerns")
             print("   Proceed with care")
             sys.exit(1)
     else:
-        print("✅ SECURITY SCAN PASSED")
+        print(" SECURITY SCAN PASSED")
         print("   No security red flags detected")
         sys.exit(0)  # Exit code 0 = safe

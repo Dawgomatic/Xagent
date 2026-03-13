@@ -10,7 +10,7 @@ ClawChat daemon handles message delivery automatically:
 
 ## Integration Options
 
-### Option 1: Built-in OpenClaw Wake (Recommended) ⭐
+### Option 1: Built-in OpenClaw Wake (Recommended) 
 
 **New in v0.2:** The daemon can now trigger `openclaw system event` automatically when messages arrive.
 

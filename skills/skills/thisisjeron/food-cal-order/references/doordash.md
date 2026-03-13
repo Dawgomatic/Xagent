@@ -55,7 +55,7 @@ For each item:
 
 ### 7. Report
 ```
-✅ Order confirmed
+ Order confirmed
    Service: DoorDash
    Restaurant: {name}
    Items: {list}

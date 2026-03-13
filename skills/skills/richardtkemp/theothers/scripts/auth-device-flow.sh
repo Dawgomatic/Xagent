@@ -107,9 +107,9 @@ fi
 
 if [ "$HAS_EXISTING_AUTH" = true ]; then
     if [ "$FORCE" = true ]; then
-        echo -e "${YELLOW}⚠ Existing authentication found - forcing reset${NC}"
+        echo -e "${YELLOW} Existing authentication found - forcing reset${NC}"
     else
-        echo -e "${YELLOW}⚠ Existing authentication found${NC}"
+        echo -e "${YELLOW} Existing authentication found${NC}"
         echo "Location: $VAULT_PATH (key: $VAULT_KEY)"
         echo
         read -p "Reset and re-authenticate? [y/N] " -n 1 -r

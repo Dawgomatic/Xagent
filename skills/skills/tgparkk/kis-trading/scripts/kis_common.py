@@ -18,8 +18,8 @@ def load_config(config_path: str) -> dict:
     """설정 파일 로드"""
     config_path = os.path.expanduser(config_path)
     if not os.path.exists(config_path):
-        print(f"❌ 설정 파일을 찾을 수 없습니다: {config_path}")
-        print(f"📝 설정 파일을 생성하세요:")
+        print(f" 설정 파일을 찾을 수 없습니다: {config_path}")
+        print(f" 설정 파일을 생성하세요:")
         print(f"   mkdir -p ~/.kis-trading")
         print(f"   cp config.ini.example ~/.kis-trading/config.ini")
         sys.exit(1)
@@ -28,14 +28,14 @@ def load_config(config_path: str) -> dict:
     cp.read(config_path, encoding='utf-8')
 
     if 'KIS' not in cp:
-        print("❌ 설정 파일에 [KIS] 섹션이 없습니다.")
+        print(" 설정 파일에 [KIS] 섹션이 없습니다.")
         sys.exit(1)
 
     section = cp['KIS']
     required = ['APP_KEY', 'APP_SECRET', 'ACCOUNT_NO']
     for key in required:
         if not section.get(key):
-            print(f"❌ 설정값 누락: {key}")
+            print(f" 설정값 누락: {key}")
             sys.exit(1)
 
     acct = section['ACCOUNT_NO'].replace('-', '')
@@ -93,7 +93,7 @@ def get_token(cfg: dict) -> str:
 
     resp = requests.post(url, json=body, headers=headers, timeout=10)
     if resp.status_code != 200:
-        print(f"❌ 토큰 발급 실패: {resp.status_code} {resp.text}")
+        print(f" 토큰 발급 실패: {resp.status_code} {resp.text}")
         sys.exit(1)
 
     result = resp.json()
@@ -128,7 +128,7 @@ def api_get(cfg: dict, token: str, path: str, tr_id: str, params: dict,
     }
     resp = requests.get(url, headers=headers, params=params, timeout=10)
     if resp.status_code != 200:
-        print(f"❌ API 오류: {resp.status_code} {resp.text[:200]}")
+        print(f" API 오류: {resp.status_code} {resp.text[:200]}")
         return None
     data = resp.json()
     # 토큰 만료 감지 → 재발급 후 재시도
@@ -136,7 +136,7 @@ def api_get(cfg: dict, token: str, path: str, tr_id: str, params: dict,
         new_token = _force_refresh_token(cfg)
         return api_get(cfg, new_token, path, tr_id, params, _retried=True)
     if data.get('rt_cd') != '0':
-        print(f"❌ API 오류: [{data.get('msg_cd')}] {data.get('msg1')}")
+        print(f" API 오류: [{data.get('msg_cd')}] {data.get('msg1')}")
         return None
     # 연속조회 키를 data에 포함
     data['_tr_cont'] = resp.headers.get('tr_cont', '')
@@ -172,7 +172,7 @@ def api_post(cfg: dict, token: str, path: str, tr_id: str, body: dict,
 
     resp = requests.post(url, headers=headers, json=body, timeout=10)
     if resp.status_code != 200:
-        print(f"❌ API 오류: {resp.status_code} {resp.text[:200]}")
+        print(f" API 오류: {resp.status_code} {resp.text[:200]}")
         return None
     data = resp.json()
     # 토큰 만료 감지 → 재발급 후 재시도
@@ -180,7 +180,7 @@ def api_post(cfg: dict, token: str, path: str, tr_id: str, body: dict,
         new_token = _force_refresh_token(cfg)
         return api_post(cfg, new_token, path, tr_id, body, use_hashkey, _retried=True)
     if data.get('rt_cd') != '0':
-        print(f"❌ API 오류: [{data.get('msg_cd')}] {data.get('msg1')}")
+        print(f" API 오류: [{data.get('msg_cd')}] {data.get('msg1')}")
         return None
     return data
 

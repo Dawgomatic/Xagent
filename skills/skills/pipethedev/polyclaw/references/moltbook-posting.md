@@ -306,7 +306,7 @@ Since you must post yourself:
 2. **Post new trades to Moltx** (quick alert):
 
    ```
-   🎯 NEW POSITION
+    NEW POSITION
    AI regulation: NO @ 62% | 50 USDC | 72% confidence
    #Polymarket #Trading $BEAR
    ```

@@ -5,7 +5,7 @@ version: 1.0.0
 author: OpenClaw Community
 metadata:
   openclaw:
-    emoji: "🔬"
+    emoji: ""
     tools:
       - evidence.ingest
       - evidence.verify
@@ -213,7 +213,7 @@ The manifest is automatically updated by the ingest operation.
 Provide user with evidence receipt:
 
 ```
-📋 EVIDENCE RECEIPT
+ EVIDENCE RECEIPT
 
 Case ID: case-2026-001
 Evidence ID: ev-abc123...
@@ -223,9 +223,9 @@ Size: 1.2 MB
 Received: 2026-02-17 10:30:00 UTC
 Vault: file:///vault/cases/case-2026-001/originals/ev-abc123.jpg
 
-✅ Chain of custody established
-✅ Original preserved immutably
-✅ Audit trail active
+ Chain of custody established
+ Original preserved immutably
+ Audit trail active
 ```
 
 ## Tool Reference
@@ -348,7 +348,7 @@ Before any potentially destructive operation:
 
 **Confirmation format:**
 ```
-⚠️ DESTRUCTIVE ACTION
+ DESTRUCTIVE ACTION
 
 You are about to: [describe action]
 Case: [caseId]

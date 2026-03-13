@@ -1,7 +1,7 @@
 # Project Status
 
 **Version:** 1.2.0  
-**Status:** 🧪 Community Testing Phase  
+**Status:**  Community Testing Phase  
 **Posted:** 2026-01-28 Discord #showcase  
 
 ## Timeline
@@ -14,11 +14,11 @@
 
 ## Current Status
 
-✅ **Development:** Complete  
-✅ **Testing:** Complete (automated browser testing)  
-✅ **Documentation:** Complete  
-🧪 **Community Testing:** In progress  
-⏳ **ClawdHub Publishing:** Waiting for feedback  
+ **Development:** Complete  
+ **Testing:** Complete (automated browser testing)  
+ **Documentation:** Complete  
+ **Community Testing:** In progress  
+ **ClawdHub Publishing:** Waiting for feedback  
 
 ## Waiting For
 
@@ -42,8 +42,8 @@
 
 ## Known Issues
 
-- ✅ Autoplay blocking (documented, expected browser behavior)
-- 🐛 Volume slider display doesn't update (cosmetic, low priority)
+-  Autoplay blocking (documented, expected browser behavior)
+-  Volume slider display doesn't update (cosmetic, low priority)
 
 ## Metrics to Track
 
@@ -57,4 +57,4 @@
 
 **GitHub:** https://github.com/brokemac79/webchat-audio-notifications  
 **Discord:** Posted in #showcase  
-**Maintained by:** @brokemac79 (Martin) & Ant 🐜
+**Maintained by:** @brokemac79 (Martin) & Ant 

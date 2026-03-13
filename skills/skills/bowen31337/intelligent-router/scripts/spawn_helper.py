@@ -24,11 +24,11 @@ SCRIPT_DIR = Path(__file__).parent
 CONFIG_FILE = SCRIPT_DIR.parent / "config.json"
 
 TIER_COLORS = {
-    "SIMPLE": "🟢",
-    "MEDIUM": "🟡",
-    "COMPLEX": "🟠",
-    "REASONING": "🔵",
-    "CRITICAL": "🔴",
+    "SIMPLE": "",
+    "MEDIUM": "",
+    "COMPLEX": "",
+    "REASONING": "",
+    "CRITICAL": "",
 }
 
 
@@ -77,7 +77,7 @@ def validate_payload(payload_json):
     model = payload.get("model")
     if not model:
         return False, (
-            "❌ VIOLATION: agentTurn payload missing 'model' field!\n"
+            " VIOLATION: agentTurn payload missing 'model' field!\n"
             "   Without model, OpenClaw defaults to Sonnet = expensive waste.\n"
             "   Fix: add \"model\": \"<model-id>\" to the payload.\n"
             "   Run: python3 skills/intelligent-router/scripts/spawn_helper.py \"<task>\" to get the right model."
@@ -89,12 +89,12 @@ def validate_payload(payload_json):
         if keyword in model.lower():
             msg = payload.get("message", "")[:80]
             return None, (
-                f"⚠️  WARNING: Expensive model '{model}' set for potentially simple task.\n"
+                f"  WARNING: Expensive model '{model}' set for potentially simple task.\n"
                 f"   Task preview: {msg}...\n"
                 f"   Consider: python3 skills/intelligent-router/scripts/spawn_helper.py \"{msg}\""
             )
 
-    return True, f"✅ Model set: {model}"
+    return True, f" Model set: {model}"
 
 
 def main():
@@ -136,20 +136,20 @@ def main():
         rules = config.get("routing_rules", {}).get(tier, {})
         model_id = rules.get("primary", "anthropic-proxy-4/glm-4.7")
 
-    icon = TIER_COLORS.get(tier, "⚪")
+    icon = TIER_COLORS.get(tier, "")
     fallback_chain = config.get("routing_rules", {}).get(tier, {}).get("fallback_chain", [])
 
     print(f"\n{icon} Task classified as: {tier} (confidence: {confidence})")
-    print(f"💰 Recommended model: {model_id}")
+    print(f" Recommended model: {model_id}")
     if fallback_chain:
-        print(f"🔄 Fallbacks: {' → '.join(fallback_chain[:2])}")
-    print(f"\n📋 Use in sessions_spawn:")
+        print(f" Fallbacks: {' → '.join(fallback_chain[:2])}")
+    print(f"\n Use in sessions_spawn:")
     print(f"""   sessions_spawn(
        task=\"{task[:60]}{'...' if len(task)>60 else ''}\",
        model=\"{model_id}\",
        label=\"<label>\"
    )""")
-    print(f"\n📋 Use in cron job payload:")
+    print(f"\n Use in cron job payload:")
     print(f"""   {{
        "kind": "agentTurn",
        "message": "...",

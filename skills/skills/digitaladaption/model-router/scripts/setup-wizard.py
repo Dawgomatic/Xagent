@@ -49,7 +49,7 @@ def print_success(text: str):
 
 def print_warning(text: str):
     """Print warning message."""
-    print(f"{Colors.WARNING}⚠ {text}{Colors.ENDC}")
+    print(f"{Colors.WARNING} {text}{Colors.ENDC}")
 
 
 def print_error(text: str):
@@ -59,7 +59,7 @@ def print_error(text: str):
 
 def print_info(text: str):
     """Print info message."""
-    print(f"{Colors.OKCYAN}ℹ {text}{Colors.ENDC}")
+    print(f"{Colors.OKCYAN} {text}{Colors.ENDC}")
 
 
 def ensure_config_dir():

@@ -303,14 +303,14 @@ echo "| Action | Target | Reason | Safe to Auto |"
 echo "|--------|--------|--------|--------------|"
 } >> "$OUTPUT_DIR/review-v2-${DATE}.md"
 
-jq -r '.maintenance_suggestions[]? | "| " + .type + " | `" + .target + "` | " + .reason + " | " + (if .safe_to_auto then "✅ Yes" else "❌ No" end) + " |"' "$OUTPUT_DIR/review-v2-${DATE}.json" >> "$OUTPUT_DIR/review-v2-${DATE}.md"
+jq -r '.maintenance_suggestions[]? | "| " + .type + " | `" + .target + "` | " + .reason + " | " + (if .safe_to_auto then " Yes" else " No" end) + " |"' "$OUTPUT_DIR/review-v2-${DATE}.json" >> "$OUTPUT_DIR/review-v2-${DATE}.md"
 
 # Add contradictions if any
 CONTRADICTIONS=$(jq '.contradictions | length' "$OUTPUT_DIR/review-v2-${DATE}.json")
 if [ "$CONTRADICTIONS" -gt 0 ]; then
     {
         echo ""
-        echo "## ⚠️ Contradictions Found"
+        echo "##  Contradictions Found"
         echo ""
     } >> "$OUTPUT_DIR/review-v2-${DATE}.md"
     jq -r '.contradictions[] | "
@@ -363,7 +363,7 @@ echo "*Review file: agents/memory/review-v2-${DATE}.json*"
 # Create alert if high priority items exist
 if [ "$HIGH_PRIORITY" -gt 0 ]; then
     {
-        echo "# 🔔 Memory Maintenance Alert v2"
+        echo "#  Memory Maintenance Alert v2"
         echo ""
         echo "**Date:** ${DATE}"
         echo "**High Priority Items:** ${HIGH_PRIORITY}"

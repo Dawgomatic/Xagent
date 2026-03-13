@@ -25,4 +25,4 @@ done
 [ -z "$INPUT" ] || [ -z "$START" ] || [ -z "$END" ] || [ -z "$OUTPUT" ] && usage
 
 ffmpeg -i "$INPUT" -ss "$START" -to "$END" -c copy -y "$OUTPUT"
-echo "✅ Cut complete: $OUTPUT"
+echo " Cut complete: $OUTPUT"

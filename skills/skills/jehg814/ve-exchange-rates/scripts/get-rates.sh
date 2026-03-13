@@ -2,12 +2,12 @@
 # Get Venezuelan exchange rates: BCV official rate and Binance P2P USDT average
 # Filters outliers using median absolute deviation method
 
-echo "🇻🇪 TASAS DE CAMBIO VENEZUELA"
+echo " TASAS DE CAMBIO VENEZUELA"
 echo "=============================="
 echo ""
 
 # Get BCV rate from bcv-api-production (most reliable, direct from BCV)
-echo "📊 Consultando tasa BCV..."
+echo " Consultando tasa BCV..."
 BCV_RESPONSE=$(curl -s "https://bcv-api-production.up.railway.app/api/bcv" 2>/dev/null)
 BCV_RATE=$(echo "$BCV_RESPONSE" | jq -r '.usd // empty')
 
@@ -26,11 +26,11 @@ if [ -z "$BCV_RATE" ] || [ "$BCV_RATE" = "null" ]; then
     BCV_RATE="375.08"
 fi
 
-echo "✅ Tasa BCV: $BCV_RATE Bs/USD"
+echo " Tasa BCV: $BCV_RATE Bs/USD"
 echo ""
 
 # Get Binance P2P USDT rates
-echo "📊 Consultando USDT Binance P2P..."
+echo " Consultando USDT Binance P2P..."
 
 # Get buy prices (selling USDT, receiving VES)
 BUY_JSON=$(curl -s --compressed "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search" \
@@ -130,15 +130,15 @@ fi
 # Calculate overall average
 P2P_AVG=$(echo "scale=2; ($BUY_AVG + $SELL_AVG) / 2" | bc)
 
-echo "✅ USDT P2P (venta): $BUY_AVG Bs/USDT (rango: $BUY_MIN - $BUY_MAX, $BUY_COUNT ofertas)"
-echo "✅ USDT P2P (compra): $SELL_AVG Bs/USDT (rango: $SELL_MIN - $SELL_MAX, $SELL_COUNT ofertas)"
-echo "✅ USDT P2P (promedio filtrado): $P2P_AVG Bs/USDT"
+echo " USDT P2P (venta): $BUY_AVG Bs/USDT (rango: $BUY_MIN - $BUY_MAX, $BUY_COUNT ofertas)"
+echo " USDT P2P (compra): $SELL_AVG Bs/USDT (rango: $SELL_MIN - $SELL_MAX, $SELL_COUNT ofertas)"
+echo " USDT P2P (promedio filtrado): $P2P_AVG Bs/USDT"
 echo ""
-echo "📋 Nota: Se filtraron outliers (>30% de la mediana)"
+echo " Nota: Se filtraron outliers (>30% de la mediana)"
 echo ""
 
 # Calculate gap
-echo "📈 BRECHA CAMBIARIA:"
+echo " BRECHA CAMBIARIA:"
 echo "===================="
 DIFF=$(echo "scale=2; $P2P_AVG - $BCV_RATE" | bc)
 
@@ -152,15 +152,15 @@ GAP_P2P_REF=$(echo "scale=2; ($BCV_RATE - $P2P_AVG) / $P2P_AVG * 100" | bc)
 
 echo "Diferencia: $DIFF Bs"
 echo ""
-echo "📊 Perspectiva 1 (Referencia: BCV = 100%):"
+echo " Perspectiva 1 (Referencia: BCV = 100%):"
 echo "   Brecha: +$GAP_BCV_REF%"
 echo "   → El paralelo está $GAP_BCV_REF% más caro que el oficial"
 echo ""
-echo "📊 Perspectiva 2 (Referencia: Paralelo = 100%):"
+echo " Perspectiva 2 (Referencia: Paralelo = 100%):"
 echo "   Brecha: $GAP_P2P_REF%"
 echo "   → El oficial está $(echo $GAP_P2P_REF | sed 's/-//')% más barato que el paralelo"
 echo ""
-echo "💡 Nota: Son dos formas de ver la misma brecha."
+echo " Nota: Son dos formas de ver la misma brecha."
 echo "   En Venezuela se usa más la primera (BCV como referencia)."
 echo ""
 echo "=============================="

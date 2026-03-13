@@ -16,12 +16,12 @@ Trigger phrases:
 
 ## Features
 
-- ✅ No API credentials required
-- ✅ Extract text, author, timestamp, media URLs
-- ✅ Capture engagement metrics (likes, retweets, replies)
-- ✅ Thread detection and extraction
-- ✅ Optional media download
-- ✅ Structured markdown output
+-  No API credentials required
+-  Extract text, author, timestamp, media URLs
+-  Capture engagement metrics (likes, retweets, replies)
+-  Thread detection and extraction
+-  Optional media download
+-  Structured markdown output
 
 ## Requirements
 

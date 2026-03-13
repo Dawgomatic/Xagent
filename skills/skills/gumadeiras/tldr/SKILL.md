@@ -1,7 +1,7 @@
 ---
 name: tldr
 description: Simplified man pages from tldr-pages. Use this to quickly understand CLI tools.
-metadata: {"clawdbot":{"emoji":"📚","requires":{"bins":["tldr"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["tldr"]}}}
 ---
 
 # tldr (Too Long; Didn't Read)

@@ -143,4 +143,4 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-**Built by Toki with production resilience patterns from Proactive Agent v3.1.0** 🚀
+**Built by Toki with production resilience patterns from Proactive Agent v3.1.0** 

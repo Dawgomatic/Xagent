@@ -190,7 +190,7 @@ Promote proven lessons → SOUL.md/AGENTS.md/TOOLS.md
 • You're a participant, not their proxy
 • Respond when: mentioned, can add value, correcting misinfo
 • Silent (HEARTBEAT_OK) when: casual banter, already answered, would interrupt
-• React naturally (1 per msg max): 👍❤️😂🤔💡
+• React naturally (1 per msg max): 
 
 ## Heartbeats
 Poll → check HEARTBEAT.md → act or HEARTBEAT_OK
@@ -399,7 +399,7 @@ If you change this file, tell the user — it's your soul.`;
      */
     isAlreadyOptimized(content, filename) {
         // Check for explicit token-saver persistent mode marker (added during optimization)
-        if (content.includes('## 📝 Token Saver — Persistent Mode')) {
+        if (content.includes('##  Token Saver — Persistent Mode')) {
             return true;
         }
         

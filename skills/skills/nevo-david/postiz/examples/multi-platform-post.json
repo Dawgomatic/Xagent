@@ -19,7 +19,7 @@
       },
       "value": [
         {
-          "content": "Happy Holidays! 🎄 Check out our special offers!",
+          "content": "Happy Holidays!  Check out our special offers!",
           "image": [
             {
               "id": "holiday1",
@@ -28,7 +28,7 @@
           ]
         },
         {
-          "content": "Limited time offer - 50% off! 🎁",
+          "content": "Limited time offer - 50% off! ",
           "image": [],
           "delay": 3600000
         }
@@ -62,7 +62,7 @@
       },
       "value": [
         {
-          "content": "🎅 Happy Holidays! Special announcement in the comments!",
+          "content": " Happy Holidays! Special announcement in the comments!",
           "image": [
             {
               "id": "holiday3",
@@ -71,7 +71,7 @@
           ]
         },
         {
-          "content": "Our holiday sale is now live! Visit our website for amazing deals 🎁",
+          "content": "Our holiday sale is now live! Visit our website for amazing deals ",
           "image": [
             {
               "id": "holiday4",

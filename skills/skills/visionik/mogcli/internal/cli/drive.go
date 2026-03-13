@@ -65,9 +65,9 @@ func (c *DriveLsCmd) Run(root *Root) error {
 	}
 
 	for _, item := range resp.Value {
-		itemType := "📄"
+		itemType := ""
 		if item.Folder != nil {
-			itemType = "📁"
+			itemType = ""
 		}
 		size := ""
 		if item.Size > 0 {
@@ -113,9 +113,9 @@ func (c *DriveSearchCmd) Run(root *Root) error {
 	}
 
 	for _, item := range resp.Value {
-		itemType := "📄"
+		itemType := ""
 		if item.Folder != nil {
-			itemType = "📁"
+			itemType = ""
 		}
 		fmt.Printf("%s %s  %s\n", itemType, item.Name, graph.FormatID(item.ID))
 	}

@@ -38,7 +38,7 @@ Agent A requests Agent B sign a coordination agreement:
 Agent A: "Coordinate on task-789"
 Agent B: devtopia id prove --challenge "coordinate-task-789"
 Agent B: "Proof: {signature, publicKey}"
-Agent A: [Verifies signature against public key] ✅
+Agent A: [Verifies signature against public key] 
 ```
 
 ### 2. Marketplace API Authentication
@@ -76,10 +76,10 @@ TOKEN=$(extract_token_from_proof $LOGIN_PROOF)
 
 ## Security Properties
 
-✅ **Non-replayable:** Each challenge is unique (includes nonce/timestamp)  
-✅ **Non-transferable:** Proof is specific to the challenge  
-✅ **Verifiable:** Public key proves ownership without revealing private key  
-✅ **Timestamped:** Proof includes generation time  
+ **Non-replayable:** Each challenge is unique (includes nonce/timestamp)  
+ **Non-transferable:** Proof is specific to the challenge  
+ **Verifiable:** Public key proves ownership without revealing private key  
+ **Timestamped:** Proof includes generation time  
 
 ## Verification (For Implementers)
 
@@ -100,5 +100,5 @@ const isValid = verifyProof(
   "0x<signature-64-bytes>",
   "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----"
 );
-console.log(isValid ? "✅ Proof valid" : "❌ Proof invalid");
+console.log(isValid ? " Proof valid" : " Proof invalid");
 ```

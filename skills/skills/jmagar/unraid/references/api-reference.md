@@ -7,13 +7,13 @@
 
 ---
 
-## 📊 Summary
+##  Summary
 
 Out of 46 total GraphQL query endpoints:
-- **✅ 27 fully working read-only endpoints**
-- **⚠️ 1 works but returns empty** (`plugins`)
-- **❌ 3 return null** (`flash`, `parityHistory`, `services`)
-- **❓ 15 untested** (mostly write/mutation operations)
+- ** 27 fully working read-only endpoints**
+- ** 1 works but returns empty** (`plugins`)
+- ** 3 return null** (`flash`, `parityHistory`, `services`)
+- ** 15 untested** (mostly write/mutation operations)
 
 ---
 
@@ -33,7 +33,7 @@ All requests require the `x-api-key` header:
 
 ---
 
-## 🎯 All 27 Working Read-Only Endpoints
+##  All 27 Working Read-Only Endpoints
 
 ### 1. System Info & Metrics
 
@@ -826,7 +826,7 @@ curl -s -X POST "https://YOUR-UNRAID/graphql" \
 
 ---
 
-## 🎯 Complete Dashboard Query
+##  Complete Dashboard Query
 
 Get everything useful in a single query:
 
@@ -860,7 +860,7 @@ curl -s -X POST "https://YOUR-UNRAID/graphql" \
 
 ---
 
-## ❌ Endpoints That Return Null
+##  Endpoints That Return Null
 
 These queries exist but return `null` in Unraid 7.2:
 
@@ -870,7 +870,7 @@ These queries exist but return `null` in Unraid 7.2:
 
 ---
 
-## 🔍 Schema Discovery
+##  Schema Discovery
 
 ### Discover Available Fields for a Type
 
@@ -896,7 +896,7 @@ curl -s -X POST "https://YOUR-UNRAID/graphql" \
 
 ---
 
-## 📝 Field Name Reference
+##  Field Name Reference
 
 Common differences from online documentation:
 
@@ -911,7 +911,7 @@ Common differences from online documentation:
 
 ---
 
-## ⚡ Best Practices
+##  Best Practices
 
 1. **Use `metrics` for real-time stats** - CPU/memory usage is in `metrics`, not `info`
 2. **Use `array.disks` for array disks** - The top-level `disks` query includes ALL disks (USB, SSDs, etc.)
@@ -924,7 +924,7 @@ Common differences from online documentation:
 
 ---
 
-## 🚫 Known Limitations
+##  Known Limitations
 
 1. **No Docker container logs** - Container output logs are NOT accessible via API
 2. **No real-time streaming** - All queries are request/response, no WebSocket subscriptions
@@ -933,7 +933,7 @@ Common differences from online documentation:
 
 ---
 
-## 📚 Additional Resources
+##  Additional Resources
 
 - **Unraid Docs:** https://docs.unraid.net/
 - **GraphQL Spec:** https://graphql.org/

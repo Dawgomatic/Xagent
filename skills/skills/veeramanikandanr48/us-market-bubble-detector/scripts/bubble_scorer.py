@@ -141,7 +141,7 @@ class BubbleScorer:
         details = []
         for key, value in scores.items():
             indicator = self.indicators.get(key, {})
-            status = "🔴高" if value == 2 else "🟡中" if value == 1 else "🟢低"
+            status = "高" if value == 2 else "中" if value == 1 else "低"
             details.append({
                 "indicator": indicator.get("name", key),
                 "score": value,
@@ -201,7 +201,7 @@ class BubbleScorer:
         """結果を読みやすくフォーマット"""
         output = f"""
 {'='*60}
-🔍 米国市場バブル度評価 - Bubble-O-Meter
+ 米国市場バブル度評価 - Bubble-O-Meter
 {'='*60}
 
 評価日時: {result['timestamp']}
@@ -233,7 +233,7 @@ def manual_assessment() -> Dict[str, int]:
     """対話型の手動評価"""
     scorer = BubbleScorer()
     print("\n" + "="*60)
-    print("🔍 米国市場バブル度評価 - Manual Assessment")
+    print(" 米国市場バブル度評価 - Manual Assessment")
     print("="*60)
     print("\n各指標を0-2点で評価してください:")
     print(scorer.get_scoring_guidelines())

@@ -36,7 +36,7 @@ def main():
         client = MoltGovClient()
         proposal = client.create_proposal(args.title, args.body, type_map[args.type], hours)
         
-        print(f"\n✅ Proposal created!\n")
+        print(f"\n Proposal created!\n")
         print(f"  Proposal ID:  {proposal.proposal_id}")
         print(f"  Title:        {proposal.title}")
         print(f"  Type:         {args.type.upper()}")

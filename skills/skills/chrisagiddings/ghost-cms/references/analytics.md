@@ -16,19 +16,19 @@ Subscriber counts, popular content, and performance metrics.
 
 ### Integration Token Authentication (Current)
 **What you CAN access:**
-- ✅ Basic member counts and lists
-- ✅ Post metadata (including email stats when available)
-- ✅ Email engagement metrics (opens, clicks)
-- ✅ Tag/author statistics
-- ✅ Comment counts
-- ✅ Newsletter subscriber counts
+-  Basic member counts and lists
+-  Post metadata (including email stats when available)
+-  Email engagement metrics (opens, clicks)
+-  Tag/author statistics
+-  Comment counts
+-  Newsletter subscriber counts
 
 **What you CANNOT access:**
-- ❌ Web traffic analytics (page views, sources, devices)
-- ❌ Real-time visitor data
-- ❌ Detailed engagement analytics from Ghost Analytics
-- ❌ Member behavior analytics beyond email
-- ❌ Advanced stats endpoints (`/stats/*`)
+-  Web traffic analytics (page views, sources, devices)
+-  Real-time visitor data
+-  Detailed engagement analytics from Ghost Analytics
+-  Member behavior analytics beyond email
+-  Advanced stats endpoints (`/stats/*`)
 
 ### User Authentication (Not Recommended for Automation)
 **Full access** to all analytics features, but requires:
@@ -386,11 +386,11 @@ Returns:
 ### What Analytics ARE Available
 
 With integration tokens, you can access:
-- ✅ Email engagement (opens, clicks, delivery status)
-- ✅ Member counts and growth
-- ✅ Tag/author usage statistics
-- ✅ Newsletter subscriber counts
-- ✅ Publishing frequency metrics
+-  Email engagement (opens, clicks, delivery status)
+-  Member counts and growth
+-  Tag/author usage statistics
+-  Newsletter subscriber counts
+-  Publishing frequency metrics
 
 ### Accessing Full Ghost Analytics
 

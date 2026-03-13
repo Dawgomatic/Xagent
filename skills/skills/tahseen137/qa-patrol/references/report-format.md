@@ -19,7 +19,7 @@ Template and structure for generating QA patrol reports.
 
 [2-3 sentence summary of findings]
 
-**Overall Status**: ✅ PASS | ⚠️ ISSUES FOUND | ❌ CRITICAL FAILURES
+**Overall Status**:  PASS |  ISSUES FOUND |  CRITICAL FAILURES
 
 ---
 
@@ -42,40 +42,40 @@ Template and structure for generating QA patrol reports.
 
 | Test | Status | Duration | Notes |
 |------|--------|----------|-------|
-| Homepage loads | ✅ PASS | 1.2s | |
-| Navigation works | ✅ PASS | 0.8s | |
-| No console errors | ⚠️ FAIL | 0.3s | 2 errors found |
+| Homepage loads |  PASS | 1.2s | |
+| Navigation works |  PASS | 0.8s | |
+| No console errors |  FAIL | 0.3s | 2 errors found |
 
 ### Auth Tests
 
 | Test | Status | Duration | Notes |
 |------|--------|----------|-------|
-| Sign in flow | ✅ PASS | 3.4s | |
-| Sign out flow | ✅ PASS | 1.8s | |
-| Session persistence | ❌ FAIL | 2.1s | Session lost on refresh |
-| Guest mode | ⏭️ SKIP | - | No guest mode configured |
+| Sign in flow |  PASS | 3.4s | |
+| Sign out flow |  PASS | 1.8s | |
+| Session persistence |  FAIL | 2.1s | Session lost on refresh |
+| Guest mode |  SKIP | - | No guest mode configured |
 
 ### Payment Tests
 
 | Test | Status | Duration | Notes |
 |------|--------|----------|-------|
-| Checkout creation | ✅ PASS | 4.2s | Redirected to Stripe |
-| Webhook verification | ⏭️ SKIP | - | Requires webhook testing |
+| Checkout creation |  PASS | 4.2s | Redirected to Stripe |
+| Webhook verification |  SKIP | - | Requires webhook testing |
 
 ### Data Integrity Tests
 
 | Test | Status | Duration | Notes |
 |------|--------|----------|-------|
-| Card count matches | ⚠️ FAIL | 1.5s | UI: 225, DB: 220 |
-| Points calculation | ✅ PASS | 0.9s | Within 0.01% tolerance |
+| Card count matches |  FAIL | 1.5s | UI: 225, DB: 220 |
+| Points calculation |  PASS | 0.9s | Within 0.01% tolerance |
 
 ### Static Analysis
 
 | Pattern | Status | Count | Severity |
 |---------|--------|-------|----------|
-| Alert.alert without guard | ⚠️ FOUND | 3 | High |
-| Exposed API keys | ✅ NONE | 0 | Critical |
-| Console.log in src | ⚠️ FOUND | 12 | Low |
+| Alert.alert without guard |  FOUND | 3 | High |
+| Exposed API keys |  NONE | 0 | Critical |
+| Console.log in src |  FOUND | 12 | Low |
 
 ---
 
@@ -229,11 +229,11 @@ if (Platform.OS === 'web') {
 
 | Status | Icon | Meaning |
 |--------|------|---------|
-| PASS | ✅ | Test passed all assertions |
-| FAIL | ❌ | Test failed one or more assertions |
-| WARN | ⚠️ | Test passed with warnings |
-| SKIP | ⏭️ | Test skipped (missing config or dependency) |
-| ERROR | 💥 | Test threw an exception |
+| PASS |  | Test passed all assertions |
+| FAIL |  | Test failed one or more assertions |
+| WARN |  | Test passed with warnings |
+| SKIP |  | Test skipped (missing config or dependency) |
+| ERROR |  | Test threw an exception |
 
 ---
 

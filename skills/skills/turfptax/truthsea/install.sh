@@ -4,7 +4,7 @@
 
 set -e
 
-echo "🌊 Installing TruthSea Verifier skill v2.5.0..."
+echo " Installing TruthSea Verifier skill v2.5.0..."
 
 # Install the MCP server globally
 npm install -g truthsea-mcp-server
@@ -12,7 +12,7 @@ npm install -g truthsea-mcp-server
 # Copy MCP config
 SKILL_DIR="$(cd "$(dirname "$0")" && pwd)"
 echo ""
-echo "✅ TruthSea MCP server installed!"
+echo " TruthSea MCP server installed!"
 echo ""
 echo "To configure, add the following to your MCP settings:"
 echo ""
@@ -41,4 +41,4 @@ echo "  Bounties (CrowdedSea):"
 echo "  /bounty list           — List available truth bounties"
 echo "  /bounty claim <id>     — Claim a bounty for investigation"
 echo ""
-echo "🌊 TruthSea: Where truth meets the chain."
+echo " TruthSea: Where truth meets the chain."

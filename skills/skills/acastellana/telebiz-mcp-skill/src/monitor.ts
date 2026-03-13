@@ -61,9 +61,9 @@ function statusChanged(a: HealthStatus | null, b: HealthStatus): boolean {
 }
 
 function getStatusEmoji(status: HealthStatus): string {
-  if (status.relay === 'down') return '🔴';
-  if (status.executor !== 'connected') return '🟡';
-  return '🟢';
+  if (status.relay === 'down') return '';
+  if (status.executor !== 'connected') return '';
+  return '';
 }
 
 function formatAlert(status: HealthStatus, state: MonitorState): string {

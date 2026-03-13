@@ -140,7 +140,7 @@ function buildConfig(options = {}) {
       apiKey: talentApiKey,
     };
   } else if (!options.skipWarnings) {
-    console.warn('⚠️  TALENT_API_KEY not found - Talent Protocol scores unavailable');
+    console.warn('  TALENT_API_KEY not found - Talent Protocol scores unavailable');
   }
 
   // Add Farcaster (Neynar) if API key available
@@ -152,7 +152,7 @@ function buildConfig(options = {}) {
       qualityThreshold: options.qualityThreshold || 0.5,
     };
   } else if (!options.skipWarnings) {
-    console.warn('⚠️  NEYNAR_API_KEY not found - Farcaster scores unavailable');
+    console.warn('  NEYNAR_API_KEY not found - Farcaster scores unavailable');
   }
 
   // Level derivation (enabled by default)
@@ -170,24 +170,24 @@ function buildConfig(options = {}) {
  */
 export function formatHuman(data) {
   if (data.error) {
-    return `❌ Error: ${data.message}`;
+    return ` Error: ${data.message}`;
   }
 
   const lines = [];
-  lines.push(`📊 Reputation Summary for ${data.address}`);
-  lines.push(`⏰ ${data.timestamp}\n`);
+  lines.push(` Reputation Summary for ${data.address}`);
+  lines.push(` ${data.timestamp}\n`);
 
   // Availability
-  lines.push('📡 Data Sources:');
+  lines.push(' Data Sources:');
   Object.entries(data.availability || {}).forEach(([source, status]) => {
-    const icon = status === 'available' ? '✅' : status === 'not_found' ? '🔍' : '❌';
+    const icon = status === 'available' ? '' : status === 'not_found' ? '' : '';
     lines.push(`   ${icon} ${source}: ${status}`);
   });
   lines.push('');
 
   // Data summaries
   if (data.data?.ethos) {
-    lines.push('🌐 Ethos Network:');
+    lines.push(' Ethos Network:');
     lines.push(`   Score: ${data.data.ethos.score} (${data.data.ethos.level})`);
     lines.push(`   Vouches: ${data.data.ethos.vouches}`);
     lines.push(`   Reviews: ${data.data.ethos.reviews.positive}+ / ${data.data.ethos.reviews.neutral}• / ${data.data.ethos.reviews.negative}-`);
@@ -195,21 +195,21 @@ export function formatHuman(data) {
   }
 
   if (data.data?.talent) {
-    lines.push('🛠️  Talent Protocol:');
+    lines.push('  Talent Protocol:');
     lines.push(`   Builder: ${data.data.talent.builderScore} (${data.data.talent.builderLevel})${data.data.talent.builderRank ? ` - Rank #${data.data.talent.builderRank}` : ''}`);
     lines.push(`   Creator: ${data.data.talent.creatorScore} (${data.data.talent.creatorLevel})${data.data.talent.creatorRank ? ` - Rank #${data.data.talent.creatorRank}` : ''}`);
     lines.push('');
   }
 
   if (data.data?.farcaster) {
-    lines.push('🎭 Farcaster:');
+    lines.push(' Farcaster:');
     lines.push(`   Quality Score: ${data.data.farcaster.score}`);
-    lines.push(`   Passes Threshold: ${data.data.farcaster.passesQuality ? '✅' : '❌'}`);
+    lines.push(`   Passes Threshold: ${data.data.farcaster.passesQuality ? '' : ''}`);
     lines.push('');
   }
 
   if (data.recency) {
-    lines.push(`📅 Recency: ${data.recency}`);
+    lines.push(` Recency: ${data.recency}`);
   }
 
   return lines.join('\n');

@@ -203,7 +203,7 @@ class Vinculum {
       return await commands.handleCommand(input, cmdContext);
     } catch (err) {
       this.log('error', `Command error: ${err.message}`);
-      return `❌ **Error**\n\n${err.message}`;
+      return ` **Error**\n\n${err.message}`;
     }
   }
   

@@ -1,12 +1,12 @@
 ---
 name: whatsapp-ultimate
 version: 2.0.2
-description: "Complete WhatsApp integration for OpenClaw agents — send messages, media, polls, stickers, voice notes, reactions & replies. Search chat history with full-text search (SQLite + FTS5). Download & transcribe voice messages. Import chat exports. Full history resync. NEW: 🔒 Strict 3-Rule Group Gate (allowed chat + authorized sender + triggerPrefix). DM prefix gate — require triggerPrefix for ALL conversations. Audio preflight passthrough — voice notes transcribed then prefix-checked. responsePrefix config for outbound 🤖 branding. 🤔↔🧐 Thinking Heartbeat. Native Baileys — zero Docker, zero external tools. Works alongside OpenClaw's built-in WhatsApp channel."
+description: "Complete WhatsApp integration for OpenClaw agents — send messages, media, polls, stickers, voice notes, reactions & replies. Search chat history with full-text search (SQLite + FTS5). Download & transcribe voice messages. Import chat exports. Full history resync. NEW:  Strict 3-Rule Group Gate (allowed chat + authorized sender + triggerPrefix). DM prefix gate — require triggerPrefix for ALL conversations. Audio preflight passthrough — voice notes transcribed then prefix-checked. responsePrefix config for outbound  branding.  Thinking Heartbeat. Native Baileys — zero Docker, zero external tools. Works alongside OpenClaw's built-in WhatsApp channel."
 homepage: https://github.com/openclaw/openclaw
 repository: https://github.com/openclaw/openclaw
 metadata:
   openclaw:
-    emoji: "📱"
+    emoji: ""
     requires:
       channels: ["whatsapp"]
     tags:
@@ -70,7 +70,7 @@ We built what we actually needed: an agent that can do *everything* a human can 
 
 ### What Makes This Different
 
-**🔒 Strict 3-Rule Group Gate** — The #1 problem with AI agents in WhatsApp groups: they respond to everything. Someone shares a photo? The agent chimes in. A family member sends a meme? The agent analyzes it. We fixed this with three rules that ALL must pass before your agent opens its mouth:
+** Strict 3-Rule Group Gate** — The #1 problem with AI agents in WhatsApp groups: they respond to everything. Someone shares a photo? The agent chimes in. A family member sends a meme? The agent analyzes it. We fixed this with three rules that ALL must pass before your agent opens its mouth:
 
 1. **Is this an allowed group?** — You whitelist which group chats the agent responds in. The agent sees all chats (for history search, context, and awareness), but only triggers a response in approved groups.
 2. **Is this person authorized?** — Even in an allowed group, only specific phone numbers can trigger the agent. Your cousin's random messages? Ignored.
@@ -78,13 +78,13 @@ We built what we actually needed: an agent that can do *everything* a human can 
 
 No bypasses, no exceptions, no "but the owner sent media so let it through." Your agent stays silent until explicitly addressed by name, by someone you trust, in a chat you approved.
 
-**🤔↔🧐 Thinking Heartbeat** — WhatsApp's linked-device API can't show "typing..." in groups ([Baileys #866](https://github.com/WhiskeySockets/Baileys/issues/866)). We solved it: the agent reacts with 🤔 instantly, alternates to 🧐, and removes the reaction when the reply is ready. Your users always know the agent is working. No other WhatsApp skill does this.
+** Thinking Heartbeat** — WhatsApp's linked-device API can't show "typing..." in groups ([Baileys #866](https://github.com/WhiskeySockets/Baileys/issues/866)). We solved it: the agent reacts with  instantly, alternates to , and removes the reaction when the reply is ready. Your users always know the agent is working. No other WhatsApp skill does this.
 
-**🎤 Voice-First Design** — Voice notes are transcribed *before* prefix checking. Say "Jarvis, what's the weather?" in a voice note and it works exactly like text. The transcript is checked against `triggerPrefix`, and the agent responds with a metallic voice reply using local TTS. Zero cloud costs. Pair with the [sherpa-onnx-tts](https://clawhub.com/skills/sherpa-onnx-tts) skill for the full JARVIS effect, or use [jarvis-voice](https://clawhub.com/skills/jarvis-voice) for a ready-made metallic voice pipeline.
+** Voice-First Design** — Voice notes are transcribed *before* prefix checking. Say "Jarvis, what's the weather?" in a voice note and it works exactly like text. The transcript is checked against `triggerPrefix`, and the agent responds with a metallic voice reply using local TTS. Zero cloud costs. Pair with the [sherpa-onnx-tts](https://clawhub.com/skills/sherpa-onnx-tts) skill for the full JARVIS effect, or use [jarvis-voice](https://clawhub.com/skills/jarvis-voice) for a ready-made metallic voice pipeline.
 
-**📚 Searchable History** — Every message is stored in SQLite with FTS5 full-text search. Import years of old chats from WhatsApp exports. Ask your agent *"what did Sarah say about the deadline last month?"* and get an instant answer. Combine with [agent-memory-ultimate](https://clawhub.com/skills/agent-memory-ultimate) for cognitive recall that spans WhatsApp, email, calendar, and more.
+** Searchable History** — Every message is stored in SQLite with FTS5 full-text search. Import years of old chats from WhatsApp exports. Ask your agent *"what did Sarah say about the deadline last month?"* and get an instant answer. Combine with [agent-memory-ultimate](https://clawhub.com/skills/agent-memory-ultimate) for cognitive recall that spans WhatsApp, email, calendar, and more.
 
-**🔄 Full History Resync** — Pull your entire WhatsApp history (3+ years, 17K+ messages) into the local database with a single re-link. No manual exports needed.
+** Full History Resync** — Pull your entire WhatsApp history (3+ years, 17K+ messages) into the local database with a single re-link. No manual exports needed.
 
 ---
 
@@ -104,14 +104,14 @@ No bypasses, no exceptions, no "but the owner sent media so let it through." You
       "dmPolicy": "allowlist",
       "allowFrom": ["+1234567890"],
       "triggerPrefix": "jarvis",
-      "messagePrefix": "🤖",
-      "responsePrefix": "🤖"
+      "messagePrefix": "",
+      "responsePrefix": ""
     }
   }
 }
 ```
 
-That's it. Your agent now responds only to your messages, only when you say "Jarvis", and every reply is tagged with 🤖 so you always know who's talking.
+That's it. Your agent now responds only to your messages, only when you say "Jarvis", and every reply is tagged with  so you always know who's talking.
 
 ---
 
@@ -173,7 +173,7 @@ ffmpeg -i input.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*
 
 ```
 # Add reaction
-message action=react channel=whatsapp chatJid="34612345678@s.whatsapp.net" messageId="ABC123" emoji="🚀"
+message action=react channel=whatsapp chatJid="34612345678@s.whatsapp.net" messageId="ABC123" emoji=""
 
 # Remove reaction
 message action=react channel=whatsapp chatJid="34612345678@s.whatsapp.net" messageId="ABC123" remove=true
@@ -229,7 +229,7 @@ message action=leaveGroup channel=whatsapp groupId="123@g.us"
 
 ---
 
-## 🔒 Access Control (v2.0)
+##  Access Control (v2.0)
 
 The most granular WhatsApp access control available for any AI agent. Because the last thing you want is your agent responding to your mother-in-law's photos with a treatise on capitulaciones matrimoniales.
 
@@ -264,8 +264,8 @@ The same `triggerPrefix` applies to DMs too. Messages without the prefix are sil
         "120363409030785922@g.us"
       ],
       "triggerPrefix": "jarvis",
-      "messagePrefix": "🤖",
-      "responsePrefix": "🤖"
+      "messagePrefix": "",
+      "responsePrefix": ""
     }
   }
 }
@@ -294,17 +294,17 @@ Talk to your agent through your "Note to Self" chat.
 
 ---
 
-## 🤔 Thinking Heartbeat
+##  Thinking Heartbeat
 
 **The problem:** WhatsApp linked devices can't show "typing..." in groups. This is a WhatsApp server-side limitation — confirmed in [Baileys #866](https://github.com/WhiskeySockets/Baileys/issues/866).
 
-**Our solution:** The agent reacts with 🤔 instantly (<100ms), alternates to 🧐 every second, and removes the reaction when the reply arrives. It doubles as a watchdog — if the reaction freezes on one emoji, something is hung.
+**Our solution:** The agent reacts with  instantly (<100ms), alternates to  every second, and removes the reaction when the reply arrives. It doubles as a watchdog — if the reaction freezes on one emoji, something is hung.
 
-Works in groups ✅ and DMs ✅.
+Works in groups  and DMs .
 
 ---
 
-## 📚 Message History & Search
+##  Message History & Search
 
 Every message stored in SQLite with FTS5 full-text search. Import old chats. Search by keyword, sender, date, or chat.
 
@@ -352,7 +352,7 @@ Database: `~/.openclaw/data/whatsapp-history.db` (SQLite + WAL mode)
 
 ---
 
-## 🎤 Voice Pipeline
+##  Voice Pipeline
 
 ### Incoming Voice Notes
 
@@ -382,7 +382,7 @@ Requires [sherpa-onnx-tts](https://clawhub.com/skills/sherpa-onnx-tts). See also
 
 ---
 
-## 🔄 Offline Recovery
+##  Offline Recovery
 
 Gateway down? Messages aren't lost. WhatsApp delivers missed messages on reconnect, and OpenClaw processes them automatically (6-hour recovery window). Recovered messages are tagged `[OFFLINE RECOVERY]` so your agent can batch-review instead of blindly acting on stale requests.
 
@@ -427,23 +427,23 @@ Build a complete AI assistant stack:
 
 | Feature | whatsapp-ultimate | wacli | whatsapp-business |
 |---|---|---|---|
-| Native integration | ✅ Zero deps | ❌ Go CLI binary | ❌ External API + key |
+| Native integration |  Zero deps |  Go CLI binary |  External API + key |
 | Actions | **24+** | ~6 | ~10 |
-| Polls | ✅ | ❌ | ❌ |
-| Stickers | ✅ | ❌ | ❌ |
-| Voice notes | ✅ | ❌ | ❌ |
-| Reactions | ✅ | ❌ | ❌ |
-| Reply/Quote/Edit/Unsend | ✅ | ❌ | ❌ |
-| Full group management | ✅ | ❌ | ❌ |
-| Thinking indicator | ✅ 🤔↔🧐 | ❌ | ❌ |
-| 3-rule group gate | ✅ | ❌ | ❌ |
-| DM prefix gate | ✅ | ❌ | ❌ |
-| Voice transcription → prefix check | ✅ | ❌ | ❌ |
-| SQLite history + FTS5 | ✅ | ✅ (sync) | ❌ |
-| Chat export import | ✅ | ❌ | ❌ |
-| Full history resync | ✅ | ❌ | ❌ |
-| Offline recovery | ✅ | ❌ | ❌ |
-| Personal WhatsApp | ✅ | ✅ | ❌ (Business only) |
+| Polls |  |  |  |
+| Stickers |  |  |  |
+| Voice notes |  |  |  |
+| Reactions |  |  |  |
+| Reply/Quote/Edit/Unsend |  |  |  |
+| Full group management |  |  |  |
+| Thinking indicator |   |  |  |
+| 3-rule group gate |  |  |  |
+| DM prefix gate |  |  |  |
+| Voice transcription → prefix check |  |  |  |
+| SQLite history + FTS5 |  |  (sync) |  |
+| Chat export import |  |  |  |
+| Full history resync |  |  |  |
+| Offline recovery |  |  |  |
+| Personal WhatsApp |  |  |  (Business only) |
 | Monthly cost | **$0** | $0 | $$ (Meta pricing) |
 
 ---
@@ -467,7 +467,7 @@ OpenClaw auto-converts phone numbers to JID format when using `to=`.
 
 **Agent responds to everything in groups** → Set `triggerPrefix: "jarvis"` and ensure `groupPolicy: "allowlist"`.
 
-**No typing indicator in groups** → This is a WhatsApp limitation. The 🤔 thinking reaction is your indicator.
+**No typing indicator in groups** → This is a WhatsApp limitation. The  thinking reaction is your indicator.
 
 ---
 

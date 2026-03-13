@@ -15,7 +15,7 @@
 
 ---
 
-## ⚠️ Important Disclaimer
+##  Important Disclaimer
 
 This is an **educational/experimental project** demonstrating security concepts in cryptocurrency wallet management. While it includes various security features, it should **NOT be used in production** without thorough security audit and testing.
 
@@ -23,18 +23,18 @@ This is an **educational/experimental project** demonstrating security concepts 
 
 ---
 
-## 📋 Overview
+##  Overview
 
 AI Wallet Payment System is a Python-based cryptocurrency wallet management system designed for AI agents and automated payment workflows. It provides encrypted storage, multi-factor authentication, and secure key management for Ethereum wallets.
 
 ### What It Actually Does
 
-- ✅ Creates and manages Ethereum wallets
-- ✅ Encrypts private keys with AES-256 and ChaCha20-Poly1305
-- ✅ Uses Argon2id for password hashing
-- ✅ Implements TOTP-based 2FA
-- ✅ Provides rate limiting and audit logging
-- ✅ Integrates with Web3 for blockchain transactions
+-  Creates and manages Ethereum wallets
+-  Encrypts private keys with AES-256 and ChaCha20-Poly1305
+-  Uses Argon2id for password hashing
+-  Implements TOTP-based 2FA
+-  Provides rate limiting and audit logging
+-  Integrates with Web3 for blockchain transactions
 
 ### What It Claims vs Reality
 
@@ -42,7 +42,7 @@ The code header lists 500+ security features. In reality, it implements a subset
 
 ---
 
-## 🚀 Features
+##  Features
 
 ### Core Functionality
 - **Wallet Management**: Create, import, and manage Ethereum wallets
@@ -53,24 +53,24 @@ The code header lists 500+ security features. In reality, it implements a subset
 - **Transaction Support**: Send ETH with Web3.py integration
 
 ### Security Features (Actually Implemented)
-- ✅ **Password Validation**: Minimum length, complexity requirements, entropy checking
-- ✅ **Rate Limiting**: Per-wallet and per-IP limits
-- ✅ **Audit Logging**: Comprehensive activity logs
-- ✅ **Input Validation**: SQL injection and command injection prevention
-- ✅ **Memory Wiping**: Secure deletion of sensitive data
-- ✅ **Backup Codes**: One-time recovery codes
+-  **Password Validation**: Minimum length, complexity requirements, entropy checking
+-  **Rate Limiting**: Per-wallet and per-IP limits
+-  **Audit Logging**: Comprehensive activity logs
+-  **Input Validation**: SQL injection and command injection prevention
+-  **Memory Wiping**: Secure deletion of sensitive data
+-  **Backup Codes**: One-time recovery codes
 
 ### Not Actually Implemented (Despite Header Claims)
-- ❌ Hardware Security Module (HSM) integration
-- ❌ Post-quantum cryptography
-- ❌ TPM 2.0 support
-- ❌ Multi-signature wallets
-- ❌ Quantum random number generation
-- ❌ Most of the 500+ listed features
+-  Hardware Security Module (HSM) integration
+-  Post-quantum cryptography
+-  TPM 2.0 support
+-  Multi-signature wallets
+-  Quantum random number generation
+-  Most of the 500+ listed features
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### Prerequisites
 
@@ -143,7 +143,7 @@ RATE_LIMIT_ENABLED=true
 
 ---
 
-## 🔧 Usage
+##  Usage
 
 ### Basic Example
 
@@ -198,7 +198,7 @@ python ultra_secure_wallet_v13_MAXIMUM_SECURITY.py
 
 ---
 
-## 🔒 Security
+##  Security
 
 ### Password Requirements
 
@@ -209,14 +209,14 @@ python ultra_secure_wallet_v13_MAXIMUM_SECURITY.py
 
 ### Best Practices
 
-1. ✅ **Never hardcode passwords or private keys**
-2. ✅ **Use environment variables for configuration**
-3. ✅ **Enable 2FA for all wallets**
-4. ✅ **Store backup codes securely offline**
-5. ✅ **Regular security audits**
-6. ✅ **Keep dependencies updated**
-7. ✅ **Test on testnet before mainnet**
-8. ✅ **Monitor audit logs regularly**
+1.  **Never hardcode passwords or private keys**
+2.  **Use environment variables for configuration**
+3.  **Enable 2FA for all wallets**
+4.  **Store backup codes securely offline**
+5.  **Regular security audits**
+6.  **Keep dependencies updated**
+7.  **Test on testnet before mainnet**
+8.  **Monitor audit logs regularly**
 
 ### Known Limitations
 
@@ -228,7 +228,7 @@ python ultra_secure_wallet_v13_MAXIMUM_SECURITY.py
 
 ---
 
-## 📊 Project Structure
+##  Project Structure
 
 ```
 AI-Wallet-Payment-System/
@@ -242,7 +242,7 @@ AI-Wallet-Payment-System/
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Install test dependencies
@@ -259,7 +259,7 @@ pytest --cov=ultra_secure_wallet_v13_MAXIMUM_SECURITY
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please follow these guidelines:
 
@@ -285,19 +285,19 @@ black ultra_secure_wallet_v13_MAXIMUM_SECURITY.py
 
 ---
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## ⚠️ Security Vulnerabilities
+##  Security Vulnerabilities
 
 If you discover a security vulnerability, please email security@example.com instead of using the issue tracker.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built with [Web3.py](https://github.com/ethereum/web3.py)
 - Uses [Argon2](https://github.com/P-H-C/phc-winner-argon2) for password hashing
@@ -306,7 +306,7 @@ If you discover a security vulnerability, please email security@example.com inst
 
 ---
 
-## 📞 Contact
+##  Contact
 
 - **Author**: cerbug46
 - **Repository**: [https://github.com/cerbug45/AI-Wallet-Payment-System](https://github.com/cerbug45/AI-Wallet-Payment-System)
@@ -314,7 +314,7 @@ If you discover a security vulnerability, please email security@example.com inst
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
 - [ ] Add comprehensive test suite
 - [ ] Implement actual HSM integration
@@ -331,8 +331,8 @@ If you discover a security vulnerability, please email security@example.com inst
 
 <div align="center">
 
-**⭐ Star this repository if you find it useful!**
+** Star this repository if you find it useful!**
 
-Made with ❤️ by cerbug46
+Made with  by cerbug46
 
 </div>

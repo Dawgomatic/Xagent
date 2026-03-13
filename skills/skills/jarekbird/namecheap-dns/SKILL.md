@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🌐",
+        "emoji": "",
         "requires": { "bins": ["node", "npm"] },
       },
   }
@@ -16,16 +16,16 @@ metadata:
 
 Safe wrapper around the Namecheap API for DNS operations. **Prevents accidental record wipeout** by always fetching existing records first and merging changes.
 
-## ⚠️ Why This Skill Exists
+##  Why This Skill Exists
 
 The Namecheap API's `setHosts` method **replaces ALL DNS records** for a domain. One wrong API call = your entire DNS config is gone. This skill:
 
-- ✅ Always fetches existing records first
-- ✅ Merges new records with existing ones (unless explicitly replacing)
-- ✅ Shows a diff preview before applying changes
-- ✅ Auto-backups before every change
-- ✅ Supports dry-run mode for safe testing
-- ✅ One-command rollback from backups
+-  Always fetches existing records first
+-  Merges new records with existing ones (unless explicitly replacing)
+-  Shows a diff preview before applying changes
+-  Auto-backups before every change
+-  Supports dry-run mode for safe testing
+-  One-command rollback from backups
 
 ## Setup
 
@@ -57,7 +57,7 @@ export NAMECHEAP_API_USER="your-username"  # Usually same as username
 
 ### Verify DNS and detect ghost records
 
-**⚠️ IMPORTANT: Run this first!**
+** IMPORTANT: Run this first!**
 
 ```bash
 ./namecheap-dns.js verify example.com
@@ -204,7 +204,7 @@ Review the diff, then run without `--dry-run` to apply.
 
 ## Known Limitations
 
-### ⚠️ The Namecheap API is Destructive
+###  The Namecheap API is Destructive
 
 The Namecheap `domains.dns.setHosts` API method **replaces ALL DNS records** for a domain. There is no "add one record" or "update one record" endpoint. Every change requires:
 
@@ -214,7 +214,7 @@ The Namecheap `domains.dns.setHosts` API method **replaces ALL DNS records** for
 
 **This skill handles this for you** by always fetching first and merging changes.
 
-### 🔍 Ghost Records: The Hidden Danger
+###  Ghost Records: The Hidden Danger
 
 **Problem:** `domains.dns.getHosts` does NOT return all DNS records. Records managed by Namecheap subsystems are invisible to the API:
 
@@ -224,7 +224,7 @@ The Namecheap `domains.dns.setHosts` API method **replaces ALL DNS records** for
 
 Since `setHosts` **replaces all records**, using the API can silently delete these hidden records.
 
-### 🛡️ How This Skill Protects You
+###  How This Skill Protects You
 
 1. **`verify` command** — Compares API records with actual live DNS (via `dig`) and warns about ghost records
 2. **Automatic safety check** — Before any `add`, `remove`, or `restore`, the skill checks for ghost records

@@ -174,12 +174,12 @@ def build_output(api_key, probes, available_models):
 
 def print_usage(output):
     tier = output.get('detected_tier', '?')
-    tier_icon = '🆓' if tier == 'free' else '💰' if tier == 'paid' else '❓'
+    tier_icon = '' if tier == 'free' else '' if tier == 'paid' else ''
 
     print(f"\n╔══════════════════════════════════════════════╗")
     print(f"║         GEMINI API USAGE                     ║")
     print(f"╠══════════════════════════════════════════════╣")
-    print(f"║ API Key: ✅ valid                             ║")
+    print(f"║ API Key:  valid                             ║")
     print(f"║ Tier: {tier_icon} {tier:<10}                            ║")
     print(f"║ Probe cost: {output.get('probe_cost_tokens', 0)} tokens                      ║")
     print(f"║ Available models: {output.get('available_models_count', '?'):<4}                       ║")
@@ -195,14 +195,14 @@ def print_usage(output):
             tpm = rl.get("tpm", "?")
             tpm_k = f"{tpm//1000}K" if isinstance(tpm, int) else tpm
             note = info.get("note", "")
-            print(f"║  ✅ {model:<22} {rpm:>4} rpm  {rpd:>5} rpd ║")
+            print(f"║   {model:<22} {rpm:>4} rpm  {rpd:>5} rpd ║")
             print(f"║     {tpm_k:>6} tpm  {note:<28}║")
         else:
             code = info.get("code", "?")
-            print(f"║  ❌ {model:<22} HTTP {code:<16}  ║")
+            print(f"║   {model:<22} HTTP {code:<16}  ║")
 
     print(f"║──────────────────────────────────────────────║")
-    print(f"║ ⚠ Google does not expose usage counters      ║")
+    print(f"║  Google does not expose usage counters      ║")
     print(f"║   via API. Limits shown are from docs.       ║")
     print(f"╚══════════════════════════════════════════════╝\n")
 
@@ -212,7 +212,7 @@ def main():
     api_key = get_api_key()
 
     if not api_key:
-        print("❌ No GEMINI_API_KEY found.", file=sys.stderr)
+        print(" No GEMINI_API_KEY found.", file=sys.stderr)
         sys.exit(1)
 
     # List available models

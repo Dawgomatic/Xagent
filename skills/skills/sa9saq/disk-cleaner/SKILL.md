@@ -44,7 +44,7 @@ Analyze disk usage and identify cleanup opportunities.
 
 6. **Report format**:
    ```
-   💾 Disk Report — /home (85% used, 12GB free)
+    Disk Report — /home (85% used, 12GB free)
 
    ## Top Space Users
    | Path | Size | Last Modified |
@@ -55,9 +55,9 @@ Analyze disk usage and identify cleanup opportunities.
    ## Cleanup Suggestions
    | Action | Saves | Command | Risk |
    |--------|-------|---------|------|
-   | Clear npm cache | ~1.2 GB | npm cache clean --force | 🟢 Safe |
-   | Docker prune | ~4.5 GB | docker system prune -a | 🟡 Review |
-   | Old logs | ~800 MB | find /var/log -mtime +30 -delete | 🟡 Review |
+   | Clear npm cache | ~1.2 GB | npm cache clean --force |  Safe |
+   | Docker prune | ~4.5 GB | docker system prune -a |  Review |
+   | Old logs | ~800 MB | find /var/log -mtime +30 -delete |  Review |
    ```
 
 ## Security

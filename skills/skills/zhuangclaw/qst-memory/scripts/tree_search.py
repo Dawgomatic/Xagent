@@ -203,19 +203,19 @@ if __name__ == "__main__":
         results = result["results"]
 
     # 顯示完整樹狀路徑 (v1.5+ 改進)
-    print(f"\n📁 完整路徑: {' → '.join(path) if path else 'Root'}")
+    print(f"\n 完整路徑: {' → '.join(path) if path else 'Root'}")
     print(f"   層次: L{len(path) if path else 0} 分層")
     
     # 顯示從 L1 到 L3 的完整結構
     if path:
-        print(f"\n   📂 L1 (根): {path[0]}")
+        print(f"\n    L1 (根): {path[0]}")
         if len(path) > 1:
-            print(f"   ├ 📂 L2 (次): {path[1]}")
+            print(f"   ├  L2 (次): {path[1]}")
         if len(path) > 2:
-            print(f"   └ 📂 L3 (葉): {path[2]}")
+            print(f"   └  L3 (葉): {path[2]}")
     
-    print(f"\n🔑 關鍵詞: {', '.join(keywords[:8]) if keywords else 'None'}")
-    print(f"📊 找到 {len(results)} 條記憶\n")
+    print(f"\n 關鍵詞: {', '.join(keywords[:8]) if keywords else 'None'}")
+    print(f" 找到 {len(results)} 條記憶\n")
 
     if args.verbose:
         for i, r in enumerate(results[:5], 1):

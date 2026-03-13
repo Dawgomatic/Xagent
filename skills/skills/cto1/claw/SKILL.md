@@ -1,7 +1,7 @@
 ---
 name: claw
 description: "Google Workspace via ClawEmail — Gmail, Drive, Docs, Sheets, Slides, Calendar, Forms. Use PROACTIVELY when the user asks to send email, create documents, manage files, schedule events, or work with any Google service."
-metadata: {"openclaw":{"emoji":"🦞","requires":{"env":["CLAWEMAIL_CREDENTIALS"]},"primaryEnv":"CLAWEMAIL_CREDENTIALS"}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["CLAWEMAIL_CREDENTIALS"]},"primaryEnv":"CLAWEMAIL_CREDENTIALS"}}
 ---
 
 # Claw — Google Workspace for AI Agents

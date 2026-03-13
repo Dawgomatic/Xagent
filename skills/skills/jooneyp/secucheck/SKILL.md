@@ -57,18 +57,18 @@ Opens an HTML report in your browser.
 ## Example Output
 
 ```
-🔒 Security Audit Results
+ Security Audit Results
 
-🟡 Needs Attention
+ Needs Attention
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 0 |
-| 🟠 High | 0 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 3 |
+|  Critical | 0 |
+|  High | 0 |
+|  Medium | 2 |
+|  Low | 3 |
 
-### 🟡 Agent "molty": exec + external content processing
+###  Agent "molty": exec + external content processing
 ...
 ```
 
@@ -76,12 +76,12 @@ Opens an HTML report in your browser.
 
 ## Features
 
-- 🔍 **Comprehensive**: Channels, agents, cron, skills, sessions, network, runtime
-- 👤 **3 Expertise Levels**: Beginner / Intermediate / Expert
-- 🌏 **Localized**: Final report in user's language
-- 🎯 **Attack Scenarios**: Real-world exploitation paths
-- ⚡ **Runtime Checks**: VPN, containers, privileges, network exposure
-- 🎨 **Dashboard**: Visual HTML report with security score
+-  **Comprehensive**: Channels, agents, cron, skills, sessions, network, runtime
+-  **3 Expertise Levels**: Beginner / Intermediate / Expert
+-  **Localized**: Final report in user's language
+-  **Attack Scenarios**: Real-world exploitation paths
+-  **Runtime Checks**: VPN, containers, privileges, network exposure
+-  **Dashboard**: Visual HTML report with security score
 
 ---
 
@@ -115,11 +115,11 @@ Present options in user's language. Example (English):
 ```
 What level of technical detail do you prefer?
 
-1. 🌱 Beginner - I'll explain simply with analogies
-2. 💻 Intermediate - Technical details and config examples
-3. 🔐 Expert - Include attack vectors and edge cases
+1.  Beginner - I'll explain simply with analogies
+2.  Intermediate - Technical details and config examples
+3.  Expert - Include attack vectors and edge cases
 
-📌 All levels run the same checks—only explanation depth varies.
+ All levels run the same checks—only explanation depth varies.
 ```
 
 **STOP HERE. Wait for user response.**
@@ -140,30 +140,30 @@ Parse JSON output and format based on user's expertise level.
 #### Report Structure (Organize by Category)
 
 ```
-🔒 Security Audit Results
+ Security Audit Results
 
-📊 Summary Table
+ Summary Table
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | X |
+|  Critical | X |
 | ...
 
-⚡ Runtime
+ Runtime
 - [findings related to RUNTIME category]
 
-🤖 Agents  
+ Agents  
 - [findings related to AGENT category]
 
-📁 Workspace
+ Workspace
 - [findings related to WORKSPACE category]
 
-🧩 Skills
+ Skills
 - [findings related to SKILL category]
 
-📢 Channels
+ Channels
 - [findings related to CHANNEL category]
 
-🌐 Network
+ Network
 - [findings related to NETWORK category]
 ```
 
@@ -183,7 +183,7 @@ The script returns JSON with `url` (LAN IP) and `local_url` (localhost).
 
 Example:
 ```
-📊 대시보드도 열었어요: http://192.168.1.200:8766/secucheck-report.html
+ 대시보드도 열었어요: http://192.168.1.200:8766/secucheck-report.html
 ```
 
 If running in environment where browser can be opened, use browser tool to open it.
@@ -329,11 +329,11 @@ Use these for expert-level explanations:
 ## Risk Levels
 
 ```
-🔴 Critical - Immediate action required. Active exploitation possible.
-🟠 High     - Significant risk. Should fix soon.
-🟡 Medium   - Notable concern. Plan to address.
-🟢 Low      - Minor issue or best practice recommendation.
-⚪ Info     - Not a risk, but worth noting.
+ Critical - Immediate action required. Active exploitation possible.
+ High     - Significant risk. Should fix soon.
+ Medium   - Notable concern. Plan to address.
+ Low      - Minor issue or best practice recommendation.
+ Info     - Not a risk, but worth noting.
 ```
 
 ## Risk Matrix
@@ -342,10 +342,10 @@ Use these for expert-level explanations:
                 Tool Permissions
               Minimal       Full
          ┌──────────┬──────────┐
-Exposure │   🟢     │   🟡     │
+Exposure │        │        │
   Low    │  Safe    │  Caution │
          ├──────────┼──────────┤
-         │   🟡     │   🔴     │
+         │        │        │
   High   │ Caution  │ Critical │
          └──────────┴──────────┘
 

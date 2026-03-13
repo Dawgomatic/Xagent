@@ -1,7 +1,7 @@
 ---
 name: workout
 description: Track workouts, log sets, manage exercises and templates with workout-cli. Supports multi-user profiles. Use when helping users record gym sessions, view history, or analyze strength progression.
-metadata: {"clawdbot":{"emoji":"🏋️","requires":{"bins":["workout"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["workout"]}}}
 ---
 
 # Workout CLI
@@ -38,8 +38,8 @@ Never skip this — unknown exercises will fail to log.
 
 ### 2. Log Accurate Numbers — Notes Are NOT a Substitute
 Sets require **correct weight and reps**. Numbers feed statistical analysis (PRs, volume, progression).
-- ❌ WRONG: Log 0 lbs then add a note with the real weight
-- ✅ RIGHT: Log the actual weight used
+-  WRONG: Log 0 lbs then add a note with the real weight
+-  RIGHT: Log the actual weight used
 
 If user doesn't specify weight, **ASK** before logging. Don't assume 0.
 
@@ -79,7 +79,7 @@ workout exercises list
 workout exercises list --muscle chest
 workout exercises add "Name" --muscles biceps --type isolation --equipment cable
 ```
-⚠️ `exercises add` requires: `--muscles`, `--type`, `--equipment`
+ `exercises add` requires: `--muscles`, `--type`, `--equipment`
 
 Equipment options: barbell, dumbbell, cable, machine, bodyweight, kettlebell, band, other
 

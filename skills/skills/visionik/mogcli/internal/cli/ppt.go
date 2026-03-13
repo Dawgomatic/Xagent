@@ -69,7 +69,7 @@ func (c *PPTListCmd) Run(root *Root) error {
 	fmt.Println("PowerPoint Presentations")
 	fmt.Println()
 	for _, ppt := range presentations {
-		fmt.Printf("📊 %s  %s  %s\n", ppt.Name, formatSize(ppt.Size), ppt.LastModifiedDateTime[:10])
+		fmt.Printf(" %s  %s  %s\n", ppt.Name, formatSize(ppt.Size), ppt.LastModifiedDateTime[:10])
 		fmt.Printf("   ID: %s\n", graph.FormatID(ppt.ID))
 		if root.Verbose && ppt.WebURL != "" {
 			fmt.Printf("   URL: %s\n", ppt.WebURL)

@@ -113,7 +113,7 @@ def is_significant_trade(t):
 def format_trade(t):
     """Format a trade for display."""
     txn = t["Transaction"]
-    emoji = "🟢" if txn == "Purchase" else "🔴" if txn == "Sale" else "⚪"
+    emoji = "" if txn == "Purchase" else "" if txn == "Sale" else ""
     party = f"({t.get('Party', '?')})" if t.get("Party") else ""
     house = t.get("House", "")[:3]
     return (
@@ -203,7 +203,7 @@ def run():
 
             if buy_sells:
                 formatted = "\n\n".join(format_trade(t) for t in buy_sells)
-                alert_msg = f"🏛️ {len(buy_sells)} new congress trade(s) detected:\n\n{formatted}"
+                alert_msg = f" {len(buy_sells)} new congress trade(s) detected:\n\n{formatted}"
                 _write_alert(alert_msg, now, trades=buy_sells)
                 print(
                     f"[{now}] {len(buy_sells)} new trades: "

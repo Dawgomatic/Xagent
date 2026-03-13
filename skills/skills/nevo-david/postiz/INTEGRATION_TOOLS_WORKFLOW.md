@@ -348,21 +348,21 @@ postiz posts:create \
 
 ```bash
 postiz integrations:trigger reddit-123 invalidMethod
-# ❌ Failed to trigger tool: Tool not found
+#  Failed to trigger tool: Tool not found
 ```
 
 ### Missing Required Data
 
 ```bash
 postiz integrations:trigger reddit-123 getFlairs
-# ❌ Missing required parameter: subreddit
+#  Missing required parameter: subreddit
 ```
 
 ### Integration Not Found
 
 ```bash
 postiz integrations:trigger invalid-id getFlairs
-# ❌ Failed to trigger tool: Integration not found
+#  Failed to trigger tool: Integration not found
 ```
 
 ## Tips
@@ -381,13 +381,13 @@ export POSTIZ_API_KEY=your_key
 INTEGRATION_ID="reddit-abc123"
 
 # 1. Get settings
-echo "📋 Getting settings..."
+echo " Getting settings..."
 SETTINGS=$(postiz integrations:settings $INTEGRATION_ID)
 echo $SETTINGS | jq '.output.tools'
 
 # 2. Get flairs
 echo ""
-echo "🏷️  Getting flairs..."
+echo "  Getting flairs..."
 FLAIRS=$(postiz integrations:trigger $INTEGRATION_ID getFlairs -d '{"subreddit":"programming"}')
 FLAIR_ID=$(echo $FLAIRS | jq -r '.output[0].id')
 FLAIR_NAME=$(echo $FLAIRS | jq -r '.output[0].name')
@@ -396,7 +396,7 @@ echo "Selected flair: $FLAIR_NAME ($FLAIR_ID)"
 
 # 3. Create post
 echo ""
-echo "📝 Creating post..."
+echo " Creating post..."
 postiz posts:create \
   -c "My post content" \
   -p reddit \
@@ -417,16 +417,16 @@ postiz posts:create \
   }" \
   -i "$INTEGRATION_ID"
 
-echo "✅ Done!"
+echo " Done!"
 ```
 
 ## Summary
 
-✅ **Discover available tools** with `integrations:settings`
-✅ **Call tools** to fetch required data with `integrations:trigger`
-✅ **Use tool results** in post settings
-✅ **Complete workflow** from discovery to posting
-✅ **Perfect for AI agents** - fully automated
-✅ **No guesswork** - know exactly what data you need
+ **Discover available tools** with `integrations:settings`
+ **Call tools** to fetch required data with `integrations:trigger`
+ **Use tool results** in post settings
+ **Complete workflow** from discovery to posting
+ **Perfect for AI agents** - fully automated
+ **No guesswork** - know exactly what data you need
 
-**The CLI now supports the complete integration tools workflow!** 🎉
+**The CLI now supports the complete integration tools workflow!** 

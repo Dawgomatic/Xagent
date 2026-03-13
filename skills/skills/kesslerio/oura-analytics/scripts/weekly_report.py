@@ -126,15 +126,15 @@ def analyze_week(sleep_data, readiness_data=None):
 def format_telegram_message(week_data, period):
     """Format report for Telegram"""
     emoji = {
-        "sleep": "😴",
-        "readiness": "⚡",
-        "efficiency": "📊",
-        "duration": "⏰",
-        "best": "🏆",
-        "worst": "⚠️",
-        "trend_up": "↗️",
-        "trend_down": "↘️",
-        "trend_same": "➡️"
+        "sleep": "",
+        "readiness": "",
+        "efficiency": "",
+        "duration": "",
+        "best": "",
+        "worst": "",
+        "trend_up": "",
+        "trend_down": "",
+        "trend_same": ""
     }
 
     # Trend indicators
@@ -148,7 +148,7 @@ def format_telegram_message(week_data, period):
             return emoji["trend_down"]
         return emoji["trend_same"]
 
-    msg = f"📈 *Oura Weekly Report* ({period})\n\n"
+    msg = f" *Oura Weekly Report* ({period})\n\n"
 
     # Averages with trends
     msg += f"{emoji['sleep']} Sleep Score: *{week_data['avg_sleep_score']}*/100 {trend_emoji(sleep_trend)}"
@@ -167,14 +167,14 @@ def format_telegram_message(week_data, period):
     # Last 2 days
     last_2_days = week_data.get('last_2_days', [])
     if last_2_days:
-        msg += "\n📅 *Last 2 Days:*\n"
+        msg += "\n *Last 2 Days:*\n"
         for day_data in last_2_days:
             day = day_data.get('day', '')
             sleep = day_data.get('sleep_score', 'N/A')
             ready = day_data.get('readiness', 'N/A')
             hours = day_data.get('hours', 'N/A')
             ready_str = f"{ready}/100" if ready is not None else "N/A"
-            msg += f"  {day}: 😴{sleep} ⚡{ready_str} ⏰{hours}h\n"
+            msg += f"  {day}: {sleep} {ready_str} {hours}h\n"
 
     msg += f"\n{emoji['best']} Best: {week_data['best_day']}\n"
     msg += f"{emoji['worst']} Worst: {week_data['worst_day']}\n"
@@ -228,12 +228,12 @@ def main():
             sys.exit(1)
         
         # Print nicely
-        print(f"\n📊 Oura Weekly Report ({period})")
+        print(f"\n Oura Weekly Report ({period})")
         sleep_trend = week_data.get('sleep_trend', 0)
         readiness_trend = week_data.get('readiness_trend', 0)
 
         def trend_symbol(v):
-            return "↗️" if v > 0 else ("↘️" if v < 0 else "➡️")
+            return "" if v > 0 else ("" if v < 0 else "")
 
         print(f"   Sleep Score: {week_data['avg_sleep_score']} {trend_symbol(sleep_trend)} ({'+' if sleep_trend > 0 else ''}{sleep_trend})")
         print(f"   Readiness: {week_data['avg_readiness']} {trend_symbol(readiness_trend)} ({'+' if readiness_trend > 0 else ''}{readiness_trend})")
@@ -243,10 +243,10 @@ def main():
         # Last 2 days
         last_2 = week_data.get('last_2_days', [])
         if last_2:
-            print("\n   📅 Last 2 Days:")
+            print("\n    Last 2 Days:")
             for d in last_2:
                 ready = d.get('readiness')
-                print(f"      {d['day']}: 😴{d['sleep_score']} ⚡{ready}/100 ⏰{d['hours']}h")
+                print(f"      {d['day']}: {d['sleep_score']} {ready}/100 {d['hours']}h")
 
         print(f"\n   Best: {week_data['best_day']} | Worst: {week_data['worst_day']}")
         print(f"   Tracked: {week_data['days_tracked']} days")
@@ -255,9 +255,9 @@ def main():
         if args.telegram:
             msg = format_telegram_message(week_data, period)
             if send_telegram(msg):
-                print("\n✅ Sent to Telegram!")
+                print("\n Sent to Telegram!")
             else:
-                print("\n❌ Telegram failed")
+                print("\n Telegram failed")
         
         # Save to file
         output_dir = os.environ.get("OURA_OUTPUT_DIR", str(Path.home() / ".oura-analytics" / "reports"))
@@ -265,7 +265,7 @@ def main():
         os.makedirs(output_dir, exist_ok=True)
         with open(report_file, "w") as f:
             json.dump({"period": period, "summary": week_data, "raw": sleep}, f, indent=2)
-        print(f"\n💾 Saved to {report_file}")
+        print(f"\n Saved to {report_file}")
     
     except Exception as e:
         print(f"Error: {e}")

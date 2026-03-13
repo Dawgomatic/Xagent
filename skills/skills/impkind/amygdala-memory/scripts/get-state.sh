@@ -9,7 +9,7 @@ STATE_FILE="$WORKSPACE/memory/emotional-state.json"
 
 # Check if state file exists
 if [ ! -f "$STATE_FILE" ]; then
-  echo "❌ No emotional state found at $STATE_FILE"
+  echo " No emotional state found at $STATE_FILE"
   exit 1
 fi
 
@@ -48,7 +48,7 @@ fi
 if [ "$JSON_OUTPUT" = true ]; then
   cat "$STATE_FILE"
 else
-  echo "🎭 Emotional State"
+  echo " Emotional State"
   echo "─────────────────────"
   echo ""
   

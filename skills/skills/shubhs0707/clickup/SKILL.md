@@ -57,10 +57,10 @@ curl "https://api.clickup.com/api/v2/team/{team_id}/task?include_closed=false&su
 **Never** query tasks without `subtasks=true`:
 
 ```bash
-# ✅ CORRECT
+#  CORRECT
 ?subtasks=true
 
-# ❌ WRONG
+#  WRONG
 (no subtasks parameter)
 ```
 

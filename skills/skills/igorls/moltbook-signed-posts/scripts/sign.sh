@@ -47,7 +47,7 @@ PUBKEY=$(grep -v '^-' "$PUBLIC_KEY" | tr -d '\n')
 cat << EOF
 
 ---
-🔏 **SIGNED POST**
+ **SIGNED POST**
 \`ts:${TIMESTAMP}\`
 \`sig:${SIGNATURE}\`
 \`key:${PUBKEY}\`

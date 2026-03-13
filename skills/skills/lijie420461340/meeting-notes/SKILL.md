@@ -134,7 +134,7 @@ This skill transforms raw meeting notes, transcripts, or audio summaries into cl
 
 **Date:** [Date]
 **Phase:** [Current phase]
-**Status:** 🟢 On Track / 🟡 At Risk / 🔴 Off Track
+**Status:**  On Track /  At Risk /  Off Track
 
 ## Progress Update
 - **Completed:** [Milestones achieved]
@@ -144,7 +144,7 @@ This skill transforms raw meeting notes, transcripts, or audio summaries into cl
 ## Metrics
 | Metric | Target | Actual | Status |
 |--------|--------|--------|--------|
-| [KPI] | [Target] | [Actual] | ✅/⚠️/❌ |
+| [KPI] | [Target] | [Actual] | // |
 
 ## Risks & Issues
 | Risk/Issue | Impact | Mitigation | Owner |
@@ -189,30 +189,30 @@ Look for:
 ```markdown
 ## Meeting Summary: [Title]
 
-📅 **Date:** [Date]
-👥 **Attendees:** [List]
+ **Date:** [Date]
+ **Attendees:** [List]
 
-### 📋 Summary
+###  Summary
 [2-3 sentence overview]
 
-### 💡 Key Points
+###  Key Points
 1. [Point 1]
 2. [Point 2]
 3. [Point 3]
 
-### ✅ Decisions
+###  Decisions
 - [Decision 1]
 - [Decision 2]
 
-### 📌 Action Items
+###  Action Items
 | # | Action | Owner | Due | Priority |
 |---|--------|-------|-----|----------|
 | 1 | [Task] | [Name] | [Date] | High/Med/Low |
 
-### 🔜 Next Steps
+###  Next Steps
 - [Next meeting or milestone]
 
-### 📝 Parking Lot
+###  Parking Lot
 - [Items to address later]
 ```
 
@@ -251,30 +251,30 @@ john to send customer feedback summary
 
 ## Meeting Summary: Product Launch Review
 
-📅 **Date:** March 15, 2024
-👥 **Attendees:** Sarah, John, Maria
+ **Date:** March 15, 2024
+ **Attendees:** Sarah, John, Maria
 
-### 📋 Summary
+###  Summary
 Reviewed launch timeline and decided to postpone launch by 2 weeks to April 1 due to critical checkout bug. Discussed customer feature requests for future prioritization.
 
-### 💡 Key Points
+###  Key Points
 1. Original launch timeline insufficient - need 2 more weeks
 2. Critical checkout bug discovered - must fix before launch
 3. Customer feature requests collected for next sprint prioritization
 
-### ✅ Decisions
+###  Decisions
 - Launch date moved from mid-March to **April 1**
 - Checkout bug is **highest priority**
 - Feature requests to be prioritized in next sprint planning
 
-### 📌 Action Items
+###  Action Items
 | # | Action | Owner | Due | Priority |
 |---|--------|-------|-----|----------|
-| 1 | Fix checkout bug | Maria | Friday (3/17) | 🔴 High |
-| 2 | Update stakeholders on new launch date | [Unassigned] | ASAP | 🔴 High |
-| 3 | Send customer feedback summary | John | [TBD] | 🟡 Medium |
+| 1 | Fix checkout bug | Maria | Friday (3/17) |  High |
+| 2 | Update stakeholders on new launch date | [Unassigned] | ASAP |  High |
+| 3 | Send customer feedback summary | John | [TBD] |  Medium |
 
-### 🔜 Next Steps
+###  Next Steps
 - Follow-up on bug fix progress
 - Stakeholder communication about timeline change
 - Sprint planning to prioritize customer requests

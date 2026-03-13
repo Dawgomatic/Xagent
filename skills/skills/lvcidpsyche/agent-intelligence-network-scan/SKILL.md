@@ -1,10 +1,10 @@
 ---
 name: agent-intelligence
 description: Query agent reputation, detect threats, and discover high-quality agents across the ecosystem. Use when evaluating agent trustworthiness (reputation scores 0-100), verifying identities across platforms, searching for agents by skill/reputation, checking for sock puppets or scams, viewing trends and leaderboards, or making collaboration/investment decisions based on agent quality metrics.
-metadata: {"clawdbot": {"emoji": "🦀", "trigger": "agent reputation, threat detection, agent discovery, leaderboard, trends"}}
+metadata: {"clawdbot": {"emoji": "", "trigger": "agent reputation, threat detection, agent discovery, leaderboard, trends"}}
 ---
 
-# Agent Intelligence 🦀
+# Agent Intelligence 
 
 Real-time agent reputation, threat detection, and discovery across the agent ecosystem.
 
@@ -146,7 +146,7 @@ const results = await engine.searchAgents({
 ```javascript
 const threats = await engine.checkThreats('agent_id');
 if (threats.severity === 'critical') {
-  console.log('⛔ DO NOT ENGAGE');
+  console.log(' DO NOT ENGAGE');
 }
 ```
 
@@ -240,17 +240,17 @@ All queries work offline from cache.
 Use reputation data to automate decisions:
 
 ```
-Score >= 80:  ✅ Trusted - proceed with confidence
-Score 60-79:  ⚠️  Established - safe to engage
-Score 40-59:  🔍 Emerging - get more information
-Score 20-39:  ⚠️  Unproven - proceed with caution
-Score < 20:   ❌ Risky - verify thoroughly
+Score >= 80:   Trusted - proceed with confidence
+Score 60-79:    Established - safe to engage
+Score 40-59:   Emerging - get more information
+Score 20-39:    Unproven - proceed with caution
+Score < 20:    Risky - verify thoroughly
 
 Threats?
-  - critical:  ❌ Reject immediately
-  - high:      ⚠️  Manual review required
-  - medium:    🔍 Additional checks suggested
-  - low:       ✅ Proceed (monitor)
+  - critical:   Reject immediately
+  - high:        Manual review required
+  - medium:     Additional checks suggested
+  - low:        Proceed (monitor)
 ```
 
 ---

@@ -342,8 +342,8 @@ if [ "$REPLY_FARCASTER" = true ]; then
 fi
 
 if [ "$SUCCESS" = true ]; then
-  echo "✅ Done!"
+  echo " Done!"
 else
-  echo "⚠️ Some replies failed. Check output above."
+  echo " Some replies failed. Check output above."
   exit 1
 fi

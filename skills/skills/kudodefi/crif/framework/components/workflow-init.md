@@ -16,7 +16,7 @@
 
 ## STEP 1: READ DEPENDENCIES
 
-> ⚠️ **CRITICAL:** All dependencies must read successfully
+>  **CRITICAL:** All dependencies must read successfully
 
 ### 1.1 Read Objectives
 

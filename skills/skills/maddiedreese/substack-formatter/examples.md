@@ -118,8 +118,8 @@ The skill will automatically:
 
 ## Key Benefits
 
-- ✅ **Research-backed patterns** from 80+ viral Substack posts
-- ✅ **Proper HTML formatting** that Substack editor recognizes  
-- ✅ **Optimal length targeting** (50-120 words for best engagement)
-- ✅ **Copy-paste ready** with formatting preserved
-- ✅ **Multiple structure types** for different content styles
+-  **Research-backed patterns** from 80+ viral Substack posts
+-  **Proper HTML formatting** that Substack editor recognizes  
+-  **Optimal length targeting** (50-120 words for best engagement)
+-  **Copy-paste ready** with formatting preserved
+-  **Multiple structure types** for different content styles

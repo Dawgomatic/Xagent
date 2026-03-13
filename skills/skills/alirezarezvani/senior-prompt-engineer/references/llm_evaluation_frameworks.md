@@ -462,14 +462,14 @@ Decision: Ship if p < 0.05 AND effect size meets threshold AND guardrails pass
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Prompt    │────▶│   LLM API   │────▶│   Output    │
+│   Prompt    │────│   LLM API   │────│   Output    │
 │   Version   │     │             │     │   Storage   │
 └─────────────┘     └─────────────┘     └──────┬──────┘
                                                │
                     ┌──────────────────────────┘
                     ▼
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Metrics   │◀────│  Evaluator  │◀────│  Benchmark  │
+│   Metrics   │────│  Evaluator  │────│  Benchmark  │
 │   Dashboard │     │   Service   │     │   Dataset   │
 └─────────────┘     └─────────────┘     └─────────────┘
 ```

@@ -1,7 +1,7 @@
 ---
 name: Caddy
 description: Configure Caddy as a reverse proxy with automatic HTTPS and simple Caddyfile syntax.
-metadata: {"clawdbot":{"emoji":"🔒","requires":{"bins":["caddy"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["caddy"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Caddy Configuration Rules

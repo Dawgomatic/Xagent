@@ -21,25 +21,25 @@ SUBS_DIR="$WORK_DIR/subs"
 mkdir -p "$FRAMES_DIR" "$SUBS_DIR"
 
 echo ""
-echo "🎬 STORY-VIDEO GENERATOR - ANIMATED WITH SUBTITLES"
+echo " STORY-VIDEO GENERATOR - ANIMATED WITH SUBTITLES"
 echo "=================================================="
-echo "📄 Script: $TEXT_FILE"
-echo "🎵 Audio: $AUDIO"
-echo "🎨 Config: $CONFIG"
-echo "📁 Working: $WORK_DIR"
+echo " Script: $TEXT_FILE"
+echo " Audio: $AUDIO"
+echo " Config: $CONFIG"
+echo " Working: $WORK_DIR"
 echo ""
 
 # Get audio duration
 DURATION=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$AUDIO")
 DURATION_INT=${DURATION%.*}
-echo "⏱️  Duration: ${DURATION_INT}s"
+echo "  Duration: ${DURATION_INT}s"
 echo ""
 
 # Read text
 TEXT=$(cat "$TEXT_FILE")
 
 # Create dynamic subtitle file with timing
-echo "1️⃣  Creating animated subtitles..."
+echo "  Creating animated subtitles..."
 
 # Split text into words and create SRT with precise timing
 WORDS=($TEXT)
@@ -92,11 +92,11 @@ for ((i=0; i<$NUM_WORDS; i++)); do
     SUBTITLE_NUMBER=$((SUBTITLE_NUMBER + 1))
 done
 
-echo "   ✅ Created $(wc -l < "$SRT_FILE") subtitle lines"
+echo "    Created $(wc -l < "$SRT_FILE") subtitle lines"
 echo ""
 
 # Create background video with gradient and animation
-echo "2️⃣  Rendering animated background..."
+echo "  Rendering animated background..."
 
 # Use a gradient background with slow zoom animation
 BG_FILTER="color=c='#0a0e27':s=1080x1920:d=$DURATION_INT,scale=1080:1920,
@@ -110,11 +110,11 @@ BG_PID=$!
 # Wait for background to be created
 wait $BG_PID
 
-echo "   ✅ Created background frames"
+echo "    Created background frames"
 echo ""
 
 # Create subtitled video with animations
-echo "3️⃣  Composing video with animated subtitles..."
+echo "  Composing video with animated subtitles..."
 
 # Complex FFmpeg filter for animated subtitles
 SUBTITLE_FILTER="subtitles='$SRT_FILE':force_style='Fontname=Arial,FontSize=56,PrimaryColour=&HFF00FF,OutlineColour=&H000000,OutlineWidth=2,BorderStyle=3,MarginL=10,MarginR=10,MarginV=100,Bold=1,Alignment=2'"
@@ -136,11 +136,11 @@ ffmpeg -y \
 
 echo ""
 echo "=================================================="
-echo "✨ VIDEO COMPLETE: $OUTPUT"
-echo "📱 Format: YouTube Shorts (9:16 portrait)"
-echo "🎬 Duration: ${DURATION_INT}s"
-echo "🎨 Features: Animated subtitles + gradient background"
-echo "📊 Size: $(du -h "$OUTPUT" | cut -f1)"
+echo " VIDEO COMPLETE: $OUTPUT"
+echo " Format: YouTube Shorts (9:16 portrait)"
+echo " Duration: ${DURATION_INT}s"
+echo " Features: Animated subtitles + gradient background"
+echo " Size: $(du -h "$OUTPUT" | cut -f1)"
 echo "=================================================="
 echo ""
 

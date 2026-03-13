@@ -3,13 +3,13 @@
 
 set -e
 
-echo "🦅 Scout Status - Tidbyt Integration Installer"
+echo " Scout Status - Tidbyt Integration Installer"
 echo "================================================"
 echo
 
 # Check if OpenClaw workspace exists
 if [ ! -d "$HOME/.openclaw/workspace" ]; then
-    echo "❌ Error: OpenClaw workspace not found at ~/.openclaw/workspace"
+    echo " Error: OpenClaw workspace not found at ~/.openclaw/workspace"
     exit 1
 fi
 
@@ -17,9 +17,9 @@ SKILL_DIR="$HOME/.openclaw/workspace/skills/tidbyt-status"
 
 # Check if skill already exists
 if [ -d "$SKILL_DIR" ]; then
-    echo "✅ Skill already installed at $SKILL_DIR"
+    echo " Skill already installed at $SKILL_DIR"
 else
-    echo "❌ Skill not found. Please install the tidbyt-status skill first."
+    echo " Skill not found. Please install the tidbyt-status skill first."
     exit 1
 fi
 
@@ -45,13 +45,13 @@ case $choice in
         echo "Starting status API server in background..."
         cd "$SKILL_DIR"
         nohup python3 scripts/status_server.py > /tmp/scout-status.log 2>&1 &
-        echo "✅ Server started. PID: $!"
+        echo " Server started. PID: $!"
         echo "   Logs: /tmp/scout-status.log"
         echo "   Stop with: kill $!"
         ;;
     3)
         if [ ! -f /bin/systemctl ]; then
-            echo "❌ systemd not found. Use option 2 for manual background start."
+            echo " systemd not found. Use option 2 for manual background start."
             exit 1
         fi
         
@@ -94,10 +94,10 @@ EOF
         ;;
     5)
         echo "Testing API..."
-        curl -s http://localhost:8765/status | python3 -m json.tool || echo "❌ API not responding. Start the server first."
+        curl -s http://localhost:8765/status | python3 -m json.tool || echo " API not responding. Start the server first."
         ;;
     6)
-        echo "Bye! 🦅"
+        echo "Bye! "
         exit 0
         ;;
     *)

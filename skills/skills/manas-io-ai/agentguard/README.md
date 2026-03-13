@@ -1,4 +1,4 @@
-# 🛡️ AgentGuard
+#  AgentGuard
 
 **Security Monitoring for AI Agents**
 
@@ -16,36 +16,36 @@ AgentGuard is a comprehensive security monitoring skill that watches over your A
 
 ---
 
-## 🎯 Key Features
+##  Key Features
 
-### 📁 File Access Monitoring
+###  File Access Monitoring
 - Tracks all file read/write operations
 - Detects access to sensitive files (.env, credentials, secrets)
 - Identifies bulk read patterns that may indicate data exfiltration
 
-### 🌐 API Call Detection  
+###  API Call Detection  
 - Monitors all outbound HTTP requests
 - Flags calls to unknown or untrusted endpoints
 - Detects credential exposure in request payloads
 
-### 📝 Communication Logging
+###  Communication Logging
 - Complete audit trail of external communications
 - Covers emails, messages, webhooks, API calls
 - Sanitized logs with hashed sensitive data
 
-### 🚨 Anomaly Detection
+###  Anomaly Detection
 - Learns baseline behavior patterns
 - Alerts on deviations from normal operations
 - Time-aware (knows what's normal for time of day)
 
-### 📊 Daily Security Reports
+###  Daily Security Reports
 - Comprehensive activity summaries
 - Alert breakdown by severity
 - Actionable security recommendations
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Install
 ```bash
@@ -67,20 +67,20 @@ agentguard status
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│ 🛡️ AgentGuard Security Dashboard                       │
+│  AgentGuard Security Dashboard                       │
 ├─────────────────────────────────────────────────────────┤
 │                                                         │
-│  Threat Level: 🟢 LOW                                   │
+│  Threat Level:  LOW                                   │
 │                                                         │
 │  Active Monitors                                        │
-│  ├─ 📁 File Access    ✓ Running                        │
-│  ├─ 🌐 API Calls      ✓ Running                        │
-│  ├─ 📝 Comm Logger    ✓ Running                        │
-│  └─ 🔍 Anomaly Detect ✓ Running                        │
+│  ├─  File Access    ✓ Running                        │
+│  ├─  API Calls      ✓ Running                        │
+│  ├─  Comm Logger    ✓ Running                        │
+│  └─  Anomaly Detect ✓ Running                        │
 │                                                         │
 │  Last 24 Hours                                          │
 │  ├─ File Operations: 1,247                              │
@@ -93,7 +93,7 @@ agentguard status
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 ```yaml
 # ~/.agentguard/config.yaml
@@ -121,19 +121,19 @@ reporting:
 
 ---
 
-## 📈 Alert Levels
+##  Alert Levels
 
 | Level | Icon | When It Triggers |
 |-------|------|------------------|
-| INFO | 🔵 | Normal logged activity |
-| LOW | 🟢 | Minor pattern deviation |
-| MEDIUM | 🟡 | Notable anomaly detected |
-| HIGH | 🟠 | Potential security threat |
-| CRITICAL | 🔴 | Immediate action required |
+| INFO |  | Normal logged activity |
+| LOW |  | Minor pattern deviation |
+| MEDIUM |  | Notable anomaly detected |
+| HIGH |  | Potential security threat |
+| CRITICAL |  | Immediate action required |
 
 ---
 
-## 🔐 Security & Privacy
+##  Security & Privacy
 
 - **100% Local** - No data leaves your machine
 - **Hashed Secrets** - Credentials never logged in plain text
@@ -142,7 +142,7 @@ reporting:
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 - Clawdbot v1.0+
 - Python 3.10+
@@ -150,7 +150,7 @@ reporting:
 
 ---
 
-## 🤝 Support
+##  Support
 
 - **Issues:** [GitHub Issues](https://github.com/manas-ai/agentguard/issues)
 - **Docs:** [Full Documentation](https://docs.clawdhub.com/skills/agentguard)
@@ -158,13 +158,13 @@ reporting:
 
 ---
 
-## 📜 License
+##  License
 
 MIT License - Use freely, modify freely, just keep the attribution.
 
 ---
 
-## 🏢 About
+##  About
 
 Built by **Manas AI** for the ClawdHub ecosystem.
 

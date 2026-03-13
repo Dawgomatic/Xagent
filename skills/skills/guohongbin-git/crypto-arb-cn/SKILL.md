@@ -21,10 +21,10 @@ python scripts/arbitrage_monitor.py
 
 | Exchange | Fee | API |
 |----------|-----|-----|
-| Binance | 0.1% | ✅ |
-| OKX | 0.08% | ✅ |
-| Gate.io | 0.2% | ✅ |
-| Huobi | 0.2% | ✅ |
+| Binance | 0.1% |  |
+| OKX | 0.08% |  |
+| Gate.io | 0.2% |  |
+| Huobi | 0.2% |  |
 
 ## Configuration
 
@@ -46,7 +46,7 @@ INTERVAL = 30  # seconds
 When opportunities are found:
 
 ```
-💰 BTCUSDT | 币安 → OKX | 利润: 0.65%
+ BTCUSDT | 币安 → OKX | 利润: 0.65%
    买入: ¥485,230 (币安)
    卖出: ¥488,380 (OKX)
    预计利润: ¥3,150 (每 BTC)

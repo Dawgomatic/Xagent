@@ -401,7 +401,7 @@ Start by running `make all-ci` and begin the iterative fix process. Track your p
 description: Create an implementation plan using the subagent agent
 ---
 
-## ⚠️ PLANNING-ONLY MODE ACTIVE
+##  PLANNING-ONLY MODE ACTIVE
 
 I'll help you create an implementation plan using the specialized planning agent. This workflow is designed for **planning only** - no code will be written until the plan is finalized and saved to disk.
 

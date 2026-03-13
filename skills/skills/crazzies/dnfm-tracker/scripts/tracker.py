@@ -103,9 +103,9 @@ def status():
         remaining = total - done
         
         if remaining <= 0:
-            lines.append(f"✅ {name}: {done}/{total} ✓")
+            lines.append(f" {name}: {done}/{total} ✓")
         else:
-            lines.append(f"⏳ {name}: {done}/{total} (剩{remaining})")
+            lines.append(f" {name}: {done}/{total} (剩{remaining})")
     
     return "\n".join(lines) if lines else "没有启用的副本"
 
@@ -131,8 +131,8 @@ def update(event_name, done_count):
     
     remaining = total - done_count
     if remaining <= 0:
-        return f"✅ {event_name}: {done_count}/{total} ✓ 全部完成！"
-    return f"✅ {event_name}: {done_count}/{total}，剩 {remaining} 个"
+        return f" {event_name}: {done_count}/{total} ✓ 全部完成！"
+    return f" {event_name}: {done_count}/{total}，剩 {remaining} 个"
 
 def set_total(event_name, new_total):
     """设置事件总量"""
@@ -157,7 +157,7 @@ def set_total(event_name, new_total):
         data["progress"][key]["total"] = int(new_total)
         save_progress(data)
     
-    return f"✅ {event_name} 总量: {old_total} → {new_total}"
+    return f" {event_name} 总量: {old_total} → {new_total}"
 
 def enable_event(event_name):
     """启用事件"""
@@ -171,7 +171,7 @@ def enable_event(event_name):
     cfg["events"][event_name]["enabled"] = True
     save_config(cfg)
     
-    return f"✅ 已启用 {event_name}"
+    return f" 已启用 {event_name}"
 
 def disable_event(event_name):
     """禁用事件"""
@@ -185,12 +185,12 @@ def disable_event(event_name):
     cfg["events"][event_name]["enabled"] = False
     save_config(cfg)
     
-    return f"✅ 已禁用 {event_name}"
+    return f" 已禁用 {event_name}"
 
 def show_config():
     """显示当前配置"""
     events = get_events()
-    lines = ["⚙️ 当前配置："]
+    lines = [" 当前配置："]
     for name, config in events.items():
         status = "✓" if config.get("enabled", True) else "✗"
         lines.append(f"  {status} {name}: {config['total']}个 (刷新日: 周{config['refresh_day']})")
@@ -198,7 +198,7 @@ def show_config():
 
 def show_events():
     """显示所有可用事件"""
-    lines = ["📋 可用事件列表："]
+    lines = [" 可用事件列表："]
     for name, config in DEFAULT_EVENTS.items():
         lines.append(f"  - {name}")
     return "\n".join(lines)

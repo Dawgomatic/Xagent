@@ -35,7 +35,7 @@ If significant learnings occurred, update `MEMORY.md`:
 ### 3. Update PARA Notes
 
 Check and update the PARA structure in `notes/` (or `memory/notes/`):
-- **Open loops** (`notes/areas/open-loops.md`): Add new unfinished items, mark completed items with ✅
+- **Open loops** (`notes/areas/open-loops.md`): Add new unfinished items, mark completed items with 
 - **Projects** (`notes/projects/`): Update progress on active projects
 - **Areas** (`notes/areas/`): Add new ongoing responsibilities
 - **Resources** (`notes/resources/`): Add new reference material, how-tos
@@ -65,7 +65,7 @@ Provide a brief summary to the user:
 ## Example Output
 
 ```
-## Session Wrap-Up Complete ✅
+## Session Wrap-Up Complete 
 
 **Captured to daily log:**
 - Configured PARA second brain
@@ -82,7 +82,7 @@ Provide a brief summary to the user:
 - Check LanceDB autoCapture setting
 - Consider morning briefing cron
 
-Ready for new session! ⚡
+Ready for new session! 
 ```
 
 ## Notes
@@ -90,4 +90,4 @@ Ready for new session! ⚡
 - Always create the daily log file if it doesn't exist
 - Use the current date for filenames and commit messages
 - Keep summaries concise but complete
-- Include the ⚡ emoji at the end (GigaBot signature)
+- Include the  emoji at the end (GigaBot signature)

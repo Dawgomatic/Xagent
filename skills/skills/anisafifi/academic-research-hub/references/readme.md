@@ -4,31 +4,31 @@ A powerful OpenClaw skill for searching and retrieving academic papers from mult
 
 ## Features
 
-✅ **Multi-Source Search**
+ **Multi-Source Search**
 - arXiv (physics, CS, math, biology, finance, stats)
 - PubMed (biomedical & life sciences)
 - Semantic Scholar (CS & interdisciplinary)
 
-✅ **Advanced Filtering**
+ **Advanced Filtering**
 - Date ranges
 - Author names
 - Categories/fields
 - Citation counts
 - Publication types
 
-✅ **Multiple Output Formats**
+ **Multiple Output Formats**
 - Plain text (human-readable)
 - JSON (structured data)
 - BibTeX (LaTeX citations)
 - RIS (reference managers)
 - Markdown (documentation)
 
-✅ **PDF Download**
+ **PDF Download**
 - Download papers from arXiv
 - Batch download support
 - Organized file naming
 
-✅ **Citation Management**
+ **Citation Management**
 - Extract citations
 - Generate bibliographies
 - Export to reference managers
@@ -57,7 +57,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-⚠️ **Never use `--break-system-packages`** - use virtual environments instead!
+ **Never use `--break-system-packages`** - use virtual environments instead!
 
 ## Quick Start
 
@@ -202,20 +202,20 @@ Formatted documentation with headers and links
 ### arXiv
 - **Best for:** Physics, CS, math, quantitative fields
 - **Coverage:** 2M+ preprints since 1991
-- **PDF Download:** ✅ Yes
-- **Full Text:** ✅ Yes
+- **PDF Download:**  Yes
+- **Full Text:**  Yes
 
 ### PubMed
 - **Best for:** Biomedical, life sciences, medicine
 - **Coverage:** 35M+ citations
-- **PDF Download:** ❌ Links only
+- **PDF Download:**  Links only
 - **Full Text:** Sometimes (via PMC)
 
 ### Semantic Scholar
 - **Best for:** CS, interdisciplinary research
 - **Coverage:** 200M+ papers
-- **PDF Download:** ✅ When available
-- **Full Text:** ✅ When open access
+- **PDF Download:**  When available
+- **Full Text:**  When open access
 
 ## Best Practices
 

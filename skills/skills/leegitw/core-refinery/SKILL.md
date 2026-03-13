@@ -4,7 +4,7 @@ description: Find the core that runs through everything — the ideas that survi
 homepage: https://obviouslynot.ai
 user-invocable: true
 disable-model-invocation: true
-emoji: 💎
+emoji: 
 tags:
   - core-ideas
   - refinement
@@ -71,7 +71,7 @@ A principle is invariant when:
 ```
 Synthesizing 4 sources: a1b2c3d4, e5f6g7h8, i9j0k1l2, m3n4o5p6
 
-GOLDEN MASTER CANDIDATES 💎
+GOLDEN MASTER CANDIDATES 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 INV-1: "Compression that preserves meaning demonstrates comprehension"
        N=4 (all sources), High confidence
@@ -177,7 +177,7 @@ What's next:
 If I find Golden Master candidates, I'll include:
 
 ```
-"share_text": "Golden Master identified: 3 principles survived across all 4 sources (N≥3 ✓) obviouslynot.ai/pbd/{hash} 💎"
+"share_text": "Golden Master identified: 3 principles survived across all 4 sources (N≥3 ✓) obviouslynot.ai/pbd/{hash} "
 ```
 
 This is the culmination of the whole process — genuinely exciting when it happens!

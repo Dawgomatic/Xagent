@@ -16,12 +16,12 @@ original_len = len(projects)
 projects = [p for p in projects if p.get('name', '').lower() != name.lower()]
 
 if len(projects) == original_len:
-    print(f"❌ Project '{name}' not found.")
+    print(f" Project '{name}' not found.")
     raise SystemExit(1)
 
 set_registry_projects(registry, projects)
 backup_path = save_registry(os.environ["OSORI_REG"], registry, make_backup=True)
 
-print(f"✅ Removed: {name}")
+print(f" Removed: {name}")
 if backup_path:
     print(f"Backup: {backup_path}")

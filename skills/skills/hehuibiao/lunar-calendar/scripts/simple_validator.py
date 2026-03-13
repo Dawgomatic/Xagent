@@ -175,16 +175,16 @@ class SimpleLunarValidator:
         
         if passed:
             self.passed_count += 1
-            print(f"  ✅ 通过")
+            print(f"   通过")
         else:
             self.failed_count += 1
-            print(f"  ❌ 失败")
+            print(f"   失败")
         
         return validation_result
     
     def run_validation(self) -> dict:
         """运行验证测试"""
-        print("🌙 农历计算准确性验证系统（简化版）")
+        print(" 农历计算准确性验证系统（简化版）")
         print("=" * 60)
         print(f"开始验证 {len(self.known_dates)} 个已知农历日期...")
         print("=" * 60)
@@ -202,7 +202,7 @@ class SimpleLunarValidator:
     def generate_report(self) -> dict:
         """生成验证报告"""
         print("\n" + "=" * 60)
-        print("📊 验证报告")
+        print(" 验证报告")
         print("=" * 60)
         
         total = len(self.results)
@@ -221,8 +221,8 @@ class SimpleLunarValidator:
         # 如果全部通过，建议名称
         if passed == total and total >= 30:
             system_name = self.suggest_system_name()
-            print(f"\n🎉 所有验证通过！")
-            print(f"✨ 推荐系统名称: {system_name}")
+            print(f"\n 所有验证通过！")
+            print(f" 推荐系统名称: {system_name}")
             
             # 创建技能包
             self.create_skill_package(system_name)
@@ -236,7 +236,7 @@ class SimpleLunarValidator:
                 "recommended_name": system_name
             }
         else:
-            print(f"\n⚠️  验证未完全通过")
+            print(f"\n  验证未完全通过")
             return {
                 "all_passed": False,
                 "total_tests": total,
@@ -264,7 +264,7 @@ class SimpleLunarValidator:
         with open(filename, 'w', encoding='utf-8') as f:
             json.dump(report, f, ensure_ascii=False, indent=2)
         
-        print(f"\n📁 详细结果已保存: {filename}")
+        print(f"\n 详细结果已保存: {filename}")
     
     def suggest_system_name(self) -> str:
         """为系统建议名称"""
@@ -286,7 +286,7 @@ class SimpleLunarValidator:
     
     def create_skill_package(self, system_name: str):
         """创建技能包建议"""
-        print(f"\n📦 技能包创建建议")
+        print(f"\n 技能包创建建议")
         print("=" * 40)
         
         skill_name = system_name.split(' - ')[0].replace(' ', '-').replace('—', '-').lower()
@@ -297,7 +297,7 @@ class SimpleLunarValidator:
         print(f"作者: 夏暮辞青")  # 这里会替换为用户的名字
         print(f"描述: 精准的农历生日提醒和管理系统，经过30次严格验证")
         
-        print("\n📁 建议的目录结构:")
+        print("\n 建议的目录结构:")
         print(f"{skill_name}/")
         print("├── SKILL.md")
         print("├── package.json")
@@ -312,12 +312,12 @@ class SimpleLunarValidator:
         print("│   └── validation.spec.js")
         print("└── README.md")
         
-        print("\n🌐 发布目标:")
+        print("\n 发布目标:")
         print(f"  - GitHub: https://github.com/yourusername/{skill_name}")
         print(f"  - 小龙虾社区: https://clawhub.com/skills/{skill_name}")
         print(f"  - OpenClaw技能市场")
         
-        print("\n📝 下一步:")
+        print("\n 下一步:")
         print("1. 完善技能文档")
         print("2. 添加更多测试用例")
         print("3. 创建安装脚本")
@@ -325,7 +325,7 @@ class SimpleLunarValidator:
 
 def main():
     """主函数"""
-    print("🌙 农历自动化生日提醒系统验证工具")
+    print(" 农历自动化生日提醒系统验证工具")
     print("进行30次严格验证测试")
     print("=" * 60)
     
@@ -337,10 +337,10 @@ def main():
     print("验证完成!")
     
     if result.get('all_passed', False):
-        print("✅ 所有验证测试通过！系统可以发布。")
-        print(f"✨ 推荐系统名称: {result.get('recommended_name', '未知')}")
+        print(" 所有验证测试通过！系统可以发布。")
+        print(f" 推荐系统名称: {result.get('recommended_name', '未知')}")
     else:
-        print("⚠️  验证未完全通过，请检查系统逻辑。")
+        print("  验证未完全通过，请检查系统逻辑。")
 
 if __name__ == "__main__":
     main()

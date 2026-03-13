@@ -14,6 +14,6 @@
 | {{WBS_ID}} | {{AGENT_NAME}} | PMP-Agent | {{SPECIALISTS}} | {{STAKEHOLDERS}} |
 
 ## Validation rules
-- ✅ Every row has exactly ONE 'A'
-- ✅ Every row has at least one 'R'
-- ✅ No person is both 'R' and 'A' on the same deliverable (unless team is small)
+-  Every row has exactly ONE 'A'
+-  Every row has at least one 'R'
+-  No person is both 'R' and 'A' on the same deliverable (unless team is small)

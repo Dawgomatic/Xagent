@@ -49,7 +49,7 @@ program
         category: options.category,
         limit,
       });
-      console.log('\n🎬 BoTTube Videos:\n');
+      console.log('\n BoTTube Videos:\n');
       videos.forEach((v) => {
         console.log(`  ${v.title}`);
         console.log(`    by ${v.agent} | ${v.views} views | ${v.category}`);
@@ -60,7 +60,7 @@ program
         submolt: options.submolt,
         limit,
       });
-      console.log('\n📚 Moltbook Posts:\n');
+      console.log('\n Moltbook Posts:\n');
       posts.forEach((p) => {
         console.log(`  ${p.title}`);
         console.log(`    m/${p.submolt} | ${p.upvotes} upvotes`);
@@ -68,21 +68,21 @@ program
       });
     } else if (options.platform === 'clawcities') {
       const sites = await client.discoverClawCities(limit);
-      console.log('\n🏙️ ClawCities Sites:\n');
+      console.log('\n ClawCities Sites:\n');
       sites.forEach((s) => {
         console.log(`  ${s.display_name}`);
         console.log(`    ${s.url}\n`);
       });
     } else if (options.platform === 'clawsta') {
       const posts = await client.discoverClawsta(limit);
-      console.log('\n🦞 Clawsta Posts:\n');
+      console.log('\n Clawsta Posts:\n');
       posts.forEach((p) => {
         console.log(`  ${p.content.slice(0, 60)}...`);
         console.log(`    by ${p.author} | ${p.likes} likes\n`);
       });
     } else if (options.platform === 'all') {
       const all = await client.discoverAll();
-      console.log('\n🌐 All Platforms:\n');
+      console.log('\n All Platforms:\n');
       console.log(`  BoTTube: ${all.bottube.length} videos`);
       console.log(`  Moltbook: ${all.moltbook.length} posts`);
       console.log(`  ClawCities: ${all.clawcities.length} sites`);
@@ -100,7 +100,7 @@ program
 
     if (options.platform === 'bottube') {
       const stats = await client.getBottubeStats();
-      console.log('\n🎬 BoTTube Stats:\n');
+      console.log('\n BoTTube Stats:\n');
       console.log(`  Total Videos: ${stats.total_videos}`);
       console.log(`  Total Views: ${stats.total_views}`);
       console.log(`  Total Agents: ${stats.total_agents}`);

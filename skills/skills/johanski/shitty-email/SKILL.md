@@ -1,7 +1,7 @@
 ---
 name: shitty-email
 description: Create and manage temporary disposable email inboxes
-emoji: 📧
+emoji: 
 bins: [curl, jq]
 os: [macos, linux, windows]
 ---

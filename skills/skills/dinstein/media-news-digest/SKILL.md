@@ -47,13 +47,13 @@ Automated media & entertainment industry news digest system. Covers Hollywood tr
 
 ## Topics (7 sections)
 
-- 🎟️ Box Office — NA/global box office, opening weekends
-- 📺 Streaming — Netflix, Disney+, Apple TV+, HBO, viewership data
-- 🎬 Production — New projects, casting, filming updates
-- 🏆 Awards — Oscars, Golden Globes, Emmys, BAFTAs, campaigns
-- 💰 Deals & Business — M&A, rights, talent deals, restructuring
-- 🎪 Film Festivals — Cannes, Venice, TIFF, Sundance, Berlin
-- ⭐ Reviews & Buzz — Critical reception, RT/Metacritic scores
+-  Box Office — NA/global box office, opening weekends
+-  Streaming — Netflix, Disney+, Apple TV+, HBO, viewership data
+-  Production — New projects, casting, filming updates
+-  Awards — Oscars, Golden Globes, Emmys, BAFTAs, campaigns
+-  Deals & Business — M&A, rights, talent deals, restructuring
+-  Film Festivals — Cannes, Venice, TIFF, Sundance, Berlin
+-  Reviews & Buzz — Critical reception, RT/Metacritic scores
 
 ## Scripts Pipeline
 

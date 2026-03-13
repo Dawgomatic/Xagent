@@ -70,9 +70,9 @@ This document provides detailed information about configuring the aria2-json-rpc
 Location: `~/.config/aria2-skill/config.json`
 
 **Advantages:**
-- ✅ Survives skill updates via `npx skills add`
-- ✅ Works across all projects
-- ✅ Perfect for personal default settings
+-  Survives skill updates via `npx skills add`
+-  Works across all projects
+-  Perfect for personal default settings
 
 **Setup:**
 ```bash
@@ -85,12 +85,12 @@ python3 scripts/config_loader.py init --user
 Location: `skills/aria2-json-rpc/config.json`
 
 **Advantages:**
-- ✅ Project-specific configuration
-- ✅ Perfect for testing different environments
-- ✅ Can be version controlled (if no secrets)
+-  Project-specific configuration
+-  Perfect for testing different environments
+-  Can be version controlled (if no secrets)
 
 **Disadvantages:**
-- ⚠️ Lost when running `npx skills add` to update
+-  Lost when running `npx skills add` to update
 
 **Setup:**
 ```bash
@@ -112,9 +112,9 @@ export ARIA2_RPC_TIMEOUT=30000
 ```
 
 **Advantages:**
-- ✅ Highest priority (overrides file configs)
-- ✅ Perfect for CI/CD pipelines
-- ✅ No files to manage
+-  Highest priority (overrides file configs)
+-  Perfect for CI/CD pipelines
+-  No files to manage
 
 **Type Conversions:**
 - `ARIA2_RPC_PORT`: Converted to integer

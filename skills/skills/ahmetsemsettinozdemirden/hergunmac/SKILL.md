@@ -55,7 +55,7 @@ Fetch the latest navigation guide directly from the site for up-to-date URL patt
 
 ## Important Disclaimers
 
-⚠️ **Always communicate these to users:**
+ **Always communicate these to users:**
 
 1. Predictions are for **statistical information only**
 2. Past performance does not guarantee future results

@@ -4,10 +4,10 @@ Give your AI agent long-term memory with automatic context capture and recall.
 
 ## Features
 
-- 🧠 **Auto-capture** - Important observations saved automatically
-- 🔍 **Auto-recall** - Relevant memories injected before each prompt
-- 💾 **SQLite + FTS5** - Fast full-text search
-- 🛠️ **Tools** - `memory_search`, `memory_get`, `memory_store`, `memory_delete`
+-  **Auto-capture** - Important observations saved automatically
+-  **Auto-recall** - Relevant memories injected before each prompt
+-  **SQLite + FTS5** - Fast full-text search
+-  **Tools** - `memory_search`, `memory_get`, `memory_store`, `memory_delete`
 
 ## Installation
 

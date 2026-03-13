@@ -26,7 +26,7 @@ if [[ "$count" -eq 0 ]]; then
     # Check if any previously tracked matches ended
     prev_ids=$(echo "$prev_state" | jq -r '.matches | keys[]' 2>/dev/null)
     if [[ -n "$prev_ids" ]]; then
-        echo "🏏 *CRICKET ALERT*"
+        echo " *CRICKET ALERT*"
         echo ""
         echo "All tracked matches have ended."
         # Clear state
@@ -67,16 +67,16 @@ echo "$matches" | jq -c '.[]' | while read -r match; do
     # Detect events
     if [[ "$total_wickets" -gt "$prev_wickets" ]] && [[ "$prev_wickets" != "0" || -n "$prev_status" ]]; then
         wickets_fallen=$((total_wickets - prev_wickets))
-        echo "🚨 *WICKET!* (${wickets_fallen} fell)"
-        echo "   🏏 ${name}"
+        echo " *WICKET!* (${wickets_fallen} fell)"
+        echo "    ${name}"
         echo "   ${current_score}"
         echo ""
     fi
     
     # Century detection (crude: check if runs crossed a 100 boundary)
     if [[ "$total_runs" -ge 100 ]] && [[ "$prev_runs" -lt 100 ]] && [[ -n "$prev_status" ]]; then
-        echo "💯 *CENTURY ALERT!*"
-        echo "   🏏 ${name}"
+        echo " *CENTURY ALERT!*"
+        echo "    ${name}"
         echo "   ${current_score}"
         echo ""
     fi
@@ -84,8 +84,8 @@ echo "$matches" | jq -c '.[]' | while read -r match; do
     # Match ended
     ended=$(echo "$match" | jq -r '.matchEnded // false')
     if [[ "$ended" == "true" ]] && [[ "$prev_status" != *"won"* ]] && [[ -n "$prev_status" ]]; then
-        echo "🏆 *MATCH ENDED!*"
-        echo "   🏏 ${name}"
+        echo " *MATCH ENDED!*"
+        echo "    ${name}"
         echo "   $(format_status "$status")"
         echo "   ${current_score}"
         echo ""

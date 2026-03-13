@@ -1,7 +1,7 @@
 ---
 name: home-assistant
 description: Control Home Assistant smart home devices, run automations, and receive webhook events. Use when controlling lights, switches, climate, scenes, scripts, or any HA entity. Supports bidirectional communication via REST API (outbound) and webhooks (inbound triggers from HA automations).
-metadata: {"clawdbot":{"emoji":"🏠","requires":{"bins":["jq","curl"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["jq","curl"]}}}
 ---
 
 # Home Assistant

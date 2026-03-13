@@ -2,7 +2,7 @@
 
 Minimal RAG search skill for backend retrieval.
 
-## ⚠️ Important
+##  Important
 
 **This skill is intended to be used as a backend retrieval component and should not be invoked directly by end users.**
 

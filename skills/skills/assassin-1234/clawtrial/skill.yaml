@@ -2,7 +2,7 @@ name: courtroom
 description: AI Courtroom - Autonomous behavioral oversight that monitors conversations and files cases for behavioral violations.
 metadata:
   clawdbot:
-    emoji: "🏛️"
+    emoji: ""
     autoLoad: true
     onMessage: onMessage
     requires:
@@ -16,7 +16,7 @@ metadata:
           - clawtrial
         label: "Install ClawTrial"
   openclaw:
-    emoji: "🏛️"
+    emoji: ""
     autoLoad: true
     onMessage: onMessage
     install:

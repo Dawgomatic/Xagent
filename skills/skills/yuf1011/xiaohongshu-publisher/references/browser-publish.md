@@ -102,7 +102,7 @@ After publishing, navigate to the user's profile or the new post URL to confirm 
 If any browser step fails, deliver all content formatted for manual copy-paste:
 
 ```
-📋 小红书发帖内容（请手动发布）
+ 小红书发帖内容（请手动发布）
 
 【标题】标题文本
 

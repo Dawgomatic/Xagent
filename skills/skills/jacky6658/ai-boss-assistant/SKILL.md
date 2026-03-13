@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "💼",
+        "emoji": "",
         "requires": { "bins": ["node"] },
       },
   }
@@ -55,10 +55,10 @@ After training, you can say:
 ### AI Employee vs Chatbot
 
 This template creates an "AI Employee" that:
-- ✅ Proactively executes tasks
-- ✅ Provides complete solutions
-- ✅ Has judgment and opinions
-- ✅ Delivers results, not just answers
+-  Proactively executes tasks
+-  Provides complete solutions
+-  Has judgment and opinions
+-  Delivers results, not just answers
 
 ### Milestone Delivery
 

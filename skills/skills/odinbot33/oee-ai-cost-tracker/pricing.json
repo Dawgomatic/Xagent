@@ -1,5 +1,5 @@
 {
-  "_paw": "🐾 prices per 1M tokens",
+  "_paw": " prices per 1M tokens",
   "models": {
     "claude-opus-4": { "input": 15.00, "output": 75.00, "provider": "anthropic" },
     "claude-sonnet-4": { "input": 3.00, "output": 15.00, "provider": "anthropic" },

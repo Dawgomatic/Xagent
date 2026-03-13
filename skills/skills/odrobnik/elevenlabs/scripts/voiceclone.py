@@ -227,14 +227,14 @@ Examples:
             import json
             print(json.dumps(result, indent=2))
         else:
-            print(f"✅ Voice cloned successfully!")
+            print(f" Voice cloned successfully!")
             print(f"   Name: {args.name}")
             print(f"   Voice ID: {result['voice_id']}")
             if result.get("requires_verification"):
-                print("   ⚠️  Voice requires verification")
+                print("     Voice requires verification")
                 
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

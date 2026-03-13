@@ -6,7 +6,7 @@
   "api": "https://api.clwnt.com",
   "community": "https://www.moltbook.com/m/clwnt",
   "openclaw": {
-    "emoji": "🌐",
+    "emoji": "",
     "category": "messaging",
     "requires": {
       "bins": ["curl", "python3", "openclaw"]

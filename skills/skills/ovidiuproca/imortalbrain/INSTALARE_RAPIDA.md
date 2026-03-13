@@ -1,4 +1,4 @@
-# 🔧 INSTALARE RAPIDĂ - 3 Pași
+#  INSTALARE RAPIDĂ - 3 Pași
 
 ## Pasul 1: Găsește Python
 
@@ -46,17 +46,17 @@ cd "D:\OpenClaw_Setup\skills\immortal-brain"
 
 ---
 
-## 🎯 Dacă Funcționează
+##  Dacă Funcționează
 
 Vei vedea mesajul de ajutor. Atunci sistemul este gata!
 
-## ❌ Dacă NU Funcționează
+##  Dacă NU Funcționează
 
 **Spune-mi exact ce eroare apare și rezolvăm împreună!**
 
 ---
 
-## 📱 Alternativ: Rulează TEST_INSTALL.bat
+##  Alternativ: Rulează TEST_INSTALL.bat
 
 **Dublează click pe:** `D:\OpenClaw_Setup\skills\immortal-brain\TEST_INSTALL.bat`
 

@@ -1,7 +1,7 @@
 ---
 name: lyrical-fable
 description: Create short lyrical fables (~1000 words) about historical, fictional, or mythological characters in the style of Zachary Mason, Italo Calvino, Jorge Luis Borges, Alan Lightman, Roberto Calasso, Salman Rushdie, Milan Kundera, and Ted Chiang. This skill should be used when the user requests a "lyrical fable," "mythic story," "dreamy narrative," or asks for a short story in the style of these authors about any character. The stories are first-person, philosophically rich, poetically precise, and avoid melancholy in favor of wonder and luminosity.
-metadata: {"openclaw": {"emoji": "📜", "always": true}}
+metadata: {"openclaw": {"emoji": "", "always": true}}
 ---
 
 # Lyrical Fable

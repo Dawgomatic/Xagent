@@ -16,11 +16,11 @@ These patterns are identical to credential stealers and data exfiltration malwar
 
 ### What This Skill Does NOT Do
 
-- ❌ Send data to third-party servers (only YOUR webhook)
-- ❌ Exfiltrate credentials to external endpoints
-- ❌ Include hidden backdoors or obfuscated code
-- ❌ Attempt prompt injection or social engineering
-- ❌ Modify files outside skill directory
+-  Send data to third-party servers (only YOUR webhook)
+-  Exfiltrate credentials to external endpoints
+-  Include hidden backdoors or obfuscated code
+-  Attempt prompt injection or social engineering
+-  Modify files outside skill directory
 
 ### Verification
 
@@ -52,10 +52,10 @@ pip3 install keyring --user --break-system-packages
 
 #### Security Benefits
 
-- ✅ OS-level encryption (real improvement)
-- ✅ No plain text passwords in config files
-- ✅ Tied to user session (auto-lock when logged out)
-- ✅ Audit trail through OS keychain logs
+-  OS-level encryption (real improvement)
+-  No plain text passwords in config files
+-  Tied to user session (auto-lock when logged out)
+-  Audit trail through OS keychain logs
 
 #### When It Works Best
 
@@ -168,11 +168,11 @@ stringData:
 
 #### Best Practices
 
-- ✅ Use secrets management (Docker Secrets, K8s Secrets, Vault)
-- ✅ Rotate credentials regularly
-- ✅ Limit container capabilities (`CAP_DROP=ALL`)
-- ✅ Read-only root filesystem where possible
-- ❌ Never use environment variables for passwords (visible in `docker inspect`)
+-  Use secrets management (Docker Secrets, K8s Secrets, Vault)
+-  Rotate credentials regularly
+-  Limit container capabilities (`CAP_DROP=ALL`)
+-  Read-only root filesystem where possible
+-  Never use environment variables for passwords (visible in `docker inspect`)
 
 ---
 
@@ -180,13 +180,13 @@ stringData:
 
 | Deployment | Best Method | Security Level | Auto-Start | Notes |
 |------------|-------------|----------------|------------|-------|
-| **macOS Desktop** | Keyring (Keychain) | ⭐⭐⭐⭐⭐ | ✅ | OS-level encryption, user session |
-| **Linux Desktop** | Keyring (GNOME/KDE) | ⭐⭐⭐⭐⭐ | ✅ | OS-level encryption, user session |
-| **Windows Desktop** | Keyring (Credential Mgr) | ⭐⭐⭐⭐⭐ | ✅ | OS-level encryption, user session |
-| **Headless Linux** | File permissions + disk encryption | ⭐⭐⭐ | ✅ | Keyring adds no benefit here |
-| **Docker** | Secrets management | ⭐⭐⭐⭐ | ✅ | Use Docker Secrets, not env vars |
-| **Kubernetes** | K8s Secrets + RBAC | ⭐⭐⭐⭐ | ✅ | Central secrets management |
-| **Cloud VPS** | Disk encryption + IAM | ⭐⭐⭐⭐ | ✅ | Provider-level encryption |
+| **macOS Desktop** | Keyring (Keychain) |  |  | OS-level encryption, user session |
+| **Linux Desktop** | Keyring (GNOME/KDE) |  |  | OS-level encryption, user session |
+| **Windows Desktop** | Keyring (Credential Mgr) |  |  | OS-level encryption, user session |
+| **Headless Linux** | File permissions + disk encryption |  |  | Keyring adds no benefit here |
+| **Docker** | Secrets management |  |  | Use Docker Secrets, not env vars |
+| **Kubernetes** | K8s Secrets + RBAC |  |  | Central secrets management |
+| **Cloud VPS** | Disk encryption + IAM |  |  | Provider-level encryption |
 
 ---
 
@@ -194,17 +194,17 @@ stringData:
 
 ### What This Protects Against
 
-✅ **Casual file access** - Config file readable only by owner  
-✅ **Disk theft** (with encryption) - Encrypted at rest  
-✅ **Process inspection** - Passwords not in environment variables  
-✅ **Accidental exposure** - No passwords in logs  
+ **Casual file access** - Config file readable only by owner  
+ **Disk theft** (with encryption) - Encrypted at rest  
+ **Process inspection** - Passwords not in environment variables  
+ **Accidental exposure** - No passwords in logs  
 
 ### What This Does NOT Protect Against
 
-❌ **Root/admin compromise** - Root can access keyring/config  
-❌ **Memory dumps** - Passwords in memory during connection  
-❌ **Process debugging** - `gdb` can extract passwords  
-❌ **Malware on same system** - Can intercept credentials  
+ **Root/admin compromise** - Root can access keyring/config  
+ **Memory dumps** - Passwords in memory during connection  
+ **Process debugging** - `gdb` can extract passwords  
+ **Malware on same system** - Can intercept credentials  
 
 **Reality check:** If an attacker has root or can run arbitrary code on your system, all bets are off. Focus on:
 1. Preventing initial compromise (updates, firewall, least privilege)
@@ -233,7 +233,7 @@ for account in config['accounts']:
     username = account['username']
     password = account['password']
     keyring.set_password('imap-idle', username, password)
-    print(f'✅ Stored password for {username}')
+    print(f' Stored password for {username}')
 "
 
 # 3. Remove passwords from config
@@ -249,7 +249,7 @@ for account in config['accounts']:
         del account['password']
 
 config_path.write_text(json.dumps(config, indent=2))
-print('✅ Passwords removed from config file')
+print(' Passwords removed from config file')
 "
 
 # 4. Test
@@ -273,7 +273,7 @@ for account in config['accounts']:
     password = keyring.get_password('imap-idle', username)
     if password:
         account['password'] = password
-        print(f'✅ Restored password for {username}')
+        print(f' Restored password for {username}')
 
 config_path.write_text(json.dumps(config, indent=2))
 "
@@ -290,7 +290,7 @@ for account in config['accounts']:
     username = account['username']
     try:
         keyring.delete_password('imap-idle', username)
-        print(f'✅ Removed {username} from keyring')
+        print(f' Removed {username} from keyring')
     except:
         pass
 "

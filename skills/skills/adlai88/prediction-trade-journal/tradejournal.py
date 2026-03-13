@@ -138,7 +138,7 @@ def load_trades() -> Dict[str, Any]:
         with open(TRADES_FILE, "r") as f:
             return json.load(f)
     except (json.JSONDecodeError, IOError) as e:
-        print(f"⚠️  Warning: Could not load {TRADES_FILE}: {e}")
+        print(f"  Warning: Could not load {TRADES_FILE}: {e}")
         print("   Starting with empty trade history.")
         return default_data
 
@@ -161,7 +161,7 @@ def load_context() -> Dict[str, Dict]:
         with open(CONTEXT_FILE, "r") as f:
             return json.load(f)
     except (json.JSONDecodeError, IOError) as e:
-        print(f"⚠️  Warning: Could not load {CONTEXT_FILE}: {e}")
+        print(f"  Warning: Could not load {CONTEXT_FILE}: {e}")
         return {}
 
 
@@ -239,7 +239,7 @@ def sync_trades(dry_run: bool = False) -> Dict[str, Any]:
 
     Returns dict with sync results.
     """
-    print("\n📓 Syncing trades from Simmer API...")
+    print("\n Syncing trades from Simmer API...")
 
     # Load existing trades
     data = load_trades()
@@ -281,7 +281,7 @@ def sync_trades(dry_run: bool = False) -> Dict[str, Any]:
         data["trades"] = new_trades + data["trades"]  # Newest first
         data["metadata"]["last_sync"] = datetime.now(timezone.utc).isoformat()
         save_trades(data)
-        print(f"  ✅ Saved {len(new_trades)} new trades")
+        print(f"   Saved {len(new_trades)} new trades")
     else:
         print("  No new trades to save")
 
@@ -298,7 +298,7 @@ def sync_outcomes(dry_run: bool = False) -> Dict[str, Any]:
 
     Checks market status for all pending trades and updates P&L.
     """
-    print("\n📓 Syncing market outcomes...")
+    print("\n Syncing market outcomes...")
 
     data = load_trades()
     trades = data["trades"]
@@ -369,7 +369,7 @@ def sync_outcomes(dry_run: bool = False) -> Dict[str, Any]:
 
         updated_count += 1
 
-        result_emoji = "✅" if was_correct else "❌"
+        result_emoji = "" if was_correct else ""
         print(f"  {result_emoji} {trade['market_question'][:40]}... "
               f"({trade_side.upper()}) → ${pnl:+.2f}")
 
@@ -380,7 +380,7 @@ def sync_outcomes(dry_run: bool = False) -> Dict[str, Any]:
     if updated_count > 0:
         data["metadata"]["last_outcome_sync"] = datetime.now(timezone.utc).isoformat()
         save_trades(data)
-        print(f"  ✅ Updated {updated_count} trade outcomes")
+        print(f"   Updated {updated_count} trade outcomes")
     else:
         print("  No new outcomes to update")
 
@@ -398,17 +398,17 @@ def show_history(n: int = 10):
     trades = data["trades"][:n]
 
     if not trades:
-        print("\n📓 No trades recorded yet.")
+        print("\n No trades recorded yet.")
         print("   Run: python tradejournal.py --sync")
         return
 
-    print(f"\n📓 Recent Trades ({len(trades)} of {len(data['trades'])})")
+    print(f"\n Recent Trades ({len(trades)} of {len(data['trades'])})")
     print("=" * 70)
 
     for i, t in enumerate(trades, 1):
         # Basic info
         side = t.get("side", "unknown")
-        side_emoji = "🟢" if side == "yes" else "🔴"
+        side_emoji = "" if side == "yes" else ""
         question = t.get("market_question", "Unknown market")[:45]
         cost = t.get("cost", 0)
         shares = t.get("shares", 0)
@@ -417,11 +417,11 @@ def show_history(n: int = 10):
         # Outcome
         outcome = t.get("outcome", {})
         if outcome.get("resolved"):
-            result = "✅ Won" if outcome.get("was_correct") else "❌ Lost"
+            result = " Won" if outcome.get("was_correct") else " Lost"
             pnl = outcome.get("pnl_usd", 0)
             pnl_str = f" (${pnl:+.2f})" if pnl else ""
         else:
-            result = "⏳ Pending"
+            result = " Pending"
             pnl_str = ""
 
         # Context (if enriched)
@@ -446,7 +446,7 @@ def show_status():
     wins = len([t for t in resolved if t.get("outcome", {}).get("was_correct")])
     losses = len(resolved) - wins
 
-    print("\n📓 Trade Journal Status")
+    print("\n Trade Journal Status")
     print("=" * 40)
     print(f"Total trades: {len(trades)}")
     print(f"  Resolved: {len(resolved)} ({wins} wins, {losses} losses)")
@@ -462,9 +462,9 @@ def show_status():
 
 def show_config():
     """Show current configuration."""
-    print("\n📓 Trade Journal Configuration")
+    print("\n Trade Journal Configuration")
     print("=" * 40)
-    print(f"API Key:  {'✅ Set' if SIMMER_API_KEY else '❌ Not set'}")
+    print(f"API Key:  {' Set' if SIMMER_API_KEY else ' Not set'}")
     print(f"API URL:  {SIMMER_API_URL}")
     print(f"Data dir: {DATA_DIR}")
     print(f"Trades:   {TRADES_FILE}")
@@ -480,7 +480,7 @@ def generate_report(period: str = "weekly"):
     trades = data.get("trades", [])
 
     if not trades:
-        print("\n📓 No trades to report on.")
+        print("\n No trades to report on.")
         return
 
     # Filter by period
@@ -505,7 +505,7 @@ def generate_report(period: str = "weekly"):
             except ValueError:
                 continue
 
-    print(f"\n📓 {period.capitalize()} Report")
+    print(f"\n {period.capitalize()} Report")
     print("=" * 40)
     print(f"Period: Last {cutoff_days} days")
     print(f"Trades: {len(period_trades)}")
@@ -571,7 +571,7 @@ def export_csv(filename: str):
             row["was_correct"] = outcome.get("was_correct")
             writer.writerow(row)
 
-    print(f"✅ Exported {len(trades)} trades to {filename}")
+    print(f" Exported {len(trades)} trades to {filename}")
 
 
 # =============================================================================
@@ -613,7 +613,7 @@ def log_trade(
     }
 
     save_context(context)
-    print(f"📓 Logged context for trade {trade_id[:8]}... (source: {source})")
+    print(f" Logged context for trade {trade_id[:8]}... (source: {source})")
 
 
 # =============================================================================

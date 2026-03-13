@@ -102,12 +102,12 @@ def main():
             attachments=attachments if attachments else None
         )
         
-        print(f"✅ Email sent successfully!")
+        print(f" Email sent successfully!")
         print(f"   Message ID: {response.message_id}")
         print(f"   Thread ID: {response.thread_id}")
         
     except Exception as e:
-        print(f"❌ Failed to send email: {e}")
+        print(f" Failed to send email: {e}")
         sys.exit(1)
 
 if __name__ == '__main__':

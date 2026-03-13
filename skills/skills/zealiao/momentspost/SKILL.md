@@ -99,8 +99,8 @@ For each improvement, explain the psychological principle:
 **Problem**: Generic, boring, or confusing opening
 
 ```
-❌ "Today I went to the factory to check the stove production"
-✅ "Found a critical detail in our stove assembly line that could save you 30% on fuel costs"
+ "Today I went to the factory to check the stove production"
+ "Found a critical detail in our stove assembly line that could save you 30% on fuel costs"
 ```
 
 **Fix**: Start with:
@@ -115,8 +115,8 @@ For each improvement, explain the psychological principle:
 **Problem**: Doesn't connect with reader's needs
 
 ```
-❌ "Our stoves are very powerful and can cook food quickly"
-✅ "Tired of half-cooked food at family gatherings? This happens when your stove can't maintain temperature"
+ "Our stoves are very powerful and can cook food quickly"
+ "Tired of half-cooked food at family gatherings? This happens when your stove can't maintain temperature"
 ```
 
 **Fix**:
@@ -131,8 +131,8 @@ For each improvement, explain the psychological principle:
 **Problem**: Focuses on features instead of benefits
 
 ```
-❌ "This stove has 3000W power and automatic temperature control"
-✅ "Cook a full 10-course meal in half the time, with every dish at perfect temperature"
+ "This stove has 3000W power and automatic temperature control"
+ "Cook a full 10-course meal in half the time, with every dish at perfect temperature"
 ```
 
 **Fix**:
@@ -147,8 +147,8 @@ For each improvement, explain the psychological principle:
 **Problem**: Claims without proof
 
 ```
-❌ "This is the best stove on the market"
-✅ "After 15 years and 50,000+ stoves manufactured, we've reduced defect rates to 0.1% - the lowest in the industry"
+ "This is the best stove on the market"
+ "After 15 years and 50,000+ stoves manufactured, we've reduced defect rates to 0.1% - the lowest in the industry"
 ```
 
 **Fix**:
@@ -163,8 +163,8 @@ For each improvement, explain the psychological principle:
 **Problem**: Doesn't tell readers what to do
 
 ```
-❌ "Our new stove is now available"
-✅ "Comment 'demo' and I'll send you a video of this stove in action at a busy restaurant kitchen"
+ "Our new stove is now available"
+ "Comment 'demo' and I'll send you a video of this stove in action at a busy restaurant kitchen"
 ```
 
 **Fix**:
@@ -282,13 +282,13 @@ Use this rubric to rate each element (1-5 points):
 **After (Score: 22/25)**
 
 ```
-发现很多家庭做年夜饭时，最后一道菜总是半生不熟😤
+发现很多家庭做年夜饭时，最后一道菜总是半生不熟
 
 核心问题不是厨艺，是燃气灶火力跟不上。大锅炒菜温度一上不来，食物就蔫了。
 
-我们新研发的5.2kW猛火灶，实测从冷锅到爆炒只需3秒⚡️，就算同时炒8个菜都能保持高温。
+我们新研发的5.2kW猛火灶，实测从冷锅到爆炒只需3秒，就算同时炒8个菜都能保持高温。
 
-今天拍了段实拍视频：在工厂里用这个灶炒了10道硬菜，每道菜都刚好出锅。评论"演示"私发给你看看👇
+今天拍了段实拍视频：在工厂里用这个灶炒了10道硬菜，每道菜都刚好出锅。评论"演示"私发给你看看
 ```
 
 **Improvements:**
@@ -318,13 +318,13 @@ Use this rubric to rate each element (1-5 points):
 **After (Score: 20/25)**
 
 ```
-连续第3天晚上11点下班了🌙
+连续第3天晚上11点下班了
 
 有个客户下周要开新餐厅，急需20台壁炉。如果赶不出来，开业当天可能就出事故。
 
 今天凌晨2点，车间老王发现一台壁炉的温控器有0.5度误差，二话没说直接拆了重装。
 
-这就是为什么我们敢承诺：晚交货1天，赔款1000元。做产品，不能拿客户声誉冒险💪
+这就是为什么我们敢承诺：晚交货1天，赔款1000元。做产品，不能拿客户声誉冒险
 ```
 
 **Improvements:**
@@ -351,15 +351,15 @@ Use this rubric to rate each element (1-5 points):
 When providing feedback, use this structure:
 
 ```
-📊 OVERALL SCORE: ___/25
+ OVERALL SCORE: ___/25
 
-✅ STRENGTHS:
+ STRENGTHS:
 - [What works well]
 
-❌ WEAKNESSES:
+ WEAKNESSES:
 - [What's missing or weak]
 
-🔧 SPECIFIC IMPROVEMENTS:
+ SPECIFIC IMPROVEMENTS:
 
 1. Hook Improvement:
    Current: [Current opening]
@@ -373,7 +373,7 @@ When providing feedback, use this structure:
 
 [Continue for all 5 elements]
 
-📝 REWRITE VERSIONS:
+ REWRITE VERSIONS:
 
 Version A (Minor tweaks):
 [Optimized original]
@@ -384,7 +384,7 @@ Version B (Better hook):
 Version C (Complete rewrite):
 [Restructured for maximum impact]
 
-💡 KEY TAKEAWAYS:
+ KEY TAKEAWAYS:
 - [3-5 core principles to remember]
 ```
 

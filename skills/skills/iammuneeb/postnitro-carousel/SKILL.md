@@ -10,7 +10,7 @@ description: >
   Outputs PNG images or PDF files. Requires a PostNitro API key.
 metadata:
   openclaw:
-    emoji: "🎠"
+    emoji: ""
     requires:
       envs:
         - POSTNITRO_API_KEY

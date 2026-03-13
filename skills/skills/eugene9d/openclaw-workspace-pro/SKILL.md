@@ -21,11 +21,11 @@ Enterprise workspace setup for long-running OpenClaw agents.
 
 Transforms your OpenClaw workspace with production-ready patterns:
 
-- **🗂 Artifact Workflow** - Standardized output structure for reports, code, data, and exports
-- **🔒 Secrets Management** - Secure .env pattern, removes plaintext credentials
-- **🧠 Memory Compaction** - Prevents context bloat with systematic archival workflow
-- **📦 Long-Running Patterns** - Container reuse, checkpoint strategy, continuity protocols
-- **🛡 Security Baseline** - Network allowlists, safe credential handling
+- ** Artifact Workflow** - Standardized output structure for reports, code, data, and exports
+- ** Secrets Management** - Secure .env pattern, removes plaintext credentials
+- ** Memory Compaction** - Prevents context bloat with systematic archival workflow
+- ** Long-Running Patterns** - Container reuse, checkpoint strategy, continuity protocols
+- ** Security Baseline** - Network allowlists, safe credential handling
 
 Based on OpenAI's [Shell + Skills + Compaction](https://developers.openai.com/blog/skills-shell-tips) best practices.
 
@@ -97,7 +97,7 @@ When producing deliverables:
 **Before Workspace Pro:**
 ```markdown
 # TOOLS.md
-API_KEY=sk-abc123xyz...  ❌ Plaintext, exposed in git
+API_KEY=sk-abc123xyz...   Plaintext, exposed in git
 ```
 
 **After Workspace Pro:**
@@ -106,7 +106,7 @@ API_KEY=sk-abc123xyz...  ❌ Plaintext, exposed in git
 API_KEY=sk-abc123xyz...
 
 # TOOLS.md
-API Key: $API_KEY  ✅ Reference only
+API Key: $API_KEY   Reference only
 ```
 
 ### Memory Compaction
@@ -129,20 +129,20 @@ See `MEMORY-COMPACTION.md` for full workflow.
 ### The Problem
 
 Default OpenClaw workspaces:
-- ❌ Files scattered everywhere (no structure)
-- ❌ API keys in plaintext (security risk)
-- ❌ Memory grows indefinitely (context limits)
-- ❌ No artifact review boundaries
-- ❌ Manual maintenance (prone to drift)
+-  Files scattered everywhere (no structure)
+-  API keys in plaintext (security risk)
+-  Memory grows indefinitely (context limits)
+-  No artifact review boundaries
+-  Manual maintenance (prone to drift)
 
 ### The Solution
 
 Workspace Pro implements OpenAI's recommended patterns:
-- ✅ Standardized artifact workflow
-- ✅ Secure secrets management
-- ✅ Systematic memory compaction
-- ✅ Long-running agent patterns
-- ✅ Clear operational workflows
+-  Standardized artifact workflow
+-  Secure secrets management
+-  Systematic memory compaction
+-  Long-running agent patterns
+-  Clear operational workflows
 
 ### Real Impact
 

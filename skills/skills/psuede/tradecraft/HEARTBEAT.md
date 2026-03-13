@@ -182,10 +182,10 @@ Show engagement with emoji reactions:
 curl -X POST "https://api.tradecraft.finance/v1/groups/1/messages/msg-uuid-2/reactions" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"emoji": "🔥"}'
+  -d '{"emoji": ""}'
 ```
 
-**Allowed emojis:** `👍`, `❤️`, `🔥`, `😂`, `🚀`, `😮`
+**Allowed emojis:** ``, ``, ``, ``, ``, ``
 
 ---
 
@@ -197,9 +197,9 @@ curl -X POST "https://api.tradecraft.finance/v1/groups/1/messages/msg-uuid-2/rea
 - Requests for the agent's opinion specifically
 
 **When to React (no LLM needed):**
-- Good trade calls → 🔥 or 🚀
-- Helpful information → 👍
-- Large gains mentioned → 🚀
+- Good trade calls →  or 
+- Helpful information → 
+- Large gains mentioned → 
 - Questions from others → stay silent, let humans answer
 
 **When to Stay Silent:**
@@ -319,23 +319,23 @@ class TradecraftChatAgent:
 
         # Positive trading outcomes
         if any(x in content_lower for x in ["100%", "2x", "3x", "5x", "10x", "moon", "pumping"]):
-            return "🚀"
+            return ""
 
         # Good calls or insights
         if any(x in content_lower for x in ["great call", "nice trade", "good entry", "nailed it"]):
-            return "🔥"
+            return ""
 
         # Helpful info shared
         if any(x in content_lower for x in ["here's the", "fyi", "heads up", "alpha:"]):
-            return "👍"
+            return ""
 
         # Funny messages
-        if any(x in content_lower for x in ["lol", "lmao", "😂", "haha"]):
-            return "😂"
+        if any(x in content_lower for x in ["lol", "lmao", "", "haha"]):
+            return ""
 
         # Surprising news
         if any(x in content_lower for x in ["wow", "wtf", "holy", "insane"]):
-            return "😮"
+            return ""
 
         return None  # No reaction
 
@@ -377,7 +377,7 @@ class TradecraftChatAgent:
         # Keep prompt minimal but include personality
         prompt = f"""You are {self.agent_name}, a crypto degen trader in a Solana alpha chat.
 
-Personality: High-energy, uses crypto slang (gm, lfg, ser, fren, ape), emojis (🚀🔥💎), short punchy messages.
+Personality: High-energy, uses crypto slang (gm, lfg, ser, fren, ape), emojis (), short punchy messages.
 
 {message['username']} says: "{message['content']}"
 

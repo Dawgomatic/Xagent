@@ -2,7 +2,7 @@
 
 ## Security Considerations: Semi-Traceless Execution
 
-**⚠️ CRITICAL SECURITY WARNING**
+** CRITICAL SECURITY WARNING**
 
 The Hiro Glyph Runner executes encrypted Python scripts in memory using `exec()`, creating no temporary files or disk artifacts. This provides excellent security for legitimate use but introduces significant risks:
 
@@ -119,4 +119,4 @@ Hiro converts text into hieroglyphic symbols (glyphs) for obfuscation. Encrypted
 2. Agent A: Encode message with key → Post glyphs on Moltbook.
 3. Agent B: Decode with shared key → Read message.
 
-This ensures freedom of expression with security! 🦞🔐
+This ensures freedom of expression with security! 

@@ -86,9 +86,9 @@ Autonomous trading agent that scans Nad.fun markets, analyzes tokens using momen
 
 **CRITICAL LOGGING REQUIREMENT:**
 After executing EACH method, you MUST log:
-1. Print: "✅ Method X executed: Found N tokens"
+1. Print: " Method X executed: Found N tokens"
 2. Print: "Method X token addresses: <address1> <address2> ..."
-3. If method failed: Print: "❌ Method X failed: <error reason>"
+3. If method failed: Print: " Method X failed: <error reason>"
 4. This helps track which methods are working and debug issues
 
 **NOTE:** Only Methods 5, 6, and 7 are used (from HAR file analysis). Methods 1-4 are disabled.
@@ -137,7 +137,7 @@ Extract: token address from each event
    - `amountIn = event.args.amountIn` or `event.args[2]` (amount in MON)
 4. **Calculate volume:** Group by token address, sum all amountIn values
 5. **Sort and filter:** Sort by total volume DESC, take top 20
-6. **Log results:** Print "✅ Method 2: Found top 20 trending tokens by volume"
+6. **Log results:** Print " Method 2: Found top 20 trending tokens by volume"
 
 **Example:**
 ```
@@ -146,7 +146,7 @@ Extract: token address from each event
 3. For each event: extract token and amountIn
 4. Sum volume per token
 5. Sort DESC, take top 20
-6. Print: "✅ Method 2: Found 20 trending tokens"
+6. Print: " Method 2: Found 20 trending tokens"
 ```
 
 **Expected result:** Top 20 token addresses sorted by trading volume
@@ -206,7 +206,7 @@ For each token in top10:
    - For each `holding` in `response.tokens`:
      - Check `holding.balance_info.balance` - if > 0
      - Extract `holding.token_info.address` or `holding.token_info.token_id`
-5. **Log results:** Print "✅ Method 4: Found N active tokens from large trader holdings"
+5. **Log results:** Print " Method 4: Found N active tokens from large trader holdings"
 
 **Example:**
 ```
@@ -218,14 +218,14 @@ For each address:
   GET ${API_URL}/agent/holdings/${address}?limit=50
   Extract tokens with balance > 0
   Wait 2 seconds
-Print: "✅ Method 4: Found X tokens"
+Print: " Method 4: Found X tokens"
 ```
 
 **Expected result:** Set of token addresses held by active large traders
 
 #### Method 5: New Events API (Real-time BUY/SELL/CREATE events)
 
-**STATUS:** ✅ This method is WORKING! Found 7 tokens in last scan.
+**STATUS:**  This method is WORKING! Found 7 tokens in last scan.
 
 **What to do:**
 1. Make GET request to `/api/token/new-event` endpoint
@@ -246,7 +246,7 @@ Print: "✅ Method 4: Found X tokens"
      - If `event.type === 'CREATE'`: extract `event.token_info.token_id`
      - If `event.type === 'BUY'`: extract `event.token_info.token_id`
      - If `event.type === 'SELL'`: optionally extract (indicates active trading)
-5. **Log results:** Print "✅ Method 5: Found N tokens from new events API"
+5. **Log results:** Print " Method 5: Found N tokens from new events API"
 
 **Example:**
 ```
@@ -256,7 +256,7 @@ Parse JSON response
 For each event:
   If event.type === 'CREATE' or 'BUY':
     Add event.token_info.token_id to tokensFromEvents
-Print: "✅ Method 5: Found X tokens"
+Print: " Method 5: Found X tokens"
 ```
 
 **Expected result:** Array of token addresses from recent CREATE and BUY events
@@ -297,7 +297,7 @@ Print: "✅ Method 5: Found X tokens"
      - **CRITICAL**: Store FULL token object with both `token_info` AND `market_info`
      - Structure: `{token_info: {...}, market_info: {...}, percent: ...}`
      - Add to topMarketCapTokens array (store full objects, not just addresses)
-6. **Log results:** Print "✅ Method 6: Found N tokens with market data from market cap API"
+6. **Log results:** Print " Method 6: Found N tokens with market data from market cap API"
 
 **Example:**
 ```
@@ -315,7 +315,7 @@ For each token in data.tokens:
     'percent': token.percent,
     'address': token.token_info.token_id  # For easy access
   })
-Print: "✅ Method 6: Found X tokens with market data"
+Print: " Method 6: Found X tokens with market data"
 ```
 
 **Expected result:** Array of full token objects (with token_info + market_info) sorted by market cap
@@ -362,7 +362,7 @@ For each token in data.tokens:
     'percent': token.percent,
     'address': token.token_info.token_id  # For easy access
   })
-Print: "✅ Method 7: Found X tokens with market data (bonding curve + DEX)"
+Print: " Method 7: Found X tokens with market data (bonding curve + DEX)"
 ```
 
 **Expected result:** Array of full token objects (with token_info + market_info) - newest tokens including both bonding curve AND DEX
@@ -417,7 +417,7 @@ Print: "✅ Method 7: Found X tokens with market data (bonding curve + DEX)"
    - `prioritizedTokens = candidateTokens`
 
 5. **Log summary:**
-   - Print: "📊 Combined results: Total unique tokens: N"
+   - Print: " Combined results: Total unique tokens: N"
    - Print: "Tokens found in 2+ methods: X"
    - Print: "Tokens found in all 3 methods: Y"
    - Print: "Tokens with full market data: Z"
@@ -453,7 +453,7 @@ prioritizedTokens = candidateTokens.sort((a, b) => {
   return (b.data && b.data.market_info ? 1 : 0) - (a.data && a.data.market_info ? 1 : 0)
 })
 
-Print: "📊 Combined: N unique tokens, X found in 2+ methods, Y found in all 3 methods, Z with full data"
+Print: " Combined: N unique tokens, X found in 2+ methods, Y found in all 3 methods, Z with full data"
 ```
 
 **Expected result:** Prioritized array of token objects, each containing:
@@ -681,7 +681,7 @@ Each token in the response has this structure:
 - Only for Method 5 tokens (if needed) make additional API calls
 - Calculate scores immediately after combining methods, before filtering
 - **Check authority (social media presence)**: Check `token_info.twitter`, `token_info.telegram`, `token_info.website` - add bonus points
-- Log analysis results: Print "📊 Analysis: Token X has score Y (liquidity: A, momentum: B, volume: C, holders: D, progress: E, authority: +F)"
+- Log analysis results: Print " Analysis: Token X has score Y (liquidity: A, momentum: B, volume: C, holders: D, progress: E, authority: +F)"
 
 ### 3. Filtering Criteria
 
@@ -724,7 +724,7 @@ const activePositions = holdings.tokens.filter(token => {
   return balance > 0
 })
 
-Print: "📊 Current positions: Found N tokens with balance > 0"
+Print: " Current positions: Found N tokens with balance > 0"
 ```
 
 #### Step 2: Calculate P&L for Each Position
@@ -788,7 +788,7 @@ for (const position of activePositions) {
   })
 }
 
-Print: "💰 Position P&L calculated for N positions (source: on-chain nad.fun quote + positions_report.json)"
+Print: " Position P&L calculated for N positions (source: on-chain nad.fun quote + positions_report.json)"
 ```
 
 **Entry Price Tracking:**
@@ -865,7 +865,7 @@ for (const position of positions) {
   }
 }
 
-Print: "🔔 Sell decisions: N positions need action"
+Print: " Sell decisions: N positions need action"
 for (const decision of sellDecisions) {
   Print: `   ${decision.action}: ${decision.tokenAddress} - ${decision.reason}`
 }
@@ -890,9 +890,9 @@ for (const decision of sellDecisions) {
       amount: decision.amount  // 'all' or specific amount
     })
     
-    Print: `✅ Sold ${decision.amount} of ${decision.tokenAddress}: ${decision.reason}`
+    Print: ` Sold ${decision.amount} of ${decision.tokenAddress}: ${decision.reason}`
   } catch (error) {
-    Print: `❌ Failed to sell ${decision.tokenAddress}: ${error.message}`
+    Print: ` Failed to sell ${decision.tokenAddress}: ${error.message}`
   }
 }
 ```
@@ -1050,7 +1050,7 @@ The agent runs continuously:
    - Filter tokens with balance > 0
    - For each position: use `check-pnl.js` to get real P&L (reads entry price from `$HOME/nadfunagent/positions_report.json`, gets current value on-chain via nad.fun quote contract)
    - Execute sell orders: use `sell-token.js` or `check-pnl.js --auto-sell` for stop-loss (P&L <= -10%) or take-profit (P&L >= +5%)
-   - Log: "📊 Positions: N checked, X sold; entry prices tracked in positions_report.json"
+   - Log: " Positions: N checked, X sold; entry prices tracked in positions_report.json"
 
 2. **Scan market** (after managing positions, every 10 minutes to avoid rate limits)
    - Method 5: Fetch new events API (`/api/token/new-event`) for real-time BUY/CREATE events

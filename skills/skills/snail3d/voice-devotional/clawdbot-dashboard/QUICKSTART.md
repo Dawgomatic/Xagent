@@ -2,7 +2,7 @@
 
 Get the dashboard running in **under 2 minutes**.
 
-## ⚡ 60-Second Setup
+##  60-Second Setup
 
 ### 1. Install Dependencies
 ```bash
@@ -21,14 +21,14 @@ http://localhost:5173
 ```
 
 **Done!** The dashboard is live with:
-- ✅ Dark mode (default)
-- ✅ 10 sample messages
-- ✅ Session info card
-- ✅ Full markdown support
-- ✅ Code syntax highlighting
-- ✅ Smooth animations
+-  Dark mode (default)
+-  10 sample messages
+-  Session info card
+-  Full markdown support
+-  Code syntax highlighting
+-  Smooth animations
 
-## 🎮 What You Can Do Right Now
+##  What You Can Do Right Now
 
 ### Try the UI
 1. **Toggle Dark/Light Mode**: Click sun/moon icon in header
@@ -46,7 +46,7 @@ http://localhost:5173
 - **Send Button**: Gradient button with hover effects
 - **Live Indicators**: See connection status at bottom
 
-## 📱 Project Structure (Key Files)
+##  Project Structure (Key Files)
 
 ```
 src/
@@ -60,7 +60,7 @@ src/
     └── messages.ts      ← Edit dummy messages here
 ```
 
-## ✏️ Common Edits
+##  Common Edits
 
 ### Change Colors
 Edit `tailwind.config.js`:
@@ -92,7 +92,7 @@ transition={{
 }}
 ```
 
-## 🔧 Commands Reference
+##  Commands Reference
 
 | Command | What It Does |
 |---------|-------------|
@@ -101,7 +101,7 @@ transition={{
 | `npm run preview` | Preview production build locally |
 | `npm run lint` | Check for code issues |
 
-## 🚀 Deploy to Production
+##  Deploy to Production
 
 ### Build
 ```bash
@@ -130,7 +130,7 @@ netlify deploy --prod --dir=dist
 # Or serve dist/ with any static host
 ```
 
-## 🎨 Customization Examples
+##  Customization Examples
 
 ### Example 1: Change Accent Colors to Purple/Blue
 
@@ -170,7 +170,7 @@ transition={{}}     // No transition
 }
 ```
 
-## 📊 Real-time Integration (Next Phase)
+##  Real-time Integration (Next Phase)
 
 To connect Socket.io for live updates:
 
@@ -192,7 +192,7 @@ socket.on('message:new', (msg) => {
 
 **Step 3:** Replace dummy data with real messages.
 
-## 🐛 Quick Troubleshooting
+##  Quick Troubleshooting
 
 | Problem | Fix |
 |---------|-----|
@@ -201,19 +201,19 @@ socket.on('message:new', (msg) => {
 | TypeScript errors | Run `npm run build` to see all errors |
 | Markdown not rendering | Check internet (Prism.js loads from CDN) |
 
-## 📚 Learn More
+##  Learn More
 
 - **README.md** - Full feature documentation
 - **SKILL.md** - Integration & API docs
 - **src/components** - Component source code with comments
 
-## 🎯 Next Steps
+##  Next Steps
 
-1. ✅ **Run it** (`npm run dev`)
-2. ✅ **Explore** the UI and features
-3. 📝 **Customize** colors and messages
-4. 🔌 **Integrate** with Socket.io (Phase 2)
-5. 📱 **Deploy** to production
+1.  **Run it** (`npm run dev`)
+2.  **Explore** the UI and features
+3.  **Customize** colors and messages
+4.  **Integrate** with Socket.io (Phase 2)
+5.  **Deploy** to production
 
 ## Need Help?
 
@@ -229,4 +229,4 @@ socket.on('message:new', (msg) => {
 npm install && npm run dev
 ```
 
-Then open `http://localhost:5173` 🚀
+Then open `http://localhost:5173` 

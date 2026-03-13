@@ -5,7 +5,7 @@ import { getAccentHex } from '../config/theme.js';
 
 function getPriorityMap() {
   return {
-    critical: { label: 'CRIT', color: '#ff2d2d', icon: '⚠' },
+    critical: { label: 'CRIT', color: '#ff2d2d', icon: '' },
     high:     { label: 'HIGH', color: getAccentHex(), icon: '▲' },
     medium:   { label: 'MED',  color: '#ff8c42', icon: '●' },
     low:      { label: 'LOW',  color: '#666',    icon: '▽' },
@@ -16,7 +16,7 @@ const PRIORITY_MAP = getPriorityMap();
 
 const STATUS_MAP = {
   pending:  { label: 'PENDING',  icon: '○', class: 'pending' },
-  running:  { label: 'RUNNING',  icon: '▶', class: 'active' },
+  running:  { label: 'RUNNING',  icon: '', class: 'active' },
   done:     { label: 'DONE',     icon: '✓', class: 'done' },
   failed:   { label: 'FAILED',   icon: '✗', class: 'failed' },
   deferred: { label: 'DEFERRED', icon: '◇', class: 'deferred' },
@@ -142,10 +142,10 @@ function formatTime(ts) {
 function formatSchedule(task) {
   if (!task.schedule) return '';
   if (task.schedule.type === 'once') {
-    return `⏰ ${new Date(task.schedule.at).toLocaleString('zh-TW', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })}`;
+    return ` ${new Date(task.schedule.at).toLocaleString('zh-TW', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })}`;
   }
   if (task.schedule.type === 'recurring') {
-    return `🔄 ${task.schedule.label || task.schedule.cron || 'RECURRING'}`;
+    return ` ${task.schedule.label || task.schedule.cron || 'RECURRING'}`;
   }
   return '';
 }
@@ -225,7 +225,7 @@ function render() {
           <option value="medium">● MED</option>
           <option value="low">▽ LOW</option>
           <option value="high">▲ HIGH</option>
-          <option value="critical">⚠ CRIT</option>
+          <option value="critical"> CRIT</option>
         </select>
         <input type="text" class="tasks-input tasks-input-tags" id="tasks-input-tags" placeholder="TAGS (COMMA SEP)" />
         <button class="tasks-submit-btn" id="tasks-submit-btn">ADD</button>

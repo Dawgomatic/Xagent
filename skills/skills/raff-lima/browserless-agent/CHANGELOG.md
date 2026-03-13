@@ -1,8 +1,8 @@
 # Browserless Agent - OpenClaw Skill
 
-## 🎯 What's New in This Version
+##  What's New in This Version
 
-### ✨ Major Improvements
+###  Major Improvements
 
 1. **50+ Browser Actions** - Expanded from 7 to 50+ actions covering every web automation need
 2. **Flexible Configuration** - Separate base URL and token for better environment management
@@ -11,7 +11,7 @@
 5. **Multi-Tab Support** - Manage multiple browser tabs simultaneously
 6. **Professional Documentation** - Complete guides, examples, and API reference
 
-### 🔧 Configuration (Easy Setup!)
+###  Configuration (Easy Setup!)
 
 **The skill uses TWO environment variables for maximum flexibility:**
 
@@ -25,10 +25,10 @@
 
 This separation allows you to:
 
-- ✅ Use local Browserless without authentication
-- ✅ Easily switch between environments (dev/staging/prod)
-- ✅ Use different endpoints (chromium/firefox/webkit)
-- ✅ Share base URL while keeping tokens private
+-  Use local Browserless without authentication
+-  Easily switch between environments (dev/staging/prod)
+-  Use different endpoints (chromium/firefox/webkit)
+-  Share base URL while keeping tokens private
 
 **Configuration Examples:**
 
@@ -54,7 +54,7 @@ The skill automatically:
 
 Get your Browserless service at [browserless.io](https://browserless.io) (free tier available)
 
-### 📦 New Actions Added
+###  New Actions Added
 
 **Navigation (5 new)**
 
@@ -104,7 +104,7 @@ Get your Browserless service at [browserless.io](https://browserless.io) (free t
 
 - `new_page`, `close_page`, `switch_page`, `list_pages`
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Install dependencies
@@ -121,7 +121,7 @@ python tests/test_browserless.py
 python examples/quick_test.py
 ```
 
-## 💡 Usage Examples
+##  Usage Examples
 
 ### From OpenClaw Chat
 
@@ -166,7 +166,7 @@ python main.py fill_form '{
 }'
 ```
 
-## 📂 File Structure
+##  File Structure
 
 ```
 browserless-agent/
@@ -182,22 +182,22 @@ browserless-agent/
     └── test_browserless.py   # Test suite (7 tests)
 ```
 
-## 🎓 Documentation
+##  Documentation
 
 - **[SKILL.md](SKILL.md)** - OpenClaw integration & all 50+ actions reference
 - **[README.md](README.md)** - Complete guide with examples and best practices
 - **[examples/](examples/)** - Working code examples
 - **[tests/](tests/)** - Test suite to verify setup
 
-## 🔒 Security Features
+##  Security Features
 
-- ✅ WebSocket over TLS (wss://)
-- ✅ Credentials never logged
-- ✅ Isolated browser containers
-- ✅ Automatic connection cleanup
-- ✅ Input validation and sanitization
+-  WebSocket over TLS (wss://)
+-  Credentials never logged
+-  Isolated browser containers
+-  Automatic connection cleanup
+-  Input validation and sanitization
 
-## 🐛 Bug Fixes
+##  Bug Fixes
 
 - Fixed timeout handling for slow pages
 - Improved selector waiting logic
@@ -205,7 +205,7 @@ browserless-agent/
 - Graceful connection cleanup
 - Support for optional parameters
 
-## 🎯 Use Cases
+##  Use Cases
 
 1. **Web Scraping** - Extract structured data from any website
 2. **Testing** - Automated E2E testing of web applications
@@ -215,14 +215,14 @@ browserless-agent/
 6. **Research** - Collect data for analysis
 7. **Screenshots** - Capture web pages programmatically
 
-## 🚀 Performance
+##  Performance
 
 - **Fast**: Connects via WebSocket (low latency)
 - **Reliable**: Auto-retry on transient failures
 - **Efficient**: Resource blocking for faster scraping
 - **Scalable**: Stateless design, multi-tab support
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Some ideas:
 
@@ -231,11 +231,11 @@ Contributions welcome! Some ideas:
 - Add more examples
 - Performance optimizations
 
-## 📝 License
+##  License
 
 MIT License - Free to use and modify
 
-## 🆘 Support
+##  Support
 
 Having issues? Check:
 
@@ -244,9 +244,9 @@ Having issues? Check:
 3. Check examples: `python examples/quick_test.py`
 4. Verify BROWSERLESS_WS is set correctly
 
-## 🙏 Credits
+##  Credits
 
-Built for the OpenClaw community with ❤️
+Built for the OpenClaw community with 
 
 Powered by:
 
@@ -258,4 +258,4 @@ Powered by:
 
 **Version:** 2.0.0  
 **Date:** February 2026  
-**Status:** Production Ready ✅
+**Status:** Production Ready 

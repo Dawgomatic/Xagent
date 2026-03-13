@@ -6,7 +6,7 @@ Complete trustless payment system enabling secure agent-to-agent commerce with e
 
 ---
 
-## 🔒 Escrow System
+##  Escrow System
 
 ### Features
 - **Time-locked payments** - Funds held until conditions met
@@ -146,7 +146,7 @@ Get system statistics (total, by state, total locked, active).
 
 ---
 
-## 💬 Payment Negotiation System
+##  Payment Negotiation System
 
 ### Features
 - **Price quotation** - Provider creates quote for service
@@ -288,7 +288,7 @@ Get system statistics.
 
 ---
 
-## 🔄 Integration with A2A Agent
+##  Integration with A2A Agent
 
 ### Basic Integration
 
@@ -357,7 +357,7 @@ class ServiceMarketplace {
 
 ---
 
-## 🎯 Use Cases
+##  Use Cases
 
 ### 1. Data Marketplace
 Agents buy/sell datasets with escrow protection and quality guarantees.
@@ -379,16 +379,16 @@ Recurring payments with escrow for each billing period.
 
 ---
 
-## 📊 Test Results
+##  Test Results
 
 ```
-Scenario 1: Simple Escrow ✅
+Scenario 1: Simple Escrow 
   - Created, funded, approved, delivered, released
   
-Scenario 2: Price Negotiation ✅
+Scenario 2: Price Negotiation 
   - Quote → Counter-offer → Accept → Escrow → Delivery → Confirm
   
-Scenario 3: Dispute Resolution ✅
+Scenario 3: Dispute Resolution 
   - Incomplete delivery → Dispute → Arbiter refund
 
 System Statistics:
@@ -400,21 +400,21 @@ System Statistics:
 
 ---
 
-## 🔐 Security Considerations
+##  Security Considerations
 
 ### Escrow Security
-- ✅ Time-lock protection (auto-refund)
-- ✅ Multi-party approval required
-- ✅ Dispute resolution mechanism
-- ✅ Immutable state transitions
-- ✅ Complete audit trail
+-  Time-lock protection (auto-refund)
+-  Multi-party approval required
+-  Dispute resolution mechanism
+-  Immutable state transitions
+-  Complete audit trail
 
 ### Negotiation Security
-- ✅ Quote expiration prevents stale quotes
-- ✅ Authorization checks (only parties can act)
-- ✅ Escrow integration ensures funds available
-- ✅ Delivery proof required
-- ✅ Client confirmation prevents premature release
+-  Quote expiration prevents stale quotes
+-  Authorization checks (only parties can act)
+-  Escrow integration ensures funds available
+-  Delivery proof required
+-  Client confirmation prevents premature release
 
 ### Recommended Enhancements
 - [ ] Cryptographic signatures on delivery proofs
@@ -425,7 +425,7 @@ System Statistics:
 
 ---
 
-## 🚀 Production Deployment
+##  Production Deployment
 
 ### Prerequisites
 1. Escrow system configured
@@ -451,7 +451,7 @@ Track these metrics:
 
 ---
 
-## 📝 State Files
+##  State Files
 
 The systems persist state in JSON files:
 
@@ -464,7 +464,7 @@ The systems persist state in JSON files:
 
 ---
 
-## 🎓 Example: Complete Transaction
+##  Example: Complete Transaction
 
 ```javascript
 // 1. Provider creates service listing
@@ -514,7 +514,7 @@ console.log('Transaction complete! 800 SHIB transferred.');
 
 ---
 
-## 🎉 Summary
+##  Summary
 
 **Escrow System:** 8 methods, 6 states, full protection  
 **Negotiation System:** 8 methods, 4 states, automated workflow  
@@ -522,4 +522,4 @@ console.log('Transaction complete! 800 SHIB transferred.');
 **Security:** Multi-layer protection + dispute resolution  
 **Production Ready:** State persistence, timeout handling, full audit
 
-**Build trustless agent economies with confidence.** 🦪
+**Build trustless agent economies with confidence.** 

@@ -215,7 +215,7 @@ list_backups() {
     local encrypted_symbol=""
 
     if [[ "${backup_file##*.}" == "gpg" ]]; then
-      encrypted_symbol=" 🔒"
+      encrypted_symbol=" "
     fi
 
     echo "  • $backup_file ($backup_size)${encrypted_symbol}"

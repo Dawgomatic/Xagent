@@ -89,23 +89,23 @@ async function main() {
   const args = parseArgs();
   
   if (!args.token) {
-    console.error('❌ Missing --token argument');
+    console.error(' Missing --token argument');
     console.error('Usage: node get-credential.js --token abc123');
     process.exit(1);
   }
   
   try {
-    console.error('🔍 Retrieving OAuth credential...');
+    console.error(' Retrieving OAuth credential...');
     
     const result = await queryConvex('oauth:getToken', { token: args.token });
     
     if (!result.value) {
-      console.error('❌ Token not found or expired');
+      console.error(' Token not found or expired');
       process.exit(1);
     }
     
     if (!result.value.credential) {
-      console.error('⏳ Authentication not yet completed');
+      console.error(' Authentication not yet completed');
       console.error('Make sure the user has clicked the OAuth link and authorized the app.');
       process.exit(1);
     }
@@ -114,7 +114,7 @@ async function main() {
     console.log(JSON.stringify(result.value.credential, null, 2));
     
   } catch (err) {
-    console.error('❌ Failed to retrieve credential:', err.message);
+    console.error(' Failed to retrieve credential:', err.message);
     process.exit(1);
   }
 }

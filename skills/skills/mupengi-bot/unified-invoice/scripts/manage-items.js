@@ -22,7 +22,7 @@ function addItem(name, options) {
   
   // 중복 체크
   if (items.some(i => i.name === name)) {
-    console.error(`❌ 이미 존재하는 품목입니다: ${name}`);
+    console.error(` 이미 존재하는 품목입니다: ${name}`);
     process.exit(1);
   }
 
@@ -36,7 +36,7 @@ function addItem(name, options) {
 
   items.push(item);
   saveItems(items);
-  console.log(`✅ 품목 추가: ${name} (${item.price.toLocaleString()}원/${item.unit})`);
+  console.log(` 품목 추가: ${name} (${item.price.toLocaleString()}원/${item.unit})`);
 }
 
 function editItem(name, options) {
@@ -44,7 +44,7 @@ function editItem(name, options) {
   const item = items.find(i => i.name === name);
 
   if (!item) {
-    console.error(`❌ 품목을 찾을 수 없습니다: ${name}`);
+    console.error(` 품목을 찾을 수 없습니다: ${name}`);
     process.exit(1);
   }
 
@@ -53,7 +53,7 @@ function editItem(name, options) {
   if (options.description) item.description = options.description;
 
   saveItems(items);
-  console.log(`✅ 품목 수정: ${name}`);
+  console.log(` 품목 수정: ${name}`);
 }
 
 function removeItem(name) {
@@ -61,12 +61,12 @@ function removeItem(name) {
   const filtered = items.filter(i => i.name !== name);
 
   if (filtered.length === items.length) {
-    console.error(`❌ 품목을 찾을 수 없습니다: ${name}`);
+    console.error(` 품목을 찾을 수 없습니다: ${name}`);
     process.exit(1);
   }
 
   saveItems(filtered);
-  console.log(`✅ 품목 삭제: ${name}`);
+  console.log(` 품목 삭제: ${name}`);
 }
 
 function listItems() {
@@ -93,7 +93,7 @@ function viewItem(name) {
   const item = items.find(i => i.name === name);
 
   if (!item) {
-    console.error(`❌ 품목을 찾을 수 없습니다: ${name}`);
+    console.error(` 품목을 찾을 수 없습니다: ${name}`);
     process.exit(1);
   }
 

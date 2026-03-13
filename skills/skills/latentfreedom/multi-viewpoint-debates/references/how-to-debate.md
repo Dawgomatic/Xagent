@@ -150,33 +150,33 @@ As you accumulate debates, notice:
 
 ## Common Mistakes
 
-❌ **Treating one persona as gospel** — They're not. They're lenses.
+ **Treating one persona as gospel** — They're not. They're lenses.
 
-✅ **Use them to challenge yourself** — Which one am I tempted to dismiss? That's where my blind spot is.
-
----
-
-❌ **Vague prompts** — "What should I do?" leads to vague answers.
-
-✅ **Specific decisions** — "Should I pivot to vertical SaaS or continue as-is?" leads to focused debate.
+ **Use them to challenge yourself** — Which one am I tempted to dismiss? That's where my blind spot is.
 
 ---
 
-❌ **Not providing context** — "Is my app good?" with no info about users, metrics, market.
+ **Vague prompts** — "What should I do?" leads to vague answers.
 
-✅ **Real context** — "10 daily active users, no revenue, Todoist/Notion as competitors, 3 months of development."
-
----
-
-❌ **Making decisions before the debate** — Then just seeking validation.
-
-✅ **Genuine uncertainty** — Run the debate when you don't know what to do.
+ **Specific decisions** — "Should I pivot to vertical SaaS or continue as-is?" leads to focused debate.
 
 ---
 
-❌ **Ignoring tension between personas** — That's where the insight lives.
+ **Not providing context** — "Is my app good?" with no info about users, metrics, market.
 
-✅ **Sit with disagreement** — Ask "What is that persona seeing that I'm not?"
+ **Real context** — "10 daily active users, no revenue, Todoist/Notion as competitors, 3 months of development."
+
+---
+
+ **Making decisions before the debate** — Then just seeking validation.
+
+ **Genuine uncertainty** — Run the debate when you don't know what to do.
+
+---
+
+ **Ignoring tension between personas** — That's where the insight lives.
+
+ **Sit with disagreement** — Ask "What is that persona seeing that I'm not?"
 
 ## Integrating with Real Decisions
 

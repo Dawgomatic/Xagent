@@ -33,7 +33,7 @@ def cleanup_newsletters(dry_run=True):
     ]
     
     for query, description in cleanup_queries:
-        print(f"\n📧 Processing: {description}")
+        print(f"\n Processing: {description}")
         print(f"   Query: {query}")
         
         # Run bulk action
@@ -46,26 +46,26 @@ def cleanup_newsletters(dry_run=True):
         )
         
         if dry_run:
-            print(f"   📊 Found: {result['total_found']} emails")
-            print(f"   📋 Would process: {result['to_process']} emails")
+            print(f"    Found: {result['total_found']} emails")
+            print(f"    Would process: {result['to_process']} emails")
             
             if result.get('preview'):
-                print(f"   📝 Preview (first {len(result['preview'])} emails):")
+                print(f"    Preview (first {len(result['preview'])} emails):")
                 for email in result['preview']:
                     print(f"      - [{email['id']}] {email['subject']}")
         else:
             success_count = len(result.get('success', []))
             failed_count = len(result.get('failed', []))
-            print(f"   ✅ Success: {success_count}")
+            print(f"    Success: {success_count}")
             if failed_count > 0:
-                print(f"   ❌ Failed: {failed_count}")
+                print(f"    Failed: {failed_count}")
     
     print("\n" + "=" * 60)
     if dry_run:
-        print("💡 This was a DRY RUN. No emails were modified.")
+        print(" This was a DRY RUN. No emails were modified.")
         print("   Run with --execute to perform the cleanup.")
     else:
-        print("✅ Cleanup completed!")
+        print(" Cleanup completed!")
     print("=" * 60)
 
 
@@ -88,8 +88,8 @@ def cleanup_old_emails(days=30, dry_run=True):
     print("=" * 60)
     print(f"Old Email Cleanup (older than {days} days)")
     print("=" * 60)
-    print(f"📅 Cutoff date: {cutoff_date}")
-    print(f"🔍 Query: {query}")
+    print(f" Cutoff date: {cutoff_date}")
+    print(f" Query: {query}")
     
     result = zoho.bulk_action(
         query=query,
@@ -100,26 +100,26 @@ def cleanup_old_emails(days=30, dry_run=True):
     )
     
     if dry_run:
-        print(f"\n📊 Found: {result['total_found']} old emails")
-        print(f"📋 Would delete: {result['to_process']} emails")
+        print(f"\n Found: {result['total_found']} old emails")
+        print(f" Would delete: {result['to_process']} emails")
         
         if result.get('preview'):
-            print(f"\n📝 Preview (first {len(result['preview'])} emails):")
+            print(f"\n Preview (first {len(result['preview'])} emails):")
             for email in result['preview']:
                 print(f"   - [{email['id']}] {email['date']}: {email['subject']}")
     else:
         success_count = len(result.get('success', []))
         failed_count = len(result.get('failed', []))
-        print(f"\n✅ Deleted: {success_count}")
+        print(f"\n Deleted: {success_count}")
         if failed_count > 0:
-            print(f"❌ Failed: {failed_count}")
+            print(f" Failed: {failed_count}")
     
     print("=" * 60)
     if dry_run:
-        print("💡 This was a DRY RUN. No emails were deleted.")
+        print(" This was a DRY RUN. No emails were deleted.")
         print("   Run with --execute to perform the cleanup.")
     else:
-        print("✅ Cleanup completed! Check your Trash folder.")
+        print(" Cleanup completed! Check your Trash folder.")
     print("=" * 60)
 
 

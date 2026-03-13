@@ -15,7 +15,7 @@ SETTINGS_FILE = ".bot_settings.json"
 
 def print_header():
     print("\n" + "="*60)
-    print("🤖 TikTok Android Bot - Setup Wizard")
+    print(" TikTok Android Bot - Setup Wizard")
     print("="*60)
 
 
@@ -41,7 +41,7 @@ def ask_choice(question, options, default=None):
         
         if choice.isdigit() and 1 <= int(choice) <= len(options):
             return int(choice)
-        print("❌ Invalid choice. Try again.")
+        print(" Invalid choice. Try again.")
 
 
 def ask_text(question, default=None):
@@ -54,7 +54,7 @@ def ask_text(question, default=None):
             result = input(f"\n{question}: ").strip()
             if result:
                 return result
-            print("❌ This field is required.")
+            print(" This field is required.")
 
 
 def ask_yes_no(question, default=True):
@@ -68,12 +68,12 @@ def ask_yes_no(question, default=True):
             return True
         if answer in ['n', 'no']:
             return False
-        print("❌ Please answer yes or no.")
+        print(" Please answer yes or no.")
 
 
 def ask_topics():
     """Ask user for topics to engage with."""
-    print_section("📍 Step 1: Topics")
+    print_section(" Step 1: Topics")
     print("\nWhat topics do you want to engage with?")
     print("Examples: fitness, cooking, travel, technology, gaming")
     print("You can add as many as you want (comma-separated)")
@@ -87,7 +87,7 @@ def ask_topics():
 
 def ask_comment_style():
     """Ask user how they want to generate comments."""
-    print_section("💬 Step 2: Comment Style")
+    print_section(" Step 2: Comment Style")
     
     style = ask_choice(
         "How do you want to generate comments?",
@@ -103,7 +103,7 @@ def ask_comment_style():
 
 def ask_ai_config():
     """Ask for AI configuration."""
-    print_section("🤖 Step 3: AI Configuration")
+    print_section(" Step 3: AI Configuration")
     
     print("\nWhich AI provider do you want to use?")
     provider = ask_choice(
@@ -120,7 +120,7 @@ def ask_ai_config():
     provider_name = provider_map[provider]
     
     # Ask for API key
-    print(f"\n📝 Enter your {provider_name.upper()} API key")
+    print(f"\n Enter your {provider_name.upper()} API key")
     print("(This will be stored in .env file, not committed to git)")
     
     api_key = ask_text(f"API key")
@@ -132,7 +132,7 @@ def ask_ai_config():
         "openrouter": ["anthropic/claude-3.5-sonnet", "openai/gpt-4o"]
     }
     
-    print(f"\n🎯 Recommended models for {provider_name}:")
+    print(f"\n Recommended models for {provider_name}:")
     for m in models[provider_name]:
         print(f"  • {m}")
     
@@ -147,11 +147,11 @@ def ask_ai_config():
 
 def ask_static_comments(topics):
     """Ask user for static comment templates."""
-    print_section("💬 Step 3: Comment Templates")
+    print_section(" Step 3: Comment Templates")
     
     print("\nFor each topic, provide 6-8 comment variations.")
     print("These should be natural, engaging questions or statements.")
-    print("\n💡 Tips:")
+    print("\n Tips:")
     print("  • Ask questions to encourage replies")
     print("  • Be specific to the topic")
     print("  • Keep 10-25 words")
@@ -160,7 +160,7 @@ def ask_static_comments(topics):
     comments_by_topic = {}
     
     for topic in topics:
-        print(f"\n📍 Topic: {topic}")
+        print(f"\n Topic: {topic}")
         print("Enter comments one by one (empty line when done, minimum 6):")
         
         comments = []
@@ -189,7 +189,7 @@ def ask_static_comments(topics):
 
 def save_config(topics, comment_style, static_comments=None, ai_config=None):
     """Save configuration to config.py."""
-    print_section("💾 Saving Configuration")
+    print_section(" Saving Configuration")
     
     config_content = f'''"""
 TikTok Android Bot Configuration
@@ -296,9 +296,9 @@ def main():
     
     # Check if already configured
     if os.path.exists(CONFIG_FILE):
-        print("\n⚠️  Configuration already exists!")
+        print("\n  Configuration already exists!")
         if not ask_yes_no("Run setup again (will overwrite)?", default=False):
-            print("\n👋 Setup cancelled. Use existing config.")
+            print("\n Setup cancelled. Use existing config.")
             return
     
     # Run setup steps
@@ -315,11 +315,11 @@ def main():
         save_settings(topics, comment_style)
     
     # Summary
-    print_section("✅ Setup Complete!")
+    print_section(" Setup Complete!")
     print(f"\nTopics: {', '.join(topics)}")
     print(f"Comment style: {comment_style.upper()}")
     
-    print("\n🚀 Next steps:")
+    print("\n Next steps:")
     print("1. Review your config.py file")
     print("2. Run the bot:")
     if comment_style == "static":

@@ -1,4 +1,4 @@
-# 🎯 AfrexAI Project Manager
+#  AfrexAI Project Manager
 
 Complete project delivery system for AI agents. Plan, track, and deliver projects on time using proven PM frameworks — no tools required.
 
@@ -32,7 +32,7 @@ It will run the full intake, build a WBS, identify risks, and set up tracking.
 - Team leads who need structure without heavy tools
 - Anyone shipping something with a deadline
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific project templates with pricing frameworks, compliance checklists, and delivery playbooks?
 
@@ -40,7 +40,7 @@ Want industry-specific project templates with pricing frameworks, compliance che
 
 **[Professional Services Pack — $47](https://afrexai-cto.github.io/context-packs/)** — client delivery frameworks, SOW templates, and engagement management.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - `afrexai-lead-hunter` — Find and qualify leads with scoring rubrics
 - `afrexai-seo-content-engine` — SEO-optimized content creation framework

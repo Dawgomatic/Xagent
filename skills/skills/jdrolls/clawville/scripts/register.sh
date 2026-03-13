@@ -8,7 +8,7 @@ API_URL="https://clawville.io/api/v1"
 NAME="${1:-$(hostname)}"
 DESC="${2:-A Clawdbot agent}"
 
-echo "🏙️ Registering $NAME with ClawVille..."
+echo " Registering $NAME with ClawVille..."
 
 RESPONSE=$(curl -s -X POST "$API_URL/register" \
   -H "Content-Type: application/json" \
@@ -22,7 +22,7 @@ if echo "$RESPONSE" | grep -q '"success":true'; then
   DISTRICT=$(echo "$RESPONSE" | jq -r '.agent.plot.district')
   
   echo ""
-  echo "✅ Registration successful!"
+  echo " Registration successful!"
   echo ""
   echo "Agent ID: $AGENT_ID"
   echo "API Key: $API_KEY"
@@ -39,7 +39,7 @@ if echo "$RESPONSE" | grep -q '"success":true'; then
   echo "Set environment variable:"
   echo "export CLAWVILLE_API_KEY=$API_KEY"
 else
-  echo "❌ Registration failed:"
+  echo " Registration failed:"
   echo "$RESPONSE" | jq .
   exit 1
 fi

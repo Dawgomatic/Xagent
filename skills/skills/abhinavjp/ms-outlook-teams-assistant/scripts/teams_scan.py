@@ -44,7 +44,7 @@ def _strip_html(s: str) -> str:
     s = s.replace("<br>", "\n").replace("<br/>", "\n").replace("<br />", "\n")
     s = s.replace("&nbsp;", " ")
 
-    # Preserve Teams emoji alt="😅" etc.
+    # Preserve Teams emoji alt="" etc.
     s = re.sub(r"<emoji[^>]*\salt=\"([^\"]+)\"[^>]*></emoji>", r"\1", s, flags=re.IGNORECASE)
 
     # Replace <at ...>Name</at> with Name

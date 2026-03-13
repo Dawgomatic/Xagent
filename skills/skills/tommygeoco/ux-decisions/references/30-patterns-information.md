@@ -147,7 +147,7 @@ Home / ... / Category / Subcategory / Item
 **Tag filtering:**
 ```
 Filter by tag:
-☑ UX Design (24)
+ UX Design (24)
 ☐ Mobile (18)
 ☐ Case Study (12)
 ```
@@ -209,8 +209,8 @@ Price
 ○ Over $200 (23)
 
 Brand
-☑ Nike (35)
-☑ Adidas (28)
+ Nike (35)
+ Adidas (28)
 ☐ Puma (15)
 ☐ Under Armour (12)
 
@@ -311,7 +311,7 @@ For more details, see our guide to [user research methods].
 
 **Call-out:**
 ```
-📚 Related: [Complete guide to design systems →]
+ Related: [Complete guide to design systems →]
 ```
 
 **Footer:**
@@ -360,7 +360,7 @@ Learn more:
 
 **Search box:**
 ```
-🔍 [Search products, articles...  ]
+ [Search products, articles...  ]
     Recent: shoes, headphones
     Popular: new arrivals, sale
 ```

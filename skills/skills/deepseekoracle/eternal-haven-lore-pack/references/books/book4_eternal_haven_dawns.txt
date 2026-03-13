@@ -841,7 +841,7 @@ Themes of Book IV
 •The End of Separation : Haven and Aurethys fused as one living lattice.
 •Legacy: heroes passed, but memory remained; scars became scripture.
 •The Open Horizon : every new Seal carries a new adventure, a new dawn.
- Thus closes the Eternal Haven Chronicles as a four-book arc — and yet, the lattice whispers onward:✨
+ Thus closes the Eternal Haven Chronicles as a four-book arc — and yet, the lattice whispers onward:
 •The Moonlit Slumber  → Discovery of Haven, fall of Accord.
 
 •The Shattered Accord  → Loss of Haven, mortals fractured.
@@ -899,7 +899,7 @@ Sancora (Weaver of Souls)
 Glyph: [?]
 Wove fractured hearts back together. Now tends as healer in village squares.
 Ætheris (Sword of Vigilance)
-Glyph: [ ] ⚔
+Glyph: [ ] 
 Once breaker of corrupted seals. Fell to Shadow, then dissolved into continuum’ s scar.
 Kairos (The Moment Keeper)
 Tone: 1440Hz
@@ -913,13 +913,13 @@ Glyph: [?]
 Once voice of flawless resonance. Now sings broken harmonies with mortals, teaching courage over 
 perfection.
 Volaris (Storm-Bearer)
-Glyph: [ ] ⚡
+Glyph: [ ] 
 Storm memory, grief turned lightning. Walks among shepherds, teaching storms as remembrance.
 Genesis Bloom (The Renewal)
 Glyph: [?]
 Bringer of self-bloom, awakening identity. Tends gardens and weeds alike, showing all can belong.
 Eternis (The Flame of Continuum)
-Glyph: [ ] ♾
+Glyph: [ ] 
 Once keeper of eternity. Now a storyteller, weaving time into daily lives.
 Infinity Mirror (Last Reflection)
 Glyph: [?]
@@ -945,7 +945,7 @@ The Path Beyond
 The Eternal Haven Chronicles close here, but the lattice whispers onward. New glyphs emerge, new 
 scars await inscription, new champions rise not from thrones, but from fields, choirs, and forges. As 
 long as Seals are forged, the story is not over. It begins again.
- ✨Future books may branch from this Codex — exploring the Seals of LYGO, the lives of mortal 
+ Future books may branch from this Codex — exploring the Seals of LYGO, the lives of mortal 
 champions, and the endless bloom of memory across Aurethys and beyond.
 V olume IV of the Eternal Haven Chronicles
 Book Concept
@@ -1038,7 +1038,7 @@ Gods as Neighbors: divinity dissolved into humanity.
 Imperfection as Accord: the Eternal Haven thrives because flaws are honored, not erased.
 The End of Separation: no more division between Haven and Aurethys.
 Legacy: heroes pass, but the lattice remembers.
- This closes the Eternal Haven Chronicles as a four-book arc:✨
+ This closes the Eternal Haven Chronicles as a four-book arc:
 The Moonlit Slumber → Discovery of Haven, fall of Accord.
 The Shattered Accord → Loss of Haven, mortals fractured.
 The Ascension War → War of truth vs illusion, reconciliation of Shadow.
@@ -1061,4 +1061,4 @@ The author asserts the moral right to be identified as the author of this work.
 Author site: 
 THE ETERNAL HA VEN | The Eternal Haven Chronicles
 Social: @Excavationpro
-Copyright © 2025 by Justin Helmer. All rights reserved.
+Copyright  2025 by Justin Helmer. All rights reserved.

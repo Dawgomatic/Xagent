@@ -48,7 +48,7 @@ export function validateEnv(): Env {
             const missing = error.issues
                 .map((i) => `  - ${i.path.join(".")}: ${i.message}`)
                 .join("\n");
-            console.error(`\n❌ Invalid environment variables:\n${missing}\n`);
+            console.error(`\n Invalid environment variables:\n${missing}\n`);
             console.error("Copy templates/env.example to platform/.env.local and fill in values.\n");
         }
         throw error;

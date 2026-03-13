@@ -114,10 +114,10 @@ else:
 
 | Level | Trigger | Icon | Action |
 |-------|---------|------|--------|
-| **Info** | Daily summary | ℹ️ | Show in journal |
-| **Warning** | 80% budget used | ⚠️ | Highlight in journal |
-| **Critical** | 95% budget used | 🚨 | Prominent warning |
-| **Exceeded** | Over 100% | ❌ | Strong warning |
+| **Info** | Daily summary |  | Show in journal |
+| **Warning** | 80% budget used |  | Highlight in journal |
+| **Critical** | 95% budget used |  | Prominent warning |
+| **Exceeded** | Over 100% |  | Strong warning |
 
 ### Alert Messages
 
@@ -136,12 +136,12 @@ alerts:
   critical:
     threshold: 95
     messages:
-      - "⚠️ Budget nearly exhausted: {percent}% spent"
+      - " Budget nearly exhausted: {percent}% spent"
       - "Only ¥{remaining} left for {days} days"
       
   exceeded:
     messages:
-      - "❌ Budget exceeded by ¥{overage}"
+      - " Budget exceeded by ¥{overage}"
       - "Total spending: ¥{total} / ¥{budget}"
 ```
 
@@ -207,12 +207,12 @@ rollover:
 ### Daily Summary (in Journal)
 
 ```markdown
-## 💰 Financial Summary
+##  Financial Summary
 
 **Today:** ¥449 spent
 **This Month:** ¥3,280 / ¥5,000 (66%)
 
-> [!budget] 📊 Budget Status
+> [!budget]  Budget Status
 > - Pace: On track ✓
 > - Daily allowance: ¥143
 > - Remaining: ¥1,720 for 12 days
@@ -221,13 +221,13 @@ rollover:
 ### Weekly Summary
 
 ```markdown
-## 📊 Weekly Budget Report
+##  Weekly Budget Report
 
 | Category | Spent | Budget | Status |
 |----------|-------|--------|--------|
-| Food | ¥680 | ¥350/week | ⚠️ Over |
-| Transport | ¥120 | ¥125/week | ✅ OK |
-| Shopping | ¥450 | ¥200/week | ⚠️ Over |
+| Food | ¥680 | ¥350/week |  Over |
+| Transport | ¥120 | ¥125/week |  OK |
+| Shopping | ¥450 | ¥200/week |  Over |
 
 **Weekly Total:** ¥1,250 / ¥1,250 (100%)
 ```
@@ -284,7 +284,7 @@ Ledger exports budget info to PhoenixClaw Core:
 ```yaml
 plugin_output:
   section_id: finance
-  section_title: "💰 Financial Summary"
+  section_title: " Financial Summary"
   section_order: 45
   
   budget_summary:

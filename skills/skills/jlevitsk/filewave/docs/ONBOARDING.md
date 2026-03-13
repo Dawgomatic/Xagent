@@ -99,7 +99,7 @@ You can configure later with:
 ```
 $ filewave query --query-id 1
 
-⚠️  No FileWave servers configured yet.
+  No FileWave servers configured yet.
 
 Quick setup:
   filewave setup
@@ -241,7 +241,7 @@ if args.command == "query":
     profile = config.get_profile(args.profile)
     
     if not profile:
-        print("⚠️  No FileWave servers configured yet.")
+        print("  No FileWave servers configured yet.")
         print("\nQuick setup:")
         print("  filewave setup")
         sys.exit(1)
@@ -255,11 +255,11 @@ This prevents silent failures and guides users to setup.
 
 After onboarding, user should be able to:
 
-- ✅ See configured servers: `filewave profiles`
-- ✅ Query device inventory: `filewave query --query-id 1`
-- ✅ Add more servers: `filewave setup`
-- ✅ See all commands: `filewave --help`
-- ✅ View documentation: `README.md`, `BULK_UPDATE.md`, etc.
+-  See configured servers: `filewave profiles`
+-  Query device inventory: `filewave query --query-id 1`
+-  Add more servers: `filewave setup`
+-  See all commands: `filewave --help`
+-  View documentation: `README.md`, `BULK_UPDATE.md`, etc.
 
 ---
 

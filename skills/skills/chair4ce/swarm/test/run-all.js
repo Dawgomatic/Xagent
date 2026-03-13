@@ -31,7 +31,7 @@ async function runTest(test) {
 }
 
 async function main() {
-  console.log('🐝 Swarm Test Suite');
+  console.log(' Swarm Test Suite');
   console.log('==================\n');
   
   const results = [];
@@ -48,12 +48,12 @@ async function main() {
   
   let allPassed = true;
   for (const result of results) {
-    const status = result.code === 0 ? '✅' : '❌';
+    const status = result.code === 0 ? '' : '';
     console.log(`${status} ${result.name}`);
     if (result.code !== 0) allPassed = false;
   }
   
-  console.log('\n' + (allPassed ? '✅ All tests passed!' : '❌ Some tests failed'));
+  console.log('\n' + (allPassed ? ' All tests passed!' : ' Some tests failed'));
   
   process.exit(allPassed ? 0 : 1);
 }

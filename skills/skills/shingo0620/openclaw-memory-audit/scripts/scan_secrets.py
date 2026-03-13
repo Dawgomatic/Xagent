@@ -52,9 +52,9 @@ def main(root_dir):
             all_findings.extend(findings)
     
     if not all_findings:
-        print("✅ No secrets found in workspace logs.")
+        print(" No secrets found in workspace logs.")
     else:
-        print(f"⚠️ Found {len(all_findings)} potential secret(s) exposed:")
+        print(f" Found {len(all_findings)} potential secret(s) exposed:")
         for f in all_findings:
             print(f"- [{f['type']}] in {f['file']}:{f['line']} -> {f['masked']}")
 

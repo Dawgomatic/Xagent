@@ -204,7 +204,7 @@ function runMonteCarlo(params: SimulationParams): MonteCarloStats {
 
 async function main() {
   console.log('═'.repeat(80));
-  console.log('🎲 MONTE CARLO SIMULATION - FUNDING RATE ARBITRAGE');
+  console.log(' MONTE CARLO SIMULATION - FUNDING RATE ARBITRAGE');
   console.log('═'.repeat(80));
   console.log('\nRunning 10,000 simulations for 30-day period...\n');
   
@@ -287,7 +287,7 @@ async function main() {
   
   // Detailed analysis
   console.log('\n' + '═'.repeat(80));
-  console.log('📊 DETAILED ANALYSIS');
+  console.log(' DETAILED ANALYSIS');
   console.log('═'.repeat(80));
   
   for (const { name, stats } of allResults) {
@@ -307,27 +307,27 @@ async function main() {
   
   // Risk-adjusted comparison - USDC/Stablecoin yields only
   console.log('\n' + '═'.repeat(80));
-  console.log('⚖️  USDC/STABLECOIN YIELD COMPARISON');
+  console.log('  USDC/STABLECOIN YIELD COMPARISON');
   console.log('═'.repeat(80));
   
   console.log(`
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Platform                       │ APY             │ Risk Level │ Notes        │
 ├────────────────────────────────┼─────────────────┼────────────┼──────────────┤
-│ 🏦 US BANKS (USD)                                                            │
+│  US BANKS (USD)                                                            │
 ├────────────────────────────────┼─────────────────┼────────────┼──────────────┤
 │ High-Yield Savings (Ally)      │ 4.0%            │ Very Low   │ FDIC insured │
 │ 1-Year CD                      │ 4.5%            │ Very Low   │ FDIC insured │
 │ Money Market (Fidelity)        │ 4.9%            │ Very Low   │ SIPC insured │
 ├────────────────────────────────┼─────────────────┼────────────┼──────────────┤
-│ 📊 CEX EARN (USDC)                                                           │
+│  CEX EARN (USDC)                                                           │
 ├────────────────────────────────┼─────────────────┼────────────┼──────────────┤
 │ Binance Flexible               │ 3.2%            │ Low        │ Custodial    │
 │ Coinbase USDC Rewards          │ 4.1%            │ Low        │ Custodial    │
 │ Bybit Savings                  │ 5.5%            │ Low        │ Custodial    │
 │ OKX Simple Earn                │ 4.8%            │ Low        │ Custodial    │
 ├────────────────────────────────┼─────────────────┼────────────┼──────────────┤
-│ 🔷 DEFI LENDING (USDC)                                                       │
+│  DEFI LENDING (USDC)                                                       │
 ├────────────────────────────────┼─────────────────┼────────────┼──────────────┤
 │ Aave V3 (Ethereum)             │ 2.5%            │ Low-Med    │ Blue chip    │
 │ Aave V3 (Base)                 │ 3.8%            │ Low-Med    │ Blue chip    │
@@ -337,7 +337,7 @@ async function main() {
 │ Kamino (Solana)                │ 7.2%            │ Medium     │ Solana DeFi  │
 │ Gains Network (Arb)            │ 14.0%           │ Med-High   │ GLP-style    │
 ├────────────────────────────────┼─────────────────┼────────────┼──────────────┤
-│ ⚡ FUNDING RATE ARBITRAGE                                                    │
+│  FUNDING RATE ARBITRAGE                                                    │
 ├────────────────────────────────┼─────────────────┼────────────┼──────────────┤
 │ Ultra Safe (1x)                │ ${(allResults[0].stats.meanReturn * 12).toFixed(0).padStart(3)}%           │ Low-Med    │ ${allResults[0].stats.profitableRate.toFixed(0)}% win rate │
 │ Conservative (1.5x)            │ ${(allResults[1].stats.meanReturn * 12).toFixed(0).padStart(3)}%           │ Medium     │ ${allResults[1].stats.profitableRate.toFixed(0)}% win rate │
@@ -347,7 +347,7 @@ async function main() {
 
   // Key insights
   console.log('═'.repeat(80));
-  console.log('💡 KEY INSIGHTS');
+  console.log(' KEY INSIGHTS');
   console.log('═'.repeat(80));
   
   const ultraSafeAnnual = allResults[0].stats.meanReturn * 12;
@@ -355,7 +355,7 @@ async function main() {
   const moderateAnnual = allResults[2].stats.meanReturn * 12;
   
   console.log(`
-  📈 RETURN COMPARISON (vs USDC Yields):
+   RETURN COMPARISON (vs USDC Yields):
   
   ┌────────────────────────┬──────────┬──────────────────────────────────────────┐
   │ Baseline               │ APY      │ Funding Arb Multiplier                   │
@@ -366,7 +366,7 @@ async function main() {
   │ Marginfi (8.5%)        │ 8.5%     │ ${(ultraSafeAnnual / 8.5).toFixed(0)}x / ${(conservativeAnnual / 8.5).toFixed(0)}x / ${(moderateAnnual / 8.5).toFixed(0)}x                       │
   └────────────────────────┴──────────┴──────────────────────────────────────────┘
   
-  ⚠️ RISK TRADE-OFF:
+   RISK TRADE-OFF:
   
   │ Strategy       │ Win Rate │ Worst 5%  │ Max DD  │ Active Mgmt │
   ├────────────────┼──────────┼───────────┼─────────┼─────────────┤
@@ -376,7 +376,7 @@ async function main() {
   │ Funding (1.5x) │ ${allResults[1].stats.profitableRate.toFixed(0)}%     │ ${allResults[1].stats.percentile5.toFixed(0)}%       │ ${allResults[1].stats.meanMaxDrawdown.toFixed(0)}%      │ High        │
   │ Funding (2.5x) │ ${allResults[2].stats.profitableRate.toFixed(0)}%     │ ${allResults[2].stats.percentile5.toFixed(0)}%       │ ${allResults[2].stats.meanMaxDrawdown.toFixed(0)}%      │ High        │
   
-  🎯 RECOMMENDATION:
+   RECOMMENDATION:
   - Ultra Safe (1x): Best for beginners, ${allResults[0].stats.profitableRate.toFixed(0)}% win rate, ${ultraSafeAnnual.toFixed(0)}% APY
   - Conservative (1.5x): Good balance, ${allResults[1].stats.profitableRate.toFixed(0)}% win rate, ${conservativeAnnual.toFixed(0)}% APY
   - Moderate (2.5x): For experienced traders, ${allResults[2].stats.profitableRate.toFixed(0)}% win rate, ${moderateAnnual.toFixed(0)}% APY

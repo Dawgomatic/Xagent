@@ -64,6 +64,6 @@ const output = {
 console.log(JSON.stringify(output, null, 2));
 
 if (!eligible) {
-  console.error(`\n⚠️  Insufficient balance: ${humanBalance.toLocaleString()} / ${MIN_BALANCE.toLocaleString()} $CLAWDVINE required`);
+  console.error(`\n  Insufficient balance: ${humanBalance.toLocaleString()} / ${MIN_BALANCE.toLocaleString()} $CLAWDVINE required`);
   process.exit(1);
 }

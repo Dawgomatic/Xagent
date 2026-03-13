@@ -143,9 +143,9 @@ async function main() {
           }).on('error', () => resolve(health));
         });
 
-        console.log('🐝 Swarm Daemon Status');
+        console.log(' Swarm Daemon Status');
         console.log('─'.repeat(40));
-        console.log(`   Status:    ✅ Running`);
+        console.log(`   Status:     Running`);
         console.log(`   Port:      ${port}`);
         console.log(`   Uptime:    ${Math.round(status.uptime / 1000)}s`);
         console.log(`   Workers:   ${status.workers?.totalNodes || health.workers}`);
@@ -156,9 +156,9 @@ async function main() {
         }
         console.log(`   Provider:  ${status.config?.provider || 'unknown'}`);
       } else {
-        console.log('🐝 Swarm Daemon Status');
+        console.log(' Swarm Daemon Status');
         console.log('─'.repeat(40));
-        console.log(`   Status:    ❌ Not running`);
+        console.log(`   Status:     Not running`);
         console.log('');
         console.log('Start with: swarm-daemon start');
       }

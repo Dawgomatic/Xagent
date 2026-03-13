@@ -22,9 +22,9 @@ Discover devices and scan ports on your local network.
    ifconfig | grep 'inet ' | grep -v '127.0.0.1'
    ```
 
-2. **⚠️ Validate target — CRITICAL**:
-   - ✅ Only scan **private IP ranges**: `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`, `127.0.0.0/8`
-   - ❌ **REJECT public IPs** unless user explicitly confirms ownership
+2. ** Validate target — CRITICAL**:
+   -  Only scan **private IP ranges**: `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`, `127.0.0.0/8`
+   -  **REJECT public IPs** unless user explicitly confirms ownership
    - Always **confirm scan target** with user before executing
 
 3. **Run scans** (prefer non-root options):
@@ -40,7 +40,7 @@ Discover devices and scan ports on your local network.
 
 4. **Output format**:
    ```
-   ## 🔍 Network Scan Results
+   ##  Network Scan Results
    **Subnet:** 192.168.1.0/24 | **Date:** YYYY-MM-DD HH:MM
    **Devices found:** 12
 
@@ -49,7 +49,7 @@ Discover devices and scan ports on your local network.
    | 1 | 192.168.1.1 | router | AA:BB:CC:DD:EE:FF | 80, 443 | HTTP, HTTPS |
    | 2 | 192.168.1.10 | nas | ... | 22, 445, 8080 | SSH, SMB, HTTP |
 
-   ### ⚠️ Security Notes
+   ###  Security Notes
    - 192.168.1.10: SSH (22) open — ensure key-only auth
    - 192.168.1.15: Telnet (23) open — **insecure, disable if possible**
    ```

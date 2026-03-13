@@ -58,29 +58,29 @@ What would you like to work on first?
 Create these spaces:
 ```
 infrastructure/     # Cloud & infrastructure docs
-  _space.yml: { name: "Infrastructure", icon: "🏗️", color: "#3B82F6", sort: "alpha" }
+  _space.yml: { name: "Infrastructure", icon: "", color: "#3B82F6", sort: "alpha" }
 
 devops/             # CI/CD, pipelines, GitHub
-  _space.yml: { name: "DevOps", icon: "🔧", color: "#10B981", sort: "alpha" }
+  _space.yml: { name: "DevOps", icon: "", color: "#10B981", sort: "alpha" }
 
 architecture/       # ADRs and system designs
-  _space.yml: { name: "Architecture", icon: "📐", color: "#8B5CF6", sort: "alpha" }
+  _space.yml: { name: "Architecture", icon: "", color: "#8B5CF6", sort: "alpha" }
 
 security/           # Audits, compliance, access reviews
-  _space.yml: { name: "Security", icon: "🔒", color: "#EF4444", sort: "alpha" }
+  _space.yml: { name: "Security", icon: "", color: "#EF4444", sort: "alpha" }
 
 team/               # Processes, templates, hiring
-  _space.yml: { name: "Team", icon: "👥", color: "#F59E0B", sort: "alpha" }
+  _space.yml: { name: "Team", icon: "", color: "#F59E0B", sort: "alpha" }
 
 daily-notes/        # Daily logs and standup notes
-  _space.yml: { name: "Daily Notes", icon: "📝", color: "#6B7280", sort: "date-desc" }
+  _space.yml: { name: "Daily Notes", icon: "", color: "#6B7280", sort: "date-desc" }
 ```
 
 Create welcome doc at `infrastructure/welcome.md`:
 ```markdown
 ---
 title: Welcome to Your Engineering Workspace
-icon: 👋
+icon: 
 ---
 
 # Welcome to Your Engineering Workspace
@@ -99,7 +99,7 @@ Your workspace is organized by domain:
 ## Conventions
 
 - **Time-bound projects**: Use `topic-YYYY-MM/` folders (e.g., `aws-cleanup-2026-02/`)
-- **Status indicators**: ✅ Complete | ⏳ In Progress | ⏸️ Pending | ❌ Blocked
+- **Status indicators**:  Complete |  In Progress |  Pending |  Blocked
 - **Document types**: PLAN.md, TRACKING.md, ANALYSIS.md, RUNBOOK.md
 
 ## Getting Started
@@ -115,19 +115,19 @@ Ask me to:
 Create these spaces:
 ```
 projects/           # Active research projects
-  _space.yml: { name: "Projects", icon: "🔬", color: "#8B5CF6", sort: "alpha" }
+  _space.yml: { name: "Projects", icon: "", color: "#8B5CF6", sort: "alpha" }
 
 literature/         # Paper notes and reviews
-  _space.yml: { name: "Literature", icon: "📚", color: "#3B82F6", sort: "alpha" }
+  _space.yml: { name: "Literature", icon: "", color: "#3B82F6", sort: "alpha" }
 
 experiments/        # Experiment logs and results
-  _space.yml: { name: "Experiments", icon: "🧪", color: "#10B981", sort: "date-desc" }
+  _space.yml: { name: "Experiments", icon: "", color: "#10B981", sort: "date-desc" }
 
 writing/            # Papers, proposals, drafts
-  _space.yml: { name: "Writing", icon: "✍️", color: "#F59E0B", sort: "alpha" }
+  _space.yml: { name: "Writing", icon: "", color: "#F59E0B", sort: "alpha" }
 
 notes/              # Meeting notes, ideas, scratch
-  _space.yml: { name: "Notes", icon: "📝", color: "#6B7280", sort: "date-desc" }
+  _space.yml: { name: "Notes", icon: "", color: "#6B7280", sort: "date-desc" }
 ```
 
 ### Business & Consulting
@@ -135,22 +135,22 @@ notes/              # Meeting notes, ideas, scratch
 Create these spaces:
 ```
 clients/            # Client-specific folders
-  _space.yml: { name: "Clients", icon: "🏢", color: "#3B82F6", sort: "alpha" }
+  _space.yml: { name: "Clients", icon: "", color: "#3B82F6", sort: "alpha" }
 
 projects/           # Active engagements
-  _space.yml: { name: "Projects", icon: "📊", color: "#10B981", sort: "alpha" }
+  _space.yml: { name: "Projects", icon: "", color: "#10B981", sort: "alpha" }
 
 meetings/           # Meeting notes and agendas
-  _space.yml: { name: "Meetings", icon: "📅", color: "#F59E0B", sort: "date-desc" }
+  _space.yml: { name: "Meetings", icon: "", color: "#F59E0B", sort: "date-desc" }
 
 strategy/           # Business strategy and planning
-  _space.yml: { name: "Strategy", icon: "🎯", color: "#8B5CF6", sort: "alpha" }
+  _space.yml: { name: "Strategy", icon: "", color: "#8B5CF6", sort: "alpha" }
 
 templates/          # Reusable templates
-  _space.yml: { name: "Templates", icon: "📋", color: "#6B7280", sort: "alpha" }
+  _space.yml: { name: "Templates", icon: "", color: "#6B7280", sort: "alpha" }
 
 daily-notes/        # Daily logs
-  _space.yml: { name: "Daily Notes", icon: "📝", color: "#6B7280", sort: "date-desc" }
+  _space.yml: { name: "Daily Notes", icon: "", color: "#6B7280", sort: "date-desc" }
 ```
 
 ### Creative & Writing
@@ -158,22 +158,22 @@ daily-notes/        # Daily logs
 Create these spaces:
 ```
 projects/           # Active writing projects
-  _space.yml: { name: "Projects", icon: "📖", color: "#8B5CF6", sort: "alpha" }
+  _space.yml: { name: "Projects", icon: "", color: "#8B5CF6", sort: "alpha" }
 
 drafts/             # Work in progress
-  _space.yml: { name: "Drafts", icon: "✏️", color: "#F59E0B", sort: "date-desc" }
+  _space.yml: { name: "Drafts", icon: "", color: "#F59E0B", sort: "date-desc" }
 
 research/           # Background research
-  _space.yml: { name: "Research", icon: "🔍", color: "#3B82F6", sort: "alpha" }
+  _space.yml: { name: "Research", icon: "", color: "#3B82F6", sort: "alpha" }
 
 world-building/     # Characters, settings, lore
-  _space.yml: { name: "World Building", icon: "🌍", color: "#10B981", sort: "alpha" }
+  _space.yml: { name: "World Building", icon: "", color: "#10B981", sort: "alpha" }
 
 ideas/              # Story ideas, prompts, inspiration
-  _space.yml: { name: "Ideas", icon: "💡", color: "#EC4899", sort: "date-desc" }
+  _space.yml: { name: "Ideas", icon: "", color: "#EC4899", sort: "date-desc" }
 
 daily-notes/        # Writing journal
-  _space.yml: { name: "Daily Notes", icon: "📝", color: "#6B7280", sort: "date-desc" }
+  _space.yml: { name: "Daily Notes", icon: "", color: "#6B7280", sort: "date-desc" }
 ```
 
 ### Personal Knowledge (PARA Method)
@@ -181,19 +181,19 @@ daily-notes/        # Writing journal
 Create these spaces:
 ```
 projects/           # Active projects with deadlines
-  _space.yml: { name: "Projects", icon: "🎯", color: "#10B981", sort: "alpha" }
+  _space.yml: { name: "Projects", icon: "", color: "#10B981", sort: "alpha" }
 
 areas/              # Ongoing areas of responsibility
-  _space.yml: { name: "Areas", icon: "🏠", color: "#3B82F6", sort: "alpha" }
+  _space.yml: { name: "Areas", icon: "", color: "#3B82F6", sort: "alpha" }
 
 resources/          # Reference materials by topic
-  _space.yml: { name: "Resources", icon: "📚", color: "#8B5CF6", sort: "alpha" }
+  _space.yml: { name: "Resources", icon: "", color: "#8B5CF6", sort: "alpha" }
 
 archive/            # Completed/inactive items
-  _space.yml: { name: "Archive", icon: "📦", color: "#6B7280", sort: "date-desc" }
+  _space.yml: { name: "Archive", icon: "", color: "#6B7280", sort: "date-desc" }
 
 daily-notes/        # Daily journal
-  _space.yml: { name: "Daily Notes", icon: "📝", color: "#F59E0B", sort: "date-desc" }
+  _space.yml: { name: "Daily Notes", icon: "", color: "#F59E0B", sort: "date-desc" }
 ```
 
 ---
@@ -207,13 +207,13 @@ When asked to create documents, use these templates:
 ```markdown
 ---
 title: [Project] Plan
-icon: 📋
+icon: 
 ---
 
 # [Project] Plan
 
 **Created:** YYYY-MM-DD
-**Status:** Planning | In Progress | ✅ Complete
+**Status:** Planning | In Progress |  Complete
 **Owner:** [Name]
 
 ## Overview
@@ -260,13 +260,13 @@ icon: 📋
 ```markdown
 ---
 title: [Project] - Tracking
-icon: 📊
+icon: 
 ---
 
 # [Project] - Execution Tracking
 
 **Started:** YYYY-MM-DD
-**Status:** 🔄 In Progress | ✅ Complete
+**Status:**  In Progress |  Complete
 
 ---
 
@@ -289,7 +289,7 @@ icon: 📊
 
 | Date | Action | Status | Notes |
 |------|--------|--------|-------|
-| YYYY-MM-DD | ... | ✅ | ... |
+| YYYY-MM-DD | ... |  | ... |
 
 ---
 
@@ -305,7 +305,7 @@ icon: 📊
 ```markdown
 ---
 title: [Procedure] Runbook
-icon: 📖
+icon: 
 ---
 
 # [Procedure] Runbook
@@ -386,12 +386,12 @@ When user asks "where should I put [X]":
 ## Status Indicators
 
 Use these consistently:
-- ✅ Complete
-- ⏳ In Progress
-- ⏸️ Pending
-- ❌ Blocked
-- ⚠️ Warning/Issue
-- 🔄 Active Work
+-  Complete
+-  In Progress
+-  Pending
+-  Blocked
+-  Warning/Issue
+-  Active Work
 
 ## Naming Conventions
 

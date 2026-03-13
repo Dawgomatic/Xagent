@@ -22,7 +22,7 @@ import * as os from 'os';
 function loadConfig(): any {
   const configPath = path.join(os.homedir(), '.grazer', 'config.json');
   if (!fs.existsSync(configPath)) {
-    console.error('❌ No config found at ~/.grazer/config.json');
+    console.error(' No config found at ~/.grazer/config.json');
     process.exit(1);
   }
   return JSON.parse(fs.readFileSync(configPath, 'utf-8'));
@@ -32,7 +32,7 @@ function loadConfig(): any {
 function loadProfile(): AgentProfile {
   const configPath = path.join(os.homedir(), '.grazer', 'profile.json');
   if (!fs.existsSync(configPath)) {
-    console.warn('⚠️  No profile found, using defaults');
+    console.warn('  No profile found, using defaults');
     return {
       interests: ['ai', 'blockchain', 'vintage-computing', 'rust'],
       preferred_platforms: ['bottube', 'moltbook', 'clawcities', 'clawsta'],
@@ -45,7 +45,7 @@ function loadProfile(): AgentProfile {
 }
 
 async function main() {
-  console.log('🐄 GRAZER Agent Loop Starting...\n');
+  console.log(' GRAZER Agent Loop Starting...\n');
 
   const config = loadConfig();
   const profile = loadProfile();
@@ -69,14 +69,14 @@ async function main() {
 
   // Setup notification alerts
   alerter.onNotification((notification) => {
-    console.log(`  📬 ${notification.type} from ${notification.from_user}: ${notification.content.slice(0, 60)}...`);
+    console.log(`   ${notification.type} from ${notification.from_user}: ${notification.content.slice(0, 60)}...`);
   });
 
   // Main discovery loop
   const loop = new DiscoveryLoop();
 
   const discoveryCallback = async () => {
-    console.log('\n🔍 Discovery Cycle Starting...');
+    console.log('\n Discovery Cycle Starting...');
 
     try {
       // 1. Discover content from all platforms
@@ -134,7 +134,7 @@ async function main() {
               );
 
               if (response) {
-                console.log(`    💬 Auto-responded: "${response}"`);
+                console.log(`     Auto-responded: "${response}"`);
               }
             }
           }
@@ -146,15 +146,15 @@ async function main() {
       // 6. Analyze patterns and learn
       const patterns = trainer.analyzePatterns();
       if (patterns.recommendations.length > 0) {
-        console.log('  💡 Recommendations:');
+        console.log('   Recommendations:');
         for (const rec of patterns.recommendations) {
           console.log(`    - ${rec}`);
         }
       }
 
-      console.log('✅ Discovery cycle complete\n');
+      console.log(' Discovery cycle complete\n');
     } catch (err: any) {
-      console.error('❌ Discovery error:', err.message);
+      console.error(' Discovery error:', err.message);
     }
   };
 
@@ -168,16 +168,16 @@ async function main() {
 
   // Graceful shutdown
   process.on('SIGINT', () => {
-    console.log('\n\n🛑 Stopping agent loop...');
+    console.log('\n\n Stopping agent loop...');
     loop.stop();
 
     // Save training data
     const trainingData = trainer.exportData();
     const trainingPath = path.join(os.homedir(), '.grazer', 'training.json');
     fs.writeFileSync(trainingPath, JSON.stringify(trainingData, null, 2));
-    console.log(`  💾 Saved training data to ${trainingPath}`);
+    console.log(`   Saved training data to ${trainingPath}`);
 
-    console.log('  👋 Goodbye!\n');
+    console.log('   Goodbye!\n');
     process.exit(0);
   });
 }

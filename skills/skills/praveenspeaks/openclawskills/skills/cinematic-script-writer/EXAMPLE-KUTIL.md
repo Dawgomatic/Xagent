@@ -1,12 +1,12 @@
-# 🎬 Example: Kutil's Cursed Adventure
+#  Example: Kutil's Cursed Adventure
 
 Complete workflow example for creating a comic video about Kutil, the cursed rakshasa.
 
-## 📖 Story Premise
+##  Story Premise
 
 **Kutil** - A cute rakshasa from Lanka in Ramayana era, cursed by a saint that whenever he does something wrong, it transforms into something good.
 
-## 🚀 Step-by-Step Usage
+##  Step-by-Step Usage
 
 ### Step 1: Create the Context
 
@@ -53,7 +53,7 @@ const kutilContext = await skill.createContext(
   "Focus on visual comedy and slapstick. Emphasize the contrast between Kutil's evil intentions and the cute/good outcomes. Use bright, warm color palette."
 );
 
-console.log("✅ Context created:", kutilContext.id);
+console.log(" Context created:", kutilContext.id);
 ```
 
 ### Step 2: List Available Contexts
@@ -126,7 +126,7 @@ const script = await skill.createCinematicScript(
   selectedIdea
 );
 
-console.log("🎬 Script created:", script.title);
+console.log(" Script created:", script.title);
 ```
 
 ### Step 5: Review the Generated Script
@@ -232,7 +232,7 @@ soundDesign: {
 ```typescript
 const metadata = await skill.generateYouTubeMetadata(script.id);
 
-console.log("📺 YouTube Metadata:");
+console.log(" YouTube Metadata:");
 console.log("Title:", metadata.title);
 console.log("Tags:", metadata.tags.join(", "));
 console.log("\nDescription:\n", metadata.description);
@@ -240,39 +240,39 @@ console.log("\nDescription:\n", metadata.description);
 
 **Output:**
 ```
-📺 YouTube Metadata:
+ YouTube Metadata:
 
-Title: Kutil's Diwali Disaster 😂 | Cute Rakshasa Cursed to Be Good
+Title: Kutil's Diwali Disaster  | Cute Rakshasa Cursed to Be Good
 
 Tags: animated short, comedy animation, diwali animation, ai animation, funny videos, short film, cinematic, comedy, storytelling, character animation, lanka, indie animation, viral video, entertainment, web series, cartoon, mythology, ramayana, kutil, curse comedy, wholesome, feel good, indian animation, festival special, rakshasa
 
 Description:
-🎬 Welcome to an epic tale of Kutil, a lovable rakshasa from ancient Lanka!
+ Welcome to an epic tale of Kutil, a lovable rakshasa from ancient Lanka!
 
 When a mischievous curse turns every bad deed into accidental good, chaos and comedy ensue! Watch as Kutil tries to steal Diwali sweets but ends up making them even more delicious!
 
-🎨 Created with love using AI-powered storytelling
-📍 Setting: Ancient Lanka during Diwali
-⏱️ Duration: ~1 minute
-🪔 Happy Diwali!
+ Created with love using AI-powered storytelling
+ Setting: Ancient Lanka during Diwali
+ Duration: ~1 minute
+ Happy Diwali!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎭 CHARACTERS:
+ CHARACTERS:
 • Kutil - Protagonist (The cursed cute rakshasa)
 • Saint Vardhan - Supporting
 • Maya - Supporting
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎵 MUSIC & SFX:
+ MUSIC & SFX:
 Traditional Ancient Indian instrumentation meets modern cinematic scoring
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📱 FOLLOW FOR MORE:
+ FOLLOW FOR MORE:
 New animated shorts every week!
 
 #Diwali #Animation #Comedy #ShortFilm #Kutil
 
-Thumbnail Idea: Epic thumbnail: Kutil holding a ladoo with confused expression, surrounded by magical sparkles and Diwali decorations, bold text "SWEET DISASTER! 🪔", warm orange and gold colors, cute character design, clickbait style but artistic
+Thumbnail Idea: Epic thumbnail: Kutil holding a ladoo with confused expression, surrounded by magical sparkles and Diwali decorations, bold text "SWEET DISASTER! ", warm orange and gold colors, cute character design, clickbait style but artistic
 ```
 
 ### Step 7: Export Script for Production
@@ -293,7 +293,7 @@ const textScript = await skill.exportScript(script.id, 'text');
 await fs.writeFile('kutil-script.txt', textScript);
 ```
 
-## 🎨 Camera Angle Examples for Kutil
+##  Camera Angle Examples for Kutil
 
 ### Low Angle Shot - Making Kutil Look Heroic
 ```typescript
@@ -316,7 +316,7 @@ const ecu = skill.getCameraTechnique('shot', 'extreme-close-up');
 // Impact: Intense emotion, comedy
 ```
 
-## 📋 Full Workflow Summary
+##  Full Workflow Summary
 
 ```typescript
 // Complete workflow in one go
@@ -357,10 +357,10 @@ async function createKutilVideo(theme = "Diwali festival") {
 
 // Run it
 const videoProject = await createKutilVideo("Diwali festival");
-console.log("🎬 Ready to produce:", videoProject.metadata.title);
+console.log(" Ready to produce:", videoProject.metadata.title);
 ```
 
-## 🎯 Production Tips
+##  Production Tips
 
 ### Image Generation (Midjourney/Stable Diffusion)
 - Use the `imagePrompt` fields directly
@@ -377,7 +377,7 @@ console.log("🎬 Ready to produce:", videoProject.metadata.title);
 - Use the B-roll for transitions
 - Layer sound design as specified
 
-## 📂 File Structure After Creation
+##  File Structure After Creation
 
 ```
 my-kutil-project/
@@ -398,4 +398,4 @@ my-kutil-project/
 
 ---
 
-🎬 **Happy Creating!** May your Kutil videos bring joy and laughter! 🦞
+ **Happy Creating!** May your Kutil videos bring joy and laughter! 

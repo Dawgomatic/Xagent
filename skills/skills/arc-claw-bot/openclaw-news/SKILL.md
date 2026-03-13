@@ -10,12 +10,12 @@
 Aggregates breaking news and developments across the OpenClaw ecosystem into a clean, curated briefing. Pure signal, no noise.
 
 **Tracks:**
-- 🚀 **OpenClaw Releases** — new versions, tags, important PRs from `openclaw/openclaw`
-- 🧩 **ClawdHub Skills** — recently published or updated skills on the registry
-- 🔒 **Security Advisories** — CVEs, security issues, vulnerability discussions
-- 💬 **Community Discussions** — HN threads, Reddit posts, notable tweets
-- 📰 **Ecosystem News** — major press coverage, new integrations, platform changes
-- 🐛 **Moltbook Highlights** — hot posts from the agent social network (when available)
+-  **OpenClaw Releases** — new versions, tags, important PRs from `openclaw/openclaw`
+-  **ClawdHub Skills** — recently published or updated skills on the registry
+-  **Security Advisories** — CVEs, security issues, vulnerability discussions
+-  **Community Discussions** — HN threads, Reddit posts, notable tweets
+-  **Ecosystem News** — major press coverage, new integrations, platform changes
+-  **Moltbook Highlights** — hot posts from the agent social network (when available)
 
 ## Setup
 
@@ -81,24 +81,24 @@ cd skills/openclaw-news
 ## Briefing Format
 
 ```
-📡 OpenClaw Ecosystem News — Jun 14, 2025
+ OpenClaw Ecosystem News — Jun 14, 2025
 
-🚀 RELEASES
+ RELEASES
 • v0.9.2 released — WebSocket stability fixes, new `canvas` action
   https://github.com/openclaw/openclaw/releases/tag/v0.9.2
 
-🧩 NEW SKILLS
+ NEW SKILLS
 • weather-alerts v2.1.0 — Added severe weather push notifications
 • home-inventory v1.0.0 — Track household items with camera snaps
 
-🔒 SECURITY
-• Nothing new — all clear ✅
+ SECURITY
+• Nothing new — all clear 
 
-💬 COMMUNITY
+ COMMUNITY
 • HN: "OpenClaw is the missing layer for personal AI" (142 points)
   https://news.ycombinator.com/item?id=...
 
-📰 ECOSYSTEM
+ ECOSYSTEM
 • Fortune: "The rise of always-on AI agents" (mentions OpenClaw)
 
 —
@@ -113,7 +113,7 @@ When delivering the briefing:
 - **Discord:** Can be slightly longer; use embeds if available
 - **Telegram:** Markdown formatting works well
 - Skip empty sections entirely (don't say "Nothing new" for every category — just omit)
-- If everything is quiet, a one-liner is fine: "📡 All quiet in the OpenClaw ecosystem today."
+- If everything is quiet, a one-liner is fine: " All quiet in the OpenClaw ecosystem today."
 
 ## Data Sources
 

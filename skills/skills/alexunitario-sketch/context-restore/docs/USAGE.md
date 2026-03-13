@@ -26,18 +26,18 @@ python restore_context.py
 
 **输出示例：**
 ```
-✅ 上下文已恢复
+ 上下文已恢复
 
-📊 压缩信息:
+ 压缩信息:
 - 原始消息: 150
 - 压缩后: 25
 - 压缩率: 16.7%
 
-🔄 最近操作:
+ 最近操作:
 - 完成数据清洗模块
 - 添加 3 个新 cron 任务
 
-🚀 项目:
+ 项目:
 - Hermes Plan - 数据分析助手
 ```
 
@@ -105,12 +105,12 @@ python restore_context.py --timeline --period monthly
 
 **输出示例（weekly）：**
 ```
-📅 Week 6 (Feb 2-8)
+ Week 6 (Feb 2-8)
 ├── 完成数据管道测试
 ├── 部署新功能到生产环境
 └── 项目: Hermes Plan, Akasha Plan
 
-📅 Week 5 (Jan 26 - Feb 1)
+ Week 5 (Jan 26 - Feb 1)
 ├── 启动 Akasha UI 改进
 └── 项目: Hermes Plan
 ```
@@ -149,23 +149,23 @@ python restore_context.py --diff old.json new.json --output diff_report.txt
 ```
 CONTEXT DIFF REPORT
 ============================================================
-📁 Old: context_2026-02-05.json
-📁 New: context_2026-02-06.json
+ Old: context_2026-02-05.json
+ New: context_2026-02-06.json
 
-⏱️  Time difference: 24.0 hours
+  Time difference: 24.0 hours
 
-🚀 Projects:
-   ➕ Added (1):
+ Projects:
+    Added (1):
       - Akasha Plan
    (No task changes)
 
-🔄 Operations:
-   ➕ Added (2):
+ Operations:
+    Added (2):
       - 完成数据管道测试
       - 部署新功能
    (No operation removals)
 
-📊 Message Counts:
+ Message Counts:
    Old: 150 → 25 (compressed)
    New: 180 → 30 (compressed)
 
@@ -256,7 +256,7 @@ python restore_context.py --confirm
 
 **输出示例：**
 ```
-✅ 上下文已恢复
+ 上下文已恢复
 
 当前项目：
 1. Hermes Plan - 进行中
@@ -334,8 +334,8 @@ python restore_context.py --install-cron --cron-interval 30
 
 **输出示例：**
 ```
-✅ Cron script created: /home/athur/.openclaw/workspace/skills/context-restore/scripts/auto_context_monitor.sh
-ℹ️  To install, run:
+ Cron script created: /home/athur/.openclaw/workspace/skills/context-restore/scripts/auto_context_monitor.sh
+  To install, run:
   echo "*/5 * * * * /home/athur/.openclaw/workspace/skills/context-restore/scripts/auto_context_monitor.sh >> /var/log/context_monitor.log 2>&1" >> ~/.crontab
   crontab ~/.crontab
 ```

@@ -4,9 +4,9 @@
 
 | Chain | Network | Native Token | USDC Support |
 |-------|---------|--------------|--------------|
-| Solana | Mainnet/Devnet | SOL | ✅ |
-| Base | Mainnet/Sepolia | ETH | ✅ |
-| Ethereum | Mainnet/Sepolia | ETH | ✅ |
+| Solana | Mainnet/Devnet | SOL |  |
+| Base | Mainnet/Sepolia | ETH |  |
+| Ethereum | Mainnet/Sepolia | ETH |  |
 
 ## USDC Contract Addresses
 

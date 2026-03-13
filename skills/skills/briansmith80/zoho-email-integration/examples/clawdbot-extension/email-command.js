@@ -199,12 +199,12 @@ class ZohoEmailSkillHandler {
     const result = await this.executeCommand('unread');
     
     if (result.status === 'error') {
-      return context.reply(`❌ Error: ${result.message}`);
+      return context.reply(` Error: ${result.message}`);
     }
 
     if (result.unread_count !== undefined) {
       const count = result.unread_count;
-      const emoji = count > 0 ? '📬' : '📭';
+      const emoji = count > 0 ? '' : '';
       const message = `${emoji} **Unread:** ${count} message${count !== 1 ? 's' : ''}`;
       return context.reply(message);
     }
@@ -234,17 +234,17 @@ class ZohoEmailSkillHandler {
    */
   async handleSearch(context, query) {
     if (!query || query.length < 2) {
-      return context.reply('❌ Usage: `/email search <query>` (min 2 characters)');
+      return context.reply(' Usage: `/email search <query>` (min 2 characters)');
     }
 
     const result = await this.executeCommand('search', [query]);
     
     if (result.status === 'error') {
-      return context.reply(`❌ Search failed: ${result.message}`);
+      return context.reply(` Search failed: ${result.message}`);
     }
 
     if (Array.isArray(result) && result.length > 0) {
-      let message = `🔍 **Search results for "${this.sanitizeInput(query)}":**\n\n`;
+      let message = ` **Search results for "${this.sanitizeInput(query)}":**\n\n`;
       
       result.slice(0, 5).forEach((email, i) => {
         const sender = email.from || 'Unknown';
@@ -259,7 +259,7 @@ class ZohoEmailSkillHandler {
       return context.reply(message);
     }
 
-    return context.reply(`🔍 No results for "${this.sanitizeInput(query)}"`);
+    return context.reply(` No results for "${this.sanitizeInput(query)}"`);
   }
 
   /**
@@ -267,23 +267,23 @@ class ZohoEmailSkillHandler {
    */
   async handleSend(context, args) {
     if (args.length < 3) {
-      return context.reply('❌ Usage: `/email send <to> <subject> <body>`');
+      return context.reply(' Usage: `/email send <to> <subject> <body>`');
     }
 
     const [to, subject, body] = args;
 
     // Validate email address
     if (!this.isValidEmail(to)) {
-      return context.reply('❌ Invalid email address format');
+      return context.reply(' Invalid email address format');
     }
 
     const result = await this.executeCommand('send', [to, subject, body]);
 
     if (result.status === 'error') {
-      return context.reply(`❌ Send failed: ${result.message}`);
+      return context.reply(` Send failed: ${result.message}`);
     }
 
-    return context.reply(`✅ **Email sent**\nTo: ${to}\nSubject: ${subject}`);
+    return context.reply(` **Email sent**\nTo: ${to}\nSubject: ${subject}`);
   }
 
   /**
@@ -293,7 +293,7 @@ class ZohoEmailSkillHandler {
     const result = await this.executeCommand('doctor');
     
     const output = result.message || JSON.stringify(result, null, 2);
-    const message = `🔧 **Email Setup Check:**\n\n\`\`\`\n${output}\n\`\`\``;
+    const message = ` **Email Setup Check:**\n\n\`\`\`\n${output}\n\`\`\``;
     
     return context.reply(message);
   }
@@ -302,7 +302,7 @@ class ZohoEmailSkillHandler {
    * Handle /email help command
    */
   async handleHelp(context) {
-    const helpText = `📧 **Zoho Email Commands**
+    const helpText = ` **Zoho Email Commands**
 
 \`/email unread\` - Check unread count
 \`/email summary\` - Brief unread summary (for briefings)

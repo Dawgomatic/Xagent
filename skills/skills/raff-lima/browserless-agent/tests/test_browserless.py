@@ -173,11 +173,11 @@ async def main():
     print(f"Tests Passed: {color}{passed}/{total} ({pass_rate:.1f}%){Colors.RESET}")
     
     if pass_rate == 100:
-        print(f"\n{Colors.GREEN}{Colors.BOLD}🎉 All tests passed! Your browserless-agent is ready to use.{Colors.RESET}")
+        print(f"\n{Colors.GREEN}{Colors.BOLD} All tests passed! Your browserless-agent is ready to use.{Colors.RESET}")
     elif pass_rate >= 70:
-        print(f"\n{Colors.YELLOW}{Colors.BOLD}⚠️  Most tests passed. Check failed tests above.{Colors.RESET}")
+        print(f"\n{Colors.YELLOW}{Colors.BOLD}  Most tests passed. Check failed tests above.{Colors.RESET}")
     else:
-        print(f"\n{Colors.RED}{Colors.BOLD}❌ Multiple tests failed. Please check your configuration.{Colors.RESET}")
+        print(f"\n{Colors.RED}{Colors.BOLD} Multiple tests failed. Please check your configuration.{Colors.RESET}")
         print(f"{Colors.YELLOW}Make sure BROWSERLESS_WS is configured correctly in OpenClaw settings.{Colors.RESET}")
     
     print()

@@ -5,7 +5,7 @@ description: "CLI for AI agents to lookup Star Wars universe info for their huma
 homepage: https://swapi.dev
 metadata:
   openclaw:
-    emoji: "⚔️"
+    emoji: ""
     requires:
       bins: ["bash", "curl", "jq"]
     tags: ["starwars", "swapi", "entertainment", "movies", "cli"]

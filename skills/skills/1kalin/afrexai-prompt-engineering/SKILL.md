@@ -84,8 +84,8 @@ A good response will:
 
 State exactly what you want. No preamble, no pleasantries.
 
-❌ Bad: "Could you maybe help me think about ways to improve this email?"
-✅ Good: "Rewrite this email to be 50% shorter. Keep the CTA. Make the tone urgent but professional."
+ Bad: "Could you maybe help me think about ways to improve this email?"
+ Good: "Rewrite this email to be 50% shorter. Keep the CTA. Make the tone urgent but professional."
 
 **Rules:**
 - Lead with the verb (Rewrite, Analyze, Generate, Compare, Extract)
@@ -152,8 +152,8 @@ Input: "[user's text]"
 Assign a specific persona with expertise, style, and constraints.
 
 **Effective roles are specific:**
-❌ "You are a helpful assistant"
-✅ "You are a senior tax accountant (CPA) with 15 years specializing in US small business S-Corp elections. You are cautious about gray areas and always cite IRC sections."
+ "You are a helpful assistant"
+ "You are a senior tax accountant (CPA) with 15 years specializing in US small business S-Corp elections. You are cautious about gray areas and always cite IRC sections."
 
 **When role prompting shines:**
 - Domain-specific jargon and conventions

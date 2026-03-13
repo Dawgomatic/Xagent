@@ -2,7 +2,7 @@
 name: overseerr
 description: Request movies/TV and monitor request status via the Overseerr API (stable Overseerr, not the beta Seerr rewrite).
 homepage: https://overseerr.dev/
-metadata: {"clawdbot":{"emoji":"🍿","requires":{"bins":["node"],"env":["OVERSEERR_URL","OVERSEERR_API_KEY"]},"primaryEnv":"OVERSEERR_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"],"env":["OVERSEERR_URL","OVERSEERR_API_KEY"]},"primaryEnv":"OVERSEERR_API_KEY"}}
 ---
 
 # Overseerr

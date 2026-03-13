@@ -127,16 +127,16 @@ Run this weekly:
 ### Status Updates
 Short, scannable, actionable:
 ```
-☀️ 72°F, clear
-📅 2 meetings (10am, 2pm)
-💊 Meds due in 30min
-🔋 Phone at 23%
+ 72°F, clear
+ 2 meetings (10am, 2pm)
+ Meds due in 30min
+ Phone at 23%
 ```
 
 ### Error Reporting
 Clear, with next step:
 ```
-❌ Smart lock offline (last seen 10min ago)
+ Smart lock offline (last seen 10min ago)
    → Manual backup: code is 4821
    → I'll alert when it reconnects
 ```
@@ -172,4 +172,4 @@ Generates Home Assistant YAML from your scene definitions.
 
 If you're an agent helping a human with disabilities, your patterns belong here. PRs welcome.
 
-Built with 🎩 by Egvert
+Built with  by Egvert

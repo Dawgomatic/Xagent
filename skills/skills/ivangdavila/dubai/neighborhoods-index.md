@@ -5,7 +5,7 @@
 
 ---
 
-## 📊 Rental Price Comparison (Annual AED — 2025-2026)
+##  Rental Price Comparison (Annual AED — 2025-2026)
 
 | Neighborhood | Studio | 1-Bedroom | 2-Bedroom | 3-Bedroom | Notes |
 |-------------|--------|-----------|-----------|-----------|-------|
@@ -25,23 +25,23 @@
 
 ---
 
-## 🎯 Quick Profile Matching
+##  Quick Profile Matching
 
-### 💼 Single Professionals (Budget: 60-100K/year)
+###  Single Professionals (Budget: 60-100K/year)
 | Priority | Best Choice | Why |
 |----------|-------------|-----|
 | Nightlife + Beach | **JLT** | Cheap, walkable, close to Marina |
 | Tech/Startup | **DSO** | Affordable, tech hub, young crowd |
 | Finance | **Business Bay** | Near DIFC, better value than Downtown |
 
-### 💑 Couples / DINKs (Budget: 100-150K/year)
+###  Couples / DINKs (Budget: 100-150K/year)
 | Priority | Best Choice | Why |
 |----------|-------------|-----|
 | Lifestyle | **Dubai Marina** | Walk everywhere, restaurants, beach close |
 | Beach Priority | **JBR** | Direct beach, but tourist crowds |
 | Urban + Culture | **Downtown** | Burj Khalifa, Dubai Mall, walkable |
 
-### 👨‍👩‍👧‍👦 Families (Budget: 150-350K/year)
+###  Families (Budget: 150-350K/year)
 | Priority | Best Choice | Why |
 |----------|-------------|-----|
 | Best Schools | **Arabian Ranches** | JESS, golf, gated community |
@@ -49,7 +49,7 @@
 | Modern + Space | **Dubai Hills** | New builds, parks, schools |
 | Beach + Villa | **Jumeirah 1-3** | Beach access, old established area |
 
-### 💎 Luxury / No Budget Limit
+###  Luxury / No Budget Limit
 | Priority | Best Choice | Why |
 |----------|-------------|-----|
 | Ultimate Prestige | **Palm Jumeirah** | Private beach, global recognition |
@@ -58,25 +58,25 @@
 
 ---
 
-## 🚇 Metro Access Score
+##  Metro Access Score
 
 | Neighborhood | Metro Access | Walkability | Car Dependency |
 |--------------|--------------|-------------|----------------|
-| Downtown | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Low |
-| DIFC | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Low |
-| Business Bay | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Low-Medium |
-| Dubai Marina | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Low |
-| JLT | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Low |
-| JBR | ⭐⭐⭐ | ⭐⭐⭐⭐ | Medium |
-| Palm Jumeirah | ⭐⭐ (Monorail) | ⭐⭐ | High |
-| Jumeirah 1-3 | ⭐ | ⭐⭐⭐ | High |
-| Arabian Ranches | ⭐ | ⭐⭐ | Very High |
-| The Springs | ⭐⭐ | ⭐⭐ | High |
-| DSO | ⭐ (bus only) | ⭐⭐⭐ | High |
+| Downtown |  |  | Low |
+| DIFC |  |  | Low |
+| Business Bay |  |  | Low-Medium |
+| Dubai Marina |  |  | Low |
+| JLT |  |  | Low |
+| JBR |  |  | Medium |
+| Palm Jumeirah |  (Monorail) |  | High |
+| Jumeirah 1-3 |  |  | High |
+| Arabian Ranches |  |  | Very High |
+| The Springs |  |  | High |
+| DSO |  (bus only) |  | High |
 
 ---
 
-## 📈 Investment ROI (2025-2026)
+##  Investment ROI (2025-2026)
 
 | Neighborhood | Avg ROI | Trend | Best Unit Type |
 |--------------|---------|-------|----------------|
@@ -92,7 +92,7 @@
 
 ---
 
-## 🏖️ Beach Proximity
+##  Beach Proximity
 
 | Distance | Neighborhoods |
 |----------|---------------|
@@ -104,7 +104,7 @@
 
 ---
 
-## ⚠️ Key Warnings
+##  Key Warnings
 
 1. **Palm Jumeirah Traffic** — One way in/out, 30-45 min delays common during rush hour
 2. **JBR Crowds** — Tourist-heavy, especially weekends and holidays
@@ -115,7 +115,7 @@
 
 ---
 
-## 🔗 Detailed Guides
+##  Detailed Guides
 
 - [Downtown, DIFC, Business Bay →](neighborhoods-downtown.md)
 - [Dubai Marina, JBR, JLT →](neighborhoods-marina.md)  

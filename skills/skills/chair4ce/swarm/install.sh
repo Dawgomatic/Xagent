@@ -15,23 +15,23 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}🚀 Node Scaling Installer for Clawdbot${NC}"
+echo -e "${BLUE} Node Scaling Installer for Clawdbot${NC}"
 echo ""
 
 # Check prerequisites
 if ! command -v node &> /dev/null; then
-    echo -e "${RED}❌ Node.js is required but not installed.${NC}"
+    echo -e "${RED} Node.js is required but not installed.${NC}"
     echo "   Install from: https://nodejs.org"
     exit 1
 fi
 
 NODE_VERSION=$(node -v | cut -d'v' -f2 | cut -d'.' -f1)
 if [ "$NODE_VERSION" -lt 18 ]; then
-    echo -e "${YELLOW}⚠️  Node.js 18+ recommended. You have: $(node -v)${NC}"
+    echo -e "${YELLOW}  Node.js 18+ recommended. You have: $(node -v)${NC}"
 fi
 
 if ! command -v git &> /dev/null; then
-    echo -e "${RED}❌ Git is required but not installed.${NC}"
+    echo -e "${RED} Git is required but not installed.${NC}"
     exit 1
 fi
 
@@ -39,7 +39,7 @@ fi
 CLAWDBOT_HOME="${CLAWDBOT_HOME:-$HOME/clawd}"
 SKILL_DIR="$CLAWDBOT_HOME/skills/node-scaling"
 
-echo -e "📁 Install location: ${BLUE}$SKILL_DIR${NC}"
+echo -e " Install location: ${BLUE}$SKILL_DIR${NC}"
 echo ""
 
 # Clone or update
@@ -69,7 +69,7 @@ if [ -f "$CONFIG_PATH" ]; then
     read -p "Run setup wizard again? [y/N]: " RERUN
     if [[ ! "$RERUN" =~ ^[Yy]$ ]]; then
         echo ""
-        echo -e "${GREEN}✅ Node Scaling is ready!${NC}"
+        echo -e "${GREEN} Node Scaling is ready!${NC}"
         echo ""
         echo "Try asking Clawdbot:"
         echo '  "Research the top 5 AI companies and compare them"'
@@ -85,7 +85,7 @@ echo ""
 node bin/setup.js
 
 echo ""
-echo -e "${GREEN}✅ Installation complete!${NC}"
+echo -e "${GREEN} Installation complete!${NC}"
 echo ""
 
 # Display post-install recommendations
@@ -93,7 +93,7 @@ INSTALL_MD="$SKILL_DIR/INSTALL.md"
 if [ -f "$INSTALL_MD" ]; then
     echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
-    echo -e "${YELLOW}📋 RECOMMENDED: Workspace Integration${NC}"
+    echo -e "${YELLOW} RECOMMENDED: Workspace Integration${NC}"
     echo ""
     echo "Swarm works best when integrated into your agent's workflow."
     echo ""

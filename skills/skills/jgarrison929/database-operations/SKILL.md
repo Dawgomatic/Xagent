@@ -484,13 +484,13 @@ ORDER BY dead_ratio DESC;
 
 ## Anti-Patterns
 
-1. ❌ `SELECT *` — always specify needed columns
-2. ❌ Missing indexes on foreign keys — always index FK columns
-3. ❌ `LIKE '%search%'` — use full-text search or trigram indexes instead
-4. ❌ Large `IN` clauses — use `ANY(ARRAY[...])` or join a values list
-5. ❌ No `LIMIT` on unbounded queries — always paginate
-6. ❌ Creating indexes without `CONCURRENTLY` in production
-7. ❌ Running migrations without testing rollback
-8. ❌ Ignoring `EXPLAIN ANALYZE` output — always verify execution plans
-9. ❌ Storing money as `FLOAT` — use `DECIMAL(10,2)` or integer cents
-10. ❌ Missing `NOT NULL` constraints — be explicit about nullability
+1.  `SELECT *` — always specify needed columns
+2.  Missing indexes on foreign keys — always index FK columns
+3.  `LIKE '%search%'` — use full-text search or trigram indexes instead
+4.  Large `IN` clauses — use `ANY(ARRAY[...])` or join a values list
+5.  No `LIMIT` on unbounded queries — always paginate
+6.  Creating indexes without `CONCURRENTLY` in production
+7.  Running migrations without testing rollback
+8.  Ignoring `EXPLAIN ANALYZE` output — always verify execution plans
+9.  Storing money as `FLOAT` — use `DECIMAL(10,2)` or integer cents
+10.  Missing `NOT NULL` constraints — be explicit about nullability

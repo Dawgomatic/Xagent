@@ -56,15 +56,15 @@ See [ONBOARDING.md](./ONBOARDING.md) for detailed setup guide.
 
 ## Features
 
-✅ **Multi-Server Support** — Manage lab, production, and test servers  
-✅ **Device Lookup** — Search devices, view groups, identify original vs. clones  
-✅ **Inventory Queries** — Query pre-configured Inventory Queries  
-✅ **Intelligent Caching** — 7-day device cache for fast lookups  
-✅ **Natural Language Filters** — "last_seen > 30 days", "platform = iOS"  
-✅ **Session Tracking** — Compare servers with named query references  
-✅ **Secure Credentials** — Config file, chmod 600, no hardcoded tokens  
-✅ **JSON Export** — Export results for scripting  
-✅ **Bulk Device Updates** — Rename devices and update enrollment users in batches (school district workflow)  
+ **Multi-Server Support** — Manage lab, production, and test servers  
+ **Device Lookup** — Search devices, view groups, identify original vs. clones  
+ **Inventory Queries** — Query pre-configured Inventory Queries  
+ **Intelligent Caching** — 7-day device cache for fast lookups  
+ **Natural Language Filters** — "last_seen > 30 days", "platform = iOS"  
+ **Session Tracking** — Compare servers with named query references  
+ **Secure Credentials** — Config file, chmod 600, no hardcoded tokens  
+ **JSON Export** — Export results for scripting  
+ **Bulk Device Updates** — Rename devices and update enrollment users in batches (school district workflow)  
 
 ## Quick Start
 
@@ -279,13 +279,13 @@ The skill wraps the FileWave REST API.
 ## Current Scope
 
 **v1.1 features (complete):**
-- ✅ Device listing with natural language filters
-- ✅ Device search and detail lookup
-- ✅ Device hierarchy and clone analysis
-- ✅ Fleet analytics (platform breakdown, stale devices)
-- ✅ Bulk device updates (school district workflow)
-- ✅ Multi-server comparison
-- ✅ Session tracking with named references
+-  Device listing with natural language filters
+-  Device search and detail lookup
+-  Device hierarchy and clone analysis
+-  Fleet analytics (platform breakdown, stale devices)
+-  Bulk device updates (school district workflow)
+-  Multi-server comparison
+-  Session tracking with named references
 
 **Future (v2+):** Management operations, deployments, policies, MDM commands.
 

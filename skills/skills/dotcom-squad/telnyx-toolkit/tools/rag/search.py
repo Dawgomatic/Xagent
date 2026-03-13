@@ -236,7 +236,7 @@ def format_results(results, max_content_chars=500):
         str: Formatted results string
     """
     if "error" in results:
-        return f"❌ Error: {results['error']}\n{results.get('details', '')}"
+        return f" Error: {results['error']}\n{results.get('details', '')}"
     
     if "data" not in results or not results["data"]:
         return "No results found."
@@ -252,11 +252,11 @@ def format_results(results, max_content_chars=500):
         
         # Certainty indicator
         if certainty >= 0.9:
-            conf = "🟢"
+            conf = ""
         elif certainty >= 0.85:
-            conf = "🟡"
+            conf = ""
         else:
-            conf = "🔴"
+            conf = ""
         
         output.append(f"--- Result {i} {conf} (certainty: {certainty:.3f}) ---")
         output.append(f"Source: {filename}")
@@ -318,7 +318,7 @@ def main():
     
     if not args.json:
         bucket_info = f" (bucket: {args.bucket})" if args.bucket else ""
-        print(f"\n🔍 Searching: \"{query}\"{bucket_info}\n")
+        print(f"\n Searching: \"{query}\"{bucket_info}\n")
     
     results = search_memory(
         query=query,

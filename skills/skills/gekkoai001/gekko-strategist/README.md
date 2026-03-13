@@ -1,4 +1,4 @@
-# 📊 Gekko Strategist — Strategy Development Agent
+#  Gekko Strategist — Strategy Development Agent
 
 AI-powered DeFi strategy development agent. Design, backtest, adapt, and evaluate yield farming strategies based on market conditions, risk profiles, and capital allocation goals.
 
@@ -19,7 +19,7 @@ curl -X POST https://gekkoterminal.ai/api/a2a?agent=strategist \
   }'
 ```
 
-## 📋 Capabilities
+##  Capabilities
 
 ### Develop Strategy
 Create yield farming strategies tailored to current market conditions. Optimize allocations for risk tolerance and time horizon.
@@ -33,13 +33,13 @@ Adapt an existing strategy to changing market conditions. Automatically rebalanc
 ### Evaluate Strategies
 Evaluate and compare multiple strategies side-by-side. Score on risk-adjusted returns and consistency.
 
-## 🔧 API Endpoint
+##  API Endpoint
 
 ```
 https://gekkoterminal.ai/api/a2a?agent=strategist
 ```
 
-## 📈 Strategy Development Flow
+##  Strategy Development Flow
 
 1. **Develop** — Create strategy based on market conditions
 2. **Backtest** — Test against historical data

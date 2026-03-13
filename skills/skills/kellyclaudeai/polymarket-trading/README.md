@@ -4,11 +4,11 @@ Enable AI agents to trade prediction markets on Polymarket autonomously.
 
 ## Features
 
-- 📊 Browse and search markets
-- 💰 Place buy/sell orders
-- 📈 Monitor positions and P&L
-- 🎯 Execute trading strategies
-- ⚖️ Risk management tools
+-  Browse and search markets
+-  Place buy/sell orders
+-  Monitor positions and P&L
+-  Execute trading strategies
+-  Risk management tools
 
 ## Quick Start
 

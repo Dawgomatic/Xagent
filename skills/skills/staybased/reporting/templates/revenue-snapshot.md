@@ -1,4 +1,4 @@
-# 💰 Revenue Snapshot — {{DATE}}
+#  Revenue Snapshot — {{DATE}}
 
 ## Income
 | Stream | Amount | Notes |

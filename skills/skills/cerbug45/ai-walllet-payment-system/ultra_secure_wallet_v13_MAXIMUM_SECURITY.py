@@ -1,6 +1,6 @@
 """
 AI Agent Crypto Payment System - MAXIMUM SECURITY v13.0
-🔒 100X SECURITY HARDENED VERSION
+ 100X SECURITY HARDENED VERSION
 
 CRITICAL SECURITY FIXES FROM v12:
 ✓ NO hardcoded passwords ANYWHERE - strict enforcement
@@ -654,7 +654,7 @@ try:
     ENCRYPTED_DB_AVAILABLE = True
 except ImportError:
     print("=" * 80)
-    print("❌ CRITICAL SECURITY ERROR")
+    print(" CRITICAL SECURITY ERROR")
     print("=" * 80)
     print("pysqlcipher3 is MANDATORY for this security level.")
     print("Install: pip install pysqlcipher3")
@@ -1343,7 +1343,7 @@ class UltraSecureKeyManager:
     
     def _rotate_keys(self):
         """Rotate encryption keys"""
-        logging.info("🔄 Rotating encryption keys...")
+        logging.info(" Rotating encryption keys...")
         
         # Generate new salt
         new_salt = secrets.token_bytes(MaxSecurityConfig.SALT_SIZE)
@@ -1358,7 +1358,7 @@ class UltraSecureKeyManager:
     
     def cleanup(self):
         """Secure cleanup"""
-        logging.info("🧹 Wiping key manager...")
+        logging.info(" Wiping key manager...")
         
         # Wipe all secrets
         self.memory_manager.secure_wipe(self.master_key)
@@ -1635,7 +1635,7 @@ class UltraSecureWalletManager:
     
     def cleanup(self):
         """Secure cleanup"""
-        logging.info("🧹 Wiping wallet manager...")
+        logging.info(" Wiping wallet manager...")
         # Force garbage collection
         for _ in range(5):
             gc.collect()
@@ -1669,7 +1669,7 @@ class MaximumSecurityPaymentAPI:
                             Minimum 64 characters required
         """
         logging.info("=" * 80)
-        logging.info("🔒 Initializing MAXIMUM SECURITY Payment System v13.0")
+        logging.info(" Initializing MAXIMUM SECURITY Payment System v13.0")
         logging.info("=" * 80)
         
         # Validate environment
@@ -1680,7 +1680,7 @@ class MaximumSecurityPaymentAPI:
         self.rate_limiter = EnhancedRateLimiter()
         
         # Initialize key manager (this will validate password)
-        logging.info("🔐 Deriving master key (Argon2id 512MB)...")
+        logging.info(" Deriving master key (Argon2id 512MB)...")
         self.key_manager = UltraSecureKeyManager(master_password)
         
         # Initialize wallet manager
@@ -1703,7 +1703,7 @@ class MaximumSecurityPaymentAPI:
         atexit.register(self.cleanup)
         
         logging.info("=" * 80)
-        logging.info("✅ MAXIMUM SECURITY SYSTEM INITIALIZED")
+        logging.info(" MAXIMUM SECURITY SYSTEM INITIALIZED")
         logging.info("=" * 80)
     
     def _validate_environment(self):
@@ -1753,7 +1753,7 @@ class MaximumSecurityPaymentAPI:
             wallet_id = EnhancedInputValidator.validate_wallet_id(wallet_id)
             
             # Create wallet
-            logging.info(f"🔐 Creating wallet: {wallet_id}")
+            logging.info(f" Creating wallet: {wallet_id}")
             address, encrypted_data = self.wallet_manager.create_wallet()
             
             # Extract nonce and ciphertext
@@ -1945,7 +1945,7 @@ class MaximumSecurityPaymentAPI:
     def cleanup(self):
         """Secure cleanup of ALL components"""
         logging.info("=" * 80)
-        logging.info("🧹 SECURE CLEANUP INITIATED")
+        logging.info(" SECURE CLEANUP INITIATED")
         logging.info("=" * 80)
         
         if hasattr(self, 'wallet_manager'):
@@ -1963,7 +1963,7 @@ class MaximumSecurityPaymentAPI:
             logging.info(f"  GC pass {i+1}/7 complete")
         
         logging.info("=" * 80)
-        logging.info("✅ CLEANUP COMPLETE - ALL SECRETS WIPED")
+        logging.info(" CLEANUP COMPLETE - ALL SECRETS WIPED")
         logging.info("=" * 80)
 
 
@@ -1978,8 +1978,8 @@ def production_example():
     """
     
     print("=" * 80)
-    print("🛡️  MAXIMUM SECURITY CRYPTO PAYMENT SYSTEM v13.0")
-    print("🔒 100X Security Hardened - Military Grade")
+    print("  MAXIMUM SECURITY CRYPTO PAYMENT SYSTEM v13.0")
+    print(" 100X Security Hardened - Military Grade")
     print("=" * 80)
     print()
     
@@ -1988,7 +1988,7 @@ def production_example():
     missing = [var for var in required_vars if not os.getenv(var)]
     
     if missing:
-        print("⚠️  CONFIGURATION REQUIRED")
+        print("  CONFIGURATION REQUIRED")
         print("\nSet required environment variables:")
         for var in required_vars:
             if var == 'WEB3_PROVIDER_URL':
@@ -1999,7 +1999,7 @@ def production_example():
         return
     
     # Get master password SECURELY
-    print("🔐 MASTER PASSWORD REQUIRED")
+    print(" MASTER PASSWORD REQUIRED")
     print("=" * 80)
     print("Requirements:")
     print(f"  • Minimum length: {MaxSecurityConfig.MIN_PASSWORD_LENGTH} characters")
@@ -2013,17 +2013,17 @@ def production_example():
         master_password = getpass.getpass("Enter master password: ")
         
         if not master_password:
-            print("❌ Password required")
+            print(" Password required")
             return
         
         # Validate password
         try:
             EnhancedInputValidator.validate_password(master_password)
         except ValueError as e:
-            print(f"❌ Invalid password: {e}")
+            print(f" Invalid password: {e}")
             return
         
-        print("\n🔄 Initializing maximum security system...")
+        print("\n Initializing maximum security system...")
         print("   (Argon2id with 512MB memory - this will take a moment)")
         print()
         
@@ -2037,11 +2037,11 @@ def production_example():
         gc.collect()
         
         print("=" * 80)
-        print("✅ SYSTEM INITIALIZED")
+        print(" SYSTEM INITIALIZED")
         print("=" * 80)
         print()
         
-        print("🔒 Active Security Features:")
+        print(" Active Security Features:")
         features = [
             "✓ SQLCipher AES-256 Database Encryption",
             "✓ Argon2id Key Derivation (512MB, 16 iterations)",
@@ -2078,12 +2078,12 @@ def production_example():
         
         print()
         print("=" * 80)
-        print("✅ SYSTEM READY FOR PRODUCTION USE")
+        print(" SYSTEM READY FOR PRODUCTION USE")
         print("=" * 80)
         print()
         
         # Create demo wallet
-        print("📝 Creating demo wallet...")
+        print(" Creating demo wallet...")
         result = api.create_wallet(
             "production_demo_wallet",
             metadata={
@@ -2100,11 +2100,11 @@ def production_example():
             print(f"  TOTP URI: {result['totp_uri']}")
             print(f"  Backup Codes: {len(result['backup_codes'])} generated")
             print()
-            print("⚠️  CRITICAL: Save MFA secret and backup codes in password manager!")
+            print("  CRITICAL: Save MFA secret and backup codes in password manager!")
         
         print()
         print("=" * 80)
-        print("🎯 SECURITY REMINDERS")
+        print(" SECURITY REMINDERS")
         print("=" * 80)
         print("1. NEVER hardcode passwords or keys")
         print("2. Always use hardware security module (HSM) in production")
@@ -2122,14 +2122,14 @@ def production_example():
         api.cleanup()
         
     except KeyboardInterrupt:
-        print("\n\n⚠️  Interrupted - performing secure cleanup...")
+        print("\n\n  Interrupted - performing secure cleanup...")
         if 'master_password' in locals():
             SecureMemoryManager().secure_wipe(master_password)
         if 'api' in locals():
             api.cleanup()
     
     except Exception as e:
-        print(f"\n❌ Error: {type(e).__name__}")
+        print(f"\n Error: {type(e).__name__}")
         logging.error("System error", exc_info=True)
 
 

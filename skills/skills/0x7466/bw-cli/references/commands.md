@@ -61,7 +61,7 @@ Locks vault (destroys session key, keeps authentication).
 bw logout
 ```
 
-**⚠️ DESTRUCTIVE:** Fully logs out, requires re-authentication.
+** DESTRUCTIVE:** Fully logs out, requires re-authentication.
 
 ### status
 

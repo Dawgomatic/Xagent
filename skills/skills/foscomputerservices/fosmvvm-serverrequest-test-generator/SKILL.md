@@ -2,7 +2,7 @@
 name: fosmvvm-serverrequest-test-generator
 description: Generate ServerRequest tests using VaporTesting. Covers typed request/response validation for Show, Create, Update, and Delete operations.
 homepage: https://github.com/foscomputerservices/FOSUtilities
-metadata: {"clawdbot": {"emoji": "🧪", "os": ["darwin", "linux"]}}
+metadata: {"clawdbot": {"emoji": "", "os": ["darwin", "linux"]}}
 ---
 
 # FOSMVVM ServerRequest Test Generator
@@ -66,18 +66,18 @@ ServerRequest testing uses **VaporTesting** infrastructure to send typed request
 ### What You Must NEVER Do
 
 ```swift
-// ❌ WRONG - manual URL construction
+//  WRONG - manual URL construction
 let url = URL(string: "http://localhost:8080/my_request?query=value")!
 let response = try await URLSession.shared.data(from: url)
 
-// ❌ WRONG - string path with method
+//  WRONG - string path with method
 try await app.test(.GET, "/my_request") { response in }
 
-// ❌ WRONG - manual JSON encoding/decoding
+//  WRONG - manual JSON encoding/decoding
 let json = try JSONEncoder().encode(requestBody)
 let decoded = try JSONDecoder().decode(ResponseBody.self, from: data)
 
-// ❌ WRONG - constructing TestingHTTPRequest manually
+//  WRONG - constructing TestingHTTPRequest manually
 let httpRequest = TestingHTTPRequest(method: .GET, url: "/path", headers: headers)
 try await app.testing().performTest(request: httpRequest)
 ```
@@ -85,14 +85,14 @@ try await app.testing().performTest(request: httpRequest)
 ### What You Must ALWAYS Do
 
 ```swift
-// ✅ RIGHT - Use TestingApplicationTester.test() with ServerRequest
+//  RIGHT - Use TestingApplicationTester.test() with ServerRequest
 let request = MyShowRequest(query: .init(userId: userId))
 try await app.testing().test(request, locale: en) { response in
     #expect(response.status == .ok)
     #expect(response.body?.viewModel.name == "Expected Name")
 }
 
-// ✅ RIGHT - Test multiple locales
+//  RIGHT - Test multiple locales
 for locale in [en, es] {
     try await app.testing().test(request, locale: locale) { response in
         #expect(response.status == .ok)
@@ -100,7 +100,7 @@ for locale in [en, es] {
     }
 }
 
-// ✅ RIGHT - Test error responses
+//  RIGHT - Test error responses
 let badRequest = MyShowRequest(query: .init(userId: invalidId))
 try await app.testing().test(badRequest, locale: en) { response in
     #expect(response.status == .notFound)

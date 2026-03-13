@@ -56,7 +56,7 @@ nano ~/.openclaw/workspace/job-execution-monitor.json
 When job-execution-monitor detects a problem:
 
 ```
-🔴 Job Execution Monitor: "daily-wrap-up" missed schedule
+ Job Execution Monitor: "daily-wrap-up" missed schedule
 Expected: 22:00 ±10min
 Last run: 5h 32m ago
 ```
@@ -68,24 +68,24 @@ Your agent:
 When job recovers:
 
 ```
-✅ Job Execution Monitor: "daily-wrap-up" recovered
+ Job Execution Monitor: "daily-wrap-up" recovered
 Last run: 22:02 (2min ago)
 ```
 
 ## Features
 
-**Phase 1 (✅ now):**
+**Phase 1 ( now):**
 - Schedule validation
 - Timestamp checking
 - Wake events on failures
 - Heartbeat-based (cheap!)
 
-**Phase 2 (🚧 next):**
+**Phase 2 ( next):**
 - Error pattern detection
 - Response length validation
 - "Pong" detection for non-ping jobs
 
-**Phase 3 (📋 future):**
+**Phase 3 ( future):**
 - JSON schema validation
 - Confidence scoring
 - Structured error reporting

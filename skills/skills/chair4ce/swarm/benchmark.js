@@ -131,7 +131,7 @@ async function main() {
   const args = process.argv.slice(2);
   const specificTest = args[0];
   
-  console.log('🏋️ SWARM BENCHMARK SUITE');
+  console.log(' SWARM BENCHMARK SUITE');
   console.log('========================\n');
   
   const results = [];
@@ -145,15 +145,15 @@ async function main() {
   }
   
   for (const [key, benchmark] of Object.entries(testsToRun)) {
-    process.stdout.write(`⏱️ ${benchmark.name}... `);
+    process.stdout.write(` ${benchmark.name}... `);
     
     const result = await runBenchmark(key, benchmark);
     results.push(result);
     
     if (result.passed) {
-      console.log(`✅ ${result.duration}ms (${result.requests} API calls)`);
+      console.log(` ${result.duration}ms (${result.requests} API calls)`);
     } else {
-      console.log(`❌ FAILED - ${result.error || 'validation failed'}`);
+      console.log(` FAILED - ${result.error || 'validation failed'}`);
     }
     
     // Small delay between tests
@@ -161,7 +161,7 @@ async function main() {
   }
   
   // Summary
-  console.log('\n📊 BENCHMARK RESULTS');
+  console.log('\n BENCHMARK RESULTS');
   console.log('====================');
   console.log('');
   console.log('| Test | Duration | API Calls | Status |');
@@ -172,7 +172,7 @@ async function main() {
   let passedCount = 0;
   
   for (const r of results) {
-    const status = r.passed ? '✅ Pass' : '❌ Fail';
+    const status = r.passed ? ' Pass' : ' Fail';
     console.log(`| ${r.name.padEnd(40)} | ${(r.duration + 'ms').padStart(8)} | ${String(r.requests).padStart(9)} | ${status} |`);
     totalDuration += r.duration;
     totalRequests += r.requests;
@@ -180,7 +180,7 @@ async function main() {
   }
   
   console.log('');
-  console.log(`📈 Summary:`);
+  console.log(` Summary:`);
   console.log(`   Total time: ${totalDuration}ms`);
   console.log(`   Total API calls: ${totalRequests}`);
   console.log(`   Tests passed: ${passedCount}/${results.length}`);
@@ -189,7 +189,7 @@ async function main() {
   
   // Rate limiter status
   const limiterStats = globalLimiter.getStats();
-  console.log(`\n🚦 Rate Limiter:`);
+  console.log(`\n Rate Limiter:`);
   console.log(`   Daily requests: ${limiterStats.dailyRequests}/${limiterStats.dailyLimit}`);
   console.log(`   Remaining: ${limiterStats.dailyRemaining}`);
   console.log(`   Throttled: ${limiterStats.throttledRequests} (${limiterStats.throttleRate})`);

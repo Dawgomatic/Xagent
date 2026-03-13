@@ -4,7 +4,7 @@
 
 set -e
 
-echo "🗑️  Claude Code Mastery Uninstaller"
+echo "  Claude Code Mastery Uninstaller"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -73,7 +73,7 @@ REMOVED=0
 # 1. Stop claude-mem worker if running
 PLUGIN_DIR="$HOME/.claude/plugins/marketplaces/thedotmack"
 if [[ -d "$PLUGIN_DIR" ]]; then
-    echo "🛑 Stopping claude-mem worker..."
+    echo " Stopping claude-mem worker..."
     cd "$PLUGIN_DIR"
     if command -v bun &>/dev/null; then
         bun plugin/scripts/worker-service.cjs stop 2>/dev/null || true
@@ -83,14 +83,14 @@ fi
 
 # Kill any orphan claude-mem processes
 if pgrep -f "claude-mem" >/dev/null 2>&1; then
-    echo "🛑 Killing orphan claude-mem processes..."
+    echo " Killing orphan claude-mem processes..."
     pkill -f "claude-mem" 2>/dev/null || true
     echo "   Killed orphan processes"
 fi
 
 # Kill any worker processes on the default port
 if pgrep -f "worker-service" >/dev/null 2>&1; then
-    echo "🛑 Killing worker-service processes..."
+    echo " Killing worker-service processes..."
     pkill -f "worker-service" 2>/dev/null || true
 fi
 
@@ -101,7 +101,7 @@ SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 AGENTS_SRC="$SKILL_DIR/agents"
 
 if [[ -d "$AGENTS_DIR" ]] && [[ -d "$AGENTS_SRC" ]]; then
-    echo "🗑️  Removing subagents..."
+    echo "  Removing subagents..."
     for agent_file in "$AGENTS_SRC"/*.md; do
         if [[ -f "$agent_file" ]]; then
             filename=$(basename "$agent_file")
@@ -117,7 +117,7 @@ fi
 
 # 3. Remove claude-mem plugin
 if [[ -d "$PLUGIN_DIR" ]]; then
-    echo "🗑️  Removing claude-mem plugin..."
+    echo "  Removing claude-mem plugin..."
     rm -rf "$PLUGIN_DIR"
     REMOVED=$((REMOVED + 1))
     echo "   Removed: $PLUGIN_DIR"
@@ -146,7 +146,7 @@ fi
 if [[ $KEEP_CLAUDE_CODE -eq 0 ]]; then
     CLAUDE_BIN="$HOME/.local/bin/claude"
     if [[ -f "$CLAUDE_BIN" ]]; then
-        echo "🗑️  Removing Claude Code CLI..."
+        echo "  Removing Claude Code CLI..."
         rm "$CLAUDE_BIN"
         REMOVED=$((REMOVED + 1))
         echo "   Removed: $CLAUDE_BIN"
@@ -155,7 +155,7 @@ fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "📊 Summary"
+echo " Summary"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "   Removed: $REMOVED items"
 echo ""
@@ -164,4 +164,4 @@ echo "  - ~/.claude/settings.json (your settings)"
 echo "  - ~/.claude/projects/ (session history)"
 echo "  - Project .claude/ directories"
 echo ""
-echo "✅ Uninstall complete!"
+echo " Uninstall complete!"

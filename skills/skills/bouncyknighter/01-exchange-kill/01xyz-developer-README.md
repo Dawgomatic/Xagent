@@ -12,11 +12,11 @@ This Skill provides comprehensive guidance for building trading tools, monitorin
 
 ### Key Features
 
-- ✅ **Read-Only Monitoring** — Market data, orderbooks, funding rates (no auth required)
-- ✅ **SDK Integration** — Complete Nord.ts (@n1xyz/nord-ts) reference
-- ⚠️ **Trading Operations** — Order placement with comprehensive risk management
-- 📊 **Risk Management** — Margin calculations, circuit breakers, position sizing
-- 🔒 **Safety First** — Non-custodial patterns, testnet validation, emergency procedures
+-  **Read-Only Monitoring** — Market data, orderbooks, funding rates (no auth required)
+-  **SDK Integration** — Complete Nord.ts (@n1xyz/nord-ts) reference
+-  **Trading Operations** — Order placement with comprehensive risk management
+-  **Risk Management** — Margin calculations, circuit breakers, position sizing
+-  **Safety First** — Non-custodial patterns, testnet validation, emergency procedures
 
 ## Architecture
 
@@ -103,11 +103,11 @@ const nord = await Nord.new({
 | File | Purpose | Safety Level |
 |------|---------|--------------|
 | [SKILL.md](SKILL.md) | Main entry point, overview | Start here |
-| [safety-first.md](safety-first.md) | Non-custodial reality check | ⚠️ **Mandatory reading** |
-| [monitoring-guide.md](monitoring-guide.md) | Public API, market data | ✅ Safe |
-| [risk-management.md](risk-management.md) | Margin, liquidation, circuit breakers | ✅ Read-only |
-| [trading-basics.md](trading-basics.md) | Orders, positions, market IDs | ⚠️ Gated |
-| [sdk-reference.md](sdk-reference.md) | Nord.ts SDK reference | ✅ Documentation |
+| [safety-first.md](safety-first.md) | Non-custodial reality check |  **Mandatory reading** |
+| [monitoring-guide.md](monitoring-guide.md) | Public API, market data |  Safe |
+| [risk-management.md](risk-management.md) | Margin, liquidation, circuit breakers |  Read-only |
+| [trading-basics.md](trading-basics.md) | Orders, positions, market IDs |  Gated |
+| [sdk-reference.md](sdk-reference.md) | Nord.ts SDK reference |  Documentation |
 | [examples/](examples/) | Working code samples | Varies |
 
 ## Usage Examples
@@ -169,10 +169,10 @@ Fetch current list: `GET https://zo-mainnet.n1.xyz/info`
 
 ### The Non-Custodial Model
 
-- ✅ **You hold the keys** — Private keys never leave your machine
-- ✅ **You sign transactions** — Local API handles signing
-- ✅ **AI cannot spend funds** — No trading without your explicit confirmation
-- ⚠️ **You are responsible** — For understanding risks, margin, liquidation
+-  **You hold the keys** — Private keys never leave your machine
+-  **You sign transactions** — Local API handles signing
+-  **AI cannot spend funds** — No trading without your explicit confirmation
+-  **You are responsible** — For understanding risks, margin, liquidation
 
 ### Required Reading
 

@@ -280,12 +280,12 @@ The generator includes robust error handling:
 
 The validator checks each diagram for:
 
-1. ✅ File readable and valid UTF-8
-2. ✅ Theme configuration present
-3. ✅ No unresolved placeholders ({{PLACEHOLDER}})
-4. ✅ SVG file rendered
-5. ✅ PNG file rendered
-6. ✅ Syntax valid (can re-render without errors)
+1.  File readable and valid UTF-8
+2.  Theme configuration present
+3.  No unresolved placeholders ({{PLACEHOLDER}})
+4.  SVG file rendered
+5.  PNG file rendered
+6.  Syntax valid (can re-render without errors)
 
 **Validation workflow:**
 

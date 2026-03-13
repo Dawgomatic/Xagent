@@ -4,22 +4,22 @@
 
 | Method | CSS Styling | Caching | Animation | JS Access |
 |--------|-------------|---------|-----------|-----------|
-| Inline `<svg>` | ✅ Full | ❌ No | ✅ Yes | ✅ Yes |
-| `<img src>` | ❌ No | ✅ Yes | ❌ No | ❌ No |
-| `<use>` sprite | ⚠️ Partial | ✅ Yes | ⚠️ Limited | ❌ No |
-| CSS background | ❌ No | ✅ Yes | ❌ No | ❌ No |
-| `<object>` | ⚠️ Scoped | ✅ Yes | ✅ Yes | ⚠️ Complex |
+| Inline `<svg>` |  Full |  No |  Yes |  Yes |
+| `<img src>` |  No |  Yes |  No |  No |
+| `<use>` sprite |  Partial |  Yes |  Limited |  No |
+| CSS background |  No |  Yes |  No |  No |
+| `<object>` |  Scoped |  Yes |  Yes |  Complex |
 
 ## The Styling Trap
 
 ```html
-<!-- ❌ Cannot change color with CSS -->
+<!--  Cannot change color with CSS -->
 <img src="icon.svg" class="icon">
 
-<!-- ❌ Cannot change color with CSS -->
+<!--  Cannot change color with CSS -->
 <div style="background-image: url(icon.svg)"></div>
 
-<!-- ✅ Full CSS control -->
+<!--  Full CSS control -->
 <svg class="icon">...</svg>
 ```
 
@@ -30,10 +30,10 @@
 External `.svg` files **require** xmlns:
 
 ```svg
-<!-- ✅ Works as external file -->
+<!--  Works as external file -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 
-<!-- ❌ May fail when loaded externally -->
+<!--  May fail when loaded externally -->
 <svg viewBox="0 0 24 24">
 ```
 
@@ -58,7 +58,7 @@ Inline SVG in HTML5 doesn't require xmlns (but doesn't hurt).
 ## External Sprite CORS
 
 ```html
-<!-- ❌ Fails cross-origin without CORS -->
+<!--  Fails cross-origin without CORS -->
 <use href="https://cdn.example.com/sprites.svg#icon"/>
 ```
 

@@ -58,11 +58,11 @@ ORDER BY e.trust_tier DESC, e.type, e.name;"
 RESULTS=$(db_query "$QUERY" 2>/dev/null || true)
 
 if [ -z "$RESULTS" ]; then
-    echo "📋 No entities found matching filters."
+    echo " No entities found matching filters."
     exit 0
 fi
 
-echo "📋 Tribe Roster"
+echo " Tribe Roster"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 printf "%-12s %-6s %-20s %-10s %-25s %s\n" "Name" "Type" "Tier" "Owner" "Servers" "Tags"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

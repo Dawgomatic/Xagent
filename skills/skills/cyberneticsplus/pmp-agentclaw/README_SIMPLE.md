@@ -1,4 +1,4 @@
-# PMP-Agentclaw — For Non-Technical Users 🎯
+# PMP-Agentclaw — For Non-Technical Users 
 
 ## What Is This?
 
@@ -10,29 +10,29 @@ Think of it like a **health checker** for your projects.
 
 ## What Can It Do?
 
-### 1. 🚦 Project Health Check
+### 1.  Project Health Check
 **Tells you:** Are we on time? On budget? In trouble?
 
 **Example:**
 ```bash
 node dist/cli/calc-evm.js 10000 5000 4500 4800
 ```
-**Result:** 🟡 Yellow — "Watch out, spending too much!"
+**Result:**  Yellow — "Watch out, spending too much!"
 
 ---
 
-### 2. ⚠️ Risk Check  
+### 2.  Risk Check  
 **Tells you:** How dangerous is this problem?
 
 **Example:**
 ```bash
 node dist/cli/score-risks.js 3 4
 ```
-**Result:** 🟡 Yellow — "Keep an eye on it"
+**Result:**  Yellow — "Keep an eye on it"
 
 ---
 
-### 3. 📅 When Will We Finish?
+### 3.  When Will We Finish?
 **Tells you:** Based on your speed, when will the project end?
 
 **Example:**
@@ -47,9 +47,9 @@ node dist/cli/calc-velocity.js 34 28 42 --forecast 200
 
 | Color | Means | Action |
 |-------|-------|--------|
-| 🟢 **Green** | All good! | Keep going |
-| 🟡 **Yellow** | Pay attention | Fix small problems |
-| 🔴 **Red** | Emergency! | Stop and fix now |
+|  **Green** | All good! | Keep going |
+|  **Yellow** | Pay attention | Fix small problems |
+|  **Red** | Emergency! | Stop and fix now |
 
 ---
 
@@ -58,7 +58,7 @@ node dist/cli/calc-velocity.js 34 28 42 --forecast 200
 1. **Open terminal** (the black box that types commands)
 2. **Go to this folder:** `cd ~/Desktop/PMP-Agentclaw`
 3. **Run a command** (see examples above)
-4. **Look for 🟢 🟡 or 🔴**
+4. **Look for   or **
 
 ---
 

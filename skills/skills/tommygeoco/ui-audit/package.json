@@ -35,6 +35,6 @@
     "./references/*": "./references/*"
   },
   "scripts": {
-    "postinstall": "echo '\\n📖 UI Audit skill installed. Add to your project:\\n   - Clawdbot: Copy to ~/clawd/skills/ui-audit/\\n   - Claude: Copy CLAUDE.md to your project root\\n'"
+    "postinstall": "echo '\\n UI Audit skill installed. Add to your project:\\n   - Clawdbot: Copy to ~/clawd/skills/ui-audit/\\n   - Claude: Copy CLAUDE.md to your project root\\n'"
   }
 }

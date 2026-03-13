@@ -1,10 +1,10 @@
 ---
 name: telegram-voice-group
 description: 向指定 Telegram 群组发送语音消息
-metadata: {"openclaw":{"emoji":"🔊","os":["linux"],"requires":{"bins":["ffmpeg","edge-tts"]}}}
+metadata: {"openclaw":{"emoji":"","os":["linux"],"requires":{"bins":["ffmpeg","edge-tts"]}}}
 ---
 
-# Telegram 群组语音消息发送 (telegram-voice-group) 🔊
+# Telegram 群组语音消息发送 (telegram-voice-group) 
 
 使用 Telegram 群组话题功能实现隔离上下文替代 Discord，并可以指定 Telegram 群组发送语音消息。
 

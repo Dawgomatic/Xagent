@@ -38,7 +38,7 @@ if [[ -z "$SINCE_ISO" ]]; then
   SINCE_ISO=$(python3 -c "from datetime import datetime,timezone; print(datetime.fromtimestamp($SINCE_EPOCH, tz=timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))")
 fi
 
-echo "📡 Collecting OpenClaw ecosystem news..."
+echo " Collecting OpenClaw ecosystem news..."
 echo "   Since: $SINCE_ISO"
 echo "   Mode: $(if $FULL_SCAN; then echo 'full scan'; else echo 'incremental'; fi)"
 echo ""
@@ -104,7 +104,7 @@ trap "rm -rf $TMP_DIR" EXIT
 # ============================================================
 # 1. GitHub Releases
 # ============================================================
-echo "🚀 Checking GitHub releases..."
+echo " Checking GitHub releases..."
 if command -v gh &>/dev/null; then
   gh api repos/openclaw/openclaw/releases \
     --jq "[.[] | select(.published_at >= \"$SINCE_ISO\") | {tag: .tag_name, name: .name, url: .html_url, published: .published_at, body: (.body // \"\" | .[0:300])}]" \
@@ -113,13 +113,13 @@ if command -v gh &>/dev/null; then
   echo "   ✓ Releases checked"
 else
   add_error "releases" "gh CLI not installed"
-  echo "   ⚠ gh CLI not found, skipping"
+  echo "    gh CLI not found, skipping"
 fi
 
 # ============================================================
 # 2. Important Pull Requests (merged recently)
 # ============================================================
-echo "📋 Checking recent PRs..."
+echo " Checking recent PRs..."
 if command -v gh &>/dev/null; then
   gh api "repos/openclaw/openclaw/pulls?state=all&sort=updated&direction=desc&per_page=20" \
     --jq "[.[] | select(.updated_at >= \"$SINCE_ISO\") | select(.labels | map(.name) | any(test(\"breaking|security|important|highlight\"; \"i\")) or (.title | test(\"breaking|security|major|release\"; \"i\"))) | {number: .number, title: .title, state: .state, url: .html_url, merged: .merged_at, updated: .updated_at, labels: [.labels[].name]}]" \
@@ -127,13 +127,13 @@ if command -v gh &>/dev/null; then
   merge_field "pull_requests" "$TMP_DIR/prs.json"
   echo "   ✓ PRs checked"
 else
-  echo "   ⚠ Skipped (no gh CLI)"
+  echo "    Skipped (no gh CLI)"
 fi
 
 # ============================================================
 # 3. ClawdHub Skills
 # ============================================================
-echo "🧩 Checking ClawdHub for new skills..."
+echo " Checking ClawdHub for new skills..."
 if command -v clawdhub &>/dev/null; then
   # Capture clawdhub explore output and parse it
   clawdhub explore --registry https://www.clawhub.ai 2>/dev/null > "$TMP_DIR/clawhub_raw.txt" || true
@@ -165,13 +165,13 @@ with open('$TMP_DIR/clawhub_skills.json', 'w') as f:
   echo "   ✓ ClawdHub checked"
 else
   add_error "clawhub_skills" "clawdhub CLI not installed"
-  echo "   ⚠ clawdhub CLI not found, skipping"
+  echo "    clawdhub CLI not found, skipping"
 fi
 
 # ============================================================
 # 4. Security Advisories
 # ============================================================
-echo "🔒 Checking security advisories..."
+echo " Checking security advisories..."
 if command -v gh &>/dev/null; then
   # Check for security-labeled issues
   gh api "repos/openclaw/openclaw/issues?labels=security&state=all&sort=updated&direction=desc&per_page=10" \
@@ -180,7 +180,7 @@ if command -v gh &>/dev/null; then
   merge_field "security" "$TMP_DIR/security.json"
   echo "   ✓ Security advisories checked"
 else
-  echo "   ⚠ Skipped (no gh CLI)"
+  echo "    Skipped (no gh CLI)"
 fi
 
 # ============================================================
@@ -190,7 +190,7 @@ fi
 # the queries and let the agent (or format_briefing.sh) handle them.
 # The agent should call web_search with these queries and merge results.
 
-echo "💬 Preparing community & ecosystem search queries..."
+echo " Preparing community & ecosystem search queries..."
 
 python3 -c "
 import json
@@ -217,7 +217,7 @@ with open('$TMP_DIR/search_queries.json', 'w') as f:
 
 cp "$TMP_DIR/search_queries.json" "$STATE_DIR/pending_searches.json"
 echo "   ✓ Search queries saved to state/pending_searches.json"
-echo "   ℹ Agent should run these via web_search and merge results"
+echo "    Agent should run these via web_search and merge results"
 
 # ============================================================
 # Save run state
@@ -231,6 +231,6 @@ cat > "$LAST_RUN_FILE" <<EOF
 EOF
 
 echo ""
-echo "✅ Collection complete. Raw data: $RAW_OUTPUT"
+echo " Collection complete. Raw data: $RAW_OUTPUT"
 echo "   Run format_briefing.sh to generate the briefing."
 echo "   Agent: check state/pending_searches.json for web searches to run."

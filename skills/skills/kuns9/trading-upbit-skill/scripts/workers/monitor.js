@@ -171,7 +171,7 @@ async function addEvent(event) {
             createdAt: new Date().toISOString()
         });
         await fs.writeFile(EVENTS_FILE, JSON.stringify(events, null, 2));
-        Logger.warn(`📢 이벤트 등록: ${event.type} - ${event.market}`);
+        Logger.warn(` 이벤트 등록: ${event.type} - ${event.market}`);
     } catch (err) {
         Logger.error(`Event Save Error: ${err.message}`);
     }
@@ -227,13 +227,13 @@ async function getTopVolumeMarkets() {
     const filteredRanked = ranked.filter(m => !excluded.has(m));
 
     await writeTopVolCache({ updatedAt: now, quote, metric, topN, markets: filteredRanked });
-    Logger.info(`🏆 [TopVolume] refreshed (quote=${quote}, metric=${metric}, topN=${topN}) -> ${filteredRanked.join(', ')}`);
+    Logger.info(` [TopVolume] refreshed (quote=${quote}, metric=${metric}, topN=${topN}) -> ${filteredRanked.join(', ')}`);
     return filteredRanked;
 }
 
 async function scanMarkets(priceMapHint = {}, scanList = null, openMarkets = new Set(), openCount = 0, lastActionMap = {}, cooldownMs = 0) {
     const universeLabel = (Array.isArray(scanList) && scanList.length > 0) ? `custom(${scanList.length})` : CONFIG.scanUniverse;
-    Logger.info(`🔍 시장 스캔 시작... (universe=${universeLabel})`);
+    Logger.info(` 시장 스캔 시작... (universe=${universeLabel})`);
     try {
         const markets = (CONFIG.scanUniverse === 'allKrw')
             ? await marketData.getMarkets(true)
@@ -460,7 +460,7 @@ async function monitor() {
             // Keep identifiers ASCII-only to avoid runtime issues across environments
             tickers.forEach(t => { priceMap[t.market] = t.trade_price; });
 
-            Logger.info(`👀 [Watch] ${CONFIG.watchlist.map(m => `${m.split('-')[1]}: ${priceMap[m]?.toLocaleString()}`).join(' | ')}`);
+            Logger.info(` [Watch] ${CONFIG.watchlist.map(m => `${m.split('-')[1]}: ${priceMap[m]?.toLocaleString()}`).join(' | ')}`);
 
             await updateHeartbeat({
                 lastWatchAt: new Date().toISOString(),
@@ -472,7 +472,7 @@ async function monitor() {
 
             if ((CONFIG.topVolume?.enabled) && topVolMarkets.length > 0) {
                 const tv = CONFIG.topVolume;
-                Logger.info(`🏆 [TopVolume] ${tv.metric || 'acc_trade_price_24h'} Top${tv.topN || topVolMarkets.length}: ${topVolMarkets.map(m => m.split('-')[1]).join(', ')}`);
+                Logger.info(` [TopVolume] ${tv.metric || 'acc_trade_price_24h'} Top${tv.topN || topVolMarkets.length}: ${topVolMarkets.map(m => m.split('-')[1]).join(', ')}`);
             }
 
 
@@ -493,7 +493,7 @@ async function monitor() {
                     const pressure = computePressureCounts(m5);
                     const sellMin = Math.max(1, Math.min(pc, p.sellMin ?? 3));
                     const sellOk = pressure.bear >= sellMin;
-                    Logger.info(`🧭 [HoldPressure] ${pos.market}: pressure(buy=${pressure.bull}/${pc}, sell=${pressure.bear}/${pc}, sellOk=${sellOk})`);
+                    Logger.info(` [HoldPressure] ${pos.market}: pressure(buy=${pressure.bull}/${pc}, sell=${pressure.bear}/${pc}, sellOk=${sellOk})`);
 
                     if (sellOk) {
                         // If PnL is available, STOPLOSS should still win when below SL.
@@ -512,7 +512,7 @@ async function monitor() {
                     continue;
                 }
 
-                Logger.info(`💰 [Hold] ${pos.market}: ${current.toLocaleString()}원 (${(pnl * 100).toFixed(2)}%)`);
+                Logger.info(` [Hold] ${pos.market}: ${current.toLocaleString()}원 (${(pnl * 100).toFixed(2)}%)`);
 
 // Exit logic
 if (cfg.trading?.aggressive?.enabled) {
@@ -611,6 +611,6 @@ function monitorLoop() {
 module.exports = { monitorOnce, monitorLoop };
 
 if (require.main === module) {
-    Logger.info('🚀 Monitor Engine Started');
+    Logger.info(' Monitor Engine Started');
     monitorLoop();
 }

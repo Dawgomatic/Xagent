@@ -6,19 +6,19 @@
 
 阿里云百炼平台提供的图像生成、编辑与翻译能力，包含千问-文生图(Qwen-Image)、千问-图像编辑(Qwen-Image-Edit)和千问-图像翻译(Qwen-MT-Image)三个模型。
 
-## 🔄 同步更新
+##  同步更新
 
 本项目在 **GitHub** 和 **ClawHub** 同步发布更新：
 
 - **GitHub 仓库**: https://github.com/StanleyChanH/aliyun-image-skill
 - **ClawHub 页面**: https://clawhub.com/skill/aliyun-image
-- **GitHub Actions**: 自动同步 ✅
+- **GitHub Actions**: 自动同步 
 
 ### 自动同步机制
-- ✅ 使用 GitHub Actions 自动同步到 ClawHub
-- ✅ 每次推送到 `main` 分支自动触发
-- ✅ 版本号和更新日志保持一致
-- ✅ GitHub Release 自动创建
+-  使用 GitHub Actions 自动同步到 ClawHub
+-  每次推送到 `main` 分支自动触发
+-  版本号和更新日志保持一致
+-  GitHub Release 自动创建
 
 ### 配置自动同步
 查看 [.github/SETUP.md](.github/SETUP.md) 了解如何配置 GitHub Actions 自动同步。
@@ -53,19 +53,19 @@
 
 ## 功能特性
 
-### 🎨 文生图 (Qwen-Image)
+###  文生图 (Qwen-Image)
 - 根据文本描述生成图像
 - 支持复杂文字渲染
 - 多种分辨率选择
 - 智能提示词改写
 
-### ✏️ 图像编辑 (Qwen-Image-Edit)
+###  图像编辑 (Qwen-Image-Edit)
 - 单图编辑：修改文字、增删物体、改变动作
 - 多图融合：人物换装、姿势迁移
 - 风格迁移：艺术风格转换
 - 细节增强：图像质量提升
 
-### 🌐 图像翻译 (Qwen-MT-Image)
+###  图像翻译 (Qwen-MT-Image)
 - 精准翻译图像中的文字
 - 保留原始排版与内容信息
 - 支持11种源语言（中/英/日/韩/俄/西/法/葡/意/德/越）
@@ -207,12 +207,12 @@ python scripts/client.py translate "https://example.com/ad.jpg" \
 
 ## 特点
 
-✅ 国内网络友好（阿里云服务）
-✅ 支持中文提示词
-✅ 多种分辨率选择
-✅ 智能提示词优化
-✅ 图像文字翻译，保留排版
-✅ 24小时图像存储
+ 国内网络友好（阿里云服务）
+ 支持中文提示词
+ 多种分辨率选择
+ 智能提示词优化
+ 图像文字翻译，保留排版
+ 24小时图像存储
 
 ## 适用场景
 

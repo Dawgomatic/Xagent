@@ -41,7 +41,7 @@ def get_api_key() -> str:
             if line.startswith("ELEVEN_API_KEY="):
                 return line.split("=", 1)[1].strip().strip('"\'')
     
-    print("❌ No ElevenLabs API key found.")
+    print(" No ElevenLabs API key found.")
     print("   Set ELEVEN_API_KEY environment variable or configure in OpenClaw")
     sys.exit(1)
 
@@ -124,7 +124,7 @@ def generate_sfx(
     req = urllib.request.Request(SFX_API_URL, data=data, headers=headers, method="POST")
     
     try:
-        print(f"🎵 Generating: {prompt}")
+        print(f" Generating: {prompt}")
         if duration:
             print(f"   Duration: {duration}s")
         
@@ -135,7 +135,7 @@ def generate_sfx(
                 f.write(audio_data)
             
             size_kb = len(audio_data) / 1024
-            print(f"✅ Saved: {output_path} ({size_kb:.1f} KB)")
+            print(f" Saved: {output_path} ({size_kb:.1f} KB)")
             
             # Track usage (estimate duration if not specified)
             actual_duration = duration or 5.0
@@ -145,10 +145,10 @@ def generate_sfx(
             
     except urllib.error.HTTPError as e:
         error_body = e.read().decode("utf-8") if e.fp else ""
-        print(f"❌ API Error ({e.code}): {error_body[:200]}")
+        print(f" API Error ({e.code}): {error_body[:200]}")
         return False
     except urllib.error.URLError as e:
-        print(f"❌ Network Error: {e.reason}")
+        print(f" Network Error: {e.reason}")
         return False
 
 
@@ -166,7 +166,7 @@ def batch_sfx(batch_file: str, output_dir: str, api_key: str) -> tuple:
     """
     batch_path = Path(batch_file)
     if not batch_path.exists():
-        print(f"❌ Batch file not found: {batch_file}")
+        print(f" Batch file not found: {batch_file}")
         return 0, 0
     
     out_path = Path(output_dir)
@@ -190,10 +190,10 @@ def batch_sfx(batch_file: str, output_dir: str, api_key: str) -> tuple:
                 })
     
     if not items:
-        print("❌ No items found in batch file")
+        print(" No items found in batch file")
         return 0, 0
     
-    print(f"📦 Processing SFX batch: {len(items)} items\n")
+    print(f" Processing SFX batch: {len(items)} items\n")
     
     success = 0
     failed = 0
@@ -218,14 +218,14 @@ def batch_sfx(batch_file: str, output_dir: str, api_key: str) -> tuple:
         import time
         time.sleep(1.0)
     
-    print(f"\n✅ Complete: {success} success, {failed} failed")
-    print(f"📁 Output: {out_path}")
+    print(f"\n Complete: {success} success, {failed} failed")
+    print(f" Output: {out_path}")
     return success, failed
 
 
 # Sound effect prompt examples
 SFX_EXAMPLES = """
-🎵 Sound Effect Prompt Examples:
+ Sound Effect Prompt Examples:
 
 Nature:
   "Thunder rumbling in the distance"
@@ -308,7 +308,7 @@ Examples:
     
     if not args.prompt:
         parser.print_help()
-        print("\n❌ --prompt is required. Try --examples for ideas.")
+        print("\n --prompt is required. Try --examples for ideas.")
         sys.exit(1)
     
     generate_sfx(

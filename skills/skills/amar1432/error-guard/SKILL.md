@@ -11,7 +11,7 @@ description: >
 
 # error-guard
 
-⚠️ **System‑level skill (Advanced users)**
+ **System‑level skill (Advanced users)**
 
 This skill defines the **control‑plane safety primitives** for OpenClaw.
 It is intentionally minimal, non‑blocking, and designed to prevent agent freezes, deadlocks, and unrecoverable states when running long‑lived or high‑risk workloads.

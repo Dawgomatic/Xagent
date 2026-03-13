@@ -65,12 +65,12 @@ class FMPEarningsCalendar:
             response = requests.get(url, params=params, timeout=30)
 
             if response.status_code == 401:
-                print("❌ ERROR: Invalid API key", file=sys.stderr)
+                print(" ERROR: Invalid API key", file=sys.stderr)
                 print("Get free API key: https://site.financialmodelingprep.com/developer/docs", file=sys.stderr)
                 return None
 
             if response.status_code == 429:
-                print("❌ ERROR: Rate limit exceeded", file=sys.stderr)
+                print(" ERROR: Rate limit exceeded", file=sys.stderr)
                 print("Free tier: 250 calls/day. Consider upgrading.", file=sys.stderr)
                 return None
 
@@ -79,22 +79,22 @@ class FMPEarningsCalendar:
 
             # Check if response is error message
             if isinstance(data, dict) and "Error Message" in data:
-                print(f"❌ API Error: {data['Error Message']}", file=sys.stderr)
+                print(f" API Error: {data['Error Message']}", file=sys.stderr)
                 return None
 
             print(f"✓ Retrieved {len(data)} earnings announcements", file=sys.stderr)
             return data
 
         except requests.exceptions.Timeout:
-            print("❌ ERROR: Request timeout. Please try again.", file=sys.stderr)
+            print(" ERROR: Request timeout. Please try again.", file=sys.stderr)
             return None
 
         except requests.exceptions.ConnectionError:
-            print("❌ ERROR: Connection error. Check your internet connection.", file=sys.stderr)
+            print(" ERROR: Connection error. Check your internet connection.", file=sys.stderr)
             return None
 
         except Exception as e:
-            print(f"❌ ERROR: Unexpected error: {str(e)}", file=sys.stderr)
+            print(f" ERROR: Unexpected error: {str(e)}", file=sys.stderr)
             return None
 
     def fetch_company_profiles(self, symbols: List[str]) -> Dict[str, Dict]:
@@ -130,7 +130,7 @@ class FMPEarningsCalendar:
                 print(f"  ✓ Batch {i//batch_size + 1}: {len(batch)} profiles", file=sys.stderr)
 
             except Exception as e:
-                print(f"  ⚠️  Warning: Failed to fetch batch {i//batch_size + 1}: {str(e)}", file=sys.stderr)
+                print(f"    Warning: Failed to fetch batch {i//batch_size + 1}: {str(e)}", file=sys.stderr)
                 continue
 
         print(f"✓ Retrieved {len(profiles)} company profiles", file=sys.stderr)
@@ -307,7 +307,7 @@ def get_api_key() -> Optional[str]:
         return api_key
 
     # Not found
-    print("❌ ERROR: No API key found", file=sys.stderr)
+    print(" ERROR: No API key found", file=sys.stderr)
     print("", file=sys.stderr)
     print("Options:", file=sys.stderr)
     print("1. Set environment variable: export FMP_API_KEY='your-key'", file=sys.stderr)
@@ -363,7 +363,7 @@ def main():
 
     # Validate arguments
     if len(sys.argv) < 3:
-        print("❌ ERROR: Missing required arguments", file=sys.stderr)
+        print(" ERROR: Missing required arguments", file=sys.stderr)
         print("", file=sys.stderr)
         print_usage()
         sys.exit(1)
@@ -373,12 +373,12 @@ def main():
 
     # Validate dates
     if not validate_date(start_date):
-        print(f"❌ ERROR: Invalid start date format: {start_date}", file=sys.stderr)
+        print(f" ERROR: Invalid start date format: {start_date}", file=sys.stderr)
         print("Expected format: YYYY-MM-DD", file=sys.stderr)
         sys.exit(1)
 
     if not validate_date(end_date):
-        print(f"❌ ERROR: Invalid end date format: {end_date}", file=sys.stderr)
+        print(f" ERROR: Invalid end date format: {end_date}", file=sys.stderr)
         print("Expected format: YYYY-MM-DD", file=sys.stderr)
         sys.exit(1)
 
@@ -388,7 +388,7 @@ def main():
         sys.exit(1)
 
     print(f"", file=sys.stderr)
-    print(f"📅 Fetching earnings calendar: {start_date} to {end_date}", file=sys.stderr)
+    print(f" Fetching earnings calendar: {start_date} to {end_date}", file=sys.stderr)
     print(f"", file=sys.stderr)
 
     # Initialize client
@@ -401,7 +401,7 @@ def main():
         sys.exit(1)
 
     if len(earnings) == 0:
-        print("⚠️  Warning: No earnings announcements found for date range", file=sys.stderr)
+        print("  Warning: No earnings announcements found for date range", file=sys.stderr)
         print(json.dumps([], indent=2))
         sys.exit(0)
 
@@ -417,7 +417,7 @@ def main():
     filtered_earnings = client.filter_by_market_cap(earnings, profiles)
 
     if len(filtered_earnings) == 0:
-        print("⚠️  Warning: No companies with market cap >$2B found", file=sys.stderr)
+        print("  Warning: No companies with market cap >$2B found", file=sys.stderr)
         print(json.dumps([], indent=2))
         sys.exit(0)
 

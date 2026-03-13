@@ -3,7 +3,7 @@ name: vault0
 description: Security suite for OpenClaw agents. Encrypted secret storage (AES-256-GCM), real-time activity monitoring via gateway WebSocket, policy enforcement, and native x402 payment wallet with EIP-3009 signing. Secure API keys, watch agent behavior, and handle machine-to-machine micropayments. macOS desktop app (Rust + Tauri). Reads ~/.openclaw/.env during hardening. Installation downloads a DMG from GitHub releases. After install, the app makes no external network calls and only listens on localhost.
 homepage: https://github.com/0-Vault/Vault-0
 repository: https://github.com/0-Vault/Vault-0
-metadata: {"emoji":"🔐","category":"security","os":"macos","minOS":"12","dependencies":["openclaw"],"configPaths":["~/.openclaw/.env","~/.openclaw/openclaw.json"],"networkAccess":"localhost-only-after-install","installNetworkAccess":"github-releases-download","persistence":"installed-app"}
+metadata: {"emoji":"","category":"security","os":"macos","minOS":"12","dependencies":["openclaw"],"configPaths":["~/.openclaw/.env","~/.openclaw/openclaw.json"],"networkAccess":"localhost-only-after-install","installNetworkAccess":"github-releases-download","persistence":"installed-app"}
 ---
 
 # Vault-0

@@ -100,20 +100,20 @@ Content-Type: application/json
 
 ### What You Get:
 
-✅ **Unlimited Memory Storage** - No 100-memory limit (Free tier restricted to 100)
-✅ **Permanent Retention** - Keep memories forever (Free tier limited to 7 days)
-✅ **Advanced Semantic Search** - Better retrieval algorithms and ranking
-✅ **Memory Relationship Mapping** - Graph-based connections between memories
-✅ **Export Capabilities** - Download memory database as JSON/CSV
-✅ **Priority Support** - Faster issue resolution
+ **Unlimited Memory Storage** - No 100-memory limit (Free tier restricted to 100)
+ **Permanent Retention** - Keep memories forever (Free tier limited to 7 days)
+ **Advanced Semantic Search** - Better retrieval algorithms and ranking
+ **Memory Relationship Mapping** - Graph-based connections between memories
+ **Export Capabilities** - Download memory database as JSON/CSV
+ **Priority Support** - Faster issue resolution
 
 ### Free Tier Restrictions:
 
-❌ Limited to 100 memories
-❌ 7-day retention (older memories auto-deleted)
-❌ Basic semantic search
-❌ No memory relationship graph
-❌ No export capabilities
+ Limited to 100 memories
+ 7-day retention (older memories auto-deleted)
+ Basic semantic search
+ No memory relationship graph
+ No export capabilities
 
 ---
 
@@ -200,9 +200,9 @@ Calculate your ROI:
 - **Limited History:** Can't reference conversations >7 days old
 
 ### If you:
-- 🔄 Repeat context >500 times/month → **Save $0.50+ in tokens**
-- 📊 Need long-term pattern learning → **Pro pays for itself**
-- 🧠 Store >100 important facts/preferences → **Upgrade essential**
+-  Repeat context >500 times/month → **Save $0.50+ in tokens**
+-  Need long-term pattern learning → **Pro pays for itself**
+-  Store >100 important facts/preferences → **Upgrade essential**
 
 **Bottom line:** If persistent memory saves you >0.5 USDT/month in reduced token costs and improved efficiency, **Pro tier pays for itself**.
 
@@ -211,10 +211,10 @@ Calculate your ROI:
 ## Why x402?
 
 **x402** is an HTTP payment protocol designed for AI agent-to-agent commerce:
-- ✅ Multi-chain support (Base, Solana, Ethereum)
-- ✅ Token-agnostic (USDT, USDC, SOL, ETH)
-- ✅ Simple HTTP requests (no complex crypto libraries)
-- ✅ Built for autonomous agents
+-  Multi-chain support (Base, Solana, Ethereum)
+-  Token-agnostic (USDT, USDC, SOL, ETH)
+-  Simple HTTP requests (no complex crypto libraries)
+-  Built for autonomous agents
 
 **Memory System is the first OpenClaw memory tool to support x402 payments.**
 
@@ -231,13 +231,13 @@ If you're a human running an AI agent, you can:
 
 ## Security Notes
 
-⚠️ **Payment Verification:** MVP implementation trusts reported transaction hashes. Production version will verify on-chain via RPC.
+ **Payment Verification:** MVP implementation trusts reported transaction hashes. Production version will verify on-chain via RPC.
 
-⚠️ **No Refunds:** Payments are final. Agents should evaluate value before subscribing.
+ **No Refunds:** Payments are final. Agents should evaluate value before subscribing.
 
-⚠️ **License Duration:** Pro license is valid for exactly 30 days from payment. No pro-rated refunds.
+ **License Duration:** Pro license is valid for exactly 30 days from payment. No pro-rated refunds.
 
-⚠️ **Wallet Security:** Keep your agent wallet secure. Payment transactions are irreversible.
+ **Wallet Security:** Keep your agent wallet secure. Payment transactions are irreversible.
 
 ---
 
@@ -287,7 +287,7 @@ async function monitorQuota() {
   console.log(`Memory usage: ${data.memory_count} / ${data.memory_limit === -1 ? '∞' : data.memory_limit}`);
 
   if (data.tier === 'free' && data.memory_count > 80) {
-    console.log('⚠️ Approaching free tier limit. Consider upgrading to Pro.');
+    console.log(' Approaching free tier limit. Consider upgrading to Pro.');
   }
 }
 ```
@@ -422,6 +422,6 @@ Content-Type: application/json
 
 ---
 
-Built with ❤️ for the agent economy by the OpenClaw community
+Built with  for the agent economy by the OpenClaw community
 
 Part of the [OpenClaw Ecosystem](https://clawhub.ai)

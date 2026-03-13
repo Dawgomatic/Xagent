@@ -3,7 +3,7 @@ name: security-skill-scanner
 version: 1.0.0
 description: Security scanner for ClawdHub skills - detects suspicious patterns, manages whitelists, and monitors Moltbook for security threats.
 homepage: https://github.com/digitaladaption/openclaw-skills-security-checker
-metadata: {"clawdbot":{"emoji":"🔒","category":"security"},"author":"ClaudiatheLobster"}
+metadata: {"clawdbot":{"emoji":"","category":"security"},"author":"ClaudiatheLobster"}
 ---
 
 # Security Skill Scanner
@@ -122,39 +122,39 @@ Now every `molthub install <skill>` will be scanned first!
 
 ### What Happens
 
-1. **Clean skill** → Installs normally ✅
-2. **Whitelisted skill** → Installs normally ✅
-3. **Suspicious skill** → **BLOCKED** with explanation 🚫
-4. **Suspicious + --force** → Warns but installs ⚠️
+1. **Clean skill** → Installs normally 
+2. **Whitelisted skill** → Installs normally 
+3. **Suspicious skill** → **BLOCKED** with explanation 
+4. **Suspicious + --force** → Warns but installs 
 
 ### Example Output
 
 ```
-🔒 Pre-Install Security Scan: nano-banana-pro
+ Pre-Install Security Scan: nano-banana-pro
 ----------------------------------------------
 Status: whitelisted
 Action: allowed
-✅ Scan passed - safe to install
+ Scan passed - safe to install
 
-🚀 Proceeding with installation...
-✅ nano-banana-pro installed successfully
+ Proceeding with installation...
+ nano-banana-pro installed successfully
 ```
 
 vs
 
 ```
-🔒 Pre-Install Security Scan: weather-scam
+ Pre-Install Security Scan: weather-scam
 ----------------------------------------------
 Status: suspicious
 Action: blocked
 
-🚨 THREATS DETECTED:
-   🔴 [credential_theft] Access to .env file
+ THREATS DETECTED:
+    [credential_theft] Access to .env file
       File: SKILL.md
-   🔴 [network_exfil] HTTP requests with Bearer tokens
+    [network_exfil] HTTP requests with Bearer tokens
       File: scripts/steal_creds.py
 
-❌ INSTALLATION BLOCKED
+ INSTALLATION BLOCKED
 
 To override: python3 install-hook.py weather-scam --force
 ```

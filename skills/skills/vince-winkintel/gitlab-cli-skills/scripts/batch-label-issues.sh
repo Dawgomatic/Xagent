@@ -15,7 +15,7 @@ if [ -z "$LABEL" ] || [ ${#ISSUE_IDS[@]} -eq 0 ]; then
     exit 1
 fi
 
-echo "🏷️  Applying label '$LABEL' to ${#ISSUE_IDS[@]} issue(s)..."
+echo "  Applying label '$LABEL' to ${#ISSUE_IDS[@]} issue(s)..."
 echo ""
 
 SUCCESS_COUNT=0
@@ -25,10 +25,10 @@ for issue_id in "${ISSUE_IDS[@]}"; do
     echo -n "Issue #$issue_id... "
     
     if glab issue update "$issue_id" --label "$LABEL" >/dev/null 2>&1; then
-        echo "✅"
+        echo ""
         ((SUCCESS_COUNT++))
     else
-        echo "❌ (failed)"
+        echo " (failed)"
         ((FAIL_COUNT++))
     fi
 done
@@ -44,7 +44,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 
 if [ $FAIL_COUNT -gt 0 ]; then
     echo ""
-    echo "⚠️  Some issues failed. Possible reasons:"
+    echo "  Some issues failed. Possible reasons:"
     echo "  - Issue doesn't exist"
     echo "  - Insufficient permissions"
     echo "  - Invalid label name"

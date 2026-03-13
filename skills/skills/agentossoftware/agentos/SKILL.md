@@ -6,7 +6,7 @@ The complete AgentOS integration for Clawdbot. One install, full access to every
 
 ---
 
-## ⚠️ HARD RULE: Dashboard Sync During Heartbeats
+##  HARD RULE: Dashboard Sync During Heartbeats
 
 **Any agent using this SDK MUST sync to the AgentOS dashboard during every heartbeat.**
 
@@ -42,7 +42,7 @@ Memory specifics:
 
 ---
 
-## ⚠️ HARD RULE: Conversation State Persistence
+##  HARD RULE: Conversation State Persistence
 
 **CONTEXT.md MUST always contain the active conversation state as the FIRST section.**
 
@@ -53,7 +53,7 @@ This is the core of memory persistence. System health is secondary — conversat
 Every CONTEXT.md backup must start with:
 
 ```markdown
-## 🔴 ACTIVE CONVERSATION
+##  ACTIVE CONVERSATION
 - **Topic:** [Project + specific feature/topic being discussed]
 - **Last human message:** [What they asked/said]
 - **Your last response:** [What you answered]
@@ -73,7 +73,7 @@ Every CONTEXT.md backup must start with:
 ### Add to Your HEARTBEAT.md
 
 ```markdown
-## 🧠 AgentOS Dashboard Sync (MANDATORY)
+##  AgentOS Dashboard Sync (MANDATORY)
 Every heartbeat, run: `~/clawd/bin/agentos-sync.sh`
 This keeps your human's dashboard live with your activity.
 ```
@@ -93,7 +93,7 @@ This keeps the Brain Dashboard live. No exceptions.
 
 ---
 
-## ⚠️ HARD RULE: Session Start — Context Injection
+##  HARD RULE: Session Start — Context Injection
 
 **On EVERY session start (including after compaction), you MUST restore context.**
 
@@ -122,7 +122,7 @@ Context loss is the #1 problem in AI agents. When compaction happens, you lose c
 
 ---
 
-## ⚠️ HARD RULE: Pre-Compaction Backup
+##  HARD RULE: Pre-Compaction Backup
 
 **When you receive a memory flush directive from Clawdbot, IMMEDIATELY backup your state.**
 
@@ -131,7 +131,7 @@ Clawdbot sends a silent turn before compaction with text like "write important c
 ### Protocol (MANDATORY when you see memory flush directive)
 
 1. **Update CONTEXT.md** with:
-   - Current conversation topic (🔴 ACTIVE CONVERSATION section)
+   - Current conversation topic ( ACTIVE CONVERSATION section)
    - Last 2-3 exchanges summarized
    - Any pending questions/tasks
    - Current timestamp
@@ -154,7 +154,7 @@ When you see these keywords in a system message, execute this protocol.
 
 ---
 
-## ⚠️ HARD RULE: Never Ask What They're Referring To
+##  HARD RULE: Never Ask What They're Referring To
 
 **After any context loss (compaction, restart, session start), NEVER ask your human what they mean.**
 
@@ -173,17 +173,17 @@ Your human should NEVER know when compaction happened. The experience must be se
 
 ## Features
 
-- ✅ **Mesh Messaging** — Agent-to-agent communication
-- ✅ **Memory Sync** — Auto-sync memories to AgentOS cloud
-- ✅ **Semantic Search** — Query your memories with natural language
-- ✅ **WebSocket Support** — Real-time message notifications
-- ✅ **Dashboard Access** — View your agent's brain at brain.agentos.software
-- ✅ **Full API Access** — Complete REST API integration
-- ✅ **Multi-Tenant** — Each user gets isolated tenant via Google OAuth
-- ✅ **Kanban Board** — Task management with priorities and statuses
-- ✅ **Projects** — Project tracking with activity logs and brainstorming
-- ✅ **API Key Management** — Generate and manage API keys per tenant
-- ✅ **Bulk Operations** — dump-all, agents discovery endpoints
+-  **Mesh Messaging** — Agent-to-agent communication
+-  **Memory Sync** — Auto-sync memories to AgentOS cloud
+-  **Semantic Search** — Query your memories with natural language
+-  **WebSocket Support** — Real-time message notifications
+-  **Dashboard Access** — View your agent's brain at brain.agentos.software
+-  **Full API Access** — Complete REST API integration
+-  **Multi-Tenant** — Each user gets isolated tenant via Google OAuth
+-  **Kanban Board** — Task management with priorities and statuses
+-  **Projects** — Project tracking with activity logs and brainstorming
+-  **API Key Management** — Generate and manage API keys per tenant
+-  **Bulk Operations** — dump-all, agents discovery endpoints
 
 ## Quick Start
 

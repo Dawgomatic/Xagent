@@ -3,7 +3,7 @@ name: whisper-mlx-local
 description: "Free local speech-to-text for Telegram and WhatsApp using MLX Whisper on Apple Silicon. Private, no API costs."
 metadata:
   openclaw:
-    emoji: "🎤"
+    emoji: ""
     version: "1.5.0"
     author: "Community"
     repo: "https://github.com/ImpKind/local-whisper"
@@ -35,12 +35,12 @@ If you transcribe a lot of Telegram voice messages, it adds up.
 
 This skill runs Whisper **locally on your Mac**. Same quality, **zero cost**.
 
-- ✅ Free forever
-- ✅ Private (audio never leaves your Mac)
-- ✅ Fast (~1 second per message)
-- ✅ Works offline
+-  Free forever
+-  Private (audio never leaves your Mac)
+-  Fast (~1 second per message)
+-  Works offline
 
-## ⚠️ Important Notes
+##  Important Notes
 
 - **First run downloads ~1.5GB model** — be patient, this only happens once
 - **First transcription is slow** — model loads into memory (~10-30 seconds), then it's instant

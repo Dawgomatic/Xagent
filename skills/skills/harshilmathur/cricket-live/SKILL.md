@@ -1,4 +1,4 @@
-# 🏏 Cricket Live
+#  Cricket Live
 
 **Live cricket scores, IPL tracking, and match alerts for OpenClaw.**
 
@@ -6,21 +6,21 @@ Get real-time scores, upcoming schedules, detailed scorecards, and IPL standings
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔴 **Live Scores** — All currently live matches with real-time scores, overs, and status
-- 📋 **Match Details** — Full scorecards with batting and bowling stats
-- 📅 **Upcoming Matches** — Next 7 days of scheduled matches, filterable by team
-- ✅ **Recent Results** — Completed matches from the last 3 days
-- 🏆 **IPL Hub** — Standings, upcoming IPL matches, live scores, and results
-- 🔍 **Match Search** — Find any match by team name (supports aliases like "MI", "CSK", "AUS")
-- 🔔 **Alerts** — Cron-ready script for wicket, century, and result notifications
-- 💾 **Smart Caching** — Respects API quota with configurable TTL per endpoint
-- 🇮🇳 **IST by Default** — All times displayed in Indian Standard Time
+-  **Live Scores** — All currently live matches with real-time scores, overs, and status
+-  **Match Details** — Full scorecards with batting and bowling stats
+-  **Upcoming Matches** — Next 7 days of scheduled matches, filterable by team
+-  **Recent Results** — Completed matches from the last 3 days
+-  **IPL Hub** — Standings, upcoming IPL matches, live scores, and results
+-  **Match Search** — Find any match by team name (supports aliases like "MI", "CSK", "AUS")
+-  **Alerts** — Cron-ready script for wicket, century, and result notifications
+-  **Smart Caching** — Respects API quota with configurable TTL per endpoint
+-  **IST by Default** — All times displayed in Indian Standard Time
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Get a Free API Key
 Sign up at [cricketdata.org](https://cricketdata.org) — the free tier gives you **100 API calls/day**. (CricketData.org's API is served at `api.cricapi.com` — they are the same service.)
@@ -40,7 +40,7 @@ bash scripts/ipl.sh standings            # IPL points table
 
 ---
 
-## 📖 Usage
+##  Usage
 
 ### Live Scores
 ```bash
@@ -50,17 +50,17 @@ Shows all currently live matches with scores, overs, and match status.
 
 **Example output:**
 ```
-🏏 LIVE CRICKET SCORES
+ LIVE CRICKET SCORES
 ━━━━━━━━━━━━━━━━━━━━━
 
-🔴 India vs England — 3rd Test, Day 2
-🇮🇳 India: 285/6 (78.2 ov)
-🏴 England: 312 (98.4 ov)
-📊 India trail by 27 runs
+ India vs England — 3rd Test, Day 2
+ India: 285/6 (78.2 ov)
+ England: 312 (98.4 ov)
+ India trail by 27 runs
 
-🔴 Australia vs South Africa — 1st ODI
-🇦🇺 Australia: 156/3 (28.1 ov)
-📊 In Progress
+ Australia vs South Africa — 1st ODI
+ Australia: 156/3 (28.1 ov)
+ In Progress
 ```
 
 ### Upcoming Matches
@@ -72,16 +72,16 @@ bash scripts/upcoming-matches.sh MI            # Works with aliases
 
 **Example output:**
 ```
-📅 UPCOMING MATCHES (Next 7 Days)
+ UPCOMING MATCHES (Next 7 Days)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🇮🇳 India vs England — 4th Test
-📍 Ranchi
-🕐 16 Feb 2026, 09:30 AM IST
+ India vs England — 4th Test
+ Ranchi
+ 16 Feb 2026, 09:30 AM IST
 
-🏏 Mumbai Indians vs Chennai Super Kings — IPL 2026
-📍 Wankhede Stadium, Mumbai
-🕐 18 Feb 2026, 07:30 PM IST
+ Mumbai Indians vs Chennai Super Kings — IPL 2026
+ Wankhede Stadium, Mumbai
+ 18 Feb 2026, 07:30 PM IST
 ```
 
 ### Recent Results
@@ -91,16 +91,16 @@ bash scripts/recent-results.sh
 
 **Example output:**
 ```
-✅ RECENT RESULTS
+ RECENT RESULTS
 ━━━━━━━━━━━━━━━━━
 
-🏆 India won by 5 wickets
+ India won by 5 wickets
 India vs England — 2nd Test
-📍 Visakhapatnam
+ Visakhapatnam
 
-🏆 Australia won by 73 runs
+ Australia won by 73 runs
 Australia vs Sri Lanka — 3rd ODI
-📍 Melbourne
+ Melbourne
 ```
 
 ### IPL Hub
@@ -131,7 +131,7 @@ Detects wickets, centuries, and match completions since last check. Outputs only
 
 ---
 
-## 🗣️ Natural Language Mapping
+##  Natural Language Mapping
 
 | User says | Script |
 |-----------|--------|
@@ -145,7 +145,7 @@ Detects wickets, centuries, and match completions since last check. Outputs only
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### `config/cricket.yaml`
 Main configuration file. API key can be set here or via `CRICKET_API_KEY` env var (env var takes priority).
@@ -173,7 +173,7 @@ Team name aliases for fuzzy matching. Maps shorthand names (MI, CSK, IND, AUS) t
 
 ---
 
-## ⏰ Cron Integration
+##  Cron Integration
 
 Set up periodic match alerts:
 
@@ -189,7 +189,7 @@ The alert script tracks state in `/tmp/cricket-alert-state.json` and only output
 
 ---
 
-## 📊 API Quota Management
+##  API Quota Management
 
 | Tier | Calls/Day | Cost |
 |------|-----------|------|
@@ -211,7 +211,7 @@ Scripts show a clear message: *"API quota exhausted (100 calls/day limit reached
 
 ---
 
-## 📂 Output Format
+##  Output Format
 
 All output is messaging-friendly:
 - No markdown tables (works on WhatsApp, Discord, Telegram)
@@ -221,7 +221,7 @@ All output is messaging-friendly:
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 - **bash** 4.0+
 - **curl** (usually pre-installed)
@@ -230,7 +230,7 @@ All output is messaging-friendly:
 
 ---
 
-## 🔒 Security Notes
+##  Security Notes
 
 - **API key in URL query parameter:** The CricketData.org API (`api.cricapi.com`) requires the API key to be passed as a URL query parameter (`?apikey=...`). This means the key may appear in shell history, process listings, server access logs, and any HTTP proxy/inspection logs. Mitigations:
   - Set the key via the `CRICKET_API_KEY` environment variable (not hardcoded in config files).
@@ -240,6 +240,6 @@ All output is messaging-friendly:
 
 ---
 
-## 📄 License
+##  License
 
 MIT — see [LICENSE](LICENSE)

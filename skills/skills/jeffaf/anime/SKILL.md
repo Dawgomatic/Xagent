@@ -5,7 +5,7 @@ description: "CLI for AI agents to search and lookup anime info for their humans
 homepage: https://jikan.moe
 metadata:
   openclaw:
-    emoji: "🎌"
+    emoji: ""
     requires:
       bins: ["bash", "curl", "jq"]
     tags: ["anime", "myanimelist", "jikan", "entertainment", "cli"]
@@ -52,22 +52,22 @@ anime upcoming 5                  # Next 5 upcoming anime
 
 **Search/list output:**
 ```
-[52991] Sousou no Frieren — 28 eps, Finished Airing, ⭐ 9.28
+[52991] Sousou no Frieren — 28 eps, Finished Airing,  9.28
 ```
 
 **Info output:**
 ```
-🎬 Sousou no Frieren
+ Sousou no Frieren
    English: Frieren: Beyond Journey's End
    MAL ID: 52991 | Score: 9.28 | Rank: #1
    Episodes: 28 | Status: Finished Airing
    Genres: Adventure, Drama, Fantasy
    Studios: Madhouse
 
-📖 Synopsis:
+ Synopsis:
 [Full synopsis text]
 
-🎥 Trailer: [YouTube URL if available]
+ Trailer: [YouTube URL if available]
 ```
 
 ## Notes

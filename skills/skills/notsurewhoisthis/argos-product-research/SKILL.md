@@ -2,7 +2,7 @@
 name: argos-product-research
 description: Search, compare, and research products from Argos.co.uk with natural language queries
 homepage: https://www.argos.co.uk
-metadata: {"openclaw": {"emoji": "🛒"}}
+metadata: {"openclaw": {"emoji": ""}}
 ---
 
 # Argos Product Research Skill
@@ -138,7 +138,7 @@ Format detailed product information clearly:
 [Full product description]
 
 ### Customer Rating
-⭐ X.X/5 (XXX reviews)
+ X.X/5 (XXX reviews)
 ```
 
 ### Product Comparison
@@ -169,7 +169,7 @@ Aggregate review insights:
 
 ```markdown
 ## Review Summary: [Product Name]
-**Overall Rating:** ⭐ X.X/5 (XXX reviews)
+**Overall Rating:**  X.X/5 (XXX reviews)
 
 ### Rating Breakdown
 - 5★: XX%
@@ -178,12 +178,12 @@ Aggregate review insights:
 - 2★: XX%
 - 1★: XX%
 
-### Common Pros ✅
+### Common Pros 
 - [Frequently mentioned positive]
 - [Frequently mentioned positive]
 - [Frequently mentioned positive]
 
-### Common Cons ❌
+### Common Cons 
 - [Frequently mentioned negative]
 - [Frequently mentioned negative]
 
@@ -200,7 +200,7 @@ Aggregate review insights:
 
 ### Product Not Found
 ```markdown
-❌ **Product not found**
+ **Product not found**
 
 The product ID `XXXXXXX` doesn't exist or may have been discontinued.
 
@@ -211,7 +211,7 @@ The product ID `XXXXXXX` doesn't exist or may have been discontinued.
 
 ### Out of Stock
 ```markdown
-⚠️ **Currently Unavailable**
+ **Currently Unavailable**
 
 This product is out of stock online.
 
@@ -222,7 +222,7 @@ This product is out of stock online.
 
 ### No Search Results
 ```markdown
-🔍 **No results found for "[query]"**
+ **No results found for "[query]"**
 
 **Try:**
 - Using different keywords
@@ -235,7 +235,7 @@ Would you like me to try a different search?
 ### Rate Limiting
 If requests are blocked or limited:
 ```markdown
-⏳ **Request limited**
+ **Request limited**
 
 Argos may be limiting requests. Please try again in a few moments, or I can:
 - Provide cached/recent data if available

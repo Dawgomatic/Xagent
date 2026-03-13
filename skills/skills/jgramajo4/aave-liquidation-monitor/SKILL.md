@@ -109,11 +109,11 @@ Example:
 
 ### What the skill accesses
 
-✅ **Aave GraphQL API (public)** — reads your position data  
-✅ **OpenClaw message routing** — sends formatted alerts to your configured channel  
-✅ **Cron scheduler** — runs background checks on your interval
+ **Aave GraphQL API (public)** — reads your position data  
+ **OpenClaw message routing** — sends formatted alerts to your configured channel  
+ **Cron scheduler** — runs background checks on your interval
 
-❌ **Does NOT:**
+ **Does NOT:**
 - Request private keys
 - Store API tokens
 - Execute transactions
@@ -125,11 +125,11 @@ Example:
 
 **Critical Alert (HF < 1.05):**
 ```
-🚨 AAVE LIQUIDATION RISK – CRITICAL
+ AAVE LIQUIDATION RISK – CRITICAL
 Health Factor: 1.02 (Liquidation threshold: 1.0)
-⏰ Action required immediately!
+ Action required immediately!
 
-📊 Position Summary:
+ Position Summary:
 Total Collateral: $50,000
 Total Debt: $48,000
 Debt Ratio: 96%
@@ -148,7 +148,7 @@ Last checked: 2026-02-11 08:15 UTC
 
 **Warning Alert (HF < 1.2):**
 ```
-⚠️ AAVE WARNING
+ AAVE WARNING
 Health Factor: 1.15 (Approaching 1.2 threshold)
 
 Position approaching liquidation. Consider:
@@ -158,7 +158,7 @@ Position approaching liquidation. Consider:
 
 **Stable Position (HF > 1.5, verbose mode only):**
 ```
-✅ AAVE POSITION HEALTHY
+ AAVE POSITION HEALTHY
 Health Factor: 2.31
 Total Collateral: $50,342.12
 Total Debt: $21,804.00

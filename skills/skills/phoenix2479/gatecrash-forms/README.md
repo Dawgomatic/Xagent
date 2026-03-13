@@ -55,4 +55,4 @@ Or configure per-form in the JSON schema's `submit.smtp` field.
 
 ---
 
-*We crash gates. We don't build new ones.* 🚀
+*We crash gates. We don't build new ones.* 

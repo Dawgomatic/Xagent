@@ -1,7 +1,7 @@
 ---
 name: Developer
 description: Write clean, maintainable code with debugging, testing, and architectural best practices.
-metadata: {"clawdbot":{"emoji":"💻","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Software Development Rules

@@ -54,7 +54,7 @@ Learn more: https://skills.sh
   }
 
   const mode = popular ? 'popular' : 'search';
-  console.log(`🔍 Showing ${mode} skills...\n`);
+  console.log(` Showing ${mode} skills...\n`);
 
   try {
     const { skills } = await fetchSkills();
@@ -63,7 +63,7 @@ Learn more: https://skills.sh
     if (popular) {
       // Sort by installs (already sorted, but explicit)
       results = skills.slice(0, limit);
-      console.log(`📈 Top ${limit} most popular skills:\n`);
+      console.log(` Top ${limit} most popular skills:\n`);
     } else {
       results = skills
         .filter(s => 
@@ -71,16 +71,16 @@ Learn more: https://skills.sh
           s.topSource.toLowerCase().includes(query.toLowerCase())
         )
         .slice(0, limit);
-      console.log(`🔍 Searching skills.sh for "${query}"...\n`);
+      console.log(` Searching skills.sh for "${query}"...\n`);
     }
 
     if (results.length === 0) {
-      console.log(`❌ No skills found`);
+      console.log(` No skills found`);
       return;
     }
 
     results.forEach(skill => {
-      console.log(`✅ ${skill.name} (${formatNumber(skill.installs)} installs)`);
+      console.log(` ${skill.name} (${formatNumber(skill.installs)} installs)`);
       console.log(`   Source: ${skill.topSource}`);
       if (showInstall) {
         console.log(`   Install: npx skills add ${skill.topSource}`);
@@ -88,10 +88,10 @@ Learn more: https://skills.sh
       console.log('');
     });
 
-    console.log(`📦 To publish your own skill:`);
+    console.log(` To publish your own skill:`);
     console.log(`   clawdhub publish ./your-skill/ --slug your-skill --name "Your Skill"`);
   } catch (e) {
-    console.error(`❌ Error fetching skills: ${e.message}`);
+    console.error(` Error fetching skills: ${e.message}`);
     process.exit(1);
   }
 }

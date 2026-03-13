@@ -60,13 +60,13 @@ histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))
 
 ### Anti-Patterns in SLI Selection
 
-❌ **Don't use**: CPU usage, memory usage, disk space as primary SLIs
+ **Don't use**: CPU usage, memory usage, disk space as primary SLIs
 - These are symptoms, not user-facing impacts
 
-❌ **Don't use**: Counts instead of rates or proportions
+ **Don't use**: Counts instead of rates or proportions
 - "Number of errors" vs "Error rate"
 
-❌ **Don't use**: Internal metrics that users don't care about
+ **Don't use**: Internal metrics that users don't care about
 - Queue depth, cache hit rate (unless they directly impact user experience)
 
 ## Setting SLO Targets

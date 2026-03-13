@@ -26,7 +26,7 @@ All three modes use the same Graph API call (`/users/{delegate}/sendMail` with t
 | As Owner (Send As) | `send-as` | **SendAs only** | Owner | Owner | "From: Owner" |
 | On Behalf Of | `send-behalf` | **SendOnBehalf only** | Owner | Delegate | "From: Assistant on behalf of Owner" |
 
-> **⚠️ CRITICAL:** Do NOT grant both SendAs and SendOnBehalf permissions. If both are granted, Exchange always uses SendAs, and the "on behalf of" indication will never appear. Choose ONE based on your desired behavior.
+> ** CRITICAL:** Do NOT grant both SendAs and SendOnBehalf permissions. If both are granted, Exchange always uses SendAs, and the "on behalf of" indication will never appear. Choose ONE based on your desired behavior.
 
 ### How It Works Under the Hood
 

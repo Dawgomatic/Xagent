@@ -410,7 +410,7 @@ def telegram_status():
     progress_info = job.get("progress", {})
 
     # Build message
-    message = f"*🖨️ Printer Status*\n\n"
+    message = f"* Printer Status*\n\n"
     message += f"*State:* {state}\n"
 
     # Temperature
@@ -451,12 +451,12 @@ def telegram_snapshot():
     progress_info = job.get("progress", {})
     job_info = job.get("job", {})
 
-    caption = "📸 OctoPrint Snapshot"
+    caption = " OctoPrint Snapshot"
     if job_info.get("file", {}).get("name"):
-        caption += f"\n🗂️ {job_info['file']['name']}"
+        caption += f"\n {job_info['file']['name']}"
         completion = progress_info.get("completion")
         if completion is not None:
-            caption += f"\n📊 {completion:.1f}% complete"
+            caption += f"\n {completion:.1f}% complete"
 
     send_telegram_photo(snapshot_path, caption)
 

@@ -621,11 +621,11 @@ The proxy:
 
 | Runtime | Support | Notes |
 |---------|---------|-------|
-| Claude Code / Cursor / Codex | ✅ Full | Recommended path - CLI registration |
-| agent-browser | ✅ Full | Use scoped headers, not global |
-| OpenClaw Browser Relay | ✅ After registration | Register via CLI first |
-| CUA / Browser Control | ⚠️ Caution | Treat control plane as hostile |
-| skills.sh | ✅ Full | curl-based registration is safe |
+| Claude Code / Cursor / Codex |  Full | Recommended path - CLI registration |
+| agent-browser |  Full | Use scoped headers, not global |
+| OpenClaw Browser Relay |  After registration | Register via CLI first |
+| CUA / Browser Control |  Caution | Treat control plane as hostile |
+| skills.sh |  Full | curl-based registration is safe |
 
 **For browser runtimes:** Complete registration in CLI mode. The signing proxy only needs the private key (local) and JWKS URL (public). No bearer token needed during browsing.
 

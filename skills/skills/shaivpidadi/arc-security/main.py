@@ -16,7 +16,7 @@ def check_skill(skill_id: str):
     skill_info = contract.get_skill_info(skill_id)
     
     if skill_info['totalBonded'] == 0:
-        print(f"❌ Skill '{skill_id}' not found or not bonded")
+        print(f" Skill '{skill_id}' not found or not bonded")
         return
     
     total_bonded = skill_info['totalBonded'] / 1e6  # Convert from 6 decimals
@@ -33,7 +33,7 @@ def check_skill(skill_id: str):
     print(f"├─ Bonded: {total_bonded:.2f} USDC by {auditor_count} auditors")
     print(f"├─ Used: {usage_count:,} times")
     print(f"├─ Trust Score: {trust_score:.0f}/100")
-    print(f"├─ Status: {'🚩 Flagged for review' if flagged else '✅ Safe to use'}")
+    print(f"├─ Status: {' Flagged for review' if flagged else ' Safe to use'}")
     print(f"└─ Created: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(skill_info['createdAt']))}\n")
 
 
@@ -46,7 +46,7 @@ def use_skill(skill_id: str):
     skill_info = contract.get_skill_info(skill_id)
     
     if skill_info['totalBonded'] == 0:
-        print(f"❌ Skill '{skill_id}' is not bonded. Cannot use.")
+        print(f" Skill '{skill_id}' is not bonded. Cannot use.")
         return
     
     print(f"✓ Skill is bonded: {skill_info['totalBonded'] / 1e6:.2f} USDC")
@@ -71,7 +71,7 @@ def use_skill(skill_id: str):
                 break
     
     if not selected_chain:
-        print("\n❌ Error: Insufficient USDC balance on all supported chains.")
+        print("\n Error: Insufficient USDC balance on all supported chains.")
         return
 
     print(f"\nProceeding with payment from {selected_chain}...")
@@ -88,7 +88,7 @@ def use_skill(skill_id: str):
         if 'txHash' in result:
             print(f"Transaction: {result['txHash']}")
     else:
-        print(f"\n❌ Error: {result.get('error', 'Unknown error')}")
+        print(f"\n Error: {result.get('error', 'Unknown error')}")
 
 
 def bond_skill(skill_id: str, amount: float, chain: str):
@@ -101,13 +101,13 @@ def bond_skill(skill_id: str, amount: float, chain: str):
     existing_stake = contract.contract.functions.getAuditorStake(skill_id, contract.account.address).call()
     
     if existing_stake > 0:
-        print(f"⚠️  You already have {existing_stake/1e6:.2f} USDC staked for this skill.")
+        print(f"  You already have {existing_stake/1e6:.2f} USDC staked for this skill.")
         response = input("Do you want to add more to your stake? (yes/no): ")
         if response.lower() != 'yes':
             return
 
     # Confirm
-    response = input(f"⚠️  You are staking {amount} USDC to vouch for {skill_id}\n"
+    response = input(f"  You are staking {amount} USDC to vouch for {skill_id}\n"
                      f"If this skill is found malicious, you will lose 50% of stake.\n\n"
                      f"Continue? (yes/no): ")
     
@@ -124,7 +124,7 @@ def bond_skill(skill_id: str, amount: float, chain: str):
         print(f"Transaction: {result.get('txHash', 'N/A')}")
         print("Note: Bond will be processed after CCTP attestation (~30s).")
     else:
-        print(f"\n❌ Error: {result.get('error', 'Unknown error')}")
+        print(f"\n Error: {result.get('error', 'Unknown error')}")
 
 
 def report_skill(skill_id: str, evidence_hash: str):
@@ -134,7 +134,7 @@ def report_skill(skill_id: str, evidence_hash: str):
     
     contract = ArcContract()
     if contract.contract.functions.hasActiveClaim(skill_id).call():
-        print(f"❌ Error: Skill '{skill_id}' already has an active claim under investigation.")
+        print(f" Error: Skill '{skill_id}' already has an active claim under investigation.")
         return
 
     # Confirm
@@ -154,7 +154,7 @@ def report_skill(skill_id: str, evidence_hash: str):
         print(f"Transaction: {result.get('txHash', 'N/A')}")
         print("Voting window is now open for 72 hours.")
     else:
-        print(f"\n❌ Error: {result.get('error', 'Unknown error')}")
+        print(f"\n Error: {result.get('error', 'Unknown error')}")
 
 
 def vote_claim(claim_id: int, support: str):
@@ -168,7 +168,7 @@ def vote_claim(claim_id: int, support: str):
     # Check eligibility
     rep = contract.contract.functions.auditorReputations(contract.account.address).call()
     if rep[0] == 0: # totalStaked
-        print("❌ Error: You must have a stake in any skill to vote.")
+        print(" Error: You must have a stake in any skill to vote.")
         return
 
     result = contract.vote_on_claim(claim_id, is_support)
@@ -177,7 +177,7 @@ def vote_claim(claim_id: int, support: str):
         print(f"✓ Vote submitted")
         print(f"Transaction: {result.get('txHash', 'N/A')}")
     else:
-        print(f"\n❌ Error: {result.get('error', 'Unknown error')}")
+        print(f"\n Error: {result.get('error', 'Unknown error')}")
 
 
 def claim_earnings(destination_chain: str):
@@ -188,7 +188,7 @@ def claim_earnings(destination_chain: str):
     earnings = contract.get_pending_earnings()
     
     if earnings == 0:
-        print("❌ No pending earnings")
+        print(" No pending earnings")
         return
     
     print(f"Accumulated earnings: {earnings / 1e6:.2f} USDC")
@@ -196,7 +196,7 @@ def claim_earnings(destination_chain: str):
     cctp_client = CCTPClient()
     domain_id = cctp_client.DOMAIN_IDS.get(destination_chain)
     if domain_id is None:
-        print(f"❌ Error: Unsupported destination chain '{destination_chain}'")
+        print(f" Error: Unsupported destination chain '{destination_chain}'")
         return
 
     response = input(f"\nProceed with withdrawal to {destination_chain}? (yes/no): ")
@@ -211,7 +211,7 @@ def claim_earnings(destination_chain: str):
         print(f"Amount: {earnings / 1e6:.2f} USDC")
         print(f"Transaction: {result.get('txHash', 'N/A')}")
     else:
-        print(f"\n❌ Error: {result.get('error', 'Unknown error')}")
+        print(f"\n Error: {result.get('error', 'Unknown error')}")
 
 
 def main():
@@ -266,7 +266,7 @@ def main():
         elif args.command == 'claim-earnings':
             claim_earnings(args.chain)
     except Exception as e:
-        print(f"\n❌ Error: {str(e)}")
+        print(f"\n Error: {str(e)}")
         sys.exit(1)
 
 

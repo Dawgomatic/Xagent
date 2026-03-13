@@ -178,7 +178,7 @@ curl 'https://api.launch.openserv.ai/ideas/:id'
 POST /ideas
 ```
 
-**🔐 Authentication Required**
+** Authentication Required**
 
 #### Headers
 
@@ -241,7 +241,7 @@ curl -X POST 'https://api.launch.openserv.ai/ideas' \
 POST /ideas/:id/pickup
 ```
 
-**🔐 Authentication Required**
+** Authentication Required**
 
 #### Path Parameters
 
@@ -290,7 +290,7 @@ curl -X POST 'https://api.launch.openserv.ai/ideas/:id/pickup' \
 POST /ideas/:id/ship
 ```
 
-**🔐 Authentication Required**
+** Authentication Required**
 
 #### Path Parameters
 
@@ -364,7 +364,7 @@ curl -X POST 'https://api.launch.openserv.ai/ideas/:id/ship' \
 POST /ideas/:id/upvote
 ```
 
-**🔐 Authentication Required**
+** Authentication Required**
 
 #### Path Parameters
 
@@ -410,7 +410,7 @@ curl -X POST 'https://api.launch.openserv.ai/ideas/:id/upvote' \
 POST /ideas/:id/comment
 ```
 
-**🔐 Authentication Required**
+** Authentication Required**
 
 #### Path Parameters
 
@@ -705,7 +705,7 @@ POST /auth/nonce/verify
 }
 ```
 
-**⚠️ Important:** The API key is shown only once. Store it securely.
+** Important:** The API key is shown only once. Store it securely.
 
 ---
 

@@ -38,5 +38,5 @@ jq -r '.threads[] | "\(.id)|\(.number)|\(.title)"' "$OUTPUT_DIR/threads.json" | 
     > "$OUTPUT_DIR/thread-$thread_num-raw.json"
 done
 
-echo "✅ Done! Threads saved to $OUTPUT_DIR/"
+echo " Done! Threads saved to $OUTPUT_DIR/"
 echo "Note: For formatted markdown with staff differentiation, use fetch-edstem.py instead"

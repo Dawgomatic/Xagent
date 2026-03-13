@@ -14,7 +14,7 @@ async function postTweet(text) {
   const page = await context.newPage();
   
   try {
-    console.log(`📱 Posting: "${text.substring(0, 50)}..."`);
+    console.log(` Posting: "${text.substring(0, 50)}..."`);
     
     await page.goto('https://x.com/compose/tweet', { waitUntil: 'networkidle' });
     await page.waitForSelector('[data-testid="tweetTextarea_0"]', { timeout: 10000 });
@@ -27,14 +27,14 @@ async function postTweet(text) {
     await page.click('[data-testid="tweetButtonInline"]');
     await page.waitForTimeout(3000);
     
-    console.log('✅ Posted successfully!');
+    console.log(' Posted successfully!');
     
     await page.close();
     await browser.close();
     
     return true;
   } catch (error) {
-    console.error('❌ Error posting:', error.message);
+    console.error(' Error posting:', error.message);
     await page.close();
     await browser.close();
     return false;
@@ -45,18 +45,18 @@ async function main() {
   const queueFile = path.join(__dirname, '..', 'data', 'approved-queue.json');
   
   if (!fs.existsSync(queueFile)) {
-    console.log('📭 No approved tweets in queue');
+    console.log(' No approved tweets in queue');
     return;
   }
   
   const queue = JSON.parse(fs.readFileSync(queueFile, 'utf8'));
   
   if (queue.length === 0) {
-    console.log('📭 Queue is empty');
+    console.log(' Queue is empty');
     return;
   }
   
-  console.log(`📬 Found ${queue.length} approved tweets to post`);
+  console.log(` Found ${queue.length} approved tweets to post`);
   
   for (const tweet of queue) {
     const success = await postTweet(tweet.text);
@@ -69,7 +69,7 @@ async function main() {
     // Wait 30-60 seconds between tweets to look human
     if (queue.indexOf(tweet) < queue.length - 1) {
       const delay = 30000 + Math.random() * 30000;
-      console.log(`⏳ Waiting ${Math.round(delay/1000)}s before next tweet...`);
+      console.log(` Waiting ${Math.round(delay/1000)}s before next tweet...`);
       await new Promise(resolve => setTimeout(resolve, delay));
     }
   }
@@ -88,7 +88,7 @@ async function main() {
   // Clear queue
   fs.writeFileSync(queueFile, JSON.stringify([], null, 2));
   
-  console.log('🎉 All tweets posted!');
+  console.log(' All tweets posted!');
 }
 
 main();

@@ -12,7 +12,7 @@ env:
     required: true
 metadata:
   clawdbot:
-    emoji: "📚"
+    emoji: ""
     requires:
       bins: ["node"]
 ---

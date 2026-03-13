@@ -152,7 +152,7 @@ function renderGroupedTools(props: ZapierProps) {
               @click=${() => props.onToggleGroup(group.name)}
             >
               <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="font-size: 12px; opacity: 0.6;">${isExpanded ? "▼" : "▶"}</span>
+                <span style="font-size: 12px; opacity: 0.6;">${isExpanded ? "▼" : ""}</span>
                 <span style="font-weight: 600;">${group.name}</span>
                 <span class="chip" style="font-size: 11px;">${group.tools.length} tools</span>
               </div>
@@ -215,7 +215,7 @@ export function renderZapier(props: ZapierProps) {
       <div class="row" style="justify-content: space-between; align-items: flex-start;">
         <div>
           <div class="card-title">
-            ⚡ Connection Status
+             Connection Status
             <span class="chip ${statusClass}" style="margin-left: 8px;">${statusLabel}</span>
           </div>
           <div class="card-sub">
@@ -229,7 +229,7 @@ export function renderZapier(props: ZapierProps) {
 
     <section class="card" style="margin-top: 16px;">
       <div class="row" style="justify-content: space-between; align-items: center;">
-        <div class="card-title">🔗 MCP URL</div>
+        <div class="card-title"> MCP URL</div>
         ${!props.showForm
           ? html`
               <button class="btn" @click=${props.onConfigure}>
@@ -294,7 +294,7 @@ export function renderZapier(props: ZapierProps) {
       ? html`
           <section class="card" style="margin-top: 16px;">
             <div class="row" style="justify-content: space-between; align-items: center;">
-              <div class="card-title">🔧 Available Tools</div>
+              <div class="card-title"> Available Tools</div>
               <button class="btn small" @click=${props.onLoadTools}>
                 ${props.tools && props.tools.length > 0 ? "Refresh" : "Load Tools"}
               </button>
@@ -311,7 +311,7 @@ export function renderZapier(props: ZapierProps) {
       : nothing}
 
     <section class="card" style="margin-top: 16px;">
-      <div class="card-title">📚 Setup Guide</div>
+      <div class="card-title"> Setup Guide</div>
       <div class="card-sub" style="margin-top: 8px;">
         <ol style="margin: 12px 0; padding-left: 20px; line-height: 1.8;">
           <li>
@@ -333,7 +333,7 @@ export function renderZapier(props: ZapierProps) {
     </section>
 
     <section class="card" style="margin-top: 16px;">
-      <div class="card-title">🤖 Using with MCPorter</div>
+      <div class="card-title"> Using with MCPorter</div>
       <div class="card-sub" style="margin-top: 8px;">
         <p>Once connected, your Zapier tools are available via MCPorter:</p>
         <pre style="margin-top: 12px; padding: 12px; background: var(--bg-secondary); border-radius: 6px; overflow-x: auto; font-size: 12px;"><code># List available Zapier tools

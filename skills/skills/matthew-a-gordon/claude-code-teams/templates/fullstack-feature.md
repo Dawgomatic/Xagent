@@ -2,13 +2,13 @@
 
 ## When to Use This Pattern
 
-✅ **Use when:**
+ **Use when:**
 - Building a feature that spans frontend, backend, and tests
 - Clear interface contract between layers (API spec, data models)
 - Frontend and backend can work in parallel once contract is defined
 - Want to accelerate delivery with parallel implementation
 
-❌ **Don't use when:**
+ **Don't use when:**
 - Feature is frontend-only or backend-only
 - API contract is unclear or likely to change frequently
 - Tight coupling requires constant coordination
@@ -359,14 +359,14 @@ After teammates finish, lead verifies:
 
 ## Success Metrics
 
-✅ **Successful if:**
+ **Successful if:**
 - All teammates complete within 45 minutes
 - Integration tests pass on first run (or after minor fixes)
 - No merge conflicts due to file boundary violations
 - API contract was defined upfront and followed exactly
 - Feature meets all requirements
 
-❌ **Red flags:**
+ **Red flags:**
 - Teammates editing same files (boundary violation)
 - API contract changed after implementation started
 - Integration tests not written until after implementation

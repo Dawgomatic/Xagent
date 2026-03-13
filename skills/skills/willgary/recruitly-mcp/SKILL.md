@@ -4,7 +4,7 @@ description: "Search candidates, manage jobs, view pipelines, track billing and 
 homepage: https://recruitly.io
 metadata:
   openclaw:
-    emoji: "🎯"
+    emoji: ""
     requires:
       bins:
         - mcporter

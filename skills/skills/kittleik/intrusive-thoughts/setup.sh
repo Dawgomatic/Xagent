@@ -47,7 +47,7 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 
 echo ""
-echo -e "${BLUE}🧠 Intrusive Thoughts — Setup${NC}"
+echo -e "${BLUE} Intrusive Thoughts — Setup${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -78,7 +78,7 @@ fi
 
 # 3. Generate config.json
 if [[ -f "$CONFIG" ]]; then
-    echo -e "\n${YELLOW}⚠ config.json already exists. Skipping config generation.${NC}"
+    echo -e "\n${YELLOW} config.json already exists. Skipping config generation.${NC}"
     echo "  Delete it and re-run setup to regenerate."
 else
     echo ""
@@ -99,8 +99,8 @@ else
         read -rp "Agent name (default: Agent): " AGENT_NAME
         AGENT_NAME="${AGENT_NAME:-Agent}"
 
-        read -rp "Agent emoji (default: 🦞): " AGENT_EMOJI
-        AGENT_EMOJI="${AGENT_EMOJI:-🦞}"
+        read -rp "Agent emoji (default: ): " AGENT_EMOJI
+        AGENT_EMOJI="${AGENT_EMOJI:-}"
 
         read -rp "Weather location (default: London, UK): " WEATHER_LOC
         WEATHER_LOC="${WEATHER_LOC:-London, UK}"
@@ -217,7 +217,7 @@ echo '  Payload: agentTurn'
 echo '  Message: "Night workshop session. Pick a thought from thoughts.json night category."'
 echo ""
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${GREEN}  ✅ Setup complete! Intrusive Thoughts is ready.${NC}"
+echo -e "${GREEN}   Setup complete! Intrusive Thoughts is ready.${NC}"
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "Next steps:"

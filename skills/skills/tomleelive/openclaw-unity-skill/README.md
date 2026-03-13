@@ -1,12 +1,12 @@
-# 🦞 OpenClaw Unity Skill
+#  OpenClaw Unity Skill
 
-> **TL;DR:** Vibe-code your game development remotely from anywhere! 🌍
+> **TL;DR:** Vibe-code your game development remotely from anywhere! 
 > 
-> **한줄요약:** 이제 집밖에서도 원격으로 바이브코딩으로 게임 개발 가능합니다! 🎮
+> **한줄요약:** 이제 집밖에서도 원격으로 바이브코딩으로 게임 개발 가능합니다! 
 
 Companion skill for the [OpenClaw Unity Plugin](https://github.com/TomLeeLive/openclaw-unity-plugin). Provides AI workflow patterns and gateway extension for Unity Editor control.
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 This software is in **beta**. Use at your own risk.
 
@@ -81,14 +81,14 @@ openclaw unity status
 ls ~/.openclaw/workspace/skills/unity-plugin/SKILL.md
 ```
 
-## 🔐 Security: disableModelInvocation Setting
+##  Security: disableModelInvocation Setting
 
 이 스킬은 기본적으로 `disableModelInvocation: true`로 설정되어 있습니다.
 
 | Setting | AI Auto-Invoke | User Explicit Request |
 |---------|---------------|----------------------|
-| `false` | ✅ Allowed | ✅ Allowed |
-| `true` (기본값) | ❌ Blocked | ✅ Allowed |
+| `false` |  Allowed |  Allowed |
+| `true` (기본값) |  Blocked |  Allowed |
 
 ### `disableModelInvocation: true` (기본값)
 

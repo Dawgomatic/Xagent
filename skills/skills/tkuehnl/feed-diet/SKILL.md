@@ -6,7 +6,7 @@ author: CacheForge
 tags: [productivity, reading, analysis, hacker-news, rss, information-diet, discord, discord-v2]
 ---
 
-# 🍽️ Feed Diet
+#  Feed Diet
 
 Audit your information diet and get a gorgeous report showing what you actually consume.
 

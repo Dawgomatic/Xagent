@@ -18,7 +18,7 @@ For every objection, follow this:
 
 ## Objection Categories & Responses
 
-### 💰 PRICE OBJECTIONS
+###  PRICE OBJECTIONS
 
 **"It's too expensive"**
 - Explore: "Too expensive compared to what?" (Competitor? Doing nothing? Their budget?)
@@ -33,7 +33,7 @@ For every objection, follow this:
 - Explore: "What are you comparing specifically? Are the packages equivalent?"
 - Respond: Don't trash the competitor. Highlight what's different about your offering and why it matters for their specific situation.
 
-### ⏰ TIMING OBJECTIONS
+###  TIMING OBJECTIONS
 
 **"Not right now" / "Maybe next quarter"**
 - Explore: "What changes next quarter that makes it a better time?"
@@ -43,7 +43,7 @@ For every objection, follow this:
 **"We're in the middle of another project"**
 - Explore: "When does that wrap up? Would it make sense to start onboarding in parallel so you're ready to go?"
 
-### 🤔 TRUST/AUTHORITY OBJECTIONS
+###  TRUST/AUTHORITY OBJECTIONS
 
 **"I need to talk to my boss/team"**
 - Explore: "Of course. What do you think their main concerns will be? Can I help you build the case?"
@@ -56,7 +56,7 @@ For every objection, follow this:
 **"I need to do more research"**
 - Explore: "What specifically do you want to learn more about? I might be able to help right now."
 
-### 🏢 STATUS QUO OBJECTIONS
+###  STATUS QUO OBJECTIONS
 
 **"We're fine with what we have"**
 - Explore: "How long have you been using it? What would need to change for you to consider something new?"
@@ -69,7 +69,7 @@ For every objection, follow this:
 **"We tried something like this before and it didn't work"**
 - Explore: "What was different about that situation? What would success look like if you tried again?"
 
-### ❌ BRUSH-OFFS
+###  BRUSH-OFFS
 
 **"Just send me some info"**
 - "Happy to. What specifically would be most useful? I don't want to send you a generic deck."

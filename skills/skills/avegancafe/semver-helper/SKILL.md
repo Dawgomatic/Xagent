@@ -35,7 +35,7 @@ Did you change anything users depend on?
 
 ## Real Examples
 
-### 🔴 MAJOR (Breaking)
+###  MAJOR (Breaking)
 
 - Remove a function, endpoint, or CLI flag
 - Change the return type of a function
@@ -49,7 +49,7 @@ Did you change anything users depend on?
 - API response format changed from `{id: 1}` to `{data: {id: 1}}`
 - Dropping support for Node 16 (if users must upgrade)
 
-### 🟡 MINOR (Feature)
+###  MINOR (Feature)
 
 - Add new functionality
 - Add optional parameters
@@ -63,7 +63,7 @@ Did you change anything users depend on?
 - Add new event listeners/hooks
 - Mark old method as deprecated (still works)
 
-### 🟢 PATCH (Fix)
+###  PATCH (Fix)
 
 - Fix bugs without changing intended behavior
 - Documentation updates
@@ -111,10 +111,10 @@ Pre-releases sort before their stable version:
 
 ## Anti-Patterns
 
-❌ **Don't** bump MAJOR for big new features (unless breaking)
-❌ **Don't** bump MINOR for bug fixes
-❌ **Don't** bump PATCH for new functionality
-❌ **Don't** keep old numbers when bumping: `1.2.3 → 2.2.3` is wrong
+ **Don't** bump MAJOR for big new features (unless breaking)
+ **Don't** bump MINOR for bug fixes
+ **Don't** bump PATCH for new functionality
+ **Don't** keep old numbers when bumping: `1.2.3 → 2.2.3` is wrong
 
 ## Cheat Sheet
 

@@ -43,7 +43,7 @@ def test_sentiment_analysis():
     assert analyzer.is_urgent("I need this ASAP!") == True
     assert analyzer.is_urgent("Can I get some info?") == False
     
-    print("✅ Sentiment analysis tests passed")
+    print(" Sentiment analysis tests passed")
 
 
 def test_message_categorization():
@@ -70,7 +70,7 @@ def test_message_categorization():
     # Test sales
     assert categorizer.categorize("I want to buy this") == MessageCategory.SALES
     
-    print("✅ Message categorization tests passed")
+    print(" Message categorization tests passed")
 
 
 def test_priority_calculation():
@@ -122,7 +122,7 @@ def test_priority_calculation():
     )
     assert priority == MessagePriority.LOW
     
-    print("✅ Priority calculation tests passed")
+    print(" Priority calculation tests passed")
 
 
 def test_customer_creation():
@@ -148,7 +148,7 @@ def test_customer_creation():
     assert context2.customer.total_messages == 2
     
     cleanup_test_db(db_name)
-    print("✅ Customer management tests passed")
+    print(" Customer management tests passed")
 
 
 def test_message_storage():
@@ -175,7 +175,7 @@ def test_message_storage():
     assert context.recent_messages[-1].content == "Message 3"
     
     cleanup_test_db(db_name)
-    print("✅ Message storage tests passed")
+    print(" Message storage tests passed")
 
 
 def test_order_management():
@@ -212,7 +212,7 @@ def test_order_management():
     assert context.active_orders[0].tracking_number == "TRACK123"
     
     cleanup_test_db(db_name)
-    print("✅ Order management tests passed")
+    print(" Order management tests passed")
 
 
 def test_vip_customer():
@@ -244,7 +244,7 @@ def test_vip_customer():
     assert any("VIP" in insight for insight in context.key_insights)
     
     cleanup_test_db(db_name)
-    print("✅ VIP customer tests passed")
+    print(" VIP customer tests passed")
 
 
 def test_sentiment_tracking():
@@ -282,7 +282,7 @@ def test_sentiment_tracking():
     # Note: Warning may not always appear depending on exact sentiment analysis
     
     cleanup_test_db(db_name)
-    print("✅ Sentiment tracking tests passed")
+    print(" Sentiment tracking tests passed")
 
 
 def test_suggested_responses():
@@ -316,7 +316,7 @@ def test_suggested_responses():
     assert any("order" in r.lower() for r in context.suggested_responses)
     
     cleanup_test_db(db_name)
-    print("✅ Response suggestions tests passed")
+    print(" Response suggestions tests passed")
 
 
 def test_priority_queue():
@@ -346,7 +346,7 @@ def test_priority_queue():
     assert contexts[2].priority == MessagePriority.HIGH
     
     cleanup_test_db(db_name)
-    print("✅ Priority queue tests passed")
+    print(" Priority queue tests passed")
 
 
 def test_conversation_flow():
@@ -374,7 +374,7 @@ def test_conversation_flow():
     assert context.recent_messages[1].direction == "outbound"
     
     cleanup_test_db(db_name)
-    print("✅ Conversation flow tests passed")
+    print(" Conversation flow tests passed")
 
 
 def test_context_export():
@@ -400,7 +400,7 @@ def test_context_export():
     assert 'suggested_responses' in context_dict
     
     cleanup_test_db(db_name)
-    print("✅ Context export tests passed")
+    print(" Context export tests passed")
 
 
 def run_all_tests():
@@ -424,16 +424,16 @@ def run_all_tests():
         test_context_export()
         
         print("\n" + "="*60)
-        print("✅ ALL TESTS PASSED")
+        print(" ALL TESTS PASSED")
         print("="*60 + "\n")
         
         return True
         
     except AssertionError as e:
-        print(f"\n❌ TEST FAILED: {e}\n")
+        print(f"\n TEST FAILED: {e}\n")
         return False
     except Exception as e:
-        print(f"\n❌ ERROR: {e}\n")
+        print(f"\n ERROR: {e}\n")
         return False
 
 

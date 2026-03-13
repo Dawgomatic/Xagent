@@ -4,7 +4,7 @@
 
 set -e
 
-echo "🧪 10DLC Registration - Tests"
+echo " 10DLC Registration - Tests"
 echo "============================="
 
 PASS=0
@@ -12,10 +12,10 @@ FAIL=0
 
 test_result() {
     if [ $1 -eq 0 ]; then
-        echo "  ✅ $2"
+        echo "   $2"
         PASS=$((PASS + 1))
     else
-        echo "  ❌ $2"
+        echo "   $2"
         FAIL=$((FAIL + 1))
     fi
 }

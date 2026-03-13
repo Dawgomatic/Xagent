@@ -1,4 +1,4 @@
-# 📈 Stock Analysis v6.1
+#  Stock Analysis v6.1
 
 > AI-powered stock & crypto analysis with portfolio management, watchlists, dividend analysis, and **viral trend detection**.
 
@@ -7,18 +7,18 @@
 
 ## What's New in v6.1
 
-- 🔥 **Hot Scanner** — Find viral stocks & crypto across multiple sources
-- 🐦 **Twitter/X Integration** — Social sentiment via bird CLI
-- 📰 **Multi-Source Aggregation** — CoinGecko, Google News, Yahoo Finance
-- ⏰ **Cron Support** — Daily trend reports
+-  **Hot Scanner** — Find viral stocks & crypto across multiple sources
+-  **Twitter/X Integration** — Social sentiment via bird CLI
+-  **Multi-Source Aggregation** — CoinGecko, Google News, Yahoo Finance
+-  **Cron Support** — Daily trend reports
 
 ## What's New in v6.0
 
-- 🆕 **Watchlist + Alerts** — Price targets, stop losses, signal change notifications
-- 🆕 **Dividend Analysis** — Yield, payout ratio, growth rate, safety score
-- 🆕 **Fast Mode** — Skip slow analyses for quick checks
-- 🆕 **Improved Commands** — Better OpenClaw/Telegram integration
-- 🆕 **Test Suite** — Unit tests for core functionality
+-  **Watchlist + Alerts** — Price targets, stop losses, signal change notifications
+-  **Dividend Analysis** — Yield, payout ratio, growth rate, safety score
+-  **Fast Mode** — Skip slow analyses for quick checks
+-  **Improved Commands** — Better OpenClaw/Telegram integration
+-  **Test Suite** — Unit tests for core functionality
 
 ## Features
 
@@ -66,7 +66,7 @@ uv run scripts/portfolio.py add AAPL --quantity 100 --cost 150
 uv run scripts/portfolio.py show
 ```
 
-### 🔥 Hot Scanner (NEW)
+###  Hot Scanner (NEW)
 ```bash
 # Full scan with all sources
 python3 scripts/hot_scanner.py
@@ -106,7 +106,7 @@ python3 scripts/hot_scanner.py --json
 | Safety Score | 0-100 composite |
 | Income Rating | Excellent → Poor |
 
-## 🔥 Hot Scanner
+##  Hot Scanner
 
 Find what's trending RIGHT NOW across stocks & crypto.
 
@@ -123,20 +123,20 @@ Find what's trending RIGHT NOW across stocks & crypto.
 ### Output
 
 ```
-📊 TOP TRENDING (by buzz):
-   1. BTC      (6 pts) [CoinGecko, Google News] 📉 bearish (-2.5%)
-   2. ETH      (5 pts) [CoinGecko, Twitter] 📉 bearish (-7.2%)
-   3. NVDA     (3 pts) [Google News, Yahoo] 📰 Earnings beat...
+ TOP TRENDING (by buzz):
+   1. BTC      (6 pts) [CoinGecko, Google News]  bearish (-2.5%)
+   2. ETH      (5 pts) [CoinGecko, Twitter]  bearish (-7.2%)
+   3. NVDA     (3 pts) [Google News, Yahoo]  Earnings beat...
 
-🪙 CRYPTO HIGHLIGHTS:
-   🚀 RIVER    River              +14.0%
-   📉 BTC      Bitcoin             -2.5%
+ CRYPTO HIGHLIGHTS:
+    RIVER    River              +14.0%
+    BTC      Bitcoin             -2.5%
 
-📈 STOCK MOVERS:
-   🟢 NVDA (gainers)
-   🔴 TSLA (losers)
+ STOCK MOVERS:
+    NVDA (gainers)
+    TSLA (losers)
 
-📰 BREAKING NEWS:
+ BREAKING NEWS:
    [BTC, ETH] Crypto crash: $2.5B liquidated...
 ```
 
@@ -162,12 +162,12 @@ Set up a daily cron job for morning reports:
 
 ## Risk Detection
 
-- ⚠️ Pre-earnings warning (< 14 days)
-- ⚠️ Post-earnings spike (> 15% in 5 days)
-- ⚠️ Overbought (RSI > 70 + near 52w high)
-- ⚠️ Risk-off mode (GLD/TLT/UUP rising)
-- ⚠️ Geopolitical keywords (Taiwan, China, etc.)
-- ⚠️ Breaking news alerts
+-  Pre-earnings warning (< 14 days)
+-  Post-earnings spike (> 15% in 5 days)
+-  Overbought (RSI > 70 + near 52w high)
+-  Risk-off mode (GLD/TLT/UUP rising)
+-  Geopolitical keywords (Taiwan, China, etc.)
+-  Breaking news alerts
 
 ## Performance Options
 
@@ -207,8 +207,8 @@ uv run pytest scripts/test_stock_analysis.py -v
 
 ## Disclaimer
 
-⚠️ **NOT FINANCIAL ADVICE.** For informational purposes only. Consult a licensed financial advisor before making investment decisions.
+ **NOT FINANCIAL ADVICE.** For informational purposes only. Consult a licensed financial advisor before making investment decisions.
 
 ---
 
-Built for [OpenClaw](https://openclaw.ai) 🦞 | [ClawHub](https://clawhub.ai)
+Built for [OpenClaw](https://openclaw.ai)  | [ClawHub](https://clawhub.ai)

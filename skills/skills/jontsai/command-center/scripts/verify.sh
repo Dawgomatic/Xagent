@@ -24,19 +24,19 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-echo "🔍 Verifying dashboard at $DASHBOARD_URL..."
+echo " Verifying dashboard at $DASHBOARD_URL..."
 echo ""
 
 # Track failures
 FAILURES=0
 
 # Check server responds
-echo -n "📡 Server response... "
+echo -n " Server response... "
 HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 "$DASHBOARD_URL" 2>/dev/null || echo "000")
 if [[ "$HTTP_CODE" == "200" ]]; then
-    echo "✅ OK (HTTP $HTTP_CODE)"
+    echo " OK (HTTP $HTTP_CODE)"
 else
-    echo "❌ FAILED (HTTP $HTTP_CODE)"
+    echo " FAILED (HTTP $HTTP_CODE)"
     ((FAILURES++))
 fi
 
@@ -51,7 +51,7 @@ ENDPOINTS=(
 )
 
 echo ""
-echo "📊 API Endpoints:"
+echo " API Endpoints:"
 
 for entry in "${ENDPOINTS[@]}"; do
     endpoint="${entry%%:*}"
@@ -61,15 +61,15 @@ for entry in "${ENDPOINTS[@]}"; do
     response=$(curl -s --max-time 5 "$DASHBOARD_URL/api/$endpoint" 2>/dev/null || echo "")
     
     if [[ -z "$response" ]]; then
-        echo "❌ No response"
+        echo " No response"
         ((FAILURES++))
     elif echo "$response" | grep -q "\"$key\""; then
-        echo "✅ OK"
+        echo " OK"
     elif echo "$response" | grep -q "error"; then
-        echo "⚠️  Error in response"
+        echo "  Error in response"
         ((FAILURES++))
     else
-        echo "⚠️  Unexpected format"
+        echo "  Unexpected format"
     fi
 done
 
@@ -77,9 +77,9 @@ echo ""
 
 # Summary
 if [[ $FAILURES -eq 0 ]]; then
-    echo "✅ All checks passed!"
+    echo " All checks passed!"
     exit 0
 else
-    echo "❌ $FAILURES check(s) failed"
+    echo " $FAILURES check(s) failed"
     exit 1
 fi

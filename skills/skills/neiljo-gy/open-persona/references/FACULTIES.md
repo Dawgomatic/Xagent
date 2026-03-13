@@ -5,7 +5,7 @@
 | Faculty | Dimension | What It Does | Recommend When |
 |---------|-----------|-------------|----------------|
 | **selfie** | expression | AI selfie generation via fal.ai | User wants visual presence, profile pics, "send a pic" |
-| **voice** | expression | TTS via ElevenLabs ✅ / OpenAI ⚠️ / Qwen3-TTS ⚠️ | User wants the persona to speak, voice messages, audio content |
+| **voice** | expression | TTS via ElevenLabs  / OpenAI  / Qwen3-TTS  | User wants the persona to speak, voice messages, audio content |
 | **music** | expression | AI music composition via ElevenLabs | User wants the persona to create music, songs, melodies |
 | **reminder** | cognition | Reminders and task management | User needs scheduling, task tracking, daily briefings |
 

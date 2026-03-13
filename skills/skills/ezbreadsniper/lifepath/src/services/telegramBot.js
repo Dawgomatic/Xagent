@@ -41,7 +41,7 @@ class TelegramBot {
     const user = await this.lifeService.createUser(telegramId, username);
     
     const welcomeMessage = `
-🎭 **Welcome to LifePath**
+ **Welcome to LifePath**
 
 Experience a complete life journey, year by year.
 
@@ -79,7 +79,7 @@ Ready to begin?
     const canStart = await this.lifeService.canStartLife(user.id);
     if (!canStart.allowed) {
       return ctx.reply(
-        `⏳ You've used all your daily lives (3/3).\n\n` +
+        ` You've used all your daily lives (3/3).\n\n` +
         `Upgrade to premium for unlimited lives, or wait until tomorrow.\n\n` +
         `Use /donate to support the project and unlock premium!`
       );
@@ -96,7 +96,7 @@ Ready to begin?
     const countryList = countries.map((c, i) => `${i + 1}. ${c}`).join('\n');
     
     ctx.reply(
-      `🌍 **Where were you born?**\n\n` +
+      ` **Where were you born?**\n\n` +
       `Choose a country (reply with the number):\n\n` +
       countryList + `\n\n` +
       `Or type a country name directly.`
@@ -154,8 +154,8 @@ Ready to begin?
     session.step = 'selecting_year';
     
     ctx.reply(
-      `✅ Country: **${country}**\n\n` +
-      `📅 **What year were you born?**\n\n` +
+      ` Country: **${country}**\n\n` +
+      ` **What year were you born?**\n\n` +
       `Enter a year between 1900 and 2025.`
     );
   }
@@ -171,8 +171,8 @@ Ready to begin?
     session.step = 'selecting_gender';
     
     ctx.reply(
-      `✅ Year: **${year}**\n\n` +
-      `⚧ **Select your gender:**\n\n` +
+      ` Year: **${year}**\n\n` +
+      ` **Select your gender:**\n\n` +
       `1. Male\n` +
       `2. Female\n` +
       `3. Non-binary\n\n` +
@@ -204,10 +204,10 @@ Ready to begin?
       session.lifeId = life.id;
       
       ctx.reply(
-        `🎭 **Life Created!**\n\n` +
-        `📍 Born in: ${life.birth_country}, ${life.birth_year}\n` +
-        `⚧ Gender: ${life.gender}\n` +
-        `🔮 Seed: ${life.seed.substring(0, 16)}...\n\n` +
+        ` **Life Created!**\n\n` +
+        ` Born in: ${life.birth_country}, ${life.birth_year}\n` +
+        ` Gender: ${life.gender}\n` +
+        ` Seed: ${life.seed.substring(0, 16)}...\n\n` +
         `Generating your birth narrative...`
       );
       
@@ -267,9 +267,9 @@ Ready to begin?
       
       await this.lifeService.completeLife(life.id, nextAge, cause);
       
-      ctx.reply(`💀 **Death at age ${nextAge}**\n\n${deathChapter.text}`);
+      ctx.reply(` **Death at age ${nextAge}**\n\n${deathChapter.text}`);
       ctx.reply(
-        `🌟 **Life Complete!**\n\n` +
+        ` **Life Complete!**\n\n` +
         `Use /share to post this life to Moltbook,\n` +
         `or /startlife to begin a new journey.`
       );
@@ -307,10 +307,10 @@ Ready to begin?
     const updatedLife = await this.lifeService.getLife(life.id);
     
     ctx.reply(
-      `📅 **Year ${currentYear} - Age ${nextAge}**\n\n` +
+      ` **Year ${currentYear} - Age ${nextAge}**\n\n` +
       `${yearChapter.text}\n\n` +
-      `❤️ Health: ${updatedLife.health} | 😊 Happiness: ${updatedLife.happiness}\n` +
-      `💰 Wealth: ${updatedLife.wealth} | 🧠 Intelligence: ${updatedLife.intelligence}\n\n` +
+      ` Health: ${updatedLife.health} |  Happiness: ${updatedLife.happiness}\n` +
+      ` Wealth: ${updatedLife.wealth} |  Intelligence: ${updatedLife.intelligence}\n\n` +
       `Reply with:\n` +
       `• "continue" to advance to next year\n` +
       `• "share" to share this moment\n` +
@@ -326,7 +326,7 @@ Ready to begin?
       await this.lifeService.completeLife(life.id, life.current_age, 'player choice');
       
       ctx.reply(
-        `🌟 **Life Ended** at age ${life.current_age}\n\n` +
+        ` **Life Ended** at age ${life.current_age}\n\n` +
         `Use /share to post this life to Moltbook!`
       );
       
@@ -356,7 +356,7 @@ Ready to begin?
     
     if (!activeLife) {
       return ctx.reply(
-        `📊 **Your Status**\n\n` +
+        ` **Your Status**\n\n` +
         `Tier: ${user.tier}\n` +
         `Daily lives remaining: ${user.daily_lives_remaining}/3\n\n` +
         `No active life. Use /startlife to begin!`
@@ -364,13 +364,13 @@ Ready to begin?
     }
     
     ctx.reply(
-      `📊 **Current Life**\n\n` +
-      `📍 ${activeLife.birth_country}, ${activeLife.birth_year}\n` +
+      ` **Current Life**\n\n` +
+      ` ${activeLife.birth_country}, ${activeLife.birth_year}\n` +
       `Age: ${activeLife.current_age}\n` +
-      `❤️ Health: ${activeLife.health}\n` +
-      `😊 Happiness: ${activeLife.happiness}\n` +
-      `💰 Wealth: ${activeLife.wealth}\n` +
-      `🧠 Intelligence: ${activeLife.intelligence}\n\n` +
+      ` Health: ${activeLife.health}\n` +
+      ` Happiness: ${activeLife.happiness}\n` +
+      ` Wealth: ${activeLife.wealth}\n` +
+      ` Intelligence: ${activeLife.intelligence}\n\n` +
       `Use /continue to advance to the next year.`
     );
   }
@@ -402,7 +402,7 @@ Ready to begin?
 
   async handleShare(ctx) {
     ctx.reply(
-      `🌐 **Share to Moltbook**\n\n` +
+      ` **Share to Moltbook**\n\n` +
       `Feature coming soon!\n\n` +
       `You'll be able to share your complete life stories ` +
       `to m/general and m/semantic-trench.`
@@ -411,13 +411,13 @@ Ready to begin?
 
   async handleDonate(ctx) {
     ctx.reply(
-      `💰 **Support LifePath**\n\n` +
+      ` **Support LifePath**\n\n` +
       `Your support helps keep the simulation running!\n\n` +
       `**Premium Benefits:**\n` +
-      `✅ Unlimited lives\n` +
-      `✅ Premium image generation\n` +
-      `✅ All 195 countries\n` +
-      `✅ Export stories as PDF\n\n` +
+      ` Unlimited lives\n` +
+      ` Premium image generation\n` +
+      ` All 195 countries\n` +
+      ` Export stories as PDF\n\n` +
       `**Wallet:**\n` +
       `${process.env.BANKR_WALLET_ADDRESS}\n\n` +
       `Send ETH, USDC, or any ERC-20 token.\n` +

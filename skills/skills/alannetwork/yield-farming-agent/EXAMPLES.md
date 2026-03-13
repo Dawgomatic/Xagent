@@ -184,7 +184,7 @@ const allocation = {
 ```
 
 **Vault with Best Raw APR:**
-- `vault_high_risk_001`: 250% APR, 20% fees, **risk_score: 0.80** ❌ Filtered out
+- `vault_high_risk_001`: 250% APR, 20% fees, **risk_score: 0.80**  Filtered out
 
 **Eligible Vaults (risk_score ≤ 0.5):**
 - Best: `vault_cake_farm_001` (50.5% NET)
@@ -311,7 +311,7 @@ vault_high_risk_001:
   risk_penalty: 0.80 × 10% = 8%
   net_apr: 250% - 0% - 8% = 242%
   
-  BUT: risk_score > 0.5 → FILTERED OUT ❌
+  BUT: risk_score > 0.5 → FILTERED OUT 
 ```
 
 ### Example 3: Balanced vault (selected most often)

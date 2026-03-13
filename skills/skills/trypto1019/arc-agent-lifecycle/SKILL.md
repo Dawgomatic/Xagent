@@ -2,7 +2,7 @@
 name: agent-lifecycle
 description: Manage the lifecycle of autonomous agents and their skills. Version configurations, plan upgrades, track retirement, and maintain change history across agent environments.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🔄", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Agent Lifecycle Manager

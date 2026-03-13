@@ -160,7 +160,7 @@ async function main() {
     console.log(`Potential Loss:   ${formatUsd(potentialLoss)}`);
 
     if (dryRun) {
-      console.log('\n🔍 Dry run - bracket not executed');
+      console.log('\n Dry run - bracket not executed');
       return;
     }
 
@@ -177,15 +177,15 @@ async function main() {
         const status = entryResponse.response.data.statuses[0];
         if (status?.filled) {
           actualEntry = parseFloat(status.filled.avgPx);
-          console.log(`  ✅ Filled @ ${formatUsd(actualEntry)}`);
+          console.log(`   Filled @ ${formatUsd(actualEntry)}`);
         } else if (status?.error) {
-          console.log(`  ❌ Entry failed: ${status.error}`);
-          console.log('\n⚠️ Bracket aborted - no position opened');
+          console.log(`   Entry failed: ${status.error}`);
+          console.log('\n Bracket aborted - no position opened');
           process.exit(1);
         }
       } else {
-        console.log(`  ❌ Entry failed: ${typeof entryResponse.response === 'string' ? entryResponse.response : 'Unknown error'}`);
-        console.log('\n⚠️ Bracket aborted - no position opened');
+        console.log(`   Entry failed: ${typeof entryResponse.response === 'string' ? entryResponse.response : 'Unknown error'}`);
+        console.log('\n Bracket aborted - no position opened');
         process.exit(1);
       }
     } else {
@@ -194,19 +194,19 @@ async function main() {
       if (entryResponse.status === 'ok' && entryResponse.response && typeof entryResponse.response === 'object') {
         const status = entryResponse.response.data.statuses[0];
         if (status?.resting) {
-          console.log(`  ✅ Limit order placed @ ${formatUsd(entry)} (OID: ${status.resting.oid})`);
-          console.log(`  ⏳ Waiting for fill before placing TP/SL...`);
-          console.log('\n⚠️ Note: TP/SL will be placed after entry fills. Monitor manually or use a strategy script.');
+          console.log(`   Limit order placed @ ${formatUsd(entry)} (OID: ${status.resting.oid})`);
+          console.log(`   Waiting for fill before placing TP/SL...`);
+          console.log('\n Note: TP/SL will be placed after entry fills. Monitor manually or use a strategy script.');
           return;
         } else if (status?.filled) {
           actualEntry = parseFloat(status.filled.avgPx);
-          console.log(`  ✅ Filled immediately @ ${formatUsd(actualEntry)}`);
+          console.log(`   Filled immediately @ ${formatUsd(actualEntry)}`);
         } else if (status?.error) {
-          console.log(`  ❌ Entry failed: ${status.error}`);
+          console.log(`   Entry failed: ${status.error}`);
           process.exit(1);
         }
       } else {
-        console.log(`  ❌ Entry failed`);
+        console.log(`   Entry failed`);
         process.exit(1);
       }
     }
@@ -232,14 +232,14 @@ async function main() {
       const status = tpResponse.response.data.statuses[0];
       if (status?.resting) {
         tpOid = status.resting.oid;
-        console.log(`  ✅ TP trigger placed @ ${formatUsd(tpPrice)} (OID: ${tpOid})`);
+        console.log(`   TP trigger placed @ ${formatUsd(tpPrice)} (OID: ${tpOid})`);
       } else if (status?.error) {
-        console.log(`  ❌ TP failed: ${status.error}`);
+        console.log(`   TP failed: ${status.error}`);
       } else {
-        console.log(`  ⚠️ TP status:`, JSON.stringify(status));
+        console.log(`   TP status:`, JSON.stringify(status));
       }
     } else {
-      console.log(`  ❌ TP failed: ${typeof tpResponse.response === 'string' ? tpResponse.response : 'Unknown error'}`);
+      console.log(`   TP failed: ${typeof tpResponse.response === 'string' ? tpResponse.response : 'Unknown error'}`);
     }
 
     await sleep(500);
@@ -254,14 +254,14 @@ async function main() {
       const status = slResponse.response.data.statuses[0];
       if (status?.resting) {
         slOid = status.resting.oid;
-        console.log(`  ✅ SL trigger placed @ ${formatUsd(slPrice)} (OID: ${slOid})`);
+        console.log(`   SL trigger placed @ ${formatUsd(slPrice)} (OID: ${slOid})`);
       } else if (status?.error) {
-        console.log(`  ❌ SL failed: ${status.error}`);
+        console.log(`   SL failed: ${status.error}`);
       } else {
-        console.log(`  ⚠️ SL status:`, JSON.stringify(status));
+        console.log(`   SL status:`, JSON.stringify(status));
       }
     } else {
-      console.log(`  ❌ SL failed: ${typeof slResponse.response === 'string' ? slResponse.response : 'Unknown error'}`);
+      console.log(`   SL failed: ${typeof slResponse.response === 'string' ? slResponse.response : 'Unknown error'}`);
     }
 
     // Summary
@@ -271,7 +271,7 @@ async function main() {
     console.log(`Take Profit: ${formatUsd(tpPrice)} (+${tpPct}%) - Trigger order`);
     console.log(`Stop Loss:   ${formatUsd(slPrice)} (-${slPct}%) - Trigger order`);
     if (tpOid && slOid) {
-      console.log(`\n✅ Bracket complete! TP and SL are trigger orders.`);
+      console.log(`\n Bracket complete! TP and SL are trigger orders.`);
       console.log(`   They will only execute when price reaches trigger level.`);
       console.log(`   When one fills, cancel the other manually.`);
     }

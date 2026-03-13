@@ -11,7 +11,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔍",
+        "emoji": "",
         "requires": { "bins": ["curl"] },
         "config":
           {

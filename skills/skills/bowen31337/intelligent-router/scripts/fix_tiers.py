@@ -216,7 +216,7 @@ def main():
     with open(CONFIG, "w") as f:
         json.dump(config, f, indent=2)
 
-    print(f"\n✅ Saved to {CONFIG}")
+    print(f"\n Saved to {CONFIG}")
 
 
 if __name__ == "__main__":

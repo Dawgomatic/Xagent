@@ -114,10 +114,10 @@ export class MediaStreamHandler {
             // Twilio sends mark back when audio playback completes
             console.log(`[MediaStream] Mark received: ${JSON.stringify(message.mark)} for session ${session?.callId || 'unknown'}`);
             if (session?.pendingHangup && message.mark?.name === "hangup") {
-              console.log(`[MediaStream] ✅ Hangup mark matched! Audio finished for ${session.callId}`);
+              console.log(`[MediaStream]  Hangup mark matched! Audio finished for ${session.callId}`);
               session.pendingHangup.resolve();
             } else if (session?.pendingDtmf && message.mark?.name === "dtmf") {
-              console.log(`[MediaStream] ✅ DTMF mark matched! Audio finished for ${session.callId}`);
+              console.log(`[MediaStream]  DTMF mark matched! Audio finished for ${session.callId}`);
               session.pendingDtmf.resolve();
             } else if (session?.pendingHangup) {
               console.log(`[MediaStream] Mark name mismatch: expected 'hangup', got '${message.mark?.name}'`);
@@ -241,7 +241,7 @@ export class MediaStreamHandler {
       Promise.race([
         done,
         new Promise<void>(r => setTimeout(() => {
-          console.log(`[MediaStream] ⚠️ Timeout reached (${timeoutMs}ms) - mark never received for ${callSid}`);
+          console.log(`[MediaStream]  Timeout reached (${timeoutMs}ms) - mark never received for ${callSid}`);
           r();
         }, timeoutMs))
       ]).then(() => {
@@ -275,7 +275,7 @@ export class MediaStreamHandler {
         done,
         new Promise<void>(r => setTimeout(() => {
           if (!dtmfResolved) {
-            console.log(`[MediaStream] ⚠️ DTMF mark timeout for ${callSid}, sending tones anyway`);
+            console.log(`[MediaStream]  DTMF mark timeout for ${callSid}, sending tones anyway`);
             r();
           }
         }, 5000))

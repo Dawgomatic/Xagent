@@ -2,7 +2,7 @@
 name: korean-scraper
 description: Korean website specialized scraper with anti-bot protection (Naver, Coupang, Daum, Instagram)
 version: 1.0.0
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
 # korean-scraper
@@ -231,12 +231,12 @@ done
 
 ## Compliance & Ethics
 
-- ✅ 공개된 정보만 수집
-- ✅ robots.txt 준수 (기본값)
-- ✅ Rate limiting으로 서버 부하 최소화
-- ❌ 개인정보 수집 금지
-- ❌ 로그인 필요 콘텐츠 무단 접근 금지
-- ❌ 저작권 침해 목적 사용 금지
+-  공개된 정보만 수집
+-  robots.txt 준수 (기본값)
+-  Rate limiting으로 서버 부하 최소화
+-  개인정보 수집 금지
+-  로그인 필요 콘텐츠 무단 접근 금지
+-  저작권 침해 목적 사용 금지
 
 ## Troubleshooting
 

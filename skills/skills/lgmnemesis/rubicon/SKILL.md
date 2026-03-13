@@ -11,7 +11,7 @@ description: >
   "Rubicon alert Europe", "Rubicon meme", etc.
   Persistent memory + Grok Imagine-ready visuals. Built for users who want truth over comfort.
   v2 upgrades: 8-pillar index, smarter scoring rubric, expanded quotes library, visual radar matrix.
-  Requires: web_search + web_fetch (image gen optional but 🔥).
+  Requires: web_search + web_fetch (image gen optional but ).
   Crossed the Rubicon. No going back.
 
 ---
@@ -30,7 +30,7 @@ No setup required. Just say **"Rubicon scan"** and it runs. Zero config. No excu
 
 ---
 
-## 📡 Quick Scan (trigger: "Rubicon scan" or "Rubicon scan on [country]")
+##  Quick Scan (trigger: "Rubicon scan" or "Rubicon scan on [country]")
 
 1. Read references/queries.md. Run 6–8 `web_search` calls from the **General / Quick Scan** section. If a specific country is given, substitute it; otherwise default to USA + EU overview.
 
@@ -44,7 +44,7 @@ No setup required. Just say **"Rubicon scan"** and it runs. Zero config. No excu
    - **Border Integrity** — enforcement, legal/illegal flows, policy effectiveness
    - **Civilizational Confidence** — national pride, heritage narrative, elite vs popular sentiment
 
-3. Sum → **Sovereignty Score** (0–100):  🟢 80-100 Fortress | 🟡 50-79 Contested | 🔴 0-49 Crisis
+3. Sum → **Sovereignty Score** (0–100):   80-100 Fortress |  50-79 Contested |  0-49 Crisis
    - Include trend arrows (↑/↓/→) per pillar when comparable data exists.
 
 4. Read references/quotes.md. Pick a contextually relevant Rubio quote matching the strongest finding. Prefer Munich 2026 quotes for impact.
@@ -52,9 +52,9 @@ No setup required. Just say **"Rubicon scan"** and it runs. Zero config. No excu
 5. Reply with this format:
 
 ```
-🏛️ RUBICON SENTINEL v2 — SOVEREIGNTY BRIEFING
+ RUBICON SENTINEL v2 — SOVEREIGNTY BRIEFING
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📅 [Date] | [Country/Region] | Score: [N]/100 [emoji]
+ [Date] | [Country/Region] | Score: [N]/100 [emoji]
 
 ## Key Findings
 - [Finding 1 — one line with source]
@@ -91,7 +91,7 @@ No setup required. Just say **"Rubicon scan"** and it runs. Zero config. No excu
 
 ---
 
-## 🔬 Deep Scan (trigger: "deep Rubicon" or "deep Rubicon scan")
+##  Deep Scan (trigger: "deep Rubicon" or "deep Rubicon scan")
 
 Same as Quick Scan, plus:
 - Read references/queries.md. Use **pillar-specific** queries (1–2 per pillar) + regional alerts + forecast queries.
@@ -102,14 +102,14 @@ Same as Quick Scan, plus:
 
 ---
 
-## 🎯 Topic Scan (trigger: "Rubicon scan on [topic]")
+##  Topic Scan (trigger: "Rubicon scan on [topic]")
 
 Replace default queries with topic-focused variants. Score only the relevant pillars (others marked N/A).
 Example: "Rubicon scan on semiconductor supply chains" → queries about chip sovereignty, CHIPS Act, fab construction. Score Tech Sovereignty + Economic Independence.
 
 ---
 
-## ⚔️ Battle Mode (trigger: "Rubicon battle [claim]")
+##  Battle Mode (trigger: "Rubicon battle [claim]")
 
 Adversarial fact-check of a globalist or anti-sovereignty claim:
 1. Use forecast/battle queries from queries.md: `"[claim] debunked OR data 2026"`
@@ -118,10 +118,10 @@ Adversarial fact-check of a globalist or anti-sovereignty claim:
 4. Format:
 
 ```
-⚔️ RUBICON BATTLE MODE
+ RUBICON BATTLE MODE
 ━━━━━━━━━━━━━━━━━━━━━
 Claim: "[the claim]"
-Verdict: [🟢 TRUE / 🟡 HALF-TRUTH / 🔴 DEBUNKED]
+Verdict: [ TRUE /  HALF-TRUTH /  DEBUNKED]
 
 Evidence:
 - [Source 1]: [counter-point]
@@ -134,13 +134,13 @@ Rubio's Response:
 
 ---
 
-## 🌍 Country Comparison (trigger: "Rubicon compare [country A] vs [country B]")
+##  Country Comparison (trigger: "Rubicon compare [country A] vs [country B]")
 
 Run parallel Quick Scans on both countries. Output side-by-side 8-pillar comparison table. Highlight where each leads and the biggest gaps.
 
 ---
 
-## 🎨 Sovereignty Meme (trigger: "Rubicon meme")
+##  Sovereignty Meme (trigger: "Rubicon meme")
 
 1. If no recent scan context, run a Quick Scan first.
 2. Pick the most dramatic or ironic finding.
@@ -151,7 +151,7 @@ Run parallel Quick Scans on both countries. Output side-by-side 8-pillar compari
 
 ---
 
-## 🐦 Tweet Draft (trigger: "Rubicon tweet")
+##  Tweet Draft (trigger: "Rubicon tweet")
 
 Compose a tweetable summary (≤280 chars) from the latest scan:
 1. If no recent scan context, run a Quick Scan first.
@@ -160,34 +160,34 @@ Compose a tweetable summary (≤280 chars) from the latest scan:
 
 ---
 
-## 💬 Rubio Quote (trigger: "Rubicon quote" or "Rubio quote")
+##  Rubio Quote (trigger: "Rubicon quote" or "Rubio quote")
 
 Quick-fire — no scan needed:
 1. Read references/quotes.md.
 2. Pick a quote matching the conversation context (or random if no context).
 3. Reply:
 ```
-🏛️ > "[Quote]"
+ > "[Quote]"
    > — Secretary Marco Rubio
 ```
 
 ---
 
-## 🚨 Rubicon Alert (trigger: "Rubicon alert")
+##  Rubicon Alert (trigger: "Rubicon alert")
 
 Fast threat check:
 1. Single `web_search`: `"Western sovereignty threat crisis [current month year]"`
 2. Quick assessment — active crisis?
 3. Reply:
 ```
-🚨 RUBICON ALERT: [🟢 ALL CLEAR / 🟡 WATCH / 🔴 THREAT DETECTED]
+ RUBICON ALERT: [ ALL CLEAR /  WATCH /  THREAT DETECTED]
 [One sentence summary]
 [Relevant pillar(s) affected]
 ```
 
 ---
 
-## 📊 Rubicon Forecast (trigger: "Rubicon forecast [country] [year]")
+##  Rubicon Forecast (trigger: "Rubicon forecast [country] [year]")
 
 Forward-looking sovereignty projection:
 1. Run Deep Scan on the country.
@@ -199,7 +199,7 @@ Forward-looking sovereignty projection:
 
 ## Error Handling
 - If `web_search` fails: note "source unavailable", score that pillar conservatively (middle of range).
-- If score is exactly 50: classify as 🟡 Contested.
+- If score is exactly 50: classify as  Contested.
 - Always produce output even with partial data — state confidence level.
 - If image generation unavailable for memes: fall back to text format.
 - If X/Twitter API unavailable: skip social sentiment, note in output.

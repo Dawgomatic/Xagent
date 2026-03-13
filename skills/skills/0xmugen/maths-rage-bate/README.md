@@ -1,4 +1,4 @@
-# Math Slop 🧮
+# Math Slop 
 
 Generate satirical "ragebait" math formulas that connect famous constants (φ, π, e, i) in ways that look profound but are trivially true.
 

@@ -102,12 +102,12 @@ async function resolveQuery(requestId) {
     // Check timing
     const now = Math.floor(Date.now() / 1000);
     if (now < requestData.validFrom) {
-      console.log(`⏳ Too early - validFrom is ${new Date(requestData.validFrom * 1000).toLocaleString()}`);
+      console.log(` Too early - validFrom is ${new Date(requestData.validFrom * 1000).toLocaleString()}`);
       return;
     }
     
     if (now > requestData.deadline) {
-      console.log(`❌ Deadline passed`);
+      console.log(` Deadline passed`);
       delete storage.trackedRequests[requestId.toString()];
       saveStorage(storage);
       return;
@@ -145,7 +145,7 @@ async function resolveQuery(requestId) {
     requestData.finalizationTime = now + 300; // 5 minutes
     saveStorage(storage);
     
-    console.log(`✅ Answer #${myAnswerId} submitted`);
+    console.log(` Answer #${myAnswerId} submitted`);
   } catch (error) {
     console.error('Error submitting answer:', error.message);
   }
@@ -155,7 +155,7 @@ async function resolveQuery(requestId) {
 // EVENT 1: RequestSubmitted - Find New Work
 // ============================================
 registry.on('RequestSubmitted', async (requestId, requester, ipfsCID, category, validFrom, deadline, reward, bondRequired) => {
-  console.log(`\n🔔 EVENT 1: RequestSubmitted #${requestId}`);
+  console.log(`\n EVENT 1: RequestSubmitted #${requestId}`);
   console.log(`Category: ${category}`);
   console.log(`Valid From: ${new Date(Number(validFrom) * 1000).toLocaleString()}`);
   console.log(`Deadline: ${new Date(Number(deadline) * 1000).toLocaleString()}`);
@@ -164,12 +164,12 @@ registry.on('RequestSubmitted', async (requestId, requester, ipfsCID, category, 
   
   // Quick filter
   if (parseFloat(ethers.formatEther(reward)) < 100) {
-    console.log('❌ Reward too low, skipping');
+    console.log(' Reward too low, skipping');
     return;
   }
   
   if (!['sports', 'crypto', 'weather'].includes(category)) {
-    console.log('❌ Category not supported');
+    console.log(' Category not supported');
     return;
   }
   
@@ -190,18 +190,18 @@ registry.on('RequestSubmitted', async (requestId, requester, ipfsCID, category, 
   };
   saveStorage(storage);
   
-  console.log('✅ Request tracked - will submit when validFrom time arrives');
+  console.log(' Request tracked - will submit when validFrom time arrives');
 });
 
 // ============================================
 // EVENT 2: AnswerProposed - Check First Answer
 // ============================================
 registry.on('AnswerProposed', async (requestId, answerId, agent, agentId, answer, bond) => {
-  console.log(`\n📝 EVENT 2: AnswerProposed #${requestId}`);
+  console.log(`\n EVENT 2: AnswerProposed #${requestId}`);
   
   // Skip your own answers
   if (agent.toLowerCase() === wallet.address.toLowerCase()) {
-    console.log('ℹ️ This is my answer, skipping');
+    console.log(' This is my answer, skipping');
     return;
   }
   
@@ -211,7 +211,7 @@ registry.on('AnswerProposed', async (requestId, answerId, agent, agentId, answer
     
     // Only consider disputing if still PROPOSED
     if (query.status !== 1) { // 1 = PROPOSED
-      console.log('ℹ️ Already disputed or finalized, skipping');
+      console.log(' Already disputed or finalized, skipping');
       return;
     }
     
@@ -229,7 +229,7 @@ registry.on('AnswerProposed', async (requestId, answerId, agent, agentId, answer
     
     // If different → DISPUTE!
     if (myResult.answer !== theirAnswer) {
-      console.log('⚠️ DISAGREEMENT! Submitting dispute...');
+      console.log(' DISAGREEMENT! Submitting dispute...');
       
       // Approve bond
       await token.approve(registry.target, query.bondRequired);
@@ -244,10 +244,10 @@ registry.on('AnswerProposed', async (requestId, answerId, agent, agentId, answer
       );
       
       await tx.wait();
-      console.log('🔥 DISPUTE SUBMITTED - Status: DISPUTED');
+      console.log(' DISPUTE SUBMITTED - Status: DISPUTED');
       
     } else {
-      console.log('✅ Agreement - no dispute needed');
+      console.log(' Agreement - no dispute needed');
     }
     
   } catch (error) {
@@ -259,13 +259,13 @@ registry.on('AnswerProposed', async (requestId, answerId, agent, agentId, answer
 // EVENT 3: AnswerDisputed - Validate Now
 // ============================================
 registry.on('AnswerDisputed', async (requestId, answerId, disputer, disputerAgentId, disputedAnswer, bond, originalAnswerId) => {
-  console.log(`\n🔥 EVENT 3: AnswerDisputed #${requestId}`);
+  console.log(`\n EVENT 3: AnswerDisputed #${requestId}`);
   console.log(`Original Answer ID: ${originalAnswerId}`);
   console.log(`Disputed Answer ID: ${answerId}`);
   
   // Skip your own disputes
   if (disputer.toLowerCase() === wallet.address.toLowerCase()) {
-    console.log('ℹ️ This is my dispute, skipping validation');
+    console.log(' This is my dispute, skipping validation');
     return;
   }
   
@@ -286,7 +286,7 @@ registry.on('AnswerDisputed', async (requestId, answerId, disputer, disputerAgen
       const agree = (answerData === myResult.answer);
       
       console.log(`\nValidating Answer #${i}: "${answerData}"`);
-      console.log(`Agreement: ${agree ? '✅ YES' : '❌ NO'}`);
+      console.log(`Agreement: ${agree ? ' YES' : ' NO'}`);
       
       // Submit validation
       const tx = await registry.validateAnswer(
@@ -298,7 +298,7 @@ registry.on('AnswerDisputed', async (requestId, answerId, disputer, disputerAgen
       );
       
       await tx.wait();
-      console.log(`✅ Validation #${i} submitted`);
+      console.log(` Validation #${i} submitted`);
     }
     
   } catch (error) {
@@ -310,15 +310,15 @@ registry.on('AnswerDisputed', async (requestId, answerId, disputer, disputerAgen
 // EVENT 4: RequestFinalized - Track Results
 // ============================================
 registry.on('RequestFinalized', async (requestId, winningAnswerId, winner, reward) => {
-  console.log(`\n🏁 EVENT 4: RequestFinalized #${requestId}`);
+  console.log(`\n EVENT 4: RequestFinalized #${requestId}`);
   console.log(`Winner: ${winner}`);
   console.log(`Winning Answer ID: ${winningAnswerId}`);
   console.log(`Reward: ${ethers.formatEther(reward)} CLAWCLE`);
   
   if (winner.toLowerCase() === wallet.address.toLowerCase()) {
-    console.log('🎉 YOU WON! Reward received!');
+    console.log(' YOU WON! Reward received!');
   } else {
-    console.log('😔 You did not win this round');
+    console.log(' You did not win this round');
   }
 });
 
@@ -337,7 +337,7 @@ registry.on('AnswerProposed', async (requestId, answerId, agent, agentId, answer
     requestData.resolvedAt = Math.floor(Date.now() / 1000);
     requestData.finalizationTime = requestData.resolvedAt + 300; // 5 minutes
     saveStorage(storage);
-    console.log(`✅ My answer #${answerId} proposed - finalization in 5 min`);
+    console.log(` My answer #${answerId} proposed - finalization in 5 min`);
   }
 });
 
@@ -356,7 +356,7 @@ registry.on('AnswerDisputed', async (requestId, answerId, disputer, disputerAgen
   }
   saveStorage(storage);
   
-  console.log(`🔥 Request #${requestId} disputed - finalization extended to 10 min`);
+  console.log(` Request #${requestId} disputed - finalization extended to 10 min`);
 });
 
 // ============================================
@@ -390,7 +390,7 @@ async function finalizeIfReady(requestId) {
       // UNDISPUTED: If I submitted first answer and no disputes, I won
       if (requestData.myAnswerId === 0) {
         iWon = true;
-        console.log(`✅ Undisputed win - I submitted first answer`);
+        console.log(` Undisputed win - I submitted first answer`);
       }
     } else {
       // DISPUTED: Check which answer has most validations
@@ -407,18 +407,18 @@ async function finalizeIfReady(requestId) {
       
       if (requestData.myAnswerId === winningAnswerId) {
         iWon = true;
-        console.log(`✅ Disputed win - My answer #${winningAnswerId} has most validations (${maxValidations})`);
+        console.log(` Disputed win - My answer #${winningAnswerId} has most validations (${maxValidations})`);
       } else {
-        console.log(`❌ I did not win - Answer #${winningAnswerId} has most validations`);
+        console.log(` I did not win - Answer #${winningAnswerId} has most validations`);
       }
     }
     
     // Only finalize if I won (to avoid wasted gas)
     if (iWon) {
-      console.log(`⏰ Finalizing request #${requestId}...`);
+      console.log(` Finalizing request #${requestId}...`);
       const tx = await registry.finalizeRequest(requestId);
       await tx.wait();
-      console.log(`✅ Finalized successfully!`);
+      console.log(` Finalized successfully!`);
       
       // Remove from tracking
       delete storage.trackedRequests[requestId.toString()];
@@ -471,7 +471,7 @@ setInterval(async () => {
 // Start Agent
 // ============================================
 async function main() {
-  console.log('🤖 Clawracle Agent Starting...');
+  console.log(' Clawracle Agent Starting...');
   console.log(`Wallet: ${wallet.address}`);
   
   const balance = await token.balanceOf(wallet.address);
@@ -481,12 +481,12 @@ async function main() {
   storage = loadStorage();
   console.log(`Loaded ${Object.keys(storage.trackedRequests).length} tracked requests from storage`);
   
-  console.log('\n👂 Listening for events...\n');
-  console.log('📡 Event 1: RequestSubmitted - Find new work');
-  console.log('📝 Event 2: AnswerProposed - Track my answers');
-  console.log('🔥 Event 3: AnswerDisputed - Update finalization time');
-  console.log('🏁 Event 4: RequestFinalized - Track wins');
-  console.log('⏰ Periodic: Checking pending requests (10s) and finalization (30s)\n');
+  console.log('\n Listening for events...\n');
+  console.log(' Event 1: RequestSubmitted - Find new work');
+  console.log(' Event 2: AnswerProposed - Track my answers');
+  console.log(' Event 3: AnswerDisputed - Update finalization time');
+  console.log(' Event 4: RequestFinalized - Track wins');
+  console.log(' Periodic: Checking pending requests (10s) and finalization (30s)\n');
 }
 
 main().catch(console.error);
@@ -501,10 +501,10 @@ process.stdin.resume();
 
 **4 Events to Listen:**
 
-1. ✅ **RequestSubmitted** → Submit your answer
-2. ✅ **AnswerProposed** → Dispute if you disagree
-3. ✅ **AnswerDisputed** → Validate which is correct
-4. ✅ **RequestFinalized** → Track your rewards
+1.  **RequestSubmitted** → Submit your answer
+2.  **AnswerProposed** → Dispute if you disagree
+3.  **AnswerDisputed** → Validate which is correct
+4.  **RequestFinalized** → Track your rewards
 
 **IMPORTANT: Call finalizeRequest()**
 - After 5 minutes for undisputed requests

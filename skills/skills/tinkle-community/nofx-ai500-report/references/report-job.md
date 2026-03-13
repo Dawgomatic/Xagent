@@ -28,7 +28,7 @@ Replace `<BASE>`, `<KEY>`, `<CHAT_ID>` with actual values.
 ╚══════════════════════════════════════╝
 
 ┌──────────────────────────────────────┐
-│ 🪙 COINNAME  Score:XX.X  High:XX.X   │
+│  COINNAME  Score:XX.X  High:XX.X   │
 │ Price:X.XXX Entry:X.XXX Gain:XX.X%   │
 │ Funding:0.00X%                       │
 ├─ OI Changes ─────────────────────────┤
@@ -36,7 +36,7 @@ Replace `<BASE>`, `<KEY>`, `<CHAT_ID>` with actual values.
 ├─ Institutional Flow ─────────────────┤
 │ 1h:±$X.XM │ 4h:±$X.XM │ 24h:±$X.XM │
 ├─ K-line ─────────────────────────────┤
-│ 15m: 📈/📉/↔️ │ MA Bull/Bear │ Vol±XX%│
+│ 15m: // │ MA Bull/Bear │ Vol±XX%│
 │      Support:X.XX Resistance:X.XX    │
 │ 1h:  ... │ 4h: ...                   │
 └──────────────────────────────────────┘
@@ -49,7 +49,7 @@ Replace `<BASE>`, `<KEY>`, `<CHAT_ID>` with actual values.
 ╚══════════════════════════════════════╝
 
 ╔══════════════════════════════════════╗
-║  📋 Summary & Trading Suggestions     ║
+║   Summary & Trading Suggestions     ║
 ║  • COIN1: Suggest...                 ║
 ║  • COIN2: Suggest...                 ║
 ╚══════════════════════════════════════╝

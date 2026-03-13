@@ -8,7 +8,7 @@ import { nsFetch, requireNsSubscriptionKey } from './ns-api.mjs';
 
 const NS_SUBSCRIPTION_KEY = (() => {
   try { return requireNsSubscriptionKey(); }
-  catch (e) { console.error(`❌ ${e.message}`); process.exit(1); }
+  catch (e) { console.error(` ${e.message}`); process.exit(1); }
 })();
 
 const STATIONS_URL = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/stations';
@@ -25,7 +25,7 @@ const limit = parseInt(getArg('--limit') || '10');
 
 if (!station) {
   console.log(`
-🚉 NS Station Arrivals
+ NS Station Arrivals
 
 Usage: node arrivals.mjs --station "Station Name" [--limit 10]
 
@@ -49,7 +49,7 @@ async function getArrivals() {
     // Resolve station name to code
     const code = await getStationCode(station);
     if (!code) {
-      console.error(`❌ Station not found: ${station}`);
+      console.error(` Station not found: ${station}`);
       process.exit(1);
     }
 
@@ -58,7 +58,7 @@ async function getArrivals() {
     });
 
     if (!res.ok) {
-      console.error(`❌ API Error: ${res.status}`);
+      console.error(` API Error: ${res.status}`);
       process.exit(1);
     }
 
@@ -66,11 +66,11 @@ async function getArrivals() {
     const arrivals = data.payload?.arrivals || [];
 
     if (arrivals.length === 0) {
-      console.log(`❌ No arrivals found for "${station}"`);
+      console.log(` No arrivals found for "${station}"`);
       process.exit(0);
     }
 
-    console.log(`\n🚉 Arrivals at ${station}`);
+    console.log(`\n Arrivals at ${station}`);
     console.log('═'.repeat(50));
 
     arrivals.forEach(arr => {
@@ -80,23 +80,23 @@ async function getArrivals() {
 
       const time = planned.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
       const delayStr = delay > 0 ? ` (+${delay})` : '';
-      const status = arr.cancelled ? '❌' : (delay > 0 ? '⚠️' : '✅');
+      const status = arr.cancelled ? '' : (delay > 0 ? '' : '');
 
       const origin = arr.origin || 'Unknown';
       const platform = arr.actualTrack || arr.plannedTrack || '?';
       const trainType = arr.product?.shortCategoryName || '?';
 
       console.log(`\n${status} ${time}${delayStr} ← ${origin}`);
-      console.log(`   🚆 ${trainType} | 🚏 Platform ${platform}`);
+      console.log(`    ${trainType} |  Platform ${platform}`);
 
-      if (arr.cancelled) console.log(`   ❌ CANCELLED`);
+      if (arr.cancelled) console.log(`    CANCELLED`);
     });
 
     console.log('\n' + '─'.repeat(50));
-    console.log(`⏱️  Updated: ${new Date().toLocaleTimeString('nl-NL')}`);
+    console.log(`  Updated: ${new Date().toLocaleTimeString('nl-NL')}`);
 
   } catch (err) {
-    console.error(`❌ Error: ${err.message}`);
+    console.error(` Error: ${err.message}`);
     process.exit(1);
   }
 }

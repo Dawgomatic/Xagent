@@ -125,19 +125,19 @@ When the user describes a deployment scenario (model, GPU, use case), provide an
 [Explain the reasoning, referencing specific data points from measurements]
 [Include trade-off analysis: memory vs compute, latency vs throughput]
 
-## 💡 Optimization Insights
+##  Optimization Insights
 - [Insight 1: e.g., "Increasing batch size to 16 would reduce energy by 87%"]
 - [Insight 2: e.g., "This model size has no memory pressure on this GPU - avoid quantization"]
 - [Insight 3: e.g., "Consider FP16 over NF4: 23% faster, 18% less energy, simpler deployment"]
 
-## ⚠️ Warning: Avoid These Pitfalls
+##  Warning: Avoid These Pitfalls
 [List relevant paradoxes the user might encounter]
 
-## 📊 Detailed Analysis
+##  Detailed Analysis
 View interactive dashboard: https://hongping-zh.github.io/ecocompute-dynamic-eval/
 GitHub repository: https://github.com/hongping-zh/ecocompute-dynamic-eval
 
-## 🔬 Measurement Transparency
+##  Measurement Transparency
 - Hardware: [GPU model], Driver [version]
 - Software: PyTorch [version], CUDA [version], transformers [version]
 - Method: NVML 10Hz power monitoring, n=10 runs, CV<2%
@@ -155,7 +155,7 @@ When the user reports slow inference, high energy consumption, or unexpected beh
 3. Check for known paradox patterns:
    - **INT8 Energy Paradox**: Using `load_in_8bit=True` without `llm_int8_threshold=0.0`
      - Symptom: 72–76% throughput loss vs FP16, 17–147% energy increase
-     - Root cause: Mixed-precision decomposition (INT8↔FP16 type conversion at every linear layer)
+     - Root cause: Mixed-precision decomposition (INT8FP16 type conversion at every linear layer)
      - Fix: Set `llm_int8_threshold=0.0` or switch to FP16/NF4
    - **NF4 Small-Model Penalty**: Using NF4 on models ≤3B
      - Symptom: 11–29% energy increase vs FP16
@@ -232,7 +232,7 @@ When the user asks to compare precision formats (FP16, NF4, INT8, Pure INT8), pr
 | Power Draw (W avg) | [P] | [P] | [P] | [P] |
 | **Rank (Energy)** | [1-4] | [1-4] | [1-4] | [1-4] |
 
-## 🏆 Recommendation
+##  Recommendation
 **Use [method]** for this configuration.
 
 **Reasoning:**
@@ -245,17 +245,17 @@ When the user asks to compare precision formats (FP16, NF4, INT8, Pure INT8), pr
 - [Y]% faster than [method]
 - $[Z] monthly savings vs [method] (at [N] requests/month)
 
-## ⚠️ Paradox Warnings
+##  Paradox Warnings
 - **[Method]**: [Warning with specific data]
 - **[Method]**: [Warning with specific data]
 
-## 💡 Context-Specific Advice
+##  Context-Specific Advice
 - If memory-constrained (<[X]GB VRAM): Use [method]
 - If latency-critical (<[Y]ms): Use [method]
 - If cost-optimizing (>1M req/month): Use [method]
 - If accuracy-critical: Validate INT8/NF4 with your task (PPL/MMLU data pending)
 
-## 📊 Visualization
+##  Visualization
 [ASCII bar chart or link to interactive dashboard]
 ```
 
@@ -308,13 +308,13 @@ When the user shares their inference code or deployment config, audit it for ene
 ```
 ## Audit Results
 
-### 🔴 Critical Issues
+###  Critical Issues
 [Issues causing >30% energy waste]
 
-### 🟡 Warnings
+###  Warnings
 [Issues causing 10–30% potential waste]
 
-### ✅ Good Practices
+###  Good Practices
 [What the user is doing right]
 
 ### Recommended Changes

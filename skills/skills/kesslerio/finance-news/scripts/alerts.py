@@ -81,10 +81,10 @@ def cmd_list(args) -> None:
     alerts = data.get("alerts", [])
     
     if not alerts:
-        print("📭 No price alerts set")
+        print(" No price alerts set")
         return
     
-    print(f"📊 Price Alerts ({len(alerts)} total)\n")
+    print(f" Price Alerts ({len(alerts)} total)\n")
     
     now = datetime.now()
     active = []
@@ -124,17 +124,17 @@ def cmd_set(args) -> None:
     # Check if alert exists
     existing = get_alert_by_ticker(alerts, ticker)
     if existing:
-        print(f"⚠️ Alert for {ticker} already exists. Use 'update' to change target.")
+        print(f" Alert for {ticker} already exists. Use 'update' to change target.")
         return
     
     # Validate target price
     if args.target <= 0:
-        print(f"❌ Target price must be greater than 0")
+        print(f" Target price must be greater than 0")
         return
     
     currency = args.currency.upper() if args.currency else "USD"
     if currency not in SUPPORTED_CURRENCIES:
-        print(f"❌ Currency {currency} not supported. Use: {', '.join(SUPPORTED_CURRENCIES)}")
+        print(f" Currency {currency} not supported. Use: {', '.join(SUPPORTED_CURRENCIES)}")
         return
     
     # Warn about currency mismatch based on ticker suffix
@@ -151,7 +151,7 @@ def cmd_set(args) -> None:
             break
     
     if currency != expected_currency:
-        print(f"⚠️ Warning: {ticker} trades in {expected_currency}, but alert set in {currency}")
+        print(f" Warning: {ticker} trades in {expected_currency}, but alert set in {currency}")
     
     # Fetch current price (optional - may fail if numpy broken)
     current_price = None
@@ -160,7 +160,7 @@ def cmd_set(args) -> None:
         if ticker in quotes and quotes[ticker].get("price"):
             current_price = quotes[ticker]["price"]
     except Exception as e:
-        print(f"⚠️ Could not fetch current price: {e}", file=sys.stderr)
+        print(f" Could not fetch current price: {e}", file=sys.stderr)
     
     alert = {
         "ticker": ticker,
@@ -180,7 +180,7 @@ def cmd_set(args) -> None:
     save_alerts(data)
     
     target_str = format_price(args.target, currency)
-    print(f"✅ Alert set: {ticker} under {target_str}")
+    print(f" Alert set: {ticker} under {target_str}")
     if current_price:
         pct_diff = ((current_price - args.target) / current_price) * 100
         current_str = format_price(current_price, currency)
@@ -195,12 +195,12 @@ def cmd_delete(args) -> None:
     
     new_alerts = [a for a in alerts if a["ticker"] != ticker]
     if len(new_alerts) == len(alerts):
-        print(f"❌ No alert found for {ticker}")
+        print(f" No alert found for {ticker}")
         return
     
     data["alerts"] = new_alerts
     save_alerts(data)
-    print(f"🗑️ Alert deleted: {ticker}")
+    print(f" Alert deleted: {ticker}")
 
 
 def cmd_snooze(args) -> None:
@@ -211,14 +211,14 @@ def cmd_snooze(args) -> None:
     
     alert = get_alert_by_ticker(alerts, ticker)
     if not alert:
-        print(f"❌ No alert found for {ticker}")
+        print(f" No alert found for {ticker}")
         return
     
     days = args.days or 7
     snooze_until = datetime.now() + timedelta(days=days)
     alert["snooze_until"] = snooze_until.isoformat()
     save_alerts(data)
-    print(f"😴 Alert snoozed: {ticker} until {snooze_until.strftime('%Y-%m-%d')}")
+    print(f" Alert snoozed: {ticker} until {snooze_until.strftime('%Y-%m-%d')}")
 
 
 def cmd_update(args) -> None:
@@ -229,12 +229,12 @@ def cmd_update(args) -> None:
     
     alert = get_alert_by_ticker(alerts, ticker)
     if not alert:
-        print(f"❌ No alert found for {ticker}")
+        print(f" No alert found for {ticker}")
         return
     
     # Validate target price
     if args.target <= 0:
-        print(f"❌ Target price must be greater than 0")
+        print(f" Target price must be greater than 0")
         return
     
     old_target = alert["target_price"]
@@ -246,7 +246,7 @@ def cmd_update(args) -> None:
     currency = alert.get("currency", "USD")
     old_str = format_price(old_target, currency)
     new_str = format_price(args.target, currency)
-    print(f"✏️ Alert updated: {ticker} {old_str} → {new_str}")
+    print(f" Alert updated: {ticker} {old_str} → {new_str}")
 
 
 def cmd_check(args) -> None:
@@ -258,7 +258,7 @@ def cmd_check(args) -> None:
         if args.json:
             print(json.dumps({"triggered": [], "watching": []}))
         else:
-            print("📭 No alerts to check")
+            print(" No alerts to check")
         return
     
     now = datetime.now()
@@ -273,7 +273,7 @@ def cmd_check(args) -> None:
         if args.json:
             print(json.dumps({"triggered": [], "watching": []}))
         else:
-            print("📭 All alerts snoozed")
+            print(" All alerts snoozed")
         return
     
     # Fetch prices for all active alerts
@@ -352,11 +352,11 @@ def cmd_check(args) -> None:
 
     # Date header
     date_str = datetime.now().strftime("%b %d, %Y") if lang == "en" else datetime.now().strftime("%d. %b %Y")
-    print(f"📊 {labels['title']} — {date_str}\n")
+    print(f" {labels['title']} — {date_str}\n")
 
     # Human-readable output
     if triggered:
-        print(f"🟢 {labels['in_zone']}:\n")
+        print(f" {labels['in_zone']}:\n")
         for t in triggered:
             target_str = format_price(t["target_price"], t["currency"])
             current_str = format_price(t["current_price"], t["currency"])
@@ -366,7 +366,7 @@ def cmd_check(args) -> None:
         print()
 
     if watching:
-        print(f"⏳ {labels['watching']}:\n")
+        print(f" {labels['watching']}:\n")
         for w in sorted(watching, key=lambda x: x["pct_from_target"]):
             target_str = format_price(w["target_price"], w["currency"])
             current_str = format_price(w["current_price"], w["currency"])
@@ -374,7 +374,7 @@ def cmd_check(args) -> None:
         print()
 
     if not triggered and not watching:
-        print(f"📭 {labels['no_data']}")
+        print(f" {labels['no_data']}")
 
 
 def check_alerts() -> dict:

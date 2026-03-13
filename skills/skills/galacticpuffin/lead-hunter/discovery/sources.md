@@ -289,7 +289,7 @@ output:
 
 ## LinkedIn Discovery
 
-⚠️ **HIGH RISK** — LinkedIn actively blocks scraping. Use carefully.
+ **HIGH RISK** — LinkedIn actively blocks scraping. Use carefully.
 
 ```yaml
 # sources/linkedin.yaml

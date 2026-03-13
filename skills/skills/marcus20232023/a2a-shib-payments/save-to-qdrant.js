@@ -318,7 +318,7 @@ const reputation = new ReputationSystem();
 ];
 
 async function saveToQdrant() {
-  console.log('📚 Saving SHIB Payment Agent documentation to Qdrant...\n');
+  console.log(' Saving SHIB Payment Agent documentation to Qdrant...\n');
   
   const qdrantDir = '/home/marc/clawd/skills/qdrant';
   
@@ -332,21 +332,21 @@ async function saveToQdrant() {
       );
       
       if (stderr) {
-        console.error(`   ⚠️ Warning: ${stderr.trim()}`);
+        console.error(`    Warning: ${stderr.trim()}`);
       }
       
       const output = stdout.trim();
       if (output.includes('✓') || output.includes('Saved')) {
-        console.log(`   ✅ Saved successfully`);
+        console.log(`    Saved successfully`);
       } else {
-        console.log(`   ℹ️ ${output}`);
+        console.log(`    ${output}`);
       }
     } catch (error) {
-      console.error(`   ❌ Error: ${error.message}`);
+      console.error(`    Error: ${error.message}`);
     }
   }
   
-  console.log(`\n✅ All ${documents.length} documents saved to Qdrant!`);
+  console.log(`\n All ${documents.length} documents saved to Qdrant!`);
   console.log('\nYou can now recall this information with:');
   console.log('  cd skills/qdrant && node index.js recall "escrow system" 5');
   console.log('  cd skills/qdrant && node index.js recall "reputation" 5');

@@ -166,11 +166,11 @@ console.log(`${profile.name}: ${profile.reputation.composite_score}/100`);
 const rep = await engine.getReputation('alice_dev');
 
 if (rep.composite_score >= 75) {
-  console.log('✅ High-reputation agent');
+  console.log(' High-reputation agent');
 } else if (rep.composite_score >= 40) {
-  console.log('⚠️ Emerging agent');
+  console.log(' Emerging agent');
 } else {
-  console.log('❌ Low-reputation agent');
+  console.log(' Low-reputation agent');
 }
 ```
 
@@ -205,10 +205,10 @@ if (rep.composite_score >= 75) {
 const threats = await engine.checkThreats('alice_dev');
 
 if (threats.severity === 'critical') {
-  console.log('⛔ DO NOT ENGAGE - Critical threat detected');
+  console.log(' DO NOT ENGAGE - Critical threat detected');
   console.log(threats.threats);
 } else if (threats.is_flagged) {
-  console.log('⚠️ Warning: Minor threats detected');
+  console.log(' Warning: Minor threats detected');
 }
 ```
 

@@ -18,7 +18,7 @@ class TelegramBotTester:
         
     def test_connectivity(self) -> bool:
         """Test basic connectivity to Telegram API"""
-        print("🧪 Testing Telegram API connectivity...")
+        print(" Testing Telegram API connectivity...")
         
         try:
             response = requests.get(
@@ -28,25 +28,25 @@ class TelegramBotTester:
             )
             
             if response.status_code == 200:
-                print("✅ Telegram API is reachable")
+                print(" Telegram API is reachable")
                 return True
             else:
-                print(f"❌ Telegram API returned status: {response.status_code}")
+                print(f" Telegram API returned status: {response.status_code}")
                 return False
                 
         except requests.exceptions.Timeout:
-            print("❌ Connection timeout - network may be blocked")
+            print(" Connection timeout - network may be blocked")
             return False
         except requests.exceptions.ConnectionError as e:
-            print(f"❌ Connection error: {e}")
+            print(f" Connection error: {e}")
             return False
         except Exception as e:
-            print(f"❌ Unexpected error: {e}")
+            print(f" Unexpected error: {e}")
             return False
     
     def test_bot_token(self) -> Optional[Dict[str, Any]]:
         """Test if bot token is valid"""
-        print("\n🧪 Testing bot token validity...")
+        print("\n Testing bot token validity...")
         
         try:
             response = requests.get(
@@ -58,28 +58,28 @@ class TelegramBotTester:
                 data = response.json()
                 if data.get('ok'):
                     bot_info = data['result']
-                    print(f"✅ Bot token is valid")
+                    print(f" Bot token is valid")
                     print(f"   Bot username: @{bot_info.get('username')}")
                     print(f"   Bot ID: {bot_info.get('id')}")
                     print(f"   Bot name: {bot_info.get('first_name')}")
                     return bot_info
                 else:
-                    print(f"❌ Bot token is invalid: {data.get('description')}")
+                    print(f" Bot token is invalid: {data.get('description')}")
                     return None
             else:
-                print(f"❌ Request failed with status: {response.status_code}")
+                print(f" Request failed with status: {response.status_code}")
                 return None
                 
         except requests.exceptions.Timeout:
-            print("❌ Request timeout")
+            print(" Request timeout")
             return None
         except Exception as e:
-            print(f"❌ Error testing bot token: {e}")
+            print(f" Error testing bot token: {e}")
             return None
     
     def test_get_updates(self) -> bool:
         """Test if bot can receive updates (polling mode)"""
-        print("\n🧪 Testing bot update retrieval...")
+        print("\n Testing bot update retrieval...")
         
         try:
             response = requests.get(
@@ -92,26 +92,26 @@ class TelegramBotTester:
                 data = response.json()
                 if data.get('ok'):
                     updates = data.get('result', [])
-                    print(f"✅ Bot can retrieve updates")
+                    print(f" Bot can retrieve updates")
                     print(f"   Pending updates: {len(updates)}")
                     return True
                 else:
-                    print(f"❌ Failed to get updates: {data.get('description')}")
+                    print(f" Failed to get updates: {data.get('description')}")
                     return False
             else:
-                print(f"❌ Request failed with status: {response.status_code}")
+                print(f" Request failed with status: {response.status_code}")
                 return False
                 
         except requests.exceptions.Timeout:
-            print("⚠️  Timeout - this is normal if no updates are pending")
+            print("  Timeout - this is normal if no updates are pending")
             return True
         except Exception as e:
-            print(f"❌ Error getting updates: {e}")
+            print(f" Error getting updates: {e}")
             return False
     
     def test_webhook_info(self) -> Optional[Dict[str, Any]]:
         """Check webhook configuration"""
-        print("\n🧪 Checking webhook configuration...")
+        print("\n Checking webhook configuration...")
         
         try:
             response = requests.get(
@@ -126,23 +126,23 @@ class TelegramBotTester:
                     url = webhook_info.get('url', '')
                     
                     if url:
-                        print(f"✅ Webhook is configured")
+                        print(f" Webhook is configured")
                         print(f"   URL: {url}")
                         print(f"   Pending updates: {webhook_info.get('pending_update_count', 0)}")
                         print(f"   Max connections: {webhook_info.get('max_connections', 40)}")
                     else:
-                        print("ℹ️  No webhook configured (using polling mode)")
+                        print("  No webhook configured (using polling mode)")
                     
                     return webhook_info
                 else:
-                    print(f"❌ Failed to get webhook info: {data.get('description')}")
+                    print(f" Failed to get webhook info: {data.get('description')}")
                     return None
             else:
-                print(f"❌ Request failed with status: {response.status_code}")
+                print(f" Request failed with status: {response.status_code}")
                 return None
                 
         except Exception as e:
-            print(f"❌ Error checking webhook: {e}")
+            print(f" Error checking webhook: {e}")
             return None
     
     def comprehensive_test(self) -> bool:
@@ -156,14 +156,14 @@ class TelegramBotTester:
         # Test 1: API connectivity
         if not self.test_connectivity():
             all_passed = False
-            print("\n❌ Cannot proceed with other tests due to connectivity issues")
+            print("\n Cannot proceed with other tests due to connectivity issues")
             return False
         
         # Test 2: Bot token
         bot_info = self.test_bot_token()
         if not bot_info:
             all_passed = False
-            print("\n❌ Cannot proceed with other tests due to invalid token")
+            print("\n Cannot proceed with other tests due to invalid token")
             return False
         
         # Test 3: Get updates
@@ -175,9 +175,9 @@ class TelegramBotTester:
         
         print("\n" + "=" * 60)
         if all_passed:
-            print("✅ All tests passed! Bot is ready to use.")
+            print(" All tests passed! Bot is ready to use.")
         else:
-            print("❌ Some tests failed. Please check the issues above.")
+            print(" Some tests failed. Please check the issues above.")
         print("=" * 60)
         
         return all_passed
@@ -192,7 +192,7 @@ def main():
         bot_token = sys.argv[1]
     
     if not bot_token:
-        print("❌ No bot token provided")
+        print(" No bot token provided")
         print("\nUsage:")
         print("  python3 test_bot.py YOUR_BOT_TOKEN")
         print("  or")
@@ -202,7 +202,7 @@ def main():
     
     # Validate token format
     if ':' not in bot_token:
-        print("❌ Invalid bot token format")
+        print(" Invalid bot token format")
         print("   Expected format: 1234567890:ABCdefGHIjklMNOpqrsTUVwxyz")
         sys.exit(1)
     

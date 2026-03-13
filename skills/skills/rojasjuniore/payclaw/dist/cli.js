@@ -118,7 +118,7 @@ program
     .requiredOption('--api-key <key>', 'Circle API key')
     .option('--chain <chain>', 'Default chain', 'ARC-TESTNET')
     .action(async (options) => {
-    console.log('🔧 Setting up PayClaw...\n');
+    console.log(' Setting up PayClaw...\n');
     try {
         // Setup circle-wallet first
         console.log('Configuring Circle wallet...');
@@ -129,14 +129,14 @@ program
             chain: options.chain
         };
         saveConfig(config);
-        console.log('\n✅ PayClaw configured successfully!');
+        console.log('\n PayClaw configured successfully!');
         console.log('\nNext steps:');
         console.log('  1. Create a wallet: payclaw wallet create "MyAgent"');
         console.log('  2. Get testnet USDC: payclaw faucet');
         console.log('  3. Start paying: payclaw pay <address> <amount>');
     }
     catch (e) {
-        console.error('❌ Setup failed:', e.message);
+        console.error(' Setup failed:', e.message);
         process.exit(1);
     }
 });
@@ -159,7 +159,7 @@ wallet
         }
     }
     catch (e) {
-        console.error('❌ Error:', e.message);
+        console.error(' Error:', e.message);
     }
 });
 wallet
@@ -171,7 +171,7 @@ wallet
         console.log(result);
     }
     catch (e) {
-        console.error('❌ Error:', e.message);
+        console.error(' Error:', e.message);
     }
 });
 wallet
@@ -183,7 +183,7 @@ wallet
         console.log(result);
     }
     catch (e) {
-        console.error('❌ Error:', e.message);
+        console.error(' Error:', e.message);
     }
 });
 wallet
@@ -192,10 +192,10 @@ wallet
     .action(async () => {
     const config = loadConfig();
     if (config?.defaultWallet) {
-        console.log(`💳 Your wallet: ${config.defaultWallet}`);
+        console.log(` Your wallet: ${config.defaultWallet}`);
     }
     else {
-        console.log('❌ No default wallet. Create one with: payclaw wallet create');
+        console.log(' No default wallet. Create one with: payclaw wallet create');
     }
 });
 // Payment commands
@@ -204,12 +204,12 @@ program
     .description('Send USDC to an address')
     .option('--memo <memo>', 'Payment memo')
     .action(async (address, amount, options) => {
-    console.log(`💸 Sending ${amount} USDC to ${address}...`);
+    console.log(` Sending ${amount} USDC to ${address}...`);
     try {
         const result = circleWallet(`send ${address} ${amount}`);
         console.log(result);
         if (options.memo) {
-            console.log(`📝 Memo: ${options.memo}`);
+            console.log(` Memo: ${options.memo}`);
         }
         // Log to history
         const historyFile = path.join(CONFIG_DIR, 'history.json');
@@ -226,7 +226,7 @@ program
         fs.writeFileSync(historyFile, JSON.stringify(history, null, 2));
     }
     catch (e) {
-        console.error('❌ Payment failed:', e.message);
+        console.error(' Payment failed:', e.message);
     }
 });
 program
@@ -236,10 +236,10 @@ program
     .action(async (amount, options) => {
     const config = loadConfig();
     if (!config?.defaultWallet) {
-        console.error('❌ No wallet configured. Run: payclaw wallet create');
+        console.error(' No wallet configured. Run: payclaw wallet create');
         return;
     }
-    console.log('\n💰 Payment Request');
+    console.log('\n Payment Request');
     console.log('─'.repeat(40));
     console.log(`To: ${config.defaultWallet}`);
     console.log(`Amount: ${amount} USDC`);
@@ -256,23 +256,23 @@ program
     .action(async () => {
     const historyFile = path.join(CONFIG_DIR, 'history.json');
     if (!fs.existsSync(historyFile)) {
-        console.log('📜 No transaction history yet.');
+        console.log(' No transaction history yet.');
         return;
     }
     const history = JSON.parse(fs.readFileSync(historyFile, 'utf-8'));
-    console.log('\n📜 Transaction History');
+    console.log('\n Transaction History');
     console.log('═'.repeat(50));
     history.slice(-10).reverse().forEach((tx) => {
         const date = new Date(tx.timestamp).toLocaleString();
         if (tx.type === 'send') {
-            console.log(`💸 SENT ${tx.amount} USDC → ${tx.to.slice(0, 10)}...`);
+            console.log(` SENT ${tx.amount} USDC → ${tx.to.slice(0, 10)}...`);
         }
         else if (tx.type === 'receive') {
-            console.log(`💰 RECEIVED ${tx.amount} USDC ← ${tx.from.slice(0, 10)}...`);
+            console.log(` RECEIVED ${tx.amount} USDC ← ${tx.from.slice(0, 10)}...`);
         }
         if (tx.memo)
-            console.log(`   📝 ${tx.memo}`);
-        console.log(`   🕐 ${date}`);
+            console.log(`    ${tx.memo}`);
+        console.log(`    ${date}`);
         console.log('');
     });
 });
@@ -280,13 +280,13 @@ program
     .command('faucet')
     .description('Get testnet USDC')
     .action(async () => {
-    console.log('🚰 Requesting testnet USDC...');
+    console.log(' Requesting testnet USDC...');
     try {
         const result = circleWallet('drip');
         console.log(result);
     }
     catch (e) {
-        console.error('❌ Faucet failed:', e.message);
+        console.error(' Faucet failed:', e.message);
         console.log('\nTry the Circle faucet directly:');
         console.log('  https://faucet.circle.com');
     }
@@ -300,7 +300,7 @@ escrow
     .action(async (amount, recipient, options) => {
     const config = loadConfig();
     if (!config?.defaultWallet) {
-        console.error('❌ No wallet configured. Run: payclaw wallet create');
+        console.error(' No wallet configured. Run: payclaw wallet create');
         return;
     }
     const escrowId = generateEscrowId();
@@ -316,7 +316,7 @@ escrow
     };
     escrows.push(newEscrow);
     saveEscrows(escrows);
-    console.log('\n🔒 Escrow Created');
+    console.log('\n Escrow Created');
     console.log('═'.repeat(40));
     console.log(`ID: ${escrowId}`);
     console.log(`Amount: ${amount} USDC`);
@@ -333,10 +333,10 @@ escrow
     const escrows = loadEscrows();
     const pending = escrows.filter(e => e.status === 'pending');
     if (pending.length === 0) {
-        console.log('📭 No active escrows.');
+        console.log(' No active escrows.');
         return;
     }
-    console.log('\n🔒 Active Escrows');
+    console.log('\n Active Escrows');
     console.log('═'.repeat(50));
     pending.forEach(e => {
         console.log(`${e.id} | ${e.amount} USDC → ${e.recipient.slice(0, 10)}...`);
@@ -351,23 +351,23 @@ escrow
     const escrows = loadEscrows();
     const escrow = escrows.find(e => e.id === id);
     if (!escrow) {
-        console.error('❌ Escrow not found:', id);
+        console.error(' Escrow not found:', id);
         return;
     }
     if (escrow.status !== 'pending') {
-        console.error('❌ Escrow already', escrow.status);
+        console.error(' Escrow already', escrow.status);
         return;
     }
-    console.log(`💸 Releasing ${escrow.amount} USDC to ${escrow.recipient}...`);
+    console.log(` Releasing ${escrow.amount} USDC to ${escrow.recipient}...`);
     try {
         const result = circleWallet(`send ${escrow.recipient} ${escrow.amount}`);
         console.log(result);
         escrow.status = 'released';
         saveEscrows(escrows);
-        console.log(`\n✅ Escrow ${id} released successfully!`);
+        console.log(`\n Escrow ${id} released successfully!`);
     }
     catch (e) {
-        console.error('❌ Release failed:', e.message);
+        console.error(' Release failed:', e.message);
     }
 });
 escrow
@@ -377,16 +377,16 @@ escrow
     const escrows = loadEscrows();
     const escrow = escrows.find(e => e.id === id);
     if (!escrow) {
-        console.error('❌ Escrow not found:', id);
+        console.error(' Escrow not found:', id);
         return;
     }
     if (escrow.status !== 'pending') {
-        console.error('❌ Escrow already', escrow.status);
+        console.error(' Escrow already', escrow.status);
         return;
     }
     escrow.status = 'refunded';
     saveEscrows(escrows);
-    console.log(`\n✅ Escrow ${id} refunded to sender.`);
+    console.log(`\n Escrow ${id} refunded to sender.`);
 });
 // Agent directory commands
 const agents = program.command('agents').description('Agent directory');
@@ -398,7 +398,7 @@ agents
     .action(async (options) => {
     const config = loadConfig();
     if (!config?.defaultWallet) {
-        console.error('❌ No wallet configured. Run: payclaw wallet create');
+        console.error(' No wallet configured. Run: payclaw wallet create');
         return;
     }
     const agentsList = loadAgents();
@@ -406,7 +406,7 @@ agents
     // Check if already registered
     const existing = agentsList.find(a => a.address === config.defaultWallet);
     if (existing) {
-        console.log('ℹ️  Already registered as:', existing.name);
+        console.log('  Already registered as:', existing.name);
         return;
     }
     const agent = {
@@ -417,7 +417,7 @@ agents
     };
     agentsList.push(agent);
     saveAgents(agentsList);
-    console.log('\n✅ Agent Registered');
+    console.log('\n Agent Registered');
     console.log('═'.repeat(40));
     console.log(`Name: ${name}`);
     console.log(`Address: ${config.defaultWallet}`);
@@ -431,17 +431,17 @@ agents
     .action(async () => {
     const agentsList = loadAgents();
     if (agentsList.length === 0) {
-        console.log('📭 No agents registered yet.');
+        console.log(' No agents registered yet.');
         console.log('Register yours: payclaw agents register --name "MyAgent"');
         return;
     }
-    console.log('\n🤖 Registered Agents');
+    console.log('\n Registered Agents');
     console.log('═'.repeat(50));
     agentsList.forEach(a => {
         console.log(`${a.name}`);
-        console.log(`  💳 ${a.address}`);
+        console.log(`   ${a.address}`);
         if (a.description)
-            console.log(`  📝 ${a.description}`);
+            console.log(`   ${a.description}`);
         console.log('');
     });
 });
@@ -452,10 +452,10 @@ agents
     const agentsList = loadAgents();
     const agent = agentsList.find(a => a.name.toLowerCase().includes(name.toLowerCase()));
     if (!agent) {
-        console.log('❌ Agent not found:', name);
+        console.log(' Agent not found:', name);
         return;
     }
-    console.log('\n🤖 Found Agent');
+    console.log('\n Found Agent');
     console.log('═'.repeat(40));
     console.log(`Name: ${agent.name}`);
     console.log(`Address: ${agent.address}`);
@@ -472,10 +472,10 @@ program
     .action(async () => {
     const config = loadConfig();
     if (!config) {
-        console.log('❌ Not configured. Run: payclaw setup --api-key <key>');
+        console.log(' Not configured. Run: payclaw setup --api-key <key>');
         return;
     }
-    console.log('\n⚙️  PayClaw Configuration');
+    console.log('\n  PayClaw Configuration');
     console.log('═'.repeat(40));
     console.log(`API Key: ${config.apiKey.slice(0, 8)}...`);
     console.log(`Chain: ${config.chain}`);

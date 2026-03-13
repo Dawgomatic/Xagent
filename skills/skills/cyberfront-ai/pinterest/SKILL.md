@@ -59,8 +59,8 @@ browser action=snapshot
 # 3. Convert to high-res originals
 
 # 4. Send images
-message action=send media="https://i.pinimg.com/originals/ab/cd/ef123.jpg" message="Clean white desk with plant 🌿"
-message action=send media="https://i.pinimg.com/originals/gh/ij/kl456.jpg" message="Wooden desk, natural light ☀️"
+message action=send media="https://i.pinimg.com/originals/ab/cd/ef123.jpg" message="Clean white desk with plant "
+message action=send media="https://i.pinimg.com/originals/gh/ij/kl456.jpg" message="Wooden desk, natural light "
 ```
 
 ## Alternative: Screenshot Method
@@ -86,10 +86,10 @@ python3 scripts/pinterest_api.py pin <pin_id>
 
 ## Key Points
 
-- ✅ **Always send images directly** using `media=` parameter
-- ✅ Use `originals` URLs for high-res
-- ❌ Don't just send links — send the actual image
-- 💡 If URL doesn't work, screenshot the pin and send that
+-  **Always send images directly** using `media=` parameter
+-  Use `originals` URLs for high-res
+-  Don't just send links — send the actual image
+-  If URL doesn't work, screenshot the pin and send that
 
 ## References
 

@@ -48,7 +48,7 @@ def check_config():
         missing.append("POSTIZ_PASSWORD")
     
     if missing:
-        print(f"❌ Missing required environment variables: {', '.join(missing)}")
+        print(f" Missing required environment variables: {', '.join(missing)}")
         print("\nSet them in your shell or .env file:")
         print("  export POSTIZ_URL='https://your-postiz.example.com'")
         print("  export POSTIZ_EMAIL='your@email.com'")
@@ -141,7 +141,7 @@ def main():
                 })
         
         if duplicates:
-            print(f"⚠️  Found {len(duplicates)} potential duplicate(s):\n")
+            print(f"  Found {len(duplicates)} potential duplicate(s):\n")
             for d in sorted(duplicates, key=lambda x: -x["similarity"]):
                 print(f"  [{d['similarity']:.0%} similar] {d['date']} {d['platform']} ({d['state']})")
                 print(f"    \"{d['content']}...\"\n")
@@ -174,7 +174,7 @@ def main():
                     })
         
         if dupes:
-            print(f"⚠️  {platform}: {len(dupes)} duplicate pair(s)")
+            print(f"  {platform}: {len(dupes)} duplicate pair(s)")
             for d in sorted(dupes, key=lambda x: -x["similarity"])[:5]:
                 print(f"    [{d['similarity']:.0%}] {d['post1']['date']} vs {d['post2']['date']}")
                 print(f"      1: \"{d['post1']['content']}...\" ({d['post1']['state']})")
@@ -187,7 +187,7 @@ def main():
     if total_dupes == 0:
         print("✓ No duplicates found across all platforms!")
     else:
-        print(f"⚠️  Total: {total_dupes} duplicate pair(s) found")
+        print(f"  Total: {total_dupes} duplicate pair(s) found")
         print(f"\nTo delete duplicates, use the Postiz web UI or:")
         print(f"  curl -s -b /tmp/postiz-cookies.txt -X DELETE '$POSTIZ_URL/api/posts/POST_ID'")
 

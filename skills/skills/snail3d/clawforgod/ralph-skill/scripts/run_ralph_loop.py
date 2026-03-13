@@ -72,21 +72,21 @@ class RalphBuildLoop:
         """TEST step - Run tests and verify."""
         test_cmd = self.config.get("test_command", "pytest")
         
-        print(f"\n🧪 Testing with: {test_cmd}", file=sys.stderr)
+        print(f"\n Testing with: {test_cmd}", file=sys.stderr)
         
         try:
             result = subprocess.run(test_cmd, shell=True, capture_output=True, text=True, timeout=60)
             if result.returncode == 0:
-                print(f"✅ Tests passed", file=sys.stderr)
+                print(f" Tests passed", file=sys.stderr)
                 return True
             else:
-                print(f"❌ Tests failed:\n{result.stdout}\n{result.stderr}", file=sys.stderr)
+                print(f" Tests failed:\n{result.stdout}\n{result.stderr}", file=sys.stderr)
                 return False
         except subprocess.TimeoutExpired:
-            print(f"⏱️ Tests timed out", file=sys.stderr)
+            print(f" Tests timed out", file=sys.stderr)
             return False
         except Exception as e:
-            print(f"⚠️ Could not run tests: {e}", file=sys.stderr)
+            print(f" Could not run tests: {e}", file=sys.stderr)
             return True  # Don't fail on test errors
     
     def commit(self, task_id: str, message: str) -> bool:
@@ -96,10 +96,10 @@ class RalphBuildLoop:
         try:
             subprocess.run(["git", "add", "-A"], check=True, capture_output=True)
             subprocess.run(["git", "commit", "-m", commit_msg], check=True, capture_output=True)
-            print(f"✅ Committed: {commit_msg}", file=sys.stderr)
+            print(f" Committed: {commit_msg}", file=sys.stderr)
             return True
         except subprocess.CalledProcessError as e:
-            print(f"⚠️ Git commit failed (may be no changes): {e}", file=sys.stderr)
+            print(f" Git commit failed (may be no changes): {e}", file=sys.stderr)
             return True  # Don't fail if nothing to commit
     
     def mark_complete(self, task_id: str):
@@ -109,7 +109,7 @@ class RalphBuildLoop:
                 if task.get("id") == task_id:
                     task["st"] = "complete"
                     self._save_prd()
-                    print(f"✅ Marked {task_id} complete", file=sys.stderr)
+                    print(f" Marked {task_id} complete", file=sys.stderr)
                     return
     
     def generate_claude_prompt(self, task: Dict) -> str:
@@ -149,11 +149,11 @@ Work on this task now. When done and committed, I'll move to the next task.
     
     def run_loop(self):
         """Execute the RALPH BUILD LOOP."""
-        print("🔄 RALPH BUILD LOOP Started", file=sys.stderr)
-        print(f"📋 Project: {self.prd.get('pn', 'Unknown')}", file=sys.stderr)
+        print(" RALPH BUILD LOOP Started", file=sys.stderr)
+        print(f" Project: {self.prd.get('pn', 'Unknown')}", file=sys.stderr)
         
         # START: Create security baseline
-        print("\n1️⃣ START - Creating security baseline...", file=sys.stderr)
+        print("\n START - Creating security baseline...", file=sys.stderr)
         subprocess.run(["git", "init"], capture_output=True)
         
         task_count = 0
@@ -163,53 +163,53 @@ Work on this task now. When done and committed, I'll move to the next task.
             # LOOP: Get next task
             task = self.get_next_task()
             if not task:
-                print("\n✅ All tasks complete!", file=sys.stderr)
+                print("\n All tasks complete!", file=sys.stderr)
                 break
             
             task_id = task.get("id")
             title = task.get("ti")
             task_count += 1
             
-            print(f"\n2️⃣ LOOP - Task {task_count}: {task_id} - {title}", file=sys.stderr)
+            print(f"\n LOOP - Task {task_count}: {task_id} - {title}", file=sys.stderr)
             
             # READ: Check existing file
             filepath = task.get("f")
             if filepath and filepath not in ["terminal", "github.com"]:
                 existing = self.read_file(filepath)
                 if existing:
-                    print(f"3️⃣ READ - Found existing {filepath}", file=sys.stderr)
+                    print(f" READ - Found existing {filepath}", file=sys.stderr)
             
             # BUILD: Generate Claude prompt
             prompt = self.generate_claude_prompt(task)
-            print(f"4️⃣ BUILD - Starting Claude Code task...", file=sys.stderr)
+            print(f" BUILD - Starting Claude Code task...", file=sys.stderr)
             print(f"\nPrompt:\n{prompt}\n", file=sys.stderr)
             
             # TEST: Run tests
-            print(f"\n5️⃣ TEST - Testing implementation...", file=sys.stderr)
+            print(f"\n TEST - Testing implementation...", file=sys.stderr)
             test_passed = self.run_test()
             
             if not test_passed:
-                print(f"⚠️ Tests failed for {task_id}. Marking as blocked.", file=sys.stderr)
+                print(f" Tests failed for {task_id}. Marking as blocked.", file=sys.stderr)
                 task["st"] = "blocked"
                 self._save_prd()
                 continue
             
             # COMMIT: Git commit
-            print(f"\n6️⃣ COMMIT - Committing task...", file=sys.stderr)
+            print(f"\n COMMIT - Committing task...", file=sys.stderr)
             self.commit(task_id, title)
             
             # MARK: Update status
-            print(f"\n7️⃣ MARK - Updating task status...", file=sys.stderr)
+            print(f"\n MARK - Updating task status...", file=sys.stderr)
             self.mark_complete(task_id)
             completed += 1
             
-            print(f"\n📊 Progress: {completed}/{task_count} tasks complete\n", file=sys.stderr)
+            print(f"\n Progress: {completed}/{task_count} tasks complete\n", file=sys.stderr)
         
         # DONE: Run full test suite
-        print(f"\n9️⃣ DONE - Running full test suite...", file=sys.stderr)
+        print(f"\n DONE - Running full test suite...", file=sys.stderr)
         self.run_test()
         
-        print(f"\n🎉 RALPH BUILD LOOP Completed!\n", file=sys.stderr)
+        print(f"\n RALPH BUILD LOOP Completed!\n", file=sys.stderr)
         print(f"Project: {self.prd.get('pn')}", file=sys.stderr)
         print(f"Tasks: {completed} complete", file=sys.stderr)
 

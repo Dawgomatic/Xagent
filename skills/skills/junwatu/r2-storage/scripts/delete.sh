@@ -31,13 +31,13 @@ if [[ -n "$PURGE" ]]; then
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         rclone delete "${REMOTE}:${BUCKET}/" --drive-trashed-only=false
         rclone rmdir "${REMOTE}:${BUCKET}/"
-        echo "✅ Bucket '${BUCKET}' purged"
+        echo " Bucket '${BUCKET}' purged"
     else
         echo "Cancelled"
     fi
 elif [[ -n "$PATH" ]]; then
     rclone delete "${REMOTE}:${BUCKET}/${PATH}"
-    echo "✅ Deleted: r2:${BUCKET}/${PATH}"
+    echo " Deleted: r2:${BUCKET}/${PATH}"
 else
     echo "Usage: delete.sh <path> [--bucket NAME] [--purge]"
 fi

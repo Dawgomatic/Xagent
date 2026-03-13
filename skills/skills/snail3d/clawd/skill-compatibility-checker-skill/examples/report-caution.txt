@@ -7,28 +7,28 @@ Path:  /Users/ericwoodard/clawd/video-processor-skill
 Date:  2026-01-29T16:15:00.000Z
 
 ┌─ INSTALLATION READINESS ─────────────────────────────────────────────────┐
-│ ⚠️  CAUTION - Review issues before installation
+│   CAUTION - Review issues before installation
 │
 └────────────────────────────────────────────────────────────────────────────┘
 
 ┌─ DEPENDENCIES ───────────────────────────────────────────────────────────┐
 │ Missing CLI Tools:
-│ ❌ ffmpeg
+│  ffmpeg
 │    Install: brew install ffmpeg
 │
 │ Missing API Keys/Tokens:
-│ ⚠️  groq - configure in TOOLS.md or environment
+│   groq - configure in TOOLS.md or environment
 │
-│ ℹ️  Requires 3 npm packages - will be installed via "npm install"
+│   Requires 3 npm packages - will be installed via "npm install"
 └────────────────────────────────────────────────────────────────────────────┘
 
 ┌─ SECURITY SCAN ──────────────────────────────────────────────────────────┐
-│ Risk Level: 🟢 SAFE
+│ Risk Level:  SAFE
 │ No dangerous patterns detected
 └────────────────────────────────────────────────────────────────────────────┘
 
 ┌─ RECOMMENDATION ─────────────────────────────────────────────────────────┐
-│ ⚠️  Proceed with caution. Review all issues above.
+│   Proceed with caution. Review all issues above.
 │
 │ Actions before installation:
 │ 1. Install missing CLI tools (see above)

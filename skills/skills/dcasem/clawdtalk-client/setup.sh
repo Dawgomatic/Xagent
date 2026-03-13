@@ -15,17 +15,17 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_FILE="$SCRIPT_DIR/skill-config.json"
 
 echo ""
-echo "📞 ClawdTalk Setup"
+echo " ClawdTalk Setup"
 echo "==================="
 echo ""
 echo "This will set up voice calling for your Clawdbot/OpenClaw instance."
 echo ""
 
 # Check for required tools
-echo "📋 Checking requirements..."
+echo " Checking requirements..."
 for tool in node jq; do
     if ! command -v "$tool" &> /dev/null; then
-        echo "❌ Required tool '$tool' is not installed."
+        echo " Required tool '$tool' is not installed."
         exit 1
     fi
 done
@@ -34,7 +34,7 @@ echo "   ✓ All required tools found"
 # Check if already configured
 if [ -f "$CONFIG_FILE" ]; then
     echo ""
-    echo "⚠️  Configuration already exists!"
+    echo "  Configuration already exists!"
     echo ""
     echo "Current config: $CONFIG_FILE"
     echo ""
@@ -48,7 +48,7 @@ if [ -f "$CONFIG_FILE" ]; then
 fi
 
 # Ask for API key
-echo "🔑 API Key"
+echo " API Key"
 echo "==========="
 echo ""
 echo "You need an API key from ClawdTalk."
@@ -63,12 +63,12 @@ echo ""
 if [ -n "$api_key" ]; then
     echo "   ✓ API key saved"
 else
-    echo "   ⚠️  No API key entered — you can add it to skill-config.json later"
+    echo "     No API key entered — you can add it to skill-config.json later"
 fi
 
 # Auto-detect gateway config (support both clawdbot and openclaw)
 echo ""
-echo "🔧 Configuring voice agent..."
+echo " Configuring voice agent..."
 
 GATEWAY_CONFIG=""
 CLI_NAME=""
@@ -131,32 +131,32 @@ if [ -n "$GATEWAY_CONFIG" ] && [ -f "$GATEWAY_CONFIG" ]; then
             # Restart gateway to pick up new agent
             if command -v "$CLI_NAME" &> /dev/null; then
                 echo "   ↻ Restarting gateway to apply changes..."
-                $CLI_NAME gateway restart 2>/dev/null && echo "   ✓ Gateway restarted" || echo "   ⚠️  Restart failed — run '$CLI_NAME gateway restart' manually"
+                $CLI_NAME gateway restart 2>/dev/null && echo "   ✓ Gateway restarted" || echo "     Restart failed — run '$CLI_NAME gateway restart' manually"
             else
-                echo "   ⚠️  Run '$CLI_NAME gateway restart' to apply the new agent config"
+                echo "     Run '$CLI_NAME gateway restart' to apply the new agent config"
             fi
         else
             rm -f "$tmp_config"
-            echo "   ⚠️  Could not auto-configure — see manual steps below"
+            echo "     Could not auto-configure — see manual steps below"
         fi
     fi
 else
-    echo "   ⚠️  Gateway config not found — see manual steps below"
+    echo "     Gateway config not found — see manual steps below"
     echo "   Checked: ~/.clawdbot/clawdbot.json and ~/.openclaw/openclaw.json"
 fi
 
 # Install Node dependencies
 echo ""
-echo "📦 Installing dependencies..."
+echo " Installing dependencies..."
 if [ -f "$SCRIPT_DIR/package.json" ]; then
-    (cd "$SCRIPT_DIR" && npm install --production 2>/dev/null) && echo "   ✓ Dependencies installed" || echo "   ⚠️  npm install failed — run 'npm install' manually in the skill directory"
+    (cd "$SCRIPT_DIR" && npm install --production 2>/dev/null) && echo "   ✓ Dependencies installed" || echo "     npm install failed — run 'npm install' manually in the skill directory"
 else
-    echo "   ⚠️  No package.json found"
+    echo "     No package.json found"
 fi
 
 # Detect user and agent names from workspace files
 echo ""
-echo "👤 Detecting names from workspace..."
+echo " Detecting names from workspace..."
 
 WORKSPACE="${main_agent_workspace:-$HOME/.openclaw/workspace}"
 owner_name=""
@@ -182,18 +182,18 @@ fi
 if [ -n "$owner_name" ]; then
     echo "   ✓ Owner name: $owner_name"
 else
-    echo "   ⚠️  Could not detect owner name from USER.md"
+    echo "     Could not detect owner name from USER.md"
 fi
 
 if [ -n "$agent_name" ]; then
     echo "   ✓ Agent name: $agent_name"
 else
-    echo "   ⚠️  Could not detect agent name from IDENTITY.md"
+    echo "     Could not detect agent name from IDENTITY.md"
 fi
 
 # Create skill-config.json
 echo ""
-echo "💾 Creating skill configuration..."
+echo " Creating skill configuration..."
 
 # Build values
 if [ -n "$api_key" ]; then
@@ -233,7 +233,7 @@ echo "   ✓ Configuration saved to: $CONFIG_FILE"
 
 # Display next steps
 echo ""
-echo "🎉 Setup Complete!"
+echo " Setup Complete!"
 echo "=================="
 echo ""
 
@@ -261,9 +261,9 @@ fi
 echo ""
 
 if [ "$voice_agent_added" = true ]; then
-    echo "✅ Voice agent is configured and ready."
+    echo " Voice agent is configured and ready."
 else
-    echo "⚠️  Voice agent not auto-configured. Add it manually:"
+    echo "  Voice agent not auto-configured. Add it manually:"
     echo ""
     config_path="~/.clawdbot/clawdbot.json"
     if [ "$CLI_NAME" = "openclaw" ]; then
@@ -279,7 +279,7 @@ else
 fi
 
 echo ""
-echo "📋 Voice calls will use your main agent's full context and memory."
+echo " Voice calls will use your main agent's full context and memory."
 echo "   All tools available to your agent work on voice calls too."
 echo ""
 echo "To check status: ./status.sh"

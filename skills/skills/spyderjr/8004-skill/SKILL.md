@@ -53,8 +53,8 @@ export TRON_PRIVATE_KEY="your_64_character_hex_private_key"
 | **Shasta** | Live | `TH775ZzfJ5V25EZkFuX6SkbAP53ykXTcma` | `TTkds2ZZKBTChZHho4wcWAa7eWQTxh5TUT` | `TQBFHtKRiaQjc1xp4LtmmXKYdA7JLN89w3` |
 
 **Note:** TRON deployments implement TRC-8004 (TRON version of ERC-8004). Query scripts use compatibility mode:
-- ✅ Always available: `ownerOf`, `tokenURI` (ERC-721 standard)
-- ⚠️ May vary: `agentURI`, `getAgentWallet`, `agentExists` (ERC-8004 extensions)
+-  Always available: `ownerOf`, `tokenURI` (ERC-721 standard)
+-  May vary: `agentURI`, `getAgentWallet`, `agentExists` (ERC-8004 extensions)
 
 ### BSC Networks
 

@@ -1,4 +1,4 @@
-# 📚 OpenClaw Security Guard - Documentation
+#  OpenClaw Security Guard - Documentation
 
 <div align="center">
 
@@ -17,52 +17,52 @@
 
 ---
 
-## 📖 Documentation Index
+##  Documentation Index
 
 ### Getting Started
 
 | Document | Description |
 |----------|-------------|
-| [🚀 Quick Start](./guides/getting-started.md) | Get running in 5 minutes |
-| [📥 Installation](./en/README.md#installation) | Installation instructions |
+| [ Quick Start](./guides/getting-started.md) | Get running in 5 minutes |
+| [ Installation](./en/README.md#installation) | Installation instructions |
 
 ### User Guides
 
 | Document | Description |
 |----------|-------------|
-| [🇬🇧 English Documentation](./en/README.md) | Complete English docs |
-| [🇫🇷 Documentation Française](./fr/README.md) | Documentation complète en français |
-| [🇲🇦 التوثيق بالعربية](./ar/README.md) | التوثيق بالعربية |
+| [ English Documentation](./en/README.md) | Complete English docs |
+| [ Documentation Française](./fr/README.md) | Documentation complète en français |
+| [ التوثيق بالعربية](./ar/README.md) | التوثيق بالعربية |
 
 ### Reference
 
 | Document | Description |
 |----------|-------------|
-| [📋 CLI Reference](./api/cli.md) | All CLI commands and options |
-| [🔌 Programmatic API](./api/programmatic.md) | Use in your Node.js apps |
+| [ CLI Reference](./api/cli.md) | All CLI commands and options |
+| [ Programmatic API](./api/programmatic.md) | Use in your Node.js apps |
 
 ### Project
 
 | Document | Description |
 |----------|-------------|
-| [🤝 Contributing](../CONTRIBUTING.md) | How to contribute |
-| [🔒 Security Policy](../SECURITY.md) | Security practices |
-| [📝 Changelog](../CHANGELOG.md) | Version history |
-| [📜 License](../LICENSE) | MIT License |
+| [ Contributing](../CONTRIBUTING.md) | How to contribute |
+| [ Security Policy](../SECURITY.md) | Security practices |
+| [ Changelog](../CHANGELOG.md) | Version history |
+| [ License](../LICENSE) | MIT License |
 
 ---
 
-## 🌍 Language Support
+##  Language Support
 
 | Language | Status | Link |
 |----------|--------|------|
-| 🇬🇧 English | ✅ Complete | [Read](./en/README.md) |
-| 🇫🇷 Français | ✅ Complete | [Lire](./fr/README.md) |
-| 🇲🇦 العربية | ✅ Complete | [اقرأ](./ar/README.md) |
+|  English |  Complete | [Read](./en/README.md) |
+|  Français |  Complete | [Lire](./fr/README.md) |
+|  العربية |  Complete | [اقرأ](./ar/README.md) |
 
 ---
 
-## ⚡ Quick Links
+##  Quick Links
 
 ### Most Common Tasks
 
@@ -88,23 +88,23 @@ openclaw-guard report -f html
 
 ---
 
-## 🆘 Need Help?
+##  Need Help?
 
-- 📖 Read the [documentation](./en/README.md)
-- 🐛 [Report a bug](https://github.com/2pidata/openclaw-security-guard/issues)
-- 💡 [Request a feature](https://github.com/2pidata/openclaw-security-guard/issues)
-- 🌐 Visit [2pidata.com](https://2pidata.com)
+-  Read the [documentation](./en/README.md)
+-  [Report a bug](https://github.com/2pidata/openclaw-security-guard/issues)
+-  [Request a feature](https://github.com/2pidata/openclaw-security-guard/issues)
+-  Visit [2pidata.com](https://2pidata.com)
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by [Miloud Belarebia](https://github.com/2pidata)**
+**Made with  by [Miloud Belarebia](https://github.com/2pidata)**
 
 [GitHub](https://github.com/2pidata/openclaw-security-guard) •
 [npm](https://www.npmjs.com/package/openclaw-security-guard) •
 [2pidata.com](https://2pidata.com)
 
-#databelarebia 🇲🇦
+#databelarebia 
 
 </div>

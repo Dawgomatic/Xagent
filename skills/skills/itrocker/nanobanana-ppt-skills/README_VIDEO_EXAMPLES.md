@@ -2,17 +2,17 @@
 
 ## 方案选择建议
 
-### 🎯 推荐方案对比
+###  推荐方案对比
 
 | 方案 | 文件大小限制 | 国内访问 | 国外访问 | 自动播放 | 维护成本 |
 |------|------------|----------|----------|----------|---------|
-| **GIF 动图** | 建议 < 10MB | ✅ 快 | ✅ 快 | ✅ 是 | ⭐ 低 |
-| **GitHub 仓库视频** | < 100MB | ⚠️ 慢 | ✅ 快 | ❌ 否 | ⭐ 低 |
-| **Bilibili** | 无限制 | ✅ 快 | ⚠️ 慢 | ❌ 否 | ⭐⭐ 中 |
-| **GitHub + Bilibili** | - | ✅ 快 | ✅ 快 | ❌ 否 | ⭐⭐ 中 |
-| **Cloudinary** | 25GB 免费 | ✅ 快 | ✅ 快 | ❌ 否 | ⭐⭐⭐ 高 |
+| **GIF 动图** | 建议 < 10MB |  快 |  快 |  是 |  低 |
+| **GitHub 仓库视频** | < 100MB |  慢 |  快 |  否 |  低 |
+| **Bilibili** | 无限制 |  快 |  慢 |  否 |  中 |
+| **GitHub + Bilibili** | - |  快 |  快 |  否 |  中 |
+| **Cloudinary** | 25GB 免费 |  快 |  快 |  否 |  高 |
 
-### 💡 具体建议
+###  具体建议
 
 **对于你的项目（NanoBanana PPT Skills）**，我推荐：
 
@@ -38,7 +38,7 @@
 
 ---
 
-## 🎬 效果演示
+##  效果演示
 
 <div align="center">
 
@@ -65,7 +65,7 @@
 ### 方案 2: GitHub 仓库视频（< 100MB）
 
 ```markdown
-## 🎬 效果演示
+##  效果演示
 
 <div align="center">
 
@@ -96,13 +96,13 @@ https://github.com/op7418/NanoBanana-PPT-Skills/assets/YOUR_USER_ID/demo.mp4
 ### 方案 3: Bilibili 嵌入
 
 ```markdown
-## 🎬 效果演示
+##  效果演示
 
 <div align="center">
 
 [![Watch Demo on Bilibili](https://i0.hdslb.com/bfs/archive/VIDEO_COVER.jpg)](https://www.bilibili.com/video/BVXXXXXXX)
 
-**🎥 [点击观看完整演示视频（Bilibili）](https://www.bilibili.com/video/BVXXXXXXX)**
+** [点击观看完整演示视频（Bilibili）](https://www.bilibili.com/video/BVXXXXXXX)**
 
 *包含详细功能讲解和使用教程*
 
@@ -114,7 +114,7 @@ https://github.com/op7418/NanoBanana-PPT-Skills/assets/YOUR_USER_ID/demo.mp4
 ### 方案 4: GitHub + Bilibili 双托管（推荐给你的最佳方案）
 
 ```markdown
-## 🎬 效果演示
+##  效果演示
 
 <div align="center">
 
@@ -124,9 +124,9 @@ https://github.com/op7418/NanoBanana-PPT-Skills/assets/YOUR_USER_ID/demo-short.m
 
 ### 完整教程
 
-**🎥 [观看完整演示视频（Bilibili 5分钟）](https://www.bilibili.com/video/BVXXXXXXX)** - 包含详细功能讲解
+** [观看完整演示视频（Bilibili 5分钟）](https://www.bilibili.com/video/BVXXXXXXX)** - 包含详细功能讲解
 
-**🌍 [Watch Full Demo (YouTube 5min)](https://youtube.com/watch?v=XXXXXXXXX)** - English subtitles available
+** [Watch Full Demo (YouTube 5min)](https://youtube.com/watch?v=XXXXXXXXX)** - English subtitles available
 
 </div>
 
@@ -138,7 +138,7 @@ https://github.com/op7418/NanoBanana-PPT-Skills/assets/YOUR_USER_ID/demo-short.m
 ### 方案 5: Cloudinary 托管
 
 ```markdown
-## 🎬 效果演示
+##  效果演示
 
 <div align="center">
 
@@ -161,24 +161,24 @@ https://github.com/op7418/NanoBanana-PPT-Skills/assets/YOUR_USER_ID/demo-short.m
 ### 方案 6: 多种演示方式组合（完整版）
 
 ```markdown
-## 🎬 效果演示
+##  效果演示
 
 <div align="center">
 
-### 🎨 渐变毛玻璃风格演示
+###  渐变毛玻璃风格演示
 
 ![Gradient Glass Style Demo](demos/gradient-glass-demo.gif)
 
-### 🎞️ 完整 PPT 生成流程
+###  完整 PPT 生成流程
 
 https://github.com/op7418/NanoBanana-PPT-Skills/assets/YOUR_USER_ID/full-demo.mp4
 
-### 📺 详细教程视频
+###  详细教程视频
 
 | 平台 | 链接 | 时长 | 说明 |
 |------|------|------|------|
-| 🎬 **Bilibili** | [观看教程](https://bilibili.com/video/BVXXXX) | 5:30 | 中文讲解，包含安装和使用 |
-| 🌏 **YouTube** | [Watch Tutorial](https://youtube.com/watch?v=XXXX) | 5:30 | English subtitles |
+|  **Bilibili** | [观看教程](https://bilibili.com/video/BVXXXX) | 5:30 | 中文讲解，包含安装和使用 |
+|  **YouTube** | [Watch Tutorial](https://youtube.com/watch?v=XXXX) | 5:30 | English subtitles |
 
 </div>
 
@@ -283,25 +283,25 @@ ls -lh demo-compressed.mp4
 
 ---
 
-## 🎬 效果演示
+##  效果演示
 
 <div align="center">
 
-### 🎨 自动生成渐变毛玻璃风格 PPT
+###  自动生成渐变毛玻璃风格 PPT
 
 ![Demo](demo.gif)
 
 *从文档分析到转场视频，一键完成*
 
-### 📺 完整教程
+###  完整教程
 
-**🎥 [观看详细教程（Bilibili 5分钟）](https://bilibili.com/video/BVXXXX)** - 包含安装和使用说明
+** [观看详细教程（Bilibili 5分钟）](https://bilibili.com/video/BVXXXX)** - 包含安装和使用说明
 
 </div>
 
 ---
 
-## 📖 简介
+##  简介
 
 ...
 ```
@@ -327,7 +327,7 @@ ls -lh demo-compressed.mp4
     ↓
 导航链接（添加"效果演示"）
     ↓
-🎬 效果演示（GIF 自动播放）
+ 效果演示（GIF 自动播放）
     ↓
 完整教程链接（Bilibili/YouTube）
     ↓

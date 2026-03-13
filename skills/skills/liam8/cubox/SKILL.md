@@ -14,7 +14,7 @@ This skill enables saving content to Cubox using the Open API. Cubox is a read-i
    - Go to Cubox Preferences > Extension Center and Automation > API Extension
    - Enable "API Link" to get your personal API URL
    
-> ⚠️ **Security**: Your API URL is a unique credential. Keep it private and never share it.
+>  **Security**: Your API URL is a unique credential. Keep it private and never share it.
 
 ## Environment Setup
 

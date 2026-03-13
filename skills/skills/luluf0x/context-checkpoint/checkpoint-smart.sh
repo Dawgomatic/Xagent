@@ -83,7 +83,7 @@ ${CONTEXT:-No additional context recorded.}
 $(format_list "$NEXT_STEPS")
 
 ---
-*Checkpoint saved by context-checkpoint skill* 🦊
+*Checkpoint saved by context-checkpoint skill* 
 EOF
 
 ln -sf "${TIMESTAMP}.md" "${CHECKPOINT_DIR}/latest.md"

@@ -1,7 +1,7 @@
 ---
 name: saas-decomposer
 description: "Web SaaS service decomposition and AI internalization development plan generation. Analyze existing SaaS to identify functions replaceable by AI agents and establish skill-based internalization roadmap. Triggered by 'SaaS analysis', 'service decomposition', 'internalization', 'decompose', 'SaaS replacement', 'build this service with AI', etc."
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
 # saas-decomposer
@@ -37,9 +37,9 @@ Mupengism's core vision: **"End of SaaS → AIaaS"**
 ## [Service Name] Decomposition Results
 
 ### Function List
-- Function A (AI replacement: ⭐⭐⭐⭐⭐) → Existing skill: copywriting
-- Function B (AI replacement: ⭐⭐⭐) → New skill needed
-- Function C (AI replacement: ⭐) → Infrastructure development needed
+- Function A (AI replacement: ) → Existing skill: copywriting
+- Function B (AI replacement: ) → New skill needed
+- Function C (AI replacement: ) → Infrastructure development needed
 
 ### AI Replacement Rate: 70%
 ### New Skills Needed: 3
@@ -93,10 +93,10 @@ Simultaneous decomposition of 3-5 SaaS in same category:
 
 | Function | HubSpot | Mailchimp | ActiveCampaign | Mupeng Replacement |
 |----------|---------|-----------|----------------|-------------------|
-| Email automation | ✅ | ✅ | ✅ | ⭐⭐⭐⭐⭐ auto-reply |
-| Lead scoring | ✅ | ❌ | ✅ | ⭐⭐⭐ (new skill) |
-| A/B testing | ✅ | ✅ | ✅ | ⭐⭐⭐⭐ copywriting |
-| CRM integration | ✅ | ⚠️ | ✅ | ⭐⭐ (infrastructure needed) |
+| Email automation |  |  |  |  auto-reply |
+| Lead scoring |  |  |  |  (new skill) |
+| A/B testing |  |  |  |  copywriting |
+| CRM integration |  |  |  |  (infrastructure needed) |
 
 **Overall Replacement Rate**: 65%
 ```
@@ -198,11 +198,11 @@ Memory to reference during analysis:
 
 | Score | Meaning | Examples |
 |-------|---------|----------|
-| ⭐⭐⭐⭐⭐ | Immediately replaceable (use existing skills) | Auto email response, content generation |
-| ⭐⭐⭐⭐ | Replaceable with lightweight skill development (1-2 weeks) | Lead scoring, A/B testing |
-| ⭐⭐⭐ | Medium development needed (2-4 weeks) | Workflow engine, dashboard |
-| ⭐⭐ | Infrastructure development needed (1-2 months) | Real-time sync, data pipeline |
-| ⭐ | Long-term R&D needed (3+ months) | Advanced ML models, complex integrations |
+|  | Immediately replaceable (use existing skills) | Auto email response, content generation |
+|  | Replaceable with lightweight skill development (1-2 weeks) | Lead scoring, A/B testing |
+|  | Medium development needed (2-4 weeks) | Workflow engine, dashboard |
+|  | Infrastructure development needed (1-2 months) | Real-time sync, data pipeline |
+|  | Long-term R&D needed (3+ months) | Advanced ML models, complex integrations |
 
 ---
 
@@ -222,4 +222,4 @@ Memory to reference during analysis:
 
 ---
 
-🐧 Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill
+ Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill

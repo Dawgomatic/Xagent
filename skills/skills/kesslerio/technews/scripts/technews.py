@@ -21,16 +21,16 @@ from social_reactions import analyze_reactions
 def format_output(stories: List[Dict]) -> str:
     """Format stories for display."""
     output = []
-    output.append("📰 **Tech News Briefing**")
+    output.append(" **Tech News Briefing**")
     output.append("")
     
     for i, story in enumerate(stories, 1):
         output.append(f"**{i}. {story['title']}**")
         # Use markdown inline link for Telegram
-        output.append(f"🔗 [{story['url']}]({story['url']})")
+        output.append(f" [{story['url']}]({story['url']})")
         
         if story.get("summary"):
-            output.append(f"📝 {story['summary'][:200]}...")
+            output.append(f" {story['summary'][:200]}...")
         
         # Show reactions if available
         if story.get("reactions"):
@@ -41,10 +41,10 @@ def format_output(stories: List[Dict]) -> str:
                 hn_url = hn.get("hn_url", "")
                 points = hn.get("points", 0)
                 comments = hn.get("comment_count", 0)
-                output.append(f"💬 [HN: {points}pts, {comments} comments]({hn_url})")
+                output.append(f" [HN: {points}pts, {comments} comments]({hn_url})")
             
             if reactions.get("spicy_quotes"):
-                output.append(f"🔥 \"{reactions['spicy_quotes'][0][:100]}...\"")
+                output.append(f" \"{reactions['spicy_quotes'][0][:100]}...\"")
         
         output.append("")
     
@@ -59,7 +59,7 @@ def run_technews(num_stories: int = 10) -> str:
         stories = fetch_techmeme(num_stories)
         
         if not stories:
-            return "❌ Could not fetch stories from TechMeme"
+            return " Could not fetch stories from TechMeme"
         
         # Step 2: Fetch article content
         print(f"Fetching {len(stories)} articles...")
@@ -80,9 +80,9 @@ def run_technews(num_stories: int = 10) -> str:
         return format_output(analyzed)
         
     except requests.exceptions.RequestException as e:
-        return f"❌ Network error: {str(e)}"
+        return f" Network error: {str(e)}"
     except Exception as e:
-        return f"❌ Unexpected error: {str(e)}"
+        return f" Unexpected error: {str(e)}"
 
 
 def main():

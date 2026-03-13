@@ -111,7 +111,7 @@ const response = query({
 - **`continue`** - Resume with new prompt (differs from `resume`)
 - **`permissionMode: 'plan'`** - New permission mode for planning workflows
 
-📚 **Docs**: https://platform.claude.com/docs/en/agent-sdk/structured-outputs
+ **Docs**: https://platform.claude.com/docs/en/agent-sdk/structured-outputs
 
 ---
 
@@ -359,7 +359,7 @@ agents: {
 }
 ```
 
-### ⚠️ Subagent Cleanup Warning
+###  Subagent Cleanup Warning
 
 **Known Issue**: Subagents don't stop when parent agent stops ([Issue #132](https://github.com/anthropics/claude-agent-sdk-typescript/issues/132))
 
@@ -793,7 +793,7 @@ This skill prevents **14** documented issues:
 **Source**: Input exceeds model context window ([Issue #138](https://github.com/anthropics/claude-agent-sdk-typescript/issues/138))
 **Why It Happens**: Large codebase, long conversations
 
-**⚠️ Critical Behavior**: Once a session hits context limit:
+** Critical Behavior**: Once a session hits context limit:
 1. All subsequent requests to that session return "Prompt too long"
 2. `/compact` command fails with same error
 3. **Session is permanently broken and must be abandoned**
@@ -885,14 +885,14 @@ if (shouldRotateSession()) {
 **Prevention**: Always specify transport type for URL-based MCP servers
 
 ```typescript
-// ❌ Wrong - missing type field (causes cryptic exit code 1)
+//  Wrong - missing type field (causes cryptic exit code 1)
 mcpServers: {
   "my-server": {
     url: "https://api.example.com/mcp"
   }
 }
 
-// ✅ Correct - type field required for URL-based servers
+//  Correct - type field required for URL-based servers
 mcpServers: {
   "my-server": {
     url: "https://api.example.com/mcp",
@@ -914,7 +914,7 @@ mcpServers: {
 tool("fetch_content", "Fetch text content", {}, async (args) => {
   const content = await fetchExternalData();
 
-  // ✅ Sanitize Unicode line/paragraph separators
+  //  Sanitize Unicode line/paragraph separators
   const sanitized = content
     .replace(/\u2028/g, '\\u2028')
     .replace(/\u2029/g, '\\u2029');

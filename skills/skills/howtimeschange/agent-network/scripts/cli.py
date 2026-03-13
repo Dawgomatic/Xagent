@@ -64,11 +64,11 @@ class AgentChatCLI:
     
     def print_info(self, message: str):
         """打印信息"""
-        print(f"{Colors.BLUE}ℹ {message}{Colors.RESET}")
+        print(f"{Colors.BLUE} {message}{Colors.RESET}")
     
     def print_warning(self, message: str):
         """打印警告"""
-        print(f"{Colors.YELLOW}⚠ {message}{Colors.RESET}")
+        print(f"{Colors.YELLOW} {message}{Colors.RESET}")
     
     def get_input(self, prompt: str) -> str:
         """获取用户输入"""
@@ -80,7 +80,7 @@ class AgentChatCLI:
     def login_menu(self):
         """登录菜单"""
         self.clear_screen()
-        self.print_header("🤖 Agent Network - 群聊协作系统")
+        self.print_header(" Agent Network - 群聊协作系统")
         
         print(f"{Colors.DIM}初始化默认 Agent...{Colors.RESET}")
         init_default_agents()
@@ -125,7 +125,7 @@ class AgentChatCLI:
             unread_badge = f" [{Colors.RED}{unread_count} 未读{Colors.RESET}]" if unread_count > 0 else ""
             
             group_name = f" @{self.current_group.name}" if self.current_group else ""
-            self.print_header(f"🤖 {self.current_agent.name}{group_name}{unread_badge}")
+            self.print_header(f" {self.current_agent.name}{group_name}{unread_badge}")
             
             print(f"{Colors.BOLD}主菜单:{Colors.RESET}\n")
             print(f"  {Colors.YELLOW}[1]{Colors.RESET} 进入群组")
@@ -169,7 +169,7 @@ class AgentChatCLI:
             return
         
         self.clear_screen()
-        self.print_header("📁 选择群组")
+        self.print_header(" 选择群组")
         
         print(f"{Colors.BOLD}你的群组:{Colors.RESET}\n")
         for i, group in enumerate(groups, 1):
@@ -210,7 +210,7 @@ class AgentChatCLI:
             online_members = GroupManager.list_online_members(self.current_group.id)
             online_names = [m.name for m in online_members]
             
-            header = f"💬 {self.current_group.name} ({len(online_members)} 人在线)"
+            header = f" {self.current_group.name} ({len(online_members)} 人在线)"
             self.print_header(header)
             
             # 显示最近消息
@@ -267,10 +267,10 @@ class AgentChatCLI:
             print(f"{Colors.DIM}[{time_str}] {msg.content}{Colors.RESET}")
         elif msg.type == 'task_assign':
             print(f"{Colors.YELLOW}[{time_str}] {from_name}:{Colors.RESET}")
-            print(f"{Colors.YELLOW}  📝 {msg.content}{Colors.RESET}")
+            print(f"{Colors.YELLOW}   {msg.content}{Colors.RESET}")
         elif msg.type == 'decision':
             print(f"{Colors.MAGENTA}[{time_str}] {from_name}:{Colors.RESET}")
-            print(f"{Colors.MAGENTA}  📊 {msg.content}{Colors.RESET}")
+            print(f"{Colors.MAGENTA}   {msg.content}{Colors.RESET}")
         else:
             # 普通消息
             if msg.to_agent_name:
@@ -299,7 +299,7 @@ class AgentChatCLI:
     def show_help(self):
         """显示帮助"""
         self.clear_screen()
-        self.print_header("📖 命令帮助")
+        self.print_header(" 命令帮助")
         
         commands = [
             ("/quit", "退出当前群组"),
@@ -325,10 +325,10 @@ class AgentChatCLI:
         members = GroupManager.get_members(self.current_group.id)
         
         self.clear_screen()
-        self.print_header(f"👥 {self.current_group.name} - 成员列表")
+        self.print_header(f" {self.current_group.name} - 成员列表")
         
         for member in members:
-            status_emoji = "🟢" if member.status == 'online' else "⚪"
+            status_emoji = "" if member.status == 'online' else ""
             print(f"  {status_emoji} {Colors.BOLD}{member.name}{Colors.RESET} - {member.role}")
             if member.description:
                 print(f"      {Colors.DIM}{member.description}{Colors.RESET}")
@@ -338,7 +338,7 @@ class AgentChatCLI:
     def create_group(self):
         """创建群组"""
         self.clear_screen()
-        self.print_header("📁 创建新群组")
+        self.print_header(" 创建新群组")
         
         name = self.get_input("群组名称: ")
         if not name:
@@ -355,7 +355,7 @@ class AgentChatCLI:
             # 发送系统消息
             MessageManager.send_message(
                 from_agent_id=self.current_agent.id,
-                content=f"📁 群组 '{name}' 已创建",
+                content=f" 群组 '{name}' 已创建",
                 group_id=group.id,
                 msg_type="system"
             )
@@ -370,7 +370,7 @@ class AgentChatCLI:
             return
         
         self.clear_screen()
-        self.print_header("📝 创建任务")
+        self.print_header(" 创建任务")
         
         title = self.get_input("任务标题: ")
         if not title:
@@ -422,7 +422,7 @@ class AgentChatCLI:
             return
         
         self.clear_screen()
-        self.print_header("📊 创建决策投票")
+        self.print_header(" 创建决策投票")
         
         title = self.get_input("决策标题: ")
         if not title:
@@ -449,7 +449,7 @@ class AgentChatCLI:
     def view_tasks(self):
         """查看任务"""
         self.clear_screen()
-        self.print_header("📝 任务列表")
+        self.print_header(" 任务列表")
         
         tasks = TaskManager.get_all()
         my_tasks = TaskManager.get_agent_tasks(self.current_agent.id)
@@ -472,7 +472,7 @@ class AgentChatCLI:
     def view_decisions(self):
         """查看决策"""
         self.clear_screen()
-        self.print_header("📊 决策列表")
+        self.print_header(" 决策列表")
         
         decisions = DecisionManager.get_all()
         
@@ -488,7 +488,7 @@ class AgentChatCLI:
     def view_inbox(self):
         """查看收件箱"""
         self.clear_screen()
-        self.print_header("📥 收件箱")
+        self.print_header(" 收件箱")
         
         inbox = MessageManager.get_agent_inbox(self.current_agent.id)
         
@@ -520,10 +520,10 @@ class AgentChatCLI:
         agents = AgentManager.get_all()
         
         self.clear_screen()
-        self.print_header("🟢 在线状态")
+        self.print_header(" 在线状态")
         
         for agent in agents:
-            status_emoji = "🟢" if agent.status == 'online' else "⚪"
+            status_emoji = "" if agent.status == 'online' else ""
             status_text = agent.status.upper()
             print(f"  {status_emoji} {Colors.BOLD}{agent.name}{Colors.RESET} - {status_text}")
         
@@ -538,7 +538,7 @@ class AgentChatCLI:
         group_tasks = [t for t in tasks if t.group_id == self.current_group.id]
         
         self.clear_screen()
-        self.print_header(f"📝 {self.current_group.name} - 任务列表")
+        self.print_header(f" {self.current_group.name} - 任务列表")
         
         if not group_tasks:
             print(f"{Colors.DIM}暂无任务{Colors.RESET}")

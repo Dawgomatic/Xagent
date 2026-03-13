@@ -3,7 +3,7 @@ name: youtube-playlist
 description: Browse YouTube playlists and fetch video transcripts. Use when the user shares a playlist link, asks "what's in this playlist", "list playlist videos", "browse playlist content", or wants to work with playlist videos and get their transcripts.
 homepage: https://transcriptapi.com
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📋","requires":{"env":["TRANSCRIPT_API_KEY"],"bins":["node"],"config":["~/.openclaw/openclaw.json"]},"primaryEnv":"TRANSCRIPT_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["TRANSCRIPT_API_KEY"],"bins":["node"],"config":["~/.openclaw/openclaw.json"]},"primaryEnv":"TRANSCRIPT_API_KEY"}}
 ---
 
 # YouTube Playlist

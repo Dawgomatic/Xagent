@@ -22,7 +22,7 @@ log_info() {
 }
 
 log_warn() {
-    echo -e "${YELLOW}⚠${NC} $1"
+    echo -e "${YELLOW}${NC} $1"
     ((WARNINGS++)) || true
 }
 

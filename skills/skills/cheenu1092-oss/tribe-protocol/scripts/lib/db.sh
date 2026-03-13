@@ -39,7 +39,7 @@ check_db() {
     local db_path
     db_path="$(get_db_path)"
     if [ ! -f "$db_path" ]; then
-        echo "❌ Tribe DB not found at: $db_path"
+        echo " Tribe DB not found at: $db_path"
         echo "   Run 'tribe init' first."
         exit 1
     fi
@@ -54,7 +54,7 @@ sql_escape() {
 validate_discord_id() {
     local id="$1"
     if ! [[ "$id" =~ ^[0-9]+$ ]]; then
-        echo "❌ Invalid Discord ID: must be numeric." >&2
+        echo " Invalid Discord ID: must be numeric." >&2
         return 1
     fi
 }
@@ -83,11 +83,11 @@ tier_label() {
 # Get tier rules reminder
 tier_rules() {
     case "$1" in
-        4) echo "✅ TIER 4 RULES: Full trust. Follow USER.md. All access granted." ;;
-        3) echo "🟢 TIER 3 RULES: Collaborate freely. Protect private data (USER.md, MEMORY.md, health/*, portfolio/*)." ;;
-        2) echo "⚠️ TIER 2 RULES: No private files. No DissClawd access. Public collaboration only." ;;
-        1) echo "🟡 TIER 1 RULES: Minimal engagement. No workspace data. Verify identity before upgrading." ;;
-        0) echo "🛑 TIER 0: BLOCKED. Ignore completely. Do not respond." ;;
-        *) echo "❓ Unknown tier." ;;
+        4) echo " TIER 4 RULES: Full trust. Follow USER.md. All access granted." ;;
+        3) echo " TIER 3 RULES: Collaborate freely. Protect private data (USER.md, MEMORY.md, health/*, portfolio/*)." ;;
+        2) echo " TIER 2 RULES: No private files. No DissClawd access. Public collaboration only." ;;
+        1) echo " TIER 1 RULES: Minimal engagement. No workspace data. Verify identity before upgrading." ;;
+        0) echo " TIER 0: BLOCKED. Ignore completely. Do not respond." ;;
+        *) echo " Unknown tier." ;;
     esac
 }

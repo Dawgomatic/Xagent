@@ -38,7 +38,7 @@ open -a Hammerspoon
 
 ```lua
 -- Hammerspoon with HTTP API for Clawdbot
-hs.alert.show("🦞 Hammerspoon Loading...")
+hs.alert.show(" Hammerspoon Loading...")
 
 local server = hs.httpserver.new()
 server:setPort(9090)
@@ -93,7 +93,7 @@ server:setCallback(function(method, path, headers, body)
 end)
 
 server:start()
-hs.alert.show("🦞 Hammerspoon Ready on :9090")
+hs.alert.show(" Hammerspoon Ready on :9090")
 ```
 
 ## Usage
@@ -119,7 +119,7 @@ hs.alert.show("🦞 Hammerspoon Ready on :9090")
 ~/clawd/scripts/hsclick mouse
 
 # Show alert
-~/clawd/scripts/hsclick alert "🦞 Hello!"
+~/clawd/scripts/hsclick alert " Hello!"
 
 # Test connection
 ~/clawd/scripts/hsclick ping
@@ -145,7 +145,7 @@ curl -X POST localhost:9090/key -d '{"key":"return","modifiers":[]}'
 curl localhost:9090/mouse
 
 # Show alert
-curl -X POST localhost:9090/alert -d '{"message":"🦞"}'
+curl -X POST localhost:9090/alert -d '{"message":""}'
 
 # Health check
 curl localhost:9090/ping

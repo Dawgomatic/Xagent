@@ -38,17 +38,17 @@ async function generateAudio(text, filename) {
   // Use a specific reference ID for Shutiao if available, otherwise use env default
   const refId = process.env.FISH_AUDIO_REF_ID;
   if (!refId) {
-    console.error("❌ FISH_AUDIO_REF_ID not set in .env. Cannot generate audio.");
+    console.error(" FISH_AUDIO_REF_ID not set in .env. Cannot generate audio.");
     throw new Error("Missing FISH_AUDIO_REF_ID");
   }
 
   if (!apiKey) {
-    console.warn("⚠️ Fish Audio Key missing! Falling back to macOS 'say' command.");
+    console.warn(" Fish Audio Key missing! Falling back to macOS 'say' command.");
     execSync(`say -o "${wavPath}" --data-format=LEF32@24000 "${text}"`);
   } else {
     // Clean text for TTS (remove content in brackets)
     const cleanText = text.replace(/[\(\（].*?[\)\）]/g, '').trim();
-    console.log(`🐟 Fish Audio generating: "${cleanText.substring(0, 15)}..." (Ref: ${refId})`);
+    console.log(` Fish Audio generating: "${cleanText.substring(0, 15)}..." (Ref: ${refId})`);
     
     const payload = JSON.stringify({
       text: cleanText,
@@ -170,7 +170,7 @@ async function drawFrame(spriteName, text, outputFilename) {
     console.log(`[DEBUG] Sprite loaded. Size: ${meta.width}x${meta.height}`);
     baseImage = sharp(spritePath).resize(width, height, { fit: 'cover' });
   } else {
-    console.warn(`⚠️ Sprite file not found: ${spritePath}, using white fallback`);
+    console.warn(` Sprite file not found: ${spritePath}, using white fallback`);
     // Create a plain white background as fallback
     baseImage = sharp({
       create: { width, height, channels: 4, background: { r: 255, g: 255, b: 255, alpha: 1 } }
@@ -221,7 +221,7 @@ function loadSprites() {
         SPRITE_DB[emotion].push(filename);
       }
     }
-    console.log(`📚 Sprite DB Loaded: ${Object.keys(SPRITE_DB).map(k => `${k}(${SPRITE_DB[k].length})`).join(', ')}`);
+    console.log(` Sprite DB Loaded: ${Object.keys(SPRITE_DB).map(k => `${k}(${SPRITE_DB[k].length})`).join(', ')}`);
   } catch (e) {
     console.error("Failed to load sprite CSV:", e);
   }
@@ -233,7 +233,7 @@ function getSprite(emotion) {
   if (!list || list.length === 0) {
     // Fallback logic
     if (emotion === 'Base') return 'base';
-    console.warn(`⚠️ No sprites found for emotion: ${emotion}, using Base.`);
+    console.warn(` No sprites found for emotion: ${emotion}, using Base.`);
     return 'base';
   }
   // Random pick
@@ -245,7 +245,7 @@ function getSprite(emotion) {
 // Main
 async function main() {
   await loadSprites(); // Init DB
-  console.log('🎬 Action!');
+  console.log(' Action!');
   
   let script = [];
   
@@ -256,18 +256,18 @@ async function main() {
       if (fs.existsSync(scriptPath)) {
         const raw = fs.readFileSync(scriptPath, 'utf8');
         script = JSON.parse(raw);
-        console.log(`📜 Loaded external script: ${scriptPath} (${script.length} scenes)`);
+        console.log(` Loaded external script: ${scriptPath} (${script.length} scenes)`);
       } else {
-        console.warn(`⚠️ Script file not found: ${scriptPath}`);
+        console.warn(` Script file not found: ${scriptPath}`);
       }
     } catch (e) {
-      console.error(`❌ Failed to load script: ${e.message}`);
+      console.error(` Failed to load script: ${e.message}`);
     }
   }
 
   // Fallback Demo Script
   if (script.length === 0) {
-    console.log('⚠️ No valid script provided, running demo...');
+    console.log(' No valid script provided, running demo...');
     script = [
       { "text": "老板！对不起！(跪)", "emotion": "Sad" },
       { "text": "我是败家老鼠！我不该说吃H100的！(哭)", "emotion": "Sad" },
@@ -277,7 +277,7 @@ async function main() {
   }
 
   // Parallel Processing with Concurrency Limit (Max 3)
-  console.log('🚀 Starting parallel rendering (Max 3 concurrent)...');
+  console.log(' Starting parallel rendering (Max 3 concurrent)...');
   const CONCURRENCY = 3;
   let results = []; // Fixed: explicit declaration to allow push
 
@@ -294,7 +294,7 @@ async function main() {
     // Safety check for sprite existence
     const testPath = path.join(ASSETS_DIR, `shutiao_${spriteName}.png`);
     if (!fs.existsSync(testPath)) {
-      console.warn(`⚠️ Sprite missing: ${spriteName}, falling back to base`);
+      console.warn(` Sprite missing: ${spriteName}, falling back to base`);
       spriteName = 'base';
     }
 
@@ -307,7 +307,7 @@ async function main() {
       const clipPath = makeClip(imagePath, audio.path, audio.duration, `clip_${i}.mp4`);
       return { index: i, path: clipPath };
     } catch (e) {
-      console.error(`❌ Scene ${i+1} failed:`, e);
+      console.error(` Scene ${i+1} failed:`, e);
       return null;
     }
   };
@@ -323,7 +323,7 @@ async function main() {
   }
 
   if (results.length === 0) {
-    console.error("❌ No clips produced!");
+    console.error(" No clips produced!");
     return;
   }
 
@@ -342,9 +342,9 @@ async function main() {
   
   try {
     execSync(`ffmpeg -y -f concat -safe 0 -i "${listPath}" -c copy "${finalPath}"`);
-    console.log('🎉 Cut! Video is ready:', finalPath);
+    console.log(' Cut! Video is ready:', finalPath);
   } catch (e) {
-    console.error("❌ FFmpeg merge failed:", e);
+    console.error(" FFmpeg merge failed:", e);
   }
 }
 

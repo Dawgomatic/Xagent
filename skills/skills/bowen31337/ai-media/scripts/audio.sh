@@ -16,15 +16,15 @@ OUTPUT_DIR="/data/ai-stack/output"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 OUTPUT_FILE="audio_${TIMESTAMP}.wav"
 
-echo "🔊 Generating audio"
-echo "💬 Text: '$TEXT'"
-echo "🌍 Language: $LANG"
-echo "👤 Gender: $GENDER"
-echo "🖥️  GPU Server: $GPU_HOST"
+echo " Generating audio"
+echo " Text: '$TEXT'"
+echo " Language: $LANG"
+echo " Gender: $GENDER"
+echo "  GPU Server: $GPU_HOST"
 
 # Check SSH connectivity
 if ! ssh -i "$SSH_KEY" -o ConnectTimeout=5 "$GPU_HOST" "echo 'SSH OK'" &>/dev/null; then
-    echo "❌ Cannot connect to GPU server"
+    echo " Cannot connect to GPU server"
     exit 1
 fi
 
@@ -32,14 +32,14 @@ fi
 ssh -i "$SSH_KEY" "$GPU_HOST" "mkdir -p $OUTPUT_DIR"
 
 # Generate audio via Voxtral
-echo "🎵 Generating audio with Voxtral..."
+echo " Generating audio with Voxtral..."
 ssh -i "$SSH_KEY" "$GPU_HOST" bash <<EOF
 set -euo pipefail
 cd $VOXTRAL_DIR
 
 # Check if Voxtral is available
 if [[ ! -f "whisper.cpp/main" ]]; then
-    echo "❌ Voxtral not found at $VOXTRAL_DIR/whisper.cpp"
+    echo " Voxtral not found at $VOXTRAL_DIR/whisper.cpp"
     exit 1
 fi
 
@@ -62,17 +62,17 @@ tts.save(output_path)
 
 # Get file size
 file_size = os.path.getsize(output_path)
-print(f"✅ Audio saved: {output_path}")
-print(f"📦 Size: {file_size / 1024:.1f} KB")
+print(f" Audio saved: {output_path}")
+print(f" Size: {file_size / 1024:.1f} KB")
 PYTHON
 EOF
 
 echo ""
-echo "✅ Audio generation complete!"
-echo "📁 Output: $OUTPUT_DIR/$OUTPUT_FILE"
+echo " Audio generation complete!"
+echo " Output: $OUTPUT_DIR/$OUTPUT_FILE"
 echo ""
 echo "To download:"
 echo "  scp -i $SSH_KEY $GPU_HOST:$OUTPUT_DIR/$OUTPUT_FILE ."
 echo ""
-echo "⚠️  Note: Currently using gTTS. Voxtral integration pending."
+echo "  Note: Currently using gTTS. Voxtral integration pending."
 echo "    Future: Use whisper.cpp for voice cloning / better TTS"

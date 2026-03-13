@@ -89,34 +89,34 @@ def format_output(data, as_json=False):
         return
     
     if "error" in data:
-        print(f"❌ {data['error']}")
+        print(f" {data['error']}")
         if "message" in data:
             print(f"   {data['message']}")
         return
     
-    print("📊 Kimi Usage Monitor")
+    print(" Kimi Usage Monitor")
     print("=" * 40)
     
     if "weekly_usage_percent" in data:
         used = data["weekly_usage_percent"]
         remaining = 100 - used
         hours = data.get("weekly_resets_hours", "?")
-        print(f"\n🗓️  Weekly Usage")
+        print(f"\n  Weekly Usage")
         print(f"   Used: {used}%")
         print(f"   Remaining: {remaining}%")
         print(f"   Resets in: {hours} hours")
         
         if remaining > 50:
-            print(f"   Status: 🟢 Healthy — full ops approved")
+            print(f"   Status:  Healthy — full ops approved")
         elif remaining > 25:
-            print(f"   Status: 🟡 Moderate — plan accordingly")
+            print(f"   Status:  Moderate — plan accordingly")
         else:
-            print(f"   Status: 🔴 Low — prioritize essential tasks")
+            print(f"   Status:  Low — prioritize essential tasks")
     
     if "rate_limit_percent" in data:
         used = data["rate_limit_percent"]
         hours = data.get("rate_limit_resets_hours", "?")
-        print(f"\n⚡ Rate Limit")
+        print(f"\n Rate Limit")
         print(f"   Used: {used}%")
         print(f"   Resets in: {hours} hours")
 

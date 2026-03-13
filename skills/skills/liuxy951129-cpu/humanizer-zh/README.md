@@ -124,7 +124,7 @@ git clone https://github.com/op7418/Humanizer-zh.git ~/.claude/skills/humanizer-
 
 本工具能够识别并修复 **24 种** AI 写作痕迹，分为四大类：
 
-### 📝 内容模式（6种）
+###  内容模式（6种）
 1. 过度强调意义、遗产和更广泛的趋势
 2. 过度强调知名度和媒体报道
 3. 以 -ing 结尾的肤浅分析
@@ -132,7 +132,7 @@ git clone https://github.com/op7418/Humanizer-zh.git ~/.claude/skills/humanizer-
 5. 模糊归因和含糊措辞
 6. 提纲式的"挑战与未来展望"部分
 
-### 🔤 语言和语法模式（6种）
+###  语言和语法模式（6种）
 7. 过度使用的"AI 词汇"
 8. 避免使用"是"（系动词回避）
 9. 否定式排比
@@ -140,7 +140,7 @@ git clone https://github.com/op7418/Humanizer-zh.git ~/.claude/skills/humanizer-
 11. 刻意换词（同义词循环）
 12. 虚假范围
 
-### 🎨 风格模式（6种）
+###  风格模式（6种）
 13. 破折号过度使用
 14. 粗体过度使用
 15. 内联标题垂直列表
@@ -148,7 +148,7 @@ git clone https://github.com/op7418/Humanizer-zh.git ~/.claude/skills/humanizer-
 17. 表情符号
 18. 弯引号
 
-### 💬 交流模式和填充词（6种）
+###  交流模式和填充词（6种）
 19. 协作交流痕迹
 20. 知识截止日期免责声明
 21. 谄媚/卑躬屈膝的语气
@@ -175,7 +175,7 @@ git clone https://github.com/op7418/Humanizer-zh.git ~/.claude/skills/humanizer-
 
 ### 关键原则
 
-#### ✨ 不仅要"干净"，更要"鲜活"
+####  不仅要"干净"，更要"鲜活"
 
 避免 AI 模式只是基础，好的写作需要真实的人类声音：
 

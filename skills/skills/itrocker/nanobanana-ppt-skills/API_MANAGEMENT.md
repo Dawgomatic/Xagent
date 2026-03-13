@@ -1,23 +1,23 @@
 # API 密钥管理规范
 
-## 📋 当前配置
+##  当前配置
 
 ### API 存储位置
 
 所有 API 密钥现在统一存储在：
 
 ```
-📁 ppt-generator/.env
+ ppt-generator/.env
 ```
 
-### ✅ 安全验证
+###  安全验证
 
-- ✅ `.env` 文件已创建
-- ✅ 已被 `.gitignore` 保护（第15行规则）
-- ✅ 不会被提交到 Git
-- ✅ `run.sh` 可以正确加载
+-  `.env` 文件已创建
+-  已被 `.gitignore` 保护（第15行规则）
+-  不会被提交到 Git
+-  `run.sh` 可以正确加载
 
-### 🎯 使用方法
+###  使用方法
 
 **无需任何额外配置！** 直接使用即可：
 
@@ -27,14 +27,14 @@
 
 输出显示：
 ```
-📌 从 .env 文件加载API密钥
+ 从 .env 文件加载API密钥
 ```
 
 ---
 
-## 🔐 API 管理规范
+##  API 管理规范
 
-### 1️⃣ 添加新的 API 密钥
+###  添加新的 API 密钥
 
 编辑 `.env` 文件：
 
@@ -64,16 +64,16 @@ API_NAME=your-api-key-here
 OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxx
 ```
 
-### 2️⃣ 在代码中使用 API 密钥
+###  在代码中使用 API 密钥
 
-**❌ 错误做法**（硬编码）：
+** 错误做法**（硬编码）：
 
 ```python
 # 绝对不要这样做！
 api_key = "AIzaSyAfHE4vctPhMF2mVn96aEZZp8WuURlaGpM"
 ```
 
-**✅ 正确做法**（从环境变量读取）：
+** 正确做法**（从环境变量读取）：
 
 ```python
 import os
@@ -89,7 +89,7 @@ if not api_key:
     raise ValueError("未找到 GEMINI_API_KEY 环境变量")
 ```
 
-### 3️⃣ 环境变量加载优先级
+###  环境变量加载优先级
 
 `run.sh` 的加载逻辑：
 
@@ -102,11 +102,11 @@ if not api_key:
 ```
 
 这意味着：
-- ✅ CI/CD 环境可以使用系统环境变量
-- ✅ 本地开发使用 .env 文件
-- ✅ 灵活切换不同环境的密钥
+-  CI/CD 环境可以使用系统环境变量
+-  本地开发使用 .env 文件
+-  灵活切换不同环境的密钥
 
-### 4️⃣ 多环境管理
+###  多环境管理
 
 如果需要管理多个环境（开发/测试/生产）：
 
@@ -133,7 +133,7 @@ ln -sf .env.development .env
 
 ---
 
-## 📝 .env 文件结构
+##  .env 文件结构
 
 ### 当前结构
 
@@ -162,14 +162,14 @@ ln -sf .env.development .env
 
 | 变量名 | 状态 | 用途 | 获取地址 |
 |--------|------|------|----------|
-| `GEMINI_API_KEY` | ✅ 已配置 | Nano Banana Pro 图像生成 | [Google AI Studio](https://makersuite.google.com/app/apikey) |
-| `OPENAI_API_KEY` | 💤 预留 | 未来可能用于文档分析 | [OpenAI Platform](https://platform.openai.com/api-keys) |
-| `ANTHROPIC_API_KEY` | 💤 预留 | 未来可能用于Claude API | [Anthropic Console](https://console.anthropic.com/) |
-| `STABILITY_API_KEY` | 💤 预留 | 未来可能用于其他图像模型 | [Stability AI](https://platform.stability.ai/) |
+| `GEMINI_API_KEY` |  已配置 | Nano Banana Pro 图像生成 | [Google AI Studio](https://makersuite.google.com/app/apikey) |
+| `OPENAI_API_KEY` |  预留 | 未来可能用于文档分析 | [OpenAI Platform](https://platform.openai.com/api-keys) |
+| `ANTHROPIC_API_KEY` |  预留 | 未来可能用于Claude API | [Anthropic Console](https://console.anthropic.com/) |
+| `STABILITY_API_KEY` |  预留 | 未来可能用于其他图像模型 | [Stability AI](https://platform.stability.ai/) |
 
 ---
 
-## 🚨 安全检查清单
+##  安全检查清单
 
 ### 开发时
 
@@ -194,7 +194,7 @@ ln -sf .env.development .env
 
 ---
 
-## 💡 最佳实践
+##  最佳实践
 
 ### 1. 密钥轮换
 
@@ -232,7 +232,7 @@ def get_api_key(key_name):
     api_key = os.getenv(key_name)
 
     if not api_key:
-        print(f"❌ 错误: 未找到 {key_name} 环境变量")
+        print(f" 错误: 未找到 {key_name} 环境变量")
         print("")
         print("请配置 API 密钥：")
         print("1. 编辑 .env 文件")
@@ -251,17 +251,17 @@ gemini_key = get_api_key("GEMINI_API_KEY")
 不要在日志中输出完整密钥：
 
 ```python
-# ❌ 危险
+#  危险
 print(f"Using API key: {api_key}")
 
-# ✅ 安全
+#  安全
 print(f"Using API key: {api_key[:8]}...{api_key[-4:]}")
 # 输出: Using API key: AIzaSyAf...GpM
 ```
 
 ---
 
-## 🔄 迁移指南
+##  迁移指南
 
 ### 从系统环境变量迁移到 .env
 
@@ -290,7 +290,7 @@ source ~/.zshrc
 
 ```bash
 ./run.sh --help
-# 应该显示：📌 从 .env 文件加载API密钥
+# 应该显示： 从 .env 文件加载API密钥
 ```
 
 ### 从 .env 迁移到系统环境变量
@@ -309,12 +309,12 @@ source ~/.zshrc
 
 # 4. 测试
 ./run.sh --help
-# 应该显示：✅ 使用系统环境变量中的API密钥
+# 应该显示： 使用系统环境变量中的API密钥
 ```
 
 ---
 
-## 📚 相关文档
+##  相关文档
 
 - **SECURITY.md** - 完整的安全指南
 - **ENV_SETUP.md** - 环境变量配置详解
@@ -323,7 +323,7 @@ source ~/.zshrc
 
 ---
 
-## 🆘 常见问题
+##  常见问题
 
 ### Q: .env 文件在哪里？
 
@@ -350,27 +350,27 @@ A:
 ### Q: 如何知道密钥是从哪里加载的？
 
 A: 运行任何命令时查看输出：
-- `✅ 使用系统环境变量中的API密钥` - 从系统加载
-- `📌 从 .env 文件加载API密钥` - 从 .env 加载
+- ` 使用系统环境变量中的API密钥` - 从系统加载
+- ` 从 .env 文件加载API密钥` - 从 .env 加载
 
 ---
 
-## ✅ 总结
+##  总结
 
 ### 当前配置
 
-✅ **API 密钥统一管理**
+ **API 密钥统一管理**
 - 存储位置：`ppt-generator/.env`
 - 安全保护：`.gitignore` 规则
 - 自动加载：`run.sh` 脚本
 
-✅ **开发规范**
+ **开发规范**
 - 不在代码中硬编码
 - 使用 `os.getenv()` 读取
 - 添加错误处理
 - 日志中不输出完整密钥
 
-✅ **安全保证**
+ **安全保证**
 - .env 不会提交到 Git
 - .env.example 作为模板
 - 定期轮换密钥

@@ -12,11 +12,11 @@ const WORKSPACE_DIR = path.join(OPENCLAW_DIR, 'workspace');
 const SKILL_DIR = path.join(WORKSPACE_DIR, 'skills/claw-sync');
 
 async function main() {
-  console.log('🔧 Setting up auto-sync cron job...\n');
+  console.log(' Setting up auto-sync cron job...\n');
 
   // Check if skill exists
   if (!fs.existsSync(SKILL_DIR)) {
-    console.error('❌ Claw Sync skill not found at:', SKILL_DIR);
+    console.error(' Claw Sync skill not found at:', SKILL_DIR);
     process.exit(1);
   }
 
@@ -51,7 +51,7 @@ async function main() {
     // Write job config
     fs.writeFileSync(cronConfigPath, JSON.stringify(job, null, 2));
 
-    console.log('✅ Cron config saved to:', cronConfigPath);
+    console.log(' Cron config saved to:', cronConfigPath);
     console.log('');
     console.log('To activate via OpenClaw CLI:');
     console.log(`  openclaw cron add ${cronConfigPath}`);
@@ -60,7 +60,7 @@ async function main() {
     console.log(`  0 */12 * * * cd ${WORKSPACE_DIR} && node skills/claw-sync/index.js sync >> /tmp/claw-sync.log 2>&1`);
 
   } catch (err) {
-    console.error('❌ Setup failed:', err.message);
+    console.error(' Setup failed:', err.message);
     process.exit(1);
   }
 }

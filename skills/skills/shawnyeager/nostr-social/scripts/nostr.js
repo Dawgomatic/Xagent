@@ -147,7 +147,7 @@ function saveSecretKey(sk) {
 // INIT: Setup new identity
 async function init(existingKey) {
   if (isConfigured()) {
-    console.log('⚠️  Already configured. Current identity:');
+    console.log('  Already configured. Current identity:');
     const sk = loadSecretKey();
     const pk = getPublicKey(sk);
     console.log(`  npub: ${nip19.npubEncode(pk)}`);
@@ -186,17 +186,17 @@ async function init(existingKey) {
   saveSecretKey(sk);
   const pk = getPublicKey(sk);
   
-  console.log('\n✅ Nostr identity configured!\n');
+  console.log('\n Nostr identity configured!\n');
   console.log(`  Public Key: ${pk}`);
   console.log(`  npub: ${nip19.npubEncode(pk)}`);
   console.log(`\n  Key saved to: ${SECRET_KEY_FILE}`);
   
   if (fromCocod) {
-    console.log('\n🔗 Identity derived from cocod wallet mnemonic.');
+    console.log('\n Identity derived from cocod wallet mnemonic.');
     console.log('   Your wallet mnemonic backs up BOTH wallet AND Nostr identity.');
     console.log('   NIP-05 via npubx.cash will match this identity.');
   } else {
-    console.log('\n⚠️  BACKUP YOUR NSEC! If lost, your identity cannot be recovered.');
+    console.log('\n  BACKUP YOUR NSEC! If lost, your identity cannot be recovered.');
     console.log('\nNext steps:');
     console.log('  node nostr.js profile "Your Name" "Your bio"');
     console.log('  node nostr.js post "Hello Nostr!"');
@@ -212,10 +212,10 @@ function status() {
   if (isConfigured()) {
     const sk = loadSecretKey();
     const pk = getPublicKey(sk);
-    console.log('✅ Identity configured');
+    console.log(' Identity configured');
     console.log(`   npub: ${nip19.npubEncode(pk)}`);
   } else {
-    console.log('❌ Identity not configured');
+    console.log(' Identity not configured');
     console.log('   Run: node nostr.js init');
   }
   
@@ -275,7 +275,7 @@ async function post(content) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Posted: ${nip19.noteEncode(event.id)}`);
+  console.log(` Posted: ${nip19.noteEncode(event.id)}`);
 }
 
 // REPLY: kind 1 reply
@@ -303,7 +303,7 @@ async function reply(eventRef, content) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Replied: ${nip19.noteEncode(event.id)}`);
+  console.log(` Replied: ${nip19.noteEncode(event.id)}`);
 }
 
 // FOLLOW: kind 3 contact list
@@ -326,7 +326,7 @@ async function follow(pubkeyRef) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Followed: ${nip19.npubEncode(targetPk)}`);
+  console.log(` Followed: ${nip19.npubEncode(targetPk)}`);
 }
 
 // UNFOLLOW: kind 3 contact list  
@@ -344,7 +344,7 @@ async function unfollow(pubkeyRef) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Unfollowed: ${nip19.npubEncode(targetPk)}`);
+  console.log(` Unfollowed: ${nip19.npubEncode(targetPk)}`);
 }
 
 // DM: NIP-04 encrypted DM
@@ -360,7 +360,7 @@ async function dm(pubkeyRef, message) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ DM sent to ${nip19.npubEncode(targetPk)}`);
+  console.log(` DM sent to ${nip19.npubEncode(targetPk)}`);
 }
 
 // READ DMS: NIP-04 encrypted DMs
@@ -371,7 +371,7 @@ async function readDms(limit = 10) {
   ]);
   
   events.sort((a, b) => b.created_at - a.created_at);
-  console.log(`📨 DMs (${events.length}):\n`);
+  console.log(` DMs (${events.length}):\n`);
   
   for (const e of events.slice(0, limit)) {
     const isFromMe = e.pubkey === pk;
@@ -430,7 +430,7 @@ async function zap(pubkeyRef, amount, comment = '') {
   
   if (!pr) throw new Error('No invoice returned');
   
-  console.log(`⚡ Zap ${amount} sats to ${metadata.lud16}\n`);
+  console.log(` Zap ${amount} sats to ${metadata.lud16}\n`);
   console.log(`Invoice: ${pr}\n`);
   console.log(`To pay: cocod send bolt11 ${pr}`);
 }
@@ -440,7 +440,7 @@ async function mentions(limit = 20) {
   const events = await pool.querySync(RELAYS, { kinds: [1], '#p': [pk], limit });
   events.sort((a, b) => b.created_at - a.created_at);
   
-  console.log(`📬 Mentions (${events.length}):\n`);
+  console.log(` Mentions (${events.length}):\n`);
   for (const e of events.slice(0, limit)) {
     const date = new Date(e.created_at * 1000).toLocaleString();
     const preview = e.content.slice(0, 100) + (e.content.length > 100 ? '...' : '');
@@ -483,7 +483,7 @@ async function show(noteId) {
   const date = new Date(event.created_at * 1000).toLocaleString();
   const npub = nip19.npubEncode(event.pubkey);
   
-  console.log(`📝 Note by ${npub}`);
+  console.log(` Note by ${npub}`);
   console.log(`   ${date}\n`);
   console.log(event.content);
   console.log(`\n---`);
@@ -510,7 +510,7 @@ async function feed(limit = 20) {
   const events = await pool.querySync(RELAYS, { kinds: [1], authors: follows, limit });
   events.sort((a, b) => b.created_at - a.created_at);
   
-  console.log(`📰 Feed (${events.length} posts from ${follows.length} follows):\n`);
+  console.log(` Feed (${events.length} posts from ${follows.length} follows):\n`);
   for (const e of events.slice(0, limit)) {
     const date = new Date(e.created_at * 1000).toLocaleString();
     const preview = e.content.slice(0, 150) + (e.content.length > 150 ? '...' : '');
@@ -554,7 +554,7 @@ async function profile(name, about) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Profile updated`);
+  console.log(` Profile updated`);
 }
 
 // PROFILE-SET: set specific profile fields (JSON)
@@ -580,7 +580,7 @@ async function profileSet(jsonStr) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Profile updated`);
+  console.log(` Profile updated`);
   console.log(JSON.stringify(meta, null, 2));
 }
 
@@ -598,7 +598,7 @@ async function lookup(nip05Addr) {
 }
 
 // REACT: reaction (kind 7)
-async function react(eventRef, emoji = '🤙') {
+async function react(eventRef, emoji = '') {
   const eventId = resolveEventId(eventRef);
   const original = await pool.get(RELAYS, { ids: [eventId] });
   if (!original) throw new Error('Event not found');
@@ -614,7 +614,7 @@ async function react(eventRef, emoji = '🤙') {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Reacted: ${emoji}`);
+  console.log(` Reacted: ${emoji}`);
 }
 
 // REPOST: kind 6 (NIP-18)
@@ -634,7 +634,7 @@ async function repost(eventRef) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Reposted: ${nip19.noteEncode(eventId)}`);
+  console.log(` Reposted: ${nip19.noteEncode(eventId)}`);
 }
 
 // DELETE: kind 5
@@ -649,7 +649,7 @@ async function deleteEvent(eventRef) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Deleted: ${nip19.noteEncode(eventId)}`);
+  console.log(` Deleted: ${nip19.noteEncode(eventId)}`);
 }
 
 // MUTE: kind 10000 (add to mute list)
@@ -676,7 +676,7 @@ async function mute(pubkeyRef) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Muted: ${nip19.npubEncode(targetPk)}`);
+  console.log(` Muted: ${nip19.npubEncode(targetPk)}`);
 }
 
 // UNMUTE: remove from kind 10000
@@ -699,7 +699,7 @@ async function unmute(pubkeyRef) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Unmuted: ${nip19.npubEncode(targetPk)}`);
+  console.log(` Unmuted: ${nip19.npubEncode(targetPk)}`);
 }
 
 // BOOKMARK: kind 10003
@@ -726,7 +726,7 @@ async function bookmark(eventRef) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Bookmarked: ${nip19.noteEncode(eventId)}`);
+  console.log(` Bookmarked: ${nip19.noteEncode(eventId)}`);
 }
 
 // UNBOOKMARK: remove from kind 10003
@@ -749,7 +749,7 @@ async function unbookmark(eventRef) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Unbookmarked: ${nip19.noteEncode(eventId)}`);
+  console.log(` Unbookmarked: ${nip19.noteEncode(eventId)}`);
 }
 
 // BOOKMARKS: list bookmarks
@@ -761,7 +761,7 @@ async function listBookmarks() {
   }
   
   const eventIds = existing.tags.filter(t => t[0] === 'e').map(t => t[1]);
-  console.log(`📑 Bookmarks (${eventIds.length}):\n`);
+  console.log(` Bookmarks (${eventIds.length}):\n`);
   
   for (const id of eventIds) {
     const event = await pool.get(RELAYS, { ids: [id] });
@@ -784,7 +784,7 @@ async function listRelays() {
     return;
   }
   
-  console.log('📡 Your relay list:\n');
+  console.log(' Your relay list:\n');
   for (const tag of existing.tags) {
     if (tag[0] === 'r') {
       const mode = tag[2] || 'read+write';
@@ -810,7 +810,7 @@ async function addRelay(relayUrl, mode = '') {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Added relay: ${relayUrl}${mode ? ` (${mode})` : ''}`);
+  console.log(` Added relay: ${relayUrl}${mode ? ` (${mode})` : ''}`);
 }
 
 async function removeRelay(relayUrl) {
@@ -830,7 +830,7 @@ async function removeRelay(relayUrl) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Removed relay: ${relayUrl}`);
+  console.log(` Removed relay: ${relayUrl}`);
 }
 
 // CHANNELS: public chat (NIP-28)
@@ -845,7 +845,7 @@ async function createChannel(name, about = '', picture = '') {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Channel created: ${name}`);
+  console.log(` Channel created: ${name}`);
   console.log(`  ID: ${event.id}`);
 }
 
@@ -860,7 +860,7 @@ async function channelPost(channelId, message) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Posted to channel`);
+  console.log(` Posted to channel`);
 }
 
 async function channelMessages(channelId, limit = 20) {
@@ -871,7 +871,7 @@ async function channelMessages(channelId, limit = 20) {
   });
   
   events.sort((a, b) => a.created_at - b.created_at);
-  console.log(`💬 Channel messages (${events.length}):\n`);
+  console.log(` Channel messages (${events.length}):\n`);
   
   for (const e of events) {
     const date = new Date(e.created_at * 1000).toLocaleString();
@@ -894,7 +894,7 @@ async function listBadges() {
     return;
   }
   
-  console.log(`🏅 Badges (${awards.length}):\n`);
+  console.log(` Badges (${awards.length}):\n`);
   
   for (const award of awards) {
     const badgeTag = award.tags.find(t => t[0] === 'a');
@@ -937,7 +937,7 @@ async function createBadge(identifier, name, description = '', imageUrl = '') {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Badge created: ${name}`);
+  console.log(` Badge created: ${name}`);
   console.log(`  ID: 30009:${pk}:${identifier}`);
 }
 
@@ -955,7 +955,7 @@ async function awardBadge(badgeId, recipientPubkey) {
   }, sk);
   
   await Promise.any(pool.publish(RELAYS, event));
-  console.log(`✅ Badge awarded to ${nip19.npubEncode(targetPk)}`);
+  console.log(` Badge awarded to ${nip19.npubEncode(targetPk)}`);
 }
 
 // WHOAMI
@@ -1129,7 +1129,7 @@ async function markResponded(noteRef, responseNoteId = null, stateFile = DEFAULT
   }
   
   saveAutoResponseState(state, stateFile);
-  console.log(`✅ Marked responded: ${noteId}`);
+  console.log(` Marked responded: ${noteId}`);
   if (responseNoteId) console.log(`   Response: ${responseNoteId}`);
 }
 
@@ -1144,7 +1144,7 @@ async function markIgnored(noteRef, reason = 'no_response_needed', stateFile = D
   };
   
   saveAutoResponseState(state, stateFile);
-  console.log(`✅ Marked ignored: ${noteId} (${reason})`);
+  console.log(` Marked ignored: ${noteId} (${reason})`);
 }
 
 // RATE-LIMIT-CHECK: Check if we can respond (max 10/hour)
@@ -1205,7 +1205,7 @@ if (cmd === 'status') {
 
 // Check if configured for all other commands
 if (!isConfigured() && cmd && cmd !== 'help') {
-  console.log('❌ Nostr not configured.\n');
+  console.log(' Nostr not configured.\n');
   console.log('Run setup:');
   console.log('  node nostr.js init              # Generate new identity');
   console.log('  node nostr.js init <nsec>       # Import existing key');
@@ -1229,7 +1229,7 @@ try {
     case 'profile': await profile(args[0], args.slice(1).join(' ')); break;
     case 'profile-set': await profileSet(await getContent(args)); break;
     case 'lookup': await lookup(args[0]); break;
-    case 'react': await react(args[0], args[1] || '🤙'); break;
+    case 'react': await react(args[0], args[1] || ''); break;
     case 'repost': await repost(args[0]); break;
     case 'delete': await deleteEvent(args[0]); break;
     case 'mute': await mute(args[0]); break;
@@ -1275,7 +1275,7 @@ IDENTITY
 SOCIAL
   post <content>              Post a note (kind 1)
   reply <note1...> <content>  Reply to a note
-  react <note1...> [emoji]    React to a note (default: 🤙)
+  react <note1...> [emoji]    React to a note (default: )
   repost <note1...>           Repost/boost a note
   delete <note1...>           Delete your note
   mentions [limit]            Check mentions

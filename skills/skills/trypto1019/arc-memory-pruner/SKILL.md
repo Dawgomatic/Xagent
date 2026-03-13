@@ -2,7 +2,7 @@
 name: memory-pruner
 description: Automatically prune and compact agent memory files to prevent unbounded growth. Circular buffer for logs, importance-based retention for state, and configurable size limits.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🧹", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Memory Pruner

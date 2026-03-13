@@ -6,7 +6,7 @@ This document outlines the steps to publish ClawMeter on ClawHub as a free, open
 
 ## Pre-Publication Checklist
 
-### Documentation ✅
+### Documentation 
 
 - [x] **README.md** — Comprehensive overview, installation, usage, API reference
 - [x] **SKILL.md** — OpenClaw skill format with commands, API endpoints, examples
@@ -17,7 +17,7 @@ This document outlines the steps to publish ClawMeter on ClawHub as a free, open
 - [x] **docs/ARCHITECTURE.md** — Technical deep-dive
 - [x] **docs/screenshot-dashboard.png** — Visual preview (placeholder, needs actual screenshot)
 
-### Code Quality ✅
+### Code Quality 
 
 - [x] **Clean codebase** — All source files properly structured
 - [x] **Comments** — Key functions documented
@@ -25,13 +25,13 @@ This document outlines the steps to publish ClawMeter on ClawHub as a free, open
 - [x] **ES modules** — Modern JavaScript (import/export)
 - [x] **No hardcoded secrets** — Uses .env for configuration
 
-### Configuration ✅
+### Configuration 
 
 - [x] **.env.example** — Template with all variables documented
 - [x] **.gitignore** — Excludes node_modules, .env, database files
 - [x] **package.json** — Proper metadata, keywords, repository links
 
-### Testing ✅
+### Testing 
 
 - [x] **Fresh install test** — Runs on clean system
 - [x] **Ingest test** — Processes existing logs without errors
@@ -40,7 +40,7 @@ This document outlines the steps to publish ClawMeter on ClawHub as a free, open
 - [x] **Auto-watch test** — Detects new session logs
 - [x] **Skill install test** — Script creates proper directory structure
 
-### GitHub Issue Resolution ✅
+### GitHub Issue Resolution 
 
 - [x] **Solves #12299** — Cost tracking for OpenClaw users
 - [x] **Reference in README** — Links to original issue
@@ -111,7 +111,7 @@ git push origin v0.1.0
 
 # Create release on GitHub (via web interface or CLI)
 gh release create v0.1.0 \
-  --title "ClawMeter v0.1.0 - Initial Release 🎉" \
+  --title "ClawMeter v0.1.0 - Initial Release " \
   --notes-file CHANGELOG.md
 ```
 
@@ -168,18 +168,18 @@ git push
 **OpenClaw Discord:**
 
 ```markdown
-🔥 **New Skill Released: ClawMeter**
+ **New Skill Released: ClawMeter**
 
 Track your OpenClaw spending in real-time!
 
-✅ Dashboard with daily/weekly/monthly stats
-✅ Budget alerts (Telegram & email)
-✅ Cost breakdown by model and session
-✅ Auto-ingests session logs
-✅ Free & open source (MIT)
+ Dashboard with daily/weekly/monthly stats
+ Budget alerts (Telegram & email)
+ Cost breakdown by model and session
+ Auto-ingests session logs
+ Free & open source (MIT)
 
-📦 Install: https://github.com/YOURUSERNAME/clawmeter
-🐛 Solves: https://github.com/openclaw/openclaw/issues/12299
+ Install: https://github.com/YOURUSERNAME/clawmeter
+ Solves: https://github.com/openclaw/openclaw/issues/12299
 
 Screenshot: [attach docs/screenshot-dashboard.png]
 ```
@@ -187,12 +187,12 @@ Screenshot: [attach docs/screenshot-dashboard.png]
 **Twitter/X:**
 
 ```
-🔥 Just released ClawMeter — a self-hosted cost tracking dashboard for @OpenClaw!
+ Just released ClawMeter — a self-hosted cost tracking dashboard for @OpenClaw!
 
-📊 Real-time spending analytics
-💰 Budget alerts
-🎨 Beautiful dark-mode UI
-🆓 Free & open source
+ Real-time spending analytics
+ Budget alerts
+ Beautiful dark-mode UI
+ Free & open source
 
 Stop burning money blind. Track every token.
 
@@ -384,22 +384,22 @@ Track these to measure adoption:
 
 ### License (MIT)
 
-- ✅ Permits commercial use
-- ✅ Allows modification and redistribution
-- ✅ Requires attribution
-- ✅ No warranty (use at your own risk)
+-  Permits commercial use
+-  Allows modification and redistribution
+-  Requires attribution
+-  No warranty (use at your own risk)
 
 ### Privacy
 
-- ✅ No data collection or telemetry
-- ✅ No external API calls (except alerts if configured)
-- ✅ All data stored locally
+-  No data collection or telemetry
+-  No external API calls (except alerts if configured)
+-  All data stored locally
 
 ### Security
 
-- ✅ No authentication (local-only by design)
-- ✅ No sensitive data in logs
-- ✅ Recommend SSH tunnel for remote access
+-  No authentication (local-only by design)
+-  No sensitive data in logs
+-  Recommend SSH tunnel for remote access
 
 ---
 
@@ -479,4 +479,4 @@ Track these to measure adoption:
 
 ---
 
-**Ready to publish! 🚀**
+**Ready to publish! **

@@ -15,13 +15,13 @@ That's it. Your agent will:
 3. **Propose actions** for each one — not just summaries, but things your agent can actually do:
 
 ```
-📂 AI TOOLS (3)
+ AI TOOLS (3)
 • @someone shared a repo for automating video edits
-  → 🤖 I CAN: Clone it, test it, and set it up for you
+  →  I CAN: Clone it, test it, and set it up for you
 
-📂 TRADING (2)  
+ TRADING (2)  
 • @trader posted a new momentum strategy with backtest data
-  → 🤖 I CAN: Compare this against your current strategy and report differences
+  →  I CAN: Compare this against your current strategy and report differences
 ```
 
 You can also say:

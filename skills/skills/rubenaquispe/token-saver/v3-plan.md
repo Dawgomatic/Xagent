@@ -77,7 +77,7 @@ const runtimeModel = process.env.SKILL_MODEL || args.find(a => a.startsWith('--m
 Skip compression on already-optimized files (check for token-saver marker):
 ```javascript
 // If file contains marker, it's already compressed
-if (content.includes('## 📝 Token Saver — Persistent Mode')) {
+if (content.includes('##  Token Saver — Persistent Mode')) {
   return { skipped: true, reason: 'already-optimized' };
 }
 ```
@@ -143,12 +143,12 @@ agents:
 | Gemini context varies | Note: free tier may be 32K, paid 1M — detect tier if possible |
 
 ## Success Criteria
-1. ✅ Model registry with context windows
-2. ✅ Presets calculate dynamically based on model
-3. ✅ Robust detection with clear fallback
-4. ✅ Dashboard shows context % usage
-5. ✅ All existing v2 functionality preserved
-6. ✅ Tests pass on Claude, GPT-4o, and Gemini scenarios
+1.  Model registry with context windows
+2.  Presets calculate dynamically based on model
+3.  Robust detection with clear fallback
+4.  Dashboard shows context % usage
+5.  All existing v2 functionality preserved
+6.  Tests pass on Claude, GPT-4o, and Gemini scenarios
 
 ## Estimated Effort
 ~2-3 hours implementation + testing

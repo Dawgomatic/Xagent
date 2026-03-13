@@ -92,7 +92,7 @@ const server = http.createServer((req, res) => {
 server.listen(config.port, config.bind, () => {
   console.log(`
 ╔══════════════════════════════════════════════════════════╗
-║         🚀 Azure OpenAI Proxy for OpenClaw               ║
+║          Azure OpenAI Proxy for OpenClaw               ║
 ╠══════════════════════════════════════════════════════════╣
 ║  Proxy:      http://${config.bind}:${config.port}`.padEnd(59) + `║
 ║  Deployment: ${config.azure.deployment}`.padEnd(59) + `║

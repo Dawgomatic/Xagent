@@ -174,7 +174,7 @@ cat /etc/hosts
 4. **Credentials obtained** → Encrypt and store in memory/encrypted/
 
 ### Anti-Pattern: "I'll Remember"
-❌ "The GPU server has 3 GPUs" (only in conversation)
-✅ "The GPU server has 3 GPUs" → Update TOOLS.md → then continue
+ "The GPU server has 3 GPUs" (only in conversation)
+ "The GPU server has 3 GPUs" → Update TOOLS.md → then continue
 
 **Memory is limited. Files are permanent. IKL before you forget.**

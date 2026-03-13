@@ -4,13 +4,13 @@ A standardized stock watchlist management skill for Clawdbot that provides clean
 
 ## Features
 
-- ✅ **Add stocks** to watchlist using 6-digit stock codes
-- ✅ **View watchlist** with clear formatting
-- ✅ **Remove individual stocks** from watchlist
-- ✅ **Clear entire watchlist** with one command
-- ✅ **Get performance summary** for all watched stocks
-- ✅ **Standardized storage path** - no more path confusion!
-- ✅ **Easy installation/uninstallation**
+-  **Add stocks** to watchlist using 6-digit stock codes
+-  **View watchlist** with clear formatting
+-  **Remove individual stocks** from watchlist
+-  **Clear entire watchlist** with one command
+-  **Get performance summary** for all watched stocks
+-  **Standardized storage path** - no more path confusion!
+-  **Easy installation/uninstallation**
 
 ## Installation
 

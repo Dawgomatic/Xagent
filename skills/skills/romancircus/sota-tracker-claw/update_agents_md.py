@@ -203,12 +203,12 @@ def update_agents_md(
             agents_path.replace(backup)
 
         agents_path.write_text(content)
-        return f"✅ Updated {agents_path} with {len(categories)} categories"
+        return f" Updated {agents_path} with {len(categories)} categories"
 
     except PermissionError as e:
-        return f"❌ Permission denied: {e}"
+        return f" Permission denied: {e}"
     except Exception as e:
-        return f"❌ Error writing file: {e}"
+        return f" Error writing file: {e}"
 
 
 def main():

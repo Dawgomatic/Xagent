@@ -310,7 +310,7 @@ def cmd_items(token: str, list_ref: str, as_json: bool) -> None:
         item_id = item.get("IdAsNumber") or item.get("Id")
         name = item.get("Name", "(unnamed)")
         checked = item.get("Checked", 0) in (1, True)
-        mark = "✅" if checked else "⬜"
+        mark = "" if checked else ""
         amount = item.get("Amount")
         unit = item.get("Unit")
         qty = ""
@@ -327,7 +327,7 @@ def cmd_add_list(token: str, name: str, as_json: bool) -> None:
     if as_json:
         _print_json(data)
     else:
-        print(f"✅ Created list: {data.get('Name', name)} (id: {data.get('Id', '?')})")
+        print(f" Created list: {data.get('Name', name)} (id: {data.get('Id', '?')})")
 
 
 def cmd_rename_list(token: str, list_ref: str, new_name: str, as_json: bool) -> None:
@@ -341,7 +341,7 @@ def cmd_rename_list(token: str, list_ref: str, new_name: str, as_json: bool) -> 
     if as_json:
         _print_json({"ok": True, "list_id": list_id, "name": new_name, "raw": data})
     else:
-        print(f"✅ Renamed list {list_id} to: {new_name}")
+        print(f" Renamed list {list_id} to: {new_name}")
 
 
 def cmd_delete_list(token: str, list_ref: str, as_json: bool) -> None:
@@ -353,7 +353,7 @@ def cmd_delete_list(token: str, list_ref: str, as_json: bool) -> None:
     if as_json:
         _print_json({"ok": True, "list_id": list_id, "raw": data})
     else:
-        print(f"🗑️ Deleted list {list_id}")
+        print(f" Deleted list {list_id}")
 
 
 def cmd_add_item(
@@ -381,7 +381,7 @@ def cmd_add_item(
         _print_json(data)
     else:
         item_id = data.get("IdAsNumber") or data.get("Id", "?")
-        print(f"✅ Added item to list {list_id}: {name} (item_id: {item_id})")
+        print(f" Added item to list {list_id}: {name} (item_id: {item_id})")
 
 
 def cmd_set_item_checked(
@@ -404,7 +404,7 @@ def cmd_set_item_checked(
     if as_json:
         _print_json({"ok": True, "list_id": list_id, "item_id": item_id, "checked": checked})
     else:
-        print(f"✅ Item {item_id} in list {list_id} marked {'checked' if checked else 'unchecked'}")
+        print(f" Item {item_id} in list {list_id} marked {'checked' if checked else 'unchecked'}")
 
 
 def cmd_delete_item(token: str, list_ref: str, item_id: int, as_json: bool) -> None:
@@ -420,7 +420,7 @@ def cmd_delete_item(token: str, list_ref: str, item_id: int, as_json: bool) -> N
     if as_json:
         _print_json({"ok": True, "list_id": list_id, "item_id": item_id, "raw": data})
     else:
-        print(f"🗑️ Deleted item {item_id} from list {list_id}")
+        print(f" Deleted item {item_id} from list {list_id}")
 
 
 def build_parser() -> argparse.ArgumentParser:

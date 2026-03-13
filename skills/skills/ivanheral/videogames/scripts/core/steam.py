@@ -146,7 +146,7 @@ def get_game_details(appid: int):
     legal = game_data.get('legal_notice', '')
     drm_alert = ""
     if "Denuvo" in drm_notice or "Denuvo" in legal:
-        drm_alert = " [⚠️ USA DENUVO]"
+        drm_alert = " [ USA DENUVO]"
     elif "3rd-party account" in drm_notice or "account" in legal:
         # Simplificación para detectar launchers
         pass 

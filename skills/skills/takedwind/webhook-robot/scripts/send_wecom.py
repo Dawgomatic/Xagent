@@ -33,9 +33,9 @@ def send_wecom_msg(url_or_key, content, args):
         req = urllib.request.Request(url, data=json.dumps(data).encode('utf-8'), headers=headers)
         with urllib.request.urlopen(req) as response:
             result = response.read().decode('utf-8')
-            print(f"✅ Message sent. Response: {result}")
+            print(f" Message sent. Response: {result}")
     except Exception as e:
-        print(f"❌ Failed to send message: {e}")
+        print(f" Failed to send message: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

@@ -42,13 +42,13 @@ This skill helps you:
 ### OCR Quality by Document Type
 | Document Type | Expected Quality | Tips |
 |---------------|------------------|------|
-| **Typed documents** | ⭐⭐⭐⭐⭐ 95%+ | Best results |
-| **Printed books** | ⭐⭐⭐⭐ 90%+ | Watch for aging |
-| **Forms** | ⭐⭐⭐⭐ 85%+ | Check boxes may need manual |
-| **Tables/Data** | ⭐⭐⭐ 80%+ | Structure may need fixing |
-| **Handwritten (neat)** | ⭐⭐ 60-80% | Variable results |
-| **Handwritten (cursive)** | ⭐ 30-60% | Often needs manual review |
-| **Mixed content** | ⭐⭐⭐ 75%+ | Depends on complexity |
+| **Typed documents** |  95%+ | Best results |
+| **Printed books** |  90%+ | Watch for aging |
+| **Forms** |  85%+ | Check boxes may need manual |
+| **Tables/Data** |  80%+ | Structure may need fixing |
+| **Handwritten (neat)** |  60-80% | Variable results |
+| **Handwritten (cursive)** |  30-60% | Often needs manual review |
+| **Mixed content** |  75%+ | Depends on complexity |
 
 ## Output Formats
 
@@ -123,9 +123,9 @@ This skill helps you:
 - [Z] pages with <80% confidence (review recommended)
 
 ### Searchability
-✅ Document is now text-searchable
-✅ Original images preserved
-✅ Text layer added behind images
+ Document is now text-searchable
+ Original images preserved
+ Text layer added behind images
 ```
 
 ## Pre-Processing Tips
@@ -178,9 +178,9 @@ Before OCR, ensure:
 ### Checkboxes
 | Question | Checked |
 |----------|---------|
-| Option A | ☑️ Yes |
+| Option A |  Yes |
 | Option B | ☐ No |
-| Option C | ☑️ Yes |
+| Option C |  Yes |
 
 ### Signature
 [Signature detected on page X - cannot extract text]
@@ -216,7 +216,7 @@ Before OCR, ensure:
 | [image] | "meeting" | "meeting", "meaning" |
 | [image] | "Tuesday" | "Tuesday", "Thursday" |
 
-⚠️ **Low confidence extraction - please verify manually**
+ **Low confidence extraction - please verify manually**
 ```
 
 ## Batch Processing
@@ -232,10 +232,10 @@ Before OCR, ensure:
 ### Results
 | File | Pages | Confidence | Status |
 |------|-------|------------|--------|
-| doc1.pdf | 5 | 96% | ✅ Complete |
-| doc2.pdf | 12 | 88% | ✅ Complete |
-| doc3.pdf | 3 | 72% | ⚠️ Review |
-| doc4.pdf | 8 | - | ❌ Failed |
+| doc1.pdf | 5 | 96% |  Complete |
+| doc2.pdf | 12 | 88% |  Complete |
+| doc3.pdf | 3 | 72% |  Review |
+| doc4.pdf | 8 | - |  Failed |
 
 ### Issues
 - doc3.pdf: Pages 2-3 have handwriting

@@ -19,7 +19,7 @@ chmod +x publish.sh
 # Test validation
 bash .validate.sh
 
-# Expected: ✅ Validation passed!
+# Expected:  Validation passed!
 ```
 
 ### 3. File Structure
@@ -132,7 +132,7 @@ git branch -D test-publish
    ```bash
    bash .validate.sh
    ```
-   Expected: ✅ All checks pass
+   Expected:  All checks pass
 
 2. **Check Git Status**
    ```bash
@@ -155,7 +155,7 @@ git branch -D test-publish
 5. **During Script Execution**
 
    **Step 1/6**: Validation
-   - Expected: ✅ Validation passed
+   - Expected:  Validation passed
 
    **Step 2/6**: ClawHub CLI
    - If not installed: Installs automatically
@@ -178,7 +178,7 @@ git branch -D test-publish
 
    **Step 6/6**: npm (optional)
    ```
-   📦 Also publish to npm? [y/N]
+    Also publish to npm? [y/N]
    ```
    - **ACTION**: Type `n` (skip for now) or `y` (if ready)
 
@@ -355,7 +355,7 @@ Ready to publish:
 
 ---
 
-**Good luck!** 🎴
+**Good luck!** 
 
 If anything fails, check:
 1. Error message output

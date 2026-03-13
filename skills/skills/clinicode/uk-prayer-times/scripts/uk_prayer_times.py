@@ -60,32 +60,32 @@ def main():
     # Parse user input
     if len(sys.argv) > 1:
         location_input = ' '.join(sys.argv[1:])
-        print(f"🔍 Looking up: {location_input}...")
+        print(f" Looking up: {location_input}...")
         city, lat, lon = geocode_location(location_input)
         if not city:
-            print(f"❌ Could not find '{location_input}'")
-            print("💡 Try: Birmingham, London, Woolwich, Leicester, etc.")
+            print(f" Could not find '{location_input}'")
+            print(" Try: Birmingham, London, Woolwich, Leicester, etc.")
             return
     else:
-        print("📍 Auto-detecting location...")
+        print(" Auto-detecting location...")
         city, lat, lon = get_auto_location()
         if not city:
-            print("❌ Could not detect location")
-            print("💡 Try: python uk_prayer_times.py Birmingham")
+            print(" Could not detect location")
+            print(" Try: python uk_prayer_times.py Birmingham")
             return
 
     # Get prayer times
-    print(f"⏰ Fetching prayer times for {city}...\n")
+    print(f" Fetching prayer times for {city}...\n")
     timings, date = get_prayer_times(lat, lon)
 
     if not timings:
-        print("❌ Could not fetch prayer times")
+        print(" Could not fetch prayer times")
         return
 
     # Display
     print("=" * 50)
-    print(f"🕌 PRAYER TIMES - {city.upper()}")
-    print(f"📅 {date}")
+    print(f" PRAYER TIMES - {city.upper()}")
+    print(f" {date}")
     print("=" * 50)
     print(f"\nFajr:    {format_12h(timings['Fajr'])}")
     print(f"Sunrise: {format_12h(timings['Sunrise'])}")

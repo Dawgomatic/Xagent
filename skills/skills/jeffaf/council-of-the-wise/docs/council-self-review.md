@@ -4,7 +4,7 @@
 
 ---
 
-## 👹 Devil's Advocate
+##  Devil's Advocate
 
 **Key Insights:**
 - The 2-5 minute runtime is friction — no guidance for when to choose this vs. asking directly
@@ -18,7 +18,7 @@
 
 ---
 
-## 🏗️ Architect
+##  Architect
 
 **Key Insights:**
 - Clean separation: orchestration (SKILL.md), personas (agents/), docs (README.md)
@@ -32,7 +32,7 @@
 
 ---
 
-## 🛠️ Engineer
+##  Engineer
 
 **Key Insights:**
 - Implementation is lean — no over-engineering
@@ -47,7 +47,7 @@
 
 ---
 
-## 🎨 Artist
+##  Artist
 
 **Key Insights:**
 - "Council of the Wise" naming is evocative and memorable
@@ -62,7 +62,7 @@
 
 ---
 
-## ⚖️ Synthesis: Priority Actions
+##  Synthesis: Priority Actions
 
 | Priority | Recommendation | Effort |
 |----------|----------------|--------|

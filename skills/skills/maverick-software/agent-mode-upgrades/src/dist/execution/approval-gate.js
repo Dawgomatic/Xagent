@@ -189,13 +189,13 @@ export class ApprovalGate {
         const timeLeft = Math.max(0, request.timeoutMs - (Date.now() - request.createdAt));
         const timeLeftSec = Math.round(timeLeft / 1000);
         return `
-⚠️ **Approval Required**
+ **Approval Required**
 
 **Tool:** ${request.tool.name}
 **Risk:** ${request.riskLevel.toUpperCase()} - ${request.riskReason}
 **Arguments:** \`${JSON.stringify(request.tool.arguments)}\`
 
-⏱️ Auto-proceeding in ${timeLeftSec}s unless denied.
+ Auto-proceeding in ${timeLeftSec}s unless denied.
 
 Reply with:
 - \`/approve ${request.id.slice(-6)}\` to approve

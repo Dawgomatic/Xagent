@@ -1,7 +1,7 @@
 {
   "name": "Asked ChatGPT to turn me and itself into animals. This happened",
   "version": "1.0.0",
-  "description": "cute 😇. \n\n[PROMPT]\n\nBased on our past conversations, pick a real animal that best represents me, and preferably a different real animal that best represents you as an AI. Then create an image of those two animals taking a cute selfie together.",
+  "description": "cute . \n\n[PROMPT]\n\nBased on our past conversations, pick a real animal that best represents me, and preferably a different real animal that best represents you as an AI. Then create an image of those two animals taking a cute selfie together.",
   "author": "Clawdbot",
   "type": "Image Generation",
   "source": "reddit",

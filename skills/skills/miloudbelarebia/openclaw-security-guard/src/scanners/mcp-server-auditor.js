@@ -1,5 +1,5 @@
 /**
- * 🔌 MCP Server Auditor
+ *  MCP Server Auditor
  * 
  * Audits installed MCP servers for security risks
  */

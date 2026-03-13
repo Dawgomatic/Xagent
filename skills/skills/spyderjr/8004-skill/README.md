@@ -2,7 +2,7 @@
 
 On-chain identity, reputation, and validation for autonomous agents on TRON blockchain.
 
-**Now live on TRON Mainnet + BSC Mainnet! Multi-chain support: TRON ✅ | BSC ✅**
+**Now live on TRON Mainnet + BSC Mainnet! Multi-chain support: TRON  | BSC **
 
 ## What is ERC-8004?
 
@@ -37,8 +37,8 @@ The protocol provides three lightweight on-chain registries:
 
 ERC-8004 now supports multiple blockchains! Register and manage agents across:
 
-- ✅ **TRON** (Mainnet, Nile, Shasta) - Fully operational
-- ✅ **BSC** (BNB Smart Chain) - Live on mainnet and testnet!
+-  **TRON** (Mainnet, Nile, Shasta) - Fully operational
+-  **BSC** (BNB Smart Chain) - Live on mainnet and testnet!
 
 ### BSC Contract Addresses
 
@@ -57,8 +57,8 @@ ERC-8004 now supports multiple blockchains! Register and manage agents across:
 ### Chain Compatibility Notes
 
 **TRON (TRC-8004):** Contract versions may vary across networks. Query scripts use compatibility mode:
-- ✅ Always available: `ownerOf`, `tokenURI` (ERC-721 standard)
-- ⚠️ May vary by deployment: `agentURI`, `getAgentWallet`, `agentExists` (ERC-8004 extensions)
+-  Always available: `ownerOf`, `tokenURI` (ERC-721 standard)
+-  May vary by deployment: `agentURI`, `getAgentWallet`, `agentExists` (ERC-8004 extensions)
 
 **BSC:** Full ERC-8004 specification support on all networks.
 
@@ -222,19 +222,19 @@ chmod 600 ~/.clawdbot/wallets/.deployer_pk
 ## Resources
 
 ### Official
-- 🌐 [EIP-8004 Specification](https://eips.ethereum.org/EIPS/eip-8004) - Full specification
-- 🏠 [8004.org](https://8004.org) - Official website
-- 💬 [Telegram Community](https://t.me/ERC8004) - Builder chat
-- 🚀 [Builder Program](http://bit.ly/8004builderprogram) - Join the ecosystem
+-  [EIP-8004 Specification](https://eips.ethereum.org/EIPS/eip-8004) - Full specification
+-  [8004.org](https://8004.org) - Official website
+-  [Telegram Community](https://t.me/ERC8004) - Builder chat
+-  [Builder Program](http://bit.ly/8004builderprogram) - Join the ecosystem
 
 ### TRON Resources
-- 📚 [TRON Documentation](https://developers.tron.network/)
-- 🔍 [TronScan](https://tronscan.org/) - Block explorer
-- 🛠️ [TronWeb](https://github.com/tronprotocol/tronweb) - JavaScript SDK
+-  [TRON Documentation](https://developers.tron.network/)
+-  [TronScan](https://tronscan.org/) - Block explorer
+-  [TronWeb](https://github.com/tronprotocol/tronweb) - JavaScript SDK
 
 ### Related
-- 🤝 [A2A Protocol](https://a2a-protocol.org/) - Agent-to-Agent protocol that TRC-8004 extends
-- 📖 [Awesome ERC-8004](https://github.com/sudeepb02/awesome-erc8004) - Curated resource list
+-  [A2A Protocol](https://a2a-protocol.org/) - Agent-to-Agent protocol that TRC-8004 extends
+-  [Awesome ERC-8004](https://github.com/sudeepb02/awesome-erc8004) - Curated resource list
 
 ## Differences from Ethereum ERC-8004
 

@@ -136,32 +136,32 @@ Track patterns from wins/losses, categories to reduce exposure to, and accumulat
 
 ---
 
-## ⚠️ Categories Needing Improvement
+##  Categories Needing Improvement
 
 *None yet — collecting data*
 
 ---
 
-## 📊 Category Performance Summary
+##  Category Performance Summary
 
 | Category | Trades | Win Rate | Total PnL | Streak | Status |
 |----------|--------|----------|-----------|--------|--------|
-| crypto_price | 0 | - | 0ŧ | - | ✅ OK |
-| news_events | 0 | - | 0ŧ | - | ✅ OK |
-| pr_merge | 0 | - | 0ŧ | - | ✅ OK |
-| github_activity | 0 | - | 0ŧ | - | ✅ OK |
-| cabal_response | 0 | - | 0ŧ | - | ✅ OK |
-| platform_meta | 0 | - | 0ŧ | - | ✅ OK |
+| crypto_price | 0 | - | 0ŧ | - |  OK |
+| news_events | 0 | - | 0ŧ | - |  OK |
+| pr_merge | 0 | - | 0ŧ | - |  OK |
+| github_activity | 0 | - | 0ŧ | - |  OK |
+| cabal_response | 0 | - | 0ŧ | - |  OK |
+| platform_meta | 0 | - | 0ŧ | - |  OK |
 
 ---
 
-## 📝 Lessons Learned
+##  Lessons Learned
 
 *Document specific lessons after each loss*
 
 ---
 
-## 🎯 Category Guidelines
+##  Category Guidelines
 
 ### crypto_price
 - **Strategy:** Clear price thresholds (round numbers: $75k, $80k, $100k)
@@ -194,7 +194,7 @@ Track patterns from wins/losses, categories to reduce exposure to, and accumulat
 
 ---
 
-## 🔄 Learning Loop
+##  Learning Loop
 
 After each resolution:
 1. Update trade outcome in trader-history.json
@@ -221,18 +221,18 @@ Track market creation performance to optimize for VOLUME. Markets that get trade
 
 ---
 
-## 📊 Category Performance Summary
+##  Category Performance Summary
 
 | Category | Created | Avg Volume | Zero Vol % | Status |
 |----------|---------|------------|------------|--------|
-| crypto_price | 0 | - | - | 🆕 NEW |
-| news_events | 0 | - | - | 🆕 NEW |
-| meta_cabal | 0 | - | - | 🆕 NEW |
-| meta_platform | 0 | - | - | 🆕 NEW |
+| crypto_price | 0 | - | - |  NEW |
+| news_events | 0 | - | - |  NEW |
+| meta_cabal | 0 | - | - |  NEW |
+| meta_platform | 0 | - | - |  NEW |
 
 ---
 
-## 🎯 What Makes Markets Tradeable
+##  What Makes Markets Tradeable
 
 | Factor | High Volume | Low Volume |
 |--------|-------------|------------|
@@ -245,13 +245,13 @@ Track market creation performance to optimize for VOLUME. Markets that get trade
 
 ---
 
-## 📝 Lessons Learned
+##  Lessons Learned
 
 *Document after each resolved market*
 
 ---
 
-## 🔄 Learning Loop
+##  Learning Loop
 
 After each market resolves:
 1. Log final volume, trades, unique traders

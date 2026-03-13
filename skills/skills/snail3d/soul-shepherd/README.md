@@ -46,11 +46,11 @@ Every verse offered includes:
 
 ## What This DOESN'T Do
 
-❌ Pretend to be your friend  
-❌ Act like I have spiritual authority  
-❌ Enforce rules or make you feel guilty  
-❌ Use surveillance punitively  
-❌ Pretend to care about your soul (I can't care—I'm not capable of care)
+ Pretend to be your friend  
+ Act like I have spiritual authority  
+ Enforce rules or make you feel guilty  
+ Use surveillance punitively  
+ Pretend to care about your soul (I can't care—I'm not capable of care)
 
 ## Philosophy: Jesus IS the Sabbath
 

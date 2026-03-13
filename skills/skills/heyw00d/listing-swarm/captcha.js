@@ -1,7 +1,7 @@
 /**
  * Captcha Solver Integration
  * 
- * ⚠️ USER MUST BRING THEIR OWN API KEY
+ *  USER MUST BRING THEIR OWN API KEY
  * 
  * This skill does NOT include a captcha API key.
  * User must sign up at 2captcha.com (or similar) and get their own.

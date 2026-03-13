@@ -59,7 +59,7 @@ async function main() {
   }
 
   if (!existsSync(WALLET_FILE)) {
-    console.error("❌ No wallet found. Run setup.sh first.");
+    console.error(" No wallet found. Run setup.sh first.");
     process.exit(1);
   }
 
@@ -67,7 +67,7 @@ async function main() {
   const maxPrice = parseFloat(args["max-price"]);
   const networkId = NETWORKS[args.network] || args.network;
 
-  console.error(`🌐 Requesting ${args.method} ${args.url}`);
+  console.error(` Requesting ${args.method} ${args.url}`);
   console.error(`   Network: ${args.network} (${networkId})`);
   console.error(`   Max price: $${maxPrice} USDC`);
   console.error("");
@@ -108,17 +108,17 @@ async function main() {
         if (paymentHeader) {
           try {
             requirements = JSON.parse(Buffer.from(paymentHeader, "base64").toString());
-            console.error("💰 Payment required (v2 header):");
+            console.error(" Payment required (v2 header):");
           } catch { 
             requirements = JSON.parse(paymentHeader);
-            console.error("💰 Payment required (v2 header, plain JSON):");
+            console.error(" Payment required (v2 header, plain JSON):");
           }
         } else if (body) {
           try {
             const parsed = JSON.parse(body);
             if (parsed.x402Version === 1) {
               requirements = parsed;
-              console.error("💰 Payment required (v1 body):");
+              console.error(" Payment required (v1 body):");
             }
           } catch {}
         }
@@ -135,11 +135,11 @@ async function main() {
           console.error("");
           console.error("Use without --dry-run to pay and access.");
         } else {
-          console.error("💰 402 Payment Required (no structured requirements found)");
+          console.error(" 402 Payment Required (no structured requirements found)");
           if (body) console.error("   Body:", body.substring(0, 200));
         }
       } else {
-        console.error(`ℹ️  No payment needed (status: ${response.status})`);
+        console.error(`  No payment needed (status: ${response.status})`);
         const text = await response.text();
         console.log(text);
       }
@@ -156,13 +156,13 @@ async function main() {
       fetchOptions.body = args.body;
     }
 
-    console.error("💳 Making paid request...");
+    console.error(" Making paid request...");
     const response = await payFetch(args.url, fetchOptions);
 
     if (response.ok) {
       const paymentResponse = response.headers.get("x-payment-response");
       if (paymentResponse) {
-        console.error("✅ Payment successful!");
+        console.error(" Payment successful!");
         try {
           const pr = JSON.parse(paymentResponse);
           if (pr.txHash) console.error(`   Tx: ${pr.txHash}`);
@@ -178,7 +178,7 @@ async function main() {
         console.log(text);
       }
     } else {
-      console.error(`❌ Request failed: ${response.status} ${response.statusText}`);
+      console.error(` Request failed: ${response.status} ${response.statusText}`);
       const text = await response.text();
       console.error(text);
       process.exit(1);
@@ -186,11 +186,11 @@ async function main() {
   } catch (error) {
     // If x402 packages aren't installed yet, give helpful error
     if (error.code === "ERR_MODULE_NOT_FOUND") {
-      console.error("❌ x402 packages not installed. Run setup.sh first:");
+      console.error(" x402 packages not installed. Run setup.sh first:");
       console.error(`   cd ${join(homedir(), ".x402")} && bash setup.sh`);
       process.exit(1);
     }
-    console.error(`❌ Error: ${error.message}`);
+    console.error(` Error: ${error.message}`);
     process.exit(1);
   }
 }

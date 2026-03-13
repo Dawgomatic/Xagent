@@ -9,7 +9,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📺",
+        "emoji": "",
         "requires": { "bins": ["uv"] },
         "install":
           [
@@ -206,10 +206,10 @@ uv run {baseDir}/scripts/youtube.py -a personal liked
 ## Why We Built This
 
 We surveyed the landscape:
-- **kimtaeyoon83/mcp-server-youtube-transcript** (463⭐) — Great transcripts, no search
-- **kevinwatt/yt-dlp-mcp** (211⭐) — Great downloads, no transcripts
-- **dannySubsense/youtube-mcp-server** (9⭐) — Most functions, but uses paid API for transcripts
-- **kirbah/mcp-youtube** (9⭐) — Batch ops, but no free transcripts
+- **kimtaeyoon83/mcp-server-youtube-transcript** (463) — Great transcripts, no search
+- **kevinwatt/yt-dlp-mcp** (211) — Great downloads, no transcripts
+- **dannySubsense/youtube-mcp-server** (9) — Most functions, but uses paid API for transcripts
+- **kirbah/mcp-youtube** (9) — Batch ops, but no free transcripts
 
 **None combined free transcripts + search + downloads + batch ops.**
 

@@ -250,10 +250,10 @@ const result = await generateText({
 | **Speed** | Medium | Medium | Fast | Fast |
 | **Cost** | Medium | Medium | Low | Lowest |
 | **Context** | 128K | 200K | 1M | 128K |
-| **Structured Output** | ✅ | ✅ | ✅ | ⚠️ |
-| **Tool Calling** | ✅ | ✅ | ✅ | ⚠️ |
-| **Streaming** | ✅ | ✅ | ✅ | ✅ |
-| **Free Tier** | ❌ | ❌ | ✅ | ✅ |
+| **Structured Output** |  |  |  |  |
+| **Tool Calling** |  |  |  |  |
+| **Streaming** |  |  |  |  |
+| **Free Tier** |  |  |  |  |
 
 ---
 

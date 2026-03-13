@@ -4,7 +4,7 @@
 WORKSPACE="${OPENCLAW_WORKSPACE:-$HOME/.openclaw/workspace}"
 MEMORY_DIR="$WORKSPACE/memory"
 
-echo "🧠 Initializing Memory Manager..."
+echo " Initializing Memory Manager..."
 echo ""
 
 # Create three-tier structure
@@ -132,17 +132,17 @@ Example:
 - Pattern you use often
 EOF
 
-echo "✅ Memory structure initialized!"
+echo " Memory structure initialized!"
 echo ""
-echo "📁 Structure:"
+echo " Structure:"
 echo "   $MEMORY_DIR/episodic/     - What happened"
 echo "   $MEMORY_DIR/semantic/     - What you know"
 echo "   $MEMORY_DIR/procedural/   - How to do things"
 echo "   $MEMORY_DIR/snapshots/    - Compression backups"
 echo ""
-echo "🚀 Next steps:"
+echo " Next steps:"
 echo "   1. Run: detect.sh (check compression)"
 echo "   2. Run: organize.sh (migrate old files)"
 echo "   3. Add to HEARTBEAT.md for automatic checks"
 echo ""
-echo "📚 Read READMEs in each directory for examples."
+echo " Read READMEs in each directory for examples."

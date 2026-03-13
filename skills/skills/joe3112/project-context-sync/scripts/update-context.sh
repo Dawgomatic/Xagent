@@ -9,7 +9,7 @@ if [ -n "$1" ]; then
     REPO_ROOT="$1"
 else
     REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || {
-        echo "❌ Not in a git repository and no path provided"
+        echo " Not in a git repository and no path provided"
         exit 1
     }
 fi
@@ -225,4 +225,4 @@ else
     generate_raw_output > "$STATE_FILE"
 fi
 
-echo "✅ Updated: $STATE_FILE"
+echo " Updated: $STATE_FILE"

@@ -75,10 +75,10 @@ def check_rate_limit():
     
     print("\n=== Recommendations ===")
     if len(recent_posts) >= 5:
-        print("⚠ High posting frequency detected")
+        print(" High posting frequency detected")
         print("  Suggestion: Wait 2-3 minutes between posts")
     elif len(recent_posts) >= 3:
-        print("⚡ Moderate posting frequency")
+        print(" Moderate posting frequency")
         print("  Suggestion: Wait 60 seconds between posts")
     else:
         print("✓ Low posting frequency - safe to post")

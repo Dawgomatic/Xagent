@@ -182,10 +182,10 @@ class PerformanceTracker:
         success_rate = m.successful_runs / m.total_runs if m.total_runs > 0 else 0
         
         lines = [
-            "📊 思维模型性能报告",
+            " 思维模型性能报告",
             "=" * 50,
             "",
-            f"📈 总体统计:",
+            f" 总体统计:",
             f"   总运行次数: {m.total_runs}",
             f"   成功: {m.successful_runs} | 失败: {m.failed_runs}",
             f"   成功率: {success_rate*100:.1f}%",
@@ -195,13 +195,13 @@ class PerformanceTracker:
         ]
         
         if m.by_model:
-            lines.extend(["", f"📂 按模型:"])
+            lines.extend(["", f" 按模型:"])
             for model, data in sorted(m.by_model.items(), key=lambda x: x[1]["runs"], reverse=True):
                 model_success = data["success"] / data["runs"] if data["runs"] > 0 else 0
                 lines.append(f"   • {model}: {data['runs']}次 (成功率{ model_success*100:.0f}%)")
         
         if m.by_problem_type:
-            lines.extend(["", f"🏷️ 按问题类型:"])
+            lines.extend(["", f" 按问题类型:"])
             for ptype, data in sorted(m.by_problem_type.items(), key=lambda x: x[1]["runs"], reverse=True):
                 lines.append(f"   • {ptype}: {data['runs']}次")
         
@@ -235,19 +235,19 @@ class ThinkingVisualizer:
             格式化的报告字符串
         """
         lines = [
-            f"🧠 思维过程报告",
+            f" 思维过程报告",
             "=" * 60,
             "",
-            f"📝 问题: {problem[:100]}{'...' if len(problem) > 100 else ''}",
+            f" 问题: {problem[:100]}{'...' if len(problem) > 100 else ''}",
             "",
-            f"🔍 问题分析:",
+            f" 问题分析:",
             f"   类型: {analysis.get('type', '未知')}",
             f"   复杂度: {analysis.get('complexity', 'N/A')}/10",
             f"   置信度: {analysis.get('confidence', 'N/A')}",
             "",
-            f"🎯 使用模型: {model}",
+            f" 使用模型: {model}",
             "",
-            f"🔄 处理过程 ({len(stages)} 阶段):"
+            f" 处理过程 ({len(stages)} 阶段):"
         ]
         
         for i, stage in enumerate(stages, 1):
@@ -256,11 +256,11 @@ class ThinkingVisualizer:
                 for finding in stage["findings"][:3]:
                     lines.append(f"      • {finding}")
             if stage.get("duration_ms"):
-                lines.append(f"      ⏱️ {stage['duration_ms']:.1f}ms")
+                lines.append(f"       {stage['duration_ms']:.1f}ms")
         
         lines.extend([
             "",
-            f"✅ 处理结果:",
+            f" 处理结果:",
             f"   置信度: {result.get('confidence', 'N/A')}",
             f"   耗时: {result.get('duration_ms', 0):.1f}ms",
         ])
@@ -268,7 +268,7 @@ class ThinkingVisualizer:
         if result.get("recommendations"):
             lines.extend([
                 "",
-                f"💡 建议:",
+                f" 建议:",
                 *[f"   • {rec}" for rec in result["recommendations"][:5]]
             ])
         
@@ -290,7 +290,7 @@ class ThinkingVisualizer:
             文本图表字符串
         """
         if not data:
-            return "暂无数据 📊"
+            return "暂无数据 "
         
         max_value = max(d.get(value_key, 0) for d in data)
         max_label_len = max(len(d.get(label_key, "")) for d in data)

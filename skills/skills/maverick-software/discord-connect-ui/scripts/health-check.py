@@ -274,15 +274,15 @@ def main():
         print(json.dumps(results, indent=2))
     else:
         print()
-        print("🎮 Discord Bot Health Check")
+        print(" Discord Bot Health Check")
         print("=" * 40)
         print()
 
         for check in results["checks"]:
             status_icon = {
-                "pass": "✅",
-                "fail": "❌",
-                "warn": "⚠️",
+                "pass": "",
+                "fail": "",
+                "warn": "",
             }.get(check["status"], "?")
 
             print(f"{status_icon} {check['check'].upper()}: {check['message']}")
@@ -295,9 +295,9 @@ def main():
               f"Warnings: {summary['warnings']}")
 
         if summary["healthy"]:
-            print("✨ Bot is healthy!")
+            print(" Bot is healthy!")
         else:
-            print("❌ Issues detected - see above")
+            print(" Issues detected - see above")
             sys.exit(1)
 
 

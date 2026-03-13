@@ -145,14 +145,14 @@ func _physics_process(_delta: float) -> void:
 
 ---
 
-## ⚠️ AI PITFALL：PhysicsServer 查詢 API
+##  AI PITFALL：PhysicsServer 查詢 API
 
 ```gdscript
-# ❌ WRONG - Godot 3 語法
+#  WRONG - Godot 3 語法
 var space_state = get_world_2d().direct_space_state
 var result = space_state.intersect_ray(from, to)
 
-# ✅ CORRECT - Godot 4 語法
+#  CORRECT - Godot 4 語法
 var space_state = get_world_2d().direct_space_state
 var query = PhysicsRayQueryParameters2D.create(from, to)
 query.collision_mask = collision_mask
@@ -167,13 +167,13 @@ if result:
 
 ---
 
-## ⚠️ AI PITFALL：move_and_slide 返回值
+##  AI PITFALL：move_and_slide 返回值
 
 ```gdscript
-# ❌ WRONG - Godot 3 語法
+#  WRONG - Godot 3 語法
 velocity = move_and_slide(velocity, Vector2.UP)
 
-# ✅ CORRECT - Godot 4 語法
+#  CORRECT - Godot 4 語法
 # velocity 是屬性，不是參數
 velocity = some_velocity
 move_and_slide()  # 返回 bool，不是 velocity
@@ -182,10 +182,10 @@ move_and_slide()  # 返回 bool，不是 velocity
 
 ---
 
-## ⚠️ AI PITFALL：碰撞層設置錯誤
+##  AI PITFALL：碰撞層設置錯誤
 
 ```gdscript
-# ❌ WRONG - Layer 和 Mask 混淆
+#  WRONG - Layer 和 Mask 混淆
 # Layer = 我是什麼
 # Mask = 我檢測什麼
 
@@ -193,7 +193,7 @@ move_and_slide()  # 返回 bool，不是 velocity
 # Layer = 3 (Projectiles)
 # Mask = 1 | 2 (Player | Enemies)
 
-# ✅ CORRECT 設置
+#  CORRECT 設置
 bullet.collision_layer = 4  # 二進制 100 = Layer 3
 bullet.collision_mask = 3   # 二進制 011 = Layer 1 和 2
 ```

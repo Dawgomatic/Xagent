@@ -19,14 +19,14 @@ WHITE='\033[1;37m'
 NC='\033[0m' # No Color
 
 # Icons
-ICON_SUCCESS="✅"
-ICON_ERROR="❌"
-ICON_INFO="ℹ️"
-ICON_WARNING="⚠️"
-ICON_ROCKET="🚀"
-ICON_GEAR="⚙️"
-ICON_FILE="📄"
-ICON_FOLDER="📁"
+ICON_SUCCESS=""
+ICON_ERROR=""
+ICON_INFO=""
+ICON_WARNING=""
+ICON_ROCKET=""
+ICON_GEAR=""
+ICON_FILE=""
+ICON_FOLDER=""
 
 #-------------------------------------------------------------------------------
 # Configuration

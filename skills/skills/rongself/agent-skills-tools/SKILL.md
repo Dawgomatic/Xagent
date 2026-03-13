@@ -10,11 +10,11 @@ description: >
 license: MIT
 metadata:
   openclaw:
-    emoji: "🔒"
+    emoji: ""
     category: "security"
 ---
 
-# Agent Skills Tools 🔒
+# Agent Skills Tools 
 
 Security and validation tools for the Agent Skills ecosystem.
 
@@ -29,12 +29,12 @@ This skill provides tools to audit and validate Agent Skills packages for securi
 Scans skill packages for common security issues:
 
 **Checks:**
-- 🔐 Credential leaks (hardcoded API keys, passwords, tokens)
-- 📁 Dangerous file access (~/.ssh, ~/.aws, ~/.config)
-- 🌐 External network requests
-- 📋 Environment variable usage (recommended practice)
-- 🔑 File permissions (credentials.json)
-- 📜 Git history for leaked secrets
+-  Credential leaks (hardcoded API keys, passwords, tokens)
+-  Dangerous file access (~/.ssh, ~/.aws, ~/.config)
+-  External network requests
+-  Environment variable usage (recommended practice)
+-  File permissions (credentials.json)
+-  Git history for leaked secrets
 
 **Usage:**
 ```bash
@@ -43,21 +43,21 @@ Scans skill packages for common security issues:
 
 **Example output:**
 ```
-🔒 技能安全审计报告：path/to/skill
+ 技能安全审计报告：path/to/skill
 ==========================================
 
-📋 检查1: 凭据泄露 (API key, password, secret, token)
+ 检查1: 凭据泄露 (API key, password, secret, token)
 ----------------------------------------
-✅ 未发现凭据泄露
+ 未发现凭据泄露
 
-📋 检查2: 危险的文件操作 (~/.ssh, ~/.aws, ~/.config)
+ 检查2: 危险的文件操作 (~/.ssh, ~/.aws, ~/.config)
 ----------------------------------------
-✅ 未发现危险的文件访问
+ 未发现危险的文件访问
 
 [... more checks ...]
 
 ==========================================
-🎯 安全审计完成
+ 安全审计完成
 ```
 
 ## Background
@@ -69,8 +69,8 @@ These tools help catch such vulnerabilities before they cause damage.
 ## Best Practices
 
 1. **Never hardcode credentials**
-   - ❌ `API_KEY="sk_live_abc123..."`
-   - ✅ Read from environment variables or config files
+   -  `API_KEY="sk_live_abc123..."`
+   -  Read from environment variables or config files
 
 2. **Use environment variables**
    ```bash

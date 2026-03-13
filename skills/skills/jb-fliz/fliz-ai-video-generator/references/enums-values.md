@@ -161,12 +161,12 @@ video_rendering_queue   → In rendering queue
 
 ### Final States:
 ```
-complete                        → ✅ Video ready (url field populated)
-failed                          → ❌ Recoverable error
-failed_unrecoverable            → ❌ Permanent failure
-failed_go_back_to_user_action   → ⚠️ Needs user correction
-user_action                     → ⚠️ Manual intervention required
-block                           → ⛔ Processing blocked
+complete                        →  Video ready (url field populated)
+failed                          →  Recoverable error
+failed_unrecoverable            →  Permanent failure
+failed_go_back_to_user_action   →  Needs user correction
+user_action                     →  Manual intervention required
+block                           →  Processing blocked
 ```
 
 ## Video Animation Mode (`video_animation_mode`)

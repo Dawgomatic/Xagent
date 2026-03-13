@@ -195,7 +195,7 @@ def main():
     with open(criteria_file, 'w') as f:
         json.dump(criteria, f, indent=2)
     
-    print(f"✅ Criteria updated: {criteria_file}")
+    print(f" Criteria updated: {criteria_file}")
     print(f"   Version: {criteria['version']}")
     print(f"   Active categories: {len(criteria['value_categories'])}")
     

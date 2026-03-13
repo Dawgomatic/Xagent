@@ -1,11 +1,11 @@
-# 💡 Smart Follow-ups
+#  Smart Follow-ups
 
-### 🦎 A OpenClaw Skill
+###  A OpenClaw Skill
 
 > Generate contextual follow-up suggestions for your AI conversations
 
 <p align="center">
-  <a href="https://openclaw.com"><img src="https://img.shields.io/badge/🦎_OpenClaw-Skill-7c3aed?style=for-the-badge" alt="OpenClaw Skill"></a>
+  <a href="https://openclaw.com"><img src="https://img.shields.io/badge/_OpenClaw-Skill-7c3aed?style=for-the-badge" alt="OpenClaw Skill"></a>
   <a href="https://clawhub.ai/skills/smart-followups"><img src="https://img.shields.io/badge/ClawHub-Install-22c55e?style=for-the-badge" alt="ClawHub"></a>
 </p>
 
@@ -21,27 +21,27 @@
 
 After every AI response, get **3 smart suggestions** for what to ask next:
 
-- ⚡ **Quick** — Clarifications and immediate questions
-- 🧠 **Deep Dive** — Technical depth and detailed exploration
-- 🔗 **Related** — Connected topics and broader context
+-  **Quick** — Clarifications and immediate questions
+-  **Deep Dive** — Technical depth and detailed exploration
+-  **Related** — Connected topics and broader context
 
 **Telegram/Discord/Slack:** Clickable inline buttons  
 **Signal/iMessage/SMS:** Numbered text list
 
 ---
 
-## ✨ Features
+##  Features
 
-- **🎯 Context-Aware** — Analyzes your last 1-3 exchanges
-- **🔘 Interactive Buttons** — One tap to ask (Telegram, Discord, Slack)
-- **📝 Text Fallback** — Numbered lists for channels without buttons
-- **⚡ Fast** — ~2 second generation time
-- **🔐 Privacy-First** — Uses your existing OpenClaw auth by default
-- **🔧 Flexible** — Multiple provider options (see below)
+- ** Context-Aware** — Analyzes your last 1-3 exchanges
+- ** Interactive Buttons** — One tap to ask (Telegram, Discord, Slack)
+- ** Text Fallback** — Numbered lists for channels without buttons
+- ** Fast** — ~2 second generation time
+- ** Privacy-First** — Uses your existing OpenClaw auth by default
+- ** Flexible** — Multiple provider options (see below)
 
 ---
 
-## 🦎 What is OpenClaw?
+##  What is OpenClaw?
 
 [OpenClaw](https://openclaw.com) is a powerful AI assistant that connects Claude to your favorite messaging apps — Telegram, Discord, Signal, WhatsApp, iMessage, and more. Skills extend OpenClaw with new capabilities.
 
@@ -49,7 +49,7 @@ After every AI response, get **3 smart suggestions** for what to ask next:
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -74,10 +74,10 @@ Bot: Docker is a containerization platform that...
 
 You: followups
 
-Bot: 💡 What would you like to explore next?
-[⚡ How do I install Docker?]
-[🧠 Explain container architecture]
-[🔗 Docker vs Kubernetes?]
+Bot:  What would you like to explore next?
+[ How do I install Docker?]
+[ Explain container architecture]
+[ Docker vs Kubernetes?]
 ```
 
 Click any button → sends that question automatically!
@@ -86,21 +86,21 @@ Click any button → sends that question automatically!
 
 ---
 
-## 🔐 Authentication
+##  Authentication
 
-### OpenClaw Native (Default) ⭐
+### OpenClaw Native (Default) 
 
 **No API keys needed!** The skill uses your existing OpenClaw authentication — same model and login as your current chat.
 
-- ✅ No additional API keys required
-- ✅ Uses your current session's model (Haiku/Sonnet/Opus)
-- ✅ Works out of the box
+-  No additional API keys required
+-  Uses your current session's model (Haiku/Sonnet/Opus)
+-  Works out of the box
 
 > **Note (v2.1.4):** The handler uses OpenClaw-native auth. External providers (OpenRouter/Anthropic) are only supported via the standalone CLI tool for testing purposes.
 
 ---
 
-## ⚙ Configuration
+##  Configuration
 
 The skill works out of the box with OpenClaw's native authentication. No configuration required!
 
@@ -124,7 +124,7 @@ The skill works out of the box with OpenClaw's native authentication. No configu
 
 ---
 
-## 📱 Channel Support
+##  Channel Support
 
 Works on **every OpenClaw channel** with adaptive formatting:
 
@@ -140,11 +140,11 @@ Works on **every OpenClaw channel** with adaptive formatting:
 | **Matrix** | Text list | Reply 1, 2, or 3 |
 | **Email** | Text list | Reply with number |
 
-📖 See [CHANNELS.md](CHANNELS.md) for detailed channel-specific documentation.
+ See [CHANNELS.md](CHANNELS.md) for detailed channel-specific documentation.
 
 ---
 
-## 🛠 CLI Tool (Standalone, Optional)
+##  CLI Tool (Standalone, Optional)
 
 A standalone CLI is included for testing and scripting **outside of OpenClaw**:
 
@@ -166,30 +166,30 @@ See `node cli/followups-cli.js --help` for all options.
 
 ---
 
-## 📖 Examples
+##  Examples
 
 ### Telegram Buttons
 
 ```
-💡 What would you like to explore next?
+ What would you like to explore next?
 
-[⚡ How do I install Docker?        ]
-[🧠 Explain Docker's architecture   ]
-[🔗 Compare Docker to Kubernetes    ]
+[ How do I install Docker?        ]
+[ Explain Docker's architecture   ]
+[ Compare Docker to Kubernetes    ]
 ```
 
 ### Signal Text Mode
 
 ```
-💡 Smart Follow-up Suggestions
+ Smart Follow-up Suggestions
 
-⚡ Quick
+ Quick
 1. How do I install Docker?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain Docker's architecture
 
-🔗 Related
+ Related
 3. Compare Docker to Kubernetes
 
 Reply with 1, 2, or 3 to ask that question.
@@ -197,7 +197,7 @@ Reply with 1, 2, or 3 to ask that question.
 
 ---
 
-## ❓ FAQ
+##  FAQ
 
 ### Why 3 suggestions instead of 6?
 
@@ -228,7 +228,7 @@ Yes! With `provider: "openclaw"` (default), it uses whatever model your current 
 
 ---
 
-## 🏗 Project Structure
+##  Project Structure
 
 ```
 smart-followups/
@@ -246,7 +246,7 @@ smart-followups/
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
 
@@ -258,13 +258,13 @@ Contributions welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
 
 ---
 
-## 📄 License
+##  License
 
-MIT © [Robby](https://github.com/robbyczgw-cla)
+MIT  [Robby](https://github.com/robbyczgw-cla)
 
 ---
 
-## 🙏 Credits
+##  Credits
 
 - Inspired by [Chameleon AI Chat](https://github.com/robbyczgw-cla/Chameleon-AI-Chat)'s smart follow-up feature
 - Built for the [OpenClaw](https://openclaw.com) ecosystem
@@ -272,4 +272,4 @@ MIT © [Robby](https://github.com/robbyczgw-cla)
 
 ---
 
-**Made with 🦎 by the OpenClaw community**
+**Made with  by the OpenClaw community**

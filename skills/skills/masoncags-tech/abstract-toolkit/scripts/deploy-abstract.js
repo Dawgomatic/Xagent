@@ -70,7 +70,7 @@ async function main() {
   await contract.waitForDeployment();
   
   const address = await contract.getAddress();
-  console.log(`\n✅ Contract deployed!`);
+  console.log(`\n Contract deployed!`);
   console.log(`Address: ${address}`);
   console.log(`Explorer: https://abscan.org/address/${address}`);
   

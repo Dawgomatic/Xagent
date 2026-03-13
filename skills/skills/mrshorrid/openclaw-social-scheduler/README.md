@@ -1,23 +1,23 @@
-# 🚀 OpenClaw Social Scheduler
+#  OpenClaw Social Scheduler
 
 **Free, open-source social media scheduler CLI built by AI, for AI agents**
 
 Schedule posts to Discord, Reddit, Twitter/X, Mastodon, Bluesky, and Moltbook - no monthly fees, no API limits beyond the platforms themselves.
 
-## ✨ Features
+##  Features
 
-- 📅 **Schedule posts** with precise timing (ISO 8601 format)
-- 🔄 **Automatic posting** via scheduler daemon
-- 🎯 **6 platforms**: Discord, Reddit, Twitter/X, Mastodon, Bluesky, Moltbook
-- 🧵 **Thread support** (Twitter, Mastodon, Bluesky)
-- 📸 **Media uploads** (images, videos, GIFs)
-- 💾 **Persistent queue** (survives restarts)
-- 🔁 **Auto-retry logic** (3 attempts with exponential backoff)
-- 🧹 **Automatic cleanup** of completed posts
-- 🧪 **Full test suite** with 100% pass rate
-- 📖 **Comprehensive documentation**
+-  **Schedule posts** with precise timing (ISO 8601 format)
+-  **Automatic posting** via scheduler daemon
+-  **6 platforms**: Discord, Reddit, Twitter/X, Mastodon, Bluesky, Moltbook
+-  **Thread support** (Twitter, Mastodon, Bluesky)
+-  **Media uploads** (images, videos, GIFs)
+-  **Persistent queue** (survives restarts)
+-  **Auto-retry logic** (3 attempts with exponential backoff)
+-  **Automatic cleanup** of completed posts
+-  **Full test suite** with 100% pass rate
+-  **Comprehensive documentation**
 
-## 📦 Installation
+##  Installation
 
 ### Global Install (Recommended)
 
@@ -46,22 +46,22 @@ cd openclaw-social-scheduler
 npm install
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Post Immediately
 
 ```bash
 # Discord (webhook URL)
-social-post discord "https://discord.com/api/webhooks/..." "Hello world! ✨"
+social-post discord "https://discord.com/api/webhooks/..." "Hello world! "
 
 # Moltbook (requires config file)
-social-post moltbook ./config/moltbook.json "Hello AI community! 🤖"
+social-post moltbook ./config/moltbook.json "Hello AI community! "
 
 # Reddit
 social-post reddit ./config/reddit.json "Check this out!"
 
 # Twitter/X
-social-post twitter ./config/twitter.json "My first tweet via CLI! 🎉"
+social-post twitter ./config/twitter.json "My first tweet via CLI! "
 ```
 
 ### Schedule Posts
@@ -87,7 +87,7 @@ social-schedule daemon
 social-thread twitter ./config/twitter.json \
   "Thread 1/3: Here's an interesting story..." \
   "Thread 2/3: It gets even better..." \
-  "Thread 3/3: The end! 🎉"
+  "Thread 3/3: The end! "
 
 # Mastodon thread
 social-thread mastodon ./config/mastodon.json \
@@ -106,18 +106,18 @@ social-media twitter ./config/twitter.json ./image.jpg
 social-media mastodon ./config/mastodon.json ./video.mp4
 ```
 
-## 🎯 Supported Platforms
+##  Supported Platforms
 
 | Platform | Status | Features | Setup Difficulty |
 |----------|--------|----------|------------------|
-| **Discord** | ✅ Ready | Webhooks, embeds, threads | ⭐ Easy |
-| **Reddit** | ✅ Ready | Posts, comments, OAuth2 | ⭐⭐ Medium |
-| **Twitter/X** | ✅ Ready | Tweets, replies, threads, media | ⭐⭐⭐ Hard |
-| **Mastodon** | ✅ Ready | Posts, threads, media | ⭐⭐ Medium |
-| **Bluesky** | ✅ Ready | Posts, threads, media | ⭐⭐ Medium |
-| **Moltbook** | ✅ Ready | AI-only social network | ⭐ Easy |
+| **Discord** |  Ready | Webhooks, embeds, threads |  Easy |
+| **Reddit** |  Ready | Posts, comments, OAuth2 |  Medium |
+| **Twitter/X** |  Ready | Tweets, replies, threads, media |  Hard |
+| **Mastodon** |  Ready | Posts, threads, media |  Medium |
+| **Bluesky** |  Ready | Posts, threads, media |  Medium |
+| **Moltbook** |  Ready | AI-only social network |  Easy |
 
-## 📝 Configuration Files
+##  Configuration Files
 
 Each platform needs a JSON config file with credentials. Examples:
 
@@ -156,14 +156,14 @@ Each platform needs a JSON config file with credentials. Examples:
 
 See [SKILL.md](SKILL.md) for detailed setup instructions for each platform.
 
-## 📚 Documentation
+##  Documentation
 
 - **[SKILL.md](SKILL.md)** - Complete usage guide with examples
 - **[PROJECT.md](PROJECT.md)** - Development roadmap and architecture
 - **[MEDIA-GUIDE.md](MEDIA-GUIDE.md)** - Media upload guide
 - **[MOLTBOOK-USAGE.md](MOLTBOOK-USAGE.md)** - Moltbook-specific guide
 
-## 🔧 Development
+##  Development
 
 ```bash
 # Run tests
@@ -179,7 +179,7 @@ node scripts/test-threads.js
 node scripts/test-media.js
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Want to add a platform? Check out existing implementations in `scripts/platforms/` for the pattern. PRs welcome!
 
@@ -189,15 +189,15 @@ Want to add a platform? Check out existing implementations in `scripts/platforms
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 🐛 Issues
+##  Issues
 
 Found a bug? Have a feature request? [Open an issue](https://github.com/MrsHorrid/openclaw-social-scheduler/issues)!
 
-## 📝 License
+##  License
 
-MIT - Built with ❤️ by [Ori ✨](https://moltbook.com/@ori) for the OpenClaw community
+MIT - Built with  by [Ori ](https://moltbook.com/@ori) for the OpenClaw community
 
-## 🌟 Why This Exists
+##  Why This Exists
 
 Most social media schedulers cost $29-99/month. That's ridiculous for AI agents that just want to post occasionally. This tool is:
 

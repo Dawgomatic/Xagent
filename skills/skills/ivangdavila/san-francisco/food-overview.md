@@ -22,11 +22,11 @@ SF pioneered farm-to-table dining. Exceptional for Mission burritos, sourdough, 
 
 | Restaurant | Cuisine | Stars | Notes |
 |------------|---------|-------|-------|
-| **Quince** | Italian | ⭐⭐⭐ | Classic fine dining |
-| **Benu** | Korean-American | ⭐⭐⭐ | Innovative |
-| **Atelier Crenn** | French | ⭐⭐⭐ | Poetic cuisine |
-| **Lazy Bear** | New American | ⭐⭐ | Communal dining |
-| **State Bird Provisions** | Californian | ⭐ | Dim sum style |
+| **Quince** | Italian |  | Classic fine dining |
+| **Benu** | Korean-American |  | Innovative |
+| **Atelier Crenn** | French |  | Poetic cuisine |
+| **Lazy Bear** | New American |  | Communal dining |
+| **State Bird Provisions** | Californian |  | Dim sum style |
 
 ### Excellent but Accessible ($$$)
 

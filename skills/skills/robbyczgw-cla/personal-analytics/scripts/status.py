@@ -13,13 +13,13 @@ def main():
         config = load_config()
         data = load_data()
     except FileNotFoundError as e:
-        print(f"❌ {e}", file=sys.stderr)
+        print(f" {e}", file=sys.stderr)
         sys.exit(1)
     
     enabled = is_enabled()
     
-    print("\n📊 Personal Analytics Status\n")
-    print(f"Status: {'✅ Enabled' if enabled else '❌ Disabled'}")
+    print("\n Personal Analytics Status\n")
+    print(f"Status: {' Enabled' if enabled else ' Disabled'}")
     
     # Data summary
     sessions = data.get("sessions", [])

@@ -48,7 +48,7 @@ class XTwitterAPI:
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
-            print(f"❌ API request failed: {e}")
+            print(f" API request failed: {e}")
             if 'response' in locals():
                 print(f"Status: {response.status_code}")
                 print(f"Response: {response.text}")
@@ -84,8 +84,8 @@ def format_tweet(tweet, users_map=None):
 {'─' * 60}
 {text[:300]}{'...' if len(text) > 300 else ''}
 {'─' * 60}
-👤 {author} | 🕒 {time_str}
-❤️ {likes} | 🔄 {retweets} | 💬 {replies}
+ {author} |  {time_str}
+ {likes} |  {retweets} |  {replies}
 """
 
 
@@ -99,7 +99,7 @@ def main():
     args = parser.parse_args()
 
     if not os.environ.get('X_BEARER_TOKEN'):
-        print("❌ Error: X_BEARER_TOKEN not set")
+        print(" Error: X_BEARER_TOKEN not set")
         print("\nGet API token:")
         print("1. Visit https://developer.x.com")
         print("2. Create project and app")
@@ -107,17 +107,17 @@ def main():
         print("4. Run: export X_BEARER_TOKEN='your_token'")
         sys.exit(1)
 
-    print(f"🔍 Searching: {args.query}\n")
+    print(f" Searching: {args.query}\n")
 
     try:
         api = XTwitterAPI()
         result = api.search_recent(args.query, args.count)
     except ValueError as e:
-        print(f"❌ {e}")
+        print(f" {e}")
         sys.exit(1)
 
     if not result or "data" not in result:
-        print("❌ No results found")
+        print(" No results found")
         sys.exit(1)
 
     tweets = result["data"]
@@ -131,7 +131,7 @@ def main():
     if args.output == 'json':
         print(json.dumps(result, indent=2, ensure_ascii=False))
     else:
-        print(f"✅ Found {len(tweets)} tweets:\n")
+        print(f" Found {len(tweets)} tweets:\n")
         for tweet in tweets:
             print(format_tweet(tweet, users_map))
 
@@ -139,7 +139,7 @@ def main():
     if args.save:
         with open(args.save, 'w', encoding='utf-8') as f:
             json.dump(result, f, indent=2, ensure_ascii=False)
-        print(f"\n💾 Saved to: {args.save}")
+        print(f"\n Saved to: {args.save}")
 
 
 if __name__ == "__main__":

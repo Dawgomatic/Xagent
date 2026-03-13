@@ -5,7 +5,7 @@ description: Manage your PostSyncer social media workflows.
 author: abakermi
 metadata:
   openclaw:
-    emoji: "🔄"
+    emoji: ""
     requires:
       env: ["POSTSYNCER_API_KEY"]
 ---

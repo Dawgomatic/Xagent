@@ -77,7 +77,7 @@ WARNINGS=()
 err() {
   ERRORS+=("$1")
   [[ "$QUIET" == "true" ]] && return
-  echo "  ❌ $1" >&2
+  echo "   $1" >&2
   if [[ "$FIX_MODE" == "true" && -n "${2:-}" ]]; then
     echo "     → 수정: $2" >&2
   fi
@@ -86,12 +86,12 @@ err() {
 warn() {
   WARNINGS+=("$1")
   [[ "$QUIET" == "true" ]] && return
-  echo "  ⚠️  $1" >&2
+  echo "    $1" >&2
 }
 
 ok() {
   [[ "$QUIET" == "true" ]] && return
-  echo "  ✅ $1" >&2
+  echo "   $1" >&2
 }
 
 # ── 검사 1: config.yaml 존재 여부 ───────────────────────────
@@ -350,12 +350,12 @@ PYEOF
 
 # ── 메인 검증 실행 ───────────────────────────────────────────
 main() {
-  [[ "$QUIET" == "false" ]] && echo "🔍 config.yaml 검증 중: $CONFIG_FILE" >&2
+  [[ "$QUIET" == "false" ]] && echo " config.yaml 검증 중: $CONFIG_FILE" >&2
 
   # 파일 존재 확인
   if ! check_file_exists; then
     [[ "$QUIET" == "false" ]] && echo "" >&2
-    [[ "$QUIET" == "false" ]] && echo "❌ 검증 실패 (1개 오류)" >&2
+    [[ "$QUIET" == "false" ]] && echo " 검증 실패 (1개 오류)" >&2
     [[ "$QUIET" == "false" ]] && echo "   실행하세요: bash $SCRIPT_DIR/setup-wizard.sh" >&2
     return 1
   fi
@@ -397,9 +397,9 @@ main() {
   if [[ "$QUIET" == "false" ]]; then
     echo "" >&2
     if [ "$error_count" -eq 0 ]; then
-      echo "✅ config.yaml 유효 (검사 ${ok_count}개 통과, 경고 ${warn_count}개)" >&2
+      echo " config.yaml 유효 (검사 ${ok_count}개 통과, 경고 ${warn_count}개)" >&2
     else
-      echo "❌ 검증 실패 ($error_count개 오류, $warn_count개 경고, $ok_count개 통과)" >&2
+      echo " 검증 실패 ($error_count개 오류, $warn_count개 경고, $ok_count개 통과)" >&2
       echo "" >&2
       echo "   수정 후 재실행: bash $SCRIPT_DIR/validate-config.sh --fix" >&2
       echo "   또는 재설정:    bash $SCRIPT_DIR/setup-wizard.sh" >&2

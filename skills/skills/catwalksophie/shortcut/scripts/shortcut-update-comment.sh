@@ -32,9 +32,9 @@ RESPONSE=$(curl -s -X PUT \
 TEXT_OUT=$(echo "$RESPONSE" | jq -r '.text')
 
 if [ "$TEXT_OUT" != "null" ]; then
-  echo "✅ Updated comment #$COMMENT_ID: $TEXT_OUT"
+  echo " Updated comment #$COMMENT_ID: $TEXT_OUT"
 else
-  echo "❌ Failed to update comment"
+  echo " Failed to update comment"
   echo "$RESPONSE" | jq .
   exit 1
 fi

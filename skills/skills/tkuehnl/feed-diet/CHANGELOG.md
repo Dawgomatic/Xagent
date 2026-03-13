@@ -21,7 +21,7 @@
 
 ## v0.1.0 — 2026-02-15
 
-### 🎉 Initial Release
+###  Initial Release
 
 **Feed Diet** — Audit your information diet across HN and RSS feeds.
 
@@ -38,8 +38,8 @@
 - **Parallel fetching:** Concurrent HN API calls for speed
 
 #### Data Sources
-- ✅ Hacker News (username → stories)
-- ✅ RSS/Atom feeds via OPML
+-  Hacker News (username → stories)
+-  RSS/Atom feeds via OPML
 
 #### Coming in v0.1.2
 - Reddit user history

@@ -18,7 +18,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required"
+  echo " Error: jq is required"
   exit 1
 fi
 
@@ -29,7 +29,7 @@ show_help() {
 
 # Command: setup
 cmd_setup() {
-  echo "🔧 Media Tracker Setup Wizard"
+  echo " Media Tracker Setup Wizard"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   echo "This wizard will help you configure media tracking services."
@@ -64,9 +64,9 @@ cmd_setup() {
         echo "Testing connection..."
         bash "$SCRIPT_DIR/trakt.sh" auth-status
         
-        echo "✅ Trakt.tv setup complete!"
+        echo " Trakt.tv setup complete!"
       else
-        echo "❌ trakt.sh not found"
+        echo " trakt.sh not found"
         exit 1
       fi
       ;;
@@ -80,9 +80,9 @@ cmd_setup() {
       
       if [[ -f "$SCRIPT_DIR/simkl.sh" ]]; then
         bash "$SCRIPT_DIR/simkl.sh" auth
-        echo "✅ Simkl setup complete!"
+        echo " Simkl setup complete!"
       else
-        echo "❌ simkl.sh not found"
+        echo " simkl.sh not found"
         exit 1
       fi
       ;;
@@ -103,7 +103,7 @@ cmd_setup() {
       echo "    1. Go to letterboxd.com/settings/import"
       echo "    2. Upload the generated CSV file"
       echo ""
-      echo "✅ Letterboxd info displayed"
+      echo " Letterboxd info displayed"
       ;;
       
     4)
@@ -119,7 +119,7 @@ cmd_setup() {
       echo "  2. Download your CSV export"
       echo "  3. Use: trackers.sh import tvtime <file.csv>"
       echo ""
-      echo "✅ TV Time info displayed"
+      echo " TV Time info displayed"
       ;;
       
     5)
@@ -131,7 +131,7 @@ cmd_setup() {
       
       # Check if traktarr is installed
       if command -v traktarr &> /dev/null || [[ -f "$HOME/.local/bin/traktarr" ]]; then
-        echo "✅ Traktarr found"
+        echo " Traktarr found"
         echo ""
         bash "$SCRIPT_DIR/trakt.sh" traktarr-status
         echo ""
@@ -142,7 +142,7 @@ cmd_setup() {
           bash "$SCRIPT_DIR/trakt.sh" traktarr-config
         fi
       else
-        echo "⚠️  Traktarr not found"
+        echo "  Traktarr not found"
         echo ""
         echo "Traktarr automatically adds content from Trakt lists to Radarr/Sonarr."
         echo ""
@@ -158,12 +158,12 @@ cmd_setup() {
           elif command -v pip &> /dev/null; then
             pip install --user traktarr
           else
-            echo "❌ pip not found. Install Python first."
+            echo " pip not found. Install Python first."
             exit 1
           fi
           
           echo ""
-          echo "✅ Traktarr installed"
+          echo " Traktarr installed"
           echo ""
           echo "Now configuring..."
           bash "$SCRIPT_DIR/trakt.sh" traktarr-config
@@ -177,7 +177,7 @@ cmd_setup() {
       fi
       
       echo ""
-      echo "✅ Traktarr setup complete"
+      echo " Traktarr setup complete"
       ;;
       
     6)
@@ -189,7 +189,7 @@ cmd_setup() {
       
       # Check if retraktarr is installed
       if command -v retraktarr &> /dev/null || [[ -f "$HOME/.local/bin/retraktarr" ]]; then
-        echo "✅ Retraktarr found"
+        echo " Retraktarr found"
         echo ""
         bash "$SCRIPT_DIR/trakt.sh" retraktarr-status
         echo ""
@@ -200,7 +200,7 @@ cmd_setup() {
           bash "$SCRIPT_DIR/trakt.sh" retraktarr-config
         fi
       else
-        echo "⚠️  Retraktarr not found"
+        echo "  Retraktarr not found"
         echo ""
         echo "Retraktarr syncs your Radarr/Sonarr library to Trakt lists."
         echo ""
@@ -216,12 +216,12 @@ cmd_setup() {
           elif command -v pip &> /dev/null; then
             pip install --user retraktarr
           else
-            echo "❌ pip not found. Install Python first."
+            echo " pip not found. Install Python first."
             exit 1
           fi
           
           echo ""
-          echo "✅ Retraktarr installed"
+          echo " Retraktarr installed"
           echo ""
           echo "Now configuring..."
           bash "$SCRIPT_DIR/trakt.sh" retraktarr-config
@@ -235,11 +235,11 @@ cmd_setup() {
       fi
       
       echo ""
-      echo "✅ Retraktarr setup complete"
+      echo " Retraktarr setup complete"
       ;;
       
     *)
-      echo "❌ Invalid choice"
+      echo " Invalid choice"
       exit 1
       ;;
   esac
@@ -249,7 +249,7 @@ cmd_setup() {
 
 # Command: status
 cmd_status() {
-  echo "📊 Tracker Configuration Status"
+  echo " Tracker Configuration Status"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -257,48 +257,48 @@ cmd_status() {
   echo -n "Trakt.tv:      "
   if [[ -f "$HOME/.config/clawarr/trakt_tokens.json" ]]; then
     if bash "$SCRIPT_DIR/trakt.sh" auth-status > /dev/null 2>&1; then
-      echo "✅ Authenticated"
+      echo " Authenticated"
     else
-      echo "⚠️  Configured but expired"
+      echo "  Configured but expired"
     fi
   else
-    echo "❌ Not configured"
+    echo " Not configured"
   fi
   
   # Check Simkl
   echo -n "Simkl:         "
   if [[ -f "$HOME/.config/clawarr/simkl_tokens.json" ]]; then
-    echo "✅ Authenticated"
+    echo " Authenticated"
   else
-    echo "❌ Not configured"
+    echo " Not configured"
   fi
   
   # Check Letterboxd
   echo -n "Letterboxd:    "
   if [[ -n "${LETTERBOXD_API_KEY:-}" ]]; then
-    echo "✅ API key configured"
+    echo " API key configured"
   else
-    echo "⚠️  Export/import only (no API key)"
+    echo "  Export/import only (no API key)"
   fi
   
   # Check TV Time
-  echo "TV Time:       ⚠️  Export/import only (no API)"
+  echo "TV Time:         Export/import only (no API)"
   
   echo ""
   
   # Check Plex/Tautulli for syncing
   echo -n "Plex:          "
   if [[ -n "${PLEX_TOKEN:-}" ]]; then
-    echo "✅ Token configured"
+    echo " Token configured"
   else
-    echo "❌ Not configured"
+    echo " Not configured"
   fi
   
   echo -n "Tautulli:      "
   if [[ -n "${TAUTULLI_KEY:-}" ]]; then
-    echo "✅ API key configured"
+    echo " API key configured"
   else
-    echo "❌ Not configured"
+    echo " Not configured"
   fi
   
   echo ""
@@ -307,23 +307,23 @@ cmd_status() {
   echo -n "Traktarr:      "
   if command -v traktarr &> /dev/null || [[ -f "$HOME/.local/bin/traktarr" ]]; then
     if [[ -f "$HOME/.config/traktarr/config.json" ]]; then
-      echo "✅ Installed and configured"
+      echo " Installed and configured"
     else
-      echo "⚠️  Installed but not configured"
+      echo "  Installed but not configured"
     fi
   else
-    echo "❌ Not installed"
+    echo " Not installed"
   fi
   
   echo -n "Retraktarr:    "
   if command -v retraktarr &> /dev/null || [[ -f "$HOME/.local/bin/retraktarr" ]]; then
     if [[ -f "$HOME/.config/retraktarr/config.json" ]]; then
-      echo "✅ Installed and configured"
+      echo " Installed and configured"
     else
-      echo "⚠️  Installed but not configured"
+      echo "  Installed but not configured"
     fi
   else
-    echo "❌ Not installed"
+    echo " Not installed"
   fi
   
   echo ""
@@ -344,7 +344,7 @@ cmd_sync() {
     exit 1
   fi
   
-  echo "🔄 Syncing: $source → $target"
+  echo " Syncing: $source → $target"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -353,7 +353,7 @@ cmd_sync() {
       if [[ -f "$SCRIPT_DIR/trakt.sh" ]]; then
         bash "$SCRIPT_DIR/trakt.sh" sync-plex
       else
-        echo "❌ trakt.sh not found"
+        echo " trakt.sh not found"
         exit 1
       fi
       ;;
@@ -373,18 +373,18 @@ cmd_sync() {
       rm -f "$temp_file"
       
       echo ""
-      echo "✅ Export ready: $output_file"
+      echo " Export ready: $output_file"
       echo "   Upload at: letterboxd.com/settings/import"
       ;;
       
     trakt-simkl)
-      echo "❌ Trakt → Simkl sync not yet implemented"
+      echo " Trakt → Simkl sync not yet implemented"
       echo "   (Requires custom matching logic)"
       exit 1
       ;;
       
     *)
-      echo "❌ Unsupported sync path: $source → $target"
+      echo " Unsupported sync path: $source → $target"
       echo ""
       echo "Supported paths:"
       echo "  • plex → trakt"
@@ -408,7 +408,7 @@ cmd_export() {
   
   local output_file="${tracker}_export_$(date +%Y%m%d_%H%M%S).$format"
   
-  echo "📤 Exporting from $tracker"
+  echo " Exporting from $tracker"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -417,7 +417,7 @@ cmd_export() {
       if [[ "$format" == "json" ]]; then
         bash "$SCRIPT_DIR/trakt.sh" sync-history export "$output_file"
       else
-        echo "❌ Trakt only supports JSON export"
+        echo " Trakt only supports JSON export"
         exit 1
       fi
       ;;
@@ -426,19 +426,19 @@ cmd_export() {
       if [[ "$format" == "csv" ]]; then
         bash "$SCRIPT_DIR/letterboxd.sh" export "$output_file"
       else
-        echo "❌ Letterboxd only supports CSV export"
+        echo " Letterboxd only supports CSV export"
         exit 1
       fi
       ;;
       
     plex)
-      echo "❌ Direct Plex export not implemented"
+      echo " Direct Plex export not implemented"
       echo "   Use: trackers.sh sync plex trakt"
       exit 1
       ;;
       
     *)
-      echo "❌ Unknown tracker: $tracker"
+      echo " Unknown tracker: $tracker"
       exit 1
       ;;
   esac
@@ -455,11 +455,11 @@ cmd_import() {
   fi
   
   if [[ ! -f "$file" ]]; then
-    echo "❌ File not found: $file"
+    echo " File not found: $file"
     exit 1
   fi
   
-  echo "📥 Importing to $tracker"
+  echo " Importing to $tracker"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -473,12 +473,12 @@ cmd_import() {
       ;;
       
     tvtime)
-      echo "❌ TV Time import not yet implemented"
+      echo " TV Time import not yet implemented"
       exit 1
       ;;
       
     *)
-      echo "❌ Unknown tracker: $tracker"
+      echo " Unknown tracker: $tracker"
       exit 1
       ;;
   esac
@@ -494,7 +494,7 @@ cmd_compare() {
     exit 1
   fi
   
-  echo "🔍 Comparing: $tracker1 vs $tracker2"
+  echo " Comparing: $tracker1 vs $tracker2"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -510,7 +510,7 @@ cmd_compare() {
       bash "$SCRIPT_DIR/trakt.sh" sync-history export "$temp1" > /dev/null 2>&1
       ;;
     *)
-      echo "❌ Tracker not supported for comparison: $tracker1"
+      echo " Tracker not supported for comparison: $tracker1"
       rm -f "$temp1" "$temp2"
       exit 1
       ;;
@@ -522,7 +522,7 @@ cmd_compare() {
       bash "$SCRIPT_DIR/trakt.sh" sync-history export "$temp2" > /dev/null 2>&1
       ;;
     *)
-      echo "❌ Tracker not supported for comparison: $tracker2"
+      echo " Tracker not supported for comparison: $tracker2"
       rm -f "$temp1" "$temp2"
       exit 1
       ;;
@@ -606,7 +606,7 @@ cmd_profile() {
       ;;
       
     *)
-      echo "❌ Unknown tracker: $tracker"
+      echo " Unknown tracker: $tracker"
       exit 1
       ;;
   esac
@@ -625,7 +625,7 @@ case "$COMMAND" in
   profile)     cmd_profile "${2:-}" "${3:-}" ;;
   help|--help|-h) show_help ;;
   *)
-    echo "❌ Unknown command: $COMMAND"
+    echo " Unknown command: $COMMAND"
     echo "Run '$0 help' for usage"
     exit 1
     ;;

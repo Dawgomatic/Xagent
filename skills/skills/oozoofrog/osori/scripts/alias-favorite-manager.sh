@@ -54,7 +54,7 @@ alias_key = os.environ["OSORI_ALIAS"].strip().lower()
 query = os.environ["OSORI_QUERY"].strip().lower()
 
 if not re.match(r"^[A-Za-z0-9_-]+$", alias_key):
-    print("❌ alias must match [A-Za-z0-9_-]+")
+    print(" alias must match [A-Za-z0-9_-]+")
     raise SystemExit(1)
 
 res = load_registry(os.environ["OSORI_REG"], auto_migrate=True, make_backup_on_migrate=True)
@@ -66,16 +66,16 @@ if not matches:
     matches = [p for p in projects if query in str(p.get("name", "")).lower()]
 
 if not matches:
-    print(f"❌ project not found: {os.environ['OSORI_QUERY']}")
+    print(f" project not found: {os.environ['OSORI_QUERY']}")
     raise SystemExit(1)
 if len(matches) > 1:
     names = ", ".join(str(p.get("name", "")) for p in matches[:5])
-    print(f"❌ ambiguous project query: {os.environ['OSORI_QUERY']} ({names})")
+    print(f" ambiguous project query: {os.environ['OSORI_QUERY']} ({names})")
     raise SystemExit(1)
 
 target_name = str(matches[0].get("name", "")).strip()
 if not target_name:
-    print("❌ selected project has invalid name")
+    print(" selected project has invalid name")
     raise SystemExit(1)
 
 aliases = registry_aliases(registry)
@@ -83,7 +83,7 @@ aliases[alias_key] = target_name
 set_registry_aliases(registry, aliases)
 backup_path = save_registry(os.environ["OSORI_REG"], registry, make_backup=True)
 
-print(f"✅ alias added: {alias_key} -> {target_name}")
+print(f" alias added: {alias_key} -> {target_name}")
 if backup_path:
     print(f"Backup: {backup_path}")
 PYEOF
@@ -106,14 +106,14 @@ registry = res.registry
 aliases = registry_aliases(registry)
 
 if alias_key not in aliases:
-    print(f"❌ alias not found: {alias_key}")
+    print(f" alias not found: {alias_key}")
     raise SystemExit(1)
 
 removed = aliases.pop(alias_key)
 set_registry_aliases(registry, aliases)
 backup_path = save_registry(os.environ["OSORI_REG"], registry, make_backup=True)
 
-print(f"✅ alias removed: {alias_key} (was -> {removed})")
+print(f" alias removed: {alias_key} (was -> {removed})")
 if backup_path:
     print(f"Backup: {backup_path}")
 PYEOF
@@ -131,10 +131,10 @@ res = load_registry(os.environ["OSORI_REG"], auto_migrate=True, make_backup_on_m
 aliases = registry_aliases(res.registry)
 
 if not aliases:
-    print("📎 No aliases configured.")
+    print(" No aliases configured.")
     raise SystemExit(0)
 
-print(f"📎 Aliases ({len(aliases)})")
+print(f" Aliases ({len(aliases)})")
 for k in sorted(aliases.keys()):
     print(f"- {k} -> {aliases[k]}")
 PYEOF
@@ -165,11 +165,11 @@ if not matches:
     matches = [p for p in projects if query in str(p.get("name", "")).lower()]
 
 if not matches:
-    print(f"❌ project not found: {query_raw}")
+    print(f" project not found: {query_raw}")
     raise SystemExit(1)
 if len(matches) > 1:
     names = ", ".join(str(p.get("name", "")) for p in matches[:5])
-    print(f"❌ ambiguous project query: {query_raw} ({names})")
+    print(f" ambiguous project query: {query_raw} ({names})")
     raise SystemExit(1)
 
 target_name = str(matches[0].get("name", ""))
@@ -183,16 +183,16 @@ for p in projects:
 
 if not changed:
     state = "already favorite" if mark_value else "already not favorite"
-    print(f"ℹ️ {target_name}: {state}")
+    print(f" {target_name}: {state}")
     raise SystemExit(0)
 
 set_registry_projects(registry, projects)
 backup_path = save_registry(os.environ["OSORI_REG"], registry, make_backup=True)
 
 if mark_value:
-    print(f"⭐ favorite added: {target_name}")
+    print(f" favorite added: {target_name}")
 else:
-    print(f"✅ favorite removed: {target_name}")
+    print(f" favorite removed: {target_name}")
 if backup_path:
     print(f"Backup: {backup_path}")
 PYEOF
@@ -211,11 +211,11 @@ projects = registry_projects(res.registry)
 favs = [p for p in projects if bool(p.get("favorite", False))]
 
 if not favs:
-    print("⭐ No favorite projects.")
+    print(" No favorite projects.")
     raise SystemExit(0)
 
 favs.sort(key=lambda p: str(p.get("name", "")).lower())
-print(f"⭐ Favorites ({len(favs)})")
+print(f" Favorites ({len(favs)})")
 for p in favs:
     name = p.get("name", "-")
     root = p.get("root", "default")

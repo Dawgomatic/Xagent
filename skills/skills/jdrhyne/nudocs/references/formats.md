@@ -74,12 +74,12 @@ Supported document formats for upload (input) and download/export (output).
 
 | Aspect | Markdown | DOCX | PDF |
 |--------|----------|------|-----|
-| Editable | ✅ Plain text | ✅ Rich editor | ❌ Limited |
-| Version control | ✅ Excellent | ⚠️ Binary diffs | ❌ Binary |
-| Formatting | ⚠️ Basic | ✅ Rich | ✅ Preserved |
-| Collaboration | ✅ Git workflows | ✅ Track changes | ❌ Comments only |
-| Universal viewing | ⚠️ Needs render | ⚠️ Needs Word | ✅ Any device |
-| File size | ✅ Tiny | ⚠️ Medium | ⚠️ Medium-large |
+| Editable |  Plain text |  Rich editor |  Limited |
+| Version control |  Excellent |  Binary diffs |  Binary |
+| Formatting |  Basic |  Rich |  Preserved |
+| Collaboration |  Git workflows |  Track changes |  Comments only |
+| Universal viewing |  Needs render |  Needs Word |  Any device |
+| File size |  Tiny |  Medium |  Medium-large |
 
 **Use Markdown when:** Source control matters, plain text preferred, technical docs
 **Use DOCX when:** Business collaboration, rich formatting needed, non-technical users
@@ -91,28 +91,28 @@ Supported document formats for upload (input) and download/export (output).
 
 ### What Survives Conversion
 
-| Feature | MD↔HTML | MD↔DOCX | DOCX↔PDF | LaTeX↔PDF |
+| Feature | MDHTML | MDDOCX | DOCXPDF | LaTeXPDF |
 |---------|---------|---------|----------|-----------|
-| Headings | ✅ | ✅ | ✅ | ✅ |
-| Bold/Italic | ✅ | ✅ | ✅ | ✅ |
-| Lists | ✅ | ✅ | ✅ | ✅ |
-| Tables | ✅ | ✅ | ✅ | ✅ |
-| Images | ✅ | ✅ | ✅ | ✅ |
-| Links | ✅ | ✅ | ✅ | ✅ |
-| Footnotes | ✅ | ⚠️ | ✅ | ✅ |
-| Math equations | ⚠️ | ⚠️ | ✅ | ✅ |
-| Custom styles | ❌ | ⚠️ | ✅ | ✅ |
-| Page layout | ❌ | ⚠️ | ✅ | ✅ |
-| Comments | ❌ | ✅ | ❌ | ❌ |
-| Track changes | ❌ | ✅ | ❌ | ❌ |
+| Headings |  |  |  |  |
+| Bold/Italic |  |  |  |  |
+| Lists |  |  |  |  |
+| Tables |  |  |  |  |
+| Images |  |  |  |  |
+| Links |  |  |  |  |
+| Footnotes |  |  |  |  |
+| Math equations |  |  |  |  |
+| Custom styles |  |  |  |  |
+| Page layout |  |  |  |  |
+| Comments |  |  |  |  |
+| Track changes |  |  |  |  |
 
-✅ = Preserved | ⚠️ = Partial/degraded | ❌ = Lost
+ = Preserved |  = Partial/degraded |  = Lost
 
 ### Lossless Round-Trips
 
 These conversions preserve content reliably:
-- Markdown ↔ HTML ↔ Markdown
-- DOCX ↔ ODT ↔ DOCX
+- Markdown  HTML  Markdown
+- DOCX  ODT  DOCX
 - LaTeX → PDF (one-way, high fidelity)
 - Markdown → PDF (one-way)
 

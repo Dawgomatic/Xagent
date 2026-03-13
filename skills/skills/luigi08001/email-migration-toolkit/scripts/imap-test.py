@@ -39,18 +39,18 @@ def test_imap_connection(server, port, username, password, use_ssl=True, timeout
             print("Connecting without encryption (not recommended)...")
             imap = imaplib.IMAP4(server, port)
         
-        print("✅ Connected successfully")
+        print(" Connected successfully")
         
         # Test authentication
         print(f"Authenticating as {username}...")
         result = imap.login(username, password)
-        print(f"✅ Authentication successful: {result[0]}")
+        print(f" Authentication successful: {result[0]}")
         
         # List mailboxes
         print("Listing mailboxes...")
         result, mailboxes = imap.list()
         if result == 'OK':
-            print(f"✅ Found {len(mailboxes)} mailboxes")
+            print(f" Found {len(mailboxes)} mailboxes")
             
             # Show first few mailboxes
             print("Sample mailboxes:")
@@ -66,42 +66,42 @@ def test_imap_connection(server, port, username, password, use_ssl=True, timeout
         result, data = imap.select('INBOX')
         if result == 'OK':
             message_count = int(data[0])
-            print(f"✅ INBOX selected successfully - {message_count} messages")
+            print(f" INBOX selected successfully - {message_count} messages")
         else:
-            print(f"❌ Failed to select INBOX: {result}")
+            print(f" Failed to select INBOX: {result}")
         
         # Test search functionality
         print("Testing search functionality...")
         result, data = imap.search(None, 'ALL')
         if result == 'OK':
             message_ids = data[0].split() if data[0] else []
-            print(f"✅ Search successful - found {len(message_ids)} message IDs")
+            print(f" Search successful - found {len(message_ids)} message IDs")
         else:
-            print(f"❌ Search failed: {result}")
+            print(f" Search failed: {result}")
         
         # Logout
         imap.logout()
-        print("✅ Logged out successfully")
-        print("\n🎉 All tests passed! IMAP connection is working correctly.")
+        print(" Logged out successfully")
+        print("\n All tests passed! IMAP connection is working correctly.")
         return True
         
     except imaplib.IMAP4.error as e:
-        print(f"❌ IMAP Error: {e}")
+        print(f" IMAP Error: {e}")
         return False
     except ssl.SSLError as e:
-        print(f"❌ SSL Error: {e}")
-        print("💡 Try with --no-ssl flag or check certificate settings")
+        print(f" SSL Error: {e}")
+        print(" Try with --no-ssl flag or check certificate settings")
         return False
     except socket.timeout:
-        print(f"❌ Connection timeout after {timeout} seconds")
-        print("💡 Try increasing timeout or check firewall settings")
+        print(f" Connection timeout after {timeout} seconds")
+        print(" Try increasing timeout or check firewall settings")
         return False
     except socket.gaierror as e:
-        print(f"❌ DNS Error: {e}")
-        print("💡 Check server address and DNS settings")
+        print(f" DNS Error: {e}")
+        print(" Check server address and DNS settings")
         return False
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
+        print(f" Unexpected error: {e}")
         return False
 
 def get_provider_presets():

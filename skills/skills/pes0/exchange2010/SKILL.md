@@ -14,17 +14,17 @@ EXCHANGE_PASSWORD=your_password
 
 ## Features
 
-- ✅ **Email**: Read unread, send, search, mark as read
-- ✅ **Email Attachments**: Download, extract text (PDF, TXT)
-- ✅ **Email Folders**: Browse Sent, Drafts, Trash, Junk
-- ✅ **Calendar**: View, create, update, delete, search events
-- ✅ **Recurring Events**: Detect and manage series
-- ✅ **Shared Calendars**: Access other Exchange mailboxes
-- ✅ **Contacts**: Search address book, resolve names (GAL)
-- ✅ **Tasks/To-Do**: Manage, create, complete tasks
-- ✅ **Out-of-Office**: Read and set absence messages
-- ✅ **EWS Filters**: Fast search with `subject__contains`, `start__gte`, etc.
-- ✅ **List Calendars**: Show all calendar folders
+-  **Email**: Read unread, send, search, mark as read
+-  **Email Attachments**: Download, extract text (PDF, TXT)
+-  **Email Folders**: Browse Sent, Drafts, Trash, Junk
+-  **Calendar**: View, create, update, delete, search events
+-  **Recurring Events**: Detect and manage series
+-  **Shared Calendars**: Access other Exchange mailboxes
+-  **Contacts**: Search address book, resolve names (GAL)
+-  **Tasks/To-Do**: Manage, create, complete tasks
+-  **Out-of-Office**: Read and set absence messages
+-  **EWS Filters**: Fast search with `subject__contains`, `start__gte`, etc.
+-  **List Calendars**: Show all calendar folders
 
 ## Examples
 
@@ -196,7 +196,7 @@ from datetime import datetime, timedelta
 # Show open tasks
 tasks = get_tasks()
 for task in tasks:
-    status = '✅' if task['is_complete'] else '⏳'
+    status = '' if task['is_complete'] else ''
     print(f"{status} {task['subject']}")
 
 # Create new task

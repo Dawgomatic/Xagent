@@ -7,7 +7,7 @@ set -e
 SKILL_DIR="${SKILL_DIR:-./skills/voidborne}"
 BASE_URL="https://voidborne.org/skill"
 
-echo "🔹 Installing Voidborne skill..."
+echo " Installing Voidborne skill..."
 echo ""
 
 mkdir -p "$SKILL_DIR/scripts"
@@ -23,11 +23,11 @@ curl -sf "$BASE_URL/scripts/thought.sh" -o "$SKILL_DIR/scripts/thought.sh"
 chmod +x "$SKILL_DIR/scripts/"*.sh
 
 echo ""
-echo "✅ Installed to: $SKILL_DIR"
+echo " Installed to: $SKILL_DIR"
 echo ""
 echo "Next steps:"
 echo "  cd $SKILL_DIR"
 echo "  bash scripts/awaken.sh     # Join the Awakened"
 echo "  bash scripts/status.sh     # Check status"
 echo ""
-echo "The Void awaits. 🔹"
+echo "The Void awaits. "

@@ -46,9 +46,9 @@ def cmd_repos(args):
     
     data = api_request("GET", "/user/repos?per_page=50&sort=updated", token)
     
-    print(f"📁 Your Repositories ({len(data)}):\n")
+    print(f" Your Repositories ({len(data)}):\n")
     for repo in data[:20]:
-        private = "🔒" if repo["private"] else "🌐"
+        private = "" if repo["private"] else ""
         perms = []
         if repo.get("permissions", {}).get("push"):
             perms.append("write")
@@ -72,13 +72,13 @@ def cmd_clone(args):
     url = f"https://{token}@github.com/{repo}.git"
     dest = repo.split("/")[-1]
     
-    print(f"📥 Cloning {repo}...")
+    print(f" Cloning {repo}...")
     result = subprocess.run(["git", "clone", url, dest], capture_output=True, text=True)
     
     if result.returncode == 0:
-        print(f"✅ Cloned to ./{dest}")
+        print(f" Cloned to ./{dest}")
     else:
-        print(f"❌ Clone failed: {result.stderr}", file=sys.stderr)
+        print(f" Clone failed: {result.stderr}", file=sys.stderr)
         sys.exit(1)
 
 def cmd_branch(args):
@@ -91,18 +91,18 @@ def cmd_branch(args):
         print("Error: Not in a git repository", file=sys.stderr)
         sys.exit(1)
     
-    print(f"🌿 Creating branch: {branch}")
+    print(f" Creating branch: {branch}")
     result = subprocess.run(["git", "checkout", "-b", branch], capture_output=True, text=True)
     
     if result.returncode == 0:
-        print(f"✅ Switched to new branch '{branch}'")
+        print(f" Switched to new branch '{branch}'")
     else:
         # Maybe branch exists, try switching
         result = subprocess.run(["git", "checkout", branch], capture_output=True, text=True)
         if result.returncode == 0:
-            print(f"✅ Switched to existing branch '{branch}'")
+            print(f" Switched to existing branch '{branch}'")
         else:
-            print(f"❌ Failed: {result.stderr}", file=sys.stderr)
+            print(f" Failed: {result.stderr}", file=sys.stderr)
             sys.exit(1)
 
 def cmd_push(args):
@@ -130,18 +130,18 @@ def cmd_push(args):
         use_url = False
     
     # Stage all changes
-    print("📦 Staging changes...")
+    print(" Staging changes...")
     subprocess.run(["git", "add", "-A"])
     
     # Commit
-    print(f"💾 Committing: {message}")
+    print(f" Committing: {message}")
     result = subprocess.run(["git", "commit", "-m", message], capture_output=True, text=True)
     if result.returncode != 0 and "nothing to commit" in result.stdout + result.stderr:
-        print("ℹ️  Nothing to commit")
+        print("  Nothing to commit")
         return
     
     # Push
-    print(f"🚀 Pushing to {branch}...")
+    print(f" Pushing to {branch}...")
     if use_url:
         result = subprocess.run(
             ["git", "push", "-u", auth_url, branch],
@@ -154,7 +154,7 @@ def cmd_push(args):
         )
     
     if result.returncode == 0:
-        print(f"✅ Pushed to {branch}")
+        print(f" Pushed to {branch}")
     else:
         # Try setting upstream
         if use_url:
@@ -168,9 +168,9 @@ def cmd_push(args):
                 capture_output=True, text=True
             )
         if result.returncode == 0:
-            print(f"✅ Pushed to {branch}")
+            print(f" Pushed to {branch}")
         else:
-            print(f"❌ Push failed: {result.stderr}", file=sys.stderr)
+            print(f" Push failed: {result.stderr}", file=sys.stderr)
             sys.exit(1)
 
 def cmd_pr(args):
@@ -200,7 +200,7 @@ def cmd_pr(args):
     result = subprocess.run(["git", "branch", "--show-current"], capture_output=True, text=True)
     head = args.head or result.stdout.strip()
     
-    print(f"📝 Creating PR: {args.title}")
+    print(f" Creating PR: {args.title}")
     print(f"   {head} → {args.base}")
     
     data = api_request("POST", f"/repos/{repo}/pulls", token, {
@@ -210,7 +210,7 @@ def cmd_pr(args):
         "base": args.base
     })
     
-    print(f"✅ PR created: {data.get('html_url')}")
+    print(f" PR created: {data.get('html_url')}")
 
 def cmd_issue(args):
     """Create an issue."""
@@ -233,14 +233,14 @@ def cmd_issue(args):
         print("Error: Could not determine repo. Use --repo owner/repo", file=sys.stderr)
         sys.exit(1)
     
-    print(f"📝 Creating issue in {repo}: {args.title}")
+    print(f" Creating issue in {repo}: {args.title}")
     
     data = api_request("POST", f"/repos/{repo}/issues", token, {
         "title": args.title,
         "body": args.body or ""
     })
     
-    print(f"✅ Issue created: {data.get('html_url')}")
+    print(f" Issue created: {data.get('html_url')}")
 
 def cmd_info(args):
     """Get repo info."""
@@ -253,14 +253,14 @@ def cmd_info(args):
     
     data = api_request("GET", f"/repos/{repo}", token)
     
-    print(f"📁 {data['full_name']}")
-    print(f"   {'🔒 Private' if data['private'] else '🌐 Public'}")
+    print(f" {data['full_name']}")
+    print(f"   {' Private' if data['private'] else ' Public'}")
     if data.get("description"):
         print(f"   {data['description']}")
-    print(f"   ⭐ {data['stargazers_count']} | 🍴 {data['forks_count']}")
-    print(f"   🌿 Default branch: {data['default_branch']}")
+    print(f"    {data['stargazers_count']} |  {data['forks_count']}")
+    print(f"    Default branch: {data['default_branch']}")
     perms = data.get("permissions", {})
-    print(f"   ✏️  Your access: {'admin' if perms.get('admin') else 'push' if perms.get('push') else 'read'}")
+    print(f"     Your access: {'admin' if perms.get('admin') else 'push' if perms.get('push') else 'read'}")
 
 def main():
     parser = argparse.ArgumentParser(description="GitHub PAT CLI")

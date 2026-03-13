@@ -1,4 +1,4 @@
-# 🔧 ServiceNow Skill for OpenClaw
+#  ServiceNow Skill for OpenClaw
 
 **By [OnlyFlows](https://onlyflows.tech)**
 
@@ -17,7 +17,7 @@ Whether you're triaging incidents at 2 AM, auditing CMDB accuracy, or building c
 
 ---
 
-## ⚡ Features
+##  Features
 
 | Tool | Description |
 |------|-------------|
@@ -34,7 +34,7 @@ Whether you're triaging incidents at 2 AM, auditing CMDB accuracy, or building c
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 clawhub install onlyflows/servicenow
@@ -55,7 +55,7 @@ git clone https://github.com/onlyflowstech/servicenow-openclaw-skill.git \
 
 ---
 
-## 🔑 Configuration
+##  Configuration
 
 Set three environment variables — **no credentials are stored in the skill files**:
 
@@ -71,11 +71,11 @@ export SN_PASSWORD="your_api_password"
 | `SN_USER` | API user with table read/write access | `api_user` |
 | `SN_PASSWORD` | Password for the API user | *(set securely)* |
 
-> 💡 **Tip:** Use a dedicated integration user with least-privilege ACLs rather than an admin account.
+>  **Tip:** Use a dedicated integration user with least-privilege ACLs rather than an admin account.
 
 ---
 
-## 🚀 Usage Examples
+##  Usage Examples
 
 Once configured, just ask your agent in natural language:
 
@@ -120,7 +120,7 @@ Once configured, just ask your agent in natural language:
 
 ---
 
-## 📋 Supported Tables
+##  Supported Tables
 
 The skill works with **any** ServiceNow table, but here are the most common:
 
@@ -145,7 +145,7 @@ The skill works with **any** ServiceNow table, but here are the most common:
 
 ---
 
-## 🔍 Encoded Query Cheat Sheet
+##  Encoded Query Cheat Sheet
 
 ServiceNow uses encoded query syntax for filtering. Here's a quick reference:
 
@@ -169,7 +169,7 @@ ServiceNow uses encoded query syntax for filtering. Here's a quick reference:
 
 ---
 
-## 🔒 Security
+##  Security
 
 - **Zero hardcoded credentials** — all authentication is via environment variables
 - **No instance URLs stored** — `SN_INSTANCE` is always read from env at runtime
@@ -178,25 +178,25 @@ ServiceNow uses encoded query syntax for filtering. Here's a quick reference:
 
 ---
 
-## 🏗️ Built By
+##  Built By
 
 **Brandon Wilson** — ServiceNow Certified Technical Architect (CTA)
 
-- 🌐 [OnlyFlows](https://onlyflows.tech) — ServiceNow tools, skills & AI automation
+-  [OnlyFlows](https://onlyflows.tech) — ServiceNow tools, skills & AI automation
 
-- 🌐 [OnlyFlows.tech](https://onlyflows.tech) — Workflow automation & AI
+-  [OnlyFlows.tech](https://onlyflows.tech) — Workflow automation & AI
 
 ---
 
-## 📄 License
+##  License
 
 MIT License — see [LICENSE](LICENSE) for details.
 
-Copyright © 2026 OnlyFlows
+Copyright  2026 OnlyFlows
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Open an issue or PR at [github.com/onlyflowstech/servicenow-openclaw-skill](https://github.com/onlyflowstech/servicenow-openclaw-skill).
 

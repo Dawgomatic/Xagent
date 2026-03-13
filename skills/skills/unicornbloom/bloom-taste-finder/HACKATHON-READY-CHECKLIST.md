@@ -1,24 +1,24 @@
-# 🏆 Base Builder Quest - Ready to Ship Checklist
+#  Base Builder Quest - Ready to Ship Checklist
 
-## ✅ What's Complete
+##  What's Complete
 
 ### Core Infrastructure
-- ✅ **Bloom Identity Skill V2** - Working, tested
-- ✅ **3-Tier Wallet Strategy** - Local/CDP/Mock all functional
-- ✅ **Backend Integration** - Saves to dashboard
-- ✅ **Dashboard** - Live at preflight.bloomprotocol.ai
-- ✅ **Base Integration** - Creates wallets on Base Sepolia
+-  **Bloom Identity Skill V2** - Working, tested
+-  **3-Tier Wallet Strategy** - Local/CDP/Mock all functional
+-  **Backend Integration** - Saves to dashboard
+-  **Dashboard** - Live at preflight.bloomprotocol.ai
+-  **Base Integration** - Creates wallets on Base Sepolia
 
 ### Autonomous X Agent
-- ✅ **Agent Script** - `/scripts/autonomous-x-agent.ts`
-- ✅ **Viral Skills System** - `/src/data/viral-skills.ts`
-- ✅ **Test Script** - Can test locally without posting
-- ✅ **Documentation** - Complete setup guide
-- ✅ **Deployment Ready** - Railway config included
+-  **Agent Script** - `/scripts/autonomous-x-agent.ts`
+-  **Viral Skills System** - `/src/data/viral-skills.ts`
+-  **Test Script** - Can test locally without posting
+-  **Documentation** - Complete setup guide
+-  **Deployment Ready** - Railway config included
 
 ---
 
-## 🚀 Launch Sequence (2-3 Hours)
+##  Launch Sequence (2-3 Hours)
 
 ### Phase 1: X Setup (30 mins)
 
@@ -34,7 +34,7 @@
 ```
 □ Create X account: @bloomidentitybot (or your choice)
 □ Set profile:
-  Bio: "🌸 Autonomous identity card generator | Built with @OpenClawHQ on @base | Tag me!"
+  Bio: " Autonomous identity card generator | Built with @OpenClawHQ on @base | Tag me!"
   Profile pic: Bloom logo
   Banner: Eye-catching design
 □ Pin intro tweet
@@ -194,7 +194,7 @@ WALLET_ENCRYPTION_SECRET=...
 **Find the quest post and comment:**
 
 ```markdown
-## Submission: Bloom Identity Bot 🌸
+## Submission: Bloom Identity Bot 
 
 **X Profile:** https://x.com/bloomidentitybot
 
@@ -219,10 +219,10 @@ Autonomous bot that generates personalized identity cards from X profiles and cr
 - Railway for 24/7 hosting
 
 ### Links
-- 🤖 Bot: https://x.com/bloomidentitybot
-- 📺 Demo: [YouTube link]
-- 📚 Technical write-up: [Medium link]
-- 💻 Code: https://github.com/unicornbloom/bloom-identity-skill
+-  Bot: https://x.com/bloomidentitybot
+-  Demo: [YouTube link]
+-  Technical write-up: [Medium link]
+-  Code: https://github.com/unicornbloom/bloom-identity-skill
 
 ### Try It
 Just tweet: @bloomidentitybot create my identity
@@ -232,27 +232,27 @@ Just tweet: @bloomidentitybot create my identity
 
 ---
 
-## 🎯 Success Criteria
+##  Success Criteria
 
 ### Minimum (Must Have)
-- ✅ Bot live on X
-- ✅ Responds to mentions automatically
-- ✅ Creates wallets on Base
-- ✅ Dashboard shows results
-- ✅ Runs 24/7 (Railway)
-- ✅ Video demo
-- ✅ Submission posted
+-  Bot live on X
+-  Responds to mentions automatically
+-  Creates wallets on Base
+-  Dashboard shows results
+-  Runs 24/7 (Railway)
+-  Video demo
+-  Submission posted
 
 ### Ideal (Nice to Have)
-- ✅ 10+ test users
-- ✅ Some viral sharing
-- ✅ Creator engagement (RTs)
-- ✅ Technical blog post
-- ✅ Architecture diagram
+-  10+ test users
+-  Some viral sharing
+-  Creator engagement (RTs)
+-  Technical blog post
+-  Architecture diagram
 
 ---
 
-## 📊 Pre-Launch Checklist
+##  Pre-Launch Checklist
 
 ### Infrastructure
 - [ ] Skill working locally
@@ -286,7 +286,7 @@ Just tweet: @bloomidentitybot create my identity
 
 ---
 
-## 🚨 Common Issues & Fixes
+##  Common Issues & Fixes
 
 ### "Bot not responding"
 ```
@@ -321,7 +321,7 @@ Just tweet: @bloomidentitybot create my identity
 
 ---
 
-## 💪 Final Confidence Check
+##  Final Confidence Check
 
 Before submitting, verify:
 
@@ -334,11 +334,11 @@ Before submitting, verify:
 □ All links are CORRECT
 ```
 
-**If all checked: YOU'RE READY TO SHIP! 🚀**
+**If all checked: YOU'RE READY TO SHIP! **
 
 ---
 
-## 🎉 Post-Launch
+##  Post-Launch
 
 ### Day 1-2: Monitor
 ```
@@ -366,7 +366,7 @@ Before submitting, verify:
 
 ---
 
-## 📞 Emergency Contacts
+##  Emergency Contacts
 
 **If something breaks:**
 1. Check Railway logs first
@@ -382,7 +382,7 @@ Before submitting, verify:
 
 ---
 
-## 🏁 Ready?
+##  Ready?
 
 ```bash
 # One more test
@@ -392,10 +392,10 @@ npm run test:x-agent
 git push
 # Deploy to Railway
 # Submit to Builder Quest
-# WIN! 🏆
+# WIN! 
 ```
 
-**Good luck! 🦄💜**
+**Good luck! **
 
 ---
 

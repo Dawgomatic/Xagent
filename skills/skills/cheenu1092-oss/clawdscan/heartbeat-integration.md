@@ -51,17 +51,17 @@ def heartbeat_clawdscan_check():
                 
                 # Bloated sessions alert
                 if bloated_sessions > 5:
-                    alerts.append(f"🔥 {bloated_sessions} bloated sessions found")
+                    alerts.append(f" {bloated_sessions} bloated sessions found")
                     action_needed = True
                 
                 # Storage size alert  
                 if total_size_mb > 100:
-                    alerts.append(f"💾 Sessions using {total_size_mb:.1f}MB storage")
+                    alerts.append(f" Sessions using {total_size_mb:.1f}MB storage")
                     action_needed = True
                 
                 # Zombie sessions alert
                 if zombie_sessions > 3:
-                    alerts.append(f"💀 {zombie_sessions} zombie sessions detected")
+                    alerts.append(f" {zombie_sessions} zombie sessions detected")
                     action_needed = True
                 
                 # Update heartbeat state
@@ -73,10 +73,10 @@ def heartbeat_clawdscan_check():
                 
                 return heartbeat_state, alerts
             else:
-                return None, [f"⚠️ Clawdscan failed: {result.stderr}"]
+                return None, [f" Clawdscan failed: {result.stderr}"]
                 
     except Exception as e:
-        return None, [f"⚠️ Clawdscan error: {str(e)}"]
+        return None, [f" Clawdscan error: {str(e)}"]
 ```
 
 ## Auto-cleanup Script
@@ -137,7 +137,7 @@ def process_heartbeat():
         if heartbeat_state and heartbeat_state.get('clawdscan_action_needed') == 'Yes':
             cleanup_result = heartbeat_clawdscan_cleanup()
             if cleanup_result and "Cleaned up" in cleanup_result:
-                notify_user(f"🧹 {cleanup_result}")
+                notify_user(f" {cleanup_result}")
         
         update_last_check_time('clawdscan')
     
@@ -168,11 +168,11 @@ export CLAWDSCAN_CHECK_INTERVAL=6
 
 ```python
 CLAWDSCAN_TEMPLATES = {
-    'bloated_alert': "🔥 ClawdBot Health Alert: {count} bloated sessions detected. Consider running `clawdscan clean --stale-days 7`",
-    'storage_alert': "💾 ClawdBot Storage Alert: {size}MB used. Run `clawdscan disk` for breakdown.",
-    'zombie_alert': "💀 ClawdBot Zombie Alert: {count} unused sessions found. Run `clawdscan clean --zombies --execute`",
-    'cleanup_success': "🧹 Auto-cleaned {count} zombie sessions, freed {size}",
-    'weekly_summary': "📊 Weekly ClawdBot Health: {total_sessions} sessions, {total_size}, {issues_found} issues"
+    'bloated_alert': " ClawdBot Health Alert: {count} bloated sessions detected. Consider running `clawdscan clean --stale-days 7`",
+    'storage_alert': " ClawdBot Storage Alert: {size}MB used. Run `clawdscan disk` for breakdown.",
+    'zombie_alert': " ClawdBot Zombie Alert: {count} unused sessions found. Run `clawdscan clean --zombies --execute`",
+    'cleanup_success': " Auto-cleaned {count} zombie sessions, freed {size}",
+    'weekly_summary': " Weekly ClawdBot Health: {total_sessions} sessions, {total_size}, {issues_found} issues"
 }
 ```
 
@@ -217,16 +217,16 @@ def main():
         zombies = len(data.get('zombie_sessions', []))
         
         if bloated > 5:
-            send_notification(f"🔥 {bloated} bloated ClawdBot sessions need attention")
+            send_notification(f" {bloated} bloated ClawdBot sessions need attention")
         
         if total_mb > 100:
-            send_notification(f"💾 ClawdBot using {total_mb:.1f}MB - cleanup recommended")
+            send_notification(f" ClawdBot using {total_mb:.1f}MB - cleanup recommended")
             
         if zombies > 3:
-            send_notification(f"💀 {zombies} zombie ClawdBot sessions found")
+            send_notification(f" {zombies} zombie ClawdBot sessions found")
             
     except Exception as e:
-        send_notification(f"❌ ClawdScan check failed: {e}")
+        send_notification(f" ClawdScan check failed: {e}")
 
 if __name__ == "__main__":
     main()

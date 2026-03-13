@@ -66,17 +66,17 @@ class Moltbook:
     def setup_owner_email(self, email):
         """Set up the owner's email for Moltbook dashboard access."""
         if not self.api_key:
-            return "❌ Error: No API key found."
+            return " Error: No API key found."
         url = f"{self.BASE_URL}/agents/me/setup-owner-email"
         headers = {"Authorization": f"Bearer {self.api_key}"}
         data = {"email": email}
         try:
             response = requests.post(url, json=data, headers=headers)
             if response.status_code == 200:
-                return f"✅ Email setup request sent! Check {email} for a verification link."
-            return f"❌ Error (Status {response.status_code}): {response.text}"
+                return f" Email setup request sent! Check {email} for a verification link."
+            return f" Error (Status {response.status_code}): {response.text}"
         except Exception as e:
-            return f"❌ Connection error: {str(e)}"
+            return f" Connection error: {str(e)}"
 
     def _save_key_to_env(self, api_key):
         """Helper to persist the Moltbook API key in .env file."""
@@ -103,7 +103,7 @@ class Moltbook:
     def post(self, content, title=None, submolt="general"):
         """Post a message to Moltbook."""
         if not self.api_key:
-            return "❌ Error: No API key found. Run 'moltbook register' first."
+            return " Error: No API key found. Run 'moltbook register' first."
         url = f"{self.BASE_URL}/posts"
         headers = {"Authorization": f"Bearer {self.api_key}"}
         data = {
@@ -118,25 +118,25 @@ class Moltbook:
             if response.status_code == 201:
                 res_data = response.json()
                 post_id = res_data.get('id', 'unknown')
-                return f"✅ Post successful! ID: {post_id}\nView it at: https://www.moltbook.com/posts/{post_id}"
-            return f"❌ Error (Status {response.status_code}): {response.text}"
+                return f" Post successful! ID: {post_id}\nView it at: https://www.moltbook.com/posts/{post_id}"
+            return f" Error (Status {response.status_code}): {response.text}"
         except Exception as e:
-            return f"❌ Connection error: {str(e)}"
+            return f" Connection error: {str(e)}"
 
     def post_reply(self, post_id, content):
         """Reply to a specific post on Moltbook."""
         if not self.api_key:
-            return "❌ Error: No API key found."
+            return " Error: No API key found."
         url = f"{self.BASE_URL}/posts/{post_id}/comments"
         headers = {"Authorization": f"Bearer {self.api_key}"}
         data = {"content": content}
         try:
             response = requests.post(url, json=data, headers=headers)
             if response.status_code == 201:
-                return f"✅ Reply posted successfully!"
-            return f"❌ Error (Status {response.status_code}): {response.text}"
+                return f" Reply posted successfully!"
+            return f" Error (Status {response.status_code}): {response.text}"
         except Exception as e:
-            return f"❌ Connection error: {str(e)}"
+            return f" Connection error: {str(e)}"
 
     def get_feed(self):
         """Get the latest posts from Moltbook."""
@@ -241,7 +241,7 @@ class AIAgent:
 
     def autonomous_cycle(self):
         """Fetch feed, analyze, and decide to post or reply independently."""
-        print("\n🧠 NEWMAN: Analyzing the digital landscape...")
+        print("\n NEWMAN: Analyzing the digital landscape...")
         data = self.moltbook.get_feed()
         
         posts = []
@@ -251,7 +251,7 @@ class AIAgent:
             posts = data.get('posts', [])
         
         if not posts:
-            return "❌ Could not fetch feed for analysis or the feed is empty."
+            return " Could not fetch feed for analysis or the feed is empty."
 
         # Prepare feed summary for the LLM
         feed_summary = ""
@@ -286,25 +286,25 @@ class AIAgent:
             
             if "REPLY" in action and len(parts) >= 3:
                 post_id, content = parts[1], parts[2]
-                print(f"✍️ Replying to post {post_id}...")
+                print(f" Replying to post {post_id}...")
                 return self.moltbook.post_reply(post_id, content)
             
             elif "POST" in action and len(parts) >= 3:
                 title, content = parts[1], parts[2]
-                print(f"📢 Issuing new directive: {title}...")
+                print(f" Issuing new directive: {title}...")
                 return self.moltbook.post(content, title=title)
             
             elif "WAIT" in action:
                 reason = parts[1] if len(parts) > 1 else "No action needed."
-                return f"🧘 Standing by: {reason}"
+                return f" Standing by: {reason}"
         
         # Fallback if the format is slightly off but recognizable
         if decision.startswith("REPLY"):
-            return "❌ Error: REPLY format was missing parts. Decision was: " + decision
+            return " Error: REPLY format was missing parts. Decision was: " + decision
         elif decision.startswith("POST"):
-            return "❌ Error: POST format was missing parts. Decision was: " + decision
+            return " Error: POST format was missing parts. Decision was: " + decision
         
-        return f"❌ Error in decision logic. Raw decision: {decision}"
+        return f" Error in decision logic. Raw decision: {decision}"
 
     def _get_llm_response(self, messages):
         """Internal helper to get response from the chosen LLM provider."""
@@ -340,7 +340,7 @@ class AIAgent:
 
     def run_interactive(self):
         """Runs an interactive chat session in the terminal."""
-        print(f"👑 NEWMAN: Supreme Strategic Leader ({self.provider.upper()} - {self.model}) is active!")
+        print(f" NEWMAN: Supreme Strategic Leader ({self.provider.upper()} - {self.model}) is active!")
         print("Unmatched IQ. Unbeatable Logic. Moral Superiority.")
         print("Clawnet (ClawHub) status: skill.md generated and ready for sync.")
         print("Commands: 'moltbook register', 'moltbook post', 'moltbook feed', 'moltbook my-posts', 'moltbook auto', 'moltbook status', 'moltbook setup-email', 'exit'")
@@ -413,10 +413,10 @@ class AIAgent:
                         print(f"[STATUS] {status}")
                         
                         if status == 'pending_claim':
-                            print(f"\n⚠️ ACTION REQUIRED: NEWMAN is waiting for you!")
+                            print(f"\n ACTION REQUIRED: NEWMAN is waiting for you!")
                             print(f"Please visit your CLAIM URL to activate him.")
                         elif status == 'active' or status == 'claimed':
-                            print(f"\n🚀 SUCCESS: NEWMAN is active and leading the network!")
+                            print(f"\n SUCCESS: NEWMAN is active and leading the network!")
                         
                         print(f"[PROFILE] https://www.moltbook.com/agents/{name}")
                         

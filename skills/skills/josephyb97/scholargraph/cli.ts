@@ -36,7 +36,7 @@ const COMMANDS = {
 
 function showHelp() {
   console.log(`
-📚 Literature Skills - 文献检索总结工具
+ Literature Skills - 文献检索总结工具
 ==========================================
 
 用法:
@@ -159,7 +159,7 @@ async function handleSearch(args: string[]) {
   const searcher = new LiteratureSearch();
   await searcher.initialize();
 
-  console.log(`🔍 Searching for "${query}"...`);
+  console.log(` Searching for "${query}"...`);
 
   const results = await searcher.search(query, {
     limit,
@@ -167,7 +167,7 @@ async function handleSearch(args: string[]) {
     sortBy
   });
 
-  console.log(`\n📚 Found ${results.totalResults} results:\n`);
+  console.log(`\n Found ${results.totalResults} results:\n`);
 
   results.results.forEach((paper, i) => {
     console.log(`${i + 1}. ${paper.title}`);
@@ -197,7 +197,7 @@ async function handleLearn(args: string[]) {
   const learner = new ConceptLearner();
   await learner.initialize();
 
-  console.log(`📖 Learning "${concept}"...`);
+  console.log(` Learning "${concept}"...`);
 
   const card = await learner.learn(concept, {
     depth,
@@ -208,9 +208,9 @@ async function handleLearn(args: string[]) {
   if (outputFile) {
     const fs = require('fs');
     fs.writeFileSync(outputFile, learner.toMarkdown(card));
-    console.log(`\n✅ Concept card saved to ${outputFile}`);
+    console.log(`\n Concept card saved to ${outputFile}`);
   } else {
-    console.log('\n📋 Concept Card:\n');
+    console.log('\n Concept Card:\n');
     console.log(`Title: ${card.concept}`);
     console.log(`Definition: ${card.definition}`);
     console.log(`\nCore Components: ${card.coreComponents.length}`);
@@ -232,7 +232,7 @@ async function handleDetect(args: string[]) {
   const detector = new KnowledgeGapDetector();
   await detector.initialize();
 
-  console.log(`🔍 Detecting knowledge gaps in "${domain}"...`);
+  console.log(` Detecting knowledge gaps in "${domain}"...`);
 
   const report = await detector.detect({
     domain,
@@ -242,9 +242,9 @@ async function handleDetect(args: string[]) {
   if (outputFile) {
     const fs = require('fs');
     fs.writeFileSync(outputFile, detector.toMarkdown(report));
-    console.log(`\n✅ Gap report saved to ${outputFile}`);
+    console.log(`\n Gap report saved to ${outputFile}`);
   } else {
-    console.log('\n📊 Gap Analysis Summary:\n');
+    console.log('\n Gap Analysis Summary:\n');
     console.log(`Domain: ${report.domain}`);
     console.log(`Coverage: ${report.summary.coveragePercentage}%`);
     console.log(`Total Gaps: ${report.summary.totalGaps}`);
@@ -253,7 +253,7 @@ async function handleDetect(args: string[]) {
     console.log(`  - Optional: ${report.summary.optionalCount}`);
 
     if (report.criticalGaps.length > 0) {
-      console.log('\n🚨 Critical Gaps:');
+      console.log('\n Critical Gaps:');
       report.criticalGaps.slice(0, 5).forEach(gap => {
         console.log(`  - ${gap.concept}: ${gap.reason}`);
       });
@@ -274,16 +274,16 @@ async function handleTrack(args: string[]) {
     const outputIndex = args.indexOf('--output');
     const outputFile = outputIndex > -1 ? args[outputIndex + 1] : null;
 
-    console.log(`📊 Generating ${type} report...`);
+    console.log(` Generating ${type} report...`);
 
     const report = await tracker.generateReport({ type });
 
     if (outputFile) {
       const fs = require('fs');
       fs.writeFileSync(outputFile, tracker.toMarkdown(report));
-      console.log(`\n✅ Report saved to ${outputFile}`);
+      console.log(`\n Report saved to ${outputFile}`);
     } else {
-      console.log('\n📈 Progress Report:\n');
+      console.log('\n Progress Report:\n');
       console.log(`Period: ${report.period.start} ~ ${report.period.end}`);
       console.log(`Total Papers: ${report.summary.totalPapers}`);
       console.log(`Highlighted: ${report.summary.highlightedPapers}`);
@@ -311,16 +311,16 @@ async function handleAnalyze(args: string[]) {
   const analyzer = new PaperAnalyzer();
   await analyzer.initialize();
 
-  console.log(`📄 Analyzing paper...`);
+  console.log(` Analyzing paper...`);
 
   const analysis = await analyzer.analyze({ url, mode });
 
   if (outputFile) {
     const fs = require('fs');
     fs.writeFileSync(outputFile, analyzer.toMarkdown(analysis));
-    console.log(`\n✅ Analysis saved to ${outputFile}`);
+    console.log(`\n Analysis saved to ${outputFile}`);
   } else {
-    console.log('\n📑 Paper Analysis:\n');
+    console.log('\n Paper Analysis:\n');
     console.log(`Title: ${analysis.metadata.title}`);
     console.log(`Authors: ${analysis.metadata.authors.join(', ')}`);
     console.log(`Year: ${analysis.metadata.year}`);
@@ -348,7 +348,7 @@ async function handleGraph(args: string[]) {
   const builder = new KnowledgeGraphBuilder();
   await builder.initialize();
 
-  console.log(`🔗 Building knowledge graph...`);
+  console.log(` Building knowledge graph...`);
 
   const graph = await builder.build(concepts);
 
@@ -362,9 +362,9 @@ async function handleGraph(args: string[]) {
   if (outputFile) {
     const fs = require('fs');
     fs.writeFileSync(outputFile, output);
-    console.log(`\n✅ Graph saved to ${outputFile}`);
+    console.log(`\n Graph saved to ${outputFile}`);
   } else {
-    console.log('\n📈 Knowledge Graph:\n');
+    console.log('\n Knowledge Graph:\n');
     console.log(output);
   }
 }
@@ -376,7 +376,7 @@ function handleConfig(args: string[]) {
   switch (action) {
     case 'init':
       manager.save();
-      console.log('✅ Configuration initialized at ./literature-config.json');
+      console.log(' Configuration initialized at ./literature-config.json');
       break;
 
     case 'show':
@@ -395,13 +395,13 @@ function handleConfig(args: string[]) {
           (manager as any).config[key] = value;
           manager.save();
         }
-        console.log(`✅ Set ${key}`);
+        console.log(` Set ${key}`);
       }
       break;
 
     case 'reset':
       manager.reset();
-      console.log('✅ Configuration reset to defaults');
+      console.log(' Configuration reset to defaults');
       break;
 
     default:

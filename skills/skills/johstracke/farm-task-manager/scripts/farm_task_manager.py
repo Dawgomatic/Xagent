@@ -185,7 +185,7 @@ def list_tasks(args) -> None:
 
     for task in tasks:
         status_icon = {"pending": "○", "in-progress": "◐", "completed": "●"}.get(task["status"], "?")
-        priority_color = {"high": "🔴", "medium": "🟡", "low": "🟢"}.get(task["priority"], "")
+        priority_color = {"high": "", "medium": "", "low": ""}.get(task["priority"], "")
         due_str = task["due"][:10] if task["due"] else "No due date"
 
         print(f"{status_icon} {priority_color} [ID:{task['id']}] {task['name']}")

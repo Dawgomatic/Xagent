@@ -1,8 +1,8 @@
-# 🦎 Gekko Yield — Earn Safe Yield on USDC
+#  Gekko Yield — Earn Safe Yield on USDC
 
 Automated yield farming on Base. Deposit USDC, earn ~4-6% APY, auto-compound rewards.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # 1. Install dependencies
@@ -25,7 +25,7 @@ npx tsx report.ts
 npx tsx compound.ts
 ```
 
-## 📋 All Commands
+##  All Commands
 
 ### Setup (First Time)
 ```bash
@@ -77,7 +77,7 @@ After running setup, config is saved to `~/.config/gekko-yield/config.json`:
 
 ## Security
 
-⚠️ **This skill manages real funds:**
+ **This skill manages real funds:**
 
 - Private key loaded from environment variable at runtime
 - Never logged or written to disk

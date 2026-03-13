@@ -177,16 +177,16 @@ if __name__ == "__main__":
     
     result = analyze_readability(sys.argv[1])
     
-    print(f"📖 READABILITY ANALYSIS")
+    print(f" READABILITY ANALYSIS")
     print(f"=" * 50)
     
-    print(f"\n📊 SCORES:")
+    print(f"\n SCORES:")
     print(f"   Flesch Reading Ease: {result['flesch_score']}/100")
     print(f"   Flesch-Kincaid Grade: {result['fk_grade']}")
     print(f"   Reading Level: {result['level']} ({result['grade']})")
     print(f"   {result['description']}")
     
-    print(f"\n📏 STATISTICS:")
+    print(f"\n STATISTICS:")
     print(f"   Total Words: {result['total_words']}")
     print(f"   Total Sentences: {result['total_sentences']}")
     print(f"   Total Paragraphs: {result['total_paragraphs']}")
@@ -195,17 +195,17 @@ if __name__ == "__main__":
     print(f"   Avg Paragraph Length: {result['avg_paragraph_length']} sentences")
     
     if result['issues']:
-        print(f"\n⚠️  ISSUES DETECTED:")
+        print(f"\n  ISSUES DETECTED:")
         for issue in result['issues']:
             print(f"   • {issue}")
     
     if result['recommendations']:
-        print(f"\n💡 RECOMMENDATIONS:")
+        print(f"\n RECOMMENDATIONS:")
         for rec in result['recommendations']:
             print(f"   • {rec}")
     
     if not result['issues']:
-        print(f"\n✅ Readability is good!")
+        print(f"\n Readability is good!")
     
     # Exit code: 0 if no issues, 1 if issues found
     sys.exit(1 if result['issues'] else 0)

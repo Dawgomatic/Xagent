@@ -1784,7 +1784,7 @@ def main() -> None:
             if args.json:
                 results.append({"ticker": ticker, "error": str(e)})
             else:
-                print(f"\n  ❌ {error_msg}\n", file=sys.stderr)
+                print(f"\n   {error_msg}\n", file=sys.stderr)
 
     if args.json:
         output = []

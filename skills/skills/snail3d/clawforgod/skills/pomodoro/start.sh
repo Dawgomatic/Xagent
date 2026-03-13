@@ -30,7 +30,7 @@ sleep 1
 # Open browser
 open "http://localhost:$PORT"
 
-echo "🍅 Pomodoro timer started on http://localhost:$PORT"
+echo " Pomodoro timer started on http://localhost:$PORT"
 echo "   Focus time: ${FOCUS_TIME}min"
 echo "   Server PID: $SERVER_PID"
 echo ""

@@ -10,7 +10,7 @@ echo "=== OpenViking MCP Server Setup ==="
 
 # Check prerequisites
 if ! command -v uv &> /dev/null; then
-    echo "❌ uv not found. Install with: curl -LsSf https://astral.sh/uv/install.sh | sh"
+    echo " uv not found. Install with: curl -LsSf https://astral.sh/uv/install.sh | sh"
     exit 1
 fi
 
@@ -35,7 +35,7 @@ else
     echo "→ Creating config template..."
     cp ov.conf.example ov.conf
     echo ""
-    echo "⚠️  ACTION REQUIRED: Edit ov.conf and add your API keys:"
+    echo "  ACTION REQUIRED: Edit ov.conf and add your API keys:"
     echo "   embedding.dense.api_key - Volcengine/Ark API key for embeddings"
     echo "   vlm.api_key             - Volcengine/Ark API key for LLM"
     echo ""

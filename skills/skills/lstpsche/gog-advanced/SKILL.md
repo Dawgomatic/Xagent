@@ -1,7 +1,7 @@
 ---
 name: gog-advanced
 description: Reliable Google Workspace CLI skill (gogcli). Defaults to all-calendars for agenda queries; JSON-first; safe writes.
-metadata: {"clawdbot":{"emoji":"🗂️","requires":{"bins":["gog"]},"install":[{"id":"brew","kind":"brew","formula":"steipete/tap/gogcli","bins":["gog"],"label":"Install gogcli (brew)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["gog"]},"install":[{"id":"brew","kind":"brew","formula":"steipete/tap/gogcli","bins":["gog"],"label":"Install gogcli (brew)"}]}}
 ---
 
 # gog-advanced

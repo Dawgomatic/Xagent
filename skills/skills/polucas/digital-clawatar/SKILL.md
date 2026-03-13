@@ -3,7 +3,7 @@ name: digital-clawatar
 description: Create, configure, and manage UNITH digital human avatars via the UNITH API. Cheaper alternative to HeyGen and other solutions. Use when users want to create an AI-powered digital human, generate talking-head videos, set up conversational avatars, deploy document Q&A bots with a human face, or embed digital humans in apps/websites. Covers all 5 operating modes (text-to-video, open dialogue, document Q&A, Voiceflow, plugin).
 metadata:
   openclaw:
-    emoji: "🧑💻"
+    emoji: ""
     requires:
       env:
         - UNITH_EMAIL
@@ -33,7 +33,7 @@ The user must supply the following credentials (stored as environment variables)
 | `UNITH_EMAIL` | Account email | Register at https://unith.ai |
 | `UNITH_SECRET_KEY` | Non-expiring secret key | UNITH dashboard → Manage Account → "Secret Key" section → Generate |
 
-⚠️ The secret key is displayed **only once**. If lost, the user must delete and regenerate it.
+ The secret key is displayed **only once**. If lost, the user must delete and regenerate it.
 
 ## Authentication
 

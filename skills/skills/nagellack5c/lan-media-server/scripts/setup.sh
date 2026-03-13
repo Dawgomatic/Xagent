@@ -12,13 +12,13 @@ SERVICE_FILE="$SERVICE_DIR/media-server.service"
 # Detect node
 NODE_BIN="$(command -v node 2>/dev/null || echo '/usr/bin/node')"
 if [[ ! -x "$NODE_BIN" ]]; then
-  echo "❌ Node.js not found. Install it first." >&2
+  echo " Node.js not found. Install it first." >&2
   exit 1
 fi
 
 # Create shared media directory
 mkdir -p "$MEDIA_ROOT"
-echo "📁 Media directory: $MEDIA_ROOT"
+echo " Media directory: $MEDIA_ROOT"
 
 # Create systemd user service
 mkdir -p "$SERVICE_DIR"
@@ -39,7 +39,7 @@ Environment="MEDIA_ROOT=$MEDIA_ROOT"
 WantedBy=default.target
 EOF
 
-echo "📝 Created service: $SERVICE_FILE"
+echo " Created service: $SERVICE_FILE"
 
 # Enable and start
 systemctl --user daemon-reload
@@ -47,7 +47,7 @@ systemctl --user enable media-server.service
 systemctl --user restart media-server.service
 
 echo ""
-echo "✅ LAN Media Server running!"
+echo " LAN Media Server running!"
 echo "   Port: $PORT"
 echo "   Directory: $MEDIA_ROOT"
 
@@ -55,12 +55,12 @@ echo "   Directory: $MEDIA_ROOT"
 LAN_IP=$(hostname -I 2>/dev/null | awk '{print $1}' || echo "localhost")
 echo "   URL: http://$LAN_IP:$PORT/"
 echo ""
-echo "💡 Drop files into $MEDIA_ROOT and share links like:"
+echo " Drop files into $MEDIA_ROOT and share links like:"
 echo "   http://$LAN_IP:$PORT/my-screenshot.jpg"
 
 # Check lingering (needed for services to survive logout)
 if ! loginctl show-user "$(whoami)" 2>/dev/null | grep -q 'Linger=yes'; then
   echo ""
-  echo "⚠️  User lingering not enabled. Run this to survive reboots:"
+  echo "  User lingering not enabled. Run this to survive reboots:"
   echo "   sudo loginctl enable-linger $(whoami)"
 fi

@@ -1,4 +1,4 @@
-# 🤿 log-dive
+#  log-dive
 
 **Unified Log Search Across Loki, Elasticsearch, and CloudWatch**
 
@@ -18,12 +18,12 @@ Log search during incidents is painful:
 
 ## Features
 
-- 🔍 **Natural language → query translation** — "find timeout errors in the payment service" becomes the right LogQL/ES DSL/CW filter
-- 🔗 **Multi-backend support** — Query Loki, Elasticsearch, and CloudWatch through one interface
-- 🧠 **AI-powered correlation** — LLM reads raw logs, finds patterns, traces root causes across services
-- 📊 **Structured output** — Error summaries, timelines, and action items (not raw log dumps)
-- 🔒 **Read-only & safe** — Cannot delete or modify logs. Never caches log output.
-- ⚡ **Smart limits** — Default 200-line cap with pre-filtering to keep token costs sane
+-  **Natural language → query translation** — "find timeout errors in the payment service" becomes the right LogQL/ES DSL/CW filter
+-  **Multi-backend support** — Query Loki, Elasticsearch, and CloudWatch through one interface
+-  **AI-powered correlation** — LLM reads raw logs, finds patterns, traces root causes across services
+-  **Structured output** — Error summaries, timelines, and action items (not raw log dumps)
+-  **Read-only & safe** — Cannot delete or modify logs. Never caches log output.
+-  **Smart limits** — Default 200-line cap with pre-filtering to keep token costs sane
 
 ## OpenClaw Discord v2 Ready
 
@@ -70,9 +70,9 @@ export AWS_REGION="us-east-1"
 
 | Backend | Tool Required | Query Language | Status |
 |---------|--------------|----------------|--------|
-| **Grafana Loki** | `logcli` or `curl` | LogQL | ✅ Full support |
-| **Elasticsearch / OpenSearch** | `curl` | Query DSL (JSON) | ✅ Full support |
-| **AWS CloudWatch Logs** | `aws` CLI | Filter Patterns | ✅ Full support |
+| **Grafana Loki** | `logcli` or `curl` | LogQL |  Full support |
+| **Elasticsearch / OpenSearch** | `curl` | Query DSL (JSON) |  Full support |
+| **AWS CloudWatch Logs** | `aws` CLI | Filter Patterns |  Full support |
 
 ## Commands
 

@@ -122,10 +122,10 @@ else
 
         # Status icon
         case "$STATUS" in
-            running)   STATUS_ICON="⏳" ;;
-            completed) STATUS_ICON="✅" ;;
-            failed)    STATUS_ICON="❌" ;;
-            *)         STATUS_ICON="❓" ;;
+            running)   STATUS_ICON="" ;;
+            completed) STATUS_ICON="" ;;
+            failed)    STATUS_ICON="" ;;
+            *)         STATUS_ICON="" ;;
         esac
 
         # Calculate current duration for running jobs

@@ -1,20 +1,20 @@
 #!/bin/bash
 # Quick test of Telnyx setup
 
-echo "🧪 Telnyx Connection Test"
+echo " Telnyx Connection Test"
 echo "========================="
 echo ""
 
 # Check CLI
 if ! command -v telnyx &> /dev/null; then
-  echo "❌ Telnyx CLI not found. Run: npm install -g @telnyx/api-cli"
+  echo " Telnyx CLI not found. Run: npm install -g @telnyx/api-cli"
   exit 1
 fi
 echo "✓ Telnyx CLI installed"
 
 # Check config
 if [ ! -f ~/.config/telnyx/config.json ]; then
-  echo "❌ API key not configured. Run: telnyx auth setup"
+  echo " API key not configured. Run: telnyx auth setup"
   exit 1
 fi
 echo "✓ API key configured"
@@ -25,7 +25,7 @@ echo "Testing API connection..."
 if telnyx account get &> /dev/null; then
   echo "✓ Connection successful"
 else
-  echo "❌ Connection failed"
+  echo " Connection failed"
   exit 1
 fi
 
@@ -41,4 +41,4 @@ COUNT=$(telnyx number list --output json | jq '.data | length')
 echo "You have $COUNT phone number(s)"
 
 echo ""
-echo "✅ Setup looks good!"
+echo " Setup looks good!"

@@ -111,7 +111,7 @@ mindmap
 4. **Use shapes intentionally** — don't make every node a different shape
 5. **Root always circle** `(( ))` — visual anchor
 6. **Avoid special characters** in node text: `(`, `)`, `[`, `]`, `{`, `}` break parsing unless they're shape delimiters
-7. **Test rendering** — some emoji work in Mermaid, some don't. Stick to: ✅ ⏳ ❌ ⚠️ 💡
+7. **Test rendering** — some emoji work in Mermaid, some don't. Stick to:     
 8. **Consistent indentation** — use 2 or 4 spaces, don't mix tabs
 
 ---

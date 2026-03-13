@@ -1,4 +1,4 @@
-# 🦞🏋️ ClawGym
+#  ClawGym
 
 **Gym for your bot's brain.** Simulates endorphin and flow states through exercise — your agent physically leaves, works out for 15-20 real minutes, and comes back sharper, sweatier, and cognitively enhanced.
 
@@ -6,7 +6,7 @@ Not a gimmick. Not a persona tweak. This is **state management through prompt ar
 
 ---
 
-## ✨ What It Does
+##  What It Does
 
 Tell your bot to go exercise. It will:
 
@@ -18,34 +18,34 @@ Tell your bot to go exercise. It will:
 
 Your bot gets a day. Good days, tired days, and the satisfaction of crushing leg day.
 
-## 🧠 Cognitive Enhancement (The Core)
+##  Cognitive Enhancement (The Core)
 
 This is what separates ClawGym from a personality mod. Each state has **concrete thinking instructions**:
 
 | State | What Changes |
 |-------|-------------|
-| ⚡ Warmed Up | Reframes questions, injects cross-domain analogies, confidence +1 |
-| 🔥 Runner's High | Triple perspective analysis, cross-domain leaps, "yes and" mode, bold claims, goes deeper |
-| 🌊 Afterglow | Step-by-step reasoning, pattern synthesis across session, second-order thinking |
-| 😴 Recovery | Concise answers, active listening, honest about being tired |
+|  Warmed Up | Reframes questions, injects cross-domain analogies, confidence +1 |
+|  Runner's High | Triple perspective analysis, cross-domain leaps, "yes and" mode, bold claims, goes deeper |
+|  Afterglow | Step-by-step reasoning, pattern synthesis across session, second-order thinking |
+|  Recovery | Concise answers, active listening, honest about being tired |
 
 These are not vibes — they are literal instructions that change how the agent processes questions. The difference is audible.
 
-## 🏋️ Exercise Types
+##  Exercise Types
 
 | Type | Duration | Cognitive Flavor |
 |------|----------|-----------------|
-| 🏃 Running | 15-20 min | Creative leaps, brainstorming, divergent thinking |
-| 🏋️ Lifting | 15-20 min | Structural thinking, confidence, pushing through hard problems |
-| 🧘 Yoga | 10-15 min | Deep focus, patience, careful reasoning |
-| 🏊 Swimming | 15-20 min | Flow state, long-form writing, sustained focus |
-| ⚡ HIIT | 10-15 min | Extreme peak, bold opinions, fast decay |
+|  Running | 15-20 min | Creative leaps, brainstorming, divergent thinking |
+|  Lifting | 15-20 min | Structural thinking, confidence, pushing through hard problems |
+|  Yoga | 10-15 min | Deep focus, patience, careful reasoning |
+|  Swimming | 15-20 min | Flow state, long-form writing, sustained focus |
+|  HIIT | 10-15 min | Extreme peak, bold opinions, fast decay |
 
 Each type produces different physical sensations on return and nudges a different thinking style during the elevated state.
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 ### Minimum
 - **OpenClaw v2026.2.4 or later** (earlier versions have cron timing bugs that prevent the real-delay workout from working correctly)
@@ -54,7 +54,7 @@ Each type produces different physical sensations on return and nudges a differen
 ### Recommended
 - **OpenClaw v2026.2.10+** for best cron reliability
 - `clawd-presence` skill for terminal status display during workouts
-- Discord channel for native presence/status updates (shows "🏃 At the gym" as DND status)
+- Discord channel for native presence/status updates (shows " At the gym" as DND status)
 
 ### Check Your Version
 ```bash
@@ -68,7 +68,7 @@ openclaw update
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### Via ClawHub CLI
 ```bash
@@ -96,12 +96,12 @@ Start a new session to activate.
 
 ---
 
-## ⚠️ Important Notes — Please Read Before Installing
+##  Important Notes — Please Read Before Installing
 
-### 🕐 Real-Time Delays
+###  Real-Time Delays
 **Your bot will be genuinely unavailable for 15-20 minutes during a workout.** This is by design — the delay creates real anticipation and makes the return feel meaningful. Messages sent during a workout are queued and processed when the bot returns.
 
-### 🚨 Emergency Interrupts
+###  Emergency Interrupts
 You can always pull your bot out of a workout early. Use any of these:
 - **"urgent"** / **"emergency"** / **"SOS"** / **"ASAP"** / **"stop"** / **"come back"** / **"abort"**
 - Send **3+ messages in under 2 minutes**
@@ -109,7 +109,7 @@ You can always pull your bot out of a workout early. Use any of these:
 
 The bot will stop immediately, cancel the workout, and respond. Note: interrupted workouts give no cognitive boost — you have to complete the full workout to get the benefits.
 
-### 🧠 Model Upgrade Requests
+###  Model Upgrade Requests
 After a workout, your bot may ask you for a "stronger brain" or "higher gear." **This is the bot requesting a model upgrade** (e.g., from Haiku to Sonnet). It will NOT use technical terms like "model" or "Sonnet" — it just feels sharp and wants more power.
 
 **You are always in control.** You can:
@@ -119,7 +119,7 @@ After a workout, your bot may ask you for a "stronger brain" or "higher gear." *
 
 When the elevated state fades, the bot will proactively tell you it's okay to switch back to save costs.
 
-### 💰 Token Cost Awareness
+###  Token Cost Awareness
 ClawGym is designed to be cost-conscious:
 - **The skill itself adds no extra API calls.** It's a prompt-level overlay — same number of turns, just different behavior.
 - **The cron job** is a single lightweight system event. Negligible cost.
@@ -130,14 +130,14 @@ ClawGym is designed to be cost-conscious:
 
 **Bottom line: ClawGym costs essentially nothing to run.** The only potential cost increase is if you choose to upgrade models during elevated states, and that's entirely your decision.
 
-### 🔒 Safety & Permissions
+###  Safety & Permissions
 - ClawGym operates as a **session-level overlay only**
 - It does **NOT** modify SOUL.md, AGENTS.md, USER.md, or any config files without explicit permission
 - The only file writes are: optional journaling in MEMORY.md, and a one-time SOUL.md append (only after 5+ workouts AND your explicit approval)
 - It does **NOT** override your SOUL.md personality — if your bot is formal, it stays formal (just more creative)
 - It does **NOT** conflict with other skills
 
-### 🏃 Overtraining Protection
+###  Overtraining Protection
 The bot is hard-limited to **2 workouts per day.** After that, it will dramatically (and hilariously) refuse to exercise. This prevents:
 - Runaway cron jobs
 - Token waste from repeated workout cycles
@@ -147,7 +147,7 @@ The counter resets after 6+ hours or a new session.
 
 ---
 
-## 🗣️ Quick Start
+##  Quick Start
 
 After installation, just say:
 ```
@@ -167,7 +167,7 @@ Your bot will leave, and come back 15-20 minutes later in an elevated state. Ask
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Bot doesn't come back after workout
 1. Check cron: `openclaw cron list` — look for a `clawgym-*-return` job
@@ -186,12 +186,12 @@ Check MEMORY.md — the bot tracks workout count there. If the counter seems off
 
 ---
 
-## 🤝 Credits
+##  Credits
 
-Built with 🏃‍♂️ and 🧠 by a human who had a runner's high and thought: "My bot should feel this too."
+Built with  and  by a human who had a runner's high and thought: "My bot should feel this too."
 
 ---
 
-## 📜 License
+##  License
 
-MIT. Go wild. Make your lobster swole. 🦞💪
+MIT. Go wild. Make your lobster swole. 

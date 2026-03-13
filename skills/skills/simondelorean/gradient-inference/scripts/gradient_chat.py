@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🦞 Gradient AI — Chat & Inference
+ Gradient AI — Chat & Inference
 
 Call LLMs via DigitalOcean's Gradient Serverless Inference API.
 Supports both the Chat Completions API (OpenAI-compatible) and the
@@ -193,7 +193,7 @@ def pick_api(use_responses_api: bool) -> str:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🦞 Call Gradient AI LLMs"
+        description=" Call Gradient AI LLMs"
     )
     parser.add_argument("--prompt", required=True, help="The prompt to send")
     parser.add_argument("--system", default=None, help="System message (chat completions only)")
@@ -241,7 +241,7 @@ def main():
         if usage:
             prompt_tokens = usage.get("prompt_tokens", "?")
             completion_tokens = usage.get("completion_tokens", "?")
-            print(f"\n📊 Tokens: {prompt_tokens} in / {completion_tokens} out | Model: {result.get('model', '?')} | API: {result.get('api', '?')}", file=sys.stderr)
+            print(f"\n Tokens: {prompt_tokens} in / {completion_tokens} out | Model: {result.get('model', '?')} | API: {result.get('api', '?')}", file=sys.stderr)
 
 
 if __name__ == "__main__":

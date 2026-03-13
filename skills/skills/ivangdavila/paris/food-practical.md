@@ -62,7 +62,7 @@
 
 | Rating | Reality |
 |--------|---------|
-| ⭐⭐⭐ | Improving but not default |
+|  | Improving but not default |
 
 | Option | Where |
 |--------|-------|
@@ -77,7 +77,7 @@
 
 | Rating | Reality |
 |--------|---------|
-| ⭐⭐ | Growing but limited |
+|  | Growing but limited |
 
 | Restaurant | Location |
 |------------|----------|
@@ -92,7 +92,7 @@
 
 | Rating | Reality |
 |--------|---------|
-| ⭐⭐ | Challenging in bread culture |
+|  | Challenging in bread culture |
 
 | Option | Notes |
 |--------|-------|
@@ -106,7 +106,7 @@
 
 | Rating | Reality |
 |--------|---------|
-| ⭐⭐⭐⭐ | Many options |
+|  | Many options |
 
 | Area | Notes |
 |------|-------|

@@ -4,7 +4,7 @@ version: 4.0.0
 description: "SkillShield v4 — Ultimate security scanner for OpenClaw skills. 65 security checks, SARIF v2.1.0 output, CI/CD ready, campaign detection, C2 IP blocklist, known malicious actor database, macOS attack detection, agent config tampering, LLM tool exploitation, pre-commit hooks, and more. Python 3 stdlib only. Single file. Zero dependencies."
 ---
 
-# SkillShield v4.0.0 — Ultimate Edition 🛡️
+# SkillShield v4.0.0 — Ultimate Edition 
 
 **65 security checks** | **SARIF v2.1.0** | **CI/CD ready** | **Zero dependencies**
 
@@ -15,47 +15,47 @@ The most comprehensive security scanner for OpenClaw/ClawHub skills. Detects mal
 | Feature | SkillShield v4 | Skillvet v2 |
 |---------|:-:|:-:|
 | Total security checks | **65** | 48 |
-| Python 3 stdlib only | ✅ | ❌ (bash) |
-| Single file | ✅ | ❌ (multi-file) |
-| SARIF v2.1.0 output | ✅ | ✅ |
-| JSON output | ✅ | ✅ |
-| Summary mode | ✅ | ✅ |
-| Verbose mode | ✅ | ✅ |
-| Pre-commit hook | ✅ | ✅ |
-| GitHub Actions template | ✅ | ✅ |
-| HTML dashboard report | ✅ | ❌ |
-| Markdown report | ✅ | ❌ |
-| Interactive mode | ✅ | ❌ |
-| Quarantine system | ✅ | ❌ |
-| Baseline/tamper detection | ✅ | ❌ |
-| SBOM generation | ✅ | ❌ |
-| Diff scanning | ✅ | ❌ |
-| Custom rules engine | ✅ | ❌ |
-| Risk scoring (weighted) | ✅ | ✅ |
-| Check IDs (SS-001+) | ✅ | ✅ |
-| Exit codes (0/1/2) | ✅ | ✅ |
-| Known C2/IOC IP blocklist | ✅ | ✅ |
-| Known malicious actors | ✅ | ✅ |
-| Exfiltration endpoints | ✅ | ✅ |
-| Paste service detection | ✅ | ✅ |
-| Campaign detection (3) | ✅ | ❌ |
-| Behavioral analysis | ✅ | ❌ |
-| macOS attack detection | ✅ | ✅ |
-| Agent config tampering | ✅ | ✅ |
-| LLM tool exploitation | ✅ | ✅ |
-| String evasion detection | ✅ | ✅ |
-| Punycode domains | ✅ | ✅ |
-| Double encoding | ✅ | ✅ |
-| Password archive detection | ✅ | ✅ |
-| Network fingerprinting | ✅ | ❌ |
-| Reputation grading | ✅ | ❌ |
-| Context-aware domain checks | ✅ | ❌ |
-| Inline ignore comments | ✅ | ✅ |
-| .skillshield-ignore file | ✅ | ✅ (.skillvetrc) |
-| Max file size option | ✅ | ✅ |
-| Max depth option | ✅ | ✅ |
-| 16 file types scanned | ✅ | ✅ |
-| Statistics footer | ✅ | ✅ |
+| Python 3 stdlib only |  |  (bash) |
+| Single file |  |  (multi-file) |
+| SARIF v2.1.0 output |  |  |
+| JSON output |  |  |
+| Summary mode |  |  |
+| Verbose mode |  |  |
+| Pre-commit hook |  |  |
+| GitHub Actions template |  |  |
+| HTML dashboard report |  |  |
+| Markdown report |  |  |
+| Interactive mode |  |  |
+| Quarantine system |  |  |
+| Baseline/tamper detection |  |  |
+| SBOM generation |  |  |
+| Diff scanning |  |  |
+| Custom rules engine |  |  |
+| Risk scoring (weighted) |  |  |
+| Check IDs (SS-001+) |  |  |
+| Exit codes (0/1/2) |  |  |
+| Known C2/IOC IP blocklist |  |  |
+| Known malicious actors |  |  |
+| Exfiltration endpoints |  |  |
+| Paste service detection |  |  |
+| Campaign detection (3) |  |  |
+| Behavioral analysis |  |  |
+| macOS attack detection |  |  |
+| Agent config tampering |  |  |
+| LLM tool exploitation |  |  |
+| String evasion detection |  |  |
+| Punycode domains |  |  |
+| Double encoding |  |  |
+| Password archive detection |  |  |
+| Network fingerprinting |  |  |
+| Reputation grading |  |  |
+| Context-aware domain checks |  |  |
+| Inline ignore comments |  |  |
+| .skillshield-ignore file |  |  (.skillvetrc) |
+| Max file size option |  |  |
+| Max depth option |  |  |
+| 16 file types scanned |  |  |
+| Statistics footer |  |  |
 
 ## Usage
 

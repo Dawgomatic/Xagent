@@ -2,7 +2,7 @@
 
 Godot 4.x 게임 엔진 개발을 위한 종합 스킬 패키지
 
-## 📁 구조
+##  구조
 
 ```
 godot/
@@ -20,7 +20,7 @@ godot/
 └── assets/                           # (향후 템플릿 프로젝트)
 ```
 
-## 🚀 빠른 시작
+##  빠른 시작
 
 ### 1. 신규 프로젝트 생성 (MiniPC)
 ```bash
@@ -41,7 +41,7 @@ godot4 .     # 실행
 bash /path/to/godot/scripts/build_game.sh . Web export
 ```
 
-## 📖 문서 활용
+##  문서 활용
 
 ### SKILL.md
 - Godot 프로젝트 작업 시 자동으로 로드되는 메인 가이드
@@ -54,7 +54,7 @@ bash /path/to/godot/scripts/build_game.sh . Web export
 - **2d-patterns.md**: 플레이어 이동, 적 AI, 발사체, 충돌 등
 - **3d-patterns.md**: FPS, TPS, 물리, 차량, 비행 등
 
-## 🛠️ 헬퍼 스크립트 사용법
+##  헬퍼 스크립트 사용법
 
 ### new_project.sh
 ```bash
@@ -82,7 +82,7 @@ bash /path/to/godot/scripts/build_game.sh . Web export
 ./scripts/build_game.sh . Android export
 ```
 
-## 🎯 사용 시나리오
+##  사용 시나리오
 
 ### 시나리오 1: 2D 플랫포머 제작
 1. `SKILL.md` → "2D Game Workflows" 참조
@@ -99,20 +99,20 @@ bash /path/to/godot/scripts/build_game.sh . Web export
 2. `references/best-practices.md` → "씬 설계" 원칙 적용
 3. `references/gdscript-cheatsheet.md` → 네이밍 규칙 준수
 
-## 🔗 외부 참고 자료
+##  외부 참고 자료
 
 - [Godot 공식 문서](https://docs.godotengine.org/en/stable/)
 - [GDQuest 튜토리얼](https://www.gdquest.com/tutorial/godot/)
 - [Godot Asset Library](https://godotengine.org/asset-library/asset)
 
-## ⚙️ MiniPC 환경
+##  MiniPC 환경
 
 - **Godot 버전**: 4.6 stable
 - **경로**: `$HOME/godot4/Godot_v4.6-stable_linux.x86_64`
 - **Export Templates**: 설치됨 (Web, Linux, Android)
 - **커스텀 부트 스플래시**: `$HOME/godot-demo/boot_splash.png`
 
-## 📝 버전 히스토리
+##  버전 히스토리
 
 - **1.0.0** (2026-02-05): 초기 릴리즈
   - SKILL.md, 5개 레퍼런스 문서

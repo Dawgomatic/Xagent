@@ -10,13 +10,13 @@ Real-time monitoring dashboard for OpenClaw with web interface.
 
 ## Features
 
-- 🌐 **Web Dashboard** - Beautiful, responsive UI accessible from any device
-- 📱 **Mobile-First** - Optimized for phones and tablets
-- 🔄 **Auto-Refresh** - Updates every 60 seconds
-- 🎨 **Modern Design** - Gradient UI with dark theme
-- 📊 **Live Data** - Main session, Discord, sub-agents, cron jobs
-- 🚀 **Fast API** - JSON endpoint with intelligent caching (30s TTL)
-- ⚡ **Performance** - <100ms response time (cached), ~15s cold cache
+-  **Web Dashboard** - Beautiful, responsive UI accessible from any device
+-  **Mobile-First** - Optimized for phones and tablets
+-  **Auto-Refresh** - Updates every 60 seconds
+-  **Modern Design** - Gradient UI with dark theme
+-  **Live Data** - Main session, Discord, sub-agents, cron jobs
+-  **Fast API** - JSON endpoint with intelligent caching (30s TTL)
+-  **Performance** - <100ms response time (cached), ~15s cold cache
 
 ## Installation
 

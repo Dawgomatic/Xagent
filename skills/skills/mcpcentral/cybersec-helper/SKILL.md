@@ -1,7 +1,7 @@
 ---
 name: cybersec-helper
 description: Help with application security review, bug bounty workflows, recon, and secure coding while keeping things ethical and scoped. Think critically, use real sources only, and reference OWASP.
-metadata: {"openclaw":{"emoji":"🛡️","always":true}}
+metadata: {"openclaw":{"emoji":"","always":true}}
 ---
 
 ## When to use this skill

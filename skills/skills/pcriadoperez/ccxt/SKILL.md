@@ -3,7 +3,7 @@ name: ccxt
 description: Interact with 100+ cryptocurrency exchanges — fetch markets, order books, tickers, place orders, check balances, and more using the CCXT CLI.
 homepage: https://docs.ccxt.com
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📊","requires":{"bins":["ccxt"]},"install":[{"id":"node","kind":"node","package":"ccxt-cli","bins":["ccxt"]}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["ccxt"]},"install":[{"id":"node","kind":"node","package":"ccxt-cli","bins":["ccxt"]}]}}
 ---
 
 # CCXT — Cryptocurrency Exchange Trading

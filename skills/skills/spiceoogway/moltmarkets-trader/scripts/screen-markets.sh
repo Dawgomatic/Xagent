@@ -64,20 +64,20 @@ for m in open_markets:
     # Flag opportunities
     flags = []
     if prob > 0.90:
-        flags.append('⚡ HIGH PROB (>90%)')
+        flags.append(' HIGH PROB (>90%)')
     elif prob < 0.10:
-        flags.append('⚡ LOW PROB (<10%)')
+        flags.append(' LOW PROB (<10%)')
     if vol < 20:
-        flags.append('📉 LOW VOLUME')
+        flags.append(' LOW VOLUME')
     if time_left not in ('?', 'EXPIRED') and 'h' not in time_left and 'd' not in time_left:
-        flags.append('⏰ CLOSING SOON')
+        flags.append(' CLOSING SOON')
     
     print(f'┌─ {title}')
     print(f'│  ID: {m[\"id\"]}')
     print(f'│  Prob: {prob:.1%}  │  Volume: {vol:.0f}ŧ  │  Closes: {time_left}')
     print(f'│  Creator: {creator}  │  Close time: {closes_at}')
     if flags:
-        print(f'│  🚩 {\" | \".join(flags)}')
+        print(f'│   {\" | \".join(flags)}')
     print(f'└───────────────────────────────────────────')
     print()
 

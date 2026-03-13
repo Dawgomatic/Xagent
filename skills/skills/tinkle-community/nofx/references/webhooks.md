@@ -30,7 +30,7 @@ Clawdbot is integrated, use cron job to send directly:
 ```bash
 TELEGRAM_BOT_TOKEN="your_bot_token"
 CHAT_ID="your_chat_id"
-MESSAGE="🚀 NOFX Alert: ETH breaks $2000"
+MESSAGE=" NOFX Alert: ETH breaks $2000"
 
 curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
   -d "chat_id=$CHAT_ID" \
@@ -53,7 +53,7 @@ DISCORD_WEBHOOK="https://discord.com/api/webhooks/xxx/yyy"
 curl -H "Content-Type: application/json" \
   -X POST "$DISCORD_WEBHOOK" \
   -d '{
-    "content": "🚀 NOFX Alert",
+    "content": " NOFX Alert",
     "embeds": [{
       "title": "AI500 New Signal",
       "description": "POWER enters ranking, score 88.5",
@@ -77,7 +77,7 @@ SLACK_WEBHOOK="https://hooks.slack.com/services/xxx/yyy/zzz"
 curl -X POST "$SLACK_WEBHOOK" \
   -H "Content-Type: application/json" \
   -d '{
-    "text": "🚀 NOFX Alert: ETH institutional inflow $10M"
+    "text": " NOFX Alert: ETH institutional inflow $10M"
   }'
 ```
 
@@ -108,7 +108,7 @@ if [ $(curl -s "https://nofxos.ai/api/coin/BTC?auth=$KEY" | jq '.data.price') -g
   # Send Telegram notification
   curl -s "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
     -d "chat_id=$CHAT_ID" \
-    -d "text=🚀 BTC breaks $70,000!"
+    -d "text= BTC breaks $70,000!"
 fi
 ```
 
@@ -121,7 +121,7 @@ NEW_COINS=$(curl -s "https://nofxos.ai/api/ai500/list?auth=$KEY" | \
 
 if [ -n "$NEW_COINS" ]; then
   # Send notification
-  MESSAGE="🆕 AI500 new entry: $NEW_COINS"
+  MESSAGE=" AI500 new entry: $NEW_COINS"
   # ... send to Telegram/Discord/Slack
 fi
 ```
@@ -134,7 +134,7 @@ BIG_FLOWS=$(curl -s "https://nofxos.ai/api/netflow/top-ranking?auth=$KEY&limit=5
   jq -r '.data.netflows[] | select(.amount > 10000000) | "\(.symbol): $\(.amount/1000000)M"')
 
 if [ -n "$BIG_FLOWS" ]; then
-  MESSAGE="💰 Large institutional inflow:\n$BIG_FLOWS"
+  MESSAGE=" Large institutional inflow:\n$BIG_FLOWS"
   # ... send notification
 fi
 ```
@@ -144,25 +144,25 @@ fi
 ### Market Report Template
 
 ```
-📊 NOFX Market Report | {time}
+ NOFX Market Report | {time}
 
-🤖 AI500 Signals
+ AI500 Signals
 {ai500_list}
 
-💰 Institutional Inflow TOP5
+ Institutional Inflow TOP5
 {flow_list}
 
-🚀 1h Gainers TOP5
+ 1h Gainers TOP5
 {gainers_list}
 
-⚠️ Risk Alert
+ Risk Alert
 {alerts}
 ```
 
 ### Trading Signal Template
 
 ```
-🎯 Trading Signal | {symbol}
+ Trading Signal | {symbol}
 
 Direction: {direction}
 Entry: ${entry_price}
@@ -177,7 +177,7 @@ Fund Flow: {fund_flow}
 ### P&L Report Template
 
 ```
-💰 {trader_name} Daily Report
+ {trader_name} Daily Report
 
 Equity: ${equity}
 P&L: ${pnl} ({pnl_pct}%)

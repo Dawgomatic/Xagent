@@ -44,7 +44,7 @@ def main():
     if isinstance(summary, list):
         summary = summary[0] if summary else {}
 
-    print("💰 계좌 잔고")
+    print(" 계좌 잔고")
     print(f"  예수금총액: {fmt_price(summary.get('dnca_tot_amt', 0))}")
     print(f"  익일정산금액: {fmt_price(summary.get('nxdy_excc_amt', 0))}")
     print(f"  가수도정산금액(매수가능): {fmt_price(summary.get('prvs_rcdl_excc_amt', 0))}")

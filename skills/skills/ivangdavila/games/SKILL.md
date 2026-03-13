@@ -1,7 +1,7 @@
 ---
 name: Games
 description: Build a personal gaming system for video games, board games, party games, and family activities.
-metadata: {"clawdbot":{"emoji":"🎮","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

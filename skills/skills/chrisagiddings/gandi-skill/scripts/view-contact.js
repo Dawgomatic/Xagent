@@ -15,10 +15,10 @@ const CONFIG_DIR = path.join(os.homedir(), '.config', 'gandi');
 const CONTACT_FILE = path.join(CONFIG_DIR, 'contact.json');
 
 function main() {
-  console.log('👤 Saved Contact Information\n');
+  console.log(' Saved Contact Information\n');
   
   if (!fs.existsSync(CONTACT_FILE)) {
-    console.log('❌ No contact information found.');
+    console.log(' No contact information found.');
     console.log('');
     console.log('Run setup to create contact:');
     console.log('   node setup-contact.js');
@@ -30,12 +30,12 @@ function main() {
   try {
     contact = JSON.parse(fs.readFileSync(CONTACT_FILE, 'utf8'));
   } catch (err) {
-    console.error('❌ Error reading contact file:', err.message);
+    console.error(' Error reading contact file:', err.message);
     process.exit(1);
   }
   
   console.log('═══════════════════════════════════════════════════════');
-  console.log('📋 CONTACT DETAILS');
+  console.log(' CONTACT DETAILS');
   console.log('═══════════════════════════════════════════════════════');
   console.log(`   Name: ${contact.given} ${contact.family}`);
   console.log(`   Email: ${contact.email}`);
@@ -46,9 +46,9 @@ function main() {
   console.log(`   Type: ${contact.type}`);
   console.log('═══════════════════════════════════════════════════════');
   console.log('');
-  console.log(`📁 Location: ${CONTACT_FILE}`);
+  console.log(` Location: ${CONTACT_FILE}`);
   console.log('');
-  console.log('✏️  To edit: node setup-contact.js');
+  console.log('  To edit: node setup-contact.js');
   console.log('');
 }
 

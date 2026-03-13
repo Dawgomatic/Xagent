@@ -4,12 +4,12 @@ Enterprise-grade browser automation for OpenClaw with robust resource management
 
 ## Features
 
-- ✅ **Automatic tab cleanup** - No more tab accumulation
-- ✅ **Timeout & retry** - Exponential backoff on network errors
-- ✅ **Smart waiting** - `waitForLoadState`, `waitForSelector`
-- ✅ **Concurrency lock** - Prevents profile conflicts
-- ✅ **Structured logging** - DEBUG=1 for verbose output
-- ✅ **Configurable** - Environment variables for timeout, retries, profile
+-  **Automatic tab cleanup** - No more tab accumulation
+-  **Timeout & retry** - Exponential backoff on network errors
+-  **Smart waiting** - `waitForLoadState`, `waitForSelector`
+-  **Concurrency lock** - Prevents profile conflicts
+-  **Structured logging** - DEBUG=1 for verbose output
+-  **Configurable** - Environment variables for timeout, retries, profile
 
 ## Files
 

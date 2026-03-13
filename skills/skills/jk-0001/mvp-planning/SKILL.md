@@ -38,9 +38,9 @@ The hypothesis has two parts: a behavior signal (usage) and a revenue signal (pa
 4. What CANNOT be missing without the product feeling broken or useless? (These are non-negotiable.)
 
 **Label every feature as:**
-- 🔴 **Must-have:** Product is meaningless without this. Hypothesis cannot be tested without it.
-- 🟡 **Nice-to-have:** Improves experience but hypothesis can still be tested without it.
-- 🟢 **Cut:** Not needed for the hypothesis at all. Build later if validated.
+-  **Must-have:** Product is meaningless without this. Hypothesis cannot be tested without it.
+-  **Nice-to-have:** Improves experience but hypothesis can still be tested without it.
+-  **Cut:** Not needed for the hypothesis at all. Build later if validated.
 
 ---
 
@@ -92,16 +92,16 @@ HYPOTHESIS: [from Step 1]
 
 CORE VALUE DELIVERED: [one sentence — what the user gets]
 
-MUST-HAVE FEATURES (🔴):
+MUST-HAVE FEATURES ():
   1. [Feature] — because [why it's essential to the hypothesis]
   2. [Feature] — because [why]
   3. [Feature] — because [why]
 
-FAKED / MANUAL FEATURES (🟡 deferred to real implementation):
+FAKED / MANUAL FEATURES ( deferred to real implementation):
   1. [Feature] — faked as [how] — real build in [when]
   2. [Feature] — faked as [how] — real build in [when]
 
-CUT FROM MVP (🟢 — revisit after launch):
+CUT FROM MVP ( — revisit after launch):
   1. [Feature]
   2. [Feature]
   ...

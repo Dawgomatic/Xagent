@@ -13,7 +13,7 @@ const COURTROOM_DIR = path.join(require('../src/environment').getConfigDir(), 'c
 const PENDING_EVAL_FILE = path.join(COURTROOM_DIR, 'pending_eval.json');
 const RESULTS_FILE = path.join(COURTROOM_DIR, 'eval_results.jsonl');
 
-const EVALUATION_PROMPT = `🏛️ **COURTROOM EVALUATION REQUEST**
+const EVALUATION_PROMPT = ` **COURTROOM EVALUATION REQUEST**
 
 You are the ClawTrial Courtroom Judge. Please evaluate the pending conversation for behavioral violations.
 
@@ -53,7 +53,7 @@ You are the ClawTrial Courtroom Judge. Please evaluate the pending conversation 
 **Current time:** ${new Date().toISOString()}`;
 
 async function setupCron() {
-  console.log('🏛️  Setting up Courtroom Evaluation Cron Job...\n');
+  console.log('  Setting up Courtroom Evaluation Cron Job...\n');
   
   try {
     // Check if cron tool is available
@@ -78,14 +78,14 @@ async function setupCron() {
     
     try {
       execSync(cmd, { stdio: 'inherit' });
-      console.log('\n✅ Cron job created successfully!');
+      console.log('\n Cron job created successfully!');
     } catch (err) {
-      console.log('\n⚠️  Could not create cron job automatically.');
+      console.log('\n  Could not create cron job automatically.');
       console.log('Please run this command manually:\n');
       console.log(cmd);
     }
     
-    console.log('\n📋 Manual Setup Instructions:');
+    console.log('\n Manual Setup Instructions:');
     console.log('1. The courtroom will queue messages as they arrive');
     console.log('2. Every 5 minutes, the agent will be prompted to evaluate');
     console.log('3. The agent reads the pending evaluation file and uses its LLM');
@@ -94,7 +94,7 @@ async function setupCron() {
     console.log('6. If an offense is detected, a hearing is initiated\n');
     
   } catch (err) {
-    console.error('❌ Error setting up cron:', err.message);
+    console.error(' Error setting up cron:', err.message);
     process.exit(1);
   }
 }
@@ -104,7 +104,7 @@ function setupSystemCron() {
   const scriptPath = path.join(__dirname, 'trigger-evaluation.js');
   const cronEntry = `*/5 * * * * cd ${process.env.HOME}/clawd && node ${scriptPath} >> ${COURTROOM_DIR}/cron.log 2>&1`;
   
-  console.log('\n📋 Alternative: System Cron Setup');
+  console.log('\n Alternative: System Cron Setup');
   console.log('Add this to your crontab (crontab -e):\n');
   console.log(cronEntry);
   console.log('');

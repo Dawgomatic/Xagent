@@ -108,7 +108,7 @@ Permintaan Pengembangan
 
 ## Sub-Skills Tersedia
 
-### 🎯 Skills Utama (Process)
+###  Skills Utama (Process)
 
 | Skill | Kapan Dipakai | Fungsi |
 |-------|--------------|--------|
@@ -118,14 +118,14 @@ Permintaan Pengembangan
 | **executing-plans** | Setelah plan siap | Eksekusi plan |
 | **finishing-a-development-branch** | Setelah selesai | Wrap up branch |
 
-### 🔨 Skills Eksekusi
+###  Skills Eksekusi
 
 | Skill | Kapan Dipakai | Fungsi |
 |-------|--------------|--------|
 | **subagent-driven-development** | Option 1 eksekusi | Fresh subagent per task |
 | **dispatching-parallel-agents** | Paralel tasks | Dispatch multiple agents |
 
-### 🧪 Skills Quality
+###  Skills Quality
 
 | Skill | Kapan Dipakai | Fungsi |
 |-------|--------------|--------|
@@ -133,7 +133,7 @@ Permintaan Pengembangan
 | **systematic-debugging** | Jika ada bug | 4-phase root cause analysis |
 | **verification-before-completion** | Sebelum mark selesai | Konfirmasi benar-bener fix |
 
-### 🔧 Skills Git & Review
+###  Skills Git & Review
 
 | Skill | Kapan Dipakai | Fungsi |
 |-------|--------------|--------|
@@ -141,7 +141,7 @@ Permintaan Pengembangan
 | **requesting-code-review** | Antara tasks | Review code terhadap plan |
 | **receiving-code-review** | Setelah feedback | Apply review feedback |
 
-### 📝 Skills Meta
+###  Skills Meta
 
 | Skill | Kapan Dipakai | Fungsi |
 |-------|--------------|--------|
@@ -203,24 +203,24 @@ Contoh:
 ## Integration dengan OpenClaw
 
 Skill ini terintegrasi penuh dengan OpenClaw:
-- ✅ Automatic triggers pada kata kunci: "build", "create", "implement", "fix", "add"
-- ✅ Folder `skills/` berisi 14 sub-skills lengkap
-- ✅ Sub-skills trigger otomatis berdasarkan konteks
-- ✅ `using-superpowers` sebagai entry point
-- ✅ Tools: `brainstorm`, `plan_review`, `get_status`
-- ✅ OpenClaw Agent integration untuk subagent-driven-development
+-  Automatic triggers pada kata kunci: "build", "create", "implement", "fix", "add"
+-  Folder `skills/` berisi 14 sub-skills lengkap
+-  Sub-skills trigger otomatis berdasarkan konteks
+-  `using-superpowers` sebagai entry point
+-  Tools: `brainstorm`, `plan_review`, `get_status`
+-  OpenClaw Agent integration untuk subagent-driven-development
 
 ## Pengembangan ClawGator
 
 Tim ClawGator menggunakan skill ini untuk:
-- 🔨 Membangun fitur-fitur OpenClaw
-- 🚀 Mengembangkan platform
-- 🔧 Bug fixing dan improvement
-- 📝 Perencanaan produk
-- 💡 Brainstorming ide-ide baru
-- 🔍 Debugging sistematis
-- ✅ Testing dengan TDD
-- 📊 Code review antar tasks
+-  Membangun fitur-fitur OpenClaw
+-  Mengembangkan platform
+-  Bug fixing dan improvement
+-  Perencanaan produk
+-  Brainstorming ide-ide baru
+-  Debugging sistematis
+-  Testing dengan TDD
+-  Code review antar tasks
 
 Skill ini memastikan tim ClawGator selalu:
 - **Think before they code**

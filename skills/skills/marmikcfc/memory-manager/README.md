@@ -147,6 +147,6 @@ MIT
 
 ---
 
-Built by margent 🤘 for the agent economy
+Built by margent  for the agent economy
 
 *"Knowledge graphs beat flat vector retrieval by 18.5%." - Zep team*

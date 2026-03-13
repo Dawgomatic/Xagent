@@ -1,7 +1,7 @@
 ---
 name: guard-scanner
 description: "Runtime Guard — intercepts dangerous tool calls using threat intelligence patterns before execution"
-metadata: { "openclaw": { "emoji": "🛡️", "events": ["agent:before_tool_call"], "requires": { "bins": ["node"] } } }
+metadata: { "openclaw": { "emoji": "", "events": ["agent:before_tool_call"], "requires": { "bins": ["node"] } } }
 ---
 
 # guard-scanner Runtime Guard — before_tool_call Hook

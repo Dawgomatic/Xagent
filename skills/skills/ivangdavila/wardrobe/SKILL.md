@@ -1,7 +1,7 @@
 ---
 name: Wardrobe
 description: Build a personal wardrobe system for cataloging clothes, planning outfits, and mindful shopping.
-metadata: {"clawdbot":{"emoji":"👔","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

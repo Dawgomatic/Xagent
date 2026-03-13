@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # prom-query.sh — Prometheus Metrics Query & Alert Interpreter
 # Part of the prom-query skill for OpenClaw
-# Powered by CacheForge 📊
+# Powered by CacheForge 
 #
 # Subcommands: query, range, alerts, targets, explore, rules
 # All read-only. Never mutates Prometheus data.
@@ -54,7 +54,7 @@ EXAMPLES:
   ${SCRIPT_NAME} explore 'http_request'
   ${SCRIPT_NAME} rules --type=alert
 
-Powered by CacheForge 📊
+Powered by CacheForge 
 EOF
   exit 0
 }

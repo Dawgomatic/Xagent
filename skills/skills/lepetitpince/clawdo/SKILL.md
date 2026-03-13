@@ -34,7 +34,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🦞",
+        "emoji": "",
         "requires": { "bins": ["clawdo"] },
         "install":
           [
@@ -50,7 +50,7 @@ metadata:
   }
 ---
 
-# 🦞 clawdo — The missing todo list for AI agents
+#  clawdo — The missing todo list for AI agents
 
 Your agent has memory files, cron jobs, and chat. It has no todo list.
 

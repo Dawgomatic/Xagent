@@ -1,7 +1,7 @@
 ---
 name: Bookmarks
 description: Build a unified bookmark system that imports saves from all your platforms into one organized, actionable collection.
-metadata: {"clawdbot":{"emoji":"🔖","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

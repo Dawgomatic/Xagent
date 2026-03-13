@@ -120,24 +120,24 @@ If available, review: customer interviews, sales calls, support tickets, reviews
 ## Common Positioning Mistakes
 
 ### 1. Too Broad
-❌ "We help businesses grow"
-✅ "We help SaaS companies reduce churn in the first 90 days"
+ "We help businesses grow"
+ "We help SaaS companies reduce churn in the first 90 days"
 
 ### 2. Feature-Focused
-❌ "AI-powered analytics dashboard"
-✅ "See which customers are about to churn before they leave"
+ "AI-powered analytics dashboard"
+ "See which customers are about to churn before they leave"
 
 ### 3. Jargon Soup
-❌ "Synergistic omnichannel engagement platform"
-✅ "Talk to customers wherever they are, from one inbox"
+ "Synergistic omnichannel engagement platform"
+ "Talk to customers wherever they are, from one inbox"
 
 ### 4. No Differentiation
-❌ "The best project management tool"
-✅ "Project management for teams that hate project management"
+ "The best project management tool"
+ "Project management for teams that hate project management"
 
 ### 5. Trying to Be Everything
-❌ "For businesses of all sizes in any industry"
-✅ "For B2B SaaS companies with 10-50 employees"
+ "For businesses of all sizes in any industry"
+ "For B2B SaaS companies with 10-50 employees"
 
 ---
 

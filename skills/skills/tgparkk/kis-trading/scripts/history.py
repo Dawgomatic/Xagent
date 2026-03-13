@@ -65,10 +65,10 @@ def main():
     orders = get_daily_orders(cfg, token, args.start, args.end)
 
     if not orders:
-        print(f"📋 매매 내역 없음 ({args.start} ~ {args.end})")
+        print(f" 매매 내역 없음 ({args.start} ~ {args.end})")
         return
 
-    print(f"📋 매매 내역 ({args.start} ~ {args.end}, {len(orders)}건)")
+    print(f" 매매 내역 ({args.start} ~ {args.end}, {len(orders)}건)")
     print()
 
     for o in orders:
@@ -81,7 +81,7 @@ def main():
         order_time = o.get('ord_tmd', '')
         status = '체결' if ccld_qty > 0 else '미체결'
 
-        emoji = '🟢' if '매수' in side else '🔴' if '매도' in side else '⚪'
+        emoji = '' if '매수' in side else '' if '매도' in side else ''
         time_str = f"{order_time[:2]}:{order_time[2:4]}:{order_time[4:6]}" if len(order_time) >= 6 else order_time
 
         print(f"{emoji} {name} | {side} | {status}")

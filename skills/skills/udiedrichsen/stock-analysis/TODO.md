@@ -3,44 +3,44 @@
 ## Roadmap Overview
 
 ### v4.0.0 (Current) - Geopolitical Risk & News Sentiment
-✅ 8 analysis dimensions with Fear/Greed, short interest, VIX structure, put/call ratio
-✅ Safe-haven indicators (GLD, TLT, UUP) with risk-off detection
-✅ Breaking news alerts via Google News RSS
-✅ Geopolitical risk mapping (Taiwan, China, Russia, Middle East, Banking)
-✅ Sector-specific crisis flagging with confidence penalties
-✅ 1h caching for shared indicators (Fear/Greed, VIX structure, breaking news)
-✅ Async parallel sentiment fetching (5 indicators with 10s timeouts)
+ 8 analysis dimensions with Fear/Greed, short interest, VIX structure, put/call ratio
+ Safe-haven indicators (GLD, TLT, UUP) with risk-off detection
+ Breaking news alerts via Google News RSS
+ Geopolitical risk mapping (Taiwan, China, Russia, Middle East, Banking)
+ Sector-specific crisis flagging with confidence penalties
+ 1h caching for shared indicators (Fear/Greed, VIX structure, breaking news)
+ Async parallel sentiment fetching (5 indicators with 10s timeouts)
 
 ### v5.0.0 (Current) - Portfolio & Crypto
-✅ Portfolio management (create, add, remove, show assets)
-✅ Cryptocurrency support (Top 20 by market cap)
-✅ Portfolio analysis with --portfolio flag
-✅ Periodic returns (--period daily/weekly/monthly/quarterly/yearly)
-✅ Concentration warnings (>30% single asset)
-✅ Crypto fundamentals (market cap, category, BTC correlation)
+ Portfolio management (create, add, remove, show assets)
+ Cryptocurrency support (Top 20 by market cap)
+ Portfolio analysis with --portfolio flag
+ Periodic returns (--period daily/weekly/monthly/quarterly/yearly)
+ Concentration warnings (>30% single asset)
+ Crypto fundamentals (market cap, category, BTC correlation)
 
 ### v4.1.0 - Performance & Completeness
-✅ Full insider trading parsing via edgartools (Task #1)
-✅ Market context caching with 1h TTL (Task #3b)
-🔧 SEC EDGAR rate limit monitoring (Task #4 - low priority)
+ Full insider trading parsing via edgartools (Task #1)
+ Market context caching with 1h TTL (Task #3b)
+ SEC EDGAR rate limit monitoring (Task #4 - low priority)
 
 ### Future (v6.0+)
-💡 Research phase: Social sentiment, fund flows, on-chain metrics
+ Research phase: Social sentiment, fund flows, on-chain metrics
 
 ---
 
 ## Sentiment Analysis Improvements
 
 ### 1. Implement Full Insider Trading Parsing
-**Status**: ✅ DONE
+**Status**:  DONE
 **Priority**: Medium
 **Effort**: 2-3 hours
 
 **Current State**:
-- ✅ `get_insider_activity()` fetches Form 4 filings via edgartools
-- ✅ SEC identity configured (`stock-analysis@clawd.bot`)
-- ✅ Aggregates buys/sells over 90-day window
-- ✅ Scoring logic: strong buying (+0.8), moderate (+0.4), neutral (0), moderate selling (-0.4), strong (-0.8)
+-  `get_insider_activity()` fetches Form 4 filings via edgartools
+-  SEC identity configured (`stock-analysis@clawd.bot`)
+-  Aggregates buys/sells over 90-day window
+-  Scoring logic: strong buying (+0.8), moderate (+0.4), neutral (0), moderate selling (-0.4), strong (-0.8)
 
 **Tasks**:
 - [ ] Research edgartools API for Form 4 parsing
@@ -64,13 +64,13 @@
 ---
 
 ### 2. Add Parallel Async Fetching
-**Status**: ✅ DONE (sentiment indicators)
+**Status**:  DONE (sentiment indicators)
 **Priority**: High
 **Effort**: 4-6 hours
 
 **Current State**:
-- ✅ Sentiment indicators fetched in parallel via `asyncio.gather()`
-- ✅ 10s timeout per indicator
+-  Sentiment indicators fetched in parallel via `asyncio.gather()`
+-  10s timeout per indicator
 - Main data fetches (yfinance) still sequential (acceptable)
 
 **Tasks**:
@@ -94,15 +94,15 @@
 ---
 
 ### 3. Add Caching for Shared Indicators
-**Status**: ✅ DONE (sentiment + breaking news)
+**Status**:  DONE (sentiment + breaking news)
 **Priority**: Medium
 **Effort**: 2-3 hours
 
 **Current State**:
-- ✅ Fear & Greed Index cached (1h TTL)
-- ✅ VIX term structure cached (1h TTL)
-- ✅ Breaking news cached (1h TTL)
-- ✅ Market context (VIX/SPY/QQQ/GLD/TLT/UUP) cached (1h TTL)
+-  Fear & Greed Index cached (1h TTL)
+-  VIX term structure cached (1h TTL)
+-  Breaking news cached (1h TTL)
+-  Market context (VIX/SPY/QQQ/GLD/TLT/UUP) cached (1h TTL)
 
 **Tasks**:
 - [ ] Design cache structure (simple dict or functools.lru_cache)
@@ -156,19 +156,19 @@
 ### What's Currently Missing
 
 The current implementation captures:
-- ✅ VIX (general market fear)
-- ✅ SPY/QQQ trends (market direction)
-- ✅ Sector performance
+-  VIX (general market fear)
+-  SPY/QQQ trends (market direction)
+-  Sector performance
 
 What we **don't** have yet:
-- ❌ Geopolitical risk indicators
-- ❌ News sentiment analysis
-- ❌ Sector-specific crisis flags
+-  Geopolitical risk indicators
+-  News sentiment analysis
+-  Sector-specific crisis flags
 
 ---
 
 ### 7. Geopolitical Risk Index
-**Status**: ✅ DONE (keyword-based)
+**Status**:  DONE (keyword-based)
 **Priority**: High
 **Effort**: 8-12 hours
 
@@ -199,7 +199,7 @@ Option B: Scan news APIs (NewsAPI, GDELT) for geopolitical keywords
 
 **Example Output**:
 ```
-⚠️ GEOPOLITICAL RISK: HIGH (72/100)
+ GEOPOLITICAL RISK: HIGH (72/100)
    Context: Elevated Taiwan tensions detected
    Market Impact: Risk-off sentiment likely
 ```
@@ -207,7 +207,7 @@ Option B: Scan news APIs (NewsAPI, GDELT) for geopolitical keywords
 ---
 
 ### 8. Sector-Specific Crisis Mapping
-**Status**: ✅ DONE
+**Status**:  DONE
 **Priority**: High
 **Effort**: 6-8 hours
 
@@ -228,10 +228,10 @@ Option B: Scan news APIs (NewsAPI, GDELT) for geopolitical keywords
 **Tasks**:
 - [ ] Build event → sector → ticker mapping database
 - [ ] Implement keyword detection in news feeds:
-  - "Taiwan" + "military" → Semiconductors ⚠️
-  - "Russia" + "sanctions" → Energy ⚠️
-  - "Iran" + "attack" → Oil, Defense ⚠️
-  - "China" + "tariffs" → Tech, Consumer ⚠️
+  - "Taiwan" + "military" → Semiconductors 
+  - "Russia" + "sanctions" → Energy 
+  - "Iran" + "attack" → Oil, Defense 
+  - "China" + "tariffs" → Tech, Consumer 
 - [ ] Add sector exposure check to analysis
 - [ ] Generate automatic warnings in output
 - [ ] Apply confidence penalty for high-risk sectors
@@ -245,7 +245,7 @@ Option B: Scan news APIs (NewsAPI, GDELT) for geopolitical keywords
 
 **Example Output**:
 ```
-⚠️ SECTOR RISK ALERT: Semiconductors
+ SECTOR RISK ALERT: Semiconductors
    Event: Taiwan military exercises (elevated tensions)
    Impact: NVDA HIGH RISK - supply chain exposure
    Recommendation: HOLD → downgraded from BUY
@@ -254,7 +254,7 @@ Option B: Scan news APIs (NewsAPI, GDELT) for geopolitical keywords
 ---
 
 ### 9. Breaking News Check
-**Status**: ✅ DONE
+**Status**:  DONE
 **Priority**: Medium
 **Effort**: 4-6 hours
 
@@ -288,7 +288,7 @@ Option B: Scan news APIs (NewsAPI, GDELT) for geopolitical keywords
 
 **Example Output**:
 ```
-⚠️ BREAKING NEWS ALERT (last 6 hours):
+ BREAKING NEWS ALERT (last 6 hours):
    "Fed announces emergency rate hike"
    Impact: Market-wide volatility expected
    Caveat: Analysis may be outdated - rerun in 24h
@@ -297,7 +297,7 @@ Option B: Scan news APIs (NewsAPI, GDELT) for geopolitical keywords
 ---
 
 ### 10. Safe-Haven Indicators
-**Status**: ✅ DONE
+**Status**:  DONE
 **Priority**: Medium
 **Effort**: 3-4 hours
 
@@ -334,7 +334,7 @@ THEN Market Regime = RISK-OFF
 
 **Example Output**:
 ```
-🛡️ SAFE-HAVEN ALERT: Risk-off mode detected
+ SAFE-HAVEN ALERT: Risk-off mode detected
    - Gold (GLD): +3.2% (5d)
    - Treasuries (TLT): +2.1% (5d)
    - USD Index: +1.8% (5d)
@@ -370,17 +370,17 @@ THEN Market Regime = RISK-OFF
 ## Implementation Priorities
 
 ### v4.1.0 Complete
-- ✅ Task #1 - Insider trading parsing via edgartools
-- ✅ Task #3b - Market context caching (1h TTL)
-- 🔧 Task #4 - SEC EDGAR rate limits (low priority, only if hitting limits)
+-  Task #1 - Insider trading parsing via edgartools
+-  Task #3b - Market context caching (1h TTL)
+-  Task #4 - SEC EDGAR rate limits (low priority, only if hitting limits)
 
 ### Completed in v4.0.0
-- ✅ Task #2 - Async parallel fetching (sentiment)
-- ✅ Task #3 - Caching for shared indicators (sentiment + news)
-- ✅ Task #7 - Geopolitical risk (keyword-based)
-- ✅ Task #8 - Sector-specific crisis mapping
-- ✅ Task #9 - Breaking news check
-- ✅ Task #10 - Safe-haven indicators
+-  Task #2 - Async parallel fetching (sentiment)
+-  Task #3 - Caching for shared indicators (sentiment + news)
+-  Task #7 - Geopolitical risk (keyword-based)
+-  Task #8 - Sector-specific crisis mapping
+-  Task #9 - Breaking news check
+-  Task #10 - Safe-haven indicators
 
 ---
 

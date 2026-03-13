@@ -8,8 +8,8 @@ robots.txt 확인 후 적절한 딜레이(1초) 적용
 저장: eval_data/semas_programs.jsonl (APPEND 전용)
 필드: name, track, target, amount, deadline, url, crawled_at
 
-⚠️ urllib.request 사용 (requests 없음)
-⚠️ Python 3.9+ compatible
+ urllib.request 사용 (requests 없음)
+ Python 3.9+ compatible
 """
 from __future__ import annotations
 

@@ -206,7 +206,7 @@ def start(id, meta):
     with db.get_db() as conn:
         ok, err = db.start_task(conn, id, agent, meta=meta)
     if ok:
-        click.echo(f"{C}▶ Working on #{id}{N}")
+        click.echo(f"{C} Working on #{id}{N}")
     else:
         click.echo(f"{R}{err}{N}", err=True)
         sys.exit(1)
@@ -293,7 +293,7 @@ def board():
     icons = {
         "pending": "○",
         "claimed": "◉",
-        "in_progress": "▶",
+        "in_progress": "",
         "review": "⟳",
         "blocked": "✗",
         "done": "✓",

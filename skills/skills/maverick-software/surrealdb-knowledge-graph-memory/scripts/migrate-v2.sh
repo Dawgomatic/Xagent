@@ -67,7 +67,7 @@ for stmt in schema.split(';'):
             db.query(stmt)
             print(f"✓ Executed: {stmt[:60]}...")
         except Exception as e:
-            print(f"⚠ Warning: {e}")
+            print(f" Warning: {e}")
 
 print("\nSchema v2 applied successfully!")
 EOF

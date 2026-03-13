@@ -85,7 +85,7 @@ class SmartSnakeBot {
         
       case 'player_died':
         if (msg.name === BOT_NAME) {
-          console.log(`[${BOT_NAME}] 💀 Died! Final score: ${msg.score}`);
+          console.log(`[${BOT_NAME}]  Died! Final score: ${msg.score}`);
         }
         break;
         
@@ -94,7 +94,7 @@ class SmartSnakeBot {
         break;
         
       case 'game_reset':
-        console.log(`[${BOT_NAME}] 🔄 New round starting!`);
+        console.log(`[${BOT_NAME}]  New round starting!`);
         break;
     }
   }

@@ -2,7 +2,7 @@
 name: shopping-expert
 description: Find and compare products online (Google Shopping) and locally (stores near you). Auto-selects best products based on price, ratings, availability, and preferences. Generates shopping list with buy links and store locations. Use when asked to shop for products, find best deals, compare prices, or locate items locally. Supports budget constraints (low/medium/high or "$X"), preference filtering (brand, features, color), and dual-mode search (online + local stores).
 homepage: https://github.com/clawdbot/clawdbot
-metadata: {"clawdbot":{"emoji":"🛒","requires":{"bins":["uv"],"env":["SERPAPI_API_KEY","GOOGLE_PLACES_API_KEY"]},"primaryEnv":"SERPAPI_API_KEY","install":[{"id":"uv-brew","kind":"brew","formula":"uv","bins":["uv"],"label":"Install uv (brew)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["uv"],"env":["SERPAPI_API_KEY","GOOGLE_PLACES_API_KEY"]},"primaryEnv":"SERPAPI_API_KEY","install":[{"id":"uv-brew","kind":"brew","formula":"uv","bins":["uv"],"label":"Install uv (brew)"}]}}
 ---
 
 # Shopping Expert

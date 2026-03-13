@@ -11,7 +11,7 @@
 
 ### 1.1 Provider & Credential Imports
 
-#### ✅ CORRECT: Provider and async credentials
+####  CORRECT: Provider and async credentials
 ```python
 from agent_framework.azure import AzureAIAgentsProvider
 from azure.identity.aio import AzureCliCredential, DefaultAzureCredential
@@ -19,7 +19,7 @@ from azure.identity.aio import AzureCliCredential, DefaultAzureCredential
 
 ### 1.2 Hosted Tools Imports
 
-#### ✅ CORRECT: Hosted tool classes
+####  CORRECT: Hosted tool classes
 ```python
 from agent_framework import (
     HostedCodeInterpreterTool,
@@ -32,14 +32,14 @@ from agent_framework import (
 
 ### 1.3 MCP Tool Imports
 
-#### ✅ CORRECT: MCP tool classes
+####  CORRECT: MCP tool classes
 ```python
 from agent_framework import HostedMCPTool, MCPStreamableHTTPTool
 ```
 
 ### 1.4 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Importing from wrong modules
+####  INCORRECT: Importing from wrong modules
 ```python
 # WRONG - Hosted tools are in agent_framework, not agent_framework.azure
 from agent_framework.azure import HostedCodeInterpreterTool
@@ -55,7 +55,7 @@ from azure.identity import DefaultAzureCredential
 
 ## 2. AzureAIAgentsProvider Patterns
 
-### 2.1 ✅ CORRECT: Async context manager usage
+### 2.1  CORRECT: Async context manager usage
 ```python
 from agent_framework.azure import AzureAIAgentsProvider
 from azure.identity.aio import AzureCliCredential
@@ -70,7 +70,7 @@ async with (
     )
 ```
 
-### 2.2 ✅ CORRECT: Provider with explicit configuration
+### 2.2  CORRECT: Provider with explicit configuration
 ```python
 provider = AzureAIAgentsProvider(
     credential=credential,
@@ -79,7 +79,7 @@ provider = AzureAIAgentsProvider(
 )
 ```
 
-### 2.3 ✅ CORRECT: Provider with existing AgentsClient
+### 2.3  CORRECT: Provider with existing AgentsClient
 ```python
 from azure.ai.agents.aio import AgentsClient
 from agent_framework.azure import AzureAIAgentsProvider
@@ -90,13 +90,13 @@ provider = AzureAIAgentsProvider(agents_client=agents_client)
 
 ### 2.4 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Not using context manager
+####  INCORRECT: Not using context manager
 ```python
 provider = AzureAIAgentsProvider(credential=credential)
 agent = await provider.create_agent(...)  # Missing async context manager
 ```
 
-#### ❌ INCORRECT: Mixing sync credential with async provider
+####  INCORRECT: Mixing sync credential with async provider
 ```python
 from azure.identity import DefaultAzureCredential
 
@@ -108,7 +108,7 @@ async with AzureAIAgentsProvider(credential=DefaultAzureCredential()) as provide
 
 ## 3. Persistent Agents & Threads
 
-### 3.1 ✅ CORRECT: Multi-turn conversation with a thread
+### 3.1  CORRECT: Multi-turn conversation with a thread
 ```python
 thread = agent.get_new_thread()
 
@@ -117,12 +117,12 @@ result2 = await agent.run("What is my name?", thread=thread)
 print(thread.conversation_id)
 ```
 
-### 3.2 ✅ CORRECT: Retrieve existing agent by ID
+### 3.2  CORRECT: Retrieve existing agent by ID
 ```python
 agent = await provider.get_agent(agent_id=agent_id)
 ```
 
-### 3.3 ✅ CORRECT: Resume with existing service thread ID
+### 3.3  CORRECT: Resume with existing service thread ID
 ```python
 from agent_framework import AgentThread
 
@@ -132,14 +132,14 @@ result = await agent.run("Continue our conversation", thread=thread)
 
 ### 3.4 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Creating a new thread per message
+####  INCORRECT: Creating a new thread per message
 ```python
 for message in messages:
     thread = agent.get_new_thread()  # Loses context
     await agent.run(message, thread=thread)
 ```
 
-#### ❌ INCORRECT: Omitting thread for multi-turn conversations
+####  INCORRECT: Omitting thread for multi-turn conversations
 ```python
 await agent.run("Message 1")
 await agent.run("Message 2")  # No thread; context not preserved
@@ -149,7 +149,7 @@ await agent.run("Message 2")  # No thread; context not preserved
 
 ## 4. Hosted Tools
 
-### 4.1 ✅ CORRECT: HostedCodeInterpreterTool
+### 4.1  CORRECT: HostedCodeInterpreterTool
 ```python
 from agent_framework import HostedCodeInterpreterTool, HostedFileContent
 
@@ -164,7 +164,7 @@ agent = await provider.create_agent(
 )
 ```
 
-### 4.2 ✅ CORRECT: HostedFileSearchTool with vector store
+### 4.2  CORRECT: HostedFileSearchTool with vector store
 ```python
 from agent_framework import HostedFileSearchTool, HostedVectorStoreContent
 
@@ -180,7 +180,7 @@ agent = await provider.create_agent(
 )
 ```
 
-### 4.3 ✅ CORRECT: HostedWebSearchTool (Bing)
+### 4.3  CORRECT: HostedWebSearchTool (Bing)
 ```python
 from agent_framework import HostedWebSearchTool
 
@@ -196,7 +196,7 @@ agent = await provider.create_agent(
 
 ### 4.4 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Passing tool names as strings
+####  INCORRECT: Passing tool names as strings
 ```python
 agent = await provider.create_agent(
     name="BadAgent",
@@ -205,7 +205,7 @@ agent = await provider.create_agent(
 )
 ```
 
-#### ❌ INCORRECT: File search without vector store inputs
+####  INCORRECT: File search without vector store inputs
 ```python
 file_search_tool = HostedFileSearchTool(inputs=[])
 agent = await provider.create_agent(tools=file_search_tool)
@@ -215,7 +215,7 @@ agent = await provider.create_agent(tools=file_search_tool)
 
 ## 5. MCP Server Integration
 
-### 5.1 ✅ CORRECT: HostedMCPTool (service-managed)
+### 5.1  CORRECT: HostedMCPTool (service-managed)
 ```python
 from agent_framework import HostedMCPTool
 
@@ -231,7 +231,7 @@ agent = await provider.create_agent(
 )
 ```
 
-### 5.2 ✅ CORRECT: MCPStreamableHTTPTool (client-managed)
+### 5.2  CORRECT: MCPStreamableHTTPTool (client-managed)
 ```python
 from agent_framework import MCPStreamableHTTPTool
 
@@ -248,7 +248,7 @@ async with MCPStreamableHTTPTool(
 
 ### 5.3 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Missing context manager for MCPStreamableHTTPTool
+####  INCORRECT: Missing context manager for MCPStreamableHTTPTool
 ```python
 mcp_tool = MCPStreamableHTTPTool(name="Docs MCP", url="https://learn.microsoft.com/api/mcp")
 agent = await provider.create_agent(tools=mcp_tool)  # Missing async context manager
@@ -258,7 +258,7 @@ agent = await provider.create_agent(tools=mcp_tool)  # Missing async context man
 
 ## 6. Streaming Patterns
 
-### 6.1 ✅ CORRECT: Stream responses with async iterator
+### 6.1  CORRECT: Stream responses with async iterator
 ```python
 print("Agent:", end=" ")
 async for chunk in agent.run_stream("Tell me a story"):
@@ -266,7 +266,7 @@ async for chunk in agent.run_stream("Tell me a story"):
         print(chunk.text, end="", flush=True)
 ```
 
-### 6.2 ✅ CORRECT: Streaming with threads
+### 6.2  CORRECT: Streaming with threads
 ```python
 thread = agent.get_new_thread()
 async for chunk in agent.run_stream("Continue", thread=thread):
@@ -276,13 +276,13 @@ async for chunk in agent.run_stream("Continue", thread=thread):
 
 ### 6.3 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Using sync iteration for streaming
+####  INCORRECT: Using sync iteration for streaming
 ```python
 for chunk in agent.run_stream("Hello"):
     print(chunk.text)
 ```
 
-#### ❌ INCORRECT: Deprecated stream flag
+####  INCORRECT: Deprecated stream flag
 ```python
 response = await agent.run("Hello", stream=True)
 ```

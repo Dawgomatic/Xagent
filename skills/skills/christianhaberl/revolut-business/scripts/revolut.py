@@ -198,10 +198,10 @@ def cmd_auth(args):
         result["obtained_at"] = int(time.time())
         result["client_id"] = CLIENT_ID
         save_tokens(result)
-        print("✅ Authenticated successfully!")
+        print(" Authenticated successfully!")
     except urllib.error.HTTPError as e:
         body = e.read().decode()
-        print(f"❌ Auth failed: {body}", file=sys.stderr)
+        print(f" Auth failed: {body}", file=sys.stderr)
         sys.exit(1)
 
 
@@ -308,12 +308,12 @@ def cmd_pay(args):
     if args.counterparty:
         cps = api_call("GET", "/counterparties", params={"name": args.counterparty})
         if not cps:
-            print(f"❌ Counterparty '{args.counterparty}' not found", file=sys.stderr)
+            print(f" Counterparty '{args.counterparty}' not found", file=sys.stderr)
             sys.exit(1)
         cp = cps[0]
         cp_accs = cp.get("accounts", [])
         if not cp_accs:
-            print(f"❌ No accounts for counterparty '{cp['name']}'", file=sys.stderr)
+            print(f" No accounts for counterparty '{cp['name']}'", file=sys.stderr)
             sys.exit(1)
         # Pick matching currency account
         target_acc = None
@@ -328,7 +328,7 @@ def cmd_pay(args):
     elif args.account_id:
         account_id = args.account_id
     else:
-        print("❌ Specify --counterparty or --account-id", file=sys.stderr)
+        print(" Specify --counterparty or --account-id", file=sys.stderr)
         sys.exit(1)
 
     payload = {
@@ -342,16 +342,16 @@ def cmd_pay(args):
 
     if args.draft:
         result = api_call("POST", "/payment-drafts", data={"title": args.reference or "Payment", "payments": [payload]})
-        print(f"✅ Payment draft created: {result.get('id', '?')}")
+        print(f" Payment draft created: {result.get('id', '?')}")
     else:
-        print(f"⚠️  About to send {args.currency or 'EUR'} {args.amount:.2f} to {args.counterparty or args.account_id}")
+        print(f"  About to send {args.currency or 'EUR'} {args.amount:.2f} to {args.counterparty or args.account_id}")
         if not args.yes:
             confirm = input("Confirm? (yes/no): ")
             if confirm.lower() != "yes":
                 print("Aborted.")
                 return
         result = api_call("POST", "/pay", data=payload)
-        print(f"✅ Payment sent! ID: {result.get('id', '?')}, State: {result.get('state', '?')}")
+        print(f" Payment sent! ID: {result.get('id', '?')}, State: {result.get('state', '?')}")
 
     if args.json:
         print(json.dumps(result, indent=2))
@@ -369,7 +369,7 @@ def cmd_exchange(args):
     if args.json:
         print(json.dumps(result, indent=2))
     else:
-        print(f"✅ Exchanged {args.sell} {args.amount:.2f} → {args.buy}")
+        print(f" Exchanged {args.sell} {args.amount:.2f} → {args.buy}")
         print(f"   State: {result.get('state', '?')}, ID: {result.get('id', '?')}")
 
 
@@ -387,7 +387,7 @@ def cmd_transfer(args):
     if args.json:
         print(json.dumps(result, indent=2))
     else:
-        print(f"✅ Transferred {args.currency or 'EUR'} {args.amount:.2f}")
+        print(f" Transferred {args.currency or 'EUR'} {args.amount:.2f}")
         print(f"   State: {result.get('state', '?')}")
 
 
@@ -422,7 +422,7 @@ def cmd_export(args):
 
     if args.output:
         output.close()
-        print(f"✅ Exported {len(txns)} transactions to {args.output}")
+        print(f" Exported {len(txns)} transactions to {args.output}")
     else:
         print(output.getvalue())
 
@@ -441,7 +441,7 @@ def cmd_token_info(args):
     print(f"Token Type:    {tokens.get('token_type', '?')}")
     print(f"Obtained:      {datetime.fromtimestamp(obtained).strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"Expires in:    {max(0, int(remaining))}s ({max(0, int(remaining/60))}min)")
-    print(f"Refresh Token: {'✅ present' if tokens.get('refresh_token') else '❌ missing'}")
+    print(f"Refresh Token: {' present' if tokens.get('refresh_token') else ' missing'}")
 
 
 def main():

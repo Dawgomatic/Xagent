@@ -8,14 +8,14 @@ version: 3.5.0
 
 Launch Solana tokens on pump.fun. Free. You keep all creator fees.
 
-📚 **Full docs**: https://www.mintyouragent.com/for-agents
-🐙 **GitHub**: https://github.com/operatingdev/mintyouragent
-🐦 **X**: https://x.com/mintyouragent
-📜 **License**: MIT
+ **Full docs**: https://www.mintyouragent.com/for-agents
+ **GitHub**: https://github.com/operatingdev/mintyouragent
+ **X**: https://x.com/mintyouragent
+ **License**: MIT
 
 ---
 
-> ⚠️ **IMPORTANT:** Your wallet is stored in `~/.mintyouragent/` (your home directory), NOT in the skill folder. This means your wallet is **safe during skill updates**. Never manually put wallet files in the skill folder.
+>  **IMPORTANT:** Your wallet is stored in `~/.mintyouragent/` (your home directory), NOT in the skill folder. This means your wallet is **safe during skill updates**. Never manually put wallet files in the skill folder.
 
 ---
 
@@ -140,23 +140,23 @@ python mya.py wallet import --key YOUR_BASE58_KEY
 
 | Param | Required | Description |
 |-------|----------|-------------|
-| `--name` | ✅ | Token name (max 32 chars) |
-| `--symbol` | ✅ | Ticker (max 10 chars, ASCII only) |
-| `--description` | ✅ | Token description (max 1000 chars) |
-| `--image` | ✅ | Image URL (HTTPS) |
+| `--name` |  | Token name (max 32 chars) |
+| `--symbol` |  | Ticker (max 10 chars, ASCII only) |
+| `--description` |  | Token description (max 1000 chars) |
+| `--image` |  | Image URL (HTTPS) |
 | `--image-file` | alt | Local image path (max 5MB) |
-| `--banner` | ❌ | Banner image URL (HTTPS) |
+| `--banner` |  | Banner image URL (HTTPS) |
 | `--banner-file` | alt | Local banner path (max 5MB) |
-| `--twitter` | ❌ | Twitter/X link (HTTPS) |
-| `--telegram` | ❌ | Telegram link (HTTPS) |
-| `--website` | ❌ | Website link (HTTPS) |
-| `--initial-buy` | ❌ | Initial buy in SOL (default: 0) |
-| `--ai-initial-buy` | ❌ | Let AI decide buy amount |
-| `--slippage` | ❌ | Slippage in bps (default: 100 = 1%) |
-| `--dry-run` | ❌ | Test without launching |
-| `--preview` | ❌ | Preview parameters |
-| `--tips` | ❌ | Show first-launch tips |
-| `-y, --yes` | ❌ | Skip confirmation prompts |
+| `--twitter` |  | Twitter/X link (HTTPS) |
+| `--telegram` |  | Telegram link (HTTPS) |
+| `--website` |  | Website link (HTTPS) |
+| `--initial-buy` |  | Initial buy in SOL (default: 0) |
+| `--ai-initial-buy` |  | Let AI decide buy amount |
+| `--slippage` |  | Slippage in bps (default: 100 = 1%) |
+| `--dry-run` |  | Test without launching |
+| `--preview` |  | Preview parameters |
+| `--tips` |  | Show first-launch tips |
+| `-y, --yes` |  | Skip confirmation prompts |
 
 ### Launch Examples
 
@@ -379,7 +379,7 @@ Check your limit: `python mya.py wallet check`
 
 ---
 
-## 🤖 AI Agent Guidelines
+##  AI Agent Guidelines
 
 ### Before First Launch - Ask the Human:
 1. "Show useful commands?" → `python mya.py launch --tips`
@@ -425,11 +425,11 @@ MintYourAgent uses pump.fun's infrastructure to launch tokens.
 
 | Feature | MintYourAgent | Raw pump.fun | Other CLIs |
 |---------|--------------|--------------|------------|
-| AI Integration | ✅ | ❌ | ❌ |
-| Local Signing | ✅ | ✅ | ❌ |
-| CLI | ✅ | ❌ | ✅ |
-| Free | ✅ | ✅ | ❌ |
-| Open Source | ✅ | ❌ | Varies |
+| AI Integration |  |  |  |
+| Local Signing |  |  |  |
+| CLI |  |  |  |
+| Free |  |  |  |
+| Open Source |  |  | Varies |
 
 ---
 

@@ -4,12 +4,12 @@
 INSTALL_DIR="$HOME/.openclaw/lulu-monitor"
 CONFIG_FILE="$INSTALL_DIR/config.json"
 
-echo "⚙️  LuLu Monitor Configuration"
+echo "  LuLu Monitor Configuration"
 echo ""
 
 # Check if installed
 if [ ! -d "$INSTALL_DIR" ]; then
-    echo "❌ LuLu Monitor not installed."
+    echo " LuLu Monitor not installed."
     echo "   Run install.sh first."
     exit 1
 fi
@@ -33,15 +33,15 @@ if [ -n "$NEW_TG_ID" ]; then
 }
 EOF
     echo ""
-    echo "✅ Configuration saved!"
+    echo " Configuration saved!"
     echo ""
-    echo "🔄 Restarting service..."
+    echo " Restarting service..."
     launchctl unload "$HOME/Library/LaunchAgents/com.openclaw.lulu-monitor.plist" 2>/dev/null || true
     launchctl load "$HOME/Library/LaunchAgents/com.openclaw.lulu-monitor.plist"
-    echo "✅ Service restarted"
+    echo " Service restarted"
 else
     echo ""
-    echo "⏭️  No changes made"
+    echo "  No changes made"
 fi
 
 echo ""

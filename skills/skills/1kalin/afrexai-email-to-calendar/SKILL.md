@@ -33,13 +33,13 @@ Scan every email for ALL of these categories:
 
 | Category | Signals | Priority |
 |----------|---------|----------|
-| **Hard Events** | "meeting at", "call on", "event on", specific date+time | 🔴 High |
-| **Deadlines** | "due by", "submit before", "RSVP by", "register by", "expires" | 🔴 High |
-| **Soft Events** | "sometime next week", "let's meet soon", "planning for March" | 🟡 Medium |
-| **Recurring** | "every Monday", "weekly", "monthly", "standing meeting" | 🟡 Medium |
-| **Action Items** | "please review", "can you send", "follow up on", "action required" | 🟡 Medium |
-| **Travel/Logistics** | Flight numbers, hotel confirmations, check-in times, gate info | 🔴 High |
-| **Implicit Deadlines** | Event is Feb 20 → ticket deadline is likely 1-2 weeks before | 🟡 Medium |
+| **Hard Events** | "meeting at", "call on", "event on", specific date+time |  High |
+| **Deadlines** | "due by", "submit before", "RSVP by", "register by", "expires" |  High |
+| **Soft Events** | "sometime next week", "let's meet soon", "planning for March" |  Medium |
+| **Recurring** | "every Monday", "weekly", "monthly", "standing meeting" |  Medium |
+| **Action Items** | "please review", "can you send", "follow up on", "action required" |  Medium |
+| **Travel/Logistics** | Flight numbers, hotel confirmations, check-in times, gate info |  High |
+| **Implicit Deadlines** | Event is Feb 20 → ticket deadline is likely 1-2 weeks before |  Medium |
 
 ### Extraction Template
 
@@ -116,24 +116,24 @@ Before extracting, classify the email:
 Always present extracted items in this format:
 
 ```
-📧 From: [sender] | Subject: [subject] | Date: [received date]
+ From: [sender] | Subject: [subject] | Date: [received date]
 
 Found [N] calendar items:
 
-1. 🔴 **Team Standup** — Mon Feb 17, 9:00-9:30 AM EST
-   📍 Zoom (link in email) | 👥 Alice, Bob, Charlie
-   🔁 Recurring: Every weekday
-   ✅ Confidence: High
+1.  **Team Standup** — Mon Feb 17, 9:00-9:30 AM EST
+    Zoom (link in email) |  Alice, Bob, Charlie
+    Recurring: Every weekday
+    Confidence: High
 
-2. 🔴 **Project Deadline: Q1 Report** — Fri Feb 28, EOD
-   ⚠️ ACTION REQUIRED: Submit report
-   🔗 [Submission portal](url)
-   ⏰ Suggested reminder: 3 days before
-   ✅ Confidence: High
+2.  **Project Deadline: Q1 Report** — Fri Feb 28, EOD
+    ACTION REQUIRED: Submit report
+    [Submission portal](url)
+    Suggested reminder: 3 days before
+    Confidence: High
 
-3. 🟡 **Team Lunch** — "sometime next week"
-   📍 TBD
-   ⚠️ Confidence: Medium — date needs confirmation
+3.  **Team Lunch** — "sometime next week"
+    TBD
+    Confidence: Medium — date needs confirmation
 
 ---
 Reply with numbers to create (e.g. "1, 2"), "all", or "none".
@@ -145,7 +145,7 @@ Type "edit 3" to modify before creating.
 1. **Always show day of week** — humans verify dates by day name
 2. **Group by date** when >5 items
 3. **Flag conflicts** — if new event overlaps existing calendar
-4. **Highlight deadlines** with ⚠️ and days remaining
+4. **Highlight deadlines** with  and days remaining
 5. **Show source quote** for medium/low confidence items
 6. **Never auto-create** without user confirmation
 
@@ -240,7 +240,7 @@ Before creating any event, check for duplicates:
 - **7-30 days away**: Remind 3 days before
 - **<7 days away**: Remind 1 day before
 - **Deadlines with URLs**: Include the action URL in the reminder
-- Create reminder as separate calendar event: "⚠️ DEADLINE: [action] for [event]"
+- Create reminder as separate calendar event: " DEADLINE: [action] for [event]"
 
 ---
 
@@ -249,10 +249,10 @@ Before creating any event, check for duplicates:
 Travel confirmations get special treatment:
 
 ### Extract ALL of these:
-- ✈️ **Flights**: airline, flight #, departure/arrival times+airports, terminal, gate, confirmation #
-- 🏨 **Hotels**: name, address, check-in/out times, confirmation #
-- 🚗 **Car rentals**: company, pickup/dropoff times+locations, confirmation #
-- 📋 **Transfers**: shuttle times, train bookings
+-  **Flights**: airline, flight #, departure/arrival times+airports, terminal, gate, confirmation #
+-  **Hotels**: name, address, check-in/out times, confirmation #
+-  **Car rentals**: company, pickup/dropoff times+locations, confirmation #
+-  **Transfers**: shuttle times, train bookings
 
 ### Create these calendar events:
 1. **Flight departure** — include terminal, gate, flight # in description
@@ -280,20 +280,20 @@ When scanning an inbox for events:
 6. **Present grouped summary**:
 
 ```
-📬 Inbox Scan: 47 unread → 12 with calendar items → 18 events found
+ Inbox Scan: 47 unread → 12 with calendar items → 18 events found
 
 THIS WEEK (Feb 13-19):
-1. 🔴 Sprint Review — Thu Feb 13, 3:00 PM
-2. 🔴 1:1 with Manager — Fri Feb 14, 10:00 AM
+1.  Sprint Review — Thu Feb 13, 3:00 PM
+2.  1:1 with Manager — Fri Feb 14, 10:00 AM
 ...
 
 NEXT WEEK (Feb 20-26):
-5. 🟡 Team Lunch — date TBD (mentioned in 2 emails)
+5.  Team Lunch — date TBD (mentioned in 2 emails)
 ...
 
 DEADLINES:
-⚠️ Q1 Report — Due Feb 28 (15 days) → [Submit here](url)
-⚠️ Conference RSVP — Due Feb 20 (7 days) → [RSVP](url)
+ Q1 Report — Due Feb 28 (15 days) → [Submit here](url)
+ Conference RSVP — Due Feb 20 (7 days) → [RSVP](url)
 ```
 
 ---

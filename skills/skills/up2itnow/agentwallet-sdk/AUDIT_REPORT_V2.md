@@ -6,21 +6,21 @@
 
 ## Findings & Fixes
 
-### 🔴 Critical
+###  Critical
 
 | ID | Finding | Root Cause | Fix |
 |----|---------|------------|-----|
 | C2-1 | Flash-loan NFT hijack: temp NFT holder installs permanent backdoor operator | `_isOwner()` checked live but `setOperator` persists forever | **Operator epoch** — all operators invalidated on ownership change |
 | C2-2 | Stale operators after NFT transfer: old operators drain new owner's funds | Same as C2-1 | **Same epoch mechanism** + `_syncOwnership()` on every mutating call |
 
-### 🟠 High
+###  High
 
 | ID | Finding | Fix |
 |----|---------|-----|
 | H2-1 | 4337 pending queue bricks after 50 lifetime txs (pendingNonce never decreases) | Changed to `_countActivePending()` — counts only non-executed/non-cancelled/non-expired |
 | H2-2 | validateUserOp pays EntryPoint prefund even for invalid signatures | Prefund only sent when `valid == true` |
 
-### 🟡 Medium
+###  Medium
 
 | ID | Finding | Fix |
 |----|---------|-----|
@@ -46,4 +46,4 @@
 - `_isOwner()` requires non-zero owner (explicit revert message)
 - `isValidSignature` gracefully returns invalid for burned NFTs
 
-## Status: ALL FIXES APPLIED ✅
+## Status: ALL FIXES APPLIED 

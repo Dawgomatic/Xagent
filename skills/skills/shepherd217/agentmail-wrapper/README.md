@@ -46,17 +46,17 @@ await mail.send({
 ```
 
 ## Features
-✅ Multi-provider support (SendGrid, Mailgun, AWS SES, SMTP)
-✅ Delivery tracking (open, click, bounce)
-✅ Email verification
-✅ Template management
-✅ Scheduled sends
-✅ Batch processing
-✅ Unsubscribe management
-✅ List hygiene (bounce handling)
-✅ Compliance reporting
-✅ OAuth support (Gmail)
-✅ Reply tracking
+ Multi-provider support (SendGrid, Mailgun, AWS SES, SMTP)
+ Delivery tracking (open, click, bounce)
+ Email verification
+ Template management
+ Scheduled sends
+ Batch processing
+ Unsubscribe management
+ List hygiene (bounce handling)
+ Compliance reporting
+ OAuth support (Gmail)
+ Reply tracking
 
 ## Installation
 
@@ -261,10 +261,10 @@ Check if email is valid/deliverable.
 
 ## Compliance Features
 
-✅ CAN-SPAM compliant (unsubscribe link, physical address)
-✅ GDPR compliant (opt-in tracking)
-✅ List hygiene (bounce/complaint handling)
-✅ Authentication (SPF, DKIM, DMARC support)
+ CAN-SPAM compliant (unsubscribe link, physical address)
+ GDPR compliant (opt-in tracking)
+ List hygiene (bounce/complaint handling)
+ Authentication (SPF, DKIM, DMARC support)
 
 ## Troubleshooting
 
@@ -278,8 +278,8 @@ Check if email is valid/deliverable.
 → Verify email list with `verifyEmail()` before sending
 
 ## Support
-📧 support@midas-skills.com
-🔗 Docs: https://docs.midas-skills.com/agentmail-wrapper
+ support@midas-skills.com
+ Docs: https://docs.midas-skills.com/agentmail-wrapper
 
 ---
 

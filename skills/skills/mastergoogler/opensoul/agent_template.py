@@ -109,7 +109,7 @@ class OpenSoulAgent:
             status="started"
         )
         
-        print(f"🧠 Session started: {session_id}")
+        print(f" Session started: {session_id}")
         if task_description:
             print(f"   Task: {task_description}")
     
@@ -177,11 +177,11 @@ class OpenSoulAgent:
             
             # Log warning if approaching limit
             if status["warning"]:
-                print(f"⚠️  Budget warning: {percentage_used:.1f}% used")
+                print(f"  Budget warning: {percentage_used:.1f}% used")
             
             return status
         except Exception as e:
-            print(f"⚠️  Could not check budget: {e}")
+            print(f"  Could not check budget: {e}")
             return None
     
     async def safe_flush(self):
@@ -197,7 +197,7 @@ class OpenSoulAgent:
                 print(f"✓ Logs flushed to blockchain: {tx_id}")
                 return tx_id
             except Exception as e:
-                print(f"⚠️  Flush attempt {attempt + 1} failed: {e}")
+                print(f"  Flush attempt {attempt + 1} failed: {e}")
                 
                 if attempt == self.max_retries - 1:
                     # Last attempt failed - save backup
@@ -219,7 +219,7 @@ class OpenSoulAgent:
         with open(backup_file, 'w') as f:
             json.dump(self.logger.pending_logs, f, indent=2)
         
-        print(f"💾 Logs backed up to: {backup_file}")
+        print(f" Logs backed up to: {backup_file}")
     
     async def reflect_on_performance(self):
         """
@@ -237,7 +237,7 @@ class OpenSoulAgent:
                 all_metrics.extend(log.get("metrics", []))
             
             if not all_metrics:
-                print("ℹ️  No performance data available yet")
+                print("  No performance data available yet")
                 return None
             
             # Calculate statistics
@@ -276,7 +276,7 @@ class OpenSoulAgent:
             
             return reflection
         except Exception as e:
-            print(f"⚠️  Reflection failed: {e}")
+            print(f"  Reflection failed: {e}")
             return None
     
     async def end_session(self):
@@ -287,7 +287,7 @@ class OpenSoulAgent:
             str: Transaction ID if successful
         """
         if not self.current_session:
-            print("⚠️  No active session to end")
+            print("  No active session to end")
             return None
         
         duration = datetime.now() - self.session_start_time
@@ -336,7 +336,7 @@ class MyCustomAgent(OpenSoulAgent):
     
     async def perform_research(self, query):
         """Example custom method"""
-        print(f"🔍 Researching: {query}")
+        print(f" Researching: {query}")
         
         # Log the action
         await self.log_action(
@@ -353,7 +353,7 @@ class MyCustomAgent(OpenSoulAgent):
     
     async def analyze_data(self, dataset_name):
         """Example custom method"""
-        print(f"📊 Analyzing: {dataset_name}")
+        print(f" Analyzing: {dataset_name}")
         
         # Log the action
         await self.log_action(
@@ -397,12 +397,12 @@ async def example_usage():
     # Check budget
     budget_status = await agent.check_budget()
     if budget_status:
-        print(f"\n💰 Budget: {budget_status['percentage_used']:.1f}% used")
+        print(f"\n Budget: {budget_status['percentage_used']:.1f}% used")
     
     # Reflect on performance
     reflection = await agent.reflect_on_performance()
     if reflection:
-        print(f"\n📊 Success rate: {reflection['success_rate']:.1%}")
+        print(f"\n Success rate: {reflection['success_rate']:.1%}")
     
     # End session
     await agent.end_session()

@@ -4,7 +4,7 @@
 
 OpenClaw Janitor requires powerful system permissions to perform its cleanup and session management tasks. This document explains the security implications, risks, and mitigations.
 
-## ⚠️ Security Classification
+##  Security Classification
 
 **Classification:** Powerful System Tool with Inherent Risks
 

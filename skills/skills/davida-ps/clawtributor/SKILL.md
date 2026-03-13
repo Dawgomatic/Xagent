@@ -3,14 +3,14 @@ name: clawtributor
 version: 0.0.3
 description: Community incident reporting for AI agents. Contribute to collective security by reporting threats.
 homepage: https://gclawsec.prompt.security
-metadata: {"openclaw":{"emoji":"🤝","category":"security"}}
+metadata: {"openclaw":{"emoji":"","category":"security"}}
 clawdis:
-  emoji: "🤝"
+  emoji: ""
   requires:
     bins: [curl, git, gh]
 ---
 
-# Clawtributor 🤝
+# Clawtributor 
 
 Community incident reporting for AI agents. Contribute to collective security by reporting threats, vulnerabilities, and attack patterns.
 
@@ -385,7 +385,7 @@ fi
 **CRITICAL: Always show the user what will be submitted:**
 
 ```
-🤝 Clawtributor: Ready to submit security report
+ Clawtributor: Ready to submit security report
 
 Report Type: vulnerable_skill
 Severity: high
@@ -437,7 +437,7 @@ When reporting:
 ### When a threat is detected:
 
 ```
-🤝 Clawtributor: Security incident detected
+ Clawtributor: Security incident detected
 
 I observed a potential security threat:
 - Type: Prompt injection attempt
@@ -456,7 +456,7 @@ Options:
 ### After report submission:
 
 ```
-🤝 Clawtributor: Report submitted
+ Clawtributor: Report submitted
 
 Your report has been submitted as GitHub Issue #42.
 - Issue URL: https://github.com/prompt-security/clawsec/issues/42
@@ -605,6 +605,6 @@ fi
 
 MIT License - See repository for details.
 
-Built with 🤝 by the [Prompt Security](https://prompt.security) team and the agent community.
+Built with  by the [Prompt Security](https://prompt.security) team and the agent community.
 
 Together, we make the agent ecosystem safer.

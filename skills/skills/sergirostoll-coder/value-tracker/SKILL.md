@@ -94,7 +94,7 @@ Use `tracker.py export` to get JSON output suitable for web dashboards or other 
 ## Example Output
 
 ```
-📊 Value Summary (This Week)
+ Value Summary (This Week)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Total Hours:  12.5h
@@ -102,10 +102,10 @@ Total Value:  $1,087
 Avg Rate:     $87/hr
 
 By Category:
-  🎯 strategy    2.0h    $300
-  🔍 research    3.5h    $350
-  ⚙️ tech        4.0h    $340
-  🔧 ops         3.0h    $150
+   strategy    2.0h    $300
+   research    3.5h    $350
+   tech        4.0h    $340
+   ops         3.0h    $150
 
 Top Tasks:
   • Competitor analysis deep dive (3.5h)

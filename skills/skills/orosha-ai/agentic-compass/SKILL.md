@@ -37,13 +37,13 @@ python3 scripts/agentic-compass.py --daily /path/to/memory/2026-01-31.md --long 
 
 ## Why This Version Works Better for AI Agents
 
-### Human v1 Problems ❌
+### Human v1 Problems 
 - Subjective self-assessment (bias)
 - "Trust" as a metric (doesn't apply to AI)
 - Episodic existence (no continuous "me")
 - Emotional axes (doesn't map)
 
-### Agent v2 Fixes ✅
+### Agent v2 Fixes 
 - **Measurable axes** (countable from memory files)
 - **Objective scoring** (no "how do I feel about it")
 - **Cross-session tracking** (uses memory files for continuity)

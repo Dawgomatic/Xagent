@@ -1,7 +1,7 @@
 ---
 name: Website
 description: Build fast, accessible, and SEO-friendly websites with modern best practices.
-metadata: {"clawdbot":{"emoji":"🌐","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Website Development Rules

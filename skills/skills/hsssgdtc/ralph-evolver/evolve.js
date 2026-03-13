@@ -162,7 +162,7 @@ class ImprovementTracker {
 
     // Overall assessment: positive = improved, negative = degraded
     trend.overall = trend.testDelta + (trend.errorDelta * 2) + (trend.buildImproved ? 3 : 0);
-    trend.verdict = trend.overall > 0 ? '📈 improved' : trend.overall < 0 ? '📉 degraded' : '➡️ unchanged';
+    trend.verdict = trend.overall > 0 ? ' improved' : trend.overall < 0 ? ' degraded' : ' unchanged';
 
     return trend;
   }
@@ -186,17 +186,17 @@ class ImprovementTracker {
     const historyLines = history.slice(-5).map((h, i) => {
       let line = `${i+1}. ${h.description || 'no description'}`;
       if (h.level) line += ` [${h.level}]`;
-      if (h.insight) line += `\n   💡 ${h.insight}`;
+      if (h.insight) line += `\n    ${h.insight}`;
       // Show metrics at time of improvement
       if (h.metrics) {
-        line += `\n   📊 tests: ${h.metrics.testPassed} passed/${h.metrics.testFailed} failed, errors: ${h.metrics.errorCount}`;
+        line += `\n    tests: ${h.metrics.testPassed} passed/${h.metrics.testFailed} failed, errors: ${h.metrics.errorCount}`;
       }
       return line;
     }).join('\n');
 
     // Add reflection prompt for pattern analysis
     const reflectionPrompt = history.length >= 3 ? `
-**⚡ Reflection prompt**: Look at the improvements above. Are they mostly:
+** Reflection prompt**: Look at the improvements above. Are they mostly:
 - (a) Bug fixes / edge cases / compatibility issues → surface-level
 - (b) New capabilities / deeper analysis / better insights → evolution-level
 If mostly (a), consider: what deeper issue is causing these surface problems?` : '';
@@ -232,12 +232,12 @@ If mostly (a), consider: what deeper issue is causing these surface problems?` :
       .slice(0, 5)
       .map(([word, count]) => `${word}(${count})`);
 
-    let analysis = `**📊 Pattern Analysis** (${history.length} total improvements):\n`;
+    let analysis = `** Pattern Analysis** (${history.length} total improvements):\n`;
     if (levels.surface + levels.evolution > 0) {
       const ratio = levels.evolution / (levels.surface + levels.evolution);
       analysis += `- Level ratio: ${levels.surface} surface / ${levels.evolution} evolution`;
-      if (ratio < 0.2) analysis += ' ⚠️ mostly surface fixes';
-      else if (ratio > 0.5) analysis += ' ✨ healthy evolution rate';
+      if (ratio < 0.2) analysis += '  mostly surface fixes';
+      else if (ratio > 0.5) analysis += '  healthy evolution rate';
       analysis += '\n';
     }
     if (repeatedWords.length > 0) {
@@ -864,7 +864,7 @@ After fixing, run verification, then continue iteration.
     const signals = new RuntimeSignals(projectPath).collect();
 
     return `
-# 🧬 Ralph-Evolver
+#  Ralph-Evolver
 
 **Philosophy: Recursion + Emergence**
 
@@ -879,7 +879,7 @@ ${task ? `\n**Task**: ${task}\n` : ''}
 - Path: ${projectPath}
 - Type: ${health.projectType}
 - Iteration: #${state.iteration + 1}
-- Build: ${health.buildSuccess ? '✅' : '❌'}
+- Build: ${health.buildSuccess ? '' : ''}
 - Tests: ${this.formatTestResults(health.testResults)}
 
 ### Last Round Changes
@@ -889,18 +889,18 @@ ${lastChanges}
 
 ### Problem Hotspots (frequent changes = design issues)
 ${tracker.getHotspots()}
-> 🔍 **Hypothesis prompt**: If a file is modified repeatedly, ask: Is it doing too much? Is its API awkward? Is it a "god object"?
+>  **Hypothesis prompt**: If a file is modified repeatedly, ask: Is it doing too much? Is its API awkward? Is it a "god object"?
 
 ### Improvement History
 ${historySummary}
 
-${signals.commits ? `### Recent Commits (understand "why" changes were made)\n\`\`\`\n${signals.commits}\n\`\`\`\n> 🔍 **Hypothesis prompt**: If most commits are "fix" or "patch", what root cause keeps producing bugs?\n` : ''}
+${signals.commits ? `### Recent Commits (understand "why" changes were made)\n\`\`\`\n${signals.commits}\n\`\`\`\n>  **Hypothesis prompt**: If most commits are "fix" or "patch", what root cause keeps producing bugs?\n` : ''}
 
-${signals.todos ? `### TODO/FIXME (distress signals in the code)\n\`\`\`\n${signals.todos}\n\`\`\`\n> 🔍 **Hypothesis prompt**: Are these TODOs procrastination, or signs of incomplete design?\n` : ''}
+${signals.todos ? `### TODO/FIXME (distress signals in the code)\n\`\`\`\n${signals.todos}\n\`\`\`\n>  **Hypothesis prompt**: Are these TODOs procrastination, or signs of incomplete design?\n` : ''}
 
-${signals.errorPatterns ? `### Error Handling Patterns (where are the fragile points)\n\`\`\`\n${signals.errorPatterns}\n\`\`\`\n> 🔍 **Hypothesis prompt**: Is error handling consistent (good) or scattered/ad-hoc (design smell)?\n` : ''}
+${signals.errorPatterns ? `### Error Handling Patterns (where are the fragile points)\n\`\`\`\n${signals.errorPatterns}\n\`\`\`\n>  **Hypothesis prompt**: Is error handling consistent (good) or scattered/ad-hoc (design smell)?\n` : ''}
 
-${signals.unusedExports ? `### ⚠️ Zombie Code Detection\n${signals.unusedExports}\n> 🔍 **Hypothesis prompt**: These exports exist in only one file. Are they: (a) used internally but shouldn't be exported? (b) created but never integrated? (c) legacy code to delete?\n` : ''}
+${signals.unusedExports ? `###  Zombie Code Detection\n${signals.unusedExports}\n>  **Hypothesis prompt**: These exports exist in only one file. Are they: (a) used internally but shouldn't be exported? (b) created but never integrated? (c) legacy code to delete?\n` : ''}
 
 ### Project Documentation
 ${projectContext}
@@ -1152,7 +1152,7 @@ Don't iterate just for the sake of iterating.
 
   formatTestResults(testResults) {
     if (!testResults) return 'not run';
-    if (testResults.skipped) return '⏭️ skipped';
+    if (testResults.skipped) return ' skipped';
     return `${testResults.passed}/${testResults.total} passed`;
   }
 

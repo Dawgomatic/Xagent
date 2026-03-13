@@ -9,7 +9,7 @@
 const PATTERNS = {
   generic: {
     name: 'Generic Project',
-    icon: '📋',
+    icon: '',
     description: 'Universal structure for any project',
     levels: ['Project', 'Phase', 'Item', 'Task'],
     phaseSubtitles: ['Pre-Seed', 'Seed', 'Build'],
@@ -25,7 +25,7 @@ const PATTERNS = {
 
   sales: {
     name: 'Sales Pipeline',
-    icon: '💼',
+    icon: '',
     description: 'Track sales opportunities through quarters',
     levels: ['Pipeline', 'Quarter', 'Deal', 'Action'],
     phaseSubtitles: ['Q1', 'Q2', 'Q3', 'Q4'],
@@ -44,7 +44,7 @@ const PATTERNS = {
 
   thesis: {
     name: 'Academic Writing',
-    icon: '🎓',
+    icon: '',
     description: 'Structure academic papers and dissertations',
     levels: ['Thesis', 'Chapter', 'Section', 'Point'],
     phaseSubtitles: ['Introduction', 'Body', 'Conclusion'],
@@ -63,7 +63,7 @@ const PATTERNS = {
 
   roadmap: {
     name: 'Product Roadmap',
-    icon: '🚀',
+    icon: '',
     description: 'Plan product features across quarters',
     levels: ['Product', 'Quarter', 'Feature', 'Story'],
     phaseSubtitles: ['Q1', 'Q2', 'Q3', 'Q4'],
@@ -81,7 +81,7 @@ const PATTERNS = {
 
   book: {
     name: 'Book Writing',
-    icon: '📚',
+    icon: '',
     description: 'Organize books into parts, chapters, and scenes',
     levels: ['Book', 'Part', 'Chapter', 'Scene'],
     phaseSubtitles: ['Act I', 'Act II', 'Act III'],
@@ -100,7 +100,7 @@ const PATTERNS = {
 
   event: {
     name: 'Event Planning',
-    icon: '🎉',
+    icon: '',
     description: 'Plan events from prep to execution to follow-up',
     levels: ['Event', 'Stage', 'Activity', 'Task'],
     phaseSubtitles: ['Pre-Event', 'Event Day', 'Post-Event'],
@@ -119,7 +119,7 @@ const PATTERNS = {
 
   fitness: {
     name: 'Fitness Program',
-    icon: '💪',
+    icon: '',
     description: 'Structure training programs with periodization',
     levels: ['Program', 'Phase', 'Workout', 'Exercise'],
     phaseSubtitles: ['Foundation', 'Build', 'Peak'],
@@ -139,7 +139,7 @@ const PATTERNS = {
 
   strategy: {
     name: 'Strategic Plan',
-    icon: '📊',
+    icon: '',
     description: 'Organize business strategy into pillars and initiatives',
     levels: ['Strategy', 'Pillar', 'Initiative', 'Action'],
     phaseSubtitles: ['Planning', 'Execution', 'Review'],
@@ -158,7 +158,7 @@ const PATTERNS = {
 
   course: {
     name: 'Course Design',
-    icon: '📖',
+    icon: '',
     description: 'Build educational curricula with units and lessons',
     levels: ['Course', 'Unit', 'Lesson', 'Exercise'],
     phaseSubtitles: ['Beginning', 'Middle', 'Advanced'],
@@ -178,7 +178,7 @@ const PATTERNS = {
 
   film: {
     name: 'AI Video Production',
-    icon: '🎬',
+    icon: '',
     description: 'Create films using AI video generation (Sora, Veo, Runway, Pika)',
     levels: ['Film', 'Act', 'Scene', 'Shot'],
     phaseSubtitles: ['Act I - Setup', 'Act II - Conflict', 'Act III - Resolution'],
@@ -200,7 +200,7 @@ const PATTERNS = {
 
   veo3: {
     name: 'Veo3 (Google)',
-    icon: '🎥',
+    icon: '',
     description: 'Google Veo 3.1 AI video generation with Flow workflow',
     levels: ['Project', 'Sequence', 'Scene', 'Shot'],
     phaseSubtitles: ['Opening Sequence', 'Development', 'Climax Sequence'],
@@ -223,7 +223,7 @@ const PATTERNS = {
 
   sora2: {
     name: 'Sora2 (OpenAI)',
-    icon: '🎬',
+    icon: '',
     description: 'OpenAI Sora 2 AI video generation with cameo and remix',
     levels: ['Project', 'Sequence', 'Beat', 'Shot'],
     phaseSubtitles: ['Setup', 'Conflict', 'Resolution'],
@@ -245,7 +245,7 @@ const PATTERNS = {
 
   philosophy: {
     name: 'Philosophy',
-    icon: '🤔',
+    icon: '',
     description: 'Structure philosophical dialogues, treatises, and arguments',
     levels: ['Dialogue', 'Movement', 'Claim', 'Support'],
     phaseSubtitles: ['Opening Question', 'First Definition', 'Refutation', 'Second Attempt', 'Deeper Inquiry', 'Resolution'],
@@ -270,7 +270,7 @@ const PATTERNS = {
 
   prompting: {
     name: 'Prompt Engineering',
-    icon: '🧠',
+    icon: '',
     description: 'Design and test AI prompts with best practices',
     levels: ['Prompt Library', 'Category', 'Prompt', 'Test Case'],
     phaseSubtitles: ['Customer Support', 'Content Generation', 'Data Analysis', 'Code Assistance', 'Research', 'Creative Writing'],
@@ -292,7 +292,7 @@ const PATTERNS = {
 
   familytree: {
     name: 'Family Tree',
-    icon: '👨‍👩‍👧‍👦',
+    icon: '',
     description: 'Build and document your family genealogy',
     levels: ['Family', 'Generation', 'Person', 'Event'],
     phaseSubtitles: ['Self/Siblings', 'Parents', 'Grandparents', 'Great-Grandparents', 'Great-Great-Grandparents'],
@@ -321,7 +321,7 @@ const PATTERNS = {
 
   dialogue: {
     name: 'Dialogue & Rhetoric',
-    icon: '💬',
+    icon: '',
     description: 'Analyze conversations, debates, and rhetoric',
     levels: ['Conversation', 'Speaker', 'Statement', 'Point'],
     phaseSubtitles: ['Speaker A', 'Speaker B', 'Speaker C', 'Moderator'],
@@ -345,7 +345,7 @@ const PATTERNS = {
 
   filesystem: {
     name: 'File System',
-    icon: '💾',
+    icon: '',
     description: 'Organize files and folders from local/cloud drives',
     levels: ['Drive', 'Folder', 'File/Folder', 'File'],
     phaseSubtitles: ['Documents', 'Downloads', 'Desktop', 'Pictures', 'Videos', 'Projects'],
@@ -372,7 +372,7 @@ const PATTERNS = {
 
   gmail: {
     name: 'Email Workflow',
-    icon: '📧',
+    icon: '',
     description: 'Import and analyze Gmail threads',
     levels: ['Inbox/Campaign', 'Label/Stage', 'Thread', 'Message'],
     phaseSubtitles: ['Inbox', 'Sent', 'Important', 'Archive'],
@@ -395,7 +395,7 @@ const PATTERNS = {
 
   'knowledge-base': {
     name: 'Knowledge Base',
-    icon: '📚',
+    icon: '',
     description: 'Document corpus for knowledge retrieval and AI context',
     levels: ['Knowledge Base', 'Source', 'Section', 'Chunk'],
     phaseSubtitles: ['Documents', 'Web Pages', 'Notes', 'Research'],
@@ -416,7 +416,7 @@ const PATTERNS = {
 
   capex: {
     name: 'CAPEX / Angel Pitch',
-    icon: '💰',
+    icon: '',
     description: 'Investor-ready capital expenditure structure for fundraising',
     levels: ['Project', 'Funding Phase', 'Investment', 'Deliverable'],
     phaseSubtitles: ['Seed', 'Series A', 'Series B'],
@@ -434,7 +434,7 @@ const PATTERNS = {
 
   freespeech: {
     name: 'Free Speech',
-    icon: '🎙️',
+    icon: '',
     description: 'Stream-of-consciousness voice capture with psychological pattern analysis',
     levels: ['Session', 'Theme', 'Pattern', 'Evidence'],
     phaseSubtitles: ['Surface Themes', 'Hidden Patterns', 'Contradictions', 'Silences', 'Recurring Structures'],
@@ -451,7 +451,7 @@ const PATTERNS = {
 
   lifetree: {
     name: 'LifeTree',
-    icon: '🌳',
+    icon: '',
     description: 'Biographical timeline for a life story',
     levels: ['Life', 'Decade', 'Event', 'Detail'],
     phaseSubtitles: [], // Auto-generated from birth year
@@ -477,7 +477,7 @@ const PATTERNS = {
 
   custom: {
     name: 'Custom Names',
-    icon: '✏️',
+    icon: '',
     description: 'Define your own names for all four levels',
     levels: ['Level 0', 'Level 1', 'Level 2', 'Level 3'],
     phaseSubtitles: [],

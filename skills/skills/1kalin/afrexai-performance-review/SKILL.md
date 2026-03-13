@@ -153,20 +153,20 @@ Structure every review around:
 ### Writing Rules
 
 1. **Specific > Vague**
-   - ❌ "Great job this quarter"
-   - ✅ "Led the API migration affecting 12 services, completing 2 weeks ahead of schedule with zero customer-facing incidents"
+   -  "Great job this quarter"
+   -  "Led the API migration affecting 12 services, completing 2 weeks ahead of schedule with zero customer-facing incidents"
 
 2. **Behavior > Trait**
-   - ❌ "Is a natural leader"
-   - ✅ "Organized weekly knowledge-sharing sessions that improved team velocity by 15% and reduced onboarding time for 3 new hires"
+   -  "Is a natural leader"
+   -  "Organized weekly knowledge-sharing sessions that improved team velocity by 15% and reduced onboarding time for 3 new hires"
 
 3. **Pattern > Incident**
-   - ❌ "Missed the Q3 deadline"
-   - ✅ "Delivery timelines were missed on 3 of 5 projects, consistently by 1-2 weeks, suggesting estimation needs improvement"
+   -  "Missed the Q3 deadline"
+   -  "Delivery timelines were missed on 3 of 5 projects, consistently by 1-2 weeks, suggesting estimation needs improvement"
 
 4. **Forward > Backward**
-   - ❌ "Failed to communicate effectively"
-   - ✅ "Strengthening stakeholder communication — specifically proactive status updates — would multiply the impact of their strong technical work"
+   -  "Failed to communicate effectively"
+   -  "Strengthening stakeholder communication — specifically proactive status updates — would multiply the impact of their strong technical work"
 
 5. **Balanced always**
    - Even top performers need development feedback
@@ -502,7 +502,7 @@ development_plan:
 ### Progress on Goals
 | Goal | Status | Notes |
 |------|--------|-------|
-| [Goal 1] | 🟢 On track / 🟡 At risk / 🔴 Off track | [Brief update] |
+| [Goal 1] |  On track /  At risk /  Off track | [Brief update] |
 
 ### Recent Wins
 - [What went well this month]
@@ -517,7 +517,7 @@ development_plan:
 ### Action Items
 - [ ] [Action] — Owner: [who] — By: [date]
 
-### Overall Pulse: 😊 Great / 😐 Fine / 😟 Struggling
+### Overall Pulse:  Great /  Fine /  Struggling
 ```
 
 ### Real-Time Feedback Formula (SBI)
@@ -551,7 +551,7 @@ Track quarterly:
 ## Team Performance Dashboard — Q4 2025
 
 **Team size:** [N]
-**Rating distribution:** ⭐5: [N] | ⭐4: [N] | ⭐3: [N] | ⭐2: [N] | ⭐1: [N]
+**Rating distribution:** 5: [N] | 4: [N] | 3: [N] | 2: [N] | 1: [N]
 **Average score:** [X]/100
 **vs. last period:** [↑/↓ X points]
 

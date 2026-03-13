@@ -108,7 +108,7 @@ async function hasEnoughSolForFees(estimatedFee = 0.001) {
  */
 function formatBalance(balance) {
     const lines = [
-        `💰 Wallet Balance`,
+        ` Wallet Balance`,
         `━━━━━━━━━━━━━━━━━━━━━`,
         `${config_js_1.TOKEN_SYMBOL}: ${balance.gclawBalance.toLocaleString(undefined, { maximumFractionDigits: 6 })}`,
         `SOL: ${balance.solBalance.toLocaleString(undefined, { maximumFractionDigits: 9 })} (for fees)`,
@@ -116,10 +116,10 @@ function formatBalance(balance) {
         `Address: ${balance.address}`,
     ];
     if (!balance.tokenAccountExists) {
-        lines.push(`\n⚠️ Token account not yet created. It will be created automatically when you receive ${config_js_1.TOKEN_SYMBOL}.`);
+        lines.push(`\n Token account not yet created. It will be created automatically when you receive ${config_js_1.TOKEN_SYMBOL}.`);
     }
     if (balance.solBalance < 0.001) {
-        lines.push(`\n⚠️ Low SOL balance. You need SOL to pay for transaction fees.`);
+        lines.push(`\n Low SOL balance. You need SOL to pay for transaction fees.`);
     }
     return lines.join('\n');
 }

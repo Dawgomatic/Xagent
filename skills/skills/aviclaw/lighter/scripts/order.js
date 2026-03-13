@@ -58,12 +58,12 @@ async function main() {
       price: price,
     });
     
-    console.log('\n✅ Order placed!');
+    console.log('\n Order placed!');
     console.log(`Tx Hash: ${result.txHash}`);
     console.log(`Response:`, result.response.data);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

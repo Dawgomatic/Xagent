@@ -15,17 +15,17 @@ PKG_VERSION=$(grep -o '"version": *"[^"]*"' "$REPO_ROOT/package.json" | head -1 
 SKILL_VERSION=$(grep -E '^version:' "$REPO_ROOT/SKILL.md" | head -1 | sed 's/version: *//')
 
 if [[ -z "$PKG_VERSION" ]]; then
-    echo "  ⚠️  Could not read version from package.json"
+    echo "    Could not read version from package.json"
     exit 1
 fi
 
 if [[ -z "$SKILL_VERSION" ]]; then
-    echo "  ⚠️  Could not read version from SKILL.md"
+    echo "    Could not read version from SKILL.md"
     exit 1
 fi
 
 if [[ "$PKG_VERSION" != "$SKILL_VERSION" ]]; then
-    echo "  ⚠️  Version mismatch:"
+    echo "    Version mismatch:"
     echo "      package.json: $PKG_VERSION"
     echo "      SKILL.md:     $SKILL_VERSION"
     echo "  → Both files must have the same version"

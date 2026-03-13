@@ -243,7 +243,7 @@ display_analysis() {
 
     if [[ "$gap_count" -gt 0 ]]; then
         echo ""
-        echo -e "${YELLOW}${BOLD}⚠️ GAPS FOUND${RESET}"
+        echo -e "${YELLOW}${BOLD} GAPS FOUND${RESET}"
         echo ""
         echo "$gaps" | jq -r '.[] | "  \(.area) (\(.impact) impact)\n    \(.observation)\n    → \(.suggestion)\n"'
     fi
@@ -254,7 +254,7 @@ display_analysis() {
 
     if [[ "$strength_count" -gt 0 ]]; then
         echo ""
-        echo -e "${GREEN}${BOLD}✅ WORKING WELL${RESET}"
+        echo -e "${GREEN}${BOLD} WORKING WELL${RESET}"
         echo ""
         echo "$strengths" | jq -r '.[] | "  \(.area)\n    \(.observation)\n"'
     fi
@@ -265,7 +265,7 @@ display_analysis() {
 
     if [[ "$rec_count" -gt 0 ]]; then
         echo ""
-        echo -e "${CYAN}${BOLD}📝 SUGGESTED ADDITIONS${RESET}"
+        echo -e "${CYAN}${BOLD} SUGGESTED ADDITIONS${RESET}"
         echo ""
         echo "$recs" | jq -r 'sort_by(.priority) | .[] | "\(.section)\n\(.content)\n"'
     fi

@@ -6,7 +6,7 @@ metadata: {"openclaw":{"requires":{"env":["NEXUS_URL","NEXUS_TOKEN"],"anyBins":[
 
 # Civic Nexus MCP Bridge
 
-> **⚠️ DISCLAIMER: Use at your own risk. For official documentation, visit [docs.civic.com](https://docs.civic.com).**
+> ** DISCLAIMER: Use at your own risk. For official documentation, visit [docs.civic.com](https://docs.civic.com).**
 
 Connect to [Civic Nexus](https://nexus.civic.com) for 100+ integrations including Gmail, PostgreSQL, MongoDB, Box, and more.
 

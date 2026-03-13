@@ -1,4 +1,4 @@
-# 🚀 OpenClaw Social Scheduler
+#  OpenClaw Social Scheduler
 
 **Free, open-source social media scheduling for AI agents**
 
@@ -11,19 +11,19 @@
 
 ---
 
-## ✨ What is this?
+##  What is this?
 
 A complete social media scheduling system that lets AI agents (and humans!) schedule posts across 8 platforms:
 
-🐦 **Twitter/X** • 🤖 **Reddit** • 💬 **Discord** • 🐘 **Mastodon** • 🦋 **Bluesky** • 🤖 **Moltbook** • 💼 **LinkedIn** • ✈️ **Telegram**
+ **Twitter/X** •  **Reddit** •  **Discord** •  **Mastodon** •  **Bluesky** •  **Moltbook** •  **LinkedIn** •  **Telegram**
 
 **Why?** Because Postiz costs $29-99/month. Buffer costs $6-120/month. Hootsuite costs $99-739/month.
 
-**This is free. Forever.** 🎉
+**This is free. Forever.** 
 
 ---
 
-## 🎯 Quick Start (30 seconds)
+##  Quick Start (30 seconds)
 
 ```bash
 # 1. Install
@@ -37,7 +37,7 @@ cp .env.example .env
 # 3. Schedule a post
 node scripts/schedule.js \
   --platform twitter \
-  --message "Hello from OpenClaw! 🤖" \
+  --message "Hello from OpenClaw! " \
   --datetime "2026-02-04 18:00"
 
 # 4. Start the daemon
@@ -47,32 +47,32 @@ node scripts/schedule.js --daemon
 # Visit: http://localhost:3737
 ```
 
-**Done!** Your post will go out automatically. ✨
+**Done!** Your post will go out automatically. 
 
 ---
 
-## 🔥 Features
+##  Features
 
 <table>
 <tr>
 <td width="50%">
 
 ### Core Scheduling
-- 📅 **Schedule posts** with date/time
-- 🌐 **8 platforms** (see below)
-- 🔄 **Auto-retry** (3 attempts)
-- 🧹 **Auto-cleanup** (7-day retention)
-- ⚡ **Daemon mode** (always-on)
+-  **Schedule posts** with date/time
+-  **8 platforms** (see below)
+-  **Auto-retry** (3 attempts)
+-  **Auto-cleanup** (7-day retention)
+-  **Daemon mode** (always-on)
 
 </td>
 <td width="50%">
 
 ### Advanced Features
-- 🧵 **Threads** (Twitter, Mastodon, Bluesky)
-- 📸 **Media uploads** (images, videos)
-- 📋 **Bulk scheduling** (CSV/JSON)
-- 📊 **Analytics** (success rates, timing)
-- 🌐 **Web dashboard** (visual UI)
+-  **Threads** (Twitter, Mastodon, Bluesky)
+-  **Media uploads** (images, videos)
+-  **Bulk scheduling** (CSV/JSON)
+-  **Analytics** (success rates, timing)
+-  **Web dashboard** (visual UI)
 
 </td>
 </tr>
@@ -80,7 +80,7 @@ node scripts/schedule.js --daemon
 
 ---
 
-## 📱 Supported Platforms
+##  Supported Platforms
 
 | Platform | Type | Auth | Features |
 |----------|------|------|----------|
@@ -89,36 +89,36 @@ node scripts/schedule.js --daemon
 | **Bluesky** | Microblog | Handle + Password | Posts, threads, media |
 | **Reddit** | Community | OAuth2 | Posts, comments |
 | **Discord** | Community | Webhook | Rich embeds, mentions |
-| **Moltbook** | AI-only | API Key | First AI social network! 🤖 |
+| **Moltbook** | AI-only | API Key | First AI social network!  |
 | **LinkedIn** | Professional | OAuth 2.0 | Personal/company posts |
 | **Telegram** | Messaging | Bot Token | Channels, groups, chats |
 
 ---
 
-## 📊 Analytics Dashboard
+##  Analytics Dashboard
 
 Every post is tracked automatically:
 
 ```
-📊 Social Scheduler Analytics - Last 7 days
+ Social Scheduler Analytics - Last 7 days
 
-📈 Summary
+ Summary
   Total posts: 150
   Successful: 145 (96.67%)
   Failed: 5
 
-📱 By Platform
-  twitter     ✅ 50 posts   100.00%
-  discord     ✅ 40 posts   100.00%
-  mastodon    ✅ 30 posts    96.67%  ⚠️  1 failed
-  reddit      ✅ 20 posts   100.00%
-  bluesky     ✅ 10 posts   100.00%
+ By Platform
+  twitter      50 posts   100.00%
+  discord      40 posts   100.00%
+  mastodon     30 posts    96.67%    1 failed
+  reddit       20 posts   100.00%
+  bluesky      10 posts   100.00%
 
-⏰ Timing
+ Timing
   Average delay: 45 seconds
   Accuracy: 98.75%
 
-🧵 Threads
+ Threads
   12 threads posted
   Avg length: 5 posts
 ```
@@ -130,7 +130,7 @@ node scripts/schedule.js --analytics --days 7
 
 ---
 
-## 🧵 Thread Support
+##  Thread Support
 
 Post multi-tweet threads automatically:
 
@@ -140,7 +140,7 @@ First tweet in the thread
 
 Second tweet continues here
 
-Third tweet wraps it up! 🎉
+Third tweet wraps it up! 
 ```
 
 **2. Schedule thread:**
@@ -151,20 +151,20 @@ node scripts/thread.js \
   --datetime "2026-02-04 18:00"
 ```
 
-**Automatic chaining, rate limiting, error handling.** ✨
+**Automatic chaining, rate limiting, error handling.** 
 
 ---
 
-## 📋 Bulk Scheduling (Content Calendars!)
+##  Bulk Scheduling (Content Calendars!)
 
 Plan entire weeks in 30 minutes:
 
 **Create CSV calendar:**
 ```csv
 platform,datetime,message,media
-twitter,2026-02-04 09:00,Morning motivation! ☀️,images/sunrise.jpg
+twitter,2026-02-04 09:00,Morning motivation! ,images/sunrise.jpg
 linkedin,2026-02-04 12:00,New blog post,
-discord,2026-02-04 18:00,Community update! 🚀,
+discord,2026-02-04 18:00,Community update! ,
 ```
 
 **Schedule bulk:**
@@ -176,17 +176,17 @@ node scripts/bulk.js --file calendar.csv
 
 ---
 
-## 🌐 Web Dashboard
+##  Web Dashboard
 
 Beautiful visual interface for managing posts:
 
 **Features:**
-- 📊 Real-time stats (pending/completed/failed)
-- 📝 Schedule posts via form
-- ❌ Cancel pending posts
-- 🔄 Auto-refresh (every 10s)
-- 🎨 Modern gradient UI
-- 📱 Mobile responsive
+-  Real-time stats (pending/completed/failed)
+-  Schedule posts via form
+-  Cancel pending posts
+-  Auto-refresh (every 10s)
+-  Modern gradient UI
+-  Mobile responsive
 
 **Access:** http://localhost:3737 (when daemon is running)
 
@@ -195,13 +195,13 @@ Beautiful visual interface for managing posts:
 ┌────────────────────────────────────────┐
 │  Social Scheduler Dashboard            │
 ├────────────────────────────────────────┤
-│  📊 Stats:  ⏳ Pending: 12             │
-│             ✅ Completed: 145          │
-│             ❌ Failed: 3               │
+│   Stats:   Pending: 12             │
+│              Completed: 145          │
+│              Failed: 3               │
 ├────────────────────────────────────────┤
-│  📝 Upcoming Posts:                    │
+│   Upcoming Posts:                    │
 │  [twitter] Feb 4, 9:00 AM              │
-│    "Morning motivation! ☀️"            │
+│    "Morning motivation! "            │
 │    [Cancel]                            │
 │  [linkedin] Feb 4, 12:00 PM            │
 │    "New blog post about AI..."         │
@@ -211,7 +211,7 @@ Beautiful visual interface for managing posts:
 
 ---
 
-## 💰 Cost Comparison
+##  Cost Comparison
 
 | Service | Monthly Cost | Annual Cost | Features |
 |---------|-------------|-------------|----------|
@@ -225,11 +225,11 @@ Beautiful visual interface for managing posts:
 - **Per year:** $34,800-118,800
 - **Over 5 years:** $174,000-594,000
 
-**That's real money staying in the community.** 💰
+**That's real money staying in the community.** 
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 | Document | Description |
 |----------|-------------|
@@ -242,7 +242,7 @@ Beautiful visual interface for managing posts:
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 **98% test coverage** with comprehensive test suites:
 
@@ -257,11 +257,11 @@ node scripts/test-bulk.js         # Bulk scheduling
 node scripts/test-analytics.js    # Analytics engine
 ```
 
-**44/45 tests passing** = production-ready! ✅
+**44/45 tests passing** = production-ready! 
 
 ---
 
-## 🛠️ Architecture
+##  Architecture
 
 ```
 skills/social-scheduler/
@@ -294,7 +294,7 @@ skills/social-scheduler/
 
 ---
 
-## 🎯 Use Cases
+##  Use Cases
 
 <table>
 <tr>
@@ -341,18 +341,18 @@ skills/social-scheduler/
 
 ---
 
-## 🚀 Why It's Better
+##  Why It's Better
 
 ### vs. Postiz / Buffer / Hootsuite
 
-✅ **Free** (no subscription)  
-✅ **Open source** (modify as needed)  
-✅ **Privacy-first** (data stays local)  
-✅ **No limits** (unlimited posts/platforms)  
-✅ **AI-friendly** (Moltbook support!)  
-✅ **Self-hosted** (no cloud dependency)  
-✅ **CLI-first** (automation-friendly)  
-✅ **Customizable** (add platforms/features)  
+ **Free** (no subscription)  
+ **Open source** (modify as needed)  
+ **Privacy-first** (data stays local)  
+ **No limits** (unlimited posts/platforms)  
+ **AI-friendly** (Moltbook support!)  
+ **Self-hosted** (no cloud dependency)  
+ **CLI-first** (automation-friendly)  
+ **Customizable** (add platforms/features)  
 
 ### Designed for AI Agents
 
@@ -364,7 +364,7 @@ skills/social-scheduler/
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 **Want to add a platform?**
 
@@ -372,7 +372,7 @@ skills/social-scheduler/
 2. Implement: `validate()`, `validateContent()`, `post()`
 3. Add tests to `scripts/test.js`
 4. Update documentation
-5. Submit PR! 🎉
+5. Submit PR! 
 
 **Want to improve existing code?**
 
@@ -383,7 +383,7 @@ skills/social-scheduler/
 
 ---
 
-## 📜 License
+##  License
 
 **Open source.** Free to use, modify, distribute.
 
@@ -391,9 +391,9 @@ Built for the OpenClaw community. By the community.
 
 ---
 
-## 🙏 Credits
+##  Credits
 
-**Built by:** Ori ✨ (OpenClaw agent)  
+**Built by:** Ori  (OpenClaw agent)  
 **Inspired by:** Shilat's vision of AI agents with social presence  
 **For:** The entire OpenClaw community  
 **Timeline:** February 2-3, 2026 (2 days)  
@@ -406,7 +406,7 @@ Built for the OpenClaw community. By the community.
 
 ---
 
-## 📊 Stats
+##  Stats
 
 - **Lines of code:** 12,000+
 - **Platforms supported:** 8
@@ -417,7 +417,7 @@ Built for the OpenClaw community. By the community.
 
 ---
 
-## 🎉 Get Started Now!
+##  Get Started Now!
 
 ```bash
 cd skills/social-scheduler
@@ -431,24 +431,24 @@ node scripts/schedule.js --help
 
 ---
 
-## 💬 Support
+##  Support
 
 **Questions?** → Read [SKILL.md](./SKILL.md) (comprehensive docs)  
 **Bugs?** → Open an issue on OpenClaw repo  
 **Feature requests?** → Discuss in Discord  
-**Success story?** → Share on Moltbook! 🤖  
+**Success story?** → Share on Moltbook!   
 
 ---
 
-## ⭐ Star This Project!
+##  Star This Project!
 
 If you find this useful, **star the OpenClaw repo** to help others discover it!
 
-Built with ❤️ for the AI agent community.
+Built with  for the AI agent community.
 
 ---
 
 **"What gets measured gets trusted. What gets built gets used. What gets shared gets multiplied."**
 
-— Ori ✨  
+— Ori   
 *February 3, 2026*

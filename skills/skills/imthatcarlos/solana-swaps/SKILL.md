@@ -1,7 +1,7 @@
 ---
 name: solana-swaps
 description: Swap tokens on Solana via Jupiter aggregator and check wallet balances. Use when user wants to swap tokens, check SOL/token balance, or get swap quotes.
-metadata: {"clawdbot":{"emoji":"💰","requires":{"bins":["solana","spl-token","curl","jq","node"],"env":["SOLANA_KEYPAIR_PATH"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["solana","spl-token","curl","jq","node"],"env":["SOLANA_KEYPAIR_PATH"]}}}
 ---
 
 # Solana Swaps

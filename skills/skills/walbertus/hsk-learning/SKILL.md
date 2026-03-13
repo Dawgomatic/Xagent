@@ -111,11 +111,11 @@ This skill replaces the previous scattered HSK scripts (`scripts/*.js`) with a u
 
 | File | Purpose | User-Specific? | Git Ignored? |
 |------|---------|----------------|--------------|
-| `hsk-database.json` | HSK word database (shared) | ❌ No | ❌ No |
-| `hsk-word-to-level.json` | Word-to-level mapping (shared) | ❌ No | ❌ No |
-| `hsk-mastery-db.json` | Your personal mastery tracking | ✅ Yes | ✅ Yes |
-| `user-config.json` | Your preferences (optional) | ✅ Yes | ✅ Yes |
-| `user-config.template.json` | Configuration template | ❌ No | ❌ No |
+| `hsk-database.json` | HSK word database (shared) |  No |  No |
+| `hsk-word-to-level.json` | Word-to-level mapping (shared) |  No |  No |
+| `hsk-mastery-db.json` | Your personal mastery tracking |  Yes |  Yes |
+| `user-config.json` | Your preferences (optional) |  Yes |  Yes |
+| `user-config.template.json` | Configuration template |  No |  No |
 
 ### Git Repository Setup
 

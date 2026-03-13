@@ -47,7 +47,7 @@ def print_message_summary(message):
     timestamp = format_timestamp(message.get('timestamp', ''))
     preview = message.get('preview', message.get('text', ''))[:100]
     
-    print(f"📧 {message.get('message_id', 'N/A')}")
+    print(f" {message.get('message_id', 'N/A')}")
     print(f"   From: {from_name} <{from_addr}>" if from_name else f"   From: {from_addr}")
     print(f"   Subject: {subject}")
     print(f"   Time: {timestamp}")
@@ -62,7 +62,7 @@ def print_thread_summary(thread):
     count = thread.get('message_count', 0)
     timestamp = format_timestamp(thread.get('last_message_at', ''))
     
-    print(f"🧵 {thread.get('thread_id', 'N/A')}")
+    print(f" {thread.get('thread_id', 'N/A')}")
     print(f"   Subject: {subject}")
     print(f"   Participants: {participants}")
     print(f"   Messages: {count}")
@@ -89,7 +89,7 @@ def main():
     client = AgentMail(api_key=api_key)
     
     if args.monitor:
-        print(f"🔍 Monitoring {args.inbox} (checking every {args.monitor} seconds)")
+        print(f" Monitoring {args.inbox} (checking every {args.monitor} seconds)")
         print("Press Ctrl+C to stop\n")
         
         last_message_ids = set()
@@ -113,19 +113,19 @@ def main():
                             new_messages.append(message)
                     
                     if new_messages:
-                        print(f"🆕 Found {len(new_messages)} new message(s):")
+                        print(f" Found {len(new_messages)} new message(s):")
                         for message in new_messages:
                             print_message_summary(message)
                     
                     last_message_ids = current_message_ids
                     
                 except Exception as e:
-                    print(f"❌ Error checking inbox: {e}")
+                    print(f" Error checking inbox: {e}")
                 
                 time.sleep(args.monitor)
                 
         except KeyboardInterrupt:
-            print("\n👋 Monitoring stopped")
+            print("\n Monitoring stopped")
             return
     
     elif args.message:
@@ -136,7 +136,7 @@ def main():
                 message_id=args.message
             )
             
-            print(f"📧 Message Details:")
+            print(f" Message Details:")
             print(f"   ID: {message.get('message_id')}")
             print(f"   Thread: {message.get('thread_id')}")
             
@@ -153,7 +153,7 @@ def main():
             if message.get('labels'):
                 print(f"   Labels: {', '.join(message.get('labels'))}")
             
-            print("\n📝 Content:")
+            print("\n Content:")
             if message.get('text'):
                 print(message['text'])
             elif message.get('html'):
@@ -162,12 +162,12 @@ def main():
                 print("(No text content)")
             
             if message.get('attachments'):
-                print(f"\n📎 Attachments ({len(message['attachments'])}):")
+                print(f"\n Attachments ({len(message['attachments'])}):")
                 for att in message['attachments']:
                     print(f"   • {att.get('filename', 'unnamed')} ({att.get('content_type', 'unknown type')})")
             
         except Exception as e:
-            print(f"❌ Error getting message: {e}")
+            print(f" Error getting message: {e}")
             sys.exit(1)
     
     elif args.threads:
@@ -179,15 +179,15 @@ def main():
             )
             
             if not threads.threads:
-                print(f"📭 No threads found in {args.inbox}")
+                print(f" No threads found in {args.inbox}")
                 return
             
-            print(f"🧵 Threads in {args.inbox} (showing {len(threads.threads)}):\n")
+            print(f" Threads in {args.inbox} (showing {len(threads.threads)}):\n")
             for thread in threads.threads:
                 print_thread_summary(thread)
                 
         except Exception as e:
-            print(f"❌ Error listing threads: {e}")
+            print(f" Error listing threads: {e}")
             sys.exit(1)
     
     else:
@@ -199,15 +199,15 @@ def main():
             )
             
             if not messages.messages:
-                print(f"📭 No messages found in {args.inbox}")
+                print(f" No messages found in {args.inbox}")
                 return
             
-            print(f"📧 Messages in {args.inbox} (showing {len(messages.messages)}):\n")
+            print(f" Messages in {args.inbox} (showing {len(messages.messages)}):\n")
             for message in messages.messages:
                 print_message_summary(message)
                 
         except Exception as e:
-            print(f"❌ Error listing messages: {e}")
+            print(f" Error listing messages: {e}")
             sys.exit(1)
 
 if __name__ == '__main__':

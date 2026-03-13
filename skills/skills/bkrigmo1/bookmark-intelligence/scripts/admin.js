@@ -159,7 +159,7 @@ function displayDashboard() {
   
   // Revenue stats
   const revenue = getRevenueStats();
-  console.log('\n💰 REVENUE STATS');
+  console.log('\n REVENUE STATS');
   console.log(`   Total Revenue: $${revenue.totalRevenue.toFixed(2)}`);
   console.log(`   Total Payments: ${revenue.totalPayments}`);
   console.log(`   Pending: ${revenue.pending}`);
@@ -171,7 +171,7 @@ function displayDashboard() {
   const activeLicenses = db.licenses.filter(l => l.status === 'active');
   const expiredLicenses = activeLicenses.filter(l => l.expiresAt && new Date(l.expiresAt) < new Date());
   
-  console.log('\n📜 LICENSE STATS');
+  console.log('\n LICENSE STATS');
   console.log(`   Total Issued: ${db.issued}`);
   console.log(`   Active: ${activeLicenses.length}`);
   console.log(`   Expired: ${expiredLicenses.length}`);
@@ -180,7 +180,7 @@ function displayDashboard() {
   // Recent payments
   const recentPayments = listPayments({ status: 'completed' }).slice(-5);
   if (recentPayments.length > 0) {
-    console.log('\n📊 RECENT PAYMENTS');
+    console.log('\n RECENT PAYMENTS');
     recentPayments.forEach(p => {
       console.log(`   ${new Date(p.completedAt).toLocaleDateString()} - ${p.tier} - $${p.amount} - ${p.method}`);
     });
@@ -202,7 +202,7 @@ function displayLicenseList(licenses) {
   
   licenses.forEach(license => {
     const expired = license.expiresAt && new Date(license.expiresAt) < new Date();
-    const statusEmoji = license.status === 'active' ? (expired ? '⚠️' : '✓') : '✗';
+    const statusEmoji = license.status === 'active' ? (expired ? '' : '✓') : '✗';
     
     console.log(`\n${statusEmoji} ${license.key}`);
     console.log(`   Tier: ${license.tier}`);
@@ -327,7 +327,7 @@ switch (command) {
       console.log('No payments found.');
     } else {
       payments.forEach(p => {
-        console.log(`\n${p.status === 'completed' ? '✓' : '⏳'} ${p.id}`);
+        console.log(`\n${p.status === 'completed' ? '✓' : ''} ${p.id}`);
         console.log(`   Method: ${p.method}`);
         console.log(`   Tier: ${p.tier} (${p.period})`);
         console.log(`   Amount: $${p.amount}`);

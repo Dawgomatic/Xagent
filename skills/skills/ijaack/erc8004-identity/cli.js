@@ -60,7 +60,7 @@ function getWallet() {
   
   const privateKey = process.env.PRIVATE_KEY;
   if (!privateKey) {
-    console.error("❌ PRIVATE_KEY not found in .env");
+    console.error(" PRIVATE_KEY not found in .env");
     process.exit(1);
   }
   
@@ -80,7 +80,7 @@ async function init() {
   }
   
   if (fs.existsSync(configPath)) {
-    console.log("⚠️  Config already exists at config/agent.config.js");
+    console.log("  Config already exists at config/agent.config.js");
     return;
   }
   
@@ -107,15 +107,15 @@ async function init() {
 `;
   
   fs.writeFileSync(configPath, template);
-  console.log("✅ Created config/agent.config.js");
-  console.log("📝 Edit the config with your agent details");
-  console.log("🔑 Create .env with PRIVATE_KEY=your_key");
+  console.log(" Created config/agent.config.js");
+  console.log(" Edit the config with your agent details");
+  console.log(" Create .env with PRIVATE_KEY=your_key");
 }
 
 async function deploy() {
   const config = loadConfig();
   if (!config) {
-    console.error("❌ No config found. Run: node cli.js init");
+    console.error(" No config found. Run: node cli.js init");
     return;
   }
   
@@ -130,7 +130,7 @@ async function deploy() {
   console.log("");
   
   if (balance < ethers.parseEther("0.05")) {
-    console.error("❌ Insufficient balance. Need at least 0.05 AVAX");
+    console.error(" Insufficient balance. Need at least 0.05 AVAX");
     return;
   }
   
@@ -156,7 +156,7 @@ async function deploy() {
     deployment.reputationRegistry = REPUTATION_REGISTRY;
     saveDeployment(deployment);
     
-    console.log("   ✅ Registered! Agent ID:", agentId);
+    console.log("    Registered! Agent ID:", agentId);
   } else {
     console.log("1. Agent already registered. ID:", deployment.agentId);
   }
@@ -177,7 +177,7 @@ async function deploy() {
     deployment.validationRegistry = await validationRegistry.getAddress();
     saveDeployment(deployment);
     
-    console.log("   ✅ Deployed:", deployment.validationRegistry);
+    console.log("    Deployed:", deployment.validationRegistry);
   } else {
     console.log("2. ValidationRegistry exists:", deployment.validationRegistry);
   }
@@ -202,7 +202,7 @@ async function deploy() {
     deployment.taskAgent = await taskAgent.getAddress();
     saveDeployment(deployment);
     
-    console.log("   ✅ Deployed:", deployment.taskAgent);
+    console.log("    Deployed:", deployment.taskAgent);
   } else {
     console.log("3. TaskAgent exists:", deployment.taskAgent);
   }
@@ -218,7 +218,7 @@ async function deploy() {
     if (currentPrice !== targetPrice) {
       const tx = await taskAgent.setTaskPrice(task.id, targetPrice);
       await tx.wait();
-      console.log(`   ✅ ${task.name}: ${task.price} AVAX`);
+      console.log(`    ${task.name}: ${task.price} AVAX`);
     } else {
       console.log(`   ✓ ${task.name}: ${task.price} AVAX (already set)`);
     }
@@ -231,7 +231,7 @@ async function deploy() {
   if (config.agent.uri) {
     const tx = await identity.setAgentURI(deployment.agentId, config.agent.uri, { gasLimit: 100000 });
     await tx.wait();
-    console.log("   ✅ URI set");
+    console.log("    URI set");
   }
   
   if (config.agent.name) {
@@ -242,7 +242,7 @@ async function deploy() {
       { gasLimit: 100000 }
     );
     await tx.wait();
-    console.log("   ✅ Name set:", config.agent.name);
+    console.log("    Name set:", config.agent.name);
   }
   
   if (config.agent.description) {
@@ -253,7 +253,7 @@ async function deploy() {
       { gasLimit: 150000 }
     );
     await tx.wait();
-    console.log("   ✅ Description set");
+    console.log("    Description set");
   }
   
   if (config.agent.twitter) {
@@ -264,7 +264,7 @@ async function deploy() {
       { gasLimit: 100000 }
     );
     await tx.wait();
-    console.log("   ✅ Twitter set:", config.agent.twitter);
+    console.log("    Twitter set:", config.agent.twitter);
   }
   
   deployment.timestamp = new Date().toISOString();
@@ -287,7 +287,7 @@ async function deploy() {
 async function setMetadata(key, value) {
   const deployment = loadDeployment();
   if (!deployment?.agentId) {
-    console.error("❌ No deployment found. Run: node cli.js deploy");
+    console.error(" No deployment found. Run: node cli.js deploy");
     return;
   }
   
@@ -302,13 +302,13 @@ async function setMetadata(key, value) {
     { gasLimit: 150000 }
   );
   await tx.wait();
-  console.log("✅ Done! TX:", tx.hash);
+  console.log(" Done! TX:", tx.hash);
 }
 
 async function setUri(uri) {
   const deployment = loadDeployment();
   if (!deployment?.agentId) {
-    console.error("❌ No deployment found. Run: node cli.js deploy");
+    console.error(" No deployment found. Run: node cli.js deploy");
     return;
   }
   
@@ -318,13 +318,13 @@ async function setUri(uri) {
   console.log(`Setting URI = "${uri}"...`);
   const tx = await identity.setAgentURI(deployment.agentId, uri, { gasLimit: 100000 });
   await tx.wait();
-  console.log("✅ Done! TX:", tx.hash);
+  console.log(" Done! TX:", tx.hash);
 }
 
 async function setPrice(taskId, price) {
   const deployment = loadDeployment();
   if (!deployment?.taskAgent) {
-    console.error("❌ No TaskAgent found. Run: node cli.js deploy");
+    console.error(" No TaskAgent found. Run: node cli.js deploy");
     return;
   }
   
@@ -334,13 +334,13 @@ async function setPrice(taskId, price) {
   console.log(`Setting task ${taskId} price to ${price} AVAX...`);
   const tx = await taskAgent.setTaskPrice(taskId, ethers.parseEther(price));
   await tx.wait();
-  console.log("✅ Done! TX:", tx.hash);
+  console.log(" Done! TX:", tx.hash);
 }
 
 async function status() {
   const deployment = loadDeployment();
   if (!deployment) {
-    console.log("❌ No deployment found.");
+    console.log(" No deployment found.");
     console.log("Run: node cli.js init && node cli.js deploy");
     return;
   }

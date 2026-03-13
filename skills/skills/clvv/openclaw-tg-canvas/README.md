@@ -35,13 +35,13 @@ This package provides a Telegram Mini App that renders agent-generated HTML or m
 
 | Endpoint | Public? | Auth |
 | --- | --- | --- |
-| `GET /` | ✅ | None (serves static Mini App HTML) |
-| `POST /auth` | ✅ | Telegram `initData` HMAC-SHA256 + `ALLOWED_USER_IDS` check |
-| `GET /state` | ✅ | JWT required |
-| `GET /ws` | ✅ | JWT required (WebSocket upgrade) |
-| `POST /push` | ❌ loopback-only | Enforced at socket level; optional `PUSH_TOKEN` for defense-in-depth |
-| `POST /clear` | ❌ loopback-only | Same as above |
-| `GET /health` | ❌ loopback-only | Same as above |
+| `GET /` |  | None (serves static Mini App HTML) |
+| `POST /auth` |  | Telegram `initData` HMAC-SHA256 + `ALLOWED_USER_IDS` check |
+| `GET /state` |  | JWT required |
+| `GET /ws` |  | JWT required (WebSocket upgrade) |
+| `POST /push` |  loopback-only | Enforced at socket level; optional `PUSH_TOKEN` for defense-in-depth |
+| `POST /clear` |  loopback-only | Same as above |
+| `GET /health` |  loopback-only | Same as above |
 
 Loopback enforcement for `/push`, `/clear`, and `/health` is done at the TCP socket level (`req.socket.remoteAddress`), not via headers — it cannot be spoofed via `X-Forwarded-For`.
 

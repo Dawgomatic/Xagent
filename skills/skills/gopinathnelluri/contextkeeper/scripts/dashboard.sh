@@ -21,13 +21,13 @@ fi
 
 # Header
 echo ""
-echo "${BOLD}${CYAN}🔮 ContextKeeper Dashboard${RESET}"
+echo "${BOLD}${CYAN} ContextKeeper Dashboard${RESET}"
 echo "${DIM}$(date '+%Y-%m-%d %H:%M UTC')${RESET}"
 echo ""
 
 # Check if initialized
 if [ ! -d "$CKPT_DIR" ]; then
-    echo "${YELLOW}⚠️  ContextKeeper not initialized.${RESET}"
+    echo "${YELLOW}  ContextKeeper not initialized.${RESET}"
     echo "    Run: ckpt.sh to create first checkpoint"
     echo ""
     exit 1

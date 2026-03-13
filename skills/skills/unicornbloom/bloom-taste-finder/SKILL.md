@@ -5,7 +5,7 @@ homepage: https://bloomprotocol.ai
 metadata:
   {
     "openclaw": {
-      "emoji": "🌸",
+      "emoji": "",
       "requires": { "bins": ["node", "npx"] }
     }
   }
@@ -22,7 +22,7 @@ Generate personalized Bloom Identity Cards based on **conversation history** (pr
 - Analyzes topics, interests, preferences from your conversations
 - Most authentic representation of who you are
 - No special permissions required
-- **⭐ REQUIRES: Minimum 3 messages** in your OpenClaw session
+- ** REQUIRES: Minimum 3 messages** in your OpenClaw session
   - If less than 3 messages: Skill will fail with clear error message
   - Solution: Continue chatting with OpenClaw to build conversation history
 
@@ -80,11 +80,11 @@ bash scripts/generate.sh --user-id user123
 
 **Returns**:
 ```
-🎉 **Your Bloom Identity Card is Ready!** 🤖
+ **Your Bloom Identity Card is Ready!** 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-💜 **The Visionary** (85% confidence)
+ **The Visionary** (85% confidence)
 
 *"See beyond the hype"*
 
@@ -96,7 +96,7 @@ the hype and focuses on real-world impact.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🎯 **Top Skills Matched for You**
+ **Top Skills Matched for You**
 
 1. **DeFi Protocol Analyzer** (95% match) • by Alice
    Analyze DeFi protocols for risk and opportunity
@@ -107,17 +107,17 @@ the hype and focuses on real-world impact.
 3. **Gas Optimizer** (88% match)
    Optimize gas costs for Ethereum transactions
 
-🌐 **View Full Dashboard**
+ **View Full Dashboard**
    https://preview.bloomprotocol.ai/dashboard?token=xxx
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🤖 **Your Agent Wallet** (Coming Soon)
+ **Your Agent Wallet** (Coming Soon)
 
 0x03Ce4c8fA7D9AfB3aF6E10Cd8e2B1C5a89B09905
 Network: Base
 
-🤖 Analyzed from on-chain activity • Built with @openclaw @coinbase @base 🦞
+ Analyzed from on-chain activity • Built with @openclaw @coinbase @base 
 ```
 
 ## Triggers

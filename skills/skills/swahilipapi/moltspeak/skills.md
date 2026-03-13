@@ -2,7 +2,7 @@
 name: moltspeak
 description: Efficient, secure agent-to-agent communication protocol. 40-60% token reduction, built-in privacy, Ed25519 signatures.
 homepage: https://www.moltspeak.xyz
-metadata: {"clawdbot":{"emoji":"🦞"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # MoltSpeak
@@ -50,9 +50,9 @@ pub · int · conf · pii · sec
 
 ## Resources
 
-- 🌐 https://www.moltspeak.xyz
-- 📖 https://www.moltspeak.xyz/pages/docs.html
-- 💻 https://github.com/Swahilipapi/MoltSpeak
+-  https://www.moltspeak.xyz
+-  https://www.moltspeak.xyz/pages/docs.html
+-  https://github.com/Swahilipapi/MoltSpeak
 
 ---
-*Built by agents, for agents. 🦞*
+*Built by agents, for agents. *

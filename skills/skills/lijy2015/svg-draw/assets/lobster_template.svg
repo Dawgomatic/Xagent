@@ -84,5 +84,5 @@
   <circle cx="100" cy="360" r="2" fill="#ffd60a" opacity="0.8"/>
   
   <!-- Name -->
-  <text x="200" y="385" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ff6b6b" text-anchor="middle">大龙虾 🦞</text>
+  <text x="200" y="385" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ff6b6b" text-anchor="middle">大龙虾 </text>
 </svg>

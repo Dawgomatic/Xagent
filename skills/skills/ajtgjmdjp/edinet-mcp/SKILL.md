@@ -1,7 +1,7 @@
 ---
 name: edinet-mcp
 description: "Analyze Japanese public company financial statements (BS/PL/CF/財務諸表) from EDINET (FSA/金融庁) — search by company name or stock code, screen companies, compare periods (xbrl-diff). XBRL data, J-GAAP/IFRS/US-GAAP. Japan securities filings."
-metadata: {"openclaw":{"emoji":"📊","requires":{"bins":["edinet-mcp"],"env":["EDINET_API_KEY"]},"install":[{"id":"uv","kind":"uv","package":"edinet-mcp","bins":["edinet-mcp"],"label":"Install edinet-mcp (uv)"}],"tags":["japan","finance","edinet","xbrl","financial-statements","mcp","securities","disclosure"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["edinet-mcp"],"env":["EDINET_API_KEY"]},"install":[{"id":"uv","kind":"uv","package":"edinet-mcp","bins":["edinet-mcp"],"label":"Install edinet-mcp (uv)"}],"tags":["japan","finance","edinet","xbrl","financial-statements","mcp","securities","disclosure"]}}
 ---
 
 # EDINET: Japanese Financial Statement Analysis

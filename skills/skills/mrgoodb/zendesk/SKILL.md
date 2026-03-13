@@ -1,7 +1,7 @@
 ---
 name: zendesk
 description: Manage support tickets, users, and help center via Zendesk API. Create, update, and search tickets programmatically.
-metadata: {"clawdbot":{"emoji":"🎫","requires":{"env":["ZENDESK_SUBDOMAIN","ZENDESK_EMAIL","ZENDESK_API_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["ZENDESK_SUBDOMAIN","ZENDESK_EMAIL","ZENDESK_API_TOKEN"]}}}
 ---
 
 # Zendesk

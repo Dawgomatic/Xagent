@@ -47,7 +47,7 @@ def backup_config(config_path):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     backup_path = f"{config_path}.backup_{timestamp}"
     shutil.copy2(config_path, backup_path)
-    print(f"✅ Configuration backed up to: {backup_path}")
+    print(f" Configuration backed up to: {backup_path}")
     return backup_path
 
 def get_memory_search_config():
@@ -101,7 +101,7 @@ def apply_memory_config(config_path, dry_run=False):
         existing_memory = config['agents']['defaults'].get('memorySearch', {})
         
         if existing_memory:
-            print(f"⚠️  memorySearch configuration already exists")
+            print(f"  memorySearch configuration already exists")
             print(f"   Current extraPaths: {existing_memory.get('extraPaths', [])}")
             
             # Merge configurations - add any missing extraPaths
@@ -112,16 +112,16 @@ def apply_memory_config(config_path, dry_run=False):
             if missing_paths:
                 existing_memory['extraPaths'] = existing_memory.get('extraPaths', [])
                 existing_memory['extraPaths'].extend(list(missing_paths))
-                print(f"➕ Adding missing paths: {list(missing_paths)}")
+                print(f" Adding missing paths: {list(missing_paths)}")
             else:
-                print(f"✅ All critical files already in extraPaths")
+                print(f" All critical files already in extraPaths")
                 return False
         else:
-            print(f"➕ Adding complete memorySearch configuration")
+            print(f" Adding complete memorySearch configuration")
             config['agents']['defaults']['memorySearch'] = memory_config
         
         if dry_run:
-            print(f"\n🔍 DRY RUN - Configuration changes:")
+            print(f"\n DRY RUN - Configuration changes:")
             print(json.dumps(config['agents']['defaults']['memorySearch'], indent=2))
             return False
         
@@ -129,14 +129,14 @@ def apply_memory_config(config_path, dry_run=False):
         with open(config_path, 'w') as f:
             json.dump(config, f, indent=2)
         
-        print(f"✅ OpenClaw configuration updated successfully")
+        print(f" OpenClaw configuration updated successfully")
         return True
         
     except json.JSONDecodeError as e:
-        print(f"❌ Error parsing configuration file: {e}")
+        print(f" Error parsing configuration file: {e}")
         return False
     except Exception as e:
-        print(f"❌ Error updating configuration: {e}")
+        print(f" Error updating configuration: {e}")
         return False
 
 def restart_openclaw():
@@ -146,22 +146,22 @@ def restart_openclaw():
                               capture_output=True, text=True, timeout=30)
         
         if result.returncode == 0:
-            print("✅ OpenClaw restarted successfully")
+            print(" OpenClaw restarted successfully")
             return True
         else:
-            print(f"⚠️  OpenClaw restart command returned code {result.returncode}")
+            print(f"  OpenClaw restart command returned code {result.returncode}")
             print(f"   stdout: {result.stdout}")
             print(f"   stderr: {result.stderr}")
             return False
             
     except subprocess.TimeoutExpired:
-        print("⚠️  OpenClaw restart timed out (30s)")
+        print("  OpenClaw restart timed out (30s)")
         return False
     except FileNotFoundError:
-        print("⚠️  'openclaw' command not found - restart manually")
+        print("  'openclaw' command not found - restart manually")
         return False
     except Exception as e:
-        print(f"⚠️  Error restarting OpenClaw: {e}")
+        print(f"  Error restarting OpenClaw: {e}")
         return False
 
 def verify_configuration():
@@ -182,25 +182,25 @@ def verify_configuration():
                     missing_paths = set(required_paths) - set(extra_paths)
                     
                     if not missing_paths:
-                        print("✅ Configuration verification successful")
+                        print(" Configuration verification successful")
                         print(f"   memorySearch enabled with {len(extra_paths)} extraPaths")
                         return True
                     else:
-                        print(f"⚠️  Configuration incomplete - missing paths: {list(missing_paths)}")
+                        print(f"  Configuration incomplete - missing paths: {list(missing_paths)}")
                         return False
                 else:
-                    print("❌ memorySearch not enabled in active configuration")
+                    print(" memorySearch not enabled in active configuration")
                     return False
                     
             except json.JSONDecodeError:
-                print("⚠️  Could not parse OpenClaw configuration output")
+                print("  Could not parse OpenClaw configuration output")
                 return False
         else:
-            print("⚠️  Could not retrieve OpenClaw configuration for verification")
+            print("  Could not retrieve OpenClaw configuration for verification")
             return False
             
     except Exception as e:
-        print(f"⚠️  Configuration verification failed: {e}")
+        print(f"  Configuration verification failed: {e}")
         return False
 
 def main():
@@ -214,20 +214,20 @@ def main():
     
     args = parser.parse_args()
     
-    print("🔧 OpenClaw Memory Configuration Script")
+    print(" OpenClaw Memory Configuration Script")
     print("=" * 50)
     
     # Find configuration file
     config_path = get_openclaw_config_path()
     if not config_path:
-        print("❌ Could not find OpenClaw configuration file")
+        print(" Could not find OpenClaw configuration file")
         print("   Expected locations:")
         print("   - ~/.openclaw/openclaw.json")
         print("   - ~/.openclaw/config.json") 
         print("   - ./openclaw.json")
         sys.exit(1)
     
-    print(f"📁 Found configuration: {config_path}")
+    print(f" Found configuration: {config_path}")
     
     # Create backup
     if args.backup and not args.dry_run:
@@ -237,39 +237,39 @@ def main():
     changes_made = apply_memory_config(config_path, args.dry_run)
     
     if not changes_made:
-        print("ℹ️  No configuration changes needed")
+        print("  No configuration changes needed")
         sys.exit(0)
     
     if args.dry_run:
-        print("\n🔍 Dry run completed - use without --dry-run to apply changes")
+        print("\n Dry run completed - use without --dry-run to apply changes")
         sys.exit(0)
     
     # Restart OpenClaw
     if not args.no_restart:
-        print("\n🔄 Restarting OpenClaw to apply changes...")
+        print("\n Restarting OpenClaw to apply changes...")
         restart_success = restart_openclaw()
         
         if restart_success:
-            print("⏳ Waiting for restart to complete...")
+            print(" Waiting for restart to complete...")
             import time
             time.sleep(5)
             
             # Verify configuration
-            print("🔍 Verifying configuration...")
+            print(" Verifying configuration...")
             if verify_configuration():
-                print("\n🎉 OpenClaw memory configuration completed successfully!")
+                print("\n OpenClaw memory configuration completed successfully!")
                 print("\nNext steps:")
                 print("1. Test memory search: openclaw memory search 'your query'")
                 print("2. Verify indexing of critical files (SOUL.md, AGENTS.md, etc.)")
                 print("3. Check that directives are now being found in memory searches")
             else:
-                print("\n⚠️  Configuration applied but verification failed")
+                print("\n  Configuration applied but verification failed")
                 print("   Manual verification recommended")
         else:
-            print("\n⚠️  Configuration updated but restart failed")
+            print("\n  Configuration updated but restart failed")
             print("   Please restart OpenClaw manually: openclaw gateway restart")
     else:
-        print("\n✅ Configuration updated")
+        print("\n Configuration updated")
         print("   Restart OpenClaw to apply changes: openclaw gateway restart")
 
 if __name__ == "__main__":

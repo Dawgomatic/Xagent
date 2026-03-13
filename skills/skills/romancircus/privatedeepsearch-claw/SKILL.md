@@ -1,14 +1,14 @@
-# 🧿 Deep Private Search (VPN Required)
+#  Deep Private Search (VPN Required)
 
-**🚨 VPN REQUIRED** - This tool MUST be used with VPN to be hidden. Without VPN, you're exposing your real IP to search engines.
+** VPN REQUIRED** - This tool MUST be used with VPN to be hidden. Without VPN, you're exposing your real IP to search engines.
 
 Don't let Big Tech know what you and your open claw are up to. Multi-iteration deep research that helps keep your claws private.
 
 ## What You Get vs What You Don't
 
-**⚠️ VPN REQUIREMENT:** This tool REQUIRES VPN to be hidden. Without VPN, you're still exposing your IP to search engines.
+** VPN REQUIREMENT:** This tool REQUIRES VPN to be hidden. Without VPN, you're still exposing your IP to search engines.
 
-**✅ CAPABILITIES:**
+** CAPABILITIES:**
 • Local SearXNG → Zero latency, no external calls  
 • VPN-routed → REQUIRED for privacy (Mullvad/Tailscale support)
 • No rate limits → Unlimited vs Google APIs
@@ -18,13 +18,13 @@ Don't let Big Tech know what you and your open claw are up to. Multi-iteration d
 • 40+ privacy engines → DuckDuckGo, Brave, Startpage
 • Zero tracking → No history/profile building
 
-**❌ WITHOUT VPN (What You're Exposing):**
+** WITHOUT VPN (What You're Exposing):**
 • Real IP address → Search engines see you
 • ISP tracking → Your provider knows what you search  
 • Location data → Geographic profiling
 • Search patterns → Behavioral analysis
 
-**❌ LIMITATIONS:**
+** LIMITATIONS:**
 • Real-time news → 15-30min delay on breaking stories
 • Personalized results → No search history optimization  
 • Image-heavy search → Limited visual content discovery

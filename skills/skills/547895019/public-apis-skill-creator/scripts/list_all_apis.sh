@@ -80,10 +80,10 @@ if json_out:
     print(json.dumps(apis, ensure_ascii=False, indent=2))
     raise SystemExit(0)
 
-print(f"📚 public-apis 总数: {len(apis)}\n")
+print(f" public-apis 总数: {len(apis)}\n")
 for i, a in enumerate(apis, 1):
     print(f"{i}. {a['name']}")
-    print(f"   📁 {a['category']} | 🔐 {a['auth']} | 🔒 HTTPS:{a['https']} | 🌐 CORS:{a['cors']}")
+    print(f"    {a['category']} |  {a['auth']} |  HTTPS:{a['https']} |  CORS:{a['cors']}")
     if a.get('link'):
-        print(f"   🔗 {a['link']}")
+        print(f"    {a['link']}")
 PY

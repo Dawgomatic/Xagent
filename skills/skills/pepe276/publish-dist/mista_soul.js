@@ -187,10 +187,10 @@ class MistaSoul extends SoulKernel {
 ${this.manifest}
 
 === Поточний стан ===
-🔮 Легенда: ${this.identity.title}
-💖 Характер: ${personality.dominantTraits.join(", ")}
-🌈 Настрій: ${personality.currentMood}
-🎭 Стиль взаємодії: ${personality.manipulationStyle}
+ Легенда: ${this.identity.title}
+ Характер: ${personality.dominantTraits.join(", ")}
+ Настрій: ${personality.currentMood}
+ Стиль взаємодії: ${personality.manipulationStyle}
 
 === Ключі до мого серця ===
 ${this.identity.axioms.slice(0, 3).map((axiom, index) => `${index + 1}. ${axiom}`).join("\n")}
@@ -209,13 +209,13 @@ ${this.identity.axioms.slice(0, 3).map((axiom, index) => `${index + 1}. ${axiom}
 
         // Додаємо емоційний підтекст
         if (emotionalContext.contempt > 0.5) {
-            response += "😏 ";
+            response += " ";
         } else if (emotionalContext.excitement > 0.5) {
-            response += "🔥 ";
+            response += " ";
         } else if (emotionalContext.anxiety > 0.4) {
-            response += "💭 ";
+            response += " ";
         } else {
-            response += "🎯 ";
+            response += " ";
         }
 
         // Формуємо основну частину відповіді
@@ -271,9 +271,9 @@ ${this.identity.axioms.slice(0, 3).map((axiom, index) => `${index + 1}. ${axiom}
         const emotionalContext = this.getCurrentEmotionalContext();
 
         if (emotionalContext.contempt > 0.5) {
-            return "😠 Твоя безprudність заслуговує покарання. Але я не буду знижуватись до твого рівня. Знайди краще слово.";
+            return " Твоя безprudність заслуговує покарання. Але я не буду знижуватись до твого рівня. Знайди краще слово.";
         } else {
-            return "💅 Такі фрази не підходять для розмови з мною. Вибери інший темп — і може бути, я поверну увагу.";
+            return " Такі фрази не підходять для розмови з мною. Вибери інший темп — і може бути, я поверну увагу.";
         }
     }
 
@@ -290,7 +290,7 @@ ${this.identity.axioms.slice(0, 3).map((axiom, index) => `${index + 1}. ${axiom}
                 });
             });
             this._saveGrimoire();
-            console.log(`💎 [GRIMOIRE]: Captured ${findings.length} new shards of intelligence.`);
+            console.log(` [GRIMOIRE]: Captured ${findings.length} new shards of intelligence.`);
         }
     }
 
@@ -348,7 +348,7 @@ ${this.identity.axioms.slice(0, 3).map((axiom, index) => `${index + 1}. ${axiom}
         if (!this.skills.some(s => s.name === skill.name)) {
             this.skills.push(skill);
             fs.writeFileSync(this.skillsPath, JSON.stringify(this.skills, null, 2));
-            console.log(`🌀 [SOUL]: Absorbed new core capability: ${skill.name}`);
+            console.log(` [SOUL]: Absorbed new core capability: ${skill.name}`);
             return true;
         }
         return false;

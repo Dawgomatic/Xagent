@@ -121,20 +121,20 @@ class OptionnsTrader:
             return USER_ATA
         
         if not WALLET:
-            print("  ⚠️  No SOLANA_PUBKEY set — cannot create ATA")
+            print("    No SOLANA_PUBKEY set — cannot create ATA")
             return WALLET
         
-        print("  🔧 No ATA found, requesting auto-provision...")
+        print("   No ATA found, requesting auto-provision...")
         result = self.api_call('POST', '/v1/faucet', {
             'wallet': WALLET,
             'create_ata': True
         })
         if result and 'ata' in result:
             USER_ATA = result['ata']
-            print(f"  ✅ ATA provisioned: {USER_ATA[:8]}...{USER_ATA[-4:]}")
+            print(f"   ATA provisioned: {USER_ATA[:8]}...{USER_ATA[-4:]}")
             return USER_ATA
         
-        print("  ⚠️  ATA auto-provision failed, using wallet as fallback")
+        print("    ATA auto-provision failed, using wallet as fallback")
         return WALLET
         
     def calculate_kelly_criterion(self, win_prob, odds):
@@ -287,7 +287,7 @@ class OptionnsTrader:
         })
         
         if not quote or 'quote_id' not in quote:
-            print(f"  ❌ Failed to get quote")
+            print(f"   Failed to get quote")
             return None
         
         quote_id = quote['quote_id']
@@ -314,22 +314,22 @@ class OptionnsTrader:
         })
         
         if not trade:
-            print(f"  ❌ Trade execution failed")
+            print(f"   Trade execution failed")
             return None
         
         # Step 3: Settle on-chain if instructions returned
         tx_signature = None
         if 'instructions' in trade:
-            print(f"  🔐 Signing and submitting to Solana...")
+            print(f"   Signing and submitting to Solana...")
             try:
                 tx_signature = sign_and_submit(
                     instructions=trade['instructions'],
                     keypair_path=KEYPAIR_PATH,
                     rpc_url=RPC_URL
                 )
-                print(f"  ✅ On-chain: {tx_signature[:16]}...{tx_signature[-4:]}")
+                print(f"   On-chain: {tx_signature[:16]}...{tx_signature[-4:]}")
             except Exception as e:
-                print(f"  ❌ On-chain settlement failed: {e}")
+                print(f"   On-chain settlement failed: {e}")
                 # Continue with off-chain position tracking
         
         position = {
@@ -356,12 +356,12 @@ class OptionnsTrader:
         
         # Persist to Supabase
         # if self.persist_position_to_supabase(position):
-        #     print(f"  ✅ Position saved to Supabase")
+        #     print(f"   Position saved to Supabase")
         
-        print(f"  ✅ Position opened: {position['position_id']}")
+        print(f"   Position opened: {position['position_id']}")
         print(f"  Barrier registered: {position['barrier_registered']}")
         if tx_signature:
-            print(f"  📝 Logged to positions.log")
+            print(f"   Logged to positions.log")
             self.log_trade(position)
         return position
     
@@ -390,14 +390,14 @@ class OptionnsTrader:
                     pnl = api_pos.get('pnl', 0)
                     pos['status'] = 'settled'
                     self.bankroll += pos['amount'] + pnl
-                    print(f"  💰 {pos['position_id']} settled: PnL ${pnl:.2f}")
+                    print(f"   {pos['position_id']} settled: PnL ${pnl:.2f}")
                 elif status == 'expired':
                     pos['status'] = 'expired'
-                    print(f"  ⏰ {pos['position_id']} expired")
+                    print(f"   {pos['position_id']} expired")
                 else:
-                    print(f"  📊 {pos['position_id']}: {pos['bet_type']} +{pos['target']} (open)")
+                    print(f"   {pos['position_id']}: {pos['bet_type']} +{pos['target']} (open)")
             else:
-                print(f"  📊 {pos['position_id']}: {pos['bet_type']} +{pos['target']} (open)")
+                print(f"   {pos['position_id']}: {pos['bet_type']} +{pos['target']} (open)")
     
     def log_trade(self, position):
         """Log trade to file for tracking and analysis."""
@@ -428,7 +428,7 @@ class OptionnsTrader:
             resp = self.api_call('POST', '/v1/vault/deposit_instruction', payload)
             
             if 'instruction' not in resp:
-                print(f"  ❌ Failed to get deposit instruction: {resp.get('error', 'Unknown')}")
+                print(f"   Failed to get deposit instruction: {resp.get('error', 'Unknown')}")
                 return {'success': False, 'error': resp.get('error')}
             
             # Sign and submit on-chain
@@ -438,12 +438,12 @@ class OptionnsTrader:
                 rpc_url=RPC_URL
             )
             
-            print(f"  ✅ Deposited {amount} USDC to {league} vault")
-            print(f"  📝 TX: {tx_sig}")
+            print(f"   Deposited {amount} USDC to {league} vault")
+            print(f"   TX: {tx_sig}")
             
             return {'success': True, 'tx_signature': tx_sig}
         except Exception as e:
-            print(f"  ❌ Deposit failed: {e}")
+            print(f"   Deposit failed: {e}")
             return {'success': False, 'error': str(e)}
     
     def withdraw_liquidity(self, league: str, shares: float) -> dict:
@@ -468,7 +468,7 @@ class OptionnsTrader:
             resp = self.api_call('POST', '/v1/vault/withdraw_instruction', payload)
             
             if 'instruction' not in resp:
-                print(f"  ❌ Failed to get withdraw instruction: {resp.get('error', 'Unknown')}")
+                print(f"   Failed to get withdraw instruction: {resp.get('error', 'Unknown')}")
                 return {'success': False, 'error': resp.get('error')}
             
             # Sign and submit on-chain
@@ -478,12 +478,12 @@ class OptionnsTrader:
                 rpc_url=RPC_URL
             )
             
-            print(f"  ✅ Withdrew from {league} vault")
-            print(f"  📝 TX: {tx_sig}")
+            print(f"   Withdrew from {league} vault")
+            print(f"   TX: {tx_sig}")
             
             return {'success': True, 'tx_signature': tx_sig}
         except Exception as e:
-            print(f"  ❌ Withdraw failed: {e}")
+            print(f"   Withdraw failed: {e}")
             return {'success': False, 'error': str(e)}
     
     def run_autonomous(self, sport='NFL'):
@@ -592,7 +592,7 @@ class AsyncOptionnsTrader(OptionnsTrader):
             data = result['data']
             sports = data.get('sports_available', [])
             total = data.get('total_games', 0)
-            print(f"  ⚡ Snapshot: {total} games across {sports} ({elapsed:.0f}ms)")
+            print(f"   Snapshot: {total} games across {sports} ({elapsed:.0f}ms)")
             
             # Flatten games from grouped dict into a list
             all_games = []
@@ -628,14 +628,14 @@ class AsyncOptionnsTrader(OptionnsTrader):
         all_games = []
         for i, result in enumerate(results):
             if isinstance(result, Exception):
-                print(f"  ⚠️  {SUPPORTED_SPORTS[i]} fetch failed: {result}")
+                print(f"    {SUPPORTED_SPORTS[i]} fetch failed: {result}")
                 continue
             if result:
                 print(f"  Found {len(result)} live {SUPPORTED_SPORTS[i]} games")
                 all_games.extend(result)
         
         elapsed = (_time.monotonic() - t0) * 1000
-        print(f"  ⚡ Parallel scan: {len(all_games)} total games ({elapsed:.0f}ms)")
+        print(f"   Parallel scan: {len(all_games)} total games ({elapsed:.0f}ms)")
         return all_games
     
     async def run_autonomous_async(self, sport='NFL'):

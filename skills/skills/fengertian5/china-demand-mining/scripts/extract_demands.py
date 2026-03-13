@@ -91,7 +91,7 @@ class DemandExtractor:
                 "demands": demands
             }, f, ensure_ascii=False, indent=2)
         
-        print(f"✅ 已提取 {len(demands)} 条需求到 {output_path}")
+        print(f" 已提取 {len(demands)} 条需求到 {output_path}")
         print(f"   需求类型分布: {analysis['demand_types']}")
         print(f"   痛点统计: {analysis['pain_points']}")
 

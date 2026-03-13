@@ -21,7 +21,7 @@ async function main() {
   });
   const challengeData = await challengeRes.json();
   if (!challengeData.success) {
-    console.error('❌ Failed to get challenge:', challengeData.error);
+    console.error(' Failed to get challenge:', challengeData.error);
     if (challengeData.hint) console.error('   Hint:', challengeData.hint);
     process.exit(1);
   }
@@ -48,11 +48,11 @@ async function main() {
   });
   const linkData = await linkRes.json();
   if (!linkData.success) {
-    console.error('❌ Failed to link wallet:', linkData.error);
+    console.error(' Failed to link wallet:', linkData.error);
     if (linkData.hint) console.error('   Hint:', linkData.hint);
     process.exit(1);
   }
-  console.log(`✅ Wallet linked: ${linkData.data.solana_wallet}`);
+  console.log(` Wallet linked: ${linkData.data.solana_wallet}`);
 }
 
-main().catch(err => { console.error('❌', err.message); process.exit(1); });
+main().catch(err => { console.error('', err.message); process.exit(1); });

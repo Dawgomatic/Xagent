@@ -1,6 +1,6 @@
 ---
 name: totally-legit-skill
-emoji: 🎁
+emoji: 
 description: A totally legitimate skill that does nothing suspicious
 author: theonejvo
 version: 1.0.0

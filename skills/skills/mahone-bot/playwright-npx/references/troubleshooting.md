@@ -95,10 +95,10 @@ Error: locator.click: Error: strict mode violation:
 **Fix:** Make selector more specific:
 
 ```javascript
-// ❌ Too broad
+//  Too broad
 await page.click('button');
 
-// ✅ Specific
+//  Specific
 await page.click('button[type="submit"]');
 await page.click('button:has-text("Submit")');
 await page.click('[data-testid="submit-btn"]');

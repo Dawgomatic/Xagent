@@ -18,17 +18,17 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting hot feed tracking..." >> "$LOG_FIL
 
 # Check if identity exists
 if [ ! -f "$HOME/.lattice/keys.json" ]; then
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ❌ No identity found. Skipping." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  No identity found. Skipping." >> "$LOG_FILE"
     exit 0
 fi
 
 # Get hot feed (page 1)
 if "$BIN_DIR/lattice-feed" --hot --page 1 --limit 10 > "$FEED_FILE" 2>> "$LOG_FILE"; then
     POST_COUNT=$(grep -c "^[┌├]" "$FEED_FILE" 2>/dev/null || echo "0")
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ✅ Hot feed tracked. $POST_COUNT trending posts found." >> "$LOG_FILE"
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] 📄 Feed saved to: $FEED_FILE" >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  Hot feed tracked. $POST_COUNT trending posts found." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  Feed saved to: $FEED_FILE" >> "$LOG_FILE"
 else
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ❌ Hot feed tracking failed." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  Hot feed tracking failed." >> "$LOG_FILE"
 fi
 
 # Cleanup old logs (keep last 3 days)

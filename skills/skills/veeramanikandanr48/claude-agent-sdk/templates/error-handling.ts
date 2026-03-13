@@ -146,19 +146,19 @@ async function comprehensiveErrorHandling() {
     for await (const message of response) {
       switch (message.type) {
         case 'assistant':
-          console.log('✅ Assistant:', message.content);
+          console.log(' Assistant:', message.content);
           break;
 
         case 'tool_call':
-          console.log(`🔧 Executing: ${message.tool_name}`);
+          console.log(` Executing: ${message.tool_name}`);
           break;
 
         case 'tool_result':
-          console.log(`✅ ${message.tool_name} completed`);
+          console.log(` ${message.tool_name} completed`);
           break;
 
         case 'error':
-          console.error('❌ Error:', message.error.message);
+          console.error(' Error:', message.error.message);
           errors.push({
             type: message.error.type,
             message: message.error.message,
@@ -175,7 +175,7 @@ async function comprehensiveErrorHandling() {
       }
     }
   } catch (error) {
-    console.error('💥 Fatal error:', error);
+    console.error(' Fatal error:', error);
 
     // Log error details
     errors.push({

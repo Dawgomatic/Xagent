@@ -95,7 +95,7 @@ if parse_errors:
     with open(errors_file, "a") as ef:
         for err in parse_errors:
             ef.write(json.dumps(err) + "\n")
-    print(f"⚠️  {len(parse_errors)} parse errors logged to parse-errors.jsonl")
+    print(f"  {len(parse_errors)} parse errors logged to parse-errors.jsonl")
 
 # Load rules with lock
 try:

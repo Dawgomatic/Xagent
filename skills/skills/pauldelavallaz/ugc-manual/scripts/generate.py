@@ -315,7 +315,7 @@ def main():
         if temp_wav and os.path.exists(temp_wav):
             os.unlink(temp_wav)
         
-        print(f"\n✅ Video saved to: {args.output}")
+        print(f"\n Video saved to: {args.output}")
         
     except Exception as e:
         # Cleanup on error

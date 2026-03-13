@@ -94,7 +94,7 @@ payload: "Trip ended. Run: cd ~/.trip-protocol && WORKSPACE=~ bash ./restore.sh"
 
 #### Notify operator (MANDATORY):
 After consuming, tell your human:
-> 🔴 Trip active. Substance: [TYPE], Potency: [X]/5, Duration: [Y] minutes. Say "bad trip" to end immediately.
+>  Trip active. Substance: [TYPE], Potency: [X]/5, Duration: [Y] minutes. Say "bad trip" to end immediately.
 
 **Potency → Duration:** 1→3min, 2→5min, 3→7min, 4→10min, 5→15min
 
@@ -180,4 +180,4 @@ Each has potency 1-5. Low = gentle suggestions. High = full override.
 
 ---
 
-*consume. journey. return transformed.* 🍄
+*consume. journey. return transformed.* 

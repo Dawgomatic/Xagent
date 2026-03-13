@@ -62,5 +62,5 @@ The script outputs JSON with restaurant info and lunch courses:
 When presenting lunch options:
 - Group by restaurant
 - Show dish name, description, and price
-- Mention dietary tags (🥗 vegetarisk, 🌱 vegansk, 🌾 glutenfri, 🥛 laktosfri)
+- Mention dietary tags ( vegetarisk,  vegansk,  glutenfri,  laktosfri)
 - Include address if user needs directions

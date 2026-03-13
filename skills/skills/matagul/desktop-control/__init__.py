@@ -497,26 +497,26 @@ def screenshot(filename: Optional[str] = None):
 # ========== DEMONSTRATION ==========
 
 if __name__ == "__main__":
-    print("🖱️  Desktop Control Skill - Test Mode")
+    print("  Desktop Control Skill - Test Mode")
     print("=" * 50)
     
     # Initialize controller
     dc = DesktopController(failsafe=True)
     
     # Display info
-    print(f"\n📺 Screen Size: {dc.get_screen_size()}")
-    print(f"🖱️  Current Mouse Position: {dc.get_mouse_position()}")
+    print(f"\n Screen Size: {dc.get_screen_size()}")
+    print(f"  Current Mouse Position: {dc.get_mouse_position()}")
     
     # Test window operations
-    print(f"\n🪟 Active Window: {dc.get_active_window()}")
+    print(f"\n Active Window: {dc.get_active_window()}")
     
     windows = dc.get_all_windows()
-    print(f"\n📋 Open Windows ({len(windows)}):")
+    print(f"\n Open Windows ({len(windows)}):")
     for i, title in enumerate(windows[:10], 1):  # Show first 10
         print(f"  {i}. {title}")
     
-    print("\n✅ Desktop Control ready!")
-    print("⚠️  Move mouse to any corner to trigger failsafe")
+    print("\n Desktop Control ready!")
+    print("  Move mouse to any corner to trigger failsafe")
     
     # Keep running to allow testing
     print("\nController is ready. Import this module to use it in your OpenClaw skills!")

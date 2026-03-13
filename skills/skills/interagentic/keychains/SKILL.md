@@ -3,7 +3,7 @@ name: keychains
 description: Call any API without leaking credentials. Keychains proxies requests and injects real tokens server-side — your agent never sees them.
 homepage: https://keychains.dev
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🔐", "homepage": "https://keychains.dev", "requires": {"bins": ["keychains"]}, "install": [{"id": "npm", "kind": "node", "package": "keychains@latest", "global": true, "bins": ["keychains"], "label": "Install Keychains CLI (npm)"}]}}
+metadata: {"openclaw": {"emoji": "", "homepage": "https://keychains.dev", "requires": {"bins": ["keychains"]}, "install": [{"id": "npm", "kind": "node", "package": "keychains@latest", "global": true, "bins": ["keychains"], "label": "Install Keychains CLI (npm)"}]}}
 ---
 
 # Secure API Calls with Keychains
@@ -4907,7 +4907,7 @@ Tested with the following providers so far:
 - The Official Board (theofficialboard.com)
 - The Omni Group (omnigroup.com)
 - The Org (theorg.com)
-- The Value Builder System™ (valuebuildersystem.com)
+- The Value Builder System (valuebuildersystem.com)
 - The Web Console (thewebconsole.com)
 - theMarketer (themarketer.com)
 - thenty (thenty.io)

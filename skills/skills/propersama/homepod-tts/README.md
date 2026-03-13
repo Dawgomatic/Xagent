@@ -1,15 +1,15 @@
-# homepod-tts 🎙️
+# homepod-tts 
 
 使用 Qwen3-TTS 语音克隆和 Home Assistant，通过 HomePod 播放带情绪的 TTS 语音。
 
-## ✨ 特性
+##  特性
 
-- 🎭 **自动情绪识别** - 根据文本内容自动判断情绪（开心、悲伤、生气、惊讶等）
-- 🔊 **音量自动调节** - 播放前设为 40%，播放完成后恢复原音量
-- ⏱️ **动态等待时间** - 根据音频时长自动计算等待时间
-- 🏠 **无缝集成 Home Assistant** - 通过 HA API 控制 HomePod
+-  **自动情绪识别** - 根据文本内容自动判断情绪（开心、悲伤、生气、惊讶等）
+-  **音量自动调节** - 播放前设为 40%，播放完成后恢复原音量
+-  **动态等待时间** - 根据音频时长自动计算等待时间
+-  **无缝集成 Home Assistant** - 通过 HA API 控制 HomePod
 
-## 📋 前置要求
+##  前置要求
 
 ### 1. Home Assistant
 
@@ -39,7 +39,7 @@ pip install Qwen/Qwen3-TTS-12Hz-0___6B-Base
 
 准备一段你的参考音频（.wav 格式，5-30 秒清晰人声），用于语音克隆。
 
-## 🚀 快速开始
+##  快速开始
 
 ### 1. 克隆仓库
 
@@ -79,7 +79,7 @@ vim .env
 ./scripts/play-tts.sh "你好，这是测试消息"
 ```
 
-## 📁 文件结构
+##  文件结构
 
 ```
 homepod-tts/
@@ -92,7 +92,7 @@ homepod-tts/
     └── tts_sample.py  # TTS 示例脚本（需配置）
 ```
 
-## ⚙️ 配置说明
+##  配置说明
 
 | 配置项 | 说明 | 默认值 |
 |--------|------|--------|
@@ -104,21 +104,21 @@ homepod-tts/
 | `CONDA_ENV_NAME` | Conda 环境名 | `qwen-tts` |
 | `TTS_DIR` | TTS 脚本目录 | 必填 |
 
-## 🎭 情绪识别
+##  情绪识别
 
 根据文本关键词自动识别情绪，支持：happy, excited, sad, angry, surprised, scared, serious, gentle, calm, funny, tired, nervous
 
-## 🔧 故障排除
+##  故障排除
 
 - **CondaError**: 确保 conda 已正确安装
 - **Could not resolve host**: 检查 `HASS_URL` 配置
 - **无声音**: 检查 HA 连接和实体 ID
 
-## 📝 许可证
+##  许可证
 
 MIT License
 
-## 🙏 致谢
+##  致谢
 
 - [Qwen3-TTS](https://github.com/Qwen/Qwen3-TTS)
 - [Home Assistant](https://www.home-assistant.io/)

@@ -80,7 +80,7 @@ async function ingest() {
 
       if (result.changes > 0) {
         totalNew++;
-        console.log(`[INGEST] ${isComplete ? '✅' : '📝'} ${sessionId.slice(0, 8)}... ${tokens} tokens (${messages.length} msgs)`);
+        console.log(`[INGEST] ${isComplete ? '' : ''} ${sessionId.slice(0, 8)}... ${tokens} tokens (${messages.length} msgs)`);
       }
 
       state[fileName] = { bytes: stat.size, ts: new Date().toISOString() };

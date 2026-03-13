@@ -129,7 +129,7 @@ const agent = client.agent({
 const response = await agent.sendMessage('Clean up temporary files in /tmp/myapp', {
   onToolCall: async (call) => {
     if (call.requiresApproval) {
-      console.log(`\n⚠️  Agent wants to: ${call.name}`);
+      console.log(`\n  Agent wants to: ${call.name}`);
       console.log(`   Arguments: ${JSON.stringify(call.args)}`);
       const approved = await promptUser('Allow? (y/n): ');
 
@@ -198,14 +198,14 @@ const response = await agent.sendMessage('Generate a report on market trends', {
     }
   },
   onToolCall: async (call) => {
-    console.log(`\n🔧 Using tool: ${call.name}`);
+    console.log(`\n Using tool: ${call.name}`);
     const result = await executeTool(call.name, call.args);
     agent.submitToolResult(call.id, result);
-    console.log('✅ Tool completed');
+    console.log(' Tool completed');
   }
 });
 
-console.log('\n\n📊 Report complete!');
+console.log('\n\n Report complete!');
 ```
 
 ## React Integration Pattern

@@ -30,19 +30,19 @@
 | Feature | Vapi | Bland.ai | Retell |
 |---|---|---|---|
 | **Latency** | 600-1000ms | 400-700ms | 400-600ms |
-| **Custom LLM** | ✅ Any OpenAI-compatible | ✅ Limited options | ✅ Via API |
-| **BYO Keys** | ✅ Full control | ❌ | ✅ |
-| **Function Calling** | ✅ Native | ✅ Via pathways | ✅ |
-| **Knowledge Base** | ✅ Built-in RAG | ✅ | ✅ |
-| **Call Transfer** | ✅ Warm/cold | ✅ | ✅ |
-| **DTMF (keypad)** | ✅ | ✅ | ✅ |
-| **Voicemail Detection** | ✅ | ✅ | ✅ |
-| **Batch Calling** | Via API loop | ✅ Native campaigns | Via API |
-| **Webhooks** | ✅ Rich events | ✅ | ✅ |
-| **WebSocket Streaming** | ✅ | ❌ | ✅ |
+| **Custom LLM** |  Any OpenAI-compatible |  Limited options |  Via API |
+| **BYO Keys** |  Full control |  |  |
+| **Function Calling** |  Native |  Via pathways |  |
+| **Knowledge Base** |  Built-in RAG |  |  |
+| **Call Transfer** |  Warm/cold |  |  |
+| **DTMF (keypad)** |  |  |  |
+| **Voicemail Detection** |  |  |  |
+| **Batch Calling** | Via API loop |  Native campaigns | Via API |
+| **Webhooks** |  Rich events |  |  |
+| **WebSocket Streaming** |  |  |  |
 | **Multi-language** | 100+ via providers | 30+ | 30+ |
-| **Custom Voices** | ✅ ElevenLabs clones | ✅ Limited | ✅ |
-| **Analytics** | ✅ Dashboard | ✅ Dashboard | ✅ Dashboard |
+| **Custom Voices** |  ElevenLabs clones |  Limited |  |
+| **Analytics** |  Dashboard |  Dashboard |  Dashboard |
 | **SOC 2** | In progress | No | Yes |
 | **HIPAA** | BAA available | No | BAA available |
 
@@ -50,12 +50,12 @@
 
 | Provider | Vapi | Bland.ai | Retell |
 |---|---|---|---|
-| ElevenLabs | ✅ | ❌ (own voices) | ✅ |
-| PlayHT | ✅ | ❌ | ✅ |
-| Deepgram TTS | ✅ | ❌ | ✅ |
-| Azure TTS | ✅ | ❌ | ❌ |
-| OpenAI TTS | ✅ | ❌ | ✅ |
-| Custom/Cloned | ✅ | ✅ | ✅ |
+| ElevenLabs |  |  (own voices) |  |
+| PlayHT |  |  |  |
+| Deepgram TTS |  |  |  |
+| Azure TTS |  |  |  |
+| OpenAI TTS |  |  |  |
+| Custom/Cloned |  |  |  |
 
 ## Best Use Cases
 

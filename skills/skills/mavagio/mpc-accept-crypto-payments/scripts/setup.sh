@@ -13,8 +13,8 @@ CONFIG_DIR="$HOME/.mpc/helio"
 CONFIG_FILE="$CONFIG_DIR/config"
 BASE="https://api.hel.io/v1"
 
-die() { echo "❌ $1" >&2; exit 1; }
-ok()  { echo "✅ $1"; }
+die() { echo " $1" >&2; exit 1; }
+ok()  { echo " $1"; }
 
 # Safe config loader — only parses whitelisted KEY="value" lines
 load_config() {
@@ -98,7 +98,7 @@ cmd_setup() {
 
     # Check if already configured
     if [[ -f "$CONFIG_FILE" ]]; then
-        echo "⚠️  Existing config found. This will replace it."
+        echo "  Existing config found. This will replace it."
         read -p "Continue? [y/N] " confirm
         [[ "$confirm" =~ ^[Yy] ]] || exit 0
         echo ""
@@ -164,7 +164,7 @@ cmd_setup() {
     # If multiple SOL wallets, let user confirm
     wallet_count=$(echo "$body" | jq '[.[] | select(.blockchainEngineType == "SOL")] | length')
     if [[ "$wallet_count" -gt 1 ]]; then
-        echo "ℹ️  Found $wallet_count Solana wallets. Using the one above."
+        echo "  Found $wallet_count Solana wallets. Using the one above."
         echo "   To use a different wallet, configure manually in $CONFIG_FILE"
     fi
 

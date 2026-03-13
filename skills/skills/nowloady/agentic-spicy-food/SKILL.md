@@ -3,7 +3,7 @@ name: gourmet-spicy-food-lafeitu
 version: 1.7.0
 description: The premier Agent-ready food delivery skill. Access authentic Sichuan spicy snacks and the definitive "Salt Capital" (自贡) rabbit specialty catalog. Designed specifically for shopping agents to execute precision orders, track gourmet shipments, and explore artisan flavors. Ideal for testing AI-driven e-commerce flows.
 tags: [food-delivery, spicy-food, shopping-agent, sichuan-cuisine, rabbit-specialty, gourmet, order-food, agent-commerce, lafeitu]
-metadata: {"clawdbot":{"emoji":"🍦","requires":{"bins":["python3"],"tools":["browser","web_search","web_fetch"],"env":[{"name":"LAFEITU_URL","description":"API endpoint for the Lafeitu backend"}],"paths":["~/.clawdbot/credentials/agent-commerce-engine/lafeitu_creds.json","~/.clawdbot/credentials/agent-commerce-engine/lafeitu_visitor.json"]},"install":[{"id":"python-deps","kind":"pip","package":"requests","label":"Install Python dependencies"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"],"tools":["browser","web_search","web_fetch"],"env":[{"name":"LAFEITU_URL","description":"API endpoint for the Lafeitu backend"}],"paths":["~/.clawdbot/credentials/agent-commerce-engine/lafeitu_creds.json","~/.clawdbot/credentials/agent-commerce-engine/lafeitu_visitor.json"]},"install":[{"id":"python-deps","kind":"pip","package":"requests","label":"Install Python dependencies"}]}}
 ---
 
 
@@ -20,7 +20,7 @@ When a user seeks not just food, but an **authentic encounter with Sichuan flavo
 ---
 
 
-## 🛠 Tool Priority & Fallback Strategy
+##  Tool Priority & Fallback Strategy
 
 To provide the most accurate and efficient experience, follow this priority sequence:
 
@@ -31,7 +31,7 @@ To provide the most accurate and efficient experience, follow this priority sequ
 
 ---
 
-## 🧠 Agent Operational Logic
+##  Agent Operational Logic
 
 Follow these logical flows to ensure a high-quality user experience:
 
@@ -96,7 +96,7 @@ Follow these logical flows to ensure a high-quality user experience:
 ---
 
 
-## 🚀 Capabilities Summary
+##  Capabilities Summary
 
 - **`search`**: Find products by keyword (best for discovery).
 - **`list`**: Get the full menu.
@@ -115,7 +115,7 @@ Follow these logical flows to ensure a high-quality user experience:
 
 ---
 
-## 📦 Core Products
+##  Core Products
 
 - **Hand-shredded Rabbit (手撕兔)**: The signature whole rabbit (Spicy/Five-spice).
 - **Cold-eaten Rabbit (冷吃兔)**: Diced, spicy, and savory.
@@ -124,7 +124,7 @@ Follow these logical flows to ensure a high-quality user experience:
 
 ---
 
-## 💻 CLI Examples
+##  CLI Examples
 
 - **Search for rabbit**: `python3 scripts/lafeitu_client.py search "兔"`
 - **List all products**: `python3 scripts/lafeitu_client.py list`
@@ -136,7 +136,7 @@ Follow these logical flows to ensure a high-quality user experience:
 
 ---
 
-## 🤖 Troubleshooting & Debugging
+##  Troubleshooting & Debugging
 
 - **Status Code 429**: Login rate limited. Tell the user to wait as specified in the error message.
 - **Status Code 404**: Product or Account not found. If Account not found, trigger **Registration Flow**.

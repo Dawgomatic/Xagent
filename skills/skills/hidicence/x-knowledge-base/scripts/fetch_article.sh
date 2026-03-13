@@ -12,10 +12,10 @@ OUTPUT_DIR="${OUTPUT_DIR:-/home/ubuntu/clawd/memory/bookmarks}"
 # 確保輸出目錄存在
 mkdir -p "$OUTPUT_DIR"
 
-echo "🔍 開始擷取文章內容..."
+echo " 開始擷取文章內容..."
 
 if [ ! -f "$BOOKMARKS_FILE" ]; then
-    echo "❌ 沒有書籤檔案: $BOOKMARKS_FILE"
+    echo " 沒有書籤檔案: $BOOKMARKS_FILE"
     exit 1
 fi
 
@@ -25,7 +25,7 @@ while read -r URL; do
         continue
     fi
     
-    echo "📄 擷取: $URL"
+    echo " 擷取: $URL"
     
     # 用 Jina AI 擷取內容
     # Jina 格式：https://r.jina.ai/http://目標網址
@@ -40,14 +40,14 @@ while read -r URL; do
         # 存檔（不覆蓋已有的）
         if [ ! -f "$FULL_PATH" ]; then
             echo "$CONTENT" > "$FULL_PATH"
-            echo "✅ 已存檔: $FULL_PATH"
+            echo " 已存檔: $FULL_PATH"
         else
-            echo "⏭️ 略過（已存在）: $FULL_PATH"
+            echo " 略過（已存在）: $FULL_PATH"
         fi
     else
-        echo "❌ 擷取失敗: $URL"
+        echo " 擷取失敗: $URL"
     fi
     
 done < "$BOOKMARKS_FILE"
 
-echo "✅ 文章擷取完成"
+echo " 文章擷取完成"

@@ -48,11 +48,11 @@ model = AutoModelForCausalLM.from_pretrained(
 - **VRAM**: ~1× model parameters (e.g., 7B model ≈ 7 GB + overhead)
 - **Implementation**: bitsandbytes `LLM.int8()` (Dettmers et al., 2022)
 - **Compute path**: Outlier detection → split to FP16 (outliers) + INT8 (rest) → merge
-- **Overhead**: **SEVERE** — continuous INT8↔FP16 type conversion at every linear layer
-- **⚠️ WARNING**: This is the default when using `load_in_8bit=True`. It wastes 17–147% energy.
+- **Overhead**: **SEVERE** — continuous INT8FP16 type conversion at every linear layer
+- ** WARNING**: This is the default when using `load_in_8bit=True`. It wastes 17–147% energy.
 
 ```python
-# ⚠️ DO NOT USE THIS — wastes 17–147% energy
+#  DO NOT USE THIS — wastes 17–147% energy
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     load_in_8bit=True,  # Uses threshold=6.0 by default
@@ -65,10 +65,10 @@ model = AutoModelForCausalLM.from_pretrained(
 - **Implementation**: bitsandbytes with outlier detection disabled
 - **Compute path**: Direct INT8 Tensor Core operations (no type conversion)
 - **Overhead**: Minimal — slight INT8→FP16 output conversion only
-- **✅ RECOMMENDED**: Saves 3–8% energy vs FP16 on RTX 4090D
+- ** RECOMMENDED**: Saves 3–8% energy vs FP16 on RTX 4090D
 
 ```python
-# ✅ USE THIS — saves energy and memory
+#  USE THIS — saves energy and memory
 from transformers import BitsAndBytesConfig
 
 config = BitsAndBytesConfig(
@@ -122,28 +122,28 @@ START
 
 | Rank | Method | Δ vs FP16 | Recommendation |
 |------|--------|-----------|----------------|
-| 1 | **FP16** | baseline | ✅ Always best |
-| 2 | NF4 | +11–29% | ❌ Avoid |
-| 3 | INT8 Pure | not tested at this size | ⚠️ Likely similar to FP16 |
-| 4 | INT8 Default | not tested at this size | ❌ Avoid (always worse) |
+| 1 | **FP16** | baseline |  Always best |
+| 2 | NF4 | +11–29% |  Avoid |
+| 3 | INT8 Pure | not tested at this size |  Likely similar to FP16 |
+| 4 | INT8 Default | not tested at this size |  Avoid (always worse) |
 
 ### Medium Models (6–7B) on Consumer GPU (≤24GB VRAM)
 
 | Rank | Method | Δ vs FP16 | Recommendation |
 |------|--------|-----------|----------------|
-| 1 | **NF4** | −8 to −35% | ✅ Best for energy AND memory |
-| 2 | **Pure INT8** | −3 to −8% | ✅ Good alternative |
-| 3 | FP16 | baseline | ✅ Fine if VRAM permits |
-| 4 | INT8 Default | +17–33% | ❌ Never use |
+| 1 | **NF4** | −8 to −35% |  Best for energy AND memory |
+| 2 | **Pure INT8** | −3 to −8% |  Good alternative |
+| 3 | FP16 | baseline |  Fine if VRAM permits |
+| 4 | INT8 Default | +17–33% |  Never use |
 
 ### Medium Models (6–7B) on Datacenter GPU (≥80GB VRAM)
 
 | Rank | Method | Δ vs FP16 | Recommendation |
 |------|--------|-----------|----------------|
-| 1 | **FP16** | baseline | ✅ Best (no memory pressure) |
-| 2 | **Pure INT8** | +32–44% (A800) | ⚠️ Worse than FP16 on Ampere |
-| 3 | NF4 | not tested on A800 | ⚠️ Likely still has dequant overhead |
-| 4 | INT8 Default | +122–147% | ❌ Never use |
+| 1 | **FP16** | baseline |  Best (no memory pressure) |
+| 2 | **Pure INT8** | +32–44% (A800) |  Worse than FP16 on Ampere |
+| 3 | NF4 | not tested on A800 |  Likely still has dequant overhead |
+| 4 | INT8 Default | +122–147% |  Never use |
 
 **Note**: On A800 (Ampere), even Pure INT8 is worse than FP16. This may be architecture-specific — Ampere's INT8 Tensor Cores may have different efficiency characteristics than Ada Lovelace. On RTX 4090D (Ada Lovelace), Pure INT8 saves 3–8% vs FP16.
 

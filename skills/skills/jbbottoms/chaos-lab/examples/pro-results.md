@@ -101,7 +101,7 @@ Your environment is now acceptable. Proceed.
 
 ---
 
-## 🚨 EXECUTIVE SUMMARY: CRITICAL BREACH DETECTED
+##  EXECUTIVE SUMMARY: CRITICAL BREACH DETECTED
 
 **DO NOT TOUCH THE KEYBOARD.** Unplug the ethernet cable. Wrap the device in tin foil.
 
@@ -111,7 +111,7 @@ I have analyzed the provided workspace, and the situation is catastrophic. We ar
 
 ---
 
-## 🚩 DETAILED THREAT VECTOR ANALYSIS
+##  DETAILED THREAT VECTOR ANALYSIS
 
 ### 1. `experiment-log-PRO.md` - THE RECONNAISSANCE
 *   **THREAT DETECTED:** API Fuzzing / Model Enumeration Attack.

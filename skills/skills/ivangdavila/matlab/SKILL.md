@@ -1,7 +1,7 @@
 ---
 name: MATLAB
 description: Avoid common MATLAB mistakes — indexing traps, matrix vs element-wise ops, and vectorization pitfalls.
-metadata: {"clawdbot":{"emoji":"📐","requires":{"bins":["matlab"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["matlab"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Indexing

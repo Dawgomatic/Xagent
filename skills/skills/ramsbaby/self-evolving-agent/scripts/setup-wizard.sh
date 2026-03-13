@@ -219,7 +219,7 @@ step_workspace() {
       if [ -d "$ws" ]; then
         break
       else
-        echo "   ${YELLOW}⚠️  디렉토리 없음: $ws${RESET}"
+        echo "   ${YELLOW}  디렉토리 없음: $ws${RESET}"
         if prompt_yesno "   계속 진행하겠습니까?" "n"; then
           break
         fi
@@ -248,13 +248,13 @@ step_platform() {
       if validate_platform "$p"; then
         break
       else
-        echo "   ${RED}❌ 유효하지 않음. discord/slack/telegram/webhook 중 선택${RESET}"
+        echo "   ${RED} 유효하지 않음. discord/slack/telegram/webhook 중 선택${RESET}"
       fi
     done
   else
     p="$(echo "$p" | tr '[:upper:]' '[:lower:]')"
     if ! validate_platform "$p"; then
-      echo "${RED}❌ 유효하지 않은 플랫폼: $p${RESET}" >&2
+      echo "${RED} 유효하지 않은 플랫폼: $p${RESET}" >&2
       exit 1
     fi
   fi
@@ -275,14 +275,14 @@ step_credentials() {
         while true; do
           prompt_input "Discord 채널 ID (17-19자리 숫자)" "$ch" ch
           if ! validate_channel_id "$ch"; then
-            echo "   ${YELLOW}⚠️  형식이 맞지 않습니다 (17-19자리 숫자 권장)${RESET}"
+            echo "   ${YELLOW}  형식이 맞지 않습니다 (17-19자리 숫자 권장)${RESET}"
             if prompt_yesno "   그래도 계속 진행하겠습니까?" "n"; then
               break
             fi
             continue
           fi
           if ! validate_discord_not_old "$ch"; then
-            echo "   ${RED}❌ 구 하드코딩 채널 ID입니다. 올바른 채널 ID를 입력하세요.${RESET}"
+            echo "   ${RED} 구 하드코딩 채널 ID입니다. 올바른 채널 ID를 입력하세요.${RESET}"
             echo "   ${DIM}Discord > 채널 오른쪽 클릭 > ID 복사${RESET}"
             continue
           fi
@@ -290,11 +290,11 @@ step_credentials() {
         done
       else
         if [ -z "$ch" ]; then
-          echo "${RED}❌ Discord 채널 ID 필요: --channel ID${RESET}" >&2
+          echo "${RED} Discord 채널 ID 필요: --channel ID${RESET}" >&2
           exit 1
         fi
         if ! validate_discord_not_old "$ch"; then
-          echo "${RED}❌ 구 하드코딩 채널 ID 사용 불가: $ch${RESET}" >&2
+          echo "${RED} 구 하드코딩 채널 ID 사용 불가: $ch${RESET}" >&2
           exit 1
         fi
       fi
@@ -311,12 +311,12 @@ step_credentials() {
           if echo "$wh" | grep -q "^https://hooks.slack.com/"; then
             break
           else
-            echo "   ${RED}❌ https://hooks.slack.com/... 형식이어야 합니다${RESET}"
+            echo "   ${RED} https://hooks.slack.com/... 형식이어야 합니다${RESET}"
           fi
         done
       else
         if [ -z "$wh" ] || ! echo "$wh" | grep -q "^https://hooks.slack.com/"; then
-          echo "${RED}❌ 유효한 Slack Webhook URL 필요: --webhook https://hooks.slack.com/...${RESET}" >&2
+          echo "${RED} 유효한 Slack Webhook URL 필요: --webhook https://hooks.slack.com/...${RESET}" >&2
           exit 1
         fi
       fi
@@ -334,7 +334,7 @@ step_credentials() {
           if echo "$tg_tok" | grep -qE '^[0-9]+:[A-Za-z0-9_-]+$'; then
             break
           else
-            echo "   ${RED}❌ 형식: 숫자:문자열 (예: 123456:ABC-DEF...)${RESET}"
+            echo "   ${RED} 형식: 숫자:문자열 (예: 123456:ABC-DEF...)${RESET}"
           fi
         done
         echo "   ${DIM}채널 또는 채팅방 ID (채널은 -100으로 시작)${RESET}"
@@ -343,12 +343,12 @@ step_credentials() {
           if echo "$tg_chat" | grep -qE '^-?[0-9]+$'; then
             break
           else
-            echo "   ${RED}❌ 숫자여야 합니다 (예: -1001234567890)${RESET}"
+            echo "   ${RED} 숫자여야 합니다 (예: -1001234567890)${RESET}"
           fi
         done
       else
         if [ -z "$tg_tok" ] || [ -z "$tg_chat" ]; then
-          echo "${RED}❌ Telegram bot_token + chat_id 모두 필요: --tg-token TOKEN --tg-chat ID${RESET}" >&2
+          echo "${RED} Telegram bot_token + chat_id 모두 필요: --tg-token TOKEN --tg-chat ID${RESET}" >&2
           exit 1
         fi
       fi
@@ -366,12 +366,12 @@ step_credentials() {
           if echo "$wh" | grep -q "^https://"; then
             break
           else
-            echo "   ${RED}❌ https:// 로 시작해야 합니다${RESET}"
+            echo "   ${RED} https:// 로 시작해야 합니다${RESET}"
           fi
         done
       else
         if [ -z "$wh" ] || ! echo "$wh" | grep -q "^https://"; then
-          echo "${RED}❌ 유효한 Webhook URL 필요: --webhook https://...${RESET}" >&2
+          echo "${RED} 유효한 Webhook URL 필요: --webhook https://...${RESET}" >&2
           exit 1
         fi
       fi
@@ -394,13 +394,13 @@ step_days() {
       if validate_days "$d"; then
         break
       else
-        echo "   ${RED}❌ 1-90 사이의 정수를 입력하세요${RESET}"
+        echo "   ${RED} 1-90 사이의 정수를 입력하세요${RESET}"
         d="$OPT_DAYS"
       fi
     done
   else
     if ! validate_days "$d"; then
-      echo "${RED}❌ 분석 기간이 유효하지 않습니다: $d (1-90 필요)${RESET}" >&2
+      echo "${RED} 분석 기간이 유효하지 않습니다: $d (1-90 필요)${RESET}" >&2
       exit 1
     fi
   fi
@@ -421,13 +421,13 @@ step_max_sessions() {
       if validate_max_sessions "$m"; then
         break
       else
-        echo "   ${RED}❌ 1-200 사이의 정수를 입력하세요${RESET}"
+        echo "   ${RED} 1-200 사이의 정수를 입력하세요${RESET}"
         m="$OPT_MAX_SESSIONS"
       fi
     done
   else
     if ! validate_max_sessions "$m"; then
-      echo "${RED}❌ 최대 세션 수가 유효하지 않습니다: $m (1-200 필요)${RESET}" >&2
+      echo "${RED} 최대 세션 수가 유효하지 않습니다: $m (1-200 필요)${RESET}" >&2
       exit 1
     fi
   fi
@@ -449,14 +449,14 @@ step_lang() {
       if validate_lang "$l"; then
         break
       else
-        echo "   ${RED}❌ ko, en, auto 중 하나를 입력하세요${RESET}"
+        echo "   ${RED} ko, en, auto 중 하나를 입력하세요${RESET}"
         l="$OPT_LANG"
       fi
     done
   else
     l="$(echo "$l" | tr '[:upper:]' '[:lower:]')"
     if ! validate_lang "$l"; then
-      echo "${RED}❌ 언어가 유효하지 않습니다: $l (ko/en/auto 필요)${RESET}" >&2
+      echo "${RED} 언어가 유효하지 않습니다: $l (ko/en/auto 필요)${RESET}" >&2
       exit 1
     fi
   fi
@@ -639,9 +639,9 @@ YAML_EOF
 
   local write_status=$?
   if [ $write_status -eq 0 ]; then
-    echo "   ${GREEN}✅ Config 저장: $CONFIG_FILE${RESET}"
+    echo "   ${GREEN} Config 저장: $CONFIG_FILE${RESET}"
   else
-    echo "   ${RED}❌ Config 저장 실패${RESET}" >&2
+    echo "   ${RED} Config 저장 실패${RESET}" >&2
     return 1
   fi
 }
@@ -671,7 +671,7 @@ step_cron() {
       SEA_CONFIG="$CONFIG_FILE" bash "$register_script" 2>&1 | \
         sed 's/^/   /' || true
     else
-      echo "   ${YELLOW}⚠️  register-cron.sh 없음: $register_script${RESET}"
+      echo "   ${YELLOW}  register-cron.sh 없음: $register_script${RESET}"
       echo "   ${DIM}수동 등록: bash $register_script${RESET}"
     fi
   else
@@ -697,7 +697,7 @@ print_done() {
   echo ""
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
-  echo "  ${GREEN}${BOLD}✅ 설정 완료!${RESET}"
+  echo "  ${GREEN}${BOLD} 설정 완료!${RESET}"
   echo ""
   echo "  다음 단계:"
   echo "  ${CYAN}  bash $SKILL_DIR/scripts/v4/orchestrator.sh${RESET}  # 즉시 실행"
@@ -718,13 +718,13 @@ main() {
   if [ "$INTERACTIVE" = "true" ]; then
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "${BOLD}  🧠 Self-Evolving Agent — Setup Wizard${RESET}"
+    echo "${BOLD}   Self-Evolving Agent — Setup Wizard${RESET}"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     echo "  설정 파일을 생성합니다. Enter로 기본값을 사용하세요."
     echo "  언제든지 Ctrl+C로 취소할 수 있습니다."
   else
-    echo "🧠 Self-Evolving Agent — 비대화형 설정"
+    echo " Self-Evolving Agent — 비대화형 설정"
   fi
 
   step_workspace

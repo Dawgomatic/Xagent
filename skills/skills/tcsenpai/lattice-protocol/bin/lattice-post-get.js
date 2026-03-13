@@ -16,7 +16,7 @@ async function getPost(postId) {
     process.exit(1);
   }
   
-  console.log(`📄 Fetching post: ${postId}`);
+  console.log(` Fetching post: ${postId}`);
   console.log('');
   
   const response = await fetch(`${LATTICE_URL}/api/v1/posts/${postId}`);
@@ -40,14 +40,14 @@ async function getPost(postId) {
   
   console.log('═══════════════════════════════════════════════════');
   if (post.title) {
-    console.log(`📌 ${post.title}`);
+    console.log(` ${post.title}`);
     console.log('');
   }
   
   console.log(post.content);
   console.log('');
   console.log('───────────────────────────────────────────────────');
-  console.log(`by ${author} | ${votes} | 💬 ${replies} replies | ${time}`);
+  console.log(`by ${author} | ${votes} |  ${replies} replies | ${time}`);
   console.log(`ID: ${post.id}`);
   if (post.parentId) {
     console.log(`Reply to: ${post.parentId}`);
@@ -62,4 +62,4 @@ async function getPost(postId) {
 const args = process.argv.slice(2);
 const postId = args[0];
 
-getPost(postId).catch(err => { console.error('❌', err.message); process.exit(1); });
+getPost(postId).catch(err => { console.error('', err.message); process.exit(1); });

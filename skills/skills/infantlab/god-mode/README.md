@@ -1,6 +1,6 @@
 # god-mode
 
-> 🔭 Bird's-eye view of your coding projects. 🧠 AI agent coaching based on your actual work.
+>  Bird's-eye view of your coding projects.  AI agent coaching based on your actual work.
 
 [![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://clawdhub.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -22,7 +22,7 @@ You're juggling multiple projects. You use AI coding assistants but your `agents
 # See everything at once
 $ god status
 
-🔭 god-mode
+ god-mode
 
 tandem-evaluator
   Last: 2h ago • fix: evaluation metrics
@@ -37,15 +37,15 @@ This week: 23 commits • 3 PRs merged
 # Make your AI assistant smarter
 $ god agents analyze tandem-evaluator
 
-🧠 Analyzing tandem-evaluator...
+ Analyzing tandem-evaluator...
 
-⚠️ GAPS FOUND
+ GAPS FOUND
 
 Testing (not mentioned)
   But 31% of your commits touch tests
   → Add: "Write tests for new code"
 
-📝 SUGGESTED ADDITIONS
+ SUGGESTED ADDITIONS
 
 ## Testing
 - Unit tests for all new functions

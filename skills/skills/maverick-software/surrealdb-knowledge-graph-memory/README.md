@@ -2,30 +2,30 @@
 
 > A comprehensive knowledge graph memory system for OpenClaw with semantic search, episodic memory, and automatic context injection.
 
-## ✨ Features
+##  Features
 
-- **🧠 Semantic Memory** — Vector-indexed facts with confidence scoring
-- **📚 Episodic Memory** — Task histories with decisions, problems, solutions, learnings
-- **💾 Working Memory** — YAML-based task state that survives crashes
-- **🔄 Auto-Injection** — Relevant facts/episodes automatically injected into agent prompts
-- **📈 Outcome Calibration** — Facts used in successful tasks gain confidence
-- **🔗 Entity Extraction** — Automatic entity linking and relationship discovery
-- **⏰ Confidence Decay** — Stale facts naturally decay over time
+- ** Semantic Memory** — Vector-indexed facts with confidence scoring
+- ** Episodic Memory** — Task histories with decisions, problems, solutions, learnings
+- ** Working Memory** — YAML-based task state that survives crashes
+- ** Auto-Injection** — Relevant facts/episodes automatically injected into agent prompts
+- ** Outcome Calibration** — Facts used in successful tasks gain confidence
+- ** Entity Extraction** — Automatic entity linking and relationship discovery
+- ** Confidence Decay** — Stale facts naturally decay over time
 
-## 🖥️ Dashboard UI
+##  Dashboard UI
 
 Two-column layout in the Control dashboard:
 
 | Left: Dashboard | Right: Operations |
 |-----------------|-------------------|
-| 📊 Live statistics (facts, entities, relations) | 📥 Extract Changes / Find Relations / Full Sync |
-| 📈 Confidence bar with average score | 🔧 Apply Decay / Prune Stale / Full Sweep |
-| 🏥 System health status | 💡 Tips & quick reference |
-| 🔗 Link to DB Studio | Progress bars with real-time updates |
+|  Live statistics (facts, entities, relations) |  Extract Changes / Find Relations / Full Sync |
+|  Confidence bar with average score |  Apply Decay / Prune Stale / Full Sweep |
+|  System health status |  Tips & quick reference |
+|  Link to DB Studio | Progress bars with real-time updates |
 
 The Installation section only appears when setup is needed — keeping the UI clean when everything is working.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # 1. Install SurrealDB
@@ -43,7 +43,7 @@ source .venv/bin/activate
 pip install surrealdb openai pyyaml
 ```
 
-## 🔧 MCP Integration
+##  MCP Integration
 
 Add to your `config/mcporter.json`:
 
@@ -60,7 +60,7 @@ Add to your `config/mcporter.json`:
 }
 ```
 
-## 🛠 Available Tools (11)
+##  Available Tools (11)
 
 | Tool | Description |
 |------|-------------|
@@ -76,12 +76,12 @@ Add to your `config/mcporter.json`:
 | `context_aware_search` | Task-boosted search |
 | `memory_inject` | **Context injection for prompts** |
 
-## 🎯 Auto-Injection
+##  Auto-Injection
 
 Enable automatic memory injection in the Mode UI:
 
 1. Open Control dashboard → **Mode** tab
-2. Scroll to **🧠 Memory & Knowledge Graph**
+2. Scroll to ** Memory & Knowledge Graph**
 3. Toggle **Auto-Inject Context**
 4. Configure limits as needed
 
@@ -90,23 +90,23 @@ When enabled, every user message triggers:
 2. If confidence is below threshold, episodic memories are included
 3. Formatted context is injected into the agent's system prompt
 
-## 📊 Example Output
+##  Example Output
 
 ```markdown
 ## Semantic Memory (Relevant Facts)
-📌 [60% relevant, 100% confidence] User prefers direct communication
-📌 [55% relevant, 95% confidence] Previous project used React
+ [60% relevant, 100% confidence] User prefers direct communication
+ [55% relevant, 95% confidence] Previous project used React
 
 ## Related Entities
 • User (person)
 • React (technology)
 
 ## Episodic Memory (Past Experiences)
-✅ Task: Deploy marketing site [58% similar]
+ Task: Deploy marketing site [58% similar]
    → Used Vercel for deployment
 ```
 
-## 📥 Extraction with Progress
+##  Extraction with Progress
 
 Run extraction from the UI with real-time progress tracking:
 
@@ -117,7 +117,7 @@ Run extraction from the UI with real-time progress tracking:
 
 Operations automatically refresh statistics when complete.
 
-## 📁 File Structure
+##  File Structure
 
 ```
 surrealdb-memory/
@@ -138,7 +138,7 @@ surrealdb-memory/
 └── .venv/                   # Python environment
 ```
 
-## 📈 Stats
+##  Stats
 
 ```bash
 mcporter call surrealdb-memory.knowledge_stats
@@ -154,7 +154,7 @@ mcporter call surrealdb-memory.knowledge_stats
 }
 ```
 
-## 📖 Documentation
+##  Documentation
 
 See [SKILL.md](./SKILL.md) for complete documentation including:
 - Detailed setup instructions
@@ -164,6 +164,6 @@ See [SKILL.md](./SKILL.md) for complete documentation including:
 - Maintenance procedures
 - Troubleshooting guide
 
-## 📜 License
+##  License
 
 MIT

@@ -35,10 +35,10 @@ npx tsx scripts/sync_reminders.ts sync-coaching
 ```
 
 **Key Points:**
-- ❌ NOT created on `npm install`
-- ❌ NOT created when skill is activated
-- ✅ Created when you run `init_skill.ts` or `sync-coaching`
-- ✅ Should be re-run after skill updates
+-  NOT created on `npm install`
+-  NOT created when skill is activated
+-  Created when you run `init_skill.ts` or `sync-coaching`
+-  Should be re-run after skill updates
 
 ### Q: Can we make a system to check and (re)create cron jobs for updates?
 
@@ -74,9 +74,9 @@ npx tsx scripts/init_skill.ts  # Detects version change, updates cron jobs
 npx tsx scripts/check_cron_jobs.ts
 
 # Output:
-# ✅ HabitFlow: Daily Coaching Check
-# ✅ HabitFlow: Weekly Check-in
-# ❌ HabitFlow: Pattern Insights - MISSING
+#  HabitFlow: Daily Coaching Check
+#  HabitFlow: Weekly Check-in
+#  HabitFlow: Pattern Insights - MISSING
 
 # Auto-fix missing jobs
 npx tsx scripts/check_cron_jobs.ts --auto-fix
@@ -159,7 +159,7 @@ Coaching engine generates messages using:
   - Canvas dashboard charts
          ↓
 Script outputs formatted message to stdout:
-  "🎉 7-Day Streak!
+  " 7-Day Streak!
    You've maintained meditation for 7 consecutive days..."
          ↓
 Clawdbot's --deliver flag captures stdout and sends to user
@@ -194,14 +194,14 @@ clawdbot cron add \
 ```bash
 --command "cd ~/clawd/skills/habit-flow && npx tsx scripts/proactive_coaching.ts --send"
 ```
-❌ Problem: Can't send image attachments, no agent context
+ Problem: Can't send image attachments, no agent context
 
 **New approach (supports attachments):**
 ```bash
 --message "Run HabitFlow coaching... Execute: npx tsx scripts/proactive_coaching.ts --send"
 --deliver
 ```
-✅ Benefit: Agent session can use sendAttachment tool for images
+ Benefit: Agent session can use sendAttachment tool for images
 
 **How stdout becomes a message:**
 1. Script outputs formatted text to stdout
@@ -222,13 +222,13 @@ git pull
 npx tsx scripts/init_skill.ts
 
 # Output:
-# 📦 Update detected: v1.3.0 → v1.3.1
-# 📅 Setting up proactive coaching cron jobs...
-# ✅ Proactive coaching cron jobs synced:
+#  Update detected: v1.3.0 → v1.3.1
+#  Setting up proactive coaching cron jobs...
+#  Proactive coaching cron jobs synced:
 #    - HabitFlow: Daily Coaching Check (0 8 * * *)
 #    - HabitFlow: Weekly Check-in (0 19 * * 0)
 #    - HabitFlow: Pattern Insights (0 10 * * 3)
-# ✅ Version saved: v1.3.1
+#  Version saved: v1.3.1
 
 # Option 2: Check and auto-fix
 npx tsx scripts/check_cron_jobs.ts --auto-fix
@@ -241,16 +241,16 @@ npx tsx scripts/check_cron_jobs.ts --auto-fix
 npx tsx scripts/check_cron_jobs.ts
 
 # Output:
-# ✅ HabitFlow: Daily Coaching Check
-# ❌ HabitFlow: Weekly Check-in - MISSING
-# ✅ HabitFlow: Pattern Insights
+#  HabitFlow: Daily Coaching Check
+#  HabitFlow: Weekly Check-in - MISSING
+#  HabitFlow: Pattern Insights
 
 # Auto-fix
 npx tsx scripts/check_cron_jobs.ts --auto-fix
 
 # Output:
-# 🔧 Auto-fixing missing cron jobs...
-# ✅ Created: HabitFlow: Weekly Check-in
+#  Auto-fixing missing cron jobs...
+#  Created: HabitFlow: Weekly Check-in
 ```
 
 ## Future Enhancements
@@ -393,13 +393,13 @@ npx tsx scripts/proactive_coaching.ts --weekly-checkin
 
 ## Security & Privacy
 
-- ✅ All data stored locally in `~/clawd/habit-flow-data/`
-- ✅ No external API calls for analysis
-- ✅ Cron jobs run in user's local environment
-- ✅ Messages sent through user's clawdbot instance
-- ✅ No telemetry or tracking
+-  All data stored locally in `~/clawd/habit-flow-data/`
+-  No external API calls for analysis
+-  Cron jobs run in user's local environment
+-  Messages sent through user's clawdbot instance
+-  No telemetry or tracking
 
-## Image Attachments Implementation ✅
+## Image Attachments Implementation 
 
 **Status: COMPLETE**
 
@@ -415,7 +415,7 @@ The system now delivers coaching messages with Canvas dashboard visualizations u
    ```json
    {
      "messages": [{
-       "subject": "📊 Weekly Progress",
+       "subject": " Weekly Progress",
        "body": "This week: 6/7 days...",
        "attachments": [
          "/tmp/trends-h_abc123-123456.png",
@@ -434,10 +434,10 @@ The system now delivers coaching messages with Canvas dashboard visualizations u
    - Output is delivered via --deliver flag
 
 3. **Benefits**
-   - ✅ Agent can display images using Read tool
-   - ✅ Images are embedded in the message
-   - ✅ Works with clawdbot's delivery system
-   - ✅ No need for separate sendAttachment API
+   -  Agent can display images using Read tool
+   -  Images are embedded in the message
+   -  Works with clawdbot's delivery system
+   -  No need for separate sendAttachment API
 
 ### Testing
 
@@ -446,9 +446,9 @@ The system now delivers coaching messages with Canvas dashboard visualizations u
 bash examples/test-image-attachments.sh
 
 # Expected output:
-# ✅ Valid JSON output
-# ✅ Valid PNG images generated
-# ✅ Attachment paths included in JSON
+#  Valid JSON output
+#  Valid PNG images generated
+#  Attachment paths included in JSON
 ```
 
 ## Summary

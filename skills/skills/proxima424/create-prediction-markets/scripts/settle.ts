@@ -100,7 +100,7 @@ async function main(): Promise<void> {
   });
 
   // Fetch market info
-  console.log("\n📊 Market Status\n");
+  console.log("\n Market Status\n");
 
   const info = await client.market.getMarketInfo(args.conditionId);
   const isSettled = await client.redemption.isResolved(args.conditionId);
@@ -151,12 +151,12 @@ async function main(): Promise<void> {
     const remaining = parseInt(info.endTime) - now;
     const hours = Math.floor(remaining / 3600);
     const mins = Math.floor((remaining % 3600) / 60);
-    console.error(`\n❌ Cannot settle yet. Trading ends in ${hours}h ${mins}m`);
+    console.error(`\n Cannot settle yet. Trading ends in ${hours}h ${mins}m`);
     process.exit(1);
   }
 
   // Execute settlement
-  console.log(`\n⚖️ Settling Market\n`);
+  console.log(`\n Settling Market\n`);
   console.log(`Outcome:    ${args.outcome}`);
   console.log(`Wallet:     ${client.client.signer?.address}`);
 
@@ -164,7 +164,7 @@ async function main(): Promise<void> {
     const winningTokenId = await client.trading.getTokenId(args.conditionId, args.outcome);
     const result = await client.market.settleMarket(args.conditionId, winningTokenId);
 
-    console.log("\n✅ Market Settled!\n");
+    console.log("\n Market Settled!\n");
     console.log(`Winner:   ${args.outcome}`);
     console.log(`Tx Hash:  ${result.hash}`);
     console.log(`\nBaseScan: https://basescan.org/tx/${result.hash}`);
@@ -173,7 +173,7 @@ async function main(): Promise<void> {
     console.log(JSON.stringify({ settled: true, winner: args.outcome, hash: result.hash }, null, 2));
 
   } catch (error: any) {
-    console.error("\n❌ Settlement failed:", error.message);
+    console.error("\n Settlement failed:", error.message);
     process.exit(1);
   }
 }

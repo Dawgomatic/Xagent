@@ -1,4 +1,4 @@
-# Elite Longterm Memory 🧠
+# Elite Longterm Memory 
 
 **The ultimate memory system for AI agents.** Never lose context again.
 
@@ -25,13 +25,13 @@
 
 Combines 7 proven memory approaches into one bulletproof architecture:
 
-- ✅ **Bulletproof WAL Protocol** — Write-ahead logging survives compaction
-- ✅ **LanceDB Vector Search** — Semantic recall of relevant memories
-- ✅ **Git-Notes Knowledge Graph** — Structured decisions, branch-aware
-- ✅ **File-Based Archives** — Human-readable MEMORY.md + daily logs
-- ✅ **Cloud Backup** — Optional SuperMemory sync
-- ✅ **Memory Hygiene** — Keep vectors lean, prevent token waste
-- ✅ **Mem0 Auto-Extraction** — Automatic fact extraction, 80% token reduction
+-  **Bulletproof WAL Protocol** — Write-ahead logging survives compaction
+-  **LanceDB Vector Search** — Semantic recall of relevant memories
+-  **Git-Notes Knowledge Graph** — Structured decisions, branch-aware
+-  **File-Based Archives** — Human-readable MEMORY.md + daily logs
+-  **Cloud Backup** — Optional SuperMemory sync
+-  **Memory Hygiene** — Keep vectors lean, prevent token waste
+-  **Mem0 Auto-Extraction** — Automatic fact extraction, 80% token reduction
 
 ## Quick Start
 

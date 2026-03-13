@@ -24,13 +24,13 @@ RADARR_KEY="${RADARR_KEY:-}"
 LIDARR_KEY="${LIDARR_KEY:-}"
 
 if [[ -z "$HOST" ]]; then
-  echo "❌ Error: CLAWARR_HOST not set"
+  echo " Error: CLAWARR_HOST not set"
   echo "Usage: export CLAWARR_HOST=192.168.1.100"
   exit 1
 fi
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required but not installed"
+  echo " Error: jq is required but not installed"
   exit 1
 fi
 
@@ -64,13 +64,13 @@ api_call() {
       api_ver="v1"
       ;;
     *)
-      echo "❌ Unknown app: $app"
+      echo " Unknown app: $app"
       return 1
       ;;
   esac
   
   if [[ -z "$key" ]]; then
-    echo "❌ API key not set for $app"
+    echo " API key not set for $app"
     return 1
   fi
   
@@ -82,7 +82,7 @@ cmd_stats() {
   local app="${1:-all}"
   
   if [[ "$app" == "all" || "$app" == "radarr" ]] && [[ -n "$RADARR_KEY" ]]; then
-    echo "📊 Radarr Library Statistics"
+    echo " Radarr Library Statistics"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     local data
@@ -110,7 +110,7 @@ cmd_stats() {
   fi
   
   if [[ "$app" == "all" || "$app" == "sonarr" ]] && [[ -n "$SONARR_KEY" ]]; then
-    echo "📊 Sonarr Library Statistics"
+    echo " Sonarr Library Statistics"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     local series_data
@@ -143,7 +143,7 @@ cmd_stats() {
   fi
   
   if [[ "$app" == "all" || "$app" == "lidarr" ]] && [[ -n "$LIDARR_KEY" ]]; then
-    echo "📊 Lidarr Library Statistics"
+    echo " Lidarr Library Statistics"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     local artist_data
@@ -172,7 +172,7 @@ cmd_stats() {
 cmd_quality() {
   local app="${1:-radarr}"
   
-  echo "📊 Quality Profile Breakdown - $(echo "$app" | tr '[:lower:]' '[:upper:]')"
+  echo " Quality Profile Breakdown - $(echo "$app" | tr '[:lower:]' '[:upper:]')"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   if [[ "$app" == "radarr" ]]; then
@@ -206,7 +206,7 @@ cmd_missing() {
   local app="${1:-all}"
   
   if [[ "$app" == "all" || "$app" == "radarr" ]] && [[ -n "$RADARR_KEY" ]]; then
-    echo "📋 Missing Movies (Radarr)"
+    echo " Missing Movies (Radarr)"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     local data
@@ -223,7 +223,7 @@ cmd_missing() {
   fi
   
   if [[ "$app" == "all" || "$app" == "sonarr" ]] && [[ -n "$SONARR_KEY" ]]; then
-    echo "📋 Missing Episodes (Sonarr)"
+    echo " Missing Episodes (Sonarr)"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     local series
@@ -238,7 +238,7 @@ cmd_missing() {
 cmd_unmonitored() {
   local app="${1:-radarr}"
   
-  echo "⏸️  Unmonitored Content - $(echo "$app" | tr '[:lower:]' '[:upper:]')"
+  echo "  Unmonitored Content - $(echo "$app" | tr '[:lower:]' '[:upper:]')"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   if [[ "$app" == "radarr" ]]; then
@@ -260,7 +260,7 @@ cmd_recent() {
   local cutoff_date
   cutoff_date=$(date -u -v-${days}d +"%Y-%m-%dT%H:%M:%SZ" 2>/dev/null || date -u -d "${days} days ago" +"%Y-%m-%dT%H:%M:%SZ")
   
-  echo "🆕 Recently Added (Last $days days) - $(echo "$app" | tr '[:lower:]' '[:upper:]')"
+  echo " Recently Added (Last $days days) - $(echo "$app" | tr '[:lower:]' '[:upper:]')"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   if [[ "$app" == "radarr" ]]; then
@@ -279,7 +279,7 @@ cmd_recent() {
 cmd_genres() {
   local app="${1:-radarr}"
   
-  echo "🎭 Genre Distribution - $(echo "$app" | tr '[:lower:]' '[:upper:]')"
+  echo " Genre Distribution - $(echo "$app" | tr '[:lower:]' '[:upper:]')"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   if [[ "$app" == "radarr" ]]; then
@@ -302,7 +302,7 @@ cmd_genres() {
 cmd_years() {
   local app="${1:-radarr}"
   
-  echo "📅 Year Distribution - $(echo "$app" | tr '[:lower:]' '[:upper:]')"
+  echo " Year Distribution - $(echo "$app" | tr '[:lower:]' '[:upper:]')"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   if [[ "$app" == "radarr" ]]; then
@@ -326,7 +326,7 @@ cmd_studios() {
   local app="${1:-radarr}"
   
   if [[ "$app" == "radarr" ]]; then
-    echo "🎬 Studio Distribution"
+    echo " Studio Distribution"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     local data
@@ -335,7 +335,7 @@ cmd_studios() {
       printf "  %-30s %5d\n" "$studio" "$count"
     done
   elif [[ "$app" == "sonarr" ]]; then
-    echo "📺 Network Distribution"
+    echo " Network Distribution"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     local data
@@ -351,7 +351,7 @@ cmd_studios() {
 cmd_nofiles() {
   local app="${1:-radarr}"
   
-  echo "❌ Monitored Content With No Files - $(echo "$app" | tr '[:lower:]' '[:upper:]')"
+  echo " Monitored Content With No Files - $(echo "$app" | tr '[:lower:]' '[:upper:]')"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   if [[ "$app" == "radarr" ]]; then
@@ -370,7 +370,7 @@ cmd_nofiles() {
 cmd_disk() {
   local app="${1:-all}"
   
-  echo "💾 Disk Usage by Root Folder"
+  echo " Disk Usage by Root Folder"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   if [[ "$app" == "all" || "$app" == "radarr" ]] && [[ -n "$RADARR_KEY" ]]; then
@@ -414,7 +414,7 @@ case "$COMMAND" in
   disk)       cmd_disk "${2:-all}" ;;
   help|--help|-h) show_help ;;
   *)
-    echo "❌ Unknown command: $COMMAND"
+    echo " Unknown command: $COMMAND"
     echo "Run '$0 help' for usage"
     exit 1
     ;;

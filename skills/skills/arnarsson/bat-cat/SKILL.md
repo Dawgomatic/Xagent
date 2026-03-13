@@ -2,7 +2,7 @@
 name: bat-cat
 description: A cat clone with syntax highlighting, line numbers, and Git integration - a modern replacement for cat.
 homepage: https://github.com/sharkdp/bat
-metadata: {"clawdbot":{"emoji":"🦇","requires":{"bins":["bat"]},"install":[{"id":"brew","kind":"brew","formula":"bat","bins":["bat"],"label":"Install bat (brew)"},{"id":"apt","kind":"apt","package":"bat","bins":["bat"],"label":"Install bat (apt)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["bat"]},"install":[{"id":"brew","kind":"brew","formula":"bat","bins":["bat"],"label":"Install bat (brew)"},{"id":"apt","kind":"apt","package":"bat","bins":["bat"],"label":"Install bat (apt)"}]}}
 ---
 
 # bat - Better cat

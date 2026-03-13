@@ -81,9 +81,9 @@ Siehe [references/mqtt.md](references/mqtt.md) für vollständige MQTT-Dokumenta
 
 ## Unterstützte Modelle
 
-- ✅ A1 (getestet)
-- ✅ A1 Mini
-- ✅ P1P / P1S
-- ✅ X1 / X1C
+-  A1 (getestet)
+-  A1 Mini
+-  P1P / P1S
+-  X1 / X1C
 
 Alle Modelle nutzen das gleiche MQTT-Protokoll im LAN-Mode.

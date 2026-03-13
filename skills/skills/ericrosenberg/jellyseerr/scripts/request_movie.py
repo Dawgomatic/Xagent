@@ -87,7 +87,7 @@ def main():
         print(f"{i}. {movie['title']} ({year})")
         print(f"   Status: {status_text}")
         if status >= 4:
-            print(f"   ⚠️  Already available!")
+            print(f"     Already available!")
         print()
     
     # Select movie
@@ -112,7 +112,7 @@ def main():
     # Check if already available
     status = selected.get('mediaInfo', {}).get('status', 0) if selected.get('mediaInfo') else 0
     if status >= 4:
-        print(f"\n⚠️  {selected['title']} is already available!")
+        print(f"\n  {selected['title']} is already available!")
         sys.exit(0)
     
     # Submit request
@@ -127,11 +127,11 @@ def main():
         
         # Add to tracking for availability notifications
         add_request(selected['id'], 'movie', selected['title'])
-        print(f"  📬 You'll be notified when it's available!")
+        print(f"   You'll be notified when it's available!")
         
     except requests.exceptions.HTTPError as e:
         if e.response.status_code == 409:
-            print(f"⚠️  This movie has already been requested")
+            print(f"  This movie has already been requested")
         else:
             raise
 

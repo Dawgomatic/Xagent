@@ -8,7 +8,7 @@ ALERT_THRESHOLD="critical"  # Report critical alerts immediately
 RESPONSE=$(curl -s "$API_URL")
 
 if [ -z "$RESPONSE" ]; then
-    echo "⚠️ Security Dashboard API not responding"
+    echo " Security Dashboard API not responding"
     exit 1
 fi
 
@@ -50,7 +50,7 @@ WARNING_COUNT=$(echo "$RESPONSE" | jq '[.alerts[] | select(.level == "warning")]
 
 # Build report if issues found
 if [ "$STATUS_LEVEL" = "critical" ] || [ "$CRITICAL_COUNT" -gt 0 ]; then
-    REPORT="🚨 **CRITICAL SECURITY ISSUES DETECTED**\n\n"
+    REPORT=" **CRITICAL SECURITY ISSUES DETECTED**\n\n"
     REPORT+="Status: $STATUS_TEXT\n"
     REPORT+="Critical Alerts: $CRITICAL_COUNT\n"
     
@@ -77,7 +77,7 @@ if [ "$STATUS_LEVEL" = "critical" ] || [ "$CRITICAL_COUNT" -gt 0 ]; then
 elif [ "$WARNING_COUNT" -gt 0 ]; then
     # Only report warnings if significant (3+ warnings)
     if [ "$WARNING_COUNT" -ge 3 ]; then
-        REPORT="⚠️ **Security Warnings Detected**\n\n"
+        REPORT=" **Security Warnings Detected**\n\n"
         REPORT+="Status: $STATUS_TEXT\n"
         REPORT+="Warning Count: $WARNING_COUNT\n\n"
         

@@ -41,14 +41,14 @@ Here's what actually works:
 2. [Second tip with explanation]
 3. [Third tip with explanation]
 
-Save this for later! ✨
+Save this for later! 
 
 #[niche] #[subtopic] #tips
 ```
 
 ### Personal/Story Post
 ```
-Real talk for a sec... 💭
+Real talk for a sec... 
 
 [Vulnerable opening about struggle/experience]
 
@@ -56,7 +56,7 @@ Real talk for a sec... 💭
 
 [Encouraging message to audience]
 
-Anyone else been through this? Drop a 🙋 below
+Anyone else been through this? Drop a  below
 
 #[niche] #reallife #motivation
 ```

@@ -74,7 +74,7 @@ Uses OpenAI's Responses API with the `web_search` tool:
 ## Output Example
 
 ```
-🔍 Searching Reddit: "Kimi K2.5" (last 7 days)...
+ Searching Reddit: "Kimi K2.5" (last 7 days)...
 
 **Kimi K2.5 impressions?**
 r/MachineLearning • 2026-01-22
@@ -84,7 +84,7 @@ Top comments:
 - user1 (120): Interesting that...
 - user2 (88): I tested it and...
 
-📎 Links (3):
+ Links (3):
    https://www.reddit.com/r/MachineLearning/comments/xxxxxx/...
 ```
 

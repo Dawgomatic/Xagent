@@ -77,12 +77,12 @@ function formatTs(ts) {
 export async function auth() {
   const data = await slackApi("auth.test");
   if (data.ok) {
-    console.log(`✅ Authenticated as ${data.user} @ ${data.team}`);
+    console.log(` Authenticated as ${data.user} @ ${data.team}`);
     console.log(`   Team ID: ${data.team_id}`);
     console.log(`   User ID: ${data.user_id}`);
     console.log(`   URL: ${data.url}`);
   } else {
-    console.error(`❌ Auth failed: ${data.error}`);
+    console.error(` Auth failed: ${data.error}`);
     process.exit(1);
   }
 }
@@ -97,7 +97,7 @@ export async function channels() {
     process.exit(1);
   }
   for (const ch of data.channels) {
-    const prefix = ch.is_private ? "🔒" : "#";
+    const prefix = ch.is_private ? "" : "#";
     const members = ch.num_members || 0;
     console.log(`${prefix} ${ch.name}  (${members} members, id: ${ch.id})`);
   }
@@ -115,7 +115,7 @@ export async function dms() {
   }
   for (const ch of data.channels) {
     const name = userName(users, ch.user);
-    console.log(`💬 ${name}  (${ch.id})`);
+    console.log(` ${name}  (${ch.id})`);
   }
 }
 
@@ -144,7 +144,7 @@ export async function read(channelRef, count = 20, options = {}) {
     console.log(`  ${msg.text}`);
     if (msg.files?.length) {
       for (const f of msg.files) {
-        console.log(`  📎 ${f.name} (${f.mimetype})`);
+        console.log(`   ${f.name} (${f.mimetype})`);
       }
     }
     
@@ -164,7 +164,7 @@ export async function read(channelRef, count = 20, options = {}) {
           console.log(`      ${reply.text}`);
           if (reply.files?.length) {
             for (const f of reply.files) {
-              console.log(`      📎 ${f.name} (${f.mimetype})`);
+              console.log(`       ${f.name} (${f.mimetype})`);
             }
           }
         }
@@ -178,9 +178,9 @@ export async function send(channelRef, text) {
   const channel = await resolveChannel(channelRef);
   const data = await slackApi("chat.postMessage", { channel, text });
   if (data.ok) {
-    console.log(`✅ Sent to ${channelRef} (ts: ${data.ts})`);
+    console.log(` Sent to ${channelRef} (ts: ${data.ts})`);
   } else {
-    console.error(`❌ Failed: ${data.error}`);
+    console.error(` Failed: ${data.error}`);
     process.exit(1);
   }
 }
@@ -294,7 +294,7 @@ export async function activity(unreadOnly = false) {
 
   // Threads summary
   if (counts.threads?.has_unreads || counts.threads?.mention_count > 0) {
-    console.log(`🧵 Threads — ${counts.threads.mention_count} mentions, unreads: ${counts.threads.has_unreads}`);
+    console.log(` Threads — ${counts.threads.mention_count} mentions, unreads: ${counts.threads.has_unreads}`);
     console.log();
   }
 
@@ -307,17 +307,17 @@ export async function activity(unreadOnly = false) {
   }
 
   if (filtered.length === 0) {
-    console.log(unreadOnly ? "No unreads! 🎉" : "No activity.");
+    console.log(unreadOnly ? "No unreads! " : "No activity.");
     return;
   }
 
   for (const ch of filtered) {
     const name = chMap[ch.id] || ch.id;
     const isMuted = mutedSet.has(ch.id);
-    const prefix = ch.type === "dm" ? "💬" : ch.type === "group" ? "👥" : "#";
+    const prefix = ch.type === "dm" ? "" : ch.type === "group" ? "" : "#";
     const mentions = ch.mention_count > 0 ? ` (${ch.mention_count} mentions)` : "";
     const unread = ch.has_unreads ? " •" : "";
-    const muted = isMuted ? " 🔇" : "";
+    const muted = isMuted ? " " : "";
     console.log(`${prefix} ${name}${unread}${mentions}${muted}`);
   }
 }
@@ -330,7 +330,7 @@ export async function starred() {
   const vipIds = prefs.ok ? (prefs.prefs?.vip_users || "").split(",").filter(Boolean) : [];
 
   if (vipIds.length > 0) {
-    console.log("👑 VIP Users:");
+    console.log(" VIP Users:");
     for (const uid of vipIds) {
       console.log(`   ${userName(users, uid)} (${uid})`);
     }
@@ -357,7 +357,7 @@ export async function starred() {
   }
 
   if (stars.items?.length > 0) {
-    console.log("⭐ Starred:");
+    console.log(" Starred:");
     for (const item of stars.items) {
       if (item.type === "message") {
         const msg = item.message || {};
@@ -367,13 +367,13 @@ export async function starred() {
       } else if (item.type === "channel") {
         console.log(`   #${chMap[item.channel] || item.channel}`);
       } else if (item.type === "im") {
-        console.log(`   💬 ${chMap[item.channel] || item.channel}`);
+        console.log(`    ${chMap[item.channel] || item.channel}`);
       } else if (item.type === "file") {
-        console.log(`   📎 ${item.file?.name || "?"}`);
+        console.log(`    ${item.file?.name || "?"}`);
       }
     }
   } else {
-    console.log("⭐ No starred items.");
+    console.log(" No starred items.");
   }
 }
 
@@ -392,7 +392,7 @@ export async function pins(channelRef) {
     return;
   }
 
-  console.log(`📌 ${data.items.length} pinned items:\n`);
+  console.log(` ${data.items.length} pinned items:\n`);
   for (const item of data.items) {
     const msg = item.message || {};
     const who = userName(users, msg.user);
@@ -426,7 +426,7 @@ export async function saved(count = 20, includeCompleted = false) {
 
   const items = data.saved_items || [];
   const counts = data.counts || {};
-  console.log(`📑 Saved for Later — ${counts.uncompleted_count || 0} active, ${counts.completed_count || 0} completed\n`);
+  console.log(` Saved for Later — ${counts.uncompleted_count || 0} active, ${counts.completed_count || 0} completed\n`);
 
   if (!items.length) {
     console.log("No saved items.");
@@ -438,7 +438,7 @@ export async function saved(count = 20, includeCompleted = false) {
 
     const chName = chMap[item.item_id] || item.item_id;
     const savedAt = formatTs(item.date_created);
-    const state = item.state === "completed" ? " ✅" : "";
+    const state = item.state === "completed" ? " " : "";
 
     // Fetch the actual message
     try {
@@ -456,7 +456,7 @@ export async function saved(count = 20, includeCompleted = false) {
         console.log(`  ${(msg.text || "").substring(0, 300)}`);
         if (msg.files?.length) {
           for (const f of msg.files) {
-            console.log(`  📎 ${f.name} (${f.mimetype})`);
+            console.log(`   ${f.name} (${f.mimetype})`);
           }
         }
       } else {
@@ -477,9 +477,9 @@ export async function react(channelRef, ts, emoji) {
     name: emoji.replace(/:/g, ""),
   });
   if (data.ok) {
-    console.log(`✅ Reacted with :${emoji.replace(/:/g, "")}:`);
+    console.log(` Reacted with :${emoji.replace(/:/g, "")}:`);
   } else {
-    console.error(`❌ Failed: ${data.error}`);
+    console.error(` Failed: ${data.error}`);
     process.exit(1);
   }
 }

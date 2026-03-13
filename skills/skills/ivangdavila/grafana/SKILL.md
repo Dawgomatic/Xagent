@@ -1,7 +1,7 @@
 ---
 name: Grafana
 description: Avoid common Grafana mistakes — query pitfalls, variable templating, alerting traps, and provisioning gotchas.
-metadata: {"clawdbot":{"emoji":"📊","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Variables and Templating

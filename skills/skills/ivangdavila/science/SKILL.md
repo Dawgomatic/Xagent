@@ -1,7 +1,7 @@
 ---
 name: Science
 description: Guide scientific understanding from childhood wonder to research precision.
-metadata: {"clawdbot":{"emoji":"🔬","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

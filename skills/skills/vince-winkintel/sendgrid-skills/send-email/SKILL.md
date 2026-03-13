@@ -84,11 +84,11 @@ await sgMail.send({
 ```
 How complex is your email?
 ├─ Simple, one-off message
-│  └─ Plain send (html/text) ✅
+│  └─ Plain send (html/text) 
 ├─ Reusable design with variables
-│  └─ Dynamic Template ✅
+│  └─ Dynamic Template 
 └─ Personalized at scale
-   └─ Dynamic Template with merge tags ✅
+   └─ Dynamic Template with merge tags 
 ```
 
 **Use plain send when:**

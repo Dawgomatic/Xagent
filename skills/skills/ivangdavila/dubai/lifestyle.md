@@ -9,7 +9,7 @@ Dubai offers a unique, fast-paced lifestyle that blends luxury, multiculturalism
 
 ---
 
-## 🌍 Expat Demographics
+##  Expat Demographics
 
 ### Nationality Breakdown (Approximate)
 | Region | Percentage | Major Nationalities |
@@ -29,7 +29,7 @@ Dubai offers a unique, fast-paced lifestyle that blends luxury, multiculturalism
 
 ---
 
-## 🏡 Popular Expat Neighborhoods
+##  Popular Expat Neighborhoods
 
 ### For Young Professionals
 
@@ -61,7 +61,7 @@ Dubai offers a unique, fast-paced lifestyle that blends luxury, multiculturalism
 
 ---
 
-## 👫 Social Life & Making Friends
+##  Social Life & Making Friends
 
 ### How Expats Meet People
 
@@ -94,7 +94,7 @@ Dubai offers a unique, fast-paced lifestyle that blends luxury, multiculturalism
 
 ---
 
-## 💑 Dating in Dubai
+##  Dating in Dubai
 
 ### Legal Framework
 - **Heterosexual dating:** Generally accepted, but no PDA
@@ -129,7 +129,7 @@ Dubai offers a unique, fast-paced lifestyle that blends luxury, multiculturalism
 
 ---
 
-## 🏖️ Beaches & Outdoor Activities
+##  Beaches & Outdoor Activities
 
 ### Best Beaches
 
@@ -170,7 +170,7 @@ Dubai offers a unique, fast-paced lifestyle that blends luxury, multiculturalism
 
 ---
 
-## 🏃 Sports & Fitness
+##  Sports & Fitness
 
 ### Popular Sports in Dubai
 
@@ -207,7 +207,7 @@ Dubai offers a unique, fast-paced lifestyle that blends luxury, multiculturalism
 
 ---
 
-## 🍽️ Food & Dining Culture
+##  Food & Dining Culture
 
 ### Dining Options
 
@@ -243,7 +243,7 @@ Dubai offers a unique, fast-paced lifestyle that blends luxury, multiculturalism
 
 ---
 
-## 🎉 Nightlife & Entertainment
+##  Nightlife & Entertainment
 
 ### Friday Brunch Culture
 The quintessential Dubai social experience:
@@ -275,7 +275,7 @@ The quintessential Dubai social experience:
 
 ---
 
-## 💼 Work-Life Balance
+##  Work-Life Balance
 
 ### Working Hours
 - **Standard:** Sunday-Thursday, 9 AM - 6 PM
@@ -296,7 +296,7 @@ The quintessential Dubai social experience:
 
 ---
 
-## 🏦 Cost of Living Reality Check
+##  Cost of Living Reality Check
 
 ### Monthly Budget Examples
 

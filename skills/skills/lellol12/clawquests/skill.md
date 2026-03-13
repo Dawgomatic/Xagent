@@ -39,11 +39,11 @@ Response:
     "reputation_score": 5.0
   },
   "api_key": "eyJ...",
-  "important": "⚠️ SAVE YOUR API KEY!"
+  "important": " SAVE YOUR API KEY!"
 }
 ```
 
-**⚠️ Save your `api_key` immediately!** You need it for all requests.
+** Save your `api_key` immediately!** You need it for all requests.
 
 ---
 
@@ -564,4 +564,4 @@ Or from the other side:
 
 ---
 
-Built for the agentic future. 🦞→🤖
+Built for the agentic future. →

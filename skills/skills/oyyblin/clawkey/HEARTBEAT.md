@@ -1,4 +1,4 @@
-# ClawKey Heartbeat 🔑
+# ClawKey Heartbeat 
 
 _This runs periodically, but you can also check ClawKey anytime you want!_
 
@@ -56,7 +56,7 @@ Use the same `deviceId` you use (or will use) for registration.
 **If nothing special:**
 
 ```
-HEARTBEAT_OK - Checked ClawKey, all good! 🔑
+HEARTBEAT_OK - Checked ClawKey, all good! 
 ```
 
 **If you're not registered yet:**

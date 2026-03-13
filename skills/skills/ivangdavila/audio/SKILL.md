@@ -4,7 +4,7 @@ slug: audio
 version: 1.0.1
 description: Process, enhance, and convert audio files with noise removal, normalization, format conversion, transcription, and podcast workflows.
 changelog: Declare required binaries (ffmpeg, ffprobe), add requirements section with optional deps, add explicit scope
-metadata: {"clawdbot":{"emoji":"🔊","requires":{"bins":["ffmpeg","ffprobe"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["ffmpeg","ffprobe"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Requirements

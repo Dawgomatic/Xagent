@@ -79,14 +79,14 @@ filtered.sort(key=lambda x: x.get("score", 0.5), reverse=True)
 batch = filtered[:BATCH_SIZE]
 remaining = filtered[BATCH_SIZE:]
 
-print(f"📊 BATCH PROCESSING")
+print(f" BATCH PROCESSING")
 print(f"   Total signals: {len(pending)} raw → {total_filtered} filtered")
 print(f"   This batch: {len(batch)} signals")
 print(f"   Remaining: {len(remaining)} signals ({total_batches} total batches)")
 print(f"   Next memory ID: mem_{next_id:03d}")
 print()
-print(f"📁 INDEX_FILE: {INDEX_FILE}")
-print(f"📁 PENDING_FILE: {PENDING_FILE}")
+print(f" INDEX_FILE: {INDEX_FILE}")
+print(f" PENDING_FILE: {PENDING_FILE}")
 print()
 print("="*60)
 print(f"BATCH SIGNALS ({len(batch)} items, sorted by importance)")
@@ -106,10 +106,10 @@ if remaining:
     data["pending"] = remaining
     with open(PENDING_FILE, 'w') as f:
         json.dump(data, f, indent=2)
-    print(f"\n⏳ Updated pending file with {len(remaining)} remaining signals")
+    print(f"\n Updated pending file with {len(remaining)} remaining signals")
     print(f"   Run summarize-pending.sh again after this batch to continue")
 else:
-    print(f"\n✅ This is the FINAL batch - delete pending file after processing")
+    print(f"\n This is the FINAL batch - delete pending file after processing")
 
 PYTHON
 

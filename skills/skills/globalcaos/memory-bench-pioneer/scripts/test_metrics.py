@@ -101,13 +101,13 @@ if __name__ == "__main__":
     for t in sorted(tests):
         try:
             globals()[t]()
-            print(f"  ✅ {t}")
+            print(f"   {t}")
             passed += 1
         except AssertionError as e:
-            print(f"  ❌ {t}: {e}")
+            print(f"   {t}: {e}")
             failed += 1
         except Exception as e:
-            print(f"  ❌ {t}: {type(e).__name__}: {e}")
+            print(f"   {t}: {type(e).__name__}: {e}")
             failed += 1
-    print(f"\n{'✅' if failed == 0 else '❌'} {passed}/{passed+failed} tests passed")
+    print(f"\n{'' if failed == 0 else ''} {passed}/{passed+failed} tests passed")
     sys.exit(1 if failed else 0)

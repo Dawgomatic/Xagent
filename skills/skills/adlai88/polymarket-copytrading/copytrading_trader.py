@@ -170,9 +170,9 @@ def print_config():
     config = get_config()
     config_path = get_config_path(__file__)
 
-    print("\n🐋 Simmer Copytrading Configuration")
+    print("\n Simmer Copytrading Configuration")
     print("=" * 40)
-    print(f"API Key: {'✅ Set' if config['api_key_set'] else '❌ Not set'}")
+    print(f"API Key: {' Set' if config['api_key_set'] else ' Not set'}")
     print(f"\nTarget Wallets ({len(config['wallets'])}):")
     for i, wallet in enumerate(config['wallets'], 1):
         print(f"  {i}. {wallet[:10]}...{wallet[-6:]}")
@@ -321,17 +321,17 @@ def run_copytrading(wallets: list, top_n: int = None, max_usd: float = 50.0, dry
     By default, only BUY trades are executed (buy_only=True). This prevents
     copytrading from selling positions opened by other strategies (weather, etc.)
     """
-    print("\n🐋 Starting Copytrading Scan...")
+    print("\n Starting Copytrading Scan...")
     print("=" * 50)
 
     if not wallets:
-        print("❌ No wallets specified.")
+        print(" No wallets specified.")
         print("   Use --wallets 0x123...,0x456... to specify wallets")
         print("   Or set SIMMER_COPYTRADING_WALLETS env var for recurring scans")
         return
 
     # Show configuration
-    print("\n⚙️ Configuration:")
+    print("\n Configuration:")
     print(f"  Wallets: {len(wallets)}")
     for w in wallets:
         print(f"    • {w[:10]}...{w[-6:]}")
@@ -345,15 +345,15 @@ def run_copytrading(wallets: list, top_n: int = None, max_usd: float = 50.0, dry
         print("\n  [DRY RUN] No trades will be executed. Use --live to enable trading.")
 
     # Execute copytrading via SDK
-    print("\n📡 Calling Simmer API...")
+    print("\n Calling Simmer API...")
     try:
         result = execute_copytrading(wallets, top_n, max_usd, dry_run, buy_only, detect_whale_exits, MAX_TRADES_PER_RUN)
     except Exception as e:
-        print(f"\n❌ Error: {e}")
+        print(f"\n Error: {e}")
         return
 
     # Display results
-    print(f"\n📊 Analysis Results:")
+    print(f"\n Analysis Results:")
     print(f"  Wallets analyzed: {result.get('wallets_analyzed', 0)}")
     print(f"  Positions found: {result.get('positions_found', 0)}")
     print(f"  Conflicts skipped: {result.get('conflicts_skipped', 0)}")
@@ -367,7 +367,7 @@ def run_copytrading(wallets: list, top_n: int = None, max_usd: float = 50.0, dry
     trades_executed = result.get('trades_executed', 0)
 
     if trades:
-        print(f"\n📈 Trades ({trades_executed}/{trades_needed} executed):")
+        print(f"\n Trades ({trades_executed}/{trades_needed} executed):")
         for t in trades:
             action = t.get('action', '?').upper()
             side = t.get('side', '?').upper()
@@ -378,33 +378,33 @@ def run_copytrading(wallets: list, top_n: int = None, max_usd: float = 50.0, dry
             success = t.get('success', False)
             error = t.get('error')
 
-            status = "✅" if success else "⏸️"
+            status = "" if success else ""
             if error and "dry_run" in error:
-                status = "🔒"
+                status = ""
 
             print(f"  {status} {action} {shares:.1f} {side} @ ${price:.3f} (${cost:.2f})")
             print(f"     {title}...")
             if error and "dry_run" not in error:
-                print(f"     ⚠️ {error}")
+                print(f"      {error}")
 
     # Show errors
     errors = result.get('errors', [])
     if errors:
-        print(f"\n⚠️ Warnings:")
+        print(f"\n Warnings:")
         for err in errors:
             print(f"  • {err}")
 
     # Summary
     summary = result.get('summary', 'Complete')
     print(f"\n{'─' * 50}")
-    print(f"📋 {summary}")
+    print(f" {summary}")
 
     if not result.get('success'):
-        print("\n❌ Copytrading failed. Check errors above.")
+        print("\n Copytrading failed. Check errors above.")
     elif dry_run:
-        print("\n💡 Remove --dry-run to execute trades")
+        print("\n Remove --dry-run to execute trades")
     elif trades_executed > 0:
-        print(f"\n✅ Successfully mirrored positions!")
+        print(f"\n Successfully mirrored positions!")
 
         # Log successful trades to journal
         # Risk monitors are now auto-set via SDK settings (dashboard)
@@ -427,12 +427,12 @@ def run_copytrading(wallets: list, top_n: int = None, max_usd: float = 50.0, dry
                         wallets_count=len(wallets),
                     )
     else:
-        print("\n✅ Scan complete")
+        print("\n Scan complete")
 
 
 def show_positions():
     """Show current SDK positions."""
-    print("\n📊 Your Polymarket Positions")
+    print("\n Your Polymarket Positions")
     print("=" * 50)
 
     try:
@@ -481,7 +481,7 @@ def show_positions():
         print(f"Positions: {len(poly_positions)}")
 
     except Exception as e:
-        print(f"❌ Error fetching positions: {e}")
+        print(f" Error fetching positions: {e}")
 
 
 # =============================================================================
@@ -561,7 +561,7 @@ def main():
                 updates[key] = value
         if updates:
             updated = update_config(updates, __file__)
-            print(f"✅ Config updated: {updates}")
+            print(f" Config updated: {updates}")
             print(f"   Saved to: {get_config_path(__file__)}")
             # Reload config
             _config = load_config(CONFIG_SCHEMA, __file__)

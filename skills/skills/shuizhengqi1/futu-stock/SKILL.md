@@ -1,7 +1,7 @@
 ---
 name: futu-stock
 description: Access Futu stock market data via MCP server - real-time quotes, K-lines, options, account info for HK/US/CN markets
-metadata: {"openclaw": {"emoji": "📈", "requires": {"bins": ["python3", "futu-mcp-server"], "env": ["FUTU_HOST", "FUTU_PORT"]}, "primaryEnv": "FUTU_HOST"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["python3", "futu-mcp-server"], "env": ["FUTU_HOST", "FUTU_PORT"]}, "primaryEnv": "FUTU_HOST"}}
 version: 1.0.0
 ---
 

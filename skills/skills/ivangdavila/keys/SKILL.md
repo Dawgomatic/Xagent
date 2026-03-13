@@ -1,7 +1,7 @@
 ---
 name: Keys
 description: Secure API key management with broker. Keys never exposed to agent context.
-metadata: {"clawdbot":{"emoji":"🔑","requires":{"bins":["curl","jq","bash"]},"os":["linux","darwin"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq","bash"]},"os":["linux","darwin"]}}
 ---
 
 ## Usage

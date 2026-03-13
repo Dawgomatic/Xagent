@@ -2,7 +2,7 @@
 name: "data-quality-check"
 description: "Assess construction data quality using completeness, accuracy, consistency, timeliness, and validity metrics. Automated validation with regex patterns, thresholds, and reporting."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "✔️", "os": ["win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # Data Quality Check for Construction
 

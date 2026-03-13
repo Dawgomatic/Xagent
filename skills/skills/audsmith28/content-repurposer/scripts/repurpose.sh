@@ -49,7 +49,7 @@ done
 
 # --- Pre-flight Checks ---
 if [ ! -f "$CONFIG_FILE" ]; then
-  echo "❌ Error: Config file not found at $CONFIG_FILE"
+  echo " Error: Config file not found at $CONFIG_FILE"
   echo "Run 'scripts/setup.sh' first."
   exit 1
 fi
@@ -57,7 +57,7 @@ fi
 # --- Read Source Content ---
 CONTENT=""
 if [[ "$SOURCE_INPUT" =~ ^https?:// ]]; then
-  echo "🌐 Fetching content from URL: $SOURCE_INPUT"
+  echo " Fetching content from URL: $SOURCE_INPUT"
   # Use Clawdbot's web_fetch tool if available, otherwise fallback to curl
   if command -v clawdbot &> /dev/null && clawdbot tool-exists web_fetch; then
     CONTENT=$(clawdbot web_fetch --url "$SOURCE_INPUT" --extractMode text)
@@ -67,16 +67,16 @@ if [[ "$SOURCE_INPUT" =~ ^https?:// ]]; then
   SOURCE_SLUG=$(slugify "$(basename "$SOURCE_INPUT")")
 else
   if [ ! -f "$SOURCE_INPUT" ]; then
-    echo "❌ Error: Source file not found at $SOURCE_INPUT"
+    echo " Error: Source file not found at $SOURCE_INPUT"
     exit 1
   fi
-  echo "📄 Reading content from file: $SOURCE_INPUT"
+  echo " Reading content from file: $SOURCE_INPUT"
   CONTENT=$(cat "$SOURCE_INPUT")
   SOURCE_SLUG=$(slugify "$(basename "${SOURCE_INPUT%.*}")")
 fi
 
 if [ -z "$CONTENT" ]; then
-  echo "❌ Error: Could not read content from source."
+  echo " Error: Could not read content from source."
   exit 1
 fi
 
@@ -91,7 +91,7 @@ DATE_SLUG=$(date +"%Y-%m-%d")
 FINAL_DIR="$OUTPUT_DIR/${DATE_SLUG}-${SOURCE_SLUG}"
 mkdir -p "$FINAL_DIR"
 
-echo "♻️  Starting content repurposing..."
+echo "  Starting content repurposing..."
 echo "Source: $SOURCE_INPUT"
 echo "Outputting to: $FINAL_DIR"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -118,11 +118,11 @@ for platform in "${ENABLED_PLATFORMS[@]}"; do
   fi
 
   if [ ! -f "$PLATFORM_SCRIPT" ]; then
-    echo "⚠️  Warning: Script for platform '$platform' not found at $PLATFORM_SCRIPT. Skipping."
+    echo "  Warning: Script for platform '$platform' not found at $PLATFORM_SCRIPT. Skipping."
     continue
   fi
 
-  echo "➡️  Processing for: $platform"
+  echo "  Processing for: $platform"
 
   if $DRY_RUN; then
     echo "DRY RUN: Would execute..."
@@ -143,13 +143,13 @@ for platform in "${ENABLED_PLATFORMS[@]}"; do
       echo "$RESULT" > "$OUTPUT_FILE"
       echo "✓ Saved to $(basename "$OUTPUT_FILE")"
     else
-      echo "❌ Failed to generate content for $platform"
+      echo " Failed to generate content for $platform"
     fi
   fi
 done
 
 echo ""
-echo "✅ Repurposing complete!"
+echo " Repurposing complete!"
 echo "Find your content in: $FINAL_DIR"
 
 # Optional: copy to clipboard
@@ -166,7 +166,7 @@ if [[ "$COPY_BEHAVIOR" != "none" && "$DRY_RUN" == false ]]; then
         
         if command -v pbcopy &> /dev/null && [ -f "$FILE_TO_COPY" ]; then
             cat "$FILE_TO_COPY" | pbcopy
-            echo "📋 Copied content for '$HIGHEST_PRIORITY_PLATFORM' to clipboard."
+            echo " Copied content for '$HIGHEST_PRIORITY_PLATFORM' to clipboard."
         fi
     fi
 fi

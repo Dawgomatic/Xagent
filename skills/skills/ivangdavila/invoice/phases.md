@@ -115,7 +115,7 @@ If user gives gross amount:
 
 **If email configured:**
 ```
-📧 Sending F-2026-015 to cliente@acme.com
+ Sending F-2026-015 to cliente@acme.com
 
 Subject: Factura F-2026-015 - Tu Empresa S.L.
 Body: [template with invoice details]
@@ -126,7 +126,7 @@ Attachment: F-2026-015.pdf
 
 **If not configured:**
 ```
-📎 Invoice saved to: ~/billing/sent/2026/F-2026-015.pdf
+ Invoice saved to: ~/billing/sent/2026/F-2026-015.pdf
 Ready to send manually or configure email.
 ```
 
@@ -169,6 +169,6 @@ For subscriptions:
 
 **On trigger day:**
 1. Generate draft automatically
-2. Notify user: "📋 Factura recurrente lista para Acme"
+2. Notify user: " Factura recurrente lista para Acme"
 3. User confirms or edits
 4. Finalize and send

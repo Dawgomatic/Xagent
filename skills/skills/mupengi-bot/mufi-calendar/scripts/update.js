@@ -62,7 +62,7 @@ async function updateEvent() {
     requestBody: updates,
   });
 
-  console.log(`✅ 일정 수정 완료: ${res.data.summary}`);
+  console.log(` 일정 수정 완료: ${res.data.summary}`);
   console.log(`   시작: ${res.data.start.dateTime || res.data.start.date}`);
   console.log(`   종료: ${res.data.end.dateTime || res.data.end.date}`);
 }

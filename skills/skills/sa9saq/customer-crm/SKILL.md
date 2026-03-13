@@ -36,15 +36,15 @@ Track client interactions, manage relationships, and improve repeat business acr
 
 5. **Report generation**:
    ```
-   📊 CRM Report — February 2026
+    CRM Report — February 2026
    
    Total Clients: 12
    Active (30 days): 5
    Revenue this month: ¥15,000
    
    Top Clients:
-   1. Client A — ¥8,000 (3 orders, ⭐5.0)
-   2. Client B — ¥5,000 (2 orders, ⭐4.5)
+   1. Client A — ¥8,000 (3 orders, 5.0)
+   2. Client B — ¥5,000 (2 orders, 4.5)
    
    Follow-up Due:
    - Client C — 7-day check-in (delivered Feb 4)

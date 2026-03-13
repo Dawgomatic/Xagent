@@ -39,8 +39,8 @@ All notable changes to TubeScribe.
 - Added **Privacy & Network** section to README — explains exactly what uses network vs what runs locally
 - Clarified that config paths (`~/.tubescribe/config.json`) point to local TTS installations, not remote services
 - Updated SKILL.md to match new wording
-- Updated author line: `Jackie 🦊 & Matus 🇸🇰`
-- Updated footer: `Made by Jackie 🦊 & Matus 🇸🇰`
+- Updated author line: `Jackie  & Matus `
+- Updated footer: `Made by Jackie  & Matus `
 - **Renamed `config.get()` → `config.get_value()`** — avoids shadowing Python's built-in `get`
 
 ## [1.1.6] - 2026-02-10

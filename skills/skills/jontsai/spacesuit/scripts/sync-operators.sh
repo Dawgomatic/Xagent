@@ -70,7 +70,7 @@ OUTPUT_FILE="${WORKSPACE}/state/operators.json"
 
 # Validate
 if [[ ! -d "$SESSIONS_DIR" ]]; then
-    echo "❌ Sessions directory not found: $SESSIONS_DIR"
+    echo " Sessions directory not found: $SESSIONS_DIR"
     echo "   Set OPENCLAW_SESSIONS_DIR or ensure OpenClaw is installed."
     exit 1
 fi
@@ -78,7 +78,7 @@ fi
 # Ensure state dir exists
 mkdir -p "$(dirname "$OUTPUT_FILE")"
 
-echo "🔍 Scanning session transcripts..."
+echo " Scanning session transcripts..."
 [[ -n "$PROFILE" ]] && echo "   Profile:  $PROFILE"
 echo "   Sessions: $SESSIONS_DIR"
 echo "   Output:   $OUTPUT_FILE"
@@ -172,12 +172,12 @@ EOF
 
 if [[ "$DRY_RUN" == "true" ]]; then
     echo ""
-    echo "🔍 Dry run - would write:"
+    echo " Dry run - would write:"
     echo "----------------------------------------"
     cat "$tmpjson"
 else
     mv "$tmpjson" "$OUTPUT_FILE"
-    echo "✅ Written to $OUTPUT_FILE"
+    echo " Written to $OUTPUT_FILE"
 fi
 
 # Cleanup

@@ -66,7 +66,7 @@ The official skill definition that OpenClaw reads. Contains:
 ```yaml
 metadata: {
   "openclaw": {
-    "emoji": "🪝",
+    "emoji": "",
     "requires": {
       "bins": ["hookcatch"],
       "env": ["HOOKCATCH_API_KEY"]
@@ -154,7 +154,7 @@ The wrapper (`bin/hookcatch-skill`) is **optional** because:
 ## Best Practice
 
 **For OpenClaw Submission:**
-- Include `bin/hookcatch-skill` wrapper ✅
+- Include `bin/hookcatch-skill` wrapper 
 - It provides better AI agent experience
 - Helps with authentication mapping
 - Provides consistent JSON output
@@ -200,7 +200,7 @@ Implements full logic in skill (rare)
 
 ## Recommendation
 
-**Current Structure (Enhanced Skill) ✅**
+**Current Structure (Enhanced Skill) **
 
 Your HookCatch skill follows the **enhanced skill** pattern:
 - Core functionality in separate CLI (`hookcatch`)
@@ -217,4 +217,4 @@ This is the **best practice** for skills that wrap existing tools!
 - **Yes, recommended** - Provides better AI agent experience
 - **Your choice** - Document both approaches
 
-**Current status:** ✅ Complete with optional wrapper for enhanced experience
+**Current status:**  Complete with optional wrapper for enhanced experience

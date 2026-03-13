@@ -361,7 +361,7 @@ def execute_openclaw_task(
     timeout_multiplier: float,
     skill_dir: Path,
 ) -> Dict[str, Any]:
-    logger.info("🤖 Agent [%s] starting task: %s", agent_id, task.task_id)
+    logger.info(" Agent [%s] starting task: %s", agent_id, task.task_id)
     logger.info("   Task: %s", task.name)
     logger.info("   Category: %s", task.category)
 

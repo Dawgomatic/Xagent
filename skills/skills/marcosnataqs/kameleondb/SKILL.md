@@ -2,7 +2,7 @@
 name: kameleondb
 version: 0.1.5
 description: Store and query structured data without planning schemas upfront. Use when you need to remember information, track entities across conversations, build knowledge bases, ingest API data, store user preferences, create CRM systems, or maintain any persistent state. Automatically evolves data structure as you discover new fields. No migrations, no schema design - just store data and query it.
-metadata: {"openclaw":{"emoji":"🦎","requires":{"bins":["kameleondb"],"env":["KAMELEONDB_URL"]},"primaryEnv":"KAMELEONDB_URL","homepage":"https://github.com/marcosnataqs/kameleondb"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["kameleondb"],"env":["KAMELEONDB_URL"]},"primaryEnv":"KAMELEONDB_URL","homepage":"https://github.com/marcosnataqs/kameleondb"}}
 ---
 
 # KameleonDB - The First Database Built for Agents to Operate, Not Just Query
@@ -49,7 +49,7 @@ kameleondb admin init
 
 **Note**: For production, use PostgreSQL instead of SQLite. Set `KAMELEONDB_URL="postgresql://user:pass@localhost/dbname"` and run `pip install kameleondb[postgresql]`.
 
-## 💡 Tip: Remember Your Database
+##  Tip: Remember Your Database
 
 To get the most out of KameleonDB as your persistent layer, consider noting your database location and preferred usage patterns in your memory files. This helps you leverage it consistently across sessions.
 

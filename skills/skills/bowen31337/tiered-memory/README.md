@@ -1,7 +1,7 @@
 # Tiered Memory v2.0
 
 > *A mind that remembers everything is as useless as one that remembers nothing.  
-> The art is knowing what to keep.* 🧠
+> The art is knowing what to keep.* 
 
 Three-tier memory system for OpenClaw agents implementing the EvoClaw Tiered Memory Architecture. Inspired by human cognition and PageIndex tree-based retrieval.
 
@@ -13,14 +13,14 @@ Three-tier memory system for OpenClaw agents implementing the EvoClaw Tiered Mem
 
 ## What's New in v2.0
 
-🆕 **LLM-Powered Tree Search** — Reasoning-based retrieval instead of keyword matching  
-🆕 **Distillation Engine** — 3-stage compression (500B → 80B → 20B)  
-🆕 **Hot Memory Structure** — Identity, owner profile, active context, lessons (auto-pruning)  
-🆕 **Score-Based Tiers** — >=0.7 Hot, >=0.3 Warm, >=0.05 Cold, <0.05 Frozen  
-🆕 **Multi-Agent Support** — Agent ID scoping for all operations  
-🆕 **Consolidation Modes** — Quick/daily/monthly/full with tree pruning  
-🆕 **Critical Sync** — Cloud-first hot+tree sync after every conversation  
-🆕 **Metrics & Observability** — Comprehensive memory system metrics  
+ **LLM-Powered Tree Search** — Reasoning-based retrieval instead of keyword matching  
+ **Distillation Engine** — 3-stage compression (500B → 80B → 20B)  
+ **Hot Memory Structure** — Identity, owner profile, active context, lessons (auto-pruning)  
+ **Score-Based Tiers** — >=0.7 Hot, >=0.3 Warm, >=0.05 Cold, <0.05 Frozen  
+ **Multi-Agent Support** — Agent ID scoping for all operations  
+ **Consolidation Modes** — Quick/daily/monthly/full with tree pruning  
+ **Critical Sync** — Cloud-first hot+tree sync after every conversation  
+ **Metrics & Observability** — Comprehensive memory system metrics  
 
 ---
 
@@ -69,34 +69,34 @@ Three-tier memory system for OpenClaw agents implementing the EvoClaw Tiered Mem
 
 ## Features
 
-### 🧠 Human-Like Memory
+###  Human-Like Memory
 - **Consolidation** — Short-term → long-term during sleep (cron)
 - **Relevance Decay** — Unused memories fade, accessed memories strengthen
 - **Strategic Forgetting** — Not remembering everything is a feature
 - **Hierarchical Organization** — Navigate categories, not scan linearly
 
-### 🌲 Tree-Based Retrieval
+###  Tree-Based Retrieval
 - **Vectorless** — LLM reasoning instead of embedding similarity
 - **O(log n) Navigation** — Hierarchical categories, not linear scan
 - **Explainable** — Every retrieval traces a path through tree
 - **Multi-hop** — Natural navigation across related categories
 
-### 🔴🟡🟢 Three Tiers
+###  Three Tiers
 - **Hot (5KB):** Identity, owner profile, active context, critical lessons
 - **Warm (50KB):** Scored recent facts with decay (30-day retention)
 - **Cold (∞):** Unlimited Turso archive (10-year retention)
 
-### 🤖 LLM Integration
+###  LLM Integration
 - **Tree Search:** Semantic category navigation
 - **Distillation:** Extract structured facts from conversations
 - **Fallback:** Rule-based when LLM unavailable
 
-### ☁️ Cloud-First
+###  Cloud-First
 - **Critical Sync:** Hot + tree sync after every conversation
 - **Disaster Recovery:** Full restore in <2 minutes
 - **Multi-Device:** Same agent across devices
 
-### 📊 Observability
+###  Observability
 - Tree size, node count, tier sizes
 - Retrieval count, accuracy, latency
 - Evictions, reinforcements, consolidations
@@ -183,7 +183,7 @@ See [SKILL.md](SKILL.md) for full command reference.
 
 ## Memory Tiers
 
-### 🔴 Hot Memory (5KB)
+###  Hot Memory (5KB)
 
 **Always in context.** Core identity and active context.
 
@@ -204,7 +204,7 @@ See [SKILL.md](SKILL.md) for full command reference.
 
 **Auto-pruning:** Max 20 lessons, 10 events, 10 tasks. Removes lowest-importance when full.
 
-### 🟡 Warm Memory (50KB)
+###  Warm Memory (50KB)
 
 **Recent facts with decay scoring.** 30-day retention.
 
@@ -229,7 +229,7 @@ See [SKILL.md](SKILL.md) for full command reference.
 - `score >= 0.05` → Cold (archive)
 - `score < 0.05` → Frozen (delete)
 
-### 🟢 Cold Memory (Unlimited)
+###  Cold Memory (Unlimited)
 
 **Long-term archive in Turso.** Queryable but never bulk-loaded.
 
@@ -256,13 +256,13 @@ CREATE TABLE cold_memories (
 ```
 Memory Tree Index
 ==================================================
-📂 Root (warm:15, cold:234)
-  📁 owner — Owner profile (warm:5, cold:89)
-  📁 projects — Active projects (warm:8, cold:67)
-    📁 projects/evoclaw — EvoClaw framework (warm:6, cold:45)
-      📁 projects/evoclaw/bsc — BSC integration (warm:3, cold:12)
-  📁 technical — Tech setup (warm:2, cold:34)
-  📁 lessons — Learned lessons (warm:0, cold:44)
+ Root (warm:15, cold:234)
+   owner — Owner profile (warm:5, cold:89)
+   projects — Active projects (warm:8, cold:67)
+     projects/evoclaw — EvoClaw framework (warm:6, cold:45)
+       projects/evoclaw/bsc — BSC integration (warm:3, cold:12)
+   technical — Tech setup (warm:2, cold:34)
+   lessons — Learned lessons (warm:0, cold:44)
 
 Nodes: 7/50
 Size: 1842 / 2048 bytes
@@ -590,9 +590,9 @@ if __name__ == "__main__":
 
 | System | Scaling | Accuracy | Cost | Explainable |
 |--------|---------|----------|------|-------------|
-| **Flat MEMORY.md** | ❌ Months | ⚠️ Degrades | ❌ Linear | ❌ No |
-| **Vector RAG** | ✅ Years | ⚠️ Similarity≠relevance | ⚠️ Moderate | ❌ Opaque |
-| **Tiered v2.0** | ✅ Decades | ✅ Reasoning-based | ✅ Fixed | ✅ Yes |
+| **Flat MEMORY.md** |  Months |  Degrades |  Linear |  No |
+| **Vector RAG** |  Years |  Similarity≠relevance |  Moderate |  Opaque |
+| **Tiered v2.0** |  Decades |  Reasoning-based |  Fixed |  Yes |
 
 **Why tree > vectors:**
 - **98%+ accuracy** vs. 70-80% (PageIndex benchmark)
@@ -677,4 +677,4 @@ MIT License — See [LICENSE](LICENSE)
 
 ---
 
-**v2.0.0** — *A mind that remembers everything is as useless as one that remembers nothing. The art is knowing what to keep.* 🧠🌲
+**v2.0.0** — *A mind that remembers everything is as useless as one that remembers nothing. The art is knowing what to keep.* 

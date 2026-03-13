@@ -576,7 +576,7 @@ async function optimizeCreativeRotation(mediaBuyId) {
     }
   });
   
-  console.log('✅ Creative rotation optimized');
+  console.log(' Creative rotation optimized');
 }
 ```
 

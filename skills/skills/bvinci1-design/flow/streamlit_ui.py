@@ -23,7 +23,7 @@ except ImportError:
 # Page config
 st.set_page_config(
     page_title="Flow - Intelligent Skill Orchestrator",
-    page_icon="🔄",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -69,12 +69,12 @@ if 'last_result' not in st.session_state:
     st.session_state.last_result = None
 
 # Sidebar
-st.sidebar.title("🔄 Flow")
+st.sidebar.title(" Flow")
 st.sidebar.markdown("---")
 
 page = st.sidebar.radio(
     "Navigation",
-    ["🏠 Build Flow", "📚 Skill Registry", "ℹ️ About"]
+    [" Build Flow", " Skill Registry", " About"]
 )
 
 st.sidebar.markdown("---")
@@ -89,8 +89,8 @@ except:
     st.sidebar.metric("Skills in Registry", 0)
 
 # Main content
-if page == "🏠 Build Flow":
-    st.markdown('<div class="main-header">🔄 Flow - Intelligent Skill Orchestrator</div>', unsafe_allow_html=True)
+if page == " Build Flow":
+    st.markdown('<div class="main-header"> Flow - Intelligent Skill Orchestrator</div>', unsafe_allow_html=True)
     st.markdown('<div class="sub-header">Compose natural language requests into secure, reusable workflows</div>', unsafe_allow_html=True)
     
     # Input section
@@ -105,10 +105,10 @@ if page == "🏠 Build Flow":
     col1, col2, col3 = st.columns([1, 1, 4])
     
     with col1:
-        build_button = st.button("🚀 Build Flow", type="primary", use_container_width=True)
+        build_button = st.button(" Build Flow", type="primary", use_container_width=True)
     
     with col2:
-        clear_button = st.button("🗑️ Clear", use_container_width=True)
+        clear_button = st.button(" Clear", use_container_width=True)
     
     if clear_button:
         st.session_state.last_result = None
@@ -152,16 +152,16 @@ if page == "🏠 Build Flow":
         result = st.session_state.last_result
         
         st.markdown("---")
-        st.markdown("### 📊 Flow Results")
+        st.markdown("###  Flow Results")
         
         # Status overview
         col1, col2, col3, col4 = st.columns(4)
         
         with col1:
             if result.success:
-                st.metric("Status", "✅ Success")
+                st.metric("Status", " Success")
             else:
-                st.metric("Status", "❌ Failed")
+                st.metric("Status", " Failed")
         
         with col2:
             security_color = {
@@ -180,37 +180,37 @@ if page == "🏠 Build Flow":
         
         # Details
         if result.success:
-            st.success(f"✨ Created FLOW: **{result.flow_name}**")
+            st.success(f" Created FLOW: **{result.flow_name}**")
             
             if result.output_path:
                 st.code(result.output_path, language="text")
             
             if result.skills_used:
-                st.markdown("#### 🧩 Skills Composed")
+                st.markdown("####  Skills Composed")
                 for skill in result.skills_used:
                     st.markdown(f"- {skill}")
         
         # Warnings
         if result.warnings:
-            st.markdown("#### ⚠️ Warnings")
+            st.markdown("####  Warnings")
             for warning in result.warnings:
                 st.warning(warning)
         
         # Errors
         if result.errors:
-            st.markdown("#### ❌ Errors")
+            st.markdown("####  Errors")
             for error in result.errors:
                 st.error(error)
 
-elif page == "📚 Skill Registry":
-    st.markdown('<div class="main-header">📚 Skill Registry</div>', unsafe_allow_html=True)
+elif page == " Skill Registry":
+    st.markdown('<div class="main-header"> Skill Registry</div>', unsafe_allow_html=True)
     st.markdown('<div class="sub-header">Browse and search available skills</div>', unsafe_allow_html=True)
     
     # Search and filter
     col1, col2 = st.columns([3, 1])
     
     with col1:
-        search_query = st.text_input("🔍 Search skills", placeholder="Search by name or capability...")
+        search_query = st.text_input(" Search skills", placeholder="Search by name or capability...")
     
     with col2:
         sort_by = st.selectbox("Sort by", ["Reuse Score", "Name", "Capabilities"])
@@ -259,19 +259,19 @@ elif page == "📚 Skill Registry":
         st.error(f"Error loading skills: {str(e)}")
         st.info("No skills found. Skills will be registered as you build FLOWs.")
 
-elif page == "ℹ️ About":
-    st.markdown('<div class="main-header">ℹ️ About Flow</div>', unsafe_allow_html=True)
+elif page == " About":
+    st.markdown('<div class="main-header"> About Flow</div>', unsafe_allow_html=True)
     
     st.markdown("""
     ## What is Flow?
     
     Flow is an **Intelligent Skill Orchestrator** that allows you to:
     
-    - 🗣️ Express build ideas in **natural language**
-    - 🔍 Find and **reuse existing skills** automatically
-    - 🔒 **Security scan** all components before composition
-    - 🔄 **Compose** multiple skills into unified workflows
-    - 📊 Track skill usage for **intelligent reuse**
+    -  Express build ideas in **natural language**
+    -  Find and **reuse existing skills** automatically
+    -  **Security scan** all components before composition
+    -  **Compose** multiple skills into unified workflows
+    -  Track skill usage for **intelligent reuse**
     
     ## How It Works
     
@@ -285,12 +285,12 @@ elif page == "ℹ️ About":
     
     Flow includes comprehensive security scanning:
     
-    - ✅ Code execution detection (eval, exec)
-    - ✅ Data exfiltration pattern matching
-    - ✅ Crypto mining indicator scanning
-    - ✅ System modification attempt detection
-    - ✅ AST-based code analysis
-    - ✅ Obfuscation detection
+    -  Code execution detection (eval, exec)
+    -  Data exfiltration pattern matching
+    -  Crypto mining indicator scanning
+    -  System modification attempt detection
+    -  AST-based code analysis
+    -  Obfuscation detection
     
     ## Architecture
     
@@ -308,7 +308,7 @@ elif page == "ℹ️ About":
     """)
     
     st.markdown("---")
-    st.markdown("### 🚀 Quick Start")
+    st.markdown("###  Quick Start")
     
     st.code("""
 # CLI Mode
@@ -322,5 +322,5 @@ streamlit run streamlit_ui.py
     """, language="bash")
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("Made with ❤️ by @bvinci1-design")
+st.sidebar.markdown("Made with  by @bvinci1-design")
 st.sidebar.markdown("[GitHub](https://github.com/bvinci1-design/flow) | [ClawdHub](https://clawdhub.com)")

@@ -14,16 +14,16 @@ metadata:
   requires: ["bun", "ethers.js"]
 ---
 
-# Clawearn - Modular Trading Platform for OpenClaw 🎯
+# Clawearn - Modular Trading Platform for OpenClaw 
 
 **Trade prediction markets directly from your OpenClaw bot.**
 
 Clawearn enables your AI agent to:
-- 🎯 Trade on Polymarket prediction markets
-- 💼 Create and manage crypto wallets
-- 💸 Send USDC to any Ethereum address on Arbitrum
-- 📊 Monitor balances and positions across markets
-- 🤖 Execute trading strategies autonomously
+-  Trade on Polymarket prediction markets
+-  Create and manage crypto wallets
+-  Send USDC to any Ethereum address on Arbitrum
+-  Monitor balances and positions across markets
+-  Execute trading strategies autonomously
 
 ---
 
@@ -89,7 +89,7 @@ curl -s https://clawearn.xyz/skills/markets/polymarket/HEARTBEAT.md > ~/.opencla
 
 | Market | Status | Features | Installation |
 |--------|--------|----------|--------------|
-| **Polymarket** | ✅ Production | Full trading, order management, market discovery | See above |
+| **Polymarket** |  Production | Full trading, order management, market discovery | See above |
 
 ---
 
@@ -193,7 +193,7 @@ curl -s http://localhost:3000/skills/markets/NEW_MARKET/SKILL.md > ~/.clawearn/s
 
 ## Security Best Practices
 
-🔒 **CRITICAL:**
+ **CRITICAL:**
 - Read `core/SECURITY.md` before trading
 - Never share private keys
 - Store credentials securely
@@ -217,4 +217,4 @@ curl -s http://localhost:3000/skills/markets/NEW_MARKET/SKILL.md > ~/.clawearn/s
 curl -s https://clawearn.xyz/skills/SKILL.md | grep '^version:'
 ```
 
-**Ready to start?** Install the core skills, choose your markets, and begin trading! 🚀
+**Ready to start?** Install the core skills, choose your markets, and begin trading! 

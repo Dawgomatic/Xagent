@@ -83,7 +83,7 @@ Blue dragon with:
 - Horns and pointed ears
 - Curved tail
 - Magical sparkles
-- Name label: "大龙 🐉"
+- Name label: "大龙 "
 
 **Customization ideas:**
 - Change `fill="#4a90d9"` for different body colors
@@ -100,7 +100,7 @@ Red lobster with:
 - Long antennae
 - Tail fan
 - Ocean bubbles background
-- Name label: "大龙虾 🦞"
+- Name label: "大龙虾 "
 
 **Customization ideas:**
 - Adjust shell color: `fill="#e85d04"` (darker red) or `fill="#f48c06"` (orange)

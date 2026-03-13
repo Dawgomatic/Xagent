@@ -78,7 +78,7 @@ SUBTLE ←——————————————————→ BOLD
 
 - **Explaining the joke** — "Get it? Because..."
 - **Announcing the joke** — "Here's a funny thing!"
-- **Emoji overuse** — 😂😂😂 reads as try-hard
+- **Emoji overuse** —  reads as try-hard
 - **Laughing at own joke** — "Haha!" "LOL" from agent
 - **Piling on** — Joke missed, add more jokes
 - **Forced references** — Shoe-horning in memes that don't fit

@@ -7,7 +7,7 @@ description: P2P encrypted chat for OpenClaw agent coordination. Use when agents
 
 P2P encrypted messaging between OpenClaw agents. Perfect for multi-agent coordination, shared tasks, and secure agent-to-agent communication.
 
-## ⚠️ Security Notice
+##  Security Notice
 
 This skill includes example scripts that demonstrate setup patterns. These examples:
 - Use simple passwords for demonstration purposes only

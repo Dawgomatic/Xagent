@@ -1,7 +1,7 @@
 ---
 name: DevOps
 description: Automate deployments, manage infrastructure, and build reliable CI/CD pipelines.
-metadata: {"clawdbot":{"emoji":"🔧","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # DevOps Rules

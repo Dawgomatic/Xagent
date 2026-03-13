@@ -36,9 +36,9 @@ Xpoz turns your AI agent into a social media analyst. Search posts, find experts
 
 ---
 
-## ⚡ Setup
+##  Setup
 
-👉 **Follow [`xpoz-setup`](https://clawhub.ai/skills/xpoz-setup)** — one-click auth, works in 2 minutes.
+ **Follow [`xpoz-setup`](https://clawhub.ai/skills/xpoz-setup)** — one-click auth, works in 2 minutes.
 
 ---
 
@@ -48,32 +48,32 @@ Run `xpoz-setup` skill. Verify: `mcporter call xpoz.checkAccessKeyStatus`
 
 ## What You Can Do
 
-### 🔍 Search & Monitor
+###  Search & Monitor
 Search posts across Twitter (1B+), Instagram (400M+), and Reddit (100M+) with boolean queries, date filters, and CSV export.
 
 ```bash
 mcporter call xpoz.getTwitterPostsByKeywords query="your brand" startDate=2026-01-01
 ```
 
-### 🎯 Find Leads
+###  Find Leads
 Discover people actively looking for solutions like yours — complaining about competitors, asking for recommendations, or describing pain points you solve.
 
 → See **[lead-generation](https://clawhub.ai/skills/lead-generation)** skill
 
-### 🔬 Find Experts
+###  Find Experts
 Identify domain authorities, thought leaders, and practitioners by analyzing who posts about technical topics with depth and consistency.
 
 → See **[expert-finder](https://clawhub.ai/skills/expert-finder)** skill
 
-### 📊 Analyze Sentiment
+###  Analyze Sentiment
 Track brand perception, compare competitors, surface recurring complaints and praise, identify viral moments.
 
 → See **[social-sentiment](https://clawhub.ai/skills/social-sentiment)** skill
 
-### 👥 Discover Influencers
+###  Discover Influencers
 Find and rank influencers by what they actually create, not just follower count. Engagement quality over vanity metrics.
 
-### 📦 Export Data
+###  Export Data
 Every search generates a full CSV export — up to 64K rows per query. Real example: 63,936 tweets in one download (38MB).
 
 ---

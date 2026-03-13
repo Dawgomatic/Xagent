@@ -1,7 +1,7 @@
 ---
 name: cloud-backup
 description: Back up and restore OpenClaw state. Creates local archives and uploads to S3-compatible cloud storage (AWS S3, Cloudflare R2, Backblaze B2, MinIO, DigitalOcean Spaces, and more). Use when the user says "backup", "back up", "make a backup", "restore", or anything about backing up OpenClaw.
-metadata: {"openclaw":{"emoji":"☁️","requires":{"bins":["bash","tar","jq","aws"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["bash","tar","jq","aws"]}}}
 ---
 
 # OpenClaw Cloud Backup

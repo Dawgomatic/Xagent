@@ -3,7 +3,7 @@ name: image2prompt
 description: Analyze images and generate detailed prompts for image generation. Supports portrait, landscape, product, animal, illustration categories with structured or natural output.
 homepage: https://docs.openclaw.ai/tools/image2prompt
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🖼️","primaryEnv":"OPENAI_API_KEY","requires":{"anyBins":["openclaw"]}}}
+metadata: {"openclaw":{"emoji":"","primaryEnv":"OPENAI_API_KEY","requires":{"anyBins":["openclaw"]}}}
 ---
 
 # Image to Prompt

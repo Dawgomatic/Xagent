@@ -347,7 +347,7 @@ def save_trend(skill_dir):
         curr = entries[-1]["score"]
         delta = curr - prev
         sign = "+" if delta > 0 else ""
-        direction = "📈" if delta > 0 else ("📉" if delta < 0 else "➡️")
+        direction = "" if delta > 0 else ("" if delta < 0 else "")
         print(f"Trend: {direction} {sign}{delta} since last measurement ({prev} → {curr})")
     
     return result

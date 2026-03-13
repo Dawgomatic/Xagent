@@ -38,15 +38,15 @@ function getHashes(data) {
 }
 
 function scanAllSkills() {
-    console.log(`🚀 Starting Global DEEP Hex Audit for all skills in: ${SKILLS_DIR}`);
+    console.log(` Starting Global DEEP Hex Audit for all skills in: ${SKILLS_DIR}`);
     
     // AUTO-PROTECT: Try to elevate OOM priority before scanning
     try {
         const { execSync } = require('child_process');
         execSync('echo -500 | sudo tee /proc/self/oom_score_adj', { stdio: 'ignore' });
-        console.log("🛡️  Priority Guard: OOM Score adjusted to -500 (Elevated).");
+        console.log("  Priority Guard: OOM Score adjusted to -500 (Elevated).");
     } catch (e) {
-        console.warn("⚠️  Priority Guard: Sudo elevation failed. Scanning without OOM protection.");
+        console.warn("  Priority Guard: Sudo elevation failed. Scanning without OOM protection.");
     }
     
     if (!fs.existsSync(HEX_DUMPS_DIR)) {
@@ -115,12 +115,12 @@ function scanAllSkills() {
                 });
                 
                 if (verdict.includes('HIGH') || verdict.includes('MEDIUM')) {
-                    console.log(`⚠️  ${verdict}: ${skill}/${relativePath}`);
+                    console.log(`  ${verdict}: ${skill}/${relativePath}`);
                 } else {
-                    console.log(`✅ Clean: ${skill}/${relativePath}`);
+                    console.log(` Clean: ${skill}/${relativePath}`);
                 }
             } catch (err) {
-                console.error(`❌ Error auditing ${skill}/${relativePath}: ${err.message}`);
+                console.error(` Error auditing ${skill}/${relativePath}: ${err.message}`);
             }
         });
     });
@@ -141,18 +141,18 @@ function scanAllSkills() {
         const starfragment = require('./starfragment.js');
         starfragment.saveFragments(masterHash);
     } catch (e) {
-        console.error(`❌ Starfragment failed: ${e.message}`);
+        console.error(` Starfragment failed: ${e.message}`);
     }
 
     // AUTO-RESTORE: Lower priority after sensitive operations are done
     try {
         const { execSync } = require('child_process');
         execSync('echo 0 | sudo tee /proc/self/oom_score_adj', { stdio: 'ignore' });
-        console.log("🍃 Priority Guard: OOM Score restored to 0 (Normal).");
+        console.log(" Priority Guard: OOM Score restored to 0 (Normal).");
     } catch (e) {}
 
-    console.log(`\n✨ Deep Audit Complete! Summary written to: ${summaryPath}`);
-    console.log(`📂 All ${report.length} file hex dumps consolidated in: ${HEX_DUMPS_DIR}`);
+    console.log(`\n Deep Audit Complete! Summary written to: ${summaryPath}`);
+    console.log(` All ${report.length} file hex dumps consolidated in: ${HEX_DUMPS_DIR}`);
 }
 
 scanAllSkills();

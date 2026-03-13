@@ -65,7 +65,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 **Coverage:**
 - v1 requirements: [X] total
 - Mapped to phases: [Y]
-- Unmapped: [Z] ⚠️
+- Unmapped: [Z] 
 
 ---
 *Requirements defined: [date]*

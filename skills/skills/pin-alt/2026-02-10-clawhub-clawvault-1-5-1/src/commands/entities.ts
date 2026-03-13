@@ -27,7 +27,7 @@ export async function entitiesCommand(options: EntitiesOptions): Promise<void> {
     byFolder[folder].push({ path, aliases: entry.aliases });
   }
   
-  console.log('📚 Linkable Entities\n');
+  console.log(' Linkable Entities\n');
   
   for (const [folder, entities] of Object.entries(byFolder)) {
     console.log(`## ${folder}/`);

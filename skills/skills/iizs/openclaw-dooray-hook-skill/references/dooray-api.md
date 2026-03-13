@@ -106,7 +106,7 @@ curl -X POST https://hook.dooray.com/services/YOUR_TOKEN \
   -d '{
     "botName": "DeployBot",
     "botIconImage": "https://example.com/bot-icon.png",
-    "text": "Deployment to production completed successfully ✅"
+    "text": "Deployment to production completed successfully "
   }'
 ```
 
@@ -138,7 +138,7 @@ with urllib.request.urlopen(req) as response:
 const webhookUrl = 'https://hook.dooray.com/services/YOUR_TOKEN';
 const payload = {
   botName: 'StatusBot',
-  text: 'All systems operational 🟢'
+  text: 'All systems operational '
 };
 
 fetch(webhookUrl, {
@@ -155,7 +155,7 @@ fetch(webhookUrl, {
 ### Message Design
 
 1. **Keep messages concise** - Aim for clarity over verbosity
-2. **Use emoji sparingly** - ✅ ❌ 🟢 for status indicators
+2. **Use emoji sparingly** -    for status indicators
 3. **Include context** - Avoid ambiguous messages
 4. **Structure information** - Use line breaks for readability
 

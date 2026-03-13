@@ -402,9 +402,9 @@ def format_output(results: dict, plan_name: str, reset_time: str, as_json: bool 
 
     # Rate limit warning
     if pct_5h > 80:
-        print(f"  ⚠️ SLOW DOWN ║")
+        print(f"   SLOW DOWN ║")
     elif pct_5h > 50:
-        print(f"  ⚡ Watch it  ║")
+        print(f"   Watch it  ║")
     else:
         print(f"             ║")
 

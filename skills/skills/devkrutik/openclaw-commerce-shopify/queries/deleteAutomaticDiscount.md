@@ -84,7 +84,7 @@ When a user requests to delete automatic discounts or manage automatic discount 
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Deletes discount with excessive return fields
+   #  HIGH COST - Deletes discount with excessive return fields
    mutation discountAutomaticDelete($input: DiscountAutomaticDeleteInput!) {
      discountAutomaticDelete(input: $input) {
        deletedDiscountId
@@ -93,7 +93,7 @@ When a user requests to delete automatic discounts or manage automatic discount 
      }
    }
    
-   # ✅ LOW COST - Deletes discount with essential fields only
+   #  LOW COST - Deletes discount with essential fields only
    mutation discountAutomaticDelete($input: DiscountAutomaticDeleteInput!) {
      discountAutomaticDelete(input: $input) {
        deletedDiscountId
@@ -179,7 +179,7 @@ When generating an automatic discount delete mutation for the user:
 ```
 I'll help you delete an automatic discount from your store.
 
-**⚠️ IMPORTANT WARNING**: This will permanently delete the automatic discount and all associated data. This action cannot be undone.
+** IMPORTANT WARNING**: This will permanently delete the automatic discount and all associated data. This action cannot be undone.
 
 **Mutation:**
 ```graphql

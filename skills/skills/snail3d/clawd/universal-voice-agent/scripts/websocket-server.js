@@ -90,7 +90,7 @@ app.post('/call-webhook', (req, res) => {
   const goal = req.body.goal || 'Have a conversation';
   const callSid = req.body.CallSid;
 
-  console.log(`\n📞 Incoming call: ${callSid}`);
+  console.log(`\n Incoming call: ${callSid}`);
   console.log(`Goal: ${goal}\n`);
 
   // Create TwiML response
@@ -115,7 +115,7 @@ wss.on('connection', (ws, req) => {
   const goal = url.searchParams.get('goal');
   const callSid = url.searchParams.get('callSid');
 
-  console.log(`🔌 WebSocket connected: ${callSid}`);
+  console.log(` WebSocket connected: ${callSid}`);
 
   const session = new CallSession(callSid, goal);
   session.ws = ws;
@@ -127,9 +127,9 @@ wss.on('connection', (ws, req) => {
       const data = JSON.parse(message);
 
       if (data.event === 'connected') {
-        console.log(`✅ Media stream connected: ${callSid}`);
+        console.log(` Media stream connected: ${callSid}`);
       } else if (data.event === 'start') {
-        console.log(`▶️ Call started: ${callSid}`);
+        console.log(` Call started: ${callSid}`);
       } else if (data.event === 'media') {
         // Audio payload (only fire processAudio occasionally, not every packet)
         session.lastAudioTime = Date.now();
@@ -140,24 +140,24 @@ wss.on('connection', (ws, req) => {
           await processAudio(session);
         }
       } else if (data.event === 'stop') {
-        console.log(`⏹️ Call stopped: ${callSid}`);
+        console.log(` Call stopped: ${callSid}`);
         session.goalAchieved = true;
         ws.close();
       }
     } catch (error) {
-      console.error(`❌ Error processing message: ${error.message}`);
+      console.error(` Error processing message: ${error.message}`);
     }
   });
 
   // Handle WebSocket close
   ws.on('close', () => {
-    console.log(`❌ WebSocket closed: ${callSid}`);
+    console.log(` WebSocket closed: ${callSid}`);
     activeCalls.delete(callSid);
     sendCallSummary(session);
   });
 
   ws.on('error', (error) => {
-    console.error(`❌ WebSocket error: ${error.message}`);
+    console.error(` WebSocket error: ${error.message}`);
   });
 });
 
@@ -180,14 +180,14 @@ async function processAudio(session) {
 
     session.lastAudioTime = Date.now();
     session.recordMessage('other', transcript);
-    console.log(`\n🔊 Them: "${transcript}"`);
+    console.log(`\n Them: "${transcript}"`);
 
     // 2. CHECK TIMEOUT & SILENCE
     const timeout = session.checkTimeout();
     if (timeout.checkIn) {
       const checkInMsg = "Hello? Are you still there?";
       session.recordMessage('you', checkInMsg);
-      console.log(`🎤 You: "${checkInMsg}"`);
+      console.log(` You: "${checkInMsg}"`);
 
       const audio = await generateSpeechWithElevenLabs(checkInMsg);
       sendAudioToTwilio(session, audio);
@@ -195,7 +195,7 @@ async function processAudio(session) {
     }
     if (timeout.timeout) {
       console.log(
-        `⏰ Call timeout: ${timeout.reason}. Hanging up gracefully.`
+        ` Call timeout: ${timeout.reason}. Hanging up gracefully.`
       );
       const goodbye =
         "Thank you for your time. Goodbye!";
@@ -213,7 +213,7 @@ async function processAudio(session) {
     );
 
     session.recordMessage('you', response);
-    console.log(`🎤 You: "${response}"`);
+    console.log(` You: "${response}"`);
 
     // 4. CHECK IF GOAL ACHIEVED
     const goalIndicators = [
@@ -229,7 +229,7 @@ async function processAudio(session) {
       response.toLowerCase().includes(word)
     )) {
       session.goalAchieved = true;
-      console.log(`✅ Goal achieved!`);
+      console.log(` Goal achieved!`);
     }
 
     // 5. SPEAK with ElevenLabs
@@ -430,13 +430,13 @@ async function sendCallSummary(session) {
     const elapsedSeconds = Math.round((Date.now() - session.startTime) / 1000);
     const status = session.goalAchieved ? 'completed' : 'ended';
 
-    const summaryText = `${status === 'completed' ? '✅' : '⚠️'} Voice Call: ${session.goal}
+    const summaryText = `${status === 'completed' ? '' : ''} Voice Call: ${session.goal}
 
 ${session.conversationHistory.map((m) => `- ${m.role}: ${m.text}`).join('\n')}
 
 Duration: ${elapsedSeconds}s`;
 
-    console.log(`\n📱 Call Summary:\n${summaryText}\n`);
+    console.log(`\n Call Summary:\n${summaryText}\n`);
 
     // TODO: Send SMS via Twilio
     // await twilioClient.messages.create({...})
@@ -450,7 +450,7 @@ Duration: ${elapsedSeconds}s`;
  */
 async function makeCall(phoneNumber, goal, webhookUrl) {
   try {
-    console.log(`\n📞 Initiating call to ${phoneNumber}`);
+    console.log(`\n Initiating call to ${phoneNumber}`);
     console.log(`Goal: ${goal}\n`);
 
     // Use ngrok URL if provided, otherwise fall back to localhost (for testing)
@@ -462,10 +462,10 @@ async function makeCall(phoneNumber, goal, webhookUrl) {
       from: TWILIO_PHONE,
     });
 
-    console.log(`✅ Call initiated: ${call.sid}`);
+    console.log(` Call initiated: ${call.sid}`);
     return call.sid;
   } catch (error) {
-    console.error(`❌ Error making call: ${error.message}`);
+    console.error(` Error making call: ${error.message}`);
     throw error;
   }
 }
@@ -493,13 +493,13 @@ app.get('/health', (req, res) => {
 
 // Start server
 server.listen(PORT, () => {
-  console.log(`🚀 WebSocket server running on port ${PORT}`);
-  console.log(`\n📍 Webhook URL: http://localhost:${PORT}/call-webhook`);
-  console.log(`🔌 WebSocket URL: wss://localhost:${PORT}/media-stream`);
-  console.log(`\n⚠️ You need to expose this server publicly or use ngrok:\n`);
+  console.log(` WebSocket server running on port ${PORT}`);
+  console.log(`\n Webhook URL: http://localhost:${PORT}/call-webhook`);
+  console.log(` WebSocket URL: wss://localhost:${PORT}/media-stream`);
+  console.log(`\n You need to expose this server publicly or use ngrok:\n`);
   console.log(`   ngrok http ${PORT}`);
   console.log(`   Then update Twilio webhook to your ngrok URL\n`);
-  console.log(`📌 To make a call:\n`);
+  console.log(` To make a call:\n`);
   console.log(`   curl -X POST http://localhost:${PORT}/make-call \\`);
   console.log(`     -H "Content-Type: application/json" \\`);
   console.log(

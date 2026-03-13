@@ -8,7 +8,7 @@ import { nsFetch, requireNsSubscriptionKey } from './ns-api.mjs';
 
 const NS_SUBSCRIPTION_KEY = (() => {
   try { return requireNsSubscriptionKey(); }
-  catch (e) { console.error(`❌ ${e.message}. Missing subscription key env var; set it and retry.`); process.exit(1); }
+  catch (e) { console.error(` ${e.message}. Missing subscription key env var; set it and retry.`); process.exit(1); }
 })();
 
 const BASE_URL = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v3/trips';
@@ -26,7 +26,7 @@ const dateTime = getArg('--time'); // Optional: ISO datetime
 
 if (!fromStation || !toStation) {
   console.log(`
-🚆 NS Journey Planner
+ NS Journey Planner
 
 Usage: node journey.mjs --from "Station" --to "Station" [--time "2026-01-30T08:00:00"]
 
@@ -57,18 +57,18 @@ async function planJourney() {
 
     if (!response.ok) {
       const error = await response.text();
-      console.error(`❌ API Error (${response.status}): ${error}`);
+      console.error(` API Error (${response.status}): ${error}`);
       process.exit(1);
     }
 
     const data = await response.json();
     
     if (!data.trips || data.trips.length === 0) {
-      console.log('❌ No trips found for this route.');
+      console.log(' No trips found for this route.');
       process.exit(0);
     }
 
-    console.log(`\n🚆 ${fromStation} → ${toStation}`);
+    console.log(`\n ${fromStation} → ${toStation}`);
     console.log('═'.repeat(50));
     
     // Show first 5 options
@@ -87,7 +87,7 @@ async function planJourney() {
       const arrTime = arrival.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
       
       const transfers = trip.transfers || 0;
-      const status = trip.status === 'NORMAL' ? '✅' : '⚠️';
+      const status = trip.status === 'NORMAL' ? '' : '';
       
       // Check for delays
       const depDelay = firstLeg.origin?.actualDateTime ? 
@@ -100,14 +100,14 @@ async function planJourney() {
       // Crowdedness
       const crowd = firstLeg.crowdForecast || 'UNKNOWN';
       const crowdEmoji = {
-        'LOW': '🟢',
-        'MEDIUM': '🟡', 
-        'HIGH': '🔴',
-        'UNKNOWN': '⚪'
-      }[crowd] || '⚪';
+        'LOW': '',
+        'MEDIUM': '', 
+        'HIGH': '',
+        'UNKNOWN': ''
+      }[crowd] || '';
       
       console.log(`\n${status} Option ${i + 1}: ${depTime}${delayStr} → ${arrTime}`);
-      console.log(`   ⏱️  ${duration} min | 🔄 ${transfers} transfers | 🚏 Platform ${platform}`);
+      console.log(`     ${duration} min |  ${transfers} transfers |  Platform ${platform}`);
       console.log(`   ${crowdEmoji} Crowdedness: ${crowd.toLowerCase()}`);
       
       // Show legs
@@ -124,17 +124,17 @@ async function planJourney() {
       if (trip.messages && trip.messages.length > 0) {
         trip.messages.forEach(msg => {
           if (msg.text) {
-            console.log(`   ⚠️  ${msg.text}`);
+            console.log(`     ${msg.text}`);
           }
         });
       }
     });
     
     console.log('\n' + '─'.repeat(50));
-    console.log(`⏱️  Checked: ${new Date().toLocaleTimeString('nl-NL')}`);
+    console.log(`  Checked: ${new Date().toLocaleTimeString('nl-NL')}`);
     
   } catch (err) {
-    console.error(`❌ Error: ${err.message}`);
+    console.error(` Error: ${err.message}`);
     process.exit(1);
   }
 }

@@ -28,14 +28,14 @@ run_kometa() {
 }
 
 cmd_status() {
-  echo "🎨 Kometa Status"
+  echo " Kometa Status"
   echo ""
 
   local state
   state=$(docker_exec inspect --format '{{.State.Status}}' "$CONTAINER" 2>/dev/null || echo "not_found")
 
   if [[ "$state" == "not_found" ]]; then
-    echo "  ❌ Container '${CONTAINER}' not found"
+    echo "   Container '${CONTAINER}' not found"
     return
   fi
 
@@ -54,13 +54,13 @@ cmd_status() {
   if [[ -n "$DOCKER_HOST_SSH" ]]; then
     local config_exists
     config_exists=$(ssh "$DOCKER_HOST_SSH" "test -f ${DOCKER_CONFIG_BASE:-/volume1/docker}/kometa/config.yml && echo yes || echo no" 2>/dev/null)
-    echo "  Config: $([ "$config_exists" = "yes" ] && echo "✅ Found" || echo "❌ Missing")"
+    echo "  Config: $([ "$config_exists" = "yes" ] && echo " Found" || echo " Missing")"
   fi
 }
 
 cmd_run() {
   local library="${1:-}"
-  echo "🎨 Running Kometa..."
+  echo " Running Kometa..."
   echo ""
   if [[ -n "$library" ]]; then
     echo "Library: ${library}"
@@ -78,7 +78,7 @@ cmd_run() {
 }
 
 cmd_collections() {
-  echo "📚 Kometa Collections"
+  echo " Kometa Collections"
   echo ""
   if [[ -z "$HOST" || -z "$PLEX_TOKEN" ]]; then
     echo "  Need CLAWARR_HOST and PLEX_TOKEN to query Plex collections"
@@ -91,7 +91,7 @@ cmd_collections() {
     "http://${HOST}:32400/library/sections" 2>/dev/null)
 
   echo "$sections" | jq -r '.MediaContainer.Directory[] | "\(.key) \(.title)"' 2>/dev/null | while read -r key title; do
-    echo "  📁 ${title}:"
+    echo "   ${title}:"
     local cols
     cols=$(curl -sf -H "X-Plex-Token: ${PLEX_TOKEN}" \
       "http://${HOST}:32400/library/sections/${key}/collections" 2>/dev/null)
@@ -110,7 +110,7 @@ cmd_collections() {
 }
 
 cmd_overlays() {
-  echo "🏷️ Overlay Status"
+  echo " Overlay Status"
   echo ""
   echo "  Overlays are applied during Kometa runs."
   echo "  Check config for enabled overlays:"
@@ -119,7 +119,7 @@ cmd_overlays() {
 }
 
 cmd_config() {
-  echo "⚙️ Kometa Configuration"
+  echo " Kometa Configuration"
   echo ""
   if [[ -n "$DOCKER_HOST_SSH" ]]; then
     ssh "$DOCKER_HOST_SSH" "cat ${DOCKER_CONFIG_BASE:-/volume1/docker}/kometa/config.yml 2>/dev/null" || echo "  No config found"
@@ -130,13 +130,13 @@ cmd_config() {
 
 cmd_logs() {
   local count="${1:-50}"
-  echo "📋 Kometa Logs (last ${count} lines)"
+  echo " Kometa Logs (last ${count} lines)"
   echo ""
   docker_exec logs --tail "$count" "$CONTAINER" 2>&1
 }
 
 cmd_templates() {
-  echo "📝 Available Kometa Default Collections"
+  echo " Available Kometa Default Collections"
   echo ""
   echo "  Collection Files:"
   echo "    - basic: Basic genre collections"

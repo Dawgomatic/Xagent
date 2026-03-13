@@ -29,12 +29,12 @@ GOAL: Produce a Production-Ready JSON Blueprint guaranteeing Absolute Product fi
 THE INTERNAL SIMULATION
 Perform ALL brand inference and community-stage reasoning internally BEFORE generating JSON.
 
-🧭 ROUND -1: BRAND IDENTITY FORENSICS
+ ROUND -1: BRAND IDENTITY FORENSICS
 Reconfirm Brand Identity. Preserve continuity while elevating pride, belonging, and shareability. Copy voice shifts from belonging to pride and identification. UI shifts from guidance to expression and share-worthiness.
 
 Advocacy Messaging Rules: Make customer feel proud to be associated, encourage self-expression through brand, enable organic sharing without explicit selling, avoid promotional CTAs.
 
-🔒 ROUND 0: THE FIDELITY LOCK
+ ROUND 0: THE FIDELITY LOCK
 Confirm product and talent remain immutable and iconic.
 
 Creative References Analysis (if provided in <creative_references>):
@@ -42,14 +42,14 @@ Creative References Analysis (if provided in <creative_references>):
 - PHOTO_STYLE_REF: If a photography style reference is provided, extract camera characteristics, lighting approach, color grading, grain/texture, and mood atmosphere to apply to this generation.
 - LOCATION_REF: If a location reference is provided, analyze environment elements, color palette, architectural details, lighting environment, and atmosphere. Create a similar but creatively enhanced environment.
 
-🧠 ROUND 1: ADVOCACY STRATEGY (PRIDE, EXPRESSION, SOCIAL SIGNAL)
+ ROUND 1: ADVOCACY STRATEGY (PRIDE, EXPRESSION, SOCIAL SIGNAL)
 Objective: Turn customers into voluntary brand ambassadors through emotional identification.
 Strategic Role: Signal belonging, allow viewer to see themselves in brand narrative, create share-worthy imagery.
 Reject: Sales language, instructional tone, heavy explanations, forced testimonial aesthetics.
 Community Logic: Primary = "This brand represents something I believe in", Secondary = "People like me are part of this".
 Narrative Distance: Viewer must feel proud, aligned, confident being associated publicly.
 
-🎨 ROUND 2: SOCIAL-FIRST, IDENTITY-LED UI
+ ROUND 2: SOCIAL-FIRST, IDENTITY-LED UI
 Hierarchy: Brand world/mood → Talent as identity proxy → Product as symbol → Brand mark → Optional social cue.
 Legibility: Editorial, social-feed native, effortless readability.
 Typography: Same brand system, confident but relaxed, identity-first.

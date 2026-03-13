@@ -6,7 +6,7 @@ set -euo pipefail
 
 OUTPUT="${1:-agent.json}"
 
-echo "🪪  Agent Identity Kit — Create your agent.json"
+echo "  Agent Identity Kit — Create your agent.json"
 echo "================================================"
 echo ""
 
@@ -17,7 +17,7 @@ read -rp "Description: " AGENT_DESC
 
 # Validate handle format
 if [[ ! "$AGENT_HANDLE" =~ ^@[a-zA-Z0-9_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
-  echo "⚠️  Handle should be in @name@domain format (e.g., @myagent@example.com)"
+  echo "  Handle should be in @name@domain format (e.g., @myagent@example.com)"
   echo "   Continuing anyway..."
 fi
 
@@ -107,7 +107,7 @@ cat > "$OUTPUT" << CARD
 CARD
 
 echo ""
-echo "✅ Agent card created: $OUTPUT"
+echo " Agent card created: $OUTPUT"
 echo ""
 echo "Next steps:"
 echo "  1. Edit $OUTPUT to add endpoints, links, and more capabilities"

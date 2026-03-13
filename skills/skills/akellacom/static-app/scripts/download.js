@@ -69,7 +69,7 @@ Examples:
 async function getDownloadUrl(apiKey, pid) {
   const url = `${API_BASE}/${pid}`;
   
-  console.log(`📥 Fetching download URL for site: ${pid}\n`);
+  console.log(` Fetching download URL for site: ${pid}\n`);
   
   const response = await fetch(url, {
     method: 'GET',
@@ -88,7 +88,7 @@ async function getDownloadUrl(apiKey, pid) {
 }
 
 async function downloadFile(url, destPath) {
-  console.log(`⬇️  Downloading from ${url}...`);
+  console.log(`  Downloading from ${url}...`);
   
   const response = await fetch(url, {
     redirect: 'follow'
@@ -105,14 +105,14 @@ async function downloadFile(url, destPath) {
     response.body.on('error', reject);
     fileStream.on('finish', () => {
       const stats = fs.statSync(destPath);
-      console.log(`💾 Downloaded: ${formatBytes(stats.size)}`);
+      console.log(` Downloaded: ${formatBytes(stats.size)}`);
       resolve();
     });
   });
 }
 
 function extractZip(zipPath, extractPath) {
-  console.log(`📦 Extracting to ${extractPath}...`);
+  console.log(` Extracting to ${extractPath}...`);
   
   // Ensure extract directory exists
   if (!fs.existsSync(extractPath)) {
@@ -123,9 +123,9 @@ function extractZip(zipPath, extractPath) {
   try {
     const zip = new AdmZip(zipPath);
     zip.extractAllTo(extractPath, true);
-    console.log(`✅ Extracted successfully`);
+    console.log(` Extracted successfully`);
   } catch (err) {
-    console.error(`❌ Extraction failed: ${err.message}`);
+    console.error(` Extraction failed: ${err.message}`);
     throw new Error('Extraction failed');
   }
 }
@@ -145,7 +145,7 @@ function listExtractedFiles(dir, prefix = '') {
   items.forEach(item => {
     const fullPath = path.join(dir, item);
     const isDir = fs.statSync(fullPath).isDirectory();
-    const icon = isDir ? '📁' : '📄';
+    const icon = isDir ? '' : '';
     output += `${prefix}${icon} ${item}${isDir ? '/' : ''}\n`;
     
     if (isDir) {
@@ -160,13 +160,13 @@ async function main() {
   const options = parseArgs();
   
   if (!options.apiKey) {
-    console.error('❌ Error: API key required. Provide --api-key or set STATIC_APP_API_KEY env var.');
+    console.error(' Error: API key required. Provide --api-key or set STATIC_APP_API_KEY env var.');
     console.error('   Get your API key at: https://static.app/account/api');
     process.exit(1);
   }
   
   if (!options.pid) {
-    console.error('❌ Error: PID required. Provide PID as argument or use --pid.');
+    console.error(' Error: PID required. Provide PID as argument or use --pid.');
     console.error('   Example: node download.js abc123');
     process.exit(1);
   }
@@ -184,12 +184,12 @@ async function main() {
     const downloadUrl = result.url || result.download_url || result.link;
     
     if (!downloadUrl) {
-      console.error('❌ Error: No download URL in response');
+      console.error(' Error: No download URL in response');
       console.log('Response:', JSON.stringify(result, null, 2));
       process.exit(1);
     }
     
-    console.log(`🔗 Download URL obtained`);
+    console.log(` Download URL obtained`);
     
     // Step 2: Determine output directory
     const outputDir = options.outputDir || path.join(WORKSPACE_DIR, options.pid);
@@ -203,12 +203,12 @@ async function main() {
     
     // Step 5: Clean up zip file
     fs.unlinkSync(zipPath);
-    console.log(`🧹 Cleaned up temporary archive`);
+    console.log(` Cleaned up temporary archive`);
     
     // Step 6: Show results
-    console.log(`\n✅ Site downloaded and extracted!`);
-    console.log(`📁 Location: ${outputDir}`);
-    console.log(`\n📂 Files:`);
+    console.log(`\n Site downloaded and extracted!`);
+    console.log(` Location: ${outputDir}`);
+    console.log(`\n Files:`);
     console.log(listExtractedFiles(outputDir));
     
     // Output for OpenClaw to capture
@@ -216,7 +216,7 @@ async function main() {
     console.log(`STATIC_APP_PID=${options.pid}`);
     
   } catch (error) {
-    console.error(`❌ Download failed: ${error.message}`);
+    console.error(` Download failed: ${error.message}`);
     process.exit(1);
   }
 }

@@ -2,7 +2,7 @@
 name: compliance-checker
 description: Policy-based compliance assessment for OpenClaw skills. Define security policies, assess skills against them, track violations, and generate compliance reports. Maps findings to frameworks like CIS Controls and OWASP. Integrates with arc-skill-scanner and arc-trust-verifier.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🛡️", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Compliance Checker

@@ -45,7 +45,7 @@ class TrustValidator:
         
     def verify_erc8004(self, agent_address: str) -> Dict:
         """Verify agent on ERC-8004 standard."""
-        print(f"🔗 Verifying ERC-8004: {agent_address}")
+        print(f" Verifying ERC-8004: {agent_address}")
         
         if not self.w3.is_address(agent_address):
             return {'valid': False, 'error': 'Invalid address'}
@@ -80,7 +80,7 @@ class TrustValidator:
     
     def verify_ans(self, agent_name: str) -> Dict:
         """Verify agent by ANS name (planned)."""
-        print(f"🔍 Verifying ANS: {agent_name}")
+        print(f" Verifying ANS: {agent_name}")
         
         # TODO: Implement ANS lookup
         result = {
@@ -97,12 +97,12 @@ class TrustValidator:
             'result': result
         })
         
-        print("⚠️ ANS verification not implemented")
+        print(" ANS verification not implemented")
         return result
     
     def verify_did(self, did: str) -> Dict:
         """Verify DID document (planned)."""
-        print(f"🔍 Verifying DID: {did}")
+        print(f" Verifying DID: {did}")
         
         # TODO: Implement DID resolution
         result = {
@@ -119,7 +119,7 @@ class TrustValidator:
             'result': result
         })
         
-        print("⚠️ DID verification not implemented")
+        print(" DID verification not implemented")
         return result
     
     def calculate_trust_score(self, results: List[Dict], weights: Dict[str, float] = None) -> float:
@@ -214,7 +214,7 @@ def main():
         # Calculate trust score
         if results:
             trust_score = validator.calculate_trust_score(results)
-            print(f"\n📊 Trust Score: {trust_score:.2f}/1.0")
+            print(f"\n Trust Score: {trust_score:.2f}/1.0")
             print(f"   {validator._get_summary(trust_score)}")
             
             if args.full_report:

@@ -42,9 +42,9 @@ def send_dingtalk_msg(token, secret, content, markdown=False):
         req = urllib.request.Request(url, data=json.dumps(data).encode('utf-8'), headers=headers)
         with urllib.request.urlopen(req) as response:
             result = response.read().decode('utf-8')
-            print(f"✅ DingTalk Message sent. Response: {result}")
+            print(f" DingTalk Message sent. Response: {result}")
     except Exception as e:
-        print(f"❌ Failed to send DingTalk message: {e}")
+        print(f" Failed to send DingTalk message: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@ author: Cocoblood9527
 homepage: https://github.com/Cocoblood9527/para-proactive-workspace
 ---
 
-# PARA + Proactive Agent Workspace 🦞📁
+# PARA + Proactive Agent Workspace 
 
 A production-ready workspace template that combines two powerful systems:
 
@@ -50,48 +50,48 @@ cp -r ~/.openclaw/skills/para-proactive-workspace/assets/templates/* .
 ```
 workspace/
 │
-├── 📁 1-projects/          # Active projects
+├──  1-projects/          # Active projects
 │   └── project-name/
 │       ├── README.md
 │       ├── notes.md
 │       ├── docs/
 │       └── assets/
 │
-├── 📁 2-areas/             # Ongoing responsibilities
+├──  2-areas/             # Ongoing responsibilities
 │   ├── health/
 │   ├── finance/
 │   └── learning/
 │
-├── 📁 3-resources/         # Reference materials
+├──  3-resources/         # Reference materials
 │   ├── articles/
 │   ├── books/
 │   └── templates/
 │
-├── 📁 4-archives/          # Completed items
+├──  4-archives/          # Completed items
 │   └── 2024-projects/
 │
-├── 📁 +inbox/              # Temporary inbox
-├── 📁 +temp/               # Scratch space
+├──  +inbox/              # Temporary inbox
+├──  +temp/               # Scratch space
 │
-├── 📁 .agents/             # Agent configuration
-├── 📁 .learnings/          # Learning logs
+├──  .agents/             # Agent configuration
+├──  .learnings/          # Learning logs
 │   ├── ERRORS.md
 │   ├── LEARNINGS.md
 │   └── FEATURE_REQUESTS.md
 │
-├── 📁 memory/              # Daily logs
+├──  memory/              # Daily logs
 │   └── working-buffer.md
 │
-├── 📄 AGENTS.md            # Operating rules
-├── 📄 HEARTBEAT.md         # Periodic checklist
-├── 📄 MEMORY.md            # Long-term memory
-├── 📄 ONBOARDING.md        # First-run setup
-├── 📄 README.md            # Workspace overview
-├── 📄 SESSION-STATE.md     # Active task state
-├── 📄 SOUL.md              # Agent identity
-├── 📄 TOOLS.md             # Tool configurations
-├── 📄 USER.md              # Your profile
-└── 📄 .gitignore           # Git ignore rules
+├──  AGENTS.md            # Operating rules
+├──  HEARTBEAT.md         # Periodic checklist
+├──  MEMORY.md            # Long-term memory
+├──  ONBOARDING.md        # First-run setup
+├──  README.md            # Workspace overview
+├──  SESSION-STATE.md     # Active task state
+├──  SOUL.md              # Agent identity
+├──  TOOLS.md             # Tool configurations
+├──  USER.md              # Your profile
+└──  .gitignore           # Git ignore rules
 ```
 
 ## PARA Method Explained
@@ -188,7 +188,7 @@ workspace/
 
 ## Integration Points
 
-### PARA ↔ Proactive Agent
+### PARA  Proactive Agent
 
 | PARA | Proactive Agent | Integration |
 |------|-----------------|-------------|
@@ -224,4 +224,4 @@ MIT - Use freely, modify, share.
 
 ---
 
-*Organize your content. Empower your agent. Build your second brain.* 🧠🦞
+*Organize your content. Empower your agent. Build your second brain.* 

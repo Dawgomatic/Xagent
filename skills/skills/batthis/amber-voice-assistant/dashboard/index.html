@@ -316,44 +316,44 @@
 <body>
   <div class="container">
     <header>
-      <h1>📞 Amber Call Log</h1>
+      <h1> Amber Call Log</h1>
       <p class="subtitle">Twilio/OpenAI SIP Bridge call timeline</p>
       <p class="subtitle" style="margin-top:0.5rem">Last update: <span id="last-update">-</span></p>
     </header>
 
     <div class="stats-grid" id="stats">
       <div class="stat-card" data-filter="all">
-        <div class="stat-icon">📞</div>
+        <div class="stat-icon"></div>
         <div class="stat-value" id="stat-total">-</div>
         <div class="stat-label">Total</div>
       </div>
       <div class="stat-card" data-filter="inbound">
-        <div class="stat-icon">⬅️</div>
+        <div class="stat-icon"></div>
         <div class="stat-value" id="stat-inbound">-</div>
         <div class="stat-label">Inbound</div>
       </div>
       <div class="stat-card" data-filter="outbound">
-        <div class="stat-icon">➡️</div>
+        <div class="stat-icon"></div>
         <div class="stat-value" id="stat-outbound">-</div>
         <div class="stat-label">Outbound</div>
       </div>
       <div class="stat-card" data-filter="with-transcript">
-        <div class="stat-icon">📝</div>
+        <div class="stat-icon"></div>
         <div class="stat-value" id="stat-transcripts">-</div>
         <div class="stat-label">Transcripts</div>
       </div>
       <div class="stat-card" data-filter="missing-transcript">
-        <div class="stat-icon">⚠️</div>
+        <div class="stat-icon"></div>
         <div class="stat-value" id="stat-missing">-</div>
         <div class="stat-label">Missing</div>
       </div>
       <div class="stat-card followup" data-filter="followup">
-        <div class="stat-icon">🔔</div>
+        <div class="stat-icon"></div>
         <div class="stat-value" id="stat-followup">-</div>
         <div class="stat-label">Follow-ups</div>
       </div>
       <div class="stat-card messages" data-filter="messages">
-        <div class="stat-icon">📋</div>
+        <div class="stat-icon"></div>
         <div class="stat-value" id="stat-messages">-</div>
         <div class="stat-label">MESSAGES</div>
       </div>
@@ -466,7 +466,7 @@
       const captured = Array.isArray(call.capturedMessages) ? call.capturedMessages : [];
       const capturedHTML = captured.length ? `
         <div class="captured">
-          <div class="title">📋 Captured message${captured.length > 1 ? 's' : ''}</div>
+          <div class="title"> Captured message${captured.length > 1 ? 's' : ''}</div>
           ${captured.map(m => {
             const parts = [];
             if (m?.name) parts.push(`<div><b>Name:</b> ${escapeHtml(m.name)}</div>`);
@@ -507,7 +507,7 @@
       const followupHTML = `
         <label class="followup-toggle" title="Mark for follow-up">
           <input type="checkbox" data-call-id="${escapeHtml(call.id)}" ${isFollowup ? 'checked' : ''} onchange="toggleFollowup('${escapeHtml(call.id)}', this.checked)">
-          <span class="icon">🔔</span>
+          <span class="icon"></span>
         </label>
       `;
 

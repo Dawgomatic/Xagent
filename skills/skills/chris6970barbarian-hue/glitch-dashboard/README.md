@@ -77,10 +77,10 @@ glitch-dashboard logs
 | Icon | Page | Description |
 |------|------|-------------|
 | ⌂ | Overview | System status summary |
-| ⚙ | System | CPU, Memory, Load monitoring |
-| 🌐 | Network | ZeroTier configuration |
+|  | System | CPU, Memory, Load monitoring |
+|  | Network | ZeroTier configuration |
 | ☰ | Tasks | Task queue management |
-| 🔑 | Tokens | API token management |
+|  | Tokens | API token management |
 
 ## Configuration
 
@@ -102,12 +102,12 @@ Edit `~/.glitch-dashboard/config.json`:
 
 | Platform | Status | Tested On |
 |----------|--------|-----------|
-| Ubuntu 20.04+ | ✅ Full | 22.04 LTS |
-| Debian 11+ | ✅ Full | 12 (bookworm) |
-| CentOS 8+ | ✅ Full | Rocky Linux 9 |
-| Arch Linux | ✅ Full | 2024.01 |
-| macOS 12+ | ✅ Full | Sonoma 14 |
-| Windows 10/11 | ✅ Full | Windows 11 23H2 |
+| Ubuntu 20.04+ |  Full | 22.04 LTS |
+| Debian 11+ |  Full | 12 (bookworm) |
+| CentOS 8+ |  Full | Rocky Linux 9 |
+| Arch Linux |  Full | 2024.01 |
+| macOS 12+ |  Full | Sonoma 14 |
+| Windows 10/11 |  Full | Windows 11 23H2 |
 
 ## Troubleshooting
 

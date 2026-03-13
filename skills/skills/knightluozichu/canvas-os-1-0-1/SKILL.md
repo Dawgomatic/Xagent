@@ -4,7 +4,7 @@ description: Canvas as an app platform. Build, store, and run rich visual apps o
 homepage: https://www.clawhub.ai/fraction12/canvas-os
 metadata:
   openclaw:
-    emoji: "🖥️"
+    emoji: ""
     category: ui
     requires:
       bins: ["python3"]
@@ -44,9 +44,9 @@ Canvas has **security restrictions** that block file path access. Three methods 
 | **Direct HTML Injection** | Quick displays, demos | Instant, no server needed | No external assets, size limit |
 | **Data URLs** | Small content | Self-contained | Unreliable on some systems |
 
-**❌ Does NOT work:** `file:///path/to/file.html` (blocked by Canvas security)
+** Does NOT work:** `file:///path/to/file.html` (blocked by Canvas security)
 
-**📖 See:** `CANVAS-LOADING.md` for detailed guide + troubleshooting
+** See:** `CANVAS-LOADING.md` for detailed guide + troubleshooting
 
 **Helper script:** `canvas-inject.py` — Formats HTML for direct injection
 
@@ -195,7 +195,7 @@ For temporary displays without a full app:
 
 ```bash
 openclaw nodes canvas a2ui push --node "$NODE" --text "
-📊 QUICK STATUS
+ QUICK STATUS
 
 Revenue: \$500
 Users: 100

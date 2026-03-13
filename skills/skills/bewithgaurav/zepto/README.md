@@ -9,10 +9,10 @@ Just tell your AI what you need. It shops, generates a payment link, sends it to
 **You:** "Order milk and bread from Zepto"
 
 **AI does:**
-1. ✅ Confirms your delivery address
-2. 🛒 Finds items, adds to cart
-3. 💳 Generates payment link
-4. 📱 Sends link to your WhatsApp
+1.  Confirms your delivery address
+2.  Finds items, adds to cart
+3.  Generates payment link
+4.  Sends link to your WhatsApp
 
 **You:** Click link, pay, done. Groceries on the way.
 
@@ -37,12 +37,12 @@ Just tell your AI what you need. It shops, generates a payment link, sends it to
 
 ## Features
 
-- 🏠 **Address confirmation** - Always checks before ordering
-- 🧠 **Remembers your usuals** - Tracks what you order frequently
-- 🛒 **Smart cart** - Adds all items, then shows summary
-- 💳 **Payment links** - Pay securely via WhatsApp on your phone
-- ✅ **Order verification** - Confirms when your order is on the way
-- 🧹 **Auto cleanup** - Clears cart after each order
+-  **Address confirmation** - Always checks before ordering
+-  **Remembers your usuals** - Tracks what you order frequently
+-  **Smart cart** - Adds all items, then shows summary
+-  **Payment links** - Pay securely via WhatsApp on your phone
+-  **Order verification** - Confirms when your order is on the way
+-  **Auto cleanup** - Clears cart after each order
 
 ## Quick Start
 

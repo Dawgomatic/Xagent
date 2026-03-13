@@ -114,14 +114,14 @@ def test_model_selection():
 
     expected_primary = "mistral-devstral-2512"  # Highest ratings + free tier
     if primary == expected_primary:
-        print(f"  ✅ PASS: Correctly selected {expected_primary} as primary")
+        print(f"   PASS: Correctly selected {expected_primary} as primary")
     else:
-        print(f"  ❌ FAIL: Expected {expected_primary}, got {primary}")
+        print(f"   FAIL: Expected {expected_primary}, got {primary}")
 
     if fallback and fallback != primary:
-        print(f"  ✅ PASS: Has fallback model: {fallback}")
+        print(f"   PASS: Has fallback model: {fallback}")
     else:
-        print(f"  ❌ FAIL: No fallback model or same as primary")
+        print(f"   FAIL: No fallback model or same as primary")
 
     # Test 2: Manual override
     print("\nTest 2: Manual model override")
@@ -131,9 +131,9 @@ def test_model_selection():
     print(f"  Fallback model: {fallback}")
 
     if primary == 'llama-3.3-70b':
-        print(f"  ✅ PASS: Manual override respected")
+        print(f"   PASS: Manual override respected")
     else:
-        print(f"  ❌ FAIL: Manual override not respected")
+        print(f"   FAIL: Manual override not respected")
 
     # Clean up
     Path(config_path).unlink()
@@ -167,15 +167,15 @@ def test_prompt_generation():
     print("\nPrompt validation:")
     all_passed = True
     for check_name, passed in checks:
-        status = "✅ PASS" if passed else "❌ FAIL"
+        status = " PASS" if passed else " FAIL"
         print(f"  {status}: {check_name}")
         if not passed:
             all_passed = False
 
     if all_passed:
-        print("\n✅ All prompt validation checks passed!")
+        print("\n All prompt validation checks passed!")
     else:
-        print("\n❌ Some prompt validation checks failed")
+        print("\n Some prompt validation checks failed")
 
     # Clean up
     Path(config_path).unlink()
@@ -244,18 +244,18 @@ def test_response_parsing():
         print("\nValidation:")
         all_passed = True
         for check_name, passed in checks:
-            status = "✅ PASS" if passed else "❌ FAIL"
+            status = " PASS" if passed else " FAIL"
             print(f"  {status}: {check_name}")
             if not passed:
                 all_passed = False
 
         if all_passed:
-            print("\n✅ All parsing validation checks passed!")
+            print("\n All parsing validation checks passed!")
         else:
-            print("\n❌ Some parsing validation checks failed")
+            print("\n Some parsing validation checks failed")
 
     except Exception as e:
-        print(f"❌ FAIL: Parsing failed with error: {e}")
+        print(f" FAIL: Parsing failed with error: {e}")
 
     # Clean up
     Path(config_path).unlink()

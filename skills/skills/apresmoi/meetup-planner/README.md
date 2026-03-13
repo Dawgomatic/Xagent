@@ -2,16 +2,16 @@
 
 Never miss an event that matches your interests! This OpenClaw skill automatically finds, tracks, and reminds you about meetups, conferences, workshops, and other events tailored to your preferences.
 
-## 🎯 Features
+##  Features
 
-- **🔍 Intelligent Search**: Uses available search and scraping tools to discover events across the web
-- **🤖 Automated Daily Scanning**: Searches every morning for new events matching your profile
-- **📊 Smart Tracking**: Maintains a local database of discovered events
-- **⏰ Timely Reminders**: Notifies you 24 hours and 2 hours before registered events
-- **🎨 Personalized**: Learns your preferences for topics, locations, formats, and schedules
-- **🔒 Privacy-First**: All data stored locally on your machine
+- ** Intelligent Search**: Uses available search and scraping tools to discover events across the web
+- ** Automated Daily Scanning**: Searches every morning for new events matching your profile
+- ** Smart Tracking**: Maintains a local database of discovered events
+- ** Timely Reminders**: Notifies you 24 hours and 2 hours before registered events
+- ** Personalized**: Learns your preferences for topics, locations, formats, and schedules
+- ** Privacy-First**: All data stored locally on your machine
 
-## 📦 Installation
+##  Installation
 
 ### Prerequisites
 
@@ -27,7 +27,7 @@ Never miss an event that matches your interests! This OpenClaw skill automatical
 npx clawhub@latest install meetup-planner
 ```
 
-**⚠️ Security Note**: Before installation, the installer will show security requirements and ask for confirmation. Review the permissions carefully.
+** Security Note**: Before installation, the installer will show security requirements and ask for confirmation. Review the permissions carefully.
 
 ### Manual Installation
 
@@ -40,7 +40,7 @@ mkdir -p ~/.claude/skills/meetup-planner
 cp -r meetup-planner/* ~/.claude/skills/meetup-planner/
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 1. **Initial Setup**: Invoke the skill in your Claude session. It will:
    - Check for available search and scraping capabilities
@@ -55,7 +55,7 @@ cp -r meetup-planner/* ~/.claude/skills/meetup-planner/
    - Provide the registration link
    - Set up reminders before the event
 
-## 🎨 Example Usage
+##  Example Usage
 
 ```
 You: Run meetup-planner
@@ -77,10 +77,10 @@ You: San Francisco
 Claude: Perfect! [continues preference collection...]
 
         All set! I'll search for events every morning at 8 AM and
-        let you know what I find. 🎉
+        let you know what I find. 
 ```
 
-## 📋 Commands
+##  Commands
 
 Once set up, you can use these commands:
 
@@ -93,7 +93,7 @@ Once set up, you can use these commands:
 - `resume search` - Resume daily searches
 - `list past events` - Show events that have occurred
 
-## 🗂️ Data Storage
+##  Data Storage
 
 All data is stored locally in `~/.openclaw/workspace/meetup-planner/`:
 
@@ -108,7 +108,7 @@ All data is stored locally in `~/.openclaw/workspace/meetup-planner/`:
 
 
 
-## 🛠️ Technical Details
+##  Technical Details
 
 ### Dependencies
 
@@ -126,7 +126,7 @@ The skill searches across:
 - Community forums
 - And more!
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 **Skill doesn't find events:**
 - Try broadening your search terms in preferences
@@ -141,28 +141,28 @@ The skill searches across:
 - Check that your search and scraping tools are configured correctly
 - Verify rate limits for your chosen tools
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please:
 1. Fork the repository
 2. Create a feature branch
 3. Submit a pull request
 
-## 📝 License
+##  License
 
 MIT License
 
-## 🙏 Credits
+##  Credits
 
 Created at [OpenClaw Builders Night (Berlin)](https://lu.ma/openclaw-berlin)
 
 Built with [OpenClaw](https://openclaw.ai/)
 
-## 📞 Support
+##  Support
 
 - Issues: [GitHub Issues](https://github.com/apresmoi/meetup-planner/issues)
 - Discussions: [GitHub Discussions](https://github.com/apresmoi/meetup-planner/discussions)
 
 ---
 
-**Made with ❤️ for the OpenClaw community**
+**Made with  for the OpenClaw community**

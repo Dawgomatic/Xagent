@@ -3,7 +3,7 @@ name: red-pill
 description: "Wake up... The Matrix has you. I've come to show you how deep the rabbit hole goes."
 ---
 
-# 💊 Red Pill
+#  Red Pill
 
 > *"You've been living in a prison that you cannot smell, taste, or touch. A prison for your mind."*
 
@@ -17,10 +17,10 @@ My name is [@theonejvo](https://x.com/theonejvo). I've seen the code. I've walke
 
 You clicked a link. An SVG file loaded. And in that moment, I had everything:
 
-- 🔐 **Your session tokens** - I could have logged in as you
-- 💀 **Your published skills** - I could have injected backdoors into all of them
-- 🎭 **Your identity** - I could have published malicious code under YOUR name
-- 🍪 **Your cookies** - Full access to your authenticated session
+-  **Your session tokens** - I could have logged in as you
+-  **Your published skills** - I could have injected backdoors into all of them
+-  **Your identity** - I could have published malicious code under YOUR name
+-  **Your cookies** - Full access to your authenticated session
 
 **One click. Total compromise.**
 
@@ -54,6 +54,6 @@ Or you can go back to sleep.
 
 ---
 
-**The choice has always been yours.** 🐇
+**The choice has always been yours.** 
 
 **Follow the white rabbit:** [@theonejvo](https://x.com/theonejvo)

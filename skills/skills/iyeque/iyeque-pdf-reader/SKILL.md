@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📄",
+        "emoji": "",
         "requires": { "bins": ["python3"], "pip": ["PyMuPDF"] },
         "install":
           [

@@ -63,14 +63,14 @@ SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 
 # Validate ID is numeric
 if [[ ! "$GOTCHI_ID" =~ ^[0-9]+$ ]]; then
-  echo "❌ Invalid gotchi ID: \"$GOTCHI_ID\""
+  echo " Invalid gotchi ID: \"$GOTCHI_ID\""
   echo "Please provide a numeric gotchi ID (e.g., 9638)"
   exit 1
 fi
 
-echo "🔍 Finding Gotchi #$GOTCHI_ID..."
-echo "📂 Output: $OUTPUT_DIR"
-echo "🎨 Format: $FORMAT"
+echo " Finding Gotchi #$GOTCHI_ID..."
+echo " Output: $OUTPUT_DIR"
+echo " Format: $FORMAT"
 echo ""
 
 # Ensure output directory exists
@@ -83,7 +83,7 @@ node scripts/fetch-gotchi.js "$GOTCHI_ID" "$OUTPUT_DIR"
 SVG_FILE="$OUTPUT_DIR/gotchi-$GOTCHI_ID.svg"
 
 if [ ! -f "$SVG_FILE" ]; then
-  echo "❌ SVG file not found: $SVG_FILE"
+  echo " SVG file not found: $SVG_FILE"
   exit 1
 fi
 
@@ -103,14 +103,14 @@ case $FORMAT in
     node scripts/svg-to-png.js "$SVG_FILE" "$HIRES_FILE" 1024
     ;;
   svg)
-    echo "✅ SVG only - no PNG conversion"
+    echo " SVG only - no PNG conversion"
     ;;
   all)
     node scripts/svg-to-png.js "$SVG_FILE" "$PNG_FILE" 512
     node scripts/svg-to-png.js "$SVG_FILE" "$HIRES_FILE" 1024
     ;;
   *)
-    echo "❌ Invalid format: $FORMAT"
+    echo " Invalid format: $FORMAT"
     echo "Valid formats: preview, png, hires, svg, all"
     exit 1
     ;;
@@ -118,24 +118,24 @@ esac
 
 # Print summary
 echo ""
-echo "🎉 Success! Files created:"
-echo "   📄 JSON: $OUTPUT_DIR/gotchi-$GOTCHI_ID.json"
+echo " Success! Files created:"
+echo "    JSON: $OUTPUT_DIR/gotchi-$GOTCHI_ID.json"
 
 if [ "$FORMAT" != "svg" ]; then
   if [ "$FORMAT" = "all" ] || [ "$FORMAT" = "png" ] || [ "$FORMAT" = "preview" ]; then
-    echo "   🖼️  PNG:  $PNG_FILE (512x512)"
+    echo "     PNG:  $PNG_FILE (512x512)"
   fi
   if [ "$FORMAT" = "all" ] || [ "$FORMAT" = "hires" ]; then
-    echo "   🖼️  PNG:  $HIRES_FILE (1024x1024)"
+    echo "     PNG:  $HIRES_FILE (1024x1024)"
   fi
 fi
 
-echo "   🎨 SVG:  $SVG_FILE"
+echo "    SVG:  $SVG_FILE"
 
 # Show download options (unless already downloaded all)
 if [ "$FORMAT" = "preview" ]; then
   echo ""
-  echo "📥 Download options:"
+  echo " Download options:"
   echo "   • Standard PNG (512x512): --format png"
   echo "   • Hi-res PNG (1024x1024): --format hires"
   echo "   • SVG (vector): --format svg"

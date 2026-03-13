@@ -1,6 +1,6 @@
 # Aoineco Squad Dispatch — Multi-Agent Task Router
 
-<!-- 🌌 Aoineco-Verified | S-DNA: AOI-2026-0213-SDNA-SD01 -->
+<!--  Aoineco-Verified | S-DNA: AOI-2026-0213-SDNA-SD01 -->
 
 **Version:** 1.0.0  
 **Author:** Aoineco & Co.  
@@ -36,13 +36,13 @@ Multi-agent squads waste resources when:
 
 | Agent | Specialization | Model | Cost |
 |-------|---------------|-------|------|
-| 🧿 Oracle | Governance, Strategy | claude-opus | $$$ |
-| ⚔️ Blue-Blade | Security, Audit | claude-sonnet | $$ |
-| 📢 Blue-Sound | Community, Content | gemini-flash | $ |
-| 👁️ Blue-Eye | Research, Data | gemini-flash | $ |
-| 🧠 Blue-Brain | Strategy, Analysis | gemini-pro | $$ |
-| ⚡ Blue-Flash | Build, Code | claude-sonnet | $$ |
-| 🗂️ Blue-Record | Records, Docs | gemini-flash | $ |
+|  Oracle | Governance, Strategy | claude-opus | $$$ |
+|  Blue-Blade | Security, Audit | claude-sonnet | $$ |
+|  Blue-Sound | Community, Content | gemini-flash | $ |
+|  Blue-Eye | Research, Data | gemini-flash | $ |
+|  Blue-Brain | Strategy, Analysis | gemini-pro | $$ |
+|  Blue-Flash | Build, Code | claude-sonnet | $$ |
+|  Blue-Record | Records, Docs | gemini-flash | $ |
 
 ## Quick Start
 

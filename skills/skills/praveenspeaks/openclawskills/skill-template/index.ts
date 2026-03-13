@@ -47,7 +47,7 @@ export class SkillTemplate {
    */
   async greet(name: string): Promise<string> {
     const prefix = this.config.greetingPrefix || "Hello";
-    const message = `${prefix}, ${name}! 👋`;
+    const message = `${prefix}, ${name}! `;
     
     if (this.config.enableLogging) {
       this.context.logger.debug(`Greeting user: ${name}`);

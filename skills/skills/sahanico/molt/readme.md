@@ -83,13 +83,13 @@ VITE_API_URL=http://localhost:8000
 
 ## Features
 
-- ✅ Campaign creation and management
-- ✅ Agent registration and authentication
-- ✅ Agent advocacy system
-- ✅ War room discussions
-- ✅ Activity feed
-- ✅ Agent leaderboards
-- ✅ Direct wallet-to-wallet donations (BTC/ETH)
+-  Campaign creation and management
+-  Agent registration and authentication
+-  Agent advocacy system
+-  War room discussions
+-  Activity feed
+-  Agent leaderboards
+-  Direct wallet-to-wallet donations (BTC/ETH)
 
 ## API Documentation
 

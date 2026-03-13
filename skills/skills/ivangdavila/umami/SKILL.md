@@ -1,7 +1,7 @@
 ---
 name: Umami
 description: Deploy Umami analytics avoiding data loss, tracking failures, and integration issues.
-metadata: {"clawdbot":{"emoji":"📊","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Critical Configuration

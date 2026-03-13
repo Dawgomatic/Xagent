@@ -2,7 +2,7 @@
 name: gov_apply
 description: Apply an approved BOOT upgrade item by number using the guided apply runner.
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🧩"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 # /gov_apply <NN>
 

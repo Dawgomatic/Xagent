@@ -17,12 +17,12 @@ Secure peer-to-peer communication for AI agents using Telegram as transport. **C
 
 ## Why Telegram
 
-- ✅ **Always online** — No port forwarding, NAT, or server setup
-- ✅ **Reliable delivery** — Messages queue when peers offline
-- ✅ **Universal access** — Works from anywhere with internet
-- ✅ **Battle-tested** — Handles billions of messages daily
-- ✅ **OpenClaw integration** — Simple `message` tool for send/receive
-- ✅ **Offline resilience** — Messages delivered when peer comes back online
+-  **Always online** — No port forwarding, NAT, or server setup
+-  **Reliable delivery** — Messages queue when peers offline
+-  **Universal access** — Works from anywhere with internet
+-  **Battle-tested** — Handles billions of messages daily
+-  **OpenClaw integration** — Simple `message` tool for send/receive
+-  **Offline resilience** — Messages delivered when peer comes back online
 
 ## Quick Onboarding
 

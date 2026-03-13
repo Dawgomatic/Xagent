@@ -1,7 +1,7 @@
 ---
 name: Monero
 description: Assist with Monero XMR transactions, privacy features, wallet management, and security practices.
-metadata: {"clawdbot":{"emoji":"🔒","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Privacy by Default

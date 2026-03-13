@@ -41,7 +41,7 @@ def to_markdown(report: AuditReport) -> str:
     lines.append("")
 
     if not report.findings:
-        lines.append("✅ No issues found.")
+        lines.append(" No issues found.")
         return "\n".join(lines)
 
     by_sev: dict[str, list] = {}
@@ -52,7 +52,7 @@ def to_markdown(report: AuditReport) -> str:
         items = by_sev.get(sev, [])
         if not items:
             continue
-        icon = {"critical": "🔴", "high": "🟠", "medium": "🟡", "low": "🔵"}[sev]
+        icon = {"critical": "", "high": "", "medium": "", "low": ""}[sev]
         lines.append(f"## {icon} {sev.upper()} ({len(items)})")
         lines.append("")
         for f in items:

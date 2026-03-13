@@ -11,7 +11,7 @@
   "patches": {
     "session_pruning": {
       "description": "Auto-trim old tool results when Anthropic cache TTL expires — reduces cache write costs after idle sessions",
-      "implementation_status": "✅ Native OpenClaw 2026.2.15 feature — apply directly via gateway config.patch",
+      "implementation_status": " Native OpenClaw 2026.2.15 feature — apply directly via gateway config.patch",
       "_category": "native_openclaw",
       "patch": {
         "agents": {
@@ -34,7 +34,7 @@
     },
     "bootstrap_size_limits": {
       "description": "Cap workspace file injection into system prompt — reduces system prompt bloat for agents with large AGENTS.md, MEMORY.md, or SOUL.md",
-      "implementation_status": "✅ Native OpenClaw 2026.2.15 feature — apply directly via gateway config.patch",
+      "implementation_status": " Native OpenClaw 2026.2.15 feature — apply directly via gateway config.patch",
       "_category": "native_openclaw",
       "patch": {
         "agents": {
@@ -55,7 +55,7 @@
     },
     "cache_retention_long": {
       "description": "Set longer cache retention for Opus to amortize cache write costs on long reasoning sessions",
-      "implementation_status": "✅ Native OpenClaw 2026.2.15 feature — apply directly via gateway config.patch",
+      "implementation_status": " Native OpenClaw 2026.2.15 feature — apply directly via gateway config.patch",
       "_category": "native_openclaw",
       "patch": {
         "agents": {
@@ -80,7 +80,7 @@
     },
     "enable_prompt_caching": {
       "description": "Enable Anthropic prompt caching for SOUL.md, AGENTS.md, and docs",
-      "implementation_status": "⏳ Requires Anthropic API caching feature (verify current status)",
+      "implementation_status": " Requires Anthropic API caching feature (verify current status)",
       "patch": {
         "agentConfig": {
           "promptCaching": {
@@ -101,7 +101,7 @@
     },
     "lazy_context_loading": {
       "description": "Don't load all project files upfront, load on-demand (use context_optimizer.py script for this today)",
-      "implementation_status": "⏳ Core config form pending — use context_optimizer.py script now for equivalent results",
+      "implementation_status": " Core config form pending — use context_optimizer.py script now for equivalent results",
       "patch": {
         "agentConfig": {
           "contextLoading": {
@@ -120,7 +120,7 @@
     },
     "model_routing": {
       "description": "Route simple tasks to cheaper model tiers",
-      "implementation_status": "⚠️ Partial — use model_router.py script for recommendations; native config routing pending",
+      "implementation_status": " Partial — use model_router.py script for recommendations; native config routing pending",
       "_note": "Haiku is available with multi-provider setups (OpenRouter, Together.ai). For single-provider Anthropic deployments, Sonnet is the minimum — use Sonnet for standard tasks, Opus only for complex reasoning.",
       "patch": {
         "agentConfig": {
@@ -140,7 +140,7 @@
     },
     "heartbeat_optimization": {
       "description": "Optimized heartbeat intervals — longer, smarter, cache-TTL-aware",
-      "implementation_status": "✅ Fully functional via heartbeat_optimizer.py",
+      "implementation_status": " Fully functional via heartbeat_optimizer.py",
       "_category": "local_only",
       "patch": {
         "agentConfig": {
@@ -160,7 +160,7 @@
     },
     "token_budgets": {
       "description": "Set daily token budgets per session type",
-      "implementation_status": "✅ Fully functional via token_tracker.py",
+      "implementation_status": " Fully functional via token_tracker.py",
       "_category": "local_only",
       "patch": {
         "agentConfig": {
@@ -182,7 +182,7 @@
     },
     "multi_provider_fallback": {
       "description": "Automatic fallback to alternative providers when rate-limited",
-      "implementation_status": "⚠️ Partial — requires external API keys",
+      "implementation_status": " Partial — requires external API keys",
       "_requires_external_api": true,
       "_warning": "This patch requires OPENROUTER_API_KEY and/or TOGETHER_API_KEY environment variables. These are credentials for third-party services (openrouter.ai, together.ai) that involve network requests. Do NOT apply unless you have registered for and obtained these keys. The executable scripts in this skill do NOT use this patch.",
       "patch": {
@@ -230,14 +230,14 @@
     "note": "native_openclaw patches apply directly. Other patches may require scripts, external APIs, or future OpenClaw updates."
   },
   "implementation_status_summary": {
-    "session_pruning": "✅ Native — apply now",
-    "bootstrap_size_limits": "✅ Native — apply now",
-    "cache_retention_long": "✅ Native — apply now",
-    "heartbeat_optimization": "✅ Script — fully functional",
-    "token_budgets": "✅ Script — fully functional",
-    "model_routing": "⚠️ Script only — config form pending",
-    "lazy_context": "⚠️ Script only — config form pending",
-    "prompt_caching": "⏳ Verify Anthropic API status",
-    "multi_provider": "⏳ Requires external API keys"
+    "session_pruning": " Native — apply now",
+    "bootstrap_size_limits": " Native — apply now",
+    "cache_retention_long": " Native — apply now",
+    "heartbeat_optimization": " Script — fully functional",
+    "token_budgets": " Script — fully functional",
+    "model_routing": " Script only — config form pending",
+    "lazy_context": " Script only — config form pending",
+    "prompt_caching": " Verify Anthropic API status",
+    "multi_provider": " Requires external API keys"
   }
 }

@@ -47,7 +47,7 @@ Send your agent any of these messages:
 3. **Geo-matching** — Matches properties within 100-200 meters using GPS coordinates
 4. **Investment analysis** — Calculates cap rate, cash flow, mortgage, and break-even occupancy
 
-⏱️ **Total runtime: ~5-10 seconds per search** (RapidAPI is fast)
+ **Total runtime: ~5-10 seconds per search** (RapidAPI is fast)
 
 ## Important Notes
 
@@ -79,7 +79,7 @@ The tool calculates (with 20% down, 7.25% rate, 30yr fixed):
 
 ## Investment Grades
 
-- 🟢 A (Excellent) — Cap ≥6%, CoC ≥10%, occupancy ≥85%
-- 🟡 B (Good) — Solid returns, normal market risk
-- 🟠 C (Fair) — Works but thin margins
-- 🔴 D (Weak) — Avoid unless value-add opportunity
+-  A (Excellent) — Cap ≥6%, CoC ≥10%, occupancy ≥85%
+-  B (Good) — Solid returns, normal market risk
+-  C (Fair) — Works but thin margins
+-  D (Weak) — Avoid unless value-add opportunity

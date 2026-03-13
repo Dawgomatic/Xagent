@@ -183,7 +183,7 @@ rm /tmp/linkdapi_query.py
 
 To use LinkdAPI, you'll need an API key. Sign up at:
 
-🔗 **https://linkdapi.com/signup?ref=K_CZJSWF**
+ **https://linkdapi.com/signup?ref=K_CZJSWF**
 
 Once registered, you'll get an API key that you can use to authenticate your requests.
 

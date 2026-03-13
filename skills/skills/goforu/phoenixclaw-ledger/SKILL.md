@@ -76,7 +76,7 @@ While passive by design, users can interact directly:
 ```
 ~/PhoenixClaw/
 ├── Journal/
-│   ├── daily/2026-02-02.md    # Contains 💰 Finance section
+│   ├── daily/2026-02-02.md    # Contains  Finance section
 │   └── weekly/2026-W05.md     # Weekly financial recaps
 │
 └── Finance/                    # Ledger-specific directory

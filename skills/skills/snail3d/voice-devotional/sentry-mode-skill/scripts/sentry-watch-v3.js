@@ -120,34 +120,34 @@ class SentryWatchV3 {
   async startWatching() {
     this.watching = true;
 
-    console.log(`\n👀 SENTRY WATCH V3 - IMAGE BOLO`);
+    console.log(`\n SENTRY WATCH V3 - IMAGE BOLO`);
     console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-    console.log(`📌 BOLO: ${this.bolo.name}`);
-    console.log(`🏷️ Type: ${this.bolo.type}`);
-    console.log(`📸 Reference image: ${path.basename(this.bolo.imagePath)}`);
-    console.log(`\n🔍 CRITICAL FEATURES (Must all match):`);
+    console.log(` BOLO: ${this.bolo.name}`);
+    console.log(` Type: ${this.bolo.type}`);
+    console.log(` Reference image: ${path.basename(this.bolo.imagePath)}`);
+    console.log(`\n CRITICAL FEATURES (Must all match):`);
 
     this.bolo.features.critical.forEach((f, idx) => {
       console.log(`  ${idx + 1}. ${f.description}`);
       console.log(`     └─ ${f.details}`);
     });
 
-    console.log(`\n📊 HIGH PRIORITY (Should match):`);
+    console.log(`\n HIGH PRIORITY (Should match):`);
     this.bolo.features.high.forEach((f, idx) => {
       console.log(`  ${idx + 1}. ${f.description}`);
     });
 
-    console.log(`\n⏱️ Alert cooldown: ${Math.round(this.alertCooldown / 1000)}s`);
-    console.log(`🎯 Confidence required: ${(this.bolo.rubric.confidence_required * 100).toFixed(0)}%`);
+    console.log(`\n Alert cooldown: ${Math.round(this.alertCooldown / 1000)}s`);
+    console.log(` Confidence required: ${(this.bolo.rubric.confidence_required * 100).toFixed(0)}%`);
     console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-    console.log(`\n🎥 Starting monitoring...\n`);
+    console.log(`\n Starting monitoring...\n`);
 
     // In production: start actual monitoring loop
     // For now: show how it would work
     this.demonstrateMatching();
 
     process.on('SIGINT', () => {
-      console.log('\n\n🛑 Stopping...');
+      console.log('\n\n Stopping...');
       this.stopWatching();
       process.exit(0);
     });
@@ -170,10 +170,10 @@ class SentryWatchV3 {
     const result = this.matcher.matches(matchingAnalysis);
 
     if (result.matched) {
-      console.log(`✅ MATCH FOUND!\n`);
+      console.log(` MATCH FOUND!\n`);
       this.triggerAlert(result);
     } else {
-      console.log(`⚠️ No match (${(result.confidence * 100).toFixed(0)}% confidence)`);
+      console.log(` No match (${(result.confidence * 100).toFixed(0)}% confidence)`);
       console.log(`   Missing: ${result.missingCritical.join(', ')}\n`);
     }
   }
@@ -183,14 +183,14 @@ class SentryWatchV3 {
    */
   triggerAlert(matchResult) {
     console.log('!'.repeat(70));
-    console.log('🚨 IMAGE BOLO MATCH!');
+    console.log(' IMAGE BOLO MATCH!');
     console.log('!'.repeat(70));
-    console.log(`\n📌 BOLO: ${this.bolo.name}`);
-    console.log(`⏰ Time: ${new Date().toLocaleString()}`);
+    console.log(`\n BOLO: ${this.bolo.name}`);
+    console.log(` Time: ${new Date().toLocaleString()}`);
     console.log(`\n✓ CRITICAL MATCH: ${matchResult.criticalMatches}/${matchResult.criticalTotal}`);
     console.log(`✓ HIGH PRIORITY: ${matchResult.highMatches}/${matchResult.highTotal}`);
     console.log(`✓ Overall confidence: ${(matchResult.confidence * 100).toFixed(1)}%`);
-    console.log(`\n🔍 Detection matches:`);
+    console.log(`\n Detection matches:`);
     
     this.bolo.features.critical.forEach((f) => {
       console.log(`  ✓ ${f.description}`);
@@ -225,7 +225,7 @@ async function main() {
   }
 
   if (args[0] !== 'report-match') {
-    console.error(`❌ Only report-match mode supported for image BOLOs`);
+    console.error(` Only report-match mode supported for image BOLOs`);
     process.exit(1);
   }
 
@@ -247,12 +247,12 @@ async function main() {
   }
 
   if (!boloPath) {
-    console.error(`❌ --bolo path is required`);
+    console.error(` --bolo path is required`);
     process.exit(1);
   }
 
   if (!fs.existsSync(boloPath)) {
-    console.error(`❌ BOLO file not found: ${boloPath}`);
+    console.error(` BOLO file not found: ${boloPath}`);
     process.exit(1);
   }
 
@@ -260,7 +260,7 @@ async function main() {
     const watch = new SentryWatchV3(boloPath, options);
     await watch.startWatching();
   } catch (error) {
-    console.error(`❌ Error: ${error.message}`);
+    console.error(` Error: ${error.message}`);
     process.exit(1);
   }
 }

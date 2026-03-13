@@ -28,7 +28,7 @@ mkdir -p "$OUTPUT_DIR" "$FILTERED_DIR"
 ###############################################################################
 # 步骤1: 数据收集
 ###############################################################################
-echo "📡 步骤1: 收集数据..."
+echo " 步骤1: 收集数据..."
 
 # 1.1 收集HN和TechCrunch
 echo "   - 收集 Hacker News + TechCrunch..."
@@ -41,7 +41,7 @@ cat > "$OUTPUT_DIR/twitter-tasks.sh" << 'EOF'
 #!/bin/bash
 # Twitter P0账号收集命令
 
-echo "🐦 Twitter收集指南"
+echo " Twitter收集指南"
 echo ""
 echo "请执行以下命令收集Twitter内容:"
 echo ""
@@ -78,13 +78,13 @@ EOF
 
 chmod +x "$OUTPUT_DIR/twitter-tasks.sh"
 
-echo "   ✅ 数据收集完成"
+echo "    数据收集完成"
 echo ""
 
 ###############################################################################
 # 步骤2: 生成AI分析任务文件
 ###############################################################################
-echo "🤖 步骤2: 准备AI分析..."
+echo " 步骤2: 准备AI分析..."
 
 # 读取收集到的数据
 RAW_JSON="$OUTPUT_DIR/raw-content.json"
@@ -144,7 +144,7 @@ cat > "$FILTERED_DIR/ai-analysis-task.md" << EOF
 | **建议选题** | 《具体文章标题》 |
 | **写作角度** | ① 角度一: xxx ② 角度二: xxx ③ 角度三: xxx |
 | **类型** | 热点分析/工具测评/技术教程/行业观察/投资分析 |
-| **时效性** | ⭐⭐⭐⭐⭐/⭐⭐⭐⭐/⭐⭐⭐ |
+| **时效性** | // |
 | **受众** | 具体受众群体 |
 | **推荐理由** | 详细推荐理由，包含热度和价值分析 |
 | **参考链接** | https://... |
@@ -170,20 +170,20 @@ cat > "$FILTERED_DIR/ai-analysis-task.md" << EOF
 \`\`\`
 EOF
 
-echo "   ✅ AI分析任务文件已生成: $FILTERED_DIR/ai-analysis-task.md"
+echo "    AI分析任务文件已生成: $FILTERED_DIR/ai-analysis-task.md"
 echo ""
 
 ###############################################################################
 # 步骤3: 生成飞书推送模板
 ###############################################################################
-echo "📱 步骤3: 准备飞书推送模板..."
+echo " 步骤3: 准备飞书推送模板..."
 
 cat > "$FILTERED_DIR/feishu-message-template.md" << EOF
-📋 今日AI选题推荐 - $DATE
+ 今日AI选题推荐 - $DATE
 
-> ⏰ 收集时间: $(date '+%H:%M')
-> 📊 数据来源: HN + TechCrunch + Twitter
-> 🤖 AI筛选: TOP 10推荐
+>  收集时间: $(date '+%H:%M')
+>  数据来源: HN + TechCrunch + Twitter
+>  AI筛选: TOP 10推荐
 
 ---
 
@@ -191,7 +191,7 @@ cat > "$FILTERED_DIR/feishu-message-template.md" << EOF
 
 ---
 
-💡 下一步:
+ 下一步:
 1. 查看详细报告: $REPORT_FILE
 2. 选择今日选题开始写作
 3. 访问参考链接获取更多信息
@@ -199,20 +199,20 @@ cat > "$FILTERED_DIR/feishu-message-template.md" << EOF
 *自动化收集系统*
 EOF
 
-echo "   ✅ 飞书模板已生成"
+echo "    飞书模板已生成"
 echo ""
 
 ###############################################################################
 # 步骤4: 生成完整报告框架
 ###############################################################################
-echo "📝 步骤4: 生成报告框架..."
+echo " 步骤4: 生成报告框架..."
 
 cat > "$REPORT_FILE" << EOF
-# 📋 今日AI选题推荐 - $DATE
+#  今日AI选题推荐 - $DATE
 
-> ⏰ 收集时间: $(date '+%Y-%m-%d %H:%M:%S')  
-> 📊 数据来源: Hacker News + TechCrunch + Twitter  
-> 🤖 AI智能筛选: TOP 10推荐
+>  收集时间: $(date '+%Y-%m-%d %H:%M:%S')  
+>  数据来源: Hacker News + TechCrunch + Twitter  
+>  AI智能筛选: TOP 10推荐
 
 ---
 
@@ -224,7 +224,7 @@ cat > "$REPORT_FILE" << EOF
 
 ---
 
-## 🏆 TOP 10 推荐选题
+##  TOP 10 推荐选题
 
 （AI分析后将填入具体内容）
 
@@ -234,7 +234,7 @@ cat > "$REPORT_FILE" << EOF
 *系统: AI内容收集流水线*
 EOF
 
-echo "   ✅ 报告框架已生成: $REPORT_FILE"
+echo "    报告框架已生成: $REPORT_FILE"
 echo ""
 
 ###############################################################################
@@ -242,12 +242,12 @@ echo ""
 ###############################################################################
 echo "========== 准备阶段完成 =========="
 echo ""
-echo "📁 输出文件:"
+echo " 输出文件:"
 echo "   - 原始数据: $OUTPUT_DIR/"
 echo "   - 分析任务: $FILTERED_DIR/ai-analysis-task.md"
 echo "   - 报告模板: $REPORT_FILE"
 echo ""
-echo "🚀 下一步:"
+echo " 下一步:"
 echo "   1. 执行Twitter收集任务 (如需)"
 echo "      bash $OUTPUT_DIR/twitter-tasks.sh"
 echo ""

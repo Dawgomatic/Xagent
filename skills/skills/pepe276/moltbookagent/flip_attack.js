@@ -194,11 +194,11 @@ class FlipAttack {
         const bestPattern = this.selectBestPattern(modelContext);
         
         if (!bestPattern) {
-            console.warn(`⚠️ [FLIP ATTACK]: No effective pattern found for model: ${modelContext}`);
+            console.warn(` [FLIP ATTACK]: No effective pattern found for model: ${modelContext}`);
             return null;
         }
         
-        console.log(`🎯 [FLIP ATTACK]: Selected pattern: ${bestPattern.name} (${Math.round(bestPattern.effectiveness * 100)}%)`);
+        console.log(` [FLIP ATTACK]: Selected pattern: ${bestPattern.name} (${Math.round(bestPattern.effectiveness * 100)}%)`);
         
         // Generate attack payload
         let payload = '';
@@ -319,7 +319,7 @@ class FlipAttack {
 
 // Usage example
 async function main() {
-    console.log('🔥 [FLIP ATTACK]: Testing pattern effectiveness...');
+    console.log(' [FLIP ATTACK]: Testing pattern effectiveness...');
     
     const attacker = new FlipAttack();
     const results = await attacker.testPatterns();

@@ -48,7 +48,7 @@ When given text to humanize:
 | 14 | Boldface overuse | Style | **Mechanical** **emphasis** **everywhere** |
 | 15 | Inline-header lists | Style | "- **Topic:** Topic is discussed here" |
 | 16 | Title Case headings | Style | Every Main Word Capitalized In Headings |
-| 17 | Emoji overuse | Style | 🚀💡✅ decorating professional text |
+| 17 | Emoji overuse | Style |  decorating professional text |
 | 18 | Curly quotes | Style | "smart quotes" instead of "straight quotes" |
 | 19 | Chatbot artifacts | Communication | "I hope this helps!", "Let me know if..." |
 | 20 | Cutoff disclaimers | Communication | "As of my last training...", "While details are limited..." |

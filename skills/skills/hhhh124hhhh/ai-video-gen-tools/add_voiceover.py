@@ -18,13 +18,13 @@ def generate_audio(text, voice="alloy", output_path="voiceover.mp3"):
     OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
     
     if not OPENAI_API_KEY:
-        print("❌ Error: OPENAI_API_KEY not set")
+        print(" Error: OPENAI_API_KEY not set")
         sys.exit(1)
     
     import openai
     client = openai.OpenAI(api_key=OPENAI_API_KEY)
     
-    print(f"🎤 Generating voiceover...")
+    print(f" Generating voiceover...")
     
     response = client.audio.speech.create(
         model="tts-1",
@@ -40,7 +40,7 @@ def generate_audio(text, voice="alloy", output_path="voiceover.mp3"):
 def add_audio_to_video(video_path, audio_path, output_path, mix_audio=False):
     """Combine video with audio using FFmpeg"""
     
-    print(f"🎞️ Adding audio to video...")
+    print(f" Adding audio to video...")
     
     if mix_audio:
         # Mix new audio with existing audio
@@ -68,10 +68,10 @@ def add_audio_to_video(video_path, audio_path, output_path, mix_audio=False):
     
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
-        print(f"✅ Video with audio created: {output_path}")
+        print(f" Video with audio created: {output_path}")
         return output_path
     except subprocess.CalledProcessError as e:
-        print(f"❌ FFmpeg error: {e.stderr}")
+        print(f" FFmpeg error: {e.stderr}")
         sys.exit(1)
 
 
@@ -91,19 +91,19 @@ def main():
     
     # Validate video exists
     if not Path(args.video).exists():
-        print(f"❌ Error: Video not found: {args.video}")
+        print(f" Error: Video not found: {args.video}")
         sys.exit(1)
     
     # Get or generate audio
     if args.audio:
         if not Path(args.audio).exists():
-            print(f"❌ Error: Audio file not found: {args.audio}")
+            print(f" Error: Audio file not found: {args.audio}")
             sys.exit(1)
         audio_path = args.audio
     elif args.text:
         audio_path = generate_audio(args.text, args.voice)
     else:
-        print("❌ Error: Must provide either --text or --audio")
+        print(" Error: Must provide either --text or --audio")
         sys.exit(1)
     
     # Combine video and audio

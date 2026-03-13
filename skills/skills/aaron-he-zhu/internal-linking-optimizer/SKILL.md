@@ -207,10 +207,10 @@ When a user requests internal linking optimization:
    
    | Anchor Text | Count | Target Pages | Assessment |
    |-------------|-------|--------------|------------|
-   | "click here" | [X] | [X] pages | ❌ Not descriptive |
-   | "read more" | [X] | [X] pages | ❌ Not descriptive |
-   | "[exact keyword]" | [X] | [page] | ⚠️ May be over-optimized |
-   | "[descriptive phrase]" | [X] | [page] | ✅ Good |
+   | "click here" | [X] | [X] pages |  Not descriptive |
+   | "read more" | [X] | [X] pages |  Not descriptive |
+   | "[exact keyword]" | [X] | [page] |  May be over-optimized |
+   | "[descriptive phrase]" | [X] | [page] |  Good |
    
    ### Anchor Text Distribution by Page
    
@@ -218,8 +218,8 @@ When a user requests internal linking optimization:
    
    | Anchor Text | Source Page | Status |
    |-------------|-------------|--------|
-   | "[anchor 1]" | [source URL] | ✅/⚠️/❌ |
-   | "[anchor 2]" | [source URL] | ✅/⚠️/❌ |
+   | "[anchor 1]" | [source URL] | // |
+   | "[anchor 2]" | [source URL] | // |
    
    **Issues Found**:
    - Over-optimized anchors: [X] instances
@@ -264,14 +264,14 @@ When a user requests internal linking optimization:
    
    ```
    [Pillar Page]
-      ├── Links TO all cluster articles ✅
+      ├── Links TO all cluster articles 
       │
       ├── [Cluster Article 1]
-      │   ├── Link TO pillar ✅
+      │   ├── Link TO pillar 
       │   └── Link TO related cluster articles
       │
       ├── [Cluster Article 2]
-      │   ├── Link TO pillar ✅
+      │   ├── Link TO pillar 
       │   └── Link TO related cluster articles
       │
       └── [etc.]

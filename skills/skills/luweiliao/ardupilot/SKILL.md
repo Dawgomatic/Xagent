@@ -7,7 +7,7 @@ description: 通过 pymavlink 连接并控制 ArduPilot 无人机。使用此 sk
 
 通过 pymavlink 连接并控制 ArduPilot 无人机 (如 CubeOrange 等)。
 
-## ⚠️ 重要：起飞核心流程
+##  重要：起飞核心流程
 
 **起飞必须连续发送命令，不要等待！**
 
@@ -30,7 +30,7 @@ for i in range(40):
     if msg:
         alt = msg.relative_alt / 1000
         if alt >= 4.5:
-            print('✅ 到达目标高度!')
+            print(' 到达目标高度!')
             break
 ```
 
@@ -76,13 +76,13 @@ print(f'电池: {msg.voltage_battery / 1000}V')
 ## 2. 起飞 (关键流程)
 
 ```python
-# ⚠️ 必须等待飞控稳定 (status=3)
+#  必须等待飞控稳定 (status=3)
 while True:
     msg = master.wait_heartbeat(timeout=3)
     if msg and msg.system_status == 3:
         break
 
-# ⚠️ 连续发送命令，不要等待!
+#  连续发送命令，不要等待!
 master.mav.command_long_send(1, 1, 400, 0, 1, 21196, 0, 0, 0, 0, 0)  # ARM
 mode_map = master.mode_mapping()
 master.set_mode(mode_map['GUIDED'])  # GUIDED
@@ -95,7 +95,7 @@ for i in range(40):
         alt = msg.relative_alt / 1000
         print(f'{i*0.5:.1f}s → {alt:.2f}m')
         if alt >= 7.2:  # 90% 目标
-            print('✅ 到达!')
+            print(' 到达!')
             break
 ```
 
@@ -106,7 +106,7 @@ for i in range(40):
 mode_map = master.mode_mapping()
 master.set_mode(mode_map['LAND'])
 
-# ⚠️ 必须持续发送 LAND 命令
+#  必须持续发送 LAND 命令
 for i in range(60):
     master.mav.command_long_send(1, 1, 21, 0, 0, 0, 0, 0, 0, 0, 0)
     import time
@@ -116,7 +116,7 @@ for i in range(60):
     if msg:
         alt = msg.relative_alt / 1000
         if alt < 0.3:
-            print('✅ 降落完成!')
+            print(' 降落完成!')
             break
 ```
 
@@ -176,7 +176,7 @@ for i in range(40):
         alt = msg.relative_alt / 1000
         print(f'{i*0.5:.1f}s → {alt:.2f}m')
         if alt >= 4.5:
-            print('✅ 5m!')
+            print(' 5m!')
             break
 ```
 
@@ -193,7 +193,7 @@ for i in range(60):
     if msg:
         alt = msg.relative_alt / 1000
         if alt < 0.3:
-            print('✅ 降落完成!')
+            print(' 降落完成!')
             break
 ```
 

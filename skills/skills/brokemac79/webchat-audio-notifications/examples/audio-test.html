@@ -10,7 +10,7 @@
   <audio controls>
     <source src="./sounds/notification.mp3" type="audio/mpeg">
   </audio>
-  <p>👆 Can you hear anything when you press play?</p>
+  <p> Can you hear anything when you press play?</p>
   
   <hr>
   
@@ -25,10 +25,10 @@
       
       audio.play()
         .then(() => {
-          document.getElementById('status').textContent = '✅ Audio.play() succeeded';
+          document.getElementById('status').textContent = ' Audio.play() succeeded';
         })
         .catch(err => {
-          document.getElementById('status').textContent = '❌ Error: ' + err.message;
+          document.getElementById('status').textContent = ' Error: ' + err.message;
         });
     }
   </script>
@@ -39,7 +39,7 @@
   <audio controls>
     <source src="./sounds/alert.mp3" type="audio/mpeg">
   </audio>
-  <p>👆 This one is louder - can you hear it?</p>
+  <p> This one is louder - can you hear it?</p>
   
   <hr>
   

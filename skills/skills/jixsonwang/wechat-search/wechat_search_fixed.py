@@ -47,24 +47,24 @@ class WeChatSearch:
         articles = []
         
         # Tier 1: Try Tavily Search
-        print("🔍 Trying Tavily Search...", file=sys.stderr)
+        print(" Trying Tavily Search...", file=sys.stderr)
         try:
             articles = self.tavily_search_wechat(query, max_results)
             if articles:
-                print(f"✅ Tavily Search found {len(articles)} articles", file=sys.stderr)
+                print(f" Tavily Search found {len(articles)} articles", file=sys.stderr)
                 return articles
         except Exception as e:
-            print(f"🔄 Tavily Search failed: {e}", file=sys.stderr)
+            print(f" Tavily Search failed: {e}", file=sys.stderr)
         
         # Tier 2: Fallback to Web Fetch
-        print("🔄 Tavily failed, trying direct web_fetch...", file=sys.stderr)
+        print(" Tavily failed, trying direct web_fetch...", file=sys.stderr)
         try:
             articles = self.web_fetch_wechat(query, max_results)
             if articles:
-                print(f"✅ Web fetch found {len(articles)} articles", file=sys.stderr)
+                print(f" Web fetch found {len(articles)} articles", file=sys.stderr)
                 return articles
         except Exception as e:
-            print(f"❌ Web fetch failed: {e}", file=sys.stderr)
+            print(f" Web fetch failed: {e}", file=sys.stderr)
         
         return []
 

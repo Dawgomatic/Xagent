@@ -1,4 +1,4 @@
-# 🛡️ jasper-configguard
+#  jasper-configguard
 
 Safe config changes for [OpenClaw](https://openclaw.ai) with automatic rollback. Never brick your gateway again.
 

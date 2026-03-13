@@ -39,7 +39,7 @@ async function getStrain(limit = 5, opts = {}) {
   }
 
   if (records.length > 0) {
-    console.log('🔥 WHOOP Strain');
+    console.log(' WHOOP Strain');
     console.log('─'.repeat(40));
 
     records.forEach((cycle) => {
@@ -89,7 +89,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       for (const rec of records) process.stdout.write(JSON.stringify(rec) + '\n');
     }
   } catch (err) {
-    console.error(`❌ ${err.message}`);
+    console.error(` ${err.message}`);
     process.exit(1);
   }
 }

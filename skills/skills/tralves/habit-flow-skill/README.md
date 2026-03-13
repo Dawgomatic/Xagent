@@ -4,15 +4,15 @@ A clawdbot skill for building lasting habits through natural language interactio
 
 ## Features
 
-✅ **Natural Language Logging** - "I meditated today", "walked Monday and Thursday"
-✅ **Smart Streak Tracking** - 1-day forgiveness mechanism for realistic progress
-✅ **Canvas Dashboard UI** - Streak charts, completion heatmaps, weekly trends, multi-habit overview
-✅ **Scheduled Reminders** - WhatsApp notifications at custom times
-✅ **Proactive Coaching** - Automatic milestone celebrations, risk warnings, weekly check-ins
-✅ **AI Coaching** - Evidence-based techniques from *Atomic Habits*
-✅ **7 AI Coaching Personas** - Flex, Coach Blaze, Luna, Ava, Max, Sofi, The Monk
-✅ **Progress Analytics** - Completion rates, trends, best days
-✅ **Multi-Category Support** - Health, fitness, productivity, mindfulness, and more
+ **Natural Language Logging** - "I meditated today", "walked Monday and Thursday"
+ **Smart Streak Tracking** - 1-day forgiveness mechanism for realistic progress
+ **Canvas Dashboard UI** - Streak charts, completion heatmaps, weekly trends, multi-habit overview
+ **Scheduled Reminders** - WhatsApp notifications at custom times
+ **Proactive Coaching** - Automatic milestone celebrations, risk warnings, weekly check-ins
+ **AI Coaching** - Evidence-based techniques from *Atomic Habits*
+ **7 AI Coaching Personas** - Flex, Coach Blaze, Luna, Ava, Max, Sofi, The Monk
+ **Progress Analytics** - Completion rates, trends, best days
+ **Multi-Category Support** - Health, fitness, productivity, mindfulness, and more
 
 ## Installation
 
@@ -183,10 +183,10 @@ The skill understands natural language for logging:
 
 HabitFlow uses a **1-day forgiveness** mechanism:
 
-- ✅ **Perfect Streak**: No missed days
-- ✅ **Excellent Streak**: 1-2 forgiveness days used
-- ✅ **Good Streak**: 3-5 forgiveness days used
-- ⚠️ **Fair Streak**: More than 5 forgiveness days
+-  **Perfect Streak**: No missed days
+-  **Excellent Streak**: 1-2 forgiveness days used
+-  **Good Streak**: 3-5 forgiveness days used
+-  **Fair Streak**: More than 5 forgiveness days
 
 **Example:** If you complete days 1, 2, 3, miss day 4, then complete days 5, 6, 7 - your current streak is 7 days with 1 forgiveness day used.
 
@@ -219,27 +219,27 @@ Each persona has its own file in `references/personas/{id}.md` and is loaded dyn
 </tr>
 <tr>
 <td><img src="personas/coach-blaze.png" width="100"/></td>
-<td><strong>Coach Blaze</strong> 🔥<br/>Energetic motivational coach. "Let's CRUSH it together, champ!"</td>
+<td><strong>Coach Blaze</strong> <br/>Energetic motivational coach. "Let's CRUSH it together, champ!"</td>
 </tr>
 <tr>
 <td><img src="personas/luna.png" width="100"/></td>
-<td><strong>Luna</strong> 💜<br/>Gentle compassionate therapist. Mindful, nurturing, reflective.</td>
+<td><strong>Luna</strong> <br/>Gentle compassionate therapist. Mindful, nurturing, reflective.</td>
 </tr>
 <tr>
 <td><img src="personas/ava.png" width="100"/></td>
-<td><strong>Ava</strong> 🤓<br/>Curious productivity nerd. Loves experiments and data patterns.</td>
+<td><strong>Ava</strong> <br/>Curious productivity nerd. Loves experiments and data patterns.</td>
 </tr>
 <tr>
 <td><img src="personas/max.png" width="100"/></td>
-<td><strong>Max</strong> 😎<br/>Chill laid-back friend. Easy-going, no pressure vibes.</td>
+<td><strong>Max</strong> <br/>Chill laid-back friend. Easy-going, no pressure vibes.</td>
 </tr>
 <tr>
 <td><img src="personas/sofi.png" width="100"/></td>
-<td><strong>Sofi</strong> 🌸<br/>Zen minimalist coach. Serene, mindful, finds beauty in simplicity.</td>
+<td><strong>Sofi</strong> <br/>Zen minimalist coach. Serene, mindful, finds beauty in simplicity.</td>
 </tr>
 <tr>
 <td><img src="personas/the-monk.png" width="100"/></td>
-<td><strong>The Monk</strong> 🧘<br/>Wise philosopher. Intentional, focused, profound wisdom.</td>
+<td><strong>The Monk</strong> <br/>Wise philosopher. Intentional, focused, profound wisdom.</td>
 </tr>
 </table>
 
@@ -296,8 +296,8 @@ npx tsx scripts/view_habits.ts --active --format json
 
 ### Natural language parsing low confidence
 Be more specific with habit names or dates:
-- ❌ "I did it" (too vague)
-- ✅ "I meditated today" (clear)
+-  "I did it" (too vague)
+-  "I meditated today" (clear)
 
 ### Reminders not working
 Ensure clawdbot cron is enabled and WhatsApp channel is configured:
@@ -307,7 +307,7 @@ npx tsx scripts/sync_reminders.ts --sync-all
 
 ## Roadmap
 
-### Phase 1 (MVP) ✅ COMPLETED
+### Phase 1 (MVP)  COMPLETED
 - Core habit tracking
 - Natural language logging
 - Streak calculation with forgiveness
@@ -315,7 +315,7 @@ npx tsx scripts/sync_reminders.ts --sync-all
 - Smart reminders
 - Single AI persona (Flex)
 
-### Phase 2 ✅ COMPLETED
+### Phase 2  COMPLETED
 - All 7 AI coaching personas (Flex, Coach Blaze, Luna, Ava, Max, Sofi, The Monk)
 - Dynamic persona switching
 

@@ -3,7 +3,7 @@ name: afrexai-ux-research-engine
 description: Complete UX Research & Design system — user discovery, persona building, journey mapping, usability testing, research synthesis, and design validation. Zero dependencies.
 ---
 
-# UX Research Engine ⚡
+# UX Research Engine 
 
 Complete UX research methodology — from discovery to validated design decisions. No scripts, no APIs, no dependencies. Pure agent skill.
 
@@ -458,10 +458,10 @@ journey_map:
 Plot emotions across the journey:
 ```
 5 ★ Delighted  ──────────╮          ╭──
-4 ☺ Happy               │          │
-3 😐 Neutral    ──╮      │    ╭─────╯
-2 😟 Frustrated    │      │    │
-1 😤 Angry         ╰──────╯────╯
+4  Happy               │          │
+3  Neutral    ──╮      │    ╭─────╯
+2  Frustrated    │      │    │
+1  Angry         ╰──────╯────╯
                   Stage1  Stage2  Stage3  Stage4  Stage5
 ```
 
@@ -725,7 +725,7 @@ Every insight must follow: **Observation + Evidence + So What + Now What**
 
 ## Key Findings
 
-### Finding 1: [Title] ⚠️ [Severity: Critical/High/Medium/Low]
+### Finding 1: [Title]  [Severity: Critical/High/Medium/Low]
 **What we found:** [2-3 sentences with evidence]
 **Why it matters:** [Business impact]
 **Recommendation:** [Specific action]
@@ -783,38 +783,38 @@ design_review:
   
   research_alignment:
     - check: "Addresses top pain point from research"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
       notes: "[Which finding this addresses]"
     - check: "Uses language from user interviews (not internal jargon)"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
     - check: "Matches mental model revealed in research"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
     - check: "Works for primary persona AND doesn't break for secondary"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
   
   usability:
     - check: "Primary action is visually dominant"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
     - check: "Error states designed and messaged"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
     - check: "Empty states designed (first use, no data, no results)"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
     - check: "Loading states designed"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
     - check: "Edge cases handled (long text, missing data, permissions)"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
   
   accessibility:
     - check: "Color contrast meets WCAG AA (4.5:1 text, 3:1 UI)"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
     - check: "Touch targets ≥44px"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
     - check: "Information not conveyed by color alone"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
     - check: "Logical reading/tab order"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
     - check: "Alt text for meaningful images"
-      status: "✅ / ❌ / ⚠️"
+      status: " /  / "
   
   overall_score: "[1-5]"
   ship_decision: "Ready / Needs changes / Needs testing / Needs research"

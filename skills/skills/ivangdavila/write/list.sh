@@ -8,9 +8,9 @@ PIECE_ID="${2:-}"
 if [[ -n "$PIECE_ID" ]]; then
   # Show specific piece details
   PIECE_DIR="$WORKSPACE/pieces/$PIECE_ID"
-  [[ -d "$PIECE_DIR" ]] || { echo "❌ Piece not found: $PIECE_ID"; exit 1; }
+  [[ -d "$PIECE_DIR" ]] || { echo " Piece not found: $PIECE_ID"; exit 1; }
   
-  echo "📄 $PIECE_ID"
+  echo " $PIECE_ID"
   jq -r '"   Title: \(.title)\n   Type: \(.type)\n   Status: \(.status)\n   Created: \(.created)"' "$PIECE_DIR/meta.json"
   echo ""
   echo "   Versions:"
@@ -24,7 +24,7 @@ if [[ -n "$PIECE_ID" ]]; then
   done || echo "     (none)"
 else
   # List all pieces
-  echo "📚 Writing Pieces"
+  echo " Writing Pieces"
   echo ""
   jq -r '.pieces[] | "  [\(.id)] \(.title) (\(.type))"' "$WORKSPACE/index.json"
   echo ""

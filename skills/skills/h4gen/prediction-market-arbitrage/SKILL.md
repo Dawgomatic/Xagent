@@ -175,7 +175,7 @@ Formula:
 
 If triggered, emit:
 
-`🚨 ARBITRAGE: News bestätigen, Markt schläft. Kauf empfohlen.`
+` ARBITRAGE: News bestätigen, Markt schläft. Kauf empfohlen.`
 
 Plus structured fields:
 - `news_confidence`

@@ -1,4 +1,4 @@
-# 🚀 快速开始指南
+#  快速开始指南
 
 ## 自动化版本（使用真实数据）
 
@@ -10,9 +10,9 @@ bash setup.sh
 ```
 
 安装脚本会自动：
-1. ✅ 安装所有 Python 依赖
-2. ✅ 下载 Playwright 浏览器
-3. ✅ 引导配置登录会话
+1.  安装所有 Python 依赖
+2.  下载 Playwright 浏览器
+3.  引导配置登录会话
 
 ### 配置登录（首次使用）
 
@@ -137,7 +137,7 @@ python3 scripts/crosscheck.py "地区" "菜系"
 
 安装完成后：
 
-1. ✅ 测试基本功能
-2. 📖 阅读 [完整文档](README.md)
-3. 🔧 自定义配置（`scripts/config.py`）
-4. 📊 查看数据结构（`references/data_schema.md`）
+1.  测试基本功能
+2.  阅读 [完整文档](README.md)
+3.  自定义配置（`scripts/config.py`）
+4.  查看数据结构（`references/data_schema.md`）

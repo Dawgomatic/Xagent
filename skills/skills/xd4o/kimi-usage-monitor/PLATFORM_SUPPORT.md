@@ -4,10 +4,10 @@
 
 | Platform | Status | Shell Scripts | Notes |
 |----------|--------|---------------|-------|
-| Linux | ✅ Fully Supported | `.sh` | Primary development target |
-| macOS | ✅ Fully Supported | `.sh` | Tested on macOS 12+ |
-| Windows (WSL) | ✅ Fully Supported | `.sh` | Run in WSL environment |
-| Windows (Native) | ⚠️ Partial | `.ps1`, `.bat` | Requires PowerShell or CMD |
+| Linux |  Fully Supported | `.sh` | Primary development target |
+| macOS |  Fully Supported | `.sh` | Tested on macOS 12+ |
+| Windows (WSL) |  Fully Supported | `.sh` | Run in WSL environment |
+| Windows (Native) |  Partial | `.ps1`, `.bat` | Requires PowerShell or CMD |
 
 ## Requirements (All Platforms)
 
@@ -86,13 +86,13 @@ result = subprocess.run(
 
 | Feature | Linux | macOS | Windows (WSL) | Windows (Native) |
 |---------|-------|-------|---------------|------------------|
-| fetch_usage.py | ✅ | ✅ | ✅ | ✅ |
-| usage_logger.py | ✅ | ✅ | ✅ | ✅ |
-| preflight_check.py | ✅ | ✅ | ✅ | ✅ |
-| subagent_guard.py | ✅ | ✅ | ✅ | ✅ |
-| check_usage.sh | ✅ | ✅ | ✅ | ❌ |
-| check_usage.ps1 | ❌ | ❌ | ❌ | ✅ |
-| check_usage.bat | ❌ | ❌ | ❌ | ✅ |
+| fetch_usage.py |  |  |  |  |
+| usage_logger.py |  |  |  |  |
+| preflight_check.py |  |  |  |  |
+| subagent_guard.py |  |  |  |  |
+| check_usage.sh |  |  |  |  |
+| check_usage.ps1 |  |  |  |  |
+| check_usage.bat |  |  |  |  |
 
 ## Recommendation
 

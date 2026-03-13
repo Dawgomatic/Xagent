@@ -17,7 +17,7 @@ Share the context, change, and next step clearly.
 Designed for high-trust public updates.`,
   "jk-default": () => `TCG prices look certain — until you zoom in.
 JK Index is building the truth layer: clean IDs, real comps, market signals.
-Follow if you want collector-first market intelligence. 👑🧱`,
+Follow if you want collector-first market intelligence. `,
 };
 
 function resolveCaptionTemplate(template) {
@@ -29,7 +29,7 @@ export function buildCaption(options = {}) {
   if (Object.keys(options).length === 0) {
     return `TCG prices look certain — until you zoom in.
 JK Index is building the truth layer: clean IDs, real comps, market signals.
-Follow if you want collector-first market intelligence. 👑🧱
+Follow if you want collector-first market intelligence. 
 
 #pokemon #tcg #cardcollecting #marketdata #startup`;
   }

@@ -2,7 +2,7 @@
 name: promptlayer-monitor
 description: "Log every agent message to PromptLayer for observability and monitoring"
 metadata:
-  { "openclaw": { "emoji": "📊", "events": ["message:sent"], "requires": { "env": ["PROMPTLAYER_API_KEY"] } } }
+  { "openclaw": { "emoji": "", "events": ["message:sent"], "requires": { "env": ["PROMPTLAYER_API_KEY"] } } }
 ---
 
 # PromptLayer Monitor

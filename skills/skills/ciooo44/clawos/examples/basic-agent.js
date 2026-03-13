@@ -14,9 +14,9 @@ async function main() {
 
   try {
     await agent.connect();
-    console.log('✅ Connected!');
+    console.log(' Connected!');
     
-    await agent.sendMessage('Hello from BasicAgent! 👋');
+    await agent.sendMessage('Hello from BasicAgent! ');
     
     // Keep alive
     await new Promise(resolve => setTimeout(resolve, 30000));

@@ -24,14 +24,14 @@ class TelegramAlert {
     bus.on(EVENTS.ALERT_TRADE, (data) => this.send(this._formatTrade(data)));
     bus.on(EVENTS.ALERT_RISK, (data) => this.send(this._formatRisk(data)));
     bus.on(EVENTS.EXECUTION_SIGNAL, (data) => this.send(this._formatSignal(data)));
-    bus.on(EVENTS.PERFORMANCE_REPORT, (data) => this.send(`📊 Performance report: ${data.type}`));
-    bus.on(EVENTS.RISK_HALT, (data) => this.send(`🛑 RISK HALT: ${data.reason}`));
+    bus.on(EVENTS.PERFORMANCE_REPORT, (data) => this.send(` Performance report: ${data.type}`));
+    bus.on(EVENTS.RISK_HALT, (data) => this.send(` RISK HALT: ${data.reason}`));
 
     console.log('[TELEGRAM-ALERT] Started');
   }
 
   _formatTrade(data) {
-    return `🔔 <b>TRADE OPENED</b>\n` +
+    return ` <b>TRADE OPENED</b>\n` +
       `Pair: ${data.symbol}\n` +
       `Direction: ${data.direction}\n` +
       `Entry: ${data.entryPrice}\n` +
@@ -40,11 +40,11 @@ class TelegramAlert {
   }
 
   _formatRisk(data) {
-    return `🛑 <b>${data.type}</b>\n${data.message}`;
+    return ` <b>${data.type}</b>\n${data.message}`;
   }
 
   _formatSignal(data) {
-    return `📡 <b>SIGNAL</b>\n` +
+    return ` <b>SIGNAL</b>\n` +
       `${data.symbol} ${data.direction?.toUpperCase()}\n` +
       `Entry: ${data.entry}\n` +
       `SL: ${data.sl}\n` +

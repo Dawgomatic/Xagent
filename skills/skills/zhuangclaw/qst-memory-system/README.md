@@ -8,19 +8,19 @@ Repo: https://github.com/ZhuangClaw/qst-memory-system
 
 ---
 
-## ✨ 功能特性
+##  功能特性
 
-- **⚡ 快速存取**：毫秒級對話上下文檢索
-- **🧠 層次結構**：Working → Short → Medium → Long
-- **📐 E8 幾何**：248維 → 16D 投影實現高效計算
-- **🔮 ICT Collapse**：意識誘導的波函數坍縮
-- **💾 持久化**：JSON + SQLite 混合存儲
-- **🌐 多語言**：中文/英文/日文自動支持
-- **🎨 Web UI**：Flask 視化管理界面
+- ** 快速存取**：毫秒級對話上下文檢索
+- ** 層次結構**：Working → Short → Medium → Long
+- ** E8 幾何**：248維 → 16D 投影實現高效計算
+- ** ICT Collapse**：意識誘導的波函數坍縮
+- ** 持久化**：JSON + SQLite 混合存儲
+- ** 多語言**：中文/英文/日文自動支持
+- ** Web UI**：Flask 視化管理界面
 
 ---
 
-## 📦 安裝
+##  安裝
 
 ```bash
 cd /root/.openclaw/workspace/skills
@@ -29,7 +29,7 @@ git clone https://github.com/ZhuangClaw/qst-memory-system.git qst-memory
 
 ---
 
-## 🚀 快速開始
+##  快速開始
 
 ### Python 使用
 
@@ -73,7 +73,7 @@ python web_ui.py
 
 ---
 
-## 📁 文件結構
+##  文件結構
 
 ```
 qst-memory-system/
@@ -96,7 +96,7 @@ qst-memory-system/
 
 ---
 
-## 🧠 核心概念
+##  核心概念
 
 ### 記憶態向量
 
@@ -129,7 +129,7 @@ P(M) ∝ |⟨Q|Ψ_M⟩|² · exp(-η·V_eth)
 
 ---
 
-## 🔧 配置
+##  配置
 
 ```json
 {
@@ -144,7 +144,7 @@ P(M) ∝ |⟨Q|Ψ_M⟩|² · exp(-η·V_eth)
 
 ---
 
-## 📊 API 參考
+##  API 參考
 
 ### QSTMemory
 
@@ -182,7 +182,7 @@ get_coherence_info()
 
 ---
 
-## 🧪 測試
+##  測試
 
 ```bash
 python memory_core.py        # 核心測試
@@ -199,7 +199,7 @@ python web_ui.py           # Web UI
 
 ---
 
-## 🌐 多語言支持
+##  多語言支持
 
 ```python
 from multilingual import MultilingualMemoryManager
@@ -218,7 +218,7 @@ en_memories = manager.search_by_language('en')
 
 ---
 
-## 📈 性能
+##  性能
 
 | 操作 | 時間複雜度 |
 |------|----------|
@@ -236,7 +236,7 @@ en_memories = manager.search_by_language('en')
 
 ---
 
-## 🎨 Web UI
+##  Web UI
 
 ```bash
 # 啟動 Web 界面
@@ -247,15 +247,15 @@ python web_ui.py
 ```
 
 Web UI 功能：
-- 📊 統計儀表板
-- 🔍 檢索測試
-- 💬 上下文查看
-- 📝 記憶管理
-- 🗑️ 清空操作
+-  統計儀表板
+-  檢索測試
+-  上下文查看
+-  記憶管理
+-  清空操作
 
 ---
 
-## 📝 License
+##  License
 
 MIT
 

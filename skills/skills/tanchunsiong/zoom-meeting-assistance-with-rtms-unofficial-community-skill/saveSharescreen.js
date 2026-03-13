@@ -54,7 +54,7 @@ async function handleShareData(shareData, user_id, timestamp, meetingUuid) {
     // Skip small frames
     const MIN_SIZE = 1000;
     if (buffer.length < MIN_SIZE) {
-        console.warn(`⚠️ Skipping small JPEG (${buffer.length} bytes)`);
+        console.warn(` Skipping small JPEG (${buffer.length} bytes)`);
         return;
     }
 
@@ -115,9 +115,9 @@ async function handleShareData(shareData, user_id, timestamp, meetingUuid) {
         // Record unique frame
         session.uniqueFrames.push({ filePath, timestamp });
 
-        console.log(`💾 Saved unique JPEG ${session.uniqueFrameCounter} to: ${filePath}  (${new Date(timestamp).toISOString()})`);
+        console.log(` Saved unique JPEG ${session.uniqueFrameCounter} to: ${filePath}  (${new Date(timestamp).toISOString()})`);
     } else {
-        console.log(`⏭️ Skipping similar frame at ${new Date(timestamp).toISOString()}`);
+        console.log(` Skipping similar frame at ${new Date(timestamp).toISOString()}`);
     }
 }
 

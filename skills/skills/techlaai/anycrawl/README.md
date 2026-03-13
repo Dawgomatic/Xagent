@@ -1,13 +1,13 @@
-# 🕷️ AnyCrawl
+#  AnyCrawl
 
 High-performance web scraping, crawling, and search API for OpenClaw.
 
 ## Features
 
-- 🔍 **Google Search** - Structured SERP results
-- 📄 **Single Page Scrape** - Convert any URL to markdown/html/json
-- 🕸️ **Full Site Crawl** - Async crawling with depth control
-- ⚡ **Multi-engine** - Cheerio (fast), Playwright/Puppeteer (JS rendering)
+-  **Google Search** - Structured SERP results
+-  **Single Page Scrape** - Convert any URL to markdown/html/json
+-  **Full Site Crawl** - Async crawling with depth control
+-  **Multi-engine** - Cheerio (fast), Playwright/Puppeteer (JS rendering)
 
 ## Quick Start
 

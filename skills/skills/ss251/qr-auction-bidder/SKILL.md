@@ -3,7 +3,7 @@ name: qr-auction-bidder
 description: Bid on $QR auctions at qrcoin.fun. Place bids on Base mainnet using USDC. Uses Bankr for transaction execution — no wallet management needed.
 metadata:
   openclaw:
-    emoji: "🎯"
+    emoji: ""
     requires: []
 ---
 

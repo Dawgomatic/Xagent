@@ -1,7 +1,7 @@
 ---
 name: google-photos
 description: Manage Google Photos library. Upload photos, create albums, and list library content. Use when the user wants to backup, organize, or share images via Google Photos.
-metadata: {"openclaw":{"emoji":"📸","requires":{"apis":["photoslibrary.googleapis.com"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"apis":["photoslibrary.googleapis.com"]}}}
 ---
 
 # Google Photos

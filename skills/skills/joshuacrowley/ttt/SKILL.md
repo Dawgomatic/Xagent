@@ -1,7 +1,7 @@
 ---
 name: ttt
 description: Manage TinyTalkingTodos lists and items via the ttt CLI
-metadata: {"openclaw": {"emoji": "✅", "requires": {"bins": ["ttt"]}, "homepage": "https://tinytalkingtodos.com"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["ttt"]}, "homepage": "https://tinytalkingtodos.com"}}
 ---
 
 # TinyTalkingTodos CLI
@@ -75,7 +75,7 @@ ttt list get list-abc123
 
 ```bash
 ttt list create "Weekend Plans"
-ttt list create "Shopping" --icon "🛒" --color "#FF6B6B"
+ttt list create "Shopping" --icon "" --color "#FF6B6B"
 ```
 
 Options:
@@ -87,7 +87,7 @@ Options:
 
 ```bash
 ttt list update "Groceries" --name "Shopping List"
-ttt list update "Shopping List" --icon "🛒" --color "#00FF00"
+ttt list update "Shopping List" --icon "" --color "#00FF00"
 ```
 
 Options:
@@ -150,7 +150,7 @@ ttt todo add "Try new pasta place" --list "Restaurants" \
 ttt todo add "Tomatoes" --list "Groceries" \
   --amount 2.50 \
   --category "Produce" \
-  --emoji "🍅"
+  --emoji ""
 ```
 
 All `--list` options:
@@ -160,7 +160,7 @@ All `--list` options:
 | `--date <YYYY-MM-DD>` | Due date | `--date 2026-02-15` |
 | `--time <HH:MM>` | Due time | `--time 14:30` |
 | `--url <url>` | Associated URL | `--url "https://..."` |
-| `--emoji <emoji>` | Item emoji | `--emoji "🎉"` |
+| `--emoji <emoji>` | Item emoji | `--emoji ""` |
 | `--email <email>` | Associated email | `--email "contact@..."` |
 | `--street-address <addr>` | Location | `--street-address "123 Main"` |
 | `--number <n>` | Numeric value | `--number 5` |
@@ -299,7 +299,7 @@ ttt todo done todo-xyz789
 
 ### Create a new list with todos
 ```bash
-ttt list create "Weekend Trip" --icon "🏕️"
+ttt list create "Weekend Trip" --icon ""
 ttt todo add "Pack tent" --list "Weekend Trip"
 ttt todo add "Check weather" --list "Weekend Trip" --url "https://weather.com"
 ttt todo add "Gas up car" --list "Weekend Trip"

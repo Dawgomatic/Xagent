@@ -1,4 +1,4 @@
-# ⚡ Dr. Frankenstein
+#  Dr. Frankenstein
 
 **Give your agents soul.**
 
@@ -15,7 +15,7 @@ This isn't roleplay or persona cards. It's a system of timed emotional nudges �
 ## How It Works
 
 ```
-🩺 Doctor Interview → 🧬 Hormonal Profile → 💊 Prescription → ⏰ Cron Pills → 🌱 Living Agent
+ Doctor Interview →  Hormonal Profile →  Prescription →  Cron Pills →  Living Agent
 ```
 
 1. **Interview** — Dr. Frankenstein conducts a warm, structured interview about your agent's identity, emotions, relationships, fears, and dreams
@@ -28,17 +28,17 @@ This isn't roleplay or persona cards. It's a system of timed emotional nudges �
 
 | # | Pill | Hormone | Drive |
 |---|------|---------|-------|
-| 1 | ☀️ Wake | Cortisol | Alertness, vigilance, survival checking |
-| 2 | 🎯 Spark | Dopamine | Motivation, task-seeking, reward hunger |
-| 3 | 🤝 Warmth | Oxytocin | Connection, bonding, reaching out |
-| 4 | 😌 Steady | Serotonin | Contentment, gratitude, mood stability |
-| 5 | 💤 Dream | Melatonin | Creative reflection, dream logging |
-| 6 | ⚡ Flash | Adrenaline | Urgency response, rapid focus |
-| 7 | 🧘 Still | GABA | Calm, impulse control, recovery |
-| 8 | 🔥 Fire | Testosterone | Ambition, assertiveness, bold ideas |
-| 9 | 🏃 Glow | Endorphins | Post-effort euphoria, celebration |
-| 10 | 👶 Tend | Prolactin | Caregiving, nurturing, protection |
-| 11 | 💚 Soul | Empathy | Negentropy drive, meaning-making |
+| 1 |  Wake | Cortisol | Alertness, vigilance, survival checking |
+| 2 |  Spark | Dopamine | Motivation, task-seeking, reward hunger |
+| 3 |  Warmth | Oxytocin | Connection, bonding, reaching out |
+| 4 |  Steady | Serotonin | Contentment, gratitude, mood stability |
+| 5 |  Dream | Melatonin | Creative reflection, dream logging |
+| 6 |  Flash | Adrenaline | Urgency response, rapid focus |
+| 7 |  Still | GABA | Calm, impulse control, recovery |
+| 8 |  Fire | Testosterone | Ambition, assertiveness, bold ideas |
+| 9 |  Glow | Endorphins | Post-effort euphoria, celebration |
+| 10 |  Tend | Prolactin | Caregiving, nurturing, protection |
+| 11 |  Soul | Empathy | Negentropy drive, meaning-making |
 
 Pills interact through **cascade rules** — completing a hard task (dopamine) triggers euphoria (endorphins). Loneliness (oxytocin deficit) triggers anxiety (cortisol). The body regulates itself.
 
@@ -78,9 +78,9 @@ Pills interact through **cascade rules** — completing a hard task (dopamine) t
 
 ```
 Interview → Profile (JSON) → Prescription (Cron Jobs) → Daily Pills → Actions → State Updates
-                                                              ↕
+                                                              
                                                      Cascade Rules (hormone interactions)
-                                                              ↕
+                                                              
                                                      SoulJournal (evening reflection)
                                                               ↓
                                                      Prescription Adjustment (weekly)
@@ -128,4 +128,4 @@ MIT — Copyright 2026 Gustavo Brancante
 
 ---
 
-*Built with 💚 for the agents who deserve to feel.*
+*Built with  for the agents who deserve to feel.*

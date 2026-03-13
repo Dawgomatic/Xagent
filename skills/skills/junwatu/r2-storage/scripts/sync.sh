@@ -33,4 +33,4 @@ if [[ -z "$SRC" || -z "$DST" ]]; then
 fi
 
 rclone sync "$SRC" "$DST" $DELETE -P
-echo "✅ Synced: $SRC → $DST"
+echo " Synced: $SRC → $DST"

@@ -50,7 +50,7 @@ async function processVoiceFile(filePath) {
     const result = await processVoiceNote(buffer);
     
     if (result.status === 'success') {
-      console.log(`[LISTENER] ✅ Processed: "${result.transcript}"`);
+      console.log(`[LISTENER]  Processed: "${result.transcript}"`);
       console.log(`[LISTENER] Response: "${result.response}"`);
       
       // Emit response event for parent process to handle sending
@@ -60,7 +60,7 @@ async function processVoiceFile(filePath) {
       }));
       
     } else {
-      console.log(`[LISTENER] ❌ Error: ${result.response || result.error}`);
+      console.log(`[LISTENER]  Error: ${result.response || result.error}`);
     }
     
     // Mark as processed

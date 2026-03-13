@@ -452,12 +452,12 @@ else
     
     total=$((CRITICAL + HIGH + MEDIUM + LOW))
     if [[ $total -eq 0 ]]; then
-        echo -e "${GREEN}✅ No security issues found${NC}"
+        echo -e "${GREEN} No security issues found${NC}"
     else
         echo ""
         echo "Total: $total issues"
         if [[ $CRITICAL -gt 0 ]]; then
-            echo -e "${RED}⚠️  Critical issues require immediate attention!${NC}"
+            echo -e "${RED}  Critical issues require immediate attention!${NC}"
         fi
     fi
     

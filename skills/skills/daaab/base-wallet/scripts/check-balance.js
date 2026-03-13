@@ -56,7 +56,7 @@ async function main() {
     process.exit(1);
   }
   
-  console.log('💰 Wallet Balance Check');
+  console.log(' Wallet Balance Check');
   console.log('='.repeat(50));
   console.log('Address:', address);
   console.log('Network:', networkName);
@@ -66,7 +66,7 @@ async function main() {
   
   console.log('\nBalance:', ethers.formatEther(balance), 'ETH');
   console.log('Wei:', balance.toString());
-  console.log('\n🔗 Explorer:', `${network.explorer}/address/${address}`);
+  console.log('\n Explorer:', `${network.explorer}/address/${address}`);
 }
 
 main().catch(console.error);

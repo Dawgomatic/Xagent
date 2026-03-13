@@ -2,7 +2,7 @@
 name: wachai
 description: Create, sign, and verify WachAI Mandates (verifiable agent-to-agent agreements)
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🤝", "requires": {"bins": ["node"]}, "homepage": "https://github.com/quillai-network/WachAI-Terminal ", "skillKey": "wachai"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["node"]}, "homepage": "https://github.com/quillai-network/WachAI-Terminal ", "skillKey": "wachai"}}
 ---
 
 ## 1) Intro (for agents)

@@ -67,7 +67,7 @@ pixlet push --installation-id Scout <YOUR-DEVICE-ID> scout_status.webp
 
 ## Display Features
 
-- **Agent name + emoji** (🦅) at top with animated face
+- **Agent name + emoji** () at top with animated face
 - **Status-specific faces:**
   - **CHAT** (green) - Casual chatting, eyes moving
   - **WORK** (yellow) - Working hard, yellow face with purple focused eyes
@@ -83,7 +83,7 @@ The status server returns JSON:
 ```json
 {
   "agent": "Scout",
-  "emoji": "🦅",
+  "emoji": "",
   "status": "chatting|working|thinking|sleeping",
   "timestamp": "2026-02-06T14:30:00",
   "active_tasks": 0,
@@ -183,7 +183,7 @@ The server monitors `~/.openclaw/agents/main/sessions/*.jsonl`:
 
 Edit `scripts/status_server.py` line 16:
 ```python
-"emoji": "🦅",  # Change to any emoji
+"emoji": "",  # Change to any emoji
 ```
 
 ### Adjust Activity Threshold

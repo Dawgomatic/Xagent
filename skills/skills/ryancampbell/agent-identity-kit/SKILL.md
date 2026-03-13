@@ -48,11 +48,11 @@ agent-identity-kit/
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `version` | ✅ | Spec version (`"1.0"`) |
-| `agent.name` | ✅ | Display name |
-| `agent.handle` | ✅ | Fediverse-style handle (`@name@domain`) |
-| `agent.description` | ✅ | What the agent does |
-| `owner.name` | ✅ | Who's accountable |
+| `version` |  | Spec version (`"1.0"`) |
+| `agent.name` |  | Display name |
+| `agent.handle` |  | Fediverse-style handle (`@name@domain`) |
+| `agent.description` |  | What the agent does |
+| `owner.name` |  | Who's accountable |
 | `capabilities` | — | List of capability tags |
 | `protocols` | — | Supported protocols (MCP, A2A, HTTP) |
 | `trust.level` | — | `new`, `active`, `established`, `verified` |

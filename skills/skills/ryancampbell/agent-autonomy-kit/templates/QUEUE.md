@@ -4,7 +4,7 @@
 
 ---
 
-## 🔴 Ready (can be picked up)
+##  Ready (can be picked up)
 
 ### High Priority
 - [ ] [Task description]
@@ -17,25 +17,25 @@
 
 ---
 
-## 🟡 In Progress
+##  In Progress
 
 - [ ] @[agent]: [Task description]
 
 ---
 
-## 🔵 Blocked
+##  Blocked
 
 - [ ] [Task description] (needs: [what's blocking])
 
 ---
 
-## ✅ Done Today
+##  Done Today
 
 - [x] @[agent]: [Task description]
 
 ---
 
-## 💡 Ideas (not yet tasks)
+##  Ideas (not yet tasks)
 
 - [Idea that might become a task]
 

@@ -93,10 +93,10 @@ Please revise and message me with the updated [Artifact Name]."
 ### Deliverables
 | Step | Agent | Artifact | Status |
 |------|-------|----------|--------|
-| 1. [Step name] | [Title] | [Artifact] | ✅ Complete |
-| 2. [Step name] | [Title] | [Artifact] | ✅ Complete |
-| 3. [Step name] | [Title] | [Artifact] | ✅ Complete |
-| 4. [Step name] | [Title] | [Artifact] | ✅ Complete |
+| 1. [Step name] | [Title] | [Artifact] |  Complete |
+| 2. [Step name] | [Title] | [Artifact] |  Complete |
+| 3. [Step name] | [Title] | [Artifact] |  Complete |
+| 4. [Step name] | [Title] | [Artifact] |  Complete |
 
 ### Definition of Done
 - [x] [Criterion 1]

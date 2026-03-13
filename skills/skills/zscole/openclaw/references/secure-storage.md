@@ -242,14 +242,14 @@ export SESSION_KEY=$(vault kv get -field=session_key secret/agents/trading-bot)
 
 ## Anti-Patterns to Avoid
 
-### ❌ Keys in Config Files
+###  Keys in Config Files
 ```yaml
 # config.yaml - NEVER DO THIS
 agent:
   private_key: "0xabc123..."
 ```
 
-### ❌ Keys in Docker Environment
+###  Keys in Docker Environment
 ```yaml
 # docker-compose.yaml - NEVER DO THIS
 services:
@@ -258,14 +258,14 @@ services:
       - PRIVATE_KEY=0xabc123...
 ```
 
-### ❌ Keys in Build Arguments
+###  Keys in Build Arguments
 ```dockerfile
 # Dockerfile - NEVER DO THIS
 ARG PRIVATE_KEY
 ENV PRIVATE_KEY=$PRIVATE_KEY
 ```
 
-### ❌ Keys Committed to Git (Even Encrypted)
+###  Keys Committed to Git (Even Encrypted)
 ```bash
 # Even with git-crypt or SOPS, keys shouldn't be in repo
 # Use external secret management

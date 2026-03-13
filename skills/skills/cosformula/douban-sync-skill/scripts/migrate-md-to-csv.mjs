@@ -38,7 +38,7 @@ function csvEscape(str) {
 
 function emojiToStars(emoji) {
   if (!emoji) return '';
-  const count = (emoji.match(/⭐/g) || []).length;
+  const count = (emoji.match(//g) || []).length;
   if (count > 0) return '★'.repeat(count);
   // Already ★ format
   const starCount = (emoji.match(/★/g) || []).length;

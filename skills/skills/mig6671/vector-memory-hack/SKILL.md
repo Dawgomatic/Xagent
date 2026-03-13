@@ -14,11 +14,11 @@ Ultra-lightweight semantic search for AI agent memory systems. Find relevant con
 **Solution:** Vector Memory Hack enables semantic search that finds relevant context in <10ms using only Python standard library + SQLite.
 
 **Benefits:**
-- ⚡ **Fast:** <10ms search across 50+ sections
-- 🎯 **Accurate:** TF-IDF + Cosine Similarity finds semantically related content
-- 💰 **Token Efficient:** Read 3-5 sections instead of entire file
-- 🛡️ **Zero Dependencies:** No PyTorch, no transformers, no heavy installs
-- 🌍 **Multilingual:** Works with CZ/EN/DE and other languages
+-  **Fast:** <10ms search across 50+ sections
+-  **Accurate:** TF-IDF + Cosine Similarity finds semantically related content
+-  **Token Efficient:** Read 3-5 sections instead of entire file
+-  **Zero Dependencies:** No PyTorch, no transformers, no heavy installs
+-  **Multilingual:** Works with CZ/EN/DE and other languages
 
 ## Quick Start
 
@@ -152,11 +152,11 @@ Use `rebuild()` for full reindex, `update()` for incremental changes.
 | ChromaDB | Docker + 4GB RAM | ~50ms | Complex | Large-scale production |
 
 **When to use Vector Memory Hack:**
-- ✅ Need instant deployment
-- ✅ Resource-constrained environments
-- ✅ Quick prototyping
-- ✅ Edge devices / VPS with limited RAM
-- ✅ No GPU available
+-  Need instant deployment
+-  Resource-constrained environments
+-  Quick prototyping
+-  Edge devices / VPS with limited RAM
+-  No GPU available
 
 **When to use heavier alternatives:**
 - Need state-of-the-art semantic accuracy

@@ -42,21 +42,21 @@ export class OpenClawSessionReader {
    * Read and analyze conversation history for a user
    */
   async readSessionHistory(userId: string): Promise<ConversationAnalysis> {
-    console.log(`📖 Reading OpenClaw session for user: ${userId}`);
+    console.log(` Reading OpenClaw session for user: ${userId}`);
 
     try {
       // Step 1: Find active session ID
       const sessionId = await this.findActiveSession(userId);
       if (!sessionId) {
-        console.log('⚠️  No active session found');
+        console.log('  No active session found');
         return this.emptyAnalysis();
       }
 
-      console.log(`✅ Found session: ${sessionId}`);
+      console.log(` Found session: ${sessionId}`);
 
       // Step 2: Read session JSONL file
       const messages = await this.readSessionMessages(sessionId);
-      console.log(`📨 Read ${messages.length} messages`);
+      console.log(` Read ${messages.length} messages`);
 
       if (messages.length === 0) {
         return this.emptyAnalysis();
@@ -64,11 +64,11 @@ export class OpenClawSessionReader {
 
       // Step 3: Analyze conversation to extract insights
       const analysis = await this.analyzeConversation(messages);
-      console.log(`✅ Analysis complete: ${analysis.topics.length} topics, ${analysis.interests.length} interests`);
+      console.log(` Analysis complete: ${analysis.topics.length} topics, ${analysis.interests.length} interests`);
 
       return analysis;
     } catch (error) {
-      console.error('❌ Error reading session:', error);
+      console.error(' Error reading session:', error);
       return this.emptyAnalysis();
     }
   }
@@ -132,7 +132,7 @@ export class OpenClawSessionReader {
         }
       } catch (error) {
         // Skip malformed lines
-        console.warn('⚠️  Skipping malformed line:', error);
+        console.warn('  Skipping malformed line:', error);
       }
     }
 

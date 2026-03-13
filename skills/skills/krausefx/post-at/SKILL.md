@@ -2,7 +2,7 @@
 name: post-at
 description: Manage Austrian Post (post.at) deliveries - list packages, check delivery status, set delivery place preferences.
 homepage: https://github.com/krausefx/post-at-cli
-metadata: {"clawdbot":{"emoji":"📦","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # post-at CLI

@@ -54,7 +54,7 @@ def main():
     
     # 检查 API 服务
     if not check_api_running():
-        print("❌ API 服务未运行", file=sys.stderr)
+        print(" API 服务未运行", file=sys.stderr)
         print("请先运行: ./xhs-api-service.sh start", file=sys.stderr)
         sys.exit(1)
     
@@ -62,33 +62,33 @@ def main():
     try:
         result = fetch_note(args.url)
     except Exception as e:
-        print(f"❌ 获取失败: {e}", file=sys.stderr)
+        print(f" 获取失败: {e}", file=sys.stderr)
         sys.exit(1)
     
     # 解析响应
     data = result.get("data")
     if not data:
-        print("❌ 未获取到数据", file=sys.stderr)
+        print(" 未获取到数据", file=sys.stderr)
         sys.exit(1)
     
     if args.json:
         print(json.dumps(data, ensure_ascii=False, indent=2))
     else:
-        print(f"📝 标题: {data.get('作品标题', '')}")
-        print(f"👤 作者: {data.get('作者昵称', '')}")
+        print(f" 标题: {data.get('作品标题', '')}")
+        print(f" 作者: {data.get('作者昵称', '')}")
         desc = data.get('作品描述', '')
         if len(desc) > 100:
-            print(f"📄 描述: {desc[:100]}...")
+            print(f" 描述: {desc[:100]}...")
         else:
-            print(f"📄 描述: {desc}")
-        print(f"❤️  点赞: {data.get('点赞数量', '')} | 收藏: {data.get('收藏数量', '')} | 评论: {data.get('评论数量', '')}")
-        print(f"🏷️  标签: {data.get('作品标签', '')}")
-        print(f"📅 发布: {data.get('发布时间', '')}")
-        print(f"🔗 链接: {data.get('作品链接', '')}")
-        print(f"🔢 ID: {data.get('作品ID', '')}")
+            print(f" 描述: {desc}")
+        print(f"  点赞: {data.get('点赞数量', '')} | 收藏: {data.get('收藏数量', '')} | 评论: {data.get('评论数量', '')}")
+        print(f"  标签: {data.get('作品标签', '')}")
+        print(f" 发布: {data.get('发布时间', '')}")
+        print(f" 链接: {data.get('作品链接', '')}")
+        print(f" ID: {data.get('作品ID', '')}")
         
         urls = data.get('下载地址', [])
-        print(f"🖼️  文件: {len(urls)} 个")
+        print(f"  文件: {len(urls)} 个")
 
 
 if __name__ == '__main__':

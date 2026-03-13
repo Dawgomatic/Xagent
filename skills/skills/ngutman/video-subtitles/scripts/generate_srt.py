@@ -136,20 +136,20 @@ def transcribe(file_path: str, language: str | None = None, use_turbo: bool = Tr
         # Translation requires large-v3 (turbo doesn't translate well)
         model_name = "large-v3"
         # Use int8 quantization on CPU to save memory
-        print(f"📦 Loading model: {model_name} (int8 for translation)...", file=sys.stderr)
+        print(f" Loading model: {model_name} (int8 for translation)...", file=sys.stderr)
         model = WhisperModel(model_name, device="cpu", compute_type="int8")
     elif language == "he":
         model_name = "ivrit-ai/whisper-large-v3-turbo-ct2" if use_turbo else "ivrit-ai/whisper-large-v3-ct2"
-        print(f"📦 Loading model: {model_name}...", file=sys.stderr)
+        print(f" Loading model: {model_name}...", file=sys.stderr)
         model = WhisperModel(model_name, device="auto", compute_type="auto")
     else:
         model_name = "large-v3-turbo" if use_turbo else "large-v3"
-        print(f"📦 Loading model: {model_name}...", file=sys.stderr)
+        print(f" Loading model: {model_name}...", file=sys.stderr)
         model = WhisperModel(model_name, device="auto", compute_type="auto")
     
-    print(f"🎤 Transcribing: {file_path}...", file=sys.stderr)
+    print(f" Transcribing: {file_path}...", file=sys.stderr)
     if task == "translate":
-        print(f"🌐 Translating to English...", file=sys.stderr)
+        print(f" Translating to English...", file=sys.stderr)
     
     segments, info = model.transcribe(
         file_path, 
@@ -164,7 +164,7 @@ def transcribe(file_path: str, language: str | None = None, use_turbo: bool = Tr
     
     # If Hebrew detected but we used standard model, re-run with ivrit.ai (unless translating)
     if detected_lang == "he" and language is None and "ivrit-ai" not in model_name and task != "translate":
-        print("🔄 Hebrew detected, switching to ivrit.ai model...", file=sys.stderr)
+        print(" Hebrew detected, switching to ivrit.ai model...", file=sys.stderr)
         return transcribe(file_path, language="he", use_turbo=use_turbo, 
                          generate_srt=generate_srt, translate_to=translate_to)
     
@@ -192,7 +192,7 @@ def embed_subtitles(video_path: str, srt_content: str, output_path: str, burn: b
     
     try:
         if burn:
-            print(f"🔥 Burning subtitles into video...", file=sys.stderr)
+            print(f" Burning subtitles into video...", file=sys.stderr)
             # Hard-code (burn) subtitles into video using libass
             # Style: movie-style - smaller text at bottom with outline
             escaped_srt = srt_path.replace(":", "\\:")
@@ -206,7 +206,7 @@ def embed_subtitles(video_path: str, srt_content: str, output_path: str, burn: b
                 output_path
             ]
         else:
-            print(f"🎬 Embedding soft subtitles...", file=sys.stderr)
+            print(f" Embedding soft subtitles...", file=sys.stderr)
             # Soft subtitles (selectable in player)
             cmd = [
                 ffmpeg_bin, '-y',
@@ -267,11 +267,11 @@ Examples:
     
     input_path = Path(args.file)
     if not input_path.exists():
-        print(f"❌ File not found: {args.file}", file=sys.stderr)
+        print(f" File not found: {args.file}", file=sys.stderr)
         sys.exit(1)
     
     if (args.embed or args.burn) and not args.srt:
-        print("❌ --embed/--burn requires --srt", file=sys.stderr)
+        print(" --embed/--burn requires --srt", file=sys.stderr)
         sys.exit(1)
     
     use_turbo = not args.accurate

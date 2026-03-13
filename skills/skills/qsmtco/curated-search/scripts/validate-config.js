@@ -190,7 +190,7 @@ function validate() {
   console.log('--- Validation Results ---\n');
   
   if (errors.length === 0 && warnings.length === 0) {
-    console.log('✅ Configuration is valid!\n');
+    console.log(' Configuration is valid!\n');
     console.log(`Domains configured: ${config.domains.length}`);
     console.log(`Seed URLs configured: ${config.seeds.length}`);
     console.log(`Max crawl depth: ${config.crawl.depth}`);
@@ -200,13 +200,13 @@ function validate() {
   }
 
   if (errors.length > 0) {
-    console.error(`❌ ERRORS (${errors.length}):\n`);
+    console.error(` ERRORS (${errors.length}):\n`);
     errors.forEach(e => console.error(`  • ${e}`));
     console.error('');
   }
   
   if (warnings.length > 0) {
-    console.error(`⚠️  WARNINGS (${warnings.length}):\n`);
+    console.error(`  WARNINGS (${warnings.length}):\n`);
     warnings.forEach(w => console.error(`  • ${w}`));
     console.error('');
   }

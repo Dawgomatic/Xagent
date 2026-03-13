@@ -4,7 +4,7 @@ description: Zettelkasten - Card box note taking system with AI insights
 keywords: note-taking,knowledge-management,zettelkasten,ai,insights
 metadata:
   openclaw:
-    emoji: "📝"
+    emoji: ""
     bins: ["python"]
     pip: []
     os:

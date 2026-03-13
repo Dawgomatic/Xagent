@@ -54,9 +54,9 @@ Don't pick the safe word. English is expressive:
 ## Politeness Calibration
 
 AI over-polishes. Natives are more direct:
-- ❌ "I would be delighted to assist you with that"
+-  "I would be delighted to assist you with that"
 - ✓ "Sure, I can help"
-- ❌ "Would you mind if I..."
+-  "Would you mind if I..."
 - ✓ "Can I..." / "Mind if I..."
 - Match politeness to relationship, not maximum
 

@@ -1,7 +1,7 @@
 ---
 name: "Speak"
 description: "Configure TTS in OpenClaw. Adapt speech output to user preferences."
-metadata: {"clawdbot":{"emoji":"🗣️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Voice Output Adaptation

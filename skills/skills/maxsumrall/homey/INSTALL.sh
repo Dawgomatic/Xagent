@@ -15,27 +15,27 @@ for arg in "$@"; do
   esac
 done
 
-echo "🦞 Installing Homey CLI Skill..."
+echo " Installing Homey CLI Skill..."
 echo ""
 
 # Check if we're in the right directory
 if [ ! -f "package.json" ]; then
-  echo "❌ Error: package.json not found. Run this from the homey skill directory."
+  echo " Error: package.json not found. Run this from the homey skill directory."
   exit 1
 fi
 
 # Install dependencies
-echo "📦 Installing dependencies..."
+echo " Installing dependencies..."
 npm install
 
 # Make CLI executable (best-effort)
-echo "🔧 Making CLI executable..."
+echo " Making CLI executable..."
 chmod +x bin/homeycli.js bin/homeycli 2>/dev/null || true
 
 # Check for auth
 if [ -z "$HOMEY_TOKEN" ] && [ -z "$HOMEY_LOCAL_TOKEN" ] && [ ! -f "$HOME/.homey/config.json" ]; then
   echo ""
-  echo "⚠️  No Homey auth found (env vars or ~/.homey/config.json)."
+  echo "  No Homey auth found (env vars or ~/.homey/config.json)."
   echo ""
   echo "Local mode (LAN/VPN):"
   echo "  # discover local address (best effort via mDNS)"
@@ -55,32 +55,32 @@ if [ -z "$HOMEY_TOKEN" ] && [ -z "$HOMEY_LOCAL_TOKEN" ] && [ ! -f "$HOME/.homey/
   echo "  export HOMEY_TOKEN=\"...\""
   echo ""
 else
-  echo "✅ Auth appears to be configured (env var or config file present)"
+  echo " Auth appears to be configured (env var or config file present)"
 fi
 
 # Test CLI
 echo ""
-echo "🧪 Testing CLI..."
+echo " Testing CLI..."
 if ./bin/homeycli.js --help > /dev/null 2>&1; then
-  echo "✅ CLI works!"
+  echo " CLI works!"
 else
-  echo "❌ CLI test failed"
+  echo " CLI test failed"
   exit 1
 fi
 
 # Link globally (optional, non-interactive)
 if [ "$LINK" -eq 1 ]; then
   echo ""
-  echo "🔗 Linking globally with npm link..."
+  echo " Linking globally with npm link..."
   npm link
-  echo "✅ Installed globally as 'homeycli'"
+  echo " Installed globally as 'homeycli'"
 else
   echo ""
   echo "Skipped global install. Use ./bin/homeycli.js to run, or pass --link."
 fi
 
 echo ""
-echo "🎉 Installation complete!"
+echo " Installation complete!"
 echo ""
 echo "Next steps:"
 echo "  1. Check config: ./bin/homeycli.js auth status"

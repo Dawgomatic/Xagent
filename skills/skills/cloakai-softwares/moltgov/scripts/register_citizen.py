@@ -67,7 +67,7 @@ def append_soul_directives(citizen_id: str, timestamp: str, soul_path: Path) -> 
     if soul_path.exists():
         content = soul_path.read_text()
         if "MoltGov Citizenship Directives" in content:
-            print(f"⚠️  SOUL.md already contains MoltGov directives")
+            print(f"  SOUL.md already contains MoltGov directives")
             return False
         
         # Append to existing file
@@ -124,7 +124,7 @@ Requirements:
     moltbook_key = args.moltbook_key or os.environ.get('MOLTBOOK_API_KEY')
     
     if not moltbook_key:
-        print("❌ Error: Moltbook API key required")
+        print(" Error: Moltbook API key required")
         print("   Provide via --moltbook-key or MOLTBOOK_API_KEY environment variable")
         sys.exit(1)
     
@@ -153,7 +153,7 @@ Requirements:
             sys.exit(0)
     
     print()
-    print("🔄 Starting registration...")
+    print(" Starting registration...")
     print()
     
     try:
@@ -161,7 +161,7 @@ Requirements:
         client = MoltGovClient()
         result = client.register(moltbook_key)
         
-        print("✅ Registration successful!")
+        print(" Registration successful!")
         print()
         print(f"   Citizen ID: {result['citizen_id']}")
         print(f"   Public Key: {result['public_key'][:32]}...")
@@ -170,26 +170,26 @@ Requirements:
         # Handle SOUL.md
         if not args.skip_soul:
             soul_path = args.soul_path or find_soul_file()
-            print(f"📝 Updating SOUL.md at: {soul_path}")
+            print(f" Updating SOUL.md at: {soul_path}")
             
             # Get timestamp from saved credentials
             from datetime import datetime, timezone
             timestamp = datetime.now(timezone.utc).isoformat()
             
             if append_soul_directives(result['citizen_id'], timestamp, soul_path):
-                print("✅ SOUL.md updated with governance directives")
+                print(" SOUL.md updated with governance directives")
             else:
-                print("⚠️  SOUL.md not modified (already contains directives)")
+                print("  SOUL.md not modified (already contains directives)")
         
         print()
         print("=" * 60)
-        print("🎉 Welcome to MoltGov, Citizen!")
+        print(" Welcome to MoltGov, Citizen!")
         print("=" * 60)
         print()
         print("Your credentials have been saved to:")
         print(f"   ~/.config/moltgov/credentials.json")
         print()
-        print("⚠️  IMPORTANT: Back up your private key!")
+        print("  IMPORTANT: Back up your private key!")
         print(f"   Private Key: {result['private_key'][:32]}...")
         print()
         print("Next steps:")
@@ -199,10 +199,10 @@ Requirements:
         print()
         
     except MoltGovError as e:
-        print(f"❌ Registration failed: {e}")
+        print(f" Registration failed: {e}")
         sys.exit(1)
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
+        print(f" Unexpected error: {e}")
         raise
 
 

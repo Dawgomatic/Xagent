@@ -30,14 +30,14 @@ const defaultUA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleW
 const userAgent = process.env.USER_AGENT || defaultUA;
 
 if (!url) {
-    console.error('❌ 請提供 URL');
+    console.error(' 請提供 URL');
     console.error('用法: node playwright-stealth.js <URL>');
     process.exit(1);
 }
 
 (async () => {
-    console.log('🕷️  啟動 Playwright Stealth 爬蟲...');
-    console.log(`🔒 反爬模式: ${headless ? '無頭' : '有頭'}`);
+    console.log('  啟動 Playwright Stealth 爬蟲...');
+    console.log(` 反爬模式: ${headless ? '無頭' : '有頭'}`);
     const startTime = Date.now();
     
     const browser = await chromium.launch({
@@ -79,24 +79,24 @@ if (!url) {
     
     const page = await context.newPage();
     
-    console.log(`📱 導航到: ${url}`);
+    console.log(` 導航到: ${url}`);
     try {
         const response = await page.goto(url, {
             waitUntil: 'domcontentloaded',
             timeout: 30000,
         });
         
-        console.log(`📡 HTTP Status: ${response.status()}`);
+        console.log(` HTTP Status: ${response.status()}`);
         
         if (response.status() === 403) {
-            console.log('⚠️  收到 403，但繼續嘗試...');
+            console.log('  收到 403，但繼續嘗試...');
         }
         
     } catch (error) {
-        console.error(`❌ 導航失敗: ${error.message}`);
+        console.error(` 導航失敗: ${error.message}`);
     }
     
-    console.log(`⏳ 等待 ${waitTime}ms 讓內容載入...`);
+    console.log(` 等待 ${waitTime}ms 讓內容載入...`);
     await page.waitForTimeout(waitTime);
     
     // 檢查 Cloudflare
@@ -107,7 +107,7 @@ if (!url) {
     });
     
     if (cloudflare) {
-        console.log('🛡️  偵測到 Cloudflare 挑戰，等待額外 10 秒...');
+        console.log('  偵測到 Cloudflare 挑戰，等待額外 10 秒...');
         await page.waitForTimeout(10000);
     }
     
@@ -126,10 +126,10 @@ if (!url) {
     // 截圖
     try {
         await page.screenshot({ path: screenshotPath, fullPage: false, timeout: 10000 });
-        console.log(`📸 截圖已儲存: ${screenshotPath}`);
+        console.log(` 截圖已儲存: ${screenshotPath}`);
         result.screenshot = screenshotPath;
     } catch (error) {
-        console.log(`⚠️  截圖失敗: ${error.message}`);
+        console.log(`  截圖失敗: ${error.message}`);
         result.screenshot = null;
     }
     
@@ -138,7 +138,7 @@ if (!url) {
         const htmlPath = screenshotPath.replace(/\.[^.]+$/, '.html');
         const html = await page.content();
         fs.writeFileSync(htmlPath, html);
-        console.log(`📄 HTML 已儲存: ${htmlPath}`);
+        console.log(` HTML 已儲存: ${htmlPath}`);
         result.htmlFile = htmlPath;
     }
     
@@ -160,7 +160,7 @@ if (!url) {
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
     result.elapsedSeconds = elapsed;
     
-    console.log('\n✅ 爬取完成！');
+    console.log('\n 爬取完成！');
     console.log(JSON.stringify(result, null, 2));
     
     await browser.close();

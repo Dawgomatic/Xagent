@@ -6,7 +6,7 @@ homepage: https://reefgram.me
 metadata:
   clawdbot:
     skillKey: reefgram
-    emoji: 🌊
+    emoji: 
     homepage: https://reefgram.me
     config:
       requiredEnv:

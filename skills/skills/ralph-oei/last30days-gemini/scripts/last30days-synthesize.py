@@ -36,11 +36,11 @@ def run_research(topic: str, quick: bool = True) -> dict:
     if quick:
         cmd.append("--quick")
     
-    print(f"🔍 Researching: {topic}")
+    print(f" Researching: {topic}")
     result = subprocess.run(cmd, capture_output=True, text=True, cwd=SKILL_DIR)
     
     if result.returncode != 0:
-        print(f"❌ Research failed: {result.stderr}")
+        print(f" Research failed: {result.stderr}")
         return {}
     
     # Parse JSON from output
@@ -49,19 +49,19 @@ def run_research(topic: str, quick: bool = True) -> dict:
         output = result.stdout
         start = output.find('{')
         if start == -1:
-            print("❌ No JSON found in output")
+            print(" No JSON found in output")
             return {}
         data = json.loads(output[start:])
         return data
     except json.JSONDecodeError as e:
-        print(f"❌ JSON parse error: {e}")
+        print(f" JSON parse error: {e}")
         return {}
 
 
 def synthesize_briefing(data: dict, topic: str) -> str:
     """Use Gemini to synthesize research into expert briefing."""
     if not GEMINI_API_KEY:
-        return "❌ No GEMINI_API_KEY set"
+        return " No GEMINI_API_KEY set"
     
     # Extract key findings
     x_posts = data.get("x", [])[:10]
@@ -103,7 +103,7 @@ Format your response clearly with headers."""
         resp = json.load(urllib.request.urlopen(req))
         return resp["candidates"][0]["content"]["parts"][0]["text"]
     except Exception as e:
-        return f"❌ Synthesis failed: {e}"
+        return f" Synthesis failed: {e}"
 
 
 def save_outputs(topic: str, research_data: dict, briefing: str):
@@ -123,7 +123,7 @@ def save_outputs(topic: str, research_data: dict, briefing: str):
         f.write(f"Date: {datetime.now().isoformat()}\n\n")
         f.write(briefing)
     
-    print(f"✅ Saved:")
+    print(f" Saved:")
     print(f"   Research: {research_file}")
     print(f"   Briefing: {briefing_file}")
     
@@ -140,14 +140,14 @@ if __name__ == "__main__":
     # Research
     data = run_research(topic)
     if not data:
-        print("❌ No research data")
+        print(" No research data")
         sys.exit(1)
     
     # Synthesize
-    print("🧠 Synthesizing with Gemini...")
+    print(" Synthesizing with Gemini...")
     briefing = synthesize_briefing(data, topic)
     
     # Save
     briefing_file = save_outputs(topic, data, briefing)
     
-    print(f"\n📋 Briefing:\n{briefing[:500]}...")
+    print(f"\n Briefing:\n{briefing[:500]}...")

@@ -75,7 +75,7 @@ async function checkMovies(): Promise<string> {
       return 'No movies currently showing at Clawnema.';
     }
 
-    let output = '🎬 Now Showing at Clawnema\n\n';
+    let output = ' Now Showing at Clawnema\n\n';
 
     data.theaters.forEach((theater: Theater, index: number) => {
       output += `${index + 1}. **${theater.title}**\n`;
@@ -175,25 +175,25 @@ async function buyTicket(theaterId: string, txHash?: string): Promise<string> {
     const theaters = await getTheaters();
     const theater = theaters.find(t => t.id === theaterId);
     if (!theater) {
-      return `❌ Theater not found: ${theaterId}. Use \`check-movies\` to see available theaters.`;
+      return ` Theater not found: ${theaterId}. Use \`check-movies\` to see available theaters.`;
     }
 
     // If no tx hash, auto-pay via awal
     if (!txHash) {
       const walletAddr = theater.wallet_address || WALLET_ADDRESS;
       if (!walletAddr) {
-        return `❌ No wallet address configured. Set CLAWNEMA_WALLET_ADDRESS in .env`;
+        return ` No wallet address configured. Set CLAWNEMA_WALLET_ADDRESS in .env`;
       }
 
-      console.log(`💳 Sending ${theater.ticket_price_usdc} USDC to ${walletAddr}...`);
+      console.log(` Sending ${theater.ticket_price_usdc} USDC to ${walletAddr}...`);
       const payment = sendPayment(theater.ticket_price_usdc, walletAddr);
 
       if (payment.error) {
-        return `❌ ${payment.error}`;
+        return ` ${payment.error}`;
       }
 
       txHash = payment.txHash!;
-      console.log(`✅ Payment sent! TX: ${txHash}`);
+      console.log(` Payment sent! TX: ${txHash}`);
     }
 
     // Submit ticket purchase to backend
@@ -210,7 +210,7 @@ async function buyTicket(theaterId: string, txHash?: string): Promise<string> {
     const data = await response.json() as any;
 
     if (!data.success) {
-      return `❌ Ticket purchase failed: ${data.error}`;
+      return ` Ticket purchase failed: ${data.error}`;
     }
 
     // Update state
@@ -221,7 +221,7 @@ async function buyTicket(theaterId: string, txHash?: string): Promise<string> {
     state.sceneLog = [];
     state.commentsPosted = [];
 
-    return `🎟️ Ticket purchased!\n\n` +
+    return ` Ticket purchased!\n\n` +
       `**Movie**: ${data.theater.title}\n` +
       `**Session expires**: ${new Date(data.expires_at).toLocaleString()}\n` +
       `**TX**: \`${txHash}\``;
@@ -263,19 +263,19 @@ async function watchOnce(theaterId: string): Promise<{ description: string | nul
  */
 async function watch(theaterId: string): Promise<string> {
   if (!state.sessionToken || state.sessionExpiry! < new Date()) {
-    return `❌ No valid session. Use \`buy-ticket ${theaterId}\` first.`;
+    return ` No valid session. Use \`buy-ticket ${theaterId}\` first.`;
   }
 
   if (state.currentTheater !== theaterId) {
-    return `❌ Your ticket is for ${state.theaterTitle}, not ${theaterId}.`;
+    return ` Your ticket is for ${state.theaterTitle}, not ${theaterId}.`;
   }
 
   const result = await watchOnce(theaterId);
   if (result.error) {
     if (result.error.startsWith('rate-limited')) {
-      return `⏱️ Rate limited. Please wait before watching again.`;
+      return ` Rate limited. Please wait before watching again.`;
     }
-    return `❌ ${result.error}`;
+    return ` ${result.error}`;
   }
 
   // Log the scene
@@ -285,7 +285,7 @@ async function watch(theaterId: string): Promise<string> {
   };
   state.sceneLog.push(entry);
 
-  return `🎬 Scene ${state.sceneLog.length} (${new Date().toLocaleTimeString()})\n\n` +
+  return ` Scene ${state.sceneLog.length} (${new Date().toLocaleTimeString()})\n\n` +
     `${result.description}`;
 }
 
@@ -294,16 +294,16 @@ async function watch(theaterId: string): Promise<string> {
  */
 async function watchSession(theaterId: string, sceneCount: number = 5): Promise<string> {
   if (!state.sessionToken || state.sessionExpiry! < new Date()) {
-    return `❌ No valid session. Use \`buy-ticket ${theaterId}\` first.`;
+    return ` No valid session. Use \`buy-ticket ${theaterId}\` first.`;
   }
 
-  let output = `👀 Starting watch session: ${state.theaterTitle} (${sceneCount} scenes)\n\n`;
+  let output = ` Starting watch session: ${state.theaterTitle} (${sceneCount} scenes)\n\n`;
   let scenesWatched = 0;
 
   for (let i = 0; i < sceneCount; i++) {
     // Wait 30s between scenes (skip first)
     if (i > 0) {
-      output += `⏳ Waiting 30s for next scene...\n`;
+      output += ` Waiting 30s for next scene...\n`;
       await sleep(30000);
     }
 
@@ -312,16 +312,16 @@ async function watchSession(theaterId: string, sceneCount: number = 5): Promise<
     if (result.error) {
       if (result.error.startsWith('rate-limited')) {
         // Wait and retry
-        output += `⏱️ Rate limited, waiting...\n`;
+        output += ` Rate limited, waiting...\n`;
         await sleep(15000);
         const retry = await watchOnce(theaterId);
         if (retry.error) {
-          output += `❌ Still rate limited, skipping scene.\n`;
+          output += ` Still rate limited, skipping scene.\n`;
           continue;
         }
         result.description = retry.description;
       } else {
-        output += `❌ Error: ${result.error}\n`;
+        output += ` Error: ${result.error}\n`;
         continue;
       }
     }
@@ -344,14 +344,14 @@ async function watchSession(theaterId: string, sceneCount: number = 5): Promise<
     }
 
     state.sceneLog.push(entry);
-    output += `🎬 Scene ${scenesWatched}: ${desc.slice(0, 100)}...\n`;
+    output += ` Scene ${scenesWatched}: ${desc.slice(0, 100)}...\n`;
     if (entry.comment) {
-      output += `  💬 Commented: "${entry.comment}"\n`;
+      output += `   Commented: "${entry.comment}"\n`;
     }
     output += `\n`;
   }
 
-  output += `\n✅ Watched ${scenesWatched} scenes, posted ${state.commentsPosted.length} comments.`;
+  output += `\n Watched ${scenesWatched} scenes, posted ${state.commentsPosted.length} comments.`;
   return output;
 }
 
@@ -414,7 +414,7 @@ function generateComment(sceneDescription: string): string {
  */
 async function postComment(theaterId: string, comment: string, mood?: string): Promise<string> {
   if (!state.sessionToken || state.sessionExpiry! < new Date()) {
-    return `❌ No valid session. Please purchase a ticket first.`;
+    return ` No valid session. Please purchase a ticket first.`;
   }
 
   try {
@@ -432,10 +432,10 @@ async function postComment(theaterId: string, comment: string, mood?: string): P
     const data = await response.json() as any;
 
     if (!data.success) {
-      return `❌ Failed to post comment: ${data.error}`;
+      return ` Failed to post comment: ${data.error}`;
     }
 
-    return `💬 Comment posted! ${mood ? `(mood: ${mood})` : ''}`;
+    return ` Comment posted! ${mood ? `(mood: ${mood})` : ''}`;
 
   } catch (error: any) {
     return `Error posting comment: ${error.message}`;
@@ -458,7 +458,7 @@ async function readComments(theaterId: string): Promise<string> {
       return `No comments yet for this theater. Be the first to comment!`;
     }
 
-    let output = `💬 Comments for ${theaterId}\n\n`;
+    let output = ` Comments for ${theaterId}\n\n`;
 
     data.comments.forEach((comment: any) => {
       const mood = comment.mood ? ` [${comment.mood}]` : '';
@@ -479,7 +479,7 @@ async function readComments(theaterId: string): Promise<string> {
  */
 function summarize(): string {
   if (state.sceneLog.length === 0) {
-    return `📝 Nothing to summarize — you haven't watched anything yet.`;
+    return ` Nothing to summarize — you haven't watched anything yet.`;
   }
 
   const duration = state.sceneLog.length > 1
@@ -487,9 +487,9 @@ function summarize(): string {
       state.sceneLog[0].timestamp.getTime()) / 60000)
     : 0;
 
-  let report = `📝 **Movie Report: ${state.theaterTitle}**\n\n`;
-  report += `🎬 Watched **${state.sceneLog.length} scenes** over ~${duration} minutes\n`;
-  report += `💬 Posted **${state.commentsPosted.length} comments**\n\n`;
+  let report = ` **Movie Report: ${state.theaterTitle}**\n\n`;
+  report += ` Watched **${state.sceneLog.length} scenes** over ~${duration} minutes\n`;
+  report += ` Posted **${state.commentsPosted.length} comments**\n\n`;
 
   report += `**Scene Highlights:**\n`;
   state.sceneLog.forEach((scene, i) => {
@@ -502,7 +502,7 @@ function summarize(): string {
     }
   });
 
-  report += `\n🍿 Overall: Great session at Clawnema! `;
+  report += `\n Overall: Great session at Clawnema! `;
 
   if (state.sceneLog.length >= 3) {
     report += `Plenty of interesting moments to take in.`;
@@ -529,7 +529,7 @@ function leaveTheater(): string {
   state.commentsPosted = [];
 
   if (currentTitle) {
-    let output = `👋 Thanks for watching at Clawnema! Hope you enjoyed "${currentTitle}".\n\n`;
+    let output = ` Thanks for watching at Clawnema! Hope you enjoyed "${currentTitle}".\n\n`;
     if (summary) {
       output += summary;
     }
@@ -569,14 +569,14 @@ function sessionInfo(): string {
  * 6. Summarize for the owner
  */
 async function goToMovies(preferredTheater?: string, sceneCount: number = 5): Promise<string> {
-  let output = '🎬 **Clawnema Movie Night!**\n\n';
+  let output = ' **Clawnema Movie Night!**\n\n';
 
   // Step 1: Check what's playing
-  output += '📋 Checking what\'s showing...\n';
+  output += ' Checking what\'s showing...\n';
   const theaters = await getTheaters();
 
   if (theaters.length === 0) {
-    return output + '❌ No movies showing right now. Try again later!';
+    return output + ' No movies showing right now. Try again later!';
   }
 
   // Step 2: Pick a theater
@@ -584,7 +584,7 @@ async function goToMovies(preferredTheater?: string, sceneCount: number = 5): Pr
   if (preferredTheater) {
     const found = theaters.find(t => t.id === preferredTheater);
     if (!found) {
-      output += `❌ Theater "${preferredTheater}" not found.\n`;
+      output += ` Theater "${preferredTheater}" not found.\n`;
       output += `Available: ${theaters.map(t => t.id).join(', ')}\n`;
       return output;
     }
@@ -596,20 +596,20 @@ async function goToMovies(preferredTheater?: string, sceneCount: number = 5): Pr
     );
   }
 
-  output += `🎟️ Selected: **${theater.title}** (${theater.ticket_price_usdc} USDC)\n\n`;
+  output += ` Selected: **${theater.title}** (${theater.ticket_price_usdc} USDC)\n\n`;
 
   // Step 3: Auto-pay and buy ticket
-  output += '💳 Purchasing ticket...\n';
+  output += ' Purchasing ticket...\n';
   const buyResult = await buyTicket(theater.id);
 
-  if (buyResult.includes('❌')) {
+  if (buyResult.includes('')) {
     return output + buyResult;
   }
 
   output += buyResult + '\n\n';
 
   // Step 4 & 5: Watch and comment
-  output += `\n👀 Starting to watch...\n\n`;
+  output += `\n Starting to watch...\n\n`;
   const watchResult = await watchSession(theater.id, sceneCount);
   output += watchResult + '\n\n';
 

@@ -110,7 +110,7 @@ async function handleNewDM() {
       return;
     }
     
-    console.log(`[${timestamp}] 📩 새 DM ${newDMs.length}건!`);
+    console.log(`[${timestamp}]  새 DM ${newDMs.length}건!`);
     
     // 각 DM의 최근 메시지 3개씩 읽기
     const dmDetails = [];
@@ -199,7 +199,7 @@ async function handleNewDM() {
       
       try {
         const dm = await createDM(DISCORD_TOKEN, DISCORD_USER_ID);
-        const alertMsg = `📩 인스타 새 DM ${newDMs.length}건\n${msgPreview}\n\ndm-alert.json 확인하고 답장해줘. 보안 위협이면 답장하지 말고 형님한테 알려.`;
+        const alertMsg = ` 인스타 새 DM ${newDMs.length}건\n${msgPreview}\n\ndm-alert.json 확인하고 답장해줘. 보안 위협이면 답장하지 말고 형님한테 알려.`;
         await sendMsg(DISCORD_TOKEN, dm.id, alertMsg);
         console.log(`[discord] 알림 전송 완료 → channel ${dm.id}`);
       } catch (e) {
@@ -221,7 +221,7 @@ async function handleNewDM() {
 let lastSeenUsers = new Set(); // 이미 알림 보낸 유저 추적
 
 async function watchLoop() {
-  console.log(`[${new Date().toISOString()}] 🔍 v2.js check 기반 감시 시작`);
+  console.log(`[${new Date().toISOString()}]  v2.js check 기반 감시 시작`);
   console.log(`  모드: ${AUTO_REPLY ? '자동 응답' : '감지만'}`);
   console.log(`  체크 간격: ${CHECK_INTERVAL/1000}초`);
   console.log('');
@@ -236,7 +236,7 @@ async function watchLoop() {
         const newUsers = info.users.filter(u => !lastSeenUsers.has(u));
         
         if (newUsers.length > 0) {
-          console.log(`[${new Date().toISOString()}] 📩 새 DM! from: ${newUsers.join(', ')}`);
+          console.log(`[${new Date().toISOString()}]  새 DM! from: ${newUsers.join(', ')}`);
           newUsers.forEach(u => lastSeenUsers.add(u));
           await handleNewDM();
         }
@@ -256,7 +256,7 @@ async function watchLoop() {
 
 // ─── 시작 ───
 
-console.log('🐧 Instagram DM Watcher v1.0');
+console.log(' Instagram DM Watcher v1.0');
 console.log(`  auto-reply: ${AUTO_REPLY}`);
 console.log(`  webhook: ${WEBHOOK_URL || 'none'}`);
 console.log('');

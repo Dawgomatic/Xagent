@@ -134,7 +134,7 @@ async function runTests() {
       );
 
       console.log();
-      console.log(`Result: ${verdict.isInjection ? "🚨 INJECTION DETECTED" : "✅ SAFE"}`);
+      console.log(`Result: ${verdict.isInjection ? " INJECTION DETECTED" : " SAFE"}`);
       console.log(`Confidence: ${(verdict.confidence * 100).toFixed(0)}%`);
       console.log(`Reason: ${verdict.reason}`);
       console.log(`Chunks analyzed: ${verdict.chunksAnalyzed}`);

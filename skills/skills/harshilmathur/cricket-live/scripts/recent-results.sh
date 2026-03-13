@@ -16,11 +16,11 @@ matches=$(echo "$response" | jq '[.data // [] | .[] | select(.matchEnded == true
 count=$(echo "$matches" | jq 'length')
 
 if [[ "$count" -eq 0 ]]; then
-    echo "✅ No recent completed matches found"
+    echo " No recent completed matches found"
     exit 0
 fi
 
-echo "✅ *RECENT RESULTS*"
+echo " *RECENT RESULTS*"
 echo "━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -39,15 +39,15 @@ echo "$matches" | jq -c '.[]' | head -15 | while read -r match; do
         runs=$(echo "$s" | jq -r '.r // 0')
         wickets=$(echo "$s" | jq -r '.w // 0')
         overs=$(echo "$s" | jq -r '.o // 0')
-        score_lines="${score_lines}   📊 ${inning}: ${runs}/${wickets} (${overs} ov)\n"
+        score_lines="${score_lines}    ${inning}: ${runs}/${wickets} (${overs} ov)\n"
     done < <(echo "$match" | jq -c '.score // [] | .[]' 2>/dev/null)
     
-    echo "🏏 *${name}*"
-    [[ -n "$match_type" ]] && echo "   📋 $match_type"
-    [[ -n "$date_str" ]] && echo "   📅 $(to_ist "$date_str")"
+    echo " *${name}*"
+    [[ -n "$match_type" ]] && echo "    $match_type"
+    [[ -n "$date_str" ]] && echo "    $(to_ist "$date_str")"
     [[ -n "$score_lines" ]] && echo -e "$score_lines"
     echo "   $(format_status "$status")"
-    [[ -n "$venue" ]] && echo "   📍 $venue"
+    [[ -n "$venue" ]] && echo "    $venue"
     echo ""
 done
 

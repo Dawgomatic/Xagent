@@ -1033,7 +1033,7 @@ class SmartRouter:
         sanitized = self.sanitizer.sanitize(text)
         if sanitized.blocked:
             return RouterResponse(
-                content=f"❌ Request blocked: {sanitized.block_reason}",
+                content=f" Request blocked: {sanitized.block_reason}",
                 model_used="none",
                 routing_decision=RoutingDecision(
                     intent=Intent.GENERAL,
@@ -1077,7 +1077,7 @@ class SmartRouter:
         if decision.show_routing:
             routing_info = self._format_routing_info(decision)
             if response.switched:
-                routing_info += f"\n⚠️ Switched to {response.model_used} ({response.switch_reason})"
+                routing_info += f"\n Switched to {response.model_used} ({response.switch_reason})"
             response.content = f"{routing_info}\n\n---\n\n{response.content}"
         
         return response
@@ -1155,7 +1155,7 @@ class SmartRouter:
     def _build_context_error(self, token_count: int) -> str:
         """Build error message for context overflow."""
         return (
-            f"⚠️ **Context Window Exceeded**\n\n"
+            f" **Context Window Exceeded**\n\n"
             f"Your input is approximately **{token_count:,} tokens**, which exceeds "
             f"the context window of all currently available models.\n\n"
             f"**Options:**\n"
@@ -1168,7 +1168,7 @@ class SmartRouter:
     def _build_exhaustion_error(self, attempted: list[str]) -> str:
         """Build error message when all models exhausted."""
         return (
-            f"❌ **Request Failed**\n\n"
+            f" **Request Failed**\n\n"
             f"Unable to complete your request. All available models have been exhausted.\n\n"
             f"**Models attempted:** {', '.join(attempted)}\n\n"
             f"**What you can do:**\n"

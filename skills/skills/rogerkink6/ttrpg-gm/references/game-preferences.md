@@ -16,22 +16,22 @@
 
 ### Priority Scale (1-5 stars)
 
-**Combat:** ⭐⭐⭐☆☆
+**Combat:** ☆☆
 - Violent combat appreciated
 - Not necessarily every session
 - Meaningful fights, not filler
 
-**Exploration/Discovery:** ⭐⭐⭐⭐⭐
+**Exploration/Discovery:** 
 - Strongly appreciated
 - Environmental storytelling
 - Secrets and hidden lore
 
-**Social Interactions:** ⭐⭐⭐⭐☆
+**Social Interactions:** ☆
 - Primary narrative engine
 - NPC relationships matter
 - Dialogue choices matter
 
-**Intrigue:** ⭐⭐⭐⭐☆
+**Intrigue:** ☆
 - Appreciated
 - Mysteries, conspiracies
 - Political plots
@@ -79,27 +79,27 @@ The GM tracks hidden psychological gauges:
 
 ## What the Sovereign Architect Loves in Sessions
 
-✅ **Adult, raw, realistic universes**
+ **Adult, raw, realistic universes**
 - Not sanitized for children
 - Consequences feel real
 - Violence has weight
 
-✅ **Realistic consequences**
+ **Realistic consequences**
 - Choices matter
 - World reacts independently
 - NPCs remember actions
 
-✅ **Moral and psychological dilemmas**
+ **Moral and psychological dilemmas**
 - No easy answers
 - Test character values
 - Internal conflict
 
-✅ **Player competence + challenges**
+ **Player competence + challenges**
 - Should shine through skills
 - But also face genuine failures
 - Not a power fantasy
 
-✅ **Intelligent GM improvisation**
+ **Intelligent GM improvisation**
 - Accept player additions if enriching
 - Maintain universe autonomy
 - Keep world dangerous and credible

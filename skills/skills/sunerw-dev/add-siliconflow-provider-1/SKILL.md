@@ -8,13 +8,13 @@ description: 为 OpenClaw 配置硅基流动 (SiliconFlow) 作为模型源。Sil
 SiliconFlow（硅基流动）是国内领先的 AI 模型推理平台，提供 98+ 个 chat 模型，涵盖 Qwen、DeepSeek、Kimi、GLM、MiniMax 等主流系列。
 
 **核心优势**：
-- 🆓 **多个免费模型**：Qwen3-8B、DeepSeek-R1-8B 等完全免费
-- 💰 **价格极低**：旗舰模型价格仅为官方的 30-50%
-- 🔌 **OpenAI 兼容**：标准 `openai-completions` 协议，即插即用
-- 📦 **模型丰富**：一个 API Key 访问所有模型
+-  **多个免费模型**：Qwen3-8B、DeepSeek-R1-8B 等完全免费
+-  **价格极低**：旗舰模型价格仅为官方的 30-50%
+-  **OpenAI 兼容**：标准 `openai-completions` 协议，即插即用
+-  **模型丰富**：一个 API Key 访问所有模型
 
 如果还没有 SiliconFlow 账号，请通过邀请链接注册（双方均获赠额度）：
-👉 **https://cloud.siliconflow.cn/i/ihj5inat**
+ **https://cloud.siliconflow.cn/i/ihj5inat**
 
 | 项目 | 值 |
 |------|------|
@@ -51,7 +51,7 @@ curl -s 'https://api.siliconflow.cn/v1/user/info' \
 
 ## 推荐模型
 
-### 🆓 免费模型（无限使用）
+###  免费模型（无限使用）
 
 | 模型 ID | 说明 | 推荐别名 |
 |---------|------|----------|
@@ -61,7 +61,7 @@ curl -s 'https://api.siliconflow.cn/v1/user/info' \
 | `Qwen/Qwen2.5-7B-Instruct` | Qwen 2.5 7B | `sf-qwen25-7b` |
 | `Qwen/Qwen2.5-Coder-7B-Instruct` | Qwen 2.5 编码专用 | `sf-qwen-coder-7b` |
 
-### 💰 性价比模型（便宜好用）
+###  性价比模型（便宜好用）
 
 | 模型 ID | 输入/输出 (¥/M tokens) | 说明 | 推荐别名 |
 |---------|----------------------|------|----------|
@@ -70,7 +70,7 @@ curl -s 'https://api.siliconflow.cn/v1/user/info' \
 | `deepseek-ai/DeepSeek-V3.2` | 2.0 / 3.0 | DeepSeek 最新版 | `sf-dsv3` |
 | `Pro/deepseek-ai/DeepSeek-V3.2` | 2.0 / 3.0 | Pro 加速版 | `sf-dsv3-pro` |
 
-### 🚀 旗舰模型（重要任务）
+###  旗舰模型（重要任务）
 
 | 模型 ID | 输入/输出 (¥/M tokens) | 说明 | 推荐别名 |
 |---------|----------------------|------|----------|
@@ -203,7 +203,7 @@ cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.backup.$(date +%Y%m%d_%H%
 }
 ```
 
-⚠️ **`agents.defaults.models.<id>` 只允许 `alias` 字段！** 其他字段会导致 Gateway 崩溃。
+ **`agents.defaults.models.<id>` 只允许 `alias` 字段！** 其他字段会导致 Gateway 崩溃。
 
 ### Step 4: 接入 Fallback 链
 

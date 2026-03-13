@@ -82,7 +82,7 @@ pnpm announce       # 舆情+宣传
 | 7 | ClawHub | API → HTML → CLI |
 | 8 | OpenAI Skills | GitHub API |
 | 9 | Claude Skills | GitHub API |
-| 🎯 | 需求驱动 | SearXNG |
+|  | 需求驱动 | SearXNG |
 
 ## 来源
 

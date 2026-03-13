@@ -17,7 +17,7 @@ description: Extract calendar events from emails and create calendar entries. Su
 > 9. **TRACK ALL CREATED EVENTS** - The `create_event.sh` script automatically tracks events; use tracked IDs for updates/deletions
 > 10. **SHOW DAY-OF-WEEK** - Always include the day of week when presenting events for user verification
 
-> ⛔ **FORBIDDEN: DO NOT USE `gog` COMMANDS DIRECTLY** ⛔
+>  **FORBIDDEN: DO NOT USE `gog` COMMANDS DIRECTLY** 
 >
 > **WRONG:** `gog calendar create ...` or `gog gmail ...`
 > **RIGHT:** `"$SCRIPTS_DIR/create_event.sh" ...` or `"$SCRIPTS_DIR/email_read.sh" ...`

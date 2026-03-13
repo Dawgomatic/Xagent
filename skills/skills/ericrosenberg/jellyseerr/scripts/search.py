@@ -76,7 +76,7 @@ def main():
     
     for i, item in enumerate(items[:10], 1):
         result = format_result(item)
-        media_icon = "🎬" if result['type'] == 'movie' else "📺"
+        media_icon = "" if result['type'] == 'movie' else ""
         
         print(f"{i}. {media_icon} {result['title']} ({result['year']})")
         print(f"   Status: {result['status']}")

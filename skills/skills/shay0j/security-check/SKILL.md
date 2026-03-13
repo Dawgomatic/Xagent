@@ -62,10 +62,10 @@ The audit produces a report with:
 
 | Level | Description |
 |-------|-------------|
-| 🔴 CRITICAL | Immediate action required (exposed credentials) |
-| 🟠 HIGH | Significant risk, fix soon |
-| 🟡 MEDIUM | Moderate concern |
-| 🟢 INFO | FYI, no action needed |
+|  CRITICAL | Immediate action required (exposed credentials) |
+|  HIGH | Significant risk, fix soon |
+|  MEDIUM | Moderate concern |
+|  INFO | FYI, no action needed |
 
 ## Checks Performed
 

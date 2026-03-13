@@ -29,7 +29,7 @@ def format_value(value: float) -> str:
 
 def print_tree(data: Dict[str, Any]) -> None:
     """Print formatted decision tree analysis."""
-    print(f"\n📊 Decision Tree Analysis\n")
+    print(f"\n Decision Tree Analysis\n")
     print(f"Decision: {data['decision']}\n")
     
     best_option = None
@@ -52,13 +52,13 @@ def print_tree(data: Dict[str, Any]) -> None:
             best_ev = ev
             best_option = option['name']
     
-    print(f"✅ Recommendation: {best_option} (EV: {format_value(best_ev)})")
+    print(f" Recommendation: {best_option} (EV: {format_value(best_ev)})")
     print()
 
 
 def interactive_mode() -> None:
     """Interactive mode for building decision tree."""
-    print("📊 Decision Tree Calculator - Interactive Mode\n")
+    print(" Decision Tree Calculator - Interactive Mode\n")
     
     decision = input("What decision are you analyzing? ")
     options = []
@@ -98,7 +98,7 @@ def interactive_mode() -> None:
             remaining_prob -= prob
         
         if not validate_probabilities(outcomes):
-            print("  ⚠️  Warning: Probabilities don't sum to 1.0")
+            print("    Warning: Probabilities don't sum to 1.0")
         
         options.append({
             "name": name,
@@ -118,7 +118,7 @@ def interactive_mode() -> None:
         filename = input("Filename: ")
         with open(filename, 'w') as f:
             json.dump(data, f, indent=2)
-        print(f"✅ Saved to {filename}")
+        print(f" Saved to {filename}")
 
 
 def main():

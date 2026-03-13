@@ -4,22 +4,22 @@
 [![Version](https://img.shields.io/badge/version-v1.8.4-green.svg)](https://github.com/ZhuangClaw/qst-memory-skill/releases)
 [![Skill](https://img.shields.io/badge/Type-Activity%20Skill-orange.svg)](SKILL.md)
 
-## 🧪 About QST Memory
+##  About QST Memory
 
 **QST Memory** is a universal memory management system for OpenClaw agents, providing intelligent storage, retrieval, and state awareness capabilities.
 
-### 🌟 Key Features
+###  Key Features
 
 | Feature | Description |
 |---------|-------------|
 | **Multi-Agent Support** | Support for qst, mengtian, lisi, and custom agents |
 | **Agent State System** | "I'm Doing" state machine (IDLE/DOING/WAITING/PAUSED/COMPLETED/FAILED/BLOCKED) |
-| **Subtask Management** ⭐ **NEW v1.8.4** | Multi-level subtasks with automatic progress calculation |
-| **Auto-Completion Detection** ⭐ **NEW v1.8.4** | Automatic detection when all required subtasks are complete |
-| **Progress Reminder** ⭐ **NEW v1.8.4** | 8-min stagnation detection with automatic priority adjustment |
-| **Task Templates** ⭐ **NEW v1.8.4** | Predefined templates (Development, Research, Analytics, Support) |
-| **User Priority Response** ⭐ **NEW v1.8.2** | Auto-skip heartbeats during user conversations (30-min window) |
-| **Anti-Loop Protection** ⭐ **NEW v1.8.2** | 4-layer protection against infinite task loops |
+| **Subtask Management**  **NEW v1.8.4** | Multi-level subtasks with automatic progress calculation |
+| **Auto-Completion Detection**  **NEW v1.8.4** | Automatic detection when all required subtasks are complete |
+| **Progress Reminder**  **NEW v1.8.4** | 8-min stagnation detection with automatic priority adjustment |
+| **Task Templates**  **NEW v1.8.4** | Predefined templates (Development, Research, Analytics, Support) |
+| **User Priority Response**  **NEW v1.8.2** | Auto-skip heartbeats during user conversations (30-min window) |
+| **Anti-Loop Protection**  **NEW v1.8.2** | 4-layer protection against infinite task loops |
 | **Smart Search** | Tree-based, semantic, and hybrid search methods |
 | **Auto-Classification** | AI-powered automatic keyword categorization |
 | **Memory Encryption** | AES-128-CBC + HMAC for sensitive data |
@@ -27,7 +27,7 @@
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### Quick Install (GitHub Clone)
 
@@ -63,7 +63,7 @@ python3 universal_memory.py --agent myagent search "QST"
 
 ---
 
-## 📖 Usage
+##  Usage
 
 ### Basic Commands
 
@@ -137,7 +137,7 @@ python3 universal_memory.py --agent qst doing start \
 
 ---
 
-## 🎯 v1.8.4 New Features
+##  v1.8.4 New Features
 
 ### 1. Subtask Management System
 
@@ -187,10 +187,10 @@ python3 universal_memory_v184.py --agent qst subtask list
 
 | Stagnation Time | Action | Status |
 |----------------|--------|--------|
-| 8 minutes | Lower priority | ⚠️ priority downgrade |
-| 15 minutes | Mark STAGNANT | ⏸️ mark_stagnant |
-| 30 minutes | Mark BLOCKED | 🚫 mark_blocked |
-| 60 minutes | Auto-complete | 🔄 auto_complete_if_possible |
+| 8 minutes | Lower priority |  priority downgrade |
+| 15 minutes | Mark STAGNANT |  mark_stagnant |
+| 30 minutes | Mark BLOCKED |  mark_blocked |
+| 60 minutes | Auto-complete |  auto_complete_if_possible |
 
 **Configuration**:
 ```json
@@ -237,7 +237,7 @@ python3 universal_memory.py --agent qst doing start \
 
 ---
 
-## 🎯 v1.8.2 New Features
+##  v1.8.2 New Features
 
 ### 1. User Priority Response Mechanism
 
@@ -264,32 +264,32 @@ python3 universal_memory.py --agent qst doing start \
 
 ---
 
-## 📊 Version History
+##  Version History
 
-### v1.8.4 (2026-02-16) ⭐ **LATEST**
+### v1.8.4 (2026-02-16)  **LATEST**
 
 **New Features**:
-- ✨ Subtask Management System - Multi-level subtasks with automatic progress
-- ✨ Auto-Completion Detection - Automatic detection when tasks are ready to complete
-- ✨ Progress Reminder (8-min Stagnation) - Proactive stagnation detection
-- ✨ Task Templates - Predefined templates for common task types
-- 🔄 Heartbeat integration with subtasks and templates
+-  Subtask Management System - Multi-level subtasks with automatic progress
+-  Auto-Completion Detection - Automatic detection when tasks are ready to complete
+-  Progress Reminder (8-min Stagnation) - Proactive stagnation detection
+-  Task Templates - Predefined templates for common task types
+-  Heartbeat integration with subtasks and templates
 
 **Bug Fixes**:
-- 🐛 Fixed stagnation detection thresholds
-- 🐛 Improved automatic progress calculation
+-  Fixed stagnation detection thresholds
+-  Improved automatic progress calculation
 
 ### v1.8.2 (2026-02-16)
 
 **New Features**:
-- ✨ User Priority Response - protect user conversations from interruptions
-- 🛡️ Anti-Loop Protection - prevent infinite task loops
-- 🔄 Heartbeat integration with state-driven checks
-- 📝 Comprehensive documentation
+-  User Priority Response - protect user conversations from interruptions
+-  Anti-Loop Protection - prevent infinite task loops
+-  Heartbeat integration with state-driven checks
+-  Comprehensive documentation
 
 **Bug Fixes**:
-- 🐛 Fixed memory retrieval edge cases
-- 🐛 Improved agent state transitions
+-  Fixed memory retrieval edge cases
+-  Improved agent state transitions
 
 ### v1.8.1
 
@@ -321,7 +321,7 @@ python3 universal_memory.py --agent qst doing start \
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 | Document | Description |
 |----------|-------------|
@@ -331,7 +331,7 @@ python3 universal_memory.py --agent qst doing start \
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please:
 
@@ -343,13 +343,13 @@ Contributions are welcome! Please:
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **GitHub**: https://github.com/ZhuangClaw/qst-memory-skill
 - **Releases**: https://github.com/ZhuangClaw/qst-memory-skill/releases
@@ -358,7 +358,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-## 🐲 About the Author
+##  About the Author
 
 **QST Memory** is developed by **Zhuangzi** (the AI assistant inspired by Dragon Ball's Briefs family scientist).
 
@@ -366,4 +366,4 @@ For questions, suggestions, or support, please open an issue on GitHub or join t
 
 ---
 
-**Made with ❤️ by Zhuangzi & OpenClaw Community**
+**Made with  by Zhuangzi & OpenClaw Community**

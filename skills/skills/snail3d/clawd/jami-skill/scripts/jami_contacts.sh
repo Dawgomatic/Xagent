@@ -13,7 +13,7 @@ fi
 
 case "$ACTION" in
     list)
-        echo "📋 Jami Contacts:"
+        echo " Jami Contacts:"
         echo ""
         if [ -f "$CONTACTS_FILE" ]; then
             cat "$CONTACTS_FILE" | while read line; do
@@ -37,7 +37,7 @@ case "$ACTION" in
         fi
         
         echo "$NAME=$ID" >> "$CONTACTS_FILE"
-        echo "✅ Added contact: $NAME ($ID)"
+        echo " Added contact: $NAME ($ID)"
         ;;
     
     remove)
@@ -49,7 +49,7 @@ case "$ACTION" in
         
         grep -v "^$NAME=" "$CONTACTS_FILE" > "$CONTACTS_FILE.tmp"
         mv "$CONTACTS_FILE.tmp" "$CONTACTS_FILE"
-        echo "✅ Removed contact: $NAME"
+        echo " Removed contact: $NAME"
         ;;
     
     get)
@@ -71,11 +71,11 @@ case "$ACTION" in
         
         ID=$(grep "^$NAME=" "$CONTACTS_FILE" | cut -d'=' -f2)
         if [ -z "$ID" ]; then
-            echo "❌ Contact not found: $NAME"
+            echo " Contact not found: $NAME"
             exit 1
         fi
         
-        echo "📞 Calling $NAME..."
+        echo " Calling $NAME..."
         jami call "$ACCOUNT_ID" "$ID"
         ;;
     

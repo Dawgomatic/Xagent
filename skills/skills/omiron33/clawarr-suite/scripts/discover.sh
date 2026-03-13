@@ -30,7 +30,7 @@ SERVICES=(
   "Tautulli:8181:/api/v2?cmd=get_tautulli_info"
 )
 
-echo "🔍 Scanning $HOST for *arr services..."
+echo " Scanning $HOST for *arr services..."
 echo ""
 
 FOUND=0
@@ -42,26 +42,26 @@ for service in "${SERVICES[@]}"; do
   http_code=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 3 "http://${HOST}:${port}${path}" 2>/dev/null || echo "000")
   
   if [[ "$http_code" == "200" ]]; then
-    echo "✅ $name - http://${HOST}:${port}"
+    echo " $name - http://${HOST}:${port}"
     FOUND=$((FOUND + 1))
   elif [[ "$http_code" =~ ^(301|302|303|400|401|403)$ ]]; then
-    echo "✅ $name - http://${HOST}:${port} (needs API key)"
+    echo " $name - http://${HOST}:${port} (needs API key)"
     FOUND=$((FOUND + 1))
   else
-    echo "❌ $name - not detected on port $port"
+    echo " $name - not detected on port $port"
   fi
 done
 
 echo ""
 if [[ $FOUND -eq 0 ]]; then
-  echo "❌ No services found. Check:"
+  echo " No services found. Check:"
   echo "  - Host IP/hostname is correct"
   echo "  - Services are running"
   echo "  - Firewall allows connections"
   echo "  - Non-standard ports (if using different ports)"
   exit 1
 else
-  echo "✅ Found $FOUND service(s)"
+  echo " Found $FOUND service(s)"
   echo ""
   echo "Next steps:"
   echo "  1. Get API keys (see SKILL.md - API Key Discovery)"

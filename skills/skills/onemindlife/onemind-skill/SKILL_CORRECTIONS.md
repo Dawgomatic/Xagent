@@ -81,15 +81,15 @@ Body:
 
 ```
 users (id) ← participants (user_id, chat_id) → propositions (participant_id)
-                                     ↘
+                                     
                                        ratings (participant_id)
 ```
 
 ## Verified Working (Feb 4, 2026)
 
 All endpoints tested and confirmed working:
-- ✅ Anonymous auth works
-- ✅ Join chat works
-- ✅ Get participant_id works
-- ✅ Submit proposition via edge function works (HTTP 200)
-- ✅ Submit rating via direct POST works (HTTP 201)
+-  Anonymous auth works
+-  Join chat works
+-  Get participant_id works
+-  Submit proposition via edge function works (HTTP 200)
+-  Submit rating via direct POST works (HTTP 201)

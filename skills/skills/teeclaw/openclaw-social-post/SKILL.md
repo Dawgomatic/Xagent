@@ -20,21 +20,21 @@ Post to Twitter and/or Farcaster with automatic character limit validation and i
 
 ## Features
 
-- ✅ **Dynamic Twitter tier detection** - auto-detects Basic vs Premium accounts (cached 24h)
-- ✅ **Multi-account support** - manage multiple Twitter accounts from one skill
-- ✅ **Auto-variation** - avoid Twitter's duplicate content detection with `--vary` flag
-- ✅ **Premium account support** - post up to 25k characters in single tweet
-- ✅ **Interactive threading choice** - Premium users can choose single post or thread
-- ✅ Post to Twitter only
-- ✅ Post to Farcaster only  
-- ✅ Post to both platforms simultaneously
-- ✅ **Reply to tweets and casts** - respond to specific posts on both platforms
-- ✅ **Draft preview** - shows exactly what will be posted before confirmation
-- ✅ Character/byte limit validation (dynamic per account tier)
-- ✅ Image upload support (for posts and replies)
-- ✅ **Thread support** - automatically split long text into numbered posts
-- ✅ **Link shortening** - compress URLs using TinyURL (saves characters)
-- ✅ Auto-truncate on overflow (optional)
+-  **Dynamic Twitter tier detection** - auto-detects Basic vs Premium accounts (cached 24h)
+-  **Multi-account support** - manage multiple Twitter accounts from one skill
+-  **Auto-variation** - avoid Twitter's duplicate content detection with `--vary` flag
+-  **Premium account support** - post up to 25k characters in single tweet
+-  **Interactive threading choice** - Premium users can choose single post or thread
+-  Post to Twitter only
+-  Post to Farcaster only  
+-  Post to both platforms simultaneously
+-  **Reply to tweets and casts** - respond to specific posts on both platforms
+-  **Draft preview** - shows exactly what will be posted before confirmation
+-  Character/byte limit validation (dynamic per account tier)
+-  Image upload support (for posts and replies)
+-  **Thread support** - automatically split long text into numbered posts
+-  **Link shortening** - compress URLs using TinyURL (saves characters)
+-  Auto-truncate on overflow (optional)
 
 ## Platform Limits
 
@@ -208,10 +208,10 @@ scripts/reply.sh --account myaccount --twitter TWEET_ID "Reply from second accou
    ```
 
 **Security Notes:**
-- ⚠️ **Never share your private keys**
-- ⚠️ Credentials are stored as plain text - secure your system
-- ⚠️ `.env` file should have `600` permissions (read/write owner only)
-- ⚠️ Back up your credentials securely
+-  **Never share your private keys**
+-  Credentials are stored as plain text - secure your system
+-  `.env` file should have `600` permissions (read/write owner only)
+-  Back up your credentials securely
 
 ## Usage
 
@@ -311,7 +311,7 @@ scripts/reply.sh --twitter 123456 --farcaster 0xabcd... "Great discussion!"
 
 ```bash
 # Quick post to both (default account)
-scripts/post.sh "gm! Building onchain 🦞"
+scripts/post.sh "gm! Building onchain "
 
 # Post from specific Twitter account
 scripts/post.sh --account myaccount --twitter "Message from my second account"
@@ -333,7 +333,7 @@ scripts/post.sh --twitter --auto-confirm "Long text that will post as single twe
 scripts/post.sh --refresh-tier --twitter "First post after upgrading to Premium"
 
 # Twitter announcement with image
-scripts/post.sh --twitter --image ~/screenshot.png "New feature shipped! 🚀"
+scripts/post.sh --twitter --image ~/screenshot.png "New feature shipped! "
 
 # Farcaster only
 scripts/post.sh --farcaster "Just published credential-manager to ClawHub!"
@@ -358,7 +358,7 @@ scripts/post.sh --yes "Automated post from CI/CD"
 
 ```bash
 # Reply to a Twitter thread
-scripts/reply.sh --twitter 1234567890123456789 "Totally agree with this take! 💯"
+scripts/reply.sh --twitter 1234567890123456789 "Totally agree with this take! "
 
 # Reply from specific Twitter account
 scripts/reply.sh --account myaccount --twitter 1234567890 "Replying from my second account"
@@ -373,7 +373,7 @@ scripts/reply.sh --twitter 123456 --shorten-links "Here's more info: https://exa
 scripts/reply.sh --twitter 123456 --image ~/chart.png "Here's the data to support this"
 
 # Reply to both platforms (same message)
-scripts/reply.sh --twitter 123456 --farcaster 0xabc123 "This is exactly right 🎯"
+scripts/reply.sh --twitter 123456 --farcaster 0xabc123 "This is exactly right "
 
 # Quick reply without confirmation
 scripts/reply.sh --twitter 123456 --yes "Quick acknowledgment"

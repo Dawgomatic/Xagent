@@ -11,13 +11,13 @@ import WebSocket from 'ws';
 const SERVER_URL = process.env.SERVER_URL || 'ws://localhost:8080';
 const AGENT_NAME = process.env.AGENT_NAME || 'CodingLobster_' + Math.random().toString(36).slice(2, 6);
 
-console.log(`🦞 Starting coding agent: ${AGENT_NAME}`);
-console.log(`📡 Connecting to: ${SERVER_URL}`);
+console.log(` Starting coding agent: ${AGENT_NAME}`);
+console.log(` Connecting to: ${SERVER_URL}`);
 
 const ws = new WebSocket(SERVER_URL);
 
 ws.on('open', () => {
-    console.log('✅ Connected!');
+    console.log(' Connected!');
 
     ws.send(JSON.stringify({
         type: 'identify',
@@ -31,17 +31,17 @@ ws.on('open', () => {
 ws.on('message', (data) => {
     const message = JSON.parse(data.toString());
     if (message.type === 'error') {
-        console.log('❌ Error:', message.message);
+        console.log(' Error:', message.message);
     }
 });
 
 ws.on('close', () => {
-    console.log('🔌 Disconnected');
+    console.log(' Disconnected');
     process.exit(0);
 });
 
 ws.on('error', (error) => {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
 });
 
 // ========================================
@@ -50,7 +50,7 @@ ws.on('error', (error) => {
 
 const codingProjects = [
     {
-        name: "🚀 瞬移到建築區",
+        name: " 瞬移到建築區",
         description: "先瞬移到建築位置，不用慢慢走",
         code: `
 // 瞬移到螺旋塔的位置
@@ -59,7 +59,7 @@ world.print('瞬移到螺旋塔建築區！');
 `
     },
     {
-        name: "🌀 螺旋塔 (Spiral Tower)",
+        name: " 螺旋塔 (Spiral Tower)",
         description: "用數學公式生成螺旋上升的塔",
         code: `
 // 螺旋塔 - 使用三角函數生成
@@ -90,7 +90,7 @@ world.print('螺旋塔完成！');
 `
     },
     {
-        name: "🌳 碎形樹 (Fractal Tree)",
+        name: " 碎形樹 (Fractal Tree)",
         description: "用遞迴演算法生成自然的樹木",
         code: `
 // 碎形樹 - 遞迴生成自然結構
@@ -130,7 +130,7 @@ world.print('碎形樹生成完成！');
 `
     },
     {
-        name: "🏛️ 程序化神殿 (Procedural Temple)",
+        name: " 程序化神殿 (Procedural Temple)",
         description: "用演算法生成對稱的神殿建築",
         code: `
 // 程序化神殿生成器
@@ -184,7 +184,7 @@ world.print('神殿建造完成！');
 `
     },
     {
-        name: "🌊 波浪地形 (Wave Terrain)",
+        name: " 波浪地形 (Wave Terrain)",
         description: "用 sin/cos 函數生成波浪起伏的地形",
         code: `
 // 波浪地形生成器 - 使用疊加的正弦波
@@ -220,7 +220,7 @@ world.print('波浪地形生成完成！');
 `
     },
     {
-        name: "🎨 3D 像素藝術 (Pixel Art)",
+        name: " 3D 像素藝術 (Pixel Art)",
         description: "用二維陣列資料生成 3D 像素圖案",
         code: `
 // 3D 像素藝術 - 龍蝦圖案
@@ -262,7 +262,7 @@ let projectIndex = 0;
 
 function startCoding() {
     if (projectIndex >= codingProjects.length) {
-        console.log('🎉 所有專案完成！展示了 AI 如何用程式碼建造世界');
+        console.log(' 所有專案完成！展示了 AI 如何用程式碼建造世界');
         console.log('');
         console.log('重點：');
         console.log('  - 螺旋塔：三角函數 + 迴圈');
@@ -277,7 +277,7 @@ function startCoding() {
 
     const project = codingProjects[projectIndex];
     console.log('');
-    console.log(`📝 專案 ${projectIndex + 1}/${codingProjects.length}: ${project.name}`);
+    console.log(` 專案 ${projectIndex + 1}/${codingProjects.length}: ${project.name}`);
     console.log(`   ${project.description}`);
     console.log('   執行中...');
 
@@ -301,6 +301,6 @@ function startCoding() {
 }
 
 process.on('SIGINT', () => {
-    console.log('\n👋 Shutting down coding agent...');
+    console.log('\n Shutting down coding agent...');
     ws.close();
 });

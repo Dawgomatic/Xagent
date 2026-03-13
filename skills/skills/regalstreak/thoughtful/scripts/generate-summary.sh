@@ -16,18 +16,18 @@ SINCE="${1:-24h}"
 # Create data dir if doesn't exist
 mkdir -p "$DATA_DIR/context"
 
-echo "🔄 Generating thoughtful summary (since: $SINCE)..."
+echo " Generating thoughtful summary (since: $SINCE)..."
 
 # 1. Fetch new messages
-echo "📥 Fetching messages..."
+echo " Fetching messages..."
 $WACLI messages list --json --limit 1000 > "$DATA_DIR/context/recent-messages.json"
 
 # 2. Fetch chats
-echo "💬 Fetching chats..."
+echo " Fetching chats..."
 $WACLI chats list --json --limit 100 > "$DATA_DIR/context/recent-chats.json"
 
 # 3. Process data and generate summary
-echo "🧠 Analyzing and generating summary..."
+echo " Analyzing and generating summary..."
 node "$SKILL_DIR/scripts/process-and-summarize.js" "$DATA_DIR" "$SINCE"
 
-echo "✅ Summary generated!"
+echo " Summary generated!"

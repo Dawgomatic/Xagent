@@ -129,11 +129,11 @@ def main():
         # Add to tracking for availability notifications
         season_text = f" Season {args.season}" if args.season else ""
         add_request(selected['id'], 'tv', f"{selected['name']}{season_text}")
-        print(f"  📬 You'll be notified when it's available!")
+        print(f"   You'll be notified when it's available!")
         
     except requests.exceptions.HTTPError as e:
         if e.response.status_code == 409:
-            print(f"⚠️  This show (or season) has already been requested")
+            print(f"  This show (or season) has already been requested")
         else:
             raise
 

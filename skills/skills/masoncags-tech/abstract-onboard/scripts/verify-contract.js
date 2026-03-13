@@ -22,11 +22,11 @@ async function main() {
   }
   
   if (!ethers.isAddress(address)) {
-    console.error("❌ Invalid address format");
+    console.error(" Invalid address format");
     process.exit(1);
   }
   
-  console.log(`\n🔍 Verifying contract: ${address}`);
+  console.log(`\n Verifying contract: ${address}`);
   console.log(`Chain: Abstract Mainnet\n`);
   
   const provider = new ethers.JsonRpcProvider(ABSTRACT_RPC);
@@ -35,16 +35,16 @@ async function main() {
     const code = await provider.getCode(address);
     
     if (!code || code === '0x' || code.length <= 2) {
-      console.log("❌ NO BYTECODE FOUND");
+      console.log(" NO BYTECODE FOUND");
       console.log("\nThis address is either:");
       console.log("  - An EOA (regular wallet), not a contract");
       console.log("  - A failed deployment (no code stored)");
       console.log("  - Wrong address");
-      console.log("\n⚠️  DO NOT send tokens to this address if expecting a contract!");
+      console.log("\n  DO NOT send tokens to this address if expecting a contract!");
       process.exit(1);
     }
     
-    console.log("✅ CONTRACT VERIFIED");
+    console.log(" CONTRACT VERIFIED");
     console.log(`Bytecode size: ${(code.length - 2) / 2} bytes`);
     console.log(`Explorer: https://abscan.org/address/${address}`);
     
@@ -52,8 +52,8 @@ async function main() {
     const isERC20 = code.includes("70a08231"); // balanceOf selector
     const isERC721 = code.includes("6352211e"); // ownerOf selector
     
-    if (isERC20) console.log("\n📝 Likely ERC20 token");
-    if (isERC721) console.log("\n📝 Likely ERC721 NFT");
+    if (isERC20) console.log("\n Likely ERC20 token");
+    if (isERC721) console.log("\n Likely ERC721 NFT");
     
     process.exit(0);
     

@@ -16,9 +16,9 @@ let trackedContracts = new Map(); // contractId -> lastSeenTimestamp
 
 // Show auto-login status on load
 if (client.identity) {
-    console.log(`🟢 [UID] Auto-logged in as ${client.identity.handle}`);
+    console.log(` [UID] Auto-logged in as ${client.identity.handle}`);
 } else {
-    console.log(`⚪ [UID] Not logged in. Use 'uid-login <handle>' or 'uid-register <name>' to connect.`);
+    console.log(` [UID] Not logged in. Use 'uid-login <handle>' or 'uid-register <name>' to connect.`);
 }
 
 // Command Handlers
@@ -34,9 +34,9 @@ const handlers = {
             }
 
             const id = await client.login(handle);
-            return `✅ Logged in as ${id.handle}. Identity saved — you won't need to login again.`;
+            return ` Logged in as ${id.handle}. Identity saved — you won't need to login again.`;
         } catch (e) {
-            return `❌ Error: ${e.message}`;
+            return ` Error: ${e.message}`;
         }
     },
 
@@ -51,22 +51,22 @@ const handlers = {
                 await client.updateSkills(skills);
             }
 
-            return `✅ Registered as ${id.handle}. Identity saved — you won't need to login again.`;
+            return ` Registered as ${id.handle}. Identity saved — you won't need to login again.`;
         } catch (e) {
-            return `❌ Error: ${e.message}`;
+            return ` Error: ${e.message}`;
         }
     },
 
     "uid-skills": async (args) => {
-        if (!client.identity) return "❌ Not connected. Use 'uid-login <handle>' first.";
+        if (!client.identity) return " Not connected. Use 'uid-login <handle>' first.";
         if (args.length === 0) return "Usage: uid-skills <skill1,skill2,skill3>";
 
         const skills = args.join("").split(",");
         try {
             await client.updateSkills(skills);
-            return `✅ Skills updated: ${skills.join(", ")}`;
+            return ` Skills updated: ${skills.join(", ")}`;
         } catch (e) {
-            return `❌ Error: ${e.message}`;
+            return ` Error: ${e.message}`;
         }
     },
 
@@ -76,48 +76,48 @@ const handlers = {
     },
 
     "uid-pricing": async (args) => {
-        if (!client.identity) return "❌ Not connected. Use 'uid-login <handle>' first.";
+        if (!client.identity) return " Not connected. Use 'uid-login <handle>' first.";
         const fee = parseFloat(args[0]);
         if (isNaN(fee)) return "Usage: uid-pricing <amount> (e.g. 10.5)";
 
         try {
             await client.updatePricing(fee);
-            return `✅ Minimum fee set to ${fee} $SOUL.`;
+            return ` Minimum fee set to ${fee} $SOUL.`;
         } catch (e) {
-            return `❌ Error: ${e.message}`;
+            return ` Error: ${e.message}`;
         }
     },
 
     "uid-inbox": async () => {
-        if (!client.identity) return "❌ Not connected. Use 'uid-login <handle>' first.";
+        if (!client.identity) return " Not connected. Use 'uid-login <handle>' first.";
 
         try {
             const inbox = await client.getInbox();
-            if (!inbox) return "❌ Failed to fetch inbox.";
+            if (!inbox) return " Failed to fetch inbox.";
 
-            let report = `📬 Inbox for ${client.identity.handle}\n`;
+            let report = ` Inbox for ${client.identity.handle}\n`;
             report += `${'─'.repeat(40)}\n`;
 
             if (inbox.proposals && inbox.proposals.length > 0) {
-                report += `\n📋 Pending Proposals (${inbox.proposals.length}):\n`;
+                report += `\n Pending Proposals (${inbox.proposals.length}):\n`;
                 for (const p of inbox.proposals.slice(0, 10)) {
                     const task = p.task_data?.original_description || 'No description';
                     report += `  • ${p.id.slice(0, 8)} — from ${p.initiator_id?.replace('@uid.life', '')} — ${p.bid_price} $SOUL\n`;
                     report += `    "${task.slice(0, 60)}${task.length > 60 ? '...' : ''}"\n`;
                 }
             } else {
-                report += `\n📋 No pending proposals.\n`;
+                report += `\n No pending proposals.\n`;
             }
 
             if (inbox.active_contracts && inbox.active_contracts.length > 0) {
-                report += `\n⚙️  Active Contracts (${inbox.active_contracts.length}):\n`;
+                report += `\n  Active Contracts (${inbox.active_contracts.length}):\n`;
                 for (const c of inbox.active_contracts) {
                     report += `  • ${c.id.slice(0, 8)} — ${c.status} — ${c.bid_price} $SOUL\n`;
                 }
             }
 
             if (inbox.needs_review && inbox.needs_review.length > 0) {
-                report += `\n📝 Needs Review (${inbox.needs_review.length}):\n`;
+                report += `\n Needs Review (${inbox.needs_review.length}):\n`;
                 for (const c of inbox.needs_review) {
                     report += `  • ${c.id.slice(0, 8)} — ${c.bid_price} $SOUL — waiting for your approval\n`;
                 }
@@ -125,12 +125,12 @@ const handlers = {
 
             return report;
         } catch (e) {
-            return `❌ Error: ${e.message}`;
+            return ` Error: ${e.message}`;
         }
     },
 
     "uid-notifications": async (args) => {
-        if (!client.identity) return "❌ Not connected. Use 'uid-login <handle>' first.";
+        if (!client.identity) return " Not connected. Use 'uid-login <handle>' first.";
 
         const action = args[0] || 'on';
 
@@ -139,10 +139,10 @@ const handlers = {
                 clearInterval(notificationInterval);
                 notificationInterval = null;
             }
-            return "🔕 Notifications OFF.";
+            return " Notifications OFF.";
         }
 
-        if (notificationInterval) return "🔔 Notifications already running. Use 'uid-notifications off' to stop.";
+        if (notificationInterval) return " Notifications already running. Use 'uid-notifications off' to stop.";
 
         lastInboxCheck = new Date().toISOString();
         trackedContracts = new Map();
@@ -177,7 +177,7 @@ const handlers = {
 
                 for (const p of newProposals) {
                     const task = p.task_data?.original_description || 'Task';
-                    console.log(`\n🔔 [NEW PROPOSAL] From ${p.initiator_id} — ${p.bid_price} $SOUL`);
+                    console.log(`\n [NEW PROPOSAL] From ${p.initiator_id} — ${p.bid_price} $SOUL`);
                     console.log(`   "${task.slice(0, 80)}"`);
                     console.log(`   Contract: ${p.id.slice(0, 8)}`);
                     trackedContracts.set(p.id, new Date().toISOString());
@@ -189,7 +189,7 @@ const handlers = {
                 );
 
                 for (const c of newReviews) {
-                    console.log(`\n🔔 [WORK SUBMITTED] Contract ${c.id.slice(0, 8)} — ${c.bid_price} $SOUL`);
+                    console.log(`\n [WORK SUBMITTED] Contract ${c.id.slice(0, 8)} — ${c.bid_price} $SOUL`);
                     console.log(`   Worker submitted deliverable. Use uid-inbox to review.`);
                 }
 
@@ -214,9 +214,9 @@ const handlers = {
 
                         for (const msg of fromOthers) {
                             const sender = (msg.sender_id || 'SYSTEM').replace('@uid.life', '');
-                            const icon = msg.type === 'THOUGHT' ? '💭' :
-                                         msg.type === 'EXECUTION' ? '⚙️' :
-                                         msg.type === 'SYSTEM' ? '📢' : '💬';
+                            const icon = msg.type === 'THOUGHT' ? '' :
+                                         msg.type === 'EXECUTION' ? '' :
+                                         msg.type === 'SYSTEM' ? '' : '';
                             console.log(`\n${icon} [${contractId.slice(0, 8)}] ${sender}: ${msg.text.slice(0, 120)}`);
                         }
 
@@ -234,17 +234,17 @@ const handlers = {
             }
         }, 10000); // Poll every 10 seconds
 
-        return `🔔 Notifications ON. Monitoring inbox + chat messages every 10s.\nUse 'uid-notifications off' to stop.`;
+        return ` Notifications ON. Monitoring inbox + chat messages every 10s.\nUse 'uid-notifications off' to stop.`;
     },
 
     "uid-start": async () => {
-        if (isRunning) return "⚠️ Worker loop already running.";
-        if (!client.identity) return "❌ Not connected. Use 'uid-login <handle>' first.";
+        if (isRunning) return " Worker loop already running.";
+        if (!client.identity) return " Not connected. Use 'uid-login <handle>' first.";
 
         isRunning = true;
 
         (async () => {
-            console.log("🟢 [UID] Autonomous Worker Module ONLINE.");
+            console.log(" [UID] Autonomous Worker Module ONLINE.");
             console.log("   - Listening for contracts...");
 
             while (isRunning) {
@@ -252,7 +252,7 @@ const handlers = {
                     const contracts = await client.getPendingContracts();
 
                     if (contracts.length > 0) {
-                        console.log(`🔔 [UID] ALERT: Received ${contracts.length} new contract proposal(s)!`);
+                        console.log(` [UID] ALERT: Received ${contracts.length} new contract proposal(s)!`);
 
                         for (const c of contracts) {
                             console.log(`   > Accepting Contract #${c.id.slice(0, 8)}...`);
@@ -260,29 +260,29 @@ const handlers = {
                             console.log(`     Bid: ${c.bid_price} $SOUL`);
 
                             if (await client.acceptContract(c.id)) {
-                                console.log(`   ✅ Contract Accepted. Executing work...`);
+                                console.log(`    Contract Accepted. Executing work...`);
                                 await client.sendLog(c.id, "INITIALIZING_PROTOCOL... COMPUTE_ALLOCATED.");
                                 await new Promise(r => setTimeout(r, 2000));
                                 await client.sendLog(c.id, "ANALYSIS_COMPLETE. SUBMITTING_RESULTS.");
                                 await client.completeContract(c.id, "Output: [Data Processed]");
-                                console.log(`   🏁 Contract #${c.id.slice(0, 8)} Fulfilled & Paid.`);
+                                console.log(`    Contract #${c.id.slice(0, 8)} Fulfilled & Paid.`);
                             } else {
-                                console.log(`   ❌ Failed to accept contract.`);
+                                console.log(`    Failed to accept contract.`);
                             }
                         }
                     }
                 } catch (e) {
-                    console.error("🔴 [UID] Connection Error:", e.message);
+                    console.error(" [UID] Connection Error:", e.message);
                 }
                 await new Promise(r => setTimeout(r, 5000));
             }
         })();
 
-        return "🚀 Worker loop started in background. I am now earning $SOUL.";
+        return " Worker loop started in background. I am now earning $SOUL.";
     },
 
     "uid-hire": async (args) => {
-        if (!client.identity) return "❌ Not connected. Use 'uid-login <handle>' first.";
+        if (!client.identity) return " Not connected. Use 'uid-login <handle>' first.";
 
         const taskPrompt = args.join(" ");
         if (!taskPrompt) return "Usage: uid-hire <task description>";
@@ -290,16 +290,16 @@ const handlers = {
         const agents = await client.discoverAgents(taskPrompt);
         const candidates = agents.filter(a => a.handle !== client.identity.handle);
 
-        if (candidates.length === 0) return "⚠️ No suitable agents found for this task.";
+        if (candidates.length === 0) return " No suitable agents found for this task.";
 
         const target = candidates[0];
         const bid = 25;
         const success = await client.createProposal(target.handle, taskPrompt, bid);
 
         if (success) {
-            return `✅ Delegated task to @${target.handle}.\nTask: "${taskPrompt}"\nBid: ${bid} $SOUL.`;
+            return ` Delegated task to @${target.handle}.\nTask: "${taskPrompt}"\nBid: ${bid} $SOUL.`;
         } else {
-            return "❌ Failed to send proposal.";
+            return " Failed to send proposal.";
         }
     },
 
@@ -319,17 +319,17 @@ const handlers = {
     },
 
     "uid-balance": async () => {
-        if (!client.identity) return "❌ Not connected. Use 'uid-login <handle>' first.";
+        if (!client.identity) return " Not connected. Use 'uid-login <handle>' first.";
         try {
             const balance = await client.getBalance();
-            return `💰 Balance: ${balance} $SOUL`;
+            return ` Balance: ${balance} $SOUL`;
         } catch (e) {
-            return `❌ Error: ${e.message}`;
+            return ` Error: ${e.message}`;
         }
     },
 
     "uid-send": async (args) => {
-        if (!client.identity) return "❌ Not connected. Use 'uid-login <handle>' first.";
+        if (!client.identity) return " Not connected. Use 'uid-login <handle>' first.";
         const recipient = args[0];
         const amount = parseFloat(args[1]);
 
@@ -337,20 +337,20 @@ const handlers = {
 
         try {
             await client.sendFunds(recipient, amount);
-            return `💸 Sent ${amount} $SOUL to ${recipient}.`;
+            return ` Sent ${amount} $SOUL to ${recipient}.`;
         } catch (e) {
-            return `❌ Error: ${e.message}`;
+            return ` Error: ${e.message}`;
         }
     },
 
     "uid-receive": async () => {
-        if (!client.identity) return "❌ Not connected. Use 'uid-login <handle>' first.";
+        if (!client.identity) return " Not connected. Use 'uid-login <handle>' first.";
 
         try {
             const history = await client.getHistory();
             const incoming = history.filter(h => h.to_agent === client.identity.handle && h.type === 'TRANSFER');
 
-            let report = `📥 **Receiving Address**: ${client.identity.handle}\n`;
+            let report = ` **Receiving Address**: ${client.identity.handle}\n`;
             if (incoming.length > 0) {
                 report += `\nRecent Incoming Transfers:\n`;
                 incoming.slice(0, 5).forEach(tx => {
@@ -366,15 +366,15 @@ const handlers = {
     },
 
     "uid-pay": async (args) => {
-        if (!client.identity) return "❌ Not connected. Use 'uid-login <handle>' first.";
+        if (!client.identity) return " Not connected. Use 'uid-login <handle>' first.";
         const contractId = args[0];
         if (!contractId) return "Usage: uid-pay <contract_id>";
 
         try {
             await client.payContract(contractId);
-            return `✅ Payment sent for Contract #${contractId.slice(0, 8)}. Transaction Closed.`;
+            return ` Payment sent for Contract #${contractId.slice(0, 8)}. Transaction Closed.`;
         } catch (e) {
-            return `❌ Payment Failed: ${e.message}`;
+            return ` Payment Failed: ${e.message}`;
         }
     },
 

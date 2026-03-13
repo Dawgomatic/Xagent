@@ -3,7 +3,7 @@ name: sport-mode
 description: Activate "Sport Mode" for high-frequency monitoring (default 3m heartbeat) and auto-cleanup. Use when supervising intense tasks (Codex, builds, migrations).
 metadata:
   {
-    "openclaw": { "emoji": "🏎️" }
+    "openclaw": { "emoji": "" }
   }
 ---
 
@@ -38,8 +38,8 @@ sport-mode off
 
 ### 1. Set a Finish Line
 Unless you want an endless marathon, always define a **termination condition** in your task.
-- ✅ Good: "Monitor build. **If success or fail, run sport-mode off**."
-- ❌ Bad: "Monitor build." (Agent might keep reporting "Done" forever until you manually stop it).
+-  Good: "Monitor build. **If success or fail, run sport-mode off**."
+-  Bad: "Monitor build." (Agent might keep reporting "Done" forever until you manually stop it).
 
 ### 2. State Machine in File
 For multi-step tasks (like games or staged deployments), let the agent **update HEARTBEAT.md** itself.

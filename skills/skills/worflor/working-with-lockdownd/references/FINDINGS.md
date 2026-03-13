@@ -1,6 +1,6 @@
-# The Orchard - WiFi Lockdown Findings 🍎
+# The Orchard - WiFi Lockdown Findings 
 
-> ⚠️ **DANGER ZONE WARNING** ⚠️
+>  **DANGER ZONE WARNING** 
 > 
 > The `EnterRecovery` command **WORKS over WiFi** and will immediately put the device into recovery mode!
 > ```python
@@ -18,7 +18,7 @@ We extracted **cryptographic private keys**, **Find My network secrets**, and **
 
 ---
 
-## 🔑 Critical Crypto Extractions
+##  Critical Crypto Extractions
 
 ### 1. Activation Private Key
 ```
@@ -61,7 +61,7 @@ Extracted:
 
 ---
 
-## 📱 Device Fingerprint (Complete)
+##  Device Fingerprint (Complete)
 
 | Field | Value |
 |-------|-------|
@@ -82,14 +82,14 @@ Extracted:
 
 ---
 
-## 📡 Working Services Over WiFi
+##  Working Services Over WiFi
 
 | Service | Status | Data |
 |---------|--------|------|
-| Lockdown GetValue | ✅ FULL | 89+ keys, all domains |
-| syslog_relay | ✅ STREAMING | Live OS logs |
-| os_trace_relay | ✅ STREAMING | Modern tracing with process/subsystem info |
-| notification_proxy | ✅ SUBSCRIBE | Event subscriptions |
+| Lockdown GetValue |  FULL | 89+ keys, all domains |
+| syslog_relay |  STREAMING | Live OS logs |
+| os_trace_relay |  STREAMING | Modern tracing with process/subsystem info |
+| notification_proxy |  SUBSCRIBE | Event subscriptions |
 
 ### os_trace_relay Achievements
 - **Binary stream mode** activated with StartActivity
@@ -155,7 +155,7 @@ This is essentially a **monitoring backdoor** into the entire iOS system.
 
 ---
 
-## 🔒 NVRAM Secrets
+##  NVRAM Secrets
 
 | Key | Value |
 |-----|-------|
@@ -207,12 +207,12 @@ iOS 17 fundamentally changed the device communication stack:
 
 ### Why AFC Fails Over WiFi
 When we connect to AFC via legacy lockdown (port 62078):
-1. ✅ TCP connection succeeds
-2. ✅ TLS handshake succeeds
-3. ✅ lockdownd gives us a service port
-4. ✅ afcd accepts our connection
-5. ❌ **afcd checks for trusted tunnel entitlement**
-6. ❌ No tunnel = `bytes in/out: 0/0` = timeout
+1.  TCP connection succeeds
+2.  TLS handshake succeeds
+3.  lockdownd gives us a service port
+4.  afcd accepts our connection
+5.  **afcd checks for trusted tunnel entitlement**
+6.  No tunnel = `bytes in/out: 0/0` = timeout
 
 From os_trace analysis:
 ```
@@ -318,7 +318,7 @@ This demonstrates that iOS WiFi sync pairing grants significant access to device
 
 ---
 
-## 🎯 Potential Attack Vectors
+##  Potential Attack Vectors
 
 Based on iOS 17 architecture analysis:
 
@@ -365,7 +365,7 @@ Possible bugs: buffer overflows, logic errors in handshake
 
 ---
 
-## 🔮 Magic Hunt Findings (21:32-21:48)
+##  Magic Hunt Findings (21:32-21:48)
 
 ### SetValue Persistence Discovery
 We can write arbitrary values to lockdownd domains - and they PERSIST:
@@ -434,7 +434,7 @@ The "jailbreak boolean" (`cs_enforcement_enabled`) lives in kernel memory, not l
 
 ---
 
-## 📚 Technical References
+##  Technical References
 
 - [pymobiledevice3 RemoteXPC docs](https://github.com/doronz88/pymobiledevice3/blob/master/misc/RemoteXPC.md)
 - [Frida iOS 17 support writeup](https://www.nowsecure.com/blog/2024/08/14/the-road-to-frida-ios-17-support-and-beyond/)

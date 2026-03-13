@@ -1,4 +1,4 @@
-# 🦒 Giraffe Guard — 长颈鹿卫士
+#  Giraffe Guard — 长颈鹿卫士
 
 Scan OpenClaw skill directories for supply chain attacks and malicious code.
 扫描 OpenClaw skill 目录，检测潜在的供应链投毒和恶意代码。
@@ -53,7 +53,7 @@ Scan OpenClaw skill directories for supply chain attacks and malicious code.
 
 ## Detection Rules (22) / 检测规则
 
-### 🔴 Critical / 严重级别
+###  Critical / 严重级别
 | # | Rule | EN | 中文 |
 |---|------|----|------|
 | 1 | pipe-execution | Pipe execution (curl/wget to bash) | 管道执行 |
@@ -78,7 +78,7 @@ Scan OpenClaw skill directories for supply chain attacks and malicious code.
 | 21 | dockerfile-privileged | Docker privileged mode | Docker 特权模式 |
 | 22 | zero-width-chars | Zero-width Unicode chars | 零宽 Unicode 字符 |
 
-### 🟡 Warning / 警告级别
+###  Warning / 警告级别
 | # | Rule | EN | 中文 |
 |---|------|----|------|
 | 2 | long-base64-string | Long Base64 strings | 超长 Base64 字符串 |
@@ -98,9 +98,9 @@ Scan OpenClaw skill directories for supply chain attacks and malicious code.
 
 ## Exit Codes / 退出码
 
-- `0` — ✅ Clean / 安全
-- `1` — 🟡 Warnings / 有警告
-- `2` — 🔴 Critical / 有严重发现
+- `0` —  Clean / 安全
+- `1` —  Warnings / 有警告
+- `2` —  Critical / 有严重发现
 
 ## Dependencies / 依赖
 

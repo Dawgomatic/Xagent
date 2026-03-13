@@ -5,10 +5,10 @@ An AI agent skill that finds cheap and discounted local deals on Groupon for ser
 ## What This Skill Does
 
 This skill teaches AI agents how to:
-- 🔍 Search Groupon for deals by service type and location
-- 📍 Navigate Groupon's category and city pages
-- 💰 Extract and present deal information (prices, discounts, ratings)
-- 🎯 Handle common user requests for local discounts
+-  Search Groupon for deals by service type and location
+-  Navigate Groupon's category and city pages
+-  Extract and present deal information (prices, discounts, ratings)
+-  Handle common user requests for local discounts
 
 ## Supported Categories
 

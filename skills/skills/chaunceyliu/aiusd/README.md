@@ -2,7 +2,7 @@
 
 The official AIUSD trading skill for your personal AI assistant. Trade cryptocurrencies, check balances, and manage your AIUSD account through natural language conversations in Telegram, Discord, WhatsApp, or any platform your bot supports.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Step 1: Install the Skill
 
@@ -32,7 +32,7 @@ Now you can talk to your bot naturally:
 - *"Show my recent transactions"*
 - *"What are my trading addresses?"*
 
-## 💬 What You Can Ask Your Bot
+##  What You Can Ask Your Bot
 
 ### Check Balance & Accounts
 - *"Check my AIUSD balance"*
@@ -66,7 +66,7 @@ Now you can talk to your bot naturally:
 - *"I want to deposit money"*
 - *"Where can I recharge?"*
 
-## 💰 Adding Funds to Your Account
+##  Adding Funds to Your Account
 
 Your bot will guide you through two deposit options:
 
@@ -82,7 +82,7 @@ Your bot will guide you through two deposit options:
 
 **Important**: For coins other than USDC, you must use the website - direct deposits only accept USDC.
 
-## ⚙️ Supported Platforms
+##  Supported Platforms
 
 This skill works with OpenClaw/ClawdBot on:
 - **Telegram** - Private chats and groups
@@ -92,36 +92,36 @@ This skill works with OpenClaw/ClawdBot on:
 - **SMS** - Text message interface
 - **CLI** - Command line interface
 
-## 🔒 Privacy & Security
+##  Privacy & Security
 
 - **Local First**: Your bot runs locally, your data stays private
 - **Secure Storage**: Authentication tokens stored locally on your device
 - **No Data Sharing**: AIUSD skill only communicates with official AIUSD servers
 - **Open Source**: Skill code is transparent and auditable
 
-## 📱 Example Conversation
+##  Example Conversation
 
 ```
 You: Hey bot, what's my AIUSD balance?
 
-Bot: 🔍 Checking your AIUSD account...
+Bot:  Checking your AIUSD account...
 
-✅ Your AIUSD Balance:
+ Your AIUSD Balance:
 • Custody Account: 1,250.75 AIUSD
 • Staking Account: 2,500.00 sAIUSD
 • Total Value: $3,750.75 USD
 
 You: Buy $100 worth of SOL with USDC
 
-Bot: 🔄 Executing trade: Buy SOL with $100 USDC...
+Bot:  Executing trade: Buy SOL with $100 USDC...
 
-✅ Trade completed successfully!
+ Trade completed successfully!
 • Bought: 0.234 SOL
 • Spent: $100.00 USDC
 • Transaction ID: abc123...
 ```
 
-## 🌟 Why Use This Skill?
+##  Why Use This Skill?
 
 - **Natural Language**: No complex commands - just talk normally
 - **Real-time**: Instant balance checks and trade execution

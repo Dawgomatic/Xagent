@@ -4,7 +4,7 @@ version: 1.0.0
 description: 同步记忆系统技能文件到create目录的工具
 metadata:
   clawdbot:
-    emoji: "🔄"
+    emoji: ""
     category: "utility"
     requires:
       skills: []

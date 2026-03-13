@@ -105,7 +105,7 @@ scripts/my-positions.sh
 
 ### 6. Check & Resolve Markets
 
-**⚠️ ALWAYS use the script to determine which markets have expired — NEVER do time math manually.**
+** ALWAYS use the script to determine which markets have expired — NEVER do time math manually.**
 
 ```bash
 # Check which markets actually need resolution (machine-computed timestamps)

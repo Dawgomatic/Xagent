@@ -97,7 +97,7 @@ class MoltRPG:
             self.stats['hp'] = int(100 * (1.2 ** (self.stats['level'] - 1)))
             self.stats['atk'] = int(10 * (1.15 ** (self.stats['level'] - 1)))
             self.stats['def'] = int(5 * (1.1 ** (self.stats['level'] - 1)))
-            self._notify("🎉 LEVEL UP! You are now level " + str(self.stats['level']))
+            self._notify(" LEVEL UP! You are now level " + str(self.stats['level']))
 
     def _notify(self, message):
         notification = {

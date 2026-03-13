@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">🔍 Spacescan.io API Client</h1>
+  <h1 align="center"> Spacescan.io API Client</h1>
   <p align="center">
     <strong>Explore the Chia blockchain - blocks, transactions, addresses, network stats</strong>
   </p>
@@ -28,33 +28,33 @@
 
 ---
 
-## ⚠️ API Key Required
+##  API Key Required
 
 Spacescan.io requires an API key for access. Get yours at:
 
-**🔑 https://www.spacescan.io/apis**
+** https://www.spacescan.io/apis**
 
 Free tier available with rate limits.
 
 ---
 
-## 🎯 Overview
+##  Overview
 
 Access Spacescan.io's comprehensive Chia blockchain API. View blocks, track transactions, monitor addresses, check network stats, and explore CAT tokens and NFTs.
 
-## ✨ Features
+##  Features
 
-- 🧱 **Blocks** — Latest blocks, block ranges, block details
-- 💸 **Transactions** — Transaction lookup and history
-- 👤 **Addresses** — Balance, transactions, coin tracking
-- 🪙 **Coins** — Coin details and lineage
-- 📊 **Network** — Stats, space, mempool, blockchain state
-- 🎨 **NFTs** — NFT details and collections
-- 🪙 **CATs** — Token list and details
-- 💰 **Price** — Real-time XCH price
-- 🔍 **Search** — Universal blockchain search
+-  **Blocks** — Latest blocks, block ranges, block details
+-  **Transactions** — Transaction lookup and history
+-  **Addresses** — Balance, transactions, coin tracking
+-  **Coins** — Coin details and lineage
+-  **Network** — Stats, space, mempool, blockchain state
+-  **NFTs** — NFT details and collections
+-  **CATs** — Token list and details
+-  **Price** — Real-time XCH price
+-  **Search** — Universal blockchain search
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Setup
 
@@ -166,7 +166,7 @@ const result = await api.search('xch1...');
 console.log(`Found: ${result.type}`);
 ```
 
-## 📖 Command Reference
+##  Command Reference
 
 ### Blocks
 
@@ -209,7 +209,7 @@ console.log(`Found: ${result.type}`);
 | `scan cat <id>` | CAT details | `scan cat 0x...` |
 | `scan nft <id>` | NFT details | `scan nft nft1...` |
 
-## 🛠️ API Methods
+##  API Methods
 
 Complete method reference:
 
@@ -252,11 +252,11 @@ Complete method reference:
 - `search(query)` — Universal search
 - `getXCHPrice()` — Current XCH price
 
-## 📊 Output Examples
+##  Output Examples
 
 ### Latest Block
 ```
-🧱 Latest Block
+ Latest Block
 
 Height: 5,234,567
 Hash: 0x123abc...
@@ -267,7 +267,7 @@ Farmer: 0x456def...
 
 ### Network Stats
 ```
-📊 Network Statistics
+ Network Statistics
 
 Peak Height: 5,234,567
 Network Space: 32.45 EiB
@@ -278,13 +278,13 @@ Total Transactions: 12,345,678
 
 ### Price
 ```
-💰 XCH Price
+ XCH Price
 
 $3.87
 ₿0.00005432
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Required
 
@@ -300,7 +300,7 @@ Pass API key directly to constructor:
 const api = new SpacescanAPI('your-api-key');
 ```
 
-## 🧪 Examples
+##  Examples
 
 ### Monitor latest blocks
 
@@ -326,7 +326,7 @@ const txs = await api.getAddressTransactions(address);
 console.log(`Recent transactions: ${txs.transactions.length}`);
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please:
 
@@ -336,11 +336,11 @@ Contributions welcome! Please:
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) for details
 
-## 🔗 Links
+##  Links
 
 - **Spacescan**: https://www.spacescan.io
 - **API Plans**: https://www.spacescan.io/apis
@@ -348,7 +348,7 @@ MIT License - see [LICENSE](LICENSE) for details
 - **ClawdHub**: https://clawdhub.com
 - **Chia Network**: https://chia.net
 
-## 💬 Support
+##  Support
 
 - Issues: [GitHub Issues](https://github.com/Koba42Corp/spacescan-skill/issues)
 - Discord: [Clawdbot Community](https://discord.gg/clawd)
@@ -356,4 +356,4 @@ MIT License - see [LICENSE](LICENSE) for details
 
 ---
 
-<p align="center">Made with 🖖 by the Clawdbot community</p>
+<p align="center">Made with  by the Clawdbot community</p>

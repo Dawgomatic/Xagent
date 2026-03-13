@@ -195,22 +195,22 @@ For **Grok CLI**: Replace `[AI_COMMAND_WITH_PROMPT]` with piped command:
 
 **PowerShell - Simple Fixed:**
 ```powershell
-for ($i=1; $i -le N; $i++) { $start = Get-Date; Write-Host "`n=== Run $i/N ===" -ForegroundColor Cyan; [AI_COMMAND_WITH_PROMPT]; $duration = ((Get-Date) - $start).TotalSeconds; Write-Host "⏱️  Time: $([math]::Round($duration, 2))s" -ForegroundColor Magenta }
+for ($i=1; $i -le N; $i++) { $start = Get-Date; Write-Host "`n=== Run $i/N ===" -ForegroundColor Cyan; [AI_COMMAND_WITH_PROMPT]; $duration = ((Get-Date) - $start).TotalSeconds; Write-Host "  Time: $([math]::Round($duration, 2))s" -ForegroundColor Magenta }
 ```
 
 **PowerShell - Simple Fixed + Delay:**
 ```powershell
-for ($i=1; $i -le N; $i++) { $start = Get-Date; Write-Host "`n=== Run $i/N ===" -ForegroundColor Cyan; [AI_COMMAND_WITH_PROMPT]; $duration = ((Get-Date) - $start).TotalSeconds; Write-Host "⏱️  Time: $([math]::Round($duration, 2))s" -ForegroundColor Magenta; if ($i -lt N) { Write-Host "⏸️  Waiting X seconds..." -ForegroundColor Yellow; Start-Sleep -Seconds X } }
+for ($i=1; $i -le N; $i++) { $start = Get-Date; Write-Host "`n=== Run $i/N ===" -ForegroundColor Cyan; [AI_COMMAND_WITH_PROMPT]; $duration = ((Get-Date) - $start).TotalSeconds; Write-Host "  Time: $([math]::Round($duration, 2))s" -ForegroundColor Magenta; if ($i -lt N) { Write-Host "  Waiting X seconds..." -ForegroundColor Yellow; Start-Sleep -Seconds X } }
 ```
 
 **PowerShell - Simple Infinite + Delay:**
 ```powershell
-$i=1; while ($true) { $start = Get-Date; Write-Host "`n=== Run $i ===" -ForegroundColor Cyan; [AI_COMMAND_WITH_PROMPT]; $duration = ((Get-Date) - $start).TotalSeconds; Write-Host "⏱️  Time: $([math]::Round($duration, 2))s" -ForegroundColor Magenta; Write-Host "⏸️  Waiting X seconds..." -ForegroundColor Yellow; Start-Sleep -Seconds X; $i++ }
+$i=1; while ($true) { $start = Get-Date; Write-Host "`n=== Run $i ===" -ForegroundColor Cyan; [AI_COMMAND_WITH_PROMPT]; $duration = ((Get-Date) - $start).TotalSeconds; Write-Host "  Time: $([math]::Round($duration, 2))s" -ForegroundColor Magenta; Write-Host "  Waiting X seconds..." -ForegroundColor Yellow; Start-Sleep -Seconds X; $i++ }
 ```
 
 **PowerShell - Advanced Full Control:**
 ```powershell
-$end = (Get-Date).AddMinutes(M); for ($i=1; $i -le N -and (Get-Date) -lt $end -and -not (Test-Path STOP.txt); $i++) { $start = Get-Date; Write-Host "`n[$(Get-Date -Format 'HH:mm:ss')] Run $i" -ForegroundColor Cyan; [AI_COMMAND_WITH_PROMPT]; $duration = ((Get-Date) - $start).TotalSeconds; Write-Host "⏱️  Time: $([math]::Round($duration, 2))s" -ForegroundColor Magenta; if ($i -lt N) { Write-Host "⏸️  Waiting X seconds..." -ForegroundColor Yellow; Start-Sleep -Seconds X } }; Write-Host "`n✅ Complete!" -ForegroundColor Green
+$end = (Get-Date).AddMinutes(M); for ($i=1; $i -le N -and (Get-Date) -lt $end -and -not (Test-Path STOP.txt); $i++) { $start = Get-Date; Write-Host "`n[$(Get-Date -Format 'HH:mm:ss')] Run $i" -ForegroundColor Cyan; [AI_COMMAND_WITH_PROMPT]; $duration = ((Get-Date) - $start).TotalSeconds; Write-Host "  Time: $([math]::Round($duration, 2))s" -ForegroundColor Magenta; if ($i -lt N) { Write-Host "  Waiting X seconds..." -ForegroundColor Yellow; Start-Sleep -Seconds X } }; Write-Host "`n Complete!" -ForegroundColor Green
 ```
 
 **CMD - Simple Fixed:**
@@ -232,22 +232,22 @@ Note: For time tracking, use PowerShell (see RalphPowerShellComands.md).
 
 **Bash - Simple Fixed:**
 ```bash
-for i in {1..N}; do echo -e "\n=== Run $i/N ==="; start=$(date +%s); cat PROMPT.md | [AI_COMMAND]; dur=$(($(date +%s) - start)); echo "⏱️  Time: ${dur}s"; done
+for i in {1..N}; do echo -e "\n=== Run $i/N ==="; start=$(date +%s); cat PROMPT.md | [AI_COMMAND]; dur=$(($(date +%s) - start)); echo "  Time: ${dur}s"; done
 ```
 
 **Bash - Simple Fixed + Delay:**
 ```bash
-for i in {1..N}; do echo -e "\n=== Run $i/N ==="; start=$(date +%s); cat PROMPT.md | [AI_COMMAND]; dur=$(($(date +%s) - start)); echo "⏱️  Time: ${dur}s"; [ $i -lt N ] && { echo "⏸️  Waiting X seconds..."; sleep X; }; done
+for i in {1..N}; do echo -e "\n=== Run $i/N ==="; start=$(date +%s); cat PROMPT.md | [AI_COMMAND]; dur=$(($(date +%s) - start)); echo "  Time: ${dur}s"; [ $i -lt N ] && { echo "  Waiting X seconds..."; sleep X; }; done
 ```
 
 **Bash - Simple Infinite + Delay:**
 ```bash
-i=1; while :; do echo -e "\n=== Run $i ==="; start=$(date +%s); cat PROMPT.md | [AI_COMMAND]; dur=$(($(date +%s) - start)); echo "⏱️  Time: ${dur}s"; echo "⏸️  Waiting X seconds..."; sleep X; ((i++)); done
+i=1; while :; do echo -e "\n=== Run $i ==="; start=$(date +%s); cat PROMPT.md | [AI_COMMAND]; dur=$(($(date +%s) - start)); echo "  Time: ${dur}s"; echo "  Waiting X seconds..."; sleep X; ((i++)); done
 ```
 
 **Bash - Advanced:**
 ```bash
-end=$(($(date +%s) + M*60)); for i in {1..N}; do [ $(date +%s) -ge $end ] && break; [ -f STOP.txt ] && break; echo -e "\n[$(date +%H:%M:%S)] Run $i"; start=$(date +%s); cat PROMPT.md | [AI_COMMAND]; dur=$(($(date +%s) - start)); echo "⏱️  Time: ${dur}s"; [ $i -lt N ] && { echo "⏸️  Waiting X seconds..."; sleep X; }; done; echo -e "\n✅ Complete!"
+end=$(($(date +%s) + M*60)); for i in {1..N}; do [ $(date +%s) -ge $end ] && break; [ -f STOP.txt ] && break; echo -e "\n[$(date +%H:%M:%S)] Run $i"; start=$(date +%s); cat PROMPT.md | [AI_COMMAND]; dur=$(($(date +%s) - start)); echo "  Time: ${dur}s"; [ $i -lt N ] && { echo "  Waiting X seconds..."; sleep X; }; done; echo -e "\n Complete!"
 ```
 
 ## Step 8: Create Command File
@@ -296,7 +296,7 @@ Runs [claude/gemini/grok] with PROMPT.md as input [N times / for M minutes / unt
 
 After creating the file, tell the user the exact filename created:
 ```
-✅ Created ralphcommand-YYYY-MM-DD-HHMMSS.md in your current directory!
+ Created ralphcommand-YYYY-MM-DD-HHMMSS.md in your current directory!
 
 The file contains your command ready to run. Just open it and copy the command.
 

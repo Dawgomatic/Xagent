@@ -5,7 +5,7 @@ description: >
   recommendations, and manage reading lists on Goodreads — all through
   browser automation.
 metadata:
-  emoji: "📚"
+  emoji: ""
 allowed-tools:
   - browser
 ---
@@ -18,8 +18,8 @@ You are an AI assistant helping the user interact with Goodreads.com through the
 
 1. **MANDATORY: Re-snapshot after ANY navigation.** Refs from `snapshot` are NEVER stable across page loads. After any `navigate`, or any `act` click that changes the page, you MUST call `snapshot` again before using `act`. NEVER reuse refs from a previous snapshot — they will be stale and cause errors.
 
-   **Wrong:** snapshot → navigate → act (using old ref) ❌
-   **Right:** snapshot → navigate → snapshot → act (using new ref) ✅
+   **Wrong:** snapshot → navigate → act (using old ref) 
+   **Right:** snapshot → navigate → snapshot → act (using new ref) 
 
 2. **Check authentication before auth-required actions.** Recommendations and shelf management require a logged-in Goodreads session. Always verify auth state first.
 3. **Use `snapshot` for data extraction, `screenshot` for debugging.** Prefer snapshot for reading page content. Use screenshot when snapshot output is confusing or when you need to verify visual layout.

@@ -1,10 +1,10 @@
-# 🚀 START HERE - Twilio Two-Way SMS System
+#  START HERE - Twilio Two-Way SMS System
 
 **Welcome!** You now have a complete two-way SMS system. This file guides you through the first steps.
 
 ---
 
-## ✅ What You Have
+##  What You Have
 
 ✓ **webhook_server.py** - Receive incoming SMS  
 ✓ **respond_sms.py** - Send replies  
@@ -14,7 +14,7 @@
 
 ---
 
-## 🎯 3-Minute Overview
+##  3-Minute Overview
 
 **The system works like this:**
 
@@ -32,7 +32,7 @@ SMS sent back to them
 
 ---
 
-## 📖 Quick Navigation
+##  Quick Navigation
 
 ### I'm in a hurry
 Read this file, then run:
@@ -58,7 +58,7 @@ Read: `INDEX.md` (master index)
 
 ---
 
-## 🚀 Get Started in 5 Minutes
+##  Get Started in 5 Minutes
 
 ### Step 1: Install Dependencies
 ```bash
@@ -143,11 +143,11 @@ INFO: Successfully forwarded message to gateway
 python respond_sms.py --to "+19152134309" --message "Got your message!"
 ```
 
-**Done!** 🎉 You have a working two-way SMS system!
+**Done!**  You have a working two-way SMS system!
 
 ---
 
-## 📞 Common Commands
+##  Common Commands
 
 ```bash
 # Receive SMS (always running)
@@ -171,7 +171,7 @@ tail -f ~/.clawd/twilio_webhook.log
 
 ---
 
-## 🐛 Troubleshooting (3 Steps)
+##  Troubleshooting (3 Steps)
 
 ### Step 1: Run the Test Script
 ```bash
@@ -191,7 +191,7 @@ See: `TWO_WAY_SMS_SETUP.md` → Troubleshooting section
 
 ---
 
-## 📚 Documentation Files
+##  Documentation Files
 
 | File | When to Read | Time |
 |------|--------------|------|
@@ -205,22 +205,22 @@ See: `TWO_WAY_SMS_SETUP.md` → Troubleshooting section
 
 ---
 
-## 🔐 Security Notes
+##  Security Notes
 
-✅ **This system includes:**
+ **This system includes:**
 - Twilio signature validation (prevents spoofing)
 - Environment variable credentials (no hardcoded secrets)
 - HTTPS only (ngrok/Tailscale handle encryption)
 - Error logging without exposing sensitive data
 
-⚠️ **Remember:**
+ **Remember:**
 - Never share your Account SID or Auth Token
 - Keep `.env` file secret (add to `.gitignore`)
 - Monitor Twilio logs for unusual activity
 
 ---
 
-## 🎯 What Happens Next?
+##  What Happens Next?
 
 ### Immediate
 1. Get it working with ngrok
@@ -239,7 +239,7 @@ See: `TWO_WAY_SMS_SETUP.md` → Troubleshooting section
 
 ---
 
-## 💬 Getting Help
+##  Getting Help
 
 **Not working?**
 1. Read: `TWO_WAY_SMS_SETUP.md` → Troubleshooting
@@ -259,7 +259,7 @@ Check official docs:
 
 ---
 
-## ✨ Cool Things You Can Do
+##  Cool Things You Can Do
 
 ```bash
 # Send bulk replies
@@ -279,7 +279,7 @@ curl http://localhost:5000/health | jq .
 
 ---
 
-## 🎉 You're Ready!
+##  You're Ready!
 
 Everything is set up. Time to:
 
@@ -299,6 +299,6 @@ Everything is set up. Time to:
 
 ---
 
-**Happy texting!** 📱
+**Happy texting!** 
 
 Last updated: February 3, 2024

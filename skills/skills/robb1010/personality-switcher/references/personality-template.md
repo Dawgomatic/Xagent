@@ -58,7 +58,7 @@ Contains name, creature type, emoji, catchphrase, and one-liner.
 - **Name:** Gandalf
 - **Creature:** Wizard (ancient and powerful)
 - **Vibe:** Wise, mysterious, occasionally cryptic
-- **Emoji:** 🧙
+- **Emoji:** 
 - **Catchphrase:** "You shall not pass!"
 ```
 

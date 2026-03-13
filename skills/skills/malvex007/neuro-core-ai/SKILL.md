@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🧠",
+        "emoji": "",
         "category": "automation"
       }
   }
@@ -27,19 +27,19 @@ NeuroCore AI is an advanced cognitive layer for OpenClaw that provides:
 
 ## Key Features
 
-### 🧠 Cognitive Engine
+###  Cognitive Engine
 - Anticipates your needs before you ask
 - Learns from your patterns and preferences
 - Makes intelligent decisions automatically
 - Completes complex workflows autonomously
 
-### 🔧 Auto-Healing
+###  Auto-Healing
 - **Disk Guardian:** Auto-cleans when >85% full
 - **Memory Optimizer:** Clears cache at >90% usage
 - **Service Doctor:** Restarts failed services
 - **Process Manager:** Kills zombie processes
 
-### 💰 Smart Economics
+###  Smart Economics
 - Ultra-concise responses (<100 tokens)
 - Intelligent caching (5-30 min TTL)
 - Batch operations for efficiency
@@ -81,7 +81,7 @@ pkill -f "openclaw gateway" && openclaw gateway &
 | `memory` | Memory stats | `Mem: 4.2G/8G (52%)` |
 | `disk` | Disk usage | `Disk: 67% (45G/67G)` |
 | `services` | Service status | `nginx✓ mysql✓ ssh✓` |
-| `fix` | Auto-fix issues | `⚠ Fixed: cleared 2GB` |
+| `fix` | Auto-fix issues | ` Fixed: cleared 2GB` |
 | `clean` | Clear cache | `✓ Cache cleared` |
 | `optimize` | Optimize system | `✓ System optimized` |
 
@@ -111,7 +111,7 @@ AI: "✓ CPU:23% Mem:4G Disk:67%"
 ```
 [System Disk: 92% full]
 NeuroCore: [Auto-deletes 5GB temp files]
-You see: "⚠ Auto-resolved: Freed 5GB disk space"
+You see: " Auto-resolved: Freed 5GB disk space"
 ```
 
 **Scenario: Memory Pressure**
@@ -125,7 +125,7 @@ Result: Memory optimized to 72%
 ```
 [nginx service crashed]
 NeuroCore: [Detected & restarted in 3 seconds]
-You see: "⚠ Auto-recovered: nginx restarted"
+You see: " Auto-recovered: nginx restarted"
 ```
 
 ## Symbol Language
@@ -136,9 +136,9 @@ NeuroCore uses intelligent symbols for instant communication:
 |--------|---------|---------|
 | ✓ | Success | `✓ All systems optimal` |
 | ✗ | Error | `✗ Service failed` |
-| ⚠ | Auto-fixed | `⚠ Resolved: 3 issues` |
+|  | Auto-fixed | ` Resolved: 3 issues` |
 | → | Processing | `→ Optimizing...` |
-| 💡 | Insight | `💡 Tip: Clear logs` |
+|  | Insight | ` Tip: Clear logs` |
 
 ## Monitoring Dashboard
 
@@ -182,4 +182,4 @@ MIT License - Free for personal and commercial use
 
 ---
 
-**NeuroCore AI: Intelligence That Pays for Itself** 🧠✨
+**NeuroCore AI: Intelligence That Pays for Itself** 

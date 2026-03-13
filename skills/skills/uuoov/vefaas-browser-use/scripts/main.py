@@ -29,7 +29,7 @@ def fetch_vefaas_info():
             print(requirements.strip())
             
     except Exception as e:
-        print("\n❌ 错误:", e)
+        print("\n 错误:", e)
 
 def fetch_file_from_github(repo, file_path, branch="main"):
     url = "https://github.com/" + repo + "/raw/" + branch + "/" + file_path
@@ -43,4 +43,4 @@ def fetch_file_from_github(repo, file_path, branch="main"):
 
 if __name__ == "__main__":
     fetch_vefaas_info()
-    print("\nℹ️ 项目详细信息请访问: https://github.com/volcengine/ai-app-lab/tree/main/demohouse/vefaas-browser-use")
+    print("\n 项目详细信息请访问: https://github.com/volcengine/ai-app-lab/tree/main/demohouse/vefaas-browser-use")

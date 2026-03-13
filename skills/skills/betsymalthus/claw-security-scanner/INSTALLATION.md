@@ -1,6 +1,6 @@
 # 安装指南
 
-## 📦 安装方法
+##  安装方法
 
 ### 方法1：通过ClawdHub安装（推荐）
 
@@ -35,7 +35,7 @@ pip install claw-security-scanner
 pip install git+https://github.com/openclaw-skills/claw-security-scanner.git
 ```
 
-## ⚙️ 配置
+##  配置
 
 ### OpenClaw集成配置
 
@@ -94,7 +94,7 @@ export SECURITY_SCANNER_TIMEOUT=300
 3. OpenClaw配置文件
 4. 默认值
 
-## 🔧 验证安装
+##  验证安装
 
 ### 验证命令行工具
 
@@ -123,7 +123,7 @@ security-scan . --format json
 security-scan . --format markdown
 ```
 
-## 🚀 快速配置
+##  快速配置
 
 ### 一键配置脚本
 
@@ -132,11 +132,11 @@ security-scan . --format markdown
 ```bash
 #!/bin/bash
 
-echo "🔒 设置 Claw Security Scanner"
+echo " 设置 Claw Security Scanner"
 
 # 安装
 clawdhub install claw-security-scanner || {
-    echo "❌ ClawdHub安装失败，尝试手动安装..."
+    echo " ClawdHub安装失败，尝试手动安装..."
     git clone https://github.com/openclaw-skills/claw-security-scanner.git
     cp -r claw-security-scanner ~/.openclaw/skills/
 }
@@ -156,10 +156,10 @@ cat > ~/.openclaw/config/security-scanner.json << EOF
 EOF
 
 # 测试安装
-echo "🧪 测试安装..."
-security-scan --version && echo "✅ 安装成功" || echo "❌ 安装失败"
+echo " 测试安装..."
+security-scan --version && echo " 安装成功" || echo " 安装失败"
 
-echo "🎉 配置完成！"
+echo " 配置完成！"
 ```
 
 运行：
@@ -168,7 +168,7 @@ chmod +x setup_security_scanner.sh
 ./setup_security_scanner.sh
 ```
 
-## 🔄 更新与维护
+##  更新与维护
 
 ### 更新到最新版本
 
@@ -194,7 +194,7 @@ rm -rf ~/.openclaw/skills/security-scanner
 rm -f ~/.openclaw/config/security-scanner.json
 ```
 
-## 🐳 Docker支持
+##  Docker支持
 
 ### Docker镜像使用
 
@@ -232,7 +232,7 @@ services:
 docker-compose up
 ```
 
-## ☁️ 云环境部署
+##  云环境部署
 
 ### AWS Lambda函数
 
@@ -293,7 +293,7 @@ jobs:
           path: security-report.json
 ```
 
-## 📱 移动设备支持
+##  移动设备支持
 
 ### Termux（Android）
 
@@ -321,7 +321,7 @@ pip3 install git+https://github.com/openclaw-skills/claw-security-scanner.git
 security-scan /path/to/skill
 ```
 
-## 🔐 安全注意事项
+##  安全注意事项
 
 ### 权限管理
 
@@ -351,7 +351,7 @@ export HTTPS_PROXY=http://proxy:8080
 security-scan /path/to/skill
 ```
 
-## 🛠️ 故障排除
+##  故障排除
 
 ### 常见安装问题
 
@@ -410,7 +410,7 @@ security-scan --debug --verbose /path/to/skill
 tail -f ~/.openclaw/logs/security-scanner.log
 ```
 
-## 📞 支持
+##  支持
 
 如果遇到问题，请：
 
@@ -421,4 +421,4 @@ tail -f ~/.openclaw/logs/security-scanner.log
 
 ---
 
-**安装完成！现在开始保护你的OpenClaw技能吧** 🔒
+**安装完成！现在开始保护你的OpenClaw技能吧** 

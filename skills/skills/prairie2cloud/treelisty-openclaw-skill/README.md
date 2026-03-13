@@ -39,18 +39,18 @@ node scripts/treelisty-cli.js export --input tree.json --format mermaid
 
 21 specialized patterns for different domains:
 
-- **📋 generic** — Universal project structure
-- **🚀 roadmap** — Product feature planning
-- **💼 sales** — Sales pipeline tracking
-- **🎓 thesis** — Academic writing
-- **📚 book** — Novel/screenplay structure
-- **🎉 event** — Event planning
-- **📊 strategy** — Business strategy
-- **📖 course** — Educational curricula
-- **🎬 film** — AI video production
-- **🤔 philosophy** — Philosophical arguments
-- **🧠 prompting** — Prompt engineering
-- **💰 capex** — Capital expenditure / investor pitch
+- ** generic** — Universal project structure
+- ** roadmap** — Product feature planning
+- ** sales** — Sales pipeline tracking
+- ** thesis** — Academic writing
+- ** book** — Novel/screenplay structure
+- ** event** — Event planning
+- ** strategy** — Business strategy
+- ** course** — Educational curricula
+- ** film** — AI video production
+- ** philosophy** — Philosophical arguments
+- ** prompting** — Prompt engineering
+- ** capex** — Capital expenditure / investor pitch
 - And 11 more...
 
 See `references/PATTERNS.md` for full documentation.
@@ -59,7 +59,7 @@ See `references/PATTERNS.md` for full documentation.
 
 ```mermaid
 flowchart TB
-    N0([🚀 Q1 Product Launch])
+    N0([ Q1 Product Launch])
     N1[Research]
     N0 --> N1
     N2(Market analysis)

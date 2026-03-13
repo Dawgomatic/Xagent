@@ -1,7 +1,7 @@
 ---
 name: whatsapp-business
 description: Send messages via WhatsApp Business Cloud API. Send templates, media, and interactive messages to customers.
-metadata: {"clawdbot":{"emoji":"💬","requires":{"env":["WHATSAPP_TOKEN","WHATSAPP_PHONE_ID"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["WHATSAPP_TOKEN","WHATSAPP_PHONE_ID"]}}}
 ---
 
 # WhatsApp Business Cloud API

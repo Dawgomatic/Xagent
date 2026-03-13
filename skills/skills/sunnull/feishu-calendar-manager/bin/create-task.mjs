@@ -84,7 +84,7 @@ async function main() {
       timezone: values.timezone
     });
     
-    console.log('✅ Task created successfully!');
+    console.log(' Task created successfully!');
     console.log('');
     console.log('Task Details:');
     console.log(`  Task ID: ${task.guid}`);
@@ -98,7 +98,7 @@ async function main() {
     }
     
   } catch (error) {
-    console.error('❌ Failed to create task:', error.message);
+    console.error(' Failed to create task:', error.message);
     if (error.larkResponse) {
       console.error('Lark response:', JSON.stringify(error.larkResponse, null, 2));
     }

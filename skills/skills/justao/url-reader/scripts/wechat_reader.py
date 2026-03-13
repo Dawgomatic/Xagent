@@ -149,7 +149,7 @@ async def check_auth():
     print(f"  已过去: {age.days} 天 {age.seconds // 3600} 小时")
 
     if age.days > 7:
-        print("\n⚠ 认证可能已过期，建议重新登录")
+        print("\n 认证可能已过期，建议重新登录")
 
     return True
 

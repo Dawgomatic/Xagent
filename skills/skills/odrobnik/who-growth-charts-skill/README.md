@@ -3,7 +3,7 @@ name: who-growth-charts
 description: Generate WHO child growth charts (height, weight, BMI) with percentile curves. Downloads official WHO reference data on demand. Use when users ask about child growth tracking, percentiles, or want growth charts for their kids.
 version: 1.0.0
 homepage: https://www.who.int/tools/child-growth-standards
-metadata: {"clawdbot":{"emoji":"📈","requires":{"bins":["python3"],"python":["pandas","matplotlib","scipy","openpyxl"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"],"python":["pandas","matplotlib","scipy","openpyxl"]}}}
 ---
 
 Generate WHO Child Growth Standards charts with percentile curves and child data overlay.

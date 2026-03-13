@@ -115,7 +115,7 @@ Direct control of browser interactions. Use for simple, single actions.
 
 ## Manual Control Pattern (Fallback from browser-use)
 
-> **🎯 Iterative Control Loop**
+> ** Iterative Control Loop**
 >
 > Use this pattern when browser-use fails or you need precise control:
 >

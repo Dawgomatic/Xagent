@@ -162,11 +162,11 @@ def minecraft_status(host, port=25565, timeout=5):
 def format_status(status):
     """Format status for human-readable output."""
     if not status['online']:
-        print(f"🔴 {status['host']}:{status['port']} - OFFLINE")
+        print(f" {status['host']}:{status['port']} - OFFLINE")
         print(f"   Error: {status.get('error', 'Unknown')}")
         return
 
-    emoji = "🟢" if status['ping'] < 100 else "🟡" if status['ping'] < 200 else "🟠"
+    emoji = "" if status['ping'] < 100 else "" if status['ping'] < 200 else ""
     print(f"{emoji} {status['host']}:{status['port']} - ONLINE ({status['ping']}ms)")
     print(f"   Version: {status.get('version', 'Unknown')}")
     print(f"   Players: {status.get('players_online', 0)}/{status.get('players_max', 0)}")

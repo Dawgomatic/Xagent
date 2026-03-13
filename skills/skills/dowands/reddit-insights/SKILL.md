@@ -76,18 +76,18 @@ mcporter list reddit-insights
 
 | Use Case | Effectiveness | Why |
 |----------|--------------|-----|
-| Product comparisons (A vs B) | ⭐⭐⭐⭐⭐ | Reddit loves debates |
-| Tool/app recommendations | ⭐⭐⭐⭐⭐ | High-intent discussions |
-| Side hustle/money topics | ⭐⭐⭐⭐⭐ | Engaged communities |
-| Pain point discovery | ⭐⭐⭐⭐ | Emotional posts rank well |
-| Health questions | ⭐⭐⭐⭐ | Active health subreddits |
-| Technical how-to | ⭐⭐⭐ | Better to search specific subreddits |
-| Abstract market research | ⭐⭐ | Too vague for semantic search |
-| Non-English queries | ⭐ | Reddit is English-dominant |
+| Product comparisons (A vs B) |  | Reddit loves debates |
+| Tool/app recommendations |  | High-intent discussions |
+| Side hustle/money topics |  | Engaged communities |
+| Pain point discovery |  | Emotional posts rank well |
+| Health questions |  | Active health subreddits |
+| Technical how-to |  | Better to search specific subreddits |
+| Abstract market research |  | Too vague for semantic search |
+| Non-English queries |  | Reddit is English-dominant |
 
 ## Query Strategies (Tested with Real Data)
 
-### ✅ Excellent Queries (relevance 0.70+)
+###  Excellent Queries (relevance 0.70+)
 
 **Product Comparisons** (best results!):
 ```
@@ -110,7 +110,7 @@ mcporter list reddit-insights
 → Relevance: 0.67-0.72 | Found: App recommendations, feature requests
 ```
 
-### ✅ Good Queries (relevance 0.60-0.69)
+###  Good Queries (relevance 0.60-0.69)
 
 **Pain Point Discovery:**
 ```
@@ -127,7 +127,7 @@ mcporter list reddit-insights
 → Relevance: 0.64-0.65 | Found: Real productivity gains, tool recommendations
 ```
 
-### ❌ Weak Queries (avoid these patterns)
+###  Weak Queries (avoid these patterns)
 
 **Too Abstract:**
 ```

@@ -6,7 +6,7 @@ compatibility: Works with OpenClaw memory system and scheduling tools
 metadata:
   author: thinktankmachine
   version: "1.0.0"
-  emoji: "🧠"
+  emoji: ""
   tags: ["adhd", "productivity", "executive-function", "time-management", "mental-health"]
 ---
 

@@ -4,7 +4,7 @@
 
 # Sogni Gen — AI Image & Video Generation
 
-🎨 Generate **images and videos** using [Sogni AI](https://sogni.ai)'s decentralized GPU network.
+ Generate **images and videos** using [Sogni AI](https://sogni.ai)'s decentralized GPU network.
 
 Works as an [MCP server](https://modelcontextprotocol.io/) for **Claude Code** and **Claude Desktop**, and as an [OpenClaw](https://github.com/OpenClaw/OpenClaw) plugin.
 

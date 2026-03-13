@@ -1,7 +1,7 @@
 ---
 name: vefaas-browser-use
 description: 基于火山引擎函数服务的浏览器使用智能体，支持大模型驱动的浏览器自动化操作。
-metadata: {"openclaw": {"emoji": "🌐", "requires": {"env": ["VEFAAS_TOKEN"]}}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": ["VEFAAS_TOKEN"]}}}
 ---
 # vefaas-browser-use
 

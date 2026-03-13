@@ -32,7 +32,7 @@ The gap between "we should train people" and actually doing it? A structured pro
 ---
 
 **Need industry-specific context?** Get deep operational knowledge for your AI agents:
-👉 [AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/) — $47 per industry
+ [AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/) — $47 per industry
 
 **Calculate your automation savings:**
-👉 [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)
+ [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)

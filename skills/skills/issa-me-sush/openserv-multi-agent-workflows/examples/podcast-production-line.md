@@ -124,7 +124,7 @@ async function setup() {
         body: 'Convert the essay into a complete podcast episode. Generate professional audio narration with appropriate pacing, tone, and production quality.'
       }
     ],
-    // ⚠️ CRITICAL: Edges define the workflow execution path
+    //  CRITICAL: Edges define the workflow execution path
     edges: [
       { from: 'trigger:webhook', to: 'task:research' },
       { from: 'task:research', to: 'task:essay' },

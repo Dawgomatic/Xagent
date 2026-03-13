@@ -62,7 +62,7 @@ User runs: ./install.sh
            |         +-- NOT DETECTED
            |                  |
            |                  v
-           |             SHOW: "⚠ Could not auto-detect"
+           |             SHOW: " Could not auto-detect"
            |                  |
            |                  v
            |             CREATE config.json with placeholder:
@@ -216,7 +216,7 @@ No need to reinstall - changes take effect on next refresh cycle (max 2 hours).
 
 **Symptom:**
 ```
-⚠ Could not auto-detect notification settings
+ Could not auto-detect notification settings
 Please configure your notification target:
   → Edit: config.json
 ```
@@ -263,7 +263,7 @@ Steps:
 
 ### After (Auto-Detection)
 ```
-Time to configure: 0 seconds ⭐
+Time to configure: 0 seconds 
 Steps:
   1. Run ./install.sh
   (Done - config auto-populated!)

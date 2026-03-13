@@ -8,10 +8,10 @@ AGENTS_FILE="$(git rev-parse --show-toplevel 2>/dev/null || echo $HOME/clawd)/AG
 MARKER="## Sub-Agent Spawning Protocol"
 
 if grep -q "$MARKER" "$AGENTS_FILE"; then
-    echo "✅ Sub-Agent Spawning Protocol already present in AGENTS.md"
+    echo " Sub-Agent Spawning Protocol already present in AGENTS.md"
     echo "   Update manually if needed."
 else
-    echo "📝 Injecting enforcement protocol into AGENTS.md..."
+    echo " Injecting enforcement protocol into AGENTS.md..."
     cat >> "$AGENTS_FILE" << 'BLOCK'
 
 ## Sub-Agent Spawning Protocol
@@ -49,16 +49,16 @@ else
 - **REASONING** (proofs, formal logic) → DeepSeek R1 32B, QwQ 32B
 - **CRITICAL** (security, production) → Opus 4.6
 
-⚠️ **MANDATORY: Always set `model` in cron job payloads.** No model = Sonnet default = expensive waste.
+ **MANDATORY: Always set `model` in cron job payloads.** No model = Sonnet default = expensive waste.
 Sonnet must NEVER be used for monitoring or simple tasks.
 
 **Don't guess** — let the router classify. It uses weighted 15-dimension scoring.
 BLOCK
-    echo "✅ Protocol injected."
+    echo " Protocol injected."
 fi
 
 echo ""
-echo "🧪 Testing router..."
+echo " Testing router..."
 python3 "$(dirname "$0")/scripts/router.py" classify "check server health" | grep -E "Classification:|Recommended"
 echo ""
-echo "✅ Intelligent Router core skill installed."
+echo " Intelligent Router core skill installed."

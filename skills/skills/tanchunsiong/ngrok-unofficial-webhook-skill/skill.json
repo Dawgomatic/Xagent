@@ -14,7 +14,7 @@
     "notification"
   ],
   "openclaw": {
-    "emoji": "🔗",
+    "emoji": "",
     "requires": {
       "env": ["NGROK_AUTHTOKEN"],
       "optionalEnv": [

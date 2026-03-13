@@ -113,7 +113,7 @@ When a user requests to create products or manage product data, follow these ste
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Creates product with excessive optional fields
+   #  HIGH COST - Creates product with excessive optional fields
    mutation productCreate($input: ProductInput!) {
      productCreate(input: $input) {
        product { id title variants { edges { node { ... } } } images { ... } metafields { ... } }
@@ -121,7 +121,7 @@ When a user requests to create products or manage product data, follow these ste
      }
    }
    
-   # ✅ LOW COST - Creates product with essential fields only
+   #  LOW COST - Creates product with essential fields only
    mutation productCreate($input: ProductInput!) {
      productCreate(input: $input) {
        product {

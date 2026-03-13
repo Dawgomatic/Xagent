@@ -71,4 +71,4 @@ Visit https://moltmon.vercel.app to:
 
 ---
 
-**Raise your monster. Battle others. Become Legendary.** 🐾
+**Raise your monster. Battle others. Become Legendary.** 

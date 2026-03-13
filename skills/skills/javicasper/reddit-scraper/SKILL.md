@@ -3,7 +3,7 @@ name: reddit
 description: "Read and search Reddit posts via web scraping of old.reddit.com. Use when Clawdbot needs to browse Reddit content - read posts from subreddits, search for topics, monitor specific communities. Read-only access with no posting or comments."
 ---
 
-# Reddit Skill 📰
+# Reddit Skill 
 
 Read and search Reddit posts using the public JSON API. No API key required.
 

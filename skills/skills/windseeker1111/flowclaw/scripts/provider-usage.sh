@@ -80,9 +80,9 @@ bar() {
 
 dot() {
   local pct=${1%.*}
-  if [ "$pct" -ge 80 ]; then echo "🔴"
-  elif [ "$pct" -ge 50 ]; then echo "🟡"
-  else echo "🟢"
+  if [ "$pct" -ge 80 ]; then echo ""
+  elif [ "$pct" -ge 50 ]; then echo ""
+  else echo ""
   fi
 }
 
@@ -104,7 +104,7 @@ if [ -d "$TOKEN_DIR" ]; then
       TOKEN=$(python3 -c "import json; d=json.load(open('$TOKEN_FILE')); print(d.get('accessToken',''))")
 
       if [ -z "$TOKEN" ]; then
-        TEXT_OUTPUT+="  ⚠️  $LABEL: No token\n\n"
+        TEXT_OUTPUT+="    $LABEL: No token\n\n"
         continue
       fi
 
@@ -114,7 +114,7 @@ if [ -d "$TOKEN_DIR" ]; then
 
       if echo "$RESP" | grep -q '"error"' 2>/dev/null; then
         ERROR_MSG=$(echo "$RESP" | python3 -c "import json,sys; print(json.load(sys.stdin)['error']['message'])" 2>/dev/null || echo "API error")
-        TEXT_OUTPUT+="  ⚠️  $LABEL ($EMAIL): $ERROR_MSG\n\n"
+        TEXT_OUTPUT+="    $LABEL ($EMAIL): $ERROR_MSG\n\n"
         JSON_SECTIONS+="${JSON_SECTIONS:+,}{\"provider\":\"anthropic\",\"account\":\"$LABEL\",\"email\":\"$EMAIL\",\"error\":\"$ERROR_MSG\"}"
         continue
       fi
@@ -179,15 +179,15 @@ PYEOF
       SI=${SESSION_PCT%.*}; WI=${WEEKLY_PCT%.*}; SNI=${SONNET_PCT%.*}; OPI=${OPUS_PCT%.*}; EI=${EXTRA_PCT%.*}
 
       TIER_LABEL=$(python3 -c "import json; d=json.load(open('$TOKEN_FILE')); print(d.get('rateLimitTier', d.get('subscriptionType', 'Max')))" 2>/dev/null || echo "Max")
-      TEXT_OUTPUT+="  👤 $LABEL ($EMAIL) — $TIER_LABEL\n"
-      TEXT_OUTPUT+="     ⏱️  5h Session:  $(dot $SI) $(bar $SI) ${SI}%  ⏳${S_LEFT}\n"
-      TEXT_OUTPUT+="     📅 7d Overall:   $(dot $WI) $(bar $WI) ${WI}%  ⏳${W_LEFT}\n"
-      TEXT_OUTPUT+="     💎 7d Opus:      $(dot $OPI) $(bar $OPI) ${OPI}%\n"
-      TEXT_OUTPUT+="     💬 7d Sonnet:    $(dot $SNI) $(bar $SNI) ${SNI}%\n"
+      TEXT_OUTPUT+="   $LABEL ($EMAIL) — $TIER_LABEL\n"
+      TEXT_OUTPUT+="       5h Session:  $(dot $SI) $(bar $SI) ${SI}%  ${S_LEFT}\n"
+      TEXT_OUTPUT+="      7d Overall:   $(dot $WI) $(bar $WI) ${WI}%  ${W_LEFT}\n"
+      TEXT_OUTPUT+="      7d Opus:      $(dot $OPI) $(bar $OPI) ${OPI}%\n"
+      TEXT_OUTPUT+="      7d Sonnet:    $(dot $SNI) $(bar $SNI) ${SNI}%\n"
       if [ "$EXTRA_ENABLED" = "True" ]; then
         EXTRA_USED_FMT=$(python3 -c "print(f'{${EXTRA_USED}/100:.2f}')")
         EXTRA_LIMIT_FMT=$(python3 -c "print(f'{${EXTRA_LIMIT}/100:.2f}')")
-        TEXT_OUTPUT+="     💰 Extra usage:  $(dot $EI) \$${EXTRA_USED_FMT}/\$${EXTRA_LIMIT_FMT}\n"
+        TEXT_OUTPUT+="      Extra usage:  $(dot $EI) \$${EXTRA_USED_FMT}/\$${EXTRA_LIMIT_FMT}\n"
       fi
       TEXT_OUTPUT+="\n"
 
@@ -221,10 +221,10 @@ json_parts = []
 
 # Provider display config
 PROVIDER_CONFIG = {
-    "google-gemini-cli": {"header": "Google Gemini CLI", "icon": "♊"},
-    "google-antigravity": {"header": "Google Antigravity", "icon": "🌐"},
-    "openai-codex": {"header": "OpenAI Codex", "icon": "🤖"},
-    "github-copilot": {"header": "GitHub Copilot", "icon": "🐙"},
+    "google-gemini-cli": {"header": "Google Gemini CLI", "icon": ""},
+    "google-antigravity": {"header": "Google Antigravity", "icon": ""},
+    "openai-codex": {"header": "OpenAI Codex", "icon": ""},
+    "github-copilot": {"header": "GitHub Copilot", "icon": ""},
 }
 
 def secs_human(secs):
@@ -244,9 +244,9 @@ def bar(pct):
 
 def dot(pct):
     pct = int(pct)
-    if pct >= 80: return "🔴"
-    if pct >= 50: return "🟡"
-    return "🟢"
+    if pct >= 80: return ""
+    if pct >= 50: return ""
+    return ""
 
 for prov in providers:
     pid = prov.get("provider", "")
@@ -264,7 +264,7 @@ for prov in providers:
     lines = [header, ""]
 
     if error:
-        lines.append(f"  ⚠️  {error}")
+        lines.append(f"    {error}")
         lines.append("")
         json_parts.append(f'{{"provider":"{pid}","error":"{error}"}}')
     elif not windows:
@@ -284,19 +284,19 @@ for prov in providers:
             if reset_at:
                 remaining = int(reset_at / 1000) - now
                 if remaining > 0:
-                    reset_str = f"  ⏳{secs_human(remaining)}"
+                    reset_str = f"  {secs_human(remaining)}"
 
             icon = config["icon"]
             if "flash" in label.lower():
-                icon = "⚡"
+                icon = ""
             elif "pro" in label.lower() or "gemini" in label.lower():
-                icon = "♊"
+                icon = ""
             elif "claude" in label.lower():
-                icon = "🤖"
+                icon = ""
             elif "premium" in label.lower():
-                icon = "💎"
+                icon = ""
             elif "chat" in label.lower():
-                icon = "💬"
+                icon = ""
 
             lines.append(f"     {icon} {label:18s} {dot(used_int)} {bar(used_int)} {used_int}%{reset_str}")
             json_windows.append(f'{{"label":"{label}","used_pct":{used_int}}}')
@@ -343,7 +343,7 @@ for m in models:
     if [ -n "$OLLAMA_MODELS" ]; then
       TEXT_OUTPUT+="━━━ Ollama (Local) ━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
       while IFS='|' read -r OL_NAME OL_SIZE; do
-        TEXT_OUTPUT+="  🖥️  $OL_NAME ($OL_SIZE)  🟢 Always available\n"
+        TEXT_OUTPUT+="    $OL_NAME ($OL_SIZE)   Always available\n"
         JSON_SECTIONS+="${JSON_SECTIONS:+,}{\"provider\":\"ollama\",\"model\":\"$OL_NAME\",\"size\":\"$OL_SIZE\",\"available\":true}"
       done <<< "$OLLAMA_MODELS"
       TEXT_OUTPUT+="\n"
@@ -354,14 +354,14 @@ fi
 # ── Output ───────────────────────────────────────────────────────────
 
 if [ -z "$TEXT_OUTPUT" ]; then
-  TEXT_OUTPUT="❌ No providers configured.\n"
+  TEXT_OUTPUT=" No providers configured.\n"
   TEXT_OUTPUT+="   Run 'flowclaw setup' to add your first provider.\n"
 fi
 
 if [ "$FORMAT" = "json" ]; then
   OUTPUT="{\"providers\":[$JSON_SECTIONS],\"checked_at\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}"
 else
-  OUTPUT="🦞 FlowClaw — LLM Provider Dashboard\n\n${TEXT_OUTPUT}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📍 $(date '+%I:%M %p %Z') · $(date '+%b %d, %Y')"
+  OUTPUT=" FlowClaw — LLM Provider Dashboard\n\n${TEXT_OUTPUT}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n $(date '+%I:%M %p %Z') · $(date '+%b %d, %Y')"
 fi
 
 echo -e "$OUTPUT" > "$CACHE_FILE"

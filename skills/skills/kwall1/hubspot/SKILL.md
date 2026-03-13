@@ -2,7 +2,7 @@
 name: hubspot
 description: HubSpot CRM and CMS API integration for contacts, companies, deals, owners, and content management.
 homepage: https://github.com/kwall1/hubspot-skill
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":["curl","jq"],"env":["HUBSPOT_ACCESS_TOKEN"]},"primaryEnv":"HUBSPOT_ACCESS_TOKEN"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq"],"env":["HUBSPOT_ACCESS_TOKEN"]},"primaryEnv":"HUBSPOT_ACCESS_TOKEN"}}
 ---
 
 # HubSpot Skill

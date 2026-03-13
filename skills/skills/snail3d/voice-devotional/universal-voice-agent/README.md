@@ -43,9 +43,9 @@ curl -X POST http://localhost:5000/make-call \
 2. **Twilio dials** the restaurant
 3. **WebSocket connects** your server to the call
 4. **Real-time loop**:
-   - 🔊 Listen (Groq Whisper transcribes their response)
-   - 🤖 Think (Haiku reasons about what to say next)
-   - 🎤 Speak (ElevenLabs generates audio in your voice)
+   -  Listen (Groq Whisper transcribes their response)
+   -  Think (Haiku reasons about what to say next)
+   -  Speak (ElevenLabs generates audio in your voice)
 5. **Repeats** until goal achieved or timeout
 6. **SMS summary** sent to you with results
 
@@ -59,14 +59,14 @@ curl -X POST http://localhost:5000/make-call \
 
 ## Features
 
-✅ Real-time voice streaming (WebSocket)
-✅ Automatic speech-to-text (Groq Whisper)
-✅ AI reasoning (Claude Haiku)
-✅ Natural speech generation (ElevenLabs in your voice)
-✅ Silence detection & intelligent timeout handling
-✅ Goal-oriented conversation (not scripted)
-✅ SMS summary after calls
-✅ Works for: ordering, customer service, reservations, encouragement, etc.
+ Real-time voice streaming (WebSocket)
+ Automatic speech-to-text (Groq Whisper)
+ AI reasoning (Claude Haiku)
+ Natural speech generation (ElevenLabs in your voice)
+ Silence detection & intelligent timeout handling
+ Goal-oriented conversation (not scripted)
+ SMS summary after calls
+ Works for: ordering, customer service, reservations, encouragement, etc.
 
 ## Configuration
 

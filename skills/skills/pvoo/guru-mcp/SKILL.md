@@ -2,7 +2,7 @@
 name: guru-mcp
 description: Access Guru knowledge base via MCP - ask AI questions, search documents, create drafts, and update cards. Connects to all your Guru sources including Slack, Drive, Confluence, and SharePoint.
 homepage: https://www.getguru.com
-metadata: {"clawdbot":{"emoji":"🧠","requires":{"bins":["mcporter"],"env":["GURU_API_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mcporter"],"env":["GURU_API_TOKEN"]}}}
 ---
 
 # Guru MCP

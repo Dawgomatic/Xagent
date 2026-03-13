@@ -2,10 +2,10 @@
   CLAUDE-OAUTH-REFRESHER - PRODUCTION UPDATE COMPLETE
 ═══════════════════════════════════════════════════════════════
 
-✅ ALL 7 REQUIREMENTS IMPLEMENTED
+ ALL 7 REQUIREMENTS IMPLEMENTED
 
 ┌─────────────────────────────────────────────────────────────┐
-│ 1. CONFIG FILE RENAME                                  ✅   │
+│ 1. CONFIG FILE RENAME                                     │
 ├─────────────────────────────────────────────────────────────┤
 │ • config.json → claude-oauth-refresh-config.json            │
 │ • All scripts updated                                       │
@@ -14,7 +14,7 @@
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
-│ 2. INSTALLER = ONE-TIME ONLY                           ✅   │
+│ 2. INSTALLER = ONE-TIME ONLY                              │
 ├─────────────────────────────────────────────────────────────┤
 │ • Clear messaging about one-time setup                      │
 │ • Config changes apply automatically                        │
@@ -23,17 +23,17 @@
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
-│ 3. THREE NOTIFICATION TYPES                            ✅   │
+│ 3. THREE NOTIFICATION TYPES                               │
 ├─────────────────────────────────────────────────────────────┤
-│ • on_start:   "🔄 Refreshing Claude token..."               │
-│ • on_success: "✅ Claude token refreshed!"                  │
-│ • on_failure: "❌ Claude token refresh failed: [details]"   │
+│ • on_start:   " Refreshing Claude token..."               │
+│ • on_success: " Claude token refreshed!"                  │
+│ • on_failure: " Claude token refresh failed: [details]"   │
 │ • Implemented in refresh-token.sh                           │
 │ • New config structure                                      │
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
-│ 4. INTERACTIVE INSTALLATION                            ✅   │
+│ 4. INTERACTIVE INSTALLATION                               │
 ├─────────────────────────────────────────────────────────────┤
 │ • Prompts for each notification type                        │
 │ • Recommendation message                                    │
@@ -43,7 +43,7 @@
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
-│ 5. DETAILED FAILURE MESSAGES                           ✅   │
+│ 5. DETAILED FAILURE MESSAGES                              │
 ├─────────────────────────────────────────────────────────────┤
 │ • Context-specific troubleshooting                          │
 │ • Network errors → connection checks                        │
@@ -54,7 +54,7 @@
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
-│ 6. CLAWDBOT CONTROL                                    ✅   │
+│ 6. CLAWDBOT CONTROL                                       │
 ├─────────────────────────────────────────────────────────────┤
 │ • Examples in SKILL.md                                      │
 │ • "disable Claude refresh start notifications"             │
@@ -64,7 +64,7 @@
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
-│ 7. ALL SCRIPTS UPDATED                                 ✅   │
+│ 7. ALL SCRIPTS UPDATED                                    │
 ├─────────────────────────────────────────────────────────────┤
 │ • refresh-token.sh  - Notifications + error handling        │
 │ • install.sh        - Interactive + migration               │
@@ -75,7 +75,7 @@
 └─────────────────────────────────────────────────────────────┘
 
 ═══════════════════════════════════════════════════════════════
-  VALIDATION: 12/12 CHECKS PASSED ✅
+  VALIDATION: 12/12 CHECKS PASSED 
 ═══════════════════════════════════════════════════════════════
 
 Run: ./validate-update.sh
@@ -163,7 +163,7 @@ For Maintainers:
   • validate-update.sh      - Health check (5.7 KB)
 
 ═══════════════════════════════════════════════════════════════
-  READY FOR PRODUCTION ✅
+  READY FOR PRODUCTION 
 ═══════════════════════════════════════════════════════════════
 
 Location: ~/clawd/skills/claude-oauth-refresher/
@@ -175,4 +175,4 @@ To install or upgrade:
 To validate:
   ./validate-update.sh
 
-Status: ALL REQUIREMENTS MET ✅
+Status: ALL REQUIREMENTS MET 

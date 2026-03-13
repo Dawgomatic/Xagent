@@ -92,14 +92,14 @@ Extract:
 
 ## Quality Indicators
 
-### High Quality ✅
+### High Quality 
 - Recent publication date (< 30 days)
 - Clear authorship
 - Professional presentation
 - Consistent company branding
 - Working contact methods
 
-### Warning Signs ⚠️
+### Warning Signs 
 - No publication date
 - Anonymous content
 - Excessive promotional language

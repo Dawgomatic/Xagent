@@ -71,7 +71,7 @@ const notify = (title, body) => {
 };
 
 const onError = (nowTs) => {
-  notify('❌ Backup failed', `Time: ${nowTs} (${BACKUP_TZ})\nCheck server logs for details.`);
+  notify(' Backup failed', `Time: ${nowTs} (${BACKUP_TZ})\nCheck server logs for details.`);
 };
 
 const ensureDir = async (dir) => {
@@ -327,7 +327,7 @@ const main = async () => {
 
     const restoreNote = `\n\n**How to restore this backup**\n1) openclaw gateway stop\n2) Rename current OPENCLAW_HOME (e.g., mv ${OPENCLAW_HOME} ${OPENCLAW_HOME}-restore-${shortTs})\n3) git clone ${BACKUP_REPO_URL || '<repo>'} backup\n4) cd backup && git checkout ${commitSha}\n5) Create OPENCLAW_HOME and copy files back\n6) Merge workspace parts (cat workspace.tar.gz.part.* > workspace.tar.gz) and extract with tar\n7) openclaw gateway start\n\nNote: On Windows, use PowerShell (Move-Item/Copy-Item/tar.exe) for the steps above.`;
 
-    notify('✅ Backup completed', `${summary}${changes}\n\n**Comment**\n${comment}\n\n**Phrase**\n${phrase}${restoreNote}`);
+    notify(' Backup completed', `${summary}${changes}\n\n**Comment**\n${comment}\n\n**Phrase**\n${phrase}${restoreNote}`);
   } catch (err) {
     onError(formatDateTime(BACKUP_TZ));
     console.error(err);

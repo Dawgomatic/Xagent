@@ -1,6 +1,6 @@
 # Linux Setup Guide (systemd)
 
-> ⚠️ **Work in Progress** - This is a community contribution template. Full Linux support is on the roadmap.
+>  **Work in Progress** - This is a community contribution template. Full Linux support is on the roadmap.
 
 ## Overview
 

@@ -168,7 +168,7 @@ openclaw gateway config.get | jq '.relevant.path'
 
 ## Common Anti-Patterns
 
-### ❌ Array Confusion
+###  Array Confusion
 
 **Problem:**
 ```json
@@ -187,7 +187,7 @@ openclaw gateway config.get | jq '.relevant.path'
 - Include ALL agents in patch, even if only changing one
 - Or use full `config.apply` when restructuring
 
-### ❌ Missing Nested Structure
+###  Missing Nested Structure
 
 **Problem:**
 ```json
@@ -202,7 +202,7 @@ openclaw gateway config.get | jq '.relevant.path'
 
 **Solution:** Always use complete structure from reference.
 
-### ❌ Wrong Payload/SessionTarget Combo
+###  Wrong Payload/SessionTarget Combo
 
 **Problem:**
 ```json
@@ -217,7 +217,7 @@ openclaw gateway config.get | jq '.relevant.path'
 - `main` → `systemEvent`
 - `isolated` → `agentTurn`
 
-### ❌ Hardcoded Values
+###  Hardcoded Values
 
 **Problem:**
 ```json

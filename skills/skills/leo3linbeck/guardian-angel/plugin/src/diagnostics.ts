@@ -30,7 +30,7 @@ export function runStartupDiagnostics(api: PluginApi): void {
   // limitation and recommend manual verification.
   
   logger.info(
-    "[GA] ℹ️ Note: Cannot verify hook priority ordering (introspection API not available). " +
+    "[GA]  Note: Cannot verify hook priority ordering (introspection API not available). " +
     "If other plugins register before_tool_call hooks with priority < -10000, " +
     "they could theoretically override GA decisions."
   );
@@ -45,7 +45,7 @@ export function runStartupDiagnostics(api: PluginApi): void {
 
   if (lowerPriorityHooks.length > 0) {
     logger.warn(
-      `[GA] ⚠️ SECURITY WARNING: ${lowerPriorityHooks.length} hook(s) registered ` +
+      `[GA]  SECURITY WARNING: ${lowerPriorityHooks.length} hook(s) registered ` +
       `with lower priority than Guardian Angel. These could override GA decisions:\n` +
       lowerPriorityHooks.map(h => `  - ${h.pluginId} (priority: ${h.priority})`).join("\n")
     );

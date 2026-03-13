@@ -13,11 +13,11 @@ Assign every email exactly one category:
 
 | Category | Icon | Criteria |
 |----------|------|----------|
-| **Urgent Action** | 🔴 | Requires response/action within 24h. Deadlines, escalations, time-sensitive requests. |
-| **Action Required** | 🟡 | Needs a response or task but not time-critical. Requests, approvals, questions. |
-| **FYI / Read** | 🔵 | Informational. No action needed but worth reading. Updates, reports, announcements. |
-| **Delegate** | 🟣 | Someone else should handle this. Forward with context. |
-| **Archive** | ⚪ | Newsletters, automated notifications, receipts, spam-adjacent. No action needed. |
+| **Urgent Action** |  | Requires response/action within 24h. Deadlines, escalations, time-sensitive requests. |
+| **Action Required** |  | Needs a response or task but not time-critical. Requests, approvals, questions. |
+| **FYI / Read** |  | Informational. No action needed but worth reading. Updates, reports, announcements. |
+| **Delegate** |  | Someone else should handle this. Forward with context. |
+| **Archive** |  | Newsletters, automated notifications, receipts, spam-adjacent. No action needed. |
 
 ## Triage Output Format
 

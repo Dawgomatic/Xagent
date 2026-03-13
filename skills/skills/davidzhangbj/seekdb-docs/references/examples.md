@@ -17,7 +17,7 @@ Complete workflow examples for common seekdb documentation queries using **local
 2. **Load catalog (local-first)**
    ```
    Try local: /root/.claude/skills/seekdb/references/seekdb-docs-catalog.jsonl
-   Result: Success ✅
+   Result: Success 
    ```
 
 3. **Search catalog for vector search**
@@ -54,7 +54,7 @@ Complete workflow examples for common seekdb documentation queries using **local
 2. **Load catalog**
    ```
    Local: <skill directory>references/seekdb-docs-catalog.jsonl
-   Success ✅
+   Success 
    ```
 
 3. **Search catalog for overview**
@@ -67,7 +67,7 @@ Complete workflow examples for common seekdb documentation queries using **local
 
 4. **Read document**
    - Local: `<skill directory>seekdb-docs/100.get-started/10.seekdb-overview/10.seekdb-overview.md`
-   - Success ✅
+   - Success 
 
 5. **Extract answer** from local docs
 
@@ -88,13 +88,13 @@ Complete workflow examples for common seekdb documentation queries using **local
 2. **Load catalog (local-first)**
    ```
    Try local: /path/to/skills/seekdb/references/seekdb-docs-catalog.jsonl
-   Result: File not found ❌
+   Result: File not found 
    ```
 
 3. **Fallback to remote catalog**
    ```
    Fetch: https://raw.githubusercontent.com/oceanbase/seekdb-ecology-plugins/main/agent-skills/skills/seekdb/references/seekdb-docs-catalog.jsonl
-   Result: Success ✅
+   Result: Success 
    ```
 
 4. **Search catalog**
@@ -278,8 +278,8 @@ Complete workflow examples for common seekdb documentation queries using **local
 2. If missing, fetch remote: `https://raw.githubusercontent.com/oceanbase/seekdb-doc/V1.1.0/en-US/[File Path]`
 
 ### Best Practices
-- ✅ **Always resolve path first** - Never hardcode paths
-- ✅ **Local-first for speed** - Try local before remote
-- ✅ **Semantic over keyword** - Understand meaning, not just match words
-- ✅ **Read multiple sources** - Comprehensive answers from all relevant docs
-- ✅ **Parse JSONL correctly** - Each line is a valid JSON object with `path` and `description`
+-  **Always resolve path first** - Never hardcode paths
+-  **Local-first for speed** - Try local before remote
+-  **Semantic over keyword** - Understand meaning, not just match words
+-  **Read multiple sources** - Comprehensive answers from all relevant docs
+-  **Parse JSONL correctly** - Each line is a valid JSON object with `path` and `description`

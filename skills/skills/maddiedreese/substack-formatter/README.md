@@ -2,14 +2,14 @@
 
 Transform plain text into professional Substack format. **Ensures proper HTML formatting** so bold/italic/headers work correctly when pasted into Substack editor.
 
-## ✨ Key Features
+##  Key Features
 
 - **Clean formatting** for better readability
 - **Proper HTML output** that Substack editor recognizes
 - **Copy-paste ready** with formatting preserved
 - **Minimal or standard formatting options**
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Basic formatting
@@ -22,7 +22,7 @@ python3 formatter.py "Your content here" micro-story
 python3 formatter.py "Your content here" | python3 copy_to_substack.py
 ```
 
-## 📋 Copy-Paste Process
+##  Copy-Paste Process
 
 1. **Format your content** using the formatter
 2. **Copy as HTML** using the copy script  
@@ -45,7 +45,7 @@ brew install pandoc
 # Use pbcopy instead of xclip (modify copy script as needed)
 ```
 
-## 🎯 Formatting Options
+##  Formatting Options
 
 ### **Standard Formatting**
 Clean paragraph structure with proper HTML tags
@@ -53,7 +53,7 @@ Clean paragraph structure with proper HTML tags
 ### **Minimal Formatting**  
 Pure spacing improvements with exact content preservation
 
-## 🛠 Files
+##  Files
 
 - **`formatter.py`** - Main formatting engine
 - **`copy_to_substack.py`** - HTML clipboard utility
@@ -61,7 +61,7 @@ Pure spacing improvements with exact content preservation
 - **`examples.md`** - Before/after examples
 - **`SKILL.md`** - Complete documentation
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Test all formatting types
@@ -71,7 +71,7 @@ python3 test_formatter.py
 python3 formatter.py "Your content" micro-story
 ```
 
-## 🔧 Integration with Clawdbot
+##  Integration with Clawdbot
 
 Just tell Clawdbot:
 
@@ -87,7 +87,7 @@ The skill handles:
 - Copy instructions
 - Formatting verification
 
-## ⚠️ Technical Notes
+##  Technical Notes
 
 **Why HTML conversion is needed:** Substack editor treats raw markdown as plain text. The solution is converting to HTML and copying as `text/html` format so Substack recognizes the formatting.
 
@@ -96,6 +96,6 @@ The skill handles:
 - `xclip` (Linux) - Clipboard management with MIME types
 - `pbcopy` (macOS) - Alternative clipboard tool
 
-## 🎯 Philosophy
+##  Philosophy
 
 **Format for readability, preserve your voice.** This tool improves visual presentation while keeping your message and personality intact.

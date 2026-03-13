@@ -8,13 +8,13 @@ The CLI automatically detects the MIME type based on the file extension:
 
 ```bash
 postiz upload video.mp4
-# ✅ Detected as: video/mp4
+#  Detected as: video/mp4
 
 postiz upload image.png
-# ✅ Detected as: image/png
+#  Detected as: image/png
 
 postiz upload audio.mp3
-# ✅ Detected as: audio/mpeg
+#  Detected as: audio/mpeg
 ```
 
 ## Supported File Types
@@ -23,9 +23,9 @@ postiz upload audio.mp3
 
 | Extension | MIME Type | Supported |
 |-----------|-----------|-----------|
-| `.png` | `image/png` | ✅ Yes |
-| `.jpg`, `.jpeg` | `image/jpeg` | ✅ Yes |
-| `.gif` | `image/gif` | ✅ Yes |
+| `.png` | `image/png` |  Yes |
+| `.jpg`, `.jpeg` | `image/jpeg` |  Yes |
+| `.gif` | `image/gif` |  Yes |
 
 **Examples:**
 ```bash
@@ -39,7 +39,7 @@ postiz upload icon.svg
 
 | Extension | MIME Type | Supported |
 |-----------|-----------|-----------|
-| `.mp4` | `video/mp4` | ✅ Yes |
+| `.mp4` | `video/mp4` |  Yes |
 
 **Examples:**
 ```bash
@@ -53,12 +53,12 @@ postiz upload movie.mkv
 
 | Extension | MIME Type | Supported |
 |-----------|-----------|-----------|
-| `.mp3` | `audio/mpeg` | ✅ Yes |
-| `.wav` | `audio/wav` | ✅ Yes |
-| `.ogg` | `audio/ogg` | ✅ Yes |
-| `.aac` | `audio/aac` | ✅ Yes |
-| `.flac` | `audio/flac` | ✅ Yes |
-| `.m4a` | `audio/mp4` | ✅ Yes |
+| `.mp3` | `audio/mpeg` |  Yes |
+| `.wav` | `audio/wav` |  Yes |
+| `.ogg` | `audio/ogg` |  Yes |
+| `.aac` | `audio/aac` |  Yes |
+| `.flac` | `audio/flac` |  Yes |
+| `.m4a` | `audio/mp4` |  Yes |
 
 **Examples:**
 ```bash
@@ -71,9 +71,9 @@ postiz upload audio.ogg
 
 | Extension | MIME Type | Supported |
 |-----------|-----------|-----------|
-| `.pdf` | `application/pdf` | ✅ Yes |
-| `.doc` | `application/msword` | ✅ Yes |
-| `.docx` | `application/vnd.openxmlformats-officedocument.wordprocessingml.document` | ✅ Yes |
+| `.pdf` | `application/pdf` |  Yes |
+| `.doc` | `application/msword` |  Yes |
+| `.docx` | `application/vnd.openxmlformats-officedocument.wordprocessingml.document` |  Yes |
 
 **Examples:**
 ```bash
@@ -151,26 +151,26 @@ postiz upload video2.mov
 
 ## What Changed (Fix)
 
-### Before (❌ Bug)
+### Before ( Bug)
 
 ```bash
 postiz upload video.mp4
-# ❌ Was detected as: image/jpeg (WRONG!)
+#  Was detected as: image/jpeg (WRONG!)
 ```
 
 The problem: The CLI defaulted to `image/jpeg` for any unknown file type.
 
-### After (✅ Fixed)
+### After ( Fixed)
 
 ```bash
 postiz upload video.mp4
-# ✅ Correctly detected as: video/mp4
+#  Correctly detected as: video/mp4
 
 postiz upload audio.mp3
-# ✅ Correctly detected as: audio/mpeg
+#  Correctly detected as: audio/mpeg
 
 postiz upload document.pdf
-# ✅ Correctly detected as: application/pdf
+#  Correctly detected as: application/pdf
 ```
 
 ## Platform-Specific Notes
@@ -228,11 +228,11 @@ Different platforms have different file size limits:
 If you renamed a file with the wrong extension:
 
 ```bash
-# ❌ Wrong: PNG file renamed to .jpg
+#  Wrong: PNG file renamed to .jpg
 mv image.png image.jpg
 postiz upload image.jpg  # Might fail
 
-# ✅ Correct: Keep original extension
+#  Correct: Keep original extension
 postiz upload image.png
 ```
 
@@ -256,14 +256,14 @@ postiz upload test-audio.mp3
 
 ### File Not Found
 ```
-❌ ENOENT: no such file or directory
+ ENOENT: no such file or directory
 ```
 
 **Solution:** Check the file path is correct.
 
 ### No Permission
 ```
-❌ EACCES: permission denied
+ EACCES: permission denied
 ```
 
 **Solution:** Check file permissions:
@@ -273,7 +273,7 @@ chmod 644 your-file.mp4
 
 ### Invalid API Key
 ```
-❌ Upload failed (401): Unauthorized
+ Upload failed (401): Unauthorized
 ```
 
 **Solution:** Set your API key:
@@ -283,10 +283,10 @@ export POSTIZ_API_KEY=your_key
 
 ## Summary
 
-✅ **30+ file types supported**
-✅ **Automatic MIME type detection**
-✅ **Images, videos, audio, documents**
-✅ **Correct handling of MP4, MOV, MP3, etc.**
-✅ **No more defaulting to JPEG!**
+ **30+ file types supported**
+ **Automatic MIME type detection**
+ **Images, videos, audio, documents**
+ **Correct handling of MP4, MOV, MP3, etc.**
+ **No more defaulting to JPEG!**
 
-**The upload bug is fixed!** 🎉
+**The upload bug is fixed!** 

@@ -1,7 +1,7 @@
 ---
 name: postmark
 description: Send transactional emails with high deliverability via Postmark API. Manage templates, track bounces, and view analytics.
-metadata: {"clawdbot":{"emoji":"📮","requires":{"env":["POSTMARK_SERVER_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["POSTMARK_SERVER_TOKEN"]}}}
 ---
 
 # Postmark

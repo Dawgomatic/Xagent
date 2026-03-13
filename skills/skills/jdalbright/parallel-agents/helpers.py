@@ -57,12 +57,12 @@ def spawn_with_model_hierarchy(
     models = models or MODEL_HIERARCHY
     attempts = []
     
-    print(f"\n🎯 Spawning agent with model hierarchy: {' → '.join(models)}")
+    print(f"\n Spawning agent with model hierarchy: {' → '.join(models)}")
     print(f"   Task: {task[:80]}...")
     
     for i, model in enumerate(models, 1):
         model_name = model.split('/')[-1]  # Extract friendly name
-        print(f"\n🚀 Attempt {i}/{len(models)}: Trying {model_name}...")
+        print(f"\n Attempt {i}/{len(models)}: Trying {model_name}...")
         
         try:
             result = sessions_spawn(
@@ -73,10 +73,10 @@ def spawn_with_model_hierarchy(
             )
             
             session_key = result['childSessionKey']
-            print(f"   ✅ Spawned: {session_key[:50]}...")
+            print(f"    Spawned: {session_key[:50]}...")
             
             # Wait for agent to complete
-            print(f"   ⏳ Waiting {wait_time}s for completion...")
+            print(f"    Waiting {wait_time}s for completion...")
             time.sleep(wait_time)
             
             # Check if agent completed successfully
@@ -97,7 +97,7 @@ def spawn_with_model_hierarchy(
                         None
                     )
                     if last_msg and last_msg.get('content'):
-                        print(f"   ✅ SUCCESS with {model_name} ({session['totalTokens']} tokens)")
+                        print(f"    SUCCESS with {model_name} ({session['totalTokens']} tokens)")
                         attempts.append({'model': model, 'success': True, 'tokens': session['totalTokens']})
                         return {
                             'success': True,
@@ -108,11 +108,11 @@ def spawn_with_model_hierarchy(
                         }
             
             # Failed - log and try next model
-            print(f"   ❌ {model_name} produced no valid output")
+            print(f"    {model_name} produced no valid output")
             attempts.append({'model': model, 'success': False, 'tokens': 0})
             
         except Exception as e:
-            print(f"   ❌ {model_name} error: {e}")
+            print(f"    {model_name} error: {e}")
             attempts.append({'model': model, 'success': False, 'error': str(e)})
     
     # All models failed
@@ -164,10 +164,10 @@ def spawn_with_retry(
     # If specific model requested or hierarchy disabled, use simple retry
     if model or not use_hierarchy:
         target_model = model or "kimi-coding/k2p5"
-        print(f"\n🎯 Spawning with {target_model} (no hierarchy)")
+        print(f"\n Spawning with {target_model} (no hierarchy)")
         
         for attempt in range(max_retries + 1):
-            print(f"\n🚀 Attempt {attempt + 1}/{max_retries + 1}...")
+            print(f"\n Attempt {attempt + 1}/{max_retries + 1}...")
             
             result = sessions_spawn(
                 task=task,
@@ -192,11 +192,11 @@ def spawn_with_retry(
             if session and session.get('totalTokens', 0) > 0:
                 history = sessions_history(sessionKey=session_key)
                 if history.get('messages'):
-                    print(f"   ✅ Agent completed ({session['totalTokens']} tokens)")
+                    print(f"    Agent completed ({session['totalTokens']} tokens)")
                     return result
             
             if attempt < max_retries:
-                print(f"   🔄 Retrying...")
+                print(f"    Retrying...")
         
         raise Exception(f"Agent failed after {max_retries + 1} attempts: {task[:100]}")
     
@@ -242,7 +242,7 @@ def spawn_parallel_with_retry(
     """
     from tools import sessions_spawn
     
-    print(f"\n🎯 Spawning {len(tasks)} agents in parallel...")
+    print(f"\n Spawning {len(tasks)} agents in parallel...")
     if use_hierarchy:
         print(f"   Using model hierarchy: Haiku → Kimi → Opus")
     
@@ -266,8 +266,8 @@ def spawn_parallel_with_retry(
             'model_tried': initial_model
         })
     
-    print(f"\n✅ All {len(tasks)} agents spawned with Haiku!")
-    print(f"⏳ Waiting {wait_time}s for completion...\n")
+    print(f"\n All {len(tasks)} agents spawned with Haiku!")
+    print(f" Waiting {wait_time}s for completion...\n")
     time.sleep(wait_time)
     
     # Check results and retry failures with hierarchy
@@ -290,7 +290,7 @@ def spawn_parallel_with_retry(
         if session and session.get('totalTokens', 0) > 0:
             history = sessions_history(sessionKey=session_key)
             if history.get('messages'):
-                print(f"✅ {task[:60]} - SUCCESS with Haiku ({session['totalTokens']} tokens)")
+                print(f" {task[:60]} - SUCCESS with Haiku ({session['totalTokens']} tokens)")
                 final_results.append({
                     'success': True,
                     'result': spawn_info['result'],
@@ -301,7 +301,7 @@ def spawn_parallel_with_retry(
         
         # Retry with hierarchy if failed
         if not success and use_hierarchy:
-            print(f"⚠️ {task[:60]} - Haiku failed, trying hierarchy...")
+            print(f" {task[:60]} - Haiku failed, trying hierarchy...")
             try:
                 retry_result = spawn_with_model_hierarchy(
                     task=task,
@@ -311,14 +311,14 @@ def spawn_parallel_with_retry(
                 )
                 final_results.append(retry_result)
             except Exception as e:
-                print(f"❌ {task[:60]} - ALL MODELS FAILED: {e}")
+                print(f" {task[:60]} - ALL MODELS FAILED: {e}")
                 final_results.append({
                     'success': False,
                     'task': task,
                     'error': str(e)
                 })
         elif not success:
-            print(f"❌ {task[:60]} - FAILED")
+            print(f" {task[:60]} - FAILED")
             final_results.append({
                 'success': False,
                 'task': task,
@@ -326,7 +326,7 @@ def spawn_parallel_with_retry(
             })
     
     successful = sum(1 for r in final_results if r.get('success'))
-    print(f"\n📊 Final: {successful}/{len(tasks)} agents succeeded")
+    print(f"\n Final: {successful}/{len(tasks)} agents succeeded")
     
     # Show model distribution
     models_used = {}
@@ -336,7 +336,7 @@ def spawn_parallel_with_retry(
             models_used[model] = models_used.get(model, 0) + 1
     
     if models_used:
-        print(f"📈 Models used: {', '.join(f'{m}={c}' for m, c in models_used.items())}")
+        print(f" Models used: {', '.join(f'{m}={c}' for m, c in models_used.items())}")
     
     return final_results
 
@@ -374,7 +374,7 @@ def collect_agent_results(session_keys: List[str]) -> List[Optional[str]]:
             else:
                 results.append(None)
         except Exception as e:
-            print(f"⚠️ Error collecting from {key}: {e}")
+            print(f" Error collecting from {key}: {e}")
             results.append(None)
     
     return results

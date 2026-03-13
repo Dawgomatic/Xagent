@@ -1,7 +1,7 @@
 ---
 name: Engineering Manager OS
 description: Complete engineering management system — team building, 1:1s, performance, hiring, architecture decisions, incident management, and scaling. From IC-to-manager transition through director-level operations.
-metadata: {"clawdbot":{"emoji":"⚙️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Engineering Manager Operating System
@@ -155,14 +155,14 @@ Monitor these signals — if 3+ present, have a retention conversation within a 
 
 | Signal | Weight | Detection |
 |--------|--------|-----------|
-| LinkedIn profile update | 🔴 High | Someone mentions it, or you notice |
-| Declining 1:1 engagement | 🔴 High | Shorter answers, less eye contact, "everything's fine" |
-| Stopped volunteering for projects | 🟡 Medium | Used to raise hand, now doesn't |
-| Increased PTO without travel | 🟡 Medium | Interviewing signal |
-| Disengaged in meetings | 🟡 Medium | Camera off, multitasking, no opinions |
-| Complaining shifted from specific to general | 🟡 Medium | "This sprint is rough" → "This place..." |
-| Stopped arguing for their ideas | 🔴 High | They've mentally checked out |
-| Life event (new baby, move, partner change) | 🟡 Medium | Re-evaluating everything |
+| LinkedIn profile update |  High | Someone mentions it, or you notice |
+| Declining 1:1 engagement |  High | Shorter answers, less eye contact, "everything's fine" |
+| Stopped volunteering for projects |  Medium | Used to raise hand, now doesn't |
+| Increased PTO without travel |  Medium | Interviewing signal |
+| Disengaged in meetings |  Medium | Camera off, multitasking, no opinions |
+| Complaining shifted from specific to general |  Medium | "This sprint is rough" → "This place..." |
+| Stopped arguing for their ideas |  High | They've mentally checked out |
+| Life event (new baby, move, partner change) |  Medium | Re-evaluating everything |
 
 **Retention conversation framework:**
 1. Name it: "I've noticed [specific behavior change]. I want to check in."
@@ -211,13 +211,13 @@ Rate on two axes (both matter):
 
 **Examples:**
 
-✅ Good: "In yesterday's design review, when you challenged the API schema with the versioning concern, it caught a breaking change we would have shipped. That's exactly the kind of technical leadership I want to see more of."
+ Good: "In yesterday's design review, when you challenged the API schema with the versioning concern, it caught a breaking change we would have shipped. That's exactly the kind of technical leadership I want to see more of."
 
-❌ Bad: "You're doing great work. Keep it up." (Too vague — they learn nothing)
+ Bad: "You're doing great work. Keep it up." (Too vague — they learn nothing)
 
-✅ Good: "In the last two sprints, PRs have been sitting in review for 3+ days. The impact is features are merging late and we're missing sprint commitments. I'd like us to commit to <24h first review because velocity depends on review speed."
+ Good: "In the last two sprints, PRs have been sitting in review for 3+ days. The impact is features are merging late and we're missing sprint commitments. I'd like us to commit to <24h first review because velocity depends on review speed."
 
-❌ Bad: "You need to review PRs faster." (No situation, no impact, no collaboration)
+ Bad: "You need to review PRs faster." (No situation, no impact, no collaboration)
 
 ### Performance Improvement Plan (PIP) Template
 
@@ -685,24 +685,24 @@ Send this to your manager and stakeholders every Friday:
 ```markdown
 # [Team Name] — Week of [Date]
 
-## 🎯 Sprint Goal: [Goal] — On Track / At Risk / Off Track
+##  Sprint Goal: [Goal] — On Track / At Risk / Off Track
 
-## ✅ Shipped This Week
+##  Shipped This Week
 - [Feature/fix] — [Impact in user/business terms]
 - [Feature/fix] — [Impact]
 
-## 🔨 In Progress
+##  In Progress
 - [Work item] — [Status, ETA, any blockers]
 
-## 🚨 Risks & Blockers
+##  Risks & Blockers
 - [Risk] — [What you're doing about it, what you need]
 
-## 📊 Key Metrics
+##  Key Metrics
 - Deploy frequency: X
 - Incident count: X (SEV breakdown)
 - Sprint completion: X%
 
-## 🔮 Next Week
+##  Next Week
 - [Priority 1]
 - [Priority 2]
 ```

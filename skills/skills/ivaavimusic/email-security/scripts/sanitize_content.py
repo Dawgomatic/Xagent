@@ -281,10 +281,10 @@ def main():
             print("\n=== ANALYSIS ===")
             print(f"Original length: {result['original_length']}")
             print(f"Sanitized length: {result['sanitized_length']}")
-            print(f"Is safe: {'✅ Yes' if result['is_safe'] else '❌ No'}")
+            print(f"Is safe: {' Yes' if result['is_safe'] else ' No'}")
             
             if result["threats"]:
-                print("\n⚠️  THREATS DETECTED:")
+                print("\n  THREATS DETECTED:")
                 for t in result["threats"]:
                     print(f"  [{t['severity'].upper()}] {t['description']}: '{t['matched_text']}'")
             

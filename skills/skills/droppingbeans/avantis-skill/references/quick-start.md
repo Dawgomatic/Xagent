@@ -72,8 +72,8 @@ avantis_venv/bin/python skills/avantis/scripts/close.py 0 0 --amount 5
 **Issue**: Position size too small
 **Fix**: Increase collateral or leverage
 ```bash
-# ❌ $5 × 5x = $25 (too small)
-# ✅ $10 × 5x = $50 (works)
+#  $5 × 5x = $25 (too small)
+#  $10 × 5x = $50 (works)
 ```
 
 ### "Price Feed Down" (503)

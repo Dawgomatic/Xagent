@@ -1,7 +1,7 @@
 ---
 name: AWS
 description: Deploy, monitor, and manage AWS services with battle-tested patterns.
-metadata: {"clawdbot":{"emoji":"☁️","requires":{"anyBins":["aws"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["aws"]},"os":["linux","darwin","win32"]}}
 ---
 
 # AWS Production Rules

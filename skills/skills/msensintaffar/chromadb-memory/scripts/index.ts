@@ -420,7 +420,7 @@ export default function register(api: OpenClawPluginApi) {
         api.logger.warn(`chromadb-memory: auto-recall failed (${_consecutiveFailures}x): ${errMsg}`);
 
         // Surface the failure to the agent so it's not silently blind
-        const severity = _consecutiveFailures >= 3 ? "⚠️ PERSISTENT" : "⚠️";
+        const severity = _consecutiveFailures >= 3 ? " PERSISTENT" : "";
         return {
           prependContext: `<chromadb-memory-error>\n${severity} ChromaDB long-term memory unavailable: ${errMsg}\n${_consecutiveFailures >= 3 ? "This has failed " + _consecutiveFailures + " times in a row. Collection may need reindexing or ChromaDB may be down.\n" : ""}Falling back to memory_search (local embeddings) only.\n</chromadb-memory-error>`,
         };

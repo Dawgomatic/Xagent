@@ -105,13 +105,13 @@ const server = https.createServer({
 }, app);
 
 server.listen(PORT, '0.0.0.0', () => {
-    console.log(`\n📧 EMAIL WEBHOOK SERVER v2.1.0 (HTTPS)`);
+    console.log(`\n EMAIL WEBHOOK SERVER v2.1.0 (HTTPS)`);
     console.log(`Port:  ${PORT}`);
     console.log(`Inbox: ${INBOX_PATH}`);
     console.log(`SSL:   self-signed (${CERT_PATH})`);
     console.log(`Wake:  Enabled (system event now)`);
     console.log(`Agent: ${AGENT_ID}`);
-    console.log(`\n💡 Cloudflare setup (Flexible SSL, port 2083):`);
+    console.log(`\n Cloudflare setup (Flexible SSL, port 2083):`);
     console.log(`   OPENCLAW_WEBHOOK_URL = https://webhook.yourdomain.com:${PORT}/api/email\n`);
 
     checkExternalAccess(PORT);
@@ -121,7 +121,7 @@ async function checkExternalAccess(port) {
     try {
         const ipRes = await fetch('https://api.ipify.org?format=json', { signal: AbortSignal.timeout(5000) });
         const { ip } = await ipRes.json();
-        console.log(`🔍 Checking external access on ${ip}:${port}...`);
+        console.log(` Checking external access on ${ip}:${port}...`);
 
         try {
             // Use http (CF Flexible) or https (CF Full) — either way, any response = port open
@@ -129,23 +129,23 @@ async function checkExternalAccess(port) {
                 signal: AbortSignal.timeout(6000),
                 // ignore self-signed cert error via Node TLS
             });
-            console.log(`✅ External access OK: port ${port} reachable (public IP: ${ip})`);
+            console.log(` External access OK: port ${port} reachable (public IP: ${ip})`);
         } catch (e) {
             // A TLS error still means the port is open (server responded with handshake)
             if (e.message.includes('certificate') || e.message.includes('self-signed') || e.message.includes('self signed') || e.code === 'DEPTH_ZERO_SELF_SIGNED_CERT' || e.code === 'ERR_TLS') {
-                console.log(`✅ External access OK: port ${port} reachable, TLS handshake succeeded (public IP: ${ip})`);
+                console.log(` External access OK: port ${port} reachable, TLS handshake succeeded (public IP: ${ip})`);
             } else if (e.name === 'AbortError') {
-                console.log(`❌ External access FAILED: port ${port} timed out — likely blocked by firewall (public IP: ${ip})`);
+                console.log(` External access FAILED: port ${port} timed out — likely blocked by firewall (public IP: ${ip})`);
                 console.log(`   → Run: sudo ufw allow ${port}/tcp`);
             } else if (e.message.includes('ECONNREFUSED')) {
-                console.log(`❌ External access FAILED: connection refused on port ${port} (public IP: ${ip})`);
+                console.log(` External access FAILED: connection refused on port ${port} (public IP: ${ip})`);
                 console.log(`   → Run: sudo ufw allow ${port}/tcp`);
             } else {
                 // Unknown error - treat as open if we got any network response
-                console.log(`✅ External access OK: port ${port} reachable (public IP: ${ip}) [${e.code || e.message}]`);
+                console.log(` External access OK: port ${port} reachable (public IP: ${ip}) [${e.code || e.message}]`);
             }
         }
     } catch (e) {
-        console.log(`⚠️  Could not verify external port access: ${e.message}`);
+        console.log(`  Could not verify external port access: ${e.message}`);
     }
 }

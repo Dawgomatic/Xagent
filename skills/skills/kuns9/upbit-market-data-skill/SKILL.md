@@ -94,8 +94,8 @@ node skill.js tickers --markets=KRW-BTC,KRW-ETH --strict=true
 When `--strict=true`:
 
 1. Candle type **MUST** appear immediately after `candles`:
-   - ✅ `node skill.js candles minutes --market=KRW-ETH --unit=5 --strict=true`
-   - ❌ `node skill.js candles --market=KRW-ETH minutes --unit=5 --strict=true`
+   -  `node skill.js candles minutes --market=KRW-ETH --unit=5 --strict=true`
+   -  `node skill.js candles --market=KRW-ETH minutes --unit=5 --strict=true`
 2. Candle type **MUST NOT** be passed as an option (do not use `--type=` in strict mode).
 3. For non-candles commands, `subcommand` must be omitted.
 4. Any unexpected positional arguments (extra words not starting with `--`) will cause an error.
@@ -133,8 +133,8 @@ Where `<type>` MUST be one of:
 - `months`
 - `years`
 
-⚠️ `<type>` is NOT passed as `--unit`.  
-⚠️ `<type>` must appear immediately after `candles`.
+ `<type>` is NOT passed as `--unit`.  
+ `<type>` must appear immediately after `candles`.
 
 #### Minutes candles (5-minute example)
 
@@ -158,10 +158,10 @@ node skill.js candles years   --market=KRW-BTC --count=5   --strict=true
 #### Incorrect examples (DO NOT USE)
 
 ```bash
-# ❌ type passed as option
+#  type passed as option
 node skill.js candles --unit=minutes --market=KRW-ETH
 
-# ❌ type after options
+#  type after options
 node skill.js candles --market=KRW-ETH minutes --unit=5
 ```
 

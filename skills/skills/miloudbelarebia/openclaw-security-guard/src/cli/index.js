@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * 🛡️ OpenClaw Security Guard
+ *  OpenClaw Security Guard
  * 
  * Complete security layer for OpenClaw:
  * - CLI Scanner for audits
@@ -45,7 +45,7 @@ const WEBSITE = 'https://2pidata.com';
 
 const BANNER = chalk.cyan(`
 ╔═══════════════════════════════════════════════════════════════╗
-║  🛡️  OpenClaw Security Guard v${VERSION}                         ║
+║    OpenClaw Security Guard v${VERSION}                         ║
 ║  The security layer your AI assistant needs                   ║
 ║                                                               ║
 ║  By ${AUTHOR} • ${WEBSITE}                     ║
@@ -60,7 +60,7 @@ const program = new Command();
 
 program
   .name('openclaw-guard')
-  .description('🛡️ Complete security layer for OpenClaw - CLI Scanner + Live Dashboard')
+  .description(' Complete security layer for OpenClaw - CLI Scanner + Live Dashboard')
   .version(VERSION)
   .option('-c, --config <path>', 'Path to config file')
   .option('-l, --lang <lang>', 'Language (en|fr|ar)', 'en')
@@ -90,7 +90,7 @@ program
     const startTime = Date.now();
     const openclawPath = await getOpenClawPath();
     
-    console.log(chalk.dim(`📍 Scanning: ${openclawPath}\n`));
+    console.log(chalk.dim(` Scanning: ${openclawPath}\n`));
     
     const results = {
       timestamp: new Date().toISOString(),
@@ -102,11 +102,11 @@ program
     
     // Define scanners
     const scanners = [
-      { name: 'secrets', Scanner: SecretsScanner, icon: '🔍', label: 'Secrets Scanner' },
-      { name: 'config', Scanner: ConfigAuditor, icon: '🔧', label: 'Config Auditor' },
-      { name: 'prompts', Scanner: PromptInjectionDetector, icon: '💉', label: 'Injection Detector' },
-      { name: 'deps', Scanner: DependencyScanner, icon: '📦', label: 'Dependency Scanner' },
-      { name: 'mcp', Scanner: McpServerAuditor, icon: '🔌', label: 'MCP Auditor' }
+      { name: 'secrets', Scanner: SecretsScanner, icon: '', label: 'Secrets Scanner' },
+      { name: 'config', Scanner: ConfigAuditor, icon: '', label: 'Config Auditor' },
+      { name: 'prompts', Scanner: PromptInjectionDetector, icon: '', label: 'Injection Detector' },
+      { name: 'deps', Scanner: DependencyScanner, icon: '', label: 'Dependency Scanner' },
+      { name: 'mcp', Scanner: McpServerAuditor, icon: '', label: 'MCP Auditor' }
     ];
     
     // Run each scanner
@@ -158,12 +158,12 @@ program
     displaySummary(results);
     
     // Duration
-    console.log(chalk.dim(`\n⏱️  Completed in ${formatDuration(Date.now() - startTime)}`));
+    console.log(chalk.dim(`\n  Completed in ${formatDuration(Date.now() - startTime)}`));
     
     // Save report if requested
     if (options.output) {
       await saveReport(results, options.output, options.format);
-      console.log(chalk.green(`\n📄 Report saved: ${options.output}`));
+      console.log(chalk.green(`\n Report saved: ${options.output}`));
     }
     
     // CI mode exit code
@@ -210,7 +210,7 @@ program
     const config = await loadConfig(program.opts().config);
     const openclawPath = await getOpenClawPath();
     
-    console.log(chalk.bold('🔧 Security Fix\n'));
+    console.log(chalk.bold(' Security Fix\n'));
     
     // Run config audit to find fixable issues
     const auditor = new ConfigAuditor(config);
@@ -219,14 +219,14 @@ program
     const fixable = auditResult.findings.filter(f => f.autoFixable);
     
     if (fixable.length === 0) {
-      console.log(chalk.green('✅ No auto-fixable issues found'));
+      console.log(chalk.green(' No auto-fixable issues found'));
       return;
     }
     
     console.log(chalk.yellow(`Found ${fixable.length} fixable issue(s):\n`));
     
     for (const issue of fixable) {
-      const icon = issue.severity === 'critical' ? '🔴' : '🟡';
+      const icon = issue.severity === 'critical' ? '' : '';
       console.log(`${icon} ${issue.message}`);
       console.log(chalk.dim(`   Fix: ${issue.fix}`));
     }
@@ -256,7 +256,7 @@ program
       const backupPath = `${openclawPath}/openclaw.json.backup.${Date.now()}`;
       try {
         await fs.copyFile(`${openclawPath}/openclaw.json`, backupPath);
-        console.log(chalk.dim(`📦 Backup: ${backupPath}`));
+        console.log(chalk.dim(` Backup: ${backupPath}`));
       } catch (_e) {
         // No existing config to backup
       }
@@ -267,7 +267,7 @@ program
     await hardener.applyFixes(openclawPath, fixable);
     
     console.log(boxen(
-      chalk.green.bold('✅ Fixes Applied\n\n') +
+      chalk.green.bold(' Fixes Applied\n\n') +
       chalk.white('Restart OpenClaw for changes to take effect:\n') +
       chalk.cyan('openclaw gateway --restart'),
       { padding: 1, borderColor: 'green', borderStyle: 'round' }
@@ -290,7 +290,7 @@ scanCmd
     const config = await loadConfig(program.opts().config);
     const openclawPath = await getOpenClawPath();
     
-    const spinner = ora('🔍 Scanning for secrets...').start();
+    const spinner = ora(' Scanning for secrets...').start();
     const scanner = new SecretsScanner(config);
     const result = await scanner.scan(openclawPath, options);
     
@@ -299,7 +299,7 @@ scanCmd
     } else {
       spinner.warn(`Found ${result.findings.length} potential secret(s)`);
       for (const f of result.findings) {
-        console.log(chalk.yellow(`   ⚠️ ${f.message}`));
+        console.log(chalk.yellow(`    ${f.message}`));
         console.log(chalk.dim(`      ${f.location}`));
       }
     }
@@ -313,14 +313,14 @@ scanCmd
     const config = await loadConfig(program.opts().config);
     const openclawPath = await getOpenClawPath();
     
-    const spinner = ora('🔧 Auditing configuration...').start();
+    const spinner = ora(' Auditing configuration...').start();
     const auditor = new ConfigAuditor(config);
     const result = await auditor.scan(openclawPath, options);
     spinner.stop();
     
-    console.log(chalk.bold('\n🔧 Configuration Audit:\n'));
+    console.log(chalk.bold('\n Configuration Audit:\n'));
     for (const f of result.findings) {
-      const icon = f.severity === 'critical' ? '❌' : f.severity === 'high' ? '⚠️' : '✅';
+      const icon = f.severity === 'critical' ? '' : f.severity === 'high' ? '' : '';
       const color = f.severity === 'critical' ? chalk.red :
                    f.severity === 'high' ? chalk.yellow : chalk.green;
       console.log(color(`${icon} ${f.message}`));
@@ -335,7 +335,7 @@ scanCmd
     const config = await loadConfig(program.opts().config);
     const openclawPath = await getOpenClawPath();
     
-    const spinner = ora('💉 Scanning for injection patterns...').start();
+    const spinner = ora(' Scanning for injection patterns...').start();
     const detector = new PromptInjectionDetector(config);
     const result = await detector.scan(openclawPath, options);
     
@@ -344,7 +344,7 @@ scanCmd
     } else {
       spinner.warn(`Found ${result.findings.length} suspicious pattern(s)`);
       for (const f of result.findings) {
-        console.log(chalk.yellow(`   ⚠️ ${f.message}`));
+        console.log(chalk.yellow(`    ${f.message}`));
       }
     }
   });
@@ -362,7 +362,7 @@ program
     const config = await loadConfig(program.opts().config);
     const openclawPath = await getOpenClawPath();
     
-    console.log(chalk.bold('📊 Generating Security Report...\n'));
+    console.log(chalk.bold(' Generating Security Report...\n'));
     
     const spinner = ora('Running full audit...').start();
     
@@ -391,7 +391,7 @@ program
     const outputPath = `${options.output}.${options.format}`;
     await saveReport(results, outputPath, options.format);
     
-    console.log(chalk.green(`✅ Report saved: ${outputPath}`));
+    console.log(chalk.green(` Report saved: ${outputPath}`));
   });
 
 // ============================================================
@@ -410,31 +410,31 @@ program
 # OpenClaw Security Guard - Pre-commit Hook
 # Scans for secrets before allowing commit
 
-echo "🛡️ Running security scan..."
+echo " Running security scan..."
 npx openclaw-guard scan secrets --quick
 
 if [ $? -ne 0 ]; then
-  echo "❌ Security check failed! Commit blocked."
+  echo " Security check failed! Commit blocked."
   echo "   Run 'openclaw-guard scan secrets' for details."
   exit 1
 fi
 
-echo "✅ Security check passed"
+echo " Security check passed"
 `;
         try {
           await fs.mkdir('.git/hooks', { recursive: true });
           await fs.writeFile(hookPath, script, { mode: 0o755 });
-          console.log(chalk.green('✅ Pre-commit hook installed'));
+          console.log(chalk.green(' Pre-commit hook installed'));
           console.log(chalk.dim('   Secrets will be scanned before each commit'));
         } catch (e) {
-          console.log(chalk.red('❌ Failed to install hook:'), e.message);
+          console.log(chalk.red(' Failed to install hook:'), e.message);
         }
         break;
         
       case 'uninstall':
         try {
           await fs.unlink(hookPath);
-          console.log(chalk.green('✅ Hook removed'));
+          console.log(chalk.green(' Hook removed'));
         } catch {
           console.log(chalk.yellow('No hook to remove'));
         }
@@ -443,9 +443,9 @@ echo "✅ Security check passed"
       case 'status':
         try {
           await fs.access(hookPath);
-          console.log(chalk.green('✅ Pre-commit hook is installed'));
+          console.log(chalk.green(' Pre-commit hook is installed'));
         } catch {
-          console.log(chalk.yellow('⚠️ No pre-commit hook installed'));
+          console.log(chalk.yellow(' No pre-commit hook installed'));
           console.log(chalk.dim('   Run: openclaw-guard hooks install'));
         }
         break;
@@ -464,15 +464,15 @@ program
   .description('About this tool')
   .action(() => {
     console.log(boxen(
-      chalk.cyan.bold('🛡️ OpenClaw Security Guard\n\n') +
+      chalk.cyan.bold(' OpenClaw Security Guard\n\n') +
       chalk.white(`Version:  ${VERSION}\n`) +
       chalk.white(`Author:   ${AUTHOR}\n`) +
       chalk.white(`Website:  ${WEBSITE}\n\n`) +
       chalk.dim('━'.repeat(40) + '\n\n') +
-      chalk.green('✅ No telemetry\n') +
-      chalk.green('✅ No tracking\n') +
-      chalk.green('✅ 100% private\n') +
-      chalk.green('✅ Open source\n\n') +
+      chalk.green(' No telemetry\n') +
+      chalk.green(' No tracking\n') +
+      chalk.green(' 100% private\n') +
+      chalk.green(' Open source\n\n') +
       chalk.dim('━'.repeat(40) + '\n\n') +
       chalk.white('Need help? Visit:\n') +
       chalk.cyan(`${WEBSITE}`),
@@ -505,9 +505,9 @@ function calculateScore(results) {
 function displaySummary(results) {
   const score = results.securityScore;
   const scoreColor = score >= 80 ? chalk.green : score >= 60 ? chalk.yellow : chalk.red;
-  const scoreIcon = score >= 80 ? '🟢' : score >= 60 ? '🟡' : '🔴';
+  const scoreIcon = score >= 80 ? '' : score >= 60 ? '' : '';
   
-  console.log(chalk.bold('\n📊 Security Summary'));
+  console.log(chalk.bold('\n Security Summary'));
   
   // Score
   console.log(boxen(
@@ -532,12 +532,12 @@ function displaySummary(results) {
   
   // Recommendation
   if (results.summary.critical > 0) {
-    console.log(chalk.red.bold('🔴 Critical issues found!'));
+    console.log(chalk.red.bold(' Critical issues found!'));
     console.log(chalk.white(`   Run: ${chalk.cyan('openclaw-guard fix')}`));
   } else if (results.summary.high > 0) {
-    console.log(chalk.yellow.bold('🟡 Review recommended'));
+    console.log(chalk.yellow.bold(' Review recommended'));
   } else {
-    console.log(chalk.green.bold('🟢 Looking good!'));
+    console.log(chalk.green.bold(' Looking good!'));
   }
 }
 
@@ -550,7 +550,7 @@ async function saveReport(results, outputPath, format) {
       break;
       
     case 'md':
-      content = `# 🛡️ OpenClaw Security Report
+      content = `#  OpenClaw Security Report
 
 **Generated:** ${results.timestamp}  
 **Tool:** OpenClaw Security Guard v${VERSION}  
@@ -564,17 +564,17 @@ async function saveReport(results, outputPath, format) {
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | ${results.summary?.critical || 0} |
-| 🟡 High | ${results.summary?.high || 0} |
-| 🔵 Medium | ${results.summary?.medium || 0} |
-| ⚪ Low | ${results.summary?.low || 0} |
+|  Critical | ${results.summary?.critical || 0} |
+|  High | ${results.summary?.high || 0} |
+|  Medium | ${results.summary?.medium || 0} |
+|  Low | ${results.summary?.low || 0} |
 
 ## Findings
 
 ${Object.entries(results.scanners).map(([name, data]) => `
 ### ${name.charAt(0).toUpperCase() + name.slice(1)}
 
-${(data.findings || []).length === 0 ? '✅ No issues found' : (data.findings || []).map(f => `- **${f.severity}**: ${f.message}`).join('\n')}
+${(data.findings || []).length === 0 ? ' No issues found' : (data.findings || []).map(f => `- **${f.severity}**: ${f.message}`).join('\n')}
 `).join('\n')}
 
 ---
@@ -616,7 +616,7 @@ ${(data.findings || []).length === 0 ? '✅ No issues found' : (data.findings ||
 </head>
 <body>
   <div class="container">
-    <h1>🛡️ OpenClaw Security Report</h1>
+    <h1> OpenClaw Security Report</h1>
     <div class="meta">
       Generated: ${results.timestamp}<br>
       Tool: OpenClaw Security Guard v${VERSION}<br>
@@ -653,7 +653,7 @@ ${(data.findings || []).length === 0 ? '✅ No issues found' : (data.findings ||
     ${Object.entries(results.scanners).map(([name, data]) => `
     <div class="card">
       <h3>${name.charAt(0).toUpperCase() + name.slice(1)}</h3>
-      ${(data.findings || []).length === 0 ? '<p>✅ No issues found</p>' : (data.findings || []).map(f => `
+      ${(data.findings || []).length === 0 ? '<p> No issues found</p>' : (data.findings || []).map(f => `
         <div class="finding ${f.severity}">
           <strong>${f.severity.toUpperCase()}</strong>: ${f.message}
         </div>

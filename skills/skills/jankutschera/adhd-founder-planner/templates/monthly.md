@@ -1,13 +1,13 @@
-# {MONTH} {YEAR} 📅
+# {MONTH} {YEAR} 
 
-## 🎯 Monthly Theme/Intent
+##  Monthly Theme/Intent
 _What is this month about?_
 
 **THEME:** 
 
 ---
 
-## 📊 Weekly Tracker
+##  Weekly Tracker
 
 | Week | ONE Thing Focus | Tasks Completed | Avg Energy | Key Win |
 |------|-----------------|-----------------|------------|---------|
@@ -19,7 +19,7 @@ _What is this month about?_
 
 ---
 
-## 🔄 Recurring Tasks
+##  Recurring Tasks
 _Tasks that repeat this month:_
 
 - [ ] 
@@ -28,7 +28,7 @@ _Tasks that repeat this month:_
 
 ---
 
-## 🏆 Monthly Goals
+##  Monthly Goals
 
 - [ ] 
 - [ ] 
@@ -36,7 +36,7 @@ _Tasks that repeat this month:_
 
 ---
 
-## 📈 Patterns to Watch
+##  Patterns to Watch
 
 - Best energy days:
 - Most productive time:
@@ -45,14 +45,14 @@ _Tasks that repeat this month:_
 
 ---
 
-## 💡 Ideas & Capture
+##  Ideas & Capture
 _Don't forget these:_
 
 - 
 
 ---
 
-## 🌟 Month in Review
+##  Month in Review
 
 **Biggest Win:**
 

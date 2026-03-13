@@ -41,13 +41,13 @@ Zero dependencies. Pure methodology. Works with any agent.
 
 ---
 
-⚡ **Level Up: [AfrexAI SaaS Context Pack ($47)](https://afrexai-cto.github.io/context-packs/)** — Complete operator context for SaaS businesses including strategic planning, metrics, and growth frameworks.
+ **Level Up: [AfrexAI SaaS Context Pack ($47)](https://afrexai-cto.github.io/context-packs/)** — Complete operator context for SaaS businesses including strategic planning, metrics, and growth frameworks.
 
-🔗 **More free skills by AfrexAI:**
+ **More free skills by AfrexAI:**
 - [afrexai-founder-os](https://clawhub.com/skills/afrexai-founder-os) — Startup operating system
 - [afrexai-growth-engine](https://clawhub.com/skills/afrexai-growth-engine) — Growth system with AARRR + experiments
 - [afrexai-engineering-manager](https://clawhub.com/skills/afrexai-engineering-manager) — EM operating system
 - [afrexai-sales-playbook](https://clawhub.com/skills/afrexai-sales-playbook) — B2B sales methodology
 - [afrexai-pricing-strategy](https://clawhub.com/skills/afrexai-pricing-strategy) — Complete pricing system
 
-🛒 **[Browse all AfrexAI skills & context packs →](https://afrexai-cto.github.io/context-packs/)**
+ **[Browse all AfrexAI skills & context packs →](https://afrexai-cto.github.io/context-packs/)**

@@ -347,7 +347,7 @@ if (require.main === module) {
       if (command === 'test') {
         console.log('Testing Kit API connection...');
         const result = await kit.testConnection();
-        console.log(result.success ? '✅ Connected' : `❌ Failed: ${result.message}`);
+        console.log(result.success ? ' Connected' : ` Failed: ${result.message}`);
         
       } else if (command === 'tags') {
         console.log('Fetching tags...');
@@ -372,7 +372,7 @@ if (require.main === module) {
         console.log('  node kit-api.js broadcasts   - List broadcasts');
       }
     } catch (error) {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
       process.exit(1);
     }
   })();

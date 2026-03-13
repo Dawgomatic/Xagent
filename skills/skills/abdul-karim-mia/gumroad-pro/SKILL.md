@@ -13,18 +13,18 @@ metadata:
 
 # Gumroad Pro
 
-## 🛑 AI PROTOCOL
+##  AI PROTOCOL
 1. **PRIORITIZE HANDLER**: Always attempt to use the interactive button-based GUI (handled by `handler.js`) for the best merchant experience.
 2. **CLI AS FALLBACK**: Only use `scripts/gumroad-pro.js` via the CLI for complex data retrieval or specific actions not available in the GUI.
 3. **USE --json**: When using the CLI, **ALWAYS** use the `--json` flag and check for `"success": true`.
 4. **REDUCE SPAM**: Use `action: 'edit'` in `renderResponse` for all menu transitions and state updates. Only use `action: 'send'` for the initial menu or when the context fundamentally changes.
 5. **HANDLE ERRORS**: Read the `"error"` field in JSON responses to inform the user of failures.
 
-## ❓ Navigation & Data
+##  Navigation & Data
 - **Primary Interaction**: Use the adaptive logic in `handler.js`. See [handler-guide.md]({baseDir}/references/handler-guide.md) for interaction patterns, [ui-rendering.md]({baseDir}/references/ui-rendering.md) for rendering protocols, and [changelog.md]({baseDir}/references/changelog.md) for version history. Respond with button callback data (e.g., `gp:products`) or digits (1, 2, 3) where applicable.
 - **Secondary Interaction**: Use `scripts/gumroad-pro.js` for direct actions. See [api-reference.md]({baseDir}/references/api-reference.md) for command specs.
 
-## 🔑 Authentication
+##  Authentication
 The skill requires a **Gumroad API Key**. It looks for the following environment variables (in order of preference):
 1. `GUMROAD_ACCESS_TOKEN`
 2. `API_KEY`
@@ -45,7 +45,7 @@ You can set this in your `~/.openclaw/openclaw.json` using the `apiKey` convenie
 ```
 The platform will automatically inject your `apiKey` into the preferred `GUMROAD_ACCESS_TOKEN` variable.
 
-## 🛠️ Workflows
+##  Workflows
 
 ### Product Inventory
 - List all digital assets to monitor sales and availability.

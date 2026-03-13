@@ -1,4 +1,4 @@
-# TubeScribe 🎬
+# TubeScribe 
 
 **Turn any YouTube video into a polished document + audio summary.**
 
@@ -6,13 +6,13 @@ Drop a YouTube link → get a beautiful transcript with speaker labels, key quot
 
 ## Features
 
-- 🎯 **Smart Speaker Detection** — Automatically identifies participants
-- 🔊 **Audio Summaries** — Listen to key points (MP3/WAV)
-- 📝 **Clickable Timestamps** — Every quote links directly to that moment in the video
-- 💬 **YouTube Comments** — Viewer sentiment analysis and best comments
-- 📄 **Transcript with summary and key quotes** — Export as DOCX, HTML, or Markdown
-- 📋 **Queue Support** — Send multiple links, they get processed in order
-- 🚀 **Non-Blocking Workflow** — Conversation continues while video processes in background
+-  **Smart Speaker Detection** — Automatically identifies participants
+-  **Audio Summaries** — Listen to key points (MP3/WAV)
+-  **Clickable Timestamps** — Every quote links directly to that moment in the video
+-  **YouTube Comments** — Viewer sentiment analysis and best comments
+-  **Transcript with summary and key quotes** — Export as DOCX, HTML, or Markdown
+-  **Queue Support** — Send multiple links, they get processed in order
+-  **Non-Blocking Workflow** — Conversation continues while video processes in background
 
 ## Free & No Paid APIs
 
@@ -29,7 +29,7 @@ Just send a YouTube URL to your agent. TubeScribe handles everything automatical
 
 TubeScribe runs in the background:
 1. You send a YouTube link
-2. Agent replies: "🎬 TubeScribe is processing **[title]**..."
+2. Agent replies: " TubeScribe is processing **[title]**..."
 3. **You can keep chatting** — conversation isn't blocked
 4. When done, you get notified with the results
 
@@ -117,10 +117,10 @@ Clear messages for common issues:
 
 | Issue | Message |
 |-------|---------|
-| Private video | ❌ Video is private — can't access |
-| No captions | ❌ No captions available for this video |
-| Invalid URL | ❌ Not a valid YouTube URL |
-| Age-restricted | ❌ Age-restricted video — can't access without login |
+| Private video |  Video is private — can't access |
+| No captions |  No captions available for this video |
+| Invalid URL |  Not a valid YouTube URL |
+| Age-restricted |  Age-restricted video — can't access without login |
 
 ## Privacy & Network
 
@@ -169,4 +169,4 @@ MIT
 
 ---
 
-Made by Jackie 🦊 & Matus 🇸🇰
+Made by Jackie  & Matus 

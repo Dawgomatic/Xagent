@@ -51,12 +51,12 @@ Madrid is a food paradise. Unlike Barcelona (Mediterranean) or Bilbao (Basque), 
 
 | Restaurant | Stars | Price | Notes |
 |------------|-------|-------|-------|
-| **DiverXO** | ⭐⭐⭐ | €250-350 | Dabiz Muñoz, theatrical, must-book months ahead |
-| **Coque** | ⭐⭐ | €200-280 | Brothers, refined |
-| **Smoked Room** | ⭐⭐ | €180-250 | Smoke-focused |
-| **Santceloni** | ⭐⭐ | €180-240 | Classic fine dining |
-| **Punto MX** | ⭐ | €120-180 | Mexican tasting |
-| **Clos Madrid** | ⭐ | €150-200 | Natural wines |
+| **DiverXO** |  | €250-350 | Dabiz Muñoz, theatrical, must-book months ahead |
+| **Coque** |  | €200-280 | Brothers, refined |
+| **Smoked Room** |  | €180-250 | Smoke-focused |
+| **Santceloni** |  | €180-240 | Classic fine dining |
+| **Punto MX** |  | €120-180 | Mexican tasting |
+| **Clos Madrid** |  | €150-200 | Natural wines |
 
 **Booking tips:**
 - DiverXO: Book 2-3 months ahead minimum

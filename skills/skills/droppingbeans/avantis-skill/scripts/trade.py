@@ -41,27 +41,27 @@ async def main():
     trader_client.set_local_signer(PRIVATE_KEY)
     trader = trader_client.get_signer().get_ethereum_address()
     
-    print(f"🫘 Wallet: {trader}")
+    print(f" Wallet: {trader}")
     
     # Check balance
     balance = await trader_client.get_usdc_balance(trader)
-    print(f"💰 USDC Balance: {balance}")
+    print(f" USDC Balance: {balance}")
     
     if balance < collateral:
-        print(f"❌ Insufficient balance. Have: ${balance}, Need: ${collateral}")
+        print(f" Insufficient balance. Have: ${balance}, Need: ${collateral}")
         sys.exit(1)
     
     # Check allowance
     allowance = await trader_client.get_usdc_allowance_for_trading(trader)
     if allowance < collateral:
-        print(f"📝 Approving {collateral} USDC...")
+        print(f" Approving {collateral} USDC...")
         await trader_client.approve_usdc_for_trading(collateral)
         allowance = await trader_client.get_usdc_allowance_for_trading(trader)
-        print(f"✅ Approved: {allowance} USDC")
+        print(f" Approved: {allowance} USDC")
     
     # Get pair index
     pair_index = await trader_client.pairs_cache.get_pair_index(f"{pair_name}/USD")
-    print(f"📈 {pair_name}/USD pair index: {pair_index}")
+    print(f" {pair_name}/USD pair index: {pair_index}")
     
     # Prepare trade
     trade_input = TradeInput(
@@ -78,7 +78,7 @@ async def main():
     )
     
     position_size = collateral * leverage
-    print(f"\n🚀 Opening {leverage}x {'LONG' if is_long else 'SHORT'} {pair_name}/USD")
+    print(f"\n Opening {leverage}x {'LONG' if is_long else 'SHORT'} {pair_name}/USD")
     print(f"   Collateral: ${collateral}")
     print(f"   Position size: ${position_size}")
     if tp > 0:
@@ -97,13 +97,13 @@ async def main():
         # Sign and send
         receipt = await trader_client.sign_and_get_receipt(open_tx)
         
-        print(f"\n✅ TRADE OPENED!")
+        print(f"\n TRADE OPENED!")
         print(f"   Tx: {receipt.transactionHash.hex()}")
         print(f"   Block: {receipt.blockNumber}")
         print(f"   Gas used: {receipt.gasUsed}")
         
     except Exception as e:
-        print(f"\n❌ Trade failed: {str(e)}")
+        print(f"\n Trade failed: {str(e)}")
         if "BELOW_MIN_POS" in str(e):
             print(f"   Position size ${position_size} too small for this pair")
             print(f"   Try increasing collateral or leverage")

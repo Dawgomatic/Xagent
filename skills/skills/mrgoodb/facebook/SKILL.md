@@ -1,7 +1,7 @@
 ---
 name: facebook
 description: Manage Facebook Pages, posts, and insights via Graph API. Post content, read comments, and analyze engagement.
-metadata: {"clawdbot":{"emoji":"👤","requires":{"env":["FACEBOOK_ACCESS_TOKEN","FACEBOOK_PAGE_ID"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["FACEBOOK_ACCESS_TOKEN","FACEBOOK_PAGE_ID"]}}}
 ---
 
 # Facebook

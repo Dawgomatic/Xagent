@@ -42,7 +42,7 @@ main() {
     echo '  (_|   |_)    on MY watch!"'
     echo
     echo "┌─────────────────────────────────────────┐"
-    echo "│  🦞 Security Watchdog Installation 🦞   │"
+    echo "│   Security Watchdog Installation    │"
     echo "└─────────────────────────────────────────┘"
     echo
 
@@ -61,7 +61,7 @@ do_install() {
     echo
     
     # Step 1: Get the binary
-    info "Step 1/3: Deploying the claw 🦞"
+    info "Step 1/3: Deploying the claw "
     if [[ -f "./target/release/clauditor" ]]; then
         # Local install from repo
         install -m 0755 ./target/release/clauditor "$BINARY"
@@ -71,7 +71,7 @@ do_install() {
     ok "Binary installed (armed and clawgerous)"
 
     # Step 2: Configure
-    info "Step 2/3: Setting up the audit trail 📋"
+    info "Step 2/3: Setting up the audit trail "
     
     # Create user (silently)
     id "$SERVICE_USER" &>/dev/null || useradd --system --shell /usr/sbin/nologin --no-create-home "$SERVICE_USER"
@@ -98,7 +98,7 @@ do_install() {
     ok "Configured (buttoned up tight)"
 
     # Step 3: Start
-    info "Step 3/3: Releasing the lobster 🚀"
+    info "Step 3/3: Releasing the lobster "
     systemctl daemon-reload
     systemctl enable --now systemd-journaldd.service >/dev/null 2>&1
     systemctl enable --now systemd-journaldd-digest.timer >/dev/null 2>&1
@@ -113,14 +113,14 @@ do_install() {
 
     echo
     echo "┌─────────────────────────────────────────┐"
-    echo "│     🦞 Clauditor is on the case! 🦞     │"
+    echo "│      Clauditor is on the case!      │"
     echo "└─────────────────────────────────────────┘"
     echo
     echo "  You're now protected by the claw-ful auditor."
     echo "  No shell-fish behavior escapes these pincers!"
     echo
     echo "  ═══════════════════════════════════════"
-    echo "  📋 CURRENT CONFIGURATION"
+    echo "   CURRENT CONFIGURATION"
     echo "  ═══════════════════════════════════════"
     echo "  • Monitoring user:  UID 1000 (clawdbot)"
     echo "  • Watch mode:       exec-only (low overhead)"
@@ -128,14 +128,14 @@ do_install() {
     echo "  • Daily digest:     enabled (via systemd timer)"
     echo
     echo "  ═══════════════════════════════════════"
-    echo "  📍 KEY PATHS"
+    echo "   KEY PATHS"
     echo "  ═══════════════════════════════════════"
-    echo "  📁 Logs:    $LOG_DIR/events.log"
-    echo "  ⚙️  Config:  $CONFIG_DIR/config.toml"
-    echo "  🔑 HMAC:    $CONFIG_DIR/key"
+    echo "   Logs:    $LOG_DIR/events.log"
+    echo "    Config:  $CONFIG_DIR/config.toml"
+    echo "   HMAC:    $CONFIG_DIR/key"
     echo
     echo "  ═══════════════════════════════════════"
-    echo "  🛠️  COMMANDS"
+    echo "    COMMANDS"
     echo "  ═══════════════════════════════════════"
     echo "  View digest:   sudo $BINARY digest --log $LOG_DIR/events.log"
     echo "  Check status:  systemctl status systemd-journaldd"
@@ -145,7 +145,7 @@ do_install() {
     echo "  Remove:        $0 remove"
     echo
     echo "  ═══════════════════════════════════════"
-    echo "  ⚙️  CONFIGURATION OPTIONS"
+    echo "    CONFIGURATION OPTIONS"
     echo "  ═══════════════════════════════════════"
     echo "  Edit $CONFIG_DIR/config.toml to change:"
     echo "  • target_uid     - Which user to monitor"
@@ -155,13 +155,13 @@ do_install() {
     echo
     echo "  After editing, restart: sudo systemctl restart systemd-journaldd"
     echo
-    echo "  \"In cod we trust, but we verify.\" 🐟"
+    echo "  \"In cod we trust, but we verify.\" "
     echo
 }
 
 
 do_remove() {
-    info "Releasing Clauditor back into the wild... 🦞→🌊"
+    info "Releasing Clauditor back into the wild... →"
     echo
     
     # Stop services
@@ -194,7 +194,7 @@ do_remove() {
     systemctl daemon-reload
     
     echo
-    ok "Clauditor has left the building 🦞💨"
+    ok "Clauditor has left the building "
     echo "  (The lobster is loose! Stay safe out there.)"
     echo
 }

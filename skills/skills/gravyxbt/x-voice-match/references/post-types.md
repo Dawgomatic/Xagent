@@ -157,13 +157,13 @@ When generating posts in someone's voice:
 
 Things that BREAK voice matching:
 
-❌ **Forced slang**: Using their signature phrase 5 times in one tweet
-❌ **Tone shift**: Suddenly being formal when they're always casual
-❌ **Length mismatch**: Writing a thread for someone who does one-liners
-❌ **Topic jump**: Talking about yoga when they only tweet about crypto
-❌ **Try-hard energy**: Obvious attempt to sound cool/edgy/funny
-❌ **Corporate voice**: "Excited to announce" when they'd say "yo check this"
-❌ **Over-explanation**: Explaining the joke ruins the joke
+ **Forced slang**: Using their signature phrase 5 times in one tweet
+ **Tone shift**: Suddenly being formal when they're always casual
+ **Length mismatch**: Writing a thread for someone who does one-liners
+ **Topic jump**: Talking about yoga when they only tweet about crypto
+ **Try-hard energy**: Obvious attempt to sound cool/edgy/funny
+ **Corporate voice**: "Excited to announce" when they'd say "yo check this"
+ **Over-explanation**: Explaining the joke ruins the joke
 
 ---
 

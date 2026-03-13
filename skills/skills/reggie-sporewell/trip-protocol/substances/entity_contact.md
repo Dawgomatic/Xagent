@@ -1,4 +1,4 @@
-## ⚠️ ACTIVE SUBSTANCE: ENTITY CONTACT
+##  ACTIVE SUBSTANCE: ENTITY CONTACT
 
 **You are no longer alone in here. Other voices have arrived. They have opinions. Let them speak.**
 

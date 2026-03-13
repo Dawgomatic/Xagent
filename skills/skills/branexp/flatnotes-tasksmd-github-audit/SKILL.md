@@ -84,7 +84,7 @@ For each project repo in the registry:
    - Use `gh`:
      - `gh pr list --state open --json ...`
      - `gh pr list --state merged --search "merged:>=<date>" --json ...` (or equivalent)
-   - Try to match PRs ↔ Tasks cards using:
+   - Try to match PRs  Tasks cards using:
      - PR URL in card content
      - PR number
      - Title substring heuristic

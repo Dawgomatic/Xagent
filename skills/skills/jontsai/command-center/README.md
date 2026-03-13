@@ -1,4 +1,4 @@
-# 🦞 OpenClaw Command Center
+#  OpenClaw Command Center
 
 <div align="center">
 
@@ -22,35 +22,35 @@ Your AI agents are running 24/7. You need to know what they're doing.
 
 Command Center gives you **real-time visibility** into your OpenClaw deployment — sessions, costs, system health, scheduled tasks — all in one secure dashboard.
 
-### ⚡ Fast
+###  Fast
 
 - **Single API call** — unified state endpoint, not 16+ separate requests
 - **2-second updates** — real-time SSE push, not polling
 - **5-second cache** — backend stays responsive under load
 - **Instant startup** — no build step, no compilation
 
-### 🪶 Lightweight
+###  Lightweight
 
 - **Zero dependencies** for users — just Node.js
 - **~200KB total** — dashboard + server
 - **No webpack/vite/bundler** — runs directly
 - **No React/Vue/Angular** — vanilla JS, works everywhere
 
-### 📱 Responsive
+###  Responsive
 
 - **Desktop & mobile** — works on any screen size
 - **Dark mode** — easy on the eyes, Starcraft-inspired
 - **Live updates** — no manual refresh needed
 - **Offline-friendly** — graceful degradation
 
-### 🔧 Modern
+###  Modern
 
 - **ES Modules** — clean component architecture
 - **SSE streaming** — efficient real-time updates
 - **REST API** — integrate with your tools
 - **TypeScript-ready** — JSDoc types included
 
-### 🔒 Security (Most Important)
+###  Security (Most Important)
 
 Command Center takes security seriously:
 
@@ -75,16 +75,16 @@ DASHBOARD_AUTH_MODE=tailscale node lib/server.js
 
 | Feature                    | Description                                 |
 | -------------------------- | ------------------------------------------- |
-| 📊 **Session Monitoring**  | Real-time view of active AI sessions        |
-| ⛽ **LLM Fuel Gauges**     | Token usage, costs, quota remaining         |
-| 💻 **System Vitals**       | CPU, memory, disk, temperature              |
-| ⏰ **Cron Jobs**           | View and manage scheduled tasks             |
-| 🧠 **Cerebro Topics**      | Automatic conversation tagging              |
-| 👥 **Operators**           | Who's talking to your agents                |
-| 📝 **Memory Browser**      | View agent memory files                     |
-| 🔒 **Privacy Controls**    | Hide sensitive topics for demos/screenshots |
-| 💰 **Cost Breakdown**      | Detailed per-model cost analysis            |
-| 📈 **Savings Projections** | Monthly cost vs. manual estimates           |
+|  **Session Monitoring**  | Real-time view of active AI sessions        |
+|  **LLM Fuel Gauges**     | Token usage, costs, quota remaining         |
+|  **System Vitals**       | CPU, memory, disk, temperature              |
+|  **Cron Jobs**           | View and manage scheduled tasks             |
+|  **Cerebro Topics**      | Automatic conversation tagging              |
+|  **Operators**           | Who's talking to your agents                |
+|  **Memory Browser**      | View agent memory files                     |
+|  **Privacy Controls**    | Hide sensitive topics for demos/screenshots |
+|  **Cost Breakdown**      | Detailed per-model cost analysis            |
+|  **Savings Projections** | Monthly cost vs. manual estimates           |
 
 ---
 
@@ -113,7 +113,7 @@ node lib/server.js
 npx degit jontsai/openclaw-command-center dashboard && cd dashboard && node lib/server.js
 ```
 
-**Dashboard runs at http://localhost:3333** 🎉
+**Dashboard runs at http://localhost:3333** 
 
 ---
 
@@ -139,7 +139,7 @@ If you have `memory/` or `state/` directories, you're good to go.
 | `OPENCLAW_WORKSPACE` | Workspace root | Auto-detect |
 | `OPENCLAW_PROFILE`   | Profile name   | (none)      |
 
-### 🔒 Authentication
+###  Authentication
 
 | Mode         | Use Case      | Config                                                    |
 | ------------ | ------------- | --------------------------------------------------------- |
@@ -149,7 +149,7 @@ If you have `memory/` or `state/` directories, you're good to go.
 | `cloudflare` | Public deploy | `DASHBOARD_AUTH_MODE=cloudflare`                          |
 | `allowlist`  | IP whitelist  | `DASHBOARD_AUTH_MODE=allowlist DASHBOARD_ALLOWED_IPS=...` |
 
-### 📋 Recommended OpenClaw Settings
+###  Recommended OpenClaw Settings
 
 For the best Command Center experience, configure your OpenClaw gateway:
 
@@ -235,7 +235,7 @@ command-center/
 
 ---
 
-## 🚀 Coming Soon
+##  Coming Soon
 
 ### Advanced Job Scheduling
 
@@ -378,7 +378,7 @@ npm run format     # Auto-format
 
 ## License
 
-MIT © [Jonathan Tsai](https://github.com/jontsai)
+MIT  [Jonathan Tsai](https://github.com/jontsai)
 
 ---
 

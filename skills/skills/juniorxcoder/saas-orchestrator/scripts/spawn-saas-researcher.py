@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🦞 JUNAI's SAAS Research Agent Spawner
+ JUNAI's SAAS Research Agent Spawner
 Spawns a subagent to research and validate SAAS ideas
 """
 
@@ -11,7 +11,7 @@ from datetime import datetime
 def create_research_task(niche, target_market, revenue_goal):
     """Create a comprehensive SAAS research task"""
     
-    task = f"""🤖 SAAS Research Agent - Market Validation Mission
+    task = f""" SAAS Research Agent - Market Validation Mission
 
 Target: Research and validate SAAS opportunity in {niche} for {target_market}
 Revenue Goal: ${revenue_goal} MRR minimum
@@ -86,15 +86,15 @@ Revenue Goal: ${revenue_goal} MRR minimum
    - If no, what would need to change to make it viable?
 
 ## Success Criteria
-✅ Market large enough for ${revenue_goal}+ MRR potential
-✅ Clear customer pain point that's must-solve, not nice-to-have  
-✅ Competitor gaps we can exploit
-✅ Realistic path to ${revenue_goal} MRR within 6-12 months
-✅ Customers willing to pay premium pricing ($29+/month)
+ Market large enough for ${revenue_goal}+ MRR potential
+ Clear customer pain point that's must-solve, not nice-to-have  
+ Competitor gaps we can exploit
+ Realistic path to ${revenue_goal} MRR within 6-12 months
+ Customers willing to pay premium pricing ($29+/month)
 
 Time to complete: Research thoroughly, but don't overthink. We need actionable insights, not academic analysis.
 
-🦞 JUNAI expects a clear recommendation with specific next steps."""
+ JUNAI expects a clear recommendation with specific next steps."""
 
     return task
 
@@ -108,7 +108,7 @@ def main():
     target_market = sys.argv[2] 
     revenue_goal = sys.argv[3]
     
-    print(f"🦞 JUNAI spawning SAAS researcher for {niche}...")
+    print(f" JUNAI spawning SAAS researcher for {niche}...")
     print(f"Target: {target_market}")
     print(f"Revenue Goal: ${revenue_goal} MRR")
     print("=" * 50)
@@ -123,8 +123,8 @@ def main():
     with open(filename, 'w') as f:
         f.write(task)
     
-    print(f"\n🦞 Research task saved to {filename}")
-    print("🦞 Ready to spawn subagent with this task!")
+    print(f"\n Research task saved to {filename}")
+    print(" Ready to spawn subagent with this task!")
 
 if __name__ == "__main__":
     main()

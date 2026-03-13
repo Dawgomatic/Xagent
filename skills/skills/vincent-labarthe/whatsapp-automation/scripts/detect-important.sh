@@ -30,7 +30,7 @@ while IFS= read -r line; do
     if echo "$TEXT" | grep -iqE "URGENT|HELP|SOS|EMERGENCY|!!!|problem|crash|blocked|error"; then
       curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
         --data-urlencode "chat_id=$CHAT_ID" \
-        --data-urlencode "text=📌 IMPORTANT
+        --data-urlencode "text= IMPORTANT
 $CONTACT
 $TEXT" \
         > /dev/null 2>&1

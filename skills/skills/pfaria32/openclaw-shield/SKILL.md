@@ -59,7 +59,7 @@ Configure allowlists and enable runtime protection (see deployment/openclaw-conf
 
 ## Status
 
-✅ **Deployed** on this instance (clawdbot-toronto)
+ **Deployed** on this instance (clawdbot-toronto)
 - Daily scans: 3:00 AM UTC  
 - ClamAV: Active (host-level)
 - Runtime guard: Prepared (not enabled by default)

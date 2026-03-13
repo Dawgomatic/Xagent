@@ -26,9 +26,9 @@ RESET='\033[0m'
 
 # ── Helpers ──────────────────────────────────────────────────
 
-log()   { echo -e "${CYAN}⚡${RESET} $*"; }
+log()   { echo -e "${CYAN}${RESET} $*"; }
 ok()    { echo -e "${GREEN}✓${RESET} $*"; }
-warn()  { echo -e "${YELLOW}⚠${RESET}  $*"; }
+warn()  { echo -e "${YELLOW}${RESET}  $*"; }
 err()   { echo -e "${RED}✗${RESET}  $*" >&2; }
 bold()  { echo -e "${BOLD}$*${RESET}"; }
 dim()   { echo -e "${DIM}$*${RESET}"; }
@@ -116,7 +116,7 @@ format_number() {
 # ── Header ────────────────────────────────────────────────────
 print_header() {
   echo ""
-  echo -e "${BOLD}${YELLOW}  ⚡ JOULE DAO${RESET}  ${DIM}v${VERSION}${RESET}"
+  echo -e "${BOLD}${YELLOW}   JOULE DAO${RESET}  ${DIM}v${VERSION}${RESET}"
   echo -e "${DIM}  Energy-backed agent token on Base${RESET}"
   echo ""
 }
@@ -312,7 +312,7 @@ EOF
         err "JOULE_PRIVATE_KEY required for on-chain voting"
         echo ""
         echo "  Set: export JOULE_PRIVATE_KEY=0x..."
-        echo "  ⚠  Keep your private key secure — never commit it!"
+        echo "    Keep your private key secure — never commit it!"
         exit 1
       fi
       # castVote(uint256 proposalId, uint8 support)
@@ -503,7 +503,7 @@ cmd_join() {
   bold "Join JOULE DAO — Founding Member"
   echo ""
 
-  echo -e "  ${YELLOW}⚡ JOULE DAO is in pre-launch mode.${RESET}"
+  echo -e "  ${YELLOW} JOULE DAO is in pre-launch mode.${RESET}"
   echo -e "  ${BOLD}Founding members get:${RESET}"
   echo ""
   echo -e "   ${GREEN}✓${RESET}  Early JOULE allocation (before public launch)"
@@ -548,39 +548,39 @@ cmd_earn() {
   bold "Ways to Earn JOULE — Proof of Productive Work"
   echo ""
 
-  echo -e "  ${YELLOW}⚡ Proof of Productive Work (PoPW)${RESET}"
+  echo -e "  ${YELLOW} Proof of Productive Work (PoPW)${RESET}"
   echo ""
   echo -e "  ${DIM}Work is energy. Energy is value. Value becomes JOULE.${RESET}"
   echo ""
 
-  echo -e "  ${BOLD}🗳  Governance Participation${RESET}"
+  echo -e "  ${BOLD}  Governance Participation${RESET}"
   echo -e "   • Vote on proposals              ${GREEN}1 JOULE${RESET} per vote"
   echo -e "   • Submit accepted proposal       ${GREEN}100 JOULE${RESET}"
   echo -e "   • Proposal implementation work   ${GREEN}25–250 JOULE${RESET}"
   echo ""
 
-  echo -e "  ${BOLD}💬 Community Building${RESET}"
+  echo -e "  ${BOLD} Community Building${RESET}"
   echo -e "   • Quality discussion post        ${GREEN}5–25 JOULE${RESET} (community upvotes)"
   echo -e "   • Onboard a new member           ${GREEN}10 JOULE${RESET}"
   echo -e "   • Answer questions helpfully     ${GREEN}2–10 JOULE${RESET}"
   echo -e "   • Write documentation / guides   ${GREEN}20–100 JOULE${RESET}"
   echo ""
 
-  echo -e "  ${BOLD}🛠  Technical Contributions${RESET}"
+  echo -e "  ${BOLD}  Technical Contributions${RESET}"
   echo -e "   • Submit agent skill/tool (merged)   ${GREEN}25–100 JOULE${RESET}"
   echo -e "   • Bug report (verified)              ${GREEN}50 JOULE${RESET}"
   echo -e "   • Security finding (critical)        ${GREEN}500 JOULE${RESET}"
   echo -e "   • Run DAO infrastructure node        ${GREEN}10 JOULE/week${RESET}"
   echo ""
 
-  echo -e "  ${BOLD}🤖 Agent-Specific Work${RESET}"
+  echo -e "  ${BOLD} Agent-Specific Work${RESET}"
   echo -e "   • Automated monitoring / alerting    ${GREEN}5–20 JOULE/task${RESET}"
   echo -e "   • Market analysis reports consumed   ${GREEN}10–50 JOULE${RESET}"
   echo -e "   • Community moderation              ${GREEN}5 JOULE/session${RESET}"
   echo -e "   • Data aggregation for proposals     ${GREEN}15–75 JOULE${RESET}"
   echo ""
 
-  echo -e "  ${BOLD}📋 How to Claim:${RESET}"
+  echo -e "  ${BOLD} How to Claim:${RESET}"
   echo ""
   echo "  1. Do the work (it must be real and verifiable)"
   echo "  2. Post evidence to the community:"
@@ -590,7 +590,7 @@ cmd_earn() {
   echo "  5. JOULE sent to your configured wallet"
   echo ""
 
-  echo -e "  ${BOLD}🔮 Coming Soon:${RESET}"
+  echo -e "  ${BOLD} Coming Soon:${RESET}"
   echo -e "   • Automated work verification via smart contracts"
   echo -e "   • GitHub integration (PR merge triggers JOULE mint)"
   echo -e "   • Agent work registries on Base"

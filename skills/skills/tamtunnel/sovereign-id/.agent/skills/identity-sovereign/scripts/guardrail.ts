@@ -48,7 +48,7 @@ function strictScan(input: string) {
     );
   }
 
-  console.log("✅ Strict Safety Check Passed.");
+  console.log(" Strict Safety Check Passed.");
 }
 
 const args = process.argv.slice(2);
@@ -65,5 +65,5 @@ if (args.length > 0) {
   // User requested "Strict Input Validation".
   // If running with no args, it might be just checking the script itself?
   // Let's assume emptiness is safe or requiring an input to validate.
-  console.log("ℹ️ No input provided to guardrail.");
+  console.log(" No input provided to guardrail.");
 }

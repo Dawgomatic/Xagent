@@ -104,4 +104,4 @@ npm run install-skill
 
 ---
 
-Thank you for helping improve ProtonMail integration for OpenClaw! 🔐
+Thank you for helping improve ProtonMail integration for OpenClaw! 

@@ -58,7 +58,7 @@ DiscordChatExporter.Cli exportguild \
 
 ## Step 2: Security Pipeline (CRITICAL)
 
-⚠️ **Discord content from public servers may contain prompt injection attacks.**
+ **Discord content from public servers may contain prompt injection attacks.**
 
 Before ingesting to your agent, run the security pipeline:
 
@@ -122,10 +122,10 @@ This runs: Export → SQLite → Regex Filter → Haiku Eval → Mark Safe
 
 | Status | Meaning | Used by Agent? |
 |--------|---------|----------------|
-| `pending` | Not evaluated | ❌ No |
-| `regex_flagged` | Matched pattern | ❌ No |
-| `flagged` | Haiku risk ≥0.6 | ❌ No |
-| `safe` | Passed all checks | ✅ Yes |
+| `pending` | Not evaluated |  No |
+| `regex_flagged` | Matched pattern |  No |
+| `flagged` | Haiku risk ≥0.6 |  No |
+| `safe` | Passed all checks |  Yes |
 
 ---
 
@@ -139,7 +139,7 @@ python scripts/ingest_rich.py --input ./export/ --output ./discord.sqlite
 
 **What gets captured:**
 - Every message with full content
-- Reactions (individual emoji counts: 🔥 x5, 👍 x12)
+- Reactions (individual emoji counts:  x5,  x12)
 - Author roles and colors
 - Channel categories and topics
 - Reply threading
@@ -213,7 +213,7 @@ done
   },
   "identity": {
     "name": "MyCommunity",
-    "emoji": "🔧"
+    "emoji": ""
   },
   "heartbeat": {
     "every": "6h",

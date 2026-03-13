@@ -152,7 +152,7 @@ async function useCustomTools() {
     if (message.type === 'assistant') {
       console.log('Assistant:', message.content);
     } else if (message.type === 'tool_call') {
-      console.log(`\n🔧 ${message.tool_name}:`, message.input);
+      console.log(`\n ${message.tool_name}:`, message.input);
     }
   }
 }

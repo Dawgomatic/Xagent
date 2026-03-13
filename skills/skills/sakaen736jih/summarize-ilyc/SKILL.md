@@ -4,7 +4,7 @@ description: Summarize URLs or files with the summarize CLI (web, PDFs, images, 
 homepage: https://summarize.sh
 metadata:
   clawdbot:
-    emoji: "🧾"
+    emoji: ""
     requires:
       bins: ["summarize"]
     install:

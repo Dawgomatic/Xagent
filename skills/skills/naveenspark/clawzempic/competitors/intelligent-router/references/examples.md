@@ -440,7 +440,7 @@ sessions_spawn(
 **Wrong**: Using CRITICAL tier for heartbeat checks
 
 ```python
-# ❌ DON'T DO THIS
+#  DON'T DO THIS
 sessions_spawn(
     task="Check if server is responding",
     model="{critical_model}",  # $0.025 per check
@@ -450,7 +450,7 @@ sessions_spawn(
 
 **Right**: Use SIMPLE tier
 ```python
-# ✅ DO THIS
+#  DO THIS
 sessions_spawn(
     task="Check if server is responding",
     model="{simple_model}",  # $0.0001 per check
@@ -466,7 +466,7 @@ sessions_spawn(
 **Wrong**: Using SIMPLE tier for security audit
 
 ```python
-# ❌ DON'T DO THIS
+#  DON'T DO THIS
 sessions_spawn(
     task="Security audit of authentication system",
     model="{simple_model}",  # Might miss subtle vulnerabilities
@@ -476,7 +476,7 @@ sessions_spawn(
 
 **Right**: Use CRITICAL tier
 ```python
-# ✅ DO THIS
+#  DO THIS
 sessions_spawn(
     task="Security audit of authentication system",
     model="{critical_model}",
@@ -513,7 +513,7 @@ else:
 **Wrong**: COMPLEX tier without thinking on hard problem
 
 ```python
-# ❌ SUBOPTIMAL
+#  SUBOPTIMAL
 sessions_spawn(
     task="Design scalable architecture for real-time messaging system",
     model="{complex_model}",
@@ -524,7 +524,7 @@ sessions_spawn(
 
 **Right**: Enable thinking for architectural decisions
 ```python
-# ✅ BETTER
+#  BETTER
 sessions_spawn(
     task="Design scalable architecture for real-time messaging system",
     model="{complex_model}",

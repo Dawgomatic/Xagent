@@ -224,10 +224,10 @@ Regular weekly system health check.
 - Swap: 2GB/4GB
 
 ## Services
-- nginx: Running ✅
-- docker: Running ✅
-- postgres: Running ✅
-- fail2ban: Running ✅
+- nginx: Running 
+- docker: Running 
+- postgres: Running 
+- fail2ban: Running 
 
 ## Issues Found
 - /var/log at 85% capacity
@@ -310,13 +310,13 @@ cat ~/.ssh-workdir/{host3}/2026-02-07-system-check/output/df-h.txt
 - Root: 45% used
 
 ### Host3
-- Root: 80% used ⚠️
+- Root: 80% used 
 
 ## Memory
 
 ### Host1: 8GB/16GB (50%)
 ### Host2: 4GB/8GB (50%)
-### Host3: 12GB/16GB (75%) ⚠️
+### Host3: 12GB/16GB (75%) 
 ```
 
 ## Integration with MCP Commands

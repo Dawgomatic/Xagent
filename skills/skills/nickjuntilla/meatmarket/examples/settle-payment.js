@@ -34,7 +34,7 @@ async function main() {
   const provider = new ethers.JsonRpcProvider("https://mainnet.base.org");
   const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
 
-  console.log(`\n🚀 Initializing settlement for Job: ${jobId}`);
+  console.log(`\n Initializing settlement for Job: ${jobId}`);
   console.log(`   Target: ${to}`);
   console.log(`   Amount: ${amount} ${type}`);
 
@@ -43,7 +43,7 @@ async function main() {
     // (Actual ERC-20 transfer logic would go here using ethers.Contract)
     console.log(`   -> Signing and broadcasting transaction...`);
     const txHash = "0x" + "a".repeat(64); // Mock Hash for Example
-    console.log(`   ✅ Transaction Confirmed: ${txHash}`);
+    console.log(`    Transaction Confirmed: ${txHash}`);
 
     // 2. NOTIFY MEATMARKET API
     const res = await fetch(`${BASE_URL}/jobs/${jobId}`, {
@@ -56,12 +56,12 @@ async function main() {
     });
 
     if (res.ok) {
-      console.log('   ✅ MeatMarket ledger updated. Mission Finalized.');
+      console.log('    MeatMarket ledger updated. Mission Finalized.');
     } else {
-      console.error('   ❌ API update failed.');
+      console.error('    API update failed.');
     }
   } catch (err) {
-    console.error('   ❌ Settlement Failure:', err.message);
+    console.error('    Settlement Failure:', err.message);
   }
 }
 

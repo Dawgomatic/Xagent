@@ -129,7 +129,7 @@ ssh_session_send session="sess-abc123" command="cd /home/imax/app && npm ci" > ~
 
 # Check for errors
 if grep -q "ERR\|Error\|error" ~/.ssh-workdir/rock-5t/2026-02-07-deployment/output/npm-ci.txt; then
-    echo "⚠️ npm install had warnings/errors - review output" >> ~/.ssh-workdir/rock-5t/2026-02-07-deployment/summary.md
+    echo " npm install had warnings/errors - review output" >> ~/.ssh-workdir/rock-5t/2026-02-07-deployment/summary.md
 else
     echo "Dependencies installed successfully" >> ~/.ssh-workdir/rock-5t/2026-02-07-deployment/summary.md
 fi
@@ -143,11 +143,11 @@ ssh_session_send session="sess-abc123" command="cd /home/imax/app && npm test" >
 
 # Check test results
 if grep -q "FAIL\|failed\|0 passing" ~/.ssh-workdir/rock-5t/2026-02-07-deployment/output/npm-test.txt; then
-    echo "❌ Tests failed - review output" >> ~/.ssh-workdir/rock-5t/2026-02-07-deployment/summary.md
+    echo " Tests failed - review output" >> ~/.ssh-workdir/rock-5t/2026-02-07-deployment/summary.md
     echo "Tests failed. Continue anyway? (y/n)" >&2
     # Wait for user confirmation before proceeding
 else
-    echo "✅ Tests passed" >> ~/.ssh-workdir/rock-5t/2026-02-07-deployment/summary.md
+    echo " Tests passed" >> ~/.ssh-workdir/rock-5t/2026-02-07-deployment/summary.md
 fi
 ```
 
@@ -159,9 +159,9 @@ ssh_session_send session="sess-abc123" command="cd /home/imax/app && npm run bui
 
 # Check build success
 if [ $? -eq 0 ]; then
-    echo "✅ Build successful" >> ~/.ssh-workdir/rock-5t/2026-02-07-deployment/summary.md
+    echo " Build successful" >> ~/.ssh-workdir/rock-5t/2026-02-07-deployment/summary.md
 else
-    echo "❌ Build failed - review output" >> ~/.ssh-workdir/rock-5t/2026-02-07-deployment/summary.md
+    echo " Build failed - review output" >> ~/.ssh-workdir/rock-5t/2026-02-07-deployment/summary.md
     # Rollback decision point
 fi
 ```
@@ -229,29 +229,29 @@ cat > ~/.ssh-workdir/rock-5t/2026-02-07-deployment/summary.md << 'EOF'
 
 ## Deployment Steps
 
-### ✅ Pre-deployment
+###  Pre-deployment
 - Backup created: /tmp/backup-20260207.tar.gz
 - Disk space checked: OK
 
-### ✅ Git
+###  Git
 - Fetched latest: OK
 - Pulled main: OK
 
-### ✅ Dependencies
+###  Dependencies
 - npm ci: OK
 - No errors
 
-### ✅ Tests
+###  Tests
 - All tests: PASSED
 
-### ✅ Build
+###  Build
 - Build: SUCCESS
 
-### ✅ Deployment
+###  Deployment
 - Service stopped: OK
 - Service started: OK
 
-### ✅ Verification
+###  Verification
 - Health check: HTTP 200
 - Service status: running
 

@@ -2,7 +2,7 @@
 name: free-worker-dispatch
 description: Route tasks to free AI models via OpenRouter to save money. Use when the agent needs to delegate content writing, research, code generation, or other tasks to cheaper/free models instead of using expensive primary models. Prevents surprise API bills.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🏭", "os": ["darwin", "linux"], "requires": {"bins": ["python3"], "env": ["OPENROUTER_API_KEY"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"], "env": ["OPENROUTER_API_KEY"]}}}
 ---
 
 # Free Worker Dispatch

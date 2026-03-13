@@ -1,6 +1,6 @@
 # Postiz CLI - Creation Summary
 
-## ✅ What Was Created
+##  What Was Created
 
 A complete, production-ready CLI package for the Postiz API has been successfully created at `apps/cli/`.
 
@@ -13,7 +13,7 @@ A complete, production-ready CLI package for the Postiz API has been successfull
 - **Build Size:** ~491KB (compressed)
 - **License:** AGPL-3.0
 
-## 📦 Package Structure
+##  Package Structure
 
 ```
 apps/cli/
@@ -44,46 +44,46 @@ apps/cli/
     └── .npmignore                # npm ignore
 ```
 
-## 🚀 Features Implemented
+##  Features Implemented
 
 ### Commands
 
 1. **posts:create** - Create social media posts
-   - ✅ Content input
-   - ✅ Integration selection
-   - ✅ Scheduled posting
-   - ✅ Image attachment
+   -  Content input
+   -  Integration selection
+   -  Scheduled posting
+   -  Image attachment
 
 2. **posts:list** - List all posts
-   - ✅ Pagination support
-   - ✅ Search functionality
-   - ✅ Filtering options
+   -  Pagination support
+   -  Search functionality
+   -  Filtering options
 
 3. **posts:delete** - Delete posts by ID
-   - ✅ ID-based deletion
-   - ✅ Confirmation messages
+   -  ID-based deletion
+   -  Confirmation messages
 
 4. **integrations:list** - Show connected accounts
-   - ✅ List all integrations
-   - ✅ Show provider info
+   -  List all integrations
+   -  Show provider info
 
 5. **upload** - Upload media files
-   - ✅ Image upload support
-   - ✅ Multiple formats (PNG, JPG, GIF)
+   -  Image upload support
+   -  Multiple formats (PNG, JPG, GIF)
 
 ### Technical Features
 
-- ✅ Environment variable configuration (POSTIZ_API_KEY)
-- ✅ Custom API URL support (POSTIZ_API_URL)
-- ✅ Comprehensive error handling
-- ✅ User-friendly error messages with emojis
-- ✅ JSON output for programmatic parsing
-- ✅ Executable shebang for direct execution
-- ✅ TypeScript with proper types
-- ✅ Source maps for debugging
-- ✅ Build optimization with tsup
+-  Environment variable configuration (POSTIZ_API_KEY)
+-  Custom API URL support (POSTIZ_API_URL)
+-  Comprehensive error handling
+-  User-friendly error messages with emojis
+-  JSON output for programmatic parsing
+-  Executable shebang for direct execution
+-  TypeScript with proper types
+-  Source maps for debugging
+-  Build optimization with tsup
 
-## 📚 Documentation Created
+##  Documentation Created
 
 1. **README.md** (Primary documentation)
    - Installation instructions
@@ -114,7 +114,7 @@ apps/cli/
    - Build process
    - Integration points
 
-## 🔧 Build System Integration
+##  Build System Integration
 
 ### Root package.json Scripts Added
 
@@ -136,7 +136,7 @@ apps/cli/
 }
 ```
 
-## 🎯 Usage Examples
+##  Usage Examples
 
 ### Basic Usage
 
@@ -162,53 +162,53 @@ export POSTIZ_API_KEY="your_key"
 postiz posts:create -c "Your content here"
 ```
 
-## ✨ Example Files
+##  Example Files
 
 1. **basic-usage.sh**
    - Shell script demonstration
    - Complete workflow example
    - Error handling
 
-## 🧪 Testing
+##  Testing
 
 ### Manual Testing Completed
 
 ```bash
-✅ Build successful (173ms)
-✅ Help command works
-✅ Version command works (1.0.0)
-✅ Error handling works (API key validation)
-✅ All commands have help text
-✅ Examples are valid
+ Build successful (173ms)
+ Help command works
+ Version command works (1.0.0)
+ Error handling works (API key validation)
+ All commands have help text
+ Examples are valid
 ```
 
 ### Test Results
 
 ```
-✅ pnpm run build:cli - SUCCESS
-✅ postiz --help - SUCCESS
-✅ postiz --version - SUCCESS
-✅ postiz posts:create --help - SUCCESS
-✅ Error without API key - WORKS AS EXPECTED
+ pnpm run build:cli - SUCCESS
+ postiz --help - SUCCESS
+ postiz --version - SUCCESS
+ postiz posts:create --help - SUCCESS
+ Error without API key - WORKS AS EXPECTED
 ```
 
-## 📋 Checklist
+##  Checklist
 
-- ✅ CLI package created in apps/cli
-- ✅ Package name is "postiz"
-- ✅ Uses POSTIZ_API_KEY environment variable
-- ✅ Integrates with Postiz public API
-- ✅ Built for AI agent usage
-- ✅ SKILL.md created with comprehensive guide
-- ✅ README.md with full documentation
-- ✅ Build system configured
-- ✅ TypeScript compilation working
-- ✅ Executable binary generated
-- ✅ Examples provided
-- ✅ Error handling implemented
-- ✅ Help documentation complete
+-  CLI package created in apps/cli
+-  Package name is "postiz"
+-  Uses POSTIZ_API_KEY environment variable
+-  Integrates with Postiz public API
+-  Built for AI agent usage
+-  SKILL.md created with comprehensive guide
+-  README.md with full documentation
+-  Build system configured
+-  TypeScript compilation working
+-  Executable binary generated
+-  Examples provided
+-  Error handling implemented
+-  Help documentation complete
 
-## 🚦 Next Steps
+##  Next Steps
 
 ### To Use Locally
 
@@ -246,7 +246,7 @@ pnpm run publish
 4. Parse JSON output
 5. See SKILL.md for patterns
 
-## 📊 Statistics
+##  Statistics
 
 - **Total Files Created:** 18
 - **Source Code Files:** 6
@@ -257,15 +257,15 @@ pnpm run publish
 - **Build Time:** ~170ms
 - **Output Size:** 491KB
 
-## 🎉 Summary
+##  Summary
 
 A complete, production-ready CLI tool for Postiz has been created with:
 
-- ✅ All requested features implemented
-- ✅ Comprehensive documentation for users and AI agents
-- ✅ Working examples
-- ✅ Proper build system
-- ✅ Ready for npm publishing
-- ✅ Integrated into monorepo
+-  All requested features implemented
+-  Comprehensive documentation for users and AI agents
+-  Working examples
+-  Proper build system
+-  Ready for npm publishing
+-  Integrated into monorepo
 
 The CLI is ready to use and can be published to npm whenever you're ready!

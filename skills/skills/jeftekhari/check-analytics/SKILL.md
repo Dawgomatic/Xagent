@@ -43,9 +43,9 @@ Check for:
 ### Recommendations
 
 Provide actionable fixes ranked by priority:
-- 🔴 Critical (breaking/deprecated)
-- 🟡 Warning (best practice violations)
-- 🟢 Suggestion (optimizations)
+-  Critical (breaking/deprecated)
+-  Warning (best practice violations)
+-  Suggestion (optimizations)
 
 ### Event Coverage Analysis
 
@@ -71,20 +71,20 @@ List custom events being tracked and suggest missing ones:
 
 ## Issues
 
-### 🔴 Critical
+###  Critical
 [list critical issues]
 
-### 🟡 Warnings
+###  Warnings
 [list warnings]
 
-### 🟢 Suggestions
+###  Suggestions
 [list suggestions]
 
 ## Event Coverage
 | Event Type | Status | Recommendation |
 |------------|--------|----------------|
-| Page Views | ✅ | - |
-| Sign Up | ❌ | Add sign_up event |
+| Page Views |  | - |
+| Sign Up |  | Add sign_up event |
 | ... | ... | ... |
 
 ## Next Steps

@@ -13,9 +13,9 @@
 | 4. Final Report | Review comprehensive report | Present academic narrative | Full paper |
 
 ## Stop Points (Only Three)
-1. ✅ After clarifying questions (Phase 1)
-2. ✅ After research plan presentation (Phase 2)
-3. ✅ Final report delivery (Phase 4)
+1.  After clarifying questions (Phase 1)
+2.  After research plan presentation (Phase 2)
+3.  Final report delivery (Phase 4)
 
 ## Tool Usage Sequence (Per Theme)
 1. **START:** `web_search` for landscape (count=20)

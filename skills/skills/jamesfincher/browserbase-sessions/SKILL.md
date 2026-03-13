@@ -3,7 +3,7 @@ name: browserbase-sessions
 description: Create and manage persistent Browserbase cloud browser sessions with authentication persistence. Use when you need to automate browsers, maintain logged-in sessions across interactions, scrape authenticated pages, or manage cloud browser instances.
 license: MIT
 homepage: https://docs.browserbase.com
-metadata: {"author":"custom","version":"2.5.0","openclaw":{"emoji":"🌐","requires":{"bins":["python3"]},"primaryEnv":"BROWSERBASE_API_KEY"}}
+metadata: {"author":"custom","version":"2.5.0","openclaw":{"emoji":"","requires":{"bins":["python3"]},"primaryEnv":"BROWSERBASE_API_KEY"}}
 ---
 
 # Browserbase Sessions Skill

@@ -22,19 +22,19 @@ python examples_whatsapp.py
 ## What Problem Does This Solve?
 
 **Without This System:**
-- ❌ Agents have no context when customer messages arrive
-- ❌ No idea if customer is VIP or first-timer
-- ❌ Can't see order status without switching systems
-- ❌ Don't know if message is urgent or can wait
-- ❌ Guessing what to say instead of smart suggestions
+-  Agents have no context when customer messages arrive
+-  No idea if customer is VIP or first-timer
+-  Can't see order status without switching systems
+-  Don't know if message is urgent or can wait
+-  Guessing what to say instead of smart suggestions
 
 **With This System:**
-- ✅ Complete customer context in 2 seconds
-- ✅ Automatic sentiment analysis (angry/happy/neutral)
-- ✅ Smart priority (critical/high/normal/low)
-- ✅ Order status right there
-- ✅ AI-powered response suggestions
-- ✅ VIP customer detection
+-  Complete customer context in 2 seconds
+-  Automatic sentiment analysis (angry/happy/neutral)
+-  Smart priority (critical/high/normal/low)
+-  Order status right there
+-  AI-powered response suggestions
+-  VIP customer detection
 
 ## Basic Usage
 
@@ -69,15 +69,15 @@ print(f"VIP Customer: {context.customer.is_vip}")   # True/False
 
 # Key insights
 for insight in context.key_insights:
-    print(f"💡 {insight}")
+    print(f" {insight}")
 
 # Warnings
 for warning in context.warnings:
-    print(f"⚠️ {warning}")
+    print(f" {warning}")
 
 # Suggested responses
 for response in context.suggested_responses:
-    print(f"💬 {response}")
+    print(f" {response}")
 ```
 
 ### 4. Send Reply
@@ -106,14 +106,14 @@ manager.send_message(
 │ Category: ORDER_STATUS                               │
 ├──────────────────────────────────────────────────────┤
 │ KEY INSIGHTS:                                        │
-│   • 🌟 VIP Customer - Prioritize response            │
-│   • 📦 Active Order: #ORD-12345 - shipped            │
-│   • 🚚 Tracking: TRK-ABC123                          │
-│   • ⚡ Customer expects fast replies (~2min)         │
+│   •  VIP Customer - Prioritize response            │
+│   •  Active Order: #ORD-12345 - shipped            │
+│   •  Tracking: TRK-ABC123                          │
+│   •  Customer expects fast replies (~2min)         │
 ├──────────────────────────────────────────────────────┤
 │ WARNINGS:                                            │
-│   • 🚨 CRITICAL: Requires immediate attention!       │
-│   • 😡 Customer is very upset - handle with care     │
+│   •  CRITICAL: Requires immediate attention!       │
+│   •  Customer is very upset - handle with care     │
 ├──────────────────────────────────────────────────────┤
 │ SUGGESTED RESPONSES:                                 │
 │   1. Let me check your order status right away.     │
@@ -137,11 +137,11 @@ print(context.sentiment.value)  # "positive"
 ```
 
 **Sentiment Levels:**
-- 😡 `very_negative` - Angry, furious, scam
-- 😟 `negative` - Disappointed, problem
-- 😐 `neutral` - Questions, info requests
-- 😊 `positive` - Thanks, happy
-- 🤩 `very_positive` - Excellent, love it
+-  `very_negative` - Angry, furious, scam
+-  `negative` - Disappointed, problem
+-  `neutral` - Questions, info requests
+-  `positive` - Thanks, happy
+-  `very_positive` - Excellent, love it
 
 ### 2. Message Categorization
 
@@ -157,14 +157,14 @@ print(context.category)  # MessageCategory.PAYMENT
 ```
 
 **Categories:**
-- 📦 `ORDER_STATUS` - Delivery, tracking, shipment
-- 💳 `PAYMENT` - Refund, billing, transaction
-- 🔴 `COMPLAINT` - Problem, issue, broken
-- 🛍️ `PRODUCT_INQUIRY` - Price, stock, features
-- 🆘 `SUPPORT` - Help, how-to, questions
-- 💰 `SALES` - Buy, purchase, interested
-- ⭐ `FEEDBACK` - Review, opinion
-- ❓ `OTHER` - Uncategorized
+-  `ORDER_STATUS` - Delivery, tracking, shipment
+-  `PAYMENT` - Refund, billing, transaction
+-  `COMPLAINT` - Problem, issue, broken
+-  `PRODUCT_INQUIRY` - Price, stock, features
+-  `SUPPORT` - Help, how-to, questions
+-  `SALES` - Buy, purchase, interested
+-  `FEEDBACK` - Review, opinion
+-  `OTHER` - Uncategorized
 
 ### 3. Priority Calculation
 
@@ -181,10 +181,10 @@ print(context.priority.value)  # "critical"
 ```
 
 **Priority Levels:**
-- 🔴 `CRITICAL` - Angry customer, payment issue, VIP unhappy
-- 🟠 `HIGH` - Complaints, negative sentiment
-- 🟡 `NORMAL` - General questions
-- 🟢 `LOW` - Info requests, positive feedback
+-  `CRITICAL` - Angry customer, payment issue, VIP unhappy
+-  `HIGH` - Complaints, negative sentiment
+-  `NORMAL` - General questions
+-  `LOW` - Info requests, positive feedback
 
 ### 4. Response Suggestions
 
@@ -333,8 +333,8 @@ print(context.sentiment.value)  # "very_negative"
 # Agent sees warnings:
 for warning in context.warnings:
     print(warning)
-# "🚨 CRITICAL: Requires immediate attention!"
-# "😡 Customer is very upset - handle with care"
+# " CRITICAL: Requires immediate attention!"
+# " Customer is very upset - handle with care"
 
 # Suggested response
 print(context.suggested_responses[0])
@@ -367,10 +367,10 @@ priority_order = {
 contexts.sort(key=lambda x: priority_order[x[1].priority])
 
 # Agent dashboard shows:
-# 1. 🔴 +2222222222 - CRITICAL - Payment failed
-# 2. 🟠 +3333333333 - HIGH - Complaint
-# 3. 🟡 +1111111111 - NORMAL - Info request
-# 4. 🟢 +4444444444 - LOW - Thank you message
+# 1.  +2222222222 - CRITICAL - Payment failed
+# 2.  +3333333333 - HIGH - Complaint
+# 3.  +1111111111 - NORMAL - Info request
+# 4.  +4444444444 - LOW - Thank you message
 ```
 
 ### Use Case 4: First-time vs Returning Customer
@@ -385,10 +385,10 @@ context = manager.process_incoming_message(
 
 # Check if first time
 if context.customer.total_messages == 1:
-    print("👋 First time customer!")
+    print(" First time customer!")
     # Show introduction, onboarding info
 else:
-    print(f"📊 Returning customer ({context.customer.total_messages} messages)")
+    print(f" Returning customer ({context.customer.total_messages} messages)")
     # Show history, previous orders
 ```
 
@@ -451,11 +451,11 @@ def process_message():
 ### 1. Always Process Through System
 
 ```python
-# Good ✅
+# Good 
 context = manager.process_incoming_message(phone, message, agent_id)
 # Agent has full context
 
-# Bad ❌
+# Bad 
 # Responding without context
 send_reply_directly(phone, "Hello")  # Agent is blind
 ```
@@ -594,19 +594,19 @@ whatsapp-context-manager/
 python test_whatsapp.py
 
 # Should show:
-# ✅ Sentiment analysis tests passed
-# ✅ Message categorization tests passed
-# ✅ Priority calculation tests passed
-# ✅ Customer management tests passed
-# ✅ Message storage tests passed
-# ✅ Order management tests passed
-# ✅ VIP customer tests passed
-# ✅ Sentiment tracking tests passed
-# ✅ Response suggestions tests passed
-# ✅ Priority queue tests passed
-# ✅ Conversation flow tests passed
-# ✅ Context export tests passed
-# ✅ ALL TESTS PASSED
+#  Sentiment analysis tests passed
+#  Message categorization tests passed
+#  Priority calculation tests passed
+#  Customer management tests passed
+#  Message storage tests passed
+#  Order management tests passed
+#  VIP customer tests passed
+#  Sentiment tracking tests passed
+#  Response suggestions tests passed
+#  Priority queue tests passed
+#  Conversation flow tests passed
+#  Context export tests passed
+#  ALL TESTS PASSED
 ```
 
 ## Examples
@@ -629,19 +629,19 @@ Includes:
 
 ## Getting Help
 
-- 📖 Read full documentation: `README_WHATSAPP.md`
-- 💻 Check examples: `examples_whatsapp.py`
-- 🧪 Run tests: `test_whatsapp.py`
-- 🐛 Report issues on GitHub
-- ⭐ Star the repo if helpful!
+-  Read full documentation: `README_WHATSAPP.md`
+-  Check examples: `examples_whatsapp.py`
+-  Run tests: `test_whatsapp.py`
+-  Report issues on GitHub
+-  Star the repo if helpful!
 
 ## Next Steps
 
-1. ✅ Install and verify: `python install_check_whatsapp.py`
-2. ✅ Run tests: `python test_whatsapp.py`
-3. ✅ Try examples: `python examples_whatsapp.py`
-4. ✅ Integrate with your WhatsApp system
-5. ✅ Customize for your needs
+1.  Install and verify: `python install_check_whatsapp.py`
+2.  Run tests: `python test_whatsapp.py`
+3.  Try examples: `python examples_whatsapp.py`
+4.  Integrate with your WhatsApp system
+5.  Customize for your needs
 
 ## License
 
@@ -654,4 +654,4 @@ MIT License - see `LICENSE_WHATSAPP` file
 
 ---
 
-**Transform your WhatsApp customer service from reactive to proactive!** 🚀
+**Transform your WhatsApp customer service from reactive to proactive!** 

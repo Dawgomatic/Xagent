@@ -6,7 +6,7 @@ set -euo pipefail
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 readonly WORKSPACE="${SCRIPT_DIR}/workspace"
 
-echo "🐝 Phase 3: Objective Self-Scoring..."
+echo " Phase 3: Objective Self-Scoring..."
 
 # Scoring dimensions
 declare -A MAX_SCORES=(
@@ -117,4 +117,4 @@ for agent in a b c; do
     fi
 done
 
-echo "✅ Phase 3 complete: 3 scorecards created and validated"
+echo " Phase 3 complete: 3 scorecards created and validated"

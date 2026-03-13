@@ -1,4 +1,4 @@
-# 💰 Value Tracker
+#  Value Tracker
 
 **Quantify the ROI of your AI assistant.**
 
@@ -6,11 +6,11 @@ Track hours saved with differentiated rates by category. Strategy work pays more
 
 ## Features
 
-- ✅ **Category-based rates** — Strategy ($150/hr) vs Ops ($50/hr)
-- ✅ **Auto-detection** — Automatically categorize tasks by keywords
-- ✅ **Multiple views** — Today, week, month, all-time summaries
-- ✅ **Markdown reports** — Export beautiful reports
-- ✅ **JSON export** — Feed into dashboards
+-  **Category-based rates** — Strategy ($150/hr) vs Ops ($50/hr)
+-  **Auto-detection** — Automatically categorize tasks by keywords
+-  **Multiple views** — Today, week, month, all-time summaries
+-  **Markdown reports** — Export beautiful reports
+-  **JSON export** — Feed into dashboards
 
 ## Quick Start
 
@@ -32,13 +32,13 @@ Track hours saved with differentiated rates by category. Strategy work pays more
 
 | Category | Rate | Examples |
 |----------|------|----------|
-| 🎯 strategy | $150/hr | Planning, decisions, roadmaps |
-| 🔍 research | $100/hr | Analysis, market research |
-| 💹 finance | $100/hr | Forecasting, budgets |
-| ⚙️ tech | $85/hr | Integrations, automations |
-| 📈 sales | $75/hr | CRM, pipeline, outreach |
-| 📣 marketing | $65/hr | Content, campaigns |
-| 🔧 ops | $50/hr | Email, scheduling, admin |
+|  strategy | $150/hr | Planning, decisions, roadmaps |
+|  research | $100/hr | Analysis, market research |
+|  finance | $100/hr | Forecasting, budgets |
+|  tech | $85/hr | Integrations, automations |
+|  sales | $75/hr | CRM, pipeline, outreach |
+|  marketing | $65/hr | Content, campaigns |
+|  ops | $50/hr | Email, scheduling, admin |
 
 Edit `config.json` to customize rates.
 

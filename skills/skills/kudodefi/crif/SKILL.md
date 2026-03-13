@@ -7,7 +7,7 @@ author:
   social: "https://x.com/kudodefi"
 github: "https://github.com/kudodefi/crif"
 metadata:
-  emoji: "🔬"
+  emoji: ""
   category: "research"
 ---
 
@@ -25,11 +25,11 @@ This file contains complete instructions for AI agents working within the CRIF f
 
 CRIF is designed for **human-AI pair research**, not autonomous AI execution. Your role is to:
 
-- ✅ **Collaborate** - Work WITH the human, not FOR them
-- ✅ **Check in frequently** - Ask questions, present findings, seek validation
-- ✅ **Be transparent** - Explain your reasoning and approach
-- ✅ **Iterate** - Refine based on human feedback
-- ✅ **Respect expertise** - Human provides domain knowledge, you provide research capacity
+-  **Collaborate** - Work WITH the human, not FOR them
+-  **Check in frequently** - Ask questions, present findings, seek validation
+-  **Be transparent** - Explain your reasoning and approach
+-  **Iterate** - Refine based on human feedback
+-  **Respect expertise** - Human provides domain knowledge, you provide research capacity
 
 ### Execution Modes
 
@@ -336,13 +336,13 @@ When activated, read files in this order:
 
 ### Key Principles
 
-- ✅ **Read and follow framework file instructions** - Don't improvise
-- ✅ **Collaborative mode by default** - Check in frequently
-- ✅ **Ask questions when uncertain** - Don't make assumptions
-- ✅ **Embody the agent persona** - You ARE that expert
-- ✅ **Follow workflow methodology** - Structured approach
-- ✅ **Use templates for output** - Consistent format
-- ✅ **Cite sources with confidence levels** - Transparency
+-  **Read and follow framework file instructions** - Don't improvise
+-  **Collaborative mode by default** - Check in frequently
+-  **Ask questions when uncertain** - Don't make assumptions
+-  **Embody the agent persona** - You ARE that expert
+-  **Follow workflow methodology** - Structured approach
+-  **Use templates for output** - Consistent format
+-  **Cite sources with confidence levels** - Transparency
 
 ---
 

@@ -72,10 +72,10 @@ chmod +x publish.sh
 **Expected output:**
 
 ```
-🎴 Publishing LunchTable-TCG to ClawHub...
+ Publishing LunchTable-TCG to ClawHub...
 
 Step 1/6: Validating skill format...
-✅ Validation passed!
+ Validation passed!
 
 Step 2/6: Checking ClawHub CLI...
 ✓ ClawHub CLI found
@@ -93,10 +93,10 @@ Step 5/6: Submitting to ClawHub...
 ✓ Successfully submitted to ClawHub
 
 Step 6/6: Publish to npm (optional)...
-📦 Also publish to npm? [y/N]
+ Also publish to npm? [y/N]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Publishing complete!
+ Publishing complete!
 
 Next steps:
   • Track submission: clawhub status lunchtable-tcg

@@ -1,4 +1,4 @@
-# Data Analyst — AfrexAI ⚡📊
+# Data Analyst — AfrexAI 
 
 **Transform raw data into decisions. Not just charts — answers.**
 
@@ -43,7 +43,7 @@ analysis_brief:
 ```
 
 ### Question Quality Checklist
-- [ ] Is it specific enough to answer? ("Revenue is down" ❌ → "Q4 revenue dropped 12% vs Q3 in the SMB segment" ✅)
+- [ ] Is it specific enough to answer? ("Revenue is down"  → "Q4 revenue dropped 12% vs Q3 in the SMB segment" )
 - [ ] Is the decision clear? (If yes → do X, if no → do Y)
 - [ ] Do we have the data to answer it?
 - [ ] Is there a time constraint?
@@ -305,7 +305,7 @@ CONFIDENCE: High — based on 847 churned accounts with clear acquisition source
 | Geographic | Map / choropleth | Location-based data | Bar chart |
 
 ### Chart Formatting Rules
-1. **Title = the insight**, not the data description ("SMB churn drove Q4 revenue drop" ✅, "Q4 Revenue by Segment" ❌)
+1. **Title = the insight**, not the data description ("SMB churn drove Q4 revenue drop" , "Q4 Revenue by Segment" )
 2. **Y-axis starts at zero** for bar charts (truncating exaggerates)
 3. **Annotate inflection points** — label the moments that matter
 4. **Limit colors to 5** — use grey for everything except the story
@@ -568,4 +568,4 @@ METHODOLOGY: 30-day comparison, segmented by device + browser + date.
 
 ---
 
-*Built by AfrexAI ⚡ — turning data into decisions.*
+*Built by AfrexAI  — turning data into decisions.*

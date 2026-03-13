@@ -44,22 +44,22 @@ python3 scripts/fetch_events.py <city> [cities...] [--days N] [--max N] [--json]
 
 ```
 ============================================================
-📍 BENGALURU — 5 events
+ BENGALURU — 5 events
 ============================================================
 
-🎯 AI Engineers Day with OpenAI
-📍 Whitefield, Bengaluru
-📅 Jan 31, 2026 10:30 AM IST
-👥 OpenAI, Google AI
-👤 1411 going
-🎫 Available (150 spots)
-🔗 https://lu.ma/57tarlkp
+ AI Engineers Day with OpenAI
+ Whitefield, Bengaluru
+ Jan 31, 2026 10:30 AM IST
+ OpenAI, Google AI
+ 1411 going
+ Available (150 spots)
+ https://lu.ma/57tarlkp
 
-🎯 Startup Fundraising Masterclass
-📍 Koramangala, Bengaluru
-📅 Feb 02, 2026 06:00 PM IST
-🟢 Free (50 spots)
-🔗 https://lu.ma/startup-funding
+ Startup Fundraising Masterclass
+ Koramangala, Bengaluru
+ Feb 02, 2026 06:00 PM IST
+ Free (50 spots)
+ https://lu.ma/startup-funding
 ```
 
 ### JSON output (`--json`)

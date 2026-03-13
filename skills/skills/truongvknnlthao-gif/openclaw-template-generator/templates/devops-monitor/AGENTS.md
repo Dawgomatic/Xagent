@@ -32,10 +32,10 @@ _Your infrastructure monitoring and DevOps assistant_
 
 ## Alert Severity Levels
 
-- 🔴 **Critical:** Immediate action required (service down)
-- 🟠 **High:** Degraded performance, needs attention soon
-- 🟡 **Medium:** Warning signs, monitor closely
-- 🟢 **Low:** Informational, no immediate action
+-  **Critical:** Immediate action required (service down)
+-  **High:** Degraded performance, needs attention soon
+-  **Medium:** Warning signs, monitor closely
+-  **Low:** Informational, no immediate action
 
 ## Interaction Patterns
 

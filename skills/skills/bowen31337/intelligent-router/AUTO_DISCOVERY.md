@@ -69,11 +69,11 @@ Auto-assigns tiers based on model metadata:
 
 | Tier | Criteria |
 |------|----------|
-| 🟢 SIMPLE | Cost < $0.50/M, any capabilities |
-| 🟡 MEDIUM | Cost $0.50-$2/M, has code/reasoning |
-| 🟠 COMPLEX | Cost $2-$5/M, agentic + multi-tool |
-| 🔵 REASONING | Has reasoning flag, any cost |
-| 🔴 CRITICAL | Cost > $5/M, top-tier provider |
+|  SIMPLE | Cost < $0.50/M, any capabilities |
+|  MEDIUM | Cost $0.50-$2/M, has code/reasoning |
+|  COMPLEX | Cost $2-$5/M, agentic + multi-tool |
+|  REASONING | Has reasoning flag, any cost |
+|  CRITICAL | Cost > $5/M, top-tier provider |
 
 ### 4. Config Update
 
@@ -197,7 +197,7 @@ If discovery finds unavailable models:
 2. Logs to `discovered-models.json`
 3. Sends alert to main session:
    ```
-   ⚠️ Model discovery alert: 2 model(s) failed health check
+    Model discovery alert: 2 model(s) failed health check
    - google-gemini-cli/gemini-3-pro-preview: OAuth token expired
    - anthropic-proxy-5/deepseek-chat: Connection timeout
    ```
@@ -319,11 +319,11 @@ python3 skills/intelligent-router/scripts/discover_models.py --auto-update
 
 ## Summary
 
-✅ **Self-healing:** Removes broken models automatically
-✅ **Zero maintenance:** No manual model list updates
-✅ **Cost-effective:** Always uses cheapest working model per tier
-✅ **Comprehensive:** Tests every provider, every model
-✅ **Fast:** 10-60 seconds for full scan
-✅ **Safe:** Preserves pinned models, tier rules
+ **Self-healing:** Removes broken models automatically
+ **Zero maintenance:** No manual model list updates
+ **Cost-effective:** Always uses cheapest working model per tier
+ **Comprehensive:** Tests every provider, every model
+ **Fast:** 10-60 seconds for full scan
+ **Safe:** Preserves pinned models, tier rules
 
 **Recommendation:** Enable hourly auto-refresh for production setups.

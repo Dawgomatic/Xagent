@@ -60,10 +60,10 @@ During interactive setup, the wizard temporarily sets `LINEAR_API_KEY` in the pr
 
 ## What This Tool Does NOT Do
 
-- ❌ Send data to any service except Linear
-- ❌ Modify your system crontab (cron-jobs.txt is examples only)
-- ❌ Cache issue data locally (fetched fresh each run)
-- ❌ Log API keys (keys are never logged)
+-  Send data to any service except Linear
+-  Modify your system crontab (cron-jobs.txt is examples only)
+-  Cache issue data locally (fetched fresh each run)
+-  Log API keys (keys are never logged)
 
 ## Reporting Issues
 

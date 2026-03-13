@@ -10,7 +10,7 @@ from pathlib import Path
 def setup_cron_job():
     """Set up cron job for congressional data collection"""
     
-    print("🔧 Setting up Congressional Trade Data Collection Cron Job")
+    print(" Setting up Congressional Trade Data Collection Cron Job")
     print("="*60)
     
     # Get project paths
@@ -59,12 +59,12 @@ def setup_cron_job():
         
         if process.returncode == 0:
             print("✓ Cron job added successfully")
-            print(f"\n📅 Schedule: {job_schedule} (9 AM Monday-Friday)")
-            print(f"📁 Working Directory: {project_root}")
-            print(f"📜 Script: {cron_script}")
+            print(f"\n Schedule: {job_schedule} (9 AM Monday-Friday)")
+            print(f" Working Directory: {project_root}")
+            print(f" Script: {cron_script}")
             
             # Show current crontab
-            print("\n📋 Current Crontab:")
+            print("\n Current Crontab:")
             subprocess.run(["crontab", "-l"])
             
             return True
@@ -79,7 +79,7 @@ def setup_cron_job():
 def remove_cron_job():
     """Remove congressional data collection cron job"""
     
-    print("🗑️  Removing Congressional Trade Data Collection Cron Job")
+    print("  Removing Congressional Trade Data Collection Cron Job")
     print("="*60)
     
     try:
@@ -122,7 +122,7 @@ def remove_cron_job():
 def show_cron_status():
     """Show current cron job status"""
     
-    print("📊 Congressional Trade Data Collection Cron Status")
+    print(" Congressional Trade Data Collection Cron Status")
     print("="*60)
     
     try:
@@ -131,26 +131,26 @@ def show_cron_status():
         current_crontab = result.stdout
         
         if "# Congressional Trade Data Collection" in current_crontab:
-            print("✅ Cron job is ACTIVE")
+            print(" Cron job is ACTIVE")
             
             # Extract and show our job
             lines = current_crontab.split('\n')
             for i, line in enumerate(lines):
                 if "# Congressional Trade Data Collection" in line:
-                    print(f"\n📅 Job Schedule:")
+                    print(f"\n Job Schedule:")
                     print(f"  {lines[i+1] if i+1 < len(lines) else 'Not found'}")
                     break
         else:
-            print("❌ Cron job is NOT ACTIVE")
+            print(" Cron job is NOT ACTIVE")
         
         # Show next run times
-        print("\n⏰ Next 5 scheduled runs:")
+        print("\n Next 5 scheduled runs:")
         subprocess.run(["crontab", "-l"], capture_output=False)
         
         return True
         
     except subprocess.CalledProcessError:
-        print("❌ No crontab found for current user")
+        print(" No crontab found for current user")
         return False
     except Exception as e:
         print(f"✗ Error checking cron status: {e}")
@@ -159,7 +159,7 @@ def show_cron_status():
 def create_systemd_service():
     """Create systemd service for running as a daemon (alternative to cron)"""
     
-    print("🔧 Creating Systemd Service (Alternative to Cron)")
+    print(" Creating Systemd Service (Alternative to Cron)")
     print("="*60)
     
     script_dir = Path(__file__).parent
@@ -194,7 +194,7 @@ WantedBy=multi-user.target
         f.write(service_content)
     
     print(f"✓ Systemd service file created: {service_file}")
-    print("\n📋 To use systemd instead of cron:")
+    print("\n To use systemd instead of cron:")
     print(f"  1. systemctl --user daemon-reload")
     print(f"  2. systemctl --user enable congress-trade-collector.service")
     print(f"  3. systemctl --user start congress-trade-collector.service")

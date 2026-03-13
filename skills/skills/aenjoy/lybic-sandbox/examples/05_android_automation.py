@@ -23,16 +23,16 @@ async def main():
             sandbox_info = await client.sandbox.get(sandbox_id)
             print(f"✓ Connected to: {sandbox_info.name}")
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f" Error: {e}")
             return
         
         # Take initial screenshot
-        print("\n📸 Taking screenshot...")
+        print("\n Taking screenshot...")
         url, _, _ = await client.sandbox.get_screenshot(sandbox_id)
         print(f"Screenshot: {url}")
         
         # List installed apps
-        print("\n📱 Listing installed apps...")
+        print("\n Listing installed apps...")
         try:
             result = await client.sandbox.execute_sandbox_action(
                 sandbox_id,
@@ -40,10 +40,10 @@ async def main():
             )
             print("✓ Apps listed (check actionResult for details)")
         except Exception as e:
-            print(f"⚠️ Could not list apps: {e}")
+            print(f" Could not list apps: {e}")
         
         # Tap at screen center
-        print("\n👆 Tapping at screen center...")
+        print("\n Tapping at screen center...")
         await client.sandbox.execute_sandbox_action(
             sandbox_id,
             action={
@@ -55,7 +55,7 @@ async def main():
         print("✓ Tap executed")
         
         # Swipe up (like scrolling)
-        print("\n👆 Swiping up...")
+        print("\n Swiping up...")
         await client.sandbox.execute_sandbox_action(
             sandbox_id,
             action={
@@ -69,7 +69,7 @@ async def main():
         print("✓ Swipe executed")
         
         # Type text (for input fields)
-        print("\n⌨️  Typing text...")
+        print("\n  Typing text...")
         await client.sandbox.execute_sandbox_action(
             sandbox_id,
             action={
@@ -80,7 +80,7 @@ async def main():
         print("✓ Text typed")
         
         # Press Android back button
-        print("\n◀️  Pressing back button...")
+        print("\n  Pressing back button...")
         await client.sandbox.execute_sandbox_action(
             sandbox_id,
             action={"type": "android:back"}
@@ -88,7 +88,7 @@ async def main():
         print("✓ Back pressed")
         
         # Press home button
-        print("\n🏠 Pressing home button...")
+        print("\n Pressing home button...")
         await client.sandbox.execute_sandbox_action(
             sandbox_id,
             action={"type": "android:home"}
@@ -98,7 +98,7 @@ async def main():
         # Example: Start Chrome browser
         start_app = input("\nStart Chrome browser? (y/n): ").strip().lower()
         if start_app == 'y':
-            print("\n🌐 Starting Chrome...")
+            print("\n Starting Chrome...")
             try:
                 await client.sandbox.execute_sandbox_action(
                     sandbox_id,
@@ -111,13 +111,13 @@ async def main():
                 
                 # Wait and take screenshot
                 await asyncio.sleep(3)
-                print("\n📸 Taking final screenshot...")
+                print("\n Taking final screenshot...")
                 url2, _, _ = await client.sandbox.get_screenshot(sandbox_id)
                 print(f"Screenshot: {url2}")
             except Exception as e:
-                print(f"❌ Error starting Chrome: {e}")
+                print(f" Error starting Chrome: {e}")
         
-        print("\n✅ Android automation completed!")
+        print("\n Android automation completed!")
 
 
 if __name__ == '__main__':

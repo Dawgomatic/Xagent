@@ -2,7 +2,7 @@
 name: gatewaystack-governance
 description: Deny-by-default governance for every tool call — identity verification, scope enforcement, rate limiting, injection detection, and audit logging. Hooks into OpenClaw at the process level so the agent can't bypass it.
 user-invocable: true
-metadata: { "openclaw": { "emoji": "🛡️", "requires": { "bins": ["node"] }, "homepage": "https://github.com/davidcrowe/openclaw-gatewaystack-governance" } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["node"] }, "homepage": "https://github.com/davidcrowe/openclaw-gatewaystack-governance" } }
 ---
 
 # GatewayStack Governance

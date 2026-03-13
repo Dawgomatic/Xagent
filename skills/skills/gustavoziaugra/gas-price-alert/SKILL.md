@@ -104,14 +104,14 @@ The agent will:
 **Example notification:**
 
 ```
-⛽ Gas Prices (87 Octane) - Columbus, OH
+ Gas Prices (87 Octane) - Columbus, OH
 
-🏠 Costco (Typically Cheapest)
+ Costco (Typically Cheapest)
 • Costco Gas
-  💰 $2.69 (est.)
-  📍 5000 Morse Rd, Columbus, OH 43213 (7.9 miles from downtown)
+   $2.69 (est.)
+   5000 Morse Rd, Columbus, OH 43213 (7.9 miles from downtown)
 
-💡 Tip: Costco typically has gas $0.15-0.25 below market average.
+ Tip: Costco typically has gas $0.15-0.25 below market average.
 ```
 
 ## Output Format

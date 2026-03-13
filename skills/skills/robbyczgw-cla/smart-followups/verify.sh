@@ -1,7 +1,7 @@
 #!/bin/bash
 # Verification script - Check if skill package is complete and ready
 
-echo "🔍 Smart Follow-ups Skill Verification"
+echo " Smart Follow-ups Skill Verification"
 echo "======================================="
 echo ""
 
@@ -39,12 +39,12 @@ check_exec() {
     if [ -x "$1" ]; then
         echo -e "${GREEN}✓${NC} $1 (executable)"
     else
-        echo -e "${YELLOW}⚠${NC} $1 (not executable)"
+        echo -e "${YELLOW}${NC} $1 (not executable)"
         ((WARNINGS++))
     fi
 }
 
-echo "📁 File Structure"
+echo " File Structure"
 echo "-----------------"
 check_dir "cli"
 check_file "cli/followups-cli.js"
@@ -64,13 +64,13 @@ check_file "test-example.json"
 check_file "PROJECT_INDEX.md"
 echo ""
 
-echo "🔒 Permissions"
+echo " Permissions"
 echo "--------------"
 check_exec "cli/followups-cli.js"
 check_exec "test.sh"
 echo ""
 
-echo "📦 Dependencies"
+echo " Dependencies"
 echo "---------------"
 if [ -d "node_modules" ]; then
     echo -e "${GREEN}✓${NC} node_modules/ exists"
@@ -89,10 +89,10 @@ else
 fi
 echo ""
 
-echo "🔑 Environment"
+echo " Environment"
 echo "--------------"
 if [ -z "$ANTHROPIC_API_KEY" ]; then
-    echo -e "${YELLOW}⚠${NC} ANTHROPIC_API_KEY not set"
+    echo -e "${YELLOW}${NC} ANTHROPIC_API_KEY not set"
     echo "  This is required to run the skill"
     echo "  Set with: export ANTHROPIC_API_KEY='sk-ant-...'"
     ((WARNINGS++))
@@ -101,13 +101,13 @@ else
 fi
 echo ""
 
-echo "📊 Documentation"
+echo " Documentation"
 echo "----------------"
 # Check README has key sections
 if grep -q "## Features" README.md && grep -q "## Quick Start" README.md; then
     echo -e "${GREEN}✓${NC} README.md has key sections"
 else
-    echo -e "${YELLOW}⚠${NC} README.md may be incomplete"
+    echo -e "${YELLOW}${NC} README.md may be incomplete"
     ((WARNINGS++))
 fi
 
@@ -122,7 +122,7 @@ fi
 echo -e "${GREEN}✓${NC} All documentation files present"
 echo ""
 
-echo "🧪 Basic Syntax Check"
+echo " Basic Syntax Check"
 echo "---------------------"
 if node -c cli/followups-cli.js 2>/dev/null; then
     echo -e "${GREEN}✓${NC} cli/followups-cli.js syntax OK"
@@ -139,7 +139,7 @@ else
 fi
 echo ""
 
-echo "📈 Statistics"
+echo " Statistics"
 echo "-------------"
 TOTAL_FILES=$(find . -type f -not -path './node_modules/*' | wc -l)
 JS_FILES=$(find . -name '*.js' -not -path './node_modules/*' | wc -l)
@@ -154,7 +154,7 @@ echo ""
 
 echo "======================================="
 if [ $ERRORS -eq 0 ] && [ $WARNINGS -eq 0 ]; then
-    echo -e "${GREEN}✅ All checks passed!${NC}"
+    echo -e "${GREEN} All checks passed!${NC}"
     echo "   The skill package is ready for testing."
     echo ""
     echo "Next steps:"
@@ -163,11 +163,11 @@ if [ $ERRORS -eq 0 ] && [ $WARNINGS -eq 0 ]; then
     echo "  3. Test on Telegram"
     exit 0
 elif [ $ERRORS -eq 0 ]; then
-    echo -e "${YELLOW}⚠ Passed with $WARNINGS warning(s)${NC}"
+    echo -e "${YELLOW} Passed with $WARNINGS warning(s)${NC}"
     echo "   Review warnings above."
     exit 0
 else
-    echo -e "${RED}❌ Failed with $ERRORS error(s) and $WARNINGS warning(s)${NC}"
+    echo -e "${RED} Failed with $ERRORS error(s) and $WARNINGS warning(s)${NC}"
     echo "   Fix errors above before proceeding."
     exit 1
 fi

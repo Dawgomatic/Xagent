@@ -86,7 +86,7 @@ Skill 文件必须遵循 AgentSkills 规范，包含 YAML frontmatter 和 Markdo
 ---
 name: moltbot-plugin-2do
 description: 通过自然语言创建任务并发送到 2Do app，支持列表和指定标签
-emoji: ✅
+emoji: 
 version: 1.0.0
 author: chuckiefan
 homepage: https://github.com/chuckiefan/moltbot-plugin-2do
@@ -341,7 +341,7 @@ interface ParsedTask {
 
 **用户**: 帮我添加一个任务：明天去超市买牛奶
 
-**Moltbot**: ✅ 已创建任务并发送到你的 2Do：
+**Moltbot**:  已创建任务并发送到你的 2Do：
 - 任务：明天去超市买牛奶
 - 列表：Inbox（默认）
 
@@ -349,7 +349,7 @@ interface ParsedTask {
 
 **用户**: 添加任务到工作列表：周五前完成季度报告，标签是紧急和财务
 
-**Moltbot**: ✅ 已创建任务并发送到你的 2Do：
+**Moltbot**:  已创建任务并发送到你的 2Do：
 - 任务：周五前完成季度报告
 - 列表：工作
 - 标签：紧急, 财务
@@ -358,7 +358,7 @@ interface ParsedTask {
 
 **用户**: 帮我添加三个任务到购物列表：买水果、买蔬菜、买零食
 
-**Moltbot**: ✅ 已创建 3 个任务并发送到你的 2Do：
+**Moltbot**:  已创建 3 个任务并发送到你的 2Do：
 1. 买水果 → 购物列表
 2. 买蔬菜 → 购物列表
 3. 买零食 → 购物列表

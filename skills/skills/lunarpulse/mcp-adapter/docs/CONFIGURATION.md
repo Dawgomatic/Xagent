@@ -2,7 +2,7 @@
 
 Complete guide to configuring the MCP Integration plugin for OpenClaw.
 
-## 📋 Configuration File Location
+##  Configuration File Location
 
 The plugin is configured in OpenClaw's main configuration file:
 
@@ -10,7 +10,7 @@ The plugin is configured in OpenClaw's main configuration file:
 ~/.openclaw/openclaw.json
 ```
 
-## 🔧 Basic Configuration
+##  Basic Configuration
 
 ### Minimal Configuration
 
@@ -72,7 +72,7 @@ The plugin is configured in OpenClaw's main configuration file:
 }
 ```
 
-## 📊 Configuration Schema
+##  Configuration Schema
 
 ### Root Configuration
 
@@ -97,7 +97,7 @@ The plugin is configured in OpenClaw's main configuration file:
 }
 ```
 
-## 🌍 Environment Variables
+##  Environment Variables
 
 MCP servers often require environment variables for API keys or configuration.
 
@@ -146,7 +146,7 @@ KR_LEGAL_API_KEY=your-api-key-here
 }
 ```
 
-## 🎭 Per-Agent Configuration
+##  Per-Agent Configuration
 
 Enable MCP tools for specific agents only:
 
@@ -172,7 +172,7 @@ Enable MCP tools for specific agents only:
 }
 ```
 
-## 🔄 Multiple Server Configurations
+##  Multiple Server Configurations
 
 ### Example: Different Services
 
@@ -229,7 +229,7 @@ Enable MCP tools for specific agents only:
 }
 ```
 
-## 🔐 Secure Configuration
+##  Secure Configuration
 
 ### HTTPS Connections
 
@@ -267,12 +267,12 @@ export MCP_API_KEY="secret-key-here"
 ```json
 {
   "env": {
-    "MCP_API_KEY": "sk-1234567890abcdef"  // ❌ BAD - exposed in git
+    "MCP_API_KEY": "sk-1234567890abcdef"  //  BAD - exposed in git
   }
 }
 ```
 
-## 🧪 Testing Configuration
+##  Testing Configuration
 
 ### Validate JSON
 
@@ -315,7 +315,7 @@ openclaw logs | grep MCP
 # [MCP] Started
 ```
 
-## 🔄 Reload Configuration
+##  Reload Configuration
 
 ### Apply Changes
 
@@ -337,7 +337,7 @@ openclaw status
 openclaw plugins status mcp-integration
 ```
 
-## 🐛 Troubleshooting Configuration
+##  Troubleshooting Configuration
 
 ### Common Issues
 
@@ -366,7 +366,7 @@ openclaw logs | grep "Failed to connect"
 openclaw logs | grep "config"
 ```
 
-## 📋 Configuration Checklist
+##  Configuration Checklist
 
 Before deploying:
 
@@ -380,7 +380,7 @@ Before deploying:
 - [ ] Gateway restarted after changes
 - [ ] Logs checked for errors
 
-## 🔗 Related Documentation
+##  Related Documentation
 
 - [Main README](../README.md)
 - [API Reference](API.md)

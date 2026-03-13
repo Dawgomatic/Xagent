@@ -157,7 +157,7 @@ export async function uploadFile(filePath, hubUrl, accessToken, options = {}) {
     throw new Error("No blocklet info in upload response");
   }
 
-  console.log(chalk.green(`✅ Upload complete! DID: ${blocklet.did}`));
+  console.log(chalk.green(` Upload complete! DID: ${blocklet.did}`));
 
   return {
     did: blocklet.did,
@@ -230,7 +230,7 @@ export async function createVibeFromUrl(url, hubUrl, accessToken, metadata = {})
     throw new Error("No blocklet info in response");
   }
 
-  console.log(chalk.green(`✅ Vibe created! DID: ${blocklet.did}`));
+  console.log(chalk.green(` Vibe created! DID: ${blocklet.did}`));
 
   return {
     did: blocklet.did,

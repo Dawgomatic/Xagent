@@ -1,7 +1,7 @@
 ---
 name: manikantasai-playwright-automation
 description: Browser automation using Playwright API directly. Navigate websites, interact with elements, extract data, take screenshots, generate PDFs, record videos, and automate complex workflows. More reliable than MCP approach.
-metadata: {"openclaw":{"emoji":"🎭","os":["linux","darwin","win32"],"requires":{"bins":["node","npx"]},"install":[{"id":"npm-playwright","kind":"npm","package":"playwright","bins":["playwright"],"label":"Install Playwright"}]}}
+metadata: {"openclaw":{"emoji":"","os":["linux","darwin","win32"],"requires":{"bins":["node","npx"]},"install":[{"id":"npm-playwright","kind":"npm","package":"playwright","bins":["playwright"],"label":"Install Playwright"}]}}
 ---
 
 # Playwright Browser Automation
@@ -45,24 +45,24 @@ const { chromium } = require('playwright');
 ### 1. Use Locators (Auto-waiting)
 
 ```javascript
-// ✅ GOOD: Uses auto-waiting and retries
+//  GOOD: Uses auto-waiting and retries
 await page.getByRole('button', { name: 'Submit' }).click();
 await page.getByLabel('Username').fill('user');
 await page.getByPlaceholder('Search').fill('query');
 
-// ❌ BAD: May fail if element not ready
+//  BAD: May fail if element not ready
 await page.click('#submit');
 ```
 
 ### 2. Prefer User-Facing Attributes
 
 ```javascript
-// ✅ GOOD: Resilient to DOM changes
+//  GOOD: Resilient to DOM changes
 await page.getByRole('heading', { name: 'Welcome' });
 await page.getByText('Sign in');
 await page.getByTestId('login-button');
 
-// ❌ BAD: Brittle CSS selectors
+//  BAD: Brittle CSS selectors
 await page.click('.btn-primary > div:nth-child(2)');
 ```
 

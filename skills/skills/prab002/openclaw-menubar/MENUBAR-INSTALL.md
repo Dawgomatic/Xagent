@@ -6,7 +6,7 @@
 
 This skill adds OpenClaw as a native macOS menu bar app. Click the icon in your menu bar to instantly chat with your AI assistant - no need to open a browser tab.
 
-**✅ macOS only** (requires macOS with menu bar support)
+** macOS only** (requires macOS with menu bar support)
 
 ---
 

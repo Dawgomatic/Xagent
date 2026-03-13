@@ -80,14 +80,14 @@ def main():
     else:
         if result["valid"]:
             grant = result["grant"]
-            print("✅ Token is VALID")
+            print(" Token is VALID")
             print(f"   Agent: {grant.get('agent_id')}")
             print(f"   Resource: {grant.get('resource_type')}")
             print(f"   Scope: {grant.get('scope', 'N/A')}")
             print(f"   Expires: {grant.get('expires_at')}")
             print(f"   Restrictions: {', '.join(grant.get('restrictions', []))}")
         else:
-            print("❌ Token is INVALID")
+            print(" Token is INVALID")
             print(f"   Reason: {result.get('reason')}")
     
     sys.exit(0 if result["valid"] else 1)

@@ -37,10 +37,10 @@ async function checkAndSummarize() {
                     console.log(`  Fetching doc: ${link.token}`);
                     const docData = await readDoc(link.token);
                     const preview = extractPreview(docData.content);
-                    summaries.push(`📄 **${docData.title || 'Untitled'}**\n${preview}`);
+                    summaries.push(` **${docData.title || 'Untitled'}**\n${preview}`);
                 } catch (e) {
                     console.error(`  Failed to read doc ${link.token}: ${e.message}`);
-                    summaries.push(`❌ Failed to load doc: ${link.token}`);
+                    summaries.push(` Failed to load doc: ${link.token}`);
                 }
             }
 
@@ -77,7 +77,7 @@ async function sendBriefingCard(event, docSummaries) {
     const cardContent = {
         config: { wide_screen_mode: true },
         header: {
-            title: { tag: 'plain_text', content: '📅 Meeting Briefing' },
+            title: { tag: 'plain_text', content: ' Meeting Briefing' },
             template: 'blue'
         },
         elements: [
@@ -85,7 +85,7 @@ async function sendBriefingCard(event, docSummaries) {
                 tag: 'div',
                 text: {
                     tag: 'lark_md',
-                    content: `**${event.summary}**\n🕒 ${timeStr}\n\n${docSummaries.join('\n\n')}`
+                    content: `**${event.summary}**\n ${timeStr}\n\n${docSummaries.join('\n\n')}`
                 }
             },
             {

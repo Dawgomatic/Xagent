@@ -8,12 +8,12 @@ Extended reference on how each AI platform handles local business queries and ho
 
 | Platform | Data Sources | Update Frequency | Local Pack Display | Tracked by Local Falcon |
 |----------|--------------|------------------|-------------------|------------------------|
-| Google AI Overviews | GBP, web, reviews, third-party sites | Real-time | Mobile: Embedded / Desktop: Below | ✅ Yes |
-| Google AI Mode | GBP, web, reviews, third-party sites | Real-time | Map at end only | ✅ Yes |
-| Google Gemini | Training data + live web | Mixed | May redirect to Search/Maps | ✅ Yes |
-| ChatGPT | Bing, Foursquare, Yelp, BBB | Real-time web search | Mapbox-powered | ✅ Yes |
-| Grok | X/Twitter + web search | Real-time | Varies | ✅ Yes |
-| Perplexity | Multi-source web search | Real-time | Inline citations | ❌ Not tracked |
+| Google AI Overviews | GBP, web, reviews, third-party sites | Real-time | Mobile: Embedded / Desktop: Below |  Yes |
+| Google AI Mode | GBP, web, reviews, third-party sites | Real-time | Map at end only |  Yes |
+| Google Gemini | Training data + live web | Mixed | May redirect to Search/Maps |  Yes |
+| ChatGPT | Bing, Foursquare, Yelp, BBB | Real-time web search | Mapbox-powered |  Yes |
+| Grok | X/Twitter + web search | Real-time | Varies |  Yes |
+| Perplexity | Multi-source web search | Real-time | Inline citations |  Not tracked |
 
 ---
 

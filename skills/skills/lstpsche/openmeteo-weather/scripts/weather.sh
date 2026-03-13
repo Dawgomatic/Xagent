@@ -15,7 +15,7 @@ DEFAULT_DAILY_PARAMS="temperature_2m_max,temperature_2m_min,precipitation_sum,pr
 WMO_TEXT='{"0":"Clear sky","1":"Mainly clear","2":"Partly cloudy","3":"Overcast","45":"Fog","48":"Rime fog","51":"Light drizzle","53":"Moderate drizzle","55":"Dense drizzle","56":"Light freezing drizzle","57":"Dense freezing drizzle","61":"Slight rain","63":"Moderate rain","65":"Heavy rain","66":"Light freezing rain","67":"Heavy freezing rain","71":"Slight snow","73":"Moderate snow","75":"Heavy snow","77":"Snow grains","80":"Slight rain showers","81":"Moderate rain showers","82":"Violent rain showers","85":"Slight snow showers","86":"Heavy snow showers","95":"Thunderstorm","96":"Thunderstorm+hail","99":"Thunderstorm+heavy hail"}'
 
 # WMO weather interpretation codes -> emoji
-WMO_EMOJI='{"0":"☀️","1":"🌤","2":"⛅","3":"☁️","45":"🌫","48":"🌫","51":"🌦","53":"🌦","55":"🌦","56":"🌦","57":"🌦","61":"🌧","63":"🌧","65":"🌧","66":"🌧","67":"🌧","71":"🌨","73":"🌨","75":"🌨","77":"🌨","80":"🌧","81":"🌧","82":"🌧","85":"🌨","86":"🌨","95":"⛈","96":"⛈","99":"⛈"}'
+WMO_EMOJI='{"0":"","1":"","2":"","3":"","45":"","48":"","51":"","53":"","55":"","56":"","57":"","61":"","63":"","65":"","66":"","67":"","71":"","73":"","75":"","77":"","80":"","81":"","82":"","85":"","86":"","95":"","96":"","99":""}'
 
 # ===================== HELPERS =====================
 
@@ -201,28 +201,28 @@ porcelain_hourly() {
 
 print_header_human() {
   if [[ -n "${GEO_CITY:-}" ]]; then
-    echo "📍 ${GEO_CITY}, ${GEO_COUNTRY}"
+    echo " ${GEO_CITY}, ${GEO_COUNTRY}"
   else
-    echo "📍 ${LAT}, ${LON}"
+    echo " ${LAT}, ${LON}"
   fi
-  echo "🕐 $(printf '%s' "$WEATHER" | jq -r '.timezone')"
+  echo " $(printf '%s' "$WEATHER" | jq -r '.timezone')"
   echo ""
 }
 
 human_current() {
   printf '%s' "$WEATHER" | jq --argjson wmo "$WMO_TEXT" --argjson emj "$WMO_EMOJI" -r '
     def w: if . == null then "?" else ($wmo[tostring] // "Unknown") end;
-    def e: if . == null then "❓" else ($emj[tostring] // "❓") end;
+    def e: if . == null then "" else ($emj[tostring] // "") end;
     .current as $c | .current_units as $u |
     "━━━ Current Weather ━━━",
     "\($c.weather_code | e) \($c.weather_code | w)  \($c.temperature_2m // "?")\($u.temperature_2m // "°C")",
-    (if $c.apparent_temperature != null then "🌡 Feels like \($c.apparent_temperature)\($u.apparent_temperature // "°C")" else empty end),
-    (if $c.relative_humidity_2m != null then "💧 Humidity \($c.relative_humidity_2m)%" else empty end),
-    (if $c.precipitation != null and $c.precipitation > 0 then "🌧 Precipitation \($c.precipitation)mm" else empty end),
+    (if $c.apparent_temperature != null then " Feels like \($c.apparent_temperature)\($u.apparent_temperature // "°C")" else empty end),
+    (if $c.relative_humidity_2m != null then " Humidity \($c.relative_humidity_2m)%" else empty end),
+    (if $c.precipitation != null and $c.precipitation > 0 then " Precipitation \($c.precipitation)mm" else empty end),
     (if $c.wind_speed_10m != null then
-      "💨 Wind \($c.wind_speed_10m)km/h" + (if $c.wind_gusts_10m != null then " (gusts \($c.wind_gusts_10m)km/h)" else "" end)
+      " Wind \($c.wind_speed_10m)km/h" + (if $c.wind_gusts_10m != null then " (gusts \($c.wind_gusts_10m)km/h)" else "" end)
     else empty end),
-    (if $c.cloud_cover != null then "☁️  Clouds \($c.cloud_cover)%" else empty end),
+    (if $c.cloud_cover != null then "  Clouds \($c.cloud_cover)%" else empty end),
     ""
   '
 }
@@ -230,10 +230,10 @@ human_current() {
 human_daily() {
   printf '%s' "$WEATHER" | jq --argjson wmo "$WMO_TEXT" --argjson emj "$WMO_EMOJI" -r '
     def w: if . == null then "?" else ($wmo[tostring] // "?") end;
-    def e: if . == null then "❓" else ($emj[tostring] // "❓") end;
+    def e: if . == null then "" else ($emj[tostring] // "") end;
     "━━━ Daily Forecast ━━━",
     (.daily as $d | range($d.time | length) | . as $i |
-      "\($d.weather_code[$i] | e) \($d.time[$i])  \($d.temperature_2m_max[$i] // "?")/\($d.temperature_2m_min[$i] // "?")°C  \($d.weather_code[$i] | w)  💧\($d.precipitation_sum[$i] // "?")mm (\($d.precipitation_probability_max[$i] // "?")%)"
+      "\($d.weather_code[$i] | e) \($d.time[$i])  \($d.temperature_2m_max[$i] // "?")/\($d.temperature_2m_min[$i] // "?")°C  \($d.weather_code[$i] | w)  \($d.precipitation_sum[$i] // "?")mm (\($d.precipitation_probability_max[$i] // "?")%)"
     ),
     ""
   '
@@ -242,12 +242,12 @@ human_daily() {
 human_hourly() {
   printf '%s' "$WEATHER" | jq --argjson wmo "$WMO_TEXT" --argjson emj "$WMO_EMOJI" -r '
     def w: if . == null then "?" else ($wmo[tostring] // "?") end;
-    def e: if . == null then "❓" else ($emj[tostring] // "❓") end;
+    def e: if . == null then "" else ($emj[tostring] // "") end;
     "━━━ Hourly Forecast ━━━",
     (.hourly as $h | range($h.time | length) | . as $i |
       (if $i == 0 or ($h.time[$i][0:10] != $h.time[$i-1][0:10])
        then "── \($h.time[$i][0:10]) ──" else empty end),
-      "  \($h.time[$i][11:16])  \($h.temperature_2m[$i] // "?")°C  \($h.weather_code[$i] | e) \($h.weather_code[$i] | w)  💧\($h.precipitation[$i] // "?")mm(\($h.precipitation_probability[$i] // "?")%)  💨\($h.wind_speed_10m[$i] // "?")km/h"
+      "  \($h.time[$i][11:16])  \($h.temperature_2m[$i] // "?")°C  \($h.weather_code[$i] | e) \($h.weather_code[$i] | w)  \($h.precipitation[$i] // "?")mm(\($h.precipitation_probability[$i] // "?")%)  \($h.wind_speed_10m[$i] // "?")km/h"
     ),
     ""
   '

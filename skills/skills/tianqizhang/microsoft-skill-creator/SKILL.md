@@ -124,9 +124,9 @@ Use the appropriate template from [skill-templates.md](references/skill-template
 
 | Content Type | Local | Dynamic |
 |--------------|-------|---------|
-| Core concepts (3-5) | ✅ Full | |
-| Hello world code | ✅ Full | |
-| Common patterns (3-5) | ✅ Full | |
+| Core concepts (3-5) |  Full | |
+| Hello world code |  Full | |
+| Common patterns (3-5) |  Full | |
 | Top API methods | Signature + example | Full docs via fetch |
 | Best practices | Top 5 bullets | Search for more |
 | Troubleshooting | | Search queries |

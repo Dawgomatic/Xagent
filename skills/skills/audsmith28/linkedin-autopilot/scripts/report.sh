@@ -17,7 +17,7 @@ for arg in "$@"; do
 done
 
 # --- Main Logic Placeholder ---
-echo "📊 LinkedIn Autopilot Weekly Report"
+echo " LinkedIn Autopilot Weekly Report"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # 1. Load all data files
@@ -39,23 +39,23 @@ DMS_REPLIED=4
 
 # 3. Format the report
 REPORT_TEXT=$(cat <<EOF
-*📊 LinkedIn Autopilot Weekly Report*
+* LinkedIn Autopilot Weekly Report*
 
-*🚀 Performance Summary:*
+* Performance Summary:*
 - *Posts Published:* $POSTS_PUBLISHED
 - *Total Reach:* ~$REACH_TOTAL
 - *Avg. Engagement Rate:* $ENGAGEMENT_RATE%
 
-*📈 Network Growth:*
+* Network Growth:*
 - *Connection Requests Sent:* $CONNECTIONS_SENT
 - *New Connections:* $CONNECTIONS_ACCEPTED
 - *Acceptance Rate:* $ACCEPTANCE_RATE
 
-*💬 Outreach:*
+* Outreach:*
 - *New DM Sequences Started:* $DMS_SENT
 - *Replies Received:* $DMS_REPLIED
 
-*💡 Top Performing Post:*
+* Top Performing Post:*
 "5 lessons from building AI agents..." (25 likes, 12 comments)
 
 *Action Items:*

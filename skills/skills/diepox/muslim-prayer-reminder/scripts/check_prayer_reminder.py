@@ -17,7 +17,7 @@ def get_local_time(timezone_offset):
 def load_prayer_times(prayer_times_file):
     """Load today's prayer times from JSON file"""
     if not prayer_times_file.exists():
-        print(f"❌ Prayer times file not found: {prayer_times_file}", file=sys.stderr)
+        print(f" Prayer times file not found: {prayer_times_file}", file=sys.stderr)
         return None
     
     try:
@@ -25,7 +25,7 @@ def load_prayer_times(prayer_times_file):
             data = json.load(f)
             return data.get('prayers', {})
     except Exception as e:
-        print(f"❌ Error reading prayer times: {e}", file=sys.stderr)
+        print(f" Error reading prayer times: {e}", file=sys.stderr)
         return None
 
 def parse_time(time_str, current_time):
@@ -66,7 +66,7 @@ def check_prayer_reminder(prayers, timezone_offset):
                 "prayer": prayer_name,
                 "time": prayer_time_str,
                 "minutes_until": int(diff_minutes),
-                "message": f"🕌 Salat approaching: {prayer_name} in {int(diff_minutes)} minutes ({prayer_time_str})"
+                "message": f" Salat approaching: {prayer_name} in {int(diff_minutes)} minutes ({prayer_time_str})"
             }
         
         # During prayer time (0 to 2 minutes after start)
@@ -75,7 +75,7 @@ def check_prayer_reminder(prayers, timezone_offset):
                 "type": "now",
                 "prayer": prayer_name,
                 "time": prayer_time_str,
-                "message": f"🕌 Salat First: {prayer_name} time is now ({prayer_time_str})"
+                "message": f" Salat First: {prayer_name} time is now ({prayer_time_str})"
             }
         
         # 5 minutes after start (4-6 min window for missed reminder)
@@ -85,7 +85,7 @@ def check_prayer_reminder(prayers, timezone_offset):
                 "prayer": prayer_name,
                 "time": prayer_time_str,
                 "minutes_ago": int(abs(diff_minutes)),
-                "message": f"🕌 Salat reminder: {prayer_name} started {int(abs(diff_minutes))} minutes ago ({prayer_time_str})"
+                "message": f" Salat reminder: {prayer_name} started {int(abs(diff_minutes))} minutes ago ({prayer_time_str})"
             }
     
     return None

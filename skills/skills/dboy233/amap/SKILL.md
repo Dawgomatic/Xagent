@@ -2,7 +2,7 @@
 name: amap
 description: 使用高德地图Web服务API进行地点搜索、天气查询和路线规划。
 homepage: https://lbs.amap.com/
-metadata: {"clawdbot":{"emoji":"🗺️","requires":{"bins":["curl"]},"primaryEnv":"AMAP_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"]},"primaryEnv":"AMAP_KEY"}}
 ---
 
 # 高德地图 (Amap)

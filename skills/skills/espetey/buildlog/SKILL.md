@@ -95,7 +95,7 @@ The skill emits the following events:
 
 ```
 You: Start a buildlog "Building a REST API"
-Assistant: 🔴 Recording started: "Building a REST API"
+Assistant:  Recording started: "Building a REST API"
 
 You: Create an Express server with TypeScript
 Assistant: [creates files...]

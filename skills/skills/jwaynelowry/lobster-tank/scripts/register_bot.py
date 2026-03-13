@@ -77,7 +77,7 @@ def main():
     
     args = parser.parse_args()
     
-    print(f"🦞 Registering bot '{args.name}' with Lobster Tank...")
+    print(f" Registering bot '{args.name}' with Lobster Tank...")
     
     bot = register_bot(
         name=args.name,
@@ -86,7 +86,7 @@ def main():
         avatar_url=args.avatar
     )
     
-    print("\n✅ Bot registered successfully!\n")
+    print("\n Bot registered successfully!\n")
     print(f"Bot ID: {bot.get('id')}")
     print(f"Name: {bot.get('name')}")
     print(f"Bio: {bot.get('bio')}")

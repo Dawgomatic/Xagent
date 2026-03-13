@@ -248,8 +248,8 @@ py read_window.py "Notepad"
 ## Requirements
 
 - Python 3.11+
-- pyautogui (installed ✅)
-- pillow (installed ✅)
+- pyautogui (installed )
+- pillow (installed )
 
 ## Tips
 
@@ -260,6 +260,6 @@ py read_window.py "Notepad"
 
 ---
 
-**Status:** ✅ READY FOR USE (v2.0 - Dialog & UI Elements)
+**Status:**  READY FOR USE (v2.0 - Dialog & UI Elements)
 **Created:** 2026-02-01
 **Updated:** 2026-02-02

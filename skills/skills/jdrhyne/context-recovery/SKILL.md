@@ -1,7 +1,7 @@
 ---
 name: context-recovery
 description: Automatically recover working context after session compaction or when continuation is implied but context is missing. Works across Discord, Slack, Telegram, Signal, and other supported channels.
-metadata: {"clawdbot":{"emoji":"🔄"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Context Recovery
@@ -126,8 +126,8 @@ Compile a structured summary:
 3. [<timestamp>] <action/request>
 
 ### Pending/Incomplete Actions
-- ⏳ "<quoted incomplete action>"
-- ⏳ "<another incomplete item>"
+-  "<quoted incomplete action>"
+-  "<another incomplete item>"
 
 ### Key References
 | Type | Value |

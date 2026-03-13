@@ -6,7 +6,7 @@ source "$(dirname "$0")/helpers.sh"
 QUERY="${1:-}"
 
 if [[ -z "$QUERY" ]]; then
-    echo "❌ Usage: bash scripts/search-match.sh \"India vs Australia\""
+    echo " Usage: bash scripts/search-match.sh \"India vs Australia\""
     exit 1
 fi
 
@@ -40,13 +40,13 @@ matches=$(echo "$response" | jq --arg t1 "$TEAM1" --arg t2 "$TEAM2" '[
 count=$(echo "$matches" | jq 'length')
 
 if [[ "$count" -eq 0 ]]; then
-    echo "🔍 No matches found for: $QUERY"
+    echo " No matches found for: $QUERY"
     echo ""
     echo "Try broader search terms or check upcoming matches"
     exit 0
 fi
 
-echo "🔍 *SEARCH RESULTS: ${QUERY}*"
+echo " *SEARCH RESULTS: ${QUERY}*"
 echo "━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -59,20 +59,20 @@ echo "$matches" | jq -c '.[]' | head -10 | while read -r match; do
     started=$(echo "$match" | jq -r '.matchStarted // false')
     ended=$(echo "$match" | jq -r '.matchEnded // false')
     
-    state_icon="📅"
+    state_icon=""
     if [[ "$ended" == "true" ]]; then
-        state_icon="✅"
+        state_icon=""
     elif [[ "$started" == "true" ]]; then
-        state_icon="🔴"
+        state_icon=""
     fi
     
     echo "${state_icon} *${name}*"
-    [[ -n "$match_type" ]] && echo "   📋 $match_type"
-    echo "   📅 $(to_ist "$date_str")"
+    [[ -n "$match_type" ]] && echo "    $match_type"
+    echo "    $(to_ist "$date_str")"
     [[ -n "$status" ]] && echo "   $(format_status "$status")"
-    echo "   🔗 ID: $id"
+    echo "    ID: $id"
     echo ""
 done
 
 echo "━━━━━━━━━━━━━━━━━━━━━"
-echo "📋 Details: bash scripts/match-details.sh <match-id>"
+echo " Details: bash scripts/match-details.sh <match-id>"

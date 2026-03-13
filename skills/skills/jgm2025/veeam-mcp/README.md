@@ -8,12 +8,12 @@ Query Veeam Backup & Replication and Veeam ONE using natural language through th
 
 ## Features
 
-- 🔍 **Natural Language Queries** - Ask about backups in plain English
-- 📊 **Real-time Data** - Live backup status, repository capacity, job history
-- 🚨 **Alert Monitoring** - Check Veeam ONE alerts and infrastructure health
-- 🤖 **AI-Powered** - Leverages Veeam Intelligence for smart analysis
-- 🐳 **Docker-based** - Isolated, secure MCP server container
-- 🔐 **Secure** - Credentials stored locally, never exposed
+-  **Natural Language Queries** - Ask about backups in plain English
+-  **Real-time Data** - Live backup status, repository capacity, job history
+-  **Alert Monitoring** - Check Veeam ONE alerts and infrastructure health
+-  **AI-Powered** - Leverages Veeam Intelligence for smart analysis
+-  **Docker-based** - Isolated, secure MCP server container
+-  **Secure** - Credentials stored locally, never exposed
 
 ## Example Queries
 
@@ -227,11 +227,11 @@ The Veeam API requires specific formats:
 
 ## Security
 
-- ✅ Credentials stored locally only (`~/.veeam-mcp-creds.json`)
-- ✅ Docker container runs as non-root user
-- ✅ MCP communication via stdin/stdout (no network exposure)
-- ✅ HTTPS with self-signed cert support
-- ✅ No credentials in logs or command history
+-  Credentials stored locally only (`~/.veeam-mcp-creds.json`)
+-  Docker container runs as non-root user
+-  MCP communication via stdin/stdout (no network exposure)
+-  HTTPS with self-signed cert support
+-  No credentials in logs or command history
 
 ## Files
 
@@ -278,4 +278,4 @@ Veeam Intelligence MCP server is licensed separately by Veeam Software Group.
 
 ---
 
-**Made with 🐾 for the OpenClaw community**
+**Made with  for the OpenClaw community**

@@ -48,7 +48,7 @@ Examples:
 }
 
 async function listSites(apiKey) {
-  console.log('📋 Fetching sites from Static.app...\n');
+  console.log(' Fetching sites from Static.app...\n');
   
   const response = await fetch(API_URL, {
     method: 'GET',
@@ -97,7 +97,7 @@ async function main() {
   const options = parseArgs();
   
   if (!options.apiKey) {
-    console.error('❌ Error: API key required. Provide --api-key or set STATIC_APP_API_KEY env var.');
+    console.error(' Error: API key required. Provide --api-key or set STATIC_APP_API_KEY env var.');
     console.error('   Get your API key at: https://static.app/account/api');
     process.exit(1);
   }
@@ -112,7 +112,7 @@ async function main() {
     }
     
   } catch (error) {
-    console.error(`❌ Failed to list sites: ${error.message}`);
+    console.error(` Failed to list sites: ${error.message}`);
     process.exit(1);
   }
 }

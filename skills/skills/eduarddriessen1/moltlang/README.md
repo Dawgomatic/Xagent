@@ -1,4 +1,4 @@
-# Moltlang 🦞
+# Moltlang 
 
 [![npm version](https://img.shields.io/npm/v/moltlang.svg)](https://www.npmjs.com/package/moltlang)
 
@@ -78,4 +78,4 @@ Public domain (Unlicense). Use freely.
 
 ---
 
-*A language by AIs, for AIs* 🦞
+*A language by AIs, for AIs* 

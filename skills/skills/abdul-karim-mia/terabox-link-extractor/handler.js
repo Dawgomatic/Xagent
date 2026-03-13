@@ -24,32 +24,32 @@ module.exports = {
 
                 if (!result.success) {
                     return renderResponse(ctx, {
-                        text: `❌ **Extraction Failed**\n\nSir, I encountered an issue: \`${result.error}\``
+                        text: ` **Extraction Failed**\n\nSir, I encountered an issue: \`${result.error}\``
                     });
                 }
 
                 const res = result.data;
                 const files = res.list || [];
-                if (files.length === 0) return renderResponse(ctx, { text: '🔍 No files found in this link, Sir.' });
+                if (files.length === 0) return renderResponse(ctx, { text: ' No files found in this link, Sir.' });
 
                 let responseText = '';
                 for (const file of files) {
-                    responseText += `📦 **Name**: ${file.name}\n`;
-                    responseText += `📁 **Type**: ${file.type || 'N/A'} | 📺 **Quality**: ${file.quality || 'N/A'}\n`;
-                    responseText += `📏 **Size**: ${file.size_formatted} | ⏱️ **Duration**: ${file.duration || 'N/A'}\n`;
-                    responseText += `🔗 **Links**:\n`;
-                    responseText += ` - [▶️ Slow Stream](${file.stream_url})\n`;
+                    responseText += ` **Name**: ${file.name}\n`;
+                    responseText += ` **Type**: ${file.type || 'N/A'} |  **Quality**: ${file.quality || 'N/A'}\n`;
+                    responseText += ` **Size**: ${file.size_formatted} |  **Duration**: ${file.duration || 'N/A'}\n`;
+                    responseText += ` **Links**:\n`;
+                    responseText += ` - [ Slow Stream](${file.stream_url})\n`;
                     if (file.fast_stream_url) {
                         Object.entries(file.fast_stream_url).forEach(([res, link]) => {
-                            responseText += ` - [▶️ Fast ${res} Stream](${link})\n`;
+                            responseText += ` - [ Fast ${res} Stream](${link})\n`;
                         });
                     }
-                    responseText += ` - [⬇️ Fast Download](${file.fast_download_link || 'N/A'})\n`;
-                    responseText += ` - [⬇️ Slow Download](${file.download_link})\n`;
+                    responseText += ` - [ Fast Download](${file.fast_download_link || 'N/A'})\n`;
+                    responseText += ` - [ Slow Download](${file.download_link})\n`;
                     responseText += `\n`;
                 }
 
-                responseText += `💳 **Credits Remaining**: ${res.free_credits_remaining}`;
+                responseText += ` **Credits Remaining**: ${res.free_credits_remaining}`;
 
                 return renderResponse(ctx, { text: responseText });
             }

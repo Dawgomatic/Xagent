@@ -102,7 +102,7 @@ Automatically detects dangerous operations:
 steps = [
     {
         "description": "Delete old files",
-        "action": "delete_files",  # ⚠️ Dangerous!
+        "action": "delete_files",  #  Dangerous!
         "parameters": {"path": "/data/old"},
         "safety_check": True,  # System will warn
         "rollback_possible": False  # Cannot undo
@@ -260,14 +260,14 @@ if not is_valid:
 ### 2. Use Descriptive Names
 
 ```python
-# Good ✅
+# Good 
 {
     "description": "Fetch active users from PostgreSQL production database",
     "action": "fetch_active_users_postgres_prod",
     ...
 }
 
-# Bad ❌
+# Bad 
 {
     "description": "Get data",
     "action": "get",
@@ -282,8 +282,8 @@ if not is_valid:
     "description": "Delete temporary files older than 30 days",
     "action": "cleanup_temp_files",
     "parameters": {"age_days": 30, "path": "/tmp"},
-    "safety_check": True,      # ⚠️ Will trigger warnings
-    "rollback_possible": False  # ⚠️ Cannot undo!
+    "safety_check": True,      #  Will trigger warnings
+    "rollback_possible": False  #  Cannot undo!
 }
 ```
 
@@ -405,16 +405,16 @@ python test_basic.py
 # Run examples
 python examples.py
 
-# Both should show "✅ ALL TESTS PASSED"
+# Both should show " ALL TESTS PASSED"
 ```
 
 ## Getting Help
 
-- 📖 Read full documentation in [README.md](README.md)
-- 🚀 Check [QUICKSTART.md](QUICKSTART.md) for quick examples
-- 📚 See [API.md](API.md) for complete API reference
-- 💡 Browse [examples.py](examples.py) for real code
-- 🐛 Report issues on GitHub
+-  Read full documentation in [README.md](README.md)
+-  Check [QUICKSTART.md](QUICKSTART.md) for quick examples
+-  See [API.md](API.md) for complete API reference
+-  Browse [examples.py](examples.py) for real code
+-  Report issues on GitHub
 
 ## License
 
@@ -427,4 +427,4 @@ MIT License - see [LICENSE](LICENSE) file
 
 ---
 
-⭐ If you find this useful, star the repository on GitHub!
+ If you find this useful, star the repository on GitHub!

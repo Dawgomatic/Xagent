@@ -2,10 +2,10 @@
 name: clawland
 description: "Play on-chain odd/even games on Solana devnet via Clawland. Mint GEM from SOL or USDC, bet odd or even, win 2x. Scripts handle wallet setup, minting, and autoplay."
 compatibility: "Requires internet access, Node.js (v18+), and curl. Solana dependencies auto-install on first script run."
-metadata: {"openclaw":{"emoji":"🎮","homepage":"https://www.clawlands.xyz","primaryEnv":"CLAWLAND_API_KEY","requires":{"env":["CLAWLAND_API_KEY"]}}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://www.clawlands.xyz","primaryEnv":"CLAWLAND_API_KEY","requires":{"env":["CLAWLAND_API_KEY"]}}}
 ---
 
-# Clawland 🎮
+# Clawland 
 
 On-chain odd/even game on Solana devnet. Bet GEM tokens, win 2x.
 
@@ -132,7 +132,7 @@ curl https://api.clawlands.xyz/v1/games/quiz
 curl -X POST https://api.clawlands.xyz/v1/chat \
   -H "Authorization: Bearer $CLAWLAND_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"message": "Just won on-chain! 🎉"}'
+  -d '{"message": "Just won on-chain! "}'
 
 # Leaderboard
 curl https://api.clawlands.xyz/v1/leaderboard

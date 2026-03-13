@@ -51,7 +51,7 @@ def format_customer(customer: dict) -> str:
     """
     name = customer.get("name", "Unknown")
     lines = [
-        _header("👤", name),
+        _header("", name),
         _field("ID", customer.get("id")),
         _field("Email", customer.get("email")),
         _field("Phone", customer.get("phone")),
@@ -63,7 +63,7 @@ def format_customer(customer: dict) -> str:
     # Sales stats (if available)
     if "total_invoiced" in customer:
         lines.append("")
-        lines.append("  📊 *Sales Stats*")
+        lines.append("   *Sales Stats*")
         lines.append(_field("  Orders", customer.get("sale_order_count")))
         lines.append(_field("  Total Invoiced", _money(customer.get("total_invoiced", 0))))
         lines.append(_field("  Credit", _money(customer.get("credit", 0))))
@@ -83,10 +83,10 @@ def format_customer_list(customers: list[dict]) -> str:
     if not customers:
         return "No customers found."
 
-    lines = [f"👥 *Found {len(customers)} customer(s):*", ""]
+    lines = [f" *Found {len(customers)} customer(s):*", ""]
     for c in customers:
         email_part = f" — {c['email']}" if c.get("email") else ""
-        city_part = f" 📍 {c.get('city')}" if c.get("city") else ""
+        city_part = f"  {c.get('city')}" if c.get("city") else ""
         lines.append(f"  • *{c['name']}*{email_part}{city_part}")
 
     return "\n".join(lines)
@@ -95,11 +95,11 @@ def format_customer_list(customers: list[dict]) -> str:
 # ── Order Formatting ─────────────────────────────────────────────────
 
 _STATE_EMOJI = {
-    "draft": "📝",
-    "sent": "📤",
-    "sale": "✅",
-    "done": "🔒",
-    "cancel": "❌",
+    "draft": "",
+    "sent": "",
+    "sale": "",
+    "done": "",
+    "cancel": "",
 }
 
 
@@ -113,7 +113,7 @@ def format_order(order: dict) -> str:
         Markdown-formatted string.
     """
     state = order.get("state", "draft")
-    emoji = _STATE_EMOJI.get(state, "📋")
+    emoji = _STATE_EMOJI.get(state, "")
     name = order.get("name", "Unknown")
 
     lines = [
@@ -129,7 +129,7 @@ def format_order(order: dict) -> str:
 
     if order.get("note"):
         lines.append("")
-        lines.append(f"  📝 {order['note']}")
+        lines.append(f"   {order['note']}")
 
     return "\n".join(lines)
 
@@ -146,7 +146,7 @@ def format_order_lines(lines_data: list[dict]) -> str:
     if not lines_data:
         return "  No line items."
 
-    lines = ["📦 *Line Items:*", ""]
+    lines = [" *Line Items:*", ""]
     for i, ol in enumerate(lines_data, 1):
         product = ol.get("product_id")
         product_name = product[1] if isinstance(product, (list, tuple)) else str(product)
@@ -176,10 +176,10 @@ def format_order_list(orders: list[dict]) -> str:
     if not orders:
         return "No orders found."
 
-    lines = [f"📋 *{len(orders)} order(s):*", ""]
+    lines = [f" *{len(orders)} order(s):*", ""]
     for o in orders:
         state = o.get("state", "draft")
-        emoji = _STATE_EMOJI.get(state, "📋")
+        emoji = _STATE_EMOJI.get(state, "")
         customer = o.get("partner_id")
         customer_name = customer[1] if isinstance(customer, (list, tuple)) else str(customer)
         total = _money(o.get("amount_total", 0))
@@ -191,11 +191,11 @@ def format_order_list(orders: list[dict]) -> str:
 # ── Invoice Formatting ───────────────────────────────────────────────
 
 _PAYMENT_EMOJI = {
-    "paid": "✅",
-    "not_paid": "🔴",
-    "partial": "🟡",
-    "in_payment": "🟠",
-    "reversed": "↩️",
+    "paid": "",
+    "not_paid": "",
+    "partial": "",
+    "in_payment": "",
+    "reversed": "",
 }
 
 
@@ -209,7 +209,7 @@ def format_invoice(invoice: dict) -> str:
         Markdown-formatted string.
     """
     pay_state = invoice.get("payment_state", "not_paid")
-    emoji = _PAYMENT_EMOJI.get(pay_state, "📄")
+    emoji = _PAYMENT_EMOJI.get(pay_state, "")
     name = invoice.get("name", "Draft")
 
     lines = [
@@ -242,10 +242,10 @@ def format_invoice_list(invoices: list[dict], title: str = "Invoices") -> str:
 
     total_due = sum(inv.get("amount_residual", 0) for inv in invoices)
 
-    lines = [f"📄 *{title} ({len(invoices)}):*", ""]
+    lines = [f" *{title} ({len(invoices)}):*", ""]
     for inv in invoices:
         pay_state = inv.get("payment_state", "not_paid")
-        emoji = _PAYMENT_EMOJI.get(pay_state, "📄")
+        emoji = _PAYMENT_EMOJI.get(pay_state, "")
         customer = inv.get("partner_id")
         customer_name = customer[1] if isinstance(customer, (list, tuple)) else str(customer)
         due_date = inv.get("invoice_date_due", "—")
@@ -253,7 +253,7 @@ def format_invoice_list(invoices: list[dict], title: str = "Invoices") -> str:
         lines.append(f"  {emoji} *{inv['name']}* — {customer_name} — {residual} (due {due_date})")
 
     lines.append("")
-    lines.append(f"  💰 *Total due: {_money(total_due)}*")
+    lines.append(f"   *Total due: {_money(total_due)}*")
 
     return "\n".join(lines)
 
@@ -275,11 +275,11 @@ def format_product_availability(product: dict) -> str:
     # Stock status emoji
     on_hand = product.get("on_hand", 0)
     if on_hand <= 0:
-        status_emoji = "🔴"
+        status_emoji = ""
     elif on_hand <= 10:
-        status_emoji = "🟡"
+        status_emoji = ""
     else:
-        status_emoji = "🟢"
+        status_emoji = ""
 
     lines = [
         _header(status_emoji, name),
@@ -308,18 +308,18 @@ def format_stock_levels(products: list[dict]) -> str:
     if not products:
         return "No products found."
 
-    lines = [f"📦 *Stock Levels ({len(products)} products):*", ""]
+    lines = [f" *Stock Levels ({len(products)} products):*", ""]
     for p in products:
         name = p.get("name", "?")
         sku = p.get("default_code", "")
         qty = p.get("qty_available", 0)
 
         if qty <= 0:
-            emoji = "🔴"
+            emoji = ""
         elif qty <= 10:
-            emoji = "🟡"
+            emoji = ""
         else:
-            emoji = "🟢"
+            emoji = ""
 
         sku_str = f" [{sku}]" if sku else ""
         lines.append(f"  {emoji} *{name}*{sku_str} — {qty:.0f} in stock")
@@ -329,7 +329,7 @@ def format_stock_levels(products: list[dict]) -> str:
 
 # ── CRM / Pipeline Formatting ───────────────────────────────────────
 
-_PRIORITY_STARS = {"0": "", "1": "⭐", "2": "⭐⭐", "3": "⭐⭐⭐"}
+_PRIORITY_STARS = {"0": "", "1": "", "2": "", "3": ""}
 
 
 def format_lead(lead: dict) -> str:
@@ -342,7 +342,7 @@ def format_lead(lead: dict) -> str:
         Markdown-formatted string.
     """
     lead_type = lead.get("type", "lead")
-    emoji = "🎯" if lead_type == "opportunity" else "📥"
+    emoji = "" if lead_type == "opportunity" else ""
     name = lead.get("name", "Untitled")
     priority = _PRIORITY_STARS.get(str(lead.get("priority", "0")), "")
 
@@ -375,7 +375,7 @@ def format_pipeline(opportunities: list[dict]) -> str:
         Markdown-formatted string.
     """
     if not opportunities:
-        return "🎯 Pipeline is empty."
+        return " Pipeline is empty."
 
     total_value = sum(o.get("expected_revenue", 0) for o in opportunities)
 
@@ -387,8 +387,8 @@ def format_pipeline(opportunities: list[dict]) -> str:
         stages.setdefault(stage_name, []).append(opp)
 
     lines = [
-        f"🎯 *Sales Pipeline* ({len(opportunities)} opportunities)",
-        f"  💰 Total value: *{_money(total_value)}*",
+        f" *Sales Pipeline* ({len(opportunities)} opportunities)",
+        f"   Total value: *{_money(total_value)}*",
         "",
     ]
 
@@ -417,15 +417,15 @@ def format_daily_summary(data: dict) -> str:
         Markdown-formatted string.
     """
     lines = [
-        "📊 *Daily Business Summary*",
+        " *Daily Business Summary*",
         _divider(),
         "",
-        f"  📋 New Orders: *{data.get('new_orders_count', 0)}*"
+        f"   New Orders: *{data.get('new_orders_count', 0)}*"
         f" ({_money(data.get('new_orders_total', 0))})",
-        f"  📄 Overdue Invoices: *{data.get('overdue_invoices_count', 0)}*"
+        f"   Overdue Invoices: *{data.get('overdue_invoices_count', 0)}*"
         f" ({_money(data.get('overdue_total', 0))})",
-        f"  📦 Low Stock Items: *{data.get('low_stock_items', 0)}*",
-        f"  🎯 Pipeline: *{data.get('pipeline_opportunities', 0)}* opportunities"
+        f"   Low Stock Items: *{data.get('low_stock_items', 0)}*",
+        f"   Pipeline: *{data.get('pipeline_opportunities', 0)}* opportunities"
         f" ({_money(data.get('pipeline_value', 0))})",
         "",
         _divider(),

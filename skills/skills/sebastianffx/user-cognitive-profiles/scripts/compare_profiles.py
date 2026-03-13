@@ -20,7 +20,7 @@ def load_profile(filepath: str) -> Dict[str, Any]:
 
 def compare_archetypes(old_profile: Dict, new_profile: Dict):
     """Compare archetype distributions between profiles."""
-    print("\n📊 Archetype Comparison")
+    print("\n Archetype Comparison")
     print("-" * 60)
     
     old_archetypes = {a['name']: a for a in old_profile['archetypes']}
@@ -48,7 +48,7 @@ def compare_archetypes(old_profile: Dict, new_profile: Dict):
 
 def compare_primary_mode(old_profile: Dict, new_profile: Dict):
     """Compare primary archetype changes."""
-    print("\n🎯 Primary Mode Shift")
+    print("\n Primary Mode Shift")
     print("-" * 60)
     
     old_primary = old_profile['insights']['primary_mode']
@@ -66,7 +66,7 @@ def compare_primary_mode(old_profile: Dict, new_profile: Dict):
 
 def compare_context_switching(old_profile: Dict, new_profile: Dict):
     """Compare context switching patterns."""
-    print("\n🔄 Context Switching")
+    print("\n Context Switching")
     print("-" * 60)
     
     old_cs = old_profile['insights']['context_switching']
@@ -77,7 +77,7 @@ def compare_context_switching(old_profile: Dict, new_profile: Dict):
     if old_cs == new_cs:
         print(f"  Consistent context-switching behavior")
     elif new_cs == 'high':
-        print(f"  ⚠️  Increased context switching - more mode variation")
+        print(f"    Increased context switching - more mode variation")
     elif new_cs == 'low':
         print(f"  ✓ Decreased context switching - more consistent style")
 
@@ -142,7 +142,7 @@ def main():
     args = parser.parse_args()
     
     print("=" * 60)
-    print("🤖🤝🧠 Profile Comparison")
+    print(" Profile Comparison")
     print("=" * 60)
     
     old_profile = load_profile(args.old_profile)

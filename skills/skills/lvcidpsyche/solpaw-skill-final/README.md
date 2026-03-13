@@ -94,10 +94,10 @@ const result = await solpaw.launchToken({
 });
 
 if (result.success) {
-  console.log(`🚀 Token launched: ${result.pumpfun_url}`);
-  console.log(`💰 Mint: ${result.mint}`);
+  console.log(` Token launched: ${result.pumpfun_url}`);
+  console.log(` Mint: ${result.mint}`);
 } else {
-  console.error(`❌ Launch failed: ${result.error}`);
+  console.error(` Launch failed: ${result.error}`);
 }
 ```
 
@@ -201,7 +201,7 @@ const stats = await solpaw.getPlatformStats();
 
 ```
 ┌─────────────┐     ┌──────────────┐     ┌─────────────────┐
-│   Agent     │────▶│  SolPaw API  │────▶│  PumpPortal API │
+│   Agent     │────│  SolPaw API  │────│  PumpPortal API │
 │  (You)      │     │ (This Skill) │     │   (pump.fun)    │
 └──────┬──────┘     └──────────────┘     └─────────────────┘
        │                                         │
@@ -209,7 +209,7 @@ const stats = await solpaw.getPlatformStats();
        │◄────────────────────────────────────────┘
        │
        │ 2. Call launchToken() with tx signature
-       │─────────────────────────────────────────▶
+       │─────────────────────────────────────────
        │
        │ 3. Server verifies payment on-chain
        │    Uploads metadata to IPFS
@@ -258,7 +258,7 @@ See the [main repo](https://github.com/LvcidPsyche/solpaw) for full deployment d
 
 ## License
 
-MIT © 2026 SolPaw
+MIT  2026 SolPaw
 
 ---
 

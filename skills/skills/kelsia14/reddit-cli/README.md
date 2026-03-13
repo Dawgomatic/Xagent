@@ -1,4 +1,4 @@
-# reddit-cli 📮
+# reddit-cli 
 
 A simple Reddit CLI that uses your browser cookies for authentication. No API key needed.
 

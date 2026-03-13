@@ -14,7 +14,7 @@ function loadConfig(configPath) {
   const fullPath = path.resolve(configPath);
   
   if (!fs.existsSync(fullPath)) {
-    console.error(`❌ Config file not found: ${fullPath}`);
+    console.error(` Config file not found: ${fullPath}`);
     process.exit(1);
   }
 
@@ -22,10 +22,10 @@ function loadConfig(configPath) {
 }
 
 async function respond(config, channel, user, message) {
-  console.log(`\n🎧 CS Auto-Responder - ${config.name}`);
+  console.log(`\n CS Auto-Responder - ${config.name}`);
   console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-  console.log(`📨 Message from: ${user} (${channel})`);
-  console.log(`💬 Content: "${message}"\n`);
+  console.log(` Message from: ${user} (${channel})`);
+  console.log(` Content: "${message}"\n`);
 
   // FAQ 매칭
   const matcher = new FAQMatcher(path.resolve(config.faqPath));
@@ -59,7 +59,7 @@ async function respond(config, channel, user, message) {
       escalationReason = '기타';
     }
 
-    console.log(`⚠️  Escalation required`);
+    console.log(`  Escalation required`);
     console.log(`   Reason: ${escalationReason}`);
     
     // 에스컬레이션 알림은 escalate.js에서 처리
@@ -69,11 +69,11 @@ async function respond(config, channel, user, message) {
     score = matchResult.score;
     category = matchResult.faq.category;
 
-    console.log(`✅ FAQ Matched`);
+    console.log(` FAQ Matched`);
     console.log(`   FAQ ID: ${faqId}`);
     console.log(`   Category: ${category}`);
     console.log(`   Score: ${(score * 100).toFixed(1)}%`);
-    console.log(`\n📤 Response:\n${response}\n`);
+    console.log(`\n Response:\n${response}\n`);
 
     // 자동 응답 전송
     const channelAdapter = new ChannelAdapter(config);
@@ -128,13 +128,13 @@ Example:
   const message = args.slice(messageIndex).join(' ');
 
   if (!configPath || !channel || !user || !message) {
-    console.error('❌ Missing required arguments. Use --help for usage.');
+    console.error(' Missing required arguments. Use --help for usage.');
     process.exit(1);
   }
 
   const config = loadConfig(configPath);
   respond(config, channel, user, message).catch(err => {
-    console.error('❌ Error:', err);
+    console.error(' Error:', err);
     process.exit(1);
   });
 }

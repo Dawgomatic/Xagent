@@ -3,7 +3,7 @@ name: s2s-model-builder
 description: End-to-end builder for AI-based Subseasonal-to-Seasonal (S2S) forecasting systems. Generates runnable PyTorch code for FuXi-style, FengWu-style, and AIFS-inspired models including CRPS-based probabilistic training.
 metadata:
   clawdbot:
-    emoji: "🌎"
+    emoji: ""
     requires:
       env: []
     files: []

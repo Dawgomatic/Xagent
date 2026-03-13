@@ -17,23 +17,23 @@ if [[ -z "$CHANNEL" ]] || [[ -z "$MESSAGE" ]]; then
     exit 1
 fi
 
-echo "🔍 Scanning message for secrets..." >&2
+echo " Scanning message for secrets..." >&2
 
 # First pass: regex-based detection (fast)
 if ! echo "$MESSAGE" | "$ARC_SHIELD" --strict > /dev/null 2>&1; then
-    echo "❌ BLOCKED: Message contains critical secrets (regex detection)" >&2
+    echo " BLOCKED: Message contains critical secrets (regex detection)" >&2
     echo "$MESSAGE" | "$ARC_SHIELD" --report >&2
     exit 1
 fi
 
 # Second pass: entropy-based detection (catches novel patterns)
 if ! echo "$MESSAGE" | python3 "$OUTPUT_GUARD" --strict > /dev/null 2>&1; then
-    echo "❌ BLOCKED: High-entropy secret detected" >&2
+    echo " BLOCKED: High-entropy secret detected" >&2
     echo "$MESSAGE" | python3 "$OUTPUT_GUARD" --report >&2
     exit 1
 fi
 
-echo "✅ Message sanitized, safe to send" >&2
+echo " Message sanitized, safe to send" >&2
 
 # Send the message (replace with your actual send command)
 # openclaw message send --channel "$CHANNEL" "$MESSAGE"

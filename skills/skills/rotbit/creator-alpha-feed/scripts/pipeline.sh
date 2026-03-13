@@ -28,7 +28,7 @@ print_header() {
 }
 
 print_step() {
-    echo -e "${YELLOW}▶ $1${NC}"
+    echo -e "${YELLOW} $1${NC}"
 }
 
 print_success() {
@@ -40,7 +40,7 @@ print_error() {
 }
 
 print_info() {
-    echo -e "${BLUE}ℹ $1${NC}"
+    echo -e "${BLUE} $1${NC}"
 }
 
 # 检查依赖
@@ -126,19 +126,19 @@ show_results() {
     fi
     
     echo ""
-    echo "📁 输出文件:"
+    echo " 输出文件:"
     echo ""
     
     if [[ -f "$COLLECTED_DIR/raw-content.md" ]]; then
-        echo "  📄 原始内容: $COLLECTED_DIR/raw-content.md"
+        echo "   原始内容: $COLLECTED_DIR/raw-content.md"
     fi
     
     if [[ -f "$FILTERED_DIR/analysis-task.md" ]]; then
-        echo "  📋 分析任务: $FILTERED_DIR/analysis-task.md"
+        echo "   分析任务: $FILTERED_DIR/analysis-task.md"
     fi
     
     if [[ -f "$FILTERED_DIR/wechat-worthy.md" ]]; then
-        echo "  ⭐ 选题推荐: $FILTERED_DIR/wechat-worthy.md"
+        echo "   选题推荐: $FILTERED_DIR/wechat-worthy.md"
     fi
     
     echo ""

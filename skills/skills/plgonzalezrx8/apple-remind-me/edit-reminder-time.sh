@@ -8,13 +8,13 @@ WHEN="$2"
 
 # Validate arguments
 if [[ -z "$ID" ]]; then
-    echo "❌ Error: No reminder ID provided"
+    echo " Error: No reminder ID provided"
     echo "Usage: edit-reminder-time.sh ID \"when\""
     exit 1
 fi
 
 if [[ -z "$WHEN" ]]; then
-    echo "❌ Error: No time provided"
+    echo " Error: No time provided"
     echo "Usage: edit-reminder-time.sh ID \"when\""
     exit 1
 fi
@@ -84,7 +84,7 @@ parse_time() {
 # Parse the time
 TIMESTAMP=$(parse_time "$WHEN")
 if [[ -z "$TIMESTAMP" ]]; then
-    echo "❌ Error: Could not parse time: $WHEN"
+    echo " Error: Could not parse time: $WHEN"
     exit 1
 fi
 
@@ -93,9 +93,9 @@ OUTPUT=$(remindctl edit "$ID" --due "$TIMESTAMP" 2>&1)
 
 if [[ $? -eq 0 ]]; then
     DISPLAY_TIME=$(date -j -f "%Y-%m-%dT%H:%M:%S%z" "$TIMESTAMP" "+%Y-%m-%d %H:%M" 2>/dev/null || echo "$TIMESTAMP")
-    echo "✅ Reminder $ID rescheduled to: $DISPLAY_TIME"
-    echo "📱 Check Reminders.app to see the change"
+    echo " Reminder $ID rescheduled to: $DISPLAY_TIME"
+    echo " Check Reminders.app to see the change"
 else
-    echo "❌ Error updating reminder: $OUTPUT"
+    echo " Error updating reminder: $OUTPUT"
     exit 1
 fi

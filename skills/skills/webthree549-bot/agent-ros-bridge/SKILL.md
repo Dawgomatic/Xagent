@@ -10,7 +10,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🤖",
+        "emoji": "",
         "requires": { "bins": ["python3"], "env": ["JWT_SECRET"] },
         "suggests": { "bins": ["docker"] },
         "env":
@@ -54,7 +54,7 @@ metadata:
 
 ---
 
-# 🤖 Agent ROS Bridge
+#  Agent ROS Bridge
 
 **Universal ROS1/ROS2 bridge for AI agents to control robots and embodied intelligence systems.**
 
@@ -64,7 +64,7 @@ metadata:
 
 ---
 
-## 🔐 Security-First Design
+##  Security-First Design
 
 **JWT authentication is always required and cannot be disabled.**
 
@@ -138,12 +138,12 @@ See [docs/NATIVE_ROS.md](docs/NATIVE_ROS.md) for detailed native installation.
 
 | Feature | Description |
 |---------|-------------|
-| **🔐 Security** | JWT auth always required, no bypass |
-| **🤖 Multi-Robot** | Fleet orchestration & coordination |
-| **🌐 Multi-Protocol** | WebSocket, MQTT, gRPC |
-| **🔄 Multi-ROS** | ROS1 + ROS2 simultaneously |
-| **🦾 Arm Control** | UR, xArm, Franka support |
-| **📊 Monitoring** | Prometheus + Grafana |
+| ** Security** | JWT auth always required, no bypass |
+| ** Multi-Robot** | Fleet orchestration & coordination |
+| ** Multi-Protocol** | WebSocket, MQTT, gRPC |
+| ** Multi-ROS** | ROS1 + ROS2 simultaneously |
+| ** Arm Control** | UR, xArm, Franka support |
+| ** Monitoring** | Prometheus + Grafana |
 
 ---
 

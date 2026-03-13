@@ -3,7 +3,7 @@ name: usage-visualizer
 description: Advanced usage statistics and high-fidelity visual reporting for OpenClaw. Trigger when user says usage report/usage stats/用量汇报/用量统计; always sync latest logs first, then generate report.
 metadata:
   openclaw:
-    emoji: "📊"
+    emoji: ""
     os:
       - darwin
       - linux
@@ -16,16 +16,16 @@ metadata:
 
 **Usage Visualizer** is a high-fidelity analytics engine for OpenClaw that transforms raw session logs into professional, actionable visual reports. It prioritizes **token usage patterns** and **model efficiency** over simple cost tracking.
 
-## ✨ Key Features
+##  Key Features
 
-- 📊 **High-Res Visual Reporting** - Generates horizontal PPT-style cards with 30-day SVG trend lines and multi-dimensional charts.
-- ⚡ **Token-First Analytics** - Deep dive into input/output tokens, including Anthropic prompt caching (read/write) performance.
-- 📉 **Efficiency Metrics** - Automatically calculates cost-per-million-tokens and cache savings to optimize your model selection.
-- 🔄 **Zero-Config Sync** - Auto-detects OpenClaw session logs and syncs them into a local SQLite database for fast, idempotent querying.
-- 🔔 **Intelligent Alerting** - Threshold-based monitoring for daily/weekly/monthly usage with flexible notification formats.
-- 🎨 **Beautiful Console Output** - Provides clean, emoji-rich text summaries for quick checks.
+-  **High-Res Visual Reporting** - Generates horizontal PPT-style cards with 30-day SVG trend lines and multi-dimensional charts.
+-  **Token-First Analytics** - Deep dive into input/output tokens, including Anthropic prompt caching (read/write) performance.
+-  **Efficiency Metrics** - Automatically calculates cost-per-million-tokens and cache savings to optimize your model selection.
+-  **Zero-Config Sync** - Auto-detects OpenClaw session logs and syncs them into a local SQLite database for fast, idempotent querying.
+-  **Intelligent Alerting** - Threshold-based monitoring for daily/weekly/monthly usage with flexible notification formats.
+-  **Beautiful Console Output** - Provides clean, emoji-rich text summaries for quick checks.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Clone the repository
@@ -42,7 +42,7 @@ python3 scripts/fetch_usage.py --full
 python3 scripts/generate_report_image.py --today
 ```
 
-## 📈 Usage Guide
+##  Usage Guide
 
 ### Visual Reports (Recommended one-step flow)
 The visualizer should sync logs first, then generate the report image.
@@ -87,7 +87,7 @@ Set limits to receive alerts when usage spikes.
 python3 scripts/alert.py --budget-usd 10 --period today
 ```
 
-## 🛠 Project Structure
+##  Project Structure
 
 ```
 usage-visualizer/
@@ -105,18 +105,18 @@ usage-visualizer/
 └── README.md                   # Full documentation
 ```
 
-## 🧠 How It Works
+##  How It Works
 
 1. **Extraction**: Periodically scans `~/.openclaw/agents/*/sessions/*.jsonl` for new messages.
 2. **Standardization**: Maps varied provider metadata into a unified schema (tokens, cache hits, cost).
 3. **Persistence**: Stores normalized data in a local SQLite DB, ensuring syncs are idempotent.
 4. **Rendering**: Uses a local HTML template to render SVG charts and charts, then captures a high-res PNG using a headless renderer.
 
-## 📝 Troubleshooting
+##  Troubleshooting
 
 - **Image Rendering Fails**: Ensure `html2image` and a compatible browser (Chrome/Chromium) are installed. On Linux servers, ensure `Xvfb` or a headless environment is available.
 - **Missing Logs**: Verify that your `OPENCLAW_WORKSPACE` environment variable is correctly set if you are running in a custom directory.
 - **Python Errors**: Ensure Python 3.8+ and all packages in `requirements.txt` are installed.
 
-## 📄 License
+##  License
 MIT

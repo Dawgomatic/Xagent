@@ -13,10 +13,10 @@ bash /path/to/agent-guardrails/scripts/install.sh .
 
 ## What Gets Installed
 
-✅ **Git Hooks** - Automatic enforcement on every commit
-✅ **Validation Scripts** - Pre/post creation checks
-✅ **Secret Detection** - Prevent credential leaks
-✅ **Deployment Verification** - Ensure production integration
+ **Git Hooks** - Automatic enforcement on every commit
+ **Validation Scripts** - Pre/post creation checks
+ **Secret Detection** - Prevent credential leaks
+ **Deployment Verification** - Ensure production integration
 
 ## Usage with Claude Code
 

@@ -1,4 +1,4 @@
-# DevLog Skill 🦞
+# DevLog Skill 
 
 A standardized journaling skill for OpenClaw agents to track progress, tasks, and project status using `dev-log-cli`.
 
@@ -15,31 +15,31 @@ This skill enables agents to maintain a professional developer log. It's designe
 
 ## Usage
 
-### 📝 Adding Entries
+###  Adding Entries
 Agents should use this to log significant progress or blockers.
 ```bash
 devlog add "Finished implementing the auth module" --project "Project Alpha" --status "completed" --tags "auth,feature"
 ```
 
-### 📋 Listing Logs
+###  Listing Logs
 View recent activity for context.
 ```bash
 devlog list --project "Project Alpha" --limit 5
 ```
 
-### 📊 Viewing Stats
+###  Viewing Stats
 Check project health and activity.
 ```bash
 devlog stats --project "Project Alpha"
 ```
 
-### 🔍 Searching
+###  Searching
 Find historical context on specific topics.
 ```bash
 devlog search "infinite loop"
 ```
 
-### 🛠️ Editing/Viewing
+###  Editing/Viewing
 Detailed inspection or correction of entries.
 ```bash
 devlog view <id>

@@ -5,7 +5,7 @@ description: "CLI for AI agents to find breweries for their humans. Uses Open Br
 homepage: https://www.openbrewerydb.org
 metadata:
   openclaw:
-    emoji: "🍺"
+    emoji: ""
     requires:
       bins: ["bash", "curl", "jq"]
     tags: ["breweries", "beer", "search", "openbrewerydb", "cli"]
@@ -62,7 +62,7 @@ breweries random 3                  # Get 3 random breweries
 ## Output
 
 ```
-🍺 Sierra Nevada Brewing Co. — Chico, California, Regional Brewery
+ Sierra Nevada Brewing Co. — Chico, California, Regional Brewery
    https://sierranevada.com
 ```
 

@@ -576,9 +576,9 @@ I'll update rankings for your hero keywords. Let me check the hot cache for the 
 
 | Keyword | Previous | Current | Change | Target | Status |
 |---------|----------|---------|--------|--------|--------|
-| keyword research tools | #15 | #12 | ↑3 | #5 | Improving ⭐ |
+| keyword research tools | #15 | #12 | ↑3 | #5 | Improving  |
 | best seo software | #23 | #24 | ↓1 | #10 | Stable |
-| free backlink checker | #8 | #6 | ↑2 | #3 | Near target ⭐⭐ |
+| free backlink checker | #8 | #6 | ↑2 | #3 | Near target  |
 | content optimization guide | #12 | #11 | ↑1 | #5 | Improving |
 | technical seo audit | #18 | #16 | ↑2 | #8 | Improving |
 

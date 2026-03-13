@@ -18,7 +18,7 @@ async function timeIt(name, fn) {
 }
 
 async function runDeepBenchmark() {
-  console.log('🔬 DEEP SWARM BENCHMARK');
+  console.log(' DEEP SWARM BENCHMARK');
   console.log('=======================\n');
 
   const results = [];
@@ -26,7 +26,7 @@ async function runDeepBenchmark() {
   // ========================================
   // 1. CONCURRENCY SCALING TEST
   // ========================================
-  console.log('📊 Test 1: Concurrency Scaling');
+  console.log(' Test 1: Concurrency Scaling');
   console.log('   How does speed scale with parallel prompts?\n');
 
   const concurrencyTests = [1, 2, 4, 6, 8, 10];
@@ -45,7 +45,7 @@ async function runDeepBenchmark() {
   // ========================================
   // 2. PROMPT SIZE TEST
   // ========================================
-  console.log('\n📊 Test 2: Prompt Size Impact');
+  console.log('\n Test 2: Prompt Size Impact');
   console.log('   How does prompt length affect latency?\n');
 
   const sizes = [
@@ -66,7 +66,7 @@ async function runDeepBenchmark() {
   // ========================================
   // 3. BLACKBOARD COMPARISON
   // ========================================
-  console.log('\n📊 Test 3: Blackboard Backend Comparison');
+  console.log('\n Test 3: Blackboard Backend Comparison');
   console.log('   File-based vs Supabase\n');
 
   // File-based blackboard
@@ -102,7 +102,7 @@ async function runDeepBenchmark() {
   // ========================================
   // 4. AUTONOMOUS RESEARCH SCALING
   // ========================================
-  console.log('\n📊 Test 4: Autonomous Research Scaling');
+  console.log('\n Test 4: Autonomous Research Scaling');
   console.log('   How does research time scale with subjects?\n');
 
   for (const subjectCount of [2, 4]) {
@@ -121,7 +121,7 @@ async function runDeepBenchmark() {
   // ========================================
   // 5. API LATENCY BASELINE
   // ========================================
-  console.log('\n📊 Test 5: Raw API Latency');
+  console.log('\n Test 5: Raw API Latency');
   console.log('   Measuring Gemini API response time\n');
 
   const latencies = [];
@@ -143,7 +143,7 @@ async function runDeepBenchmark() {
   // ========================================
   // SUMMARY
   // ========================================
-  console.log('\n📈 BENCHMARK SUMMARY');
+  console.log('\n BENCHMARK SUMMARY');
   console.log('====================\n');
 
   // Calculate insights
@@ -152,23 +152,23 @@ async function runDeepBenchmark() {
   const parallelTime = concurrency.find(r => r.count === 10)?.duration || 0;
   const speedup = linearTime / parallelTime;
 
-  console.log('🚀 Parallelization:');
+  console.log(' Parallelization:');
   console.log(`   Sequential (est): ${linearTime}ms for 10 prompts`);
   console.log(`   Parallel:         ${parallelTime}ms for 10 prompts`);
   console.log(`   Speedup:          ${speedup.toFixed(1)}x\n`);
 
   const bb = results.find(r => r.test === 'blackboard');
-  console.log('💾 Blackboard:');
+  console.log(' Blackboard:');
   console.log(`   File:     ${bb.file}ms`);
   console.log(`   Supabase: ${bb.supabase}ms`);
   console.log(`   Winner:   ${bb.file < bb.supabase ? 'File (faster local I/O)' : 'Supabase (realtime benefits)'}\n`);
 
   const latency = results.find(r => r.test === 'api_latency');
-  console.log('⚡ Gemini API:');
+  console.log(' Gemini API:');
   console.log(`   Avg latency: ${latency.avg}ms`);
   console.log(`   This is the floor - can\'t go faster than the API\n`);
 
-  console.log('🎯 BOTTLENECK ANALYSIS:');
+  console.log(' BOTTLENECK ANALYSIS:');
   if (latency.avg > 500) {
     console.log('   → API latency is high (>500ms). Network or Gemini load.');
   }
@@ -180,7 +180,7 @@ async function runDeepBenchmark() {
   }
   console.log('');
 
-  console.log('🔧 OPTIMIZATION OPPORTUNITIES:');
+  console.log(' OPTIMIZATION OPPORTUNITIES:');
   console.log('   1. Batch small prompts into single calls');
   console.log('   2. Use file blackboard for speed, Supabase for persistence');
   console.log('   3. Increase max_concurrent_api if not hitting limits');
@@ -188,7 +188,7 @@ async function runDeepBenchmark() {
 
   // Rate limiter final stats
   const limiter = globalLimiter.getStats();
-  console.log(`\n🚦 Rate Limiter: ${limiter.totalRequests} requests, ${limiter.throttledRequests} throttled`);
+  console.log(`\n Rate Limiter: ${limiter.totalRequests} requests, ${limiter.throttledRequests} throttled`);
 }
 
 runDeepBenchmark().catch(console.error);

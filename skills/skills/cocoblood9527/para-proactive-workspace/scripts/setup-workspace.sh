@@ -9,7 +9,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TEMPLATE_DIR="$SCRIPT_DIR/../assets/templates"
 TARGET_DIR="${1:-.}"
 
-echo "🦞📁 PARA + Proactive Agent Workspace Setup"
+echo " PARA + Proactive Agent Workspace Setup"
 echo "============================================"
 echo ""
 
@@ -27,7 +27,7 @@ echo ""
 
 # Check if already initialized
 if [ -f "README.md" ] && grep -q "PARA + Proactive Agent" README.md 2>/dev/null; then
-    echo "⚠️  This directory appears to already have a workspace structure."
+    echo "  This directory appears to already have a workspace structure."
     read -p "Overwrite? (y/N): " confirm
     if [[ ! $confirm =~ ^[Yy]$ ]]; then
         echo "Setup cancelled."
@@ -36,7 +36,7 @@ if [ -f "README.md" ] && grep -q "PARA + Proactive Agent" README.md 2>/dev/null;
 fi
 
 # Copy template files
-echo "📁 Creating directory structure..."
+echo " Creating directory structure..."
 
 # PARA directories
 mkdir -p 1-projects 2-areas 3-resources 4-archives "+inbox" "+temp"
@@ -137,16 +137,16 @@ Created project structure. Using PARA method + Proactive Agent architecture.
 - Configure heartbeat checks
 EOF
 
-echo "✅ Workspace structure created!"
+echo " Workspace structure created!"
 echo ""
-echo "📂 Structure:"
-find . -maxdepth 1 -type d | sort | sed 's/^\.\//  📁 /'
-find . -maxdepth 1 -type f -name "*.md" | sort | sed 's/^\.\//  📄 /'
+echo " Structure:"
+find . -maxdepth 1 -type d | sort | sed 's/^\.\//   /'
+find . -maxdepth 1 -type f -name "*.md" | sort | sed 's/^\.\//   /'
 echo ""
-echo "🚀 Next steps:"
+echo " Next steps:"
 echo "  1. Read README.md for full documentation"
 echo "  2. Complete ONBOARDING.md to set up your profile"
 echo "  3. Create your first project in 1-projects/"
 echo "  4. Delete example-project when ready"
 echo ""
-echo "Happy organizing! 🦞📁"
+echo "Happy organizing! "

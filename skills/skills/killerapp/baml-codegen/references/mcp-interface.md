@@ -53,7 +53,7 @@ mcp__baml_Examples__search_baml_examples_code({
 // Returns: invoice_extractor.baml, receipt_parser.baml, etc.
 ```
 
-**Observable Output**: `🔍 Found 3 patterns from BoundaryML/baml-examples`
+**Observable Output**: ` Found 3 patterns from BoundaryML/baml-examples`
 
 ### Phase 2: Pattern Fetch
 
@@ -79,7 +79,7 @@ mcp__baml_Examples__fetch_generic_url_content({
 // Returns: Full file content
 ```
 
-**Observable Output**: `✅ Fetched invoice_extractor.baml from BoundaryML/baml-examples`
+**Observable Output**: ` Fetched invoice_extractor.baml from BoundaryML/baml-examples`
 
 ### Phase 3: Syntax Validation
 
@@ -94,9 +94,9 @@ mcp__baml_Examples__fetch_generic_url_content({
 4. If mismatch:
    - Query: mcp__baml_Docs__fetch_generic_url_content(syntax_reference_url)
    - Modernize: Update example pattern to current spec
-   - Log: "🔧 Modernized {N} deprecated patterns"
+   - Log: " Modernized {N} deprecated patterns"
 5. If match:
-   - Log: "✅ Validated against BoundaryML/baml - syntax current"
+   - Log: " Validated against BoundaryML/baml - syntax current"
 ```
 
 **Example Query**:
@@ -108,7 +108,7 @@ mcp__baml_Docs__search_baml_documentation({
 // Returns: Current client block specification
 ```
 
-**Observable Output**: `✅ Validated against BoundaryML/baml` or `🔧 Modernized 2 patterns`
+**Observable Output**: ` Validated against BoundaryML/baml` or ` Modernized 2 patterns`
 
 ### Phase 4: Code Generation
 
@@ -141,7 +141,7 @@ IF validation fails:
    Returns: Current specification
 4. Auto-fix: Update generated code to match spec
 5. Retry validation (max 2 attempts)
-6. Log: "🔧 Fixed {N} errors using BoundaryML/baml docs"
+6. Log: " Fixed {N} errors using BoundaryML/baml docs"
 ```
 
 **Example**:
@@ -151,7 +151,7 @@ Error: "Invalid client block syntax"
 → Fetch: docs/reference/client-blocks.md
 → Fix: Update client { ... } to match current spec
 → Retry validation
-→ Output: "🔧 Fixed 1 error using BoundaryML/baml docs"
+→ Output: " Fixed 1 error using BoundaryML/baml docs"
 ```
 
 ## MCP Tool Reference
@@ -187,10 +187,10 @@ Error: "Invalid client block syntax"
 5. **Combine results**: Make multiple targeted queries vs. one broad query
 
 **Anti-patterns**:
-- ❌ Fetching full README for every query
-- ❌ Broad searches returning 100+ results
-- ❌ Repeated queries for same content
-- ❌ Fetching files without searching first
+-  Fetching full README for every query
+-  Broad searches returning 100+ results
+-  Repeated queries for same content
+-  Fetching files without searching first
 
 ## Caching Strategy
 
@@ -264,16 +264,16 @@ Error: "Invalid client block syntax"
 Always show users when MCP queries are executed:
 
 **Success Indicators**:
-- 🔍 "Found {X} patterns from BoundaryML/baml-examples"
-- ✅ "Fetched {file} from BoundaryML/baml"
-- ✅ "Validated against BoundaryML/baml - syntax current"
-- 🔧 "Modernized {N} deprecated patterns from example"
-- 🔧 "Fixed {N} errors using BoundaryML/baml docs"
+-  "Found {X} patterns from BoundaryML/baml-examples"
+-  "Fetched {file} from BoundaryML/baml"
+-  "Validated against BoundaryML/baml - syntax current"
+-  "Modernized {N} deprecated patterns from example"
+-  "Fixed {N} errors using BoundaryML/baml docs"
 
 **Fallback Indicators**:
-- 📦 "Using cached pattern (MCP unavailable)"
-- ⚠️ "MCP unavailable, using fallback templates"
-- ℹ️ "Pattern from cache (validated 2 days ago)"
+-  "Using cached pattern (MCP unavailable)"
+-  "MCP unavailable, using fallback templates"
+-  "Pattern from cache (validated 2 days ago)"
 
 **Why Observable?**:
 1. **Transparency**: Users know data freshness
@@ -290,7 +290,7 @@ Always show users when MCP queries are executed:
 **Response**:
 1. Fall back to Tier 3 → Tier 2 → Tier 1 caches
 2. Use generic templates for pattern category
-3. Warn user: "⚠️ MCP unavailable, using cached templates (validated 5 days ago)"
+3. Warn user: " MCP unavailable, using cached templates (validated 5 days ago)"
 4. Continue with best-effort generation
 5. Suggest: "Refresh cache when MCP available"
 
@@ -314,7 +314,7 @@ Always show users when MCP queries are executed:
 2. Compare pattern syntax vs. current spec
 3. Auto-modernize to current syntax
 4. Retry validation
-5. Report: "🔧 Modernized deprecated client block syntax"
+5. Report: " Modernized deprecated client block syntax"
 
 ### Rate Limiting
 

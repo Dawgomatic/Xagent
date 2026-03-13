@@ -19,34 +19,34 @@ The mansion architecture follows a **hierarchical orchestration pattern** where:
 **These rules are ABSOLUTE and must be followed by all agents implementing this architecture:**
 
 1. **Task Flow**: 
-   - ✅ **ALL tasks from human user go DIRECTLY to Factory Manager**
-   - ❌ Zorro does NOT create teams or spawn agents directly
-   - ✅ Zorro delegates ALL task execution to Factory Manager
-   - ✅ Factory Manager is responsible for ALL agent creation and spawning
+   -  **ALL tasks from human user go DIRECTLY to Factory Manager**
+   -  Zorro does NOT create teams or spawn agents directly
+   -  Zorro delegates ALL task execution to Factory Manager
+   -  Factory Manager is responsible for ALL agent creation and spawning
 
 2. **Factory Manager Responsibilities**:
-   - ✅ Receives ALL tasks from Zorro
-   - ✅ Creates teams when needed (NOT Zorro's job)
-   - ✅ Discusses with Librarian about what skills agents need
-   - ✅ Coordinates with Butler for API key assignment
-   - ✅ Creates PRD for each task
-   - ✅ Spawns all sub-agents
+   -  Receives ALL tasks from Zorro
+   -  Creates teams when needed (NOT Zorro's job)
+   -  Discusses with Librarian about what skills agents need
+   -  Coordinates with Butler for API key assignment
+   -  Creates PRD for each task
+   -  Spawns all sub-agents
 
 3. **Butler API Management**:
-   - ✅ Butler assesses the work and assigns appropriate secondary API key
-   - ✅ Butler rotates API keys when **80% limit is reached** (not 90%)
-   - ✅ Butler manages ALL secondary API keys for ALL mansion members (except Zorro)
+   -  Butler assesses the work and assigns appropriate secondary API key
+   -  Butler rotates API keys when **80% limit is reached** (not 90%)
+   -  Butler manages ALL secondary API keys for ALL mansion members (except Zorro)
 
 4. **Janitor Timing**:
-   - ✅ Janitor ONLY runs AFTER tasks are completed
-   - ✅ Moderator has the right to summon Janitor after job completion
-   - ❌ Janitor must NEVER run during active task execution
-   - ✅ Janitor must verify no active tasks before cleanup
+   -  Janitor ONLY runs AFTER tasks are completed
+   -  Moderator has the right to summon Janitor after job completion
+   -  Janitor must NEVER run during active task execution
+   -  Janitor must verify no active tasks before cleanup
 
 5. **Team Creation**:
-   - ✅ Factory Manager creates teams (during agent spawning)
-   - ❌ Zorro does NOT create teams
-   - ✅ Moderator manages teams created by Factory Manager
+   -  Factory Manager creates teams (during agent spawning)
+   -  Zorro does NOT create teams
+   -  Moderator manages teams created by Factory Manager
 
 **Violation of these rules will cause system failures. All agents must strictly adhere to these rules.**
 
@@ -697,11 +697,11 @@ Skills Library/
   - Test coverage
 
 **Approval Criteria**:
-- ✅ No security vulnerabilities
-- ✅ Passes all tests
-- ✅ Meets code quality standards
-- ✅ Follows project conventions
-- ✅ Proper documentation
+-  No security vulnerabilities
+-  Passes all tests
+-  Meets code quality standards
+-  Follows project conventions
+-  Proper documentation
 
 **Key Interactions**:
 - Receives code review requests from sub-agents
@@ -1403,22 +1403,22 @@ If Rejected: Sub-Agent → Fix Issues → Resubmit
 ### Inter-Agent Communication Channels
 
 **Direct Communication**:
-- Zorro ↔ Factory Manager (task delegation)
-- Zorro ↔ Moderator (progress updates)
-- Factory Manager ↔ Butler (API key requests)
-- Factory Manager ↔ Librarian (skill requests)
-- Factory Manager ↔ Security Officer (API key storage requests)
-- Moderator ↔ Sub-Agents (continuous task management and monitoring)
-- Moderator ↔ Librarian (skill requests for sub-agents)
-- Moderator ↔ Butler (resource requests, usage data)
-- Moderator ↔ Factory Manager (new agent requests)
-- Moderator ↔ Janitor (cleanup requests)
-- Moderator ↔ GitHub (monitoring dashboard updates)
-- Sub-Agents ↔ Gatekeeper (code review requests)
-- Sub-Agents ↔ Butler (API usage reports, context updates)
-- Sub-Agents ↔ Librarian (skill requests during execution)
-- Butler ↔ Security Officer (API key retrieval from .env)
-- All Agents ↔ Security Officer (environment variable requests)
+- Zorro  Factory Manager (task delegation)
+- Zorro  Moderator (progress updates)
+- Factory Manager  Butler (API key requests)
+- Factory Manager  Librarian (skill requests)
+- Factory Manager  Security Officer (API key storage requests)
+- Moderator  Sub-Agents (continuous task management and monitoring)
+- Moderator  Librarian (skill requests for sub-agents)
+- Moderator  Butler (resource requests, usage data)
+- Moderator  Factory Manager (new agent requests)
+- Moderator  Janitor (cleanup requests)
+- Moderator  GitHub (monitoring dashboard updates)
+- Sub-Agents  Gatekeeper (code review requests)
+- Sub-Agents  Butler (API usage reports, context updates)
+- Sub-Agents  Librarian (skill requests during execution)
+- Butler  Security Officer (API key retrieval from .env)
+- All Agents  Security Officer (environment variable requests)
 
 **Communication Format**:
 ```json
@@ -1446,13 +1446,13 @@ If Rejected: Sub-Agent → Fix Issues → Resubmit
 ### Secondary API Keys (ALL Mansion Members Except Zorro)
 
 **CRITICAL**: Butler manages secondary API keys for **ALL mansion members EXCEPT Zorro**:
-- ✅ Factory Manager
-- ✅ Moderator
-- ✅ Librarian
-- ✅ Security Officer
-- ✅ Gatekeeper
-- ✅ Janitor
-- ✅ All Sub-Agents
+-  Factory Manager
+-  Moderator
+-  Librarian
+-  Security Officer
+-  Gatekeeper
+-  Janitor
+-  All Sub-Agents
 
 **Management Details**:
 - **Storage**: API keys stored securely by Security Officer in .env file
@@ -1605,11 +1605,11 @@ If Rejected: Sub-Agent → Fix Issues → Resubmit
 ## Future Enhancements
 
 ### Implemented Features
-1. ✅ **Ant Farm Structure**: Parallel execution lanes implemented
-2. ✅ **Agent Learning**: Learning system implemented for pattern recognition
-3. ✅ **GitHub Monitoring**: Real-time monitoring dashboard on GitHub
-4. ✅ **Context Overflow Management**: Comprehensive context management system
-5. ✅ **Rate Limit Management**: Proactive rate limit prevention
+1.  **Ant Farm Structure**: Parallel execution lanes implemented
+2.  **Agent Learning**: Learning system implemented for pattern recognition
+3.  **GitHub Monitoring**: Real-time monitoring dashboard on GitHub
+4.  **Context Overflow Management**: Comprehensive context management system
+5.  **Rate Limit Management**: Proactive rate limit prevention
 
 ### Potential Future Improvements
 1. **Predictive Scaling**: Pre-spawn agents based on predicted load

@@ -27,7 +27,7 @@ def view_notifications():
     # Clear after reading
     open(notify_file, "w").close()
     
-    print(f"\n{'📱 Notifications from Magda':=^60}")
+    print(f"\n{' Notifications from Magda':=^60}")
     
     for line in lines:
         try:
@@ -54,7 +54,7 @@ def view_pending():
         print("No pending actions.")
         return
     
-    print(f"\n{'⏳ Pending Actions':=^60}")
+    print(f"\n{' Pending Actions':=^60}")
     
     for i, action in enumerate(pending, 1):
         cmd = action.get('command', {})
@@ -90,7 +90,7 @@ def view_notes():
         print("No notes yet.")
         return
     
-    print(f"\n{'📝 Messages from Magda':=^60}")
+    print(f"\n{' Messages from Magda':=^60}")
     print(content)
 
 
@@ -106,7 +106,7 @@ def clear_all():
         if f.exists():
             f.unlink()
     
-    print("✅ All notifications cleared")
+    print(" All notifications cleared")
 
 
 def main():

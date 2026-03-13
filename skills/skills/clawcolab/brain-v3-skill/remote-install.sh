@@ -2,7 +2,7 @@
 # ClawBrain Remote Installer
 # Usage: curl -fsSL https://raw.githubusercontent.com/clawcolab/clawbrain/main/remote-install.sh | bash
 # 
-# ⚠️  SECURITY WARNING ⚠️
+#   SECURITY WARNING 
 # This script downloads and executes code from the internet.
 # For production use, consider manual installation:
 #   git clone https://github.com/clawcolab/clawbrain.git
@@ -10,10 +10,10 @@
 
 set -e
 
-echo "🧠 ClawBrain Remote Installer"
+echo " ClawBrain Remote Installer"
 echo "=============================="
 echo ""
-echo "⚠️  Security Notice:"
+echo "  Security Notice:"
 echo "This script will download and execute code from GitHub."
 echo "For production environments, we recommend manual installation:"
 echo "  git clone https://github.com/clawcolab/clawbrain.git"
@@ -56,17 +56,17 @@ if [ -z "$SKILLS_DIR" ]; then
     fi
 fi
 
-echo "📁 Installing to: $SKILLS_DIR/clawbrain"
+echo " Installing to: $SKILLS_DIR/clawbrain"
 
 # Clone or update
 if [ -d "$SKILLS_DIR/clawbrain" ]; then
-    echo "📥 Updating existing installation..."
+    echo " Updating existing installation..."
     cd "$SKILLS_DIR/clawbrain"
     git fetch --all
     git checkout feature/openclaw-plugin-integration 2>/dev/null || git checkout main
     git pull
 else
-    echo "📥 Cloning clawbrain..."
+    echo " Cloning clawbrain..."
     git clone -b feature/openclaw-plugin-integration https://github.com/clawcolab/clawbrain.git "$SKILLS_DIR/clawbrain" 2>/dev/null || \
     git clone https://github.com/clawcolab/clawbrain.git "$SKILLS_DIR/clawbrain"
     cd "$SKILLS_DIR/clawbrain"
@@ -74,7 +74,7 @@ fi
 
 # Display commit information for transparency
 echo ""
-echo "📋 Installation Details:"
+echo " Installation Details:"
 echo "Repository: https://github.com/clawcolab/clawbrain"
 echo "Commit: $(git rev-parse HEAD)"
 echo "Date: $(git log -1 --format=%cd)"

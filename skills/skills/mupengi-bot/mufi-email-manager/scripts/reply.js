@@ -53,11 +53,11 @@ function loadTemplates() {
 function listTemplates() {
   const templates = loadTemplates();
   
-  console.log('📝 사용 가능한 답장 템플릿\n');
+  console.log(' 사용 가능한 답장 템플릿\n');
   console.log('━'.repeat(50));
   
   Object.entries(templates).forEach(([name, template]) => {
-    console.log(`\n🏷️  ${name}`);
+    console.log(`\n  ${name}`);
     console.log(`   제목: ${template.subject}`);
     console.log(`   내용:`);
     template.body.split('\n').forEach(line => {
@@ -78,13 +78,13 @@ async function main() {
   }
 
   if (!options.uid) {
-    console.error('❌ --uid 옵션이 필요합니다.');
+    console.error(' --uid 옵션이 필요합니다.');
     console.error('예: node reply.js --uid 12345 --template thanks --account gmail');
     process.exit(1);
   }
 
   if (!options.template && !options.body) {
-    console.error('❌ --template 또는 --body 옵션이 필요합니다.');
+    console.error(' --template 또는 --body 옵션이 필요합니다.');
     console.error('템플릿 목록: node reply.js --list');
     process.exit(1);
   }
@@ -95,18 +95,18 @@ async function main() {
 
   try {
     // 원본 메일 조회
-    console.log(`🔍 원본 메일 조회 중... (UID: ${options.uid})\n`);
+    console.log(` 원본 메일 조회 중... (UID: ${options.uid})\n`);
     await imapClient.connect();
     const messages = await imapClient.fetchMessages([options.uid]);
     
     if (messages.length === 0) {
-      console.error('❌ 메일을 찾을 수 없습니다.');
+      console.error(' 메일을 찾을 수 없습니다.');
       await imapClient.disconnect();
       process.exit(1);
     }
 
     const originalMessage = messages[0];
-    console.log(`📧 원본 메일:`);
+    console.log(` 원본 메일:`);
     console.log(`   제목: ${originalMessage.subject}`);
     console.log(`   발신: ${originalMessage.from}\n`);
 
@@ -119,7 +119,7 @@ async function main() {
       const template = templates[options.template];
       
       if (!template) {
-        console.error(`❌ 템플릿 '${options.template}'을 찾을 수 없습니다.`);
+        console.error(` 템플릿 '${options.template}'을 찾을 수 없습니다.`);
         console.error('템플릿 목록: node reply.js --list');
         await imapClient.disconnect();
         process.exit(1);
@@ -130,14 +130,14 @@ async function main() {
     }
 
     // 답장 발송
-    console.log(`📤 답장 발송 중...\n`);
+    console.log(` 답장 발송 중...\n`);
     await smtpClient.sendMail({
       to: originalMessage.from,
       subject: replySubject,
       text: replyBody
     });
 
-    console.log('✅ 답장을 성공적으로 발송했습니다.\n');
+    console.log(' 답장을 성공적으로 발송했습니다.\n');
     console.log(`━`.repeat(50));
     console.log(`제목: ${replySubject}`);
     console.log(`수신: ${originalMessage.from}`);
@@ -146,7 +146,7 @@ async function main() {
 
     await imapClient.disconnect();
   } catch (err) {
-    console.error('❌ 오류:', err.message);
+    console.error(' 오류:', err.message);
     process.exit(1);
   }
 }

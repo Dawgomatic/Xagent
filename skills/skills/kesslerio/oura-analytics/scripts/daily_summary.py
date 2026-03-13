@@ -92,7 +92,7 @@ def main():
         suggestion = analyzer.generate_suggestion(readiness_score, readiness_drivers)
         
         # Format output
-        print(f"\n📊 Daily Oura Summary - {target_date}")
+        print(f"\n Daily Oura Summary - {target_date}")
         print("=" * 50)
         
         # Readiness (lead with most important metric)
@@ -102,11 +102,11 @@ def main():
             delta_str = f"+{delta_ready:.0f}" if delta_ready > 0 else f"{delta_ready:.0f}"
             
             if readiness_score >= 85:
-                emoji = "🟢"
+                emoji = ""
             elif readiness_score >= 70:
-                emoji = "🟡"
+                emoji = ""
             else:
-                emoji = "🔴"
+                emoji = ""
             
             print(f"\n{emoji} Readiness: {readiness_score}/100 ({delta_str} vs baseline)")
             
@@ -125,7 +125,7 @@ def main():
             delta_dur = actual_dur - baseline_dur
             delta_str = f"+{delta_dur:.1f}h" if delta_dur > 0 else f"{delta_dur:.1f}h"
             
-            print(f"\n🌙 Sleep: {format_hours(duration)} ({delta_str} vs baseline)")
+            print(f"\n Sleep: {format_hours(duration)} ({delta_str} vs baseline)")
         
         if efficiency:
             baseline_eff = baseline.efficiency.mean if baseline.efficiency else 85.0
@@ -163,7 +163,7 @@ def main():
                 print(f"      RHR: {rhr}bpm ({delta_str})")
         
         # Actionable suggestion
-        print(f"\n💡 {suggestion}")
+        print(f"\n {suggestion}")
         print()
     
     except Exception as e:

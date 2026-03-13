@@ -112,7 +112,7 @@ if (require.main === module) {
     process.exit(1);
   }
 
-  console.log(`\n✅ Project lock file created:`);
+  console.log(`\n Project lock file created:`);
   console.log(`\nName: ${result.name}`);
   console.log(`Root: ${result.root}`);
   console.log(`Lock: ${result.lockFile}`);

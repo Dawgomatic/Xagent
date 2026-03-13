@@ -36,7 +36,7 @@ async function main() {
   
   // Check if config exists
   if (existsSync(configFile)) {
-    console.log(`${colors.yellow}⚠️  Config file already exists: ${configFile}${colors.reset}`);
+    console.log(`${colors.yellow}  Config file already exists: ${configFile}${colors.reset}`);
     const overwrite = await prompt('Do you want to overwrite it? (y/N): ');
     if (!overwrite.match(/^[Yy]$/)) {
       console.log(`${colors.green}✓ Keeping existing config${colors.reset}`);
@@ -171,7 +171,7 @@ async function main() {
       })
     );
     
-    console.log(`${colors.green}✅ Successfully connected to bucket '${config.default}'${colors.reset}`);
+    console.log(`${colors.green} Successfully connected to bucket '${config.default}'${colors.reset}`);
     console.log('');
     console.log(`${colors.green}╔════════════════════════════════════════════╗${colors.reset}`);
     console.log(`${colors.green}║   Setup Complete! ✓                       ║${colors.reset}`);
@@ -184,7 +184,7 @@ async function main() {
     console.log('Default expiration: 5 minutes');
     console.log('To change: use --expires flag (e.g., --expires 24h)');
   } catch (error) {
-    console.log(`${colors.red}❌ Connection failed: ${error}${colors.reset}`);
+    console.log(`${colors.red} Connection failed: ${error}${colors.reset}`);
     console.log('');
     console.log('Please check your credentials and try again.');
     console.log(`Config file: ${configFile}`);

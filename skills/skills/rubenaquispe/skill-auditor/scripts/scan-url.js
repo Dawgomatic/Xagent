@@ -285,11 +285,11 @@ function applyIntentMatching(findings, description, fullContent) {
         ...f, intentMatch: true,
         originalSeverity: f.originalSeverity || f.severity,
         severity: severityDowngrade[f.severity] || f.severity,
-        explanation: f.explanation + ' ⚡ Expected behavior — matches skill\'s stated purpose'
+        explanation: f.explanation + '  Expected behavior — matches skill\'s stated purpose'
       };
     } else {
       const sensitiveCategories = ['Sensitive File Access', 'Persistence', 'Data Exfiltration', 'Privilege Escalation'];
-      const note = sensitiveCategories.includes(f.category) ? ' ⚠️ Undisclosed — not mentioned in skill description' : '';
+      const note = sensitiveCategories.includes(f.category) ? '  Undisclosed — not mentioned in skill description' : '';
       return { ...f, intentMatch: false, explanation: f.explanation + note };
     }
   });

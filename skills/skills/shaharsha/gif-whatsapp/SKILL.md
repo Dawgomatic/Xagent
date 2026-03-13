@@ -2,9 +2,9 @@
 name: gif-whatsapp
 version: 1.1.0
 description: Search and send GIFs on WhatsApp. Handles the Tenor→MP4 conversion required for WhatsApp.
-author: Leo 🦁
+author: Leo 
 homepage: https://clawhub.com/skills/gif-whatsapp
-metadata: {"clawdbot":{"emoji":"🎬","requires":{"bins":["gifgrep","ffmpeg","curl"]},"requiresTools":["message"],"notes":"Uses the platform message tool (already configured) for WhatsApp delivery. gifgrep searches Tenor/Giphy only. Downloads are saved to /tmp and cleaned up after sending."}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["gifgrep","ffmpeg","curl"]},"requiresTools":["message"],"notes":"Uses the platform message tool (already configured) for WhatsApp delivery. gifgrep searches Tenor/Giphy only. Downloads are saved to /tmp and cleaned up after sending."}}
 allowed-tools: [exec, message]
 ---
 
@@ -61,13 +61,13 @@ ffmpeg -i /tmp/g.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)
 
 ## When to Send GIFs
 
-✅ Good times:
+ Good times:
 - User asks for a GIF
 - Celebrating good news
 - Funny reactions
 - Expressing emotions (excitement, facepalm, etc.)
 
-❌ Don't overuse:
+ Don't overuse:
 - One GIF per context is enough
 - Not every message needs a GIF
 

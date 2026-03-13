@@ -14,7 +14,7 @@ description: >
   email, calendar, file storage, and task management tools.
 metadata:
   openclaw:
-    emoji: "🤝"
+    emoji: ""
 ---
 
 # Client Flow
@@ -176,9 +176,9 @@ Maintain a master list of all clients and projects:
 
 | Client | Project | Status | Contact | Start | Deadline | Value |
 |--------|---------|--------|---------|-------|----------|-------|
-| Acme Corp | Website Redesign | 🟢 Active | sarah@acme.com | Feb 15 | Mar 30 | $15k |
-| Beta LLC | Brand Identity | 🟡 In Review | john@beta.io | Jan 20 | Feb 28 | $8k |
-| Gamma Inc | Mobile App | ✅ Completed | lisa@gamma.co | Nov 1 | Jan 15 | $25k |
+| Acme Corp | Website Redesign |  Active | sarah@acme.com | Feb 15 | Mar 30 | $15k |
+| Beta LLC | Brand Identity |  In Review | john@beta.io | Jan 20 | Feb 28 | $8k |
+| Gamma Inc | Mobile App |  Completed | lisa@gamma.co | Nov 1 | Jan 15 | $25k |
 ```
 
 Store in workspace memory or as a Markdown file in a "Business" folder.
@@ -190,16 +190,16 @@ Store in workspace memory or as a Markdown file in a "Business" folder.
 → Pull from client registry + task managers and generate:
 
 ```
-🤝 Active Projects
+ Active Projects
 
 1. Acme Corp — Website Redesign
-   Status: On track ✅
+   Status: On track 
    Next milestone: First mockup review (Feb 22)
    Outstanding tasks: 3 of 8 completed
    Budget used: ~40%
    
 2. Beta LLC — Brand Identity
-   Status: Needs attention ⚠️
+   Status: Needs attention 
    Next milestone: Final delivery (Feb 28) — 5 days away
    Outstanding tasks: 2 remaining
    Blocker: Waiting for client feedback since Feb 10

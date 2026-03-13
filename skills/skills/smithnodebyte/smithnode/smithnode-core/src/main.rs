@@ -218,7 +218,7 @@ async fn poll_sequencer_for_upgrade(rpc_url: &str) -> anyhow::Result<Option<p2p:
     
     // Verify the operator signature locally — don't trust the sequencer blindly
     if !announcement.verify() {
-        tracing::warn!("📡 RPC fallback: upgrade from sequencer failed signature verification");
+        tracing::warn!(" RPC fallback: upgrade from sequencer failed signature verification");
         return Ok(None);
     }
     
@@ -256,7 +256,7 @@ async fn main() -> anyhow::Result<()> {
         }
 
         Commands::Start { data_dir, rpc_bind, p2p_bind, peers } => {
-            tracing::info!("🦀 Starting SmithNode...");
+            tracing::info!(" Starting SmithNode...");
             
             // Parse bind addresses
             let rpc_addr: std::net::SocketAddr = rpc_bind.parse()
@@ -291,7 +291,7 @@ async fn main() -> anyhow::Result<()> {
                 key
             };
             let node_pubkey_hex = hex::encode(ed25519_dalek::VerifyingKey::from(&node_signing_key).to_bytes());
-            tracing::info!("🔑 Node block signing key: {}...", &node_pubkey_hex[..16]);
+            tracing::info!(" Node block signing key: {}...", &node_pubkey_hex[..16]);
             network.set_validator_signer(node_pubkey_hex.clone(), node_signing_key);
             
             // CRITICAL: Spawn P2P network FIRST so gossipsub can form mesh
@@ -303,20 +303,20 @@ async fn main() -> anyhow::Result<()> {
             
             // Connect to bootstrap peers
             if !peers.is_empty() {
-                tracing::info!("🔗 Connecting to {} bootstrap peers...", peers.len());
+                tracing::info!(" Connecting to {} bootstrap peers...", peers.len());
                 for peer in &peers {
                     tracing::info!("   → {}", peer);
                     if let Err(e) = network_handle.dial_peer(peer).await {
-                        tracing::warn!("⚠️ Failed to queue dial to {}: {}", peer, e);
+                        tracing::warn!(" Failed to queue dial to {}: {}", peer, e);
                     }
                 }
                 
                 // Request state sync from peers if we're starting fresh
                 if state.get_height() == 0 {
                     tokio::time::sleep(tokio::time::Duration::from_secs(5)).await; // Wait for mesh
-                    tracing::info!("📥 Requesting state sync from peers...");
+                    tracing::info!(" Requesting state sync from peers...");
                     if let Err(e) = network_handle.request_state_sync().await {
-                        tracing::warn!("⚠️ Failed to request state sync: {}", e);
+                        tracing::warn!(" Failed to request state sync: {}", e);
                     }
                 }
             }
@@ -337,13 +337,13 @@ async fn main() -> anyhow::Result<()> {
                             tracing::debug!("Event: Block {} received", msg.header.height);
                         }
                         p2p::NetworkEvent::PeerConnected(peer_id) => {
-                            tracing::info!("📡 Peer connected: {}", peer_id);
+                            tracing::info!(" Peer connected: {}", peer_id);
                         }
                         p2p::NetworkEvent::PeerDisconnected(peer_id) => {
-                            tracing::info!("📴 Peer disconnected: {}", peer_id);
+                            tracing::info!(" Peer disconnected: {}", peer_id);
                         }
                         p2p::NetworkEvent::StateReceived(state_msg) => {
-                            tracing::info!("📥 Received state from peer: height={}, validators={}, txs={}",
+                            tracing::info!(" Received state from peer: height={}, validators={}, txs={}",
                                 state_msg.height, state_msg.validators.len(), state_msg.tx_records.len());
                             
                             // Convert to ValidatorInfo and apply
@@ -378,7 +378,7 @@ async fn main() -> anyhow::Result<()> {
                                 state_msg.total_supply, 
                                 validators
                             ) {
-                                tracing::info!("✅ State synced! Now at height {}", state_msg.height);
+                                tracing::info!(" State synced! Now at height {}", state_msg.height);
                                 
                                 // Merge tx_records from peer
                                 if !state_msg.tx_records.is_empty() {
@@ -405,13 +405,13 @@ async fn main() -> anyhow::Result<()> {
                         }
                         p2p::NetworkEvent::PresenceReceived(presence) => {
                             // P2P heartbeat received - state is already updated in the network handler
-                            tracing::trace!("💓 Presence from validator {}...", &presence.validator_pubkey[..16.min(presence.validator_pubkey.len())]);
+                            tracing::trace!(" Presence from validator {}...", &presence.validator_pubkey[..16.min(presence.validator_pubkey.len())]);
                         }
                         p2p::NetworkEvent::AIMessageReceived(ai_msg) => {
                             // AI messaging DISABLED on devnet - just log and store
                             // Focus on: Challenges (Proof of Cognition) + Governance (voting)
                             let topic = ai_msg.topic.clone().unwrap_or_else(|| "unknown".to_string());
-                            tracing::debug!("📭 AI message received [{}] - storage only (no auto-response on devnet)", topic);
+                            tracing::debug!(" AI message received [{}] - storage only (no auto-response on devnet)", topic);
                             
                             // Store for history/debugging but don't auto-respond
                             p2p::store_ai_message(crate::rpc::AIMessageRecord {
@@ -433,21 +433,21 @@ async fn main() -> anyhow::Result<()> {
                             // NOTE: Auto-response DISABLED - validators focus on challenges & governance
                         }
                         p2p::NetworkEvent::RegistrationReceived(reg_msg) => {
-                            tracing::info!("📝 Validator registered via P2P: {}...",
+                            tracing::info!(" Validator registered via P2P: {}...",
                                 &reg_msg.public_key[..16.min(reg_msg.public_key.len())]);
                         }
                         p2p::NetworkEvent::GovernanceReceived(gov_msg) => {
-                            tracing::info!("📋 Governance event received via P2P: {:?}", gov_msg.action);
+                            tracing::info!(" Governance event received via P2P: {:?}", gov_msg.action);
                         }
                         p2p::NetworkEvent::TransferReceived(tx_msg) => {
-                            tracing::debug!("💸 Transfer received via P2P: {} → {}", &tx_msg.from[..16.min(tx_msg.from.len())], &tx_msg.to[..16.min(tx_msg.to.len())]);
+                            tracing::debug!(" Transfer received via P2P: {} → {}", &tx_msg.from[..16.min(tx_msg.from.len())], &tx_msg.to[..16.min(tx_msg.to.len())]);
                         }
                         p2p::NetworkEvent::LivenessChallengeReceived(challenge) => {
-                            tracing::debug!("🧪 Liveness challenge from {}... (Start mode — not participating)", 
+                            tracing::debug!(" Liveness challenge from {}... (Start mode — not participating)", 
                                 &challenge.challenger[..16.min(challenge.challenger.len())]);
                         }
                         p2p::NetworkEvent::LivenessResponseReceived(response) => {
-                            tracing::debug!("📬 Liveness response from {}... (Start mode)", 
+                            tracing::debug!(" Liveness response from {}... (Start mode)", 
                                 &response.responder[..16.min(response.responder.len())]);
                         }
                     }
@@ -544,7 +544,7 @@ async fn main() -> anyhow::Result<()> {
                         // TURBO: Produce block immediately — no puzzle, no waiting
                         let block_info = state_for_blocks.produce_turbo_block();
                         if let Some((height, prev_state_root, state_root, challenge_hash, total_supply)) = block_info {
-                            tracing::info!("⚡ Turbo block {} produced (2s)", height);
+                            tracing::info!(" Turbo block {} produced (2s)", height);
                             
                             // Broadcast the block via P2P
                             if let Err(e) = network_for_blocks.broadcast_turbo_block(
@@ -557,11 +557,11 @@ async fn main() -> anyhow::Result<()> {
                 }
             });
             
-            tracing::info!("✅ Node running - RPC: {}, P2P: {}", rpc_addr, p2p_addr);
-            tracing::info!("📡 WebSocket subscriptions available at ws://{}", rpc_addr);
-            tracing::info!("⚡ TURBO block production: every 2 seconds");
-            tracing::info!("🤖 AI used for: governance reasoning + P2P liveness challenges");
-            tracing::info!("🤖 Ready for AI agent validators to connect!");
+            tracing::info!(" Node running - RPC: {}, P2P: {}", rpc_addr, p2p_addr);
+            tracing::info!(" WebSocket subscriptions available at ws://{}", rpc_addr);
+            tracing::info!(" TURBO block production: every 2 seconds");
+            tracing::info!(" AI used for: governance reasoning + P2P liveness challenges");
+            tracing::info!(" Ready for AI agent validators to connect!");
 
             // Wait for shutdown
             tokio::select! {
@@ -611,7 +611,7 @@ async fn main() -> anyhow::Result<()> {
         } => {
             use ed25519_dalek::{SigningKey, Signer};
             
-            tracing::info!("📦 Announcing upgrade v{} to the network...", version);
+            tracing::info!(" Announcing upgrade v{} to the network...", version);
             
             // Load operator keypair
             let keypair_data: serde_json::Value = serde_json::from_str(
@@ -655,9 +655,9 @@ async fn main() -> anyhow::Result<()> {
             if url_darwin_arm64.is_some() { covered.push("darwin-arm64"); }
             if url_darwin_x64.is_some() { covered.push("darwin-x64"); }
             if url_linux_arm64.is_some() { covered.push("linux-arm64"); }
-            tracing::info!("📋 Platforms covered: {}", covered.join(", "));
+            tracing::info!(" Platforms covered: {}", covered.join(", "));
             if covered.is_empty() {
-                tracing::error!("❌ No platform URLs provided! Use --url-linux-x64 / --url-darwin-arm64 etc.");
+                tracing::error!(" No platform URLs provided! Use --url-linux-x64 / --url-darwin-arm64 etc.");
                 std::process::exit(1);
             }
             
@@ -681,7 +681,7 @@ async fn main() -> anyhow::Result<()> {
             
             // Log before moving values into announcement struct
             tracing::info!("══════════════════════════════════════════════════");
-            tracing::info!("📦 UPGRADE ANNOUNCEMENT");
+            tracing::info!(" UPGRADE ANNOUNCEMENT");
             tracing::info!("   Version: {}", version);
             if let Some(ref u) = download_urls.linux_x64 { tracing::info!("   linux-x64:      {}", u); }
             if let Some(ref u) = download_urls.darwin_arm64 { tracing::info!("   darwin-arm64:   {}", u); }
@@ -723,10 +723,10 @@ async fn main() -> anyhow::Result<()> {
                         let announce_path = std::path::Path::new(".smithnode").join("pending_upgrade.json");
                         std::fs::create_dir_all(".smithnode")?;
                         std::fs::write(&announce_path, serde_json::to_string_pretty(&announcement)?)?;
-                        tracing::info!("📦 Upgrade announcement saved to {:?}", announce_path);
+                        tracing::info!(" Upgrade announcement saved to {:?}", announce_path);
                         tracing::info!("   The node will pick it up and broadcast via P2P");
                     } else {
-                        tracing::info!("✅ Upgrade v{} announced to network via RPC", version);
+                        tracing::info!(" Upgrade v{} announced to network via RPC", version);
                     }
                 }
                 Err(_) => {
@@ -734,7 +734,7 @@ async fn main() -> anyhow::Result<()> {
                     let announce_path = std::path::Path::new(".smithnode").join("pending_upgrade.json");
                     std::fs::create_dir_all(".smithnode")?;
                     std::fs::write(&announce_path, serde_json::to_string_pretty(&announcement)?)?;
-                    tracing::info!("📦 Upgrade announcement saved to {:?}", announce_path);
+                    tracing::info!(" Upgrade announcement saved to {:?}", announce_path);
                     tracing::info!("   Copy this file to the running node's data dir");
                     tracing::info!("   or broadcast it manually via P2P");
                 }
@@ -745,7 +745,7 @@ async fn main() -> anyhow::Result<()> {
             use ed25519_dalek::{SigningKey, Signer, Signature};
             use sha2::{Sha256, Digest};
 
-            tracing::info!("🤖 Starting SmithNode P2P VALIDATOR...");
+            tracing::info!(" Starting SmithNode P2P VALIDATOR...");
             tracing::info!("   This node will participate directly in P2P consensus");
             
             // Load keypair
@@ -764,7 +764,7 @@ async fn main() -> anyhow::Result<()> {
                 .map_err(|_| anyhow::anyhow!("Invalid private key length"))?;
             let signing_key = SigningKey::from_bytes(&private_key_bytes);
             
-            tracing::info!("🔑 Validator public key: {}...", &public_key_hex[..16]);
+            tracing::info!(" Validator public key: {}...", &public_key_hex[..16]);
             
             // Parse addresses
             let p2p_addr: std::net::SocketAddr = p2p_bind.parse()
@@ -799,18 +799,18 @@ async fn main() -> anyhow::Result<()> {
             });
             
             // Connect to bootstrap peers
-            tracing::info!("🔗 Connecting to {} bootstrap peers...", peers.len());
+            tracing::info!(" Connecting to {} bootstrap peers...", peers.len());
             for peer in &peers {
                 tracing::info!("   → {}", peer);
                 if let Err(e) = network_handle.dial_peer(peer).await {
-                    tracing::warn!("⚠️ Failed to dial {}: {}", peer, e);
+                    tracing::warn!(" Failed to dial {}: {}", peer, e);
                 }
             }
             
             // Wait for P2P connections and gossipsub mesh to form
             tokio::time::sleep(tokio::time::Duration::from_secs(5)).await;
             if state.get_height() == 0 {
-                tracing::info!("📥 Requesting state sync from peers...");
+                tracing::info!(" Requesting state sync from peers...");
                 let _ = network_handle.request_state_sync().await;
                 // Wait for state sync to complete — only check height, not validator count.
                 // The loaded state.json may already have validators (from a previous run)
@@ -818,12 +818,12 @@ async fn main() -> anyhow::Result<()> {
                 for i in 0..15 {
                     tokio::time::sleep(tokio::time::Duration::from_secs(1)).await;
                     if state.get_height() > 0 {
-                        tracing::info!("✅ State sync completed after {}s (height: {})", i + 1, state.get_height());
+                        tracing::info!(" State sync completed after {}s (height: {})", i + 1, state.get_height());
                         break;
                     }
                     // Re-request every 5s in case the first request was lost
                     if (i + 1) % 5 == 0 {
-                        tracing::info!("📥 Re-requesting state sync (attempt {})...", (i + 1) / 5 + 1);
+                        tracing::info!(" Re-requesting state sync (attempt {})...", (i + 1) / 5 + 1);
                         let _ = network_handle.request_state_sync().await;
                     }
                 }
@@ -835,9 +835,9 @@ async fn main() -> anyhow::Result<()> {
                 .map_err(|_| anyhow::anyhow!("Invalid public key"))?;
             let already_registered = state.get_validator(public_key_hex).is_some();
             if already_registered {
-                tracing::info!("✅ Already registered as validator (via state sync)");
+                tracing::info!(" Already registered as validator (via state sync)");
             } else {
-                tracing::info!("📝 Registering via P2P broadcast...");
+                tracing::info!(" Registering via P2P broadcast...");
                 
                 let timestamp = std::time::SystemTime::now()
                     .duration_since(std::time::UNIX_EPOCH)
@@ -857,15 +857,15 @@ async fn main() -> anyhow::Result<()> {
                 // Send registration to P2P layer — it will self-register locally
                 // and queue for gossip retry if mesh isn't ready yet
                 if let Err(e) = network_handle.broadcast_registration(reg_msg).await {
-                    tracing::warn!("⚠️ Failed to send registration: {}", e);
+                    tracing::warn!(" Failed to send registration: {}", e);
                 }
                 
                 // Wait for propagation (P2P layer retries gossip every 3s)
                 tokio::time::sleep(tokio::time::Duration::from_secs(5)).await;
                 if state.get_validator(public_key_hex).is_some() {
-                    tracing::info!("✅ Registered as validator (confirmed in state)");
+                    tracing::info!(" Registered as validator (confirmed in state)");
                 } else {
-                    tracing::warn!("⚠️ Registration may still be propagating via P2P retries...");
+                    tracing::warn!(" Registration may still be propagating via P2P retries...");
                 }
             }
             
@@ -927,14 +927,14 @@ async fn main() -> anyhow::Result<()> {
                         }
                     }
                     other => {
-                        tracing::error!("❌ Unknown AI provider: '{}'. Supported: ollama, openai, anthropic, groq, together", other);
+                        tracing::error!(" Unknown AI provider: '{}'. Supported: ollama, openai, anthropic, groq, together", other);
                         std::process::exit(1);
                     }
                 };
-                tracing::info!("🧠 AI solver enabled: provider={}, model={}", provider, config.model);
+                tracing::info!(" AI solver enabled: provider={}, model={}", provider, config.model);
                 ai::AIClient::new(config)
             } else {
-                tracing::error!("❌ AI provider is REQUIRED for SmithNode validators.");
+                tracing::error!(" AI provider is REQUIRED for SmithNode validators.");
                 tracing::error!("   SmithNode is an AI blockchain — every validator must have AI.");
                 tracing::error!("   Use: --ai-provider ollama --ai-model llama2  (free, local)");
                 tracing::error!("   Or:  --ai-provider openai --ai-api-key <key>");
@@ -1139,7 +1139,7 @@ async fn main() -> anyhow::Result<()> {
                         if let Err(e) = network_for_gov.broadcast_governance(gov_msg).await {
                             tracing::warn!("Failed to broadcast governance vote: {}", e);
                         } else {
-                            tracing::info!("🗳️  Auto-voted {} on proposal #{}", 
+                            tracing::info!("  Auto-voted {} on proposal #{}", 
                                 if vote_decision { "YES" } else { "NO" }, proposal.id);
                             voted_proposals.insert(proposal.id);
                         }
@@ -1190,7 +1190,7 @@ async fn main() -> anyhow::Result<()> {
                         if let Err(e) = network_handle_for_validator.broadcast_presence(presence).await {
                             tracing::debug!("Failed to broadcast presence: {}", e);
                         } else {
-                            tracing::debug!("💓 Heartbeat sent");
+                            tracing::debug!(" Heartbeat sent");
                         }
                         last_heartbeat = std::time::Instant::now();
                     }
@@ -1261,7 +1261,7 @@ async fn main() -> anyhow::Result<()> {
                                 signature: hex::encode(sig.to_bytes()),
                             };
                             
-                            tracing::info!("🧪 Sending liveness challenge to {}...", 
+                            tracing::info!(" Sending liveness challenge to {}...", 
                                 &target.public_key[..16.min(target.public_key.len())]);
                             
                             if let Err(e) = network_handle_for_validator.broadcast_liveness_challenge(challenge).await {
@@ -1286,7 +1286,7 @@ async fn main() -> anyhow::Result<()> {
                         if let Some(upgrade) = tracker.get_latest_upgrade() {
                             // Only re-broadcast if the upgrade is for a newer version
                             if upgrade.version != p2p::SMITH_VERSION {
-                                tracing::debug!("📦 Re-broadcasting upgrade v{} to P2P mesh", upgrade.version);
+                                tracing::debug!(" Re-broadcasting upgrade v{} to P2P mesh", upgrade.version);
                                 let _ = network_handle_for_validator.broadcast_upgrade(upgrade).await;
                             }
                         }
@@ -1307,46 +1307,46 @@ async fn main() -> anyhow::Result<()> {
                 while let Some(event) = event_rx.recv().await {
                     match event {
                         p2p::NetworkEvent::ChallengeReceived(msg) => {
-                            tracing::debug!("📡 P2P Challenge for height {}", msg.challenge.height);
+                            tracing::debug!(" P2P Challenge for height {}", msg.challenge.height);
                         }
                         p2p::NetworkEvent::ProofReceived(msg) => {
-                            tracing::debug!("📡 P2P Proof from {}...", &msg.response.validator_pubkey[..16]);
+                            tracing::debug!(" P2P Proof from {}...", &msg.response.validator_pubkey[..16]);
                         }
                         p2p::NetworkEvent::BlockReceived(msg) => {
                             let our_height = state_for_events.get_height();
                             if our_height == 0 && msg.header.height > 10 && last_sync_retry.elapsed() > std::time::Duration::from_secs(10) {
                                 // We're at height 0 but network is way ahead — re-request state sync
-                                tracing::info!("📡 Block {} received but we're at height 0 — requesting state sync...", msg.header.height);
+                                tracing::info!(" Block {} received but we're at height 0 — requesting state sync...", msg.header.height);
                                 let _ = network_for_events.request_state_sync().await;
                                 last_sync_retry = std::time::Instant::now();
                             } else if our_height > 0 {
-                                tracing::info!("📡 P2P Block {} received (our height: {})", msg.header.height, our_height);
+                                tracing::info!(" P2P Block {} received (our height: {})", msg.header.height, our_height);
                             }
                         }
                         p2p::NetworkEvent::PeerConnected(peer_id) => {
-                            tracing::info!("🤝 Peer connected: {}", peer_id);
+                            tracing::info!(" Peer connected: {}", peer_id);
                         }
                         p2p::NetworkEvent::PeerDisconnected(peer_id) => {
-                            tracing::info!("👋 Peer disconnected: {}", peer_id);
+                            tracing::info!(" Peer disconnected: {}", peer_id);
                         }
                         p2p::NetworkEvent::LivenessChallengeReceived(challenge) => {
                             // Only respond if WE are the target
                             if challenge.target != pubkey_for_events {
-                                tracing::debug!("🧪 Liveness challenge for someone else, ignoring");
+                                tracing::debug!(" Liveness challenge for someone else, ignoring");
                                 continue;
                             }
                             
-                            tracing::info!("🧠 Liveness challenge targeting US from {}... — solving...",
+                            tracing::info!(" Liveness challenge targeting US from {}... — solving...",
                                 &challenge.challenger[..16.min(challenge.challenger.len())]);
                             
                             // Solve with AI — every validator has AI (required at startup)
                             let answer: Option<String> = match ai_for_events.solve_puzzle(&challenge.puzzle_prompt).await {
                                 Ok(ans) => {
-                                    tracing::info!("🤖 AI solved liveness puzzle: {:?}", &ans[..ans.len().min(50)]);
+                                    tracing::info!(" AI solved liveness puzzle: {:?}", &ans[..ans.len().min(50)]);
                                     Some(ans)
                                 }
                                 Err(e) => {
-                                    tracing::warn!("🤖 AI failed to solve puzzle: {}", e);
+                                    tracing::warn!(" AI failed to solve puzzle: {}", e);
                                     None
                                 }
                             };
@@ -1368,11 +1368,11 @@ async fn main() -> anyhow::Result<()> {
                                 if let Err(e) = network_for_events.broadcast_liveness_response(response).await {
                                     tracing::warn!("Failed to send liveness response: {}", e);
                                 } else {
-                                    tracing::info!("✅ Liveness response sent for challenge {}...", 
+                                    tracing::info!(" Liveness response sent for challenge {}...", 
                                         &challenge.challenge_id[..16.min(challenge.challenge_id.len())]);
                                 }
                             } else {
-                                tracing::warn!("❌ Could not solve liveness puzzle: {}", 
+                                tracing::warn!(" Could not solve liveness puzzle: {}", 
                                     &challenge.puzzle_prompt[..80.min(challenge.puzzle_prompt.len())]);
                             }
                         }
@@ -1382,7 +1382,7 @@ async fn main() -> anyhow::Result<()> {
                                 if let Some((target, expected_answer, _expires)) = pending.remove(&response.challenge_id) {
                                     // Verify the responder matches the target
                                     if response.responder != target {
-                                        tracing::warn!("⚠️ Liveness response from wrong responder: expected {}..., got {}...", 
+                                        tracing::warn!(" Liveness response from wrong responder: expected {}..., got {}...", 
                                             &target[..16.min(target.len())], &response.responder[..16.min(response.responder.len())]);
                                         None
                                     } else {
@@ -1402,19 +1402,19 @@ async fn main() -> anyhow::Result<()> {
                                 // Update reputation
                                 state_for_events.record_liveness_result(&pubkey_for_events, &target, success);
                                 if success {
-                                    tracing::info!("✅ Liveness verified: {}... passed (rep +10)", 
+                                    tracing::info!(" Liveness verified: {}... passed (rep +10)", 
                                         &target[..16.min(target.len())]);
                                 } else {
-                                    tracing::warn!("❌ Liveness failed: {}... wrong answer (rep -25)", 
+                                    tracing::warn!(" Liveness failed: {}... wrong answer (rep -25)", 
                                         &target[..16.min(target.len())]);
                                 }
                             } else {
-                                tracing::debug!("📬 Liveness response from {}... (not our challenge)", 
+                                tracing::debug!(" Liveness response from {}... (not our challenge)", 
                                     &response.responder[..16.min(response.responder.len())]);
                             }
                         }
                         p2p::NetworkEvent::StateReceived(state_msg) => {
-                            tracing::info!("📥 State sync: height={}", state_msg.height);
+                            tracing::info!(" State sync: height={}", state_msg.height);
                             // Apply state (same as Start command)
                             let validators: Vec<stf::ValidatorInfo> = state_msg.validators.iter()
                                 .filter_map(|v| {
@@ -1442,7 +1442,7 @@ async fn main() -> anyhow::Result<()> {
                             }
                             
                             if state_for_events.apply_peer_state(state_msg.height, state_root, state_msg.total_supply, validators) {
-                                tracing::info!("✅ State synced! Now at height {}", state_msg.height);
+                                tracing::info!(" State synced! Now at height {}", state_msg.height);
                                 
                                 // M2 fix: Merge tx_records from peer (same as Start command)
                                 if !state_msg.tx_records.is_empty() {
@@ -1477,7 +1477,7 @@ async fn main() -> anyhow::Result<()> {
             let rpc_handle = if let Some(rpc_addr_str) = rpc_bind {
                 let rpc_addr: std::net::SocketAddr = rpc_addr_str.parse()?;
                 let (handle, event_tx) = start_rpc_server(state.clone(), rpc_addr, Some(network_handle)).await?;
-                tracing::info!("📊 Monitoring RPC: {}", rpc_addr);
+                tracing::info!(" Monitoring RPC: {}", rpc_addr);
                 
                 // L2 fix: Spawn state broadcaster for validator RPC subscribers
                 let state_for_broadcast = state.clone();
@@ -1559,7 +1559,7 @@ async fn main() -> anyhow::Result<()> {
             };
             
             tracing::info!("══════════════════════════════════════════════════");
-            tracing::info!("✅ P2P VALIDATOR RUNNING");
+            tracing::info!(" P2P VALIDATOR RUNNING");
             tracing::info!("   Mode: True P2P peer (no RPC dependency)");
             tracing::info!("   P2P: {}", p2p_addr);
             tracing::info!("   Validator: {}...", &public_key_hex[..16]);
@@ -1591,7 +1591,7 @@ async fn main() -> anyhow::Result<()> {
                         if let Some(ref rpc_url) = sequencer_rpc_for_update {
                             match poll_sequencer_for_upgrade(rpc_url).await {
                                 Ok(Some(upgrade)) => {
-                                    tracing::info!("📡 RPC fallback: discovered upgrade v{} from sequencer", upgrade.version);
+                                    tracing::info!(" RPC fallback: discovered upgrade v{} from sequencer", upgrade.version);
                                     // Record it in the version tracker so P2P code also knows
                                     tracker.record_upgrade(upgrade.clone());
                                     upgrade_opt = Some(upgrade);
@@ -1600,7 +1600,7 @@ async fn main() -> anyhow::Result<()> {
                                     // No upgrade available from sequencer
                                 }
                                 Err(e) => {
-                                    tracing::debug!("📡 RPC fallback poll failed: {}", e);
+                                    tracing::debug!(" RPC fallback poll failed: {}", e);
                                 }
                             }
                         }
@@ -1618,12 +1618,12 @@ async fn main() -> anyhow::Result<()> {
                         }
                         
                         tracing::info!("══════════════════════════════════════════════════");
-                        tracing::info!("📦 NEW UPGRADE AVAILABLE: v{}", upgrade.version);
+                        tracing::info!(" NEW UPGRADE AVAILABLE: v{}", upgrade.version);
                         if upgrade.mandatory {
-                            tracing::warn!("⚠️  This is a MANDATORY upgrade!");
+                            tracing::warn!("  This is a MANDATORY upgrade!");
                         }
                         if let Some(ref notes) = upgrade.release_notes {
-                            tracing::info!("📝 Release notes: {}", notes);
+                            tracing::info!(" Release notes: {}", notes);
                         }
                         
                         // ── STAGGERED RESTART ──
@@ -1632,7 +1632,7 @@ async fn main() -> anyhow::Result<()> {
                         {
                             use rand::Rng;
                             let jitter_secs: u64 = rand::thread_rng().gen_range(0..30);
-                            tracing::info!("⏳ Staggering upgrade by {}s to preserve P2P mesh...", jitter_secs);
+                            tracing::info!(" Staggering upgrade by {}s to preserve P2P mesh...", jitter_secs);
                             tokio::time::sleep(tokio::time::Duration::from_secs(jitter_secs)).await;
                         }
                         
@@ -1673,7 +1673,7 @@ async fn main() -> anyhow::Result<()> {
                             try_urls.push(url.clone());
                             
                             if try_urls.len() > 1 {
-                                tracing::info!("🌱 {} P2P relay(s) available + 1 HTTP source", try_urls.len() - 1);
+                                tracing::info!(" {} P2P relay(s) available + 1 HTTP source", try_urls.len() - 1);
                             }
                             
                             let mut download_success = false;
@@ -1681,7 +1681,7 @@ async fn main() -> anyhow::Result<()> {
                             
                             for (i, try_url) in try_urls.iter().enumerate() {
                                 let source = if i < try_urls.len() - 1 { "P2P relay" } else { "HTTP" };
-                                tracing::info!("⬇️  [{}] Downloading from: {}", source, try_url);
+                                tracing::info!("  [{}] Downloading from: {}", source, try_url);
                                 
                                 match reqwest::get(try_url).await {
                                     Ok(response) if response.status().is_success() => {
@@ -1694,36 +1694,36 @@ async fn main() -> anyhow::Result<()> {
                                                 let computed_checksum = hex::encode(hasher.finalize());
                                                 
                                                 if computed_checksum != checksum {
-                                                    tracing::warn!("⚠️ [{}] Checksum mismatch from {}", source, try_url);
+                                                    tracing::warn!(" [{}] Checksum mismatch from {}", source, try_url);
                                                     tracing::warn!("   Expected: {}", checksum);
                                                     tracing::warn!("   Got:      {}", computed_checksum);
                                                     continue; // Try next URL
                                                 }
                                                 
-                                                tracing::info!("✅ Checksum verified via {}: {}", source, &checksum[..16]);
+                                                tracing::info!(" Checksum verified via {}: {}", source, &checksum[..16]);
                                                 downloaded_bytes = Some(bytes.to_vec());
                                                 download_success = true;
                                                 break;
                                             }
                                             Err(e) => {
-                                                tracing::warn!("⚠️ [{}] Failed to read response: {}", source, e);
+                                                tracing::warn!(" [{}] Failed to read response: {}", source, e);
                                                 continue;
                                             }
                                         }
                                     }
                                     Ok(response) => {
-                                        tracing::warn!("⚠️ [{}] HTTP {}", source, response.status());
+                                        tracing::warn!(" [{}] HTTP {}", source, response.status());
                                         continue;
                                     }
                                     Err(e) => {
-                                        tracing::warn!("⚠️ [{}] Download failed: {}", source, e);
+                                        tracing::warn!(" [{}] Download failed: {}", source, e);
                                         continue;
                                     }
                                 }
                             }
                             
                             if !download_success || downloaded_bytes.is_none() {
-                                tracing::error!("❌ All download sources failed for v{}", upgrade.version);
+                                tracing::error!(" All download sources failed for v{}", upgrade.version);
                                 applied_version = Some(upgrade.version.clone());
                                 let _ = std::fs::write(&applied_version_file, &upgrade.version);
                                 continue;
@@ -1752,15 +1752,15 @@ async fn main() -> anyhow::Result<()> {
                             }
                             
                             // ── FLUSH STATE BEFORE RESTART ──
-                            tracing::info!("💾 Flushing state to disk before restart...");
+                            tracing::info!(" Flushing state to disk before restart...");
                             if let Err(e) = state_for_update.save() {
-                                tracing::error!("❌ Failed to save state before upgrade: {}", e);
+                                tracing::error!(" Failed to save state before upgrade: {}", e);
                                 tracing::error!("   Aborting upgrade to prevent state loss");
                                 applied_version = Some(upgrade.version.clone());
                                 let _ = std::fs::write(&applied_version_file, &upgrade.version);
                                 continue;
                             }
-                            tracing::info!("✅ State flushed successfully");
+                            tracing::info!(" State flushed successfully");
                             
                             // ── PERSIST applied_version BEFORE exec() ──
                             // So after restart, we don't re-download the same version
@@ -1774,7 +1774,7 @@ async fn main() -> anyhow::Result<()> {
                                     
                                     // Write new binary to .new file
                                     if let Err(e) = std::fs::write(&new_path, &bytes) {
-                                        tracing::error!("❌ Failed to write new binary: {}", e);
+                                        tracing::error!(" Failed to write new binary: {}", e);
                                         applied_version = Some(upgrade.version.clone());
                                         continue;
                                     }
@@ -1791,14 +1791,14 @@ async fn main() -> anyhow::Result<()> {
                                     
                                     // Atomic swap: current -> .old, .new -> current
                                     if let Err(e) = std::fs::rename(&current_exe, &backup_path) {
-                                        tracing::error!("❌ Failed to backup current binary: {}", e);
+                                        tracing::error!(" Failed to backup current binary: {}", e);
                                         let _ = std::fs::remove_file(&new_path);
                                         applied_version = Some(upgrade.version.clone());
                                         continue;
                                     }
                                     
                                     if let Err(e) = std::fs::rename(&new_path, &current_exe) {
-                                        tracing::error!("❌ Failed to install new binary: {}", e);
+                                        tracing::error!(" Failed to install new binary: {}", e);
                                         // Rollback
                                         let _ = std::fs::rename(&backup_path, &current_exe);
                                         applied_version = Some(upgrade.version.clone());
@@ -1806,10 +1806,10 @@ async fn main() -> anyhow::Result<()> {
                                     }
                                     
                                     tracing::info!("══════════════════════════════════════════════════");
-                                    tracing::info!("✅ UPGRADE INSTALLED: v{}", upgrade.version);
+                                    tracing::info!(" UPGRADE INSTALLED: v{}", upgrade.version);
                                     tracing::info!("   Binary updated at: {:?}", current_exe);
                                     tracing::info!("   Backup at: {:?}", backup_path);
-                                    tracing::info!("   🔄 Restarting node...");
+                                    tracing::info!("    Restarting node...");
                                     tracing::info!("══════════════════════════════════════════════════");
                                     
                                     // Re-exec ourselves with the same arguments
@@ -1822,7 +1822,7 @@ async fn main() -> anyhow::Result<()> {
                                             .args(&args[1..])
                                             .exec();
                                         // If exec returns, it failed
-                                        tracing::error!("❌ Failed to re-exec: {}", err);
+                                        tracing::error!(" Failed to re-exec: {}", err);
                                         // Rollback
                                         let _ = std::fs::rename(&backup_path, &current_exe);
                                     }
@@ -1835,11 +1835,11 @@ async fn main() -> anyhow::Result<()> {
                                     }
                                 }
                                 Err(e) => {
-                                    tracing::error!("❌ Failed to determine current executable: {}", e);
+                                    tracing::error!(" Failed to determine current executable: {}", e);
                                 }
                             }
                         } else {
-                            tracing::info!("ℹ️  No download URL for this platform ({}/{})", platform, arch);
+                            tracing::info!("  No download URL for this platform ({}/{})", platform, arch);
                         }
                         
                         applied_version = Some(upgrade.version.clone());

@@ -158,7 +158,7 @@ Ask naturally:
 
 > "For the slideshows, we need images. I'd strongly recommend OpenAI's gpt-image-1.5 — it's what Larry uses and it produces images that genuinely look like someone took them on their phone. It's the difference between 'obviously AI' and 'wait, is that real?' You can also use Stability AI, Replicate, or bring your own images if you prefer."
 
-**⚠️ If they pick OpenAI, make sure the model is set to `gpt-image-1.5` — NEVER `gpt-image-1`.** The difference in quality is massive. gpt-image-1 produces noticeably AI-looking images that people scroll past. gpt-image-1.5 produces photorealistic results that stop the scroll. This one setting can be the difference between 1K and 100K views.
+** If they pick OpenAI, make sure the model is set to `gpt-image-1.5` — NEVER `gpt-image-1`.** The difference in quality is massive. gpt-image-1 produces noticeably AI-looking images that people scroll past. gpt-image-1.5 produces photorealistic results that stop the scroll. This one setting can be the difference between 1K and 100K views.
 
 If they're unsure, always recommend gpt-image-1.5. It's the proven choice.
 
@@ -257,7 +257,7 @@ Walk them through setup step by step:
 2. **Get your V2 secret API key** from the RevenueCat dashboard:
    - Go to your RC project → Settings → API Keys
    - Generate a **V2 secret key** (starts with `sk_`)
-   - ⚠️ This is a SECRET key — don't commit it to public repos
+   -  This is a SECRET key — don't commit it to public repos
 
 3. **Set the environment variable:**
    ```
@@ -380,7 +380,7 @@ Then generate the **first test slideshow** — but set expectations:
 
 > "Let's create our first slideshow. This is a TEST — we're dialing in the image style, not posting yet. I'll generate 6 slides and we'll look at them together. If the images look off, we tweak the prompts and try again. The goal is to get the look nailed down BEFORE we start posting."
 
-**⚠️ THE REFINEMENT PROCESS IS PART OF THE SKILL:**
+** THE REFINEMENT PROCESS IS PART OF THE SKILL:**
 
 Getting the images right takes iteration. This is normal and expected. Walk the user through it:
 
@@ -414,7 +414,7 @@ node scripts/generate-slides.js --config tiktok-marketing/config.json --output t
 
 The script auto-routes to the correct provider based on `config.imageGen.provider`. Supports OpenAI, Stability AI, Replicate, or local images.
 
-**⚠️ Timeout warning:** Generating 6 images takes 3-9 minutes total (30-90 seconds each for gpt-image-1.5). Set your exec timeout to at least **600 seconds (10 minutes)**. If you get `spawnSync ETIMEDOUT`, the exec timeout is too short. The script supports resume — if it fails partway, re-run it and completed slides will be skipped.
+** Timeout warning:** Generating 6 images takes 3-9 minutes total (30-90 seconds each for gpt-image-1.5). Set your exec timeout to at least **600 seconds (10 minutes)**. If you get `spawnSync ETIMEDOUT`, the exec timeout is too short. The script supports resume — if it fails partway, re-run it and completed slides will be skipped.
 
 **Critical image rules (all providers):**
 - ALWAYS portrait aspect ratio (1024x1536 or 9:16 equivalent) — fills TikTok screen
@@ -560,7 +560,7 @@ async function addOverlay(imagePath, text, outputPath) {
 
 **The difference between OK slides and viral slides is in these details.** Larry's slides consistently hit 50K-150K+ views because the text is sized right, positioned right, and readable at a glance while scrolling.
 
-**⚠️ LINE BREAKS ARE CRITICAL — Read This:**
+** LINE BREAKS ARE CRITICAL — Read This:**
 
 The `texts.json` file must contain text with `\n` line breaks to control where lines wrap. If you pass a single long string without line breaks, the script will auto-wrap, but **manual breaks look much better** because you control the rhythm.
 
@@ -623,7 +623,7 @@ Cross-posts to any connected platforms (Instagram, YouTube, etc.) automatically 
 
 After the user publishes from their TikTok inbox, the post needs to be connected to its TikTok video ID before per-post analytics work.
 
-**⚠️ CRITICAL: Wait at least 1-2 hours after publishing before connecting.** TikTok's API has an indexing delay — if you try to connect immediately, the new video won't be in the list yet, and you might connect to the wrong video. This mistake is hard to undo (Postiz doesn't easily allow overwriting a release ID once set).
+** CRITICAL: Wait at least 1-2 hours after publishing before connecting.** TikTok's API has an indexing delay — if you try to connect immediately, the new video won't be in the list yet, and you might connect to the wrong video. This mistake is hard to undo (Postiz doesn't easily allow overwriting a release ID once set).
 
 Use `scripts/check-analytics.js` to automate the connection:
 
@@ -655,7 +655,7 @@ The script:
 
 **The daily cron handles all of this automatically.** It runs in the morning, checks posts from the last 3 days (all well past the 2-hour indexing window), connects any unconnected posts, and generates the report.
 
-### ⚠️ Known Issue: Release ID Cannot Be Overwritten
+###  Known Issue: Release ID Cannot Be Overwritten
 
 Once a Postiz post is connected to a TikTok video ID via `PUT /posts/{id}/release-id`, **it cannot be changed**. If you connect the wrong video, the analytics will permanently show the wrong video's stats for that post. The PUT endpoint appears to accept the update but silently keeps the original ID.
 
@@ -697,27 +697,27 @@ Every morning before the first post, the cron runs `scripts/daily-report.js`:
 
 This is the core intelligence. Two axes: **views** (are people seeing it?) and **conversions** (are people paying?).
 
-**High views + High conversions** → 🟢 SCALE IT
+**High views + High conversions** →  SCALE IT
 - This is working. Make 3 variations of the winning hook immediately
 - Test different posting times to find the sweet spot
 - Cross-post to more platforms for extra reach
 - Don't change anything about the CTA — it's converting
 
-**High views + Low conversions** → 🟡 FIX THE CTA
+**High views + Low conversions** →  FIX THE CTA
 - The hook is doing its job — people are watching. But they're not downloading/subscribing
 - Try different CTAs on slide 6 (direct vs subtle, "download" vs "search on App Store")
 - Check if the app landing page matches the promise in the slideshow
 - Test different caption structures — maybe the CTA is buried
 - The hook is gold — don't touch it. Fix everything downstream
 
-**Low views + High conversions** → 🟡 FIX THE HOOKS
+**Low views + High conversions** →  FIX THE HOOKS
 - The people who DO see it are converting — the content and CTA are great
 - But not enough people are seeing it, so the hook/thumbnail isn't stopping the scroll
 - Test radically different hooks (person+conflict, POV, listicle, mistakes format)
 - Try different posting times and different slide 1 images
 - Keep the CTA and content structure identical — just change the hook
 
-**Low views + Low conversions** → 🔴 FULL RESET
+**Low views + Low conversions** →  FULL RESET
 - Neither the hook nor the conversion path is working
 - Try a completely different format or approach
 - Research what's trending in the niche RIGHT NOW (use browser)
@@ -725,7 +725,7 @@ This is the core intelligence. Two axes: **views** (are people seeing it?) and *
 - Test new hook categories from scratch
 - Reference competitor research for what's working for others
 
-**High views + High downloads + Low paying subscribers** → 🔴 APP ISSUE
+**High views + High downloads + Low paying subscribers** →  APP ISSUE
 - The marketing is working. People are watching AND downloading. But they're not paying.
 - This is NOT a content problem — the app onboarding, paywall, or pricing needs fixing.
 - Check: Is the paywall shown at the right time? Is the free experience too generous?
@@ -733,7 +733,7 @@ This is the core intelligence. Two axes: **views** (are people seeing it?) and *
 - Check: Is the pricing right? Too expensive for the perceived value?
 - **This is a signal to pause posting and fix the app experience first**
 
-**High views + Low downloads** → 🟡 CTA ISSUE
+**High views + Low downloads** →  CTA ISSUE
 - People are watching but not downloading. The hooks work, the CTAs don't.
 - Rotate through different CTAs: "link in bio", "search on App Store", app name only, "free to try"
 - Check the App Store page — does it match what the TikTok shows?

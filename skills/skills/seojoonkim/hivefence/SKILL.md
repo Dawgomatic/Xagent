@@ -6,7 +6,7 @@ description: Collective immunity network for AI agents. When one agent detects a
 
 # HiveFence v1.0.0
 
-🐝 **When one is attacked, all become immune.**
+ **When one is attacked, all become immune.**
 
 Collective prompt injection defense network for AI agents.
 
@@ -20,12 +20,12 @@ HiveFence extends prompt-guard with a distributed immunity system:
 
 ## Features
 
-- 🔍 **Real-time Detection** — Pattern matching + semantic analysis in <50ms
-- 🌍 **Multi-language** — EN, KO, JA, ZH attack detection
-- 🗳️ **Community Governance** — Democratic voting on new patterns
-- 🔐 **Privacy-preserving** — Only SHA-256 hashes shared, not raw content
-- 📊 **Severity Scoring** — Risk-based prioritization (0-100)
-- ⚡ **Edge-first** — Cloudflare Workers at 300+ locations
+-  **Real-time Detection** — Pattern matching + semantic analysis in <50ms
+-  **Multi-language** — EN, KO, JA, ZH attack detection
+-  **Community Governance** — Democratic voting on new patterns
+-  **Privacy-preserving** — Only SHA-256 hashes shared, not raw content
+-  **Severity Scoring** — Risk-based prioritization (0-100)
+-  **Edge-first** — Cloudflare Workers at 300+ locations
 
 ## Installation
 
@@ -95,4 +95,4 @@ With HiveFence:
 
 ## License
 
-MIT © 2026 Simon Kim (@seojoonkim)
+MIT  2026 Simon Kim (@seojoonkim)

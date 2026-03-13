@@ -235,7 +235,7 @@ def show_report(symbol, ticker, info, period="6mo"):
     color = "green" if change >= 0 else "red"
     sign = "+" if change >= 0 else ""
     
-    report_title = f"🚀 [bold]{info.get('longName', symbol)}[/bold] Analysis Report"
+    report_title = f" [bold]{info.get('longName', symbol)}[/bold] Analysis Report"
     content = f"""
 [bold cyan]● Market Quote[/bold cyan]
   Price: [bold]{current:,.2f} {info.get('currency', '')}[/bold]

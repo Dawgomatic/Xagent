@@ -31,11 +31,11 @@ const OPENCLAW_CONFIG = path.join(os.homedir(), '.openclaw', 'openclaw.json');
 const OPENCLAW_SKILLS = path.join(os.homedir(), '.openclaw', 'workspace', 'skills');
 
 function log(msg) {
-  console.log(`🦊 ${msg}`);
+  console.log(` ${msg}`);
 }
 
 function error(msg) {
-  console.error(`❌ ${msg}`);
+  console.error(` ${msg}`);
 }
 
 function run(cmd, opts = {}) {
@@ -56,7 +56,7 @@ function setupOpenClawIntegration() {
   // Check if OpenClaw is installed
   const openclawDir = path.join(os.homedir(), '.openclaw');
   if (!fs.existsSync(openclawDir)) {
-    console.log('  ⚠ OpenClaw not detected (~/.openclaw not found)');
+    console.log('   OpenClaw not detected (~/.openclaw not found)');
     console.log('  → Skipping OpenClaw integration');
     return false;
   }
@@ -70,7 +70,7 @@ function setupOpenClawIntegration() {
     fs.copyFileSync(skillSrc, skillDest);
     console.log(`  ✓ Installed SKILL.md: ${skillDest}`);
   } else {
-    console.log('  ⚠ SKILL.md not found in package (try reinstalling)');
+    console.log('   SKILL.md not found in package (try reinstalling)');
   }
   
   // Update openclaw.json with plugin config
@@ -103,11 +103,11 @@ function setupOpenClawIntegration() {
         console.log('  → Restart OpenClaw gateway to activate: openclaw gateway restart');
       }
     } catch (e) {
-      console.log(`  ⚠ Could not update openclaw.json: ${e.message}`);
+      console.log(`   Could not update openclaw.json: ${e.message}`);
       console.log('  → Manually add plugin config (see docs)');
     }
   } else {
-    console.log('  ⚠ openclaw.json not found');
+    console.log('   openclaw.json not found');
     console.log('  → Create config or manually add jasper-recall plugin');
   }
   

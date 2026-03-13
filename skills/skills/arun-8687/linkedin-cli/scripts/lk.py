@@ -31,7 +31,7 @@ def whoami(api):
     location = profile.get('locationName', 'Unknown')
     print(f"{BOLD}{name}{RESET}")
     print(f"{BLUE}{headline}{RESET}")
-    print(f"📍 {location}")
+    print(f" {location}")
 
 def search(api, query):
     results = api.search_people(keywords=query, limit=10)

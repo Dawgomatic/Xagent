@@ -34,7 +34,7 @@ if [[ -z "$QUERY" ]]; then
 fi
 
 if ! [[ "$PICK" =~ ^[0-9]+$ ]] || [[ "$PICK" -lt 1 ]]; then
-  echo "❌ --pick 必须是 >=1 的整数"
+  echo " --pick 必须是 >=1 的整数"
   exit 2
 fi
 
@@ -47,10 +47,10 @@ query = sys.argv[1]
 results = json.loads(sys.argv[2])
 pick = int(sys.argv[3])
 if not results:
-    print('❌ 没找到可用 API')
+    print(' 没找到可用 API')
     sys.exit(1)
 
-print(f"🎯 需求: {query}\n")
+print(f" 需求: {query}\n")
 print("默认推荐 API（优先免费/免鉴权/HTTPS）：\n")
 for i, a in enumerate(results, 1):
     print(f"{i}. {a['name']}  (score={a['score']})")
@@ -59,11 +59,11 @@ for i, a in enumerate(results, 1):
     print(f"   - 文档: {a.get('link','')}")
 
 if pick > len(results):
-    print(f"\n⚠️ --pick={pick} 超出范围，回退到 1")
+    print(f"\n --pick={pick} 超出范围，回退到 1")
     pick = 1
 
 best = results[pick-1]
-print(f"\n✅ 选中第 {pick} 个 API:", best['name'])
+print(f"\n 选中第 {pick} 个 API:", best['name'])
 print("下一步: 用 gen_usage.sh 生成最小可用调用模板。")
 PY
 
@@ -100,24 +100,24 @@ fi
 if [[ "$TRY" -eq 1 && -n "$BEST_LINK" ]]; then
   if [[ "$BEST_AUTH" =~ ^(No|None|)$ ]] && [[ "$BEST_LINK" =~ ^https?:// ]]; then
     echo
-    echo "🧪 探测首选 API: $BEST_LINK"
+    echo " 探测首选 API: $BEST_LINK"
     code=$(curl -s -o /tmp/public_api_probe.out -w '%{http_code}' "$BEST_LINK" || true)
     echo "HTTP: $code"
     head -c 500 /tmp/public_api_probe.out || true
     echo
   else
     echo
-    echo "🧪 跳过探测：首选 API 需要鉴权或无直连 URL。"
+    echo " 跳过探测：首选 API 需要鉴权或无直连 URL。"
   fi
 fi
 
 if [[ "$MAKE_SKILL" -eq 1 ]]; then
   if [[ -z "$SKILL_NAME" ]]; then
-    echo "❌ --make-skill 需要配合 --skill-name <name>"
+    echo " --make-skill 需要配合 --skill-name <name>"
     exit 2
   fi
   echo
-  echo "🧩 正在生成 skill: $SKILL_NAME"
+  echo " 正在生成 skill: $SKILL_NAME"
   bash "$BASE_DIR/create_skill.sh" \
     --skill-name "$SKILL_NAME" \
     --api-name "$BEST_NAME" \

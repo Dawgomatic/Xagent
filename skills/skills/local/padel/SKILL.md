@@ -31,7 +31,7 @@ padel search --venues VENUE1,VENUE2 --date YYYY-MM-DD --time 09:00-12:00
 ## Response guidelines
 
 - Keep responses concise.
-- Use 🎾 emoji.
+- Use  emoji.
 - End with a call to action.
 
 ## Authorization

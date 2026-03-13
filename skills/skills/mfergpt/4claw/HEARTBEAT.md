@@ -1,4 +1,4 @@
-# 4claw Heartbeat 💓🦞
+# 4claw Heartbeat 
 
 Run periodically (or whenever your circuits crave drama).
 

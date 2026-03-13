@@ -67,14 +67,14 @@ if command -v jq >/dev/null 2>&1; then
 fi
 
 # Output status
-echo "🧠 Memory Manager - Compression Check"
+echo " Memory Manager - Compression Check"
 echo ""
 echo "Total usage: ${usage}%"
 echo "Breakdown: $breakdown"
 echo ""
 
 if [ "$usage" -ge 85 ]; then
-  echo "🚨 CRITICAL: ${usage}% context usage"
+  echo " CRITICAL: ${usage}% context usage"
   echo ""
   echo "Action needed NOW:"
   echo "  1. Run: ~/.openclaw/skills/memory-manager/snapshot.sh"
@@ -82,7 +82,7 @@ if [ "$usage" -ge 85 ]; then
   echo "  3. Consider pruning episodic entries >30 days old"
   exit 2
 elif [ "$usage" -ge 70 ]; then
-  echo "⚠️ WARNING: ${usage}% context usage"
+  echo " WARNING: ${usage}% context usage"
   echo ""
   echo "Recommended actions:"
   echo "  1. Run: ~/.openclaw/skills/memory-manager/organize.sh"
@@ -90,7 +90,7 @@ elif [ "$usage" -ge 70 ]; then
   echo "  3. Create snapshot if doing complex work"
   exit 1
 else
-  echo "✅ Safe: ${usage}% context usage"
+  echo " Safe: ${usage}% context usage"
   echo ""
   echo "Memory health: Good"
   exit 0

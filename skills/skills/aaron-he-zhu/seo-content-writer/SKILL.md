@@ -231,9 +231,9 @@ When a user requests SEO content:
    "[Description text]" ([X] characters)
    
    **Elements included**:
-   - ✅ Primary keyword
-   - ✅ Value proposition
-   - ✅ CTA or curiosity hook
+   -  Primary keyword
+   -  Value proposition
+   -  CTA or curiosity hook
    ```
 
 6. **Structure Content with SEO Headers**
@@ -417,16 +417,16 @@ When a user requests SEO content:
 
     | Factor | Status | Notes |
     |--------|--------|-------|
-    | Title optimized | ✅/⚠️/❌ | [notes] |
-    | Meta description | ✅/⚠️/❌ | [notes] |
-    | H1 with keyword | ✅/⚠️/❌ | [notes] |
-    | Keyword in first 100 words | ✅/⚠️/❌ | [notes] |
-    | H2s optimized | ✅/⚠️/❌ | [notes] |
-    | Internal links | ✅/⚠️/❌ | [notes] |
-    | External links | ✅/⚠️/❌ | [notes] |
-    | FAQ section | ✅/⚠️/❌ | [notes] |
-    | Readability | ✅/⚠️/❌ | [notes] |
-    | Word count | ✅/⚠️/❌ | [X] words |
+    | Title optimized | // | [notes] |
+    | Meta description | // | [notes] |
+    | H1 with keyword | // | [notes] |
+    | Keyword in first 100 words | // | [notes] |
+    | H2s optimized | // | [notes] |
+    | Internal links | // | [notes] |
+    | External links | // | [notes] |
+    | FAQ section | // | [notes] |
+    | Readability | // | [notes] |
+    | Word count | // | [X] words |
 
     **Overall SEO Score**: [X]/10
 
@@ -444,24 +444,24 @@ When a user requests SEO content:
 
     | ID | Standard | Status | Notes |
     |----|----------|--------|-------|
-    | C01 | Intent Alignment: title = content | ✅/⚠️/❌ | [notes] |
-    | C02 | Direct Answer in first 150 words | ✅/⚠️/❌ | [notes] |
-    | C06 | Audience explicitly stated | ✅/⚠️/❌ | [notes] |
-    | C10 | Conclusion answers opening question | ✅/⚠️/❌ | [notes] |
-    | O01 | Heading hierarchy correct | ✅/⚠️/❌ | [notes] |
-    | O02 | Summary/Key Takeaways present | ✅/⚠️/❌ | [notes] |
-    | O06 | Paragraphs 3–5 sentences | ✅/⚠️/❌ | [notes] |
-    | O09 | No filler; consistent terms | ✅/⚠️/❌ | [notes] |
-    | R01 | ≥5 precise data points with units | ✅/⚠️/❌ | [notes] |
-    | R02 | ≥1 citation per 500 words | ✅/⚠️/❌ | [notes] |
-    | R04 | Claims backed by evidence | ✅/⚠️/❌ | [notes] |
-    | R07 | Full entity names used | ✅/⚠️/❌ | [notes] |
-    | C03 | ≥3 query variants covered | ✅/⚠️/❌ | [notes] |
-    | O08 | Table of contents with jump links | ✅/⚠️/❌ | [notes] |
-    | O10 | Images/videos captioned and informative | ✅/⚠️/❌ | [notes] |
-    | E07 | Downloadable template/checklist included | ✅/⚠️/❌ | [notes] |
+    | C01 | Intent Alignment: title = content | // | [notes] |
+    | C02 | Direct Answer in first 150 words | // | [notes] |
+    | C06 | Audience explicitly stated | // | [notes] |
+    | C10 | Conclusion answers opening question | // | [notes] |
+    | O01 | Heading hierarchy correct | // | [notes] |
+    | O02 | Summary/Key Takeaways present | // | [notes] |
+    | O06 | Paragraphs 3–5 sentences | // | [notes] |
+    | O09 | No filler; consistent terms | // | [notes] |
+    | R01 | ≥5 precise data points with units | // | [notes] |
+    | R02 | ≥1 citation per 500 words | // | [notes] |
+    | R04 | Claims backed by evidence | // | [notes] |
+    | R07 | Full entity names used | // | [notes] |
+    | C03 | ≥3 query variants covered | // | [notes] |
+    | O08 | Table of contents with jump links | // | [notes] |
+    | O10 | Images/videos captioned and informative | // | [notes] |
+    | E07 | Downloadable template/checklist included | // | [notes] |
 
-    **Items Needing Attention**: [list any ⚠️/❌ items]
+    **Items Needing Attention**: [list any / items]
 
     _For full 80-item audit, use [content-quality-auditor](../../cross-cutting/content-quality-auditor/)_
     ```

@@ -41,7 +41,7 @@ def get_spotify():
     client_secret = os.environ.get("SPOTIFY_CLIENT_SECRET")
     
     if not client_id or not client_secret:
-        print("❌ Missing SPOTIFY_CLIENT_ID or SPOTIFY_CLIENT_SECRET", file=sys.stderr)
+        print(" Missing SPOTIFY_CLIENT_ID or SPOTIFY_CLIENT_SECRET", file=sys.stderr)
         print("\nSetup instructions:", file=sys.stderr)
         print("1. Go to https://developer.spotify.com/dashboard", file=sys.stderr)
         print("2. Create an app", file=sys.stderr)
@@ -63,13 +63,13 @@ def get_spotify():
     token_info = auth_manager.get_cached_token()
     if not token_info:
         auth_url = auth_manager.get_authorize_url()
-        print(f"\n🔐 Open this URL in your browser:\n{auth_url}\n")
+        print(f"\n Open this URL in your browser:\n{auth_url}\n")
         print("After authorizing, paste the full redirect URL here:")
         response = input("\nRedirect URL: ").strip()
         
         code = auth_manager.parse_response_code(response)
         auth_manager.get_access_token(code)
-        print("✅ Authenticated!")
+        print(" Authenticated!")
     
     return spotipy.Spotify(auth_manager=auth_manager)
 
@@ -86,7 +86,7 @@ def cmd_auth(args):
     """Authenticate with Spotify."""
     sp = get_spotify()
     user = sp.current_user()
-    print(f"✅ Authenticated as: {user['display_name']}")
+    print(f" Authenticated as: {user['display_name']}")
     print(f"   Email: {user.get('email', 'N/A')}")
     print(f"   Account: {user.get('product', 'free')}")
 
@@ -97,13 +97,13 @@ def cmd_now(args):
     current = sp.current_playback()
     
     if not current or not current.get('item'):
-        print("🔇 Nothing playing")
+        print(" Nothing playing")
         return
     
     item = current['item']
     artists = ", ".join(a['name'] for a in item['artists'])
     
-    print(f"🎵 **Now Playing**")
+    print(f" **Now Playing**")
     print(f"   {item['name']}")
     print(f"   {artists}")
     print(f"   Album: {item['album']['name']}")
@@ -114,12 +114,12 @@ def cmd_now(args):
     
     device = current.get('device', {})
     if device:
-        print(f"   📱 {device.get('name', 'Unknown')} ({device.get('type', '')})")
+        print(f"    {device.get('name', 'Unknown')} ({device.get('type', '')})")
     
     if current.get('is_playing'):
-        print("   ▶️ Playing")
+        print("    Playing")
     else:
-        print("   ⏸️ Paused")
+        print("    Paused")
 
 
 def cmd_recent(args):
@@ -127,7 +127,7 @@ def cmd_recent(args):
     sp = get_spotify()
     results = sp.current_user_recently_played(limit=args.limit)
     
-    print(f"🕐 **Recently Played**\n")
+    print(f" **Recently Played**\n")
     
     for i, item in enumerate(results['items'], 1):
         track = item['track']
@@ -151,13 +151,13 @@ def cmd_top(args):
     
     if args.type == 'tracks':
         results = sp.current_user_top_tracks(limit=args.limit, time_range=time_range)
-        print(f"🏆 **Top Tracks** ({args.period})\n")
+        print(f" **Top Tracks** ({args.period})\n")
         for i, track in enumerate(results['items'], 1):
             artists = ", ".join(a['name'] for a in track['artists'])
             print(f"{i}. {track['name']} — {artists}")
     else:
         results = sp.current_user_top_artists(limit=args.limit, time_range=time_range)
-        print(f"🏆 **Top Artists** ({args.period})\n")
+        print(f" **Top Artists** ({args.period})\n")
         for i, artist in enumerate(results['items'], 1):
             genres = ", ".join(artist.get('genres', [])[:2])
             print(f"{i}. {artist['name']}")
@@ -176,33 +176,33 @@ def cmd_play(args):
             track = results['tracks']['items'][0]
             sp.start_playback(uris=[track['uri']])
             artists = ", ".join(a['name'] for a in track['artists'])
-            print(f"▶️ Playing: {track['name']} — {artists}")
+            print(f" Playing: {track['name']} — {artists}")
         else:
-            print("❌ No tracks found")
+            print(" No tracks found")
     else:
         sp.start_playback()
-        print("▶️ Resumed playback")
+        print(" Resumed playback")
 
 
 def cmd_pause(args):
     """Pause playback."""
     sp = get_spotify()
     sp.pause_playback()
-    print("⏸️ Paused")
+    print(" Paused")
 
 
 def cmd_next(args):
     """Skip to next track."""
     sp = get_spotify()
     sp.next_track()
-    print("⏭️ Skipped to next")
+    print(" Skipped to next")
 
 
 def cmd_prev(args):
     """Go to previous track."""
     sp = get_spotify()
     sp.previous_track()
-    print("⏮️ Previous track")
+    print(" Previous track")
 
 
 def cmd_search(args):
@@ -210,7 +210,7 @@ def cmd_search(args):
     sp = get_spotify()
     results = sp.search(q=args.query, type='track', limit=args.limit)
     
-    print(f"🔍 **Search: '{args.query}'**\n")
+    print(f" **Search: '{args.query}'**\n")
     
     for i, track in enumerate(results['tracks']['items'], 1):
         artists = ", ".join(a['name'] for a in track['artists'])
@@ -224,14 +224,14 @@ def cmd_devices(args):
     sp = get_spotify()
     devices = sp.devices()
     
-    print("📱 **Available Devices**\n")
+    print(" **Available Devices**\n")
     
     if not devices['devices']:
         print("No active devices found")
         return
     
     for d in devices['devices']:
-        active = "✅" if d['is_active'] else "  "
+        active = "" if d['is_active'] else "  "
         print(f"{active} {d['name']} ({d['type']})")
         print(f"   ID: {d['id'][:16]}...")
 
@@ -291,7 +291,7 @@ def main():
     try:
         commands[args.command](args)
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

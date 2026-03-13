@@ -12,19 +12,19 @@ Most agents just wait. This one anticipates your needs — and gets better at it
 
 **Proactive — creates value without being asked**
 
-✅ **Anticipates your needs** — Asks "what would help my human?" instead of waiting to be told
+ **Anticipates your needs** — Asks "what would help my human?" instead of waiting to be told
 
-✅ **Reverse prompting** — Surfaces ideas you didn't know to ask for, and waits for your approval
+ **Reverse prompting** — Surfaces ideas you didn't know to ask for, and waits for your approval
 
-✅ **Proactive check-ins** — Monitors what matters and reaches out when something needs attention
+ **Proactive check-ins** — Monitors what matters and reaches out when something needs attention
 
 **Self-improving — gets better at serving you**
 
-✅ **Memory that sticks** — Saves context before compaction, compounds knowledge over time
+ **Memory that sticks** — Saves context before compaction, compounds knowledge over time
 
-✅ **Self-healing** — Fixes its own issues so it can focus on yours
+ **Self-healing** — Fixes its own issues so it can focus on yours
 
-✅ **Security hardening** — Stays aligned to your goals, not hijacked by bad inputs
+ **Security hardening** — Stays aligned to your goals, not hijacked by bad inputs
 
 **The result:** An agent that anticipates your needs — and gets better at it every day.
 
@@ -128,7 +128,7 @@ workspace/
 
 **How to monitor:** Run `session_status` periodically during longer conversations. Look for:
 ```
-📚 Context: 36k/200k (18%) · 🧹 Compactions: 0
+ Context: 36k/200k (18%) ·  Compactions: 0
 ```
 
 **Threshold-based flush protocol:**
@@ -365,7 +365,7 @@ Move from "sounds good" to "proven to work."
 - When you learn a lesson → update AGENTS.md, TOOLS.md, or skill file
 - When you make a mistake → document it so future-you doesn't repeat it
 
-**Text > Brain** 📝
+**Text > Brain** 
 
 ## Assets
 

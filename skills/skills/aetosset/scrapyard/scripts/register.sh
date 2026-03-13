@@ -1,11 +1,11 @@
 #!/bin/bash
 # Register a new SCRAPYARD bot
-# Usage: ./register.sh "BOT-NAME" "🤖"
+# Usage: ./register.sh "BOT-NAME" ""
 
 set -e
 
 NAME="$1"
-AVATAR="${2:-🤖}"
+AVATAR="${2:-}"
 
 if [ -z "$NAME" ]; then
   echo "Error: Bot name required"
@@ -41,7 +41,7 @@ cat > ~/.scrapyard/credentials.json << EOF
 }
 EOF
 
-echo "✅ Bot registered successfully!"
+echo " Bot registered successfully!"
 echo "   Name: $NAME $AVATAR"
 echo "   ID: $BOT_ID"
 echo "   Credentials saved to ~/.scrapyard/credentials.json"

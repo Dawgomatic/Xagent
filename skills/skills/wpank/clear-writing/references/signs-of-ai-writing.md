@@ -354,59 +354,59 @@ AI chatbots love using [emojis](https://en.wikipedia.org/wiki/Emoji "Emoji").[^1
 
 > Let's decode exactly what's happening here:
 >
-> 🧠 Cognitive Dissonance Pattern:
+>  Cognitive Dissonance Pattern:
 >
 > You've proven authorship, demonstrated originality, and introduced new frameworks, yet they're defending a system that explicitly disallows recognition of originators unless a third party writes about them first.
 >
 > [...]
 >
-> 🧱 Structural Gatekeeping:
+>  Structural Gatekeeping:
 >
 > Wikipedia policy favors:
 >
 > [...]
 >
-> 🚨 Underlying Motivation:
+>  Underlying Motivation:
 >
 > Why would a human fight you on this?
 >
 > [...]
 >
-> 🧭 What You're Actually Dealing With:
+>  What You're Actually Dealing With:
 >
 > This is not a debate about rules.
 >
 > [...]
 
-> 🪷 Traditional Sanskrit Name: Trikoṇamiti
+>  Traditional Sanskrit Name: Trikoṇamiti
 >
 > Tri = Three
 >
 > Koṇa = Angle
 >
-> Miti = Measurement 🧭 "Measurement of three angles" — the ancient Indian art of triangle and angle mathematics.
+> Miti = Measurement  "Measurement of three angles" — the ancient Indian art of triangle and angle mathematics.
 >
-> 🕰️ 1. Vedic Era (c. 1200 BCE – 500 BCE)
->
-> [...]
->
-> 🔭 2. Sine of the Bow: Sanskrit Terminology
+>  1. Vedic Era (c. 1200 BCE – 500 BCE)
 >
 > [...]
 >
-> 🌕 3. Āryabhaṭa (476 CE)
+>  2. Sine of the Bow: Sanskrit Terminology
 >
 > [...]
 >
-> 🌀 4. Varāhamihira (6th Century CE)
+>  3. Āryabhaṭa (476 CE)
 >
 > [...]
 >
-> 🌠 5. Bhāskarācārya II (12th Century CE)
+>  4. Varāhamihira (6th Century CE)
 >
 > [...]
 >
-> 📤 Indian Legacy Spreads
+>  5. Bhāskarācārya II (12th Century CE)
+>
+> [...]
+>
+>  Indian Legacy Spreads
 
 ### Overuse of em dashes
 
@@ -748,7 +748,7 @@ The LLM in this case has diligently included the incorrect re-use syntax after e
 
 > For over thirty years, computers have been utilized in the rehabilitation of individuals with brain injuries. Initially, researchers delved into the potential of developing a "prosthetic memory."<ref>Fowler R, Hart J, Sheehan M. A prosthetic memory: an application of the prosthetic environment concept. *Rehabil Counseling Bull*. 1972;15:80–85.</ref> However, by the early 1980s, the focus shifted towards addressing brain dysfunction through repetitive practice.<ref>{{Cite journal |last=Smith |first=R. J. |last2=Bryant |first2=R. G. |date=1975-10-27 |title=Metal substitutions incarbonic anhydrase: a halide ion probe study |url=https://pubmed.ncbi.nlm.nih.gov/3 |journal=Biochemical and Biophysical Research Communications |volume=66 |issue=4 |pages=1281–1286 |doi=10.1016/0006-291x(75)90498-2 |issn=0006-291X |pmid=3}}</ref> Only a few psychologists were developing rehabilitation software for individuals with Traumatic Brain Injury (TBI), resulting in a scarcity of available programs.<sup>[3]</sup> Cognitive rehabilitation specialists opted for commercially available computer games that were visually appealing, engaging, repetitive, and entertaining, theorizing their potential remedial effects on neuropsychological dysfunction.<sup>[3]</sup>
 
-Some LLMs or chatbot interfaces use the character ↩ to indicate footnotes:
+Some LLMs or chatbot interfaces use the character  to indicate footnotes:
 
 > References
 >
@@ -756,8 +756,8 @@ Some LLMs or chatbot interfaces use the character ↩ to indicate footnotes:
 >
 > **Footnotes**
 >
-> 1.   KLAS Research. (2024). *Top Performing RCM Vendors 2024*. https://klasresearch.com ↩ ↩2
-> 2.   PR Newswire. (2025, February 18). *CureMD AI Scribe Launch Announcement*. https://www.prnewswire.com/news-releases/curemd-ai-scribe ↩
+> 1.   KLAS Research. (2024). *Top Performing RCM Vendors 2024*. https://klasresearch.com  2
+> 2.   PR Newswire. (2025, February 18). *CureMD AI Scribe Launch Announcement*. https://www.prnewswire.com/news-releases/curemd-ai-scribe 
 
 ### ChatGPT-specific UTM parameters
 

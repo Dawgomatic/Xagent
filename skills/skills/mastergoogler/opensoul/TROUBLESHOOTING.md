@@ -559,7 +559,7 @@ async def optimize_if_needed(logger):
     )
     
     if total_tokens > 100000:  # Threshold
-        print("⚠️  High token usage detected. Reducing logging detail...")
+        print("  High token usage detected. Reducing logging detail...")
         # Adjust logging strategy
 ```
 
@@ -641,7 +641,7 @@ def safe_load_backup(filepath):
         with open(filepath) as f:
             return json.load(f)
     except json.JSONDecodeError:
-        print(f"⚠️  Corrupted backup: {filepath}")
+        print(f"  Corrupted backup: {filepath}")
         # Try to recover partial data
         with open(filepath) as f:
             content = f.read()

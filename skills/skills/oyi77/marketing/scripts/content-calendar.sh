@@ -38,7 +38,7 @@ case "$1" in
 - 
 
 EOF
-            echo "✅ Content calendar initialized at $CALENDAR_FILE"
+            echo " Content calendar initialized at $CALENDAR_FILE"
         else
             echo "Calendar already exists at $CALENDAR_FILE"
         fi
@@ -51,11 +51,11 @@ EOF
             exit 1
         fi
         echo "| $2 | $3 | post | $4 | draft |" >> "$CALENDAR_FILE"
-        echo "✅ Added: $4 for $3 on $2"
+        echo " Added: $4 for $3 on $2"
         ;;
     
     week)
-        echo "📅 This Week's Content"
+        echo " This Week's Content"
         echo "====================="
         if [ -f "$CALENDAR_FILE" ]; then
             grep -A 20 "## This Week" "$CALENDAR_FILE" | head -25
@@ -65,7 +65,7 @@ EOF
         ;;
     
     month)
-        echo "📅 Content Calendar"
+        echo " Content Calendar"
         echo "==================="
         if [ -f "$CALENDAR_FILE" ]; then
             cat "$CALENDAR_FILE"

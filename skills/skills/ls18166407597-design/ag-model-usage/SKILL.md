@@ -4,7 +4,7 @@ description: Use CodexBar CLI local cost usage to summarize per-model usage for 
 metadata:
   {
     "openclaw": {
-      "emoji": "📊",
+      "emoji": "",
       "requires": { "bins": ["python3"] }
     }
   }

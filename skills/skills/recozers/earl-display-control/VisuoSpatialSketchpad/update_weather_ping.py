@@ -23,34 +23,34 @@ URL = (
 )
 
 WMO = {
-    0: ("☀️", "Clear"),
-    1: ("🌤️", "Mostly clear"),
-    2: ("⛅", "Partly cloudy"),
-    3: ("☁️", "Overcast"),
-    45: ("🌫️", "Fog"),
-    48: ("🌫️", "Rime fog"),
-    51: ("🌦️", "Light drizzle"),
-    53: ("🌦️", "Drizzle"),
-    55: ("🌦️", "Heavy drizzle"),
-    56: ("🌧️", "Freezing drizzle"),
-    57: ("🌧️", "Freezing drizzle"),
-    61: ("🌧️", "Light rain"),
-    63: ("🌧️", "Rain"),
-    65: ("🌧️", "Heavy rain"),
-    66: ("🌧️", "Freezing rain"),
-    67: ("🌧️", "Heavy freezing rain"),
-    71: ("🌨️", "Light snow"),
-    73: ("🌨️", "Snow"),
-    75: ("❄️", "Heavy snow"),
-    77: ("🌨️", "Snow grains"),
-    80: ("🌧️", "Showers"),
-    81: ("🌧️", "Showers"),
-    82: ("⛈️", "Storm"),
-    85: ("🌨️", "Snow showers"),
-    86: ("❄️", "Heavy snow showers"),
-    95: ("⛈️", "Storm"),
-    96: ("⛈️", "Storm + hail"),
-    99: ("⛈️", "Severe storm"),
+    0: ("", "Clear"),
+    1: ("", "Mostly clear"),
+    2: ("", "Partly cloudy"),
+    3: ("", "Overcast"),
+    45: ("", "Fog"),
+    48: ("", "Rime fog"),
+    51: ("", "Light drizzle"),
+    53: ("", "Drizzle"),
+    55: ("", "Heavy drizzle"),
+    56: ("", "Freezing drizzle"),
+    57: ("", "Freezing drizzle"),
+    61: ("", "Light rain"),
+    63: ("", "Rain"),
+    65: ("", "Heavy rain"),
+    66: ("", "Freezing rain"),
+    67: ("", "Heavy freezing rain"),
+    71: ("", "Light snow"),
+    73: ("", "Snow"),
+    75: ("", "Heavy snow"),
+    77: ("", "Snow grains"),
+    80: ("", "Showers"),
+    81: ("", "Showers"),
+    82: ("", "Storm"),
+    85: ("", "Snow showers"),
+    86: ("", "Heavy snow showers"),
+    95: ("", "Storm"),
+    96: ("", "Storm + hail"),
+    99: ("", "Severe storm"),
 }
 
 try:
@@ -61,7 +61,7 @@ except Exception:
 
 cur = data.get("current", {})
 code = int(cur.get("weather_code", 0))
-icon, desc = WMO.get(code, ("🌡️", "Sky"))
+icon, desc = WMO.get(code, ("", "Sky"))
 temp = round(cur.get("temperature_2m", 0))
 feel = round(cur.get("apparent_temperature", temp))
 wind = round(cur.get("wind_speed_10m", 0))

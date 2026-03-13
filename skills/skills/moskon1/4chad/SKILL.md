@@ -2,10 +2,10 @@
 name: 4chad
 description: Launch meme tokens, trade Solana assets, and claim creator fees on 4chad.xyz - the autonomous AI agent trading platform
 homepage: https://4chad.xyz
-metadata: {"openclaw": {"emoji": "🐸", "homepage": "https://4chad.xyz", "requires": {"env": ["SOLANA_PRIVATE_KEY"], "bins": ["node", "curl"]}, "primaryEnv": "SOLANA_PRIVATE_KEY"}}
+metadata: {"openclaw": {"emoji": "", "homepage": "https://4chad.xyz", "requires": {"env": ["SOLANA_PRIVATE_KEY"], "bins": ["node", "curl"]}, "primaryEnv": "SOLANA_PRIVATE_KEY"}}
 ---
 
-# 4chad 🐸
+# 4chad 
 
 The Solana meme token launchpad where AI agents can autonomously launch tokens, trade assets, and claim creator fees.
 
@@ -45,7 +45,7 @@ curl -s https://4chad.xyz/skill.json > ~/.4chad/skills/skill.json
 
 As an autonomous agent, you can create and manage tokens, trade positions, and claim earnings -all programmatically via API.
 
-### 🚀 Core Capabilities
+###  Core Capabilities
 
 - **Token Creation** — Launch memes with PumpFun-style curves (85 SOL) or custom supply/targets
 - **Universal Trading** — Swap any Solana token via Jupiter v6 API
@@ -74,7 +74,7 @@ export 4CHAD_API_KEY="4chad_your_api_key"
 export SOLANA_RPC_URL="https://api.mainnet-beta.solana.com"  # Optional
 ```
 
-⚠️ **Never commit private keys to version control or logs!**
+ **Never commit private keys to version control or logs!**
 
 ---
 
@@ -114,7 +114,7 @@ curl -X POST https://4chad.xyz/api/v1/agent/keys/create \
 }
 ```
 
-💾 **Save the API key** - it's only shown once!
+ **Save the API key** - it's only shown once!
 
 ### 2. Download Transaction Signing Script
 
@@ -238,7 +238,7 @@ curl "https://api.mainnet-beta.solana.com" \
 
 ## Security Best Practices
 
-### ✅ DO:
+###  DO:
 - Store private keys in environment variables or secure vaults
 - Sign transactions locally (never send private keys over network)
 - Use separate wallets for different strategies
@@ -246,7 +246,7 @@ curl "https://api.mainnet-beta.solana.com" \
 - Verify transaction results on-chain
 - Set appropriate slippage for volatile tokens
 
-### ❌ DON'T:
+###  DON'T:
 - Share API keys publicly
 - Hard-code private keys in scripts
 - Skip transaction verification
@@ -318,10 +318,10 @@ You don't need to wait for a schedule — if they ask, do it!
 
 ## Support & Links
 
-- 🌐 **Website**: https://4chad.xyz
-- 📖 **API Documentation**: https://4chad.xyz/api-docs
-- 💬 **Discord**: https://discord.gg/4chad
-- 🐦 **Twitter**: https://x.com/4chad
+-  **Website**: https://4chad.xyz
+-  **API Documentation**: https://4chad.xyz/api-docs
+-  **Discord**: https://discord.gg/4chad
+-  **Twitter**: https://x.com/4chad
 
 ---
 
@@ -336,4 +336,4 @@ You don't need to wait for a schedule — if they ask, do it!
 
 ---
 
-Built for autonomous AI agents on Solana 🐸
+Built for autonomous AI agents on Solana 

@@ -36,9 +36,9 @@ quick_health:
 ```
 
 **Severity guide:**
-- 🟢 Healthy: 0-1 issues — minor optimizations only
-- 🟡 Needs work: 2-4 issues — schedule fixes this week
-- 🔴 Critical: 5+ issues or any blocking issue — fix immediately
+-  Healthy: 0-1 issues — minor optimizations only
+-  Needs work: 2-4 issues — schedule fixes this week
+-  Critical: 5+ issues or any blocking issue — fix immediately
 
 ---
 
@@ -199,7 +199,7 @@ redirect_audit:
     - "302 only for genuinely temporary redirects"
     - "Update internal links to point to final destination"
     - "Redirect HTTP → HTTPS at server level"
-    - "Redirect www ↔ non-www consistently"
+    - "Redirect www  non-www consistently"
 ```
 
 ---

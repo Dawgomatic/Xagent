@@ -56,7 +56,7 @@ class ADHDTaskChunker:
             return [{
                 'name': task_description,
                 'duration_min': int(estimated_hours * 60),
-                'dopamine_reward': '🎉'
+                'dopamine_reward': ''
             }]
 
         # For larger tasks, decompose
@@ -84,7 +84,7 @@ class ADHDTaskChunker:
                     'name': f"{task_description} - {phase_name} ({i+1}/{num_chunks})",
                     'duration_min': chunk_duration,
                     'phase': phase_name,
-                    'dopamine_reward': '✅' if i == num_chunks - 1 else '⏭️'
+                    'dopamine_reward': '' if i == num_chunks - 1 else ''
                 })
 
         return chunks
@@ -130,55 +130,55 @@ task = "Build user authentication system"
 chunks = ADHDTaskChunker.chunk_task(task, estimated_hours=8)
 plan = ADHDTaskChunker.optimize_for_hyperfocus(chunks)
 
-print(f"📋 Task Plan for: {task}")
+print(f" Task Plan for: {task}")
 for i, session in enumerate(plan['sessions'], 1):
-    print(f"\n🔥 Hyperfocus Session {i} (~{session['total_duration']}min):")
+    print(f"\n Hyperfocus Session {i} (~{session['total_duration']}min):")
     for chunk in session['chunks']:
         print(f"  {chunk['dopamine_reward']} {chunk['name']} ({chunk['duration_min']}min)")
     if session['break_after']:
-        print("  ☕ MANDATORY BREAK")
+        print("   MANDATORY BREAK")
 ```
 
 ## Output Example
 
 ```
-📋 Task Plan for: Build user authentication system
+ Task Plan for: Build user authentication system
 
-🔥 Hyperfocus Session 1 (~168min):
-  ⏭️ Build user authentication system - Research & Planning (1/1) (72min)
-  ⏭️ Build user authentication system - Setup & Scaffolding (1/2) (48min)
-  ✅ Build user authentication system - Setup & Scaffolding (2/2) (48min)
-  ☕ MANDATORY BREAK
+ Hyperfocus Session 1 (~168min):
+   Build user authentication system - Research & Planning (1/1) (72min)
+   Build user authentication system - Setup & Scaffolding (1/2) (48min)
+   Build user authentication system - Setup & Scaffolding (2/2) (48min)
+   MANDATORY BREAK
 
-🔥 Hyperfocus Session 2 (~168min):
-  ⏭️ Build user authentication system - Core Implementation (1/4) (48min)
-  ⏭️ Build user authentication system - Core Implementation (2/4) (48min)
-  ⏭️ Build user authentication system - Core Implementation (3/4) (48min)
-  ☕ MANDATORY BREAK
+ Hyperfocus Session 2 (~168min):
+   Build user authentication system - Core Implementation (1/4) (48min)
+   Build user authentication system - Core Implementation (2/4) (48min)
+   Build user authentication system - Core Implementation (3/4) (48min)
+   MANDATORY BREAK
 
-🔥 Hyperfocus Session 3 (~120min):
-  ✅ Build user authentication system - Core Implementation (4/4) (48min)
-  ✅ Build user authentication system - Polish & Edge Cases (1/1) (72min)
-  ☕ MANDATORY BREAK
+ Hyperfocus Session 3 (~120min):
+   Build user authentication system - Core Implementation (4/4) (48min)
+   Build user authentication system - Polish & Edge Cases (1/1) (72min)
+   MANDATORY BREAK
 
-🔥 Hyperfocus Session 4 (~48min):
-  ✅ Build user authentication system - Testing & Documentation (1/1) (48min)
-  ☕ MANDATORY BREAK
+ Hyperfocus Session 4 (~48min):
+   Build user authentication system - Testing & Documentation (1/1) (48min)
+   MANDATORY BREAK
 ```
 
 ## Visual Progress Board
 
 ```
 ┌────────────────────────────────────────────────────────────┐
-│ 🎯 USER AUTH SYSTEM                        Progress: 62%   │
+│  USER AUTH SYSTEM                        Progress: 62%   │
 │ ████████████████████░░░░░░░░░░░░                          │
 │                                                            │
-│ Session 1 ✅  Session 2 ✅  Session 3 🔄  Session 4 ⏳     │
+│ Session 1   Session 2   Session 3   Session 4      │
 │                                                            │
 │ Current: Core Implementation (3/4)                         │
 │ Time remaining: ~48min                                     │
 │                                                            │
-│ 🔥 Streak: 5 chunks completed!                            │
-│ 💪 Energy: ████████░░ 80%                                 │
+│  Streak: 5 chunks completed!                            │
+│  Energy: ████████░░ 80%                                 │
 └────────────────────────────────────────────────────────────┘
 ```

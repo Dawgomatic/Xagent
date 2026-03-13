@@ -772,9 +772,9 @@
 
 // === ICON MAPS ===
 const MOOD_EMOJIS = {
-  content: '😊', contemplative: '🤔', happy: '😊', alert: '⚡',
-  relaxed: '😌', concerned: '😟', proud: '😤', sleepy: '😴',
-  excited: '🎉', thoughtful: '💭', default: '🧙🏻'
+  content: '', contemplative: '', happy: '', alert: '',
+  relaxed: '', concerned: '', proud: '', sleepy: '',
+  excited: '', thoughtful: '', default: ''
 };
 
 const PIN_COLORS = ['#c85040','#4080c8','#40a060','#c8a040','#a060c0','#c86040','#6080c0'];
@@ -799,7 +799,7 @@ async function loadMind() {
 function renderMind(mind) {
   const app = document.getElementById('app');
   const moodEmoji = MOOD_EMOJIS[mind.identity.mood] || MOOD_EMOJIS.default;
-  const gnomeEmoji = '🧙🏻‍♂️';
+  const gnomeEmoji = '';
   const hasPhoto = mind.identity.photo && mind.identity.photo.length > 0;
   const takeColors = ['#d4a574','#e8a838','#9ab0c4','#c89090','#a896b8','#c87038','#88a870'];
   const patterns = mind.long_term_patterns || [];
@@ -889,7 +889,7 @@ function renderMind(mind) {
             ${(mind.house_stuff?.items || []).map(item => `
               <div class="house-item">
                 <div class="house-item-priority priority-${item.priority}"></div>
-                <div class="house-item-icon">${item.icon || '📌'}</div>
+                <div class="house-item-icon">${item.icon || ''}</div>
                 <div class="house-item-content">
                   <div class="house-item-title">${item.title}</div>
                   <div class="house-item-detail">${item.detail}</div>
@@ -961,38 +961,38 @@ function buildWeatherUrl(loc) {
 }
 
 const WMO_CODES = {
-  0: { icon: '☀️', desc: 'Clear' },
-  1: { icon: '🌤️', desc: 'Mostly clear' },
-  2: { icon: '⛅', desc: 'Partly cloudy' },
-  3: { icon: '☁️', desc: 'Overcast' },
-  45: { icon: '🌫️', desc: 'Fog' },
-  48: { icon: '🌫️', desc: 'Rime fog' },
-  51: { icon: '🌦️', desc: 'Light drizzle' },
-  53: { icon: '🌦️', desc: 'Drizzle' },
-  55: { icon: '🌦️', desc: 'Heavy drizzle' },
-  56: { icon: '🌧️', desc: 'Freezing drizzle' },
-  57: { icon: '🌧️', desc: 'Hvy freezing drizzle' },
-  61: { icon: '🌧️', desc: 'Light rain' },
-  63: { icon: '🌧️', desc: 'Rain' },
-  65: { icon: '🌧️', desc: 'Heavy rain' },
-  66: { icon: '🌧️', desc: 'Freezing rain' },
-  67: { icon: '🌧️', desc: 'Hvy freezing rain' },
-  71: { icon: '🌨️', desc: 'Light snow' },
-  73: { icon: '🌨️', desc: 'Snow' },
-  75: { icon: '❄️', desc: 'Heavy snow' },
-  77: { icon: '🌨️', desc: 'Snow grains' },
-  80: { icon: '🌧️', desc: 'Showers' },
-  81: { icon: '🌧️', desc: 'Mod. showers' },
-  82: { icon: '⛈️', desc: 'Violent showers' },
-  85: { icon: '🌨️', desc: 'Snow showers' },
-  86: { icon: '❄️', desc: 'Hvy snow showers' },
-  95: { icon: '⛈️', desc: 'Thunderstorm' },
-  96: { icon: '⛈️', desc: 'T-storm + hail' },
-  99: { icon: '⛈️', desc: 'T-storm + hvy hail' }
+  0: { icon: '', desc: 'Clear' },
+  1: { icon: '', desc: 'Mostly clear' },
+  2: { icon: '', desc: 'Partly cloudy' },
+  3: { icon: '', desc: 'Overcast' },
+  45: { icon: '', desc: 'Fog' },
+  48: { icon: '', desc: 'Rime fog' },
+  51: { icon: '', desc: 'Light drizzle' },
+  53: { icon: '', desc: 'Drizzle' },
+  55: { icon: '', desc: 'Heavy drizzle' },
+  56: { icon: '', desc: 'Freezing drizzle' },
+  57: { icon: '', desc: 'Hvy freezing drizzle' },
+  61: { icon: '', desc: 'Light rain' },
+  63: { icon: '', desc: 'Rain' },
+  65: { icon: '', desc: 'Heavy rain' },
+  66: { icon: '', desc: 'Freezing rain' },
+  67: { icon: '', desc: 'Hvy freezing rain' },
+  71: { icon: '', desc: 'Light snow' },
+  73: { icon: '', desc: 'Snow' },
+  75: { icon: '', desc: 'Heavy snow' },
+  77: { icon: '', desc: 'Snow grains' },
+  80: { icon: '', desc: 'Showers' },
+  81: { icon: '', desc: 'Mod. showers' },
+  82: { icon: '', desc: 'Violent showers' },
+  85: { icon: '', desc: 'Snow showers' },
+  86: { icon: '', desc: 'Hvy snow showers' },
+  95: { icon: '', desc: 'Thunderstorm' },
+  96: { icon: '', desc: 'T-storm + hail' },
+  99: { icon: '', desc: 'T-storm + hvy hail' }
 };
 
 function getWeatherInfo(code) {
-  return WMO_CODES[code] || { icon: '🌡️', desc: 'Unknown' };
+  return WMO_CODES[code] || { icon: '', desc: 'Unknown' };
 }
 
 const DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
@@ -1045,7 +1045,7 @@ function renderWeather(data) {
         <div class="hw-day-name">${dayName}</div>
         <div class="hw-day-icon">${fc.icon}</div>
         <div class="hw-day-temps"><span class="hi">${hi}°F</span>/<span class="lo">${lo}°F</span></div>
-        ${rain > 0 ? `<div class="hw-day-rain">💧${rain}%</div>` : ''}
+        ${rain > 0 ? `<div class="hw-day-rain">${rain}%</div>` : ''}
       </div>`;
   }
 

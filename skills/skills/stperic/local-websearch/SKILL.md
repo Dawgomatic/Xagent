@@ -2,7 +2,7 @@
 name: searxng
 description: Search the web using a self-hosted SearXNG metasearch engine. Aggregates Google, Brave, DuckDuckGo, and more without API keys.
 homepage: https://docs.searxng.org
-metadata: {"moltbot":{"emoji":"🔍","requires":{"bins":["python3"],"env":["SEARXNG_URL"]}}}
+metadata: {"moltbot":{"emoji":"","requires":{"bins":["python3"],"env":["SEARXNG_URL"]}}}
 ---
 
 # SearXNG Web Search

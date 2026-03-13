@@ -4,7 +4,7 @@ description: Compile legacy documentation on internet into agent-native memory c
 homepage: https://github.com/UditAkhourii/moltext
 metadata:
   clawdbot:
-    emoji: 🧬
+    emoji: 
     tags: [documentation, compiler, memory, context, dev-tool]
     requires:
       bins: [node, npm]

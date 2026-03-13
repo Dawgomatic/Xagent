@@ -2,7 +2,7 @@
 
 Step-by-step guide to connect Linear → Discord via Make.com (formerly Integromat).
 
-> ✅ **Recommended for free tier** - Make.com offers 1,000 operations/month free vs Pipedream's 100 credits. Better value for light usage.
+>  **Recommended for free tier** - Make.com offers 1,000 operations/month free vs Pipedream's 100 credits. Better value for light usage.
 
 ## Create Scenario
 
@@ -49,7 +49,7 @@ This ensures only tasks in "Todo" status trigger the workflow.
    - **Content**:
    ```
    <@YOUR_BOT_ID>
-   📋 New task: {{1.title}}
+    New task: {{1.title}}
      Status: {{1.state.name}}
      ID: {{1.identifier}}
    ```

@@ -1,7 +1,7 @@
 ---
 name: fints-banking
 description: "Support for German personal online banking following FinTS banking standard. Out of the box support for many german banks. Uses system keychain to keep credentials safe. Native Human-in-the-loop experince for transactions. Built in recovery and onboarding flows."
-metadata: {"openclaw":{"emoji":"🏦","homepage":"https://github.com/h4gen/fints-agent-cli","requires":{"bins":["fints-agent-cli"]},"install":[{"id":"uv","kind":"uv","package":"fints-agent-cli","bins":["fints-agent-cli"],"label":"Install fints-agent-cli (uv)"}]}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://github.com/h4gen/fints-agent-cli","requires":{"bins":["fints-agent-cli"]},"install":[{"id":"uv","kind":"uv","package":"fints-agent-cli","bins":["fints-agent-cli"],"label":"Install fints-agent-cli (uv)"}]}}
 ---
 
 # FinTS Banking Agent Playbook

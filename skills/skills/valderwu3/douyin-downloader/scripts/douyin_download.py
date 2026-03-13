@@ -27,7 +27,7 @@ def get_token(token=None):
     config = load_config()
     token = config.get("tikhub_api_token")
     if not token:
-        raise ValueError("❌ 缺少TikHub API Token\n\n请先配置：\n1. 访问 https://user.tikhub.io/register?referral_code=JtYTGCqJ 注册获取免费Token\n2. 在 ~/.openclaw/config.json 中添加:\n   {\"tikhub_api_token\": \"您的Token\"}")
+        raise ValueError(" 缺少TikHub API Token\n\n请先配置：\n1. 访问 https://user.tikhub.io/register?referral_code=JtYTGCqJ 注册获取免费Token\n2. 在 ~/.openclaw/config.json 中添加:\n   {\"tikhub_api_token\": \"您的Token\"}")
     return token
 
 def extract_modal_id(text):
@@ -133,9 +133,9 @@ if __name__ == "__main__":
         print(f"视频地址: {info['video_url']}")
         
         if download:
-            print("\n⬇️  下载中...")
+            print("\n  下载中...")
             path = download_video(info['video_url'])
-            print(f"✅ 下载完成: {path}")
+            print(f" 下载完成: {path}")
     except Exception as e:
-        print(f"\n❌ 错误: {e}")
+        print(f"\n 错误: {e}")
         sys.exit(1)

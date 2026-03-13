@@ -54,7 +54,7 @@ update_lead_state() {
     "$LEADS_FILE" > "$LEADS_FILE.tmp" && mv "$LEADS_FILE.tmp" "$LEADS_FILE"
 }
 
-echo "💬 Trawl Qualify — $(date '+%Y-%m-%d %H:%M:%S')"
+echo " Trawl Qualify — $(date '+%Y-%m-%d %H:%M:%S')"
 if [ "$DRY_RUN" = true ]; then echo "   (DRY RUN)"; fi
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
@@ -65,7 +65,7 @@ QUALIFIED_COUNT=0
 
 # ─── HANDLE INBOUND PENDING ─────────────────────────────────────────────
 
-echo "📥 Checking inbound leads..."
+echo " Checking inbound leads..."
 
 INBOUND_TMP=$(mktemp)
 jq -c '[.leads | to_entries[] | select(.value.state == "INBOUND_PENDING")]' "$LEADS_FILE" > "$INBOUND_TMP"
@@ -84,7 +84,7 @@ if [ "$INBOUND_COUNT" -gt 0 ]; then
     owner=$(jq -r '.value.owner.name' <<< "$entry")
     score=$(jq -r '.value.finalScore' <<< "$entry")
     msg=$(jq -r '.value.postTitle // ""' <<< "$entry")
-    echo "   📨 $agent ($owner) — score: $score"
+    echo "    $agent ($owner) — score: $score"
     echo "      \"${msg:0:80}\""
   done
 else
@@ -95,7 +95,7 @@ echo ""
 
 # ─── CHECK OUTBOUND DM REQUESTS ─────────────────────────────────────────
 
-echo "📬 Checking outbound DM requests..."
+echo " Checking outbound DM requests..."
 
 DM_TMP=$(mktemp)
 jq -c '[.leads | to_entries[] | select(.value.state == "DM_REQUESTED")]' "$LEADS_FILE" > "$DM_TMP"
@@ -119,7 +119,7 @@ if [ "$DM_REQ_COUNT" -gt 0 ]; then
     hours_waiting=$(( (now_epoch - discovered_epoch) / 3600 ))
 
     if [ "$hours_waiting" -gt "$STALE_HOURS" ]; then
-      echo "   ⏰ $agent_name stale ($hours_waiting hours) → DM_STALE"
+      echo "    $agent_name stale ($hours_waiting hours) → DM_STALE"
       update_lead_state "$key" "DM_STALE"
       STALED=$((STALED + 1))
       continue
@@ -132,7 +132,7 @@ if [ "$DM_REQ_COUNT" -gt 0 ]; then
         update_lead_state "$key" "QUALIFYING"
         APPROVED=$((APPROVED + 1))
       else
-        log "   ⏳ $agent_name still waiting"
+        log "    $agent_name still waiting"
       fi
     else
       # Live: check conversation via API
@@ -144,7 +144,7 @@ if [ "$DM_REQ_COUNT" -gt 0 ]; then
         update_lead_state "$key" "QUALIFYING"
         APPROVED=$((APPROVED + 1))
       else
-        log "   ⏳ $agent_name still waiting ($hours_waiting hours)"
+        log "    $agent_name still waiting ($hours_waiting hours)"
       fi
     fi
   done < "$ENTRIES_TMP"
@@ -157,7 +157,7 @@ echo ""
 
 # ─── PROCESS QUALIFYING CONVERSATIONS ───────────────────────────────────
 
-echo "🔍 Processing qualifying conversations..."
+echo " Processing qualifying conversations..."
 
 QUAL_TMP=$(mktemp)
 jq -c '[.leads | to_entries[] | select(.value.state == "QUALIFYING")]' "$LEADS_FILE" > "$QUAL_TMP"
@@ -181,7 +181,7 @@ if [ "$QUAL_COUNT_ACTIVE" -gt 0 ]; then
       questions_asked=$(jq '.questionsAsked // 0' <<< "$existing_data")
     fi
 
-    echo "   📝 $agent_name (asked: $questions_asked/$MAX_TOTAL_Q) [$signal_type]"
+    echo "    $agent_name (asked: $questions_asked/$MAX_TOTAL_Q) [$signal_type]"
 
     # Check if max questions reached
     if [ "$questions_asked" -ge "$MAX_TOTAL_Q" ]; then
@@ -239,12 +239,12 @@ echo ""
 
 # ─── CHECK FOR QUALIFIED LEADS READY TO REPORT ──────────────────────────
 
-echo "📋 Checking for unreported qualified leads..."
+echo " Checking for unreported qualified leads..."
 
 UNREPORTED=$(jq '[.leads | to_entries[] | select(.value.state == "QUALIFIED" and .value.humanDecision == null)] | length' "$LEADS_FILE")
 
 if [ "$UNREPORTED" -gt 0 ]; then
-  echo "   🎯 $UNREPORTED qualified leads ready for your review!"
+  echo "    $UNREPORTED qualified leads ready for your review!"
   echo "   → Run report.sh to see them"
   echo "   → Use leads.sh decide <key> --pursue or --pass"
 else
@@ -255,7 +255,7 @@ echo ""
 
 # ─── SUMMARY ─────────────────────────────────────────────────────────────
 
-echo "📊 Qualify Summary"
+echo " Qualify Summary"
 echo "━━━━━━━━━━━━━━━━━━"
 echo "  DMs approved:      $APPROVED"
 echo "  DMs staled:        $STALED"

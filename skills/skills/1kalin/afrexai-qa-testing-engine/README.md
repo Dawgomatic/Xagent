@@ -1,4 +1,4 @@
-# 🧪 AfrexAI QA & Testing Engine
+#  AfrexAI QA & Testing Engine
 
 The most comprehensive testing skill on ClawHub. From unit tests to chaos engineering — a complete quality system for AI agents.
 
@@ -45,7 +45,7 @@ Ask your agent:
 | Accessibility | WCAG 2.1 A+AA checklist, tool recommendations |
 | Chaos Engineering | Network, infra, app, data failure scenarios |
 
-## ⚡ Level Up
+##  Level Up
 
 Want testing frameworks tailored to your industry? Check out our **Context Packs** ($47):
 
@@ -53,9 +53,9 @@ Want testing frameworks tailored to your industry? Check out our **Context Packs
 - **Fintech Context Pack** — Financial calculation testing, regulatory compliance, audit trails
 - **Healthcare Context Pack** — HIPAA compliance testing, PHI data handling, HL7/FHIR validation
 
-👉 [Browse all packs](https://afrexai-cto.github.io/context-packs/)
+ [Browse all packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-code-reviewer](https://clawhub.com/skills/afrexai-code-reviewer) — SPEAR code review framework
 - [afrexai-api-architect](https://clawhub.com/skills/afrexai-api-architect) — Complete API lifecycle
@@ -65,4 +65,4 @@ Want testing frameworks tailored to your industry? Check out our **Context Packs
 
 ---
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

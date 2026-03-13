@@ -43,7 +43,7 @@ front_api() {
 # Commands
 case "$1" in
   inboxes)
-    echo "📥 Listing inboxes..."
+    echo " Listing inboxes..."
     front_api GET "/inboxes" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
@@ -88,7 +88,7 @@ for inbox in data.get('_results', []):
       PARAMS="$PARAMS&q%5Bstatuses%5D%5B%5D=unassigned&q%5Bstatuses%5D%5B%5D=assigned"
     fi
     
-    echo "💬 Listing conversations..."
+    echo " Listing conversations..."
     front_api GET "$ENDPOINT$PARAMS" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
@@ -114,7 +114,7 @@ for c in results[:50]:
       echo "Usage: front.sh conversation <conversation_id>"
       exit 1
     fi
-    echo "📧 Getting conversation $CONV_ID..."
+    echo " Getting conversation $CONV_ID..."
     front_api GET "/conversations/$CONV_ID"
     ;;
     
@@ -124,7 +124,7 @@ for c in results[:50]:
       echo "Usage: front.sh messages <conversation_id>"
       exit 1
     fi
-    echo "📨 Messages in $CONV_ID..."
+    echo " Messages in $CONV_ID..."
     front_api GET "/conversations/$CONV_ID/messages" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
@@ -141,7 +141,7 @@ for m in data.get('_results', []):
       echo "Usage: front.sh search \"query\""
       exit 1
     fi
-    echo "🔍 Searching for: $QUERY"
+    echo " Searching for: $QUERY"
     front_api POST "/conversations/search" "{\"query\": \"$QUERY\"}" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
@@ -158,14 +158,14 @@ for c in data.get('_results', [])[:20]:
       echo "Usage: front.sh comments <conversation_id>"
       exit 1
     fi
-    echo "💭 Comments on $CONV_ID..."
+    echo " Comments on $CONV_ID..."
     front_api GET "/conversations/$CONV_ID/comments" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 for c in data.get('_results', []):
     author = c.get('author', {}).get('email', 'unknown')
     body = c.get('body', '')
-    print(f\"---\n👤 {author}:\n{body}\n\")
+    print(f\"---\n {author}:\n{body}\n\")
 " 2>/dev/null || front_api GET "/conversations/$CONV_ID/comments"
     ;;
     
@@ -176,9 +176,9 @@ for c in data.get('_results', []):
       echo "Usage: front.sh add-comment <conversation_id> \"comment text\""
       exit 1
     fi
-    echo "💬 Adding comment to $CONV_ID..."
+    echo " Adding comment to $CONV_ID..."
     front_api POST "/conversations/$CONV_ID/comments" "{\"body\": \"$BODY\"}"
-    echo "✅ Comment added!"
+    echo " Comment added!"
     ;;
     
   reply)
@@ -194,18 +194,18 @@ for c in data.get('_results', []):
     fi
     
     if [ -n "$DRAFT" ]; then
-      echo "📝 Creating draft in $CONV_ID..."
+      echo " Creating draft in $CONV_ID..."
       front_api POST "/conversations/$CONV_ID/drafts" "{\"body\": \"$BODY\"}"
-      echo "✅ Draft saved!"
+      echo " Draft saved!"
     else
-      echo "📤 Sending reply to $CONV_ID..."
+      echo " Sending reply to $CONV_ID..."
       front_api POST "/conversations/$CONV_ID/messages" "{\"body\": \"$BODY\"}"
-      echo "✅ Reply sent!"
+      echo " Reply sent!"
     fi
     ;;
     
   teammates)
-    echo "👥 Listing teammates..."
+    echo " Listing teammates..."
     front_api GET "/teammates" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
@@ -221,13 +221,13 @@ for t in data.get('_results', []):
       echo "Usage: front.sh assign <conversation_id> <teammate_id>"
       exit 1
     fi
-    echo "👤 Assigning $CONV_ID to $TEAMMATE_ID..."
+    echo " Assigning $CONV_ID to $TEAMMATE_ID..."
     front_api PUT "/conversations/$CONV_ID/assignee" "{\"assignee_id\": \"$TEAMMATE_ID\"}"
-    echo "✅ Assigned!"
+    echo " Assigned!"
     ;;
     
   tags)
-    echo "🏷️ Listing tags..."
+    echo " Listing tags..."
     front_api GET "/tags" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
@@ -243,9 +243,9 @@ for t in data.get('_results', []):
       echo "Usage: front.sh tag <conversation_id> <tag_id>"
       exit 1
     fi
-    echo "🏷️ Tagging $CONV_ID with $TAG_ID..."
+    echo " Tagging $CONV_ID with $TAG_ID..."
     front_api POST "/conversations/$CONV_ID/tags" "{\"tag_ids\": [\"$TAG_ID\"]}"
-    echo "✅ Tagged!"
+    echo " Tagged!"
     ;;
     
   contact)
@@ -254,14 +254,14 @@ for t in data.get('_results', []):
       echo "Usage: front.sh contact <contact_id_or_handle>"
       exit 1
     fi
-    echo "👤 Getting contact $CONTACT..."
+    echo " Getting contact $CONTACT..."
     # Try as ID first, then as handle
     front_api GET "/contacts/$CONTACT" 2>/dev/null || front_api GET "/contacts/alt:email:$CONTACT"
     ;;
     
   drafts)
     INBOX_ID="$2"
-    echo "📝 Looking for drafts..."
+    echo " Looking for drafts..."
     # Get conversations and check each for drafts
     if [ -n "$INBOX_ID" ]; then
       ENDPOINT="/inboxes/$INBOX_ID/conversations?limit=50"

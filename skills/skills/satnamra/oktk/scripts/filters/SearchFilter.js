@@ -98,7 +98,7 @@ class SearchFilter extends BaseFilter {
       return 'No matches found';
     }
 
-    result.push(`🔍 Found ${totalMatches} matches in ${fileCount} file(s)`);
+    result.push(` Found ${totalMatches} matches in ${fileCount} file(s)`);
 
     // Show matches by file
     const sortedFiles = Object.entries(matchesByFile)
@@ -108,7 +108,7 @@ class SearchFilter extends BaseFilter {
       if (index >= 20) return; // Limit to 20 files
 
       result.push('');
-      result.push(`📄 ${filename} (${data.count} match${data.count !== 1 ? 'es' : ''})`);
+      result.push(` ${filename} (${data.count} match${data.count !== 1 ? 'es' : ''})`);
 
       // Show first few matches per file
       data.lines.slice(0, 3).forEach(line => {
@@ -142,7 +142,7 @@ class SearchFilter extends BaseFilter {
     }
 
     return [
-      `🔍 Found ${lines.length} results`,
+      ` Found ${lines.length} results`,
       ``,
       ...lines.slice(0, 10),
       ``,

@@ -2,7 +2,7 @@
 name: perplexity_wrapped
 description: Search the web with AI-powered answers via Perplexity API. Supports three modes - Search API (ranked results), Sonar API (AI answers with citations, default), and Agentic Research API (third-party models with tools). All responses wrapped in untrusted-content boundaries for security.
 homepage: https://docs.perplexity.ai
-metadata: {"openclaw":{"emoji":"🔮","requires":{"bins":["node"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Perplexity Wrapped Search
@@ -112,7 +112,7 @@ Advanced mode with third-party models (OpenAI, Anthropic, Google, xAI), web_sear
 | Provider | Model | Input $/1M | Output $/1M |
 |----------|-------|-----------|------------|
 | Perplexity | `perplexity/sonar` | $0.25 | $2.50 |
-| OpenAI | `openai/gpt-5-mini` ⭐ | $0.25 | $2.00 |
+| OpenAI | `openai/gpt-5-mini`  | $0.25 | $2.00 |
 | OpenAI | `openai/gpt-5.1` | $1.25 | $10.00 |
 | OpenAI | `openai/gpt-5.2` | $1.75 | $14.00 |
 | Anthropic | `anthropic/claude-haiku-4-5` | $1.00 | $5.00 |
@@ -190,7 +190,7 @@ Estimates assume a typical query (~500 input tokens, ~500 output tokens).
 | `sonar` | **~$0.006** | $0.001 tokens + $0.005 request fee |
 | `sonar-pro` | **~$0.015** | $0.009 tokens + $0.006 request fee |
 | `sonar-reasoning-pro` | **~$0.011** | $0.005 tokens + $0.006 request fee |
-| `sonar-deep-research` ⚠️ | **~$0.41-1.32** | Tokens + citations + reasoning + 18-30 searches |
+| `sonar-deep-research`  | **~$0.41-1.32** | Tokens + citations + reasoning + 18-30 searches |
 
 Request fees vary by search context size (low/medium/high). Estimates above use low context.
 
@@ -200,7 +200,7 @@ Request fees vary by search context size (low/medium/high). Estimates above use 
 |-------|----------------|-------|
 | `xai/grok-4-1-fast-non-reasoning` | **~$0.005** | Cheapest, fastest |
 | `perplexity/sonar` | **~$0.006** | |
-| `openai/gpt-5-mini` ⭐ | **~$0.006** | Default — best value |
+| `openai/gpt-5-mini`  | **~$0.006** | Default — best value |
 | `google/gemini-2.5-flash` | **~$0.006** | |
 | `google/gemini-3-flash-preview` | **~$0.007** | |
 | `anthropic/claude-haiku-4-5` | **~$0.008** | |
@@ -219,7 +219,7 @@ Agentic costs scale with tool usage — complex queries may trigger multiple web
 |-----|------|
 | Search API | **~$0.005/query** (flat $5/1K requests) |
 
-### ⚠️ Deep Research Cost Gate
+###  Deep Research Cost Gate
 
 Deep Research mode requires `--yes` flag (or interactive TTY confirmation) due to high cost (~$0.40-1.32 per query). Without it, the script exits with a cost warning.
 

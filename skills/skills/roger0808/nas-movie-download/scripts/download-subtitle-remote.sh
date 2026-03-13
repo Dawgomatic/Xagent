@@ -66,7 +66,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ -z "$TORRENT_NAME" ]]; then
-    echo "❌ 错误：需要指定种子名称关键词 (-t)"
+    echo " 错误：需要指定种子名称关键词 (-t)"
     usage
 fi
 
@@ -78,22 +78,22 @@ echo ""
 
 # 检查 subliminal
 if ! command -v subliminal >/dev/null 2>&1; then
-    echo "❌ subliminal 未安装"
+    echo " subliminal 未安装"
     echo "请先安装: pip3 install --user subliminal"
     exit 1
 fi
 
 # 步骤 1: 通过 SSH 列出 NAS 上的视频文件
-echo "🔍 步骤 1: 在 NAS 上查找视频文件..."
+echo " 步骤 1: 在 NAS 上查找视频文件..."
 
 VIDEO_FILES=$(ssh "$NAS_USER@$NAS_HOST" "find $NAS_DOWNLOAD_PATH -name '*.mp4' -o -name '*.mkv' -o -name '*.avi' 2>/dev/null | grep -i '$TORRENT_NAME'" 2>/dev/null)
 
 if [[ -z "$VIDEO_FILES" ]]; then
-    echo "❌ 未找到匹配的视频文件"
+    echo " 未找到匹配的视频文件"
     exit 1
 fi
 
-echo "✅ 找到以下视频文件："
+echo " 找到以下视频文件："
 echo "$VIDEO_FILES"
 echo ""
 
@@ -102,7 +102,7 @@ mkdir -p "$LOCAL_TEMP_DIR"
 cd "$LOCAL_TEMP_DIR"
 
 # 步骤 3: 为每个视频下载字幕
-echo "📥 步骤 2: 在本地下载字幕..."
+echo " 步骤 2: 在本地下载字幕..."
 
 for video_path in $VIDEO_FILES; do
     video_name=$(basename "$video_path")
@@ -115,23 +115,23 @@ for video_path in $VIDEO_FILES; do
     
     # 使用 subliminal 下载字幕
     echo "  下载字幕..."
-    subliminal download -l zho -l eng "$video_name" 2>&1 || echo "  ⚠️ 下载可能失败"
+    subliminal download -l zho -l eng "$video_name" 2>&1 || echo "   下载可能失败"
     
     # 检查是否下载成功
     subtitle_files=$(find . -name "${video_name%.*}.*.srt" -o -name "${video_name%.*}.*.ass" 2>/dev/null)
     
     if [[ -n "$subtitle_files" ]]; then
-        echo "  ✅ 找到字幕文件:"
+        echo "   找到字幕文件:"
         echo "$subtitle_files" | while read sub; do
             echo "    - $sub"
         done
     else
-        echo "  ❌ 未找到字幕文件"
+        echo "   未找到字幕文件"
     fi
 done
 
 echo ""
-echo "📤 步骤 3: 上传字幕到 NAS..."
+echo " 步骤 3: 上传字幕到 NAS..."
 
 # 步骤 4: 上传字幕到 NAS
 for subtitle in *.srt *.ass 2>/dev/null; do
@@ -149,10 +149,10 @@ for subtitle in *.srt *.ass 2>/dev/null; do
         
         if [[ -n "$target_dir" ]]; then
             echo "上传 $subtitle -> $NAS_USER@$NAS_HOST:$target_dir/"
-            scp "$subtitle" "$NAS_USER@$NAS_HOST:$target_dir/" 2>&1 && echo "  ✅ 上传成功" || echo "  ❌ 上传失败"
+            scp "$subtitle" "$NAS_USER@$NAS_HOST:$target_dir/" 2>&1 && echo "   上传成功" || echo "   上传失败"
         else
             echo "未找到 $subtitle 对应的目标目录，上传到根目录"
-            scp "$subtitle" "$NAS_USER@$NAS_HOST:$NAS_DOWNLOAD_PATH/" 2>&1 && echo "  ✅ 上传成功" || echo "  ❌ 上传失败"
+            scp "$subtitle" "$NAS_USER@$NAS_HOST:$NAS_DOWNLOAD_PATH/" 2>&1 && echo "   上传成功" || echo "   上传失败"
         fi
     fi
 done
@@ -162,5 +162,5 @@ cd >/dev/null
 rm -rf "$LOCAL_TEMP_DIR"
 
 echo ""
-echo "✅ 全部完成！"
+echo " 全部完成！"
 echo "字幕已上传到 NAS 的 qBittorrent 下载目录"

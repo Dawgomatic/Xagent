@@ -4,11 +4,11 @@
 
 | Address | What It Is | Fund It? |
 |---------|-----------|----------|
-| **Owner Wallet** | Your personal wallet (MetaMask etc.) that controls the Sigil account | ❌ Only for gas to manage settings |
-| **Sigil Smart Account** | On-chain contract that holds funds and executes transactions | ✅ **FUND THIS ONE** |
-| **Agent Key** | A signing keypair for API authentication — NOT a wallet | ❌ **NEVER FUND THIS** |
+| **Owner Wallet** | Your personal wallet (MetaMask etc.) that controls the Sigil account |  Only for gas to manage settings |
+| **Sigil Smart Account** | On-chain contract that holds funds and executes transactions |  **FUND THIS ONE** |
+| **Agent Key** | A signing keypair for API authentication — NOT a wallet |  **NEVER FUND THIS** |
 
-> 💡 The agent key is like a login credential. You don't deposit money into a password.
+>  The agent key is like a login credential. You don't deposit money into a password.
 
 ---
 
@@ -51,10 +51,10 @@ POST /v1/evaluate  (with Bearer token from API key auth)
 
 | Mistake | Why It's Wrong |
 |---------|---------------|
-| ❌ Funding the agent key address | Agent key is for auth only — funds sent there are stuck/wasted |
-| ❌ Giving the agent your owner private key | Owner key controls freeze/withdraw/policy — agent should NEVER have it |
-| ❌ Agent sending from its own wallet | Transactions must go through Guardian API, not direct on-chain sends |
-| ❌ Using agent key private key as a wallet | It's a signing key for API auth, not an EOA to hold funds |
+|  Funding the agent key address | Agent key is for auth only — funds sent there are stuck/wasted |
+|  Giving the agent your owner private key | Owner key controls freeze/withdraw/policy — agent should NEVER have it |
+|  Agent sending from its own wallet | Transactions must go through Guardian API, not direct on-chain sends |
+|  Using agent key private key as a wallet | It's a signing key for API auth, not an EOA to hold funds |
 
 ---
 

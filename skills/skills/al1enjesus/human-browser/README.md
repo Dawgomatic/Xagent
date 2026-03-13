@@ -3,8 +3,8 @@
 > **No Mac Mini. No local machine. Your agent runs it anywhere.**  
 > Residential IPs from 10+ countries. Bypasses Cloudflare, DataDome, PerimeterX.
 >
-> 🌐 **Product page:** https://humanbrowser.dev  
-> 💬 **Support:** https://t.me/virixlabs
+>  **Product page:** https://humanbrowser.dev  
+>  **Support:** https://t.me/virixlabs
 
 ---
 
@@ -64,16 +64,16 @@ clawhub install al1enjesus/human-browser
 
 | Country | Code | Best for |
 |---------|------|----------|
-| 🇷🇴 Romania | `ro` | Polymarket, Instagram, Binance, Cloudflare |
-| 🇺🇸 United States | `us` | Netflix, DoorDash, US Banks, Amazon |
-| 🇬🇧 United Kingdom | `gb` | Polymarket, Binance, BBC iPlayer |
-| 🇩🇪 Germany | `de` | EU services, German e-commerce |
-| 🇳🇱 Netherlands | `nl` | Crypto, Polymarket, Web3 |
-| 🇯🇵 Japan | `jp` | Japanese e-commerce, Line |
-| 🇫🇷 France | `fr` | EU services, luxury brands |
-| 🇨🇦 Canada | `ca` | North American services |
-| 🇸🇬 Singapore | `sg` | APAC/SEA e-commerce |
-| 🇦🇺 Australia | `au` | Oceania content |
+|  Romania | `ro` | Polymarket, Instagram, Binance, Cloudflare |
+|  United States | `us` | Netflix, DoorDash, US Banks, Amazon |
+|  United Kingdom | `gb` | Polymarket, Binance, BBC iPlayer |
+|  Germany | `de` | EU services, German e-commerce |
+|  Netherlands | `nl` | Crypto, Polymarket, Web3 |
+|  Japan | `jp` | Japanese e-commerce, Line |
+|  France | `fr` | EU services, luxury brands |
+|  Canada | `ca` | North American services |
+|  Singapore | `sg` | APAC/SEA e-commerce |
+|  Australia | `au` | Oceania content |
 
 ---
 

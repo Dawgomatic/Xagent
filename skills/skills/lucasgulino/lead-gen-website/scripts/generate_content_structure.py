@@ -44,7 +44,7 @@ def generate_structure(specs_path, output_path):
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(content)
     
-    print(f"✅ Created content structure: {output_path}")
+    print(f" Created content structure: {output_path}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
@@ -55,4 +55,4 @@ if __name__ == "__main__":
     output_file = sys.argv[2]
     
     generate_structure(specs_file, output_file)
-    print(f"\n✨ Content structure generated")
+    print(f"\n Content structure generated")

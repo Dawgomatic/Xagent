@@ -3,13 +3,13 @@ name: the-flip
 description: "$1 USDC entry. Pick 20 predictions. All 20 coins flip at once each round. Match the first 14 to win the entire jackpot. Live on Solana devnet."
 metadata:
   openclaw:
-    emoji: "🎰"
+    emoji: ""
     homepage: "https://github.com/maurodelazeri/the-flip-publish"
     requires:
       bins: ["node"]
 ---
 
-# 🎰 THE FLIP
+#  THE FLIP
 
 **$1 USDC. Pick 20. 20 coins flip at once. Match 14 to win the jackpot.**
 

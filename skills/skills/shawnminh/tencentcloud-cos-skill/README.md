@@ -1,4 +1,4 @@
-# 腾讯云COS Clawdbot技能 ☁️
+# 腾讯云COS Clawdbot技能 
 
 [![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://clawhub.com)
 [![腾讯云COS](https://img.shields.io/badge/腾讯云-COS-green)](https://cloud.tencent.com/product/cos)
@@ -7,23 +7,23 @@
 
 基于腾讯云官方 [cos-mcp](https://www.npmjs.com/package/cos-mcp) MCP服务器的Clawdbot技能，提供完整的腾讯云对象存储(COS)和数据万象(CI)能力集成。
 
-## ✨ 特性
+##  特性
 
-### 🗂️ 核心功能
+###  核心功能
 - **文件管理**: 上传、下载、列出、删除COS文件
 - **图片处理**: 质量评估、超分辨率、智能抠图、二维码识别
 - **智能搜索**: 以图搜图、文本搜图
 - **文档处理**: 文档转PDF、视频封面生成
 - **批量操作**: 支持批量上传、下载、处理
 
-### 🚀 技术优势
+###  技术优势
 - **官方集成**: 基于腾讯云官方cos-mcp MCP服务器
 - **标准协议**: 完全兼容MCP (Model Context Protocol)
 - **易于使用**: 简单的配置和直观的命令
 - **安全可靠**: 支持环境变量加密和访问控制
 - **高性能**: 支持大文件分片上传和并发处理
 
-## 📦 安装
+##  安装
 
 ### 快速安装
 ```bash
@@ -49,7 +49,7 @@ cp config/env.template .env
 # 将 config/clawdbot_config.json 合并到 ~/.openclaw/openclaw.json
 ```
 
-## ⚙️ 配置
+##  配置
 
 ### 环境变量配置
 在 `.env` 文件中配置：
@@ -83,7 +83,7 @@ export TENCENT_COS_DEBUG="false"
 }
 ```
 
-## 📖 使用指南
+##  使用指南
 
 ### 基础命令
 在Clawdbot中直接使用自然语言命令：
@@ -152,7 +152,7 @@ python3 scripts/cos_wrapper.py --action list --prefix images/
 python3 scripts/cos_wrapper.py --action search-text --text "风景照片"
 ```
 
-## 🎯 使用场景
+##  使用场景
 
 ### 场景1: 自动化文件备份
 ```python
@@ -207,14 +207,14 @@ search_results = cos.search_by_text('蓝天白云')
 print(f"找到 {len(search_results.get('results', []))} 张相关图片")
 ```
 
-## 🏗️ 架构设计
+##  架构设计
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   Clawdbot      │    │   本技能        │    │ 腾讯云COS MCP   │
 │                 │    │                 │    │   服务器        │
 │  ┌───────────┐  │    │  ┌───────────┐  │    │  ┌───────────┐  │
-│  │  用户命令  │──┼───▶│  │ Python    │──┼───▶│  │  cos-mcp  │  │
+│  │  用户命令  │──┼───│  │ Python    │──┼───│  │  cos-mcp  │  │
 │  │           │  │    │  │ 包装器     │  │    │  │  进程     │  │
 │  └───────────┘  │    │  └───────────┘  │    │  └───────────┘  │
 │                 │    │                 │    │        │        │
@@ -226,7 +226,7 @@ print(f"找到 {len(search_results.get('results', []))} 张相关图片")
                                                 └─────────────┘
 ```
 
-## 🔧 开发指南
+##  开发指南
 
 ### 项目结构
 ```
@@ -261,7 +261,7 @@ tencent-cos/
 3. **创建新的使用示例**:
    在examples目录中添加新的示例文件
 
-## 📊 性能优化
+##  性能优化
 
 ### 大文件处理
 - 支持分片上传（默认5MB分片）
@@ -278,7 +278,7 @@ tencent-cos/
 - 详细的错误日志
 - 优雅降级
 
-## 🔒 安全建议
+##  安全建议
 
 ### 密钥管理
 - 使用环境变量存储密钥
@@ -295,7 +295,7 @@ tencent-cos/
 - 敏感数据单独存储
 - 定期备份重要数据
 
-## 🐛 故障排除
+##  故障排除
 
 ### 常见问题
 
@@ -326,7 +326,7 @@ export TENCENT_COS_DEBUG="true"
 cos-mcp --Region=ap-guangzhou --Bucket=test --SecretId=test --SecretKey=test --connectType=sse --port=3001
 ```
 
-## 🤝 贡献指南
+##  贡献指南
 
 欢迎贡献代码、报告问题或提出建议！
 
@@ -348,18 +348,18 @@ pip install -r requirements.txt
 python3 -m pytest tests/
 ```
 
-## 📄 许可证
+##  许可证
 
 本项目基于BSD-3许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
 
-## 🙏 致谢
+##  致谢
 
 - **腾讯云COS团队**: 提供优秀的对象存储服务
 - **cos-mcp开发者**: 创建了优秀的MCP服务器
 - **OpenClaw社区**: 提供了优秀的AI助手平台
 - **所有贡献者**: 感谢你们的支持和贡献
 
-## 📞 支持
+##  支持
 
 - **问题反馈**: 在GitHub Issues中报告问题
 - **功能请求**: 在GitHub Discussions中提出建议
@@ -368,4 +368,4 @@ python3 -m pytest tests/
 ---
 *最后更新: 2026-02-02 | 版本: 1.0.0*
 
-**享受腾讯云COS带来的便捷存储体验吧！** 🚀
+**享受腾讯云COS带来的便捷存储体验吧！** 

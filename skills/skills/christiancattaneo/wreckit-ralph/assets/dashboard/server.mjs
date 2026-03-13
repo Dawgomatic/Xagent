@@ -106,7 +106,7 @@ const server = createServer(async (req, res) => {
 });
 
 server.listen(PORT, '127.0.0.1', () => {
-  console.log(`🔨 wreckit dashboard → http://localhost:${PORT}`);
+  console.log(` wreckit dashboard → http://localhost:${PORT}`);
   console.log(`   API endpoint → http://localhost:${PORT}/api/status`);
   if (watchDir) console.log(`   Watching: ${resolve(watchDir)}`);
   else if (projectsArg) console.log(`   Projects: ${projectsArg}`);

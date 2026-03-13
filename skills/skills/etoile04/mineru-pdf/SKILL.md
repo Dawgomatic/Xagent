@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📄",
+        "emoji": "",
         "requires": { "bins": ["uvx"] },
         "install":
           [
@@ -45,10 +45,10 @@ python /Users/lwj04/clawd/skills/mineru-pdf/parse.py <pdf_path> <output_dir> [op
 ```
 
 **Advantages:**
-- ✅ Files are saved permanently (not auto-deleted)
-- ✅ Full control over output location
-- ✅ No MCP overhead
-- ✅ Works with any Python environment that has MinerU
+-  Files are saved permanently (not auto-deleted)
+-  Full control over output location
+-  No MCP overhead
+-  Works with any Python environment that has MinerU
 
 ## Quick Start
 
@@ -309,10 +309,10 @@ python /Users/lwj04/clawd/skills/mineru-pdf/parse.py \
 ```
 
 **Advantages:**
-- ✅ Files are never auto-deleted
-- ✅ Full control over output location
-- ✅ Can be used in batch processing
-- ✅ No MCP connection needed
+-  Files are never auto-deleted
+-  Full control over output location
+-  Can be used in batch processing
+-  No MCP connection needed
 
 **Generated Structure:**
 ```
@@ -340,11 +340,11 @@ claude -p "Parse this PDF: /path/to/file.pdf" > /tmp/output.md
 
 | Feature | Direct Tool | MCP Method |
 |----------|-------------|-------------|
-| Files persisted | ✅ Yes | ❌ No (auto-deleted) |
-| Custom output dir | ✅ Yes | ❌ No (temp only) |
-| Claude Code integration | ⚠️ Manual | ✅ Native |
-| Speed | ✅ Fast | ⚠️ MCP overhead |
-| Offline use | ✅ Yes | ⚠️ Needs Claude Code |
+| Files persisted |  Yes |  No (auto-deleted) |
+| Custom output dir |  Yes |  No (temp only) |
+| Claude Code integration |  Manual |  Native |
+| Speed |  Fast |  MCP overhead |
+| Offline use |  Yes |  Needs Claude Code |
 
 ### Recommendation
 

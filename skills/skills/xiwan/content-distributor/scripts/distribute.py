@@ -47,7 +47,7 @@ def distribute_content(platforms: list, title: str, content: str, post_types: di
     }
     
     for platform_name in platforms:
-        print(f"\n📤 正在发布到 {platform_name}...")
+        print(f"\n 正在发布到 {platform_name}...")
         
         try:
             platform = get_platform(platform_name)
@@ -65,7 +65,7 @@ def distribute_content(platforms: list, title: str, content: str, post_types: di
                 "url": result.get("url", ""),
             }
             results["success_count"] += 1
-            print(f"   ✅ 成功: {result.get('url', '已发布')}")
+            print(f"    成功: {result.get('url', '已发布')}")
             
         except PlatformError as e:
             results["platforms"][platform_name] = {
@@ -73,7 +73,7 @@ def distribute_content(platforms: list, title: str, content: str, post_types: di
                 "error": str(e),
             }
             results["fail_count"] += 1
-            print(f"   ❌ 失败: {e}")
+            print(f"    失败: {e}")
     
     return results
 
@@ -109,14 +109,14 @@ def main():
             content = f.read()
     
     if not content:
-        print("❌ 错误: 必须提供 --content 或 --content-file")
+        print(" 错误: 必须提供 --content 或 --content-file")
         sys.exit(1)
     
     title = args.title or ""
     
     # 干运行
     if args.dry_run:
-        print("🔍 干运行模式")
+        print(" 干运行模式")
         print(f"   平台: {platforms}")
         print(f"   标题: {title}")
         print(f"   内容长度: {len(content)} 字符")
@@ -127,17 +127,17 @@ def main():
             try:
                 platform = get_platform(platform_name)
                 if platform.validate_credentials():
-                    print(f"   ✅ {platform_name}: 凭据有效")
+                    print(f"    {platform_name}: 凭据有效")
             except PlatformError as e:
-                print(f"   ❌ {platform_name}: {e}")
+                print(f"    {platform_name}: {e}")
         return
     
     # 执行分发
-    print(f"🚀 开始分发内容到 {len(platforms)} 个平台...")
+    print(f" 开始分发内容到 {len(platforms)} 个平台...")
     results = distribute_content(platforms, title, content, post_types)
     
     # 输出结果
-    print(f"\n📊 分发完成: {results['success_count']} 成功, {results['fail_count']} 失败")
+    print(f"\n 分发完成: {results['success_count']} 成功, {results['fail_count']} 失败")
     
     # 保存结果
     if args.output:

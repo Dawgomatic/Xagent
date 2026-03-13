@@ -61,7 +61,7 @@ The skill will automatically:
 1. Go to [discord.com/developers/applications](https://discord.com/developers/applications)
 2. Create **New Application** → Enter name → **Create**
 3. Go to **Bot** tab → **Reset Token** → **Copy** token
-4. Enable **Message Content Intent** ✅
+4. Enable **Message Content Intent** 
 
 ### 2. Bot Permissions
 Go to **OAuth2** → **URL Generator**:
@@ -159,12 +159,12 @@ channels:
 ## Health Checks
 
 Automatic diagnostics include:
-- ✅ **Token Validity** - Bot token authentication
-- ✅ **Gateway Connection** - Discord WebSocket status  
-- ✅ **Message Intent** - Required intent enablement
-- ✅ **Bot Permissions** - Guild-level permission verification
-- ✅ **Channel Access** - Read/write permission checks
-- ✅ **API Rate Limits** - Current usage and limits
+-  **Token Validity** - Bot token authentication
+-  **Gateway Connection** - Discord WebSocket status  
+-  **Message Intent** - Required intent enablement
+-  **Bot Permissions** - Guild-level permission verification
+-  **Channel Access** - Read/write permission checks
+-  **API Rate Limits** - Current usage and limits
 
 ## Troubleshooting
 

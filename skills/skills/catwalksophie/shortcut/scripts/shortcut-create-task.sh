@@ -33,9 +33,9 @@ TASK_ID=$(echo "$RESPONSE" | jq -r '.id')
 DESC_OUT=$(echo "$RESPONSE" | jq -r '.description')
 
 if [ "$TASK_ID" != "null" ]; then
-  echo "✅ Created task #$TASK_ID: $DESC_OUT"
+  echo " Created task #$TASK_ID: $DESC_OUT"
 else
-  echo "❌ Failed to create task"
+  echo " Failed to create task"
   echo "$RESPONSE" | jq .
   exit 1
 fi

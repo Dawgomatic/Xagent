@@ -104,27 +104,27 @@ async function handleCommand(input) {
       if (subcommand === 'traders') {
         return await getTopTraders();
       }
-      return '❌ Unknown top command. Try: top collectors, top traders';
+      return ' Unknown top command. Try: top collectors, top traders';
 
     default:
-      return `❌ Unknown command: ${command}\n\nTry 'mg help' for usage.`;
+      return ` Unknown command: ${command}\n\nTry 'mg help' for usage.`;
   }
 }
 
 // === COMMAND IMPLEMENTATIONS ===
 
 async function searchAll(query) {
-  if (!query) return '❌ Please provide a search query';
+  if (!query) return ' Please provide a search query';
   
   const results = await api.search(query, { limit: 20 });
   
-  let output = `🔍 Search results for "${query}":\n\n`;
+  let output = ` Search results for "${query}":\n\n`;
   
   let hasResults = false;
   
   if (results.collections?.length > 0) {
     hasResults = true;
-    output += `📚 COLLECTIONS (${results.collections.length})\n`;
+    output += ` COLLECTIONS (${results.collections.length})\n`;
     results.collections.slice(0, 5).forEach(c => {
       output += `  • ${c.name}\n`;
     });
@@ -133,7 +133,7 @@ async function searchAll(query) {
   
   if (results.nfts?.length > 0) {
     hasResults = true;
-    output += `🖼  NFTs (${results.nfts.length})\n`;
+    output += `  NFTs (${results.nfts.length})\n`;
     results.nfts.slice(0, 5).forEach(n => {
       output += `  • ${n.name || 'Unnamed'}\n`;
     });
@@ -142,21 +142,21 @@ async function searchAll(query) {
   
   if (results.profiles?.length > 0) {
     hasResults = true;
-    output += `👤 PROFILES (${results.profiles.length})\n`;
+    output += ` PROFILES (${results.profiles.length})\n`;
     results.profiles.slice(0, 5).forEach(p => {
       output += `  • ${p.name || p.username || 'Anonymous'}\n`;
     });
   }
   
-  return hasResults ? output : '❌ No results found';
+  return hasResults ? output : ' No results found';
 }
 
 async function searchNFTs(query) {
-  if (!query) return '❌ Please provide a search query';
+  if (!query) return ' Please provide a search query';
   
   const results = await api.searchNFTs(query, { limit: 20 });
   
-  let output = `🖼  NFT search results for "${query}":\n\n`;
+  let output = `  NFT search results for "${query}":\n\n`;
   
   if (results.nfts?.length > 0) {
     results.nfts.forEach((nft, i) => {
@@ -168,15 +168,15 @@ async function searchNFTs(query) {
     return output;
   }
   
-  return '❌ No NFTs found';
+  return ' No NFTs found';
 }
 
 async function searchCollections(query) {
-  if (!query) return '❌ Please provide a search query';
+  if (!query) return ' Please provide a search query';
   
   const results = await api.searchCollections(query, { limit: 20 });
   
-  let output = `📚 Collection search results for "${query}":\n\n`;
+  let output = ` Collection search results for "${query}":\n\n`;
   
   if (results.collections?.length > 0) {
     results.collections.forEach((col, i) => {
@@ -186,13 +186,13 @@ async function searchCollections(query) {
     return output;
   }
   
-  return '❌ No collections found';
+  return ' No collections found';
 }
 
 async function listCollections() {
   const results = await api.getCollections({ limit: 25, sort: 'vol24h' });
   
-  let output = `📚 Top Collections by Volume (24h):\n\n`;
+  let output = ` Top Collections by Volume (24h):\n\n`;
   
   if (results.items?.length > 0) {
     results.items.forEach((col, i) => {
@@ -203,15 +203,15 @@ async function listCollections() {
     return output;
   }
   
-  return '❌ No collections found';
+  return ' No collections found';
 }
 
 async function getCollectionDetails(collectionId) {
-  if (!collectionId) return '❌ Please provide a collection ID';
+  if (!collectionId) return ' Please provide a collection ID';
   
   const collection = await api.getCollection(collectionId);
   
-  let output = `📚 ${collection.name}\n`;
+  let output = ` ${collection.name}\n`;
   const verified = collection.creator?.verification_state ? '✓ Verified' : '';
   if (verified) output += verified + '\n';
   output += '\n';
@@ -230,11 +230,11 @@ async function getCollectionDetails(collectionId) {
 }
 
 async function getCollectionNFTs(collectionId) {
-  if (!collectionId) return '❌ Please provide a collection ID';
+  if (!collectionId) return ' Please provide a collection ID';
   
   const results = await api.getCollectionNFTs(collectionId, { limit: 20 });
   
-  let output = `🖼  NFTs in collection:\n\n`;
+  let output = `  NFTs in collection:\n\n`;
   
   if (results.items?.length > 0) {
     results.items.forEach((nft, i) => {
@@ -246,7 +246,7 @@ async function getCollectionNFTs(collectionId) {
     return output;
   }
   
-  return '❌ No NFTs found in this collection';
+  return ' No NFTs found in this collection';
 }
 
 async function getCollectionStats(collectionId) {
@@ -260,11 +260,11 @@ async function getCollectionActivity(collectionId) {
 }
 
 async function getNFTDetails(launcherId) {
-  if (!launcherId) return '❌ Please provide an NFT launcher ID';
+  if (!launcherId) return ' Please provide an NFT launcher ID';
   
   const nft = await api.getNFT(launcherId);
   
-  let output = `🖼  ${nft.name || 'Unnamed NFT'}\n\n`;
+  let output = `  ${nft.name || 'Unnamed NFT'}\n\n`;
   
   output += `Collection: ${nft.collection_name || 'Unknown'}\n`;
   if (nft.price) output += `Price: ${formatXCH(nft.price)}\n`;
@@ -290,7 +290,7 @@ async function getNFTDetails(launcherId) {
 
 async function getNFTHistory(launcherId) {
   // No direct history endpoint - would need to use events
-  return '❌ NFT history not available. Try /mg events to see recent activity.';
+  return ' NFT history not available. Try /mg events to see recent activity.';
 }
 
 async function getNFTOffers(launcherId) {
@@ -299,7 +299,7 @@ async function getNFTOffers(launcherId) {
     const mint = await api.getMint(launcherId);
     const offers = await api.getMintOffers(launcherId, { limit: 10 });
     
-    let output = `💰 Active Offers:\n\n`;
+    let output = ` Active Offers:\n\n`;
     
     if (offers.items?.length > 0) {
       offers.items.forEach((offer, i) => {
@@ -308,18 +308,18 @@ async function getNFTOffers(launcherId) {
       return output;
     }
     
-    return '❌ No active offers';
+    return ' No active offers';
   } catch (e) {
-    return '❌ No offers found for this NFT';
+    return ' No offers found for this NFT';
   }
 }
 
 async function getProfileDetails(identifier) {
-  if (!identifier) return '❌ Please provide a username or ID';
+  if (!identifier) return ' Please provide a username or ID';
   
   const profile = await api.getProfile(identifier);
   
-  let output = `👤 ${profile.username || profile.name || 'Anonymous'}\n\n`;
+  let output = ` ${profile.username || profile.name || 'Anonymous'}\n\n`;
   
   if (profile.bio) {
     output += `${profile.bio}\n\n`;
@@ -333,11 +333,11 @@ async function getProfileDetails(identifier) {
 }
 
 async function getProfileNFTs(identifier) {
-  if (!identifier) return '❌ Please provide a username or ID';
+  if (!identifier) return ' Please provide a username or ID';
   
   const results = await api.getProfileNFTs(identifier, { limit: 20 });
   
-  let output = `🖼  NFTs owned by ${identifier}:\n\n`;
+  let output = `  NFTs owned by ${identifier}:\n\n`;
   
   if (results.items?.length > 0) {
     results.items.forEach((nft, i) => {
@@ -349,18 +349,18 @@ async function getProfileNFTs(identifier) {
     return output;
   }
   
-  return '❌ No NFTs found';
+  return ' No NFTs found';
 }
 
 async function getProfileActivity(identifier) {
   // No separate activity endpoint - use events
-  return '❌ Profile activity not available. Try /mg events for global activity.';
+  return ' Profile activity not available. Try /mg events for global activity.';
 }
 
 async function getEvents(collectionId) {
   const results = await api.getEvents({ limit: 20 });
   
-  let output = `📈 Recent marketplace events:\n\n`;
+  let output = ` Recent marketplace events:\n\n`;
   
   if (results.items?.length > 0) {
     results.items.forEach((event, i) => {
@@ -374,7 +374,7 @@ async function getEvents(collectionId) {
     return output;
   }
   
-  return '❌ No recent events';
+  return ' No recent events';
 }
 
 async function getGlobalStats() {
@@ -388,11 +388,11 @@ async function getTrending() {
 }
 
 async function getTopCollectors() {
-  return '❌ Top collectors data not available from this API.';
+  return ' Top collectors data not available from this API.';
 }
 
 async function getTopTraders() {
-  return '❌ Top traders data not available from this API.';
+  return ' Top traders data not available from this API.';
 }
 
 // === FORMATTING HELPERS ===

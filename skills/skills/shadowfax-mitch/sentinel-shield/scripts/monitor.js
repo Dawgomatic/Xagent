@@ -70,14 +70,14 @@ function recordCall(toolName) {
   if (count >= rl.maxCalls) {
     const alert = { level: 'HIGH', type: 'RATE_LIMIT_HIT', message: `Rate limit hit: ${count}/${rl.maxCalls} calls in ${rl.windowSeconds}s`, tool: toolName };
     saveAlert(alert);
-    sendTelegram(config, `🔴 *RATE LIMIT HIT*\n${count}/${rl.maxCalls} calls in ${rl.windowSeconds}s\nTool: ${toolName}`);
+    sendTelegram(config, ` *RATE LIMIT HIT*\n${count}/${rl.maxCalls} calls in ${rl.windowSeconds}s\nTool: ${toolName}`);
     return { blocked: true, count, max: rl.maxCalls };
   }
 
   if (count >= rl.alertThreshold) {
     const alert = { level: 'MEDIUM', type: 'RATE_LIMIT_WARNING', message: `Rate limit warning: ${count}/${rl.maxCalls} (${Math.round(count/rl.maxCalls*100)}%)`, tool: toolName };
     saveAlert(alert);
-    sendTelegram(config, `⚠️ *Rate Limit Warning*\n${count}/${rl.maxCalls} calls (${Math.round(count/rl.maxCalls*100)}%)`);
+    sendTelegram(config, ` *Rate Limit Warning*\n${count}/${rl.maxCalls} calls (${Math.round(count/rl.maxCalls*100)}%)`);
   }
 
   return { blocked: false, count, max: rl.maxCalls };

@@ -5,7 +5,7 @@
   "author": "Craig Milligan",
   "license": "MIT",
   "homepage": "https://github.com/M4vF14/perplexity-search-openclaw",
-  "emoji": "🔍",
+  "emoji": "",
   "tags": ["search", "web", "perplexity", "research", "api"],
   "requires": {
     "openclaw": ">=2026.2.0",

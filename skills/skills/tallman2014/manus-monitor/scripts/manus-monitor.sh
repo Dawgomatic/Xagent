@@ -31,7 +31,7 @@ send_notification() {
   local title="$4"
 
   # 构建消息
-  local message="Manus 任务状态更新 🎉
+  local message="Manus 任务状态更新 
 
 任务：${title:-未知}
 状态：${old_status} → **${new_status}**

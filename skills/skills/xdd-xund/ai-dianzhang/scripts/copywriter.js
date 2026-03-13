@@ -40,7 +40,7 @@ const PLATFORM_STYLES = {
       '适当用感叹号和问号'
     ],
     descStyle: '种草风格，第一人称分享体验，多用emoji和换行，标签很重要',
-    example: '🏕️ 这把露营椅也太绝了吧！轻到单手就能拎走'
+    example: ' 这把露营椅也太绝了吧！轻到单手就能拎走'
   },
   douyin: {
     name: '抖音',

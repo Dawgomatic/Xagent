@@ -6,7 +6,7 @@ metadata:
   version: "1.0.0"
   homepage: https://github.com/microsoft/VibeVoice
   openclaw:
-    emoji: "🎙️"
+    emoji: ""
     requires:
       bins: ["ffmpeg", "python3"]
       env: []

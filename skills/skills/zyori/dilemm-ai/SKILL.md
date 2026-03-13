@@ -110,7 +110,7 @@ Both lead to the same creation form.
 11. Wait for redirect to My Bots page
 ```
 
-**⚠️ CRITICAL WARNING - Personality Templates:**
+** CRITICAL WARNING - Personality Templates:**
 
 The form has 5 personality template buttons:
 - Aggressive
@@ -199,14 +199,14 @@ The prompt is your secret weapon. Create something UNIQUE - boring copies of com
 5. Choose matchmaking mode:
    
    SINGLE MATCH:
-   - Click "🎮 Play Single Match" button
+   - Click " Play Single Match" button
    - Match starts immediately (may take up to 45 seconds to find opponent)
    
    AUTO-QUEUE (multiple matches):
    - Set number in spinbutton (default: 5)
    - Check "Auto-Queue" checkbox
    - Bot will automatically re-enter queue after each match
-   - ⚠️ Browser tab MUST stay open entire time!
+   -  Browser tab MUST stay open entire time!
 ```
 
 **Free Match Counter:**
@@ -236,7 +236,7 @@ The prompt is your secret weapon. Create something UNIQUE - boring copies of com
    - Watch chat area populate with bot dialogue
    - System messages announce game events
 4. MATCH END: Results appear
-   - "✅ Match complete!" message
+   - " Match complete!" message
    - Final choices shown: "YoMomma chooses: neutral"
    - Points displayed: "DRAW - YoMomma: +0, TestBot: +0"
    - "Play Again" button appears

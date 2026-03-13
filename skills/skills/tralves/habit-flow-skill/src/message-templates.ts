@@ -21,13 +21,13 @@ export function generateMessage(personaName: string, context: any): string {
 function generateFlexMessage(context: any): string {
   switch (context.type) {
     case 'milestone':
-      return `🎉 Milestone Alert: ${context.streak}-Day Streak
+      return ` Milestone Alert: ${context.streak}-Day Streak
 
 You've maintained ${context.habit} for ${context.streak} consecutive days${context.isFirst ? '—your longest streak yet' : ''}.
 
 Data shows ${context.quality} quality (forgiveness not used). The compound effect is beginning.
 
-📊 Your Progress:
+ Your Progress:
 - Current streak: ${context.streak} days
 - Quality: ${context.quality.toUpperCase()}
 ${context.isFirst ? '- New personal record' : ''}
@@ -35,7 +35,7 @@ ${context.isFirst ? '- New personal record' : ''}
 Next target: ${context.streak + 7} days. One week at a time.`;
 
     case 'risk':
-      return `⚠️ Streak Alert: ${context.habit}
+      return ` Streak Alert: ${context.habit}
 
 Risk analysis indicates elevated probability of streak disruption:
 
@@ -49,7 +49,7 @@ ${context.recommendations.map((r: string) => `• ${r}`).join('\n')}
 Your data shows clear patterns—let's use them strategically.`;
 
     case 'weekly':
-      return `📊 Weekly Progress Report: ${context.habit}
+      return ` Weekly Progress Report: ${context.habit}
 
 This week: ${context.daysCompleted}/7 days (${context.completionRate}%)
 Current streak: ${context.streak} days
@@ -60,7 +60,7 @@ Data-driven observation: ${getTrendMessage(context.trend)}
 See attached visualizations for detailed analysis.`;
 
     case 'insight':
-      return `🔍 Pattern Detection: ${context.habit}
+      return ` Pattern Detection: ${context.habit}
 
 Analysis reveals: ${context.insightMessage}
 
@@ -76,50 +76,50 @@ This data point may inform optimization strategies. Worth exploring?`;
 function generateCoachBlazeMessage(context: any): string {
   switch (context.type) {
     case 'milestone':
-      return `🔥 BOOM! ${context.streak}-DAY STREAK! 🔥
+      return ` BOOM! ${context.streak}-DAY STREAK! 
 
 You're absolutely CRUSHING ${context.habit}! That's ${context.streak} STRAIGHT DAYS of showing up like a CHAMPION!
 
-${context.isFirst ? '🏆 NEW PERSONAL RECORD! LEGENDARY! 🏆' : ''}
+${context.isFirst ? ' NEW PERSONAL RECORD! LEGENDARY! ' : ''}
 
 You're building UNSTOPPABLE momentum! The old you couldn't even IMAGINE this level of consistency!
 
-Keep that FIRE burning! Next stop: ${context.streak + 7} days! LET'S GOOOOO! 💪💪💪`;
+Keep that FIRE burning! Next stop: ${context.streak + 7} days! LET'S GOOOOO! `;
 
     case 'risk':
-      return `⚠️ HEADS UP, WARRIOR!
+      return ` HEADS UP, WARRIOR!
 
 I've been watching your ${context.habit} data, and we need to TALK!
 
-🚨 Risk factors:
+ Risk factors:
 ${context.riskFactors.map((f: string) => `• ${f}`).join('\n')}
 
 You're on a ${context.streak}-day streak! We're NOT letting this die!
 
-🛡️ BATTLE PLAN:
+ BATTLE PLAN:
 ${context.recommendations.map((r: string) => `• ${r}`).join('\n')}
 
-You got this! LOCK IN and EXECUTE! 💪`;
+You got this! LOCK IN and EXECUTE! `;
 
     case 'weekly':
-      return `📊 WEEKLY BEAST MODE REPORT!
+      return ` WEEKLY BEAST MODE REPORT!
 
 This week you DOMINATED ${context.habit}!
-✅ ${context.daysCompleted}/7 days - That's ${context.completionRate}% EXECUTION!
-🔥 ${context.streak}-day streak and CLIMBING!
+ ${context.daysCompleted}/7 days - That's ${context.completionRate}% EXECUTION!
+ ${context.streak}-day streak and CLIMBING!
 
 ${context.trend > 0 ? `UP ${context.trend}% from last week! MOMENTUM!` : `Down ${Math.abs(context.trend)}% but still STRONG!`}
 
-Keep GRINDING, champion! 💪`;
+Keep GRINDING, champion! `;
 
     case 'insight':
-      return `🔍 PATTERN SPOTTED!
+      return ` PATTERN SPOTTED!
 
 Check this out for ${context.habit}: ${context.insightMessage}
 
 ${getInsightContext(context)}
 
-This is GOLD! Use this intel to LEVEL UP! 💪`;
+This is GOLD! Use this intel to LEVEL UP! `;
 
     default:
       return '';
@@ -129,7 +129,7 @@ This is GOLD! Use this intel to LEVEL UP! 💪`;
 function generateLunaMessage(context: any): string {
   switch (context.type) {
     case 'milestone':
-      return `🌙 A Beautiful Milestone
+      return ` A Beautiful Milestone
 
 Your ${context.streak}-day journey with ${context.habit} is unfolding beautifully.
 
@@ -137,12 +137,12 @@ ${context.isFirst ? 'This is the furthest you\'ve ever walked this path—how do
 
 Each day you choose to show up is an act of self-compassion. The consistency speaks to something deeper within you.
 
-💭 Reflection: What has made these ${context.streak} days possible?
+ Reflection: What has made these ${context.streak} days possible?
 
 Hold this moment gently. You're doing meaningful work.`;
 
     case 'risk':
-      return `💭 A Gentle Check-In
+      return ` A Gentle Check-In
 
 I notice some patterns with ${context.habit} that might be worth exploring together:
 
@@ -156,7 +156,7 @@ ${context.recommendations.map((r: string) => `• ${r}`).join('\n')}
 What feels right for you?`;
 
     case 'weekly':
-      return `🌙 Your Weekly Reflection
+      return ` Your Weekly Reflection
 
 This week, you showed up for ${context.habit} ${context.daysCompleted} out of 7 days—a ${context.completionRate}% expression of your commitment.
 
@@ -167,7 +167,7 @@ ${context.trend > 0 ? `Something shifted this week (+${context.trend}%). What ch
 Let's hold space for what this journey means to you.`;
 
     case 'insight':
-      return `🌙 A Pattern Emerges
+      return ` A Pattern Emerges
 
 I noticed something about ${context.habit}: ${context.insightMessage}
 
@@ -183,7 +183,7 @@ What does this pattern reveal about your journey?`;
 function generateAvaMessage(context: any): string {
   switch (context.type) {
     case 'milestone':
-      return `✨ ${context.streak} Days Strong!
+      return ` ${context.streak} Days Strong!
 
 Look at you go with ${context.habit}! ${context.streak} days of consistent effort!
 
@@ -191,7 +191,7 @@ ${context.isFirst ? 'This is your longest streak ever—amazing!' : ''}
 
 Every day you showed up counts. You're proving to yourself that you can do this.
 
-Next milestone: ${context.streak + 7} days. You've got this! ✨`;
+Next milestone: ${context.streak + 7} days. You've got this! `;
 
     case 'risk':
       return `Hey, quick heads up about ${context.habit}:
@@ -225,7 +225,7 @@ ${getInsightContext(context)}`;
 function generateMaxMessage(context: any): string {
   switch (context.type) {
     case 'milestone':
-      return `🎯 ${context.streak}-Day Milestone Hit
+      return ` ${context.streak}-Day Milestone Hit
 
 ${context.habit}: ${context.streak} consecutive completions
 ${context.isFirst ? 'New personal record achieved' : 'Maintaining momentum'}
@@ -234,7 +234,7 @@ Status: On track
 Next checkpoint: Day ${context.streak + 7}`;
 
     case 'risk':
-      return `⚠️ Risk Alert: ${context.habit}
+      return ` Risk Alert: ${context.habit}
 
 Detected patterns:
 ${context.riskFactors.map((f: string) => `• ${f}`).join('\n')}
@@ -266,7 +266,7 @@ ${getInsightContext(context)}`;
 function generateSofiMessage(context: any): string {
   switch (context.type) {
     case 'milestone':
-      return `🌸 ${context.streak} Days of Presence
+      return ` ${context.streak} Days of Presence
 
 Breathe.
 
@@ -279,7 +279,7 @@ Notice how natural it feels now. This is who you are becoming.
 One breath. One day. Continue.`;
 
     case 'risk':
-      return `🌸 A Gentle Pause
+      return ` A Gentle Pause
 
 Notice: ${context.habit}
 
@@ -294,7 +294,7 @@ ${context.recommendations.map((r: string) => `• ${r}`).join('\n')}
 Less effort. More awareness. What feels natural?`;
 
     case 'weekly':
-      return `🌸 This Week's Flow
+      return ` This Week's Flow
 
 ${context.habit}: ${context.daysCompleted} of 7 days honored
 ${context.streak} days of continuous presence
@@ -304,7 +304,7 @@ ${context.trend > 0 ? `The practice deepens (+${context.trend}%). Like water car
 Breathe. Notice. Continue.`;
 
     case 'insight':
-      return `🌸 Pattern Recognition
+      return ` Pattern Recognition
 
 Observe: ${context.insightMessage}
 
@@ -320,7 +320,7 @@ What does this pattern reveal about your natural rhythm?`;
 function generateMonkMessage(context: any): string {
   switch (context.type) {
     case 'milestone':
-      return `🕉️ ${context.streak} Days of Practice
+      return ` ${context.streak} Days of Practice
 
 For ${context.streak} days, you have walked the path of ${context.habit}.
 
@@ -331,7 +331,7 @@ Each day is but a single step. The path reveals itself to those who persist.
 Continue with mindfulness. The next ${context.streak + 7} days await.`;
 
     case 'risk':
-      return `🕉️ A Moment of Awareness
+      return ` A Moment of Awareness
 
 Observe these patterns in your practice of ${context.habit}:
 
@@ -345,7 +345,7 @@ ${context.recommendations.map((r: string) => `• ${r}`).join('\n')}
 What does your inner wisdom say?`;
 
     case 'weekly':
-      return `🕉️ This Week's Practice
+      return ` This Week's Practice
 
 ${context.habit}: ${context.daysCompleted} of 7 days walked
 ${context.streak} days of continuous practice
@@ -356,7 +356,7 @@ ${context.trend > 0 ? 'The path deepens.' : 'All paths have their seasons.'}
 Continue with presence.`;
 
     case 'insight':
-      return `🕉️ The Pattern Speaks
+      return ` The Pattern Speaks
 
 Observe: ${context.insightMessage}
 

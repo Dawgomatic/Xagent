@@ -222,7 +222,7 @@ def check_alerts(notify_format: bool = False) -> dict:
             alerts.append(Alert(
                 ticker=item.ticker,
                 alert_type="target_hit",
-                message=f"🎯 {item.ticker} hit target! ${current_price:.2f} >= ${item.target_price:.2f}",
+                message=f" {item.ticker} hit target! ${current_price:.2f} >= ${item.target_price:.2f}",
                 current_price=current_price,
                 trigger_value=item.target_price,
                 timestamp=now,
@@ -233,7 +233,7 @@ def check_alerts(notify_format: bool = False) -> dict:
             alerts.append(Alert(
                 ticker=item.ticker,
                 alert_type="stop_hit",
-                message=f"🛑 {item.ticker} hit stop! ${current_price:.2f} <= ${item.stop_price:.2f}",
+                message=f" {item.ticker} hit stop! ${current_price:.2f} <= ${item.stop_price:.2f}",
                 current_price=current_price,
                 trigger_value=item.stop_price,
                 timestamp=now,
@@ -257,7 +257,7 @@ def check_alerts(notify_format: bool = False) -> dict:
                         alerts.append(Alert(
                             ticker=item.ticker,
                             alert_type="signal_change",
-                            message=f"📊 {item.ticker} signal changed: {item.last_signal} → {new_signal}",
+                            message=f" {item.ticker} signal changed: {item.last_signal} → {new_signal}",
                             current_price=current_price,
                             trigger_value=f"{item.last_signal} → {new_signal}",
                             timestamp=now,
@@ -276,7 +276,7 @@ def check_alerts(notify_format: bool = False) -> dict:
     # Format output
     if notify_format and alerts:
         # Format for Telegram notification
-        lines = ["📢 **Stock Alerts**\n"]
+        lines = [" **Stock Alerts**\n"]
         for alert in alerts:
             lines.append(alert.message)
         return {"success": True, "alerts": [asdict(a) for a in alerts], "notification": "\n".join(lines)}

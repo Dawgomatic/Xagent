@@ -12,12 +12,12 @@ from pathlib import Path
 def print_header(text):
     """打印标题"""
     print("\n" + "=" * 60)
-    print(f"🔍 {text}")
+    print(f" {text}")
     print("=" * 60)
 
 def print_result(name, status, details=""):
     """打印测试结果"""
-    emoji = "✅" if status else "❌"
+    emoji = "" if status else ""
     print(f"{emoji} {name}: {'通过' if status else '失败'}")
     if details:
         print(f"   详情: {details}")
@@ -82,10 +82,10 @@ def test_api_keys():
             print_result(description, False, "未设置")
 
     if available_keys:
-        print(f"\n📋 可用的API服务: {len(available_keys)}/{len(api_keys)}")
+        print(f"\n 可用的API服务: {len(available_keys)}/{len(api_keys)}")
         return True
     else:
-        print(f"\n⚠️  警告: 未设置任何API密钥，将使用模拟模式")
+        print(f"\n  警告: 未设置任何API密钥，将使用模拟模式")
         return True  # 仍然返回True，因为模拟模式可用
 
 def test_skill_modules():
@@ -251,20 +251,20 @@ def generate_test_report():
     total = len(tests)
 
     print_header("测试总结")
-    print(f"📊 总计测试: {total} 项")
-    print(f"✅ 通过: {passed} 项")
-    print(f"❌ 失败: {total - passed} 项")
-    print(f"📈 通过率: {(passed/total)*100:.1f}%")
+    print(f" 总计测试: {total} 项")
+    print(f" 通过: {passed} 项")
+    print(f" 失败: {total - passed} 项")
+    print(f" 通过率: {(passed/total)*100:.1f}%")
 
     if passed == total:
-        print("\n🎉 所有测试通过！技能已准备好使用。")
-        print("\n💡 使用示例:")
+        print("\n 所有测试通过！技能已准备好使用。")
+        print("\n 使用示例:")
         print("   1. python scripts/book_writer.py --action outline --prompt \"机器学习基础\"")
         print("   2. python scripts/book_writer.py --action expand --book-path ml_fundamentals --chapters 1,2,3")
         print("   3. 查看generated_books/目录中的输出")
     else:
-        print("\n⚠️  部分测试失败，请检查并修复问题。")
-        print("💡 建议:")
+        print("\n  部分测试失败，请检查并修复问题。")
+        print(" 建议:")
         print("   1. 运行: python scripts/install_dependencies.py")
         print("   2. 设置必要的API密钥环境变量")
         print("   3. 确保所有脚本文件存在")
@@ -273,14 +273,14 @@ def generate_test_report():
 
 def main():
     """主函数"""
-    print("🚀 智能写书技能安装测试")
+    print(" 智能写书技能安装测试")
     print("=" * 60)
 
     try:
         success = generate_test_report()
         return 0 if success else 1
     except Exception as e:
-        print(f"❌ 测试过程中出现错误: {e}")
+        print(f" 测试过程中出现错误: {e}")
         return 1
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@ description: Track and view your watched movies and TV shows via trakt.tv. Use w
 homepage: https://trakt.tv
 metadata:
   clawdbot:
-    emoji: "🎬"
+    emoji: ""
     requires:
       bins: ["trakt-cli"]
 ---

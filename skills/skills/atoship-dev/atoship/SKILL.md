@@ -3,7 +3,7 @@ name: atoship
 description: Turn your AI assistant into a fully autonomous shipping manager. Buy discounted labels, compare rates across USPS, FedEx, and UPS, track packages, and manage shipments — all by just describing what you need. No portals, no tabs, no manual work.
 user-invokable: true
 license: MIT
-metadata: {"openclaw": {"emoji": "📦", "primaryEnv": "ATOSHIP_API_KEY", "homepage": "https://atoship.com"}}
+metadata: {"openclaw": {"emoji": "", "primaryEnv": "ATOSHIP_API_KEY", "homepage": "https://atoship.com"}}
 ---
 
 # atoship — Your AI Shipping Manager
@@ -90,9 +90,9 @@ Recipient: Name, Street, City, State, ZIP
 ```
 
 You'll get:
-- ✅ Tracking number
-- ✅ Label download link (PDF or PNG)
-- ✅ Cost deducted from your wallet
+-  Tracking number
+-  Label download link (PDF or PNG)
+-  Cost deducted from your wallet
 
 Labels can be voided for a refund if unused within the carrier's void window (usually 28 days for USPS, 1 day for FedEx/UPS).
 
@@ -113,9 +113,9 @@ Events:    Feb 17 10:42 — Departed facility, Memphis TN
 
 | Carrier | Rates | Labels | Tracking |
 |---------|-------|--------|---------|
-| USPS    | ✅    | ✅     | ✅      |
-| FedEx   | ✅    | ✅     | ✅      |
-| UPS     | ✅    | ✅     | ✅      |
+| USPS    |     |      |       |
+| FedEx   |     |      |       |
+| UPS     |     |      |       |
 
 ## Common use cases
 

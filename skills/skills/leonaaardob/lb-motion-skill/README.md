@@ -52,14 +52,14 @@ scroll(animate(".parallax", {
 
 ## Key Features
 
-- ✅ Spring physics for natural motion
-- ✅ Scroll-linked and scroll-triggered animations
-- ✅ Gesture support (drag, hover, tap)
-- ✅ Layout animations
-- ✅ SVG path animations
-- ✅ Stagger effects
-- ✅ Timeline sequences
-- ✅ Performance optimizations
+-  Spring physics for natural motion
+-  Scroll-linked and scroll-triggered animations
+-  Gesture support (drag, hover, tap)
+-  Layout animations
+-  SVG path animations
+-  Stagger effects
+-  Timeline sequences
+-  Performance optimizations
 
 ## Documentation
 
@@ -69,10 +69,10 @@ See `docs/` folder for comprehensive guides:
 
 ## External Resources
 
-- 🌐 Official site: https://motion.dev
-- 📦 GitHub: https://github.com/motiondivision/motion
-- 📚 Examples: https://motion.dev/examples
-- 💬 Discord: https://discord.gg/motion
+-  Official site: https://motion.dev
+-  GitHub: https://github.com/motiondivision/motion
+-  Examples: https://motion.dev/examples
+-  Discord: https://discord.gg/motion
 
 ## Version
 

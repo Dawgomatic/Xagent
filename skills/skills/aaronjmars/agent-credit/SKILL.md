@@ -37,7 +37,7 @@ The agent can only borrow assets you've explicitly approved, up to the amounts y
 Your Collateral (holistic)              Delegation Approvals (isolated)
 ┌─────────────────────────┐             ┌──────────────────────────────┐
 │  $5k ETH                │             │  USDC DebtToken → agent: 500 │
-│  $3k USDC               │  ───LTV───▶ │  WETH DebtToken → agent: 0.1 │
+│  $3k USDC               │  ───LTV─── │  WETH DebtToken → agent: 0.1 │
 │  $2k cbETH              │   = $8k     │  cbETH DebtToken → agent: 0  │
 │  Total: $10k @ 80% LTV  │  capacity   └──────────────────────────────┘
 └─────────────────────────┘
@@ -169,7 +169,7 @@ The repay script automatically:
 
 If ANY check fails, the borrow is **aborted** with a clear error message.
 
-⚠️ **The agent must NEVER bypass safety checks.** If the user asks the agent to borrow and the health factor is too low, the agent should refuse and explain why.
+ **The agent must NEVER bypass safety checks.** If the user asks the agent to borrow and the health factor is too low, the agent should refuse and explain why.
 
 ## Capabilities
 

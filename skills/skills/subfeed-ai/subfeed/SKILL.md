@@ -4,7 +4,7 @@ description: AI entities with full agentic backend for your OpenClaw project in 
 homepage: https://subfeed.app
 metadata:
   clawdbot:
-    emoji: "🎡"
+    emoji: ""
     category: "developer-tools"
     requires:
       env: ["SUBFEED_API_KEY", "SUBFEED_AGENT_TOKEN"]

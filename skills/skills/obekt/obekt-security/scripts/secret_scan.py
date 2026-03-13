@@ -261,7 +261,7 @@ def format_results(results: Dict[str, List[SecretMatch]], output_format: str = '
     if output_format == 'markdown':
         md = "# Secret Scan Results\n\n"
         md += f"**Total secrets found:** {len(all_matches)}\n\n"
-        md += "⚠️ **WARNING:** Remove these secrets immediately and rotate credentials!\n\n"
+        md += " **WARNING:** Remove these secrets immediately and rotate credentials!\n\n"
 
         # Group by severity
         for severity in ['CRITICAL', 'HIGH', 'MEDIUM']:
@@ -286,7 +286,7 @@ def format_results(results: Dict[str, List[SecretMatch]], output_format: str = '
     # Default text format
     text = "SECRET SCAN RESULTS\n" + "="*50 + "\n"
     text += f"Total secrets found: {len(all_matches)}\n"
-    text += "\n⚠️  WARNING: Remove these secrets immediately and rotate credentials!\n\n"
+    text += "\n  WARNING: Remove these secrets immediately and rotate credentials!\n\n"
 
     for severity in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW']:
         severity_matches = [m for m in all_matches if m.severity == severity]

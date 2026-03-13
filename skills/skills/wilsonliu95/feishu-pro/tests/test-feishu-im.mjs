@@ -100,7 +100,7 @@ await runCase(stats, {
   name: 'react',
   requires: ['TEST_MESSAGE_ID'],
   sideEffect: true,
-  fn: () => react(messageId, '👍'),
+  fn: () => react(messageId, ''),
 });
 
 await runCase(stats, {

@@ -74,12 +74,12 @@ QUEUE=$(nzbget_api "listgroups")
 STATUS=$(nzbget_api "status")
 
 if [ -z "$QUEUE" ] || [ "$QUEUE" = "null" ]; then
-    echo "❌ NZBGet unreachable at ${HOST}"
+    echo " NZBGet unreachable at ${HOST}"
     exit 1
 fi
 
 if [ -z "$STATUS" ] || [ "$STATUS" = "null" ]; then
-    echo "❌ NZBGet status unavailable"
+    echo " NZBGet status unavailable"
     exit 1
 fi
 
@@ -93,7 +93,7 @@ SIZE_LEFT=$(echo "$STATUS" | jq -r '.result.RemainingSizeMB // 0' 2>/dev/null)
 SIZE_LEFT_GB=$(echo "scale=1; $SIZE_LEFT / 1024" | bc 2>/dev/null || echo "0")
 
 # Output summary
-echo "📥 NZBGet Status: ${STATE}"
+echo " NZBGet Status: ${STATE}"
 echo ""
 echo "Queue Size: ${TOTAL_COUNT} items"
 echo "Speed: ${SPEED_MB} MB/s"

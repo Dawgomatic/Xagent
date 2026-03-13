@@ -584,7 +584,7 @@ def generate_html(data: dict, stats: dict, output: Path) -> None:
 </head><body>
   <div class="container">
     <div class="sidebar">
-      <h1>📊 Summary</h1>
+      <h1> Summary</h1>
       <div class="stat"><span>Files</span><span class="stat-value">{stats["files"]:,}</span></div>
       <div class="stat"><span>Directories</span><span class="stat-value">{stats["dirs"]:,}</span></div>
       <div class="stat"><span>Total size</span><span class="stat-value">{fmt(data["size"])}</span></div>
@@ -593,7 +593,7 @@ def generate_html(data: dict, stats: dict, output: Path) -> None:
       {lang_bars}
     </div>
     <div class="main">
-      <h1>📁 {data["name"]}</h1>
+      <h1> {data["name"]}</h1>
       <ul class="tree" id="root"></ul>
     </div>
   </div>
@@ -605,7 +605,7 @@ def generate_html(data: dict, stats: dict, output: Path) -> None:
       if (node.children) {{
         const det = document.createElement('details');
         det.open = parent === document.getElementById('root');
-        det.innerHTML = `<summary><span class="folder">📁 ${{node.name}}</span><span class="size">${{fmt(node.size)}}</span></summary>`;
+        det.innerHTML = `<summary><span class="folder"> ${{node.name}}</span><span class="size">${{fmt(node.size)}}</span></summary>`;
         const ul = document.createElement('ul'); ul.className = 'tree';
         node.children.sort((a,b) => (b.children?1:0)-(a.children?1:0) || a.name.localeCompare(b.name));
         node.children.forEach(c => render(c, ul));

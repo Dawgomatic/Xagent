@@ -2,7 +2,7 @@
 name: "labor-rate"
 description: "Calculate construction labor rates with overhead, benefits, and productivity factors. Regional rate databases and crew composition."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "🧮", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # Labor Rate Calculator
 

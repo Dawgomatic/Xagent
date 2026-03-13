@@ -78,13 +78,13 @@ Or create an OpenClaw cron job (every 5 min) to check and forward alerts.
 ## Alert Format
 
 ```
-🏛️ 3 new congress trade(s) detected:
+ 3 new congress trade(s) detected:
 
-🟢 PURCHASE: Nancy Pelosi (D) [Rep]
+ PURCHASE: Nancy Pelosi (D) [Rep]
    $NVDA — $1,000,001 - $5,000,000
    Trade: 2026-02-10 | Reported: 2026-02-14
 
-🔴 SALE: Dan Crenshaw (R) [Rep]
+ SALE: Dan Crenshaw (R) [Rep]
    $MSFT — $15,001 - $50,000
    Trade: 2026-02-09 | Reported: 2026-02-14
 ```

@@ -17,7 +17,7 @@ DON'T USE WHEN:
 - Testing production systems with real user data
 - Intent is malicious (don't be evil)
 
-⚠️ **LEGAL REQUIREMENT**: Written penetration testing authorization required before use.
+ **LEGAL REQUIREMENT**: Written penetration testing authorization required before use.
 
 ---
 
@@ -274,13 +274,13 @@ SELECT column_name FROM all_tab_columns WHERE table_name='USERS'
 
 ## Prevention (What to Look For in Code Review)
 
-### ❌ Vulnerable
+###  Vulnerable
 
 ```javascript
 const query = `SELECT * FROM users WHERE id = '${userId}'`;
 ```
 
-### ✅ Safe
+###  Safe
 
 ```javascript
 // Parameterized query

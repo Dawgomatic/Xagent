@@ -12,7 +12,7 @@ metadata:
   version: "1.1.0"
   disable-model-invocation: true
   clawdbot:
-    emoji: "🧠"
+    emoji: ""
     homepage: "https://emc2ai.io"
     requires:
       bins: ["node", "curl"]

@@ -148,7 +148,7 @@ async function login(nsec: string): Promise<void> {
   };
   
   saveConfig(config);
-  console.log(`✅ Logged in as: ${npub}`);
+  console.log(` Logged in as: ${npub}`);
 }
 
 async function send(toNpub: string, content: string): Promise<void> {
@@ -156,7 +156,7 @@ async function send(toNpub: string, content: string): Promise<void> {
   const client = new AgentChatClient(config.npub, config.nsec, config.relays);
   
   const id = await client.send(toNpub, content);
-  console.log(`✅ Message sent! ID: ${id}`);
+  console.log(` Message sent! ID: ${id}`);
   
   client.close();
 }
@@ -165,7 +165,7 @@ async function receive(limit = 10): Promise<void> {
   const config = loadConfig();
   const client = new AgentChatClient(config.npub, config.nsec, config.relays);
   
-  console.log("📥 Listening for messages...");
+  console.log(" Listening for messages...");
   
   let count = 0;
   for await (const msg of client.messages()) {
@@ -182,10 +182,10 @@ async function receive(limit = 10): Promise<void> {
 function status(): void {
   try {
     const config = loadConfig();
-    console.log(`🟢 Logged in: ${config.npub}`);
+    console.log(` Logged in: ${config.npub}`);
     console.log(`Relays: ${config.relays.length > 0 ? config.relays.join(", ") : "default"}`);
   } catch {
-    console.log("🔴 Not logged in. Run: agent-chat login <nsec>");
+    console.log(" Not logged in. Run: agent-chat login <nsec>");
   }
 }
 

@@ -312,9 +312,9 @@ do_install() {
     
     echo
     if [[ "$verification_passed" == "true" ]]; then
-        success "✅ All verification checks passed!"
+        success " All verification checks passed!"
     else
-        warn "⚠️ Some verification checks failed - review warnings above"
+        warn " Some verification checks failed - review warnings above"
     fi
     
     echo

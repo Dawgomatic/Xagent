@@ -63,7 +63,7 @@ async function main() {
 
         console.log(`Adding record: ${JSON.stringify(newRecord)}...`);
         const record = await addRecord(appToken, tableId, newRecord);
-        console.log(`✅ Record Added! Record ID: ${record.record_id}`);
+        console.log(` Record Added! Record ID: ${record.record_id}`);
 
     } catch (e) {
         console.error(`Error: ${e.message}`);

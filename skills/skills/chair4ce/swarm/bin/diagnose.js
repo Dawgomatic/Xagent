@@ -16,7 +16,7 @@ async function main() {
   const verbose = args.includes('--verbose');
   
   if (!jsonOutput) {
-    console.log('\n🐝 Running Swarm diagnostics...\n');
+    console.log('\n Running Swarm diagnostics...\n');
   }
   
   const report = await runDiagnostics({

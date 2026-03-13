@@ -1,6 +1,6 @@
 # Subject Types Reference
 
-## 📚 Memorization-Heavy
+##  Memorization-Heavy
 **Examples:** History, Biology, Languages, Law
 
 **Strategy:**
@@ -17,7 +17,7 @@
 
 ---
 
-## 🧠 Conceptual Understanding
+##  Conceptual Understanding
 **Examples:** Physics, Philosophy, Economics
 
 **Strategy:**
@@ -34,7 +34,7 @@
 
 ---
 
-## 🔢 Problem-Solving
+##  Problem-Solving
 **Examples:** Math, Chemistry, Programming
 
 **Strategy:**
@@ -51,7 +51,7 @@
 
 ---
 
-## ✍️ Writing-Based
+##  Writing-Based
 **Examples:** Literature, Law, Political Science
 
 **Strategy:**
@@ -68,7 +68,7 @@
 
 ---
 
-## 🔬 Practical/Lab
+##  Practical/Lab
 **Examples:** Medicine, Engineering, Sciences
 
 **Strategy:**

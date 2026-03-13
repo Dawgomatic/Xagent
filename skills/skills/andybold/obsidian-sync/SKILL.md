@@ -7,7 +7,7 @@ description: Sync files between Clawdbot workspace and Obsidian. Run the sync se
 
 A secure file sync server for two-way synchronization between Clawdbot and Obsidian.
 
-> **📦 This skill is part of [obsidian-openclaw](https://github.com/AndyBold/obsidian-openclaw)**  
+> ** This skill is part of [obsidian-openclaw](https://github.com/AndyBold/obsidian-openclaw)**  
 > An Obsidian plugin that lets you chat with your Clawdbot agent and sync notes between your vault and the agent's workspace.
 
 ## Quick Start
@@ -85,10 +85,10 @@ This skill provides the backend for the **OpenClaw Obsidian plugin**:
 **[github.com/AndyBold/obsidian-openclaw](https://github.com/AndyBold/obsidian-openclaw)**
 
 The plugin provides:
-- 💬 **Chat sidebar** — Talk to your Clawdbot agent from Obsidian
-- 📁 **File actions** — Create, edit, delete notes via conversation
-- 🔄 **Two-way sync** — Keep notes synchronized between vault and agent
-- 🔒 **Secure storage** — OS keychain integration for tokens
-- 📋 **Audit logging** — Track all file operations
+-  **Chat sidebar** — Talk to your Clawdbot agent from Obsidian
+-  **File actions** — Create, edit, delete notes via conversation
+-  **Two-way sync** — Keep notes synchronized between vault and agent
+-  **Secure storage** — OS keychain integration for tokens
+-  **Audit logging** — Track all file operations
 
 Install the plugin via [BRAT](https://github.com/TfTHacker/obsidian42-brat) using: `AndyBold/obsidian-openclaw`

@@ -79,7 +79,7 @@ EOF
      "$INDEX_DIR/memory-index.json" > "$temp_index"
   mv "$temp_index" "$INDEX_DIR/memory-index.json"
   
-  echo "✅ Memory captured: $id"
+  echo " Memory captured: $id"
   echo "   Type: $type | Importance: $importance"
   echo "   File: $daily_file:$line"
 }
@@ -131,7 +131,7 @@ recent_memory() {
 # Function: Stats
 show_stats() {
   jq -r '
-    "📊 Memory System Stats",
+    " Memory System Stats",
     "========================",
     "Total Memories: \(.stats.totalMemories)",
     "Last Updated: \(.lastUpdated)",
@@ -183,7 +183,7 @@ consolidate_weekly() {
     done
   done
   
-  echo "✅ Weekly consolidation saved: $output"
+  echo " Weekly consolidation saved: $output"
 }
 
 # Main command router
@@ -209,7 +209,7 @@ case "$1" in
     done
     
     if [[ -z "$type" || -z "$importance" || -z "$content" ]]; then
-      echo "❌ Usage: memory capture --type TYPE --importance 1-10 --content 'text' [--tags 'tag1,tag2'] [--context 'context']"
+      echo " Usage: memory capture --type TYPE --importance 1-10 --content 'text' [--tags 'tag1,tag2'] [--context 'context']"
       exit 1
     fi
     

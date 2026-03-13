@@ -72,7 +72,7 @@ console.error(JSON.stringify({critical, high, moderate, low}));
       fi
     fi
   else
-    echo -e "  ${YELLOW}⚠${NC} npm not found — skipping npm audit"
+    echo -e "  ${YELLOW}${NC} npm not found — skipping npm audit"
   fi
 
   cat "$output" 2>/dev/null | grep -P "^\w" || true
@@ -88,11 +88,11 @@ scan_pip() {
   elif command -v safety &>/dev/null; then
     (cd "$dir" && safety check 2>/dev/null) || true
   elif command -v pip &>/dev/null; then
-    echo -e "  ${YELLOW}⚠${NC} Install pip-audit for vulnerability scanning: ${CYAN}pip install pip-audit${NC}"
+    echo -e "  ${YELLOW}${NC} Install pip-audit for vulnerability scanning: ${CYAN}pip install pip-audit${NC}"
     echo -e "  ${DIM}Checking for outdated packages instead...${NC}"
     (cd "$dir" && pip list --outdated --format=columns 2>/dev/null | head -20) || true
   else
-    echo -e "  ${YELLOW}⚠${NC} pip not found — skipping Python audit"
+    echo -e "  ${YELLOW}${NC} pip not found — skipping Python audit"
   fi
 }
 
@@ -103,9 +103,9 @@ scan_cargo() {
   if command -v cargo-audit &>/dev/null; then
     (cd "$dir" && cargo audit 2>/dev/null) || true
   elif command -v cargo &>/dev/null; then
-    echo -e "  ${YELLOW}⚠${NC} Install cargo-audit: ${CYAN}cargo install cargo-audit${NC}"
+    echo -e "  ${YELLOW}${NC} Install cargo-audit: ${CYAN}cargo install cargo-audit${NC}"
   else
-    echo -e "  ${YELLOW}⚠${NC} cargo not found — skipping Rust audit"
+    echo -e "  ${YELLOW}${NC} cargo not found — skipping Rust audit"
   fi
 }
 
@@ -116,9 +116,9 @@ scan_go() {
   if command -v govulncheck &>/dev/null; then
     (cd "$dir" && govulncheck ./... 2>/dev/null) || true
   elif command -v go &>/dev/null; then
-    echo -e "  ${YELLOW}⚠${NC} Install govulncheck: ${CYAN}go install golang.org/x/vuln/cmd/govulncheck@latest${NC}"
+    echo -e "  ${YELLOW}${NC} Install govulncheck: ${CYAN}go install golang.org/x/vuln/cmd/govulncheck@latest${NC}"
   else
-    echo -e "  ${YELLOW}⚠${NC} go not found — skipping Go audit"
+    echo -e "  ${YELLOW}${NC} go not found — skipping Go audit"
   fi
 }
 
@@ -129,7 +129,7 @@ scan_composer() {
   if command -v composer &>/dev/null; then
     (cd "$dir" && composer audit 2>/dev/null) || true
   else
-    echo -e "  ${YELLOW}⚠${NC} composer not found — skipping PHP audit"
+    echo -e "  ${YELLOW}${NC} composer not found — skipping PHP audit"
   fi
 }
 
@@ -141,7 +141,7 @@ scan_bundler() {
     (cd "$dir" && bundle audit check 2>/dev/null) || \
     (cd "$dir" && bundle exec bundler-audit check 2>/dev/null) || true
   else
-    echo -e "  ${YELLOW}⚠${NC} bundle not found — skipping Ruby audit"
+    echo -e "  ${YELLOW}${NC} bundle not found — skipping Ruby audit"
   fi
 }
 
@@ -290,7 +290,7 @@ do_scan() {
       permissive) ((permissive++)) || true ;;
       copyleft)
         ((copyleft++)) || true
-        echo -e "  ${YELLOW}⚠${NC} ${BOLD}$name${NC}@$ver — ${YELLOW}$lic${NC} (copyleft)"
+        echo -e "  ${YELLOW}${NC} ${BOLD}$name${NC}@$ver — ${YELLOW}$lic${NC} (copyleft)"
         ;;
       unknown)
         ((unknown++)) || true
@@ -303,7 +303,7 @@ do_scan() {
   local total=$((permissive + copyleft + unknown + other))
   echo ""
   echo -e "${BOLD}License Summary:${NC} $total packages scanned"
-  echo -e "  ${GREEN}✓ $permissive permissive${NC}  ${YELLOW}⚠ $copyleft copyleft${NC}  ${RED}? $unknown unknown${NC}  $other other"
+  echo -e "  ${GREEN}✓ $permissive permissive${NC}  ${YELLOW} $copyleft copyleft${NC}  ${RED}? $unknown unknown${NC}  $other other"
 
   rm -f "$license_data"
 }
@@ -388,7 +388,7 @@ do_fix() {
         if command -v pip-audit &>/dev/null; then
           (cd "$dir" && pip-audit --fix 2>&1) || true
         else
-          echo -e "  ${YELLOW}⚠${NC} Install pip-audit for auto-fix: ${CYAN}pip install pip-audit${NC}"
+          echo -e "  ${YELLOW}${NC} Install pip-audit for auto-fix: ${CYAN}pip install pip-audit${NC}"
         fi
         ;;
       cargo)
@@ -396,7 +396,7 @@ do_fix() {
         (cd "$dir" && cargo update 2>&1 | tail -5) || true
         ;;
       *)
-        echo -e "  ${YELLOW}⚠${NC} Auto-fix not available for $mgr"
+        echo -e "  ${YELLOW}${NC} Auto-fix not available for $mgr"
         ;;
     esac
   done <<< "$managers"

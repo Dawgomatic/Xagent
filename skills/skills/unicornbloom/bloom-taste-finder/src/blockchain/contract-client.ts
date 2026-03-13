@@ -72,9 +72,9 @@ export class ContractClient {
       params.subCategories
     );
 
-    console.log(`🔄 Transaction sent: ${tx.hash}`);
+    console.log(` Transaction sent: ${tx.hash}`);
     const receipt = await tx.wait();
-    console.log(`✅ Transaction confirmed in block ${receipt.blockNumber}`);
+    console.log(` Transaction confirmed in block ${receipt.blockNumber}`);
 
     // Extract token ID from event logs
     const tokenId = await this.getTokenIdByAddress(params.userAddress);

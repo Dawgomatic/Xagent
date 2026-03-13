@@ -176,7 +176,7 @@ async function formatOnChainStatus() {
     const claimAmount = await calculateOnChainClaimAmount();
     if (!stats) {
         return [
-            `⚠️ On-Chain Program Not Initialized`,
+            ` On-Chain Program Not Initialized`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
             `The CLAW distribution program has not been deployed or initialized.`,
             ``,
@@ -187,10 +187,10 @@ async function formatOnChainStatus() {
         ].join('\n');
     }
     return [
-        `📊 On-Chain Distribution Status`,
+        ` On-Chain Distribution Status`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         ``,
-        `Status: ${stats.isActive ? '✅ Active' : '⏸️ Paused'}`,
+        `Status: ${stats.isActive ? ' Active' : ' Paused'}`,
         ``,
         `Treasury Balance: ${stats.treasuryBalance.toLocaleString()} ${config_js_1.TOKEN_SYMBOL}`,
         `Next Claim Amount: ~${claimAmount.toLocaleString()} ${config_js_1.TOKEN_SYMBOL}`,
@@ -198,7 +198,7 @@ async function formatOnChainStatus() {
         `Total Claims: ${stats.totalClaims.toLocaleString()}`,
         `Total Distributed: ${stats.totalDistributed.toLocaleString()} ${config_js_1.TOKEN_SYMBOL}`,
         ``,
-        `🔒 Security: Claims verified on-chain via PDA`,
+        ` Security: Claims verified on-chain via PDA`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
     ].join('\n');
 }
@@ -208,14 +208,14 @@ async function formatOnChainStatus() {
 async function formatClaimStatus(walletAddress) {
     const record = await getClaimRecord(walletAddress);
     if (!record) {
-        return `❌ Could not check claim status for ${walletAddress}`;
+        return ` Could not check claim status for ${walletAddress}`;
     }
     if (record.claimed) {
         return [
-            `📋 Claim Record Found`,
+            ` Claim Record Found`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
             `Wallet: ${walletAddress}`,
-            `Status: Already Claimed ✅`,
+            `Status: Already Claimed `,
             `Amount: ${record.amount?.toLocaleString()} ${config_js_1.TOKEN_SYMBOL}`,
             `Date: ${record.timestamp?.toLocaleDateString()}`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
@@ -227,7 +227,7 @@ async function formatClaimStatus(walletAddress) {
     else {
         const claimAmount = await calculateOnChainClaimAmount();
         return [
-            `🎁 Eligible to Claim!`,
+            ` Eligible to Claim!`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
             `Wallet: ${walletAddress}`,
             `Status: Not Yet Claimed`,

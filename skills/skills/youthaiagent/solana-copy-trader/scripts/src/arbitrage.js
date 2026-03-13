@@ -13,7 +13,7 @@
  * 
  * Jupiter route 2 (via Orca):
  *   0.1 SOL → 9.99 USDC → 0.0999 SOL back
- *   Loss: -0.01% ❌
+ *   Loss: -0.01% 
  * 
  * Hum route 1 ko dhundh ke execute karte hain!
  * 
@@ -71,13 +71,13 @@ async function scanArbitrageOpportunities(solAmount = 0.01, minProfit = 0.3) {
           token: SCAN_TOKENS[i],
         });
         
-        console.log(`[Arb] ✅ OPPORTUNITY FOUND!`);
+        console.log(`[Arb]  OPPORTUNITY FOUND!`);
         console.log(`     Token: ${SCAN_TOKENS[i].slice(0,20)}...`);
         console.log(`     Profit: ${arb.profitPct.toFixed(3)}% = ${arb.profitSol.toFixed(6)} SOL ($${profitUSD.toFixed(4)})`);
         console.log(`     Route: SOL → [${arb.buyRoute}] → Token → [${arb.sellRoute}] → SOL`);
       } else if (arb.profitPct > -1) {
         // Close to profit — log for learning
-        console.log(`[Arb] 📊 ${SCAN_TOKENS[i].slice(0,12)}... | ${arb.profitPct.toFixed(3)}% | ${arb.buyRoute} → ${arb.sellRoute}`);
+        console.log(`[Arb]  ${SCAN_TOKENS[i].slice(0,12)}... | ${arb.profitPct.toFixed(3)}% | ${arb.buyRoute} → ${arb.sellRoute}`);
       }
     }
   }
@@ -178,7 +178,7 @@ STEP 3: EXECUTION (Advanced)
   - Atomic = buy AND sell in same block
 
 REAL NUMBERS:
-  ✅ Opportunity: 0.5% on 1 SOL
+   Opportunity: 0.5% on 1 SOL
   → Gross: 0.005 SOL ($0.40)
   → Network fee: 0.00001 SOL
   → Net: ~0.0049 SOL ($0.39)

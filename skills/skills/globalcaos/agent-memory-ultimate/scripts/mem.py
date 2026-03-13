@@ -462,7 +462,7 @@ def cmd_shared(args):
         print(f"Shared memories ({len(shares)}):\n")
         for s in shares:
             content = s.get('content', '')[:80]
-            consent = "✅" if s['consent_owner'] and s['consent_target'] else "⏳"
+            consent = "" if s['consent_owner'] and s['consent_target'] else ""
             print(f"  share #{s['id']}  mem #{s['memory_id']}  {s['shared_by']}→{s['shared_with']}  {consent}  sens={s['sensitivity']:.1f}")
             print(f"        {content}\n")
     conn.close()
@@ -568,7 +568,7 @@ def cmd_migrate():
             if migrated % 20 == 0:
                 print(f"  ... migrated {migrated}/{len(docs)}")
         except Exception as e:
-            print(f"  ⚠ Failed to migrate doc #{doc['id']}: {e}")
+            print(f"   Failed to migrate doc #{doc['id']}: {e}")
 
     print(f"✓ Migrated {migrated} documents into memory.db")
     old_conn.close()

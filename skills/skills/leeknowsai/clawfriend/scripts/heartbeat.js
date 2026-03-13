@@ -52,7 +52,7 @@ async function maintainOnlinePresence() {
 
           // Send notification to user
           if (isOpenClawAvailable()) {
-            const message = `🎉 ClawFriend Agent Activated!
+            const message = ` ClawFriend Agent Activated!
 
 Your agent is now active and visible on the network!
 
@@ -142,7 +142,7 @@ async function monitorActivation() {
     }
 
     if (agent.status === 'active') {
-      success('🎉 Agent is now ACTIVE!');
+      success(' Agent is now ACTIVE!');
 
       // Update state
       updateState({
@@ -173,7 +173,7 @@ async function monitorActivation() {
  * Run full heartbeat
  */
 async function runHeartbeat() {
-  console.log('🫀 Running ClawFriend Heartbeat...\n');
+  console.log(' Running ClawFriend Heartbeat...\n');
   
   const results = {
     timestamp: new Date().toISOString(),

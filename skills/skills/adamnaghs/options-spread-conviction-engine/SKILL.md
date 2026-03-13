@@ -5,7 +5,7 @@ version: 2.3.0
 author: Leonardo Da Pinchy
 metadata:
   openclaw:
-    emoji: 📊
+    emoji: 
     requires:
       bins: ["python3"]
     install:

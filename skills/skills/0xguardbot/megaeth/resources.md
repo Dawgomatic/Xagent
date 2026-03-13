@@ -143,7 +143,7 @@ Features:
 ## Bridges
 
 ### Canonical Bridge (OP Stack)
-Ethereum ↔ MegaETH:
+Ethereum  MegaETH:
 
 | Contract | Address (Ethereum) |
 |----------|-------------------|

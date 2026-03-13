@@ -112,7 +112,7 @@ def format_summary() -> str:
     # Due today
     due_today = get_due_followups(0)
     if due_today:
-        lines.append(f"⚠️ **{len(due_today)} follow-up(s) due today:**")
+        lines.append(f" **{len(due_today)} follow-up(s) due today:**")
         for slug, name, date in due_today[:5]:  # Limit to 5
             lines.append(f"  • {name}")
         if len(due_today) > 5:
@@ -123,19 +123,19 @@ def format_summary() -> str:
     due_week = get_due_followups(7)
     due_week = [(s, n, d) for s, n, d in due_week if d.date() > datetime.now().date()]
     if due_week:
-        lines.append(f"📅 **{len(due_week)} follow-up(s) due this week**")
+        lines.append(f" **{len(due_week)} follow-up(s) due this week**")
         lines.append("")
     
     # Dormant (90+ days)
     dormant = get_dormant_contacts(90)
     if dormant:
-        lines.append(f"😴 **{len(dormant)} contact(s) going dormant** (90+ days no contact)")
+        lines.append(f" **{len(dormant)} contact(s) going dormant** (90+ days no contact)")
         for slug, name, last, days in dormant[:3]:
             lines.append(f"  • {name} ({days} days)")
         lines.append("")
     
     if not lines:
-        return "✅ No urgent follow-ups or dormant contacts."
+        return " No urgent follow-ups or dormant contacts."
     
     return "\n".join(lines)
 
@@ -179,30 +179,30 @@ def main():
     # Text output
     if due:
         period = "today" if args.days == 0 else f"in the next {args.days} days"
-        print(f"📅 Follow-ups due {period}:\n")
+        print(f" Follow-ups due {period}:\n")
         for slug, name, date in due:
             days_until = (date.date() - datetime.now().date()).days
             if days_until < 0:
-                status = f"⚠️ OVERDUE by {-days_until} days"
+                status = f" OVERDUE by {-days_until} days"
             elif days_until == 0:
-                status = "📍 TODAY"
+                status = " TODAY"
             else:
                 status = f"in {days_until} days"
             print(f"  • {name} — {date.strftime('%Y-%m-%d')} ({status})")
     else:
         period = "today" if args.days == 0 else f"in the next {args.days} days"
-        print(f"✅ No follow-ups due {period}.")
+        print(f" No follow-ups due {period}.")
     
     # Dormant contacts
     if args.dormant:
         print()
         dormant = get_dormant_contacts(args.dormant)
         if dormant:
-            print(f"😴 Contacts not reached in {args.dormant}+ days:\n")
+            print(f" Contacts not reached in {args.dormant}+ days:\n")
             for slug, name, last, days in dormant:
                 print(f"  • {name} — last contact {last.strftime('%Y-%m-%d')} ({days} days ago)")
         else:
-            print(f"✅ No dormant contacts (all contacted within {args.dormant} days).")
+            print(f" No dormant contacts (all contacted within {args.dormant} days).")
 
 
 if __name__ == "__main__":

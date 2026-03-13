@@ -5,18 +5,18 @@ Yapay Zeka Ajanları için güvenli, adım adım görev yönetim sistemi.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-## 🎯 Özellikler
+##  Özellikler
 
-- **✅ Adım Adım Planlama**: Karmaşık görevleri yönetilebilir adımlara böl
-- **🔒 Güvenlik Doğrulama**: Tehlikeli işlemler için yerleşik güvenlik kontrolleri
-- **🔄 Geri Alma Desteği**: Başarısız işlemleri geri almak için kontrol noktası sistemi
-- **📝 Plan Kalıcılığı**: Planları JSON formatında kaydet ve yükle
-- **🎨 Bütünlük Doğrulama**: Müdahaleyi önlemek için SHA-256 kontrol toplamları
-- **⚡ Yürütme Kontrolü**: Dry-run modu, otomatik onay ve hata durumunda durdurma seçenekleri
-- **📊 İlerleme Takibi**: Gerçek zamanlı durum güncellemeleri ve yürütme özetleri
-- **🔍 Detaylı Loglama**: Hata ayıklama ve denetim için kapsamlı loglama
+- ** Adım Adım Planlama**: Karmaşık görevleri yönetilebilir adımlara böl
+- ** Güvenlik Doğrulama**: Tehlikeli işlemler için yerleşik güvenlik kontrolleri
+- ** Geri Alma Desteği**: Başarısız işlemleri geri almak için kontrol noktası sistemi
+- ** Plan Kalıcılığı**: Planları JSON formatında kaydet ve yükle
+- ** Bütünlük Doğrulama**: Müdahaleyi önlemek için SHA-256 kontrol toplamları
+- ** Yürütme Kontrolü**: Dry-run modu, otomatik onay ve hata durumunda durdurma seçenekleri
+- ** İlerleme Takibi**: Gerçek zamanlı durum güncellemeleri ve yürütme özetleri
+- ** Detaylı Loglama**: Hata ayıklama ve denetim için kapsamlı loglama
 
-## 🚀 Hızlı Başlangıç
+##  Hızlı Başlangıç
 
 ### Kurulum
 
@@ -93,7 +93,7 @@ summary = planner.get_execution_summary(plan)
 print(f"İlerleme: {summary['progress_percentage']:.1f}%")
 ```
 
-## 📚 Dokümantasyon
+##  Dokümantasyon
 
 - **README.md** - Ana dokümantasyon (İngilizce)
 - **SKILL.md** - Kurulum ve kullanım kılavuzu (İngilizce)
@@ -102,7 +102,7 @@ print(f"İlerleme: {summary['progress_percentage']:.1f}%")
 - **examples.py** - Kullanım örnekleri
 - **test_basic.py** - Test paketi
 
-## 🔧 İleri Düzey Özellikler
+##  İleri Düzey Özellikler
 
 ### Dry Run (Simülasyon) Modu
 
@@ -148,7 +148,7 @@ if loaded_plan.verify_integrity():
     planner.execute_plan(loaded_plan, my_executor)
 ```
 
-## 🛡️ Güvenlik Özellikleri
+##  Güvenlik Özellikleri
 
 ### Tehlikeli İşlem Tespiti
 
@@ -158,7 +158,7 @@ Sistem otomatik olarak tehlikeli işlemleri tespit eder:
 steps = [
     {
         "description": "Eski dosyaları sil",
-        "action": "dosya_sil",  # ⚠️ Tehlikeli!
+        "action": "dosya_sil",  #  Tehlikeli!
         "parameters": {"yol": "/veri/eski"},
         "safety_check": True,  # Uyarı verir
         "rollback_possible": False  # Geri alınamaz
@@ -174,10 +174,10 @@ Her plan SHA-256 kontrol toplamı ile korunur:
 plan.checksum = plan.calculate_checksum()
 
 if plan.verify_integrity():
-    print("✅ Plan bütünlüğü doğrulandı")
+    print(" Plan bütünlüğü doğrulandı")
 ```
 
-## 📖 Kullanım Senaryoları
+##  Kullanım Senaryoları
 
 ### API Orkestrasyon
 
@@ -223,7 +223,7 @@ steps = [
 ]
 ```
 
-## 🤝 Katkıda Bulunma
+##  Katkıda Bulunma
 
 Katkılar memnuniyetle karşılanır! Lütfen Pull Request göndermekten çekinmeyin.
 
@@ -233,35 +233,35 @@ Katkılar memnuniyetle karşılanır! Lütfen Pull Request göndermekten çekinm
 4. Branch'i push edin (`git push origin feature/HarikaBirOzellik`)
 5. Pull Request açın
 
-## 📝 Lisans
+##  Lisans
 
 Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
-## 🙏 Teşekkürler
+##  Teşekkürler
 
 - Güvenli, doğrulanmış görev yürütmeye ihtiyaç duyan AI ajanları için tasarlandı
 - Workflow orkestrasyon sistemleri ve DevOps en iyi uygulamalarından esinlenildi
 - Güvenlik ve güvenilirlik en üst öncelik olarak inşa edildi
 
-## 📞 İletişim
+##  İletişim
 
 **Yazar**: cerbug45
 
 **GitHub**: [@cerbug45](https://github.com/cerbug45)
 
-## 🚀 Başlarken
+##  Başlarken
 
 1. **install_check.py** çalıştırarak kurulumu doğrulayın
 2. **examples.py** ile örneklere bakın
 3. **test_basic.py** ile testleri çalıştırın
 4. **SKILL.md** dosyasını detaylı kullanım için okuyun
 
-## ⚙️ Gereksinimler
+##  Gereksinimler
 
 - Python 3.8 veya üzeri
 - Harici bağımlılık yok! (Sadece Python standart kütüphanesi)
 
-## 🎯 Proje Yapısı
+##  Proje Yapısı
 
 ```
 task-planner-validator/
@@ -280,4 +280,4 @@ task-planner-validator/
 
 ---
 
-⭐ Bu projeyi faydalı buluyorsanız, lütfen GitHub'da yıldız vermeyi düşünün!
+ Bu projeyi faydalı buluyorsanız, lütfen GitHub'da yıldız vermeyi düşünün!

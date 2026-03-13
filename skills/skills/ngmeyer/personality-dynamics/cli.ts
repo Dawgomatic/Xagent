@@ -23,7 +23,7 @@ const COMMANDS = {
 
 function showHelp() {
   console.log(`
-🎭 Persona Evolution - Dynamic AI Personality
+ Persona Evolution - Dynamic AI Personality
 
 Usage: persona-evolution <command> [options]
 
@@ -61,7 +61,7 @@ function main() {
   
   const script = COMMANDS[command];
   if (!script) {
-    console.error(`❌ Unknown command: ${command}`);
+    console.error(` Unknown command: ${command}`);
     showHelp();
     process.exit(1);
   }

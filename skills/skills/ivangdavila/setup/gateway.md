@@ -13,7 +13,7 @@
 ```
 
 **bind options:**
-- `loopback` — localhost only (default) ⭐
+- `loopback` — localhost only (default) 
 - `lan` — accessible on local network
 - `auto` — auto-detect
 - `tailnet` — Tailscale only
@@ -128,7 +128,7 @@ Access at `http://127.0.0.1:18789`
 ```
 
 **modes:**
-- `hybrid` — Hot-reload safe changes, restart for critical ⭐
+- `hybrid` — Hot-reload safe changes, restart for critical 
 - `hot` — Hot-reload only, warn on restart-needed
 - `restart` — Always restart on change
 - `off` — Manual restart required
@@ -139,12 +139,12 @@ Access at `http://127.0.0.1:18789`
 
 | Setting Category | Hot Reload? |
 |------------------|-------------|
-| Channels | ✅ Yes |
-| Agents, Models | ✅ Yes |
-| Automation (cron, hooks) | ✅ Yes |
-| Tools, Browser, Skills | ✅ Yes |
-| Gateway (port, TLS, auth) | ❌ Restart |
-| Plugins | ❌ Restart |
+| Channels |  Yes |
+| Agents, Models |  Yes |
+| Automation (cron, hooks) |  Yes |
+| Tools, Browser, Skills |  Yes |
+| Gateway (port, TLS, auth) |  Restart |
+| Plugins |  Restart |
 
 ---
 

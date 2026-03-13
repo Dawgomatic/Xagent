@@ -1,7 +1,7 @@
 ---
 name: idea-clawdbot
 description: "Launch background Clawdbot sessions to explore and analyze business ideas. Say 'Idea: [description]' to trigger. Fork of 'idea' skill rewritten to use sessions_spawn instead of claude CLI + tmux + telegram CLI. Results sent to current chat, not Saved Messages. Zero external dependencies."
-metadata: {"clawdbot":{"emoji":"💡"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Idea Exploration Skill (Clawdbot Native)
@@ -51,13 +51,13 @@ Add this to your `AGENTS.md`:
    - **task**: Use the template from `skills/idea-clawdbot/templates/idea-exploration-prompt.md`
    - **label**: `idea-research-<slug>`
    - **cleanup**: keep (so we can review the session later)
-4. Confirm: "🔬 Research started for: [idea]. I'll ping you when done (usually 3-5 minutes)."
+4. Confirm: " Research started for: [idea]. I'll ping you when done (usually 3-5 minutes)."
 5. When the sub-agent completes, send the research file to the chat
 
 **Result handling:**
 - Research saved to: `~/clawd/ideas/<slug>/research.md`
 - Send file as document via Telegram
-- Include brief summary of verdict (🟢/🟡/🟠/🔴)
+- Include brief summary of verdict (///)
 ```
 
 ## Analysis Framework
@@ -74,10 +74,10 @@ The exploration covers:
 
 ## Verdict Types
 
-- 🟢 **STRONG YES** - Clear opportunity, pursue aggressively
-- 🟡 **CONDITIONAL YES** - Promising but needs validation
-- 🟠 **PIVOT RECOMMENDED** - Core insight good, execution needs work
-- 🔴 **PASS** - Too many red flags
+-  **STRONG YES** - Clear opportunity, pursue aggressively
+-  **CONDITIONAL YES** - Promising but needs validation
+-  **PIVOT RECOMMENDED** - Core insight good, execution needs work
+-  **PASS** - Too many red flags
 
 ## Example Output
 

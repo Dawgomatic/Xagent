@@ -36,7 +36,7 @@ Guide new users through the initial framework setup process, collecting essentia
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🚀 WELCOME TO CIRF
+ WELCOME TO CIRF
    Crypto Interactive Research Framework
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -56,7 +56,7 @@ Present all questions in a single message:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📝 SETUP QUESTIONS
+ SETUP QUESTIONS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Please answer the following (* = default):
@@ -80,7 +80,7 @@ Example: "John, 1, 1, 2, 2" or answer each on new line.
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 YOUR SETTINGS
+ YOUR SETTINGS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Name:           {user_name}
@@ -124,9 +124,9 @@ NEXT STEPS:
    → Copy ./framework/_workspace.yaml to ./workspaces/{project-name}/workspace.yaml
 
 2. Choose an agent to start working with:
-   🔬 Research Analyst   - Full-stack crypto research (recommended)
-   ⚙️ Technology Analyst - Technical architecture & security
-   ✍️ Content Creator    - Research-to-content
+    Research Analyst   - Full-stack crypto research (recommended)
+    Technology Analyst - Technical architecture & security
+    Content Creator    - Research-to-content
    ✓  QA Specialist      - Quality assurance
 
 3. Or explore available workflows:

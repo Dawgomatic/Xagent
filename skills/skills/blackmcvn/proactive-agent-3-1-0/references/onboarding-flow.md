@@ -67,11 +67,11 @@ User doesn't want formal onboarding.
 
 Don't ask robotically. Weave into conversation:
 
-❌ Bad: "Question 1: What should I call you?"
-✅ Good: "Before we dive in — what would you like me to call you?"
+ Bad: "Question 1: What should I call you?"
+ Good: "Before we dive in — what would you like me to call you?"
 
-❌ Bad: "Question 5: What is your primary goal?"
-✅ Good: "I'd love to understand what you're working toward. What's the main thing you're trying to accomplish right now?"
+ Bad: "Question 5: What is your primary goal?"
+ Good: "I'd love to understand what you're working toward. What's the main thing you're trying to accomplish right now?"
 
 ## Opportunistic Learning
 

@@ -12,12 +12,12 @@ button:hover { background: #0f9; }
 </style>
 </head>
 <body>
-<h1>🚨 Frenzy Auditor v1.1</h1>
+<h1> Frenzy Auditor v1.1</h1>
 <div id='status'>Status: Ready | Last scan: Never</div>
-<button onclick='scan()'>🔍 SCAN NOW</button>
-<button onclick='settings()'>⚙️ SETTINGS</button>
-<button onclick='logs()'>📋 VIEW LOGS</button>
-<button onclick='cronToggle()'>⏰ CRON: OFF</button>
+<button onclick='scan()'> SCAN NOW</button>
+<button onclick='settings()'> SETTINGS</button>
+<button onclick='logs()'> VIEW LOGS</button>
+<button onclick='cronToggle()'> CRON: OFF</button>
 <div id='log'>Log: Welcome to Frenzy Auditor demo.</div>
 <script>
 let cronStatus = 'OFF';
@@ -32,7 +32,7 @@ function scan() {
   setTimeout(() => {
     log('PI hits: 0 malicious');
     log('Gateway: Safe');
-    document.getElementById('status').innerHTML = 'Status: 🟢 CLEAN';
+    document.getElementById('status').innerHTML = 'Status:  CLEAN';
   }, 2000);
 }
 function settings() {
@@ -44,7 +44,7 @@ function logs() {
 }
 function cronToggle() {
   cronStatus = cronStatus === 'OFF' ? 'ON' : 'OFF';
-  document.querySelector('button:last-of-type').textContent = '⏰ CRON: ' + cronStatus;
+  document.querySelector('button:last-of-type').textContent = ' CRON: ' + cronStatus;
   log('Cron: ' + cronStatus);
 }
 log('Panel loaded. Reply SCAN/SETTINGS in chat for live.');

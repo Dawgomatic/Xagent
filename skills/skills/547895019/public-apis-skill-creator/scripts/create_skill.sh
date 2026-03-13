@@ -124,5 +124,5 @@ fi
 
 chmod +x "$TARGET/scripts/call.sh" "$TARGET/scripts/python_example.sh"
 
-echo "✅ Skill created: $TARGET"
+echo " Skill created: $TARGET"
 echo "Next: customize SKILL.md description and publish if needed."

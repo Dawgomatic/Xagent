@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🦞 Gradient AI — Pricing Lookup
+ Gradient AI — Pricing Lookup
 
 Fetches current model pricing from DigitalOcean's Gradient AI pricing docs.
 No API key needed — the pricing page is public.
@@ -254,7 +254,7 @@ def format_pricing_table(models: list) -> str:
         Formatted table string.
     """
     if not models:
-        return "No pricing data found. 🦞"
+        return "No pricing data found. "
 
     lines = []
     lines.append(f"{'Provider':<12} {'Model':<35} {'Input/1M':<12} {'Output/1M':<12}")
@@ -273,7 +273,7 @@ def format_pricing_table(models: list) -> str:
         lines.append(f"{provider:<12} {model:<35} {inp:<12} {out:<12}")
 
     lines.append("")
-    lines.append(f"🦞 {len(models)} models priced. Choose wisely — your wallet is watching.")
+    lines.append(f" {len(models)} models priced. Choose wisely — your wallet is watching.")
     return "\n".join(lines)
 
 
@@ -282,7 +282,7 @@ def format_pricing_table(models: list) -> str:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🦞 Look up Gradient AI model pricing"
+        description=" Look up Gradient AI model pricing"
     )
     parser.add_argument("--json", action="store_true", help="Output as JSON")
     parser.add_argument("--model", dest="query", help="Filter by model/provider name")

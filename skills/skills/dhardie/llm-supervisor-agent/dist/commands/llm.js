@@ -8,7 +8,7 @@ async function llmCommand(ctx, cmd) {
     const state = (0, state_1.getState)(ctx);
     // /llm status
     if (!sub || sub === "status") {
-        await cmd.reply(`🧠 **LLM Status**\n\n` +
+        await cmd.reply(` **LLM Status**\n\n` +
             `Mode: **${state.mode.toUpperCase()}**\n` +
             `Since: ${new Date(state.since).toLocaleString()}\n` +
             (state.lastError
@@ -26,7 +26,7 @@ async function llmCommand(ctx, cmd) {
             mode: "local",
             since: Date.now()
         });
-        await ctx.notify.all(`⚠️ LLM manually switched to **local model (${ctx.config.localModel})**.\n` +
+        await ctx.notify.all(` LLM manually switched to **local model (${ctx.config.localModel})**.\n` +
             `Code actions will require confirmation.`);
         await cmd.reply("Switched to **local** LLM mode.");
         return;
@@ -41,7 +41,7 @@ async function llmCommand(ctx, cmd) {
             mode: "cloud",
             since: Date.now()
         });
-        await ctx.notify.all("✅ Switched back to **cloud LLM**.");
+        await ctx.notify.all(" Switched back to **cloud LLM**.");
         await cmd.reply("Switched to **cloud** LLM mode.");
         return;
     }

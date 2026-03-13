@@ -3,7 +3,7 @@ name: Bun
 slug: bun
 version: 1.0.0
 description: "Build with Bun runtime avoiding Node.js compatibility traps, bundler pitfalls, and package manager gotchas."
-metadata: {"clawdbot":{"emoji":"🥟","requires":{"bins":["bun"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["bun"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

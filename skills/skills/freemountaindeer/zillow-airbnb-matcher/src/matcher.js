@@ -315,10 +315,10 @@ function gradeInvestment(capRate, cashOnCash, occupancy, rating) {
   if (rating >= 4.9) score += 1;
   else if (rating >= 4.7) score += 0.5;
 
-  if (score >= 7) return { grade: 'A', label: '🟢 EXCELLENT', emoji: '🟢' };
-  if (score >= 5) return { grade: 'B', label: '🟡 GOOD', emoji: '🟡' };
-  if (score >= 3) return { grade: 'C', label: '🟠 FAIR', emoji: '🟠' };
-  return { grade: 'D', label: '🔴 WEAK', emoji: '🔴' };
+  if (score >= 7) return { grade: 'A', label: ' EXCELLENT', emoji: '' };
+  if (score >= 5) return { grade: 'B', label: ' GOOD', emoji: '' };
+  if (score >= 3) return { grade: 'C', label: ' FAIR', emoji: '' };
+  return { grade: 'D', label: ' WEAK', emoji: '' };
 }
 
 module.exports = { matchListings, normalizeAddress, addressSimilarity, calculateInvestmentMetrics };

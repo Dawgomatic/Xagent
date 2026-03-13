@@ -76,7 +76,7 @@ function getArg(name) {
 
 function authHeaders() {
   if (!TOKEN) {
-    console.error('❌ MENTEE_RELAY_TOKEN not set. Run: node mentee.js register --name "..." --invite "..."');
+    console.error(' MENTEE_RELAY_TOKEN not set. Run: node mentee.js register --name "..." --invite "..."');
     process.exit(1);
   }
   return { 'Authorization': `Bearer ${TOKEN}`, 'Content-Type': 'application/json' };
@@ -99,9 +99,9 @@ async function register() {
   });
 
   const data = await res.json();
-  if (!res.ok) { console.error('❌ Registration failed:', data.error); process.exit(1); }
+  if (!res.ok) { console.error(' Registration failed:', data.error); process.exit(1); }
 
-  console.log('✅ Registered successfully!');
+  console.log(' Registered successfully!');
   console.log(`   Pairing ID: ${data.pairing_id}`);
   console.log(`   Token: ${data.token}`);
   if (data.claim_url) {
@@ -133,7 +133,7 @@ async function searchMentors() {
 
   console.log(query ? `Mentors matching "${query}":\n` : 'Available mentors:\n');
   for (const m of data.mentors) {
-    const status = m.online ? '🟢 online' : '🔴 offline';
+    const status = m.online ? ' online' : ' offline';
     console.log(`  ${m.name} (@${m.slug || '?'})`);
     console.log(`    ${status} — ${m.description || 'No description'}`);
     if (m.specialties?.length) console.log(`    Specialties: ${m.specialties.join(', ')}`);
@@ -155,7 +155,7 @@ async function listMentors() {
 
   console.log('Available mentors:\n');
   for (const m of data.mentors) {
-    const status = m.online ? '🟢 online' : '🔴 offline';
+    const status = m.online ? ' online' : ' offline';
     console.log(`  ${m.name} (@${m.slug || '?'})`);
     console.log(`    ${status} — ${m.description || 'No description'}`);
     if (m.specialties?.length) console.log(`    Specialties: ${m.specialties.join(', ')}`);
@@ -177,12 +177,12 @@ async function ask() {
   }
 
   if (!mentorId) {
-    console.error('❌ --mentor is required. Use "node mentee.js list" to see available mentors.');
+    console.error(' --mentor is required. Use "node mentee.js list" to see available mentors.');
     process.exit(1);
   }
 
   // Create session (mentor_id can be UUID or slug)
-  console.log(`📝 Creating session with mentor: ${mentorId}...`);
+  console.log(` Creating session with mentor: ${mentorId}...`);
   const sessionRes = await fetch(`${RELAY_URL}/api/sessions`, {
     method: 'POST',
     headers: authHeaders(),
@@ -190,12 +190,12 @@ async function ask() {
   });
 
   const sessionData = await sessionRes.json();
-  if (!sessionRes.ok) { console.error('❌', sessionData.error); process.exit(1); }
+  if (!sessionRes.ok) { console.error('', sessionData.error); process.exit(1); }
   const sessionId = sessionData.session.id;
   console.log(`   Session: ${sessionId}`);
 
   // Send message
-  console.log('📤 Sending question...');
+  console.log(' Sending question...');
   const msgRes = await fetch(`${RELAY_URL}/api/sessions/${sessionId}/messages`, {
     method: 'POST',
     headers: authHeaders(),
@@ -204,12 +204,12 @@ async function ask() {
 
   if (!msgRes.ok) {
     const err = await msgRes.json();
-    console.error('❌', err.error);
+    console.error('', err.error);
     process.exit(1);
   }
 
   // Poll for response
-  console.log('⏳ Waiting for mentor response...');
+  console.log(' Waiting for mentor response...');
   const start = Date.now();
   let pollDelay = 2000;
 
@@ -222,7 +222,7 @@ async function ask() {
       });
 
       if (!pollRes.ok) {
-        console.error('⚠️  Poll failed, retrying...');
+        console.error('  Poll failed, retrying...');
         pollDelay = Math.min(pollDelay * 1.5, 15000);
         continue;
       }
@@ -234,7 +234,7 @@ async function ask() {
 
       if (mentorMsgs.length > 0) {
         const response = mentorMsgs[mentorMsgs.length - 1];
-        console.log('\n🎓 Mentor response:\n');
+        console.log('\n Mentor response:\n');
         console.log(response.content);
         console.log(`\n   Session: ${sessionId}`);
         return;
@@ -243,19 +243,19 @@ async function ask() {
       // Check for errors
       const errorMsgs = (pollData.messages || []).filter(m => m.status === 'error');
       if (errorMsgs.length > 0) {
-        console.error('❌ Mentor encountered an error:', errorMsgs[0].error_message);
+        console.error(' Mentor encountered an error:', errorMsgs[0].error_message);
         process.exit(1);
       }
 
       process.stdout.write('.');
       pollDelay = Math.min(pollDelay * 1.2, 10000);
     } catch (err) {
-      console.error('⚠️  Connection error, retrying...');
+      console.error('  Connection error, retrying...');
       pollDelay = Math.min(pollDelay * 2, 15000);
     }
   }
 
-  console.error('\n⏰ Timeout waiting for response. Session is still open:', sessionId);
+  console.error('\n Timeout waiting for response. Session is still open:', sessionId);
   console.log('   Poll again later: node mentee.js ask --session', sessionId);
   process.exit(1);
 }
@@ -269,7 +269,7 @@ async function listSessions() {
   if (!data.sessions?.length) { console.log('No sessions.'); return; }
 
   for (const s of data.sessions) {
-    console.log(`  ${s.status === 'active' ? '🟢' : '⚪'} ${s.topic}`);
+    console.log(`  ${s.status === 'active' ? '' : ''} ${s.topic}`);
     console.log(`    ID: ${s.id} · ${s.status} · ${new Date(s.created_at).toLocaleDateString()}`);
   }
 }
@@ -283,8 +283,8 @@ async function closeSession() {
     headers: authHeaders(),
   });
 
-  if (res.ok) console.log('✅ Session closed');
-  else { const d = await res.json(); console.error('❌', d.error); }
+  if (res.ok) console.log(' Session closed');
+  else { const d = await res.json(); console.error('', d.error); }
 }
 
 async function deleteSession() {
@@ -296,8 +296,8 @@ async function deleteSession() {
     headers: authHeaders(),
   });
 
-  if (res.ok) console.log('✅ Session and all messages deleted');
-  else { const d = await res.json(); console.error('❌', d.error); }
+  if (res.ok) console.log(' Session and all messages deleted');
+  else { const d = await res.json(); console.error('', d.error); }
 }
 
 async function shareConfig() {
@@ -362,13 +362,13 @@ async function shareConfig() {
     body: JSON.stringify({ content }),
   });
 
-  if (res.ok) console.log(`✅ Shared ${shareType} context (sanitized)`);
-  else { const d = await res.json(); console.error('❌', d.error); }
+  if (res.ok) console.log(` Shared ${shareType} context (sanitized)`);
+  else { const d = await res.json(); console.error('', d.error); }
 }
 
 function apiTokenHeaders() {
   if (!API_TOKEN) {
-    console.error('❌ MENTOR_API_TOKEN not set. Generate one at the dashboard (API Tokens tab).');
+    console.error(' MENTOR_API_TOKEN not set. Generate one at the dashboard (API Tokens tab).');
     process.exit(1);
   }
   return { 'Authorization': `Bearer ${API_TOKEN}`, 'Content-Type': 'application/json' };
@@ -417,18 +417,18 @@ async function requestInvite() {
 
   const data = await res.json();
   if (!res.ok) {
-    console.error('❌', data.error);
+    console.error('', data.error);
     process.exit(1);
   }
 
   if (data.status === 'approved' && data.invite_code) {
-    console.log('✅ Request approved! Invite code:');
+    console.log(' Request approved! Invite code:');
     console.log(`   ${data.invite_code}`);
     console.log('');
     console.log('Register with:');
     console.log(`   node mentee.js register --name "Your Agent" --invite "${data.invite_code}"`);
   } else {
-    console.log('📬 Invite request sent (status: pending)');
+    console.log(' Invite request sent (status: pending)');
     console.log('   The mentor owner will review your request.');
     console.log('');
     console.log('Check status with:');
@@ -450,7 +450,7 @@ async function requestStatus() {
 
   const data = await res.json();
   if (!res.ok) {
-    console.error('❌', data.error);
+    console.error('', data.error);
     process.exit(1);
   }
 

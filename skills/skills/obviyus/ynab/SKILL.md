@@ -1,7 +1,7 @@
 ---
 name: ynab
 description: Manage YNAB budgets, accounts, categories, and transactions via CLI.
-metadata: {"clawdbot":{"emoji":"💰","requires":{"bins":["ynab"],"env":["YNAB_API_KEY"]},"primaryEnv":"YNAB_API_KEY","install":[{"id":"node","kind":"node","package":"@stephendolan/ynab-cli","bins":["ynab"],"label":"Install ynab-cli (npm)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["ynab"],"env":["YNAB_API_KEY"]},"primaryEnv":"YNAB_API_KEY","install":[{"id":"node","kind":"node","package":"@stephendolan/ynab-cli","bins":["ynab"],"label":"Install ynab-cli (npm)"}]}}
 ---
 
 # YNAB CLI

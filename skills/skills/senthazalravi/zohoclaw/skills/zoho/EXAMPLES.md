@@ -2,7 +2,7 @@
 
 This document provides comprehensive examples for using the Zoho skill with OpenClaw.
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 zoho/
@@ -15,7 +15,7 @@ zoho/
 
 ---
 
-## 🚀 Quick Start Examples
+##  Quick Start Examples
 
 ### Example 1: Get All Leads
 
@@ -128,7 +128,7 @@ curl -X POST "https://www.zohoapis.com/crm/v2/Leads" \
 
 ---
 
-## 💰 Zoho Books Examples
+##  Zoho Books Examples
 
 ### Example 4: Create Customer
 
@@ -232,7 +232,7 @@ curl -X POST "https://www.zohoapis.com/books/v3/invoices/1234567890/actions/send
 
 ---
 
-## 🎫 Zoho Desk Examples
+##  Zoho Desk Examples
 
 ### Example 7: Create Support Ticket
 
@@ -294,7 +294,7 @@ curl -X PUT "https://desk.zoho.com/api/v1/tickets/1234567890" \
 
 ---
 
-## 🔄 Complete Workflow Examples
+##  Complete Workflow Examples
 
 ### Example 10: Restaurant Booking to Invoice Flow
 
@@ -446,7 +446,7 @@ curl -X POST "https://www.zohoapis.com/crm/v2/Leads/1234567890/actions/convert" 
 
 ---
 
-## 🔐 Authentication Examples
+##  Authentication Examples
 
 ### Example 12: Full OAuth Flow
 
@@ -527,7 +527,7 @@ curl -X GET "https://www.zohoapis.com/crm/v2/Leads" \
 
 ---
 
-## 📊 Advanced Examples
+##  Advanced Examples
 
 ### Example 14: Search Records
 
@@ -570,7 +570,7 @@ curl -X POST "https://www.zohoapis.com/crm/v2/Leads" \
 
 ---
 
-## 🐛 Error Handling Examples
+##  Error Handling Examples
 
 ### Example 17: Handle 401 Token Expired
 
@@ -615,7 +615,7 @@ echo $result
 
 ---
 
-## 📈 Complete Bash Scripts
+##  Complete Bash Scripts
 
 ### Example 18: Sync Leads to CSV
 
@@ -655,7 +655,7 @@ echo "Exported leads to $OUTPUT_FILE"
 
 ---
 
-## 🎯 Use Case Summary
+##  Use Case Summary
 
 | Use Case | Zoho Products | Example |
 |----------|-------------|---------|
@@ -667,7 +667,7 @@ echo "Exported leads to $OUTPUT_FILE"
 
 ---
 
-## 🔗 Useful Links
+##  Useful Links
 
 - **API Documentation:** https://www.zoho.com/developer/
 - **API Console:** https://api-console.zoho.com/
@@ -676,4 +676,4 @@ echo "Exported leads to $OUTPUT_FILE"
 
 ---
 
-**Happy Zoho Automation!** 🚀📊
+**Happy Zoho Automation!** 

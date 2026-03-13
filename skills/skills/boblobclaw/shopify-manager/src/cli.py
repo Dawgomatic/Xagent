@@ -22,7 +22,7 @@ from operations.media import MediaOperations
 def print_header(title: str):
     """Print section header."""
     print(f"\n{'='*60}")
-    print(f"🛍️  {title}")
+    print(f"  {title}")
     print(f"{'='*60}\n")
 
 
@@ -45,24 +45,24 @@ def cmd_ask(args):
     
     # Product-related
     if any(word in prompt_lower for word in ['add', 'create', 'new']) and 'product' in prompt_lower:
-        print(f"📝 Interpreted as: Create product")
+        print(f" Interpreted as: Create product")
         print(f"   Prompt: {prompt}")
-        print("\n⚠️  This would use LLM to parse product details from the prompt")
+        print("\n  This would use LLM to parse product details from the prompt")
         print("   For now, use: /shopify products create")
         
     elif any(word in prompt_lower for word in ['update', 'change', 'edit']) and 'product' in prompt_lower:
-        print(f"📝 Interpreted as: Update product")
+        print(f" Interpreted as: Update product")
         print(f"   Prompt: {prompt}")
-        print("\n⚠️  This would use LLM to identify product and updates")
+        print("\n  This would use LLM to identify product and updates")
         print("   For now, use: /shopify products update <handle>")
         
     elif 'sale' in prompt_lower or 'discount' in prompt_lower:
-        print(f"📝 Interpreted as: Create sale/discount")
+        print(f" Interpreted as: Create sale/discount")
         print(f"   Prompt: {prompt}")
-        print("\n⚠️  Discount operations not yet implemented")
+        print("\n  Discount operations not yet implemented")
         
     elif 'fulfill' in prompt_lower or 'order' in prompt_lower:
-        print(f"📝 Interpreted as: Order operation")
+        print(f" Interpreted as: Order operation")
         print(f"   Prompt: {prompt}")
         orders = OrderOperations(client, safety, audit)
         
@@ -71,7 +71,7 @@ def cmd_ask(args):
         for word in words:
             if word.startswith('#'):
                 order_id = word[1:]
-                print(f"\n📦 Order #{order_id}")
+                print(f"\n Order #{order_id}")
                 order = orders.get_order(order_id)
                 if order:
                     print(f"   Customer: {order.get('customer', {}).get('email', 'Guest')}")
@@ -82,13 +82,13 @@ def cmd_ask(args):
                 break
         
     elif 'report' in prompt_lower or 'sales' in prompt_lower:
-        print(f"📝 Interpreted as: Generate report")
+        print(f" Interpreted as: Generate report")
         print(f"   Prompt: {prompt}")
-        print("\n⚠️  Report operations not yet implemented")
+        print("\n  Report operations not yet implemented")
         
     else:
-        print(f"📝 Prompt: {prompt}")
-        print("\n⚠️  Full natural language processing requires LLM integration")
+        print(f" Prompt: {prompt}")
+        print("\n  Full natural language processing requires LLM integration")
         print("   For now, use specific commands:")
         print("   - /shopify products list")
         print("   - /shopify orders list")
@@ -118,12 +118,12 @@ def cmd_products(args):
             
         items = products.list_products(limit=args.limit, **filters)
         print(products.format_product_list(items))
-        print(f"\n📊 Showing {len(items)} products")
+        print(f"\n Showing {len(items)} products")
         
     elif args.action == 'get':
         product = products.get_product(args.identifier)
         if product:
-            print(f"\n📦 Product: {product.get('title')}")
+            print(f"\n Product: {product.get('title')}")
             print(f"   ID: {product.get('id')}")
             print(f"   Handle: {product.get('handle')}")
             print(f"   Type: {product.get('product_type')}")
@@ -133,7 +133,7 @@ def cmd_products(args):
             for v in product.get('variants', []):
                 print(f"   - {v.get('title')}: ${v.get('price')} (SKU: {v.get('sku')}) - Stock: {v.get('inventory_quantity', 0)}")
         else:
-            print(f"❌ Product not found: {args.identifier}")
+            print(f" Product not found: {args.identifier}")
             
     elif args.action == 'create':
         print("Interactive product creation not yet implemented.")
@@ -143,20 +143,20 @@ def cmd_products(args):
         if args.price:
             result = products.update_product(args.identifier, price=args.price)
             if 'error' in result:
-                print(f"❌ {result['error']}")
+                print(f" {result['error']}")
             elif result.get('dry_run'):
-                print("\n✋ Dry run complete. Add --execute to apply.")
+                print("\n Dry run complete. Add --execute to apply.")
             else:
-                print(f"✅ Product updated: {result.get('title')}")
+                print(f" Product updated: {result.get('title')}")
                 
     elif args.action == 'delete':
         result = products.delete_product(args.identifier, force=args.force)
         if result.get('cancelled'):
-            print("❌ Operation cancelled")
+            print(" Operation cancelled")
         elif result.get('dry_run'):
-            print("\n✋ Dry run complete. Add --execute --force to apply.")
+            print("\n Dry run complete. Add --execute --force to apply.")
         else:
-            print(f"✅ Product deleted: {result.get('title')}")
+            print(f" Product deleted: {result.get('title')}")
 
 
 def cmd_orders(args):
@@ -176,12 +176,12 @@ def cmd_orders(args):
     if args.action == 'list':
         items = orders.list_orders(status=args.status, limit=args.limit)
         print(orders.format_order_list(items))
-        print(f"\n📊 Showing {len(items)} orders")
+        print(f"\n Showing {len(items)} orders")
         
     elif args.action == 'get':
         order = orders.get_order(args.order_id)
         if order:
-            print(f"\n📋 Order: {order.get('name')}")
+            print(f"\n Order: {order.get('name')}")
             print(f"   Date: {order.get('created_at')}")
             print(f"   Customer: {order.get('customer', {}).get('email', 'Guest')}")
             print(f"   Total: {order.get('total_price')} {order.get('currency')}")
@@ -191,7 +191,7 @@ def cmd_orders(args):
             for item in order.get('line_items', []):
                 print(f"   - {item.get('quantity')}x {item.get('title')} - ${item.get('price')}")
         else:
-            print(f"❌ Order not found: {args.order_id}")
+            print(f" Order not found: {args.order_id}")
             
     elif args.action == 'fulfill':
         result = orders.fulfill_order(
@@ -201,13 +201,13 @@ def cmd_orders(args):
             force=args.force
         )
         if result.get('cancelled'):
-            print("❌ Operation cancelled")
+            print(" Operation cancelled")
         elif result.get('error'):
-            print(f"❌ {result['error']}")
+            print(f" {result['error']}")
         elif result.get('dry_run'):
-            print("\n✋ Dry run complete. Add --execute to apply.")
+            print("\n Dry run complete. Add --execute to apply.")
         else:
-            print(f"✅ Order fulfilled: {result.get('name')}")
+            print(f" Order fulfilled: {result.get('name')}")
             if result.get('tracking_number'):
                 print(f"   Tracking: {result.get('tracking_number')}")
 
@@ -230,7 +230,7 @@ def cmd_content(args):
         if args.subaction == 'list':
             pages = content.list_pages(limit=args.limit)
             print(content.format_page_list(pages))
-            print(f"\n📊 Showing {len(pages)} pages")
+            print(f"\n Showing {len(pages)} pages")
         else:
             print("Page operations: list")
             
@@ -243,9 +243,9 @@ def cmd_content(args):
                 force=args.force
             )
             if result.get('dry_run'):
-                print("\n✋ Dry run complete. Add --execute to apply.")
+                print("\n Dry run complete. Add --execute to apply.")
             else:
-                print(f"✅ Product description updated")
+                print(f" Product description updated")
 
 
 def cmd_themes(args):
@@ -265,26 +265,26 @@ def cmd_themes(args):
     if args.action == 'list':
         items = themes.get_themes()
         print(themes.format_theme_list(items))
-        print(f"\n📊 {len(items)} themes")
+        print(f"\n {len(items)} themes")
         
         live = themes.get_live_theme()
         if live:
-            print(f"\n🌐 Live theme: {live.get('name')} (ID: {live.get('id')})")
+            print(f"\n Live theme: {live.get('name')} (ID: {live.get('id')})")
         
     elif args.action == 'copy':
-        print("📋 Creating working copy of live theme...")
+        print(" Creating working copy of live theme...")
         working = themes.create_working_copy(name=args.name)
-        print(f"\n✅ Working copy ready!")
+        print(f"\n Working copy ready!")
         print(f"   Theme ID: {working.get('id')}")
         print(f"   Preview URL: {working.get('preview_url')}")
-        print(f"\n👁️  Review your changes at the preview URL")
+        print(f"\n  Review your changes at the preview URL")
         print(f"   When satisfied, run: /shopify themes publish {working.get('id')} --execute")
         
     elif args.action == 'assets':
         if args.subaction == 'list':
             theme_id = args.theme_id or themes.get_live_theme().get('id')
             assets = themes.get_theme_assets(theme_id)
-            print(f"\n📁 Theme Assets (ID: {theme_id}):")
+            print(f"\n Theme Assets (ID: {theme_id}):")
             print(f"{'Key':<50} {'Size':<10} {'Type':<15}")
             print("-" * 75)
             for asset in assets[:args.limit]:
@@ -292,14 +292,14 @@ def cmd_themes(args):
                 size = str(asset.get('size', 'N/A'))
                 content_type = asset.get('content_type', 'unknown')[:13]
                 print(f"{key:<50} {size:<10} {content_type:<15}")
-            print(f"\n📊 Showing {min(len(assets), args.limit)} of {len(assets)} assets")
+            print(f"\n Showing {min(len(assets), args.limit)} of {len(assets)} assets")
             
     elif args.action == 'edit':
         theme_id = args.theme_id
         asset_key = args.asset_key
         
         if not theme_id or not asset_key:
-            print("❌ Usage: /shopify themes edit <theme_id> --asset <asset_key>")
+            print(" Usage: /shopify themes edit <theme_id> --asset <asset_key>")
             return
         
         # Get current content
@@ -314,48 +314,48 @@ def cmd_themes(args):
         elif args.content:
             new_content = args.content
         else:
-            print("❌ Provide content via --generate, --file, or --content")
+            print(" Provide content via --generate, --file, or --content")
             return
         
         result = themes.update_asset(theme_id, asset_key, new_content, force=args.force)
         
         if result.get('cancelled'):
-            print("❌ Operation cancelled")
+            print(" Operation cancelled")
         elif result.get('dry_run'):
-            print("\n✋ Dry run complete. Add --execute to apply.")
+            print("\n Dry run complete. Add --execute to apply.")
             preview_url = themes.get_preview_url(theme_id)
             if preview_url:
-                print(f"👁️  Preview: {preview_url}")
+                print(f"  Preview: {preview_url}")
         else:
-            print(f"✅ Asset updated: {asset_key}")
+            print(f" Asset updated: {asset_key}")
             preview_url = themes.get_preview_url(theme_id)
             if preview_url:
-                print(f"👁️  Preview: {preview_url}")
+                print(f"  Preview: {preview_url}")
     
     elif args.action == 'publish':
         if not args.theme_id:
-            print("❌ Usage: /shopify themes publish <theme_id> --execute")
+            print(" Usage: /shopify themes publish <theme_id> --execute")
             return
         
         result = themes.publish_theme(args.theme_id, force=args.force)
         
         if result.get('cancelled'):
-            print("❌ Publication cancelled")
+            print(" Publication cancelled")
         else:
-            print(f"✅ Theme published and now live!")
+            print(f" Theme published and now live!")
             print(f"   Theme ID: {args.theme_id}")
     
     elif args.action == 'delete':
         if not args.theme_id:
-            print("❌ Usage: /shopify themes delete <theme_id>")
+            print(" Usage: /shopify themes delete <theme_id>")
             return
         
         result = themes.delete_theme(args.theme_id, force=args.force)
         
         if result.get('cancelled'):
-            print("❌ Deletion cancelled")
+            print(" Deletion cancelled")
         else:
-            print(f"✅ Theme deleted")
+            print(f" Theme deleted")
 
 
 def cmd_themesettings(args):
@@ -383,9 +383,9 @@ def cmd_themesettings(args):
             force=args.force
         )
         if result.get('dry_run'):
-            print("\n✋ Dry run complete. Add --execute to apply.")
+            print("\n Dry run complete. Add --execute to apply.")
         else:
-            print(f"✅ Color scheme updated")
+            print(f" Color scheme updated")
     
     elif args.action == 'fonts':
         result = settings.update_typography(
@@ -396,9 +396,9 @@ def cmd_themesettings(args):
             force=args.force
         )
         if result.get('dry_run'):
-            print("\n✋ Dry run complete. Add --execute to apply.")
+            print("\n Dry run complete. Add --execute to apply.")
         else:
-            print(f"✅ Typography updated")
+            print(f" Typography updated")
     
     elif args.action == 'header':
         result = settings.update_header_settings(
@@ -409,9 +409,9 @@ def cmd_themesettings(args):
             force=args.force
         )
         if result.get('dry_run'):
-            print("\n✋ Dry run complete. Add --execute to apply.")
+            print("\n Dry run complete. Add --execute to apply.")
         else:
-            print(f"✅ Header settings updated")
+            print(f" Header settings updated")
 
 
 def cmd_sections(args):
@@ -431,11 +431,11 @@ def cmd_sections(args):
     if args.action == 'list':
         items = sections.get_page_sections(args.theme_id, args.page or 'index')
         print(sections.format_sections_list(items))
-        print(f"\n📊 {len(items)} sections on {args.page or 'index'}")
+        print(f"\n {len(items)} sections on {args.page or 'index'}")
     
     elif args.action == 'available':
         items = sections.list_available_sections()
-        print(f"\n📦 Available Section Types:")
+        print(f"\n Available Section Types:")
         print(f"{'Type':<30} {'Name':<25} {'Description'}")
         print("-" * 90)
         for s in items:
@@ -450,11 +450,11 @@ def cmd_sections(args):
             force=args.force
         )
         if result.get('cancelled'):
-            print("❌ Operation cancelled")
+            print(" Operation cancelled")
         elif result.get('dry_run'):
-            print("\n✋ Dry run complete. Add --execute to apply.")
+            print("\n Dry run complete. Add --execute to apply.")
         else:
-            print(f"✅ Section added: {result.get('section_id')}")
+            print(f" Section added: {result.get('section_id')}")
     
     elif args.action == 'remove':
         result = sections.remove_section(
@@ -464,11 +464,11 @@ def cmd_sections(args):
             force=args.force
         )
         if result.get('cancelled'):
-            print("❌ Operation cancelled")
+            print(" Operation cancelled")
         elif result.get('dry_run'):
-            print("\n✋ Dry run complete. Add --execute --force to apply.")
+            print("\n Dry run complete. Add --execute --force to apply.")
         else:
-            print(f"✅ Section removed")
+            print(f" Section removed")
 
 
 def cmd_metafields(args):
@@ -495,11 +495,11 @@ def cmd_metafields(args):
         elif args.resource_type == 'shop':
             items = metafields.get_shop_metafields()
         else:
-            print(f"❌ Unknown resource type: {args.resource_type}")
+            print(f" Unknown resource type: {args.resource_type}")
             return
         
         print(metafields.format_metafields_list(items))
-        print(f"\n📊 {len(items)} metafields")
+        print(f"\n {len(items)} metafields")
     
     elif args.action == 'set':
         if args.resource_type == 'product':
@@ -521,13 +521,13 @@ def cmd_metafields(args):
                 force=args.force
             )
         else:
-            print(f"❌ Unknown resource type: {args.resource_type}")
+            print(f" Unknown resource type: {args.resource_type}")
             return
         
         if result.get('dry_run'):
-            print("\n✋ Dry run complete. Add --execute to apply.")
+            print("\n Dry run complete. Add --execute to apply.")
         else:
-            print(f"✅ Metafield set")
+            print(f" Metafield set")
 
 
 def cmd_media(args):
@@ -548,7 +548,7 @@ def cmd_media(args):
         if args.subaction == 'list':
             items = media.list_product_images(args.product_id)
             print(media.format_images_list(items))
-            print(f"\n📊 {len(items)} images")
+            print(f"\n {len(items)} images")
         
         elif args.subaction == 'add':
             result = media.add_product_image(
@@ -558,9 +558,9 @@ def cmd_media(args):
                 force=args.force
             )
             if result.get('dry_run'):
-                print("\n✋ Dry run complete. Add --execute to apply.")
+                print("\n Dry run complete. Add --execute to apply.")
             else:
-                print(f"✅ Image added: {result.get('id')}")
+                print(f" Image added: {result.get('id')}")
         
         elif args.subaction == 'delete':
             result = media.delete_product_image(
@@ -568,38 +568,38 @@ def cmd_media(args):
                 force=args.force
             )
             if result.get('cancelled'):
-                print("❌ Operation cancelled")
+                print(" Operation cancelled")
             elif result.get('dry_run'):
-                print("\n✋ Dry run complete. Add --execute --force to apply.")
+                print("\n Dry run complete. Add --execute --force to apply.")
             else:
-                print(f"✅ Image deleted")
+                print(f" Image deleted")
     
     elif args.action == 'files':
         if args.subaction == 'list':
             items = media.list_files(args.limit)
             print(media.format_files_list(items))
-            print(f"\n📊 {len(items)} files")
+            print(f"\n {len(items)} files")
         
         elif args.subaction == 'upload':
             result = media.upload_file(args.file, name=args.name, force=args.force)
             if result.get('dry_run'):
-                print("\n✋ Dry run complete. Add --execute to apply.")
+                print("\n Dry run complete. Add --execute to apply.")
             else:
-                print(f"✅ File uploaded: {result.get('url', 'N/A')}")
+                print(f" File uploaded: {result.get('url', 'N/A')}")
     
     elif args.action == 'favicon':
         result = media.update_favicon(args.file, force=args.force)
         if result.get('dry_run'):
-            print("\n✋ Dry run complete. Add --execute to apply.")
+            print("\n Dry run complete. Add --execute to apply.")
         else:
-            print(f"✅ Favicon updated")
+            print(f" Favicon updated")
     
     elif args.action == 'social':
         result = media.update_social_image(args.file, force=args.force)
         if result.get('dry_run'):
-            print("\n✋ Dry run complete. Add --execute to apply.")
+            print("\n Dry run complete. Add --execute to apply.")
         else:
-            print(f"✅ Social sharing image updated")
+            print(f" Social sharing image updated")
 
 
 def cmd_config(args):
@@ -616,12 +616,12 @@ def cmd_config(args):
         # Test connection
         client = ShopifyClient(config)
         shop = client.get_shop()
-        print(f"\n✅ Connected to: {shop.get('name', 'Unknown')}")
+        print(f"\n Connected to: {shop.get('name', 'Unknown')}")
         print(f"   Plan: {shop.get('plan_name', 'Unknown')}")
         print(f"   Currency: {shop.get('currency', 'Unknown')}")
         
     except Exception as e:
-        print(f"❌ Configuration error: {e}")
+        print(f" Configuration error: {e}")
 
 
 def main():

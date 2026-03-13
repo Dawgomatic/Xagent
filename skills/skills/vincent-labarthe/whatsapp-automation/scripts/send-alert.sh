@@ -26,8 +26,8 @@ RESPONSE=$(curl -s -X POST \
 
 # Check if successful
 if echo "$RESPONSE" | grep -q '"ok":true'; then
-  echo "✅ Alert sent to Telegram"
+  echo " Alert sent to Telegram"
 else
-  echo "❌ Failed to send alert: $RESPONSE"
+  echo " Failed to send alert: $RESPONSE"
   echo "Message: $MESSAGE"
 fi

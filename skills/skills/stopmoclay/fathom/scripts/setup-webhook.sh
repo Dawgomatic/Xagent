@@ -45,23 +45,23 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [ -z "$WEBHOOK_URL" ]; then
-    echo "❌ Webhook URL required"
+    echo " Webhook URL required"
     echo "Usage: setup-webhook.sh --url https://your-domain.com/webhook"
     exit 1
 fi
 
 if [[ ! "$WEBHOOK_URL" =~ ^https:// ]]; then
-    echo "❌ Webhook URL must be HTTPS"
+    echo " Webhook URL must be HTTPS"
     exit 1
 fi
 
 API_KEY=$(get_api_key)
 if [ -z "$API_KEY" ]; then
-    echo "❌ No API key. Run ./scripts/setup.sh first."
+    echo " No API key. Run ./scripts/setup.sh first."
     exit 1
 fi
 
-echo "📡 Registering webhook..."
+echo " Registering webhook..."
 echo "   URL: $WEBHOOK_URL"
 echo "   Include transcript: $INCLUDE_TRANSCRIPT"
 echo "   Include summary: $INCLUDE_SUMMARY"
@@ -85,7 +85,7 @@ if echo "$RESPONSE" | jq -e '.id' >/dev/null 2>&1; then
     WEBHOOK_ID=$(echo "$RESPONSE" | jq -r '.id')
     WEBHOOK_SECRET=$(echo "$RESPONSE" | jq -r '.secret')
     
-    echo "✅ Webhook registered!"
+    echo " Webhook registered!"
     echo ""
     echo "Webhook ID: $WEBHOOK_ID"
     echo "Secret: $WEBHOOK_SECRET"
@@ -96,7 +96,7 @@ if echo "$RESPONSE" | jq -e '.id' >/dev/null 2>&1; then
     echo "  curl -X DELETE -H \"X-API-Key: \$API_KEY\" \\"
     echo "    \"https://api.fathom.ai/external/v1/webhooks/$WEBHOOK_ID\""
 else
-    echo "❌ Failed to register webhook"
+    echo " Failed to register webhook"
     echo "$RESPONSE" | jq -r '.error // .' 2>/dev/null || echo "$RESPONSE"
     exit 1
 fi

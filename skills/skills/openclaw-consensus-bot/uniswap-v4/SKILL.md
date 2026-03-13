@@ -10,7 +10,7 @@ description: >
   need a private key via env var.
 ---
 
-# Uniswap V4 🦄
+# Uniswap V4 
 
 Swap tokens and read pool state on Uniswap V4 via the Universal Router.
 

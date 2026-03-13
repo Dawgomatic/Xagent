@@ -63,7 +63,7 @@ export class SkillCreatorTip {
   async batchTip(
     tipRequests: SkillCreatorTipRequest[]
   ): Promise<BatchTipResult> {
-    console.log(`💰 Processing ${tipRequests.length} skill creator tips...`);
+    console.log(` Processing ${tipRequests.length} skill creator tips...`);
 
     const results: TipResult[] = [];
     let totalAmount = 0;
@@ -87,9 +87,9 @@ export class SkillCreatorTip {
         });
 
         totalAmount += tip.amount;
-        console.log(`  ✅ Tip successful: ${result.transactionHash}`);
+        console.log(`   Tip successful: ${result.transactionHash}`);
       } catch (error) {
-        console.error(`  ❌ Tip failed for ${tip.skillName}:`, error);
+        console.error(`   Tip failed for ${tip.skillName}:`, error);
         results.push({
           skillId: tip.skillId,
           skillName: tip.skillName,
@@ -105,7 +105,7 @@ export class SkillCreatorTip {
     const successfulTips = results.filter(r => r.status === 'success');
     const failedTips = results.filter(r => r.status === 'failed');
 
-    console.log(`✅ Batch tip complete: ${successfulTips.length}/${tipRequests.length} successful`);
+    console.log(` Batch tip complete: ${successfulTips.length}/${tipRequests.length} successful`);
 
     return {
       success: successfulTips.length > 0,
@@ -240,10 +240,10 @@ export class SkillCreatorTip {
   static formatTipResults(result: BatchTipResult): string {
     const { successfulTips, failedTips, totalAmount, totalSkills } = result;
 
-    let message = `💰 Skill Creator Tipping Complete!\n\n`;
-    message += `✅ ${successfulTips.length}/${totalSkills} tips successful\n`;
-    message += `💵 Total tipped: $${totalAmount} USDT\n`;
-    message += `⛓️  Network: Base\n\n`;
+    let message = ` Skill Creator Tipping Complete!\n\n`;
+    message += ` ${successfulTips.length}/${totalSkills} tips successful\n`;
+    message += ` Total tipped: $${totalAmount} USDT\n`;
+    message += `  Network: Base\n\n`;
 
     if (successfulTips.length > 0) {
       message += `**Successful Tips:**\n`;
@@ -281,7 +281,7 @@ export function prepareTipRequests(
     .map(selection => {
       const skill = allSkills.find(s => s.skillId === selection.skillId);
       if (!skill || !skill.creatorUserId) {
-        console.warn(`⚠️  Skill ${selection.skillId} not found or missing creator userId`);
+        console.warn(`  Skill ${selection.skillId} not found or missing creator userId`);
         return null;
       }
 

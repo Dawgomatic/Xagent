@@ -16,7 +16,7 @@ Trigger when user:
 - Wants to add documentation to NotebookLM library
 - Uses phrases like "ask my NotebookLM", "check my docs", "query my notebook"
 
-## ⚠️ CRITICAL: Add Command - Smart Discovery
+##  CRITICAL: Add Command - Smart Discovery
 
 When user wants to add a notebook without providing details:
 
@@ -42,12 +42,12 @@ NEVER guess or use generic descriptions! If details missing, use Smart Add to di
 **NEVER call scripts directly. ALWAYS use `python scripts/run.py [script]`:**
 
 ```bash
-# ✅ CORRECT - Always use run.py:
+#  CORRECT - Always use run.py:
 python scripts/run.py auth_manager.py status
 python scripts/run.py notebook_manager.py list
 python scripts/run.py ask_question.py --question "..."
 
-# ❌ WRONG - Never call directly:
+#  WRONG - Never call directly:
 python scripts/auth_manager.py status  # Fails without venv!
 ```
 

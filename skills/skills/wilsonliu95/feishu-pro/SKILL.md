@@ -82,7 +82,7 @@ description: "飞书套件：文档/表格/多维表格/消息/群聊/通讯录/
 - `ocrImage(filePath)`
 - `speechToText(filePath, format?)`
 
-## 💡 飞书协作最佳实践 (Best Practices)
+##  飞书协作最佳实践 (Best Practices)
 
 ### 1. 文档权限与 Fallback 策略
 - **预先授权**：在向他人发送飞书文档链接前，**必须**先通过 `updatePublicPermission` 或 `addMemberPermission` 开启可读权限。

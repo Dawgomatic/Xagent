@@ -41,7 +41,7 @@ program
   .option('--verbose', 'Show detailed output')
   .action(async (options) => {
     try {
-      console.log('🔍 Checking proactive coaching cron jobs...\n');
+      console.log(' Checking proactive coaching cron jobs...\n');
 
       // Get list of existing cron jobs
       let existingJobs: string[] = [];
@@ -58,7 +58,7 @@ program
           })
           .filter(name => name);
       } catch (error) {
-        console.log('⚠️  Could not fetch cron job list (clawdbot may not be available)');
+        console.log('  Could not fetch cron job list (clawdbot may not be available)');
         if (options.verbose) {
           console.log(`   Error: ${error}`);
         }
@@ -78,14 +78,14 @@ program
 
         if (exists) {
           results.existing++;
-          console.log(`✅ ${job.name}`);
+          console.log(` ${job.name}`);
           if (options.verbose) {
             console.log(`   Schedule: ${job.cron}`);
             console.log(`   ${job.description}`);
           }
         } else {
           results.missing.push(job.name);
-          console.log(`❌ ${job.name} - MISSING`);
+          console.log(` ${job.name} - MISSING`);
           if (options.verbose) {
             console.log(`   Expected schedule: ${job.cron}`);
             console.log(`   ${job.description}`);
@@ -93,12 +93,12 @@ program
         }
       }
 
-      console.log(`\n📊 Summary: ${results.existing}/${results.total} cron jobs found`);
+      console.log(`\n Summary: ${results.existing}/${results.total} cron jobs found`);
 
       // Auto-fix if requested
       if (results.missing.length > 0) {
         if (options.autoFix) {
-          console.log('\n🔧 Auto-fixing missing cron jobs...');
+          console.log('\n Auto-fixing missing cron jobs...');
 
           try {
             const syncResult = execSync(
@@ -111,24 +111,24 @@ program
               for (const result of output.results) {
                 if (result.success) {
                   results.fixed.push(result.name);
-                  console.log(`✅ Created: ${result.name}`);
+                  console.log(` Created: ${result.name}`);
                 }
               }
             }
 
-            console.log(`\n✅ Fixed ${results.fixed.length} cron jobs`);
+            console.log(`\n Fixed ${results.fixed.length} cron jobs`);
           } catch (error: any) {
-            console.error('❌ Failed to sync cron jobs:', error.message);
+            console.error(' Failed to sync cron jobs:', error.message);
             process.exit(1);
           }
         } else {
-          console.log('\n💡 To fix missing cron jobs, run:');
+          console.log('\n To fix missing cron jobs, run:');
           console.log('   npx tsx scripts/sync_reminders.ts sync-coaching');
           console.log('\n   Or run this script with --auto-fix flag:');
           console.log('   npx tsx scripts/check_cron_jobs.ts --auto-fix');
         }
       } else {
-        console.log('\n✅ All proactive coaching cron jobs are configured correctly!');
+        console.log('\n All proactive coaching cron jobs are configured correctly!');
       }
 
       // Exit with error code if jobs are missing and not auto-fixed
@@ -137,7 +137,7 @@ program
       }
 
     } catch (error: any) {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
       process.exit(1);
     }
   });

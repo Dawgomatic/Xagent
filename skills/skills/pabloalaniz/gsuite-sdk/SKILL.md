@@ -130,7 +130,7 @@ for event in calendar.get_today():
 for event in calendar.get_upcoming(days=7):
     print(f"{event.start}: {event.summary}")
     if event.location:
-        print(f"  📍 {event.location}")
+        print(f"   {event.location}")
 
 # Rango específico
 from datetime import datetime

@@ -50,7 +50,7 @@ def generate_music(
     # Clamp to valid range (3s - 600s)
     length_ms = max(3000, min(600000, length_ms))
     
-    print(f"🎵 Generating music...", file=sys.stderr)
+    print(f" Generating music...", file=sys.stderr)
     print(f"   Prompt: {prompt[:80]}{'...' if len(prompt) > 80 else ''}", file=sys.stderr)
     print(f"   Length: {length_ms // 1000}s", file=sys.stderr)
     print(f"   Instrumental: {instrumental}", file=sys.stderr)
@@ -66,11 +66,11 @@ def generate_music(
     except Exception as e:
         error_str = str(e)
         if "limited_access" in error_str or "402" in error_str:
-            print("❌ Error: Music API requires a paid ElevenLabs plan", file=sys.stderr)
+            print(" Error: Music API requires a paid ElevenLabs plan", file=sys.stderr)
             print("   Upgrade at: https://elevenlabs.io/pricing", file=sys.stderr)
             sys.exit(1)
         elif "bad_prompt" in error_str:
-            print("❌ Error: Prompt may contain copyrighted material", file=sys.stderr)
+            print(" Error: Prompt may contain copyrighted material", file=sys.stderr)
             if hasattr(e, 'body'):
                 suggestion = e.body.get('detail', {}).get('data', {}).get('prompt_suggestion', '')
                 if suggestion:
@@ -89,7 +89,7 @@ def generate_music(
     with open(output_path, "wb") as f:
         f.write(audio_data)
     
-    print(f"✅ Saved to: {output_path}", file=sys.stderr)
+    print(f" Saved to: {output_path}", file=sys.stderr)
     # Print just the path to stdout for easy capture
     print(output_path)
     return str(output_path)

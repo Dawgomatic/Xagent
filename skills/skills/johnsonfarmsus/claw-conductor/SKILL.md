@@ -10,13 +10,13 @@ version: 2.1.0
 
 Claw Conductor is an intelligent orchestration layer that:
 
-- 🎯 **Always-On**: Handles every message automatically (no need to invoke)
-- 🤖 **Smart Triage**: Detects simple questions vs development tasks
-- 💬 **Discord-Aware**: Auto-maps channels to project workspaces
-- 🔀 **Multi-Model**: Routes tasks to optimal AI based on capabilities
-- ⚡ **Parallel Execution**: Builds complete projects efficiently
+-  **Always-On**: Handles every message automatically (no need to invoke)
+-  **Smart Triage**: Detects simple questions vs development tasks
+-  **Discord-Aware**: Auto-maps channels to project workspaces
+-  **Multi-Model**: Routes tasks to optimal AI based on capabilities
+-  **Parallel Execution**: Builds complete projects efficiently
 
-## 🚀 How It Works
+##  How It Works
 
 **Automatic Flow:**
 1. Message arrives in Discord channel (e.g., #scientific-calculator)
@@ -27,42 +27,42 @@ Claw Conductor is an intelligent orchestration layer that:
 
 **You never need to explicitly invoke it** - it handles everything automatically!
 
-## 🎯 Usage Examples
+##  Usage Examples
 
 **Simple Questions** (fast response):
 ```
 User: What files are in this project?
-Conductor: 📋 Simple response mode
+Conductor:  Simple response mode
           [Lists files from /root/projects/scientific-calculator]
 
 User: How does the calculator work?
-Conductor: 📋 Simple response mode
+Conductor:  Simple response mode
           [Explains architecture with project context]
 ```
 
 **Development Tasks** (full orchestration):
 ```
 User: Build a scientific calculator with trig functions
-Conductor: 🔧 Development mode - full orchestration
+Conductor:  Development mode - full orchestration
           [Decomposes into tasks, routes to models, executes in parallel]
 
 User: Fix the bug in the calculation logic
-Conductor: 🔧 Development mode - full orchestration
+Conductor:  Development mode - full orchestration
           [Analyzes code, creates fix, tests, commits]
 ```
 
 **User Overrides**:
 ```
 User: !simple Build a calculator
-Conductor: 📋 Simple response mode
+Conductor:  Simple response mode
           [Gives advice/explanation instead of building]
 
 User: !dev What files exist?
-Conductor: 🔧 Development mode - full orchestration
+Conductor:  Development mode - full orchestration
           [Treats as development task - maybe creates file listing tool]
 ```
 
-## 🚀 Skill Invocation (For OpenClaw Agent)
+##  Skill Invocation (For OpenClaw Agent)
 
 **NEW: Always-On Mode (Recommended)**
 
@@ -113,13 +113,13 @@ When this skill is invoked with a development request, execute the following:
 
    # Report results back to Discord
    if result['success']:
-       print(f\"✅ Project '{project_name}' completed successfully!\")
-       print(f\"📦 {result['tasks_completed']} tasks completed\")
+       print(f\" Project '{project_name}' completed successfully!\")
+       print(f\" {result['tasks_completed']} tasks completed\")
        if github_user:
-           print(f\"🔗 GitHub: https://github.com/{github_user}/{project_name}\")
-       print(f\"📁 Workspace: {result.get('workspace', '/root/projects/' + project_name)}\")
+           print(f\" GitHub: https://github.com/{github_user}/{project_name}\")
+       print(f\" Workspace: {result.get('workspace', '/root/projects/' + project_name)}\")
    else:
-       print(f\"❌ Project failed: {result.get('error', 'Unknown error')}\")
+       print(f\" Project failed: {result.get('error', 'Unknown error')}\")
        sys.exit(1)
    "
    ```
@@ -142,12 +142,12 @@ You execute:
 
 ## What's New in v2.1
 
-🤖 **AI-Powered Decomposition**: Intelligently analyzes complex requests using your best AI model (auto-selected or configured)
-🎯 **Full Orchestration**: Decomposes complex requests → Routes subtasks → Executes in parallel → Consolidates results
-⚡ **Parallel Execution**: Up to 5 tasks running concurrently across multiple projects
-📁 **Project Management**: Automatic workspace creation, git initialization, and GitHub integration
-🔗 **Dependency-Aware**: Respects task dependencies and file conflicts
-📦 **Auto-Consolidation**: Merges results, runs tests, commits to git, pushes to GitHub
+ **AI-Powered Decomposition**: Intelligently analyzes complex requests using your best AI model (auto-selected or configured)
+ **Full Orchestration**: Decomposes complex requests → Routes subtasks → Executes in parallel → Consolidates results
+ **Parallel Execution**: Up to 5 tasks running concurrently across multiple projects
+ **Project Management**: Automatic workspace creation, git initialization, and GitHub integration
+ **Dependency-Aware**: Respects task dependencies and file conflicts
+ **Auto-Consolidation**: Merges results, runs tests, commits to git, pushes to GitHub
 
 ---
 
@@ -284,10 +284,10 @@ Worker 1: Task 8 (Tests) → Llama
 
 **Result:**
 ```
-✅ All 8 tasks completed in 47 minutes
-📦 Committed to git with 8 changes
-🔗 Pushed to GitHub repository
-🎉 Project ready for deployment
+ All 8 tasks completed in 47 minutes
+ Committed to git with 8 changes
+ Pushed to GitHub repository
+ Project ready for deployment
 ```
 
 ---
@@ -314,7 +314,7 @@ score = (
 | Model | Capability | Complexity Fit | Experience | Cost | Total |
 |-------|------------|----------------|------------|------|-------|
 | Mistral Devstral | 4★ (40pts) | Can handle 4 (40pts) | 0 (0pts) | Free (10pts) | **90/100** |
-| Llama 3.3 70B | 4★ (40pts) | Can handle 4 (40pts) | 2 tasks (2pts) | Free (10pts) | **92/100** ✅ |
+| Llama 3.3 70B | 4★ (40pts) | Can handle 4 (40pts) | 2 tasks (2pts) | Free (10pts) | **92/100**  |
 | Perplexity | N/A | Cannot handle backend | - | - | **0/100** |
 
 Winner: **Llama 3.3 70B** (higher experience)
@@ -556,4 +556,4 @@ Published on ClawHub.ai: https://clawhub.ai/skills/claw-conductor
 
 ---
 
-*Built with ❤️ by the Claw Conductor team*
+*Built with  by the Claw Conductor team*

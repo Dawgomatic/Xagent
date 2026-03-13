@@ -2,7 +2,7 @@
 
 Identify and monitor technical SEO issues on your website.
 
-**⚠️ Important**: Site Audit requires pre-configured projects in the Ahrefs web interface. You must set up audit projects before using these API endpoints.
+** Important**: Site Audit requires pre-configured projects in the Ahrefs web interface. You must set up audit projects before using these API endpoints.
 
 ## Base URL
 ```

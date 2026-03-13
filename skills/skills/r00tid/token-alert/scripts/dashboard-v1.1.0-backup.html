@@ -276,16 +276,16 @@
         }
 
         .recommendation-list li::before {
-            content: "✅";
+            content: "";
             margin-right: 8px;
         }
 
         .recommendation.warning li::before {
-            content: "⚡";
+            content: "";
         }
 
         .recommendation.danger li::before {
-            content: "🔴";
+            content: "";
         }
 
         .provider-tabs {
@@ -390,22 +390,22 @@
 
             <div class="details-grid">
                 <div class="detail-card">
-                    <div class="detail-icon">🤖</div>
+                    <div class="detail-icon"></div>
                     <div class="detail-label">Model</div>
                     <div class="detail-value" id="modelName" style="font-size: 14px;">Claude Sonnet 4.5</div>
                 </div>
                 <div class="detail-card">
-                    <div class="detail-icon">💡</div>
+                    <div class="detail-icon"></div>
                     <div class="detail-label">Verbleibend</div>
                     <div class="detail-value" id="remainingTokens">~200k</div>
                 </div>
                 <div class="detail-card">
-                    <div class="detail-icon">⏰</div>
+                    <div class="detail-icon"></div>
                     <div class="detail-label">Sessions</div>
                     <div class="detail-value" id="sessionEstimate">~3-4</div>
                 </div>
                 <div class="detail-card">
-                    <div class="detail-icon">📈</div>
+                    <div class="detail-icon"></div>
                     <div class="detail-label">Trend</div>
                     <div class="detail-value" id="trendValue">Normal</div>
                 </div>
@@ -415,13 +415,13 @@
 
             <div class="actions">
                 <button class="btn btn-primary" onclick="newSession()">
-                    <span>🔄</span> Neue Session
+                    <span></span> Neue Session
                 </button>
                 <button class="btn btn-secondary" onclick="summarize()">
-                    <span>📝</span> Zusammenfassen
+                    <span></span> Zusammenfassen
                 </button>
                 <button class="btn btn-secondary" onclick="exportMemory()">
-                    <span>💾</span> Memory Export
+                    <span></span> Memory Export
                 </button>
             </div>
         </div>
@@ -506,13 +506,13 @@
             
             if (percent >= 95) {
                 level = 'emergency';
-                emoji = '🚨';
+                emoji = '';
                 colorClass = 'magenta';
                 statusText = 'EMERGENCY (Magenta Zone)';
                 sessions = 'KEINE';
                 recommendation = {
                     type: 'danger',
-                    title: '🆘 LETZTE WARNUNG',
+                    title: ' LETZTE WARNUNG',
                     items: [
                         'Jede weitere Message = Risiko!',
                         'Context wird bald abgeschnitten!',
@@ -521,13 +521,13 @@
                 };
             } else if (percent >= 90) {
                 level = 'critical';
-                emoji = '🔴';
+                emoji = '';
                 colorClass = 'red';
                 statusText = 'CRITICAL (Rote Zone)';
                 sessions = 'KEINE';
                 recommendation = {
                     type: 'warning',
-                    title: '🔥 SOFORT HANDELN',
+                    title: ' SOFORT HANDELN',
                     items: [
                         'Memory sichern (JETZT!)',
                         'Session zusammenfassen',
@@ -536,13 +536,13 @@
                 };
             } else if (percent >= 75) {
                 level = 'high';
-                emoji = '🔶';
+                emoji = '';
                 colorClass = 'red-orange';
                 statusText = 'High Warning (Rot-Orange Zone)';
                 sessions = '<1 Session';
                 recommendation = {
                     type: 'warning',
-                    title: '🔧 Empfehlung',
+                    title: ' Empfehlung',
                     items: [
                         'Wichtige Entscheidungen jetzt treffen',
                         'Neue Session vorbereiten',
@@ -551,13 +551,13 @@
                 };
             } else if (percent >= 50) {
                 level = 'medium';
-                emoji = '🟠';
+                emoji = '';
                 colorClass = 'orange';
                 statusText = 'Medium Warning (Orange Zone)';
                 sessions = '~1 weitere';
                 recommendation = {
                     type: '',
-                    title: '🔧 Empfehlung',
+                    title: ' Empfehlung',
                     items: [
                         'Token-sparend arbeiten',
                         'Kürzere Antworten bevorzugen'
@@ -565,14 +565,14 @@
                 };
             } else if (percent >= 25) {
                 level = 'low';
-                emoji = '🟡';
+                emoji = '';
                 colorClass = 'yellow';
                 statusText = 'Low Warning (Gelbe Zone)';
                 sessions = '~2 weitere';
                 recommendation = null;
             } else {
                 level = 'ok';
-                emoji = '🟢';
+                emoji = '';
                 colorClass = 'green';
                 statusText = 'Alles im grünen Bereich!';
                 sessions = '~3-4 weitere';

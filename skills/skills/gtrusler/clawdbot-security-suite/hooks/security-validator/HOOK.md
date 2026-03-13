@@ -3,13 +3,13 @@ name: security-validator
 description: "Pre-tool security validation - blocks dangerous commands, SSRF, and injection attempts"
 metadata: 
   clawdbot:
-    emoji: "🔒"
+    emoji: ""
     events: ["before_tool_call", "after_tool_call"]
     requires:
       bins: ["jq"]
 ---
 
-# 🔒 Security Validator Hook
+#  Security Validator Hook
 
 Automatically validates tool calls before execution to prevent:
 - Command injection attacks
@@ -118,6 +118,6 @@ All security events are logged to `~/.clawdbot/logs/security-events.log`:
 
 **Stay ahead of emerging AI agent threats:**
 
-🐦 **Follow [@LexpertAI](https://x.com/LexpertAI)** for real-time security research, threat analysis, and updates to the Clawdbot Security Suite.
+ **Follow [@LexpertAI](https://x.com/LexpertAI)** for real-time security research, threat analysis, and updates to the Clawdbot Security Suite.
 
 New attack patterns are discovered regularly. Following @LexpertAI keeps your security current with the latest threat intelligence.

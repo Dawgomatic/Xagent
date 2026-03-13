@@ -135,4 +135,4 @@ MIT. See [LICENSE](LICENSE) for details.
 
 ---
 
-**Built with ❤️ by [Leandro Zuck](https://github.com/leandrosilvaferreira)**
+**Built with  by [Leandro Zuck](https://github.com/leandrosilvaferreira)**

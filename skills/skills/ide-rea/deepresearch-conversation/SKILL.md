@@ -1,7 +1,7 @@
 ---
 name: deepresearch-conversation
 description: Deep ReSearch Conversation is provided by Baidu for multi-round streaming conversations with "Deep Research" agents. "In-depth research" is a long-process task involving multi-step reasoning and execution, which is different from the ordinary "question-and-answer". A dialogue that requires the user to repeatedly verify and correct it until a satisfactory answer is reached.
-metadata: { "openclaw": { "emoji": "📌", "requires": { "bins": ["python3", "curl"], "env": ["BAIDU_API_KEY"] }, "primaryEnv": "BAIDU_API_KEY" } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["python3", "curl"], "env": ["BAIDU_API_KEY"] }, "primaryEnv": "BAIDU_API_KEY" } }
 ---
 
 # Deep Research Conversation

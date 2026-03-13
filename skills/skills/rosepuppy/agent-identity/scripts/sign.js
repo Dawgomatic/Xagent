@@ -42,7 +42,7 @@ async function main() {
   if (opts.json) {
     output(result, true);
   } else {
-    console.log('✅ Message signed!');
+    console.log(' Message signed!');
     console.log('');
     console.log(`Message: ${opts.message}`);
     console.log(`Signer: ${account.address}`);

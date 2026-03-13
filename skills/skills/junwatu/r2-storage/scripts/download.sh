@@ -34,4 +34,4 @@ else
     rclone copyto "${REMOTE}:${BUCKET}/${REMOTE_PATH}" "$DEST"
 fi
 
-echo "✅ Downloaded: r2:${BUCKET}/${REMOTE_PATH} → $DEST"
+echo " Downloaded: r2:${BUCKET}/${REMOTE_PATH} → $DEST"

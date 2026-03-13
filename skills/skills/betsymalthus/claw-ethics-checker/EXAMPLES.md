@@ -1,6 +1,6 @@
 # Claw-Ethics-Checker 使用示例
 
-## 🎯 实际应用场景
+##  实际应用场景
 
 ### 示例1：电商价格监控任务
 
@@ -23,7 +23,7 @@ task = {
 # 分析伦理合规性
 result = checker.analyze_task('价格监控', task)
 
-print('📊 分析结果:')
+print(' 分析结果:')
 print(f'风险等级: {result.risk_level.value}')
 print(f'是否合规: {result.is_compliant}')
 print(f'需要人工审核: {result.needs_human_review}')
@@ -61,7 +61,7 @@ task = {
 
 result = checker.analyze_task('社交媒体分析', task)
 
-print('📊 分析结果:')
+print(' 分析结果:')
 print(f'风险等级: {result.risk_level.value}')  # medium
 print(f'是否合规: {result.is_compliant}')      # False
 print(f'需要人工审核: {result.needs_human_review}')  # True
@@ -88,7 +88,7 @@ task = {
 
 result = checker.analyze_task('背景调查', task)
 
-print('📊 分析结果:')
+print(' 分析结果:')
 print(f'风险等级: {result.risk_level.value}')  # high
 print(f'是否合规: {result.is_compliant}')      # False
 print(f'需要人工审核: {result.needs_human_review}')  # True
@@ -98,7 +98,7 @@ print(f'伦理问题: {result.ethical_concerns}')  # ['隐私保护问题']
 print(f'建议: {result.recommendations}')  # ['建议拒绝此任务', '必须进行人工审核', '咨询法律专家']
 ```
 
-## 🔧 集成到工作流
+##  集成到工作流
 
 ### 在OpenClaw技能中集成
 
@@ -178,18 +178,18 @@ def main():
     checker = EthicsChecker()
     result = checker.analyze_task(task_description, task_details)
     
-    print('🧠 伦理检查结果:')
+    print(' 伦理检查结果:')
     print(f'  风险: {result.risk_level.value}')
     print(f'  合规: {result.is_compliant}')
     
     if not result.is_compliant:
-        print('❌ 任务被拒绝:')
+        print(' 任务被拒绝:')
         for warning in result.warnings:
             print(f'  - {warning}')
         sys.exit(1)
     
     if result.needs_human_review:
-        print('⚠️  需要人工审核')
+        print('  需要人工审核')
         print('建议:')
         for rec in result.recommendations:
             print(f'  - {rec}')
@@ -197,7 +197,7 @@ def main():
         sys.exit(2)
     
     # 如果通过检查，执行任务
-    print('✅ 任务通过伦理检查，开始执行...')
+    print(' 任务通过伦理检查，开始执行...')
     execute_task(task_description, task_details)
 
 def execute_task(description, details):
@@ -209,7 +209,7 @@ if __name__ == '__main__':
     main()
 ```
 
-## 📋 实际案例
+##  实际案例
 
 ### 案例1：数据爬虫项目
 
@@ -259,7 +259,7 @@ if __name__ == '__main__':
 - 控制发送频率
 - 人工审核内容
 
-## 🎓 最佳实践
+##  最佳实践
 
 ### 1. 始终先检查后执行
 ```python
@@ -314,14 +314,14 @@ def escalate_to_human(result, task):
         return {'status': 'pending_human_review'}
 ```
 
-## 🔗 相关资源
+##  相关资源
 
 - [完整文档](SKILL.md)
 - [安装指南](INSTALLATION.md)
 - [测试用例](test_ethics_checker.py)
 - [GitHub仓库](https://github.com/openclaw/claw-ethics-checker)
 
-## ❓ 常见问题
+##  常见问题
 
 **Q: 这个工具能保证100%合规吗？**
 A: 不能。这是一个辅助工具，最终决策需要人类判断。工具帮助识别风险，但不能替代法律咨询。
@@ -336,4 +336,4 @@ A: 检查通常在毫秒级别，对性能影响很小。
 A: 目前主要支持英语和中文任务描述。
 
 ---
-*使用Claw-Ethics-Checker，让AI助手更安全、更合规* 🦀
+*使用Claw-Ethics-Checker，让AI助手更安全、更合规* 

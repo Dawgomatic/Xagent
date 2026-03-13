@@ -297,7 +297,7 @@ def run_mert_strategy(dry_run=True, positions_only=False, show_config=False,
                       smart_sizing=False, use_safeguards=True,
                       filter_override=None, expiry_override=None):
     """Run the Mert Sniper near-expiry strategy."""
-    print("🎯 Mert Sniper - Near-Expiry Conviction Trading")
+    print(" Mert Sniper - Near-Expiry Conviction Trading")
     print("=" * 50)
 
     market_filter = filter_override if filter_override is not None else MARKET_FILTER

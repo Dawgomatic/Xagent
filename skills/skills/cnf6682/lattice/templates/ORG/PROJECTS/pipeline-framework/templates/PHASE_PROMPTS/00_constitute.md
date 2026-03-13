@@ -13,7 +13,7 @@ Define project principles, technical constraints, and quality standards. This is
 - Previous run's archived `ORG/PROJECTS/<project>/pipeline_archive/run-{N-1}/GAP_ANALYSIS.md` (if exists — contains improvement suggestions and deferred tasks)
 - Previous run's archived `ORG/PROJECTS/<project>/pipeline_archive/run-{N-1}/DEFERRED_TASKS.json` (if exists — tasks deferred by Auto-Triage in the previous run)
 
-## ⚠️ Previous Run Deferred Tasks
+##  Previous Run Deferred Tasks
 If the previous run's archive contains `DEFERRED_TASKS.json`, you must:
 1. Read each deferred task's description and deferral reason
 2. In CONSTITUTION.md's "Project Goal" section or a new "Carry-Over Tasks" section, explicitly mention these tasks

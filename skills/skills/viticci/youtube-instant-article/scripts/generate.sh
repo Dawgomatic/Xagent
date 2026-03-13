@@ -37,13 +37,13 @@ cleanup() { [[ "$DEBUG" == "false" ]] && rm -rf "$SLIDES_DIR" 2>/dev/null || tru
 trap cleanup EXIT
 mkdir -p "$SLIDES_DIR"
 
-echo "📹 Extracting slides..." >&2
+echo " Extracting slides..." >&2
 
 # Extract slides (background) and get summary
 summarize "$URL" --slides --slides-max "$SLIDES_MAX" --slides-dir "$SLIDES_DIR" --extract-only --plain >/dev/null 2>&1 &
 SLIDES_PID=$!
 
-echo "📝 Getting summary..." >&2
+echo " Getting summary..." >&2
 
 # Get video title from extract debug output
 VIDEO_TITLE=$(summarize "$URL" --extract-only --plain --debug 2>&1 | grep 'title=' | sed 's/.*title=//' | sed 's/ transcriptSource=.*//' | head -1)
@@ -63,7 +63,7 @@ while IFS= read -r f; do
 done < <(find "$SLIDES_DIR" -type f \( -name "*.png" -o -name "*.jpg" \) 2>/dev/null | sort | head -"$SLIDES_MAX")
 
 SLIDE_COUNT=${#SLIDE_FILES[@]}
-echo "📤 Uploading $SLIDE_COUNT slides..." >&2
+echo " Uploading $SLIDE_COUNT slides..." >&2
 
 # Upload slides to catbox.moe
 typeset -a IMG_URLS
@@ -73,7 +73,7 @@ for slide in "${SLIDE_FILES[@]}"; do
     [[ "$url" == https://* ]] && IMG_URLS+=("$url")
 done
 
-echo "🔨 Building article..." >&2
+echo " Building article..." >&2
 
 # Helper: check if line is a timestamp line
 is_timestamp_line() {
@@ -90,7 +90,7 @@ CONTENT='[]'
 
 # Video link
 CONTENT=$(echo "$CONTENT" | jq --arg url "$URL" '. + [
-    {"tag": "p", "children": ["📺 ", {"tag": "a", "attrs": {"href": $url}, "children": ["Watch video"]}]}
+    {"tag": "p", "children": [" ", {"tag": "a", "attrs": {"href": $url}, "children": ["Watch video"]}]}
 ]')
 
 # Count timestamp sections to distribute images evenly
@@ -139,7 +139,7 @@ while IFS= read -r line; do
         
         # Clean up the timestamp line and add as h4
         clean_line=$(echo "$line" | sed 's/^[-•*] *//' | sed 's/^\[//' | sed 's/\] / - /')
-        CONTENT=$(echo "$CONTENT" | jq --arg h "⏱️ $clean_line" '. + [{"tag": "h4", "children": [$h]}]')
+        CONTENT=$(echo "$CONTENT" | jq --arg h " $clean_line" '. + [{"tag": "h4", "children": [$h]}]')
         ts_idx=$((ts_idx + 1))
         
     # Headers
@@ -169,7 +169,7 @@ done
 # Footer
 CONTENT=$(echo "$CONTENT" | jq '. + [{"tag": "hr"}, {"tag": "p", "children": [{"tag": "em", "children": ["Generated with youtube-instant-article"]}]}]')
 
-echo "🌐 Publishing..." >&2
+echo " Publishing..." >&2
 
 RESPONSE=$(curl -s -X POST "https://api.telegra.ph/createPage" \
     -H "Content-Type: application/json" \
@@ -177,12 +177,12 @@ RESPONSE=$(curl -s -X POST "https://api.telegra.ph/createPage" \
         --arg t "$TELEGRAPH_TOKEN" \
         --arg title "$TITLE" \
         --argjson c "$CONTENT" \
-        '{access_token:$t, title:$title, author_name:"Navi ✨", content:$c}')")
+        '{access_token:$t, title:$title, author_name:"Navi ", content:$c}')")
 
 if echo "$RESPONSE" | jq -e '.ok' >/dev/null 2>&1; then
     PAGE_URL=$(echo "$RESPONSE" | jq -r '.result.url')
     echo "" >&2
-    echo "✅ Done!" >&2
+    echo " Done!" >&2
     echo ""
     echo "$PAGE_URL"
 else

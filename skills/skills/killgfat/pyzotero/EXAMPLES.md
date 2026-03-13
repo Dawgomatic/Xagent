@@ -689,4 +689,4 @@ done
 - Check [QUICKSTART.md](QUICKSTART.md) for quick start guide
 - Read [README.md](README.md) for full documentation
 
-**Happy searching! 🚀**
+**Happy searching! **

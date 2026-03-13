@@ -1,4 +1,4 @@
-# Douyin Creator Assistant 🎬 | 抖音创作者助手
+# Douyin Creator Assistant  | 抖音创作者助手
 
 > AI-powered assistant for Douyin (TikTok China) content creators
 
@@ -6,7 +6,7 @@ A comprehensive toolkit to help Douyin creators optimize their content strategy,
 
 ## Features | 功能
 
-### 🏷️ Tag Recommendations | 热门标签推荐
+###  Tag Recommendations | 热门标签推荐
 Get personalized hashtag suggestions based on your content type.
 
 ```bash
@@ -14,7 +14,7 @@ Get personalized hashtag suggestions based on your content type.
 ./scripts/tags.sh "穿搭"  # Fashion content
 ```
 
-### ⏰ Best Posting Time | 最佳发布时间
+###  Best Posting Time | 最佳发布时间
 Learn when your target audience is most active.
 
 ```bash
@@ -22,14 +22,14 @@ Learn when your target audience is most active.
 ./scripts/time.sh "通用"     # General
 ```
 
-### ✍️ Title Optimization | 标题优化
+###  Title Optimization | 标题优化
 Improve your video titles with AI-powered suggestions.
 
 ```bash
 ./scripts/title.sh "今天做了红烧肉"
 ```
 
-### 📊 Competitor Analysis | 竞品分析
+###  Competitor Analysis | 竞品分析
 Study successful accounts in your niche.
 
 ```bash
@@ -38,11 +38,11 @@ Study successful accounts in your niche.
 
 ## Supported Content Types | 支持的内容类型
 
-- 🍽️ 美食 (Food)
-- 👗 穿搭 (Fashion)
-- 😂 搞笑 (Comedy)
-- 📚 知识 (Knowledge)
-- 🎮 游戏 (Gaming)
+-  美食 (Food)
+-  穿搭 (Fashion)
+-  搞笑 (Comedy)
+-  知识 (Knowledge)
+-  游戏 (Gaming)
 - And more!
 
 ## Use Cases | 使用场景
@@ -65,9 +65,9 @@ clawhub install douyin-creator-cn
 
 ## Important Notes | 注意事项
 
-⚠️ This tool provides analysis suggestions only, results not guaranteed.
-⚠️ Please follow Douyin platform rules, do not engage in prohibited activities.
-⚠️ Data is for reference only, final decisions should consider actual circumstances.
+ This tool provides analysis suggestions only, results not guaranteed.
+ Please follow Douyin platform rules, do not engage in prohibited activities.
+ Data is for reference only, final decisions should consider actual circumstances.
 
 ## Changelog | 更新日志
 
@@ -88,4 +88,4 @@ MIT
 
 ---
 
-Made with ❤️ for Douyin creators | 为抖音创作者用心打造
+Made with  for Douyin creators | 为抖音创作者用心打造

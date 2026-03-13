@@ -2,7 +2,7 @@
 name: graphiti
 description: Knowledge graph operations via Graphiti API. Search facts, add episodes, and extract entities/relationships.
 homepage: https://github.com/getzep/graphiti
-metadata: {"clawdbot":{"emoji":"🕸️","requires":{"services":["neo4j","qdrant","graphiti"]},"install":[{"id":"docker","kind":"docker-compose","label":"Install Graphiti stack (Docker)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"services":["neo4j","qdrant","graphiti"]},"install":[{"id":"docker","kind":"docker-compose","label":"Install Graphiti stack (Docker)"}]}}
 ---
 
 # Graphiti Knowledge Graph

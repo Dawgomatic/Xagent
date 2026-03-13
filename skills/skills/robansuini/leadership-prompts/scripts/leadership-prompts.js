@@ -19,14 +19,14 @@ function getCategories(prompts) {
 
 function printPrompt(p, verbose = true) {
   console.log(`\n${'─'.repeat(60)}`);
-  console.log(`🎯 ${p.title}`);
+  console.log(` ${p.title}`);
   console.log(`   Category: ${p.category} | ID: ${p.id}`);
   console.log(`${'─'.repeat(60)}`);
   if (verbose) {
-    console.log(`\n📋 PROMPT:\n${p.prompt}`);
-    console.log(`\n🕐 WHEN TO USE:\n${p.context}`);
-    console.log(`\n📄 OUTPUT FORMAT:\n${p.output_format}`);
-    console.log(`\n💡 EXAMPLE:\n${p.example}`);
+    console.log(`\n PROMPT:\n${p.prompt}`);
+    console.log(`\n WHEN TO USE:\n${p.context}`);
+    console.log(`\n OUTPUT FORMAT:\n${p.output_format}`);
+    console.log(`\n EXAMPLE:\n${p.example}`);
   }
   console.log();
 }
@@ -38,7 +38,7 @@ switch (command) {
   case 'list': {
     const prompts = loadPrompts();
     const cats = getCategories(prompts);
-    console.log('\n📂 Leadership Prompt Categories:\n');
+    console.log('\n Leadership Prompt Categories:\n');
     for (const [cat, count] of Object.entries(cats)) {
       console.log(`  ${cat} (${count} prompts)`);
     }
@@ -68,7 +68,7 @@ switch (command) {
       p.category.toLowerCase().includes(q)
     );
     if (!results.length) { console.log(`No prompts matching "${query}"`); break; }
-    console.log(`\n🔍 ${results.length} prompt(s) matching "${query}":\n`);
+    console.log(`\n ${results.length} prompt(s) matching "${query}":\n`);
     for (const p of results) printPrompt(p, false);
     break;
   }
@@ -88,14 +88,14 @@ switch (command) {
     const q = query.toLowerCase();
     const results = prompts.filter(p => p.category.toLowerCase().includes(q));
     if (!results.length) { console.log(`No category matching "${query}"`); break; }
-    console.log(`\n📂 ${results[0].category} (${results.length} prompts):\n`);
+    console.log(`\n ${results[0].category} (${results.length} prompts):\n`);
     for (const p of results) printPrompt(p, false);
     break;
   }
 
   default:
     console.log(`
-🎯 Leadership Prompts CLI
+ Leadership Prompts CLI
 
 Usage:
   node leadership-prompts.js list                    List all categories

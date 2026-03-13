@@ -112,11 +112,11 @@ get_model_usage() {
 check_service() {
     local service=$1
     if systemctl is-active --quiet "$service" 2>/dev/null; then
-        echo "✅"
+        echo ""
     elif pgrep -x "$service" >/dev/null 2>&1; then
-        echo "✅"
+        echo ""
     else
-        echo "❌"
+        echo ""
     fi
 }
 
@@ -133,12 +133,12 @@ get_docker_containers() {
 # ============================================================================
 
 output_standard() {
-    echo "🖥️ SERVER HEALTH"
+    echo " SERVER HEALTH"
     echo "━━━━━━━━━━━━━━━━━━━━"
     echo ""
     
     # SYSTEM
-    echo "💻 SYSTEM"
+    echo " SYSTEM"
     local cpu=$(get_cpu_usage)
     local load=$(get_load_average)
     read -r ram_used ram_total ram_percent <<< $(get_ram_usage)
@@ -148,16 +148,16 @@ output_standard() {
     echo "CPU: $(get_bar $cpu) ${cpu}% (Load: ${load})"
     echo "RAM: $(get_bar $ram_percent) ${ram_used}GB/${ram_total}GB (${ram_percent}%)"
     echo "DISK: $(get_bar $disk_percent) ${disk_used}/${disk_total} (${disk_percent}%)"
-    echo "UP: ⏱️ ${uptime}"
+    echo "UP:  ${uptime}"
     echo ""
     
     # TOP PROCESSES
-    echo "🔄 TOP PROCESSES"
+    echo " TOP PROCESSES"
     get_top_processes
     echo ""
     
     # OPENCLAW GATEWAY
-    echo "⚡ OPENCLAW GATEWAY"
+    echo " OPENCLAW GATEWAY"
     local pid=$(get_openclaw_pid)
     if [[ -n "$pid" ]]; then
         local uptime=$(get_openclaw_uptime "$pid")
@@ -165,11 +165,11 @@ output_standard() {
         local port model fallbacks
         read -r port model fallbacks <<< "$(get_openclaw_config)"
         
-        echo "Status: ✅ Running (PID: ${pid})"
+        echo "Status:  Running (PID: ${pid})"
         echo "Uptime: ${uptime} | Port: ${port} | v${version}"
         echo ""
         
-        echo "🤖 MODEL CONFIG"
+        echo " MODEL CONFIG"
         echo "Primary: ${model}"
         
         # Get usage info - skip if hangs
@@ -185,28 +185,28 @@ output_standard() {
         fi
         echo ""
         
-        echo "📊 SESSIONS"
+        echo " SESSIONS"
         # Simplified - just count session files
         local sessions=$(ls /root/.openclaw/agents/main/sessions/*.json 2>/dev/null | wc -l || echo "0")
         echo "Active: ${sessions}"
     else
-        echo "Status: ❌ Not running"
+        echo "Status:  Not running"
     fi
     echo ""
     
     # SERVICES
-    echo "🐳 SERVICES"
+    echo " SERVICES"
     local docker_count=$(get_docker_containers)
     if [[ "$docker_count" -gt 0 ]]; then
-        echo "Docker: ✅ ${docker_count} containers"
+        echo "Docker:  ${docker_count} containers"
     else
-        echo "Docker: ❌ Not running"
+        echo "Docker:  Not running"
     fi
     
     if systemctl is-active --quiet postgresql 2>/dev/null; then
-        echo "PostgreSQL: ✅ Running"
+        echo "PostgreSQL:  Running"
     else
-        echo "PostgreSQL: ❌ Not running"
+        echo "PostgreSQL:  Not running"
     fi
 }
 
@@ -241,39 +241,39 @@ output_alerts() {
     # Check disk
     read -r disk_used disk_total disk_percent <<< $(get_disk_usage)
     if [[ $disk_percent -gt 90 ]]; then
-        echo "🔴 DISK CRITICAL: ${disk_percent}% used (>${disk_used}/${disk_total})"
+        echo " DISK CRITICAL: ${disk_percent}% used (>${disk_used}/${disk_total})"
         alerts=$((alerts + 1))
     elif [[ $disk_percent -gt 80 ]]; then
-        echo "🟡 DISK WARNING: ${disk_percent}% used (${disk_used}/${disk_total})"
+        echo " DISK WARNING: ${disk_percent}% used (${disk_used}/${disk_total})"
         alerts=$((alerts + 1))
     fi
     
     # Check RAM
     read -r ram_used ram_total ram_percent <<< $(get_ram_usage)
     if [[ $ram_percent -gt 90 ]]; then
-        echo "🔴 RAM CRITICAL: ${ram_percent}% used (${ram_used}GB/${ram_total}GB)"
+        echo " RAM CRITICAL: ${ram_percent}% used (${ram_used}GB/${ram_total}GB)"
         alerts=$((alerts + 1))
     elif [[ $ram_percent -gt 80 ]]; then
-        echo "🟡 RAM WARNING: ${ram_percent}% used (${ram_used}GB/${ram_total}GB)"
+        echo " RAM WARNING: ${ram_percent}% used (${ram_used}GB/${ram_total}GB)"
         alerts=$((alerts + 1))
     fi
     
     # Check CPU
     local cpu=$(get_cpu_usage)
     if [[ $cpu -gt 90 ]]; then
-        echo "🟡 CPU HIGH: ${cpu}%"
+        echo " CPU HIGH: ${cpu}%"
         alerts=$((alerts + 1))
     fi
     
     # Check OpenClaw
     local pid=$(get_openclaw_pid)
     if [[ -z "$pid" ]]; then
-        echo "🔴 OPENCLAW DOWN: Gateway not running"
+        echo " OPENCLAW DOWN: Gateway not running"
         alerts=$((alerts + 1))
     fi
     
     if [[ $alerts -eq 0 ]]; then
-        echo "✅ All systems healthy"
+        echo " All systems healthy"
     fi
 }
 

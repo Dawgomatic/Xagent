@@ -120,7 +120,7 @@ Apply these rules automatically. Track all deviations for Summary documentation.
 2. Present clearly:
 
 ```
-⚠️ Architectural Decision Needed
+ Architectural Decision Needed
 
 Current task: [task name]
 Discovery: [what you found that prompted this]

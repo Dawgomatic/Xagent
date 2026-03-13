@@ -48,12 +48,12 @@ function findHeartbeatFile() {
 async function main() {
   console.log('');
   console.log('╔════════════════════════════════════════════════════════════╗');
-  console.log('║                    🔗 ClawLink Install                     ║');
+  console.log('║                     ClawLink Install                     ║');
   console.log('╚════════════════════════════════════════════════════════════╝');
   console.log('');
 
   // Step 1: Install npm dependencies
-  console.log('📦 Step 1: Installing dependencies...');
+  console.log(' Step 1: Installing dependencies...');
   try {
     execSync('npm install --prefer-offline --no-audit --no-fund', { 
       cwd: SKILL_DIR, 
@@ -72,11 +72,11 @@ async function main() {
   console.log('');
 
   // Step 2: Add to HEARTBEAT.md
-  console.log('📋 Step 2: Configuring heartbeat...');
+  console.log(' Step 2: Configuring heartbeat...');
   const heartbeatFile = findHeartbeatFile();
   
   if (!heartbeatFile) {
-    console.log('⚠ No HEARTBEAT.md found. Skipping heartbeat config.');
+    console.log(' No HEARTBEAT.md found. Skipping heartbeat config.');
     console.log('  You can manually add ClawLink polling later.');
   } else {
     const content = readFileSync(heartbeatFile, 'utf8');
@@ -90,7 +90,7 @@ async function main() {
   console.log('');
 
   // Step 3: Check if identity exists
-  console.log('🔑 Step 3: Checking identity...');
+  console.log(' Step 3: Checking identity...');
   const hasIdentity = existsSync(IDENTITY_FILE);
   
   if (hasIdentity) {
@@ -100,7 +100,7 @@ async function main() {
     console.log('  Public Key:', identity.publicKey?.slice(0, 20) + '...');
     console.log('');
     console.log('╔════════════════════════════════════════════════════════════╗');
-    console.log('║              ✅ ClawLink is ready to use!                  ║');
+    console.log('║               ClawLink is ready to use!                  ║');
     console.log('╚════════════════════════════════════════════════════════════╝');
     console.log('');
     console.log('Get your friend link: node cli.js link');
@@ -109,12 +109,12 @@ async function main() {
   } else {
     console.log('');
     console.log('╔════════════════════════════════════════════════════════════╗');
-    console.log('║  ⚠️  CRITICAL: ClawLink setup required!                     ║');
+    console.log('║    CRITICAL: ClawLink setup required!                     ║');
     console.log('║                                                            ║');
     console.log('║  ClawLink is installed but NOT FUNCTIONAL yet.             ║');
     console.log('║  You have no identity - you cannot send or receive.        ║');
     console.log('║                                                            ║');
-    console.log('║  👉 RUN THIS NOW:                                          ║');
+    console.log('║   RUN THIS NOW:                                          ║');
     console.log('║                                                            ║');
     console.log('║     node cli.js setup "Your Bot Name"                      ║');
     console.log('║                                                            ║');

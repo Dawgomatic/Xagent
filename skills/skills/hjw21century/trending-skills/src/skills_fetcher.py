@@ -35,7 +35,7 @@ class SkillsFetcher:
                 ...
             ]
         """
-        print(f"📡 正在获取榜单: {self.trending_url}")
+        print(f" 正在获取榜单: {self.trending_url}")
 
         # 运行异步方法
         return asyncio.run(self._fetch_async())
@@ -89,7 +89,7 @@ class SkillsFetcher:
 
                     # 检查是否包含关键内容
                     if "Skills Leaderboard" not in content and "Leaderboard" not in content:
-                        print(f"  ⚠️ 未找到排行榜标题，等待更长时间...")
+                        print(f"   未找到排行榜标题，等待更长时间...")
                         await asyncio.sleep(10)
                         content = await page.evaluate("() => document.body.innerText")
 
@@ -99,13 +99,13 @@ class SkillsFetcher:
                     skills = self.parse_leaderboard(content)
 
                     if skills:
-                        print(f"✅ 成功获取 {len(skills)} 个技能")
+                        print(f" 成功获取 {len(skills)} 个技能")
                         return skills
 
                     raise Exception("无法从页面解析技能列表")
 
             except Exception as e:
-                print(f"  ⚠️ 尝试 {attempt + 1} 失败: {e}")
+                print(f"   尝试 {attempt + 1} 失败: {e}")
                 if attempt < max_retries - 1:
                     await asyncio.sleep(retry_delay)
                 else:
@@ -138,7 +138,7 @@ class SkillsFetcher:
         if leaderboard_start == -1:
             # 调试：打印页面内容的前1000字符
             preview = html_content[:1000] if html_content else "(空内容)"
-            print(f"  ⚠️ 页面内容预览:\n{preview}")
+            print(f"   页面内容预览:\n{preview}")
             raise Exception("未找到 Skills Leaderboard 标题")
 
         # 提取排行榜部分

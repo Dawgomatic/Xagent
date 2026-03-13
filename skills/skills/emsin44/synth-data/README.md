@@ -4,11 +4,11 @@ Query and analyze volatility forecasts from [Synthdata.co](https://synthdata.co)
 
 ## Features
 
-- 📊 Real-time volatility data for 9 assets (BTC, ETH, SOL, XAU, stocks)
-- 🎯 Forward-looking volatility forecasts
-- 📈 Monte Carlo price simulations
-- 📉 Comparison tables with visual charts
-- 🔔 Alert-ready thresholds
+-  Real-time volatility data for 9 assets (BTC, ETH, SOL, XAU, stocks)
+-  Forward-looking volatility forecasts
+-  Monte Carlo price simulations
+-  Comparison tables with visual charts
+-  Alert-ready thresholds
 
 ## Requirements
 
@@ -48,8 +48,8 @@ python3 scripts/synth.py BTC --json
   BTC — Bitcoin
 ==================================================
   Price:           $77,966
-  24h Change:      🔴 -0.95%
-  Current Vol:     58.4% 🟠 [Elevated]
+  24h Change:       -0.95%
+  Current Vol:     58.4%  [Elevated]
   Avg Realized:    53.3%
   Forecast Vol:    52.2%
 ```

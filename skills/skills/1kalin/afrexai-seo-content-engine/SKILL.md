@@ -182,7 +182,7 @@ Every article follows this skeleton:
 ### Keyword Integration (Natural Placement)
 
 ```
-✅ DO:
+ DO:
 - Primary keyword in title (H1)
 - Primary keyword in first 100 words
 - Primary keyword in 1-2 H2 headings
@@ -190,7 +190,7 @@ Every article follows this skeleton:
 - Secondary keywords scattered in body (1-2 each)
 - Semantic variants throughout (synonyms, related phrases)
 
-❌ DON'T:
+ DON'T:
 - Use exact keyword more than 1x per 200 words
 - Force keywords into headings where they sound unnatural
 - Use the same keyword phrase 3x in one paragraph

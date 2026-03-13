@@ -1,4 +1,4 @@
-# 💡 Automation Examples
+#  Automation Examples
 
 Practical, copy-paste examples for common workflows.
 

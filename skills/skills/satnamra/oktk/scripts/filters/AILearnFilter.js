@@ -127,7 +127,7 @@ class AILearnFilter extends BaseFilter {
     const hasSuccess = lines.some(l => /success|ok|pass|done/i.test(l));
 
     return {
-      summary_template: `📋 ${lines.length} lines${hasErrors ? '\\n❌ Contains errors' : ''}${hasSuccess ? '\\n✅ Success indicators found' : ''}`,
+      summary_template: ` ${lines.length} lines${hasErrors ? '\\n Contains errors' : ''}${hasSuccess ? '\\n Success indicators found' : ''}`,
       extract_rules: [
         { name: 'line_count', pattern: '.*', count: true },
         { name: 'errors', pattern: '(error|fail|exception).*', flags: 'i' },
@@ -159,7 +159,7 @@ class AILearnFilter extends BaseFilter {
     }
 
     // Apply template
-    let result = pattern.summary_template || '📋 {line_count} lines';
+    let result = pattern.summary_template || ' {line_count} lines';
     for (const [key, value] of Object.entries(extracted)) {
       result = result.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
     }
@@ -167,7 +167,7 @@ class AILearnFilter extends BaseFilter {
     // Always include errors if present
     const errors = lines.filter(l => /error|fail|exception/i.test(l));
     if (errors.length > 0 && !result.includes('error')) {
-      result += `\n❌ ${errors.length} error(s):\n${errors.slice(0, 3).join('\n')}`;
+      result += `\n ${errors.length} error(s):\n${errors.slice(0, 3).join('\n')}`;
     }
 
     return result;

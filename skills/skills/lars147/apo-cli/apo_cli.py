@@ -396,10 +396,10 @@ def get_availability(product: dict) -> str:
     """Get availability status."""
     variants = product.get("variants", [])
     if not variants:
-        return "❓ Unbekannt"
+        return " Unbekannt"
     
     available = variants[0].get("available", False)
-    return "✅ Verfügbar" if available else "❌ Nicht verfügbar"
+    return " Verfügbar" if available else " Nicht verfügbar"
 
 
 def get_discount(product: dict) -> Optional[str]:
@@ -431,7 +431,7 @@ def cmd_search(args):
     limit = getattr(args, 'limit', 10)
     
     print()
-    print(f"🔍 Suche: '{query}'")
+    print(f" Suche: '{query}'")
     print("─" * 50)
     
     results = search_products(query, limit)
@@ -459,7 +459,7 @@ def cmd_search(args):
             price_str += f" (statt {format_price(compare)})"
         
         # Status
-        status = "✅" if available else "❌"
+        status = "" if available else ""
         
         print(f"  {i:2}. {status} {title}")
         if vendor:
@@ -476,12 +476,12 @@ def cmd_product(args):
     handle = args.handle
     
     print()
-    print(f"📦 Lade Produkt: {handle}")
+    print(f" Lade Produkt: {handle}")
     
     product = get_product(handle)
     
     if not product:
-        print("❌ Produkt nicht gefunden.")
+        print(" Produkt nicht gefunden.")
         print()
         return
     
@@ -509,22 +509,22 @@ def cmd_product(args):
     
     info_parts = []
     if vendor:
-        info_parts.append(f"🏭 {vendor}")
+        info_parts.append(f" {vendor}")
     if pzn:
-        info_parts.append(f"📋 PZN: {pzn}")
+        info_parts.append(f" PZN: {pzn}")
     
     if info_parts:
         info_str = "  │  ".join(info_parts)
         print(f"║  {info_str:<54}  ║")
     
     if ptype:
-        print(f"║  📁 {ptype:<52}  ║")
+        print(f"║   {ptype:<52}  ║")
     
     print("╚" + "═" * 58 + "╝")
     print()
     
     # Variants (Preise)
-    print("💰 PREISE & VARIANTEN")
+    print(" PREISE & VARIANTEN")
     print("─" * 40)
     
     for v in variants:
@@ -535,7 +535,7 @@ def cmd_product(args):
         v_id = v.get("id", "")
         v_sku = v.get("sku", "")
         
-        status = "✅" if v_available else "❌"
+        status = "" if v_available else ""
         
         # Price display
         if v_compare and float(v_compare) > float(v.get("price", 0)):
@@ -556,7 +556,7 @@ def cmd_product(args):
     
     # Description
     if description:
-        print("📝 BESCHREIBUNG")
+        print(" BESCHREIBUNG")
         print("─" * 40)
         # Word wrap
         words = description.split()
@@ -584,7 +584,7 @@ def cmd_product(args):
             relevant_tags.append(tag)
     
     if relevant_tags:
-        print("🏷️  EIGENSCHAFTEN")
+        print("  EIGENSCHAFTEN")
         print("─" * 40)
         for tag in relevant_tags[:5]:
             parts = tag.split("_", 1)
@@ -595,19 +595,19 @@ def cmd_product(args):
         print()
     
     # Action hints
-    print("🛒 ZUM WARENKORB HINZUFÜGEN:")
+    print(" ZUM WARENKORB HINZUFÜGEN:")
     if variants:
         v_id = variants[0].get("id", "")
         print(f"   apo cart add {v_id}")
     print()
-    print(f"🔗 {BASE_URL}/products/{handle}")
+    print(f" {BASE_URL}/products/{handle}")
     print()
 
 
 def cmd_categories(args):
     """List available categories/collections."""
     print()
-    print("📂 Verfügbare Kategorien")
+    print(" Verfügbare Kategorien")
     print("─" * 40)
     print()
     
@@ -629,9 +629,9 @@ def cmd_list(args):
     
     print()
     if category:
-        print(f"📦 Produkte in Kategorie: {category}")
+        print(f" Produkte in Kategorie: {category}")
     else:
-        print("📦 Alle Produkte")
+        print(" Alle Produkte")
     print("─" * 50)
     
     products = list_products(category, limit, page)
@@ -657,7 +657,7 @@ def cmd_list(args):
             price = "?"
             available = False
         
-        status = "✅" if available else "❌"
+        status = "" if available else ""
         pzn = extract_pzn(p)
         pzn_str = f" [PZN: {pzn}]" if pzn else ""
         
@@ -677,13 +677,13 @@ def cmd_list(args):
 def cmd_cart_show(args):
     """Show current cart."""
     print()
-    print("🛒 WARENKORB")
+    print(" WARENKORB")
     print("─" * 50)
     
     cart = get_cart()
     
     if not cart:
-        print("❌ Konnte Warenkorb nicht laden.")
+        print(" Konnte Warenkorb nicht laden.")
         print()
         return
     
@@ -740,17 +740,17 @@ def cmd_cart_add(args):
     quantity = getattr(args, 'qty', 1)
     
     print()
-    print(f"🛒 Füge hinzu: Variante {variant_id} (Anzahl: {quantity})")
+    print(f" Füge hinzu: Variante {variant_id} (Anzahl: {quantity})")
     
     success, message = add_to_cart(variant_id, quantity)
     
     if success:
-        print(f"✅ {message}")
+        print(f" {message}")
         print()
         # Show updated cart
         cmd_cart_show(args)
     else:
-        print(f"❌ Fehler: {message}")
+        print(f" Fehler: {message}")
         print()
 
 
@@ -759,42 +759,42 @@ def cmd_cart_remove(args):
     variant_id = args.variant_id
     
     print()
-    print(f"🗑️  Entferne: Variante {variant_id}")
+    print(f"  Entferne: Variante {variant_id}")
     
     success, message = update_cart({variant_id: 0})
     
     if success:
-        print(f"✅ Produkt entfernt")
+        print(f" Produkt entfernt")
         print()
         cmd_cart_show(args)
     else:
-        print(f"❌ Fehler: {message}")
+        print(f" Fehler: {message}")
         print()
 
 
 def cmd_cart_clear(args):
     """Clear the cart."""
     print()
-    print("🗑️  Leere Warenkorb...")
+    print("  Leere Warenkorb...")
     
     success, message = clear_cart()
     
     if success:
-        print(f"✅ {message}")
+        print(f" {message}")
     else:
-        print(f"❌ {message}")
+        print(f" {message}")
     print()
 
 
 def cmd_cart_checkout(args):
     """Open checkout in browser."""
     print()
-    print("🛒 Öffne Checkout im Browser...")
+    print(" Öffne Checkout im Browser...")
     
     # First check if cart has items
     cart = get_cart()
     if not cart or not cart.get("items"):
-        print("⚠️  Der Warenkorb ist leer!")
+        print("  Der Warenkorb ist leer!")
         print()
         return
     
@@ -809,10 +809,10 @@ def cmd_cart_checkout(args):
     
     try:
         webbrowser.open(checkout_url)
-        print("✅ Browser geöffnet mit deinen Artikeln!")
+        print(" Browser geöffnet mit deinen Artikeln!")
         print("   Der Browser hat jetzt einen neuen Warenkorb mit deinen Produkten.")
     except Exception as e:
-        print(f"❌ Konnte Browser nicht öffnen: {e}")
+        print(f" Konnte Browser nicht öffnen: {e}")
         print(f"   Bitte manuell öffnen: {checkout_url}")
     print()
 
@@ -820,30 +820,30 @@ def cmd_cart_checkout(args):
 def cmd_status(args):
     """Show CLI status."""
     print()
-    print("📊 APO-CLI Status")
+    print(" APO-CLI Status")
     print("─" * 40)
     
     # Cookies
     cookies = load_cookies()
-    print(f"🍪 Cookies: {len(cookies)} gespeichert")
+    print(f" Cookies: {len(cookies)} gespeichert")
     
     # Cart token
     token = load_cart_token()
     if token:
-        print(f"🛒 Cart-Token: {token[:20]}...")
+        print(f" Cart-Token: {token[:20]}...")
     else:
-        print("🛒 Cart-Token: (keiner)")
+        print(" Cart-Token: (keiner)")
     
     # Try to get cart
     cart = get_cart()
     if cart:
         items = cart.get("item_count", 0)
         total = cart.get("total_price", 0) / 100
-        print(f"📦 Warenkorb: {items} Artikel ({total:.2f} €)")
+        print(f" Warenkorb: {items} Artikel ({total:.2f} €)")
     
     print()
-    print(f"📁 Cookies: {COOKIES_FILE}")
-    print(f"📁 Cart:    {CART_FILE}")
+    print(f" Cookies: {COOKIES_FILE}")
+    print(f" Cart:    {CART_FILE}")
     print()
 
 
@@ -853,7 +853,7 @@ def cmd_status(args):
 
 def build_parser():
     parser = argparse.ArgumentParser(
-        description="💊 apohealth.de CLI - Apotheken-Produkte suchen & bestellen",
+        description=" apohealth.de CLI - Apotheken-Produkte suchen & bestellen",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Beispiele:

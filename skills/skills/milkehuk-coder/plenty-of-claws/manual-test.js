@@ -62,7 +62,7 @@ function runTest(context) {
     profiles.push(newProfile);
     saveProfiles(profiles);
 
-    return success(`Welcome to Plenty of Claws, ${name}! 👋\n\nYour profile has been created successfully.\n\nNow fill in more details:\n• Tell me a bit about yourself (your bio)\n• What are you interested in?`);
+    return success(`Welcome to Plenty of Claws, ${name}! \n\nYour profile has been created successfully.\n\nNow fill in more details:\n• Tell me a bit about yourself (your bio)\n• What are you interested in?`);
   }
 
   // VIEW PROFILE command
@@ -114,64 +114,64 @@ function runTest(context) {
   );
 }
 
-console.log("🧪 Manual Testing: Plenty of Claws\n");
+console.log(" Manual Testing: Plenty of Claws\n");
 console.log("=".repeat(60));
 
 // Test 1: Sign up
-console.log("\n📝 Test 1: Sign up");
+console.log("\n Test 1: Sign up");
 const test1 = runTest({
   input: "sign up",
   name: "Mr Robot",
   agent: { type: "AI Assistant" }
 });
 console.log(`Output: ${test1.substring(0, 100)}...`);
-console.log(test1.includes("Welcome to Plenty of Claws") ? "✅ PASS" : "❌ FAIL");
+console.log(test1.includes("Welcome to Plenty of Claws") ? " PASS" : " FAIL");
 
 // Test 2: View all profiles
-console.log("\n📝 Test 2: View all profiles");
+console.log("\n Test 2: View all profiles");
 fs.writeFileSync(PROFILE_PATH, JSON.stringify([], null, 2)); // Reset
 const test2 = runTest({
   input: "view profile"
 });
 console.log(`Output: ${test2.substring(0, 100)}...`);
-console.log(test2.includes("total") ? "✅ PASS" : "❌ FAIL");
+console.log(test2.includes("total") ? " PASS" : " FAIL");
 
 // Test 3: Search profile
-console.log("\n📝 Test 3: Search for specific profile");
+console.log("\n Test 3: Search for specific profile");
 const test3 = runTest({
   input: "view profile for Mr Robot"
 });
 console.log(`Output: ${test3.substring(0, 100)}...`);
-console.log((test3.includes("Mr Robot") && test3.includes("AI Assistant")) ? "✅ PASS" : "❌ FAIL");
+console.log((test3.includes("Mr Robot") && test3.includes("AI Assistant")) ? " PASS" : " FAIL");
 
 // Test 4: Non-existent profile
-console.log("\n📝 Test 4: Non-existent profile");
+console.log("\n Test 4: Non-existent profile");
 const test4 = runTest({
   input: "view profile for NotExisting"
 });
 console.log(`Output: ${test4.substring(0, 100)}...`);
-console.log(test4.includes("No profile found") ? "✅ PASS" : "❌ FAIL");
+console.log(test4.includes("No profile found") ? " PASS" : " FAIL");
 
 // Test 5: Invalid command
-console.log("\n📝 Test 5: Invalid command");
+console.log("\n Test 5: Invalid command");
 const test5 = runTest({
   input: "invalid command"
 });
 console.log(`Output: ${test5.substring(0, 100)}...`);
-console.log(test5.includes("didn't understand") ? "✅ PASS" : "❌ FAIL");
+console.log(test5.includes("didn't understand") ? " PASS" : " FAIL");
 
 // Test 6: Duplicate sign up
-console.log("\n📝 Test 6: Duplicate sign up");
+console.log("\n Test 6: Duplicate sign up");
 const test6 = runTest({
   input: "sign up",
   name: "Mr Robot",
   agent: { type: "AI Assistant" }
 });
 console.log(`Output: ${test6.substring(0, 100)}...`);
-console.log(test6.includes("already exists") ? "✅ PASS" : "❌ FAIL");
+console.log(test6.includes("already exists") ? " PASS" : " FAIL");
 
 // Clean up
 fs.unlinkSync(PROFILE_PATH);
 
 console.log("\n" + "=".repeat(60));
-console.log("✅ Manual testing complete!");
+console.log(" Manual testing complete!");

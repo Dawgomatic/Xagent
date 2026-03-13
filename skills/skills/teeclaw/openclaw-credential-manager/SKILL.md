@@ -9,7 +9,7 @@ description: MANDATORY security foundation for OpenClaw. Consolidate scattered A
 
 Consolidate scattered API keys and credentials into a secure, centralized `.env` file.
 
-## ⚠️ This Is Not Optional
+##  This Is Not Optional
 
 Centralized `.env` credential management is a **core requirement** for OpenClaw security. If your credentials are scattered across multiple files, **stop and consolidate them now**.
 
@@ -145,17 +145,17 @@ The skill scans these locations:
 
 ## Security Features
 
-✅ **File permissions:** Sets `.env` to mode 600 (owner only)
-✅ **Directory permissions:** Sets backup dirs to mode 700 (owner only)
-✅ **Backup permissions:** Sets backup files to mode 600 (owner only)
-✅ **Git protection:** Creates/updates `.gitignore`
-✅ **Backups:** Timestamped backups before changes (secured)
-✅ **Validation:** Checks format, permissions, entropy, and duplicates
-✅ **Template:** Creates `.env.example` (safe to share)
-✅ **GPG encryption:** Encrypts high-value secrets at rest
-✅ **Rotation tracking:** Warns when credentials need rotation
-✅ **Deep scan:** Detects hardcoded secrets in source files
-✅ **Symlink-aware:** Validates symlinked .env targets
+ **File permissions:** Sets `.env` to mode 600 (owner only)
+ **Directory permissions:** Sets backup dirs to mode 700 (owner only)
+ **Backup permissions:** Sets backup files to mode 600 (owner only)
+ **Git protection:** Creates/updates `.gitignore`
+ **Backups:** Timestamped backups before changes (secured)
+ **Validation:** Checks format, permissions, entropy, and duplicates
+ **Template:** Creates `.env.example` (safe to share)
+ **GPG encryption:** Encrypts high-value secrets at rest
+ **Rotation tracking:** Warns when credentials need rotation
+ **Deep scan:** Detects hardcoded secrets in source files
+ **Symlink-aware:** Validates symlinked .env targets
 
 ## Output Structure
 
@@ -217,11 +217,11 @@ On headless servers (VPS), the GPG agent caches the passphrase:
 
 | Key Type | Encrypt? | Why |
 |----------|----------|-----|
-| Wallet private keys | ✅ Yes | Controls funds |
-| Custody/signer private keys | ✅ Yes | Controls identity |
-| Mnemonics / seed phrases | ✅ Yes | Master recovery |
-| API keys (services) | ❌ No | Revocable, low damage |
-| Agent IDs, names, URLs | ❌ No | Not secrets |
+| Wallet private keys |  Yes | Controls funds |
+| Custody/signer private keys |  Yes | Controls identity |
+| Mnemonics / seed phrases |  Yes | Master recovery |
+| API keys (services) |  No | Revocable, low damage |
+| Agent IDs, names, URLs |  No | Not secrets |
 
 ## Credential Rotation Tracking
 
@@ -257,8 +257,8 @@ Creates `~/.openclaw/.env.meta`:
 ./scripts/rotation-check.py
 
 # Output:
-# 🔴 MAIN_WALLET_PRIVATE_KEY: 26 days old (critical, rotate every 90 days)
-# ✅ MOLTBOOK_API_KEY: 7 days old (low, rotate every 180 days)
+#  MAIN_WALLET_PRIVATE_KEY: 26 days old (critical, rotate every 90 days)
+#  MOLTBOOK_API_KEY: 7 days old (low, rotate every 180 days)
 ```
 
 ### Rotation Schedules
@@ -404,20 +404,20 @@ cd /path/to/openclaw/skills/credential-manager
 ```
 
 **What to look for in output:**
-- ⚠️ files with mode != 600 (insecure permissions)
+-  files with mode != 600 (insecure permissions)
 - Symlinked `.env` files (should point to main `~/.openclaw/.env`)
 - JSON credential files outside `~/.openclaw/.env`
 - Deep scan hits on hardcoded keys in scripts
 
 **Example output:**
 ```
-⚠️ /home/user/.openclaw/farcaster-credentials.json
+ /home/user/.openclaw/farcaster-credentials.json
    Type: json
    Keys: custodyPrivateKey, signerPrivateKey, ...
    Mode: 644
-   ⚠️  Should be 600 for security
+     Should be 600 for security
 
-✅ /home/user/.openclaw/.env
+ /home/user/.openclaw/.env
    Type: env
    Keys: API_KEY, X_CONSUMER_KEY, ...
    Mode: 600
@@ -472,15 +472,15 @@ chmod 600 ~/.openclaw/.env
 ```
 
 **Checks performed:**
-- ✅ `.env` permissions (must be 600)
-- ✅ `.gitignore` coverage
-- ✅ Format validation (key format, quoting, duplicates)
-- ✅ Security analysis:
+-  `.env` permissions (must be 600)
+-  `.gitignore` coverage
+-  Format validation (key format, quoting, duplicates)
+-  Security analysis:
   - Detects plaintext private keys (`0x` + 64 hex chars) → recommends GPG
   - Detects mnemonic/seed phrases (12/24 word values) → recommends GPG
   - Entropy analysis on SECRET/PRIVATE_KEY/PASSWORD fields
   - Flags weak/placeholder values
-- ✅ Backup permissions (files must be 600, directories 700)
+-  Backup permissions (files must be 600, directories 700)
 
 **Fix issues automatically:**
 ```bash
@@ -773,15 +773,15 @@ If the new credential is high-value (private key, wallet key):
 See [references/security.md](references/security.md) for detailed security guidelines.
 
 **Quick checklist:**
-- ✅ `.env` has 600 permissions
-- ✅ `.env` is git-ignored
-- ✅ Backup files have 600 permissions
-- ✅ Backup directories have 700 permissions
-- ✅ No credentials in code or logs (use `--deep` scan to verify)
-- ✅ Private keys encrypted with GPG
-- ✅ Rotation schedule established and tracked
-- ✅ Symlinked .env files point to the main .env only
-- ✅ No credentials in shell history (use `source`, not `export KEY=val`)
+-  `.env` has 600 permissions
+-  `.env` is git-ignored
+-  Backup files have 600 permissions
+-  Backup directories have 700 permissions
+-  No credentials in code or logs (use `--deep` scan to verify)
+-  Private keys encrypted with GPG
+-  Rotation schedule established and tracked
+-  Symlinked .env files point to the main .env only
+-  No credentials in shell history (use `source`, not `export KEY=val`)
 
 ## Rollback
 

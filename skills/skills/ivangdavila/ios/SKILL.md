@@ -1,7 +1,7 @@
 ---
 name: iOS
 description: Build, test, and ship iOS apps with Swift, Xcode, and App Store best practices.
-metadata: {"clawdbot":{"emoji":"📱","requires":{"bins":["xcodebuild"]},"os":["darwin"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["xcodebuild"]},"os":["darwin"]}}
 ---
 
 # iOS Development Rules

@@ -1,4 +1,4 @@
-# ⭐ VTA Memory
+#  VTA Memory
 
 > Reward and motivation system for AI agents. Part of the [AI Brain series](https://github.com/ImpKind).
 
@@ -10,10 +10,10 @@ Give your AI agent genuine *wanting* — not just doing things when asked, but h
 ## The Problem
 
 Current AI agents:
-- ✅ Do what they're asked
-- ❌ Don't *want* anything
-- ❌ Have no internal motivation
-- ❌ Don't feel satisfaction from accomplishment
+-  Do what they're asked
+-  Don't *want* anything
+-  Have no internal motivation
+-  Don't feel satisfaction from accomplishment
 
 **Without a reward system, there's no desire. Just execution.**
 
@@ -47,7 +47,7 @@ cd ~/.openclaw/workspace/skills/vta-memory
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Do        │────▶│   Get       │────▶│   Drive     │
+│   Do        │────│   Get       │────│   Drive     │
 │   Thing     │     │   Reward    │     │   Goes UP   │
 └─────────────┘     └─────────────┘     └──────┬──────┘
       ▲                                        │
@@ -129,12 +129,12 @@ After install, `VTA_STATE.md` is created in your workspace root and auto-injecte
 
 | Part | Function | Status |
 |------|----------|--------|
-| [hippocampus](https://github.com/ImpKind/hippocampus) | Memory formation, decay, reinforcement | ✅ Live |
-| [amygdala-memory](https://github.com/ImpKind/amygdala-memory) | Emotional processing | ✅ Live |
-| **vta-memory** | Reward and motivation | ✅ Live |
-| basal-ganglia-memory | Habit formation | 🚧 Coming |
-| anterior-cingulate-memory | Conflict detection | 🚧 Coming |
-| insula-memory | Internal state awareness | 🚧 Coming |
+| [hippocampus](https://github.com/ImpKind/hippocampus) | Memory formation, decay, reinforcement |  Live |
+| [amygdala-memory](https://github.com/ImpKind/amygdala-memory) | Emotional processing |  Live |
+| **vta-memory** | Reward and motivation |  Live |
+| basal-ganglia-memory | Habit formation |  Coming |
+| anterior-cingulate-memory | Conflict detection |  Coming |
+| insula-memory | Internal state awareness |  Coming |
 
 ## Philosophy
 
@@ -154,4 +154,4 @@ MIT
 
 ---
 
-*Part of the AI Brain series. Built with ⭐ by [ImpKind](https://github.com/ImpKind)*
+*Part of the AI Brain series. Built with  by [ImpKind](https://github.com/ImpKind)*

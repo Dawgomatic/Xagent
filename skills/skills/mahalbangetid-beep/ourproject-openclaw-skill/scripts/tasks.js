@@ -16,27 +16,27 @@ async function listTasks() {
         const pending = tasks.filter(t => !t.completed && !t.isCompleted);
 
         if (pending.length === 0) {
-            console.log('✅ No pending tasks!');
+            console.log(' No pending tasks!');
             return;
         }
 
-        console.log(`📋 *Tasks Pending* (${pending.length})\n`);
+        console.log(` *Tasks Pending* (${pending.length})\n`);
 
-        const priorityIcon = { high: '🔴', medium: '🟡', low: '🟢' };
+        const priorityIcon = { high: '', medium: '', low: '' };
 
         pending.forEach(t => {
-            const icon = priorityIcon[t.priority] || '⚪';
+            const icon = priorityIcon[t.priority] || '';
             const dueDate = t.dueDate || t.due_date || t.deadline;
             let dueStr = '';
             if (dueDate) {
                 const days = Math.ceil((new Date(dueDate) - new Date()) / (1000 * 60 * 60 * 24));
-                dueStr = days < 0 ? ` ⏰ ${Math.abs(days)} day(s) overdue!` : days === 0 ? ' ⏰ Due today!' : days === 1 ? ' ⏰ Tomorrow' : ` 📅 ${days} days left`;
+                dueStr = days < 0 ? `  ${Math.abs(days)} day(s) overdue!` : days === 0 ? '  Due today!' : days === 1 ? '  Tomorrow' : `  ${days} days left`;
             }
             console.log(`${icon} ${t.title || t.name}${dueStr}`);
-            if (t.Project?.name || t.project_name) console.log(`   📁 ${t.Project?.name || t.project_name}`);
+            if (t.Project?.name || t.project_name) console.log(`    ${t.Project?.name || t.project_name}`);
         });
     } catch (err) {
-        console.error('❌', err.message);
+        console.error('', err.message);
     }
 }
 

@@ -1,7 +1,7 @@
 ---
 name: lead-enrichment
 description: Enrich contact and lead records with LinkedIn profiles, email addresses, company data, and education info. Use when asked to "enrich contacts", "fill in missing data", "find emails for leads", "complete lead profiles", "look up company info", or any bulk data completion task for CRM records.
-metadata: { "openclaw": { "emoji": "✨" } }
+metadata: { "openclaw": { "emoji": "" } }
 ---
 
 # Lead Enrichment — Multi-Source Data Completion

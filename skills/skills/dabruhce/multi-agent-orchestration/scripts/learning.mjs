@@ -482,7 +482,7 @@ function showAgentMemory(agentName) {
 function showLearnings() {
   const data = getLearnings();
   
-  console.log('\n📚 Shared Learnings\n');
+  console.log('\n Shared Learnings\n');
   
   if (data.learnings.length === 0) {
     console.log('   (no learnings yet)');
@@ -499,7 +499,7 @@ function showLearnings() {
   }
   
   for (const [category, items] of Object.entries(byCategory)) {
-    console.log(`\n📁 ${category}:`);
+    console.log(`\n ${category}:`);
     for (const item of items) {
       console.log(`   • ${item.lesson}`);
       if (item.source) console.log(`     └─ source: ${item.source}`);
@@ -511,9 +511,9 @@ function showLearnings() {
 function showGlobalContext() {
   const context = getGlobalContext();
   
-  console.log('\n🌐 Global Context\n');
+  console.log('\n Global Context\n');
   
-  console.log('📂 Current Projects:');
+  console.log(' Current Projects:');
   if (context.currentProjects.length === 0) {
     console.log('   (none)');
   } else {
@@ -522,12 +522,12 @@ function showGlobalContext() {
     }
   }
   
-  console.log('\n⚙️ Preferences:');
+  console.log('\n Preferences:');
   for (const [key, value] of Object.entries(context.preferences || {})) {
     console.log(`   ${key}: ${value}`);
   }
   
-  console.log('\n📌 Active Facts:');
+  console.log('\n Active Facts:');
   if ((context.activeFacts || []).length === 0) {
     console.log('   (none)');
   } else {
@@ -536,7 +536,7 @@ function showGlobalContext() {
     }
   }
   
-  console.log('\n📋 Recent Decisions:');
+  console.log('\n Recent Decisions:');
   const decisions = (context.recentDecisions || []).slice(-5);
   if (decisions.length === 0) {
     console.log('   (none)');
@@ -553,28 +553,28 @@ function showGlobalContext() {
 function showRetro(days = 7) {
   const retro = generateRetro(days);
   
-  console.log(`\n🔄 Retrospective (last ${days} days)\n`);
+  console.log(`\n Retrospective (last ${days} days)\n`);
   console.log('─'.repeat(40));
   
-  console.log('\n📊 Summary:');
+  console.log('\n Summary:');
   console.log(`   Completed: ${retro.summary.totalCompleted}`);
   console.log(`   Failed:    ${retro.summary.totalFailed}`);
   console.log(`   Feedback:  ${retro.summary.totalFeedback}`);
   
   if (Object.keys(retro.byAgent).length > 0) {
-    console.log('\n👥 By Agent:');
+    console.log('\n By Agent:');
     for (const [agent, stats] of Object.entries(retro.byAgent)) {
       const total = stats.completed + stats.failed;
       const successRate = total > 0 ? Math.round((stats.completed / total) * 100) : 100;
       console.log(`   ${agent.padEnd(12)} ${stats.completed} done, ${stats.failed} failed (${successRate}%)`);
       if (stats.feedback.length > 0) {
-        console.log(`               📝 ${stats.feedback.length} feedback items`);
+        console.log(`                ${stats.feedback.length} feedback items`);
       }
     }
   }
   
   if (retro.suggestions.length > 0) {
-    console.log('\n💡 Suggestions:');
+    console.log('\n Suggestions:');
     for (const suggestion of retro.suggestions) {
       console.log(`   • ${suggestion}`);
     }

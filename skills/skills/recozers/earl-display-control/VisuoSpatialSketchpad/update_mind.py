@@ -7,7 +7,7 @@ house_item = {
     "detail": "Tonight is Sunday (Feb 8). Reminder early so nobody forgets when Wednesday rolls round.",
     "priority": "high",
     "category": "chores",
-    "icon": "🗑️"
+    "icon": ""
 }
 mind["house_stuff"] = {"items": [house_item]}
 mind["earl_unplugged"] = [entry for entry in mind["earl_unplugged"] if entry["topic"] not in {"Old takes", "The thermostat wars"}]
@@ -16,7 +16,7 @@ mind["earl_unplugged"].append({
     "topic": "Coffee machine TLC",
     "take": "We love the espresso but nobody runs the cleaning cycle. Descale me up, lads.",
     "heat": 0.7,
-    "emoji": "☕",
+    "emoji": "",
     "date": datetime.datetime.utcnow().strftime("%Y-%m-%d")
 })
 mind["long_term_patterns"] = []

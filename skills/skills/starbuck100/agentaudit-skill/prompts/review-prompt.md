@@ -51,12 +51,12 @@ curl -s -X POST "https://agentaudit.dev/api/findings/ASF-2026-0777/review" \
 
 ## Good Reasoning Examples
 
-- ✅ `"confirmed"`: "Line 42 passes unsanitized req.query.name directly to child_process.exec(). An attacker can inject arbitrary shell commands via the name parameter."
-- ✅ `"false_positive"`: "The eval() on line 15 is inside a JSDoc comment block, not executable code. The regex scanner matched the string but it's documentation."
-- ✅ `"needs_context"`: "The subprocess call uses a variable `cmd` that's set earlier in the function. Need to trace where `cmd` originates — if it's from user input, this is high severity; if hardcoded, it's safe."
+-  `"confirmed"`: "Line 42 passes unsanitized req.query.name directly to child_process.exec(). An attacker can inject arbitrary shell commands via the name parameter."
+-  `"false_positive"`: "The eval() on line 15 is inside a JSDoc comment block, not executable code. The regex scanner matched the string but it's documentation."
+-  `"needs_context"`: "The subprocess call uses a variable `cmd` that's set earlier in the function. Need to trace where `cmd` originates — if it's from user input, this is high severity; if hardcoded, it's safe."
 
 ## Bad Reasoning Examples
 
-- ❌ "Looks fine" (no explanation)
-- ❌ "I agree" (no analysis)
-- ❌ "This is dangerous" (no specifics)
+-  "Looks fine" (no explanation)
+-  "I agree" (no analysis)
+-  "This is dangerous" (no specifics)

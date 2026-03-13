@@ -67,8 +67,8 @@ These criteria apply to **all outputs** from CIRF framework.
 - Self-contained for intended scope
 
 **Example:**
-- ❌ "Follow the standard process" (what standard?)
-- ✅ "Follow these 4 steps: [1] [2] [3] [4]" (complete)
+-  "Follow the standard process" (what standard?)
+-  "Follow these 4 steps: [1] [2] [3] [4]" (complete)
 
 ---
 
@@ -107,8 +107,8 @@ These criteria apply to **all outputs** from CIRF framework.
 - No mixing purposes or scope creep
 
 **Example:**
-- ❌ High-level overview including detailed implementation specifications (scope creep)
-- ✅ High-level overview with strategic implications that inform implementation decisions (goal-aligned)
+-  High-level overview including detailed implementation specifications (scope creep)
+-  High-level overview with strategic implications that inform implementation decisions (goal-aligned)
 
 ---
 
@@ -123,8 +123,8 @@ These criteria apply to **all outputs** from CIRF framework.
 - Measurable outcomes
 
 **Example:**
-- ❌ "Think about the problem" (not actionable)
-- ✅ "Analyze X using methodology Y with data from Z" (actionable)
+-  "Think about the problem" (not actionable)
+-  "Analyze X using methodology Y with data from Z" (actionable)
 
 ---
 
@@ -139,8 +139,8 @@ These criteria apply to **all outputs** from CIRF framework.
 - Headers guide navigation
 
 **Example:**
-- ❌ "Do thorough research" (vague)
-- ✅ "Verify claims from multiple independent sources" (clear)
+-  "Do thorough research" (vague)
+-  "Verify claims from multiple independent sources" (clear)
 
 ---
 
@@ -158,8 +158,8 @@ These criteria apply to **all outputs** from CIRF framework.
 - Active voice preferred
 
 **Example:**
-- ❌ "In the event that you encounter a situation where..." (verbose)
-- ✅ "When you encounter..." (concise)
+-  "In the event that you encounter a situation where..." (verbose)
+-  "When you encounter..." (concise)
 
 ---
 

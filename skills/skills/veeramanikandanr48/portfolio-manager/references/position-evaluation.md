@@ -279,18 +279,18 @@ Combine the four factors to determine action:
 ### HOLD Decision
 
 **Criteria:**
-- ✅ Thesis: Intact or strengthening
-- ✅ Valuation: Fair to undervalued
-- ✅ Position Size: Within target range (5-10% for medium conviction)
-- ✅ Relative Opportunity: No clearly better alternative after costs
+-  Thesis: Intact or strengthening
+-  Valuation: Fair to undervalued
+-  Position Size: Within target range (5-10% for medium conviction)
+-  Relative Opportunity: No clearly better alternative after costs
 
 **Example:**
 ```
 Position: Johnson & Johnson (JNJ)
-Thesis: ✅ Intact (healthcare demand, dividend aristocrat)
-Valuation: ✅ Fair (P/E 16x vs 15x historical avg)
-Position Size: ✅ 7% of portfolio (target range)
-Opportunity: ✅ No compelling alternative in healthcare
+Thesis:  Intact (healthcare demand, dividend aristocrat)
+Valuation:  Fair (P/E 16x vs 15x historical avg)
+Position Size:  7% of portfolio (target range)
+Opportunity:  No compelling alternative in healthcare
 
 Decision: HOLD
 Rationale: Position performing as expected, appropriately sized, no reason to change
@@ -300,18 +300,18 @@ Next Review: Quarterly earnings (Q3 2024)
 ### ADD Decision
 
 **Criteria:**
-- ✅ Thesis: Strengthening or intact with high conviction
-- ✅ Valuation: Undervalued or fair with improving fundamentals
-- ✅ Position Size: Below target, room to add without excessive concentration
-- ✅ Opportunity: Among top ideas, better than alternatives
+-  Thesis: Strengthening or intact with high conviction
+-  Valuation: Undervalued or fair with improving fundamentals
+-  Position Size: Below target, room to add without excessive concentration
+-  Opportunity: Among top ideas, better than alternatives
 
 **Example:**
 ```
 Position: Meta Platforms (META)
-Thesis: ✅ Strengthening (AI monetization exceeding expectations, cost discipline)
-Valuation: ✅ Undervalued (P/E 22x vs 28x historical, PEG 1.2)
-Position Size: ✅ 5% of portfolio (room to add to 8-10%)
-Opportunity: ✅ Top conviction, better expected return than alternatives
+Thesis:  Strengthening (AI monetization exceeding expectations, cost discipline)
+Valuation:  Undervalued (P/E 22x vs 28x historical, PEG 1.2)
+Position Size:  5% of portfolio (room to add to 8-10%)
+Opportunity:  Top conviction, better expected return than alternatives
 
 Decision: ADD 3-5% more (increase position to 8-10% total)
 Rationale: Thesis improving, valuation attractive, high conviction
@@ -322,18 +322,18 @@ Risk Management: Set stop-loss at $420 (recent low)
 ### TRIM Decision
 
 **Criteria:**
-- ⚠️ Thesis: Weakening OR still intact but lower conviction
-- ⚠️ Valuation: Overvalued or expensive vs historical/peers
-- ⚠️ Position Size: Exceeded target (>12% for medium conviction, >15% for high conviction)
-- ⚠️ Opportunity: Better alternatives available or risk reduction needed
+-  Thesis: Weakening OR still intact but lower conviction
+-  Valuation: Overvalued or expensive vs historical/peers
+-  Position Size: Exceeded target (>12% for medium conviction, >15% for high conviction)
+-  Opportunity: Better alternatives available or risk reduction needed
 
 **Example:**
 ```
 Position: NVIDIA (NVDA)
-Thesis: ✅ Intact (AI demand strong) ⚠️ but slowing growth rates expected
-Valuation: ⚠️ Expensive (P/E 65x vs 45x historical, extended vs peers)
-Position Size: ⚠️ 18% of portfolio (exceeded 15% max)
-Opportunity: ⚠️ Other high-quality tech at better valuations
+Thesis:  Intact (AI demand strong)  but slowing growth rates expected
+Valuation:  Expensive (P/E 65x vs 45x historical, extended vs peers)
+Position Size:  18% of portfolio (exceeded 15% max)
+Opportunity:  Other high-quality tech at better valuations
 
 Decision: TRIM from 18% to 10-12%
 Rationale: Valuation extended, position too large, take some profits
@@ -345,7 +345,7 @@ Tax Strategy: Sell highest-cost-basis shares first (minimize tax impact)
 ### SELL Decision
 
 **Criteria:**
-- ❌ Thesis: Broken or significantly impaired
+-  Thesis: Broken or significantly impaired
 - OR: Valuation severely overvalued with deteriorating fundamentals
 - OR: Better opportunities + need to reduce position count
 - OR: Risk management (stop-loss triggered, risk too high)
@@ -353,10 +353,10 @@ Tax Strategy: Sell highest-cost-basis shares first (minimize tax impact)
 **Example:**
 ```
 Position: Teladoc (TDOC)
-Thesis: ❌ Broken (telehealth adoption slower than expected, competition intense, path to profitability unclear)
-Valuation: ❌ Expensive vs peers despite losses (EV/Sales 2.5x vs 1.2x sector)
-Position Size: ⚠️ 4% of portfolio (not excessive, but capital can be better deployed)
-Opportunity: ❌ Multiple better healthcare alternatives (UNH, ELW, CVS)
+Thesis:  Broken (telehealth adoption slower than expected, competition intense, path to profitability unclear)
+Valuation:  Expensive vs peers despite losses (EV/Sales 2.5x vs 1.2x sector)
+Position Size:  4% of portfolio (not excessive, but capital can be better deployed)
+Opportunity:  Multiple better healthcare alternatives (UNH, ELW, CVS)
 
 Decision: SELL (exit position entirely)
 Rationale: Investment thesis has not materialized, competitive position weakening, capital better deployed elsewhere

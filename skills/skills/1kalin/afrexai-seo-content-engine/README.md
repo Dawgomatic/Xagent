@@ -35,16 +35,16 @@ Just tell your agent:
 
 | Feature | Others | AfrexAI SEO Engine |
 |---------|--------|--------------------|
-| Keyword research framework | ❌ Fake API calls | ✅ Real web search workflow |
-| Article templates | ❌ Generic outlines | ✅ 4 fill-in templates with structure |
-| Writing rules | ❌ "Write good content" | ✅ Specific sentence/paragraph/keyword rules |
-| SEO checklist | ❌ Basic tips | ✅ 25-point pre-publish checklist |
-| Content scoring | ❌ None | ✅ 100-point rubric |
-| Schema markup | ❌ Mentioned | ✅ Copy-paste JSON-LD templates |
-| Content clusters | ❌ Not covered | ✅ Pillar + cluster architecture |
-| Works without APIs | ❌ Requires subscriptions | ✅ Zero dependencies |
+| Keyword research framework |  Fake API calls |  Real web search workflow |
+| Article templates |  Generic outlines |  4 fill-in templates with structure |
+| Writing rules |  "Write good content" |  Specific sentence/paragraph/keyword rules |
+| SEO checklist |  Basic tips |  25-point pre-publish checklist |
+| Content scoring |  None |  100-point rubric |
+| Schema markup |  Mentioned |  Copy-paste JSON-LD templates |
+| Content clusters |  Not covered |  Pillar + cluster architecture |
+| Works without APIs |  Requires subscriptions |  Zero dependencies |
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific content strategies, competitor landscapes, and outreach sequences? Check out our **AI Agent Context Packs** — deep vertical intelligence for your agents:
 
@@ -54,7 +54,7 @@ Want industry-specific content strategies, competitor landscapes, and outreach s
 
 Each pack includes market analysis, competitor profiles, pricing strategies, and ready-to-use agent prompts for your vertical.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - `afrexai-lead-hunter` — Find and qualify leads with scoring rubrics
 - `afrexai-budget-tracker` — Personal/business finance tracking
@@ -62,9 +62,9 @@ Each pack includes market analysis, competitor profiles, pricing strategies, and
 - `afrexai-humanizer` — Remove AI-speak from any content
 - `afrexai-prospect-researcher` — Deep company research for sales
 
-👉 [Browse all AfrexAI skills on ClawHub](https://clawhub.com)
-👉 [AfrexAI Storefront](https://afrexai-cto.github.io/context-packs/)
+ [Browse all AfrexAI skills on ClawHub](https://clawhub.com)
+ [AfrexAI Storefront](https://afrexai-cto.github.io/context-packs/)
 
 ---
 
-*Built by AfrexAI 🖤💛 — AI agent infrastructure for businesses that ship.*
+*Built by AfrexAI  — AI agent infrastructure for businesses that ship.*

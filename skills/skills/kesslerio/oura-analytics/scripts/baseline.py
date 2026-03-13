@@ -55,15 +55,15 @@ class BaselineMetrics:
         z = self.z_score(value)
         
         if z >= 1.5:
-            return "🔥", "Well above baseline", "excellent"
+            return "", "Well above baseline", "excellent"
         elif z >= 0.5:
-            return "↗️", "Above baseline", "good"
+            return "", "Above baseline", "good"
         elif z >= -0.5:
-            return "➡️", "Within baseline", "normal"
+            return "", "Within baseline", "normal"
         elif z >= -1.5:
-            return "↘️", "Below baseline", "attention"
+            return "", "Below baseline", "attention"
         else:
-            return "⚠️", "Well below baseline", "concern"
+            return "", "Well below baseline", "concern"
 
 
 @dataclass
@@ -191,7 +191,7 @@ def compare_to_baseline(current_data: dict, baseline: Baseline, metric_name: str
 def format_baseline_report(baseline: Baseline) -> str:
     """Format baseline report for console output."""
     lines = []
-    lines.append(f"\n📊 Baseline Analysis ({baseline.period_days}-day period)")
+    lines.append(f"\n Baseline Analysis ({baseline.period_days}-day period)")
     lines.append(f"   Period ending: {baseline.end_date}")
     lines.append("")
     
@@ -222,7 +222,7 @@ def format_baseline_report(baseline: Baseline) -> str:
 def format_comparison_report(comparisons: List[Dict], period_label: str) -> str:
     """Format comparison report for console output."""
     lines = []
-    lines.append(f"\n📈 Current vs Baseline ({period_label})")
+    lines.append(f"\n Current vs Baseline ({period_label})")
     lines.append("")
     
     for comp in comparisons:
@@ -241,11 +241,11 @@ def format_comparison_report(comparisons: List[Dict], period_label: str) -> str:
     # Summary
     concerns = [c for c in comparisons if c["severity"] == "concern"]
     if concerns:
-        lines.append("⚠️  Metrics needing attention:")
+        lines.append("  Metrics needing attention:")
         for c in concerns:
             lines.append(f"   • {c['metric']}: {c['label']}")
     else:
-        lines.append("✅ All metrics within or above baseline range")
+        lines.append(" All metrics within or above baseline range")
     
     return "\n".join(lines)
 

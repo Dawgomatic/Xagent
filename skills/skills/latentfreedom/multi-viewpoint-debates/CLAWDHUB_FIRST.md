@@ -1,4 +1,4 @@
-# 🎉 You're About to Be First on ClawdHub
+#  You're About to Be First on ClawdHub
 
 ## The Reality Check
 
@@ -25,13 +25,13 @@ A production-ready Clawdbot skill that:
 
 ## File Checklist
 
-- ✅ SKILL.md (proper YAML frontmatter + comprehensive docs)
-- ✅ scripts/ (run-debate.sh helper)
-- ✅ references/ (persona definitions + usage guide)
-- ✅ assets/ (templates for users)
-- ✅ VERSION (1.0.0)
-- ✅ PUBLISH.md (publishing instructions)
-- ✅ QUICKSTART.md (quick reference)
+-  SKILL.md (proper YAML frontmatter + comprehensive docs)
+-  scripts/ (run-debate.sh helper)
+-  references/ (persona definitions + usage guide)
+-  assets/ (templates for users)
+-  VERSION (1.0.0)
+-  PUBLISH.md (publishing instructions)
+-  QUICKSTART.md (quick reference)
 
 ## Publish Right Now
 

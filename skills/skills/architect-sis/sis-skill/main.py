@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 ═══════════════════════════════════════════════════════════════════════════════
-SIS™ - The 10,000-Year Computational Substrate
+SIS - The 10,000-Year Computational Substrate
 ═══════════════════════════════════════════════════════════════════════════════
 
 Copyright (c) 2025 Kevin Fain - ThēÆrchītēcť

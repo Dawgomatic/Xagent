@@ -135,9 +135,9 @@ def webhooks_list():
 def build_inline_buttons(state, order_id=0):
     # buttons with callback data referencing the saved order id.
     return [
-        {'text':'✅ Подтвердить', 'callback_data':f'confirm:{order_id}'},
-        {'text':'✏️ Редактировать', 'callback_data':f'edit:{order_id}'},
-        {'text':'❌ Отменить', 'callback_data':f'cancel:{order_id}'},
+        {'text':' Подтвердить', 'callback_data':f'confirm:{order_id}'},
+        {'text':' Редактировать', 'callback_data':f'edit:{order_id}'},
+        {'text':' Отменить', 'callback_data':f'cancel:{order_id}'},
     ]
 
 

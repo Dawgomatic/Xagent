@@ -14,12 +14,12 @@ echo "════════════════════════�
 echo ""
 
 scan_polymarket() {
-    echo "📊 POLYMARKET — Short-term markets"
+    echo " POLYMARKET — Short-term markets"
     echo "─────────────────────────────────────"
     # Fetch active markets, filter for near-term close
     local data
     data=$(curl -s -m 15 "https://gamma-api.polymarket.com/markets?closed=false&limit=20&order=volume24hr&ascending=false" 2>/dev/null) || {
-        echo "  ⚠️  Failed to fetch Polymarket data"
+        echo "    Failed to fetch Polymarket data"
         return
     }
     
@@ -53,7 +53,7 @@ for m in markets[:15]:
             if hours < 0:
                 continue
             elif hours < 24:
-                remaining = f'⏰ {hours:.0f}h left'
+                remaining = f' {hours:.0f}h left'
             elif hours < 168:
                 remaining = f'{hours/24:.0f}d left'
             else:
@@ -70,17 +70,17 @@ for m in markets[:15]:
 if count == 0:
     print('  No short-term markets found')
 print(f'  Total: {count} markets shown')
-" 2>/dev/null || echo "  ⚠️  Parse error"
+" 2>/dev/null || echo "    Parse error"
     echo ""
 }
 
 scan_kalshi() {
-    echo "📊 KALSHI — Short-term markets"
+    echo " KALSHI — Short-term markets"
     echo "─────────────────────────────────────"
     # Kalshi public API for events
     local data
     data=$(curl -s -m 15 "https://api.elections.kalshi.com/trade-api/v2/events?limit=20&status=open&with_nested_markets=true" 2>/dev/null) || {
-        echo "  ⚠️  Failed to fetch Kalshi data"
+        echo "    Failed to fetch Kalshi data"
         return
     }
     
@@ -116,7 +116,7 @@ for ev in events[:15]:
                 if hours < 0:
                     continue
                 elif hours < 24:
-                    remaining = f'⏰ {hours:.0f}h left'
+                    remaining = f' {hours:.0f}h left'
                 else:
                     remaining = f'{hours/24:.0f}d left'
             except:
@@ -130,17 +130,17 @@ for ev in events[:15]:
 if count == 0:
     print('  No short-term markets found')
 print(f'  Total: {count} markets shown')
-" 2>/dev/null || echo "  ⚠️  Parse error"
+" 2>/dev/null || echo "    Parse error"
     echo ""
 }
 
 scan_manifold() {
-    echo "📊 MANIFOLD — Short-term markets"
+    echo " MANIFOLD — Short-term markets"
     echo "─────────────────────────────────────"
     # Fetch markets closing soon, sorted by close time
     local data
     data=$(curl -s -m 15 "https://api.manifold.markets/v0/search-markets?sort=close-date&filter=open&limit=20" 2>/dev/null) || {
-        echo "  ⚠️  Failed to fetch Manifold data"
+        echo "    Failed to fetch Manifold data"
         return
     }
     
@@ -177,9 +177,9 @@ for m in markets[:20]:
             if hours_left < 0:
                 continue
             elif hours_left < 1:
-                remaining = f'⏰ {int(hours_left*60)}min left'
+                remaining = f' {int(hours_left*60)}min left'
             elif hours_left < 24:
-                remaining = f'⏰ {hours_left:.0f}h left'
+                remaining = f' {hours_left:.0f}h left'
             elif hours_left < 168:
                 remaining = f'{hours_left/24:.0f}d left'
             else:
@@ -197,14 +197,14 @@ for m in markets[:20]:
     print(f'  • {question[:80]}')
     print(f'    Prob: {prob_str}  |  Vol: {vol_str}  {remaining}')
     if hours_left < 24:
-        print(f'    🎯 QUICK RESOLUTION — good candidate for adaptation')
+        print(f'     QUICK RESOLUTION — good candidate for adaptation')
     print()
     count += 1
 
 if count == 0:
     print('  No short-term markets found')
 print(f'  Total: {count} markets shown (closing within 7 days)')
-" 2>/dev/null || echo "  ⚠️  Parse error"
+" 2>/dev/null || echo "    Parse error"
     echo ""
 }
 
@@ -218,8 +218,8 @@ case "$PLATFORM" in
 esac
 
 echo "═══════════════════════════════════════════════════════════════"
-echo "  💡 Adapt ideas for 1h MoltMarkets timeframe"
-echo "  📝 Keep resolution criteria clear and verifiable"
+echo "   Adapt ideas for 1h MoltMarkets timeframe"
+echo "   Keep resolution criteria clear and verifiable"
 echo "═══════════════════════════════════════════════════════════════"
 
 # Prepend Manifold function before the case statement

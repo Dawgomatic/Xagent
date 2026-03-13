@@ -26,7 +26,7 @@ async function main() {
   const provider = new ethers.JsonRpcProvider(rpcUrl);
   const registry = new ethers.Contract(registryAddress, registryABI, provider);
 
-  console.log(`\n📋 Viewing answers for Request #${requestId}\n`);
+  console.log(`\n Viewing answers for Request #${requestId}\n`);
 
   // Get query info
   try {
@@ -56,11 +56,11 @@ async function main() {
     const answers = await registry.getAnswers(requestId);
     
     if (answers.length === 0) {
-      console.log('❌ No answers submitted yet');
+      console.log(' No answers submitted yet');
       return;
     }
 
-    console.log(`📝 Found ${answers.length} answer(s):\n`);
+    console.log(` Found ${answers.length} answer(s):\n`);
 
     for (let i = 0; i < answers.length; i++) {
       const answer = answers[i];

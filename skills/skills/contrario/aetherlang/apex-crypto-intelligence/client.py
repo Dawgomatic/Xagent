@@ -323,7 +323,7 @@ if __name__ == "__main__":
         print("\n1. CONFIGURED EXCHANGE KEYS (values hidden):")
         for ex in exchanges:
             key, secret = get_exchange_keys(ex)
-            status = "✅ configured" if key else "⬜ not set (public endpoints used)"
+            status = " configured" if key else " not set (public endpoints used)"
             print(f"   {ex}: {status}")
         
         # Fetch data locally
@@ -339,9 +339,9 @@ if __name__ == "__main__":
         
         for ex in exchange_data:
             if ex:
-                print(f"   ✅ {ex['exchange']}: bid={ex.get('bid')} ask={ex.get('ask')}")
+                print(f"    {ex['exchange']}: bid={ex.get('bid')} ask={ex.get('ask')}")
             else:
-                print(f"   ⬜ (no data)")
+                print(f"    (no data)")
         
         # Build and display payload
         payload = build_api_request("Analyze BTC", market_data, exchange_data)
@@ -358,15 +358,15 @@ if __name__ == "__main__":
         for ex in exchanges:
             key, secret = get_exchange_keys(ex)
             if key and key in payload_str:
-                print(f"   ❌ WARNING: {ex} API key found in payload!")
+                print(f"    WARNING: {ex} API key found in payload!")
                 has_keys = True
             if secret and secret in payload_str:
-                print(f"   ❌ WARNING: {ex} secret found in payload!")
+                print(f"    WARNING: {ex} secret found in payload!")
                 has_keys = True
         
         if not has_keys:
-            print("   ✅ VERIFIED: No API keys or secrets in outbound payload.")
-            print("   ✅ VERIFIED: Only market prices and query text are sent.")
+            print("    VERIFIED: No API keys or secrets in outbound payload.")
+            print("    VERIFIED: Only market prices and query text are sent.")
         
         print("\n" + "=" * 60)
         print("Verification complete. No data was sent to any server.")

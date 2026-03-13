@@ -2,7 +2,7 @@
 name: jina-reader
 description: "Web content extraction via Jina AI Reader API. Three modes: read (URL to markdown), search (web search + full content), ground (fact-checking). Extracts clean content without exposing server IP."
 homepage: https://jina.ai/reader
-metadata: {"clawdbot":{"emoji":"📖","requires":{"bins":["curl","jq"]},"primaryEnv":"JINA_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq"]},"primaryEnv":"JINA_API_KEY"}}
 ---
 
 # Jina Reader

@@ -323,7 +323,7 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
         }}
         
         .insight-item:before {{
-            content: "💡";
+            content: "";
             position: absolute;
             left: 0;
         }}
@@ -389,7 +389,7 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
 </head>
 <body>
     <div class="container">
-        <h1>🦅 Nova Act Usability Test Report</h1>
+        <h1> Nova Act Usability Test Report</h1>
 """
     
     # Check if this is a partial report (interrupted)
@@ -398,7 +398,7 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
         total = page_analysis.get('_total_planned_tests', '?')
         html += f"""
         <div class="partial-warning">
-            <h2>⚠️ PARTIAL REPORT - Test Interrupted</h2>
+            <h2> PARTIAL REPORT - Test Interrupted</h2>
             <p>This report was generated after the test was interrupted (timeout or signal).</p>
             <p><strong>{completed} of {total} planned tests completed</strong></p>
             <p>Results below reflect only the tests that finished before interruption.</p>
@@ -407,7 +407,7 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
     
     html += f"""
         <div class="page-analysis">
-            <h3>📄 Page Analysis: {page_analysis.get('title', 'Unknown')}</h3>
+            <h3> Page Analysis: {page_analysis.get('title', 'Unknown')}</h3>
             <p><strong>Purpose:</strong> {page_analysis.get('purpose', 'Not analyzed')}</p>
             <p><strong>Navigation:</strong> {', '.join(page_analysis.get('navigation', ['None found']))}</p>
 """
@@ -440,10 +440,10 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
             <p><strong>Site Category:</strong> Sports/Tournament Content</p>
             <p><strong>Key Features:</strong></p>
             <ul>
-                <li>Leaderboard/Standings: {'✅ Found in navigation' if 'leaderboard' in navigation or 'standing' in navigation else '⚠️ Not easily accessible'}</li>
-                <li>Schedule/Calendar: {'✅ Found in navigation' if 'schedule' in navigation or 'calendar' in navigation else '⚠️ Not easily accessible'}</li>
-                <li>Player/Team Stats: {'✅ Found in navigation' if 'player' in navigation or 'stats' in navigation or 'team' in navigation else '⚠️ Not easily accessible'}</li>
-                <li>Live Scores/Updates: {'✅ Content suggests live coverage' if 'live' in purpose_lower or 'watch' in navigation else '⚠️ Not evident'}</li>
+                <li>Leaderboard/Standings: {' Found in navigation' if 'leaderboard' in navigation or 'standing' in navigation else ' Not easily accessible'}</li>
+                <li>Schedule/Calendar: {' Found in navigation' if 'schedule' in navigation or 'calendar' in navigation else ' Not easily accessible'}</li>
+                <li>Player/Team Stats: {' Found in navigation' if 'player' in navigation or 'stats' in navigation or 'team' in navigation else ' Not easily accessible'}</li>
+                <li>Live Scores/Updates: {' Content suggests live coverage' if 'live' in purpose_lower or 'watch' in navigation else ' Not evident'}</li>
             </ul>
 """
     elif site_category == 'ecommerce':
@@ -451,10 +451,10 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
             <p><strong>Site Category:</strong> E-Commerce / Shopping</p>
             <p><strong>Key Features:</strong></p>
             <ul>
-                <li>Product Search: {'✅ Available' if page_analysis.get('has_homepage_search') is True else '⚠️ Not immediately visible'}</li>
-                <li>Shopping Cart: {'✅ Found in navigation' if 'cart' in navigation else '⚠️ Not easily accessible'}</li>
-                <li>Checkout: {'✅ E-commerce functionality detected' if 'checkout' in navigation or 'cart' in navigation else '⚠️ Unclear'}</li>
-                <li>Pricing: {'✅ Product pricing visible' if page_analysis.get('key_elements', {}).get('pricing') else '⚠️ Pricing not immediately clear'}</li>
+                <li>Product Search: {' Available' if page_analysis.get('has_homepage_search') is True else ' Not immediately visible'}</li>
+                <li>Shopping Cart: {' Found in navigation' if 'cart' in navigation else ' Not easily accessible'}</li>
+                <li>Checkout: {' E-commerce functionality detected' if 'checkout' in navigation or 'cart' in navigation else ' Unclear'}</li>
+                <li>Pricing: {' Product pricing visible' if page_analysis.get('key_elements', {}).get('pricing') else ' Pricing not immediately clear'}</li>
             </ul>
 """
     elif site_category == 'news':
@@ -462,10 +462,10 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
             <p><strong>Site Category:</strong> News / Content / Media</p>
             <p><strong>Key Features:</strong></p>
             <ul>
-                <li>Article Access: {'✅ Content-focused site' if 'news' in purpose_lower or 'article' in purpose_lower else '⚠️ Purpose unclear'}</li>
-                <li>Navigation: {'✅ Clear menu structure' if len(page_analysis.get('navigation', [])) > 3 else '⚠️ Limited navigation'}</li>
-                <li>Search: {'✅ Available' if page_analysis.get('has_homepage_search') is True else '⚠️ Not immediately visible'}</li>
-                <li>Content Organization: {'✅ Categories/sections visible' if len(page_analysis.get('navigation', [])) > 5 else '⚠️ May be limited'}</li>
+                <li>Article Access: {' Content-focused site' if 'news' in purpose_lower or 'article' in purpose_lower else ' Purpose unclear'}</li>
+                <li>Navigation: {' Clear menu structure' if len(page_analysis.get('navigation', [])) > 3 else ' Limited navigation'}</li>
+                <li>Search: {' Available' if page_analysis.get('has_homepage_search') is True else ' Not immediately visible'}</li>
+                <li>Content Organization: {' Categories/sections visible' if len(page_analysis.get('navigation', [])) > 5 else ' May be limited'}</li>
             </ul>
 """
     elif site_category == 'booking':
@@ -473,10 +473,10 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
             <p><strong>Site Category:</strong> Booking / Reservation / Travel</p>
             <p><strong>Key Features:</strong></p>
             <ul>
-                <li>Search Widget: {'✅ Available' if page_analysis.get('has_homepage_search') is True else '❌ Not found - critical for booking sites'}</li>
-                <li>Loyalty Program: {'✅ Visible' if page_analysis.get('has_loyalty_program') is True else '⚠️ Not prominently displayed'}</li>
-                <li>Pricing Transparency: {'✅ Pricing info accessible' if page_analysis.get('key_elements', {}).get('pricing') else '⚠️ Pricing not upfront'}</li>
-                <li>Booking Flow: {'✅ Clear path to reservation' if page_analysis.get('has_homepage_search') else '⚠️ May require exploration'}</li>
+                <li>Search Widget: {' Available' if page_analysis.get('has_homepage_search') is True else ' Not found - critical for booking sites'}</li>
+                <li>Loyalty Program: {' Visible' if page_analysis.get('has_loyalty_program') is True else ' Not prominently displayed'}</li>
+                <li>Pricing Transparency: {' Pricing info accessible' if page_analysis.get('key_elements', {}).get('pricing') else ' Pricing not upfront'}</li>
+                <li>Booking Flow: {' Clear path to reservation' if page_analysis.get('has_homepage_search') else ' May require exploration'}</li>
             </ul>
 """
     elif site_category == 'entertainment':
@@ -484,10 +484,10 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
             <p><strong>Site Category:</strong> Entertainment / Streaming / Video</p>
             <p><strong>Key Features:</strong></p>
             <ul>
-                <li>Content Discovery: {'✅ Browse/categories available' if len(page_analysis.get('navigation', [])) > 3 else '⚠️ Limited browsing'}</li>
-                <li>Search: {'✅ Available' if page_analysis.get('has_homepage_search') is True else '⚠️ Not immediately visible'}</li>
-                <li>Watch/Play Access: {'✅ Video functionality detected' if 'watch' in navigation or 'video' in navigation else '⚠️ Unclear'}</li>
-                <li>User Features: {'✅ Account/profile features' if 'sign' in navigation or 'account' in navigation else '⚠️ Not evident'}</li>
+                <li>Content Discovery: {' Browse/categories available' if len(page_analysis.get('navigation', [])) > 3 else ' Limited browsing'}</li>
+                <li>Search: {' Available' if page_analysis.get('has_homepage_search') is True else ' Not immediately visible'}</li>
+                <li>Watch/Play Access: {' Video functionality detected' if 'watch' in navigation or 'video' in navigation else ' Unclear'}</li>
+                <li>User Features: {' Account/profile features' if 'sign' in navigation or 'account' in navigation else ' Not evident'}</li>
             </ul>
 """
     elif site_category == 'developer':
@@ -495,10 +495,10 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
             <p><strong>Site Category:</strong> Developer / API / Technical Documentation</p>
             <p><strong>Key Features:</strong></p>
             <ul>
-                <li>Documentation: {'✅ Available' if page_analysis.get('key_elements', {}).get('documentation') else '❌ Not found - critical for developers'}</li>
-                <li>API Reference: {'✅ Detected' if 'api' in navigation or 'reference' in navigation else '⚠️ Not easily accessible'}</li>
-                <li>Code Examples: {'✅ Demo/playground available' if page_analysis.get('key_elements', {}).get('demo') else '⚠️ May be limited'}</li>
-                <li>Getting Started: {'✅ Onboarding present' if 'start' in navigation or 'guide' in navigation else '⚠️ May require search'}</li>
+                <li>Documentation: {' Available' if page_analysis.get('key_elements', {}).get('documentation') else ' Not found - critical for developers'}</li>
+                <li>API Reference: {' Detected' if 'api' in navigation or 'reference' in navigation else ' Not easily accessible'}</li>
+                <li>Code Examples: {' Demo/playground available' if page_analysis.get('key_elements', {}).get('demo') else ' May be limited'}</li>
+                <li>Getting Started: {' Onboarding present' if 'start' in navigation or 'guide' in navigation else ' May require search'}</li>
             </ul>
 """
     else:  # saas or unknown
@@ -506,10 +506,10 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
             <p><strong>Site Category:</strong> SaaS / Business Tool</p>
             <p><strong>Key Features:</strong></p>
             <ul>
-                <li>Documentation: {'✅ Available' if page_analysis.get('key_elements', {}).get('documentation') else '⚠️ Not found'}</li>
-                <li>Interactive Demo: {'✅ Available' if page_analysis.get('key_elements', {}).get('demo') else '⚠️ Not found'}</li>
-                <li>Pricing: {'✅ Available' if page_analysis.get('key_elements', {}).get('pricing') else '⚠️ Not found'}</li>
-                <li>Getting Started: {'✅ Clear onboarding' if 'start' in navigation or 'docs' in navigation else '⚠️ May require exploration'}</li>
+                <li>Documentation: {' Available' if page_analysis.get('key_elements', {}).get('documentation') else ' Not found'}</li>
+                <li>Interactive Demo: {' Available' if page_analysis.get('key_elements', {}).get('demo') else ' Not found'}</li>
+                <li>Pricing: {' Available' if page_analysis.get('key_elements', {}).get('pricing') else ' Not found'}</li>
+                <li>Getting Started: {' Clear onboarding' if 'start' in navigation or 'docs' in navigation else ' May require exploration'}</li>
             </ul>
 """
     
@@ -573,19 +573,19 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
             if has_error and not steps:
                 # Error before any steps ran - show as failed
                 test_class = "failure"
-                status_text = "❌ FAILED"
+                status_text = " FAILED"
             elif test_interpreted or 'goals_achieved' in test:
                 # Agent has interpreted - show actual result
                 test_class = "success" if overall_success else "failure"
-                status_text = "✅ PASSED" if overall_success else "❌ FAILED"
+                status_text = " PASSED" if overall_success else " FAILED"
             elif test.get('needs_agent_analysis') and steps:
                 # Has steps but not yet interpreted - show pending
                 test_class = "pending"
-                status_text = "⏳ PENDING"
+                status_text = " PENDING"
             else:
                 # Fallback
                 test_class = "success" if overall_success else "failure"
-                status_text = "✅ PASSED" if overall_success else "❌ FAILED"
+                status_text = " PASSED" if overall_success else " FAILED"
             
             html += f"""
             <div class="test-case {test_class}">
@@ -655,7 +655,7 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
                 # Show warning if agent hasn't interpreted this step yet
                 interpretation_warning = ""
                 if needs_interpretation and 'goal_achieved' not in step:
-                    interpretation_warning = '<div style="background: #fff3cd; padding: 5px 10px; border-radius: 3px; margin-top: 5px; font-size: 0.85em;">⏳ <strong>Awaiting agent interpretation</strong> - run analysis workflow to determine goal achievement</div>'
+                    interpretation_warning = '<div style="background: #fff3cd; padding: 5px 10px; border-radius: 3px; margin-top: 5px; font-size: 0.85em;"> <strong>Awaiting agent interpretation</strong> - run analysis workflow to determine goal achievement</div>'
                 
                 html += f"""
                 <div class="observation">
@@ -665,7 +665,7 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
                     </div>
                     {f'<div style="color: #7f8c8d; font-size: 0.9em; margin: 5px 0;">Expected: {rationale}</div>' if rationale else ''}
                     <div class="observation-notes {notes_class}">
-                        <strong>{"⚠️ " if is_issue else ""}Observation:</strong> {notes}
+                        <strong>{" " if is_issue else ""}Observation:</strong> {notes}
                     </div>
                     {interpretation_warning}
                 </div>
@@ -684,7 +684,7 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
                 
                 html += f"""
                 <div style="margin-top: 15px; padding: 15px; background: #e3f2fd; border-radius: 4px;">
-                    <strong>🔍 Nova Act Session Recordings ({len(trace_files)}):</strong>
+                    <strong> Nova Act Session Recordings ({len(trace_files)}):</strong>
                     <div style="margin-top: 10px;">
                 """
                 for trace_file in trace_files:
@@ -695,7 +695,7 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
                     html += f"""
                         <div style="margin: 5px 0;">
                             <a href="{browser_path}" class="trace-link" target="_blank">
-                                📹 Recording {global_recording_index}: {display_name}
+                                 Recording {global_recording_index}: {display_name}
                             </a>
                             <span style="font-size: 0.85em; color: #666; margin-left: 10px;">
                                 ({browser_path})
@@ -719,7 +719,7 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
     # Key insights
     html += """
         <div class="insights">
-            <h3>🔍 Key Insights</h3>
+            <h3> Key Insights</h3>
     """
     
     # Generate insights
@@ -750,7 +750,7 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
     if traces:
         html += """
         <div class="insights" style="background: #e3f2fd; border-left-color: #2196f3;">
-            <h3>🎬 Session Recordings</h3>
+            <h3> Session Recordings</h3>
             <p style="margin-bottom: 15px;">Nova Act recorded detailed traces for each test session. Click to view step-by-step actions, screenshots, and AI decisions.</p>
         """
         for i, trace_file in enumerate(traces, 1):
@@ -762,7 +762,7 @@ def generate_enhanced_report(page_analysis: Dict, results: List[Dict], traces: L
             html += f"""
             <div style="margin: 8px 0; padding: 10px; background: white; border-radius: 4px;">
                 <a href="{browser_path}" class="trace-link" target="_blank" style="text-decoration: none;">
-                    📹 {display_name}
+                     {display_name}
                 </a>
                 <div style="font-size: 0.85em; color: #666; margin-top: 5px;">
                     Session: {parent_dir}

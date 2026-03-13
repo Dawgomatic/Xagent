@@ -3,7 +3,7 @@ name: xiaohongshu-cn
 description: 小红书分析 - 热门笔记发现、关键词监控、趋势分析（Instagram 中国版）
 metadata:
   openclaw:
-    emoji: "📕"
+    emoji: ""
     category: "social"
     tags: ["xiaohongshu", "red", "china", "instagram", "social-media"]
 ---
@@ -14,12 +14,12 @@ metadata:
 
 ## 功能
 
-- 📕 热门笔记发现
-- 🔍 关键词搜索
-- 📊 趋势分析
-- 👥 博主分析
+-  热门笔记发现
+-  关键词搜索
+-  趋势分析
+-  博主分析
 
-## ⚠️ 重要提示
+##  重要提示
 
 小红书没有公开 API，需要以下方式之一：
 

@@ -202,17 +202,17 @@ def run_search(event: str, lang: str, max_results: int) -> SearchReport:
 
     # --- 中文搜索 ---
     if lang in ("zh", "both"):
-        print(f"🔍 搜索主流观点（中文）...", file=sys.stderr)
+        print(f" 搜索主流观点（中文）...", file=sys.stderr)
         for q in MAINSTREAM_QUERIES_ZH:
             results = search_tavily(client, q.format(event=event), per_query)
             add_results(results, "mainstream")
 
-        print(f"🔍 搜索民间讨论（中文）...", file=sys.stderr)
+        print(f" 搜索民间讨论（中文）...", file=sys.stderr)
         for q in FOLK_QUERIES_ZH:
             results = search_tavily(client, q.format(event=event), per_query)
             add_results(results, "folk")
 
-        print(f"🔍 搜索非主流/翻案观点（中文）...", file=sys.stderr)
+        print(f" 搜索非主流/翻案观点（中文）...", file=sys.stderr)
         for q in OVERSEAS_QUERIES_ZH:
             results = search_tavily(client, q.format(event=event), per_query)
             add_results(results, "overseas")
@@ -220,12 +220,12 @@ def run_search(event: str, lang: str, max_results: int) -> SearchReport:
     # --- 英文搜索 ---
     if lang in ("en", "both"):
         event_en = get_event_english(event)
-        print(f"🔍 Searching mainstream views (English)...", file=sys.stderr)
+        print(f" Searching mainstream views (English)...", file=sys.stderr)
         for q in MAINSTREAM_QUERIES_EN:
             results = search_tavily(client, q.format(event_en=event_en), per_query)
             add_results(results, "mainstream")
 
-        print(f"🔍 Searching alternative views (English)...", file=sys.stderr)
+        print(f" Searching alternative views (English)...", file=sys.stderr)
         for q in OVERSEAS_QUERIES_EN:
             results = search_tavily(client, q.format(event_en=event_en), per_query)
             add_results(results, "overseas")
@@ -248,9 +248,9 @@ def format_markdown(report: SearchReport) -> str:
             lines.append(f"- **来源**: [{v.url}]({v.url})")
             lines.append(f"- **摘要**: {v.snippet}\n")
 
-    section("📚 主流/学术观点", report.mainstream)
-    section("💬 民间讨论与争议", report.folk)
-    section("🌏 海外学者/非主流解读", report.overseas)
+    section(" 主流/学术观点", report.mainstream)
+    section(" 民间讨论与争议", report.folk)
+    section(" 海外学者/非主流解读", report.overseas)
 
     lines.append("---")
     lines.append(f"_共搜索到 {len(report.mainstream) + len(report.folk) + len(report.overseas)} 条不重复结果_")

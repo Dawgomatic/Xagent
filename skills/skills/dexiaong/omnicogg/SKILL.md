@@ -53,12 +53,12 @@ Connect Reddit, Steam, Spotify, GitHub, Discord, YouTube, and more with a unifie
 
 OmniCog is a universal integration layer that provides a consistent interface across multiple services. Whether you need to:
 
-- 📊 **Monitor Reddit** — Track posts, comments, and subreddit activity
-- 🎮 **Integrate Steam** — Get owned games, achievements, and friend status
-- 🎵 **Control Spotify** — Play music, manage playlists, and discover new tracks
-- 🐙 **Manage GitHub** — Watch repositories, track issues, and automate workflows
-- 💬 **Interact with Discord** — Send messages, manage channels, and monitor servers
-- 📺 **Search YouTube** — Find videos, get channel stats, and track uploads
+-  **Monitor Reddit** — Track posts, comments, and subreddit activity
+-  **Integrate Steam** — Get owned games, achievements, and friend status
+-  **Control Spotify** — Play music, manage playlists, and discover new tracks
+-  **Manage GitHub** — Watch repositories, track issues, and automate workflows
+-  **Interact with Discord** — Send messages, manage channels, and monitor servers
+-  **Search YouTube** — Find videos, get channel stats, and track uploads
 
 **OmniCog unifies them all into one simple API.**
 

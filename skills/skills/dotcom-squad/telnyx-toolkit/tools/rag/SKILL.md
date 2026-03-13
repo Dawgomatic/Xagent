@@ -1,7 +1,7 @@
 ---
 name: telnyx-rag
 description: Semantic search and Q&A over workspace files using Telnyx Storage + AI embeddings. Index your memory, knowledge, and skills for natural language retrieval and AI-powered answers.
-metadata: {"openclaw":{"emoji":"🧠","requires":{"bins":["python3"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
 ---
 
 # Telnyx RAG Memory
@@ -222,7 +222,7 @@ Edit `config.json` to customize behavior:
 │  └── skills/    │  │  │     └── file__chunk-001.md       │
 └─────────────────┘  │  │     └── file__chunk-002.md       │
                      │  │              │                    │
-   Smart Chunking ◀──┘  │              ▼ embed             │
+   Smart Chunking ──┘  │              ▼ embed             │
    ├── Markdown: split   │     Telnyx AI Embeddings        │
    │   on ## headers     │              │                  │
    ├── JSON/Slack: split │              ▼                  │
@@ -232,7 +232,7 @@ Edit `config.json` to customize behavior:
                                         │
    ask.py Pipeline:                     │
    ┌─────────────────────────────────┐  │
-   │ 1. Retrieve top-20 chunks ◀────┘  │
+   │ 1. Retrieve top-20 chunks ────┘  │
    │ 2. Rerank (TF-IDF + priority)     │
    │ 3. Deduplicate adjacent chunks    │
    │ 4. Build prompt with top-8        │

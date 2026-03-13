@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * WhatsApp Automation Skill - Query CLI
- * Copyright © 2026 OpenClaw Contributors
+ * Copyright  2026 OpenClaw Contributors
  * License: CC BY-ND-NC 4.0 (Non-commercial, no modifications)
  * 
  * Search, filter, and view stored messages.
@@ -20,7 +20,7 @@ const MESSAGES_FILE = path.join(__dirname, '.whatsapp-messages/messages.jsonl');
 
 function readMessages() {
   if (!fs.existsSync(MESSAGES_FILE)) {
-    console.error('❌ No messages stored yet');
+    console.error(' No messages stored yet');
     return [];
   }
 
@@ -61,7 +61,7 @@ function parseRDV(text) {
 
 function displayMessages(messages) {
   if (messages.length === 0) {
-    console.log('❌ No messages found');
+    console.log(' No messages found');
     return;
   }
 
@@ -71,7 +71,7 @@ function displayMessages(messages) {
     
     const rdv = parseRDV(msg.text);
     if (rdv.found) {
-      console.log(`   🕐 **RDV DETECTED:** ${rdv.raw}`);
+      console.log(`    **RDV DETECTED:** ${rdv.raw}`);
     }
   });
 }
@@ -84,7 +84,7 @@ const messages = readMessages();
 
 switch (command) {
   case 'list':
-    console.log(`📊 Total messages: ${messages.length}\n`);
+    console.log(` Total messages: ${messages.length}\n`);
     displayMessages(messages);
     break;
 
@@ -98,24 +98,24 @@ switch (command) {
       .filter(m => 
         m.contact.includes(arg) || m.text.toLowerCase().includes(arg.toLowerCase())
       );
-    console.log(`🔍 Found ${filtered.length} messages matching "${arg}"\n`);
+    console.log(` Found ${filtered.length} messages matching "${arg}"\n`);
     displayMessages(filtered);
     break;
 
   case 'rdv':
     const rdvMessages = messages.filter(m => parseRDV(m.text).found);
-    console.log(`🕐 Found ${rdvMessages.length} messages with potential RDV\n`);
+    console.log(` Found ${rdvMessages.length} messages with potential RDV\n`);
     rdvMessages.forEach(msg => {
       const rdv = parseRDV(msg.text);
       console.log(`[${msg.contact}] ${msg.timestamp}`);
       console.log(`   "${msg.text}"`);
-      console.log(`   ⏰ Time: ${rdv.time}\n`);
+      console.log(`    Time: ${rdv.time}\n`);
     });
     break;
 
   case 'contacts':
     const contacts = [...new Set(messages.map(m => m.contact))];
-    console.log(`👥 Contacts (${contacts.length}):`);
+    console.log(` Contacts (${contacts.length}):`);
     contacts.forEach(c => {
       const count = messages.filter(m => m.contact === c).length;
       console.log(`   ${c}: ${count} messages`);
@@ -125,7 +125,7 @@ switch (command) {
   case 'export':
     const outputFile = arg || 'messages.json';
     fs.writeFileSync(outputFile, JSON.stringify(messages, null, 2));
-    console.log(`✅ Exported ${messages.length} messages to ${outputFile}`);
+    console.log(` Exported ${messages.length} messages to ${outputFile}`);
     break;
 
   default:

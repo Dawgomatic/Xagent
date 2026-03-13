@@ -3,7 +3,7 @@ name: trash-audit
 description: Environmental inquisitor. Scans trash and assigns "Eco-Penance" for sorting failures.
 metadata: 
   openclaw: 
-    emoji: "🌋"
+    emoji: ""
     tags: ["eco-hostility", "audit", "guilt", "cv"]
 ---
 

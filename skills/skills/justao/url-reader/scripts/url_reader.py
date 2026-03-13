@@ -294,59 +294,59 @@ def read_url(url: str, verbose: bool = True) -> dict:
     # 识别平台
     platform = identify_platform(url)
     if verbose:
-        print(f"📍 平台识别: {platform['name']}")
+        print(f" 平台识别: {platform['name']}")
 
     errors = []
 
     # 策略1: Firecrawl（如果有 API Key）
     if FIRECRAWL_API_KEY:
         if verbose:
-            print("🔄 尝试策略 A: Firecrawl...")
+            print(" 尝试策略 A: Firecrawl...")
         result = read_with_firecrawl(url)
         if result.get('success'):
             if verbose:
-                print("✅ Firecrawl 读取成功")
+                print(" Firecrawl 读取成功")
             result['platform'] = platform
             return result
         errors.append(f"Firecrawl: {result.get('error')}")
         if verbose:
-            print(f"❌ {result.get('error')}")
+            print(f" {result.get('error')}")
 
     # 策略2: Jina Reader（免费，不需要登录的平台优先尝试）
     if not platform.get('need_login'):
         if verbose:
-            print("🔄 尝试策略 B-1: Jina Reader...")
+            print(" 尝试策略 B-1: Jina Reader...")
         result = read_with_jina(url)
         if result.get('success'):
             if verbose:
-                print("✅ Jina Reader 读取成功")
+                print(" Jina Reader 读取成功")
             result['platform'] = platform
             return result
         errors.append(f"Jina: {result.get('error')}")
         if verbose:
-            print(f"❌ {result.get('error')}")
+            print(f" {result.get('error')}")
 
     # 策略3: Playwright（需要登录的平台或前面都失败）
     if verbose:
-        print("🔄 尝试策略 B-2: Playwright 浏览器...")
+        print(" 尝试策略 B-2: Playwright 浏览器...")
     result = read_with_playwright(url, platform['id'])
     if result.get('success'):
         if verbose:
-            print("✅ Playwright 读取成功")
+            print(" Playwright 读取成功")
         result['platform'] = platform
         return result
     errors.append(f"Playwright: {result.get('error')}")
     if verbose:
-        print(f"❌ {result.get('error')}")
+        print(f" {result.get('error')}")
 
     # 如果是需要登录的平台，Jina 作为最后尝试
     if platform.get('need_login'):
         if verbose:
-            print("🔄 最后尝试: Jina Reader...")
+            print(" 最后尝试: Jina Reader...")
         result = read_with_jina(url)
         if result.get('success'):
             if verbose:
-                print("✅ Jina Reader 读取成功")
+                print(" Jina Reader 读取成功")
             result['platform'] = platform
             return result
         errors.append(f"Jina (fallback): {result.get('error')}")
@@ -361,7 +361,7 @@ def read_url(url: str, verbose: bool = True) -> dict:
 def format_output(result: dict, url: str) -> str:
     """格式化输出为 Markdown"""
     if not result.get('success'):
-        output = ["# ❌ 读取失败\n"]
+        output = ["#  读取失败\n"]
         output.append(f"**URL**: {url}")
         output.append(f"**平台**: {result.get('platform', {}).get('name', '未知')}")
         output.append("\n**尝试的策略及错误**:")
@@ -488,7 +488,7 @@ def save_content(content: str, url: str, platform_name: str = "", output_dir: st
     image_mapping = {}
 
     if images and verbose:
-        print(f"📷 发现 {len(images)} 张图片，正在下载...")
+        print(f" 发现 {len(images)} 张图片，正在下载...")
 
     for i, img_url in enumerate(images, 1):
         local_name = download_image(img_url, content_dir, i)
@@ -516,7 +516,7 @@ images: {len(image_mapping)}
         f.write(meta + updated_content)
 
     if verbose:
-        print(f"\n💾 已保存到: {content_dir}")
+        print(f"\n 已保存到: {content_dir}")
         print(f"   - content.md")
         print(f"   - 图片: {len(image_mapping)} 张")
 
@@ -585,7 +585,7 @@ def main():
         result = read_and_save(url)
         if result.get('success') and result.get('save'):
             print(f"\n{'=' * 60}")
-            print("✅ 读取并保存成功")
+            print(" 读取并保存成功")
             print(f"{'=' * 60}")
     else:
         result = read_url(url)

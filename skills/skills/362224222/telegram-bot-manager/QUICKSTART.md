@@ -1,6 +1,6 @@
 # Telegram Bot Manager - 快速开始指南
 
-## 🚀 快速开始
+##  快速开始
 
 ### 1. 获取机器人令牌
 
@@ -38,7 +38,7 @@ python3 scripts/test_bot.py "你的机器人令牌"
 2. 发送 `/start` 开始对话
 3. 按照机器人提供的配对说明操作
 
-## 🔧 手动配置
+##  手动配置
 
 如果自动设置脚本不工作，可以手动配置：
 
@@ -64,7 +64,7 @@ python3 scripts/test_bot.py "你的机器人令牌"
 openclaw gateway restart
 ```
 
-## 🐛 常见问题
+##  常见问题
 
 ### 无法访问 api.telegram.org
 
@@ -88,20 +88,20 @@ nslookup api.telegram.org
 2. 检查机器人隐私设置
 3. 确认机器人未被屏蔽
 
-## 📚 更多文档
+##  更多文档
 
 - **详细配置**：`references/OPENCLAW_CONFIG.md`
 - **Webhook 设置**：`references/WEBHOOK_SETUP.md`
 - **完整说明**：`README.md`
 
-## 🛡️ 安全提醒
+##  安全提醒
 
 - 永远不要将机器人令牌提交到版本控制
 - 使用环境变量存储令牌
 - 定期轮换令牌
 - 监控机器人活动
 
-## 📦 发布到 ClawHub
+##  发布到 ClawHub
 
 ```bash
 # 打包技能
@@ -118,12 +118,12 @@ clawhub publish . \
   --changelog "初始版本"
 ```
 
-## 🎯 下一步
+##  下一步
 
-1. ✅ 测试基本功能
-2. 🔄 配置 Webhook（生产环境）
-3. 📊 监控机器人使用情况
-4. 🔄 定期更新技能
+1.  测试基本功能
+2.  配置 Webhook（生产环境）
+3.  监控机器人使用情况
+4.  定期更新技能
 
 ---
 

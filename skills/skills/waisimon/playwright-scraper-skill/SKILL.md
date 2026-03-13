@@ -11,19 +11,19 @@ A Playwright-based web scraping OpenClaw Skill with anti-bot protection. Choose 
 
 ---
 
-## 🎯 Use Case Matrix
+##  Use Case Matrix
 
 | Target Website | Anti-Bot Level | Recommended Method | Script |
 |---------------|----------------|-------------------|--------|
 | **Regular Sites** | Low | web_fetch tool | N/A (built-in) |
 | **Dynamic Sites** | Medium | Playwright Simple | `scripts/playwright-simple.js` |
-| **Cloudflare Protected** | High | **Playwright Stealth** ⭐ | `scripts/playwright-stealth.js` |
+| **Cloudflare Protected** | High | **Playwright Stealth**  | `scripts/playwright-stealth.js` |
 | **YouTube** | Special | deep-scraper | Install separately |
 | **Reddit** | Special | reddit-scraper | Install separately |
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 cd playwright-scraper-skill
@@ -33,9 +33,9 @@ npx playwright install chromium
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
-### 1️⃣ Simple Sites (No Anti-Bot)
+###  Simple Sites (No Anti-Bot)
 
 Use OpenClaw's built-in `web_fetch` tool:
 
@@ -46,7 +46,7 @@ Hey, fetch me the content from https://example.com
 
 ---
 
-### 2️⃣ Dynamic Sites (Requires JavaScript)
+###  Dynamic Sites (Requires JavaScript)
 
 Use **Playwright Simple**:
 
@@ -66,7 +66,7 @@ node scripts/playwright-simple.js "https://example.com"
 
 ---
 
-### 3️⃣ Anti-Bot Protected Sites (Cloudflare etc.)
+###  Anti-Bot Protected Sites (Cloudflare etc.)
 
 Use **Playwright Stealth**:
 
@@ -82,7 +82,7 @@ node scripts/playwright-stealth.js "https://m.discuss.com.hk/#hot"
 
 ---
 
-### 4️⃣ YouTube Video Transcripts
+###  YouTube Video Transcripts
 
 Use **deep-scraper** (install separately):
 
@@ -97,7 +97,7 @@ node assets/youtube_handler.js "https://www.youtube.com/watch?v=VIDEO_ID"
 
 ---
 
-## 📖 Script Descriptions
+##  Script Descriptions
 
 ### `scripts/playwright-simple.js`
 - **Use Case:** Regular dynamic websites
@@ -105,7 +105,7 @@ node assets/youtube_handler.js "https://www.youtube.com/watch?v=VIDEO_ID"
 - **Anti-Bot:** None
 - **Output:** JSON (title, content, URL)
 
-### `scripts/playwright-stealth.js` ⭐
+### `scripts/playwright-stealth.js` 
 - **Use Case:** Sites with Cloudflare or anti-bot protection
 - **Speed:** Medium (5-20 seconds)
 - **Anti-Bot:** Medium-High (hides automation, realistic UA)
@@ -114,7 +114,7 @@ node assets/youtube_handler.js "https://www.youtube.com/watch?v=VIDEO_ID"
 
 ---
 
-## 🎓 Best Practices
+##  Best Practices
 
 ### 1. Try web_fetch First
 If the site doesn't have dynamic loading, use OpenClaw's `web_fetch` tool—it's fastest.
@@ -132,7 +132,7 @@ If you encounter 403 or Cloudflare challenges, use `playwright-stealth.js`.
 
 ---
 
-## 🔧 Customization
+##  Customization
 
 All scripts support environment variables:
 
@@ -155,38 +155,38 @@ USER_AGENT="Mozilla/5.0 ..." node scripts/playwright-stealth.js URL
 
 ---
 
-## 📊 Performance Comparison
+##  Performance Comparison
 
 | Method | Speed | Anti-Bot | Success Rate (Discuss.com.hk) |
 |--------|-------|----------|-------------------------------|
-| web_fetch | ⚡ Fastest | ❌ None | 0% |
-| Playwright Simple | 🚀 Fast | ⚠️ Low | 20% |
-| **Playwright Stealth** | ⏱️ Medium | ✅ Medium | **100%** ✅ |
-| Puppeteer Stealth | ⏱️ Medium | ✅ Medium-High | ~80% |
-| Crawlee (deep-scraper) | 🐢 Slow | ❌ Detected | 0% |
-| Chaser (Rust) | ⏱️ Medium | ❌ Detected | 0% |
+| web_fetch |  Fastest |  None | 0% |
+| Playwright Simple |  Fast |  Low | 20% |
+| **Playwright Stealth** |  Medium |  Medium | **100%**  |
+| Puppeteer Stealth |  Medium |  Medium-High | ~80% |
+| Crawlee (deep-scraper) |  Slow |  Detected | 0% |
+| Chaser (Rust) |  Medium |  Detected | 0% |
 
 ---
 
-## 🛡️ Anti-Bot Techniques Summary
+##  Anti-Bot Techniques Summary
 
 Lessons learned from our testing:
 
-### ✅ Effective Anti-Bot Measures
+###  Effective Anti-Bot Measures
 1. **Hide `navigator.webdriver`** — Essential
 2. **Realistic User-Agent** — Use real devices (iPhone, Android)
 3. **Mimic Human Behavior** — Random delays, scrolling
 4. **Avoid Framework Signatures** — Crawlee, Selenium are easily detected
 5. **Use `addInitScript` (Playwright)** — Inject before page load
 
-### ❌ Ineffective Anti-Bot Measures
+###  Ineffective Anti-Bot Measures
 1. **Only changing User-Agent** — Not enough
 2. **Using high-level frameworks (Crawlee)** — More easily detected
 3. **Docker isolation** — Doesn't help with Cloudflare
 
 ---
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Issue: 403 Forbidden
 **Solution:** Use `playwright-stealth.js`
@@ -205,19 +205,19 @@ Lessons learned from our testing:
 
 ---
 
-## 📝 Memory & Experience
+##  Memory & Experience
 
 ### 2026-02-07 Discuss.com.hk Test Conclusions
-- ✅ **Pure Playwright + Stealth** succeeded (5s, 200 OK)
-- ❌ Crawlee (deep-scraper) failed (403)
-- ❌ Chaser (Rust) failed (Cloudflare)
-- ❌ Puppeteer standard failed (403)
+-  **Pure Playwright + Stealth** succeeded (5s, 200 OK)
+-  Crawlee (deep-scraper) failed (403)
+-  Chaser (Rust) failed (Cloudflare)
+-  Puppeteer standard failed (403)
 
 **Best Solution:** Pure Playwright + anti-bot techniques (framework-independent)
 
 ---
 
-## 🚧 Future Improvements
+##  Future Improvements
 
 - [ ] Add proxy IP rotation
 - [ ] Implement cookie management (maintain login state)
@@ -227,7 +227,7 @@ Lessons learned from our testing:
 
 ---
 
-## 📚 References
+##  References
 
 - [Playwright Official Docs](https://playwright.dev/)
 - [puppeteer-extra-plugin-stealth](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth)

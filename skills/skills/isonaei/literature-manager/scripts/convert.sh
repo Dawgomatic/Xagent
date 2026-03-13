@@ -10,12 +10,12 @@ OUTPUT="${2:-${INPUT%.pdf}.md}"
 mkdir -p "$(dirname "$OUTPUT")"
 
 if [[ ! -f "$INPUT" ]]; then
-  echo "❌ File not found: $INPUT"
+  echo " File not found: $INPUT"
   exit 1
 fi
 
 if ! file -b "$INPUT" | grep -q "PDF"; then
-  echo "❌ Not a valid PDF: $INPUT"
+  echo " Not a valid PDF: $INPUT"
   exit 1
 fi
 
@@ -23,7 +23,7 @@ fi
 if command -v pdftotext &>/dev/null; then
   pdftotext "$INPUT" "$OUTPUT" 2>/dev/null
   if [[ -s "$OUTPUT" ]]; then
-    echo "✅ Converted with pdftotext: $OUTPUT ($(wc -c < "$OUTPUT") bytes)"
+    echo " Converted with pdftotext: $OUTPUT ($(wc -c < "$OUTPUT") bytes)"
     exit 0
   fi
 fi
@@ -32,10 +32,10 @@ fi
 if command -v uvx &>/dev/null; then
   uvx markitdown "$INPUT" > "$OUTPUT" 2>/dev/null
   if [[ -s "$OUTPUT" ]]; then
-    echo "✅ Converted with markitdown: $OUTPUT ($(wc -c < "$OUTPUT") bytes)"
+    echo " Converted with markitdown: $OUTPUT ($(wc -c < "$OUTPUT") bytes)"
     exit 0
   fi
 fi
 
-echo "❌ Conversion failed for: $INPUT"
+echo " Conversion failed for: $INPUT"
 exit 1

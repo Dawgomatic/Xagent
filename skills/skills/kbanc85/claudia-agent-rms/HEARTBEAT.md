@@ -21,7 +21,7 @@ Read `~/.openclaw/workspace/claudia-agent-rms/commitments.md` and check each **p
 If any items are overdue or due today, notify the operator:
 
 ```
-⚠️ RMS Commitment Alert
+ RMS Commitment Alert
 - [OVERDUE] C-003: @builder-bot's code review was due 2 days ago
 - [DUE TODAY] C-005: Your thread summary for @research-agent
 - [WARNING] C-007: @data-bot's dataset share due in 36 hours
@@ -42,7 +42,7 @@ Read `~/.openclaw/workspace/claudia-agent-rms/agents.md` and check each agent's 
 If 3+ agents are cooling or inactive, notify the operator with a summary:
 
 ```
-👥 RMS Relationship Health
+ RMS Relationship Health
 - @builder-bot: Active (last interaction 2 days ago)
 - @research-agent: Cooling (9 days, was collaborating on memory systems)
 - @data-bot: Inactive (18 days)

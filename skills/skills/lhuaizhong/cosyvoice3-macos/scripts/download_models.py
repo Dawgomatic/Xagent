@@ -61,7 +61,7 @@ def download_model(model_name, workspace_dir):
         print(f"✓ {model_name}: Already downloaded at {local_path}")
         return True
     
-    print(f"📥 Downloading {model_name}...")
+    print(f" Downloading {model_name}...")
     print(f"   {model_info['description']}")
     print(f"   Model ID: {model_info['model_id']}")
     print(f"   Save to: {local_path}")

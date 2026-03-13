@@ -66,7 +66,7 @@
 
 ## Engagement Recommendation
 
-- **Qualification:** 🔥 Hot / 🟡 Warm / 🔵 Cold
+- **Qualification:**  Hot /  Warm /  Cold
 - **Reasoning:**
 - **Best Entry Point:**
 - **Suggested Opener:**

@@ -1,6 +1,6 @@
 # Personal Assistant
 
-**📋 Your personal daily briefing and productivity assistant / Seu assistente pessoal de briefing diário e produtividade**
+** Your personal daily briefing and productivity assistant / Seu assistente pessoal de briefing diário e produtividade**
 
 Generate structured daily briefings with morning motivation, priorities, habit tracking, and evening reflection. Simple, effective, focused on you.
 
@@ -8,12 +8,12 @@ Gerencie briefings diários estruturados com motivação matinal, prioridades, h
 
 ## Features / Funcionalidades
 
-- 🌅 **Morning Briefing** / **Briefing Matinal** - Start your day with structure / Comece seu dia com estrutura
-- 🎯 **Priority Setting** / **Definição de Prioridades** - Top 3 tasks with space to write / Top 3 tarefas com espaço para escrever
-- ✅ **Habit Tracking** / **Acompanhamento de Hábitos** - Daily goals checklist / Lista de metas diárias
-- 🌡 **Weather Context** / **Contexto de Clima** - Location-aware reminders / Lembretes conscientes de localização
-- 🌙 **Evening Reflection** / **Reflexão Noturna** - Structured growth questions / Questões de crescimento estruturadas
-- 💚 **Self-Care Reminders** / **Lembretes de Autocuidado** - Hydration, breaks, well-being / Hidratação, pausas, bem-estar
+-  **Morning Briefing** / **Briefing Matinal** - Start your day with structure / Comece seu dia com estrutura
+-  **Priority Setting** / **Definição de Prioridades** - Top 3 tasks with space to write / Top 3 tarefas com espaço para escrever
+-  **Habit Tracking** / **Acompanhamento de Hábitos** - Daily goals checklist / Lista de metas diárias
+-  **Weather Context** / **Contexto de Clima** - Location-aware reminders / Lembretes conscientes de localização
+-  **Evening Reflection** / **Reflexão Noturna** - Structured growth questions / Questões de crescimento estruturadas
+-  **Self-Care Reminders** / **Lembretes de Autocuidado** - Hydration, breaks, well-being / Hidratação, pausas, bem-estar
 
 ## Quick Start / Início Rápido
 
@@ -51,27 +51,27 @@ python3 scripts/daily_briefing.py --location Columbus --summary
 This shows:
 
 ```
-📋 Daily Briefing - 2026-02-11 (Wednesday)
+ Daily Briefing - 2026-02-11 (Wednesday)
 
-🌅 Good Morning!
+ Good Morning!
 Start your day with focus and intention.
 
-🎯 Today's Focus
+ Today's Focus
 Top 3 priorities:
 1. _____________________________
 2. _____________________________
 3. _____________________________
 
-✅ Daily Habits
+ Daily Habits
 ☐ Morning routine
 ☐ Hydration goals
 ☐ Learning time
 ☐ Evening review
 
-💚 Self-Care
+ Self-Care
 Remember to take breaks and stay hydrated.
 
-🌙 Evening Review
+ Evening Review
 1. What did I accomplish today?
 2. What am I grateful for?
 3. What could I have done better?
@@ -144,13 +144,13 @@ Feito é melhor que perfeito. Celebre vitórias, aprenda com erros.
 
 ## Sections Explained / Seções Explicadas
 
-### 🌅 Morning Motivation / Motivação Matinal
+###  Morning Motivation / Motivação Matinal
 
 Sets positive tone for your day. Reminds you to start with intention, not reaction.
 
 Define tom positivo para seu dia. Lembra você de começar com intenção, não reação.
 
-### 🎯 Today's Focus / Foco do Dia
+###  Today's Focus / Foco do Dia
 
 **Top 3 priorities only** - More feels overwhelming, fewer feels unambitious.
 
@@ -160,7 +160,7 @@ Write your priorities where you'll see them all day.
 
 Escreva suas prioridades onde você as verá o dia todo.
 
-### ✅ Daily Habits / Hábitos Diários
+###  Daily Habits / Hábitos Diários
 
 Track 4-5 key habits that build your ideal self over time.
 
@@ -172,13 +172,13 @@ Default habits:
 - ☐ Learning time (30 min reading/course)
 - ☐ Evening review (reflection questions)
 
-### 💚 Self-Care / Autocuidado
+###  Self-Care / Autocuidado
 
 Reminders that are easy to forget but crucial for wellbeing.
 
 Lembretes fáceis de esquecer mas cruciais para bem-estar.
 
-### 🌙 Evening Reflection / Reflexão Noturna
+###  Evening Reflection / Reflexão Noturna
 
 4 powerful questions for growth:
 
@@ -222,7 +222,7 @@ Edit `scripts/daily_briefing.py`:
 ```python
 # Add new section to briefing['sections']
 briefing['sections'].append({
-    'title': '🎨 Creative Time',
+    'title': ' Creative Time',
     'content': '30 min of art or music',
     'type': 'creative'
 })
@@ -236,12 +236,12 @@ Cada seção tem conteúdo personalizável. Edite as strings para combinar com s
 
 ## Benefits / Benefícios
 
-- ✅ **Structure** - Start each day with clarity / **Estrutura** - Comece cada dia com clareza
-- 🎯 **Focus** - Know your top priorities instantly / **Foco** - Conheça suas prioridades principais instantaneamente
-- 🧘 **Habit Building** - Consistent daily goals / **Construção de Hábitos** - Metas diárias consistentes
-- 📚 **Growth** - Evening reflection for continuous improvement / **Crescimento** - Reflexão noturna para melhoria contínua
-- ⚡ **Fast** - No external dependencies, runs instantly / **Rápido** - Sem dependências externas, roda instantaneamente
-- 🔒 **Private** - All data stays on your system / **Privado** - Todos os dados ficam no seu sistema
+-  **Structure** - Start each day with clarity / **Estrutura** - Comece cada dia com clareza
+-  **Focus** - Know your top priorities instantly / **Foco** - Conheça suas prioridades principais instantaneamente
+-  **Habit Building** - Consistent daily goals / **Construção de Hábitos** - Metas diárias consistentes
+-  **Growth** - Evening reflection for continuous improvement / **Crescimento** - Reflexão noturna para melhoria contínua
+-  **Fast** - No external dependencies, runs instantly / **Rápido** - Sem dependências externas, roda instantaneamente
+-  **Private** - All data stays on your system / **Privado** - Todos os dados ficam no seu sistema
 
 ## Limitations / Limitações
 
@@ -277,8 +277,8 @@ Criado por **Gustavo (GustavoZiaugra)** com OpenClaw
 **Find this and more OpenClaw skills at ClawHub.com**
 **Encontre este e mais skills do OpenClaw em ClawHub.com**
 
-⭐ **Star this repository if you find it useful!**
-**⭐ Dê uma estrela neste repositório se você achar útil!**
+ **Star this repository if you find it useful!**
+** Dê uma estrela neste repositório se você achar útil!**
 
-📋 **Your personal assistant, just for you.**
-📋 **Seu assistente pessoal, só para você.**
+ **Your personal assistant, just for you.**
+ **Seu assistente pessoal, só para você.**

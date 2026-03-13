@@ -1,7 +1,7 @@
 ---
 name: infographic-weather
 description: Generate a TV-style weather infographic with a location-specific seasonal background. Use when the user asks for a visual weather forecast or a weather infographic for a specific address.
-metadata: {"clawdbot":{"emoji":"📺","requires":{"env":["GEMINI_API_KEY"]},"install":[{"id":"pip-google-ai","kind":"exec","command":"pip install -U google-generativeai requests --break-system-packages","label":"Install dependencies"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["GEMINI_API_KEY"]},"install":[{"id":"pip-google-ai","kind":"exec","command":"pip install -U google-generativeai requests --break-system-packages","label":"Install dependencies"}]}}
 ---
 
 # Infographic Weather

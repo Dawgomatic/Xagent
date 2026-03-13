@@ -320,20 +320,20 @@ do_show() {
   purchase_count=$(echo "$result" | jq '.items.purchase | length')
   recently_count=$(echo "$result" | jq '.items.recently | length')
 
-  echo "🛒 Shopping List (${purchase_count} items to buy, ${recently_count} recently completed)"
+  echo " Shopping List (${purchase_count} items to buy, ${recently_count} recently completed)"
   echo ""
 
   if (( purchase_count > 0 )); then
-    echo "📋 TO BUY:"
+    echo " TO BUY:"
     echo "$result" | jq -r '.items.purchase[] | "  • \(.itemId)\(if .specification != "" then " (\(.specification))" else "" end)"'
   else
-    echo "📋 TO BUY: (empty)"
+    echo " TO BUY: (empty)"
   fi
 
   echo ""
 
   if (( recently_count > 0 )); then
-    echo "✅ RECENTLY COMPLETED:"
+    echo " RECENTLY COMPLETED:"
     echo "$result" | jq -r '.items.recently[] | "  ✓ \(.itemId)\(if .specification != "" then " (\(.specification))" else "" end)"'
   fi
 }

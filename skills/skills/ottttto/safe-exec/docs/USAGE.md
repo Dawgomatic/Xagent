@@ -33,7 +33,7 @@ safe-exec "cp file.txt backup.txt"
 safe-exec "rm -rf /tmp/test"
 
 # 输出：
-# 🚨 **危险操作检测 - 命令已拦截**
+#  **危险操作检测 - 命令已拦截**
 # **风险等级:** CRITICAL
 # **命令:** `rm -rf /tmp/test`
 # **原因:** 删除根目录或家目录文件
@@ -79,11 +79,11 @@ safe-exec --cleanup
 ```
 你: 请删除所有日志文件
 
-🤖 Agent: 我会使用 safe-exec 来执行这个命令
+ Agent: 我会使用 safe-exec 来执行这个命令
 
 [执行: safe-exec "rm -rf /var/log/*.log"]
 
-🚨 **危险操作检测 - 命令已拦截**
+ **危险操作检测 - 命令已拦截**
 **风险等级:** CRITICAL
 **命令:** `rm -rf /var/log/*.log`
 **原因:** 删除根目录或家目录文件
@@ -243,7 +243,7 @@ find ~/.openclaw -name "safe-exec-audit.log" -mtime +30 -delete
 
 ## 最佳实践
 
-### ✅ 推荐做法
+###  推荐做法
 
 1. **始终使用 safe-exec 执行重要命令**
    ```bash
@@ -272,7 +272,7 @@ find ~/.openclaw -name "safe-exec-audit.log" -mtime +30 -delete
    export SAFE_EXEC_TIMEOUT=60
    ```
 
-### ❌ 不推荐做法
+###  不推荐做法
 
 1. **不要绕过 safe-exec**
    ```bash

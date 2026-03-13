@@ -425,7 +425,7 @@ class TradingIntegration:
             
             print(f"{i}. {politician}: {trade_type} {ticker} ({amount_str})")
             if priority:
-                print("   ⭐ PRIORITY TRADE")
+                print("    PRIORITY TRADE")
             
             # Analyze trade
             analysis = self.analyze_trade_for_execution(trade)

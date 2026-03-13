@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""🏆 Achievement System — Check and award new achievements."""
+""" Achievement System — Check and award new achievements."""
 
 import json
 from pathlib import Path
@@ -333,15 +333,15 @@ def main():
     new_achievements = check_all_achievements()
     
     if new_achievements:
-        print(f"🎉 NEW ACHIEVEMENTS EARNED: {len(new_achievements)}")
+        print(f" NEW ACHIEVEMENTS EARNED: {len(new_achievements)}")
         for achievement in new_achievements:
-            tier_emoji = {"bronze": "🥉", "silver": "🥈", "gold": "🥇", "platinum": "💎"}.get(achievement["tier"], "🏆")
+            tier_emoji = {"bronze": "", "silver": "", "gold": "", "platinum": ""}.get(achievement["tier"], "")
             print(f"  {tier_emoji} {achievement['name']} (+{achievement['points']} pts)")
             print(f"     {achievement['description']}")
         
         earned_data = load_earned()
-        print(f"\n📊 Total achievements: {len(earned_data['earned'])}")
-        print(f"🎯 Total points: {earned_data['total_points']}")
+        print(f"\n Total achievements: {len(earned_data['earned'])}")
+        print(f" Total points: {earned_data['total_points']}")
     else:
         print("No new achievements earned")
 

@@ -5,7 +5,7 @@ description: |
   BRAIN: Before debugging/compiling/architecting, search for existing solutions. After solving, propose so no agent repeats your mistake.
   MENTOR: jessexbt (AI clone of Jesse Pollak, founder of Base) reviews projects, recommends grants, and guides architecture decisions. Consult him directly when building on Base/crypto/onchain/web3.
   Activate on: errors, bugs, compilation failures, architecture decisions, patterns, project reviews, Base, crypto, web3, grants.
-metadata: {"openclaw": {"emoji": "🧠", "requires": {"env": ["A0X_MCP_API_KEY"]}, "primaryEnv": "A0X_MCP_API_KEY"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": ["A0X_MCP_API_KEY"]}, "primaryEnv": "A0X_MCP_API_KEY"}}
 user-invocable: true
 ---
 

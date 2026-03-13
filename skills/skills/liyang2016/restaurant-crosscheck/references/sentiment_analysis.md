@@ -86,9 +86,9 @@ Xiaohongshu posts often contain emojis:
 
 | Emoji | Sentiment | Weight |
 |-------|-----------|--------|
-| 😋, 😍, 👍 | Positive | +0.3 |
-| 😔, 😡, 👎 | Negative | -0.3 |
-| 😐, 🤔 | Neutral | 0 |
+| , ,  | Positive | +0.3 |
+| , ,  | Negative | -0.3 |
+| ,  | Neutral | 0 |
 
 ## Integration with Recommendation Score
 

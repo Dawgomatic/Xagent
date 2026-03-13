@@ -23,7 +23,7 @@ API_BASE = "https://api.laposte.fr/suivi/v2/idships"
 def get_api_key():
     key = os.environ.get("LAPOSTE_API_KEY")
     if not key:
-        print("❌ Variable d'environnement LAPOSTE_API_KEY non définie.", file=sys.stderr)
+        print(" Variable d'environnement LAPOSTE_API_KEY non définie.", file=sys.stderr)
         print("   Inscris-toi gratuitement sur https://developer.laposte.fr", file=sys.stderr)
         print("   Puis : export LAPOSTE_API_KEY=ta-clé", file=sys.stderr)
         sys.exit(1)
@@ -60,16 +60,16 @@ def track_parcel(tracking_id):
 
 # Codes de contexte La Poste → description
 STATUS_LABELS = {
-    "LIVRE": "📦✅ Livré",
-    "EN_LIVRAISON": "🚚 En cours de livraison",
-    "A_RETIRER": "📬 À retirer",
-    "EN_COURS_ACHEMINEMENT": "🚛 En cours d'acheminement",
-    "PRIS_EN_CHARGE": "📋 Pris en charge",
-    "TRI_EFFECTUE": "🏭 Tri effectué",
-    "RETOURNE_EXPEDITEUR": "↩️ Retourné à l'expéditeur",
-    "DESTINATAIRE_INFORME": "📧 Destinataire informé",
-    "INSTANCE_DEDOUANEMENT": "🛃 En cours de dédouanement",
-    "ANOMALIE": "⚠️ Anomalie",
+    "LIVRE": " Livré",
+    "EN_LIVRAISON": " En cours de livraison",
+    "A_RETIRER": " À retirer",
+    "EN_COURS_ACHEMINEMENT": " En cours d'acheminement",
+    "PRIS_EN_CHARGE": " Pris en charge",
+    "TRI_EFFECTUE": " Tri effectué",
+    "RETOURNE_EXPEDITEUR": " Retourné à l'expéditeur",
+    "DESTINATAIRE_INFORME": " Destinataire informé",
+    "INSTANCE_DEDOUANEMENT": " En cours de dédouanement",
+    "ANOMALIE": " Anomalie",
 }
 
 
@@ -87,7 +87,7 @@ def format_date(date_str):
 def format_parcel(data):
     """Formate les données de suivi en texte lisible."""
     if "error" in data:
-        return f"❌ {data['error']}"
+        return f" {data['error']}"
 
     shipment = data.get("shipment", data)
     if isinstance(shipment, dict):
@@ -105,7 +105,7 @@ def format_parcel(data):
         timeline = shipment.get("timeline", [])
 
         lines = []
-        lines.append(f"📦 Colis : {idship}")
+        lines.append(f" Colis : {idship}")
         if product:
             lines.append(f"   Type : {product}")
 
@@ -123,12 +123,12 @@ def format_parcel(data):
             lines.append(f"   Statut : {current_status}")
 
         if is_final:
-            lines.append("   ✅ Livraison terminée")
+            lines.append("    Livraison terminée")
 
         # Derniers événements
         if events:
             lines.append("")
-            lines.append("   📋 Historique :")
+            lines.append("    Historique :")
             for evt in events[:8]:  # Max 8 derniers événements
                 date = format_date(evt.get("date", ""))
                 label = evt.get("label", "?")
@@ -136,7 +136,7 @@ def format_parcel(data):
 
         return "\n".join(lines)
 
-    return f"❌ Réponse inattendue : {json.dumps(data, ensure_ascii=False)[:200]}"
+    return f" Réponse inattendue : {json.dumps(data, ensure_ascii=False)[:200]}"
 
 
 def cmd_track(args):

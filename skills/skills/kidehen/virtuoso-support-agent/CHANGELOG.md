@@ -41,22 +41,22 @@ Total: 9 steps (clean, linear workflow)
 
 ### Key Corrections
 
-1. ✅ **Correct Tool Abstraction Level**
+1.  **Correct Tool Abstraction Level**
    - Uses `RDFVIEW_FROM_TABLES`, `RDFVIEW_ONTOLOGY_FROM_TABLES`, `RDFVIEW_GENERATE_DATA_RULES`
    - NOT low-level SQL query tools
    - Tools handle remote database complexity internally
 
-2. ✅ **Correct Assumptions**
+2.  **Correct Assumptions**
    - Database and schema assumed to exist
    - Qualified table names used: `sqlserver.northwind.Customers`
    - Remote DSN only checked if discovery fails
 
-3. ✅ **Correct Step Sequence**
+3.  **Correct Step Sequence**
    - No conditional Step 0
    - All tools use high-level generation functions
    - Consolidated ontology + data rules into Step 5 generation, Step 6 execution
 
-4. ✅ **Correct Error Recovery**
+4.  **Correct Error Recovery**
    - Remote DSN handling moved to "Error Recovery Procedures"
    - Only triggered if `database_schema_objects` fails
    - Not part of standard workflow
@@ -77,11 +77,11 @@ Total: 9 steps (clean, linear workflow)
 
 ### Backward Compatibility
 
-- ✅ Existing RDF Views knowledge base still applies
-- ✅ All tool names unchanged
-- ✅ All functionality preserved
-- ⚠️ Workflow diagram changed (users should review)
-- ⚠️ Step numbering corrected (was 12 steps, now 9)
+-  Existing RDF Views knowledge base still applies
+-  All tool names unchanged
+-  All functionality preserved
+-  Workflow diagram changed (users should review)
+-  Step numbering corrected (was 12 steps, now 9)
 
 ### For SQL Server Northwind Use Case
 

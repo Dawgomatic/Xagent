@@ -1,4 +1,4 @@
-# MyFitnessClaw 🌯📊
+# MyFitnessClaw 
 
 **MyFitnessClaw** turns your OpenClaw agent into a high-performance nutrition assistant. Stop using clunky apps to log your food—just tell your agent what you ate and let it handle the rest.
 
@@ -17,4 +17,4 @@
 
 ## Requirements
 - OpenClaw `canvas` tool enabled.
-- A hunger for progress. 🦾
+- A hunger for progress. 

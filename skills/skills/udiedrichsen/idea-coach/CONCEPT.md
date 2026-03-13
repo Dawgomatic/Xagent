@@ -89,10 +89,10 @@ Bot:  Erfasst, fragt kurz nach Typ (Idee/Problem/Challenge)
 Bot:  "Hey, du hattest vor 3 Tagen die Idee X notiert.
        Magst du kurz drüber nachdenken?
        
-       1️⃣ Ja, lass uns brainstormen
-       2️⃣ Später (in 2 Tagen)
-       3️⃣ Parken (Quarterly Review)
-       4️⃣ Erledigt / Verworfen"
+        Ja, lass uns brainstormen
+        Später (in 2 Tagen)
+        Parken (Quarterly Review)
+        Erledigt / Verworfen"
 ```
 
 ### 3. **Brainstorm Mode** - Aktives Sparring
@@ -119,11 +119,11 @@ Bot:  Erfasst Fortschritt, gratuliert
 ```
 User: "/ideas" oder "Was liegt an?"
 Bot:  Zeigt gruppiert:
-      - 🔥 Heute dran (daily reviews)
-      - 📅 Diese Woche (weekly)
-      - 💡 Neue Ideen (unbewertet)
-      - 🚧 Blockiert
-      - 📊 Statistik
+      -  Heute dran (daily reviews)
+      -  Diese Woche (weekly)
+      -  Neue Ideen (unbewertet)
+      -  Blockiert
+      -  Statistik
 ```
 
 ---
@@ -134,8 +134,8 @@ Bot:  Zeigt gruppiert:
 ```
 "Guten Morgen! Du hast 2 Ideen für heute:
  
- 💡 [Idee A] - Status: exploring
- 🔧 [Problem B] - Status: developing
+  [Idee A] - Status: exploring
+  [Problem B] - Status: developing
  
  Womit möchtest du anfangen?"
 ```
@@ -150,10 +150,10 @@ Bot:  Zeigt gruppiert:
 
 ### Weekly Summary (Sonntag abend)
 ```
-"📊 Deine Woche:
+" Deine Woche:
  - 3 neue Ideen erfasst
  - 2 Ideen weiterentwickelt  
- - 1 Problem gelöst! 🎉
+ - 1 Problem gelöst! 
  
  Nächste Woche anstehend:
  - [Idee X] (wichtig, high energy)
@@ -202,7 +202,7 @@ Bot:  Zeigt gruppiert:
 ```
 User: "Ich könnte mal eine App bauen die X macht"
 
-Bot:  "📝 Notiert! Klingt nach einer Idee.
+Bot:  " Notiert! Klingt nach einer Idee.
        
        Kurze Einschätzung für mich:
        • Domain? [Tech/Kreativ/Business/...]
@@ -213,7 +213,7 @@ Bot:  "📝 Notiert! Klingt nach einer Idee.
 
 ### Sanfte Erinnerung
 ```
-Bot:  "💭 Kleine Erinnerung: 
+Bot:  " Kleine Erinnerung: 
        Deine Idee 'App für X' ist jetzt 5 Tage alt.
        
        Magst du 2 Minuten investieren?
@@ -240,14 +240,14 @@ Bot:  "Y und Z - verstanden.
 
 User: "Keine Zeit und weiß nicht wo anfangen"
 
-Bot:  "Klassiker! 😄
+Bot:  "Klassiker! 
        
        Was wäre der allerkleinste Schritt?
        Einer der max. 15 Minuten dauert?"
 
 User: "Hmm, mal schauen was es schon gibt"
 
-Bot:  "Perfekt! ✅ 
+Bot:  "Perfekt!  
        
        Nächster Schritt: '15 Min recherchieren was existiert'
        Soll ich dich morgen daran erinnern?"
@@ -290,25 +290,25 @@ Bot:  "Perfekt! ✅
 
 ## MVP Features (v1)
 
-1. ✅ Erfassen (idea/problem/challenge)
-2. ✅ Einfaches Kategorisieren
-3. ✅ Dashboard-Übersicht
-4. ✅ Manuelle Review-Trigger
-5. ✅ Fortschritt tracken
+1.  Erfassen (idea/problem/challenge)
+2.  Einfaches Kategorisieren
+3.  Dashboard-Übersicht
+4.  Manuelle Review-Trigger
+5.  Fortschritt tracken
 
 ## v2 Features
 
-- ⏰ Automatische Reminder (Cron)
-- 🧠 Brainstorm-Modus mit Fragen
-- 📊 Weekly Summary
-- 🔗 Verknüpfungen zwischen Ideen
+-  Automatische Reminder (Cron)
+-  Brainstorm-Modus mit Fragen
+-  Weekly Summary
+-  Verknüpfungen zwischen Ideen
 
 ## v3 Features
 
-- 🤖 KI-generierte Impulse
-- 📈 Langzeit-Statistiken
-- 🎯 Ziel-Tracking
-- 👥 Teilen von Ideen
+-  KI-generierte Impulse
+-  Langzeit-Statistiken
+-  Ziel-Tracking
+-  Teilen von Ideen
 
 ---
 

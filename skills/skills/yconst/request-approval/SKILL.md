@@ -48,16 +48,16 @@ Call the `request_approval` tool BEFORE executing the risky operation.
 
 **Required:**
 - `operation` (string): Clear, specific description of what you'll do
-  - ✅ Good: "Delete the logs/2024-01/ directory containing 1,234 log files (2.3GB)"
-  - ❌ Bad: "Delete some logs"
+  -  Good: "Delete the logs/2024-01/ directory containing 1,234 log files (2.3GB)"
+  -  Bad: "Delete some logs"
 
 - `context` (string): Additional details about what will be affected
-  - ✅ Good: "This directory contains archived application logs from January 2024. The logs have been backed up to S3. Deleting will free up 2.3GB."
-  - ❌ Bad: "Old logs"
+  -  Good: "This directory contains archived application logs from January 2024. The logs have been backed up to S3. Deleting will free up 2.3GB."
+  -  Bad: "Old logs"
 
 - `reasoning` (string): Why this operation is necessary
-  - ✅ Good: "Disk usage is at 92% capacity. These logs are archived in S3 and no longer needed locally."
-  - ❌ Bad: "Need more space"
+  -  Good: "Disk usage is at 92% capacity. These logs are archived in S3 and no longer needed locally."
+  -  Bad: "Need more space"
 
 **Optional:**
 - `caller` (string): Auto-populated by Preloop
@@ -109,18 +109,18 @@ When unsure:
 ## Best Practices
 
 **DO:**
-- ✅ Request approval BEFORE executing
-- ✅ Be specific and detailed
-- ✅ Include numbers (file count, size, affected records)
-- ✅ Explain the impact
-- ✅ Respect denials
+-  Request approval BEFORE executing
+-  Be specific and detailed
+-  Include numbers (file count, size, affected records)
+-  Explain the impact
+-  Respect denials
 
 **DON'T:**
-- ❌ Execute first, then ask
-- ❌ Be vague
-- ❌ Bundle multiple operations
-- ❌ Proceed if denied
-- ❌ Skip approval because you think it's "probably fine"
+-  Execute first, then ask
+-  Be vague
+-  Bundle multiple operations
+-  Proceed if denied
+-  Skip approval because you think it's "probably fine"
 
 ## Additional Resources
 

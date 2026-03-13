@@ -10,10 +10,10 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PASS=0
 FAIL=0
 
-pass() { echo "  ✅ $1"; PASS=$((PASS + 1)); }
-fail() { echo "  ❌ $1"; FAIL=$((FAIL + 1)); }
+pass() { echo "   $1"; PASS=$((PASS + 1)); }
+fail() { echo "   $1"; FAIL=$((FAIL + 1)); }
 
-echo "🔍 Codecast Smoke Test"
+echo " Codecast Smoke Test"
 echo "======================"
 
 # --- Required binaries ---
@@ -67,7 +67,7 @@ BOT_TOKEN="${CODECAST_BOT_TOKEN:-$(cat "$SCRIPT_DIR/.bot-token" 2>/dev/null | tr
 if [ -n "$BOT_TOKEN" ]; then
   pass "Bot token found (needed for --thread mode)"
 else
-  echo "  ⚠️  No bot token — --thread mode will be unavailable"
+  echo "    No bot token — --thread mode will be unavailable"
   echo "     Set CODECAST_BOT_TOKEN env var or create $SCRIPT_DIR/.bot-token"
 fi
 
@@ -86,9 +86,9 @@ echo "======================"
 TOTAL=$((PASS + FAIL))
 echo "Results: $PASS/$TOTAL passed"
 if [ "$FAIL" -gt 0 ]; then
-  echo "⚠️  $FAIL check(s) failed — fix before running codecast"
+  echo "  $FAIL check(s) failed — fix before running codecast"
   exit 1
 else
-  echo "✅ All checks passed — ready to stream!"
+  echo " All checks passed — ready to stream!"
   exit 0
 fi

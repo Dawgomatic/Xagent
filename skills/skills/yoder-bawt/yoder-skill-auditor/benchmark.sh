@@ -52,7 +52,7 @@ for skill_dir in "$SKILLS_DIR"/*/; do
     if ! $JSON_MODE; then
         case "$VERDICT" in
             pass) echo -e "${GREEN}✓${NC} $skill_name (score: $SCORE, ${GREEN}PASS${NC})" ;;
-            review) echo -e "${YELLOW}⚠${NC} $skill_name (score: $SCORE, ${YELLOW}REVIEW${NC} - ${CRITS}C/${WARNS}W)" ;;
+            review) echo -e "${YELLOW}${NC} $skill_name (score: $SCORE, ${YELLOW}REVIEW${NC} - ${CRITS}C/${WARNS}W)" ;;
             fail) echo -e "${RED}✗${NC} $skill_name (score: $SCORE, ${RED}FAIL${NC} - ${CRITS}C/${WARNS}W)" ;;
             *) echo -e "${RED}?${NC} $skill_name (error)" ;;
         esac

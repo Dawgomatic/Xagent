@@ -1,5 +1,5 @@
 #!/bin/bash
-# 🧬 Evolution CLI - Easy access to the self-evolving learning system
+#  Evolution CLI - Easy access to the self-evolving learning system
 
 set -euo pipefail
 
@@ -16,7 +16,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 usage() {
-    echo -e "${CYAN}🧬 Evolution CLI - Self-Learning System${NC}"
+    echo -e "${CYAN} Evolution CLI - Self-Learning System${NC}"
     echo
     echo "Usage: $0 <command>"
     echo
@@ -57,12 +57,12 @@ run_with_header() {
 }
 
 quick_status() {
-    echo -e "${CYAN}🧬 EVOLUTION SYSTEM STATUS${NC}"
+    echo -e "${CYAN} EVOLUTION SYSTEM STATUS${NC}"
     echo "================================"
     
     if [[ ! -d "$SCRIPT_DIR/evolution" ]]; then
-        echo -e "${YELLOW}⚠️ Evolution directory not found - system not initialized${NC}"
-        echo -e "${GREEN}💡 Run: $0 run${NC}"
+        echo -e "${YELLOW} Evolution directory not found - system not initialized${NC}"
+        echo -e "${GREEN} Run: $0 run${NC}"
         return
     fi
     
@@ -90,9 +90,9 @@ except:
     print(0)
 ")
         
-        echo -e "${GREEN}✅ Evolution system active${NC}"
-        echo "📅 Last evolution: $last_evolution"
-        echo "🧠 Patterns learned: $pattern_count"
+        echo -e "${GREEN} Evolution system active${NC}"
+        echo " Last evolution: $last_evolution"
+        echo " Patterns learned: $pattern_count"
         
         if [[ -f "$weights_file" ]]; then
             local mood_weights
@@ -104,11 +104,11 @@ try:
 except:
     print(0)
 ")
-            echo "⚖️ Active mood adjustments: $mood_weights"
+            echo " Active mood adjustments: $mood_weights"
         fi
     else
-        echo -e "${YELLOW}⚠️ No evolution data found - run first cycle${NC}"
-        echo -e "${GREEN}💡 Run: $0 run${NC}"
+        echo -e "${YELLOW} No evolution data found - run first cycle${NC}"
+        echo -e "${GREEN} Run: $0 run${NC}"
     fi
 }
 
@@ -120,7 +120,7 @@ show_history() {
         return 1
     fi
     
-    echo -e "${PURPLE}📜 EVOLUTION HISTORY${NC}"
+    echo -e "${PURPLE} EVOLUTION HISTORY${NC}"
     echo "==================="
     
     python3 -c "
@@ -142,10 +142,10 @@ try:
     # Show last 5 cycles
     for event in history[-5:]:
         timestamp = event['timestamp'][:16].replace('T', ' ')
-        print(f'🗓️ {timestamp}')
-        print(f'   📈 {event[\"new_patterns_discovered\"]} new patterns discovered')
-        print(f'   ⚖️ {event[\"weight_adjustments_made\"]} weight adjustments made')
-        print(f'   ⚠️ {event[\"ruts_detected\"]} behavioral ruts detected')
+        print(f' {timestamp}')
+        print(f'    {event[\"new_patterns_discovered\"]} new patterns discovered')
+        print(f'    {event[\"weight_adjustments_made\"]} weight adjustments made')
+        print(f'    {event[\"ruts_detected\"]} behavioral ruts detected')
         print()
         
 except Exception as e:
@@ -165,22 +165,22 @@ main() {
     
     case "$command" in
         "run"|"evolve")
-            run_with_header "evolve" "🚀 RUNNING EVOLUTION CYCLE" "$GREEN"
+            run_with_header "evolve" " RUNNING EVOLUTION CYCLE" "$GREEN"
             ;;
         "reflect"|"reflection")
-            run_with_header "reflect" "🤔 SELF-REFLECTION" "$BLUE"
+            run_with_header "reflect" " SELF-REFLECTION" "$BLUE"
             ;;
         "diagnose"|"diagnosis")
-            run_with_header "diagnose" "🔍 SYSTEM DIAGNOSIS" "$YELLOW"
+            run_with_header "diagnose" " SYSTEM DIAGNOSIS" "$YELLOW"
             ;;
         "recommendations"|"recommend"|"prescribe")
-            run_with_header "recommendations" "💊 RECOMMENDATIONS" "$GREEN"
+            run_with_header "recommendations" " RECOMMENDATIONS" "$GREEN"
             ;;
         "weights"|"weight")
-            run_with_header "weights" "⚖️ LEARNED WEIGHTS" "$PURPLE"
+            run_with_header "weights" " LEARNED WEIGHTS" "$PURPLE"
             ;;
         "stats"|"statistics")
-            run_with_header "stats" "📊 EVOLUTION STATISTICS" "$CYAN"
+            run_with_header "stats" " EVOLUTION STATISTICS" "$CYAN"
             ;;
         "history"|"log")
             show_history

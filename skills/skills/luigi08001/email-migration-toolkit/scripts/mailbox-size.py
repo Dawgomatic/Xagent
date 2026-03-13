@@ -40,19 +40,19 @@ def estimate_mailbox_size(server, port, username, password, use_ssl=True, timeou
         
         # Login
         imap.login(username, password)
-        print("✅ Connected and authenticated successfully\n")
+        print(" Connected and authenticated successfully\n")
         
         # Get list of all mailboxes
         result, mailboxes = imap.list()
         if result != 'OK':
-            print("❌ Failed to list mailboxes")
+            print(" Failed to list mailboxes")
             return False
         
         total_messages = 0
         total_size_estimate = 0
         folder_stats = []
         
-        print(f"📁 Found {len(mailboxes)} folders:")
+        print(f" Found {len(mailboxes)} folders:")
         print()
         
         for mailbox_line in mailboxes:
@@ -70,14 +70,14 @@ def estimate_mailbox_size(server, port, username, password, use_ssl=True, timeou
                 try:
                     result, data = imap.select(f'"{folder_name}"', readonly=True)
                     if result != 'OK':
-                        print(f"⚠️  Skipped {folder_name} (access denied)")
+                        print(f"  Skipped {folder_name} (access denied)")
                         continue
                     
                     # Get message count
                     message_count = int(data[0]) if data[0] else 0
                     
                     if message_count == 0:
-                        print(f"📂 {folder_name:<30} {message_count:>6} messages")
+                        print(f" {folder_name:<30} {message_count:>6} messages")
                         folder_stats.append((folder_name, message_count, 0))
                         continue
                     
@@ -125,18 +125,18 @@ def estimate_mailbox_size(server, port, username, password, use_ssl=True, timeou
                     total_size_estimate += folder_size_estimate
                     folder_stats.append((folder_name, message_count, folder_size_estimate))
                     
-                    print(f"📂 {folder_name:<30} {message_count:>6} messages  {format_bytes(folder_size_estimate):>8}")
+                    print(f" {folder_name:<30} {message_count:>6} messages  {format_bytes(folder_size_estimate):>8}")
                     
                 except Exception as e:
-                    print(f"⚠️  Error processing {folder_name}: {str(e)[:50]}")
+                    print(f"  Error processing {folder_name}: {str(e)[:50]}")
                     continue
                     
             except Exception as e:
-                print(f"⚠️  Error parsing mailbox line: {str(e)[:50]}")
+                print(f"  Error parsing mailbox line: {str(e)[:50]}")
                 continue
         
         print("\n" + "=" * 60)
-        print("📊 MAILBOX SUMMARY")
+        print(" MAILBOX SUMMARY")
         print("=" * 60)
         print(f"Total folders scanned: {len(folder_stats)}")
         print(f"Total messages: {total_messages:,}")
@@ -146,14 +146,14 @@ def estimate_mailbox_size(server, port, username, password, use_ssl=True, timeou
             avg_msg_size = total_size_estimate / total_messages
             print(f"Average message size: {format_bytes(avg_msg_size)}")
         
-        print("\n📈 LARGEST FOLDERS:")
+        print("\n LARGEST FOLDERS:")
         # Sort by size and show top 5
         folder_stats.sort(key=lambda x: x[2], reverse=True)
         for i, (folder, count, size) in enumerate(folder_stats[:5]):
             print(f"{i+1}. {folder:<25} {count:>6} msgs  {format_bytes(size):>8}")
         
         # Migration time estimates
-        print("\n⏱️  MIGRATION TIME ESTIMATES:")
+        print("\n  MIGRATION TIME ESTIMATES:")
         print("(Based on typical IMAP transfer rates)")
         
         # Estimates based on common speeds
@@ -176,13 +176,13 @@ def estimate_mailbox_size(server, port, username, password, use_ssl=True, timeou
                 print(f"  {desc:<25} {time_str}")
         
         # Storage requirements
-        print("\n💾 STORAGE REQUIREMENTS:")
+        print("\n STORAGE REQUIREMENTS:")
         print(f"Source mailbox: {format_bytes(total_size_estimate)}")
         print(f"Backup space needed: {format_bytes(total_size_estimate * 1.2)} (with 20% buffer)")
         print(f"Temporary space: {format_bytes(total_size_estimate * 0.5)} (for staging)")
         
         # Age analysis
-        print("\n📅 ANALYZING MESSAGE DATES...")
+        print("\n ANALYZING MESSAGE DATES...")
         try:
             imap.select('INBOX', readonly=True)
             
@@ -200,27 +200,27 @@ def estimate_mailbox_size(server, port, username, password, use_ssl=True, timeou
             print(f"Messages from last 30 days: {recent_count:,}")
             
             if old_count > 0:
-                print("\n💡 Consider archiving very old messages to speed up migration")
+                print("\n Consider archiving very old messages to speed up migration")
             
         except Exception as e:
-            print(f"⚠️  Could not analyze message dates: {str(e)[:50]}")
+            print(f"  Could not analyze message dates: {str(e)[:50]}")
         
         # Logout
         imap.logout()
-        print("\n✅ Analysis complete!")
+        print("\n Analysis complete!")
         return True
         
     except imaplib.IMAP4.error as e:
-        print(f"❌ IMAP Error: {e}")
+        print(f" IMAP Error: {e}")
         return False
     except ssl.SSLError as e:
-        print(f"❌ SSL Error: {e}")
+        print(f" SSL Error: {e}")
         return False
     except socket.timeout:
-        print(f"❌ Connection timeout after {timeout} seconds")
+        print(f" Connection timeout after {timeout} seconds")
         return False
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
+        print(f" Unexpected error: {e}")
         return False
 
 def get_provider_presets():

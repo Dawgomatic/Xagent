@@ -33,7 +33,7 @@ class Battle:
         
         if is_crit:
             damage *= 2
-            self.log.append(f"💥 CRITICAL HIT!")
+            self.log.append(f" CRITICAL HIT!")
         
         # Random variance
         variance = random.randint(-3, 3)
@@ -48,13 +48,13 @@ class Battle:
         
         return f"""
 {attacker_art}
-         ⚔️  VS  ⚔️
+           VS  
 {defender_art}
         """
     
     def fight(self) -> dict:
         """Execute the battle"""
-        self.log.append(f"⚔️ BATTLE: {self.pet1.name} vs {self.pet2.name} ⚔️")
+        self.log.append(f" BATTLE: {self.pet1.name} vs {self.pet2.name} ")
         self.log.append("")
         
         # Determine first attacker (speed check)
@@ -72,7 +72,7 @@ class Battle:
             defender.health = max(0, defender.health - damage)
             
             self.log.append(f"{attacker.name} attacks!")
-            self.log.append(f"💥 {damage} damage to {defender.name}")
+            self.log.append(f" {damage} damage to {defender.name}")
             self.log.append(f"{defender.name} HP: {defender.health}/{defender.health}")
             self.log.append("")
             
@@ -98,8 +98,8 @@ class Battle:
         winner.wins += 1
         loser.losses += 1
         
-        self.log.append(f"🏆 {winner.name} WINS!")
-        self.log.append(f"💫 +{xp_gained} XP to {winner.name}")
+        self.log.append(f" {winner.name} WINS!")
+        self.log.append(f" +{xp_gained} XP to {winner.name}")
         
         return {
             "winner": winner.name,

@@ -19,7 +19,7 @@ def load_config():
         with open(CONFIG_FILE, 'r') as f:
             return json.load(f)
     except FileNotFoundError:
-        print(f"⚠️  Config file not found: {CONFIG_FILE}")
+        print(f"  Config file not found: {CONFIG_FILE}")
         print("Run: python3 dx-ai-enhanced.py setup")
         sys.exit(1)
 
@@ -283,12 +283,12 @@ def extract_prefix(callsign):
 def watch_with_ai(config):
     """Watch DX spots with AI filtering and scoring"""
     
-    print("🤖 AI-Enhanced DX Monitor")
+    print(" AI-Enhanced DX Monitor")
     print("=" * 60)
-    print(f"📍 QTH: {config['operator']['qth']['location']} ({config['operator']['qth']['grid']})")
-    print(f"📡 Station: {config['operator']['station']['power']}W")
-    print(f"🎯 Needed DXCC: {', '.join(config['needed_dxcc'][:5])}...")
-    print(f"⚡ Min Workability: {config['preferences']['min_workability_score']*100:.0f}%")
+    print(f" QTH: {config['operator']['qth']['location']} ({config['operator']['qth']['grid']})")
+    print(f" Station: {config['operator']['station']['power']}W")
+    print(f" Needed DXCC: {', '.join(config['needed_dxcc'][:5])}...")
+    print(f" Min Workability: {config['preferences']['min_workability_score']*100:.0f}%")
     print("=" * 60)
     print()
     
@@ -305,13 +305,13 @@ def watch_with_ai(config):
         )
         
         if result.returncode != 0:
-            print(f"❌ Error running dx-monitor.py: {result.stderr}")
+            print(f" Error running dx-monitor.py: {result.stderr}")
             return
         
         # Parse and score spots
         spots = []
         for line in result.stdout.split('\n'):
-            if line.strip() and not line.startswith('📡') and not line.startswith(' '):
+            if line.strip() and not line.startswith('') and not line.startswith(' '):
                 scored = score_dx_spot(line, config)
                 if scored:
                     spots.append(scored)
@@ -325,24 +325,24 @@ def watch_with_ai(config):
         
         # Display results
         if not filtered_spots:
-            print("📭 No workable DX spots match your criteria right now")
+            print(" No workable DX spots match your criteria right now")
             print()
-            print("💡 Tips:")
+            print(" Tips:")
             print("  - Try lowering min_workability_score in dx-ai-config.json")
             print("  - Check back in 15-30 minutes")
             print("  - Best DX often at sunrise/sunset")
             return
         
-        print(f"✨ Found {len(filtered_spots)} workable DX spots!")
+        print(f" Found {len(filtered_spots)} workable DX spots!")
         print()
         
         # Solar conditions
         solar = filtered_spots[0]['solar']
-        print(f"☀️  Solar: SFI={solar['sfi']} A={solar['a_index']} K={solar['k_index']} ({solar['condition']})")
+        print(f"  Solar: SFI={solar['sfi']} A={solar['a_index']} K={solar['k_index']} ({solar['condition']})")
         print()
         
         # Top spots
-        print("🎯 Top Workable DX (sorted by score):")
+        print(" Top Workable DX (sorted by score):")
         print()
         print(f"{'Score':<6} {'Call':<12} {'Band':<6} {'Mode':<6} {'Dist':<8} {'Work%':<6} {'Status'}")
         print("-" * 70)
@@ -353,11 +353,11 @@ def watch_with_ai(config):
             
             status_icons = []
             if spot['needed']:
-                status_icons.append("🔥")
+                status_icons.append("")
             if spot['already_worked']:
                 status_icons.append("✓")
             if work_pct >= 80:
-                status_icons.append("📡")
+                status_icons.append("")
             
             status = " ".join(status_icons)
             
@@ -365,7 +365,7 @@ def watch_with_ai(config):
                   f"{spot['distance_km']:>5}km {work_pct:>3}%  {status}")
         
         print()
-        print("Legend: 🔥 = Needed  ✓ = Already worked  📡 = Excellent propagation")
+        print("Legend:  = Needed  ✓ = Already worked   = Excellent propagation")
         print()
         
         # Alert for high-priority spots
@@ -373,22 +373,22 @@ def watch_with_ai(config):
         high_priority = [s for s in filtered_spots if s['score'] >= alert_threshold]
         
         if high_priority:
-            print("🚨 HIGH PRIORITY ALERTS:")
+            print(" HIGH PRIORITY ALERTS:")
             for spot in high_priority[:3]:
-                print(f"   📻 {spot['dx_call']} on {spot['band']} {spot['mode']} - "
+                print(f"    {spot['dx_call']} on {spot['band']} {spot['mode']} - "
                       f"{int(spot['workability']*100)}% workable, "
                       f"{spot['distance_km']}km - " 
                       f"{'NEEDED!' if spot['needed'] else 'Rare DX'}")
             print()
         
     except subprocess.TimeoutExpired:
-        print("⏱️  Timeout connecting to DX cluster")
+        print("  Timeout connecting to DX cluster")
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
 
 def setup():
     """Interactive setup for config file"""
-    print("🎯 Ham Radio AI-Enhanced DX Monitor - Setup")
+    print(" Ham Radio AI-Enhanced DX Monitor - Setup")
     print("=" * 60)
     print()
     
@@ -434,7 +434,7 @@ def setup():
         json.dump(config, f, indent=2)
     
     print()
-    print(f"✅ Configuration saved to {CONFIG_FILE}")
+    print(f" Configuration saved to {CONFIG_FILE}")
     print()
     print("Run: python3 dx-ai-enhanced.py watch")
     print()

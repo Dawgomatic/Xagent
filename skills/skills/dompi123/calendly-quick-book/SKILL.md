@@ -2,7 +2,7 @@
 name: calendly-quick-book
 description: Book Calendly meetings instantly. Triggers on "book", "schedule calendly", "calendly book", or any request to book a meeting without sending a link.
 user-invocable: true
-metadata: {"openclaw": {"always": true, "emoji": "📅", "requires": {"env": ["CALENDLY_API_TOKEN"]}}}
+metadata: {"openclaw": {"always": true, "emoji": "", "requires": {"env": ["CALENDLY_API_TOKEN"]}}}
 ---
 
 # Calendly Quick Book
@@ -88,17 +88,17 @@ curl -s -X POST "https://api.calendly.com/invitees" \
 
 ### Success
 ```
-✅ Meeting Booked!
+ Meeting Booked!
 
-📅 [Date]
-⏰ [Time] [Timezone]
-👤 [Name] ([Email])
-📍 Calendar invite sent automatically
+ [Date]
+ [Time] [Timezone]
+ [Name] ([Email])
+ Calendar invite sent automatically
 ```
 
 ### No Availability
 ```
-⚠️ No availability at [time]
+ No availability at [time]
 
 Nearest slots:
 1. [Option 1]

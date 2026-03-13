@@ -10,7 +10,7 @@ const path = require('path');
 
 async function downloadFile(dropboxPath, localPath) {
   try {
-    console.log(`📥 Downloading: ${dropboxPath}`);
+    console.log(` Downloading: ${dropboxPath}`);
     
     // Get auto-refreshing client
     const dbx = await getDropboxClient();
@@ -23,10 +23,10 @@ async function downloadFile(dropboxPath, localPath) {
     await fs.mkdir(dir, { recursive: true });
     
     await fs.writeFile(localPath, buffer);
-    console.log(`✅ Saved to: ${localPath} (${formatBytes(buffer.length)})\n`);
+    console.log(` Saved to: ${localPath} (${formatBytes(buffer.length)})\n`);
     
   } catch (error) {
-    console.error(`❌ Error downloading ${dropboxPath}:`, error.message);
+    console.error(` Error downloading ${dropboxPath}:`, error.message);
     if (error.error) {
       console.error(JSON.stringify(error.error, null, 2));
     }

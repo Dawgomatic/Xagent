@@ -4,24 +4,24 @@ Aplica a archivos con extensión: .php
 
 ---
 
-## 🔴 BLOCKERS
+##  BLOCKERS
 
 ### Inyección SQL
 - NUNCA concatenar variables en queries SQL
 - NUNCA usar variables de $_GET, $_POST, $_REQUEST directamente en queries
 - NUNCA confiar en magic_quotes o addslashes como protección
 
-❌ Mal:
+ Mal:
   $query = "SELECT * FROM users WHERE id = " . $_GET['id'];
   $query = "SELECT * FROM users WHERE name = '$name'";
   $result = mysqli_query($conn, "DELETE FROM posts WHERE id = {$_POST['id']}");
 
-✅ Bien (PDO):
+ Bien (PDO):
   $stmt = $pdo->prepare('SELECT * FROM users WHERE id = :id');
   $stmt->execute(['id' => $id]);
   $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-✅ Bien (MySQLi):
+ Bien (MySQLi):
   $stmt = $mysqli->prepare('SELECT * FROM users WHERE id = ?');
   $stmt->bind_param('i', $id);
   $stmt->execute();
@@ -31,17 +31,17 @@ Aplica a archivos con extensión: .php
 - NUNCA hacer echo de variables sin escapar
 - NUNCA confiar en el input del usuario para output HTML
 
-❌ Mal:
+ Mal:
   echo $_GET['name'];
   echo $user['bio'];
   <?= $comment->body ?>
 
-✅ Bien:
+ Bien:
   echo htmlspecialchars($_GET['name'], ENT_QUOTES, 'UTF-8');
   echo htmlspecialchars($user['bio'], ENT_QUOTES, 'UTF-8');
   <?= htmlspecialchars($comment->body, ENT_QUOTES, 'UTF-8') ?>
 
-✅ Mejor (crear helper):
+ Mejor (crear helper):
   function e($string) {
     return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
   }
@@ -50,13 +50,13 @@ Aplica a archivos con extensión: .php
 ### Inyección de Comandos
 - NUNCA pasar input del usuario a funciones de ejecución de comandos sin sanitizar
 
-❌ Mal:
+ Mal:
   exec("ls " . $_GET['dir']);
   system("ping " . $host);
   shell_exec("cat " . $filename);
   passthru("convert " . $uploadedFile);
 
-✅ Bien:
+ Bien:
   exec("ls " . escapeshellarg($dir));
   system("ping " . escapeshellarg($host));
   // Mejor aún: usar funciones nativas de PHP en lugar de comandos del sistema
@@ -65,11 +65,11 @@ Aplica a archivos con extensión: .php
 ### Inclusión de Archivos
 - NUNCA usar variables del usuario en include/require sin validar
 
-❌ Mal:
+ Mal:
   include($_GET['page'] . '.php');
   require($module . '.php');
 
-✅ Bien:
+ Bien:
   $allowedPages = ['home', 'about', 'contact'];
   $page = in_array($_GET['page'], $allowedPages) ? $_GET['page'] : 'home';
   include($page . '.php');
@@ -78,11 +78,11 @@ Aplica a archivos con extensión: .php
 - NUNCA confiar en el nombre o tipo MIME enviado por el cliente
 - NUNCA guardar archivos subidos en directorios accesibles sin validación
 
-❌ Mal:
+ Mal:
   $target = "uploads/" . $_FILES['file']['name'];
   move_uploaded_file($_FILES['file']['tmp_name'], $target);
 
-✅ Bien:
+ Bien:
   $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
   $finfo = new finfo(FILEINFO_MIME_TYPE);
   $mimeType = $finfo->file($_FILES['file']['tmp_name']);
@@ -104,18 +104,18 @@ Aplica a archivos con extensión: .php
 ### Deserialización Insegura
 - NUNCA usar unserialize() con datos del usuario
 
-❌ Mal:
+ Mal:
   $data = unserialize($_COOKIE['user_data']);
   $obj = unserialize(file_get_contents('php://input'));
 
-✅ Bien:
+ Bien:
   $data = json_decode($_COOKIE['user_data'], true);
   // Si necesitas unserialize, usa allowed_classes
   $data = unserialize($input, ['allowed_classes' => false]);
 
 ---
 
-## 🟡 WARNINGS
+##  WARNINGS
 
 ### Funciones Obsoletas y Peligrosas
 - mysql_* funciones: usar PDO o MySQLi en su lugar
@@ -130,7 +130,7 @@ Aplica a archivos con extensión: .php
 - No configurar error reporting adecuadamente para producción
 - Mostrar errores detallados al usuario en producción
 
-❌ Mal:
+ Mal:
   try {
     $result = riskyOperation();
   } catch (Exception $e) {
@@ -141,7 +141,7 @@ Aplica a archivos con extensión: .php
   ini_set('display_errors', 1);
   error_reporting(E_ALL);
 
-✅ Bien:
+ Bien:
   try {
     $result = riskyOperation();
   } catch (SpecificException $e) {
@@ -163,12 +163,12 @@ Aplica a archivos con extensión: .php
 - No usar strict_types en archivos nuevos
 - Usar mixed cuando se puede ser más específico
 
-❌ Mal:
+ Mal:
   function getUser($id) {
     // ...
   }
 
-✅ Bien:
+ Bien:
   declare(strict_types=1);
 
   function getUser(int $id): ?User {
@@ -180,11 +180,11 @@ Aplica a archivos con extensión: .php
 - NUNCA almacenar passwords en texto plano
 - NUNCA crear tu propio sistema de hashing
 
-❌ Mal:
+ Mal:
   $hash = md5($password);
   $hash = sha1($password . $salt);
 
-✅ Bien:
+ Bien:
   // Hashear:
   $hash = password_hash($password, PASSWORD_DEFAULT);
 
@@ -199,7 +199,7 @@ Aplica a archivos con extensión: .php
 - No destruir sesión correctamente en logout
 - Session fixation: no validar que la sesión pertenece al usuario
 
-✅ Configuración segura de sesiones:
+ Configuración segura de sesiones:
   ini_set('session.cookie_httponly', 1);
   ini_set('session.cookie_secure', 1);
   ini_set('session.use_strict_mode', 1);
@@ -219,7 +219,7 @@ Aplica a archivos con extensión: .php
 - No validar token CSRF en el servidor
 - Token CSRF predecible o reutilizable
 
-✅ Implementación básica:
+ Implementación básica:
   // Generar token:
   if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -236,7 +236,7 @@ Aplica a archivos con extensión: .php
 
 ---
 
-## 🔵 SUGGESTIONS
+##  SUGGESTIONS
 
 ### PSR Standards
 - Seguir PSR-1: Basic Coding Standard
@@ -252,7 +252,7 @@ Aplica a archivos con extensión: .php
 - Usar Service layer para lógica de negocio compleja
 - Usar Dependency Injection en lugar de instanciar dependencias dentro de clases
 
-❌ Mal:
+ Mal:
   class UserController {
     public function getUser(int $id): Response {
       $pdo = new PDO('mysql:host=localhost;dbname=app', 'root', 'pass');
@@ -263,7 +263,7 @@ Aplica a archivos con extensión: .php
     }
   }
 
-✅ Bien:
+ Bien:
   class UserController {
     public function __construct(
       private readonly UserService $userService
@@ -290,22 +290,22 @@ Aplica a archivos con extensión: .php
 - Usar nullsafe operator ?-> (PHP 8+) para cadenas de llamadas
 - Tipar nullable explícitamente con ? cuando una función puede retornar null
 
-❌ Antes:
+ Antes:
   $city = isset($user) && isset($user->address) ? $user->address->city : 'Unknown';
 
-✅ Después (PHP 8+):
+ Después (PHP 8+):
   $city = $user?->address?->city ?? 'Unknown';
 
 ### Enums (PHP 8.1+)
 - Usar enums en lugar de constantes sueltas para valores finitos
 - Preferir backed enums cuando se necesita persistir el valor
 
-❌ Antes:
+ Antes:
   const STATUS_ACTIVE = 'active';
   const STATUS_INACTIVE = 'inactive';
   const STATUS_BANNED = 'banned';
 
-✅ Después:
+ Después:
   enum UserStatus: string {
     case Active = 'active';
     case Inactive = 'inactive';
@@ -316,7 +316,7 @@ Aplica a archivos con extensión: .php
 - Preferir match sobre switch cuando se retorna un valor
 - match es estricto en comparación (===) y no necesita break
 
-❌ Antes:
+ Antes:
   switch ($status) {
     case 'active':
       $label = 'Activo';
@@ -328,7 +328,7 @@ Aplica a archivos con extensión: .php
       $label = 'Desconocido';
   }
 
-✅ Después:
+ Después:
   $label = match($status) {
     'active' => 'Activo',
     'inactive' => 'Inactivo',
@@ -337,7 +337,7 @@ Aplica a archivos con extensión: .php
 
 ---
 
-## 💡 NITS
+##  NITS
 
 ### Estilo
 - Usar camelCase para métodos y variables
@@ -357,8 +357,8 @@ Aplica a archivos con extensión: .php
 - Usar union types en lugar de docblocks para tipado
 - Usar str_contains(), str_starts_with(), str_ends_with() (PHP 8+) en lugar de strpos hacks
 
-❌ Antes:
+ Antes:
   if (strpos($haystack, $needle) !== false) {}
 
-✅ Después:
+ Después:
   if (str_contains($haystack, $needle)) {}

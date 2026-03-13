@@ -81,7 +81,7 @@ cd ~/clawd && git-crypt export-key ~/clawdbot-keys/workspace.key
 cd ~/.clawdbot && git-crypt export-key ~/clawdbot-keys/config.key
 ```
 
-⚠️ **Store these keys securely** (1Password, iCloud Keychain, USB drive, etc.)
+ **Store these keys securely** (1Password, iCloud Keychain, USB drive, etc.)
 
 ### 5. Initial commit & push
 

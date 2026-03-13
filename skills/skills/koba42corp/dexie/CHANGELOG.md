@@ -24,12 +24,12 @@ All notable changes to the Dexie skill will be documented in this file.
 - MIT License
 
 ### Features
-- 💱 Offers: Browse and filter marketplace offers
-- 🪙 Tokens: Prices, volume, liquidity for CATs
-- 📊 Pairs: View trading pairs
-- 🔍 Search: Find tokens by name or code
-- 📈 Stats: Platform-wide statistics
-- ⚡ Shortcuts: Quick price lookups
+-  Offers: Browse and filter marketplace offers
+-  Tokens: Prices, volume, liquidity for CATs
+-  Pairs: View trading pairs
+-  Search: Find tokens by name or code
+-  Stats: Platform-wide statistics
+-  Shortcuts: Quick price lookups
 
 ### Technical
 - Node.js 18+ compatibility

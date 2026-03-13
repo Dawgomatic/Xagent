@@ -171,7 +171,7 @@ bot.onSlashCommand('weather', async (handler, { args, channelId }) => {
 ```typescript
 bot.onReaction(async (handler, event) => {
   // event: { reaction, messageId, channelId }
-  if (event.reaction === '👋') {
+  if (event.reaction === '') {
     await handler.sendMessage(event.channelId, 'I saw your wave!')
   }
 })

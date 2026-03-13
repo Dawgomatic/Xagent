@@ -154,7 +154,7 @@ def format_posts(posts, as_json=False, verbose=False):
                 print(f"\n{i}. {title}")
                 
             print(f"   r/{subreddit}")
-            print(f"   🔼 {post.get('score', 0)} ({int(ratio*100)}%) • 💬 {post.get('num_comments', 0)} • {created}")
+            print(f"    {post.get('score', 0)} ({int(ratio*100)}%) •  {post.get('num_comments', 0)} • {created}")
             
             # Always show post URL (permalink)
             print(f"   {post.get('url', '')}")
@@ -164,7 +164,7 @@ def format_posts(posts, as_json=False, verbose=False):
             if selftext:
                 preview = selftext.replace('\n', ' ').strip()
                 if preview:
-                    print(f"   📝 {preview}")
+                    print(f"    {preview}")
 
 
 def main():

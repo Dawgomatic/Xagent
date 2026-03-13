@@ -54,9 +54,9 @@
   "security": {
     "riskLevel": "CAUTION",
     "findings": [
-      "⚠️  child_process detected - script spawning external commands",
-      "⚠️  process.env access - ensure no secret theft",
-      "ℹ️  HTTP module imported - network calls expected"
+      "  child_process detected - script spawning external commands",
+      "  process.env access - ensure no secret theft",
+      "  HTTP module imported - network calls expected"
     ],
     "message": "Review findings before installation"
   },

@@ -8,4 +8,4 @@
 - **Posted:** YYYY-MM-DD HH:MM AM/PM EST
 - **Thread/URL:** https://platform.com/link
 - Description of what was posted
-- [View ↗](https://platform.com/link)
+- [View ](https://platform.com/link)

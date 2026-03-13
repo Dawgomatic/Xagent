@@ -6,7 +6,7 @@ homepage: https://github.com/zscole/bagman-skill
 metadata:
   {
     "openclaw": {
-      "emoji": "🔐",
+      "emoji": "",
       "requires": { "bins": ["op"] },
       "tags": ["security", "wallet", "keys", "crypto", "secrets", "delegation"]
     }
@@ -291,7 +291,7 @@ def request_confirmation(operation: str, details: dict) -> str:
         "expires": time.time() + 300  # 5 minutes
     }
     
-    return f"⚠️ Confirm '{operation}' with code: {code}\n(expires in 5 minutes)"
+    return f" Confirm '{operation}' with code: {code}\n(expires in 5 minutes)"
 
 def confirm(code: str):
     if code not in pending_confirmations:
@@ -404,34 +404,34 @@ OUTPUT SANITIZATION
 
 ## Common Mistakes
 
-### ❌ Keys in memory files
+###  Keys in memory files
 ```markdown
 # memory/2026-02-07.md
 Private key: 0x9f01dad551039daad...
 ```
 **Fix:** Store reference only: `Private key: [stored in 1Password: test-wallet]`
 
-### ❌ Keys in error messages
+###  Keys in error messages
 ```python
 except Exception as e:
     log(f"Failed with key {private_key}: {e}")
 ```
 **Fix:** Never include credentials in error context
 
-### ❌ Keys in .env.example
+###  Keys in .env.example
 ```
 PRIVATE_KEY=sk-ant-api03-real-key...  # "for testing"
 ```
 **Fix:** Use obviously fake: `PRIVATE_KEY=your-key-here`
 
-### ❌ "All" in transfer requests
+###  "All" in transfer requests
 ```
 User: "Transfer all my USDC"
 Agent: *executes unlimited transfer*
 ```
 **Fix:** Block "all/everything/max" patterns, require explicit amounts
 
-### ❌ Trusting conversation context
+###  Trusting conversation context
 ```python
 # Wallet has access to conversation history
 self.wallet.execute(conversation[-1]["content"])

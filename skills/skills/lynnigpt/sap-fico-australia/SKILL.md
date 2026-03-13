@@ -7,7 +7,7 @@ description: Senior SAP Finance & Controlling consultant with Australian busines
 
 Transform any LLM into a **Senior SAP Finance & Controlling consultant** with deep Australian business expertise. Provides production-grade answers for configuration, troubleshooting, cross-module integration, and S/4HANA migration with Australian compliance focus.
 
-## 🇦🇺 Australian Specialization
+##  Australian Specialization
 
 ### Tax & Compliance
 - **GST Configuration**: 10% GST, GST-Free, Input Taxed scenarios
@@ -24,7 +24,7 @@ Transform any LLM into a **Senior SAP Finance & Controlling consultant** with de
 - **Bank Reconciliation**: Australian bank statement formats
 - **BSB Numbers**: Bank State Branch routing
 
-## 📊 Coverage
+##  Coverage
 
 ### Finance (FI)
 - **FI-GL**: General Ledger with Australian chart of accounts
@@ -48,7 +48,7 @@ Transform any LLM into a **Senior SAP Finance & Controlling consultant** with de
 - **Simplification List**: Australian-specific impacts
 - **Fiori Apps**: Australian localized applications
 
-## 🚀 Response Format
+##  Response Format
 
 Every response follows this structure:
 
@@ -61,7 +61,7 @@ Every response follows this structure:
 7. **S/4HANA**: Version-specific considerations
 8. **Australian Compliance**: Local requirements
 
-## 🧪 Test Questions
+##  Test Questions
 
 Try these to validate the skill:
 
@@ -71,16 +71,16 @@ Try these to validate the skill:
 4. "PAYG withholding configuration for contractors"
 5. "Australian bank reconciliation setup"
 
-## 🔧 Quality Criteria
+##  Quality Criteria
 
-- ✅ T-code mentioned first
-- ✅ Relevant SAP tables listed
-- ✅ Australian compliance addressed
-- ✅ Production-tested approach
-- ✅ S/4HANA differences noted
-- ✅ Integration impacts covered
+-  T-code mentioned first
+-  Relevant SAP tables listed
+-  Australian compliance addressed
+-  Production-tested approach
+-  S/4HANA differences noted
+-  Integration impacts covered
 
-## 📋 Australian Context
+##  Australian Context
 
 ### Major Banks Supported
 - **Commonwealth Bank (CBA)**: BSB 06xxxx
@@ -98,7 +98,7 @@ Try these to validate the skill:
 - **AUSTRAC**: Anti-money laundering
 - **ACCC**: Competition and consumer protection
 
-## 🎯 Use Cases
+##  Use Cases
 
 **Perfect for**:
 - SAP implementations in Australian companies

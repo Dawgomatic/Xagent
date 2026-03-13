@@ -32,8 +32,8 @@ SIGNUP_RESULT=$(curl -s -X POST "$SUPABASE_URL/auth/v1/signup" \
 USER_ID=$(echo "$SIGNUP_RESULT" | jq -r '.id // empty')
 
 if [ -n "$USER_ID" ]; then
-    echo "✅ Account created!"
-    echo "📧 Verification email sent to: $EMAIL"
+    echo " Account created!"
+    echo " Verification email sent to: $EMAIL"
     echo ""
     echo "Next steps:"
     echo "  1. Check your email and click the verification link"
@@ -52,12 +52,12 @@ LOGIN_RESULT=$(curl -s -X POST "$SUPABASE_URL/auth/v1/token?grant_type=password"
 ACCESS_TOKEN=$(echo "$LOGIN_RESULT" | jq -r '.access_token // empty')
 
 if [ -z "$ACCESS_TOKEN" ]; then
-    echo "❌ Login failed"
+    echo " Login failed"
     echo "$LOGIN_RESULT" | jq .
     exit 1
 fi
 
-echo "✅ Login successful!"
+echo " Login successful!"
 echo ""
 
 # Create API key
@@ -70,7 +70,7 @@ API_KEY_RESULT=$(curl -s -X POST "https://api.kameo.chat/api/public/keys" \
 KAMEO_KEY=$(echo "$API_KEY_RESULT" | jq -r '.key // empty')
 
 if [ -n "$KAMEO_KEY" ]; then
-    echo "🎉 Success!"
+    echo " Success!"
     echo ""
     echo "Your Kameo API Key:"
     echo "$KAMEO_KEY"
@@ -86,11 +86,11 @@ if [ -n "$KAMEO_KEY" ]; then
 EOF
     chmod 600 ~/.config/kameo/credentials.json
     
-    echo "✅ Saved to ~/.config/kameo/credentials.json"
+    echo " Saved to ~/.config/kameo/credentials.json"
     echo ""
     echo "Export for current session:"
     echo "  export KAMEO_API_KEY='$KAMEO_KEY'"
 else
-    echo "❌ Failed to create API key"
+    echo " Failed to create API key"
     echo "$API_KEY_RESULT" | jq .
 fi

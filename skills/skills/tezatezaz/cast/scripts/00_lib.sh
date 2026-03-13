@@ -12,9 +12,9 @@ TOKENS_JSON="${ASSETS_DIR}/evm-network-tokens.json"
 
 bold() { printf "\033[1m%s\033[0m " "$*"; }
 dim() { printf "\033[2m%s\033[0m " "$*"; }
-ok() { printf "\033[32m✔\033[0m %s " "$*"; }
+ok() { printf "\033[32m\033[0m %s " "$*"; }
 warn() { printf "\033[33m!\033[0m %s " "$*"; }
-err() { printf "\033[31m✖\033[0m %s " "$*"; }
+err() { printf "\033[31m\033[0m %s " "$*"; }
 line() { printf "%s " "------------------------------------------------------------"; }
 
 enable_strict_path() {

@@ -4,7 +4,7 @@ description: Unified configuration manager for AI coding assistants. Manage prof
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
 metadata:
   clawdbot:
-    emoji: "🐴"
+    emoji: ""
     os: ["darwin", "linux"]
     requires:
       bins: ["bridle"]

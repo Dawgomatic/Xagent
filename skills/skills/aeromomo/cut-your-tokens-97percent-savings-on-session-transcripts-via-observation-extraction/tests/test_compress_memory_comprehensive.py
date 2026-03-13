@@ -26,12 +26,12 @@ class TestRuleCompress:
         assert result.count("item one") == 1
 
     def test_emoji_stripping(self):
-        text = "🎉 Celebration! 🎊 Party!"
+        text = " Celebration!  Party!"
         result = rule_compress(text)
-        assert "🎉" not in result
+        assert "" not in result
 
     def test_emoji_stripping_disabled(self):
-        text = "🎉 Celebration!"
+        text = " Celebration!"
         result = rule_compress(text, enable_emoji_strip=False)
         assert "Celebration" in result
 
@@ -96,8 +96,8 @@ class TestRuleCompress:
             "| retries | 3 | Max retries |\n\n"
             "## Empty Section\n\n"
             "## Notes\n"
-            "- Hello world 🎉\n"
-            "- Hello world 🎉\n"
+            "- Hello world \n"
+            "- Hello world \n"
             "- Testing，内容。\n"
         )
         original_tokens = estimate_tokens(text)
@@ -123,7 +123,7 @@ class TestCompressFile:
 
     def test_writes_when_not_dry_run(self, tmp_path):
         f = tmp_path / "test.md"
-        f.write_text("# Test\n\nHello world 🎉\nHello world 🎉\n\n## Empty\n\n")
+        f.write_text("# Test\n\nHello world \nHello world \n\n## Empty\n\n")
         compress_file(f, dry_run=False, no_llm=True)
         result = f.read_text()
         assert result.count("Hello world") >= 1

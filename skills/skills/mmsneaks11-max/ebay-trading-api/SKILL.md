@@ -36,7 +36,7 @@ cd ~/clawd/ebay && python3 comps.py "2024 Topps Chrome Mike Trout"
 | `ReviseItem` | Edit existing listing | `revise.py` (TODO) |
 | `EndItem` | End/delete listing | `end.py` (TODO) |
 | `GetItem` | Fetch listing details | `get_item.py` (TODO) |
-| `findCompletedItems` | Sold price research | `comps.py` ✅ |
+| `findCompletedItems` | Sold price research | `comps.py`  |
 
 ## Card Conditions
 
@@ -148,31 +148,31 @@ item_id = create_sports_card_listing(creds, card_info, price="199.99")
 
 ## Security Notes
 
-### 🔑 Token Management
+###  Token Management
 - Tokens stored in `.tokens.json` — **ensure 600 permissions**: `chmod 600 .tokens.json`
 - Access tokens expire after 2 hours (auto-refresh via refresh_token)
 - Refresh tokens expire after 18 months — calendar reminder recommended
 - If refresh fails, re-run `oauth_setup.py` to re-authenticate
 
-### 🔒 Credential Safety
+###  Credential Safety
 - Never commit `.tokens.json` or `.env.ebay` to git
 - Add to `.gitignore`: `.tokens.json`, `.env.ebay`, `*.log`
 - Use environment variables, not hardcoded values
 - Rotate tokens immediately if exposed
 - API credentials (Dev/App/Cert IDs) are **not** secret but treat as private
 
-### ✅ Input Validation
+###  Input Validation
 - All user input is HTML-escaped via `html.escape()` before API calls
 - Titles limited to 80 characters (eBay max)
 - Description wrapped in CDATA to prevent XML injection
 - Card numbers, grades sanitized to alphanumeric
 
-### 📋 Audit Trail
+###  Audit Trail
 - Failed listings logged to `~/clawd/ebay/errors.log`
 - Successful listings logged with ItemID, timestamp, and price
 - Keep logs for 90 days minimum (eBay dispute window)
 
-### 🛡️ API Response Handling
+###  API Response Handling
 - Never log full API responses (may contain PII)
 - Mask ItemIDs in non-debug logs: `1234***789`
 - Sanitize error messages before displaying to users
@@ -208,7 +208,7 @@ Production URL: `https://api.ebay.com/ws/api.dll`
 
 ## TODO
 
-- [x] `comps.py` — findCompletedItems wrapper for price research ✅
+- [x] `comps.py` — findCompletedItems wrapper for price research 
 - [ ] `revise.py` — ReviseItem for editing listings
 - [ ] `end.py` — EndItem for ending listings
 - [ ] `upload.py` — eBay Picture Services integration
@@ -241,4 +241,4 @@ The Finding API (`findCompletedItems`) does **not** have a sandbox environment. 
 
 ---
 
-*Skill created by Clawd 🐾 & Electron 🦞 for Text2List.app*
+*Skill created by Clawd  & Electron  for Text2List.app*

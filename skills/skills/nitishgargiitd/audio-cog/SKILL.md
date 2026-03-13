@@ -3,7 +3,7 @@ name: audio-cog
 description: AI audio generation powered by CellCog. Text-to-speech, voice synthesis, voiceovers, podcast audio, narration, music generation, background music, sound design. Professional audio creation with AI.
 metadata:
   openclaw:
-    emoji: "🎵"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

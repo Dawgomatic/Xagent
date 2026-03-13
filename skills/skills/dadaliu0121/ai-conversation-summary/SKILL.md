@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: dadaliu0121
   version: "1.0.0"
-  emoji: "📝"
+  emoji: ""
   tags: ["conversation", "summary", "chat", "ai", "productivity"]
 ---
 

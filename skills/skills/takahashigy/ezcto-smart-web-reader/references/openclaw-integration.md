@@ -110,7 +110,7 @@ requires_tools:
 
 **If any tool is missing:**
 ```
-OpenClaw: ⚠ Skill 'ezcto-smart-web-reader' requires 'exec' tool,
+OpenClaw:  Skill 'ezcto-smart-web-reader' requires 'exec' tool,
           but it's disabled. Enable it in ~/.openclaw/config.yaml?
 ```
 

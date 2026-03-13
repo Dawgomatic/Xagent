@@ -85,8 +85,8 @@ def show_canvas_dashboard():
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html)
     
-    print(f"✅ Dashboard generated: {output_path}")
-    print(f"\n📊 Current Usage:")
+    print(f" Dashboard generated: {output_path}")
+    print(f"\n Current Usage:")
     print(f"   Provider: {usage_data['provider']}")
     print(f"   Model: {usage_data['model']}")
     print(f"   Used: {usage_data['used']:,} / {usage_data['limit']:,}")

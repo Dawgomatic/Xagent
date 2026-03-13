@@ -6,8 +6,8 @@ mindmap
       [{{MEETING_3_TIME}} - {{MEETING_3_TITLE}}]
     (Priority Tasks)
       )){{URGENT_TASK}}((
-      [⏳ {{TASK_2}}]
-      [⏳ {{TASK_3}}]
+      [ {{TASK_2}}]
+      [ {{TASK_3}}]
     (Follow-ups)
       [{{FOLLOWUP_1_STATUS}} {{FOLLOWUP_1}}]
       [{{FOLLOWUP_2_STATUS}} {{FOLLOWUP_2}}]

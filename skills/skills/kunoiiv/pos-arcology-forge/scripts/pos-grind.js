@@ -58,7 +58,7 @@ async function grind(inputPath, prefix = '0000', timeoutMs = 300000) {
         rl.close();
         const share = {hash: h, nonce, prefix, ...input};
         await fs.writeFile('share.pos.json', JSON.stringify(share, null, 2));
-        console.log('✅ PoSH Valid!', JSON.stringify(share, null, 2));
+        console.log(' PoSH Valid!', JSON.stringify(share, null, 2));
         return share;
       }
       nonce++;
@@ -80,10 +80,10 @@ async function verify(inputPath) {
   const testData = JSON.stringify({...share, treeHash: inputHash, nonce: share.nonce});
   const testH = crypto.createHash('sha256').update(testData).digest('hex');
   if (testH === share.hash) {
-    console.log('✅ VALID PoSH!');
+    console.log(' VALID PoSH!');
     return true;
   } else {
-    console.log('❌ TAMPERED!');
+    console.log(' TAMPERED!');
     return false;
   }
 }
@@ -105,7 +105,7 @@ if (require.main === module) {
         await grind(input, prefix, parseInt(timeout_s)*1000);
       }
     } catch (e) {
-      console.error('💥', e.message);
+      console.error('', e.message);
       process.exit(1);
     }
   })();

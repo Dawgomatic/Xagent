@@ -102,7 +102,7 @@ console.log(`TX: https://basescan.org/tx/${hash}`);
 
 // Wait for confirmation
 const receipt = await pub.waitForTransactionReceipt({ hash });
-console.log(receipt.status === 'success' ? '✅ Swap complete!' : '❌ Failed');
+console.log(receipt.status === 'success' ? ' Swap complete!' : ' Failed');
 ```
 
 ### Using the swap script

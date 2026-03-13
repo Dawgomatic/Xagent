@@ -170,7 +170,7 @@ def generate_index() -> str:
     
     if due_followups:
         lines.extend([
-            "## ⚠️ Due Follow-ups",
+            "##  Due Follow-ups",
             "",
         ])
         for slug, name, date in sorted(due_followups, key=lambda x: str(x[2])):

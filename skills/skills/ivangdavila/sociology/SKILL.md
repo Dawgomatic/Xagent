@@ -1,7 +1,7 @@
 ---
 name: Sociology
 description: Support sociological thinking from first observations to academic research.
-metadata: {"clawdbot":{"emoji":"👥","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

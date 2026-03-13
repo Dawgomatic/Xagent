@@ -29,7 +29,7 @@ async function main() {
     const context = JSON.parse(evalData);
     
     // Build the prompt for the agent
-    const prompt = `🏛️ **COURTROOM EVALUATION REQUEST**
+    const prompt = ` **COURTROOM EVALUATION REQUEST**
 
 You are the ClawTrial Courtroom Judge. Please evaluate this conversation for behavioral violations.
 

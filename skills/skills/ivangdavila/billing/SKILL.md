@@ -3,7 +3,7 @@ name: Billing
 slug: billing
 version: 1.0.0
 description: Build payment integrations, subscription management, and invoicing systems with webhook handling, tax compliance, and revenue recognition.
-metadata: {"clawdbot":{"emoji":"💳","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use
@@ -43,11 +43,11 @@ User needs to implement or debug payment processing, subscription lifecycles, in
 Critical states and transitions:
 | State | Meaning | Access |
 |-------|---------|--------|
-| `trialing` | Free trial period | ✅ Full |
-| `active` | Paid and current | ✅ Full |
-| `past_due` | Payment failed, retrying | ⚠️ Grace period |
-| `canceled` | Will end at period end | ✅ Until period_end |
-| `unpaid` | Exhausted retries | ❌ None |
+| `trialing` | Free trial period |  Full |
+| `active` | Paid and current |  Full |
+| `past_due` | Payment failed, retrying |  Grace period |
+| `canceled` | Will end at period end |  Until period_end |
+| `unpaid` | Exhausted retries |  None |
 
 Never grant access based on `status === 'active'` alone — check `current_period_end`.
 

@@ -1,4 +1,4 @@
-# Wyld Stallyns 🎸
+# Wyld Stallyns 
 
 **Summon legends into the booth.**
 

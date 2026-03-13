@@ -63,7 +63,7 @@ def generate_html_landing_page(
     # Generate urgency HTML
     urgency_html = ""
     if urgency:
-        urgency_html = f"    <p class=\"urgency\">⚠️ {urgency}</p>\n"
+        urgency_html = f"    <p class=\"urgency\"> {urgency}</p>\n"
 
     # Generate HTML
     html = f"""<!DOCTYPE html>
@@ -182,7 +182,7 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(html)
 
-    print(f"✅ Landing page generated: {args.output}")
+    print(f" Landing page generated: {args.output}")
     print(f"   Type: {args.type}")
     print(f"   Headline: {args.headline}")
 

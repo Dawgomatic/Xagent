@@ -177,7 +177,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     
     if (command === 'web') {
       result = await search_web({ query });
-      console.log('\n🌐 Web Search Results:\n');
+      console.log('\n Web Search Results:\n');
     } else {
       result = await search_x({ query });
       console.log('\n𝕏 X Search Results:\n');
@@ -199,7 +199,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       });
     }
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

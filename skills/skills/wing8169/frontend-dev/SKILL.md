@@ -235,7 +235,7 @@ Generate production-ready Next.js projects from natural language, with shadcn/ui
 
 **Keep user informed at every step — this is a live build log.**
 
-**⚠️ Important: All projects use PM2 for dev server management (port 3002 by default). This ensures:**
+** Important: All projects use PM2 for dev server management (port 3002 by default). This ensures:**
 - Only one instance runs at a time (no port conflicts)
 - Easy process management (list/logs/restart/stop)
 - Persistent dev server across terminal sessions
@@ -601,8 +601,8 @@ bash scripts/screenshot.sh "http://localhost:3002" /tmp/review-mobile.png 390 84
 ```
 
 **Review Checklist** (analyze with `image` tool):
-- ✅ **Desktop (1400px)**: Content centered, proper spacing
-- ✅ **Mobile (390px)**: 
+-  **Desktop (1400px)**: Content centered, proper spacing
+-  **Mobile (390px)**: 
   - No horizontal overflow (content fits within screen)
   - Text readable (not too small)
   - Padding appropriate (p-4 not p-24)
@@ -675,7 +675,7 @@ Provide deployment options:
 - **Docker**: Provide Dockerfile
 - **Self-hosted**: Provide systemd service + nginx config
 
-**→ Message user: "Project ready! 🚀"**
+**→ Message user: "Project ready! "**
 
 ## Testing & Live Preview
 
@@ -1013,25 +1013,25 @@ const useInfinitePosts = () => {
 ```
 
 ## Common Mistakes to Avoid
-- ❌ Not wrapping app with QueryClientProvider
-- ❌ Using axios without interceptors (no error handling)
-- ❌ Forgetting loading/error states in components
-- ❌ Not invalidating queries after mutations
-- ❌ Using `any` instead of proper TypeScript types
-- ❌ Client components when server components would work
-- ❌ Not using Next.js Image component (performance loss)
-- ❌ Missing error boundaries
-- ❌ Hardcoding API URLs (use env vars)
-- ❌ No mobile testing (always check responsive at 390px width)
-- ❌ **Large padding on mobile** (p-24 = 96px causes overflow on 390px screens)
-- ❌ **Not using responsive Tailwind classes** (use p-4 md:p-8 lg:p-12)
-- ❌ **Horizontal overflow on mobile** (content wider than 390px)
-- ❌ Building custom components when shadcn/ui has them (Button, Card, Dialog, etc.)
-- ❌ Using emoji for icons (use Lucide React icons from shadcn/ui)
-- ❌ Not installing `@hookform/resolvers` and `zod` before using shadcn forms
-- ❌ Forgetting to add `<Toaster />` component when using toast notifications
-- ❌ **Taking screenshots before dev server is fully ready** (causes white screens)
-- ❌ **Not waiting for module loading** (causes "Module not found" errors in screenshots)
+-  Not wrapping app with QueryClientProvider
+-  Using axios without interceptors (no error handling)
+-  Forgetting loading/error states in components
+-  Not invalidating queries after mutations
+-  Using `any` instead of proper TypeScript types
+-  Client components when server components would work
+-  Not using Next.js Image component (performance loss)
+-  Missing error boundaries
+-  Hardcoding API URLs (use env vars)
+-  No mobile testing (always check responsive at 390px width)
+-  **Large padding on mobile** (p-24 = 96px causes overflow on 390px screens)
+-  **Not using responsive Tailwind classes** (use p-4 md:p-8 lg:p-12)
+-  **Horizontal overflow on mobile** (content wider than 390px)
+-  Building custom components when shadcn/ui has them (Button, Card, Dialog, etc.)
+-  Using emoji for icons (use Lucide React icons from shadcn/ui)
+-  Not installing `@hookform/resolvers` and `zod` before using shadcn forms
+-  Forgetting to add `<Toaster />` component when using toast notifications
+-  **Taking screenshots before dev server is fully ready** (causes white screens)
+-  **Not waiting for module loading** (causes "Module not found" errors in screenshots)
 
 ## Troubleshooting
 

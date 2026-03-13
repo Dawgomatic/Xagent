@@ -4,7 +4,7 @@ version: 1.3.3
 homepage: https://github.com/odrobnik/loxone-skill
 metadata:
   openclaw:
-    emoji: "🏠"
+    emoji: ""
     requires:
       bins: ["python3"]
       python: ["requests", "websockets"]

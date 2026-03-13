@@ -92,14 +92,14 @@ node scripts/playwright-stealth.js <URL>
 URL="https://example.com"
 OUTPUT_FILE="result.json"
 
-echo "🕷️  Starting scrape: $URL"
+echo "  Starting scrape: $URL"
 
 node scripts/playwright-stealth.js "$URL" > "$OUTPUT_FILE"
 
 if [ $? -eq 0 ]; then
-  echo "✅ Success! Results saved to: $OUTPUT_FILE"
+  echo " Success! Results saved to: $OUTPUT_FILE"
 else
-  echo "❌ Failed"
+  echo " Failed"
   exit 1
 fi
 ```

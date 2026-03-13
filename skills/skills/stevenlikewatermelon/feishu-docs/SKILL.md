@@ -1,7 +1,7 @@
 ---
 name: feishu-docs
 description: 飞书文档(Docx)API技能。用于创建、读取、更新和删除飞书文档。支持Markdown/HTML内容转换、文档权限管理。
-metadata: {"clawdbot":{"emoji":"📝","requires":{"env":["FEISHU_APP_ID","FEISHU_APP_SECRET"]},"primaryEnv":"FEISHU_APP_ID"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["FEISHU_APP_ID","FEISHU_APP_SECRET"]},"primaryEnv":"FEISHU_APP_ID"}}
 ---
 
 # 飞书文档(Docx)技能

@@ -6,7 +6,7 @@ user-invocable: true
 disable-model-invocation: true
 metadata:
   clawdbot:
-    emoji: "🚗"
+    emoji: ""
     primaryEnv: TESLA_EMAIL
     requires:
       bins: [python3]

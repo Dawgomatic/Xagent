@@ -31,7 +31,7 @@ try:
     CRYPTO_AVAILABLE = True
 except ImportError:
     CRYPTO_AVAILABLE = False
-    print("⚠️ crypto.py 未找到，加密功能不可用")
+    print(" crypto.py 未找到，加密功能不可用")
 
 def load_config() -> Dict[str, Any]:
     """載入通用配置"""
@@ -223,7 +223,7 @@ def print_tree_structure(agent_name: str):
     config = load_config()
     tree = get_agent_tree(agent_name, config)
     
-    print(f"\n📁 Agent: {agent_name} 記憶樹結構")
+    print(f"\n Agent: {agent_name} 記憶樹結構")
     print()
     
     def print_tree_node(node, prefix="", level=1):
@@ -233,7 +233,7 @@ def print_tree_structure(agent_name: str):
             connector = "└" if is_last else "├"
             
             desc = data.get('description', '')
-            print(f"{prefix}{connector} 📂 L{level} {name} - {desc[:30]}...")
+            print(f"{prefix}{connector}  L{level} {name} - {desc[:30]}...")
             
             children = data.get('children', {})
             if children:
@@ -243,13 +243,13 @@ def print_tree_structure(agent_name: str):
     print_tree_node(tree)
     
     memories = load_memories(agent_name)
-    print(f"\n💾 記憶文件: {get_memory_file(agent_name)}")
-    print(f"📊 記憶數量: {len(memories)} 條")
+    print(f"\n 記憶文件: {get_memory_file(agent_name)}")
+    print(f" 記憶數量: {len(memories)} 條")
 
 def show_stats(agent_name: str):
     """顯示統計"""
     memories = load_memories(agent_name)
-    print(f"\n📊 Agent: {agent_name} 統計")
+    print(f"\n Agent: {agent_name} 統計")
     print(f"   總記憶數: {len(memories)}")
     
     categories = {}
@@ -260,7 +260,7 @@ def show_stats(agent_name: str):
             categories[cat] = categories.get(cat, 0) + 1
     
     if categories:
-        print(f"\n📁 分類分佈:")
+        print(f"\n 分類分佈:")
         for cat, count in sorted(categories.items(), key=lambda x: -x[1]):
             print(f"   {cat}: {count}")
 
@@ -317,22 +317,22 @@ def main():
             source=args.source,
             encrypt=args.encrypt
         )
-        print(f"✅ 已保存到 {args.agent} 記憶庫")
+        print(f" 已保存到 {args.agent} 記憶庫")
         print(f"   ID: {result}")
     
     elif args.command == 'search':
         if args.method == 'tree':
             result = tree_search(args.agent, args.query)
-            print(f"\n📁 路徑: {' → '.join(result['path'])}")
-            print(f"📊 找到 {result['count']} 條記憶\n")
+            print(f"\n 路徑: {' → '.join(result['path'])}")
+            print(f" 找到 {result['count']} 條記憶\n")
             for i, mem in enumerate(result['results'][:3], 1):
                 print(f"--- 記憶 {i} ---")
                 print(mem[:200] + "..." if len(mem) > 200 else mem)
                 print()
         else:
             result = semantic_search(args.agent, args.query)
-            print(f"\n🔍 語義搜索")
-            print(f"📊 找到 {result['count']} 條記憶\n")
+            print(f"\n 語義搜索")
+            print(f" 找到 {result['count']} 條記憶\n")
     
     elif args.command == 'tree':
         print_tree_structure(args.agent)
@@ -346,37 +346,37 @@ def main():
         
         if args.action == 'start':
             if not args.task:
-                print("❌ 请提供任务描述: --task '任务名称'")
+                print(" 请提供任务描述: --task '任务名称'")
             else:
                 ctx = json.loads(args.context) if args.context else {}
                 state = state_mgr.start(args.task, args.type, ctx)
-                print(f"✅ 任务开始: {state['task']}")
+                print(f" 任务开始: {state['task']}")
                 print(f"   状态: {state['status']} | 进度: {state['progress']}%")
         
         elif args.action == 'update':
             ctx = json.loads(args.context) if args.context else {}
             state = state_mgr.update(args.progress, ctx)
-            print(f"✅ 进度更新: {state['task']} ({state['progress']}%)")
+            print(f" 进度更新: {state['task']} ({state['progress']}%)")
         
         elif args.action == 'pause':
             state = state_mgr.pause(args.reason)
-            print(f"⏸️ 任务暂停: {state['task']}")
+            print(f" 任务暂停: {state['task']}")
             if args.reason:
                 print(f"   原因: {args.reason}")
         
         elif args.action == 'resume':
             state = state_mgr.resume()
-            print(f"▶️ 任务恢复: {state['task']}")
+            print(f" 任务恢复: {state['task']}")
         
         elif args.action == 'complete':
             state = state_mgr.complete(args.result)
-            print(f"✅ 任务完成: {state['task']}")
+            print(f" 任务完成: {state['task']}")
             if args.result:
                 print(f"   结果: {args.result}")
         
         elif args.action == 'status':
             state = state_mgr.get_status()
-            print(f"\n📊 Agent: {args.agent} 当前状态")
+            print(f"\n Agent: {args.agent} 当前状态")
             print(f"   状态: {state['status'].upper()}")
             if state['task']:
                 print(f"   任务: {state['task']}")
@@ -388,14 +388,14 @@ def main():
         
         elif args.action == 'events':
             events = state_mgr.get_events(10)
-            print(f"\n📜 最近事件 ({len(events)} 条)")
+            print(f"\n 最近事件 ({len(events)} 条)")
             for e in events[-5:]:
                 print(f"   [{e['timestamp'][11:19]}] {e['event_type']}: {e['description'][:40]}...")
             print()
     
     elif args.command == 'decrypt':
         if not CRYPTO_AVAILABLE:
-            print("❌ 加密模組不可用")
+            print(" 加密模組不可用")
             return
         
         memories = load_memories(args.agent)
@@ -408,12 +408,12 @@ def main():
                 for line in lines:
                     if line.startswith("ENC::"):
                         decrypted = crypto.decrypt(line)
-                        print(f"\n🔓 解密記憶 {args.memory_id}:")
+                        print(f"\n 解密記憶 {args.memory_id}:")
                         print(decrypted)
                         break
                 break
         else:
-            print(f"❌ 找不到記憶 ID: {args.memory_id}")
+            print(f" 找不到記憶 ID: {args.memory_id}")
     
     else:
         parser.print_help()

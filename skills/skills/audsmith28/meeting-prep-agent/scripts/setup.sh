@@ -6,7 +6,7 @@ set -euo pipefail
 PREP_DIR="${PREP_DIR:-$HOME/.config/meeting-prep}"
 SKILL_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-echo "🎯 Meeting Prep Setup"
+echo " Meeting Prep Setup"
 echo "━━━━━━━━━━━━━━━━━━━━"
 
 # Create config directory
@@ -41,7 +41,7 @@ fi
 if command -v gog &> /dev/null; then
   echo "✓ gog CLI found (calendar integration ready)"
 else
-  echo "⚠ gog CLI not found"
+  echo " gog CLI not found"
   echo "  Install gog skill for calendar integration"
 fi
 
@@ -49,7 +49,7 @@ fi
 if [ -f "$HOME/.config/gog/config.json" ]; then
   echo "✓ gog config found"
 else
-  echo "⚠ gog not configured"
+  echo " gog not configured"
   echo "  Run: gog auth login to set up calendar access"
 fi
 
@@ -60,4 +60,4 @@ echo "  2. Ensure gog is installed and authenticated (for calendar access)"
 echo "  3. Test: $(dirname "$0")/prep.sh \"test@example.com\" --dry-run"
 echo "  4. Set up cron: 0 */3 * * * $(dirname "$0")/auto-prep.sh"
 echo ""
-echo "🎯 Meeting Prep is ready. Never walk in blind again."
+echo " Meeting Prep is ready. Never walk in blind again."

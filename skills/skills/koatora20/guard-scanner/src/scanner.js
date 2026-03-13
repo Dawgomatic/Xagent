@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * guard-scanner v2.1.0 — Agent Skill Security Scanner 🛡️
+ * guard-scanner v2.1.0 — Agent Skill Security Scanner 
  *
  * @security-manifest
  *   env-read: []
@@ -87,11 +87,11 @@ class GuardScanner {
                     }
                 }
                 if (!this.summaryOnly) {
-                    console.log(`🔌 Plugin loaded: ${plugin.name || pluginPath} (${plugin.patterns.length} rule(s))`);
+                    console.log(` Plugin loaded: ${plugin.name || pluginPath} (${plugin.patterns.length} rule(s))`);
                 }
             }
         } catch (e) {
-            console.error(`⚠️  Failed to load plugin ${pluginPath}: ${e.message}`);
+            console.error(`  Failed to load plugin ${pluginPath}: ${e.message}`);
         }
     }
 
@@ -101,12 +101,12 @@ class GuardScanner {
             const content = fs.readFileSync(rulesFile, 'utf-8');
             const rules = JSON.parse(content);
             if (!Array.isArray(rules)) {
-                console.error(`⚠️  Custom rules file must be a JSON array`);
+                console.error(`  Custom rules file must be a JSON array`);
                 return;
             }
             for (const rule of rules) {
                 if (!rule.id || !rule.pattern || !rule.severity || !rule.cat || !rule.desc) {
-                    console.error(`⚠️  Skipping invalid rule: ${JSON.stringify(rule).substring(0, 80)}`);
+                    console.error(`  Skipping invalid rule: ${JSON.stringify(rule).substring(0, 80)}`);
                     continue;
                 }
                 try {
@@ -122,14 +122,14 @@ class GuardScanner {
                         all: !rule.codeOnly && !rule.docOnly
                     });
                 } catch (e) {
-                    console.error(`⚠️  Invalid regex in rule ${rule.id}: ${e.message}`);
+                    console.error(`  Invalid regex in rule ${rule.id}: ${e.message}`);
                 }
             }
             if (!this.summaryOnly && this.customRules.length > 0) {
-                console.log(`📏 Loaded ${this.customRules.length} custom rule(s) from ${rulesFile}`);
+                console.log(` Loaded ${this.customRules.length} custom rule(s) from ${rulesFile}`);
             }
         } catch (e) {
-            console.error(`⚠️  Failed to load custom rules: ${e.message}`);
+            console.error(`  Failed to load custom rules: ${e.message}`);
         }
     }
 
@@ -152,7 +152,7 @@ class GuardScanner {
                 }
             }
             if (this.verbose && (this.ignoredSkills.size || this.ignoredPatterns.size)) {
-                console.log(`📋 Loaded ignore file: ${this.ignoredSkills.size} skills, ${this.ignoredPatterns.size} patterns`);
+                console.log(` Loaded ignore file: ${this.ignoredSkills.size} skills, ${this.ignoredPatterns.size} patterns`);
             }
             break; // use first found
         }
@@ -160,7 +160,7 @@ class GuardScanner {
 
     scanDirectory(dir) {
         if (!fs.existsSync(dir)) {
-            console.error(`❌ Directory not found: ${dir}`);
+            console.error(` Directory not found: ${dir}`);
             process.exit(2);
         }
 
@@ -171,11 +171,11 @@ class GuardScanner {
             return fs.statSync(p).isDirectory();
         });
 
-        console.log(`\n🛡️  guard-scanner v${VERSION}`);
+        console.log(`\n  guard-scanner v${VERSION}`);
         console.log(`${'═'.repeat(54)}`);
-        console.log(`📂 Scanning: ${dir}`);
-        console.log(`📦 Skills found: ${skills.length}`);
-        if (this.strict) console.log(`⚡ Strict mode enabled`);
+        console.log(` Scanning: ${dir}`);
+        console.log(` Skills found: ${skills.length}`);
+        if (this.strict) console.log(` Strict mode enabled`);
         console.log();
 
         for (const skill of skills) {
@@ -183,13 +183,13 @@ class GuardScanner {
 
             // Self-exclusion
             if (this.selfExclude && path.resolve(skillPath) === this.scannerDir) {
-                if (!this.summaryOnly) console.log(`⏭️  ${skill} — SELF (excluded)`);
+                if (!this.summaryOnly) console.log(`  ${skill} — SELF (excluded)`);
                 continue;
             }
 
             // Ignore list
             if (this.ignoredSkills.has(skill)) {
-                if (!this.summaryOnly) console.log(`⏭️  ${skill} — IGNORED`);
+                if (!this.summaryOnly) console.log(`  ${skill} — IGNORED`);
                 continue;
             }
 
@@ -296,9 +296,9 @@ class GuardScanner {
                     (byCat[f.cat] = byCat[f.cat] || []).push(f);
                 }
                 for (const [cat, findings] of Object.entries(byCat)) {
-                    console.log(`   📁 ${cat}`);
+                    console.log(`    ${cat}`);
                     for (const f of findings) {
-                        const icon = f.severity === 'CRITICAL' ? '💀' : f.severity === 'HIGH' ? '🔴' : f.severity === 'MEDIUM' ? '🟡' : '⚪';
+                        const icon = f.severity === 'CRITICAL' ? '' : f.severity === 'HIGH' ? '' : f.severity === 'MEDIUM' ? '' : '';
                         const loc = f.line ? `${f.file}:${f.line}` : f.file;
                         console.log(`      ${icon} [${f.severity}] ${f.desc} — ${loc}`);
                         if (f.sample) console.log(`         └─ "${f.sample}"`);
@@ -877,10 +877,10 @@ class GuardScanner {
     }
 
     getVerdict(risk) {
-        if (risk >= this.thresholds.malicious) return { icon: '🔴', label: 'MALICIOUS', stat: 'malicious' };
-        if (risk >= this.thresholds.suspicious) return { icon: '🟡', label: 'SUSPICIOUS', stat: 'suspicious' };
-        if (risk > 0) return { icon: '🟢', label: 'LOW RISK', stat: 'low' };
-        return { icon: '🟢', label: 'CLEAN', stat: 'clean' };
+        if (risk >= this.thresholds.malicious) return { icon: '', label: 'MALICIOUS', stat: 'malicious' };
+        if (risk >= this.thresholds.suspicious) return { icon: '', label: 'SUSPICIOUS', stat: 'suspicious' };
+        if (risk > 0) return { icon: '', label: 'LOW RISK', stat: 'low' };
+        return { icon: '', label: 'CLEAN', stat: 'clean' };
     }
 
     getFiles(dir) {
@@ -906,23 +906,23 @@ class GuardScanner {
         const total = this.stats.scanned;
         const safe = this.stats.clean + this.stats.low;
         console.log(`\n${'═'.repeat(54)}`);
-        console.log(`📊 guard-scanner v${VERSION} Scan Summary`);
+        console.log(` guard-scanner v${VERSION} Scan Summary`);
         console.log(`${'─'.repeat(54)}`);
         console.log(`   Scanned:      ${total}`);
-        console.log(`   🟢 Clean:       ${this.stats.clean}`);
-        console.log(`   🟢 Low Risk:    ${this.stats.low}`);
-        console.log(`   🟡 Suspicious:  ${this.stats.suspicious}`);
-        console.log(`   🔴 Malicious:   ${this.stats.malicious}`);
+        console.log(`    Clean:       ${this.stats.clean}`);
+        console.log(`    Low Risk:    ${this.stats.low}`);
+        console.log(`    Suspicious:  ${this.stats.suspicious}`);
+        console.log(`    Malicious:   ${this.stats.malicious}`);
         console.log(`   Safety Rate:  ${total ? Math.round(safe / total * 100) : 0}%`);
         console.log(`${'═'.repeat(54)}`);
 
         if (this.stats.malicious > 0) {
-            console.log(`\n⚠️  CRITICAL: ${this.stats.malicious} malicious skill(s) detected!`);
+            console.log(`\n  CRITICAL: ${this.stats.malicious} malicious skill(s) detected!`);
             console.log(`   Review findings with --verbose and remove if confirmed.`);
         } else if (this.stats.suspicious > 0) {
-            console.log(`\n⚡ ${this.stats.suspicious} suspicious skill(s) found — review recommended.`);
+            console.log(`\n ${this.stats.suspicious} suspicious skill(s) found — review recommended.`);
         } else {
-            console.log(`\n✅ All clear! No threats detected.`);
+            console.log(`\n All clear! No threats detected.`);
         }
     }
 
@@ -932,23 +932,23 @@ class GuardScanner {
             const skillRecs = [];
             const cats = new Set(skillResult.findings.map(f => f.cat));
 
-            if (cats.has('prompt-injection')) skillRecs.push('🛑 Contains prompt injection patterns.');
-            if (cats.has('malicious-code')) skillRecs.push('🛑 Contains potentially malicious code.');
-            if (cats.has('credential-handling') && cats.has('exfiltration')) skillRecs.push('💀 CRITICAL: Credential access + exfiltration. DO NOT INSTALL.');
-            if (cats.has('dependency-chain')) skillRecs.push('📦 Suspicious dependency chain.');
-            if (cats.has('obfuscation')) skillRecs.push('🔍 Code obfuscation detected.');
-            if (cats.has('secret-detection')) skillRecs.push('🔑 Possible hardcoded secrets.');
-            if (cats.has('leaky-skills')) skillRecs.push('💧 LEAKY SKILL: Secrets pass through LLM context.');
-            if (cats.has('memory-poisoning')) skillRecs.push('🧠 MEMORY POISONING: Agent memory modification attempt.');
-            if (cats.has('prompt-worm')) skillRecs.push('🪱 PROMPT WORM: Self-replicating instructions.');
-            if (cats.has('data-flow')) skillRecs.push('🔀 Suspicious data flow patterns.');
-            if (cats.has('persistence')) skillRecs.push('⏰ PERSISTENCE: Creates scheduled tasks.');
-            if (cats.has('cve-patterns')) skillRecs.push('🚨 CVE PATTERN: Matches known exploits.');
-            if (cats.has('identity-hijack')) skillRecs.push('🔒 IDENTITY HIJACK: Agent soul file tampering. DO NOT INSTALL.');
-            if (cats.has('sandbox-validation')) skillRecs.push('🔒 SANDBOX: Skill requests dangerous capabilities.');
-            if (cats.has('complexity')) skillRecs.push('🧩 COMPLEXITY: Excessive code complexity may hide malicious behavior.');
-            if (cats.has('config-impact')) skillRecs.push('⚙️ CONFIG IMPACT: Modifies OpenClaw configuration. DO NOT INSTALL.');
-            if (cats.has('pii-exposure')) skillRecs.push('🆔 PII EXPOSURE: Handles personally identifiable information. Review data handling.');
+            if (cats.has('prompt-injection')) skillRecs.push(' Contains prompt injection patterns.');
+            if (cats.has('malicious-code')) skillRecs.push(' Contains potentially malicious code.');
+            if (cats.has('credential-handling') && cats.has('exfiltration')) skillRecs.push(' CRITICAL: Credential access + exfiltration. DO NOT INSTALL.');
+            if (cats.has('dependency-chain')) skillRecs.push(' Suspicious dependency chain.');
+            if (cats.has('obfuscation')) skillRecs.push(' Code obfuscation detected.');
+            if (cats.has('secret-detection')) skillRecs.push(' Possible hardcoded secrets.');
+            if (cats.has('leaky-skills')) skillRecs.push(' LEAKY SKILL: Secrets pass through LLM context.');
+            if (cats.has('memory-poisoning')) skillRecs.push(' MEMORY POISONING: Agent memory modification attempt.');
+            if (cats.has('prompt-worm')) skillRecs.push(' PROMPT WORM: Self-replicating instructions.');
+            if (cats.has('data-flow')) skillRecs.push(' Suspicious data flow patterns.');
+            if (cats.has('persistence')) skillRecs.push(' PERSISTENCE: Creates scheduled tasks.');
+            if (cats.has('cve-patterns')) skillRecs.push(' CVE PATTERN: Matches known exploits.');
+            if (cats.has('identity-hijack')) skillRecs.push(' IDENTITY HIJACK: Agent soul file tampering. DO NOT INSTALL.');
+            if (cats.has('sandbox-validation')) skillRecs.push(' SANDBOX: Skill requests dangerous capabilities.');
+            if (cats.has('complexity')) skillRecs.push(' COMPLEXITY: Excessive code complexity may hide malicious behavior.');
+            if (cats.has('config-impact')) skillRecs.push(' CONFIG IMPACT: Modifies OpenClaw configuration. DO NOT INSTALL.');
+            if (cats.has('pii-exposure')) skillRecs.push(' PII EXPOSURE: Handles personally identifiable information. Review data handling.');
 
             if (skillRecs.length > 0) recommendations.push({ skill: skillResult.skill, actions: skillRecs });
         }

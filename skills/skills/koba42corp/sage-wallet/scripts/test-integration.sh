@@ -37,7 +37,7 @@ SKIPPED=0
 pass() { echo -e "${GREEN}✓${NC} $1"; PASSED=$((PASSED + 1)); }
 fail() { echo -e "${RED}✗${NC} $1"; FAILED=$((FAILED + 1)); }
 skip() { echo -e "${YELLOW}○${NC} $1"; SKIPPED=$((SKIPPED + 1)); }
-info() { echo -e "${BLUE}ℹ${NC} $1"; }
+info() { echo -e "${BLUE}${NC} $1"; }
 
 echo "=========================================="
 echo "  Sage Wallet Integration Tests"

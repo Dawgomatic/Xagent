@@ -1,6 +1,6 @@
 # Token Alert - Quick Start Guide
 
-**Status:** ✅ Production Ready (v1.2.0)  
+**Status:**  Production Ready (v1.2.0)  
 **Date:** 2026-01-27
 
 ---
@@ -31,14 +31,14 @@ python3 ~/clawd/skills/token-alert/scripts/check.py
 
 **Output:**
 ```
-🟢 Token Status
+ Token Status
 
-🟢 ▰▰▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ 9.0%
+ ▰▰▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ 9.0%
 94,000 / 1,000,000 Tokens verwendet
 
-📊 Status: Alles im grünen Bereich!
-💡 Verbleibend: ~906k Tokens
-⏰ Geschätzte Sessions: ~18 weitere
+ Status: Alles im grünen Bereich!
+ Verbleibend: ~906k Tokens
+ Geschätzte Sessions: ~18 weitere
 ```
 
 ---
@@ -94,12 +94,12 @@ bash ~/clawd/skills/token-alert/scripts/setup-notifications.sh
 
 | Level | % Range | Exit Code | Emoji | Action |
 |-------|---------|-----------|-------|--------|
-| **OK** | 0-24% | 0 | 🟢 | Continue normally |
-| **LOW** | 25-49% | 1 | 🟡 | Keep monitoring |
-| **MEDIUM** | 50-74% | 2 | 🟠 | Work token-efficiently |
-| **HIGH** | 75-89% | 3 | 🔶 | Prepare new session |
-| **CRITICAL** | 90-94% | 4 | 🔴 | Save memory NOW |
-| **EMERGENCY** | 95-100% | 5 | 🚨 | Start new session! |
+| **OK** | 0-24% | 0 |  | Continue normally |
+| **LOW** | 25-49% | 1 |  | Keep monitoring |
+| **MEDIUM** | 50-74% | 2 |  | Work token-efficiently |
+| **HIGH** | 75-89% | 3 |  | Prepare new session |
+| **CRITICAL** | 90-94% | 4 |  | Save memory NOW |
+| **EMERGENCY** | 95-100% | 5 |  | Start new session! |
 
 ---
 
@@ -188,10 +188,10 @@ python3 ~/clawd/skills/token-alert/scripts/show_dashboard.py
 
 ## Next Steps
 
-- ✅ **Test CLI:** Run `check.py` to see current usage
-- ✅ **Ask Grym:** "Check token status" in chat
-- ✅ **Setup Heartbeat:** Add to HEARTBEAT.md for auto-checks
-- ⏳ **Enable Notifications:** Run `setup-notifications.sh` (optional)
+-  **Test CLI:** Run `check.py` to see current usage
+-  **Ask Grym:** "Check token status" in chat
+-  **Setup Heartbeat:** Add to HEARTBEAT.md for auto-checks
+-  **Enable Notifications:** Run `setup-notifications.sh` (optional)
 
 ---
 
@@ -203,5 +203,5 @@ python3 ~/clawd/skills/token-alert/scripts/show_dashboard.py
 
 ---
 
-Built with ❤️ by Grym 🥜  
-**Version:** 1.2.0 | **Status:** Production Ready ✅
+Built with  by Grym   
+**Version:** 1.2.0 | **Status:** Production Ready 

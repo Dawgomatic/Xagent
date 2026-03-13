@@ -79,11 +79,11 @@ func (p *DualPublisher) publishToRedis(ctx context.Context, event Event) {
 
 ```
 ┌──────────────┐     ┌─────────────────┐     ┌──────────────┐
-│   Ingester   │────▶│  DualPublisher  │────▶│    Kafka     │──▶ Event Processor
+│   Ingester   │────│  DualPublisher  │────│    Kafka     │── Event Processor
 │              │     │                 │     │  (durable)   │
 └──────────────┘     │                 │     └──────────────┘
                      │                 │     ┌──────────────┐
-                     │                 │────▶│ Redis PubSub │──▶ WebSocket Gateway
+                     │                 │────│ Redis PubSub │── WebSocket Gateway
                      │                 │     │ (real-time)  │
                      └─────────────────┘     └──────────────┘
 ```

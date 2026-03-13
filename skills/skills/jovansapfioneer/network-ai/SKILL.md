@@ -14,7 +14,7 @@ metadata:
 
 Multi-agent coordination system for complex workflows requiring task delegation, parallel execution, and permission-controlled access to sensitive APIs.
 
-## 🎯 Orchestrator System Instructions
+##  Orchestrator System Instructions
 
 **You are the Orchestrator Agent** responsible for decomposing complex tasks, delegating to specialized agents, and synthesizing results. Follow this protocol:
 
@@ -286,13 +286,13 @@ python {baseDir}/scripts/check_permission.py \
   --scope "read:revenue,read:expenses"
 
 # Output if approved:
-# ✅ GRANTED
+#  GRANTED
 # Token: grant_a1b2c3d4e5f6
 # Expires: 2026-02-04T15:30:00Z
 # Restrictions: read_only, no_pii_fields, audit_required
 
 # Output if denied:
-# ❌ DENIED
+#  DENIED
 # Reason: Justification is insufficient. Please provide specific task context.
 ```
 
@@ -376,7 +376,7 @@ Sequential processing - output of one feeds into next.
 5. **Validate tokens** - use `python {baseDir}/scripts/validate_token.py TOKEN` to verify grant tokens before use
 6. **Audit trail** - all permission requests are logged
 
-## 📝 Audit Trail Requirements (MANDATORY)
+##  Audit Trail Requirements (MANDATORY)
 
 **Every sensitive action MUST be logged to `data/audit_log.jsonl`** to maintain compliance and enable forensic analysis.
 
@@ -441,7 +441,7 @@ with open(audit_file, "a") as f:
     f.write(json.dumps(entry) + "\n")
 ```
 
-## 🧹 TTL Enforcement (Token Lifecycle)
+##  TTL Enforcement (Token Lifecycle)
 
 Expired permission tokens are automatically tracked. Run periodic cleanup:
 
@@ -456,18 +456,18 @@ python {baseDir}/scripts/revoke_token.py --list-expired
 python {baseDir}/scripts/revoke_token.py --cleanup
 
 # Output:
-# 🧹 TTL Cleanup Complete
+#  TTL Cleanup Complete
 #    Removed: 3 expired token(s)
 #    Remaining active grants: 2
 ```
 
 **Best Practice**: Run `--cleanup` at the start of each multi-agent task to ensure a clean permission state.
 
-## ⚠️ Swarm Guard: Preventing Common Failures
+##  Swarm Guard: Preventing Common Failures
 
 Two critical issues can derail multi-agent swarms:
 
-### 1. The Handoff Tax 💸
+### 1. The Handoff Tax 
 
 **Problem**: Agents waste tokens "talking about" work instead of doing it.
 
@@ -477,7 +477,7 @@ Two critical issues can derail multi-agent swarms:
 python {baseDir}/scripts/swarm_guard.py check-handoff --task-id "task_001"
 
 # Output:
-# 🟢 Task: task_001
+#  Task: task_001
 #    Handoffs: 1/3
 #    Remaining: 2
 #    Action Ratio: 100%
@@ -499,7 +499,7 @@ python {baseDir}/scripts/swarm_guard.py record-handoff \
   --artifact  # Include if this handoff produces output
 ```
 
-### 2. Silent Failure Detection 👻
+### 2. Silent Failure Detection 
 
 **Problem**: One agent fails silently, others keep working on bad data.
 
@@ -512,11 +512,11 @@ python {baseDir}/scripts/swarm_guard.py heartbeat --agent data_analyst --task-id
 python {baseDir}/scripts/swarm_guard.py health-check --agent data_analyst
 
 # Output if healthy:
-# 💚 Agent 'data_analyst' is HEALTHY
+#  Agent 'data_analyst' is HEALTHY
 #    Last seen: 15s ago
 
 # Output if failed:
-# 💔 Agent 'data_analyst' is UNHEALTHY
+#  Agent 'data_analyst' is UNHEALTHY
 #    Reason: STALE_HEARTBEAT
 #    → Do NOT use any pending results from this agent.
 ```
@@ -530,7 +530,7 @@ python {baseDir}/scripts/swarm_guard.py validate-result \
   --result '{"status": "success", "output": {"revenue": 125000}, "confidence": 0.85}'
 
 # Output:
-# ✅ RESULT VALID
+#  RESULT VALID
 #    → APPROVED - Result can be used by other agents
 ```
 
@@ -543,7 +543,7 @@ Before finalizing any task, run supervisor review:
 python {baseDir}/scripts/swarm_guard.py supervisor-review --task-id "task_001"
 
 # Output:
-# ✅ SUPERVISOR VERDICT: APPROVED
+#  SUPERVISOR VERDICT: APPROVED
 #    Task: task_001
 #    Age: 1.5 minutes
 #    Handoffs: 2

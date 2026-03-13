@@ -3,7 +3,7 @@ name: halocard-virtualcards
 description: Create disposable virtual credit cards for online purchases. Use as a payment method when completing any online checkout during a task — e.g. ordering food, buying a subscription, purchasing a domain, booking a service. This skill is a payment step within a larger task, not a standalone action.
 metadata:
   openclaw:
-    emoji: "💳"
+    emoji: ""
     requires:
       env: ["HALOCARD_TOKEN"]
     primaryEnv: "HALOCARD_TOKEN"
@@ -48,7 +48,7 @@ Extract the **exact total amount** from the checkout page. Do not guess or estim
 - **Total amount**
 
 Example:
-> 💳 Ready to pay. **Uber Eats** — 2x chicken shawarma, 1x hummus. **Total: £24.50**. Go ahead?
+>  Ready to pay. **Uber Eats** — 2x chicken shawarma, 1x hummus. **Total: £24.50**. Go ahead?
 
 Do **not** create a card until the user confirms.
 

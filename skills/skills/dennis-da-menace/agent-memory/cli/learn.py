@@ -41,7 +41,7 @@ def main():
             outcome=args.outcome,
             insight=args.insight
         )
-        emoji = {"positive": "✅", "negative": "❌", "neutral": "➖"}[args.outcome]
+        emoji = {"positive": "", "negative": "", "neutral": ""}[args.outcome]
         print(f"{emoji} Lesson [{lesson_id}]: {args.insight[:60]}...")
         
     elif args.command == "list":
@@ -49,13 +49,13 @@ def main():
         if not lessons:
             print("No lessons found.")
         for l in lessons:
-            emoji = {"positive": "✅", "negative": "❌", "neutral": "➖"}[l.outcome]
+            emoji = {"positive": "", "negative": "", "neutral": ""}[l.outcome]
             print(f"{emoji} [{l.id}] {l.context}: {l.insight}")
             print(f"   Action: {l.action} | Applied: {l.applied_count}x")
             
     elif args.command == "apply":
         mem.apply_lesson(args.lesson_id)
-        print(f"📝 Marked lesson {args.lesson_id} as applied")
+        print(f" Marked lesson {args.lesson_id} as applied")
 
 
 if __name__ == "__main__":

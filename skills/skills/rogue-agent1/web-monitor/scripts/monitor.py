@@ -120,9 +120,9 @@ def cmd_add(args):
         content = normalize_text(content)
         snap_path = SNAPSHOTS_DIR / f"{slug(args.url)}.txt"
         snap_path.write_text(content)
-        print(f"✅ Added and snapshotted: {watch['name']}")
+        print(f" Added and snapshotted: {watch['name']}")
     except Exception as e:
-        print(f"⚠️  Added but initial fetch failed: {e}")
+        print(f"  Added but initial fetch failed: {e}")
 
 def cmd_remove(args):
     """Remove a URL from watch list."""
@@ -132,7 +132,7 @@ def cmd_remove(args):
     data["watches"] = [w for w in data["watches"] if w["url"] != args.url and w["name"] != args.url]
     if len(data["watches"]) < original:
         save_watches(data)
-        print(f"✅ Removed: {args.url}")
+        print(f" Removed: {args.url}")
     else:
         print(f"Not found: {args.url}")
 
@@ -240,10 +240,10 @@ def cmd_check(args):
     changes_found = False
     for r in results:
         if r.get("error"):
-            print(f"❌ {r['name']}: {r['error']}")
+            print(f" {r['name']}: {r['error']}")
         elif r.get("changed"):
             changes_found = True
-            print(f"🔔 CHANGED: {r['name']}")
+            print(f" CHANGED: {r['name']}")
             print(f"   URL: {r['url']}")
             print(f"   +{r['added_lines']} lines / -{r['removed_lines']} lines")
             if r.get("diff_preview"):
@@ -252,9 +252,9 @@ def cmd_check(args):
                     print(f"     {line}")
             print()
         elif r.get("note"):
-            print(f"📸 {r['name']}: {r['note']}")
+            print(f" {r['name']}: {r['note']}")
         else:
-            print(f"✅ {r['name']}: no changes")
+            print(f" {r['name']}: no changes")
     
     if not changes_found and not any(r.get("error") for r in results):
         print("\nNo changes detected across all watched URLs.")

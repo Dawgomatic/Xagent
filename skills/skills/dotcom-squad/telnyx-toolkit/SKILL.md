@@ -1,7 +1,7 @@
 ---
 name: telnyx-toolkit
 description: Complete Telnyx toolkit — ready-to-use tools (STT, TTS, RAG, Networking, 10DLC) plus SDK documentation for JavaScript, Python, Go, Java, and Ruby.
-metadata: {"openclaw":{"emoji":"📞","requires":{"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
 ---
 
 # Telnyx Toolkit
@@ -16,7 +16,7 @@ export TELNYX_API_KEY="your_key_here"
 
 ---
 
-## 🔧 Tools (Ready-to-Use)
+##  Tools (Ready-to-Use)
 
 These are standalone utilities with scripts you can run directly:
 
@@ -65,7 +65,7 @@ Each tool has its own `SKILL.md` with detailed usage instructions.
 
 ---
 
-## 📚 API Documentation (SDK Reference)
+##  API Documentation (SDK Reference)
 
 SDK documentation for all Telnyx APIs, organized by language:
 
@@ -108,7 +108,7 @@ Example: `{baseDir}/api/python/telnyx-voice-python/SKILL.md`
 
 ---
 
-## 📱 WebRTC Client SDKs
+##  WebRTC Client SDKs
 
 Guides for building real-time voice apps on mobile and web:
 

@@ -11,7 +11,7 @@ Connect AI agents to GitHub for repository management, code operations, issue tr
 
 ## Why GitHub MCP?
 
-### 🤖 Agent-Native GitHub Workflows
+###  Agent-Native GitHub Workflows
 Enable agents to perform complex GitHub operations that previously required manual API integration:
 - Clone and navigate repositories
 - Read and modify files
@@ -19,10 +19,10 @@ Enable agents to perform complex GitHub operations that previously required manu
 - Review code and discussions
 - Manage branches and releases
 
-### 🔐 Secure Authentication
+###  Secure Authentication
 OAuth-based authentication with fine-grained permissions. Agents access only what you authorize.
 
-### 📦 Zero Setup for Common Operations
+###  Zero Setup for Common Operations
 Pre-configured tools for the most common GitHub workflows. No manual API calls required.
 
 ## Installation
@@ -227,36 +227,36 @@ Agent:
 
 ## Use Cases
 
-### 🛠️ Development Assistants
+###  Development Assistants
 Agents that help developers with repetitive GitHub tasks: creating issues, managing labels, updating documentation, code review.
 
-### 🤖 CI/CD Automation
+###  CI/CD Automation
 Build agents that trigger workflows, check build status, create releases, manage deployments.
 
-### 📊 Repository Analytics
+###  Repository Analytics
 Analyze code quality, track issue resolution time, monitor PR velocity, generate reports.
 
-### 🔍 Code Search & Discovery
+###  Code Search & Discovery
 Find code patterns, identify dependencies, discover similar implementations, locate technical debt.
 
-### 📝 Documentation Automation
+###  Documentation Automation
 Sync code comments to docs, generate API references, update changelogs, maintain README files.
 
 ## Security Best Practices
 
-### ✅ Use Fine-Grained Tokens
+###  Use Fine-Grained Tokens
 Prefer fine-grained tokens over classic PATs. Limit scope to specific repositories and permissions.
 
-### ✅ Read-Only When Possible
+###  Read-Only When Possible
 If the agent only needs to read code/issues, grant read-only access.
 
-### ✅ Environment Variables
+###  Environment Variables
 Never hard-code tokens. Always use environment variables.
 
-### ✅ Token Rotation
+###  Token Rotation
 Rotate tokens regularly. Set expiration dates.
 
-### ✅ Audit Agent Actions
+###  Audit Agent Actions
 Monitor what the agent does. GitHub activity log tracks all API operations.
 
 ## Rate Limits

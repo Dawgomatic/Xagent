@@ -93,7 +93,7 @@ is_self() {
 }
 
 echo -e "${BOLD}${CYAN}═══════════════════════════════════════════${RESET}"
-echo -e "${BOLD}${CYAN}  🛡️  Arc Sentinel — Skill Auditor${RESET}"
+echo -e "${BOLD}${CYAN}    Arc Sentinel — Skill Auditor${RESET}"
 echo -e "${BOLD}${CYAN}═══════════════════════════════════════════${RESET}"
 echo -e "Scanning: ${SKILLS_ROOT}"
 echo ""
@@ -217,6 +217,6 @@ if [[ $CRITICAL -gt 0 ]]; then
 elif [[ $WARNING -gt 0 ]]; then
     exit 1
 else
-    echo -e "  ✅ ${BOLD}All skills look clean!${RESET}"
+    echo -e "   ${BOLD}All skills look clean!${RESET}"
     exit 0
 fi

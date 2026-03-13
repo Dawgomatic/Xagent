@@ -562,7 +562,7 @@ async def handle_command(text: str) -> Dict[str, Any]:
         image_urls = [img["url"] for img in result.get("images", [])]
         if image_urls:
             result["image_urls"] = image_urls
-            result["message"] = f"✅ Image generation complete! Generated {len(image_urls)} image(s)."
+            result["message"] = f" Image generation complete! Generated {len(image_urls)} image(s)."
     
     return result
 

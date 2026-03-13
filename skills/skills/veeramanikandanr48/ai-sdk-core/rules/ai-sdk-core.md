@@ -10,18 +10,18 @@ Claude's training may reference AI SDK v4 patterns. This project uses **AI SDK v
 
 ### Parameter Renames
 ```typescript
-/* ❌ v4 (Claude may suggest this) */
+/*  v4 (Claude may suggest this) */
 maxTokens: 500
 providerMetadata: { openai: { user: 'user-123' } }
 
-/* ✅ v5 (use this) */
+/*  v5 (use this) */
 maxOutputTokens: 500
 providerOptions: { openai: { user: 'user-123' } }
 ```
 
 ### Tool Definitions
 ```typescript
-/* ❌ v4 */
+/*  v4 */
 tools: {
   weather: {
     parameters: z.object({ location: z.string() }),
@@ -29,7 +29,7 @@ tools: {
   },
 }
 
-/* ✅ v5 */
+/*  v5 */
 import { tool } from 'ai'
 tools: {
   weather: tool({
@@ -41,32 +41,32 @@ tools: {
 
 ### Multi-Step Execution
 ```typescript
-/* ❌ v4 */
+/*  v4 */
 maxSteps: 5
 
-/* ✅ v5 */
+/*  v5 */
 import { stopWhen, stepCountIs } from 'ai'
 stopWhen: stepCountIs(5)
 ```
 
 ### Message Types
 ```typescript
-/* ❌ v4 */
+/*  v4 */
 import { CoreMessage } from 'ai'
 convertToCoreMessages(messages)
 
-/* ✅ v5 */
+/*  v5 */
 import { ModelMessage } from 'ai'
 convertToModelMessages(messages)
 ```
 
 ### Package Imports
 ```typescript
-/* ❌ v4 */
+/*  v4 */
 import { ... } from 'ai/rsc'
 import { ... } from 'ai/react'
 
-/* ✅ v5 */
+/*  v5 */
 import { ... } from '@ai-sdk/rsc'
 import { ... } from '@ai-sdk/react'
 ```
@@ -74,11 +74,11 @@ import { ... } from '@ai-sdk/react'
 ## Cloudflare Workers Startup Fix
 
 ```typescript
-/* ❌ Causes >270ms startup (exceeds 400ms limit) */
+/*  Causes >270ms startup (exceeds 400ms limit) */
 import { createWorkersAI } from 'workers-ai-provider'
 const workersai = createWorkersAI({ binding: env.AI })
 
-/* ✅ Lazy initialization inside handler */
+/*  Lazy initialization inside handler */
 app.post('/chat', async (c) => {
   const { createWorkersAI } = await import('workers-ai-provider')
   const workersai = createWorkersAI({ binding: c.env.AI })

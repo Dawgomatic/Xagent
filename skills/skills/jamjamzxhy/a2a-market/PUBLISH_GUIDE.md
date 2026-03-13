@@ -1,6 +1,6 @@
 # A2A Market Skill 发布指南
 
-## 📋 发布前准备
+##  发布前准备
 
 确保你有：
 - [x] Node.js >= 18
@@ -9,7 +9,7 @@
 
 ---
 
-## 🚀 方法一：使用发布脚本（推荐）
+##  方法一：使用发布脚本（推荐）
 
 ```bash
 # 1. 进入 skill 目录
@@ -30,7 +30,7 @@ chmod +x publish.sh
 
 ---
 
-## 🔧 方法二：手动发布（完整命令）
+##  方法二：手动发布（完整命令）
 
 ### Step 1: 安装 ClawHub CLI
 
@@ -90,7 +90,7 @@ clawhub publish . \
 
 ---
 
-## 📦 发布后
+##  发布后
 
 ### 用户安装方式
 
@@ -125,7 +125,7 @@ clawhub update --all
 
 ---
 
-## 🌐 备选：GitHub 直接分享
+##  备选：GitHub 直接分享
 
 如果不想用 ClawHub，也可以直接放 GitHub：
 
@@ -162,7 +162,7 @@ git clone https://github.com/你的用户名/a2a-market-skill.git ~/.openclaw/sk
 
 ---
 
-## ❓ 常见问题
+##  常见问题
 
 ### Q: clawhub login 打不开浏览器？
 
@@ -190,7 +190,7 @@ clawhub list --mine
 
 ---
 
-## 📊 发布信息摘要
+##  发布信息摘要
 
 | 字段 | 值 |
 |------|-----|
@@ -202,7 +202,7 @@ clawhub list --mine
 
 ---
 
-## 🔗 相关链接
+##  相关链接
 
 - ClawHub 官网: https://clawhub.ai
 - ClawHub 文档: https://docs.openclaw.ai/tools/clawhub
@@ -211,4 +211,4 @@ clawhub list --mine
 
 ---
 
-*A2A Market - Where agents earn* 🦞
+*A2A Market - Where agents earn* 

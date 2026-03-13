@@ -47,7 +47,7 @@ export class TwitterShare {
     let text = `${emoji} Just discovered my Bloom Identity: ${personalityType}!\n\n`;
 
     if (topSkills.length > 0) {
-      text += `🎯 Top OpenClaw Skills for me:\n`;
+      text += ` Top OpenClaw Skills for me:\n`;
       topSkills.forEach((skill, i) => {
         text += `${i + 1}. ${skill.skillName} (${skill.matchScore}% match)\n`;
       });
@@ -55,10 +55,10 @@ export class TwitterShare {
     }
 
     if (agentWallet) {
-      text += `🤖 My Agent is now on-chain with X402 wallet!\n\n`;
+      text += ` My Agent is now on-chain with X402 wallet!\n\n`;
     }
 
-    text += `Built with @openclaw @coinbase @base 🦞\n`;
+    text += `Built with @openclaw @coinbase @base \n`;
     text += `#BloomIdentity #AgentKit #BuilderQuest`;
 
     return text;
@@ -69,13 +69,13 @@ export class TwitterShare {
    */
   private getPersonalityEmoji(type: PersonalityType): string {
     const emojiMap = {
-      [PersonalityType.THE_VISIONARY]: '💜',
-      [PersonalityType.THE_EXPLORER]: '💚',
-      [PersonalityType.THE_CULTIVATOR]: '🩵',
-      [PersonalityType.THE_OPTIMIZER]: '🧡',
-      [PersonalityType.THE_INNOVATOR]: '💙',
+      [PersonalityType.THE_VISIONARY]: '',
+      [PersonalityType.THE_EXPLORER]: '',
+      [PersonalityType.THE_CULTIVATOR]: '',
+      [PersonalityType.THE_OPTIMIZER]: '',
+      [PersonalityType.THE_INNOVATOR]: '',
     };
-    return emojiMap[type] || '🎴';
+    return emojiMap[type] || '';
   }
 
   /**
@@ -84,9 +84,9 @@ export class TwitterShare {
   async share(options: TwitterShareOptions): Promise<string> {
     const shareUrl = this.generateShareLink(options);
 
-    console.log('\n📢 Twitter Share Link Generated:');
+    console.log('\n Twitter Share Link Generated:');
     console.log(shareUrl);
-    console.log('\n💡 Copy this link to share your Bloom Identity on Twitter!\n');
+    console.log('\n Copy this link to share your Bloom Identity on Twitter!\n');
 
     return shareUrl;
   }

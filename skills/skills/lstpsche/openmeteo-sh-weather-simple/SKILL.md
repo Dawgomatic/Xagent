@@ -1,7 +1,7 @@
 ---
 name: openmeteo-sh-weather-simple
 description: "Get current weather and forecasts for any city or coordinates using free OpenMeteo API. Use when the user asks about weather, temperature, rain, snow, wind, or wants to know if they need an umbrella."
-metadata: {"openclaw":{"emoji":"🌤","requires":{"bins":["openmeteo"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["openmeteo"]}}}
 homepage: https://github.com/lstpsche/openmeteo-sh
 user-invocable: true
 ---

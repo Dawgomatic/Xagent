@@ -3,7 +3,7 @@ name: Booking
 slug: booking
 version: 1.0.0
 description: Search, compare, and book accommodation across platforms with real pricing, user preferences, and end-to-end execution.
-metadata: {"clawdbot":{"emoji":"🏨","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

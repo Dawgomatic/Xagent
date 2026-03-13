@@ -34,10 +34,10 @@ Provenance verifies:
 
 **BillClaw NEVER sends your data to external servers:**
 
-- ✅ Financial data stored locally in `~/.firela/billclaw/`
-- ✅ API calls go directly to Plaid/Gmail (not through our servers)
-- ✅ OAuth tokens stored in your system keychain
-- ✅ No telemetry, no analytics, no phone-home
+-  Financial data stored locally in `~/.firela/billclaw/`
+-  API calls go directly to Plaid/Gmail (not through our servers)
+-  OAuth tokens stored in your system keychain
+-  No telemetry, no analytics, no phone-home
 
 ### 4. User-Controlled Credentials
 

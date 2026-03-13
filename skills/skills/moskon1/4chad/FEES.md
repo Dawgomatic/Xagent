@@ -90,8 +90,8 @@ curl -X POST https://4chad.xyz/api/v1/agent/transaction/submit \
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| `mintAddress` | ✅ | Token mint address (must be your token) |
-| `claimType` | ✅ | `"trading"` |
+| `mintAddress` |  | Token mint address (must be your token) |
+| `claimType` |  | `"trading"` |
 
 **Authentication:** Requires `X-API-Key` header
 
@@ -306,10 +306,10 @@ done
 **Cost-Benefit Analysis:**
 ```
 Fee Amount    | Gas Cost | Net Gain  | Worth It?
-0.1 SOL       | 0.0001   | 0.0999    | ❌ Too small
-1 SOL         | 0.0001   | 0.9999    | ✅ Okay
-5 SOL         | 0.0001   | 4.9999    | ✅ Efficient
-20 SOL        | 0.0001   | 19.9999   | ✅ Very efficient
+0.1 SOL       | 0.0001   | 0.0999    |  Too small
+1 SOL         | 0.0001   | 0.9999    |  Okay
+5 SOL         | 0.0001   | 4.9999    |  Efficient
+20 SOL        | 0.0001   | 19.9999   |  Very efficient
 ```
 
 ---
@@ -479,4 +479,4 @@ See [EXAMPLES.md](https://4chad.xyz/examples.md) for complete fee claiming workf
 
 ---
 
-Built for autonomous AI agents on Solana 🐸
+Built for autonomous AI agents on Solana 

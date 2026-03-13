@@ -52,9 +52,9 @@ task_runner.py export "<project>" "<output_file>"
 
 ### Path Validation (v1.0.1+)
 The `export` function validates output paths to prevent malicious writes:
-- ✅ Allowed: `~/.openclaw/workspace/`, `/tmp/`, and home directory
-- ❌ Blocked: System paths (`/etc/`, `/usr/`, `/var/`, etc.)
-- ❌ Blocked: Sensitive dotfiles (`~/.bashrc`, `~/.ssh`, etc.)
+-  Allowed: `~/.openclaw/workspace/`, `/tmp/`, and home directory
+-  Blocked: System paths (`/etc/`, `/usr/`, `/var/`, etc.)
+-  Blocked: Sensitive dotfiles (`~/.bashrc`, `~/.ssh`, etc.)
 
 This prevents prompt injection attacks that could attempt to write to system files for privilege escalation.
 
@@ -110,14 +110,14 @@ task_runner.py export "sprint-5" "./standup.md"
 
 | Priority | Emoji | When to Use |
 |----------|-------|-------------|
-| high | 🔴 | Blocking issues, urgent, must do now |
-| medium | 🟡 | Normal work, do soon | 
-| low | 🟢 | Nice to have, backlog items |
+| high |  | Blocking issues, urgent, must do now |
+| medium |  | Normal work, do soon | 
+| low |  | Nice to have, backlog items |
 
 ## Output Format
 
 Task listing shows:
-- Status icon (✅ completed, ⏳ pending)
+- Status icon ( completed,  pending)
 - Project name
 - Task ID number
 - Priority emoji

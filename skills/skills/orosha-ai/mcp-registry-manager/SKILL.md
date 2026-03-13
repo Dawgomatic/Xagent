@@ -1,4 +1,4 @@
-# MCP Registry Manager 🌐
+# MCP Registry Manager 
 
 Centralized discovery and quality scoring for the exploding MCP (Model Context Protocol) ecosystem.
 

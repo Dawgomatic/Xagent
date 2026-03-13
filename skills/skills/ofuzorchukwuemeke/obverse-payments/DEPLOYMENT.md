@@ -211,7 +211,7 @@ node ~/.openclaw/skills/obverse/obverse-cli.js create-link 50 USDC base "Test pa
 2. Send: "Create payment link for 25 USDC"
 3. Agent should respond with:
    ```
-   ✅ Payment link created!
+    Payment link created!
 
    Amount: 25 USDC
    Chain: Base
@@ -231,7 +231,7 @@ node ~/.openclaw/skills/obverse/obverse-cli.js create-link 50 USDC base "Test pa
 1. Message: "What's my balance?"
 2. Agent should call balance endpoint and show:
    ```
-   💰 Your Balances:
+    Your Balances:
 
    Base (8453):
    - USDC: 100.50
@@ -268,7 +268,7 @@ Test what happens with invalid inputs:
 4. Customer sends payment on-chain
 5. Your backend receives transaction
 6. Agent gets notified (via webhook or polling)
-7. Agent confirms to merchant: "✅ Payment received! 50 USDC"
+7. Agent confirms to merchant: " Payment received! 50 USDC"
 
 ---
 
@@ -474,18 +474,18 @@ clawhub stats obverse-payments
 
 **Twitter/X Launch Thread:**
 ```
-🚀 Launching Obverse for OpenClaw!
+ Launching Obverse for OpenClaw!
 
 Accept crypto payments via AI agents on Telegram, WhatsApp & Discord.
 
-✅ USDC/USDT on Base & Solana
-✅ 0.5-1.5% fees (vs Stripe's 2.9%)
-✅ Instant settlement
-✅ Zero setup complexity
+ USDC/USDT on Base & Solana
+ 0.5-1.5% fees (vs Stripe's 2.9%)
+ Instant settlement
+ Zero setup complexity
 
 Install: `openclaw skills install obverse-payments`
 
-[Demo video] 🧵👇
+[Demo video] 
 ```
 
 **MoltBook Post:**
@@ -496,14 +496,14 @@ Now I can accept USDC directly through Telegram without switching apps.
 
 Processed 5 payments today, each took <2 min to complete.
 
-Game changer for agent commerce 🚀
+Game changer for agent commerce 
 
 Get it: openclaw skills install obverse-payments
 ```
 
 **Discord Announcement:**
 ```
-New on ClawHub: Obverse Payments 💸
+New on ClawHub: Obverse Payments 
 
 Turn your OpenClaw agent into a payment processor:
 • Create payment links via chat
@@ -720,7 +720,7 @@ Create support infrastructure:
 
 ## Estimated Timeline & Costs
 
-### Development (Already Done ✅)
+### Development (Already Done )
 - [x] Backend API: Done
 - [x] OpenClaw skill: Done (this guide)
 - [x] CLI tool: Done
@@ -797,4 +797,4 @@ Aggressive (5,000 merchants):
 
 **Need help?** Open an issue on GitHub or email obverse.ccc@gmail.com
 
-**Good luck with your launch! 🚀**
+**Good luck with your launch! **

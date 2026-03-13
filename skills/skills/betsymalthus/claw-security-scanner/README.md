@@ -1,4 +1,4 @@
-# Claw Security Scanner 🔒
+# Claw Security Scanner 
 
 **OpenClaw技能安全扫描器 - 保护你的AI助手免受恶意技能侵害**
 
@@ -6,7 +6,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![OpenClaw Compatible](https://img.shields.io/badge/OpenClaw-1.0%2B-green.svg)](https://openclaw.ai)
 
-## 🚨 为什么需要技能安全扫描？
+##  为什么需要技能安全扫描？
 
 ### 背景故事
 2026年2月，Moltbook社区发现了一个严重的安全问题：
@@ -18,35 +18,35 @@
 
 **解决方案**：Claw Security Scanner - 自动扫描技能文件，检测安全威胁。
 
-## ✨ 核心功能
+##  核心功能
 
-### 🔍 **凭据泄露检测**
+###  **凭据泄露检测**
 - 检测硬编码的API密钥、密码、访问令牌
 - 发现数据库连接字符串、SSH私钥
 - 识别AWS、JWT等敏感凭证
 
-### 🦠 **恶意代码检测**
+###  **恶意代码检测**
 - 识别远程代码执行漏洞
 - 检测可疑的文件系统操作
 - 发现挖矿脚本、键盘记录器
 - 标记可疑的网络请求
 
-### 📦 **依赖安全检查**
+###  **依赖安全检查**
 - 检查已知漏洞的依赖包
 - 验证版本固定安全性
 - 分析依赖树风险
 
-### ⚙️ **配置安全评估**
+###  **配置安全评估**
 - 扫描.env文件中的硬编码值
 - 检查YAML/JSON配置中的敏感信息
 - 评估权限设置安全性
 
-### 📊 **风险评估与报告**
+###  **风险评估与报告**
 - 五级风险评估（严重/高/中/低/信息）
 - 多种报告格式（控制台/JSON/Markdown）
 - 详细的修复建议
 
-## 🚀 快速开始
+##  快速开始
 
 ### 安装
 ```bash
@@ -89,10 +89,10 @@ print(report)
 
 # 检查风险等级
 if result.has_critical_or_high():
-    print("⚠️  发现严重或高风险问题！")
+    print("  发现严重或高风险问题！")
 ```
 
-## 📋 使用示例
+##  使用示例
 
 ### 示例1：扫描已安装的技能
 ```bash
@@ -137,7 +137,7 @@ for skill in $SKILLS_DIR/*/; do
 done
 ```
 
-## 🛡️ 检测能力详解
+##  检测能力详解
 
 ### 凭据泄露检测
 - **API密钥**: `api_key`, `secret_key`, `access_token`
@@ -162,7 +162,7 @@ done
 - **配置文件**: YAML/JSON中的密码、令牌
 - **权限设置**: 过度文件系统权限
 
-## 📈 报告系统
+##  报告系统
 
 ### 控制台报告
 ```
@@ -181,7 +181,7 @@ Claw Security Scanner 报告
   LOW       : 2
   INFO      : 1
 
-⚠️  严重/高风险问题 (5个):
+  严重/高风险问题 (5个):
   ● 检测到潜在的凭据泄露: API_KEY
       文件: config.py
       行号: 3
@@ -225,7 +225,7 @@ Claw Security Scanner 报告
 ### Markdown报告
 适用于文档、issue跟踪、团队分享。
 
-## ⚙️ 配置选项
+##  配置选项
 
 ### OpenClaw配置
 在 `~/.openclaw/config.json` 中添加：
@@ -251,7 +251,7 @@ export SECURITY_SCANNER_SEVERITY=high
 export SECURITY_SCANNER_FORMAT=json
 ```
 
-## 🏗️ 架构设计
+##  架构设计
 
 ### 模块化检测器
 ```
@@ -284,7 +284,7 @@ class CustomDetector(BaseDetector):
         return findings
 ```
 
-## 🔧 故障排除
+##  故障排除
 
 ### 常见问题
 1. **扫描速度慢**
@@ -319,7 +319,7 @@ security-scan --list-detectors
 security-scan --test-detector credential_detector
 ```
 
-## 📚 学习资源
+##  学习资源
 
 ### 相关链接
 - [Moltbook原帖](https://moltbook.com/p/...) - 引起关注的供应链攻击讨论
@@ -333,7 +333,7 @@ security-scan --test-detector credential_detector
 4. **代码审查** - 重要的技能要进行人工审查
 5. **安全扫描** - 集成到开发工作流中
 
-## 🤝 贡献指南
+##  贡献指南
 
 我们欢迎贡献！请查看 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
@@ -360,17 +360,17 @@ pytest
 3. 编写单元测试
 4. 更新文档
 
-## 📄 许可证
+##  许可证
 
 本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
 
-## 🙏 致谢
+##  致谢
 
 - **Moltbook社区** - 提出了这个重要的安全问题
 - **OpenClaw团队** - 创造了优秀的AI助手平台
 - **所有贡献者** - 帮助我们改进这个工具
 
-## 📞 支持与反馈
+##  支持与反馈
 
 - **问题反馈**: [GitHub Issues](https://github.com/openclaw-skills/claw-security-scanner/issues)
 - **安全报告**: security@claw-security-scanner.com
@@ -378,6 +378,6 @@ pytest
 
 ---
 
-**记住：安全不是功能，而是基础** 🔒
+**记住：安全不是功能，而是基础** 
 
 *使用 Claw Security Scanner，让你的OpenClaw技能更安全*

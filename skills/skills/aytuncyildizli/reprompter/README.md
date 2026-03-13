@@ -204,7 +204,7 @@ When auto-detection finds multiple systems (UI + API + tests), it generates:
 2. **Per-agent sub-prompts** with scoped responsibilities
 
 <details>
-<summary><strong>📋 Team Brief (generated artifact)</strong></summary>
+<summary><strong> Team Brief (generated artifact)</strong></summary>
 
 ```markdown
 # Reprompter Team Brief
@@ -228,7 +228,7 @@ When auto-detection finds multiple systems (UI + API + tests), it generates:
 </details>
 
 <details>
-<summary><strong>🎨 Frontend Agent — full Repromptception prompt</strong></summary>
+<summary><strong> Frontend Agent — full Repromptception prompt</strong></summary>
 
 ```xml
 <role>
@@ -283,7 +283,7 @@ Write complete implementation to /tmp/rpt-frontend.md including:
 </details>
 
 <details>
-<summary><strong>⚙️ Backend Agent — full Repromptception prompt</strong></summary>
+<summary><strong> Backend Agent — full Repromptception prompt</strong></summary>
 
 ```xml
 <role>
@@ -339,7 +339,7 @@ Write complete implementation to /tmp/rpt-backend.md including:
 </details>
 
 <details>
-<summary><strong>🧪 Tests Agent — full Repromptception prompt</strong></summary>
+<summary><strong> Tests Agent — full Repromptception prompt</strong></summary>
 
 ```xml
 <role>
@@ -480,7 +480,7 @@ Every transformation is scored on six weighted dimensions:
 
 ---
 
-## v7.0 — Unified Skill + Repromptception 🧠
+## v7.0 — Unified Skill + Repromptception 
 
 **v7.0 merges `reprompter` + `reprompter-teams` into a single skill with two modes.** No more separate skills — one SKILL.md handles both single prompts and full agent team orchestration.
 
@@ -512,7 +512,7 @@ Retry (if needed) — delta prompts targeting specific gaps
 The team lead sends all 4 agents in parallel. Each writes to their own `/tmp/` file. No scope overlap.
 
 <details open>
-<summary><strong>🔒 Agent 1: SecurityAuditor (score: 2.0 → 8.9)</strong></summary>
+<summary><strong> Agent 1: SecurityAuditor (score: 2.0 → 8.9)</strong></summary>
 
 ```xml
 <role>
@@ -557,7 +557,7 @@ injection risks, and unsafe patterns.</task>
 </details>
 
 <details>
-<summary><strong>💸 Agent 2: TokenCostAuditor (score: 2.2 → 9.0)</strong></summary>
+<summary><strong> Agent 2: TokenCostAuditor (score: 2.2 → 9.0)</strong></summary>
 
 ```xml
 <role>
@@ -602,7 +602,7 @@ identify redundancies, and propose a tiered savings plan.</task>
 </details>
 
 <details>
-<summary><strong>⚙️ Agent 3: ConfigSettingsAuditor (score: 1.8 → 8.9)</strong></summary>
+<summary><strong> Agent 3: ConfigSettingsAuditor (score: 1.8 → 8.9)</strong></summary>
 
 ```xml
 <role>
@@ -647,7 +647,7 @@ credential exposure risks, and .gitignore completeness.</task>
 </details>
 
 <details>
-<summary><strong>🧠 Agent 4: MemoryBloatAuditor (score: 2.0 → 8.7)</strong></summary>
+<summary><strong> Agent 4: MemoryBloatAuditor (score: 2.0 → 8.7)</strong></summary>
 
 ```xml
 <role>
@@ -668,7 +668,7 @@ and stale content. Quantify token savings from cleanup.</task>
 
 <requirements>
 - Measure total tokens loaded per session (all injected files)
-- Identify duplicate content across: MEMORY.md ↔ entity files ↔ SESSION_STATE.md
+- Identify duplicate content across: MEMORY.md  entity files  SESSION_STATE.md
 - Find misfiled entity facts (e.g., unrelated content in wrong entity file)
 - Identify stale/completed TODOs, old audit reports, obsolete sections
 - Calculate token savings per cleanup action
@@ -743,9 +743,9 @@ The pipeline runs via **Claude Code Agent Teams** with `teammateMode: "tmux"` fo
 
 Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-- 🐛 [Report a bug](https://github.com/aytuncyildizli/reprompter/issues/new?template=bug_report.md)
-- 💡 [Request a feature](https://github.com/aytuncyildizli/reprompter/issues/new?template=feature_request.md)
-- 📝 Submit a template PR
+-  [Report a bug](https://github.com/aytuncyildizli/reprompter/issues/new?template=bug_report.md)
+-  [Request a feature](https://github.com/aytuncyildizli/reprompter/issues/new?template=feature_request.md)
+-  Submit a template PR
 
 ---
 
@@ -766,5 +766,5 @@ MIT — see [LICENSE](LICENSE).
 ---
 
 <p align="center">
-  <sub>If RePrompter saved you from writing another messy prompt, consider giving it a ⭐</sub>
+  <sub>If RePrompter saved you from writing another messy prompt, consider giving it a </sub>
 </p>

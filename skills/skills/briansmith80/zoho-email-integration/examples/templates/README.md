@@ -4,7 +4,7 @@ Professional, ready-to-use HTML email templates for the Zoho Email skill.
 
 ## Available Templates
 
-### 📰 newsletter.html
+###  newsletter.html
 **Best for:** Monthly updates, company news, content roundups
 
 **Features:**
@@ -16,7 +16,7 @@ Professional, ready-to-use HTML email templates for the Zoho Email skill.
 
 **Use case:** Send monthly newsletters, product updates, or content digests to subscribers.
 
-### 📢 announcement.html
+###  announcement.html
 **Best for:** Important notifications, system updates, maintenance alerts
 
 **Features:**
@@ -28,7 +28,7 @@ Professional, ready-to-use HTML email templates for the Zoho Email skill.
 
 **Use case:** Announce system maintenance, policy changes, or important company news.
 
-### 🎉 welcome.html
+###  welcome.html
 **Best for:** New user onboarding, welcome emails
 
 **Features:**
@@ -40,7 +40,7 @@ Professional, ready-to-use HTML email templates for the Zoho Email skill.
 
 **Use case:** Welcome new users, guide them through setup, or introduce your service.
 
-### 📝 simple.html
+###  simple.html
 **Best for:** Quick, straightforward communications
 
 **Features:**
@@ -121,12 +121,12 @@ Each template uses inline CSS and modern layout techniques. Feel free to:
 ## Email Client Compatibility
 
 All templates are designed with maximum compatibility:
-- ✅ Gmail (Web, Mobile, App)
-- ✅ Outlook (Desktop, Web, Mobile)
-- ✅ Apple Mail (macOS, iOS)
-- ✅ Yahoo Mail
-- ✅ Proton Mail
-- ✅ Other modern email clients
+-  Gmail (Web, Mobile, App)
+-  Outlook (Desktop, Web, Mobile)
+-  Apple Mail (macOS, iOS)
+-  Yahoo Mail
+-  Proton Mail
+-  Other modern email clients
 
 **Features used:**
 - Inline CSS (best compatibility)
@@ -137,7 +137,7 @@ All templates are designed with maximum compatibility:
 
 ## Best Practices
 
-### DO ✅
+### DO 
 - Keep HTML under 100KB for best deliverability
 - Use inline CSS instead of `<style>` tags when possible
 - Test with multiple email clients
@@ -145,7 +145,7 @@ All templates are designed with maximum compatibility:
 - Use web-safe fonts (Arial, Helvetica, Georgia, etc.)
 - Optimize images before including
 
-### DON'T ❌
+### DON'T 
 - Use JavaScript (not supported in emails)
 - Rely solely on external stylesheets
 - Use video or audio embeds

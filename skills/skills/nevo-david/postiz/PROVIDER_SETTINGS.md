@@ -435,7 +435,7 @@ This will show the `provider` field for each integration, which corresponds to t
 ```json
 {
   "settings": {
-    "title": "My Video"  // ❌ Missing __type
+    "title": "My Video"  //  Missing __type
   }
 }
 ```
@@ -444,7 +444,7 @@ This will show the `provider` field for each integration, which corresponds to t
 ```json
 {
   "settings": {
-    "__type": "youtube",  // ✅ Add __type
+    "__type": "youtube",  //  Add __type
     "title": "My Video"
   }
 }
@@ -453,10 +453,10 @@ This will show the `provider` field for each integration, which corresponds to t
 ### Wrong Provider Type
 
 ```bash
-# ❌ Wrong
+#  Wrong
 -p twitter  # Should be "x"
 
-# ✅ Correct
+#  Correct
 -p x
 ```
 

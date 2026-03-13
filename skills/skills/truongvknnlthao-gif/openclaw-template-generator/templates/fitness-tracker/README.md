@@ -22,11 +22,11 @@ Your personal fitness coach that helps you:
 
 ## Features
 
-- 🏋️ Workout logging and tracking
-- 📊 Progress visualization
-- 🎯 Goal monitoring
-- 💪 Personalized suggestions
-- 🏆 Achievement celebrations
+-  Workout logging and tracking
+-  Progress visualization
+-  Goal monitoring
+-  Personalized suggestions
+-  Achievement celebrations
 
 ## Customization
 

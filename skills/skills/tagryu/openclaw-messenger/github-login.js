@@ -81,14 +81,14 @@ async function eval_(ws, expr) {
   // session 페이지 (로그인 에러?)
   if (url.includes('github.com/session')) {
     const pageText = await eval_(ws, 'document.body?.innerText?.slice(0, 300)');
-    console.log('⚠️ session 페이지:', pageText);
+    console.log(' session 페이지:', pageText);
   }
   
   // clawhub으로 돌아왔으면
   if (url.includes('clawhub')) {
     const body = await eval_(ws, 'document.body?.innerText?.slice(0, 300)');
-    console.log('✅ clawhub:', body);
+    console.log(' clawhub:', body);
   }
   
   ws.close();
-})().catch(e => console.error('❌', e.message));
+})().catch(e => console.error('', e.message));

@@ -53,7 +53,7 @@ async function launchQuickCampaign() {
     end_time: '2026-12-31T23:59:59Z'
   });
   
-  console.log(`✅ Campaign created: ${campaign.media_buy_id}`);
+  console.log(` Campaign created: ${campaign.media_buy_id}`);
 }
 ```
 
@@ -219,11 +219,11 @@ async function launchDisplayCampaign() {
     pacing: 'even'
   });
   
-  console.log(`✅ Display campaign created: ${campaign.media_buy_id}`);
+  console.log(` Display campaign created: ${campaign.media_buy_id}`);
   console.log(`   Status: ${campaign.status}`);
   
   if (campaign.status === 'pending') {
-    console.log(`   ⏳ Awaiting approval - Task ID: ${campaign.task_id}`);
+    console.log(`    Awaiting approval - Task ID: ${campaign.task_id}`);
   }
 }
 ```
@@ -284,7 +284,7 @@ async function launchProgrammaticDisplay() {
     optimization_goal: 'impressions'
   });
   
-  console.log(`✅ Programmatic campaign created with $${bidPrice.toFixed(2)} CPM bid`);
+  console.log(` Programmatic campaign created with $${bidPrice.toFixed(2)} CPM bid`);
 }
 ```
 
@@ -376,7 +376,7 @@ async function launchVideoPreRoll() {
     optimization_goal: 'conversions'
   });
   
-  console.log(`✅ Video campaign created: ${campaign.media_buy_id}`);
+  console.log(` Video campaign created: ${campaign.media_buy_id}`);
   
   // 3. Monitor completion rates
   setTimeout(async () => {
@@ -384,7 +384,7 @@ async function launchVideoPreRoll() {
       media_buy_id: campaign.media_buy_id
     });
     
-    console.log(`\n📊 Video Performance:`);
+    console.log(`\n Video Performance:`);
     console.log(`   Impressions: ${delivery.delivery.impressions.toLocaleString()}`);
     console.log(`   Completion Rate: ${(delivery.delivery.completion_rate * 100).toFixed(1)}%`);
     console.log(`   CPM: $${delivery.delivery.cpm.toFixed(2)}`);
@@ -466,7 +466,7 @@ async function launchCTVCampaign() {
     pacing: 'even'
   });
   
-  console.log(`✅ CTV campaign launched: ${campaign.media_buy_id}`);
+  console.log(` CTV campaign launched: ${campaign.media_buy_id}`);
   console.log(`   Budget: $${campaign.packages[0].budget.toLocaleString()}`);
   console.log(`   DMAs: 10 major markets`);
 }
@@ -602,7 +602,7 @@ async function launchMultiChannelCampaign() {
     pacing: 'even'
   });
   
-  console.log(`✅ Multi-channel campaign created: ${campaign.media_buy_id}`);
+  console.log(` Multi-channel campaign created: ${campaign.media_buy_id}`);
   console.log(`   Display budget: $40,000`);
   console.log(`   Video budget: $60,000`);
   console.log(`   Total: $100,000`);
@@ -614,7 +614,7 @@ async function launchMultiChannelCampaign() {
       dimensions: ['package']
     });
     
-    console.log('\n📊 Performance by Channel:');
+    console.log('\n Performance by Channel:');
     delivery.by_package?.forEach(pkg => {
       const channel = pkg.buyer_ref.includes('display') ? 'Display' : 'Video';
       console.log(`   ${channel}:`);
@@ -656,7 +656,7 @@ async function optimizeCampaignBudget(mediaBuyId) {
   // 3. Rank by efficiency
   packagePerformance?.sort((a, b) => b.efficiency - a.efficiency);
   
-  console.log('📊 Package Performance Rankings:');
+  console.log(' Package Performance Rankings:');
   packagePerformance?.forEach((pkg, index) => {
     console.log(`${index + 1}. ${pkg.buyer_ref}`);
     console.log(`   Efficiency: ${pkg.efficiency.toFixed(0)} imps/$`);
@@ -671,7 +671,7 @@ async function optimizeCampaignBudget(mediaBuyId) {
     const efficiencyRatio = best.efficiency / worst.efficiency;
     
     if (efficiencyRatio > 2) {
-      console.log(`\n💡 Optimization Opportunity:`);
+      console.log(`\n Optimization Opportunity:`);
       console.log(`   ${best.buyer_ref} is ${efficiencyRatio.toFixed(1)}x more efficient than ${worst.buyer_ref}`);
       console.log(`   Recommend: Shift $5,000 from ${worst.buyer_ref} to ${best.buyer_ref}`);
       
@@ -695,7 +695,7 @@ async function optimizeCampaignBudget(mediaBuyId) {
           }
         });
         
-        console.log('✅ Budget reallocation complete');
+        console.log(' Budget reallocation complete');
       }
     }
   }
@@ -764,10 +764,10 @@ async function runCreativeABTest(mediaBuyId) {
     }
   });
   
-  console.log('✅ A/B test creatives uploaded');
+  console.log(' A/B test creatives uploaded');
   
   // 2. Wait for sufficient data (check after 24 hours in production)
-  console.log('⏳ Collecting performance data...');
+  console.log(' Collecting performance data...');
   
   // 3. Analyze results
   const delivery = await testAgent.getMediaBuyDelivery({
@@ -776,7 +776,7 @@ async function runCreativeABTest(mediaBuyId) {
   });
   
   if (!delivery.by_creative || delivery.by_creative.length < 2) {
-    console.log('⚠️ Insufficient data for analysis');
+    console.log(' Insufficient data for analysis');
     return;
   }
   
@@ -791,10 +791,10 @@ async function runCreativeABTest(mediaBuyId) {
   
   results.sort((a, b) => b.ctr - a.ctr);
   
-  console.log('\n📊 A/B Test Results:');
+  console.log('\n A/B Test Results:');
   results.forEach((result, index) => {
     const isWinner = index === 0;
-    console.log(`${isWinner ? '🏆' : '  '} ${result.creative_id}`);
+    console.log(`${isWinner ? '' : '  '} ${result.creative_id}`);
     console.log(`     CTR: ${(result.ctr * 100).toFixed(3)}%`);
     console.log(`     Impressions: ${result.impressions.toLocaleString()}`);
     console.log(`     Confidence: ${result.confidence}`);
@@ -804,7 +804,7 @@ async function runCreativeABTest(mediaBuyId) {
   const winner = results[0];
   
   if (winner.confidence === 'high') {
-    console.log(`\n✅ Winner identified: ${winner.creative_id}`);
+    console.log(`\n Winner identified: ${winner.creative_id}`);
     console.log(`   Recommend: Use this creative for remaining campaign`);
     
     // Update campaign to use only winner
@@ -815,9 +815,9 @@ async function runCreativeABTest(mediaBuyId) {
       }
     });
     
-    console.log('✅ Campaign updated to use winning creative');
+    console.log(' Campaign updated to use winning creative');
   } else {
-    console.log('\n⚠️ Need more data before selecting winner');
+    console.log('\n Need more data before selecting winner');
   }
 }
 ```
@@ -880,7 +880,7 @@ async function uploadCreativeLibrary() {
     creatives: creativeObjects
   });
   
-  console.log(`✅ Uploaded ${result.synced_creatives.length} creatives`);
+  console.log(` Uploaded ${result.synced_creatives.length} creatives`);
   
   result.synced_creatives.forEach(creative => {
     console.log(`   ${creative.creative_id}: ${creative.status}`);
@@ -935,7 +935,7 @@ async function launchGeoTargetedCampaign() {
     end_time: '2026-03-31T23:59:59Z'
   });
   
-  console.log(`✅ Geo-targeted campaign launched`);
+  console.log(` Geo-targeted campaign launched`);
   console.log(`   Targeting 6 ZIP codes across 3 cities`);
 }
 ```
@@ -957,11 +957,11 @@ async function monitorCampaign(mediaBuyId) {
   });
   
   console.log('=' .repeat(60));
-  console.log('📊 CAMPAIGN PERFORMANCE DASHBOARD');
+  console.log(' CAMPAIGN PERFORMANCE DASHBOARD');
   console.log('='.repeat(60));
   
   // Overall metrics
-  console.log('\n📈 Overall Performance:');
+  console.log('\n Overall Performance:');
   console.log(`   Status: ${delivery.status}`);
   console.log(`   Impressions: ${delivery.delivery.impressions.toLocaleString()}`);
   console.log(`   Clicks: ${(delivery.delivery.clicks || 0).toLocaleString()}`);
@@ -970,7 +970,7 @@ async function monitorCampaign(mediaBuyId) {
   console.log(`   CPM: $${delivery.delivery.cpm?.toFixed(2)}`);
   
   // Budget pacing
-  console.log('\n💰 Budget Pacing:');
+  console.log('\n Budget Pacing:');
   const pacingBar = '█'.repeat(Math.floor(delivery.pacing.spend_pacing * 20));
   console.log(`   ${pacingBar} ${(delivery.pacing.spend_pacing * 100).toFixed(1)}%`);
   console.log(`   Days ${delivery.pacing.days_elapsed} of ${delivery.pacing.days_total}`);
@@ -978,16 +978,16 @@ async function monitorCampaign(mediaBuyId) {
   
   const pacingHealth = Math.abs(delivery.pacing.spend_pacing - delivery.pacing.percent_complete);
   if (pacingHealth < 0.1) {
-    console.log(`   ✅ On track`);
+    console.log(`    On track`);
   } else if (delivery.pacing.spend_pacing < delivery.pacing.percent_complete) {
-    console.log(`   ⚠️ Underpacing by ${(pacingHealth * 100).toFixed(1)}%`);
+    console.log(`    Underpacing by ${(pacingHealth * 100).toFixed(1)}%`);
   } else {
-    console.log(`   ⚠️ Overpacing by ${(pacingHealth * 100).toFixed(1)}%`);
+    console.log(`    Overpacing by ${(pacingHealth * 100).toFixed(1)}%`);
   }
   
   // Package performance
   if (delivery.by_package && delivery.by_package.length > 0) {
-    console.log('\n📦 Performance by Package:');
+    console.log('\n Performance by Package:');
     delivery.by_package.forEach(pkg => {
       console.log(`   ${pkg.buyer_ref}:`);
       console.log(`     Impressions: ${pkg.impressions.toLocaleString()}`);
@@ -998,7 +998,7 @@ async function monitorCampaign(mediaBuyId) {
   
   // Creative performance
   if (delivery.by_creative && delivery.by_creative.length > 0) {
-    console.log('\n🎨 Performance by Creative:');
+    console.log('\n Performance by Creative:');
     delivery.by_creative
       .sort((a, b) => (b.ctr || 0) - (a.ctr || 0))
       .forEach(creative => {
@@ -1010,7 +1010,7 @@ async function monitorCampaign(mediaBuyId) {
   
   // Daily trend
   if (delivery.timeseries && delivery.timeseries.length > 0) {
-    console.log('\n📅 Last 7 Days:');
+    console.log('\n Last 7 Days:');
     delivery.timeseries.slice(-7).forEach(day => {
       const date = new Date(day.timestamp).toLocaleDateString();
       console.log(`   ${date}: ${day.impressions.toLocaleString()} imps, $${day.spend.toLocaleString()}`);

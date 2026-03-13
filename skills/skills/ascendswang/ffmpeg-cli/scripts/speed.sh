@@ -34,4 +34,4 @@ else
 fi
 
 ffmpeg -i "$INPUT" -filter:a "$FILTERS" -filter:v "setpts=${RATE}*PTS" -c:v libx264 -crf 23 -c:a aac -y "$OUTPUT"
-echo "✅ Speed adjusted ($RATEx): $OUTPUT"
+echo " Speed adjusted ($RATEx): $OUTPUT"

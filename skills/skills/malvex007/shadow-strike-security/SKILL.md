@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "⚔️",
+        "emoji": "",
         "category": "security"
       }
   }
@@ -27,31 +27,31 @@ ShadowStrike is a comprehensive security testing platform that provides:
 
 ## Key Features
 
-### 🎯 Intelligent Reconnaissance
+###  Intelligent Reconnaissance
 - **Network Discovery:** nmap, masscan, unicornscan
 - **Web Enumeration:** dirb, gobuster, ffuf, wfuzz
 - **Subdomain Hunting:** amass, sublist3r, assetfinder
 - **OSINT Gathering:** theHarvester, recon-ng, maltego
 
-### 🔍 Vulnerability Assessment
+###  Vulnerability Assessment
 - **Web Testing:** sqlmap, nikto, dalfox, nuclei
 - **Network Scanning:** 610+ NSE scripts
 - **SSL/TLS Analysis:** testssl.sh, sslscan, sslyze
 - **Configuration Review:** Automated misconfiguration detection
 
-### ⚔️ Professional Exploitation
+###  Professional Exploitation
 - **Web Exploits:** SQL injection, XSS, LFI, RCE testing
 - **Password Attacks:** hashcat, john, hydra (GPU-accelerated)
 - **Wireless Auditing:** aircrack-ng, wifite, reaver
 - **Frameworks:** Metasploit, searchsploit, BeEF
 
-### 🛡️ Post-Exploitation
+###  Post-Exploitation
 - **Privilege Escalation:** linpeas, winpeas
 - **Lateral Movement:** Pivoting and tunneling
 - **Persistence Testing:** Backdoor detection
 - **Data Exfiltration:** Secure transfer methods
 
-### 📊 Professional Reporting
+###  Professional Reporting
 - **Executive Summaries:** High-level risk overview
 - **Technical Reports:** CVE correlation, PoC details
 - **Remediation Guides:** Step-by-step fixes
@@ -216,14 +216,14 @@ ShadowStrike executes:
 ✓ SSL/TLS analysis (testssl.sh)
 
 Results:
-💰 Critical (P1): 1 - SQL Injection
-💰 High (P2): 3 - XSS, IDOR, LFI
-💰 Medium (P3): 5 - Various issues
+ Critical (P1): 1 - SQL Injection
+ High (P2): 3 - XSS, IDOR, LFI
+ Medium (P3): 5 - Various issues
 
 Reports:
-📄 P1-SQLi-report.md (Ready to submit)
-📄 P2-XSS-report.md (Ready to submit)
-📄 P2-IDOR-report.md (Ready to submit)
+ P1-SQLi-report.md (Ready to submit)
+ P2-XSS-report.md (Ready to submit)
+ P2-IDOR-report.md (Ready to submit)
 
 Potential Bounty: $2,000 - $5,000
 ```
@@ -304,21 +304,21 @@ Evidence: ./pentest-target-evidence/
 
 ## Legal & Ethics
 
-**⚠️ IMPORTANT: Use Responsibly**
+** IMPORTANT: Use Responsibly**
 
 **You CAN:**
-- ✅ Test systems you own
-- ✅ Test systems with written authorization
-- ✅ Conduct authorized penetration tests
-- ✅ Perform security audits on your infrastructure
-- ✅ Participate in bug bounty programs (within scope)
+-  Test systems you own
+-  Test systems with written authorization
+-  Conduct authorized penetration tests
+-  Perform security audits on your infrastructure
+-  Participate in bug bounty programs (within scope)
 
 **You CANNOT:**
-- ❌ Test systems without permission
-- ❌ Attack systems illegally
-- ❌ Violate privacy laws
-- ❌ Cause damage to systems
-- ❌ Steal data
+-  Test systems without permission
+-  Attack systems illegally
+-  Violate privacy laws
+-  Cause damage to systems
+-  Steal data
 
 **Legal Notice:**
 Unauthorized access is illegal under:
@@ -342,4 +342,4 @@ MIT License - Free for educational and authorized security testing
 
 ---
 
-**ShadowStrike Security: Professional Tools for Professional Testing** ⚔️🛡️
+**ShadowStrike Security: Professional Tools for Professional Testing** 

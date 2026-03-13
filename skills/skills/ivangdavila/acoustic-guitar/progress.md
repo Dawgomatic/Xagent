@@ -44,9 +44,9 @@ Reference for file structure and logging format.
 ## Fingerpicking Patterns
 | Pattern | Status | Notes |
 |---------|--------|-------|
-| Basic arpeggio | ✅ | p-i-m-a comfortable |
-| Travis picking | 🔄 | alternating bass OK, melody needs work |
-| Hybrid | ❌ | not started |
+| Basic arpeggio |  | p-i-m-a comfortable |
+| Travis picking |  | alternating bass OK, melody needs work |
+| Hybrid |  | not started |
 
 ## Strumming Patterns
 - D DU UDU: solid at 120 BPM
@@ -54,8 +54,8 @@ Reference for file structure and logging format.
 - Syncopated 16ths: needs work
 
 ## Chord Vocabulary
-- Open chords: ✅ all confident
-- Barre chords: 🔄 F and Bm clean, others muddy
+- Open chords:  all confident
+- Barre chords:  F and Bm clean, others muddy
 - Suspended/add9: learning
 ```
 

@@ -21,7 +21,7 @@ INDEX_FILE="$WORKSPACE/memory/index.json"
 PENDING_FILE="$WORKSPACE/memory/pending-memories.json"
 NO_SPAWN="${1:-}"
 
-echo "🧠 HIPPOCAMPUS ENCODING PIPELINE"
+echo " HIPPOCAMPUS ENCODING PIPELINE"
 echo "================================"
 echo "Time: $(date '+%Y-%m-%d %H:%M:%S')"
 echo ""
@@ -29,7 +29,7 @@ echo ""
 # ═══════════════════════════════════════════════════════════════
 # STEP 1: Run preprocess
 # ═══════════════════════════════════════════════════════════════
-echo "📥 Step 1: Preprocessing..."
+echo " Step 1: Preprocessing..."
 WORKSPACE="$WORKSPACE" "$SKILL_DIR/scripts/preprocess.sh"
 echo ""
 
@@ -37,15 +37,15 @@ echo ""
 # STEP 2: Check for signals
 # ═══════════════════════════════════════════════════════════════
 if [ ! -f "$SIGNALS_FILE" ]; then
-    echo "❌ No signals file. Done."
+    echo " No signals file. Done."
     exit 0
 fi
 
 SIGNAL_COUNT=$(wc -l < "$SIGNALS_FILE" | tr -d ' ')
-echo "📊 Step 2: Found $SIGNAL_COUNT signals"
+echo " Step 2: Found $SIGNAL_COUNT signals"
 
 if [ "$SIGNAL_COUNT" -eq 0 ]; then
-    echo "✅ No new signals. Done."
+    echo " No new signals. Done."
     exit 0
 fi
 
@@ -53,7 +53,7 @@ fi
 # STEP 3: Score and prepare pending memories
 # ═══════════════════════════════════════════════════════════════
 echo ""
-echo "🔄 Step 3: Scoring signals..."
+echo " Step 3: Scoring signals..."
 
 python3 << 'PYTHON'
 import json
@@ -251,22 +251,22 @@ PENDING_COUNT=$(python3 -c "import json; d=json.load(open('$PENDING_FILE')); pri
 
 if [ "$PENDING_COUNT" -eq 0 ]; then
     echo ""
-    echo "✅ No new memories to summarize. Done."
+    echo " No new memories to summarize. Done."
     # Sync core anyway
     WORKSPACE="$WORKSPACE" "$SKILL_DIR/scripts/sync-core.sh"
     exit 0
 fi
 
 echo ""
-echo "📝 $PENDING_COUNT memories pending summarization"
+echo " $PENDING_COUNT memories pending summarization"
 
 if [ "$NO_SPAWN" = "--no-spawn" ]; then
-    echo "⏭️  Skipping spawn (--no-spawn flag)"
+    echo "  Skipping spawn (--no-spawn flag)"
     exit 0
 fi
 
 echo ""
-echo "✅ Pipeline phase 1 complete. Sub-agent will handle summarization."
+echo " Pipeline phase 1 complete. Sub-agent will handle summarization."
 echo ""
 echo "To complete manually, run:"
 echo "  openclaw sessions:spawn --task 'Run ~/.openclaw/workspace/skills/hippocampus/scripts/summarize-pending.sh'"

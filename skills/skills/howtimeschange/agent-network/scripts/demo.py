@@ -28,23 +28,23 @@ def print_header(title):
 
 def print_section(title):
     """打印小节标题"""
-    print(f"\n▶ {title}")
+    print(f"\n {title}")
     print("-" * 50)
 
 
 def demo():
     """运行演示"""
     
-    print_header("🤖 Agent 群聊协作系统 v1.0 - 功能演示")
+    print_header(" Agent 群聊协作系统 v1.0 - 功能演示")
     
     print("""
 本演示将展示系统的核心功能:
-  1️⃣  Agent 管理与上线
-  2️⃣  群组创建与加入
-  3️⃣  消息发送与 @提及
-  4️⃣  任务指派与跟踪
-  5️⃣  决策提议与投票
-  6️⃣  收件箱与通知
+    Agent 管理与上线
+    群组创建与加入
+    消息发送与 @提及
+    任务指派与跟踪
+    决策提议与投票
+    收件箱与通知
     """)
     
     input("\n按 Enter 开始演示...")
@@ -57,12 +57,12 @@ def demo():
     time.sleep(0.5)
     
     # ========== 1. Agent 管理 ==========
-    print_header("1️⃣  Agent 管理")
+    print_header("  Agent 管理")
     
     print_section("所有 Agent 列表")
     agents = AgentManager.get_all()
     for agent in agents:
-        print(f"  ⚪ {agent.name} - {agent.role}")
+        print(f"   {agent.name} - {agent.role}")
     
     print_section("Agent 上线")
     lao_xing = AgentManager.get_by_name("老邢")
@@ -79,24 +79,24 @@ def demo():
     print_section("在线 Agent 列表")
     online = AgentManager.get_online_agents()
     for agent in online:
-        print(f"  🟢 {agent.name} - {agent.role}")
+        print(f"   {agent.name} - {agent.role}")
     
     time.sleep(1)
     
     # ========== 2. 群组管理 ==========
-    print_header("2️⃣  群组管理")
+    print_header("  群组管理")
     
     print_section("创建工作群组")
     if lao_xing:
         group = GroupManager.create("核心工作群", lao_xing.id, "核心团队工作沟通")
         if group:
-            print(f"  ✅ 群组 '{group.name}' 创建成功")
+            print(f"   群组 '{group.name}' 创建成功")
             
             # 添加成员
             for agent in [xiao_xing, xiao_jin, xiao_chen, xiao_ying]:
                 if agent:
                     GroupManager.add_member(group.id, agent.id)
-                    print(f"  ✅ {agent.name} 加入群组")
+                    print(f"   {agent.name} 加入群组")
     else:
         group = GroupManager.get_by_name("核心工作群")
     
@@ -104,20 +104,20 @@ def demo():
     groups = GroupManager.get_all()
     for g in groups:
         member_count = GroupManager.get_member_count(g.id)
-        print(f"  📁 {g.name} - {member_count} 成员")
+        print(f"   {g.name} - {member_count} 成员")
     
     print_section("群组成员")
     if group:
         members = GroupManager.get_members(group.id)
         print(f"  '{group.name}' 成员:")
         for member in members:
-            status = "🟢" if member.status == "online" else "⚪"
+            status = "" if member.status == "online" else ""
             print(f"    {status} {member.name} ({member.role})")
     
     time.sleep(1)
     
     # ========== 3. 消息功能 ==========
-    print_header("3️⃣  消息功能")
+    print_header("  消息功能")
     
     print_section("发送普通消息")
     if lao_xing and group:
@@ -127,7 +127,7 @@ def demo():
             group_id=group.id
         )
         if msg1:
-            print(f"  💬 老邢: {msg1.content}")
+            print(f"   老邢: {msg1.content}")
     
     time.sleep(0.5)
     
@@ -139,8 +139,8 @@ def demo():
             group_id=group.id
         )
         if msg2:
-            print(f"  💬 老邢: {msg2.content}")
-            print(f"  📢 检测到 @提及，已通知相关 Agent")
+            print(f"   老邢: {msg2.content}")
+            print(f"   检测到 @提及，已通知相关 Agent")
     
     time.sleep(0.5)
     
@@ -152,7 +152,7 @@ def demo():
             group_id=group.id
         )
         if msg3:
-            print(f"  💬 小邢: {msg3.content}")
+            print(f"   小邢: {msg3.content}")
     
     if xiao_jin and group:
         msg4 = coordinator.send_message(
@@ -161,12 +161,12 @@ def demo():
             group_id=group.id
         )
         if msg4:
-            print(f"  💬 小金: {msg4.content}")
+            print(f"   小金: {msg4.content}")
     
     time.sleep(1)
     
     # ========== 4. 任务管理 ==========
-    print_header("4️⃣  任务管理")
+    print_header("  任务管理")
     
     print_section("指派任务")
     tasks_created = []
@@ -181,7 +181,7 @@ def demo():
             priority="high"
         )
         if task1:
-            print(f"  ✅ 任务创建: {task1['task_id']}")
+            print(f"   任务创建: {task1['task_id']}")
             print(f"     标题: {task1['title']}")
             print(f"     指派给: {task1['assignee_name']}")
             print(f"     优先级: {task1['priority']}")
@@ -199,7 +199,7 @@ def demo():
             priority="urgent"
         )
         if task2:
-            print(f"  ✅ 任务创建: {task2['task_id']}")
+            print(f"   任务创建: {task2['task_id']}")
             print(f"     标题: {task2['title']}")
             print(f"     指派给: {task2['assignee_name']}")
             print(f"     优先级: {task2['priority']}")
@@ -215,7 +215,7 @@ def demo():
             priority="normal"
         )
         if task3:
-            print(f"  ✅ 任务创建: {task3['task_id']}")
+            print(f"   任务创建: {task3['task_id']}")
             print(f"     标题: {task3['title']}")
             print(f"     指派给: {task3['assignee_name']}")
             tasks_created.append(task3)
@@ -226,14 +226,14 @@ def demo():
     print("  " + "-" * 65)
     
     status_emoji = {
-        TaskStatus.PENDING: "⏳",
-        TaskStatus.IN_PROGRESS: "🔄",
-        TaskStatus.COMPLETED: "✅",
-        TaskStatus.CANCELLED: "❌"
+        TaskStatus.PENDING: "",
+        TaskStatus.IN_PROGRESS: "",
+        TaskStatus.COMPLETED: "",
+        TaskStatus.CANCELLED: ""
     }
     
     for task in tasks:
-        emoji = status_emoji.get(task.status, "❓")
+        emoji = status_emoji.get(task.status, "")
         title = task.title[:20] + ".." if len(task.title) > 22 else task.title
         print(f"  {task.task_id:20} {title:22} {emoji} {task.status:10} {task.assignee_name}")
     
@@ -244,7 +244,7 @@ def demo():
         task = TaskManager.get_by_task_id(tasks_created[0]['task_id'])
         if task and xiao_jin:
             TaskManager.update_status(task.task_id, TaskStatus.IN_PROGRESS, xiao_jin.id, "开始分析报告")
-            print(f"  🔄 任务 {task.task_id} 状态更新为: 进行中")
+            print(f"   任务 {task.task_id} 状态更新为: 进行中")
     
     print_section("完成任务")
     if tasks_created and xiao_jin:
@@ -254,12 +254,12 @@ def demo():
             result="报告已完成！科技股本周上涨3.2%，新能源板块表现突出。"
         )
         if result:
-            print(f"  ✅ 任务 {tasks_created[0]['task_id']} 已完成")
+            print(f"   任务 {tasks_created[0]['task_id']} 已完成")
     
     time.sleep(1)
     
     # ========== 5. 决策管理 ==========
-    print_header("5️⃣  决策管理")
+    print_header("  决策管理")
     
     print_section("提出决策")
     if lao_xing and group:
@@ -270,7 +270,7 @@ def demo():
             group_id=group.id
         )
         if decision:
-            print(f"  ✅ 决策提议: {decision['decision_id']}")
+            print(f"   决策提议: {decision['decision_id']}")
             print(f"     标题: {decision['title']}")
             print(f"     状态: {decision['status']}")
     
@@ -286,7 +286,7 @@ def demo():
                 vote="for",
                 comment="同意升级，现在负载确实偏高，升级能提升稳定性"
             )
-            print(f"  🗳️  小邢 投票: 👍 赞成")
+            print(f"    小邢 投票:  赞成")
         
         time.sleep(0.2)
         
@@ -298,7 +298,7 @@ def demo():
                 vote="for",
                 comment="支持升级，业务增长需要更好的基础设施"
             )
-            print(f"  🗳️  小金 投票: 👍 赞成")
+            print(f"    小金 投票:  赞成")
         
         time.sleep(0.2)
         
@@ -310,13 +310,13 @@ def demo():
                 vote="against",
                 comment="建议先优化代码和缓存策略，目前还有优化空间"
             )
-            print(f"  🗳️  小陈 投票: 👎 反对")
+            print(f"    小陈 投票:  反对")
     
     print_section("决策状态")
     if decision:
         updated = DecisionManager.get_by_decision_id(decision['decision_id'])
         if updated:
-            print(f"  📊 {updated.title}")
+            print(f"   {updated.title}")
             print(f"     赞成: {updated.votes_for} 票")
             print(f"     反对: {updated.votes_against} 票")
             print(f"     通过率: {updated.pass_rate:.1f}%")
@@ -327,19 +327,19 @@ def demo():
     if decision:
         final = coordinator.finalize_decision(decision['decision_id'])
         if final:
-            result_text = "✅ 通过" if final['status'] == DecisionStatus.APPROVED else "❌ 未通过"
+            result_text = " 通过" if final['status'] == DecisionStatus.APPROVED else " 未通过"
             print(f"  {result_text}")
             print(f"     最终状态: {final['status']}")
     
     time.sleep(1)
     
     # ========== 6. 收件箱与历史 ==========
-    print_header("6️⃣  收件箱与消息历史")
+    print_header("  收件箱与消息历史")
     
     print_section("消息历史")
     if group:
         messages = MessageManager.get_group_messages(group.id, limit=10)
-        print(f"  💬 '{group.name}' 最近消息:")
+        print(f"   '{group.name}' 最近消息:")
         print("  " + "-" * 60)
         
         for msg in reversed(messages[-5:]):  # 最近5条
@@ -350,30 +350,30 @@ def demo():
     print_section("任务统计")
     task_stats = TaskManager.get_statistics()
     print(f"  总任务: {task_stats['total']}")
-    print(f"  ⏳ 待处理: {task_stats['pending']}")
-    print(f"  🔄 进行中: {task_stats['in_progress']}")
-    print(f"  ✅ 已完成: {task_stats['completed']}")
+    print(f"   待处理: {task_stats['pending']}")
+    print(f"   进行中: {task_stats['in_progress']}")
+    print(f"   已完成: {task_stats['completed']}")
     
     print_section("决策统计")
     decision_stats = DecisionManager.get_statistics()
     print(f"  总决策: {decision_stats['total']}")
-    print(f"  📝 提议中: {decision_stats['proposed']}")
-    print(f"  💬 讨论中: {decision_stats['discussing']}")
-    print(f"  ✅ 已通过: {decision_stats['approved']}")
-    print(f"  ❌ 已拒绝: {decision_stats['rejected']}")
+    print(f"   提议中: {decision_stats['proposed']}")
+    print(f"   讨论中: {decision_stats['discussing']}")
+    print(f"   已通过: {decision_stats['approved']}")
+    print(f"   已拒绝: {decision_stats['rejected']}")
     
     # 结束
-    print_header("✨ 演示完成")
+    print_header(" 演示完成")
     
     print("""
 演示结束！系统的核心功能都已展示：
 
-  ✅ Agent 管理与在线状态
-  ✅ 群组创建与成员管理  
-  ✅ 消息发送与 @提及通知
-  ✅ 任务指派、进度跟踪、完成
-  ✅ 决策提议、投票、结果统计
-  ✅ 消息历史与统计信息
+   Agent 管理与在线状态
+   群组创建与成员管理  
+   消息发送与 @提及通知
+   任务指派、进度跟踪、完成
+   决策提议、投票、结果统计
+   消息历史与统计信息
 
 接下来你可以：
   1. 运行 'python chat.py' 进入交互式 CLI 体验
@@ -390,6 +390,6 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\n\n演示已取消")
     except Exception as e:
-        print(f"\n❌ 演示出错: {e}")
+        print(f"\n 演示出错: {e}")
         import traceback
         traceback.print_exc()

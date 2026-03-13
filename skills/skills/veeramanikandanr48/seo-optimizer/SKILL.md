@@ -65,14 +65,14 @@ python scripts/seo_analyzer.py ./public --json
 
 The analyzer categorizes findings into three levels:
 
-**Critical Issues (🔴)** - Fix immediately:
+**Critical Issues ()** - Fix immediately:
 - Missing title tags
 - Missing meta descriptions
 - Missing H1 headings
 - Images without alt attributes
 - Missing HTML lang attribute
 
-**Warnings (⚠️)** - Fix soon for optimal SEO:
+**Warnings ()** - Fix soon for optimal SEO:
 - Suboptimal title/description lengths
 - Multiple H1 tags
 - Missing Open Graph or Twitter Card tags
@@ -80,7 +80,7 @@ The analyzer categorizes findings into three levels:
 - Missing schema markup
 - Heading hierarchy issues
 
-**Good Practices (✅)** - Already optimized:
+**Good Practices ()** - Already optimized:
 - Properly formatted elements
 - Correct lengths
 - Present required tags

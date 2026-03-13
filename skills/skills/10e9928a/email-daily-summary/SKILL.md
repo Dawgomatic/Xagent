@@ -10,11 +10,11 @@ allowed-tools: Bash(browser-use:*), Bash(echo:*), Bash(date:*)
 
 ## 功能特性
 
-- 🔐 支持多种邮箱登录（Gmail、Outlook、QQ 邮箱、163 邮箱等）
-- 📧 自动获取最新邮件列表
-- 📝 智能生成邮件摘要
-- 🏷️ 按重要性/发件人/主题分类
-- 📊 生成每日邮件统计报告
+-  支持多种邮箱登录（Gmail、Outlook、QQ 邮箱、163 邮箱等）
+-  自动获取最新邮件列表
+-  智能生成邮件摘要
+-  按重要性/发件人/主题分类
+-  生成每日邮件统计报告
 
 ## 前置要求
 
@@ -148,7 +148,7 @@ OUTPUT_DIR="./email_summaries"
 mkdir -p "$OUTPUT_DIR"
 
 echo "=========================================="
-echo "📧 邮件日报生成中..."
+echo " 邮件日报生成中..."
 echo "日期: $DATE $TIME"
 echo "=========================================="
 
@@ -160,17 +160,17 @@ sleep 3
 
 # 3. 获取页面状态
 echo ""
-echo "📋 当前邮箱状态:"
+echo " 当前邮箱状态:"
 browser-use state
 
 # 4. 截图保存邮件列表
 echo ""
-echo "📸 保存截图..."
+echo " 保存截图..."
 browser-use screenshot "$OUTPUT_DIR/inbox_$DATE.png"
 
 # 5. 提取邮件数据
 echo ""
-echo "📊 邮件统计:"
+echo " 邮件统计:"
 browser-use eval "
 (() => {
   const unreadCount = document.querySelectorAll('.zE').length;
@@ -185,7 +185,7 @@ browser-use eval "
 
 # 6. 关闭浏览器
 echo ""
-echo "✅ 完成！截图保存至: $OUTPUT_DIR/inbox_$DATE.png"
+echo " 完成！截图保存至: $OUTPUT_DIR/inbox_$DATE.png"
 browser-use close
 ```
 
@@ -264,15 +264,15 @@ launchctl load ~/Library/LaunchAgents/com.email.dailysummary.plist
 
 ```
 ==========================================
-📧 邮件日报 - 2026-01-30
+ 邮件日报 - 2026-01-30
 ==========================================
 
-📊 统计概览:
+ 统计概览:
 - 未读邮件: 12 封
 - 今日新邮件: 28 封
 - 重要邮件: 5 封
 
-🔴 重要邮件:
+ 重要邮件:
 1. [工作] 来自 boss@company.com
    主题: 项目进度汇报 - 紧急
    时间: 09:30
@@ -281,13 +281,13 @@ launchctl load ~/Library/LaunchAgents/com.email.dailysummary.plist
    主题: 账单提醒
    时间: 08:15
 
-📬 今日邮件分类:
+ 今日邮件分类:
 - 工作相关: 15 封
 - 订阅通知: 8 封
 - 社交媒体: 3 封
 - 其他: 2 封
 
-💡 建议操作:
+ 建议操作:
 - 回复 boss@company.com 的邮件
 - 处理 3 封需要审批的邮件
 
@@ -296,7 +296,7 @@ launchctl load ~/Library/LaunchAgents/com.email.dailysummary.plist
 
 ## 安全提示
 
-⚠️ **重要安全建议**：
+ **重要安全建议**：
 
 1. **不要在脚本中明文保存密码**，优先使用 `--browser real` 模式复用已登录会话
 2. **敏感信息使用环境变量**存储

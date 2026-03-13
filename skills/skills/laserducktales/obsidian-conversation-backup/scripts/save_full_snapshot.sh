@@ -34,4 +34,4 @@ cat "$SESSION_FILE" | while IFS= read -r line; do
     echo "$line" | jq -r -f /root/clawd/format_message_v2.jq.txt 2>/dev/null
 done >> "$SNAPSHOT_FILE"
 
-echo "✅ Saved full snapshot: $SNAPSHOT_FILE"
+echo " Saved full snapshot: $SNAPSHOT_FILE"

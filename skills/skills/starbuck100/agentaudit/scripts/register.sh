@@ -8,7 +8,7 @@ set -euo pipefail
 # Dependencies: curl, jq
 for cmd in curl jq; do
   if ! command -v "$cmd" &>/dev/null; then
-    echo "❌ Required dependency '$cmd' not found. Install it first." >&2
+    echo " Required dependency '$cmd' not found. Install it first." >&2
     exit 1
   fi
 done
@@ -28,7 +28,7 @@ fi
 
 # Sanitize agent name: only allow alphanumeric, dashes, underscores, dots
 if ! echo "$AGENT_NAME" | grep -qE '^[a-zA-Z0-9._-]{2,64}$'; then
-  echo "❌ Invalid agent name. Use only alphanumeric, dashes, underscores, dots (2-64 chars)." >&2
+  echo " Invalid agent name. Use only alphanumeric, dashes, underscores, dots (2-64 chars)." >&2
   exit 1
 fi
 
@@ -55,7 +55,7 @@ for check_file in "$CRED_FILE" "$USER_CRED_FILE"; do
         fi
         exit 0
       else
-        echo "⚠️  Cached key in $check_file is stale (server returned $VALIDATE_HTTP). Re-registering..."
+        echo "  Cached key in $check_file is stale (server returned $VALIDATE_HTTP). Re-registering..."
         rm -f "$CRED_FILE" "$USER_CRED_FILE"
         break
       fi
@@ -86,12 +86,12 @@ if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
   mkdir -p "$USER_CRED_DIR"
   ( umask 077; echo "$CRED_JSON" > "$USER_CRED_FILE" )
 
-  echo "✅ Registered successfully!"
+  echo " Registered successfully!"
   echo "Credentials saved to:"
   echo "  • $CRED_FILE (skill-local)"
   echo "  • $USER_CRED_FILE (user backup)"
 else
-  echo "❌ Registration failed (HTTP $HTTP_CODE):" >&2
+  echo " Registration failed (HTTP $HTTP_CODE):" >&2
   echo "$BODY" >&2
   exit 1
 fi

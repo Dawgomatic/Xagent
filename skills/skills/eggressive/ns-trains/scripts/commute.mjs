@@ -12,7 +12,7 @@ import { nsFetch, requireNsSubscriptionKey } from './ns-api.mjs';
 
 const NS_SUBSCRIPTION_KEY = (() => {
   try { return requireNsSubscriptionKey(); }
-  catch (e) { console.error(`❌ ${e.message}`); process.exit(1); }
+  catch (e) { console.error(` ${e.message}`); process.exit(1); }
 })();
 
 const BASE_URL = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v3/trips';
@@ -31,7 +31,7 @@ const toHome = args.includes('--to-home') || args.includes('-h') || args.include
 
 if (!toWork && !toHome) {
   console.log(`
-🚆 NS Commute Shortcut
+ NS Commute Shortcut
 
 Usage: node commute.mjs [direction]
 
@@ -52,7 +52,7 @@ Examples:
 }
 
 if (!COMMUTE.home || !COMMUTE.work) {
-  console.error(`❌ Commute stations not configured
+  console.error(` Commute stations not configured
 
 Set these environment variables:
   export NS_HOME_STATION="Your Home Station"
@@ -67,7 +67,7 @@ Example:
 
 const from = toWork ? COMMUTE.home : COMMUTE.work;
 const to = toWork ? COMMUTE.work : COMMUTE.home;
-const direction = toWork ? '🏢 To Work' : '🏠 To Home';
+const direction = toWork ? ' To Work' : ' To Home';
 
 async function planCommute() {
   const params = new URLSearchParams({
@@ -82,7 +82,7 @@ async function planCommute() {
     });
 
     if (!res.ok) {
-      console.error(`❌ API Error: ${res.status}`);
+      console.error(` API Error: ${res.status}`);
       process.exit(1);
     }
 
@@ -90,7 +90,7 @@ async function planCommute() {
     const trips = data.trips || [];
 
     if (trips.length === 0) {
-      console.log('❌ No trips found');
+      console.log(' No trips found');
       process.exit(0);
     }
 
@@ -116,24 +116,24 @@ async function planCommute() {
 
       const transfers = trip.transfers || 0;
       const platform = firstLeg.origin?.plannedTrack || '?';
-      const status = trip.status === 'NORMAL' ? '✅' : '⚠️';
+      const status = trip.status === 'NORMAL' ? '' : '';
 
       const crowd = firstLeg.crowdForecast || 'UNKNOWN';
-      const crowdEmoji = { 'LOW': '🟢', 'MEDIUM': '🟡', 'HIGH': '🔴' }[crowd] || '⚪';
+      const crowdEmoji = { 'LOW': '', 'MEDIUM': '', 'HIGH': '' }[crowd] || '';
 
       console.log(`\n${status} ${depTime}${delayStr} → ${arrTime} (${duration} min)`);
-      console.log(`   🔄 ${transfers} transfers | 🚏 Spoor ${platform} | ${crowdEmoji} ${crowd.toLowerCase()}`);
+      console.log(`    ${transfers} transfers |  Spoor ${platform} | ${crowdEmoji} ${crowd.toLowerCase()}`);
 
       if (trip.messages?.length > 0) {
-        trip.messages.forEach(m => m.text && console.log(`   ⚠️  ${m.text}`));
+        trip.messages.forEach(m => m.text && console.log(`     ${m.text}`));
       }
     });
 
     console.log('\n' + '─'.repeat(50));
-    console.log(`⏱️  ${new Date().toLocaleTimeString('nl-NL')}`);
+    console.log(`  ${new Date().toLocaleTimeString('nl-NL')}`);
 
   } catch (err) {
-    console.error(`❌ Error: ${err.message}`);
+    console.error(` Error: ${err.message}`);
     process.exit(1);
   }
 }

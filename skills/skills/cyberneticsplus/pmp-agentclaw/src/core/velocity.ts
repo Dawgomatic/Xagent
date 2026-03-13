@@ -96,10 +96,10 @@ export function calculateVelocity(input: VelocityInput): VelocityOutput {
  */
 export function formatVelocityMarkdown(result: VelocityOutput): string {
   const trendEmoji = {
-    'improving': '📈',
-    'stable': '➡️',
-    'declining': '📉',
-    'insufficient-data': '❓',
+    'improving': '',
+    'stable': '',
+    'declining': '',
+    'insufficient-data': '',
   }[result.trend];
   
   let md = `# Sprint Velocity Report\n\n`;

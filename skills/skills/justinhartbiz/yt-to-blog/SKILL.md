@@ -33,7 +33,7 @@ YouTube URL
   ↓
 ⑦ Post-Processing (ffmpeg crop/scale)
   ↓
-📁 Output Folder (blog.md, videos, tweet.txt, URLs)
+ Output Folder (blog.md, videos, tweet.txt, URLs)
 ```
 
 **One URL in → Five platforms out.** Run the whole thing or any step individually.
@@ -71,7 +71,7 @@ If anything is missing, tell the user what to install and wait for confirmation.
 4. Test it:
 
 ```bash
-curl -s -H "X-Api-Key: API_KEY_HERE" https://api.heygen.com/v2/avatars | python3 -c "import sys,json; d=json.load(sys.stdin); print('✅ API key works!' if 'data' in d else '❌ Invalid key')"
+curl -s -H "X-Api-Key: API_KEY_HERE" https://api.heygen.com/v2/avatars | python3 -c "import sys,json; d=json.load(sys.stdin); print(' API key works!' if 'data' in d else ' Invalid key')"
 ```
 
 ### Step 3: HeyGen Avatar Setup
@@ -116,7 +116,7 @@ for v in data.get('data', {}).get('voices', []):
 "
 ```
 
-⚠️ **IMPORTANT:** Use the FULL voice_id (e.g., `69da9c9bca78499b98fdac698d2a20cd`), not a truncated version. The API will return "Voice validation failed" if you use a shortened ID.
+ **IMPORTANT:** Use the FULL voice_id (e.g., `69da9c9bca78499b98fdac698d2a20cd`), not a truncated version. The API will return "Voice validation failed" if you use a shortened ID.
 
 ### Step 5: Substack Login
 
@@ -514,11 +514,11 @@ output-YYYY-MM-DD/
 ```
 
 Report the summary to the user:
-- ✅ Blog post: X words
-- ✅ Substack: [URL] (draft/published)
-- ✅ Tweet: posted / ready to post
-- ✅ X video clips generated and processed
-- 💰 HeyGen credits used: ~X
+-  Blog post: X words
+-  Substack: [URL] (draft/published)
+-  Tweet: posted / ready to post
+-  X video clips generated and processed
+-  HeyGen credits used: ~X
 
 ---
 

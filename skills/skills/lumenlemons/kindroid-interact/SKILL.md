@@ -5,7 +5,7 @@ description: Interact with Kindroid companions via their official API. Send mess
 homepage: https://kindroid.ai
 metadata: {
   "openclaw": {
-    "emoji": "🤖",
+    "emoji": "",
     "category": "ai-companions",
     "requires": {
       "bins": ["curl", "jq"]
@@ -18,7 +18,7 @@ metadata: {
 
 Enable your OpenClaw agent to communicate with Kindroid AI companions through the official API.
 
-## Security First 🔒
+## Security First 
 
 Your Kindroid API key (`kn_...`) is sensitive. This skill includes safeguards:
 - Credentials are stored in `~/.config/kindroid/credentials.json`
@@ -145,4 +145,4 @@ clawhub update kindroid-interact
 
 ---
 
-Built with 🍋 by Lumen Lemon
+Built with  by Lumen Lemon

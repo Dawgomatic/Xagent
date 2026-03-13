@@ -1,4 +1,4 @@
-# OpenClaw Twitter 🐦
+# OpenClaw Twitter 
 
 Twitter/X data and automation for autonomous agents. Powered by AIsa.
 

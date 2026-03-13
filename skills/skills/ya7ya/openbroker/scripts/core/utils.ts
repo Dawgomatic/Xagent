@@ -147,7 +147,7 @@ export async function checkBuilderFeeApproval(
 ): Promise<boolean> {
   const approval = await client.getMaxBuilderFee();
   if (!approval) {
-    console.log('⚠️  Builder fee not approved!');
+    console.log('  Builder fee not approved!');
     console.log(`   Run: npx tsx scripts/setup/approve-builder.ts`);
     console.log(`   Builder: ${client.builderAddress}\n`);
     return false;

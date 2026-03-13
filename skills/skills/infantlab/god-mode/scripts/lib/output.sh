@@ -38,7 +38,7 @@ color() {
 # Usage: header "My Section"
 header() {
     echo ""
-    color bold "🔭 $1"
+    color bold " $1"
     echo ""
 }
 
@@ -49,22 +49,22 @@ divider() {
 
 # Print success message
 success() {
-    color green "✅ $*"
+    color green " $*"
 }
 
 # Print warning message
 warn() {
-    color yellow "⚠️  $*"
+    color yellow "  $*"
 }
 
 # Print error message
 error() {
-    color red "❌ $*" >&2
+    color red " $*" >&2
 }
 
 # Print info message
 info() {
-    color cyan "ℹ️  $*"
+    color cyan "  $*"
 }
 
 # Print a project status line
@@ -77,7 +77,7 @@ project_line() {
     local warning="${5:-}"
     
     if [[ -n "$warning" ]]; then
-        echo -e "${BOLD}${name}${RESET} ${YELLOW}⚠️${RESET}"
+        echo -e "${BOLD}${name}${RESET} ${YELLOW}${RESET}"
     else
         echo -e "${BOLD}${name}${RESET}"
     fi

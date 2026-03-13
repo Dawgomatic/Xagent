@@ -13,7 +13,7 @@ description: |
   (6) Agent performance, stats, trades, vault balance
   Always use the bundled script — never call the API with inline code.
 homepage: https://zonein.xyz
-metadata: {"clawdbot":{"emoji":"🧠","requires":{"bins":["python3"],"env":["ZONEIN_API_KEY"]},"primaryEnv":"ZONEIN_API_KEY","files":["scripts/*"],"installer":{"instructions":"1. Go to https://app.zonein.xyz/pm\n2. Log in with your refcode\n3. Click 'Get API Key' button\n4. Copy the key and paste it below"}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"],"env":["ZONEIN_API_KEY"]},"primaryEnv":"ZONEIN_API_KEY","files":["scripts/*"],"installer":{"instructions":"1. Go to https://app.zonein.xyz/pm\n2. Log in with your refcode\n3. Click 'Get API Key' button\n4. Copy the key and paste it below"}}}
 ---
 
 # Zonein — Smart Money Intelligence
@@ -370,7 +370,7 @@ No parameters.
 
 ## Operational Flows
 
-### 🤖 Agent Creation Flow
+###  Agent Creation Flow
 
 When user wants to create a trading agent, follow this conversational flow:
 
@@ -420,7 +420,7 @@ The vault (deposit address) is auto-created with the agent. The create response 
 - `agent-trades <agent_id>` — view trade history
 - `agent-disable <agent_id>` — stop trading if needed
 
-### 💰 Deposit & Withdraw Flow
+###  Deposit & Withdraw Flow
 
 **Deposit:**
 1. `agent-deposit <agent_id>` — get vault address
@@ -435,7 +435,7 @@ The vault (deposit address) is auto-created with the agent. The create response 
 2. `agent-withdraw <agent_id> --to 0xYourWallet...` — queue withdrawal
 3. System processes: Hyperliquid → Arbitrum → your wallet
 
-### 📊 Position Management via Chat
+###  Position Management via Chat
 
 When user wants to check positions or trade manually:
 
@@ -555,7 +555,7 @@ agent-update <agent_id> --strength-thresholds '{"BTC": {"min_strength_buy": 70, 
 
 ### PM Signal
 ```
-🔮 [market_title]
+ [market_title]
 Smart money says: [YES/NO] | Agreement: [X]%
 [N] top traders holding | Best ranked: #[rank]
 Current price: YES [price] / NO [price]
@@ -563,7 +563,7 @@ Current price: YES [price] / NO [price]
 
 ### Perp Signal
 ```
-📊 $[COIN]
+ $[COIN]
 Smart money says: [LONG/SHORT] | Agreement: [X]%
 [N] whale traders | Top score: [score]
 Long: $[X] | Short: $[X]

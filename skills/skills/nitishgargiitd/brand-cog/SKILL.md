@@ -3,7 +3,7 @@ name: brand-cog
 description: "Other tools make logos. CellCog builds brands. #1 on DeepResearch Bench (Feb 2026) for deep strategic reasoning + the widest modality coverage in AI. Brand identity, brand kits, color palettes, typography, brand guidelines, logo design, visual identity, social media, web design, video — all from one brief."
 metadata:
   openclaw:
-    emoji: "🏷️"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

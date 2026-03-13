@@ -22,14 +22,14 @@ Example Prompt
 Close-up medium shot inside a cozy writers room bathed in warm amber lamplight. Three anthropomorphic lobsters with expressive faces sit around a weathered oak table covered in scattered papers and fountain pens. The central lobster, wearing round spectacles and a tweed vest, gestures dramatically with one claw while explaining a story beat. The camera slowly pushes inward as the other lobsters lean forward with interest, their antennae twitching. Soft film grain adds texture. 'And then,' the lead lobster says with passion, 'the hero reveals the truth.' Background music is a gentle piano melody.
 
 Best Practices
-Do's ✅
+Do's 
 Use present tense for all actions ("walks", "tilts", "flickers")
 Be precise with distances ("push-in 2m" not "move closer")
 Keep prompts under 200 words
 Describe emotions through physical cues, not abstract labels
 Put dialogue in quotes with speaker context
 Specify camera movement relative to subject
-Don'ts ❌
+Don'ts 
 Avoid vague words ("nice", "good", "interesting")
 Don't use multiple scene changes or camera cuts
 Avoid high-frequency patterns (checkered, brick)

@@ -110,20 +110,20 @@ infsh app run infsh/agent-browser --input '{
 ```markdown
 | Feature | Your Product | Competitor A | Competitor B | Competitor C |
 |---------|:---:|:---:|:---:|:---:|
-| Real-time collaboration | ✅ | ✅ | ❌ | ✅ |
-| API access | ✅ | Paid only | ✅ | ❌ |
-| SSO/SAML | ✅ | Enterprise | ✅ | Enterprise |
-| Custom reports | ✅ | Limited | ✅ | ❌ |
-| Mobile app | ✅ | iOS only | ✅ | ✅ |
-| Free tier | ✅ (unlimited) | ✅ (3 users) | ❌ | ✅ (1 project) |
+| Real-time collaboration |  |  |  |  |
+| API access |  | Paid only |  |  |
+| SSO/SAML |  | Enterprise |  | Enterprise |
+| Custom reports |  | Limited |  |  |
+| Mobile app |  | iOS only |  |  |
+| Free tier |  (unlimited) |  (3 users) |  |  (1 project) |
 | Integrations | 50+ | 100+ | 30+ | 20+ |
 ```
 
 ### Rules
 
-- ✅ = Full support
-- ⚠️ or "Partial" = Limited or conditional
-- ❌ = Not available
+-  = Full support
+-  or "Partial" = Limited or conditional
+-  = Not available
 - Note conditions: "Paid only", "Enterprise tier", "Beta"
 - Lead with features where YOU win
 - Be honest about competitor strengths — credibility matters
@@ -182,11 +182,11 @@ A 2x2 matrix showing where competitors sit on two meaningful dimensions.
 
 | Good Axes | Bad Axes |
 |-----------|----------|
-| Simple ↔ Complex | Good ↔ Bad |
-| SMB ↔ Enterprise | Cheap ↔ Expensive (too obvious) |
-| Self-serve ↔ Sales-led | Old ↔ New |
-| Specialized ↔ General | Small ↔ Large |
-| Opinionated ↔ Flexible | — |
+| Simple  Complex | Good  Bad |
+| SMB  Enterprise | Cheap  Expensive (too obvious) |
+| Self-serve  Sales-led | Old  New |
+| Specialized  General | Small  Large |
+| Opinionated  Flexible | — |
 
 ### Template
 

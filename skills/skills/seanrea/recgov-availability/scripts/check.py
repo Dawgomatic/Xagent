@@ -279,7 +279,7 @@ def format_results(results: list, json_output: bool = False) -> str:
         return json.dumps(results, indent=2)
     
     if not results:
-        return "❌ No campsites found matching your criteria."
+        return " No campsites found matching your criteria."
     
     lines = []
     for cg in results:
@@ -287,7 +287,7 @@ def format_results(results: list, json_output: bool = False) -> str:
         available = cg['available_count']
         total = cg['total_count']
         
-        lines.append(f"\n🏕️  {cg['campground_name']} ({cg['campground_id']})")
+        lines.append(f"\n  {cg['campground_name']} ({cg['campground_id']})")
         
         # Determine the primary status message
         nyr = status.get("nyr", 0)
@@ -297,37 +297,37 @@ def format_results(results: list, json_output: bool = False) -> str:
         
         if status.get("nyr", 0) == total and total > 0:
             # All sites are Not Yet Released
-            lines.append(f"   ⏳ NOT YET RELEASED — Reservations not open for these dates")
+            lines.append(f"    NOT YET RELEASED — Reservations not open for these dates")
         elif (nyr + not_yet_bookable) == total and total > 0:
             # Reservable campground but dates not open yet
-            lines.append(f"   ⏳ NOT YET BOOKABLE — Check back when 6-month window opens")
+            lines.append(f"    NOT YET BOOKABLE — Check back when 6-month window opens")
         elif status.get("fcfs", 0) == total and total > 0:
             # All sites are first-come-first-served
-            lines.append(f"   🚗 FIRST-COME-FIRST-SERVED — No reservations, show up early")
+            lines.append(f"    FIRST-COME-FIRST-SERVED — No reservations, show up early")
         elif available > 0:
-            lines.append(f"   ✅ {available} site(s) available out of {total}")
+            lines.append(f"    {available} site(s) available out of {total}")
         else:
             # Break down why nothing is available
             if reserved > 0 and (nyr + not_yet_bookable) > 0:
-                lines.append(f"   ❌ SOLD OUT — {reserved} reserved, {nyr + not_yet_bookable} not yet bookable")
+                lines.append(f"    SOLD OUT — {reserved} reserved, {nyr + not_yet_bookable} not yet bookable")
             elif (nyr + not_yet_bookable) > 0:
-                lines.append(f"   ⏳ {nyr + not_yet_bookable}/{total} sites not yet bookable for these dates")
+                lines.append(f"    {nyr + not_yet_bookable}/{total} sites not yet bookable for these dates")
             elif fcfs > 0:
-                lines.append(f"   🚗 {fcfs}/{total} sites are first-come-first-served (not reservable)")
+                lines.append(f"    {fcfs}/{total} sites are first-come-first-served (not reservable)")
             elif reserved > 0:
-                lines.append(f"   ❌ SOLD OUT — All {reserved} reservable sites are booked")
+                lines.append(f"    SOLD OUT — All {reserved} reservable sites are booked")
             else:
-                lines.append(f"   ❌ 0 site(s) available out of {total}")
+                lines.append(f"    0 site(s) available out of {total}")
         
-        lines.append(f"   🔗 {cg['url']}")
+        lines.append(f"    {cg['url']}")
         
         if cg.get("sites"):
             for site in cg["sites"][:10]:  # Limit to first 10
                 site_name = site.get("name", site.get("id"))
                 site_type = site.get("type", "Unknown")
-                lines.append(f"\n   📍 Site {site_name} ({site_type})")
+                lines.append(f"\n    Site {site_name} ({site_type})")
                 for start, end in site.get("available_ranges", [])[:3]:
-                    lines.append(f"      ✅ {start} → {end}")
+                    lines.append(f"       {start} → {end}")
             
             if len(cg["sites"]) > 10:
                 lines.append(f"\n   ... and {len(cg['sites']) - 10} more sites")

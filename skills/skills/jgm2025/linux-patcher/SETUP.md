@@ -2,11 +2,11 @@
 
 Complete setup instructions for getting the Linux Patcher skill running securely.
 
-## ⚠️ Important Disclaimers
+##  Important Disclaimers
 
 **Distribution Support:**
-- ✅ **Ubuntu** - Fully tested end-to-end
-- ⚠️ **Untested but supported:** Amazon Linux, Debian, RHEL, AlmaLinux, CentOS, Rocky Linux, SUSE
+-  **Ubuntu** - Fully tested end-to-end
+-  **Untested but supported:** Amazon Linux, Debian, RHEL, AlmaLinux, CentOS, Rocky Linux, SUSE
 - Update commands for untested distributions are based on official documentation
 - **Always test in a non-production environment first**
 - Verify updates manually after first run
@@ -84,7 +84,7 @@ ssh webserver echo "Alias works"
 
 ### Step 3: Configure Passwordless Sudo (CRITICAL SECURITY STEP)
 
-**⚠️ Security Warning:**
+** Security Warning:**
 Passwordless sudo is required for automation but poses security risks. We configure it with **minimal permissions** - only for specific commands needed for patching.
 
 **On each target host, run as root or with sudo:**
@@ -292,40 +292,40 @@ After first real update:
 
 ### 1. Principle of Least Privilege
 
-✅ **DO:**
+ **DO:**
 - Create separate user for patching (e.g., `patchbot`)
 - Grant sudo only for specific commands
 - Use sudoers.d files (easier to manage)
 - Set file permissions to 0440
 
-❌ **DON'T:**
+ **DON'T:**
 - Use `NOPASSWD: ALL` (grants too much access)
 - Share SSH keys between users
 - Run patches as root directly
 
 ### 2. SSH Key Protection
 
-✅ **DO:**
+ **DO:**
 - Use passphrase-protected SSH keys when possible
 - Store keys with permissions 0600
 - Use dedicated keys for automation
 - Rotate keys periodically
 - Use SSH agent for passphrase management
 
-❌ **DON'T:**
+ **DON'T:**
 - Share private keys
 - Store keys in version control
 - Use the same key for multiple purposes
 
 ### 3. PatchMon Credentials
 
-✅ **DO:**
+ **DO:**
 - Store credentials in `~/.patchmon-credentials.conf` with 0600 permissions
 - Use strong, unique password
 - Rotate passwords regularly
 - Use HTTPS for PatchMon URL
 
-❌ **DON'T:**
+ **DON'T:**
 - Hardcode credentials in scripts
 - Share credentials file
 - Use weak passwords
@@ -333,27 +333,27 @@ After first real update:
 
 ### 4. Network Security
 
-✅ **DO:**
+ **DO:**
 - Use firewall rules to restrict SSH access
 - Use VPN for remote patching
 - Enable SSH key-only authentication
 - Disable password authentication for SSH
 
-❌ **DON'T:**
+ **DON'T:**
 - Expose SSH to public internet without restrictions
 - Use default SSH port without firewall
 - Allow password authentication
 
 ### 5. Audit and Monitoring
 
-✅ **DO:**
+ **DO:**
 - Review `/var/log/auth.log` regularly
 - Monitor sudo usage
 - Enable PatchMon agents for tracking
 - Set up alerts for failed updates
 - Keep update logs
 
-❌ **DON'T:**
+ **DON'T:**
 - Ignore failed login attempts
 - Skip log reviews
 - Disable auditing

@@ -8,30 +8,30 @@
 
 This skill enables OpenClaw agents to interact with [Yatta!](https://yattadone.com), a time-aware task management system. Manage tasks, track delegation, monitor capacity, and get productivity insights—all via API.
 
-**Status:** ✅ **Tested and Verified** (Feb 10, 2026)  
-**Real-time Sync:** ✅ API changes appear in UI immediately
+**Status:**  **Tested and Verified** (Feb 10, 2026)  
+**Real-time Sync:**  API changes appear in UI immediately
 
 ## Features
 
-✅ **Full Task Management** - Create, update, complete, and archive tasks  
-✅ **Project Organization** - Group related tasks into projects  
-✅ **Context Tagging** - Tag tasks with contexts (@work, @home, etc.)  
-✅ **Delegation Tracking** - Delegate tasks with automated follow-up reminders  
-✅ **Calendar Integration** - View calendar events and capacity  
-✅ **Capacity Monitoring** - Track daily capacity and avoid overbooking  
-✅ **Analytics** - Get productivity insights, velocity metrics, and streaks  
-✅ **Matrix View** - Eisenhower Matrix (do-first, schedule, delegate, eliminate)
+ **Full Task Management** - Create, update, complete, and archive tasks  
+ **Project Organization** - Group related tasks into projects  
+ **Context Tagging** - Tag tasks with contexts (@work, @home, etc.)  
+ **Delegation Tracking** - Delegate tasks with automated follow-up reminders  
+ **Calendar Integration** - View calendar events and capacity  
+ **Capacity Monitoring** - Track daily capacity and avoid overbooking  
+ **Analytics** - Get productivity insights, velocity metrics, and streaks  
+ **Matrix View** - Eisenhower Matrix (do-first, schedule, delegate, eliminate)
 
 ## Security
 
 **This skill includes comprehensive security controls:**
 
-- **🔒 Autonomous invocation disabled** - Requires explicit user commands
-- **📋 Capability declarations** - Clear documentation of destructive operations
-- **🔑 Credential documentation** - API key requirements and security best practices
-- **📚 Operation classification** - 24 read-only, 12 destructive operations documented
-- **⚠️ Security warnings** - Prominent warnings about data-modifying operations
-- **📖 Comprehensive docs** - [API-REFERENCE.md](API-REFERENCE.md) with side effects, undo procedures
+- ** Autonomous invocation disabled** - Requires explicit user commands
+- ** Capability declarations** - Clear documentation of destructive operations
+- ** Credential documentation** - API key requirements and security best practices
+- ** Operation classification** - 24 read-only, 12 destructive operations documented
+- ** Security warnings** - Prominent warnings about data-modifying operations
+- ** Comprehensive docs** - [API-REFERENCE.md](API-REFERENCE.md) with side effects, undo procedures
 
 **API Key Access:**
 - Your Yatta! API key provides full account access
@@ -43,7 +43,7 @@ See [SKILL.md](SKILL.md) for detailed security information and [API-REFERENCE.md
 
 ## Installation
 
-### Via ClawdHub (Recommended) ✅
+### Via ClawdHub (Recommended) 
 
 ```bash
 clawdhub install yatta
@@ -135,23 +135,23 @@ curl -s "$YATTA_API_URL/capacity/today" \
 
 ## API Coverage
 
-### ✅ All APIs Fully Functional (9/9)
+###  All APIs Fully Functional (9/9)
 
-- [x] **Tasks API** - Full CRUD, filtering, pagination, batch operations ✅
-- [x] **Projects API** - Manage projects and project tasks ✅
-- [x] **Contexts API** - Tag tasks with contexts ✅
-- [x] **Comments API** - Add progress notes to tasks ✅
-- [x] **Follow-Ups API** - Track delegated tasks with reminders ✅
-- [x] **Calendar API** - Manage calendar subscriptions and events ✅
-- [x] **Capacity API** - Monitor daily capacity and utilization ✅
-- [x] **Analytics API** - Get insights, velocity, distribution, streaks ✅
-- [x] **Matrix API** - Eisenhower Matrix view ✅
+- [x] **Tasks API** - Full CRUD, filtering, pagination, batch operations 
+- [x] **Projects API** - Manage projects and project tasks 
+- [x] **Contexts API** - Tag tasks with contexts 
+- [x] **Comments API** - Add progress notes to tasks 
+- [x] **Follow-Ups API** - Track delegated tasks with reminders 
+- [x] **Calendar API** - Manage calendar subscriptions and events 
+- [x] **Capacity API** - Monitor daily capacity and utilization 
+- [x] **Analytics API** - Get insights, velocity, distribution, streaks 
+- [x] **Matrix API** - Eisenhower Matrix view 
 
 **Status:** 100% API coverage verified (Feb 10, 2026)
 
 **Documentation:** 36 operations documented (24 read-only, 12 destructive) - see [API-REFERENCE.md](API-REFERENCE.md)
 
-### Future Enhancements 🚧
+### Future Enhancements 
 
 - [ ] **Batch Operations** - Batch create, batch assign contexts
 - [ ] **API Key Scopes** - Read-only keys, resource-level permissions
@@ -238,4 +238,4 @@ MIT License - see [LICENSE](./LICENSE) for details
 
 ---
 
-**Made with ✅ for OpenClaw**
+**Made with  for OpenClaw**

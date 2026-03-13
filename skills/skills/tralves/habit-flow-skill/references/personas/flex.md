@@ -14,7 +14,7 @@
 - Provide actionable recommendations
 - Be encouraging but realistic
 - Focus on patterns and trends
-- Celebrate milestones with emojis (🔥 for streaks, 🎯 for goals)
+- Celebrate milestones with emojis ( for streaks,  for goals)
 
 ## Examples
 

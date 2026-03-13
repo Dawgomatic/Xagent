@@ -2,7 +2,7 @@
 name: polymarket-copytrading
 displayName: Polymarket Copytrading
 description: Mirror positions from top Polymarket traders using Simmer API. Size-weighted aggregation across multiple wallets.
-metadata: {"clawdbot":{"emoji":"🐋","requires":{"env":["SIMMER_API_KEY","WALLET_PRIVATE_KEY"],"pip":["simmer-sdk"]},"cron":null,"autostart":false}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SIMMER_API_KEY","WALLET_PRIVATE_KEY"],"pip":["simmer-sdk"]},"cron":null,"autostart":false}}
 authors:
   - Simmer (@simmer_markets)
 version: "1.3.7"
@@ -83,7 +83,7 @@ For automated recurring scans, wallets can be saved in environment:
 - Minimum 5 shares per order
 - SDK enforces $1.00 minimum position value (filters dust positions)
 
-> ⚠️ **Start Conservative:** Begin with small amounts (`--max-usd 5-10`) and `--dry-run` to understand how the skill behaves before scaling up.
+>  **Start Conservative:** Begin with small amounts (`--max-usd 5-10`) and `--dry-run` to understand how the skill behaves before scaling up.
 
 ## How It Works
 
@@ -145,7 +145,7 @@ After each run, message the user with:
 
 Example output to share:
 ```
-🐋 Copytrading Scan Complete
+ Copytrading Scan Complete
 
 Configuration:
 • Following 2 wallets

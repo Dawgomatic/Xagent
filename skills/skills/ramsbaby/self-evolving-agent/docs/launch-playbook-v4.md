@@ -1,4 +1,4 @@
-# 🚀 Self-Evolving Agent v4.0 — Developer Marketing Launch Playbook
+#  Self-Evolving Agent v4.0 — Developer Marketing Launch Playbook
 
 > **Author:** Research Marketing Agent  
 > **Date:** 2026-02-18  
@@ -16,7 +16,7 @@
 | ClawHub total skills | 3,286 (post-security purge) | claw-hub.net |
 | Total ClawHub downloads | 1.5M+ | claw-hub.net |
 | #1 Capability Evolver | 35,581 downloads (author suspended) | claw-hub.net |
-| self-improving-agent (competitor) | 15,962 downloads / 132 ⭐ | claw-hub.net |
+| self-improving-agent (competitor) | 15,962 downloads / 132  | claw-hub.net |
 | self-evolving-agent target | 10,000+ downloads in D+30 | This playbook |
 
 ### Strategic Window
@@ -132,16 +132,16 @@ Rules from data:
 **Candidate titles (all under 55 chars):**
 
 ```
-✅ Show HN: Open Source self-evolving AI agent (v4.0)
-✅ Show HN: AI that improves itself, never without you
-✅ Show HN: Self-improving agent – open source, safe
-✅ Show HN: Agent that learns from its own failures
+ Show HN: Open Source self-evolving AI agent (v4.0)
+ Show HN: AI that improves itself, never without you
+ Show HN: Self-improving agent – open source, safe
+ Show HN: Agent that learns from its own failures
 ```
 
 **Recommended:** `Show HN: Open Source self-evolving AI agent (v4.0)`  
 - "Open Source" → +38%  
 - "v4.0" signals maturity/iteration  
-- 50 chars ✅  
+- 50 chars   
 
 ### Show HN Description Template
 
@@ -189,10 +189,10 @@ proposed adding a retry wrapper that reduced that error class by 80%.
 ### Repository: `VoltAgent/awesome-openclaw-skills`
 
 **Hard requirements (from CONTRIBUTING.md):**
-1. ✅ Skill must be in the **official openclaw/skills repo** (not personal repos, not gists)
-2. ✅ Skill must have **real community usage** (downloads + GitHub stars)
-3. ✅ Proper SKILL.md format
-4. ✅ Active maintenance (recent commits, responded issues)
+1.  Skill must be in the **official openclaw/skills repo** (not personal repos, not gists)
+2.  Skill must have **real community usage** (downloads + GitHub stars)
+3.  Proper SKILL.md format
+4.  Active maintenance (recent commits, responded issues)
 
 ### Pre-requisites Before Submitting PR
 
@@ -376,7 +376,7 @@ Use this GIF in EVERY platform: README, Reddit posts, HN comment, Discord, Dev.t
 - With Capability Evolver now suspended, the ~35K user base is up for grabs.
 - Our value proposition: same category, but with transparency and safety as core features.
 
-### Case Study: self-improving-agent (15,962 downloads, 132 ⭐)
+### Case Study: self-improving-agent (15,962 downloads, 132 )
 
 **What worked:**
 - 132 stars is high — this author marketed aggressively on GitHub
@@ -392,7 +392,7 @@ Use this GIF in EVERY platform: README, Reddit posts, HN comment, Discord, Dev.t
 | False positive rate | Unknown | ~15% (measured) |
 | Versioning | v1.0.5 | v4.0.0 (shows maturity) |
 
-### Case Study: Wacli (16,415 downloads, 37 ⭐)
+### Case Study: Wacli (16,415 downloads, 37 )
 
 **What worked:**
 - Dev tool angle (Development + Utility category overlap)
@@ -497,7 +497,7 @@ Use this GIF in EVERY platform: README, Reddit posts, HN comment, Discord, Dev.t
 
 **D+14:**
 - [ ] **Submit PR to awesome-openclaw-skills** (if 500+ downloads and 25+ stars met)
-- [ ] Announce the PR submission on Reddit and Discord: "Just submitted to awesome-openclaw-skills 🎉"
+- [ ] Announce the PR submission on Reddit and Discord: "Just submitted to awesome-openclaw-skills "
 
 **Week 2 Target:** 300 GitHub stars, 3,000 ClawHub downloads
 
@@ -618,7 +618,7 @@ structural heuristic analysis, ~15% false positive rate, full audit trail.
 |-----------|-----|-----|------|------|------|
 | ClawHub downloads | 200 | 1,000 | 3,000 | 6,000 | 10,000+ |
 | GitHub stars | 50 | 150 | 300 | 500 | 500+ |
-| awesome-openclaw-skills | No | No | PR submitted | Merged? | Listed ✅ |
+| awesome-openclaw-skills | No | No | PR submitted | Merged? | Listed  |
 | Articles published | 1 | 2 | 3 | 4 | 5 |
 | YouTube videos | 1 | 2 | 2 | 3 | 4 |
 | Reddit communities posted | 2 | 5 | 7 | 9 | 10+ |
@@ -643,7 +643,7 @@ This entire playbook is **zero-cost** (only time). Optional paid amplification:
 
 ## 12. Red Lines (What NOT to Do)
 
-| ❌ Don't Do | ✅ Do Instead |
+|  Don't Do |  Do Instead |
 |-------------|---------------|
 | Post same text to 5 subreddits same day | Tailor each post, wait 48h between large sub posts |
 | Buy GitHub stars | Build authentic community — fake stars are detectable and destroy credibility |

@@ -99,14 +99,14 @@ def main():
         print(json.dumps(result, indent=2, ensure_ascii=False))
     else:
         if result.get('success'):
-            print(f"✅ Extracted {result['text_length']} characters from {result['pdf_path']}")
+            print(f" Extracted {result['text_length']} characters from {result['pdf_path']}")
             if result.get('sections'):
-                print(f"\n📑 Sections found: {', '.join(result['sections'].keys())}")
+                print(f"\n Sections found: {', '.join(result['sections'].keys())}")
             print("\n" + "=" * 60)
             print(result['text'][:2000])
             print("=" * 60)
         else:
-            print(f"❌ Error: {result.get('error')}")
+            print(f" Error: {result.get('error')}")
     
     return result
 

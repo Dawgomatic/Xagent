@@ -254,7 +254,7 @@ IV. Implications & Conclusions
 
 ### Quick Social Take
 
-**"Just noticed [specific observation]. This is the 4th time this quarter we've seen [pattern]. Makes you wonder if anyone is actually thinking about [implication]. 👉 [link to evidence]"**
+**"Just noticed [specific observation]. This is the 4th time this quarter we've seen [pattern]. Makes you wonder if anyone is actually thinking about [implication].  [link to evidence]"**
 
 ## Integration with Claude
 

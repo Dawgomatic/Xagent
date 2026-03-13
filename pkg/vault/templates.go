@@ -38,12 +38,12 @@ func renderSessionNote(data SessionData, topics []string) string {
 
 	// --- Context wikilinks ---
 	dateStr := data.Timestamp.Format("2006-01-02")
-	sb.WriteString(fmt.Sprintf("📅 [[%s]] · ", dateStr))
+	sb.WriteString(fmt.Sprintf(" [[%s]] · ", dateStr))
 	if data.Channel != "" {
-		sb.WriteString(fmt.Sprintf("📡 [[%s]] · ", data.Channel))
+		sb.WriteString(fmt.Sprintf(" [[%s]] · ", data.Channel))
 	}
 	if data.Model != "" {
-		sb.WriteString(fmt.Sprintf("🤖 [[%s]]", data.Model))
+		sb.WriteString(fmt.Sprintf(" [[%s]]", data.Model))
 	}
 	sb.WriteString("\n\n")
 
@@ -114,10 +114,10 @@ func renderDreamNote(data DreamData) string {
 	sb.WriteString(fmt.Sprintf("patterns: %d\n", len(data.Patterns)))
 	sb.WriteString("---\n\n")
 
-	sb.WriteString(fmt.Sprintf("# 💭 Dream — %s\n\n", data.Timestamp.Format("2006-01-02 15:04")))
+	sb.WriteString(fmt.Sprintf("#  Dream — %s\n\n", data.Timestamp.Format("2006-01-02 15:04")))
 
 	dateStr := data.Timestamp.Format("2006-01-02")
-	sb.WriteString(fmt.Sprintf("📅 [[%s]]\n\n", dateStr))
+	sb.WriteString(fmt.Sprintf(" [[%s]]\n\n", dateStr))
 
 	if len(data.Patterns) > 0 {
 		sb.WriteString("## Patterns Noticed\n\n")

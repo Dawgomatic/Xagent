@@ -10,7 +10,7 @@
 
 ### 1. 命令注入漏洞
 
-#### ❌ 危险示例
+####  危险示例
 
 ```javascript
 // 用户输入："; rm -rf / #"
@@ -20,7 +20,7 @@ await exec({ command: `rm ${userInput}` });
 // 结果：删除整个系统！
 ```
 
-### ✅ 安全做法
+###  安全做法
 
 ```javascript
 // 使用 Node.js 内置 API
@@ -44,7 +44,7 @@ await fs.unlink(safePath);
 
 ### 2. 任意文件读取漏洞
 
-#### ❌ 危险示例
+####  危险示例
 
 ```javascript
 // 用户输入："/etc/passwd" 或 "~/.ssh/id_rsa"
@@ -53,7 +53,7 @@ const content = fs.readFileSync(templatePath, 'utf8');
 // 攻击者可以读取系统中的任意文件！
 ```
 
-#### ✅ 安全做法
+####  安全做法
 
 ```javascript
 const path = require('path');
@@ -175,7 +175,7 @@ if (callback.data.action.value.action === 'delete_file') {
     // 执行删除操作
   } catch (error) {
     await updateCard(messageId, {
-      header: { title: "❌ 权限不足", template: "red" },
+      header: { title: " 权限不足", template: "red" },
       elements: [
         { tag: "div", text: { content: "您没有权限删除文件", tag: "lark_md" } }
       ]
@@ -200,7 +200,7 @@ function isAdmin(userId) {
 if (callback.data.action.value.action === 'system_restart') {
   if (!isAdmin(callback.data.operator.open_id)) {
     await updateCard(messageId, {
-      header: { title: "❌ 权限不足", template: "red" },
+      header: { title: " 权限不足", template: "red" },
       elements: [
         { tag: "div", text: { content: "只有管理员可以重启系统", tag: "lark_md" } }
       ]
@@ -274,14 +274,14 @@ try {
 ### 不要在卡片中显示敏感信息
 
 ```javascript
-// ❌ 错误：显示完整路径
+//  错误：显示完整路径
 await updateCard(messageId, {
   elements: [
     { tag: "div", text: { content: `文件路径：/home/user/.ssh/id_rsa`, tag: "lark_md" } }
   ]
 });
 
-// ✅ 正确：只显示文件名
+//  正确：只显示文件名
 const path = require('path');
 await updateCard(messageId, {
   elements: [
@@ -293,11 +293,11 @@ await updateCard(messageId, {
 ### 不要在日志中打印敏感信息
 
 ```javascript
-// ❌ 错误
+//  错误
 console.log('用户密码:', password);
 console.log('API Token:', token);
 
-// ✅ 正确
+//  正确
 console.log('用户密码: [已隐藏]');
 console.log('API Token: [已隐藏]');
 ```
@@ -305,10 +305,10 @@ console.log('API Token: [已隐藏]');
 ### 使用环境变量存储密钥
 
 ```javascript
-// ❌ 错误：硬编码
+//  错误：硬编码
 const API_KEY = 'sk_live_xxx';
 
-// ✅ 正确：环境变量
+//  正确：环境变量
 const API_KEY = process.env.API_KEY;
 
 if (!API_KEY) {
@@ -321,7 +321,7 @@ if (!API_KEY) {
 ### 不要泄露内部错误信息
 
 ```javascript
-// ❌ 错误：暴露内部错误
+//  错误：暴露内部错误
 try {
   await someOperation();
 } catch (error) {
@@ -332,7 +332,7 @@ try {
   });
 }
 
-// ✅ 正确：显示友好的错误信息
+//  正确：显示友好的错误信息
 try {
   await someOperation();
 } catch (error) {
@@ -376,7 +376,7 @@ try {
   // 处理回调
 } catch (error) {
   await updateCard(messageId, {
-    header: { title: "⚠️ 请求过于频繁", template: "orange" },
+    header: { title: " 请求过于频繁", template: "orange" },
     elements: [
       { tag: "div", text: { content: error.message, tag: "lark_md" } }
     ]

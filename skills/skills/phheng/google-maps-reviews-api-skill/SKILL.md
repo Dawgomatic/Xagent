@@ -5,22 +5,22 @@ description: This skill is designed to help users automatically extract reviews 
 
 # Google Maps Reviews Automation Skill
 
-## 📖 Introduction
+##  Introduction
 This skill provides a one-stop review collection service using BrowserAct's Google Maps Reviews API template. It can extract structured review data directly from Google Maps search results. Simply provide the search keywords, language, and country to get clean, usable review data.
 
-## ✨ Capability Features
+##  Capability Features
 1. **No Hallucination, Precision Data Extraction**: Uses preset workflows to avoid AI-generated hallucinations.
 2. **No CAPTCHA Issues**: Built-in mechanisms to bypass reCAPTCHA or other verification challenges.
 3. **No IP Restrictions or Geo-fencing**: Breaks through regional IP limits to ensure stable access worldwide.
 4. **Agile Execution**: Faster task execution compared to pure AI-driven browser automation solutions.
 5. **High Cost-Effectiveness**: Significantly reduces data acquisition costs compared to high-token-consumption AI solutions.
 
-## 🔑 API Key Guidance
+##  API Key Guidance
 Before running, check the `BROWSERACT_API_KEY` environment variable. If not set, do not take other measures; instead, request the user to provide it.
 **Agent must inform the user**:
 > "Since you haven't configured the BrowserAct API Key, please go to the [BrowserAct Console](https://www.browseract.com/reception/integrations) to get your Key and provide it to me in this chat."
 
-## 🛠️ Input Parameters Details
+##  Input Parameters Details
 The Agent should flexibly configure the following parameters when calling the script:
 
 1. **KeyWords (Search Keywords)**
@@ -40,7 +40,7 @@ The Agent should flexibly configure the following parameters when calling the sc
    - **Supported values**: `us`, `gb`, `ca`, `au`, `jp`, etc.
    - **Default**: `us`
 
-## 🚀 Invocation Method (Recommended)
+##  Invocation Method (Recommended)
 The Agent should execute the following script to get results:
 
 ```bash
@@ -48,14 +48,14 @@ The Agent should execute the following script to get results:
 python -u ./.cursor/skills/google-maps-reviews-api-skill/scripts/google_maps_reviews_api.py "Keywords" "Language" "Country"
 ```
 
-### ⏳ Running Status Monitoring
+###  Running Status Monitoring
 Since this task involves automated browser operations, it may take several minutes. The script will continuously output status logs with timestamps (e.g., `[14:30:05] Task Status: running`).
 **Agent Notes**:
 - Stay focused on the terminal output while waiting for results.
 - As long as the terminal is outputting new status logs, the task is running normally; do not misjudge it as hung or non-responsive.
 - If the status remains unchanged for a long time or the script stops outputting without returning results, consider a retry.
 
-## 📊 Output Data Description
+##  Output Data Description
 After successful execution, the script parses and prints results from the API response:
 - `author_name`: Display name of the reviewer
 - `author_profile_url`: Profile URL of the reviewer
@@ -65,7 +65,7 @@ After successful execution, the script parses and prints results from the API re
 - `likes_count`: Number of likes
 - `author_image_url`: Reviewer's avatar URL
 
-## ⚠️ Exception Handling & Retry Mechanism
+##  Exception Handling & Retry Mechanism
 If an error occurs (e.g., network fluctuations or task failure), follow this logic:
 
 1. **Check Output Content**:
@@ -75,7 +75,7 @@ If an error occurs (e.g., network fluctuations or task failure), follow this log
 2. **Retry Limit**:
    - Automatic retry is limited to **once**. If the second attempt fails, stop and report the error to the user.
 
-## 🌟 Typical Use Cases
+##  Typical Use Cases
 1. **Local Business Analysis**: Find reviews for cafes or clinics in a specific area.
 2. **Reputation Monitoring**: Track feedback for a specific brand location.
 3. **Competitive Benchmarking**: Analyze reviews of competitor stores.

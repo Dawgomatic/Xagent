@@ -42,7 +42,7 @@ async function loadConfig(configPath = DEFAULT_CONFIG_PATH) {
     return { ...DEFAULT_CONFIG, ...loaded };
   } catch (error) {
     // File doesn't exist or is invalid - return defaults
-    console.log(`ℹ  Config file not found or invalid, using defaults`);
+    console.log(`  Config file not found or invalid, using defaults`);
     return { ...DEFAULT_CONFIG };
   }
 }

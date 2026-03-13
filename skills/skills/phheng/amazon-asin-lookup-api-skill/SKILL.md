@@ -5,22 +5,22 @@ description: This skill helps users extract structured product details from Amaz
 
 # Amazon ASIN Lookup Skill
 
-## 📖 Introduction
+##  Introduction
 This skill utilizes BrowserAct's Amazon ASIN Lookup API template to provide a seamless way to retrieve comprehensive product information from Amazon. By simply providing an ASIN, you can extract structured data including title, price, ratings, brand, and detailed descriptions directly into your application without manual scraping.
 
-## ✨ Features
+##  Features
 1. **No Hallucinations, Reliable Data**: Uses a pre-defined workflow to ensure accurate data extraction without AI-generated errors.
 2. **No CAPTCHA Challenges**: Built-in mechanisms bypass reCAPTCHA and other bot detection systems.
 3. **Global Access, No Geo-fencing**: Overcomes IP restrictions to ensure stable access from any location.
 4. **Fast Execution**: More efficient than general-purpose AI browser automation.
 5. **Cost-Effective**: Reduces data acquisition costs compared to high-token consumption AI models.
 
-## 🔑 API Key Workflow
+##  API Key Workflow
 Before running the skill, the `BROWSERACT_API_KEY` environment variable must be checked. If it is not set, do not proceed; instead, request the key from the user.
 **Agent Instruction**:
 > "Since you haven't configured the BrowserAct API Key yet, please go to the [BrowserAct Console](https://www.browseract.com/reception/integrations) to get your Key and provide it here."
 
-## 🛠️ Input Parameters
+##  Input Parameters
 The agent should configure the following parameters based on user requirements:
 
 1. **ASIN (Amazon Standard Identification Number)**
@@ -29,7 +29,7 @@ The agent should configure the following parameters based on user requirements:
    - **Required**: Yes
    - **Example**: `B07TS6R1SF`
 
-## 🚀 Usage (Recommended)
+##  Usage (Recommended)
 The agent should execute the following script to get results in one command:
 
 ```bash
@@ -37,14 +37,14 @@ The agent should execute the following script to get results in one command:
 python -u ./.cursor/skills/amazon-asin-lookup-api-skill/scripts/amazon_asin_lookup_api.py "ASIN_VALUE"
 ```
 
-### ⏳ Progress Monitoring
+###  Progress Monitoring
 Since this task involves automated browser operations, it may take a few minutes. The script outputs real-time timestamped status logs (e.g., `[14:30:05] Task Status: running`).
 **Agent Note**:
 - Monitor the terminal output while waiting for results.
 - As long as new status logs are appearing, the task is running normally.
 - Only consider retrying if the status remains unchanged for a long period or the script stops without output.
 
-## 📊 Output Data Description
+##  Output Data Description
 Upon success, the script parses and prints the structured product data from the API response, which includes:
 - `product_title`: Full title of the product.
 - `ASIN`: The provided ASIN.
@@ -63,7 +63,7 @@ Upon success, the script parses and prints the structured product data from the 
 - `style`: Style attribute (if applicable).
 - `material`: Material used (if applicable).
 
-## ⚠️ Error Handling & Retry Mechanism
+##  Error Handling & Retry Mechanism
 If an error occurs during execution, the agent should follow this logic:
 
 1. **Check Output**:

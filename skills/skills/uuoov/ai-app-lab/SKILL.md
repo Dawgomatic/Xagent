@@ -1,7 +1,7 @@
 ---
 name: ai-app-lab
 description: 学习火山引擎 AI 应用实验室项目，包含 27 个 AI 应用示例项目的架构和实现。
-metadata: {"openclaw": {"emoji": "🧪", "requires": {"env": ["GITHUB_TOKEN"]}}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": ["GITHUB_TOKEN"]}}}
 ---
 # ai-app-lab
 

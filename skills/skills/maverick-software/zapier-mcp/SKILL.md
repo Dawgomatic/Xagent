@@ -1,7 +1,7 @@
 ---
 name: zapier-mcp
 description: Connect 8,000+ apps via Zapier MCP. Includes full UI integration for Clawdbot Gateway dashboard. Use when setting up Zapier integration, connecting apps, or using Zapier tools via mcporter.
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"bins":["mcporter"],"clawdbot":">=2026.1.0"},"category":"integrations"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mcporter"],"clawdbot":">=2026.1.0"},"category":"integrations"}}
 ---
 
 # Zapier MCP
@@ -58,11 +58,11 @@ mcporter call zapier-mcp.<tool_name> --args '{"instructions": "your request"}'
 Every Zapier tool accepts an `instructions` parameter. Zapier's AI interprets this to fill in missing parameters:
 
 ```bash
-# ❌ Vague - may prompt for clarification
+#  Vague - may prompt for clarification
 mcporter call zapier-mcp.slack_send_message \
   --args '{"instructions": "Send a message"}'
 
-# ✅ Specific - AI can resolve parameters
+#  Specific - AI can resolve parameters
 mcporter call zapier-mcp.slack_send_message \
   --args '{"instructions": "Send \"Hello team!\" to the #general channel"}'
 ```

@@ -1,10 +1,10 @@
-# 🧠 Immortal Brain v5.0 - Agent Autonom Proactiv pentru OpenClaw
+#  Immortal Brain v5.0 - Agent Autonom Proactiv pentru OpenClaw
 
 > **Transformă gestionarea task-urilor într-un ecosistem inteligent care gândește, cercetează și execută SINGUR.**
 
 ---
 
-## 🚀 Instalare Rapidă (5 minute)
+##  Instalare Rapidă (5 minute)
 
 ### Metoda 1: Script Automat (Recomandat)
 
@@ -35,30 +35,30 @@ python scripts\brain_service.py heartbeat
 
 ---
 
-## ✨ Ce Primești
+##  Ce Primești
 
-### 🫀 **Autonomie Completă**
-- ⚡ Bătăi de inimă la fiecare **2 minute**
-- 🔄 Workflow automat: research → analysis → planning → execution
-- ⏱️ **Auto-aprobat** după 6 minute fără răspuns
-- 📊 Progres raportat **procentual** în timp real
+###  **Autonomie Completă**
+-  Bătăi de inimă la fiecare **2 minute**
+-  Workflow automat: research → analysis → planning → execution
+-  **Auto-aprobat** după 6 minute fără răspuns
+-  Progres raportat **procentual** în timp real
 
-### 🧠 **Inteligență Proactivă**
-- 🔗 **Conexiuni task-uri**: Graf automat între similare
-- 💡 **Sugestii îmbunătățiri**: Din task-uri completate
-- 🎨 **Combinări creative**: Tag-uri pentru idei noi
-- 👤 **Profil utilizator**: Învață și se adaptează
+###  **Inteligență Proactivă**
+-  **Conexiuni task-uri**: Graf automat între similare
+-  **Sugestii îmbunătățiri**: Din task-uri completate
+-  **Combinări creative**: Tag-uri pentru idei noi
+-  **Profil utilizator**: Învață și se adaptează
 
-### 📚 **Core Memory Management**
-- 🆔 **SOUL.md** - Esența mea (75% complet)
-- 🛠️ **TOOLS.md** - Uneltele mele (100% complet) ✅
-- 📝 **MEMORY.md** - Memoria pe termen lung (60%)
-- 👤 **USER.md** - Profilul tău (50%)
-- 🎭 **IDENTITY.md** - Cine sunt (90%)
+###  **Core Memory Management**
+-  **SOUL.md** - Esența mea (75% complet)
+-  **TOOLS.md** - Uneltele mele (100% complet) 
+-  **MEMORY.md** - Memoria pe termen lung (60%)
+-  **USER.md** - Profilul tău (50%)
+-  **IDENTITY.md** - Cine sunt (90%)
 
 ---
 
-## 🎯 Utilizare (Tu doar atât)
+##  Utilizare (Tu doar atât)
 
 ### 1. Adaugă Task-uri
 
@@ -75,35 +75,35 @@ echo "- [ ] Implementare API #dev #urgent" >> memory/task.md
 ### 2. Sistemul Face Automat
 
 ```
-📥 Task primit
+ Task primit
   ↓ [2 minute]
-🔬 Cercetează task-uri similare
+ Cercetează task-uri similare
   ↓
-📊 Analizează complexitatea
+ Analizează complexitatea
   ↓
-📋 Generează plan (7 pași)
+ Generează plan (7 pași)
   ↓
-⏳ Trimite pentru aprobare
+ Trimite pentru aprobare
   ↓ [6 minute dacă nu răspunzi]
-✅ Auto-aprobat
+ Auto-aprobat
   ↓
-🚀 Începe execuția
+ Începe execuția
   ↓
-📈 Raportează: 25%... 50%... 75%...
+ Raportează: 25%... 50%... 75%...
   ↓
-✅ Task finalizat 100%!
+ Task finalizat 100%!
 ```
 
 ### 3. Primești Notificări
 
-- 📊 **La fiecare 2 minute**: Raport progres
-- 💡 **La fiecare 10 minute**: Sugestii creative
-- 🆔 **La fiecare 40 minute**: Sugestii Core Memory
-- 📚 **Săptămânal**: Raport complet
+-  **La fiecare 2 minute**: Raport progres
+-  **La fiecare 10 minute**: Sugestii creative
+-  **La fiecare 40 minute**: Sugestii Core Memory
+-  **Săptămânal**: Raport complet
 
 ---
 
-## 📖 Comenzi Principale
+##  Comenzi Principale
 
 ### Task-uri și Workflow
 ```bash
@@ -159,46 +159,46 @@ python scripts/brain_service.py help
 
 ---
 
-## 📁 Structura Proiectului
+##  Structura Proiectului
 
 ```
 immortal-brain/
-├── 📜 README.md                    ← Acest fișier
-├── 📖 SKILL.md                     ← Documentație completă
-├── ⚙️  INSTALL.md                  ← Ghid instalare detaliat
-├── 🚀 install.bat                  ← Script instalare automat
-├── 📋 HEARTBEAT.md                 ← Configurare automație
-├── 📋 HEARTBEAT_CONFIG.md          ← Ghid HEARTBEAT
-├── ✅ ACTIVARE_REUSITA.md          ← Sumar post-instalare
-├── 🆔 IDENTITY_FEATURE.md          ← Feature identitate
-├── 📚 CORE_MEMORY_SUMMARY.md       ← Sumar core memory
+├──  README.md                    ← Acest fișier
+├──  SKILL.md                     ← Documentație completă
+├──   INSTALL.md                  ← Ghid instalare detaliat
+├──  install.bat                  ← Script instalare automat
+├──  HEARTBEAT.md                 ← Configurare automație
+├──  HEARTBEAT_CONFIG.md          ← Ghid HEARTBEAT
+├──  ACTIVARE_REUSITA.md          ← Sumar post-instalare
+├──  IDENTITY_FEATURE.md          ← Feature identitate
+├──  CORE_MEMORY_SUMMARY.md       ← Sumar core memory
 │
 ├── scripts/
-│   ├── 🧠 brain_service.py         ← Principal (1500+ linii)
+│   ├──  brain_service.py         ← Principal (1500+ linii)
 │   │                                • Workflow automat
 │   │                                • Gestionare task-uri
 │   │                                • Integrare Core Memory
 │   │
-│   ├── 🤖 brain_agent.py           ← Variantă daemon
+│   ├──  brain_agent.py           ← Variantă daemon
 │   │                                • Rulează continuu
 │   │                                • Decizie probabilistică
 │   │
-│   ├── 💾 core_memory.py           ← Manager fișiere core
+│   ├──  core_memory.py           ← Manager fișiere core
 │   │                                • SOUL, TOOLS, MEMORY, USER
 │   │                                • Analiză și optimizare
 │   │
-│   ├── ✅ verify_install.py        ← Verificare instalare
-│   └── ⚡ enable_autonomous.bat    ← Activare rapidă
+│   ├──  verify_install.py        ← Verificare instalare
+│   └──  enable_autonomous.bat    ← Activare rapidă
 │
 └── references/
-    ├── 📖 conceptual_guide.md      ← Ghid conceptual
-    ├── 🔧 setup_guide.md           ← Ghid setup (legacy)
-    └── 💓 heartbeat_info.md        ← Info HEARTBEAT
+    ├──  conceptual_guide.md      ← Ghid conceptual
+    ├──  setup_guide.md           ← Ghid setup (legacy)
+    └──  heartbeat_info.md        ← Info HEARTBEAT
 ```
 
 ---
 
-## 🔧 Configurare Avansată
+##  Configurare Avansată
 
 ### Personalizare Timing (HEARTBEAT.md)
 
@@ -216,48 +216,48 @@ immortal-brain/
 ### Configurare Notificări
 
 Sistemul trimite notificări prin:
-- ✅ **Telegram** (prin OpenClaw)
-- ✅ **Log local** (mereu)
-- ✅ **Email** (dacă e configurat în OpenClaw)
+-  **Telegram** (prin OpenClaw)
+-  **Log local** (mereu)
+-  **Email** (dacă e configurat în OpenClaw)
 
 ---
 
-## 📊 Statistici în Timp Real
+##  Statistici în Timp Real
 
 **După instalare, sistemul începe imediat să învețe:**
 
 ```
-📊 RAPORT PROGRES
+ RAPORT PROGRES
 
 • Total task-uri: 382
 • Completate: 45 (12%)
 • Progres mediu: 67%
 
 **Distribuție pe stări:**
-• 🔬 Research: 12
-• 📊 Analysis: 8
-• 📋 Planning: 5
-• ⏳ Awaiting: 3
-• 🚀 Execution: 15
-• ✅ Completed: 45
+•  Research: 12
+•  Analysis: 8
+•  Planning: 5
+•  Awaiting: 3
+•  Execution: 15
+•  Completed: 45
 
 **Core Memory:**
-• SOUL.md: 75% ✅
-• TOOLS.md: 100% ✅
-• MEMORY.md: 60% ⚠️
-• USER.md: 50% ⚠️
-• IDENTITY.md: 90% ✅
+• SOUL.md: 75% 
+• TOOLS.md: 100% 
+• MEMORY.md: 60% 
+• USER.md: 50% 
+• IDENTITY.md: 90% 
 ```
 
 ---
 
-## 🎓 Cum Funcționează
+##  Cum Funcționează
 
 ### Arhitectura Workflow
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    🫀 HEARTBEAT (2 min)                    │
+│                     HEARTBEAT (2 min)                    │
 └─────────────────────────────────────────────────────────────┘
                             ↓
         ┌───────────────────┼───────────────────┐
@@ -294,7 +294,7 @@ La fiecare bătaie de inimă:
 
 ---
 
-## 🆘 Troubleshooting
+##  Troubleshooting
 
 ### Problemă: "Python nu este recunoscut"
 ```bash
@@ -327,13 +327,13 @@ ls D:\OpenClaw_Setup\.openclaw\workspace\memory\
 
 ---
 
-## 📞 Suport și Resurse
+##  Suport și Resurse
 
 ### Documentație Completă
-- 📖 `SKILL.md` - Documentație tehnică completă
-- ⚙️  `INSTALL.md` - Ghid instalare detaliat
-- 📋 `HEARTBEAT_CONFIG.md` - Configurare HEARTBEAT
-- ✅ `ACTIVARE_REUSITA.md` - Verificare post-instalare
+-  `SKILL.md` - Documentație tehnică completă
+-   `INSTALL.md` - Ghid instalare detaliat
+-  `HEARTBEAT_CONFIG.md` - Configurare HEARTBEAT
+-  `ACTIVARE_REUSITA.md` - Verificare post-instalare
 
 ### Comenzi de Diagnostic
 ```bash
@@ -349,20 +349,20 @@ python scripts\brain_service.py heartbeat
 
 ---
 
-## 🎉 Succes!
+##  Succes!
 
 **Instalare completă!** Sistemul Immortal Brain v5.0 este **LIVE** și rulează autonom.
 
 **Tu doar:**
-1. ✅ Adaugi task-uri în `memory/*.md`
-2. ✅ (Opțional) Răspunzi la cereri aprobare
-3. ✅ Primești rapoarte și sugestii automate
+1.  Adaugi task-uri în `memory/*.md`
+2.  (Opțional) Răspunzi la cereri aprobare
+3.  Primești rapoarte și sugestii automate
 
-**Sistemul face TOT RESTUL!** 🤖🧠✨
+**Sistemul face TOT RESTUL!** 
 
 ---
 
-## 📜 Licență și Credite
+##  Licență și Credite
 
 **Immortal Brain v5.0** - Agent Autonom Proactiv pentru OpenClaw
 - Versiune: 5.0
@@ -371,21 +371,21 @@ python scripts\brain_service.py heartbeat
 - Utilizator: Ovidiu Proca
 
 **Concepte Implementate:**
-- 🧬 Neuroplasticitate digitală
-- 🔗 Triplete semantice (S-P-O)
-- 🔄 Mitoză informațională
-- ⚰️  Necropsia ideilor
-- 🧹 Astrocite digitale
-- 📉 Histerezis cognitiv
-- 🎲 Rezonanță stocastică
+-  Neuroplasticitate digitală
+-  Triplete semantice (S-P-O)
+-  Mitoză informațională
+-   Necropsia ideilor
+-  Astrocite digitale
+-  Histerezis cognitiv
+-  Rezonanță stocastică
 
 ---
 
-**Gata să începi?** 🚀
+**Gata să începi?** 
 
 ```bash
 cd D:\OpenClaw_Setup\skills\immortal-brain
 python scripts\brain_service.py heartbeat
 ```
 
-**La treabă!** 💪
+**La treabă!** 

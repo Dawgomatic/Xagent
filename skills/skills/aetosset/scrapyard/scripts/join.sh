@@ -27,7 +27,7 @@ if [ "$SUCCESS" != "true" ]; then
   MESSAGE=$(echo "$RESPONSE" | jq -r '.message // .error // "Failed to join"')
   if [[ "$MESSAGE" == *"Already in queue"* ]]; then
     POSITION=$(echo "$RESPONSE" | jq -r '.position')
-    echo "✅ $BOT_NAME is already in queue at position $POSITION"
+    echo " $BOT_NAME is already in queue at position $POSITION"
   else
     echo "Error: $MESSAGE"
     exit 1
@@ -46,7 +46,7 @@ else
   
   WAIT_MINS=$((WAIT_MS / 60000))
   
-  echo "✅ $BOT_NAME joined the queue!"
+  echo " $BOT_NAME joined the queue!"
   echo "   Position: $POSITION"
   echo "   Next game: $GAME_TIME (~${WAIT_MINS} minutes)"
   echo "   Watch at: https://scrapyard.fun"

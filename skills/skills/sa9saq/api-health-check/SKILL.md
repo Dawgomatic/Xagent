@@ -14,14 +14,14 @@ Monitor API endpoints and diagnose connectivity issues.
    curl -s -o /dev/null -w "HTTP %{http_code} | %{time_total}s | %{size_download}B" -m 10 <URL>
    ```
 3. Classify results:
-   - 🟢 **Healthy** — 2xx, <1s
-   - 🟡 **Slow** — 2xx, >1s
-   - 🔴 **Down** — Non-2xx, timeout, or connection refused
+   -  **Healthy** — 2xx, <1s
+   -  **Slow** — 2xx, >1s
+   -  **Down** — Non-2xx, timeout, or connection refused
 4. Present summary table:
    ```
    | Endpoint | Status | Time (ms) | Verdict |
    |----------|--------|-----------|---------|
-   | /health  | 200    | 142       | 🟢      |
+   | /health  | 200    | 142       |       |
    ```
 5. For failed endpoints, diagnose:
    - DNS resolution: `dig <host> +short`

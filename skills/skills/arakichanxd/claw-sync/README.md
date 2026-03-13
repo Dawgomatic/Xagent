@@ -4,10 +4,10 @@ Secure, versioned sync for OpenClaw memory files and custom skills.
 
 ## Features
 
-- 🏷️ **Versioned**: Each sync creates a tagged version you can restore
-- 💾 **Disaster Recovery**: Local backup created before every restore
-- 🔒 **Secure**: Config files NOT synced, URL validation, path protection
-- 🖥️ **Cross-platform**: Works on Windows, Mac, Linux
+-  **Versioned**: Each sync creates a tagged version you can restore
+-  **Disaster Recovery**: Local backup created before every restore
+-  **Secure**: Config files NOT synced, URL validation, path protection
+-  **Cross-platform**: Works on Windows, Mac, Linux
 
 ## Quick Start
 

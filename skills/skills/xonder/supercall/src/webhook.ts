@@ -61,7 +61,7 @@ export class VoiceCallWebhookServer {
       return;
     }
 
-    console.log("[supercall] 🎙️ Initializing full realtime mode");
+    console.log("[supercall]  Initializing full realtime mode");
 
     const defaultInstructions =
       "You are a helpful voice assistant. Be concise and natural. Keep responses short (1-2 sentences).";
@@ -134,7 +134,7 @@ export class VoiceCallWebhookServer {
       },
 
       onHangupRequested: (providerCallId, reason) => {
-        console.log(`[supercall] 📞 AI requested hangup: ${reason}`);
+        console.log(`[supercall]  AI requested hangup: ${reason}`);
         const call = this.manager.getCallByProviderCallId(providerCallId);
         if (call) {
           console.log(`[supercall] Ending call ${call.callId} (provider: ${providerCallId.slice(0, 12)}...)`);

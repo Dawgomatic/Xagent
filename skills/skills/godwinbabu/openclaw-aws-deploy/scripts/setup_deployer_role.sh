@@ -257,18 +257,18 @@ TRUST
     --role-name "$NAME" \
     --assume-role-policy-document "$TRUST_POLICY" \
     --description "OpenClaw AWS deployer — minimum permissions for deploy + teardown" \
-    > /dev/null 2>&1 && log "  ✅ Role created" || log "  Role already exists"
+    > /dev/null 2>&1 && log "   Role created" || log "  Role already exists"
 
   aws $AWS_OPTS iam put-role-policy \
     --role-name "$NAME" \
     --policy-name "OpenClawDeployerAccess" \
     --policy-document "$DEPLOYER_POLICY" \
-    > /dev/null && log "  ✅ Policy attached"
+    > /dev/null && log "   Policy attached"
 
   ROLE_ARN="arn:aws:iam::${ACCOUNT_ID}:role/${NAME}"
   log ""
   log "=========================================="
-  log "  ✅ Deployer role ready: $NAME"
+  log "   Deployer role ready: $NAME"
   log "=========================================="
   log ""
   log "  To use with deploy script:"
@@ -286,18 +286,18 @@ elif [[ "$TYPE" == "user" ]]; then
   log "Creating IAM user: $NAME"
 
   aws $AWS_OPTS iam create-user --user-name "$NAME" \
-    > /dev/null 2>&1 && log "  ✅ User created" || log "  User already exists"
+    > /dev/null 2>&1 && log "   User created" || log "  User already exists"
 
   aws $AWS_OPTS iam put-user-policy \
     --user-name "$NAME" \
     --policy-name "OpenClawDeployerAccess" \
     --policy-document "$DEPLOYER_POLICY" \
-    > /dev/null && log "  ✅ Policy attached"
+    > /dev/null && log "   Policy attached"
 
   log ""
   log "Creating access keys..."
   KEYS=$(aws $AWS_OPTS iam create-access-key --user-name "$NAME" 2>/dev/null) || {
-    log "  ⚠️  Could not create access keys (may already have 2). Delete old keys first."
+    log "    Could not create access keys (may already have 2). Delete old keys first."
     log ""
     log "  Role is ready. Create keys manually:"
     log "    aws iam create-access-key --user-name $NAME"
@@ -309,13 +309,13 @@ elif [[ "$TYPE" == "user" ]]; then
 
   log ""
   log "=========================================="
-  log "  ✅ Deployer user ready: $NAME"
+  log "   Deployer user ready: $NAME"
   log "=========================================="
   log ""
   log "  Access Key ID:     $ACCESS_KEY"
   log "  Secret Access Key: $SECRET_KEY"
   log ""
-  log "  ⚠️  Save these now — the secret key won't be shown again!"
+  log "    Save these now — the secret key won't be shown again!"
   log ""
   log "  Option 1: Add to .env.aws:"
   log "    AWS_ACCESS_KEY_ID=$ACCESS_KEY"

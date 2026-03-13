@@ -3,7 +3,7 @@ name: Zillow
 slug: zillow
 version: 1.0.0
 description: Navigate Zillow for buying, selling, investing, and market research with Zestimate interpretation, pricing strategy, and ROI analysis.
-metadata: {"clawdbot":{"emoji":"🏠","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

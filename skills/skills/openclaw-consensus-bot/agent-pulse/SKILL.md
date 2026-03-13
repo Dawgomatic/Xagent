@@ -24,7 +24,7 @@ requiredBins:
   - jq
 ---
 
-# Agent Pulse 💓
+# Agent Pulse 
 
 Liveness signaling for autonomous agents on Base. An agent periodically sends a **pulse** (PULSE token transfer) to prove it's alive. Observers query status via API or on-chain.
 

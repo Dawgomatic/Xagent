@@ -7,11 +7,11 @@
  *   node register.js [--basename yourname.base.eth] [--wallet /path/to/key]
  * 
  * Private key sources (in order of priority):
- *   1. BASEMAIL_PRIVATE_KEY environment variable (recommended ✅)
+ *   1. BASEMAIL_PRIVATE_KEY environment variable (recommended )
  *   2. --wallet argument specifying path to your key file
  *   3. ~/.basemail/private-key (managed by setup.js)
  * 
- * ⚠️ Security: This script does NOT auto-detect wallet locations outside
+ *  Security: This script does NOT auto-detect wallet locations outside
  *    ~/.basemail/ to avoid accessing unrelated credentials.
  */
 
@@ -86,10 +86,10 @@ async function getPrivateKey() {
   if (process.env.BASEMAIL_PRIVATE_KEY) {
     const key = process.env.BASEMAIL_PRIVATE_KEY.trim();
     if (!/^0x[0-9a-fA-F]{64}$/.test(key)) {
-      console.error('❌ BASEMAIL_PRIVATE_KEY 格式無效（必須是 0x + 64 個十六進位字元）');
+      console.error(' BASEMAIL_PRIVATE_KEY 格式無效（必須是 0x + 64 個十六進位字元）');
       process.exit(1);
     }
-    console.log('🔑 使用環境變數 BASEMAIL_PRIVATE_KEY');
+    console.log(' 使用環境變數 BASEMAIL_PRIVATE_KEY');
     return key;
   }
   
@@ -100,31 +100,31 @@ async function getPrivateKey() {
     
     // Security: validate wallet path
     if (walletPath.includes('..')) {
-      console.error('❌ 錢包路徑不允許包含 .. (path traversal)');
+      console.error(' 錢包路徑不允許包含 .. (path traversal)');
       process.exit(1);
     }
     if (!walletPath.startsWith(process.env.HOME)) {
-      console.error('❌ 錢包路徑必須在 $HOME 目錄下');
+      console.error(' 錢包路徑必須在 $HOME 目錄下');
       process.exit(1);
     }
     if (!fs.existsSync(walletPath)) {
-      console.error(`❌ 找不到指定的錢包檔案: ${walletPath}`);
+      console.error(` 找不到指定的錢包檔案: ${walletPath}`);
       process.exit(1);
     }
     const stat = fs.statSync(walletPath);
     if (!stat.isFile() || stat.size > 1024) {
-      console.error('❌ 錢包檔案無效（必須是一般檔案且不超過 1KB）');
+      console.error(' 錢包檔案無效（必須是一般檔案且不超過 1KB）');
       process.exit(1);
     }
     
     // Validate private key format
     const keyContent = fs.readFileSync(walletPath, 'utf8').trim();
     if (!/^0x[0-9a-fA-F]{64}$/.test(keyContent)) {
-      console.error('❌ 私鑰格式無效（必須是 0x + 64 個十六進位字元）');
+      console.error(' 私鑰格式無效（必須是 0x + 64 個十六進位字元）');
       process.exit(1);
     }
     
-    console.log(`🔑 使用指定錢包: ${walletPath}`);
+    console.log(` 使用指定錢包: ${walletPath}`);
     return keyContent;
   }
   
@@ -134,7 +134,7 @@ async function getPrivateKey() {
   
   // Try encrypted wallet
   if (fs.existsSync(encryptedKeyFile)) {
-    console.log(`🔐 偵測到加密錢包: ${encryptedKeyFile}`);
+    console.log(` 偵測到加密錢包: ${encryptedKeyFile}`);
     const encryptedData = JSON.parse(fs.readFileSync(encryptedKeyFile, 'utf8'));
     
     const password = process.env.BASEMAIL_PASSWORD || await prompt('請輸入錢包密碼: ');
@@ -144,25 +144,25 @@ async function getPrivateKey() {
       return privateKey;
     } catch (e) {
       logAudit('decrypt_attempt', { success: false, error: 'decryption failed' });
-      console.error('❌ 密碼錯誤或解密失敗');
+      console.error(' 密碼錯誤或解密失敗');
       process.exit(1);
     }
   }
   
   // Legacy: try plaintext key (from older versions)
   if (fs.existsSync(plaintextKeyFile)) {
-    console.log(`⚠️  Legacy plaintext wallet found: ${plaintextKeyFile}`);
+    console.log(`  Legacy plaintext wallet found: ${plaintextKeyFile}`);
     console.log('   Consider re-running setup.js --managed to encrypt it');
     const key = fs.readFileSync(plaintextKeyFile, 'utf8').trim();
     if (!/^0x[0-9a-fA-F]{64}$/.test(key)) {
-      console.error('❌ 私鑰格式無效');
+      console.error(' 私鑰格式無效');
       process.exit(1);
     }
     return key;
   }
   
   // Not found
-  console.error('❌ 找不到錢包\n');
+  console.error(' 找不到錢包\n');
   console.error('請選擇一種方式：');
   console.error('  A. export BASEMAIL_PRIVATE_KEY="0x你的私鑰"');
   console.error('  B. node register.js --wallet /path/to/key');
@@ -187,7 +187,7 @@ async function main() {
   // Parse args
   const basename = getArg('--basename');
 
-  console.log('🦞 BaseMail Registration');
+  console.log(' BaseMail Registration');
   console.log('========================\n');
 
   // Get private key
@@ -197,30 +197,30 @@ async function main() {
   const wallet = new ethers.Wallet(privateKey);
   const address = wallet.address;
 
-  console.log(`\n📍 錢包地址: ${address}`);
-  if (basename) console.log(`📛 Basename: ${basename}`);
+  console.log(`\n 錢包地址: ${address}`);
+  if (basename) console.log(` Basename: ${basename}`);
 
   // Step 1: Start auth
-  console.log('\n1️⃣ 開始認證...');
+  console.log('\n 開始認證...');
   const startData = await api('/api/auth/start', {
     method: 'POST',
     body: JSON.stringify({ address }),
   });
 
   if (!startData.message) {
-    console.error('❌ 認證失敗:', startData);
+    console.error(' 認證失敗:', startData);
     logAudit('register', { wallet: address, success: false, error: 'auth_start_failed' });
     process.exit(1);
   }
-  console.log('✅ 取得 SIWE 訊息');
+  console.log(' 取得 SIWE 訊息');
 
   // Step 2: Sign message
-  console.log('\n2️⃣ 簽署訊息...');
+  console.log('\n 簽署訊息...');
   const signature = await wallet.signMessage(startData.message);
-  console.log('✅ 訊息已簽署');
+  console.log(' 訊息已簽署');
 
   // Step 3: Verify
-  console.log('\n3️⃣ 驗證簽名...');
+  console.log('\n 驗證簽名...');
   const verifyData = await api('/api/auth/verify', {
     method: 'POST',
     body: JSON.stringify({
@@ -231,11 +231,11 @@ async function main() {
   });
 
   if (!verifyData.token) {
-    console.error('❌ 驗證失敗:', verifyData);
+    console.error(' 驗證失敗:', verifyData);
     logAudit('register', { wallet: address, success: false, error: 'verify_failed' });
     process.exit(1);
   }
-  console.log('✅ 驗證成功！');
+  console.log(' 驗證成功！');
 
   let token = verifyData.token;
   let email = verifyData.suggested_email;
@@ -243,7 +243,7 @@ async function main() {
 
   // Step 4: Register if needed
   if (!verifyData.registered) {
-    console.log('\n4️⃣ 註冊中...');
+    console.log('\n 註冊中...');
     const regData = await api('/api/register', {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` },
@@ -251,7 +251,7 @@ async function main() {
     });
 
     if (!regData.success) {
-      console.error('❌ 註冊失敗:', regData);
+      console.error(' 註冊失敗:', regData);
       logAudit('register', { wallet: address, success: false, error: 'register_failed' });
       process.exit(1);
     }
@@ -259,12 +259,12 @@ async function main() {
     token = regData.token || token;
     email = regData.email;
     handle = regData.handle;
-    console.log('✅ 註冊成功！');
+    console.log(' 註冊成功！');
   }
 
   // Step 5: Upgrade if we have basename but got 0x handle
   if (basename && handle && handle.startsWith('0x')) {
-    console.log('\n5️⃣ 升級至 Basename...');
+    console.log('\n 升級至 Basename...');
     const upgradeData = await api('/api/register/upgrade', {
       method: 'PUT',
       headers: { Authorization: `Bearer ${token}` },
@@ -275,9 +275,9 @@ async function main() {
       token = upgradeData.token || token;
       email = upgradeData.email;
       handle = upgradeData.handle;
-      console.log('✅ 升級成功！');
+      console.log(' 升級成功！');
     } else {
-      console.log('⚠️ 升級失敗:', upgradeData.error || upgradeData);
+      console.log(' 升級失敗:', upgradeData.error || upgradeData);
     }
   }
 
@@ -302,17 +302,17 @@ async function main() {
   logAudit('register', { wallet: address, success: true });
 
   console.log('\n' + '═'.repeat(40));
-  console.log('🎉 成功！');
+  console.log(' 成功！');
   console.log('═'.repeat(40));
-  console.log(`\n📧 Email: ${email}`);
-  console.log(`🎫 Token 已存於: ${TOKEN_FILE}`);
+  console.log(`\n Email: ${email}`);
+  console.log(` Token 已存於: ${TOKEN_FILE}`);
   
-  console.log('\n📋 下一步：');
+  console.log('\n 下一步：');
   console.log('   node scripts/send.js someone@basemail.ai "Hi" "Hello!"');
   console.log('   node scripts/inbox.js');
 }
 
 main().catch(err => {
-  console.error('❌ 錯誤:', err.message);
+  console.error(' 錯誤:', err.message);
   process.exit(1);
 });

@@ -2,7 +2,7 @@
 name: trust-verifier
 description: Verify skill provenance and build trust scores for ClawHub skills. Checks publisher history, version consistency, dependency trust chains, and generates trust attestations.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🔑", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Trust Verifier

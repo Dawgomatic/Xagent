@@ -101,7 +101,7 @@ class SmalltalkDaemon:
             return True
 
         mode_label = "DEV" if self.dev_mode else "PLAYGROUND"
-        print(f"🚀 Starting Squeak VM ({mode_label} mode)...")
+        print(f" Starting Squeak VM ({mode_label} mode)...")
         print(f"   VM: {self.vm_path}")
         print(f"   Image: {self.image_path}")
 
@@ -134,11 +134,11 @@ class SmalltalkDaemon:
 
             # Initialize MCP connection
             if not self._initialize_mcp():
-                print("❌ MCP initialization failed")
+                print(" MCP initialization failed")
                 self.stop_vm()
                 return False
 
-            print(f"✅ VM started (PID {self.process.pid})")
+            print(f" VM started (PID {self.process.pid})")
             
             # Check version and apply hotfixes if needed
             self._apply_hotfixes()
@@ -146,7 +146,7 @@ class SmalltalkDaemon:
             return True
 
         except Exception as e:
-            print(f"❌ Failed to start VM: {e}")
+            print(f" Failed to start VM: {e}")
             return False
 
     def _apply_hotfixes(self) -> None:
@@ -173,14 +173,14 @@ class SmalltalkDaemon:
             
             # Apply fixes for versions < 2
             if version < 2:
-                print("   ⚠️  Old image detected, applying hotfixes...")
+                print("     Old image detected, applying hotfixes...")
                 self._hotfix_define_method()
-                print("   ✅ Hotfixes applied")
+                print("    Hotfixes applied")
             
             # Save tools + daemon mode baked into image v5+ (JMM-512, JMM-515)
                 
         except Exception as e:
-            print(f"   ⚠️  Could not check/apply hotfixes: {e}")
+            print(f"     Could not check/apply hotfixes: {e}")
 
     def _hotfix_define_method(self) -> None:
         """Hotfix: Replace toolDefineMethod: to use compileSilently:"""
@@ -213,7 +213,7 @@ class SmalltalkDaemon:
     def stop_vm(self) -> None:
         """Stop the Squeak VM subprocess."""
         if self.process is not None:
-            print("🛑 Stopping Squeak VM...")
+            print(" Stopping Squeak VM...")
             try:
                 pgid = os.getpgid(self.process.pid)
                 os.killpg(pgid, signal.SIGTERM)
@@ -229,7 +229,7 @@ class SmalltalkDaemon:
                     # If the process is already gone when sending SIGKILL, ignore the error.
                     pass
             self.process = None
-            print("✅ VM stopped")
+            print(" VM stopped")
 
     def _initialize_mcp(self) -> bool:
         """Initialize the MCP connection."""
@@ -241,7 +241,7 @@ class SmalltalkDaemon:
             })
 
             if "error" in response:
-                print(f"❌ MCP init error: {response['error']}")
+                print(f" MCP init error: {response['error']}")
                 return False
 
             # Send initialized notification
@@ -253,7 +253,7 @@ class SmalltalkDaemon:
 
             return True
         except Exception as e:
-            print(f"❌ MCP init exception: {e}")
+            print(f" MCP init exception: {e}")
             return False
 
     def _send_to_vm(self, method: str, params: Optional[dict] = None, timeout: float = 30.0) -> dict:
@@ -309,7 +309,7 @@ class SmalltalkDaemon:
                 return response
 
         # If we reach here, the VM is not running; restart it without holding the lock
-        print("⚠️  VM died, restarting...")
+        print("  VM died, restarting...")
         if not self.start_vm():
             return {"error": "Failed to restart VM"}
 
@@ -364,7 +364,7 @@ class SmalltalkDaemon:
                 # Best-effort attempt to send timeout error to client; ignore failures while sending.
                 pass
         except Exception as e:
-            print(f"❌ Client error: {e}")
+            print(f" Client error: {e}")
             try:
                 conn.sendall((json.dumps({"error": str(e)}) + "\n").encode("utf-8"))
             except Exception:
@@ -381,7 +381,7 @@ class SmalltalkDaemon:
 
         # Start VM
         if not self.start_vm():
-            print("❌ Failed to start VM, exiting")
+            print(" Failed to start VM, exiting")
             return False
 
         # Create socket with restrictive permissions (user-only)
@@ -404,14 +404,14 @@ class SmalltalkDaemon:
             os.chmod(SOCKET_PATH, 0o600)
         except OSError:
             # If chmod fails, continue running but leave a diagnostic message
-            print(f"⚠️  Could not set permissions on socket {SOCKET_PATH}")
+            print(f"  Could not set permissions on socket {SOCKET_PATH}")
         self.socket.settimeout(1.0)  # Allow periodic checks
 
         # Write PID file
         with open(PID_FILE, "w") as f:
             f.write(str(os.getpid()))
 
-        print(f"🎧 Listening on {SOCKET_PATH}")
+        print(f" Listening on {SOCKET_PATH}")
         return True
 
     def run(self) -> None:
@@ -420,7 +420,7 @@ class SmalltalkDaemon:
 
         # Handle signals
         def signal_handler(sig, frame):
-            print(f"\n📡 Received signal {sig}, shutting down...")
+            print(f"\n Received signal {sig}, shutting down...")
             self.running = False
 
         signal.signal(signal.SIGTERM, signal_handler)
@@ -437,18 +437,18 @@ class SmalltalkDaemon:
                 except socket.timeout:
                     # Check if VM still alive
                     if self.process and self.process.poll() is not None:
-                        print("⚠️  VM died unexpectedly, restarting...")
+                        print("  VM died unexpectedly, restarting...")
                         self.start_vm()
                 except Exception as e:
                     if self.running:
-                        print(f"❌ Accept error: {e}")
+                        print(f" Accept error: {e}")
 
         finally:
             self.cleanup()
 
     def cleanup(self) -> None:
         """Clean up resources."""
-        print("🧹 Cleaning up...")
+        print(" Cleaning up...")
         self.stop_vm()
         if self.socket:
             self.socket.close()
@@ -456,7 +456,7 @@ class SmalltalkDaemon:
             os.unlink(SOCKET_PATH)
         if os.path.exists(PID_FILE):
             os.unlink(PID_FILE)
-        print("👋 Daemon stopped")
+        print(" Daemon stopped")
 
 
 def get_daemon_pid() -> Optional[int]:
@@ -487,19 +487,19 @@ def parse_start_args(args: list) -> tuple:
         if idx + 1 < len(args):
             image_path = os.path.expanduser(args[idx + 1])
             if not os.path.exists(image_path):
-                print(f"❌ Image not found: {image_path}")
+                print(f" Image not found: {image_path}")
                 sys.exit(1)
             # Check for matching .changes file
             changes_path = image_path.replace(".image", ".changes")
             if not os.path.exists(changes_path):
-                print(f"❌ Changes file not found: {changes_path}")
+                print(f" Changes file not found: {changes_path}")
                 sys.exit(1)
         else:
-            print("❌ --image requires a path argument")
+            print(" --image requires a path argument")
             sys.exit(1)
 
     if dev_mode and not image_path:
-        print("❌ Dev mode requires --image PATH")
+        print(" Dev mode requires --image PATH")
         sys.exit(1)
 
     return dev_mode, image_path
@@ -522,7 +522,7 @@ def cmd_start(args: list = None):
         # Now that we have the lock, check if daemon is already running
         pid = get_daemon_pid()
         if pid:
-            print(f"❌ Daemon already running (PID {pid})")
+            print(f" Daemon already running (PID {pid})")
             # Release lock before exiting
             if lock_fd is not None:
                 os.close(lock_fd)
@@ -530,7 +530,7 @@ def cmd_start(args: list = None):
 
         vm_path, image_path = get_paths()
         if not vm_path or not os.path.exists(vm_path):
-            print("❌ VM not found. Set SQUEAK_VM_PATH or run smalltalk.py --check")
+            print(" VM not found. Set SQUEAK_VM_PATH or run smalltalk.py --check")
             # Release lock before exiting
             if lock_fd is not None:
                 os.close(lock_fd)
@@ -540,7 +540,7 @@ def cmd_start(args: list = None):
         if custom_image:
             image_path = custom_image
         elif not image_path or not os.path.exists(image_path):
-            print("❌ Image not found. Set SQUEAK_IMAGE_PATH or run smalltalk.py --check")
+            print(" Image not found. Set SQUEAK_IMAGE_PATH or run smalltalk.py --check")
             # Release lock before exiting
             if lock_fd is not None:
                 os.close(lock_fd)
@@ -577,10 +577,10 @@ def cmd_stop():
     """Stop the daemon."""
     pid = get_daemon_pid()
     if not pid:
-        print("❌ Daemon not running")
+        print(" Daemon not running")
         sys.exit(1)
 
-    print(f"🛑 Stopping daemon (PID {pid})...")
+    print(f" Stopping daemon (PID {pid})...")
     try:
         os.kill(pid, signal.SIGTERM)
         # Wait for it to stop
@@ -589,14 +589,14 @@ def cmd_stop():
             try:
                 os.kill(pid, 0)
             except ProcessLookupError:
-                print("✅ Daemon stopped")
+                print(" Daemon stopped")
                 return
-        print("⚠️  Daemon didn't stop gracefully, sending SIGKILL")
+        print("  Daemon didn't stop gracefully, sending SIGKILL")
         os.kill(pid, signal.SIGKILL)
     except ProcessLookupError:
-        print("✅ Daemon already stopped")
+        print(" Daemon already stopped")
     except Exception as e:
-        print(f"❌ Error stopping daemon: {e}")
+        print(f" Error stopping daemon: {e}")
         sys.exit(1)
 
 
@@ -604,7 +604,7 @@ def cmd_status():
     """Check daemon status."""
     pid = get_daemon_pid()
     if pid:
-        print(f"✅ Daemon running (PID {pid})")
+        print(f" Daemon running (PID {pid})")
         # Try to ping it
         try:
             with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as sock:
@@ -616,9 +616,9 @@ def cmd_status():
                 if vm_pid:
                     print(f"   VM PID: {vm_pid}")
         except Exception as e:
-            print(f"   ⚠️  Could not ping daemon: {e}")
+            print(f"     Could not ping daemon: {e}")
     else:
-        print("❌ Daemon not running")
+        print(" Daemon not running")
         sys.exit(1)
 
 

@@ -71,11 +71,11 @@ Agent should track last-studied date per chapter and remind for review.
 
 | Weightage | Current Mastery | Priority |
 |-----------|-----------------|----------|
-| High | Low | 🔴 Urgent |
-| High | Medium | 🟡 High |
-| High | High | 🟢 Maintain |
-| Low | Low | 🟡 Medium |
-| Low | Medium/High | ⚪ Low |
+| High | Low |  Urgent |
+| High | Medium |  High |
+| High | High |  Maintain |
+| Low | Low |  Medium |
+| Low | Medium/High |  Low |
 
 Agent should calculate priority score: `Weightage × (100 - Mastery)`
 

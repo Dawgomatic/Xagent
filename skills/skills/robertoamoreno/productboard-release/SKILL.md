@@ -3,7 +3,7 @@ name: productboard-release
 description: Manage ProductBoard releases and roadmap planning
 user-invocable: false
 homepage: https://github.com/robertoamoreno/openclaw-productboard
-metadata: {"openclaw":{"emoji":"🚀"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # ProductBoard Release Planning Skill

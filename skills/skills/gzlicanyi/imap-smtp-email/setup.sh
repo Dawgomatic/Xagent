@@ -155,7 +155,7 @@ SMTP_REJECT_UNAUTHORIZED=$REJECT_UNAUTHORIZED
 EOF
 
 echo ""
-echo "✅ Created .env file"
+echo " Created .env file"
 echo ""
 echo "Testing connections..."
 echo ""
@@ -163,9 +163,9 @@ echo ""
 # Test IMAP connection
 echo "Testing IMAP..."
 if node scripts/imap.js list-mailboxes >/dev/null 2>&1; then
-    echo "✅ IMAP connection successful!"
+    echo " IMAP connection successful!"
 else
-    echo "❌ IMAP connection test failed"
+    echo " IMAP connection test failed"
     echo "   Please check your credentials and settings"
 fi
 
@@ -173,9 +173,9 @@ fi
 echo ""
 echo "Testing SMTP..."
 if node scripts/smtp.js test >/dev/null 2>&1; then
-    echo "✅ SMTP connection successful!"
+    echo " SMTP connection successful!"
 else
-    echo "❌ SMTP connection test failed"
+    echo " SMTP connection test failed"
     echo "   Please check your credentials and settings"
 fi
 

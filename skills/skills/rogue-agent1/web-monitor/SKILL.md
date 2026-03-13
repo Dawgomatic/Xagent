@@ -48,10 +48,10 @@ uv run --with beautifulsoup4 python scripts/monitor.py remove "Example"
 
 ## Output Symbols
 
-- 🔔 CHANGED — page content changed (shows diff preview)
-- ✅ No changes
-- 📸 Initial snapshot taken
-- ❌ Error fetching
+-  CHANGED — page content changed (shows diff preview)
+-  No changes
+-  Initial snapshot taken
+-  Error fetching
 
 ## Data
 

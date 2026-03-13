@@ -83,19 +83,19 @@ result = subprocess.run(['python3', str(get_data_dir() / 'analyze.py'), '--json'
 
 ### What This System DOES NOT Do
 
-- ❌ **No `eval()`** - No dynamic code evaluation
-- ❌ **No `os.system()`** - No shell command injection
-- ❌ **No `shell=True`** - No shell-based subprocess execution
-- ❌ **No `base64` decode** - No encoded payload execution
-- ❌ **No `sudo`** - No privilege escalation
-- ❌ **No external file access** - All operations within skill directory
-- ❌ **No cron/at creation in scripts** - No script calls `crontab`, `at`, or any system scheduler directly. Scheduling is done by the AI agent through OpenClaw's cron API at runtime, which the user can inspect via `openclaw cron list`
-- ❌ **No remote code execution** - All code is local and user-controlled
+-  **No `eval()`** - No dynamic code evaluation
+-  **No `os.system()`** - No shell command injection
+-  **No `shell=True`** - No shell-based subprocess execution
+-  **No `base64` decode** - No encoded payload execution
+-  **No `sudo`** - No privilege escalation
+-  **No external file access** - All operations within skill directory
+-  **No cron/at creation in scripts** - No script calls `crontab`, `at`, or any system scheduler directly. Scheduling is done by the AI agent through OpenClaw's cron API at runtime, which the user can inspect via `openclaw cron list`
+-  **No remote code execution** - All code is local and user-controlled
 
 ### Unicode Control Characters
 
 - **Issue**: Zero-width joiner (U+200D) found in emoji sequences
-- **Status**: ✅ **RESOLVED** - Cleaned from all source files
+- **Status**:  **RESOLVED** - Cleaned from all source files
 - **Risk**: Low (cosmetic issue, not exploitable)
 
 ## Autonomous Execution Model
@@ -143,11 +143,11 @@ gets scheduled.
 
 ### Risk Level: **LOW**
 
-- ✅ **Network**: Read-only access to public APIs only
-- ✅ **Files**: Sandboxed to skill directory  
-- ✅ **Execution**: No dangerous system calls or shell injection
-- ✅ **Autonomy**: All prompts are user-controlled
-- ✅ **Scheduling**: Managed by OpenClaw, not scripts
+-  **Network**: Read-only access to public APIs only
+-  **Files**: Sandboxed to skill directory  
+-  **Execution**: No dangerous system calls or shell injection
+-  **Autonomy**: All prompts are user-controlled
+-  **Scheduling**: Managed by OpenClaw, not scripts
 
 ### Recommendations
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Google Maps v3.1 - Next-Gen Maps Integration for OpenClaw
-Author: Leo 🦁
+Author: Leo 
 Updated: 2026-02-06
 
 Migrated to the NEW Routes API (replacing deprecated Distance Matrix & Directions APIs)
@@ -10,7 +10,7 @@ Features:
 - Routes API (computeRoutes) - Modern directions with traffic
 - Route Matrix API (computeRouteMatrix) - Distance/duration matrix
 - Places API - Search and details
-- Geocoding API - Address ↔ coordinates
+- Geocoding API - Address  coordinates
 - Future departure time prediction
 - Traffic models (best_guess, pessimistic, optimistic)
 - Route modifiers (avoid tolls, highways, ferries)

@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing to Claw Conductor! This project thrives on community input, especially real-world performance data and model profiles.
 
-## 🎯 How You Can Help
+##  How You Can Help
 
 ### 1. Share Model Profiles
 
@@ -152,7 +152,7 @@ Routed to Gemini Flash (3★, max=3)
 - Claw Conductor version: 1.0.0
 ```
 
-## 📋 Development Setup
+##  Development Setup
 
 ### Prerequisites
 
@@ -188,7 +188,7 @@ Before submitting a PR:
 - [ ] Examples added for new features
 - [ ] Cost information verified with sources
 
-## 🎨 Code Style
+##  Code Style
 
 ### JSON Files
 
@@ -211,7 +211,7 @@ Before submitting a PR:
 - Use meaningful variable names
 - Test on macOS and Linux
 
-## 🔄 Pull Request Process
+##  Pull Request Process
 
 1. **Fork** the repository
 2. **Create** a feature branch (`git checkout -b feature/amazing-model`)
@@ -251,7 +251,7 @@ Brief description of changes
 - [ ] No breaking changes (or clearly documented)
 ```
 
-## 📊 Benchmark Data Sources
+##  Benchmark Data Sources
 
 We accept data from:
 
@@ -275,7 +275,7 @@ We accept data from:
 4. **Quantitative** - Include success rates, scores
 5. **Comparative** - Show vs. other models
 
-## 🤝 Community Guidelines
+##  Community Guidelines
 
 - Be respectful and constructive
 - Share data and sources
@@ -283,7 +283,7 @@ We accept data from:
 - Acknowledge limitations and edge cases
 - Help others improve their configurations
 
-## 📝 Documentation
+##  Documentation
 
 When adding features:
 
@@ -293,14 +293,14 @@ When adding features:
 4. Document configuration options
 5. Update CHANGELOG.md
 
-## 🔍 Review Process
+##  Review Process
 
 1. **Automated checks** - JSON validation, linting
 2. **Maintainer review** - Verify data sources and logic
 3. **Community feedback** - 48-hour comment period for major changes
 4. **Merge** - After approval and CI pass
 
-## 💡 Ideas for Contribution
+##  Ideas for Contribution
 
 Not sure where to start? Try these:
 
@@ -313,16 +313,16 @@ Not sure where to start? Try these:
 - [ ] Translate documentation
 - [ ] Create visualizations for routing decisions
 
-## 📬 Contact
+##  Contact
 
 - GitHub Issues: Bug reports and feature requests
 - Discussions: General questions and ideas
 - Email: [your-email] for sensitive topics
 
-## 📄 License
+##  License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
 
 ---
 
-**Thank you for helping make Claw Conductor better for everyone!** 🎼
+**Thank you for helping make Claw Conductor better for everyone!** 

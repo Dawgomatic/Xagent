@@ -1,8 +1,8 @@
 # Contributing to Smart Follow-up Suggestions
 
-Thank you for considering contributing to this project! 🎉
+Thank you for considering contributing to this project! 
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
 - [How Can I Contribute?](#how-can-i-contribute)
@@ -13,7 +13,7 @@ Thank you for considering contributing to this project! 🎉
 
 ---
 
-## 🤝 Code of Conduct
+##  Code of Conduct
 
 This project follows the [Contributor Covenant](https://www.contributor-covenant.org/). Please be respectful and constructive in all interactions.
 
@@ -21,7 +21,7 @@ This project follows the [Contributor Covenant](https://www.contributor-covenant
 
 ---
 
-## 💡 How Can I Contribute?
+##  How Can I Contribute?
 
 ### Reporting Bugs
 
@@ -81,7 +81,7 @@ Documentation improvements are always welcome!
 
 ---
 
-## 🛠 Development Setup
+##  Development Setup
 
 ### Prerequisites
 
@@ -120,7 +120,7 @@ Documentation improvements are always welcome!
 
 ---
 
-## 📏 Coding Standards
+##  Coding Standards
 
 ### Style Guide
 
@@ -136,16 +136,16 @@ Documentation improvements are always welcome!
 
 1. **Readability over cleverness**
    ```javascript
-   // ✅ Good
+   //  Good
    const isInteractiveChannel = buttonChannels.includes(channel);
    
-   // ❌ Bad (too clever)
+   //  Bad (too clever)
    const isInteractiveChannel = ~buttonChannels.indexOf(channel);
    ```
 
 2. **Error handling**
    ```javascript
-   // ✅ Always handle errors
+   //  Always handle errors
    try {
      const result = await apiCall();
      return result;
@@ -157,11 +157,11 @@ Documentation improvements are always welcome!
 
 3. **Comments for "why", not "what"**
    ```javascript
-   // ✅ Good
+   //  Good
    // Truncate to 40 chars to stay under Telegram's 64-byte callback_data limit
    const callbackData = `ask:${question.substring(0, 40)}`;
    
-   // ❌ Bad (obvious)
+   //  Bad (obvious)
    // Substring the question to 40 characters
    const callbackData = `ask:${question.substring(0, 40)}`;
    ```
@@ -191,7 +191,7 @@ smart-followups/
 
 ---
 
-## 🚀 Submitting Changes
+##  Submitting Changes
 
 ### Pull Request Process
 
@@ -237,7 +237,7 @@ How was this tested?
 
 ---
 
-## 🧪 Testing Guidelines
+##  Testing Guidelines
 
 ### Manual Testing Checklist
 
@@ -275,7 +275,7 @@ describe('generateFollowups', () => {
 
 ---
 
-## 🎯 Priority Areas
+##  Priority Areas
 
 Current focus areas for contributions:
 
@@ -299,7 +299,7 @@ Current focus areas for contributions:
 
 ---
 
-## 📞 Questions?
+##  Questions?
 
 - **General questions**: Open a GitHub Discussion
 - **Bug reports**: GitHub Issues
@@ -308,14 +308,14 @@ Current focus areas for contributions:
 
 ---
 
-## 🏆 Recognition
+##  Recognition
 
 Contributors will be:
 - Listed in README.md
 - Mentioned in release notes
 - Credited in CHANGELOG.md
 
-Thank you for making Smart Follow-ups better! 🙏
+Thank you for making Smart Follow-ups better! 
 
 ---
 

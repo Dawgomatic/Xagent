@@ -1,7 +1,7 @@
 ---
 name: Passkey
 description: Implement WebAuthn passkeys avoiding critical security and compatibility pitfalls.
-metadata: {"clawdbot":{"emoji":"🔐","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Security-Critical Rules

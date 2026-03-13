@@ -104,9 +104,9 @@ run_scanner() {
     else
         "$script" $args > "$output_file" 2>&1 || exit_code=$?
         # Show just summary lines
-        grep -E '^\[|Summary|Total|Critical|Warning|Info|✅|❌|⚠️' "$output_file" 2>/dev/null || true
+        grep -E '^\[|Summary|Total|Critical|Warning|Info|||' "$output_file" 2>/dev/null || true
         # Show findings
-        grep -E '^\[CRITICAL\]|\[WARNING\]|^\s*(❌|⚠️|✅)' "$output_file" 2>/dev/null | head -20 || true
+        grep -E '^\[CRITICAL\]|\[WARNING\]|^\s*(||)' "$output_file" 2>/dev/null | head -20 || true
     fi
 
     # Count findings from output
@@ -119,9 +119,9 @@ run_scanner() {
     TOTAL_WARNING=$((TOTAL_WARNING + warn))
     TOTAL_INFO=$((TOTAL_INFO + info))
 
-    local status_icon="✅"
-    [[ $exit_code -eq 1 ]] && status_icon="⚠️"
-    [[ $exit_code -eq 2 ]] && status_icon="❌"
+    local status_icon=""
+    [[ $exit_code -eq 1 ]] && status_icon=""
+    [[ $exit_code -eq 2 ]] && status_icon=""
 
     SCANNER_RESULTS+=("$status_icon $name: ${crit} critical, ${warn} warnings, ${info} info")
 
@@ -134,7 +134,7 @@ AUDIT_DATE=$(date '+%Y-%m-%d %H:%M:%S %Z')
 echo -e "${BOLD}${CYAN}"
 echo "╔═══════════════════════════════════════════════╗"
 echo "║                                               ║"
-echo "║    🛡️  ARC SENTINEL — Full Security Audit     ║"
+echo "║      ARC SENTINEL — Full Security Audit     ║"
 echo "║                                               ║"
 echo "╚═══════════════════════════════════════════════╝"
 echo -e "${RESET}"
@@ -180,13 +180,13 @@ echo ""
 
 # Overall verdict
 if [[ $TOTAL_CRITICAL -gt 0 ]]; then
-    echo -e "  ${RED}${BOLD}❌ VERDICT: CRITICAL issues found — immediate attention required${RESET}"
+    echo -e "  ${RED}${BOLD} VERDICT: CRITICAL issues found — immediate attention required${RESET}"
     OVERALL_EXIT=2
 elif [[ $TOTAL_WARNING -gt 0 ]]; then
-    echo -e "  ${YELLOW}${BOLD}⚠️  VERDICT: Warnings found — review recommended${RESET}"
+    echo -e "  ${YELLOW}${BOLD}  VERDICT: Warnings found — review recommended${RESET}"
     OVERALL_EXIT=1
 else
-    echo -e "  ${GREEN}${BOLD}✅ VERDICT: All clear — no security issues detected${RESET}"
+    echo -e "  ${GREEN}${BOLD} VERDICT: All clear — no security issues detected${RESET}"
     OVERALL_EXIT=0
 fi
 

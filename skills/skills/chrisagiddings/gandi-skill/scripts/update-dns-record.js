@@ -33,7 +33,7 @@ if (args.length < 4) {
   console.error('  node update-dns-record.js example.com CNAME blog newhost.example.com. 3600');
   console.error('  node update-dns-record.js example.com TXT @ "v=spf1 ..."');
   console.error('');
-  console.error('💡 This script updates existing records. To add new records, use add-dns-record.js');
+  console.error(' This script updates existing records. To add new records, use add-dns-record.js');
   console.error('   (In practice, both work the same - PUT is idempotent)');
   process.exit(1);
 }
@@ -46,25 +46,25 @@ const ttl = args[4] ? parseInt(args[4], 10) : 10800;
 
 // Validate inputs
 if (!domain || !type || !name || !value) {
-  console.error('❌ Error: Missing required arguments');
+  console.error(' Error: Missing required arguments');
   process.exit(1);
 }
 
 if (!isValidTTL(ttl)) {
-  console.error(`❌ Error: Invalid TTL ${ttl}. Must be between 300 and 2592000 seconds.`);
+  console.error(` Error: Invalid TTL ${ttl}. Must be between 300 and 2592000 seconds.`);
   process.exit(1);
 }
 
 const validation = validateRecordValue(type, value);
 if (!validation.valid) {
-  console.error(`❌ Error: ${validation.error}`);
+  console.error(` Error: ${validation.error}`);
   process.exit(1);
 }
 
 // Main function
 async function main() {
   try {
-    console.log(`📝 Updating DNS record for ${domain}`);
+    console.log(` Updating DNS record for ${domain}`);
     console.log(`   Type: ${type}`);
     console.log(`   Name: ${name}`);
     console.log(`   New Value: ${value}`);
@@ -75,25 +75,25 @@ async function main() {
     let currentRecord;
     try {
       currentRecord = await getDnsRecord(domain, name, type);
-      console.log('📋 Current record:');
+      console.log(' Current record:');
       console.log(`   Values: ${currentRecord.rrset_values.join(', ')}`);
       console.log(`   TTL: ${currentRecord.rrset_ttl}`);
       console.log('');
       
       // Create automatic snapshot before updating
       const snapshotName = `Before updating ${name}.${domain} ${type} - ${new Date().toISOString()}`;
-      console.log('📸 Creating automatic snapshot...');
+      console.log(' Creating automatic snapshot...');
       try {
         const snapshot = await createSnapshot(domain, snapshotName);
-        console.log(`✅ Snapshot created: ${snapshot.id || 'success'}`);
+        console.log(` Snapshot created: ${snapshot.id || 'success'}`);
       } catch (snapErr) {
-        console.warn('⚠️  Could not create snapshot (continuing anyway):', snapErr.message);
+        console.warn('  Could not create snapshot (continuing anyway):', snapErr.message);
       }
       console.log('');
       
     } catch (err) {
       if (err.statusCode === 404) {
-        console.log('⚠️  Record does not exist. Creating new record instead...');
+        console.log('  Record does not exist. Creating new record instead...');
         console.log('');
       } else {
         throw err;
@@ -104,27 +104,27 @@ async function main() {
     const result = await createDnsRecord(domain, name, type, [value], ttl);
     
     if (result.statusCode === 201 || result.statusCode === 204) {
-      console.log('✅ DNS record successfully updated!');
+      console.log(' DNS record successfully updated!');
       console.log('');
-      console.log('📋 New record:');
+      console.log(' New record:');
       console.log(`   Value: ${value}`);
       console.log(`   TTL: ${ttl} seconds`);
       console.log('');
-      console.log('⏱️  DNS Propagation:');
+      console.log('  DNS Propagation:');
       console.log('   - Gandi nameservers: immediate');
       console.log('   - Local cache: ~5 minutes');
       const oldTtl = currentRecord ? currentRecord.rrset_ttl : ttl;
       console.log(`   - Global: up to ${oldTtl} seconds (old TTL)`);
       console.log('');
-      console.log('🔍 Verify with:');
+      console.log(' Verify with:');
       console.log(`   dig ${name === '@' ? domain : name + '.' + domain} ${type}`);
       console.log(`   dig @ns1.gandi.net ${name === '@' ? domain : name + '.' + domain} ${type}`);
     } else {
-      console.log(`⚠️  Unexpected response: HTTP ${result.statusCode}`);
+      console.log(`  Unexpected response: HTTP ${result.statusCode}`);
     }
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('');

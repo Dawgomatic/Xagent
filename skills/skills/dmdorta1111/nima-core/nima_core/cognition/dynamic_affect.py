@@ -628,7 +628,7 @@ if __name__ == "__main__":
         if args.json:
             print(json.dumps(summary, indent=2))
         else:
-            print(f"\n🎭 DYNAMIC AFFECT STATE ({summary['identity_name']})")
+            print(f"\n DYNAMIC AFFECT STATE ({summary['identity_name']})")
             print("=" * 50)
             print(f"Dominant: {summary['dominant'][0]} ({summary['dominant'][1]:.2f})")
             print(f"Deviation from baseline: {summary['deviation_from_baseline']:.3f}")
@@ -645,16 +645,16 @@ if __name__ == "__main__":
         with system._lock:
             system._current = AffectVector(system.baseline.values.copy(), source="reset")
             system._save_state()
-        print("✅ Affect state reset to baseline")
+        print(" Affect state reset to baseline")
     
     elif args.action == "decay":
         before = system.current.top_n(1)[0]
         system.drift_toward_baseline(strength=0.1)
         after = system.current.top_n(1)[0]
-        print(f"✅ Decayed: {before[0]} {before[1]:.2f} → {after[0]} {after[1]:.2f}")
+        print(f" Decayed: {before[0]} {before[1]:.2f} → {after[0]} {after[1]:.2f}")
     
     elif args.action == "test":
-        print(f"\n🧪 Testing Dynamic Affect System ({args.name})")
+        print(f"\n Testing Dynamic Affect System ({args.name})")
         print("=" * 50)
         
         # Test 1: Process input
@@ -678,4 +678,4 @@ if __name__ == "__main__":
         print(f"   Shape: {vec.shape}, dtype: {vec.dtype}")
         print(f"   Values: {vec}")
         
-        print("\n✅ All tests passed!")
+        print("\n All tests passed!")

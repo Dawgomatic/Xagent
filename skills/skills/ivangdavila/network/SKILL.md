@@ -1,7 +1,7 @@
 ---
 name: Network
 description: Understand and troubleshoot computer networks with TCP/IP, DNS, routing, and diagnostic tools.
-metadata: {"clawdbot":{"emoji":"🌐","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Network Fundamentals

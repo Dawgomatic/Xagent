@@ -1,6 +1,6 @@
-# Vibe Memory 🎭
+# Vibe Memory 
 
-**Status:** 📋 Agent Guideline | **Module:** vibe | **Part of:** Agent Brain
+**Status:**  Agent Guideline | **Module:** vibe | **Part of:** Agent Brain
 
 Tone detection and response calibration guidelines. The agent reads tone from user messages and adjusts its style — no code runs, this is behavioral guidance.
 

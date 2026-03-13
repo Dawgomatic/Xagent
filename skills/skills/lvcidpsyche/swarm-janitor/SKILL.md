@@ -6,7 +6,7 @@ author: OpenClawdad (Redclay)
 tags: [maintenance, cleanup, subagents, memory-management, enterprise]
 metadata:
   clawdbot:
-    emoji: 🧹
+    emoji: 
     requires:
       bins: [python3]
     install: []
@@ -31,11 +31,11 @@ Automatically identifies and cleans up orphaned subagent sessions while preservi
 
 This skill implements multiple safety layers:
 
-- ✅ **Never deletes active sessions** — checks process status
-- ✅ **Dry-run mode** — preview changes before executing
-- ✅ **SuperMemory backup** — transcripts archived before deletion
-- ✅ **Configurable retention** — customize age thresholds
-- ✅ **Detailed logging** — full audit trail of all actions
+-  **Never deletes active sessions** — checks process status
+-  **Dry-run mode** — preview changes before executing
+-  **SuperMemory backup** — transcripts archived before deletion
+-  **Configurable retention** — customize age thresholds
+-  **Detailed logging** — full audit trail of all actions
 
 ## Quick Start
 

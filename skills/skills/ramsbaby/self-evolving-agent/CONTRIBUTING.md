@@ -8,7 +8,7 @@ Thanks for your interest! This skill runs on personal OpenClaw instances and the
 
 Welcome! Here's the fastest path to your first contribution:
 
-1. Read this file (you're doing it ✅)
+1. Read this file (you're doing it )
 2. Check [`docs/good-first-issues.md`](docs/good-first-issues.md) for curated starter tasks
 3. Look for issues labeled [`good first issue`](https://github.com/ramsbaby/self-evolving-agent/labels/good%20first%20issue) on GitHub
 4. Open an issue to claim a task before you start (avoids duplicate work)
@@ -20,7 +20,7 @@ Not sure where to start? Open a [Discussion](https://github.com/ramsbaby/self-ev
 
 ## What's Worth Contributing
 
-### 🟢 Easy (Good First Issues)
+###  Easy (Good First Issues)
 
 - Add complaint pattern keywords for languages other than Korean/English
 - Improve error messages in scripts
@@ -28,7 +28,7 @@ Not sure where to start? Open a [Discussion](https://github.com/ramsbaby/self-ev
 - Add examples to `docs/`
 - Add a new language to `config.yaml`'s `complaint_patterns`
 
-### 🟡 Medium
+###  Medium
 
 - New analysis signal types (e.g., detecting session compaction patterns)
 - Support for additional OpenClaw session log formats
@@ -36,7 +36,7 @@ Not sure where to start? Open a [Discussion](https://github.com/ramsbaby/self-ev
 - Windows/WSL compatibility fixes
 - New delivery platform integration in `deliver.sh`
 
-### 🔴 Hard
+###  Hard
 
 - Alternative output targets beyond AGENTS.md (SOUL.md, TOOLS.md)
 - Multi-workspace support (analyze across multiple OpenClaw instances)
@@ -139,11 +139,11 @@ set -euo pipefail   # Every script starts with this (except register-cron.sh —
 Always quote variable expansions. No exceptions.
 
 ```bash
-# ❌ Wrong
+#  Wrong
 echo $VAR
 cat $FILE
 
-# ✅ Correct
+#  Correct
 echo "$VAR"
 cat "$FILE"
 ```
@@ -153,10 +153,10 @@ cat "$FILE"
 Check before reading:
 
 ```bash
-# ❌ Wrong
+#  Wrong
 content=$(cat "$file")
 
-# ✅ Correct
+#  Correct
 if [[ -f "$file" ]]; then
   content=$(cat "$file")
 fi
@@ -217,11 +217,11 @@ Rules for inline Python:
 The project must work on macOS's default bash (3.2). This means:
 
 ```bash
-# ❌ bash 4+ only
+#  bash 4+ only
 declare -A my_map
 my_map[key]="value"
 
-# ✅ bash 3.2 compatible
+#  bash 3.2 compatible
 MY_MAP_KEY="value"          # individual variables
 eval "_var_${key}='${val}'" # dynamic variable naming
 ```

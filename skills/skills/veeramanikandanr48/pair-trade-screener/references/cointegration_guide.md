@@ -125,10 +125,10 @@ Use both as filters:
 
 | Correlation | Cointegration | Trade? |
 |-------------|---------------|--------|
-| High (≥0.70) | Yes (p<0.05) | ✅ **YES** |
-| High (≥0.70) | No (p>0.05) | ❌ **NO** |
-| Low (<0.70) | Yes (p<0.05) | 🟡 **MAYBE** (unusual) |
-| Low (<0.70) | No (p>0.05) | ❌ **NO** |
+| High (≥0.70) | Yes (p<0.05) |  **YES** |
+| High (≥0.70) | No (p>0.05) |  **NO** |
+| Low (<0.70) | Yes (p<0.05) |  **MAYBE** (unusual) |
+| Low (<0.70) | No (p>0.05) |  **NO** |
 
 ---
 
@@ -261,13 +261,13 @@ for key, value in critical_values.items():
 
 # Step 6: Interpret
 if p_value < 0.01:
-    print("\n✅ STRONG Cointegration (p < 0.01)")
+    print("\n STRONG Cointegration (p < 0.01)")
     strength = "★★★"
 elif p_value < 0.05:
-    print("\n✅ MODERATE Cointegration (p < 0.05)")
+    print("\n MODERATE Cointegration (p < 0.05)")
     strength = "★★"
 else:
-    print("\n❌ NOT Cointegrated (p > 0.05)")
+    print("\n NOT Cointegrated (p > 0.05)")
     strength = "☆"
 
 # Step 7: Calculate half-life (if cointegrated)
@@ -344,11 +344,11 @@ print(f"AAPL/MSFT Cointegration p-value: {adf_result[1]:.4f}")
 
 | P-Value Range | Interpretation | Confidence | Trade? |
 |---------------|----------------|------------|--------|
-| p < 0.01 | Very strong cointegration | 99% | ✅ **YES** (★★★) |
-| p 0.01-0.03 | Strong cointegration | 97-99% | ✅ **YES** (★★★) |
-| p 0.03-0.05 | Moderate cointegration | 95-97% | ✅ **YES** (★★) |
-| p 0.05-0.10 | Weak evidence | 90-95% | 🟡 **MARGINAL** (★) |
-| p > 0.10 | No cointegration | <90% | ❌ **NO** (☆) |
+| p < 0.01 | Very strong cointegration | 99% |  **YES** (★★★) |
+| p 0.01-0.03 | Strong cointegration | 97-99% |  **YES** (★★★) |
+| p 0.03-0.05 | Moderate cointegration | 95-97% |  **YES** (★★) |
+| p 0.05-0.10 | Weak evidence | 90-95% |  **MARGINAL** (★) |
+| p > 0.10 | No cointegration | <90% |  **NO** (☆) |
 
 ### ADF Statistic Interpretation
 
@@ -376,34 +376,34 @@ Pair D: ADF = -2.45, p = 0.125 → ☆ (Reject)
 **Mistake 1: Testing Individual Prices**
 ```python
 # WRONG: Testing if stock price is stationary
-adf_result = adfuller(prices_A)  # ❌ Will always fail (prices are random walks)
+adf_result = adfuller(prices_A)  #  Will always fail (prices are random walks)
 ```
 
 **Correct:**
 ```python
 # RIGHT: Test if SPREAD is stationary
 spread = prices_A - (beta * prices_B)
-adf_result = adfuller(spread)  # ✅ Tests for cointegration
+adf_result = adfuller(spread)  #  Tests for cointegration
 ```
 
 **Mistake 2: Ignoring Lag Selection**
 ```python
 # WRONG: Using too many lags (overfitting)
-adf_result = adfuller(spread, maxlag=20)  # ❌ Too complex
+adf_result = adfuller(spread, maxlag=20)  #  Too complex
 
 # RIGHT: Use simple lag structure
-adf_result = adfuller(spread, maxlag=1)  # ✅ Appropriate for daily data
+adf_result = adfuller(spread, maxlag=1)  #  Appropriate for daily data
 ```
 
 **Mistake 3: Confusing Correlation with Cointegration**
 ```python
 # WRONG: Assuming high correlation = cointegration
 if correlation > 0.80:
-    trade_pair()  # ❌ Not sufficient
+    trade_pair()  #  Not sufficient
 
 # RIGHT: Test for cointegration explicitly
 if correlation > 0.70 and cointegration_pvalue < 0.05:
-    trade_pair()  # ✅ Both conditions required
+    trade_pair()  #  Both conditions required
 ```
 
 ---
@@ -472,16 +472,16 @@ print(f"Half-Life: {half_life:.1f} days")
 **Trading Implications:**
 
 **Fast Half-Life (< 30 days):**
-- ✅ Quick profits
-- ✅ Lower holding risk
-- ✅ Frequent opportunities
-- ❌ Transaction costs matter more
+-  Quick profits
+-  Lower holding risk
+-  Frequent opportunities
+-  Transaction costs matter more
 
 **Slow Half-Life (> 60 days):**
-- ✅ More stable relationships
-- ❌ Capital tied up longer
-- ❌ Fewer trading opportunities
-- ❌ Higher holding risk (regime changes)
+-  More stable relationships
+-  Capital tied up longer
+-  Fewer trading opportunities
+-  Higher holding risk (regime changes)
 
 ### Half-Life Stability
 
@@ -540,9 +540,9 @@ residuals = prices_A - (slope * prices_B + intercept)
 stat, pvalue = breaks_cusumolsresid(residuals)
 
 if pvalue < 0.05:
-    print("⚠️ STRUCTURAL BREAK DETECTED")
+    print(" STRUCTURAL BREAK DETECTED")
 else:
-    print("✅ No structural break")
+    print(" No structural break")
 ```
 
 ### Rolling Cointegration
@@ -574,9 +574,9 @@ plt.show()
 ```
 
 **Interpretation:**
-- P-value stays below 0.05 → Cointegration stable ✅
-- P-value crosses above 0.05 → Cointegration breaking down ⚠️
-- P-value remains above 0.10 → Relationship broken ❌
+- P-value stays below 0.05 → Cointegration stable 
+- P-value crosses above 0.05 → Cointegration breaking down 
+- P-value remains above 0.10 → Relationship broken 
 
 ### Early Warning System
 
@@ -586,13 +586,13 @@ plt.show()
 recent_pvalue = calculate_rolling_cointegration(prices_A[-90:], prices_B[-90:])
 
 if recent_pvalue > 0.10:
-    print("🚨 EXIT SIGNAL: Cointegration broken")
+    print(" EXIT SIGNAL: Cointegration broken")
     exit_pair()
 elif recent_pvalue > 0.05:
-    print("⚠️ WARNING: Cointegration weakening")
+    print(" WARNING: Cointegration weakening")
     reduce_position()
 else:
-    print("✅ Cointegration healthy")
+    print(" Cointegration healthy")
 ```
 
 ---
@@ -617,10 +617,10 @@ half_life: 28 days
 ```
 
 **Interpretation:**
-- ✅ Very strong cointegration (p < 0.01)
-- ✅ High correlation (0.94)
-- ✅ Fast mean reversion (28 days)
-- ✅ Economic linkage (same sector)
+-  Very strong cointegration (p < 0.01)
+-  High correlation (0.94)
+-  Fast mean reversion (28 days)
+-  Economic linkage (same sector)
 
 **Rating:** ★★★★ (Excellent pair)
 
@@ -650,10 +650,10 @@ half_life: 42 days
 ```
 
 **Interpretation:**
-- ✅ Moderate cointegration (p = 0.031)
-- ✅ Good correlation (0.85)
-- ✅ Acceptable mean reversion (42 days)
-- ⚠️ Different business mix (less perfect linkage)
+-  Moderate cointegration (p = 0.031)
+-  Good correlation (0.85)
+-  Acceptable mean reversion (42 days)
+-  Different business mix (less perfect linkage)
 
 **Rating:** ★★★ (Good pair)
 
@@ -674,10 +674,10 @@ half_life: N/A (not stationary)
 ```
 
 **Interpretation:**
-- ❌ No cointegration (p = 0.182)
-- ✅ Moderate correlation (0.72)
-- ❌ No mean reversion
-- ❌ Weak economic linkage
+-  No cointegration (p = 0.182)
+-  Moderate correlation (0.72)
+-  No mean reversion
+-  Weak economic linkage
 
 **Rating:** ☆ (Reject pair)
 

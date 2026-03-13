@@ -204,7 +204,7 @@ kb-create-list() {
   check_config || return 1
 
   local name="$1"
-  local icon="${2:-📁}"
+  local icon="${2:-}"
 
   if [ -z "$name" ]; then
     echo "Usage: kb-create-list <name> [icon]"

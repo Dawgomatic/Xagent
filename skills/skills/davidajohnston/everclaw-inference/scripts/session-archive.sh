@@ -80,23 +80,23 @@ log "Threshold: ${ARCHIVE_THRESHOLD_MB}MB"
 
 if $CHECK_ONLY; then
   if [[ "$SIZE_KB" -ge "$THRESHOLD_KB" ]]; then
-    log "⚠️  OVER THRESHOLD — archiving recommended"
+    log "  OVER THRESHOLD — archiving recommended"
     exit 1  # Non-zero = over threshold (useful for scripting)
   else
     HEADROOM=$(echo "scale=1; $ARCHIVE_THRESHOLD_MB - $SIZE_MB" | bc)
-    log "✅ Under threshold (${HEADROOM}MB headroom)"
+    log " Under threshold (${HEADROOM}MB headroom)"
     exit 0
   fi
 fi
 
 # --- Decide whether to archive ---
 if ! $FORCE && [[ "$SIZE_KB" -lt "$THRESHOLD_KB" ]]; then
-  log "✅ Under threshold — nothing to archive"
+  log " Under threshold — nothing to archive"
   exit 0
 fi
 
 if $FORCE; then
-  log "🔧 Force mode — archiving regardless of size"
+  log " Force mode — archiving regardless of size"
 fi
 
 # --- Identify active sessions to protect ---
@@ -202,7 +202,7 @@ FREED_MB=$(echo "scale=1; $FREED_KB / 1024" | bc)
 NEW_SIZE_KB=$((SIZE_KB - FREED_KB))
 NEW_SIZE_MB=$(echo "scale=1; $NEW_SIZE_KB / 1024" | bc)
 
-log "✅ Archived $MOVED sessions (freed ${FREED_MB}MB)"
+log " Archived $MOVED sessions (freed ${FREED_MB}MB)"
 log "   Sessions directory: ${SIZE_MB}MB → ${NEW_SIZE_MB}MB"
 log "   Remaining active sessions: $((CANDIDATE_COUNT - MOVED + ${#ACTIVE_IDS[@]}))"
 

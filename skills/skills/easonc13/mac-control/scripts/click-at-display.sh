@@ -37,7 +37,7 @@ if [[ -f "$CALIBRATION_FILE" ]]; then
     SCALE=$(cat "$CALIBRATION_FILE" | grep scaleFactor | sed 's/.*: *\([0-9.]*\).*/\1/')
 else
     SCALE=$DEFAULT_SCALE
-    echo "⚠️  No calibration found, using default scale: $SCALE" >&2
+    echo "  No calibration found, using default scale: $SCALE" >&2
     echo "   Run: bash scripts/calibrate.sh" >&2
 fi
 

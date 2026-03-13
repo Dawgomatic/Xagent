@@ -1,6 +1,6 @@
 ---
 name: remindme
-description: "⏰ simple Telegram reminders for OpenClaw. cron, zero dependencies."
+description: " simple Telegram reminders for OpenClaw. cron, zero dependencies."
 tags: [cron, reminders, productivity, schedule, telegram, discord, slack, whatsapp, signal]
 metadata:
   openclaw:

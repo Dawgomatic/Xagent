@@ -1,7 +1,7 @@
 ---
 name: Onboarding
 description: Design user onboarding flows that maximize activation and time-to-value.
-metadata: {"clawdbot":{"emoji":"🚀","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Define Activation First

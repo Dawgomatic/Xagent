@@ -514,7 +514,7 @@ async function main() {
     } else {
       lines.push(`Open PRs: ${p.github.openPRs.length} | Merged since ${since}: ${p.github.mergedPRs.length}`);
       if (!p.github.drift.length) {
-        lines.push(`No GitHub↔Tasks drift detected by heuristics.`);
+        lines.push(`No GitHubTasks drift detected by heuristics.`);
       } else {
         lines.push(`Drift findings:`);
         for (const d of p.github.drift.slice(0, 50)) {

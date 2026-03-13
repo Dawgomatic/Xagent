@@ -51,7 +51,7 @@ async function ensureWorkerAgent(gateway) {
         id: WORKER_AGENT_ID,
         name: 'SoulFlow Worker',
         workspace: `${stateDir}/workspace`,
-        identity: { name: 'SoulFlow Worker', theme: 'Workflow executor', emoji: '⚙️' },
+        identity: { name: 'SoulFlow Worker', theme: 'Workflow executor', emoji: '' },
         tools: { profile: 'full' }
       };
       
@@ -232,7 +232,7 @@ async function notifyCompletion(gateway, state, workflow) {
  */
 async function notifyFailure(gateway, state, workflow, failedStep, error) {
   try {
-    const message = `🚨 **SoulFlow Workflow Failed**
+    const message = ` **SoulFlow Workflow Failed**
 
 **Workflow:** ${workflow.name}
 **Run ID:** ${state.runId}
@@ -263,7 +263,7 @@ function buildCompletionSummary(state, workflow) {
   const minutes = Math.floor(duration / 60);
   const seconds = duration % 60;
   
-  let summary = `✅ **SoulFlow Workflow Complete**
+  let summary = ` **SoulFlow Workflow Complete**
 
 **Workflow:** ${workflow.name}
 **Run ID:** ${state.runId}

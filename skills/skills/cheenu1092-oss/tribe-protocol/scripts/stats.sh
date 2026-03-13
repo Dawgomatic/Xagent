@@ -20,7 +20,7 @@ T0=$(db_query "SELECT COUNT(*) FROM entities WHERE trust_tier=0 AND status='acti
 TAGS=$(db_query "SELECT COUNT(DISTINCT tag) FROM entity_tags;")
 AUDIT=$(db_query "SELECT COUNT(*) FROM audit_log;")
 
-echo "📊 Tribe Stats"
+echo " Tribe Stats"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "   $TOTAL entities ($HUMANS human, $BOTS bot), $SERVERS servers"
 echo "   Tier distribution: T4:$T4 T3:$T3 T2:$T2 T1:$T1 T0:$T0"

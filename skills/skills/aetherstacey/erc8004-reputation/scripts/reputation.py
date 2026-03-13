@@ -331,9 +331,9 @@ def cmd_give(args):
 
     receipt = w3.eth.wait_for_transaction_receipt(tx_hash, timeout=120)
     if receipt['status'] == 1:
-        print(f"✅ Feedback submitted! Gas used: {receipt['gasUsed']}")
+        print(f" Feedback submitted! Gas used: {receipt['gasUsed']}")
     else:
-        print("❌ Transaction failed!", file=sys.stderr)
+        print(" Transaction failed!", file=sys.stderr)
         sys.exit(1)
 
 
@@ -444,9 +444,9 @@ def cmd_revoke(args):
 
     receipt = w3.eth.wait_for_transaction_receipt(tx_hash, timeout=120)
     if receipt['status'] == 1:
-        print(f"✅ Feedback revoked!")
+        print(f" Feedback revoked!")
     else:
-        print("❌ Transaction failed!", file=sys.stderr)
+        print(" Transaction failed!", file=sys.stderr)
         sys.exit(1)
 
 

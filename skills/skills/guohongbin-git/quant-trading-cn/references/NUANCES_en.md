@@ -6,7 +6,7 @@ This file contains common mistakes that cost hours of debugging and thousands of
 
 ---
 
-## 🔥 CRITICAL: ALWAYS DO THESE (or debug for hours)
+##  CRITICAL: ALWAYS DO THESE (or debug for hours)
 
 ### 1. Zerodha API - Tick Size Rounding
 
@@ -18,7 +18,7 @@ kite.place_order(
     exchange=kite.EXCHANGE_NSE,
     transaction_type=kite.TRANSACTION_TYPE_BUY,
     quantity=100,
-    price=1847.35,  # ❌ NOT rounded to tick size
+    price=1847.35,  #  NOT rounded to tick size
     order_type=kite.ORDER_TYPE_LIMIT
 )
 ```
@@ -38,7 +38,7 @@ tick_size = instruments[instruments['tradingsymbol'] == 'RELIANCE']['tick_size']
 price = 1847.35
 rounded_price = round(price / tick_size) * tick_size  # 1847.35 → 1850.00
 
-kite.place_order(price=rounded_price, ...)  # ✅ Works
+kite.place_order(price=rounded_price, ...)  #  Works
 ```
 
 **Why This Matters:**
@@ -59,7 +59,7 @@ kite.place_order(price=rounded_price, ...)  # ✅ Works
 ```python
 # On bot restart, just load local positions file
 positions = json.load(open("positions.json"))
-# ❌ Assumes local state is truth
+#  Assumes local state is truth
 ```
 
 **The Reality:**
@@ -131,7 +131,7 @@ def reconcile_positions_on_startup():
 cancel_old_sl_order(old_sl_id)  # Cancel first
 place_new_sl_order(new_sl_price)  # Then place
 
-# ❌ DANGER: If place fails, position is NAKED (no protection)
+#  DANGER: If place fails, position is NAKED (no protection)
 ```
 
 **The Real Production Bug:**
@@ -216,11 +216,11 @@ if sl_modification_failures >= 3:
 cumulative_tpv = 0
 cumulative_volume = 0
 
-for candle in all_candles:  # ❌ Spans multiple days
+for candle in all_candles:  #  Spans multiple days
     typical_price = (candle['high'] + candle['low'] + candle['close']) / 3
     cumulative_tpv += typical_price * candle['volume']
     cumulative_volume += candle['volume']
-    vwap = cumulative_tpv / cumulative_volume  # ❌ WRONG
+    vwap = cumulative_tpv / cumulative_volume  #  WRONG
 ```
 
 **The Symptom:**
@@ -287,7 +287,7 @@ def check_for_signals():
     for symbol in universe:
         signal = generate_signal(symbol)
         if signal:
-            execute_trade(symbol)  # ❌ Can re-enter immediately after exit
+            execute_trade(symbol)  #  Can re-enter immediately after exit
 ```
 
 **The Real Production Bug:**
@@ -296,11 +296,11 @@ def check_for_signals():
 **What Happened:**
 ```
 09:30 - BUY HINDALCO at ₹650 (signal triggered)
-09:35 - SELL at ₹648 (stop loss hit) ❌ -₹2,000
-09:36 - BUY again at ₹649 (same signal re-triggered) ❌
-09:40 - SELL at ₹647 (stop loss hit) ❌ -₹2,000
-09:41 - BUY again at ₹648 ❌
-09:45 - SELL at ₹646 ❌ -₹2,000
+09:35 - SELL at ₹648 (stop loss hit)  -₹2,000
+09:36 - BUY again at ₹649 (same signal re-triggered) 
+09:40 - SELL at ₹647 (stop loss hit)  -₹2,000
+09:41 - BUY again at ₹648 
+09:45 - SELL at ₹646  -₹2,000
 
 Total loss: ₹6,000 in 15 minutes (same stock, same bad signal)
 ```
@@ -323,7 +323,7 @@ def can_trade_symbol(symbol, cooldown_minutes=45):
 
     if time_since_exit < cooldown_minutes * 60:
         minutes_left = (cooldown_minutes * 60 - time_since_exit) / 60
-        logger.info(f"❌ {symbol} in cooldown ({minutes_left:.1f} min left)")
+        logger.info(f" {symbol} in cooldown ({minutes_left:.1f} min left)")
         return False
 
     return True
@@ -361,7 +361,7 @@ def generate_signal(symbol):
 # Using latest candle immediately
 current_candle = df.iloc[-1]
 if current_candle['close'] > current_candle['vwap']:
-    signal = "LONG"  # ❌ Candle might not be complete
+    signal = "LONG"  #  Candle might not be complete
 ```
 
 **The Symptom:**
@@ -420,11 +420,11 @@ signal = generate_signal(current_candle)
 **The Mistake:**
 ```python
 margins = kite.margins()
-available_balance = margins['equity']['opening_balance']  # ❌ WRONG
+available_balance = margins['equity']['opening_balance']  #  WRONG
 
 # Try to place order
 if order_value <= available_balance:
-    kite.place_order(...)  # ❌ REJECTED: "Insufficient funds"
+    kite.place_order(...)  #  REJECTED: "Insufficient funds"
 ```
 
 **The Confusion:**
@@ -471,7 +471,7 @@ kite.place_order(...)
 **The Mistake:**
 ```python
 if adx > 25:
-    signal = "LONG"  # ❌ WRONG: ADX doesn't tell direction
+    signal = "LONG"  #  WRONG: ADX doesn't tell direction
 ```
 
 **The Reality:**
@@ -513,8 +513,8 @@ else:
 ```
 Win Rate by Session:
 09:15-09:30  42%  (Wild, reduce size)
-09:30-11:30  58%  (Prime time) ✅
-11:30-13:00  45%  (Choppy lunch) ❌
+09:30-11:30  58%  (Prime time) 
+11:30-13:00  45%  (Choppy lunch) 
 13:00-14:00  48%  (Low liquidity)
 14:00-14:45  55%  (Good)
 14:45-15:30  50%  (Position squaring)
@@ -534,11 +534,11 @@ def should_trade_now(current_time):
 
     # Blocked windows
     if 135 <= minutes_since_open < 225:  # 11:30-13:00
-        logger.info("⏸ Lunch lull (11:30-13:00), skipping trade")
+        logger.info(" Lunch lull (11:30-13:00), skipping trade")
         return False
 
     if minutes_since_open < 15:  # 09:15-09:30
-        logger.info("⚠️ Opening volatility, reduce size 50%")
+        logger.info(" Opening volatility, reduce size 50%")
         return "REDUCE_SIZE"
 
     return True
@@ -567,7 +567,7 @@ elif trade_status == "REDUCE_SIZE":
 ```
 Loading 1000 candles (OHLCV):
 JSON:    2.3 seconds
-Parquet: 0.08 seconds  ← 28.7x faster ✅
+Parquet: 0.08 seconds  ← 28.7x faster 
 ```
 
 **The Mistake:**
@@ -600,7 +600,7 @@ df = pl.read_parquet("cache/RELIANCE_2026-02-14.parquet")  # 0.08s
 
 ---
 
-## 🚀 PERFORMANCE: Do These for 10x+ Speedup
+##  PERFORMANCE: Do These for 10x+ Speedup
 
 ### 11. Vectorize with Polars, Not Pandas Loops
 
@@ -695,7 +695,7 @@ def generate_signal(df, symbol):
 
 ---
 
-## 📊 DATA QUALITY: Check These or Backtest Lies
+##  DATA QUALITY: Check These or Backtest Lies
 
 ### 14. Volume Can Be 0 During Market Hours
 
@@ -705,12 +705,12 @@ WebSocket disconnects, tick aggregation breaks, volume shows 0 even during live 
 **The Fix:**
 ```python
 if candle['volume'] == 0:
-    logger.warning(f"⚠️ Volume is 0 for {symbol}, skipping signal")
+    logger.warning(f" Volume is 0 for {symbol}, skipping signal")
     return None
 
 # Or use minimum threshold
 if candle['volume'] < candle['avg_volume'] * 0.1:
-    logger.warning(f"⚠️ Volume too low ({candle['volume']}), likely data issue")
+    logger.warning(f" Volume too low ({candle['volume']}), likely data issue")
     return None
 ```
 
@@ -770,7 +770,7 @@ Candle timestamps misaligned → signals don't match → parity violations
 
 ---
 
-## 💰 CAPITAL MANAGEMENT: Protect Yourself
+##  CAPITAL MANAGEMENT: Protect Yourself
 
 ### 17. T+1 Settlement - Can't Reuse Same Capital Intraday
 
@@ -853,18 +853,18 @@ After 3 consecutive losses, win rate drops to 35% (emotional trading kicks in)
 **The Fix:**
 ```python
 if consecutive_losses >= 3:
-    logger.critical("🛑 3 consecutive losses, pausing trading for the day")
+    logger.critical(" 3 consecutive losses, pausing trading for the day")
     trading_paused = True
     return None
 
 if consecutive_losses >= 2:
-    logger.warning("⚠️ 2 consecutive losses, reducing position size 50%")
+    logger.warning(" 2 consecutive losses, reducing position size 50%")
     position_size *= 0.5
 ```
 
 ---
 
-## 🐛 DEBUGGING: When Things Break
+##  DEBUGGING: When Things Break
 
 ### 21. Structured Logging > Print Statements
 
@@ -943,7 +943,7 @@ backup = backup_file("signal_generator.py")
 
 ---
 
-## 🎯 STRATEGY: What Actually Works
+##  STRATEGY: What Actually Works
 
 ### 24. Multi-Factor Confirmation > Single Indicator
 
@@ -981,7 +981,7 @@ else:  # midcap
 
 ---
 
-## 🌍 INDIAN MARKETS: Specific Quirks
+##  INDIAN MARKETS: Specific Quirks
 
 ### 27. Pre-Open (9:00-9:15) - No Trading Yet
 

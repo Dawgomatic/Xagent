@@ -112,12 +112,12 @@ case "${1:-}" in
         echo "Testing Moltbook API connection..."
         result=$(api_call GET "/posts?sort=hot&limit=1")
         if [[ "$result" == *"success\":true"* ]]; then
-            echo "✅ API connection successful"
+            echo " API connection successful"
             post_count=$(echo "$result" | grep -o '"count":[0-9]*' | grep -o '[0-9]*')
             echo "Found $post_count posts in feed"
             exit 0
         else
-            echo "❌ API connection failed"
+            echo " API connection failed"
             echo "$result" | head -100
             exit 1
         fi

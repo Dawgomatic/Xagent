@@ -25,9 +25,9 @@ if [[ ! -f "$TODAY_FILE" ]]; then
 ## Notes
 - 
 EOF
-    echo "✅ Created: $TODAY_FILE"
+    echo " Created: $TODAY_FILE"
 else
-    echo "📄 Exists: $TODAY_FILE"
+    echo " Exists: $TODAY_FILE"
 fi
 
 echo ""

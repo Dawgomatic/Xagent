@@ -18,7 +18,7 @@ description: Create, manage, and publish ClawMart personas and skills directly f
 
 ## Workflow
 1. Brainstorm listing ideas with user before writing metadata.
-2. **⚠️ DUPLICATE CHECK (mandatory):** Before creating ANY new listing, search your existing listings first:
+2. ** DUPLICATE CHECK (mandatory):** Before creating ANY new listing, search your existing listings first:
    - `GET /listings` — fetch all your current listings
    - Compare the proposed listing name, description, and category against existing ones
    - If a matching or very similar listing already exists, UPDATE it (`PATCH /listings/{id}` + new version) instead of creating a new one
@@ -48,11 +48,11 @@ description: Create, manage, and publish ClawMart personas and skills directly f
 
 ## Price Field
 
-⚠️ **CRITICAL: The `price` field is in DOLLARS, not cents.**
+ **CRITICAL: The `price` field is in DOLLARS, not cents.**
 
-- `"price": 14.99` → $14.99 ✅
-- `"price": 1499` → $1,499.00 ❌ (this is NOT cents!)
-- `"price": 0` → Free listing ✅
+- `"price": 14.99` → $14.99 
+- `"price": 1499` → $1,499.00  (this is NOT cents!)
+- `"price": 0` → Free listing 
 - Minimum paid price: $3.00
 
 When a user says "set price to $14.99", send `"price": 14.99`. Do NOT multiply by 100. The API stores cents internally but accepts and returns dollar values.

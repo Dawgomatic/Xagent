@@ -47,14 +47,14 @@ def format_pnl(results):
         c = r["currency"]
         lines.append(f"**{r['symbol']}** — {r['shares']} shares @ avg {fmt_price(r['avg_cost'], c)}")
         if r["current_price"] is not None:
-            e = "🟢" if r["unrealized_pnl"] >= 0 else "🔴"
+            e = "" if r["unrealized_pnl"] >= 0 else ""
             s = "+" if r["unrealized_pnl"] >= 0 else ""
             lines.append(f"  Now: {fmt_price(r['current_price'], c)} | Value: {fmt_price(r['market_value'], c)}")
             lines.append(f"  {e} P&L: {s}{fmt_price(r['unrealized_pnl'], c)} ({s}{r['unrealized_pct']:.2f}%)")
             tc += r["cost_basis"]; tv += r["market_value"]; tp += r["unrealized_pnl"]
         lines.append("")
     if tc > 0:
-        e = "🟢" if tp >= 0 else "🔴"; s = "+" if tp >= 0 else ""
+        e = "" if tp >= 0 else ""; s = "+" if tp >= 0 else ""
         lines += ["---", f"**Total**: {fmt_price(tv, 'USD')} | {e} {s}{fmt_price(tp, 'USD')} ({s}{tp/tc*100:.2f}%)"]
     return "\n".join(lines)
 

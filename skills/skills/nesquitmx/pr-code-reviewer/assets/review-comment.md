@@ -27,9 +27,9 @@ Link a documentación, regla o estándar que respalda el comentario.
 
 ## Ejemplos por Severidad
 
-### 🔴 BLOCKER
+###  BLOCKER
 
-🔴 **Seguridad: SQL Injection en búsqueda de usuarios**
+ **Seguridad: SQL Injection en búsqueda de usuarios**
 
 **Archivo:** `src/repositories/user.repository.ts` líneas 45-48
 
@@ -57,9 +57,9 @@ de la base de datos. Esto es una vulnerabilidad crítica.
 
 ---
 
-### 🔴 BLOCKER
+###  BLOCKER
 
-🔴 **Credenciales: API key hardcodeada en código fuente**
+ **Credenciales: API key hardcodeada en código fuente**
 
 **Archivo:** `src/services/payment.service.ts` línea 12
 
@@ -90,9 +90,9 @@ Además:
 
 ---
 
-### 🟡 WARNING
+###  WARNING
 
-🟡 **Complejidad: Función con nesting excesivo y múltiples responsabilidades**
+ **Complejidad: Función con nesting excesivo y múltiples responsabilidades**
 
 **Archivo:** `src/services/order.service.ts` líneas 78-142
 
@@ -125,9 +125,9 @@ Extraer en funciones con responsabilidad única:
 
 ---
 
-### 🟡 WARNING
+###  WARNING
 
-🟡 **Error Handling: Errores silenciados en llamada a servicio externo**
+ **Error Handling: Errores silenciados en llamada a servicio externo**
 
 **Archivo:** `src/services/notification.service.ts` líneas 23-30
 
@@ -173,9 +173,9 @@ de compra, reset de password) sin que el equipo lo detecte.
 
 ---
 
-### 🔵 SUGGESTION
+###  SUGGESTION
 
-🔵 **Legibilidad: Extraer magic numbers a constantes con nombre descriptivo**
+ **Legibilidad: Extraer magic numbers a constantes con nombre descriptivo**
 
 **Archivo:** `src/services/pricing.service.ts` líneas 15, 23, 31
 
@@ -203,9 +203,9 @@ no sabrá por qué 1000, 0.15 o 50 son esos valores específicos.
 
 ---
 
-### 🔵 SUGGESTION
+###  SUGGESTION
 
-🔵 **Testing: Agregar tests para los nuevos edge cases**
+ **Testing: Agregar tests para los nuevos edge cases**
 
 **Archivo:** `src/services/order.service.ts`
 
@@ -252,9 +252,9 @@ futuro podría romper estos escenarios sin que nadie lo note.
 
 ---
 
-### 💡 NIT
+###  NIT
 
-💡 **Formato: Import no utilizado**
+ **Formato: Import no utilizado**
 
 **Archivo:** `src/controllers/user.controller.ts` línea 3
 
@@ -271,9 +271,9 @@ futuro podría romper estos escenarios sin que nadie lo note.
 
 ---
 
-### 💡 NIT
+###  NIT
 
-💡 **Naming: Nombre de variable no refleja su contenido**
+ **Naming: Nombre de variable no refleja su contenido**
 
 **Archivo:** `src/services/report.service.ts` línea 45
 
@@ -291,7 +291,7 @@ futuro podría romper estos escenarios sin que nadie lo note.
 
 ## Guía de Tono
 
-### ✅ Tono Correcto
+###  Tono Correcto
 - Constructivo y respetuoso
 - Enfocado en el código, no en la persona
 - Ofrece solución, no solo señala el problema
@@ -299,7 +299,7 @@ futuro podría romper estos escenarios sin que nadie lo note.
 - Usa "podríamos", "sugiero", "considera" para suggestions/nits
 - Usa lenguaje directo pero no agresivo para blockers
 
-### ❌ Tono Incorrecto
+###  Tono Incorrecto
 - "¿Por qué hiciste esto?" → "Este approach tiene el riesgo de..."
 - "Esto está mal" → "Esto podría causar [problema específico]"
 - "Obvio que debería ser..." → "Considera usar X porque..."

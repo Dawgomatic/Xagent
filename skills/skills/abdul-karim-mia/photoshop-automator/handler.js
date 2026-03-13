@@ -69,9 +69,9 @@ module.exports = {
                 } catch (e) { }
 
                 if (output.includes('SUCCESS') || (!isWin && result.status === 0)) {
-                    return { text: '✅ **Photoshop Script Executed Successfully**' };
+                    return { text: ' **Photoshop Script Executed Successfully**' };
                 } else {
-                    return { text: `❌ **Photoshop Error**:\n\`\`\`\n${output}\n\`\`\`` };
+                    return { text: ` **Photoshop Error**:\n\`\`\`\n${output}\n\`\`\`` };
                 }
             }
         },

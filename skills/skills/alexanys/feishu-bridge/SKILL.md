@@ -71,7 +71,7 @@ Bridge replies only when: user @-mentions the bot, message ends with `?`/`？`, 
 
 | Variable | Required | Default |
 |---|---|---|
-| `FEISHU_APP_ID` | ✅ | — |
+| `FEISHU_APP_ID` |  | — |
 | `FEISHU_APP_SECRET_PATH` | — | `~/.clawdbot/secrets/feishu_app_secret` |
 | `CLAWDBOT_CONFIG_PATH` | — | `~/.clawdbot/clawdbot.json` |
 | `CLAWDBOT_AGENT_ID` | — | `main` |

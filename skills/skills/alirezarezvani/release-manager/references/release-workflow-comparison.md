@@ -328,32 +328,32 @@ git commit -m "cleanup: remove legacy payment code"
 ### Decision Matrix
 
 **Choose Git Flow if:**
-- ✅ Team size > 10 developers
-- ✅ Scheduled release cycles (weekly/monthly)
-- ✅ Multiple versions supported simultaneously
-- ✅ Formal testing and QA processes
-- ✅ Complex enterprise software
-- ❌ Need rapid deployment
-- ❌ Small team or startup
+-  Team size > 10 developers
+-  Scheduled release cycles (weekly/monthly)
+-  Multiple versions supported simultaneously
+-  Formal testing and QA processes
+-  Complex enterprise software
+-  Need rapid deployment
+-  Small team or startup
 
 **Choose GitHub Flow if:**
-- ✅ Team size 3-10 developers
-- ✅ Web applications or APIs
-- ✅ Strong CI/CD and testing
-- ✅ Daily or continuous deployment
-- ✅ Simple release requirements
-- ❌ Complex release coordination needed
-- ❌ Multiple release branches required
+-  Team size 3-10 developers
+-  Web applications or APIs
+-  Strong CI/CD and testing
+-  Daily or continuous deployment
+-  Simple release requirements
+-  Complex release coordination needed
+-  Multiple release branches required
 
 **Choose Trunk-based Development if:**
-- ✅ Expert development team
-- ✅ Mature DevOps practices
-- ✅ Microservices architecture
-- ✅ Feature flag infrastructure
-- ✅ Multiple deployments per day
-- ✅ Strong automated testing
-- ❌ Junior developers
-- ❌ Complex integration requirements
+-  Expert development team
+-  Mature DevOps practices
+-  Microservices architecture
+-  Feature flag infrastructure
+-  Multiple deployments per day
+-  Strong automated testing
+-  Junior developers
+-  Complex integration requirements
 
 ### Migration Strategies
 

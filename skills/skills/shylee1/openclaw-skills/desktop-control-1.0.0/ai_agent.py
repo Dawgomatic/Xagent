@@ -585,19 +585,19 @@ def create_agent(**kwargs) -> AIDesktopAgent:
 
 
 if __name__ == "__main__":
-    print("🤖 AI Desktop Agent - Cognitive Automation")
+    print(" AI Desktop Agent - Cognitive Automation")
     print("=" * 60)
     
     # Create agent
     agent = AIDesktopAgent(failsafe=True)
     
-    print("\n✨ Examples of what you can ask:")
+    print("\n Examples of what you can ask:")
     print("  - 'Draw a circle in Paint'")
     print("  - 'Type Hello World in Notepad'")
     print("  - 'Open Calculator'")
     print("  - 'Play Solitaire for me'")
     
-    print("\n🎯 Try it:")
+    print("\n Try it:")
     task = input("\nWhat would you like me to do? ")
     
     if task.strip():

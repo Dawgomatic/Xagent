@@ -94,7 +94,7 @@ case "$EVENT_TYPE" in
         # Alert on force push or main branch
         FORCED=$(echo "$PAYLOAD" | jq -r '.forced // false')
         if [[ "$FORCED" == "true" ]] || [[ "$BRANCH" == "main" ]] || [[ "$BRANCH" == "master" ]]; then
-            send_alert "🔄 Push to $REPO_FULLNAME:$BRANCH" \
+            send_alert " Push to $REPO_FULLNAME:$BRANCH" \
                 "**$PUSHER** pushed $COMMIT_COUNT commit(s) to \`$BRANCH\`\n\n$COMMIT_MSGS" \
                 "${FORCED:+high}"
         fi
@@ -162,16 +162,16 @@ case "$EVENT_TYPE" in
         
         # Send alert if important
         if [[ "$IS_IMPORTANT" == "true" ]]; then
-            EMOJI="🔀"
-            [[ "$ACTION" == "merged" ]] && EMOJI="✅"
-            [[ "$ACTION" == "opened" ]] && EMOJI="📥"
-            [[ "$ACTION" == "assigned" ]] && EMOJI="👤"
+            EMOJI=""
+            [[ "$ACTION" == "merged" ]] && EMOJI=""
+            [[ "$ACTION" == "opened" ]] && EMOJI=""
+            [[ "$ACTION" == "assigned" ]] && EMOJI=""
             
             send_alert "$EMOJI PR #$PR_NUMBER $ACTION: $PR_TITLE" \
                 "**$PR_USER** $ACTION a pull request in **$REPO_FULLNAME**\n\n" \
                 "$EMOJI **#$PR_NUMBER**: $PR_TITLE\n" \
                 "\`$HEAD_BRANCH\` → \`$BASE_BRANCH\`\n" \
-                "🔗 $PR_URL" \
+                " $PR_URL" \
                 "$ALERT_PRIORITY"
         fi
         
@@ -239,19 +239,19 @@ case "$EVENT_TYPE" in
         
         # Send alert if important
         if [[ "$IS_IMPORTANT" == "true" ]]; then
-            EMOJI="📝"
-            [[ "$ACTION" == "closed" ]] && EMOJI="✅"
-            [[ "$ACTION" == "assigned" ]] && EMOJI="👤"
-            [[ "$LABELS" =~ (bug|critical) ]] && EMOJI="🐛"
-            [[ "$LABELS" =~ security ]] && EMOJI="🔒"
+            EMOJI=""
+            [[ "$ACTION" == "closed" ]] && EMOJI=""
+            [[ "$ACTION" == "assigned" ]] && EMOJI=""
+            [[ "$LABELS" =~ (bug|critical) ]] && EMOJI=""
+            [[ "$LABELS" =~ security ]] && EMOJI=""
             
             LABELS_STR=""
-            [[ -n "$LABELS" ]] && LABELS_STR="\n🏷️ Labels: $LABELS"
+            [[ -n "$LABELS" ]] && LABELS_STR="\n Labels: $LABELS"
             
             send_alert "$EMOJI Issue #$ISSUE_NUMBER $ACTION: $ISSUE_TITLE" \
                 "**$ISSUE_USER** $ACTION an issue in **$REPO_FULLNAME**$LABELS_STR\n\n" \
                 "$EMOJI **#$ISSUE_NUMBER**: $ISSUE_TITLE\n" \
-                "🔗 $ISSUE_URL" \
+                " $ISSUE_URL" \
                 "$ALERT_PRIORITY"
         fi
         
@@ -268,8 +268,8 @@ case "$EVENT_TYPE" in
             RELEASE_BODY=$(echo "$PAYLOAD" | jq -r '.release.body // ""' | head -c 500)
             IS_PRERELEASE=$(echo "$PAYLOAD" | jq -r '.release.prerelease // false')
             
-            EMOJI="🚀"
-            [[ "$IS_PRERELEASE" == "true" ]] && EMOJI="⚗️"
+            EMOJI=""
+            [[ "$IS_PRERELEASE" == "true" ]] && EMOJI=""
             
             # Log to vault
             VAULT_CONTENT=$(jq -n \
@@ -296,7 +296,7 @@ case "$EVENT_TYPE" in
             send_alert "$EMOJI Release $RELEASE_TAG$PRERELEASE_STR: $REPO_FULLNAME" \
                 "New release published in **$REPO_FULLNAME**\n\n" \
                 "$EMOJI **$RELEASE_TAG**: $RELEASE_NAME$PRERELEASE_STR\n" \
-                "🔗 $RELEASE_URL" \
+                " $RELEASE_URL" \
                 "normal"
             
             echo "Processed release event: $RELEASE_TAG in $REPO_FULLNAME"

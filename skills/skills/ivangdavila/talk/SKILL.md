@@ -1,7 +1,7 @@
 ---
 name: "Talk"
 description: "Set up real-time voice conversations. Phone calls, voice agents, live speech."
-metadata: {"clawdbot":{"emoji":"📞","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Real-Time Voice Setup

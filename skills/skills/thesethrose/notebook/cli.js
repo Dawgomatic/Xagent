@@ -9,7 +9,7 @@ const cmd = args[0];
 
 function printObject(obj, typeName) {
   const type = getType(typeName);
-  console.log(`\n📓 ${obj.title || obj.name}`);
+  console.log(`\n ${obj.title || obj.name}`);
   console.log(`   ID: ${obj.id} | Type: ${typeName}`);
   console.log(`   Created: ${obj.created}`);
   
@@ -34,10 +34,10 @@ function printList(objects, title = 'Objects') {
     console.log(`\nNo objects found.`);
     return;
   }
-  console.log(`\n📓 ${title} (${objects.length})`);
+  console.log(`\n ${title} (${objects.length})`);
   console.log('─'.repeat(60));
   objects.forEach(o => {
-    const icon = o.type === 'project' ? '📁' : o.type === 'task' ? '✅' : '💡';
+    const icon = o.type === 'project' ? '' : o.type === 'task' ? '' : '';
     console.log(`  ${icon} [${o.type}] ${o.title || o.name}`);
     if (o.tags?.length) console.log(`        Tags: ${o.tags.join(', ')}`);
   });
@@ -62,7 +62,7 @@ function parseArgs(argStr) {
 switch (cmd) {
   case 'types': {
     const types = loadTypes();
-    console.log('\n📚 Available Types:');
+    console.log('\n Available Types:');
     types.forEach(t => {
       console.log(`  - ${t.name} (${t.fields.length} fields)`);
     });
@@ -102,7 +102,7 @@ switch (cmd) {
     }
     
     saveType({ name: typeName, fields });
-    console.log(`\n✅ Type "${typeName}" created with ${fields.length} fields.`);
+    console.log(`\n Type "${typeName}" created with ${fields.length} fields.`);
     break;
   }
   
@@ -146,10 +146,10 @@ switch (cmd) {
     
     try {
       const obj = createObject(typeName, data);
-      console.log(`\n✅ Created ${typeName}:`);
+      console.log(`\n Created ${typeName}:`);
       printObject(obj, typeName);
     } catch (e) {
-      console.log(`\n❌ Error: ${e.message}`);
+      console.log(`\n Error: ${e.message}`);
       process.exit(1);
     }
     break;
@@ -163,7 +163,7 @@ switch (cmd) {
       process.exit(1);
     }
     const obj = createObject('idea', { title, tags: parseTags(''), priority: 'medium' });
-    console.log(`\n✅ Created idea: ${obj.title}`);
+    console.log(`\n Created idea: ${obj.title}`);
     break;
   }
   
@@ -174,7 +174,7 @@ switch (cmd) {
     if (!typeName) {
       // List all by type
       const stats = getStats();
-      console.log('\n📊 Stats by Type:');
+      console.log('\n Stats by Type:');
       Object.entries(stats.byType).forEach(([t, count]) => console.log(`  ${t}: ${count}`));
       break;
     }
@@ -260,13 +260,13 @@ switch (cmd) {
     // Generate expansion questions
     const questions = generateExpansionQuestions(obj);
     
-    console.log(`\n🔍 Expanding: ${obj.title}`);
+    console.log(`\n Expanding: ${obj.title}`);
     console.log(`   Classification: ${obj.classification || 'idea'}`);
-    console.log(`\n📝 To deepen this ${typeName}, consider:\n`);
+    console.log(`\n To deepen this ${typeName}, consider:\n`);
     questions.forEach((q, i) => {
       console.log(`  ${i + 1}. ${q}`);
     });
-    console.log(`\n💡 Reply with answers and I'll update the object.`);
+    console.log(`\n Reply with answers and I'll update the object.`);
     console.log(`   Or run: notebook edit ${typeName} "${obj.title}" field:value`);
     break;
   }
@@ -303,7 +303,7 @@ switch (cmd) {
     }
     
     const obj = updateObject(typeName, results[0].id, { [fieldName]: value });
-    console.log(`\n✅ Updated ${typeName}:`);
+    console.log(`\n Updated ${typeName}:`);
     printObject(obj, typeName);
     break;
   }
@@ -327,7 +327,7 @@ switch (cmd) {
     }
     
     deleteObject(typeName, results[0].id);
-    console.log(`\n🗑️  Deleted ${typeName}`);
+    console.log(`\n  Deleted ${typeName}`);
     break;
   }
   
@@ -368,8 +368,8 @@ switch (cmd) {
       }
     }
     
-    const names = objects.map(o => `"${o.obj.title}"`).join(' ↔ ');
-    console.log(`\n🔗 Linked ${names}`);
+    const names = objects.map(o => `"${o.obj.title}"`).join('  ');
+    console.log(`\n Linked ${names}`);
     break;
   }
   
@@ -383,7 +383,7 @@ switch (cmd) {
   
   case 'stats': {
     const stats = getStats();
-    console.log('\n📊 Notebook Stats');
+    console.log('\n Notebook Stats');
     console.log(`   Total objects: ${stats.total}`);
     console.log('   By type:');
     Object.entries(stats.byType).forEach(([t, c]) => console.log(`     ${t}: ${c}`));
@@ -395,7 +395,7 @@ switch (cmd) {
   case 'help':
   default: {
     console.log(`
-📓 Notebook - Object-based personal knowledge base
+ Notebook - Object-based personal knowledge base
 
 Usage: notebook <command> [options]
 

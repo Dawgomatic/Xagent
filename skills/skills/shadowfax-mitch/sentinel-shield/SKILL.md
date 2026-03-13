@@ -12,7 +12,7 @@ triggers:
   - check for threats
   - agent security
 metadata:
-  emoji: "🛡️"
+  emoji: ""
   category: security
   tags:
     - security

@@ -143,24 +143,24 @@ def format_result(result: dict) -> str:
     lines = [f"[{source}] (distance: {distance})"]
     
     if source == 'events':
-        lines.append(f"  📅 {content.get('date', 'unknown')[:10]} | {content.get('category', 'unknown')}")
+        lines.append(f"   {content.get('date', 'unknown')[:10]} | {content.get('category', 'unknown')}")
         lines.append(f"  {content.get('summary', 'No summary')}")
         if content.get('details'):
             details = content['details'][:100] + '...' if len(content.get('details', '')) > 100 else content.get('details', '')
             lines.append(f"  └─ {details}")
     
     elif source == 'lessons':
-        lines.append(f"  💡 [{content.get('domain', 'general')}] {content.get('lesson', 'No lesson')}")
+        lines.append(f"   [{content.get('domain', 'general')}] {content.get('lesson', 'No lesson')}")
         if content.get('context'):
             lines.append(f"  └─ Context: {content.get('context', '')[:80]}")
     
     elif source == 'entities':
-        lines.append(f"  🏷️ {content.get('name', 'Unknown')} ({content.get('type', 'unknown')})")
+        lines.append(f"   {content.get('name', 'Unknown')} ({content.get('type', 'unknown')})")
         if content.get('description'):
             lines.append(f"  └─ {content.get('description', '')[:100]}")
     
     elif source == 'facts':
-        lines.append(f"  📌 {content.get('subject', '?')} → {content.get('predicate', '?')} → {content.get('object', '?')}")
+        lines.append(f"   {content.get('subject', '?')} → {content.get('predicate', '?')} → {content.get('object', '?')}")
     
     return '\n'.join(lines)
 
@@ -187,7 +187,7 @@ def main():
     if args.json:
         print(json.dumps(results, indent=2))
     else:
-        print(f"\n🔍 Search: \"{args.query}\"\n")
+        print(f"\n Search: \"{args.query}\"\n")
         print("-" * 60)
         for result in results:
             print(format_result(result))

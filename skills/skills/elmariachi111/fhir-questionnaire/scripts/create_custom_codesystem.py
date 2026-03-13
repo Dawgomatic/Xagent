@@ -351,13 +351,13 @@ Examples:
         json.dump(valueset, f, indent=2)
 
     # Success message
-    print(f"\n✅ Successfully created reusable code system!\n")
+    print(f"\n Successfully created reusable code system!\n")
     print(f"CodeSystem: {codesystem_file}")
     print(f"  URL: {codesystem['url']}")
     print(f"  Concepts: {len(concepts)}")
     print(f"\nValueSet: {valueset_file}")
     print(f"  URL: {valueset['url']}")
-    print(f"\n📋 Usage in Questionnaire (with ValueSet reference):")
+    print(f"\n Usage in Questionnaire (with ValueSet reference):")
     print(f'   "answerValueSet": "{valueset["url"]}"')
     print(f"\n   Or with inline coding (add system to each valueCoding):")
     print(f'   "answerOption": [')
@@ -367,7 +367,7 @@ Examples:
     print(f'       "display": "{concepts[0][1]}"')
     print(f'     }}}}')
     print(f'   ]')
-    print(f"\n💡 Tip: For simpler use cases, consider inline answerOption without system:"
+    print(f"\n Tip: For simpler use cases, consider inline answerOption without system:"
           f'\n   {{"valueCoding": {{"code": "{concepts[0][0]}", "display": "{concepts[0][1]}"}}}}')
     print(f"   This avoids external resource dependencies.")
 

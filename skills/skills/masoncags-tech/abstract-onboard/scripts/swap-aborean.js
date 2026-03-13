@@ -71,7 +71,7 @@ async function main() {
       console.log('TX:', swapTx.hash);
       const receipt = await swapTx.wait();
       console.log('Confirmed in block:', receipt.blockNumber);
-      console.log('\n✅ Aborean CL swap complete!');
+      console.log('\n Aborean CL swap complete!');
       console.log('https://abscan.org/tx/' + swapTx.hash);
       return; // Success!
       

@@ -88,12 +88,12 @@ Execute common SAP operations without manual coding:
 
 | SAP Product | Supported | Integration Method |
 |-------------|-----------|-------------------|
-| SAP ECC 6.0+ | ✅ | RFC, BAPI, IDoc |
-| S/4HANA Cloud | ✅ | OData, REST API |
-| S/4HANA On-Premise | ✅ | RFC, OData, BAPI |
-| SAP BW/4HANA | ✅ | MDX, OData, RFC |
-| SAP Ariba | ✅ | REST API |
-| SAP SuccessFactors | ✅ | OData, SOAP |
-| SAP Concur | ✅ | REST API |
+| SAP ECC 6.0+ |  | RFC, BAPI, IDoc |
+| S/4HANA Cloud |  | OData, REST API |
+| S/4HANA On-Premise |  | RFC, OData, BAPI |
+| SAP BW/4HANA |  | MDX, OData, RFC |
+| SAP Ariba |  | REST API |
+| SAP SuccessFactors |  | OData, SOAP |
+| SAP Concur |  | REST API |
 
 Built with enterprise-grade reliability by SAPCONET - South Africa's leading SAP automation specialists.

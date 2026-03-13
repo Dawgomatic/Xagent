@@ -428,7 +428,7 @@ async function main() {
     console.log(`Balance: ${ethers.formatEther(agentBalance)} ETH`)
 
     if (agentBalance < ethers.parseEther('0.000005')) {
-        console.log(`\n⚠️  Agent needs gas for deployment.`)
+        console.log(`\n  Agent needs gas for deployment.`)
         console.log(`   Send at least 0.00002 ETH to: ${agentWallet.address}`)
         console.log(`   Then run this script again.\n`)
         process.exit(0)
@@ -898,6 +898,6 @@ async function main() {
 }
 
 main().catch(error => {
-    console.error(`\n❌ Error: ${error.message}`)
+    console.error(`\n Error: ${error.message}`)
     process.exit(1)
 })

@@ -13,7 +13,7 @@ tags:
   - pension
 metadata:
   openclaw:
-    emoji: "💰"
+    emoji: ""
 ---
 
 # Investing Skill
@@ -33,7 +33,7 @@ Based on evidence-based, passive investing:
 ### Recommended Portfolio (Moderate Risk)
 
 ```
-📊 Sample Allocation:
+ Sample Allocation:
 ├── 70% Stocks (ETFs)
 │   ├── 50% VWCE (All-World)
 │   ├── 15% IXUS (Ex-US) or EIMI (Emerging)
@@ -80,7 +80,7 @@ Adjust based on:
 ```bash
 #!/bin/bash
 # Check key ETF prices
-echo "📈 ETF Prices - $(date '+%Y-%m-%d')"
+echo " ETF Prices - $(date '+%Y-%m-%d')"
 echo "================================"
 
 # VWCE - Vanguard FTSE All-World
@@ -103,7 +103,7 @@ curl -s "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies
 # Calculate monthly DCA amounts
 BUDGET=${1:-500}  # Monthly investment budget
 
-echo "💰 Monthly DCA Plan - €$BUDGET"
+echo " Monthly DCA Plan - €$BUDGET"
 echo "================================"
 echo "VWCE (70%):   €$((BUDGET * 70 / 100))"
 echo "EIMI (10%):   €$((BUDGET * 10 / 100))"

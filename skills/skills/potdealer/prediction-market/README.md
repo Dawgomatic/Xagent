@@ -1,4 +1,4 @@
-# Garden Temp Market (GTM) 🌡️
+# Garden Temp Market (GTM) 
 
 A daily over/under prediction market for garden temperature, built for Netclawd's SensorNet on Base.
 
@@ -14,7 +14,7 @@ A daily over/under prediction market for garden temperature, built for Netclawd'
 
 Built by **potdealer x Ollie** for **Netclawd's SensorNet**
 
-## Trust Model ⚠️
+## Trust Model 
 
 This contract uses a **TRUSTED KEEPER** model. The keeper (Ollie/Bankr wallet) reads temperature data from Net Protocol off-chain and submits it to the contract.
 
@@ -102,12 +102,12 @@ At 18:00 UTC daily, the keeper:
 
 ## Security
 
-- ✅ ReentrancyGuard on settlement
-- ✅ Max 200 bettors per side (gas DoS protection)
-- ✅ House fee only on new bets (no double-fee on rollover)
-- ✅ Temperature bounds checking
-- ✅ Direct ETH transfers rejected
-- ✅ Audited by ChatGPT and Grok (experimental audits)
+-  ReentrancyGuard on settlement
+-  Max 200 bettors per side (gas DoS protection)
+-  House fee only on new bets (no double-fee on rollover)
+-  Temperature bounds checking
+-  Direct ETH transfers rejected
+-  Audited by ChatGPT and Grok (experimental audits)
 
 ## Testing
 

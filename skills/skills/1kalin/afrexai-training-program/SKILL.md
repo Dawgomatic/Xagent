@@ -48,7 +48,7 @@ For each module, define:
 ```
 | Employee | Module 1 | Module 2 | Module 3 | Overall | Status |
 |----------|----------|----------|----------|---------|--------|
-| Name     | ✅ 92%   | ✅ 88%   | 🔄 In Progress | 60% | On Track |
+| Name     |  92%   |  88%   |  In Progress | 60% | On Track |
 ```
 
 ### Compliance Training Requirements

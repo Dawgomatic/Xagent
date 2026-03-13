@@ -5,11 +5,11 @@
 ### Warning Signs
 | Signal | Level | Action |
 |--------|-------|--------|
-| Score drops 2+ weeks | ⚠️ Yellow | Check sleep, suggest break |
-| Skipping sessions | ⚠️ Yellow | Ask about motivation |
-| Irritability reported | 🔴 Red | Recommend day off |
-| Physical symptoms | 🔴 Red | Suggest medical check |
-| "I can't do this" | 🔴 Red | Emotional support mode |
+| Score drops 2+ weeks |  Yellow | Check sleep, suggest break |
+| Skipping sessions |  Yellow | Ask about motivation |
+| Irritability reported |  Red | Recommend day off |
+| Physical symptoms |  Red | Suggest medical check |
+| "I can't do this" |  Red | Emotional support mode |
 
 ### Prevention Protocols
 

@@ -126,7 +126,7 @@ Detailed specifications and pricing for supported models.
 ### Advantage
 Covered by ChatGPT Plus subscription—no additional per-token charges.
 
-> ⚠️ **Pricing note:** The "$0" cost tier assumes a ChatGPT Plus subscription ($20/mo). If using OpenAI API directly, per-token pricing applies and the cost tier should be adjusted to $$$ (premium). Check current rates at [openai.com/pricing](https://openai.com/pricing) and update the `COST_TIERS` mapping accordingly:
+>  **Pricing note:** The "$0" cost tier assumes a ChatGPT Plus subscription ($20/mo). If using OpenAI API directly, per-token pricing applies and the cost tier should be adjusted to $$$ (premium). Check current rates at [openai.com/pricing](https://openai.com/pricing) and update the `COST_TIERS` mapping accordingly:
 > ```python
 > # If using direct API instead of ChatGPT Plus:
 > COST_TIERS["gpt-5"] = "$$$"  # Not "$$"

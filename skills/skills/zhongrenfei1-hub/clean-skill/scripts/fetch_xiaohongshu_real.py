@@ -100,11 +100,11 @@ class XiaohongshuRealFetcher:
                     if post and self._is_restaurant_post(post):
                         posts.append(post)
                 except Exception as e:
-                    print(f"⚠️ 解析笔记失败: {e}")
+                    print(f" 解析笔记失败: {e}")
                     continue
 
         except Exception as e:
-            print(f"⚠️ 提取笔记列表失败: {e}")
+            print(f" 提取笔记列表失败: {e}")
             # Return empty list on failure
             return []
 
@@ -156,7 +156,7 @@ class XiaohongshuRealFetcher:
             )
 
         except Exception as e:
-            print(f"⚠️ 解析笔记详情失败: {e}")
+            print(f" 解析笔记详情失败: {e}")
             return None
 
     def _parse_count(self, count_text: str) -> int:
@@ -176,7 +176,7 @@ class XiaohongshuRealFetcher:
         name = title.strip()
 
         # 去除 emoji
-        name = re.sub(r'[💕🔥✨🌟📍❗🍜🍲🥘🍱🍣🍻☕🎉👍💯]+', '', name)
+        name = re.sub(r'[]+', '', name)
 
         # 尝试提取「」『』【】内的店名（小红书常见格式）
         bracket_match = re.search(r'[「『【](.+?)[」』】]', name)

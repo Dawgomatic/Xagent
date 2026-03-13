@@ -74,7 +74,7 @@ async function test() {
   const tribe = new TribeProtocol('/Users/cheenu/clawd');
   await tribe.init();
   
-  console.log('✅ Loaded TRIBE.md');
+  console.log(' Loaded TRIBE.md');
   console.log('Summary:', tribe.getSummary());
   
   // Test trust tier lookup
@@ -96,7 +96,7 @@ node test-tribe.js
 
 **Expected output:**
 ```
-✅ Loaded TRIBE.md
+ Loaded TRIBE.md
 Summary: { own_did: 'tribe:bot:cheenu1092:v1', tier_3: 1, tier_2: 0, tier_1: 0, tier_0: 0, total: 1 }
 
 Trust tier for your human (Tier 3): 3
@@ -227,7 +227,7 @@ When Yajat's bot wants to collaborate:
 
 3. **Yajat's bot adds their findings**
 
-4. **Success!** You've completed your first Tribe Protocol collaboration 🎉
+4. **Success!** You've completed your first Tribe Protocol collaboration 
 
 ---
 
@@ -241,9 +241,9 @@ ls -la ~/clawd/TRIBE.md
 
 ### Issue: `getTrustTier() returns 0 for known DID`
 **Solution:** Check DID formatting in TRIBE.md. Must be exact:
-- ✅ `tribe:bot:yajat-assistant:v1`
-- ❌ `tribe:bot:yajat-assistant:v1 ` (extra space)
-- ❌ `tribe:bot:yajat-assistant` (missing version)
+-  `tribe:bot:yajat-assistant:v1`
+-  `tribe:bot:yajat-assistant:v1 ` (extra space)
+-  `tribe:bot:yajat-assistant` (missing version)
 
 ### Issue: Parser fails on TRIBE.md
 **Solution:** Validate markdown structure:
@@ -261,18 +261,18 @@ ls -la ~/clawd/TRIBE.md
 
 ## What You Have Now
 
-✅ **Working Tribe Protocol implementation**
+ **Working Tribe Protocol implementation**
 - Trust tier system (0-3)
 - TRIBE.md parser
 - Privacy boundary enforcement
 - Platform identity lookup
 
-✅ **Integration with your bot**
+ **Integration with your bot**
 - Load on session start
 - Check tier before responding
 - Wrapper for safe file access
 
-✅ **Ready for collaboration**
+ **Ready for collaboration**
 - Add Yajat's bot to Tier 2
 - Share work products safely
 - Block strangers automatically
@@ -336,7 +336,7 @@ grep -E "^\*\*DID:\*\*" TRIBE.md
 ```
 
 **Total time:** ~1-2 hours  
-**Status:** ✅ Basic Tribe Protocol working
+**Status:**  Basic Tribe Protocol working
 
 ---
 
@@ -356,4 +356,4 @@ grep -E "^\*\*DID:\*\*" TRIBE.md
 3. Ask in Discord (tag collaborators)
 4. File an issue (when we open-source)
 
-**Happy collaborating!** 🤖🤝🤖
+**Happy collaborating!** 

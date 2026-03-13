@@ -476,7 +476,7 @@ kaspad --version
 
 ### Enabling External RPC Access
 
-**⚠️ Security Warning:** Only enable external RPC if you understand the security implications!
+** Security Warning:** Only enable external RPC if you understand the security implications!
 
 ```bash
 # Basic external RPC (NOT SECURE - use only in trusted networks)

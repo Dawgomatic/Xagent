@@ -13,7 +13,7 @@ from desktop_control import DesktopController
 
 def demo_mouse_control():
     """Demo: Mouse movement and clicking"""
-    print("\n🖱️  === MOUSE CONTROL DEMO ===")
+    print("\n  === MOUSE CONTROL DEMO ===")
     
     dc = DesktopController(failsafe=True)
     
@@ -31,16 +31,16 @@ def demo_mouse_control():
     
     print(f"Final position: {dc.get_mouse_position()}")
     
-    print("✅ Mouse demo complete!")
+    print(" Mouse demo complete!")
 
 
 def demo_keyboard_control():
     """Demo: Keyboard typing"""
-    print("\n⌨️  === KEYBOARD CONTROL DEMO ===")
+    print("\n  === KEYBOARD CONTROL DEMO ===")
     
     dc = DesktopController()
     
-    print("\n⚠️  In 3 seconds, I'll type 'Hello from OpenClaw!' in the active window")
+    print("\n  In 3 seconds, I'll type 'Hello from OpenClaw!' in the active window")
     print("Switch to Notepad or any text editor NOW!")
     time.sleep(3)
     
@@ -55,12 +55,12 @@ def demo_keyboard_control():
     # Type instant
     dc.type_text("This was typed instantly!", interval=0)
     
-    print("\n✅ Keyboard demo complete!")
+    print("\n Keyboard demo complete!")
 
 
 def demo_screen_capture():
     """Demo: Screenshot functionality"""
-    print("\n📸 === SCREEN CAPTURE DEMO ===")
+    print("\n === SCREEN CAPTURE DEMO ===")
     
     dc = DesktopController()
     
@@ -87,12 +87,12 @@ def demo_screen_capture():
     r, g, b = dc.get_pixel_color(center_x, center_y)
     print(f"   Color at ({center_x}, {center_y}): RGB({r}, {g}, {b})")
     
-    print("\n✅ Screen capture demo complete!")
+    print("\n Screen capture demo complete!")
 
 
 def demo_window_management():
     """Demo: Window operations"""
-    print("\n🪟 === WINDOW MANAGEMENT DEMO ===")
+    print("\n === WINDOW MANAGEMENT DEMO ===")
     
     dc = DesktopController()
     
@@ -105,16 +105,16 @@ def demo_window_management():
     for i, title in enumerate(windows[:15], 1):  # Show first 15
         print(f"   {i}. {title}")
     
-    print("\n✅ Window management demo complete!")
+    print("\n Window management demo complete!")
 
 
 def demo_hotkeys():
     """Demo: Keyboard shortcuts"""
-    print("\n🔥 === HOTKEY DEMO ===")
+    print("\n === HOTKEY DEMO ===")
     
     dc = DesktopController()
     
-    print("\n⚠️  This demo will:")
+    print("\n  This demo will:")
     print("   1. Open Windows Run dialog (Win+R)")
     print("   2. Type 'notepad'")
     print("   3. Press Enter to open Notepad")
@@ -145,12 +145,12 @@ def demo_hotkeys():
     dc.type_text("- Keyboard control ✓\n", wpm=60)
     dc.type_text("- Hotkeys ✓\n", wpm=60)
     
-    print("\n✅ Hotkey demo complete!")
+    print("\n Hotkey demo complete!")
 
 
 def demo_advanced_automation():
     """Demo: Complete automation workflow"""
-    print("\n🚀 === ADVANCED AUTOMATION DEMO ===")
+    print("\n === ADVANCED AUTOMATION DEMO ===")
     
     dc = DesktopController()
     
@@ -179,15 +179,15 @@ def demo_advanced_automation():
         dc.copy_to_clipboard(original)
         print("4. Restored original clipboard")
     
-    print("\n✅ Advanced automation demo complete!")
+    print("\n Advanced automation demo complete!")
 
 
 def  main():
     """Run all demos"""
     print("=" * 60)
-    print("🎮 DESKTOP CONTROL SKILL - DEMO SUITE")
+    print(" DESKTOP CONTROL SKILL - DEMO SUITE")
     print("=" * 60)
-    print("\n⚠️  IMPORTANT:")
+    print("\n  IMPORTANT:")
     print("- Failsafe is ENABLED (move mouse to corner to abort)")
     print("- Some demos will control your mouse and keyboard")
     print("- Close important applications before continuing")
@@ -203,7 +203,7 @@ def  main():
     ]
     
     while True:
-        print("\n📋 SELECT DEMO:")
+        print("\n SELECT DEMO:")
         for i, (name, _) in enumerate(demos, 1):
             print(f"  {i}. {name}")
         print(f"  {len(demos) + 1}. Run All")
@@ -212,7 +212,7 @@ def  main():
         choice = input("\nEnter choice: ").strip()
         
         if choice == '0':
-            print("\n👋 Goodbye!")
+            print("\n Goodbye!")
             break
         elif choice == str(len(demos) + 1):
             for name, func in demos:
@@ -220,19 +220,19 @@ def  main():
                 func()
                 time.sleep(1)
             print(f"\n{'=' * 60}")
-            print("🎉 All demos complete!")
+            print(" All demos complete!")
         elif choice.isdigit() and 1 <= int(choice) <= len(demos):
             demos[int(choice) - 1][1]()
         else:
-            print("❌ Invalid choice!")
+            print(" Invalid choice!")
 
 
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\n\n⚠️  Demo interrupted by user")
+        print("\n\n  Demo interrupted by user")
     except Exception as e:
-        print(f"\n\n❌ Error: {e}")
+        print(f"\n\n Error: {e}")
         import traceback
         traceback.print_exc()

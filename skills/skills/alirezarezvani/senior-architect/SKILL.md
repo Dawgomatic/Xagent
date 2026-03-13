@@ -175,7 +175,7 @@ Structure analysis:
   ✓ controllers/  - Presentation layer detected
   ✓ services/     - Business logic layer detected
   ✓ repositories/ - Data access layer detected
-  ⚠ models/       - Mixed domain and DTOs
+   models/       - Mixed domain and DTOs
 
 Issues:
 - LARGE FILE: UserService.ts (1,847 lines) - consider splitting

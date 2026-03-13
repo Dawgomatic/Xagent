@@ -438,7 +438,7 @@ class AccessibilityChecker:
 </head>
 <body>
     <div class="header">
-        <h1>🔍 Accessibility Report</h1>
+        <h1> Accessibility Report</h1>
         <p><strong>File:</strong> {results['file_name']}</p>
         <p><strong>WCAG Level:</strong> {results['wcag_level']}</p>
         <p><strong>Generated:</strong> {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(results['timestamp']))}</p>
@@ -448,7 +448,7 @@ class AccessibilityChecker:
     </div>
     
     <div class="summary">
-        <h2>📊 Summary</h2>
+        <h2> Summary</h2>
         <div class="stats">
             <div class="stat">
                 <div class="stat-number">{results['summary']['score']}</div>
@@ -471,7 +471,7 @@ class AccessibilityChecker:
 """
 
         if results['issues']:
-            html += "<h2>🐛 Issues Found</h2>\n"
+            html += "<h2> Issues Found</h2>\n"
             
             for issue in results['issues']:
                 severity_class = issue['severity']
@@ -495,14 +495,14 @@ class AccessibilityChecker:
         else:
             html += """
     <div class="recommendations">
-        <h2>🎉 Excellent Work!</h2>
+        <h2> Excellent Work!</h2>
         <p>No accessibility issues found in this design. This indicates strong adherence to WCAG guidelines.</p>
     </div>
 """
 
         html += """
     <div class="recommendations">
-        <h2>💡 Recommendations</h2>
+        <h2> Recommendations</h2>
         <ul>
             <li><strong>Manual Testing:</strong> Automated checks catch many issues, but manual testing with assistive technologies is still essential.</li>
             <li><strong>User Testing:</strong> Include users with disabilities in your testing process.</li>
@@ -550,7 +550,7 @@ def main():
                 print(output_content)
         
         # Print summary
-        print(f"\n🔍 Accessibility Summary:")
+        print(f"\n Accessibility Summary:")
         print(f"   Score: {results['summary']['score']}/100")
         print(f"   Compliance Level: WCAG {results['summary']['compliance_level']}")
         print(f"   Total Issues: {results['summary']['total_issues']}")

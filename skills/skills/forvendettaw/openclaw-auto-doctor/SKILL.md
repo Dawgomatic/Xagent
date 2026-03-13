@@ -128,7 +128,7 @@ model: sonnet
 ### 发现错误时
 
 ```markdown
-## 🚨 检测到新错误
+##  检测到新错误
 
 **错误类型**: TypeError
 **消息**: Cannot read property 'foo' of undefined
@@ -142,7 +142,7 @@ model: sonnet
 ### 找到解决方案时
 
 ```markdown
-## ✅ 找到解决方案
+##  找到解决方案
 
 **来源**: GitHub Issue #123
 **方案**: 更新依赖包版本
@@ -157,7 +157,7 @@ npm update openclaude-sdk
 ### 修复成功时
 
 ```markdown
-## ✅ 修复成功
+##  修复成功
 
 **错误**: Cannot find module 'openclaude-sdk'
 **修复**: 执行 npm install
@@ -169,7 +169,7 @@ npm update openclaude-sdk
 ### 无法修复时
 
 ```markdown
-## ⚠️ 需要人工协助
+##  需要人工协助
 
 **错误**: [错误描述]
 **尝试过的方案**:

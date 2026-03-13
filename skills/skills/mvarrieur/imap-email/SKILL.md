@@ -55,7 +55,7 @@ IMAP_REJECT_UNAUTHORIZED=false  # Set to false for self-signed certs (optional)
 IMAP_MAILBOX=INBOX           # Default mailbox
 ```
 
-**⚠️ Security:** Never commit your `.env` file! It's already in `.gitignore` to prevent accidents.
+** Security:** Never commit your `.env` file! It's already in `.gitignore` to prevent accidents.
 
 **ProtonMail Bridge setup:**
 - Install and run ProtonMail Bridge

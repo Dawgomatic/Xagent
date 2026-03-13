@@ -44,7 +44,7 @@ tests/
 
 ## Making a Release
 
-**⚠️ NEVER manually publish to PyPI!** Always use git tags - CI handles PyPI automatically.
+** NEVER manually publish to PyPI!** Always use git tags - CI handles PyPI automatically.
 
 ### Release Process
 

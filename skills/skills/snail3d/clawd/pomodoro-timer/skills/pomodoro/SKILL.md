@@ -6,7 +6,7 @@ commands:
   pomodoro: node ~/clawd/skills/pomodoro/trigger.js
 ---
 
-# 🍅 ClawDoro
+#  ClawDoro
 
 A beautiful Pomodoro timer with task tracking. Built for focus.
 
@@ -29,14 +29,14 @@ Or just tell Clawd: **"Start ClawDoro"** or **"ClawDoro 45 minutes"**
 
 ## Features
 
-- 🍅 Beautiful, distraction-free timer UI
-- ⏱️ Customizable work/break durations (default 27 min - Clawd's pick!)
-- 📝 Task list with localStorage persistence
-- ⌨️ Keyboard shortcuts (Space = start/pause, R = reset)
-- 🔊 3-pulse soothing chime on completion
-- ☕ Fun "break time" surprise 😉
-- 📱 Mobile responsive
-- 💾 Everything persists between sessions
+-  Beautiful, distraction-free timer UI
+-  Customizable work/break durations (default 27 min - Clawd's pick!)
+-  Task list with localStorage persistence
+-  Keyboard shortcuts (Space = start/pause, R = reset)
+-  3-pulse soothing chime on completion
+-  Fun "break time" surprise 
+-  Mobile responsive
+-  Everything persists between sessions
 
 ## How It Works
 
@@ -53,6 +53,6 @@ Or just tell Clawd: **"Start ClawDoro"** or **"ClawDoro 45 minutes"**
 
 ---
 
-☕ **Support the work:** [Buy Me a Coffee](https://www.buymeacoffee.com/snail3d)
+ **Support the work:** [Buy Me a Coffee](https://www.buymeacoffee.com/snail3d)
 
-Built with 💜 by Clawd for Snail
+Built with  by Clawd for Snail

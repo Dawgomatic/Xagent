@@ -8,7 +8,7 @@ files: ["scripts/*"]
 homepage: https://github.com/Rogue-Iteration/TheBigClaw
 metadata:
   clawdbot:
-    emoji: "🧠"
+    emoji: ""
     primaryEnv: GRADIENT_API_KEY
     requires:
       env:
@@ -23,9 +23,9 @@ metadata:
   tags: ["digitalocean", "gradient-ai", "inferencing", "llm", "chat-completions", "image-generation"]
 ---
 
-# 🦞 Gradient AI — Serverless Inference
+#  Gradient AI — Serverless Inference
 
-> ⚠️ **This is an unofficial community skill**, not maintained by DigitalOcean. Use at your own risk.
+>  **This is an unofficial community skill**, not maintained by DigitalOcean. Use at your own risk.
 
 > *"Why manage GPUs when the ocean provides?" — ancient lobster proverb*
 
@@ -41,13 +41,13 @@ export GRADIENT_API_KEY="your-model-access-key"
 
 **Where to get one:** [DigitalOcean Console](https://cloud.digitalocean.com) → Gradient AI → Model Access Keys → Create Key.
 
-📖 *[Full auth docs](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/use-serverless-inference/#create-a-model-access-key)*
+ *[Full auth docs](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/use-serverless-inference/#create-a-model-access-key)*
 
 ---
 
 ## Tools
 
-### 🔍 List Available Models
+###  List Available Models
 
 Window-shop for LLMs before you swipe the card.
 
@@ -65,11 +65,11 @@ curl -s https://inference.do-ai.run/v1/models \
   -H "Authorization: Bearer $GRADIENT_API_KEY" | python3 -m json.tool
 ```
 
-📖 *[Models reference](https://docs.digitalocean.com/products/gradient-ai-platform/details/models/)*
+ *[Models reference](https://docs.digitalocean.com/products/gradient-ai-platform/details/models/)*
 
 ---
 
-### 💬 Chat Completions
+###  Chat Completions
 
 The classic. Send structured messages (system/user/assistant roles), get a response. OpenAI-compatible, so you probably already know how this works.
 
@@ -101,11 +101,11 @@ curl -s https://inference.do-ai.run/v1/chat/completions \
   }'
 ```
 
-📖 *[Chat Completions docs](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/use-serverless-inference/#chat-completions)*
+ *[Chat Completions docs](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/use-serverless-inference/#chat-completions)*
 
 ---
 
-### ⚡ Responses API (Recommended)
+###  Responses API (Recommended)
 
 DigitalOcean's [recommended endpoint](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/use-serverless-inference/#responses-api) for new integrations. Simpler request format and supports **prompt caching** — a.k.a. "stop paying twice for the same context."
 
@@ -139,15 +139,15 @@ curl -s https://inference.do-ai.run/v1/responses \
 | | Chat Completions | Responses API |
 |---|---|---|
 | **Request format** | Array of messages with roles | Single `input` string |
-| **Prompt caching** | ❌ | ✅ via `store: true` |
+| **Prompt caching** |  |  via `store: true` |
 | **Multi-step tool use** | Manual | Built-in |
 | **Best for** | Structured conversations | Simple queries, cost savings |
 
-📖 *[Responses API docs](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/use-serverless-inference/#responses-api)*
+ *[Responses API docs](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/use-serverless-inference/#responses-api)*
 
 ---
 
-### 🖼️ Generate Images
+###  Generate Images
 
 Turn text prompts into images. Because sometimes a chart isn't enough.
 
@@ -169,11 +169,11 @@ curl -s https://inference.do-ai.run/v1/images/generations \
   }'
 ```
 
-📖 *[Image generation docs](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/use-serverless-inference/#image-generation)*
+ *[Image generation docs](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/use-serverless-inference/#image-generation)*
 
 ---
 
-## 🧠 Model Selection Guide
+##  Model Selection Guide
 
 Not all models are created equal. Choose wisely, young crustacean:
 
@@ -184,15 +184,15 @@ Not all models are created equal. Choose wisely, young crustacean:
 | `deepseek-r1-distill-llama-70b` | Math, code, step-by-step reasoning | Slow | ★★★★★ | 128K |
 | `qwen3-32b` | Quick triage, short tasks | Fastest | ★★★ | 32K |
 
-> **🦞 Pro tip: Cost-aware routing.** Use a fast model (e.g., `qwen3-32b`) to score or triage, then only escalate to a strong model (e.g., `openai-gpt-oss-120b`) when depth is needed. Enable prompt caching for repeated context.
+> ** Pro tip: Cost-aware routing.** Use a fast model (e.g., `qwen3-32b`) to score or triage, then only escalate to a strong model (e.g., `openai-gpt-oss-120b`) when depth is needed. Enable prompt caching for repeated context.
 
 Always run `python3 gradient_models.py` to check what's currently available — the menu changes.
 
-📖 *[Available models](https://docs.digitalocean.com/products/gradient-ai-platform/details/models/)*
+ *[Available models](https://docs.digitalocean.com/products/gradient-ai-platform/details/models/)*
 
 ---
 
-### 💰 Model Pricing Lookup
+###  Model Pricing Lookup
 
 Check what models cost *before* you rack up a bill. Scrapes the official [DigitalOcean pricing page](https://docs.digitalocean.com/products/gradient-ai-platform/details/pricing/) — no API key needed.
 
@@ -208,9 +208,9 @@ python3 gradient_pricing.py --no-cache         # Skip cache, fetch live
 - Caches results for 24 hours in `/tmp/gradient_pricing_cache.json`
 - Falls back to a bundled snapshot if the live fetch fails
 
-> **🦞 Pro tip:** Run `python3 gradient_pricing.py --model "gpt-oss"` before choosing a model to see the cost difference between `gpt-oss-120b` ($0.10/$0.70) and `gpt-oss-20b` ($0.05/$0.45) per 1M tokens.
+> ** Pro tip:** Run `python3 gradient_pricing.py --model "gpt-oss"` before choosing a model to see the cost difference between `gpt-oss-120b` ($0.10/$0.70) and `gpt-oss-20b` ($0.05/$0.45) per 1M tokens.
 
-📖 *[Pricing docs](https://docs.digitalocean.com/products/gradient-ai-platform/details/pricing/)*
+ *[Pricing docs](https://docs.digitalocean.com/products/gradient-ai-platform/details/pricing/)*
 
 ---
 

@@ -93,7 +93,7 @@ async function main() {
     await client.generateSpeechToFile({ text: opts.text, voice_id: voiceId }, opts.output);
   }
   
-  console.log(`✅ Saved to ${opts.output}`);
+  console.log(` Saved to ${opts.output}`);
 }
 
 main().catch(err => {

@@ -392,9 +392,9 @@ class PromptWorkflow {
     console.log(`Ended: ${state.endTime || 'Running'}`);
     console.log('\nSteps:');
     for (const [step, data] of Object.entries(state.steps)) {
-      const icon = data.status === 'completed' ? '✅' :
-                   data.status === 'failed' ? '❌' :
-                   data.status === 'running' ? '⏳' : '⏸️';
+      const icon = data.status === 'completed' ? '' :
+                   data.status === 'failed' ? '' :
+                   data.status === 'running' ? '' : '';
       console.log(`  ${icon} ${step}: ${data.status}`);
       if (data.error) {
         console.log(`     Error: ${data.error}`);

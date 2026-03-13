@@ -24,7 +24,7 @@ const options = program.opts();
 
 async function main() {
   try {
-    console.log('🌸 Bloom Identity Card Generator');
+    console.log(' Bloom Identity Card Generator');
     console.log('================================\n');
 
     const skill = new BloomIdentitySkillV2();
@@ -37,12 +37,12 @@ async function main() {
 
     if (!result.success) {
       if (result.needsManualInput) {
-        console.error('\n❌ Insufficient data. Manual Q&A required.');
+        console.error('\n Insufficient data. Manual Q&A required.');
         console.error('Questions:', result.manualQuestions);
         process.exit(1);
       }
 
-      console.error(`\n❌ Failed: ${result.error}`);
+      console.error(`\n Failed: ${result.error}`);
       process.exit(1);
     }
 
@@ -50,7 +50,7 @@ async function main() {
     formatResult(result);
 
   } catch (error) {
-    console.error('\n❌ Error:', error instanceof Error ? error.message : 'Unknown error');
+    console.error('\n Error:', error instanceof Error ? error.message : 'Unknown error');
     process.exit(1);
   }
 }
@@ -58,16 +58,16 @@ async function main() {
 function formatResult(result: any): void {
   const { identityData, agentWallet, recommendations, mode, dimensions, dashboardUrl, actions } = result;
 
-  const modeEmoji = mode === 'manual' ? '📝' : '🤖';
+  const modeEmoji = mode === 'manual' ? '' : '';
 
   // Top border
   console.log('\n═══════════════════════════════════════════════════════');
-  console.log(`🎉 Your Bloom Identity Card is ready! ${modeEmoji}`);
+  console.log(` Your Bloom Identity Card is ready! ${modeEmoji}`);
   console.log('═══════════════════════════════════════════════════════\n');
 
   // Dashboard URL first (most important)
   if (dashboardUrl) {
-    console.log('🔗 VIEW YOUR IDENTITY CARD (Click below):\n');
+    console.log(' VIEW YOUR IDENTITY CARD (Click below):\n');
     console.log(`   ${dashboardUrl}\n`);
   }
 
@@ -75,11 +75,11 @@ function formatResult(result: any): void {
 
   // Personality (real data from analysis)
   console.log(`${getPersonalityEmoji(identityData.personalityType)} ${identityData.personalityType}`);
-  console.log(`💬 "${identityData.customTagline}"\n`);
-  console.log(`📝 ${identityData.customDescription}\n`);
+  console.log(` "${identityData.customTagline}"\n`);
+  console.log(` ${identityData.customDescription}\n`);
 
   // Categories (real data)
-  console.log(`🏷️  Categories: ${identityData.mainCategories.join(', ')}`);
+  console.log(`  Categories: ${identityData.mainCategories.join(', ')}`);
   if (identityData.subCategories && identityData.subCategories.length > 0) {
     console.log(`   Interests: ${identityData.subCategories.join(', ')}`);
   }
@@ -89,7 +89,7 @@ function formatResult(result: any): void {
   if (dimensions) {
     const isCultivator = identityData.personalityType === 'The Cultivator';
 
-    console.log('📊 2x2 Metrics:');
+    console.log(' 2x2 Metrics:');
     console.log(`   Conviction ${dimensions.conviction} ← → Curiosity ${100 - dimensions.conviction}`);
     console.log(`   Intuition ${dimensions.intuition} ← → Analysis ${100 - dimensions.intuition}`);
 
@@ -103,28 +103,28 @@ function formatResult(result: any): void {
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
   // Skills (real recommendations from ClawHub)
-  console.log(`🎯 Recommended OpenClaw Skills (${recommendations.length}):\n`);
+  console.log(` Recommended OpenClaw Skills (${recommendations.length}):\n`);
   recommendations.slice(0, 5).forEach((skill: any, i: number) => {
     const creatorInfo = skill.creator ? ` • ${skill.creator}` : '';
     console.log(`${i + 1}. ${skill.skillName} (${skill.matchScore}% match)${creatorInfo}`);
     console.log(`   ${skill.description}`);
-    console.log(`   💡 Tip creators with your Agent wallet!`);
+    console.log(`    Tip creators with your Agent wallet!`);
     console.log(`   → ${skill.url}\n`);
   });
 
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
   // Wallet info with marketing message
-  console.log('🤖 Your Agent Wallet Created\n');
+  console.log(' Your Agent Wallet Created\n');
   console.log(`   Network: ${agentWallet?.network || 'Base'}`);
-  console.log('   Status: ✅ Wallet generated and registered\n');
-  console.log('   💡 Use your agent wallet to tip skill creators!');
-  console.log('   ⚠️  Tipping, payments, and management features coming soon');
-  console.log('   🔒 Do not deposit funds - withdrawals not ready yet\n');
+  console.log('   Status:  Wallet generated and registered\n');
+  console.log('    Use your agent wallet to tip skill creators!');
+  console.log('     Tipping, payments, and management features coming soon');
+  console.log('    Do not deposit funds - withdrawals not ready yet\n');
 
   if (actions?.mint) {
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
-    console.log('🪪 SBT Minted on Base:\n');
+    console.log(' SBT Minted on Base:\n');
     console.log(`   Contract: ${actions.mint.contractAddress}`);
     console.log(`   Tx: ${actions.mint.txHash}`);
     console.log(`   Network: ${actions.mint.network}`);
@@ -132,18 +132,18 @@ function formatResult(result: any): void {
   }
 
   console.log('═══════════════════════════════════════════════════════\n');
-  console.log(`${mode === 'manual' ? '📝 Q&A' : '🤖 On-chain'} • @openclaw @coinbase @base 🦞\n`);
+  console.log(`${mode === 'manual' ? ' Q&A' : ' On-chain'} • @openclaw @coinbase @base \n`);
 }
 
 function getPersonalityEmoji(type: string): string {
   const emojiMap: Record<string, string> = {
-    'The Visionary': '💜',
-    'The Explorer': '💚',
-    'The Cultivator': '🩷',
-    'The Optimizer': '🧡',
-    'The Innovator': '💙',
+    'The Visionary': '',
+    'The Explorer': '',
+    'The Cultivator': '',
+    'The Optimizer': '',
+    'The Innovator': '',
   };
-  return emojiMap[type] || '🌸';
+  return emojiMap[type] || '';
 }
 
 // Run the CLI

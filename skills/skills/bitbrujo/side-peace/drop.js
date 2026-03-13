@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Side_Peace 🍒 — Minimal secret handoff (zero deps)
+ * Side_Peace  — Minimal secret handoff (zero deps)
  * 
  * Human opens URL → submits secret → agent reads from temp file
  * Secret NEVER appears in stdout. Fully auditable.
@@ -45,7 +45,7 @@ const html = `<!DOCTYPE html>
   .done{text-align:center;color:#22c55e;font-size:18px;margin-top:40px}
 </style></head>
 <body>
-  <div class="cherry">🍒</div>
+  <div class="cherry"></div>
   <h1>Side_Peace</h1>
   <p class="label">${LABEL}</p>
   <form method="POST" id="f">
@@ -89,7 +89,7 @@ const server = http.createServer((req, res) => {
 // Start
 server.listen(PORT, '0.0.0.0', () => {
   const ips = getLocalIPs();
-  console.log(`🍒 Side_Peace waiting...`);
+  console.log(` Side_Peace waiting...`);
   console.log(`   Label: ${LABEL}`);
   console.log(`   Output: ${OUTPUT}\n`);
   console.log(`   Local:    http://localhost:${PORT}`);

@@ -1,5 +1,5 @@
 /**
- * 📦 Dependency Scanner
+ *  Dependency Scanner
  * 
  * Scans npm dependencies for known vulnerabilities (CVEs)
  */

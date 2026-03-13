@@ -8,7 +8,7 @@ author: Jiang Zhongling (商标蒋道理)
 license: Proprietary
 metadata:
   clawdbot:
-    emoji: "🧠"
+    emoji: ""
     category: legal-ai
     maturity: production
     tags:

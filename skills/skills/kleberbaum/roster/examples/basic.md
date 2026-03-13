@@ -10,10 +10,10 @@ The user sends a CSV file from Google Forms to the bot. The CSV contains availab
 
 ```csv
 Timestamp,"Administrative Arbeit [Mo., 16.02.]",Name,"[Mo., 16.02.]","[Di., 17.02.]","[Mi., 18.02.]","[Do., 19.02.]","[Fr., 20.02.]","[Sa., 21.02.]",An welchen Tagen kannst du dein Auto einsetzen?,Kommentar
-2026/02/13 10:44:22,,,Alex🟦🟪🚗,ab 15:00,ab 14:30,ab 14:30,ab 14:30,ab 14:00,9:00-12:00,"Mo., Di., Mi., Do., Fr., Sa.",
-2026/02/13 11:02:15,,,Jordan🟦🟪,ab 14:00,ab 14:00,ab 15:30,ab 14:00,ab 14:00,nicht möglich,nicht möglich,
-2026/02/13 11:30:00,,,Kim🟥,ab 15:00,nicht möglich,"ab 15:00, bis 18:00",ab 15:00,ab 15:00,nicht möglich,nicht möglich,
-2026/02/13 12:00:00,,,Sam🟥🚗,ab 16:00,ab 15:00,ab 15:00,ab 15:00,"ab 15:30",nicht möglich,"Mi., Do., Fr.",Donnerstag hab ich nur bis 17:30 Zeit
+2026/02/13 10:44:22,,,Alex,ab 15:00,ab 14:30,ab 14:30,ab 14:30,ab 14:00,9:00-12:00,"Mo., Di., Mi., Do., Fr., Sa.",
+2026/02/13 11:02:15,,,Jordan,ab 14:00,ab 14:00,ab 15:30,ab 14:00,ab 14:00,nicht möglich,nicht möglich,
+2026/02/13 11:30:00,,,Kim,ab 15:00,nicht möglich,"ab 15:00, bis 18:00",ab 15:00,ab 15:00,nicht möglich,nicht möglich,
+2026/02/13 12:00:00,,,Sam,ab 16:00,ab 15:00,ab 15:00,ab 15:00,"ab 15:30",nicht möglich,"Mi., Do., Fr.",Donnerstag hab ich nur bis 17:30 Zeit
 ```
 
 ### 2. Bot Response (automatic)

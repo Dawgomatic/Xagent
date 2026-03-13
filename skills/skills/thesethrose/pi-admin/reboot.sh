@@ -4,7 +4,7 @@
 # Usage: ./reboot.sh [--dry-run]
 
 if [ "$1" = "--dry-run" ]; then
-  echo "🔍 DRY RUN MODE - System would reboot but won't"
+  echo " DRY RUN MODE - System would reboot but won't"
   echo "=================================================="
   echo ""
   echo "The system would show a 10-second countdown, then reboot."
@@ -13,7 +13,7 @@ if [ "$1" = "--dry-run" ]; then
   exit 0
 fi
 
-echo "🔄 System Reboot"
+echo " System Reboot"
 echo "=================="
 echo ""
 
@@ -24,7 +24,7 @@ else
   SUDO=""
 fi
 
-echo "⚠️  This will reboot the system!"
+echo "  This will reboot the system!"
 echo ""
 echo "To cancel, press Ctrl+C"
 echo ""
@@ -37,5 +37,5 @@ done
 
 echo ""
 echo ""
-echo "🔄 Rebooting now..."
+echo " Rebooting now..."
 $SUDO reboot

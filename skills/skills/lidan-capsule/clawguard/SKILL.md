@@ -1,7 +1,7 @@
 ---
 name: clawguard
 description: Install and configure the ClawGuard security plugin - an LLM-as-a-Judge guardrail that detects and blocks risky tool calls
-metadata: {"openclaw":{"emoji":"🛡️","homepage":"https://github.com/capsulesecurity/clawguard"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://github.com/capsulesecurity/clawguard"}}
 ---
 
 # ClawGuard Plugin Installation Guide

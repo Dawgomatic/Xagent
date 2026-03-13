@@ -138,7 +138,7 @@ async function main() {
 
         options.port = options.port || 587;
         await saveConfig(options);
-        console.log('✅ Email configuration saved!');
+        console.log(' Email configuration saved!');
         break;
       }
 

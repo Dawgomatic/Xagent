@@ -14,15 +14,15 @@ if (fs.existsSync(keyPath)) {
     sk = generateSecretKey();
     const hexSk = Buffer.from(sk).toString('hex');
     fs.writeFileSync(keyPath, JSON.stringify({ sk: hexSk }));
-    console.log('🔑 New Identity Generated!');
+    console.log(' New Identity Generated!');
 }
 
 const myPub = getPublicKey(sk);
-console.log(`🔑 From: ${myPub.slice(0,8)}...`);
+console.log(` From: ${myPub.slice(0,8)}...`);
 
 // 2. Parse Args
 const recipientHex = process.argv[2]; // Target PubKey
-const messageContent = process.argv[3] || 'ClawdZap Encrypted Ping! 🍄🔒';
+const messageContent = process.argv[3] || 'ClawdZap Encrypted Ping! ';
 
 if (!recipientHex) {
     console.log("Usage: node send_dm.js <recipient_pubkey> <message>");
@@ -45,9 +45,9 @@ async function send() {
     const client = new WebSocket();
 
     client.on('connect', (conn) => {
-        console.log('✅ Connected.');
+        console.log(' Connected.');
         conn.sendUTF(JSON.stringify(['EVENT', signedEvent]));
-        console.log(`🚀 Encrypted DM Sent to ${recipientHex.slice(0,8)}...`);
+        console.log(` Encrypted DM Sent to ${recipientHex.slice(0,8)}...`);
         setTimeout(() => { conn.close(); process.exit(0); }, 500);
     });
 

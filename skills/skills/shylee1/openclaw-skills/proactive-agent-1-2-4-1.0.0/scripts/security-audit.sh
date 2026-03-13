@@ -5,7 +5,7 @@
 # Don't exit on error - we want to complete all checks
 set +e
 
-echo "🔒 Proactive Agent Security Audit"
+echo " Proactive Agent Security Audit"
 echo "=================================="
 echo ""
 
@@ -19,21 +19,21 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 warn() {
-    echo -e "${YELLOW}⚠️  WARNING: $1${NC}"
+    echo -e "${YELLOW}  WARNING: $1${NC}"
     ((WARNINGS++))
 }
 
 fail() {
-    echo -e "${RED}❌ ISSUE: $1${NC}"
+    echo -e "${RED} ISSUE: $1${NC}"
     ((ISSUES++))
 }
 
 pass() {
-    echo -e "${GREEN}✅ $1${NC}"
+    echo -e "${GREEN} $1${NC}"
 }
 
 # 1. Check credential file permissions
-echo "📁 Checking credential files..."
+echo " Checking credential files..."
 if [ -d ".credentials" ]; then
     for f in .credentials/*; do
         if [ -f "$f" ]; then
@@ -51,7 +51,7 @@ fi
 echo ""
 
 # 2. Check for exposed secrets in common files
-echo "🔍 Scanning for exposed secrets..."
+echo " Scanning for exposed secrets..."
 SECRET_PATTERNS="(api[_-]?key|apikey|secret|password|token|auth).*[=:].{10,}"
 for f in $(ls *.md *.json *.yaml *.yml .env* 2>/dev/null || true); do
     if [ -f "$f" ]; then
@@ -65,7 +65,7 @@ pass "Secret scan complete"
 echo ""
 
 # 3. Check gateway security (if clawdbot config exists)
-echo "🌐 Checking gateway configuration..."
+echo " Checking gateway configuration..."
 CONFIG_FILE="$HOME/.clawdbot/clawdbot.json"
 if [ -f "$CONFIG_FILE" ]; then
     # Check if gateway is bound to loopback
@@ -85,7 +85,7 @@ fi
 echo ""
 
 # 4. Check AGENTS.md for security rules
-echo "📋 Checking AGENTS.md for security rules..."
+echo " Checking AGENTS.md for security rules..."
 if [ -f "AGENTS.md" ]; then
     if grep -qi "injection\|external content\|never execute" "AGENTS.md"; then
         pass "AGENTS.md contains injection defense rules"
@@ -104,7 +104,7 @@ fi
 echo ""
 
 # 5. Check for skills from untrusted sources
-echo "📦 Checking installed skills..."
+echo " Checking installed skills..."
 SKILL_DIR="skills"
 if [ -d "$SKILL_DIR" ]; then
     skill_count=$(find "$SKILL_DIR" -maxdepth 1 -type d | wc -l)
@@ -116,7 +116,7 @@ fi
 echo ""
 
 # 6. Check .gitignore
-echo "📄 Checking .gitignore..."
+echo " Checking .gitignore..."
 if [ -f ".gitignore" ]; then
     if grep -q "\.credentials" ".gitignore"; then
         pass ".credentials is gitignored"
@@ -136,7 +136,7 @@ echo ""
 
 # Summary
 echo "=================================="
-echo "📊 Summary"
+echo " Summary"
 echo "=================================="
 if [ $ISSUES -eq 0 ] && [ $WARNINGS -eq 0 ]; then
     echo -e "${GREEN}All checks passed!${NC}"

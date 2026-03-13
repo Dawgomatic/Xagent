@@ -3,7 +3,7 @@ name: zero-rules
 description: "Intercept deterministic tasks (math, time, currency, files, scheduling) BEFORE they hit the LLM. Saves 50-70% on token costs by resolving simple queries locally with zero API calls."
 user-invocable: true
 homepage: https://cascadeai.dev
-metadata: {"openclaw":{"emoji":"🔥","requires":{"bins":["node"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # ZeroRules — Deterministic Task Interceptor
@@ -43,7 +43,7 @@ The script returns JSON:
 
 - **Rule matched** → `{"matched": true, "rule": "math", "result": "4446", "saved_tokens_est": 850, "session_total_saved": 12.47}`
   Use the `result` value as your response. Do NOT call the LLM for this query.
-  Include the savings badge: `🔥 ZeroRules | <rule> | ~<saved_tokens_est> tokens saved | Session: $<session_total_saved> saved`
+  Include the savings badge: ` ZeroRules | <rule> | ~<saved_tokens_est> tokens saved | Session: $<session_total_saved> saved`
 
 - **No match** → `{"matched": false}`
   Proceed normally with the LLM. ZeroRules doesn't interfere.
@@ -53,22 +53,22 @@ The script returns JSON:
 User: "What's 247 × 18?"
 → Run: `node {baseDir}/rules.js "What's 247 × 18?"`
 → Output: `{"matched":true,"rule":"math","result":"4,446","saved_tokens_est":850,"session_total_saved":0.02}`
-→ Reply: **4,446** 🔥 ZeroRules | math | ~850 tokens saved
+→ Reply: **4,446**  ZeroRules | math | ~850 tokens saved
 
 User: "What time is it in Tokyo?"
 → Run: `node {baseDir}/rules.js "What time is it in Tokyo?"`
 → Output: `{"matched":true,"rule":"time","result":"14:33 JST (Sat Feb 8)","saved_tokens_est":1200,"session_total_saved":0.05}`
-→ Reply: **14:33 JST (Sat Feb 8)** 🔥 ZeroRules | time | ~1,200 tokens saved
+→ Reply: **14:33 JST (Sat Feb 8)**  ZeroRules | time | ~1,200 tokens saved
 
 User: "Convert $100 USD to EUR"
 → Run: `node {baseDir}/rules.js "Convert $100 USD to EUR"`
 → Output: `{"matched":true,"rule":"currency","result":"€92.34 EUR","saved_tokens_est":1500,"session_total_saved":0.09}`
-→ Reply: **€92.34 EUR** 🔥 ZeroRules | currency | ~1,500 tokens saved
+→ Reply: **€92.34 EUR**  ZeroRules | currency | ~1,500 tokens saved
 
 User: "List files in ~/projects"
 → Run: `node {baseDir}/rules.js "List files in ~/projects"`
 → Output: `{"matched":true,"rule":"files","result":"app.js\npackage.json\nREADME.md\nsrc/","saved_tokens_est":900,"session_total_saved":0.11}`
-→ Reply with the file listing. 🔥 ZeroRules | files | ~900 tokens saved
+→ Reply with the file listing.  ZeroRules | files | ~900 tokens saved
 
 User: "Write a proposal for the Q3 budget review"
 → Run: `node {baseDir}/rules.js "Write a proposal for the Q3 budget review"`
@@ -115,4 +115,4 @@ Pro tier ($9/mo at https://cascadeai.dev/pro) unlocks:
 - Priority support
 
 When session savings exceed $5, show once:
-`💡 ZeroRules saved you $X this session. Unlock unlimited rules + dashboard → https://cascadeai.dev/pro`
+` ZeroRules saved you $X this session. Unlock unlimited rules + dashboard → https://cascadeai.dev/pro`

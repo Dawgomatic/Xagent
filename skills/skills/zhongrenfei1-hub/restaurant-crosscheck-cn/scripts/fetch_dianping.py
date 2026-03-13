@@ -53,13 +53,13 @@ def fetch_dianping(location: str, cuisine: str) -> List[DianpingRestaurant]:
             # 构造搜索 URL（使用正确的城市代码）
             search_term = f"{location} {cuisine}"
             url = f"https://www.dianping.com/search/keyword/{city_code}/0_{quote(search_term)}"
-            print(f"  🔗 大众点评: {url}")
+            print(f"   大众点评: {url}")
             page.goto(url, timeout=30000, wait_until="domcontentloaded")
             time.sleep(PAGE_LOAD_WAIT)
 
             # 如果 URL 搜索被重定向，改用搜索框
             if "/search/" not in page.url:
-                print("  ⚠️ URL 搜索被重定向，尝试搜索框...")
+                print("   URL 搜索被重定向，尝试搜索框...")
                 page.goto("https://www.dianping.com", timeout=30000)
                 time.sleep(2)
                 box = page.query_selector(
@@ -78,12 +78,12 @@ def fetch_dianping(location: str, cuisine: str) -> List[DianpingRestaurant]:
             for sel in DP_LIST_SELECTORS:
                 items = page.query_selector_all(sel)
                 if items:
-                    print(f"  📊 找到 {len(items)} 个候选")
+                    print(f"   找到 {len(items)} 个候选")
                     break
 
             if not items:
                 page.screenshot(path=os.path.expanduser("~/Downloads/dianping_debug.png"))
-                print("  ⚠️ 未找到列表，截图: ~/Downloads/dianping_debug.png")
+                print("   未找到列表，截图: ~/Downloads/dianping_debug.png")
 
             # 提取每家店的信息
             for item in items[:MAX_DIANPING_ITEMS]:
@@ -97,7 +97,7 @@ def fetch_dianping(location: str, cuisine: str) -> List[DianpingRestaurant]:
             ctx.close()
 
     except Exception as e:
-        print(f"  ❌ 大众点评出错: {e}")
+        print(f"   大众点评出错: {e}")
 
     return restaurants
 

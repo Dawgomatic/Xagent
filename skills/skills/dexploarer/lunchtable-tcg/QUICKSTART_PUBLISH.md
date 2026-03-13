@@ -31,11 +31,11 @@ clawhub status lunchtable-tcg
 
 ## What the Script Does
 
-1. ✅ Validates skill structure
-2. ✅ Checks authentication
-3. ✅ Shows preview (name, version)
-4. ✅ Submits to ClawHub
-5. ✅ Optionally publishes to npm
+1.  Validates skill structure
+2.  Checks authentication
+3.  Shows preview (name, version)
+4.  Submits to ClawHub
+5.  Optionally publishes to npm
 
 ---
 

@@ -52,9 +52,9 @@ Best for: anatomy, diagrams, maps, visual structures
 
 ### Reversed Cards
 Create both directions ONLY when both are meaningful:
-- ✅ Spanish→English AND English→Spanish (vocabulary)
-- ✅ Term→Definition AND Definition→Term (if term is recallable)
-- ❌ "Capital of France?" + "Paris is the capital of?" (second is useless)
+-  Spanish→English AND English→Spanish (vocabulary)
+-  Term→Definition AND Definition→Term (if term is recallable)
+-  "Capital of France?" + "Paris is the capital of?" (second is useless)
 
 ## Context and Cues
 

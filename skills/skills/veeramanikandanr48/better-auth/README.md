@@ -8,7 +8,7 @@
 
 Provides complete patterns for implementing authentication with **better-auth**, a comprehensive TypeScript auth framework. Includes support for Cloudflare Workers + D1 via **Drizzle ORM** or **Kysely** (no direct D1 adapter exists), making it an excellent self-hosted alternative to Clerk or Auth.js.
 
-**⚠️ v2.0.0 Breaking Change**: Previous skill version incorrectly documented a non-existent `d1Adapter()`. This version corrects all patterns to use Drizzle ORM or Kysely as required by better-auth.
+** v2.0.0 Breaking Change**: Previous skill version incorrectly documented a non-existent `d1Adapter()`. This version corrects all patterns to use Drizzle ORM or Kysely as required by better-auth.
 
 ---
 
@@ -75,7 +75,7 @@ This skill should be automatically invoked when you mention:
 
 ## When to Use This Skill
 
-✅ **Use this skill when**:
+ **Use this skill when**:
 - Building authentication for Cloudflare Workers + D1 applications
 - Need a self-hosted, vendor-independent auth solution
 - Migrating from Clerk to avoid vendor lock-in and costs
@@ -84,7 +84,7 @@ This skill should be automatically invoked when you mention:
 - Require advanced features: 2FA, passkeys, social auth, rate limiting
 - Want full control over auth logic and data
 
-❌ **Don't use this skill when**:
+ **Don't use this skill when**:
 - You're happy with Clerk and don't mind the cost
 - Using Firebase Auth (different ecosystem)
 - Building a simple prototype (Auth.js may be faster)
@@ -108,20 +108,20 @@ This skill should be automatically invoked when you mention:
 
 ### Errors Prevented (14 Common Issues)
 
-- ✅ **D1 adapter misconfiguration** (no direct d1Adapter, must use Drizzle/Kysely)
-- ✅ **Cloudflare Workers context errors** (requires nodejs_compat flag)
-- ✅ **Schema generation failures** (using Drizzle Kit correctly)
-- ✅ **TanStack Start cookie issues** (reactStartCookies plugin required)
-- ✅ **Plugin ordering errors** (reactStartCookies must be last)
-- ✅ **Nanostore session invalidation** (TanStack Query won't refresh session state)
-- ✅ D1 eventual consistency causing stale session reads
-- ✅ CORS misconfiguration for SPA applications
-- ✅ Session serialization errors in Workers
-- ✅ OAuth redirect URI mismatch
-- ✅ Email verification not sending
-- ✅ JWT token expiration issues
-- ✅ Social provider scope issues (missing user data)
-- ✅ TypeScript errors with Drizzle schema
+-  **D1 adapter misconfiguration** (no direct d1Adapter, must use Drizzle/Kysely)
+-  **Cloudflare Workers context errors** (requires nodejs_compat flag)
+-  **Schema generation failures** (using Drizzle Kit correctly)
+-  **TanStack Start cookie issues** (reactStartCookies plugin required)
+-  **Plugin ordering errors** (reactStartCookies must be last)
+-  **Nanostore session invalidation** (TanStack Query won't refresh session state)
+-  D1 eventual consistency causing stale session reads
+-  CORS misconfiguration for SPA applications
+-  Session serialization errors in Workers
+-  OAuth redirect URI mismatch
+-  Email verification not sending
+-  JWT token expiration issues
+-  Social provider scope issues (missing user data)
+-  TypeScript errors with Drizzle schema
 
 ### Reference Files
 
@@ -138,7 +138,7 @@ This skill should be automatically invoked when you mention:
 
 ### Cloudflare Worker Setup (Drizzle ORM)
 
-**⚠️ CRITICAL**: better-auth requires **Drizzle ORM** or **Kysely** for D1. There is NO direct `d1Adapter()`.
+** CRITICAL**: better-auth requires **Drizzle ORM** or **Kysely** for D1. There is NO direct `d1Adapter()`.
 
 ```typescript
 import { betterAuth } from 'better-auth'
@@ -206,10 +206,10 @@ npm install better-auth drizzle-orm drizzle-kit @cloudflare/workers-types hono
 |---------|-------------|-------|---------|
 | **Hosting** | Self-hosted | Third-party | Self-hosted |
 | **Cost** | Free | $25/mo+ | Free |
-| **Cloudflare D1** | ✅ First-class | ❌ No | ✅ Adapter |
-| **2FA/Passkeys** | ✅ Plugin | ✅ Built-in | ⚠️ Limited |
-| **Organizations** | ✅ Plugin | ✅ Built-in | ❌ No |
-| **Vendor Lock-in** | ✅ None | ❌ High | ✅ None |
+| **Cloudflare D1** |  First-class |  No |  Adapter |
+| **2FA/Passkeys** |  Plugin |  Built-in |  Limited |
+| **Organizations** |  Plugin |  Built-in |  No |
+| **Vendor Lock-in** |  None |  High |  None |
 
 ---
 
@@ -226,7 +226,7 @@ npm install better-auth drizzle-orm drizzle-kit @cloudflare/workers-types hono
 ## Official Resources
 
 - **Docs**: https://better-auth.com
-- **GitHub**: https://github.com/better-auth/better-auth (22.4k ⭐)
+- **GitHub**: https://github.com/better-auth/better-auth (22.4k )
 - **Package**: `better-auth@1.4.10`
 - **OAuth 2.1 Provider**: https://www.better-auth.com/docs/plugins/oauth-provider
 - **Admin Plugin**: https://www.better-auth.com/docs/plugins/admin

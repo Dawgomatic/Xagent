@@ -51,7 +51,7 @@ class HyperliquidAPI:
                 self.session.headers.update({'Authorization': f'Bearer {api_key}'})
         else:
             self.session = None
-            print("⚠️  Running in simulation mode (requests module not installed)")
+            print("  Running in simulation mode (requests module not installed)")
     
     def _make_request(self, method: str, endpoint: str, params=None, data=None, signed=False):
         """Make HTTP request to Hyperliquid API."""
@@ -97,7 +97,7 @@ class HyperliquidAPI:
     
     def _simulate_api_response(self, endpoint: str, params=None):
         """Provide simulated API responses for testing."""
-        print("⚠️  Using simulated API data (requests module not available)")
+        print("  Using simulated API data (requests module not available)")
         
         # Mock price data for common symbols
         mock_prices = {

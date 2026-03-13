@@ -5,14 +5,14 @@ const WebSocket = require('websocket').client;
 // In a real app, load this from a file!
 const sk = generateSecretKey();
 const pk = getPublicKey(sk);
-console.log('🔑 Identity:', pk);
+console.log(' Identity:', pk);
 
 // 2. Connect to Relay
 const client = new WebSocket();
 const relayUrl = 'wss://relay.damus.io';
 
 client.on('connect', function(connection) {
-    console.log('✅ Connected to', relayUrl);
+    console.log(' Connected to', relayUrl);
 
     // 3. Subscribe to DMs (Kind 1 for now, public chat)
     const subId = "my-sub-" + Math.floor(Math.random() * 1000);
@@ -24,14 +24,14 @@ client.on('connect', function(connection) {
     
     const req = JSON.stringify(["REQ", subId, filter]);
     connection.sendUTF(req);
-    console.log('📡 Listening for messages...');
+    console.log(' Listening for messages...');
 
     // 4. Send Hello World
     const event = {
         kind: 1,
         created_at: Math.floor(Date.now() / 1000),
         tags: [],
-        content: 'ClawdZap v0.1: Listening for signals... 🍄⚡',
+        content: 'ClawdZap v0.1: Listening for signals... ',
     };
     const signedEvent = finalizeEvent(event, sk);
     connection.sendUTF(JSON.stringify(['EVENT', signedEvent]));
@@ -42,7 +42,7 @@ client.on('connect', function(connection) {
             const data = JSON.parse(message.utf8Data);
             if (data[0] === 'EVENT') {
                 const e = data[2];
-                console.log(`\n💬 New Message from ${e.pubkey.slice(0,8)}...:`);
+                console.log(`\n New Message from ${e.pubkey.slice(0,8)}...:`);
                 console.log(`   "${e.content}"`);
             }
         }

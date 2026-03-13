@@ -6,25 +6,25 @@ Pocket AI is a wearable voice recorder that captures meetings, calls, and conver
 
 ## What You Get
 
-### 🔍 Semantic Search
+###  Semantic Search
 Query your recordings by meaning, not keywords:
 - "What did I discuss about the merger?"
 - "Find conversations with the legal team"
 - "What decisions were made about hiring?"
 
-### ✅ Action Item Extraction
+###  Action Item Extraction
 Automatically surfaces follow-ups from meetings:
 - Tasks mentioned in conversations
 - Commitments made to others
 - Deadlines discussed
 
-### 🧠 Dynamic Profile
+###  Dynamic Profile
 AI builds context from your conversations:
 - Current priorities and frustrations
 - Team dynamics and relationships
 - Strategic focus areas
 
-### 📅 Meeting Context
+###  Meeting Context
 Know what happened in any meeting:
 - Full transcript segments
 - Speaker identification

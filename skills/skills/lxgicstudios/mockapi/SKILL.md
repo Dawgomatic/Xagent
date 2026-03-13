@@ -105,4 +105,4 @@ npx @lxgicstudios/mockapi db.json --readonly
 
 **Built by [LXGIC Studios](https://lxgicstudios.com)**
 
-🔗 [GitHub](https://github.com/lxgicstudios/mockapi) · [Twitter](https://x.com/lxgicstudios)
+ [GitHub](https://github.com/lxgicstudios/mockapi) · [Twitter](https://x.com/lxgicstudios)

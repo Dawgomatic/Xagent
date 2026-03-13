@@ -9,7 +9,7 @@ SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 CONFIG_DIR="$HOME/.config/omi-me"
 TOKEN_FILE="$CONFIG_DIR/token"
 
-echo "🧠 Setting up Omi.me skill..."
+echo " Setting up Omi.me skill..."
 
 # Create config directory
 mkdir -p "$CONFIG_DIR"
@@ -19,7 +19,7 @@ if [ -f "$TOKEN_FILE" ] && [ -s "$TOKEN_FILE" ]; then
     echo "✓ Token already configured"
 else
     echo ""
-    echo "⚠️  OMI_API_TOKEN not found!"
+    echo "  OMI_API_TOKEN not found!"
     echo ""
     echo "To configure, run:"
     echo "  bash $SCRIPT_DIR/omi-token.sh set"
@@ -50,7 +50,7 @@ fi
 
 # Check dependencies
 if ! command -v jq &> /dev/null; then
-    echo "⚠️  jq is not installed. Install with: sudo apt install jq"
+    echo "  jq is not installed. Install with: sudo apt install jq"
 fi
 
 # Create _meta.json for OpenClaw skill registration
@@ -66,7 +66,7 @@ EOF
 fi
 
 echo ""
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Usage:"
 echo "  omi-token.sh set              # Configure API token"

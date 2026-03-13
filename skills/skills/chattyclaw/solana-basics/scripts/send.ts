@@ -244,11 +244,11 @@ Examples:
       throw new Error(`Unknown type: ${type}. Use 'sol' or 'token'`);
     }
     
-    console.log(`\n✅ Transaction confirmed!`);
+    console.log(`\n Transaction confirmed!`);
     console.log(`   Signature: ${signature}`);
     console.log(`   Explorer: https://solscan.io/tx/${signature}`);
   } catch (error) {
-    console.error(`\n❌ Error: ${(error as Error).message}`);
+    console.error(`\n Error: ${(error as Error).message}`);
     process.exit(1);
   }
 }

@@ -50,8 +50,8 @@ Do not open a public issue for security vulnerabilities.
 
 | Version | Supported |
 |---------|-----------|
-| 0.1.x   | ✅ Current |
+| 0.1.x   |  Current |
 
 ---
 
-*Powered by CacheForge 🤿*
+*Powered by CacheForge *

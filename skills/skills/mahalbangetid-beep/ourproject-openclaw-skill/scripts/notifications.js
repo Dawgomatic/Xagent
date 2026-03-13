@@ -16,11 +16,11 @@ async function checkNotifications() {
         const notifs = listR.status === 'fulfilled' ? (Array.isArray(listR.value.data) ? listR.value.data : listR.value.data?.notifications || []) : [];
 
         if (count === 0) {
-            console.log('🔔 No new notifications.');
+            console.log(' No new notifications.');
             return;
         }
 
-        console.log(`🔔 *${count} Unread Notification(s)*\n`);
+        console.log(` *${count} Unread Notification(s)*\n`);
 
         const recent = notifs.filter(n => !n.isRead && !n.is_read).slice(0, 5);
         if (recent.length > 0) {
@@ -32,7 +32,7 @@ async function checkNotifications() {
             });
         }
     } catch (err) {
-        console.error('❌', err.message);
+        console.error('', err.message);
     }
 }
 

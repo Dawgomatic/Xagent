@@ -442,9 +442,9 @@ Examples:
                 results.append(result)
                 
                 if result["status"] == "ok":
-                    logger.debug(f"✅ @{result['handle']}: {result['count']} tweets")
+                    logger.debug(f" @{result['handle']}: {result['count']} tweets")
                 else:
-                    logger.debug(f"❌ @{result['handle']}: {result['error']}")
+                    logger.debug(f" @{result['handle']}: {result['error']}")
 
         # Sort: priority first, then by article count
         results.sort(key=lambda x: (not x.get("priority", False), -x.get("count", 0)))
@@ -469,13 +469,13 @@ Examples:
         with open(args.output, "w", encoding='utf-8') as f:
             f.write(json_str)
 
-        logger.info(f"✅ Done: {ok_count}/{len(results)} accounts ok, "
+        logger.info(f" Done: {ok_count}/{len(results)} accounts ok, "
                    f"{total_tweets} tweets → {args.output}")
         
         return 0
         
     except Exception as e:
-        logger.error(f"💥 Twitter fetch failed: {e}")
+        logger.error(f" Twitter fetch failed: {e}")
         return 1
 
 

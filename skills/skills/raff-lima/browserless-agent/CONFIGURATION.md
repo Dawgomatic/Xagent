@@ -1,6 +1,6 @@
 # Browserless Agent - Configuration Guide
 
-## 📋 Environment Variables
+##  Environment Variables
 
 This skill uses **two separate environment variables** for maximum flexibility:
 
@@ -41,9 +41,9 @@ BROWSERLESS_TOKEN=
 
 ---
 
-## 🎯 Why Two Variables?
+##  Why Two Variables?
 
-### ✅ Flexibility
+###  Flexibility
 
 ```bash
 # Switch between environments easily
@@ -55,17 +55,17 @@ BROWSERLESS_URL=wss://chrome.browserless.io
 BROWSERLESS_TOKEN=prod-token-here
 ```
 
-### ✅ Security
+###  Security
 
 ```bash
 # Share base URL in documentation/repos
-BROWSERLESS_URL=wss://chrome.browserless.io  # ✅ Safe to share
+BROWSERLESS_URL=wss://chrome.browserless.io  #  Safe to share
 
 # Keep token private in secrets
-BROWSERLESS_TOKEN=secret-token-here          # 🔒 Keep secret
+BROWSERLESS_TOKEN=secret-token-here          #  Keep secret
 ```
 
-### ✅ Multiple Endpoints
+###  Multiple Endpoints
 
 ```bash
 # Switch between browsers without changing token
@@ -76,7 +76,7 @@ BROWSERLESS_URL=wss://host.com/playwright/webkit
 BROWSERLESS_TOKEN=your-token
 ```
 
-### ✅ Local Development
+###  Local Development
 
 ```bash
 # No token needed for local Docker instance
@@ -86,7 +86,7 @@ BROWSERLESS_URL=ws://localhost:3000
 
 ---
 
-## 🔧 Configuration Methods
+##  Configuration Methods
 
 ### Method 1: OpenClaw UI (Recommended)
 
@@ -130,7 +130,7 @@ BROWSERLESS_TOKEN=your-secret-token
 
 ---
 
-## 📚 Configuration Examples
+##  Configuration Examples
 
 ### Example 1: Cloud Service with Authentication
 
@@ -189,7 +189,7 @@ BROWSERLESS_TOKEN=production-token
 
 ---
 
-## 🔍 How It Works
+##  How It Works
 
 The skill automatically constructs the WebSocket URL:
 
@@ -221,9 +221,9 @@ def get_browserless_ws_url():
 
 ---
 
-## 🛡️ Security Best Practices
+##  Security Best Practices
 
-### ✅ DO:
+###  DO:
 
 - Store `BROWSERLESS_TOKEN` in OpenClaw's secure env storage
 - Use environment variables or .env files (add to .gitignore)
@@ -231,7 +231,7 @@ def get_browserless_ws_url():
 - Rotate tokens regularly
 - Use different tokens for different environments
 
-### ❌ DON'T:
+###  DON'T:
 
 - Commit tokens to version control
 - Share tokens in documentation
@@ -240,7 +240,7 @@ def get_browserless_ws_url():
 
 ---
 
-## 🔄 Migration from Old Format
+##  Migration from Old Format
 
 If you were using the old single-variable format:
 
@@ -259,14 +259,14 @@ BROWSERLESS_TOKEN=abc123
 
 **Benefits:**
 
-- ✅ More flexible (easy to change endpoint or token)
-- ✅ More secure (token separate from URL)
-- ✅ Easier to switch environments
-- ✅ Works with or without authentication
+-  More flexible (easy to change endpoint or token)
+-  More secure (token separate from URL)
+-  Easier to switch environments
+-  Works with or without authentication
 
 ---
 
-## ❓ FAQ
+##  FAQ
 
 ### Q: Do I need a token?
 
@@ -302,7 +302,7 @@ python tests/test_browserless.py
 
 ---
 
-## 📞 Support
+##  Support
 
 Need help? Check:
 

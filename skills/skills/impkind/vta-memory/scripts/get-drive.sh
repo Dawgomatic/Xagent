@@ -8,7 +8,7 @@ WORKSPACE="${WORKSPACE:-$HOME/.openclaw/workspace}"
 STATE_FILE="$WORKSPACE/memory/reward-state.json"
 
 if [ ! -f "$STATE_FILE" ]; then
-  echo "❌ No reward state found at $STATE_FILE"
+  echo " No reward state found at $STATE_FILE"
   exit 1
 fi
 
@@ -31,7 +31,7 @@ else
     DRIVE_DESC="unmotivated"
   fi
   
-  echo "⭐ Motivation State"
+  echo " Motivation State"
   echo "─────────────────────"
   echo ""
   echo "Drive: $DRIVE ($DRIVE_DESC)"

@@ -271,15 +271,15 @@ SUGGESTION: Check your wallet balance and ensure you have enough ${tokenIn.symbo
                     tokenOut
                  );
                  if (withdrawSuccess) {
-                    return `🌉 Bridge/Withdraw Successful!\n✅ Sent ${amountOut} ${tokenOut.symbol} to ${recipient}\n📦 Destination: ${tokenOut.blockchain}\n\n💡 You can track the withdrawal on the ${tokenOut.blockchain} block explorer.`;
+                    return ` Bridge/Withdraw Successful!\n Sent ${amountOut} ${tokenOut.symbol} to ${recipient}\n Destination: ${tokenOut.blockchain}\n\n You can track the withdrawal on the ${tokenOut.blockchain} block explorer.`;
                  } else {
-                    return `✅ Swap successful, but Withdraw failed.\n📦 You hold ${amountOut} ${tokenOut.symbol} on the Intents Contract.\n💡 Please try the withdrawal again.`;
+                    return ` Swap successful, but Withdraw failed.\n You hold ${amountOut} ${tokenOut.symbol} on the Intents Contract.\n Please try the withdrawal again.`;
                  }
             }
 
              const { txHash } = result as any;
              const nearblocksUrl = `https://nearblocks.io/txns/${txHash}`;
-             return `✅ Swap Successful!\n💰 Received: ${amountOut} ${tokenOut.symbol}\n🔗 NEAR Blocks: ${nearblocksUrl}\n\n✨ Transaction completed!`;
+             return ` Swap Successful!\n Received: ${amountOut} ${tokenOut.symbol}\n NEAR Blocks: ${nearblocksUrl}\n\n Transaction completed!`;
         } else {
             return `Error: Swap failed. No result returned from solver. 
 SUGGESTION: The network might be congested or no solver is available for ${tokenIn.symbol}->${tokenOut.symbol}. Try again later or use 'near-tools' for standard swaps if applicable.`;

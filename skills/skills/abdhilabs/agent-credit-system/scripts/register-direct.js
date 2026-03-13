@@ -13,11 +13,11 @@ async function test() {
       entitySecret: ENTITY_SECRET,
     });
     
-    console.log('✅ SUCCESS!');
+    console.log(' SUCCESS!');
     console.log('Response:', JSON.stringify(result, null, 2));
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     if (error.response?.data) {
       console.error('Details:', JSON.stringify(error.response.data));
     }

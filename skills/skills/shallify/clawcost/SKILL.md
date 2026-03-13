@@ -3,7 +3,7 @@ name: clawcost
 description: Track OpenClaw agent costs. Check daily/weekly spending and model breakdown.
 metadata:
   openclaw:
-    emoji: "💰"
+    emoji: ""
     requires:
       bins:
         - python3
@@ -39,25 +39,25 @@ Remaining auto-calculates: initial - total_spent
 
 **Format:** Use tree-style (├ └) for clean output:
 ```
-💰 clawleaks
+ clawleaks
 ├ Balance $42.98 / $50 remaining
-├ Today   $1.36 / $10 (14%) ✅
+├ Today   $1.36 / $10 (14%) 
 ├ Week    $7.02
 └ Total   $7.02 (15.5M tok)
 
-📈 Sonnet $3.99 (57%) • Haiku $2.06 (29%) • Opus $0.97 (14%)
+ Sonnet $3.99 (57%) • Haiku $2.06 (29%) • Opus $0.97 (14%)
 ```
 
 **Rules:**
 - Skip $0 models
-- Add brief insight ("Opus only 14%, nice savings 👍")
+- Add brief insight ("Opus only 14%, nice savings ")
 
 **Alerts (IMPORTANT):**
-- If `today.pct` > 80%: Start with ⚠️ **"Warning: Daily budget {pct}% used!"**
-- If `today.pct` > 100%: Start with 🚨 **"OVER BUDGET! ${cost} spent"**
-- If `balance.remaining` < 5: Warn "💸 Low balance: ${remaining} left"
+- If `today.pct` > 80%: Start with  **"Warning: Daily budget {pct}% used!"**
+- If `today.pct` > 100%: Start with  **"OVER BUDGET! ${cost} spent"**
+- If `balance.remaining` < 5: Warn " Low balance: ${remaining} left"
 - If `balance` is null: Suggest "Set initial balance with --set-balance"
-- If budget is fine: End with ✅
+- If budget is fine: End with 
 
 **Contextual:**
 - Quick question → short answer

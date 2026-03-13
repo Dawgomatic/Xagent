@@ -1,7 +1,7 @@
 ---
 name: backup
 description: Backup and restore openclaw configuration, skills, commands, and settings. Sync across devices, version control with git, automate backups, and migrate to new machines.
-metadata: {"openclaw":{"emoji":"💾","requires":{"bins":["git","tar","rsync"],"env":[]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["git","tar","rsync"],"env":[]}}}
 ---
 
 # OpenClaw Backup Skill

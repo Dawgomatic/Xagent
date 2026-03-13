@@ -39,7 +39,7 @@ Analyze and clean up browser bookmark exports.
 
 4. **Report format**:
    ```
-   📚 Bookmark Analysis — <filename>
+    Bookmark Analysis — <filename>
    Total: 342 | Duplicates: 18 | Dead: 7
 
    ## Duplicates

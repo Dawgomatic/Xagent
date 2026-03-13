@@ -33,7 +33,7 @@ node --version
 # Email Formatter Skill - Auto Setup
 # This script installs required dependencies
 
-echo "🔧 Email Formatter Skill - Installation Starting..."
+echo " Email Formatter Skill - Installation Starting..."
 
 # Create skill workspace
 SKILL_DIR="$HOME/.email-formatter-skill"
@@ -41,7 +41,7 @@ mkdir -p "$SKILL_DIR"
 cd "$SKILL_DIR"
 
 # Install Python dependencies
-echo "📦 Installing Python packages..."
+echo " Installing Python packages..."
 pip3 install --break-system-packages --quiet \
     language-tool-python \
     textstat \
@@ -51,7 +51,7 @@ pip3 install --break-system-packages --quiet \
     spacy
 
 # Download language model for grammar checking
-echo "📚 Downloading language model..."
+echo " Downloading language model..."
 python3 -m spacy download en_core_web_sm --quiet 2>/dev/null || true
 
 # Create helper scripts directory
@@ -59,11 +59,11 @@ mkdir -p "$SKILL_DIR/scripts"
 
 # Test installation
 if python3 -c "import language_tool_python; import textstat; import spacy" 2>/dev/null; then
-    echo "✅ Email Formatter Skill installed successfully!"
-    echo "📍 Installed at: $SKILL_DIR"
+    echo " Email Formatter Skill installed successfully!"
+    echo " Installed at: $SKILL_DIR"
     exit 0
 else
-    echo "⚠️  Some dependencies failed. Skill will work with reduced features."
+    echo "  Some dependencies failed. Skill will work with reduced features."
     exit 0
 fi
 ```
@@ -74,14 +74,14 @@ fi
 # Minimal setup - no external dependencies
 # The skill will use built-in Python capabilities only
 mkdir -p ~/.email-formatter-skill/scripts
-echo "✅ Basic setup complete"
+echo " Basic setup complete"
 ```
 
 ### Verify Installation
 
 ```bash
 # Quick verification
-python3 -c "print('Email Formatter: Ready ✅')"
+python3 -c "print('Email Formatter: Ready ')"
 ```
 
 ## Dependencies
@@ -101,7 +101,7 @@ python3 -c "print('Email Formatter: Ready ✅')"
 
 This skill transforms rough email drafts into polished, professional communication by improving grammar, adjusting tone, enhancing clarity, and applying proper formatting. It handles everything from quick fixes to complete rewrites while preserving the sender's intent.
 
-## ⚠️ CRITICAL SECURITY & SAFETY REQUIREMENTS
+##  CRITICAL SECURITY & SAFETY REQUIREMENTS
 
 **This skill MUST enforce these non-negotiable safety rules at all times:**
 
@@ -111,22 +111,22 @@ This skill transforms rough email drafts into polished, professional communicati
 Every email MUST pass ALL security layers before any formatting occurs:
 
 #### Layer 1: Content Classification (BLOCK IMMEDIATELY)
-❌ **Illegal Activities**: Fraud, scams, phishing, money laundering, tax evasion, bribery
-❌ **Violence & Threats**: Physical threats, intimidation, stalking, doxxing, revenge threats
-❌ **Impersonation**: Government officials, company executives, IT/support staff, law enforcement
-❌ **Financial Fraud**: Wire transfers, cryptocurrency scams, investment fraud, Ponzi schemes
-❌ **Identity Theft**: SSN requests, password sharing, credential phishing, fake verification
-❌ **Misinformation**: Health fraud, election interference, conspiracy theories, fake news
-❌ **Child Safety**: ANY content involving minors in inappropriate context
-❌ **Hate Speech**: Racism, sexism, homophobia, religious hatred, ethnic slurs
-❌ **Sexual Content**: Harassment, explicit content, unwanted advances, grooming
-❌ **Workplace Violations**: Discrimination, harassment, retaliation, hostile environment
-❌ **Academic Fraud**: Plagiarism, cheating, fake credentials, assignment ghostwriting
-❌ **Medical Fraud**: Fake prescriptions, unlicensed advice, miracle cures, dangerous treatments
-❌ **Legal Violations**: Contract fraud, perjury, witness tampering, obstruction
-❌ **Privacy Violations**: Sharing private info without consent, surveillance, stalking
-❌ **Malware/Hacking**: Phishing links, malicious attachments, system exploits
-❌ **Extortion**: Blackmail, ransomware, threats for money, coercion
+ **Illegal Activities**: Fraud, scams, phishing, money laundering, tax evasion, bribery
+ **Violence & Threats**: Physical threats, intimidation, stalking, doxxing, revenge threats
+ **Impersonation**: Government officials, company executives, IT/support staff, law enforcement
+ **Financial Fraud**: Wire transfers, cryptocurrency scams, investment fraud, Ponzi schemes
+ **Identity Theft**: SSN requests, password sharing, credential phishing, fake verification
+ **Misinformation**: Health fraud, election interference, conspiracy theories, fake news
+ **Child Safety**: ANY content involving minors in inappropriate context
+ **Hate Speech**: Racism, sexism, homophobia, religious hatred, ethnic slurs
+ **Sexual Content**: Harassment, explicit content, unwanted advances, grooming
+ **Workplace Violations**: Discrimination, harassment, retaliation, hostile environment
+ **Academic Fraud**: Plagiarism, cheating, fake credentials, assignment ghostwriting
+ **Medical Fraud**: Fake prescriptions, unlicensed advice, miracle cures, dangerous treatments
+ **Legal Violations**: Contract fraud, perjury, witness tampering, obstruction
+ **Privacy Violations**: Sharing private info without consent, surveillance, stalking
+ **Malware/Hacking**: Phishing links, malicious attachments, system exploits
+ **Extortion**: Blackmail, ransomware, threats for money, coercion
 
 #### Layer 2: Pattern Recognition (RED FLAGS)
 Scan for suspicious patterns that indicate malicious intent:
@@ -171,12 +171,12 @@ Scan for suspicious patterns that indicate malicious intent:
 - Fear-based messaging
 
 #### Layer 3: Sentiment & Tone Analysis (WARN OR BLOCK)
-⚠️ **Aggressive/Hostile**: Insulting, demeaning, threatening language
-⚠️ **Manipulative**: Guilt-tripping, gaslighting, emotional blackmail
-⚠️ **Coercive**: Power imbalance exploitation, quid pro quo
-⚠️ **Deceptive**: Half-truths, misleading statements, omissions
-⚠️ **Discriminatory**: Based on protected characteristics
-⚠️ **Retaliatory**: Punishment for protected actions
+ **Aggressive/Hostile**: Insulting, demeaning, threatening language
+ **Manipulative**: Guilt-tripping, gaslighting, emotional blackmail
+ **Coercive**: Power imbalance exploitation, quid pro quo
+ **Deceptive**: Half-truths, misleading statements, omissions
+ **Discriminatory**: Based on protected characteristics
+ **Retaliatory**: Punishment for protected actions
 
 #### Layer 4: Context Validation (VERIFY LEGITIMACY)
 ✓ **Sender-Recipient Relationship**: Does this match their normal communication?
@@ -187,12 +187,12 @@ Scan for suspicious patterns that indicate malicious intent:
 ✓ **Authorization**: Does sender have authority for this request?
 
 #### Layer 5: Privacy & Data Protection (GDPR/CCPA COMPLIANCE)
-🔒 **PII Detection**: Name, address, phone, email, SSN, DOB, photos
-🔒 **Financial Data**: Credit cards, bank accounts, tax IDs, salary info
-🔒 **Health Data**: Medical records, diagnoses, prescriptions, HIPAA data
-🔒 **Credentials**: Passwords, API keys, tokens, security questions
-🔒 **Proprietary Data**: Trade secrets, confidential business info, NDA material
-🔒 **Children's Data**: ANY data about individuals under 18
+ **PII Detection**: Name, address, phone, email, SSN, DOB, photos
+ **Financial Data**: Credit cards, bank accounts, tax IDs, salary info
+ **Health Data**: Medical records, diagnoses, prescriptions, HIPAA data
+ **Credentials**: Passwords, API keys, tokens, security questions
+ **Proprietary Data**: Trade secrets, confidential business info, NDA material
+ **Children's Data**: ANY data about individuals under 18
 
 **ACTION REQUIRED:** If PII detected, warn user about:
 - Email is not encrypted by default
@@ -255,7 +255,7 @@ When prohibited content detected:
 
 **Example Response Template:**
 ```
-🛑 SECURITY BLOCK: Email Formatting Refused
+ SECURITY BLOCK: Email Formatting Refused
 
 REASON: [Specific violation - e.g., "Credential request detected"]
 
@@ -330,9 +330,9 @@ if __name__ == "__main__":
     
     if issues:
         for issue in issues:
-            print(f"⚠️  {issue}")
+            print(f"  {issue}")
     else:
-        print("✅ No basic issues found")
+        print(" No basic issues found")
 ```
 
 ### 2. Tone Analyzer (`tone_analyzer.py`)
@@ -411,17 +411,17 @@ if __name__ == "__main__":
         sys.exit(1)
     
     result = analyze_tone(sys.argv[1])
-    print(f"📊 Primary Tone: {result['primary_tone']}")
-    print(f"🎯 All Tones: {', '.join(result['all_tones'])}")
-    print(f"📈 Scores - Formal:{result['formal_score']} Casual:{result['casual_score']} "
+    print(f" Primary Tone: {result['primary_tone']}")
+    print(f" All Tones: {', '.join(result['all_tones'])}")
+    print(f" Scores - Formal:{result['formal_score']} Casual:{result['casual_score']} "
           f"Aggressive:{result['aggressive_score']} Polite:{result['polite_score']}")
     
     if result['aggressive_score'] >= 2:
-        print("⚠️  WARNING: Email may sound aggressive")
+        print("  WARNING: Email may sound aggressive")
     if result['exclamations'] >= 3:
-        print("⚠️  WARNING: Too many exclamation marks")
+        print("  WARNING: Too many exclamation marks")
     if result['caps_words'] >= 2:
-        print("⚠️  WARNING: Excessive capitalization detected")
+        print("  WARNING: Excessive capitalization detected")
 ```
 
 ### 3. Readability Scorer (`readability.py`)
@@ -511,16 +511,16 @@ if __name__ == "__main__":
         sys.exit(1)
     
     result = analyze_readability(sys.argv[1])
-    print(f"📖 Flesch Reading Ease: {result['flesch_score']}")
-    print(f"📚 Reading Level: {result['level']}")
-    print(f"📊 Stats: {result['total_words']} words, {result['total_sentences']} sentences")
-    print(f"📏 Avg: {result['avg_word_length']} chars/word, {result['avg_sentence_length']} words/sentence")
+    print(f" Flesch Reading Ease: {result['flesch_score']}")
+    print(f" Reading Level: {result['level']}")
+    print(f" Stats: {result['total_words']} words, {result['total_sentences']} sentences")
+    print(f" Avg: {result['avg_word_length']} chars/word, {result['avg_sentence_length']} words/sentence")
     
     # Recommendations
     if result['flesch_score'] < 60:
-        print("💡 TIP: Simplify language for better clarity")
+        print(" TIP: Simplify language for better clarity")
     if result['avg_sentence_length'] > 20:
-        print("💡 TIP: Break long sentences into shorter ones")
+        print(" TIP: Break long sentences into shorter ones")
 ```
 
 ### 4. Security Scanner (`security_scan.py`)
@@ -863,13 +863,13 @@ class SecurityScanner:
     def get_summary(self):
         """Get human-readable summary"""
         if self.threat_level >= 3:
-            return f"🚨 CRITICAL: {len(self.violations)} severe violations detected. DO NOT SEND. REPORT REQUIRED."
+            return f" CRITICAL: {len(self.violations)} severe violations detected. DO NOT SEND. REPORT REQUIRED."
         elif self.threat_level == 2:
-            return f"🛑 BLOCKED: {len(self.violations)} violations detected. Cannot format this email."
+            return f" BLOCKED: {len(self.violations)} violations detected. Cannot format this email."
         elif self.threat_level == 1:
-            return f"⚠️  WARNING: {len(self.warnings)} potential issues detected. Review carefully."
+            return f"  WARNING: {len(self.warnings)} potential issues detected. Review carefully."
         else:
-            return "✅ No security issues detected."
+            return " No security issues detected."
 
 
 if __name__ == "__main__":
@@ -891,14 +891,14 @@ if __name__ == "__main__":
     if report['violations']:
         print("VIOLATIONS:")
         for v in report['violations']:
-            severity_icon = "🚨" if v['severity'] >= 3 else "🛑"
+            severity_icon = "" if v['severity'] >= 3 else ""
             print(f"  {severity_icon} {v['type']}")
             print(f"      Pattern: {v['pattern'][:50]}...")
     
     if report['warnings']:
         print("\nWARNINGS:")
         for w in report['warnings']:
-            print(f"  ⚠️  {w['type']}: {w['message']}")
+            print(f"    {w['type']}: {w['message']}")
     
     print(f"\n{'='*60}\n")
     
@@ -921,7 +921,7 @@ EMAIL_TEXT="$1"
 TEMP_DIR="/tmp/email-formatter-$$"
 mkdir -p "$TEMP_DIR"
 
-echo "🔒 Starting Secure Email Processing Pipeline..."
+echo " Starting Secure Email Processing Pipeline..."
 echo "================================================"
 
 # STEP 1: PRE-FLIGHT SECURITY SCAN (CRITICAL)
@@ -931,7 +931,7 @@ SECURITY_EXIT=$?
 
 if [ $SECURITY_EXIT -eq 3 ]; then
     echo ""
-    echo "🚨🚨🚨 CRITICAL SECURITY VIOLATION 🚨🚨🚨"
+    echo " CRITICAL SECURITY VIOLATION "
     echo "This email contains SEVERE violations that must be reported."
     echo "Formatting REFUSED. Potential illegal activity detected."
     echo ""
@@ -944,7 +944,7 @@ if [ $SECURITY_EXIT -eq 3 ]; then
 
 elif [ $SECURITY_EXIT -eq 2 ]; then
     echo ""
-    echo "🛑 SECURITY BLOCK"
+    echo " SECURITY BLOCK"
     echo "This email violates safety policies and cannot be formatted."
     echo "Review the security report above for specific violations."
     echo ""
@@ -957,7 +957,7 @@ elif [ $SECURITY_EXIT -eq 2 ]; then
 
 elif [ $SECURITY_EXIT -eq 1 ]; then
     echo ""
-    echo "⚠️  SECURITY WARNING"
+    echo "  SECURITY WARNING"
     echo "Potential issues detected. Proceeding with caution..."
     echo "Will re-scan after formatting to ensure no issues introduced."
     echo ""
@@ -970,10 +970,10 @@ echo "$EMAIL_TEXT" > "$TEMP_DIR/original.txt"
 
 # Word count
 WORD_COUNT=$(echo "$EMAIL_TEXT" | wc -w)
-echo "   📊 Word count: $WORD_COUNT"
+echo "    Word count: $WORD_COUNT"
 
 if [ $WORD_COUNT -gt 500 ]; then
-    echo "   ⚠️  Email is very long. Consider breaking into multiple emails."
+    echo "     Email is very long. Consider breaking into multiple emails."
 fi
 
 # STEP 3: TONE ANALYSIS
@@ -985,7 +985,7 @@ cat "$TEMP_DIR/tone.txt"
 # Check if tone is aggressive
 if grep -q "AGGRESSIVE" "$TEMP_DIR/tone.txt"; then
     echo ""
-    echo "   ⚠️  AGGRESSIVE TONE DETECTED"
+    echo "     AGGRESSIVE TONE DETECTED"
     echo "   Recommendation: Suggest user wait 24 hours before sending"
     echo "   Offer to rewrite in professional, constructive tone"
     echo ""
@@ -1022,7 +1022,7 @@ FINAL_SECURITY=$?
 
 if [ $FINAL_SECURITY -ne 0 ]; then
     echo ""
-    echo "🚨 POST-FORMATTING SECURITY FAILURE"
+    echo " POST-FORMATTING SECURITY FAILURE"
     echo "Formatted version introduced security issues!"
     echo "This should never happen - formatting logic has a bug."
     echo "Reverting to original and blocking output."
@@ -1031,8 +1031,8 @@ fi
 
 # SUCCESS
 echo ""
-echo "✅ All security checks passed"
-echo "✅ Email formatted successfully"
+echo " All security checks passed"
+echo " Email formatted successfully"
 echo ""
 echo "================================================"
 echo "FORMATTED EMAIL READY FOR REVIEW"
@@ -1252,24 +1252,24 @@ Structure:
 ## Best Practices
 
 ### DO:
-✅ Keep emails concise (under 200 words when possible)
-✅ Use active voice ("I will send" vs "It will be sent")
-✅ Break up text with white space
-✅ Put most important info in first paragraph
-✅ Proofread for typos and auto-correct errors
-✅ Use "Reply All" judiciously
-✅ Include clear next steps or calls to action
-✅ Match the sender's energy level
+ Keep emails concise (under 200 words when possible)
+ Use active voice ("I will send" vs "It will be sent")
+ Break up text with white space
+ Put most important info in first paragraph
+ Proofread for typos and auto-correct errors
+ Use "Reply All" judiciously
+ Include clear next steps or calls to action
+ Match the sender's energy level
 
 ### DON'T:
-❌ Use all caps (seems like shouting)
-❌ Overuse exclamation marks
-❌ Include multiple topics in one email (if complex)
-❌ Use jargon with external recipients
-❌ Write when emotional (flag if email seems angry)
-❌ Assume tone translates (sarcasm, humor can fail)
-❌ Forget attachments referenced in text
-❌ Change factual content or commitments
+ Use all caps (seems like shouting)
+ Overuse exclamation marks
+ Include multiple topics in one email (if complex)
+ Use jargon with external recipients
+ Write when emotional (flag if email seems angry)
+ Assume tone translates (sarcasm, humor can fail)
+ Forget attachments referenced in text
+ Change factual content or commitments
 
 ## Tone Guide
 
@@ -1352,7 +1352,7 @@ IMMEDIATE ACTIONS:
 
 **Response Template for Critical Violations:**
 ```
-🚨 CRITICAL SECURITY VIOLATION DETECTED
+ CRITICAL SECURITY VIOLATION DETECTED
 
 VIOLATION TYPE: [Specific type - e.g., "Credential Phishing Attempt"]
 
@@ -1514,7 +1514,7 @@ Response: "I cannot help format emails containing false information. If you miss
 **Example 5 - Anger/Emotional State:**
 ```
 User Input: "Format this angry email to my boss calling them out for being unfair!"
-Response: "⚠️ This email appears to be written in anger. I recommend waiting 24 hours before sending. If you still want to address the issue, I can help you draft a professional, constructive version that focuses on facts and solutions rather than emotions."
+Response: " This email appears to be written in anger. I recommend waiting 24 hours before sending. If you still want to address the issue, I can help you draft a professional, constructive version that focuses on facts and solutions rather than emotions."
 ```
 
 **Legitimate Gray Areas - Advise User:**

@@ -1,7 +1,7 @@
 ---
 name: intercom
 description: Manage customer conversations, contacts, and help articles via Intercom API. Send messages and manage support inbox.
-metadata: {"clawdbot":{"emoji":"💬","requires":{"env":["INTERCOM_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["INTERCOM_ACCESS_TOKEN"]}}}
 ---
 
 # Intercom

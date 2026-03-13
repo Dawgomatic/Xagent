@@ -121,10 +121,10 @@
   },
   "reporting": {
     "aging_buckets": [
-      {"label": "Current", "days": 0, "max_days": 30, "emoji": "✅"},
-      {"label": "31-60 days", "days": 31, "max_days": 60, "emoji": "⚠️"},
-      {"label": "61-90 days", "days": 61, "max_days": 90, "emoji": "🚨"},
-      {"label": "90+ days", "days": 91, "max_days": 999, "emoji": "💀"}
+      {"label": "Current", "days": 0, "max_days": 30, "emoji": ""},
+      {"label": "31-60 days", "days": 31, "max_days": 60, "emoji": ""},
+      {"label": "61-90 days", "days": 61, "max_days": 90, "emoji": ""},
+      {"label": "90+ days", "days": 91, "max_days": 999, "emoji": ""}
     ],
     "include_notes": true,
     "include_contact_history": true

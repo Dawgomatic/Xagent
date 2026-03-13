@@ -67,7 +67,7 @@ python3 scripts/milkee.py list_projects
 
 Expected output:
 ```
-📋 X Projects:
+ X Projects:
 
   • Project Name (ID: 123)
   • ...

@@ -68,7 +68,7 @@ function getDateRange(days) {
 async function searchX(options) {
   const apiKey = getApiKey();
   if (!apiKey) {
-    console.error('❌ No API key found. Set XAI_API_KEY or configure in clawdbot.');
+    console.error(' No API key found. Set XAI_API_KEY or configure in clawdbot.');
     process.exit(1);
   }
   
@@ -120,7 +120,7 @@ Only include REAL posts you find. If you can't find any, say so.`,
       
       res.on('end', () => {
         if (res.statusCode !== 200) {
-          console.error(`❌ API Error (${res.statusCode}):`, data);
+          console.error(` API Error (${res.statusCode}):`, data);
           process.exit(1);
         }
         
@@ -170,7 +170,7 @@ Only include REAL posts you find. If you can't find any, say so.`,
           xCitations = [...new Map(xCitations.map(c => [c.url, c])).values()];
           
           if (options.requireCitations && xCitations.length === 0) {
-            console.error('⚠️  No X/Twitter citations found in response.');
+            console.error('  No X/Twitter citations found in response.');
             console.error('   Grok may not have found relevant posts, or X search may not be enabled.');
             console.error('\nResponse anyway:\n');
           }
@@ -178,7 +178,7 @@ Only include REAL posts you find. If you can't find any, say so.`,
           console.log(content);
           
           if (xCitations.length > 0) {
-            console.log('\n📎 Citations:');
+            console.log('\n Citations:');
             for (const cite of xCitations) {
               console.log(`   ${cite.url}`);
             }
@@ -186,7 +186,7 @@ Only include REAL posts you find. If you can't find any, say so.`,
           
           resolve(response);
         } catch (e) {
-          console.error('❌ Failed to parse response:', e.message);
+          console.error(' Failed to parse response:', e.message);
           console.error('Raw:', data.slice(0, 500));
           process.exit(1);
         }
@@ -194,7 +194,7 @@ Only include REAL posts you find. If you can't find any, say so.`,
     });
     
     req.on('error', (e) => {
-      console.error('❌ Request failed:', e.message);
+      console.error(' Request failed:', e.message);
       process.exit(1);
     });
     
@@ -208,7 +208,7 @@ const args = process.argv.slice(2);
 
 if (args.length === 0 || args.includes('--help')) {
   console.log(`
-🔍 xAI X Search (Responses API)
+ xAI X Search (Responses API)
 
 Usage:
   node search-x.js [options] "Your search query"
@@ -234,9 +234,9 @@ Examples:
 const options = parseArgs(args);
 
 if (!options.query) {
-  console.error('❌ Please provide a search query');
+  console.error(' Please provide a search query');
   process.exit(1);
 }
 
-console.error(`🔍 Searching X for: "${options.query}" (last ${options.days} days)...\n`);
+console.error(` Searching X for: "${options.query}" (last ${options.days} days)...\n`);
 searchX(options);

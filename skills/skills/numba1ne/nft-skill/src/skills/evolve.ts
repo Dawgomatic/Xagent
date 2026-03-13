@@ -159,7 +159,7 @@ export function evolveAgent(params: { proceeds: string; generation: number; trig
   const state = getEvolutionState();
   const previousGeneration = state.generation;
 
-  console.log('[Evolve] 🧬 Evolution triggered!');
+  console.log('[Evolve]  Evolution triggered!');
   console.log(`[Evolve] Current generation: ${previousGeneration}`);
   console.log(`[Evolve] Trigger: ${params.trigger}`);
   console.log(`[Evolve] Total proceeds: ${params.proceeds} ETH`);
@@ -207,7 +207,7 @@ export function evolveAgent(params: { proceeds: string; generation: number; trig
 
   saveState(state);
 
-  console.log('[Evolve] ✅ Evolution complete!');
+  console.log('[Evolve]  Evolution complete!');
   console.log(`[Evolve] New generation: ${state.generation}`);
   console.log('[Evolve] Improvements:', improvements);
   console.log('[Evolve] New abilities:', newAbilities);

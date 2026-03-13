@@ -8,22 +8,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2026-01-22
 
 ### Added
-- 🎙️ High-quality text-to-speech using Piper TTS
-- 🌍 Support for 40+ languages (French, English, Spanish, German, and more)
-- 📤 Automatic WhatsApp message sending via Clawdbot
-- 👥 Support for WhatsApp groups (use group ID as target)
-- 🎛️ Multiple quality levels (x_low, low, medium, high)
-- 🎵 Automatic conversion to OGG/Opus format for WhatsApp
-- 🧹 Smart file cleanup:
+-  High-quality text-to-speech using Piper TTS
+-  Support for 40+ languages (French, English, Spanish, German, and more)
+-  Automatic WhatsApp message sending via Clawdbot
+-  Support for WhatsApp groups (use group ID as target)
+-  Multiple quality levels (x_low, low, medium, high)
+-  Automatic conversion to OGG/Opus format for WhatsApp
+-  Smart file cleanup:
   - Auto-delete files after successful send
   - Auto-cleanup files older than 24 hours
   - Keep files on send error for manual retry
-- ⚙️ Flexible configuration via environment variables
-- 🚫 `--no-send` option to generate audio without sending
-- 🎚️ `--speed` option to adjust playback speed
-- 💬 `--message` option to add text caption with audio
-- 📊 Clear progress logging and error messages
-- 🔍 Model existence validation with helpful error messages
+-  Flexible configuration via environment variables
+-  `--no-send` option to generate audio without sending
+-  `--speed` option to adjust playback speed
+-  `--message` option to add text caption with audio
+-  Clear progress logging and error messages
+-  Model existence validation with helpful error messages
 
 ### Features
 - **Multi-language support**: Switch between 40+ languages with `--lang`

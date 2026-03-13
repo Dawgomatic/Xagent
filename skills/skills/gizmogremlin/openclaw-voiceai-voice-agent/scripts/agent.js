@@ -127,7 +127,7 @@ async function main() {
           kb_id: args['kb-id'] ? parseInt(args['kb-id']) : undefined
         });
 
-        console.log('✅ Agent created successfully!\n');
+        console.log(' Agent created successfully!\n');
         console.log(`ID:     ${agent.agent_id}`);
         console.log(`Name:   ${agent.name}`);
         console.log(`Status: ${agent.status}`);
@@ -186,7 +186,7 @@ async function main() {
         }
 
         const agent = await client.updateAgent(args.id, updates);
-        console.log('✅ Agent updated successfully!');
+        console.log(' Agent updated successfully!');
         console.log(`Name:   ${agent.name}`);
         console.log(`Status: ${agent.status}`);
         break;
@@ -199,7 +199,7 @@ async function main() {
         }
 
         const result = await client.deployAgent(args.id);
-        console.log('🚀 Agent deployed successfully!\n');
+        console.log(' Agent deployed successfully!\n');
         console.log(`Message: ${result.message}`);
         if (result.sip_status) {
           console.log(`SIP Status: ${result.sip_status}`);
@@ -214,7 +214,7 @@ async function main() {
         }
 
         const agent = await client.pauseAgent(args.id);
-        console.log('⏸️  Agent paused successfully!');
+        console.log('  Agent paused successfully!');
         console.log(`Status: ${agent.status}`);
         break;
       }
@@ -226,7 +226,7 @@ async function main() {
         }
 
         await client.deleteAgent(args.id);
-        console.log('🗑️  Agent deleted successfully!');
+        console.log('  Agent deleted successfully!');
         break;
       }
 

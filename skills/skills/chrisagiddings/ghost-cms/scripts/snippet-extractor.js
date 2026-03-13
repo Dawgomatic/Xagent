@@ -119,7 +119,7 @@ function sanitizeMarker(marker) {
 function validateSnippetSize(snippetName, cards) {
   // Check card count
   if (cards.length > 100) {
-    console.warn(`⚠️  Warning: Snippet "${snippetName}" has ${cards.length} cards (unusually large)`);
+    console.warn(`  Warning: Snippet "${snippetName}" has ${cards.length} cards (unusually large)`);
   }
   
   // Check total size
@@ -176,7 +176,7 @@ async function extractSnippets(postIdOrSlug, options = {}) {
   console.log('╚════════════════════════════════════════════════════════╝\n');
   
   if (markerPrefix !== 'SNIPPET:') {
-    console.log(`🔍 Using custom marker: "${markerPrefix}"\n`);
+    console.log(` Using custom marker: "${markerPrefix}"\n`);
   }
 
   // Create ghostApi function with credentials
@@ -225,7 +225,7 @@ async function extractSnippets(postIdOrSlug, options = {}) {
     });
   }
 
-  console.log(`📖 Fetching post: ${postIdOrSlug}`);
+  console.log(` Fetching post: ${postIdOrSlug}`);
   
   // Fetch post with lexical format
   const response = await ghostApiRequest(`/posts/${postIdOrSlug}/?formats=lexical`, 'GET');
@@ -235,7 +235,7 @@ async function extractSnippets(postIdOrSlug, options = {}) {
   }
 
   const post = response.posts[0];
-  console.log(`✅ Found: "${post.title}"`);
+  console.log(` Found: "${post.title}"`);
   console.log(`   Status: ${post.status}`);
   console.log(`   Updated: ${new Date(post.updated_at).toLocaleDateString()}\n`);
 
@@ -245,7 +245,7 @@ async function extractSnippets(postIdOrSlug, options = {}) {
     : post.lexical;
 
   const cards = lexical.root.children;
-  console.log(`📦 Total cards in post: ${cards.length}\n`);
+  console.log(` Total cards in post: ${cards.length}\n`);
 
   // Find snippet markers and extract snippets
   const snippets = [];
@@ -273,7 +273,7 @@ async function extractSnippets(postIdOrSlug, options = {}) {
         };
 
         if (verbose) {
-          console.log(`🔍 Found marker: "${text}" → snippet name: "${snippetName}"`);
+          console.log(` Found marker: "${text}" → snippet name: "${snippetName}"`);
         }
       } else if (currentSnippet) {
         // Add card to current snippet
@@ -290,11 +290,11 @@ async function extractSnippets(postIdOrSlug, options = {}) {
     snippets.push(currentSnippet);
   }
 
-  console.log(`✨ Found ${snippets.length} snippets:\n`);
+  console.log(` Found ${snippets.length} snippets:\n`);
 
   // Display and save snippets
   for (const snippet of snippets) {
-    console.log(`📌 Snippet: ${snippet.name}`);
+    console.log(` Snippet: ${snippet.name}`);
     console.log(`   Cards: ${snippet.cards.length}`);
     console.log(`   Types: ${snippet.cards.map(c => c.type).join(', ')}`);
 
@@ -313,15 +313,15 @@ async function extractSnippets(postIdOrSlug, options = {}) {
         const filepath = join(LIBRARY_DIR, filename);
         
         fs.writeFileSync(filepath, JSON.stringify(snippet.cards, null, 2));
-        console.log(`   ✅ Saved: ${filepath}`);
+        console.log(`    Saved: ${filepath}`);
       }
 
       if (verbose) {
-        console.warn(`   ⚠️  Verbose mode: previews may contain sensitive data`);
+        console.warn(`     Verbose mode: previews may contain sensitive data`);
         console.log(`   Preview: ${JSON.stringify(snippet.cards[0], null, 2).substring(0, 100)}...`);
       }
     } catch (error) {
-      console.error(`   ❌ Error saving snippet: ${error.message}`);
+      console.error(`    Error saving snippet: ${error.message}`);
       continue;
     }
 
@@ -333,15 +333,15 @@ async function extractSnippets(postIdOrSlug, options = {}) {
   console.log('║                    EXTRACTION COMPLETE                 ║');
   console.log('╚════════════════════════════════════════════════════════╝\n');
 
-  console.log(`📊 Summary:`);
+  console.log(` Summary:`);
   console.log(`   Total snippets extracted: ${snippets.length}`);
   console.log(`   Saved to: ${LIBRARY_DIR}`);
   
   if (dryRun) {
-    console.log(`\n⚠️  DRY RUN MODE - No files were saved`);
+    console.log(`\n  DRY RUN MODE - No files were saved`);
     console.log(`   Remove --dry-run to save snippets\n`);
   } else {
-    console.log(`\n✅ Snippets ready to use!`);
+    console.log(`\n Snippets ready to use!`);
     console.log(`   List: node snippets/ghost-snippet.js list`);
     console.log(`   Preview: node snippets/ghost-snippet.js preview ${snippets[0]?.name || 'snippet-name'}\n`);
   }
@@ -354,7 +354,7 @@ async function extractSnippets(postIdOrSlug, options = {}) {
  * Checks if post follows the correct format
  */
 async function validatePost(postIdOrSlug, options = {}) {
-  console.log('🔍 Validating snippet extraction post format...\n');
+  console.log(' Validating snippet extraction post format...\n');
 
   const snippets = await extractSnippets(postIdOrSlug, {
     ...options,
@@ -362,10 +362,10 @@ async function validatePost(postIdOrSlug, options = {}) {
     verbose: true
   });
 
-  console.log('\n📋 Validation Results:\n');
+  console.log('\n Validation Results:\n');
 
   if (snippets.length === 0) {
-    console.log('❌ No snippets found!');
+    console.log(' No snippets found!');
     console.log('\nExpected format:');
     console.log('   SNIPPET: snippet-name');
     console.log('   [snippet content cards]');
@@ -374,9 +374,9 @@ async function validatePost(postIdOrSlug, options = {}) {
     return false;
   }
 
-  console.log('✅ Format looks good!');
+  console.log(' Format looks good!');
   console.log(`   Found ${snippets.length} snippets`);
-  console.log(`\n💡 Run without --validate to extract snippets\n`);
+  console.log(`\n Run without --validate to extract snippets\n`);
   return true;
 }
 
@@ -496,7 +496,7 @@ REQUIREMENTS:
       await extractSnippets(postIdOrSlug, options);
     }
   } catch (error) {
-    console.error(`\n❌ Error: ${error.message}\n`);
+    console.error(`\n Error: ${error.message}\n`);
     process.exit(1);
   }
   })(); // End async wrapper

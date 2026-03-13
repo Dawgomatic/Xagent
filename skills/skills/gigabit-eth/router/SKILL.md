@@ -39,9 +39,9 @@ For OpenRouter-specific pricing and models, see [references/openrouter-models.md
 
 | Model | Context | Tools | Best For |
 |-------|---------|-------|----------|
-| Aurora Alpha | 128K | ✅ | Zero-cost reasoning, cloaked community model |
-| Free Router | 200K | ✅ | Auto-routes to best available free model |
-| Step 3.5 Flash (free) | 256K | ✅ | Long-context reasoning at zero cost |
+| Aurora Alpha | 128K |  | Zero-cost reasoning, cloaked community model |
+| Free Router | 200K |  | Auto-routes to best available free model |
+| Step 3.5 Flash (free) | 256K |  | Long-context reasoning at zero cost |
 
 *Free models have rate limits and variable availability. Good for non-critical background tasks.*
 
@@ -49,30 +49,30 @@ For OpenRouter-specific pricing and models, see [references/openrouter-models.md
 
 | Model | Input | Output | Context | Tools | Best For |
 |-------|-------|--------|---------|-------|----------|
-| Qwen3 Coder Next | $0.07 | $0.30 | 262K | ✅ | Agentic coding, MoE 80B/3B active |
-| Gemini 2.0 Flash Lite | $0.07 | $0.30 | 1M | ✅ | High volume, massive context |
-| Gemini 2.0 Flash | $0.10 | $0.40 | 1M | ✅ | General routine with long context |
-| GPT-4o-mini | $0.15 | $0.60 | 128K | ✅ | Quick responses, reliable tool use |
-| DeepSeek Chat | $0.30 | $1.20 | 164K | ✅ | General routine work |
-| Claude 3 Haiku | $0.25 | $1.25 | 200K | ✅ | Fast tool use, structured output |
-| Kimi K2.5 | $0.45 | $2.20 | 262K | ✅ | Multimodal, visual coding, agentic |
+| Qwen3 Coder Next | $0.07 | $0.30 | 262K |  | Agentic coding, MoE 80B/3B active |
+| Gemini 2.0 Flash Lite | $0.07 | $0.30 | 1M |  | High volume, massive context |
+| Gemini 2.0 Flash | $0.10 | $0.40 | 1M |  | General routine with long context |
+| GPT-4o-mini | $0.15 | $0.60 | 128K |  | Quick responses, reliable tool use |
+| DeepSeek Chat | $0.30 | $1.20 | 164K |  | General routine work |
+| Claude 3 Haiku | $0.25 | $1.25 | 200K |  | Fast tool use, structured output |
+| Kimi K2.5 | $0.45 | $2.20 | 262K |  | Multimodal, visual coding, agentic |
 
 ### Tier 2: Mid ($1-5/M tokens)
 
 | Model | Input | Output | Context | Tools | Best For |
 |-------|-------|--------|---------|-------|----------|
-| o3-mini | $1.10 | $4.40 | 200K | ✅ | Reasoning on a budget |
-| Gemini 2.5 Pro | $1.25 | $10.00 | 1M | ✅ | Long context, large codebase work |
-| GPT-4o | $2.50 | $10.00 | 128K | ✅ | Multimodal tasks |
-| Claude Sonnet | $3.00 | $15.00 | 1M | ✅ | Balanced performance, agentic |
+| o3-mini | $1.10 | $4.40 | 200K |  | Reasoning on a budget |
+| Gemini 2.5 Pro | $1.25 | $10.00 | 1M |  | Long context, large codebase work |
+| GPT-4o | $2.50 | $10.00 | 128K |  | Multimodal tasks |
+| Claude Sonnet | $3.00 | $15.00 | 1M |  | Balanced performance, agentic |
 
 ### Tier 3: Premium ($5+/M tokens)
 
 | Model | Input | Output | Context | Tools | Best For |
 |-------|-------|--------|---------|-------|----------|
-| Claude Opus 4.6 | $5.00 | $25.00 | 1M | ✅ | Complex reasoning, deep context |
-| o1 | $15.00 | $60.00 | 200K | ✅ | Multi-step reasoning |
-| GPT-4.5 | $75.00 | $150.00 | 128K | ✅ | Frontier tasks |
+| Claude Opus 4.6 | $5.00 | $25.00 | 1M |  | Complex reasoning, deep context |
+| o1 | $15.00 | $60.00 | 200K |  | Multi-step reasoning |
+| GPT-4.5 | $75.00 | $150.00 | 128K |  | Frontier tasks |
 
 *Prices as of Feb 2026. Check provider docs for current rates. Context = max context window. Tools = function calling support.*
 

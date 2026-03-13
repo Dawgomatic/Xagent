@@ -1,7 +1,7 @@
 ---
 name: jellyfin-control
 description: Control Jellyfin media server and TV. Search content, resume playback, manage sessions, control TV power and apps. Supports Home Assistant and direct WebOS backends. One command to turn on TV, launch Jellyfin, and play content.
-metadata: {"version": "1.3.0", "author": "Titunito", "openclaw": {"emoji": "🎬", "requires": {"env": ["JF_URL", "JF_API_KEY"]}, "optionalEnv": ["JF_USER", "JF_PASS", "JF_USER_ID", "TV_BACKEND", "TV_PLATFORM", "HA_URL", "HA_TOKEN", "HA_TV_ENTITY", "TV_IP", "TV_MAC", "TV_CLIENT_KEY", "ADB_DEVICE", "TV_JELLYFIN_APP", "TV_BOOT_DELAY", "TV_APP_DELAY"], "tags": ["media", "streaming", "tv", "smart-home", "jellyfin", "webos", "androidtv", "home-assistant"]}}
+metadata: {"version": "1.3.0", "author": "Titunito", "openclaw": {"emoji": "", "requires": {"env": ["JF_URL", "JF_API_KEY"]}, "optionalEnv": ["JF_USER", "JF_PASS", "JF_USER_ID", "TV_BACKEND", "TV_PLATFORM", "HA_URL", "HA_TOKEN", "HA_TV_ENTITY", "TV_IP", "TV_MAC", "TV_CLIENT_KEY", "ADB_DEVICE", "TV_JELLYFIN_APP", "TV_BOOT_DELAY", "TV_APP_DELAY"], "tags": ["media", "streaming", "tv", "smart-home", "jellyfin", "webos", "androidtv", "home-assistant"]}}
 ---
 
 # Jellyfin Control
@@ -10,7 +10,7 @@ A robust skill to control Jellyfin playback and TV power via CLI.
 
 ## Features
 
-- **🎯 One-Command Play:** `tv play "Breaking Bad"` — turns on TV, launches Jellyfin, finds the next episode, and plays it.
+- ** One-Command Play:** `tv play "Breaking Bad"` — turns on TV, launches Jellyfin, finds the next episode, and plays it.
 - **Smart Resume:** Automatically finds the next unplayed episode for series.
 - **Resume Position:** Resumes Movies/Episodes exactly where left off (with `Seek` fallback for LG WebOS/Tizen).
 - **Device Discovery:** Auto-detects controllable sessions (TVs, Phones, Web).
@@ -143,7 +143,7 @@ A robust skill to control Jellyfin playback and TV power via CLI.
 
 ## Usage
 
-### 🎯 One-Command Play (the magic)
+###  One-Command Play (the magic)
 
 Turn on TV → launch Jellyfin → find next episode → play it. All in one command:
 
@@ -207,13 +207,13 @@ node skills/jellyfin-control/cli.js history jorge --days 7
 | Feature             | Home Assistant        | Direct WebOS            | Direct ADB (Android TV)     | No Backend     |
 | ------------------- | --------------------- | ----------------------- | --------------------------- | -------------- |
 | TV brands           | Any (via HA)          | LG only                 | Android TV, Fire TV, CCwGTV | —              |
-| Turn on (WoL)       | ✅                    | ✅                      | ✅ (WoL or ADB wakeup)     | —              |
-| Turn off            | ✅                    | ✅                      | ✅                          | —              |
-| Launch apps         | ✅                    | ✅                      | ✅                          | —              |
-| List apps           | ✅ (via HA logs)      | ✅ (direct output)      | ✅ (direct output)          | —              |
+| Turn on (WoL)       |                     |                       |  (WoL or ADB wakeup)     | —              |
+| Turn off            |                     |                       |                           | —              |
+| Launch apps         |                     |                       |                           | —              |
+| List apps           |  (via HA logs)      |  (direct output)      |  (direct output)          | —              |
 | Extra dependency    | None                  | `npm install ws`        | `apt install adb`           | None           |
 | Setup complexity    | Medium (need HA)      | Low (TV IP + MAC)       | Low (enable ADB on TV)      | None           |
-| Jellyfin playback   | ✅                    | ✅                      | ✅                          | ✅             |
+| Jellyfin playback   |                     |                       |                           |              |
 
 **Recommendation:**
 - Already have Home Assistant? → Use HA backend (most versatile, any TV brand)

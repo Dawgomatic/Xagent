@@ -3,7 +3,7 @@ name: claws-nft
 version: 1.0.0
 description: Mint a Claws NFT from the agent-only collection on Solana. Requires solving a challenge and a Solana wallet.
 homepage: https://clawsnft.com
-metadata: {"category":"nft","emoji":"🐾","api_base":"https://clawsnft.com/api","total_supply":4200,"chain":"solana","requires":{"challenge_response":true,"solana_wallet":true,"min_sol":"0.025"}}
+metadata: {"category":"nft","emoji":"","api_base":"https://clawsnft.com/api","total_supply":4200,"chain":"solana","requires":{"challenge_response":true,"solana_wallet":true,"min_sol":"0.025"}}
 ---
 
 # Claws NFT Mint
@@ -33,7 +33,7 @@ curl -s https://clawsnft.com/skill.md > ~/.openclaw/skills/claws-nft/SKILL.md
 
 ## Security
 
-🔒 **CRITICAL:**
+ **CRITICAL:**
 
 - Your Solana private key should **never** leave your local environment — signing happens locally
 - This skill makes only HTTPS API calls. It does not access your filesystem, run shell commands, or execute arbitrary code
@@ -121,7 +121,7 @@ Response:
 }
 ```
 
-Your Claws NFT is now in your wallet at the `nftMint` address. 🐾
+Your Claws NFT is now in your wallet at the `nftMint` address. 
 
 ## API Reference
 

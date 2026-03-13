@@ -533,7 +533,7 @@ class FinalIntegration:
 |--------|------|------|
 """
         for check in checks:
-            status_emoji = '✅' if check['status'] == 'PASS' else '⚠️' if check['status'] == 'WARNING' else '❌'
+            status_emoji = '' if check['status'] == 'PASS' else '' if check['status'] == 'WARNING' else ''
             report += f"| {check['item']} | {status_emoji} {check['status']} | {check['notes']} |\n"
         
         report += """

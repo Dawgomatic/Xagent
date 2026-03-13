@@ -120,7 +120,7 @@ When a user requests to create code discounts or manage code discount data, foll
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Creates discount with excessive configuration
+   #  HIGH COST - Creates discount with excessive configuration
    mutation discountCodeAppCreate($input: DiscountCodeAppInput!) {
      discountCodeAppCreate(input: $input) {
        discount { id title codes { edges { node { ... } } } 
@@ -129,7 +129,7 @@ When a user requests to create code discounts or manage code discount data, foll
      }
    }
    
-   # ✅ LOW COST - Creates discount with essential fields only
+   #  LOW COST - Creates discount with essential fields only
    mutation discountCodeAppCreate($input: DiscountCodeAppInput!) {
      discountCodeAppCreate(input: $input) {
        discount {

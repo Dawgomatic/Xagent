@@ -173,7 +173,7 @@ When a user requests to fetch product data, follow these steps:
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Fetches all products with excessive fields
+   #  HIGH COST - Fetches all products with excessive fields
    query {
      products(first: 50) {
        edges {
@@ -186,7 +186,7 @@ When a user requests to fetch product data, follow these steps:
      }
    }
    
-   # ✅ LOW COST - Fetches products with essential fields only
+   #  LOW COST - Fetches products with essential fields only
    query {
      products(first: 10, query:"status:ACTIVE") {
        edges {

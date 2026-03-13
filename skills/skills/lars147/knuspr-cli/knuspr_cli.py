@@ -1281,7 +1281,7 @@ def check_auth(api: KnusprAPI, json_output: bool = False) -> Optional[int]:
             print(json.dumps({"error": "Nicht eingeloggt", "code": EXIT_AUTH_ERROR}, indent=2))
         else:
             print()
-            print("❌ Nicht eingeloggt. Führe 'knuspr auth login' aus.")
+            print(" Nicht eingeloggt. Führe 'knuspr auth login' aus.")
             print()
         return EXIT_AUTH_ERROR
     return None
@@ -1300,7 +1300,7 @@ def cmd_auth_login(args: argparse.Namespace) -> int:
             print(json.dumps({"status": "already_logged_in", "user_id": api.user_id}, indent=2))
         else:
             print()
-            print("✅ Bereits eingeloggt!")
+            print(" Bereits eingeloggt!")
             print(f"   User ID: {api.user_id}")
             print()
             print("   Zum erneuten Einloggen erst 'knuspr auth logout' ausführen.")
@@ -1310,7 +1310,7 @@ def cmd_auth_login(args: argparse.Namespace) -> int:
     if not args.json:
         print()
         print("╔═══════════════════════════════════════════════════════════╗")
-        print("║  🛒 KNUSPR LOGIN                                          ║")
+        print("║   KNUSPR LOGIN                                          ║")
         print("╚═══════════════════════════════════════════════════════════╝")
         print()
     
@@ -1323,21 +1323,21 @@ def cmd_auth_login(args: argparse.Namespace) -> int:
     
     if not args.json:
         if not email:
-            email = input("📧 E-Mail: ").strip()
+            email = input(" E-Mail: ").strip()
         else:
-            print(f"📧 E-Mail: {email}")
+            print(f" E-Mail: {email}")
         
         if not password:
-            password = getpass.getpass("🔑 Passwort: ")
+            password = getpass.getpass(" Passwort: ")
         else:
-            print("🔑 Passwort: ********")
+            print(" Passwort: ********")
     
     if not email or not password:
         if args.json:
             print(json.dumps({"error": "E-Mail und Passwort werden benötigt"}, indent=2))
         else:
             print()
-            print("❌ E-Mail und Passwort werden benötigt!")
+            print(" E-Mail und Passwort werden benötigt!")
         return EXIT_ERROR
     
     if not args.json:
@@ -1352,7 +1352,7 @@ def cmd_auth_login(args: argparse.Namespace) -> int:
             print("  → Authentifizierung erfolgreich...")
             print("  → Speichere Session...")
             print()
-            print(f"✅ Eingeloggt als {result['name']} ({result['email']})")
+            print(f" Eingeloggt als {result['name']} ({result['email']})")
             print(f"   User ID: {result['user_id']}")
             if result['address_id']:
                 print(f"   Adresse ID: {result['address_id']}")
@@ -1363,7 +1363,7 @@ def cmd_auth_login(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Login fehlgeschlagen: {e}")
+            print(f" Login fehlgeschlagen: {e}")
             print()
         return EXIT_AUTH_ERROR
 
@@ -1377,7 +1377,7 @@ def cmd_auth_logout(args: argparse.Namespace) -> int:
             print(json.dumps({"status": "not_logged_in"}, indent=2))
         else:
             print()
-            print("ℹ️  Nicht eingeloggt.")
+            print("  Nicht eingeloggt.")
             print()
         return EXIT_OK
     
@@ -1387,7 +1387,7 @@ def cmd_auth_logout(args: argparse.Namespace) -> int:
         print(json.dumps({"status": "logged_out"}, indent=2))
     else:
         print()
-        print("✅ Ausgeloggt und Session gelöscht.")
+        print(" Ausgeloggt und Session gelöscht.")
         print()
     return EXIT_OK
 
@@ -1406,18 +1406,18 @@ def cmd_auth_status(args: argparse.Namespace) -> int:
     else:
         print()
         print("╔═══════════════════════════════════════════════════════════╗")
-        print("║  🛒 KNUSPR STATUS                                         ║")
+        print("║   KNUSPR STATUS                                         ║")
         print("╚═══════════════════════════════════════════════════════════╝")
         print()
         
         if api.is_logged_in():
-            print(f"✅ Eingeloggt")
+            print(f" Eingeloggt")
             print(f"   User ID: {api.user_id}")
             if api.address_id:
                 print(f"   Adresse ID: {api.address_id}")
             print(f"   Session: {SESSION_FILE}")
         else:
-            print("❌ Nicht eingeloggt")
+            print(" Nicht eingeloggt")
             print()
             print("   Führe 'knuspr auth login' aus um dich einzuloggen.")
         print()
@@ -1437,18 +1437,18 @@ def cmd_config_show(args: argparse.Namespace) -> int:
     else:
         print()
         print("╔═══════════════════════════════════════════════════════════╗")
-        print("║  ⚙️  KNUSPR KONFIGURATION                                  ║")
+        print("║    KNUSPR KONFIGURATION                                  ║")
         print("╚═══════════════════════════════════════════════════════════╝")
         print()
         
         if not config:
-            print("   ℹ️  Keine Konfiguration gesetzt.")
+            print("     Keine Konfiguration gesetzt.")
             print()
-            print("   💡 Tipp: Führe 'knuspr config set' aus um Präferenzen zu setzen.")
+            print("    Tipp: Führe 'knuspr config set' aus um Präferenzen zu setzen.")
             print()
         else:
-            bio_status = "✅ Ja" if config.get("prefer_bio") else "❌ Nein"
-            print(f"   🌿 Bio bevorzugen:      {bio_status}")
+            bio_status = " Ja" if config.get("prefer_bio") else " Nein"
+            print(f"    Bio bevorzugen:      {bio_status}")
             
             sort_names = {
                 "relevance": "Empfohlen",
@@ -1457,16 +1457,16 @@ def cmd_config_show(args: argparse.Namespace) -> int:
                 "price_desc": "Preis absteigend",
             }
             sort_name = sort_names.get(config.get("default_sort", "relevance"), "Relevanz")
-            print(f"   📊 Standard-Sortierung: {sort_name}")
+            print(f"    Standard-Sortierung: {sort_name}")
             
             exclusions = config.get("exclusions", [])
             if exclusions:
-                print(f"   🚫 Ausschlüsse:         {', '.join(exclusions)}")
+                print(f"    Ausschlüsse:         {', '.join(exclusions)}")
             else:
-                print(f"   🚫 Ausschlüsse:         Keine")
+                print(f"    Ausschlüsse:         Keine")
             
             print()
-            print(f"   💾 Datei: {CONFIG_FILE}")
+            print(f"    Datei: {CONFIG_FILE}")
             print()
     return EXIT_OK
 
@@ -1475,7 +1475,7 @@ def cmd_config_set(args: argparse.Namespace) -> int:
     """Handle config set command - interactive onboarding."""
     print()
     print("╔═══════════════════════════════════════════════════════════╗")
-    print("║  ⚙️  KNUSPR KONFIGURATION                                  ║")
+    print("║    KNUSPR KONFIGURATION                                  ║")
     print("╚═══════════════════════════════════════════════════════════╝")
     print()
     print("   Richte deine Präferenzen ein für bessere Suchergebnisse!")
@@ -1486,7 +1486,7 @@ def cmd_config_set(args: argparse.Namespace) -> int:
     config = load_config()
     
     # Bio preference
-    print("🌿 Bio-Produkte bevorzugen?")
+    print(" Bio-Produkte bevorzugen?")
     print("   Bio-Produkte werden in Suchergebnissen höher angezeigt.")
     print()
     current_bio = config.get("prefer_bio", False)
@@ -1505,7 +1505,7 @@ def cmd_config_set(args: argparse.Namespace) -> int:
     print()
     
     # Default sorting
-    print("📊 Standard-Sortierung für Suchergebnisse:")
+    print(" Standard-Sortierung für Suchergebnisse:")
     print()
     print("   1. Relevanz (Standard)")
     print("   2. Preis aufsteigend (günstigste zuerst)")
@@ -1531,7 +1531,7 @@ def cmd_config_set(args: argparse.Namespace) -> int:
     print()
     
     # Exclusions
-    print("🚫 Produkte ausschließen (optional):")
+    print(" Produkte ausschließen (optional):")
     print("   Begriffe, die aus Suchergebnissen gefiltert werden.")
     print("   z.B.: Laktose, Gluten, Schwein")
     print()
@@ -1557,23 +1557,23 @@ def cmd_config_set(args: argparse.Namespace) -> int:
     # Summary
     print("─" * 60)
     print()
-    print("✅ Konfiguration gespeichert!")
+    print(" Konfiguration gespeichert!")
     print()
     
-    bio_status = "✅ Ja" if config.get("prefer_bio") else "❌ Nein"
-    print(f"   🌿 Bio bevorzugen:      {bio_status}")
+    bio_status = " Ja" if config.get("prefer_bio") else " Nein"
+    print(f"    Bio bevorzugen:      {bio_status}")
     
     sort_name = sort_names.get(config.get("default_sort", "relevance"), "Relevanz")
-    print(f"   📊 Standard-Sortierung: {sort_name}")
+    print(f"    Standard-Sortierung: {sort_name}")
     
     exclusions = config.get("exclusions", [])
     if exclusions:
-        print(f"   🚫 Ausschlüsse:         {', '.join(exclusions)}")
+        print(f"    Ausschlüsse:         {', '.join(exclusions)}")
     else:
-        print(f"   🚫 Ausschlüsse:         Keine")
+        print(f"    Ausschlüsse:         Keine")
     
     print()
-    print(f"   💾 Gespeichert in: {CONFIG_FILE}")
+    print(f"    Gespeichert in: {CONFIG_FILE}")
     print()
     
     return EXIT_OK
@@ -1587,14 +1587,14 @@ def cmd_config_reset(args: argparse.Namespace) -> int:
             print(json.dumps({"status": "reset"}, indent=2))
         else:
             print()
-            print("✅ Konfiguration zurückgesetzt.")
+            print(" Konfiguration zurückgesetzt.")
             print()
     else:
         if args.json:
             print(json.dumps({"status": "no_config"}, indent=2))
         else:
             print()
-            print("ℹ️  Keine Konfiguration vorhanden.")
+            print("  Keine Konfiguration vorhanden.")
             print()
     return EXIT_OK
 
@@ -1637,7 +1637,7 @@ def cmd_account_show(args: argparse.Namespace) -> int:
         else:
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print("║  👤 ACCOUNT INFORMATION                                    ║")
+            print("║   ACCOUNT INFORMATION                                    ║")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             
@@ -1646,30 +1646,30 @@ def cmd_account_show(args: argparse.Namespace) -> int:
                 savings = premium.get("savings", {}).get("total", {}).get("amount", {})
                 saved_total = savings.get("amount") or premium.get("stats", {}).get("savedTotal", {}).get("full") or 0
                 
-                print(f"   ⭐ Premium Status: {'✅ Aktiv' if is_premium else '❌ Inaktiv'}")
+                print(f"    Premium Status: {' Aktiv' if is_premium else ' Inaktiv'}")
                 
                 if is_premium and saved_total > 0:
                     currency = savings.get("currency", "€")
-                    print(f"   💰 Gespart: {format_price(saved_total, currency)}")
+                    print(f"    Gespart: {format_price(saved_total, currency)}")
                 
                 limits = premium.get("premiumLimits", {}).get("ordersWithoutPriceLimit", {})
                 if limits:
                     remaining = limits.get("remaining", 0)
                     total = limits.get("total", 0)
-                    print(f"   📦 Bestellungen ohne Mindestbestellwert: {remaining}/{total}")
+                    print(f"    Bestellungen ohne Mindestbestellwert: {remaining}/{total}")
                 print()
             
             if bags:
                 count = bags.get("current") or bags.get("count") or bags.get("bagsCount") or 0
                 saved_plastic = bags.get("savedPlastic") or bags.get("plasticSaved") or 0
                 
-                print(f"   ♻️  Mehrwegtaschen: {count}")
+                print(f"     Mehrwegtaschen: {count}")
                 if saved_plastic > 0:
-                    print(f"   🌱 Plastik gespart: {saved_plastic}g")
+                    print(f"    Plastik gespart: {saved_plastic}g")
                 print()
             
             if announcements and len(announcements) > 0:
-                print(f"   📢 Ankündigungen ({len(announcements)}):")
+                print(f"    Ankündigungen ({len(announcements)}):")
                 print()
                 for ann in announcements[:5]:
                     title = ann.get("title") or ann.get("headline") or "Ankündigung"
@@ -1681,7 +1681,7 @@ def cmd_account_show(args: argparse.Namespace) -> int:
                         print(f"        {message}")
                     print()
             else:
-                print("   📢 Keine Ankündigungen.")
+                print("    Keine Ankündigungen.")
                 print()
         
         return EXIT_OK
@@ -1690,7 +1690,7 @@ def cmd_account_show(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -1715,9 +1715,9 @@ def cmd_product_search(args: argparse.Namespace) -> int:
         if not args.json:
             print()
             if expiring_only:
-                print(f"🥬 Rette Lebensmittel: '{args.query}'")
+                print(f" Rette Lebensmittel: '{args.query}'")
             else:
-                print(f"🔍 Suche in Knuspr: '{args.query}'")
+                print(f" Suche in Knuspr: '{args.query}'")
             print("─" * 50)
         
         prefer_bio = getattr(args, 'bio', None)
@@ -1765,23 +1765,23 @@ def cmd_product_search(args: argparse.Namespace) -> int:
                 print(f"Keine Produkte gefunden für '{args.query}'")
                 print()
                 if show_setup_hint:
-                    print("💡 Tipp: Führe 'knuspr config set' aus um Präferenzen zu setzen")
+                    print(" Tipp: Führe 'knuspr config set' aus um Präferenzen zu setzen")
                     print()
                 return EXIT_OK
             
             print(f"Gefunden: {len(results)} Produkte")
             if prefer_bio:
-                print("   🌿 Nur Bio-Produkte")
+                print("    Nur Bio-Produkte")
             print()
             
             for i, p in enumerate(results, 1):
-                stock = "✅" if p["in_stock"] else "❌"
+                stock = "" if p["in_stock"] else ""
                 brand = f" ({p['brand']})" if p['brand'] else ""
                 name = p['name']
                 name_lower = name.lower()
                 brand_lower = (p.get('brand') or '').lower()
                 is_bio = "bio" in name_lower or "bio" in brand_lower or "organic" in name_lower
-                bio_badge = " 🌿" if is_bio and prefer_bio else ""
+                bio_badge = " " if is_bio and prefer_bio else ""
                 
                 discount = p.get('discount', '')
                 expiry = p.get('expiry', '')
@@ -1790,23 +1790,23 @@ def cmd_product_search(args: argparse.Namespace) -> int:
                 sale = p.get('sale')
                 sale_str = ""
                 if sale:
-                    sale_str = f" 🏷️ -{sale['discount_percent']}%"
+                    sale_str = f"  -{sale['discount_percent']}%"
                 
                 print(f"  {i:2}. {name}{brand}{bio_badge}{discount_str}{sale_str}")
                 
                 if expiring_only and expiry:
-                    print(f"      ⏰ {expiry}")
+                    print(f"       {expiry}")
                 
                 if sale:
                     ends = f" (bis {sale['ends_at'][:10]})" if sale.get('ends_at') else ""
-                    print(f"      🏷️ {sale['sale_price']:.2f} € statt {sale['original_price']:.2f} €{ends}")
+                    print(f"       {sale['sale_price']:.2f} € statt {sale['original_price']:.2f} €{ends}")
                 
-                print(f"      💰 {p['price']} {p['currency']}  │  📦 {p['amount']}  │  {stock}")
+                print(f"       {p['price']} {p['currency']}  │   {p['amount']}  │  {stock}")
                 print(f"      ID: {p['id']}")
                 print()
             
             if show_setup_hint:
-                print("💡 Tipp: Führe 'knuspr config set' aus um Präferenzen zu setzen")
+                print(" Tipp: Führe 'knuspr config set' aus um Präferenzen zu setzen")
                 print()
         
         return EXIT_OK
@@ -1815,7 +1815,7 @@ def cmd_product_search(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -1834,7 +1834,7 @@ def cmd_product_show(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"Ungültige Produkt-ID: {args.product_id}"}, indent=2))
         else:
             print()
-            print(f"❌ Ungültige Produkt-ID: {args.product_id}")
+            print(f" Ungültige Produkt-ID: {args.product_id}")
             print()
         return EXIT_ERROR
     
@@ -1846,25 +1846,25 @@ def cmd_product_show(args: argparse.Namespace) -> int:
         else:
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print("║  📦 PRODUKT-DETAILS                                        ║")
+            print("║   PRODUKT-DETAILS                                        ║")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             
             name = product.get("name", "Unbekannt")
             brand = product.get("brand")
-            print(f"   🏷️  {name}")
+            print(f"     {name}")
             if brand:
-                print(f"   🏭 Marke: {brand}")
+                print(f"    Marke: {brand}")
             print()
             
             badges = product.get("badges", [])
             if badges:
                 badge_str = " ".join([f"[{b.get('title', '?')}]" for b in badges if b.get('title')])
                 if badge_str:
-                    print(f"   🏅 {badge_str}")
+                    print(f"    {badge_str}")
                     print()
             
-            print("   💰 PREIS")
+            print("    PREIS")
             print("   ─────────────────────────────────")
             price = product.get("price")
             currency = product.get("currency", "EUR")
@@ -1884,25 +1884,25 @@ def cmd_product_show(args: argparse.Namespace) -> int:
                 sale_price = sale.get("sale_price")
                 title = sale.get("title", "Angebot")
                 if orig and sale_price:
-                    print(f"      🔥 {title}: {sale_price:.2f} € (statt {orig:.2f} €)")
+                    print(f"       {title}: {sale_price:.2f} € (statt {orig:.2f} €)")
             print()
             
-            print("   📊 VERFÜGBARKEIT")
+            print("    VERFÜGBARKEIT")
             print("   ─────────────────────────────────")
             in_stock = product.get("in_stock", False)
             max_qty = product.get("max_quantity")
-            stock_str = "✅ Auf Lager" if in_stock else "❌ Nicht verfügbar"
+            stock_str = " Auf Lager" if in_stock else " Nicht verfügbar"
             print(f"      Status: {stock_str}")
             if max_qty:
                 print(f"      Max. Bestellmenge: {max_qty}")
             if product.get("premium_only"):
-                print(f"      ⭐ Nur für Premium-Kunden")
+                print(f"       Nur für Premium-Kunden")
             print()
             
             shelf_life = product.get("shelf_life")
             freshness_msg = product.get("freshness_message")
             if shelf_life or freshness_msg:
-                print("   🥬 FRISCHE")
+                print("    FRISCHE")
                 print("   ─────────────────────────────────")
                 if freshness_msg:
                     print(f"      {freshness_msg}")
@@ -1919,15 +1919,15 @@ def cmd_product_show(args: argparse.Namespace) -> int:
             if country:
                 country_code = product.get("country_code")
                 flag = f" ({country_code})" if country_code else ""
-                print("   🌍 HERKUNFT")
+                print("    HERKUNFT")
                 print("   ─────────────────────────────────")
                 print(f"      {country}{flag}")
                 print()
             
-            print(f"   🔗 Produkt-ID: {product.get('id')}")
+            print(f"    Produkt-ID: {product.get('id')}")
             slug = product.get("slug")
             if slug:
-                print(f"   🌐 https://www.knuspr.de/{product.get('id')}-{slug}")
+                print(f"    https://www.knuspr.de/{product.get('id')}-{slug}")
             print()
         
         return EXIT_OK
@@ -1936,7 +1936,7 @@ def cmd_product_show(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -1956,7 +1956,7 @@ def cmd_product_filters(args: argparse.Namespace) -> int:
             return EXIT_OK
         
         print()
-        print(f"🔍 Verfügbare Filter für: '{args.query}'")
+        print(f" Verfügbare Filter für: '{args.query}'")
         print("─" * 50)
         print()
         
@@ -1967,7 +1967,7 @@ def cmd_product_filters(args: argparse.Namespace) -> int:
             if not options:
                 continue
             
-            print(f"📁 {title}")
+            print(f" {title}")
             
             for opt in options[:8]:
                 name = opt.get("title")
@@ -1990,7 +1990,7 @@ def cmd_product_filters(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2008,7 +2008,7 @@ def cmd_product_rette(args: argparse.Namespace) -> int:
         if not args.json:
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print("║  🥬 RETTE LEBENSMITTEL                                     ║")
+            print("║   RETTE LEBENSMITTEL                                     ║")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             print("   → Lade Produkte...")
@@ -2034,9 +2034,9 @@ def cmd_product_rette(args: argparse.Namespace) -> int:
             if not products:
                 print()
                 if search_term:
-                    print(f"   ℹ️  Keine Rette-Lebensmittel für '{search_term}' gefunden.")
+                    print(f"     Keine Rette-Lebensmittel für '{search_term}' gefunden.")
                 else:
-                    print("   ℹ️  Keine Rette-Lebensmittel verfügbar.")
+                    print("     Keine Rette-Lebensmittel verfügbar.")
                 print()
                 return EXIT_OK
             
@@ -2047,7 +2047,7 @@ def cmd_product_rette(args: argparse.Namespace) -> int:
             print()
             
             for i, p in enumerate(products, 1):
-                stock = "✅" if p["in_stock"] else "❌"
+                stock = "" if p["in_stock"] else ""
                 brand = f" ({p['brand']})" if p.get('brand') else ""
                 name = p['name'] or "?"
                 
@@ -2057,17 +2057,17 @@ def cmd_product_rette(args: argparse.Namespace) -> int:
                 price = p.get('price') or 0
                 orig = p.get('original_price')
                 if orig and orig != price:
-                    price_str = f"💰 {price:.2f} € (statt {orig:.2f} €)"
+                    price_str = f" {price:.2f} € (statt {orig:.2f} €)"
                 else:
-                    price_str = f"💰 {price:.2f} €"
+                    price_str = f" {price:.2f} €"
                 
                 print(f"  {i:2}. {name}{brand}{discount_str}")
                 
                 expiry = p.get('expiry', '')
                 if expiry:
-                    print(f"      ⏰ {expiry}")
+                    print(f"       {expiry}")
                 
-                print(f"      {price_str}  │  📦 {p.get('amount', '?')}  │  {stock}")
+                print(f"      {price_str}  │   {p.get('amount', '?')}  │  {stock}")
                 print(f"      ID: {p['id']}")
                 print()
         
@@ -2077,7 +2077,7 @@ def cmd_product_rette(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2097,7 +2097,7 @@ def cmd_favorite_list(args: argparse.Namespace) -> int:
         if not args.json:
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print("║  ⭐ FAVORITEN                                              ║")
+            print("║   FAVORITEN                                              ║")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             print("   → Lade Favoriten...")
@@ -2113,9 +2113,9 @@ def cmd_favorite_list(args: argparse.Namespace) -> int:
         else:
             print()
             if not favorites:
-                print("   ℹ️  Keine Favoriten gefunden.")
+                print("     Keine Favoriten gefunden.")
                 print()
-                print("   💡 Tipp: Füge Favoriten hinzu mit 'knuspr favorite add <id>'")
+                print("    Tipp: Füge Favoriten hinzu mit 'knuspr favorite add <id>'")
                 print()
                 return EXIT_OK
             
@@ -2123,7 +2123,7 @@ def cmd_favorite_list(args: argparse.Namespace) -> int:
             print()
             
             for i, p in enumerate(favorites, 1):
-                stock = "✅" if p.get("in_stock", True) else "❌"
+                stock = "" if p.get("in_stock", True) else ""
                 brand = f" ({p['brand']})" if p.get('brand') else ""
                 name = p.get('name', 'Unbekannt')
                 price = p.get('price', 0) or 0
@@ -2131,7 +2131,7 @@ def cmd_favorite_list(args: argparse.Namespace) -> int:
                 amount = p.get('amount', '?')
                 
                 print(f"  {i:2}. {name}{brand}")
-                print(f"      💰 {price:.2f} {currency}  │  📦 {amount}  │  {stock}")
+                print(f"       {price:.2f} {currency}  │   {amount}  │  {stock}")
                 print(f"      ID: {p['id']}")
                 print()
         
@@ -2141,7 +2141,7 @@ def cmd_favorite_list(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2166,7 +2166,7 @@ def cmd_favorite_add(args: argparse.Namespace) -> int:
             print(json.dumps(result, indent=2, ensure_ascii=False))
         else:
             print()
-            print(f"✅ Produkt {product_id} zu Favoriten hinzugefügt!")
+            print(f" Produkt {product_id} zu Favoriten hinzugefügt!")
             print()
         
         return EXIT_OK
@@ -2175,7 +2175,7 @@ def cmd_favorite_add(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"Ungültige Produkt-ID: {args.product_id}"}, indent=2))
         else:
             print()
-            print(f"❌ Ungültige Produkt-ID: {args.product_id}")
+            print(f" Ungültige Produkt-ID: {args.product_id}")
             print()
         return EXIT_ERROR
     except KnusprAPIError as e:
@@ -2183,7 +2183,7 @@ def cmd_favorite_add(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2208,7 +2208,7 @@ def cmd_favorite_remove(args: argparse.Namespace) -> int:
             print(json.dumps(result, indent=2, ensure_ascii=False))
         else:
             print()
-            print(f"✅ Produkt {product_id} aus Favoriten entfernt!")
+            print(f" Produkt {product_id} aus Favoriten entfernt!")
             print()
         
         return EXIT_OK
@@ -2217,7 +2217,7 @@ def cmd_favorite_remove(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"Ungültige Produkt-ID: {args.product_id}"}, indent=2))
         else:
             print()
-            print(f"❌ Ungültige Produkt-ID: {args.product_id}")
+            print(f" Ungültige Produkt-ID: {args.product_id}")
             print()
         return EXIT_ERROR
     except KnusprAPIError as e:
@@ -2225,7 +2225,7 @@ def cmd_favorite_remove(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2249,7 +2249,7 @@ def cmd_cart_show(args: argparse.Namespace) -> int:
         else:
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print("║  🛒 WARENKORB                                              ║")
+            print("║   WARENKORB                                              ║")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             
@@ -2258,7 +2258,7 @@ def cmd_cart_show(args: argparse.Namespace) -> int:
                 print()
                 return EXIT_OK
             
-            print(f"📦 Produkte ({cart['item_count']}):")
+            print(f" Produkte ({cart['item_count']}):")
             print()
             
             for p in cart["products"]:
@@ -2268,16 +2268,16 @@ def cmd_cart_show(args: argparse.Namespace) -> int:
                 print()
             
             print("─" * 60)
-            print(f"   💰 Gesamt: {cart['total_price']:.2f} {cart['currency']}")
+            print(f"    Gesamt: {cart['total_price']:.2f} {cart['currency']}")
             
             if cart['can_order']:
-                print("   ✅ Bestellbereit")
+                print("    Bestellbereit")
             else:
                 if cart['min_order_price'] and cart['total_price'] < cart['min_order_price']:
                     remaining = cart['min_order_price'] - cart['total_price']
-                    print(f"   ❌ Mindestbestellwert nicht erreicht: {cart['min_order_price']:.2f} € (noch {remaining:.2f} € fehlen)")
+                    print(f"    Mindestbestellwert nicht erreicht: {cart['min_order_price']:.2f} € (noch {remaining:.2f} € fehlen)")
                 else:
-                    print("   ❌ Noch nicht bestellbar (Mindestbestellwert nicht erreicht oder Slot fehlt)")
+                    print("    Noch nicht bestellbar (Mindestbestellwert nicht erreicht oder Slot fehlt)")
             print()
         
         return EXIT_OK
@@ -2286,7 +2286,7 @@ def cmd_cart_show(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2312,7 +2312,7 @@ def cmd_cart_add(args: argparse.Namespace) -> int:
             print(json.dumps({"status": "added", "product_id": product_id, "quantity": quantity}, indent=2))
         else:
             print()
-            print(f"✅ Produkt hinzugefügt (ID: {product_id}, Menge: {quantity})")
+            print(f" Produkt hinzugefügt (ID: {product_id}, Menge: {quantity})")
             print()
         return EXIT_OK
     except ValueError:
@@ -2320,7 +2320,7 @@ def cmd_cart_add(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"Ungültige Produkt-ID: {args.product_id}"}, indent=2))
         else:
             print()
-            print(f"❌ Ungültige Produkt-ID: {args.product_id}")
+            print(f" Ungültige Produkt-ID: {args.product_id}")
             print()
         return EXIT_ERROR
     except KnusprAPIError as e:
@@ -2328,7 +2328,7 @@ def cmd_cart_add(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2368,9 +2368,9 @@ def cmd_cart_remove(args: argparse.Namespace) -> int:
         else:
             print()
             if product_name:
-                print(f"✅ Entfernt: {product_name}")
+                print(f" Entfernt: {product_name}")
             else:
-                print(f"✅ Produkt entfernt")
+                print(f" Produkt entfernt")
             print()
         return EXIT_OK
     except KnusprAPIError as e:
@@ -2378,7 +2378,7 @@ def cmd_cart_remove(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2401,7 +2401,7 @@ def cmd_cart_clear(args: argparse.Namespace) -> int:
             print(json.dumps({"status": "cleared"}, indent=2))
         else:
             print()
-            print("✅ Warenkorb geleert!")
+            print(" Warenkorb geleert!")
             print()
         return EXIT_OK
     except KnusprAPIError as e:
@@ -2409,7 +2409,7 @@ def cmd_cart_clear(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2425,7 +2425,7 @@ def cmd_cart_open(args: argparse.Namespace) -> int:
         print(f"  → Öffne {url}...")
         webbrowser.open(url)
         print()
-        print("✅ Warenkorb im Browser geöffnet")
+        print(" Warenkorb im Browser geöffnet")
         print()
     return EXIT_OK
 
@@ -2446,12 +2446,12 @@ def cmd_slot_list(args: argparse.Namespace) -> int:
         
         print()
         print("╔═══════════════════════════════════════════════════════════╗")
-        print("║  📅 LIEFERZEITFENSTER                                      ║")
+        print("║   LIEFERZEITFENSTER                                      ║")
         print("╚═══════════════════════════════════════════════════════════╝")
         print()
         
         if not raw_slots:
-            print("   ℹ️  Keine Lieferzeitfenster verfügbar.")
+            print("     Keine Lieferzeitfenster verfügbar.")
             print()
             return EXIT_OK
         
@@ -2476,7 +2476,7 @@ def cmd_slot_list(args: argparse.Namespace) -> int:
             if args.json:
                 print(json.dumps([], indent=2, ensure_ascii=False))
             else:
-                print("   ℹ️  Keine Lieferzeitfenster verfügbar.")
+                print("     Keine Lieferzeitfenster verfügbar.")
                 print()
             return EXIT_OK
         
@@ -2514,7 +2514,7 @@ def cmd_slot_list(args: argparse.Namespace) -> int:
             slots = day_info["slots"]
             
             date_display = label if label else format_date(date)
-            print(f"   📅 {date_display} ({date})")
+            print(f"    {date_display} ({date})")
             print()
             
             if summary:
@@ -2528,28 +2528,28 @@ def cmd_slot_list(args: argparse.Namespace) -> int:
                 time_window = slot.get("timeWindow", "")
                 price = slot.get("price", 0)
                 capacity = slot.get("capacity", "")
-                eco = "🌿" if slot.get("eco") else ""
-                premium = "⭐" if slot.get("premium") else ""
+                eco = "" if slot.get("eco") else ""
+                premium = "" if slot.get("premium") else ""
                 
                 capacity_dto = slot.get("timeSlotCapacityDTO", {})
                 capacity_percent = capacity_dto.get("totalFreeCapacityPercent", 0)
                 capacity_msg = capacity_dto.get("capacityMessage", "")
                 
                 if capacity_msg == "Ausgebucht" or capacity_percent == 0:
-                    status = "❌ Ausgebucht"
+                    status = " Ausgebucht"
                 elif capacity == "GREEN" and capacity_percent >= 50:
-                    status = f"✅ {capacity_percent}%"
+                    status = f" {capacity_percent}%"
                 elif capacity == "GREEN" or capacity_percent > 0:
-                    status = f"⚠️ {capacity_percent}%"
+                    status = f" {capacity_percent}%"
                 else:
-                    status = "❌ Ausgebucht"
+                    status = " Ausgebucht"
                 
                 price_str = "Kostenlos" if price == 0 else f"{price:.2f} €"
                 
                 slot_id = slot.get("slotId") or slot.get("id") or "?"
                 slot_type = slot.get("type", "")
-                type_tag = "⏱️ " if slot_type == "VIRTUAL" else "  "
-                print(f"    {type_tag}🕐 {time_window:12} | 💰 {price_str:10} | {status:14} {eco}{premium} [ID: {slot_id}]")
+                type_tag = " " if slot_type == "VIRTUAL" else "  "
+                print(f"    {type_tag} {time_window:12} |  {price_str:10} | {status:14} {eco}{premium} [ID: {slot_id}]")
             
             print()
         
@@ -2564,7 +2564,7 @@ def cmd_slot_list(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2609,7 +2609,7 @@ def cmd_slot_reserve(args: argparse.Namespace) -> int:
         else:
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print("║  ✅ SLOT RESERVIERT                                        ║")
+            print("║   SLOT RESERVIERT                                        ║")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             
@@ -2618,13 +2618,13 @@ def cmd_slot_reserve(args: argparse.Namespace) -> int:
             duration = detail.get("duration") or 60
             expires = detail.get("tillZoned") or detail.get("till") or ""
             
-            print(f"   🕐 Zeitfenster: {time_window}")
-            print(f"   🆔 Slot-ID: {slot_id}")
-            print(f"   ⏱️  Reservierung gültig für: {duration} Minuten")
+            print(f"    Zeitfenster: {time_window}")
+            print(f"    Slot-ID: {slot_id}")
+            print(f"     Reservierung gültig für: {duration} Minuten")
             if expires:
-                print(f"   ⏰ Läuft ab: {format_date(expires)}")
+                print(f"    Läuft ab: {format_date(expires)}")
             print()
-            print("   💡 Tipp: Reservierung wird beim Bestellen automatisch verwendet.")
+            print("    Tipp: Reservierung wird beim Bestellen automatisch verwendet.")
             print()
         
         return EXIT_OK
@@ -2633,7 +2633,7 @@ def cmd_slot_reserve(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"Ungültige Slot-ID: {args.slot_id}"}, indent=2))
         else:
             print()
-            print(f"❌ Ungültige Slot-ID: {args.slot_id}")
+            print(f" Ungültige Slot-ID: {args.slot_id}")
             print()
         return EXIT_ERROR
     except KnusprAPIError as e:
@@ -2641,7 +2641,7 @@ def cmd_slot_reserve(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2661,7 +2661,7 @@ def cmd_slot_release(args: argparse.Namespace) -> int:
                 print(json.dumps({"message": "Keine aktive Reservierung"}, indent=2))
             else:
                 print()
-                print("ℹ️  Keine aktive Reservierung zum Stornieren.")
+                print("  Keine aktive Reservierung zum Stornieren.")
                 print()
             return EXIT_OK
         
@@ -2675,7 +2675,7 @@ def cmd_slot_release(args: argparse.Namespace) -> int:
             print(json.dumps({"status": "released"}, indent=2))
         else:
             print()
-            print("✅ Reservierung storniert.")
+            print(" Reservierung storniert.")
             print()
         
         return EXIT_OK
@@ -2684,7 +2684,7 @@ def cmd_slot_release(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2704,16 +2704,16 @@ def cmd_slot_current(args: argparse.Namespace) -> int:
         else:
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print("║  📅 AKTUELLE RESERVIERUNG                                  ║")
+            print("║   AKTUELLE RESERVIERUNG                                  ║")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             
             is_active = reservation.get("active", False) if reservation else False
             
             if not reservation or not is_active:
-                print("   ℹ️  Kein Zeitfenster reserviert.")
+                print("     Kein Zeitfenster reserviert.")
                 print()
-                print("   💡 Tipp: Nutze 'knuspr slot list' um verfügbare Zeitfenster zu sehen,")
+                print("    Tipp: Nutze 'knuspr slot list' um verfügbare Zeitfenster zu sehen,")
                 print("           dann 'knuspr slot reserve <id>' zum Reservieren.")
                 print()
                 return EXIT_OK
@@ -2725,12 +2725,12 @@ def cmd_slot_current(args: argparse.Namespace) -> int:
             duration = detail.get("duration") or 60
             expires = detail.get("tillZoned") or detail.get("till") or ""
             
-            print(f"   ✅ Reserviert: {time_window}")
-            print(f"   🆔 Slot-ID: {slot_id}")
-            print(f"   📦 Typ: {slot_type}")
-            print(f"   ⏱️  Reservierung gültig für: {duration} Minuten")
+            print(f"    Reserviert: {time_window}")
+            print(f"    Slot-ID: {slot_id}")
+            print(f"    Typ: {slot_type}")
+            print(f"     Reservierung gültig für: {duration} Minuten")
             if expires:
-                print(f"   ⏰ Läuft ab: {format_date(expires)}")
+                print(f"    Läuft ab: {format_date(expires)}")
             print()
         
         return EXIT_OK
@@ -2739,7 +2739,7 @@ def cmd_slot_current(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2763,12 +2763,12 @@ def cmd_order_list(args: argparse.Namespace) -> int:
         else:
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print("║  📋 BESTELLHISTORIE                                        ║")
+            print("║   BESTELLHISTORIE                                        ║")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             
             if not orders:
-                print("   ℹ️  Keine Bestellungen gefunden.")
+                print("     Keine Bestellungen gefunden.")
                 print()
                 return EXIT_OK
             
@@ -2788,9 +2788,9 @@ def cmd_order_list(args: argparse.Namespace) -> int:
                 
                 items_count = order.get("itemsCount") or 0
                 
-                print(f"   📦 Bestellung #{order_id}")
-                print(f"      📅 {format_date(date)}")
-                print(f"      🛒 {items_count} Artikel | 💰 {format_price(price)}")
+                print(f"    Bestellung #{order_id}")
+                print(f"       {format_date(date)}")
+                print(f"       {items_count} Artikel |  {format_price(price)}")
                 print()
         
         return EXIT_OK
@@ -2799,7 +2799,7 @@ def cmd_order_list(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2819,12 +2819,12 @@ def cmd_order_show(args: argparse.Namespace) -> int:
         else:
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print(f"║  📦 BESTELLUNG #{args.order_id}                            ")
+            print(f"║   BESTELLUNG #{args.order_id}                            ")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             
             if not order:
-                print(f"   ℹ️  Bestellung {args.order_id} nicht gefunden.")
+                print(f"     Bestellung {args.order_id} nicht gefunden.")
                 print()
                 return EXIT_OK
             
@@ -2838,9 +2838,9 @@ def cmd_order_show(args: argparse.Namespace) -> int:
             status_map = {"DELIVERED": "Geliefert", "PENDING": "In Bearbeitung", "CANCELLED": "Storniert"}
             status_display = status_map.get(status, status)
             
-            print(f"   📊 Status: {status_display}")
-            print(f"   📅 Datum: {format_date(date)}")
-            print(f"   💰 Gesamt: {format_price(total_price)}")
+            print(f"    Status: {status_display}")
+            print(f"    Datum: {format_date(date)}")
+            print(f"    Gesamt: {format_price(total_price)}")
             
             delivery_price = price_comp.get("delivery", {}).get("amount", 0)
             tip = price_comp.get("courierTip", {}).get("amount", 0)
@@ -2848,18 +2848,18 @@ def cmd_order_show(args: argparse.Namespace) -> int:
             goods_price = price_comp.get("goods", {}).get("amount", 0)
             
             if goods_price > 0:
-                print(f"   🛍️  Waren: {format_price(goods_price)}")
+                print(f"     Waren: {format_price(goods_price)}")
             if delivery_price > 0:
-                print(f"   🚚 Lieferung: {format_price(delivery_price)}")
+                print(f"    Lieferung: {format_price(delivery_price)}")
             if tip > 0:
-                print(f"   💚 Trinkgeld: {format_price(tip)}")
+                print(f"    Trinkgeld: {format_price(tip)}")
             if credits_used > 0:
-                print(f"   🎁 Guthaben: -{format_price(credits_used)}")
+                print(f"    Guthaben: -{format_price(credits_used)}")
             print()
             
             products = order.get("items") or order.get("products") or []
             if products:
-                print(f"   🛒 Produkte ({len(products)}):")
+                print(f"    Produkte ({len(products)}):")
                 print()
                 for p in products:
                     name = p.get("name") or p.get("productName") or "Unbekannt"
@@ -2881,7 +2881,7 @@ def cmd_order_show(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2905,7 +2905,7 @@ def cmd_order_repeat(args: argparse.Namespace) -> int:
                 print(json.dumps({"error": f"Bestellung {args.order_id} nicht gefunden"}, indent=2))
             else:
                 print()
-                print(f"❌ Bestellung {args.order_id} nicht gefunden.")
+                print(f" Bestellung {args.order_id} nicht gefunden.")
                 print()
             return EXIT_ERROR
         
@@ -2916,7 +2916,7 @@ def cmd_order_repeat(args: argparse.Namespace) -> int:
                 print(json.dumps({"error": "Keine Produkte in der Bestellung"}, indent=2))
             else:
                 print()
-                print("❌ Keine Produkte in der Bestellung gefunden.")
+                print(" Keine Produkte in der Bestellung gefunden.")
                 print()
             return EXIT_ERROR
         
@@ -2944,9 +2944,9 @@ def cmd_order_repeat(args: argparse.Namespace) -> int:
             print(json.dumps({"added": added, "failed": failed}, indent=2, ensure_ascii=False))
         else:
             print()
-            print(f"✅ {len(added)} Produkte zum Warenkorb hinzugefügt!")
+            print(f" {len(added)} Produkte zum Warenkorb hinzugefügt!")
             if failed:
-                print(f"⚠️  {len(failed)} Produkte konnten nicht hinzugefügt werden:")
+                print(f"  {len(failed)} Produkte konnten nicht hinzugefügt werden:")
                 for f in failed:
                     print(f"   • {f['name']}: {f['reason']}")
             print()
@@ -2957,7 +2957,7 @@ def cmd_order_repeat(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -2994,29 +2994,29 @@ def cmd_delivery_show(args: argparse.Namespace) -> int:
         else:
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print("║  🚚 LIEFERINFORMATIONEN                                    ║")
+            print("║   LIEFERINFORMATIONEN                                    ║")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             
             if delivery_info:
                 fee = delivery_info.get("deliveryFee") or delivery_info.get("fee") or 0
                 free_from = delivery_info.get("freeDeliveryFrom") or delivery_info.get("freeFrom") or 0
-                print(f"   💰 Liefergebühr: {format_price(fee)}")
-                print(f"   🆓 Kostenlos ab: {format_price(free_from)}")
+                print(f"    Liefergebühr: {format_price(fee)}")
+                print(f"    Kostenlos ab: {format_price(free_from)}")
                 print()
             
             if upcoming_orders:
-                print(f"📦 Bevorstehende Bestellungen ({len(upcoming_orders)}):")
+                print(f" Bevorstehende Bestellungen ({len(upcoming_orders)}):")
                 print()
                 for order in upcoming_orders:
                     order_id = order.get("id") or order.get("orderNumber")
                     date = order.get("deliveryDate") or order.get("estimatedDelivery") or "Unbekannt"
                     status = order.get("status") or "Unbekannt"
                     print(f"   • Bestellung #{order_id}")
-                    print(f"     📅 {format_date(date)} | Status: {status}")
+                    print(f"      {format_date(date)} | Status: {status}")
                     print()
             else:
-                print("   ℹ️  Keine bevorstehenden Bestellungen.")
+                print("     Keine bevorstehenden Bestellungen.")
                 print()
         
         return EXIT_OK
@@ -3025,7 +3025,7 @@ def cmd_delivery_show(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -3048,7 +3048,7 @@ def cmd_insight_frequent(args: argparse.Namespace) -> int:
         if not args.json:
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print("║  ⭐ HÄUFIG GEKAUFTE PRODUKTE                               ║")
+            print("║   HÄUFIG GEKAUFTE PRODUKTE                               ║")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             print(f"   → Analysiere {orders_to_analyze} Bestellungen...")
@@ -3060,7 +3060,7 @@ def cmd_insight_frequent(args: argparse.Namespace) -> int:
                 print(json.dumps({"error": "Keine Bestellhistorie gefunden"}, indent=2))
             else:
                 print()
-                print("   ℹ️  Keine Bestellhistorie gefunden.")
+                print("     Keine Bestellhistorie gefunden.")
                 print()
             return EXIT_OK
         
@@ -3148,15 +3148,15 @@ def cmd_insight_frequent(args: argparse.Namespace) -> int:
             print(json.dumps(result, indent=2, ensure_ascii=False))
         else:
             print()
-            print(f"   📊 Analysiert: {processed_orders} Bestellungen | {total_products} Produkte")
+            print(f"    Analysiert: {processed_orders} Bestellungen | {total_products} Produkte")
             print()
             
             if not sorted_products:
-                print("   ℹ️  Keine Produkte gefunden.")
+                print("     Keine Produkte gefunden.")
                 print()
                 return EXIT_OK
             
-            print(f"   🏆 Top {len(sorted_products)} Produkte:")
+            print(f"    Top {len(sorted_products)} Produkte:")
             print()
             
             for i, item in enumerate(sorted_products, 1):
@@ -3165,8 +3165,8 @@ def cmd_insight_frequent(args: argparse.Namespace) -> int:
                 last_order = format_date(item['last_order_date']) if item['last_order_date'] else "N/A"
                 
                 print(f"   {i:2}. {item['product_name']}{brand}")
-                print(f"       📦 {item['frequency']}× bestellt | {item['total_quantity']} Stück | ⌀ {avg_price}")
-                print(f"       📅 Zuletzt: {last_order}")
+                print(f"        {item['frequency']}× bestellt | {item['total_quantity']} Stück | ⌀ {avg_price}")
+                print(f"        Zuletzt: {last_order}")
                 print(f"       ID: {item['product_id']}")
                 print()
         
@@ -3176,7 +3176,7 @@ def cmd_insight_frequent(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -3193,7 +3193,7 @@ def cmd_insight_meals(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"Ungültiger Mahlzeittyp: {meal_type}. Gültig: {', '.join(valid_types)}"}, indent=2))
         else:
             print()
-            print(f"❌ Ungültiger Mahlzeittyp: {meal_type}")
+            print(f" Ungültiger Mahlzeittyp: {meal_type}")
             print(f"   Gültige Typen: {', '.join(valid_types)}")
             print()
         return EXIT_ERROR
@@ -3220,7 +3220,7 @@ def cmd_insight_meals(args: argparse.Namespace) -> int:
         if not args.json:
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print(f"║  🍽️  {meal_name.upper()}-VORSCHLÄGE                              ")
+            print(f"║    {meal_name.upper()}-VORSCHLÄGE                              ")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             print(f"   → Analysiere {orders_to_analyze} Bestellungen...")
@@ -3232,7 +3232,7 @@ def cmd_insight_meals(args: argparse.Namespace) -> int:
                 print(json.dumps({"error": "Keine Bestellhistorie gefunden"}, indent=2))
             else:
                 print()
-                print("   ℹ️  Keine Bestellhistorie gefunden.")
+                print("     Keine Bestellhistorie gefunden.")
                 print()
             return EXIT_OK
         
@@ -3321,15 +3321,15 @@ def cmd_insight_meals(args: argparse.Namespace) -> int:
             print(json.dumps(result, indent=2, ensure_ascii=False))
         else:
             print()
-            print(f"   📊 Analysiert: {processed_orders} Bestellungen | {len(product_map)} relevante Produkte")
+            print(f"    Analysiert: {processed_orders} Bestellungen | {len(product_map)} relevante Produkte")
             print()
             
             if not sorted_products:
-                print(f"   ℹ️  Keine {meal_name}-Produkte in deiner Bestellhistorie gefunden.")
+                print(f"     Keine {meal_name}-Produkte in deiner Bestellhistorie gefunden.")
                 print()
                 return EXIT_OK
             
-            print(f"   🍽️  Top {len(sorted_products)} {meal_name}-Produkte:")
+            print(f"     Top {len(sorted_products)} {meal_name}-Produkte:")
             print()
             
             for i, item in enumerate(sorted_products, 1):
@@ -3338,7 +3338,7 @@ def cmd_insight_meals(args: argparse.Namespace) -> int:
                 category = f" | {item['category']}" if item['category'] else ""
                 
                 print(f"   {i:2}. {item['product_name']}{brand}")
-                print(f"       📦 {item['frequency']}× bestellt | ⌀ {avg_price}{category}")
+                print(f"        {item['frequency']}× bestellt | ⌀ {avg_price}{category}")
                 print(f"       ID: {item['product_id']}")
                 print()
         
@@ -3348,7 +3348,7 @@ def cmd_insight_meals(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -3382,13 +3382,13 @@ def cmd_list_show(args: argparse.Namespace) -> int:
 
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print("║  📋 EINKAUFSLISTE                                          ║")
+            print("║   EINKAUFSLISTE                                          ║")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
             type_tag = " (auto)" if list_type == "AUTOMATIC" else ""
-            print(f"   📋 {name}{type_tag}")
-            print(f"   🆔 ID: {list_id}")
-            print(f"   📦 {len(products)} Produkte")
+            print(f"    {name}{type_tag}")
+            print(f"    ID: {list_id}")
+            print(f"    {len(products)} Produkte")
             print()
 
             if not products:
@@ -3401,7 +3401,7 @@ def cmd_list_show(args: argparse.Namespace) -> int:
                 pid = p.get('productId')
                 amount = p.get('amount', 1)
                 available = p.get('available', True)
-                stock = "✅" if available else "❌"
+                stock = "" if available else ""
 
                 # Try to get product name
                 product_name = None
@@ -3436,14 +3436,14 @@ def cmd_list_show(args: argparse.Namespace) -> int:
 
             print()
             print("╔═══════════════════════════════════════════════════════════╗")
-            print("║  📋 EINKAUFSLISTEN                                         ║")
+            print("║   EINKAUFSLISTEN                                         ║")
             print("╚═══════════════════════════════════════════════════════════╝")
             print()
 
             if not list_ids:
-                print("   ℹ️  Keine Einkaufslisten gefunden.")
+                print("     Keine Einkaufslisten gefunden.")
                 print()
-                print("   💡 Tipp: Erstelle eine mit 'knuspr list create \"Meine Liste\"'")
+                print("    Tipp: Erstelle eine mit 'knuspr list create \"Meine Liste\"'")
                 print()
                 return EXIT_OK
 
@@ -3454,11 +3454,11 @@ def cmd_list_show(args: argparse.Namespace) -> int:
                     list_type = detail.get('type', '')
                     products = detail.get('products', [])
                     type_tag = " (auto)" if list_type == "AUTOMATIC" else ""
-                    print(f"   📋 {name}{type_tag}")
+                    print(f"    {name}{type_tag}")
                     print(f"      {len(products)} Produkte | ID: {lid}")
                     print()
                 except KnusprAPIError:
-                    print(f"   📋 Liste {lid}")
+                    print(f"    Liste {lid}")
                     print(f"      (Fehler beim Laden)")
                     print()
 
@@ -3468,7 +3468,7 @@ def cmd_list_show(args: argparse.Namespace) -> int:
             print(json.dumps({"error": "Ungültige Listen-ID"}, indent=2))
         else:
             print()
-            print("❌ Ungültige Listen-ID")
+            print(" Ungültige Listen-ID")
             print()
         return EXIT_ERROR
     except KnusprAPIError as e:
@@ -3476,7 +3476,7 @@ def cmd_list_show(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -3500,7 +3500,7 @@ def cmd_list_create(args: argparse.Namespace) -> int:
         else:
             new_id = result.get('id', '?')
             print()
-            print(f"✅ Liste '{args.name}' erstellt! (ID: {new_id})")
+            print(f" Liste '{args.name}' erstellt! (ID: {new_id})")
             print()
 
         return EXIT_OK
@@ -3509,7 +3509,7 @@ def cmd_list_create(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -3530,9 +3530,9 @@ def cmd_list_delete(args: argparse.Namespace) -> int:
                 detail = api.get_shopping_list(list_id)
                 name = detail.get('name', 'Unbekannt')
                 product_count = len(detail.get('products', []))
-                confirm = input(f"\n   ⚠️  Liste '{name}' ({product_count} Produkte) wirklich löschen? (ja/nein): ").strip().lower()
+                confirm = input(f"\n     Liste '{name}' ({product_count} Produkte) wirklich löschen? (ja/nein): ").strip().lower()
             except KnusprAPIError:
-                confirm = input(f"\n   ⚠️  Liste {list_id} wirklich löschen? (ja/nein): ").strip().lower()
+                confirm = input(f"\n     Liste {list_id} wirklich löschen? (ja/nein): ").strip().lower()
 
             if confirm not in ('ja', 'j', 'yes', 'y'):
                 print()
@@ -3549,7 +3549,7 @@ def cmd_list_delete(args: argparse.Namespace) -> int:
             print(json.dumps({"status": "deleted", "list_id": list_id}, indent=2))
         else:
             print()
-            print(f"✅ Liste {list_id} gelöscht!")
+            print(f" Liste {list_id} gelöscht!")
             print()
 
         return EXIT_OK
@@ -3558,7 +3558,7 @@ def cmd_list_delete(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"Ungültige Listen-ID: {args.list_id}"}, indent=2))
         else:
             print()
-            print(f"❌ Ungültige Listen-ID: {args.list_id}")
+            print(f" Ungültige Listen-ID: {args.list_id}")
             print()
         return EXIT_ERROR
     except KnusprAPIError as e:
@@ -3566,7 +3566,7 @@ def cmd_list_delete(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -3591,7 +3591,7 @@ def cmd_list_rename(args: argparse.Namespace) -> int:
             print(json.dumps(result, indent=2, ensure_ascii=False))
         else:
             print()
-            print(f"✅ Liste {list_id} umbenannt zu '{args.name}'!")
+            print(f" Liste {list_id} umbenannt zu '{args.name}'!")
             print()
 
         return EXIT_OK
@@ -3600,7 +3600,7 @@ def cmd_list_rename(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"Ungültige Listen-ID: {args.list_id}"}, indent=2))
         else:
             print()
-            print(f"❌ Ungültige Listen-ID: {args.list_id}")
+            print(f" Ungültige Listen-ID: {args.list_id}")
             print()
         return EXIT_ERROR
     except KnusprAPIError as e:
@@ -3608,7 +3608,7 @@ def cmd_list_rename(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -3635,7 +3635,7 @@ def cmd_list_add(args: argparse.Namespace) -> int:
             print(json.dumps({"status": "added", "list_id": list_id, "product_id": product_id, "quantity": quantity}, indent=2))
         else:
             print()
-            print(f"✅ Produkt {product_id} ({quantity}×) zu Liste {list_id} hinzugefügt!")
+            print(f" Produkt {product_id} ({quantity}×) zu Liste {list_id} hinzugefügt!")
             print()
 
         return EXIT_OK
@@ -3644,7 +3644,7 @@ def cmd_list_add(args: argparse.Namespace) -> int:
             print(json.dumps({"error": "Ungültige ID"}, indent=2))
         else:
             print()
-            print("❌ Ungültige Listen- oder Produkt-ID")
+            print(" Ungültige Listen- oder Produkt-ID")
             print()
         return EXIT_ERROR
     except KnusprAPIError as e:
@@ -3652,7 +3652,7 @@ def cmd_list_add(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -3682,7 +3682,7 @@ def cmd_list_remove(args: argparse.Namespace) -> int:
             print(json.dumps({"status": "removed", "list_id": list_id, "product_id": product_id, "quantity": quantity}, indent=2))
         else:
             print()
-            print(f"✅ Produkt {product_id} von Liste {list_id} entfernt!")
+            print(f" Produkt {product_id} von Liste {list_id} entfernt!")
             print()
 
         return EXIT_OK
@@ -3691,7 +3691,7 @@ def cmd_list_remove(args: argparse.Namespace) -> int:
             print(json.dumps({"error": "Ungültige ID"}, indent=2))
         else:
             print()
-            print("❌ Ungültige Listen- oder Produkt-ID")
+            print(" Ungültige Listen- oder Produkt-ID")
             print()
         return EXIT_ERROR
     except KnusprAPIError as e:
@@ -3699,7 +3699,7 @@ def cmd_list_remove(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -3725,9 +3725,9 @@ def cmd_list_to_cart(args: argparse.Namespace) -> int:
         else:
             added = result.get('added_count', 0)
             print()
-            print(f"✅ {added} Produkte aus Liste {list_id} zum Warenkorb hinzugefügt!")
+            print(f" {added} Produkte aus Liste {list_id} zum Warenkorb hinzugefügt!")
             print()
-            print("   💡 Tipp: 'knuspr cart show' zeigt den Warenkorb an.")
+            print("    Tipp: 'knuspr cart show' zeigt den Warenkorb an.")
             print()
 
         return EXIT_OK
@@ -3736,7 +3736,7 @@ def cmd_list_to_cart(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"Ungültige Listen-ID: {args.list_id}"}, indent=2))
         else:
             print()
-            print(f"❌ Ungültige Listen-ID: {args.list_id}")
+            print(f" Ungültige Listen-ID: {args.list_id}")
             print()
         return EXIT_ERROR
     except KnusprAPIError as e:
@@ -3744,7 +3744,7 @@ def cmd_list_to_cart(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -3771,8 +3771,8 @@ def cmd_list_duplicate(args: argparse.Namespace) -> int:
             print(json.dumps({"status": "duplicated", "original_id": list_id, "new_id": new_id, "new_name": new_name}, indent=2, ensure_ascii=False))
         else:
             print()
-            print(f"✅ Liste dupliziert!")
-            print(f"   📋 {new_name} (ID: {new_id})")
+            print(f" Liste dupliziert!")
+            print(f"    {new_name} (ID: {new_id})")
             print()
 
         return EXIT_OK
@@ -3781,7 +3781,7 @@ def cmd_list_duplicate(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"Ungültige Listen-ID: {args.list_id}"}, indent=2))
         else:
             print()
-            print(f"❌ Ungültige Listen-ID: {args.list_id}")
+            print(f" Ungültige Listen-ID: {args.list_id}")
             print()
         return EXIT_ERROR
     except KnusprAPIError as e:
@@ -3789,7 +3789,7 @@ def cmd_list_duplicate(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -3868,10 +3868,10 @@ def cmd_deals(args: argparse.Namespace) -> int:
 
             discount_str = ""
             if discount:
-                discount_str = f" 🏷️ -{discount}%"
+                discount_str = f"  -{discount}%"
             elif orig_price and orig_price > price:
                 pct = int((1 - price/orig_price) * 100)
-                discount_str = f" 🏷️ -{pct}%"
+                discount_str = f"  -{pct}%"
 
             orig_str = ""
             if orig_price and orig_price > price:
@@ -3881,14 +3881,14 @@ def cmd_deals(args: argparse.Namespace) -> int:
             badge_str = ""
             for badge in card.get('badges', []):
                 if badge.get('position') == 'PRICE' and badge.get('text'):
-                    badge_str = f" 🏷️ {badge['text']}"
+                    badge_str = f"  {badge['text']}"
                     break
 
             # Use badge if no discount found
             if not discount_str and badge_str:
                 discount_str = badge_str
 
-            return f"{parts[0]}\n       💰 {price_str}{orig_str}{discount_str}  │  📦 {amount}  │  ID: {pid}"
+            return f"{parts[0]}\n        {price_str}{orig_str}{discount_str}  │   {amount}  │  ID: {pid}"
 
         if args.json:
             # Build JSON output
@@ -3906,7 +3906,7 @@ def cmd_deals(args: argparse.Namespace) -> int:
 
         print()
         print("╔═══════════════════════════════════════════════════════════╗")
-        print("║  🏷️  AKTIONEN                                              ║")
+        print("║    AKTIONEN                                              ║")
         print("╚═══════════════════════════════════════════════════════════╝")
         print()
 
@@ -3925,14 +3925,14 @@ def cmd_deals(args: argparse.Namespace) -> int:
                 more_info = f" (zeige {shown} von {total})"
             else:
                 more_info = ""
-            print(f"   🔥 {title} ({total} Produkte){more_info}")
+            print(f"    {title} ({total} Produkte){more_info}")
             print()
             for i, pid in enumerate(display_pids, 1):
                 print(f"    {i:3}. {format_product(pid)}")
                 print()
             if total > shown:
                 hint = f"knuspr product search '<begriff>' --on-sale" if total > loaded else f"knuspr deals --type {section_key}"
-                print(f"      💡 {total - shown} weitere – nutze '{hint}' für mehr")
+                print(f"       {total - shown} weitere – nutze '{hint}' für mehr")
             
             print()
 
@@ -3942,7 +3942,7 @@ def cmd_deals(args: argparse.Namespace) -> int:
                 pids = cat['productIds']
                 if not pids:
                     continue
-                print(f"   📂 {cat['name']} ({len(pids)} Produkte)")
+                print(f"    {cat['name']} ({len(pids)} Produkte)")
                 print()
                 for i, pid in enumerate(pids, 1):
                     if pid in product_cards:
@@ -3957,7 +3957,7 @@ def cmd_deals(args: argparse.Namespace) -> int:
         else:
             total_real = sum(total_hits.get(k, len(deal_sections.get(k, []))) for k in section_titles)
             total_cats = sum(total_hits.get(f'sales-{c["id"]}', len(c['productIds'])) for c in sales_categories)
-            print(f"   📊 Gesamt: {total_real + total_cats} Produkte im Angebot")
+            print(f"    Gesamt: {total_real + total_cats} Produkte im Angebot")
             print()
 
         return EXIT_OK
@@ -3966,7 +3966,7 @@ def cmd_deals(args: argparse.Namespace) -> int:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
             print()
-            print(f"❌ Fehler: {e}")
+            print(f" Fehler: {e}")
             print()
         return EXIT_ERROR
 
@@ -4244,7 +4244,7 @@ def cmd_completion(args: argparse.Namespace) -> int:
     elif shell == "fish":
         print(FISH_COMPLETION.strip())
     else:
-        print(f"❌ Unbekannte Shell: {shell}")
+        print(f" Unbekannte Shell: {shell}")
         print("   Unterstützt: bash, zsh, fish")
         return EXIT_ERROR
     
@@ -4259,7 +4259,7 @@ def main() -> int:
     """Main entry point."""
     parser = argparse.ArgumentParser(
         prog="knuspr",
-        description="🛒 Knuspr.de im Terminal — REST-ähnliche CLI für Einkaufen, Suchen, Warenkorb und mehr"
+        description=" Knuspr.de im Terminal — REST-ähnliche CLI für Einkaufen, Suchen, Warenkorb und mehr"
     )
     subparsers = parser.add_subparsers(dest="command", help="Ressourcen")
     

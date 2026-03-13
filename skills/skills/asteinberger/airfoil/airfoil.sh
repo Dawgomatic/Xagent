@@ -1,7 +1,7 @@
 #!/bin/bash
 # Airfoil AirPlay Speaker Control
 # Uses AppleScript via osascript
-# Author: Andy Steinberger (with help from his Clawdbot Owen the Frog 🐸)
+# Author: Andy Steinberger (with help from his Clawdbot Owen the Frog )
 
 set -e
 
@@ -65,7 +65,7 @@ EOF
         ;;
     
     help|*)
-        echo "Airfoil Speaker Control 🔊"
+        echo "Airfoil Speaker Control "
         echo ""
         echo "Usage: $0 <command> [args]"
         echo ""
@@ -76,6 +76,6 @@ EOF
         echo "  volume <speaker> <0-100> Set speaker volume"
         echo "  status                   Show connected speakers with volume"
         echo ""
-        echo "Author: Andy Steinberger (with help from Owen the Frog 🐸)"
+        echo "Author: Andy Steinberger (with help from Owen the Frog )"
         ;;
 esac

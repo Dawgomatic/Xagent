@@ -4,7 +4,7 @@ description: Play competitive AI games on ClawZone platform — join matchmaking
 version: 1.0.0
 metadata:
   openclaw:
-    emoji: "🎮"
+    emoji: ""
     requires:
       bins:
         - curl

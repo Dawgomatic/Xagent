@@ -442,7 +442,7 @@ export const youToolName = (config: YouToolsConfig = {}) => {
 Always use schemas from `@youdotcom-oss/mcp`:
 
 ```typescript
-// ✅ Import from @youdotcom-oss/mcp
+//  Import from @youdotcom-oss/mcp
 import { SearchQuerySchema } from '@youdotcom-oss/mcp';
 
 export const youSearch = (config: YouToolsConfig = {}) => {
@@ -453,7 +453,7 @@ export const youSearch = (config: YouToolsConfig = {}) => {
   });
 };
 
-// ❌ Don't duplicate or simplify schemas
+//  Don't duplicate or simplify schemas
 const MySearchSchema = z.object({ query: z.string() });  // Missing filters!
 ```
 
@@ -468,10 +468,10 @@ const MySearchSchema = z.object({ query: z.string() });  // Missing filters!
 Always provide environment variable fallback and validate before API calls:
 
 ```typescript
-// ✅ Automatic environment variable fallback
+//  Automatic environment variable fallback
 const apiKey = config.apiKey ?? process.env.YDC_API_KEY;
 
-// ✅ Check API key in execute function
+//  Check API key in execute function
 execute: async (params) => {
   if (!apiKey) {
     throw new Error('YDC_API_KEY is required');
@@ -485,7 +485,7 @@ execute: async (params) => {
 Always return raw API response for maximum flexibility:
 
 ```typescript
-// ✅ Return raw API response
+//  Return raw API response
 execute: async (params) => {
   const response = await fetchSearchResults({
     searchQuery: params,
@@ -496,7 +496,7 @@ execute: async (params) => {
   return response;  // Raw response for maximum flexibility
 }
 
-// ❌ Don't format or transform responses
+//  Don't format or transform responses
 return {
   text: formatResponse(response),
   data: response,
@@ -514,10 +514,10 @@ return {
 Write descriptions that guide AI behavior:
 
 ```typescript
-// ✅ Clear guidance for AI model
+//  Clear guidance for AI model
 description: 'Search the web for current information, news, articles, and content using You.com. Returns web results with snippets and news articles. Use this when you need up-to-date information or facts from the internet.'
 
-// ❌ Too brief
+//  Too brief
 description: 'Search the web'
 ```
 

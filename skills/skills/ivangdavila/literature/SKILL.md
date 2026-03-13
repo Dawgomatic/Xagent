@@ -1,7 +1,7 @@
 ---
 name: Literature
 description: Guide literary reading from personal response to scholarly analysis.
-metadata: {"clawdbot":{"emoji":"📚","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

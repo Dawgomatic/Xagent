@@ -91,23 +91,23 @@ async function main() {
   // Pre-flight
   const solBal = await conn.getBalance(wallet.publicKey);
   if (solBal < 5000 * opts.rounds) {
-    console.error(`❌ Not enough SOL for ${opts.rounds} rounds of tx fees.`);
+    console.error(` Not enough SOL for ${opts.rounds} rounds of tx fees.`);
     process.exit(1);
   }
   try {
     const gemAccount = await getAccount(conn, playerGemAta);
     const gemBal = Number(gemAccount.amount) / 1e6;
     if (gemBal < opts.bet) {
-      console.error(`❌ Not enough GEM. Have ${gemBal}, need at least ${opts.bet}.`);
+      console.error(` Not enough GEM. Have ${gemBal}, need at least ${opts.bet}.`);
       console.error('   Run: node mint-gems-sol.js 0.01');
       process.exit(1);
     }
   } catch {
-    console.error('❌ No GEM. Run: node mint-gems-sol.js 0.01');
+    console.error(' No GEM. Run: node mint-gems-sol.js 0.01');
     process.exit(1);
   }
 
-  console.log(`🎮 Autoplay: ${opts.rounds} rounds, ${opts.bet} GEM/bet, strategy: ${opts.strategy}`);
+  console.log(` Autoplay: ${opts.rounds} rounds, ${opts.bet} GEM/bet, strategy: ${opts.strategy}`);
   console.log(`   Wallet: ${wallet.publicKey.toBase58()}\n`);
 
   let wins = 0, losses = 0, errors = 0;
@@ -118,19 +118,19 @@ async function main() {
 
     try {
       const result = await playOne(conn, wallet, programId, gameState, gemMint, playerGemAta, choice, opts.bet);
-      if (result.won === true) { wins++; console.log('🎉 WIN'); }
-      else if (result.won === false) { losses++; console.log('😢 LOSE'); }
-      else { console.log(`⚡ TX: ${result.sig.slice(0, 20)}...`); }
+      if (result.won === true) { wins++; console.log(' WIN'); }
+      else if (result.won === false) { losses++; console.log(' LOSE'); }
+      else { console.log(` TX: ${result.sig.slice(0, 20)}...`); }
     } catch (err) {
       errors++;
-      console.log(`❌ ${err.message.slice(0, 80)}`);
+      console.log(` ${err.message.slice(0, 80)}`);
     }
 
     // Small delay to respect rate limits
     if (i < opts.rounds) await new Promise(r => setTimeout(r, 1500));
   }
 
-  console.log(`\n📊 Results: ${wins}W / ${losses}L / ${errors}E`);
+  console.log(`\n Results: ${wins}W / ${losses}L / ${errors}E`);
   console.log(`   Net: ${(wins - losses) * opts.bet >= 0 ? '+' : ''}${(wins - losses) * opts.bet} GEM (approximate)`);
 
   // Show final balance
@@ -140,4 +140,4 @@ async function main() {
   } catch {}
 }
 
-main().catch(err => { console.error('❌', err.message); process.exit(1); });
+main().catch(err => { console.error('', err.message); process.exit(1); });

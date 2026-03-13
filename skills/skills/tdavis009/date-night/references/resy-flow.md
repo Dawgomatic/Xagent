@@ -12,7 +12,7 @@ All commands assume PATH is set: `export PATH="$HOME/.npm-global/bin:$PATH"`
 
 | Aspect | OpenTable | Resy |
 |--------|-----------|------|
-| Guest checkout | ✅ Yes | ❌ No — account required |
+| Guest checkout |  Yes |  No — account required |
 | Auth method | Phone verification per booking | Login (email+password or phone+SMS) |
 | URL structure | `/r/{slug}` | `/cities/{city}/{slug}` |
 | Availability widget | Modal popup | Inline on restaurant page |
@@ -117,7 +117,7 @@ playwright-cli -s=resy fill {special-requests-ref} "{dietary note or seating pre
 playwright-cli -s=resy click {confirm-button-ref}
 ```
 
-⚠️ **Deposit / prepayment:** Some Resy restaurants require a deposit or full prepayment. If payment form appears — **STOP**. Show total to user, get explicit approval before entering any payment info.
+ **Deposit / prepayment:** Some Resy restaurants require a deposit or full prepayment. If payment form appears — **STOP**. Show total to user, get explicit approval before entering any payment info.
 
 ## 6. Confirmation Page
 

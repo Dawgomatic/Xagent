@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "https://github.com/trifle-labs/skills",
   "homepage": "https://github.com/trifle-labs/skills/tree/main/snake-rodeo",
-  "emoji": "🐍",
+  "emoji": "",
   "requires": {
     "bins": ["node"]
   },

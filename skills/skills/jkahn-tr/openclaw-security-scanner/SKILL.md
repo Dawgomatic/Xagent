@@ -46,10 +46,10 @@ bash "$(dirname "$0")/oc-security-scan.sh" --json
 ## Output
 
 Color-coded terminal output with severity levels:
-- 🔴 CRITICAL — immediate action required
-- 🟡 WARNING — should be addressed
-- 🟢 PASS — looks good
-- ⚪ INFO — informational
+-  CRITICAL — immediate action required
+-  WARNING — should be addressed
+-  PASS — looks good
+-  INFO — informational
 
 Ends with a security score out of 100 (A-F grade).
 

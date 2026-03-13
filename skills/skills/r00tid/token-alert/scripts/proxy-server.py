@@ -65,7 +65,7 @@ class ProxyHandler(SimpleHTTPRequestHandler):
 if __name__ == '__main__':
     port = 8765
     server = HTTPServer(('localhost', port), ProxyHandler)
-    print(f"✅ CORS Proxy running on http://localhost:{port}")
-    print(f"📊 Dashboard: http://localhost:{port}/dashboard-v3.html")
-    print(f"🔄 Proxying /api/* → {GATEWAY_URL}")
+    print(f" CORS Proxy running on http://localhost:{port}")
+    print(f" Dashboard: http://localhost:{port}/dashboard-v3.html")
+    print(f" Proxying /api/* → {GATEWAY_URL}")
     server.serve_forever()

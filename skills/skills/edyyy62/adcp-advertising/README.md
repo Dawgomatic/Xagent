@@ -10,12 +10,12 @@
 
 Transform how you run advertising campaigns. This skill provides OpenClaw agents with AI-powered advertising automation:
 
-- 🔍 **Discover ad inventory** - Find display ads, video placements, CTV spots using natural language
-- 🎯 **Launch campaigns instantly** - Create multi-channel campaigns across display, video, CTV, audio, native, DOOH
-- 🎨 **Manage ad creatives** - Upload banners, videos, HTML5 ads and track performance by creative
-- 📊 **Monitor ROI in real-time** - Get impressions, clicks, conversions, CPM, CTR, and spend data instantly
-- 🎛️ **Auto-optimize performance** - Reallocate budgets, pause underperformers, scale winners automatically
-- 🌐 **Target precisely** - Demographics, behaviors, interests, locations, devices, times, and contexts
+-  **Discover ad inventory** - Find display ads, video placements, CTV spots using natural language
+-  **Launch campaigns instantly** - Create multi-channel campaigns across display, video, CTV, audio, native, DOOH
+-  **Manage ad creatives** - Upload banners, videos, HTML5 ads and track performance by creative
+-  **Monitor ROI in real-time** - Get impressions, clicks, conversions, CPM, CTR, and spend data instantly
+-  **Auto-optimize performance** - Reallocate budgets, pause underperformers, scale winners automatically
+-  **Target precisely** - Demographics, behaviors, interests, locations, devices, times, and contexts
 
 ### Perfect For
 
@@ -109,30 +109,30 @@ Ready for real ad delivery? Switch seamlessly:
 
 ## Features
 
-### 🔍 Product Discovery
+###  Product Discovery
 - Natural language search for advertising inventory
 - Filter by channel, budget, format, and date range
 - Detailed product information including pricing and targeting options
 
-### 🎯 Campaign Management
+###  Campaign Management
 - Create campaigns across multiple channels
 - Update budgets, targeting, and creative assignments
 - Pause/resume campaigns
 - Schedule campaigns for future launch
 
-### 🎨 Creative Management
+###  Creative Management
 - Support for all standard IAB formats (display, video, native)
 - Bulk creative upload
 - Creative library management
 - Performance tracking by creative
 
-### 📊 Performance Monitoring
+###  Performance Monitoring
 - Real-time campaign metrics
 - Detailed breakdowns by package, creative, and geography
 - Budget pacing alerts
 - Daily/hourly granularity
 
-### 🎛️ Optimization
+###  Optimization
 - Automatic budget reallocation based on performance
 - A/B testing for creatives
 - Targeting optimization recommendations

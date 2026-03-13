@@ -28,13 +28,13 @@ After:  100 token index → fetch 200 needed (100%)
 ## Index (~70 tokens to scan)
 | # | Type | Summary | ~Tok |
 |---|------|---------|------|
-| 1 | 🔴 | Auth bug - use browser not CLI | 80 |
-| 2 | 🟢 | Deployed SEO fixes to 5 pages | 120 |
-| 3 | 🟤 | Decided to split content by account | 60 |
+| 1 |  | Auth bug - use browser not CLI | 80 |
+| 2 |  | Deployed SEO fixes to 5 pages | 120 |
+| 3 |  | Decided to split content by account | 60 |
 
 ---
 
-### #1 | 🔴 Auth Bug | ~80 tokens
+### #1 |  Auth Bug | ~80 tokens
 **Context:** Publishing via CLI
 **Issue:** "Unauthorized" even with fresh tokens
 **Workaround:** Use browser import instead
@@ -44,12 +44,12 @@ After:  100 token index → fetch 200 needed (100%)
 ### Long-Term Memory (`MEMORY.md`)
 
 ```markdown
-## 📋 Index (~100 tokens)
+##  Index (~100 tokens)
 | ID | Type | Category | Summary | ~Tok |
 |----|------|----------|---------|------|
-| R1 | 🚨 | Rules | Twitter posting protocol | 150 |
-| G1 | 🔴 | Gotcha | CLI auth broken | 60 |
-| D1 | 🟤 | Decision | Content split by account | 60 |
+| R1 |  | Rules | Twitter posting protocol | 150 |
+| G1 |  | Gotcha | CLI auth broken | 60 |
+| D1 |  | Decision | Content split by account | 60 |
 
 ---
 
@@ -63,15 +63,15 @@ After:  100 token index → fetch 200 needed (100%)
 
 | Icon | Type | When to Use |
 |------|------|-------------|
-| 🚨 | rule | Critical rule, must follow |
-| 🔴 | gotcha | Pitfall, don't repeat this |
-| 🟡 | fix | Bug fix, workaround |
-| 🔵 | how | Technical explanation |
-| 🟢 | change | What changed, deployed |
-| 🟣 | discovery | Learning, insight |
-| 🟠 | why | Design rationale |
-| 🟤 | decision | Architecture decision |
-| ⚖️ | tradeoff | Deliberate compromise |
+|  | rule | Critical rule, must follow |
+|  | gotcha | Pitfall, don't repeat this |
+|  | fix | Bug fix, workaround |
+|  | how | Technical explanation |
+|  | change | What changed, deployed |
+|  | discovery | Learning, insight |
+|  | why | Design rationale |
+|  | decision | Architecture decision |
+|  | tradeoff | Deliberate compromise |
 
 ## Token Estimation
 
@@ -85,7 +85,7 @@ After:  100 token index → fetch 200 needed (100%)
 ## How It Works
 
 1. **Session starts** → Agent scans index tables (~100-200 tokens)
-2. **Agent sees types** → Prioritizes 🔴 gotchas over 🟢 changes
+2. **Agent sees types** → Prioritizes  gotchas over  changes
 3. **Agent sees costs** → Decides if 400-token entry is worth it
 4. **Fetch on demand** → Only load what's relevant to current task
 
@@ -109,4 +109,4 @@ For Clawdbot users:
 
 **Built by [LXGIC Studios](https://lxgicstudios.com)**
 
-🔗 [GitHub](https://github.com/lxgicstudios/progressive-memory) · [Twitter](https://x.com/lxgicstudios)
+ [GitHub](https://github.com/lxgicstudios/progressive-memory) · [Twitter](https://x.com/lxgicstudios)

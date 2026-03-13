@@ -1,7 +1,7 @@
 ---
 name: estat-mcp
 description: "Search and retrieve Japanese government statistics (人口, GDP, CPI, 貿易, 雇用) from e-Stat API — Japan's official open data portal with 3,000+ statistical tables. Population, economy, trade, employment data. Free API."
-metadata: {"openclaw":{"emoji":"📈","requires":{"bins":["estat-mcp"],"env":["ESTAT_APP_ID"]},"install":[{"id":"uv","kind":"uv","package":"estat-mcp","bins":["estat-mcp"],"label":"Install estat-mcp (uv)"}],"tags":["japan","statistics","government","open-data","mcp","estat","gdp","economy"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["estat-mcp"],"env":["ESTAT_APP_ID"]},"install":[{"id":"uv","kind":"uv","package":"estat-mcp","bins":["estat-mcp"],"label":"Install estat-mcp (uv)"}],"tags":["japan","statistics","government","open-data","mcp","estat","gdp","economy"]}}
 ---
 
 # e-Stat: Japanese Government Statistics API

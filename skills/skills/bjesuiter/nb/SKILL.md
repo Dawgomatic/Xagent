@@ -5,7 +5,7 @@ author: Benjamin Jesuiter <bjesuiter@gmail.com>
 homepage: https://github.com/xwmx/nb
 metadata:
   clawdbot:
-    emoji: "📓"
+    emoji: ""
     os: ["darwin", "linux"]
     requires:
       bins: ["nb"]
@@ -13,7 +13,7 @@ metadata:
 
 # nb - Command Line Note-Taking
 
-> ⚠️ **IMPORTANT:** Never edit files in nb git repos (`~/.nb/*`) by hand! Always use the `nb` CLI to ensure proper indexing and Git commits.
+>  **IMPORTANT:** Never edit files in nb git repos (`~/.nb/*`) by hand! Always use the `nb` CLI to ensure proper indexing and Git commits.
 
 
 

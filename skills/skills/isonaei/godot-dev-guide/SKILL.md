@@ -32,13 +32,13 @@ Godot 4.x 遊戲開發完整指南，專為 AI 輔助開發設計。
 .tres → 資源序列化（嚴格格式，非 GDScript）
 ```
 
-⚠️ **AI PITFALL：混淆 GDScript 與資源格式**
+ **AI PITFALL：混淆 GDScript 與資源格式**
 ```gdscript
-# ❌ WRONG in .tres/.tscn
+#  WRONG in .tres/.tscn
 script = preload("res://script.gd")
 var items = [1, 2, 3]
 
-# ✅ CORRECT in .tres/.tscn
+#  CORRECT in .tres/.tscn
 [ext_resource type="Script" path="res://script.gd" id="1"]
 script = ExtResource("1")
 items = Array[int]([1, 2, 3])

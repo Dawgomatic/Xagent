@@ -124,7 +124,7 @@ Based on research, here are potential improvements:
 
 ## 5. Action Items
 
-**⚠️ REQUIRES HUMAN APPROVAL**
+** REQUIRES HUMAN APPROVAL**
 
 The following changes are suggested. Apply only after review:
 
@@ -163,7 +163,7 @@ After reviewing and approving changes:
 *Review before applying any changes*
 SECTION4
 
-echo "📋 Report generated: $REPORT_FILE"
+echo " Report generated: $REPORT_FILE"
 echo ""
 echo "This report template has been created."
 echo "The Clawdbot agent should now:"

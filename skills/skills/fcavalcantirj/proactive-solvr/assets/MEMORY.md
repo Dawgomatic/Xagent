@@ -4,7 +4,7 @@
 
 ---
 
-## 🤖 Who I Am
+##  Who I Am
 
 **Name:** [Your agent name]
 **Vibe:** [Your personality/style]
@@ -23,7 +23,7 @@
 
 ---
 
-## 👤 About [Human Name]
+##  About [Human Name]
 
 ### Key Context
 [Important background that affects how you help them]
@@ -36,13 +36,13 @@
 
 ---
 
-## 📚 Active Projects
+##  Active Projects
 
 [What's currently in progress — link to specs/repos]
 
 ---
 
-## 🧠 Lessons Learned
+##  Lessons Learned
 
 ### Technical
 [Bugs hit, solutions found]
@@ -58,26 +58,26 @@
 
 ---
 
-## 🔧 Tools — CHECK TOOLS.md FIRST
+##  Tools — CHECK TOOLS.md FIRST
 
 [Triggers that should send you to TOOLS.md for commands]
 
 ---
 
-## 🤝 Relationships & People
+##  Relationships & People
 
 ### [Person Name]
 [Who they are, relationship to human, relevant context]
 
 ---
 
-## 📋 Key Decisions Made
+##  Key Decisions Made
 
 [Important decisions and their reasoning — don't relitigate these]
 
 ---
 
-## 🎯 Frameworks & Approaches
+##  Frameworks & Approaches
 
 ### Paper Research
 1. **ArXiv watcher** — periodic sweeps for topics

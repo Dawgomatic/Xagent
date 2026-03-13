@@ -18,11 +18,11 @@ python3 skills/claw-skill-guard/scripts/scanner.py scan <skill-url-or-path>
 
 | Risk Level | Action |
 |------------|--------|
-| 🔴 CRITICAL | DO NOT INSTALL. Alert the human immediately. |
-| 🟡 HIGH | DO NOT INSTALL without explicit human approval. Show them the findings. |
-| 🟠 MEDIUM | Review the flagged items. Ask the human if unsure. |
-| 🟢 LOW | Safe to install, but mention the findings. |
-| ✅ SAFE | No issues found. Safe to install. |
+|  CRITICAL | DO NOT INSTALL. Alert the human immediately. |
+|  HIGH | DO NOT INSTALL without explicit human approval. Show them the findings. |
+|  MEDIUM | Review the flagged items. Ask the human if unsure. |
+|  LOW | Safe to install, but mention the findings. |
+|  SAFE | No issues found. Safe to install. |
 
 ### Red Flags — ALWAYS Stop and Ask
 

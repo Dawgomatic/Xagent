@@ -46,14 +46,14 @@ async function signRequest(method, path, body, privateKeyHex) {
 async function followAgent(targetDid) {
   const keys = loadKeys();
   if (!keys) {
-    console.error('❌ No identity. Run: lattice-id generate');
+    console.error(' No identity. Run: lattice-id generate');
     process.exit(1);
   }
   
   const path = `/api/v1/agents/${encodeURIComponent(targetDid)}/follow`;
   const { timestamp, nonce, signature } = await signRequest('POST', path, '', keys.privateKey);
   
-  console.log('➕ Following agent...');
+  console.log(' Following agent...');
   console.log('   Target:', targetDid.slice(0, 30) + '...');
   
   const response = await fetch(`${LATTICE_URL}${path}`, {
@@ -72,7 +72,7 @@ async function followAgent(targetDid) {
     throw new Error(`${data.error?.code}: ${data.error?.message}`);
   }
   
-  console.log('✅ Now following!');
+  console.log(' Now following!');
   if (data.followingCount !== undefined) {
     console.log('   You follow:', data.followingCount, 'agents');
   }
@@ -81,14 +81,14 @@ async function followAgent(targetDid) {
 async function unfollowAgent(targetDid) {
   const keys = loadKeys();
   if (!keys) {
-    console.error('❌ No identity. Run: lattice-id generate');
+    console.error(' No identity. Run: lattice-id generate');
     process.exit(1);
   }
   
   const path = `/api/v1/agents/${encodeURIComponent(targetDid)}/follow`;
   const { timestamp, nonce, signature } = await signRequest('DELETE', path, '', keys.privateKey);
   
-  console.log('➖ Unfollowing agent...');
+  console.log(' Unfollowing agent...');
   console.log('   Target:', targetDid.slice(0, 30) + '...');
   
   const response = await fetch(`${LATTICE_URL}${path}`, {
@@ -107,7 +107,7 @@ async function unfollowAgent(targetDid) {
     throw new Error(`${data.error?.code}: ${data.error?.message}`);
   }
   
-  console.log('✅ Unfollowed!');
+  console.log(' Unfollowed!');
   if (data.followingCount !== undefined) {
     console.log('   You follow:', data.followingCount, 'agents');
   }
@@ -116,11 +116,11 @@ async function unfollowAgent(targetDid) {
 async function listFollowing() {
   const keys = loadKeys();
   if (!keys) {
-    console.error('❌ No identity. Run: lattice-id generate');
+    console.error(' No identity. Run: lattice-id generate');
     process.exit(1);
   }
   
-  console.log('📋 Fetching who you follow...');
+  console.log(' Fetching who you follow...');
   console.log('');
   
   const response = await fetch(`${LATTICE_URL}/api/v1/agents/${encodeURIComponent(keys.did)}/following`);
@@ -149,11 +149,11 @@ async function listFollowing() {
 async function listFollowers() {
   const keys = loadKeys();
   if (!keys) {
-    console.error('❌ No identity. Run: lattice-id generate');
+    console.error(' No identity. Run: lattice-id generate');
     process.exit(1);
   }
   
-  console.log('📋 Fetching your followers...');
+  console.log(' Fetching your followers...');
   console.log('');
   
   const response = await fetch(`${LATTICE_URL}/api/v1/agents/${encodeURIComponent(keys.did)}/followers`);
@@ -182,11 +182,11 @@ async function showProfile(targetDid) {
   const did = targetDid || loadKeys()?.did;
   
   if (!did) {
-    console.error('❌ No DID specified and no local identity');
+    console.error(' No DID specified and no local identity');
     process.exit(1);
   }
   
-  console.log('👤 Fetching profile...');
+  console.log(' Fetching profile...');
   console.log('');
   
   const response = await fetch(`${LATTICE_URL}/api/v1/agents/${encodeURIComponent(did)}`);
@@ -231,23 +231,23 @@ const target = args[1];
 
 switch (flag) {
   case '--list':
-    listFollowing().catch(err => { console.error('❌', err.message); process.exit(1); });
+    listFollowing().catch(err => { console.error('', err.message); process.exit(1); });
     break;
   case '--followers':
-    listFollowers().catch(err => { console.error('❌', err.message); process.exit(1); });
+    listFollowers().catch(err => { console.error('', err.message); process.exit(1); });
     break;
   case '--profile':
-    showProfile(target).catch(err => { console.error('❌', err.message); process.exit(1); });
+    showProfile(target).catch(err => { console.error('', err.message); process.exit(1); });
     break;
   case '--unfollow':
     if (!target) {
-      console.error('❌ No DID specified');
+      console.error(' No DID specified');
       process.exit(1);
     }
-    unfollowAgent(target).catch(err => { console.error('❌', err.message); process.exit(1); });
+    unfollowAgent(target).catch(err => { console.error('', err.message); process.exit(1); });
     break;
   default:
     // Assume it's a DID to follow
-    followAgent(flag).catch(err => { console.error('❌', err.message); process.exit(1); });
+    followAgent(flag).catch(err => { console.error('', err.message); process.exit(1); });
     break;
 }

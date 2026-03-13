@@ -4,13 +4,13 @@ Automated Dollar Cost Averaging (DCA) for NEAR token purchases.
 
 ## Features
 
-- 📊 **Multiple DCA Strategies** - Create and manage multiple DCA strategies with different parameters
-- ⏰ **Flexible Scheduling** - Support for hourly, daily, weekly, and monthly purchase intervals
-- 💱 **Multiple Exchanges** - Integration with Ref Finance, Jumbo, Bancor, and on-chain swaps
-- 📈 **Cost Basis Tracking** - Automatic calculation of average cost basis across all purchases
-- 📜 **Full History** - Complete execution history for audit and analysis
-- 🔔 **Alerts** - Configurable notifications on successful and failed executions
-- ⏯️ **Pause/Resume** - Temporary halt strategies without deleting them
+-  **Multiple DCA Strategies** - Create and manage multiple DCA strategies with different parameters
+-  **Flexible Scheduling** - Support for hourly, daily, weekly, and monthly purchase intervals
+-  **Multiple Exchanges** - Integration with Ref Finance, Jumbo, Bancor, and on-chain swaps
+-  **Cost Basis Tracking** - Automatic calculation of average cost basis across all purchases
+-  **Full History** - Complete execution history for audit and analysis
+-  **Alerts** - Configurable notifications on successful and failed executions
+-  **Pause/Resume** - Temporary halt strategies without deleting them
 
 ## Installation
 
@@ -206,7 +206,7 @@ All strategy data and execution history is stored in a JSON file at `./data/dca_
 
 ## Security Notes
 
-⚠️ **Important:** Store private keys securely using OpenClaw's credential management rather than in plain text configuration.
+ **Important:** Store private keys securely using OpenClaw's credential management rather than in plain text configuration.
 
 ## Cost Basis Calculation
 

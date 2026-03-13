@@ -58,7 +58,7 @@ class AgentLedger {
       try {
         const backupData = await fs.readFile(backupFile, 'utf8');
         const transactions = JSON.parse(backupData);
-        console.log(`✅ Recovered ${transactions.length} transactions from backup.`);
+        console.log(` Recovered ${transactions.length} transactions from backup.`);
         
         // Restore the main file from backup
         await fs.writeFile(this.transactionsFile, backupData);

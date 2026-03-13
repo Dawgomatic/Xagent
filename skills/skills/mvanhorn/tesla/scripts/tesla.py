@@ -43,12 +43,12 @@ def get_tesla(email: str | None = None):
         email = get_email_from_cache()
     
     if not email:
-        print("❌ Error: No Tesla email found", file=sys.stderr)
+        print(" Error: No Tesla email found", file=sys.stderr)
         print("Run: TESLA_EMAIL=you@example.com python tesla.py auth", file=sys.stderr)
         sys.exit(1)
     
     def custom_auth(url):
-        print(f"\n🔐 Open this URL in your browser:\n{url}\n")
+        print(f"\n Open this URL in your browser:\n{url}\n")
         print("Log in to Tesla, then paste the final URL here")
         print("(it will start with https://auth.tesla.com/void/callback?...)")
         return input("\nCallback URL: ").strip()
@@ -57,7 +57,7 @@ def get_tesla(email: str | None = None):
     
     if not tesla.authorized:
         tesla.fetch_token()
-        print("✅ Authenticated successfully!")
+        print(" Authenticated successfully!")
     
     return tesla
 
@@ -66,14 +66,14 @@ def get_vehicle(tesla, name: str = None):
     """Get vehicle by name or first vehicle."""
     vehicles = tesla.vehicle_list()
     if not vehicles:
-        print("❌ No vehicles found on this account", file=sys.stderr)
+        print(" No vehicles found on this account", file=sys.stderr)
         sys.exit(1)
     
     if name:
         for v in vehicles:
             if v['display_name'].lower() == name.lower():
                 return v
-        print(f"❌ Vehicle '{name}' not found. Available: {', '.join(v['display_name'] for v in vehicles)}", file=sys.stderr)
+        print(f" Vehicle '{name}' not found. Available: {', '.join(v['display_name'] for v in vehicles)}", file=sys.stderr)
         sys.exit(1)
     
     return vehicles[0]
@@ -82,7 +82,7 @@ def get_vehicle(tesla, name: str = None):
 def wake_vehicle(vehicle):
     """Wake vehicle if asleep."""
     if vehicle['state'] != 'online':
-        print("⏳ Waking vehicle...", file=sys.stderr)
+        print(" Waking vehicle...", file=sys.stderr)
         vehicle.sync_wake_up()
 
 
@@ -94,8 +94,8 @@ def cmd_auth(args):
     
     tesla = get_tesla(email)
     vehicles = tesla.vehicle_list()
-    print(f"\n✅ Authentication cached at {CACHE_FILE}")
-    print(f"\n🚗 Found {len(vehicles)} vehicle(s):")
+    print(f"\n Authentication cached at {CACHE_FILE}")
+    print(f"\n Found {len(vehicles)} vehicle(s):")
     for v in vehicles:
         print(f"   - {v['display_name']} ({v['vin']})")
 
@@ -125,7 +125,7 @@ def cmd_status(args):
     climate = data['climate_state']
     vehicle_state = data['vehicle_state']
     
-    print(f"🚗 {vehicle['display_name']}")
+    print(f" {vehicle['display_name']}")
     print(f"   State: {vehicle['state']}")
     print(f"   Battery: {charge['battery_level']}% ({charge['battery_range']:.0f} mi)")
     print(f"   Charging: {charge['charging_state']}")
@@ -145,7 +145,7 @@ def cmd_lock(args):
     vehicle = get_vehicle(tesla, args.car)
     wake_vehicle(vehicle)
     vehicle.command('LOCK')
-    print(f"🔒 {vehicle['display_name']} locked")
+    print(f" {vehicle['display_name']} locked")
 
 
 def cmd_unlock(args):
@@ -154,7 +154,7 @@ def cmd_unlock(args):
     vehicle = get_vehicle(tesla, args.car)
     wake_vehicle(vehicle)
     vehicle.command('UNLOCK')
-    print(f"🔓 {vehicle['display_name']} unlocked")
+    print(f" {vehicle['display_name']} unlocked")
 
 
 def cmd_climate(args):
@@ -165,14 +165,14 @@ def cmd_climate(args):
     
     if args.action == 'on':
         vehicle.command('CLIMATE_ON')
-        print(f"❄️ {vehicle['display_name']} climate turned on")
+        print(f" {vehicle['display_name']} climate turned on")
     elif args.action == 'off':
         vehicle.command('CLIMATE_OFF')
-        print(f"🌡️ {vehicle['display_name']} climate turned off")
+        print(f" {vehicle['display_name']} climate turned off")
     elif args.action == 'temp':
         temp_c = (float(args.value) - 32) * 5/9 if args.fahrenheit else float(args.value)
         vehicle.command('CHANGE_CLIMATE_TEMPERATURE_SETTING', driver_temp=temp_c, passenger_temp=temp_c)
-        print(f"🌡️ {vehicle['display_name']} temperature set to {args.value}°{'F' if args.fahrenheit else 'C'}")
+        print(f" {vehicle['display_name']} temperature set to {args.value}°{'F' if args.fahrenheit else 'C'}")
 
 
 def cmd_charge(args):
@@ -184,7 +184,7 @@ def cmd_charge(args):
     if args.action == 'status':
         data = vehicle.get_vehicle_data()
         charge = data['charge_state']
-        print(f"🔋 {vehicle['display_name']} Battery: {charge['battery_level']}%")
+        print(f" {vehicle['display_name']} Battery: {charge['battery_level']}%")
         print(f"   Range: {charge['battery_range']:.0f} mi")
         print(f"   State: {charge['charging_state']}")
         print(f"   Limit: {charge['charge_limit_soc']}%")
@@ -193,10 +193,10 @@ def cmd_charge(args):
             print(f"   Rate: {charge['charge_rate']} mph")
     elif args.action == 'start':
         vehicle.command('START_CHARGE')
-        print(f"⚡ {vehicle['display_name']} charging started")
+        print(f" {vehicle['display_name']} charging started")
     elif args.action == 'stop':
         vehicle.command('STOP_CHARGE')
-        print(f"🛑 {vehicle['display_name']} charging stopped")
+        print(f" {vehicle['display_name']} charging stopped")
 
 
 def cmd_location(args):
@@ -209,7 +209,7 @@ def cmd_location(args):
     drive = data['drive_state']
     
     lat, lon = drive['latitude'], drive['longitude']
-    print(f"📍 {vehicle['display_name']} Location: {lat}, {lon}")
+    print(f" {vehicle['display_name']} Location: {lat}, {lon}")
     print(f"   https://www.google.com/maps?q={lat},{lon}")
 
 
@@ -219,7 +219,7 @@ def cmd_honk(args):
     vehicle = get_vehicle(tesla, args.car)
     wake_vehicle(vehicle)
     vehicle.command('HONK_HORN')
-    print(f"📢 {vehicle['display_name']} honked!")
+    print(f" {vehicle['display_name']} honked!")
 
 
 def cmd_flash(args):
@@ -228,16 +228,16 @@ def cmd_flash(args):
     vehicle = get_vehicle(tesla, args.car)
     wake_vehicle(vehicle)
     vehicle.command('FLASH_LIGHTS')
-    print(f"💡 {vehicle['display_name']} flashed lights!")
+    print(f" {vehicle['display_name']} flashed lights!")
 
 
 def cmd_wake(args):
     """Wake up the vehicle."""
     tesla = get_tesla(args.email)
     vehicle = get_vehicle(tesla, args.car)
-    print(f"⏳ Waking {vehicle['display_name']}...")
+    print(f" Waking {vehicle['display_name']}...")
     vehicle.sync_wake_up()
-    print(f"✅ {vehicle['display_name']} is awake")
+    print(f" {vehicle['display_name']} is awake")
 
 
 def main():
@@ -304,7 +304,7 @@ def main():
     try:
         commands[args.command](args)
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 
@@ -314,7 +314,7 @@ def cmd_defrost(args):
     vehicle = get_vehicle(tesla, args.car)
     wake_vehicle(vehicle)
     vehicle.command('MAX_DEFROST', on=True)
-    print(f"🔥 {vehicle['display_name']} max defrost ON")
+    print(f" {vehicle['display_name']} max defrost ON")
 
 
 if __name__ == "__main__":

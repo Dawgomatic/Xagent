@@ -225,8 +225,8 @@ Capitalizing every main word in headings.
 Decorating headings or bullet points with emojis in professional text.
 
 **Before:**
-> 🚀 **Launch Phase:** The product launches in Q3
-> 💡 **Key Insight:** Users prefer simplicity
+>  **Launch Phase:** The product launches in Q3
+>  **Key Insight:** Users prefer simplicity
 
 **After:**
 > The product launches in Q3. User research showed a preference for simplicity.

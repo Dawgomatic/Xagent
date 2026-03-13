@@ -21,7 +21,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-echo "☁️ R2 Storage Setup"
+echo " R2 Storage Setup"
 echo "=================="
 
 # Check rclone
@@ -37,7 +37,7 @@ fi
 
 # Validate JSON
 if ! echo "$CONFIG_JSON" | python3 -c "import json,sys; json.load(sys.stdin)" 2>/dev/null; then
-    echo "❌ Invalid JSON format"
+    echo " Invalid JSON format"
     exit 1
 fi
 
@@ -49,14 +49,14 @@ BUCKET=$(echo "$CONFIG_JSON" | python3 -c "import json,sys; print(json.load(sys.
 
 # Validate required
 if [[ -z "$ACCESS_KEY" || -z "$SECRET_KEY" || -z "$ENDPOINT" ]]; then
-    echo "❌ Error: access_key_id, secret_access_key, and endpoint are required."
+    echo " Error: access_key_id, secret_access_key, and endpoint are required."
     exit 1
 fi
 
 # Save config JSON
 mkdir -p ~/.config/r2
 echo "$CONFIG_JSON" > "$CONFIG_FILE"
-echo "✅ Config saved to $CONFIG_FILE"
+echo " Config saved to $CONFIG_FILE"
 
 # Write rclone config
 mkdir -p ~/.config/rclone
@@ -70,24 +70,24 @@ endpoint = ${ENDPOINT}
 acl = private
 no_check_bucket = true
 EOF
-echo "✅ rclone config written"
+echo " rclone config written"
 
 # Test connection
 echo "Testing connection..."
 if rclone listremotes | grep -q "^${REMOTE_NAME}:"; then
-    echo "✅ Remote '${REMOTE_NAME}' configured successfully"
+    echo " Remote '${REMOTE_NAME}' configured successfully"
 
     # Create bucket if specified
     if [[ -n "$BUCKET" ]]; then
         echo "Creating bucket '${BUCKET}'..."
         if rclone mkdir "${REMOTE_NAME}:${BUCKET}" 2>/dev/null; then
-            echo "✅ Bucket '${BUCKET}' created"
+            echo " Bucket '${BUCKET}' created"
         else
-            echo "⚠️  Bucket may already exist or permissions issue"
+            echo "  Bucket may already exist or permissions issue"
         fi
     fi
 else
-    echo "❌ Failed to configure remote"
+    echo " Failed to configure remote"
     exit 1
 fi
 

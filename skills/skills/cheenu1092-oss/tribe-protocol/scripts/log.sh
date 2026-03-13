@@ -21,7 +21,7 @@ WHERE=""
 if [ -n "$ENTITY_DISCORD" ]; then
     ENTITY_ID=$(resolve_entity_id "$ENTITY_DISCORD")
     if [ -z "$ENTITY_ID" ]; then
-        echo "❌ Entity not found for discord:$ENTITY_DISCORD"
+        echo " Entity not found for discord:$ENTITY_DISCORD"
         exit 1
     fi
     WHERE="WHERE a.entity_id=$ENTITY_ID"
@@ -35,11 +35,11 @@ RESULTS=$(db_query "SELECT a.created_at, COALESCE(e.name, 'system'), a.action, C
     LIMIT $LIMIT;" 2>/dev/null || true)
 
 if [ -z "$RESULTS" ]; then
-    echo "📜 No audit entries found."
+    echo " No audit entries found."
     exit 0
 fi
 
-echo "📜 Audit Log (last $LIMIT entries)"
+echo " Audit Log (last $LIMIT entries)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 while IFS='|' read -r TS NAME_V ACTION OLD NEW REASON BY; do

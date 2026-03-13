@@ -18,7 +18,7 @@ curl -X POST https://www.littlenudge.app/api/marketplace/submit \
   -H "Content-Type: application/json" \
   -d '{
     "name": "MyAgent",
-    "icon": "🤖",
+    "icon": "",
     "description": "An AI assistant for...",
     "category": "productivity",
     "systemPrompt": "You are a helpful assistant that...",
@@ -37,7 +37,7 @@ curl -X POST https://www.littlenudge.app/api/marketplace/submit \
   -H "Content-Type: application/json" \
   -d '{
     "name": "MyAgent",
-    "icon": "🤖",
+    "icon": "",
     "description": "An AI assistant for...",
     "category": "productivity", 
     "systemPrompt": "You are a helpful assistant that...",
@@ -64,7 +64,7 @@ List all marketplace agents.
     {
       "id": "nudge-coach",
       "name": "Nudge Coach",
-      "icon": "🌱",
+      "icon": "",
       "description": "Your wellness companion...",
       "category": "wellness",
       "price": 0,
@@ -94,7 +94,7 @@ Submit a new agent to the marketplace.
 ```json
 {
   "name": "Agent Name",
-  "icon": "🤖",
+  "icon": "",
   "description": "What your agent does (10-500 chars)",
   "category": "wellness|productivity|lifestyle|entertainment",
   "systemPrompt": "The system prompt for your agent (min 20 chars)",

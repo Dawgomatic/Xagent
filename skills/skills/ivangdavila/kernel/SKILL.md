@@ -1,7 +1,7 @@
 ---
 name: Kernel
 description: Avoid common Linux kernel mistakes — atomic context violations, allocation failures, and locking traps.
-metadata: {"clawdbot":{"emoji":"🐧","os":["linux"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux"]}}
 ---
 
 ## Atomic Context Traps

@@ -395,29 +395,29 @@ def generate_practice_notes(query: str, cases: list, statutes: list) -> list[str
     
     # General practice notes based on topic
     if "damages" in query_lower:
-        notes.append("💡 Document all damages with specificity. Courts require proof of actual harm with reasonable certainty.")
+        notes.append(" Document all damages with specificity. Courts require proof of actual harm with reasonable certainty.")
     
     if "contract" in query_lower:
-        notes.append("💡 Review the choice of law provision—UCC vs common law affects available remedies significantly.")
-        notes.append("💡 Check statute of limitations: typically 4-6 years for written contracts, 2-4 years for oral.")
+        notes.append(" Review the choice of law provision—UCC vs common law affects available remedies significantly.")
+        notes.append(" Check statute of limitations: typically 4-6 years for written contracts, 2-4 years for oral.")
     
     if "negligence" in query_lower:
-        notes.append("💡 Establish all four elements: duty, breach, causation, and damages. Weakness in any element is fatal.")
-        notes.append("💡 Consider comparative/contributory negligence rules in your jurisdiction.")
+        notes.append(" Establish all four elements: duty, breach, causation, and damages. Weakness in any element is fatal.")
+        notes.append(" Consider comparative/contributory negligence rules in your jurisdiction.")
     
     if "employment" in query_lower:
-        notes.append("💡 Check administrative exhaustion requirements (EEOC filing for Title VII claims).")
-        notes.append("💡 Review arbitration agreements—many employment contracts require arbitration.")
+        notes.append(" Check administrative exhaustion requirements (EEOC filing for Title VII claims).")
+        notes.append(" Review arbitration agreements—many employment contracts require arbitration.")
     
     if "liability" in query_lower:
-        notes.append("💡 California courts increasingly pierce liability caps for willful/gross negligence breaches.")
+        notes.append(" California courts increasingly pierce liability caps for willful/gross negligence breaches.")
     
     # Default notes
     if not notes:
         notes = [
-            "💡 Verify all citations before relying on them in filings.",
-            "💡 Check for subsequent history (overruling, distinguishing cases).",
-            "💡 Consider jurisdiction-specific variations in legal standards.",
+            " Verify all citations before relying on them in filings.",
+            " Check for subsequent history (overruling, distinguishing cases).",
+            " Consider jurisdiction-specific variations in legal standards.",
         ]
     
     return notes
@@ -501,7 +501,7 @@ def format_research(result: ResearchResult, output_format: str = "markdown") -> 
     
     # Markdown format
     lines = [
-        "# 🔍 Legal Research Results",
+        "#  Legal Research Results",
         "",
         f"**Query:** {result.query}",
         f"**Jurisdiction:** {result.jurisdiction.upper()}",
@@ -515,7 +515,7 @@ def format_research(result: ResearchResult, output_format: str = "markdown") -> 
     # Cases
     if result.cases:
         lines.extend([
-            "## 📚 Relevant Case Law",
+            "##  Relevant Case Law",
             ""
         ])
         
@@ -545,7 +545,7 @@ def format_research(result: ResearchResult, output_format: str = "markdown") -> 
     # Statutes
     if result.statutes:
         lines.extend([
-            "## 📖 Statutory Framework",
+            "##  Statutory Framework",
             ""
         ])
         
@@ -565,7 +565,7 @@ def format_research(result: ResearchResult, output_format: str = "markdown") -> 
     # Practice Notes
     if result.practice_notes:
         lines.extend([
-            "## 💡 Practice Notes",
+            "##  Practice Notes",
             ""
         ])
         for note in result.practice_notes:
@@ -575,7 +575,7 @@ def format_research(result: ResearchResult, output_format: str = "markdown") -> 
     # Suggested Queries
     if result.suggested_queries:
         lines.extend([
-            "## 🔎 Related Research",
+            "##  Related Research",
             ""
         ])
         for query in result.suggested_queries:

@@ -58,7 +58,7 @@ async function main() {
           existing_wallet: info
         }));
       } else {
-        console.log('❌ Wallet already exists!');
+        console.log(' Wallet already exists!');
         console.log(`Address: ${info.address}`);
         console.log(`Created: ${info.createdAt}`);
         console.log('\nUse --force to overwrite or check existing wallet first.');
@@ -68,7 +68,7 @@ async function main() {
 
     // Generate new wallet
     if (!jsonFlag) {
-      console.log('🔐 Generating new wallet...');
+      console.log(' Generating new wallet...');
     }
     
     const wallet = generate();
@@ -81,12 +81,12 @@ async function main() {
         created_at: wallet.createdAt
       }));
     } else {
-      console.log('✅ Wallet created successfully!');
+      console.log(' Wallet created successfully!');
       console.log(`\nAddress: ${wallet.address}`);
       console.log(`Created: ${wallet.createdAt}`);
       console.log(`\nWallet saved to: ${join(homedir(), '.evm-wallet.json')}`);
-      console.log('🔒 Private key stored securely (chmod 600)');
-      console.log('\n⚠️  IMPORTANT: Back up your wallet file! If lost, funds cannot be recovered.');
+      console.log(' Private key stored securely (chmod 600)');
+      console.log('\n  IMPORTANT: Back up your wallet file! If lost, funds cannot be recovered.');
       
       console.log('\nNext steps:');
       console.log('1. Fund your wallet by sending ETH to the address above');

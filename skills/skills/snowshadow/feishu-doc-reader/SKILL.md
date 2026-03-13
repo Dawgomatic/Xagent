@@ -1,7 +1,7 @@
 ---
 name: feishu-doc-reader
 description: Read and extract content from Feishu (Lark) documents using the official Feishu Open API
-metadata: {"moltbot":{"emoji":"📄","requires":{"bins":["python3","curl"]}}}
+metadata: {"moltbot":{"emoji":"","requires":{"bins":["python3","curl"]}}}
 ---
 
 # Feishu Document Reader

@@ -322,16 +322,16 @@ def format_report(result):
     rm = r["methods"]["revenue_multiple"]
 
     lines = []
-    lines.append("### 🌅 라온의 밸류에이션 리포트\n")
+    lines.append("###  라온의 밸류에이션 리포트\n")
     lines.append(f"**스테이지:** {r['stage']}  |  **업종:** {r['industry']}")
     if r["tips"]:
-        lines.append("**TIPS 선정:** ✅ (+20% 프리미엄)")
+        lines.append("**TIPS 선정:**  (+20% 프리미엄)")
     if r["gov_rnd_억"] > 0:
         lines.append(f"**정부 R&D 실적:** {r['gov_rnd_억']}억원")
     lines.append("")
 
     lines.append("---\n")
-    lines.append("#### 📊 방법론별 밸류에이션\n")
+    lines.append("####  방법론별 밸류에이션\n")
 
     # Scorecard
     lines.append(f"**1. Scorecard Method: {sc['valuation_억']}억원**")
@@ -360,11 +360,11 @@ def format_report(result):
     lines.append("")
 
     lines.append("---\n")
-    lines.append("#### 🎯 종합 추천 밸류에이션\n")
+    lines.append("####  종합 추천 밸류에이션\n")
     lines.append(f"**{rec['range_low_억']}억 ~ {rec['range_high_억']}억원**")
     lines.append(f"(중심값: **{rec['valuation_억']}억원**)\n")
 
-    lines.append("#### 📝 근거")
+    lines.append("####  근거")
     for rationale in r["rationale"]:
         lines.append(f"- {rationale}")
 
@@ -375,7 +375,7 @@ def cli_main(args=None):
     """CLI 엔트리포인트 (evaluate.py에서 호출)"""
     import argparse
 
-    parser = argparse.ArgumentParser(description="🌅 Raon OS — 밸류에이션 산출")
+    parser = argparse.ArgumentParser(description=" Raon OS — 밸류에이션 산출")
     parser.add_argument("command", choices=["estimate"], help="명령")
     parser.add_argument("--stage", default="seed", choices=["pre-seed", "seed", "series-a"])
     parser.add_argument("--industry", default="default")

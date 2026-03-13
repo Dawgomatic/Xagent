@@ -512,9 +512,9 @@ function fullScan() {
     critical,
     high,
     medium,
-    verdict: critical > 0 ? "🔴 CRITICAL THREATS FOUND" :
-             high > 0 ? "🟠 HIGH-RISK ISSUES FOUND" :
-             medium > 0 ? "🟡 REVIEW RECOMMENDED" : "🟢 ALL CLEAR",
+    verdict: critical > 0 ? " CRITICAL THREATS FOUND" :
+             high > 0 ? " HIGH-RISK ISSUES FOUND" :
+             medium > 0 ? " REVIEW RECOMMENDED" : " ALL CLEAR",
   };
 
   // Update state
@@ -646,9 +646,9 @@ async function main() {
         timestamp: new Date().toISOString(),
         runtime_findings: all,
         total: all.length,
-        verdict: all.some(f => f.severity === "CRITICAL") ? "🔴 CRITICAL" :
-                 all.some(f => f.severity === "HIGH") ? "🟠 HIGH RISK" :
-                 all.length > 0 ? "🟡 REVIEW" : "🟢 CLEAR",
+        verdict: all.some(f => f.severity === "CRITICAL") ? " CRITICAL" :
+                 all.some(f => f.severity === "HIGH") ? " HIGH RISK" :
+                 all.length > 0 ? " REVIEW" : " CLEAR",
       }, null, 2));
       break;
     }

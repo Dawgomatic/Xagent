@@ -37,7 +37,7 @@ const paymentLink = result.data.link.replace('tsrlabs', 'yoursubdomain');
 
 // 4. Format WhatsApp message
 const message = `
-✅ *Order Confirmed!*
+ *Order Confirmed!*
 
 *Package:* Wedding Template + Maintenance
 
@@ -49,12 +49,12 @@ const message = `
 
 *TOTAL: Rp 2.750.000*
 
-💳 *Pembayaran:*
+ *Pembayaran:*
 ${paymentLink}
 
-⏰ Berlaku sampai: 7 Feb 2026
+ Berlaku sampai: 7 Feb 2026
 
-Terima kasih! 🙏
+Terima kasih! 
 `.trim();
 
 // 5. Send via WhatsApp
@@ -89,13 +89,13 @@ setInterval(async () => {
       channel: 'whatsapp',
       target: customerPhone,
       message: `
-✅ *Pembayaran Berhasil!*
+ *Pembayaran Berhasil!*
 
 Invoice: #${paid.invoiceCode}
 Amount: Rp ${paid.amount.toLocaleString('id-ID')}
 Tanggal: ${paid.createdAt}
 
-Setup akan segera dimulai. Terima kasih! 🎉
+Setup akan segera dimulai. Terima kasih! 
       `.trim()
     });
     
@@ -147,7 +147,7 @@ overdue.forEach(invoice => {
     channel: 'whatsapp',
     target: invoice.customer.mobile,
     message: `
-⏰ *Reminder: Pembayaran akan segera kadaluarsa*
+ *Reminder: Pembayaran akan segera kadaluarsa*
 
 Invoice: #${invoice.invoiceCode}
 Amount: Rp ${invoice.amount.toLocaleString('id-ID')}
@@ -156,7 +156,7 @@ Kadaluarsa: ${new Date(invoice.paymentLink.expiredAt).toLocaleString('id-ID')}
 Link pembayaran:
 ${invoice.paymentLink.link}
 
-Terima kasih! 🙏
+Terima kasih! 
     `.trim()
   });
 });
@@ -238,16 +238,16 @@ pollPayment(invoice.data.id, async (paidInvoice) => {
     channel: 'whatsapp',
     target: paidInvoice.customer.mobile,
     message: `
-🎉 *Pembayaran Berhasil!*
+ *Pembayaran Berhasil!*
 
 Kamu sekarang memiliki akses ke:
-📚 Full Stack Development Course
+ Full Stack Development Course
 
 Login di: https://course.site/login
 Email: ${paidInvoice.customer.email}
 Password: (cek email)
 
-Selamat belajar! 🚀
+Selamat belajar! 
     `.trim()
   });
 });
@@ -325,7 +325,7 @@ pollPayment(invoiceId, async (paidInvoice) => {
       channel: 'whatsapp',
       target: paidInvoice.customer.mobile,
       message: `
-🎟️ *Ticket ${index + 1}*
+ *Ticket ${index + 1}*
 
 Event: Tech Conference 2026
 Date: 15 March 2026
@@ -334,7 +334,7 @@ Venue: JCC Hall A
 Scan QR code at entrance:
 ${ticket.qrCodeUrl}
 
-See you there! 🎉
+See you there! 
       `.trim()
     });
   });
@@ -360,12 +360,12 @@ const revenue = transactions.reduce((sum, t) => sum + t.amount, 0);
 const count = transactions.length;
 
 const report = `
-📊 *Daily Revenue Report*
+ *Daily Revenue Report*
 Date: ${new Date().toLocaleDateString('id-ID')}
 
-💰 Total Revenue: Rp ${revenue.toLocaleString('id-ID')}
-📦 Transactions: ${count}
-💵 Average: Rp ${Math.round(revenue / count).toLocaleString('id-ID')}
+ Total Revenue: Rp ${revenue.toLocaleString('id-ID')}
+ Transactions: ${count}
+ Average: Rp ${Math.round(revenue / count).toLocaleString('id-ID')}
 
 Top 5 Sales:
 ${transactions.slice(0, 5).map(t => 

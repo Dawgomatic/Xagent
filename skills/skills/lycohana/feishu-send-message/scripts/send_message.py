@@ -475,7 +475,7 @@ def send_long_content(token, base_url, user_ids, content):
     
     success_count = 0
     for i, part in enumerate(parts, 1):
-        header = f"📄 【第 {i}/{len(parts)} 部分】】\n\n"
+        header = f" 【第 {i}/{len(parts)} 部分】】\n\n"
         part_content = header + part
         message_id, id_type = send_message_with_all_ids(token, base_url, user_ids, part_content)
         if message_id:

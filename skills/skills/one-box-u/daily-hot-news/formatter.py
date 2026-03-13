@@ -12,13 +12,13 @@ class ResponseFormatter:
 
     # 分类名称映射（中文）
     CATEGORY_NAMES = {
-        "video": "🎬 视频/直播",
-        "social": "💬 社交媒体",
-        "news": "📰 新闻资讯",
-        "tech": "💻 科技/技术",
-        "game": "🎮 游戏/ACG",
-        "reading": "📚 阅读/文化",
-        "tool": "🔧 工具/其他",
+        "video": " 视频/直播",
+        "social": " 社交媒体",
+        "news": " 新闻资讯",
+        "tech": " 科技/技术",
+        "game": " 游戏/ACG",
+        "reading": " 阅读/文化",
+        "tool": " 工具/其他",
     }
 
     @staticmethod
@@ -29,7 +29,7 @@ class ResponseFormatter:
         update_time = data.get("update_time", "")
 
         # 头部
-        lines.append(f"🔥 **{platform}**")
+        lines.append(f" **{platform}**")
         if update_time:
             lines.append(f"更新时间: {update_time}")
         lines.append("")
@@ -67,7 +67,7 @@ class ResponseFormatter:
         lines = []
         platform = data.get("platform", "未知平台")
 
-        lines.append(f"🔥 **{platform}**")
+        lines.append(f" **{platform}**")
         lines.append("-" * 40)
 
         items = data.get("data", [])[:max_items]
@@ -81,7 +81,7 @@ class ResponseFormatter:
             if len(title) > 30:
                 title = title[:30] + "..."
 
-            hot_str = f" 📈 {hot}" if hot else ""
+            hot_str = f"  {hot}" if hot else ""
             lines.append(f"{rank:2d}. {title}{hot_str}")
 
         return "\n".join(lines)
@@ -94,7 +94,7 @@ class ResponseFormatter:
         sources_by_cat = api_client.get_sources_by_category()
         lines = []
 
-        lines.append("📊 **支持的热榜源（共 54 个）**")
+        lines.append(" **支持的热榜源（共 54 个）**")
         lines.append("")
 
         for cat_key, cat_name in ResponseFormatter.CATEGORY_NAMES.items():
@@ -135,9 +135,9 @@ class ResponseFormatter:
         lines = []
 
         if not results:
-            return f"❌ 没有找到与「{query}」相关的热榜源"
+            return f" 没有找到与「{query}」相关的热榜源"
 
-        lines.append(f"🔍 搜索「{query}」结果 ({len(results)} 个)")
+        lines.append(f" 搜索「{query}」结果 ({len(results)} 个)")
         lines.append("")
 
         for result in results:
@@ -148,11 +148,11 @@ class ResponseFormatter:
     @staticmethod
     def format_error(message: str, suggestion: str = "") -> str:
         """格式化错误信息"""
-        lines = [f"❌ {message}"]
+        lines = [f" {message}"]
 
         if suggestion:
             lines.append("")
-            lines.append(f"💡 {suggestion}")
+            lines.append(f" {suggestion}")
 
         return "\n".join(lines)
 
@@ -160,9 +160,9 @@ class ResponseFormatter:
     def format_service_status(is_running: bool, url: str) -> str:
         """格式化服务状态"""
         if is_running:
-            return f"✅ 每日热榜服务运行中\n\n📡 API 地址: {url}"
+            return f" 每日热榜服务运行中\n\n API 地址: {url}"
         else:
-            return f"❌ 每日热榜服务未运行\n\n📡 预期地址: {url}\n\n💡 请使用 `./deploy.sh status` 查看状态"
+            return f" 每日热榜服务未运行\n\n 预期地址: {url}\n\n 请使用 `./deploy.sh status` 查看状态"
 
 
 # 全局格式化器实例

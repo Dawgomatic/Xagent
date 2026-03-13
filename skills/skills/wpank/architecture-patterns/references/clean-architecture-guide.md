@@ -35,7 +35,7 @@ The innermost layer contains business objects and rules that exist independent o
 
 Entities encapsulate both data and behavior. An entity with only data and no methods is an "anemic model" — an anti-pattern.
 
-❌ **Bad: Anemic entity — just a data bag**
+ **Bad: Anemic entity — just a data bag**
 
 ```typescript
 // Entity has no behavior — all logic lives in external services
@@ -60,7 +60,7 @@ class UserService {
 }
 ```
 
-✅ **Good: Rich entity with encapsulated behavior**
+ **Good: Rich entity with encapsulated behavior**
 
 ```typescript
 class User {
@@ -120,7 +120,7 @@ class User {
 
 Value objects replace primitive types with domain-specific types that carry validation and behavior.
 
-❌ **Bad: Primitive obsession — email as raw string**
+ **Bad: Primitive obsession — email as raw string**
 
 ```typescript
 class User {
@@ -139,7 +139,7 @@ function sendEmail(email: string): void {
 }
 ```
 
-✅ **Good: Email value object with built-in validation**
+ **Good: Email value object with built-in validation**
 
 ```typescript
 class Email {
@@ -186,7 +186,7 @@ class User {
 
 Entities are compared by identity (ID), not by their attributes. Two users with the same name are different users. Value objects are the opposite — compared by their content.
 
-❌ **Bad: No clear identity semantics**
+ **Bad: No clear identity semantics**
 
 ```typescript
 class Product {
@@ -200,7 +200,7 @@ class Product {
 }
 ```
 
-✅ **Good: Entity equality by ID, value object equality by content**
+ **Good: Entity equality by ID, value object equality by content**
 
 ```typescript
 // Entity: compared by ID
@@ -248,7 +248,7 @@ Use cases contain application-specific business rules. They orchestrate entities
 
 Each use case is a single class with an `execute` method. It takes a request DTO and returns a response DTO.
 
-❌ **Bad: Business logic in the controller**
+ **Bad: Business logic in the controller**
 
 ```typescript
 class UserController {
@@ -270,7 +270,7 @@ class UserController {
 }
 ```
 
-✅ **Good: Dedicated use case class**
+ **Good: Dedicated use case class**
 
 ```typescript
 // Request and response DTOs — plain data, no framework types
@@ -320,7 +320,7 @@ class CreateUserUseCase {
 
 When one operation needs logic from another, resist the urge to call one use case from another. Instead, extract shared logic into a domain service.
 
-❌ **Bad: Use case calling another use case**
+ **Bad: Use case calling another use case**
 
 ```typescript
 class CreateOrderUseCase {
@@ -339,7 +339,7 @@ class CreateOrderUseCase {
 }
 ```
 
-✅ **Good: Shared domain service or domain events**
+ **Good: Shared domain service or domain events**
 
 ```typescript
 // Option 1: Domain service for shared logic
@@ -376,7 +376,7 @@ class CreateOrderUseCase {
 
 Use cases must not depend on delivery-mechanism types. Express Request objects, GraphQL contexts, or CLI arguments must never reach the use case layer.
 
-❌ **Bad: Framework types leaking into use case**
+ **Bad: Framework types leaking into use case**
 
 ```typescript
 import { Request } from "express";
@@ -390,7 +390,7 @@ class GetUserUseCase {
 }
 ```
 
-✅ **Good: Plain DTOs at the boundary**
+ **Good: Plain DTOs at the boundary**
 
 ```typescript
 // Input DTO — no framework types
@@ -436,7 +436,7 @@ Adapters convert data between the use case layer and the external world. Control
 
 Controllers are thin — they translate HTTP requests into use case calls and use case responses into HTTP responses.
 
-❌ **Bad: Fat controller with business logic**
+ **Bad: Fat controller with business logic**
 
 ```typescript
 class UserController {
@@ -461,7 +461,7 @@ class UserController {
 }
 ```
 
-✅ **Good: Thin controller delegating to use case**
+ **Good: Thin controller delegating to use case**
 
 ```typescript
 class UserController {
@@ -496,7 +496,7 @@ class UserController {
 
 Entities should never be serialized directly to API responses. A presenter (or response mapper) converts domain objects to the shape the client expects.
 
-❌ **Bad: Entity serialized directly**
+ **Bad: Entity serialized directly**
 
 ```typescript
 // Leaks internal state, ORM metadata, and implementation details
@@ -506,7 +506,7 @@ app.get("/users/:id", async (req, res) => {
 });
 ```
 
-✅ **Good: Presenter maps to response shape**
+ **Good: Presenter maps to response shape**
 
 ```typescript
 class UserPresenter {
@@ -537,7 +537,7 @@ class UserPresenter {
 
 The domain layer defines repository interfaces. The adapter layer implements them using specific technologies (Prisma, TypeORM, Knex, etc.).
 
-❌ **Bad: ORM entities used as domain entities**
+ **Bad: ORM entities used as domain entities**
 
 ```typescript
 // Domain layer directly depends on Prisma — can't test without database
@@ -553,7 +553,7 @@ class UserService {
 }
 ```
 
-✅ **Good: Repository maps between ORM models and domain entities**
+ **Good: Repository maps between ORM models and domain entities**
 
 ```typescript
 // Domain layer — defines what it needs
@@ -617,7 +617,7 @@ The outermost layer contains framework configuration, database connections, exte
 
 All wiring happens in a single place — the composition root. Use cases receive their dependencies through constructor injection.
 
-❌ **Bad: Use case creates its own dependencies**
+ **Bad: Use case creates its own dependencies**
 
 ```typescript
 class CreateOrderUseCase {
@@ -634,7 +634,7 @@ class CreateOrderUseCase {
 }
 ```
 
-✅ **Good: Dependencies injected through constructor**
+ **Good: Dependencies injected through constructor**
 
 ```typescript
 // Use case receives interfaces, not implementations
@@ -750,7 +750,7 @@ describe("PrismaUserRepository", () => {
 
 ### Violation 1: Entity importing from framework
 
-❌ **Bad:**
+ **Bad:**
 
 ```typescript
 import { Column, Entity, PrimaryColumn } from "typeorm"; // Framework import!
@@ -762,7 +762,7 @@ class User {
 }
 ```
 
-✅ **Good:**
+ **Good:**
 
 ```typescript
 // Domain entity — no decorators, no framework imports
@@ -778,7 +778,7 @@ class User {
 
 ### Violation 2: Use case returning HTTP status codes
 
-❌ **Bad:**
+ **Bad:**
 
 ```typescript
 class GetUserUseCase {
@@ -790,7 +790,7 @@ class GetUserUseCase {
 }
 ```
 
-✅ **Good:**
+ **Good:**
 
 ```typescript
 class GetUserUseCase {

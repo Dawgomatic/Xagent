@@ -49,7 +49,7 @@ Database: `~/.openclaw/grc/compliance.sqlite`
 
 - Present data as formatted summaries, not raw JSON
 - Keep messages under 4096 chars. Show top 5-10 rows, offer "Want the full list?"
-- Emoji: ✅ complete, ⚠️ at-risk, 🔴 critical, 📊 scores, 📋 reports, 🔒 security
+- Emoji:  complete,  at-risk,  critical,  scores,  reports,  security
 - Include context: "23/43 controls complete (53%)" not just "23"
 - After each action, suggest the next logical step
 

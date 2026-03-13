@@ -17,7 +17,7 @@ GitHub: https://github.com/jkulhanek/pyoverleaf
 
 ## Security Considerations
 
-⚠️ **Keychain Access Required**: pyoverleaf needs "Always Allow" keychain access to read browser cookies. This grants the tool access to your browser's cookie storage.
+ **Keychain Access Required**: pyoverleaf needs "Always Allow" keychain access to read browser cookies. This grants the tool access to your browser's cookie storage.
 
 **Security audit**: We have audited pyoverleaf v0.1.7 and found it safe. The codebase is small and readable. Before installing, agents can self-audit the latest version at the GitHub repo above.
 
@@ -120,9 +120,9 @@ pyoverleaf --host overleaf.mycompany.com ls
 5. Only proceed after Eason confirms
 
 **Push rules (from TOOLS.md):**
-- ❌ 禁止自行推送到 Overleaf
-- ✅ 只能從 Overleaf 拉到 local
-- ⚠️ 推送需要 Eason 明確授權，每次授權只能推一次
+-  禁止自行推送到 Overleaf
+-  只能從 Overleaf 拉到 local
+-  推送需要 Eason 明確授權，每次授權只能推一次
 
 ## Example
 

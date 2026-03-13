@@ -1,7 +1,7 @@
 ---
 name: makefile-build
 description: Write Makefiles for any project type. Use when setting up build automation, defining multi-target builds, managing dependencies between tasks, creating project task runners, or using Make for non-C projects (Go, Python, Docker, Node.js). Also covers Just and Task as modern alternatives.
-metadata: {"clawdbot":{"emoji":"🔨","requires":{"anyBins":["make","just","task"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["make","just","task"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Makefile & Build

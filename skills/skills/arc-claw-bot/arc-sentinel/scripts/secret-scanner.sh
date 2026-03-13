@@ -94,7 +94,7 @@ emit_finding() {
 }
 
 echo -e "${BOLD}${CYAN}═══════════════════════════════════════════${RESET}"
-echo -e "${BOLD}${CYAN}  🔍 Arc Sentinel — Secret Scanner${RESET}"
+echo -e "${BOLD}${CYAN}   Arc Sentinel — Secret Scanner${RESET}"
 echo -e "${BOLD}${CYAN}═══════════════════════════════════════════${RESET}"
 echo -e "Scanning: ${SCAN_DIR}"
 echo ""
@@ -243,6 +243,6 @@ if [[ $CRITICAL -gt 0 ]]; then
 elif [[ $WARNING -gt 0 ]]; then
     exit 1
 else
-    echo -e "  ✅ ${BOLD}No secrets found!${RESET}"
+    echo -e "   ${BOLD}No secrets found!${RESET}"
     exit 0
 fi

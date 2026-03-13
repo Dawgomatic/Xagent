@@ -3,26 +3,26 @@ name: Her Voice
 description: "Give your agent a voice. Use when the user wants the agent to speak, read aloud, or have voice responses."
 metadata:
   openclaw:
-    emoji: "🎙️"
+    emoji: ""
     requires:
       bins: ["python3", "espeak-ng"]
 ---
 
-# Her Voice 🎙️
+# Her Voice 
 
 **Give your agent a voice.** Audio responses powered by Kokoro TTS — a compact, naturally expressive model running entirely on-device.
 
-### ✨ Features  
+###  Features  
 
 Highly optimized response time thanks to on-the-fly audio streaming technology. 100% free, no API keys required. Inspired by Samantha and Sky.  
 
-- **⚡ On-the-fly Streaming** — Audio plays as it generates, very low latency
-- **👄 The Voice of an angel** — Cutting-edge local text-to-speech model Kokoro TTS
-- **🧠 TTS Daemon** — Keep the model warm in RAM for instant responses (can be disabled to save RAM)
-- **🖥️ Persist Mode** — Drag & drop audio, paste text, use as a voice station
-- **🔧 Fully Configurable** — Voice, speed, visualizer, notification sounds
-- **🍎 MLX + PyTorch** — Native Metal acceleration on Apple Silicon, PyTorch fallback everywhere else
-- **🎨 Real-time Visualizer** — Floating 60fps LED bars that react to speech (macOS only)
+- ** On-the-fly Streaming** — Audio plays as it generates, very low latency
+- ** The Voice of an angel** — Cutting-edge local text-to-speech model Kokoro TTS
+- ** TTS Daemon** — Keep the model warm in RAM for instant responses (can be disabled to save RAM)
+- ** Persist Mode** — Drag & drop audio, paste text, use as a voice station
+- ** Fully Configurable** — Voice, speed, visualizer, notification sounds
+- ** MLX + PyTorch** — Native Metal acceleration on Apple Silicon, PyTorch fallback everywhere else
+- ** Real-time Visualizer** — Floating 60fps LED bars that react to speech (macOS only)
 
 ## First-Run Setup
 

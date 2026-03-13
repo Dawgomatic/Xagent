@@ -4,12 +4,12 @@
 
 set -e  # Exit on error
 
-echo "🔧 Email Formatter Skill - Installation Starting..."
+echo " Email Formatter Skill - Installation Starting..."
 echo ""
 
 # Create skill workspace
 SKILL_DIR="$HOME/.email-formatter-skill"
-echo "📁 Creating skill directory at $SKILL_DIR"
+echo " Creating skill directory at $SKILL_DIR"
 mkdir -p "$SKILL_DIR/scripts"
 
 # Get the directory where this script is located
@@ -17,14 +17,14 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Copy scripts if they exist
 if [ -d "$SCRIPT_DIR/scripts" ]; then
-    echo "📋 Copying helper scripts..."
+    echo " Copying helper scripts..."
     cp "$SCRIPT_DIR"/scripts/*.py "$SKILL_DIR/scripts/" 2>/dev/null || true
     chmod +x "$SKILL_DIR"/scripts/*.py
 fi
 
 # Check Python version
 echo ""
-echo "🐍 Checking Python installation..."
+echo " Checking Python installation..."
 if command -v python3 &> /dev/null; then
     PYTHON_VERSION=$(python3 --version)
     echo "   ✓ Found: $PYTHON_VERSION"
@@ -35,7 +35,7 @@ fi
 
 # Optional: Try to install Python packages
 echo ""
-echo "📦 Checking optional dependencies..."
+echo " Checking optional dependencies..."
 echo "   (These enhance functionality but are not required)"
 
 # Function to check if a Python package is installed
@@ -73,7 +73,7 @@ fi
 
 # Create a quick test
 echo ""
-echo "🧪 Running verification test..."
+echo " Running verification test..."
 if python3 -c "print('✓ Python works')" 2>/dev/null; then
     echo "   ✓ Basic Python test passed"
 else
@@ -110,12 +110,12 @@ EOF
 
 echo ""
 echo "=" * 60
-echo "✅ Email Formatter Skill Installation Complete!"
+echo " Email Formatter Skill Installation Complete!"
 echo ""
-echo "📍 Installation Directory: $SKILL_DIR"
-echo "📋 Configuration saved to: $SKILL_DIR/config.txt"
+echo " Installation Directory: $SKILL_DIR"
+echo " Configuration saved to: $SKILL_DIR/config.txt"
 echo ""
-echo "🚀 Ready to use! The skill can now format and analyze emails."
+echo " Ready to use! The skill can now format and analyze emails."
 echo ""
 
 # Show quick usage

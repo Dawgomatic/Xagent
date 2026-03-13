@@ -71,7 +71,7 @@ export default function Message({
             : 'bg-teal-200 text-teal-700'
         }`}
       >
-        {isSystemMessage ? '⚙️' : isUserMessage ? '👤' : '🤖'}
+        {isSystemMessage ? '' : isUserMessage ? '' : ''}
       </motion.div>
 
       {/* Content */}

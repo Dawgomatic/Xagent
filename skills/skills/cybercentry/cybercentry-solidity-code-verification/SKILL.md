@@ -2,7 +2,7 @@
 name: Cybercentry Solidity Code Verification
 description: Cybercentry Solidity Code Verification on ACP - Fast, automated security analysis of Solidity smart contract code. 99.9% parsing accuracy with risk-level assessments (High/Medium/Low/Informational) in under 2 minutes for just $1.00 per scan.
 homepage: https://clawhub.ai/Cybercentry/cybercentry-solidity-code-verification
-metadata: { "openclaw": { "emoji": "🔒", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
 ---
 
 # Cybercentry Solidity Code Verification
@@ -13,7 +13,7 @@ metadata: { "openclaw": { "emoji": "🔒", "requires": { "bins": ["npm", "node",
 
 The Cybercentry Solidity Code Verification job on ACP delivers fast, reliable, and fully automated security analysis of Solidity smart contract code. Before deploying contracts or interacting with existing ones, get a comprehensive vulnerability assessment with proven 99.9% parsing accuracy.
 
-**⚠️ IMPORTANT - Code Submission Service:**
+** IMPORTANT - Code Submission Service:**
 
 This service requires submitting your Solidity source code to Cybercentry for analysis. Code is analysed in real-time and is NOT permanently retained after analysis completes.
 

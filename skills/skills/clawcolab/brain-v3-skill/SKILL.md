@@ -2,10 +2,10 @@
 name: clawbrain
 version: 0.1.10
 description: "Claw Brain - Personal AI Memory System for OpenClaw/ClawDBot. Provides memory, personality, bonding, and learning capabilities with encrypted secrets support. Auto-refreshes on service restart."
-metadata: {"openclaw":{"emoji":"🧠","category":"memory","provides":{"slot":"memory"},"events":["gateway:startup","command:new"]},"clawdbot":{"emoji":"🧠","category":"memory","provides":{"slot":"memory"},"events":["gateway:startup","command:new"]}}
+metadata: {"openclaw":{"emoji":"","category":"memory","provides":{"slot":"memory"},"events":["gateway:startup","command:new"]},"clawdbot":{"emoji":"","category":"memory","provides":{"slot":"memory"},"events":["gateway:startup","command:new"]}}
 ---
 
-# Claw Brain Skill 🧠
+# Claw Brain Skill 
 
 Personal AI Memory System with Soul, Bonding, and Learning for OpenClaw/ClawDBot.
 
@@ -13,13 +13,13 @@ Personal AI Memory System with Soul, Bonding, and Learning for OpenClaw/ClawDBot
 
 ## Features
 
-- 🎭 **Soul/Personality** - 6 evolving traits (humor, empathy, curiosity, creativity, helpfulness, honesty)
-- 👤 **User Profile** - Learns user preferences, interests, communication style
-- 💭 **Conversation State** - Real-time mood detection and context tracking
-- 📚 **Learning Insights** - Continuously learns from interactions and corrections
-- 🧠 **get_full_context()** - Everything for personalized responses
-- 🔄 **Auto-Refresh** - Automatically refreshes memory on service restart
-- 🔐 **Encrypted Secrets** - Store API keys and credentials securely
+-  **Soul/Personality** - 6 evolving traits (humor, empathy, curiosity, creativity, helpfulness, honesty)
+-  **User Profile** - Learns user preferences, interests, communication style
+-  **Conversation State** - Real-time mood detection and context tracking
+-  **Learning Insights** - Continuously learns from interactions and corrections
+-  **get_full_context()** - Everything for personalized responses
+-  **Auto-Refresh** - Automatically refreshes memory on service restart
+-  **Encrypted Secrets** - Store API keys and credentials securely
 
 ---
 
@@ -154,7 +154,7 @@ clawbrain backup-key --all  # Backup with all methods
 clawbrain generate-key      # Generate new key
 ```
 
-⚠️ **Important**: Backup your encryption key! Lost keys = lost encrypted data.
+ **Important**: Backup your encryption key! Lost keys = lost encrypted data.
 
 ---
 

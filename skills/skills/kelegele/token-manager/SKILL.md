@@ -44,10 +44,10 @@ Track spending patterns and generate reports.
 
 | Provider | Balance Query | Token Estimate | Pricing |
 |----------|---------------|----------------|---------|
-| Kimi/Moonshot | ✅ API | ✅ API | ¥12/1M tokens |
-| OpenAI | ❌ Console | ❌ Approx | USD/1M tokens |
-| Anthropic/Claude | ❌ Console | ❌ Approx | USD/1M tokens |
-| Google/Gemini | ❌ Console | ❌ Approx | USD/1M tokens |
+| Kimi/Moonshot |  API |  API | ¥12/1M tokens |
+| OpenAI |  Console |  Approx | USD/1M tokens |
+| Anthropic/Claude |  Console |  Approx | USD/1M tokens |
+| Google/Gemini |  Console |  Approx | USD/1M tokens |
 | Ollama/Local | N/A Free | N/A | FREE |
 
 ## Cost-Saving Recommendations
@@ -55,24 +55,24 @@ Track spending patterns and generate reports.
 ### Context Management
 | Scenario | Recommendation | Action |
 |----------|----------------|--------|
-| Context > 80% | 🚨 Critical: Must compact immediately | `/compact` |
-| Context > 50% | 📊 Suggest: Consider compacting | `/compact` |
-| Session > 50k tokens | ⚠️ Warning: Split tasks now | `/spawn` |
-| Session > 20k tokens | 💡 Tip: Use sub-agents for large tasks | `/spawn` |
+| Context > 80% |  Critical: Must compact immediately | `/compact` |
+| Context > 50% |  Suggest: Consider compacting | `/compact` |
+| Session > 50k tokens |  Warning: Split tasks now | `/spawn` |
+| Session > 20k tokens |  Tip: Use sub-agents for large tasks | `/spawn` |
 
 ### Reasoning Optimization
 | Scenario | Recommendation | Action |
 |----------|----------------|--------|
-| Reasoning ON + small task (<5k tokens) | 💡 Can disable to save 20-30% | `/thinking off` |
-| Reasoning ON + complex task | ✅ Keep on for quality | Keep |
+| Reasoning ON + small task (<5k tokens) |  Can disable to save 20-30% | `/thinking off` |
+| Reasoning ON + complex task |  Keep on for quality | Keep |
 
 ### Provider-Specific Tips
 | Scenario | Recommendation |
 |----------|----------------|
-| Balance < ¥5 | 🚨 Enable save mode, avoid large tasks |
-| Using GPT-4 | 💡 Consider GPT-4o-mini for 10x savings |
-| Using Claude Opus | 💡 Consider Claude Sonnet for 5x savings |
-| Running Ollama | 🎉 Free! No API costs |
+| Balance < ¥5 |  Enable save mode, avoid large tasks |
+| Using GPT-4 |  Consider GPT-4o-mini for 10x savings |
+| Using Claude Opus |  Consider Claude Sonnet for 5x savings |
+| Running Ollama |  Free! No API costs |
 
 ## Commands
 
@@ -136,8 +136,8 @@ When triggered, outputs JSON:
   "balance": 3.50,
   "threshold": 5,
   "messages": {
-    "en": "🚨 [URGENT] Token Manager Alert...",
-    "cn": "🚨 [紧急] Token 管家提醒..."
+    "en": " [URGENT] Token Manager Alert...",
+    "cn": " [紧急] Token 管家提醒..."
   }
 }
 ```
@@ -285,10 +285,10 @@ node scripts/manager.js report 11000 146 42000 200000 off 9.26 moonshot kimi-k2.
 
 | 提供商 | 余额查询 | Token 估算 | 价格 |
 |--------|----------|------------|------|
-| Kimi/Moonshot | ✅ API | ✅ API | ¥12/百万 |
-| OpenAI | ❌ 控制台 | ❌ 估算 | USD/百万 |
-| Anthropic/Claude | ❌ 控制台 | ❌ 估算 | USD/百万 |
-| Google/Gemini | ❌ 控制台 | ❌ 估算 | USD/百万 |
+| Kimi/Moonshot |  API |  API | ¥12/百万 |
+| OpenAI |  控制台 |  估算 | USD/百万 |
+| Anthropic/Claude |  控制台 |  估算 | USD/百万 |
+| Google/Gemini |  控制台 |  估算 | USD/百万 |
 | Ollama/本地 | N/A 免费 | N/A | 免费 |
 
 ## 省钱优化建议
@@ -296,24 +296,24 @@ node scripts/manager.js report 11000 146 42000 200000 off 9.26 moonshot kimi-k2.
 ### 上下文管理
 | 场景 | 建议 | 操作 |
 |------|------|------|
-| 上下文 > 80% | 🚨 紧急：必须立即压缩 | `/compact` |
-| 上下文 > 50% | 📊 建议：适时压缩 | `/compact` |
-| 会话 > 50k tokens | ⚠️ 警告：立即拆分任务 | `/spawn` |
-| 会话 > 20k tokens | 💡 提示：大任务使用子代理 | `/spawn` |
+| 上下文 > 80% |  紧急：必须立即压缩 | `/compact` |
+| 上下文 > 50% |  建议：适时压缩 | `/compact` |
+| 会话 > 50k tokens |  警告：立即拆分任务 | `/spawn` |
+| 会话 > 20k tokens |  提示：大任务使用子代理 | `/spawn` |
 
 ### 推理优化
 | 场景 | 建议 | 操作 |
 |------|------|------|
-| Reasoning 开启 + 小任务 (<5k tokens) | 💡 可关闭节省 20-30% | `/thinking off` |
-| Reasoning 开启 + 复杂任务 | ✅ 保持开启确保质量 | 保持 |
+| Reasoning 开启 + 小任务 (<5k tokens) |  可关闭节省 20-30% | `/thinking off` |
+| Reasoning 开启 + 复杂任务 |  保持开启确保质量 | 保持 |
 
 ### 提供商特定建议
 | 场景 | 建议 |
 |------|------|
-| 余额 < ¥5 | 🚨 开启省钱模式，避免大任务 |
-| 使用 GPT-4 | 💡 考虑 GPT-4o-mini 省 10 倍 |
-| 使用 Claude Opus | 💡 考虑 Claude Sonnet 省 5 倍 |
-| 运行 Ollama | 🎉 免费！无 API 费用 |
+| 余额 < ¥5 |  开启省钱模式，避免大任务 |
+| 使用 GPT-4 |  考虑 GPT-4o-mini 省 10 倍 |
+| 使用 Claude Opus |  考虑 Claude Sonnet 省 5 倍 |
+| 运行 Ollama |  免费！无 API 费用 |
 
 ## 命令
 
@@ -377,8 +377,8 @@ openclaw cron add \
   "balance": 3.50,
   "threshold": 5,
   "messages": {
-    "en": "🚨 [URGENT] Token Manager Alert...",
-    "cn": "🚨 [紧急] Token 管家提醒..."
+    "en": " [URGENT] Token Manager Alert...",
+    "cn": " [紧急] Token 管家提醒..."
   }
 }
 ```

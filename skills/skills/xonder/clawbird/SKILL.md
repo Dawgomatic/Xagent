@@ -4,7 +4,7 @@ description: "X/Twitter integration — post, reply, search, like, follow, DMs, 
 homepage: https://github.com/xonder/clawbird
 metadata:
   openclaw:
-    emoji: "🐦"
+    emoji: ""
     requires:
       plugins: ["clawbird"]
       env: ["X_API_KEY", "X_API_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_SECRET"]

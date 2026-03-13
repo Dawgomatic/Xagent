@@ -313,7 +313,7 @@ async function cmdAlerts() {
       }
     }
 
-    console.log(`📢 ${header}`);
+    console.log(` ${header}`);
     if (affected.length) console.log(`   Routes: ${affected.join(', ')}`);
     if (periods.length) console.log(`   Period: ${periods.join('; ')}`);
     if (desc) {
@@ -373,7 +373,7 @@ async function cmdVehicles(opts) {
     const vlist = byRoute[route];
     console.log(`Route ${route} — ${vlist[0].route_name} (${vlist.length} vehicles)`);
     for (const v of vlist) {
-      console.log(`  🚍 Vehicle ${v.vid}: (${Number(v.lat).toFixed(5)}, ${Number(v.lon).toFixed(5)}) @ ${v.time}`);
+      console.log(`   Vehicle ${v.vid}: (${Number(v.lat).toFixed(5)}, ${Number(v.lon).toFixed(5)}) @ ${v.time}`);
     }
     console.log();
   }
@@ -474,7 +474,7 @@ async function cmdArrivals(opts) {
     for (const a of rtArrivals.slice(0, 15)) {
       const delayStr = a.delayMins > 0 ? ` (+${a.delayMins}m late)` : '';
       const eta = a.minsAway <= 0 ? 'NOW' : a.minsAway === 1 ? '1 min' : `${a.minsAway} min`;
-      console.log(`  🚌 Route ${a.route} → ${a.headsign}`);
+      console.log(`   Route ${a.route} → ${a.headsign}`);
       console.log(`     ${a.arrival} (${eta})${delayStr}`);
       console.log();
     }
@@ -547,7 +547,7 @@ async function cmdArrivals(opts) {
         if (hr > 12) hr -= 12; else if (hr === 0) hr = 12;
         timeStr = `${hr}:${m} ${ampm}`;
       } catch {}
-      console.log(`  🚌 Route ${u.route} → ${u.headsign} at ${timeStr}`);
+      console.log(`   Route ${u.route} → ${u.headsign} at ${timeStr}`);
     }
   }
 }
@@ -565,7 +565,7 @@ function cmdStops(opts) {
     if (!matches.length) { console.log(`No stops found matching '${opts.search}'.`); return; }
     console.log(`\n=== Stops matching '${opts.search}' (${matches.length} found) ===\n`);
     for (const s of matches.sort((a, b) => a.stop_name.localeCompare(b.stop_name)).slice(0, 25)) {
-      console.log(`  📍 ${s.stop_name}`);
+      console.log(`   ${s.stop_name}`);
       console.log(`     ID: ${s.stop_id}  |  (${s.stop_lat}, ${s.stop_lon})`);
       if (s.stop_desc) console.log(`     ${s.stop_desc}`);
       console.log();
@@ -589,7 +589,7 @@ function cmdStops(opts) {
     if (!nearby.length) { console.log(`No stops found within ${radius} miles of (${lat}, ${lon}).`); return; }
     console.log(`\n=== Nearby Stops (${nearby.length} within ${radius} mi) ===\n`);
     for (const [dist, s] of nearby.slice(0, 20)) {
-      console.log(`  📍 ${s.stop_name} — ${dist.toFixed(2)} mi`);
+      console.log(`   ${s.stop_name} — ${dist.toFixed(2)} mi`);
       console.log(`     ID: ${s.stop_id}`);
       console.log();
     }

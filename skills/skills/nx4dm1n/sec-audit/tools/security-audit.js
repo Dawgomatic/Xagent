@@ -23,7 +23,7 @@ const { execSync } = require('child_process');
 
 const SEVERITY = { CRITICAL: 'CRITICAL', HIGH: 'HIGH', MEDIUM: 'MEDIUM', LOW: 'LOW', PASS: 'PASS' };
 const SEVERITY_ICON = {
-  CRITICAL: '🔴', HIGH: '🟠', MEDIUM: '🟡', LOW: '🔵', PASS: '🟢',
+  CRITICAL: '', HIGH: '', MEDIUM: '', LOW: '', PASS: '',
 };
 
 const HOME = os.homedir();
@@ -139,13 +139,13 @@ class AuditReport {
     console.log('═'.repeat(70));
     console.log('  审计汇总');
     console.log('─'.repeat(70));
-    console.log(`  🔴 严重: ${summary.CRITICAL}  🟠 高危: ${summary.HIGH}  🟡 中危: ${summary.MEDIUM}  🔵 低危: ${summary.LOW}  🟢 通过: ${summary.PASS}`);
+    console.log(`   严重: ${summary.CRITICAL}   高危: ${summary.HIGH}   中危: ${summary.MEDIUM}   低危: ${summary.LOW}   通过: ${summary.PASS}`);
     console.log(`  总计: ${this.findings.length} 项检测  耗时: ${elapsed}s`);
 
-    const riskLevel = summary.CRITICAL > 0 ? '🔴 严重 — 不适合生产环境'
-      : summary.HIGH > 0 ? '🟠 高危 — 需尽快修复'
-      : summary.MEDIUM > 0 ? '🟡 中危 — 建议修复'
-      : '🟢 安全 — 配置良好';
+    const riskLevel = summary.CRITICAL > 0 ? ' 严重 — 不适合生产环境'
+      : summary.HIGH > 0 ? ' 高危 — 需尽快修复'
+      : summary.MEDIUM > 0 ? ' 中危 — 建议修复'
+      : ' 安全 — 配置良好';
     console.log(`  综合评级: ${riskLevel}`);
     console.log('═'.repeat(70) + '\n');
   }
@@ -981,11 +981,11 @@ function main() {
 
   const report = new AuditReport();
 
-  console.log('\n🔍 OpenClaw Security Audit Tool v1.0.0');
+  console.log('\n OpenClaw Security Audit Tool v1.0.0');
   console.log('━'.repeat(50));
-  console.log(`📅 ${new Date().toISOString()}`);
-  console.log(`💻 ${os.platform()} ${os.arch()} | Node ${process.version}`);
-  console.log(`📂 配置目录: ${getConfigDir() || '未找到'}`);
+  console.log(` ${new Date().toISOString()}`);
+  console.log(` ${os.platform()} ${os.arch()} | Node ${process.version}`);
+  console.log(` 配置目录: ${getConfigDir() || '未找到'}`);
   console.log('━'.repeat(50));
 
   const modules = [
@@ -1003,12 +1003,12 @@ function main() {
 
   for (const mod of modules) {
     if (enabledModules && !enabledModules.includes(mod.name)) continue;
-    console.log(`\n▶ [${mod.name}] ${mod.label}...`);
+    console.log(`\n [${mod.name}] ${mod.label}...`);
     try {
       mod.fn(report);
-      console.log(`  ✅ 完成`);
+      console.log(`   完成`);
     } catch (err) {
-      console.log(`  ❌ 错误: ${err.message}`);
+      console.log(`   错误: ${err.message}`);
       report.add(mod.name, 'ERR', `模块执行错误: ${mod.label}`,
         SEVERITY.LOW, `执行过程中发生错误: ${err.message}`);
     }
@@ -1019,7 +1019,7 @@ function main() {
     const jsonReport = JSON.stringify(report.toJson(), null, 2);
     if (output) {
       fs.writeFileSync(output, jsonReport);
-      console.log(`\n📄 JSON 报告已保存: ${output}`);
+      console.log(`\n JSON 报告已保存: ${output}`);
     } else {
       console.log(jsonReport);
     }
@@ -1031,7 +1031,7 @@ function main() {
   if (output && format !== 'json') {
     const jsonReport = JSON.stringify(report.toJson(), null, 2);
     fs.writeFileSync(output, jsonReport);
-    console.log(`📄 报告已保存: ${output}`);
+    console.log(` 报告已保存: ${output}`);
   }
 
   // 返回退出码：有严重问题时返回 1

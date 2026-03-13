@@ -19,11 +19,11 @@ class OktkTests {
       fn();
       this.passed++;
       this.tests.push({ name, status: 'PASS' });
-      console.log(`✅ ${name}`);
+      console.log(` ${name}`);
     } catch (error) {
       this.failed++;
       this.tests.push({ name, status: 'FAIL', error: error.message });
-      console.log(`❌ ${name}`);
+      console.log(` ${name}`);
       console.log(`   ${error.message}`);
     }
   }
@@ -69,9 +69,9 @@ class OktkTests {
     console.log(``);
     console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
     console.log(`Tests: ${this.passed + this.failed}`);
-    console.log(`✅ Passed: ${this.passed}`);
+    console.log(` Passed: ${this.passed}`);
     if (this.failed > 0) {
-      console.log(`❌ Failed: ${this.failed}`);
+      console.log(` Failed: ${this.failed}`);
     }
     console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
 
@@ -93,7 +93,7 @@ const Cache = require('../scripts/cache');
  * BaseFilter tests
  */
 async function testBaseFilter() {
-  console.log(`\n🧪 Testing BaseFilter`);
+  console.log(`\n Testing BaseFilter`);
 
   const tests = new OktkTests();
   const filter = new BaseFilter();
@@ -162,7 +162,7 @@ async function testBaseFilter() {
  * PassthroughFilter tests
  */
 async function testPassthroughFilter() {
-  console.log(`\n🧪 Testing PassthroughFilter`);
+  console.log(`\n Testing PassthroughFilter`);
 
   const tests = new OktkTests();
   const filter = new PassthroughFilter();
@@ -203,7 +203,7 @@ async function testPassthroughFilter() {
  * GitFilter tests
  */
 async function testGitFilter() {
-  console.log(`\n🧪 Testing GitFilter`);
+  console.log(`\n Testing GitFilter`);
 
   const tests = new OktkTests();
   const filter = new GitFilter();
@@ -227,10 +227,10 @@ Untracked files:
 no changes added to commit (use "git add" and/or "git commit -a")`;
 
     const output = await filter.apply(input, { command: 'git status' });
-    tests.assert(output.includes('📍 main'));
+    tests.assert(output.includes(' main'));
     tests.assert(output.includes('✓ Up to date'));
-    tests.assert(output.includes('✏️  Modified: 2'));
-    tests.assert(output.includes('❓ Untracked: 1'));
+    tests.assert(output.includes('  Modified: 2'));
+    tests.assert(output.includes(' Untracked: 1'));
   });
 
   // Test git log filtering
@@ -259,7 +259,7 @@ Date: Mon Feb 11 15:30:00 2026
  * TestFilter tests
  */
 async function testTestFilter() {
-  console.log(`\n🧪 Testing TestFilter`);
+  console.log(`\n Testing TestFilter`);
 
   const tests = new OktkTests();
   const filter = new TestFilter();
@@ -278,10 +278,10 @@ Snapshots:   0 total
 Time:        2.345 s`;
 
     const output = await filter.apply(input, { command: 'npm test' });
-    tests.assert(output.includes('✅ All tests passed'));
-    tests.assert(output.includes('📊 3 total tests'));
-    tests.assert(output.includes('✅ Passed: 3'));
-    tests.assert(output.includes('📦 2 test suite'));
+    tests.assert(output.includes(' All tests passed'));
+    tests.assert(output.includes(' 3 total tests'));
+    tests.assert(output.includes(' Passed: 3'));
+    tests.assert(output.includes(' 2 test suite'));
   });
 
   return tests.summary();
@@ -291,7 +291,7 @@ Time:        2.345 s`;
  * FilesFilter tests
  */
 async function testFilesFilter() {
-  console.log(`\n🧪 Testing FilesFilter`);
+  console.log(`\n Testing FilesFilter`);
 
   const tests = new OktkTests();
   const filter = new FilesFilter();
@@ -306,8 +306,8 @@ drwxr-xr-x   5 user  staff   160 Feb 12 21:00 ..
 drwxr-xr-x   2 user  staff    64 Feb 12 22:00 node_modules`;
 
     const output = await filter.apply(input, { command: 'ls -la' });
-    tests.assert(output.includes('📁 .'));
-    tests.assert(output.includes('📄 Files'));
+    tests.assert(output.includes(' .'));
+    tests.assert(output.includes(' Files'));
   });
 
   return tests.summary();
@@ -317,7 +317,7 @@ drwxr-xr-x   2 user  staff    64 Feb 12 22:00 node_modules`;
  * NetworkFilter tests
  */
 async function testNetworkFilter() {
-  console.log(`\n🧪 Testing NetworkFilter`);
+  console.log(`\n Testing NetworkFilter`);
 
   const tests = new OktkTests();
   const filter = new NetworkFilter();
@@ -334,7 +334,7 @@ async function testNetworkFilter() {
     });
 
     const output = await filter.apply(input, { command: 'curl https://api.example.com' });
-    tests.assert(output.includes('📦 JSON'));
+    tests.assert(output.includes(' JSON'));
   });
 
   // Test HTML filtering
@@ -352,7 +352,7 @@ async function testNetworkFilter() {
 </html>`;
 
     const output = await filter.apply(input, { command: 'curl https://example.com' });
-    tests.assert(output.includes('🌐 HTML'));
+    tests.assert(output.includes(' HTML'));
     tests.assert(output.includes('Test Page'));
     tests.assert(output.includes('Links: 2'));
   });
@@ -364,7 +364,7 @@ async function testNetworkFilter() {
  * SearchFilter tests
  */
 async function testSearchFilter() {
-  console.log(`\n🧪 Testing SearchFilter`);
+  console.log(`\n Testing SearchFilter`);
 
   const tests = new OktkTests();
   const filter = new SearchFilter();
@@ -377,7 +377,7 @@ src/utils.js:10:const z = 3;
 src/utils.js:20:const w = 4;`;
 
     const output = await filter.apply(input, { command: 'grep "const"' });
-    tests.assert(output.includes('🔍 Found 4 matches'));
+    tests.assert(output.includes(' Found 4 matches'));
     tests.assert(output.includes('src/app.js'));
     tests.assert(output.includes('src/utils.js'));
   });
@@ -395,7 +395,7 @@ src/utils.js:20:const w = 4;`;
  * Cache tests
  */
 async function testCache() {
-  console.log(`\n🧪 Testing Cache`);
+  console.log(`\n Testing Cache`);
 
   const tests = new OktkTests();
 
@@ -450,7 +450,7 @@ async function testCache() {
  * Main test runner
  */
 async function runTests(filter = null) {
-  console.log(`🚀 Running oktk tests\n`);
+  console.log(` Running oktk tests\n`);
 
   let allPassed = true;
 
@@ -494,7 +494,7 @@ async function runTests(filter = null) {
     allPassed = allPassed && passed;
   }
 
-  console.log(`\n${allPassed ? '✅ All tests passed!' : '❌ Some tests failed'}`);
+  console.log(`\n${allPassed ? ' All tests passed!' : ' Some tests failed'}`);
 
   process.exit(allPassed ? 0 : 1);
 }

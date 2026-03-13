@@ -92,7 +92,7 @@ ollama run llama3.2
 │                     YOUR MACHINE                                 │
 │                                                                 │
 │  ┌───────────┐     ┌─────────────────┐     ┌───────────────┐   │
-│  │ Input     │────▶│ Expanso Edge    │────▶│ Output        │   │
+│  │ Input     │────│ Expanso Edge    │────│ Output        │   │
 │  │ (stdin or │     │                 │     │ (stdout or    │   │
 │  │  HTTP)    │     │ ${OPENAI_API_KEY}│     │  HTTP resp)   │   │
 │  └───────────┘     │ resolved HERE   │     └───────────────┘   │

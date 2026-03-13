@@ -376,13 +376,13 @@ export default class ConceptLearner {
   toMarkdown(card: ConceptCard): string {
     const md = `# ${card.concept} - 概念学习卡片
 
-## 📖 定义
+##  定义
 
 ${card.definition}
 
 **一句话解释**: ${card.shortExplanation}
 
-## 🔧 核心组成
+##  核心组成
 
 ${card.coreComponents.map(c => `
 ### ${c.name}
@@ -391,7 +391,7 @@ ${c.description}
 *重要性*: ${c.importance}
 `).join('\n')}
 
-## 📜 历史演进
+##  历史演进
 
 **起源**: ${card.history.origin}
 
@@ -401,7 +401,7 @@ ${card.history.keyDevelopments.map(d => `
 
 **当前状态**: ${card.history.currentStatus}
 
-## 🎯 应用场景
+##  应用场景
 
 ${card.applications.map(a => `
 ### ${a.domain}
@@ -409,13 +409,13 @@ ${card.applications.map(a => `
 - 影响: ${a.impact}
 `).join('\n')}
 
-## 🔗 相关概念
+##  相关概念
 
 | 概念 | 关系 | 说明 |
 |------|------|------|
 ${card.relatedConcepts.map(c => `| ${c.concept} | ${c.relationship} | ${c.briefExplanation} |`).join('\n')}
 
-## 📚 学习路径
+##  学习路径
 
 ${card.learningPath.map((stage, i) => `
 ### 阶段${i + 1}: ${stage.stage}
@@ -424,7 +424,7 @@ ${card.learningPath.map((stage, i) => `
 - 推荐资源: ${stage.resources.join(', ')}
 `).join('\n')}
 
-## 📄 关键论文
+##  关键论文
 
 ${card.keyPapers?.map(p => `
 - [${p.title}](${p.url || '#'}) (${p.year}) - ${p.summary}

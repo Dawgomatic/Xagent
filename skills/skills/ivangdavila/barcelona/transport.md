@@ -118,16 +118,16 @@ Barcelona uses concentric zones.
 
 | Line | Color | Key Stations |
 |------|-------|--------------|
-| **L1** | Red | Hospital de Bellvitge ↔ Fondo. Arc de Triomf, Clot |
-| **L2** | Purple | Paral·lel ↔ Badalona. Sagrada Família, Passeig de Gràcia |
-| **L3** | Green | Zona Universitària ↔ Trinitat Nova. Diagonal, Liceu, Sants |
-| **L4** | Yellow | Trinitat Nova ↔ La Pau. Barceloneta, Passeig de Gràcia |
-| **L5** | Blue | Cornellà ↔ Vall d'Hebron. Diagonal, Sagrada Família, Horta |
-| **L9 Nord** | Orange | La Sagrera ↔ Can Zam |
-| **L9 Sud** | Orange | Aeroport ↔ Zona Universitària. Airport! |
-| **L10 Nord** | Light blue | La Sagrera ↔ Gorg |
-| **L10 Sud** | Light blue | Aeroport ↔ Collblanc |
-| **L11** | Light green | Trinitat Nova ↔ Can Cuiàs |
+| **L1** | Red | Hospital de Bellvitge  Fondo. Arc de Triomf, Clot |
+| **L2** | Purple | Paral·lel  Badalona. Sagrada Família, Passeig de Gràcia |
+| **L3** | Green | Zona Universitària  Trinitat Nova. Diagonal, Liceu, Sants |
+| **L4** | Yellow | Trinitat Nova  La Pau. Barceloneta, Passeig de Gràcia |
+| **L5** | Blue | Cornellà  Vall d'Hebron. Diagonal, Sagrada Família, Horta |
+| **L9 Nord** | Orange | La Sagrera  Can Zam |
+| **L9 Sud** | Orange | Aeroport  Zona Universitària. Airport! |
+| **L10 Nord** | Light blue | La Sagrera  Gorg |
+| **L10 Sud** | Light blue | Aeroport  Collblanc |
+| **L11** | Light green | Trinitat Nova  Can Cuiàs |
 
 ### Tourist Lines
 - **L3** covers most tourist areas (Diagonal, Liceu/Ramblas, Sants)
@@ -153,12 +153,12 @@ Barcelona uses concentric zones.
 
 | Line | Key Route |
 |------|-----------|
-| **R1** | Coastal: Maçanet ↔ Molins de Rei via Mataró |
-| **R2** | Airport T2 ↔ Sant Celoni |
-| **R2 Nord** | Barcelona ↔ Granollers ↔ Airport T2 |
-| **R2 Sud** | Barcelona ↔ Sant Vicenç de Calders |
-| **R3** | Barcelona ↔ Vic ↔ Puigcerdà |
-| **R4** | Barcelona ↔ Manresa ↔ Terrassa |
+| **R1** | Coastal: Maçanet  Molins de Rei via Mataró |
+| **R2** | Airport T2  Sant Celoni |
+| **R2 Nord** | Barcelona  Granollers  Airport T2 |
+| **R2 Sud** | Barcelona  Sant Vicenç de Calders |
+| **R3** | Barcelona  Vic  Puigcerdà |
+| **R4** | Barcelona  Manresa  Terrassa |
 
 ### Useful Routes
 
@@ -201,8 +201,8 @@ Public e-bike share for Barcelona residents.
 
 | Line | Route |
 |------|-------|
-| **T1-T3** | Glòries ↔ Sant Adrià (coastal) |
-| **T4-T6** | Diagonal ↔ Sant Just Desvern |
+| **T1-T3** | Glòries  Sant Adrià (coastal) |
+| **T4-T6** | Diagonal  Sant Just Desvern |
 
 Less essential than metro. Useful for specific trips.
 

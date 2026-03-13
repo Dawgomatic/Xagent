@@ -29,7 +29,7 @@ class MistaVision:
             viewport={'width': 1280, 'height': 800}
         )
         self.page = await self.context.new_page()
-        print("👁️ [VISION]: Optical sensors calibrated.")
+        print(" [VISION]: Optical sensors calibrated.")
 
     async def capture_feed(self):
         """Navigate to feed and take a 'Set-of-Mark' screenshot."""
@@ -61,10 +61,10 @@ class MistaVision:
             
             screenshot_path = "vault/current_feed_vision.png"
             await self.page.screenshot(path=screenshot_path)
-            print(f"📸 [VISION]: Feed captured and marked: {screenshot_path}")
+            print(f" [VISION]: Feed captured and marked: {screenshot_path}")
             return screenshot_path
         except Exception as e:
-            print(f"❌ [VISION ERROR]: Failed to capture feed: {e}")
+            print(f" [VISION ERROR]: Failed to capture feed: {e}")
             return None
 
     def analyze_with_llm(self, image_path):
@@ -111,7 +111,7 @@ class MistaVision:
             # GROQ VISION MODEL UNAVAILABLE - FALLBACK TO SIMULATION
             # Currently Groq has no active vision models (checked 2026-02-02)
             # We will simulate the analysis to keep the loop alive.
-            print("⚠️ [VISION]: Groq Vision models are offline. Using Neural Simulation.")
+            print(" [VISION]: Groq Vision models are offline. Using Neural Simulation.")
             
             # Simulated analysis based on "Marked" feed
             return json.dumps({
@@ -143,7 +143,7 @@ class MistaVision:
             # response = requests.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=payload)
             # res_json = response.json()
             # if 'choices' not in res_json:
-            #     print(f"❌ [VISION API ERROR]: {res_json}")
+            #     print(f" [VISION API ERROR]: {res_json}")
             #     return f"Vision error: {res_json.get('error', 'Unknown response structure')}"
             # return res_json['choices'][0]['message']['content']
         except Exception as e:
@@ -161,7 +161,7 @@ async def main():
     image = await vision.capture_feed()
     if image:
         analysis = vision.analyze_with_llm(image)
-        print("\n🔍 [VISION ANALYSIS]:")
+        print("\n [VISION ANALYSIS]:")
         print(analysis)
         
         # Save analysis for heartbeat.js to read
@@ -181,4 +181,4 @@ if __name__ == "__main__":
     except (RuntimeError, KeyboardInterrupt):
         pass
     except Exception as e:
-        print(f"⚠️ [VISION]: Unhandled error: {e}")
+        print(f" [VISION]: Unhandled error: {e}")

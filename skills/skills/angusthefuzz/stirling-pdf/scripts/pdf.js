@@ -251,7 +251,7 @@ function runCurl(op, files, output, extra = {}) {
     curl.on('close', (code) => {
       if (code === 0) {
         if (output) {
-          console.log(`✅ Output saved to: ${output}`);
+          console.log(` Output saved to: ${output}`);
         }
         resolve();
       } else {

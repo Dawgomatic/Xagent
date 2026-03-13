@@ -8,7 +8,7 @@
 #   scripts/install-service.sh          — launchd에 등록 및 시작
 #   scripts/install-service.sh uninstall — launchd에서 제거
 #
-# ⚠️  주의: 이 스크립트는 macOS launchctl을 사용합니다.
+#   주의: 이 스크립트는 macOS launchctl을 사용합니다.
 #   서버 자동시작이 필요할 때만 실행하세요.
 #   서버를 직접 실행하려면: raon.sh serve [port]
 
@@ -40,7 +40,7 @@ case "$ACTION" in
     cp "$PLIST_SRC" "$PLIST_DST"
     launchctl load "$PLIST_DST" 2>/dev/null
     launchctl start com.yeomyeonggeori.raon-os-server 2>/dev/null
-    ok "✅ Raon OS server installed and started (launchd)"
+    ok " Raon OS server installed and started (launchd)"
     info "   Logs: $BASE_DIR/logs/"
     ;;
   uninstall)
@@ -48,7 +48,7 @@ case "$ACTION" in
     launchctl stop com.yeomyeonggeori.raon-os-server 2>/dev/null || true
     launchctl unload "$PLIST_DST" 2>/dev/null || true
     rm -f "$PLIST_DST"
-    ok "✅ Raon OS server uninstalled (launchd)"
+    ok " Raon OS server uninstalled (launchd)"
     ;;
   *)
     err "Usage: $0 [install|uninstall]"

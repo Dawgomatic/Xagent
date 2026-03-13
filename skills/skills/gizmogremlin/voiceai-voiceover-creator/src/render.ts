@@ -125,7 +125,7 @@ export async function renderSegments(
   // Progress header
   const mockLabel = options.mock ? chalk.yellow(' [mock]') : '';
   console.log(
-    chalk.cyan(`\n🎙  Rendering ${segments.length} segments…`) +
+    chalk.cyan(`\n  Rendering ${segments.length} segments…`) +
       chalk.gray(` (${cachedCount} cached, ${newCount} new)`) +
       mockLabel,
   );
@@ -140,7 +140,7 @@ export async function renderSegments(
     }
 
     const { segment } = result;
-    process.stdout.write(chalk.white(`   ⏳ ${result.fileName}…`));
+    process.stdout.write(chalk.white(`    ${result.fileName}…`));
 
     try {
       const ttsResponse: TTSResponse = await client.generateSpeech({
@@ -177,7 +177,7 @@ export async function renderSegments(
 
   const totalDuration = results.reduce((sum, r) => sum + r.duration, 0);
   console.log(
-    chalk.green(`\n   ✅ All segments rendered`) +
+    chalk.green(`\n    All segments rendered`) +
       chalk.gray(` — total duration: ${totalDuration.toFixed(1)}s`),
   );
 

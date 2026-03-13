@@ -1,7 +1,7 @@
 ---
 name: evernote
 description: Manage notes, notebooks, and tags via Evernote API. Create, search, and organize notes programmatically.
-metadata: {"clawdbot":{"emoji":"🐘","requires":{"env":["EVERNOTE_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["EVERNOTE_ACCESS_TOKEN"]}}}
 ---
 # Evernote
 Note-taking and organization.

@@ -4,12 +4,12 @@ Control your Roku TV or streaming device directly over your local network. No cl
 
 ## Features
 
-✅ **Automatic Discovery** - Find all Roku devices on your network  
-✅ **Full Remote Control** - Navigate menus, control playback, adjust volume  
-✅ **App Launching** - Open Netflix, YouTube, Hulu, and any installed app  
-✅ **Power Control** - Turn TV on/off remotely  
-✅ **Text Input** - Fast text entry for searches  
-✅ **Works Offline** - No internet required, purely local network control  
+ **Automatic Discovery** - Find all Roku devices on your network  
+ **Full Remote Control** - Navigate menus, control playback, adjust volume  
+ **App Launching** - Open Netflix, YouTube, Hulu, and any installed app  
+ **Power Control** - Turn TV on/off remotely  
+ **Text Input** - Fast text entry for searches  
+ **Works Offline** - No internet required, purely local network control  
 
 ## Quick Start
 
@@ -156,10 +156,10 @@ When translating user requests to commands:
 
 ## Compatibility
 
-✅ All Roku devices (TV, Ultra, Streaming Stick, Express, etc.)  
-✅ Works with any Roku OS version  
-⚠️ Volume/power commands require Roku TV or HDMI-CEC setup  
-⚠️ Device must be on same network/subnet as OpenClaw  
+ All Roku devices (TV, Ultra, Streaming Stick, Express, etc.)  
+ Works with any Roku OS version  
+ Volume/power commands require Roku TV or HDMI-CEC setup  
+ Device must be on same network/subnet as OpenClaw  
 
 ## Troubleshooting
 

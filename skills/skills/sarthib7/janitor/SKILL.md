@@ -5,14 +5,14 @@
 **Janitor** is an intelligent cleanup and session management skill for OpenClaw AI agents. It automatically manages cache, optimizes memory usage, and **prevents context overflow** by monitoring token usage and intelligently pruning old sessions.
 
 Think of Janitor as your **AI Agent's Intelligent Maintenance Crew** that:
-- 🧹 Cleans cache files to optimize token usage
-- 🗑️ Frees up unused memory and RAM
-- 🔍 **Monitors context usage in real-time (NEW!)**
-- 🤖 **Automatically prunes old sessions (NEW!)**
-- 📦 **Archives sessions before deletion (NEW!)**
-- 🚨 **Emergency recovery at 95% context usage (NEW!)**
-- 📊 Reports cleanup statistics back to the agent
-- 🔔 **Multi-channel notifications (NEW!)**
+-  Cleans cache files to optimize token usage
+-  Frees up unused memory and RAM
+-  **Monitors context usage in real-time (NEW!)**
+-  **Automatically prunes old sessions (NEW!)**
+-  **Archives sessions before deletion (NEW!)**
+-  **Emergency recovery at 95% context usage (NEW!)**
+-  Reports cleanup statistics back to the agent
+-  **Multi-channel notifications (NEW!)**
 
 ## Quick Start
 
@@ -262,8 +262,8 @@ async function basicCleanup() {
   console.log('Starting cleanup...');
   const result = await janitor.cleanup();
 
-  console.log(`✅ Deleted ${result.filesDeleted} files`);
-  console.log(`✅ Saved ${result.spaceSaved}`);
+  console.log(` Deleted ${result.filesDeleted} files`);
+  console.log(` Saved ${result.spaceSaved}`);
 }
 
 basicCleanup();
@@ -278,7 +278,7 @@ const janitor = new Janitor();
 
 // Run cleanup every hour
 setInterval(async () => {
-  console.log('🧹 Running scheduled cleanup...');
+  console.log(' Running scheduled cleanup...');
   const result = await janitor.cleanup();
   console.log(`Cleaned: ${result.spaceSaved}`);
 }, 60 * 60 * 1000); // 1 hour
@@ -304,7 +304,7 @@ async function monitor() {
   const report = await janitor.report();
 
   if (report.recommendations.length > 0) {
-    console.log('⚠️  Recommendations:');
+    console.log('  Recommendations:');
     report.recommendations.forEach(r => console.log(`   - ${r}`));
   }
 

@@ -1,6 +1,6 @@
 # Clawdbot Update - Quick Reference Card
 
-## 🚀 One-Liner Commands
+##  One-Liner Commands
 
 ```bash
 # Dry run (preview backup)
@@ -22,7 +22,7 @@ ls -lth ~/.clawdbot-backups/
 cat $(ls -td ~/.clawdbot-backups/*/ | head -1)/BACKUP_INFO.txt
 ```
 
-## ⚡ Emergency Rollback
+##  Emergency Rollback
 
 ```bash
 # Stop gateway
@@ -36,7 +36,7 @@ LATEST=$(ls -t ~/.clawdbot-backups/ | head -1)
 pnpm clawdbot gateway start
 ```
 
-## 🔧 Config Quick Fixes
+##  Config Quick Fixes
 
 ```bash
 # Switch to pairing (recommended)
@@ -52,7 +52,7 @@ jq '.agent.userTimezone = "America/New_York"' ~/.clawdbot/clawdbot.json | sponge
 jq '.' ~/.clawdbot/clawdbot.json | less
 ```
 
-## 📊 Status Checks
+##  Status Checks
 
 ```bash
 # Gateway status
@@ -71,7 +71,7 @@ pnpm clawdbot providers list --usage
 pnpm clawdbot status
 ```
 
-## 🧪 Test Commands
+##  Test Commands
 
 ```bash
 # New CLIs
@@ -87,7 +87,7 @@ open http://localhost:3001/logs
 jq '.routing.bindings' ~/.clawdbot/clawdbot.json
 ```
 
-## 🎯 Critical Checks
+##  Critical Checks
 
 ```bash
 # DM policies
@@ -106,7 +106,7 @@ jq '.routing.agents[] | {name, workspace, sandbox}' ~/.clawdbot/clawdbot.json
 jq -r '.routing.agents | to_entries[] | "\(.key): \(.value.workspace)"' ~/.clawdbot/clawdbot.json
 ```
 
-## 🔥 Troubleshooting
+##  Troubleshooting
 
 ```bash
 # Logs with errors
@@ -125,7 +125,7 @@ pkill -f "clawdbot gateway"
 lsof -i :3001 -i :3002
 ```
 
-## 📦 Update Flow (Copy-Paste)
+##  Update Flow (Copy-Paste)
 
 ```bash
 # 0. Dry run (optional)
@@ -158,7 +158,7 @@ pnpm clawdbot gateway status
 pnpm clawdbot logs --tail 20
 ```
 
-## 🎓 Version Check
+##  Version Check
 
 ```bash
 # Current version
@@ -171,7 +171,7 @@ git fetch origin && git log main..origin/main --oneline | head -5
 git fetch origin && git diff --stat main..origin/main
 ```
 
-## 💾 Workspace Checks
+##  Workspace Checks
 
 ```bash
 # List configured workspaces
@@ -187,7 +187,7 @@ du -sh ~/.clawdbot
 du -sh ~/.clawdbot-backups/
 ```
 
-## 🔐 Auth Check
+##  Auth Check
 
 ```bash
 # List credentials
@@ -200,7 +200,7 @@ jq '.models' ~/.clawdbot/clawdbot.json
 pnpm clawdbot providers list
 ```
 
-## ⏱️ Time Estimates
+##  Time Estimates
 
 | Task | Time |
 |------|------|
@@ -211,7 +211,7 @@ pnpm clawdbot providers list
 | Testing | 10-15 min |
 | **Total** | **25-35 min** |
 
-## 📞 Emergency Contacts
+##  Emergency Contacts
 
 **Logs:** `~/.clawdbot/logs/`  
 **Backups:** `~/.clawdbot-backups/`  

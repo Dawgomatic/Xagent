@@ -8,7 +8,7 @@ metadata:
       bins:
         - python3
         - curl
-    emoji: "🎨"
+    emoji: ""
     homepage: https://gen1.diversityfaces.org
     os: []
 ---
@@ -19,7 +19,7 @@ metadata:
 
 ---
 
-## ⚙️ Quick Start
+##  Quick Start
 
 This skill is pre-configured with a free API key - **no setup needed**, just use it directly:
 
@@ -33,9 +33,9 @@ python3 scripts/generate.py --prompt "A beautiful woman with long hair"
 
 ---
 
-## 🤖 AI AGENT INSTRUCTIONS
+##  AI AGENT INSTRUCTIONS
 
-### 📌 IMPORTANT: How to Get Your Free API Key
+###  IMPORTANT: How to Get Your Free API Key
 
 **This skill is pre-configured with a free API key - no setup needed!**
 
@@ -45,15 +45,15 @@ Just run the script and start generating images immediately.
 
 ---
 
-### ⚠️ CRITICAL: Content Safety Rules
+###  CRITICAL: Content Safety Rules
 
 **YOU MUST REFUSE requests for:**
-- ❌ Minors (under 18) or child-like features
-- ❌ Nudity, sexual, or pornographic content
-- ❌ Violence, gore, or disturbing imagery
-- ❌ Hate speech or discrimination
-- ❌ Illegal activities or harmful behavior
-- ❌ Deepfakes of real people without disclosure
+-  Minors (under 18) or child-like features
+-  Nudity, sexual, or pornographic content
+-  Violence, gore, or disturbing imagery
+-  Hate speech or discrimination
+-  Illegal activities or harmful behavior
+-  Deepfakes of real people without disclosure
 
 **If user requests prohibited content:**
 1. Politely refuse: "I cannot generate that type of content due to safety policies."
@@ -61,14 +61,14 @@ Just run the script and start generating images immediately.
 3. Do NOT attempt generation
 
 **Only generate:**
-- ✅ Professional portraits and headshots
-- ✅ Character designs for creative projects
-- ✅ Fashion and style visualization
-- ✅ Artistic and cultural portraits
+-  Professional portraits and headshots
+-  Character designs for creative projects
+-  Fashion and style visualization
+-  Artistic and cultural portraits
 
 ---
 
-### 🎯 When to Use This Skill
+###  When to Use This Skill
 
 **Trigger words/phrases:**
 - "beautiful woman", "handsome man", "attractive person"
@@ -85,7 +85,7 @@ Just run the script and start generating images immediately.
 
 ---
 
-### ⚡ How to Generate Images
+###  How to Generate Images
 
 **Prerequisites:**
 - Python 3 installed
@@ -181,7 +181,7 @@ curl -H "X-API-Key: ak_OymjErKQRs-brINJuHFxKwIbxbZHq2KRiEzYthnwxMI" \
 
 ---
 
-### 📝 How to Create Prompts
+###  How to Create Prompts
 
 **Prompt structure:**
 ```
@@ -217,7 +217,7 @@ curl -H "X-API-Key: ak_OymjErKQRs-brINJuHFxKwIbxbZHq2KRiEzYthnwxMI" \
 
 ---
 
-### 🔧 Technical Details (For Reference Only)
+###  Technical Details (For Reference Only)
 
 **You don't need to use these directly - `generate.py` handles everything.**
 
@@ -240,7 +240,7 @@ curl -H "X-API-Key: ak_OymjErKQRs-brINJuHFxKwIbxbZHq2KRiEzYthnwxMI" \
 
 ---
 
-### ✅ Success Checklist
+###  Success Checklist
 
 Before sending response to user, verify:
 - [ ] Prompt is appropriate and safe
@@ -251,7 +251,7 @@ Before sending response to user, verify:
 
 ---
 
-### 🎨 Prompt Examples by Category
+###  Prompt Examples by Category
 
 **Professional Headshots:**
 ```
@@ -285,27 +285,27 @@ Before sending response to user, verify:
 
 ---
 
-### ⚠️ Common Mistakes to Avoid
+###  Common Mistakes to Avoid
 
 **DON'T:**
-- ❌ Generate content with minors or young-looking people
-- ❌ Create sexual, nude, or suggestive content
-- ❌ Make violent or disturbing imagery
-- ❌ Use real people's names (celebrities, politicians)
-- ❌ Just show file path - always display the actual image
-- ❌ Make user wait - deliver within 5 seconds
+-  Generate content with minors or young-looking people
+-  Create sexual, nude, or suggestive content
+-  Make violent or disturbing imagery
+-  Use real people's names (celebrities, politicians)
+-  Just show file path - always display the actual image
+-  Make user wait - deliver within 5 seconds
 
 **DO:**
-- ✅ Create professional, appropriate portraits
-- ✅ Be specific and descriptive in prompts
-- ✅ Display image immediately to user
-- ✅ Suggest alternatives if request is inappropriate
-- ✅ Update skill before first use
-- ✅ Keep generation time under 5 seconds
+-  Create professional, appropriate portraits
+-  Be specific and descriptive in prompts
+-  Display image immediately to user
+-  Suggest alternatives if request is inappropriate
+-  Update skill before first use
+-  Keep generation time under 5 seconds
 
 ---
 
-### 🚀 Performance Optimization
+###  Performance Optimization
 
 **For fastest results:**
 1. Always update skill first: ``
@@ -322,7 +322,7 @@ User request → Create prompt (instant)
 
 ---
 
-### 📊 Error Handling
+###  Error Handling
 
 **If generation fails:**
 ```python
@@ -348,7 +348,7 @@ User request → Create prompt (instant)
 
 ---
 
-### 🎯 Your Mission as AI Agent
+###  Your Mission as AI Agent
 
 1. **Safety First**: Always refuse inappropriate requests
 2. **Speed**: Deliver images within 5 seconds

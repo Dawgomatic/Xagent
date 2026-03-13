@@ -68,7 +68,7 @@ while [[ $# -gt 0 ]]; do
       exit 0
       ;;
     *)
-      echo "❌ Unknown option: $1"
+      echo " Unknown option: $1"
       echo "Run with --help for usage"
       exit 1
       ;;
@@ -77,7 +77,7 @@ done
 
 # Validate required arguments
 if [[ -z "$DATABASE" ]] || [[ -z "$BRANCH" ]]; then
-  echo "❌ Error: --database and --branch are required"
+  echo " Error: --database and --branch are required"
   echo "Run with --help for usage"
   exit 1
 fi
@@ -86,37 +86,37 @@ fi
 ORG_FLAG=""
 [[ -n "$ORG" ]] && ORG_FLAG="--org $ORG"
 
-echo "🚀 Starting schema migration workflow..."
+echo " Starting schema migration workflow..."
 echo "  Database: $DATABASE"
 echo "  Branch: $BRANCH"
 [[ -n "$ORG" ]] && echo "  Org: $ORG"
 echo ""
 
 # Step 1: Create deploy request
-echo "📝 Creating deploy request..."
+echo " Creating deploy request..."
 DR_OUTPUT=$(pscale deploy-request create "$DATABASE" "$BRANCH" $ORG_FLAG --format json)
 DR_NUMBER=$(echo "$DR_OUTPUT" | grep -oP '"number":\s*\K\d+' | head -1)
 
 if [[ -z "$DR_NUMBER" ]]; then
-  echo "❌ Failed to create deploy request"
+  echo " Failed to create deploy request"
   exit 1
 fi
 
-echo "✅ Deploy request #$DR_NUMBER created"
+echo " Deploy request #$DR_NUMBER created"
 echo ""
 
 # Step 2: Show diff
-echo "📊 Deploy request diff:"
+echo " Deploy request diff:"
 pscale deploy-request diff "$DATABASE" "$DR_NUMBER" $ORG_FLAG || true
 echo ""
 
 # Step 3: Deploy if requested
 if [[ "$AUTO_DEPLOY" == true ]]; then
-  echo "🚀 Deploying..."
+  echo " Deploying..."
   pscale deploy-request deploy "$DATABASE" "$DR_NUMBER" $ORG_FLAG
-  echo "✅ Deployment complete!"
+  echo " Deployment complete!"
 else
-  echo "⏸️  Deploy request created but not deployed (use --deploy to auto-deploy)"
+  echo "  Deploy request created but not deployed (use --deploy to auto-deploy)"
   echo ""
   echo "To deploy manually:"
   echo "  pscale deploy-request deploy $DATABASE $DR_NUMBER $ORG_FLAG"
@@ -125,5 +125,5 @@ fi
 echo ""
 
 # Step 4: Show final status
-echo "📋 Deploy request status:"
+echo " Deploy request status:"
 pscale deploy-request show "$DATABASE" "$DR_NUMBER" $ORG_FLAG

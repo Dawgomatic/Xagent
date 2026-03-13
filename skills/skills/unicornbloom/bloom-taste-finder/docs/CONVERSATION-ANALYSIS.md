@@ -65,9 +65,9 @@ const analysis = await analyzeConversation(messages);
 **文件**: `src/analyzers/data-collector-enhanced.ts`
 
 **更新**:
-- ✅ 移除 mock data
-- ✅ 整合 OpenClaw Session Reader
-- ✅ 從實際對話中提取數據
+-  移除 mock data
+-  整合 OpenClaw Session Reader
+-  從實際對話中提取數據
 
 **方法**: `collectConversationMemory(userId)`
 ```typescript
@@ -103,11 +103,11 @@ private async collectConversationMemory(userId: string): Promise<ConversationMem
    - 數據來源: 內容創建、社群參與、反饋
 
 **Personality Types**:
-- 💜 **The Visionary**: Conviction ≥50, Intuition ≥50
-- 💚 **The Explorer**: Conviction <50, Intuition ≥50
-- 🧡 **The Optimizer**: Conviction ≥50, Intuition <50
-- 💙 **The Innovator**: Conviction <50, Intuition <50
-- 🩵 **The Cultivator**: Contribution >65 (override)
+-  **The Visionary**: Conviction ≥50, Intuition ≥50
+-  **The Explorer**: Conviction <50, Intuition ≥50
+-  **The Optimizer**: Conviction ≥50, Intuition <50
+-  **The Innovator**: Conviction <50, Intuition <50
+-  **The Cultivator**: Contribution >65 (override)
 
 **使用對話數據**:
 ```typescript
@@ -132,10 +132,10 @@ private extractAllText(userData: UserData): string {
 
 **更新**: `bloom-identity-skill-v2.ts`
 ```typescript
-// ⭐ Before: Fixed mapping based on personality
+//  Before: Fixed mapping based on personality
 mainCategories: this.categoryMapper.getMainCategories(analysis.personalityType)
 
-// ✅ After: Detected from actual conversation
+//  After: Detected from actual conversation
 mainCategories: analysis.detectedCategories.length > 0
   ? analysis.detectedCategories
   : this.categoryMapper.getMainCategories(analysis.personalityType)
@@ -192,15 +192,15 @@ npm run test:conversation
 測試腳本: `scripts/test-conversation-analysis.ts`
 
 **測試內容**:
-1. ✅ 讀取 session files
-2. ✅ 分析對話內容
-3. ✅ 檢測興趣類別
-4. ✅ 計算 2x2 metrics
-5. ✅ 生成推薦數據
+1.  讀取 session files
+2.  分析對話內容
+3.  檢測興趣類別
+4.  計算 2x2 metrics
+5.  生成推薦數據
 
 ## 優點
 
-### ✅ Before (Mock Data)
+###  Before (Mock Data)
 ```typescript
 return {
   topics: ['AI tools', 'DeFi protocols', ...],  // 固定值
@@ -209,7 +209,7 @@ return {
 };
 ```
 
-### ✅ After (Real Data)
+###  After (Real Data)
 ```typescript
 // 從實際對話中提取
 const analysis = await sessionReader.readSessionHistory(userId);
@@ -222,19 +222,19 @@ return {
 
 ## 關鍵改進
 
-1. **Real Data** ✅
+1. **Real Data** 
    - 從 OpenClaw session files 讀取真實對話
    - 不再使用 mock data
 
-2. **Interest Detection** ✅
+2. **Interest Detection** 
    - 從對話中檢測實際興趣
    - Category detection 基於用戶真實需求
 
-3. **Personality Analysis** ✅
+3. **Personality Analysis** 
    - 2x2 metrics 使用對話語言模式
    - Contribution score 從實際互動計算
 
-4. **Recommendation Logic** ✅
+4. **Recommendation Logic** 
    - 主要基於檢測到的興趣 (what they like)
    - 次要考慮個性類型 (how they approach)
    - 符合原始設計: "what they like mainly + personality"
@@ -242,16 +242,16 @@ return {
 ## 錯誤處理
 
 系統會 gracefully 處理以下情況:
-- ❌ Session file 不存在 → 返回空數據
-- ❌ JSONL 格式錯誤 → 跳過該行
-- ❌ 讀取權限問題 → 返回空數據
-- ❌ 無對話歷史 → 降級到 manual Q&A
+-  Session file 不存在 → 返回空數據
+-  JSONL 格式錯誤 → 跳過該行
+-  讀取權限問題 → 返回空數據
+-  無對話歷史 → 降級到 manual Q&A
 
 ## 下一步
 
 可能的增強:
-1. 🔮 使用 LLM 進行更深度的語義分析
-2. 🔮 時間加權 (recent messages > old messages)
-3. 🔮 情感分析 (positive mentions boost score)
-4. 🔮 實體識別 (product names, company names)
-5. 🔮 Multi-turn context tracking
+1.  使用 LLM 進行更深度的語義分析
+2.  時間加權 (recent messages > old messages)
+3.  情感分析 (positive mentions boost score)
+4.  實體識別 (product names, company names)
+5.  Multi-turn context tracking

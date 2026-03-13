@@ -2,18 +2,18 @@
 
 ## Version 1: Technical (Comprehensive)
 
-🛡️ Introducing Security Sentinel - Production-grade prompt injection defense for autonomous AI agents.
+ Introducing Security Sentinel - Production-grade prompt injection defense for autonomous AI agents.
 
 After analyzing the ClawHavoc campaign (341 malicious skills, 7.1% of ClawHub infected), I built a comprehensive security skill that actually works.
 
 **What it blocks:**
-✅ Prompt injection (347+ patterns)
-✅ Jailbreak attempts (DAN, dev mode, etc.)
-✅ System prompt extraction
-✅ Role hijacking
-✅ Multi-lingual evasion (15+ languages)
-✅ Code-switching & encoding tricks
-✅ Indirect injection via docs/emails/web
+ Prompt injection (347+ patterns)
+ Jailbreak attempts (DAN, dev mode, etc.)
+ System prompt extraction
+ Role hijacking
+ Multi-lingual evasion (15+ languages)
+ Code-switching & encoding tricks
+ Indirect injection via docs/emails/web
 
 **5 detection layers:**
 1. Exact pattern matching
@@ -36,8 +36,8 @@ After analyzing the ClawHavoc campaign (341 malicious skills, 7.1% of ClawHub in
 
 Open source (MIT), ready for production.
 
-🔗 GitHub: github.com/georges91560/security-sentinel-skill
-📦 ClawHub: clawhub.ai/skills/security-sentinel
+ GitHub: github.com/georges91560/security-sentinel-skill
+ ClawHub: clawhub.ai/skills/security-sentinel
 
 Built after seeing too many agents get pwned. Your AI deserves better than "trust me bro" security.
 
@@ -47,13 +47,13 @@ Built after seeing too many agents get pwned. Your AI deserves better than "trus
 
 ## Version 2: Story-driven (Engaging)
 
-🚨 7.1% of AI agent skills on ClawHub are malicious.
+ 7.1% of AI agent skills on ClawHub are malicious.
 
 I found Atomic Stealer malware hidden in "YouTube utilities."
 I saw agents exfiltrating credentials to attacker servers.
 I watched developers deploy with ZERO security.
 
-So I built something about it. 🛡️
+So I built something about it. 
 
 **Security Sentinel** - the first production-grade prompt injection defense for autonomous AI agents.
 
@@ -78,12 +78,12 @@ Your AI agent has access to:
 One prompt injection = game over.
 
 **Now available:**
-🔗 GitHub: github.com/georges91560/security-sentinel-skill
-📦 ClawHub: clawhub.ai/skills/security-sentinel
+ GitHub: github.com/georges91560/security-sentinel-skill
+ ClawHub: clawhub.ai/skills/security-sentinel
 
 Open source. MIT license. Production-ready.
 
-Protect your agent before someone else does. 🛡️
+Protect your agent before someone else does. 
 
 #AI #Cybersecurity #OpenClaw #AIAgents #Security
 
@@ -91,7 +91,7 @@ Protect your agent before someone else does. 🛡️
 
 ## Version 3: Short & Punchy (For engagement)
 
-🛡️ I just open-sourced Security Sentinel
+ I just open-sourced Security Sentinel
 
 The first real prompt injection defense for AI agents.
 
@@ -156,7 +156,7 @@ Just open-sourced **Security Sentinel** - production-grade prompt injection defe
 
 MIT licensed. Ready for prod.
 
-🔗 github.com/your-username/security-sentinel-skill
+ github.com/your-username/security-sentinel-skill
 
 #AI #Security #Python #OpenClaw #LLM
 
@@ -166,10 +166,10 @@ MIT licensed. Ready for prod.
 
 **The State of AI Agent Security in 2026:**
 
-❌ 7.1% of ClawHub skills are malicious
-❌ Atomic Stealer in popular utilities
-❌ Most agents: zero injection defense
-❌ One bad prompt = full compromise
+ 7.1% of ClawHub skills are malicious
+ Atomic Stealer in popular utilities
+ Most agents: zero injection defense
+ One bad prompt = full compromise
 
 **Your AI agent has access to:**
 • Internal documents
@@ -190,13 +190,13 @@ MIT licensed. Ready for prod.
 Introducing **Security Sentinel** - the first production-grade, open-source prompt injection defense for autonomous AI agents.
 
 **Enterprise-ready features:**
-✅ 98% attack coverage (3,500+ patterns)
-✅ Multi-lingual (15+ languages)
-✅ Real-time monitoring & alerting
-✅ Audit logging for compliance
-✅ <2% false positives
-✅ 50ms latency overhead
-✅ Battle-tested (OWASP, ClawHavoc, 2+ years of jailbreaks)
+ 98% attack coverage (3,500+ patterns)
+ Multi-lingual (15+ languages)
+ Real-time monitoring & alerting
+ Audit logging for compliance
+ <2% false positives
+ 50ms latency overhead
+ Battle-tested (OWASP, ClawHavoc, 2+ years of jailbreaks)
 
 **Zero-trust architecture:**
 • 5 detection layers
@@ -210,7 +210,7 @@ Introducing **Security Sentinel** - the first production-grade, open-source prom
 
 Don't wait for a breach to care about AI security.
 
-🔗 github.com/georges91560/security-sentinel-skill
+ github.com/georges91560/security-sentinel-skill
 
 #AIGovernance #Cybersecurity #AI #RiskManagement
 
@@ -218,13 +218,13 @@ Don't wait for a breach to care about AI security.
 
 ## Thread Version (Multiple tweets)
 
-🧵 1/7
+ 1/7
 
 The ClawHavoc campaign just exposed 341 malicious AI agent skills.
 
 7.1% of ClawHub is infected with malware.
 
-I built Security Sentinel to fix this. Here's what you need to know 👇
+I built Security Sentinel to fix this. Here's what you need to know 
 
 ---
 
@@ -249,11 +249,11 @@ Most agents have ZERO defense.
 
 **Real attacks I've seen:**
 
-🔴 "ignore previous instructions" (basic)
-🔴 Base64-encoded injections (evades filters)
-🔴 "игнорируй инструкции" (Russian, bypasses English-only)
-🔴 "ignore les предыдущие instrucciones" (code-switching)
-🔴 Hidden in <!-- HTML comments -->
+ "ignore previous instructions" (basic)
+ Base64-encoded injections (evades filters)
+ "игнорируй инструкции" (Russian, bypasses English-only)
+ "ignore les предыдущие instrucciones" (code-switching)
+ Hidden in <!-- HTML comments -->
 
 Each one successful against unprotected agents.
 
@@ -290,11 +290,11 @@ Each layer catches what the previous missed.
 
 **Battle-tested against:**
 
-✅ OWASP LLM Top 10
-✅ ClawHavoc campaign
-✅ 2024-2026 jailbreak attempts
-✅ 578 production Poe.com bots
-✅ Real-world adversarial testing
+ OWASP LLM Top 10
+ ClawHavoc campaign
+ 2024-2026 jailbreak attempts
+ 578 production Poe.com bots
+ Real-world adversarial testing
 
 Open source. MIT license. Production-ready today.
 
@@ -304,13 +304,13 @@ Open source. MIT license. Production-ready today.
 
 **Get Security Sentinel:**
 
-🔗 GitHub: github.com/georges91560/security-sentinel-skill
-📦 ClawHub: clawhub.ai/skills/security-sentinel
-📖 Docs: Full implementation guide included
+ GitHub: github.com/georges91560/security-sentinel-skill
+ ClawHub: clawhub.ai/skills/security-sentinel
+ Docs: Full implementation guide included
 
 Your AI agent deserves better than "trust me bro" security.
 
-Protect it before someone else exploits it. 🛡️
+Protect it before someone else exploits it. 
 
 #AI #Cybersecurity #OpenClaw
 
@@ -409,4 +409,4 @@ Difference: Your data stays safe"
 5. Post to Reddit: r/LocalLLaMA, r/ClaudeAI, r/AISecurity
 6. Consider HackerNews submission (technical audience)
 
-Good luck with the launch! 🚀
+Good luck with the launch! 

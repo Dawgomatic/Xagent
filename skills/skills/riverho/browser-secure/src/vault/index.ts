@@ -130,7 +130,7 @@ class BitwardenVault extends VaultProvider {
         });
         loggedIn = true;
       } catch (e) {
-        console.warn('⚠️  Bitwarden API key login failed, trying password/session...');
+        console.warn('  Bitwarden API key login failed, trying password/session...');
       }
     }
 
@@ -144,7 +144,7 @@ class BitwardenVault extends VaultProvider {
         });
         return;
       } catch (e) {
-        console.warn('⚠️  Bitwarden password unlock failed.');
+        console.warn('  Bitwarden password unlock failed.');
       }
     }
 

@@ -8,19 +8,19 @@
 
 **v2.2.7** - Complete Zoho Mail integration with OAuth2, REST API backend (5-10x faster), **Clawdbot extension with /email commands**, and advanced email automation features. Perfect for email workflows, monitoring, and bulk operations in your Clawdbot projects.
 
-## 🔒 Security Notice (v2.2.0)
+##  Security Notice (v2.2.0)
 
 **SECURITY UPDATE:** This version fixes critical vulnerabilities identified in security audit. **Upgrade recommended for all users.**
 
 **Fixed vulnerabilities:**
-- ✅ **CRITICAL:** Command injection in JavaScript handler
-- ✅ **HIGH:** Metadata mismatch (credential requirements)
-- ✅ **MEDIUM:** Insufficient input validation
-- ✅ **LOW:** Token file permission enforcement
+-  **CRITICAL:** Command injection in JavaScript handler
+-  **HIGH:** Metadata mismatch (credential requirements)
+-  **MEDIUM:** Insufficient input validation
+-  **LOW:** Token file permission enforcement
 
 **See [SECURITY.md](SECURITY.md) for details and migration guide.**
 
-## 🚀 Quick Start (recommended path)
+##  Quick Start (recommended path)
 
 ```bash
 # 1) Install
@@ -56,44 +56,44 @@ python3 scripts/zoho-email.py unread --api-mode imap
 **OAuth token location (default):** `~/.clawdbot/zoho-mail-tokens.json`
 
 
-## ✨ Features
+##  Features
 
 ### Core Features
-✅ **OAuth2 Authentication** - Secure authentication with automatic token refresh
-✅ **REST API Backend** - 5-10x faster than IMAP/SMTP (auto-enabled with OAuth2)
-✅ **Read & Search** - Search emails with advanced filters
-✅ **Send Emails** - Plain text, HTML, CC/BCC support
-✅ **Attachments** - Send and download attachments
-✅ **HTML Emails** - Send rich-formatted emails with templates
-✅ **Batch Operations** - Mark, delete, move multiple emails efficiently
-✅ **Folder Management** - Access all folders (Inbox, Sent, Drafts, etc.)
+ **OAuth2 Authentication** - Secure authentication with automatic token refresh
+ **REST API Backend** - 5-10x faster than IMAP/SMTP (auto-enabled with OAuth2)
+ **Read & Search** - Search emails with advanced filters
+ **Send Emails** - Plain text, HTML, CC/BCC support
+ **Attachments** - Send and download attachments
+ **HTML Emails** - Send rich-formatted emails with templates
+ **Batch Operations** - Mark, delete, move multiple emails efficiently
+ **Folder Management** - Access all folders (Inbox, Sent, Drafts, etc.)
 
 ### Performance
-⚡ **5-10x faster** operations with REST API mode
-⚡ **Connection pooling** for persistent HTTP connections
-⚡ **Server-side filtering** reduces data transfer
-⚡ **Automatic fallback** to IMAP if REST API unavailable
+ **5-10x faster** operations with REST API mode
+ **Connection pooling** for persistent HTTP connections
+ **Server-side filtering** reduces data transfer
+ **Automatic fallback** to IMAP if REST API unavailable
 
-## 📚 Documentation
+##  Documentation
 
 - **[SKILL.md](SKILL.md)** - Complete guide with examples
 - **[OAUTH2_SETUP.md](OAUTH2_SETUP.md)** - OAuth2 setup instructions
 - **[SECURITY.md](SECURITY.md)** - Security best practices and audit results
 - **[CHANGELOG.md](CHANGELOG.md)** - Version history
 
-## 🔒 Security & Best Practices
+##  Security & Best Practices
 
 **Credential Management:**
-- ✅ Use OAuth2 (recommended) or app-specific passwords only
-- ✅ Never use your main Zoho password
-- ✅ Token files automatically secured with 0600 permissions
-- ✅ Never commit credentials to version control
+-  Use OAuth2 (recommended) or app-specific passwords only
+-  Never use your main Zoho password
+-  Token files automatically secured with 0600 permissions
+-  Never commit credentials to version control
 
 **Command Handler Security (if exposing /email commands):**
-- ✅ Use `email-command-SECURE.js` (prevents command injection)
-- ✅ Restrict command access to authorized users only
-- ✅ Add rate limiting at bot level
-- ✅ Enable audit logging for sensitive operations
+-  Use `email-command-SECURE.js` (prevents command injection)
+-  Restrict command access to authorized users only
+-  Add rate limiting at bot level
+-  Enable audit logging for sensitive operations
 
 **Verification:**
 ```bash
@@ -106,7 +106,7 @@ chmod 600 ~/.clawdbot/zoho-mail-tokens.json
 
 **See [SECURITY.md](SECURITY.md) for complete security guide.**
 
-## 📖 Quick Examples
+##  Quick Examples
 
 ### Most common Clawdbot-style actions
 ```bash
@@ -201,7 +201,7 @@ python3 scripts/zoho-email.py unread --api-mode rest --verbose
 python3 scripts/zoho-email.py unread --api-mode imap
 ```
 
-## 🧩 Clawdbot Integration (NEW!)
+##  Clawdbot Integration (NEW!)
 
 ### /email Commands (Telegram, Discord, etc.)
 
@@ -241,8 +241,8 @@ Add email summary to morning briefings or scheduled tasks:
 # In your heartbeat/cron script
 python3 scripts/clawdbot_extension.py summary
 
-# Output: 📭 No unread emails
-#     OR: 📧 3 unread emails
+# Output:  No unread emails
+#     OR:  3 unread emails
 ```
 
 **Examples:**
@@ -250,12 +250,12 @@ python3 scripts/clawdbot_extension.py summary
 - `examples/clawdbot-commands/emails.sh` - Simple wrapper script
 
 ### Use Cases
-✅ **Morning briefings** - Add email summary to daily briefing  
-✅ **Slack/Discord alerts** - Notify on unread emails  
-✅ **Interactive commands** - `/email search invoice` in chat  
-✅ **Automated workflows** - Cron + Clawdbot integration
+ **Morning briefings** - Add email summary to daily briefing  
+ **Slack/Discord alerts** - Notify on unread emails  
+ **Interactive commands** - `/email search invoice` in chat  
+ **Automated workflows** - Cron + Clawdbot integration
 
-## 💡 Use Cases
+##  Use Cases
 
 - **Morning briefings** - Automated unread email summaries
 - **Email monitoring** - Watch for VIP senders or keywords
@@ -266,7 +266,7 @@ python3 scripts/clawdbot_extension.py summary
 - **HTML campaigns** - Send rich-formatted newsletters
 - **Attachment workflows** - Download invoices, reports automatically
 
-## 🔧 Requirements
+##  Requirements
 
 **Minimum:**
 - Python 3.x
@@ -277,7 +277,7 @@ python3 scripts/clawdbot_extension.py summary
 - `requests>=2.31.0` (install: `pip3 install -r requirements.txt`)
 - OAuth2 credentials (automatic 5-10x performance boost)
 
-## 📦 Version History
+##  Version History
 
 - **v2.0.0** (2025-01-29) - REST API backend with 5-10x performance boost
 - **v1.2.0** (2025-01-29) - OAuth2 authentication with automatic token refresh
@@ -286,18 +286,18 @@ python3 scripts/clawdbot_extension.py summary
 
 See [CHANGELOG.md](CHANGELOG.md) for complete version history.
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Here's how you can help:
 
-- 🐛 **Report bugs:** [Open an issue](https://github.com/briansmith80/clawdbot-zoho-email/issues)
-- 💡 **Request features:** [Open an issue](https://github.com/briansmith80/clawdbot-zoho-email/issues)
-- 🔧 **Submit PRs:** [Pull requests](https://github.com/briansmith80/clawdbot-zoho-email/pulls)
-- ⭐ **Star the repo:** Show your support!
+-  **Report bugs:** [Open an issue](https://github.com/briansmith80/clawdbot-zoho-email/issues)
+-  **Request features:** [Open an issue](https://github.com/briansmith80/clawdbot-zoho-email/issues)
+-  **Submit PRs:** [Pull requests](https://github.com/briansmith80/clawdbot-zoho-email/pulls)
+-  **Star the repo:** Show your support!
 
 This is an open-source Clawdbot skill maintained by the community.
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) for details.
 

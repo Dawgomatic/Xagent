@@ -2,7 +2,7 @@
 name: polymarket-weather-trader
 displayName: Polymarket Weather Trader
 description: Trade Polymarket weather markets using NOAA forecasts via Simmer API. Inspired by gopfan2's $2M+ strategy. Use when user wants to trade temperature markets, automate weather bets, check NOAA forecasts, or run gopfan2-style trading.
-metadata: {"clawdbot":{"emoji":"🌡️","requires":{"env":["SIMMER_API_KEY"],"pip":["simmer-sdk"]},"cron":null,"autostart":false}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SIMMER_API_KEY"],"pip":["simmer-sdk"]},"cron":null,"autostart":false}}
 authors:
   - Simmer (@simmer_markets)
 attribution: "Strategy inspired by gopfan2"
@@ -165,10 +165,10 @@ All trades are tagged with `source: "sdk:weather"`. This means:
 ## Example Output
 
 ```
-🌤️ Simmer Weather Trading Skill
+ Simmer Weather Trading Skill
 ==================================================
 
-⚙️ Configuration:
+ Configuration:
   Entry threshold: 15% (buy below this)
   Exit threshold:  45% (sell above this)
   Max position:    $2.00
@@ -177,20 +177,20 @@ All trades are tagged with `source: "sdk:weather"`. This means:
   Safeguards:      ✓ Enabled
   Trend detection: ✓ Enabled
 
-💰 Portfolio:
+ Portfolio:
   Balance: $150.00
   Exposure: $45.00
   Positions: 8
 
-📍 NYC 2026-01-28 (high temp)
+ NYC 2026-01-28 (high temp)
   NOAA forecast: 34°F
   Matching bucket: 34-35°F @ $0.12
-  💡 Smart sizing: $2.00 (capped at max position)
-  ✅ Below threshold ($0.15) - BUY opportunity! 📉 (dropped 15% in 24h)
+   Smart sizing: $2.00 (capped at max position)
+   Below threshold ($0.15) - BUY opportunity!  (dropped 15% in 24h)
   Executing trade...
-  ✅ Bought 62.5 shares @ $0.12
+   Bought 62.5 shares @ $0.12
 
-📊 Summary:
+ Summary:
   Events scanned: 12
   Entry opportunities: 1
   Trades executed: 1

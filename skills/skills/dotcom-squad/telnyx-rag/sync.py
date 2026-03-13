@@ -807,7 +807,7 @@ def _delete_old_chunks(client, bucket, state, s3_key, quiet=False):
         if client.delete_object(bucket, ck):
             deleted += 1
             if not quiet:
-                print("  🗑️  %s" % ck)
+                print("    %s" % ck)
     return deleted
 
 

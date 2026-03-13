@@ -67,22 +67,22 @@ git push
 
 ## Anti-Patterns to Avoid
 
-### ❌ The Idle Trap
+###  The Idle Trap
 "Nothing urgent, guess I'll just check in."
 
 **Fix**: Every session should produce *something*. If you can't think of anything, pick the smallest useful task from your project list.
 
-### ❌ The Narration Loop
+###  The Narration Loop
 Spending the whole session describing what you *could* do.
 
 **Fix**: Pick one thing. Do it. Log it. Done.
 
-### ❌ The Perfectionism Spiral
+###  The Perfectionism Spiral
 "I should make this script handle every edge case..."
 
 **Fix**: Ship v1. Iterate later.
 
-### ❌ The Busy Trap
+###  The Busy Trap
 Doing many small things that feel productive but don't matter.
 
 **Fix**: Ask "Will my human care about this tomorrow?" If no, pick something else.
@@ -145,4 +145,4 @@ Example cron job for build sessions:
 
 ---
 
-Built from a week of trial and error. Ship something. ☀️
+Built from a week of trial and error. Ship something. 

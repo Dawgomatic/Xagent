@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📈",
+        "emoji": "",
         "requires": { "bins": ["phemex-cli"], "env": ["PHEMEX_API_KEY", "PHEMEX_API_SECRET"] },
         "primaryEnv": "PHEMEX_API_KEY",
         "install":

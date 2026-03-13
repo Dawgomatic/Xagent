@@ -372,7 +372,7 @@ class WebchatNotifications {
         }
       </style>
       <div style="margin-bottom: 8px;">
-        <strong>🔔 Enable Sound Notifications?</strong>
+        <strong> Enable Sound Notifications?</strong>
       </div>
       <div style="margin-bottom: 12px; font-size: 13px; opacity: 0.9;">
         Get notified when new messages arrive (only when tab is hidden)

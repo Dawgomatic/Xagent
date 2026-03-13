@@ -55,7 +55,7 @@ Proofread these OCR-detected text strings from a video. Fix errors to improve re
 **FIX:**
 1. Spelling: 'nutriti0nal' → 'nutritional'
 2. Spacing: 'working1on1' → 'working 1-on-1'
-3. Character confusion: '0'↔'O', 'l'↔'I', '1'↔'l'
+3. Character confusion: '0''O', 'l''I', '1''l'
 4. Combine obvious fragments: "Mille" + "nnial" → "Millennial"
 5. Split merged text: "GetStartedToday" → "Get Started Today"
 

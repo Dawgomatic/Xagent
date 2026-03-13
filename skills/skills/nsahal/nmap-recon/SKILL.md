@@ -128,7 +128,7 @@ nmap 192.168.1.0/24 --exclude 192.168.1.1
 
 ## Authorization Required
 
-⚠️ **Only scan targets you own or have explicit written authorization to test.**
+ **Only scan targets you own or have explicit written authorization to test.**
 
 Never scan:
 - Public infrastructure without permission

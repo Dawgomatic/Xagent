@@ -6,7 +6,7 @@
   "scripts": {
     "start": "./start.sh",
     "dev": "node server.cjs",
-    "postinstall": "echo '✅ Run ./start.sh to launch'"
+    "postinstall": "echo ' Run ./start.sh to launch'"
   },
   "keywords": [
     "ai",

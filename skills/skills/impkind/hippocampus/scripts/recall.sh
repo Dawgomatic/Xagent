@@ -40,7 +40,7 @@ if [ -z "$QUERY" ]; then
 fi
 
 if [ ! -f "$INDEX" ]; then
-    echo "❌ index.json not found at $INDEX"
+    echo " index.json not found at $INDEX"
     exit 1
 fi
 
@@ -98,7 +98,7 @@ results = [r for r in results if r['combined'] >= MIN_SCORE][:TOP]
 if not results:
     print(f"No memories found for: {QUERY}")
 else:
-    print(f"🧠 Hippocampus Recall: '{QUERY}'")
+    print(f" Hippocampus Recall: '{QUERY}'")
     print(f"   (showing top {len(results)}, min_score={MIN_SCORE})")
     print("")
     

@@ -3,9 +3,9 @@
 **Enhanced Binance trading skill for OpenClaw**  
 *Version 2.0 — created by parallel agents in 20 minutes*
 
-## 🚀 Features
+##  Features
 
-### 🔧 Core Improvements
+###  Core Improvements
 1. **Complete test infrastructure** — mock files, integration tests, connection verification
 2. **Security** — rate limiting system, API key encryption, detailed logging
 3. **UX/UI** — natural language command parser, interactive dialog, Telegram bot
@@ -14,7 +14,7 @@
 6. **Trading strategies** — DCA, grid trading, arbitrage, backtesting
 7. **Documentation** — configuration templates, FAQ, guides, best practices
 
-## 📁 Package Structure
+##  Package Structure
 
 ```
 binance-enhanced/
@@ -75,7 +75,7 @@ binance-enhanced/
     └── diagrams/              # Architecture diagrams
 ```
 
-## 🎯 Quick Start
+##  Quick Start
 
 ### 1. Installation
 ```bash
@@ -110,7 +110,7 @@ docker-compose up -d
 python3 -m uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-## 🔐 Security System
+##  Security System
 
 ### Rate Limiting
 - **Daily limits**: Maximum operations per day
@@ -130,7 +130,7 @@ python3 -m uvicorn main:app --host 0.0.0.0 --port 8000
 - **Compression**: Gzip compression
 - **Monitoring**: Security event alerts
 
-## 🤖 Natural Language Interface
+##  Natural Language Interface
 
 ### Supported Commands (English):
 ```bash
@@ -156,7 +156,7 @@ portfolio summary
 - **Auto-completion**: Symbol and command suggestions
 - **Context awareness**: Remembers previous commands
 
-## 📊 Monitoring & Alerts
+##  Monitoring & Alerts
 
 ### Notification Channels:
 - **Telegram**: Real-time trade confirmations
@@ -171,7 +171,7 @@ portfolio summary
 - Performance metrics
 - Risk analysis
 
-## ⚡ Performance Optimization
+##  Performance Optimization
 
 ### Caching System:
 - **Redis/Memory cache**: Price data caching
@@ -191,7 +191,7 @@ portfolio summary
 - **Compression**: Gzip compression for large responses
 - **Schema validation**: JSON schema validation
 
-## 📈 Trading Strategies
+##  Trading Strategies
 
 ### Dollar-Cost Averaging (DCA):
 - **Automated purchases**: Scheduled buying
@@ -217,7 +217,7 @@ portfolio summary
 - **Performance metrics**: Sharpe ratio, max drawdown
 - **Visualization**: Charts and graphs
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables:
 ```bash
@@ -238,7 +238,7 @@ TRADE_MODE=paper  # paper, live, dry-run
 - **security/config.yaml**: Security settings
 - **strategies/config.yaml**: Strategy parameters
 
-## 🧪 Testing
+##  Testing
 
 ### Test Suite:
 ```bash
@@ -262,7 +262,7 @@ pytest --cov=. tests/
 - **Performance tests**: Load and stress testing
 - **End-to-end tests**: Complete workflow testing
 
-## 📚 Documentation
+##  Documentation
 
 ### Quick Links:
 - **[README_EN.md](README_EN.md)** - English documentation
@@ -276,7 +276,7 @@ pytest --cov=. tests/
 - **ReDoc**: `http://localhost:8000/redoc`
 - **Postman**: `docs/postman_collection.json`
 
-## 🚀 Deployment
+##  Deployment
 
 ### Docker Deployment:
 ```bash
@@ -317,7 +317,7 @@ kubectl apply -f k8s/service.yaml
 kubectl apply -f k8s/ingress.yaml
 ```
 
-## 📞 Support
+##  Support
 
 ### Community Support:
 - **GitHub Issues**: [Report bugs](https://github.com/s7cret/binance-enhanced/issues)
@@ -329,11 +329,11 @@ kubectl apply -f k8s/ingress.yaml
 - **[Binance API Documentation](https://binance-docs.github.io/apidocs/)**
 - **[Skill Development Guide](SKILL.md)**
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **OpenClaw Team** for the amazing platform
 - **Binance** for their comprehensive API
@@ -341,8 +341,8 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-**⭐ Star this repository if you find it useful!**
+** Star this repository if you find it useful!**
 
-**📢 Share your feedback and feature requests in Issues!**
+** Share your feedback and feature requests in Issues!**
 
-**🚀 Happy trading with Binance Enhanced!**
+** Happy trading with Binance Enhanced!**

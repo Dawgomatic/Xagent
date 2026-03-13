@@ -110,7 +110,7 @@ def update_trust_after_interaction(agent_data, outcome, domain="general"):
     Updates both global trust and domain-specific trust.
     """
     if agent_data.get("revoked"):
-        print(f"  ⚠ Agent is revoked. Interaction recorded but trust stays at floor.")
+        print(f"   Agent is revoked. Interaction recorded but trust stays at floor.")
         agent_data["interaction_count"] = agent_data.get("interaction_count", 0) + 1
         return agent_data
     

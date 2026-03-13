@@ -265,9 +265,9 @@ def handle_message(data):
     if content.lower() == "!status":
         sessions = get_active_sessions()
         if not sessions:
-            reply(channel_id, "📭 No active codecast sessions")
+            reply(channel_id, " No active codecast sessions")
             return
-        lines = ["📡 **Active Sessions:**"]
+        lines = [" **Active Sessions:**"]
         for pid, s in sessions.items():
             agent = s.get("agent", "?")
             workdir = s.get("workdir", "?")
@@ -283,7 +283,7 @@ def handle_message(data):
             reply(channel_id, "Usage: `!kill <PID>`")
             return
         ok, msg = kill_session(parts[1])
-        reply(channel_id, f"{'✅' if ok else '❌'} {msg}")
+        reply(channel_id, f"{'' if ok else ''} {msg}")
         return
 
     # --- Command: !log [PID] ---
@@ -299,9 +299,9 @@ def handle_message(data):
             return
         log_content, err = get_recent_log(pid)
         if err:
-            reply(channel_id, f"❌ {err}")
+            reply(channel_id, f" {err}")
         else:
-            reply(channel_id, f"📜 Recent log for `{pid}`:\n```\n{log_content}\n```")
+            reply(channel_id, f" Recent log for `{pid}`:\n```\n{log_content}\n```")
         return
 
     # --- Command: !send [PID] <message> ---
@@ -317,7 +317,7 @@ def handle_message(data):
             reply(channel_id, "Usage: `!send [PID] <message>`")
             return
         ok, msg = send_to_stdin(pid, message)
-        reply(channel_id, f"{'✅' if ok else '❌'} {msg}")
+        reply(channel_id, f"{'' if ok else ''} {msg}")
         return
 
     # --- Default: forward plain message to sole active session ---
@@ -326,9 +326,9 @@ def handle_message(data):
         pid = list(sessions.keys())[0]
         ok, msg = send_to_stdin(pid, content)
         if ok:
-            reply(channel_id, f"📨 Forwarded to session `{pid}`")
+            reply(channel_id, f" Forwarded to session `{pid}`")
         else:
-            reply(channel_id, f"⚠️ {msg}")
+            reply(channel_id, f" {msg}")
 
 
 # ---------------------------------------------------------------------------
@@ -397,7 +397,7 @@ def on_message(ws, raw):
         if event_type == "READY":
             user = data["d"].get("user", {})
             log(f"Connected as {user.get('username', '?')}#{user.get('discriminator', '?')}")
-            print(f"🔗 Discord bridge connected as {user.get('username', '?')}", flush=True)
+            print(f" Discord bridge connected as {user.get('username', '?')}", flush=True)
         elif event_type == "MESSAGE_CREATE":
             handle_message(data.get("d", {}))
 
@@ -422,15 +422,15 @@ def main():
     global _ws
 
     if not BOT_TOKEN:
-        print("❌ Error: No bot token found", file=sys.stderr)
+        print(" Error: No bot token found", file=sys.stderr)
         print("  Set CODECAST_BOT_TOKEN env var or add to macOS Keychain:", file=sys.stderr)
         print("  security add-generic-password -s discord-bot-token -a codecast -w YOUR_TOKEN", file=sys.stderr)
         sys.exit(1)
 
     if not CHANNEL_ID:
-        print("⚠️  Warning: No BRIDGE_CHANNEL_ID set — listening on all channels", file=sys.stderr)
+        print("  Warning: No BRIDGE_CHANNEL_ID set — listening on all channels", file=sys.stderr)
 
-    print(f"🌉 Starting Discord bridge...", flush=True)
+    print(f" Starting Discord bridge...", flush=True)
     print(f"   Channel: {CHANNEL_ID or 'all'}", flush=True)
     print(f"   Allowed users: {', '.join(ALLOWED_USERS) if ALLOWED_USERS else 'all'}", flush=True)
     print(f"   Session dir: {SESSION_DIR}", flush=True)
@@ -446,7 +446,7 @@ def main():
             )
             _ws.run_forever()
         except KeyboardInterrupt:
-            print("\n🛑 Bridge stopped", flush=True)
+            print("\n Bridge stopped", flush=True)
             sys.exit(0)
         except Exception as e:
             print(f"[bridge] Connection error: {e}, reconnecting in 5s...", file=sys.stderr, flush=True)

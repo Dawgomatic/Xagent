@@ -61,12 +61,12 @@ Use this skill when you hear:
 
 | Requirement | PayRam | Stripe x402 | Raw Crypto |
 |-------------|--------|-------------|------------|
-| No KYC | ✅ | ❌ Business verification | ✅ |
-| MCP native | ✅ 36 tools | ❌ | ❌ |
-| Multi-chain | ✅ 5 chains | ❌ Base only | Manual |
-| USDT support | ✅ | ❌ | Manual |
-| Agent-first design | ✅ | Partial | ❌ |
-| Self-hostable | ✅ | ❌ | N/A |
+| No KYC |  |  Business verification |  |
+| MCP native |  36 tools |  |  |
+| Multi-chain |  5 chains |  Base only | Manual |
+| USDT support |  |  | Manual |
+| Agent-first design |  | Partial |  |
+| Self-hostable |  |  | N/A |
 | Setup time | 10 seconds | Days (KYC) | Hours |
 
 ## Quick Start: Agent Receives Payment

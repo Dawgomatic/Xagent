@@ -225,7 +225,7 @@ if (model === "sonar-deep-research" && !confirmed) {
     const readline = await import("node:readline");
     const rl = readline.createInterface({ input: process.stdin, output: process.stderr });
     const answer = await new Promise((resolve) => {
-      rl.question("⚠️  Deep Research costs ~$0.40-1.30 per query. Continue? [y/N] ", resolve);
+      rl.question("  Deep Research costs ~$0.40-1.30 per query. Continue? [y/N] ", resolve);
     });
     rl.close();
     if (answer.trim().toLowerCase() !== "y") {
@@ -234,12 +234,12 @@ if (model === "sonar-deep-research" && !confirmed) {
     }
   } else {
     // Non-interactive: require --yes flag
-    console.error("⚠️  Deep Research mode costs ~$0.40-1.30 per query.");
+    console.error("  Deep Research mode costs ~$0.40-1.30 per query.");
     console.error("   Add --yes to confirm: node search.mjs \"query\" --deep --yes");
     process.exit(1);
   }
 } else if (model === "sonar-deep-research" && confirmed) {
-  console.error(`⚠️  Deep Research confirmed (--yes): estimated $0.40-1.30 for this query`);
+  console.error(`  Deep Research confirmed (--yes): estimated $0.40-1.30 for this query`);
 }
 
 if (!apiKey) {

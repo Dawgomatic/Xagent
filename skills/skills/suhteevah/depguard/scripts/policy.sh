@@ -88,7 +88,7 @@ do_policy() {
     fi
 
     if [[ "$lic" == "UNKNOWN" || -z "$lic" ]]; then
-      echo -e "  ${YELLOW}⚠ UNKNOWN${NC} ${BOLD}$name${NC}@$ver — license not specified"
+      echo -e "  ${YELLOW} UNKNOWN${NC} ${BOLD}$name${NC}@$ver — license not specified"
       ((violations++)) || true
     fi
   done < "$license_data"
@@ -174,7 +174,7 @@ do_compliance() {
     echo ""
 
     if [[ "$copyleft" -gt 0 || "$unknown" -gt 0 ]]; then
-      echo "## ⚠ Action Required"
+      echo "##  Action Required"
       echo ""
       if [[ "$unknown" -gt 0 ]]; then
         echo "### Unknown Licenses ($unknown packages)"

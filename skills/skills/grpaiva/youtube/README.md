@@ -1,14 +1,14 @@
-# YouTube 📹
+# YouTube 
 
 YouTube research and transcription skill for [Clawdbot](https://clawdbot.com).
 
 ## Features
 
-- 📹 **Video Details** - Get title, description, stats, publish date
-- 📝 **Transcripts** - Extract transcripts with timestamps
-- 📺 **Channel Info** - Get channel details and recent videos
-- 🔍 **Search** - Find videos by keywords
-- 🎬 **Playlist Info** - Get playlist details
+-  **Video Details** - Get title, description, stats, publish date
+-  **Transcripts** - Extract transcripts with timestamps
+-  **Channel Info** - Get channel details and recent videos
+-  **Search** - Find videos by keywords
+-  **Playlist Info** - Get playlist details
 
 ## Installation
 

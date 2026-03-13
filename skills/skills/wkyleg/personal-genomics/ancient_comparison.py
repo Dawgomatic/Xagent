@@ -196,7 +196,7 @@ def generate_report(aadr_available, haplo_matches, y_haplo, mt_haplo):
     lines.append("")
     
     if not aadr_available:
-        lines.append("⚠️  AADR database not found. For full comparison, download from:")
+        lines.append("  AADR database not found. For full comparison, download from:")
         lines.append("    https://reich.hms.harvard.edu/allen-ancient-dna-resource")
         lines.append("")
         lines.append("    Place files in: ~/ancient-dna/")

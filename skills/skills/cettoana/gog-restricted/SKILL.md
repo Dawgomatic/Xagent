@@ -1,7 +1,7 @@
 ---
 name: gog-restricted
 description: Google Workspace CLI for Gmail, Calendar, and Auth (restricted via security wrapper).
-metadata: { "clawdbot": { "emoji": "📬", "requires": { "bins": ["gog"] } } }
+metadata: { "clawdbot": { "emoji": "", "requires": { "bins": ["gog"] } } }
 ---
 
 # gog (restricted)

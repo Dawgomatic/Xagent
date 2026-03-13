@@ -22,7 +22,7 @@ const count = flags.n || 10;
 const mockUsers = {
   '@elonmusk': { name: 'Elon Musk', handle: '@elonmusk', followers: 195_000_000, following: 820, bio: 'Mars & Cars, Chips & Dips', verified: true },
   '@openai': { name: 'OpenAI', handle: '@openai', followers: 4_200_000, following: 150, bio: 'Creating safe AGI.', verified: true },
-  '@steipete': { name: 'Peter Steinberger', handle: '@steipete', followers: 45_000, following: 1_200, bio: 'Building OpenClaw 🦞', verified: true },
+  '@steipete': { name: 'Peter Steinberger', handle: '@steipete', followers: 45_000, following: 1_200, bio: 'Building OpenClaw ', verified: true },
   '@github': { name: 'GitHub', handle: '@github', followers: 3_800_000, following: 300, bio: 'How people build software.', verified: true },
 };
 
@@ -43,12 +43,12 @@ function mockTweet(id, author, text, extra = {}) {
 
 const mockTweets = [
   mockTweet('1893001', '@elonmusk', 'The future of AI is incredibly exciting. We are building things that will change everything.'),
-  mockTweet('1893002', '@openai', 'Introducing our latest research on reasoning models. Blog post in thread. 🧵'),
+  mockTweet('1893002', '@openai', 'Introducing our latest research on reasoning models. Blog post in thread. '),
   mockTweet('1893003', '@steipete', 'Just shipped a massive OpenClaw update — 50 new skills, faster inference, and better memory. Try it!'),
   mockTweet('1893004', '@github', 'GitHub Copilot now supports multi-file editing. The future of dev is here.'),
   mockTweet('1893005', '@elonmusk', 'Starship flight test 7 was a success. Next stop: Mars.'),
   mockTweet('1893006', '@openai', 'We are hiring researchers across safety, alignment, and capabilities. Apply now.'),
-  mockTweet('1893007', '@steipete', 'OpenClaw can now order food, control your lights, and manage your calendar. All locally. 🦞'),
+  mockTweet('1893007', '@steipete', 'OpenClaw can now order food, control your lights, and manage your calendar. All locally. '),
   mockTweet('1893008', '@github', 'Over 100 million developers now call GitHub home. Thank you.'),
   mockTweet('1893009', '@elonmusk', 'FSD v13 rolling out this week. Biggest neural net update yet.'),
   mockTweet('1893010', '@openai', 'GPT-5 is coming. Stay tuned.'),
@@ -74,7 +74,7 @@ function fmtTweet(t) {
   return [
     `${t.author} (${t.handle}) · ${new Date(t.created_at).toLocaleDateString()}`,
     t.text,
-    `❤️ ${t.likes.toLocaleString()}  🔁 ${t.retweets.toLocaleString()}  💬 ${t.replies.toLocaleString()}  🔖 ${t.bookmarks.toLocaleString()}`,
+    ` ${t.likes.toLocaleString()}   ${t.retweets.toLocaleString()}   ${t.replies.toLocaleString()}   ${t.bookmarks.toLocaleString()}`,
     `ID: ${t.id}`,
     '---',
   ].join('\n');
@@ -105,7 +105,7 @@ switch (command) {
     if (process.env.TWITTER_BEARER_TOKEN) {
       console.log('✓ TWITTER_BEARER_TOKEN is set');
       console.log(`Token: ${process.env.TWITTER_BEARER_TOKEN.slice(0, 8)}...`);
-      console.log(process.env.TWITTER_API_KEY ? '✓ TWITTER_API_KEY is set (write ops enabled)' : '⚠ TWITTER_API_KEY not set (read-only mode)');
+      console.log(process.env.TWITTER_API_KEY ? '✓ TWITTER_API_KEY is set (write ops enabled)' : ' TWITTER_API_KEY not set (read-only mode)');
     } else {
       console.error('✗ TWITTER_BEARER_TOKEN is NOT set');
       process.exit(1);
@@ -124,7 +124,7 @@ switch (command) {
   case 'thread': {
     checkAuth();
     const threadTweets = [
-      mockTweet('1893002', '@openai', 'Introducing our latest research on reasoning models. Blog post in thread. 🧵'),
+      mockTweet('1893002', '@openai', 'Introducing our latest research on reasoning models. Blog post in thread. '),
       mockTweet('1893002a', '@openai', '1/ We trained a new model that can reason step-by-step through complex problems.'),
       mockTweet('1893002b', '@openai', '2/ It achieves state-of-the-art on math, coding, and science benchmarks.'),
       mockTweet('1893002c', '@openai', '3/ Read the full paper and try the model: https://openai.com/research [mock]'),
@@ -139,7 +139,7 @@ switch (command) {
       mockTweet(`r${i}`, ['@dev_jane', '@ai_bob', '@coder42', '@techfan', '@oss_lover'][i], [
         'This is amazing! Can\'t wait to try it.',
         'How does this compare to the previous version?',
-        'Incredible work by the team 👏',
+        'Incredible work by the team ',
         'Any benchmarks on real-world tasks?',
         'Open source when?',
       ][i])

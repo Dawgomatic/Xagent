@@ -2,7 +2,7 @@
 name: voicemonkey
 description: Control Alexa devices via VoiceMonkey API v2 - make announcements, trigger routines, start flows, and display media.
 homepage: https://voicemonkey.io
-metadata: {"clawdbot":{"emoji":"🐒","requires":{"env":["VOICEMONKEY_TOKEN"]},"primaryEnv":"VOICEMONKEY_TOKEN"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["VOICEMONKEY_TOKEN"]},"primaryEnv":"VOICEMONKEY_TOKEN"}}
 ---
 
 # VoiceMonkey

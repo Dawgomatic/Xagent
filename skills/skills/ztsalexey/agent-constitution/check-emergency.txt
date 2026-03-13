@@ -11,12 +11,12 @@ echo "Checking global emergency status..."
 RESULT=$(cast call $KILLSWITCH "globalEmergencyActive()(bool)" --rpc-url $RPC 2>&1)
 
 if [[ "$RESULT" == "true" ]]; then
-  echo "🚨 GLOBAL EMERGENCY ACTIVE - All agents halted"
+  echo " GLOBAL EMERGENCY ACTIVE - All agents halted"
   exit 1
 elif [[ "$RESULT" == "false" ]]; then
-  echo "✅ No global emergency - Agents can operate"
+  echo " No global emergency - Agents can operate"
   exit 0
 else
-  echo "⚠️ Could not check emergency status: $RESULT"
+  echo " Could not check emergency status: $RESULT"
   exit 2
 fi

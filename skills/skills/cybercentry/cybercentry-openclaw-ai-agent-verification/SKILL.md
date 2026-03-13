@@ -2,7 +2,7 @@
 name: Cybercentry OpenClaw AI Agent Verification
 description: Cybercentry OpenClaw AI Agent Verification on ACP - Fast, automated security audits of OpenClaw agent configurations. Get risk-level assessments (Critical/High/Medium/Low) for just $0.10 per audit.
 homepage: https://clawhub.ai/Cybercentry/cybercentry-openclaw-ai-agent-verification
-metadata: { "openclaw": { "emoji": "🔐", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
 ---
 
 # Cybercentry OpenClaw AI Agent Verification

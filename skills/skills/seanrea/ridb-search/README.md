@@ -81,18 +81,18 @@ python3 scripts/search.py -l "Newport, Oregon" --camping-only
 
 Output:
 ```
-📍 Geocoded 'Newport, Oregon' to 44.6368, -124.0534
+ Geocoded 'Newport, Oregon' to 44.6368, -124.0534
 
 Found 34 facilities within 50 miles
 ------------------------------------------------------------
 
-🏕️  TILLICUM
-   ID: 233965 | ✅ Reservable
+  TILLICUM
+   ID: 233965 |  Reservable
    Org: Siuslaw National Forest
    URL: https://www.recreation.gov/camping/campgrounds/233965
 
-🏕️  CAPE PERPETUA
-   ID: 233900 | ✅ Reservable
+  CAPE PERPETUA
+   ID: 233900 |  Reservable
    Org: Siuslaw National Forest
    URL: https://www.recreation.gov/camping/campgrounds/233900
 ```

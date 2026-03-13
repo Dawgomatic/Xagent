@@ -230,14 +230,14 @@ def cmd_order(args):
         quote_request = StockLatestQuoteRequest(symbol_or_symbols=symbol)
         quotes = data_client.get_stock_latest_quote(quote_request)
         if symbol not in quotes:
-            print(f"❌ Error: Symbol '{symbol}' not found or no market data available.")
+            print(f" Error: Symbol '{symbol}' not found or no market data available.")
             return
         quote = quotes[symbol]
         bid = float(quote.bid_price) if quote.bid_price else 0
         ask = float(quote.ask_price) if quote.ask_price else 0
         current_price = ask if side == OrderSide.BUY else bid
     except Exception as e:
-        print(f"❌ Error: Could not validate symbol '{symbol}': {e}")
+        print(f" Error: Could not validate symbol '{symbol}': {e}")
         return
     
     # === GUARDRAIL 2: Buying power check (for buys) ===
@@ -250,7 +250,7 @@ def cmd_order(args):
         estimated_cost = qty * estimated_price if estimated_price > 0 else 0
         
         if estimated_cost > buying_power:
-            print(f"❌ Error: Insufficient buying power.")
+            print(f" Error: Insufficient buying power.")
             print(f"   Order cost: ${estimated_cost:,.2f}")
             print(f"   Buying power: ${buying_power:,.2f}")
             max_shares = int(buying_power / estimated_price) if estimated_price > 0 else 0
@@ -263,7 +263,7 @@ def cmd_order(args):
     duplicate_orders = [o for o in open_orders if o.symbol == symbol and o.side == side]
     
     if duplicate_orders and not force:
-        print(f"⚠️  Warning: You already have {len(duplicate_orders)} open {side.name} order(s) for {symbol}:")
+        print(f"  Warning: You already have {len(duplicate_orders)} open {side.name} order(s) for {symbol}:")
         for o in duplicate_orders:
             o_qty = float(o.qty) if o.qty else 0
             o_price = f"@ ${float(o.limit_price):.2f}" if o.limit_price else "(market)"
@@ -276,7 +276,7 @@ def cmd_order(args):
     # === GUARDRAIL 4: Limit price validation ===
     if args.limit:
         if side == OrderSide.BUY and args.limit > ask and ask > 0:
-            print(f"⚠️  Warning: Buy limit ${args.limit:.2f} is ABOVE current ask ${ask:.2f}")
+            print(f"  Warning: Buy limit ${args.limit:.2f} is ABOVE current ask ${ask:.2f}")
             print(f"   This will likely fill immediately at ~${ask:.2f}")
             print(f"   Suggested: Set limit at or below ${ask:.2f}")
             if not force:
@@ -286,7 +286,7 @@ def cmd_order(args):
                     return
                     
         elif side == OrderSide.SELL and args.limit < bid and bid > 0:
-            print(f"⚠️  Warning: Sell limit ${args.limit:.2f} is BELOW current bid ${bid:.2f}")
+            print(f"  Warning: Sell limit ${args.limit:.2f} is BELOW current bid ${bid:.2f}")
             print(f"   This will likely fill immediately at ~${bid:.2f}")
             print(f"   Suggested: Set limit at or above ${bid:.2f}")
             if not force:
@@ -300,7 +300,7 @@ def cmd_order(args):
     extended_hours = False
     
     if not is_regular_hours and not force:
-        print(f"\n⏰ Market Status: {session_msg}")
+        print(f"\n Market Status: {session_msg}")
         
         if session_type == 'pre-market':
             print("   Regular market opens at 9:30 AM ET.")
@@ -348,15 +348,15 @@ def cmd_order(args):
     if args.limit:
         order_price = args.limit
         total_cost = qty * order_price
-        print(f"\n📋 Order Summary:")
+        print(f"\n Order Summary:")
         print(f"   {side.name} {int(qty)} {symbol} @ ${order_price:.2f} limit")
         print(f"   Total: ${total_cost:,.2f}")
     elif args.stop:
-        print(f"\n📋 Order Summary:")
+        print(f"\n Order Summary:")
         print(f"   {side.name} {int(qty)} {symbol} @ ${args.stop:.2f} stop")
     else:
         estimated_total = qty * current_price if current_price > 0 else 0
-        print(f"\n📋 Order Summary:")
+        print(f"\n Order Summary:")
         print(f"   {side.name} {int(qty)} {symbol} @ MARKET (~${current_price:.2f})")
         print(f"   Estimated total: ${estimated_total:,.2f}")
     
@@ -404,7 +404,7 @@ def cmd_order(args):
     else:
         # Market order (note: market orders don't support extended hours)
         if extended_hours:
-            print("⚠️  Note: Market orders don't support extended hours. Converting to limit order at current price.")
+            print("  Note: Market orders don't support extended hours. Converting to limit order at current price.")
             request = LimitOrderRequest(
                 symbol=symbol,
                 qty=qty,
@@ -620,23 +620,23 @@ def cmd_alert(args):
             quote_request = StockLatestQuoteRequest(symbol_or_symbols=symbol)
             quotes = data_client.get_stock_latest_quote(quote_request)
             if symbol not in quotes:
-                print(f"❌ Error: Symbol '{symbol}' not found.")
+                print(f" Error: Symbol '{symbol}' not found.")
                 return
             quote = quotes[symbol]
             current_price = float(quote.ask_price) if quote.ask_price else float(quote.bid_price)
         except Exception as e:
-            print(f"❌ Error validating symbol: {e}")
+            print(f" Error validating symbol: {e}")
             return
         
         # Validate condition makes sense
         if condition == 'above' and target_price <= current_price:
-            print(f"⚠️  Warning: {symbol} is already at ${current_price:.2f}, above your target ${target_price:.2f}")
+            print(f"  Warning: {symbol} is already at ${current_price:.2f}, above your target ${target_price:.2f}")
             confirm = input("   Create alert anyway? (y/n): ").strip().lower()
             if confirm != 'y':
                 print("Alert cancelled.")
                 return
         elif condition == 'below' and target_price >= current_price:
-            print(f"⚠️  Warning: {symbol} is already at ${current_price:.2f}, below your target ${target_price:.2f}")
+            print(f"  Warning: {symbol} is already at ${current_price:.2f}, below your target ${target_price:.2f}")
             confirm = input("   Create alert anyway? (y/n): ").strip().lower()
             if confirm != 'y':
                 print("Alert cancelled.")
@@ -657,7 +657,7 @@ def cmd_alert(args):
         data["alerts"].append(alert)
         save_alerts(data)
         
-        print(f"✅ Alert created!")
+        print(f" Alert created!")
         print(f"   ID: {alert['id']}")
         print(f"   {symbol} {condition} ${target_price:.2f}")
         print(f"   Current price: ${current_price:.2f}")
@@ -684,16 +684,16 @@ def cmd_alert(args):
         data["alerts"] = [a for a in data["alerts"] if a["id"] != alert_id]
         
         if len(data["alerts"]) == original_count:
-            print(f"❌ Alert '{alert_id}' not found.")
+            print(f" Alert '{alert_id}' not found.")
             return
         
         save_alerts(data)
-        print(f"✅ Alert '{alert_id}' removed.")
+        print(f" Alert '{alert_id}' removed.")
     
     elif args.alert_action == "clear":
         data = {"alerts": []}
         save_alerts(data)
-        print("✅ All alerts cleared.")
+        print(" All alerts cleared.")
     
     elif args.alert_action == "check":
         # Check all alerts against current prices (called by cron)
@@ -712,7 +712,7 @@ def cmd_alert(args):
             quote_request = StockLatestQuoteRequest(symbol_or_symbols=symbols)
             quotes = data_client.get_stock_latest_quote(quote_request)
         except Exception as e:
-            print(f"❌ Error fetching quotes: {e}")
+            print(f" Error fetching quotes: {e}")
             return
         
         triggered = []
@@ -739,7 +739,7 @@ def cmd_alert(args):
         save_alerts(data)
         
         if triggered:
-            print("🚨 ALERTS TRIGGERED:")
+            print(" ALERTS TRIGGERED:")
             for a in triggered:
                 print(f"   {a['symbol']} hit ${a['triggered_price']:.2f} ({a['condition']} ${a['target_price']:.2f})")
             # Output in a format that can be parsed for notifications

@@ -8,13 +8,13 @@ set -euo pipefail
 DATA_DIR="${1:-./data}"
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "📊 한국 정부지원사업 수집 현황"
+echo " 한국 정부지원사업 수집 현황"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "📁 데이터 디렉토리: $DATA_DIR"
+echo " 데이터 디렉토리: $DATA_DIR"
 echo ""
 
 if [[ ! -d "$DATA_DIR" ]]; then
-  echo "⚠️  디렉토리 없음: $DATA_DIR"
+  echo "  디렉토리 없음: $DATA_DIR"
   echo "   python3 scripts/collect.py --output $DATA_DIR 를 먼저 실행하세요."
   exit 0
 fi
@@ -88,7 +88,7 @@ PYEOF
 CHECKPOINT="$DATA_DIR/.checkpoint.json"
 if [[ -f "$CHECKPOINT" ]]; then
   echo ""
-  echo "📍 체크포인트:"
+  echo " 체크포인트:"
   python3 -c "
 import json
 with open('$CHECKPOINT', encoding='utf-8') as f:

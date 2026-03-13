@@ -6,8 +6,8 @@ A lightweight production bridge that adds **persistent caller memory** and **dyn
 
 ```
 ┌──────────────┐       ┌──────────────────┐       ┌──────────────────┐
-│   Caller     │──────▶│     Twilio        │──────▶│   ElevenLabs     │
-│  (Phone)     │◀──────│  (Phone Number)   │◀──────│  Conversational  │
+│   Caller     │──────│     Twilio        │──────│   ElevenLabs     │
+│  (Phone)     │──────│  (Phone Number)   │──────│  Conversational  │
 └──────────────┘       └──────────────────┘       │       AI         │
                               │                    │                  │
                               │ Native integration │   STT → LLM → TTS│
@@ -78,8 +78,8 @@ cp .env.example .env
    - URL: `https://your-openclaw-instance.example.com/v1/chat/completions`
    - Add your OpenClaw API key as a secret
 4. Under **Security → Overrides**, enable:
-   - ✅ System prompt
-   - ✅ First message
+   -  System prompt
+   -  First message
 5. Under **Settings → Webhooks**, add your personalization webhook:
    - URL: `https://your-bridge.example.com/webhook/personalize`
    - Add your `WEBHOOK_SECRET` as a header secret if desired

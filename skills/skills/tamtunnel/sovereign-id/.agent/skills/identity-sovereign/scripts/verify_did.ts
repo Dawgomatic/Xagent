@@ -32,7 +32,7 @@ async function main() {
       publicKey,
     );
 
-    console.log("✅ Verification SUCCESS: JWS signature is valid.");
+    console.log(" Verification SUCCESS: JWS signature is valid.");
     console.log("Protected Header:", protectedHeader);
 
     const verifiedPayloadStr = new TextDecoder().decode(payload);
@@ -51,10 +51,10 @@ async function main() {
           `Token expired at ${verifiedMandate.exp}, now is ${now}`,
         );
       }
-      console.log("✅ Token is within expiration window.");
+      console.log(" Token is within expiration window.");
     } else {
       console.warn(
-        "⚠️  Warning: Token has no expiration (exp) field. Rejected by policy.",
+        "  Warning: Token has no expiration (exp) field. Rejected by policy.",
       );
       throw new Error("Missing 'exp' claim.");
     }
@@ -63,7 +63,7 @@ async function main() {
     if (!verifiedMandate.jti) {
       throw new Error("Missing 'jti' claim (Replay Protection).");
     }
-    console.log(`✅ JTI Present: ${verifiedMandate.jti}`);
+    console.log(` JTI Present: ${verifiedMandate.jti}`);
 
     // Stateful Replay Protection (JTI Ledger)
     const ledgerPath = path.join(__dirname, ".jti_ledger.json");
@@ -89,9 +89,9 @@ async function main() {
     // Record JTI
     ledger[verifiedMandate.jti] = verifiedMandate.exp || now + 3600;
     fs.writeFileSync(ledgerPath, JSON.stringify(ledger, null, 2));
-    console.log("✅ JTI Recorded in Ledger (Replay Protected).");
+    console.log(" JTI Recorded in Ledger (Replay Protected).");
   } catch (err) {
-    console.error("❌ Verification FAILED:", err);
+    console.error(" Verification FAILED:", err);
     process.exit(1);
   }
 }

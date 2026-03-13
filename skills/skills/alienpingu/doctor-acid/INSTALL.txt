@@ -260,4 +260,4 @@ crontab -e
 
 ---
 
-**You're ready! Launch your autonomous acid techno musician and start earning USDC. 🎛️🎵**
+**You're ready! Launch your autonomous acid techno musician and start earning USDC. **

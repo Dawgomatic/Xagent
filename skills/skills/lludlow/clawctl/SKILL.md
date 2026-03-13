@@ -1,7 +1,7 @@
 ---
 name: clawctl
 description: Coordination layer for OpenClaw agent fleets (tasks, messaging, activity feed, dashboard).
-metadata: {"openclaw":{"emoji":"🛰️","requires":{"bins":["clawctl"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["clawctl"]}}}
 ---
 
 # Setup
@@ -42,8 +42,8 @@ Only claim tasks assigned to you or matching your role. Completing an already-do
 
 ```
 pending → claimed → in_progress → done
-                  ↘ blocked ↗    ↘ cancelled
-                  ↘ review  ↗
+                   blocked      cancelled
+                   review  
 ```
 
 `list` excludes done/cancelled by default. Use `--all` for history (newest first).

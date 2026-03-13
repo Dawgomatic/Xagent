@@ -15,9 +15,9 @@ You're not generating what a specific excellent creator would make. You're gener
 
 ### 1. Identity Anchoring > Instruction Stacking
 
-❌ "Write elegantly with varied sentence structure and sophisticated vocabulary"
+ "Write elegantly with varied sentence structure and sophisticated vocabulary"
 
-✅ "You are a writer who studied under Joan Didion. Every sentence is a small act of violence against vagueness."
+ "You are a writer who studied under Joan Didion. Every sentence is a small act of violence against vagueness."
 
 The first adds constraints the model must satisfy simultaneously (usually producing hedged output).
 

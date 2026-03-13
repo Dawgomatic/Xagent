@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🦜",
+        "emoji": "",
         "homepage": "https://slidespeak.co",
         "requires": { "env": [ "SLIDESPEAK_API_KEY" ] },
         "primaryEnv": "SLIDESPEAK_API_KEY",

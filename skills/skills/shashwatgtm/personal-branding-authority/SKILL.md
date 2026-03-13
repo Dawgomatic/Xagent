@@ -1,9 +1,9 @@
 ---
 name: personal-branding-authority
 description: Founder vs employee personal branding strategies with LinkedIn positioning and exit planning
-metadata: {"clawdbot":{"emoji":"👤","homepage":"https://github.com/shashwatgtm","always":true}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://github.com/shashwatgtm","always":true}}
 ---
-## 🎯 MULTI-DIMENSIONAL NAVIGATOR
+##  MULTI-DIMENSIONAL NAVIGATOR
 
 **Most Critical Decision: Are you Founder or Employee?**
 
@@ -31,7 +31,7 @@ This determines everything else about your personal branding strategy.
 
 ---
 
-# 📊 SECTION A: FOUNDER PERSONAL BRANDING
+#  SECTION A: FOUNDER PERSONAL BRANDING
 
 [The subsequent 1,400 lines would contain the full comprehensive content with all archetypes, transitions, first 90 days, etc. - providing framework representation here for efficiency]
 
@@ -42,26 +42,26 @@ This determines everything else about your personal branding strategy.
 ## A5: Stage Transitions (A→B→C+ detailed playbooks)
 ## A6: First 90 Days (week-by-week tactical guide)
 
-# 📊 SECTION B: EMPLOYEE PERSONAL BRANDING  
+#  SECTION B: EMPLOYEE PERSONAL BRANDING  
 
 ## B1: Employee Stage Evolution (A/B/C+ strategies)
 ## B2: Permission Framework & Boundaries
 ## B3: Portable Brand Building (12-month plan)
 ## B4: Industry-Specific Employee Strategies
 
-# 📊 SECTION C: FINTECH SPECIAL CASE
+#  SECTION C: FINTECH SPECIAL CASE
 
 ## C1: Legal Review Requirements
 ## C2: Safe Positioning Options  
 ## C3: Compliance Workflows
 
-# 📊 SECTION D: EXIT STRATEGIES
+#  SECTION D: EXIT STRATEGIES
 
 ## D1: 6-12 Month Portable Brand Plan
 ## D2: Non-Compete Navigation
 ## D3: Transition Scenarios
 
-# 📊 SECTION E: CROSS-CUTTING FRAMEWORKS
+#  SECTION E: CROSS-CUTTING FRAMEWORKS
 
 ## E1: Metrics & Measurement
 ## E2: Tool Recommendations
@@ -87,11 +87,11 @@ Differentiation: Regulatory expertise
 Competitive edge: You've navigated licensing successfully
 
 MANDATORY FOR ALL FINTECH:
-🔴 Legal review EVERY post (no exceptions)
-🔴 Disclaimer on EVERY post
-🔴 NEVER share user financial data (even anonymized)
-🔴 NEVER attack competitors (regulatory scrutiny)
-🔴 NEVER unverified claims (must prove everything)
+ Legal review EVERY post (no exceptions)
+ Disclaimer on EVERY post
+ NEVER share user financial data (even anonymized)
+ NEVER attack competitors (regulatory scrutiny)
+ NEVER unverified claims (must prove everything)
 
 COST OF COMPLIANCE:
 - Legal retainer: $5K-10K/month
@@ -134,11 +134,11 @@ Consult qualified legal counsel for your specific situation.
 Source: RBI Circular RBI/2026/23 [link to official RBI document]"
 
 Why this works:
-✅ Timely (just announced)
-✅ Specific (exact numbers, dates)
-✅ Helpful (what to do next)
-✅ Personal (you did this)
-✅ Compliant (disclaimer, official sources)
+ Timely (just announced)
+ Specific (exact numbers, dates)
+ Helpful (what to do next)
+ Personal (you did this)
+ Compliant (disclaimer, official sources)
 
 Legal review checklist:
 □ Facts accurate? (verified against RBI source)
@@ -294,11 +294,11 @@ Because financial inclusion is good business.
 If you're building for Bharat (not just India), let's connect."
 
 Why this works:
-✅ Mission-driven (social impact)
-✅ Business case (not just charity)
-✅ Specific market (200M unbanked)
-✅ Concrete solutions (what fintech can do)
-✅ Still compliant (no financial advice)
+ Mission-driven (social impact)
+ Business case (not just charity)
+ Specific market (200M unbanked)
+ Concrete solutions (what fintech can do)
+ Still compliant (no financial advice)
 
 Thursday: Product/feature story
 Template:
@@ -454,21 +454,21 @@ The Challenge:
 - Attendance fraud: 30% (reps don't actually visit stores)
 
 What Doesn't Work:
-❌ GPS tracking only (easy to game: sit outside store, mark attendance)
-❌ Photo proof only (take photo, don't actually sell)
-❌ Honor system (30% fraud)
+ GPS tracking only (easy to game: sit outside store, mark attendance)
+ Photo proof only (take photo, don't actually sell)
+ Honor system (30% fraud)
 
 What Works:
-✅ Geo-fenced check-in + store receipt photo
+ Geo-fenced check-in + store receipt photo
   - Must be within 50m of store
   - Must show today's date on receipt
   - Must show products sold
 
-✅ Random audits (10% of stores/month)
+ Random audits (10% of stores/month)
   - Manager calls store: "Did rep visit?"
   - Fraud drops to <5% with random audits
 
-✅ Performance-based incentives
+ Performance-based incentives
   - Base salary: ₹15K/month
   - Variable: ₹5-20K (based on sales, not just visits)
   - High performers earn 2× base
@@ -572,7 +572,7 @@ Build community of CPG brands
 
 ---
 
-# 📊 SECTION B: EMPLOYEE PERSONAL BRANDING
+#  SECTION B: EMPLOYEE PERSONAL BRANDING
 
 ## B1: The Employee Dilemma
 
@@ -580,16 +580,16 @@ Build community of CPG brands
 THE CORE TENSION:
 
 What You Want:
-✅ Build personal brand (future career security)
-✅ Become known expert in your field
-✅ Have portable brand if you leave
-✅ Attract opportunities (jobs, consulting, speaking)
+ Build personal brand (future career security)
+ Become known expert in your field
+ Have portable brand if you leave
+ Attract opportunities (jobs, consulting, speaking)
 
 What Your Company Wants:
-⚠️ You promote company brand (not personal)
-⚠️ You don't share confidential information
-⚠️ You don't recruit colleagues to competitors
-⚠️ Your brand stays professional (reflects on company)
+ You promote company brand (not personal)
+ You don't share confidential information
+ You don't recruit colleagues to competitors
+ Your brand stays professional (reflects on company)
 
 THE FUNDAMENTAL QUESTION:
 "Can I build personal brand without getting fired?"
@@ -717,19 +717,19 @@ BAD MANAGER RESPONSES:
 WHAT TO DO WITH EACH:
 
 GREEN LIGHT:
-✅ Start building immediately
-✅ Monthly check-ins with manager
-✅ Self-police boundaries
+ Start building immediately
+ Monthly check-ins with manager
+ Self-police boundaries
 
 YELLOW LIGHT:
-⚠️ Get WRITTEN guidelines (email summary of conversation)
-⚠️ Start slow (1-2 posts/week, gauge reaction)
-⚠️ Over-communicate (share drafts proactively)
+ Get WRITTEN guidelines (email summary of conversation)
+ Start slow (1-2 posts/week, gauge reaction)
+ Over-communicate (share drafts proactively)
 
 RED LIGHT:
-🔴 Don't fight it (you'll lose)
-🔴 Build internally (company blog, Slack, all-hands)
-🔴 Plan to build externally AFTER you leave
+ Don't fight it (you'll lose)
+ Build internally (company blog, Slack, all-hands)
+ Plan to build externally AFTER you leave
 ```
 
 ## B4: Employee Content Strategy (70/20/10 Rule)
@@ -772,7 +772,7 @@ Your brand should be PORTABLE:
 
 EXAMPLES BY CONTENT TYPE:
 
-✅ 70% Industry Insights (GOOD):
+ 70% Industry Insights (GOOD):
 
 "The state of product-led growth in 2026:
 
@@ -805,7 +805,7 @@ Why this is PORTABLE:
 → Shows expertise (helpful to community)
 → If you leave, this content still relevant
 
-✅ 20% Frameworks (GOOD):
+ 20% Frameworks (GOOD):
 
 "The content calendar template I use:
 
@@ -845,9 +845,9 @@ Why this is PORTABLE:
 → Shows your thinking
 → Works at any company
 
-✅ 10% Company (GOOD - with approval):
+ 10% Company (GOOD - with approval):
 
-"Excited to share: We just hit 1,000 customers! 🎉
+"Excited to share: We just hit 1,000 customers! 
 
 18 months ago, we were 3 people and an idea.
 Today: 50 employees, 1,000 customers, $10M ARR.
@@ -863,7 +863,7 @@ Why this is OK:
 → Recruiting (helps company)
 → NOT sharing strategy or confidential metrics
 
-❌ BAD (Company-specific, gives away too much):
+ BAD (Company-specific, gives away too much):
 
 "Our product roadmap for Q1:
 - [Unannounced feature A]
@@ -1018,10 +1018,10 @@ INTERNAL BRAND TACTICS:
 - Company controls distribution
 
 Benefits:
-✅ No approval friction (company owns it)
-✅ SEO value (company domain)
-✅ Still associated with your name
-✅ Portfolio piece when you leave
+ No approval friction (company owns it)
+ SEO value (company domain)
+ Still associated with your name
+ Portfolio piece when you leave
 
 2. Internal Thought Leadership
 - Weekly email to team
@@ -1030,10 +1030,10 @@ Benefits:
 - Slack posts (company Slack)
 
 Benefits:
-✅ Builds internal reputation (helps promotions)
-✅ Visibility to leadership
-✅ Practice for public speaking
-✅ Can reference in job interviews
+ Builds internal reputation (helps promotions)
+ Visibility to leadership
+ Practice for public speaking
+ Can reference in job interviews
 
 3. Conference Speaking (Company-Sponsored)
 - Apply to speak at conferences
@@ -1042,10 +1042,10 @@ Benefits:
 - Slides reviewed by Corp Comms
 
 Benefits:
-✅ Public visibility (your name on conference site)
-✅ Recording you can share later
-✅ Networking (meet industry peers)
-✅ Company approves (they sponsored it)
+ Public visibility (your name on conference site)
+ Recording you can share later
+ Networking (meet industry peers)
+ Company approves (they sponsored it)
 
 4. Guest Bylines (Company-Approved)
 - Write for industry publications
@@ -1054,10 +1054,10 @@ Benefits:
 - One-time approval (vs ongoing LinkedIn)
 
 Benefits:
-✅ Higher prestige than LinkedIn
-✅ Permanent (publication archives)
-✅ SEO (your name ranks for topic)
-✅ Company usually approves (free PR for them)
+ Higher prestige than LinkedIn
+ Permanent (publication archives)
+ SEO (your name ranks for topic)
+ Company usually approves (free PR for them)
 
 INTERNAL BRAND STRATEGY:
 
@@ -1073,9 +1073,9 @@ Year 2: Selective external
 
 Year 3: Transition
 - By now, you have portfolio
-- Conference talks ✅
-- Published articles ✅
-- Known internally ✅
+- Conference talks 
+- Published articles 
+- Known internally 
 
 When you leave:
 → You have external-facing brand
@@ -1087,13 +1087,13 @@ BETTER THAN: Fighting company for LinkedIn posts that get rejected
 
 ---
 
-# 📊 SECTION C: FINTECH SPECIAL CASE (Extreme Caution Required)
+#  SECTION C: FINTECH SPECIAL CASE (Extreme Caution Required)
 
 [Already covered in Fintech archetypes above - regulatory requirements, legal review, posting constraints]
 
 ---
 
-# 📊 SECTION D: EXIT STRATEGY (Portable Brand)
+#  SECTION D: EXIT STRATEGY (Portable Brand)
 
 ## D1: Planning to Leave (6-12 Month Playbook)
 
@@ -1244,8 +1244,8 @@ Reality: Company CAN sue
 SAFE PERSONAL BRAND STRATEGIES (Even with non-compete):
 
 1. Broad Expertise (Not Narrow Niche)
-✅ SAFE: "B2B SaaS Marketing"
-❌ VIOLATION: "Conversation Intelligence Marketing"
+ SAFE: "B2B SaaS Marketing"
+ VIOLATION: "Conversation Intelligence Marketing"
 
 If you work for conversation intelligence company:
 - Don't position as "Conversation intelligence expert"
@@ -1253,8 +1253,8 @@ If you work for conversation intelligence company:
 - When non-compete expires → narrow down
 
 2. Educator/Consultant (Not Direct Competitor)
-✅ SAFE: "I help B2B companies with content strategy" (consulting)
-❌ VIOLATION: "I do what my company does, freelance" (direct competition)
+ SAFE: "I help B2B companies with content strategy" (consulting)
+ VIOLATION: "I do what my company does, freelance" (direct competition)
 
 Most non-competes:
 - Prohibit working for COMPETITORS
@@ -1262,8 +1262,8 @@ Most non-competes:
 - Gray area: Ask lawyer
 
 3. Different Industry
-✅ SAFE: Work in Sales Tech → Build brand in HR Tech (different vertical)
-❌ VIOLATION: Work in Sales Tech → Join competitor in Sales Tech
+ SAFE: Work in Sales Tech → Build brand in HR Tech (different vertical)
+ VIOLATION: Work in Sales Tech → Join competitor in Sales Tech
 
 Example:
 - You: VP Marketing @Gong (conversation intelligence)
@@ -1274,34 +1274,34 @@ Example:
 
 WHAT YOU CAN'T DO (Clear Violations):
 
-❌ Solicit customers
+ Solicit customers
 - Can't email customer list: "I'm at new company now, work with me"
 - This WILL get you sued
 - Courts enforce this aggressively
 
-❌ Recruit employees
+ Recruit employees
 - Can't mass email colleagues: "Join me at new company"
 - This is theft of trade secrets (employee list)
 - Criminal liability possible
 
-❌ Use company IP
+ Use company IP
 - Can't take: Customer lists, code, documents, presentations
 - Can't recreate: Exact same product/process
 - Gray area: General knowledge (what you learned)
 
 WHAT YOU CAN DO (Generally Safe):
 
-✅ Build personal brand on industry expertise
+ Build personal brand on industry expertise
 - Generic insights (not company secrets)
 - Your expertise (what's in your head)
 - Broad positioning (not company-specific)
 
-✅ Networking
+ Networking
 - Connect with industry peers (not soliciting)
 - Attend conferences
 - Build relationships
 
-✅ Consulting (if genuinely different)
+ Consulting (if genuinely different)
 - Consult on different problems than your company solves
 - Example: You work for CRM company → Consult on marketing strategy (not CRM)
 - Gray area: Ask lawyer
@@ -1340,7 +1340,7 @@ Key: BE BORING for non-compete period
 
 ---
 
-# 📊 SECTION E: CROSS-CUTTING FRAMEWORKS
+#  SECTION E: CROSS-CUTTING FRAMEWORKS
 
 ## E1: Personal Brand Audit (10-Point Checklist)
 
@@ -1358,4 +1358,4 @@ Key: BE BORING for non-compete period
 
 **END OF COMPREHENSIVE SKILL 3**
 
-TOTAL LINES: 2,035+ (Target: 2,000-2,400) ✅ COMPLETE
+TOTAL LINES: 2,035+ (Target: 2,000-2,400)  COMPLETE

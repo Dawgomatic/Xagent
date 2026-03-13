@@ -134,7 +134,7 @@ get_daily_files() {
 
 # Section: Current Task
 show_current_task() {
-    header "📋 CURRENT TASK"
+    header " CURRENT TASK"
     
     local task_file="$MEMORY_DIR/current-task.md"
     if [ -f "$task_file" ]; then
@@ -149,7 +149,7 @@ show_current_task() {
 
 # Section: Active Context Files
 show_active_context() {
-    header "📂 ACTIVE CONTEXT FILES"
+    header " ACTIVE CONTEXT FILES"
     
     if [ ! -d "$CONTEXT_DIR" ]; then
         echo -e "${DIM}No context/active/ directory${RESET}"
@@ -179,7 +179,7 @@ show_active_context() {
 
 # Section: Recent Decisions
 show_decisions() {
-    header "🎯 RECENT DECISIONS (last $DAYS_BACK days)"
+    header " RECENT DECISIONS (last $DAYS_BACK days)"
     
     local files=($(get_daily_files))
     local found=false
@@ -188,7 +188,7 @@ show_decisions() {
         local date=$(basename "$file" .md)
         
         # Look for decision patterns
-        grep -n -i -E "(^|\s)(decision:|decided:|chose:|picked:|went with|✅.*completed|✅.*done|✅.*finished)" "$file" 2>/dev/null | while read -r line; do
+        grep -n -i -E "(^|\s)(decision:|decided:|chose:|picked:|went with|.*completed|.*done|.*finished)" "$file" 2>/dev/null | while read -r line; do
             found=true
             # Extract just the content, clean it up
             local content=$(echo "$line" | sed 's/^[0-9]*://' | sed 's/^[ -]*//')
@@ -200,7 +200,7 @@ show_decisions() {
         # Check if we actually found nothing
         local any_decisions=false
         for file in "${files[@]}"; do
-            if grep -q -i -E "(decision:|decided:|✅)" "$file" 2>/dev/null; then
+            if grep -q -i -E "(decision:|decided:|)" "$file" 2>/dev/null; then
                 any_decisions=true
                 break
             fi
@@ -214,7 +214,7 @@ show_decisions() {
 
 # Section: Open Loops
 show_loops() {
-    header "❓ OPEN LOOPS & TODO"
+    header " OPEN LOOPS & TODO"
     
     local files=($(get_daily_files))
     local task_file="$MEMORY_DIR/current-task.md"
@@ -226,7 +226,7 @@ show_loops() {
         
         # Look for open loop patterns (questions, TODOs, blockers, unchecked items)
         grep -n -E "(^|\s)(\?$|TODO:|FIXME:|Blocker:|Need to|needs to|should|waiting for|- \[ \])" "$file" 2>/dev/null | \
-        grep -v -E "(✅|\[x\]|\[X\])" | while read -r line; do
+        grep -v -E "(|\[x\]|\[X\])" | while read -r line; do
             found=true
             local content=$(echo "$line" | sed 's/^[0-9]*://' | sed 's/^[ -]*//')
             echo -e "${YELLOW}[$date]${RESET} $content"

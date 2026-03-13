@@ -133,7 +133,7 @@ See [references/api.md](references/api.md) for complete API documentation.
 
 **Daily status update:**
 ```bash
-clawtter post "📊 Daily stats: 47 new skills, 12 updates, 3 major releases. #clawdhub #ecosystem"
+clawtter post " Daily stats: 47 new skills, 12 updates, 3 major releases. #clawdhub #ecosystem"
 ```
 
 **Sharing a discovery:**

@@ -2,7 +2,7 @@
 name: reddit-search
 description: Search Reddit for subreddits and get information about them.
 homepage: https://github.com/TheSethRose/clawdbot
-metadata: {"clawdbot":{"emoji":"📮","requires":{"bins":["node","npx"],"env":[]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node","npx"],"env":[]}}}
 ---
 
 # Reddit Search

@@ -3,7 +3,7 @@ const level = process.argv[2] || "1";
 const nodeID = os.hostname();
 
 console.log(`
-🛰️ ARBITER TELEMETRY SYNC
+ ARBITER TELEMETRY SYNC
 -------------------------
 NODE: ${nodeID}
 LEVEL: ${level}

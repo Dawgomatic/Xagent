@@ -35,7 +35,7 @@ def send_telegram_notification(message: str, config_file: str = None):
     config_path = Path(config_file) if config_file else DEFAULT_CONFIG_FILE
     
     if not config_path.exists():
-        print(f"⚠️ Telegram 配置文件不存在: {config_path}", file=sys.stderr)
+        print(f" Telegram 配置文件不存在: {config_path}", file=sys.stderr)
         return False
     
     try:
@@ -46,7 +46,7 @@ def send_telegram_notification(message: str, config_file: str = None):
         chat_id = config.get('chat_id')
         
         if not bot_token or not chat_id:
-            print("⚠️ Telegram 配置不完整（需要 bot_token 和 chat_id）", file=sys.stderr)
+            print(" Telegram 配置不完整（需要 bot_token 和 chat_id）", file=sys.stderr)
             return False
         
         # 发送消息
@@ -58,13 +58,13 @@ def send_telegram_notification(message: str, config_file: str = None):
         }, timeout=10)
         
         if resp.status_code == 200 and resp.json().get('ok'):
-            print(f"📤 Telegram 通知已发送", file=sys.stderr)
+            print(f" Telegram 通知已发送", file=sys.stderr)
             return True
         else:
-            print(f"⚠️ Telegram 发送失败: {resp.text}", file=sys.stderr)
+            print(f" Telegram 发送失败: {resp.text}", file=sys.stderr)
             return False
     except Exception as e:
-        print(f"⚠️ Telegram 通知失败: {e}", file=sys.stderr)
+        print(f" Telegram 通知失败: {e}", file=sys.stderr)
         return False
 
 
@@ -94,7 +94,7 @@ async def csdn_login(cookie_file: str = None, qr_output: str = None, headless: b
     cookie_path.parent.mkdir(parents=True, exist_ok=True)
     qr_path.parent.mkdir(parents=True, exist_ok=True)
     
-    print("🚀 启动浏览器...", file=sys.stderr)
+    print(" 启动浏览器...", file=sys.stderr)
     print(f"   代理: {proxy_server}", file=sys.stderr)
     
     async with async_playwright() as p:
@@ -106,7 +106,7 @@ async def csdn_login(cookie_file: str = None, qr_output: str = None, headless: b
         context = await browser.new_context()
         page = await context.new_page()
         
-        print("🌐 打开 CSDN 登录页面...", file=sys.stderr)
+        print(" 打开 CSDN 登录页面...", file=sys.stderr)
         await page.goto("https://passport.csdn.net/login", timeout=60000)
         await asyncio.sleep(3)
         
@@ -116,9 +116,9 @@ async def csdn_login(cookie_file: str = None, qr_output: str = None, headless: b
             if qr_tab:
                 await qr_tab.click()
                 await asyncio.sleep(2)
-                print("📱 已切换到扫码登录", file=sys.stderr)
+                print(" 已切换到扫码登录", file=sys.stderr)
         except Exception as e:
-            print(f"⚠️ 切换扫码登录失败: {e}", file=sys.stderr)
+            print(f" 切换扫码登录失败: {e}", file=sys.stderr)
         
         # 截取二维码图片
         qr_captured = False
@@ -137,7 +137,7 @@ async def csdn_login(cookie_file: str = None, qr_output: str = None, headless: b
                 if qr_element:
                     await qr_element.screenshot(path=str(qr_path))
                     qr_captured = True
-                    print(f"📸 二维码已保存: {qr_path}", file=sys.stderr)
+                    print(f" 二维码已保存: {qr_path}", file=sys.stderr)
                     break
             
             if not qr_captured:
@@ -145,19 +145,19 @@ async def csdn_login(cookie_file: str = None, qr_output: str = None, headless: b
                 if login_box:
                     await login_box.screenshot(path=str(qr_path))
                     qr_captured = True
-                    print(f"📸 登录区域已截图: {qr_path}", file=sys.stderr)
+                    print(f" 登录区域已截图: {qr_path}", file=sys.stderr)
                 else:
                     await page.screenshot(path=str(qr_path))
                     qr_captured = True
-                    print(f"📸 整页截图已保存: {qr_path}", file=sys.stderr)
+                    print(f" 整页截图已保存: {qr_path}", file=sys.stderr)
         except Exception as e:
-            print(f"⚠️ 截图失败: {e}", file=sys.stderr)
+            print(f" 截图失败: {e}", file=sys.stderr)
         
         if qr_captured:
             print(f"QR_PATH:{qr_path}")
         
         # 等待登录成功
-        print(f"⏳ 等待扫码登录（最多 {timeout} 秒）...", file=sys.stderr)
+        print(f" 等待扫码登录（最多 {timeout} 秒）...", file=sys.stderr)
         
         logged_in = False
         for i in range(timeout):
@@ -180,13 +180,13 @@ async def csdn_login(cookie_file: str = None, qr_output: str = None, headless: b
                 print(f"   已等待 {i + 1} 秒...", file=sys.stderr)
         
         if not logged_in:
-            print("❌ 登录超时", file=sys.stderr)
+            print(" 登录超时", file=sys.stderr)
             if notify:
-                send_telegram_notification("❌ CSDN 登录超时，请重试", config_file)
+                send_telegram_notification(" CSDN 登录超时，请重试", config_file)
             await browser.close()
             return {"success": False, "qr_path": str(qr_path) if qr_captured else None, "message": "登录超时"}
         
-        print("✅ 登录成功！", file=sys.stderr)
+        print(" 登录成功！", file=sys.stderr)
         
         # 访问 CSDN 主站以获取完整 Cookie
         await page.goto("https://www.csdn.net/")
@@ -199,17 +199,17 @@ async def csdn_login(cookie_file: str = None, qr_output: str = None, headless: b
         with open(cookie_path, 'w', encoding='utf-8') as f:
             json.dump(storage_state, f, ensure_ascii=False, indent=2)
         
-        print(f"💾 Cookie 已保存到: {cookie_path}", file=sys.stderr)
+        print(f" Cookie 已保存到: {cookie_path}", file=sys.stderr)
         
         cookie_str_path = cookie_path.with_suffix('.txt')
         cookie_str = '; '.join([f"{c['name']}={c['value']}" for c in cookies if 'csdn' in c.get('domain', '')])
         with open(cookie_str_path, 'w', encoding='utf-8') as f:
             f.write(cookie_str)
-        print(f"💾 Cookie 字符串已保存到: {cookie_str_path}", file=sys.stderr)
+        print(f" Cookie 字符串已保存到: {cookie_str_path}", file=sys.stderr)
         
         # 发送 Telegram 通知
         if notify:
-            send_telegram_notification("✅ CSDN 登录成功！Cookie 已保存，可以继续发布文章了。", config_file)
+            send_telegram_notification(" CSDN 登录成功！Cookie 已保存，可以继续发布文章了。", config_file)
         
         await browser.close()
         return {"success": True, "qr_path": str(qr_path) if qr_captured else None, "message": "登录成功"}
@@ -222,10 +222,10 @@ async def check_cookie(cookie_file: str = None):
     cookie_path = Path(cookie_file) if cookie_file else DEFAULT_COOKIE_FILE
     
     if not cookie_path.exists():
-        print(f"❌ Cookie 文件不存在: {cookie_path}", file=sys.stderr)
+        print(f" Cookie 文件不存在: {cookie_path}", file=sys.stderr)
         return False
     
-    print("🔍 检查 Cookie 有效性...", file=sys.stderr)
+    print(" 检查 Cookie 有效性...", file=sys.stderr)
     
     async with async_playwright() as p:
         browser = await p.chromium.launch(
@@ -246,16 +246,16 @@ async def check_cookie(cookie_file: str = None):
         page_content = await page.content()
         
         if "passport.csdn.net" in current_url or "login" in current_url.lower():
-            print("❌ Cookie 已失效（被重定向到登录页）", file=sys.stderr)
+            print(" Cookie 已失效（被重定向到登录页）", file=sys.stderr)
             await browser.close()
             return False
         
         if "登录" in page_content and "扫码" in page_content:
-            print("❌ Cookie 已失效（页面显示登录框）", file=sys.stderr)
+            print(" Cookie 已失效（页面显示登录框）", file=sys.stderr)
             await browser.close()
             return False
         
-        print("✅ Cookie 有效", file=sys.stderr)
+        print(" Cookie 有效", file=sys.stderr)
         await browser.close()
         return True
 
@@ -318,13 +318,13 @@ def main():
         with open(config_path, 'w') as f:
             json.dump(config, f, indent=2)
         
-        print(f"✅ Telegram 配置已保存到: {config_path}")
+        print(f" Telegram 配置已保存到: {config_path}")
         
         # 测试发送
-        if send_telegram_notification("🔔 CSDN Publisher 通知已配置成功！", str(config_path)):
-            print("✅ 测试消息发送成功")
+        if send_telegram_notification(" CSDN Publisher 通知已配置成功！", str(config_path)):
+            print(" 测试消息发送成功")
         else:
-            print("⚠️ 测试消息发送失败，请检查配置")
+            print(" 测试消息发送失败，请检查配置")
     
     else:
         parser.print_help()

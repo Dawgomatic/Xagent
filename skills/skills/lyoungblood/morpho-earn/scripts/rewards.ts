@@ -102,7 +102,7 @@ async function checkRewards() {
   const config = loadConfig();
   const { account } = getClients(config);
   
-  console.log('🌙 Moonwell Vault — Rewards Check\n');
+  console.log(' Moonwell Vault — Rewards Check\n');
   console.log(`Wallet: ${account.address}`);
   console.log(`Vault:  ${VAULT_ADDRESS}\n`);
   
@@ -114,12 +114,12 @@ async function checkRewards() {
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.log('No claimable rewards found.');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('\n💡 Rewards accrue over time. Check back later!');
+    console.log('\n Rewards accrue over time. Check back later!');
     return rewards;
   }
   
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('🎁 Available Rewards');
+  console.log(' Available Rewards');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   
   for (const reward of rewards) {
@@ -134,7 +134,7 @@ async function checkRewards() {
   }
   
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('\n💡 Run `npx tsx rewards.ts claim` to claim rewards');
+  console.log('\n Run `npx tsx rewards.ts claim` to claim rewards');
   
   return rewards;
 }
@@ -143,7 +143,7 @@ async function claimRewards() {
   const config = loadConfig();
   const { publicClient, walletClient, account } = getClients(config);
   
-  console.log('🌙 Moonwell Vault — Claim Rewards\n');
+  console.log(' Moonwell Vault — Claim Rewards\n');
   console.log(`Wallet: ${account.address}\n`);
   
   console.log('Fetching claimable rewards...\n');
@@ -152,7 +152,7 @@ async function claimRewards() {
   const claimable = rewards.filter(r => r.claimable > 0n);
   
   if (claimable.length === 0) {
-    console.log('❌ No rewards available to claim.');
+    console.log(' No rewards available to claim.');
     return;
   }
   
@@ -163,7 +163,7 @@ async function claimRewards() {
   const proofs: Hex[][] = [];
   
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('📋 Claiming:');
+  console.log(' Claiming:');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   
   for (const reward of claimable) {
@@ -181,12 +181,12 @@ async function claimRewards() {
   // Check ETH for gas
   const ethBalance = await publicClient.getBalance({ address: account.address });
   if (ethBalance < BigInt(1e14)) {
-    console.error(`❌ Insufficient ETH for gas`);
+    console.error(` Insufficient ETH for gas`);
     console.error(`   Available: ${(Number(ethBalance) / 1e18).toFixed(6)} ETH`);
     process.exit(1);
   }
   
-  console.log('📝 Submitting claim transaction...');
+  console.log(' Submitting claim transaction...');
   
   const claimHash = await walletClient.writeContract({
     address: MERKL_DISTRIBUTOR,
@@ -201,18 +201,18 @@ async function claimRewards() {
   const receipt = await publicClient.waitForTransactionReceipt({ hash: claimHash });
   
   if (receipt.status === 'success') {
-    console.log('   ✅ Rewards claimed!\n');
+    console.log('    Rewards claimed!\n');
     
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('🎉 Claim Complete!');
+    console.log(' Claim Complete!');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.log(`View on BaseScan: https://basescan.org/tx/${claimHash}`);
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     
-    console.log('\n💡 Rewards are now in your wallet.');
+    console.log('\n Rewards are now in your wallet.');
     console.log('   Run `npx tsx compound.ts` to convert and re-deposit as USDC.');
   } else {
-    console.error('   ❌ Transaction failed');
+    console.error('    Transaction failed');
     process.exit(1);
   }
 }
@@ -229,6 +229,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error('❌ Error:', err.message);
+  console.error(' Error:', err.message);
   process.exit(1);
 });

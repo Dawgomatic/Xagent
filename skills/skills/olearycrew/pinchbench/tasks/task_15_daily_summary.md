@@ -114,8 +114,8 @@ workspace_files:
       → SOC 2 Type II audit preparation (documentation phase)
 
       BLOCKED:
-      ⚠ Third-party payment integration - waiting on vendor API access
-      ⚠ Enterprise SSO feature - Legal reviewing data processing agreement
+       Third-party payment integration - waiting on vendor API access
+       Enterprise SSO feature - Legal reviewing data processing agreement
 
       UPCOMING RELEASES (Next 2 weeks):
       - Feb 18: AI insights beta launch to 1000 users

@@ -246,4 +246,4 @@ clawdbot-skill-update/
 
 ---
 
-Ready to publish! 🚀
+Ready to publish! 

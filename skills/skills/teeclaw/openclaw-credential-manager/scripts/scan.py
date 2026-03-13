@@ -240,13 +240,13 @@ def main():
             output["deep_scan"] = deep_scan()
         print(json.dumps(output, indent=2))
     else:
-        print(f"\n🔍 Found {len(results)} credential file(s):\n")
+        print(f"\n Found {len(results)} credential file(s):\n")
         for r in results:
-            status = "✅" if r.get('mode') == '600' else "⚠️"
+            status = "" if r.get('mode') == '600' else ""
             print(f"{status} {r['path']}")
             print(f"   Type: {r['type']}")
             if r.get('symlink_target'):
-                ok = "✅" if r.get('symlink_ok', True) else "⚠️"
+                ok = "" if r.get('symlink_ok', True) else ""
                 print(f"   {ok} Symlink → {r['symlink_target']}")
             if 'keys' in r:
                 print(f"   Keys: {', '.join(r['keys'][:5])}")
@@ -254,30 +254,30 @@ def main():
                     print(f"        (+{len(r['keys']) - 5} more)")
             print(f"   Mode: {r.get('mode', 'unknown')}")
             if r.get('mode') != '600':
-                print(f"   ⚠️  Should be 600 for security")
+                print(f"     Should be 600 for security")
             print()
 
         if args.deep:
             findings = deep_scan()
             if findings:
-                print(f"\n🔎 Deep scan: {len(findings)} potential hardcoded secret(s):\n")
+                print(f"\n Deep scan: {len(findings)} potential hardcoded secret(s):\n")
                 for f in findings[:20]:
-                    print(f"   ⚠️  {f['file']}:{f['line']}")
+                    print(f"     {f['file']}:{f['line']}")
                     print(f"      Pattern: {f['pattern']}")
                     print(f"      Preview: {f['preview']}")
                     print()
                 if len(findings) > 20:
                     print(f"   ... +{len(findings) - 20} more findings")
             else:
-                print(f"\n🔎 Deep scan: No hardcoded secrets found ✅")
+                print(f"\n Deep scan: No hardcoded secrets found ")
 
-        print(f"\n📊 Summary:")
+        print(f"\n Summary:")
         print(f"   Total files: {len(results)}")
         print(f"   Insecure permissions: {sum(1 for r in results if r.get('mode') != '600')}")
         symlinks = [r for r in results if r.get('symlink_target')]
         if symlinks:
             print(f"   Symlinks: {len(symlinks)}")
-        print(f"\n💡 Next: Run ./scripts/consolidate.py to merge into .env\n")
+        print(f"\n Next: Run ./scripts/consolidate.py to merge into .env\n")
 
 
 if __name__ == '__main__':

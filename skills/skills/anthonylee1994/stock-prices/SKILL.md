@@ -103,7 +103,7 @@ Calculate common metrics:
 ```typescript
 // Determine if stock is up or down
 const isUp = quote.change > 0;
-const direction = isUp ? "📈" : "📉";
+const direction = isUp ? "" : "";
 
 // Calculate day's range percentage
 const rangePct = ((quote.highPrice - quote.lowPrice) / quote.lowPrice) * 100;

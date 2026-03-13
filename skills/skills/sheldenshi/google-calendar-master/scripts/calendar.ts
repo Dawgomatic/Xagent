@@ -112,9 +112,9 @@ function formatEvent(ev: Record<string, unknown>): string {
 	const startStr = start?.dateTime ?? start?.date ?? '?';
 	const endStr = end?.dateTime ?? end?.date ?? '?';
 	const summary = (ev.summary as string) ?? '(no title)';
-	const location = ev.location ? `  📍 ${ev.location}` : '';
+	const location = ev.location ? `   ${ev.location}` : '';
 	const desc = ev.description
-		? `  📝 ${(ev.description as string).slice(0, 120)}`
+		? `   ${(ev.description as string).slice(0, 120)}`
 		: '';
 	const id = ev.id as string;
 

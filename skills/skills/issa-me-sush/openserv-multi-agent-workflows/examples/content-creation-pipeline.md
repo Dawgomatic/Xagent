@@ -130,7 +130,7 @@ async function setup() {
         body: 'Generate a visually appealing header image for the article. The image should be professional, eye-catching, and relevant to the content topic.'
       }
     ],
-    // ⚠️ CRITICAL: Edges define how data flows through your workflow
+    //  CRITICAL: Edges define how data flows through your workflow
     // Without edges, tasks won't execute even if dependencies are set!
     edges: [
       { from: 'trigger:content-request', to: 'task:research' },

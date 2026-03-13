@@ -1,7 +1,7 @@
 ---
 name: hk-stock-trending
 description: Get daily trending Hong Kong stocks with market analysis
-metadata: {"clawdbot":{"emoji":"📈","primaryEnv":"ALPHA_VANTAGE_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","primaryEnv":"ALPHA_VANTAGE_API_KEY"}}
 ---
 
 # 港股每日热门股票追踪
@@ -18,12 +18,12 @@ metadata: {"clawdbot":{"emoji":"📈","primaryEnv":"ALPHA_VANTAGE_API_KEY"}}
 ```
 ========== 港股每日简报-{日期} ==========
 
-📊 今日市场概况
+ 今日市场概况
 - 恒生指数: 点位 / 涨幅%
 - 恒生科技指数: 点位 / 涨幅%
 - 成交额: XXX亿
 
-🔥 涨幅榜 Top5
+ 涨幅榜 Top5
 1. [股票代码] [股票名] (+X.XX%)
    - 原因: [板块/概念/消息]
 
@@ -32,18 +32,18 @@ metadata: {"clawdbot":{"emoji":"📈","primaryEnv":"ALPHA_VANTAGE_API_KEY"}}
 
 3. ...
 
-📊 成交活跃榜 Top5
+ 成交活跃榜 Top5
 1. [股票代码] [股票名] (成交额: XX亿)
    - 原因: ...
 
 2. ...
 
-🔄 沪港通(南向)成交 Top3
+ 沪港通(南向)成交 Top3
 1. [股票名] (XX.XX亿元)
 2. ...
 3. ...
 
-💡 热点板块
+ 热点板块
 - [板块名]: [领涨/领跌]，相关股票: XXX
 
 =============================

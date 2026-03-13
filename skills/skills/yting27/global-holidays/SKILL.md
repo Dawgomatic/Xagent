@@ -2,7 +2,7 @@
 name: global-holidays
 description: |
   Use this skill whenever a task involves checking, generating, or working with public holidays — for any country or subdivision (state, province, region). Triggers include: "is [date] a holiday?", "list all holidays in [country/year]", "find holidays in [date range]", "working days", "business days", "skip holidays", "holiday calendar", or any task that requires knowing whether a date is a government-designated public holiday. Also use when combining public holidays with custom or personal holiday dates. Do NOT use for general date arithmetic, timezone conversion, or calendar rendering unless holidays are explicitly involved.
-metadata: {"clawdbot":{"emoji":"🗓️","requires":{"bins":["python","pip"]}, "install":[{"id":"pip","kind":"pip","package":"holidays","label":"Install holidays package"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python","pip"]}, "install":[{"id":"pip","kind":"pip","package":"holidays","label":"Install holidays package"}]}}
 ---
 
 # holidays — Python Holiday Library

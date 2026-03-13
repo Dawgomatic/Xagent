@@ -51,7 +51,7 @@ export const borrowCommand = new Command()
       
       // Check Circle configuration
       if (!isCircleConfigured()) {
-        console.error('\n⚠️  Circle not configured - using demo mode\n');
+        console.error('\n  Circle not configured - using demo mode\n');
         
         // Mock transfer for demo
         const walletAddress = agent.walletAddress || name;
@@ -59,7 +59,7 @@ export const borrowCommand = new Command()
         console.log('(Demo mode - no real transfer)\n');
         
         agentRegistry.updateOutstandingLoan(agent.id, amount);
-        console.log(`✅ Loan created!`);
+        console.log(` Loan created!`);
         console.log(`   Amount: ${amount} USDC`);
         console.log(`   Due: 14 days\n`);
         return;
@@ -67,7 +67,7 @@ export const borrowCommand = new Command()
       
       // Real Circle transfer - require wallet address
       if (!agent.walletAddress) {
-        console.error('\n⚠️  Agent does not have a wallet');
+        console.error('\n  Agent does not have a wallet');
         console.log(`Run: credit wallet:create ${name}\n`);
         return;
       }
@@ -93,14 +93,14 @@ export const borrowCommand = new Command()
         // Update agent ledger
         agentRegistry.updateOutstandingLoan(agent.id, amount);
         
-        console.log(`✅ Loan created successfully!`);
+        console.log(` Loan created successfully!`);
         console.log(`   Amount: ${amount} USDC`);
         console.log(`   Transaction ID: ${result.transactionId || 'N/A'}`);
         console.log(`   Status: ${result.status || 'PENDING'}\n`);
       } else {
-        console.error(`❌ Transfer failed: ${result.error}\n`);
+        console.error(` Transfer failed: ${result.error}\n`);
       }
     } catch (error: any) {
-      console.error(`\n❌ Error: ${error.message}\n`);
+      console.error(`\n Error: ${error.message}\n`);
     }
   });

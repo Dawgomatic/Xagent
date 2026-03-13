@@ -104,16 +104,16 @@ def find_uncovered_categories(risks_by_category):
 def main():
     input_data = sys.stdin.read()
     if not input_data.strip():
-        print("❌ Error classifying risks: no input provided", file=sys.stderr)
+        print(" Error classifying risks: no input provided", file=sys.stderr)
         sys.exit(1)
 
     try:
         discovery = json.loads(input_data)
     except Exception as exc:
-        print(f"❌ Error classifying risks: {exc}", file=sys.stderr)
+        print(f" Error classifying risks: {exc}", file=sys.stderr)
         sys.exit(1)
 
-    print("🔍 Classifying risks...\n", file=sys.stderr)
+    print(" Classifying risks...\n", file=sys.stderr)
 
     risks_by_category = {category: [] for category in RISK_CATEGORIES.keys()}
     risks_by_skill = {}
@@ -136,12 +136,12 @@ def main():
                 risks_by_category[category].append(name)
 
         if categories:
-            print(f"  📦 {name}: {', '.join(categories)}", file=sys.stderr)
+            print(f"   {name}: {', '.join(categories)}", file=sys.stderr)
 
     overall_risk_level = calculate_risk_level(risks_by_category)
     uncovered_categories = find_uncovered_categories(risks_by_category)
 
-    print(f"\n📊 Overall risk level: {overall_risk_level}\n", file=sys.stderr)
+    print(f"\n Overall risk level: {overall_risk_level}\n", file=sys.stderr)
 
     timestamp = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 

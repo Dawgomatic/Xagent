@@ -45,7 +45,7 @@ export class PaymentOrchestrator {
 
     try {
       // Step 1: Fetch invoice details
-      console.log(`📄 Fetching invoice ${invoiceId}...`);
+      console.log(` Fetching invoice ${invoiceId}...`);
       const invoice = await this.pingpay.getInvoice(invoiceId);
 
       // Validate invoice
@@ -58,14 +58,14 @@ export class PaymentOrchestrator {
       }
 
       const usdcAmount = new Decimal(invoice.amount);
-      console.log(`💰 Invoice amount: ${usdcAmount.toString()} USDC`);
-      console.log(`📍 Recipient address: ${invoice.recipient_address}`);
+      console.log(` Invoice amount: ${usdcAmount.toString()} USDC`);
+      console.log(` Recipient address: ${invoice.recipient_address}`);
 
       // Step 2: Execute NEAR intent (swap + bridge)
       // Two-step approach for reliability:
       // 1. Swap sourceToken → USDC on NEAR
       // 2. Bridge USDC → Base chain
-      console.log(`\n🔄 Executing payment flow: ${sourceToken} → USDC (NEAR) → USDC (Base)...`);
+      console.log(`\n Executing payment flow: ${sourceToken} → USDC (NEAR) → USDC (Base)...`);
       
       const intentResult = await nearIntentsExecutor({
         fromToken: sourceToken,
@@ -80,11 +80,11 @@ export class PaymentOrchestrator {
         throw new Error('Bridge transaction failed - no transaction hash received');
       }
 
-      console.log(`✅ Swap TX: ${intentResult.swapTxHash || 'N/A'}`);
-      console.log(`✅ Bridge TX: ${intentResult.bridgeTxHash}`);
+      console.log(` Swap TX: ${intentResult.swapTxHash || 'N/A'}`);
+      console.log(` Bridge TX: ${intentResult.bridgeTxHash}`);
 
       // Step 3: Submit payment proof to PingPay
-      console.log(`\n📤 Submitting payment to PingPay...`);
+      console.log(`\n Submitting payment to PingPay...`);
       const paymentResult = await this.pingpay.submitPayment({
         invoice_id: invoiceId,
         tx_hash: intentResult.bridgeTxHash,
@@ -92,7 +92,7 @@ export class PaymentOrchestrator {
         from_address: nearAccount
       });
 
-      console.log(`✅ Payment submitted: ${paymentResult.payment_id}`);
+      console.log(` Payment submitted: ${paymentResult.payment_id}`);
       console.log(`Status: ${paymentResult.status}`);
 
       return {
@@ -104,7 +104,7 @@ export class PaymentOrchestrator {
       };
 
     } catch (error: any) {
-      console.error(`❌ Payment failed: ${error.message}`);
+      console.error(` Payment failed: ${error.message}`);
       return {
         success: false,
         invoice: {} as PingPayInvoice,

@@ -1,4 +1,4 @@
-# 🛒 bring-list — The Best Bring! Skill for OpenClaw
+#  bring-list — The Best Bring! Skill for OpenClaw
 
 **Zero dependencies. Most features. Clean code. No security flags.**
 
@@ -8,31 +8,31 @@ The only Bring! skill that runs everywhere — just `curl` and `jq`, no Node.js,
 
 There are 6+ Bring! skills on ClawHub. Here's why this one wins:
 
-### 🏆 Most features
+###  Most features
 Other skills only do add + remove. **bring-list** does everything:
-- ✅ Add items (with quantity/description like "low fat, 1L")
-- ✅ Add multiple items in one go ("Milk, Bread, Cheese|Gouda, Butter|Irish")
-- ✅ Check off items when you've bought them
-- ✅ Uncheck items (move back to shopping list)
-- ✅ Remove items completely
-- ✅ Remove or check off multiple items at once
-- ✅ View all your lists and items
-- ✅ JSON output for automation
+-  Add items (with quantity/description like "low fat, 1L")
+-  Add multiple items in one go ("Milk, Bread, Cheese|Gouda, Butter|Irish")
+-  Check off items when you've bought them
+-  Uncheck items (move back to shopping list)
+-  Remove items completely
+-  Remove or check off multiple items at once
+-  View all your lists and items
+-  JSON output for automation
 
-### 🪶 Zero dependencies
+###  Zero dependencies
 | | **bring-list** | Others |
 |---|---|---|
 | Needs | `curl` + `jq` | Node.js + npm, or Python + pip |
 | Install time | Instant | Minutes of downloading packages |
 | Works in containers | Always | Often breaks |
 
-### 🧠 Built for AI agents
+###  Built for AI agents
 - **Step-by-step Agent Setup Guide** — your agent knows exactly how to help you set up
 - **Default list support** — say "put milk on the list" without naming the list every time
 - **Partial name matching** — "einkauf" finds "Einkaufsliste"
 - **Smart argument parsing** — the agent figures out what's an item and what's a list name
 
-### 🔒 Clean & secure
+###  Clean & secure
 - No VirusTotal flags (some other Bring! skills are flagged as suspicious!)
 - Credentials stored with `chmod 600` (owner-only)
 - No external services — talks directly to Bring! API

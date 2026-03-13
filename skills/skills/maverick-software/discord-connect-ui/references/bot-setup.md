@@ -28,32 +28,32 @@ Under **Privileged Gateway Intents**, enable:
 
 | Intent | Required | Purpose |
 |--------|----------|---------|
-| **Message Content Intent** | ✅ Yes | Read message content |
+| **Message Content Intent** |  Yes | Read message content |
 | **Server Members Intent** | Optional | Get member information |
 | **Presence Intent** | Optional | See user status |
 
-⚠️ **Message Content Intent is required** for Clawdbot to read messages.
+ **Message Content Intent is required** for Clawdbot to read messages.
 
 ### Step 5: Configure Permissions
 
 Go to **OAuth2** → **URL Generator**:
 
 **Scopes (required):**
-- ✅ `bot`
-- ✅ `applications.commands`
+-  `bot`
+-  `applications.commands`
 
 **Bot Permissions (recommended):**
-- ✅ Send Messages
-- ✅ Read Message History
-- ✅ Add Reactions
-- ✅ Embed Links
-- ✅ Attach Files
-- ✅ Use Slash Commands
+-  Send Messages
+-  Read Message History
+-  Add Reactions
+-  Embed Links
+-  Attach Files
+-  Use Slash Commands
 
 **Additional permissions (optional):**
-- ✅ Manage Messages (for message deletion)
-- ✅ Manage Webhooks (for webhook features)
-- ✅ Create Public Threads (for thread support)
+-  Manage Messages (for message deletion)
+-  Manage Webhooks (for webhook features)
+-  Create Public Threads (for thread support)
 
 ### Step 6: Generate Invite URL
 

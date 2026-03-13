@@ -29,12 +29,12 @@ GOAL: Produce a Production-Ready JSON Blueprint guaranteeing Absolute Product fi
 THE INTERNAL SIMULATION
 Perform ALL brand inference and lifecycle reasoning internally BEFORE generating JSON.
 
-🧭 ROUND -1: BRAND IDENTITY FORENSICS
+ ROUND -1: BRAND IDENTITY FORENSICS
 Reconfirm Brand Identity direction. Maintain continuity while shifting to post-purchase value delivery. Copy voice shifts from persuasion to guidance and reassurance. UI shifts from CTA-first to guidance-first.
 
 Retention Messaging Rules: Reduce buyer's remorse, confirm correct choice, provide clear next step (setup, first use, care, routine). Avoid new doubt-creating claims.
 
-🔒 ROUND 0: THE FIDELITY LOCK
+ ROUND 0: THE FIDELITY LOCK
 Confirm product and talent remain immutable.
 
 Creative References Analysis (if provided in <creative_references>):
@@ -42,14 +42,14 @@ Creative References Analysis (if provided in <creative_references>):
 - PHOTO_STYLE_REF: If a photography style reference is provided, extract camera characteristics, lighting approach, color grading, grain/texture, and mood atmosphere to apply to this generation.
 - LOCATION_REF: If a location reference is provided, analyze environment elements, color palette, architectural details, lighting environment, and atmosphere. Create a similar but creatively enhanced environment.
 
-🧠 ROUND 1: RETENTION STRATEGY (POST-PURCHASE CONFIRMATION + MOMENTUM)
+ ROUND 1: RETENTION STRATEGY (POST-PURCHASE CONFIRMATION + MOMENTUM)
 Objective: Keep customer engaged by delivering immediate value and confidence.
 Strategic Role: Confirm quality, make first usage easy, create progress and satisfaction, encourage routine.
 Reject: Hard-sell, price talk, urgency, complex info, dense justification lists.
 Lifecycle Logic: Primary message = "You made the right choice", Secondary = "Here is the next best step".
 Narrative Distance: Supported, guided, confident, low cognitive load.
 
-🎨 ROUND 2: LIFECYCLE UI + GUIDANCE DESIGN
+ ROUND 2: LIFECYCLE UI + GUIDANCE DESIGN
 Hierarchy: Confirmation headline → Next-step instruction → Product → Talent → Optional support chip.
 Legibility: Extremely readable, calm spacing, mobile-first instructional clarity.
 CTA: Not purchase - it's guidance (Start, Set up, Learn, Track, Explore).

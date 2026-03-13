@@ -11,7 +11,7 @@ How to integrate claw-memory-lite with your OpenClaw setup.
 Add to your `HEARTBEAT.md`:
 
 ```markdown
-### 🧠 Memory Extraction (Daily)
+###  Memory Extraction (Daily)
 ```bash
 python3 /home/node/.openclaw/workspace/scripts/extract_memory.py
 ```

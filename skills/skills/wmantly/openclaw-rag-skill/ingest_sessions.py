@@ -55,7 +55,7 @@ def parse_jsonl(file_path: Path) -> List[Dict]:
                 except json.JSONDecodeError as e:
                     continue
     except Exception as e:
-        print(f"❌ Error reading {file_path}: {e}")
+        print(f" Error reading {file_path}: {e}")
 
     return messages
 
@@ -206,18 +206,18 @@ def ingest_sessions(
     sessions_path = Path(sessions_dir)
 
     if not sessions_path.exists():
-        print(f"❌ Sessions directory not found: {sessions_path}")
+        print(f" Sessions directory not found: {sessions_path}")
         return
 
-    print(f"🔍 Finding session files in: {sessions_path}")
+    print(f" Finding session files in: {sessions_path}")
 
     jsonl_files = list(sessions_path.glob("*.jsonl"))
 
     if not jsonl_files:
-        print(f"⚠️  No jsonl files found in {sessions_path}")
+        print(f"  No jsonl files found in {sessions_path}")
         return
 
-    print(f"✅ Found {len(jsonl_files)} session files\n")
+    print(f" Found {len(jsonl_files)} session files\n")
 
     rag = RAGSystem(collection_name=collection_name)
 
@@ -228,12 +228,12 @@ def ingest_sessions(
     for jsonl_file in sorted(jsonl_files):
         session_key = extract_session_key(jsonl_file.name)
 
-        print(f"\n📄 Processing: {jsonl_file.name}")
+        print(f"\n Processing: {jsonl_file.name}")
 
         messages = parse_jsonl(jsonl_file)
 
         if not messages:
-            print(f"   ⚠️  No messages, skipping")
+            print(f"     No messages, skipping")
             skipped_empty += 1
             continue
 
@@ -247,7 +247,7 @@ def ingest_sessions(
         chunks = chunk_messages(messages, chunk_size, chunk_overlap)
 
         if not chunks:
-            print(f"   ⚠️  No valid chunks, skipping")
+            print(f"     No valid chunks, skipping")
             skipped_empty += 1
             continue
 
@@ -257,12 +257,12 @@ def ingest_sessions(
         try:
             ids = rag.add_documents_batch(chunks, batch_size=50)
             total_chunks += len(chunks)
-            print(f"   ✅ Indexed {len(chunks)} chunks")
+            print(f"    Indexed {len(chunks)} chunks")
         except Exception as e:
-            print(f"   ❌ Error: {e}")
+            print(f"    Error: {e}")
 
     # Summary
-    print(f"\n📊 Summary:")
+    print(f"\n Summary:")
     print(f"   Sessions processed: {len(jsonl_files)}")
     print(f"   Skipped (empty): {skipped_empty}")
     print(f"   Total messages: {total_messages}")

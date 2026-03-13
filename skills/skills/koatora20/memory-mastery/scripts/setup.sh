@@ -11,11 +11,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TEMPLATE_DIR="$SCRIPT_DIR/../templates"
 BACKUP_SUFFIX=".bak.$(date +%Y%m%d%H%M%S)"
 
-log() { echo "✅ $*"; }
-warn() { echo "⚠️  $*"; }
-skip() { echo "⏭️  $*"; }
+log() { echo " $*"; }
+warn() { echo "  $*"; }
+skip() { echo "  $*"; }
 
-echo "🧠 Memory Mastery Setup"
+echo " Memory Mastery Setup"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Workspace: $WORKSPACE"
 echo ""
@@ -89,7 +89,7 @@ if [ -f "$AGENTS_MD" ]; then
     else
       cat >> "$AGENTS_MD" << 'RULESBLOCK'
 
-## 🧠 Memory System (Memory Mastery)
+##  Memory System (Memory Mastery)
 
 ### Three-Layer Architecture
 | Layer | Location | Purpose |
@@ -133,7 +133,7 @@ if [ -f "$HEARTBEAT_MD" ]; then
     else
       cat >> "$HEARTBEAT_MD" << 'HBBLOCK'
 
-## 🧠 Memory Maintenance (Memory Mastery)
+##  Memory Maintenance (Memory Mastery)
 # Every few days, review recent daily logs and update MEMORY.md:
 # 1. Read memory/YYYY-MM-DD.md files from the past week
 # 2. Identify significant decisions, lessons, or insights
@@ -150,7 +150,7 @@ else
     cat > "$HEARTBEAT_MD" << 'HBNEW'
 # HEARTBEAT.md
 
-## 🧠 Memory Maintenance (Memory Mastery)
+##  Memory Maintenance (Memory Mastery)
 # Every few days, review recent daily logs and update MEMORY.md:
 # 1. Read memory/YYYY-MM-DD.md files from the past week
 # 2. Identify significant decisions, lessons, or insights
@@ -163,7 +163,7 @@ fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "🎉 Memory Mastery setup complete!"
+echo " Memory Mastery setup complete!"
 echo ""
 echo "Next steps:"
 echo "  1. Edit MEMORY.md with your agent's identity and context"

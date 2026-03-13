@@ -6,7 +6,7 @@ This document outlines the security improvements made to ClawBrain to address vu
 
 ## Issues Addressed
 
-### 1. ✅ Unencrypted Sensitive Data Storage (CRITICAL)
+### 1.  Unencrypted Sensitive Data Storage (CRITICAL)
 
 **Problem:**
 - The `remember()` method consistently set `content_encrypted=False`
@@ -51,7 +51,7 @@ secrets = brain.recall(agent_id="assistant", memory_type="secret")
 api_key = secrets[0].content  # Decrypted automatically
 ```
 
-### 2. ✅ Insecure Installation Method (SUPPLY CHAIN RISK)
+### 2.  Insecure Installation Method (SUPPLY CHAIN RISK)
 
 **Problem:**
 - Primary installation method was `curl | bash` from remote URL
@@ -72,7 +72,7 @@ api_key = secrets[0].content  # Decrypted automatically
 
 **Changes:**
 1. Prioritized manual git clone in installation instructions
-2. Added ⚠️ security warnings about supply chain risks
+2. Added  security warnings about supply chain risks
 3. Added interactive confirmation before remote script execution
 4. Display git commit information for verification
 5. Recommend manual method for production environments
@@ -86,7 +86,7 @@ cd clawbrain
 ./install.sh
 ```
 
-### 3. ✅ Dependencies and Package Management
+### 3.  Dependencies and Package Management
 
 **Problem:**
 - Encryption dependency not documented in package manifest
@@ -197,7 +197,7 @@ brain.remember(
 secrets = brain.recall(agent_id="test", memory_type="secret")
 assert secrets[0].content == "test-secret-value"
 assert secrets[0].content_encrypted == True
-print("✅ Encryption working correctly")
+print(" Encryption working correctly")
 ```
 
 ## Migration Guide

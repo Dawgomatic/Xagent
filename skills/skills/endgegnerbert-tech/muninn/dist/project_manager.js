@@ -144,22 +144,22 @@ export class ProjectManager {
     }
     async ensureRules(projectPath, force = false) {
         const projectName = path.basename(projectPath);
-        const START_MARKER = "# 🧠 MUNINN PROJECT BRAIN ENFORCEMENT";
+        const START_MARKER = "#  MUNINN PROJECT BRAIN ENFORCEMENT";
         const END_MARKER = "# --------------------------------------------------------------------------------";
         const MUNINN_RULES_CONTENT = `${START_MARKER} (Project: ${projectName})
 # This file is strictly managed by Muninn. DO NOT MANUALLY MODIFY THIS SECTION.
 # --------------------------------------------------------------------------------
-# 🚨 CRITICAL PROTOCOL: BRAIN-FIRST ARCHITECTURE
+#  CRITICAL PROTOCOL: BRAIN-FIRST ARCHITECTURE
 # You are an agentic AI operating with a project-local long-term memory layer (Muninn).
 # Your internal state must ALWAYS be synchronized with the Project Brain.
 #
-# 1. 🎯 MANDATORY ORIENTATION:
+# 1.  MANDATORY ORIENTATION:
 #    At the start of EVERY new session or after a long break, you MUST call \`muninn.brain_check\`.
 #
-# 2. 🔍 CONTEXTUAL AWARENESS:
+# 2.  CONTEXTUAL AWARENESS:
 #    BEFORE reading files or proposing changes, use \`muninn.search_context\`.
 #
-# 3. 💾 PERPETUAL LEARNING:
+# 3.  PERPETUAL LEARNING:
 #    When you make a decision or solve a bug, you MUST call \`muninn.add_memory\`.
 #
 ${END_MARKER}\n`;
@@ -203,7 +203,7 @@ ${END_MARKER}\n`;
         const lock = new BrainLock(muninnPath, "muninn-server");
         // Wait up to 10 seconds for search context (might be indexing)
         if (!(await lock.acquire(10000)))
-            return "⚠️ Project Brain is currently being updated. Please try again in a moment.";
+            return " Project Brain is currently being updated. Please try again in a moment.";
         try {
             const result = await this.cxp.query(indexPath, query, limit);
             await lock.release();

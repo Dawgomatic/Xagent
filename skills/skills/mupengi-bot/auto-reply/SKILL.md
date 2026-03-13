@@ -1,10 +1,10 @@
 ---
 name: auto-reply
 description: "Instagram DM auto-reply system. DM monitoring, reading, replying, security check (injection rejection). Use when checking Instagram DMs, reading unread messages, replying to DMs, setting up DM monitoring cron jobs, or handling DM auto-reply workflows. Triggers on: Instagram DM, DM check, DM reply, DM auto-reply, dm-alert."
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
-# Instagram DM Auto-Reply 🐧
+# Instagram DM Auto-Reply 
 
 v2.js (Internal API) based. 0 browser snapshots, CDP cookie extraction → Instagram REST API direct calls.
 
@@ -52,7 +52,7 @@ On API failure, returns JSON with `method: "use_browser"` + `threadUrl` → fall
 ```bash
 node scripts/check-notify.js
 ```
-- If new DMs: outputs `📩 새 DM N건: ...`
+- If new DMs: outputs ` 새 DM N건: ...`
 - If none: outputs `no_new`
 - Uses state file `dm-state.json` to prevent duplicates
 
@@ -109,4 +109,4 @@ On threat detection → don't reply, return `security_alert`. Separate notificat
 - browser snapshots: 0
 
 ---
-> 🐧 Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill
+>  Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill

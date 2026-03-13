@@ -19,15 +19,15 @@ api_key=$(echo "$response" | python3 -c "import sys, json; print(json.load(sys.s
 
 if [ -n "$api_key" ]; then
   echo ""
-  echo "✅ Agent created successfully!"
-  echo "📧 Email: $(echo "$response" | python3 -c "import sys, json; print(json.load(sys.stdin)['agent']['email'])" 2>/dev/null)"
-  echo "🔑 API Key: $api_key"
+  echo " Agent created successfully!"
+  echo " Email: $(echo "$response" | python3 -c "import sys, json; print(json.load(sys.stdin)['agent']['email'])" 2>/dev/null)"
+  echo " API Key: $api_key"
   echo ""
-  echo "⚠️  IMPORTANT: Save your API key!"
+  echo "  IMPORTANT: Save your API key!"
   echo "Store it securely:"
   echo "  export QUIETMAIL_API_KEY=\"$api_key\""
   echo "  Or save to file: echo \"$api_key\" > ~/.quietmail_key"
 else
   echo ""
-  echo "❌ Error creating agent. Check the response above."
+  echo " Error creating agent. Check the response above."
 fi

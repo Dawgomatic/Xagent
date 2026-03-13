@@ -321,11 +321,11 @@ async function encode(memory) {
 // ─── Main ────────────────────────────────────────────────
 
 async function main() {
-  console.log('🔍 BrainDB Execution Awareness Encoder');
+  console.log(' BrainDB Execution Awareness Encoder');
   console.log('═'.repeat(50));
 
   // Introspect environment
-  console.log('\n📡 Introspecting environment...');
+  console.log('\n Introspecting environment...');
   const env = discoverEnvironment();
 
   console.log(`   Platform: ${env.platform.os}/${env.platform.arch} (Node ${env.platform.node})`);
@@ -336,7 +336,7 @@ async function main() {
 
   // Generate memories
   const memories = generateMemories(env);
-  console.log(`\n🧠 Generated ${memories.length} execution awareness memories:`);
+  console.log(`\n Generated ${memories.length} execution awareness memories:`);
 
   const byCat = {};
   for (const m of memories) {
@@ -347,7 +347,7 @@ async function main() {
   }
 
   if (SCAN_ONLY) {
-    console.log('\n📋 Memories that would be encoded:\n');
+    console.log('\n Memories that would be encoded:\n');
     for (const m of memories) {
       console.log(`  [${m.category}] ${m.event}`);
       console.log(`    ${m.content.slice(0, 100)}...`);
@@ -357,7 +357,7 @@ async function main() {
   }
 
   // Encode
-  console.log(`\n📝 Encoding to ${BRAINDB_URL}...`);
+  console.log(`\n Encoding to ${BRAINDB_URL}...`);
   let encoded = 0, deduped = 0, errors = 0;
   for (const m of memories) {
     try {
@@ -371,16 +371,16 @@ async function main() {
         }
       } else {
         errors++;
-        console.error(`\n  ❌ ${m.event}: ${result?.error || 'unknown error'}`);
+        console.error(`\n   ${m.event}: ${result?.error || 'unknown error'}`);
       }
     } catch (e) {
       errors++;
-      console.error(`\n  ❌ ${m.event}: ${e.message}`);
+      console.error(`\n   ${m.event}: ${e.message}`);
     }
   }
 
   console.log(`\n\n═${'═'.repeat(49)}`);
-  console.log(`✅ Execution awareness encoded`);
+  console.log(` Execution awareness encoded`);
   console.log(`   New: ${encoded} | Deduped: ${deduped} | Errors: ${errors}`);
   console.log(`═${'═'.repeat(49)}`);
 }

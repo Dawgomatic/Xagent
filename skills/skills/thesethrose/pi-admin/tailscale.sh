@@ -1,7 +1,7 @@
 #!/bin/bash
 # Tailscale information
 
-echo "🐉 Tailscale Information"
+echo " Tailscale Information"
 echo "========================="
 echo ""
 

@@ -33,21 +33,21 @@ clawhub install afrexai-prd-engine
 
 | Feature | Basic PRD Skills | PRD Engine |
 |---------|-----------------|------------|
-| Problem validation | ❌ | ✅ Discovery brief + kill criteria |
+| Problem validation |  |  Discovery brief + kill criteria |
 | Story methodology | Basic JSON | INVEST + sizing + 6 split strategies |
-| Quality scoring | ❌ | ✅ 100-point rubric, 7 dimensions |
-| AI agent support | ❌ | ✅ File paths, commands, done-when |
-| Edge case coverage | ❌ | ✅ Empty, error, slow, permissions, concurrent |
-| Post-launch review | ❌ | ✅ Metrics + retro + iterate/kill decision |
-| Approval workflow | ❌ | ✅ Review checklist + common feedback fixes |
+| Quality scoring |  |  100-point rubric, 7 dimensions |
+| AI agent support |  |  File paths, commands, done-when |
+| Edge case coverage |  |  Empty, error, slow, permissions, concurrent |
+| Post-launch review |  |  Metrics + retro + iterate/kill decision |
+| Approval workflow |  |  Review checklist + common feedback fixes |
 
-## ⚡ Level Up
+##  Level Up
 
 Want a complete product management system with market analysis, competitive positioning, and go-to-market strategy?
 
 **[SaaS AI Context Pack — $47](https://afrexai-cto.github.io/context-packs/)** — Full SaaS operational context including product strategy, pricing, metrics, and growth frameworks.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Autonomous lead generation engine
 - [afrexai-competitive-intel](https://clawhub.com/skills/afrexai-competitive-intel) — 7-phase competitive intelligence system

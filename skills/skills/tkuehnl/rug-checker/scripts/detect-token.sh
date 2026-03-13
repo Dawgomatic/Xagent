@@ -165,7 +165,7 @@ resolve_by_name() {
   # Return top candidates instead of auto-picking — the agent must ask the user
   # to confirm which token they mean. Auto-picking by liquidity is dangerous:
   # it can return the WRONG token (e.g., a fake "BONK" instead of the real one).
-  cf_warn "⚠️ Name search returned ${result_count} results. Returning candidates for user confirmation."
+  cf_warn " Name search returned ${result_count} results. Returning candidates for user confirmation."
 
   # De-duplicate by baseToken.address, keep highest liquidity per address,
   # then take top 5 sorted by liquidity descending.

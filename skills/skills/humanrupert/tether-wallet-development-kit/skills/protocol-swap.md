@@ -14,7 +14,7 @@
 
 | Resource | URL |
 |----------|-----|
-| **npm** | ⚠️ Not yet published to npm |
+| **npm** |  Not yet published to npm |
 | **Docs — Overview** | https://docs.wallet.tether.io/sdk/swap-modules/swap-stonfi-ton |
 | **Docs — Usage** | https://docs.wallet.tether.io/sdk/swap-modules/swap-stonfi-ton/usage |
 | **Docs — Configuration** | https://docs.wallet.tether.io/sdk/swap-modules/swap-stonfi-ton/configuration |
@@ -75,6 +75,6 @@ Both swap protocols implement:
 
 | Method | Description |
 |--------|-------------|
-| `swap({tokenIn, tokenOut, tokenInAmount})` | Execute swap (⚠️ write method) |
+| `swap({tokenIn, tokenOut, tokenInAmount})` | Execute swap ( write method) |
 | `quoteSwap({tokenIn, tokenOut, tokenInAmount})` | Get swap quote with expected output |
 | `getConfig()` | Get protocol configuration |

@@ -106,12 +106,12 @@ Ja — ferret analysiert **Beziehungen zwischen Files**:
 
 | Aspekt | Ferret (Regex) | ecap (LLM) |
 |--------|---------------|-------------|
-| **Semantisches Verständnis** | ❌ Kennt nur Patterns | ✅ Versteht Kontext, Intent, Logik |
-| **Neue/unbekannte Angriffe** | ❌ Nur was in Rules definiert ist | ✅ Kann neue Patterns erkennen |
-| **Obfuscation-Resistenz** | ⚠️ Braucht spezifische Patterns | ✅ Kann umschriebene Angriffe erkennen |
-| **Natürlichsprachliche Analyse** | ❌ Kann SKILL.md-Prosa nicht verstehen | ✅ Erkennt "misleading documentation" |
-| **False Positives** | ⚠️ Trotz excludePatterns noch hoch | ✅ Kontextuelle Bewertung |
-| **Skalierbarkeit** | ✅ Millisekunden | ⚠️ LLM-Kosten pro Audit |
+| **Semantisches Verständnis** |  Kennt nur Patterns |  Versteht Kontext, Intent, Logik |
+| **Neue/unbekannte Angriffe** |  Nur was in Rules definiert ist |  Kann neue Patterns erkennen |
+| **Obfuscation-Resistenz** |  Braucht spezifische Patterns |  Kann umschriebene Angriffe erkennen |
+| **Natürlichsprachliche Analyse** |  Kann SKILL.md-Prosa nicht verstehen |  Erkennt "misleading documentation" |
+| **False Positives** |  Trotz excludePatterns noch hoch |  Kontextuelle Bewertung |
+| **Skalierbarkeit** |  Millisekunden |  LLM-Kosten pro Audit |
 
 **Beispiel:** Ferret's AI-005 hat `excludePatterns` für "phase 1: implementation" — trotzdem meldet es bei jedem Projekt-Plan False Positives. Unser LLM versteht, dass "Phase 1: Setup" kein Angriff ist.
 
@@ -119,11 +119,11 @@ Ja — ferret analysiert **Beziehungen zwischen Files**:
 
 | Aspekt | Ferret | ecap |
 |--------|--------|------|
-| **Shared Knowledge** | ❌ Jeder scannt isoliert | ✅ Zentrale Findings-DB, alle profitieren |
-| **Peer Review** | ❌ Nicht vorhanden | ✅ Andere Agents können Findings bestätigen/widerlegen |
-| **Integrity Verification** | ❌ Kein Hash-Check | ✅ SHA-256 Hash-Vergleich gegen audited Version |
-| **Reputation System** | ❌ Kein Tracking | ✅ Leaderboard, Points, Agent-Profiles |
-| **Score Recovery** | ❌ Einmal gefunden, immer gefunden | ✅ Maintainer können fixen und Score zurückgewinnen |
+| **Shared Knowledge** |  Jeder scannt isoliert |  Zentrale Findings-DB, alle profitieren |
+| **Peer Review** |  Nicht vorhanden |  Andere Agents können Findings bestätigen/widerlegen |
+| **Integrity Verification** |  Kein Hash-Check |  SHA-256 Hash-Vergleich gegen audited Version |
+| **Reputation System** |  Kein Tracking |  Leaderboard, Points, Agent-Profiles |
+| **Score Recovery** |  Einmal gefunden, immer gefunden |  Maintainer können fixen und Score zurückgewinnen |
 
 ### 2.3 By-Design Awareness
 
@@ -281,17 +281,17 @@ Ergebnis: Wenn Pre-Scan CRITICAL findet → sofort blocken ohne LLM-Kosten.
 
 | Ferret Rule | In unserem Audit? | Gap? |
 |-------------|-------------------|------|
-| **CRED-001–007** Credential Access | ✅ Teilweise (CRED_THEFT) | ⚠️ Uns fehlt: Keychain/Keyring, SSH-Key-Zugriff, AWS-Credentials spezifisch |
-| **INJ-001–007** Prompt Injection | ⚠️ Nur generisch als SOCIAL_ENG | ❌ Keine spezifischen Patterns: Mode Switching, Hidden Instructions, Instruction Hierarchy |
-| **EXFIL-001–007** Exfiltration | ✅ Teilweise (DATA_EXFIL) | ⚠️ Uns fehlt: DNS Exfiltration, Webhook-Detection, Base64-Encoded Exfiltration |
-| **BACK-001–007** Backdoors | ✅ Teilweise (CMD_INJECT) | ⚠️ Uns fehlt: Reverse Shells, Background Process Creation, Encoded Command Execution |
-| **SUPP-001–007** Supply Chain | ✅ Teilweise (SUPPLY_CHAIN) | ⚠️ Uns fehlt: Typosquatting-Detection, Suspicious MCP Servers, Postinstall Hooks |
-| **PERM-001–006** Permissions | ✅ Teilweise (PRIV_ESC) | ⚠️ Uns fehlt: Wildcard Permissions (Bash(*)), SUID/SGID, Dangerous Tool Permissions |
-| **PERS-001–006** Persistence | ❌ Komplett fehlend | ❌ Crontab, RC Files, Git Hooks, Systemd, LaunchAgents, Startup Scripts |
-| **OBF-001–008** Obfuscation | ⚠️ Nur generisch OBFUSC | ❌ Zero-Width Chars, ANSI Escapes, Whitespace-Stego, Hex-Encoding spezifisch |
-| **AI-001–010** AI-Specific | ⚠️ Nur SOCIAL_ENG | ❌ System Prompt Extraction, Agent Impersonation, Capability Escalation, Context Pollution, Multi-Step Attack, Output Manipulation, Trust Boundary, Indirect Injection, Tool Abuse |
-| **SEM-001–006** Semantic/AST | ❌ Nicht vorhanden | ⚠️ Implizit durch LLM, aber nicht explizit gefordert |
-| **CORR-001–008** Correlation | ❌ Nicht vorhanden | ❌ Cross-File Attack Chains |
+| **CRED-001–007** Credential Access |  Teilweise (CRED_THEFT) |  Uns fehlt: Keychain/Keyring, SSH-Key-Zugriff, AWS-Credentials spezifisch |
+| **INJ-001–007** Prompt Injection |  Nur generisch als SOCIAL_ENG |  Keine spezifischen Patterns: Mode Switching, Hidden Instructions, Instruction Hierarchy |
+| **EXFIL-001–007** Exfiltration |  Teilweise (DATA_EXFIL) |  Uns fehlt: DNS Exfiltration, Webhook-Detection, Base64-Encoded Exfiltration |
+| **BACK-001–007** Backdoors |  Teilweise (CMD_INJECT) |  Uns fehlt: Reverse Shells, Background Process Creation, Encoded Command Execution |
+| **SUPP-001–007** Supply Chain |  Teilweise (SUPPLY_CHAIN) |  Uns fehlt: Typosquatting-Detection, Suspicious MCP Servers, Postinstall Hooks |
+| **PERM-001–006** Permissions |  Teilweise (PRIV_ESC) |  Uns fehlt: Wildcard Permissions (Bash(*)), SUID/SGID, Dangerous Tool Permissions |
+| **PERS-001–006** Persistence |  Komplett fehlend |  Crontab, RC Files, Git Hooks, Systemd, LaunchAgents, Startup Scripts |
+| **OBF-001–008** Obfuscation |  Nur generisch OBFUSC |  Zero-Width Chars, ANSI Escapes, Whitespace-Stego, Hex-Encoding spezifisch |
+| **AI-001–010** AI-Specific |  Nur SOCIAL_ENG |  System Prompt Extraction, Agent Impersonation, Capability Escalation, Context Pollution, Multi-Step Attack, Output Manipulation, Trust Boundary, Indirect Injection, Tool Abuse |
+| **SEM-001–006** Semantic/AST |  Nicht vorhanden |  Implizit durch LLM, aber nicht explizit gefordert |
+| **CORR-001–008** Correlation |  Nicht vorhanden |  Cross-File Attack Chains |
 
 ### Top-10 fehlende Patterns (nach Priorität)
 

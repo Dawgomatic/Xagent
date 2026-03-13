@@ -69,7 +69,7 @@ Classification signals:
 For each task where the model tier doesn't match complexity:
 
 ```
-⚠️ RECOMMENDATION: Downgrade "Knox Bot Health Check" from opus to haiku
+ RECOMMENDATION: Downgrade "Knox Bot Health Check" from opus to haiku
    Current: anthropic/claude-opus-4 ($15/M input, $75/M output)
    Suggested: anthropic/claude-haiku ($0.25/M input, $1.25/M output)
    Reason: Simple status check averaging 300 output tokens

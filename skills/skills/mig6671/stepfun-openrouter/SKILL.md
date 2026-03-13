@@ -3,13 +3,13 @@ name: stepfun-openrouter
 description: Integrates StepFun AI models (Step-3.5 Flash, Step-3) via OpenRouter API. Free tier available. Features visible reasoning, fast responses, and multimodal capabilities.
 ---
 
-# StepFun via OpenRouter 🚀🧠
+# StepFun via OpenRouter 
 
 > **Fast, visible reasoning AI from StepFun — accessible via OpenRouter**
 
 A complete OpenClaw skill that integrates StepFun's powerful reasoning models through OpenRouter's unified API.
 
-## 🆓 FREE TIER AVAILABLE
+##  FREE TIER AVAILABLE
 
 Start using Step-3.5 Flash immediately, no credit card required!
 
@@ -39,10 +39,10 @@ stepfun-cli --reasoning "Explain quantum computing"
 
 ## Features
 
-- 🧠 Visible reasoning - see how AI thinks
-- ⚡ Streaming responses
-- 🖼️ Multimodal support
-- 🔧 Full CLI with all options
+-  Visible reasoning - see how AI thinks
+-  Streaming responses
+-  Multimodal support
+-  Full CLI with all options
 
 ## Installation
 

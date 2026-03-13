@@ -9,11 +9,11 @@ Usage:
     python3 cmd_display.py <level> "<command>" "<purpose>" "<result>" [warning] [action]
 
 Levels:
-    safe     - 🟢 Read-only information gathering
-    low      - 🔵 Project file modifications
-    medium   - 🟡 Configuration changes
-    high     - 🟠 System-level changes
-    critical - 🔴 Potential data loss
+    safe     -  Read-only information gathering
+    low      -  Project file modifications
+    medium   -  Configuration changes
+    high     -  System-level changes
+    critical -  Potential data loss
 
 Examples:
     python3 cmd_display.py safe "git status" "Check repo state" "$(git status --short)"
@@ -50,31 +50,31 @@ class Colors:
 # Security level configurations
 LEVELS = {
     'safe': {
-        'emoji': '🟢',
+        'emoji': '',
         'color': Colors.GREEN,
         'name': 'SAFE',
         'desc': 'Read-only information gathering'
     },
     'low': {
-        'emoji': '🔵',
+        'emoji': '',
         'color': Colors.BLUE,
         'name': 'LOW',
         'desc': 'Project file modifications'
     },
     'medium': {
-        'emoji': '🟡',
+        'emoji': '',
         'color': Colors.YELLOW,
         'name': 'MEDIUM',
         'desc': 'Configuration changes'
     },
     'high': {
-        'emoji': '🟠',
+        'emoji': '',
         'color': Colors.BRIGHT_YELLOW,
         'name': 'HIGH',
         'desc': 'System-level changes'
     },
     'critical': {
-        'emoji': '🔴',
+        'emoji': '',
         'color': Colors.RED,
         'name': 'CRITICAL',
         'desc': 'Potential data loss'
@@ -143,10 +143,10 @@ def format_command(
     
     # Determine result icon and color
     result_clean = result.strip() if result else ""
-    if result_clean.startswith('✓') or result_clean.startswith('✔'):
+    if result_clean.startswith('✓') or result_clean.startswith(''):
         result_icon = '✓'
         result_color = Colors.BRIGHT_GREEN
-        result_text = result_clean.lstrip('✓✔ ')
+        result_text = result_clean.lstrip('✓ ')
     elif result_clean.startswith('✗') or result_clean.startswith('✘') or result_clean.startswith('Error'):
         result_icon = '✗'
         result_color = Colors.BRIGHT_RED
@@ -165,13 +165,13 @@ def format_command(
     print(f"{Colors.BOLD}{result_color}{result_icon}{Colors.RESET}  {result_text}")
     
     # Line 3: Purpose
-    print(f"{Colors.CYAN}📋 {purpose}{Colors.RESET}")
+    print(f"{Colors.CYAN} {purpose}{Colors.RESET}")
     
     # Line 4: Warning or Action (optional, only one shown if both provided)
     if warning:
-        print(f"{Colors.BRIGHT_RED}{Colors.BOLD}⚠️  {warning}{Colors.RESET}")
+        print(f"{Colors.BRIGHT_RED}{Colors.BOLD}  {warning}{Colors.RESET}")
     elif action:
-        print(f"{Colors.BRIGHT_YELLOW}👉 {action}{Colors.RESET}")
+        print(f"{Colors.BRIGHT_YELLOW} {action}{Colors.RESET}")
 
 
 def main():

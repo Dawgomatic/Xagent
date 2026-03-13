@@ -8,8 +8,8 @@ description: "Stealth browser with residential proxy for AI agents — runs on a
 > **No Mac Mini. No local machine. Your agent runs it anywhere.**
 > Residential IPs from 10+ countries. Bypasses Cloudflare, DataDome, PerimeterX.
 > 
-> 🌐 **Product page:** https://humanbrowser.dev  
-> 💬 **Support:** https://t.me/virixlabs
+>  **Product page:** https://humanbrowser.dev  
+>  **Support:** https://t.me/virixlabs
 
 ---
 
@@ -33,18 +33,18 @@ Human Browser solves this by combining:
 
 Pick the right country for the right service:
 
-| Country | ✅ Works great | ❌ Blocked |
+| Country |  Works great |  Blocked |
 |---------|--------------|-----------|
-| 🇷🇴 Romania `ro` | Polymarket, Instagram, Binance, Cloudflare | US Banks, Netflix US |
-| 🇺🇸 United States `us` | Netflix, DoorDash, US Banks, Amazon US | Polymarket, Binance |
-| 🇬🇧 United Kingdom `gb` | Polymarket, Binance, BBC iPlayer | US-only apps |
-| 🇩🇪 Germany `de` | EU services, Binance, German e-commerce | US-only |
-| 🇳🇱 Netherlands `nl` | Crypto, privacy, Polymarket, Web3 | US Banks |
-| 🇯🇵 Japan `jp` | Japanese e-commerce, Line, localized prices | — |
-| 🇫🇷 France `fr` | EU services, luxury brands | US-only |
-| 🇨🇦 Canada `ca` | North American services | Some US-only |
-| 🇸🇬 Singapore `sg` | APAC/SEA e-commerce | US-only |
-| 🇦🇺 Australia `au` | Oceania content | — |
+|  Romania `ro` | Polymarket, Instagram, Binance, Cloudflare | US Banks, Netflix US |
+|  United States `us` | Netflix, DoorDash, US Banks, Amazon US | Polymarket, Binance |
+|  United Kingdom `gb` | Polymarket, Binance, BBC iPlayer | US-only apps |
+|  Germany `de` | EU services, Binance, German e-commerce | US-only |
+|  Netherlands `nl` | Crypto, privacy, Polymarket, Web3 | US Banks |
+|  Japan `jp` | Japanese e-commerce, Line, localized prices | — |
+|  France `fr` | EU services, luxury brands | US-only |
+|  Canada `ca` | North American services | Some US-only |
+|  Singapore `sg` | APAC/SEA e-commerce | US-only |
+|  Australia `au` | Oceania content | — |
 
 **→ Interactive country selector + service matrix:** https://humanbrowser.dev
 
@@ -83,8 +83,8 @@ Credentials (proxy username/password/zone) are required to use the residential I
 
 | Plan | Price | Countries | Bandwidth |
 |------|-------|-----------|-----------|
-| Starter 🇷🇴 | $13.99/mo | Romania only | 2GB |
-| Pro 🌍 | $49.99/mo | All 10+ countries | 20GB |
+| Starter  | $13.99/mo | Romania only | 2GB |
+| Pro  | $49.99/mo | All 10+ countries | 20GB |
 | Enterprise | $199/mo | All + dedicated zone | Unlimited |
 
 Payment options: **Stripe** (card + Apple Pay + Google Pay) or **Crypto** (USDT TRC20, BTC, ETH, SOL).
@@ -93,7 +93,7 @@ After payment → credentials are delivered automatically (email + Telegram).
 
 ---
 
-## 🤖 Agent-Native Payment (Autonomous Purchase)
+##  Agent-Native Payment (Autonomous Purchase)
 
 Your agent can **purchase credentials without human involvement** using the API.
 
@@ -184,7 +184,7 @@ const { page } = await launchHuman({
 When you need to explain what this does, show pricing, or send someone to pay:
 
 ```
-🌐 https://humanbrowser.dev
+ https://humanbrowser.dev
 ```
 
 ---

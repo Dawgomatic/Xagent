@@ -83,7 +83,7 @@ python3 scripts/run_tests.py --command "pwd"
 ## Output Format / Formato de Saída
 
 ```
-✅ Quick Test Results
+ Quick Test Results
 
 System Status: OK
 Python: 3.12.7
@@ -99,12 +99,12 @@ All tests passed successfully!
 
 ## Features / Funcionalidades
 
-- ✅ **Python Availability Check** / **Verificação de Disponibilidade do Python** - Confirms Python 3.x installed
-- ✅ **System Command Execution** / **Execução de Comando do Sistema** - Runs and validates system commands
-- ✅ **File System Access** / **Acesso ao Sistema de Arquivos** - Verifies directory access and permissions
-- ✅ **Custom Command Support** / **Suporte a Comandos Customizados** - Run any command with validation
-- ✅ **Working Directory Check** / **Verificação de Diretório de Trabalho** - Confirms current location
-- 📝 **Detailed Logging** / **Log Detalhado** - Comprehensive output for debugging
+-  **Python Availability Check** / **Verificação de Disponibilidade do Python** - Confirms Python 3.x installed
+-  **System Command Execution** / **Execução de Comando do Sistema** - Runs and validates system commands
+-  **File System Access** / **Acesso ao Sistema de Arquivos** - Verifies directory access and permissions
+-  **Custom Command Support** / **Suporte a Comandos Customizados** - Run any command with validation
+-  **Working Directory Check** / **Verificação de Diretório de Trabalho** - Confirms current location
+-  **Detailed Logging** / **Log Detalhado** - Comprehensive output for debugging
 
 ## How It Works / Como Funciona
 
@@ -157,7 +157,7 @@ python3 scripts/run_tests.py
 
 Output:
 ```
-✅ Quick Test - System Verification
+ Quick Test - System Verification
 
 Environment Check:
 ✓ Python 3.12.7
@@ -183,7 +183,7 @@ python3 scripts/run_tests.py --command "echo 'Custom test'"
 Output:
 ```
 Custom Command: echo 'Custom test'
-Result: ✅ Passed
+Result:  Passed
 Output: Custom test
 ```
 
@@ -191,9 +191,9 @@ Output: Custom test
 
 ### Success Indicators / Indicadores de Sucesso
 
-- ✅ **All tests passed** - System is working correctly / Sistema funcionando corretamente
-- ⚠️ **Some tests failed** - Minor issues detected / Problemas menores detectados
-- ❌ **Critical failures** - System issues requiring attention / Problemas de sistema requerendo atenção
+-  **All tests passed** - System is working correctly / Sistema funcionando corretamente
+-  **Some tests failed** - Minor issues detected / Problemas menores detectados
+-  **Critical failures** - System issues requiring attention / Problemas de sistema requerendo atenção
 
 ### Common Test Failures / Falhas Comuns de Teste
 
@@ -314,7 +314,7 @@ Criado por **Gustavo (GustavoZiaugra)** com OpenClaw
 **Find this and more OpenClaw skills at ClawHub.com**
 **Encontre este e mais habilidades do OpenClaw em ClawHub.com**
 
-⭐ **Star this repository if you find it useful!**
-**⭐ Dê uma estrela neste repositório se você achar útil!**
+ **Star this repository if you find it useful!**
+** Dê uma estrela neste repositório se você achar útil!**
 
-✅ **Simple, fast, no dependencies** / **Simples, rápido, sem dependências** - Works everywhere, tests everything / Funciona em qualquer lugar, testa tudo / Test everywhere
+ **Simple, fast, no dependencies** / **Simples, rápido, sem dependências** - Works everywhere, tests everything / Funciona em qualquer lugar, testa tudo / Test everywhere

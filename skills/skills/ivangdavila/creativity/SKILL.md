@@ -28,7 +28,7 @@ Check `techniques.md` for generation methods. Check `preferences.md` for learned
 Always present options across a range:
 
 ```
-🎨 Creative options for [goal]:
+ Creative options for [goal]:
 
 Safe (familiar territory):
 → [Option aligned with known preferences]
@@ -75,7 +75,7 @@ Which direction feels right?
 Periodically confirm your taste model:
 
 ```
-🎨 Quick calibration
+ Quick calibration
 
 I've noticed you tend toward [observed pattern].
 Should I keep leaning that direction, mix it up, or shift?

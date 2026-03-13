@@ -304,19 +304,19 @@ async def run_mcp_server():
                 
                 result = socket_command(cmd)
                 if result.get("ok"):
-                    return [TextContent(type="text", text=f"✅ Sent to {arguments.get('to', 'broadcast')}: {text}")]
-                return [TextContent(type="text", text=f"❌ Send failed: {result.get('error')}")]
+                    return [TextContent(type="text", text=f" Sent to {arguments.get('to', 'broadcast')}: {text}")]
+                return [TextContent(type="text", text=f" Send failed: {result.get('error')}")]
             
             elif name == "mesh_send_alert":
-                text = f"🚨 ALERT: {arguments.get('text', '')}"
+                text = f" ALERT: {arguments.get('text', '')}"
                 cmd = {"cmd": "send", "text": text, "priority": "high"}
                 if arguments.get("to"):
                     cmd["to"] = arguments["to"]
                 
                 result = socket_command(cmd)
                 if result.get("ok"):
-                    return [TextContent(type="text", text=f"✅ Alert sent: {text}")]
-                return [TextContent(type="text", text=f"❌ Alert failed: {result.get('error')}")]
+                    return [TextContent(type="text", text=f" Alert sent: {text}")]
+                return [TextContent(type="text", text=f" Alert failed: {result.get('error')}")]
             
             elif name == "mesh_messages":
                 limit = arguments.get("limit", 20)
@@ -332,15 +332,15 @@ async def run_mcp_server():
                     return [TextContent(type="text", text="No messages found")]
                 
                 lines = [f"[{m['timestamp']}] {m['sender']} ({m['distance']}): {m['text']}" for m in messages]
-                return [TextContent(type="text", text=f"📨 Recent messages ({len(messages)}):\n\n" + "\n".join(lines))]
+                return [TextContent(type="text", text=f" Recent messages ({len(messages)}):\n\n" + "\n".join(lines))]
             
             # === NETWORK INFO (via bridge) ===
             elif name == "mesh_status":
                 result = socket_command({"cmd": "status"})
                 if result.get("ok"):
                     return [TextContent(type="text", 
-                        text=f"✅ Bridge connected\nSerial: {result.get('serial', 'unknown')}\nMessages: {result.get('messages', 0)}")]
-                return [TextContent(type="text", text=f"❌ Bridge error: {result.get('error')}")]
+                        text=f" Bridge connected\nSerial: {result.get('serial', 'unknown')}\nMessages: {result.get('messages', 0)}")]
+                return [TextContent(type="text", text=f" Bridge error: {result.get('error')}")]
             
             elif name == "mesh_nodes":
                 result = socket_command({"cmd": "nodes"})
@@ -348,17 +348,17 @@ async def run_mcp_server():
                     nodes = result.get("nodes", [])
                     if not nodes:
                         return [TextContent(type="text", text="No nodes discovered yet")]
-                    return [TextContent(type="text", text=f"📡 Mesh nodes ({len(nodes)}):\n" + "\n".join(f"  • {n}" for n in nodes))]
-                return [TextContent(type="text", text=f"❌ Error: {result.get('error')}")]
+                    return [TextContent(type="text", text=f" Mesh nodes ({len(nodes)}):\n" + "\n".join(f"  • {n}" for n in nodes))]
+                return [TextContent(type="text", text=f" Error: {result.get('error')}")]
             
             # === DEVICE INFO (direct) ===
             elif name == "mesh_device_info":
                 if not MESHTASTIC_AVAILABLE:
-                    return [TextContent(type="text", text="❌ meshtastic library not installed")]
+                    return [TextContent(type="text", text=" meshtastic library not installed")]
                 
                 iface = get_device_interface()
                 if not iface:
-                    return [TextContent(type="text", text="❌ Could not connect to device")]
+                    return [TextContent(type="text", text=" Could not connect to device")]
                 
                 try:
                     info = iface.getMyNodeInfo()
@@ -366,7 +366,7 @@ async def run_mcp_server():
                     pos = info.get('position', {})
                     device = info.get('deviceMetrics', {})
                     
-                    text = f"""📻 Device Info:
+                    text = f""" Device Info:
   ID: {user.get('id', 'unknown')}
   Name: {user.get('longName', 'unknown')} ({user.get('shortName', '??')})
   Hardware: {user.get('hwModel', 'unknown')}
@@ -375,15 +375,15 @@ async def run_mcp_server():
   Position: {pos.get('latitude', '?')}, {pos.get('longitude', '?')}"""
                     return [TextContent(type="text", text=text)]
                 except Exception as e:
-                    return [TextContent(type="text", text=f"❌ Error: {e}")]
+                    return [TextContent(type="text", text=f" Error: {e}")]
             
             elif name == "mesh_channels":
                 if not MESHTASTIC_AVAILABLE:
-                    return [TextContent(type="text", text="❌ meshtastic library not installed")]
+                    return [TextContent(type="text", text=" meshtastic library not installed")]
                 
                 iface = get_device_interface()
                 if not iface:
-                    return [TextContent(type="text", text="❌ Could not connect to device")]
+                    return [TextContent(type="text", text=" Could not connect to device")]
                 
                 try:
                     channels = []
@@ -393,17 +393,17 @@ async def run_mcp_server():
                             name = ch.settings.name or "(primary)"
                             channels.append(f"  {i}: {name} [{role}]")
                     
-                    return [TextContent(type="text", text=f"📻 Channels:\n" + "\n".join(channels))]
+                    return [TextContent(type="text", text=f" Channels:\n" + "\n".join(channels))]
                 except Exception as e:
-                    return [TextContent(type="text", text=f"❌ Error: {e}")]
+                    return [TextContent(type="text", text=f" Error: {e}")]
             
             elif name == "mesh_node_info":
                 if not MESHTASTIC_AVAILABLE:
-                    return [TextContent(type="text", text="❌ meshtastic library not installed")]
+                    return [TextContent(type="text", text=" meshtastic library not installed")]
                 
                 iface = get_device_interface()
                 if not iface:
-                    return [TextContent(type="text", text="❌ Could not connect to device")]
+                    return [TextContent(type="text", text=" Could not connect to device")]
                 
                 node_id = arguments.get("node_id", "")
                 if node_id in iface.nodes:
@@ -413,23 +413,23 @@ async def run_mcp_server():
                     snr = node.get('snr', '?')
                     last = node.get('lastHeard', 0)
                     
-                    text = f"""📡 Node {node_id}:
+                    text = f""" Node {node_id}:
   Name: {user.get('longName', 'unknown')} ({user.get('shortName', '??')})
   Hardware: {user.get('hwModel', 'unknown')}
   SNR: {snr} dB
   Position: {pos.get('latitude', '?')}, {pos.get('longitude', '?')}
   Last heard: {datetime.fromtimestamp(last).isoformat() if last else 'never'}"""
                     return [TextContent(type="text", text=text)]
-                return [TextContent(type="text", text=f"❌ Node {node_id} not found")]
+                return [TextContent(type="text", text=f" Node {node_id} not found")]
             
             # === LOCATION (direct) ===
             elif name == "mesh_send_position":
                 if not MESHTASTIC_AVAILABLE:
-                    return [TextContent(type="text", text="❌ meshtastic library not installed")]
+                    return [TextContent(type="text", text=" meshtastic library not installed")]
                 
                 iface = get_device_interface()
                 if not iface:
-                    return [TextContent(type="text", text="❌ Could not connect to device")]
+                    return [TextContent(type="text", text=" Could not connect to device")]
                 
                 lat = arguments.get("latitude")
                 lon = arguments.get("longitude")
@@ -437,61 +437,61 @@ async def run_mcp_server():
                 
                 try:
                     iface.sendPosition(latitude=lat, longitude=lon, altitude=alt)
-                    return [TextContent(type="text", text=f"✅ Position sent: {lat:.4f}, {lon:.4f}, {alt}m")]
+                    return [TextContent(type="text", text=f" Position sent: {lat:.4f}, {lon:.4f}, {alt}m")]
                 except Exception as e:
-                    return [TextContent(type="text", text=f"❌ Error: {e}")]
+                    return [TextContent(type="text", text=f" Error: {e}")]
             
             # === TELEMETRY (direct) ===
             elif name == "mesh_request_telemetry":
                 if not MESHTASTIC_AVAILABLE:
-                    return [TextContent(type="text", text="❌ meshtastic library not installed")]
+                    return [TextContent(type="text", text=" meshtastic library not installed")]
                 
                 iface = get_device_interface()
                 if not iface:
-                    return [TextContent(type="text", text="❌ Could not connect to device")]
+                    return [TextContent(type="text", text=" Could not connect to device")]
                 
                 try:
                     node_id = arguments.get("node_id")
                     # Request telemetry - results come async via pubsub
                     iface.sendTelemetry(destinationId=node_id)
-                    return [TextContent(type="text", text=f"✅ Telemetry requested from {node_id or 'all nodes'}")]
+                    return [TextContent(type="text", text=f" Telemetry requested from {node_id or 'all nodes'}")]
                 except Exception as e:
-                    return [TextContent(type="text", text=f"❌ Error: {e}")]
+                    return [TextContent(type="text", text=f" Error: {e}")]
             
             # === TRACEROUTE (direct) ===
             elif name == "mesh_traceroute":
                 if not MESHTASTIC_AVAILABLE:
-                    return [TextContent(type="text", text="❌ meshtastic library not installed")]
+                    return [TextContent(type="text", text=" meshtastic library not installed")]
                 
                 iface = get_device_interface()
                 if not iface:
-                    return [TextContent(type="text", text="❌ Could not connect to device")]
+                    return [TextContent(type="text", text=" Could not connect to device")]
                 
                 node_id = arguments.get("node_id")
                 if not node_id:
-                    return [TextContent(type="text", text="❌ node_id required")]
+                    return [TextContent(type="text", text=" node_id required")]
                 
                 try:
                     iface.sendTraceRoute(dest=node_id, hopLimit=8)
-                    return [TextContent(type="text", text=f"✅ Traceroute sent to {node_id} (results arrive async)")]
+                    return [TextContent(type="text", text=f" Traceroute sent to {node_id} (results arrive async)")]
                 except Exception as e:
-                    return [TextContent(type="text", text=f"❌ Error: {e}")]
+                    return [TextContent(type="text", text=f" Error: {e}")]
             
             # === DEVICE MANAGEMENT (direct) ===
             elif name == "mesh_reboot":
                 if not MESHTASTIC_AVAILABLE:
-                    return [TextContent(type="text", text="❌ meshtastic library not installed")]
+                    return [TextContent(type="text", text=" meshtastic library not installed")]
                 
                 iface = get_device_interface()
                 if not iface:
-                    return [TextContent(type="text", text="❌ Could not connect to device")]
+                    return [TextContent(type="text", text=" Could not connect to device")]
                 
                 try:
                     iface.localNode.reboot()
                     close_device_interface()
-                    return [TextContent(type="text", text="✅ Device rebooting...")]
+                    return [TextContent(type="text", text=" Device rebooting...")]
                 except Exception as e:
-                    return [TextContent(type="text", text=f"❌ Error: {e}")]
+                    return [TextContent(type="text", text=f" Error: {e}")]
             
             else:
                 return [TextContent(type="text", text=f"Unknown tool: {name}")]
@@ -519,36 +519,36 @@ def test_connections():
     print(f"\n1. Socket Bridge ({SOCKET_HOST}:{SOCKET_PORT}):")
     result = socket_command({"cmd": "status"})
     if result.get("ok"):
-        print(f"   ✅ Connected")
+        print(f"    Connected")
         print(f"   Serial: {result.get('serial', 'unknown')}")
         print(f"   Messages: {result.get('messages', 0)}")
     else:
-        print(f"   ❌ {result.get('error')}")
+        print(f"    {result.get('error')}")
     
     # Test message log
     print(f"\n2. Message Log ({MESSAGE_LOG}):")
     if MESSAGE_LOG.exists():
         messages = read_messages(limit=5)
-        print(f"   ✅ Found, {len(messages)} recent messages")
+        print(f"    Found, {len(messages)} recent messages")
     else:
-        print(f"   ⚠️ Not found (bridge may not have written yet)")
+        print(f"    Not found (bridge may not have written yet)")
     
     # Test direct device
     print(f"\n3. Direct Device ({SERIAL_PORT}):")
     if not MESHTASTIC_AVAILABLE:
-        print("   ⚠️ meshtastic library not installed (pip install meshtastic)")
+        print("    meshtastic library not installed (pip install meshtastic)")
     else:
         iface = get_device_interface()
         if iface:
             try:
                 info = iface.getMyNodeInfo()
                 user = info.get('user', {})
-                print(f"   ✅ Connected")
+                print(f"    Connected")
                 print(f"   Node: {user.get('longName', 'unknown')} ({user.get('id', '?')})")
             except Exception as e:
-                print(f"   ❌ {e}")
+                print(f"    {e}")
         else:
-            print(f"   ❌ Could not connect")
+            print(f"    Could not connect")
     
     print("\n" + "=" * 50)
 

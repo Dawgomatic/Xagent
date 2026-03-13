@@ -146,7 +146,7 @@ def cmd_test(args):
         resp = requests.get(f"{LF_API}/traces", params={"limit": 1, "orderBy": "timestamp.desc"}, auth=LF_AUTH)
         traces = resp.json().get("data", [])
         if not traces:
-            print(f"  ❌ Could not find trace for test {i+1}")
+            print(f"   Could not find trace for test {i+1}")
             continue
         
         trace_id = traces[0]["id"]
@@ -164,14 +164,14 @@ def cmd_test(args):
         
         print()
     
-    print("✅ All test scores saved to Langfuse")
+    print(" All test scores saved to Langfuse")
 
 
 def cmd_score(args):
     """Score a specific trace."""
     resp = requests.get(f"{LF_API}/traces/{args.trace_id}", auth=LF_AUTH)
     if resp.status_code != 200:
-        print(f"❌ Trace not found: {args.trace_id}")
+        print(f" Trace not found: {args.trace_id}")
         return
     
     trace = resp.json()
@@ -179,7 +179,7 @@ def cmd_score(args):
     output_text = str(trace.get("output", ""))
     
     if not input_text or not output_text:
-        print("⚠️ Trace has no input/output to evaluate")
+        print(" Trace has no input/output to evaluate")
         return
     
     print(f"Scoring trace: {args.trace_id}")
@@ -193,7 +193,7 @@ def cmd_score(args):
         save_score(args.trace_id, name, result["score"], result["reasoning"])
         print(f"  {name}: {result['score']:.2f} — {result['reasoning'][:80]}")
     
-    print("✅ Scores saved")
+    print(" Scores saved")
 
 
 def cmd_backfill(args):
@@ -223,7 +223,7 @@ def cmd_backfill(args):
         
         scored += 1
     
-    print(f"\n✅ Scored {scored} traces")
+    print(f"\n Scored {scored} traces")
 
 
 def cmd_experiment(args):
@@ -236,7 +236,7 @@ def cmd_experiment(args):
     try:
         dataset = lf.get_dataset(dataset_name)
     except:
-        print(f"❌ Dataset '{dataset_name}' not found")
+        print(f" Dataset '{dataset_name}' not found")
         return
     
     def task(*, item, **kwargs):

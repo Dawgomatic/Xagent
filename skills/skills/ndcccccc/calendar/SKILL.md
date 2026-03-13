@@ -1,10 +1,10 @@
 ---
 name: calendar
 description: Calendar management and scheduling. Create events, manage meetings, and sync across calendar providers.
-metadata: {"clawdbot":{"emoji":"📅","requires":{"bins":["curl","jq"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq"]}}}
 ---
 
-# Calendar 📅
+# Calendar 
 
 Calendar and scheduling management.
 

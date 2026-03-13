@@ -231,7 +231,7 @@ export function expandPath(p: string): string {
  */
 export function handleError(err: unknown, context: string): never {
   const message = err instanceof Error ? err.message : String(err);
-  console.error(`❌ ${context}: ${message}`);
+  console.error(` ${context}: ${message}`);
   process.exit(1);
 }
 
@@ -411,7 +411,7 @@ export function loadConfig(): Config {
   const configPath = expandPath('~/.config/gekko-yield/config.json');
 
   if (!existsSync(configPath)) {
-    console.error('❌ Config not found at ~/.config/gekko-yield/config.json');
+    console.error(' Config not found at ~/.config/gekko-yield/config.json');
     console.error('   Run: npx tsx setup.ts');
     process.exit(1);
   }
@@ -427,7 +427,7 @@ export function getPrivateKey(config: Config): Hex {
   const key = process.env[envVar];
 
   if (!key) {
-    console.error(`❌ Environment variable ${envVar} not set`);
+    console.error(` Environment variable ${envVar} not set`);
     console.error(`   Set it with: $env:${envVar}="your-private-key"`);
     process.exit(1);
   }
@@ -539,7 +539,7 @@ export async function simulateAndWrite<TAbi extends readonly unknown[]>(
       
       if (attempt < RPC_RETRY_ATTEMPTS && isRateLimit) {
         const delay = RPC_RETRY_DELAY_MS * Math.pow(2, attempt - 1);
-        console.log(`   ⚠️  Rate limited, retrying in ${delay / 1000}s... (attempt ${attempt}/${RPC_RETRY_ATTEMPTS})`);
+        console.log(`     Rate limited, retrying in ${delay / 1000}s... (attempt ${attempt}/${RPC_RETRY_ATTEMPTS})`);
         await sleep(delay);
         continue;
       }

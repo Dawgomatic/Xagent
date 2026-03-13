@@ -132,7 +132,7 @@ Net cost (low income): $9,000 - $13,000
 - **Monthly pass:** ~$81
 
 ### BART (Regional)
-- **Connects:** SF ↔ Berkeley ↔ Oakland ↔ Airport
+- **Connects:** SF  Berkeley  Oakland  Airport
 - **Student discount:** 50% off with BART student ID
 - **To Berkeley:** ~$4-5 one way
 

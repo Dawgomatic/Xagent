@@ -309,7 +309,7 @@ export function printMigrationSuccess(result: MigrationResult): void {
 ╠════════════════════════════════════════════════════════════════════╣
 ║                                                                    ║
 ║  ✓ Migrated ${String(result.migratedCount).padEnd(4)} memories to file-based storage            ║
-${result.skippedCount > 0 ? `║  ⚠ Skipped ${String(result.skippedCount).padEnd(4)} memories (see errors below)              ║\n` : ''}║                                                                    ║
+${result.skippedCount > 0 ? `║   Skipped ${String(result.skippedCount).padEnd(4)} memories (see errors below)              ║\n` : ''}║                                                                    ║
 ║  New storage location:                                             ║
 ║    ${result.newPath.padEnd(54)}║
 ║                                                                    ║

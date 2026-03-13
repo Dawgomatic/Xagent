@@ -21,7 +21,7 @@ API_BASE = "https://api.switch-bot.com/v1.1"
 def load_credentials():
     """Load API credentials from config file."""
     if not CREDENTIALS_PATH.exists():
-        print(f"❌ Credentials not found at {CREDENTIALS_PATH}")
+        print(f" Credentials not found at {CREDENTIALS_PATH}")
         print("\nSetup required! Ask your human to:")
         print("1. Open SwitchBot App → Profile → Preferences → About → Developer Options")
         print("2. Copy Token and Secret Key")
@@ -86,13 +86,13 @@ def list_devices():
     result = api_request("/devices")
     
     if result.get('statusCode') != 100:
-        print(f"❌ Error: {result.get('message', 'Unknown error')}")
+        print(f" Error: {result.get('message', 'Unknown error')}")
         return
     
     devices = result.get('body', {}).get('deviceList', [])
     infrared = result.get('body', {}).get('infraredRemoteList', [])
     
-    print(f"📱 Found {len(devices)} devices:\n")
+    print(f" Found {len(devices)} devices:\n")
     
     for d in devices:
         hub_id = d.get('hubDeviceId', '')
@@ -103,7 +103,7 @@ def list_devices():
         print()
     
     if infrared:
-        print(f"📡 Found {len(infrared)} IR devices:\n")
+        print(f" Found {len(infrared)} IR devices:\n")
         for d in infrared:
             print(f"  {d.get('deviceName')}: {d.get('deviceId')} ({d.get('remoteType')})")
 
@@ -112,11 +112,11 @@ def get_device_status(device_id: str):
     result = api_request(f"/devices/{device_id}/status")
     
     if result.get('statusCode') != 100:
-        print(f"❌ Error: {result.get('message', 'Unknown error')}")
+        print(f" Error: {result.get('message', 'Unknown error')}")
         return
     
     body = result.get('body', {})
-    print(f"📊 Device Status: {device_id}\n")
+    print(f" Device Status: {device_id}\n")
     
     for key, value in body.items():
         if key != 'deviceId':
@@ -134,7 +134,7 @@ def send_command(device_id: str, command: str, parameter: str = "default"):
     
     status_code = result.get('statusCode')
     if status_code == 100:
-        print(f"✅ Command sent successfully")
+        print(f" Command sent successfully")
     else:
         error_messages = {
             151: "Device offline - check Hub connection",
@@ -144,7 +144,7 @@ def send_command(device_id: str, command: str, parameter: str = "default"):
             190: "Internal server error"
         }
         msg = error_messages.get(status_code, result.get('message', 'Unknown error'))
-        print(f"❌ Error ({status_code}): {msg}")
+        print(f" Error ({status_code}): {msg}")
 
 def control_curtain(device_id: str, action: str):
     """Control a curtain device."""
@@ -155,7 +155,7 @@ def control_curtain(device_id: str, action: str):
     elif action.isdigit():
         position = action
     else:
-        print(f"❌ Invalid action: {action}")
+        print(f" Invalid action: {action}")
         print("Use: open, close, or a number 0-100")
         return
     
@@ -165,31 +165,31 @@ def control_curtain(device_id: str, action: str):
     send_command(device_id, "setPosition", f"0,ff,{position}")
     
     if position == "0":
-        print("🪟 Curtain opening...")
+        print(" Curtain opening...")
     elif position == "100":
-        print("🪟 Curtain closing...")
+        print(" Curtain closing...")
     else:
-        print(f"🪟 Curtain moving to {position}%...")
+        print(f" Curtain moving to {position}%...")
 
 def control_plug(device_id: str, action: str):
     """Control a plug or switch device."""
     if action == "on":
         send_command(device_id, "turnOn")
-        print("💡 Turning on...")
+        print(" Turning on...")
     elif action == "off":
         send_command(device_id, "turnOff")
-        print("💡 Turning off...")
+        print(" Turning off...")
     elif action == "toggle":
         send_command(device_id, "toggle")
-        print("💡 Toggling...")
+        print(" Toggling...")
     else:
-        print(f"❌ Invalid action: {action}")
+        print(f" Invalid action: {action}")
         print("Use: on, off, or toggle")
 
 def print_usage():
     """Print usage information."""
     print("""
-SwitchBot Controller 🏠
+SwitchBot Controller 
 
 Usage:
   switchbot.py list                          - List all devices
@@ -217,25 +217,25 @@ def main():
     
     elif cmd == "status":
         if len(sys.argv) < 3:
-            print("❌ Usage: switchbot.py status <device_id>")
+            print(" Usage: switchbot.py status <device_id>")
             sys.exit(1)
         get_device_status(sys.argv[2])
     
     elif cmd == "curtain":
         if len(sys.argv) < 4:
-            print("❌ Usage: switchbot.py curtain <device_id> <open|close|0-100>")
+            print(" Usage: switchbot.py curtain <device_id> <open|close|0-100>")
             sys.exit(1)
         control_curtain(sys.argv[2], sys.argv[3])
     
     elif cmd == "plug":
         if len(sys.argv) < 4:
-            print("❌ Usage: switchbot.py plug <device_id> <on|off|toggle>")
+            print(" Usage: switchbot.py plug <device_id> <on|off|toggle>")
             sys.exit(1)
         control_plug(sys.argv[2], sys.argv[3])
     
     elif cmd == "command":
         if len(sys.argv) < 4:
-            print("❌ Usage: switchbot.py command <device_id> <command> [parameter]")
+            print(" Usage: switchbot.py command <device_id> <command> [parameter]")
             sys.exit(1)
         device_id = sys.argv[2]
         command = sys.argv[3]
@@ -243,7 +243,7 @@ def main():
         send_command(device_id, command, parameter)
     
     else:
-        print(f"❌ Unknown command: {cmd}")
+        print(f" Unknown command: {cmd}")
         print_usage()
         sys.exit(1)
 

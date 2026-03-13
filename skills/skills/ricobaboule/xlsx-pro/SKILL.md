@@ -59,7 +59,7 @@ sudo apt-get install libreoffice-calc libreoffice-common
 
 **TOUJOURS utiliser des formules Excel au lieu de calculer en Python et hardcoder.**
 
-### ❌ MAUVAIS - Hardcoding
+###  MAUVAIS - Hardcoding
 ```python
 # Mauvais: Calcul Python puis hardcode
 total = df['Sales'].sum()
@@ -70,7 +70,7 @@ growth = (df.iloc[-1]['Revenue'] - df.iloc[0]['Revenue']) / df.iloc[0]['Revenue'
 sheet['C5'] = growth  # Hardcode 0.15
 ```
 
-### ✅ CORRECT - Formules Excel
+###  CORRECT - Formules Excel
 ```python
 # Bon: Laisser Excel calculer
 sheet['B10'] = '=SUM(B2:B9)'

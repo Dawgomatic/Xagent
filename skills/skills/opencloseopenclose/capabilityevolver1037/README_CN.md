@@ -1,10 +1,10 @@
-# 🧬 Capability Evolver (能力进化引擎)
+#  Capability Evolver (能力进化引擎)
 
 <p align="center">
   <img src="https://github.com/autogame-17/capability-evolver/raw/main/assets/cover.png" alt="Evolver Cover" width="100%">
 </p>
 
-[🇺🇸 English Docs](README.md)
+[ English Docs](README.md)
 
 **“进化不是可选项，而是生存法则。”**
 
@@ -12,15 +12,15 @@
 
 本插件内置了 **基因突变协议（Genetic Mutation Protocol）**，引入受控的行为漂移，防止智能体陷入局部最优解。
 
-## ✨ 核心特性
+##  核心特性
 
-- **🔍 自动日志分析**：自动扫描 `.jsonl` 会话日志，寻找错误模式。
-- **🛠️ 自我修复**：检测运行时崩溃并编写修复补丁。
-- **🧬 基因突变**：随机化的“突变”周期，鼓励创新而非停滞。
-- **🔌 动态集成**：自动检测并使用本地工具（如 `git-sync` 或 `feishu-card`），如果不存在则回退到通用模式，零依赖运行。
-- **🐕 疯狗模式 (Mad Dog Mode)**：持续运行的自我修复循环。
+- ** 自动日志分析**：自动扫描 `.jsonl` 会话日志，寻找错误模式。
+- ** 自我修复**：检测运行时崩溃并编写修复补丁。
+- ** 基因突变**：随机化的“突变”周期，鼓励创新而非停滞。
+- ** 动态集成**：自动检测并使用本地工具（如 `git-sync` 或 `feishu-card`），如果不存在则回退到通用模式，零依赖运行。
+- ** 疯狗模式 (Mad Dog Mode)**：持续运行的自我修复循环。
 
-## 📦 使用方法
+##  使用方法
 
 ### 标准运行 (自动化)
 ```bash
@@ -39,7 +39,7 @@ node skills/capability-evolver/index.js --review
 node skills/capability-evolver/index.js --loop
 ```
 
-## ⚙️ 配置与解耦
+##  配置与解耦
 
 本插件能自动适应你的环境。
 
@@ -48,11 +48,11 @@ node skills/capability-evolver/index.js --loop
 | `EVOLVE_REPORT_TOOL` |用于报告结果的工具名称 (例如 `feishu-card`) | `message` |
 | `MEMORY_DIR` | 记忆文件路径 | `../../memory` |
 
-## 🛡️ 安全协议
+##  安全协议
 
 1.  **单进程锁**：进化引擎禁止生成子进化进程（防止 Fork 炸弹）。
 2.  **稳定性优先**：如果近期错误率较高，强制进入 **修复突变 (Repair Mutation)** 模式，暂停创新功能。
 3.  **环境检测**：外部集成（如 Git 同步）仅在检测到相应插件存在时才会启用。
 
-## 📜 许可证
+##  许可证
 MIT

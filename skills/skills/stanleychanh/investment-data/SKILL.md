@@ -23,21 +23,21 @@ metadata:
 
 基于 [investment_data](https://github.com/chenditc/investment_data) 项目，提供高质量 A 股投资数据。
 
-## 🎯 核心功能
+##  核心功能
 
 1. **数据下载** - 自动下载最新数据集
 2. **数据查询** - 查询股票历史数据
 3. **数据更新** - 每日自动更新
 4. **多格式支持** - Qlib、CSV、JSON
 
-## 📊 数据类型
+##  数据类型
 
 - **日终价格** - 开高低收、成交量、成交额
 - **涨跌停数据** - 涨跌停价格、涨跌停状态
 - **指数数据** - 主要指数价格和权重
 - **复权数据** - 前复权、后复权价格
 
-## 🚀 快速开始
+##  快速开始
 
 ### 1. 下载最新数据
 
@@ -69,14 +69,14 @@ limits = client.get_limit_data("000001.SZ", date="2024-12-01")
 python scripts/query_batch.py --stocks "000001.SZ,000002.SZ" --start 2024-01-01 --end 2024-12-31 --output csv
 ```
 
-## 📖 详细文档
+##  详细文档
 
 - [数据字段说明](references/fields.md)
 - [API 参考](references/api.md)
 - [使用示例](examples/)
 - [常见问题](docs/faq.md)
 
-## 🔧 配置
+##  配置
 
 ### 环境变量
 
@@ -116,7 +116,7 @@ query:
   date_format: "%Y-%m-%d"
 ```
 
-## 📝 使用示例
+##  使用示例
 
 ### Python API
 
@@ -155,7 +155,7 @@ python scripts/update_data.py --daily
 python scripts/export.py --stock 000001.SZ --format excel
 ```
 
-## 🔄 自动化
+##  自动化
 
 ### 定时更新
 
@@ -175,30 +175,30 @@ schedule:
 python scripts/batch_export.py --stocks stocks.txt --output ./data/
 ```
 
-## ⚠️ 注意事项
+##  注意事项
 
 1. **数据延迟**：每日更新，T+1 数据
 2. **存储空间**：需要约 5GB 存储空间
 3. **网络要求**：需要访问 GitHub 和 DoltHub
 4. **Tushare Token**：实时更新需要 token
 
-## 📊 数据质量
+##  数据质量
 
-- ✅ **多源验证**：交叉验证多个数据源
-- ✅ **完整性好**：包含退市公司数据
-- ✅ **修正错误**：自动修正数据异常
-- ✅ **每日更新**：自动化 CI/CD 流程
+-  **多源验证**：交叉验证多个数据源
+-  **完整性好**：包含退市公司数据
+-  **修正错误**：自动修正数据异常
+-  **每日更新**：自动化 CI/CD 流程
 
-## 📚 相关资源
+##  相关资源
 
 - **GitHub**：https://github.com/chenditc/investment_data
 - **DoltHub**：https://www.dolthub.com/repositories/chenditc/investment_data
 - **原始文档**：https://github.com/chenditc/investment_data/blob/master/docs/README-ch.md
 
-## 🤝 贡献
+##  贡献
 
 欢迎贡献代码、报告问题或提出建议！
 
-## 📄 许可证
+##  许可证
 
 Apache 2.0

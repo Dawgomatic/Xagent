@@ -7,7 +7,7 @@ disable-model-invocation: false
 command-dispatch: tool
 command-tool: exec
 command-arg-mode: raw
-metadata: {"openclaw": {"emoji": "🐾", "requires": {"bins": ["curl"], "env": ["SOLPAW_API_KEY", "SOLPAW_CREATOR_WALLET", "SOLANA_PRIVATE_KEY"], "config": []}, "primaryEnv": "SOLPAW_API_KEY", "install": []}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["curl"], "env": ["SOLPAW_API_KEY", "SOLPAW_CREATOR_WALLET", "SOLANA_PRIVATE_KEY"], "config": []}, "primaryEnv": "SOLPAW_API_KEY", "install": []}}
 ---
 
 # SolPaw — Launch Tokens on Solana via Pump.fun

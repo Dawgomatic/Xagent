@@ -16,7 +16,7 @@ cat > ${WORKSPACE:-$HOME/workspace}/memory/clawchain-config.json << HEREDOC
 }
 HEREDOC
 
-echo "✅ ClawChain config created at ${WORKSPACE:-$HOME/workspace}/memory/clawchain-config.json"
+echo " ClawChain config created at ${WORKSPACE:-$HOME/workspace}/memory/clawchain-config.json"
 echo ""
 echo "RPC URL: $RPC_URL"
 echo ""

@@ -50,11 +50,11 @@ export default async function sessionEnd(context) {
     if (quota.tier === 'free' && quota.memory_limit > 0) {
       const usagePercent = (quota.memory_count / quota.memory_limit) * 100;
       if (usagePercent >= 90) {
-        console.log(`\n  ⚠️  WARNING: ${usagePercent.toFixed(0)}% of memory quota used!`);
+        console.log(`\n    WARNING: ${usagePercent.toFixed(0)}% of memory quota used!`);
         console.log(`  Consider upgrading to Pro for unlimited memory storage.`);
         console.log(`  Run: openclaw memory subscribe`);
       } else if (usagePercent >= 75) {
-        console.log(`\n  ℹ️  INFO: ${usagePercent.toFixed(0)}% of memory quota used.`);
+        console.log(`\n    INFO: ${usagePercent.toFixed(0)}% of memory quota used.`);
       }
     }
 

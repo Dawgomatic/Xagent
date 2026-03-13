@@ -122,7 +122,7 @@ async function handleMessage(message: string, context: { sessionId?: string; use
 
   const configIssue = getConfigIssue();
   if (configIssue) {
-    return { text: `❌ ${configIssue}` };
+    return { text: ` ${configIssue}` };
   }
 
   if (/^plan2meal\s+login/i.test(text)) {
@@ -144,30 +144,30 @@ function createOAuthState(provider: AuthProvider): string {
 }
 
 function showLoginOptions(): { text: string; requiresAuth: boolean } {
-  let text = '🔐 **Plan2Meal Login**\n\nChoose your login method:\n\n';
+  let text = ' **Plan2Meal Login**\n\nChoose your login method:\n\n';
 
   if (config.githubClientId && config.githubClientSecret && config.githubCallbackUrl) {
     const state = createOAuthState('github');
     const githubUrl = `https://github.com/login/oauth/authorize?client_id=${config.githubClientId}&redirect_uri=${encodeURIComponent(config.githubCallbackUrl)}&state=${state}&scope=read:user`;
-    text += `🐙 **GitHub** - [Login with GitHub](${githubUrl})\n\n`;
+    text += ` **GitHub** - [Login with GitHub](${githubUrl})\n\n`;
   }
 
   if (config.googleClientId && config.googleClientSecret && config.googleCallbackUrl) {
     const state = createOAuthState('google');
     const googleUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${config.googleClientId}&redirect_uri=${encodeURIComponent(config.googleCallbackUrl)}&state=${state}&scope=openid email profile&response_type=code`;
-    text += `🔵 **Google** - [Login with Google](${googleUrl})\n\n`;
+    text += ` **Google** - [Login with Google](${googleUrl})\n\n`;
   }
 
   if (config.appleClientId && config.appleClientSecret && config.appleCallbackUrl) {
     const state = createOAuthState('apple');
     const appleUrl = `https://appleid.apple.com/auth/authorize?client_id=${config.appleClientId}&redirect_uri=${encodeURIComponent(config.appleCallbackUrl)}&state=${state}&scope=name email&response_type=code&response_mode=form_post`;
-    text += `🍎 **Apple** - [Login with Apple](${appleUrl})\n\n`;
+    text += ` **Apple** - [Login with Apple](${appleUrl})\n\n`;
   }
 
   text += '---\nUse OAuth login links above to authenticate.';
 
   if (config.convexUrl === DEFAULT_CONVEX_URL) {
-    text += '\n\n⚠️ Data routing notice: you are using the shared default backend. For private/self-hosted mode, set `CONVEX_URL`.';
+    text += '\n\n Data routing notice: you are using the shared default backend. For private/self-hosted mode, set `CONVEX_URL`.';
   }
 
   return { text, requiresAuth: false };
@@ -176,7 +176,7 @@ function showLoginOptions(): { text: string; requiresAuth: boolean } {
 async function routeCommand(text: string, authToken: string, authProvider: AuthProvider, sessionId: string): Promise<{ text: string }> {
   if (/^plan2meal\s+logout$/i.test(text)) {
     clearSession(sessionId);
-    return { text: '✅ You have been logged out. Use `plan2meal login` to authenticate again.' };
+    return { text: ' You have been logged out. Use `plan2meal login` to authenticate again.' };
   }
 
   if (/^plan2meal\s+login$/i.test(text)) {
@@ -184,24 +184,24 @@ async function routeCommand(text: string, authToken: string, authProvider: AuthP
   }
 
   if (/^plan2meal\s+login\s+--github$/i.test(text)) {
-    if (!config.githubClientId || !config.githubClientSecret || !config.githubCallbackUrl) return { text: '❌ GitHub OAuth is not fully configured.' };
+    if (!config.githubClientId || !config.githubClientSecret || !config.githubCallbackUrl) return { text: ' GitHub OAuth is not fully configured.' };
     const state = createOAuthState('github');
     const githubUrl = `https://github.com/login/oauth/authorize?client_id=${config.githubClientId}&redirect_uri=${encodeURIComponent(config.githubCallbackUrl)}&state=${state}&scope=read:user`;
-    return { text: `🐙 **Login with GitHub**\n\n[Click here to authorize](${githubUrl})` };
+    return { text: ` **Login with GitHub**\n\n[Click here to authorize](${githubUrl})` };
   }
 
   if (/^plan2meal\s+login\s+--google$/i.test(text)) {
-    if (!config.googleClientId || !config.googleClientSecret || !config.googleCallbackUrl) return { text: '❌ Google OAuth is not fully configured.' };
+    if (!config.googleClientId || !config.googleClientSecret || !config.googleCallbackUrl) return { text: ' Google OAuth is not fully configured.' };
     const state = createOAuthState('google');
     const googleUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${config.googleClientId}&redirect_uri=${encodeURIComponent(config.googleCallbackUrl)}&state=${state}&scope=openid email profile&response_type=code`;
-    return { text: `🔵 **Login with Google**\n\n[Click here to authorize](${googleUrl})` };
+    return { text: ` **Login with Google**\n\n[Click here to authorize](${googleUrl})` };
   }
 
   if (/^plan2meal\s+login\s+--apple$/i.test(text)) {
-    if (!config.appleClientId || !config.appleClientSecret || !config.appleCallbackUrl) return { text: '❌ Apple OAuth is not fully configured.' };
+    if (!config.appleClientId || !config.appleClientSecret || !config.appleCallbackUrl) return { text: ' Apple OAuth is not fully configured.' };
     const state = createOAuthState('apple');
     const appleUrl = `https://appleid.apple.com/auth/authorize?client_id=${config.appleClientId}&redirect_uri=${encodeURIComponent(config.appleCallbackUrl)}&state=${state}&scope=name email&response_type=code&response_mode=form_post`;
-    return { text: `🍎 **Login with Apple**\n\n[Click here to authorize](${appleUrl})` };
+    return { text: ` **Login with Apple**\n\n[Click here to authorize](${appleUrl})` };
   }
 
   if (!authToken) {
@@ -213,7 +213,7 @@ async function routeCommand(text: string, authToken: string, authProvider: AuthP
   const addMatch = text.match(/^plan2meal\s+add\s+(.+)$/i);
   if (addMatch) {
     const url = addMatch[1].trim();
-    if (!isValidUrl(url)) return { text: '❌ Invalid URL. Please provide a valid recipe URL.' };
+    if (!isValidUrl(url)) return { text: ' Invalid URL. Please provide a valid recipe URL.' };
     return cmd.addRecipe(url);
   }
 
@@ -241,7 +241,7 @@ async function routeCommand(text: string, authToken: string, authProvider: AuthP
 
   if (/^plan2meal\s+help$/i.test(text)) return cmd.help();
 
-  return { text: '❌ Unknown command. Type `plan2meal help` for available commands.' };
+  return { text: ' Unknown command. Type `plan2meal help` for available commands.' };
 }
 
 async function exchangeCodeForAccessToken(provider: AuthProvider, code: string): Promise<string> {
@@ -324,21 +324,21 @@ async function handleOAuthCallback(text: string, sessionId: string): Promise<{ t
   try {
     callbackUrl = new URL(text.startsWith('http') ? text : `http://localhost${text}`);
   } catch {
-    return { text: '❌ Invalid callback URL.' };
+    return { text: ' Invalid callback URL.' };
   }
 
   const code = callbackUrl.searchParams.get('code');
   const state = callbackUrl.searchParams.get('state') || '';
 
-  if (!code) return { text: '❌ No authorization code found.' };
+  if (!code) return { text: ' No authorization code found.' };
 
   const stateEntry = oauthStateStore.get(state);
-  if (!stateEntry) return { text: '❌ Invalid or expired OAuth state. Please run `plan2meal login` again.' };
+  if (!stateEntry) return { text: ' Invalid or expired OAuth state. Please run `plan2meal login` again.' };
 
   oauthStateStore.delete(state);
 
   if (Date.now() - stateEntry.createdAt > OAUTH_STATE_TTL_MS) {
-    return { text: '❌ OAuth session expired. Please run `plan2meal login` again.' };
+    return { text: ' OAuth session expired. Please run `plan2meal login` again.' };
   }
 
   try {
@@ -356,11 +356,11 @@ async function handleOAuthCallback(text: string, sessionId: string): Promise<{ t
     const userLabel = userInfo?.name || userInfo?.email || 'Authenticated user';
 
     return {
-      text: `✅ Successfully authenticated with **${providerName}** as **${userLabel}**!\n\nYou can now use Plan2Meal commands. Type \`plan2meal help\` to get started.`
+      text: ` Successfully authenticated with **${providerName}** as **${userLabel}**!\n\nYou can now use Plan2Meal commands. Type \`plan2meal help\` to get started.`
     };
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
-    return { text: `❌ Authentication failed: ${message}` };
+    return { text: ` Authentication failed: ${message}` };
   }
 }
 

@@ -60,7 +60,7 @@ if (action === 'add') {
   waitlist.push(entry);
   fs.writeFileSync(filePath, JSON.stringify(waitlist, null, 2));
   
-  console.log('✅ Added to waitlist:');
+  console.log(' Added to waitlist:');
   console.log(JSON.stringify(entry, null, 2));
   
 } else if (action === 'list') {
@@ -72,19 +72,19 @@ if (action === 'add') {
   
   const filePath = path.join(WAITLIST_DIR, `${date}.json`);
   if (!fs.existsSync(filePath)) {
-    console.log(`ℹ️  No waitlist entries for ${date}`);
+    console.log(`  No waitlist entries for ${date}`);
     process.exit(0);
   }
   
   const waitlist = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  console.log(`\n📋 Waitlist for ${date}`);
+  console.log(`\n Waitlist for ${date}`);
   console.log('═'.repeat(60));
   
   waitlist.forEach((entry, index) => {
     console.log(`\n${index + 1}. ${entry.time} - ${entry.customer.name}`);
     console.log(`   Contact: ${entry.customer.phone || entry.customer.email || 'N/A'}`);
     console.log(`   Added: ${entry.added_at}`);
-    console.log(`   Notified: ${entry.notified ? '✅' : '❌'}`);
+    console.log(`   Notified: ${entry.notified ? '' : ''}`);
   });
   console.log('\n');
   
@@ -111,14 +111,14 @@ if (action === 'add') {
   }
   
   if (!booking) {
-    console.error(`❌ Booking not found: ${bookingId}`);
+    console.error(` Booking not found: ${bookingId}`);
     process.exit(1);
   }
   
   // Find waitlist entries for same date/time
   const waitlistFile = path.join(WAITLIST_DIR, `${booking.date}.json`);
   if (!fs.existsSync(waitlistFile)) {
-    console.log(`ℹ️  No waitlist entries for ${booking.date}`);
+    console.log(`  No waitlist entries for ${booking.date}`);
     process.exit(0);
   }
   
@@ -126,7 +126,7 @@ if (action === 'add') {
   const matches = waitlist.filter(w => w.time === booking.time && !w.notified);
   
   if (matches.length === 0) {
-    console.log('ℹ️  No waitlist entries to notify');
+    console.log('  No waitlist entries to notify');
     process.exit(0);
   }
   
@@ -135,13 +135,13 @@ if (action === 'add') {
   const contact = entry.customer.phone || entry.customer.email;
   
   if (!contact) {
-    console.log(`⚠️  No contact info for ${entry.customer.name}`);
+    console.log(`  No contact info for ${entry.customer.name}`);
     process.exit(1);
   }
   
   const message = `${entry.customer.name}님, 예약 자리가 났습니다!\n\n날짜: ${booking.date}\n시간: ${booking.time}\n서비스: ${booking.service}\n\n30분 내로 회신 주시면 예약 확정해드립니다. 원하시나요?`;
   
-  console.log('\n📤 NOTIFY_WAITLIST');
+  console.log('\n NOTIFY_WAITLIST');
   console.log(JSON.stringify({
     waitlist_id: entry.id,
     customer: entry.customer.name,
@@ -157,7 +157,7 @@ if (action === 'add') {
   waitlist[index].notified_at = new Date().toISOString();
   fs.writeFileSync(waitlistFile, JSON.stringify(waitlist, null, 2));
   
-  console.log('\n✅ Waitlist notification sent');
+  console.log('\n Waitlist notification sent');
   
 } else {
   console.error('Usage: node waitlist.js <add|list|notify> [options]');

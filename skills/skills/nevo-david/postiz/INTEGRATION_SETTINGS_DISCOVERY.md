@@ -316,19 +316,19 @@ Complete workflow for posting with correct settings:
 export POSTIZ_API_KEY=your_key
 
 # 1. List integrations
-echo "📋 Available integrations:"
+echo " Available integrations:"
 postiz integrations:list
 
 # 2. Get settings for Reddit
 echo ""
-echo "⚙️  Reddit settings:"
+echo "  Reddit settings:"
 SETTINGS=$(postiz integrations:settings reddit-123)
 echo $SETTINGS | jq '.output.maxLength'
 echo $SETTINGS | jq '.output.settings'
 
 # 3. Create post with correct settings
 echo ""
-echo "📝 Creating post..."
+echo " Creating post..."
 postiz posts:create \
   -c "My post content" \
   -p reddit \
@@ -369,14 +369,14 @@ Returns:
 
 ```bash
 postiz integrations:settings invalid-id
-# ❌ Failed to get integration settings: Integration not found
+#  Failed to get integration settings: Integration not found
 ```
 
 ### API Key Not Set
 
 ```bash
 postiz integrations:settings reddit-123
-# ❌ Error: POSTIZ_API_KEY environment variable is required
+#  Error: POSTIZ_API_KEY environment variable is required
 ```
 
 ## Tips
@@ -389,7 +389,7 @@ postiz integrations:settings reddit-123
 
 ## Comparison: Before vs After
 
-### Before ❌
+### Before 
 
 ```bash
 # Had to guess what settings are available
@@ -397,7 +397,7 @@ postiz integrations:settings reddit-123
 # Didn't know character limits
 ```
 
-### After ✅
+### After 
 
 ```bash
 # Discover settings programmatically
@@ -410,11 +410,11 @@ postiz integrations:settings reddit-123
 
 ## Summary
 
-✅ **Discover settings for any integration**
-✅ **Get character limits**
-✅ **See validation schemas**
-✅ **Know required vs optional fields**
-✅ **Perfect for AI agents**
-✅ **No more guesswork!**
+ **Discover settings for any integration**
+ **Get character limits**
+ **See validation schemas**
+ **Know required vs optional fields**
+ **Perfect for AI agents**
+ **No more guesswork!**
 
-**Now you can discover what settings each platform supports!** 🎉
+**Now you can discover what settings each platform supports!** 

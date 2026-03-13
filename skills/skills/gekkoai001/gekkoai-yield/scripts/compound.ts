@@ -105,21 +105,21 @@ async function main() {
   const config = loadConfig();
   const { publicClient, walletClient, account } = getClients(config);
 
-  console.log('🦎 Gekko Yield — Auto-Compound\n');
+  console.log(' Gekko Yield — Auto-Compound\n');
   console.log(`Wallet: ${account.address}\n`);
 
   await verifyContracts(publicClient);
-  console.log('✅ Contracts verified\n');
+  console.log(' Contracts verified\n');
 
   const ethBalance = await publicClient.getBalance({ address: account.address });
   if (ethBalance < BigInt(5e14)) {
-    console.error(`❌ Insufficient ETH for gas`);
+    console.error(` Insufficient ETH for gas`);
     console.error(`   Available: ${(Number(ethBalance) / 1e18).toFixed(6)} ETH`);
     process.exit(1);
   }
 
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('📋 Step 1: Swap Rewards to USDC');
+  console.log(' Step 1: Swap Rewards to USDC');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
   const rewardTokens = [
@@ -134,14 +134,14 @@ async function main() {
     console.log(`Found ${formatUnits(balance, token.decimals)} ${token.symbol}`);
     const quote = await getOdosQuote(token.address, balance, USDC_ADDRESS, account.address);
     if (!quote) {
-      console.log(`  ⚠️  Could not get quote, skipping\n`);
+      console.log(`    Could not get quote, skipping\n`);
       continue;
     }
 
     const expectedOut = BigInt(quote.outAmounts[0]);
     console.log(`  Expected output: ${formatUSDC(expectedOut)} USDC`);
     if (expectedOut < 10000n) {
-      console.log(`  ⚠️  Output too small (<$0.01), skipping\n`);
+      console.log(`    Output too small (<$0.01), skipping\n`);
       continue;
     }
 
@@ -156,16 +156,16 @@ async function main() {
       console.log(`  Approving ${token.symbol}...`);
       try {
         await approveAndVerify(publicClient, walletClient, account, token.address, ODOS_ROUTER, balance, token.symbol);
-        console.log(`  ✅ Approved\n`);
+        console.log(`   Approved\n`);
       } catch (err) {
-        console.log(`  ❌ Approve failed\n`);
+        console.log(`   Approve failed\n`);
         continue;
       }
     }
 
     const assembled = await assembleOdosTransaction(quote.pathId, account.address);
     if (!assembled) {
-      console.log(`  ⚠️  Could not assemble transaction\n`);
+      console.log(`    Could not assemble transaction\n`);
       continue;
     }
 
@@ -185,23 +185,23 @@ async function main() {
 
       const receipt = await waitForTransaction(publicClient, swapHash);
       if (receipt.status === 'success') {
-        console.log(`  ✅ Swapped! Tx: ${swapHash}\n`);
+        console.log(`   Swapped! Tx: ${swapHash}\n`);
       } else {
-        console.log(`  ❌ Swap reverted\n`);
+        console.log(`   Swap reverted\n`);
       }
     } catch (err) {
-      console.log(`  ❌ Swap failed\n`);
+      console.log(`   Swap failed\n`);
     }
   }
 
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('📋 Step 2: Deposit USDC into Vault');
+  console.log(' Step 2: Deposit USDC into Vault');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
   const usdcBalance = await getTokenBalance(publicClient, USDC_ADDRESS, account.address);
   if (usdcBalance === 0n) {
     console.log('No USDC available to deposit.');
-    console.log('\n✅ Compound complete');
+    console.log('\n Compound complete');
     process.exit(0);
   }
 
@@ -218,7 +218,7 @@ async function main() {
     console.log('Approving USDC for vault...');
     try {
       await approveAndVerify(publicClient, walletClient, account, USDC_ADDRESS, VAULT_ADDRESS, usdcBalance, 'USDC');
-      console.log('✅ Approved!\n');
+      console.log(' Approved!\n');
     } catch (err) {
       handleError(err, 'USDC approve failed');
     }
@@ -259,7 +259,7 @@ async function main() {
     });
 
     console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('🎉 Auto-Compound Complete!');
+    console.log(' Auto-Compound Complete!');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.log(`Deposited:         ${formatUSDC(usdcBalance)} USDC`);
     console.log(`Total position:    ${formatUSDC(positionValue)} USDC`);

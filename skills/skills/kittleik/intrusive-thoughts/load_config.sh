@@ -1,5 +1,5 @@
 #!/bin/bash
-# 🧠 Configuration loader for bash scripts
+#  Configuration loader for bash scripts
 # Source this file to load config variables
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -8,11 +8,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_FILE="$SCRIPT_DIR/config.json"
 if [[ ! -f "$CONFIG_FILE" ]]; then
     CONFIG_FILE="$SCRIPT_DIR/config.example.json"
-    echo "⚠️  Using config.example.json - copy to config.json and customize!" >&2
+    echo "  Using config.example.json - copy to config.json and customize!" >&2
 fi
 
 if [[ ! -f "$CONFIG_FILE" ]]; then
-    echo "❌ No config file found! Create config.json from config.example.json" >&2
+    echo " No config file found! Create config.json from config.example.json" >&2
     exit 1
 fi
 
@@ -41,7 +41,7 @@ except:
 # Load commonly used config values
 HUMAN_NAME=$(get_config "human.name" "Human")
 AGENT_NAME=$(get_config "agent.name" "Agent")
-AGENT_EMOJI=$(get_config "agent.emoji" "🤖")
+AGENT_EMOJI=$(get_config "agent.emoji" "")
 DATA_DIR=$(get_config "system.data_dir" "$SCRIPT_DIR")
 TELEGRAM_TARGET=$(get_config "human.telegram_target" "@human")
 TIMEZONE=$(get_config "human.timezone" "UTC")

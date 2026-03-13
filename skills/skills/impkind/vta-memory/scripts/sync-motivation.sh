@@ -13,7 +13,7 @@ if [ "$1" = "--output" ]; then
 fi
 
 if [ ! -f "$STATE_FILE" ]; then
-  echo "❌ No reward state found at $STATE_FILE"
+  echo " No reward state found at $STATE_FILE"
   exit 1
 fi
 
@@ -90,7 +90,7 @@ if anticipating:
 
 impl_text = '\\n'.join(f'- {imp}' for imp in implications) if implications else '- No special adjustments'
 
-output = f'''# ⭐ How Motivated I'm Feeling
+output = f'''#  How Motivated I'm Feeling
 
 *This is my drive/reward state. Not data — lived motivation.*
 
@@ -128,7 +128,7 @@ output = f'''# ⭐ How Motivated I'm Feeling
 with open(output_file, 'w') as f:
     f.write(output)
 
-print(f'✅ Synced motivation state to {output_file}')
+print(f' Synced motivation state to {output_file}')
 "
 
 # Regenerate brain dashboard

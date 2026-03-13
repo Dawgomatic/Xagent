@@ -1,7 +1,7 @@
 ---
 name: exa-web-search-free
 description: Free AI search via Exa MCP. Web search for news/info, code search for docs/examples from GitHub/StackOverflow, company research for business intel. No API key needed.
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"bins":["mcporter"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mcporter"]}}}
 ---
 
 # Exa Web Search (Free)

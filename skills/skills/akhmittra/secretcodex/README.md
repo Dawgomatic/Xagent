@@ -1,4 +1,4 @@
-# 🔐 SecretCodex
+#  SecretCodex
 
 Generate creative code names and encode/decode secret messages with classic and sophisticated ciphers. Blends nostalgic decoder ring fun with modern cryptographic techniques.
 
@@ -6,12 +6,12 @@ Generate creative code names and encode/decode secret messages with classic and 
 
 SecretCodex brings back the magic of decoder rings, but with serious cryptographic sophistication:
 
-- 🏷️ **Generate creative code names** for operations, team members, and locations
-- 🔒 **Encode secret messages** using 10+ cipher methods (Caesar, Vigenère, Playfair, Rail Fence, OTP, and more)
-- 🔓 **Decode messages** from friends/family (with the key they share)
-- 🎓 **Learn cryptography** through hands-on examples
-- 🎮 **Create puzzles** for scavenger hunts and games
-- 🔑 **Master key management** (the real secret to security)
+-  **Generate creative code names** for operations, team members, and locations
+-  **Encode secret messages** using 10+ cipher methods (Caesar, Vigenère, Playfair, Rail Fence, OTP, and more)
+-  **Decode messages** from friends/family (with the key they share)
+-  **Learn cryptography** through hands-on examples
+-  **Create puzzles** for scavenger hunts and games
+-  **Master key management** (the real secret to security)
 
 ## Installation
 
@@ -158,7 +158,7 @@ Key sharing: "FORTRESS, then 4 rails" (share in person!)
 
 ## Key Features
 
-### 🏷️ Code Name Generation
+###  Code Name Generation
 
 **Types:**
 - Operation names (Silver Dawn, Crimson Falcon)
@@ -171,32 +171,32 @@ Key sharing: "FORTRESS, then 4 rails" (share in person!)
 - Technical/Precise
 - Mysterious/Covert
 
-### 🔒 Classic Ciphers (Decoder Ring Era)
+###  Classic Ciphers (Decoder Ring Era)
 
-- **Caesar Cipher**: Shift alphabet (⭐☆☆☆☆)
-- **ROT13**: Fixed shift by 13 (⭐☆☆☆☆)
-- **Atbash**: Reverse alphabet (⭐☆☆☆☆)
-- **Pigpen**: Symbol substitution (⭐⭐☆☆☆)
+- **Caesar Cipher**: Shift alphabet (☆☆☆☆)
+- **ROT13**: Fixed shift by 13 (☆☆☆☆)
+- **Atbash**: Reverse alphabet (☆☆☆☆)
+- **Pigpen**: Symbol substitution (☆☆☆)
 
-### 🔐 Intermediate Ciphers
+###  Intermediate Ciphers
 
-- **Polybius Square**: Grid coordinates (⭐⭐☆☆☆)
-- **Vigenère**: Keyword-based shift (⭐⭐⭐☆☆)
-- **Rail Fence**: Zigzag transposition (⭐⭐☆☆☆)
+- **Polybius Square**: Grid coordinates (☆☆☆)
+- **Vigenère**: Keyword-based shift (☆☆)
+- **Rail Fence**: Zigzag transposition (☆☆☆)
 
-### 🛡️ Advanced Ciphers
+###  Advanced Ciphers
 
-- **Playfair**: Digraph substitution (⭐⭐⭐⭐☆)
-- **Columnar Transposition**: Keyword ordering (⭐⭐⭐☆☆)
-- **One-Time Pad**: Theoretically unbreakable (⭐⭐⭐⭐⭐)
+- **Playfair**: Digraph substitution (☆)
+- **Columnar Transposition**: Keyword ordering (☆☆)
+- **One-Time Pad**: Theoretically unbreakable ()
 
-### 🔗 Hybrid Methods
+###  Hybrid Methods
 
 - **Double Encryption**: Layer two ciphers
 - **Polybius + Vigenère**: Numbers + keyword
 - **Custom combinations**: Mix and match
 
-### 🔑 Key Management
+###  Key Management
 
 - Key generation strategies
 - Secure sharing methods (in-person, separate channels)
@@ -268,16 +268,16 @@ Unlike online cipher tools, SecretCodex:
 ## Important Security Notes
 
 ### SecretCodex IS:
-✅ Educational and fun
-✅ Good for casual messages
-✅ Great for learning crypto
-✅ Perfect for games and puzzles
+ Educational and fun
+ Good for casual messages
+ Great for learning crypto
+ Perfect for games and puzzles
 
 ### SecretCodex IS NOT:
-❌ Not for truly sensitive data
-❌ Not a replacement for AES/RSA
-❌ Not protection against determined attackers
-❌ Not for financial/medical/legal info
+ Not for truly sensitive data
+ Not a replacement for AES/RSA
+ Not protection against determined attackers
+ Not for financial/medical/legal info
 
 ### For Real Security, Use:
 - **Modern encryption**: AES-256, RSA-2048
@@ -336,6 +336,6 @@ Inspired by decoder rings, historical cryptographers, and the joy of secret mess
 
 ---
 
-**"The best cipher is one your friend can decode, but nobody else can crack!"** 🔐
+**"The best cipher is one your friend can decode, but nobody else can crack!"** 
 
 *Remember: Share keys wisely, change them often, and keep the fun alive!*

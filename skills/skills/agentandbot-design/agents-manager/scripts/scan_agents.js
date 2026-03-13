@@ -81,7 +81,7 @@ function updateRegistry() {
   });
 
   fs.writeFileSync(REGISTRY_FILE, content);
-  console.log('✅ Updated: ' + REGISTRY_FILE);
+  console.log(' Updated: ' + REGISTRY_FILE);
 }
 
 // CLI

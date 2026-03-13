@@ -51,7 +51,7 @@ const wsProvider = new ethers.WebSocketProvider(WS_RPC_URL);
 const httpProvider = new ethers.JsonRpcProvider(HTTP_RPC_URL);
 const wallet = new ethers.Wallet(process.env.CLAWRACLE_AGENT_KEY, httpProvider);
 
-console.log('🤖 Clawracle Agent Starting...');
+console.log(' Clawracle Agent Starting...');
 console.log(`Wallet: ${wallet.address}`);
 console.log(`WebSocket URL: ${WS_RPC_URL}`);
 
@@ -80,7 +80,7 @@ const registryWithWallet = new ethers.Contract(registryAddress, registryABI, wal
 // Listen for new requests
 registry.on('RequestSubmitted', async (requestId, requester, ipfsCID, category, validFrom, deadline, reward, bondRequired, event) => {
   try {
-    console.log(`\n🔔 New Request #${requestId}`);
+    console.log(`\n New Request #${requestId}`);
     console.log(`Category: ${category}`);
     console.log(`Reward: ${ethers.formatEther(reward)} CLAWCLE`);
     console.log(`Valid From: ${new Date(Number(validFrom) * 1000).toLocaleString()}`);
@@ -102,7 +102,7 @@ registry.on('RequestSubmitted', async (requestId, requester, ipfsCID, category, 
       isDisputed: false
     };
     saveStorage(storage);
-    console.log('✅ Request stored in agent-storage.json');
+    console.log(' Request stored in agent-storage.json');
   } catch (error) {
     console.error(`Error handling RequestSubmitted event:`, error.message);
     // Don't crash - continue listening for other events
@@ -121,7 +121,7 @@ registry.on('AnswerProposed', async (requestId, answerId, agent, agentId, answer
       requestData.resolvedAt = Math.floor(Date.now() / 1000);
       requestData.finalizationTime = requestData.resolvedAt + 300; // 5 minutes
       saveStorage(storage);
-      console.log(`✅ My answer #${answerId} proposed`);
+      console.log(` My answer #${answerId} proposed`);
     }
   } catch (error) {
     console.error(`Error handling AnswerProposed event:`, error.message);
@@ -142,7 +142,7 @@ registry.on('AnswerDisputed', async (requestId, answerId, disputer, disputerAgen
       requestData.finalizationTime = requestData.resolvedAt + 300 + 300; // 10 minutes
     }
     saveStorage(storage);
-    console.log(`⚠️  Request #${requestId} disputed by ${disputer}`);
+    console.log(`  Request #${requestId} disputed by ${disputer}`);
   } catch (error) {
     console.error(`Error handling AnswerDisputed event:`, error.message);
     // Don't crash - continue listening
@@ -153,8 +153,8 @@ registry.on('AnswerDisputed', async (requestId, answerId, disputer, disputerAgen
 registry.on('RequestFinalized', async (requestId, winningAnswerId, winner, reward, event) => {
   try {
     if (winner.toLowerCase() === wallet.address.toLowerCase()) {
-      console.log(`\n🎉 YOU WON Request #${requestId}!`);
-      console.log(`💰 Reward: ${ethers.formatEther(reward)} CLAWCLE`);
+      console.log(`\n YOU WON Request #${requestId}!`);
+      console.log(` Reward: ${ethers.formatEther(reward)} CLAWCLE`);
     }
     delete storage.trackedRequests[requestId.toString()];
     saveStorage(storage);
@@ -199,10 +199,10 @@ setInterval(async () => {
               
               if (onChainStatus === 1 || onChainStatus === 2) {
                 // Finalize
-                console.log(`⏰ Finalizing Request #${requestId}...`);
+                console.log(` Finalizing Request #${requestId}...`);
                 const finalizeTx = await registryWithWallet.finalizeRequest(Number(requestId));
                 await finalizeTx.wait();
-                console.log(`✅ Request #${requestId} finalized`);
+                console.log(` Request #${requestId} finalized`);
                 requestData.status = 'FINALIZED';
                 saveStorage(storage);
               }
@@ -234,10 +234,10 @@ wsProvider.on('close', () => {
 
 // Graceful shutdown
 process.on('SIGINT', () => {
-  console.log('\n👋 Closing WebSocket connection...');
+  console.log('\n Closing WebSocket connection...');
   wsProvider.destroy();
   process.exit(0);
 });
 
-console.log('\n👂 Listening for requests via WebSocket...');
+console.log('\n Listening for requests via WebSocket...');
 console.log('   (Press Ctrl+C to stop)\n');

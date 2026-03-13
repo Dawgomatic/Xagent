@@ -10,7 +10,7 @@ SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 
 # Validate inputs
 if [ $# -ne 1 ]; then
-    echo "❌ Usage: show-equipped.sh <gotchi-id>"
+    echo " Usage: show-equipped.sh <gotchi-id>"
     echo ""
     echo "Example:"
     echo "  show-equipped.sh 9638"
@@ -19,7 +19,7 @@ fi
 
 GOTCHI_ID="$1"
 
-echo "👻 Fetching Equipped Wearables for Gotchi #$GOTCHI_ID"
+echo " Fetching Equipped Wearables for Gotchi #$GOTCHI_ID"
 echo ""
 echo "==================================================================="
 
@@ -40,13 +40,13 @@ NAME=$(echo "$RESPONSE" | jq -r '.data.aavegotchi.name // "Unknown"')
 EQUIPPED=$(echo "$RESPONSE" | jq -r '.data.aavegotchi.equippedWearables // []')
 
 if [ "$NAME" = "Unknown" ] || [ "$NAME" = "null" ]; then
-    echo "❌ Gotchi #$GOTCHI_ID not found"
+    echo " Gotchi #$GOTCHI_ID not found"
     exit 1
 fi
 
 echo "Gotchi: #$GOTCHI_ID \"$NAME\""
 echo ""
-echo "🎭 Equipped Wearables:"
+echo " Equipped Wearables:"
 echo ""
 
 # Parse equipped wearables array

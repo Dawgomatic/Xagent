@@ -136,7 +136,7 @@ def generate_html_report(
                 <div style="display:flex;align-items:baseline;margin-top:12px">
                     <span style="font-size:28px;font-weight:700">{fmt_cost(total_cost)}</span>{growth_html}
                 </div>
-                {f'<div style="margin-top:16px;font-size:14px;font-weight:600;color:#f0fdf4;display:flex;align-items:center"><span style="background:rgba(255,255,255,0.2);width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-right:8px;font-size:10px">⚡</span>Saved {fmt_cost(total_savings)}</div>' if total_savings > 0 else ""}
+                {f'<div style="margin-top:16px;font-size:14px;font-weight:600;color:#f0fdf4;display:flex;align-items:center"><span style="background:rgba(255,255,255,0.2);width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-right:8px;font-size:10px"></span>Saved {fmt_cost(total_savings)}</div>' if total_savings > 0 else ""}
             </div>
 
             <div style="background:#1a1a1a;border-radius:24px;padding:28px;border:1px solid #2a2a2a;flex-grow:1;display:flex;flex-direction:column">

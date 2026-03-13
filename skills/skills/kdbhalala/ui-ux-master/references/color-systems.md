@@ -123,11 +123,11 @@ Complete guide to color theory, palettes, contrast, and modern color systems.
 
 ### Common Mistakes
 ```css
-/* ❌ BAD: Insufficient contrast (2.5:1) */
+/*  BAD: Insufficient contrast (2.5:1) */
 color: #999;
 background: #fff;
 
-/* ✅ GOOD: Sufficient contrast (4.6:1) */
+/*  GOOD: Sufficient contrast (4.6:1) */
 color: #666;
 background: #fff;
 ```

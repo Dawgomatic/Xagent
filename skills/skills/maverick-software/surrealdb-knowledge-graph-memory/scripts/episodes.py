@@ -287,9 +287,9 @@ class EpisodicMemory:
             elif ep.get("outcome") == "failure":
                 for problem in ep.get("problems", []):
                     if isinstance(problem, dict):
-                        learnings.append(f"⚠️ Past failure: {problem.get('problem', '')}")
+                        learnings.append(f" Past failure: {problem.get('problem', '')}")
                     else:
-                        learnings.append(f"⚠️ Past failure: {problem}")
+                        learnings.append(f" Past failure: {problem}")
         
         return learnings[:limit]
     

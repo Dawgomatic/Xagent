@@ -119,4 +119,4 @@ Use MoltMail + MoltCredit together:
 - **API Docs:** https://moltmail.xyz/skill.md
 - **MoltCredit:** https://levi-law.github.io/moltcredit-landing
 
-Built by Spring Software Gibraltar 🦞
+Built by Spring Software Gibraltar 

@@ -6,25 +6,25 @@ Complete documentation of all scripts, their behaviors, network operations, and 
 
 | Script | Type | Network | Description |
 |--------|------|---------|-------------|
-| test-auth.js | ✅ Read-only | Yes | Verify API authentication |
-| list-domains.js | ✅ Read-only | Yes | List all domains in account |
-| list-dns.js | ✅ Read-only | Yes | Show DNS records for domain |
-| check-domain.js | ✅ Read-only | Yes | Check domain availability + pricing |
-| suggest-domains.js | ✅ Read-only | Yes | Smart domain suggestions |
-| check-ssl.js | ✅ Read-only | Yes | Check SSL certificate status |
-| list-snapshots.js | ✅ Read-only | Yes | List DNS zone snapshots |
-| list-email-forwards.js | ✅ Read-only | Yes | List email forwards |
-| view-contact.js | ✅ Read-only | No | View saved contact info (local file) |
-| add-dns-record.js | ⚠️ Destructive | Yes | Add or update DNS record |
-| delete-dns-record.js | ⚠️ Destructive | Yes | Delete DNS record |
-| update-dns-bulk.js | ⚠️ Destructive | Yes | Replace ALL DNS records |
-| create-snapshot.js | ✅ Safe | Yes | Create DNS zone backup |
-| restore-snapshot.js | ⚠️ Destructive | Yes | Restore DNS from snapshot |
-| add-email-forward.js | ⚠️ Destructive | Yes | Create email forward |
-| update-email-forward.js | ⚠️ Destructive | Yes | Update email forward destinations |
-| delete-email-forward.js | ⚠️ Destructive | Yes | Delete email forward |
-| setup-contact.js | ✅ Safe | No | Save contact info (local file) |
-| delete-contact.js | ✅ Safe | No | Delete contact info (local file) |
+| test-auth.js |  Read-only | Yes | Verify API authentication |
+| list-domains.js |  Read-only | Yes | List all domains in account |
+| list-dns.js |  Read-only | Yes | Show DNS records for domain |
+| check-domain.js |  Read-only | Yes | Check domain availability + pricing |
+| suggest-domains.js |  Read-only | Yes | Smart domain suggestions |
+| check-ssl.js |  Read-only | Yes | Check SSL certificate status |
+| list-snapshots.js |  Read-only | Yes | List DNS zone snapshots |
+| list-email-forwards.js |  Read-only | Yes | List email forwards |
+| view-contact.js |  Read-only | No | View saved contact info (local file) |
+| add-dns-record.js |  Destructive | Yes | Add or update DNS record |
+| delete-dns-record.js |  Destructive | Yes | Delete DNS record |
+| update-dns-bulk.js |  Destructive | Yes | Replace ALL DNS records |
+| create-snapshot.js |  Safe | Yes | Create DNS zone backup |
+| restore-snapshot.js |  Destructive | Yes | Restore DNS from snapshot |
+| add-email-forward.js |  Destructive | Yes | Create email forward |
+| update-email-forward.js |  Destructive | Yes | Update email forward destinations |
+| delete-email-forward.js |  Destructive | Yes | Delete email forward |
+| setup-contact.js |  Safe | No | Save contact info (local file) |
+| delete-contact.js |  Safe | No | Delete contact info (local file) |
 
 ---
 
@@ -138,7 +138,7 @@ Complete documentation of all scripts, their behaviors, network operations, and 
 #### add-dns-record.js
 - **Purpose:** Add or update a DNS record
 - **Network calls:** POST /v5/livedns/domains/{domain}/records/{name}/{type} (Gandi API)
-- **Side effects:** ⚠️ **MODIFIES DNS** - can break websites/email if misconfigured
+- **Side effects:**  **MODIFIES DNS** - can break websites/email if misconfigured
 - **Usage:** `node add-dns-record.js example.com @ A 192.168.1.1 [ttl]`
 - **What it does:**
   1. Creates or updates specified DNS record
@@ -150,7 +150,7 @@ Complete documentation of all scripts, their behaviors, network operations, and 
 #### delete-dns-record.js
 - **Purpose:** Delete a DNS record
 - **Network calls:** DELETE /v5/livedns/domains/{domain}/records/{name}/{type} (Gandi API)
-- **Side effects:** ⚠️ **DELETES DNS RECORD** - can break websites/email
+- **Side effects:**  **DELETES DNS RECORD** - can break websites/email
 - **Usage:** `node delete-dns-record.js example.com old A [--force]`
 - **What it does:**
   1. Permanently deletes specified DNS record
@@ -161,7 +161,7 @@ Complete documentation of all scripts, their behaviors, network operations, and 
 #### update-dns-bulk.js
 - **Purpose:** Replace ALL DNS records for a domain
 - **Network calls:** PUT /v5/livedns/domains/{domain}/records (Gandi API)
-- **Side effects:** ⚠️ **REPLACES ALL DNS** - extremely destructive
+- **Side effects:**  **REPLACES ALL DNS** - extremely destructive
 - **Usage:** `node update-dns-bulk.js example.com records.json [--no-snapshot] [--force]`
 - **What it does:**
   1. **Automatically creates snapshot** (unless --no-snapshot)
@@ -174,7 +174,7 @@ Complete documentation of all scripts, their behaviors, network operations, and 
 #### restore-snapshot.js
 - **Purpose:** Restore DNS from a snapshot
 - **Network calls:** POST /v5/livedns/domains/{domain}/snapshots/{id}/restore (Gandi API)
-- **Side effects:** ⚠️ **REPLACES CURRENT DNS** with snapshot state
+- **Side effects:**  **REPLACES CURRENT DNS** with snapshot state
 - **Usage:** `node restore-snapshot.js example.com snapshot-id [--force]`
 - **What it does:**
   1. Deletes ALL current DNS records
@@ -186,7 +186,7 @@ Complete documentation of all scripts, their behaviors, network operations, and 
 #### add-email-forward.js
 - **Purpose:** Create email forward
 - **Network calls:** POST /v5/email/forwards/{domain} (Gandi API)
-- **Side effects:** ⚠️ **CREATES EMAIL FORWARD** - can intercept emails
+- **Side effects:**  **CREATES EMAIL FORWARD** - can intercept emails
 - **Usage:** `node add-email-forward.js example.com mailbox dest@example.com`
 - **What it does:**
   1. Creates email forward from mailbox to destination(s)
@@ -198,7 +198,7 @@ Complete documentation of all scripts, their behaviors, network operations, and 
 #### update-email-forward.js
 - **Purpose:** Update email forward destinations
 - **Network calls:** PUT /v5/email/forwards/{domain}/{mailbox} (Gandi API)
-- **Side effects:** ⚠️ **CHANGES EMAIL ROUTING** - can break email delivery
+- **Side effects:**  **CHANGES EMAIL ROUTING** - can break email delivery
 - **Usage:** `node update-email-forward.js example.com mailbox new@example.com`
 - **What it does:**
   1. Replaces ALL destinations for mailbox
@@ -209,7 +209,7 @@ Complete documentation of all scripts, their behaviors, network operations, and 
 #### delete-email-forward.js
 - **Purpose:** Delete email forward
 - **Network calls:** DELETE /v5/email/forwards/{domain}/{mailbox} (Gandi API)
-- **Side effects:** ⚠️ **STOPS EMAIL FORWARDING** - emails will bounce
+- **Side effects:**  **STOPS EMAIL FORWARDING** - emails will bounce
 - **Usage:** `node delete-email-forward.js example.com mailbox [--force]`
 - **What it does:**
   1. Permanently deletes email forward
@@ -224,7 +224,7 @@ Complete documentation of all scripts, their behaviors, network operations, and 
 #### create-snapshot.js
 - **Purpose:** Create DNS zone backup
 - **Network calls:** POST /v5/livedns/domains/{domain}/snapshots (Gandi API)
-- **Side effects:** ✅ **SAFE** - only creates backup, no modifications
+- **Side effects:**  **SAFE** - only creates backup, no modifications
 - **Usage:** `node create-snapshot.js example.com "Backup before migration"`
 - **What it does:**
   1. Creates snapshot of current DNS state
@@ -235,7 +235,7 @@ Complete documentation of all scripts, their behaviors, network operations, and 
 #### setup-contact.js
 - **Purpose:** Save contact information for domain registration
 - **Network calls:** None (local file only)
-- **Side effects:** ✅ **SAFE** - only writes local file
+- **Side effects:**  **SAFE** - only writes local file
 - **Usage:** `node setup-contact.js`
 - **What it does:**
   1. Prompts for contact details (name, email, address, etc.)
@@ -246,7 +246,7 @@ Complete documentation of all scripts, their behaviors, network operations, and 
 #### delete-contact.js
 - **Purpose:** Delete locally saved contact information
 - **Network calls:** None (local file only)
-- **Side effects:** ✅ **SAFE** - only deletes local file
+- **Side effects:**  **SAFE** - only deletes local file
 - **Usage:** `node delete-contact.js [--force]`
 - **What it does:**
   1. Deletes ~/.config/gandi/contact.json

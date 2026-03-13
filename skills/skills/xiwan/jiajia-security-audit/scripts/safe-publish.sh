@@ -35,7 +35,7 @@ SKILL_PATH="$1"
 shift
 
 if [[ ! -d "$SKILL_PATH" ]]; then
-    echo -e "${RED}❌ Skill path not found: $SKILL_PATH${NC}"
+    echo -e "${RED} Skill path not found: $SKILL_PATH${NC}"
     exit 1
 fi
 
@@ -62,13 +62,13 @@ while [[ $# -gt 0 ]]; do
 done
 
 SKILL_NAME=$(basename "$SKILL_PATH")
-echo -e "${BLUE}📤 Publishing skill: $SKILL_NAME${NC}"
+echo -e "${BLUE} Publishing skill: $SKILL_NAME${NC}"
 
 # Step 1: Security audit
 if $SKIP_AUDIT; then
-    echo -e "${YELLOW}⚠️  Skipping security audit (--skip-audit)${NC}"
+    echo -e "${YELLOW}  Skipping security audit (--skip-audit)${NC}"
 else
-    echo -e "${BLUE}🔍 Running security audit...${NC}"
+    echo -e "${BLUE} Running security audit...${NC}"
     echo ""
     
     # Run audit and capture output
@@ -86,47 +86,47 @@ else
     
     # Block on CRITICAL issues - no override for publishing
     if [[ "$CRITICAL" -gt 0 ]]; then
-        echo -e "${RED}🚨 CRITICAL security issues found!${NC}"
-        echo -e "${RED}❌ Cannot publish skills with CRITICAL issues.${NC}"
+        echo -e "${RED} CRITICAL security issues found!${NC}"
+        echo -e "${RED} Cannot publish skills with CRITICAL issues.${NC}"
         echo -e "${RED}   Please fix these issues before publishing.${NC}"
         exit 1
     fi
     
     if [[ "$HIGH" -gt 0 ]]; then
-        echo -e "${YELLOW}⚠️  HIGH severity issues found ($HIGH)${NC}"
+        echo -e "${YELLOW}  HIGH severity issues found ($HIGH)${NC}"
         if ! $FORCE; then
             echo -e "${YELLOW}Publishing with HIGH issues is discouraged.${NC}"
             read -p "Continue anyway? [y/N] " -n 1 -r
             echo
             if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-                echo -e "${RED}❌ Publish cancelled${NC}"
+                echo -e "${RED} Publish cancelled${NC}"
                 exit 1
             fi
         fi
     fi
     
     if [[ "$MEDIUM" -gt 0 ]]; then
-        echo -e "${YELLOW}⚠️  MEDIUM severity issues found ($MEDIUM)${NC}"
+        echo -e "${YELLOW}  MEDIUM severity issues found ($MEDIUM)${NC}"
         if ! $FORCE; then
             read -p "Continue with publish? [Y/n] " -n 1 -r
             echo
             if [[ $REPLY =~ ^[Nn]$ ]]; then
-                echo -e "${RED}❌ Publish cancelled${NC}"
+                echo -e "${RED} Publish cancelled${NC}"
                 exit 1
             fi
         fi
     fi
     
     if [[ "$CRITICAL" -eq 0 && "$HIGH" -eq 0 && "$MEDIUM" -eq 0 ]]; then
-        echo -e "${GREEN}✅ Security audit passed!${NC}"
+        echo -e "${GREEN} Security audit passed!${NC}"
     fi
 fi
 
 # Step 2: Publish
-echo -e "${BLUE}📤 Publishing to ClawdHub...${NC}"
+echo -e "${BLUE} Publishing to ClawdHub...${NC}"
 if clawdhub publish "$SKILL_PATH" "${CLAWDHUB_OPTS[@]}"; then
-    echo -e "${GREEN}✅ Successfully published $SKILL_NAME${NC}"
+    echo -e "${GREEN} Successfully published $SKILL_NAME${NC}"
 else
-    echo -e "${RED}❌ Publish failed${NC}"
+    echo -e "${RED} Publish failed${NC}"
     exit 1
 fi

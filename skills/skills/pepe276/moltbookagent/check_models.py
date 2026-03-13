@@ -21,13 +21,13 @@ try:
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         models = response.json()['data']
-        print("✅ Active Groq Models:")
+        print(" Active Groq Models:")
         for model in models:
             if 'vision' in model['id']:
-                print(f"👁️  VISION: {model['id']}")
+                print(f"  VISION: {model['id']}")
             else:
-                print(f"🔹 {model['id']}")
+                print(f" {model['id']}")
     else:
-        print(f"❌ Error: {response.status_code} - {response.text}")
+        print(f" Error: {response.status_code} - {response.text}")
 except Exception as e:
-    print(f"❌ Exception: {e}")
+    print(f" Exception: {e}")

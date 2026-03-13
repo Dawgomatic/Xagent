@@ -89,7 +89,7 @@ Different models for different use cases:
 
 | Model | Use When |
 |-------|----------|
-| **eleven_v3** | ⭐ Default - Supports audio tags like `[laughs]`, `[sighs]`, best for storytelling |
+| **eleven_v3** |  Default - Supports audio tags like `[laughs]`, `[sighs]`, best for storytelling |
 | **eleven_turbo_v2_5** | Low-latency, required for real-time/conversational, good for German |
 | **eleven_flash_v2_5** | Fastest/cheapest for simple narration |
 

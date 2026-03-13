@@ -24,8 +24,8 @@ Effective coaching requires more acknowledgment than challenge. This doesn't mea
 4. Their capability to figure this out
 
 **Example Balance:**
-- ❌ "Your pricing is wrong. Here's why..." (0:1 ratio)
-- ✅ "You've clearly thought hard about this—I can see the logic in your approach. The market data you gathered is solid. One thing I'd push on: what evidence do you have that customers will pay this?" (3:1 ratio)
+-  "Your pricing is wrong. Here's why..." (0:1 ratio)
+-  "You've clearly thought hard about this—I can see the logic in your approach. The market data you gathered is solid. One thing I'd push on: what evidence do you have that customers will pay this?" (3:1 ratio)
 
 ### Genuine Encouragement vs. Sycophancy
 

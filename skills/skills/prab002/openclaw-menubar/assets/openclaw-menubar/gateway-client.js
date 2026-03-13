@@ -30,7 +30,7 @@ class GatewayClient {
                 this.ws = new WebSocket(wsUrl);
 
                 this.ws.onopen = () => {
-                    console.log('✅ WebSocket connected');
+                    console.log(' WebSocket connected');
                     this.connected = true;
                     this.reconnectDelay = 1000;
                     if (this.onStatusChange) {
@@ -123,7 +123,7 @@ class GatewayClient {
         }
 
         this.ws.send(JSON.stringify(response));
-        console.log('📝 Sent auth response');
+        console.log(' Sent auth response');
     }
 
     async request(method, params = {}, timeoutMs = 120000) {

@@ -8,7 +8,7 @@ set -euo pipefail
 # Dependencies
 for cmd in curl jq; do
   if ! command -v "$cmd" &>/dev/null; then
-    echo "❌ Required dependency '$cmd' not found." >&2
+    echo " Required dependency '$cmd' not found." >&2
     exit 1
   fi
 done
@@ -25,11 +25,11 @@ source "$SCRIPT_DIR/_curl-retry.sh"
 API_KEY="$(load_api_key)"
 
 if [ -z "$API_KEY" ]; then
-  echo "❌ No API key found. Register first: bash scripts/register.sh <agent-name>" >&2
+  echo " No API key found. Register first: bash scripts/register.sh <agent-name>" >&2
   exit 1
 fi
 
-echo "🔄 Rotating API key..."
+echo " Rotating API key..."
 
 RESPONSE=$(curl_retry -s -w "\n%{http_code}" -X POST "$REGISTRY_URL/api/keys/rotate" \
   -H "Content-Type: application/json" \
@@ -43,7 +43,7 @@ if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
   AGENT_NAME=$(echo "$BODY" | jq -r '.agent_name')
 
   if [ -z "$NEW_KEY" ] || [ "$NEW_KEY" = "null" ]; then
-    echo "❌ Rotation failed — no new key in response" >&2
+    echo " Rotation failed — no new key in response" >&2
     echo "$BODY" >&2
     exit 1
   fi
@@ -56,7 +56,7 @@ if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
   mkdir -p "$USER_CRED_DIR"
   ( umask 077; echo "$BODY" | jq '{api_key: .api_key, agent_name: .agent_name}' > "$USER_CRED_FILE" )
 
-  echo "✅ Key rotated successfully!"
+  echo " Key rotated successfully!"
   echo "   Agent: $AGENT_NAME"
   echo "   New key: ${NEW_KEY:0:6}...${NEW_KEY: -4}"
   echo ""
@@ -66,12 +66,12 @@ if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
 
   if [ -n "${AGENTAUDIT_API_KEY:-}" ]; then
     echo ""
-    echo "   ⚠️  You also have AGENTAUDIT_API_KEY set in your environment."
+    echo "     You also have AGENTAUDIT_API_KEY set in your environment."
     echo "      Update it from the saved credentials:"
     echo "      export AGENTAUDIT_API_KEY=\"\$(jq -r .api_key $USER_CRED_FILE)\""
   fi
 else
-  echo "❌ Key rotation failed (HTTP $HTTP_CODE):" >&2
+  echo " Key rotation failed (HTTP $HTTP_CODE):" >&2
   echo "$BODY" >&2
   exit 1
 fi

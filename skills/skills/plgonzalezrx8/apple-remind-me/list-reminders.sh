@@ -10,7 +10,7 @@ case "$FILTER" in
     all|today|tomorrow|week|overdue|completed)
         ;;
     *)
-        echo "❌ Error: Invalid filter '$FILTER'"
+        echo " Error: Invalid filter '$FILTER'"
         echo "Valid filters: all, today, tomorrow, week, overdue, completed"
         exit 1
         ;;
@@ -20,7 +20,7 @@ esac
 OUTPUT=$(remindctl show "$FILTER" --json 2>&1)
 
 if [[ $? -ne 0 ]]; then
-    echo "❌ Error fetching reminders: $OUTPUT"
+    echo " Error fetching reminders: $OUTPUT"
     exit 1
 fi
 
@@ -33,16 +33,16 @@ from datetime import datetime
 try:
     data = json.loads(sys.argv[1])
 except json.JSONDecodeError as e:
-    print(f"❌ Error parsing reminders: {e}")
+    print(f" Error parsing reminders: {e}")
     sys.exit(1)
 
 # Handle empty results
 if not data:
-    print("📭 No reminders found")
+    print(" No reminders found")
     sys.exit(0)
 
 # Print header
-print("📝 Reminders:\n")
+print(" Reminders:\n")
 
 # Format and display each reminder
 for reminder in data:
@@ -53,7 +53,7 @@ for reminder in data:
     list_name = reminder.get('list', 'Reminders')
 
     # Status emoji
-    status = "✅" if completed else "⏳"
+    status = "" if completed else ""
 
     # Format due date
     if due_date:

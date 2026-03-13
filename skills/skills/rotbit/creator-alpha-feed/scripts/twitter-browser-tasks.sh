@@ -29,7 +29,7 @@ ACCOUNTS=(
   "ylecun:Meta AI"
 )
 
-echo "📋 收集任务（公开页面）:"
+echo " 收集任务（公开页面）:"
 
 INDEX=1
 for account_info in "${ACCOUNTS[@]}"; do
@@ -54,7 +54,7 @@ EOF
 
 chmod +x "$OUTPUT_FILE"
 
-echo "✅ 任务已生成: $OUTPUT_FILE"
+echo " 任务已生成: $OUTPUT_FILE"
 echo ""
 echo "手动示例（公开页面）:"
 echo "browser open 'https://x.com/sama'"

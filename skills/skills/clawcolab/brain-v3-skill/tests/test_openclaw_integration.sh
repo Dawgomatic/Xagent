@@ -19,11 +19,11 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-log_info() { echo -e "${BLUE}ℹ️  $1${NC}"; }
-log_success() { echo -e "${GREEN}✅ $1${NC}"; }
-log_warning() { echo -e "${YELLOW}⚠️  $1${NC}"; }
-log_error() { echo -e "${RED}❌ $1${NC}"; }
-log_step() { echo -e "${CYAN}▶ $1${NC}"; }
+log_info() { echo -e "${BLUE}  $1${NC}"; }
+log_success() { echo -e "${GREEN} $1${NC}"; }
+log_warning() { echo -e "${YELLOW}  $1${NC}"; }
+log_error() { echo -e "${RED} $1${NC}"; }
+log_step() { echo -e "${CYAN} $1${NC}"; }
 
 echo ""
 echo "========================================"
@@ -214,25 +214,25 @@ if os.path.exists(skill_path) and skill_path not in sys.path:
 
 try:
     from clawbrain import Brain
-    print("✅ ClawBrain imported successfully")
+    print(" ClawBrain imported successfully")
     
     # Initialize Brain
     brain = Brain()
-    print(f"✅ Brain initialized with {brain.storage_backend} storage")
+    print(f" Brain initialized with {brain.storage_backend} storage")
     
     # Check encryption
     if brain._cipher:
-        print("✅ Encryption is enabled")
+        print(" Encryption is enabled")
     else:
-        print("⚠️  Encryption not available")
+        print("  Encryption not available")
     
     # Health check
     health = brain.health_check()
     storage_ok = health.get("sqlite") or health.get("postgresql")
     if storage_ok:
-        print("✅ Storage backend is healthy")
+        print(" Storage backend is healthy")
     else:
-        print("❌ Storage backend issue")
+        print(" Storage backend issue")
         sys.exit(1)
     
     # Test remember/recall
@@ -242,25 +242,25 @@ try:
         content="Integration test at " + __import__('datetime').datetime.now().isoformat(),
         key="test_key"
     )
-    print(f"✅ Memory stored: {test_memory.id[:8]}...")
+    print(f" Memory stored: {test_memory.id[:8]}...")
     
     # Recall
     memories = brain.recall(agent_id="integration-test", memory_type="test")
     if memories:
-        print(f"✅ Memory recalled: {len(memories)} items")
+        print(f" Memory recalled: {len(memories)} items")
     else:
-        print("❌ Failed to recall memory")
+        print(" Failed to recall memory")
         sys.exit(1)
     
     brain.close()
-    print("\n🎉 All ClawBrain tests passed!")
+    print("\n All ClawBrain tests passed!")
     sys.exit(0)
     
 except ImportError as e:
-    print(f"❌ Failed to import ClawBrain: {e}")
+    print(f" Failed to import ClawBrain: {e}")
     sys.exit(1)
 except Exception as e:
-    print(f"❌ Error: {e}")
+    print(f" Error: {e}")
     sys.exit(1)
 PYTHON_TEST
 

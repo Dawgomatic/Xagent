@@ -7,7 +7,7 @@ Use this structure for the full audit report.
 ## Header
 
 ```markdown
-# 🔒 OpenClaw Security Audit
+#  OpenClaw Security Audit
 
 **Time**: {datetime}
 **Host**: {hostname}
@@ -17,17 +17,17 @@ Use this structure for the full audit report.
 ## Summary Table
 
 ```markdown
-## 📊 Summary
+##  Summary
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | {count} |
-| 🟠 High | {count} |
-| 🟡 Medium | {count} |
-| 🟢 Low | {count} |
-| ⚪ Info | {count} |
+|  Critical | {count} |
+|  High | {count} |
+|  Medium | {count} |
+|  Low | {count} |
+|  Info | {count} |
 
-**Status**: {🟢 Good / 🟡 Needs Attention / 🔴 Action Required}
+**Status**: { Good /  Needs Attention /  Action Required}
 ```
 
 ## Findings by Category
@@ -36,35 +36,35 @@ Use this structure for the full audit report.
 Within each category, show findings with their severity icons.
 
 ```markdown
-## ⚡ Runtime
+##  Runtime
 
 {List all RUNTIME findings with severity icons}
-- 🟡 Running on bare metal with sudo available
-- ⚪ Tailscale VPN active ✅
+-  Running on bare metal with sudo available
+-  Tailscale VPN active 
 
-## 🤖 Agents
+##  Agents
 
 {List all AGENT findings}
-- 🟢 Agent 'molty' has exec but critical tools denied ✅
-- 🟢 8 agent directories have open permissions
+-  Agent 'molty' has exec but critical tools denied 
+-  8 agent directories have open permissions
 
-## 📁 Workspace
+##  Workspace
 
 {List all WORKSPACE findings}
 - (none or findings)
 
-## 🧩 Skills
+##  Skills
 
 {List all SKILL findings}
-- 🟡 4 skills access sensitive paths
-- 🟡 2 skills use base64 encoding
+-  4 skills access sensitive paths
+-  2 skills use base64 encoding
 
-## 📢 Channels
+##  Channels
 
 {List all CHANNEL findings}
 - (none or findings)
 
-## 🌐 Network
+##  Network
 
 {List all NETWORK findings}
 - (none or findings)
@@ -75,15 +75,15 @@ Within each category, show findings with their severity icons.
 At the end, provide a quick reference:
 
 ```markdown
-## 📋 Quick Status
+##  Quick Status
 
 | Category | Status |
 |----------|--------|
-| VPN | ✅ Tailscale |
-| Container | ❌ Bare metal |
-| Root | ✅ Not root |
-| Sudo | ⚠️ Available |
-| Exposed | ⚠️ Yes (but VPN) |
+| VPN |  Tailscale |
+| Container |  Bare metal |
+| Root |  Not root |
+| Sudo |  Available |
+| Exposed |  Yes (but VPN) |
 ```
 
 ## Recommendations
@@ -91,7 +91,7 @@ At the end, provide a quick reference:
 Group by urgency:
 
 ```markdown
-## ✅ Recommended Actions
+##  Recommended Actions
 
 ### Do Now (Quick Fixes)
 1. `chmod 700 ~/.openclaw/agents/*`
@@ -107,7 +107,7 @@ Group by urgency:
 ## User-Level Adaptations
 
 ### Beginner
-- Use analogies (🏠 집, 🔑 열쇠, 🚪 문)
+- Use analogies ( 집,  열쇠,  문)
 - Simple language, no jargon
 - Focus on "what to do"
 - One-liner explanations
@@ -131,7 +131,7 @@ bash ~/.openclaw/skills/secucheck/scripts/serve_dashboard.sh
 
 Then tell user:
 ```
-📊 Dashboard: http://localhost:8766/secucheck-report.html
+ Dashboard: http://localhost:8766/secucheck-report.html
 ```
 
 ## Footer

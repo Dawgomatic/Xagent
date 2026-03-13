@@ -73,10 +73,10 @@ def check_budget(daily_limit_usd=5.0, warn_threshold=0.8):
     # Check thresholds
     if percent_used >= 100:
         result["status"] = "exceeded"
-        result["alert"] = f"⚠️ Daily budget exceeded! ${usage['cost']:.2f} / ${daily_limit_usd:.2f}"
+        result["alert"] = f" Daily budget exceeded! ${usage['cost']:.2f} / ${daily_limit_usd:.2f}"
     elif percent_used >= (warn_threshold * 100):
         result["status"] = "warning"
-        result["alert"] = f"⚠️ Approaching daily limit: ${usage['cost']:.2f} / ${daily_limit_usd:.2f} ({percent_used:.0f}%)"
+        result["alert"] = f" Approaching daily limit: ${usage['cost']:.2f} / ${daily_limit_usd:.2f} ({percent_used:.0f}%)"
     
     return result
 

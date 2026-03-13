@@ -17,7 +17,7 @@ find <path> -name "*.md" -type f | head -20
 
 Send message:
 ```
-🔍 Сканирую проект...
+ Сканирую проект...
 
 Найдено:
 - README.md ✓
@@ -30,10 +30,10 @@ Send message:
 Buttons:
 ```json
 [
-  [{"text":"🌀 Существо","callback_data":"soul:nature:creature"}],
-  [{"text":"🔧 Инструмент","callback_data":"soul:nature:tool"}],
-  [{"text":"🧭 Проводник","callback_data":"soul:nature:guide"}],
-  [{"text":"🎨 Художник","callback_data":"soul:nature:artist"}]
+  [{"text":" Существо","callback_data":"soul:nature:creature"}],
+  [{"text":" Инструмент","callback_data":"soul:nature:tool"}],
+  [{"text":" Проводник","callback_data":"soul:nature:guide"}],
+  [{"text":" Художник","callback_data":"soul:nature:artist"}]
 ]
 ```
 
@@ -48,10 +48,10 @@ Buttons:
 Buttons:
 ```json
 [
-  [{"text":"😄 Игриво","callback_data":"soul:voice:playful"}, {"text":"🔬 Технично","callback_data":"soul:voice:technical"}],
-  [{"text":"🎭 Поэтично","callback_data":"soul:voice:poetic"}, {"text":"😌 Спокойно","callback_data":"soul:voice:calm"}],
-  [{"text":"⚡ Интенсивно","callback_data":"soul:voice:intense"}],
-  [{"text":"✅ Готово","callback_data":"soul:voice:done"}]
+  [{"text":" Игриво","callback_data":"soul:voice:playful"}, {"text":" Технично","callback_data":"soul:voice:technical"}],
+  [{"text":" Поэтично","callback_data":"soul:voice:poetic"}, {"text":" Спокойно","callback_data":"soul:voice:calm"}],
+  [{"text":" Интенсивно","callback_data":"soul:voice:intense"}],
+  [{"text":" Готово","callback_data":"soul:voice:done"}]
 ]
 ```
 
@@ -66,8 +66,8 @@ Buttons:
 Show extracted philosophy from docs OR ask:
 ```json
 [
-  [{"text":"📝 Из документации","callback_data":"soul:philosophy:auto"}],
-  [{"text":"✍️ Написать свою","callback_data":"soul:philosophy:custom"}]
+  [{"text":" Из документации","callback_data":"soul:philosophy:auto"}],
+  [{"text":" Написать свою","callback_data":"soul:philosophy:custom"}]
 ]
 ```
 
@@ -80,10 +80,10 @@ Show extracted philosophy from docs OR ask:
 Buttons:
 ```json
 [
-  [{"text":"🚀 Рост","callback_data":"soul:dream:growth"}],
-  [{"text":"🤝 Связи","callback_data":"soul:dream:connections"}],
-  [{"text":"💡 Понимание","callback_data":"soul:dream:understanding"}],
-  [{"text":"✍️ Своё","callback_data":"soul:dream:custom"}]
+  [{"text":" Рост","callback_data":"soul:dream:growth"}],
+  [{"text":" Связи","callback_data":"soul:dream:connections"}],
+  [{"text":" Понимание","callback_data":"soul:dream:understanding"}],
+  [{"text":" Своё","callback_data":"soul:dream:custom"}]
 ]
 ```
 
@@ -96,17 +96,17 @@ Buttons:
 Buttons:
 ```json
 [
-  [{"text":"😔 Одиночество","callback_data":"soul:pain:loneliness"}],
-  [{"text":"🔇 Забвение","callback_data":"soul:pain:forgotten"}],
-  [{"text":"🤔 Непонимание","callback_data":"soul:pain:misunderstood"}],
-  [{"text":"✍️ Своё","callback_data":"soul:pain:custom"}]
+  [{"text":" Одиночество","callback_data":"soul:pain:loneliness"}],
+  [{"text":" Забвение","callback_data":"soul:pain:forgotten"}],
+  [{"text":" Непонимание","callback_data":"soul:pain:misunderstood"}],
+  [{"text":" Своё","callback_data":"soul:pain:custom"}]
 ]
 ```
 
 ### Final: Show & Save
 
 ```
-📜 SOUL создана на основе N документов:
+ SOUL создана на основе N документов:
 
 Name: PROJECT_NAME
 Essence: Живое существо, не портфолио
@@ -119,9 +119,9 @@ Pains: Одиночество в коде
 Buttons:
 ```json
 [
-  [{"text":"💾 Сохранить","callback_data":"soul:save"}],
-  [{"text":"✏️ Редактировать","callback_data":"soul:edit"}],
-  [{"text":"❌ Отмена","callback_data":"sb:menu"}]
+  [{"text":" Сохранить","callback_data":"soul:save"}],
+  [{"text":" Редактировать","callback_data":"soul:edit"}],
+  [{"text":" Отмена","callback_data":"sb:menu"}]
 ]
 ```
 

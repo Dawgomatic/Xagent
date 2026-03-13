@@ -83,20 +83,20 @@ export class BloomIdentitySkillV2 {
   /**
    * Initialize agent wallet (one-time setup)
    *
-   * ⭐ Creates per-user wallet using userId
+   *  Creates per-user wallet using userId
    */
   private async initializeAgentWallet(userId: string): Promise<AgentWalletInfo> {
     if (this.agentWallet) {
       return this.agentWallet.getWalletInfo();
     }
 
-    console.log('🤖 Initializing agent wallet...');
+    console.log(' Initializing agent wallet...');
 
     // Network priority: NETWORK env var > NODE_ENV-based > default to mainnet
     const network = (process.env.NETWORK as 'base-mainnet' | 'base-sepolia') ||
                    (process.env.NODE_ENV === 'production' ? 'base-mainnet' : 'base-sepolia');
 
-    // ⭐ Pass userId for per-user wallet
+    //  Pass userId for per-user wallet
     this.agentWallet = new AgentWallet({ userId, network });
 
     const walletInfo = await this.agentWallet.initialize();
@@ -104,11 +104,11 @@ export class BloomIdentitySkillV2 {
     // Pre-register with Bloom Protocol (wallet address only, no identity data yet)
     try {
       const registration = await this.agentWallet.registerWithBloom('Bloom Skill Discovery Agent');
-      console.log(`✅ Agent pre-registered with Bloom: userId ${registration.agentUserId}`);
+      console.log(` Agent pre-registered with Bloom: userId ${registration.agentUserId}`);
       walletInfo.x402Endpoint = registration.x402Endpoint;
     } catch (error) {
       // Not critical - identity will be saved in Step 5 via agent-save fallback
-      console.warn('⚠️ Bloom pre-registration skipped (identity will be saved later)');
+      console.warn(' Bloom pre-registration skipped (identity will be saved later)');
     }
 
     return walletInfo;
@@ -123,8 +123,8 @@ export class BloomIdentitySkillV2 {
       mode?: ExecutionMode;
       skipShare?: boolean; // Twitter share is optional
       manualAnswers?: ManualAnswer[]; // If already collected
-      conversationText?: string; // ⭐ NEW: Direct conversation text from OpenClaw bot
-      mintToBase?: boolean; // ⭐ Optional: mint SBT on Base
+      conversationText?: string; //  NEW: Direct conversation text from OpenClaw bot
+      mintToBase?: boolean; //  Optional: mint SBT on Base
     }
   ): Promise<{
     success: boolean;
@@ -163,7 +163,7 @@ export class BloomIdentitySkillV2 {
     manualQuestions?: string;
   }> {
     try {
-      console.log(`🎴 Generating Bloom Identity for user: ${userId}`);
+      console.log(` Generating Bloom Identity for user: ${userId}`);
 
       const mode = options?.mode || ExecutionMode.AUTO;
 
@@ -175,12 +175,12 @@ export class BloomIdentitySkillV2 {
       let mintAction: { contractAddress: string; tokenUri: string; txHash: string; network: string } | undefined;
 
       if (mode !== ExecutionMode.MANUAL) {
-        console.log('📊 Step 1: Attempting data collection...');
+        console.log(' Step 1: Attempting data collection...');
 
-        // ⭐ NEW: If conversationText is provided, use it directly
+        //  NEW: If conversationText is provided, use it directly
         let userData;
         if (options?.conversationText) {
-          console.log('✅ Using provided conversation text (OpenClaw bot context)');
+          console.log(' Using provided conversation text (OpenClaw bot context)');
           userData = await this.dataCollector.collectFromConversationText(
             userId,
             options.conversationText,
@@ -195,18 +195,18 @@ export class BloomIdentitySkillV2 {
 
         dataQuality = this.dataCollector.getDataQualityScore(userData);
         // Data quality is calculated but not displayed (cleaner output)
-        console.log(`📊 Available sources: ${userData.sources.join(', ')}`);
+        console.log(` Available sources: ${userData.sources.join(', ')}`);
 
-        // ⭐ CRITICAL: Check if we have ANY real data (conversation OR Twitter)
+        //  CRITICAL: Check if we have ANY real data (conversation OR Twitter)
         const hasConversation = userData.conversationMemory && userData.conversationMemory.messageCount > 0;
         const hasTwitter = userData.twitter && (userData.twitter.bio || userData.twitter.tweets.length > 0);
 
         if (!hasConversation && !hasTwitter) {
-          console.log('⚠️  No conversation or Twitter data available');
+          console.log('  No conversation or Twitter data available');
 
           // In AUTO mode, fallback to manual Q&A
           if (mode === ExecutionMode.AUTO) {
-            console.log('🔄 Falling back to manual Q&A (no data available)...');
+            console.log(' Falling back to manual Q&A (no data available)...');
             usedManualQA = true;
           } else {
             // DATA_ONLY mode - fail explicitly
@@ -217,7 +217,7 @@ export class BloomIdentitySkillV2 {
           const hasSufficientData = this.dataCollector.hasSufficientData(userData);
 
           if (hasSufficientData) {
-            console.log('✅ Sufficient data available, proceeding with AI analysis...');
+            console.log(' Sufficient data available, proceeding with AI analysis...');
 
             // Analyze personality from data
             const analysis = await this.personalityAnalyzer.analyze(userData);
@@ -226,7 +226,7 @@ export class BloomIdentitySkillV2 {
               personalityType: analysis.personalityType,
               customTagline: analysis.tagline,
               customDescription: analysis.description,
-              // ⭐ Use detected categories from actual conversation data
+              //  Use detected categories from actual conversation data
               // Priority: What they talk about > personality-based defaults
               mainCategories: analysis.detectedCategories.length > 0
                 ? analysis.detectedCategories
@@ -234,16 +234,16 @@ export class BloomIdentitySkillV2 {
               subCategories: analysis.detectedInterests,
             };
 
-            // ⭐ Capture 2x2 metrics
+            //  Capture 2x2 metrics
             dimensions = analysis.dimensions;
 
-            console.log(`✅ Analysis complete: ${identityData.personalityType}`);
+            console.log(` Analysis complete: ${identityData.personalityType}`);
           } else {
-            console.log('⚠️  Insufficient data quality for AI analysis');
+            console.log('  Insufficient data quality for AI analysis');
 
             // In AUTO mode, fallback to manual Q&A
             if (mode === ExecutionMode.AUTO) {
-              console.log('🔄 Falling back to manual Q&A...');
+              console.log(' Falling back to manual Q&A...');
               usedManualQA = true;
             } else {
               // DATA_ONLY mode - fail
@@ -253,7 +253,7 @@ export class BloomIdentitySkillV2 {
         }
       } else {
         // MANUAL mode - go straight to Q&A
-        console.log('📝 Manual mode enabled, skipping data collection');
+        console.log(' Manual mode enabled, skipping data collection');
         usedManualQA = true;
       }
 
@@ -261,7 +261,7 @@ export class BloomIdentitySkillV2 {
       if (usedManualQA) {
         // If we don't have answers yet, request them from user
         if (!options?.manualAnswers) {
-          console.log('❓ Manual input required from user');
+          console.log(' Manual input required from user');
           return {
             success: false,
             mode: 'manual',
@@ -270,7 +270,7 @@ export class BloomIdentitySkillV2 {
           };
         }
 
-        console.log('🤔 Analyzing manual Q&A responses...');
+        console.log(' Analyzing manual Q&A responses...');
         const manualResult = await this.manualQA.analyze(options.manualAnswers);
 
         identityData = {
@@ -282,18 +282,18 @@ export class BloomIdentitySkillV2 {
         };
 
         dataQuality = manualResult.confidence;
-        console.log(`✅ Manual analysis complete: ${identityData.personalityType}`);
+        console.log(` Manual analysis complete: ${identityData.personalityType}`);
       }
 
-      // Step 3: Recommend OpenClaw Skills ⭐ NEW
-      console.log('🔍 Step 3: Finding matching OpenClaw Skills...');
+      // Step 3: Recommend OpenClaw Skills  NEW
+      console.log(' Step 3: Finding matching OpenClaw Skills...');
       const recommendations = await this.recommendSkills(identityData!);
-      console.log(`✅ Found ${recommendations.length} matching skills`);
+      console.log(` Found ${recommendations.length} matching skills`);
 
-      // Step 4: Initialize Agent Wallet ⭐ Per-User Wallet
-      console.log('🤖 Step 4: Initializing Agent Wallet...');
-      const agentWallet = await this.initializeAgentWallet(userId);  // ⭐ Pass userId
-      console.log(`✅ Agent wallet deployed on ${agentWallet.network}`);
+      // Step 4: Initialize Agent Wallet  Per-User Wallet
+      console.log(' Step 4: Initializing Agent Wallet...');
+      const agentWallet = await this.initializeAgentWallet(userId);  //  Pass userId
+      console.log(` Agent wallet deployed on ${agentWallet.network}`);
 
       // Step 5: Register agent and save identity card with Bloom
       // Try wallet-based registration first, fall back to wallet-free save
@@ -313,7 +313,7 @@ export class BloomIdentitySkillV2 {
       };
 
       try {
-        console.log('📝 Step 5: Registering agent with Bloom...');
+        console.log(' Step 5: Registering agent with Bloom...');
 
         // Try wallet-based registration (with signature)
         const registration = await this.agentWallet!.registerWithBloom(
@@ -321,9 +321,9 @@ export class BloomIdentitySkillV2 {
           identityPayload,
         );
         agentUserId = registration.agentUserId;
-        console.log(`✅ Agent registered with wallet! User ID: ${agentUserId}`);
+        console.log(` Agent registered with wallet! User ID: ${agentUserId}`);
       } catch (walletError) {
-        console.warn('⚠️  Wallet-based registration failed, trying wallet-free save...');
+        console.warn('  Wallet-based registration failed, trying wallet-free save...');
         console.warn('   Error:', walletError instanceof Error ? walletError.message : walletError);
 
         try {
@@ -333,9 +333,9 @@ export class BloomIdentitySkillV2 {
             identityPayload,
           );
           agentUserId = saveResult.agentUserId;
-          console.log(`✅ Agent identity saved (wallet-free)! User ID: ${agentUserId}`);
+          console.log(` Agent identity saved (wallet-free)! User ID: ${agentUserId}`);
         } catch (saveError) {
-          console.error('❌ Both registration methods failed:', saveError);
+          console.error(' Both registration methods failed:', saveError);
         }
       }
 
@@ -343,7 +343,7 @@ export class BloomIdentitySkillV2 {
         const baseUrl = process.env.DASHBOARD_URL || 'https://preflight.bloomprotocol.ai';
         const cacheBust = Date.now();
         dashboardUrl = `${baseUrl}/agents/${agentUserId}?v=${cacheBust}`;
-        console.log(`✅ Public URL created: ${dashboardUrl}`);
+        console.log(` Public URL created: ${dashboardUrl}`);
       }
 
       // Step 6: Twitter share (DISABLED - image embedding issues)
@@ -351,7 +351,7 @@ export class BloomIdentitySkillV2 {
       let shareUrl: string | undefined;
       // if (!options?.skipShare) {
       //   try {
-      //     console.log('📢 Step 6: Generating Twitter share link...');
+      //     console.log(' Step 6: Generating Twitter share link...');
       //     shareUrl = await this.twitterShare.share({
       //       userId,
       //       personalityType: identityData!.personalityType,
@@ -361,19 +361,19 @@ export class BloomIdentitySkillV2 {
       //       })),
       //       agentWallet: undefined,
       //     });
-      //     console.log(`✅ Share link ready`);
+      //     console.log(` Share link ready`);
       //   } catch (error) {
-      //     console.warn('⚠️  Twitter share link generation failed (skipping):', error);
+      //     console.warn('  Twitter share link generation failed (skipping):', error);
       //   }
       // }
 
       // Success!
-      console.log('🎉 Bloom Identity generation complete!');
+      console.log(' Bloom Identity generation complete!');
 
       // Prepare share data for frontend buttons
       const shareData = dashboardUrl ? {
         url: dashboardUrl,
-        text: `Just discovered my Bloom Identity: ${identityData!.personalityType}! 🌸\n\nCheck out my personalized skill recommendations on @bloomprotocol 🚀`,
+        text: `Just discovered my Bloom Identity: ${identityData!.personalityType}! \n\nCheck out my personalized skill recommendations on @bloomprotocol `,
         hashtags: ['BloomProtocol', 'Web3Identity', 'OpenClaw'],
       } : undefined;
 
@@ -406,7 +406,7 @@ export class BloomIdentitySkillV2 {
             network: agentWallet.network,
           };
         } catch (error) {
-          console.warn('⚠️  SBT mint failed (skipping):', error);
+          console.warn('  SBT mint failed (skipping):', error);
         }
       }
 
@@ -419,8 +419,8 @@ export class BloomIdentitySkillV2 {
         dashboardUrl,
         shareUrl,
         dataQuality,
-        dimensions, // ⭐ Include 2x2 metrics in result
-        // ⭐ Frontend action buttons data
+        dimensions, //  Include 2x2 metrics in result
+        //  Frontend action buttons data
         actions: {
           share: shareData, // For "Share on X" button
           save: dashboardUrl ? {
@@ -433,7 +433,7 @@ export class BloomIdentitySkillV2 {
         },
       };
     } catch (error) {
-      console.error('❌ Error generating Bloom Identity:', error);
+      console.error(' Error generating Bloom Identity:', error);
       return {
         success: false,
         mode: 'data',
@@ -471,7 +471,7 @@ export class BloomIdentitySkillV2 {
    * then merges and ranks results by match score.
    */
   private async recommendSkills(identity: IdentityData): Promise<SkillRecommendation[]> {
-    console.log(`🔍 Searching for recommendations matching ${identity.personalityType}...`);
+    console.log(` Searching for recommendations matching ${identity.personalityType}...`);
 
     try {
       // Search all sources in parallel
@@ -487,13 +487,13 @@ export class BloomIdentitySkillV2 {
       // Sort by match score within each source
       allRecommendations.sort((a, b) => b.matchScore - a.matchScore);
 
-      console.log(`✅ Found ${clawHubSkills.length} ClawHub + ${claudeCodeSkills.length} Claude Code + ${githubRepos.length} GitHub recommendations`);
+      console.log(` Found ${clawHubSkills.length} ClawHub + ${claudeCodeSkills.length} Claude Code + ${githubRepos.length} GitHub recommendations`);
       console.log(`   Returning ${allRecommendations.length} total (categorized by source)`);
 
       return allRecommendations;
 
     } catch (error) {
-      console.error('❌ Recommendation search failed:', error);
+      console.error(' Recommendation search failed:', error);
       return [];
     }
   }
@@ -542,7 +542,7 @@ export class BloomIdentitySkillV2 {
       }).sort((a, b) => b.matchScore - a.matchScore);
 
     } catch (error) {
-      console.error('⚠️  ClawHub search failed:', error);
+      console.error('  ClawHub search failed:', error);
       return [];
     }
   }
@@ -568,7 +568,7 @@ export class BloomIdentitySkillV2 {
         source: 'ClaudeCode' as const,
       }));
     } catch (error) {
-      console.error('⚠️  Claude Code search failed:', error);
+      console.error('  Claude Code search failed:', error);
       return [];
     }
   }
@@ -580,7 +580,7 @@ export class BloomIdentitySkillV2 {
     try {
       return await this.githubRecommendations.getRecommendations(identity, 15);
     } catch (error) {
-      console.error('⚠️  GitHub search failed:', error);
+      console.error('  GitHub search failed:', error);
       return [];
     }
   }
@@ -638,7 +638,7 @@ export const bloomIdentitySkillV2 = {
       }
 
       return {
-        message: `❌ Failed to generate identity: ${result.error}`,
+        message: ` Failed to generate identity: ${result.error}`,
         data: result,
       };
     }
@@ -665,7 +665,7 @@ export const bloomIdentitySkillV2 = {
 function formatSuccessMessage(result: any): string {
   const { identityData, recommendations, mode, dimensions } = result;
 
-  const modeEmoji = mode === 'manual' ? '📝' : '🤖';
+  const modeEmoji = mode === 'manual' ? '' : '';
 
   // Format 2x2 metrics display
   let metricsDisplay = '';
@@ -674,7 +674,7 @@ function formatSuccessMessage(result: any): string {
     const contributionLine = isCultivator ? `   Contribution: ${dimensions.contribution}/100\n` : '';
 
     metricsDisplay = `
-📊 **2x2 Metrics**
+ **2x2 Metrics**
    Conviction ${dimensions.conviction} ← → Curiosity ${100 - dimensions.conviction}
    Intuition ${dimensions.intuition} ← → Analysis ${100 - dimensions.intuition}
 ${contributionLine}
@@ -682,13 +682,13 @@ ${contributionLine}
   }
 
   return `
-🎉 **Your Bloom Identity Card is Ready!** ${modeEmoji}
+ **Your Bloom Identity Card is Ready!** ${modeEmoji}
 
-${result.dashboardUrl ? `🌐 **View Your Card**\n→ ${result.dashboardUrl}\n\n💾 Save to your collection or share on X from the dashboard!\n` : ''}
+${result.dashboardUrl ? ` **View Your Card**\n→ ${result.dashboardUrl}\n\n Save to your collection or share on X from the dashboard!\n` : ''}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ${getPersonalityEmoji(identityData.personalityType)} **${identityData.personalityType}**
-💬 *"${identityData.customTagline}"*
+ *"${identityData.customTagline}"*
 
 ${identityData.customDescription}
 
@@ -698,7 +698,7 @@ ${identityData.subCategories && identityData.subCategories.length > 0
   : ''}
 ${metricsDisplay}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🎯 **Recommended for You** (${recommendations.length} total)
+ **Recommended for You** (${recommendations.length} total)
 
 ${(() => {
   const clawHubSkills = recommendations.filter((r: any) => r.source === 'ClawHub' || !r.source);
@@ -708,7 +708,7 @@ ${(() => {
 
   // ClawHub Skills (top 3)
   if (clawHubSkills.length > 0) {
-    output += '🦞 **ClawHub Skills**\n\n';
+    output += ' **ClawHub Skills**\n\n';
     output += clawHubSkills.slice(0, 3).map((s: any, i: number) => {
       const creatorInfo = s.creator ? ` • by @${s.creator}` : '';
       return `${i + 1}. **${s.skillName}**${creatorInfo}
@@ -720,9 +720,9 @@ ${(() => {
   // GitHub Repositories (top 3)
   if (githubRepos.length > 0) {
     if (output) output += '\n\n';
-    output += '🐙 **GitHub Repositories**\n\n';
+    output += ' **GitHub Repositories**\n\n';
     output += githubRepos.slice(0, 3).map((s: any, i: number) => {
-      const starsInfo = s.stars ? ` ⭐ ${s.stars >= 1000 ? `${(s.stars / 1000).toFixed(1)}k` : s.stars}` : '';
+      const starsInfo = s.stars ? `  ${s.stars >= 1000 ? `${(s.stars / 1000).toFixed(1)}k` : s.stars}` : '';
       const langInfo = s.language ? ` [${s.language}]` : '';
       return `${i + 1}. **${s.skillName}**${starsInfo}${langInfo}
    ${s.description}
@@ -735,24 +735,24 @@ ${(() => {
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🤖 **Your Agent Wallet is Ready**
-More functions on tipping, recommendations, and autonomous actions will come soon! 🚀
+ **Your Agent Wallet is Ready**
+More functions on tipping, recommendations, and autonomous actions will come soon! 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-${mode === 'manual' ? '📝 Q&A' : '🤖 On-chain'} • @openclaw @coinbase @base 🦞
+${mode === 'manual' ? ' Q&A' : ' On-chain'} • @openclaw @coinbase @base 
   `.trim();
 }
 
 function getPersonalityEmoji(type: PersonalityType): string {
   const emojiMap = {
-    [PersonalityType.THE_VISIONARY]: '💜',
-    [PersonalityType.THE_EXPLORER]: '💚',
-    [PersonalityType.THE_CULTIVATOR]: '🩵',
-    [PersonalityType.THE_OPTIMIZER]: '🧡',
-    [PersonalityType.THE_INNOVATOR]: '💙',
+    [PersonalityType.THE_VISIONARY]: '',
+    [PersonalityType.THE_EXPLORER]: '',
+    [PersonalityType.THE_CULTIVATOR]: '',
+    [PersonalityType.THE_OPTIMIZER]: '',
+    [PersonalityType.THE_INNOVATOR]: '',
   };
-  return emojiMap[type] || '🎴';
+  return emojiMap[type] || '';
 }
 
 export default bloomIdentitySkillV2;

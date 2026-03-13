@@ -7,7 +7,7 @@ import { homedir } from 'os';
  */
 
 async function testStorage() {
-  console.log('\n🧪 Testing ContextStorage class...\n');
+  console.log('\n Testing ContextStorage class...\n');
 
   const dataDir = join(homedir(), '.openclaw', 'openclaw-context-optimizer');
   const dbPath = join(dataDir, 'context-optimizer.db');
@@ -16,7 +16,7 @@ async function testStorage() {
 
   try {
     // Test 1: Record a compression session
-    console.log('1️⃣ Testing recordCompressionSession...');
+    console.log(' Testing recordCompressionSession...');
     const sessionData = {
       session_id: 'test-session-001',
       agent_wallet: '0x1234567890abcdef',
@@ -32,21 +32,21 @@ async function testStorage() {
     };
 
     storage.recordCompressionSession(sessionData);
-    console.log('   ✅ Session recorded');
+    console.log('    Session recorded');
 
     // Test 2: Get compression stats
-    console.log('\n2️⃣ Testing getCompressionStats...');
+    console.log('\n Testing getCompressionStats...');
     const stats = storage.getCompressionStats('0x1234567890abcdef', '30 days');
     console.log('   Stats:', JSON.stringify(stats, null, 2));
-    console.log('   ✅ Stats retrieved');
+    console.log('    Stats retrieved');
 
     // Test 3: Update token statistics
-    console.log('\n3️⃣ Testing updateTokenStats...');
+    console.log('\n Testing updateTokenStats...');
     storage.updateTokenStats('0x1234567890abcdef', 5000, 2000, 0.015);
-    console.log('   ✅ Token stats updated');
+    console.log('    Token stats updated');
 
     // Test 4: Record a pattern
-    console.log('\n4️⃣ Testing recordPattern...');
+    console.log('\n Testing recordPattern...');
     storage.recordPattern({
       pattern_id: 'pattern-001',
       agent_wallet: '0x1234567890abcdef',
@@ -56,59 +56,59 @@ async function testStorage() {
       token_impact: -50,
       importance_score: 0.3
     });
-    console.log('   ✅ Pattern recorded');
+    console.log('    Pattern recorded');
 
     // Test 5: Get patterns
-    console.log('\n5️⃣ Testing getPatterns...');
+    console.log('\n Testing getPatterns...');
     const patterns = storage.getPatterns('0x1234567890abcdef');
     console.log('   Patterns count:', patterns.length);
-    console.log('   ✅ Patterns retrieved');
+    console.log('    Patterns retrieved');
 
     // Test 6: Check quota
-    console.log('\n6️⃣ Testing checkQuotaAvailable...');
+    console.log('\n Testing checkQuotaAvailable...');
     const quotaCheck = storage.checkQuotaAvailable('0x1234567890abcdef');
     console.log('   Quota:', JSON.stringify(quotaCheck, null, 2));
-    console.log('   ✅ Quota checked');
+    console.log('    Quota checked');
 
     // Test 7: Increment compression count
-    console.log('\n7️⃣ Testing incrementCompressionCount...');
+    console.log('\n Testing incrementCompressionCount...');
     storage.incrementCompressionCount('0x1234567890abcdef');
     const updatedQuota = storage.checkQuotaAvailable('0x1234567890abcdef');
     console.log('   Updated quota:', JSON.stringify(updatedQuota, null, 2));
-    console.log('   ✅ Compression count incremented');
+    console.log('    Compression count incremented');
 
     // Test 8: Record payment request
-    console.log('\n8️⃣ Testing recordPaymentRequest...');
+    console.log('\n Testing recordPaymentRequest...');
     storage.recordPaymentRequest('req-001', '0x1234567890abcdef', 0.5, 'USDT');
-    console.log('   ✅ Payment request recorded');
+    console.log('    Payment request recorded');
 
     // Test 9: Get payment request
-    console.log('\n9️⃣ Testing getPaymentRequest...');
+    console.log('\n Testing getPaymentRequest...');
     const paymentReq = storage.getPaymentRequest('req-001');
     console.log('   Payment request:', JSON.stringify(paymentReq, null, 2));
-    console.log('   ✅ Payment request retrieved');
+    console.log('    Payment request retrieved');
 
     // Test 10: Record feedback
-    console.log('\n🔟 Testing recordFeedback...');
+    console.log('\n Testing recordFeedback...');
     storage.recordFeedback('test-session-001', 'success', 0.95, 'Excellent compression quality');
-    console.log('   ✅ Feedback recorded');
+    console.log('    Feedback recorded');
 
     // Test 11: Get feedback
-    console.log('\n1️⃣1️⃣ Testing getFeedback...');
+    console.log('\n Testing getFeedback...');
     const feedback = storage.getFeedback('test-session-001');
     console.log('   Feedback count:', feedback.length);
-    console.log('   ✅ Feedback retrieved');
+    console.log('    Feedback retrieved');
 
     // Test 12: Get strategy stats
-    console.log('\n1️⃣2️⃣ Testing getStrategyStats...');
+    console.log('\n Testing getStrategyStats...');
     const strategyStats = storage.getStrategyStats('0x1234567890abcdef', '30 days');
     console.log('   Strategy stats:', JSON.stringify(strategyStats, null, 2));
-    console.log('   ✅ Strategy stats retrieved');
+    console.log('    Strategy stats retrieved');
 
-    console.log('\n✅ All tests passed!\n');
+    console.log('\n All tests passed!\n');
 
   } catch (error) {
-    console.error('\n❌ Test failed:', error.message);
+    console.error('\n Test failed:', error.message);
     console.error(error.stack);
     process.exit(1);
   } finally {

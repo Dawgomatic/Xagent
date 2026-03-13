@@ -27,7 +27,7 @@
 
 ## Red Flags — Escalate to Legal
 
-🚨 **Immediate escalation:**
+ **Immediate escalation:**
 - Termination request for employee who filed complaint in last 90 days
 - Pregnant employee or anyone on medical/family leave at risk
 - Same manager terminating 3+ employees of protected class

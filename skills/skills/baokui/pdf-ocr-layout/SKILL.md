@@ -50,8 +50,8 @@ python scripts/glm_ocr_pipeline.py \
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| file_path | string | ✅ | Absolute path to input file (supports .pdf, .png, .jpg) |
-| output_dir | string | ✅ | Result output directory (used to save cropped images and JSON reports) |
+| file_path | string |  | Absolute path to input file (supports .pdf, .png, .jpg) |
+| output_dir | string |  | Result output directory (used to save cropped images and JSON reports) |
 
 ## Return Result Structure (JSON)
 

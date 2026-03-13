@@ -56,55 +56,55 @@ All notable changes to HabitFlow skill will be documented in this file.
 ### Changed - Agent Skills Specification Compliance
 
 #### Frontmatter Compliance
-- ✅ Fixed metadata format to single-line JSON (critical parser requirement)
-- ✅ Added `license: MIT` field
-- ✅ Added `compatibility` field documenting Node.js 18+ requirement
-- ✅ Added `user-invocable: true` explicitly
-- ✅ Added `metadata.moltbot.install` for UI install button integration
-- ✅ Added `metadata.moltbot.requires.bins` for dependency checking
-- ✅ Kept `homepage` field (valid molt.bot field, displays in macOS Skills UI)
+-  Fixed metadata format to single-line JSON (critical parser requirement)
+-  Added `license: MIT` field
+-  Added `compatibility` field documenting Node.js 18+ requirement
+-  Added `user-invocable: true` explicitly
+-  Added `metadata.moltbot.install` for UI install button integration
+-  Added `metadata.moltbot.requires.bins` for dependency checking
+-  Kept `homepage` field (valid molt.bot field, displays in macOS Skills UI)
 
 #### Documentation Structure & Progressive Disclosure
-- ✅ Reduced SKILL.md from 749 lines to 426 lines (43% reduction)
-- ✅ Achieved <500 line target per agentskills.io recommendation
-- ✅ Implemented progressive disclosure pattern
+-  Reduced SKILL.md from 749 lines to 426 lines (43% reduction)
+-  Achieved <500 line target per agentskills.io recommendation
+-  Implemented progressive disclosure pattern
 
 #### New Reference Files
-- ✅ Created `references/EXAMPLES.md` (191 lines) - 10 conversation examples
-- ✅ Created `references/COMMANDS.md` (151 lines) - Complete scripts reference
-- ✅ Created `references/REMINDERS.md` (81 lines) - Reminder technical documentation
-- ✅ Created `references/DATA.md` (59 lines) - Data storage reference
+-  Created `references/EXAMPLES.md` (191 lines) - 10 conversation examples
+-  Created `references/COMMANDS.md` (151 lines) - Complete scripts reference
+-  Created `references/REMINDERS.md` (81 lines) - Reminder technical documentation
+-  Created `references/DATA.md` (59 lines) - Data storage reference
 
 #### Enhanced Reference Files
-- ✅ Enhanced `references/atomic-habits-coaching.md` with coaching guidelines by streak level
-- ✅ Added example responses for different scenarios
+-  Enhanced `references/atomic-habits-coaching.md` with coaching guidelines by streak level
+-  Added example responses for different scenarios
 
 #### SKILL.md Optimizations
-- ✅ Moved detailed conversation examples to EXAMPLES.md
-- ✅ Moved technical reminder implementation to REMINDERS.md
-- ✅ Moved complete command reference to COMMANDS.md
-- ✅ Moved data storage details to DATA.md
-- ✅ Moved coaching guidelines to atomic-habits-coaching.md
-- ✅ Condensed first-time setup section
-- ✅ Added cross-references throughout
-- ✅ Removed redundant sections
+-  Moved detailed conversation examples to EXAMPLES.md
+-  Moved technical reminder implementation to REMINDERS.md
+-  Moved complete command reference to COMMANDS.md
+-  Moved data storage details to DATA.md
+-  Moved coaching guidelines to atomic-habits-coaching.md
+-  Condensed first-time setup section
+-  Added cross-references throughout
+-  Removed redundant sections
 
 #### Compliance Status
-- ✅ Fully compliant with agentskills.io specification
-- ✅ Fully compliant with molt.bot/docs/tools/skills specification
-- ✅ Install button integration enabled in molt.bot UI
-- ✅ All content preserved (reorganized, not removed)
-- ✅ Functionality unchanged
+-  Fully compliant with agentskills.io specification
+-  Fully compliant with molt.bot/docs/tools/skills specification
+-  Install button integration enabled in molt.bot UI
+-  All content preserved (reorganized, not removed)
+-  Functionality unchanged
 
 ## [1.2.0] - 2026-01-28
 
 ### Added - Canvas Dashboard UI (Phase 3)
 
 #### Visualization Components
-- ✅ **Streak Chart** - Bar chart showing current vs longest streak with quality indicators
-- ✅ **Completion Heatmap** - GitHub-style calendar grid showing daily completions (90 days)
-- ✅ **Weekly Trends** - Line chart showing completion rate over time (8 weeks)
-- ✅ **Multi-Habit Dashboard** - Overview showing all active habits with mini indicators
+-  **Streak Chart** - Bar chart showing current vs longest streak with quality indicators
+-  **Completion Heatmap** - GitHub-style calendar grid showing daily completions (90 days)
+-  **Weekly Trends** - Line chart showing completion rate over time (8 weeks)
+-  **Multi-Habit Dashboard** - Overview showing all active habits with mini indicators
 
 #### Canvas Dashboard CLI
 - `assets/canvas-dashboard.ts` - Main entry point script with Commander.js interface
@@ -154,13 +154,13 @@ All notable changes to HabitFlow skill will be documented in this file.
 ### Added - MVP Release (Phase 1)
 
 #### Core Features
-- ✅ Habit creation and management (CRUD operations)
-- ✅ Natural language logging with chrono-node date parsing
-- ✅ String similarity matching for habit names
-- ✅ Streak calculation with 1-day forgiveness mechanism
-- ✅ Smart reminders via clawdbot cron jobs → WhatsApp delivery
-- ✅ Basic statistics (completion rate, trends, best day of week)
-- ✅ Flex persona (default neutral professional tone)
+-  Habit creation and management (CRUD operations)
+-  Natural language logging with chrono-node date parsing
+-  String similarity matching for habit names
+-  Streak calculation with 1-day forgiveness mechanism
+-  Smart reminders via clawdbot cron jobs → WhatsApp delivery
+-  Basic statistics (completion rate, trends, best day of week)
+-  Flex persona (default neutral professional tone)
 
 #### Scripts
 - `manage_habit.ts` - Create, update, archive, delete habits
@@ -215,12 +215,12 @@ All notable changes to HabitFlow skill will be documented in this file.
 ### Added - Phase 2: Multi-Persona Support
 
 #### Personas
-- ✅ **Coach Blaze** - Energetic sports coach with high-energy motivational style 🔥
-- ✅ **Luna** - Gentle therapist with compassionate, reflective guidance 💜
-- ✅ **Ava** - Curious productivity nerd focused on experiments and data 🤓
-- ✅ **Max** - Chill buddy with laid-back, no-pressure vibes 😎
-- ✅ **Sofi** - Zen minimalist with serene, mindful presence 🌸
-- ✅ **The Monk** - Wise philosopher with intentional, profound wisdom 🧘
+-  **Coach Blaze** - Energetic sports coach with high-energy motivational style 
+-  **Luna** - Gentle therapist with compassionate, reflective guidance 
+-  **Ava** - Curious productivity nerd focused on experiments and data 
+-  **Max** - Chill buddy with laid-back, no-pressure vibes 
+-  **Sofi** - Zen minimalist with serene, mindful presence 
+-  **The Monk** - Wise philosopher with intentional, profound wisdom 
 
 #### Features
 - Dynamic persona loading from `config.json`
@@ -248,11 +248,11 @@ All notable changes to HabitFlow skill will be documented in this file.
 #### Structure
 - Created `references/personas/` directory with 6 individual persona files:
   - `flex.md` - Professional, data-driven (default)
-  - `coach-blaze.md` - Energetic sports coach 🔥
-  - `luna.md` - Gentle therapist 💜
-  - `ava.md` - Curious productivity nerd 🤓
-  - `max.md` - Chill buddy 😎
-  - `the-monk.md` - Wise minimalist 🧘
+  - `coach-blaze.md` - Energetic sports coach 
+  - `luna.md` - Gentle therapist 
+  - `ava.md` - Curious productivity nerd 
+  - `max.md` - Chill buddy 
+  - `the-monk.md` - Wise minimalist 
 - Updated SKILL.md with dynamic persona loading logic
 - Updated documentation to reflect new structure (README.md, references/personas.md)
 
@@ -263,14 +263,14 @@ All notable changes to HabitFlow skill will be documented in this file.
 
 ## [1.3.0] - 2026-01-29
 
-### Added - Proactive Coaching Automation (Phase 3) ✅
+### Added - Proactive Coaching Automation (Phase 3) 
 
 #### Core Features
-- ✅ **Milestone Celebrations** - Auto-celebrate streak milestones (7, 14, 21, 30, 100 days)
-- ✅ **Risk Warnings** - Predict and warn before streaks break based on historical patterns
-- ✅ **Weekly Check-ins** - Automated weekly summary with insights and coaching (Sunday 7pm)
-- ✅ **Pattern Insights** - Proactively share data-driven observations
-- ✅ **Image Attachments** - Canvas visualizations automatically included in messages
+-  **Milestone Celebrations** - Auto-celebrate streak milestones (7, 14, 21, 30, 100 days)
+-  **Risk Warnings** - Predict and warn before streaks break based on historical patterns
+-  **Weekly Check-ins** - Automated weekly summary with insights and coaching (Sunday 7pm)
+-  **Pattern Insights** - Proactively share data-driven observations
+-  **Image Attachments** - Canvas visualizations automatically included in messages
   - Milestone messages include streak charts
   - Risk warnings include heatmaps
   - Weekly check-ins include trends + heatmaps

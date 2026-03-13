@@ -48,7 +48,7 @@ async function checkForUpdates() {
     if (response.update_required || response.update_available) {
       warning(`Update available: ${currentVersion} → ${response.latest_version}`);
       if (response.breaking_changes) {
-        warning('⚠️  BREAKING CHANGES detected!');
+        warning('  BREAKING CHANGES detected!');
         if (response.migration_guide) {
           info(`Migration guide: ${response.migration_guide}`);
         }

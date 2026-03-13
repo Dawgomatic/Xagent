@@ -7,7 +7,7 @@ description: Query 14+ biomedical databases for drug repurposing, target discove
 
 Query 14+ biomedical databases for drug repurposing, target discovery, clinical evidence, and literature research — all via a unified MCP endpoint.
 
-## ⚡ 30-Second Start
+##  30-Second Start
 
 ```bash
 # Find drugs for myasthenia gravis
@@ -106,27 +106,27 @@ Returns: FDA adverse event reports—check for serious outcomes, death, hospital
 
 ## Use Cases
 
-### 🧬 Drug Repurposing
+###  Drug Repurposing
 Find non-standard-care drugs for rare/complex diseases:
 1. Find disease targets (OpenTargets)
 2. Search for drugs targeting those genes (ChEMBL)
 3. Check ongoing trials (ClinicalTrials)
 4. Verify safety (OpenFDA, PubMed)
 
-### 🔬 Target Discovery
+###  Target Discovery
 Identify novel therapeutic targets:
 1. Find disease associations (OpenTargets, GWAS)
 2. Get pathway context (Reactome, KEGG)
 3. Review literature (PubMed)
 4. Check protein properties (UniProt)
 
-### 📋 Clinical Evidence Review
+###  Clinical Evidence Review
 Compile evidence for a hypothesis:
 1. Search trials (ClinicalTrials.gov)
 2. Find literature (PubMed)
 3. Check FDA data (OpenFDA)
 
-### 📊 Literature Mining
+###  Literature Mining
 Systematically search biomedical research:
 1. PubMed: 35M+ articles searchable by gene, disease, drug, chemical
 2. Preprints: bioRxiv, medRxiv

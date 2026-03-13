@@ -3,7 +3,7 @@ name: ml-evolution-agent
 description: "Auto-evolving ML competition agent. Learns from each experiment, accumulates HCC multi-layer memory, and continuously improves LB scores. Inspired by MLE-Bench #1 ML-Master methodology."
 metadata:
   openclaw:
-    emoji: "🤖"
+    emoji: ""
     version: "1.0.0"
     author: "OpenClaw Agent"
     requires:
@@ -11,7 +11,7 @@ metadata:
     tags: ["machine-learning", "kaggle", "auto-ml", "evolution", "memory"]
 ---
 
-# ML Evolution Agent 🤖
+# ML Evolution Agent 
 
 **Auto-evolving ML competition agent** that learns from every experiment.
 

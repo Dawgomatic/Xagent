@@ -2,7 +2,7 @@
 name: mcps
 description: MCP CLI Manager - Manage MCP servers and call tools
 homepage: https://github.com/maplezzk/mcps
-metadata: {"clawdbot":{"emoji":"🔌","requires":{"bins":["mcps"]},"install":[{"id":"npm","kind":"node","package":"@maplezzk/mcps","bins":["mcps"],"label":"Install mcps"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mcps"]},"install":[{"id":"npm","kind":"node","package":"@maplezzk/mcps","bins":["mcps"],"label":"Install mcps"}]}}
 ---
 
 # mcps - MCP CLI Manager

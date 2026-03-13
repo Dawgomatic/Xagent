@@ -34,13 +34,13 @@ def reformat(aligned_path: str, formatted_path: str, output_path: str):
                 "end": seg.get("end", 0)
             })
 
-    print(f"📖 Loaded {len(all_words)} words from aligned JSON")
+    print(f" Loaded {len(all_words)} words from aligned JSON")
 
     # Load formatted lyrics
     with open(formatted_path) as f:
         lines = [l.strip() for l in f if l.strip() and not l.startswith("#")]
 
-    print(f"📝 Loaded {len(lines)} formatted lines")
+    print(f" Loaded {len(lines)} formatted lines")
 
     # Match words to lines
     new_segments = []
@@ -89,7 +89,7 @@ def reformat(aligned_path: str, formatted_path: str, output_path: str):
     with open(output_path, "w") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
-    print(f"✅ Saved {len(new_segments)} segments to {output_path}")
+    print(f" Saved {len(new_segments)} segments to {output_path}")
 
 
 if __name__ == "__main__":
@@ -102,7 +102,7 @@ if __name__ == "__main__":
 
     for path in [args.aligned, args.formatted]:
         if not os.path.exists(path):
-            print(f"❌ File not found: {path}")
+            print(f" File not found: {path}")
             sys.exit(1)
 
     reformat(args.aligned, args.formatted, args.output)

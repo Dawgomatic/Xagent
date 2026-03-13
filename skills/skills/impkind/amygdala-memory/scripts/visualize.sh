@@ -9,7 +9,7 @@ WORKSPACE="${WORKSPACE:-$HOME/.openclaw/workspace}"
 STATE_FILE="$WORKSPACE/memory/emotional-state.json"
 
 if [ ! -f "$STATE_FILE" ]; then
-    echo "❌ No emotional state found"
+    echo " No emotional state found"
     exit 1
 fi
 
@@ -61,28 +61,28 @@ mood_emoji() {
     local vi=$(echo "$v * 100" | bc | cut -d. -f1)
     local ai=$(echo "$a * 100" | bc | cut -d. -f1)
     
-    if [ "$vi" -gt 60 ] && [ "$ai" -gt 60 ]; then echo "😄"
-    elif [ "$vi" -gt 60 ] && [ "$ai" -le 40 ]; then echo "😌"
-    elif [ "$vi" -lt -20 ] && [ "$ai" -gt 60 ]; then echo "😤"
-    elif [ "$vi" -lt -20 ] && [ "$ai" -le 40 ]; then echo "😢"
-    elif [ "$vi" -gt 30 ]; then echo "🙂"
-    elif [ "$vi" -lt -10 ]; then echo "😕"
-    else echo "😐"
+    if [ "$vi" -gt 60 ] && [ "$ai" -gt 60 ]; then echo ""
+    elif [ "$vi" -gt 60 ] && [ "$ai" -le 40 ]; then echo ""
+    elif [ "$vi" -lt -20 ] && [ "$ai" -gt 60 ]; then echo ""
+    elif [ "$vi" -lt -20 ] && [ "$ai" -le 40 ]; then echo ""
+    elif [ "$vi" -gt 30 ]; then echo ""
+    elif [ "$vi" -lt -10 ]; then echo ""
+    else echo ""
     fi
 }
 
 emoji=$(mood_emoji "$valence" "$arousal")
 
 echo ""
-echo "🎭 Emotional State  $emoji"
+echo " Emotional State  $emoji"
 echo "═══════════════════════════════════════════════"
 printf "Valence:      $(bar $valence -1 1)  %+.2f\n" "$valence"
 printf "Arousal:      $(bar $arousal 0 1)   %.2f\n" "$arousal"
-printf "Connection:   $(bar $connection 0 1)   %.2f  💕\n" "$connection"
-printf "Curiosity:    $(bar $curiosity 0 1)   %.2f  🔍\n" "$curiosity"
-printf "Energy:       $(bar $energy 0 1)   %.2f  ⚡\n" "$energy"
-printf "Trust:        $(bar $trust 0 1)   %.2f  🤝\n" "$trust"
-printf "Anticipation: $(bar $anticipation 0 1)   %.2f  ✨\n" "$anticipation"
+printf "Connection:   $(bar $connection 0 1)   %.2f  \n" "$connection"
+printf "Curiosity:    $(bar $curiosity 0 1)   %.2f  \n" "$curiosity"
+printf "Energy:       $(bar $energy 0 1)   %.2f  \n" "$energy"
+printf "Trust:        $(bar $trust 0 1)   %.2f  \n" "$trust"
+printf "Anticipation: $(bar $anticipation 0 1)   %.2f  \n" "$anticipation"
 echo "═══════════════════════════════════════════════"
 
 if [ "$recent_label" != "none" ] && [ "$recent_label" != "null" ]; then

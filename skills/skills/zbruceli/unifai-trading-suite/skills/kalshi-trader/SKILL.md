@@ -3,7 +3,7 @@ name: kalshi-trader
 description: Query Kalshi prediction markets - Fed rates, GDP, CPI, economics, and regulated event contracts
 homepage: https://kalshi.com
 user-invocable: true
-metadata: {"moltbot":{"emoji":"🏛️","requires":{}}}
+metadata: {"moltbot":{"emoji":"","requires":{}}}
 ---
 
 # Kalshi Trader

@@ -10,7 +10,7 @@
 
 ## [1.3.2] - 2026-02-11
 
-### 🆕 Real Alerting System
+###  Real Alerting System
 
 The alerting system is now fully functional (was a stub before):
 

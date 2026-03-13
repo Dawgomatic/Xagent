@@ -168,7 +168,7 @@ class AlertManager:
             amount_str = f"${amount:,.0f}"
         
         message = f"""
-🚨 **CONGRESSIONAL TRADE ALERT** 🚨
+ **CONGRESSIONAL TRADE ALERT** 
 
 **Politician:** {politician}
 **Action:** {trans_type} {ticker} ({asset_name})

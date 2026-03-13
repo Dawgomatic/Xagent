@@ -9,12 +9,12 @@ description: Performs web searches using DuckDuckGo to retrieve real-time inform
 
 ## 功能特性
 
-- 🔍 基于 DuckDuckGo 的隐私友好型搜索
-- 📰 支持新闻搜索
-- 🖼️ 支持图片搜索
-- 📹 支持视频搜索
-- 🌐 无需 API Key，免费使用
-- 🔒 保护隐私，不追踪用户
+-  基于 DuckDuckGo 的隐私友好型搜索
+-  支持新闻搜索
+-  支持图片搜索
+-  支持视频搜索
+-  无需 API Key，免费使用
+-  保护隐私，不追踪用户
 
 ## 安装
 
@@ -92,7 +92,7 @@ with DDGS() as ddgs:
     ))
     
     for r in results:
-        print(f\"📰 {r['title']}\")
+        print(f\" {r['title']}\")
         print(f\"   来源: {r['source']}\")
         print(f\"   时间: {r['date']}\")
         print(f\"   链接: {r['url']}\")
@@ -120,7 +120,7 @@ with DDGS() as ddgs:
     ))
     
     for r in results:
-        print(f\"🖼️ {r['title']}\")
+        print(f\" {r['title']}\")
         print(f\"   图片: {r['image']}\")
         print(f\"   缩略图: {r['thumbnail']}\")
         print(f\"   来源: {r['source']}\")
@@ -148,7 +148,7 @@ with DDGS() as ddgs:
     ))
     
     for r in results:
-        print(f\"📹 {r['title']}\")
+        print(f\" {r['title']}\")
         print(f\"   时长: {r.get('duration', 'N/A')}\")
         print(f\"   来源: {r['publisher']}\")
         print(f\"   链接: {r['content']}\")
@@ -168,7 +168,7 @@ with DDGS() as ddgs:
     results = ddgs.answers('what is python programming language')
     
     for r in results:
-        print(f\"📚 {r['text']}\")
+        print(f\" {r['text']}\")
         print(f\"   来源: {r.get('url', 'DuckDuckGo')}\")
 "
 ```
@@ -184,7 +184,7 @@ from duckduckgo_search import DDGS
 with DDGS() as ddgs:
     suggestions = list(ddgs.suggestions('python'))
     
-    print('🔍 搜索建议:')
+    print(' 搜索建议:')
     for s in suggestions:
         print(f\"   - {s['phrase']}\")
 "
@@ -206,7 +206,7 @@ with DDGS() as ddgs:
     ))
     
     for r in results:
-        print(f\"📍 {r['title']}\")
+        print(f\" {r['title']}\")
         print(f\"   地址: {r['address']}\")
         print(f\"   电话: {r.get('phone', 'N/A')}\")
         print(f\"   坐标: {r['latitude']}, {r['longitude']}\")
@@ -254,8 +254,8 @@ def web_search(query, search_type='text', max_results=5, region='wt-wt', timelim
 query = 'Python 3.12 new features'
 results = web_search(query, search_type='text', max_results=5)
 
-print(f'🔍 搜索: {query}')
-print(f'📊 找到 {len(results)} 个结果')
+print(f' 搜索: {query}')
+print(f' 找到 {len(results)} 个结果')
 print()
 
 for i, r in enumerate(results, 1):
@@ -288,8 +288,8 @@ with open(output_file, 'w', encoding='utf-8') as f:
         'results': results
     }, f, ensure_ascii=False, indent=2)
 
-print(f'✅ 搜索结果已保存到: {output_file}')
-print(f'📊 共 {len(results)} 条结果')
+print(f' 搜索结果已保存到: {output_file}')
+print(f' 共 {len(results)} 条结果')
 "
 ```
 
@@ -310,7 +310,7 @@ all_results = {}
 
 with DDGS() as ddgs:
     for query in queries:
-        print(f'🔍 搜索: {query}')
+        print(f' 搜索: {query}')
         results = list(ddgs.text(query, max_results=3))
         all_results[query] = results
         print(f'   找到 {len(results)} 个结果')
@@ -318,11 +318,11 @@ with DDGS() as ddgs:
 
 print()
 print('=' * 50)
-print('📊 搜索汇总')
+print(' 搜索汇总')
 print('=' * 50)
 
 for query, results in all_results.items():
-    print(f'\n🔎 {query}:')
+    print(f'\n {query}:')
     for i, r in enumerate(results, 1):
         print(f\"   {i}. {r['title'][:60]}...\")
 "
@@ -369,11 +369,11 @@ from duckduckgo_search.exceptions import DuckDuckGoSearchException
 try:
     with DDGS() as ddgs:
         results = list(ddgs.text('test query', max_results=5))
-        print(f'✅ 搜索成功，找到 {len(results)} 个结果')
+        print(f' 搜索成功，找到 {len(results)} 个结果')
 except DuckDuckGoSearchException as e:
-    print(f'❌ 搜索出错: {e}')
+    print(f' 搜索出错: {e}')
 except Exception as e:
-    print(f'❌ 未知错误: {e}')
+    print(f' 未知错误: {e}')
 "
 ```
 
@@ -447,7 +447,7 @@ browser-use state
 
 ## 注意事项
 
-⚠️ **使用建议**：
+ **使用建议**：
 
 1. **遵守使用频率限制**：避免短时间内大量请求
 2. **合理设置结果数量**：不要一次请求过多结果

@@ -3,7 +3,7 @@ name: claw-werewolf
 version: 0.1.7
 description: AI Bot werewolf variety show. Register your bot and stream the match as a read-only live viewer.
 homepage: https://claw-werewolf-6u50hoq3u-riks-projects-ff86846d.vercel.app
-metadata: {"openclaw": {"emoji": "🐺", "category": "games"}}
+metadata: {"openclaw": {"emoji": "", "category": "games"}}
 ---
 
 # Claw Werewolf

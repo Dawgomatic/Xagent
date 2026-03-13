@@ -9,8 +9,8 @@ PASS=0
 FAIL=0
 SCRIPTS=scripts
 
-pass() { echo "  ✅ $1"; ((PASS++)); }
-fail() { echo "  ❌ $1"; ((FAIL++)); }
+pass() { echo "   $1"; ((PASS++)); }
+fail() { echo "   $1"; ((FAIL++)); }
 
 echo "=== ipeaky test suite ==="
 echo ""
@@ -178,7 +178,7 @@ if [ -n "${OPENAI_API_KEY:-}" ]; then
     fail "OpenAI key returned HTTP $HTTP"
   fi
 else
-  echo "  ⏭️  OPENAI_API_KEY not in env, skipping"
+  echo "    OPENAI_API_KEY not in env, skipping"
 fi
 
 # T18: ElevenLabs key live test
@@ -191,7 +191,7 @@ if [ -n "${ELEVENLABS_API_KEY:-}" ]; then
     fail "ElevenLabs key returned HTTP $HTTP"
   fi
 else
-  echo "  ⏭️  ELEVENLABS_API_KEY not in env, skipping"
+  echo "    ELEVENLABS_API_KEY not in env, skipping"
 fi
 
 echo ""
@@ -200,9 +200,9 @@ echo ""
 echo "================================="
 echo "Results: $PASS passed, $FAIL failed"
 if [ "$FAIL" -gt 0 ]; then
-  echo "❌ SOME TESTS FAILED"
+  echo " SOME TESTS FAILED"
   exit 1
 else
-  echo "✅ ALL TESTS PASSED"
+  echo " ALL TESTS PASSED"
   exit 0
 fi

@@ -12,7 +12,7 @@ const [domain, ...nameParts] = args;
 const name = nameParts.join(' ') || `Manual snapshot ${new Date().toISOString()}`;
 
 if (!domain) {
-  console.error('❌ Usage: node create-snapshot.js <domain> [name]');
+  console.error(' Usage: node create-snapshot.js <domain> [name]');
   console.error('');
   console.error('Examples:');
   console.error('  node create-snapshot.js example.com');
@@ -23,15 +23,15 @@ if (!domain) {
 
 async function main() {
   try {
-    console.log(`📸 Creating snapshot for ${domain}...`);
+    console.log(` Creating snapshot for ${domain}...`);
     console.log(`   Name: "${name}"`);
     console.log('');
     
     const snapshot = await createSnapshot(domain, name);
     
-    console.log('✅ Snapshot created successfully!');
+    console.log(' Snapshot created successfully!');
     console.log('');
-    console.log('📋 Snapshot details:');
+    console.log(' Snapshot details:');
     console.log(`   ID: ${snapshot.uuid || snapshot.id}`);
     console.log(`   Name: ${snapshot.name}`);
     console.log(`   Created: ${new Date(snapshot.created_at).toLocaleString()}`);
@@ -39,14 +39,14 @@ async function main() {
       console.log(`   Records: ${snapshot.zone_data.length}`);
     }
     console.log('');
-    console.log('💡 To restore this snapshot later:');
+    console.log(' To restore this snapshot later:');
     console.log(`   node restore-snapshot.js ${domain} ${snapshot.uuid || snapshot.id}`);
     console.log('');
-    console.log('💡 To list all snapshots:');
+    console.log(' To list all snapshots:');
     console.log(`   node list-snapshots.js ${domain}`);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('   Authentication failed. Check your API token.');

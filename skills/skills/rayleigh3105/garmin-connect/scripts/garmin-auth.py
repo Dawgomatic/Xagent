@@ -10,7 +10,7 @@ from pathlib import Path
 try:
     from garth import Client
 except ImportError:
-    print("❌ garth not installed. Run: pip install garth")
+    print(" garth not installed. Run: pip install garth")
     exit(1)
 
 def setup_oauth(email, password):
@@ -19,7 +19,7 @@ def setup_oauth(email, password):
     garth_dir = Path.home() / ".garth"
     session_file = garth_dir / "session.json"
     
-    print(f"🔐 Authenticating with Garmin ({email})...")
+    print(f" Authenticating with Garmin ({email})...")
     
     try:
         client = Client()
@@ -29,13 +29,13 @@ def setup_oauth(email, password):
         garth_dir.mkdir(exist_ok=True)
         client.dump(str(session_file))
         
-        print(f"✅ OAuth session saved to {session_file}")
-        print("✅ You can now use garmin-sync.py")
+        print(f" OAuth session saved to {session_file}")
+        print(" You can now use garmin-sync.py")
         
         return True
         
     except Exception as e:
-        print(f"❌ Authentication failed: {e}")
+        print(f" Authentication failed: {e}")
         print("\nCommon issues:")
         print("- Wrong email/password")
         print("- 2FA enabled (disable or use app-specific password)")

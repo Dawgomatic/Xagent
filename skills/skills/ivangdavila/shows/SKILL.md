@@ -35,7 +35,7 @@ Store show data in `~/shows/`:
 | Status | watching / watchlist / completed / abandoned / waiting |
 | Progress | S02E05 or "45 min in" for paused movies |
 | Platform | Netflix, HBO, Disney+, etc. |
-| Rating | 1-5 or 👍👎 |
+| Rating | 1-5 or  |
 | Recommended by | Who suggested it |
 | Notes | "Left off at the wedding scene" |
 

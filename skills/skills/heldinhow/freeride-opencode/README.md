@@ -1,6 +1,6 @@
 # Freeride OpenCode Skill
 
-> ⚠️ **Para funcionar, são necessárias duas API keys:**
+>  **Para funcionar, são necessárias duas API keys:**
 > - **OpenCode Zen API key** - Para modelos OpenCode (MiniMax M2.1, Kimi K2.5, GLM 4.7, GPT 5 Nano)
 > - **OpenRouter API key** - Para modelos OpenRouter (Trinity Large e outros)
 

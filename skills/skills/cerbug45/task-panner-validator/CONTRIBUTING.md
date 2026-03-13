@@ -140,7 +140,7 @@ def test_new_feature():
     # Assert
     assert result == expected_value
     
-    print("✅ New feature test passed")
+    print(" New feature test passed")
 ```
 
 ## Documentation
@@ -233,12 +233,12 @@ Any other information, mockups, or examples
 
 We especially welcome contributions in these areas:
 
-- 📝 **Documentation**: Improve docs, add tutorials
-- 🧪 **Testing**: Add more test cases, improve coverage
-- 🐛 **Bug Fixes**: Fix reported issues
-- ✨ **Features**: Implement requested features
-- 🎨 **Examples**: Add real-world usage examples
-- 🌐 **Integrations**: Add integrations with other tools
+-  **Documentation**: Improve docs, add tutorials
+-  **Testing**: Add more test cases, improve coverage
+-  **Bug Fixes**: Fix reported issues
+-  **Features**: Implement requested features
+-  **Examples**: Add real-world usage examples
+-  **Integrations**: Add integrations with other tools
 
 ## Recognition
 
@@ -259,4 +259,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ---
 
-Thank you for contributing! 🎉
+Thank you for contributing! 

@@ -1,7 +1,7 @@
 ---
 name: Meetings
 description: Build a personal meeting system for capturing notes, preparing agendas, and never missing follow-ups.
-metadata: {"clawdbot":{"emoji":"🤝","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

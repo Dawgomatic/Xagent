@@ -2,7 +2,7 @@
 name: wahlu
 description: Social media automation for AI agents. Create posts, schedule content, upload media, manage queues, track publications, organise ideas, and publish across Instagram, TikTok, LinkedIn, Facebook, and YouTube. AI-powered social media manager with full API access.
 homepage: https://wahlu.com/openclaw
-metadata: {"openclaw":{"emoji":"🦐","requires":{"env":["WAHLU_API_KEY"]},"primaryEnv":"WAHLU_API_KEY","install":[{"id":"npm","kind":"node","pkg":"@wahlu/cli","bins":["wahlu"],"label":"Install Wahlu CLI"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["WAHLU_API_KEY"]},"primaryEnv":"WAHLU_API_KEY","install":[{"id":"npm","kind":"node","pkg":"@wahlu/cli","bins":["wahlu"],"label":"Install Wahlu CLI"}]}}
 ---
 
 # Wahlu — Social Media Manager for AI Agents

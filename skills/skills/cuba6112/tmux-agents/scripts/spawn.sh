@@ -25,7 +25,7 @@ fi
 
 # Check if session already exists
 if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
-  echo "⚠️  Session '$SESSION_NAME' already exists"
+  echo "  Session '$SESSION_NAME' already exists"
   echo "Use: tmux attach -t $SESSION_NAME"
   exit 1
 fi
@@ -42,15 +42,15 @@ tmux new-session -d -s "$SESSION_NAME" -x 200 -y 50
 # Set up the environment
 tmux send-keys -t "$SESSION_NAME" "cd ~/clawd" Enter
 tmux send-keys -t "$SESSION_NAME" "clear" Enter
-tmux send-keys -t "$SESSION_NAME" "echo '🚀 Agent Session: $SESSION_NAME'" Enter
-tmux send-keys -t "$SESSION_NAME" "echo '🤖 Agent: $AGENT'" Enter
+tmux send-keys -t "$SESSION_NAME" "echo ' Agent Session: $SESSION_NAME'" Enter
+tmux send-keys -t "$SESSION_NAME" "echo ' Agent: $AGENT'" Enter
 if [ "$LOCAL_MODE" = true ]; then
-  tmux send-keys -t "$SESSION_NAME" "echo '🦙 Mode: LOCAL (Ollama - free!)'" Enter
+  tmux send-keys -t "$SESSION_NAME" "echo ' Mode: LOCAL (Ollama - free!)'" Enter
 else
-  tmux send-keys -t "$SESSION_NAME" "echo '☁️  Mode: CLOUD (API credits)'" Enter
+  tmux send-keys -t "$SESSION_NAME" "echo '  Mode: CLOUD (API credits)'" Enter
 fi
-tmux send-keys -t "$SESSION_NAME" "echo '📋 Task: $TASK'" Enter
-tmux send-keys -t "$SESSION_NAME" "echo '⏰ Started: $(date)'" Enter
+tmux send-keys -t "$SESSION_NAME" "echo ' Task: $TASK'" Enter
+tmux send-keys -t "$SESSION_NAME" "echo ' Started: $(date)'" Enter
 tmux send-keys -t "$SESSION_NAME" "echo '-------------------------------------------'" Enter
 tmux send-keys -t "$SESSION_NAME" "echo ''" Enter
 
@@ -88,17 +88,17 @@ case "$AGENT" in
     ;;
 esac
 
-echo "✅ Session '$SESSION_NAME' spawned with $AGENT"
+echo " Session '$SESSION_NAME' spawned with $AGENT"
 if [ "$LOCAL_MODE" = true ]; then
-  echo "🦙 Running locally — no API costs!"
+  echo " Running locally — no API costs!"
 else
-  echo "☁️  Using cloud API"
+  echo "  Using cloud API"
 fi
 echo ""
-echo "📋 Task: $TASK"
+echo " Task: $TASK"
 echo ""
 echo "Commands:"
-echo "  👀 Watch:   tmux attach -t $SESSION_NAME"
-echo "  📊 Check:   ./skills/tmux-agents/scripts/check.sh $SESSION_NAME"
-echo "  💬 Send:    tmux send-keys -t $SESSION_NAME 'message' Enter"
-echo "  🛑 Kill:    tmux kill-session -t $SESSION_NAME"
+echo "   Watch:   tmux attach -t $SESSION_NAME"
+echo "   Check:   ./skills/tmux-agents/scripts/check.sh $SESSION_NAME"
+echo "   Send:    tmux send-keys -t $SESSION_NAME 'message' Enter"
+echo "   Kill:    tmux kill-session -t $SESSION_NAME"

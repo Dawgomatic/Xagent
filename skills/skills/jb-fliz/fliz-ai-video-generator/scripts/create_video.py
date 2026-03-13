@@ -124,7 +124,7 @@ def main():
     result = create_video(api_key, params)
     
     if result["success"]:
-        print("✅ Video created successfully!")
+        print(" Video created successfully!")
         print(f"   Video ID: {result['video_id']}")
         print()
         print(f"Check status: GET /api/rest/videos/{result['video_id']}")
@@ -134,7 +134,7 @@ def main():
                 json.dump(result, f, indent=2)
             print(f"Response saved to: {args.output}")
     else:
-        print("❌ Failed to create video")
+        print(" Failed to create video")
         print(f"   Error: {result.get('error', 'Unknown error')}")
         if "status_code" in result:
             print(f"   Status: {result['status_code']}")

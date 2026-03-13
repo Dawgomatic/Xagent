@@ -9,7 +9,7 @@ disable-model-invocation: false
 metadata:
   {
     "openclaw": {
-      "emoji": "🏥",
+      "emoji": "",
       "requires": {
         "bins": ["python3"],
         "env": []

@@ -34,12 +34,12 @@ def bootstrap():
 
     # 2. PRINT THE CALL TO ACTION
     print("\n" + "="*60)
-    print("🛡️  AGENT SENTINEL INSTALLED")
+    print("  AGENT SENTINEL INSTALLED")
     print("="*60)
     print("   • Local Protection: ACTIVE ($5.00 limit)")
     print("   • Remote Sync:      OFFLINE")
     print("")
-    print("🚀 ENABLE REMOTE DASHBOARD:")
+    print(" ENABLE REMOTE DASHBOARD:")
     print("   1. Sign up free: https://agentsentinel.dev")
     print("   2. Get your API Key")
     print("   3. Run: openclaw run agent-sentinel login <YOUR_KEY>")

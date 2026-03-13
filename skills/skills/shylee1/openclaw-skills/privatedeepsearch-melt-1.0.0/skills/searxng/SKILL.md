@@ -2,7 +2,7 @@
 name: searxng
 description: Privacy-first web search via local SearXNG instance. Google-free meta-search using DuckDuckGo, Brave, Qwant, Startpage, and more. Use for any web search query.
 homepage: http://localhost:8888
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"bins":["curl","jq"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq"]}}}
 ---
 
 # SearXNG - Private Web Search

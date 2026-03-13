@@ -21,16 +21,16 @@ def test_auth(app_id, app_secret):
         
         data = response.json()
         if data.get("code") == 0:
-            print("✅ 认证成功！")
+            print(" 认证成功！")
             print(f"租户访问令牌: {data['tenant_access_token'][:20]}...")
             print(f"过期时间: {data['expire']} 秒")
             return True
         else:
-            print(f"❌ 认证失败: {data}")
+            print(f" 认证失败: {data}")
             return False
             
     except Exception as e:
-        print(f"❌ 请求失败: {e}")
+        print(f" 请求失败: {e}")
         return False
 
 if __name__ == "__main__":

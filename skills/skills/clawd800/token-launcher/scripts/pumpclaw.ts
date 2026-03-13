@@ -177,10 +177,10 @@ async function create(opts: {
       args: [count - 1n, count],
     });
 
-    console.log(`✅ Created: ${token.token}`);
+    console.log(` Created: ${token.token}`);
     console.log(`Basescan: https://basescan.org/token/${token.token}`);
   } else {
-    console.log("❌ Failed");
+    console.log(" Failed");
   }
 }
 
@@ -200,9 +200,9 @@ async function claim(tokenAddress: string) {
   const receipt = await publicClient.waitForTransactionReceipt({ hash });
 
   if (receipt.status === "success") {
-    console.log("✅ Fees claimed");
+    console.log(" Fees claimed");
   } else {
-    console.log("❌ Failed");
+    console.log(" Failed");
   }
 }
 

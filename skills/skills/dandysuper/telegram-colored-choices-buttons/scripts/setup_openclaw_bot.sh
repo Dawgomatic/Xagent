@@ -195,17 +195,17 @@ if __name__ == "__main__":
     print("Sending colored inline buttons...")
     bot.send_choice(
         chat_id=chat_id,
-        text="🎨 <b>Openclaw Colored Buttons</b>\n\nChoose an action:",
+        text=" <b>Openclaw Colored Buttons</b>\n\nChoose an action:",
         choices=[
-            {"text": "✅ Approve", "data": "approve"},
-            {"text": "❌ Reject", "data": "reject", "style": "destructive"},
-            {"text": "⏭ Skip", "data": "skip", "style": "secondary"},
-            {"text": "📖 Docs", "url": "https://core.telegram.org/bots/api"},
+            {"text": " Approve", "data": "approve"},
+            {"text": " Reject", "data": "reject", "style": "destructive"},
+            {"text": " Skip", "data": "skip", "style": "secondary"},
+            {"text": " Docs", "url": "https://core.telegram.org/bots/api"},
         ],
         columns=2,
         parse_mode="HTML",
     )
-    print("✅ Done! Check your Telegram chat.")
+    print(" Done! Check your Telegram chat.")
 PYEOF
 
 echo "==> Created ${PROJECT_DIR}/bot.py"
@@ -218,4 +218,4 @@ echo "  2. Edit .env and set your BOT_TOKEN"
 echo "  3. pip install -r requirements.txt"
 echo "  4. python bot.py"
 echo ""
-echo "✅ Openclaw bot project ready!"
+echo " Openclaw bot project ready!"

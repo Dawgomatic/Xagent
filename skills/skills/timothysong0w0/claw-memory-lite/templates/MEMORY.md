@@ -16,22 +16,22 @@
 
 ## L1 - Overview (Category Index)
 
-### 🖥️ System
+###  System
 Session configuration, model aliases, compatibility rules, and OpenClaw settings.
 
-### 🛠️ Skills
+###  Skills
 Installed skills, API configurations, known issues, and tool policies.
 
-### 📊 Projects
+###  Projects
 Active projects, strategy parameters, backtest results, and TODOs.
 
-### 🌍 Environment
+###  Environment
 Workspace paths, backup configurations, Python/UV policies, and directory structure.
 
-### 💬 Communication
+###  Communication
 Channel mappings, notification rules, bot configurations, and Discord/Telegram settings.
 
-### 🔒 Security
+###  Security
 Access control principles, credential storage policies, and audit guidelines.
 
 ---
@@ -49,7 +49,7 @@ Access control principles, credential storage policies, and audit guidelines.
 
 ---
 
-## 📅 Recent Extraction Log
+##  Recent Extraction Log
 
 | Date | Source File | Extracted Content |
 |------|-------------|-------------------|

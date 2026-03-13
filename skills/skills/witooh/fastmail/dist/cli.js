@@ -11036,7 +11036,7 @@ class CalDAVClient {
       authMethod: "Basic",
       defaultAccountType: "caldav"
     });
-    console.error("✅ Connected to Fastmail CalDAV");
+    console.error(" Connected to Fastmail CalDAV");
   }
   async getCalendars() {
     await this.connect();

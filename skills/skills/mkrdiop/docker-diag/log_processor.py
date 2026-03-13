@@ -29,7 +29,7 @@ def process_logs(container_name, max_lines=1000, context_size=5):
             if error_id not in seen_errors:
                 findings.append("--- CONTEXT ---")
                 findings.extend(list(buffer))
-                findings.append(f"👉 {line}")
+                findings.append(f" {line}")
                 seen_errors.add(error_id)
         buffer.append(line)
 

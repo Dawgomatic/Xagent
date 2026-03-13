@@ -105,9 +105,9 @@ If both `amount` and `holdings_percentage` are sent, treat the request as invali
 
 Submit a **signed** transaction (**base64**). Blocks until confirmed on-chain. Returns signature and balance changes.
 
-**⚠️ Set a 30-second timeout on /protect calls.** This endpoint blocks until on-chain confirmation and can hang during network congestion.
+** Set a 30-second timeout on /protect calls.** This endpoint blocks until on-chain confirmation and can hang during network congestion.
 
-**⚠️ Encoding mismatch:** `/swap` returns `swap_tx` as **base58**. `/protect` expects **base64**. You must convert — see the workflow section.
+** Encoding mismatch:** `/swap` returns `swap_tx` as **base58**. `/protect` expects **base64**. You must convert — see the workflow section.
 
 ### Request
 
@@ -335,7 +335,7 @@ When `order_filled` arrives:
 9. Log `order_id` + `signature` together for audit trail
 10. Use response to update holdings
 
-**⚠️ `filled_mcap` can be 0 or null.** If `triggered_mcap` exists but `filled_mcap` is 0/null, the fill is still valid — the transaction will work, but mcap data at fill time is unreliable. Don't reject fills based on `filled_mcap` alone.
+** `filled_mcap` can be 0 or null.** If `triggered_mcap` exists but `filled_mcap` is 0/null, the fill is still valid — the transaction will work, but mcap data at fill time is unreliable. Don't reject fills based on `filled_mcap` alone.
 
 **Staleness check:** After reconnect, if `triggered_mcap / filled_mcap < 0.85`, the fill is stale — consider skipping.
 
@@ -639,7 +639,7 @@ function signVersionedTx(swapTxBase58) {
   return Buffer.from(signedBytes).toString('base64');
 }
 
-// ⚠️ THIS IS THE ONLY FUNCTION THAT SUBMITS TRANSACTIONS.
+//  THIS IS THE ONLY FUNCTION THAT SUBMITS TRANSACTIONS.
 // /protect is ALWAYS tried first. RPC fallback is internal and fires on 503,
 // or after timeout only if RPC status check shows the tx did not land.
 // Do NOT call connection.sendRawTransaction() directly anywhere else.
@@ -862,7 +862,7 @@ async function preflight() {
 
   checks.push({ name: 'PRIVATE_KEY loaded', pass: !!process.env.PRIVATE_KEY });
   if (!process.env.RPC_URL) {
-    console.log('⚠ RPC_URL not set — using default public RPC (rate-limited, not recommended for production)');
+    console.log(' RPC_URL not set — using default public RPC (rate-limited, not recommended for production)');
   }
   checks.push({ name: 'RPC_URL configured', pass: true, url: process.env.RPC_URL ? '(custom)' : '(default public)' });
 
@@ -919,8 +919,8 @@ async function preflight() {
   console.log('\n=== PREFLIGHT ===');
   checks.forEach(c => console.log(`${c.pass ? '✓' : '✗'} ${c.name}`, c.pass ? '' : `— ${c.error || ''}`));
   const allPass = checks.every(c => c.pass);
-  console.log(`\n${allPass ? '🟢 ALL CHECKS PASSED — ready to go live' : '🔴 CHECKS FAILED — fix before going live'}\n`);
-  console.log(`Mode: ${DRY_RUN ? '📋 DRY RUN (set DRY_RUN=false to go live)' : '🔴 LIVE TRADING'}\n`);
+  console.log(`\n${allPass ? ' ALL CHECKS PASSED — ready to go live' : ' CHECKS FAILED — fix before going live'}\n`);
+  console.log(`Mode: ${DRY_RUN ? ' DRY RUN (set DRY_RUN=false to go live)' : ' LIVE TRADING'}\n`);
   return allPass;
 }
 

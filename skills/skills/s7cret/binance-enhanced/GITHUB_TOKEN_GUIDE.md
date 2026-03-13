@@ -1,10 +1,10 @@
 # GitHub Token Security Guide
 
-## 🔐 **ВАЖНО: Токен компрометирован!**
+##  **ВАЖНО: Токен компрометирован!**
 
 Токен `ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` был отправлен в открытом виде в чат. 
 
-### 🚨 **Немедленные действия:**
+###  **Немедленные действия:**
 
 1. **Отзовите токен СЕЙЧАС:**
    ```bash
@@ -25,7 +25,7 @@
    - **Expiration:** 90 дней (рекомендуется)
    - **Note:** "OpenClaw Integration - Binance Enhanced"
 
-## 🔧 **Безопасная настройка:**
+##  **Безопасная настройка:**
 
 ### **Вариант A: Использовать существующий токен (небезопасно)**
 ```bash
@@ -52,7 +52,7 @@ ssh-keygen -t ed25519 -C "openclaw@your-domain.com"
 git remote set-url origin git@github.com:S7cret/binance-enhanced.git
 ```
 
-## 🛡️ **Best Practices для токенов:**
+##  **Best Practices для токенов:**
 
 ### **1. Минимальные permissions:**
 ```json
@@ -100,7 +100,7 @@ curl -X DELETE \
 git remote set-url origin "https://S7cret:$NEW_TOKEN@github.com/S7cret/binance-enhanced.git"
 ```
 
-## 🔍 **Проверка безопасности:**
+##  **Проверка безопасности:**
 
 ### **1. Проверить активность токена:**
 ```bash
@@ -121,14 +121,14 @@ curl -s -H "Authorization: token YOUR_TOKEN" \
      "https://api.github.com/events"
 ```
 
-## 🚨 **Признаки компрометации:**
+##  **Признаки компрометации:**
 
 1. **Неизвестные commits/pushes** в репозитории
 2. **Создание новых веток** без вашего ведома
 3. **Изменение settings** репозитория
 4. **Неизвестные workflow runs** в Actions
 
-## 🔄 **Процедура при компрометации:**
+##  **Процедура при компрометации:**
 
 1. **Немедленно отзовите токен**
 2. **Проверьте активность** в репозитории
@@ -136,13 +136,13 @@ curl -s -H "Authorization: token YOUR_TOKEN" \
 4. **Создайте новый токен** с ограниченными правами
 5. **Обновите все интеграции**
 
-## 📞 **Экстренные контакты:**
+##  **Экстренные контакты:**
 
 - **GitHub Support:** https://support.github.com
 - **Security Incident:** security@github.com
 - **OpenClaw Security:** security@openclaw.ai
 
-## ✅ **Checklist безопасности:**
+##  **Checklist безопасности:**
 
 - [ ] Токен имеет минимальные необходимые permissions
 - [ ] Токен имеет expiration date
@@ -154,6 +154,6 @@ curl -s -H "Authorization: token YOUR_TOKEN" \
 
 ---
 
-**⚠️ ВАЖНО:** Токен `ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` должен быть отозван немедленно!
+** ВАЖНО:** Токен `ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` должен быть отозван немедленно!
 
 **Рекомендую:** Создать новый токен с ограниченными правами и использовать SSH ключи для долгосрочного доступа.

@@ -25,10 +25,10 @@ function run(args, stdin = null) {
 
 function assert(condition, name) {
   if (condition) {
-    console.log(`  ✅ ${name}`);
+    console.log(`   ${name}`);
     passed++;
   } else {
-    console.log(`  ❌ ${name}`);
+    console.log(`   ${name}`);
     failed++;
   }
 }
@@ -42,7 +42,7 @@ execSync(`mkdir -p ${OUT_DIR}`);
 
 // ─── Test Suite ──────────────────────────────────────────
 
-console.log('\n📋 Table Image Generator Tests\n');
+console.log('\n Table Image Generator Tests\n');
 
 // 1. Basic generation
 console.log('1. Basic table generation');
@@ -284,8 +284,8 @@ console.log('22. Emoji in cells');
   const dataFile = `${OUT_DIR}/emoji.json`;
   const out = `${OUT_DIR}/emoji.png`;
   writeFileSync(dataFile, JSON.stringify([
-    {"Status":"✅ Live","Rating":"🔥🔥🔥"},
-    {"Status":"❌ Down","Rating":"😩"}
+    {"Status":" Live","Rating":""},
+    {"Status":" Down","Rating":""}
   ]));
   cleanup(out);
   run(`--data-file ${dataFile} --dark --output ${out}`);
@@ -300,7 +300,7 @@ console.log('23. Mixed emoji + Hebrew RTL');
   const dataFile = `${OUT_DIR}/emoji-rtl.json`;
   const out = `${OUT_DIR}/emoji-rtl.png`;
   writeFileSync(dataFile, JSON.stringify([
-    {"שם":"דני","סטטוס":"✅ פעיל","דירוג":"🔥🔥"}
+    {"שם":"דני","סטטוס":" פעיל","דירוג":""}
   ]));
   cleanup(out);
   run(`--data-file ${dataFile} --dark --output ${out}`);
@@ -312,7 +312,7 @@ console.log('24. Title with emoji');
 {
   const out = `${OUT_DIR}/emoji-title.png`;
   cleanup(out);
-  run(`--data '[{"A":"1"}]' --title "🏆 Leaderboard" --dark --output ${out}`);
+  run(`--data '[{"A":"1"}]' --title " Leaderboard" --dark --output ${out}`);
   assert(existsSync(out), 'Emoji title generates');
 }
 

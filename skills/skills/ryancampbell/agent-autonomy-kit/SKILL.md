@@ -5,7 +5,7 @@ description: Stop waiting for prompts. Keep working.
 homepage: https://github.com/itskai-dev/agent-autonomy-kit
 metadata:
   openclaw:
-    emoji: "🚀"
+    emoji: ""
     category: productivity
 ---
 

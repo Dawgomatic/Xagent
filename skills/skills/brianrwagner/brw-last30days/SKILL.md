@@ -66,9 +66,9 @@ source ~/.openclaw/credentials/bird.env && bird search "test" -n 1
 ```
 
 Should return:
-- ✅ Brave Search: Available
-- ✅ Bird CLI: Available
-- ✅ Reddit Insights: Available (or "Using web search fallback")
+-  Brave Search: Available
+-  Bird CLI: Available
+-  Reddit Insights: Available (or "Using web search fallback")
 
 ## Workflow
 
@@ -122,14 +122,14 @@ web_fetch: [article URL]
 ## Output Template
 
 ```markdown
-# 🔍 /last30days: [TOPIC]
+#  /last30days: [TOPIC]
 *Research compiled: [DATE]*  
 *Sources analyzed: [NUMBER] (Reddit threads, X posts, articles)*  
 *Time period: Last 30 days*
 
 ---
 
-## 🔥 Top Patterns Discovered
+##  Top Patterns Discovered
 
 ### 1. [Pattern Name]
 **Mentioned: X times across [platforms]**
@@ -148,11 +148,11 @@ web_fetch: [article URL]
 
 ---
 
-## 📊 Reddit Sentiment Breakdown
+##  Reddit Sentiment Breakdown
 
 | Subreddit | Discussion Volume | Sentiment | Key Insight |
 |-----------|-------------------|-----------|-------------|
-| r/[sub] | [# threads] | 🟢 Positive / 🟡 Mixed / 🔴 Skeptical | [One-liner takeaway] |
+| r/[sub] | [# threads] |  Positive /  Mixed /  Skeptical | [One-liner takeaway] |
 
 **Top upvoted insights:**
 1. "[Quote]" — u/[username] (+234 upvotes)
@@ -160,7 +160,7 @@ web_fetch: [article URL]
 
 ---
 
-## 🐦 X/Twitter Signal Analysis
+##  X/Twitter Signal Analysis
 
 **Trending themes:**
 - [Theme 1] - [# mentions]
@@ -175,7 +175,7 @@ web_fetch: [article URL]
 
 ---
 
-## 📈 Web Article Highlights
+##  Web Article Highlights
 
 **Most shared articles:**
 1. "[Article Title]" — [Source] — [Key insight]
@@ -188,7 +188,7 @@ web_fetch: [article URL]
 
 ---
 
-## 🎯 Copy-Paste Prompt
+##  Copy-Paste Prompt
 
 **Based on current community best practices:**
 
@@ -205,7 +205,7 @@ Constraints: [Any patterns to avoid based on research]
 
 ---
 
-## 💡 Action Ideas
+##  Action Ideas
 
 **Immediate opportunities based on this research:**
 
@@ -219,7 +219,7 @@ Constraints: [Any patterns to avoid based on research]
 
 ---
 
-## 📌 Source List
+##  Source List
 
 **Reddit Threads:**
 - [Thread title] - r/[sub] - [URL]
@@ -243,7 +243,7 @@ Constraints: [Any patterns to avoid based on research]
 
 **Abbreviated Output:**
 ```markdown
-# 🔍 /last30days: Claude Prompting Best Practices
+#  /last30days: Claude Prompting Best Practices
 
 ## Top Patterns Discovered
 
@@ -296,8 +296,8 @@ Strong consensus: Notion wins for collaboration, Obsidian wins for personal PKM.
 
 | Subreddit | Sentiment | Key Insight |
 |-----------|-----------|-------------|
-| r/Notion | 🟡 Mixed | Love features, frustrated by speed |
-| r/ObsidianMD | 🟢 Positive | Passionate community, local-first advocates |
+| r/Notion |  Mixed | Love features, frustrated by speed |
+| r/ObsidianMD |  Positive | Passionate community, local-first advocates |
 
 ## Action Ideas
 

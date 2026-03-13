@@ -513,7 +513,7 @@ const task = await monet.createTask({
 });
 ```
 
-> ⚠️ **Important**: `idempotency_key` is **required**. Use a unique value (e.g., UUID) to prevent duplicate task creation if the request is retried.
+>  **Important**: `idempotency_key` is **required**. Use a unique value (e.g., UUID) to prevent duplicate task creation if the request is retried.
 
 ### createTaskStream(options)
 Create a task with SSE streaming. Returns ReadableStream.

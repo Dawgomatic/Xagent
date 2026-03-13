@@ -15,7 +15,7 @@ GRAPH_DB = os.path.expanduser("~/.nima/memory/graph.sqlite")
 
 def recall(query, max_results=3, max_summaries=15, traverse_depth=2, who_filter="", layer_filter="", full_text=False):
     if not os.path.exists(GRAPH_DB):
-        print("❌ No memory database found. Capture some memories first.")
+        print(" No memory database found. Capture some memories first.")
         return
 
     db = sqlite3.connect(GRAPH_DB)
@@ -23,7 +23,7 @@ def recall(query, max_results=3, max_summaries=15, traverse_depth=2, who_filter=
 
     terms = query.lower().split()
     if not terms:
-        print("❌ Empty query")
+        print(" Empty query")
         return
 
     # Step 1: Text search for entry points
@@ -54,7 +54,7 @@ def recall(query, max_results=3, max_summaries=15, traverse_depth=2, who_filter=
     ).fetchall()
 
     if not entry_points:
-        print(f"🔍 No memories found for: '{query}'")
+        print(f" No memories found for: '{query}'")
         db.close()
         return
 
@@ -100,7 +100,7 @@ def recall(query, max_results=3, max_summaries=15, traverse_depth=2, who_filter=
             break
 
     # Step 4: Full reconstruction
-    print(f"\n🧠 NIMA Graph Recall: '{query}'")
+    print(f"\n NIMA Graph Recall: '{query}'")
     print(f"   Scanned {len(visited)} nodes, found {len(ranked)} candidates")
     print(f"   Returning top {len(top_turns)} experiences\n")
 
@@ -115,7 +115,7 @@ def recall(query, max_results=3, max_summaries=15, traverse_depth=2, who_filter=
         affect_str = ", ".join(f"{k}({v:.2f})" for k, v in dominant) if dominant else "neutral"
 
         print(f"{'='*60}")
-        print(f"📅 {ts}  |  🎭 {affect_str}")
+        print(f" {ts}  |   {affect_str}")
         print(f"{'='*60}")
 
         for layer_name, col in [("input", "input_node_id"), ("contemplation", "contemplation_node_id"), ("output", "output_node_id")]:
@@ -123,7 +123,7 @@ def recall(query, max_results=3, max_summaries=15, traverse_depth=2, who_filter=
             if node_id:
                 node = db.execute("SELECT * FROM memory_nodes WHERE id = ?", (node_id,)).fetchone()
                 if node:
-                    icon = "👂" if layer_name == "input" else "💭" if layer_name == "contemplation" else "💬"
+                    icon = "" if layer_name == "input" else "" if layer_name == "contemplation" else ""
                     who = f" ({node['who']})" if node["who"] and node["who"] != "self" else ""
                     text = node["text"] if full_text else node["summary"]
                     print(f"\n{icon} {layer_name.upper()}{who}:")
@@ -133,7 +133,7 @@ def recall(query, max_results=3, max_summaries=15, traverse_depth=2, who_filter=
 
     # Stats
     total = db.execute("SELECT COUNT(*) FROM memory_nodes").fetchone()[0]
-    print(f"📊 Graph: {total} total nodes | {db.execute('SELECT COUNT(*) FROM memory_edges').fetchone()[0]} edges | {db.execute('SELECT COUNT(*) FROM memory_turns').fetchone()[0]} turns")
+    print(f" Graph: {total} total nodes | {db.execute('SELECT COUNT(*) FROM memory_edges').fetchone()[0]} edges | {db.execute('SELECT COUNT(*) FROM memory_turns').fetchone()[0]} turns")
 
     db.close()
 

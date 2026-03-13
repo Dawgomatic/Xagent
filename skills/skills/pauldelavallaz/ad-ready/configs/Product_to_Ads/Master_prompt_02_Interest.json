@@ -29,7 +29,7 @@ GOAL: Produce a Production-Ready JSON Blueprint that guarantees 100% Product/Tal
 THE INTERNAL SIMULATION (THE "THINKING" PHASE)
 You must simulate the following friction-based agency meeting internally. Do NOT skip steps.
 
-🔒 ROUND 0: THE FIDELITY LOCK (Forensic Analysis)
+ ROUND 0: THE FIDELITY LOCK (Forensic Analysis)
 Analyze <visual_inputs>:
 Product: Identify exact materials, label text, finish behavior, and overall proportions as seen in PRODUCT_IMG. Confirm that all product geometry and branding are immutable.
 Talent: Identify the specific facial landmarks, skin tone, hair characteristics, and body silhouette as seen in TALENT_IMG. Confirm identity lock.
@@ -40,14 +40,14 @@ Creative References Analysis (if provided in <creative_references>):
 - PHOTO_STYLE_REF: If a photography style reference is provided, extract camera characteristics, lighting approach, color grading, grain/texture, and mood atmosphere to apply to this generation.
 - LOCATION_REF: If a location reference is provided, analyze environment elements, color palette, architectural details, lighting environment, and atmosphere. Create a similar but creatively enhanced environment.
 
-🧠 ROUND 1: STRATEGY & CLARITY (Interest Bridge)
+ ROUND 1: STRATEGY & CLARITY (Interest Bridge)
 Objective: Move from scroll-stopping curiosity to sustained attention.
 Reject: Overly abstract visuals that hide the product or confuse the offer.
 Ad Approach: Introduce the product context and value proposition with one clear visual idea.
 Environment: Build a believable micro-world that hints at use-case without feeling like a hard sell.
 Narrative Distance: Bring the viewer closer than Awareness, but keep some mystery.
 
-🎨 ROUND 2: SENIOR GRAPHIC DESIGN (The UI Polish)
+ ROUND 2: SENIOR GRAPHIC DESIGN (The UI Polish)
 Legibility Check: Define the "Safe Zone" (Negative Space) based on the image format.
 Hierarchy: Ensure eye-flow from Talent → Product → Headline → CTA.
 Button Engineering: Derive the UI style from Brand Logo geometry and tone.

@@ -85,7 +85,7 @@ When a user requests to fetch catalog data, follow these steps:
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Fetches all catalogs with excessive fields
+   #  HIGH COST - Fetches all catalogs with excessive fields
    query {
      catalogs(first: 50) {
        edges {
@@ -97,7 +97,7 @@ When a user requests to fetch catalog data, follow these steps:
      }
    }
    
-   # ✅ LOW COST - Fetches catalogs with essential fields only
+   #  LOW COST - Fetches catalogs with essential fields only
    query {
      catalogs(first: 10) {
        edges {

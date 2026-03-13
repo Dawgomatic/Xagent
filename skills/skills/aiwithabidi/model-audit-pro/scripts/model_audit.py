@@ -198,7 +198,7 @@ def main():
             "openai/gpt-4o",
         ]
         if not args.json_output:
-            print("ℹ️  No configured models found, auditing common defaults.")
+            print("  No configured models found, auditing common defaults.")
 
     # Analyze user models
     audit_results = []
@@ -233,7 +233,7 @@ def main():
     for cat in ["reasoning", "code", "fast"]:
         user_in_cat = [r for r in audit_results if cat in r["categories"]]
         if not user_in_cat:
-            recommendations.append(f"💡 No {cat} model configured — consider adding one")
+            recommendations.append(f" No {cat} model configured — consider adding one")
             continue
 
         cheapest_user = min(user_in_cat, key=lambda x: x["input_per_1m"])
@@ -246,7 +246,7 @@ def main():
                     if m["id"] not in user_models:
                         ratio = cheapest_user["input_per_1m"] / p["input_per_1m"] if p["input_per_1m"] > 0 else 0
                         recommendations.append(
-                            f"💡 [{cat}] {m['id']} is {ratio:.0f}x cheaper than {cheapest_user['id']} "
+                            f" [{cat}] {m['id']} is {ratio:.0f}x cheaper than {cheapest_user['id']} "
                             f"({format_price(p['input_per_1m'])}/{format_price(p['output_per_1m'])} per 1M)"
                         )
                         break
@@ -265,7 +265,7 @@ def main():
         print("  " + "-" * 85)
         for r in audit_results:
             cats = ", ".join(r["categories"])
-            warn = f" ⚠️ {r['warning']}" if r.get("warning") else ""
+            warn = f"  {r['warning']}" if r.get("warning") else ""
             print(f"  {r['id']:<45} {format_price(r['input_per_1m']):>10} {format_price(r['output_per_1m']):>10} {cats}{warn}")
 
         if recommendations:

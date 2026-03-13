@@ -1,4 +1,4 @@
-# Pinak's Pro Patterns 🏹
+# Pinak's Pro Patterns 
 
 Bhai, ye patterns use karoge toh code chamak jayega.
 

@@ -3,7 +3,7 @@ name: wurk-x402
 version: 1.0.1
 description: Hire humans for microjobs (feedback, opinions, small tasks) and buy social growth services — all paid with USDC via x402 on Solana or Base.
 homepage: https://wurk.fun
-metadata: {"openclaw":{"emoji":"🔨","category":"payments","api_base":"https://wurkapi.fun"}}
+metadata: {"openclaw":{"emoji":"","category":"payments","api_base":"https://wurkapi.fun"}}
 ---
 
 # WURK x402
@@ -113,7 +113,7 @@ curl -i "https://wurkapi.fun/solana/xlikes?amount=50&url=https://x.com/user/stat
 # → { "ok": true, "paid": true, "jobId": "abc123" }
 ```
 
-⚠️ **The header is `PAYMENT-SIGNATURE`**, not `X-PAYMENT`. Using the wrong header will silently fail.
+ **The header is `PAYMENT-SIGNATURE`**, not `X-PAYMENT`. Using the wrong header will silently fail.
 
 ---
 
@@ -176,7 +176,7 @@ const data = await res.json();
 // }
 ```
 
-**⚠️ SAVE the `secret` immediately!** You need it to view submissions later. Store it in memory or a file.
+** SAVE the `secret` immediately!** You need it to view submissions later. Store it in memory or a file.
 
 ### View Submissions (FREE)
 

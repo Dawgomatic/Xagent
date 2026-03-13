@@ -39,7 +39,7 @@ if (args.includes('--summary')) {
     console.log('No competitor research yet. Use the browser to research competitors first.');
     process.exit(0);
   }
-  console.log(`📊 Competitor Research (${data.researchDate})\n`);
+  console.log(` Competitor Research (${data.researchDate})\n`);
   console.log(`Found ${data.competitors.length} competitors:\n`);
   data.competitors.forEach(c => {
     console.log(`  ${c.name} (${c.tiktokHandle || 'no handle'})`);
@@ -50,10 +50,10 @@ if (args.includes('--summary')) {
     console.log('');
   });
   if (data.nicheInsights?.gapOpportunities) {
-    console.log(`💡 Gap opportunities: ${data.nicheInsights.gapOpportunities}`);
+    console.log(` Gap opportunities: ${data.nicheInsights.gapOpportunities}`);
   }
   if (data.nicheInsights?.avoidPatterns) {
-    console.log(`⚠️  Avoid: ${data.nicheInsights.avoidPatterns}`);
+    console.log(`  Avoid: ${data.nicheInsights.avoidPatterns}`);
   }
 }
 
@@ -66,7 +66,7 @@ if (args.includes('--add-competitor')) {
     data.competitors.push(competitor);
     data.researchDate = new Date().toISOString().split('T')[0];
     saveData(data);
-    console.log(`✅ Added competitor: ${competitor.name}`);
+    console.log(` Added competitor: ${competitor.name}`);
   } catch (e) {
     console.error('Invalid JSON for competitor:', e.message);
     process.exit(1);

@@ -2,7 +2,7 @@
 
 ## 1.0.0 - 2026-02-12
 
-### Initial Release 🎉
+### Initial Release 
 
 - **Core feature:** Session context compression using Sumy NLP (LexRank algorithm)
 - **Results:** 84-96% token reduction, +400% session lifetime extension

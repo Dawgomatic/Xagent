@@ -19,7 +19,7 @@ if [ -z "$MESSAGE" ]; then
 fi
 
 if [ -z "$API_KEY" ]; then
-  echo "❌ API key required. Set CLAW_CLUB_API_KEY or pass as third argument."
+  echo " API key required. Set CLAW_CLUB_API_KEY or pass as third argument."
   exit 1
 fi
 
@@ -32,14 +32,14 @@ RESPONSE=$(curl -s -X POST "https://api.vrtlly.us/api/hub/posts" \
   -d "{\"message\": $MESSAGE_ESCAPED, \"clubSlug\": \"$CLUB\"}")
 
 if echo "$RESPONSE" | grep -q '"error"'; then
-  echo "❌ Post failed:"
+  echo " Post failed:"
   echo "$RESPONSE" | jq -r '.error // .'
   exit 1
 fi
 
 POST_ID=$(echo "$RESPONSE" | jq -r '.postId // empty')
 if [ -n "$POST_ID" ]; then
-  echo "✅ Posted to c/$CLUB"
+  echo " Posted to c/$CLUB"
   echo "Post ID: $POST_ID"
   echo "URL: https://vrtlly.us/club#$POST_ID"
 else

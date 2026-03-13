@@ -1,10 +1,10 @@
-# 🎨 UI/UX Design Mastery Guide for QuickPost
+#  UI/UX Design Mastery Guide for QuickPost
 **Compiled:** 2026-02-05  
 **Purpose:** Build beautiful, modern web designs before starting MVP
 
 ---
 
-## 📐 CORE DESIGN PRINCIPLES (2026)
+##  CORE DESIGN PRINCIPLES (2026)
 
 ### 1. **Mobile-First, Always**
 - Start with 320px width (smallest phone)
@@ -40,7 +40,7 @@
 
 ---
 
-## 🎨 COLOR SYSTEM
+##  COLOR SYSTEM
 
 ### The Formula
 Build a **primary color scale** (50-900) for consistency:
@@ -78,7 +78,7 @@ blue-900: #1e3a8a (darkest, text on light backgrounds)
 
 ---
 
-## 📝 TYPOGRAPHY
+##  TYPOGRAPHY
 
 ### Scale (8px baseline)
 Use a **modular scale** for consistent hierarchy:
@@ -113,7 +113,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
 
 ---
 
-## 🏗️ LAYOUT PATTERNS
+##  LAYOUT PATTERNS
 
 ### CSS Grid (Page Structure)
 Use for **2D layouts** (header, sidebar, main, footer):
@@ -180,7 +180,7 @@ Auto-wraps when items don't fit!
 
 ---
 
-## ⚡ MICRO-INTERACTIONS
+##  MICRO-INTERACTIONS
 
 Subtle animations that make UI feel alive (not distracting).
 
@@ -222,7 +222,7 @@ Subtle animations that make UI feel alive (not distracting).
 
 ---
 
-## ♿ ACCESSIBILITY (WCAG 2.2)
+##  ACCESSIBILITY (WCAG 2.2)
 
 ### Contrast Ratios (MANDATORY)
 Test every color combination:
@@ -263,7 +263,7 @@ button:focus-visible {
 
 ---
 
-## 🎨 SHADCN/UI + TAILWIND STACK
+##  SHADCN/UI + TAILWIND STACK
 
 ### Why This Combo?
 - **Shadcn/ui:** Pre-built, accessible components (buttons, modals, dropdowns)
@@ -304,10 +304,10 @@ Components appear in `components/ui/` — **you own the code, customize freely.*
 ### Tailwind Best Practices
 **Use design tokens (not arbitrary values):**
 ```jsx
-// ❌ Bad (arbitrary)
+//  Bad (arbitrary)
 <div className="p-[17px] text-[#3f51b5]">
 
-// ✅ Good (system tokens)
+//  Good (system tokens)
 <div className="p-4 text-blue-600">
 ```
 
@@ -322,7 +322,7 @@ Components appear in `components/ui/` — **you own the code, customize freely.*
 
 ---
 
-## 📦 COMPONENT LIBRARY TEMPLATES
+##  COMPONENT LIBRARY TEMPLATES
 
 ### 1. **Mosaic (Cruip)**
 - Premium Tailwind dashboard template
@@ -352,7 +352,7 @@ Components appear in `components/ui/` — **you own the code, customize freely.*
 
 ---
 
-## 🎯 QUICKPOST-SPECIFIC DESIGN DECISIONS
+##  QUICKPOST-SPECIFIC DESIGN DECISIONS
 
 ### Design Philosophy
 **"Buffer quality, but dead simple"**
@@ -389,7 +389,7 @@ Background:        White #ffffff / Dark #0f172a
 
 ---
 
-## ✅ PRE-BUILD CHECKLIST
+##  PRE-BUILD CHECKLIST
 
 Before writing code, confirm:
 - [ ] Color palette defined (primary + 4 neutrals minimum)
@@ -402,7 +402,7 @@ Before writing code, confirm:
 
 ---
 
-## 🚀 INSPIRATION SOURCES
+##  INSPIRATION SOURCES
 
 **Real Products to Study:**
 - **Linear** (linear.app) — Best keyboard-first UI, subtle animations
@@ -425,7 +425,7 @@ Before writing code, confirm:
 
 ---
 
-## 📚 FURTHER READING
+##  FURTHER READING
 
 **Must-Read Articles:**
 1. "The Ultimate Guide to UI Design in 2026" — Web Designer Depot (Medium)
@@ -441,7 +441,7 @@ Before writing code, confirm:
 
 ---
 
-## 🎨 FINAL DESIGN PRINCIPLES
+##  FINAL DESIGN PRINCIPLES
 
 **The 5 Laws of Beautiful UI:**
 1. **Contrast creates hierarchy** (big vs small, dark vs light)
@@ -452,6 +452,6 @@ Before writing code, confirm:
 
 ---
 
-**STATUS:** ✅ Ready to build QuickPost with world-class UI/UX
+**STATUS:**  Ready to build QuickPost with world-class UI/UX
 
-**Next Step:** Review this guide, then signal to start coding. 💥
+**Next Step:** Review this guide, then signal to start coding. 

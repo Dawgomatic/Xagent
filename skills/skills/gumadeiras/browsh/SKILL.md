@@ -1,7 +1,7 @@
 ---
 name: browsh
 description: A modern text-based browser. Renders web pages in the terminal using headless Firefox.
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"bins":["browsh","firefox"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["browsh","firefox"]}}}
 ---
 
 # Browsh

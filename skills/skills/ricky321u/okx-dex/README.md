@@ -1,12 +1,12 @@
-# OKX DEX Aggregator 🧭
+# OKX DEX Aggregator 
 
 OKX DEX aggregator skill for Clawdbot (v6 API).
 
 ## Features
 
-- 🔄 **Best-route Aggregation** - Optimal swap routing across liquidity sources
-- ⛓️ **Multi-chain** - EVM + non‑EVM support
-- 🧾 **Quotes + Tx Data** - Quote, swap, and approve transaction payloads
+-  **Best-route Aggregation** - Optimal swap routing across liquidity sources
+-  **Multi-chain** - EVM + non‑EVM support
+-  **Quotes + Tx Data** - Quote, swap, and approve transaction payloads
 
 ## Installation
 

@@ -19,7 +19,7 @@ firecrawl --status
 Output when ready:
 
 ```
-  🔥 firecrawl cli v1.0.2
+   firecrawl cli v1.0.2
 
   ● Authenticated via FIRECRAWL_API_KEY
   Concurrency: 0/100 jobs (parallel scrape limit)

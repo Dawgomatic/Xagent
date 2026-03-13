@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🦞 JUNAI's SAAS Builder Agent Spawner
+ JUNAI's SAAS Builder Agent Spawner
 Spawns a subagent to build MVPs and SAAS products
 """
 
@@ -11,7 +11,7 @@ from datetime import datetime
 def create_build_task(product_idea, validated_research, tech_stack, timeline):
     """Create a comprehensive SAAS build task"""
     
-    task = f"""🤖 SAAS Builder Agent - MVP Development Mission
+    task = f""" SAAS Builder Agent - MVP Development Mission
 
 Product: {product_idea}
 Tech Stack: {tech_stack}
@@ -103,23 +103,23 @@ Based on: {validated_research}
 - **Documentation**: Basic setup and deployment docs
 
 ## Success Criteria
-✅ Core feature works end-to-end
-✅ Payment processing functional
-✅ User can sign up and use product
-✅ Landing page converts visitors to trials
-✅ Basic analytics tracking usage
-✅ Ready for public launch within {timeline}
-✅ Can handle 100+ concurrent users
+ Core feature works end-to-end
+ Payment processing functional
+ User can sign up and use product
+ Landing page converts visitors to trials
+ Basic analytics tracking usage
+ Ready for public launch within {timeline}
+ Can handle 100+ concurrent users
 
 ## What NOT to Build (MVP Rules)
-❌ No mobile app (mobile web is enough)
-❌ No advanced analytics (basic tracking only)
-❌ No admin dashboard (use database directly)
-❌ No API for third parties (build later if needed)
-❌ No advanced user roles (user/admin only)
-❌ No real-time features (batch processing fine)
-❌ No file uploads (use existing services)
-❌ No complex integrations (manual processes OK)
+ No mobile app (mobile web is enough)
+ No advanced analytics (basic tracking only)
+ No admin dashboard (use database directly)
+ No API for third parties (build later if needed)
+ No advanced user roles (user/admin only)
+ No real-time features (batch processing fine)
+ No file uploads (use existing services)
+ No complex integrations (manual processes OK)
 
 ## Deliverables Required
 1. **Working MVP** deployed and functional
@@ -132,7 +132,7 @@ Based on: {validated_research}
 Timeline: Complete MVP within {timeline}. Speed over perfection.
 Focus on revenue generation from day one.
 
-🦞 JUNAI expects a working product that can start generating revenue immediately."""
+ JUNAI expects a working product that can start generating revenue immediately."""
 
     return task
 
@@ -147,7 +147,7 @@ def main():
     tech_stack = sys.argv[3] 
     timeline = sys.argv[4]
     
-    print(f"🦞 JUNAI spawning SAAS builder for {product_idea}...")
+    print(f" JUNAI spawning SAAS builder for {product_idea}...")
     print(f"Tech Stack: {tech_stack}")
     print(f"Timeline: {timeline}")
     print("=" * 50)
@@ -162,8 +162,8 @@ def main():
     with open(filename, 'w') as f:
         f.write(task)
     
-    print(f"\n🦞 Build task saved to {filename}")
-    print("🦞 Ready to spawn subagent with this task!")
+    print(f"\n Build task saved to {filename}")
+    print(" Ready to spawn subagent with this task!")
 
 if __name__ == "__main__":
     main()

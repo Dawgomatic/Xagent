@@ -1,7 +1,7 @@
 ---
 name: gcalcli-calendar
 description: "Google Calendar via gcalcli: today-only agenda by default, bounded meaning-first lookup via agenda scans, and fast create/delete with verification--optimized for low tool calls and minimal output."
-metadata: {"openclaw":{"emoji":"📅","requires":{"bins":["gcalcli"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["gcalcli"]}}}
 ---
 
 # gcalcli-calendar

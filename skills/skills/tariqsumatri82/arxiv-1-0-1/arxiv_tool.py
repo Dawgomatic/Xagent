@@ -170,7 +170,7 @@ def format_paper(paper: dict, verbose: bool = False) -> str:
     """Format paper for display"""
     
     lines = []
-    lines.append(f"📄 {paper['title']}")
+    lines.append(f" {paper['title']}")
     lines.append(f"   ID: {paper['arxiv_id']}")
     lines.append(f"   Authors: {', '.join(paper['authors'][:3])}" + 
                  (f" (+{len(paper['authors'])-3} more)" if len(paper['authors']) > 3 else ""))
@@ -234,7 +234,7 @@ def main():
         if args.json:
             print(json.dumps(results, indent=2))
         else:
-            print(f"\n🔍 Found {len(results)} papers for: \"{args.query}\"\n")
+            print(f"\n Found {len(results)} papers for: \"{args.query}\"\n")
             for paper in results:
                 print(format_paper(paper, args.verbose))
                 print()
@@ -245,40 +245,40 @@ def main():
             print(json.dumps(paper, indent=2))
         else:
             if "error" in paper:
-                print(f"❌ {paper['error']}")
+                print(f" {paper['error']}")
             else:
                 print(format_paper(paper, verbose=True))
     
     elif args.command == "download":
         filepath = assistant.download_pdf(args.arxiv_id, args.output)
         if filepath:
-            print(f"✅ Downloaded: {filepath}")
+            print(f" Downloaded: {filepath}")
         else:
-            print(f"❌ Failed to download paper {args.arxiv_id}")
+            print(f" Failed to download paper {args.arxiv_id}")
     
     elif args.command == "save":
         if assistant.save_paper(args.arxiv_id, args.status):
-            print(f"✅ Paper {args.arxiv_id} saved as '{args.status}'")
+            print(f" Paper {args.arxiv_id} saved as '{args.status}'")
         else:
-            print(f"❌ Failed to save paper")
+            print(f" Failed to save paper")
     
     elif args.command == "list":
         papers = assistant.list_saved(args.status)
         if args.json:
             print(json.dumps(papers, indent=2, default=str))
         else:
-            print(f"\n📚 Saved Papers: {len(papers)}\n")
+            print(f"\n Saved Papers: {len(papers)}\n")
             for paper in papers:
-                status_emoji = {"to-read": "📖", "reading": "📚", "read": "✅", "cited": "📝"}.get(paper.get("status"), "📄")
+                status_emoji = {"to-read": "", "reading": "", "read": "", "cited": ""}.get(paper.get("status"), "")
                 print(f"{status_emoji} [{paper.get('status', 'N/A')}] {paper.get('title', 'N/A')}")
                 print(f"   ID: {paper.get('arxiv_id', 'N/A')}")
                 print()
     
     elif args.command == "update":
         if assistant.update_status(args.arxiv_id, args.status):
-            print(f"✅ Updated {args.arxiv_id} to '{args.status}'")
+            print(f" Updated {args.arxiv_id} to '{args.status}'")
         else:
-            print(f"❌ Failed to update paper")
+            print(f" Failed to update paper")
 
 
 if __name__ == "__main__":

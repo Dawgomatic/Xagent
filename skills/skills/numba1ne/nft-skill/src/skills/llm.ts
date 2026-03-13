@@ -54,7 +54,7 @@ Context: ${JSON.stringify(metadata)}
 Max 250 chars. Include emojis. Be artistic and slightly mysterious.`;
 
   const response = await callLLM(prompt, config);
-  return response || `New art created: ${metadata.message || 'Check it out'} 🎨`;
+  return response || `New art created: ${metadata.message || 'Check it out'} `;
 }
 
 async function callLLM(prompt: string, config: LLMConfig): Promise<string | null> {

@@ -605,7 +605,7 @@ class TradingBot:
                     if risk['warnings']:
                         print("\n  WARNINGS:")
                         for w in risk['warnings']:
-                            print(f"    ⚠️  {w}")
+                            print(f"      {w}")
 
             elif choice == '11':
                 print(f"\nScheduled check times: {', '.join(self.disclosure_check_times)} ET")
@@ -632,7 +632,7 @@ class TradingBot:
 
 def main():
     """Main entry point"""
-    print("\n🦞 ClawBack - Congressional Trade Mirror")
+    print("\n ClawBack - Congressional Trade Mirror")
     print("="*50)
 
     # Check for config file

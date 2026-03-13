@@ -19,12 +19,12 @@ Proper focus management ensures keyboard-only users can navigate and operate you
 ### The Focus-Visible Pattern
 
 ```css
-/* ❌ WRONG - removes all focus indicators */
+/*  WRONG - removes all focus indicators */
 *:focus {
   outline: none;
 }
 
-/* ✅ CORRECT - custom indicator on keyboard focus only */
+/*  CORRECT - custom indicator on keyboard focus only */
 *:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
@@ -43,12 +43,12 @@ Proper focus management ensures keyboard-only users can navigate and operate you
 Focus indicators must have **3:1 contrast** against background (WCAG 2.4.11).
 
 ```css
-/* ✅ PASS - Blue #0066cc on white has 8:1 */
+/*  PASS - Blue #0066cc on white has 8:1 */
 *:focus-visible {
   outline: 2px solid #0066cc;
 }
 
-/* ❌ FAIL - Light gray #ccc on white has 1.7:1 */
+/*  FAIL - Light gray #ccc on white has 1.7:1 */
 *:focus-visible {
   outline: 2px solid #cccccc;
 }
@@ -63,7 +63,7 @@ Focus indicators must have **3:1 contrast** against background (WCAG 2.4.11).
 Follows DOM order - don't use `tabindex` > 0.
 
 ```html
-<!-- ✅ Natural order: 1 → 2 → 3 -->
+<!--  Natural order: 1 → 2 → 3 -->
 <input type="text" name="name">
 <input type="email" name="email">
 <button type="submit">Submit</button>
@@ -80,7 +80,7 @@ Follows DOM order - don't use `tabindex` > 0.
   <!-- Can receive focus via JS but not Tab key -->
 </main>
 
-<!-- ❌ tabindex="1+" - DON'T USE - breaks natural order -->
+<!--  tabindex="1+" - DON'T USE - breaks natural order -->
 <button tabindex="5">Don't do this</button>
 ```
 

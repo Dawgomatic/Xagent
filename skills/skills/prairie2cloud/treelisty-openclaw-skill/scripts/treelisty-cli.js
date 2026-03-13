@@ -213,7 +213,7 @@ async function cmdValidate(options) {
     if (result.issues.total > 0) {
       console.log(`Issues (${result.issues.total}):`);
       for (const issue of result.details) {
-        const icon = issue.severity === 'error' ? '❌' : issue.severity === 'warning' ? '⚠️' : 'ℹ️';
+        const icon = issue.severity === 'error' ? '' : issue.severity === 'warning' ? '' : '';
         console.log(`  ${icon} ${issue.message}`);
         console.log(`     at: ${issue.path}`);
       }
@@ -256,11 +256,11 @@ async function cmdPush(options) {
 
   try {
     const result = await push(tree, { port: parseInt(port), token, host });
-    console.log(`✅ ${result.message}`);
+    console.log(` ${result.message}`);
     console.log(`   Tree ID: ${result.treeId}`);
     console.log(`   Nodes: ${result.nodeCount}`);
   } catch (e) {
-    console.error(`❌ Push failed: ${e.message}`);
+    console.error(` Push failed: ${e.message}`);
     process.exit(1);
   }
 }

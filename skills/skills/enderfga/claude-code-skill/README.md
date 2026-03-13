@@ -8,7 +8,7 @@ A skill package for [OpenClaw](https://github.com/openclaw/openclaw) / Claude Co
 
 ## Features
 
-### 🔌 MCP Integration
+###  MCP Integration
 
 Full implementation of the [Model Context Protocol](https://spec.modelcontextprotocol.io/) for managing AI tool servers:
 
@@ -16,7 +16,7 @@ Full implementation of the [Model Context Protocol](https://spec.modelcontextpro
 - Execute tool calls across multiple servers
 - Server lifecycle management (pause/resume/restart)
 
-### 💾 State Persistence
+###  State Persistence
 
 Robust state management with automatic recovery:
 
@@ -24,7 +24,7 @@ Robust state management with automatic recovery:
 - Hydration tracking to prevent data loss
 - Timestamp-based merge conflict resolution
 
-### 🔄 Session Sync
+###  Session Sync
 
 Smart synchronization utilities:
 

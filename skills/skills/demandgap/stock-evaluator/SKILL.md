@@ -5,7 +5,7 @@ description: Comprehensive evaluation of potential stock investments combining v
 
 # Stock Evaluator (Enhanced)
 
-## ⚠️ CRITICAL: MANDATORY DELIVERABLES CHECKLIST
+##  CRITICAL: MANDATORY DELIVERABLES CHECKLIST
 Every analysis MUST include ALL of these:
 - ☐ **Technical Analysis** (price action, indicators, key levels, Ichimoku Cloud)
 - ☐ **Fundamental Analysis** (business, financials, competitive position)
@@ -21,7 +21,7 @@ Every analysis MUST include ALL of these:
 
 ---
 
-## ⚠️ CRITICAL: DATA INTEGRITY RULES
+##  CRITICAL: DATA INTEGRITY RULES
 
 ### ZERO FABRICATION POLICY
 **NEVER fabricate, estimate, or hallucinate ANY numeric data point.** Every metric in the dashboard MUST come from:
@@ -207,17 +207,17 @@ For the dashboard metrics **"Rev Growth"** and **"Earn Growth"**:
 ## Core Purpose
 
 **Stock Evaluator** is for:
-- ✅ Evaluating potential investments BEFORE buying
-- ✅ Analyzing watchlist candidates
-- ✅ Getting buy/hold/sell recommendations with specific prices
-- ✅ Comparing multiple investment opportunities
-- ✅ Finding better alternatives to current consideration
+-  Evaluating potential investments BEFORE buying
+-  Analyzing watchlist candidates
+-  Getting buy/hold/sell recommendations with specific prices
+-  Comparing multiple investment opportunities
+-  Finding better alternatives to current consideration
 
 **NOT for:**
-- ❌ Reviewing existing portfolio positions (use Portfolio Analyst skill)
-- ❌ General stock market questions
-- ❌ Stock screening or discovery from scratch
-- ❌ Options, derivatives, or crypto analysis
+-  Reviewing existing portfolio positions (use Portfolio Analyst skill)
+-  General stock market questions
+-  Stock screening or discovery from scratch
+-  Options, derivatives, or crypto analysis
 
 ## Evaluation Framework
 
@@ -971,17 +971,17 @@ Identify specific events that could drive stock performance.
 ```markdown
 # [SYMBOL] - [Company Name] Evaluation
 
-## ⚠️ DELIVERABLES CHECKLIST ✓
-☑ Technical Analysis Complete
-☑ Fundamental Analysis Complete
-☑ Valuation Assessment Complete
-☑ Bull vs. Bear Case Complete
-☑ Clear Recommendation: **[BUY / HOLD / SELL]**
-☑ Alternative Candidates: [If SELL, list 3-5 alternatives below]
+##  DELIVERABLES CHECKLIST ✓
+ Technical Analysis Complete
+ Fundamental Analysis Complete
+ Valuation Assessment Complete
+ Bull vs. Bear Case Complete
+ Clear Recommendation: **[BUY / HOLD / SELL]**
+ Alternative Candidates: [If SELL, list 3-5 alternatives below]
 
 ---
 
-## 📊 Executive Summary
+##  Executive Summary
 
 [2-3 sentence bottom-line assessment with key reasoning]
 
@@ -990,7 +990,7 @@ Identify specific events that could drive stock performance.
 
 ---
 
-## 💰 Valuation Assessment
+##  Valuation Assessment
 
 **Fair Value Estimate: €X.XX** (Current: €X.XX)
 - **Margin of Safety: X%** [Adequate >15% / Insufficient <15%]
@@ -1009,7 +1009,7 @@ Identify specific events that could drive stock performance.
 
 ---
 
-## 🏢 Business & Competitive Analysis
+##  Business & Competitive Analysis
 
 ### What They Do
 [2-3 paragraph business model summary:
@@ -1057,7 +1057,7 @@ Identify specific events that could drive stock performance.
 
 ---
 
-## 📈 Financial Health Analysis
+##  Financial Health Analysis
 
 ### Quality Metrics vs. Benchmarks
 
@@ -1135,12 +1135,12 @@ Identify specific events that could drive stock performance.
 - Liquidity: [Strong / Adequate / Concerning]
 - Trend: [Strengthening / Stable / Weakening]
 
-### 🚩 Red Flags
+###  Red Flags
 [List any concerning trends or issues, or state "None identified"]
 
 ---
 
-## 📉 Technical Analysis & Entry Timing
+##  Technical Analysis & Entry Timing
 
 ### Price Action (Last 30-60 Days)
 - **Current Price**: €X.XX
@@ -1183,9 +1183,9 @@ Identify specific events that could drive stock performance.
 
 ---
 
-## ⚖️ Bull vs. Bear Case
+##  Bull vs. Bear Case
 
-### 🐂 Bull Case
+###  Bull Case
 **Potential Upside: €X.XX (+X%)**
 
 1. **[Bull Argument 1]**: [Specific evidence and reasoning]
@@ -1198,7 +1198,7 @@ Identify specific events that could drive stock performance.
 
 **Probability: [High / Moderate / Low]**
 
-### 🐻 Bear Case
+###  Bear Case
 **Potential Downside: €X.XX (-X%)**
 
 1. **[Bear Argument 1]**: [Specific risk and reasoning]
@@ -1211,7 +1211,7 @@ Identify specific events that could drive stock performance.
 
 **Probability: [High / Moderate / Low]**
 
-### ⚖️ Balance Assessment
+###  Balance Assessment
 
 **Which case is more probable: [Bull / Bear / Balanced]**
 
@@ -1225,7 +1225,7 @@ Identify specific events that could drive stock performance.
 
 ---
 
-## ⚠️ Risk Analysis
+##  Risk Analysis
 
 **Overall Risk Level: [Low / Moderate / High]**
 
@@ -1249,7 +1249,7 @@ Identify specific events that could drive stock performance.
 
 ---
 
-## 🎯 Catalysts & Timeline
+##  Catalysts & Timeline
 
 ### Near-Term (0-6 months)
 - **[Date]**: [Specific catalyst - earnings, product launch, etc.]
@@ -1267,7 +1267,7 @@ Identify specific events that could drive stock performance.
 
 ---
 
-## 💡 Investment Recommendation
+##  Investment Recommendation
 
 ### **RECOMMENDATION: [BUY / HOLD / SELL]**
 ### **Conviction: [Strong Buy / Buy / Hold / Avoid]**
@@ -1281,7 +1281,7 @@ Identify specific events that could drive stock performance.
 
 ---
 
-## 📍 Entry Strategy (if BUY)
+##  Entry Strategy (if BUY)
 
 **Ideal Entry Price: €X.XX - €X.XX**
 - Reasoning: [Why this range?]
@@ -1299,7 +1299,7 @@ Identify specific events that could drive stock performance.
 
 ---
 
-## 🎯 Exit Strategy
+##  Exit Strategy
 
 ### Price Targets (12-Month Horizon)
 - **Conservative**: €X.XX (+X%)
@@ -1323,7 +1323,7 @@ Exit position if any of these occur:
 
 ---
 
-## 📏 Position Sizing
+##  Position Sizing
 
 ### Recommended Allocation: X-X% of portfolio
 **Specific Recommendation: X%**
@@ -1345,7 +1345,7 @@ Exit position if any of these occur:
 
 ---
 
-## 🔑 Key Takeaways
+##  Key Takeaways
 
 ### Top 3 Reasons to Invest
 1. [Most compelling positive factor]
@@ -1362,7 +1362,7 @@ Exit position if any of these occur:
 
 ---
 
-## 📚 Research Documentation
+##  Research Documentation
 
 **Sources Consulted:**
 - 10-K filings: [Fiscal years reviewed - e.g., FY2020-2024]
@@ -1384,7 +1384,7 @@ Exit position if any of these occur:
 
 ---
 
-## 🔄 Alternative Candidates (Required if SELL/AVOID)
+##  Alternative Candidates (Required if SELL/AVOID)
 
 [If recommending SELL or AVOID, provide 3-5 better investment alternatives with brief rationale for each]
 
@@ -1410,20 +1410,20 @@ Exit position if any of these occur:
 
 ---
 
-## 📊 Quant-Style Dashboard
+##  Quant-Style Dashboard
 
 **FINAL MANDATORY STEP**: Create a React artifact using the standardized quant-style dashboard template with:
 
 **Required Data to Populate:**
-- ✅ All 48 metrics across 8 sections (calculated above)
-- ✅ Historical price data (5 years, 6-12 points)
-- ✅ 1-year price + 6-month forecast (4-6 points)
-- ✅ MACD data (3-5 recent points)
-- ✅ RSI data (3-5 recent points)
-- ✅ Radar chart (12 metrics, normalized 0-100)
-- ✅ Bull case (target + 5 points)
-- ✅ Bear case (target + 5 points)
-- ✅ Entry/exit strategy (5 values)
+-  All 48 metrics across 8 sections (calculated above)
+-  Historical price data (5 years, 6-12 points)
+-  1-year price + 6-month forecast (4-6 points)
+-  MACD data (3-5 recent points)
+-  RSI data (3-5 recent points)
+-  Radar chart (12 metrics, normalized 0-100)
+-  Bull case (target + 5 points)
+-  Bear case (target + 5 points)
+-  Entry/exit strategy (5 values)
 
 **Use the EXACT template code provided in the skill instructions above.**
 **DO NOT use placeholder values - populate with actual calculated data from this analysis.**
@@ -2144,7 +2144,7 @@ const QuantDashboard = () => {
           onClick={() => setShowKeyNotes(!showKeyNotes)}
           className="w-full bg-gray-100 px-3 py-2 text-left text-sm font-bold flex items-center hover:bg-gray-200"
         >
-          <span className="mr-2">{showKeyNotes ? '▼' : '▶'}</span> Key Notes (Click to Expand)
+          <span className="mr-2">{showKeyNotes ? '▼' : ''}</span> Key Notes (Click to Expand)
         </button>
         {showKeyNotes && (
           <div className="p-3 bg-gray-50">
@@ -2355,43 +2355,43 @@ If stock is already in portfolio:
 Before presenting analysis, verify:
 
 ### DATA INTEGRITY CHECKS (CRITICAL - CHECK FIRST)
-1. ✅ Every numeric metric has a cited source from web search?
-2. ✅ No insider activity fabricated? (SEC Form 4 or N/A)
-3. ✅ No short interest fabricated? (FINRA/exchange or N/A)
-4. ✅ ROE benchmark correct? (>20% = green, 10-20% = yellow, <10% = red)
-5. ✅ Standardized metric labels used? (e.g., "Operative Margin", not "Operating")
-6. ✅ All unavailable data shows "N/A"? (NEVER zeros or estimates)
-7. ✅ TOP NEWS format correct? (pipe-separated, dates at END in brackets)
-8. ✅ Valuation indicator displayed below forecast? (Undervalued/Fairly Valued/Overvalued +/- %)
-9. ✅ Beta + Vol 1Y combined in one cell?
-10. ✅ Sector/Industry combined in one cell?
+1.  Every numeric metric has a cited source from web search?
+2.  No insider activity fabricated? (SEC Form 4 or N/A)
+3.  No short interest fabricated? (FINRA/exchange or N/A)
+4.  ROE benchmark correct? (>20% = green, 10-20% = yellow, <10% = red)
+5.  Standardized metric labels used? (e.g., "Operative Margin", not "Operating")
+6.  All unavailable data shows "N/A"? (NEVER zeros or estimates)
+7.  TOP NEWS format correct? (pipe-separated, dates at END in brackets)
+8.  Valuation indicator displayed below forecast? (Undervalued/Fairly Valued/Overvalued +/- %)
+9.  Beta + Vol 1Y combined in one cell?
+10.  Sector/Industry combined in one cell?
 
 ### ANALYSIS COMPLETENESS CHECKS
-11. ✅ All mandatory deliverables completed?
-12. ✅ Multiple valuation methods used?
-13. ✅ Both bull and bear cases presented?
-14. ✅ Clear BUY/HOLD/SELL recommendation?
-15. ✅ Specific entry price and position size?
-16. ✅ 3-5 peer companies compared?
-17. ✅ 5-10 year financial trends analyzed?
-18. ✅ Research based on company filings, not news?
-19. ✅ Margin of safety calculated?
-20. ✅ Risk level assessed?
-21. ✅ If SELL: 3-5 alternatives provided?
-22. ✅ Technical entry points identified?
-23. ✅ Advanced metrics calculated (Piotroski F, Altman Z, Beneish M, Max Drawdown)?
-24. ✅ All monetary values in € (Euro)?
-25. ✅ Revenue/Earnings growth using REPORTED (not underlying/adjusted) figures?
-26. ✅ Value Trap Score calculated (0-100, LOWER = genuine)?
-27. ✅ All 8 Investor Persona Scores calculated (0-10)?
-28. ✅ PEG ratio calculated?
-29. ✅ FCF Margin calculated?
-30. ✅ Greenblatt Magic Formula metrics (EY, ROC)?
-31. ✅ News sentiment and short interest researched?
-32. ✅ Ichimoku Cloud data gathered with signal markers?
-33. ✅ TOP NEWS section populated (5 recent headlines)?
-34. ✅ 10-year price history with valuation lines available?
-35. ✅ Enhanced dashboard created with ALL 60+ metrics populated?
+11.  All mandatory deliverables completed?
+12.  Multiple valuation methods used?
+13.  Both bull and bear cases presented?
+14.  Clear BUY/HOLD/SELL recommendation?
+15.  Specific entry price and position size?
+16.  3-5 peer companies compared?
+17.  5-10 year financial trends analyzed?
+18.  Research based on company filings, not news?
+19.  Margin of safety calculated?
+20.  Risk level assessed?
+21.  If SELL: 3-5 alternatives provided?
+22.  Technical entry points identified?
+23.  Advanced metrics calculated (Piotroski F, Altman Z, Beneish M, Max Drawdown)?
+24.  All monetary values in € (Euro)?
+25.  Revenue/Earnings growth using REPORTED (not underlying/adjusted) figures?
+26.  Value Trap Score calculated (0-100, LOWER = genuine)?
+27.  All 8 Investor Persona Scores calculated (0-10)?
+28.  PEG ratio calculated?
+29.  FCF Margin calculated?
+30.  Greenblatt Magic Formula metrics (EY, ROC)?
+31.  News sentiment and short interest researched?
+32.  Ichimoku Cloud data gathered with signal markers?
+33.  TOP NEWS section populated (5 recent headlines)?
+34.  10-year price history with valuation lines available?
+35.  Enhanced dashboard created with ALL 60+ metrics populated?
 
 ### FINAL VALIDATION QUESTIONS
 - Can you cite source for EVERY number in the dashboard?

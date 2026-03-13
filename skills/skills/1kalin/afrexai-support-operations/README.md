@@ -1,4 +1,4 @@
-# Customer Support Operations Engine 🎧
+# Customer Support Operations Engine 
 
 Build and run a world-class customer support operation — from first ticket to a mature, multi-channel, data-driven support organization.
 
@@ -39,7 +39,7 @@ Tell your agent:
 - *"Set up our QA program"* — quality assurance framework
 - *"Review our support health"* — full scoring with improvement plan
 
-## ⚡ Level Up
+##  Level Up
 
 This free skill covers the complete methodology. For industry-specific support playbooks:
 

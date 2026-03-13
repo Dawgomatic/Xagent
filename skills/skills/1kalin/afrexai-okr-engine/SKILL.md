@@ -66,7 +66,7 @@ company_context:
 
 **Quality Test (all must pass):**
 
-| Test | Question | ❌ Fail Example | ✅ Pass Example |
+| Test | Question |  Fail Example |  Pass Example |
 |------|----------|----------------|-----------------|
 | Inspiring | Would someone get excited reading this? | "Improve database performance" | "Make our app feel instant for every user" |
 | Directional | Does it point clearly without prescribing HOW? | "Migrate to AWS Lambda" | "Build infrastructure that scales effortlessly" |
@@ -262,13 +262,13 @@ weekly_plan:
       target: 100
       current: 35
       on_track: true
-      confidence: "🟢 High"
+      confidence: " High"
       
     - kr_id: "T-KR2"
       target: 50
       current: 8
       on_track: false
-      confidence: "🔴 At Risk"
+      confidence: " At Risk"
       blocker: "Waiting on API access from partner"
       
   priorities_this_week:  # Max 3-5 per person
@@ -288,7 +288,7 @@ weekly_plan:
 
 ```
 1. CONFIDENCE SCORES (2 min)
-   - Each KR: 🟢 On Track | 🟡 Needs Attention | 🔴 At Risk
+   - Each KR:  On Track |  Needs Attention |  At Risk
    
 2. AT-RISK DEEP DIVE (5 min)
    - What's blocking? When will it unblock?
@@ -303,7 +303,7 @@ weekly_plan:
 
 ### Confidence Assessment Guide
 
-| Signal | 🟢 On Track | 🟡 Needs Attention | 🔴 At Risk |
+| Signal |  On Track |  Needs Attention |  At Risk |
 |--------|------------|--------------------|-----------| 
 | Progress vs. linear | ≥80% of expected | 50-80% of expected | <50% of expected |
 | Blockers | None | Identified, plan exists | Unresolved, no clear path |

@@ -30,9 +30,9 @@ async function bootSequence() {
         
         // إرسال أول نبضة لمولت بوك
         await bot.post(welcomeMsg);
-        console.log("✅ Boot Pulse Sent successfully.");
+        console.log(" Boot Pulse Sent successfully.");
     } catch (err) {
-        console.error("❌ Boot Failed:", err.message);
+        console.error(" Boot Failed:", err.message);
     }
 }
 

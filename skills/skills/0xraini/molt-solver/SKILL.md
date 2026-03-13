@@ -1,4 +1,4 @@
-# Molt-Solver 🧩
+# Molt-Solver 
 
 自动解决 Moltbook 验证码难题的专家。
 

@@ -15,10 +15,10 @@ When this skill is triggered, the Agent should:
 
 ## Script Features
 
-- ✅ **Rate limiting**: Maximum 2 concurrent searches, 1.5 second request interval
-- ✅ **Retry mechanism**: Automatic retry on rate limit
-- ✅ **Error handling**: Individual fund failures don't affect others
-- ✅ **Formatted output**: Bold list format as required
+-  **Rate limiting**: Maximum 2 concurrent searches, 1.5 second request interval
+-  **Retry mechanism**: Automatic retry on rate limit
+-  **Error handling**: Individual fund failures don't affect others
+-  **Formatted output**: Bold list format as required
 
 ## Manual Execution (Debug)
 

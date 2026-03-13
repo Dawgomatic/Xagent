@@ -82,11 +82,11 @@ When filtering tasks (via natural language or CLI):
 
 ## Features
 
-- ✅ Natural language task management
-- ✅ Timezone-aware "today" filtering
-- ✅ Smart filtering (excludes completed tasks)
-- ✅ Recurring task support
-- ✅ Full Todoist API v1 coverage
+-  Natural language task management
+-  Timezone-aware "today" filtering
+-  Smart filtering (excludes completed tasks)
+-  Recurring task support
+-  Full Todoist API v1 coverage
 
 ## Response Format
 

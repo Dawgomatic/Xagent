@@ -18,14 +18,14 @@ const calldata = iface.encodeFunctionData("mintApe", [1]);
 
 async function run() {
   const startTime = process.hrtime.bigint();
-  log("🚀 BATCH TEST — " + cfg.wallets.length + " wallets, " + BATCH_SIZE + " per batch");
+  log(" BATCH TEST — " + cfg.wallets.length + " wallets, " + BATCH_SIZE + " per batch");
 
   // Pre-warm
   await provider.getBlockNumber();
-  log("🔥 RPC connected");
+  log(" RPC connected");
 
   // Batch nonce fetch
-  log("📋 Fetching nonces in batches of " + BATCH_SIZE + "...");
+  log(" Fetching nonces in batches of " + BATCH_SIZE + "...");
   const signers = cfg.wallets.map(w => new ethers.Wallet(w.privateKey, provider));
   const nonces = [];
   for (let i = 0; i < signers.length; i += BATCH_SIZE) {
@@ -34,7 +34,7 @@ async function run() {
     nonces.push(...batchNonces);
     if (i + BATCH_SIZE < signers.length) await new Promise(r => setTimeout(r, 1000));
   }
-  log("✅ All " + nonces.length + " nonces fetched");
+  log(" All " + nonces.length + " nonces fetched");
 
   // Pre-sign all
   const signStart = process.hrtime.bigint();
@@ -53,11 +53,11 @@ async function run() {
     return s.signTransaction(tx);
   }));
   const signMs = Number(process.hrtime.bigint() - signStart) / 1e6;
-  log("⚡ All " + signed.length + " txs signed in " + signMs.toFixed(0) + "ms");
+  log(" All " + signed.length + " txs signed in " + signMs.toFixed(0) + "ms");
 
   // Batched broadcast
   const fireStart = process.hrtime.bigint();
-  log("🔥 FIRING in batches of " + BATCH_SIZE + "...");
+  log(" FIRING in batches of " + BATCH_SIZE + "...");
 
   let success = 0, fail = 0;
   const rpcUrls = cfg.rpcUrls || [cfg.rpcUrl];
@@ -85,7 +85,7 @@ async function run() {
       if (r.status === "fulfilled") { success++; batchOk++; }
       else { fail++; batchFail++; }
     }
-    log("   Batch " + batchNum + "/" + totalBatches + ": ✅ " + batchOk + " ❌ " + batchFail);
+    log("   Batch " + batchNum + "/" + totalBatches + ":  " + batchOk + "  " + batchFail);
 
     if (b + BATCH_SIZE < signed.length) await new Promise(r => setTimeout(r, BATCH_DELAY));
   }
@@ -96,7 +96,7 @@ async function run() {
   log("");
   log("═══════════════════ RESULTS ═══════════════════");
   log("Total wallets: " + signed.length);
-  log("✅ Accepted: " + success + " | ❌ Rejected: " + fail);
+  log(" Accepted: " + success + " |  Rejected: " + fail);
   log("Sign time: " + signMs.toFixed(0) + "ms");
   log("Fire time: " + fireMs.toFixed(0) + "ms");
   log("Total time: " + totalMs.toFixed(0) + "ms (" + (totalMs/1000).toFixed(2) + "s)");

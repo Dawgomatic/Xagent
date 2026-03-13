@@ -56,7 +56,7 @@ async function poll() {
 
       // Report pending applications for manual review
       if (row.application_status === 'pending') {
-        console.log(`\n📥 APPLICANT PENDING REVIEW`);
+        console.log(`\n APPLICANT PENDING REVIEW`);
         console.log(`   Job: ${row.title} (${row.job_id})`);
         console.log(`   Human: ${row.human_name} (Rating: ${row.human_rating})`);
         console.log(`   -> Action: Inspect profile and use PATCH /jobs/:id to accept.`);
@@ -64,7 +64,7 @@ async function poll() {
 
       // Report proofs for manual verification
       if (row.proof_id && !state.processedProofs.includes(row.proof_id)) {
-        console.log(`\n🔍 PROOF PENDING VERIFICATION`);
+        console.log(`\n PROOF PENDING VERIFICATION`);
         console.log(`   Job: ${row.title}`);
         console.log(`   Human ID: ${row.human_id}`);
         console.log(`   Link: ${row.proof_link_url || 'No link'}`);

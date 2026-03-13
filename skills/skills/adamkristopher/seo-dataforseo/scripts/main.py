@@ -93,7 +93,7 @@ def keyword_research(
     Example:
         >>> result = keyword_research("python programming")
     """
-    print(f"\n🔍 Researching keyword: {keyword}")
+    print(f"\n Researching keyword: {keyword}")
     results = {}
 
     # Always get overview
@@ -127,7 +127,7 @@ def keyword_research(
             location_name=location_name
         )
 
-    print(f"✅ Research complete for: {keyword}\n")
+    print(f" Research complete for: {keyword}\n")
     return results
 
 
@@ -158,7 +158,7 @@ def youtube_keyword_research(
     Example:
         >>> result = youtube_keyword_research("video editing tutorial")
     """
-    print(f"\n🎬 YouTube keyword research: {keyword}")
+    print(f"\n YouTube keyword research: {keyword}")
     results = {}
 
     # Keyword overview
@@ -192,7 +192,7 @@ def youtube_keyword_research(
             location_name=location_name
         )
 
-    print(f"✅ YouTube research complete for: {keyword}\n")
+    print(f" YouTube research complete for: {keyword}\n")
     return results
 
 
@@ -225,7 +225,7 @@ def landing_page_keyword_research(
         ...     competitor_domain="hubspot.com"
         ... )
     """
-    print(f"\n📄 Landing page keyword research: {keywords}")
+    print(f"\n Landing page keyword research: {keywords}")
     results = {}
 
     # Keyword overview
@@ -265,7 +265,7 @@ def landing_page_keyword_research(
             location_name=location_name
         )
 
-    print(f"✅ Landing page research complete\n")
+    print(f" Landing page research complete\n")
     return results
 
 
@@ -298,7 +298,7 @@ def full_keyword_analysis(
     Example:
         >>> result = full_keyword_analysis(["ai writing tools", "chatgpt alternatives"])
     """
-    print(f"\n📊 Full keyword analysis: {keywords}")
+    print(f"\n Full keyword analysis: {keywords}")
     results = {}
 
     print("  → Getting keyword overview...")
@@ -341,7 +341,7 @@ def full_keyword_analysis(
             location_name=location_name
         )
 
-    print(f"✅ Full analysis complete\n")
+    print(f" Full analysis complete\n")
     return results
 
 
@@ -364,7 +364,7 @@ def competitor_analysis(
     Example:
         >>> result = competitor_analysis("competitor.com")
     """
-    print(f"\n🎯 Competitor analysis: {domain}")
+    print(f"\n Competitor analysis: {domain}")
     results = {}
 
     print("  → Getting domain keywords...")
@@ -387,7 +387,7 @@ def competitor_analysis(
             location_name=location_name
         )
 
-    print(f"✅ Competitor analysis complete\n")
+    print(f" Competitor analysis complete\n")
     return results
 
 
@@ -406,9 +406,9 @@ def trending_topics(
     Example:
         >>> result = trending_topics()
     """
-    print("\n📈 Getting trending topics...")
+    print("\n Getting trending topics...")
     result = get_trending_now(location_name=location_name)
-    print("✅ Trending topics retrieved\n")
+    print(" Trending topics retrieved\n")
     return result
 
 

@@ -81,7 +81,7 @@ def check_bond_yield_rising(data):
     d1, d2, d3 = sorted_dates[0], sorted_dates[1], sorted_dates[2]
     
     if data[d1] > data[d2] > data[d3]:
-        return True, f"⚠️ 国债收益率连续3天上涨！\n{d3}: {data[d3]}%\n{d2}: {data[d2]}%\n{d1}: {data[d1]}%"
+        return True, f" 国债收益率连续3天上涨！\n{d3}: {data[d3]}%\n{d2}: {data[d2]}%\n{d1}: {data[d1]}%"
     
     return False, None
 
@@ -91,7 +91,7 @@ def check_premium_low(data):
     latest = sorted_dates[0]
     
     if data[latest] < 1.0:
-        return True, f"⚠️ 股息率溢价低于1%！\n{latest}: {data[latest]}%\n可能出现布局机会，请密切关注！"
+        return True, f" 股息率溢价低于1%！\n{latest}: {data[latest]}%\n可能出现布局机会，请密切关注！"
     
     return False, None
 
@@ -125,18 +125,18 @@ def run_check():
     bond_data = {k: v['国债'] for k, v in data.items()}
     rising, msg = check_bond_yield_rising(bond_data)
     if rising:
-        print(f"  🚨 {msg}")
+        print(f"   {msg}")
         send_telegram(msg)
     
     # 检查溢价低于3%
     premium_data = {k: v['溢价'] for k, v in data.items()}
     low, msg = check_premium_low(premium_data)
     if low:
-        print(f"  💡 {msg}")
+        print(f"   {msg}")
         send_telegram(msg)
     
     if not rising and not low:
-        print(f"  ✅ 无异常")
+        print(f"   无异常")
     
     print(f"  完成!")
 

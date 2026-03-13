@@ -1,7 +1,7 @@
 ---
 name: zotero
 description: Manage Zotero reference libraries via the Web API. Search, list, add items by DOI/ISBN/PMID (with duplicate detection), delete/trash items, update metadata and tags, export in BibTeX/RIS/CSL-JSON, batch-add from files, check PDF attachments, cross-reference citations, find missing DOIs via CrossRef, and fetch open-access PDFs. Supports --json output for scripting. Use when the user asks about academic references, citation management, literature libraries, PDFs for papers, bibliography export, or Zotero specifically.
-metadata: {"clawdbot":{"emoji":"📚","requires":{"env":["ZOTERO_API_KEY","ZOTERO_USER_ID"]},"primaryEnv":"ZOTERO_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["ZOTERO_API_KEY","ZOTERO_USER_ID"]},"primaryEnv":"ZOTERO_API_KEY"}}
 ---
 
 # Zotero Skill

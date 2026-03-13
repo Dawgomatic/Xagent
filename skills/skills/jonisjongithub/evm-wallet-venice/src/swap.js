@@ -149,7 +149,7 @@ async function ensureApproval(publicClient, walletClient, tokenAddress, spender,
   if (currentAllowance >= amount) return; // Already approved
 
   if (!jsonFlag) {
-    console.log('⏳ Approving token spend...');
+    console.log(' Approving token spend...');
   }
 
   const approveTx = await walletClient.writeContract({
@@ -166,7 +166,7 @@ async function ensureApproval(publicClient, walletClient, tokenAddress, spender,
   }
 
   if (!jsonFlag) {
-    console.log('✅ Token approved');
+    console.log(' Token approved');
   }
 }
 
@@ -306,7 +306,7 @@ async function main() {
 
     // Get quote from Odos
     if (!jsonFlag) {
-      console.log(`\n🔍 Getting quote: ${amountStr} ${fromInfo.symbol} → ${toInfo.symbol} on ${chain.name}...`);
+      console.log(`\n Getting quote: ${amountStr} ${fromInfo.symbol} → ${toInfo.symbol} on ${chain.name}...`);
     }
 
     const quote = await getQuote(chain.chainId, fromToken, toToken, inputAmount, walletAddress, slippage);
@@ -340,7 +340,7 @@ async function main() {
         }, null, 2));
       } else {
         console.log(`
-📊 Swap Quote:
+ Swap Quote:
   Sell:         ${amountStr} ${fromInfo.symbol}
   Buy:          ${formattedOutput} ${toInfo.symbol}
   Price Impact: ${priceImpact}%
@@ -355,7 +355,7 @@ async function main() {
     // Show swap details and confirm
     if (!jsonFlag) {
       console.log(`
-🔄 Swap Details:
+ Swap Details:
   Sell:         ${amountStr} ${fromInfo.symbol}
   Buy:          ~${formattedOutput} ${toInfo.symbol}
   Price Impact: ${priceImpact}%
@@ -371,14 +371,14 @@ async function main() {
       if (jsonFlag) {
         console.log(JSON.stringify({ success: false, error: 'Swap cancelled by user' }));
       } else {
-        console.log('❌ Swap cancelled.');
+        console.log(' Swap cancelled.');
       }
       return;
     }
 
     // Assemble the transaction
     if (!jsonFlag) {
-      console.log('⏳ Assembling transaction...');
+      console.log(' Assembling transaction...');
     }
 
     const assembled = await assembleSwap(walletAddress, quote.pathId);
@@ -391,7 +391,7 @@ async function main() {
 
     // Execute the swap
     if (!jsonFlag) {
-      console.log('⏳ Sending swap transaction...');
+      console.log(' Sending swap transaction...');
     }
 
     const gasParam = tx.gas && BigInt(tx.gas) > 0n ? BigInt(tx.gas) : undefined;
@@ -404,7 +404,7 @@ async function main() {
 
     // Wait for receipt
     if (!jsonFlag) {
-      console.log('⏳ Waiting for confirmation...');
+      console.log(' Waiting for confirmation...');
     }
 
     const receipt = await publicClient.waitForTransactionReceipt({ hash: txHash });
@@ -429,13 +429,13 @@ async function main() {
       }, null, 2));
     } else {
       console.log(`
-✅ Swap successful!
+ Swap successful!
   Sold:     ${amountStr} ${fromInfo.symbol}
   Got:      ~${formattedOutput} ${toInfo.symbol}
   Tx Hash:  ${txHash}
   Explorer: ${explorerUrl}
 
-💡 Check your balance: node src/balance.js ${chainName}${toToken !== NATIVE_TOKEN ? ' ' + toToken : ''}
+ Check your balance: node src/balance.js ${chainName}${toToken !== NATIVE_TOKEN ? ' ' + toToken : ''}
 `);
     }
 

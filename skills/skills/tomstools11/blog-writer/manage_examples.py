@@ -42,7 +42,7 @@ def check_library():
     print()
     
     if count > MAX_EXAMPLES:
-        print(f"⚠️  Library exceeds limit by {count - MAX_EXAMPLES} files")
+        print(f"  Library exceeds limit by {count - MAX_EXAMPLES} files")
         print(f"Recommend removing the {PRUNE_COUNT} oldest examples:")
         print()
         for i, (date, name) in enumerate(examples[:PRUNE_COUNT]):

@@ -26,7 +26,7 @@ class OAuthHandler(BaseHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write('''
                 <html><body>
-                <h2>✅ Authorization successful!</h2>
+                <h2> Authorization successful!</h2>
                 <p>You can close this window and return to the terminal.</p>
                 </body></html>
                 '''.encode('utf-8'))
@@ -35,7 +35,7 @@ class OAuthHandler(BaseHTTPRequestHandler):
                 self.send_header('Content-type', 'text/html')
                 self.end_headers()
                 error = query_params.get('error', ['Unknown error'])[0]
-                self.wfile.write(f'<html><body><h2>❌ Error: {error}</h2></body></html>'.encode('utf-8'))
+                self.wfile.write(f'<html><body><h2> Error: {error}</h2></body></html>'.encode('utf-8'))
 
     def log_message(self, format, *args):
         pass  # Suppress HTTP logs
@@ -50,7 +50,7 @@ def get_config():
     client_id, client_secret = get_whoop_credentials()
     
     if not client_id or not client_secret:
-        print("❌ Missing WHOOP_CLIENT_ID and/or WHOOP_CLIENT_SECRET")
+        print(" Missing WHOOP_CLIENT_ID and/or WHOOP_CLIENT_SECRET")
         print("Please configure with:")
         print("  openclaw configure --section skills")
         print("Or set environment variables:")
@@ -85,8 +85,8 @@ def start_oauth_flow():
     
     full_auth_url = f"{auth_url}?{urllib.parse.urlencode(auth_params)}"
     
-    print("🚀 Starting WHOOP OAuth flow...")
-    print(f"🌐 Opening browser: {full_auth_url}")
+    print(" Starting WHOOP OAuth flow...")
+    print(f" Opening browser: {full_auth_url}")
     
     # Start local server for callback
     server = HTTPServer(('localhost', 18790), OAuthHandler)
@@ -95,7 +95,7 @@ def start_oauth_flow():
     # Open browser
     webbrowser.open(full_auth_url)
     
-    print("⏳ Waiting for authorization...")
+    print(" Waiting for authorization...")
     print("Please authorize the application in your browser.")
     
     # Wait for callback
@@ -105,10 +105,10 @@ def start_oauth_flow():
     auth_code = server.auth_code
     server.server_close()
     
-    print("✅ Got authorization code!")
+    print(" Got authorization code!")
     
     # Exchange code for tokens
-    print("🔄 Exchanging code for tokens...")
+    print(" Exchanging code for tokens...")
     
     token_data = {
         'grant_type': 'authorization_code',
@@ -129,27 +129,27 @@ def start_oauth_flow():
         with open(config_path, 'w') as f:
             json.dump(tokens, f, indent=2)
         
-        print("✅ Tokens saved successfully!")
-        print(f"📁 Config saved to: {config_path}")
-        print("\n🎉 WHOOP integration ready!")
+        print(" Tokens saved successfully!")
+        print(f" Config saved to: {config_path}")
+        print("\n WHOOP integration ready!")
         
         return True
         
     except requests.RequestException as e:
-        print(f"❌ Token exchange failed: {e}")
+        print(f" Token exchange failed: {e}")
         if hasattr(e.response, 'text'):
             print(f"Response: {e.response.text}")
         return False
 
 if __name__ == "__main__":
-    print("🏃‍♀️ WHOOP OAuth Setup")
+    print(" WHOOP OAuth Setup")
     print("=" * 30)
     
     success = start_oauth_flow()
     
     if success:
-        print("\n✅ Setup complete!")
+        print("\n Setup complete!")
         print("You can now use: python3 scripts/whoop_client.py")
     else:
-        print("\n❌ Setup failed!")
+        print("\n Setup failed!")
         print("Please check your credentials and try again.")

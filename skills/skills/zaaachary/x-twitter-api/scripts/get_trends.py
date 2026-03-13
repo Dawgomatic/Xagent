@@ -44,7 +44,7 @@ class XTwitterAPI:
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
-            print(f"❌ API request failed: {e}")
+            print(f" API request failed: {e}")
             if 'response' in locals():
                 print(f"Status: {response.status_code}")
                 print(f"Response: {response.text}")
@@ -74,16 +74,16 @@ WOEID_LOCATIONS = {
 def format_trends(data, woeid):
     """Format trending topics for display"""
     if not data or "data" not in data:
-        return "❌ No trending topics found"
+        return " No trending topics found"
 
     location = WOEID_LOCATIONS.get(woeid, f"WOEID {woeid}")
     timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
 
     output = f"""
 {'=' * 60}
-📈 Trending Topics - {location}
+ Trending Topics - {location}
 {'=' * 60}
-🕒 {timestamp}
+ {timestamp}
 
 """
 
@@ -95,8 +95,8 @@ def format_trends(data, woeid):
         url = trend.get("url", "N/A")
 
         output += f"{i}. {name}\n"
-        output += f"   📊 {tweet_count:,} tweets\n" if isinstance(tweet_count, int) else f"   📊 {tweet_count}\n"
-        output += f"   🔗 {url}\n\n"
+        output += f"    {tweet_count:,} tweets\n" if isinstance(tweet_count, int) else f"    {tweet_count}\n"
+        output += f"    {url}\n\n"
 
     return output
 
@@ -111,14 +111,14 @@ def main():
     args = parser.parse_args()
 
     if args.list:
-        print("🌍 Common WOEID Values:\n")
+        print(" Common WOEID Values:\n")
         for woeid, name in sorted(WOEID_LOCATIONS.items()):
             print(f"  {woeid:12} - {name}")
-        print("\n🔍 Full list: https://woeid.rosselliot.co.nz/")
+        print("\n Full list: https://woeid.rosselliot.co.nz/")
         return
 
     if not os.environ.get('X_BEARER_TOKEN'):
-        print("❌ Error: X_BEARER_TOKEN not set")
+        print(" Error: X_BEARER_TOKEN not set")
         print("\nGet API token:")
         print("1. Visit https://developer.x.com")
         print("2. Create project and app")
@@ -127,28 +127,28 @@ def main():
         sys.exit(1)
 
     location = WOEID_LOCATIONS.get(args.woeid, f"WOEID {args.woeid}")
-    print(f"🔍 Fetching trending topics for: {location}\n")
+    print(f" Fetching trending topics for: {location}\n")
 
     # Get trends
     try:
         api = XTwitterAPI()
         data = api.get_trending_topics(args.woeid)
     except ValueError as e:
-        print(f"❌ {e}")
+        print(f" {e}")
         sys.exit(1)
 
     if not data:
-        print("❌ Failed to fetch trending topics")
-        print("\n💡 Note: Trending topics may require Basic tier ($200/month) or higher")
+        print(" Failed to fetch trending topics")
+        print("\n Note: Trending topics may require Basic tier ($200/month) or higher")
         print("   Free tier has limited access to this endpoint")
         sys.exit(1)
 
     # Check for errors
     if "errors" in data:
-        print(f"❌ API returned errors:")
+        print(f" API returned errors:")
         for error in data["errors"]:
             print(f"   - {error.get('message', 'Unknown error')}")
-        print("\n💡 This endpoint may require Basic tier or higher")
+        print("\n This endpoint may require Basic tier or higher")
         sys.exit(1)
 
     # Output
@@ -161,7 +161,7 @@ def main():
     if args.save:
         with open(args.save, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
-        print(f"\n💾 Saved to: {args.save}")
+        print(f"\n Saved to: {args.save}")
 
 
 if __name__ == "__main__":

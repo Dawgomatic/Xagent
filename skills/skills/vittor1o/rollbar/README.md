@@ -1,6 +1,6 @@
 # Rollbar Skill for OpenClaw
 
-🐛 Monitor and manage [Rollbar](https://rollbar.com) error tracking directly from [OpenClaw](https://openclaw.ai).
+ Monitor and manage [Rollbar](https://rollbar.com) error tracking directly from [OpenClaw](https://openclaw.ai).
 
 ## Features
 
@@ -27,7 +27,7 @@ Set your Rollbar access token as an environment variable:
 export ROLLBAR_ACCESS_TOKEN=your-token-here
 ```
 
-> **⚠️ Security:** Store tokens in environment variables or a secure secret manager — never commit them to repository files.
+> ** Security:** Store tokens in environment variables or a secure secret manager — never commit them to repository files.
 
 **Token types:**
 - **Project token** (recommended) — Rollbar → Project → Settings → Project Access Tokens. Use `read` scope; add `write` only if you need to resolve/mute items.

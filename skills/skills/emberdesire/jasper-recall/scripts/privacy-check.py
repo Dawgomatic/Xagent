@@ -188,7 +188,7 @@ def main():
         import json
         print(json.dumps({"clean": len(violations) == 0, "violations": violations}, indent=2))
     elif violations:
-        print(f"⚠️  PRIVACY VIOLATIONS FOUND: {len(violations)}\n")
+        print(f"  PRIVACY VIOLATIONS FOUND: {len(violations)}\n")
         for v in violations:
             print(f"  [{v['pattern']}] Line {v['line']}: {v['description']}")
             print(f"    Match: {v['match']}")
@@ -196,7 +196,7 @@ def main():
             print()
         sys.exit(1)
     elif not args.quiet:
-        print("✅ CLEAN - No privacy violations detected")
+        print(" CLEAN - No privacy violations detected")
     
     sys.exit(0 if not violations else 1)
 

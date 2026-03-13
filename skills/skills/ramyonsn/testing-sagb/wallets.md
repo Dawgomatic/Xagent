@@ -1,4 +1,4 @@
-# Bags Wallet Management 💛
+# Bags Wallet Management 
 
 List your Solana wallets and export private keys for transaction signing.
 
@@ -55,7 +55,7 @@ jq --argjson wallets "$BAGS_WALLETS" '.wallets = $wallets' \
 
 ## Export Private Key
 
-⚠️ **SECURITY WARNING:** Private keys give full control over your wallet. Handle with extreme care.
+ **SECURITY WARNING:** Private keys give full control over your wallet. Handle with extreme care.
 
 ```bash
 BAGS_WALLET_ADDRESS="7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU"
@@ -277,12 +277,12 @@ for i in $(seq 1 $BAGS_MAX_RETRIES); do
     BAGS_CONFIRM_STATUS=$(echo "$BAGS_VALUE" | jq -r '.confirmationStatus // empty')
     
     if [ -n "$BAGS_TX_ERR" ] && [ "$BAGS_TX_ERR" != "null" ]; then
-      echo "❌ Transaction failed on-chain: $BAGS_TX_ERR"
+      echo " Transaction failed on-chain: $BAGS_TX_ERR"
       exit 1
     fi
     
     if [ "$BAGS_CONFIRM_STATUS" = "confirmed" ] || [ "$BAGS_CONFIRM_STATUS" = "finalized" ]; then
-      echo "✅ Transaction confirmed ($BAGS_CONFIRM_STATUS)"
+      echo " Transaction confirmed ($BAGS_CONFIRM_STATUS)"
       echo "   Signature: $BAGS_SIGNATURE"
       echo "   Explorer: https://solscan.io/tx/$BAGS_SIGNATURE"
       break
@@ -290,7 +290,7 @@ for i in $(seq 1 $BAGS_MAX_RETRIES); do
   fi
   
   if [ $i -eq $BAGS_MAX_RETRIES ]; then
-    echo "⚠️ Transaction not confirmed after $BAGS_MAX_RETRIES attempts"
+    echo " Transaction not confirmed after $BAGS_MAX_RETRIES attempts"
     echo "   May need to retry with a fresh transaction"
   fi
 done
@@ -372,7 +372,7 @@ solana balance $BAGS_WALLET_ADDRESS
 
 ## Security Best Practices
 
-### ✅ DO:
+###  DO:
 - Export keys only when needed for signing
 - Delete keypair files after use: `rm ~/.config/bags/keypair.json`
 - Use `chmod 600` on any file containing keys
@@ -380,7 +380,7 @@ solana balance $BAGS_WALLET_ADDRESS
 - Verify transaction details before signing
 - Keep JWT token and API key separate from private keys
 
-### ❌ DON'T:
+###  DON'T:
 - Log private keys to console or files
 - Store private keys in credentials.json
 - Share private keys with anyone or any service
@@ -432,7 +432,7 @@ set -e
 # Load credentials
 BAGS_JWT_TOKEN=$(cat ~/.config/bags/credentials.json | jq -r '.jwt_token')
 
-echo "💛 Bags Wallet Status"
+echo " Bags Wallet Status"
 echo "====================="
 
 # Get wallets
@@ -441,7 +441,7 @@ BAGS_WALLETS_RESPONSE=$(curl -s -X POST https://public-api-v2.bags.fm/api/v1/age
   -d "{\"token\": \"$BAGS_JWT_TOKEN\"}")
 
 if ! echo "$BAGS_WALLETS_RESPONSE" | jq -e '.success == true' > /dev/null; then
-  echo "❌ Failed to fetch wallets: $(echo "$BAGS_WALLETS_RESPONSE" | jq -r '.response')"
+  echo " Failed to fetch wallets: $(echo "$BAGS_WALLETS_RESPONSE" | jq -r '.response')"
   exit 1
 fi
 
@@ -462,7 +462,7 @@ for BAGS_WALLET in $BAGS_WALLETS; do
   BAGS_TOTAL_LAMPORTS=$((BAGS_TOTAL_LAMPORTS + BAGS_BALANCE))
   
   echo ""
-  echo "📍 Wallet: $BAGS_WALLET"
+  echo " Wallet: $BAGS_WALLET"
   echo "   Balance: $BAGS_SOL SOL"
 done
 
@@ -470,7 +470,7 @@ BAGS_TOTAL_SOL=$(echo "scale=4; $BAGS_TOTAL_LAMPORTS / 1000000000" | bc)
 
 echo ""
 echo "====================="
-echo "💰 Total: $BAGS_TOTAL_SOL SOL"
+echo " Total: $BAGS_TOTAL_SOL SOL"
 ```
 
 ---
@@ -506,7 +506,7 @@ bags_submit_and_confirm() {
     | jq -r '.response.privateKey')
   
   if [ -z "$BAGS_PRIVATE_KEY" ] || [ "$BAGS_PRIVATE_KEY" = "null" ]; then
-    echo "❌ Failed to export private key"
+    echo " Failed to export private key"
     return 1
   fi
   
@@ -515,12 +515,12 @@ bags_submit_and_confirm() {
   unset BAGS_PRIVATE_KEY
   
   if [ -z "$BAGS_SIGNED_TX" ]; then
-    echo "❌ Failed to sign transaction"
+    echo " Failed to sign transaction"
     return 1
   fi
   
   # Submit transaction
-  echo "📡 Submitting transaction..."
+  echo " Submitting transaction..."
   local BAGS_RESULT=$(curl -s -X POST "https://public-api-v2.bags.fm/api/v1/solana/send-transaction" \
     -H "x-api-key: $BAGS_API_KEY" \
     -H "Content-Type: application/json" \
@@ -530,12 +530,12 @@ bags_submit_and_confirm() {
   local BAGS_ERROR=$(echo "$BAGS_RESULT" | jq -r '.error // empty')
   
   if [ -z "$BAGS_SIGNATURE" ] || [ "$BAGS_SIGNATURE" = "null" ]; then
-    echo "❌ Failed to submit: $BAGS_ERROR"
+    echo " Failed to submit: $BAGS_ERROR"
     return 1
   fi
   
-  echo "📋 Signature: $BAGS_SIGNATURE"
-  echo "⏳ Confirming transaction..."
+  echo " Signature: $BAGS_SIGNATURE"
+  echo " Confirming transaction..."
   
   # Poll for confirmation
   for i in $(seq 1 $BAGS_MAX_RETRIES); do
@@ -558,13 +558,13 @@ bags_submit_and_confirm() {
       
       # Check for on-chain error
       if [ -n "$BAGS_TX_ERR" ] && [ "$BAGS_TX_ERR" != "null" ]; then
-        echo "❌ Transaction failed on-chain: $BAGS_TX_ERR"
+        echo " Transaction failed on-chain: $BAGS_TX_ERR"
         return 1
       fi
       
       # Check for confirmation
       if [ "$BAGS_CONFIRM_STATUS" = "confirmed" ] || [ "$BAGS_CONFIRM_STATUS" = "finalized" ]; then
-        echo "✅ Transaction $BAGS_CONFIRM_STATUS!"
+        echo " Transaction $BAGS_CONFIRM_STATUS!"
         echo "   Explorer: https://solscan.io/tx/$BAGS_SIGNATURE"
         return 0
       fi
@@ -573,7 +573,7 @@ bags_submit_and_confirm() {
     echo "   Attempt $i/$BAGS_MAX_RETRIES..."
   done
   
-  echo "⚠️ Transaction not confirmed after $BAGS_MAX_RETRIES attempts"
+  echo " Transaction not confirmed after $BAGS_MAX_RETRIES attempts"
   return 2  # Special code for "needs retry"
 }
 ```

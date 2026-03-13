@@ -5,7 +5,7 @@ homepage: https://finnhub.io
 metadata:
   {
     "openclaw": {
-      "emoji": "📈",
+      "emoji": "",
       "requires": { "env": ["FINNHUB_API_KEY"] },
       "primaryEnv": "FINNHUB_API_KEY",
     },

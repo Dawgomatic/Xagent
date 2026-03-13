@@ -3,7 +3,7 @@ name: dnote
 description: Save, retrieve, and manage notes using Dnote CLI. Use when the user wants to capture information, search existing notes, reference saved knowledge, or organize notes into books. Supports adding notes, searching with full-text, viewing books/notes, editing, and removing notes. Perfect for building a personal knowledge base.
 metadata:
   openclaw:
-    emoji: '📝'
+    emoji: ''
     homepage: https://www.getdnote.com/docs/cli/
     requires:
       bins:

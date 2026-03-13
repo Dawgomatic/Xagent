@@ -18,7 +18,7 @@ validate_url() {
     local url="$1"
     # Validate URL format - must be http(s) and end with .pdf
     if [[ ! "$url" =~ ^https?://[a-zA-Z0-9.-]+/.*\.pdf$ ]]; then
-        echo "❌ Error: Invalid URL format. Must be http(s)://.../...pdf"
+        echo " Error: Invalid URL format. Must be http(s)://.../...pdf"
         exit 1
     fi
     echo "$url"
@@ -29,13 +29,13 @@ MINERU_TOKEN="${MINERU_TOKEN:-${MINERU_API_KEY:-}}"
 MINERU_BASE_URL="${MINERU_BASE_URL:-https://mineru.net/api/v4}"
 
 if [ -z "$MINERU_TOKEN" ]; then
-    echo "❌ Error: Please set MINERU_TOKEN or MINERU_API_KEY environment variable"
+    echo " Error: Please set MINERU_TOKEN or MINERU_API_KEY environment variable"
     exit 1
 fi
 
 PDF_URL="${1:-}"
 if [ -z "$PDF_URL" ]; then
-    echo "❌ Error: Please provide PDF URL address"
+    echo " Error: Please provide PDF URL address"
     echo "Usage: $0 <pdf_url> [language] [layout_model]"
     echo ""
     echo "Examples:"
@@ -53,13 +53,13 @@ LAYOUT_MODEL="${3:-doclayout_yolo}"
 
 # Validate language parameter
 if [[ ! "$LANGUAGE" =~ ^(ch|en|auto)$ ]]; then
-    echo "❌ Error: Language must be 'ch', 'en', or 'auto'"
+    echo " Error: Language must be 'ch', 'en', or 'auto'"
     exit 1
 fi
 
 # Validate layout model parameter
 if [[ ! "$LAYOUT_MODEL" =~ ^(doclayout_yolo|layoutlmv3)$ ]]; then
-    echo "❌ Error: Layout model must be 'doclayout_yolo' or 'layoutlmv3'"
+    echo " Error: Layout model must be 'doclayout_yolo' or 'layoutlmv3'"
     exit 1
 fi
 
@@ -112,15 +112,15 @@ fi
 
 if [ "$CODE" != "0" ] || [ -z "$TASK_ID" ]; then
     echo ""
-    echo "❌ Failed to submit task"
+    echo " Failed to submit task"
     exit 1
 fi
 
 echo ""
-echo "✅ Task submitted successfully"
+echo " Task submitted successfully"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TASK_ID=$TASK_ID"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
-echo "💡 Next Step: Execute Step 2 to poll results"
+echo " Next Step: Execute Step 2 to poll results"
 echo "   ./online_file_step2_poll_result.sh \"$TASK_ID\""

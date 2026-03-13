@@ -9,7 +9,7 @@ description: >
 homepage: https://github.com/Cocoanetics/CodexMonitor
 metadata:
   moltbot:
-    emoji: "🧾"
+    emoji: ""
     os: ["darwin"]
     requires:
       bins: ["codexmonitor"]

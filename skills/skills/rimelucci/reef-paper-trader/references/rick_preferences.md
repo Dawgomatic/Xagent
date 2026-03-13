@@ -170,7 +170,7 @@ Metrics Rick cares most about:
 
 | Metric | Target | Current | Status |
 |--------|--------|---------|--------|
-| [Metric] | [Target] | [Current] | 🔴/🟡/🟢 |
+| [Metric] | [Target] | [Current] | // |
 
 ---
 

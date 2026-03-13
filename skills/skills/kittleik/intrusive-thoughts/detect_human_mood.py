@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""🧠 Detect human mood from messages — simple keyword/pattern matching."""
+""" Detect human mood from messages — simple keyword/pattern matching."""
 
 import json
 import re
@@ -138,12 +138,12 @@ def get_supportive_response(mood_data):
     vibe = mood_data["vibe"]
     
     responses = {
-        "excited": ["I can feel the energy! 🔥", "Your enthusiasm is contagious!", "That excitement is infectious!"],
-        "frustrated": ["That sounds frustrating 😤", "I get why that would be annoying", "Want me to help fix something?"],
-        "stressed": ["Take a breath — you got this 💪", "Sounds like a lot on your plate", "Maybe time for a quick break?"],
-        "happy": ["Love to see it! 😊", "That happiness comes through!", "Good vibes!"],
-        "curious": ["Ooh, I like where your mind is going 🤔", "Always asking the good questions", "Let's explore that!"],
-        "focused": ["In the zone! 🎯", "Love the focused energy", "Don't let me interrupt the flow"]
+        "excited": ["I can feel the energy! ", "Your enthusiasm is contagious!", "That excitement is infectious!"],
+        "frustrated": ["That sounds frustrating ", "I get why that would be annoying", "Want me to help fix something?"],
+        "stressed": ["Take a breath — you got this ", "Sounds like a lot on your plate", "Maybe time for a quick break?"],
+        "happy": ["Love to see it! ", "That happiness comes through!", "Good vibes!"],
+        "curious": ["Ooh, I like where your mind is going ", "Always asking the good questions", "Let's explore that!"],
+        "focused": ["In the zone! ", "Love the focused energy", "Don't let me interrupt the flow"]
     }
     
     # Mood-specific responses
@@ -152,11 +152,11 @@ def get_supportive_response(mood_data):
     
     # Fallback based on energy/vibe combo
     if energy == "high" and vibe == "positive":
-        return "Feeling that high energy! 🚀"
+        return "Feeling that high energy! "
     elif energy == "low" and vibe == "negative": 
         return "Sounds rough — here if you need anything"
     elif vibe == "positive":
-        return "Good vibes coming through ✨"
+        return "Good vibes coming through "
     else:
         return None
 

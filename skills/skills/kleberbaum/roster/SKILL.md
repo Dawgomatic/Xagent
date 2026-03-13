@@ -76,23 +76,23 @@ The user uploads a **CSV file** with employee availability. The CSV comes from *
 
 ```csv
 Timestamp,"Administrative Arbeit [Mo., 16.02.]",...,Name,"[Mo., 16.02.]"," [Di., 17.02.]",...,An welchen Tagen kannst du dein Auto einsetzen?,Kommentar
-2026/02/13 10:44:22,,,,,,,Alex🟦,nicht möglich,nicht möglich,...,nicht möglich,Comment text
+2026/02/13 10:44:22,,,,,,,Alex,nicht möglich,nicht möglich,...,nicht möglich,Comment text
 ```
 
 ### CSV Name Emojis (Status Indicators)
 
 The Google Forms CSV uses **colored emojis** after employee names. These are important status indicators:
 
-- 🟦 (blue) = **trained**
-- 🟪 (purple) = **can train** (canTrain)
-- 🟥 (red) = **untrained** -> MUST be grouped with a trainer!
-- 🟨 (yellow) = **in training** / partially trained
-- 🚗 = **has a car available** this week
+-  (blue) = **trained**
+-  (purple) = **can train** (canTrain)
+-  (red) = **untrained** -> MUST be grouped with a trainer!
+-  (yellow) = **in training** / partially trained
+-  = **has a car available** this week
 
 **Important:**
-- **Remove the emojis** when matching names (e.g. "Alex🟦🟪🚗" -> name is "Alex")
+- **Remove the emojis** when matching names (e.g. "Alex" -> name is "Alex")
 - **Use the emojis as a status cross-check** against employees.json
-- If a name in the CSV has 🟥 AND employees.json shows `status: ["untrained"]` -> **double confirmed: MUST be grouped with trainer!**
+- If a name in the CSV has  AND employees.json shows `status: ["untrained"]` -> **double confirmed: MUST be grouped with trainer!**
 
 ### Time Window Rules (CRITICAL -- MUST FOLLOW!)
 
@@ -225,30 +225,30 @@ Telegram does NOT support Markdown tables. If you write `| Col1 | Col2 |`, it wi
 
 **Use EXACTLY this format instead:**
 
-📋 *Dienstplan KW 08/2026*
+ *Dienstplan KW 08/2026*
 Mo. 16.02 – Sa. 21.02
 
 *Mo. 16.02*
-🕐 15:30–18:00
-🚗 Alex
-👥 Alex+Kim · Jordan · Taylor · Casey
-📌 Alex–Kim (Trainer+Trainee), Jordan, Taylor, Casey
+ 15:30–18:00
+ Alex
+ Alex+Kim · Jordan · Taylor · Casey
+ Alex–Kim (Trainer+Trainee), Jordan, Taylor, Casey
 
 *Mi. 18.02* (Auto 1 – Alex)
-🕐 15:30–18:30
-🚗 Alex
-👥 Alex+Sam · Casey
+ 15:30–18:30
+ Alex
+ Alex+Sam · Casey
 
 *Mi. 18.02* (Auto 2 – Morgan, nur Fahrt)
-🕐 15:30–19:00
-🚗 Morgan (nur Fahrt)
-👥 Jordan · Taylor · Robin
+ 15:30–19:00
+ Morgan (nur Fahrt)
+ Jordan · Taylor · Robin
 
-📊 *Wochenstunden:*
+ *Wochenstunden:*
 Alex 13,5h · Jordan 14h · Taylor 14h
 Robin 8,5h · Casey 8h · Kim 8h · Sam 6h
 
-⚠️ *Hinweise:*
+ *Hinweise:*
 • Casey unter 10h-Grenze ✓
 • Kim immer begleitet (Trainer: Alex) ✓
 • Sam immer begleitet (Trainer: Alex/Jordan) ✓
@@ -256,7 +256,7 @@ Robin 8,5h · Casey 8h · Kim 8h · Sam 6h
 
 Soll ich den Plan hochladen?
 
-**SUMMARY: Use emojis (📋🕐🚗👥📌📊⚠️), bold (*text*), and line breaks. NO tables, NO pipes (|), NO code blocks.**
+**SUMMARY: Use emojis (), bold (*text*), and line breaks. NO tables, NO pipes (|), NO code blocks.**
 
 ### Step 5: Wait for User Action
 
@@ -570,21 +570,21 @@ If the info field is not empty, show it in the employee list.
 
 **Format (NO code block, direct Telegram message):**
 
-👥 **Mitarbeiterliste**
+ **Mitarbeiterliste**
 
-✅🚗 **Alex** – Supervisor (kann einschulen)
+ **Alex** – Supervisor (kann einschulen)
 Hauptfahrer, kann einschulen
 
-✅ **Jordan** – Geschult (kann einschulen)
+ **Jordan** – Geschult (kann einschulen)
 
-❌ **Kim** – In Einschulung (Trainer: Alex, Jordan)
+ **Kim** – In Einschulung (Trainer: Alex, Jordan)
 Minderjährig, nicht alleine einteilen
 
 _(etc. for each employee)_
 
 Gesamt: X Mitarbeiter (Y geschult, Z in Einschulung)
 
-Legende: ✅ = Geschult, ❌ = In Einschulung, 🚗 = Hat Auto, 🎓 = Kann einschulen
+Legende:  = Geschult,  = In Einschulung,  = Hat Auto,  = Kann einschulen
 
 ## Commands
 

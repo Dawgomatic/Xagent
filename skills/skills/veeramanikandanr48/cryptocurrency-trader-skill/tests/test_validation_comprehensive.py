@@ -307,11 +307,11 @@ def run_tests():
 
     if result.wasSuccessful():
         print()
-        print("✅ All tests passed!")
+        print(" All tests passed!")
         return 0
     else:
         print()
-        print("⚠️  Some tests had issues")
+        print("  Some tests had issues")
         return 1
 
 

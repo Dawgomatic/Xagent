@@ -24,7 +24,7 @@ fi
 case "$COMMAND" in
     # PIPELINE & REPORTING
     pipeline)
-        echo -e "${GREEN}📊 Pipeline Summary${NC}"
+        echo -e "${GREEN} Pipeline Summary${NC}"
         sf data query --query "
             SELECT StageName, COUNT(Id) Deals, SUM(Amount) TotalValue
             FROM Opportunity
@@ -35,7 +35,7 @@ case "$COMMAND" in
         ;;
 
     pipeline-this-month)
-        echo -e "${GREEN}📊 This Month's Pipeline${NC}"
+        echo -e "${GREEN} This Month's Pipeline${NC}"
         sf data query --query "
             SELECT StageName, COUNT(Id) Deals, SUM(Amount) TotalValue
             FROM Opportunity
@@ -46,7 +46,7 @@ case "$COMMAND" in
 
     closing-soon)
         DAYS="${1:-14}"
-        echo -e "${GREEN}🎯 Opportunities Closing in Next $DAYS Days${NC}"
+        echo -e "${GREEN} Opportunities Closing in Next $DAYS Days${NC}"
         sf data query --query "
             SELECT Name, Account.Name, Amount, StageName, CloseDate, Owner.Name
             FROM Opportunity
@@ -58,7 +58,7 @@ case "$COMMAND" in
     # CONTACTS
     contacts)
         LIMIT="${1:-20}"
-        echo -e "${GREEN}👥 Recent Contacts (limit $LIMIT)${NC}"
+        echo -e "${GREEN} Recent Contacts (limit $LIMIT)${NC}"
         sf data query --query "
             SELECT Id, Name, Email, Phone, Account.Name, Title
             FROM Contact
@@ -73,7 +73,7 @@ case "$COMMAND" in
             echo -e "${RED}Usage: search-contacts <name or email>${NC}"
             exit 1
         fi
-        echo -e "${GREEN}🔍 Searching Contacts: $SEARCH${NC}"
+        echo -e "${GREEN} Searching Contacts: $SEARCH${NC}"
         sf data query --query "
             SELECT Id, Name, Email, Phone, Account.Name
             FROM Contact
@@ -97,14 +97,14 @@ case "$COMMAND" in
         [[ -n "$EMAIL" ]] && VALUES="$VALUES Email='$EMAIL'"
         [[ -n "$ACCOUNT_ID" ]] && VALUES="$VALUES AccountId='$ACCOUNT_ID'"
 
-        echo -e "${GREEN}➕ Creating Contact: $FIRST $LAST${NC}"
+        echo -e "${GREEN} Creating Contact: $FIRST $LAST${NC}"
         sf data create record --sobject Contact --values "$VALUES" $ORG_FLAG --json
         ;;
 
     # ACCOUNTS
     accounts)
         LIMIT="${1:-20}"
-        echo -e "${GREEN}🏢 Recent Accounts (limit $LIMIT)${NC}"
+        echo -e "${GREEN} Recent Accounts (limit $LIMIT)${NC}"
         sf data query --query "
             SELECT Id, Name, Industry, Website, Phone, BillingCity
             FROM Account
@@ -119,7 +119,7 @@ case "$COMMAND" in
             echo -e "${RED}Usage: search-accounts <name>${NC}"
             exit 1
         fi
-        echo -e "${GREEN}🔍 Searching Accounts: $SEARCH${NC}"
+        echo -e "${GREEN} Searching Accounts: $SEARCH${NC}"
         sf data query --query "
             SELECT Id, Name, Industry, Website, (SELECT Name, Email FROM Contacts LIMIT 5)
             FROM Account
@@ -131,7 +131,7 @@ case "$COMMAND" in
     # OPPORTUNITIES
     opportunities)
         LIMIT="${1:-20}"
-        echo -e "${GREEN}💰 Recent Opportunities (limit $LIMIT)${NC}"
+        echo -e "${GREEN} Recent Opportunities (limit $LIMIT)${NC}"
         sf data query --query "
             SELECT Id, Name, Account.Name, Amount, StageName, CloseDate, Probability
             FROM Opportunity
@@ -151,14 +151,14 @@ case "$COMMAND" in
             exit 1
         fi
 
-        echo -e "${GREEN}📝 Updating Opportunity $OPP_ID to stage: $STAGE${NC}"
+        echo -e "${GREEN} Updating Opportunity $OPP_ID to stage: $STAGE${NC}"
         sf data update record --sobject Opportunity --record-id "$OPP_ID" --values "StageName='$STAGE'" $ORG_FLAG --json
         ;;
 
     # LEADS
     leads)
         LIMIT="${1:-20}"
-        echo -e "${GREEN}🎯 Open Leads (limit $LIMIT)${NC}"
+        echo -e "${GREEN} Open Leads (limit $LIMIT)${NC}"
         sf data query --query "
             SELECT Id, Name, Company, Email, Status, LeadSource, CreatedDate
             FROM Lead
@@ -170,7 +170,7 @@ case "$COMMAND" in
 
     stale-leads)
         DAYS="${1:-30}"
-        echo -e "${YELLOW}⚠️ Leads Not Touched in $DAYS Days${NC}"
+        echo -e "${YELLOW} Leads Not Touched in $DAYS Days${NC}"
         sf data query --query "
             SELECT Id, Name, Company, Email, Status, LastModifiedDate
             FROM Lead
@@ -193,14 +193,14 @@ case "$COMMAND" in
         VALUES="FirstName='$FIRST' LastName='$LAST' Company='$COMPANY' Status='Open - Not Contacted'"
         [[ -n "$EMAIL" ]] && VALUES="$VALUES Email='$EMAIL'"
 
-        echo -e "${GREEN}➕ Creating Lead: $FIRST $LAST at $COMPANY${NC}"
+        echo -e "${GREEN} Creating Lead: $FIRST $LAST at $COMPANY${NC}"
         sf data create record --sobject Lead --values "$VALUES" $ORG_FLAG --json
         ;;
 
     # CASES
     cases)
         LIMIT="${1:-20}"
-        echo -e "${GREEN}📋 Open Cases (limit $LIMIT)${NC}"
+        echo -e "${GREEN} Open Cases (limit $LIMIT)${NC}"
         sf data query --query "
             SELECT Id, CaseNumber, Subject, Status, Priority, Account.Name, CreatedDate
             FROM Case
@@ -223,13 +223,13 @@ case "$COMMAND" in
         VALUES="Subject='$SUBJECT' Status='New' Priority='$PRIORITY'"
         [[ -n "$ACCOUNT_ID" ]] && VALUES="$VALUES AccountId='$ACCOUNT_ID'"
 
-        echo -e "${GREEN}➕ Creating Case: $SUBJECT${NC}"
+        echo -e "${GREEN} Creating Case: $SUBJECT${NC}"
         sf data create record --sobject Case --values "$VALUES" $ORG_FLAG --json
         ;;
 
     # TASKS & ACTIVITIES
     my-tasks)
-        echo -e "${GREEN}✅ My Open Tasks${NC}"
+        echo -e "${GREEN} My Open Tasks${NC}"
         sf data query --query "
             SELECT Id, Subject, WhoId, WhatId, ActivityDate, Priority, Status
             FROM Task
@@ -253,7 +253,7 @@ case "$COMMAND" in
         [[ -n "$CONTACT_ID" ]] && VALUES="$VALUES WhoId='$CONTACT_ID'"
         [[ -n "$NOTES" ]] && VALUES="$VALUES Description='$NOTES'"
 
-        echo -e "${GREEN}📞 Logging Call: $SUBJECT${NC}"
+        echo -e "${GREEN} Logging Call: $SUBJECT${NC}"
         sf data create record --sobject Task --values "$VALUES" $ORG_FLAG --json
         ;;
 
@@ -292,17 +292,17 @@ case "$COMMAND" in
             echo -e "${RED}Usage: fields <object_name>${NC}"
             exit 1
         fi
-        echo -e "${GREEN}📋 Fields for $OBJECT${NC}"
+        echo -e "${GREEN} Fields for $OBJECT${NC}"
         sf sobject describe --sobject "$OBJECT" $ORG_FLAG --json | jq -r '.result.fields[] | "\(.name)\t\(.type)\t\(.label)"' | column -t -s $'\t'
         ;;
 
     orgs)
-        echo -e "${GREEN}🔗 Connected Orgs${NC}"
+        echo -e "${GREEN} Connected Orgs${NC}"
         sf org list
         ;;
 
     status)
-        echo -e "${GREEN}ℹ️ Current Org Status${NC}"
+        echo -e "${GREEN} Current Org Status${NC}"
         sf org display $ORG_FLAG
         ;;
 

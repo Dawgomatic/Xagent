@@ -14,10 +14,10 @@ Generate videos using SiliconFlow API with Wan2.2 model. Supports both Text-to-V
 
 ## Features
 
-- 🎬 **Text-to-Video**: Generate videos from text descriptions
-- 🖼️ **Image-to-Video**: Animate static images with motion
-- 🎥 **Cinematic Quality**: Powered by Wan2.2 (14B params)
-- 🔑 **Auto API Key Detection**: Reads from environment or OpenClaw config
+-  **Text-to-Video**: Generate videos from text descriptions
+-  **Image-to-Video**: Animate static images with motion
+-  **Cinematic Quality**: Powered by Wan2.2 (14B params)
+-  **Auto API Key Detection**: Reads from environment or OpenClaw config
 
 ## Requirements
 

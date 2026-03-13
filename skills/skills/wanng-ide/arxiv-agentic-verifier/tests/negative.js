@@ -19,14 +19,14 @@ for line in sys.stdin:
     console.log("Result:", result);
     
     if (result && result.passed === false) {
-      console.log("✅ Negative test passed (verifier correctly identified failure).");
+      console.log(" Negative test passed (verifier correctly identified failure).");
     } else {
-      console.error("❌ Negative test failed (verifier should have failed the code).");
+      console.error(" Negative test failed (verifier should have failed the code).");
       process.exit(1);
     }
 
   } catch (error) {
-    console.error("❌ Negative test crashed:", error);
+    console.error(" Negative test crashed:", error);
     process.exit(1);
   }
 })();

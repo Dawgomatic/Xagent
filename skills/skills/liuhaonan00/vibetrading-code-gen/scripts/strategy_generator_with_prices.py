@@ -42,13 +42,13 @@ class StrategyGeneratorWithPrices:
         Returns:
             Dict with price data and recommendations
         """
-        print("🔍 Analyzing strategy prompt...")
+        print(" Analyzing strategy prompt...")
         
         # Parse symbols from prompt
         symbols = parse_symbols_from_prompt(prompt)
         
         if not symbols:
-            print("⚠️  No symbols detected in prompt. Using default parameters.")
+            print("  No symbols detected in prompt. Using default parameters.")
             return {
                 "symbols": [],
                 "prices": {},
@@ -56,15 +56,15 @@ class StrategyGeneratorWithPrices:
                 "using_real_data": False
             }
         
-        print(f"📈 Detected symbols: {', '.join(symbols)}")
+        print(f" Detected symbols: {', '.join(symbols)}")
         
         # Fetch prices from Hyperliquid
-        print("🌐 Fetching real-time prices from Hyperliquid...")
+        print(" Fetching real-time prices from Hyperliquid...")
         price_data = fetch_prices(symbols, self.use_testnet)
         
         if "error" in price_data:
-            print(f"❌ Price fetch failed: {price_data['error']}")
-            print("⚠️  Using estimated parameters instead.")
+            print(f" Price fetch failed: {price_data['error']}")
+            print("  Using estimated parameters instead.")
             return {
                 "symbols": symbols,
                 "prices": {},
@@ -73,7 +73,7 @@ class StrategyGeneratorWithPrices:
                 "error": price_data["error"]
             }
         
-        print("✅ Price data fetched successfully!")
+        print(" Price data fetched successfully!")
         
         # Generate recommendations
         recommendations = {}
@@ -81,7 +81,7 @@ class StrategyGeneratorWithPrices:
             if symbol in price_data.get("recommendations", {}):
                 rec = price_data["recommendations"][symbol]
                 recommendations[symbol] = rec
-                print(f"\n🎯 {symbol} Recommendations:")
+                print(f"\n {symbol} Recommendations:")
                 print(f"   Current Price: ${rec['current_price']:.4f}")
                 print(f"   Recommended Range: ${rec['lower_bound']:.4f} - ${rec['upper_bound']:.4f}")
         
@@ -165,7 +165,7 @@ class StrategyGeneratorWithPrices:
                 strategy_info['price_source'] = 'hyperliquid_api'
                 strategy_info['price_timestamp'] = datetime.now().isoformat()
                 
-                print(f"💰 Using real price data for {primary_symbol}:")
+                print(f" Using real price data for {primary_symbol}:")
                 print(f"   Current: ${rec['current_price']:.4f}")
                 print(f"   Range: ${rec['lower_bound']:.4f} - ${rec['upper_bound']:.4f}")
         
@@ -189,7 +189,7 @@ class StrategyGeneratorWithPrices:
             Generated files information
         """
         print("=" * 60)
-        print("🚀 VIBETRADING STRATEGY GENERATOR WITH PRICE INTEGRATION")
+        print(" VIBETRADING STRATEGY GENERATOR WITH PRICE INTEGRATION")
         print("=" * 60)
         
         # Step 1: Fetch and analyze prices
@@ -199,7 +199,7 @@ class StrategyGeneratorWithPrices:
         enhanced_prompt = self.enhance_prompt_with_prices(prompt, price_info)
         
         if verbose:
-            print(f"\n📋 Enhanced Prompt:\n{enhanced_prompt}")
+            print(f"\n Enhanced Prompt:\n{enhanced_prompt}")
         
         # Step 3: Generate strategy info with price-aware parameters
         strategy_info = self.generate_strategy_info(prompt, price_info)
@@ -218,11 +218,11 @@ class StrategyGeneratorWithPrices:
         template = self.template_manager.select_template(strategy_info)
         
         if verbose:
-            print(f"\n📄 Selected Template: {template['name']}")
-            print(f"📊 Strategy Info: {json.dumps(strategy_info, indent=2, ensure_ascii=False)}")
+            print(f"\n Selected Template: {template['name']}")
+            print(f" Strategy Info: {json.dumps(strategy_info, indent=2, ensure_ascii=False)}")
         
         # Step 5: Generate code
-        print("\n🛠️  Generating strategy code...")
+        print("\n  Generating strategy code...")
         generated_files = self.code_formatter.generate(
             template=template,
             strategy_info=strategy_info,
@@ -259,23 +259,23 @@ class StrategyGeneratorWithPrices:
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(price_info, f, indent=2, default=str)
             
-            print(f"💾 Price data saved to: {filepath}")
+            print(f" Price data saved to: {filepath}")
             return str(filepath)
         except Exception as e:
-            print(f"⚠️  Could not save price data: {e}")
+            print(f"  Could not save price data: {e}")
             return None
     
     def print_summary(self, generated_files: list, strategy_info: dict, price_info: dict):
         """Print generation summary."""
         print("\n" + "=" * 60)
-        print("✅ STRATEGY GENERATION COMPLETE!")
+        print(" STRATEGY GENERATION COMPLETE!")
         print("=" * 60)
         
         # Strategy info
         symbol = strategy_info.get('symbol', 'Unknown')
         strategy_type = strategy_info.get('type', 'basic')
         
-        print(f"\n📊 STRATEGY INFO:")
+        print(f"\n STRATEGY INFO:")
         print(f"   Symbol:          {symbol}")
         print(f"   Type:            {strategy_type}")
         
@@ -295,7 +295,7 @@ class StrategyGeneratorWithPrices:
             print(f"   Price Range:     ${lower:.2f} - ${upper:.2f}")
         
         # Generated files
-        print(f"\n📁 GENERATED FILES:")
+        print(f"\n GENERATED FILES:")
         for file_info in generated_files:
             file_type = file_info.get('type', 'unknown')
             file_path = file_info.get('path', '')
@@ -304,12 +304,12 @@ class StrategyGeneratorWithPrices:
             # Show relative path
             rel_path = Path(file_path).relative_to(Path.cwd()) if Path(file_path).is_relative_to(Path.cwd()) else file_path
             
-            print(f"   📄 {file_type}: {rel_path}")
+            print(f"    {file_type}: {rel_path}")
             if description:
                 print(f"      {description}")
         
         # Next steps
-        print(f"\n🚀 NEXT STEPS:")
+        print(f"\n NEXT STEPS:")
         
         # Find main strategy file
         strategy_files = [f for f in generated_files if f.get('type') == 'strategy']
@@ -325,7 +325,7 @@ class StrategyGeneratorWithPrices:
             print("   No strategy files generated")
         
         print("\n" + "=" * 60)
-        print("⚠️  RISK WARNING: Always test strategies in simulation before live trading!")
+        print("  RISK WARNING: Always test strategies in simulation before live trading!")
         print("=" * 60)
 
 def main():
@@ -367,7 +367,7 @@ def main():
         generator.print_summary(generated_files, strategy_info, price_info)
         
     except Exception as e:
-        print(f"\n❌ Strategy generation failed: {e}")
+        print(f"\n Strategy generation failed: {e}")
         import traceback
         traceback.print_exc()
         return 1

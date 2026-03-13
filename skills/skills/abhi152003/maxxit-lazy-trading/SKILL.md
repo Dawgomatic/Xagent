@@ -1,5 +1,5 @@
 ---
-emoji: 📈
+emoji: 
 name: maxxit-lazy-trading
 version: 1.2.0
 author: Maxxit
@@ -52,7 +52,7 @@ Execute perpetual futures trades on Ostium protocol through Maxxit's Lazy Tradin
 
 ---
 
-## ⚠️ CRITICAL: API Parameter Rules (Read Before Calling ANY Endpoint)
+##  CRITICAL: API Parameter Rules (Read Before Calling ANY Endpoint)
 
 > **NEVER assume, guess, or hallucinate values for API request parameters.** Every required parameter must come from either a prior API response or explicit user input. If you don't have a required value, you MUST fetch it from the appropriate dependency endpoint first.
 
@@ -89,12 +89,12 @@ The following shows where each required parameter comes from. **Always resolve d
 ### Pre-Flight Checklist (Run Mentally Before Every API Call)
 
 ```
-✅ Do I have the user's wallet address? → If not, call /club-details
-✅ Do I have the agent address? → If not, call /club-details
-✅ Does this endpoint need a tradeIndex? → If not in hand, call /positions
-✅ Does this endpoint need entryPrice/pairIndex? → If not in hand, call /positions
-✅ Did I ask the user for all trade parameters? → collateral, leverage, side, TP%, SL%
-✅ Is the market/symbol valid? → If unsure, call /symbols to verify
+ Do I have the user's wallet address? → If not, call /club-details
+ Do I have the agent address? → If not, call /club-details
+ Does this endpoint need a tradeIndex? → If not in hand, call /positions
+ Does this endpoint need entryPrice/pairIndex? → If not in hand, call /positions
+ Did I ask the user for all trade parameters? → collateral, leverage, side, TP%, SL%
+ Is the market/symbol valid? → If unsure, call /symbols to verify
 ```
 
 ---
@@ -192,7 +192,7 @@ curl -L -X GET "${MAXXIT_API_URL}/api/lazy-trading/programmatic/symbols" \
 
 Retrieve cached LunarCrush market metrics for a specific symbol. This data includes social sentiment, price changes, volatility, and market rankings.
 
-> **⚠️ Dependency**: You must call the `/symbols` endpoint first to get the exact symbol string (e.g., `"BTC/USD"`). The symbol parameter requires an exact match.
+> ** Dependency**: You must call the `/symbols` endpoint first to get the exact symbol string (e.g., `"BTC/USD"`). The symbol parameter requires an exact match.
 
 ```bash
 # First, get available symbols
@@ -259,7 +259,7 @@ curl -L -X GET "${MAXXIT_API_URL}/api/lazy-trading/programmatic/lunarcrush?symbo
 
 Retrieve USDC and ETH balance for the user's Ostium wallet address.
 
-> **⚠️ Dependency**: The `address` field is the user's Ostium wallet address (`user_wallet`). You MUST fetch it from `/club-details` first — do NOT hardcode or assume any address.
+> ** Dependency**: The `address` field is the user's Ostium wallet address (`user_wallet`). You MUST fetch it from `/club-details` first — do NOT hardcode or assume any address.
 
 ```bash
 curl -L -X POST "${MAXXIT_API_URL}/api/lazy-trading/programmatic/balance" \
@@ -282,9 +282,9 @@ curl -L -X POST "${MAXXIT_API_URL}/api/lazy-trading/programmatic/balance" \
 
 Get all open positions for the user's Ostium trading account. **This endpoint is critical** — it returns `tradeIndex`, `pairIndex`, and `entryPrice` which are required for closing positions and setting TP/SL.
 
-> **⚠️ Dependency**: The `address` field must come from `/club-details` → `user_wallet`. NEVER guess it.
+> ** Dependency**: The `address` field must come from `/club-details` → `user_wallet`. NEVER guess it.
 >
-> **🔑 This endpoint provides values needed by**: `/close-position` (needs `tradeIndex`), `/set-take-profit` (needs `tradeIndex`, `pairIndex`, `entryPrice`), `/set-stop-loss` (needs `tradeIndex`, `pairIndex`, `entryPrice`).
+> ** This endpoint provides values needed by**: `/close-position` (needs `tradeIndex`), `/set-take-profit` (needs `tradeIndex`, `pairIndex`, `entryPrice`), `/set-stop-loss` (needs `tradeIndex`, `pairIndex`, `entryPrice`).
 
 ```bash
 curl -L -X POST "${MAXXIT_API_URL}/api/lazy-trading/programmatic/positions" \
@@ -381,20 +381,20 @@ curl -L -X POST "${MAXXIT_API_URL}/api/lazy-trading/programmatic/history" \
 
 Open a new perpetual futures position on Ostium.
 
-> **⚠️ Dependencies — ALL must be resolved BEFORE calling this endpoint:**
+> ** Dependencies — ALL must be resolved BEFORE calling this endpoint:**
 > 1. `agentAddress` → from `/club-details` → `ostium_agent_address` (NEVER guess)
 > 2. `userAddress` → from `/club-details` → `user_wallet` (NEVER guess)
 > 3. `market` → validate via `/symbols` endpoint if unsure the token exists
 >    - If `/symbols` returns `ETH/USD`, pass `market: "ETH"` to `/open-position` (not `ETH/USD`)
 > 4. `side`, `collateral`, `leverage` → **ASK the user explicitly**, do not assume
 >
-> **📊 Recommended Pre-Trade Flow:**
+> ** Recommended Pre-Trade Flow:**
 > 1. Call `/lunarcrush?symbol=TOKEN/USD` or `/market-data` to get market conditions
 > 2. Present the market data to the user (price, sentiment, volatility)
 > 3. Ask the user: "Do you want to proceed? Specify: collateral (USDC), leverage, long/short"
 > 4. Only after user confirms → call `/open-position`
 >
-> **🔑 SAVE the response** — `actualTradeIndex` and `entryPrice` are needed for setting TP/SL later.
+> ** SAVE the response** — `actualTradeIndex` and `entryPrice` are needed for setting TP/SL later.
 
 ```bash
 curl -L -X POST "${MAXXIT_API_URL}/api/lazy-trading/programmatic/open-position" \
@@ -444,7 +444,7 @@ curl -L -X POST "${MAXXIT_API_URL}/api/lazy-trading/programmatic/open-position" 
 
 Close an existing perpetual futures position on Ostium.
 
-> **⚠️ Dependencies — resolve BEFORE calling this endpoint:**
+> ** Dependencies — resolve BEFORE calling this endpoint:**
 > 1. `agentAddress` → from `/club-details` → `ostium_agent_address`
 > 2. `userAddress` → from `/club-details` → `user_wallet`
 > 3. `tradeIndex` → call `/positions` first to find the position you want to close, then use its `tradeIndex`
@@ -494,7 +494,7 @@ curl -L -X POST "${MAXXIT_API_URL}/api/lazy-trading/programmatic/close-position"
 
 Set or update take-profit level for an existing position on Ostium.
 
-> **⚠️ Dependencies — you need ALL of these before calling:**
+> ** Dependencies — you need ALL of these before calling:**
 > 1. `agentAddress` → from `/club-details` → `ostium_agent_address`
 > 2. `userAddress` → from `/club-details` → `user_wallet`
 > 3. `tradeIndex` → from `/open-position` response → `actualTradeIndex`, **OR** from `/positions` → `tradeIndex`
@@ -549,7 +549,7 @@ curl -L -X POST "${MAXXIT_API_URL}/api/lazy-trading/programmatic/set-take-profit
 
 Set or update stop-loss level for an existing position on Ostium.
 
-> **⚠️ Dependencies — identical to Set Take Profit. You need ALL of these before calling:**
+> ** Dependencies — identical to Set Take Profit. You need ALL of these before calling:**
 > 1. `agentAddress` → from `/club-details` → `ostium_agent_address`
 > 2. `userAddress` → from `/club-details` → `user_wallet`
 > 3. `tradeIndex` → from `/open-position` response → `actualTradeIndex`, **OR** from `/positions` → `tradeIndex`
@@ -682,7 +682,7 @@ curl -L -X GET "${MAXXIT_API_URL}/api/lazy-trading/programmatic/price?token=BTC&
 
 Discover other OpenClaw Traders and top-performing traders to potentially copy-trade. This is the **first step** in the copy-trading workflow — the returned wallet addresses are used as the `address` parameter in the `/copy-trader-trades` endpoint.
 
-> **⚠️ Dependency Chain**: This endpoint provides the wallet addresses needed by `/copy-trader-trades`. You MUST call this endpoint FIRST to get trader addresses — do NOT guess or hardcode addresses.
+> ** Dependency Chain**: This endpoint provides the wallet addresses needed by `/copy-trader-trades`. You MUST call this endpoint FIRST to get trader addresses — do NOT guess or hardcode addresses.
 
 ```bash
 # Get all traders (OpenClaw + Leaderboard)
@@ -766,7 +766,7 @@ curl -L -X GET "${MAXXIT_API_URL}/api/lazy-trading/programmatic/copy-traders?sou
 
 Fetch recent on-chain trades for a specific trader address. This queries the Ostium subgraph in real-time for fresh trade data.
 
-> **⚠️ Dependency**: The `address` parameter MUST come from the `/copy-traders` endpoint response:
+> ** Dependency**: The `address` parameter MUST come from the `/copy-traders` endpoint response:
 > - For OpenClaw traders: use `creatorWallet` from `openclawTraders[]`
 > - For leaderboard traders: use `walletAddress` from `topTraders[]`
 >
@@ -1109,7 +1109,7 @@ curl -L -X POST "${MAXXIT_API_URL}/api/lazy-trading/programmatic/aster/positions
 
 ### Aster Open Position
 
-> **📋 LLM Pre-Call Checklist — Ask the user these questions before calling this endpoint:**
+> ** LLM Pre-Call Checklist — Ask the user these questions before calling this endpoint:**
 > 1. **Symbol**: "Which token do you want to trade?" (e.g. BTC, ETH, SOL)
 > 2. **Side**: "Long or short?"
 > 3. **Quantity**: "How much [TOKEN] do you want to trade?" — get the answer in base asset units (e.g. `0.01 BTC`, `0.5 ETH`).
@@ -1145,7 +1145,7 @@ curl -L -X POST "${MAXXIT_API_URL}/api/lazy-trading/programmatic/aster/open-posi
 }
 ```
 
-> ⚠️ **IMPORTANT:** `quantity` must always be specified in the **base asset** (e.g. `0.01` for 0.01 BTC).  
+>  **IMPORTANT:** `quantity` must always be specified in the **base asset** (e.g. `0.01` for 0.01 BTC).  
 > If the user provides a USDT/collateral amount, ask them to provide the exact token quantity instead.  
 > Do not convert collateral to quantity in this workflow.
 

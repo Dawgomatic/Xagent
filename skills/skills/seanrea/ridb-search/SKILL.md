@@ -44,13 +44,13 @@ python scripts/search.py --lat 44.0582 --lon -121.3153 --radius 50
 
 Human-readable (default):
 ```
-📍 Geocoded 'Bend, OR' to 44.0582, -121.3153
+ Geocoded 'Bend, OR' to 44.0582, -121.3153
 
 Found 23 facilities within 50 miles
 ------------------------------------------------------------
 
-🏕️  Tumalo State Park
-   ID: 234567 | ✅ Reservable
+  Tumalo State Park
+   ID: 234567 |  Reservable
    Org: Oregon State Parks
    URL: https://www.recreation.gov/camping/campgrounds/234567
 ```

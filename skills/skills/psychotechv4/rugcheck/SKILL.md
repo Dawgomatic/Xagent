@@ -92,22 +92,22 @@ When analyzing a token, flag these risks to the user:
 Format findings clearly for the user. Example:
 
 ```
-🔍 RugCheck Analysis: CLWDN (ClawdNation)
+ RugCheck Analysis: CLWDN (ClawdNation)
 Mint: 3zvSRWfjPvcnt8wfTrKhgCtQVwVSrYfBY6g1jPwzfHJG
 
-⚠️ Risk Score: 59/100 (Medium-High Risk)
+ Risk Score: 59/100 (Medium-High Risk)
 
-🚩 Risk Flags:
-  🔴 Low Liquidity — $102.55
-  ⚠️ Single holder ownership — 40.00%
-  ⚠️ High holder concentration — Top 10 hold >50%
-  ⚠️ Low amount of holders
-  ⚠️ Low LP providers
-  ⚠️ Mutable metadata
+ Risk Flags:
+   Low Liquidity — $102.55
+   Single holder ownership — 40.00%
+   High holder concentration — Top 10 hold >50%
+   Low amount of holders
+   Low LP providers
+   Mutable metadata
 
-🔓 LP Locked: 0% (NOT LOCKED)
+ LP Locked: 0% (NOT LOCKED)
 
-📊 Top Holders:
+ Top Holders:
   1. 40.0% — 3Y3g...p7rk
   2. 15.0% — 5bNH...4VGj
   3. 15.0% — 4dkX...Ncg6

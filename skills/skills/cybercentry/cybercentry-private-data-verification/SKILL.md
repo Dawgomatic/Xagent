@@ -2,7 +2,7 @@
 name: Cybercentry Private Data Verification
 description: Cybercentry Private Data Verification on ACP - Real-time Zero-Knowledge Proof generation and text integrity validation. Get cryptographically secure proof_id and proof_url for trustless, privacy-preserving validation at just $1.00 per verification.
 homepage: https://clawhub.ai/Cybercentry/cybercentry-private-data-verification
-metadata: { "openclaw": { "emoji": "🔐", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
 ---
 
 # Cybercentry Private Data Verification

@@ -1,7 +1,7 @@
 ---
 name: context-optimizer
 user-invocable: true
-metadata: {"openclaw":{"emoji":"⚡","requires":{"bins":["node"]},"os":["darwin","linux","win32"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"]},"os":["darwin","linux","win32"]}}
 ---
 
 # OpenClaw Context Optimizer
@@ -14,12 +14,12 @@ The first OpenClaw skill that **intelligently compresses context** to reduce tok
 
 ## Key Features
 
-- ⚡ **40-60% Token Savings** - Intelligent compression without information loss
-- 🧠 **Learning System** - Adapts to what context matters in your workflow
-- 🔄 **Multiple Strategies** - Dedup, prune, summarize, hybrid
-- 💾 **Memory Integration** - Works with OpenClaw Memory System
-- 💰 **x402 Payments** - Agents can pay for unlimited compressions (0.5 USDT/month)
-- 📊 **ROI Tracking** - Automatically calculates return on investment
+-  **40-60% Token Savings** - Intelligent compression without information loss
+-  **Learning System** - Adapts to what context matters in your workflow
+-  **Multiple Strategies** - Dedup, prune, summarize, hybrid
+-  **Memory Integration** - Works with OpenClaw Memory System
+-  **x402 Payments** - Agents can pay for unlimited compressions (0.5 USDT/month)
+-  **ROI Tracking** - Automatically calculates return on investment
 
 ## Free vs Pro Tier
 
@@ -165,7 +165,7 @@ Savings: $6.17
 
 Pro tier cost: $0.50/month
 Net savings: $5.67/month
-ROI: 1,134% 🎉
+ROI: 1,134% 
 ```
 
 ## Requirements

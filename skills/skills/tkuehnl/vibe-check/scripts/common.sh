@@ -18,14 +18,14 @@ SUPPORTED_EXTENSIONS="py|ts|tsx|js|jsx|mjs|cjs"
 # ─── Sin Categories with Weights ─────────────────────────────────────
 # Format: "slug|label|weight|emoji"
 SIN_CATEGORIES=(
-  "error_handling|Error Handling|20|🛡️"
-  "duplication|Copy-Paste Duplication|15|📋"
-  "dead_code|Dead Code|10|💀"
-  "input_validation|Input Validation|15|🔍"
-  "magic_values|Magic Values|10|🔮"
-  "test_coverage|Test Coverage|10|🧪"
-  "naming_quality|Naming Quality|10|📛"
-  "security|Security Smells|10|🔒"
+  "error_handling|Error Handling|20|"
+  "duplication|Copy-Paste Duplication|15|"
+  "dead_code|Dead Code|10|"
+  "input_validation|Input Validation|15|"
+  "magic_values|Magic Values|10|"
+  "test_coverage|Test Coverage|10|"
+  "naming_quality|Naming Quality|10|"
+  "security|Security Smells|10|"
 )
 
 # ─── Severity Levels ─────────────────────────────────────────────────
@@ -58,11 +58,11 @@ grade_color() {
 
 verdict_text() {
   local score="$1"
-  if [ "$score" -ge 90 ]; then echo "Pristine code. Minimal vibe coding detected. Ship it! 🚀"
+  if [ "$score" -ge 90 ]; then echo "Pristine code. Minimal vibe coding detected. Ship it! "
   elif [ "$score" -ge 80 ]; then echo "Clean code with minor issues. A few human touches needed."
   elif [ "$score" -ge 70 ]; then echo "Decent code but some lazy patterns crept in. Worth a review pass."
   elif [ "$score" -ge 60 ]; then echo "Noticeable vibe coding. This code needs human attention."
-  else echo "Heavy vibe coding detected. This codebase needs serious human review. 🚨"
+  else echo "Heavy vibe coding detected. This codebase needs serious human review. "
   fi
 }
 
@@ -151,15 +151,15 @@ except:
 
 # ─── Logging ──────────────────────────────────────────────────────────
 err() {
-  echo "❌ Error: $*" >&2
+  echo " Error: $*" >&2
 }
 
 info() {
-  echo "ℹ️  $*" >&2
+  echo "  $*" >&2
 }
 
 warn() {
-  echo "⚠️  $*" >&2
+  echo "  $*" >&2
 }
 
 progress() {
@@ -167,13 +167,13 @@ progress() {
   local total="$2"
   local label="${3:-files}"
   if [ -t 2 ]; then
-    printf "\r  ⏳ Analyzing %s... %d/%d" "$label" "$current" "$total" >&2
+    printf "\r   Analyzing %s... %d/%d" "$label" "$current" "$total" >&2
   fi
 }
 
 progress_done() {
   if [ -t 2 ]; then
-    printf "\r  ✅ Analysis complete!                              \n" >&2
+    printf "\r   Analysis complete!                              \n" >&2
   fi
 }
 

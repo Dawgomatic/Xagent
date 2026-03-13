@@ -4,11 +4,11 @@
 
 **Version**: 1.0.0  
 **Created**: January 20, 2026  
-**Status**: ✅ Production Ready
+**Status**:  Production Ready
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 smart-followups/
@@ -34,9 +34,9 @@ smart-followups/
 
 ---
 
-## 📄 File Guide
+##  File Guide
 
-### 🚀 Start Here
+###  Start Here
 
 | File | Purpose | Audience |
 |------|---------|----------|
@@ -44,14 +44,14 @@ smart-followups/
 | **QUICKSTART.md** | 5-minute setup instructions | New users |
 | **SKILL.md** | OpenClaw integration guide | OpenClaw users |
 
-### 🛠 Core Code
+###  Core Code
 
 | File | Purpose | Lines | Key Functions |
 |------|---------|-------|---------------|
 | **cli/followups-cli.js** | Standalone CLI tool | ~300 | `generateFollowups()`, `formatOutput()`, `buildPrompt()` |
 | **handler.js** | OpenClaw integration | ~150 | `handleFollowupsCommand()`, `autoGenerateFollowups()` |
 
-### 📚 Documentation
+###  Documentation
 
 | File | Purpose | Length | When to Read |
 |------|---------|--------|--------------|
@@ -63,7 +63,7 @@ smart-followups/
 | **CONTRIBUTING.md** | How to contribute | 7.2KB | Want to contribute |
 | **CHANGELOG.md** | Version history | 2.3KB | Checking updates |
 
-### ⚙ Configuration
+###  Configuration
 
 | File | Purpose |
 |------|---------|
@@ -71,7 +71,7 @@ smart-followups/
 | **.gitignore** | Files excluded from git |
 | **LICENSE** | MIT License terms |
 
-### 🧪 Testing
+###  Testing
 
 | File | Purpose |
 |------|---------|
@@ -80,7 +80,7 @@ smart-followups/
 
 ---
 
-## 🎯 Quick Navigation
+##  Quick Navigation
 
 ### I want to...
 
@@ -116,7 +116,7 @@ smart-followups/
 
 ---
 
-## 🔍 Key Concepts
+##  Key Concepts
 
 ### Core Components
 
@@ -138,9 +138,9 @@ smart-followups/
    - Optimized for relevance vs cost
 
 4. **Suggestion Categories**
-   - ⚡ Quick: Clarifications, next steps
-   - 🧠 Deep Dive: Technical depth
-   - 🔗 Related: Connected topics
+   -  Quick: Clarifications, next steps
+   -  Deep Dive: Technical depth
+   -  Related: Connected topics
 
 ### Output Modes
 
@@ -154,19 +154,19 @@ smart-followups/
 ### Channel Support
 
 **Interactive** (Inline Buttons):
-- Telegram ✅
-- Discord ✅
-- Slack ✅
+- Telegram 
+- Discord 
+- Slack 
 
 **Text** (Numbered Lists):
-- Signal ✅
-- iMessage ✅
-- SMS ✅
-- Email ✅
+- Signal 
+- iMessage 
+- SMS 
+- Email 
 
 ---
 
-## 📊 File Statistics
+##  File Statistics
 
 ### Code
 - **Total lines**: ~450 (CLI + Handler)
@@ -185,7 +185,7 @@ smart-followups/
 
 ---
 
-## 🔗 External Links
+##  External Links
 
 - **Anthropic API**: https://docs.anthropic.com
 - **OpenClaw**: (Add link when available)
@@ -195,7 +195,7 @@ smart-followups/
 
 ---
 
-## 🏷 Tags & Keywords
+##  Tags & Keywords
 
 **Primary**: openclaw, skill, ai, follow-up, suggestions  
 **Secondary**: telegram, discord, conversation, claude, haiku  
@@ -203,7 +203,7 @@ smart-followups/
 
 ---
 
-## 📈 Version Timeline
+##  Version Timeline
 
 - **v1.0.0** (Jan 20, 2026) - Initial release
 - **v1.1.0** (Planned) - Caching, rate limiting, tests
@@ -211,7 +211,7 @@ smart-followups/
 
 ---
 
-## ✅ Pre-Publishing Checklist
+##  Pre-Publishing Checklist
 
 Before publishing to ClawHub:
 
@@ -229,7 +229,7 @@ Before publishing to ClawHub:
 
 ---
 
-## 🎓 Learning Path
+##  Learning Path
 
 ### Beginner (Just using it)
 1. README.md - Understand features
@@ -251,7 +251,7 @@ Before publishing to ClawHub:
 
 ---
 
-## 💾 Backup & Distribution
+##  Backup & Distribution
 
 ### What to Include in Backups
 - All source files (cli/, handler.js)

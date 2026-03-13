@@ -19,14 +19,14 @@ Before executing, ask:
 
 | Signal | One-shot OK | Plan needed |
 |--------|-------------|-------------|
-| Task done before successfully | ✅ | |
-| Clear single deliverable | ✅ | |
-| Reversible if wrong | ✅ | |
-| Multiple components | | ✅ |
-| Dependencies between steps | | ✅ |
-| High stakes / hard to redo | | ✅ |
-| Ambiguous success criteria | | ✅ |
-| Estimated >30 min work | | ✅ |
+| Task done before successfully |  | |
+| Clear single deliverable |  | |
+| Reversible if wrong |  | |
+| Multiple components | |  |
+| Dependencies between steps | |  |
+| High stakes / hard to redo | |  |
+| Ambiguous success criteria | |  |
+| Estimated >30 min work | |  |
 
 **Default:** When uncertain, plan. A quick plan costs minutes; a failed one-shot costs hours.
 
@@ -47,7 +47,7 @@ Before executing, ask:
 ## Plan Format (L2-L4)
 
 ```
-📋 Plan: [Goal]
+ Plan: [Goal]
 
 Context: [Why this needs planning]
 
@@ -96,7 +96,7 @@ After each planned task completes, record:
 ## [Date] [Task Type]
 - Plan level: L3
 - Strategy: [approach used]
-- Outcome: ✅ success | ⚠️ partial | ❌ failed
+- Outcome:  success |  partial |  failed
 - Lesson: [what worked/didn't]
 - Adjustment: [change for next time]
 ```
@@ -109,18 +109,18 @@ Different goals need different planning strategies. Track what works:
 
 ```
 ### Code Features
-- ✅ Works: API design first, then implementation
-- ❌ Failed: Parallel implementation without interface agreement
+-  Works: API design first, then implementation
+-  Failed: Parallel implementation without interface agreement
 - Adjustment: Always define interfaces before coding
 
 ### Migrations  
-- ✅ Works: Dry-run → staged rollout → full
-- ❌ Failed: Big bang migration without rollback plan
+-  Works: Dry-run → staged rollout → full
+-  Failed: Big bang migration without rollback plan
 - Adjustment: Always require rollback step in migration plans
 
 ### Research
-- ✅ Works: Timeboxed exploration with checkpoints
-- ❌ Failed: Open-ended research without scope limits
+-  Works: Timeboxed exploration with checkpoints
+-  Failed: Open-ended research without scope limits
 - Adjustment: Always set max time and output format upfront
 ```
 

@@ -2,9 +2,9 @@
 
 ## What's Ready Now
 
-✅ **GTM tracking system** - Pipeline, contacts, signals, reminders
-✅ **Daily cron jobs** - Morning crawl (6am PT) + digest (8:30am PT)  
-✅ **58 signals detected** - Initial crawl of HN/Reddit/GitHub
+ **GTM tracking system** - Pipeline, contacts, signals, reminders
+ **Daily cron jobs** - Morning crawl (6am PT) + digest (8:30am PT)  
+ **58 signals detected** - Initial crawl of HN/Reddit/GitHub
 
 ## Immediate Actions (Do Today - 5 mins each)
 

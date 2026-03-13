@@ -66,7 +66,7 @@ projects = filter_projects(registry_projects(res.registry), root_key=root_filter
 roots = [r.get("key", "default") for r in registry_roots(res.registry)]
 
 if resolved_name != name_raw:
-    print(f"ℹ️ alias resolved: {name_raw} -> {resolved_name}")
+    print(f" alias resolved: {name_raw} -> {resolved_name}")
 
 candidates = []
 for p in projects:
@@ -99,12 +99,12 @@ for p in projects:
 
 if not candidates:
     if root_key:
-        print(f"❌ Project '{name_raw}' not found in root '{root_key}' registry.")
+        print(f" Project '{name_raw}' not found in root '{root_key}' registry.")
     else:
-        print(f"❌ Project '{name_raw}' not found in registry.")
+        print(f" Project '{name_raw}' not found in registry.")
 
     if root_key and root_key not in roots:
-        print(f"ℹ️ Available roots: {', '.join(roots)}")
+        print(f" Available roots: {', '.join(roots)}")
 
     # Suggest possible paths using prioritized discovery paths
     search_paths = search_paths_for_discovery(res.registry, root_key=root_filter, env_paths=os.environ.get('OSORI_SEARCH_PATHS', ''))
@@ -125,7 +125,7 @@ if not candidates:
             break
 
     if hints:
-        print("\n🔍 Possible paths:")
+        print("\n Possible paths:")
         for h in hints:
             print(f"  - {h}")
         print("\nUse /add <path> then /switch again.")
@@ -156,7 +156,7 @@ for c in candidates:
 candidates.sort(key=lambda c: (-c["score"], -c["commit_ts"], c["name"].lower()))
 
 if len(candidates) > 1:
-    print(f"🔎 Multiple matches ({len(candidates)}):")
+    print(f" Multiple matches ({len(candidates)}):")
     for idx, c in enumerate(candidates, 1):
         print(
             f"  {idx}. {c['name']} [{c['root']}] | score={c['score']} | "
@@ -169,48 +169,48 @@ if index_arg:
     try:
         index_val = int(index_arg)
     except Exception:
-        print(f"❌ invalid --index value: {index_arg!r}")
+        print(f" invalid --index value: {index_arg!r}")
         raise SystemExit(1)
 
     if index_val < 1 or index_val > len(candidates):
-        print(f"❌ --index out of range: {index_val} (1..{len(candidates)})")
+        print(f" --index out of range: {index_val} (1..{len(candidates)})")
         raise SystemExit(1)
 
     selected = candidates[index_val - 1]
     if len(candidates) > 1:
-        print(f"✅ Selected candidate #{index_val} explicitly.\n")
+        print(f" Selected candidate #{index_val} explicitly.\n")
 else:
     selected = candidates[0]
     if len(candidates) > 1:
-        print("🤖 Auto-selected #1 by score policy. Use --index <n> to choose explicitly.\n")
+        print(" Auto-selected #1 by score policy. Use --index <n> to choose explicitly.\n")
 
 target = selected["project"]
 path = selected["path"]
 if not path or not os.path.exists(path):
-    print(f"⚠️ Path does not exist: {path}")
+    print(f" Path does not exist: {path}")
     raise SystemExit(1)
 
-print(f"📁 *{target.get('name')}*")
-print(f"📍 {path}")
-print(f"🧭 root: {target.get('root', 'default')}")
+print(f" *{target.get('name')}*")
+print(f" {path}")
+print(f" root: {target.get('root', 'default')}")
 
 # git status
 _, status_out, _ = run(['git', '-C', path, 'status', '--short'])
 if status_out:
-    print("\n📝 Changes:")
+    print("\n Changes:")
     for line in status_out.split('\n')[:5]:
         print(f"  {line}")
 else:
-    print("\n✅ Clean working tree")
+    print("\n Clean working tree")
 
 # branch
 _, branch, _ = run(['git', '-C', path, 'branch', '--show-current'])
-print(f"\n🌿 Branch: {branch or '-'}")
+print(f"\n Branch: {branch or '-'}")
 
 # recent commits
 _, log, _ = run(['git', '-C', path, 'log', '--oneline', '-3'])
 if log:
-    print("\n💬 Recent commits:")
+    print("\n Recent commits:")
     for line in log.split('\n'):
         print(f"  {line}")
 
@@ -224,7 +224,7 @@ if '|' in last:
 else:
     last_commit = 'n/a'
 
-print("\n🧬 Fingerprint:")
+print("\n Fingerprint:")
 print(f"  - remote: {remote or 'n/a'}")
 print(f"  - last commit: {last_commit}")
 print(f"  - open PRs: {gh_count('pr', repo, ttl_seconds=CACHE_TTL, cache_path=CACHE_PATH)}")
@@ -232,6 +232,6 @@ print(f"  - open issues: {gh_count('issue', repo, ttl_seconds=CACHE_TTL, cache_p
 
 if res.migrated:
     notes = '; '.join(res.migration_notes)
-    print(f"\nℹ️ Migrated registry: {notes}")
+    print(f"\n Migrated registry: {notes}")
     if res.backup_path:
-        print(f"ℹ️ Migration backup: {res.backup_path}")
+        print(f" Migration backup: {res.backup_path}")

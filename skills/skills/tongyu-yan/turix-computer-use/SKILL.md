@@ -26,7 +26,7 @@ Invoke the helper script via `exec`. Pass the full task description as arguments
 skills/local/turix-mac/scripts/run_turix.sh "Open System Settings and switch to Dark Mode"
 ```
 
-**💡 Tips for the Agent:**
+** Tips for the Agent:**
 - **Task Description**: Be specific. Instead of "Open Chrome", use "Open Chrome and navigate to google.com".
 - **Dynamic Injection**: You do NOT need to edit `config.json` manually; the script handles the JSON injection for you.
 - **Monitoring**: Since this is a GUI-based task, keep the session open and use `process log` to check for status updates or errors like "NoneType" (permission issues).

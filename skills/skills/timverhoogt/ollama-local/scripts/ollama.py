@@ -87,12 +87,12 @@ def pull_model(model_name):
         elif status:
             print(f"\n{status}")
     
-    print(f"\n✅ {model_name} pulled successfully")
+    print(f"\n {model_name} pulled successfully")
 
 def remove_model(model_name):
     """Remove a model."""
     api_request("/api/delete", method="DELETE", data={"name": model_name})
-    print(f"✅ {model_name} removed")
+    print(f" {model_name} removed")
 
 def show_model(model_name):
     """Show model details."""

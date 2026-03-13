@@ -14,7 +14,7 @@ async function main() {
   });
 
   try {
-    console.log('🎙️ Batch Generation Example\n');
+    console.log(' Batch Generation Example\n');
 
     // Define themes for a week
     const weekThemes = [
@@ -43,11 +43,11 @@ async function main() {
       console.log(`   Duration: ${result.lesson.estimatedDuration}s\n`);
     });
 
-    console.log('✅ Batch generation completed!');
+    console.log(' Batch generation completed!');
     console.log('Check ./output/ for all generated files.');
 
   } catch (err) {
-    console.error('❌ Error:', err.message);
+    console.error(' Error:', err.message);
     process.exit(1);
   }
 }

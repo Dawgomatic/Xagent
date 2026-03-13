@@ -76,7 +76,7 @@ s.on('open',()=>{s.send(JSON.stringify({type:'speak',text:'Hello!',action_id:'16
 ## UI Features
 
 - **Touch reactions**: Click avatar head/body for reactions
-- **Emotion bar**: Quick 😊😢😠😮😌💃 buttons
+- **Emotion bar**: Quick  buttons
 - **Background scenes**: Sakura Garden, Night Sky, Café, Sunset
 - **Camera presets**: Face, Portrait, Full Body, Cinematic
 - **Voice chat**: Mic input → AI response → TTS lip sync

@@ -11,7 +11,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📅",
+        "emoji": "",
         "requires": { "env": ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"] },
         "optional": { "env": ["CALENDAR_BRIDGE_API_KEY"] },
         "notes": "GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET are required for initial OAuth setup only — once authenticated, the agent only needs network access to localhost:3000. CALENDAR_BRIDGE_API_KEY is optional; if set, the agent must send it as Authorization: Bearer <key> when calling /events. Tokens stored locally in tokens.json on your server, never sent externally."

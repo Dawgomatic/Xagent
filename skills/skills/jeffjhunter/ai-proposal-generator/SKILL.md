@@ -108,14 +108,14 @@ Output: Saves custom template to `proposals/templates/custom/[name].md`
 ### Wizard Output Format
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ TEMPLATE CREATED
+ TEMPLATE CREATED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📄 Name: [template-name]
-🎨 Style: [style] | Theme: [theme]
-📝 Sections: [list]
+ Name: [template-name]
+ Style: [style] | Theme: [theme]
+ Sections: [list]
 
-📁 Saved: proposals/templates/custom/[name].md
+ Saved: proposals/templates/custom/[name].md
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -130,14 +130,14 @@ Output: Saves custom template to `proposals/templates/custom/[name].md`
 ### Step 2: Generate Draft
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📄 PROPOSAL DRAFT — [Client Name]
+ PROPOSAL DRAFT — [Client Name]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-✅ Context: meeting-notes/[file]
-✅ Template: [style] | Theme: [color]
-✅ Pricing: [package]
+ Context: meeting-notes/[file]
+ Template: [style] | Theme: [color]
+ Pricing: [package]
 
-📁 Draft: proposals/generated/[date]_[client].md
+ Draft: proposals/generated/[date]_[client].md
 
 Commands: "show", "edit [section]", "preview html", "finalize"
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -153,11 +153,11 @@ Commands: "show", "edit [section]", "preview html", "finalize"
 Generate HTML using base template + theme CSS:
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ PROPOSAL FINALIZED
+ PROPOSAL FINALIZED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📄 [Client] Proposal
-📁 HTML: proposals/generated/[date]_[client].html
+ [Client] Proposal
+ HTML: proposals/generated/[date]_[client].html
 
 Ready to send, export PDF, or download.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

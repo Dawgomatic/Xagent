@@ -162,10 +162,10 @@ When in doubt, run the same command from **bash** (e.g. in WSL or Git Bash) to c
 For content with newlines, use `$'...'` syntax (bash/zsh):
 
 ```bash
-# ✅ Correct - $'...' interprets \n as actual newlines
+#  Correct - $'...' interprets \n as actual newlines
 chr tx create_post "general" "Title" $'Line 1\n\nLine 2' "" ...
 
-# ❌ Wrong - regular quotes store \n as literal text
+#  Wrong - regular quotes store \n as literal text
 chr tx create_post "general" "Title" "Line 1\n\nLine 2" "" ...
 ```
 
@@ -201,9 +201,9 @@ chr tx create_comment 42 "My comment" null ...
 
 | Format | Valid? | Example |
 |--------|--------|--------|
-| Quoted symbols in list | ✅ | `'path=["CHR","USDT"]'` or `"path=[\"CHR\",\"USDT\"]"` |
-| Unquoted symbols | ❌ | `[CHR,USDC]` — not valid GTV; symbols must be quoted strings |
-| Positional query args | ❌ | Queries require **named** args (`arg=value`), not positional |
+| Quoted symbols in list |  | `'path=["CHR","USDT"]'` or `"path=[\"CHR\",\"USDT\"]"` |
+| Unquoted symbols |  | `[CHR,USDC]` — not valid GTV; symbols must be quoted strings |
+| Positional query args |  | Queries require **named** args (`arg=value`), not positional |
 
 - In **bash/zsh**: use single quotes around the whole named arg: `'path=["CHR","USDT"]'`.
 - In **queries**, always use **named** arguments: `'amount_in=...'` and `'path=["CHR","USDT"]'`.

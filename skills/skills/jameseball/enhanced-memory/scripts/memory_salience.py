@@ -126,13 +126,13 @@ def generate_prompts(scored, top_n=3):
             continue
         if item['type'] == 'topic':
             if item['age_days'] > 3:
-                prompts.append(f"📌 Topic '{item['name']}' hasn't been updated in {item['age_days']} days.")
+                prompts.append(f" Topic '{item['name']}' hasn't been updated in {item['age_days']} days.")
             elif item['accesses'] == 0:
-                prompts.append(f"📌 Topic '{item['name']}' was never accessed by search.")
+                prompts.append(f" Topic '{item['name']}' was never accessed by search.")
         elif item['type'] == 'daily':
-            prompts.append(f"📝 Daily notes from {item['name']} haven't been reviewed for MEMORY.md.")
+            prompts.append(f" Daily notes from {item['name']} haven't been reviewed for MEMORY.md.")
         elif item['type'] == 'core' and item['age_days'] > 2:
-            prompts.append(f"🧠 MEMORY.md last updated {item['age_days']} days ago.")
+            prompts.append(f" MEMORY.md last updated {item['age_days']} days ago.")
     return prompts
 
 

@@ -12,7 +12,7 @@
     "openclaw-skill"
   ],
   "openclaw": {
-    "emoji": "🛒",
+    "emoji": "",
     "requires": {
       "bins": ["curl", "jq"]
     }

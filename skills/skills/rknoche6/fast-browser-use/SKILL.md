@@ -1,7 +1,7 @@
 ---
 name: fast-browser-use
 displayName: Fastest Browser Use
-emoji: "⚡"
+emoji: ""
 summary: Rust-powered browser automation that rips through DOMs 10x faster than Puppeteer.
 homepage: https://github.com/rknoche6/fast-browser-use
 primaryEnv: bash
@@ -31,7 +31,7 @@ A Rust-based browser automation engine that provides a lightweight binary drivin
 
 ![Terminal Demo](https://placehold.co/800x400/1e1e1e/ffffff?text=Terminal+Demo+Coming+Soon)
 
-## 🧪 Recipes for Agents
+##  Recipes for Agents
 
 ### 1. Bypass "Bot Detection" via Human Emulation
 Simulate mouse jitter and random delays to scrape protected sites.
@@ -62,7 +62,7 @@ fast-browser-use login --url "https://github.com/login" --save-session ./auth.js
 fast-browser-use navigate --url "https://github.com/dashboard" --load-session ./auth.json
 ```
 
-### 4. 🚜 Infinite Scroll Harvester
+### 4.  Infinite Scroll Harvester
 **Extract fresh data from infinite-scroll pages** — perfect for harvesting the latest posts, news, or social feeds.
 
 ```bash
@@ -88,7 +88,7 @@ fast-browser-use harvest \
 
 Works on any infinite scroll page: Reddit, Twitter, LinkedIn feeds, search results, etc.
 
-### 5. 📸 Quick Screenshot
+### 5.  Quick Screenshot
 Capture any page as PNG:
 
 ```bash
@@ -98,7 +98,7 @@ fast-browser-use screenshot \
   --full-page  # Optional: capture entire scrollable page
 ```
 
-### 6. 🗺️ Sitemap & Page Structure Analyzer
+### 6.  Sitemap & Page Structure Analyzer
 Discover how a site is organized by parsing sitemaps and analyzing page structure.
 
 ```bash
@@ -160,7 +160,7 @@ fast-browser-use sitemap \
 
 Use this to understand site architecture before scraping, map navigation flows, or audit SEO structure.
 
-## ⚡ Performance Comparison
+##  Performance Comparison
 
 | Feature | Fast Browser Use (Rust) | Puppeteer (Node) | Selenium (Java) |
 | :--- | :--- | :--- | :--- |

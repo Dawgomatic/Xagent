@@ -81,7 +81,7 @@ errors = []
 page.on('console', lambda msg: errors.append(msg.text) if msg.type == 'error' else None)
 ```
 
-## ⚠️ 핵심 주의사항
+##  핵심 주의사항
 
 - **networkidle 먼저!** 동적 앱은 반드시 JS 실행 완료 후 DOM 검사
 - **headless=True 필수** (MiniPC에 모니터 없음)

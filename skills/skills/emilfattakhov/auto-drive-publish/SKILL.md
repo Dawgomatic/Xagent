@@ -9,7 +9,7 @@ description: >-
   or downloading previously stored content.
 metadata:
   openclaw:
-    emoji: "🧠"
+    emoji: ""
     requires:
       bins: ["curl", "jq", "bash"]
       env: ["AUTO_DRIVE_API_KEY"]

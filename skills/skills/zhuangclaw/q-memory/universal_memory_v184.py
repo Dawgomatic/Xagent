@@ -140,7 +140,7 @@ class UniversalMemoryCLI:
             parent_id=args.parent
         )
 
-        print(f"✅ 子任務已添加:")
+        print(f" 子任務已添加:")
         print(f"   ID: {subtask['id']}")
         print(f"   標題: {subtask['title']}")
         print(f"   狀態: {subtask['status']}")
@@ -157,7 +157,7 @@ class UniversalMemoryCLI:
             description=args.description
         )
 
-        print(f"✅ 子任務已更新:")
+        print(f" 子任務已更新:")
         print(f"   ID: {subtask['id']}")
         print(f"   標題: {subtask['title']}")
         print(f"   狀態: {subtask['status']}")
@@ -172,13 +172,13 @@ class UniversalMemoryCLI:
         success = self.subtask_manager.delete_subtask(args.id)
 
         if success:
-            print(f"✅ 子任務已刪除: {args.id}")
+            print(f" 子任務已刪除: {args.id}")
 
             # 顯示進度
             progress = self.subtask_manager.calculate_progress()
             print(f"   當前進度: {progress}%")
         else:
-            print(f"❌ 子任務不存在: {args.id}")
+            print(f" 子任務不存在: {args.id}")
 
     def subtask_list(self, args):
         """列出所有子任務"""
@@ -186,16 +186,16 @@ class UniversalMemoryCLI:
         subtasks = self.subtask_manager.list_subtasks(parent_id=args.parent)
 
         if not subtasks:
-            print("❌ 沒有子任務")
+            print(" 沒有子任務")
             return
 
-        print("📋 子任務列表:")
+        print(" 子任務列表:")
         for i, st in enumerate(subtasks, 1):
             status_icon = {
-                'pending': '⏸️',
-                'in_progress': '🔄',
-                'completed': '✅'
-            }.get(st['status'], '❓')
+                'pending': '',
+                'in_progress': '',
+                'completed': ''
+            }.get(st['status'], '')
 
             required_mark = " (必選)" if st.get('required') else " (可選)"
 
@@ -207,7 +207,7 @@ class UniversalMemoryCLI:
         # 顯示進度
         progress = self.subtask_manager.calculate_progress()
         print()
-        print(f"✅ 當前進度: {progress}%")
+        print(f" 當前進度: {progress}%")
 
     def subtask_show(self, args):
         """顯示子任務詳情"""
@@ -215,10 +215,10 @@ class UniversalMemoryCLI:
         subtask = self.subtask_manager.get_subtask(args.id)
 
         if not subtask:
-            print(f"❌ 子任務不存在: {args.id}")
+            print(f" 子任務不存在: {args.id}")
             return
 
-        print("📄 子任務詳情:")
+        print(" 子任務詳情:")
         print(f"   ID: {subtask['id']}")
         print(f"   標題: {subtask['title']}")
         print(f"   描述: {subtask.get('description', 'N/A')}")

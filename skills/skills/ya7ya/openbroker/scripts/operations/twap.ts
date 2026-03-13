@@ -113,7 +113,7 @@ async function main() {
     }
 
     if (dryRun) {
-      console.log('\n🔍 Dry run - showing execution schedule:\n');
+      console.log('\n Dry run - showing execution schedule:\n');
       let time = 0;
       for (let i = 0; i < intervals; i++) {
         const jitter = randomize > 0 ? (Math.random() - 0.5) * 2 * (randomize / 100) : 0;
@@ -157,22 +157,22 @@ async function main() {
               result.status = result.filled >= sliceSize * 0.99 ? 'filled' : 'partial';
               totalFilled += result.filled;
               totalCost += result.filled * result.avgPrice;
-              console.log(`  ✅ Filled ${result.filled} @ ${formatUsd(result.avgPrice)}`);
+              console.log(`   Filled ${result.filled} @ ${formatUsd(result.avgPrice)}`);
             } else if (status.error) {
               result.status = 'failed';
               result.error = status.error;
-              console.log(`  ❌ Error: ${status.error}`);
+              console.log(`   Error: ${status.error}`);
             }
           }
         } else {
           result.status = 'failed';
           result.error = typeof response.response === 'string' ? response.response : 'Unknown error';
-          console.log(`  ❌ Failed: ${result.error}`);
+          console.log(`   Failed: ${result.error}`);
         }
       } catch (err) {
         result.status = 'failed';
         result.error = err instanceof Error ? err.message : String(err);
-        console.log(`  ❌ Error: ${result.error}`);
+        console.log(`   Error: ${result.error}`);
       }
 
       results.push(result);

@@ -37,52 +37,52 @@ import urllib.request
 def check_file_exists(path, **_):
     if os.path.exists(path):
         size = os.path.getsize(path)
-        return True, f"✅ File exists: {path} ({size} bytes)"
-    return False, f"❌ File not found: {path}"
+        return True, f" File exists: {path} ({size} bytes)"
+    return False, f" File not found: {path}"
 
 
 def check_valid_json(path, **_):
     if not os.path.exists(path):
-        return False, f"❌ File not found: {path}"
+        return False, f" File not found: {path}"
     try:
         with open(path) as f:
             data = json.load(f)
         if isinstance(data, list):
-            return True, f"✅ Valid JSON array with {len(data)} items"
+            return True, f" Valid JSON array with {len(data)} items"
         elif isinstance(data, dict):
-            return True, f"✅ Valid JSON object with {len(data)} keys"
-        return True, f"✅ Valid JSON ({type(data).__name__})"
+            return True, f" Valid JSON object with {len(data)} keys"
+        return True, f" Valid JSON ({type(data).__name__})"
     except json.JSONDecodeError as e:
-        return False, f"❌ Invalid JSON: {e}"
+        return False, f" Invalid JSON: {e}"
 
 
 def check_min_size(path, min_bytes=100, **_):
     if not os.path.exists(path):
-        return False, f"❌ File not found: {path}"
+        return False, f" File not found: {path}"
     size = os.path.getsize(path)
     if size >= int(min_bytes):
-        return True, f"✅ File size {size} bytes >= {min_bytes}"
-    return False, f"❌ File too small: {size} bytes < {min_bytes}"
+        return True, f" File size {size} bytes >= {min_bytes}"
+    return False, f" File too small: {size} bytes < {min_bytes}"
 
 
 def check_json_min_items(path, min_items=1, **_):
     if not os.path.exists(path):
-        return False, f"❌ File not found: {path}"
+        return False, f" File not found: {path}"
     try:
         with open(path) as f:
             data = json.load(f)
         if isinstance(data, list) and len(data) >= int(min_items):
-            return True, f"✅ JSON has {len(data)} items >= {min_items}"
+            return True, f" JSON has {len(data)} items >= {min_items}"
         elif isinstance(data, list):
-            return False, f"❌ JSON has {len(data)} items < {min_items}"
-        return False, f"❌ JSON root is not an array"
+            return False, f" JSON has {len(data)} items < {min_items}"
+        return False, f" JSON root is not an array"
     except json.JSONDecodeError as e:
-        return False, f"❌ Invalid JSON: {e}"
+        return False, f" Invalid JSON: {e}"
 
 
 def check_markdown_sections(path, sections="", **_):
     if not os.path.exists(path):
-        return False, f"❌ File not found: {path}"
+        return False, f" File not found: {path}"
     with open(path) as f:
         content = f.read()
     required = [s.strip() for s in sections.split(",") if s.strip()]
@@ -91,33 +91,33 @@ def check_markdown_sections(path, sections="", **_):
         if f"## {section}" not in content and f"# {section}" not in content:
             missing.append(section)
     if not missing:
-        return True, f"✅ All {len(required)} required sections found"
-    return False, f"❌ Missing sections: {', '.join(missing)}"
+        return True, f" All {len(required)} required sections found"
+    return False, f" Missing sections: {', '.join(missing)}"
 
 
 def check_sqlite_rows(path, table="", min_rows=1, **_):
     if not os.path.exists(path):
-        return False, f"❌ Database not found: {path}"
+        return False, f" Database not found: {path}"
     try:
         conn = sqlite3.connect(path)
         count = conn.execute(f"SELECT COUNT(*) FROM [{table}]").fetchone()[0]
         conn.close()
         if count >= int(min_rows):
-            return True, f"✅ Table '{table}' has {count} rows >= {min_rows}"
-        return False, f"❌ Table '{table}' has {count} rows < {min_rows}"
+            return True, f" Table '{table}' has {count} rows >= {min_rows}"
+        return False, f" Table '{table}' has {count} rows < {min_rows}"
     except Exception as e:
-        return False, f"❌ SQLite error: {e}"
+        return False, f" SQLite error: {e}"
 
 
 def check_port_alive(port=0, **_):
     try:
         req = urllib.request.Request(f"http://127.0.0.1:{int(port)}/", method="HEAD")
         with urllib.request.urlopen(req, timeout=3) as resp:
-            return True, f"✅ Port {port} responding (status {resp.status})"
+            return True, f" Port {port} responding (status {resp.status})"
     except urllib.error.HTTPError as e:
-        return True, f"✅ Port {port} responding (status {e.code})"
+        return True, f" Port {port} responding (status {e.code})"
     except Exception as e:
-        return False, f"❌ Port {port} not responding: {e}"
+        return False, f" Port {port} not responding: {e}"
 
 
 CHECKS = {
@@ -140,7 +140,7 @@ def run_manifest(manifest_path):
     for spec in checks:
         check_name = spec.pop("check")
         if check_name not in CHECKS:
-            results.append((False, f"❌ Unknown check: {check_name}"))
+            results.append((False, f" Unknown check: {check_name}"))
             all_passed = False
             continue
         fn = CHECKS[check_name]
@@ -165,16 +165,16 @@ def main():
     
     if args.check == "all":
         if not args.manifest:
-            print("❌ --manifest required for --check all")
+            print(" --manifest required for --check all")
             sys.exit(2)
         passed, results = run_manifest(args.manifest)
         for ok, msg in results:
             print(msg)
-        print(f"\n{'✅ ALL CHECKS PASSED' if passed else '❌ SOME CHECKS FAILED'}")
+        print(f"\n{' ALL CHECKS PASSED' if passed else ' SOME CHECKS FAILED'}")
         sys.exit(0 if passed else 1)
     
     if args.check not in CHECKS:
-        print(f"❌ Unknown check: {args.check}")
+        print(f" Unknown check: {args.check}")
         print(f"Available: {', '.join(CHECKS.keys())}")
         sys.exit(2)
     

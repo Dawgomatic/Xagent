@@ -136,7 +136,7 @@ def print_report(results: dict):
     
     for func in results['functions']:
         pct = 100 * func['covered'] // func['total'] if func['total'] else 0
-        status = "✅" if pct == 100 else "⚠️" if pct > 0 else "❌"
+        status = "" if pct == 100 else "" if pct > 0 else ""
         print(f"{status} {func['name']}: {func['covered']}/{func['total']} ({pct}%)")
     
     if results['uncovered_details']:
@@ -153,7 +153,7 @@ def print_report(results: dict):
             by_func[fn].append(item)
         
         for fn, items in by_func.items():
-            print(f"\n🔴 {fn}():")
+            print(f"\n {fn}():")
             
             # Group by source line
             by_line = {}

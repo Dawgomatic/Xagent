@@ -64,7 +64,7 @@ Create `~/.clawdbot/hooks/reset-project-tree/HOOK.md`:
 ---
 name: reset-project-tree
 description: "Generate project tree on session reset"
-metadata: {"clawdbot":{"emoji":"🌳","events":["command:reset"],"requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","events":["command:reset"],"requires":{"bins":["node"]}}}
 ---
 
 Generates project tree when /reset is issued.

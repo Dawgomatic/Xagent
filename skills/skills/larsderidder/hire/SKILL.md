@@ -44,13 +44,13 @@ If Q1-Q3 were clear enough, skip Q4 entirely.
 After the interview, present a summary:
 
 ```
-🎯 Role: [one-line description]
-🧠 Name: [suggested name from naming taxonomy]
-🤖 Model: [selected model] ([tier])
-⚡ Personality: [2-3 word vibe]
-🔧 Tools: [inferred from conversation]
-🚫 Boundaries: [key red lines]
-🤝 Autonomy: [inferred level: high/medium/low]
+ Role: [one-line description]
+ Name: [suggested name from naming taxonomy]
+ Model: [selected model] ([tier])
+ Personality: [2-3 word vibe]
+ Tools: [inferred from conversation]
+ Boundaries: [key red lines]
+ Autonomy: [inferred level: high/medium/low]
 ```
 
 Then ask: **"Want to tweak anything, or are we good?"**
@@ -84,7 +84,7 @@ Based on the interview:
 ### Step 4: Select and confirm
 Pick the best available model for the role. In the summary card, add:
 ```
-🤖 Model: [selected model] ([tier] - [brief reason])
+ Model: [selected model] ([tier] - [brief reason])
 ```
 
 If multiple good options exist or you're unsure, ask:

@@ -8,7 +8,7 @@
 
 A comprehensive scoring system for options traders that analyzes market conditions and provides actionable conviction scores (0-100) for seven strategies including vertical spreads, iron condors, butterflies, and calendar spreads. Features mathematically-rigorous Kelly criterion position sizing integrated directly into the conviction engine.
 
-## 🎯 What It Does
+##  What It Does
 
 Analyzes any stock ticker and scores **seven** options strategies across directional and non-directional setups:
 
@@ -30,7 +30,7 @@ Analyzes any stock ticker and scores **seven** options strategies across directi
 - **Volume Multiplier**: Rewards breakouts with high volume, penalizes low-volume fakeouts.
 - **Dynamic Strike Suggestions**: Auto-calculates recommended strikes based on 1-sigma/2-sigma Bollinger levels.
 
-## 📊 Scoring Methodology
+##  Scoring Methodology
 
 ### Vertical Spreads (Credit/Debit)
 
@@ -85,7 +85,7 @@ Weights vary by strategy type:
 
 **Total: 100 points for all strategies**
 
-## 🎚️ Conviction Tiers
+##  Conviction Tiers
 
 | Score | Tier | Action |
 |-------|------|--------|
@@ -94,7 +94,7 @@ Weights vary by strategy type:
 | 40-59 | **WATCH** | Interesting — Add to watchlist |
 | 0-39 | **WAIT** | Poor conditions — Avoid / No setup |
 
-## 💰 Kelly Criterion Position Sizing
+##  Kelly Criterion Position Sizing
 
 Integrated mathematically-optimal position sizing using the Kelly criterion, adapted for options trading volatility.
 
@@ -137,7 +137,7 @@ print(f"Kelly fraction: {result.adjusted_kelly_fraction:.2%}")
 - **High edge** → Capped at 25% of bankroll
 - **Insufficient funds** → 0 contracts with explanation
 
-## 🚀 Installation
+##  Installation
 
 ### Via ClawHub (Recommended)
 ```bash
@@ -153,7 +153,7 @@ bash scripts/setup-venv.sh
 ./scripts/conviction-engine AAPL
 ```
 
-## 📖 Usage
+##  Usage
 
 ### Vertical Spreads
 ```bash
@@ -199,7 +199,7 @@ conviction-engine <ticker> [ticker...]
   --verbose
 ```
 
-## 📈 Example Output
+##  Example Output
 
 ```
 ======================================================================
@@ -209,13 +209,13 @@ conviction-engine <ticker> [ticker...]
   Price:       $272.19
   Trend:       BULL
   Conviction:  74.0 / 100
-  Action Tier: 🟠 PREPARE
+  Action Tier:  PREPARE
 ----------------------------------------------------------------------
   Strategy: Bull Call Spread (Debit)  (Breakout / Momentum)
   Ideal Setup: Strong bullish momentum + expanding volatility → breakout
   
   Market Trend: BULL | Score: 74.0/100 → PREPARE
-  ✅ Trend aligns with bullish strategy
+   Trend aligns with bullish strategy
   
   [Ichimoku +18.8/25]
     Price is ABOVE the cloud
@@ -232,7 +232,7 @@ conviction-engine <ticker> [ticker...]
 ======================================================================
 ```
 
-## 🎓 Academic Foundation
+##  Academic Foundation
 
 - **Ichimoku Cloud** — Trend structure & equilibrium (Hosoda, 1968)
 - **RSI** — Momentum & mean-reversion potential (Wilder, 1978)
@@ -241,7 +241,7 @@ conviction-engine <ticker> [ticker...]
 
 Combining orthogonal signals reduces false-positive rate compared to any single-indicator strategy (Pring, 2002; Murphy, 1999).
 
-## ⚙️ Requirements
+##  Requirements
 
 - Python 3.10+ (Python 3.14+ supported via pure-Python mode)
 - Isolated virtual environment (auto-created on first run)
@@ -256,7 +256,7 @@ Combining orthogonal signals reduces false-positive rate compared to any single-
 
 **Note:** On Python 3.14+, the engine runs without numba (numba doesn't support 3.14 yet). Performance is slightly reduced but all functionality works correctly.
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 skills/options-spread-conviction-engine/
@@ -278,7 +278,7 @@ skills/options-spread-conviction-engine/
 └── assets/                     # Additional resources
 ```
 
-## 🧪 Quantitative Options Scanner (Alpha)
+##  Quantitative Options Scanner (Alpha)
 
 The **quant_scanner.py** script provides a mathematically-rigorous alternative to the technical-indicator-heavy conviction engine. It focuses on market microstructure, IV surfaces, and probability distributions.
 
@@ -300,7 +300,7 @@ python3 scripts/quant_scanner.py AAPL TSLA NVDA --mode income --max-loss 100
 python3 scripts/quant_scanner.py SPY --mode ev --min-dte 30 --max-dte 45
 ```
 
-## 🔧 How It Works
+##  How It Works
 
 1. **Data Fetching** — Downloads OHLCV data from Yahoo Finance
 2. **Indicator Computation** — Calculates Ichimoku, RSI, MACD, Bollinger Bands
@@ -309,11 +309,11 @@ python3 scripts/quant_scanner.py SPY --mode ev --min-dte 30 --max-dte 45
 5. **Tier Classification** — Maps score to actionable tier (WAIT/WATCH/PREPARE/EXECUTE)
 6. **Rationale Generation** — Human-readable explanation of the score
 
-## 📝 License
+##  License
 
 MIT — Part of the Financial Toolkit for OpenClaw
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Areas for improvement:
 - Backtesting module with historical trade simulation
@@ -321,7 +321,7 @@ Contributions welcome! Areas for improvement:
 - Additional indicators (ATR, VWAP, Volume Profile)
 - Execution API integration (TD Ameritrade, Interactive Brokers)
 
-## 🔄 Version History
+##  Version History
 
 - **v2.2.0** (2026-02-13): Kelly Criterion position sizing integrated into options_math.py with full/half Kelly, edge calculation, and position sizing constraints
 - **v2.1.0** (2026-02-12): Added market scanner, integrated calculator and position sizer
@@ -330,7 +330,7 @@ Contributions welcome! Areas for improvement:
 - **v1.1.0** (2026-02-08): Cross-signal weighting, multi-strategy support
 - **v1.0.0** (2026-02-07): Initial bull put spread engine
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 This tool is for educational and research purposes only. Not financial advice. Always do your own due diligence before making investment decisions. Past performance does not guarantee future results.
 

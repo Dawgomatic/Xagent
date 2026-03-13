@@ -81,7 +81,7 @@ Use these as starting structures. Adapt them to the user's actual context — ne
 
 ### Release Announcement
 ```
-Just shipped [product] v[X.Y] 🚀
+Just shipped [product] v[X.Y] 
 
 What's new:
 → [Feature 1]
@@ -122,7 +122,7 @@ Today's build log:
 Tweet 1:
 Week [N] of building [product] in public.
 
-Here's what happened 👇
+Here's what happened 
 
 Tweet 2:
 [Feature/work item 1 — what you did and why]

@@ -156,7 +156,7 @@ The transform handles various payload structures:
 
 Output example:
 ```
-📥 **Xerolite Notification**
+ **Xerolite Notification**
 
 **Event:** order.created
 **Data:**

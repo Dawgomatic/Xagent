@@ -1,6 +1,6 @@
 # Security Model: Listing Swarm
 
-## 🔒 TL;DR
+##  TL;DR
 
 - **Zero credentials stored** — This skill ships with NO API keys, passwords, or secrets
 - **BYOK architecture** — You provide your own keys at runtime via environment variables
@@ -13,7 +13,7 @@
 
 ### What We DON'T Do
 
-| ❌ Never | Explanation |
+|  Never | Explanation |
 |----------|-------------|
 | Store credentials | No hardcoded keys, no config files with secrets |
 | Log sensitive data | API keys and passwords are never written to logs |

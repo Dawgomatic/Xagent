@@ -113,7 +113,7 @@ def test_generate_report(tmp_path):
     generate_markdown_report(findings, str(report_path))
     assert os.path.exists(report_path)
     content = report_path.read_text()
-    assert "# 🛡️ Shield Pro Security Report" in content
+    assert "#  Shield Pro Security Report" in content
     assert "REJECTED" in content
 
 

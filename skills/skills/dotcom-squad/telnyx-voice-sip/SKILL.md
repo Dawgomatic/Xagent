@@ -1,7 +1,7 @@
 ---
 name: sip-voice-call-control
 description: Voice interface using Telnyx Call Control API. Answer phone calls with AI, function calling, and natural conversation. Use for hands-free assistant access, phone-based reminders, or voice-controlled tools. Requires Node.js and Telnyx API key.
-metadata: {"openclaw":{"emoji":"📞","requires":{"bins":["node","npm"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node","npm"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
 ---
 
 # SIP Voice Call Control
@@ -46,8 +46,8 @@ npm run start
 
 Console shows:
 ```
-🎙️  Assistant Voice Server ready on port 3000
-📞 Dial: sip:openclaw@yourconnection.sip.telnyx.com
+  Assistant Voice Server ready on port 3000
+ Dial: sip:openclaw@yourconnection.sip.telnyx.com
 ```
 
 ## Agent Setup Flow
@@ -130,7 +130,7 @@ tail -f /path/to/sip-voice-call-control/sip-voice-call-control.log
 
 Poll the process logs and give the user the SIP dial-in:
 ```
-📞 Dial: sip:openclaw@<connection>.sip.telnyx.com
+ Dial: sip:openclaw@<connection>.sip.telnyx.com
 ```
 
 ## Environment Variables

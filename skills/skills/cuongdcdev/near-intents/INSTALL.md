@@ -150,10 +150,10 @@ async function test() {
       recipient: '0x0000000000000000000000000000000000000000',
       mode: 'manual',
     });
-    console.log('✅ Installation successful!');
+    console.log(' Installation successful!');
     console.log(quote);
   } catch (error) {
-    console.error('❌ Installation failed:', error.message);
+    console.error(' Installation failed:', error.message);
   }
 }
 
@@ -165,7 +165,7 @@ Run it:
 npx ts-node test-install.ts
 ```
 
-If you see a quote with a deposit address → ✅ Installation successful!
+If you see a quote with a deposit address →  Installation successful!
 
 ---
 
@@ -274,5 +274,5 @@ unlink near-intents
 ---
 
 **Version**: 2.0.0
-**Status**: ✅ Production Ready
+**Status**:  Production Ready
 **Installation Time**: ~2 minutes

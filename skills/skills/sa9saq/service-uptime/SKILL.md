@@ -40,21 +40,21 @@ done
 
 ### Output format
 ```
-## 🌐 Uptime Report — <timestamp>
+##  Uptime Report — <timestamp>
 
 | URL | Status | Code | DNS | Connect | TLS | Total |
 |-----|--------|------|-----|---------|-----|-------|
-| example.com | 🟢 Up | 200 | 0.012s | 0.034s | 0.089s | 0.145s |
-| broken.com | 🔴 Down | 000 | — | — | — | timeout |
-| slow.com | 🟡 Slow | 200 | 0.015s | 0.040s | 0.095s | 3.210s |
+| example.com |  Up | 200 | 0.012s | 0.034s | 0.089s | 0.145s |
+| broken.com |  Down | 000 | — | — | — | timeout |
+| slow.com |  Slow | 200 | 0.015s | 0.040s | 0.095s | 3.210s |
 
-**Thresholds**: 🟢 < 1s | 🟡 1–3s | 🔴 > 3s or error
+**Thresholds**:  < 1s |  1–3s |  > 3s or error
 ```
 
 ## Edge Cases
 
 - **Redirects**: Use `-L` to follow redirects. Report final URL if different from input.
-- **Timeout**: Use `--max-time 10` to avoid hanging. Report as 🔴 Down.
+- **Timeout**: Use `--max-time 10` to avoid hanging. Report as  Down.
 - **Self-signed certs**: Use `-k` flag only if user explicitly requests (insecure).
 - **Non-HTTP**: This tool checks HTTP/HTTPS only. For TCP/ping, use `nc` or `ping`.
 - **DNS failure**: curl returns code 000 — report as DNS resolution failure.

@@ -22,13 +22,13 @@ console.log('=== NEAR DCA Skill Tests ===\n');
 
 async function runTest(testName, testFn) {
   try {
-    console.log(`\n🧪 ${testName}`);
+    console.log(`\n ${testName}`);
     const result = await testFn();
-    console.log(`✅ PASS: ${testName}`);
+    console.log(` PASS: ${testName}`);
     if (result) console.log(`   Result:`, result);
     return true;
   } catch (error) {
-    console.error(`❌ FAIL: ${testName}`);
+    console.error(` FAIL: ${testName}`);
     console.error(`   Error:`, error.message);
     return false;
   }
@@ -238,10 +238,10 @@ async function main() {
 
   // Summary
   console.log('\n' + '='.repeat(50));
-  console.log(`\n📊 Test Summary:`);
-  console.log(`   ✅ Passed: ${passed}`);
-  console.log(`   ❌ Failed: ${failed}`);
-  console.log(`   📈 Success Rate: ${((passed / (passed + failed)) * 100).toFixed(1)}%`);
+  console.log(`\n Test Summary:`);
+  console.log(`    Passed: ${passed}`);
+  console.log(`    Failed: ${failed}`);
+  console.log(`    Success Rate: ${((passed / (passed + failed)) * 100).toFixed(1)}%`);
   console.log('\n' + '='.repeat(50));
 
   process.exit(failed > 0 ? 1 : 0);

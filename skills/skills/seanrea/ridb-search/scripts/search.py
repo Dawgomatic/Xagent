@@ -158,7 +158,7 @@ def main():
         try:
             lat, lon = geocode(args.location)
             if not args.json:
-                print(f"📍 Geocoded '{args.location}' to {lat:.4f}, {lon:.4f}\n")
+                print(f" Geocoded '{args.location}' to {lat:.4f}, {lon:.4f}\n")
         except Exception as e:
             print(f"Error geocoding location: {e}", file=sys.stderr)
             sys.exit(1)
@@ -211,8 +211,8 @@ def main():
         
         for f in facilities:
             info = format_facility(f)
-            reservable = "✅ Reservable" if info["reservable"] else "❌ Not reservable"
-            print(f"\n🏕️  {info['name']}")
+            reservable = " Reservable" if info["reservable"] else " Not reservable"
+            print(f"\n  {info['name']}")
             print(f"   ID: {info['id']} | {reservable}")
             if info["parent_org"]:
                 print(f"   Org: {info['parent_org']}")

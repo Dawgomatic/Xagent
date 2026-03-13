@@ -65,11 +65,11 @@ def main():
     success = send_via_mail_app(str(file_path), args.kindle_email, subject)
     
     if success:
-        print(f"\n✅ Sent to Kindle!")
+        print(f"\n Sent to Kindle!")
         print(f"   Should arrive in a few minutes.")
         return 0
     else:
-        print(f"\n❌ Failed to send. Check Mail.app.")
+        print(f"\n Failed to send. Check Mail.app.")
         return 1
 
 

@@ -20,7 +20,7 @@ FOUND_USER_DATA=0
 
 for file in "${USER_DATA_FILES[@]}"; do
     if echo "$STAGED_FILES" | grep -q "^$file$"; then
-        echo "  ⚠️  User data file staged: $file"
+        echo "    User data file staged: $file"
         echo "      This file contains user-specific data and should not be committed."
         echo "      Use 'git reset HEAD $file' to unstage."
         FOUND_USER_DATA=1

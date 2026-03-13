@@ -11,7 +11,7 @@ Multi-agent development workflow for TypeScript/Next.js/Convex projects.
 
 ---
 
-## ⚠️ SUB-AGENT POLICY (READ FIRST)
+##  SUB-AGENT POLICY (READ FIRST)
 
 ### No Timeouts
 **Sub-agents MUST run without timeout limits.** A 10-minute timeout that cuts off an agent mid-implementation leaves broken, partial code. Let agents finish.
@@ -27,11 +27,11 @@ Before marking ANY phase complete, verify:
 
 ### The Lesson
 An agent produced 15K lines of "working" code that:
-- ✅ Compiled with zero TypeScript errors
-- ✅ Passed `bun run build`
-- ❌ Had ZERO actual functionality
-- ❌ All data was mocked or hardcoded
-- ❌ Every button was a no-op
+-  Compiled with zero TypeScript errors
+-  Passed `bun run build`
+-  Had ZERO actual functionality
+-  All data was mocked or hardcoded
+-  Every button was a no-op
 
 **Self-grade: 5/10** — A prototype, not a product.
 
@@ -53,12 +53,12 @@ An agent produced 15K lines of "working" code that:
 
 ## When to Use Multi-Agent
 
-✅ **Good for parallel work:**
+ **Good for parallel work:**
 - Marketing pages (after design system exists)
 - Documentation files (independent)
 - Isolated features with clear contracts
 
-❌ **Bad for parallel work:**
+ **Bad for parallel work:**
 - Schema design (needs single owner)
 - Core type definitions (must be shared)
 - Interconnected backend functions
@@ -199,11 +199,11 @@ Core CRUD Flow:
 ```
 project/
 ├── convex/
-│   ├── schema.ts            # 🔒 Phase 0 only
-│   ├── _generated/          # 🔒 Auto-generated
+│   ├── schema.ts            #  Phase 0 only
+│   ├── _generated/          #  Auto-generated
 │   └── [domain].ts
 ├── lib/
-│   ├── types.ts             # 🔒 Phase 0 only
+│   ├── types.ts             #  Phase 0 only
 │   └── utils.ts
 ├── components/
 │   ├── ui/                  # Component library agent
@@ -212,10 +212,10 @@ project/
 │   ├── (admin)/             # Admin agent
 │   ├── (app)/               # App agent
 │   └── (marketing)/         # Marketing agents
-└── CONTRACTS.md             # 🔒 Phase 0 only
+└── CONTRACTS.md             #  Phase 0 only
 ```
 
-🔒 = Locked after Phase 0. Agents read, don't modify.
+ = Locked after Phase 0. Agents read, don't modify.
 
 ---
 
@@ -250,17 +250,17 @@ project/
 
 ## Anti-Patterns
 
-❌ **Spawn all agents at once** — No coordination, duplicate work
+ **Spawn all agents at once** — No coordination, duplicate work
 
-❌ **Let agents invent types** — Use CONTRACTS.md, not imagination
+ **Let agents invent types** — Use CONTRACTS.md, not imagination
 
-❌ **Skip Phase 0** — "We'll figure out the schema later" = disaster
+ **Skip Phase 0** — "We'll figure out the schema later" = disaster
 
-❌ **Parallel schema writes** — One owner only
+ **Parallel schema writes** — One owner only
 
-❌ **Frontend before backend types** — Generates type mismatches
+ **Frontend before backend types** — Generates type mismatches
 
-❌ **No build checkpoints** — Errors compound
+ **No build checkpoints** — Errors compound
 
 ---
 

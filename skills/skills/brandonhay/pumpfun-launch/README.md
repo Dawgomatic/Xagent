@@ -1,4 +1,4 @@
-# 🚀 Pump.fun Token Launcher
+#  Pump.fun Token Launcher
 
 Launch tokens on [pump.fun](https://pump.fun) directly from your AI agent. Zero middleware fees. Direct on-chain.
 
@@ -61,16 +61,16 @@ bun run launch.ts --wallet
 
 | Flag | Required | Description |
 |------|----------|-------------|
-| `--name` | ✅ | Token name |
-| `--symbol` | ✅ | Token ticker |
-| `--description` | ✅ | Token description |
-| `--image` | ✅ | Path to image file or URL |
-| `--buy` | ❌ | Initial buy amount in SOL (default: 0) |
-| `--slippage` | ❌ | Slippage in basis points (default: 500) |
-| `--priority-fee` | ❌ | Priority fee in micro-lamports (default: 250000) |
-| `--dry-run` | ❌ | Validate without sending transaction |
-| `--status` | ❌ | Check token status by mint address |
-| `--wallet` | ❌ | Setup or check wallet |
+| `--name` |  | Token name |
+| `--symbol` |  | Token ticker |
+| `--description` |  | Token description |
+| `--image` |  | Path to image file or URL |
+| `--buy` |  | Initial buy amount in SOL (default: 0) |
+| `--slippage` |  | Slippage in basis points (default: 500) |
+| `--priority-fee` |  | Priority fee in micro-lamports (default: 250000) |
+| `--dry-run` |  | Validate without sending transaction |
+| `--status` |  | Check token status by mint address |
+| `--wallet` |  | Setup or check wallet |
 
 ## Environment
 
@@ -105,7 +105,7 @@ Your agent will automatically detect the skill and can launch tokens on command.
 - **Middleware fees:** None (direct on-chain)
 - **Pump.fun trading fee:** 1% on bonding curve trades (standard, unavoidable)
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 This tool creates real tokens on Solana mainnet that involve real money. Use at your own risk. The vast majority of memecoins go to zero. This is not financial advice.
 

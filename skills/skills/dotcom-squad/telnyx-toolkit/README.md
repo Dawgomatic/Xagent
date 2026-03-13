@@ -19,7 +19,7 @@ clawhub install telnyx-toolkit
 
 ---
 
-## 🔧 Tools (Ready-to-Use)
+##  Tools (Ready-to-Use)
 
 Standalone utilities with scripts you can run directly:
 
@@ -59,7 +59,7 @@ python3 tools/embeddings/index.py upload /path/to/file.md
 
 ---
 
-## 📚 API Documentation
+##  API Documentation
 
 SDK documentation for all Telnyx APIs, organized by language:
 
@@ -92,7 +92,7 @@ SDK documentation for all Telnyx APIs, organized by language:
 
 ---
 
-## 📱 WebRTC Client SDKs
+##  WebRTC Client SDKs
 
 Guides for building real-time voice apps on mobile and web:
 

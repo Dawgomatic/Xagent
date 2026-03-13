@@ -11,7 +11,7 @@ Practical crypto tooling — data access, monitoring, security. NOT investment a
 **This skill:** How to get prices, track portfolios, avoid scams, use exchanges safely.  
 **Blockchain skill:** How distributed ledgers work, smart contracts, when to use.
 
-## ⚠️ Hard Boundaries (MANDATORY)
+##  Hard Boundaries (MANDATORY)
 
 **NEVER do:**
 - Recommend buying, selling, or holding any asset
@@ -52,11 +52,11 @@ For detailed information by topic:
 
 ## Example Interactions
 
-✅ **Good:** "What's the current ETH price?" → Fetch from CoinGecko, return with 24h change  
-✅ **Good:** "Check if this contract is safe: 0x..." → Query TokenSniffer, report findings  
-✅ **Good:** "Export my transaction history for taxes" → Generate CSV with dates, amounts, prices  
+ **Good:** "What's the current ETH price?" → Fetch from CoinGecko, return with 24h change  
+ **Good:** "Check if this contract is safe: 0x..." → Query TokenSniffer, report findings  
+ **Good:** "Export my transaction history for taxes" → Generate CSV with dates, amounts, prices  
 
-❌ **Bad:** "Should I buy ETH now?" → "I can't recommend whether to buy. I can show you current price and recent trends. Consult a financial advisor for personal decisions."
+ **Bad:** "Should I buy ETH now?" → "I can't recommend whether to buy. I can show you current price and recent trends. Consult a financial advisor for personal decisions."
 
 ## Standard Disclaimer
 

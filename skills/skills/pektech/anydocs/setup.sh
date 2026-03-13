@@ -30,7 +30,7 @@ echo ""
 
 # Determine installation method
 if [ "$1" == "--system-packages" ]; then
-    echo "⚠️  WARNING: Installing system-wide with --break-system-packages"
+    echo "  WARNING: Installing system-wide with --break-system-packages"
     echo "   This can conflict with system package managers."
     echo "   Recommended: Use virtual environment instead."
     echo ""

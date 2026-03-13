@@ -70,12 +70,12 @@ def process_message(user_input):
                     result = create_calendar_event(title, date, time, duration, location, user_input, reminder)
                     if result["success"]:
                         return {
-                            "response": f"✅ {result['message']}\n{result['details']}",
+                            "response": f" {result['message']}\n{result['details']}",
                             "completed": True
                         }
                     else:
                         return {
-                            "response": f"❌ 创建事件失败：{result['error']}",
+                            "response": f" 创建事件失败：{result['error']}",
                             "error": True
                         }
         elif intent == 'list':
@@ -83,12 +83,12 @@ def process_message(user_input):
             result = list_calendar_events()
             if result["success"]:
                 return {
-                    "response": f"📅 您的日历事件：\n{result['events']}",
+                    "response": f" 您的日历事件：\n{result['events']}",
                     "completed": True
                 }
             else:
                 return {
-                    "response": f"❌ 获取事件列表失败：{result['error']}",
+                    "response": f" 获取事件列表失败：{result['error']}",
                     "error": True
                 }
         elif intent == 'daily_summary':
@@ -101,7 +101,7 @@ def process_message(user_input):
                 }
             else:
                 return {
-                    "response": f"❌ 获取今日日程失败：{result['error']}",
+                    "response": f" 获取今日日程失败：{result['error']}",
                     "error": True
                 }
         else:
@@ -163,12 +163,12 @@ def handle_followup(user_input, context):
         
         if result["success"]:
             return {
-                "response": f"✅ {result['message']}\n{result['details']}",
+                "response": f" {result['message']}\n{result['details']}",
                 "completed": True
             }
         else:
             return {
-                "response": f"❌ 创建事件失败：{result['error']}",
+                "response": f" 创建事件失败：{result['error']}",
                 "error": True
             }
     
@@ -185,7 +185,7 @@ def handle_followup(user_input, context):
         print(f"Acknowledgment processed: {result.stdout.strip()}")
         
         return {
-            "response": "✅ 好的，已确认您收到了提醒",
+            "response": " 好的，已确认您收到了提醒",
             "acknowledged": True
         }
     

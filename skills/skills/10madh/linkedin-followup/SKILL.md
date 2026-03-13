@@ -4,7 +4,7 @@ description: Manage LinkedIn outreach leads from Google Sheets — search by nam
 metadata:
   {
     "openclaw": {
-      "emoji": "🔁",
+      "emoji": "",
       "requires": { "bins": ["gog"] },
       "skills": ["gog"],
       "tags": ["linkedin", "crm", "outreach", "sales", "follow-up"]

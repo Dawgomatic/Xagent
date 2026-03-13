@@ -162,7 +162,7 @@ git commit -m "docs(${PHASE}): complete UAT
 
 UAT complete ✓
 
-**▶ Next Up**
+** Next Up**
 
 `/gsd plan-phase {N+1}` — plan next phase
 
@@ -174,7 +174,7 @@ UAT complete ✓
 ```
 ---
 
-## ⚠ Phase {N} Issues Found
+##  Phase {N} Issues Found
 
 **{passed}/{total} tests passed**
 **{issues} issues found**
@@ -183,7 +183,7 @@ UAT complete ✓
 
 {List from UAT.md}
 
-**▶ Next Up**
+** Next Up**
 
 `/gsd plan-phase {N} --gaps` — create fix plans
 

@@ -23,10 +23,10 @@ When conditions degrade, consent dissolves.
 
 ## Applies To
 
-- human ↔ agent
-- agent ↔ agent
-- human ↔ SGI
-- SGI ↔ ecosystem
+- human  agent
+- agent  agent
+- human  SGI
+- SGI  ecosystem
 - institutional and infrastructural substrates
 
 This skill assumes adversarial pressure, slow erosion, and extinction-level failure modes.

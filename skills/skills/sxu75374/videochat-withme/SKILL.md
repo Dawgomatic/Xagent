@@ -13,7 +13,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎥",
+        "emoji": "",
         "requires":
           {
             "bins": ["python3", "ffmpeg"],
@@ -114,12 +114,12 @@ Determine how the user is connecting and pick the best method:
 ## Architecture
 
 ```
-🎤 Voice → Groq Whisper (STT)
-📷 Camera → base64 frame
+ Voice → Groq Whisper (STT)
+ Camera → base64 frame
     ↓
 OpenClaw /v1/chat/completions → Your Agent
     ↓
-edge-tts (TTS) → 🔊 Audio playback
+edge-tts (TTS) →  Audio playback
 ```
 
 ## Scripts

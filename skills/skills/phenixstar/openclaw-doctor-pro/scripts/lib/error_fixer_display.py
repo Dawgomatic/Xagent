@@ -28,7 +28,7 @@ def display_suggestions(
     for sug in suggestions:
         priority_color = "red" if sug.priority == "HIGH" else "yellow"
         content.append(
-            f"[{priority_color} bold]🔧 {sug.skill_name}[/{priority_color} bold] "
+            f"[{priority_color} bold] {sug.skill_name}[/{priority_color} bold] "
             f"[{priority_color}]{sug.priority} PRIORITY[/{priority_color}]"
         )
         content.append(f"   Reason: {sug.reason}")
@@ -66,7 +66,7 @@ def display_integration_suggestions(
     for sug in suggestions:
         priority_color = "red" if sug.priority == "HIGH" else "yellow"
         content.append(
-            f"[{priority_color} bold]🐙 {sug.skill_name}[/{priority_color} bold] "
+            f"[{priority_color} bold] {sug.skill_name}[/{priority_color} bold] "
             f"[{priority_color}]{sug.priority} PRIORITY[/{priority_color}]"
         )
         content.append(f"   Reason: {sug.reason}")

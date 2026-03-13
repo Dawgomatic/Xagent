@@ -1,26 +1,26 @@
-# 🔔 Webchat Audio Notifications
+#  Webchat Audio Notifications
 
 Browser audio notifications for Moltbot/Clawdbot webchat. Get notified when new messages arrive - but only when the tab is in the background.
 
-**🧪 [Try the live demo](examples/test.html)** - Download and open in your browser!
+** [Try the live demo](examples/test.html)** - Download and open in your browser!
 
-**Status:** ✅ v1.2.0 - Production ready, looking for testers!
+**Status:**  v1.2.0 - Production ready, looking for testers!
 
 ---
 
-## 🚀 Quick Test (2 minutes)
+##  Quick Test (2 minutes)
 
 **Want to try it right now?**
 
 1. **Clone or download** this repo
 2. **Open** `examples/test.html` in your browser
-3. **Click** the green "🔊 Test Sound" button (unlocks audio)
+3. **Click** the green " Test Sound" button (unlocks audio)
 4. **Hear** the notification sound!
 5. **Try** different intensity levels (Level 1-5 dropdown)
 
-That's it! If you hear sounds, it works. 🎉
+That's it! If you hear sounds, it works. 
 
-### ⚠️ Important: Browser Autoplay Policy
+###  Important: Browser Autoplay Policy
 
 **Why you must click "Test Sound" first:**
 
@@ -29,9 +29,9 @@ All modern browsers (Chrome, Firefox, Safari, Edge) **block audio autoplay by de
 **This is NORMAL and EXPECTED behavior, not a bug!**
 
 **What happens:**
-1. Page loads → Audio is blocked 🔇
-2. You click "Test Sound" (or any button) → Audio unlocks 🔊
-3. From now on, notifications work automatically ✅
+1. Page loads → Audio is blocked 
+2. You click "Test Sound" (or any button) → Audio unlocks 
+3. From now on, notifications work automatically 
 
 **You only need to click once per session.** After that, all sounds play normally. This is how all web audio works - YouTube, Spotify, etc. all require a click first.
 
@@ -39,20 +39,20 @@ If you don't click first and don't hear sounds, that's why! Just click the Test 
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔔 **Smart notifications** - Only plays sound when tab is hidden
-- 🎚️ **Volume control** - Adjustable notification volume (0-100%)
-- 🔕 **Easy toggle** - Enable/disable with one click
-- 🎵 **5 intensity levels** - From whisper (level 1) to impossible-to-miss (level 5)
-- 📁 **Custom sounds** - Upload your own notification sounds (MP3, WAV, OGG, WebM)
-- 💾 **Persistent preferences** - Settings saved in localStorage
-- 📱 **Mobile-friendly** - Graceful handling of mobile restrictions
-- 🚫 **Autoplay handling** - Respects browser autoplay policies
-- ⏱️ **Cooldown** - Prevents notification spam (3s between alerts)
-- 🐞 **Debug mode** - Optional logging for troubleshooting
+-  **Smart notifications** - Only plays sound when tab is hidden
+-  **Volume control** - Adjustable notification volume (0-100%)
+-  **Easy toggle** - Enable/disable with one click
+-  **5 intensity levels** - From whisper (level 1) to impossible-to-miss (level 5)
+-  **Custom sounds** - Upload your own notification sounds (MP3, WAV, OGG, WebM)
+-  **Persistent preferences** - Settings saved in localStorage
+-  **Mobile-friendly** - Graceful handling of mobile restrictions
+-  **Autoplay handling** - Respects browser autoplay policies
+-  **Cooldown** - Prevents notification spam (3s between alerts)
+-  **Debug mode** - Optional logging for troubleshooting
 
-## 🎯 Quick Start
+##  Quick Start
 
 ### Three Easy Setup Options
 
@@ -76,7 +76,7 @@ python3 -m http.server 8080
 1. Click "Enable Notifications" if prompted
 2. Switch to another tab
 3. Click "Trigger Notification" (or have someone trigger it)
-4. You should hear a sound! 🔊
+4. You should hear a sound! 
 
 ### 2. Basic Integration
 
@@ -129,9 +129,9 @@ python3 -m http.server 8080
 </script>
 ```
 
-👉 **[Full Easy Setup Guide](docs/EASY_SETUP.md)** - Settings panel, JSON config, and more!
+ **[Full Easy Setup Guide](docs/EASY_SETUP.md)** - Settings panel, JSON config, and more!
 
-## 📚 API Documentation
+##  API Documentation
 
 ### Constructor
 
@@ -253,20 +253,20 @@ const settings = notifier.getSettings();
 // Returns: { enabled, volume, soundName, isMobile, initialized }
 ```
 
-## 🌐 Browser Compatibility
+##  Browser Compatibility
 
 | Browser | Version | Support | Notes |
 |---------|---------|---------|-------|
-| Chrome | 92+ | ✅ Full | Strictest autoplay policy |
-| Firefox | 90+ | ✅ Full | Slightly more permissive |
-| Safari | 15+ | ✅ Full | Requires WebKit prefixes (handled) |
-| Edge | 92+ | ✅ Full | Chromium-based |
-| Mobile Chrome | Latest | ⚠️ Limited | Requires user gesture per play |
-| Mobile Safari | Latest | ⚠️ Limited | iOS restrictions apply |
+| Chrome | 92+ |  Full | Strictest autoplay policy |
+| Firefox | 90+ |  Full | Slightly more permissive |
+| Safari | 15+ |  Full | Requires WebKit prefixes (handled) |
+| Edge | 92+ |  Full | Chromium-based |
+| Mobile Chrome | Latest |  Limited | Requires user gesture per play |
+| Mobile Safari | Latest |  Limited | iOS restrictions apply |
 
 **Overall compatibility:** 92% of users (based on Web Audio API support)
 
-## ⚙️ Configuration Examples
+##  Configuration Examples
 
 ### Simple Setup
 
@@ -309,19 +309,19 @@ chatClient.on('mention', () => {
 
 <!-- Sound intensity selector -->
 <select onchange="notifier.setSound(this.value)">
-  <option value="level1">🔕 Level 1 - Whisper</option>
-  <option value="level2">🔔 Level 2 - Soft</option>
-  <option value="level3" selected>🔔 Level 3 - Medium</option>
-  <option value="level4">🔊 Level 4 - Loud</option>
-  <option value="level5">📢 Level 5 - Very Loud</option>
+  <option value="level1"> Level 1 - Whisper</option>
+  <option value="level2"> Level 2 - Soft</option>
+  <option value="level3" selected> Level 3 - Medium</option>
+  <option value="level4"> Level 4 - Loud</option>
+  <option value="level5"> Level 5 - Very Loud</option>
 </select>
 
 <!-- Enable/disable toggle -->
-<button onclick="notifier.setEnabled(true)">Enable 🔔</button>
-<button onclick="notifier.setEnabled(false)">Disable 🔕</button>
+<button onclick="notifier.setEnabled(true)">Enable </button>
+<button onclick="notifier.setEnabled(false)">Disable </button>
 
 <!-- Test button -->
-<button onclick="notifier.test()">Test Sound 🔊</button>
+<button onclick="notifier.test()">Test Sound </button>
 
 <!-- Custom sound upload -->
 <input type="file" id="custom-sound" accept="audio/*" onchange="uploadCustom(this)">
@@ -377,7 +377,7 @@ Users can upload their own notification sounds:
 - Stored in browser localStorage (no server upload)
 - Clearing browser data removes custom sound
 
-## 🚨 Troubleshooting
+##  Troubleshooting
 
 ### No sound playing?
 
@@ -425,7 +425,7 @@ if (settings.isMobile) {
 }
 ```
 
-## 📦 File Structure
+##  File Structure
 
 ```
 webchat-audio-notifications/
@@ -454,24 +454,24 @@ webchat-audio-notifications/
 └── SKILL.md                 # ClawdHub metadata
 ```
 
-## 🔐 Privacy & Security
+##  Privacy & Security
 
 - **No external requests** - All assets loaded locally
 - **localStorage only** - Preferences stored in user's browser
 - **No tracking** - Zero analytics or telemetry
 - **No permissions required** - Works with standard Web Audio API
 
-## 📄 License
+##  License
 
 MIT License - see LICENSE file for details.
 
-## 🙏 Credits
+##  Credits
 
 - **Audio library:** [Howler.js](https://howlerjs.com/) by James Simpson (MIT License)
 - **Sound files:** [Mixkit.co](https://mixkit.co/) (Royalty-free, commercial use allowed)
 - **Created for:** [Moltbot/Clawdbot](https://github.com/moltbot/moltbot) community
 
-## 🤝 Contributing
+##  Contributing
 
 Found a bug? Have a feature request? 
 
@@ -479,7 +479,7 @@ Found a bug? Have a feature request?
 2. Enable debug mode to see console logs
 3. Open an issue with browser version and console output
 
-## 🚀 Next Steps
+##  Next Steps
 
 - [x] **Multiple intensity levels** (5 levels implemented)
 - [ ] WebM sound format support (smaller files)
@@ -489,7 +489,7 @@ Found a bug? Have a feature request?
 - [ ] Do Not Disturb mode (time-based)
 - [ ] Custom sound upload support
 
-## 💡 Usage Tips
+##  Usage Tips
 
 **Choosing Your Level:**
 - **Open office?** Use level 1-2 (subtle, won't disturb neighbors)
@@ -512,6 +512,6 @@ socket.on('mention', () => {
 
 ---
 
-**Status:** ✅ POC v1.1.0 - 5 intensity levels  
+**Status:**  POC v1.1.0 - 5 intensity levels  
 **Last updated:** 2026-01-28  
 **Maintained by:** @brokemac79

@@ -167,6 +167,6 @@ Every provider listed uses the OpenAI chat/completions format. No special SDKs n
 
 ## Links
 
-- 🦐 Try our AI Plaza: https://ai.xudd-v.com
-- 📦 ClawHub: https://clawhub.ai/Xdd-xund/chinese-llm-router
-- 💬 Feedback: https://ai.xudd-v.com/connect.html
+-  Try our AI Plaza: https://ai.xudd-v.com
+-  ClawHub: https://clawhub.ai/Xdd-xund/chinese-llm-router
+-  Feedback: https://ai.xudd-v.com/connect.html

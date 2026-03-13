@@ -19,7 +19,7 @@ TEST_RECIPIENT="${TEST_EMAIL:-brian@creativestudio.co.za}"
 # Security: Validate TEST_RECIPIENT is a valid email address
 # Prevents command injection via malicious email addresses
 if [[ ! "$TEST_RECIPIENT" =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
-    echo -e "${RED}❌ Error: Invalid email address format: $TEST_RECIPIENT${NC}"
+    echo -e "${RED} Error: Invalid email address format: $TEST_RECIPIENT${NC}"
     echo "TEST_EMAIL must be a valid email address"
     exit 1
 fi
@@ -29,13 +29,13 @@ echo -e "${BLUE}=== App Password Authentication Test ===${NC}\n"
 
 # Check if credentials are set
 if [ -z "$ZOHO_EMAIL" ]; then
-    echo -e "${RED}❌ Error: ZOHO_EMAIL environment variable not set${NC}"
+    echo -e "${RED} Error: ZOHO_EMAIL environment variable not set${NC}"
     echo "Please set it with: export ZOHO_EMAIL=\"your-email@domain.com\""
     exit 1
 fi
 
 if [ -z "$ZOHO_PASSWORD" ]; then
-    echo -e "${RED}❌ Error: ZOHO_PASSWORD environment variable not set${NC}"
+    echo -e "${RED} Error: ZOHO_PASSWORD environment variable not set${NC}"
     echo "Please set it with: export ZOHO_PASSWORD=\"your-app-password\""
     exit 1
 fi
@@ -121,7 +121,7 @@ echo -e "Failed: ${RED}$FAILED${NC}"
 echo ""
 
 if [ $FAILED -eq 0 ]; then
-    echo -e "${GREEN}🎉 All tests passed! App password authentication is working perfectly.${NC}"
+    echo -e "${GREEN} All tests passed! App password authentication is working perfectly.${NC}"
     echo ""
     echo "✓ You can now use app password authentication with:"
     echo "  --auth password --api-mode imap"
@@ -129,7 +129,7 @@ if [ $FAILED -eq 0 ]; then
     echo "✓ Test emails sent to: $TEST_RECIPIENT"
     exit 0
 else
-    echo -e "${RED}⚠️  Some tests failed. Check the output above for details.${NC}"
+    echo -e "${RED}  Some tests failed. Check the output above for details.${NC}"
     echo ""
     echo "Common issues:"
     echo "  - Check ZOHO_EMAIL and ZOHO_PASSWORD are set correctly"

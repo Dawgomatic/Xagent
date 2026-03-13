@@ -33,10 +33,10 @@ To add support for a new SonarQube rule:
   autoFixable: true | false,
   solution: (issue) => `Solution for ${issue.component}:${issue.line}`,
   example: `
-// ❌ Before:
+//  Before:
 bad code
 
-// ✅ After:
+//  After:
 good code
   `
 }

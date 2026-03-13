@@ -1,7 +1,7 @@
 ---
 name: domaindetails
 description: Look up domain WHOIS/RDAP info and check marketplace listings. Free API, no auth required.
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"bins":["curl"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
 # domaindetails

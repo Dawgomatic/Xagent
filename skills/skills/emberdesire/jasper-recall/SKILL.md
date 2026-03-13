@@ -344,7 +344,7 @@ Default settings in index-digests:
 
 ## Security Considerations
 
-⚠️ **Review these settings before enabling in production:**
+ **Review these settings before enabling in production:**
 
 ### Server Binding
 
@@ -367,7 +367,7 @@ When `autoRecall: true` in the OpenClaw plugin config, memories are automaticall
 - Messages containing `NO_REPLY`
 - Messages < 10 characters
 - Agent-to-agent messages (cron jobs, workers, spawned agents)
-- Automated reports (`📋 PR Review`, `🤖 Codex Watch`, `ANNOUNCE_*`)
+- Automated reports (` PR Review`, ` Codex Watch`, `ANNOUNCE_*`)
 - Messages from senders starting with `agent:` or `worker-`
 
 **Safer config for untrusted contexts:**

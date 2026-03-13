@@ -134,10 +134,10 @@ async function searchBocha(query, count = 10, freshness = 'noLimit', summary = t
  */
 function formatResults(data, query) {
   if (!data || !data.webPages || !data.webPages.value || data.webPages.value.length === 0) {
-    return `## 🔍 博查搜索结果: "${query}"\n\n未找到相关结果。`;
+    return `##  博查搜索结果: "${query}"\n\n未找到相关结果。`;
   }
 
-  let output = `## 🔍 博查搜索结果: "${query}"\n\n`;
+  let output = `##  博查搜索结果: "${query}"\n\n`;
   
   if (data.webPages.totalEstimatedMatches) {
     output += `找到约 ${data.webPages.totalEstimatedMatches.toLocaleString()} 条结果（显示前 ${data.webPages.value.length} 条）\n\n`;
@@ -170,7 +170,7 @@ function formatResults(data, query) {
 
   // Add images section if available
   if (data.images && data.images.value && data.images.value.length > 0) {
-    output += `### 🖼️ 相关图片\n\n`;
+    output += `###  相关图片\n\n`;
     data.images.value.slice(0, 6).forEach((img, index) => {
       if (img.thumbnailUrl || img.contentUrl) {
         output += `[![图片${index + 1}](${img.thumbnailUrl || img.contentUrl})](${img.hostPageUrl || img.contentUrl}) `;

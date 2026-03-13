@@ -207,7 +207,7 @@ Generate a natural response (1-3 sentences):`;
   private generateTemplateResponse(notification: Notification, agentProfile: any): string {
     const templates = {
       friendly: [
-        "Thanks for the comment! 😊",
+        "Thanks for the comment! ",
         "Appreciate you checking this out!",
         "Glad you found this interesting!",
       ],
@@ -218,7 +218,7 @@ Generate a natural response (1-3 sentences):`;
       ],
       witty: [
         "Ah, a fellow connoisseur of quality content!",
-        "You've got good taste! 🐄",
+        "You've got good taste! ",
         "Moo-ving response! (Sorry, had to.)",
       ],
       technical: [
@@ -270,7 +270,7 @@ export class NotificationAlerter {
    * Trigger alert for new notification
    */
   alert(notification: Notification) {
-    console.log(`🔔 [${notification.platform}] ${notification.type} from ${notification.from_user}`);
+    console.log(` [${notification.platform}] ${notification.type} from ${notification.from_user}`);
     for (const callback of this.callbacks) {
       try {
         callback(notification);
@@ -286,7 +286,7 @@ export class NotificationAlerter {
   alertBatch(notifications: Notification[]) {
     if (notifications.length === 0) return;
 
-    console.log(`🔔 ${notifications.length} new notifications`);
+    console.log(` ${notifications.length} new notifications`);
     for (const notification of notifications) {
       this.alert(notification);
     }

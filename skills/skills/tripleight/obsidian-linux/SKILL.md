@@ -2,7 +2,7 @@
 name: obsidian
 description: Work with Obsidian vaults (plain Markdown notes) and automate via notesmd-cli.
 homepage: https://help.obsidian.md
-metadata: {"clawdbot":{"emoji":"💎","requires":{"bins":["notesmd-cli"]},"install":[{"id":"brew","kind":"brew","formula":"yakitrak/yakitrak/notesmd-cli","bins":["notesmd-cli"],"label":"Install notesmd-cli (brew, macOS)"},{"id":"aur","kind":"aur","package":"notesmd-cli-bin","bins":["notesmd-cli"],"label":"Install notesmd-cli (AUR, Arch/Manjaro Linux)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["notesmd-cli"]},"install":[{"id":"brew","kind":"brew","formula":"yakitrak/yakitrak/notesmd-cli","bins":["notesmd-cli"],"label":"Install notesmd-cli (brew, macOS)"},{"id":"aur","kind":"aur","package":"notesmd-cli-bin","bins":["notesmd-cli"],"label":"Install notesmd-cli (AUR, Arch/Manjaro Linux)"}]}}
 ---
 
 # Obsidian

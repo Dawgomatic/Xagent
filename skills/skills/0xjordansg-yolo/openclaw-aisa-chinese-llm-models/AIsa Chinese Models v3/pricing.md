@@ -1,6 +1,6 @@
 # AIsa Pricing Reference
 
-> ⚠️ All prices below are for reference only (as of February 2026). Real-time pricing is subject to change — always check https://marketplace.aisa.one/pricing for the latest rates.
+>  All prices below are for reference only (as of February 2026). Real-time pricing is subject to change — always check https://marketplace.aisa.one/pricing for the latest rates.
 
 All prices are per 1 million tokens (USD).
 
@@ -28,7 +28,7 @@ All prices are per 1 million tokens (USD).
 | Input/1M | $1.20 | $2.00 | $2.20-2.50 | ~40% off |
 | Output/1M | $4.80 | $8.00 | $9.00-10.00 | ~40% off |
 
-### ⭐ Kimi K2.5 (Moonshot AI flagship)
+###  Kimi K2.5 (Moonshot AI flagship)
 
 AIsa provides Kimi K2.5 at approximately **80% of official Moonshot pricing** (~20% discount).
 
@@ -38,7 +38,7 @@ AIsa provides Kimi K2.5 at approximately **80% of official Moonshot pricing** (~
 | Output/1M | ~$2.40 | ~$3.00 | ~20% off |
 
 **Notes on Kimi K2.5:**
-- 🔒 **Zero Data Retention (ZDR)**: AIsa has a formal enterprise ZDR agreement with Moonshot (dated Feb 10, 2026) — customer data and outputs are not retained or used for training
+-  **Zero Data Retention (ZDR)**: AIsa has a formal enterprise ZDR agreement with Moonshot (dated Feb 10, 2026) — customer data and outputs are not retained or used for training
 - Pricing is approximate and subject to Moonshot's rate changes
 - Kimi K2.5 is not widely available on other aggregation platforms (limited availability on OpenRouter)
 - AIsa's access is through direct Moonshot partnership
@@ -77,8 +77,8 @@ AIsa provides Kimi K2.5 at approximately **80% of official Moonshot pricing** (~
 | Partnerships | Official (all major Chinese AI) | OAuth free tier | Router (adds markup) |
 | Pricing | Up to 50% off retail | Free tier | +10-25% markup |
 | Model coverage | Qwen (all) + Doubao + DeepSeek + Kimi K2.5 | 2 Qwen models | Limited Chinese models |
-| Kimi K2.5 | ✅ ~80% of official price | ❌ | Limited |
-| Kimi K2.5 ZDR | ✅ Enterprise ZDR agreement | ❌ | ❌ |
+| Kimi K2.5 |  ~80% of official price |  | Limited |
+| Kimi K2.5 ZDR |  Enterprise ZDR agreement |  |  |
 | Latest models | WAN 2.6 multimodal (20% off) | Not available | Not available |
 | Qwen regions | CN, US (Virginia), SG | CN only | Global |
 | Daily limits | None | 2,000 req/day | None |

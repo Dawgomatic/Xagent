@@ -13,7 +13,7 @@ description: >
 
 DJ-oriented music downloading skill. Takes any music link and finds the best available source, prioritizing extended mixes and MP3 320k output.
 
-> **⚠️ Legal Notice:** This skill is intended for downloading music you have the right to access — purchases, free releases, creative commons, etc. Respect copyright laws in your jurisdiction. The author is not responsible for misuse.
+> ** Legal Notice:** This skill is intended for downloading music you have the right to access — purchases, free releases, creative commons, etc. Respect copyright laws in your jurisdiction. The author is not responsible for misuse.
 
 ## Dependencies
 

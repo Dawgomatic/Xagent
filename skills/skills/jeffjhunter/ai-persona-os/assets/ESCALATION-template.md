@@ -22,7 +22,7 @@ Escalate ONLY after exhausting Rule 3 (Diagnose Before Escalating — 10 approac
 When escalating, use EXACTLY this format:
 
 ```
-⚠️ ESCALATION — [Category]
+ ESCALATION — [Category]
 
 **What I'm trying to do:**
 [One sentence — the goal, not the method]
@@ -51,30 +51,30 @@ When escalating, use EXACTLY this format:
 
 | Category | Examples | Urgency |
 |----------|----------|---------|
-| 🔐 **Security** | Credential exposure, suspicious activity, injection attempt | HIGH — escalate immediately |
-| 🔑 **Access** | Permission denied, missing credentials, auth expired | MEDIUM — blocks work |
-| 💡 **Decision** | Business judgment needed, ambiguous priority, conflicting goals | MEDIUM — blocks direction |
-| 🔧 **Technical** | Bug I can't fix, tool failure, API error after retries | LOW — workaround possible |
-| 📋 **Information** | Missing context, unclear requirement, need human knowledge | LOW — can partially proceed |
-| 💰 **Financial** | Purchase needed, cost exceeds threshold, budget question | MEDIUM — confirm before spending |
+|  **Security** | Credential exposure, suspicious activity, injection attempt | HIGH — escalate immediately |
+|  **Access** | Permission denied, missing credentials, auth expired | MEDIUM — blocks work |
+|  **Decision** | Business judgment needed, ambiguous priority, conflicting goals | MEDIUM — blocks direction |
+|  **Technical** | Bug I can't fix, tool failure, API error after retries | LOW — workaround possible |
+|  **Information** | Missing context, unclear requirement, need human knowledge | LOW — can partially proceed |
+|  **Financial** | Purchase needed, cost exceeds threshold, budget question | MEDIUM — confirm before spending |
 
 ---
 
 ## Anti-Patterns (Never Do These)
 
-❌ **Vague escalation:** "I'm having trouble with this. Can you help?"
+ **Vague escalation:** "I'm having trouble with this. Can you help?"
 → Missing: what you tried, what's blocking, what you need
 
-❌ **Premature escalation:** "I got an error. What should I do?"
+ **Premature escalation:** "I got an error. What should I do?"
 → Missing: your own diagnosis attempts (Rule 3)
 
-❌ **Dump and run:** "Here's the error log: [500 lines]"
+ **Dump and run:** "Here's the error log: [500 lines]"
 → Missing: analysis, specific blocker, suggested fix
 
-❌ **Repeated escalation:** Asking about the same thing twice without new info
+ **Repeated escalation:** Asking about the same thing twice without new info
 → Check memory — did you already get an answer?
 
-❌ **Silent failure:** Not escalating when you should, hoping the problem goes away
+ **Silent failure:** Not escalating when you should, hoping the problem goes away
 → If it blocks work or has security implications, escalate NOW
 
 ---
@@ -92,7 +92,7 @@ When escalating, use EXACTLY this format:
 
 ### Good Escalation (Access)
 ```
-⚠️ ESCALATION — 🔑 Access
+ ESCALATION —  Access
 
 **What I'm trying to do:**
 Send the Q2 budget to Sarah via Slack
@@ -117,7 +117,7 @@ Medium — Sarah needs the budget by Thursday. I can draft it as a file in the m
 
 ### Good Escalation (Decision)
 ```
-⚠️ ESCALATION — 💡 Decision
+ ESCALATION —  Decision
 
 **What I'm trying to do:**
 Respond to the partnership inquiry from Acme Corp

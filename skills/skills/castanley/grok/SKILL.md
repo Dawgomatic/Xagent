@@ -13,7 +13,7 @@ metadata:
   dependencies: []
   interface: REST
 openclaw:
-  emoji: "🔍"
+  emoji: ""
   install:
     env:
       - XAI_API_KEY

@@ -238,7 +238,7 @@ def check_alerts(results: list, cache: dict, alert_state: dict) -> list:
             alert_key = f"{symbol}_regime_flip"
             current_keys.add(alert_key)
             if alert_state["triggered"].get(alert_key) != f"{prev_regime}->{regime}":
-                alerts.append(f"🔄 *{symbol}*: {prev_regime} → {regime}")
+                alerts.append(f" *{symbol}*: {prev_regime} → {regime}")
                 alert_state["triggered"][alert_key] = f"{prev_regime}->{regime}"
         
         # ADX near threshold (potential flip)
@@ -247,7 +247,7 @@ def check_alerts(results: list, cache: dict, alert_state: dict) -> list:
             current_keys.add(alert_key)
             threshold_key = f"{symbol}_{regime}_adx_{adx:.0f}"
             if alert_state["triggered"].get(alert_key) != threshold_key:
-                alerts.append(f"⚠️ *{symbol}*: ADX {adx:.1f} (near Ranging)")
+                alerts.append(f" *{symbol}*: ADX {adx:.1f} (near Ranging)")
                 alert_state["triggered"][alert_key] = threshold_key
         
         # Contrarian funding signals (price/funding divergence)
@@ -259,7 +259,7 @@ def check_alerts(results: list, cache: dict, alert_state: dict) -> list:
                 current_keys.add(alert_key)
                 contrarian_key = f"{funding:.4f}_{change_24h:.1f}"
                 if alert_state["triggered"].get(alert_key) != contrarian_key:
-                    alerts.append(f"⚡ *{symbol}*: CONTRARIAN - Price down, longs paying (trapped longs)")
+                    alerts.append(f" *{symbol}*: CONTRARIAN - Price down, longs paying (trapped longs)")
                     alert_state["triggered"][alert_key] = contrarian_key
             elif change_24h > 0 and funding < 0:
                 # Price up, shorts paying → trapped shorts
@@ -267,7 +267,7 @@ def check_alerts(results: list, cache: dict, alert_state: dict) -> list:
                 current_keys.add(alert_key)
                 contrarian_key = f"{funding:.4f}_{change_24h:.1f}"
                 if alert_state["triggered"].get(alert_key) != contrarian_key:
-                    alerts.append(f"⚡ *{symbol}*: CONTRARIAN - Price up, shorts paying (squeeze setup)")
+                    alerts.append(f" *{symbol}*: CONTRARIAN - Price up, shorts paying (squeeze setup)")
                     alert_state["triggered"][alert_key] = contrarian_key
         
         # Funding extreme (threshold: 0.03%)
@@ -277,7 +277,7 @@ def check_alerts(results: list, cache: dict, alert_state: dict) -> list:
             funding_key = f"{funding:.4f}"
             if alert_state["triggered"].get(alert_key) != funding_key:
                 direction = "longs paying" if funding > 0 else "shorts paying"
-                alerts.append(f"🔥 *{symbol}*: Funding {funding:+.2f}% ({direction})")
+                alerts.append(f" *{symbol}*: Funding {funding:+.2f}% ({direction})")
                 alert_state["triggered"][alert_key] = funding_key
         
         # Volume spike (threshold: 3x average)
@@ -286,7 +286,7 @@ def check_alerts(results: list, cache: dict, alert_state: dict) -> list:
             current_keys.add(alert_key)
             vol_key = f"{vol_ratio:.1f}"
             if alert_state["triggered"].get(alert_key) != vol_key:
-                alerts.append(f"🔊 *{symbol}*: Volume {vol_ratio:.1f}x avg")
+                alerts.append(f" *{symbol}*: Volume {vol_ratio:.1f}x avg")
                 alert_state["triggered"][alert_key] = vol_key
     
     # Clear states for conditions that no longer exist
@@ -376,12 +376,12 @@ def main():
     
     # Output alerts (or "no alerts" status)
     if alerts:
-        print("🚨 *ALERTS*")
+        print(" *ALERTS*")
         for alert in alerts:
             print(alert)
         return alerts
     else:
-        print("✅ No alerts", file=sys.stderr)
+        print(" No alerts", file=sys.stderr)
         return []
 
 

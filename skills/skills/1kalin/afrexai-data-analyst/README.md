@@ -1,4 +1,4 @@
-# Data Analyst — AfrexAI ⚡📊
+# Data Analyst — AfrexAI 
 
 **Turn your AI agent into a senior data analyst that delivers insights, not just queries.**
 
@@ -42,7 +42,7 @@ The skill guides your agent through:
 - **Engineers** who can query but struggle with "so what?"
 - **Anyone** tired of getting data dumps instead of answers
 
-## ⚡ Level Up Your Data Game
+##  Level Up Your Data Game
 
 This free skill gives you the methodology. Want the full vertical context?
 
@@ -53,9 +53,9 @@ Our **$47 Context Packs** add industry-specific KPIs, benchmarks, and analysis t
 - **Fintech Pack** — Transaction monitoring, risk scoring, regulatory reporting
 - **Manufacturing Pack** — OEE analysis, defect tracking, supply chain metrics
 
-👉 [Browse all 10 vertical packs](https://afrexai-cto.github.io/context-packs/)
+ [Browse all 10 vertical packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Find and qualify leads automatically
 - [afrexai-seo-content-engine](https://clawhub.com/skills/afrexai-seo-content-engine) — Create SEO content that ranks
@@ -65,4 +65,4 @@ Our **$47 Context Packs** add industry-specific KPIs, benchmarks, and analysis t
 
 ---
 
-*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) ⚡ — AI that works.*
+*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/)  — AI that works.*

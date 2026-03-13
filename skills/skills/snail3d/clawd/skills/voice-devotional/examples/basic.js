@@ -15,10 +15,10 @@ async function main() {
   });
 
   try {
-    console.log('🎙️ Voice Devotional - Basic Examples\n');
+    console.log(' Voice Devotional - Basic Examples\n');
 
     // Example 1: Daily devotional
-    console.log('📖 Generating daily devotional on peace...');
+    console.log(' Generating daily devotional on peace...');
     const daily = await vd.generateDaily({
       theme: 'peace',
       voiceId: 'josh'
@@ -27,7 +27,7 @@ async function main() {
     console.log(`  Duration: ${daily.lesson.estimatedDuration}s\n`);
 
     // Example 2: Scripture reading
-    console.log('📖 Generating scripture reading (John 3:16)...');
+    console.log(' Generating scripture reading (John 3:16)...');
     const scripture = await vd.generateScripture({
       passage: 'John 3:16',
       voiceId: 'josh',
@@ -37,7 +37,7 @@ async function main() {
     console.log(`  Passage: ${scripture.scripture.reference}\n`);
 
     // Example 3: Reading plan
-    console.log('📚 Generating 7-day hope study plan...');
+    console.log(' Generating 7-day hope study plan...');
     const plan = await vd.generatePlan({
       topic: 'hope',
       days: 7,
@@ -46,18 +46,18 @@ async function main() {
     console.log(`✓ Created ${plan.results.length} files at: ${plan.planDir}\n`);
 
     // Example 4: Roman Road
-    console.log('⛪ Generating Roman Road gospel presentation...');
+    console.log(' Generating Roman Road gospel presentation...');
     const romanRoad = await vd.generateRomanRoad({
       voiceId: 'chris',
       length: 'standard'
     });
     console.log(`✓ Created: ${romanRoad.audioPath}\n`);
 
-    console.log('✅ All examples completed successfully!');
+    console.log(' All examples completed successfully!');
     console.log('\nCheck ./output/ for generated audio files.');
 
   } catch (err) {
-    console.error('❌ Error:', err.message);
+    console.error(' Error:', err.message);
     process.exit(1);
   }
 }

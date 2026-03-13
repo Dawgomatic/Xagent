@@ -11,14 +11,14 @@ Full-featured Clawdbot skill for trading Hyperliquid perpetual futures. Monitor 
 - **Trade History**: View recent fills
 - **Security**: Read-only mode by default, trading requires explicit private key
 
-### Market Analysis Tools 🆕
+### Market Analysis Tools 
 - **Chart Data with Volume**: Historical price action via CoinGecko
 - **Momentum Detection**: Automated signal generation (strong bull/bear/neutral)
 - **Volume Analysis**: Compare current volume vs average
 - **Multi-timeframe**: 1-hour and 6-hour trend analysis
 - **228+ Assets**: Trade any perpetual on Hyperliquid
 
-### Strategy Support 🆕
+### Strategy Support 
 - **Position Monitoring**: Check P&L with automated alerts
 - **Risk Management**: 10% position size, stop losses, profit targets
 - **Market Scanner**: Quick overview of all major assets
@@ -65,7 +65,7 @@ cp .env.example .env
 nano .env
 ```
 
-⚠️ **Security**: Never commit your `.env` file. It's already in `.gitignore`.
+ **Security**: Never commit your `.env` file. It's already in `.gitignore`.
 
 ### Testnet
 
@@ -261,12 +261,12 @@ Built with:
 ## Updates
 
 **v2.0.0** (2026-01-27)
-- 🎉 Integrated official Hyperliquid SDK
-- 📊 Added chart/volume analysis via CoinGecko
-- 🎯 Automated momentum signal detection
-- 📈 Position monitoring with P&L alerts
-- 🔧 Fixed all trading operations
-- 📝 Complete strategy documentation
+-  Integrated official Hyperliquid SDK
+-  Added chart/volume analysis via CoinGecko
+-  Automated momentum signal detection
+-  Position monitoring with P&L alerts
+-  Fixed all trading operations
+-  Complete strategy documentation
 
 **v1.0.0** (2026-01-27)
 - Initial release

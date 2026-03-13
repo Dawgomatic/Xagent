@@ -1,14 +1,14 @@
 ---
 name: binance-pro
 description: Complete Binance integration - world's largest crypto exchange. Trade spot, futures with up to 125x leverage, staking, and portfolio management. Use to check balances, open/close positions, set stop loss and take profit, check PnL, and any Binance operation.
-metadata: {"openclaw":{"emoji":"🟡","always":true,"requires":{"bins":["curl","jq"]}}}
+metadata: {"openclaw":{"emoji":"","always":true,"requires":{"bins":["curl","jq"]}}}
 ---
 
-# Binance Pro 🟡
+# Binance Pro 
 
 Professional skill for trading on Binance - the world's largest crypto exchange.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Setup Credentials
 
@@ -26,7 +26,7 @@ export BINANCE_API_KEY="your_api_key"
 export BINANCE_SECRET="your_secret_key"
 ```
 
-## 📊 Basic Queries
+##  Basic Queries
 
 ### Check Spot Balance
 ```bash
@@ -53,7 +53,7 @@ curl -s "https://fapi.binance.com/fapi/v2/positionRisk?${QUERY}&signature=${SIGN
   -H "X-MBX-APIKEY: ${API_KEY}" | jq '[.[] | select(.positionAmt != "0")]'
 ```
 
-## ⚡ Futures (Leverage Trading)
+##  Futures (Leverage Trading)
 
 ### Open LONG Position (Buy)
 ```bash
@@ -134,7 +134,7 @@ curl -s -X POST "https://fapi.binance.com/fapi/v1/leverage?${QUERY}&signature=${
   -H "X-MBX-APIKEY: ${API_KEY}" | jq '.'
 ```
 
-## 📈 Spot Trading
+##  Spot Trading
 
 ### Buy (Market)
 ```bash
@@ -162,7 +162,7 @@ curl -s -X POST "https://api.binance.com/api/v3/order?${QUERY}&signature=${SIGNA
   -H "X-MBX-APIKEY: ${API_KEY}" | jq '.'
 ```
 
-## 🔧 Utilities
+##  Utilities
 
 ### View Open Orders
 ```bash
@@ -199,7 +199,7 @@ curl -s "https://fapi.binance.com/fapi/v1/userTrades?${QUERY}&signature=${SIGNAT
   -H "X-MBX-APIKEY: ${API_KEY}" | jq '.[-10:]'
 ```
 
-## 🏦 Detailed Futures Balance
+##  Detailed Futures Balance
 ```bash
 TIMESTAMP=$(date +%s%3N)
 QUERY="timestamp=${TIMESTAMP}"
@@ -209,7 +209,7 @@ curl -s "https://fapi.binance.com/fapi/v2/balance?${QUERY}&signature=${SIGNATURE
   -H "X-MBX-APIKEY: ${API_KEY}" | jq '[.[] | select(.balance != "0")]'
 ```
 
-## 📋 Popular Pairs
+##  Popular Pairs
 
 | Pair | Description |
 |------|-------------|
@@ -222,7 +222,7 @@ curl -s "https://fapi.binance.com/fapi/v2/balance?${QUERY}&signature=${SIGNATURE
 | ADAUSDT | Cardano |
 | AVAXUSDT | Avalanche |
 
-## ⚠️ Safety Rules
+##  Safety Rules
 
 1. **ALWAYS** verify position before closing
 2. **ALWAYS** set Stop Loss on leveraged trades
@@ -230,7 +230,7 @@ curl -s "https://fapi.binance.com/fapi/v2/balance?${QUERY}&signature=${SIGNATURE
 4. **VERIFY** pair and quantity before executing
 5. **CONFIRM** with user before executing large orders
 
-## 🔗 Links
+##  Links
 
 - [API Documentation](https://binance-docs.github.io/apidocs/)
 - [Create Account](https://accounts.binance.com/register?ref=CPA_00F3AR52CL)

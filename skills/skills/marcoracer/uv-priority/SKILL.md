@@ -2,7 +2,7 @@
 name: uv-priority
 description: Prioritize uv over pip for all Python package management and execution commands in Claude Code.
 license: MIT
-metadata: {"openclaw":{"always":true,"emoji":"⚡","homepage":"https://github.com/marcoracer/uv-priority","os":["darwin","linux","windows"],"tags":["python","uv","pip","package-management"],"requires":{"anyBins":["uv"]}}}
+metadata: {"openclaw":{"always":true,"emoji":"","homepage":"https://github.com/marcoracer/uv-priority","os":["darwin","linux","windows"],"tags":["python","uv","pip","package-management"],"requires":{"anyBins":["uv"]}}}
 ---
 
 # UV Priority

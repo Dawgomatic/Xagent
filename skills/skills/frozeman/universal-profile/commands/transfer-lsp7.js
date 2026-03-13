@@ -33,7 +33,7 @@ async function transfer(tokenAddress, toAddress, amount, useRelay = false, optio
   const creds = loadCredentials();
   const upAddress = creds.universalProfile.address;
 
-  console.log('🐙 LSP7 Token Transfer');
+  console.log(' LSP7 Token Transfer');
   console.log('======================');
   console.log('From UP:', upAddress);
   console.log('To:', toAddress);
@@ -54,12 +54,12 @@ async function transfer(tokenAddress, toAddress, amount, useRelay = false, optio
   // Validate
   const validation = await validateLSP7Transfer(tokenAddress, upAddress, amount);
   if (!validation.valid) {
-    console.error('❌', validation.error);
+    console.error('', validation.error);
     process.exit(1);
   }
 
   // Build transfer payload
-  console.log('📝 Building transaction...');
+  console.log(' Building transaction...');
   const transferData = await buildLSP7TransferPayload(
     tokenAddress,
     upAddress,  // from
@@ -76,7 +76,7 @@ async function transfer(tokenAddress, toAddress, amount, useRelay = false, optio
   );
 
   // Execute
-  console.log('📤 Sending transaction...');
+  console.log(' Sending transaction...');
   let result;
   
   if (useRelay) {
@@ -93,7 +93,7 @@ async function transfer(tokenAddress, toAddress, amount, useRelay = false, optio
   }
 
   console.log('');
-  console.log('✅ Transfer successful!');
+  console.log(' Transfer successful!');
   console.log('TX:', result.txHash);
   console.log('Explorer:', result.explorerUrl);
 
@@ -122,7 +122,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
   transfer(tokenAddress, toAddress, amount, useRelay).catch(error => {
     console.error('');
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   });
 }

@@ -72,25 +72,25 @@ class BacktestRunner:
             default_config.update(config)
         config = default_config
 
-        print(f"🔍 Loading strategy: {strategy_path}")
+        print(f" Loading strategy: {strategy_path}")
 
         try:
             # Load strategy
             strategy_module, strategy_name = self.load_strategy(strategy_path)
 
-            print(f"📊 Starting backtest for: {strategy_name}")
-            print(f"📅 Period: {config['start_date']} to {config['end_date']}")
-            print(f"💰 Initial Balance: ${config['initial_balance']:,.2f}")
-            print(f"⏱️  Interval: {config['interval']}")
-            print(f"📈 Symbol: {config['symbol']}")
+            print(f" Starting backtest for: {strategy_name}")
+            print(f" Period: {config['start_date']} to {config['end_date']}")
+            print(f" Initial Balance: ${config['initial_balance']:,.2f}")
+            print(f"  Interval: {config['interval']}")
+            print(f" Symbol: {config['symbol']}")
 
             # Check if strategy has backtest method
             if hasattr(strategy_module, 'run_backtest'):
-                print("✅ Strategy has built-in backtest method")
+                print(" Strategy has built-in backtest method")
                 # Use strategy's built-in backtest
                 results = strategy_module.run_backtest(config)
             else:
-                print("⚠️  Strategy doesn't have built-in backtest, using simulation")
+                print("  Strategy doesn't have built-in backtest, using simulation")
                 # Run simplified simulation
                 results = self._run_simulation(strategy_module, config)
 
@@ -103,7 +103,7 @@ class BacktestRunner:
             return results
 
         except Exception as e:
-            print(f"❌ Backtest failed: {e}")
+            print(f" Backtest failed: {e}")
             import traceback
             traceback.print_exc()
             return None
@@ -116,7 +116,7 @@ class BacktestRunner:
         In a real implementation, this would use historical data and
         simulate trades with realistic market conditions.
         """
-        print("⚠️  Running simplified simulation (placeholder)")
+        print("  Running simplified simulation (placeholder)")
 
         # This is a mock simulation - in reality, you would:
         # 1. Load historical price data
@@ -149,14 +149,14 @@ class BacktestRunner:
     def _generate_report(self, strategy_name, results, config):
         """Generate backtest report"""
         print("\n" + "="*60)
-        print(f"📊 Backtest Results for {strategy_name}")
+        print(f" Backtest Results for {strategy_name}")
         print("="*60)
 
-        print(f"📅 Period: {config['start_date']} to {config['end_date']}")
-        print(f"💰 Initial Balance: ${results['initial_balance']:,.2f}")
-        print(f"💰 Final Balance: ${results['final_balance']:,.2f}")
+        print(f" Period: {config['start_date']} to {config['end_date']}")
+        print(f" Initial Balance: ${results['initial_balance']:,.2f}")
+        print(f" Final Balance: ${results['final_balance']:,.2f}")
 
-        print(f"\n📈 Performance Metrics:")
+        print(f"\n Performance Metrics:")
         print(f"  • Total Return: +{results['total_return_pct']:.2f}%")
         print(f"  • Max Drawdown: -{results['max_drawdown_pct']:.2f}%")
         print(f"  • Sharpe Ratio: {results['sharpe_ratio']:.2f}")
@@ -164,7 +164,7 @@ class BacktestRunner:
         print(f"  • Total Trades: {results['total_trades']}")
         print(f"  • Avg Trade Duration: {results['avg_trade_duration_hours']:.1f} hours")
 
-        print(f"\n📋 Trade Analysis:")
+        print(f"\n Trade Analysis:")
         print(f"  • Winning Trades: {results['winning_trades']}")
         print(f"  • Losing Trades: {results['losing_trades']}")
         print(f"  • Largest Win: +${results['largest_win']:.2f}")
@@ -173,7 +173,7 @@ class BacktestRunner:
         print(f"  • Avg Loss: -${results['avg_loss']:.2f}")
         print(f"  • Total Commission: ${results['total_commission']:.2f}")
 
-        print(f"\n⚠️  Risk Assessment:")
+        print(f"\n  Risk Assessment:")
         if results['total_return_pct'] > 10 and results['max_drawdown_pct'] < 10:
             print(f"  • Risk-Adjusted Return: Good")
         elif results['total_return_pct'] > 5:
@@ -188,7 +188,7 @@ class BacktestRunner:
         else:
             print(f"  • Consistency: Low")
 
-        print(f"\n📝 Notes:")
+        print(f"\n Notes:")
         print(f"  • Simulation Type: {results.get('simulation_type', 'unknown')}")
         print(f"  • Always test with real market conditions before live trading")
         print(f"  • Past performance does not guarantee future results")
@@ -213,7 +213,7 @@ class BacktestRunner:
             # Save to session directory
             output_dir = Path("sessions") / session_id / "backtest_results"
             output_dir.mkdir(parents=True, exist_ok=True)
-            print(f"📁 Saving to session: {session_id}")
+            print(f" Saving to session: {session_id}")
         else:
             # Legacy behavior
             output_dir = Path("backtest_results")
@@ -238,7 +238,7 @@ class BacktestRunner:
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
-        print(f"\n💾 Results saved to: {filepath}")
+        print(f"\n Results saved to: {filepath}")
 
         # Also save a summary file
         self._save_summary(strategy_name, results, config, filepath.parent, session_id)
@@ -267,11 +267,11 @@ class BacktestRunner:
 
             f.write("Generated: " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "\n")
 
-        print(f"📝 Summary saved to: {summary_file}")
+        print(f" Summary saved to: {summary_file}")
 
     def compare_strategies(self, strategy_paths, config=None):
         """Compare multiple strategies"""
-        print(f"🔍 Comparing {len(strategy_paths)} strategies")
+        print(f" Comparing {len(strategy_paths)} strategies")
 
         comparison_results = {}
 
@@ -282,7 +282,7 @@ class BacktestRunner:
                     strategy_name = Path(strategy_path).stem
                     comparison_results[strategy_name] = results
             except Exception as e:
-                print(f"❌ Failed to backtest {strategy_path}: {e}")
+                print(f" Failed to backtest {strategy_path}: {e}")
 
         # Generate comparison report
         if comparison_results:
@@ -293,7 +293,7 @@ class BacktestRunner:
     def _generate_comparison_report(self, comparison_results):
         """Generate comparison report for multiple strategies"""
         print("\n" + "="*60)
-        print("📊 Strategy Comparison Report")
+        print(" Strategy Comparison Report")
         print("="*60)
 
         headers = ["Strategy", "Return %", "Max DD %", "Sharpe", "Win Rate %", "Trades"]
@@ -316,8 +316,8 @@ class BacktestRunner:
         best_return = max(comparison_results.items(),
                          key=lambda x: x[1]['total_return_pct'])
 
-        print(f"\n🏆 Best by Sharpe Ratio: {best_sharpe[0]} ({best_sharpe[1]['sharpe_ratio']:.2f})")
-        print(f"🏆 Best by Total Return: {best_return[0]} ({best_return[1]['total_return_pct']:.2f}%)")
+        print(f"\n Best by Sharpe Ratio: {best_sharpe[0]} ({best_sharpe[1]['sharpe_ratio']:.2f})")
+        print(f" Best by Total Return: {best_return[0]} ({best_return[1]['total_return_pct']:.2f}%)")
 
 
 def main():
@@ -325,9 +325,9 @@ def main():
     # Check Python version first
     import sys
     if sys.version_info < (3, 6):
-        print(f"❌ Python版本错误: 需要Python 3.6+")
+        print(f" Python版本错误: 需要Python 3.6+")
         print(f"   当前版本: {sys.version}")
-        print(f"\n💡 回测功能需要Python 3.6或更高版本")
+        print(f"\n 回测功能需要Python 3.6或更高版本")
         sys.exit(1)
 
     parser = argparse.ArgumentParser(description='Run backtests on trading strategies')

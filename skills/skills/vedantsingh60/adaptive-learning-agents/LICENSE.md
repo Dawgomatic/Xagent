@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright © 2026 UnisAI Community
+Copyright  2026 UnisAI Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,11 @@ SOFTWARE.
 
 ## You are free to:
 
-✅ **Use** - Use the software for any purpose, commercial or personal
-✅ **Modify** - Change the code and create derivatives
-✅ **Distribute** - Share the software with others
-✅ **Sublicense** - Include it in your own projects with your own license
-✅ **Review** - Read, audit, and reverse-engineer the source code
+ **Use** - Use the software for any purpose, commercial or personal
+ **Modify** - Change the code and create derivatives
+ **Distribute** - Share the software with others
+ **Sublicense** - Include it in your own projects with your own license
+ **Review** - Read, audit, and reverse-engineer the source code
 
 ## The only requirements are:
 
@@ -50,7 +50,7 @@ cp LICENSE.md your_project/
 ### In Your Code
 Add this header to your source files:
 ```python
-# Copyright © 2026 UnisAI Community
+# Copyright  2026 UnisAI Community
 # Licensed under the MIT License
 # See LICENSE.md for details
 ```

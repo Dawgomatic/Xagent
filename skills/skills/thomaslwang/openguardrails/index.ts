@@ -174,7 +174,7 @@ const openClawGuardPlugin = {
         });
 
         if (detected) {
-          log.warn(`⚠️ INJECTION DETECTED in tool result from "${toolName}": ${verdict.reason}`);
+          log.warn(` INJECTION DETECTED in tool result from "${toolName}": ${verdict.reason}`);
         }
       }).catch((error) => {
         log.error(`Tool result analysis failed: ${error}`);
@@ -270,7 +270,7 @@ const openClawGuardPlugin = {
         if (recentLogs.length > 0) {
           statusLines.push("", "**Recent Analyses**");
           for (const log of recentLogs) {
-            const status = log.blocked ? "🚫 BLOCKED" : log.verdict.isInjection ? "⚠️ DETECTED" : "✅ SAFE";
+            const status = log.blocked ? " BLOCKED" : log.verdict.isInjection ? " DETECTED" : " SAFE";
             statusLines.push(
               `- ${log.timestamp}: ${log.targetType} (${log.contentLength} chars) - ${status}`,
             );
@@ -299,7 +299,7 @@ const openClawGuardPlugin = {
         ];
 
         for (const d of detections) {
-          const status = d.blocked ? "🚫 BLOCKED" : "⚠️ DETECTED";
+          const status = d.blocked ? " BLOCKED" : " DETECTED";
           lines.push(`**#${d.id}** - ${d.timestamp}`);
           lines.push(`- Status: ${status}`);
           lines.push(`- Type: ${d.targetType} (${d.contentLength} chars)`);

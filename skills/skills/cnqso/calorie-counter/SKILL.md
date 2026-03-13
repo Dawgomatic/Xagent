@@ -1,7 +1,7 @@
 ---
 name: calorie-counter
 description: Track daily calorie and protein intake, set goals, and log weight. Use when user mentions food they ate, wants to know remaining calories, or needs to track weight. Stores data in SQLite with automatic daily totals.
-metadata: { "openclaw": { "emoji": "🍎", "requires": { "python": ">=3.7" } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "python": ">=3.7" } } }
 ---
 
 # Calorie Counter

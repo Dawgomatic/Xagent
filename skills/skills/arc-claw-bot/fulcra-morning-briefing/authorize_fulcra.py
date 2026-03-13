@@ -20,7 +20,7 @@ TOKEN_FILE = os.path.join(TOKEN_DIR, "token.json")
 
 
 def main():
-    print("🔐 Fulcra Authorization — Device Flow")
+    print(" Fulcra Authorization — Device Flow")
     print("=" * 45)
     print()
     print("This will open a device flow. Your human needs to:")
@@ -46,7 +46,7 @@ def main():
         json.dump(token_data, f, indent=2)
 
     print()
-    print(f"✅ Token saved to {TOKEN_FILE}")
+    print(f" Token saved to {TOKEN_FILE}")
     print(f"   User ID: {token_data['user_id']}")
     print(f"   Expires: {token_data['expiration']}")
     print()

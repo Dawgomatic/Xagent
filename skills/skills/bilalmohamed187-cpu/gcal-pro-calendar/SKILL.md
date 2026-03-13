@@ -93,7 +93,7 @@ create_event(
 
 ### Modifying Events (Pro)
 
-**⚠️ CONFIRMATION REQUIRED for destructive actions!**
+** CONFIRMATION REQUIRED for destructive actions!**
 
 Before deleting or significantly modifying an event, ALWAYS confirm with the user:
 
@@ -154,35 +154,35 @@ print(generate_morning_brief())
 **For event lists, use this format:**
 
 ```
-📅 **Monday, January 27**
+ **Monday, January 27**
   • 9:00 AM — Team standup
-  • 12:00 PM — Lunch with Alex 📍 Cafe Roma
+  • 12:00 PM — Lunch with Alex  Cafe Roma
   • 3:00 PM — Client call
 
-📅 **Tuesday, January 28**
-  • 10:00 AM — Dentist appointment 📍 123 Main St
+ **Tuesday, January 28**
+  • 10:00 AM — Dentist appointment  123 Main St
 ```
 
 **For confirmations:**
 
 ```
 ✓ Event created: "Lunch with Alex"
-  📅 Friday, Jan 31 at 12:00 PM
-  📍 Cafe Roma
+   Friday, Jan 31 at 12:00 PM
+   Cafe Roma
 ```
 
 **For morning brief:**
 
 ```
-☀️ Good morning! Here's your day:
-📆 Monday, January 27, 2026
+ Good morning! Here's your day:
+ Monday, January 27, 2026
 
 You have 3 events today:
   • 9:00 AM — Team standup
   • 12:00 PM — Lunch with Alex
   • 3:00 PM — Client call
 
-👀 Tomorrow: 2 events
+ Tomorrow: 2 events
 ```
 
 ## File Locations
@@ -205,10 +205,10 @@ This skill works with:
 
 When a Free user attempts a Pro action, respond:
 
-> ⚠️ Creating events requires **gcal-pro Pro** ($12 one-time).
+>  Creating events requires **gcal-pro Pro** ($12 one-time).
 > 
 > Pro includes: Create, edit, delete events + morning briefs.
 > 
-> 👉 Upgrade: [gumroad-link]
+>  Upgrade: [gumroad-link]
 > 
 > For now, I can show you your schedule (free) — want to see today's events?

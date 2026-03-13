@@ -58,9 +58,9 @@ check_skill() {
 }
 
 # Main
-echo -e "\n${GREEN}🔍 Checking Skill Dependencies${NC}\n"
+echo -e "\n${GREEN} Checking Skill Dependencies${NC}\n"
 
-echo -e "${CYAN}📊 Found ${#ALL_SKILLS[@]} installed skills${NC}\n"
+echo -e "${CYAN} Found ${#ALL_SKILLS[@]} installed skills${NC}\n"
 
 # Check all skills
 for skills_dir in "$BUILTIN_SKILLS" "$USER_SKILLS" "$LOCAL_SKILLS"; do
@@ -75,9 +75,9 @@ done
 
 # Report
 if [[ ${#MISSING_DEPS[@]} -eq 0 ]]; then
-    echo -e "${GREEN}✅ All dependencies satisfied!${NC}\n"
+    echo -e "${GREEN} All dependencies satisfied!${NC}\n"
 else
-    echo -e "${RED}❌ Skills with missing dependencies:${NC}\n"
+    echo -e "${RED} Skills with missing dependencies:${NC}\n"
     for skill in "${!MISSING_DEPS[@]}"; do
         echo -e "${YELLOW}$skill${NC}"
         echo -e "   Missing:${MISSING_DEPS[$skill]}"

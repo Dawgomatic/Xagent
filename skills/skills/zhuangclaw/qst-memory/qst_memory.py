@@ -4,10 +4,10 @@ QST Memory System v1.5
 樹狀分類 + 混合搜索 + 自動分類 + 記憶衰減
 
 ============================================
-🌳 樹狀分類：34 分類 (6 根 → 18 L2 → 10 L3)
-🔍 三種搜索：Tree / Selection Rule / Semantic
-🤖 自動分類：智能推斷分類
-🧹 記憶衰減：自動清理過期記憶
+ 樹狀分類：34 分類 (6 根 → 18 L2 → 10 L3)
+ 三種搜索：Tree / Selection Rule / Semantic
+ 自動分類：智能推斷分類
+ 記憶衰減：自動清理過期記憶
 ============================================
 
 Usage:
@@ -71,10 +71,10 @@ def cmd_search(args):
     else:
         path_display = 'Root'
     
-    print(f"\n📁 Path: {path_display}")
-    print(f"🔗 Related: {', '.join(result.get('related', [])[:5])}")
-    print(f"🔑 Keywords: {', '.join(result.get('keywords', [])[:5])}")
-    print(f"📊 Found: {result.get('count', len(result.get('results', [])))} memories\n")
+    print(f"\n Path: {path_display}")
+    print(f" Related: {', '.join(result.get('related', [])[:5])}")
+    print(f" Keywords: {', '.join(result.get('keywords', [])[:5])}")
+    print(f" Found: {result.get('count', len(result.get('results', [])))} memories\n")
     
     for i, r in enumerate(result.get('results', result.get('memories', []))[:5], 1):
         content = r if isinstance(r, str) else r.get('content', str(r))
@@ -102,14 +102,14 @@ def cmd_save(args):
     )
     
     if result["success"]:
-        print(f"\n✅ 記憶已保存！")
+        print(f"\n 記憶已保存！")
         print(f"   分類: {result['category']}")
         print(f"   權重: [{result['weight']}]")
         print(f"   索引: #{result['index']}")
         if result.get('auto_classified'):
-            print(f"   自動分類: ✅ ({result['reasoning']})")
+            print(f"   自動分類:  ({result['reasoning']})")
     else:
-        print(f"\n❌ 保存失敗！")
+        print(f"\n 保存失敗！")
 
 
 def cmd_classify(args):
@@ -123,17 +123,17 @@ def cmd_classify(args):
     
     result = auto_classify(content)
     
-    print(f"\n📊 分類結果")
+    print(f"\n 分類結果")
     print(f"{'='*50}")
-    print(f"🏷️ 建議分類: {result['suggested_category']}")
-    print(f"📈 置信度: {result['confidence']}")
-    print(f"🎯 分數: {result['primary_score']}")
-    print(f"💡 推理: {result['reasoning']}")
+    print(f" 建議分類: {result['suggested_category']}")
+    print(f" 置信度: {result['confidence']}")
+    print(f" 分數: {result['primary_score']}")
+    print(f" 推理: {result['reasoning']}")
     
-    print(f"\n🔑 關鍵詞: {', '.join(result['keywords'][:10])}")
+    print(f"\n 關鍵詞: {', '.join(result['keywords'][:10])}")
     
     if result.get('alternatives'):
-        print(f"\n🔄 備選:")
+        print(f"\n 備選:")
         for alt in result['alternatives']:
             print(f"  • {alt['category']} ({alt['score']}) - {alt['confidence']}")
 
@@ -148,13 +148,13 @@ def cmd_suggest(args):
     
     suggestion = suggest_category(" ".join(keywords), config)
     
-    print(f"\n💡 建議: {suggestion['reasoning']}")
+    print(f"\n 建議: {suggestion['reasoning']}")
     
     if suggestion.get('suggested_parent'):
-        print(f"📁 父分類: {suggestion['suggested_parent']}")
+        print(f" 父分類: {suggestion['suggested_parent']}")
     
     if suggestion.get('suggested_name'):
-        print(f"🏷️ 建議名稱: {suggestion['suggested_name']}")
+        print(f" 建議名稱: {suggestion['suggested_name']}")
 
 
 def cmd_cleanup(args):
@@ -163,7 +163,7 @@ def cmd_cleanup(args):
         print_status()
     elif args.dry_run:
         report = cleanup_memories(dry_run=True)
-        print(f"\n🧹 預覽清理")
+        print(f"\n 預覽清理")
         print(f"{'='*50}")
         print(f"總記憶: {report['summary']['total']}")
         print(f"保留: {report['summary']['kept']}")
@@ -171,7 +171,7 @@ def cmd_cleanup(args):
         print(f"刪除: {report['summary']['deleted']}")
     elif args.run:
         report = cleanup_memories(dry_run=False)
-        print(f"\n🧹 清理完成")
+        print(f"\n 清理完成")
         print(f"{'='*50}")
         print(f"歸檔: {report['summary']['archived']}")
         print(f"刪除: {report['summary']['deleted']}")
@@ -200,10 +200,10 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 ============================================
-🌳 Tree-Based Classification (34 categories)
-🔍 Multi-Mode Search (Tree/BFS/Semantic/Enhanced/Hybrid)
-🤖 Auto-Classification with AI inference
-🧹 Memory Decay & Cleanup System
+ Tree-Based Classification (34 categories)
+ Multi-Mode Search (Tree/BFS/Semantic/Enhanced/Hybrid)
+ Auto-Classification with AI inference
+ Memory Decay & Cleanup System
 ============================================
 
 Examples:

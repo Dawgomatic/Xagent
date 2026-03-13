@@ -65,9 +65,9 @@ def load_secrets(secrets_file: Path, passphrase: str = None) -> dict:
         if result.returncode == 0:
             return json.loads(result.stdout)
         else:
-            print(f"❌ GPG decryption failed: {result.stderr.strip()}", file=sys.stderr)
+            print(f" GPG decryption failed: {result.stderr.strip()}", file=sys.stderr)
     except (subprocess.TimeoutExpired, json.JSONDecodeError) as e:
-        print(f"❌ Failed to load secrets: {e}", file=sys.stderr)
+        print(f" Failed to load secrets: {e}", file=sys.stderr)
 
     return {}
 
@@ -81,9 +81,9 @@ def _get_passphrase() -> str:
 
     # Interactive prompt
     import getpass
-    passphrase = getpass.getpass("🔑 Enter GPG passphrase for OpenClaw secrets: ")
+    passphrase = getpass.getpass(" Enter GPG passphrase for OpenClaw secrets: ")
     if not passphrase:
-        print("❌ Passphrase cannot be empty", file=sys.stderr)
+        print(" Passphrase cannot be empty", file=sys.stderr)
         sys.exit(1)
     return passphrase
 
@@ -114,7 +114,7 @@ def save_secrets(secrets_file: Path, secrets: dict, passphrase: str = None):
         )
 
         if result.returncode != 0:
-            print(f"❌ GPG encryption failed: {result.stderr.strip()}", file=sys.stderr)
+            print(f" GPG encryption failed: {result.stderr.strip()}", file=sys.stderr)
             return False
 
         os.chmod(secrets_file, 0o600)
@@ -133,11 +133,11 @@ def encrypt_keys(key_names: list):
     secrets_file = home / '.openclaw' / '.env.secrets.gpg'
 
     if not env_file.exists():
-        print("❌ ~/.openclaw/.env does not exist")
+        print(" ~/.openclaw/.env does not exist")
         return False
 
     if not is_gpg_available():
-        print("❌ GPG is not installed")
+        print(" GPG is not installed")
         print("   Install: sudo apt install gnupg")
         print("   Then run: ./scripts/setup-gpg.sh")
         return False
@@ -165,7 +165,7 @@ def encrypt_keys(key_names: list):
 
         # Skip if already encrypted
         if value.startswith('GPG:'):
-            print(f"   ⏭️  {key}: already encrypted")
+            print(f"     {key}: already encrypted")
             continue
 
         # Move value to secrets
@@ -180,23 +180,23 @@ def encrypt_keys(key_names: list):
                 break
 
     if not_found:
-        print(f"\n⚠️  Keys not found in .env: {', '.join(not_found)}")
+        print(f"\n  Keys not found in .env: {', '.join(not_found)}")
 
     if not encrypted:
-        print("\n✅ No new keys to encrypt")
+        print("\n No new keys to encrypt")
         return True
 
     # Save encrypted secrets
-    print(f"\n🔐 Encrypting {len(encrypted)} key(s)...")
+    print(f"\n Encrypting {len(encrypted)} key(s)...")
     if not save_secrets(secrets_file, secrets, passphrase):
         return False
 
     # Update .env with GPG placeholders
     write_env_lines(env_file, env_lines)
 
-    print(f"   ✅ Encrypted: {', '.join(encrypted)}")
-    print(f"   📁 Secrets: {secrets_file}")
-    print(f"   📝 .env updated with GPG: placeholders")
+    print(f"    Encrypted: {', '.join(encrypted)}")
+    print(f"    Secrets: {secrets_file}")
+    print(f"    .env updated with GPG: placeholders")
 
     return True
 
@@ -208,7 +208,7 @@ def decrypt_keys(key_names: list):
     secrets_file = home / '.openclaw' / '.env.secrets.gpg'
 
     if not secrets_file.exists():
-        print("❌ No GPG secrets file found")
+        print(" No GPG secrets file found")
         return False
 
     # Get passphrase once
@@ -225,11 +225,11 @@ def decrypt_keys(key_names: list):
         value = env_data.get(key, '')
 
         if not value.startswith('GPG:'):
-            print(f"   ⏭️  {key}: not GPG-encrypted")
+            print(f"     {key}: not GPG-encrypted")
             continue
 
         if key not in secrets:
-            print(f"   ⚠️  {key}: not found in GPG secrets")
+            print(f"     {key}: not found in GPG secrets")
             continue
 
         # Restore value in .env
@@ -244,7 +244,7 @@ def decrypt_keys(key_names: list):
         decrypted.append(key)
 
     if not decrypted:
-        print("\n✅ No keys to decrypt")
+        print("\n No keys to decrypt")
         return True
 
     # Update secrets file (or remove if empty)
@@ -252,12 +252,12 @@ def decrypt_keys(key_names: list):
         save_secrets(secrets_file, secrets, passphrase)
     else:
         secrets_file.unlink()
-        print("   🗑️  Removed empty secrets file")
+        print("     Removed empty secrets file")
 
     # Update .env
     write_env_lines(env_file, env_lines)
 
-    print(f"\n🔓 Decrypted {len(decrypted)} key(s): {', '.join(decrypted)}")
+    print(f"\n Decrypted {len(decrypted)} key(s): {', '.join(decrypted)}")
 
     return True
 
@@ -268,27 +268,27 @@ def list_encrypted():
     env_file = home / '.openclaw' / '.env'
 
     if not env_file.exists():
-        print("❌ ~/.openclaw/.env does not exist")
+        print(" ~/.openclaw/.env does not exist")
         return
 
     env_data = load_env(env_file)
     gpg_keys = [k for k, v in env_data.items() if v.startswith('GPG:')]
 
     if gpg_keys:
-        print(f"\n🔐 GPG-encrypted keys ({len(gpg_keys)}):\n")
+        print(f"\n GPG-encrypted keys ({len(gpg_keys)}):\n")
         for key in sorted(gpg_keys):
             print(f"   • {key}")
 
         secrets_file = home / '.openclaw' / '.env.secrets.gpg'
         if secrets_file.exists():
-            print(f"\n   📁 Secrets file: {secrets_file}")
+            print(f"\n    Secrets file: {secrets_file}")
             mode = oct(secrets_file.stat().st_mode)[-3:]
-            status = "✅" if mode == '600' else f"⚠️  mode {mode}"
-            print(f"   🔒 Permissions: {status}")
+            status = "" if mode == '600' else f"  mode {mode}"
+            print(f"    Permissions: {status}")
         else:
-            print(f"\n   ⚠️  Secrets file missing!")
+            print(f"\n     Secrets file missing!")
     else:
-        print("\n📋 No GPG-encrypted keys found in .env")
+        print("\n No GPG-encrypted keys found in .env")
 
 
 def main():
@@ -304,7 +304,7 @@ def main():
 
     if not args.keys:
         parser.print_help()
-        print("\n💡 Examples:")
+        print("\n Examples:")
         print("   ./scripts/encrypt.py --keys MAIN_WALLET_PRIVATE_KEY,FARCASTER_CUSTODY_PRIVATE_KEY")
         print("   ./scripts/encrypt.py --list")
         print("   ./scripts/encrypt.py --decrypt --keys MAIN_WALLET_PRIVATE_KEY")

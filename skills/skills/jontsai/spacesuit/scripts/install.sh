@@ -19,13 +19,13 @@ WORKSPACE="${1:-$(cd "$SPACESUIT_DIR/../.." && pwd)}"
 
 VERSION="$(cat "$SPACESUIT_DIR/VERSION")"
 
-echo "🚀 Spacesuit Installer v${VERSION}"
+echo " Spacesuit Installer v${VERSION}"
 echo "   Workspace: $WORKSPACE"
 echo "   Spacesuit: $SPACESUIT_DIR"
 echo ""
 
 # Create necessary directories
-echo "📁 Creating directories..."
+echo " Creating directories..."
 mkdir -p "$WORKSPACE/memory"
 mkdir -p "$WORKSPACE/handoff/pending"
 mkdir -p "$WORKSPACE/handoff/completed"
@@ -52,12 +52,12 @@ install_file() {
   local target_path="$WORKSPACE/$target_name"
 
   if [[ -f "$target_path" ]]; then
-    echo "  ⏭️  $target_name already exists — skipping (use upgrade.sh to update framework sections)"
+    echo "    $target_name already exists — skipping (use upgrade.sh to update framework sections)"
     return 0
   fi
 
   if [[ ! -f "$tmpl_path" ]]; then
-    echo "  ⚠️  Template $tmpl_name not found — skipping"
+    echo "    Template $tmpl_name not found — skipping"
     return 0
   fi
 
@@ -85,11 +85,11 @@ install_file() {
   done < "$tmpl_path"
 
   mv "$tmp_out" "$target_path"
-  echo "  ✅ $target_name — installed"
+  echo "   $target_name — installed"
 }
 
 echo ""
-echo "📄 Installing workspace files..."
+echo " Installing workspace files..."
 
 # Install each template
 # Install each template (all .md files and Makefile in templates/)
@@ -101,17 +101,17 @@ done
 
 # Install utility scripts
 echo ""
-echo "🔧 Installing utility scripts..."
+echo " Installing utility scripts..."
 for script in "$SCRIPT_DIR"/sync-*.sh; do
   if [[ -f "$script" ]]; then
     script_name="$(basename "$script")"
     target="$WORKSPACE/scripts/$script_name"
     if [[ -f "$target" ]]; then
-      echo "  ⏭️  scripts/$script_name — already exists"
+      echo "    scripts/$script_name — already exists"
     else
       cp "$script" "$target"
       chmod +x "$target"
-      echo "  ✅ scripts/$script_name — installed"
+      echo "   scripts/$script_name — installed"
     fi
   fi
 done
@@ -119,7 +119,7 @@ done
 # Write spacesuit version tracker
 echo ""
 echo "$VERSION" > "$WORKSPACE/.spacesuit-version"
-echo "  ✅ .spacesuit-version — v${VERSION}"
+echo "   .spacesuit-version — v${VERSION}"
 
 # Create a minimal heartbeat-state.json if it doesn't exist
 if [[ ! -f "$WORKSPACE/memory/heartbeat-state.json" ]]; then
@@ -129,11 +129,11 @@ if [[ ! -f "$WORKSPACE/memory/heartbeat-state.json" ]]; then
   "spacesuitVersion": "0.1.0"
 }
 EOF
-  echo "  ✅ memory/heartbeat-state.json — created"
+  echo "   memory/heartbeat-state.json — created"
 fi
 
 echo ""
-echo "🎉 Spacesuit installed! Next steps:"
+echo " Spacesuit installed! Next steps:"
 echo "   1. Edit IDENTITY.md — name your AI"
 echo "   2. Edit USER.md — tell it about yourself"
 echo "   3. Customize SOUL.md — set the vibe"

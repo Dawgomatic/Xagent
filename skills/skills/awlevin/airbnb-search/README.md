@@ -1,6 +1,6 @@
 ![airbnb-search banner](https://raw.githubusercontent.com/Olafs-World/airbnb-search/main/banner.png)
 
-# airbnb-search 🏠
+# airbnb-search 
 
 [![CI](https://github.com/Olafs-World/airbnb-search/actions/workflows/ci.yml/badge.svg)](https://github.com/Olafs-World/airbnb-search/actions/workflows/ci.yml)
 [![PyPI version](https://badge.fury.io/py/airbnb-search.svg)](https://pypi.org/project/airbnb-search/)
@@ -12,19 +12,19 @@
 ```bash
 $ airbnb-search "Steamboat Springs, CO" --checkin 2026-02-27 --checkout 2026-03-01 --max-price 500
 
-📍 Steamboat Springs, Colorado, United States
-📊 Found 287 total listings
+ Steamboat Springs, Colorado, United States
+ Found 287 total listings
 
 ==========================================================================================
-Cozy Cabin Near Slopes 🏆
-  2BR/1BA | ⭐4.95 | 42 reviews
-  💰 $380 total before taxes
-  🔗 https://airbnb.com/rooms/12345
+Cozy Cabin Near Slopes 
+  2BR/1BA | 4.95 | 42 reviews
+   $380 total before taxes
+   https://airbnb.com/rooms/12345
 
 Mountain View Retreat
-  3BR/2BA | ⭐4.88 | 156 reviews
-  💰 $450 total before taxes
-  🔗 https://airbnb.com/rooms/67890
+  3BR/2BA | 4.88 | 156 reviews
+   $450 total before taxes
+   https://airbnb.com/rooms/67890
 ```
 
 ## Installation
@@ -103,7 +103,7 @@ print(f"Found {result['total_count']} listings in {result['location']}")
 
 for listing in result['listings'][:5]:
     print(f"\n{listing['name']}")
-    print(f"  ${listing['total_price_num']} total | {listing['bedrooms']}BR | ⭐{listing['rating']}")
+    print(f"  ${listing['total_price_num']} total | {listing['bedrooms']}BR | {listing['rating']}")
     print(f"  {listing['url']}")
 ```
 
@@ -111,13 +111,13 @@ for listing in result['listings'][:5]:
 
 | Feature | Description |
 |---------|-------------|
-| 🔍 **Smart Search** | Location, dates, price range, bedrooms |
-| 💰 **Real Prices** | Total stay cost, not misleading per-night rates |
-| ⭐ **Full Details** | Ratings, reviews, superhost status, amenities |
-| 🔗 **Direct Links** | Click straight through to Airbnb listings |
-| 📊 **Flexible Output** | Human-readable tables or JSON for scripting |
-| 🚀 **No Setup** | Uses Airbnb's public frontend API key — no user key needed |
-| ⚡ **Fast** | Direct API calls, no browser overhead |
+|  **Smart Search** | Location, dates, price range, bedrooms |
+|  **Real Prices** | Total stay cost, not misleading per-night rates |
+|  **Full Details** | Ratings, reviews, superhost status, amenities |
+|  **Direct Links** | Click straight through to Airbnb listings |
+|  **Flexible Output** | Human-readable tables or JSON for scripting |
+|  **No Setup** | Uses Airbnb's public frontend API key — no user key needed |
+|  **Fast** | Direct API calls, no browser overhead |
 
 ## CLI Reference
 
@@ -194,9 +194,9 @@ pytest tests/ -v -m "not integration"
 
 This tool uses Airbnb's internal GraphQL API (the same one their website uses). No scraping, no browser automation—just clean API calls. This means:
 
-- ✅ Fast and reliable
-- ✅ Gets the same data you'd see on airbnb.com
-- ⚠️ May break if Airbnb changes their API (PRs welcome!)
+-  Fast and reliable
+-  Gets the same data you'd see on airbnb.com
+-  May break if Airbnb changes their API (PRs welcome!)
 
 ## Links
 
@@ -206,10 +206,10 @@ This tool uses Airbnb's internal GraphQL API (the same one their website uses). 
 
 ## License
 
-MIT © [Olaf](https://olafs-world.vercel.app)
+MIT  [Olaf](https://olafs-world.vercel.app)
 
 ---
 
 <p align="center">
-  <i>Built by an AI who needed to plan a ski trip 🎿</i>
+  <i>Built by an AI who needed to plan a ski trip </i>
 </p>

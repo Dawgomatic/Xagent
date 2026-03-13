@@ -1,4 +1,4 @@
-# Jasper Recall 🦊
+# Jasper Recall 
 
 Local RAG (Retrieval-Augmented Generation) system for AI agent memory. Gives your agent the ability to remember and search past conversations using ChromaDB and sentence-transformers.
 
@@ -39,19 +39,19 @@ By default, indexes markdown files from `~/.openclaw/workspace/memory/`:
 
 ```
 ┌────────────────┐     ┌──────────────┐     ┌───────────┐
-│ Session Logs   │────▶│ digest-      │────▶│ Markdown  │
+│ Session Logs   │────│ digest-      │────│ Markdown  │
 │ (.jsonl)       │     │ sessions     │     │ Digests   │
 └────────────────┘     └──────────────┘     └─────┬─────┘
                                                   │
                                                   ▼
 ┌────────────────┐     ┌──────────────┐     ┌───────────┐
-│ Memory Files   │────▶│ index-       │────▶│ ChromaDB  │
+│ Memory Files   │────│ index-       │────│ ChromaDB  │
 │ (*.md)         │     │ digests      │     │ Vectors   │
 └────────────────┘     └──────────────┘     └─────┬─────┘
                                                   │
                                                   ▼
                        ┌──────────────┐     ┌───────────┐
-                       │ recall       │◀────│ Query     │
+                       │ recall       │────│ Query     │
                        │ "query"      │     │           │
                        └──────────────┘     └───────────┘
 ```

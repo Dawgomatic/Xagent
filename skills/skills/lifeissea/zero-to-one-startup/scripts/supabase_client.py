@@ -3,7 +3,7 @@
 Supabase 클라이언트 — 로컬 모드 전용
 SUPABASE_URL + SUPABASE_SERVICE_KEY 환경변수가 있을 때만 동작.
 
-⚠️  ClawHub 배포 주의사항:
+  ClawHub 배포 주의사항:
     이 모듈은 사용자 본인의 Supabase 키를 사용합니다.
     RAON_API_URL이 설정된 SaaS 모드에서는 이 모듈을 직접 사용하지 않음.
     피드백은 RAON_API_URL/v1/feedback 으로 라우팅됨.

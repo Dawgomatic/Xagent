@@ -128,10 +128,10 @@ function computeScore(pair) {
 }
 
 function getCategory(score) {
-  if (score >= 85) return '🔥 HOT';
-  if (score >= 70) return '✅ Qualified';
-  if (score >= 50) return '👀 Watch';
-  return '❌ Skip';
+  if (score >= 85) return ' HOT';
+  if (score >= 70) return ' Qualified';
+  if (score >= 50) return ' Watch';
+  return ' Skip';
 }
 
 function formatUsd(n) {
@@ -172,7 +172,7 @@ async function scanChain(chainKey, topN = 5, minScore = 50) {
   const chain = CHAINS[chainKey];
   if (!chain) throw new Error(`Unknown chain: ${chainKey}`);
 
-  console.log(`\n🐝 Scanning ${chain.tag} via DexScreener...`);
+  console.log(`\n Scanning ${chain.tag} via DexScreener...`);
 
   try {
     // Get boosted tokens (trending)
@@ -247,7 +247,7 @@ function printResults(results, chain) {
     return;
   }
 
-  console.log(`\n🐝 BUZZ SCAN — ${tag}`);
+  console.log(`\n BUZZ SCAN — ${tag}`);
   console.log('━'.repeat(60));
 
   results.forEach((t, i) => {
@@ -282,7 +282,7 @@ async function main() {
     if (args[i] === '--min-score' && args[i + 1]) minScore = parseInt(args[++i]);
   }
 
-  console.log('🐝 BuzzBD Token Scanner v1.0.0');
+  console.log(' BuzzBD Token Scanner v1.0.0');
   console.log(`   ERC-8004: ETH #25045 | Base #17483`);
   console.log(`   Chains: ${chainFilter || 'all'} | Top: ${topN} | Min Score: ${minScore}`);
 
@@ -323,7 +323,7 @@ async function main() {
   // High conviction (appears on multiple chains)
   const multiChain = Object.entries(crossRef).filter(([, v]) => v.length > 1);
   if (multiChain.length > 0) {
-    console.log('\n⭐ HIGH CONVICTION — Multi-chain presence:');
+    console.log('\n HIGH CONVICTION — Multi-chain presence:');
     for (const [symbol, chains] of multiChain) {
       const chainsStr = chains.map(c => `${CHAINS[c.chain]?.tag} ${c.score}pts`).join(' + ');
       console.log(`   ${symbol.toUpperCase()} — ${chainsStr}`);
@@ -335,8 +335,8 @@ async function main() {
   const hotCount = Object.values(allResults).flat().filter(t => t.score >= 85).length;
   const qualCount = Object.values(allResults).flat().filter(t => t.score >= 70 && t.score < 85).length;
 
-  console.log(`\n📊 SUMMARY: ${totalFound} tokens found | 🔥 HOT: ${hotCount} | ✅ Qualified: ${qualCount}`);
-  console.log(`🐝 BuzzBD scan complete`);
+  console.log(`\n SUMMARY: ${totalFound} tokens found |  HOT: ${hotCount} |  Qualified: ${qualCount}`);
+  console.log(` BuzzBD scan complete`);
 
   // Output JSON for piping
   if (args.includes('--json')) {

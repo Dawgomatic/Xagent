@@ -1,4 +1,4 @@
-# 🤖 Taskline AI - Intelligent Task Management Skill
+#  Taskline AI - Intelligent Task Management Skill
 
 **Transform natural language into structured task management through [MyTaskline.com](https://mytaskline.com)**
 
@@ -6,29 +6,29 @@
 ![MyTaskline.com](https://img.shields.io/badge/Platform-MyTaskline.com-green?style=for-the-badge)
 ![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-success?style=for-the-badge)
 
-## ✨ What This Skill Does
+##  What This Skill Does
 
 Converts **complex natural language** into **fully structured tasks** with:
 
-- 🧠 **Advanced NLP**: Multi-entity parsing with context awareness
-- 📅 **Smart Date Intelligence**: "tomorrow", "next Friday", "end of week"  
-- 🏗️ **Auto Project Creation**: Creates projects when referenced
-- 👥 **People Management**: Assigns executors and stakeholders automatically
-- 🔥 **Priority Detection**: "urgent", "high", "medium", "low" 
-- 🎯 **Intent Recognition**: Routes create/update/query requests intelligently
+-  **Advanced NLP**: Multi-entity parsing with context awareness
+-  **Smart Date Intelligence**: "tomorrow", "next Friday", "end of week"  
+-  **Auto Project Creation**: Creates projects when referenced
+-  **People Management**: Assigns executors and stakeholders automatically
+-  **Priority Detection**: "urgent", "high", "medium", "low" 
+-  **Intent Recognition**: Routes create/update/query requests intelligently
 
-## 🌟 Why MyTaskline.com?
+##  Why MyTaskline.com?
 
 [**MyTaskline.com**](https://mytaskline.com) is a modern task management platform designed for the AI era:
 
-- **🎯 Single-Person Focused**: Perfect for individual productivity
-- **🤖 AI-Ready APIs**: Built for advanced integrations like this skill
-- **📊 Smart Analytics**: Built-in insights and productivity tracking
-- **🏗️ Project Intelligence**: Automatic organization and management
-- **👥 Team Collaboration**: People assignment with role clarity
-- **📱 Modern Interface**: Clean, fast web experience
+- ** Single-Person Focused**: Perfect for individual productivity
+- ** AI-Ready APIs**: Built for advanced integrations like this skill
+- ** Smart Analytics**: Built-in insights and productivity tracking
+- ** Project Intelligence**: Automatic organization and management
+- ** Team Collaboration**: People assignment with role clarity
+- ** Modern Interface**: Clean, fast web experience
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Get Your MyTaskline.com Account
 1. Visit [**mytaskline.com**](https://mytaskline.com) 
@@ -53,14 +53,14 @@ python taskline.py "Create high priority task for Mobile project: implement OAut
 python taskline.py "What tasks are overdue?"
 ```
 
-## 🧠 AI Examples
+##  AI Examples
 
 ### **Smart Task Creation**
 ```bash
 # Multi-entity parsing with full intelligence
 python taskline.py "Create urgent task for WebApp project: implement user authentication by next Friday and have Jennifer handle it with Mike as stakeholder"
 
-# Result: ✅ Task created with:
+# Result:  Task created with:
 # - Title: "implement user authentication"  
 # - Priority: urgent
 # - Due Date: 2026-02-20 (next Friday)
@@ -88,26 +88,26 @@ python taskline.py "Set the API task to in-progress"
 python taskline.py "Update priority to high for login bug"
 ```
 
-## 📊 Production Proven
+##  Production Proven
 
 This skill is **production-ready** and tested with:
 
-- ✅ **40+ tasks** managed in live system
-- ✅ **20+ projects** with auto-creation  
-- ✅ **Multiple people** with role assignments
-- ✅ **Advanced date parsing** across time zones
-- ✅ **Intent recognition** with 95%+ accuracy
-- ✅ **Error handling** for edge cases
+-  **40+ tasks** managed in live system
+-  **20+ projects** with auto-creation  
+-  **Multiple people** with role assignments
+-  **Advanced date parsing** across time zones
+-  **Intent recognition** with 95%+ accuracy
+-  **Error handling** for edge cases
 
-## 🎯 Perfect For
+##  Perfect For
 
-- **📋 Personal Productivity**: AI-powered individual task management
-- **👥 Small Teams**: Collaborative assignment with natural language
-- **🏗️ Project Managers**: Auto-organizing complex workflows  
-- **🤖 AI Enthusiasts**: Cutting-edge natural language processing
-- **⚡ Power Users**: Advanced automation and intelligent routing
+- ** Personal Productivity**: AI-powered individual task management
+- ** Small Teams**: Collaborative assignment with natural language
+- ** Project Managers**: Auto-organizing complex workflows  
+- ** AI Enthusiasts**: Cutting-edge natural language processing
+- ** Power Users**: Advanced automation and intelligent routing
 
-## 🛠 Technical Architecture
+##  Technical Architecture
 
 ### **AI Pipeline**
 ```
@@ -115,60 +115,60 @@ Natural Language → Intent Detection → Entity Extraction → API Integration 
 ```
 
 ### **Core Components**
-- **🤖 AI Dispatcher**: Intent recognition and smart routing
-- **🧠 Enhanced Parser**: Multi-entity natural language processing
-- **📊 Analytics Engine**: Intelligent reporting and insights  
-- **🔄 Smart Updates**: Context-aware status management
-- **🏗️ Resource Manager**: Auto-creation of projects and people
+- ** AI Dispatcher**: Intent recognition and smart routing
+- ** Enhanced Parser**: Multi-entity natural language processing
+- ** Analytics Engine**: Intelligent reporting and insights  
+- ** Smart Updates**: Context-aware status management
+- ** Resource Manager**: Auto-creation of projects and people
 
-## 📁 File Structure
+##  File Structure
 
 ```
 taskline-ai-skill/
-├── 📄 SKILL.md              # OpenClaw skill definition
-├── 🤖 taskline.py           # Main entry point
-├── 📋 README.md             # This file
-├── ⚙️ INSTALL.md            # Detailed setup instructions
-├── 📁 scripts/
-│   ├── 🧠 taskline_ai.py           # AI dispatcher with intent detection  
-│   ├── ✨ create_task_enhanced.py   # Full AI-powered task creation
-│   ├── 🔄 create_task_smart.py     # Progressive enhancement version
-│   ├── 📋 list_tasks.py            # Intelligent task queries
-│   ├── 📊 reports.py               # Analytics and insights
-│   └── ⚙️ update_task.py           # Smart status updates
-└── 📁 references/
-    ├── ⚙️ config.json              # API configuration
-    └── 📖 api_examples.md          # Complete API reference
+├──  SKILL.md              # OpenClaw skill definition
+├──  taskline.py           # Main entry point
+├──  README.md             # This file
+├──  INSTALL.md            # Detailed setup instructions
+├──  scripts/
+│   ├──  taskline_ai.py           # AI dispatcher with intent detection  
+│   ├──  create_task_enhanced.py   # Full AI-powered task creation
+│   ├──  create_task_smart.py     # Progressive enhancement version
+│   ├──  list_tasks.py            # Intelligent task queries
+│   ├──  reports.py               # Analytics and insights
+│   └──  update_task.py           # Smart status updates
+└──  references/
+    ├──  config.json              # API configuration
+    └──  api_examples.md          # Complete API reference
 ```
 
-## 🌟 Key Features
+##  Key Features
 
-### **🧠 Advanced Natural Language Processing**
+### ** Advanced Natural Language Processing**
 - **Multi-entity parsing**: Projects, people, dates, priorities in one request
 - **Context awareness**: Understanding business scenarios and relationships
 - **Intent classification**: Automatic routing to appropriate processing
 - **Error recovery**: Graceful handling of ambiguous inputs
 
-### **🎯 Intelligent Task Management** 
+### ** Intelligent Task Management** 
 - **Auto resource creation**: Projects and people created on-demand
 - **Smart date parsing**: Business-aware relative date handling
 - **Priority detection**: Natural language priority classification
 - **Role assignment**: Executor vs stakeholder identification
 
-### **📊 Production Analytics**
+### ** Production Analytics**
 - **Completion tracking**: Productivity insights and trends
 - **Overdue detection**: Automatic identification of late tasks
 - **Project analytics**: Task distribution and progress monitoring
 - **People analytics**: Workload and assignment tracking
 
-## 🔗 Links & Resources
+##  Links & Resources
 
-- **🌐 Platform**: [mytaskline.com](https://mytaskline.com)
-- **⚙️ API Keys**: [mytaskline.com/settings](https://mytaskline.com/settings)
-- **📊 Dashboard**: Full visual interface for task management
-- **💬 Support**: Contact through MyTaskline.com platform
+- ** Platform**: [mytaskline.com](https://mytaskline.com)
+- ** API Keys**: [mytaskline.com/settings](https://mytaskline.com/settings)
+- ** Dashboard**: Full visual interface for task management
+- ** Support**: Contact through MyTaskline.com platform
 
-## 📄 License & Support
+##  License & Support
 
 This skill integrates with the **MyTaskline.com** platform. Account registration required.
 
@@ -176,4 +176,4 @@ This skill integrates with the **MyTaskline.com** platform. Account registration
 
 ---
 
-**🚀 Experience the future of task management with AI intelligence and MyTaskline.com!**
+** Experience the future of task management with AI intelligence and MyTaskline.com!**

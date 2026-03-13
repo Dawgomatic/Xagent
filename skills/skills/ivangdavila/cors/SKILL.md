@@ -1,7 +1,7 @@
 ---
 name: CORS
 description: Configure Cross-Origin Resource Sharing correctly to avoid security issues and debugging pain.
-metadata: {"clawdbot":{"emoji":"🔀","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Preflight Triggers

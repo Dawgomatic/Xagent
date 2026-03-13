@@ -14,9 +14,9 @@ AGW is a **smart contract wallet** that:
 |---------|-----|-----|
 | Type | Externally Owned Account | Smart Contract Wallet |
 | Private Key | Yes | No (uses signer EOA) |
-| XP Eligible | ❌ No | ✅ Yes |
-| Gas Sponsorship | ❌ No | ✅ Possible |
-| Batch Transactions | ❌ No | ✅ Yes |
+| XP Eligible |  No |  Yes |
+| Gas Sponsorship |  No |  Possible |
+| Batch Transactions |  No |  Yes |
 
 ## Creating AGW
 

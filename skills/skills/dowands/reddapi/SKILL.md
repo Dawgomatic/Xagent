@@ -19,7 +19,7 @@ Access **Reddit's complete data archive** through reddapi.dev's powerful API. Th
 
 ## Key Features
 
-### 🔍 Semantic Search
+###  Semantic Search
 Natural language search across millions of Reddit posts and comments.
 
 ```bash
@@ -34,7 +34,7 @@ curl -X POST "https://reddapi.dev/api/v1/search/semantic" \
   -d '{"query": "frustrations with current TOOL_NAME", "limit": 100}'
 ```
 
-### 📊 Trends API
+###  Trends API
 Discover trending topics with engagement metrics.
 
 ```bash
@@ -50,7 +50,7 @@ Response includes:
 - `trending_keywords`: Top keywords
 - `growth_rate`: Trend momentum
 
-### 📝 Subreddit Discovery
+###  Subreddit Discovery
 
 ```bash
 # List popular subreddits

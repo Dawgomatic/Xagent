@@ -152,15 +152,15 @@ This file updates automatically based on your bookmarking patterns.
 
 Example notification:
 ```
-📚 Twitter Reading List Ready!
+ Twitter Reading List Ready!
 
 **1. @someuser** (Score: 120)
-💡 Career growth pathway • Investment strategy
-🔗 https://x.com/...
+ Career growth pathway • Investment strategy
+ https://x.com/...
 
 **2. @another** (Score: 110)  
-💡 Direct crypto insights • London transition
-🔗 https://x.com/...
+ Direct crypto insights • London transition
+ https://x.com/...
 ```
 
 ### Self-Learning System

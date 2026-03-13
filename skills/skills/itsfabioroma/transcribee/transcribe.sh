@@ -20,7 +20,7 @@ fi
 
 # Check if URL looks like a YouTube URL
 if [[ ! "$1" =~ youtube\.com|youtu\.be ]]; then
-    echo "⚠️  Warning: This doesn't look like a YouTube URL"
+    echo "  Warning: This doesn't look like a YouTube URL"
     echo "   Got: $1"
     echo ""
 fi

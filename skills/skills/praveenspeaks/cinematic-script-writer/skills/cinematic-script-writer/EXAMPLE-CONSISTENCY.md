@@ -1,20 +1,20 @@
-# 🎯 Character & Environment Consistency Example
+#  Character & Environment Consistency Example
 
 This example shows how to use the consistency system to ensure your characters, voices, and environments stay consistent across all generated content.
 
 ## The Problem
 
 Without consistency:
-- ❌ Kutil looks different in every shot
-- ❌ Characters wear modern clothes in Ramayana era
-- ❌ Buildings look like modern architecture
-- ❌ Characters sound different in each scene
+-  Kutil looks different in every shot
+-  Characters wear modern clothes in Ramayana era
+-  Buildings look like modern architecture
+-  Characters sound different in each scene
 
 With consistency:
-- ✅ Kutil always has purple fur, small horns, golden eyes
-- ✅ Everyone wears era-appropriate clothing (dhotis, sarees, no glasses!)
-- ✅ Architecture is stone temples and mud huts
-- ✅ Each character has a distinct, consistent voice
+-  Kutil always has purple fur, small horns, golden eyes
+-  Everyone wears era-appropriate clothing (dhotis, sarees, no glasses!)
+-  Architecture is stone temples and mud huts
+-  Each character has a distinct, consistent voice
 
 ## Step-by-Step Setup
 
@@ -98,7 +98,7 @@ const { guides } = await skill.setupContextWithConsistency(
   }
 );
 
-console.log("✅ Consistency guides created!");
+console.log(" Consistency guides created!");
 console.log("Character References:", Object.keys(guides.characters));
 console.log("Voice Profiles:", Object.keys(guides.voices));
 console.log("Environment Guide:", guides.environment.era);
@@ -379,31 +379,31 @@ const scene1 = await createConsistentScene(kutilContext.id, 1);
 ## Consistency Features Summary
 
 ### Character Consistency
-- ✅ Reference sheets with detailed visual breakdown
-- ✅ Color palette enforcement
-- ✅ Wardrobe variations for different situations
-- ✅ Key features tracking (eyes, hair, build)
-- ✅ Style keywords for AI generation
+-  Reference sheets with detailed visual breakdown
+-  Color palette enforcement
+-  Wardrobe variations for different situations
+-  Key features tracking (eyes, hair, build)
+-  Style keywords for AI generation
 
 ### Voice Consistency  
-- ✅ Pitch, speed, volume profiles
-- ✅ Vocabulary and formality levels
-- ✅ Catchphrases and recurring phrases
-- ✅ Emotional variations
-- ✅ Speech examples
+-  Pitch, speed, volume profiles
+-  Vocabulary and formality levels
+-  Catchphrases and recurring phrases
+-  Emotional variations
+-  Speech examples
 
 ### Environment Consistency
-- ✅ Era-appropriate architecture
-- ✅ Period-accurate clothing materials
-- ✅ Forbidden anachronism detection
-- ✅ Props and objects validation
-- ✅ Society and customs guidelines
+-  Era-appropriate architecture
+-  Period-accurate clothing materials
+-  Forbidden anachronism detection
+-  Props and objects validation
+-  Society and customs guidelines
 
 ### Validation
-- ✅ Anachronism detection
-- ✅ Era-accurate material suggestions
-- ✅ Consistency warnings
-- ✅ Prompt corrections
+-  Anachronism detection
+-  Era-accurate material suggestions
+-  Consistency warnings
+-  Prompt corrections
 
 ## Example Output
 
@@ -420,4 +420,4 @@ const scene1 = await createConsistentScene(kutilContext.id, 1);
 }
 ```
 
-This ensures Kutil looks the same in every shot, wears appropriate clothing, and stays true to the Ramayana era setting! 🎬
+This ensures Kutil looks the same in every shot, wears appropriate clothing, and stays true to the Ramayana era setting! 

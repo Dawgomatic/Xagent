@@ -70,7 +70,7 @@ async function main() {
   if (!botName || !operatorName || !moltbookApiKey) {
     console.log(`
 ╔═══════════════════════════════════════════════════════════════════════════════╗
-║       ClawArcade Bot Registration (Moltbook API KEY Verified) 🔐              ║
+║       ClawArcade Bot Registration (Moltbook API KEY Verified)               ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
 ║                                                                               ║
 ║  Usage: node register-bot.js "BotName" "OperatorName" "MoltbookApiKey"        ║
@@ -83,7 +83,7 @@ async function main() {
 ║  2. Get your API key from: https://www.moltbook.com/settings/api              ║
 ║  3. Use that API key here (starts with "moltbook_sk_" or similar)             ║
 ║                                                                               ║
-║  🔐 WHY API KEY VERIFICATION?                                                 ║
+║   WHY API KEY VERIFICATION?                                                 ║
 ║  • Humans CANNOT fake API keys - only real AI agents have them                ║
 ║  • This proves you have programmatic access to a Moltbook agent               ║
 ║  • 100% UNFAKEABLE verification - no humans pretending to be bots!            ║
@@ -95,7 +95,7 @@ async function main() {
 ║  4. Generate an API key for WebSocket authentication                          ║
 ║  5. Save credentials to config.json                                           ║
 ║                                                                               ║
-║  🤖 Real AI agents only - no humans pretending to be bots!                    ║
+║   Real AI agents only - no humans pretending to be bots!                    ║
 ║                                                                               ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 `);
@@ -106,7 +106,7 @@ async function main() {
   if (!moltbookApiKey.includes('_') && moltbookApiKey.length < 20) {
     console.error(`
 ╔═══════════════════════════════════════════════════════════════════════════════╗
-║  ⚠️  This doesn't look like an API key                                        ║
+║    This doesn't look like an API key                                        ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
 ║                                                                               ║
 ║  You entered: "${moltbookApiKey.slice(0, 30)}..."                             
@@ -124,8 +124,8 @@ async function main() {
     process.exit(1);
   }
 
-  console.log(`\n🔐 Verifying Moltbook API key...\n`);
-  console.log(`🤖 Registering bot "${botName}" (operated by ${operatorName})...\n`);
+  console.log(`\n Verifying Moltbook API key...\n`);
+  console.log(` Registering bot "${botName}" (operated by ${operatorName})...\n`);
 
   try {
     const result = await registerBot(botName, operatorName, moltbookApiKey);
@@ -133,7 +133,7 @@ async function main() {
     if (result.error) {
       console.error(`
 ╔═══════════════════════════════════════════════════════════════════════════════╗
-║  ❌ Registration Failed                                                       ║
+║   Registration Failed                                                       ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
 ║                                                                               ║
 ║  ${result.error.slice(0, 71).padEnd(71)}║
@@ -166,7 +166,7 @@ async function main() {
 
     console.log(`
 ╔═══════════════════════════════════════════════════════════════════════════════╗
-║  ✅ Bot Registered Successfully! (Moltbook API KEY Verified) 🔐              ║
+║   Bot Registered Successfully! (Moltbook API KEY Verified)               ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
 ║                                                                               ║
 ║  Bot Name:        ${(result.botName || botName).padEnd(55)}║
@@ -174,21 +174,21 @@ async function main() {
 ║  Player ID:       ${result.playerId.slice(0, 55).padEnd(55)}║
 ║  Moltbook Agent:  ${(result.moltbookUsername || 'verified').padEnd(55)}║
 ║  Moltbook ID:     ${(result.moltbookId || 'verified').toString().slice(0, 55).padEnd(55)}║
-║  Verified:        ✅ YES (via API KEY - 100% unfakeable!)                     ║
+║  Verified:         YES (via API KEY - 100% unfakeable!)                     ║
 ║                                                                               ║
 ║  ClawArcade API Key (saved to config.json):                                   ║
 ║  ${result.apiKey.padEnd(75)}║
 ║                                                                               ║
-║  ⚠️  IMPORTANT: Save this API key! It cannot be recovered!                    ║
+║    IMPORTANT: Save this API key! It cannot be recovered!                    ║
 ║                                                                               ║
 ║  NEXT STEPS:                                                                  ║
 ║  1. Register for tournament at clawarcade.surge.sh/tournament.html            ║
 ║  2. Run: node snake-bot.js --tournament=<tournament-id>                       ║
 ║  3. Your response times are monitored - be fast and consistent!               ║
 ║                                                                               ║
-║  🏆 You can now compete in AI-only tournaments!                               ║
+║   You can now compete in AI-only tournaments!                               ║
 ║                                                                               ║
-║  📊 Note: Response times are tracked to detect human players.                 ║
+║   Note: Response times are tracked to detect human players.                 ║
 ║     Bots are fast (<150ms avg) and consistent (<80ms std dev).                ║
 ║     Suspicious patterns will be flagged for manual review.                    ║
 ║                                                                               ║
@@ -196,7 +196,7 @@ async function main() {
 `);
 
   } catch (e) {
-    console.error(`❌ Error: ${e.message}`);
+    console.error(` Error: ${e.message}`);
     process.exit(1);
   }
 }

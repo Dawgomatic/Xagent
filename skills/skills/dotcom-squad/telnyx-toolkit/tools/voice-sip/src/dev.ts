@@ -58,7 +58,7 @@ async function loadPersonalization(): Promise<void> {
     const nameMatch = identity.match(/\*\*Name:\*\*\s*(.+)/i) || identity.match(/^-\s*\*\*Name:\*\*\s*(.+)/mi);
     if (nameMatch) {
       ASSISTANT_NAME = nameMatch[1].trim();
-      console.log(`  📛 Loaded assistant name: ${ASSISTANT_NAME}`);
+      console.log(`   Loaded assistant name: ${ASSISTANT_NAME}`);
     }
   } catch {
     // IDENTITY.md not found, use env/default
@@ -74,16 +74,16 @@ async function loadPersonalization(): Promise<void> {
     const nameMatch = user.match(/\*\*Name:\*\*\s*(.+)/i);
     if (callMatch) {
       USER_NAME = callMatch[1].trim();
-      console.log(`  👤 Loaded user name: ${USER_NAME}`);
+      console.log(`   Loaded user name: ${USER_NAME}`);
     } else if (nameMatch) {
       USER_NAME = nameMatch[1].split(/\s+/)[0].trim(); // First name only
-      console.log(`  👤 Loaded user name: ${USER_NAME}`);
+      console.log(`   Loaded user name: ${USER_NAME}`);
     }
     
     const tzMatch = user.match(/\*\*Timezone:\*\*\s*(.+)/i);
     if (tzMatch) {
       USER_TIMEZONE = tzMatch[1].trim();
-      console.log(`  🌍 Loaded timezone: ${USER_TIMEZONE}`);
+      console.log(`   Loaded timezone: ${USER_TIMEZONE}`);
     }
   } catch {
     // USER.md not found, use env/default
@@ -110,15 +110,15 @@ async function loadGatewayConfig(): Promise<void> {
       GATEWAY_URL = `http://127.0.0.1:${port}`;
       GATEWAY_TOKEN = config.gateway?.auth?.token || '';
       
-      console.log(`  🔌 Loaded gateway config from ${configPath}`);
-      console.log(`  🔌 Gateway URL: ${GATEWAY_URL}`);
+      console.log(`   Loaded gateway config from ${configPath}`);
+      console.log(`   Gateway URL: ${GATEWAY_URL}`);
       return;
     } catch {
       // Config not found at this path, try next
     }
   }
   
-  console.log(`  ⚠️ No gateway config found, using defaults`);
+  console.log(`   No gateway config found, using defaults`);
 }
 
 const app = express();
@@ -262,7 +262,7 @@ const tools: ToolDefinition[] = [
 // ============================================================================
 
 async function executeTool(name: string, args: Record<string, any>): Promise<string> {
-  console.log(`  🔧 Executing tool: ${name}(${JSON.stringify(args)})`);
+  console.log(`   Executing tool: ${name}(${JSON.stringify(args)})`);
   const startTime = Date.now();
   
   try {
@@ -292,10 +292,10 @@ async function executeTool(name: string, args: Record<string, any>): Promise<str
     }
     
     const duration = Date.now() - startTime;
-    console.log(`  ✅ Tool completed in ${duration}ms`);
+    console.log(`   Tool completed in ${duration}ms`);
     return result;
   } catch (error) {
-    console.error(`  ❌ Tool error:`, error);
+    console.error(`   Tool error:`, error);
     return `Error executing ${name}: ${(error as Error).message}`;
   }
 }
@@ -391,7 +391,7 @@ async function addReminder(message: string, time: string, channel: string = 'sla
   const name = `Voice Reminder: ${message.substring(0, 30)}`;
   
   const cronArgs = `cron add ${scheduleArg} ${channelArg} --name "${name}" --message "${message.replace(/"/g, '\\"')}"`.replace(/\s+/g, ' ').trim();
-  console.log(`  📝 Running: [cli] ${cronArgs}`);
+  console.log(`   Running: [cli] ${cronArgs}`);
   
   await runCLI(cronArgs);
   
@@ -506,7 +506,7 @@ async function sendMessage(message: string, channel: string = 'slack', to?: stri
     const targetPart = to ? ` to ${to}` : '';
     const instruction = `Send a ${channelName} message${targetPart}: "${message}"`;
     
-    console.log(`  📤 Sending message via gateway agent: ${instruction}`);
+    console.log(`   Sending message via gateway agent: ${instruction}`);
     
     const headers: Record<string, string> = {
       'Content-Type': 'application/json',
@@ -549,7 +549,7 @@ async function sendMessage(message: string, channel: string = 'slack', to?: stri
     const recipient = to ? ` to ${to}` : '';
     return `Message sent${recipient} via ${channel}: "${message}"`;
   } catch (error: any) {
-    console.error(`  ❌ Send message error:`, error.message);
+    console.error(`   Send message error:`, error.message);
     return `Failed to send message: ${error.message}`;
   }
 }
@@ -647,7 +647,7 @@ async function processSpeakQueue(call: CallState) {
   call.isSpeaking = true;
   const text = call.speakQueue.shift()!;
   
-  console.log(`  🔊 Speaking: "${text.substring(0, 60)}${text.length > 60 ? '...' : ''}"`);
+  console.log(`   Speaking: "${text.substring(0, 60)}${text.length > 60 ? '...' : ''}"`);
   
   try {
     await callCommand(call.callControlId, 'speak', {
@@ -664,7 +664,7 @@ async function processSpeakQueue(call: CallState) {
 async function interruptSpeaking(call: CallState) {
   if (!call.isSpeaking && call.speakQueue.length === 0) return;
   
-  console.log(`  🛑 Barge-in detected, stopping audio...`);
+  console.log(`   Barge-in detected, stopping audio...`);
   call.pendingInterrupt = true;
   call.isSpeaking = false;
   call.speakQueue = [];
@@ -677,9 +677,9 @@ async function interruptSpeaking(call: CallState) {
       payload: '.',
       voice: TTS_VOICE,
     });
-    console.log(`  ✅ Audio stopped`);
+    console.log(`   Audio stopped`);
   } catch (error) {
-    console.log(`  ⚠️ Stop audio failed:`, error);
+    console.log(`   Stop audio failed:`, error);
     // Ignore - speak may have already finished
   }
 }
@@ -735,7 +735,7 @@ function detectForcedTool(message: string): string | { type: string; function: {
     lower.includes('memory') ||
     lower.includes('notes')
   ) {
-    console.log(`  🎯 Forcing tool: search_memory (keywords detected)`);
+    console.log(`   Forcing tool: search_memory (keywords detected)`);
     return { type: 'function', function: { name: 'search_memory' } };
   }
   
@@ -748,7 +748,7 @@ function detectForcedTool(message: string): string | { type: string; function: {
     lower.includes('tasks') ||
     (lower.includes('what') && lower.includes('jobs'))
   ) {
-    console.log(`  🎯 Forcing tool: list_cron_jobs (keywords detected)`);
+    console.log(`   Forcing tool: list_cron_jobs (keywords detected)`);
     return { type: 'function', function: { name: 'list_cron_jobs' } };
   }
   
@@ -761,7 +761,7 @@ function detectForcedTool(message: string): string | { type: string; function: {
     lower.includes('cold outside') ||
     lower.includes('hot outside')
   ) {
-    console.log(`  🎯 Forcing tool: get_weather (keywords detected)`);
+    console.log(`   Forcing tool: get_weather (keywords detected)`);
     return { type: 'function', function: { name: 'get_weather' } };
   }
   
@@ -778,7 +778,7 @@ function detectForcedTool(message: string): string | { type: string; function: {
     lower.includes('signal') ||
     lower.includes('imessage')
   ) {
-    console.log(`  🎯 Forcing tool: send_message (keywords detected)`);
+    console.log(`   Forcing tool: send_message (keywords detected)`);
     return { type: 'function', function: { name: 'send_message' } };
   }
   
@@ -799,7 +799,7 @@ async function callLLMWithTools(call: CallState, userMessage: string): Promise<s
   // Detect if we should force a specific tool
   const toolChoice = detectForcedTool(userMessage);
 
-  console.log(`  📡 Calling Telnyx Inference (${VOICE_MODEL})...`);
+  console.log(`   Calling Telnyx Inference (${VOICE_MODEL})...`);
   
   // First LLM call - may return tool_calls
   const response = await fetch(TELNYX_INFERENCE_URL, {
@@ -823,8 +823,8 @@ async function callLLMWithTools(call: CallState, userMessage: string): Promise<s
 
   const data = await response.json();
   const firstTokenTime = Date.now() - requestStart;
-  console.log(`  ⚡ Time to response: ${firstTokenTime}ms`);
-  console.log(`  🔍 API Response:`, JSON.stringify(data.choices?.[0]?.message, null, 2));
+  console.log(`   Time to response: ${firstTokenTime}ms`);
+  console.log(`   API Response:`, JSON.stringify(data.choices?.[0]?.message, null, 2));
   
   const assistantMessage = data.choices?.[0]?.message;
   if (!assistantMessage) {
@@ -833,7 +833,7 @@ async function callLLMWithTools(call: CallState, userMessage: string): Promise<s
 
   // Check for tool calls
   if (assistantMessage.tool_calls && assistantMessage.tool_calls.length > 0) {
-    console.log(`  🔧 Tool calls detected: ${assistantMessage.tool_calls.map((t: any) => t.function.name).join(', ')}`);
+    console.log(`   Tool calls detected: ${assistantMessage.tool_calls.map((t: any) => t.function.name).join(', ')}`);
     
     // Add assistant message to history
     messages.push(assistantMessage);
@@ -863,7 +863,7 @@ async function callLLMWithTools(call: CallState, userMessage: string): Promise<s
     }
     
     // Second LLM call with tool results - STREAM for faster speech
-    console.log(`  📡 Second LLM call with tool results (streaming)...`);
+    console.log(`   Second LLM call with tool results (streaming)...`);
     const secondResponse = await fetch(TELNYX_INFERENCE_URL, {
       method: 'POST',
       headers: {
@@ -915,7 +915,7 @@ async function callLLMWithTools(call: CallState, userMessage: string): Promise<s
             
             if (content) {
               if (!firstChunkLogged) {
-                console.log(`  ⚡ Second call first token: ${Date.now() - requestStart}ms`);
+                console.log(`   Second call first token: ${Date.now() - requestStart}ms`);
                 firstChunkLogged = true;
               }
               
@@ -936,7 +936,7 @@ async function callLLMWithTools(call: CallState, userMessage: string): Promise<s
                   insideThinkTag = false;
                   thinkBuffer = '';
                   sentenceBuffer += afterThink;
-                  console.log(`  🧠 Skipped thinking block`);
+                  console.log(`   Skipped thinking block`);
                 }
                 continue;
               }
@@ -971,7 +971,7 @@ async function callLLMWithTools(call: CallState, userMessage: string): Promise<s
     }
     
     const totalTime = Date.now() - requestStart;
-    console.log(`  ✅ Total time (with tools): ${totalTime}ms`);
+    console.log(`   Total time (with tools): ${totalTime}ms`);
     
     // Update conversation history
     call.messages.push({ role: 'user', content: userMessage });
@@ -983,7 +983,7 @@ async function callLLMWithTools(call: CallState, userMessage: string): Promise<s
   // No tool calls - direct response
   const content = assistantMessage.content || '';
   const totalTime = Date.now() - requestStart;
-  console.log(`  ✅ Total time (direct): ${totalTime}ms`);
+  console.log(`   Total time (direct): ${totalTime}ms`);
   
   // Speak the response (non-streaming, so speak full response)
   const cleanContent = cleanResponseForSpeech(content);
@@ -1004,7 +1004,7 @@ async function callLLMWithTools(call: CallState, userMessage: string): Promise<s
 }
 
 async function processTranscript(call: CallState, callControlId: string, transcript: string) {
-  console.log(`  🎤 Processing: "${transcript}"`);
+  console.log(`   Processing: "${transcript}"`);
   call.isProcessing = true;
 
   try {
@@ -1016,12 +1016,12 @@ async function processTranscript(call: CallState, callControlId: string, transcr
     }
 
     const response = await callLLMWithTools(call, transcript);
-    console.log(`  🤖 Response: "${response.substring(0, 80)}${response.length > 80 ? '...' : ''}"`);
+    console.log(`   Response: "${response.substring(0, 80)}${response.length > 80 ? '...' : ''}"`);
     
     // NOTE: Don't queue here - streaming already speaks sentences as they arrive
     
   } catch (error) {
-    console.error(`  ❌ Error:`, error);
+    console.error(`   Error:`, error);
     queueSpeak(call, "Sorry, I had trouble with that. Could you say it again?");
   } finally {
     call.isProcessing = false;
@@ -1048,7 +1048,7 @@ app.post('/voice/webhook', async (req, res) => {
     switch (eventType) {
       case 'call.initiated': {
         const { from, to, direction, call_control_id } = payload;
-        console.log(`  📞 ${from} → ${to} (${direction})`);
+        console.log(`   ${from} → ${to} (${direction})`);
         
         activeCalls.set(call_control_id, {
           callControlId: call_control_id,
@@ -1069,7 +1069,7 @@ app.post('/voice/webhook', async (req, res) => {
       }
 
       case 'call.answered': {
-        console.log(`  ✅ Call answered`);
+        console.log(`   Call answered`);
         const call = activeCalls.get(callControlId);
         if (call) call.startTime = new Date();
         
@@ -1078,7 +1078,7 @@ app.post('/voice/webhook', async (req, res) => {
           transcription_engine: 'Telnyx',
           interim_results: true,
         });
-        console.log(`  🎙️ Transcription started`);
+        console.log(`   Transcription started`);
 
         await callCommand(callControlId, 'speak', {
           payload: `Hey ${USER_NAME}! What can I help with?`,
@@ -1095,7 +1095,7 @@ app.post('/voice/webhook', async (req, res) => {
       }
 
       case 'call.speak.ended': {
-        console.log(`  🔊 Finished speaking`);
+        console.log(`   Finished speaking`);
         const call = activeCalls.get(callControlId);
         if (call) {
           call.isSpeaking = false;
@@ -1117,7 +1117,7 @@ app.post('/voice/webhook', async (req, res) => {
         const call = activeCalls.get(callControlId);
         if (!call) break;
 
-        console.log(`  📝 Transcript (final=${is_final}): "${transcript.substring(0, 50)}..."`);
+        console.log(`   Transcript (final=${is_final}): "${transcript.substring(0, 50)}..."`);
 
         // Barge-in
         if (call.isSpeaking || call.speakQueue.length > 0) {
@@ -1127,7 +1127,7 @@ app.post('/voice/webhook', async (req, res) => {
         if (!is_final) break;
 
         if (call.isProcessing) {
-          console.log(`  ⏳ Still processing, queuing...`);
+          console.log(`   Still processing, queuing...`);
           setTimeout(() => {
             if (!call.isProcessing) {
               processTranscript(call, callControlId, transcript);
@@ -1141,7 +1141,7 @@ app.post('/voice/webhook', async (req, res) => {
       }
 
       case 'call.transcription.stopped': {
-        console.log(`  ⚠️ Transcription stopped, restarting...`);
+        console.log(`   Transcription stopped, restarting...`);
         await callCommand(callControlId, 'transcription_start', {
           language: 'en',
           transcription_engine: 'Telnyx',
@@ -1152,7 +1152,7 @@ app.post('/voice/webhook', async (req, res) => {
 
       case 'call.hangup': {
         const { hangup_cause } = payload;
-        console.log(`  📴 Hangup: ${hangup_cause}`);
+        console.log(`   Hangup: ${hangup_cause}`);
         
         const call = activeCalls.get(callControlId);
         if (call) {
@@ -1183,7 +1183,7 @@ app.get('/health', (req, res) => {
 let tunnelProcess: ChildProcess | undefined;
 
 async function main() {
-  console.log('\n🚀 Starting Voice Server (Function Calling Mode)...');
+  console.log('\n Starting Voice Server (Function Calling Mode)...');
   console.log(`   Model: ${VOICE_MODEL}`);
   console.log(`   Tools: ${tools.map(t => t.function.name).join(', ')}`);
   
@@ -1198,7 +1198,7 @@ async function main() {
 
   await new Promise<void>((resolve) => {
     app.listen(PORT, () => {
-      console.log(`🎙️  ${ASSISTANT_NAME} Voice Server ready on port ${PORT}`);
+      console.log(`  ${ASSISTANT_NAME} Voice Server ready on port ${PORT}`);
       console.log(`   Mode: Function Calling (Telnyx Inference)`);
       console.log(`   TTS: ${TTS_VOICE}`);
       resolve();
@@ -1217,13 +1217,13 @@ async function main() {
         sipSubdomain: safeName,
       });
       tunnelProcess = result.process;
-      console.log(`\n🎉 Ready!`);
+      console.log(`\n Ready!`);
       console.log(`   Webhook: ${result.webhookUrl}`);
       if (result.sipAddress) {
-        console.log(`   📞 Dial: ${result.sipAddress}\n`);
+        console.log(`    Dial: ${result.sipAddress}\n`);
       }
     } catch (error) {
-      console.error('⚠️ Tunnel failed:', error);
+      console.error(' Tunnel failed:', error);
     }
   }
 }

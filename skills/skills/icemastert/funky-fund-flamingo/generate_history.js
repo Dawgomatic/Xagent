@@ -8,7 +8,7 @@
  * - Generate a clean, high-signal Markdown report
  *
  * Assumptions:
- * - Evolution commits are tagged with the keyword "🧬 Evolution"
+ * - Evolution commits are tagged with the keyword " Evolution"
  * - Git is available and the script is run inside a git repository
  * - Commit bodies may be multiline
  *
@@ -36,7 +36,7 @@ const REPO_ROOT = path.resolve(__dirname, '../../');
 const OUT_FILE = path.resolve(__dirname, '../../memory/evolution_history.md');
 
 // Git log filter
-const EVOLUTION_GREP = '🧬 Evolution';
+const EVOLUTION_GREP = ' Evolution';
 
 // Timezone offset for CST (UTC+8)
 const CST_OFFSET_MS = 8 * 60 * 60 * 1000;
@@ -76,7 +76,7 @@ function generateEvolutionHistory() {
          * --grep    : filter commits containing evolution marker
          * --format  : machine-parseable output using a custom separator
          */
-        console.log('🔍 Executing git log for evolution history...');
+        console.log(' Executing git log for evolution history...');
         output = execFileSync('git', [
             'log',
             '--reverse',
@@ -88,16 +88,16 @@ function generateEvolutionHistory() {
             maxBuffer: 1024 * 1024 * 20 // 20MB safety buffer
         });
     } catch (err) {
-        console.error('❌ Failed to execute git log.');
+        console.error(' Failed to execute git log.');
         console.error(err.message);
         process.exit(1);
     }
 
     if (!output || !output.trim()) {
-        console.warn('⚠️  No evolution commits found.');
+        console.warn('  No evolution commits found.');
         write(
             OUT_FILE,
-            '# 🧬 Evolution History\n\n> No evolution commits found.\n'
+            '#  Evolution History\n\n> No evolution commits found.\n'
         );
         return;
     }
@@ -107,7 +107,7 @@ function generateEvolutionHistory() {
         .map(l => l.trim())
         .filter(Boolean);
 
-    let markdown = `# 🧬 Evolution History (Time Sequence)
+    let markdown = `#  Evolution History (Time Sequence)
 
 > **Filter**: "${EVOLUTION_GREP}"  
 > **Order**: Oldest → Newest  
@@ -165,7 +165,7 @@ function generateEvolutionHistory() {
 
     write(OUT_FILE, markdown);
 
-    console.log('✅ Evolution history generated successfully.');
+    console.log(' Evolution history generated successfully.');
     console.log(`• Commits captured: ${count}`);
     console.log(`• Output file: ${OUT_FILE}`);
 }

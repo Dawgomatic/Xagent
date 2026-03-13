@@ -62,7 +62,7 @@ const nord = await Nord.new({
   webServerUrl: 'https://zo-mainnet.n1.xyz',
 });
 
-console.log('✅ Nord initialized');
+console.log(' Nord initialized');
 
 // 3. Fetch market data
 const markets = await nord.getMarkets();

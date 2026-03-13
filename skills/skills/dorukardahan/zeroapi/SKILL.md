@@ -10,7 +10,7 @@ description: >
 homepage: https://github.com/dorukardahan/ZeroAPI
 user-invocable: true
 compatibility: Requires OpenClaw 2026.2.6+ with at least one AI subscription. Bootstrap budget config requires 2026.2.14+.
-metadata: {"openclaw":{"emoji":"⚡","category":"routing","os":["darwin","linux"],"requires":{"anyBins":["openclaw","claude"],"config":["agents"]}}}
+metadata: {"openclaw":{"emoji":"","category":"routing","os":["darwin","linux"],"requires":{"anyBins":["openclaw","claude"],"config":["agents"]}}}
 ---
 
 # ZeroAPI — Subscription-Based Model Routing

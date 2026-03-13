@@ -5,7 +5,7 @@ WORKSPACE="${OPENCLAW_WORKSPACE:-$HOME/.openclaw/workspace}"
 MEMORY_DIR="$WORKSPACE/memory"
 STATE_FILE="$MEMORY_DIR/.memory-manager-state.json"
 
-echo "🗂️  Memory Organizer"
+echo "  Memory Organizer"
 echo ""
 
 # Initialize if needed
@@ -17,7 +17,7 @@ fi
 FLAT_FILES=$(find "$MEMORY_DIR" -maxdepth 1 -name "*.md" -type f 2>/dev/null)
 
 if [ -z "$FLAT_FILES" ]; then
-  echo "✅ No flat files to organize."
+  echo " No flat files to organize."
   echo ""
   echo "Memory structure already clean:"
   echo "  - Episodic: $(ls "$MEMORY_DIR/episodic"/*.md 2>/dev/null | wc -l | tr -d ' ') entries"
@@ -63,7 +63,7 @@ if command -v jq >/dev/null 2>&1; then
 fi
 
 echo ""
-echo "✅ Organization complete!"
+echo " Organization complete!"
 echo ""
 echo "Next steps:"
 echo "  1. Review files in memory/legacy/"

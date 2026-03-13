@@ -1,4 +1,4 @@
-# 📖 Complete Setup, Testing & Publishing Guide
+#  Complete Setup, Testing & Publishing Guide
 
 This guide walks you through:
 1. Creating a GitHub repository
@@ -104,7 +104,7 @@ const mockContext = {
 };
 
 async function testSkill() {
-  console.log('🧪 Testing Cinematic Script Writer Skill\n');
+  console.log(' Testing Cinematic Script Writer Skill\n');
   
   const skill = new CinematicScriptWriter({}, mockContext);
   
@@ -166,7 +166,7 @@ async function testSkill() {
   console.log(`  - Generated image prompt length: ${prompts.imagePrompt.length} chars`);
   console.log(`  - Generated negative prompt length: ${prompts.negativePrompt.length} chars`);
   
-  console.log('\n✅ All tests passed!');
+  console.log('\n All tests passed!');
 }
 
 testSkill().catch(console.error);
@@ -200,11 +200,11 @@ async function testStorage() {
 
 ### Prerequisites
 
-1. ✅ GitHub repository created
-2. ✅ All code committed
-3. ✅ README.md is complete
-4. ✅ skill.json is properly configured
-5. ✅ Tests pass
+1.  GitHub repository created
+2.  All code committed
+3.  README.md is complete
+4.  skill.json is properly configured
+5.  Tests pass
 
 ### ClawHub Submission Process
 
@@ -392,4 +392,4 @@ clawhub update       # Update published skill
 - **OpenClaw Community**: [Discord](https://discord.gg/openclaw)
 - **GitHub Issues**: Create issue in your repo
 
-Good luck! 🚀
+Good luck! 

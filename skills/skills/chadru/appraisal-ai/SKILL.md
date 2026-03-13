@@ -5,7 +5,7 @@ description: >
   Produces Word narratives with tracked changes and Excel adjustment
   grids from your own master templates. You review and accept every change.
 homepage: https://github.com/cruby9/appraisal_ai
-metadata: {"clawdbot":{"emoji":"🏠","requires":{"bins":["python3"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
 # Appraisal AI — Report Drafting Assistant

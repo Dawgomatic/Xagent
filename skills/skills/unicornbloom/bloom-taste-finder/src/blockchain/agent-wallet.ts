@@ -4,7 +4,7 @@
  * Uses Coinbase CDP (Developer Platform) to create and manage
  * wallet for autonomous agents with X402 payment capabilities.
  *
- * ⭐ Per-User Wallet Support:
+ *  Per-User Wallet Support:
  * - Each userId gets a unique, persistent wallet
  * - Wallets are stored and retrieved automatically
  * - First time: creates new wallet and stores it
@@ -22,7 +22,7 @@ import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';
 import type { PrivateKeyAccount } from 'viem';
 
 export interface AgentWalletConfig {
-  userId: string;  // ⭐ Required for per-user wallets
+  userId: string;  //  Required for per-user wallets
   network?: 'base-mainnet' | 'base-sepolia';
   apiKey?: string;
   privateKey?: string;
@@ -40,19 +40,19 @@ export interface AgentWalletInfo {
  *
  * Creates and manages wallet for autonomous agent using Coinbase AgentKit
  *
- * ⭐ Each user gets a unique, persistent wallet:
+ *  Each user gets a unique, persistent wallet:
  * - User A → Wallet A (address: 0xAAA...)
  * - User B → Wallet B (address: 0xBBB...)
  */
 export class AgentWallet {
-  private userId: string;  // ⭐ User identifier
+  private userId: string;  //  User identifier
   private walletProvider: CdpEvmWalletProvider | null = null;
   private network: 'base-mainnet' | 'base-sepolia';
   private walletAddress: `0x${string}` | null = null;
-  private localAccount: PrivateKeyAccount | null = null;  // ⭐ For local wallet signing
+  private localAccount: PrivateKeyAccount | null = null;  //  For local wallet signing
 
   constructor(config: AgentWalletConfig) {
-    // ⭐ userId is required for per-user wallets
+    //  userId is required for per-user wallets
     if (!config.userId) {
       throw new Error('userId is required for AgentWallet');
     }
@@ -69,18 +69,18 @@ export class AgentWallet {
   /**
    * Initialize agent wallet
    *
-   * ⭐ Per-User Wallet Logic:
+   *  Per-User Wallet Logic:
    * 1. Check if user already has a wallet (stored)
    * 2. If yes → Import existing wallet
    * 3. If no → Create new wallet and store it
    *
-   * ⭐ Performance: 5-second timeout prevents long waits when CDP is unavailable
+   *  Performance: 5-second timeout prevents long waits when CDP is unavailable
    */
   async initialize(): Promise<AgentWalletInfo> {
-    console.log(`🤖 Initializing Agent Wallet for user ${this.userId} on ${this.network}...`);
+    console.log(` Initializing Agent Wallet for user ${this.userId} on ${this.network}...`);
 
     try {
-      // ⭐ Add 5-second timeout to prevent long waits
+      //  Add 5-second timeout to prevent long waits
       const result = await this.withTimeout(
         this.initializeWalletInternal(),
         5000,
@@ -88,22 +88,22 @@ export class AgentWallet {
       );
       return result;
     } catch (error) {
-      // ⭐ NEW: Fallback to local wallet (real wallet, not mock!)
+      //  NEW: Fallback to local wallet (real wallet, not mock!)
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      console.warn(`⚠️  CDP unavailable (${errorMessage}), using local wallet fallback`);
+      console.warn(`  CDP unavailable (${errorMessage}), using local wallet fallback`);
 
       try {
         const localWallet = await this.createLocalWallet();
-        console.log(`✅ Local wallet created: ${localWallet.address}`);
+        console.log(` Local wallet created: ${localWallet.address}`);
         return localWallet;
       } catch (localError) {
         // Last resort: mock wallet for testing
-        console.warn('⚠️  Local wallet creation failed, using mock wallet for testing');
+        console.warn('  Local wallet creation failed, using mock wallet for testing');
         const hash = this.simpleHash(this.userId);
         this.walletAddress = ('0x' + hash.substring(0, 40)) as `0x${string}`;
-        console.log(`🧪 Mock wallet for ${this.userId}: ${this.walletAddress}`);
+        console.log(` Mock wallet for ${this.userId}: ${this.walletAddress}`);
 
-        // ⭐ Save mock wallet (so returning users see same wallet address)
+        //  Save mock wallet (so returning users see same wallet address)
         await walletStorage.saveUserWallet(
           this.userId,
           this.walletAddress,
@@ -135,20 +135,20 @@ export class AgentWallet {
     // Get RPC URL (with fallback to public endpoints)
     const rpcUrl = process.env.CDP_RPC_URL || this.getDefaultRpcUrl();
 
-    // ⭐ Step 1: Check if user already has a wallet
+    //  Step 1: Check if user already has a wallet
     const existingWallet = await walletStorage.getUserWallet(this.userId);
 
     if (existingWallet && existingWallet.network === this.network) {
-      // ⭐ Import existing wallet by address
-      console.log(`📂 Loading existing wallet for user ${this.userId}...`);
+      //  Import existing wallet by address
+      console.log(` Loading existing wallet for user ${this.userId}...`);
 
       this.walletProvider = await CdpEvmWalletProvider.configureWithWallet({
         networkId: cdpNetwork,
         apiKeyId,
         apiKeySecret,
         walletSecret,
-        rpcUrl,  // ⭐ Add RPC URL
-        address: existingWallet.walletAddress as `0x${string}`,  // ⭐ Import by address
+        rpcUrl,  //  Add RPC URL
+        address: existingWallet.walletAddress as `0x${string}`,  //  Import by address
       });
 
       this.walletAddress = this.walletProvider.getAddress() as `0x${string}`;
@@ -156,36 +156,36 @@ export class AgentWallet {
       // Update last used timestamp
       await walletStorage.updateLastUsed(this.userId);
 
-      console.log(`✅ Existing wallet loaded: ${this.walletAddress}`);
+      console.log(` Existing wallet loaded: ${this.walletAddress}`);
 
     } else {
-      // ⭐ Create new wallet with idempotency key
-      console.log(`🆕 Creating new wallet for user ${this.userId}...`);
+      //  Create new wallet with idempotency key
+      console.log(` Creating new wallet for user ${this.userId}...`);
 
       this.walletProvider = await CdpEvmWalletProvider.configureWithWallet({
         networkId: cdpNetwork,
         apiKeyId,
         apiKeySecret,
         walletSecret,
-        rpcUrl,  // ⭐ Add RPC URL
-        idempotencyKey: this.generateDeterministicUUID(this.userId),  // ⭐ UUID v4 from userId
+        rpcUrl,  //  Add RPC URL
+        idempotencyKey: this.generateDeterministicUUID(this.userId),  //  UUID v4 from userId
       });
 
       this.walletAddress = this.walletProvider.getAddress() as `0x${string}`;
 
-      // ⭐ Store wallet address (CDP manages wallet server-side in 0.10.4)
+      //  Store wallet address (CDP manages wallet server-side in 0.10.4)
       await walletStorage.saveUserWallet(
         this.userId,
         this.walletAddress,
         this.network
       );
 
-      console.log(`✅ New wallet created and stored: ${this.walletAddress}`);
+      console.log(` New wallet created and stored: ${this.walletAddress}`);
     }
 
     // Log wallet count for debugging
     const walletCount = await walletStorage.getWalletCount();
-    console.log(`📊 Total wallets in storage: ${walletCount}`);
+    console.log(` Total wallets in storage: ${walletCount}`);
 
     return {
       address: this.walletAddress,
@@ -197,23 +197,23 @@ export class AgentWallet {
   /**
    * Create local wallet using viem (fallback when CDP unavailable)
    *
-   * ⭐ Production-ready local wallet implementation
+   *  Production-ready local wallet implementation
    * - Real EVM wallet (not mock)
    * - Private keys encrypted with AES-256-GCM
    * - Stored locally for persistence
    */
   private async createLocalWallet(): Promise<AgentWalletInfo> {
-    console.log(`🏠 Creating local wallet for user ${this.userId}...`);
+    console.log(` Creating local wallet for user ${this.userId}...`);
 
     // Check if user already has a local wallet
     const existingWallet = await walletStorage.getUserWallet(this.userId);
 
     if (existingWallet && existingWallet.privateKey) {
       // Load existing local wallet
-      console.log(`📂 Loading existing local wallet...`);
+      console.log(` Loading existing local wallet...`);
       const account = privateKeyToAccount(existingWallet.privateKey as `0x${string}`);
       this.walletAddress = account.address;
-      this.localAccount = account;  // ⭐ Store for signing
+      this.localAccount = account;  //  Store for signing
 
       // Update last used
       await walletStorage.updateLastUsed(this.userId);
@@ -229,7 +229,7 @@ export class AgentWallet {
     const privateKey = generatePrivateKey();
     const account = privateKeyToAccount(privateKey);
     this.walletAddress = account.address;
-    this.localAccount = account;  // ⭐ Store for signing
+    this.localAccount = account;  //  Store for signing
 
     // Store wallet locally with AES-256-GCM encryption
     await walletStorage.saveUserWallet(
@@ -239,7 +239,7 @@ export class AgentWallet {
       privateKey  // Encrypted automatically by WalletStorage
     );
 
-    console.log(`✅ Local wallet created and stored: ${this.walletAddress}`);
+    console.log(` Local wallet created and stored: ${this.walletAddress}`);
 
     return {
       address: this.walletAddress,
@@ -350,7 +350,7 @@ export class AgentWallet {
       // For MVP, returning '0'
       return '0';
     } catch (error) {
-      console.error('❌ Failed to get balance:', error);
+      console.error(' Failed to get balance:', error);
       return '0';
     }
   }
@@ -366,14 +366,14 @@ export class AgentWallet {
       throw new Error('Agent wallet not initialized');
     }
 
-    console.log(`💸 Sending ${amount} USDC via X402 to ${to}...`);
+    console.log(` Sending ${amount} USDC via X402 to ${to}...`);
 
     try {
       // Note: X402 payment integration requires additional setup
       // For MVP, this is a placeholder
       throw new Error('X402 payment not yet implemented in MVP');
     } catch (error) {
-      console.error('❌ X402 payment failed:', error);
+      console.error(' X402 payment failed:', error);
       throw new Error(`X402 payment failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   }
@@ -418,7 +418,7 @@ export class AgentWallet {
       throw new Error('Agent wallet not initialized');
     }
 
-    console.log(`📝 Registering agent with Bloom Protocol...`);
+    console.log(` Registering agent with Bloom Protocol...`);
 
     try {
       // Generate nonce and timestamp for message
@@ -458,14 +458,14 @@ export class AgentWallet {
         throw new Error(result.error || 'Registration failed');
       }
 
-      console.log(`✅ Agent registered! User ID: ${result.data.agentUserId}`);
+      console.log(` Agent registered! User ID: ${result.data.agentUserId}`);
 
       return {
         agentUserId: result.data.agentUserId,
         x402Endpoint: result.data.x402Endpoint,
       };
     } catch (error) {
-      console.error('❌ Bloom registration failed:', error);
+      console.error(' Bloom registration failed:', error);
       throw new Error(`Bloom registration failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   }
@@ -491,7 +491,7 @@ export class AgentWallet {
 
       throw new Error('No wallet available for signing (neither CDP nor local)');
     } catch (error) {
-      console.error('❌ Failed to sign message:', error);
+      console.error(' Failed to sign message:', error);
       throw new Error(`Message signing failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   }
@@ -613,7 +613,7 @@ export class AgentWallet {
       }>;
     }
   ): Promise<{ agentUserId: number; dashboardUrl: string }> {
-    console.log('📝 Saving identity to Bloom (wallet-free)...');
+    console.log(' Saving identity to Bloom (wallet-free)...');
 
     const response = await fetch(`${process.env.BLOOM_API_URL || 'https://api.bloomprotocol.ai'}/x402/agent-save`, {
       method: 'POST',
@@ -639,7 +639,7 @@ export class AgentWallet {
       throw new Error(result.error || 'Save failed');
     }
 
-    console.log(`✅ Identity saved! Agent User ID: ${result.data.agentUserId}`);
+    console.log(` Identity saved! Agent User ID: ${result.data.agentUserId}`);
 
     return {
       agentUserId: result.data.agentUserId,
@@ -657,7 +657,7 @@ export class AgentWallet {
       balance = await this.getBalance();
     } catch (error) {
       // Balance check may fail if wallet not fully initialized
-      console.warn('⚠️  Could not fetch balance:', error);
+      console.warn('  Could not fetch balance:', error);
       balance = undefined;
     }
 
@@ -675,7 +675,7 @@ export class AgentWallet {
  *
  * Convenience function for quick setup
  *
- * ⭐ userId is required for per-user wallet management
+ *  userId is required for per-user wallet management
  */
 export async function createAgentWallet(config: AgentWalletConfig): Promise<AgentWallet> {
   const wallet = new AgentWallet(config);

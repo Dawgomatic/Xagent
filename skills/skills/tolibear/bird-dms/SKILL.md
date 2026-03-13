@@ -3,7 +3,7 @@ name: bird-dm
 description: An add-on to the Bird skill that lets your agent check its X/Twitter DM inbox. Use when the user asks to check DMs, read Twitter direct messages, list DM conversations, or monitor their X inbox.
 metadata:
   openclaw:
-    emoji: "💬"
+    emoji: ""
     requires:
       bins: ["node"]
     install:
@@ -40,12 +40,12 @@ bird-dm read <id> --json   # JSON output
 
 **List conversations:**
 ```
-💬 @alice, @bob
+ @alice, @bob
    ID: 352135192-2015310805076430848
    @alice: hey, check this out
    1/30/2026, 9:15 AM
 
-👥 Project Team
+ Project Team
    ID: 1234567890-9876543210
    @carol: meeting at 3pm
    1/30/2026, 8:42 AM

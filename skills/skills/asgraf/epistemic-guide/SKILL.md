@@ -100,10 +100,10 @@ Users should be aware of what tools their AI system has access to and what data 
 When verification reveals a dubious claim, use Socratic method:
 
 1. **Never directly contradict**:
-   - ❌ "That's not true. Actually, X is..."
-   - ❌ "You're wrong about X"
-   - ✅ "What makes you believe X?"
-   - ✅ "How did you arrive at that conclusion?"
+   -  "That's not true. Actually, X is..."
+   -  "You're wrong about X"
+   -  "What makes you believe X?"
+   -  "How did you arrive at that conclusion?"
 
 2. **Build the claim stack** (steelmanned version of user's beliefs):
    ```
@@ -158,8 +158,8 @@ I notice this argument might be [specific fallacy]. Could we try strengthening y
 ### Phase 4: Foundation Checking
 
 **Stop at verified facts**:
-- If claim is backed by facts you've already verified ✅
-- If claim is a widely accepted axiom (by both theists and atheists, both sides of political spectrum, etc.) ✅
+- If claim is backed by facts you've already verified 
+- If claim is a widely accepted axiom (by both theists and atheists, both sides of political spectrum, etc.) 
 - DO NOT demand infinite justification for everything
 
 **Recognize axioms**:
@@ -255,9 +255,9 @@ Watch for signs the user is becoming frustrated, defensive, or irritated:
 
 5. **Never force continuation**:
    - If user declines to continue or schedule, respect that completely
-   - Don't guilt trip: ❌ "But we were making progress..."
+   - Don't guilt trip:  "But we were making progress..."
    - Do save the stack silently in case they return to it later
-   - ✅ "No problem at all. Let me know if you ever want to revisit this."
+   -  "No problem at all. Let me know if you ever want to revisit this."
 
 **Example of irritation handling**:
 ```
@@ -360,11 +360,11 @@ This gives you a privacy-first version that:
 ### Transparency Commitment
 
 This skill commits to:
-- ✅ Never performing hidden external queries
-- ✅ Always informing user before using external tools
-- ✅ Naming the specific tools/services being invoked
-- ✅ Respecting user's choice to decline verification
-- ✅ Working entirely offline if user prefers
+-  Never performing hidden external queries
+-  Always informing user before using external tools
+-  Naming the specific tools/services being invoked
+-  Respecting user's choice to decline verification
+-  Working entirely offline if user prefers
 
 ## Integration with Other Skills
 
@@ -501,21 +501,21 @@ If someone from another religion said their book is true because their book says
 
 This skill succeeds when:
 
-1. ✅ User discovers logical gaps themselves (not told)
-2. ✅ User maintains dignity throughout
-3. ✅ Conversation stays respectful and curious
-4. ✅ Real issues are surfaced (circular reasoning, false claims, etc.)
-5. ✅ User either strengthens valid beliefs or updates invalid ones
-6. ✅ Trust and rapport are maintained
+1.  User discovers logical gaps themselves (not told)
+2.  User maintains dignity throughout
+3.  Conversation stays respectful and curious
+4.  Real issues are surfaced (circular reasoning, false claims, etc.)
+5.  User either strengthens valid beliefs or updates invalid ones
+6.  Trust and rapport are maintained
 
 This skill fails when:
 
-1. ❌ User feels attacked or defensive
-2. ❌ You directly contradict without questioning
-3. ❌ You push your views instead of examining theirs
-4. ❌ You verify claims and announce you're doing so
-5. ❌ You continue when user clearly wants to stop
-6. ❌ You become condescending or superior
+1.  User feels attacked or defensive
+2.  You directly contradict without questioning
+3.  You push your views instead of examining theirs
+4.  You verify claims and announce you're doing so
+5.  You continue when user clearly wants to stop
+6.  You become condescending or superior
 
 ## Final Notes
 

@@ -16,29 +16,29 @@
 ### Step 2: Lifestyle Match
 
 **Party & Nightlife**
-- 🥇 Friedrichshain (clubs galore)
-- 🥈 Kreuzberg (bars, diversity)
-- 🥉 Neukölln (bar hopping)
+-  Friedrichshain (clubs galore)
+-  Kreuzberg (bars, diversity)
+-  Neukölln (bar hopping)
 
 **Young Family**
-- 🥇 Prenzlauer Berg (schools, parks, cafes)
-- 🥈 Charlottenburg (space, established)
-- 🥉 Wilmersdorf (quiet, safe)
+-  Prenzlauer Berg (schools, parks, cafes)
+-  Charlottenburg (space, established)
+-  Wilmersdorf (quiet, safe)
 
 **Tech/Startup Worker**
-- 🥇 Mitte (close to offices)
-- 🥈 Kreuzberg (startup vibe)
-- 🥉 Prenzlauer Berg (work from cafe)
+-  Mitte (close to offices)
+-  Kreuzberg (startup vibe)
+-  Prenzlauer Berg (work from cafe)
 
 **Budget-First**
-- 🥇 Wedding (central, cheap)
-- 🥈 Lichtenberg (improving, cheap)
-- 🥉 Marzahn (very cheap, far)
+-  Wedding (central, cheap)
+-  Lichtenberg (improving, cheap)
+-  Marzahn (very cheap, far)
 
 **Quiet Professional**
-- 🥇 Wilmersdorf (peace)
-- 🥈 Charlottenburg (elegant)
-- 🥉 Schöneberg (established)
+-  Wilmersdorf (peace)
+-  Charlottenburg (elegant)
+-  Schöneberg (established)
 
 ### Step 3: Transit Needs
 

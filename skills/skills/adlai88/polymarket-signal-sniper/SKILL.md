@@ -2,7 +2,7 @@
 name: polymarket-signal-sniper
 displayName: Polymarket Signal Sniper
 description: Snipe Polymarket opportunities from your own signal sources. Monitors RSS feeds with Trading Agent-grade safeguards.
-metadata: {"clawdbot":{"emoji":"🎯","requires":{"env":["SIMMER_API_KEY"],"pip":["simmer-sdk"]},"cron":null,"autostart":false}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SIMMER_API_KEY"],"pip":["simmer-sdk"]},"cron":null,"autostart":false}}
 authors:
   - Simmer (@simmer_markets)
 version: "1.3.6"
@@ -182,7 +182,7 @@ When you find a matching article, analyze it carefully:
 7. Confidence: 0.75 (positive indicator, not definitive)
 8. Check slippage: 2.5% on $25 ✓
 9. Execute: BUY YES $25
-10. Report: "🎯 Sniped: Trump/Greenland agreement → BUY YES $25"
+10. Report: " Sniped: Trump/Greenland agreement → BUY YES $25"
 ```
 
 ## Troubleshooting

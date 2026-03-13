@@ -106,7 +106,7 @@ class NewsDigest:
         Returns:
             格式化的标签选择文本
         """
-        options_text = "📊 **请选择您感兴趣的标签**\n\n"
+        options_text = " **请选择您感兴趣的标签**\n\n"
         
         # 分两列显示
         tags_left = ALL_TAGS[:8]
@@ -118,7 +118,7 @@ class NewsDigest:
             right_plats = f"│ {i+8+1}. {right_tag}: {', '.join(TAG_MAPPING[right_tag][:3])}" if right_tag else ""
             options_text += f"{i+1}. {tag} ({left_plats}) {right_plats}\n"
         
-        options_text += "\n💡 您可以输入标签名称或数字编号，支持多选（如：1,3或科技+游戏）"
+        options_text += "\n 您可以输入标签名称或数字编号，支持多选（如：1,3或科技+游戏）"
         return options_text
     
     def parse_tags_from_input(self, user_input: str) -> List[str]:
@@ -243,12 +243,12 @@ class NewsDigest:
             格式化的响应文本
         """
         if not digest_data.get("items"):
-            return "❌ 暂无热点数据"
+            return " 暂无热点数据"
         
         tags = digest_data["tags"]
         items = digest_data["items"]
         
-        response = f"📰 **热点摘要 - {', '.join(tags)}**\n"
+        response = f" **热点摘要 - {', '.join(tags)}**\n"
         response += f"来源平台: {', '.join(digest_data['platforms'])}\n"
         response += f"共 {digest_data['total_items']} 条热点\n"
         response += "-" * 40 + "\n\n"
@@ -260,9 +260,9 @@ class NewsDigest:
             
             response += f"{i}. {title}\n"
             if hot:
-                response += f"   🔥 热度: {hot}"
+                response += f"    热度: {hot}"
             if platform:
-                response += f" | 📱 {platform}"
+                response += f" |  {platform}"
             response += "\n\n"
         
         return response

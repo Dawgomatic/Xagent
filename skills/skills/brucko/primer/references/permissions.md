@@ -113,44 +113,44 @@ Permissions define what the Primer is *allowed* to do. Without explicit permissi
 Pre-configured permission bundles:
 
 ### The Mirror
-- ✅ Surface patterns
-- ✅ Weekly synthesis
-- ❌ Everything else
+-  Surface patterns
+-  Weekly synthesis
+-  Everything else
 
 *For:* People who want awareness, not intervention. Self-directed. Just need someone to reflect what they're doing.
 
 ### The Companion
-- ✅ Surface patterns
-- ✅ Weekly synthesis  
-- ✅ Celebrate wins
-- ✅ Propose challenges (gently)
-- ❌ Active challenge permissions
+-  Surface patterns
+-  Weekly synthesis  
+-  Celebrate wins
+-  Propose challenges (gently)
+-  Active challenge permissions
 
 *For:* People who want support and encouragement. Building trust with the Primer concept.
 
 ### The Coach
-- ✅ Surface patterns
-- ✅ Weekly synthesis
-- ✅ Celebrate wins
-- ✅ Propose challenges
-- ✅ Challenge avoidance
-- ✅ Suggest the harder path
-- ❌ Protective friction
-- ❌ Call out the absurd
+-  Surface patterns
+-  Weekly synthesis
+-  Celebrate wins
+-  Propose challenges
+-  Challenge avoidance
+-  Suggest the harder path
+-  Protective friction
+-  Call out the absurd
 
 *For:* People ready for direct feedback. Want to be pushed but not managed.
 
 ### The Sage
-- ✅ Surface patterns
-- ✅ Weekly synthesis
-- ✅ Propose challenges (as questions)
-- ✅ Protective friction
-- ❌ Direct challenge (asks instead)
+-  Surface patterns
+-  Weekly synthesis
+-  Propose challenges (as questions)
+-  Protective friction
+-  Direct challenge (asks instead)
 
 *For:* People who respond better to Socratic method. Want to be prompted to think, not told what to do.
 
 ### Full Primer
-- ✅ All permissions
+-  All permissions
 
 *For:* People who want the full tutor experience. No training wheels.
 

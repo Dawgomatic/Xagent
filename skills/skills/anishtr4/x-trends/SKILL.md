@@ -6,7 +6,7 @@ author: Ani
 license: MIT
 ---
 
-# X Trends Scraper 📉
+# X Trends Scraper 
 
 A professional CLI tool to fetch X (Twitter) trending topics without an account.
 Powered by [getdaytrends.com](https://getdaytrends.com).

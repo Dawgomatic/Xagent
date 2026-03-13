@@ -4,7 +4,7 @@
 
 AgentLedger is a comprehensive expense tracking skill that helps AI agents maintain detailed financial records of purchases and spending. Perfect for tracking API costs, subscription services, infrastructure expenses, and any other purchases made by AI agents.
 
-## 🌟 Features
+##  Features
 
 ### Core Functionality
 - **Transaction Logging** - Log every purchase with amount, vendor, description, category, and context
@@ -32,7 +32,7 @@ Pre-defined spending categories for consistent tracking:
 - **Vendor Analysis** - See spending patterns by vendor
 - **Time Period Filtering** - Support for natural language time periods
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 ```bash
@@ -85,7 +85,7 @@ node src/cli.js budget set "API/Services" 500
 node src/cli.js budget status
 ```
 
-## 📖 Documentation
+##  Documentation
 
 ### For AI Agents
 See [SKILL.md](SKILL.md) for detailed instructions on how AI agents should use this skill.
@@ -151,7 +151,7 @@ Supported natural language time periods:
 - `this-year`, `last-year`
 - `last-30-days`, `last-90-days`
 
-## 📁 File Structure
+##  File Structure
 
 ```
 agentledger/
@@ -174,7 +174,7 @@ All data is stored locally in JSON files:
 - `workspace/ledger/budgets.json` - Budget settings
 - `workspace/ledger/settings.json` - General settings
 
-## 🔧 API Reference
+##  API Reference
 
 ### AgentLedger Class
 
@@ -224,7 +224,7 @@ await ledger.exportTransactions('csv', './exports/transactions.csv', {
 await ledger.exportTransactions('json', './exports/data.json');
 ```
 
-## 🔌 Integrations
+##  Integrations
 
 ### Privacy.com Cards
 AgentLedger can import transaction data from Privacy.com card exports:
@@ -246,21 +246,21 @@ Extend AgentLedger by:
 3. Adding new report types in `src/reports.js`
 4. Implementing webhook notifications for budget alerts
 
-## 🛡️ Security & Privacy
+##  Security & Privacy
 
 - **Local Storage Only** - All data stays on your machine
 - **No External API Calls** - Core functionality works offline
 - **No Sensitive Data** - Never store actual card numbers
 - **Account Aliases** - Use account IDs instead of real account details
 
-## 🧪 Testing
+##  Testing
 
 Run the basic test suite:
 ```bash
 node test/ledger.test.js
 ```
 
-## 📈 Examples
+##  Examples
 
 ### Daily Workflow
 ```javascript
@@ -299,7 +299,7 @@ node src/cli.js export csv --output="expenses-2024-01.csv" --period="last-month"
 node src/cli.js budget status
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 AgentLedger is designed to be extended and customized:
 
@@ -308,11 +308,11 @@ AgentLedger is designed to be extended and customized:
 3. **New Importers** - Add support for other payment systems
 4. **Enhanced CLI** - Add new commands to `cli.js`
 
-## 📄 License
+##  License
 
 MIT License - See package.json for details.
 
-## 🔗 Links
+##  Links
 
 - [OpenClaw Documentation](https://openclaw.ai)
 - [ClawHub Skills Repository](https://hub.openclaw.ai)
@@ -320,4 +320,4 @@ MIT License - See package.json for details.
 
 ---
 
-**Built for OpenClaw AI Agents** 🤖💰
+**Built for OpenClaw AI Agents** 

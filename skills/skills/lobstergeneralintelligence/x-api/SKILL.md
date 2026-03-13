@@ -3,7 +3,7 @@ name: x-api
 description: Post to X (Twitter) using the official API with OAuth 1.0a. Use when you need to tweet, post updates, or publish content. Bypasses rate limits and bot detection that affect cookie-based approaches like bird CLI.
 ---
 
-# x-api 🐦
+# x-api 
 
 Post to X using the official API (OAuth 1.0a).
 

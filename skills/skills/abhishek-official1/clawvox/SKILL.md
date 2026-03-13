@@ -5,7 +5,7 @@ homepage: https://elevenlabs.io/developers
 metadata:
   {
     "openclaw": {
-      "emoji": "🎙️",
+      "emoji": "",
       "skillKey": "clawvox",
       "requires": {
         "bins": ["curl", "jq"],

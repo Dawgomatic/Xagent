@@ -16,4 +16,4 @@
 - Sources (articles)
 
 ## Disclaimer (obligatoire)
-> ⚖️ Information juridique à caractère général. Ne constitue pas un conseil juridique personnalisé. Pour une situation spécifique, consultez un professionnel du droit.
+>  Information juridique à caractère général. Ne constitue pas un conseil juridique personnalisé. Pour une situation spécifique, consultez un professionnel du droit.

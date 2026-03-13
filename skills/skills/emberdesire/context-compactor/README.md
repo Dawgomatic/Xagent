@@ -23,12 +23,12 @@ npx jasper-context-compactor setup
 
 **The setup will:**
 
-1. ✅ **Back up your config** — Saves `openclaw.json` to `~/.openclaw/backups/` with restore instructions
-2. ✅ **Ask permission** — Won't read your config without consent
-3. ✅ **Detect local models** — Automatically identifies Ollama, llama.cpp, MLX, LM Studio providers
-4. ✅ **Suggest token limits** — Based on your model's contextWindow from config
-5. ✅ **Let you customize** — Enter your own values if auto-detection doesn't match
-6. ✅ **Update config safely** — Adds the plugin with your chosen settings
+1.  **Back up your config** — Saves `openclaw.json` to `~/.openclaw/backups/` with restore instructions
+2.  **Ask permission** — Won't read your config without consent
+3.  **Detect local models** — Automatically identifies Ollama, llama.cpp, MLX, LM Studio providers
+4.  **Suggest token limits** — Based on your model's contextWindow from config
+5.  **Let you customize** — Enter your own values if auto-detection doesn't match
+6.  **Update config safely** — Adds the plugin with your chosen settings
 
 ### Supported Local Providers
 
@@ -48,7 +48,7 @@ openclaw gateway restart
 
 ## Privacy
 
-🔒 **Everything runs 100% locally.** Nothing is sent to external servers.
+ **Everything runs 100% locally.** Nothing is sent to external servers.
 
 The setup only reads your local `openclaw.json` file (with your permission) to detect your model and suggest appropriate limits.
 

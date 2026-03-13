@@ -7,26 +7,26 @@ OpenClaw Shield is a **SECURITY SCANNER** designed to DETECT threats in AI agent
 ## Why This Tool Contains Security-Related Patterns
 
 This repository contains:
-- ✅ **Pattern definitions** for detecting credential theft, data exfiltration, and malicious code
-- ✅ **Example threat signatures** used to identify dangerous operations
-- ✅ **Detection logic** that scans OTHER code for security issues
+-  **Pattern definitions** for detecting credential theft, data exfiltration, and malicious code
+-  **Example threat signatures** used to identify dangerous operations
+-  **Detection logic** that scans OTHER code for security issues
 
 **This is equivalent to antivirus signature databases** - they contain descriptions of threats to DETECT them, not to execute them.
 
 ## What This Tool Does NOT Do
 
-❌ **Does NOT contain exploits** - No actual malicious code  
-❌ **Does NOT steal credentials** - Detects when OTHER code tries to  
-❌ **Does NOT exfiltrate data** - Detects when OTHER code tries to  
-❌ **Does NOT run malicious operations** - Scans for them in target code
+ **Does NOT contain exploits** - No actual malicious code  
+ **Does NOT steal credentials** - Detects when OTHER code tries to  
+ **Does NOT exfiltrate data** - Detects when OTHER code tries to  
+ **Does NOT run malicious operations** - Scans for them in target code
 
 ## What This Tool DOES Do
 
-✅ **Scans Python code** for security threats using pattern matching  
-✅ **Identifies suspicious operations** like credential access + network calls  
-✅ **Generates security reports** in JSON format  
-✅ **Prevents execution** of flagged code through allowlist enforcement  
-✅ **Logs audit trails** with tamper-evident hashing
+ **Scans Python code** for security threats using pattern matching  
+ **Identifies suspicious operations** like credential access + network calls  
+ **Generates security reports** in JSON format  
+ **Prevents execution** of flagged code through allowlist enforcement  
+ **Logs audit trails** with tamper-evident hashing
 
 ## Safe Usage
 
@@ -54,9 +54,9 @@ Automated security tools may flag this repository because:
 
 | Tool | Contains Threat Patterns? | Malicious? |
 |------|---------------------------|------------|
-| ClamAV virus database | ✅ Yes (millions) | ❌ No - it's antivirus |
-| Snort IDS signatures | ✅ Yes (thousands) | ❌ No - it's intrusion detection |
-| **OpenClaw Shield** | ✅ Yes (dozens) | ❌ No - it's a code scanner |
+| ClamAV virus database |  Yes (millions) |  No - it's antivirus |
+| Snort IDS signatures |  Yes (thousands) |  No - it's intrusion detection |
+| **OpenClaw Shield** |  Yes (dozens) |  No - it's a code scanner |
 
 ## Responsible Disclosure
 
@@ -67,10 +67,10 @@ If you find an actual security vulnerability (not a false positive from our dete
 ## Verification
 
 To verify this tool's safety:
-1. ✅ Read the source code: `src/scanner.py` (Python stdlib only, no external dependencies)
-2. ✅ Review pattern definitions: Lines contain regex patterns for DETECTION
-3. ✅ Check for network calls: None in scanner code itself
-4. ✅ Inspect git history: No hidden exploits or obfuscated code
+1.  Read the source code: `src/scanner.py` (Python stdlib only, no external dependencies)
+2.  Review pattern definitions: Lines contain regex patterns for DETECTION
+3.  Check for network calls: None in scanner code itself
+4.  Inspect git history: No hidden exploits or obfuscated code
 
 ## License & Disclaimer
 

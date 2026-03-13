@@ -1,4 +1,4 @@
-# Community Growth Engine 🏘️
+# Community Growth Engine 
 
 Complete 12-phase system for building, growing, and monetizing online communities. From zero members to thriving ecosystem.
 
@@ -53,13 +53,13 @@ Tell your agent:
 - Monthly + quarterly review templates
 - 12 natural language commands
 
-## ⚡ Level Up
+##  Level Up
 
 Want the complete business context for your vertical?
 
 **[AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/)** ($47 each) — Deep industry knowledge that makes your AI agent an expert in SaaS, Healthcare, Legal, Fintech, Ecommerce, and more.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-growth-engine](https://clawhub.com/skills/afrexai-growth-engine) — Complete growth system (AARRR, experiments, loops)
 - [afrexai-customer-success](https://clawhub.com/skills/afrexai-customer-success) — Retention & expansion revenue
@@ -71,4 +71,4 @@ Browse all skills: [AfrexAI on ClawHub](https://clawhub.com/publishers/afrexai-c
 
 ---
 
-*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) — AI-powered business systems that actually work.* 🖤💛
+*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) — AI-powered business systems that actually work.* 

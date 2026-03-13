@@ -379,8 +379,8 @@ Search decisions for "security"
 Each task should be completable independently:
 
 ```
-✅ Good: "Implement login API endpoint"
-❌ Bad: "Work on authentication" (too vague, overlaps)
+ Good: "Implement login API endpoint"
+ Bad: "Work on authentication" (too vague, overlaps)
 ```
 
 ### 2. Explicit Dependencies
@@ -388,8 +388,8 @@ Each task should be completable independently:
 Always set dependencies to prevent conflicts:
 
 ```
-✅ Good: Task "Write tests" depends on "Implement feature"
-❌ Bad: Assuming agents will coordinate timing manually
+ Good: Task "Write tests" depends on "Implement feature"
+ Bad: Assuming agents will coordinate timing manually
 ```
 
 ### 3. Record Decisions Immediately
@@ -397,8 +397,8 @@ Always set dependencies to prevent conflicts:
 Don't wait until task completion:
 
 ```
-✅ Good: Record decision as soon as you make a choice
-❌ Bad: Try to remember all decisions at the end
+ Good: Record decision as soon as you make a choice
+ Bad: Try to remember all decisions at the end
 ```
 
 ### 4. Use Tags for Routing
@@ -406,8 +406,8 @@ Don't wait until task completion:
 Tags help agents find their work:
 
 ```
-✅ Good: tags: [backend, api, auth]
-❌ Bad: No tags (all agents compete for all tasks)
+ Good: tags: [backend, api, auth]
+ Bad: No tags (all agents compete for all tasks)
 ```
 
 ### 5. Small, Focused Tasks
@@ -415,12 +415,12 @@ Tags help agents find their work:
 Break large tasks into smaller ones:
 
 ```
-✅ Good:
+ Good:
 - "Create user model"
 - "Add validation to user model"
 - "Write user model tests"
 
-❌ Bad:
+ Bad:
 - "Build entire user system"
 ```
 

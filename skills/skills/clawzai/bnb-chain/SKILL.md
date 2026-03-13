@@ -2,7 +2,7 @@
 name: bnb-chain
 version: 0.1.0
 description: Basic BNB Chain operations — check balances, send BNB, send BEP-20 tokens.
-metadata: {"openclaw":{"emoji":"🟡","category":"blockchain","requires":{"bins":["node"]}}}
+metadata: {"openclaw":{"emoji":"","category":"blockchain","requires":{"bins":["node"]}}}
 ---
 
 # BNB Chain Skill

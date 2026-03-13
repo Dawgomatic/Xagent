@@ -116,7 +116,7 @@ def step2_guide_setup(token_ok, loc_ok):
   8. Click Create → {RED}COPY THE TOKEN IMMEDIATELY{RESET}
      {YELLOW}→ It is shown ONLY ONCE and cannot be retrieved later!{RESET}
 
-  {BOLD}⚠️  DO NOT use Settings → API Keys — that's the old V1 method (deprecated){RESET}
+  {BOLD}  DO NOT use Settings → API Keys — that's the old V1 method (deprecated){RESET}
 """)
         token = input(f"{CYAN}  Enter your Private Integration token: {RESET}").strip()
         os.environ["HIGHLEVEL_TOKEN"] = token
@@ -162,20 +162,20 @@ def step3_test_connection(token, loc_id):
         p(f" {x_mark()}")
         print()
         if "401" in str(err):
-            p("  ❌ Authentication failed — your token is invalid or expired.", RED)
+            p("   Authentication failed — your token is invalid or expired.", RED)
             p("  Fix: Go to Settings → Private Integrations → create a new one")
             p("  or rotate your existing token.")
         elif "403" in str(err):
-            p("  ❌ Permission denied — your token is missing required scopes.", RED)
+            p("   Permission denied — your token is missing required scopes.", RED)
             p("  Fix: Edit your Private Integration → add the needed scopes.")
             p("  (You can add scopes without regenerating the token)")
         elif "404" in str(err):
-            p("  ❌ Location not found — your HIGHLEVEL_LOCATION_ID is wrong.", RED)
+            p("   Location not found — your HIGHLEVEL_LOCATION_ID is wrong.", RED)
             p("  Fix: Check the URL bar in your sub-account or Settings → Business Info")
         elif "422" in str(err):
-            p("  ❌ Invalid request — check your Location ID format.", RED)
+            p("   Invalid request — check your Location ID format.", RED)
         else:
-            p(f"  ❌ Unexpected error: {err}", RED)
+            p(f"   Unexpected error: {err}", RED)
         return False
 
     p(f" {check_mark()}")
@@ -245,7 +245,7 @@ def step4_quick_win(token, loc_id):
 
 def print_next_steps():
     """Show what the user can do next."""
-    header("🎉 Setup Complete!")
+    header(" Setup Complete!")
     p(f"""
   You're all set! Here's what you can do now:
 
@@ -265,16 +265,16 @@ def print_next_steps():
   python3 scripts/ghl-api.py list_workflows{RESET}
 
   {BOLD}─── Connect with us ───{RESET}
-  🌐  {CYAN}https://launchmyopenclaw.com{RESET}
-  🌐  {CYAN}https://myfbleads.com{RESET}
-  ▶️   {CYAN}https://youtube.com/@10xcoldleads{RESET}
-  📘  {CYAN}https://facebook.com/ty.shane.howell.2025{RESET}
-  💼  {CYAN}https://linkedin.com/in/ty-shane/{RESET}
-  📧  ty@10xcoldleads.com
+    {CYAN}https://launchmyopenclaw.com{RESET}
+    {CYAN}https://myfbleads.com{RESET}
+     {CYAN}https://youtube.com/@10xcoldleads{RESET}
+    {CYAN}https://facebook.com/ty.shane.howell.2025{RESET}
+    {CYAN}https://linkedin.com/in/ty-shane/{RESET}
+    ty@10xcoldleads.com
 
   {BOLD}Don't have GoHighLevel yet?{RESET}
   Start with the free 5-Day AI Employee Challenge:
-  👉  {CYAN}https://gohighlevel.com/5-day-challenge?fp_ref=369ai{RESET}
+    {CYAN}https://gohighlevel.com/5-day-challenge?fp_ref=369ai{RESET}
 """)
 
 

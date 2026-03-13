@@ -142,4 +142,4 @@ tail -50 /Users/ericwoodard/clawd/mail-reports/latest-summary.txt
 ---
 
 **Installed:** 2026-01-29
-**Status:** ✅ Active and monitoring
+**Status:**  Active and monitoring

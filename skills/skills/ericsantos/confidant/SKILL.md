@@ -7,7 +7,7 @@ description: Secure secret handoff and credential setup wizard for AI agents. Us
 
 Receive secrets from humans securely — no chat exposure, no copy-paste, no history leaks.
 
-## ⚡ Quick Start
+##  Quick Start
 
 You need an API key from the user? One command:
 
@@ -16,10 +16,10 @@ You need an API key from the user? One command:
 ```
 
 The script handles everything:
-- ✅ Starts server if not running (or reuses existing one)
-- ✅ Creates a secure request with web form
-- ✅ Detects existing tunnels (ngrok or localtunnel)
-- ✅ Returns the URL to share
+-  Starts server if not running (or reuses existing one)
+-  Creates a secure request with web form
+-  Detects existing tunnels (ngrok or localtunnel)
+-  Returns the URL to share
 
 **If the user is remote** (not on the same network), add `--tunnel`:
 
@@ -31,7 +31,7 @@ This starts a [localtunnel](https://theboroer.github.io/localtunnel-www/) automa
 
 **Output example:**
 ```
-🔐 Secure link created!
+ Secure link created!
 
 URL: https://gentle-pig-42.loca.lt/requests/abc123
   (tunnel: localtunnel | local: http://localhost:3000/requests/abc123)
@@ -132,4 +132,4 @@ npx @aiconnect/confidant fill "<url>" --secret "<value>"
 npx @aiconnect/confidant get <id>
 ```
 
-⚠️ Only use direct CLI if the scripts don't cover your case.
+ Only use direct CLI if the scripts don't cover your case.

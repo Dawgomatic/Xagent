@@ -124,13 +124,13 @@ if __name__ == "__main__":
 
     if args.action == "fetch":
         if not get_api_key():
-            print("❌ PROMPTINTEL_API_KEY not set — cannot fetch from API")
+            print(" PROMPTINTEL_API_KEY not set — cannot fetch from API")
             sys.exit(1)
         taxonomy = get_taxonomy(force_refresh=True)
         if taxonomy:
-            print(f"✅ Taxonomy updated ({len(taxonomy.get('categories', []))} categories)")
+            print(f" Taxonomy updated ({len(taxonomy.get('categories', []))} categories)")
         else:
-            print("❌ Failed to fetch taxonomy")
+            print(" Failed to fetch taxonomy")
             sys.exit(1)
 
     elif args.action == "show":
@@ -152,6 +152,6 @@ if __name__ == "__main__":
     elif args.action == "clear":
         if TAXONOMY_FILE.exists():
             TAXONOMY_FILE.unlink()
-            print("✅ taxonomy.json deleted")
+            print(" taxonomy.json deleted")
         else:
             print("No taxonomy file to clear")

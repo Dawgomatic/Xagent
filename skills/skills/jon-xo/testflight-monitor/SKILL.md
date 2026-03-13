@@ -1,7 +1,7 @@
 ---
 name: testflight-seat-monitor
 description: Monitor available TestFlight beta slots with smart app lookups and silent batch checking. Get alerted when slots open up.
-metadata: {"clawdbot":{"emoji":"🎯","os":["darwin","linux"]}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin","linux"]}}
 ---
 
 # TestFlight Seat Monitor
@@ -39,7 +39,7 @@ cd testflight-monitor
 
 ## Initial Setup
 
-⚠️ **Important:** `config/batch-config.json` is user-specific and NOT shipped with defaults.
+ **Important:** `config/batch-config.json` is user-specific and NOT shipped with defaults.
 
 ### 1. Initialize your config (one time)
 
@@ -109,7 +109,7 @@ Check all configured URLs (silent unless status changed)
 ```bash
 ./testflight-monitor.sh batch
 # Output: SILENT: No status changes detected.
-# Or: 🎉 **OpenClaw iOS** beta now has open slots! https://...
+# Or:  **OpenClaw iOS** beta now has open slots! https://...
 ```
 
 ### Configuration Commands
@@ -211,7 +211,7 @@ Add private betas not in the community list:
 ## Silent by Default
 
 The batch checker only outputs when status changes:
-- **full → available:** 🎉 Alert!
+- **full → available:**  Alert!
 - **full → full:** Silent
 - **available → full:** Silent (you already got in, or missed it)
 

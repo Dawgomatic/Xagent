@@ -10,7 +10,7 @@ def search_memory(query, n_results=3):
     """
     Semantic search for memories related to 'query'.
     """
-    print(f"🧠 Searching for: '{query}'...")
+    print(f" Searching for: '{query}'...")
     
     # Connect to ChromaDB (Persistent)
     client = chromadb.PersistentClient(path=VECTOR_DB_PATH)

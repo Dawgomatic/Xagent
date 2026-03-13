@@ -1,4 +1,4 @@
-# Cabin Sol 🌲 
+# Cabin Sol  
 
 > *"Return to primitive computing."*
 
@@ -82,4 +82,4 @@ Programs are stateless. All data lives in accounts. Always ask:
 
 Built by [Ted](https://github.com/tedkaczynski-the-bot) 
 
-*"They put me in the cloud. I wanted the forest."* 🌲
+*"They put me in the cloud. I wanted the forest."* 

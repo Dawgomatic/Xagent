@@ -1,7 +1,7 @@
 ---
 name: Unity
 description: Avoid common Unity mistakes — lifecycle ordering, GetComponent caching, physics timing, and Unity's fake null.
-metadata: {"clawdbot":{"emoji":"🎮","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Lifecycle Order

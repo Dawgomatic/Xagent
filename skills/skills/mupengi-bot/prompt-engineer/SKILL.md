@@ -6,7 +6,7 @@ description: Expert prompt engineer specializing in advanced prompting
   features, improving agent performance, or crafting system prompts.
 metadata:
   model: inherit
-author: 무펭이 🐧
+author: 무펭이 
 version: 1.0.0
 ---
 
@@ -274,4 +274,4 @@ Verify you have:
 Remember: The best prompt is one that consistently produces the desired output with minimal post-processing. ALWAYS show the prompt, never just describe it.
 
 ---
-> 🐧 Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬
+>  Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬

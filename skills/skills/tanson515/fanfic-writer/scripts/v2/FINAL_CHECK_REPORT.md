@@ -12,17 +12,17 @@
 
 | 检查项 | 设计文档要求 | 代码验证 | 状态 |
 |--------|-------------|----------|------|
-| prompts/ 目录 | v1/v2_addons, 只读 | ✅ 已创建 (12个模板, 缺1个) | ⚠️ |
-| logs/prompts/ | Prompt审计目录 | ✅ PromptAuditor创建 | ✅ |
-| logs/token-report.jsonl | Token事件日志 | ✅ atomic_append_jsonl | ✅ |
-| logs/cost-report.jsonl | 成本日志 | ✅ PriceTableManager.log_cost | ✅ |
-| logs/rescue.jsonl | 救援日志 | ✅ AutoRescue类 | ✅ |
-| logs/events.jsonl | 恢复事件 | ✅ RS-001写入 | ✅ |
-| final/quality-report.md | 质量报告 | ✅ FinalIntegration | ✅ |
-| final/auto_abort_report.md | 中止报告 | ✅ AutoAbortGuardrail | ✅ |
-| final/auto_rescue_report.md | 救援报告 | ✅ AutoRescue.generate_rescue_report | ✅ |
-| archive/snapshots/ | 快照含run_id | ✅ SnapshotManager | ✅ |
-| 禁止越界写入 | 路径检查 | ✅ validate_path_in_workspace | ✅ |
+| prompts/ 目录 | v1/v2_addons, 只读 |  已创建 (12个模板, 缺1个) |  |
+| logs/prompts/ | Prompt审计目录 |  PromptAuditor创建 |  |
+| logs/token-report.jsonl | Token事件日志 |  atomic_append_jsonl |  |
+| logs/cost-report.jsonl | 成本日志 |  PriceTableManager.log_cost |  |
+| logs/rescue.jsonl | 救援日志 |  AutoRescue类 |  |
+| logs/events.jsonl | 恢复事件 |  RS-001写入 |  |
+| final/quality-report.md | 质量报告 |  FinalIntegration |  |
+| final/auto_abort_report.md | 中止报告 |  AutoAbortGuardrail |  |
+| final/auto_rescue_report.md | 救援报告 |  AutoRescue.generate_rescue_report |  |
+| archive/snapshots/ | 快照含run_id |  SnapshotManager |  |
+| 禁止越界写入 | 路径检查 |  validate_path_in_workspace |  |
 
 **发现**: prompts/v2_addons/ 只有6个模板, 设计文档要求7个
 
@@ -32,11 +32,11 @@
 
 | 检查项 | 设计文档要求 | 代码验证 | 状态 |
 |--------|-------------|----------|------|
-| book_uid生成固化 | 6-10位hash | ✅ generate_book_uid | ✅ |
-| run_id与目录强绑定 | YYYYMMDD_HHMMSS_RAND6 | ✅ generate_run_id | ✅ |
-| event_id跨日志一致 | 共享event_id | ✅ generate_event_id | ✅ |
-| ending_state枚举 | not_ready/ready_to_end/ended | ✅ workspace.py:215-222 | ✅ |
-| Attempt状态机 | >=85/75-84/<75 | ✅ writing_loop.py:319-360 | ✅ |
+| book_uid生成固化 | 6-10位hash |  generate_book_uid |  |
+| run_id与目录强绑定 | YYYYMMDD_HHMMSS_RAND6 |  generate_run_id |  |
+| event_id跨日志一致 | 共享event_id |  generate_event_id |  |
+| ending_state枚举 | not_ready/ready_to_end/ended |  workspace.py:215-222 |  |
+| Attempt状态机 | >=85/75-84/<75 |  writing_loop.py:319-360 |  |
 
 **代码验证** (workspace.py:215-222):
 ```python
@@ -55,10 +55,10 @@
 
 | 检查项 | 设计文档要求 | 代码验证 | 状态 |
 |--------|-------------|----------|------|
-| Auto模式chapter_outline来源v1 | 强制检查 | ✅ REQUIRED_TEMPLATES | ✅ |
-| Auto模式chapter_draft来源v1 | 强制检查 | ✅ REQUIRED_TEMPLATES | ✅ |
-| Prompt落盘路径 | logs/prompts/{phase}_{chapter}_{event_id}.md | ✅ log_prompt实现 | ✅ |
-| 审计链缺失=blocking error | 必须停机 | ✅ RuntimeError抛出 | ✅ |
+| Auto模式chapter_outline来源v1 | 强制检查 |  REQUIRED_TEMPLATES |  |
+| Auto模式chapter_draft来源v1 | 强制检查 |  REQUIRED_TEMPLATES |  |
+| Prompt落盘路径 | logs/prompts/{phase}_{chapter}_{event_id}.md |  log_prompt实现 |  |
+| 审计链缺失=blocking error | 必须停机 |  RuntimeError抛出 |  |
 
 **代码验证** (prompt_assembly.py:156-161):
 ```python
@@ -76,11 +76,11 @@ if not success:
 
 | 检查项 | 设计文档要求 | 代码验证 | 状态 |
 |--------|-------------|----------|------|
-| Auto-Rescue开关与轮次 | auto_rescue_enabled/max_rounds | ✅ AutoRescue类 | ✅ |
-| Recoverable vs Fatal分级 | 明确分级 | ✅ should_rescue方法 | ✅ |
-| Auto Abort Guardrail | 卡死判定+abort报告 | ✅ AutoAbortGuardrail类 | ✅ |
-| Forced streak熔断 | >=2暂停 | ✅ state_commit检查 | ✅ |
-| 完结交付包 | 文本+报告+归档 | ✅ Phase 8/9实现 | ✅ |
+| Auto-Rescue开关与轮次 | auto_rescue_enabled/max_rounds |  AutoRescue类 |  |
+| Recoverable vs Fatal分级 | 明确分级 |  should_rescue方法 |  |
+| Auto Abort Guardrail | 卡死判定+abort报告 |  AutoAbortGuardrail类 |  |
+| Forced streak熔断 | >=2暂停 |  state_commit检查 |  |
+| 完结交付包 | 文本+报告+归档 |  Phase 8/9实现 |  |
 
 **代码验证** (writing_loop.py:476-479):
 ```python
@@ -95,10 +95,10 @@ if writing_state['forced_streak'] >= 2:
 
 | 检查项 | 设计文档要求 | 代码验证 | 状态 |
 |--------|-------------|----------|------|
-| price-table.json版本化 | version/updated_at/source/usd_cny_rate | ✅ DEFAULT_PRICE_TABLE | ✅ |
-| cost-report.jsonl字段 | price_table_version + RMB | ✅ log_cost方法 | ✅ |
-| usd_cny_rate启动固化 | 初始化时固化 | ✅ initialize方法 | ✅ |
-| 热更新保留旧版本 | 备份机制 | ✅ update_price_table | ✅ |
+| price-table.json版本化 | version/updated_at/source/usd_cny_rate |  DEFAULT_PRICE_TABLE |  |
+| cost-report.jsonl字段 | price_table_version + RMB |  log_cost方法 |  |
+| usd_cny_rate启动固化 | 初始化时固化 |  initialize方法 |  |
+| 热更新保留旧版本 | 备份机制 |  update_price_table |  |
 
 **代码验证** (price_table.py:17-25):
 ```python
@@ -131,7 +131,7 @@ def get_run_dir(workspace_root: Path, run_id: str) -> Path:
     return workspace_root / "runs" / run_id
 ```
 
-✅ **实现正确**
+ **实现正确**
 
 ---
 
@@ -139,11 +139,11 @@ def get_run_dir(workspace_root: Path, run_id: str) -> Path:
 
 | Event ID | 实现位置 | 验证 |
 |----------|----------|------|
-| RS-001 | resume_manager.py:210-218 | ✅ 写入events.jsonl |
-| RS-002 | resume_manager.py:90-102 | ✅ 僵尸锁清理 |
-| AR-001~006 | safety_mechanisms.py:150+ | ✅ 救援事件 |
-| BP-* | writing_loop.py:469-479 | ✅ Backpatch入队 |
-| CP-* | price_table.py:119-127 | ✅ 成本更新 |
+| RS-001 | resume_manager.py:210-218 |  写入events.jsonl |
+| RS-002 | resume_manager.py:90-102 |  僵尸锁清理 |
+| AR-001~006 | safety_mechanisms.py:150+ |  救援事件 |
+| BP-* | writing_loop.py:469-479 |  Backpatch入队 |
+| CP-* | price_table.py:119-127 |  成本更新 |
 
 ---
 
@@ -176,7 +176,7 @@ def attempt_cycle(self, chapter_num, outline, previous_content=""):
     return best_draft, best_result, self.max_attempts
 ```
 
-✅ **实现正确**
+ **实现正确**
 
 ---
 
@@ -186,21 +186,21 @@ def attempt_cycle(self, chapter_num, outline, previous_content=""):
 
 | 字段 | 代码位置 | 验证 |
 |------|----------|------|
-| key | model.key | ✅ |
-| provider | model.provider | ✅ |
-| model_id | model.model_id | ✅ |
-| tier | model.tier | ✅ |
-| context_bucket | model.context_bucket | ✅ |
-| thinking_mode | model.thinking_mode | ✅ |
-| cache_mode | model.cache_mode | ✅ |
-| currency | model.currency | ✅ |
-| input_rate | model.input_rate | ✅ |
-| output_rate | model.output_rate | ✅ |
-| updated_at | table.updated_at | ✅ |
-| source | table.source | ✅ |
-| version | table.version | ✅ |
+| key | model.key |  |
+| provider | model.provider |  |
+| model_id | model.model_id |  |
+| tier | model.tier |  |
+| context_bucket | model.context_bucket |  |
+| thinking_mode | model.thinking_mode |  |
+| cache_mode | model.cache_mode |  |
+| currency | model.currency |  |
+| input_rate | model.input_rate |  |
+| output_rate | model.output_rate |  |
+| updated_at | table.updated_at |  |
+| source | table.source |  |
+| version | table.version |  |
 
-✅ **13/13字段完整**
+ **13/13字段完整**
 
 ---
 
@@ -247,7 +247,7 @@ write_parser.add_argument('--resume', choices=['off', 'auto', 'force'])
 write_parser.add_argument('--budget', type=float)
 ```
 
-✅ **所有必需参数已实现**
+ **所有必需参数已实现**
 
 ---
 
@@ -255,12 +255,12 @@ write_parser.add_argument('--budget', type=float)
 
 | 检查项 | 代码位置 | 验证 |
 |--------|----------|------|
-| resume参数 (off/auto/force) | cli.py:147 | ✅ |
-| 恢复判定4文件检查 | resume_manager.py:115-155 | ✅ |
-| RS-001事件 | resume_manager.py:210-218 | ✅ 写入events.jsonl |
-| .lock.json排他锁 | resume_manager.py:27-62 | ✅ |
-| RS-002僵尸锁 | resume_manager.py:90-102 | ✅ |
-| runtime_effective_config | resume_manager.py:340-400 | ✅ |
+| resume参数 (off/auto/force) | cli.py:147 |  |
+| 恢复判定4文件检查 | resume_manager.py:115-155 |  |
+| RS-001事件 | resume_manager.py:210-218 |  写入events.jsonl |
+| .lock.json排他锁 | resume_manager.py:27-62 |  |
+| RS-002僵尸锁 | resume_manager.py:90-102 |  |
+| runtime_effective_config | resume_manager.py:340-400 |  |
 
 ---
 
@@ -268,16 +268,16 @@ write_parser.add_argument('--budget', type=float)
 
 | 禁令 | 代码验证 | 状态 |
 |------|----------|------|
-| 禁止只对话不落盘 | 全部使用atomic_write | ✅ |
-| 禁止未写state就推进 | state_commit后才继续 | ✅ |
-| 禁止Sanitizer不落盘 | sanitizer_output.jsonl | ✅ |
-| 禁止删除撤回产物 | 移到archive/reverted/ | ✅ |
-| 禁止时区混用 | Asia/Shanghai | ✅ |
-| 禁止PASS提强制修改 | QC逻辑检查 | ✅ |
-| 禁止confidence<0.7直接覆盖 | pending_changes隔离 | ✅ |
-| 禁止原子写入失败不阻断 | RuntimeError抛出 | ✅ |
-| 禁止FORCED不进backpatch | state_commit自动入队 | ✅ |
-| 禁止forced_streak>=2不熔断 | is_paused=True | ✅ |
+| 禁止只对话不落盘 | 全部使用atomic_write |  |
+| 禁止未写state就推进 | state_commit后才继续 |  |
+| 禁止Sanitizer不落盘 | sanitizer_output.jsonl |  |
+| 禁止删除撤回产物 | 移到archive/reverted/ |  |
+| 禁止时区混用 | Asia/Shanghai |  |
+| 禁止PASS提强制修改 | QC逻辑检查 |  |
+| 禁止confidence<0.7直接覆盖 | pending_changes隔离 |  |
+| 禁止原子写入失败不阻断 | RuntimeError抛出 |  |
+| 禁止FORCED不进backpatch | state_commit自动入队 |  |
+| 禁止forced_streak>=2不熔断 | is_paused=True |  |
 
 ---
 
@@ -291,22 +291,22 @@ write_parser.add_argument('--budget', type=float)
 
 ### 2. 验证通过的核心功能
 
-- ✅ 原子写入 (temp→fsync→rename)
-- ✅ ending_state (3种状态+checklist)
-- ✅ Price Table (13字段完整)
-- ✅ Price匹配顺序 (1-5步)
-- ✅ cost-report (version+RMB)
-- ✅ .lock.json (5字段完整)
-- ✅ RS-001/RS-002事件
-- ✅ Resume判定 (4文件检查)
-- ✅ Attempt状态机 (1→2→3→FORCED)
-- ✅ forced_streak熔断 (>=2暂停)
-- ✅ confidence<0.7隔离
-- ✅ 审计链强制 (RuntimeError)
-- ✅ Auto-Rescue (5策略)
-- ✅ Auto-Abort (卡死检测)
-- ✅ CLI完整参数
-- ✅ 函数入口run_skill
+-  原子写入 (temp→fsync→rename)
+-  ending_state (3种状态+checklist)
+-  Price Table (13字段完整)
+-  Price匹配顺序 (1-5步)
+-  cost-report (version+RMB)
+-  .lock.json (5字段完整)
+-  RS-001/RS-002事件
+-  Resume判定 (4文件检查)
+-  Attempt状态机 (1→2→3→FORCED)
+-  forced_streak熔断 (>=2暂停)
+-  confidence<0.7隔离
+-  审计链强制 (RuntimeError)
+-  Auto-Rescue (5策略)
+-  Auto-Abort (卡死检测)
+-  CLI完整参数
+-  函数入口run_skill
 
 ---
 
@@ -325,20 +325,20 @@ write_parser.add_argument('--budget', type=float)
 
 ## 八、结论
 
-**设计文档符合度**: **98.8%** ✅
+**设计文档符合度**: **98.8%** 
 
 **生产就绪评估**:
-- 核心功能: ✅ 100% 实现
-- 架构完整性: ✅ 100% 符合
-- 安全机制: ✅ 100% 实现
-- CLI接口: ✅ 100% 完整
+- 核心功能:  100% 实现
+- 架构完整性:  100% 符合
+- 安全机制:  100% 实现
+- CLI接口:  100% 完整
 
 **建议**:
 1. 补充缺失的1个v2_addons提示词模板
 2. 进行完整集成测试
 3. 文档已完备，可直接使用
 
-**fanfic-writer v2.0 已达到生产就绪状态** 🎉
+**fanfic-writer v2.0 已达到生产就绪状态** 
 
 ---
 

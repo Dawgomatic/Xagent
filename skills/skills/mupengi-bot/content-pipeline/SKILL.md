@@ -1,7 +1,7 @@
 ---
 name: content-pipeline
 description: Orchestrate full content workflow (planning→writing→design→publishing→tracking). Use when automating full content workflow from planning to publishing.
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
 # content-pipeline
@@ -121,6 +121,6 @@ As this is a meta skill, during actual implementation:
 
 ---
 
-**Author**: 무펭이 🐧  
+**Author**: 무펭이   
 **Created**: 2026-02-14  
 **Status**: Production Ready

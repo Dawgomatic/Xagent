@@ -12,12 +12,12 @@
 
 | 场景 | 当前处理方式 | 状态 |
 |------|-------------|------|
-| 文件不存在 | 返回 `None` + 错误消息 | ✅ 良好 |
-| 权限错误 | 返回 `None` + 错误消息 | ✅ 良好 |
-| 无效 JSON | 降级为纯文本处理 | ✅ 良好 |
-| OSError | 返回 `None` + 错误消息 | ✅ 良好 |
-| 空文件 | 返回空字符串 | ⚠️ 部分 |
-| 非法参数 | 抛出 `ValueError` | ✅ 良好 |
+| 文件不存在 | 返回 `None` + 错误消息 |  良好 |
+| 权限错误 | 返回 `None` + 错误消息 |  良好 |
+| 无效 JSON | 降级为纯文本处理 |  良好 |
+| OSError | 返回 `None` + 错误消息 |  良好 |
+| 空文件 | 返回空字符串 |  部分 |
+| 非法参数 | 抛出 `ValueError` |  良好 |
 
 ### 1.2 当前代码中的错误处理
 
@@ -136,7 +136,7 @@ def test_non_numeric():
 ```python
 # UTF-8 特殊字符
 def test_utf8_special_chars():
-    content = '测试中文 🎉 emoji'
+    content = '测试中文  emoji'
     result = extract_key_projects(content)
     assert isinstance(result, list)
 
@@ -194,7 +194,7 @@ _METADATA_PATTERNS = {
     'original': re.compile(r'原始消息数:\s*(\d+)'),
     'compressed': re.compile(r'压缩后消息数:\s*(\d+)'),
     'timestamp': re.compile(r'上下文压缩于\s*([\d\-T:.]+)'),
-    'checkmark': re.compile(r'✅\s*(.+?)(?:\n|$)'),
+    'checkmark': re.compile(r'\s*(.+?)(?:\n|$)'),
     'cron': re.compile(r'(\d+)个?cron任务.*?已转为'),
 }
 
@@ -389,11 +389,11 @@ class TestPerformance(unittest.TestCase):
 
 ### 6.1 当前状态
 
-- ✅ 基础错误处理已实现
-- ✅ 文件 I/O 错误处理完善
-- ⚠️ 输入验证不完整
-- ⚠️ 边界情况处理不足
-- ❌ 缺少统一错误码
+-  基础错误处理已实现
+-  文件 I/O 错误处理完善
+-  输入验证不完整
+-  边界情况处理不足
+-  缺少统一错误码
 
 ### 6.2 行动计划
 

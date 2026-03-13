@@ -49,9 +49,9 @@ async function getYouTubeAnalytics() {
   try {
     // Check if YouTube skill is installed and accessible
     const result = await runClawdbotCmd(['skills', 'run', 'youtube-analytics', '--last24h']);
-    return result || '📺 YouTube Analytics: Data not available\n';
+    return result || ' YouTube Analytics: Data not available\n';
   } catch (error) {
-    return `📺 YouTube Analytics: Skill not available (${error.message})\n`;
+    return ` YouTube Analytics: Skill not available (${error.message})\n`;
   }
 }
 
@@ -59,9 +59,9 @@ async function getYouTubeAnalytics() {
 async function getEmailSummary() {
   try {
     const result = await runClawdbotCmd(['skills', 'run', 'gmail-summary']);
-    return result || '📧 Email Summary: No data available\n';
+    return result || ' Email Summary: No data available\n';
   } catch (error) {
-    return `📧 Email Summary: Skill not available\n`;
+    return ` Email Summary: Skill not available\n`;
   }
 }
 
@@ -69,9 +69,9 @@ async function getEmailSummary() {
 async function getWeatherData() {
   try {
     const result = await runClawdbotCmd(['skills', 'run', 'weather', '--location', 'Denver', '--units', 'F']);
-    return result || '🌤️ Weather: Denver conditions unavailable\n';
+    return result || ' Weather: Denver conditions unavailable\n';
   } catch (error) {
-    return `🌤️ Weather: ${error.message}\n`;
+    return ` Weather: ${error.message}\n`;
   }
 }
 
@@ -79,15 +79,15 @@ async function getWeatherData() {
 async function getCalendarEvents() {
   try {
     const result = await runClawdbotCmd(['skills', 'run', 'calendar', '--range', '48h']);
-    return result || '📅 Calendar: No upcoming events\n';
+    return result || ' Calendar: No upcoming events\n';
   } catch (error) {
-    return `📅 Calendar: ${error.message}\n`;
+    return ` Calendar: ${error.message}\n`;
   }
 }
 
 // Search for news on tech/maker/AI topics
 async function getNewsBreriefs() {
-  let briefing = '🔗 News Briefs:\n';
+  let briefing = ' News Briefs:\n';
   
   const topics = [
     'AI coding agents Claude AutoGPT',
@@ -216,7 +216,7 @@ async function main() {
     // Build consolidated briefing message
     let briefingMessage = `
 ═══════════════════════════════════════════════════════════
-🌅 MORNING BRIEFING - ${new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+ MORNING BRIEFING - ${new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
 ═══════════════════════════════════════════════════════════
 
 ${youtube}
@@ -229,14 +229,14 @@ ${calendar}
 
 ${news}
 
-📚 RESEARCH BRIEFS:
+ RESEARCH BRIEFS:
 • 3D Printing: New products, techniques, industry announcements
 • Agentic Coding: Claude, AutoGPT, reasoning patterns, best practices
 • Clawdbot Ecosystem: New features, community updates, integrations
 • Trending Clawdbot Skills: Top installed, new releases, popular automations
 
 ═══════════════════════════════════════════════════════════
-🔍 Skill Discovery in progress... Check Telegram for results.
+ Skill Discovery in progress... Check Telegram for results.
 ═══════════════════════════════════════════════════════════
 `;
 

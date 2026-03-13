@@ -97,7 +97,7 @@ async function main() {
     // Highlight high funding opportunities
     const highFunding = fundingData.filter(d => Math.abs(d.annualizedRate) > 0.25);
     if (highFunding.length > 0 && !filterCoin) {
-      console.log('\n💰 High Funding Opportunities (>25% annualized):');
+      console.log('\n High Funding Opportunities (>25% annualized):');
       for (const data of highFunding.slice(0, 5)) {
         const direction = data.annualizedRate > 0 ? 'SHORT pays LONG' : 'LONG pays SHORT';
         console.log(

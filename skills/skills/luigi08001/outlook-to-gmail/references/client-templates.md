@@ -74,7 +74,7 @@ Thanks,
 
 ## Summary
 - Users migrated: X / Y total
-- Data migrated: Email ✅ | Contacts ✅ | Calendar ✅
+- Data migrated: Email  | Contacts  | Calendar 
 - Total data volume: ~X GB
 - Migration duration: X days
 - MX cutover completed: [date + time]
@@ -82,8 +82,8 @@ Thanks,
 ## Per-User Status
 | User | Email | Contacts | Calendar | Validated |
 |------|-------|----------|----------|-----------|
-| user1@domain.com | ✅ | ✅ | ✅ | ✅ |
-| user2@domain.com | ✅ | ✅ | ⚠️ recurring | ✅ |
+| user1@domain.com |  |  |  |  |
+| user2@domain.com |  |  |  recurring |  |
 
 ## Issues Encountered
 1. [Issue + resolution]

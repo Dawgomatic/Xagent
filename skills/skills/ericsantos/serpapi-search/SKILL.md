@@ -1,7 +1,7 @@
 ---
 name: serpapi
 description: Search Google via SerpAPI (Google Search, Google News, Google Local). Use when you need to search the web, find news articles, or look up local businesses. Supports country/language targeting for region-specific results.
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"bins":["curl","python3"],"env":["SERPAPI_API_KEY"]},"primaryEnv":"SERPAPI_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","python3"],"env":["SERPAPI_API_KEY"]},"primaryEnv":"SERPAPI_API_KEY"}}
 ---
 
 # SerpAPI Search

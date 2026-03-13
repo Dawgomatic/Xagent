@@ -63,9 +63,9 @@ bash scripts/suno_music.sh \
 - `--persona-name "이름"` / `--persona-desc "설명"` / `--persona-style "스타일"`
 
 **Auto features:**
-- 🎤 **Timestamped Lyrics**: Non-instrumental tracks automatically fetch lyrics timestamps and save as `{outdir}/lyrics.srt`
-- 🎬 **Suno Native MV**: With `--music-video`, Suno generates a visualized MP4 video directly
-- 🎭 **Persona**: With `--create-persona`, extracts voice/style identity for reuse
+-  **Timestamped Lyrics**: Non-instrumental tracks automatically fetch lyrics timestamps and save as `{outdir}/lyrics.srt`
+-  **Suno Native MV**: With `--music-video`, Suno generates a visualized MP4 video directly
+-  **Persona**: With `--create-persona`, extracts voice/style identity for reuse
 
 ### 3. Generate visuals (custom MV flow)
 ```bash
@@ -133,7 +133,7 @@ export TOGETHER_API_KEY="your-together-key" # Optional — Seedance, Veo, Imagen
 export SUNO_CALLBACK_URL=""                 # Optional — see Callback URL below
 ```
 
-**⚠️ Required keys:** `SUNO_API_KEY` and `OPENAI_API_KEY` must be set before running any script.
+** Required keys:** `SUNO_API_KEY` and `OPENAI_API_KEY` must be set before running any script.
 `BYTEPLUS_API_KEY` is needed for Seedream image provider (sign up at [console.byteplus.com](https://console.byteplus.com), 200 free images).
 `TOGETHER_API_KEY` is only needed for Seedance/Veo/Imagen providers.
 

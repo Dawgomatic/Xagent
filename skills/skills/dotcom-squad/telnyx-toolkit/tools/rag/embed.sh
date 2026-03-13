@@ -21,9 +21,9 @@ YELLOW='\033[0;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-log_info() { echo -e "${BLUE}ℹ${NC} $1"; }
+log_info() { echo -e "${BLUE}${NC} $1"; }
 log_ok()   { echo -e "${GREEN}✓${NC} $1"; }
-log_warn() { echo -e "${YELLOW}⚠${NC} $1"; }
+log_warn() { echo -e "${YELLOW}${NC} $1"; }
 log_err()  { echo -e "${RED}✗${NC} $1"; }
 
 main() {

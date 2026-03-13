@@ -14,11 +14,11 @@ Fetch tweets from X/Twitter without authentication. Uses FxTwitter API.
 
 | Content Type | Support |
 |-------------|---------|
-| Regular tweets | ✅ Full text + stats |
-| Long tweets (Twitter Blue) | ✅ Full text |
-| X Articles (long-form) | ✅ Complete article text |
-| Quoted tweets | ✅ Included |
-| Stats (likes/RT/views) | ✅ Included |
+| Regular tweets |  Full text + stats |
+| Long tweets (Twitter Blue) |  Full text |
+| X Articles (long-form) |  Complete article text |
+| Quoted tweets |  Included |
+| Stats (likes/RT/views) |  Included |
 
 ## Usage
 

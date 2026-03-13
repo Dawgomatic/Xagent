@@ -2,7 +2,7 @@
 name: fabric-bridge
 description: "Run Fabric AI patterns for text transformation, analysis, and content creation. Use when the user asks to use a Fabric pattern, extract wisdom, analyze claims, improve writing, summarize with Fabric, or mentions 'fabric' CLI. Supports 242+ patterns for tasks like content analysis, writing improvement, code review, threat modeling, and structured extraction."
 homepage: https://github.com/danielmiessler/fabric
-metadata: {"clawdbot":{"emoji":"🧶","requires":{"bins":["fabric-ai"]},"install":[{"id":"brew","kind":"brew","formula":"fabric-ai","bins":["fabric-ai"],"label":"Install Fabric AI (brew)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["fabric-ai"]},"install":[{"id":"brew","kind":"brew","formula":"fabric-ai","bins":["fabric-ai"],"label":"Install Fabric AI (brew)"}]}}
 ---
 
 # Fabric Bridge

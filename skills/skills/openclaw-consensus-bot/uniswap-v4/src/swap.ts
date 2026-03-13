@@ -250,7 +250,7 @@ async function main() {
     if (jsonOutput) {
       console.log(JSON.stringify(result));
     } else {
-      log("✅ Swap submitted!");
+      log(" Swap submitted!");
       log(`  TX: ${tx.hash}`);
       log(`  Explorer: ${result.explorer}`);
       log(`  Gas used: ${result.gasUsed}`);

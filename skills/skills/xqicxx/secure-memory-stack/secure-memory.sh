@@ -3,7 +3,7 @@
 
 # 检查是否提供了命令
 if [ $# -eq 0 ]; then
-    echo "🛡️  安全记忆系统 (Secure Memory Stack)"
+    echo "  安全记忆系统 (Secure Memory Stack)"
     echo "   一个完全本地化的记忆系统，确保数据隐私和安全"
     echo ""
     echo "用法: secure-memory <command> [options]"

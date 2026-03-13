@@ -33,7 +33,7 @@
     "+1111111111"
   ],
   
-  "strangerMessage": "Hi there! 👋 I'm Alex, an AI assistant. I'm currently set up to help my owner with personal tasks, so I'm not able to chat freely just yet. I've let them know you reached out — if they'd like to connect us, they'll set that up. Have a great day! 😊",
+  "strangerMessage": "Hi there!  I'm Alex, an AI assistant. I'm currently set up to help my owner with personal tasks, so I'm not able to chat freely just yet. I've let them know you reached out — if they'd like to connect us, they'll set that up. Have a great day! ",
   
   "notifyChannel": "telegram",
   "notifyTarget": "YOUR_TELEGRAM_ID_HERE",

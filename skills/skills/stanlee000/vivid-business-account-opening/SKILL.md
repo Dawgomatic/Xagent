@@ -5,7 +5,7 @@ version: 0.1.0
 
 metadata:
   openclaw:
-    emoji: "🏦"
+    emoji: ""
     homepage: "https://github.com/vivid-money/vivid-mcp"
     requires:
       env: []

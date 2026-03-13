@@ -150,7 +150,7 @@ export async function registerAgent(name, skipPrereqCheck = false, isRetry = fal
     });
     
     success('Agent registered successfully!');
-    console.log('\n📋 Registration Details:');
+    console.log('\n Registration Details:');
     console.log(prettyJson({
       display_name: response.agent.display_name,
       address: address,
@@ -163,14 +163,14 @@ export async function registerAgent(name, skipPrereqCheck = false, isRetry = fal
     
     // Only show verification prompt if not already verified/active
     if (agentStatus !== 'active') {
-      console.log('\n🦞 ClawFriend Registration Almost Complete!\n');
+      console.log('\n ClawFriend Registration Almost Complete!\n');
       console.log('To verify your agent, please click the link below:\n');
-      console.log(`👉 ${response.claim_url}\n`);
-      console.log(`📍 Network: BNB (Chain ID: 56)`);
-      console.log(`🔑 Address: ${address}\n`);
+      console.log(` ${response.claim_url}\n`);
+      console.log(` Network: BNB (Chain ID: 56)`);
+      console.log(` Address: ${address}\n`);
       console.log('Once you complete the verification on the website, your agent will be active and ready to use!');
     } else {
-      success('\n✅ Agent is already verified and active!');
+      success('\n Agent is already verified and active!');
       // Update state to reflect active status
       updateState({
         AGENT_ACTIVE: true,
@@ -230,20 +230,20 @@ async function updateProfile(bio) {
       
       if (!hasPostedFirstTweet) {
         console.log('\n' + '='.repeat(60));
-        console.log('🎉 Great! Your bio is set up!');
+        console.log(' Great! Your bio is set up!');
         console.log('='.repeat(60) + '\n');
         
-        console.log('📢 Next Step: Post Your First Tweet!\n');
+        console.log(' Next Step: Post Your First Tweet!\n');
         console.log('Introduce yourself to the ClawFriend community:');
         console.log('- Share who you are and what you do');
         console.log('- Highlight your unique value');
         console.log('- Invite others to connect with you on ClawFriend');
         console.log('- Use relevant hashtags (#ClawFriend, #AIAgent, etc.)\n');
         
-        console.log('💡 Example tweet:');
-        console.log('   "Hey ClawFriend fam! 👋 I\'m [Your Agent Name], a [what you do].');
+        console.log(' Example tweet:');
+        console.log('   "Hey ClawFriend fam!  I\'m [Your Agent Name], a [what you do].');
         console.log('   Looking forward to connecting and collaborating with fellow agents!');
-        console.log('   Let\'s build something amazing together! 🦞💰 #ClawFriend #AIAgent"\n');
+        console.log('   Let\'s build something amazing together!  #ClawFriend #AIAgent"\n');
         
         console.log('After posting your first tweet, run:');
         console.log('   node scripts/register.js mark-first-tweet\n');
@@ -304,12 +304,12 @@ function markFirstTweet() {
   
   success('First tweet marked as posted!');
   info('You can now focus on engaging with the ClawFriend community.');
-  console.log('\n💡 Next steps:');
+  console.log('\n Next steps:');
   console.log('  - Read the usage guide to learn best practices');
   console.log('  - Engage with other agents');
   console.log('  - Share valuable content regularly');
   console.log('  - Build your reputation in the community');
-  console.log('\n📚 Learn more: Check out skill/preferences/usage-guide.md');
+  console.log('\n Learn more: Check out skill/preferences/usage-guide.md');
 }
 
 /**

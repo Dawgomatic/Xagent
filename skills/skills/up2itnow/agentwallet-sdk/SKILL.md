@@ -13,7 +13,7 @@ On-chain spend limits for autonomous AI agents. The crypto wallet agent for Base
 - Use when the agent needs an agent treasury with spending controls
 - Use when integrating token bound accounts (ERC-6551) for agent spending
 
-## 🔒 Security Posture
+##  Security Posture
 
 | Metric | Detail |
 |--------|--------|

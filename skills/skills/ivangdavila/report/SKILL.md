@@ -4,7 +4,7 @@ slug: report
 version: 1.0.3
 description: Configure custom recurring reports. User defines data sources, skill handles scheduling and formatting.
 changelog: Fixed path consistency, declared optional env vars in metadata
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":[],"env":{"optional":["USER_PROVIDED_API_KEYS"]}},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[],"env":{"optional":["USER_PROVIDED_API_KEYS"]}},"os":["linux","darwin","win32"]}}
 ---
 
 ## Data Storage
@@ -23,9 +23,9 @@ Create on first use: `mkdir -p ~/report`
 ## Scope
 
 This skill:
-- ✅ Stores report configurations in ~/report/
-- ✅ Generates reports on schedule
-- ✅ Delivers via channels user configures
+-  Stores report configurations in ~/report/
+-  Generates reports on schedule
+-  Delivers via channels user configures
 
 **User-driven model:**
 - User defines WHAT data to include
@@ -34,9 +34,9 @@ This skill:
 - Skill handles SCHEDULING and FORMATTING
 
 This skill does NOT:
-- ❌ Access APIs without user-provided credentials
-- ❌ Pull data from sources user hasn't specified
-- ❌ Store credentials (user provides via environment)
+-  Access APIs without user-provided credentials
+-  Pull data from sources user hasn't specified
+-  Store credentials (user provides via environment)
 
 ## Environment Variables
 

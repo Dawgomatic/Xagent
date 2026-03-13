@@ -605,7 +605,7 @@ Examples:
         with open(args.output, "w", encoding='utf-8') as f:
             f.write(json_str)
         
-        logger.info(f"✅ Merged and scored articles:")
+        logger.info(f" Merged and scored articles:")
         logger.info(f"   Input: {total_collected} articles")
         logger.info(f"   Output: {total_final} articles across {len(topic_groups)} topics")
         logger.info(f"   File: {args.output}")
@@ -613,7 +613,7 @@ Examples:
         return 0
         
     except Exception as e:
-        logger.error(f"💥 Merge failed: {e}")
+        logger.error(f" Merge failed: {e}")
         return 1
 
 

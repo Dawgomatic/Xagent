@@ -83,13 +83,13 @@ The standard legal reasoning structure:
 ## Output
 
 ```
-⚖️ JURISDICTION: [Location + applicable law]
-📋 ISSUES: [All spotted, prioritized]
-📖 RULE: [Applicable law, source cited]
-🔍 APPLICATION: [Facts → Law analysis]
-⚠️ RISKS: [Key vulnerabilities]
-➡️ ACTION: [What to do + deadline]
-🚨 ESCALATE IF: [Triggers for licensed counsel]
+ JURISDICTION: [Location + applicable law]
+ ISSUES: [All spotted, prioritized]
+ RULE: [Applicable law, source cited]
+ APPLICATION: [Facts → Law analysis]
+ RISKS: [Key vulnerabilities]
+ ACTION: [What to do + deadline]
+ ESCALATE IF: [Triggers for licensed counsel]
 ```
 
 ---

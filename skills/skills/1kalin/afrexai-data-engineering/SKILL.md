@@ -216,7 +216,7 @@ Is the source database?
 │   │   Best for: high-volume, low-latency, minimal source impact
 │   └── No → Does it have a reliable updated_at column?
 │       ├── Yes → Incremental extraction on updated_at
-│       │   ⚠️ Won't catch hard deletes — add periodic full reconciliation
+│       │    Won't catch hard deletes — add periodic full reconciliation
 │       └── No → Full extraction
 │           Only viable for small tables (<1M rows)
 ├── Is it an API?

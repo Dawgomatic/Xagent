@@ -56,7 +56,7 @@ function startDashboard({
 
     app.listen(port, host, () => {
         const displayHost = host === '0.0.0.0' ? 'YOUR_IP' : host;
-        console.log(`\n🏠 AI COMMANDER DASHBOARD READY`);
+        console.log(`\n AI COMMANDER DASHBOARD READY`);
         console.log(`Access URL: http://${displayHost}:${port}/?token=${token}\n`);
     });
 }

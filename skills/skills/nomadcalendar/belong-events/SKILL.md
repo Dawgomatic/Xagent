@@ -1,7 +1,7 @@
 ---
 name: belong-events
 description: Create, discover, and manage events with NFT tickets on the Belong platform
-metadata: {"openclaw": {"emoji": "🎫", "primaryEnv": "BELONG_EVENTS_API_KEY", "optionalEnv": ["BELONG_EVENTS_ENDPOINT"], "requires": {"bins": ["curl"]}}}
+metadata: {"openclaw": {"emoji": "", "primaryEnv": "BELONG_EVENTS_API_KEY", "optionalEnv": ["BELONG_EVENTS_ENDPOINT"], "requires": {"bins": ["curl"]}}}
 ---
 
 # Belong Events

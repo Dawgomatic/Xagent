@@ -1,7 +1,7 @@
 ---
 name: pagerduty
 description: Manage incidents, on-call schedules, and alerts via PagerDuty API. Trigger and resolve incidents programmatically.
-metadata: {"clawdbot":{"emoji":"🚨","requires":{"env":["PAGERDUTY_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["PAGERDUTY_API_KEY"]}}}
 ---
 
 # PagerDuty

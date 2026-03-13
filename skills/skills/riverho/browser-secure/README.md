@@ -1,4 +1,4 @@
-# 🔒 Browser Secure
+#  Browser Secure
 
 > Secure browser automation with vault integration, approval gates, and comprehensive audit logging.
 
@@ -10,7 +10,7 @@ Browser Secure fetches credentials from your password manager (Bitwarden or 1Pas
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Install (via Clawdbot - Recommended)
 
@@ -28,10 +28,10 @@ curl -fsSL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/inst
 ```
 
 This handles everything automatically:
-- ✅ Checks prerequisites (Node.js 18+, Chrome)
-- 📦 Auto-installs missing dependencies (Playwright browsers, optional vault CLIs)
-- 🔨 Builds and links the CLI globally
-- 📝 Creates default configuration
+-  Checks prerequisites (Node.js 18+, Chrome)
+-  Auto-installs missing dependencies (Playwright browsers, optional vault CLIs)
+-  Builds and links the CLI globally
+-  Creates default configuration
 
 ### 2. Install (Manual - Advanced)
 
@@ -52,7 +52,7 @@ Instead of using your personal Chrome profile (with all your personal data), cre
 
 ```bash
 # Create a new Chrome profile with welcome page
-browser-secure profile --create "The Crustacean Station 🦞"
+browser-secure profile --create "The Crustacean Station "
 
 # Create and immediately launch Chrome
 browser-secure profile --create "Automation Profile" --launch
@@ -67,7 +67,7 @@ This creates:
 
 When Chrome opens, you'll see a welcome page that guides you through:
 
-#### 🔌 Install Required Extensions
+####  Install Required Extensions
 
 1. **Bitwarden** (Recommended) - Free, open-source password manager
    - Click "Install from Web Store" on the welcome page
@@ -77,7 +77,7 @@ When Chrome opens, you'll see a welcome page that guides you through:
    - Click "Install from Web Store" on the welcome page
    - Enables seamless automation control
 
-#### 🗝️ Log In to Your Vault
+####  Log In to Your Vault
 
 **Option A: Bitwarden (Recommended - Free)**
 
@@ -130,21 +130,21 @@ browser-secure close
 
 ---
 
-## 📖 Why This Approach Is Safer
+##  Why This Approach Is Safer
 
 ### The Problem with Traditional Automation
 
 Most browser automation tools handle credentials like this:
 
 ```bash
-# ❌ BAD: Credentials in CLI (visible in history)
+#  BAD: Credentials in CLI (visible in history)
 my-tool login --username="user@example.com" --password="secret123"
 
-# ❌ BAD: Credentials in environment variables (leaked to child processes)
+#  BAD: Credentials in environment variables (leaked to child processes)
 export PASSWORD="secret123"
 my-tool login
 
-# ❌ BAD: Credentials in config files (plaintext on disk)
+#  BAD: Credentials in config files (plaintext on disk)
 cat config.json
 { "password": "secret123" }
 ```
@@ -158,7 +158,7 @@ cat config.json
 ### The Browser Secure Approach
 
 ```bash
-# ✅ GOOD: No credentials in CLI
+#  GOOD: No credentials in CLI
 browser-secure navigate https://github.com --site=github
 
 # Credentials flow:
@@ -200,7 +200,7 @@ Using a dedicated automation profile protects you in multiple ways:
 
 ---
 
-## 🛡️ Security Model
+##  Security Model
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -251,7 +251,7 @@ Using a dedicated automation profile protects you in multiple ways:
 
 ---
 
-## 📋 Commands Reference
+##  Commands Reference
 
 | Command | Description |
 |---------|-------------|
@@ -276,7 +276,7 @@ Using a dedicated automation profile protects you in multiple ways:
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 Create `~/.browser-secure/config.yaml`:
 
@@ -313,7 +313,7 @@ audit:
 
 ---
 
-## 🔐 Vault Providers
+##  Vault Providers
 
 ### Bitwarden (Recommended - Free)
 
@@ -365,7 +365,7 @@ For automated workflows, a `.env` file can be used (see `.env.example`). This st
 
 ---
 
-## 🆘 Troubleshooting
+##  Troubleshooting
 
 **"Vault is locked" error**
 ```bash
@@ -393,13 +393,13 @@ Use `-y` flag to auto-approve (be careful!): `browser-secure act "click login" -
 
 ---
 
-## 📄 License
+##  License
 
 MIT
 
 ---
 
-## 🔗 Links
+##  Links
 
 - [OpenClaw Documentation](https://docs.openclaw.ai)
 - [Bitwarden](https://bitwarden.com)

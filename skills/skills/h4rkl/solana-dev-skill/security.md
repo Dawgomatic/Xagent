@@ -245,7 +245,7 @@ if data.authority != *authority.key() {
 - [ ] Validate signer requirements explicitly
 - [ ] Validate writable requirements explicitly
 - [ ] Validate PDAs match expected seeds + bump
-- [ ] Validate token mint ↔ token account relationships
+- [ ] Validate token mint  token account relationships
 - [ ] Validate rent exemption / initialization status
 - [ ] Check for duplicate mutable accounts
 

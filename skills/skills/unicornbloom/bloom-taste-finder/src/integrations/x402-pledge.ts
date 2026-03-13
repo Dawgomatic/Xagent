@@ -19,7 +19,7 @@ export class X402Pledge {
     projectUrl: string,
     amount: number
   ): Promise<PledgeResult> {
-    console.log(`💰 Pledging $${amount} to ${projectUrl}...`);
+    console.log(` Pledging $${amount} to ${projectUrl}...`);
 
     // TODO: Integrate with x402 protocol
     // For hackathon demo, simulate pledge
@@ -27,7 +27,7 @@ export class X402Pledge {
 
     const mockTxHash = `0x${Math.random().toString(16).substr(2, 64)}`;
 
-    console.log(`✅ Pledge successful: ${mockTxHash}`);
+    console.log(` Pledge successful: ${mockTxHash}`);
 
     return {
       transactionHash: mockTxHash,

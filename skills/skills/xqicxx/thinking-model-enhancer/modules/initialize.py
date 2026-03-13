@@ -25,7 +25,7 @@ def initialize_thinking_enhancer():
     
     for directory in directories:
         directory.mkdir(parents=True, exist_ok=True)
-        print(f"✅ 创建目录: {directory}")
+        print(f" 创建目录: {directory}")
     
     # 创建示例配置文件
     config_file = base_dir / "config.json"
@@ -50,10 +50,10 @@ def initialize_thinking_enhancer():
             import json
             json.dump(config, f, ensure_ascii=False, indent=2)
         
-        print(f"✅ 创建配置文件: {config_file}")
+        print(f" 创建配置文件: {config_file}")
     
-    print(f"\n🎉 思维模型增强器初始化完成！")
-    print(f"📁 主目录: {base_dir}")
+    print(f"\n 思维模型增强器初始化完成！")
+    print(f" 主目录: {base_dir}")
     
     return str(base_dir)
 

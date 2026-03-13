@@ -154,9 +154,9 @@ def audit_single_skill(
 
     # Print summary
     if report.findings:
-        logger.warning("⚠️  %s: %d findings (risk=%d, max=%s)", slug, len(report.findings), report.risk_score, report.max_severity)
+        logger.warning("  %s: %d findings (risk=%d, max=%s)", slug, len(report.findings), report.risk_score, report.max_severity)
     else:
-        logger.info("✅ %s: clean", slug)
+        logger.info(" %s: clean", slug)
 
     return report
 

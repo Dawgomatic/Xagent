@@ -1,4 +1,4 @@
-# 🌅 Morning Briefing Cron Job - Setup Guide
+#  Morning Briefing Cron Job - Setup Guide
 
 ## Overview
 
@@ -269,11 +269,11 @@ If a skill isn't available:
 
 ## Next Steps
 
-1. ✅ Install cron job: `crontab -e` + add the line
-2. ✅ Verify timezone: `date`
-3. ✅ Check logs: `tail -f logs/morning-briefing.log`
-4. ✅ Test manually: Run the scripts to verify they work
-5. ✅ Wait until 10:15 AM to see the first automated briefing!
+1.  Install cron job: `crontab -e` + add the line
+2.  Verify timezone: `date`
+3.  Check logs: `tail -f logs/morning-briefing.log`
+4.  Test manually: Run the scripts to verify they work
+5.  Wait until 10:15 AM to see the first automated briefing!
 
 ---
 
@@ -284,4 +284,4 @@ For issues, check:
 - Script logs: Run scripts manually with `node` for debug output
 - Clawdbot status: `clawdbot gateway status`
 
-Happy briefings! 🌅
+Happy briefings! 

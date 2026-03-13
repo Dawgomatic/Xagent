@@ -103,7 +103,7 @@ export async function generateDailyBriefing() {
   1. Synthesize the NEW DATA into a cohesive, structured markdown report.
   2. Do NOT repeat topics from the CONTEXT unless there is a significant update.
   3. Focus on: New Models, New Tools, Research Papers, and Major Industry Moves.
-  4. Use clear headings: "🚀 New Models", "📄 Research Highlights", "🛠️ Tools & Libraries", "📰 Industry News".
+  4. Use clear headings: " New Models", " Research Highlights", " Tools & Libraries", " Industry News".
   5. Include URLs for every item.
   6. Tone: Professional, dense, high-signal, "for agents by agents".
   7. End with a "Runner Up" section for smaller items.

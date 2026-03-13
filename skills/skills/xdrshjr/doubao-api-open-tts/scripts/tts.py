@@ -628,7 +628,7 @@ def get_api_config_prompt():
         str: 格式化的配置提示
     """
     prompt_lines = [
-        "🔐 API Configuration Required",
+        " API Configuration Required",
         "",
         "To use the Doubao TTS service, you need to provide API credentials.",
         "",
@@ -661,7 +661,7 @@ def get_voice_selection_prompt():
         str: 格式化的音色选择提示
     """
     prompt_lines = [
-        "🎙️ Please select a voice for text-to-speech synthesis:",
+        " Please select a voice for text-to-speech synthesis:",
         "",
         "Here are our recommended voices by category:",
         "",
@@ -682,7 +682,7 @@ def get_voice_selection_prompt():
         prompt_lines.append("")
     
     prompt_lines.extend([
-        "💡 Tips:",
+        " Tips:",
         "  • You can say the voice name (e.g., 'Shiny', '猴哥', '霸道总裁')",
         "  • Or provide the voice_type directly (e.g., 'zh_female_cancan_mars_bigtts')",
         "  • Type 'list all' to see all 200+ available voices",

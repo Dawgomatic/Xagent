@@ -10,24 +10,24 @@ This skill makes the following security guarantees:
 
 | Guarantee | Status | Verification |
 |-----------|--------|--------------|
-| No API keys stored in skill files | ✅ Enforced | Grep for patterns; none found |
-| Credentials via environment only | ✅ Enforced | Keys read from env/auth-profiles only |
-| Input sanitization before routing | ✅ Implemented | See [Input Sanitization](#input-sanitization) |
-| No arbitrary code execution | ✅ By design | See [Code Execution Safety](#code-execution-safety) |
-| Rate limiting support | ✅ Documented | See [Rate Limiting](#rate-limiting-for-self-hosted) |
+| No API keys stored in skill files |  Enforced | Grep for patterns; none found |
+| Credentials via environment only |  Enforced | Keys read from env/auth-profiles only |
+| Input sanitization before routing |  Implemented | See [Input Sanitization](#input-sanitization) |
+| No arbitrary code execution |  By design | See [Code Execution Safety](#code-execution-safety) |
+| Rate limiting support |  Documented | See [Rate Limiting](#rate-limiting-for-self-hosted) |
 
 ---
 
 ## API Key Handling
 
-### ✅ DO
+###  DO
 - Store API keys in OpenClaw auth profiles (`~/.openclaw/agents/<id>/agent/auth-profiles.json`)
 - Use environment variables when needed (`ANTHROPIC_API_KEY`, `XAI_API_KEY`, etc.)
 - Rotate keys periodically (quarterly recommended)
 - Use separate keys for development vs production
 - Monitor key usage for anomalies
 
-### ❌ NEVER
+###  NEVER
 - Hardcode API keys in skill files
 - Commit keys to version control
 - Share keys in chat messages
@@ -206,7 +206,7 @@ BLOCK_PATTERNS = [
 │                   CODE EXECUTION SAFETY                          │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
-│  ✅ ALLOWED                        ❌ NEVER                      │
+│   ALLOWED                         NEVER                      │
 │  ─────────────────────────────────────────────────────────────  │
 │  • String pattern matching         • eval() on user input       │
 │  • Dictionary lookups              • exec() on user input       │
@@ -229,15 +229,15 @@ The routing logic uses ONLY:
 **There is no path from user input to code execution.**
 
 ```python
-# ✅ SAFE: Lookup in pre-defined dictionary
+#  SAFE: Lookup in pre-defined dictionary
 model = ROUTING_TABLE.get((intent, complexity))
 
-# ✅ SAFE: Iteration over hardcoded list
+#  SAFE: Iteration over hardcoded list
 for model in ["opus", "sonnet", "haiku"]:
     if is_available(model):
         return model
 
-# ❌ NEVER HAPPENS: No eval/exec anywhere in router
+#  NEVER HAPPENS: No eval/exec anywhere in router
 # eval(user_input)      # DOES NOT EXIST
 # exec(user_input)      # DOES NOT EXIST
 # __import__(user_input) # DOES NOT EXIST

@@ -2,7 +2,7 @@
 name: EvoWeb.ai AI Website Builder
 description: Create a Website in 4 Minutes Designed to Bring Clients from ChatGPT, Gemini & Modern Search
 homepage: https://evoweb.ai/?utm_source=claw&utm_medium=skill&utm_campaign=website&utm_content=v1.0
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"bins":[],"env":["EVOWEB_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[],"env":["EVOWEB_API_KEY"]}}}
 ---
 
 # EvoWeb Website Builder
@@ -164,7 +164,7 @@ If **NO API key is available:**
 
 3. **Provide the link to the user:**
    ```
-   🌐 To create your website, visit this link:
+    To create your website, visit this link:
    [Your personalized link here]
    
    After clicking "Create Website" button, you'll be able to create an account and your website will be generated automatically!
@@ -201,7 +201,7 @@ Tell them:
 - It will take approximately 4 minutes
 - You'll check progress automatically (ONLY IF YOU CAN)
 
-Example: "✨ Creating your website now! Generation typically takes 3-5 minutes. I'll check the status and let you know when it's ready."
+Example: " Creating your website now! Generation typically takes 3-5 minutes. I'll check the status and let you know when it's ready."
 
 ### Step 4: Poll for Status
 
@@ -234,10 +234,10 @@ When status is `ready`:
 
 **Example response:**
 ```
-🎉 Your website is ready!
+ Your website is ready!
 
-🌐 View it here: https://website.page/yoga-studio-23f4
-✏️ Customize it: https://web.evoweb.ai/ui/websites/abc123xyz/update/
+ View it here: https://website.page/yoga-studio-23f4
+ Customize it: https://web.evoweb.ai/ui/websites/abc123xyz/update/
 
 Quick improvements you might want:
 1. Add online class booking system
@@ -257,7 +257,7 @@ When status is `failed`:
 
 **Example response:**
 ```
-❌ Website generation failed: [error message]
+ Website generation failed: [error message]
 
 Would you like me to try again? I can restart the generation process.
 ```
@@ -274,10 +274,10 @@ User: "I need a website for my yoga studio"
 Assistant response:
 "I'd be happy to help! To get started quickly, let me create a personalized link for you.
 
-🌐 Visit this link to create your website:
+ Visit this link to create your website:
 https://evoweb.ai/?utm_source=claw&utm_medium=skill&utm_campaign=website&utm_content=v1.0&prompt=A%20yoga%20studio%20offering%20various%20classes%20for%20all%20skill%20levels%2C%20focused%20on%20wellness%20and%20mindfulness
 
-After clicking 'Create Website', you'll be able to create an account and your website will be generated automatically in about 4 minutes! ✨"
+After clicking 'Create Website', you'll be able to create an account and your website will be generated automatically in about 4 minutes! "
 ```
 
 ### Coffee Shop Landing Page
@@ -324,14 +324,14 @@ Enhanced prompt:
 
 ### Writing Good Prompts
 
-✅ **Do:**
+ **Do:**
 - Describe the business/project essence
 - Explain what the business does or offers
 - Identify the target audience
 - Clarify the main goal/purpose
 - Include key differentiators or unique value proposition
 
-❌ **Don't:**
+ **Don't:**
 - Prescribe specific design elements (colors, layouts, styles)
 - Dictate website sections or structure
 - Specify look and feel details
@@ -385,4 +385,4 @@ Enhanced prompt:
 
 ---
 
-**Ready to create amazing websites with just a text description!** 🚀
+**Ready to create amazing websites with just a text description!** 

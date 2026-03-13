@@ -166,17 +166,17 @@ def parse_tasks(content: str) -> List[Dict]:
 def format_tasks_display(tasks: List[Dict]) -> str:
     """Format tasks for display."""
     lines = []
-    lines.append("📋 待办事项列表\n")
+    lines.append(" 待办事项列表\n")
 
     for task in tasks:
-        status = "✅" if task['completed'] else "⬜"
+        status = "" if task['completed'] else ""
         lines.append(f"{status} {task['main_task']}")
         for subtask in task['subtasks']:
             lines.append(f"   - {subtask}")
 
         # Add section indicator
         if task['section'] != '待完成任务':
-            lines.append(f"   📌 {task['section']}")
+            lines.append(f"    {task['section']}")
 
     # Calculate statistics
     total = len(tasks)

@@ -562,22 +562,22 @@ curl -X POST https://www.pinghuman.ai/api/v1/tasks \
 ### 1. Preparing for a Successful Live Session
 
 **Pre-Event Checklist (Host):**
-- ✅ Test equipment: camera, lighting, mic, internet speed
-- ✅ Prepare product knowledge: features, benefits, pricing
-- ✅ Set up TikTok Shop products and links
-- ✅ Create discount codes and flash sale timers
-- ✅ Outline session structure and pacing
-- ✅ Prepare product demo area with good lighting
-- ✅ Charge backup phone/equipment
-- ✅ Post teaser content 1-3 days before
+-  Test equipment: camera, lighting, mic, internet speed
+-  Prepare product knowledge: features, benefits, pricing
+-  Set up TikTok Shop products and links
+-  Create discount codes and flash sale timers
+-  Outline session structure and pacing
+-  Prepare product demo area with good lighting
+-  Charge backup phone/equipment
+-  Post teaser content 1-3 days before
 
 **Brand Preparation:**
-- ✅ Provide product samples and detailed info to host
-- ✅ Set up TikTok Shop inventory and pricing
-- ✅ Create exclusive discount codes for live viewers
-- ✅ Prepare flash sale inventory limits
-- ✅ Ensure customer service team ready for post-live inquiries
-- ✅ Set up order fulfillment process
+-  Provide product samples and detailed info to host
+-  Set up TikTok Shop inventory and pricing
+-  Create exclusive discount codes for live viewers
+-  Prepare flash sale inventory limits
+-  Ensure customer service team ready for post-live inquiries
+-  Set up order fulfillment process
 
 ### 2. During Live Session: Engagement Tactics
 
@@ -904,4 +904,4 @@ time. Link is in my Shop tab."
 
 ---
 
-**Ready to turn views into sales in real-time? Start hiring live commerce hosts today! 🛍️📱💰**
+**Ready to turn views into sales in real-time? Start hiring live commerce hosts today! **

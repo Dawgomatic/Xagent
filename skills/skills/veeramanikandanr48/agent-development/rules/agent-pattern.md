@@ -27,14 +27,14 @@ When building agent-like functionality in Claude Code projects, use Task sub-age
 ## Pattern
 
 ```typescript
-// ❌ WRONG - Remote API call
+//  WRONG - Remote API call
 const response = await fetch('https://api.anthropic.com/v1/messages', {
   method: 'POST',
   headers: { 'x-api-key': ANTHROPIC_API_KEY },
   body: JSON.stringify({ model: 'claude-sonnet-4-20250514', messages: [...] })
 });
 
-// ✅ CORRECT - Use Task tool in Claude Code
+//  CORRECT - Use Task tool in Claude Code
 // Invoke Task with subagent_type: "general-purpose"
 // Sub-agent reads files, synthesizes, writes output
 ```

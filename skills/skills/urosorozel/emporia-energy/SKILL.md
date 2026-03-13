@@ -1,7 +1,7 @@
 ---
 name: emporia-energy
 description: Direct Emporia Vue energy queries via Emporia cloud (PyEmVue) or local ESPHome API, including guidance on choosing/configuring cloud vs local modes and running list/summary/circuit commands.
-metadata: {"moltbot":{"emoji":"⚡","os":["darwin","linux","win32"],"requires":{"bins":["python3"],"env":["EMPORIA_MODE"]}}}
+metadata: {"moltbot":{"emoji":"","os":["darwin","linux","win32"],"requires":{"bins":["python3"],"env":["EMPORIA_MODE"]}}}
 ---
 
 # Emporia Energy Skill

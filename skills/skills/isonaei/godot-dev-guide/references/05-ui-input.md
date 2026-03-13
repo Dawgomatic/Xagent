@@ -70,13 +70,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 ---
 
-## ⚠️ AI PITFALL：mouse_filter 設置
+##  AI PITFALL：mouse_filter 設置
 
 ```gdscript
-# ❌ WRONG - Control 節點阻擋點擊
+#  WRONG - Control 節點阻擋點擊
 # 預設 mouse_filter = MOUSE_FILTER_STOP
 
-# ✅ CORRECT - 讓點擊穿透
+#  CORRECT - 讓點擊穿透
 control_node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 # 選項：
@@ -87,15 +87,15 @@ control_node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 ---
 
-## ⚠️ AI PITFALL：_input vs _gui_input
+##  AI PITFALL：_input vs _gui_input
 
 ```gdscript
-# ❌ WRONG - UI 元素使用 _input
+#  WRONG - UI 元素使用 _input
 extends Button
 func _input(event: InputEvent) -> void:
     # 這會接收所有輸入，不只是按鈕上的
 
-# ✅ CORRECT - UI 元素使用 _gui_input
+#  CORRECT - UI 元素使用 _gui_input
 extends Button  
 func _gui_input(event: InputEvent) -> void:
     # 只接收該 UI 元素上的輸入
@@ -105,7 +105,7 @@ func _gui_input(event: InputEvent) -> void:
 
 ---
 
-## ⚠️ AI PITFALL：輸入處理順序
+##  AI PITFALL：輸入處理順序
 
 ```
 輸入事件傳播順序：

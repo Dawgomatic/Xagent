@@ -65,7 +65,7 @@ process_server() {
     if ! echo "$RESPONSE" | jq -e . >/dev/null 2>&1; then
         echo "Error querying $NAME: Invalid response"
         echo "Response saved to ${NAME}_debug.json"
-        echo "## Server: $NAME (⚠️ Error)" >> "$OUTPUT_FILE"
+        echo "## Server: $NAME ( Error)" >> "$OUTPUT_FILE"
         echo "Failed to retrieve data." >> "$OUTPUT_FILE"
         return
     fi
@@ -108,7 +108,7 @@ process_server() {
     echo "- **Docker:** ${TOTAL_CONTAINERS} containers (${RUNNING_CONTAINERS} running)" >> "$OUTPUT_FILE"
     
     # Unhealthy containers
-    UNHEALTHY=$(echo "$RESPONSE" | jq -r '.data.docker.containers[] | select(.status | test("unhealthy|restarting"; "i")) | "  - ⚠️  \(.names[0]): \(.status)"')
+    UNHEALTHY=$(echo "$RESPONSE" | jq -r '.data.docker.containers[] | select(.status | test("unhealthy|restarting"; "i")) | "  -   \(.names[0]): \(.status)"')
     if [ -n "$UNHEALTHY" ]; then
         echo "$UNHEALTHY" >> "$OUTPUT_FILE"
     fi
@@ -126,11 +126,11 @@ process_server() {
     echo "" >> "$OUTPUT_FILE"
     echo "### Health" >> "$OUTPUT_FILE"
     
-    HOT_DISKS=$(echo "$RESPONSE" | jq -r '.data.array.disks[] | select(.temp > 45) | "- ⚠️  \(.name): \(.temp)°C (HIGH)"')
-    DISK_ERRORS=$(echo "$RESPONSE" | jq -r '.data.array.disks[] | select(.numErrors > 0) | "- ❌ \(.name): \(.numErrors) errors"')
+    HOT_DISKS=$(echo "$RESPONSE" | jq -r '.data.array.disks[] | select(.temp > 45) | "-   \(.name): \(.temp)°C (HIGH)"')
+    DISK_ERRORS=$(echo "$RESPONSE" | jq -r '.data.array.disks[] | select(.numErrors > 0) | "-  \(.name): \(.numErrors) errors"')
     
     if [ -z "$HOT_DISKS" ] && [ -z "$DISK_ERRORS" ]; then
-        echo "- ✅ All disks healthy" >> "$OUTPUT_FILE"
+        echo "-  All disks healthy" >> "$OUTPUT_FILE"
     else
         [ -n "$HOT_DISKS" ] && echo "$HOT_DISKS" >> "$OUTPUT_FILE"
         [ -n "$DISK_ERRORS" ] && echo "$DISK_ERRORS" >> "$OUTPUT_FILE"

@@ -19,7 +19,7 @@ Or pass it directly when calling the helper script.
 
 ## Available Crews
 
-### 1. Marketing Crew 📢
+### 1. Marketing Crew 
 
 Generate marketing content, taglines, and campaign copy.
 
@@ -44,7 +44,7 @@ scripts/call_crew.sh marketing \
 
 ---
 
-### 2. Support Crew 🎧
+### 2. Support Crew 
 
 Handle customer support inquiries with AI-generated responses.
 
@@ -68,7 +68,7 @@ scripts/call_crew.sh support \
 
 ---
 
-### 3. Analysis Crew 📊
+### 3. Analysis Crew 
 
 Analyze business data and provide actionable insights.
 
@@ -92,7 +92,7 @@ scripts/call_crew.sh analysis \
 
 ---
 
-### 4. Social Media Crew ⭐ 📱
+### 4. Social Media Crew  
 
 Generate comprehensive 30-day social media content calendars with daily posts, captions, and hashtags.
 
@@ -107,7 +107,7 @@ Generate comprehensive 30-day social media content calendars with daily posts, c
 - `company_name` (required) - Business or personal brand name
 
 **LLMs:** Perplexity (research) + Gemini (content generation)  
-**Response Time:** 3-5 minutes ⏳
+**Response Time:** 3-5 minutes 
 
 **Example:**
 ```bash

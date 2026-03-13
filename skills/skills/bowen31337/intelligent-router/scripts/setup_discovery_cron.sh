@@ -29,7 +29,7 @@ if command -v openclaw &> /dev/null; then
     echo "✓ Cron job added: Model Discovery Refresh (every hour)"
     rm /tmp/model-discovery-cron.json
 else
-    echo "⚠️  OpenClaw CLI not found. Please run manually:"
+    echo "  OpenClaw CLI not found. Please run manually:"
     echo "   openclaw cron add --job /tmp/model-discovery-cron.json"
 fi
 

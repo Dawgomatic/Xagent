@@ -136,7 +136,7 @@ function getPrompt() {
 function loadState() {
   // If --fresh flag, always start clean
   if (fresh && existsSync(stateFile)) {
-    log('🧹 Fresh start requested, clearing existing state');
+    log(' Fresh start requested, clearing existing state');
     unlinkSync(stateFile);
     const doneFile = stateFile.replace('.json', '-done.txt');
     if (existsSync(doneFile)) unlinkSync(doneFile);
@@ -147,7 +147,7 @@ function loadState() {
       const loaded = JSON.parse(readFileSync(stateFile, 'utf8'));
       // Ensure sessionId is always set
       if (!loaded.sessionId) loaded.sessionId = sessionId;
-      log(`📂 Resuming from existing state (iteration ${loaded.iteration})`);
+      log(` Resuming from existing state (iteration ${loaded.iteration})`);
       return loaded;
     } catch {}
   }
@@ -208,7 +208,7 @@ function archiveState(state) {
       copyFileSync(doneFile, archivePath.replace('.json', '-done.txt'));
     }
     
-    log(`📦 Archived to: ${archivePath}`);
+    log(` Archived to: ${archivePath}`);
     
     // Clean up tmp files
     if (existsSync(stateFile)) unlinkSync(stateFile);
@@ -216,7 +216,7 @@ function archiveState(state) {
     
     return archivePath;
   } catch (err) {
-    console.error('⚠️ Failed to archive state:', err.message);
+    console.error(' Failed to archive state:', err.message);
     return null;
   }
 }
@@ -281,7 +281,7 @@ RALPH INSTRUCTIONS:
                        (json.usage?.cache_read_input_tokens || 0);
         result.cost = json.total_cost_usd;
         if (!quiet && result.response) {
-          console.log('\n📝 Agent response:');
+          console.log('\n Agent response:');
           console.log(result.response.slice(0, 500) + (result.response.length > 500 ? '...' : ''));
         }
         if (!quiet && result.cost) {
@@ -290,12 +290,12 @@ RALPH INSTRUCTIONS:
       } catch {
         result.rawOutput = output;
         if (!quiet && output) {
-          console.log('\n📝 Raw output:', output.slice(0, 300));
+          console.log('\n Raw output:', output.slice(0, 300));
         }
       }
       
       if (error && !quiet) {
-        console.log('⚠️ Stderr:', error.slice(0, 200));
+        console.log(' Stderr:', error.slice(0, 200));
       }
       
       resolve(result);
@@ -323,7 +323,7 @@ async function main() {
   const prompt = getPrompt();
   let state = loadState();
   
-  console.log('🔁 Ralph Loop Started (Claude CLI)');
+  console.log(' Ralph Loop Started (Claude CLI)');
   console.log(`   Prompt: ${promptArg.slice(0, 60)}${promptArg.length > 60 ? '...' : ''}`);
   console.log(`   Done signal: ${doneSignal}`);
   console.log(`   Max iterations: ${maxIterations}`);
@@ -346,7 +346,7 @@ async function main() {
   while (state.iteration < maxIterations) {
     // ═══ HARD STOP CHECK (cannot be overridden) ═══
     if (hardStopTimestamp && Date.now() >= parseInt(hardStopTimestamp) * 1000) {
-      console.log('\n⛔ HARD STOP TIME - exiting immediately');
+      console.log('\n HARD STOP TIME - exiting immediately');
       state.hardStopped = true;
       state.hardStopReason = 'Hard stop timestamp reached';
       saveState(state);
@@ -363,7 +363,7 @@ async function main() {
         });
         
         if (checkResult.includes('STOP')) {
-          console.log(`\n⛔ Check command signaled stop: ${checkResult.trim()}`);
+          console.log(`\n Check command signaled stop: ${checkResult.trim()}`);
           state.checkStopped = true;
           state.checkStopReason = checkResult.trim();
           saveState(state);
@@ -379,11 +379,11 @@ async function main() {
         const output = stdout || stderr || err.message;
         
         if (output.includes('STOP')) {
-          console.log(`\n⛔ Check command signaled stop: ${output.trim()}`);
+          console.log(`\n Check command signaled stop: ${output.trim()}`);
           state.checkStopped = true;
           state.checkStopReason = output.trim();
         } else {
-          console.log(`\n⛔ Check command failed (exit ${err.status}) - stopping for safety`);
+          console.log(`\n Check command failed (exit ${err.status}) - stopping for safety`);
           console.log(`   Output: ${output.slice(0, 200)}`);
           state.checkError = true;
           state.checkErrorReason = output.trim();
@@ -395,7 +395,7 @@ async function main() {
     
     // ═══ TIME LIMIT CHECK ═══
     if (endTime && new Date() >= endTime) {
-      console.log(`\n⏰ Time limit reached (${endTime.toLocaleTimeString()})`);
+      console.log(`\n Time limit reached (${endTime.toLocaleTimeString()})`);
       state.timeUp = true;
       saveState(state);
       break;
@@ -413,11 +413,11 @@ async function main() {
     log(`\n━━━ Iteration ${currentIter}/${maxIterations}${timeLeft} ━━━`);
     
     // Run the agent
-    log('🤖 Running agent...');
+    log(' Running agent...');
     const result = await runIteration(prompt, currentIter, state);
     
     if (!result.success) {
-      console.error('❌ Iteration failed:', result.error || `exit code ${result.code}`);
+      console.error(' Iteration failed:', result.error || `exit code ${result.code}`);
       state.history.push({ 
         iteration: currentIter, 
         error: result.error || `exit ${result.code}`,
@@ -441,7 +441,7 @@ async function main() {
       delete state.runningIteration;
       saveState(state);
       
-      console.log(`\n✅ RALPH COMPLETE after ${state.iteration} iterations!`);
+      console.log(`\n RALPH COMPLETE after ${state.iteration} iterations!`);
       const totalTime = Math.round((Date.now() - new Date(state.started).getTime()) / 1000);
       console.log(`   Total time: ${Math.floor(totalTime / 60)}m ${totalTime % 60}s`);
       
@@ -473,7 +473,7 @@ async function main() {
   }
   
   if (!state.done && !state.timeUp) {
-    console.log(`\n⚠️ Max iterations (${maxIterations}) reached without completion`);
+    console.log(`\n Max iterations (${maxIterations}) reached without completion`);
     state.maxedOut = true;
     saveState(state);
   }

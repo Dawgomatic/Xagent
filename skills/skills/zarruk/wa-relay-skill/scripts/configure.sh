@@ -89,9 +89,9 @@ Or manually:
 EOF
 
 if [[ -n "$DIRECT" ]]; then
-  echo "ℹ️  Direct numbers (bypass relay): $DIRECT"
+  echo "  Direct numbers (bypass relay): $DIRECT"
   echo ""
 fi
 
-echo "📋 Config JSON also saved to /tmp/wa-relay-config.json"
+echo " Config JSON also saved to /tmp/wa-relay-config.json"
 echo "$CONFIG_JSON" > /tmp/wa-relay-config.json

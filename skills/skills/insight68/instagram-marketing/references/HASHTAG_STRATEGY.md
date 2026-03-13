@@ -69,14 +69,14 @@ Monitor these metrics:
 
 ## Avoid These Hashtag Mistakes
 
-### ❌ DON'T:
+###  DON'T:
 - Use banned hashtags (check regulary)
 - Overuse generic tags like #follow #like4like
 - Mix irrelevant hashtags for reach
 - Use the exact same 30 tags every post
 - Include hashtags in the middle of captions
 
-### ✅ DO:
+###  DO:
 - Rotate hashtag sets regularly
 - Mix hashtag sizes (small + medium + large)
 - Research trending hashtags weekly

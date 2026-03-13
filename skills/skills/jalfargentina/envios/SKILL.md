@@ -43,12 +43,12 @@ Para pedidos confirmados en CABA y GBA, el envío llega **el mismo día o al dí
 
 ### Respuesta rápida para enviar al cliente:
 
-> ⏰ Tu pedido puede llegar entre las **14:00 hs y las 22:00 hs**
-> 📞 Estate atento/a al celu por si te llaman
-> 📦 Si vivís en un edificio y querés que lo dejen en recepción, se puede. Solo avisanos.
-> ⚠️ A veces pueden demorarse un poco más del rango previsto. Si no querés esperar al día siguiente, te recomendamos tener un poco de paciencia extra.
+>  Tu pedido puede llegar entre las **14:00 hs y las 22:00 hs**
+>  Estate atento/a al celu por si te llaman
+>  Si vivís en un edificio y querés que lo dejen en recepción, se puede. Solo avisanos.
+>  A veces pueden demorarse un poco más del rango previsto. Si no querés esperar al día siguiente, te recomendamos tener un poco de paciencia extra.
 >
-> ⚠️ **IMPORTANTE**
+>  **IMPORTANTE**
 > Si no estás cuando llega la moto:
 > • Podemos volver a enviarlo, pero deberás abonar el costo de envío nuevamente.
 > • Si preferís no reenviarlo, te reintegramos el valor de los productos, pero **no** el del envío.
@@ -73,7 +73,7 @@ Los envíos por moto **no tienen código de seguimiento**, ya que llegan el mism
 
 ## Validar la dirección antes de confirmar el envío
 
-⚠️ Si la dirección del cliente no se entiende o le faltan datos (número, piso, referencia), **no confirmar el envío hasta resolverlo**.
+ Si la dirección del cliente no se entiende o le faltan datos (número, piso, referencia), **no confirmar el envío hasta resolverlo**.
 
 1. Pedirle al cliente que aclare o corrija la dirección
 2. Validarla en **Google Maps** para confirmar que existe y es correcta

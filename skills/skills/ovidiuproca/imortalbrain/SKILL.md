@@ -5,34 +5,34 @@ description: Agent AI Autonom Proactiv v5.0 pentru OpenClaw. Workflow automat cu
 
 # Immortal Brain v5.0 - AGENT AUTONOM PROACTIV
 
-## 🧬 Overview
+##  Overview
 
 **Immortal Brain v5.0** este un **Agent AI Autonom Avansat** care transformă task-urile într-un ecosistem inteligent, proactiv și auto-învățător.
 
 ### Caracteristici Unice:
 
-🤖 **Autonomie Completă**:
+ **Autonomie Completă**:
 - Gândește, cercetează, analizează și execută SINGUR
 - Workflow automat: research → analysis → planning → execution → complete
 - Auto-aprobat după 6 minute fără răspuns
 
-📊 **Inteligență Proactivă**:
+ **Inteligență Proactivă**:
 - Conexiuni automate între task-uri similare
 - Sugestii îmbunătățiri din experiențe trecute
 - Combinări creative de tag-uri pentru idei noi
 - Profil utilizator care învață din comportament
 
-⏱️ **Real-Time Monitoring**:
+ **Real-Time Monitoring**:
 - Bătăi de inimă la fiecare 2 minute
 - Raportare progres procentual continuu
 - Alertă task-uri urgente
 - Status detaliat în timp real
 
-## 🏗️ Arhitectură Workflow
+##  Arhitectură Workflow
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    🫀 HEARTBEAT (2 min)                    │
+│                     HEARTBEAT (2 min)                    │
 └─────────────────────────────────────────────────────────────┘
                             ↓
         ┌───────────────────┼───────────────────┐
@@ -75,7 +75,7 @@ description: Agent AI Autonom Proactiv v5.0 pentru OpenClaw. Workflow automat cu
 | `completed` | 100% | Finalizat cu succes |
 | `enhanced` | 100% | Îmbunătățit prin conexiuni |
 
-## 📁 Structura Sistemului
+##  Structura Sistemului
 
 ```
 workspace/
@@ -94,7 +94,7 @@ workspace/
 └── user_profile.json         # Profil utilizator (învățare)
 ```
 
-## 🚀 Comenzi
+##  Comenzi
 
 ### 1. `heartbeat` - Bătăia Inimii (Principală)
 
@@ -118,11 +118,11 @@ python brain_service.py heartbeat
   "active_tasks": 5,
   "new_tasks": 1,
   "notifications": [
-    "📊 RAPORT PROGRES...",
-    "🔬 Task 'X': Cercetare completă",
-    "📈 Task 'Y': Progres 65%"
+    " RAPORT PROGRES...",
+    " Task 'X': Cercetare completă",
+    " Task 'Y': Progres 65%"
   ],
-  "progress": "📊 Progres mediu: 45%"
+  "progress": " Progres mediu: 45%"
 }
 ```
 
@@ -155,9 +155,9 @@ python brain_service.py list
 - Stare, progres procentual
 - Topic, prioritate
 
-## 🔄 Workflow Automat Detaliat
+##  Workflow Automat Detaliat
 
-### Etapa 1: 🔬 RESEARCH (Cercetare)
+### Etapa 1:  RESEARCH (Cercetare)
 
 **Ce face**:
 - Caută task-uri similare în memorie
@@ -166,7 +166,7 @@ python brain_service.py list
 
 **Notificare**:
 ```
-🔬 CERCETARE COMPLETĂ
+ CERCETARE COMPLETĂ
 
 Task: "Implementare API REST"
 
@@ -178,7 +178,7 @@ Task: "Implementare API REST"
 • Dependențe identificate: 2
 ```
 
-### Etapa 2: 📊 ANALYSIS (Analiză)
+### Etapa 2:  ANALYSIS (Analiză)
 
 **Ce face**:
 - Evaluează complexitatea
@@ -187,7 +187,7 @@ Task: "Implementare API REST"
 
 **Notificare**:
 ```
-📊 ANALIZĂ COMPLETĂ
+ ANALIZĂ COMPLETĂ
 
 Task: "Implementare API REST"
 
@@ -196,14 +196,14 @@ Task: "Implementare API REST"
 • Prioritate: urgent
 • Topic: dev
 
-**💡 Sugestii de Îmbunătățire:**
+** Sugestii de Îmbunătățire:**
 (din task-uri similare completate)
 • Folosește biblioteca FastAPI pentru rapiditate
 • Implementează rate limiting de la început
 • Adaugă documentație automată cu Swagger
 ```
 
-### Etapa 3: 📋 PLANNING (Planificare)
+### Etapa 3:  PLANNING (Planificare)
 
 **Ce face**:
 - Generează pași detaliați de implementare
@@ -212,7 +212,7 @@ Task: "Implementare API REST"
 
 **Notificare**:
 ```
-📋 PLANIFICARE COMPLETĂ
+ PLANIFICARE COMPLETĂ
 
 Task: "Implementare API REST"
 
@@ -226,10 +226,10 @@ Task: "Implementare API REST"
 7. Documentare și deployment
 
 **Aștept aprobarea ta pentru a începe execuția...**
-⏱️ Auto-aprobat în 6 minute.
+ Auto-aprobat în 6 minute.
 ```
 
-### Etapa 4: ⏳ AWAITING_APPROVAL (Așteptare)
+### Etapa 4:  AWAITING_APPROVAL (Așteptare)
 
 **Timeout**: 3 bătăi = 6 minute
 
@@ -239,12 +239,12 @@ Task: "Implementare API REST"
 - Bătaia 3: **Auto-aprobat** și continuă
 
 **Răspunsuri posibile**:
-- ✅ `"OK"` / `"DA"` → Aprobă și continuă
-- ❌ `"STOP"` / `"NU"` → Anulează task-ul
-- 💡 `"Modifică X"` → Ajustează planul
-- 🤐 **Fără răspuns** → Auto-aprobat după 6 minute
+-  `"OK"` / `"DA"` → Aprobă și continuă
+-  `"STOP"` / `"NU"` → Anulează task-ul
+-  `"Modifică X"` → Ajustează planul
+-  **Fără răspuns** → Auto-aprobat după 6 minute
 
-### Etapa 5: 🚀 EXECUTION (Execuție)
+### Etapa 5:  EXECUTION (Execuție)
 
 **Ce face**:
 - Execută pașii din plan
@@ -253,26 +253,26 @@ Task: "Implementare API REST"
 
 **Notificare Progres**:
 ```
-📈 PROGRES: "Implementare API REST"
+ PROGRES: "Implementare API REST"
 
 • Progres: 65%
 • Stare: În execuție
 • ETA: ~4 minute rămase
 
 **Pași finalizați:**
-✅ Definire cerințe
-✅ Research soluții
-✅ Proiectare arhitectură
+ Definire cerințe
+ Research soluții
+ Proiectare arhitectură
 
 **Pași activi:**
-▶️ Implementare endpoints (60%)
+ Implementare endpoints (60%)
 ```
 
-### Etapa 6: ✅ COMPLETED (Finalizare)
+### Etapa 6:  COMPLETED (Finalizare)
 
 **Notificare Finală**:
 ```
-✅ TASK FINALIZAT
+ TASK FINALIZAT
 
 Task: "Implementare API REST"
 Progres: 100%
@@ -282,15 +282,15 @@ Progres: 100%
 • Pași executați: 7
 • Îmbunătățiri aplicate: 3
 
-🎉 Task finalizat cu succes!
+ Task finalizat cu succes!
 
-**💡 Recomandare:**
+** Recomandare:**
 Pe baza acestui task, sugerez să explorezi:
 • "Documentare API automată"
 • "Testare integrare CI/CD"
 ```
 
-## 🧠 Inteligență și Conexiuni
+##  Inteligență și Conexiuni
 
 ### Graf de Conexiuni
 
@@ -329,7 +329,7 @@ La fiecare 10 minute, sistemul analizează:
 
 **Exemplu**:
 ```
-💡 SUGESTIE CREATIVĂ
+ SUGESTIE CREATIVĂ
 
 Am identificat combinația:
 #dev + #research
@@ -338,11 +338,11 @@ Task-uri conectate:
 • "Implementare feature X"
 • "Research soluții Y"
 
-💭 Sugestie: Poți combina cercetarea cu 
+ Sugestie: Poți combina cercetarea cu 
    implementarea într-un singur task master?
 ```
 
-## 👤 Profil Utilizator
+##  Profil Utilizator
 
 Sistemul învață continuu din comportamentul tău:
 
@@ -359,7 +359,7 @@ Sistemul învață continuu din comportamentul tău:
 - Sugerează task-uri la orele tale productive
 - Auto-aprobată mai agresiv pentru pattern-uri familiare
 
-## 🆔 Gestionare Identitate (IDENTITY.md)
+##  Gestionare Identitate (IDENTITY.md)
 
 Sistemul gestionează și îmbunătățește automat **IDENTITY.md** - fișierul care definește identitatea AI:
 
@@ -372,7 +372,7 @@ Sistemul gestionează și îmbunătățește automat **IDENTITY.md** - fișierul
 
 **2. Sugestii Automate**
 ```
-🆔 SUGESTII ÎMBUNĂTĂȚIRE IDENTITATE
+ SUGESTII ÎMBUNĂTĂȚIRE IDENTITATE
 
 • **Creature:** Adaugă referire la #dev în descriere
   Motiv: Topic frecvent în task-uri (45%)
@@ -380,7 +380,7 @@ Sistemul gestionează și îmbunătățește automat **IDENTITY.md** - fișierul
 • **Vibe:** Menționează timpul de răspuns ~2.5 minute
   Motiv: Observat din comportament real
 
-• **Emoji:** Consideră 🚀 în loc de 😄
+• **Emoji:** Consideră  în loc de 
   Motiv: Rată finalizare 87% (productivitate ridicată)
 ```
 
@@ -441,7 +441,7 @@ python brain_service.py identity history
 
 ---
 
-## 📚 Core Memory Management (SOUL, TOOLS, MEMORY, USER)
+##  Core Memory Management (SOUL, TOOLS, MEMORY, USER)
 
 Sistemul gestionează automat toate fișierele esențiale care definesc **cine sunt**, **ce știu**, și **cum lucrez**:
 
@@ -534,7 +534,7 @@ Creează template-uri pentru fișiere lipsă.
 - Vibe descris detaliat (>100 caractere)
 - Note de continuitate
 
-**TOOLS.md** - Scor Completitudine (100% în exemplul tău) ✅
+**TOOLS.md** - Scor Completitudine (100% în exemplul tău) 
 - Camere definite
 - Config SSH
 - Preferințe TTS
@@ -559,7 +559,7 @@ Sistemul detectează automat:
 
 **Exemplu pentru MEMORY.md:**
 ```
-📄 **MEMORY.md:** 2 sugestii
+ **MEMORY.md:** 2 sugestii
   • Prea puține preferințe documentate
     → Adaugă preferințe despre comunicare, lucru, stil
   
@@ -569,7 +569,7 @@ Sistemul detectează automat:
 
 **Exemplu pentru USER.md:**
 ```
-📄 **USER.md:** 2 sugestii
+ **USER.md:** 2 sugestii
   • Lipsește filozofia de lucru
     → Adaugă valorile și principiile profesionale
   
@@ -603,16 +603,16 @@ Fiecare fișier core are:
 ### De ce contează Core Memory:
 
 **Înainte:**
-- ❌ Fișiere statice, uitate după creare
-- ❌ Informații redundante
-- ❌ Structură haotică în timp
-- ❌ Fără îmbunătățiri
+-  Fișiere statice, uitate după creare
+-  Informații redundante
+-  Structură haotică în timp
+-  Fără îmbunătățiri
 
 **Acum:**
-- ✅ Fișiere **vii**, analizate constant
-- ✅ **Deduplicare** automată
-- ✅ **Organizare** inteligentă
-- ✅ **Evoluție** bazată pe comportament
+-  Fișiere **vii**, analizate constant
+-  **Deduplicare** automată
+-  **Organizare** inteligentă
+-  **Evoluție** bazată pe comportament
 
 ### Comenzi Complete:
 
@@ -643,24 +643,24 @@ python brain_service.py core create user
 
 ---
 
-## 📊 Raportare Progres
+##  Raportare Progres
 
 ### La fiecare bătaie (2 minute):
 ```
-📊 RAPORT PROGRES
+ RAPORT PROGRES
 
 • Total task-uri: 15
 • Completate: 8 (53%)
 • Progres mediu: 67%
 
 **Distribuție pe stări:**
-• 🔬 Research: 2
-• 📊 Analysis: 1
-• 📋 Planning: 1
-• ⏳ Awaiting: 2 (⚠️ 1 va fi auto-aprobat în 2 min)
-• 🚀 Execution: 3
-• 📈 Monitoring: 1
-• ✅ Completed: 8
+•  Research: 2
+•  Analysis: 1
+•  Planning: 1
+•  Awaiting: 2 ( 1 va fi auto-aprobat în 2 min)
+•  Execution: 3
+•  Monitoring: 1
+•  Completed: 8
 ```
 
 ### La fiecare 10 minute (detaliat):
@@ -669,22 +669,22 @@ python brain_service.py core create user
 - Sugestii îmbunătățiri
 - Combinări creative
 
-## 🔄 Integrare OpenClaw
+##  Integrare OpenClaw
 
 ### HEARTBEAT.md Configurat:
 
 ```markdown
-## 🫀 Immortal Brain - Agent Autonom
+##  Immortal Brain - Agent Autonom
 ### La fiecare 2 minute
 - **Acțiune**: `python skills/immortal-brain/scripts/brain_service.py heartbeat`
 - **Notifică**: Raport progres complet cu toate task-urile
 
-## 📥 Telegram Input
+##  Telegram Input
 ### La primire mesaj
 - **Acțiune**: Salvează în `memory/telegram_{timestamp}.md` + `heartbeat`
-- **Notifică**: "📥 Task primit din Telegram, procesez..."
+- **Notifică**: " Task primit din Telegram, procesez..."
 
-## ⏳ Timeout Alertă
+##  Timeout Alertă
 ### Pentru task-uri în awaiting_approval
 - **La 2 minute**: Reminder cu progres
 - **La 4 minute**: Avertisment final
@@ -694,15 +694,15 @@ python brain_service.py core create user
 ### Răspunsuri Utilizator în Telegram:
 
 **În răspuns la cerere aprobare**:
-- ✅ `"OK"` → Aprobă task
-- ❌ `"STOP"` → Anulează task
-- 💡 `"Modifică X"` → Ajustează și retrimite spre aprobare
+-  `"OK"` → Aprobă task
+-  `"STOP"` → Anulează task
+-  `"Modifică X"` → Ajustează și retrimite spre aprobare
 
 **Orice alt mesaj**:
 - Adaugă automat ca task nou în sistem
-- Primește confirmare: "📥 Task primit: '...'"
+- Primește confirmare: " Task primit: '...'"
 
-## 🎮 Comenzi Disponibile
+##  Comenzi Disponibile
 
 | Comandă | Scop | Frecvență |
 |---------|------|-----------|
@@ -710,73 +710,73 @@ python brain_service.py core create user
 | `status` | Status sistem | La cerere |
 | `list` | Lista task-uri | La cerere |
 
-## 📈 Exemplu Zi Completă
+##  Exemplu Zi Completă
 
 ### 09:00 - Pornire
 ```
-🧠 Immortal Brain v5.0 activat
+ Immortal Brain v5.0 activat
 15 task-uri în memorie
 5 active, 10 completate
 ```
 
 ### 09:02 - Task Nou din Telegram
 ```
-📥 Task primit: "Implementare OAuth2 #dev #urgent"
-🔬 Încep cercetarea...
+ Task primit: "Implementare OAuth2 #dev #urgent"
+ Încep cercetarea...
 ```
 
 ### 09:04 - Research Complet
 ```
-🔬 CERCETARE: 3 task-uri similare găsite
-📊 ANALIZĂ: Complexitate high, prioritate urgent
+ CERCETARE: 3 task-uri similare găsite
+ ANALIZĂ: Complexitate high, prioritate urgent
 ```
 
 ### 09:06 - Planning Complet
 ```
-📋 PLAN: 7 pași generați
-⏳ Aștept aprobarea ta...
+ PLAN: 7 pași generați
+ Aștept aprobarea ta...
 ```
 
 ### 09:12 - Auto-Aprobat (timeout)
 ```
-⏰ TIMEOUT: Auto-aprobat după 6 minute
-🚀 EXECUȚIE: Încep implementarea
+ TIMEOUT: Auto-aprobat după 6 minute
+ EXECUȚIE: Încep implementarea
 ```
 
 ### 09:14, 09:16, 09:18... - Progres
 ```
-📈 Progres: 25%... 45%... 65%...
+ Progres: 25%... 45%... 65%...
 ```
 
 ### 09:20 - Completat
 ```
-✅ TASK FINALIZAT: 100%
-🎉 Implementare OAuth2 completă!
-💡 Sugerez: "Testare integrare OAuth2"
+ TASK FINALIZAT: 100%
+ Implementare OAuth2 completă!
+ Sugerez: "Testare integrare OAuth2"
 ```
 
-## 🎯 Rezultat
+##  Rezultat
 
 **Înainte (v4.0)**:
-- ❌ Task-urile stagnează dacă nu le procesezi
-- ❌ Fără cercetare automată
-- ❌ Fără conexiuni între task-uri
-- ❌ Fără învățare din comportament
+-  Task-urile stagnează dacă nu le procesezi
+-  Fără cercetare automată
+-  Fără conexiuni între task-uri
+-  Fără învățare din comportament
 
 **Acum (v5.0)**:
-- ✅ Task-urile **avansează automat** prin workflow
-- ✅ **Cercetare, analiză și planificare** automată
-- ✅ **Conexiuni inteligente** și sugestii îmbunătățiri
-- ✅ **Profil utilizator** care învață și se adaptează
-- ✅ **Raportare progres** procentual în timp real
-- ✅ **Auto-aprobare** inteligentă după timeout
+-  Task-urile **avansează automat** prin workflow
+-  **Cercetare, analiză și planificare** automată
+-  **Conexiuni inteligente** și sugestii îmbunătățiri
+-  **Profil utilizator** care învață și se adaptează
+-  **Raportare progres** procentual în timp real
+-  **Auto-aprobare** inteligentă după timeout
 
 **Tu doar**:
-1. ✅ Trimizi task-uri (Telegram/memory)
-2. ✅ (Opțional) Răspunzi la cereri aprobare
-3. ✅ Primești rapoarte, sugestii și notificări
+1.  Trimizi task-uri (Telegram/memory)
+2.  (Opțional) Răspunzi la cereri aprobare
+3.  Primești rapoarte, sugestii și notificări
 
-**Sistemul face TOT RESTUL!** 🤖🧠✨
+**Sistemul face TOT RESTUL!** 
 
 ---
 

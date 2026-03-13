@@ -1,5 +1,5 @@
 /**
- * Feishu ↔ Clawdbot Bridge
+ * Feishu  Clawdbot Bridge
  *
  * Receives messages from Feishu via WebSocket (long connection),
  * forwards them to Clawdbot Gateway, and sends the AI reply back.

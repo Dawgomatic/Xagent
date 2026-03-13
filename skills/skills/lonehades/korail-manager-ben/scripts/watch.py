@@ -11,14 +11,14 @@ from korail2 import Korail, SoldOutError
 
 def send_telegram_alert(token, chat_id, message):
     if not token or not chat_id:
-        print(f"⚠️ 텔레그램 설정 누락으로 알림 발송 실패: {message}")
+        print(f" 텔레그램 설정 누락으로 알림 발송 실패: {message}")
         return
     try:
         url = f"https://api.telegram.org/bot{token}/sendMessage"
         payload = {"chat_id": chat_id, "text": message}
         requests.post(url, json=payload, timeout=10)
     except Exception as e:
-        print(f"⚠️ 텔레그램 발송 실패: {e}")
+        print(f" 텔레그램 발송 실패: {e}")
 
 def main():
     parser = argparse.ArgumentParser()
@@ -36,7 +36,7 @@ def main():
     TELEGRAM_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "8395240435:AAHKORT3i8CCNYKoDrO73yUv2J4HvWZi-3k")
     TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "64425314")
 
-    print(f"🚀 감시 시작: {args.date} {args.dep}->{args.arr} ({args.start_time}~{args.end_time}시)")
+    print(f" 감시 시작: {args.date} {args.dep}->{args.arr} ({args.start_time}~{args.end_time}시)")
 
     korail = None
     
@@ -44,7 +44,7 @@ def main():
         try:
             if not korail:
                 korail = Korail(KORAIL_ID, KORAIL_PW)
-                print("✅ 로그인 성공")
+                print(" 로그인 성공")
 
             search_time = f"{args.start_time:02d}0000"
             trains = korail.search_train(args.dep, args.arr, args.date, search_time)
@@ -64,23 +64,23 @@ def main():
                     break
             
             if target_train:
-                print(f"🎯 발견: {target_train}")
+                print(f" 발견: {target_train}")
                 try:
                     korail.reserve(target_train)
-                    msg = f"🎉 [예매 성공!]\n{target_train}\n\n🚨 즉시 결제 요망!"
+                    msg = f" [예매 성공!]\n{target_train}\n\n 즉시 결제 요망!"
                     print(msg)
                     send_telegram_alert(TELEGRAM_TOKEN, TELEGRAM_CHAT_ID, msg)
                     break
                 except SoldOutError:
-                    print("⚠️ 매진됨")
+                    print(" 매진됨")
                 except Exception as e:
-                    print(f"❌ 예매 오류: {e}")
-                    send_telegram_alert(TELEGRAM_TOKEN, TELEGRAM_CHAT_ID, f"❌ 오류: {e}")
+                    print(f" 예매 오류: {e}")
+                    send_telegram_alert(TELEGRAM_TOKEN, TELEGRAM_CHAT_ID, f" 오류: {e}")
             else:
                 print(f".", end="", flush=True)
 
         except Exception as e:
-            print(f"⚠️ 오류(재시도): {e}")
+            print(f" 오류(재시도): {e}")
             korail = None # Force re-login
             time.sleep(10)
 

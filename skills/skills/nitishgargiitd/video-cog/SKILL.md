@@ -3,7 +3,7 @@ name: video-cog
 description: "Long-form AI video production: the frontier of multi-agent coordination. CellCog orchestrates 6-7 foundation models to produce up to 4-minute videos from a single prompt — scripted, filmed, voiced, lipsync'd, scored, and edited automatically. Create marketing videos, product demos, explainer videos, educational content, spokesperson videos, training materials, UGC content, news reports."
 metadata:
   openclaw:
-    emoji: "🎬"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

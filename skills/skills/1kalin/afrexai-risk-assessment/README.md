@@ -18,7 +18,7 @@ The output works for:
 1. Describe what you're assessing
 2. The agent identifies risks across 6 categories
 3. Each risk gets scored on a 25-point matrix
-4. Risks are heat-mapped: 🔴 Critical → 🟢 Low
+4. Risks are heat-mapped:  Critical →  Low
 5. Mitigation strategies generated with cost estimates
 6. Residual risk scored after mitigation
 
@@ -45,4 +45,4 @@ clawhub install afrexai-risk-assessment
 - [AI Context Packs](https://afrexai-cto.github.io/context-packs/) — Industry-specific risk libraries ($47/pack)
 - [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Get your AI agent running in minutes
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

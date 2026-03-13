@@ -2,7 +2,7 @@
 name: Scientific Article PDF Generator
 description: Generate publication-ready scientific articles in PDF format with AI-powered research and citations
 homepage: https://paper.evoweb.ai/?utm_source=claw&utm_medium=skill&utm_campaign=paper&utm_content=v1.0.0
-metadata: {"clawdbot":{"emoji":"📄","requires":{"bins":[],"env":["EVOWEB_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[],"env":["EVOWEB_API_KEY"]}}}
 ---
 
 # Paper.EvoWeb.ai Scientific Article PDF Generator
@@ -151,13 +151,13 @@ Tell them:
 
 **Example message:**
 ```
-📄 Generating your scientific article PDF now!
+ Generating your scientific article PDF now!
 
 Title: "Effects of Hyaluronic Acid on Skin Hydration"
 Product: HydraGlow Serum
 Options: Deep research mode enabled, charts included
 
-⏱️ This typically takes 3-5 minutes. The PDF will download automatically when ready.
+ This typically takes 3-5 minutes. The PDF will download automatically when ready.
 ```
 
 ### Step 6: Handle Errors
@@ -219,14 +219,14 @@ Required info:
 
 ### Writing Effective Article Content
 
-✅ **Do:**
+ **Do:**
 - Provide clear, factual product information
 - Include specific numbers and verified claims
 - Write comprehensive source text with key points
 - Specify research focus for targeted content
 - Enable deep research for comprehensive articles
 
-❌ **Don't:**
+ **Don't:**
 - Submit vague or unverified claims
 - Provide minimal source text
 - Skip important product details
@@ -325,4 +325,4 @@ The filename is automatically generated from the article title:
 
 ---
 
-**Ready to generate publication-ready scientific articles!** 📄✨
+**Ready to generate publication-ready scientific articles!** 

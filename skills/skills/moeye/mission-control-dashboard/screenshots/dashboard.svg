@@ -4,25 +4,25 @@
   <text x="50" y="50" font-family="monospace" font-size="24" font-weight="bold" fill="#333">Mission Control Dashboard</text>
   <rect x="30" y="70" width="740" height="480" fill="#fff" stroke="#ccc" stroke-width="2"/>
   <text x="50" y="100" font-family="monospace" font-size="14" fill="#000"></text>
-  <text x="50" y="120" font-family="monospace" font-size="14" fill="#000">🎛️ Mission Control Dashboard</text>
+  <text x="50" y="120" font-family="monospace" font-size="14" fill="#000"> Mission Control Dashboard</text>
   <text x="50" y="140" font-family="monospace" font-size="14" fill="#000"></text>
-  <text x="50" y="160" font-family="monospace" font-size="14" fill="#000">System Status: 🟢 Online</text>
+  <text x="50" y="160" font-family="monospace" font-size="14" fill="#000">System Status:  Online</text>
   <text x="50" y="180" font-family="monospace" font-size="14" fill="#000">Active Departments: 13</text>
   <text x="50" y="200" font-family="monospace" font-size="14" fill="#000">Total Agents: 22</text>
   <text x="50" y="220" font-family="monospace" font-size="14" fill="#000">Uptime: 4 days, 16 hours</text>
   <text x="50" y="240" font-family="monospace" font-size="14" fill="#000"></text>
-  <text x="50" y="260" font-family="monospace" font-size="14" fill="#000">📊 System Resources:</text>
+  <text x="50" y="260" font-family="monospace" font-size="14" fill="#000"> System Resources:</text>
   <text x="50" y="280" font-family="monospace" font-size="14" fill="#000">CPU:  [████░░░░░░] 40%</text>
   <text x="50" y="300" font-family="monospace" font-size="14" fill="#000">MEM:  [██████░░░░] 60% (4.6 GB / 7.7 GB)</text>
   <text x="50" y="320" font-family="monospace" font-size="14" fill="#000">DISK: [████░░░░░░] 48% (112 GB / 232 GB)</text>
   <text x="50" y="340" font-family="monospace" font-size="14" fill="#000"></text>
-  <text x="50" y="360" font-family="monospace" font-size="14" fill="#000">🤖 Department Status:</text>
-  <text x="50" y="380" font-family="monospace" font-size="14" fill="#000">├─ BOT (3 agents) - 🟢 Active</text>
-  <text x="50" y="400" font-family="monospace" font-size="14" fill="#000">├─ TREASURY - 🟢 Active</text>
-  <text x="50" y="420" font-family="monospace" font-size="14" fill="#000">├─ ENGINEER (3 agents) - 🟢 Active</text>
-  <text x="50" y="440" font-family="monospace" font-size="14" fill="#000">├─ INTEL - 🟢 Active</text>
-  <text x="50" y="460" font-family="monospace" font-size="14" fill="#000">├─ CONTENT (3 agents) - 🟢 Active</text>
-  <text x="50" y="480" font-family="monospace" font-size="14" fill="#000">└─ SECURITY - 🟢 Active</text>
+  <text x="50" y="360" font-family="monospace" font-size="14" fill="#000"> Department Status:</text>
+  <text x="50" y="380" font-family="monospace" font-size="14" fill="#000">├─ BOT (3 agents) -  Active</text>
+  <text x="50" y="400" font-family="monospace" font-size="14" fill="#000">├─ TREASURY -  Active</text>
+  <text x="50" y="420" font-family="monospace" font-size="14" fill="#000">├─ ENGINEER (3 agents) -  Active</text>
+  <text x="50" y="440" font-family="monospace" font-size="14" fill="#000">├─ INTEL -  Active</text>
+  <text x="50" y="460" font-family="monospace" font-size="14" fill="#000">├─ CONTENT (3 agents) -  Active</text>
+  <text x="50" y="480" font-family="monospace" font-size="14" fill="#000">└─ SECURITY -  Active</text>
   <text x="50" y="500" font-family="monospace" font-size="14" fill="#000"></text>
   <text x="50" y="520" font-family="monospace" font-size="14" fill="#000">Recent Activity:</text>
   <text x="50" y="540" font-family="monospace" font-size="14" fill="#000">• momo-sniper: Scanned 45 tokens</text>

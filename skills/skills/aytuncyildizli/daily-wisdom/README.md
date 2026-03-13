@@ -1,4 +1,4 @@
-# 📜 Daily Wisdom
+#  Daily Wisdom
 
 ![banner](./banner.png)
 
@@ -6,7 +6,7 @@
 
 A prompt system that turns any LLM into a cultural historian. Each day it generates a unique story with an original-language quote, a vivid narrative, and a surprising modern connection.
 
-## 🚀 Use It Anywhere
+##  Use It Anywhere
 
 ### With ChatGPT / Claude / any LLM
 Copy the prompt from [`SKILL.md`](./SKILL.md#standard-daily-recommended) and paste it into any AI chat. That's it. No install, no dependencies.
@@ -17,7 +17,7 @@ Set it up as a cron skill for automated daily messages to WhatsApp, Telegram, Sl
 ### With any cron + LLM API
 Use the prompt template with any scheduling system + API call (GitHub Actions, n8n, Make, etc.).
 
-## ✨ What It Does
+##  What It Does
 
 - **Generates a new story every day** from a pool of 100+ historical figures, epics, and traditions
 - **Research-backed** — the agent web-searches to verify quotes, dates, and facts before writing (no hallucinated quotes)
@@ -26,7 +26,7 @@ Use the prompt template with any scheduling system + API call (GitHub Actions, n
 - **Never repeats** — a history file tracks what's been covered
 - **Multiple formats** — standard, Twitter thread, minimal, deep dive
 
-## 🔍 How It Works
+##  How It Works
 
 1. Agent reads the **history file** to see what's already been covered
 2. Picks a source from the pool, maximizing variety across civilizations
@@ -37,10 +37,10 @@ Use the prompt template with any scheduling system + API call (GitHub Actions, n
 
 No database, no API, no dependencies — just a prompt template + an LLM with web search access.
 
-## 📦 Example Output
+##  Example Output
 
 ```
-📜 Anansi the Spider — Ashanti Oral Tradition, West Africa
+ Anansi the Spider — Ashanti Oral Tradition, West Africa
 
 > "Ananse, the spider, owns all stories that are told."
 > — Ashanti saying
@@ -51,14 +51,14 @@ a python, hornets, an invisible fairy, and a leopard. Anansi used
 no force — only cleverness. He tricked each one into trapping
 themselves...
 
-💡 Modern Connection: Anansi is the original hacker — he doesn't
+ Modern Connection: Anansi is the original hacker — he doesn't
 fight stronger opponents, he exploits their assumptions. Every
 social engineering attack follows the Anansi pattern...
 ```
 
 See 11 examples across civilizations in [`examples/`](./examples/).
 
-## 📂 Repository
+##  Repository
 
 ```
 daily-wisdom/
@@ -79,7 +79,7 @@ daily-wisdom/
     └── format-thread.md             ← Twitter thread format
 ```
 
-## 🎯 Source Pool
+##  Source Pool
 
 All traditions drawn equally — the agent maximizes variety across the full pool.
 
@@ -95,7 +95,7 @@ All traditions drawn equally — the agent maximizes variety across the full poo
 | **Polynesian & Indigenous** | Māui, Aboriginal Dreamtime |
 | **Renaissance & Modern** | Machiavelli, Montaigne, Leonardo, Ada Lovelace, Tesla |
 
-## ⚙️ Customization
+##  Customization
 
 ### Favor a region
 ```
@@ -112,7 +112,7 @@ Translate all quotes to [target language].
 ### Weekend deep dives
 Use the Deep Dive variant in SKILL.md — longer stories, multiple quotes, more context.
 
-## <a name="automated-setup-openclaw"></a>🤖 Automated Setup (OpenClaw)
+## <a name="automated-setup-openclaw"></a> Automated Setup (OpenClaw)
 
 1. Copy this repo into your workspace: `git clone https://github.com/AytuncYildizli/daily-wisdom.git skills/daily-wisdom`
 2. Create history file: `cp skills/daily-wisdom/history.md memory/anecdote-history.md`
@@ -120,20 +120,20 @@ Use the Deep Dive variant in SKILL.md — longer stories, multiple quotes, more 
 
 See [`SKILL.md`](./SKILL.md) for full cron configuration and all prompt templates.
 
-## 🧪 Quality Philosophy
+##  Quality Philosophy
 
 1. **Specificity > generality**: "In 1235, at the Battle of Kirina..." beats "An African king once..."
 2. **Original language = impact**: Even unreadable scripts create emotional resonance
 3. **Modern connections must surprise**: Not "this is relevant" but *how* it's relevant
 4. **Vary the register**: Profound → funny → dark → tactical → minimal
 
-## 🤝 Contributing
+##  Contributing
 
 Add examples: `examples/{region}-{subject}.md`
 
 PRs welcome for new traditions, better modern connections, translations, and format variants.
 
-## 📄 License
+##  License
 
 MIT
 

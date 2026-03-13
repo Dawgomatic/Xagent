@@ -80,7 +80,7 @@ case "$cmd" in
   purchase)
     file="${1:?JSON payload file required}"
     require_file "$file"
-    echo "⚠️  WARNING: This will purchase a domain and charge your account." >&2
+    echo "  WARNING: This will purchase a domain and charge your account." >&2
     echo "Payload: $(jq -c . "$file")" >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api POST "/v1/domains/purchase" "$(cat "$file")" | jq .
@@ -89,7 +89,7 @@ case "$cmd" in
   renew)
     domain="${1:?Domain required}"
     period="${2:?Period (years) required}"
-    echo "⚠️  WARNING: This will renew ${domain} for ${period} year(s) and charge your account." >&2
+    echo "  WARNING: This will renew ${domain} for ${period} year(s) and charge your account." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api POST "/v1/domains/${domain}/renew" "{\"period\": ${period}}" | jq .
     ;;
@@ -98,7 +98,7 @@ case "$cmd" in
     domain="${1:?Domain required}"
     file="${2:?JSON payload file required}"
     require_file "$file"
-    echo "⚠️  WARNING: This may initiate a paid transfer for ${domain}." >&2
+    echo "  WARNING: This may initiate a paid transfer for ${domain}." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api POST "/v1/domains/${domain}/transfer" "$(cat "$file")" | jq .
     ;;
@@ -119,21 +119,21 @@ case "$cmd" in
 
   delete)
     domain="${1:?Domain required}"
-    echo "⚠️  WARNING: This will cancel/delete ${domain}. This may be irreversible." >&2
+    echo "  WARNING: This will cancel/delete ${domain}. This may be irreversible." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api DELETE "/v1/domains/${domain}" | jq .
     ;;
 
   privacy-enable)
     domain="${1:?Domain required}"
-    echo "⚠️  WARNING: This may incur privacy-protection charges for ${domain}." >&2
+    echo "  WARNING: This may incur privacy-protection charges for ${domain}." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api PUT "/v1/domains/${domain}/privacy" "{}" | jq .
     ;;
 
   privacy-disable)
     domain="${1:?Domain required}"
-    echo "⚠️  WARNING: This will disable privacy protection for ${domain}." >&2
+    echo "  WARNING: This will disable privacy protection for ${domain}." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api DELETE "/v1/domains/${domain}/privacy" | jq .
     ;;
@@ -150,7 +150,7 @@ case "$cmd" in
   agreements-accept)
     file="${1:?JSON payload file required}"
     require_file "$file"
-    echo "⚠️  WARNING: This records legal agreement acceptance." >&2
+    echo "  WARNING: This records legal agreement acceptance." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api POST "/v1/domains/agreements" "$(cat "$file")" | jq .
     ;;

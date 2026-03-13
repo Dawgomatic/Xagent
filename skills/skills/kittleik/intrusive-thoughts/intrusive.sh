@@ -1,5 +1,5 @@
 #!/bin/bash
-# 🧠 Intrusive Thoughts — Random prompt picker (mood-aware)
+#  Intrusive Thoughts — Random prompt picker (mood-aware)
 # Usage: intrusive.sh <mood>    (night|day)
 #        intrusive.sh wizard     (run setup wizard)
 # Reads today_mood.json to bias thought selection toward current mood
@@ -12,30 +12,30 @@ case "${1:-}" in
         exec "$SCRIPT_DIR/wizard.sh"
         ;;
     audit|--audit)
-        echo "🔍 Security Audit - Intrusive Thoughts"
+        echo " Security Audit - Intrusive Thoughts"
         echo ""
-        echo "📡 Network endpoints (all read-only GET requests):"
+        echo " Network endpoints (all read-only GET requests):"
         echo "   Found in set_mood.sh:"
         grep -n "# NETWORK:" "$SCRIPT_DIR/set_mood.sh" | sed 's/^/   /'
         echo ""
-        echo "🌐 Actual network calls:"
+        echo " Actual network calls:"
         grep -n "curl" "$SCRIPT_DIR/set_mood.sh" | sed 's/^/   /'
         echo ""
-        echo "📁 File paths accessed (within skill directory only):"
+        echo " File paths accessed (within skill directory only):"
         echo "   Config files:"
         find "$SCRIPT_DIR" -name "*.json" -not -path "*/.*" | sed 's/^/   /'
         echo ""
         echo "   Log directories:" 
         find "$SCRIPT_DIR" -type d -name "log" -o -name "memory_store" -o -name "trust_store" -o -name "health" | sed 's/^/   /'
         echo ""
-        echo "🔧 Subprocess calls:"
+        echo " Subprocess calls:"
         grep -n "subprocess.run\|os.system\|shell=True" "$SCRIPT_DIR"/*.py 2>/dev/null | head -10 | sed 's/^/   /' || echo "   None found"
         echo ""
-        echo "✅ See SECURITY.md for complete audit report"
+        echo " See SECURITY.md for complete audit report"
         exit 0
         ;;
     help|--help|-h)
-        echo "🧠 Intrusive Thoughts"
+        echo " Intrusive Thoughts"
         echo ""
         echo "Usage:"
         echo "  intrusive.sh [mood]     Pick a random thought (day|night)"

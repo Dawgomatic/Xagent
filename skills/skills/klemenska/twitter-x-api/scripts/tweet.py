@@ -359,7 +359,7 @@ def cmd_show(args):
 
     if hasattr(tweet, "public_metrics"):
         m = tweet.public_metrics
-        print(f"\n📊 Likes: {m.get('like_count', 0)} | RTs: {m.get('retweet_count', 0)} | Replies: {m.get('reply_count', 0)} | Quotes: {m.get('quote_count', 0)}")
+        print(f"\n Likes: {m.get('like_count', 0)} | RTs: {m.get('retweet_count', 0)} | Replies: {m.get('reply_count', 0)} | Quotes: {m.get('quote_count', 0)}")
 
 
 def cmd_analytics(args):
@@ -381,19 +381,19 @@ def cmd_analytics(args):
     users = {u.id: u.username for u in response.includes.get("users", [])} if response.includes else {}
     username = users.get(tweet.author_id, "unknown")
 
-    print(f"📊 Analytics for tweet by @{username}")
+    print(f" Analytics for tweet by @{username}")
     print(f"Tweet ID: {tweet.id}")
     print(f"Posted: {tweet.created_at.strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"\nText: {tweet.text[:100]}{'...' if len(tweet.text) > 100 else ''}")
 
     if hasattr(tweet, "public_metrics"):
         m = tweet.public_metrics
-        print(f"\n📈 Engagement:")
-        print(f"  ❤️  Likes: {m.get('like_count', 0):,}")
-        print(f"  🔄 Retweets: {m.get('retweet_count', 0):,}")
-        print(f"  💬 Replies: {m.get('reply_count', 0):,}")
-        print(f"  💭 Quotes: {m.get('quote_count', 0):,}")
-        print(f"  👁️  Impressions: {m.get('impression_count', 'N/A')}")
+        print(f"\n Engagement:")
+        print(f"    Likes: {m.get('like_count', 0):,}")
+        print(f"   Retweets: {m.get('retweet_count', 0):,}")
+        print(f"   Replies: {m.get('reply_count', 0):,}")
+        print(f"   Quotes: {m.get('quote_count', 0):,}")
+        print(f"    Impressions: {m.get('impression_count', 'N/A')}")
 
         total = m.get('like_count', 0) + m.get('retweet_count', 0) + m.get('reply_count', 0) + m.get('quote_count', 0)
         print(f"\n  Total Engagements: {total:,}")

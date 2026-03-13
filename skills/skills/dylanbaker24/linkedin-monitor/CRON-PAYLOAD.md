@@ -31,7 +31,7 @@ STEP 5: If NEW messages found
 - Read alertChannel and alertTarget from ~/.clawdbot/linkedin-monitor/config.json
 - Post to the configured channel (Discord, Telegram, Slack, WhatsApp, etc.):
   Format:
-  📬 **{Name}**
+   **{Name}**
   > {message preview}
   
   **Draft reply:**

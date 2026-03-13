@@ -1,6 +1,6 @@
 # Linear Todos Cron Jobs - EXAMPLE ONLY
 # ======================================
-# ⚠️  WARNING: This file contains EXAMPLE cron entries. It does NOT
+#   WARNING: This file contains EXAMPLE cron entries. It does NOT
 #    automatically modify your crontab. Adding these is a manual
 #    user action. Review before using.
 #

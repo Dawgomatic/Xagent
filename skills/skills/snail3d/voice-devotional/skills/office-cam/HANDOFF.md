@@ -9,11 +9,11 @@
 Get the XIAO ESP32-S3 Sense with OV2640 camera working as an HTTP camera server that responds to `GET /capture` with a JPEG image.
 
 ## Current Status
-- ✅ WiFi credentials updated (SpectrumSetup-617D / smoothcurrent945)
-- ✅ Firmware compiles and flashes successfully
-- ❌ Camera init fails with error 0x105 (ESP_ERR_NOT_FOUND)
-- ❌ Device not responding on network (shows in ARP but no HTTP response)
-- ❌ Serial output not readable (empty when trying to read)
+-  WiFi credentials updated (SpectrumSetup-617D / smoothcurrent945)
+-  Firmware compiles and flashes successfully
+-  Camera init fails with error 0x105 (ESP_ERR_NOT_FOUND)
+-  Device not responding on network (shows in ARP but no HTTP response)
+-  Serial output not readable (empty when trying to read)
 
 ## Hardware
 - **Board:** Seeed Studio XIAO ESP32-S3 Sense

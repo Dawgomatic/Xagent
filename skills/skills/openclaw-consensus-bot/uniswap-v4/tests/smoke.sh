@@ -10,8 +10,8 @@ cd "$ROOT"
 PASS=0
 FAIL=0
 
-pass() { echo "  ✅ $1"; PASS=$((PASS+1)); }
-fail() { echo "  ❌ $1"; FAIL=$((FAIL+1)); }
+pass() { echo "   $1"; PASS=$((PASS+1)); }
+fail() { echo "   $1"; FAIL=$((FAIL+1)); }
 
 echo "[smoke] === Uniswap V4 Skill Smoke Test ==="
 echo ""
@@ -103,8 +103,8 @@ fi
 echo ""
 echo "[smoke] Results: $PASS passed, $FAIL failed"
 if [[ $FAIL -gt 0 ]]; then
-  echo "[smoke] ❌ FAIL"
+  echo "[smoke]  FAIL"
   exit 1
 else
-  echo "[smoke] ✅ OK"
+  echo "[smoke]  OK"
 fi

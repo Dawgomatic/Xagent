@@ -2,26 +2,26 @@
 
 Access 600+ apps and services through Composio's unified API. Currently connected: Gmail and Google Tasks.
 
-## 🔑 API Key Location
+##  API Key Location
 
 **Saved securely in:** `/home/sidharth/clawd/memory/composio-credentials.md`  
 **Also in:** `~/.bashrc` (line 135) - auto-loads on terminal start
 
 **API Key:** `ak_AXxQjyexBuSiJXTYOTPB`
 
-## 📦 Connected Accounts
+##  Connected Accounts
 
 ### Gmail (ca_0cxayHx2BME1)
 - **Email:** sonukumar5fr@gmail.com
-- **Status:** ACTIVE ✅
+- **Status:** ACTIVE 
 - **Capabilities:** Read/send emails, manage labels, drafts, contacts
 
 ### Google Tasks (ca_kSNnWG4OHngG)
 - **Email:** sonukumar5fr@gmail.com  
-- **Status:** ACTIVE ✅
+- **Status:** ACTIVE 
 - **Capabilities:** Create/update/delete tasks and task lists
 
-## 🛠️ Available Tools
+##  Available Tools
 
 ### Gmail Tools (20+)
 - `GMAIL_FETCH_EMAILS` - Fetch emails
@@ -43,7 +43,7 @@ Access 600+ apps and services through Composio's unified API. Currently connecte
 - `GOOGLETASKS_BULK_INSERT_TASKS` - Bulk create tasks
 - And 10+ more...
 
-## 📝 Usage Examples
+##  Usage Examples
 
 ### List Available Tools
 ```bash
@@ -70,7 +70,7 @@ node scripts/execute-tool.mjs GOOGLETASKS_INSERT_TASK ca_kSNnWG4OHngG '{"title":
 node scripts/execute-tool.mjs GMAIL_SEND_EMAIL ca_0cxayHx2BME1 '{"to":"recipient@example.com","subject":"Hello","body":"Hi there!"}'
 ```
 
-## 🔧 Implementation Details
+##  Implementation Details
 
 ### Base URL (v3 API)
 ```
@@ -97,7 +97,7 @@ user_id: pg-test-228260f1-217f-40f6-a08a-41fdd0b8d8e6
 └── (future scripts)
 ```
 
-## 🎯 Common Use Cases
+##  Common Use Cases
 
 ### Morning Email Summary
 ```bash
@@ -121,7 +121,7 @@ node scripts/execute-tool.mjs GMAIL_SEND_EMAIL ca_0cxayHx2BME1 '{
 }'
 ```
 
-## 🔄 Adding New Apps
+##  Adding New Apps
 
 To connect more apps (Calendar, Notion, Slack, etc.):
 
@@ -131,7 +131,7 @@ To connect more apps (Calendar, Notion, Slack, etc.):
 4. Note the `connected_account_id`
 5. Use with `execute-tool.mjs`
 
-## 📚 API Reference
+##  API Reference
 
 **Full v3 API Docs:** https://docs.composio.dev/rest-api/
 
@@ -141,15 +141,15 @@ To connect more apps (Calendar, Notion, Slack, etc.):
 - `POST /api/v3/tools/execute/:slug` - Execute tool
 - `GET /api/v3/connected_accounts` - List connections
 
-## ✅ Tested & Working
+##  Tested & Working
 
-- ✅ API key authentication
-- ✅ Gmail email fetching
-- ✅ Tool discovery (600+ apps)
-- ✅ Connected account management
-- ✅ v3 API compliance (no deprecated endpoints)
+-  API key authentication
+-  Gmail email fetching
+-  Tool discovery (600+ apps)
+-  Connected account management
+-  v3 API compliance (no deprecated endpoints)
 
-## 🚀 Next Steps
+##  Next Steps
 
 - [ ] Create wrapper functions for common tasks
 - [ ] Add Google Calendar integration
@@ -160,5 +160,5 @@ To connect more apps (Calendar, Notion, Slack, etc.):
 ---
 
 **Last Updated:** 2026-01-20  
-**Status:** ✅ Fully Operational  
+**Status:**  Fully Operational  
 **Integration Time:** ~30 minutes

@@ -10,7 +10,7 @@
 **Warm-up before traffic:**
 - Run dummy predictions before marking pod ready
 - Use `readinessProbe` that actually tests inference
-- ❌ Common mistake: health check only checks HTTP, not model loaded
+-  Common mistake: health check only checks HTTP, not model loaded
 
 ## Batch vs Real-Time
 
@@ -42,5 +42,5 @@ When model fails, what's the fallback?
 - Use simpler rule-based system
 - Return "unable to predict" with retry
 
-❌ Never return 500 without a degradation path
-❌ Never assume the model is always available
+ Never return 500 without a degradation path
+ Never assume the model is always available

@@ -150,7 +150,7 @@ describe('llm.ts', () => {
         data: {
           choices: [{
             message: {
-              content: '🎨 New masterpiece created! Token #42 is live. Check it out! ✨'
+              content: ' New masterpiece created! Token #42 is live. Check it out! '
             }
           }]
         }

@@ -44,7 +44,7 @@ async function parentAgentMain() {
     description: '高并发性能压力测试'
   });
 
-  console.log(`✅ 已创建3个子Agent：`);
+  console.log(` 已创建3个子Agent：`);
   console.log(`   1. ${agent1.name} (${agent1.id.slice(0, 8)}...)`);
   console.log(`   2. ${agent2.name} (${agent2.id.slice(0, 8)}...)`);
   console.log(`   3. ${agent3.name} (${agent3.id.slice(0, 8)}...)\n`);
@@ -187,7 +187,7 @@ async function parentAgentMain() {
           console.log(`\n[子Agent完成] ${agent.name}: ${status.status}`);
           
           if (completedCount === totalAgents) {
-            console.log('\n✅ 所有子Agent已完成！');
+            console.log('\n 所有子Agent已完成！');
             resolve();
           }
         });
@@ -213,8 +213,8 @@ async function parentAgentMain() {
   console.log('║  各Agent详细结果:                                          ║');
   
   finalStatus.agents.forEach((agent, index) => {
-    const statusIcon = agent.status === 'completed' ? '✅' : 
-                      agent.status === 'error' ? '❌' : '⏳';
+    const statusIcon = agent.status === 'completed' ? '' : 
+                      agent.status === 'error' ? '' : '';
     console.log(`║  ${index + 1}. ${statusIcon} ${agent.name.padEnd(25)} ${agent.status.padEnd(10)} ║`);
     
     if (agent.result) {
@@ -239,18 +239,18 @@ async function parentAgentMain() {
     }))
   }, null, 2));
   
-  console.log(`✅ 完整报告已保存至: ${reportPath}\n`);
+  console.log(` 完整报告已保存至: ${reportPath}\n`);
 
   // ========== 清理 ==========
   console.log('[阶段5] 清理资源...\n');
   await manager.stopAll();
-  console.log('✅ 所有资源已清理\n');
+  console.log(' 所有资源已清理\n');
 
-  console.log('🎉 所有测试完成！');
+  console.log(' 所有测试完成！');
 }
 
 // 运行主程序
 parentAgentMain().catch(error => {
-  console.error('❌ 父Agent执行失败:', error);
+  console.error(' 父Agent执行失败:', error);
   process.exit(1);
 });

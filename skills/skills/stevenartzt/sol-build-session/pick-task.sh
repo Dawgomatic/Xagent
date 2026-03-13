@@ -26,7 +26,7 @@ COUNT=$(echo "$TASKS" | wc -l)
 PICK=$((RANDOM % COUNT + 1))
 TASK=$(echo "$TASKS" | sed -n "${PICK}p")
 
-echo "🎯 Today's task:"
+echo " Today's task:"
 echo "   $TASK"
 echo ""
 echo "($COUNT tasks remaining)"

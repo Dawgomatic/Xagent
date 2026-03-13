@@ -129,7 +129,7 @@
 
 ## Applying Templates
 
-> **⚠️ Prerequisites:** Ensure you have both API keys configured before applying templates:
+> ** Prerequisites:** Ensure you have both API keys configured before applying templates:
 > - OpenCode Zen API key (for `opencode/*` models)
 > - OpenRouter API key (for `openrouter/*` models - Trinity Large)
 >

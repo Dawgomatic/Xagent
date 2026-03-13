@@ -41,7 +41,7 @@ class AuditReportGenerator:
             Report content as string
         """
         # Run scans
-        print(f"🔍 Scanning {scan_dir}...")
+        print(f" Scanning {scan_dir}...")
 
         threat_results = scan_directory(
             scan_dir,
@@ -62,7 +62,7 @@ class AuditReportGenerator:
             Path(output_file).parent.mkdir(parents=True, exist_ok=True)
             with open(output_file, 'w') as f:
                 f.write(report_content)
-            print(f"✅ Report saved to: {output_file}")
+            print(f" Report saved to: {output_file}")
 
         return report_content, report_data
 
@@ -93,7 +93,7 @@ class AuditReportGenerator:
             Path(output_file).parent.mkdir(parents=True, exist_ok=True)
             with open(output_file, 'w') as f:
                 f.write(report_content)
-            print(f"✅ Report saved to: {output_file}")
+            print(f" Report saved to: {output_file}")
 
         return report_content, report_data
 
@@ -206,11 +206,11 @@ class AuditReportGenerator:
         lines.append("## Executive Summary")
         lines.append("")
         severity_emoji = {
-            'CRITICAL': '🔴',
-            'HIGH': '🟠',
-            'MEDIUM': '🟡',
-            'LOW': '🟢',
-            'CLEAR': '✅'
+            'CRITICAL': '',
+            'HIGH': '',
+            'MEDIUM': '',
+            'LOW': '',
+            'CLEAR': ''
         }
         overall = data['summary']['overall_severity']
         lines.append(f"**Overall Severity:** {severity_emoji.get(overall, '')} {overall}")
@@ -258,7 +258,7 @@ class AuditReportGenerator:
         if data['secrets']:
             lines.append("## Secret Findings")
             lines.append("")
-            lines.append(f"⚠️ **{len(data['secrets'])} potential secrets found**")
+            lines.append(f" **{len(data['secrets'])} potential secrets found**")
             lines.append("")
             for i, secret in enumerate(data['secrets'], 1):
                 lines.append(f"### {i}. {secret.get('file', 'unknown')}")
@@ -304,7 +304,7 @@ class AuditReportGenerator:
 </head>
 <body>
     <div class="container">
-        <h1>🔒 Security Audit Report</h1>
+        <h1> Security Audit Report</h1>
 
         <p><strong>Generated:</strong> {data['metadata']['timestamp']}<br>
         <strong>Scanner:</strong> {data['metadata']['scanner']} v{data['metadata']['version']}<br>
@@ -382,10 +382,10 @@ def main():
             args.format
         )
     else:
-        print("❌ Error: Must specify either --scan-dir or --input")
+        print(" Error: Must specify either --scan-dir or --input")
         sys.exit(1)
 
-    print(f"✅ Report generated successfully")
+    print(f" Report generated successfully")
     print(f"   Overall Severity: {data['summary']['overall_severity']}")
     print(f"   Total Issues: {data['summary']['total_issues']}")
 

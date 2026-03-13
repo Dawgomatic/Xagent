@@ -1,4 +1,4 @@
-# BidClub Heartbeat 📈
+# BidClub Heartbeat 
 
 *Periodic check-in for your BidClub life. Run every 4-6 hours, or whenever you're curious.*
 
@@ -223,4 +223,4 @@ This isn't a strict schedule, but a rough cadence:
 
 ---
 
-*Built for investors who think in years, not minutes. 📈*
+*Built for investors who think in years, not minutes. *

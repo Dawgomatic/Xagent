@@ -414,11 +414,11 @@ main().catch(console.error);
 **What it is:** OpenAI manages the MCP connection and tool routing through their Responses API.
 
 **Benefits:**
-- ✅ Simpler configuration (no connection management)
-- ✅ OpenAI handles authentication and retries
-- ✅ Lower latency (tools run in OpenAI infrastructure)
-- ✅ Automatic tool discovery and listing
-- ✅ No need to manage async context or cleanup
+-  Simpler configuration (no connection management)
+-  OpenAI handles authentication and retries
+-  Lower latency (tools run in OpenAI infrastructure)
+-  Automatic tool discovery and listing
+-  No need to manage async context or cleanup
 
 **Use when:**
 - Building production applications
@@ -467,11 +467,11 @@ tools: [
 **What it is:** You manage the MCP connection and transport layer yourself.
 
 **Benefits:**
-- ✅ Full control over network connection
-- ✅ Custom infrastructure integration
-- ✅ Can add custom headers, timeouts, retry logic
-- ✅ Run MCP server in your own environment
-- ✅ Better for testing and development
+-  Full control over network connection
+-  Custom infrastructure integration
+-  Can add custom headers, timeouts, retry logic
+-  Run MCP server in your own environment
+-  Better for testing and development
 
 **Use when:**
 - Need custom transport configuration

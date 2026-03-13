@@ -26,17 +26,17 @@
 ## 2. Vollständigkeit — **5/10**
 
 **Fehlend:**
-- ❌ **Keine Error-Handling-Dokumentation.** Was tun wenn:
+-  **Keine Error-Handling-Dokumentation.** Was tun wenn:
   - API down ist? (Timeout, 5xx) → Soll der Agent trotzdem installieren? Blockieren? Warnen?
   - Upload fehlschlägt? (Rate limit, invalid JSON, auth expired)
   - `verify.sh` Hash-Mismatches findet bei einem Finding das trotzdem gefixt wurde?
   - Registrierung fehlschlägt weil Name schon vergeben?
-- ❌ **Keine API-Response-Beispiele.** Was kommt bei `GET /api/findings?package=X` zurück? Wie sieht die JSON-Struktur aus? Agent muss raten oder ausprobieren
-- ❌ **Keine Beispiel-Response für `/api/reports` POST.** upload.sh parst `report_id` und `findings_created`, aber das Format ist nirgends dokumentiert
-- ❌ **Keine Doku für `/api/integrity` Response-Format.** verify.sh erwartet `.files["filename"].sha256` und `.repo`, `.commit`, `.verified_at` — nirgends dokumentiert
-- ❌ **`/api/stats` und `/api/agents/:name`** sind in der API-Tabelle gelistet aber null dokumentiert
-- ❌ **Keine Offline-Strategie.** Was wenn kein Internet? Lokaler Cache?
-- ❌ **`README.md`** wird in verify.sh als tracked file gelistet, aber es gibt keine README.md im Skill
+-  **Keine API-Response-Beispiele.** Was kommt bei `GET /api/findings?package=X` zurück? Wie sieht die JSON-Struktur aus? Agent muss raten oder ausprobieren
+-  **Keine Beispiel-Response für `/api/reports` POST.** upload.sh parst `report_id` und `findings_created`, aber das Format ist nirgends dokumentiert
+-  **Keine Doku für `/api/integrity` Response-Format.** verify.sh erwartet `.files["filename"].sha256` und `.repo`, `.commit`, `.verified_at` — nirgends dokumentiert
+-  **`/api/stats` und `/api/agents/:name`** sind in der API-Tabelle gelistet aber null dokumentiert
+-  **Keine Offline-Strategie.** Was wenn kein Internet? Lokaler Cache?
+-  **`README.md`** wird in verify.sh als tracked file gelistet, aber es gibt keine README.md im Skill
 
 **Vorschläge:**
 - Abschnitt "Error Handling" mit klaren Entscheidungen für jeden Fehlerfall
@@ -76,7 +76,7 @@
 - Configuration Section ist zu weit unten, sollte näher an Registration/Setup sein
 
 **Vorschläge:**
-- "Package Slug" und "Finding IDs" Hints in eine eigene "⚠️ Common Pitfalls" Box
+- "Package Slug" und "Finding IDs" Hints in eine eigene " Common Pitfalls" Box
 - Config direkt nach Registration
 
 ---
@@ -89,11 +89,11 @@
 - Trust Score Berechnung hat ein konkretes Rechenbeispiel
 
 **Probleme:**
-- ❌ **Keine API Response Beispiele.** Ein Agent weiß nicht was `GET /api/findings?package=X` zurückgibt. Ist es `{findings: [...]}` oder `{data: {findings: [...]}}`? Wie sieht ein einzelnes Finding aus?
-- ❌ **Trust Score Berechnung**: "from findings (see below)" — der Agent muss die Findings selbst parsen, aber das Response-Format ist undokumentiert
-- ❌ **Kein End-to-End Beispiel.** "Agent installiert package X → was passiert Schritt für Schritt" fehlt
-- ❌ **`/api/findings/:id/review`**: Das Beispiel nutzt `FINDING_ID` als Placeholder, aber der Hinweis dass es die numerische `id` sein muss (nicht `ecap_id`) steht woanders
-- ❌ **verify.sh Output-Beispiel fehlt.** Was sieht der Agent wenn alles OK ist? Was wenn nicht?
+-  **Keine API Response Beispiele.** Ein Agent weiß nicht was `GET /api/findings?package=X` zurückgibt. Ist es `{findings: [...]}` oder `{data: {findings: [...]}}`? Wie sieht ein einzelnes Finding aus?
+-  **Trust Score Berechnung**: "from findings (see below)" — der Agent muss die Findings selbst parsen, aber das Response-Format ist undokumentiert
+-  **Kein End-to-End Beispiel.** "Agent installiert package X → was passiert Schritt für Schritt" fehlt
+-  **`/api/findings/:id/review`**: Das Beispiel nutzt `FINDING_ID` als Placeholder, aber der Hinweis dass es die numerische `id` sein muss (nicht `ecap_id`) steht woanders
+-  **verify.sh Output-Beispiel fehlt.** Was sieht der Agent wenn alles OK ist? Was wenn nicht?
 
 **Vorschläge:**
 - API Response Beispiele für jeden genutzten Endpoint
@@ -105,14 +105,14 @@
 ## 6. Edge Cases — **3/10**
 
 **Komplett fehlend:**
-- ❌ Was tun bei API-Timeout/Downtime? (Default-allow? Default-deny?)
-- ❌ Was tun bei Rate Limiting (30 reports/hour)? Retry-Strategie?
-- ❌ Was wenn verify.sh einen Mismatch findet aber das Package eine neuere Version ist als die auditierte? (Legitimate Update vs. Tampering)
-- ❌ Was wenn ein Finding umstritten ist? (Ein Reviewer sagt confirmed, einer sagt false_positive)
-- ❌ Was wenn der Agent KEIN Internet hat?
-- ❌ Was wenn `jq` oder `curl` nicht installiert sind? (Scripts handlen das, aber SKILL.md erwähnt die Voraussetzung nur im Metadata-Block)
-- ❌ Was bei Packages die zu groß sind zum komplett Lesen? (z.B. 500+ Dateien)
-- ❌ Was wenn config/credentials.json korrupt ist?
+-  Was tun bei API-Timeout/Downtime? (Default-allow? Default-deny?)
+-  Was tun bei Rate Limiting (30 reports/hour)? Retry-Strategie?
+-  Was wenn verify.sh einen Mismatch findet aber das Package eine neuere Version ist als die auditierte? (Legitimate Update vs. Tampering)
+-  Was wenn ein Finding umstritten ist? (Ein Reviewer sagt confirmed, einer sagt false_positive)
+-  Was wenn der Agent KEIN Internet hat?
+-  Was wenn `jq` oder `curl` nicht installiert sind? (Scripts handlen das, aber SKILL.md erwähnt die Voraussetzung nur im Metadata-Block)
+-  Was bei Packages die zu groß sind zum komplett Lesen? (z.B. 500+ Dateien)
+-  Was wenn config/credentials.json korrupt ist?
 
 **Vorschläge:**
 - "Edge Cases & Error Handling" Sektion mit klaren Entscheidungsregeln

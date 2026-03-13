@@ -24,7 +24,7 @@ def print_header():
     print(f"""
 {Colors.CYAN}╔══════════════════════════════════════════════════════════════╗
 ║                                                                ║
-║   {Colors.BOLD}📓 AI Diary - First Time Setup{Colors.END}{Colors.CYAN}                             ║
+║   {Colors.BOLD} AI Diary - First Time Setup{Colors.END}{Colors.CYAN}                             ║
 ║                                                                ║
 ║   Let's set up your diary. This only takes a minute.          ║
 ║                                                                ║
@@ -71,9 +71,9 @@ def ask_sections() -> dict:
     sections = {
         "summary": ("Summary", "1-2 sentence overview of the day", True),
         "projects": ("Projects", "What you worked on", True),
-        "wins": ("Wins 🎉", "Moments of success", True),
-        "frustrations": ("Frustrations 😤", "Challenges and roadblocks", True),
-        "learnings": ("Learnings 📚", "Technical and process insights", True),
+        "wins": ("Wins ", "Moments of success", True),
+        "frustrations": ("Frustrations ", "Challenges and roadblocks", True),
+        "learnings": ("Learnings ", "Technical and process insights", True),
         "emotional_state": ("Emotional State", "How the day felt", True),
         "interactions": ("Notable Interactions", "Memorable moments with your human", True),
         "tomorrow": ("Tomorrow's Focus", "What's next", True),
@@ -102,7 +102,7 @@ def create_memory_files(diary_path: Path, config: dict):
     if config.get("features", {}).get("quote_hall_of_fame", {}).get("enabled", False):
         quotes_file = diary_path / "quotes.md"
         if not quotes_file.exists():
-            quotes_file.write_text("""# Quote Hall of Fame 💬
+            quotes_file.write_text("""# Quote Hall of Fame 
 
 Memorable things my human has said — funny, profound, or touching.
 
@@ -124,7 +124,7 @@ Format:
     if config.get("features", {}).get("curiosity_backlog", {}).get("enabled", False):
         curiosity_file = diary_path / "curiosity.md"
         if not curiosity_file.exists():
-            curiosity_file.write_text("""# Curiosity Backlog 🔮
+            curiosity_file.write_text("""# Curiosity Backlog 
 
 Things I wonder about but can't explore immediately.
 
@@ -146,7 +146,7 @@ Things I wonder about but can't explore immediately.
     if config.get("features", {}).get("decision_archaeology", {}).get("enabled", False):
         decisions_file = diary_path / "decisions.md"
         if not decisions_file.exists():
-            decisions_file.write_text("""# Decision Archaeology 🏛️
+            decisions_file.write_text("""# Decision Archaeology 
 
 Judgment calls I made and why — for later review.
 
@@ -168,7 +168,7 @@ Judgment calls I made and why — for later review.
     if config.get("features", {}).get("relationship_evolution", {}).get("enabled", False):
         relationship_file = diary_path / "relationship.md"
         if not relationship_file.exists():
-            relationship_file.write_text("""# Relationship Evolution 🤝
+            relationship_file.write_text("""# Relationship Evolution 
 
 How my dynamic with my human develops over time.
 
@@ -202,7 +202,7 @@ def run_setup():
     
     # Check if already configured
     if config_path.exists():
-        print(f"{Colors.YELLOW}⚠️  config.json already exists.{Colors.END}")
+        print(f"{Colors.YELLOW}  config.json already exists.{Colors.END}")
         if not ask_yes_no("Do you want to reconfigure?", default=False):
             print("Setup cancelled. Your existing config is unchanged.")
             return
@@ -328,7 +328,7 @@ def run_setup():
     print(f"""
 {Colors.GREEN}╔══════════════════════════════════════════════════════════════╗
 ║                                                                ║
-║   {Colors.BOLD}✨ Setup Complete!{Colors.END}{Colors.GREEN}                                         ║
+║   {Colors.BOLD} Setup Complete!{Colors.END}{Colors.GREEN}                                         ║
 ║                                                                ║
 ║   Your diary is ready. Start writing:                          ║
 ║                                                                ║
@@ -346,7 +346,7 @@ def check_first_run():
     config_path = skill_dir / "config.json"
     
     if not config_path.exists():
-        print(f"\n{Colors.YELLOW}👋 Welcome to AI Diary!{Colors.END}")
+        print(f"\n{Colors.YELLOW} Welcome to AI Diary!{Colors.END}")
         print("Looks like this is your first time. Let's set things up.\n")
         if ask_yes_no("Run setup now?", default=True):
             run_setup()

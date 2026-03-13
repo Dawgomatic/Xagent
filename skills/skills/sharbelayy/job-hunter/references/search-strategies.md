@@ -38,10 +38,10 @@ Don't just search the exact title. Expand:
 5. **Team/manager** — can you find them on LinkedIn?
 
 ### Fit Score Guide
-- 🟢 **75-100**: Great fit — apply immediately
-- 🟡 **55-74**: Good fit — worth applying, highlight transferable skills
-- 🟠 **40-54**: Stretch — only if company/role is exciting
-- 🔴 **Below 40**: Skip — save your energy
+-  **75-100**: Great fit — apply immediately
+-  **55-74**: Good fit — worth applying, highlight transferable skills
+-  **40-54**: Stretch — only if company/role is exciting
+-  **Below 40**: Skip — save your energy
 
 ## Daily Job Search Routine (30-45 min)
 1. Check saved searches on LinkedIn/Indeed (5 min)

@@ -139,7 +139,7 @@ def fetch_news_fallback(sources=None, limit=5):
 def format_news(news_items):
     """Format news items for output."""
     if not news_items:
-        return "⚠️ Unable to fetch news headlines"
+        return " Unable to fetch news headlines"
     
     output = []
     for item in news_items:

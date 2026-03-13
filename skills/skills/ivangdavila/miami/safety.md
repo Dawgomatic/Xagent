@@ -96,11 +96,11 @@ Miami-Dade has evacuation zones A-E:
 ### Lifeguard Flags
 | Flag | Meaning |
 |------|---------|
-| 🟢 Green | Calm conditions |
-| 🟡 Yellow | Moderate hazard, caution |
-| 🔴 Red | High hazard, strong currents |
-| 🔴🔴 Double red | Water closed |
-| 🟣 Purple | Dangerous marine life (jellyfish) |
+|  Green | Calm conditions |
+|  Yellow | Moderate hazard, caution |
+|  Red | High hazard, strong currents |
+|  Double red | Water closed |
+|  Purple | Dangerous marine life (jellyfish) |
 
 ### Sun Safety
 - **UV index:** Often 10-11 (extreme)

@@ -63,6 +63,6 @@ const moonpay = new MoonPayProtocol(account, {
 
 | Method | Description |
 |--------|-------------|
-| `buy({cryptoAsset, fiatCurrency, fiatAmount})` | Generate signed buy URL (⚠️ write method) |
-| `sell({cryptoAsset, fiatCurrency, cryptoAmount})` | Generate signed sell URL (⚠️ write method) |
+| `buy({cryptoAsset, fiatCurrency, fiatAmount})` | Generate signed buy URL ( write method) |
+| `sell({cryptoAsset, fiatCurrency, cryptoAmount})` | Generate signed sell URL ( write method) |
 | `getConfig()` | Get protocol configuration |

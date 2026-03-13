@@ -1,10 +1,10 @@
 ---
 name: last30days
 description: Research any topic across Reddit, X/Twitter, and the web from the last 30 days. Synthesizes findings into actionable insights or copy-paste prompts.
-metadata: {"clawdbot":{"emoji":"📅","requires":{"bins":["bird"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["bird"]}}}
 ---
 
-# last30days 📅
+# last30days 
 
 Research any topic using recent (last 30 days) discussions from Reddit, X/Twitter, and the web. Returns synthesized insights and actionable prompts.
 
@@ -68,7 +68,7 @@ Combine findings into:
 ## Output Format
 
 ```markdown
-## 📅 Last 30 Days: [Topic]
+##  Last 30 Days: [Topic]
 
 ### What's Working
 - [Pattern 1]

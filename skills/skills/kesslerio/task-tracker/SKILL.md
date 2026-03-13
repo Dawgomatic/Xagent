@@ -2,7 +2,7 @@
 name: task-tracker
 description: "Personal task management with daily standups and weekly reviews. Use when: (1) User says 'daily standup' or asks what's on their plate, (2) User says 'weekly review' or asks about last week's progress, (3) User wants to add/update/complete tasks, (4) User asks about blockers or deadlines, (5) User shares meeting notes and wants tasks extracted, (6) User asks 'what's due this week' or similar."
 homepage: https://github.com/kesslerio/task-tracker-clawdbot-skill
-metadata: {"clawdbot":{"emoji":"📋","requires":{"files":["~/clawd/memory/work/TASKS.md"]},"install":[{"id":"init","kind":"script","script":"python3 scripts/init.py","label":"Initialize TASKS.md from template"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"files":["~/clawd/memory/work/TASKS.md"]},"install":[{"id":"init","kind":"script","script":"python3 scripts/init.py","label":"Initialize TASKS.md from template"}]}}
 ---
 
 <div align="center">
@@ -51,16 +51,16 @@ A personal task management skill for daily standups and weekly reviews. Tracks w
 ```markdown
 # Work Tasks
 
-## 🔴 High Priority (This Week)
+##  High Priority (This Week)
 - [ ] **Set up Apollo.io** — Access for Lilla
   - Due: ASAP
   - Blocks: Lilla (podcast outreach)
 
-## 🟡 Medium Priority (This Week)
+##  Medium Priority (This Week)
 - [ ] **Review newsletter concept** — Figma design
   - Due: Before Feb 1
 
-## ✅ Done
+##  Done
 - [x] **Set up team calendar** — Shared Google Calendar
 ```
 
@@ -139,9 +139,9 @@ extract_tasks.py --from-text "Meeting: discuss Q1 planning, Sarah to own budget 
 
 | Icon | Meaning | When to Use |
 |------|---------|-------------|
-| 🔴 **High** | Critical, blocking, deadline-driven | Revenue impact, blocking others |
-| 🟡 **Medium** | Important but not urgent | Reviews, feedback, planning |
-| 🟢 **Low** | Monitoring, delegated | Waiting on others, backlog |
+|  **High** | Critical, blocking, deadline-driven | Revenue impact, blocking others |
+|  **Medium** | Important but not urgent | Reviews, feedback, planning |
+|  **Low** | Monitoring, delegated | Waiting on others, backlog |
 
 ---
 
@@ -185,20 +185,20 @@ Todo → In Progress → Done
 ```
 $ python3 scripts/standup.py
 
-📋 Daily Standup — Tuesday, January 21
+ Daily Standup — Tuesday, January 21
 
-🎯 #1 Priority: Complete project proposal draft
+ #1 Priority: Complete project proposal draft
    ↳ Blocking: Sarah (client review)
 
-⏰ Due Today:
+ Due Today:
   • Complete project proposal draft
   • Schedule team sync
 
-🔴 High Priority:
+ High Priority:
   • Review Q1 budget (due: Before Mar 15)
   • Draft blog post (due: ASAP)
 
-✅ Recently Completed:
+ Recently Completed:
   • Set up shared calendar
   • Update team documentation
 ```
@@ -207,7 +207,7 @@ $ python3 scripts/standup.py
 ```
 $ python3 scripts/tasks.py add "Draft blog post" --priority high --due ASAP
 
-✅ Added task: Draft blog post
+ Added task: Draft blog post
 ```
 
 **Extracting from meeting notes:**
@@ -242,7 +242,7 @@ python3 scripts/init.py
 
 **Tasks not showing up**
 - Check TASKS.md exists at `~/clawd/memory/work/TASKS.md`
-- Verify task format (checkboxes `- [ ]`, headers `## 🔴`)
+- Verify task format (checkboxes `- [ ]`, headers `## `)
 - Run `tasks.py list` to debug
 
 **Date parsing issues**

@@ -57,7 +57,7 @@ Output: 1080×1440 PNG with gradient background, decorative elements, CJK text.
 Send the draft content + cover image to the user's messaging channel for review. Format:
 
 ```
-📝 小红书草稿 — [主题]
+ 小红书草稿 — [主题]
 
 标题：[标题]
 
@@ -66,9 +66,9 @@ Send the draft content + cover image to the user's messaging channel for review.
 封面图已生成：[path]
 
 请确认：
-✅ 可以发布
-✏️ 需要修改
-❌ 不发
+ 可以发布
+ 需要修改
+ 不发
 ```
 
 **Never auto-publish.** Always wait for explicit user approval.
@@ -90,7 +90,7 @@ Summary:
 If browser automation is unavailable (CDP issues, node offline, etc.), send the complete post to the user's channel with all content formatted for easy copy-paste:
 
 ```
-📋 小红书发帖内容（请手动发布）
+ 小红书发帖内容（请手动发布）
 
 【标题】[标题]
 

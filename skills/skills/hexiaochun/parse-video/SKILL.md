@@ -204,7 +204,7 @@ python scripts/download.py \
 ### 输出示例
 
 ```
-📹 下载视频 (1 个):
+ 下载视频 (1 个):
   下载中: https://v26-web.douyinvod.com/xxx.mp4...
   进度: 100.0% (12345678/12345678 bytes)
   ✓ 已保存: ./downloads/二狗脱口秀_20250129_103000.mp4

@@ -1,6 +1,6 @@
 # Contributing to SafeExec
 
-感谢你有兴趣贡献 SafeExec！🎉
+感谢你有兴趣贡献 SafeExec！
 
 ## 如何贡献
 
@@ -76,4 +76,4 @@
 
 ---
 
-再次感谢你的贡献！🙏
+再次感谢你的贡献！

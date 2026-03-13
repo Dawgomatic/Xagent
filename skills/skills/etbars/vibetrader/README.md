@@ -72,11 +72,11 @@ Once installed, just chat naturally with your OpenClaw assistant:
 
 ## Features
 
-- 🤖 **Natural Language Bot Creation** - Describe your strategy, AI builds the bot
-- 📊 **Portfolio Tracking** - Real-time positions and P&L
-- 📈 **Live & Paper Trading** - Practice risk-free or trade for real
-- ⏱️ **Backtesting** - Test strategies on historical data
-- 🔔 **Multi-Channel** - Manage from WhatsApp, Telegram, Slack, etc.
+-  **Natural Language Bot Creation** - Describe your strategy, AI builds the bot
+-  **Portfolio Tracking** - Real-time positions and P&L
+-  **Live & Paper Trading** - Practice risk-free or trade for real
+-  **Backtesting** - Test strategies on historical data
+-  **Multi-Channel** - Manage from WhatsApp, Telegram, Slack, etc.
 
 ## Links
 

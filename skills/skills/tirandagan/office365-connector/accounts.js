@@ -191,7 +191,7 @@ function importLegacy() {
   const clientSecret = process.env.AZURE_CLIENT_SECRET;
   
   if (!tenantId || !clientId || !clientSecret) {
-    console.log('⚠️  Legacy token file found but no credentials in environment');
+    console.log('  Legacy token file found but no credentials in environment');
     return null;
   }
   
@@ -205,7 +205,7 @@ function importLegacy() {
   fs.copyFileSync(legacyTokenPath, newTokenPath);
   fs.unlinkSync(legacyTokenPath);
   
-  console.log('✅ Imported legacy account as "primary"');
+  console.log(' Imported legacy account as "primary"');
   return 'primary';
 }
 
@@ -217,7 +217,7 @@ if (require.main === module) {
   try {
     if (command === 'list') {
       const result = listAccounts();
-      console.log('📧 Office 365 Accounts:\n');
+      console.log(' Office 365 Accounts:\n');
       
       if (result.accounts.length === 0) {
         console.log('No accounts configured.');
@@ -242,7 +242,7 @@ if (require.main === module) {
       
       const [name, tenantId, clientId, clientSecret, email, description] = args;
       addAccount(name, tenantId, clientId, clientSecret, { email, description });
-      console.log(`✅ Added account "${name}"`);
+      console.log(` Added account "${name}"`);
       
     } else if (command === 'remove') {
       if (args.length < 1) {
@@ -251,7 +251,7 @@ if (require.main === module) {
       }
       
       removeAccount(args[0]);
-      console.log(`✅ Removed account "${args[0]}"`);
+      console.log(` Removed account "${args[0]}"`);
       
     } else if (command === 'default') {
       if (args.length < 1) {
@@ -260,7 +260,7 @@ if (require.main === module) {
       }
       
       setDefault(args[0]);
-      console.log(`✅ Set "${args[0]}" as default account`);
+      console.log(` Set "${args[0]}" as default account`);
       
     } else if (command === 'import-legacy') {
       const result = importLegacy();
@@ -279,7 +279,7 @@ if (require.main === module) {
       process.exit(1);
     }
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

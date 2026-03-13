@@ -157,7 +157,7 @@ You'll read this when distractions look appealing.
 After completing the session, show:
 
 ```
-✅ **Session 1 Complete: The Anti-Vision Architect**
+ **Session 1 Complete: The Anti-Vision Architect**
 
 **Key Findings:**
 - Current dissatisfaction: {from 1.1}
@@ -175,5 +175,5 @@ After completing the session, show:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ready for Session 2: The Hidden Goal Decoder?
-[▶️ Continue] [⏸ Take a Break]
+[ Continue] [ Take a Break]
 ```

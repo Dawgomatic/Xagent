@@ -444,7 +444,7 @@ export class DiscordConnectView extends LitElement {
   render() {
     if (this.loading) {
       return html`
-        <h1>🎮 Discord</h1>
+        <h1> Discord</h1>
         <div class="loading">
           <div class="spinner"></div>
           Loading...
@@ -453,7 +453,7 @@ export class DiscordConnectView extends LitElement {
     }
 
     return html`
-      <h1>🎮 Discord</h1>
+      <h1> Discord</h1>
       <p class="subtitle">Connect and manage your Discord bot</p>
 
       <!-- Connection Status -->
@@ -461,10 +461,10 @@ export class DiscordConnectView extends LitElement {
         <h2 class="card-title">
           Connection Status
           ${this.status?.connected
-            ? html`<span class="status-badge status-connected">🟢 Connected</span>`
+            ? html`<span class="status-badge status-connected"> Connected</span>`
             : this.status?.configured
-              ? html`<span class="status-badge status-disconnected">🔴 Disconnected</span>`
-              : html`<span class="status-badge status-unconfigured">⚪ Not Configured</span>`}
+              ? html`<span class="status-badge status-disconnected"> Disconnected</span>`
+              : html`<span class="status-badge status-unconfigured"> Not Configured</span>`}
         </h2>
 
         ${this.status?.user ? html`
@@ -494,7 +494,7 @@ export class DiscordConnectView extends LitElement {
       <!-- Setup Guide -->
       ${this.showSetup ? html`
         <div class="card">
-          <h2 class="card-title">📋 Setup Guide</h2>
+          <h2 class="card-title"> Setup Guide</h2>
           <div class="setup-steps">
             <div class="setup-step">
               <div class="step-number"></div>
@@ -540,13 +540,13 @@ export class DiscordConnectView extends LitElement {
 
           ${this.saveError ? html`
             <div class="error-message">
-              ❌ ${this.saveError}
+               ${this.saveError}
             </div>
           ` : ""}
           
           ${this.saveSuccess ? html`
             <div class="success-message">
-              ✅ Token saved! Connecting...
+               Token saved! Connecting...
             </div>
           ` : ""}
         </div>
@@ -555,12 +555,12 @@ export class DiscordConnectView extends LitElement {
       <!-- Health Checks -->
       ${this.status?.configured && this.healthChecks.length > 0 ? html`
         <div class="card">
-          <h2 class="card-title">🏥 Health Checks</h2>
+          <h2 class="card-title"> Health Checks</h2>
           <div class="health-checks">
             ${this.healthChecks.map(check => html`
               <div class="health-check">
                 <span class="health-icon health-${check.status}">
-                  ${check.status === "pass" ? "✓" : check.status === "fail" ? "✗" : "⚠"}
+                  ${check.status === "pass" ? "✓" : check.status === "fail" ? "✗" : ""}
                 </span>
                 <span>${check.message}</span>
               </div>
@@ -572,7 +572,7 @@ export class DiscordConnectView extends LitElement {
       <!-- Servers -->
       ${this.guilds.length > 0 ? html`
         <div class="card">
-          <h2 class="card-title">🏠 Servers (${this.guilds.length})</h2>
+          <h2 class="card-title"> Servers (${this.guilds.length})</h2>
           <div class="guilds-list">
             ${this.guilds.map(guild => html`
               <div class="guild-item">
@@ -596,12 +596,12 @@ export class DiscordConnectView extends LitElement {
       <!-- Invite Generator -->
       ${this.status?.configured ? html`
         <div class="card">
-          <h2 class="card-title">🔗 Invite Bot to Server</h2>
+          <h2 class="card-title"> Invite Bot to Server</h2>
           <p style="color: var(--text-secondary); margin: 0 0 12px">Generate an invite link with required permissions.</p>
           <button class="btn-primary" @click=${this.generateInvite}>Generate Invite URL</button>
           ${this.inviteUrl ? html`
             <div class="invite-url">${this.inviteUrl}</div>
-            <button class="btn-secondary copy-btn" @click=${this.copyInvite}>📋 Copy URL</button>
+            <button class="btn-secondary copy-btn" @click=${this.copyInvite}> Copy URL</button>
           ` : ""}
         </div>
       ` : ""}

@@ -11,18 +11,18 @@
 
 ## SPAM FOUND & ACTIONS TAKEN
 
-### 1. ✅ BetOnline Esports Gambling Promotion
+### 1.  BetOnline Esports Gambling Promotion
 - **From:** `info@mail.betonline.ag`
 - **Subject:** "Feel Like Some Poker? Get Free Cash When You Play!"
 - **Date:** Jan 30, 2026
 - **Risk:** Gambling promotion (unsolicited)
-- **Action:** ✅ Moved to TRASH, Email ID: `19c1060efa856af6`
+- **Action:**  Moved to TRASH, Email ID: `19c1060efa856af6`
 
 ---
 
 ## PHISHING ALERTS
 
-### 🚨 Medium-Risk: Stripe Password Reset Email
+###  Medium-Risk: Stripe Password Reset Email
 - **From:** `Stripe <notifications@stripe.com>`
 - **Subject:** "Reset your Stripe password"
 - **Date:** 2026-02-01 at 03:22 AM (unusual time)

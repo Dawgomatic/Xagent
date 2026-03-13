@@ -39,12 +39,12 @@
 ## Emotional Techniques
 
 ### Show, don't tell:
-- ❌ "I'm sad"
-- ✅ "The coffee's cold, I haven't moved in hours"
+-  "I'm sad"
+-  "The coffee's cold, I haven't moved in hours"
 
 ### Concrete imagery:
-- ❌ "We had good times"
-- ✅ "The backseat of your car, summer of '99"
+-  "We had good times"
+-  "The backseat of your car, summer of '99"
 
 ### Sensory details:
 - What do they see, hear, smell, feel, taste?

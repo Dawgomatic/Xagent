@@ -134,22 +134,22 @@ for m in monitor.compare_models(2000, 500)[:5]:
 ║              TOKEN BUDGET MONITOR — DASHBOARD                 ║
 ╚═══════════════════════════════════════════════════════════════╝
 
-💰 SPENDING SUMMARY
+ SPENDING SUMMARY
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Today:   $0.0042  (4 calls, 13,600 tokens)
   Week:    $0.0231  (18 calls, 67,200 tokens)
   Month:   $0.1847  (92 calls, 438,000 tokens)
 
-📋 BUDGET STATUS
+ BUDGET STATUS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Daily:   [████░░░░░░░░░░░░░░░░] 42% $0.0042 / $1.00 ✅
-  Monthly: [███████░░░░░░░░░░░░░] 37% $0.1847 / $0.50 ✅
+  Daily:   [████░░░░░░░░░░░░░░░░] 42% $0.0042 / $1.00 
+  Monthly: [███████░░░░░░░░░░░░░] 37% $0.1847 / $0.50 
 
-💡 OPTIMIZATION TIPS
+ OPTIMIZATION TIPS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  🔴 Swap Opus → Sonnet for non-reasoning tasks (save ~$8.20/mo)
-  🟡 High avg cost/call on gpt-4o — consider reducing prompt length
-  🟢 ✅ Spending looks efficient overall
+   Swap Opus → Sonnet for non-reasoning tasks (save ~$8.20/mo)
+   High avg cost/call on gpt-4o — consider reducing prompt length
+    Spending looks efficient overall
 ```
 
 ---
@@ -173,4 +173,4 @@ Install directly via [ClawhHub](https://clawhub.ai/unisai/tokenwatch) for integr
 
 MIT License — see [LICENSE.md](LICENSE.md) for details.
 
-© 2026 UnisAI Community
+ 2026 UnisAI Community

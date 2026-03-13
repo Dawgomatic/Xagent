@@ -38,7 +38,7 @@ PATCH_FILES=$(echo "$MESSAGES" | jq -r '
 if [ -n "$PATCH_FILES" ]; then
   echo "=== Modified Files ==="
   echo "$PATCH_FILES" | while read -r f; do
-    echo "  ✏️  $f"
+    echo "    $f"
   done
   echo ""
 fi

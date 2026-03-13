@@ -10,7 +10,7 @@ Successfully open TISA Eindhoven with 50 students in Year 1
 
 ### Failure Paths
 
-🔴 **FATAL:**
+ **FATAL:**
 1. **Open without regulatory approval** → Forced to close
    - AVOID: Legal review 6 months before, permit in hand before any marketing
 
@@ -20,7 +20,7 @@ Successfully open TISA Eindhoven with 50 students in Year 1
 3. **No qualified teachers available** → Can't open
    - AVOID: Start recruiting 9 months early, backup candidates
 
-🟡 **DAMAGING:**
+ **DAMAGING:**
 4. **Copy-paste Leiden without local adaptation** → Doesn't resonate
    - AVOID: Local advisory board, community research first
 
@@ -30,7 +30,7 @@ Successfully open TISA Eindhoven with 50 students in Year 1
 6. **No local partnerships** → Unknown brand, slow enrollment
    - AVOID: ASML/tech company partnerships before launch
 
-🟢 **ANNOYING:**
+ **ANNOYING:**
 7. **Facility not ready in time** → Delayed opening
    - AVOID: 3-month buffer on facility timeline
 
@@ -53,14 +53,14 @@ Successfully deploy TeddySnaps at new location
 
 ### Failure Paths
 
-🔴 **FATAL:**
+ **FATAL:**
 1. **Staff sees it as surveillance** → Active resistance
    - AVOID: Frame as "parent communication tool", not "monitoring"
 
 2. **Parents don't download app** → No engagement
    - AVOID: Include in enrollment, demo at first meeting
 
-🟡 **DAMAGING:**
+ **DAMAGING:**
 3. **Photos are bad quality** → Parents unimpressed
    - AVOID: Photo quality training for staff, good lighting
 
@@ -70,7 +70,7 @@ Successfully deploy TeddySnaps at new location
 5. **Staff forgets to take photos** → Empty feeds
    - AVOID: Gamification, daily minimums, visible leaderboard
 
-🟢 **ANNOYING:**
+ **ANNOYING:**
 6. **App crashes occasionally** → Frustration
    - AVOID: Thorough testing, quick bug response
 
@@ -92,7 +92,7 @@ Sign first paying customer within 60 days
 
 ### Failure Paths
 
-🔴 **FATAL:**
+ **FATAL:**
 1. **Can't demonstrate ROI** → No business case
    - AVOID: Build ROI calculator, case study from pilot
 
@@ -102,7 +102,7 @@ Sign first paying customer within 60 days
 3. **System isn't ready for demo** → Looks amateur
    - AVOID: Demo environment polished, rehearsed presentation
 
-🟡 **DAMAGING:**
+ **DAMAGING:**
 4. **Price too high** → Immediate rejection
    - AVOID: Competitive analysis, risk-free trial structure
 

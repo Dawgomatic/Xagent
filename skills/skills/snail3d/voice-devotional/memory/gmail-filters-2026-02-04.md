@@ -61,12 +61,12 @@ These are important legitimate account alerts - KEEP:
 ---
 
 ## Security Action Items
-1. ✅ Scanned inbox for phishing (97 found)
-2. ⏳ Create the 3 critical filters above
-3. 🔍 Check 199trust@gmail.com account for unauthorized access
-4. 📋 Review access logs for your trust document service
-5. 📧 Consider notifying affected customers of phishing attempt
-6. 🚨 Monitor for similar QR-based phishing attacks
+1.  Scanned inbox for phishing (97 found)
+2.  Create the 3 critical filters above
+3.  Check 199trust@gmail.com account for unauthorized access
+4.  Review access logs for your trust document service
+5.  Consider notifying affected customers of phishing attempt
+6.  Monitor for similar QR-based phishing attacks
 
 Last scanned: 2026-02-04 10:10 AM
 Next recommendation: Weekly filter review until threat subsides

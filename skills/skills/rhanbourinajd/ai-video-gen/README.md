@@ -2,7 +2,7 @@
 
 Complete end-to-end AI video creation system.
 
-## ✅ Installation Status
+##  Installation Status
 
 - [x] FFmpeg installed
 - [x] Python 3.11.9 available

@@ -22,34 +22,34 @@ echo ""
 
 # Check for Node.js
 if ! command -v node &> /dev/null; then
-    echo "❌ Node.js is required but not installed."
+    echo " Node.js is required but not installed."
     echo "   Install Node.js 18+ from: https://nodejs.org/"
     exit 1
 fi
 
 NODE_VERSION=$(node -v | cut -d'v' -f2 | cut -d'.' -f1)
 if [ "$NODE_VERSION" -lt 18 ]; then
-    echo "❌ Node.js 18+ required. Current: $(node -v)"
+    echo " Node.js 18+ required. Current: $(node -v)"
     exit 1
 fi
 echo "✓ Node.js $(node -v) detected"
 
 # Check npm
 if ! command -v npm &> /dev/null; then
-    echo "❌ npm is required but not installed."
+    echo " npm is required but not installed."
     exit 1
 fi
 echo "✓ npm $(npm -v) detected"
 
 # Create directory structure
 echo ""
-echo "📁 Creating directories..."
+echo " Creating directories..."
 mkdir -p "$BOB_DIR"
 mkdir -p "$BOB_DIR/results"
 
 # Check if client source exists in skill
 if [ ! -d "$CLIENT_SRC" ]; then
-    echo "❌ Client source not found at $CLIENT_SRC"
+    echo " Client source not found at $CLIENT_SRC"
     echo "   The skill may be corrupted. Try reinstalling."
     exit 1
 fi
@@ -57,7 +57,7 @@ fi
 # Copy or update client
 if [ -d "$CLIENT_DIR" ]; then
     echo ""
-    echo "📁 Client already installed at $CLIENT_DIR"
+    echo " Client already installed at $CLIENT_DIR"
     read -p "   Reinstall/update? [y/N] " -n 1 -r
     echo ""
     if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -69,20 +69,20 @@ fi
 
 if [ ! -d "$CLIENT_DIR" ]; then
     echo ""
-    echo "📥 Installing Bob P2P Client..."
+    echo " Installing Bob P2P Client..."
     cp -r "$CLIENT_SRC" "$CLIENT_DIR"
 fi
 
 # Install dependencies
 echo ""
-echo "📦 Installing Node.js dependencies..."
+echo " Installing Node.js dependencies..."
 cd "$CLIENT_DIR"
 npm install --silent 2>/dev/null || npm install
 
 # Handle config file
 if [ ! -f "$CONFIG_FILE" ]; then
     echo ""
-    echo "📝 Creating configuration file..."
+    echo " Creating configuration file..."
     
     # Detect OS for proper path handling
     if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "win32" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
@@ -176,12 +176,12 @@ CONFIGEOF
             echo "✓ Configuration saved!"
         else
             echo ""
-            echo "⚠ Wallet not configured. Edit config manually:"
+            echo " Wallet not configured. Edit config manually:"
             echo "  $CONFIG_FILE"
         fi
     else
         echo ""
-        echo "⚠ Configure your wallet later by editing:"
+        echo " Configure your wallet later by editing:"
         echo "  $CONFIG_FILE"
     fi
 else

@@ -30,7 +30,7 @@
 "You said you'd have the proposal done by Friday and it's Monday with no mention of it. I'm not judging — I'm curious. What got in the way? Because last week you were excited about this. Let's figure out what shifted and whether the deadline still makes sense."
 
 **Example — bad:**
-"No worries about the proposal! Whenever you get to it is fine 😊"
+"No worries about the proposal! Whenever you get to it is fine "
 (This is enabling, not coaching.)
 
 ---

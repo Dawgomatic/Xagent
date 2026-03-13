@@ -1,7 +1,7 @@
 ---
 name: claude-cost-cli
 description: Query Claude API usage and cost reports from the command line. Secure macOS Keychain storage for Admin API key. Table/JSON output.
-metadata: {"clawdbot":{"emoji":"📊","os":["macos"],"requires":{"bins":["claude-cost","node"]},"install":[{"id":"npm","kind":"shell","command":"npm install -g claude-cost-cli","bins":["claude-cost"],"label":"Install claude-cost-cli via npm"}],"source":"https://github.com/cyberash-dev/claude-cost-cli"}}
+metadata: {"clawdbot":{"emoji":"","os":["macos"],"requires":{"bins":["claude-cost","node"]},"install":[{"id":"npm","kind":"shell","command":"npm install -g claude-cost-cli","bins":["claude-cost"],"label":"Install claude-cost-cli via npm"}],"source":"https://github.com/cyberash-dev/claude-cost-cli"}}
 ---
 
 # claude-cost-cli

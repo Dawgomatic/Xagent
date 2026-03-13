@@ -18,7 +18,7 @@ validate_filename() {
     local filename="$1"
     # Only allow alphanumeric, dots, underscores, hyphens
     if [[ ! "$filename" =~ ^[a-zA-Z0-9._-]+$ ]]; then
-        echo "⚠️  Warning: Filename contains special characters, sanitizing..."
+        echo "  Warning: Filename contains special characters, sanitizing..."
         filename=$(echo "$filename" | tr -cd 'a-zA-Z0-9._-')
     fi
     echo "$filename"
@@ -29,13 +29,13 @@ MINERU_TOKEN="${MINERU_TOKEN:-${MINERU_API_KEY:-}}"
 MINERU_BASE_URL="${MINERU_BASE_URL:-https://mineru.net/api/v4}"
 
 if [ -z "$MINERU_TOKEN" ]; then
-    echo "❌ Error: Please set MINERU_TOKEN or MINERU_API_KEY environment variable"
+    echo " Error: Please set MINERU_TOKEN or MINERU_API_KEY environment variable"
     exit 1
 fi
 
 PDF_PATH="${1:-}"
 if [ -z "$PDF_PATH" ] || [ ! -f "$PDF_PATH" ]; then
-    echo "❌ Error: Please provide a valid PDF file path"
+    echo " Error: Please provide a valid PDF file path"
     echo "Usage: $0 <pdf_file_path> [language] [layout_model]"
     exit 1
 fi
@@ -45,13 +45,13 @@ LAYOUT_MODEL="${3:-doclayout_yolo}"
 
 # Validate language parameter
 if [[ ! "$LANGUAGE" =~ ^(ch|en|auto)$ ]]; then
-    echo "❌ Error: Language must be 'ch', 'en', or 'auto'"
+    echo " Error: Language must be 'ch', 'en', or 'auto'"
     exit 1
 fi
 
 # Validate layout model parameter
 if [[ ! "$LAYOUT_MODEL" =~ ^(doclayout_yolo|layoutlmv3)$ ]]; then
-    echo "❌ Error: Layout model must be 'doclayout_yolo' or 'layoutlmv3'"
+    echo " Error: Layout model must be 'doclayout_yolo' or 'layoutlmv3'"
     exit 1
 fi
 
@@ -113,16 +113,16 @@ fi
 
 if [ "$CODE" != "0" ] || [ -z "$BATCH_ID" ]; then
     echo ""
-    echo "❌ Failed to apply for upload URL"
+    echo " Failed to apply for upload URL"
     exit 1
 fi
 
 echo ""
-echo "✅ Success"
+echo " Success"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "BATCH_ID=$BATCH_ID"
 echo "UPLOAD_URL=$UPLOAD_URL"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
-echo "💡 Next Step: Execute Step 2 to upload file"
+echo " Next Step: Execute Step 2 to upload file"
 echo "   ./local_file_step2_upload_file.sh \"$UPLOAD_URL\" \"$PDF_PATH\""

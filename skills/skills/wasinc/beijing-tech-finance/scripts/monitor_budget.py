@@ -145,13 +145,13 @@ class BudgetMonitor:
         annual_rate = usage_data['annual_usage_rate']
         
         if warning_level == "high":
-            return f"🚨 高风险预警：{category} 预算月度使用率已达{monthly_rate}%，年度使用率{annual_rate}%，请立即控制支出！"
+            return f" 高风险预警：{category} 预算月度使用率已达{monthly_rate}%，年度使用率{annual_rate}%，请立即控制支出！"
         elif warning_level == "medium":
-            return f"⚠️ 中风险预警：{category} 预算月度使用率{monthly_rate}%，年度使用率{annual_rate}%，请注意支出节奏。"
+            return f" 中风险预警：{category} 预算月度使用率{monthly_rate}%，年度使用率{annual_rate}%，请注意支出节奏。"
         elif warning_level == "low":
-            return f"ℹ️ 低风险提示：{category} 预算月度使用率{monthly_rate}%，年度使用率{annual_rate}%，建议关注后续支出。"
+            return f" 低风险提示：{category} 预算月度使用率{monthly_rate}%，年度使用率{annual_rate}%，建议关注后续支出。"
         else:
-            return f"✅ {category} 预算使用正常，月度使用率{monthly_rate}%，年度使用率{annual_rate}%。"
+            return f" {category} 预算使用正常，月度使用率{monthly_rate}%，年度使用率{annual_rate}%。"
 
 def main():
     """主函数"""

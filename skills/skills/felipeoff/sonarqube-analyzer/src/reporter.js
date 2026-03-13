@@ -30,8 +30,8 @@ function generateMarkdownReport(analysis) {
   // Summary
   md += `## Summary\n\n`;
   md += `- **Total Issues:** ${summary.totalIssues}\n`;
-  md += `- 🔧 Auto-fixable: ${summary.autoFixable.count}\n`;
-  md += `- 📝 Manual fix required: ${summary.manualFix.count}\n\n`;
+  md += `-  Auto-fixable: ${summary.autoFixable.count}\n`;
+  md += `-  Manual fix required: ${summary.manualFix.count}\n\n`;
   
   // Quality indicator
   const total = summary.totalIssues;
@@ -39,11 +39,11 @@ function generateMarkdownReport(analysis) {
   const ratio = total > 0 ? (autoFixable / total) * 100 : 0;
   
   if (ratio >= 70) {
-    md += `✅ **Good news:** ${ratio.toFixed(0)}% of issues can be fixed automatically!\n\n`;
+    md += ` **Good news:** ${ratio.toFixed(0)}% of issues can be fixed automatically!\n\n`;
   } else if (ratio >= 40) {
-    md += `⚠️ **Mixed:** ${ratio.toFixed(0)}% of issues are auto-fixable. Some manual work required.\n\n`;
+    md += ` **Mixed:** ${ratio.toFixed(0)}% of issues are auto-fixable. Some manual work required.\n\n`;
   } else if (total > 0) {
-    md += `🔧 **Attention needed:** Most issues require manual refactoring.\n\n`;
+    md += ` **Attention needed:** Most issues require manual refactoring.\n\n`;
   }
   
   // Next steps
@@ -114,8 +114,8 @@ function generateCliSummary(analysis) {
   output += `║     SonarQube Analysis Summary                 ║\n`;
   output += `╚════════════════════════════════════════════════╝\n\n`;
   output += `Total Issues: ${summary.totalIssues}\n`;
-  output += `  🔧 Auto-fixable: ${summary.autoFixable.count}\n`;
-  output += `  📝 Manual fix: ${summary.manualFix.count}\n\n`;
+  output += `   Auto-fixable: ${summary.autoFixable.count}\n`;
+  output += `   Manual fix: ${summary.manualFix.count}\n\n`;
   
   if (summary.nextSteps.length > 0) {
     output += 'Next Steps:\n';

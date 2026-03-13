@@ -32,7 +32,7 @@ Buy/Sell/Hold Trade Signals for AI agents. Transform complex market intelligence
 
 ## Features
 
-### 📊 Trade Signals Capabilities
+###  Trade Signals Capabilities
 
 | Query Type | Examples |
 |------------|----------|
@@ -54,7 +54,7 @@ Buy/Sell/Hold Trade Signals for AI agents. Transform complex market intelligence
 
 
 
-### 📈 Market Coverage
+###  Market Coverage
 
 **37,565 Global Tickers + 6,104 ETFs** across all major exchanges:
 
@@ -73,7 +73,7 @@ Buy/Sell/Hold Trade Signals for AI agents. Transform complex market intelligence
 
 **Asset Classes**: Global Equities, ETFs, Global macro, FX, commodities, crypto content available.
 
-### 🔬 Data Sources
+###  Data Sources
 
 -  **Wall Street Research** — Analyst reports, investment thesis from Goldman, Morgan Stanley, JP Morgan, Citi, UBS, Bank of America, Stifel, etc.
 - **Analyst Actions** — Upgrades, downgrades, initiations, PT changes
@@ -151,7 +151,7 @@ Running the script returns JSON:
 **Query:** `./scripts/search.sh "What's driving the fall in silver prices? Identify all the catalysts and make a trade decision for tomorrow."`
 
 ```
-📊 **Silver Price Decline: Catalyst Analysis**
+ **Silver Price Decline: Catalyst Analysis**
 
 **Signal: AVOID** | Time Horizon: T+1
 Related: SLV (-28.54%), SI (-0.77%), XAGUSD (+2.58%)
@@ -199,7 +199,7 @@ before considering new long positions. [3][11]
 **Query:** `./scripts/search.sh "Give me a clear buy/sell/hold call and an optimal target price for T+5."`
 
 ```
-📊 **Silver Trade Signal: 5-Day Outlook**
+ **Silver Trade Signal: 5-Day Outlook**
 
 **Signal: HOLD** | Target Range: $80-$90 | Time Horizon: T+5
 
@@ -248,7 +248,7 @@ potential for minor upward corrections within volatile environment.
 **Query:** `./scripts/search.sh "What are analysts saying about NVIDIA?"`
 
 ```
-📊 **NVIDIA Analyst Sentiment**
+ **NVIDIA Analyst Sentiment**
 
 Wall Street remains overwhelmingly bullish on NVIDIA with 45 Buy ratings,
 3 Hold, and 0 Sell. Average price target: $950 (18% upside). [1]

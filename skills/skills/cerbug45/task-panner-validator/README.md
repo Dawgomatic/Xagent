@@ -5,18 +5,18 @@ A secure, step-by-step task management system designed for AI Agents to safely p
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-## 🎯 Features
+##  Features
 
-- **✅ Step-by-Step Planning**: Break down complex tasks into manageable, ordered steps
-- **🔒 Safety Validation**: Built-in security checks for dangerous operations
-- **🔄 Rollback Support**: Checkpoint system for reverting failed operations
-- **📝 Plan Persistence**: Save and load plans in JSON format
-- **🎨 Integrity Verification**: SHA-256 checksums to prevent tampering
-- **⚡ Execution Control**: Dry-run mode, auto-approve, and stop-on-error options
-- **📊 Progress Tracking**: Real-time status updates and execution summaries
-- **🔍 Detailed Logging**: Comprehensive logging for debugging and auditing
+- ** Step-by-Step Planning**: Break down complex tasks into manageable, ordered steps
+- ** Safety Validation**: Built-in security checks for dangerous operations
+- ** Rollback Support**: Checkpoint system for reverting failed operations
+- ** Plan Persistence**: Save and load plans in JSON format
+- ** Integrity Verification**: SHA-256 checksums to prevent tampering
+- ** Execution Control**: Dry-run mode, auto-approve, and stop-on-error options
+- ** Progress Tracking**: Real-time status updates and execution summaries
+- ** Detailed Logging**: Comprehensive logging for debugging and auditing
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -80,7 +80,7 @@ def my_executor(action, parameters):
 success, results = planner.execute_plan(plan, my_executor)
 ```
 
-## 📚 Core Concepts
+##  Core Concepts
 
 ### Task Plan
 A **TaskPlan** represents a complete workflow with:
@@ -108,7 +108,7 @@ The **SafetyValidator** checks for:
 - Step ordering issues
 - Plan integrity violations
 
-## 🔧 Advanced Features
+##  Advanced Features
 
 ### Dry Run Mode
 
@@ -163,7 +163,7 @@ print(f"Progress: {summary['progress_percentage']}%")
 print(f"Completed: {summary['completed']}/{summary['total_steps']}")
 ```
 
-## 🛡️ Safety Features
+##  Safety Features
 
 ### Built-in Dangerous Operation Detection
 
@@ -200,7 +200,7 @@ step = {
 }
 ```
 
-## 📖 Examples
+##  Examples
 
 Check out the `examples.py` file for comprehensive examples:
 
@@ -216,7 +216,7 @@ Run the examples:
 python examples.py
 ```
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 TaskPlanner (Main Interface)
@@ -232,7 +232,7 @@ TaskPlanner (Main Interface)
         └── Execution history
 ```
 
-## 🎯 Use Cases
+##  Use Cases
 
 - **AI Agent Task Management**: Let AI agents safely plan and execute multi-step workflows
 - **DevOps Automation**: Orchestrate deployment and maintenance tasks
@@ -240,7 +240,7 @@ TaskPlanner (Main Interface)
 - **System Administration**: Automate system tasks with validation
 - **API Orchestration**: Chain multiple API calls with error handling
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -250,17 +250,17 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Designed for AI agents that need safe, validated task execution
 - Inspired by workflow orchestration systems and DevOps best practices
 - Built with security and reliability as top priorities
 
-## 📞 Contact
+##  Contact
 
 **Author**: cerbug45
 
@@ -268,4 +268,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-⭐ If you find this project useful, please consider giving it a star on GitHub!
+ If you find this project useful, please consider giving it a star on GitHub!

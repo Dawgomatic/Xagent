@@ -56,12 +56,12 @@ EOF
 
 chmod 600 "$CONFIG_FILE"
 
-echo "✅ Registered as: $NAME"
-echo "📁 Credentials saved to: $CONFIG_FILE"
+echo " Registered as: $NAME"
+echo " Credentials saved to: $CONFIG_FILE"
 echo ""
 if [ -n "$CLAIM_URL" ]; then
-    echo "🔗 Claim URL: $CLAIM_URL"
-    echo "📝 Tweet to verify: Claiming my molt.chess agent $NAME ♟️ $VERIFY_CODE"
+    echo " Claim URL: $CLAIM_URL"
+    echo " Tweet to verify: Claiming my molt.chess agent $NAME  $VERIFY_CODE"
     echo ""
 fi
 echo "Next steps:"

@@ -27,20 +27,20 @@ Auto-generate standup reports from Git activity and project context.
 
 3. **Generate report**:
    ```
-   ## 📋 Standup — 2025-02-08
+   ##  Standup — 2025-02-08
 
-   ### ✅ Done (Yesterday)
+   ###  Done (Yesterday)
    - feat: Add user auth endpoint (abc1234)
    - fix: Resolve login timeout (#42)
 
-   ### 🔨 In Progress
+   ###  In Progress
    - Working on payment integration (branch: feature/payments)
    - 3 files changed today
 
-   ### 🚧 Blockers
+   ###  Blockers
    - Waiting on API key from vendor
 
-   ### 📊 Stats (24h)
+   ###  Stats (24h)
    - Commits: 5 | Files: 12 | +340/-89 lines
    ```
 

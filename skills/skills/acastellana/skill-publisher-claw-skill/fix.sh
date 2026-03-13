@@ -27,7 +27,7 @@ FIXES=0
 info() { echo -e "${BLUE}→${NC} $1"; }
 fixed() { echo -e "${GREEN}✓${NC} Fixed: $1"; ((FIXES++)); }
 skip() { echo -e "${YELLOW}⊘${NC} Skipped: $1"; }
-warn() { echo -e "${YELLOW}⚠${NC} $1"; }
+warn() { echo -e "${YELLOW}${NC} $1"; }
 
 ask() {
     if $AUTO_MODE; then
@@ -56,7 +56,7 @@ ask_choice() {
 }
 
 echo ""
-echo "🔧 Fixing skill: $(basename "$(pwd)")"
+echo " Fixing skill: $(basename "$(pwd)")"
 echo "   Path: $(pwd)"
 echo "   Mode: $($AUTO_MODE && echo "automatic" || echo "interactive")"
 echo ""

@@ -6,7 +6,7 @@ ARCHIVE_DIR="$MEMORY_DIR/archive"
 
 CUTOFF_DAYS=30
 
-echo "📦 Memory Archival"
+echo " Memory Archival"
 echo "=================="
 echo ""
 echo "Archiving NEUTRAL entries older than $CUTOFF_DAYS days..."
@@ -57,7 +57,7 @@ done
 
 echo ""
 if [[ $ARCHIVED_COUNT -gt 0 ]]; then
-    echo "✅ Archived $ARCHIVED_COUNT files to $ARCHIVE_DIR"
+    echo " Archived $ARCHIVED_COUNT files to $ARCHIVE_DIR"
 else
-    echo "ℹ️  No files needed archiving"
+    echo "  No files needed archiving"
 fi

@@ -26,7 +26,7 @@ const forbiddenNested = [
 ];
 
 function fail(msg) {
-  console.error(`❌ ${msg}`);
+  console.error(` ${msg}`);
   process.exitCode = 1;
 }
 
@@ -83,5 +83,5 @@ for (const file of walk(repoRoot)) {
 }
 
 if (!process.exitCode) {
-  console.log('✅ CI guardrails passed');
+  console.log(' CI guardrails passed');
 }

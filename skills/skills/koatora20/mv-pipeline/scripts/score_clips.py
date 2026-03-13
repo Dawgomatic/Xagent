@@ -350,8 +350,8 @@ def main():
         print(f"No video files found in {input_dir}")
         sys.exit(1)
 
-    print(f"📹 {len(videos)} clips found in {input_dir}")
-    print(f"🎵 BPM: {args.bpm} → 1 bar = {4 / args.bpm * 60:.3f}s")
+    print(f" {len(videos)} clips found in {input_dir}")
+    print(f" BPM: {args.bpm} → 1 bar = {4 / args.bpm * 60:.3f}s")
     print()
 
     results = []
@@ -368,16 +368,16 @@ def main():
             ok_count += 1
             best = result.get("best_cut")
             if best:
-                print(f"✅ score={result['overall']['score']:.3f} "
+                print(f" score={result['overall']['score']:.3f} "
                       f"best=[{best['start']:.1f}s-{best['end']:.1f}s]={best['score']:.3f}")
             else:
-                print(f"✅ score={result['overall']['score']:.3f}")
+                print(f" score={result['overall']['score']:.3f}")
         elif result["status"] == "ng":
             ng_count += 1
-            print(f"❌ NG: {', '.join(result['ng_reasons'])}")
+            print(f" NG: {', '.join(result['ng_reasons'])}")
         else:
             ng_count += 1
-            print(f"⚠️  {result.get('message', 'error')}")
+            print(f"  {result.get('message', 'error')}")
 
     # サマリー
     total = len(results)
@@ -415,7 +415,7 @@ def main():
 
     print()
     print("=" * 50)
-    print(f"📊 結果サマリー")
+    print(f" 結果サマリー")
     print(f"  OK: {ok_count}/{total} ({yield_rate:.0f}%)")
     print(f"  NG: {ng_count}/{total}")
     print(f"  平均スコア: {avg_score:.3f}")

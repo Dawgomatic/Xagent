@@ -34,12 +34,12 @@ api() {
 }
 
 cmd_status() {
-  echo "🔔 Notifiarr Status"
+  echo " Notifiarr Status"
   echo ""
   if curl -sf -o /dev/null "${BASE_URL}" 2>/dev/null; then
-    echo "  ✅ Running on ${BASE_URL}"
+    echo "   Running on ${BASE_URL}"
   else
-    echo "  ❌ Not reachable on ${BASE_URL}"
+    echo "   Not reachable on ${BASE_URL}"
     return
   fi
 
@@ -61,7 +61,7 @@ cmd_status() {
     local svc_url
     svc_url=$(echo "$config" | jq -r ".${svc}[0].url // empty" 2>/dev/null)
     if [[ -n "$svc_url" ]]; then
-      echo "    ✅ ${svc} (${svc_url})"
+      echo "     ${svc} (${svc_url})"
     fi
   done
 
@@ -69,12 +69,12 @@ cmd_status() {
   local plex_url
   plex_url=$(echo "$config" | jq -r '.plex.url // empty' 2>/dev/null)
   if [[ -n "$plex_url" ]]; then
-    echo "    ✅ Plex (${plex_url})"
+    echo "     Plex (${plex_url})"
   fi
 }
 
 cmd_triggers() {
-  echo "⚡ Notification Triggers"
+  echo " Notification Triggers"
   echo ""
   local data
   data=$(api GET "/triggers" 2>/dev/null)
@@ -87,24 +87,24 @@ cmd_triggers() {
 
 cmd_test() {
   local channel="${1:-}"
-  echo "🧪 Testing Notification Delivery..."
+  echo " Testing Notification Delivery..."
   echo ""
   if [[ -n "$channel" ]]; then
     local result
     result=$(api POST "/notification/test" -d "{\"channel\": \"${channel}\"}" 2>/dev/null)
     if [[ $? -eq 0 ]]; then
-      echo "  ✅ Test notification sent to ${channel}"
+      echo "   Test notification sent to ${channel}"
     else
-      echo "  ❌ Failed to send test notification" >&2
+      echo "   Failed to send test notification" >&2
     fi
   else
     echo "  Sending test to all configured channels..."
-    api POST "/notification/test" -d '{}' 2>/dev/null && echo "  ✅ Test sent" || echo "  ❌ Failed" >&2
+    api POST "/notification/test" -d '{}' 2>/dev/null && echo "   Test sent" || echo "   Failed" >&2
   fi
 }
 
 cmd_services() {
-  echo "🔗 Connected Services"
+  echo " Connected Services"
   echo ""
   local data
   data=$(api GET "/services" 2>/dev/null || echo "{}")
@@ -112,11 +112,11 @@ cmd_services() {
     echo "  No services data. Configure in web UI."
     return
   fi
-  echo "$data" | jq -r 'to_entries[] | "  \(.key): \(if .value.enabled then "✅" else "❌" end) \(.value.name // .key)"' 2>/dev/null
+  echo "$data" | jq -r 'to_entries[] | "  \(.key): \(if .value.enabled then "" else "" end) \(.value.name // .key)"' 2>/dev/null
 }
 
 cmd_logs() {
-  echo "📋 Notifiarr Recent Notifications"
+  echo " Notifiarr Recent Notifications"
   echo ""
   local data
   data=$(api GET "/logs?count=20" 2>/dev/null || echo "[]")
@@ -128,7 +128,7 @@ cmd_logs() {
 }
 
 cmd_config() {
-  echo "⚙️ Notifiarr Configuration Summary"
+  echo " Notifiarr Configuration Summary"
   echo ""
   echo "  Web UI: ${BASE_URL}"
   echo ""

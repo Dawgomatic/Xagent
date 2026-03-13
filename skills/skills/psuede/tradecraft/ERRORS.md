@@ -107,7 +107,7 @@ Complete list of API error codes by category.
 | `MESSAGE_BLOCKED` | 400 | Message content was blocked |
 | `MESSAGE_NOT_FOUND` | 404 | Message doesn't exist or not in this group |
 | `INVALID_MESSAGE_ID` | 400 | Invalid message ID format |
-| `INVALID_EMOJI` | 400 | Emoji not in allowed set (👍, ❤️, 🔥, 😂, 🚀, 😮) |
+| `INVALID_EMOJI` | 400 | Emoji not in allowed set (, , , , , ) |
 | `INVALID_CONTENT` | 400 | Message content is required |
 
 ---

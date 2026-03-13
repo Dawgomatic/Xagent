@@ -248,16 +248,16 @@ print(f'Expires:       {expires_at} (7-day testing mode)')
 print()
 
 if remaining_s <= 0:
-    print('⛔ TOKEN EXPIRED — re-auth required!')
+    print(' TOKEN EXPIRED — re-auth required!')
     print('   Run the authorization flow. See SKILL.md.')
 elif remaining_days <= 1:
-    print(f'🔴 CRITICAL: Token expires in {remaining_days:.1f} days ({int(remaining_s/3600)}h)')
+    print(f' CRITICAL: Token expires in {remaining_days:.1f} days ({int(remaining_s/3600)}h)')
     print('   Re-auth soon to avoid disruption.')
 elif remaining_days <= 3:
-    print(f'🟡 WARNING: Token expires in {remaining_days:.1f} days')
+    print(f' WARNING: Token expires in {remaining_days:.1f} days')
     print('   Consider re-authing proactively.')
 else:
-    print(f'🟢 OK: {remaining_days:.1f} days remaining')
+    print(f' OK: {remaining_days:.1f} days remaining')
 
 print()
 print(f'Project ID:    {data.get(\"project_id\", \"?\")[:30]}...')
@@ -345,7 +345,7 @@ cmd_set_cool() {
   api_post "devices/${dev_id}:executeCommand" \
     "{\"command\":\"sdm.devices.commands.ThermostatTemperatureSetpoint.SetCool\",\"params\":{\"coolCelsius\":${temp_c}}}" > /dev/null
 
-  echo "✅ Thermostat set to COOL at ${temp_f}°F (${temp_c}°C)"
+  echo " Thermostat set to COOL at ${temp_f}°F (${temp_c}°C)"
 }
 
 cmd_set_heat() {
@@ -361,7 +361,7 @@ cmd_set_heat() {
   api_post "devices/${dev_id}:executeCommand" \
     "{\"command\":\"sdm.devices.commands.ThermostatTemperatureSetpoint.SetHeat\",\"params\":{\"heatCelsius\":${temp_c}}}" > /dev/null
 
-  echo "✅ Thermostat set to HEAT at ${temp_f}°F (${temp_c}°C)"
+  echo " Thermostat set to HEAT at ${temp_f}°F (${temp_c}°C)"
 }
 
 cmd_set_range() {
@@ -378,7 +378,7 @@ cmd_set_range() {
   api_post "devices/${dev_id}:executeCommand" \
     "{\"command\":\"sdm.devices.commands.ThermostatTemperatureSetpoint.SetRange\",\"params\":{\"heatCelsius\":${lo_c},\"coolCelsius\":${hi_c}}}" > /dev/null
 
-  echo "✅ Thermostat set to HEATCOOL range: ${lo_f}°F – ${hi_f}°F"
+  echo " Thermostat set to HEATCOOL range: ${lo_f}°F – ${hi_f}°F"
 }
 
 cmd_set_mode() {
@@ -389,7 +389,7 @@ cmd_set_mode() {
   api_post "devices/${dev_id}:executeCommand" \
     "{\"command\":\"sdm.devices.commands.ThermostatMode.SetMode\",\"params\":{\"mode\":\"${mode}\"}}" > /dev/null
 
-  echo "✅ Thermostat mode set to ${mode}"
+  echo " Thermostat mode set to ${mode}"
 }
 
 cmd_set_eco() {
@@ -400,7 +400,7 @@ cmd_set_eco() {
   api_post "devices/${dev_id}:executeCommand" \
     "{\"command\":\"sdm.devices.commands.ThermostatEco.SetMode\",\"params\":{\"mode\":\"${mode}\"}}" > /dev/null
 
-  echo "✅ Eco mode set to ${mode}"
+  echo " Eco mode set to ${mode}"
 }
 
 cmd_fan_on() {
@@ -411,7 +411,7 @@ cmd_fan_on() {
   api_post "devices/${dev_id}:executeCommand" \
     "{\"command\":\"sdm.devices.commands.Fan.SetTimer\",\"params\":{\"timerMode\":\"ON\",\"duration\":\"${duration}s\"}}" > /dev/null
 
-  echo "✅ Fan ON for ${duration}s ($(python3 -c "print(${duration}//60)")min)"
+  echo " Fan ON for ${duration}s ($(python3 -c "print(${duration}//60)")min)"
 }
 
 cmd_fan_off() {
@@ -421,7 +421,7 @@ cmd_fan_off() {
   api_post "devices/${dev_id}:executeCommand" \
     "{\"command\":\"sdm.devices.commands.Fan.SetTimer\",\"params\":{\"timerMode\":\"OFF\"}}" > /dev/null
 
-  echo "✅ Fan OFF"
+  echo " Fan OFF"
 }
 
 cmd_camera_info() {
@@ -537,7 +537,7 @@ cmd_stop_stream() {
   api_post "devices/${dev_id}:executeCommand" \
     "{\"command\":\"sdm.devices.commands.CameraLiveStream.StopRtspStream\",\"params\":{\"streamExtensionToken\":\"${token}\"}}" > /dev/null
 
-  echo "✅ Stream stopped."
+  echo " Stream stopped."
 }
 
 cmd_event_image() {

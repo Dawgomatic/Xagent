@@ -15,13 +15,13 @@ GoldenSeed solves all of these with **deterministic, verifiable, statistically p
 
 ## Key Features for Agents
 
-✅ **Perfect 50/50 coin flip** - Not just reproducible, but provably fair  
-✅ **Hash verification** - Prove output came from declared seed  
-✅ **Zero dependencies** - Pure Python, works anywhere  
-✅ **Infinite streams** - Generate unlimited data from tiny seeds  
-✅ **Cross-platform** - Same seed = same output on all platforms  
+ **Perfect 50/50 coin flip** - Not just reproducible, but provably fair  
+ **Hash verification** - Prove output came from declared seed  
+ **Zero dependencies** - Pure Python, works anywhere  
+ **Infinite streams** - Generate unlimited data from tiny seeds  
+ **Cross-platform** - Same seed = same output on all platforms  
 
-⚠️ **Not cryptographically secure** - Use for testing/generation, not passwords/keys
+ **Not cryptographically secure** - Use for testing/generation, not passwords/keys
 
 ## Quick Examples
 
@@ -75,17 +75,17 @@ pip install golden-seed
 ## When to Use This
 
 **Good use cases:**
-- 🧪 Reproducible integration tests
-- 🎮 Procedural game worlds
-- 🎨 Generative art/music
-- 📊 Monte Carlo simulations
-- 🎲 Fair competitive RNG
+-  Reproducible integration tests
+-  Procedural game worlds
+-  Generative art/music
+-  Monte Carlo simulations
+-  Fair competitive RNG
 
 **Don't use for:**
-- 🔒 Password generation
-- 🔑 Cryptographic keys  
-- 🛡️ Security tokens
-- 🔐 Anything crypto-related
+-  Password generation
+-  Cryptographic keys  
+-  Security tokens
+-  Anything crypto-related
 
 For security: use `secrets` module or `os.urandom()`
 

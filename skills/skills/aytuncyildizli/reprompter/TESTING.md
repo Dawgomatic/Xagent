@@ -118,7 +118,7 @@ Verification scenarios for the RePrompter skill. Run these manually to validate 
 **Input:** Trigger Phase 4 evaluation on the partial output.
 **Expected:** Retry triggered with delta prompt specifying exact gaps.
 **Verify:**
-- Delta prompt lists ✅ good sections and ❌ missing sections
+- Delta prompt lists  good sections and  missing sections
 - Retry uses the same agent role and constraints
 - Max 2 retries enforced (3 total attempts)
 

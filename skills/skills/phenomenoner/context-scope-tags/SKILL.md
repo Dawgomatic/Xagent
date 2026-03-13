@@ -9,7 +9,7 @@ description: |
   Output: a copy/paste tag cheat sheet + routing rules.
 metadata:
   openclaw:
-    emoji: "🏷️"
+    emoji: ""
 ---
 
 # Context Scope Tags (Chat Protocol)

@@ -106,7 +106,7 @@ def get_category_facets(api_key: str) -> list[str]:
         with urllib.request.urlopen(req, context=ctx, timeout=30) as resp:
             data = json.loads(resp.read().decode())
     except Exception as e:
-        print(f"  ❌ Facets-Abfrage fehlgeschlagen: {e}")
+        print(f"   Facets-Abfrage fehlgeschlagen: {e}")
         return []
     
     facets = data.get("facets", {}).get("categories.id", {})
@@ -576,7 +576,7 @@ def fetch_week(cookies: dict, date: str, today: str) -> list[dict]:
     status, html = fetch(url, cookies)
     
     if status != 200:
-        print(f"  ⚠ Fehler beim Laden der Woche {date}: HTTP {status}")
+        print(f"   Fehler beim Laden der Woche {date}: HTTP {status}")
         return []
     
     # Check for redirect to login
@@ -1261,7 +1261,7 @@ def cmd_setup(args):
     
     print()
     print("╔" + "═" * 50 + "╗")
-    print("║  ⚙️  TMX-CLI Setup" + " " * 31 + "║")
+    print("║    TMX-CLI Setup" + " " * 31 + "║")
     print("╚" + "═" * 50 + "╝")
     print()
     
@@ -1269,17 +1269,17 @@ def cmd_setup(args):
     if reset:
         if CONFIG_FILE.exists():
             CONFIG_FILE.unlink()
-            print("✅ Konfiguration zurückgesetzt!")
+            print(" Konfiguration zurückgesetzt!")
             print()
         else:
-            print("ℹ️  Keine Konfiguration vorhanden.")
+            print("  Keine Konfiguration vorhanden.")
             print()
         return
     
     config = {}
     
     # Step 1: Thermomix Version
-    print("🔧 Welche Thermomix-Version hast du?")
+    print(" Welche Thermomix-Version hast du?")
     print()
     print("  1) TM5")
     print("  2) TM6")
@@ -1298,13 +1298,13 @@ def cmd_setup(args):
             config['tm_version'] = "TM7"
             break
         else:
-            print("❌ Bitte wähle 1, 2 oder 3")
+            print(" Bitte wähle 1, 2 oder 3")
     
     print(f"  → {config['tm_version']} ausgewählt")
     print()
     
     # Step 2: Diet preference (optional)
-    print("🥗 Ernährungspräferenz? (optional)")
+    print(" Ernährungspräferenz? (optional)")
     print()
     print("  1) Vegetarisch")
     print("  2) Vegan")
@@ -1326,12 +1326,12 @@ def cmd_setup(args):
             print("  → Vegan ausgewählt")
             break
         else:
-            print("❌ Bitte wähle 1, 2 oder 3")
+            print(" Bitte wähle 1, 2 oder 3")
     
     print()
     
     # Step 3: Max preparation time
-    print("⏱️  Maximale Zubereitungszeit als Standard?")
+    print("  Maximale Zubereitungszeit als Standard?")
     print()
     print("  1) 15 Minuten")
     print("  2) 30 Minuten")
@@ -1363,7 +1363,7 @@ def cmd_setup(args):
             print("  → Max. 60 Minuten")
             break
         else:
-            print("❌ Bitte wähle 1-5")
+            print(" Bitte wähle 1-5")
     
     print()
     
@@ -1372,28 +1372,28 @@ def cmd_setup(args):
     
     # Summary
     print("╔" + "═" * 50 + "╗")
-    print("║  ✅ Konfiguration gespeichert!" + " " * 19 + "║")
+    print("║   Konfiguration gespeichert!" + " " * 19 + "║")
     print("╠" + "═" * 50 + "╣")
     
     # TM Version
-    tm_line = f"║  🔧 Thermomix: {config['tm_version']}"
+    tm_line = f"║   Thermomix: {config['tm_version']}"
     print(tm_line + " " * (51 - len(tm_line)) + "║")
     
     # Diet
     diet_display = config.get('diet') or "Keine Einschränkung"
-    diet_line = f"║  🥗 Ernährung: {diet_display}"
+    diet_line = f"║   Ernährung: {diet_display}"
     print(diet_line + " " * (51 - len(diet_line)) + "║")
     
     # Max time
     time_display = f"{config['max_time']} Min" if config.get('max_time') else "Keine Begrenzung"
-    time_line = f"║  ⏱️  Max. Zeit: {time_display}"
+    time_line = f"║    Max. Zeit: {time_display}"
     print(time_line + " " * (51 - len(time_line)) + "║")
     
     print("╠" + "═" * 50 + "╣")
-    config_path_line = f"║  📁 {CONFIG_FILE}"
+    config_path_line = f"║   {CONFIG_FILE}"
     # Truncate path if too long
     if len(config_path_line) > 50:
-        config_path_line = f"║  📁 ~/.tmx_config.json"
+        config_path_line = f"║   ~/.tmx_config.json"
     print(config_path_line + " " * (51 - len(config_path_line)) + "║")
     print("╚" + "═" * 50 + "╝")
     print()
@@ -1409,14 +1409,14 @@ def cmd_plan_show(args):
     data = load_weekplan()
     
     if not data:
-        print("📅 Kein Wochenplan gefunden. Synchronisiere...")
+        print(" Kein Wochenplan gefunden. Synchronisiere...")
         cmd_plan_sync(args, quiet=True)
         data = load_weekplan()
         if not data:
             return
     
     if "error" in data:
-        print(f"❌ {data['error']}")
+        print(f" {data['error']}")
         return
     
     timestamp = data.get("timestamp", "unbekannt")
@@ -1434,7 +1434,7 @@ def cmd_plan_show(args):
     # Header
     print()
     print("╔" + "═" * 58 + "╗")
-    print("║  🍳 COOKIDOO WOCHENPLAN" + " " * 34 + "║")
+    print("║   COOKIDOO WOCHENPLAN" + " " * 34 + "║")
     print("╠" + "═" * 58 + "╣")
     print(f"║  Stand: {timestamp[:16].replace('T', ' ')} UTC" + " " * 24 + "║")
     print(f"║  Ab: {since_date}" + " " * 42 + "║")
@@ -1466,7 +1466,7 @@ def cmd_plan_show(args):
         
         # Day header
         if is_today:
-            print(f"▶ \033[1m{day_name} {day_number}.\033[0m  ({date})")
+            print(f" \033[1m{day_name} {day_number}.\033[0m  ({date})")
         else:
             print(f"  {day_name} {day_number}.  ({date})")
         
@@ -1492,12 +1492,12 @@ def cmd_plan_sync(args, quiet=False):
     
     if not quiet:
         print()
-        print(f"🔄 Synchronisiere Wochenplan ({days_count} Tage ab {since})...")
+        print(f" Synchronisiere Wochenplan ({days_count} Tage ab {since})...")
         print()
     
     cookies = load_cookies()
     if not is_authenticated(cookies):
-        print("❌ Keine Session-Cookies gefunden.")
+        print(" Keine Session-Cookies gefunden.")
         print()
         answer = input("Jetzt einloggen? [J/n] ").strip().lower()
         if answer in ("", "j", "ja", "y", "yes"):
@@ -1508,9 +1508,9 @@ def cmd_plan_sync(args, quiet=False):
             success, message = do_login(email, password)
             print()
             if not success:
-                print(f"❌ {message}")
+                print(f" {message}")
                 return
-            print(f"✅ {message}")
+            print(f" {message}")
             print()
         else:
             print("Abgebrochen. Führe 'tmx login' aus um dich einzuloggen.")
@@ -1520,7 +1520,7 @@ def cmd_plan_sync(args, quiet=False):
     
     if "error" in data:
         print()
-        print(f"❌ {data['error']}")
+        print(f" {data['error']}")
         return
     
     save_weekplan(data)
@@ -1530,11 +1530,11 @@ def cmd_plan_sync(args, quiet=False):
     
     if not quiet:
         print()
-        print(f"✅ {len(days)} Tage mit {recipe_count} Rezepten synchronisiert!")
+        print(f" {len(days)} Tage mit {recipe_count} Rezepten synchronisiert!")
         print()
         cmd_plan_show(args)
     else:
-        print(f"✅ Wochenplan synchronisiert ({len(days)} Tage, {recipe_count} Rezepte)")
+        print(f" Wochenplan synchronisiert ({len(days)} Tage, {recipe_count} Rezepte)")
         print()
 
 
@@ -1543,7 +1543,7 @@ def cmd_today(args):
     data = load_weekplan()
     
     if not data:
-        print("📅 Kein Wochenplan gefunden. Synchronisiere...")
+        print(" Kein Wochenplan gefunden. Synchronisiere...")
         cmd_plan_sync(args, quiet=True)
         data = load_weekplan()
         if not data:
@@ -1566,7 +1566,7 @@ def cmd_today(args):
     
     print()
     print("╔" + "═" * 50 + "╗")
-    print("║  🍳 HEUTE" + " " * 40 + "║")
+    print("║   HEUTE" + " " * 40 + "║")
     print("╚" + "═" * 50 + "╝")
     print()
     
@@ -1596,7 +1596,7 @@ def cmd_search(args):
     # Show setup hint if no config exists
     if not config and not CONFIG_FILE.exists():
         print()
-        print("💡 Tipp: Führe 'tmx setup' aus um Standardfilter zu setzen")
+        print(" Tipp: Führe 'tmx setup' aus um Standardfilter zu setzen")
     
     # CLI flags override config values
     max_time = getattr(args, 'time', None)
@@ -1622,7 +1622,7 @@ def cmd_search(args):
             category = 'vegetarisch'
     
     print()
-    print(f"🔍 Suche in Cookidoo: '{query}'")
+    print(f" Suche in Cookidoo: '{query}'")
     
     # Show active filters
     filter_parts = []
@@ -1641,7 +1641,7 @@ def cmd_search(args):
     
     cookies = load_cookies()
     if not is_authenticated(cookies):
-        print("❌ Nicht eingeloggt. Führe zuerst 'tmx login' aus.")
+        print(" Nicht eingeloggt. Führe zuerst 'tmx login' aus.")
         return
     
     results, total = search_recipes(query, limit, max_time, difficulty, tm_version, category)
@@ -1663,9 +1663,9 @@ def cmd_search(args):
         # Format: number, title, time, rating
         info_parts = []
         if time_str:
-            info_parts.append(f"⏱ {time_str}")
+            info_parts.append(f" {time_str}")
         if rating:
-            info_parts.append(f"⭐ {rating:.1f}")
+            info_parts.append(f" {rating:.1f}")
         info = "  ".join(info_parts)
         
         print(f"  {i:2}. {title}")
@@ -1708,11 +1708,11 @@ def cmd_recipe_show(args):
     data = get_recipe_details(recipe_id)
     
     if not data:
-        print("❌ Nicht eingeloggt. Führe 'tmx login' aus.")
+        print(" Nicht eingeloggt. Führe 'tmx login' aus.")
         return
     
     if "error" in data:
-        print(f"❌ Fehler: {data['error']}")
+        print(f" Fehler: {data['error']}")
         return
     
     # Extract title
@@ -1766,7 +1766,7 @@ def cmd_recipe_show(args):
     print()
     
     # Title box
-    title_display = f"🍳 {title}"
+    title_display = f" {title}"
     box_width = max(42, len(title_display) + 4)
     print("╔" + "═" * box_width + "╗")
     print(f"║  {title_display:<{box_width - 2}}║")
@@ -1780,11 +1780,11 @@ def cmd_recipe_show(args):
     if total_time:
         time_parts.append(f"{total_time} Min gesamt")
     if time_parts:
-        print(f"⏱  {' | '.join(time_parts)}")
+        print(f"  {' | '.join(time_parts)}")
     
     # Servings
     if servings:
-        print(f"👥  {servings} Portionen")
+        print(f"  {servings} Portionen")
     
     # Difficulty and TM version
     info_parts = []
@@ -1793,7 +1793,7 @@ def cmd_recipe_show(args):
     if tm_str:
         info_parts.append(tm_str)
     if info_parts:
-        print(f"📊  {' | '.join(info_parts)}")
+        print(f"  {' | '.join(info_parts)}")
     
     print()
     
@@ -1804,7 +1804,7 @@ def cmd_recipe_show(args):
         # Calories (kcal key from API)
         kcal = nutrition.get("kcal") or nutrition.get("calories") or nutrition.get("energyKcal")
         if kcal:
-            print(f"🔥  {kcal['value']} {kcal['unit']}")
+            print(f"  {kcal['value']} {kcal['unit']}")
         
         # Macros line
         macro_parts = []
@@ -1813,11 +1813,11 @@ def cmd_recipe_show(args):
         fat = nutrition.get("fat")
         
         if protein:
-            macro_parts.append(f"🥩 {protein['value']}{protein['unit']} Protein")
+            macro_parts.append(f" {protein['value']}{protein['unit']} Protein")
         if carbs:
-            macro_parts.append(f"🍞 {carbs['value']}{carbs['unit']} Carbs")
+            macro_parts.append(f" {carbs['value']}{carbs['unit']} Carbs")
         if fat:
-            macro_parts.append(f"🧈 {fat['value']}{fat['unit']} Fett")
+            macro_parts.append(f" {fat['value']}{fat['unit']} Fett")
         
         if macro_parts:
             print(" | ".join(macro_parts))
@@ -1825,7 +1825,7 @@ def cmd_recipe_show(args):
         # Fiber if available (dietaryFibre key from API)
         fiber = nutrition.get("dietaryFibre") or nutrition.get("fiber") or nutrition.get("fibre")
         if fiber:
-            print(f"🌾  {fiber['value']}{fiber['unit']} Ballaststoffe")
+            print(f"  {fiber['value']}{fiber['unit']} Ballaststoffe")
         
         print()
     
@@ -1869,7 +1869,7 @@ def cmd_recipe_show(args):
     print()
     
     # URL
-    print(f"🔗 {COOKIDOO_BASE}/recipes/recipe/{LOCALE}/{recipe_id}")
+    print(f" {COOKIDOO_BASE}/recipes/recipe/{LOCALE}/{recipe_id}")
     print()
 
 
@@ -1878,7 +1878,7 @@ def cmd_categories_show(args):
     categories, from_cache = load_categories()
     
     print()
-    print("📂 Verfügbare Kategorien")
+    print(" Verfügbare Kategorien")
     print("─" * 40)
     
     if from_cache:
@@ -1906,7 +1906,7 @@ def cmd_categories_show(args):
 def cmd_categories_sync(args):
     """Sync categories from Cookidoo."""
     print()
-    print("🔄 Synchronisiere Kategorien von Cookidoo...")
+    print(" Synchronisiere Kategorien von Cookidoo...")
     print("─" * 50)
     print()
     
@@ -1917,7 +1917,7 @@ def cmd_categories_sync(args):
     
     print()
     if categories:
-        print(f"✅ {len(categories)} Kategorien synchronisiert!")
+        print(f" {len(categories)} Kategorien synchronisiert!")
         print(f"   Gespeichert in: {CATEGORIES_CACHE_FILE}")
         
         # Reload global CATEGORIES
@@ -1925,11 +1925,11 @@ def cmd_categories_sync(args):
         CATEGORIES = categories
         CATEGORY_NAMES = {v: k for k, v in CATEGORIES.items()}
     else:
-        print("❌ Keine Kategorien synchronisiert.")
+        print(" Keine Kategorien synchronisiert.")
     
     if errors:
         print()
-        print(f"⚠️  {len(errors)} Fehler:")
+        print(f"  {len(errors)} Fehler:")
         for err in errors[:5]:  # Show max 5 errors
             print(f"   • {err}")
         if len(errors) > 5:
@@ -1947,13 +1947,13 @@ def cmd_categories(args):
 def cmd_favorites_show(args):
     """Show saved/favorite recipes."""
     print()
-    print("❤️  Meine Favoriten")
+    print("  Meine Favoriten")
     print("─" * 50)
     
     recipes, error = get_favorites()
     
     if error:
-        print(f"❌ {error}")
+        print(f" {error}")
         return
     
     if not recipes:
@@ -1985,14 +1985,14 @@ def cmd_favorites_add(args):
         recipe_id = f'r{recipe_id}'
     
     print()
-    print(f"❤️  Füge {recipe_id} zu Favoriten hinzu...")
+    print(f"  Füge {recipe_id} zu Favoriten hinzu...")
     
     success, message = add_to_favorites(recipe_id)
     
     if success:
-        print(f"✅ {message}")
+        print(f" {message}")
     else:
-        print(f"❌ {message}")
+        print(f" {message}")
     print()
 
 
@@ -2005,14 +2005,14 @@ def cmd_favorites_remove(args):
         recipe_id = f'r{recipe_id}'
     
     print()
-    print(f"💔 Entferne {recipe_id} aus Favoriten...")
+    print(f" Entferne {recipe_id} aus Favoriten...")
     
     success, message = remove_from_favorites(recipe_id)
     
     if success:
-        print(f"✅ {message}")
+        print(f" {message}")
     else:
-        print(f"❌ {message}")
+        print(f" {message}")
     print()
 
 
@@ -2025,15 +2025,15 @@ def cmd_favorites(args):
 def cmd_status(args):
     """Show status of CLI and cookies."""
     print()
-    print("📊 TMX-CLI Status")
+    print(" TMX-CLI Status")
     print("─" * 40)
     
     # Cookies
     cookies = load_cookies()
     if is_authenticated(cookies):
-        print(f"✅ Session-Cookies: {len(cookies)} geladen")
+        print(f" Session-Cookies: {len(cookies)} geladen")
     else:
-        print("❌ Keine gültigen Session-Cookies")
+        print(" Keine gültigen Session-Cookies")
     
     # Weekplan
     if WEEKPLAN_JSON.exists():
@@ -2041,11 +2041,11 @@ def cmd_status(args):
         if data:
             ts = data.get("timestamp", "?")[:16].replace("T", " ")
             days = len(data.get("weekplan", {}).get("days", []))
-            print(f"✅ Wochenplan: {days} Tage (Stand: {ts})")
+            print(f" Wochenplan: {days} Tage (Stand: {ts})")
         else:
-            print("⚠ Wochenplan-Datei leer")
+            print(" Wochenplan-Datei leer")
     else:
-        print("❌ Kein Wochenplan gespeichert")
+        print(" Kein Wochenplan gespeichert")
     
     print()
     print(f"Cookies: {COOKIES_FILE}")
@@ -2067,30 +2067,30 @@ def cmd_cache_clear(args):
         files.append(("Session-Cookies", COOKIES_FILE))
     
     print()
-    print("🗑️  Cache löschen")
+    print("  Cache löschen")
     print("─" * 40)
     
     deleted = 0
     for name, path in files:
         if path.exists():
             os.remove(path)
-            print(f"  ✅ {name} gelöscht")
+            print(f"   {name} gelöscht")
             deleted += 1
         else:
-            print(f"  ⏭️  {name} (nicht vorhanden)")
+            print(f"    {name} (nicht vorhanden)")
     
     print()
     if deleted:
-        print(f"✅ {deleted} Datei(en) gelöscht.")
+        print(f" {deleted} Datei(en) gelöscht.")
     else:
-        print("ℹ️  Nichts zu löschen.")
+        print("  Nichts zu löschen.")
     print()
 
 
 def cmd_login(args):
     """Login to Cookidoo interactively."""
     print()
-    print("🔐 Cookidoo Login")
+    print(" Cookidoo Login")
     print("─" * 40)
     
     # Get credentials
@@ -2103,7 +2103,7 @@ def cmd_login(args):
         password = getpass.getpass("Passwort: ")
     
     if not email or not password:
-        print("❌ E-Mail und Passwort erforderlich.")
+        print(" E-Mail und Passwort erforderlich.")
         return
     
     print()
@@ -2111,12 +2111,12 @@ def cmd_login(args):
     
     print()
     if success:
-        print(f"✅ {message}")
+        print(f" {message}")
         print()
         print("Du kannst jetzt den Wochenplan synchronisieren:")
         print("  python3 tmx_cli.py plan sync")
     else:
-        print(f"❌ {message}")
+        print(f" {message}")
     print()
 
 
@@ -2129,18 +2129,18 @@ def cmd_plan_add(args):
     try:
         dt.date.fromisoformat(date)
     except ValueError:
-        print(f"❌ Ungültiges Datum: {date} (Format: YYYY-MM-DD)")
+        print(f" Ungültiges Datum: {date} (Format: YYYY-MM-DD)")
         return
     
     print()
-    print(f"➕ Füge Rezept {recipe_id} zu {date} hinzu...")
+    print(f" Füge Rezept {recipe_id} zu {date} hinzu...")
     
     success, message = add_recipe_to_plan(recipe_id, date)
     
     if success:
-        print(f"✅ {message}")
+        print(f" {message}")
     else:
-        print(f"❌ {message}")
+        print(f" {message}")
     print()
 
 
@@ -2150,18 +2150,18 @@ def cmd_plan_remove(args):
     date = args.date
     
     if not date:
-        print("❌ Datum erforderlich (--date YYYY-MM-DD)")
+        print(" Datum erforderlich (--date YYYY-MM-DD)")
         return
     
     print()
-    print(f"➖ Entferne Rezept {recipe_id} von {date}...")
+    print(f" Entferne Rezept {recipe_id} von {date}...")
     
     success, message = remove_recipe_from_plan(recipe_id, date)
     
     if success:
-        print(f"✅ {message}")
+        print(f" {message}")
     else:
-        print(f"❌ {message}")
+        print(f" {message}")
     print()
 
 
@@ -2172,18 +2172,18 @@ def cmd_plan_move(args):
     to_date = args.to_date
     
     if not from_date or not to_date:
-        print("❌ --from und --to Datum erforderlich")
+        print(" --from und --to Datum erforderlich")
         return
     
     print()
-    print(f"📦 Verschiebe Rezept {recipe_id} von {from_date} nach {to_date}...")
+    print(f" Verschiebe Rezept {recipe_id} von {from_date} nach {to_date}...")
     
     success, message = move_recipe_in_plan(recipe_id, from_date, to_date)
     
     if success:
-        print(f"✅ {message}")
+        print(f" {message}")
     else:
-        print(f"❌ {message}")
+        print(f" {message}")
     print()
 
 
@@ -2192,12 +2192,12 @@ def cmd_shopping_show(args):
     by_recipe = getattr(args, 'by_recipe', False)
     
     print()
-    print("🛒 Einkaufsliste")
+    print(" Einkaufsliste")
     print("─" * 50)
     
     data = get_shopping_list()
     if not data:
-        print("❌ Konnte Einkaufsliste nicht laden.")
+        print(" Konnte Einkaufsliste nicht laden.")
         return
     
     recipes = data.get("recipes", [])
@@ -2214,7 +2214,7 @@ def cmd_shopping_show(args):
         for recipe in recipes:
             rid = recipe.get('id', '')
             title = recipe.get('title', 'Unbekannt')
-            print(f"\n📖 {title}  [{rid}]")
+            print(f"\n {title}  [{rid}]")
             print()
             
             for ing in recipe.get("recipeIngredientGroups", []):
@@ -2239,14 +2239,14 @@ def cmd_shopping_show(args):
         # Additional items
         additional = data.get("additionalItems", [])
         if additional:
-            print(f"\n📝 Manuell hinzugefügt")
+            print(f"\n Manuell hinzugefügt")
             print()
             for item in additional:
                 check = "✓" if item.get("isOwned", False) else " "
                 print(f"  [{check}] {item.get('name', '')}")
     else:
         # Show aggregated list (default)
-        print(f"\n📖 Rezepte ({len(recipes)}):")
+        print(f"\n Rezepte ({len(recipes)}):")
         for recipe in recipes:
             rid = recipe.get('id', '')
             print(f"  • {recipe.get('title')}  [{rid}]")
@@ -2255,7 +2255,7 @@ def cmd_shopping_show(args):
         ingredients = parse_shopping_ingredients(data)
         
         if ingredients:
-            print(f"\n🥕 Zutaten ({len(ingredients)}):")
+            print(f"\n Zutaten ({len(ingredients)}):")
             print()
             
             # Group by owned status
@@ -2288,14 +2288,14 @@ def cmd_shopping_add(args):
     recipe_ids = args.recipe_ids
     
     print()
-    print(f"🛒 Füge {len(recipe_ids)} Rezept(e) zur Einkaufsliste hinzu...")
+    print(f" Füge {len(recipe_ids)} Rezept(e) zur Einkaufsliste hinzu...")
     
     success, message = add_recipes_to_shopping_list(recipe_ids)
     
     if success:
-        print(f"✅ {message}")
+        print(f" {message}")
     else:
-        print(f"❌ {message}")
+        print(f" {message}")
     print()
 
 
@@ -2304,20 +2304,20 @@ def cmd_shopping_add_item(args):
     items = args.items
     
     print()
-    print(f"🛒 Füge {len(items)} Artikel zur Einkaufsliste hinzu...")
+    print(f" Füge {len(items)} Artikel zur Einkaufsliste hinzu...")
     
     added = 0
     for item in items:
         success, message = add_custom_item_to_shopping_list(item)
         if success:
-            print(f"  ✅ {item}")
+            print(f"   {item}")
             added += 1
         else:
-            print(f"  ❌ {item}: {message}")
+            print(f"   {item}: {message}")
     
     print()
     if added:
-        print(f"✅ {added} Artikel hinzugefügt")
+        print(f" {added} Artikel hinzugefügt")
     print()
 
 
@@ -2326,28 +2326,28 @@ def cmd_shopping_remove(args):
     recipe_id = args.recipe_id
     
     print()
-    print(f"🗑️ Entferne {recipe_id} von der Einkaufsliste...")
+    print(f" Entferne {recipe_id} von der Einkaufsliste...")
     
     success, message = remove_recipe_from_shopping_list(recipe_id)
     
     if success:
-        print(f"✅ {message}")
+        print(f" {message}")
     else:
-        print(f"❌ {message}")
+        print(f" {message}")
     print()
 
 
 def cmd_shopping_clear(args):
     """Clear the entire shopping list."""
     print()
-    print("🗑️ Leere die Einkaufsliste...")
+    print(" Leere die Einkaufsliste...")
     
     success, message = clear_shopping_list()
     
     if success:
-        print(f"✅ {message}")
+        print(f" {message}")
     else:
-        print(f"❌ {message}")
+        print(f" {message}")
     print()
 
 
@@ -2359,12 +2359,12 @@ def cmd_shopping_export(args):
     
     data = get_shopping_list()
     if not data:
-        print("❌ Konnte Einkaufsliste nicht laden.", file=sys.stderr)
+        print(" Konnte Einkaufsliste nicht laden.", file=sys.stderr)
         return
     
     recipes = data.get("recipes", [])
     if not recipes and not data.get("additionalItems"):
-        print("❌ Einkaufsliste ist leer.", file=sys.stderr)
+        print(" Einkaufsliste ist leer.", file=sys.stderr)
         return
     
     lines = []
@@ -2445,7 +2445,7 @@ def cmd_shopping_export(args):
     if output_file:
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(output)
-        print(f"✅ Exportiert nach: {output_file}", file=sys.stderr)
+        print(f" Exportiert nach: {output_file}", file=sys.stderr)
     else:
         print(output)
 
@@ -2459,13 +2459,13 @@ def cmd_shopping_from_plan(args):
     # Load current plan
     data = load_weekplan()
     if not data:
-        print("📅 Kein Wochenplan gefunden. Synchronisiere...")
+        print(" Kein Wochenplan gefunden. Synchronisiere...")
         cmd_plan_sync(args, quiet=True)
         data = load_weekplan()
         if not data:
             return
     
-    print(f"🛒 Füge Rezepte der nächsten {days} Tage zur Einkaufsliste hinzu...")
+    print(f" Füge Rezepte der nächsten {days} Tage zur Einkaufsliste hinzu...")
     
     # Collect recipe IDs from plan
     recipe_ids = []
@@ -2493,12 +2493,12 @@ def cmd_shopping_from_plan(args):
     success, message = add_recipes_to_shopping_list(recipe_ids)
     
     if success:
-        print(f"✅ {message}")
+        print(f" {message}")
         print()
         # Show the list
         cmd_shopping_show(args)
     else:
-        print(f"❌ {message}")
+        print(f" {message}")
     print()
 
 
@@ -2833,7 +2833,7 @@ def cmd_completion(args):
 
 def build_parser():
     parser = argparse.ArgumentParser(
-        description="🍳 Thermomix/Cookidoo CLI - Wochenplan & Rezepte",
+        description=" Thermomix/Cookidoo CLI - Wochenplan & Rezepte",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     sub = parser.add_subparsers(dest="command", required=True)

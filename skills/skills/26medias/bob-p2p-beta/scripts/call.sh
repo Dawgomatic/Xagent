@@ -8,7 +8,7 @@ CONFIG_FILE="$CLIENT_DIR/config.json"
 
 # Check installation
 if [ ! -d "$CLIENT_DIR" ]; then
-    echo "❌ Bob P2P client not installed."
+    echo " Bob P2P client not installed."
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     echo "   Run: bash $SCRIPT_DIR/setup.sh"
     exit 1
@@ -29,7 +29,7 @@ BODY="${2:-{}}"
 
 cd "$CLIENT_DIR"
 
-echo "🔍 Looking up API: $API_ID"
+echo " Looking up API: $API_ID"
 
 # Get aggregator URL from config (cross-platform grep)
 AGGREGATOR=$(cat config.json | grep -o '"http[^"]*"' | head -1 | tr -d '"')
@@ -41,13 +41,13 @@ fi
 API_INFO=$(curl -s "$AGGREGATOR/api/$API_ID" 2>/dev/null)
 
 if echo "$API_INFO" | grep -q "NOT_FOUND"; then
-    echo "❌ API not found: $API_ID"
+    echo " API not found: $API_ID"
     echo "   Run 'bash scripts/search.sh' to see available APIs"
     exit 1
 fi
 
 if echo "$API_INFO" | grep -q "error"; then
-    echo "❌ Could not fetch API info. Is the aggregator running?"
+    echo " Could not fetch API info. Is the aggregator running?"
     echo "   Aggregator: $AGGREGATOR"
     exit 1
 fi
@@ -58,7 +58,7 @@ PROVIDER_WALLET=$(echo "$API_INFO" | grep -o '"address":"[^"]*"' | head -1 | cut
 PRICE=$(echo "$API_INFO" | grep -o '"amount":[0-9.]*' | head -1 | cut -d':' -f2)
 
 if [ -z "$PROVIDER_URL" ] || [ -z "$PROVIDER_WALLET" ]; then
-    echo "❌ Could not parse provider details"
+    echo " Could not parse provider details"
     echo "   API response: $API_INFO"
     exit 1
 fi

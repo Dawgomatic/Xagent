@@ -3,7 +3,7 @@ name: smart-route
 description: Calculate traffic-aware routes, travel times, and distances between locations using Google Routes API. Use when the user asks for "traffic to X", "how long to get to Y", "best route to Z", or "drive time". Returns JSON with duration, distance, and a direct Google Maps navigation link.
 metadata:
   openclaw:
-    emoji: 🚦
+    emoji: 
     requires:
       bins:
         - node

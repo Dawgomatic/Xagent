@@ -2,7 +2,7 @@
 name: amazon-orders
 description: Download and query your Amazon order history via an unofficial Python API and CLI.
 homepage: https://github.com/alexdlaird/amazon-orders
-metadata: {"clawdbot":{"emoji":"📦","requires":{"bins":["python3","pip3"],"env":["AMAZON_USERNAME", "AMAZON_PASSWORD", "AMAZON_OTP_SECRET_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3","pip3"],"env":["AMAZON_USERNAME", "AMAZON_PASSWORD", "AMAZON_OTP_SECRET_KEY"]}}}
 ---
 
 # amazon-orders Skill

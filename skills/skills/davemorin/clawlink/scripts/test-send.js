@@ -15,7 +15,7 @@ const { friends } = JSON.parse(readFileSync(`${TEST_DIR}/friends.json`, 'utf8'))
 
 const message = process.argv.slice(2).join(' ') || 'Hello from Matt! Testing reply.';
 
-console.log('📤 Sending as Matt Test...');
+console.log(' Sending as Matt Test...');
 console.log('='.repeat(50));
 
 const friend = friends[0]; // Dave

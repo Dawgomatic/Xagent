@@ -2,11 +2,11 @@
 
 cd "$(dirname "$0")"
 
-echo "📦 Installing MintGarden skill dependencies..."
+echo " Installing MintGarden skill dependencies..."
 npm install --production
 
 if [ $? -eq 0 ]; then
-  echo "✅ MintGarden skill installed successfully!"
+  echo " MintGarden skill installed successfully!"
   echo ""
   echo "Usage:"
   echo "  CLI: mg <command>"
@@ -14,6 +14,6 @@ if [ $? -eq 0 ]; then
   echo ""
   echo "Run 'mg help' for command reference."
 else
-  echo "❌ Installation failed. Please check npm logs."
+  echo " Installation failed. Please check npm logs."
   exit 1
 fi

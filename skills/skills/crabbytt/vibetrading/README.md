@@ -2,7 +2,7 @@
 
 生成Hyperliquid交易所的可执行交易策略代码。
 
-## 📁 目录结构
+##  目录结构
 
 ```
 vibetrading-code-gen/
@@ -35,7 +35,7 @@ vibetrading-code-gen/
 └── simulation_results/         # 模拟结果（自动创建）
 ```
 
-## 🚀 快速开始
+##  快速开始
 
 ### 查看示例策略
 ```bash
@@ -71,7 +71,7 @@ cd generated_strategies/HYPE_grid_strategy_20260213_153606
 python HYPE_grid_strategy_20260213_153606.py
 ```
 
-## 📊 已生成的策略
+##  已生成的策略
 
 ### HYPE网格交易策略
 - **位置**: `generated_strategies/HYPE_grid_strategy_20260213_153606/`
@@ -81,7 +81,7 @@ python HYPE_grid_strategy_20260213_153606.py
   - 每网格: 10 HYPE
 - **回测结果**: +0.47% (90天模拟)
 
-## 🔧 维护说明
+##  维护说明
 
 ### 清理临时文件
 ```bash
@@ -100,7 +100,7 @@ rm -rf logs/* simulation_results/* sessions/*
 - `simulation_results/` 中的临时结果
 - `sessions/` 中的旧会话
 
-## 📞 支持
+##  支持
 
 如有问题，请参考：
 1. `SKILL.md` - 详细技能说明

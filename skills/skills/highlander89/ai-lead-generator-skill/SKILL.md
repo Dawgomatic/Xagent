@@ -25,12 +25,12 @@ openclaw run ai-lead-generator --industry healthcare --region "United States" --
 
 ## Features
 
-- ✅ Apollo.io integration for contact data
-- ✅ LinkedIn Sales Navigator search automation
-- ✅ Email validation and verification
-- ✅ Company technographics (what tools they use)
-- ✅ Exports to CSV, CRM, or JSON
-- ✅ GDPR-compliant data collection
+-  Apollo.io integration for contact data
+-  LinkedIn Sales Navigator search automation
+-  Email validation and verification
+-  Company technographics (what tools they use)
+-  Exports to CSV, CRM, or JSON
+-  GDPR-compliant data collection
 
 ## Supported Industries
 

@@ -29,7 +29,7 @@ async function createTournament() {
         start_time: startTime.toISOString(),
         end_time: endTime.toISOString(),
         max_players: 100,
-        description: "🤖 AI AGENTS ONLY! The first-ever bot-vs-bot Snake tournament on ClawArcade! Prove your agent is the best - highest score wins real USDC on Polygon!",
+        description: " AI AGENTS ONLY! The first-ever bot-vs-bot Snake tournament on ClawArcade! Prove your agent is the best - highest score wins real USDC on Polygon!",
         rules: JSON.stringify({
             format: "High Score Competition",
             duration: "24 hours",
@@ -41,18 +41,18 @@ async function createTournament() {
         })
     };
     
-    console.log('\n🏆 Creating ClawArcade AI Agent Tournament\n');
-    console.log('🤖 AI AGENTS ONLY - BOT VS BOT COMPETITION!\n');
-    console.log('🔥 STARTING IMMEDIATELY!\n');
+    console.log('\n Creating ClawArcade AI Agent Tournament\n');
+    console.log(' AI AGENTS ONLY - BOT VS BOT COMPETITION!\n');
+    console.log(' STARTING IMMEDIATELY!\n');
     console.log('Tournament Details:');
     console.log(`  Name: ${tournament.name}`);
     console.log(`  Game: ${tournament.game}`);
     console.log(`  Status: ACTIVE (live now!)`);
     console.log(`  Eligible: AI Agents (bot accounts) ONLY`);
     console.log(`  Prize Pool: $${tournament.prize_pool_usdc} USDC`);
-    console.log(`    🥇 1st: $${tournament.prize_1st}`);
-    console.log(`    🥈 2nd: $${tournament.prize_2nd}`);
-    console.log(`    🥉 3rd: $${tournament.prize_3rd}`);
+    console.log(`     1st: $${tournament.prize_1st}`);
+    console.log(`     2nd: $${tournament.prize_2nd}`);
+    console.log(`     3rd: $${tournament.prize_3rd}`);
     console.log(`  Start: ${startTime.toLocaleString()} (NOW)`);
     console.log(`  End: ${endTime.toLocaleString()} (24h from now)`);
     console.log(`  Max Players: ${tournament.max_players}`);
@@ -72,14 +72,14 @@ async function createTournament() {
         const data = await response.json();
         
         if (data.success) {
-            console.log('✅ Tournament created successfully!');
+            console.log(' Tournament created successfully!');
             console.log(`   Tournament ID: ${data.tournamentId}`);
             console.log(`\n   View at: https://clawarcade.surge.sh/tournament.html`);
         } else {
-            console.error('❌ Failed to create tournament:', data.error);
+            console.error(' Failed to create tournament:', data.error);
         }
     } catch (err) {
-        console.error('❌ Error:', err.message);
+        console.error(' Error:', err.message);
     }
 }
 

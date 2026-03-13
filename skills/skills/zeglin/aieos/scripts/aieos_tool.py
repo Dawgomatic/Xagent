@@ -167,9 +167,9 @@ def update_identity_files(schema: Dict[str, Any], apply_changes: bool = False) -
     interests = schema.get('interests', {})
     favorites = interests.get('favorites', {})
     
-    emoji = "💖"  # Default
-    if favorites.get('color') == 'blue': emoji = "🔵"
-    elif favorites.get('color') == 'green': emoji = "🟢"
+    emoji = ""  # Default
+    if favorites.get('color') == 'blue': emoji = ""
+    elif favorites.get('color') == 'green': emoji = ""
     
     identity_updates.append(f"- **Emoji:** {emoji}")
     identity_updates.append(f"- **Avatar:** ") # Placeholder for now

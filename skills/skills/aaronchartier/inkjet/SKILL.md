@@ -4,7 +4,7 @@ description: "Print text, images, and QR codes to a cheap wireless Bluetooth the
 homepage: https://pypi.org/project/inkjet/
 metadata:
   openclaw:
-    emoji: "🖨️"
+    emoji: ""
     requires: { bins: ["inkjet"], bluetooth: true }
     install:
       - { id: "pip", kind: "pip", package: "inkjet", label: "Install (pip)" }

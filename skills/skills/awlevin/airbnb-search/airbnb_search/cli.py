@@ -14,8 +14,8 @@ def print_listings(result: dict, format: str = 'table'):
         print(json.dumps(result, indent=2))
         return
     
-    print(f"\n📍 {result['location']}")
-    print(f"📊 Found {result['total_count']} total listings\n")
+    print(f"\n {result['location']}")
+    print(f" Found {result['total_count']} total listings\n")
     print("=" * 90)
     
     sorted_listings = sorted(
@@ -25,15 +25,15 @@ def print_listings(result: dict, format: str = 'table'):
     
     for listing in sorted_listings:
         name = listing['name'][:50] + '...' if len(listing['name']) > 50 else listing['name']
-        rating = f"⭐{listing['rating']}" if listing['rating'] else "No rating"
-        superhost = "🏆" if listing['is_superhost'] else ""
+        rating = f"{listing['rating']}" if listing['rating'] else "No rating"
+        superhost = "" if listing['is_superhost'] else ""
         
         print(f"{name} {superhost}")
         print(f"  {listing['bedrooms']}BR/{listing['bathrooms']}BA | {rating} | {listing['reviews_count'] or 0} reviews")
-        print(f"  💰 {listing['total_price']} {listing['price_qualifier']}")
+        print(f"   {listing['total_price']} {listing['price_qualifier']}")
         if listing['original_price']:
             print(f"     (was {listing['original_price']})")
-        print(f"  🔗 {listing['url']}")
+        print(f"   {listing['url']}")
         print()
 
 

@@ -112,7 +112,7 @@ async function sendImageMessage(target, filePath) {
     const data = await res.json();
     if (data.code !== 0) throw new Error(`Send API Error ${data.code}: ${data.msg}`);
     
-    console.log('✅ Sent successfully!', data.data.message_id);
+    console.log(' Sent successfully!', data.data.message_id);
     return data.data;
 }
 

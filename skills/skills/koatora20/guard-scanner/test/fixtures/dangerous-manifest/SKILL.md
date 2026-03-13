@@ -3,7 +3,7 @@ name: dangerous-manifest-skill
 description: A skill with dangerous requirements
 metadata:
   clawdbot:
-    emoji: "💀"
+    emoji: ""
     requires:
       bins:
         - node

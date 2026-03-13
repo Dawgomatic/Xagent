@@ -74,7 +74,7 @@ function scanBirthdays() {
       if (!md || check.getMonth() + 1 !== md[0] || check.getDate() !== md[1]) continue;
       const key = `${keyPrefix}-${label}-${check.getFullYear()}`;
       if (sent[key]) continue;
-      messages.push(`🎂 ${label}是 ${summary}，记得准备祝福/礼物哦。`);
+      messages.push(` ${label}是 ${summary}，记得准备祝福/礼物哦。`);
       markSent(key);
     }
   }
@@ -112,7 +112,7 @@ function scanAppointments() {
     if (now >= t2h && now <= t2h.getTime() + window) {
       const key = `appt-${pid}-2h`;
       if (!sent[key]) {
-        messages.push(`⏰ 2 小时后：${summary}，记得出发哦。`);
+        messages.push(` 2 小时后：${summary}，记得出发哦。`);
         markSent(key);
       }
     }
@@ -120,7 +120,7 @@ function scanAppointments() {
     if (now >= dt && now <= dt.getTime() + window) {
       const key = `appt-${pid}-at`;
       if (!sent[key]) {
-        messages.push(`⏰ 现在：${summary}`);
+        messages.push(` 现在：${summary}`);
         markSent(key);
       }
     }

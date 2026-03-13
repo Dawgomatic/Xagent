@@ -70,7 +70,7 @@ claw-compactor is a modular compression pipeline with a single entry point (`mem
  │ 5. dedup_memory │ │ memory/.codebook.json│
  │ Cross-file scan │ │ (codebook artifact) │
  │ Shingle hashing │ └────────────────────────┘
- │ 6. generate_ │────▶│ memory/MEMORY-L0.md │
+ │ 6. generate_ │────│ memory/MEMORY-L0.md │
  │ summary_tiers │ │ memory/MEMORY-L1.md │
  │ L0/L1/L2 budgets │ │ (tier summaries) │
  └──────────────────────┘ └────────────────────────┘
@@ -173,7 +173,7 @@ Layers 1-4 reduce token count. Layer 0 reduces cost-per-token. They multiply.
  │ Run: full ││
  │ pipeline ││
  └──────────────┘│
-              │◀──┘
+              │──┘
               ▼
  ┌─────────────────────────┐
  │ New transcripts? │

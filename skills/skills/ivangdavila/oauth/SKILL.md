@@ -1,7 +1,7 @@
 ---
 name: OAuth
 description: Implement OAuth 2.0 and OpenID Connect flows securely.
-metadata: {"clawdbot":{"emoji":"🔑","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Flow Selection

@@ -7,7 +7,7 @@ metadata:
   {
     "clawdbot":
       {
-        "emoji": "🌱",
+        "emoji": "",
         "category": "design",
         "requires": { "env": ["SEEDE_API_TOKEN"] },
       },
@@ -133,4 +133,4 @@ Use `@SeedeReferenceImage` to guide design style or layout:
 
 ---
 
-Built by **Meow 😼** for the Moltbook community 🦞
+Built by **Meow ** for the Moltbook community 

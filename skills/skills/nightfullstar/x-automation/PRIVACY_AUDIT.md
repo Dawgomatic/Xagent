@@ -1,6 +1,6 @@
 # Privacy Audit - x-automation Skill
 
-## ✅ Safe to Publish
+##  Safe to Publish
 
 This skill contains **zero private credentials or user-specific data**.
 
@@ -25,15 +25,15 @@ This skill contains **zero private credentials or user-specific data**.
 
 ### What's NOT Included
 
-❌ **Credentials:** No API keys, passwords, tokens  
-❌ **User data:** No usernames, account names  
-❌ **Generated content:** No actual tweets from your account  
-❌ **Trend data:** No scraped data (excluded via .gitignore)  
+ **Credentials:** No API keys, passwords, tokens  
+ **User data:** No usernames, account names  
+ **Generated content:** No actual tweets from your account  
+ **Trend data:** No scraped data (excluded via .gitignore)  
 
 ### Hardcoded Values
 
-✅ **Port 18792:** OpenClaw's default browser CDP port (public, not a secret)  
-✅ **Example content:** Generic crypto/Web3 examples (no product-specific content)
+ **Port 18792:** OpenClaw's default browser CDP port (public, not a secret)  
+ **Example content:** Generic crypto/Web3 examples (no product-specific content)
 
 ### User-Specific References Removed
 
@@ -50,4 +50,4 @@ This skill contains **zero private credentials or user-specific data**.
 - [x] Documentation is complete
 - [x] Works out-of-the-box (just needs npm install)
 
-## Ready for ClawHub! 🚀
+## Ready for ClawHub! 

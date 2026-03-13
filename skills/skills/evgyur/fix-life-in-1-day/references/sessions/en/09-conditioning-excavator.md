@@ -172,7 +172,7 @@ For each inherited belief, you decide: Keep, Modify, or Discard.
 ## Summary Template
 
 ```
-✅ **Session 9 Complete: The Conditioning Excavator**
+ **Session 9 Complete: The Conditioning Excavator**
 
 **Domain Examined:**
 {from 1.1}
@@ -194,5 +194,5 @@ For each inherited belief, you decide: Keep, Modify, or Discard.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ready for Session 10: The One-Day Reset Architect?
-[▶️ Continue] [⏸ Take a Break]
+[ Continue] [ Take a Break]
 ```

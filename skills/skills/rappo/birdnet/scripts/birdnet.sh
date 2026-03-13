@@ -28,7 +28,7 @@ case "$cmd" in
     echo ""
     
     curl -s "$API/detections?limit=$limit" | jq -r '.data[] | 
-      "🐦 \(.commonName) (\(.scientificName))" +
+      " \(.commonName) (\(.scientificName))" +
       "\n   Confidence: \(.confidence * 100 | floor)%" +
       "\n   Time: \(.date) \(.time)" +
       "\n   Status: \(.verified)" +
@@ -52,7 +52,7 @@ case "$cmd" in
     curl -s "$API/detections?limit=100" | jq --arg q "$query" -r '
       .data[] | 
       select(.commonName | ascii_downcase | contains($q | ascii_downcase)) |
-      "🐦 \(.commonName) (\(.scientificName))" +
+      " \(.commonName) (\(.scientificName))" +
       "\n   Confidence: \(.confidence * 100 | floor)%" +
       "\n   Time: \(.date) \(.time)" +
       "\n   ID: \(.id)" +
@@ -70,31 +70,31 @@ case "$cmd" in
     result=$(curl -s "$API/detections/$id")
     
     if [ "$result" = "null" ] || [ -z "$result" ]; then
-      echo "❌ Detection not found"
+      echo " Detection not found"
       exit 1
     fi
     
     echo "$result" | jq -r '
       "=== Detection Details ===" +
-      "\n\n🐦 \(.commonName)" +
+      "\n\n \(.commonName)" +
       "\n   Scientific: \(.scientificName)" +
       "\n   Species Code: \(.speciesCode)" +
       "\n" +
-      "\n📊 Detection Info:" +
+      "\n Detection Info:" +
       "\n   Confidence: \(.confidence * 100 | floor)%" +
       "\n   Time: \(.beginTime)" +
       "\n   Time of Day: \(.timeOfDay)" +
       "\n   Verified: \(.verified)" +
       "\n" +
       (if .weather then 
-        "\n🌤️ Weather:" +
+        "\n Weather:" +
         "\n   Temperature: \(.weather.temperature)°C" +
         "\n   Description: \(.weather.description)" +
         "\n   Wind: \(.weather.windSpeed)" +
         "\n   Humidity: \(.weather.humidity)%"
       else "" end) +
       "\n" +
-      "\n📈 Stats:" +
+      "\n Stats:" +
       "\n   Days since first seen: \(.daysSinceFirstSeen)" +
       "\n   Days this year: \(.daysThisYear)" +
       "\n   Season: \(.currentSeason)"
@@ -113,21 +113,21 @@ case "$cmd" in
     result=$(curl -s "$API/species?scientific_name=$encodedName")
     
     if [ "$result" = "null" ] || [ -z "$result" ]; then
-      echo "❌ Species not found"
+      echo " Species not found"
       exit 1
     fi
     
     echo "$result" | jq -r '
       "=== Species Information ===" +
-      "\n\n🐦 \(.common_name)" +
+      "\n\n \(.common_name)" +
       "\n   Scientific: \(.scientific_name)" +
       "\n" +
-      "\n📊 Rarity:" +
+      "\n Rarity:" +
       "\n   Status: \(.rarity.status)" +
       "\n   Score: \(.rarity.score)" +
       (if .rarity.location_based then "\n   Location-based: Yes" else "" end) +
       "\n" +
-      "\n🧬 Taxonomy:" +
+      "\n Taxonomy:" +
       "\n   Kingdom: \(.taxonomy.kingdom)" +
       "\n   Phylum: \(.taxonomy.phylum)" +
       "\n   Class: \(.taxonomy.class)" +
@@ -147,7 +147,7 @@ case "$cmd" in
     curl -s "$API/detections?limit=200" | jq --arg today "$today" -r '
       .data[] | 
       select(.date == $today) |
-      "🐦 \(.commonName)" +
+      " \(.commonName)" +
       "\n   Time: \(.time)" +
       "\n   Confidence: \(.confidence * 100 | floor)%" +
       "\n"
@@ -162,7 +162,7 @@ case "$cmd" in
     ')
     
     echo ""
-    echo "📊 Summary: $total detections, $unique unique species"
+    echo " Summary: $total detections, $unique unique species"
     ;;
     
   stats)

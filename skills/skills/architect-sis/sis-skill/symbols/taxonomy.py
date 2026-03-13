@@ -611,5 +611,5 @@ if __name__ == "__main__":
     print(f"Polyvalent: {poly.glyph}")
     
     print("\n" + "═" * 70)
-    print("SIS™ - Created by Kevin Fain (ThēÆrchītēcť) © 2025")
+    print("SIS - Created by Kevin Fain (ThēÆrchītēcť)  2025")
     print("═" * 70)

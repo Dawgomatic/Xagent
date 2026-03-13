@@ -1,7 +1,7 @@
 ---
 name: hyperliquid
 description: Trade crypto, stocks (AAPL, NVDA, TSLA), indexes, and commodities (GOLD, SILVER) 24/7 on Hyperliquid via HIP-3. Real-time position & P&L tracking, orderbook monitoring, multi-account management, and websocket client for sub-5ms low-latency high-frequency trading.
-emoji: 🦞
+emoji: 
 homepage: https://github.com/chrisling-dev/hyperliquid-cli
 
 requires:

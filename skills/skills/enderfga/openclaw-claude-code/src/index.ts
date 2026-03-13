@@ -447,7 +447,7 @@ program
                 if (data.type === 'text') {
                   process.stdout.write(data.text || '');
                 } else if (data.type === 'tool_use') {
-                  console.log(`\n🔧 [Tool: ${data.tool}]`);
+                  console.log(`\n [Tool: ${data.tool}]`);
                 } else if (data.type === 'tool_result') {
                   console.log('✓ Tool completed');
                 } else if (data.type === 'done') {

@@ -7,7 +7,7 @@
 
 ### Why It Failed
 
-👥 **PEOPLE:**
+ **PEOPLE:**
 • **Kitchen staff refused to use it** - H/H
   Prevention: Staff training BEFORE launch, champion in kitchen
   Warning sign: Kitchen complaints in week 1
@@ -16,7 +16,7 @@
   Prevention: Include in planning, show their benefits
   Warning sign: Not promoting to golfers
 
-⚙️ **PROCESS:**
+ **PROCESS:**
 • **Orders got lost during busy periods** - H/H
   Prevention: Load testing, backup paper system
   Warning sign: More than 3 lost orders in first week
@@ -25,7 +25,7 @@
   Prevention: GPS integration, buffer times built in
   Warning sign: Complaints about cold food
 
-💻 **TECHNOLOGY:**
+ **TECHNOLOGY:**
 • **WiFi dead zones on back 9** - H/H
   Prevention: WiFi survey before launch, offline mode
   Warning sign: Failed orders from holes 10-18
@@ -34,7 +34,7 @@
   Prevention: Stress testing, auto-scaling
   Warning sign: Slow response times under load
 
-🌍 **EXTERNAL:**
+ **EXTERNAL:**
 • **Weather kept golfers away** - L/M
   Prevention: Nothing (accept risk), launch in good season
   Warning sign: N/A - external
@@ -59,7 +59,7 @@
 
 ### Why It Failed
 
-👥 **PEOPLE:**
+ **PEOPLE:**
 • **Couldn't find qualified bilingual teachers** - H/H
   Prevention: Start recruiting 12 months early, consider transfers
   Warning sign: <3 candidates per position by month -6
@@ -72,7 +72,7 @@
   Prevention: 3-month probation, clear success metrics
   Warning sign: Enrollment conversations not converting
 
-⚙️ **PROCESS:**
+ **PROCESS:**
 • **Marketing started too late** - H/H
   Prevention: 12-month marketing runway, build waitlist early
   Warning sign: <30 inquiries by month -6
@@ -85,12 +85,12 @@
   Prevention: ASML/tech company MOUs before announcing
   Warning sign: No corporate interest by month -9
 
-💻 **TECHNOLOGY:**
+ **TECHNOLOGY:**
 • **Systems not ready for remote management** - M/M
   Prevention: Leiden → Eindhoven remote workflow tested
   Warning sign: Communication gaps emerging
 
-🌍 **EXTERNAL:**
+ **EXTERNAL:**
 • **Competitor opened same year** - M/H
   Prevention: Competitive intel, differentiation clarity
   Warning sign: Same families touring competitor
@@ -119,7 +119,7 @@
 
 ### Why It Failed
 
-👥 **PEOPLE:**
+ **PEOPLE:**
 • **Staff treated premium kids differently** - H/H
   Prevention: Training + policy: photo quantity equal for all
   Warning sign: Parent complaints about inequality
@@ -128,7 +128,7 @@
   Prevention: Frame as "extra" not "premium", no visible tiers
   Warning sign: Social media/WhatsApp sentiment
 
-⚙️ **PROCESS:**
+ **PROCESS:**
 • **Free tier became too limited** - H/H
   Prevention: Free tier must still feel valuable
   Warning sign: Free user satisfaction dropping
@@ -137,12 +137,12 @@
   Prevention: Survey parents, test pricing before launch
   Warning sign: Trial → paid conversion below 20%
 
-💻 **TECHNOLOGY:**
+ **TECHNOLOGY:**
 • **Premium features had bugs** - M/M
   Prevention: Extended beta with 10 families
   Warning sign: Bug reports from premium users
 
-🌍 **EXTERNAL:**
+ **EXTERNAL:**
 • **Competitor launched free alternative** - M/M
   Prevention: Moat = face recognition + integration with TeddyKids
   Warning sign: Parents mentioning competitor
@@ -162,18 +162,18 @@ SCENARIO: "It's [date]. [Project] has failed. [Specific failure description]."
 
 WHY IT FAILED:
 
-👥 PEOPLE:
+ PEOPLE:
 • 
 • 
 
-⚙️ PROCESS:
+ PROCESS:
 • 
 • 
 
-💻 TECHNOLOGY:
+ TECHNOLOGY:
 • 
 
-🌍 EXTERNAL:
+ EXTERNAL:
 • 
 
 TOP 3 ACTIONS:

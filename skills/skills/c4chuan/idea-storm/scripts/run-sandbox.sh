@@ -12,7 +12,7 @@ WORKSPACE="${OPENCLAW_WORKSPACE:-/root/.openclaw/workspace}"
 EXP_DIR="$WORKSPACE/experiments/$EXPERIMENT_ID"
 
 if [[ ! -d "$EXP_DIR" ]]; then
-  echo "❌ Experiment directory not found: $EXP_DIR"
+  echo " Experiment directory not found: $EXP_DIR"
   exit 1
 fi
 
@@ -33,7 +33,7 @@ BASE_URL=$(python3 -c "import json; print(json.load(open('$OC_CONFIG'))['models'
 # Ensure experiment dir is writable by container user (uid 1000)
 chmod 777 "$EXP_DIR" 2>/dev/null || true
 
-echo "🐳 Running Claude Code in sandbox..."
+echo " Running Claude Code in sandbox..."
 echo "   Experiment: $EXPERIMENT_ID"
 echo "   Directory: $EXP_DIR"
 echo ""

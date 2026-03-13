@@ -340,7 +340,7 @@ def main():
     # Clean up
     config_path.unlink()
     
-    print("\n✅ Adapter test completed")
+    print("\n Adapter test completed")
 
 if __name__ == "__main__":
     main()

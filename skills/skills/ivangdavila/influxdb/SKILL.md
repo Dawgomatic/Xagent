@@ -1,7 +1,7 @@
 ---
 name: InfluxDB
 description: Store and query time-series data with proper schema design and retention.
-metadata: {"clawdbot":{"emoji":"📈","requires":{"anyBins":["influx","curl"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["influx","curl"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Version Differences

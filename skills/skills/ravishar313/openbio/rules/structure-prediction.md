@@ -63,34 +63,34 @@ What do you need?
 
 ### Wrong: Not checking prediction confidence
 ```
-❌ Using predicted structure without checking pTM/pLDDT
+ Using predicted structure without checking pTM/pLDDT
 ```
 
 ```
-✅ Always check confidence in job results:
+ Always check confidence in job results:
    - pTM < 0.5 → prediction unreliable
    - pLDDT < 50 in a region → likely disordered
 ```
 
 ### Wrong: Using ProteinMPNN when ligand is present
 ```
-❌ Designing binding site with ProteinMPNN when ligand matters
+ Designing binding site with ProteinMPNN when ligand matters
 ```
 **Why wrong**: ProteinMPNN doesn't see the ligand, may design residues that clash.
 
 ```
-✅ Use LigandMPNN for ligand-aware design:
+ Use LigandMPNN for ligand-aware design:
    submit_ligandmpnn_prediction with ligand_chain specified
 ```
 
 ### Wrong: Temperature too low for exploration
 ```
-❌ Using temperature 0.01 for initial design exploration
+ Using temperature 0.01 for initial design exploration
 ```
 **Why wrong**: Generates nearly identical sequences, misses diversity.
 
 ```
-✅ Temperature guide:
+ Temperature guide:
    - 0.1: Production (low diversity, high quality)
    - 0.2: Default (balanced)
    - 0.3: Exploration (higher diversity)
@@ -98,11 +98,11 @@ What do you need?
 
 ### Wrong: Not fixing important residues
 ```
-❌ Redesigning entire protein including catalytic residues
+ Redesigning entire protein including catalytic residues
 ```
 
 ```
-✅ Use fixed_positions to preserve:
+ Use fixed_positions to preserve:
    - Catalytic residues
    - Disulfide cysteines
    - Known functional residues

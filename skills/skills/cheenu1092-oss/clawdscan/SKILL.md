@@ -5,14 +5,14 @@ description: "Diagnose Clawdbot/OpenClaw health — session bloat, zombies, stal
 user-invocable: true
 metadata:
   openclaw:
-    emoji: "🔍"
+    emoji: ""
     requires:
       bins: ["python3"]
 ---
 
 # ClawdScan — Session Health Analyzer
 
-> 🔍 Diagnose bloat, find zombies, reclaim disk space
+>  Diagnose bloat, find zombies, reclaim disk space
 
 ClawdScan is a zero-dependency Python CLI that analyzes Clawdbot/OpenClaw session JSONL files to identify bloated sessions, zombies, stale files, and provides actionable cleanup recommendations.
 
@@ -228,25 +228,25 @@ ClawdScan can run automatically as part of Clawdbot's heartbeat system:
 
 ### Scan Output
 ```
-🔍 ClawdScan v0.1.0 — Clawdbot Session Health Analysis
+ ClawdScan v0.1.0 — Clawdbot Session Health Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📊 Overview
+ Overview
   Total Sessions: 42
   Total Size: 23.4 MB
   Agents: main(38), dj(4)
 
-⚠️  Issues Found
-  🔥 Bloated: 3 sessions (>1MB or >300 msgs)
-  💀 Zombies: 2 sessions (created but unused)  
-  🗓️  Stale: 7 sessions (inactive >7 days)
+  Issues Found
+   Bloated: 3 sessions (>1MB or >300 msgs)
+   Zombies: 2 sessions (created but unused)  
+    Stale: 7 sessions (inactive >7 days)
 
-🔝 Top Sessions by Size
+ Top Sessions by Size
   1. main-20240108-143022  4.2 MB  (1,247 msgs)
   2. main-20240107-091534  2.8 MB  (892 msgs)
   3. dj-20240105-220145    1.9 MB  (734 msgs)
 
-💡 Recommendations
+ Recommendations
   • Archive 2 zombie sessions → save 145 KB
   • Clean 7 stale sessions → save 3.2 MB
   • Consider shorter session lifetimes
@@ -254,17 +254,17 @@ ClawdScan can run automatically as part of Clawdbot's heartbeat system:
 
 ### History Output
 ```
-📈 Session Health Trends (Last 30 Days)
+ Session Health Trends (Last 30 Days)
 
 Week 1 (Jan 1-7):   12 sessions,  8.4 MB
-Week 2 (Jan 8-14):  18 sessions, 15.7 MB  📈 +87% growth
-Week 3 (Jan 15-21): 22 sessions, 19.3 MB  📈 +23% growth  
-Week 4 (Jan 22-28): 28 sessions, 23.4 MB  📈 +21% growth
+Week 2 (Jan 8-14):  18 sessions, 15.7 MB   +87% growth
+Week 3 (Jan 15-21): 22 sessions, 19.3 MB   +23% growth  
+Week 4 (Jan 22-28): 28 sessions, 23.4 MB   +21% growth
 
-🔥 Bloat Trend: 0 → 1 → 2 → 3 sessions
-💀 Zombie Trend: 1 → 1 → 2 → 2 sessions
+ Bloat Trend: 0 → 1 → 2 → 3 sessions
+ Zombie Trend: 1 → 1 → 2 → 2 sessions
 
-💡 Growth Rate: +38% sessions/week, +44% storage/week
+ Growth Rate: +38% sessions/week, +44% storage/week
 ```
 
 ## Troubleshooting

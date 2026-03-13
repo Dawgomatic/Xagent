@@ -19,7 +19,7 @@ function loadConfig() {
   const configPath = path.join(process.env.HOME, '.openclaw/workspace/config/daily-sales-digest.json');
   
   if (!fs.existsSync(configPath)) {
-    console.error('❌ 설정 파일이 없습니다:', configPath);
+    console.error(' 설정 파일이 없습니다:', configPath);
     console.error('config.template.json을 복사하여 설정하세요.');
     process.exit(1);
   }
@@ -54,7 +54,7 @@ async function collectNaver(config, date) {
     return null;
   }
   
-  console.log('📦 네이버 스마트스토어 데이터 수집 중...');
+  console.log(' 네이버 스마트스토어 데이터 수집 중...');
   
   // TODO: 실제 네이버 API 호출 구현
   // 현재는 mock 데이터 반환
@@ -77,7 +77,7 @@ async function collectCoupang(config, date) {
     return null;
   }
   
-  console.log('📦 쿠팡 데이터 수집 중...');
+  console.log(' 쿠팡 데이터 수집 중...');
   
   // TODO: 실제 쿠팡 Wing API 호출 구현
   
@@ -99,7 +99,7 @@ async function collectBaemin(config, date) {
     return null;
   }
   
-  console.log('📦 배민셀러 데이터 수집 중...');
+  console.log(' 배민셀러 데이터 수집 중...');
   
   // TODO: 실제 배민 API 호출 구현
   
@@ -121,7 +121,7 @@ async function collectPOS(config, date) {
     return null;
   }
   
-  console.log('📦 POS 시스템 데이터 수집 중...');
+  console.log(' POS 시스템 데이터 수집 중...');
   
   // TODO: 실제 POS API 호출 구현
   
@@ -149,7 +149,7 @@ function saveData(config, date, data) {
   const filePath = path.join(dataDir, `${dateStr}.json`);
   
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
-  console.log('✅ 데이터 저장 완료:', filePath);
+  console.log(' 데이터 저장 완료:', filePath);
 }
 
 // 메인 실행
@@ -177,14 +177,14 @@ async function main() {
   const date = parseDate(dateStr);
   const dateFormatted = formatDate(date);
   
-  console.log(`📅 수집 날짜: ${dateFormatted}`);
+  console.log(` 수집 날짜: ${dateFormatted}`);
   
   // 이미 데이터가 있는지 확인
   const dataDir = config.dataDir.replace('~', process.env.HOME);
   const filePath = path.join(dataDir, `${dateFormatted}.json`);
   
   if (fs.existsSync(filePath) && !force) {
-    console.log('⚠️  이미 데이터가 존재합니다. --force 옵션으로 덮어쓸 수 있습니다.');
+    console.log('  이미 데이터가 존재합니다. --force 옵션으로 덮어쓸 수 있습니다.');
     process.exit(0);
   }
   
@@ -212,7 +212,7 @@ async function main() {
   }
   
   if (Object.keys(sources).length === 0) {
-    console.log('⚠️  활성화된 데이터 소스가 없습니다.');
+    console.log('  활성화된 데이터 소스가 없습니다.');
     process.exit(1);
   }
   
@@ -239,14 +239,14 @@ async function main() {
   // 저장
   saveData(config, date, result);
   
-  console.log('\n📊 수집 요약:');
-  console.log(`💰 총 매출: ₩${totalRevenue.toLocaleString()}`);
-  console.log(`🛒 주문 수: ${totalOrders}건`);
-  console.log(`💳 객단가: ₩${result.total.avgOrderValue.toLocaleString()}`);
+  console.log('\n 수집 요약:');
+  console.log(` 총 매출: ₩${totalRevenue.toLocaleString()}`);
+  console.log(` 주문 수: ${totalOrders}건`);
+  console.log(` 객단가: ₩${result.total.avgOrderValue.toLocaleString()}`);
 }
 
 // 에러 핸들링
 main().catch(err => {
-  console.error('❌ 에러 발생:', err.message);
+  console.error(' 에러 발생:', err.message);
   process.exit(1);
 });

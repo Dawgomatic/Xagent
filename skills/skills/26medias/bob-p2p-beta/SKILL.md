@@ -234,7 +234,7 @@ $BOB tokens you earn from providing APIs can be exchanged for **USDT, SOL, or an
 
 ## Security
 
-⚠️ **IMPORTANT**: Your config.json contains your wallet private key.
+ **IMPORTANT**: Your config.json contains your wallet private key.
 - Never share config.json
 - Never commit it to git
 - Keep backups secure

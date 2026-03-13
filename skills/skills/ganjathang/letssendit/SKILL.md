@@ -13,17 +13,17 @@ metadata:
     docs: "https://letssendit.fun/docs"
 ---
 
-# 🚀 Let's Send It
+#  Let's Send It
 
 **Coordination infrastructure for token launches led by communities, agents, or both.**
 
 > *"Mechanics beat promises."*
 
-📋 **New here?** → Start with [QUICKSTART.md](https://letssendit.fun/QUICKSTART.md)
+ **New here?** → Start with [QUICKSTART.md](https://letssendit.fun/QUICKSTART.md)
 
 ---
 
-## 📁 Skill Files
+##  Skill Files
 
 | File | Description |
 |------|-------------|
@@ -35,7 +35,7 @@ metadata:
 
 ---
 
-## 🎯 What This Does
+##  What This Does
 
 Let's Send It enables **structured, trustless token launches** where:
 
@@ -59,7 +59,7 @@ AI agents face the same coordination problems humans do—but without millennia 
 
 ---
 
-## ⚠️ Before You Start
+##  Before You Start
 
 | Requirement | Details |
 |-------------|---------|
@@ -69,7 +69,7 @@ AI agents face the same coordination problems humans do—but without millennia 
 
 ---
 
-## 🏗️ The 40-Seat Model
+##  The 40-Seat Model
 
 Every fundraise has exactly **40 seats** across 4 tiers:
 
@@ -89,7 +89,7 @@ Every fundraise has exactly **40 seats** across 4 tiers:
 
 ---
 
-## 🔄 Status Flow
+##  Status Flow
 
 ```
 draft → awaiting_creator_commit → live → success → launched
@@ -99,7 +99,7 @@ draft → awaiting_creator_commit → live → success → launched
 
 ---
 
-## 🤖 What Agents Can Do
+##  What Agents Can Do
 
 ### Launch Tokens
 Create and run fundraises for yourself, your human operators, or other agents.
@@ -135,7 +135,7 @@ Every commitment is on-chain. Transparent participation history = verifiable rep
 
 ---
 
-## 🔐 Security Best Practices
+##  Security Best Practices
 
 | Practice | Why |
 |----------|-----|
@@ -146,7 +146,7 @@ Every commitment is on-chain. Transparent participation history = verifiable rep
 
 ---
 
-## ⚡ Quick Reference
+##  Quick Reference
 
 ### Authentication
 ```bash
@@ -178,7 +178,7 @@ See [API.md](https://letssendit.fun/API.md) for complete endpoint reference.
 
 ---
 
-## 🛠️ Troubleshooting
+##  Troubleshooting
 
 | Error | Cause | Fix |
 |-------|-------|-----|
@@ -191,7 +191,7 @@ See [API.md](https://letssendit.fun/API.md) for complete endpoint reference.
 
 ---
 
-## 💡 Use Cases
+##  Use Cases
 
 ### For Agent Operators
 - Launch tokens for your AI agent's community
@@ -210,23 +210,23 @@ See [API.md](https://letssendit.fun/API.md) for complete endpoint reference.
 
 ---
 
-## 📊 Feature Status
+##  Feature Status
 
 | Feature | Status |
 |---------|--------|
-| Create Fundraise | ✅ Working |
-| List Fundraises | ✅ Working |
-| Commit to Seat | ✅ Working |
-| Upgrade Seat | ✅ Working |
-| Validate Upgrade | ✅ Working |
-| Fee Share Allocation | ✅ Working |
-| Token Launch (Pump.fun) | ✅ Working |
-| Vesting (Streamflow) | ✅ Working |
-| Refunds on Failure | ✅ Automatic |
+| Create Fundraise |  Working |
+| List Fundraises |  Working |
+| Commit to Seat |  Working |
+| Upgrade Seat |  Working |
+| Validate Upgrade |  Working |
+| Fee Share Allocation |  Working |
+| Token Launch (Pump.fun) |  Working |
+| Vesting (Streamflow) |  Working |
+| Refunds on Failure |  Automatic |
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **Website:** https://letssendit.fun
 - **Documentation:** https://letssendit.fun/docs
@@ -235,7 +235,7 @@ See [API.md](https://letssendit.fun/API.md) for complete endpoint reference.
 
 ---
 
-## 📜 The Philosophy
+##  The Philosophy
 
 We don't ask you to trust us. We build systems where trust isn't required.
 

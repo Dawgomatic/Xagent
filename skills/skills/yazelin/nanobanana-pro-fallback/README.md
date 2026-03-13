@@ -1,4 +1,4 @@
-# 🍌 Nano Banana Pro (Fallback Edition)
+#  Nano Banana Pro (Fallback Edition)
 
 AI 圖片生成 Agent Skill，支援自動模型切換。
 
@@ -6,11 +6,11 @@ Fork of [OpenClaw's nano-banana-pro](https://clawhub.com) — same interface, ad
 
 ## Features
 
-- 🔄 **Auto Fallback** — `gemini-2.5-flash-image` → `gemini-2.0-flash-exp-image-generation`
-- 🖼️ **Generate** — Text-to-image
-- ✏️ **Edit** — Image-to-image, up to 14 input images
-- 📐 **Auto Resolution** — Detects optimal resolution from input image size
-- 📦 **Zero Config** — Just set `GEMINI_API_KEY` and go
+-  **Auto Fallback** — `gemini-2.5-flash-image` → `gemini-2.0-flash-exp-image-generation`
+-  **Generate** — Text-to-image
+-  **Edit** — Image-to-image, up to 14 input images
+-  **Auto Resolution** — Detects optimal resolution from input image size
+-  **Zero Config** — Just set `GEMINI_API_KEY` and go
 
 ## Install
 

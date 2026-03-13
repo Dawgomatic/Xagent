@@ -1,17 +1,17 @@
-# OpenClaw Menu Bar App - Marketplace Ready! 🚀
+# OpenClaw Menu Bar App - Marketplace Ready! 
 
-## ✅ Auto-Discovery Features
+##  Auto-Discovery Features
 
 This app is **100% marketplace-ready** with zero configuration needed!
 
 ### Smart Gateway Discovery
 
 The app automatically:
-1. ✅ **Reads OpenClaw config** from `~/.openclaw/openclaw.json`
-2. ✅ **Detects network configuration** (localhost, LAN, etc.)
-3. ✅ **Tries common gateway URLs** automatically
-4. ✅ **Saves successful connection** for next time
-5. ✅ **Shows setup screen** if can't auto-detect
+1.  **Reads OpenClaw config** from `~/.openclaw/openclaw.json`
+2.  **Detects network configuration** (localhost, LAN, etc.)
+3.  **Tries common gateway URLs** automatically
+4.  **Saves successful connection** for next time
+5.  **Shows setup screen** if can't auto-detect
 
 ### Zero Manual Configuration
 
@@ -23,7 +23,7 @@ Users **never need to edit code**:
 
 ---
 
-## 🎯 User Experience
+##  User Experience
 
 ### First Launch:
 1. User installs app
@@ -45,17 +45,17 @@ Users **never need to edit code**:
 
 ---
 
-## 📦 Distribution Ready
+##  Distribution Ready
 
 ### What Makes It Marketplace-Ready?
 
-✅ **No hardcoded credentials**  
-✅ **Auto-discovery works on any network**  
-✅ **Graceful error handling**  
-✅ **User-friendly setup screen**  
-✅ **Persistent configuration**  
-✅ **Auto-reconnect on failure**  
-✅ **Cross-platform compatible** (Mac, Windows, Linux)  
+ **No hardcoded credentials**  
+ **Auto-discovery works on any network**  
+ **Graceful error handling**  
+ **User-friendly setup screen**  
+ **Persistent configuration**  
+ **Auto-reconnect on failure**  
+ **Cross-platform compatible** (Mac, Windows, Linux)  
 
 ### How It Works:
 
@@ -79,7 +79,7 @@ Users **never need to edit code**:
 
 ---
 
-## 🏪 Publishing to Marketplace
+##  Publishing to Marketplace
 
 ### 1. Build Standalone App
 
@@ -129,7 +129,7 @@ xcrun altool --notarize-app --file dist/OpenClaw.app.zip ...
 
 ---
 
-## 📄 Package Metadata
+##  Package Metadata
 
 For marketplace submission:
 
@@ -155,14 +155,14 @@ For marketplace submission:
 
 ---
 
-## 🔒 Security & Privacy
+##  Security & Privacy
 
 ### Data Handling:
-- ✅ **No cloud storage** - All data stays local
-- ✅ **No telemetry** - Zero tracking
-- ✅ **No external APIs** - Only connects to user's own gateway
-- ✅ **Encrypted communication** - HTTPS support (if gateway configured)
-- ✅ **Token stored securely** - In user's home directory with proper permissions
+-  **No cloud storage** - All data stays local
+-  **No telemetry** - Zero tracking
+-  **No external APIs** - Only connects to user's own gateway
+-  **Encrypted communication** - HTTPS support (if gateway configured)
+-  **Token stored securely** - In user's home directory with proper permissions
 
 ### User Control:
 - Users can delete config anytime
@@ -172,7 +172,7 @@ For marketplace submission:
 
 ---
 
-## 📸 Marketing Assets
+##  Marketing Assets
 
 ### Screenshots Needed:
 1. Menu bar icon (before click)
@@ -195,7 +195,7 @@ For marketplace submission:
 
 ---
 
-## 🚀 Launch Checklist
+##  Launch Checklist
 
 Before releasing:
 
@@ -216,7 +216,7 @@ Before releasing:
 
 ---
 
-## 📊 Pricing Strategy
+##  Pricing Strategy
 
 ### Free Tier:
 - Full menu bar access
@@ -231,15 +231,15 @@ Before releasing:
 
 ---
 
-## 🎉 You're Ready!
+##  You're Ready!
 
 Your app is **fully marketplace-ready** with:
-- ✅ Zero configuration
-- ✅ Auto-discovery
-- ✅ Error recovery
-- ✅ User-friendly setup
-- ✅ Cross-platform support
+-  Zero configuration
+-  Auto-discovery
+-  Error recovery
+-  User-friendly setup
+-  Cross-platform support
 
 **Next step**: `npm start` to test it!
 
-Then build and distribute! 🚀
+Then build and distribute! 

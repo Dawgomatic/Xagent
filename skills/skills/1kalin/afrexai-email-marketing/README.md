@@ -43,7 +43,7 @@ Just tell your agent:
 | Analytics | Weekly dashboard, industry benchmarks, A/B testing framework, monthly review |
 | Advanced | Newsletter monetization, cross-channel integration, B2B vs B2C, compliance |
 
-## ⚡ Level Up
+##  Level Up
 
 This free skill gives you the frameworks. For industry-specific email sequences, outreach templates, and complete marketing playbooks tailored to your vertical:
 
@@ -51,7 +51,7 @@ This free skill gives you the frameworks. For industry-specific email sequences,
 
 Available for: SaaS, Ecommerce, Healthcare, Legal, Fintech, Construction, Real Estate, Recruitment, Manufacturing, Professional Services.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - **[afrexai-lead-scorer](https://clawhub.com/skills/afrexai-lead-scorer)** — Score and prioritize leads automatically
 - **[afrexai-seo-writer](https://clawhub.com/skills/afrexai-seo-writer)** — SEO content that ranks
@@ -63,4 +63,4 @@ Available for: SaaS, Ecommerce, Healthcare, Legal, Fintech, Construction, Real E
 
 ---
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

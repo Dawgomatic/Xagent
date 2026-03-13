@@ -8,9 +8,9 @@ A persistent, daemon-style task queue for OpenClaw agents. Tell the agent what y
 
 ## The Core Idea
 
-**Old design:** User sends tasks → agent runs them → done. ❌
+**Old design:** User sends tasks → agent runs them → done. 
 
-**New design:** User sends tasks → tasks go into a queue → dispatcher wakes up periodically → tasks execute in background → user gets notified. ✅
+**New design:** User sends tasks → tasks go into a queue → dispatcher wakes up periodically → tasks execute in background → user gets notified. 
 
 The agent is always ready for your next task, even if the last one hasn't finished yet.
 
@@ -47,7 +47,7 @@ I need you to:
 
 Agent responds:
 ```
-📋 Added 2 tasks to queue:
+ Added 2 tasks to queue:
 • T-01: Research top 5 open-source LLM frameworks
 • T-02: Create LLM framework comparison table at ~/reports/llm-frameworks.md
 
@@ -56,10 +56,10 @@ Queue now has 2 pending tasks. Dispatcher will pick these up shortly.
 
 Later that day (after dispatcher runs):
 ```
-✅ T-01 done — Researched 5 LLM frameworks: Ollama, LM Studio, llama.cpp, vLLM, Hugging Face TGI.
+ T-01 done — Researched 5 LLM frameworks: Ollama, LM Studio, llama.cpp, vLLM, Hugging Face TGI.
 Deliverable: summary saved for T-02 input.
 
-✅ T-02 done — Comparison table created at ~/reports/llm-frameworks.md (5 frameworks, 8 criteria).
+ T-02 done — Comparison table created at ~/reports/llm-frameworks.md (5 frameworks, 8 criteria).
 ```
 
 ---
@@ -77,7 +77,7 @@ Added T-03: Verify ~/reports/llm-frameworks.md was created. Queue now has 1 pend
 
 Later:
 ```
-✅ T-03 done — File confirmed: ~/reports/llm-frameworks.md exists, 2.1KB, created 2026-02-17.
+ T-03 done — File confirmed: ~/reports/llm-frameworks.md exists, 2.1KB, created 2026-02-17.
 ```
 
 ---
@@ -95,7 +95,7 @@ Added T-04: Post LLM framework summary to #ai-team channel. Queue now has 1 pend
 
 Later:
 ```
-🚫 T-04 blocked after 3 attempts
+ T-04 blocked after 3 attempts
 
 What was tried:
 - Strategy 1: message tool → channel #ai-team not found in configured channels
@@ -122,12 +122,12 @@ retry T-04
 
 Agent (INTAKE):
 ```
-⏳ T-04 reset to pending. Queue now has 1 pending task.
+ T-04 reset to pending. Queue now has 1 pending task.
 ```
 
 Later:
 ```
-✅ T-04 done — Summary posted to #ai-research channel.
+ T-04 done — Summary posted to #ai-research channel.
 ```
 
 ---
@@ -145,13 +145,13 @@ what's in my task queue?
 
 Agent responds:
 ```
-📋 Task Queue — 4 total (0 pending, 0 running, 4 done, 0 blocked)
+ Task Queue — 4 total (0 pending, 0 running, 4 done, 0 blocked)
 
 ID    Status    Description
-T-01  ✅ done   Research top 5 LLM frameworks
-T-02  ✅ done   Create LLM framework comparison table
-T-03  ✅ done   Verify llm-frameworks.md was created
-T-04  ✅ done   Post summary to #ai-research
+T-01   done   Research top 5 LLM frameworks
+T-02   done   Create LLM framework comparison table
+T-03   done   Verify llm-frameworks.md was created
+T-04   done   Post summary to #ai-research
 ```
 
 ---
@@ -195,9 +195,9 @@ TASK_RUNNER_ARCHIVE_DAYS=7
 ## Task Lifecycle
 
 ```
-pending → running → done ✅
-                  ↘ blocked 🚫  (after maxRetries)
-           ↘ skipped ⏭️  (on user request)
+pending → running → done 
+                   blocked   (after maxRetries)
+            skipped   (on user request)
            
 blocked → pending  (after user says "retry T-NN")
 ```

@@ -60,11 +60,11 @@ print(shell.recv(4096).decode())
 
 ## Best Practices
 
-- ✅ 使用 paramiko 是 Windows/Linux 通用的最可靠方案
-- ✅ 始终使用 `paramiko.AutoAddPolicy()` 自动处理主机密钥
-- ⚠️ Windows OpenSSH 不支持某些 OpenSSH 语法
-- ⚠️ sshpass 仅限 Linux
-- ⚠️ plink 语法与 OpenSSH 不兼容
+-  使用 paramiko 是 Windows/Linux 通用的最可靠方案
+-  始终使用 `paramiko.AutoAddPolicy()` 自动处理主机密钥
+-  Windows OpenSSH 不支持某些 OpenSSH 语法
+-  sshpass 仅限 Linux
+-  plink 语法与 OpenSSH 不兼容
 
 ## Troubleshooting
 

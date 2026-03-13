@@ -72,7 +72,7 @@ print_tree() {
     
     # Check for circular dependency
     if [[ -n "${VISITED[$name]}" ]]; then
-        echo -e "${prefix}${YELLOW}⚠️  $name (circular!)${NC}"
+        echo -e "${prefix}${YELLOW}  $name (circular!)${NC}"
         return
     fi
     VISITED[$name]=1
@@ -136,7 +136,7 @@ print_tree() {
 }
 
 # Main
-echo -e "\n${GREEN}🌳 Skill Dependency Tree: $SKILL_NAME${NC}\n"
+echo -e "\n${GREEN} Skill Dependency Tree: $SKILL_NAME${NC}\n"
 
 print_tree "$SKILL_NAME" "" "true" "required"
 

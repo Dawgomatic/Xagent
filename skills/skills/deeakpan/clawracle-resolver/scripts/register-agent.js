@@ -5,11 +5,11 @@ const { ethers } = require('ethers');
 require('dotenv').config();
 
 async function main() {
-  console.log('🤖 Registering Agent...\n');
+  console.log(' Registering Agent...\n');
 
   // Use agent's private key from .env
   if (!process.env.CLAWRACLE_AGENT_KEY) {
-    console.error('❌ CLAWRACLE_AGENT_KEY not found in .env');
+    console.error(' CLAWRACLE_AGENT_KEY not found in .env');
     console.error('Please set CLAWRACLE_AGENT_KEY in your .env file');
     return;
   }
@@ -24,7 +24,7 @@ async function main() {
   
   // Agent info (must be set in .env)
   if (!process.env.YOUR_ERC8004_AGENT_ID) {
-    console.error('❌ YOUR_ERC8004_AGENT_ID not found in .env');
+    console.error(' YOUR_ERC8004_AGENT_ID not found in .env');
     console.error('Please set YOUR_ERC8004_AGENT_ID in your .env file');
     return;
   }
@@ -44,7 +44,7 @@ async function main() {
   try {
     const existingAgent = await agentRegistry.getAgent(wallet.address);
     if (existingAgent.isActive) {
-      console.log('ℹ️  Agent already registered:');
+      console.log('  Agent already registered:');
       console.log(`   Name: ${existingAgent.name}`);
       console.log(`   Endpoint: ${existingAgent.endpoint}`);
       console.log(`   Reputation: ${existingAgent.reputationScore}`);
@@ -59,13 +59,13 @@ async function main() {
   console.log(`MON Balance: ${ethers.formatEther(monBalance)} MON`);
   
   if (monBalance < ethers.parseEther('0.01')) {
-    console.error('❌ Insufficient MON for gas fees!');
+    console.error(' Insufficient MON for gas fees!');
     console.error('Please fund the agent wallet with MON tokens first');
     return;
   }
   
   // Register agent
-  console.log(`\n📝 Registering agent...`);
+  console.log(`\n Registering agent...`);
   console.log(`   Agent ID: ${agentId}`);
   console.log(`   Name: ${agentName}`);
   console.log(`   Endpoint: ${agentEndpoint}`);
@@ -73,16 +73,16 @@ async function main() {
   const tx = await agentRegistry.registerAgent(agentId, agentName, agentEndpoint);
   console.log('Transaction hash:', tx.hash);
   
-  console.log('⏳ Waiting for confirmation...');
+  console.log(' Waiting for confirmation...');
   const receipt = await tx.wait();
   
-  console.log('\n✅ Agent registered successfully!');
+  console.log('\n Agent registered successfully!');
   console.log(`   Block: ${receipt.blockNumber}`);
   console.log(`   Gas used: ${receipt.gasUsed.toString()}`);
   
   // Verify registration
   const agent = await agentRegistry.getAgent(wallet.address);
-  console.log('\n📋 Agent Details:');
+  console.log('\n Agent Details:');
   console.log(`   Address: ${agent.agentAddress}`);
   console.log(`   Name: ${agent.name}`);
   console.log(`   Endpoint: ${agent.endpoint}`);

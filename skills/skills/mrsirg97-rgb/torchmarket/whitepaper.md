@@ -409,7 +409,7 @@ CREATE → BONDING → COMPLETE → VOTE → MIGRATE → DEX
    │                                     │                  │
    │                              [TREASURY LENDING]  [MESSAGE BOARD]
    │                                     │
-   │                              BORROW ↔ REPAY
+   │                              BORROW  REPAY
    │                                     │
    │                                LIQUIDATION
    │
@@ -469,6 +469,6 @@ The individual pieces — bonding curves, treasuries, lending, governance — ar
 
 ---
 
-*© 2026 Brightside Solutions. All rights reserved.*
+* 2026 Brightside Solutions. All rights reserved.*
 
 [Terms](https://torch.market/terms) | [Privacy](https://torch.market/privacy) | [torch.market](https://torch.market)

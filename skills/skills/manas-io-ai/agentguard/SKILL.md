@@ -162,11 +162,11 @@ agentguard trust add api.newservice.com --reason "Required for X integration"
 
 | Level | Color | Meaning | Example |
 |-------|-------|---------|---------|
-| INFO | 🔵 | Normal logged activity | File read in workspace |
-| LOW | 🟢 | Minor deviation | Slightly elevated API calls |
-| MEDIUM | 🟡 | Notable anomaly | Access to .env file |
-| HIGH | 🟠 | Potential threat | Bulk credential access |
-| CRITICAL | 🔴 | Immediate action needed | Data exfiltration pattern |
+| INFO |  | Normal logged activity | File read in workspace |
+| LOW |  | Minor deviation | Slightly elevated API calls |
+| MEDIUM |  | Notable anomaly | Access to .env file |
+| HIGH |  | Potential threat | Bulk credential access |
+| CRITICAL |  | Immediate action needed | Data exfiltration pattern |
 
 ---
 

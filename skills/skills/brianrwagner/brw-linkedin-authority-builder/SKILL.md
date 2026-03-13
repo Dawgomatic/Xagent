@@ -237,12 +237,12 @@ A complete LinkedIn strategy doc:
 
 ## What Not to Do
 
-❌ Posting only about yourself and your company
-❌ Inspirational quotes with no substance
-❌ Engagement bait ("Comment YES if you agree!")
-❌ Posting once then disappearing for 3 weeks
-❌ Only broadcasting, never engaging
-❌ Walls of text with no formatting
+ Posting only about yourself and your company
+ Inspirational quotes with no substance
+ Engagement bait ("Comment YES if you agree!")
+ Posting once then disappearing for 3 weeks
+ Only broadcasting, never engaging
+ Walls of text with no formatting
 
 ---
 

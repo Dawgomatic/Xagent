@@ -92,7 +92,7 @@ async function restoreArchive(archivePath, targetDir, password) {
           // Security: Block absolute paths and parent directory traversal
           const normalizedPath = path.replace(/\\/g, '/');
           if (normalizedPath.startsWith('/') || normalizedPath.includes('..')) {
-            console.warn(`🚨 Security: Blocked suspicious path in archive: ${path}`);
+            console.warn(` Security: Blocked suspicious path in archive: ${path}`);
             return false;
           }
           return true;
@@ -105,7 +105,7 @@ async function restoreArchive(archivePath, targetDir, password) {
       decipher.on('error', () => reject(new Error('Decryption failed (Wrong password or corrupted archive)')));
       extractor.on('error', reject);
       extractor.on('end', () => {
-        console.log('🔓 Decryption & Extraction complete.');
+        console.log(' Decryption & Extraction complete.');
         resolve();
       });
 
@@ -141,7 +141,7 @@ async function fixPaths(targetDir) {
   const manifestPath = path.join(targetDir, 'manifest.json');
 
   if (fs.existsSync(configPath)) {
-    console.log('🔧 Running deep path healing on openclaw.json...');
+    console.log(' Running deep path healing on openclaw.json...');
     const json = await fs.readJson(configPath);
     const manifest = fs.existsSync(manifestPath) ? await fs.readJson(manifestPath) : {};
 
@@ -152,7 +152,7 @@ async function fixPaths(targetDir) {
 
     // 1. Heal based on HOME directory change
     if (oldHome && oldHome !== newHome) {
-      console.log(`🏠 Home directory changed: ${oldHome} -> ${newHome}`);
+      console.log(` Home directory changed: ${oldHome} -> ${newHome}`);
       fixedJson = deepReplacePaths(fixedJson, oldHome, newHome);
     }
 
@@ -161,7 +161,7 @@ async function fixPaths(targetDir) {
     const oldWorkspace = manifest?.workspace;
     const newWorkspace = path.join(targetDir, 'clawd');
     if (oldWorkspace && oldWorkspace !== newWorkspace) {
-       console.log(`📂 Workspace relocated: ${oldWorkspace} -> ${newWorkspace}`);
+       console.log(` Workspace relocated: ${oldWorkspace} -> ${newWorkspace}`);
        // Only replace if it's explicitly the workspace path to avoid accidental string collisions
        if (fixedJson.agents?.defaults?.workspace === oldWorkspace || 
            fixedJson.agents?.defaults?.workspace === deepReplacePaths(oldWorkspace, oldHome, newHome)) {
@@ -170,7 +170,7 @@ async function fixPaths(targetDir) {
     }
 
     await fs.writeJson(configPath, fixedJson, { spaces: 2 });
-    console.log('✅ Path healing complete.');
+    console.log(' Path healing complete.');
   }
 }
 
@@ -189,8 +189,8 @@ if (require.main === module) {
 
     restoreArchive(archive, dest, pass)
         .then(() => fixPaths(dest))
-        .then(() => console.log("✅ Restore Done."))
-        .catch(err => console.error("❌ Failed:", err));
+        .then(() => console.log(" Restore Done."))
+        .catch(err => console.error(" Failed:", err));
 }
 
 module.exports = { restoreArchive, fixPaths };

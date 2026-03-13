@@ -61,7 +61,7 @@ def main():
             log("Gateway is healthy after restart")
             log_entry(log_path, "ok", "gateway healthy")
             notify(notif, config, oc_bin,
-                   "✅ OpenClaw restart succeeded.\nGateway is healthy and ready.")
+                   " OpenClaw restart succeeded.\nGateway is healthy and ready.")
             cleanup_lock(lock_path)
             sys.exit(0)
 
@@ -73,7 +73,7 @@ def main():
             # Run diagnostics
             diag_output = run_diagnostics(oc_bin, diag_commands)
             msg = (
-                f"❌ OpenClaw restart timed out ({timeout}s).\n"
+                f" OpenClaw restart timed out ({timeout}s).\n"
                 f"Gateway did not become healthy.\n\n"
                 f"Diagnostics:\n{diag_output[:1500]}"
             )

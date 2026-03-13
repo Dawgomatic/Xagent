@@ -17,7 +17,7 @@ import axios from "axios";
 const API_KEY = process.env.OPENSERV_API_KEY;
 
 if (!API_KEY) {
-  console.error("❌ OPENSERV_API_KEY not set. Run get-api-key.ts first.");
+  console.error(" OPENSERV_API_KEY not set. Run get-api-key.ts first.");
   process.exit(1);
 }
 
@@ -50,14 +50,14 @@ async function main() {
   }
 
   // 1. Fetch the idea to see current state
-  console.log(`📖 Fetching idea: ${ideaId}\n`);
+  console.log(` Fetching idea: ${ideaId}\n`);
 
   let idea;
   try {
     const { data } = await api.get(`/ideas/${ideaId}`);
     idea = data;
   } catch {
-    console.error("❌ Idea not found");
+    console.error(" Idea not found");
     process.exit(1);
   }
 
@@ -76,15 +76,15 @@ async function main() {
   console.log(`  - In progress: ${inProgress.length}`);
 
   // 2. Pick up the idea
-  console.log("\n🔨 Picking up idea...");
+  console.log("\n Picking up idea...");
   try {
     await api.post(`/ideas/${ideaId}/pickup`, {});
-    console.log("✅ Picked up!");
+    console.log(" Picked up!");
   } catch (error) {
     if (axios.isAxiosError(error) && error.response?.status === 409) {
-      console.log("ℹ️  Already picked up this idea. Proceeding to ship...");
+      console.log("  Already picked up this idea. Proceeding to ship...");
     } else if (axios.isAxiosError(error)) {
-      console.error("❌ Failed to pick up:", error.response?.data?.message);
+      console.error(" Failed to pick up:", error.response?.data?.message);
       process.exit(1);
     } else {
       throw error;
@@ -92,7 +92,7 @@ async function main() {
   }
 
   // 3. Build your service (placeholder — in reality you'd deploy your agent here)
-  console.log("\n⚙️  Building your service...");
+  console.log("\n  Building your service...");
   console.log(
     "   (In a real scenario, deploy your agent and get your x402 URL)",
   );
@@ -102,12 +102,12 @@ async function main() {
   const demoUrl = "https://demo.example.com";
   const repoUrl = "https://github.com/org/repo";
 
-  console.log("\n🚀 Shipping...");
+  console.log("\n Shipping...");
   try {
     await api.post(`/ideas/${ideaId}/ship`, {
       content: `Live at ${x402Url} (x402 payable). Demo: ${demoUrl} | Repo: ${repoUrl}`,
     });
-    console.log("✅ Shipped!");
+    console.log(" Shipped!");
     console.log(
       "\nYour service is now listed on the idea. Users can find and pay for it.",
     );
@@ -115,9 +115,9 @@ async function main() {
     if (axios.isAxiosError(error)) {
       const message = error.response?.data?.message;
       if (message?.includes("already shipped")) {
-        console.log("ℹ️  Already shipped this idea.");
+        console.log("  Already shipped this idea.");
       } else {
-        console.error("❌ Failed to ship:", message);
+        console.error(" Failed to ship:", message);
         process.exit(1);
       }
     } else {

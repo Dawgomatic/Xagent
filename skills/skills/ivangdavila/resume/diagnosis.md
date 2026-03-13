@@ -75,10 +75,10 @@ When comparing resume to target role:
 ```
 Required by role    | In resume | Status
 --------------------|-----------|--------
-Python 5+ years     | 3 years   | ⚠️ Short — can reframe?
-AWS certification   | None      | ❌ Hard gap
-Team leadership     | Yes       | ✅ Covered
-Agile experience    | Implied   | 🟡 Make explicit
+Python 5+ years     | 3 years   |  Short — can reframe?
+AWS certification   | None      |  Hard gap
+Team leadership     | Yes       |  Covered
+Agile experience    | Implied   |  Make explicit
 ```
 
 For hard gaps:

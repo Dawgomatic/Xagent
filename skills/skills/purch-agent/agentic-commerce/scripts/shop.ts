@@ -104,7 +104,7 @@ Example:
   const options = parseArgs(args);
 
   if (!options.message) {
-    console.error("❌ Error: Message is required");
+    console.error(" Error: Message is required");
     process.exit(1);
   }
 
@@ -125,31 +125,31 @@ Example:
     }
 
     if (result.reply) {
-      console.log(`🤖 ${result.reply}`);
+      console.log(` ${result.reply}`);
       console.log();
     }
 
-    console.log(`📦 Found ${result.products.length} products`);
+    console.log(` Found ${result.products.length} products`);
     console.log("-".repeat(60));
 
     result.products.forEach((product, i) => {
       const title = product.title.slice(0, 50);
       console.log(`${i + 1}. ${title}`);
-      console.log(`   💰 ${product.currency} ${product.price} | ⭐ ${product.rating ?? "N/A"} | 🏷️ ${product.source}`);
+      console.log(`    ${product.currency} ${product.price} |  ${product.rating ?? "N/A"} |  ${product.source}`);
 
       if (product.source === "amazon") {
-        console.log(`   🛒 ASIN: ${product.asin}`);
+        console.log(`    ASIN: ${product.asin}`);
       } else {
         // Shopify
         const variantId = product.variantId || extractVariantId(product.productUrl) || "N/A";
         const cleanUrl = product.productUrl?.split("?")[0] || "N/A";
-        console.log(`   🛒 URL: ${cleanUrl}`);
-        console.log(`   🔖 Variant ID: ${variantId}`);
+        console.log(`    URL: ${cleanUrl}`);
+        console.log(`    Variant ID: ${variantId}`);
       }
       console.log();
     });
   } catch (error) {
-    console.error(`❌ Error: ${error}`);
+    console.error(` Error: ${error}`);
     process.exit(1);
   }
 }

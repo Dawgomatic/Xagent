@@ -157,14 +157,14 @@ if (require.main === module) {
   });
 
   async function interactive() {
-    console.log('\n🎬 短视频文案生成器\n');
+    console.log('\n 短视频文案生成器\n');
     
-    const topic = await ask('📝 请输入视频主题: ');
-    const platform = await choose('📱 选择平台: ', ['douyin', 'xiaohongshu', 'kuaishou', 'bilibili']);
-    const tone = await choose('🎨 选择风格: ', ['professional', 'casual', 'humor', 'heartwarming']);
-    const length = await choose('📏 选择长度: ', ['short', 'medium', 'long']);
+    const topic = await ask(' 请输入视频主题: ');
+    const platform = await choose(' 选择平台: ', ['douyin', 'xiaohongshu', 'kuaishou', 'bilibili']);
+    const tone = await choose(' 选择风格: ', ['professional', 'casual', 'humor', 'heartwarming']);
+    const length = await choose(' 选择长度: ', ['short', 'medium', 'long']);
 
-    console.log('\n✨ 正在生成...\n');
+    console.log('\n 正在生成...\n');
 
     const result = await generateShortVideoCopy({
       topic,
@@ -174,13 +174,13 @@ if (require.main === module) {
     });
 
     console.log('='.repeat(50));
-    console.log('\n🎯 开头金句：');
+    console.log('\n 开头金句：');
     console.log(result.hook);
-    console.log('\n📝 正文内容：');
+    console.log('\n 正文内容：');
     console.log(result.body);
-    console.log('\n🏷️ 推荐标签：');
+    console.log('\n 推荐标签：');
     console.log(result.hashtags.join(' '));
-    console.log('\n💡 发布建议：');
+    console.log('\n 发布建议：');
     console.log(result.tips);
     console.log('\n' + '='.repeat(50));
 

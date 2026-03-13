@@ -2,7 +2,7 @@
 
 ## v1.2.2 (2026-01-26)
 
-### 🧹 Repository Cleanup & Focus
+###  Repository Cleanup & Focus
 
 **Removed old MCP server files** - Now using dedicated MCP server repo for Claude Desktop users:
 - Removed `CLAUDE_DESKTOP.md` (old MCP setup docs)
@@ -27,7 +27,7 @@
 
 ## v1.2.0 (2026-01-26)
 
-### 🚀 Major Feature: MCP Server for Claude Desktop & Code
+###  Major Feature: MCP Server for Claude Desktop & Code
 
 **NEW: Works with Claude Desktop, Claude Code, and any MCP client!**
 
@@ -43,10 +43,10 @@
 - Added `mcp` to requirements.txt
 
 **Now you can use this skill with:**
-- ✅ Clawdbot (original)
-- ✅ Claude Desktop (new!)
-- ✅ Claude Code / VS Code extension (new!)
-- ✅ Any MCP-compatible client (new!)
+-  Clawdbot (original)
+-  Claude Desktop (new!)
+-  Claude Code / VS Code extension (new!)
+-  Any MCP-compatible client (new!)
 
 ## v1.1.5 (2026-01-25)
 
@@ -72,7 +72,7 @@
 
 ## v1.1.0 (2026-01-25)
 
-### 🚀 Major Features
+###  Major Features
 
 **Time-Based Queries**
 - New `garmin_query.py` script for time-based questions

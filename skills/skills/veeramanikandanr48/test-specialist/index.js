@@ -1,5 +1,5 @@
 export default async function test_specialist(input) {
-  console.log("🧠 Running skill: test-specialist");
+  console.log(" Running skill: test-specialist");
   
   // TODO: implement actual logic for this skill
   return {

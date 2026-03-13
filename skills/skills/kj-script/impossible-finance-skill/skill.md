@@ -117,7 +117,7 @@ npm install ethers
 
 The agent needs a local wallet file containing a **private key** and **public address** so it can sign transactions. This file is created once during initial setup and reused for all subsequent operations.
 
-> **⚠️ Security:** The wallet file contains sensitive key material. See the [Security Notes](#7-security-notes) section for encryption and file permission best practices. Only use a dedicated, small-balance wallet — never your main funds.
+> ** Security:** The wallet file contains sensitive key material. See the [Security Notes](#7-security-notes) section for encryption and file permission best practices. Only use a dedicated, small-balance wallet — never your main funds.
 
 ### Option A: Using Node.js (recommended)
 

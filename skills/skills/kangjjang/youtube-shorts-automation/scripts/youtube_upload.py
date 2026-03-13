@@ -75,7 +75,7 @@ def upload_video(youtube, file_path, title, description, tags=None, category="22
             print(f"  진행: {int(status.progress() * 100)}%")
 
     video_id = response["id"]
-    print(f"✅ 업로드 완료! https://youtube.com/shorts/{video_id}")
+    print(f" 업로드 완료! https://youtube.com/shorts/{video_id}")
     return video_id
 
 

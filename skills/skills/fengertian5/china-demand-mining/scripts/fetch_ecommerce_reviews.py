@@ -90,7 +90,7 @@ class EcommerceReviewFetcher:
                 "data": reviews
             }, f, ensure_ascii=False, indent=2)
         
-        print(f"✅ 已保存 {len(reviews)} 条电商差评到 {output_path}")
+        print(f" 已保存 {len(reviews)} 条电商差评到 {output_path}")
 
 def main():
     parser = argparse.ArgumentParser(description='抓取电商差评数据')

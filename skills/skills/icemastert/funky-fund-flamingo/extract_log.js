@@ -30,8 +30,8 @@ const OUT_FILE = path.resolve(__dirname, '../../evolution_history.md');
 // Regex Patterns
 // -----------------------------------------------------------------------------
 
-// 🧬 Cycle Start: Sun Feb  1 19:17:44 UTC 2026
-const CYCLE_START_REGEX = /🧬 Cycle Start:\s*(.*)$/;
+//  Cycle Start: Sun Feb  1 19:17:44 UTC 2026
+const CYCLE_START_REGEX = / Cycle Start:\s*(.*)$/;
 
 // node skills/feishu-card/send.js --title "..." --color ... --text "..."
 const FEISHU_CMD_REGEX =
@@ -96,7 +96,7 @@ function toCST(date) {
 
 function parseLog() {
     if (!exists(LOG_FILE)) {
-        console.log('⚠️  Funky Fund Flamingo evolution log not found.');
+        console.log('  Funky Fund Flamingo evolution log not found.');
         return;
     }
 
@@ -170,7 +170,7 @@ function parseLog() {
     // Markdown Generation
     // ---------------------------------------------------------------------------
 
-    let md = `# 🧬 Evolution History (Funky Fund Flamingo Extracted)
+    let md = `#  Evolution History (Funky Fund Flamingo Extracted)
 
 > This document is auto-generated from the Funky Fund Flamingo prompt log.
 > It reflects the *intended evolution reports* produced by the system.
@@ -191,7 +191,7 @@ function parseLog() {
 
     write(OUT_FILE, md);
 
-    console.log('✅ Funky Fund Flamingo evolution history extracted.');
+    console.log(' Funky Fund Flamingo evolution history extracted.');
     console.log(`• Cycles captured: ${ordered.length}`);
     console.log(`• Output file: ${OUT_FILE}`);
 }

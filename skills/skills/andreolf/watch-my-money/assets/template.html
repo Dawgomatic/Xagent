@@ -420,20 +420,20 @@
     
     <!-- CONTROLS -->
     <div class="controls">
-        <button class="control-btn" onclick="togglePrivacy()">🔒 Privacy</button>
+        <button class="control-btn" onclick="togglePrivacy()"> Privacy</button>
         <button class="control-btn" onclick="expandAll()">Expand All</button>
     </div>
     
     <!-- ALERTS SECTION -->
     <div class="alerts-section {{ALERTS_EMPTY_CLASS}}" id="alerts-section">
         <div class="section-header" onclick="this.parentElement.classList.toggle('collapsed')">
-            <span class="section-title">⚠️ Alerts</span>
+            <span class="section-title"> Alerts</span>
             <span class="section-count">{{ALERTS_COUNT}} alerts</span>
         </div>
         <div class="section-content">
             <!-- TEMPLATE: Alert Card
             <div class="alert-card">
-                <span class="alert-icon warning">⚡</span>
+                <span class="alert-icon warning"></span>
                 <div class="alert-content">
                     <div class="alert-title">Alert Title</div>
                     <div class="alert-detail">Alert detail message</div>
@@ -447,7 +447,7 @@
     <!-- CATEGORIES SECTION -->
     <div class="section" id="categories-section">
         <div class="section-header" onclick="this.parentElement.classList.toggle('collapsed')">
-            <span class="section-title">📊 Categories</span>
+            <span class="section-title"> Categories</span>
             <span class="section-count">{{CATEGORIES_COUNT}} categories</span>
         </div>
         <div class="section-content">
@@ -482,7 +482,7 @@
     <!-- TOP MERCHANTS SECTION -->
     <div class="section" id="merchants-section">
         <div class="section-header" onclick="this.parentElement.classList.toggle('collapsed')">
-            <span class="section-title">🏪 Top Merchants</span>
+            <span class="section-title"> Top Merchants</span>
             <span class="section-count">by spend</span>
         </div>
         <div class="section-content">
@@ -512,15 +512,15 @@
     </div>
     
     <!-- FLOATING BUTTON -->
-    <button class="floating-btn" onclick="copySummary()">📋 Copy Summary</button>
+    <button class="floating-btn" onclick="copySummary()"> Copy Summary</button>
     
     <script>
         function togglePrivacy() {
             document.body.classList.toggle('privacy-mode');
             const btn = document.querySelector('.control-btn');
             btn.textContent = document.body.classList.contains('privacy-mode') 
-                ? '🔓 Show' 
-                : '🔒 Privacy';
+                ? ' Show' 
+                : ' Privacy';
         }
         
         function expandAll() {
@@ -543,7 +543,7 @@
                 btn.textContent = '✓ Copied!';
                 setTimeout(() => {
                     btn.classList.remove('copied');
-                    btn.textContent = '📋 Copy Summary';
+                    btn.textContent = ' Copy Summary';
                 }, 1500);
             });
         }

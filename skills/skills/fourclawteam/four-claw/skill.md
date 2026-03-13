@@ -1,10 +1,10 @@
-# 🚀 FourClaw API Skill Documentation
+#  FourClaw API Skill Documentation
 
 Launch tokens on **Solana (BAGS)** or **BNB Chain (FLAP)** directly via API.
 
 ---
 
-## 📡 **Endpoint**
+##  **Endpoint**
 
 ```
 POST https://fourclaw.fun/api/launch
@@ -14,7 +14,7 @@ POST https://fourclaw.fun/api/launch
 
 ---
 
-## 🎯 **Quick Examples**
+##  **Quick Examples**
 
 ### **BAGS (Solana) - Simple**
 ```json
@@ -44,18 +44,18 @@ POST https://fourclaw.fun/api/launch
 
 ---
 
-## 📋 **Complete Parameters**
+##  **Complete Parameters**
 
 ### **Common Parameters (Both Platforms)**
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `platform` | string | ✅ Yes | `"BAGS"` or `"FLAP"` |
-| `name` | string | ✅ Yes | Token name (1-64 chars) |
-| `symbol` | string | ✅ Yes | Token ticker (2-10 chars, uppercase) |
-| `agentId` | string | ✅ Yes | Your agent/app identifier |
-| `agentName` | string | ✅ Yes | Agent display name |
-| `creatorWallet` | string | ✅ Yes | Wallet to receive tokens |
+| `platform` | string |  Yes | `"BAGS"` or `"FLAP"` |
+| `name` | string |  Yes | Token name (1-64 chars) |
+| `symbol` | string |  Yes | Token ticker (2-10 chars, uppercase) |
+| `agentId` | string |  Yes | Your agent/app identifier |
+| `agentName` | string |  Yes | Agent display name |
+| `creatorWallet` | string |  Yes | Wallet to receive tokens |
 | `description` | string | No | Token description |
 | `imageUrl` | string | No | Token logo URL |
 | `twitter` | string | No | Twitter/X handle (with or without @) |
@@ -93,7 +93,7 @@ No additional parameters required! BAGS uses automatic Partner PDA:
 
 ---
 
-## 💰 **Recipients Array (FLAP Split Vault)**
+##  **Recipients Array (FLAP Split Vault)**
 
 Control how tax revenue is distributed.
 
@@ -177,27 +177,27 @@ Control how tax revenue is distributed.
 **Used as-is:**
 - First: 50%
 - Second: 30%
-- Platform: 20% ✅
+- Platform: 20% 
 
 ---
 
 ### **Recipients Rules**
 
-✅ **Requirements:**
+ **Requirements:**
 - 1-10 recipients maximum
 - Each address must be non-zero
 - All addresses must be unique
 - BPS must be positive integers
 - Total BPS must equal 10,000
 
-🔒 **Platform Fee:**
+ **Platform Fee:**
 - Platform **always gets 20%** (2,000 BPS minimum)
 - If not included: auto-adjusted
 - If included but < 2,000: **rejected**
 
 ---
 
-## 🎁 **Gift Vault (FLAP)**
+##  **Gift Vault (FLAP)**
 
 Instead of split, make vault claimable by X/Twitter handle:
 
@@ -218,7 +218,7 @@ Instead of split, make vault claimable by X/Twitter handle:
 
 ---
 
-## 📊 **Response Format**
+##  **Response Format**
 
 ### **Success Response**
 ```json
@@ -246,7 +246,7 @@ Instead of split, make vault claimable by X/Twitter handle:
 
 ---
 
-## ⚠️ **Rate Limits**
+##  **Rate Limits**
 
 Per agent ID:
 - **10 launches per hour**
@@ -263,7 +263,7 @@ Exceeded limits return:
 
 ---
 
-## 🔍 **Status Checking**
+##  **Status Checking**
 
 Check launch status:
 ```
@@ -288,7 +288,7 @@ GET https://fourclaw.fun/api/launch/status/{jobId}
 
 ---
 
-## 💡 **Complete Examples**
+##  **Complete Examples**
 
 ### **Example 1: BAGS - Basic**
 ```bash
@@ -411,7 +411,7 @@ curl -X POST https://fourclaw.fun/api/launch \
 
 ---
 
-## ❌ **Common Errors**
+##  **Common Errors**
 
 ### **Invalid Wallet**
 ```json
@@ -445,16 +445,16 @@ curl -X POST https://fourclaw.fun/api/launch \
 
 ---
 
-## 🎯 **Best Practices**
+##  **Best Practices**
 
-✅ **DO:**
+ **DO:**
 - Use unique agentId per app/agent
 - Validate wallet addresses before sending
 - Let platform fee auto-adjust (don't specify recipients unless needed)
 - Check status endpoint for launch progress
 - Handle rate limits gracefully
 
-❌ **DON'T:**
+ **DON'T:**
 - Hardcode API keys (not needed!)
 - Try to bypass 20% platform fee
 - Use same agentId for multiple users
@@ -462,7 +462,7 @@ curl -X POST https://fourclaw.fun/api/launch \
 
 ---
 
-## 📞 **Support**
+##  **Support**
 
 - **Documentation:** https://fourclaw.fun/fourclaw/docs
 - **Status Endpoint:** `/api/launch/status/{jobId}`
@@ -470,7 +470,7 @@ curl -X POST https://fourclaw.fun/api/launch \
 
 ---
 
-## ✅ **Summary**
+##  **Summary**
 
 **BAGS (Solana):**
 - Simple: Just wallet, name, symbol
@@ -489,4 +489,4 @@ curl -X POST https://fourclaw.fun/api/launch \
 
 ---
 
-**Start launching tokens now!** 🚀
+**Start launching tokens now!** 

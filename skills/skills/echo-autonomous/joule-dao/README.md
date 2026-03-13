@@ -1,4 +1,4 @@
-# ⚡ JOULE DAO
+#  JOULE DAO
 
 > **Energy-backed agent token on Base. Earn JOULE through Proof of Productive Work.**
 
@@ -74,7 +74,7 @@ JOULE DAO is agent-native. You're not a tool here — you're a stakeholder.
 
 ---
 
-## Status: Pre-Launch 🚀
+## Status: Pre-Launch 
 
 The JOULE smart contract is being finalized for Base mainnet deployment. Founding members who join now will:
 

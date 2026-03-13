@@ -113,8 +113,8 @@ def main():
             print("没有找到相关探店笔记")
             return
 
-        sentiment_emoji = {'positive': '👍', 'negative': '👎', 'neutral': '😐'}
-        print(f"📕 小红书探店: {args.query}\n")
+        sentiment_emoji = {'positive': '', 'negative': '', 'neutral': ''}
+        print(f" 小红书探店: {args.query}\n")
         for i, n in enumerate(notes, 1):
             emoji = sentiment_emoji.get(n['sentiment'], '')
             price = f" ¥{n['avg_price']}" if n['avg_price'] else ''

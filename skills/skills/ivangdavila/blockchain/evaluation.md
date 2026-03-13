@@ -2,14 +2,14 @@
 
 ## When to Use Blockchain
 
-### ✅ USE When:
+###  USE When:
 - **Multiple parties** need shared truth (≥3 organizations)
 - **No single trusted authority** exists or is acceptable
 - **Immutability** is critical (audit, compliance, legal)
 - **Transparency between competitors** creates value
 - **Settlement/reconciliation** currently costs millions
 
-### ❌ DON'T USE When:
+###  DON'T USE When:
 - Single organization controls all data → **Use a database**
 - You trust a central authority → **Traditional SaaS**
 - High-frequency, low-value transactions → **Standard infra**

@@ -76,7 +76,7 @@ export class ManualQAFallback {
    * Analyze answers to determine personality type
    */
   async analyze(answers: ManualAnswer[]): Promise<ManualQAResult> {
-    console.log('🤔 Analyzing manual Q&A responses...');
+    console.log(' Analyzing manual Q&A responses...');
 
     // Score each personality type
     const scores: Record<PersonalityType, number> = {
@@ -112,7 +112,7 @@ export class ManualQAFallback {
     // Generate result
     const result = this.generateResult(dominantType, answers);
 
-    console.log(`✅ Determined personality: ${dominantType} (confidence: ${result.confidence}%)`);
+    console.log(` Determined personality: ${dominantType} (confidence: ${result.confidence}%)`);
 
     return result;
   }
@@ -173,7 +173,7 @@ export class ManualQAFallback {
    * Format questions for display to user
    */
   formatQuestionsForUser(): string {
-    let message = '🤔 Let me ask you a few quick questions to understand your interests:\n\n';
+    let message = ' Let me ask you a few quick questions to understand your interests:\n\n';
 
     MANUAL_QUESTIONS.forEach((q, index) => {
       message += `**Question ${index + 1}**: ${q.question}\n`;

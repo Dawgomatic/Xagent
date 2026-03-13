@@ -36,15 +36,15 @@ openclaw skills search "image" --detailed
 ```
 Found 15 skills matching "image":
 
-1. image-generator-pro (⭐ 4.8, 2.3K installs)
+1. image-generator-pro ( 4.8, 2.3K installs)
    Generate images with DALL-E, Stable Diffusion, Midjourney
    openclaw skills install image-generator-pro
 
-2. image-optimizer (⭐ 4.5, 1.5K installs)
+2. image-optimizer ( 4.5, 1.5K installs)
    Compress and optimize images (PNG, JPG, WebP)
    openclaw skills install image-optimizer
 
-3. image-to-text (⭐ 4.3, 890 installs)
+3. image-to-text ( 4.3, 890 installs)
    OCR and text extraction from images
    openclaw skills install image-to-text
 ```
@@ -91,7 +91,7 @@ Installed Skills (12):
 ✓ image-generator-pro (v2.1.0)  - AI
 ✓ pdf-tools (v1.5.2)            - Utilities
 ✓ automation-helper (v3.0.1)    - Automation
-⚠ web-scraper (v1.2.0 → v1.3.0) - Utilities [UPDATE AVAILABLE]
+ web-scraper (v1.2.0 → v1.3.0) - Utilities [UPDATE AVAILABLE]
 ✗ broken-skill (v0.5.0)         - Error: missing dependency
 ```
 
@@ -147,7 +147,7 @@ openclaw skills deps image-generator-pro
 Skill: image-generator-pro
 Version: 2.1.0
 Author: ClawHub Community
-Rating: ⭐⭐⭐⭐⭐ (4.8/5.0, 2,340 installs)
+Rating:  (4.8/5.0, 2,340 installs)
 Category: AI
 License: MIT
 
@@ -434,11 +434,11 @@ openclaw skills install-from-list skills-backup.json
 ## Skill Quality Guidelines
 
 ### Rating System
-- ⭐⭐⭐⭐⭐ (5.0) - Exceptional quality, well-maintained
-- ⭐⭐⭐⭐ (4.0) - Good quality, recommended
-- ⭐⭐⭐ (3.0) - Average, usable with minor issues
-- ⭐⭐ (2.0) - Below average, use with caution
-- ⭐ (1.0) - Poor quality, not recommended
+-  (5.0) - Exceptional quality, well-maintained
+-  (4.0) - Good quality, recommended
+-  (3.0) - Average, usable with minor issues
+-  (2.0) - Below average, use with caution
+-  (1.0) - Poor quality, not recommended
 
 ### Quality Indicators
 ```bash
@@ -451,7 +451,7 @@ Quality Report:
 ✓ Well documented
 ✓ Has tests
 ✓ Good community support (50+ reviews)
-⚠ Large dependency tree (15 deps)
+ Large dependency tree (15 deps)
 ✗ No CI/CD configured
 ```
 

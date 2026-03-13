@@ -109,15 +109,15 @@ def main():
     
     vcf_path = Path(sys.argv[1])
     if not vcf_path.exists():
-        print(f"❌ File not found: {vcf_path}")
+        print(f" File not found: {vcf_path}")
         return
     
     if not DB_PATH.exists():
-        print(f"❌ Database not found: {DB_PATH}")
+        print(f" Database not found: {DB_PATH}")
         print("   Run init_db.py first")
         return
     
-    print(f"📥 Importing contacts from {vcf_path.name}")
+    print(f" Importing contacts from {vcf_path.name}")
     
     # Parse VCF
     contacts = parse_vcf(vcf_path)
@@ -137,7 +137,7 @@ def main():
     
     conn.close()
     
-    print(f"\n✅ Import complete:")
+    print(f"\n Import complete:")
     print(f"   Updated with names: {updated}")
     print(f"   New contacts added: {new}")
     print(f"   Total contacts: {total}")

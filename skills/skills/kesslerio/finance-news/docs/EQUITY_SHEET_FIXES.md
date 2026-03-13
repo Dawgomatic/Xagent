@@ -93,10 +93,10 @@ service.spreadsheets().values().update(
 ### Impact
 
 Fixing NRR ranges will:
-- ✅ Eliminate #VALUE! errors in MSS Score column (Y)
-- ✅ Eliminate #VALUE! errors in MSS Rating column (Z)
-- ✅ Allow proper numerical analysis and sorting
-- ✅ Make formulas copyable to new rows without errors
+-  Eliminate #VALUE! errors in MSS Score column (Y)
+-  Eliminate #VALUE! errors in MSS Rating column (Z)
+-  Allow proper numerical analysis and sorting
+-  Make formulas copyable to new rows without errors
 
 ### How MSS Formula Handles Blank NRR Values
 

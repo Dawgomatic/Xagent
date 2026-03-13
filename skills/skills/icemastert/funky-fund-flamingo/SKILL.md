@@ -6,7 +6,7 @@ homepage: https://clawhub.ai
 metadata:
   short-description: Get paid. Evolve. Repeat.
   clawdbot:
-    emoji: "🦩"
+    emoji: ""
     requires:
       env: []   # all env vars below are optional
     files: ["index.js", "evolve.js", "agents/*.yaml", "ADL.md", "VFM.md", "TREE.md"]
@@ -20,7 +20,7 @@ tags:
   - cash-money
 ---
 
-# 🦩 Funky Fund Flamingo — Make That Paper
+#  Funky Fund Flamingo — Make That Paper
 
 Use this skill when you're ready to **get paid**. We inspect reality, kill breakage and value leaks, and run mutation cycles that produce **concrete gains** — so the stack earns, not just runs.
 
@@ -131,4 +131,4 @@ node index.js --help
 ```
 
 ---
-*Dolla, dolla bill y'all. 🦩*
+*Dolla, dolla bill y'all. *

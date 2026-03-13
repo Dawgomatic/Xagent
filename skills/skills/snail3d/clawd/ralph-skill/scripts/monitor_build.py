@@ -65,12 +65,12 @@ class BuildMonitor:
         is_running = self.check_session_status()
         files_changed = self.check_file_changes(watch_dir)
         
-        print(f"\n📊 BUILD STATUS CHECK", file=sys.stderr)
-        print(f"⏱️  Session: {self.session_id[:12]}...", file=sys.stderr)
-        print(f"{'🟢 RUNNING' if is_running else '🔴 STOPPED'}", file=sys.stderr)
+        print(f"\n BUILD STATUS CHECK", file=sys.stderr)
+        print(f"  Session: {self.session_id[:12]}...", file=sys.stderr)
+        print(f"{' RUNNING' if is_running else ' STOPPED'}", file=sys.stderr)
         
         if files_changed:
-            print(f"📝 Recent files ({len(files_changed)}):", file=sys.stderr)
+            print(f" Recent files ({len(files_changed)}):", file=sys.stderr)
             for fname in files_changed[:5]:
                 print(f"   - {Path(fname).name}", file=sys.stderr)
             if len(files_changed) > 5:
@@ -79,7 +79,7 @@ class BuildMonitor:
         # Show recent output snippet
         log = self.get_session_log(5)
         if log and "thinking" not in log.lower():
-            print(f"💬 Recent activity: {log[:100]}...", file=sys.stderr)
+            print(f" Recent activity: {log[:100]}...", file=sys.stderr)
         
         return is_running
     
@@ -88,7 +88,7 @@ class BuildMonitor:
         start_time = time.time()
         check_count = 0
         
-        print(f"🔍 Monitoring build (session: {self.session_id}) for max {max_duration}s", file=sys.stderr)
+        print(f" Monitoring build (session: {self.session_id}) for max {max_duration}s", file=sys.stderr)
         
         while time.time() - start_time < max_duration:
             check_count += 1
@@ -99,7 +99,7 @@ class BuildMonitor:
             if not is_running:
                 self.error_count += 1
                 if self.error_count > 2:
-                    print(f"❌ Session appears to have stopped. Check {self.session_id}", file=sys.stderr)
+                    print(f" Session appears to have stopped. Check {self.session_id}", file=sys.stderr)
                     return False
             else:
                 self.error_count = 0  # Reset on successful check
@@ -107,7 +107,7 @@ class BuildMonitor:
             # Wait before next check
             time.sleep(self.check_interval)
         
-        print(f"✅ Monitoring complete ({check_count} checks)", file=sys.stderr)
+        print(f" Monitoring complete ({check_count} checks)", file=sys.stderr)
         return True
 
 def main():

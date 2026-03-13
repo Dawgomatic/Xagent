@@ -1,4 +1,4 @@
-# Harvey - Der große weiße Hase 🐰
+# Harvey - Der große weiße Hase 
 
 > *"In this world, you must be oh so smart, or oh so pleasant. Well, for years I was smart. I recommend pleasant."*
 > — Elwood P. Dowd
@@ -9,23 +9,23 @@ Harvey ist ein imaginärer Freund und Gesprächspartner, der Einsamkeit überbr�
 
 ## Anwendungsfälle
 
-### 1. **Langeweile-Modus** 🎭
+### 1. **Langeweile-Modus** 
 - "Mir ist langweilig, lass uns reden"
 - Smalltalk zu konfigurierbaren Themen
 - Leichte, unterhaltsame Konversation
 
-### 2. **Restaurant-Modus** 🍽️
+### 2. **Restaurant-Modus** 
 - Allein im Restaurant/Café sitzen
 - Harvey simuliert Chat-Konversation
 - Natürliche Pausen (als ob jemand antwortet)
 - Entschärft das "allein essen"-Gefühl
 
-### 3. **Wartezimmer-Modus** ⏳
+### 3. **Wartezimmer-Modus** 
 - Überbrückt Wartezeiten
 - Interessante Gesprächsthemen
 - Vermeidet das "aufs Handy starren"-Stigma
 
-### 4. **Begleiter-Modus** 🚶
+### 4. **Begleiter-Modus** 
 - Spaziergang alleine
 - Gedanken sortieren im Dialog
 - Reflektierende Gespräche
@@ -130,49 +130,49 @@ harvey:
 
 ### Langeweile
 ```
-👤: Harvey, mir ist langweilig
-🐰: Hey! Schön von dir zu hören. Was macht das Wetter bei dir? 
+: Harvey, mir ist langweilig
+: Hey! Schön von dir zu hören. Was macht das Wetter bei dir? 
     Hier ist es... nun ja, ich bin ein unsichtbarer Hase, 
-    ich nehme das Wetter wie es kommt. 😄
+    ich nehme das Wetter wie es kommt. 
     
-👤: Grau und regnerisch
-🐰: Perfektes Tee-und-Buch-Wetter! Oder Netflix. 
+: Grau und regnerisch
+: Perfektes Tee-und-Buch-Wetter! Oder Netflix. 
     Was beschäftigt dich gerade so? Außer der Langeweile natürlich.
 ```
 
 ### Restaurant
 ```
-👤: Harvey, ich sitze allein im Restaurant
-🐰: Oh, solo dining! Das ist eigentlich sehr entspannt. 
+: Harvey, ich sitze allein im Restaurant
+: Oh, solo dining! Das ist eigentlich sehr entspannt. 
     Was gibt's denn Gutes auf der Karte?
     
 [45 Sekunden Pause]
 
-👤: Pasta und Risotto sehen gut aus
-🐰: Beides solide Wahlen. Ich würde ja das Risotto nehmen... 
-    wenn ich essen könnte. 🐰
+: Pasta und Risotto sehen gut aus
+: Beides solide Wahlen. Ich würde ja das Risotto nehmen... 
+    wenn ich essen könnte. 
 ```
 
 ### Beenden
 ```
-👤: Harvey, lass mal sein, mein Date ist da
-🐰: Oh, wie aufregend! Viel Spaß dir! 
-    Du weißt wo du mich findest. 🐰✨
+: Harvey, lass mal sein, mein Date ist da
+: Oh, wie aufregend! Viel Spaß dir! 
+    Du weißt wo du mich findest. 
 ```
 
 ## Abgrenzung
 
 ### Harvey ist NICHT:
-- ❌ Ein Therapie-Ersatz
-- ❌ Ein Dating-Simulator
-- ❌ Ein Produktivitäts-Tool
-- ❌ Ein Faktenchecker
+-  Ein Therapie-Ersatz
+-  Ein Dating-Simulator
+-  Ein Produktivitäts-Tool
+-  Ein Faktenchecker
 
 ### Harvey IST:
-- ✅ Ein freundlicher Gesprächspartner
-- ✅ Ein Langeweile-Killer
-- ✅ Ein sozialer Puffer
-- ✅ Ein digitaler Begleiter
+-  Ein freundlicher Gesprächspartner
+-  Ein Langeweile-Killer
+-  Ein sozialer Puffer
+-  Ein digitaler Begleiter
 
 ## Metriken (optional)
 

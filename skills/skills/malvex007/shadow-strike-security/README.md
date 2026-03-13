@@ -1,10 +1,10 @@
-# ShadowStrike Security ⚔️
+# ShadowStrike Security 
 
 **Elite Penetration Testing & Security Assessment Platform**
 
 Transform your OpenClaw into a professional security operations center with 600+ Kali Linux tools and intelligent automation.
 
-## ⚡ Quick Start
+##  Quick Start
 
 ```bash
 # Install
@@ -20,14 +20,14 @@ pkill -f "openclaw gateway" && openclaw gateway &
 openclaw skills list | grep shadowstrike
 ```
 
-## ✨ What Makes ShadowStrike Special
+##  What Makes ShadowStrike Special
 
-### 🎯 Intelligent Orchestration
+###  Intelligent Orchestration
 - Auto-selects best tools for each task
 - Chains tools for maximum coverage
 - Handles dependencies automatically
 
-### ⚔️ 600+ Security Tools
+###  600+ Security Tools
 - Network: nmap, masscan, unicornscan
 - Web: sqlmap, nikto, dalfox, nuclei
 - Passwords: hashcat, john, hydra
@@ -35,13 +35,13 @@ openclaw skills list | grep shadowstrike
 - Exploitation: metasploit, searchsploit
 - Forensics: volatility, autopsy, ghidra
 
-### 📊 Professional Reporting
+###  Professional Reporting
 - Executive summaries
 - Technical findings
 - CVSS scoring
 - Remediation guides
 
-## 🎯 Quick Commands
+##  Quick Commands
 
 ```
 "scan target.com"        → Quick port scan
@@ -51,7 +51,7 @@ openclaw skills list | grep shadowstrike
 "hashes crack hash.txt"  → Password cracking
 ```
 
-## 💡 Example Results
+##  Example Results
 
 **Port Scan:**
 ```
@@ -71,17 +71,17 @@ You: "pentest target.com"
 ShadowStrike: "✓ Complete | Score: 68/100 | Critical: 2, High: 5"
 ```
 
-## 🚀 Features
+##  Features
 
-- ✅ 600+ Professional Security Tools
-- ✅ Intelligent Tool Selection
-- ✅ Complete PT Lifecycle
-- ✅ Automated Reconnaissance
-- ✅ Vulnerability Assessment
-- ✅ Exploitation Testing
-- ✅ Professional Reporting
+-  600+ Professional Security Tools
+-  Intelligent Tool Selection
+-  Complete PT Lifecycle
+-  Automated Reconnaissance
+-  Vulnerability Assessment
+-  Exploitation Testing
+-  Professional Reporting
 
-## 📋 Command Reference
+##  Command Reference
 
 | Command | Description |
 |---------|-------------|
@@ -94,32 +94,32 @@ ShadowStrike: "✓ Complete | Score: 68/100 | Critical: 2, High: 5"
 | `wifi` | WiFi security audit |
 | `hashes [file]` | Crack passwords |
 
-## ⚠️ Legal Notice
+##  Legal Notice
 
 **Use Responsibly!**
 
 Only test systems you:
-- ✅ Own
-- ✅ Have written authorization for
+-  Own
+-  Have written authorization for
 
 Unauthorized testing is illegal under CFAA, Computer Misuse Act, and similar laws.
 
-## 📖 Documentation
+##  Documentation
 
 - **SKILL.md** - Technical specification
 - **USER-GUIDE.md** - Complete user manual
 
-## 🔧 Requirements
+##  Requirements
 
 - OpenClaw >= 2026.2.3
 - Kali Linux 2024.x (recommended)
 - Sudo access for privileged ops
 - 4GB+ RAM (8GB recommended)
 
-## 📄 License
+##  License
 
 MIT License
 
 ---
 
-**Elite Tools for Elite Professionals** ⚔️🛡️
+**Elite Tools for Elite Professionals** 

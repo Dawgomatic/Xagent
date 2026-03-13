@@ -11,7 +11,7 @@ const path = require('path');
 function loadConfig() {
   const configPath = path.join(process.env.HOME, '.openclaw/workspace/skills/review-manager/config.json');
   if (!fs.existsSync(configPath)) {
-    console.error('❌ config.json 파일이 없습니다. config.template.json을 복사하세요.');
+    console.error(' config.json 파일이 없습니다. config.template.json을 복사하세요.');
     process.exit(1);
   }
   return JSON.parse(fs.readFileSync(configPath, 'utf-8'));
@@ -29,7 +29,7 @@ function ensureDataDir(config) {
 
 // 네이버 플레이스 리뷰 수집 (mock)
 async function collectNaverReviews(storeId, url) {
-  console.log(`📍 네이버 플레이스 리뷰 수집 중: ${storeId}`);
+  console.log(` 네이버 플레이스 리뷰 수집 중: ${storeId}`);
   // TODO: 실제 구현은 browser tool 또는 puppeteer 사용
   // 예시 데이터
   return [
@@ -56,7 +56,7 @@ async function collectNaverReviews(storeId, url) {
 
 // 구글 리뷰 수집 (mock)
 async function collectGoogleReviews(storeId, placeId) {
-  console.log(`🌍 구글 리뷰 수집 중: ${storeId}`);
+  console.log(` 구글 리뷰 수집 중: ${storeId}`);
   // TODO: Google Places API 또는 스크래핑
   return [
     {
@@ -73,14 +73,14 @@ async function collectGoogleReviews(storeId, placeId) {
 
 // 배민 리뷰 수집 (mock)
 async function collectBaeminReviews(storeId, url) {
-  console.log(`🛵 배민 리뷰 수집 중: ${storeId}`);
+  console.log(` 배민 리뷰 수집 중: ${storeId}`);
   // TODO: 로그인 필요, browser tool 활용
   return [];
 }
 
 // 쿠팡 리뷰 수집 (mock)
 async function collectCoupangReviews(storeId, url) {
-  console.log(`📦 쿠팡 리뷰 수집 중: ${storeId}`);
+  console.log(` 쿠팡 리뷰 수집 중: ${storeId}`);
   // TODO: 로그인 필요, browser tool 활용
   return [];
 }
@@ -104,7 +104,7 @@ function saveReviews(reviewsDir, storeId, platform, reviews) {
   const merged = [...existing, ...newReviews];
   fs.writeFileSync(filepath, JSON.stringify(merged, null, 2));
   
-  console.log(`💾 저장 완료: ${filename} (새 리뷰 ${newReviews.length}개)`);
+  console.log(` 저장 완료: ${filename} (새 리뷰 ${newReviews.length}개)`);
   return newReviews.length;
 }
 
@@ -122,7 +122,7 @@ async function main() {
   for (const store of config.stores) {
     if (storeFilter && store.id !== storeFilter) continue;
     
-    console.log(`\n🏪 ${store.name} (${store.id})`);
+    console.log(`\n ${store.name} (${store.id})`);
     
     if ((!platformFilter || platformFilter === 'naver') && store.platforms.naver) {
       const reviews = await collectNaverReviews(store.id, store.platforms.naver);
@@ -145,10 +145,10 @@ async function main() {
     }
   }
   
-  console.log(`\n✅ 수집 완료! 새 리뷰 총 ${totalNew}개`);
+  console.log(`\n 수집 완료! 새 리뷰 총 ${totalNew}개`);
 }
 
 main().catch(err => {
-  console.error('❌ 오류:', err.message);
+  console.error(' 오류:', err.message);
   process.exit(1);
 });

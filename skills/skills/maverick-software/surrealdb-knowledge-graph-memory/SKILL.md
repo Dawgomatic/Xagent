@@ -30,25 +30,25 @@ Use this skill for:
 The Memory tab in the Control dashboard provides a two-column layout:
 
 ### Left Column: Dashboard
-- **📊 Statistics** — Live counts of facts, entities, relations, and archived items
+- ** Statistics** — Live counts of facts, entities, relations, and archived items
 - **Confidence Bar** — Visual display of average confidence score
 - **Sources Breakdown** — Facts grouped by source file
-- **🏥 System Health** — Status of SurrealDB, schema, and Python dependencies
-- **🔗 DB Studio** — Quick link to SurrealDB's web interface
+- ** System Health** — Status of SurrealDB, schema, and Python dependencies
+- ** DB Studio** — Quick link to SurrealDB's web interface
 
 ### Right Column: Operations
-- **📥 Knowledge Extraction**
+- ** Knowledge Extraction**
   - *Extract Changes* — Incrementally extract facts from modified files
   - *Find Relations* — Discover semantic relationships between existing facts
   - *Full Sync* — Complete extraction + relation discovery
   - Progress bar with real-time status updates
   
-- **🔧 Maintenance**
+- ** Maintenance**
   - *Apply Decay* — Reduce confidence of stale facts
   - *Prune Stale* — Archive facts below threshold
   - *Full Sweep* — Complete maintenance cycle
 
-- **💡 Tips** — Quick reference for operations
+- ** Tips** — Quick reference for operations
 
 When the system needs setup, an **Installation** section appears with manual controls.
 
@@ -132,13 +132,13 @@ mcporter call surrealdb-memory.memory_inject \
 **Output:**
 ```markdown
 ## Semantic Memory (Relevant Facts)
-📌 [60% relevant, 100% confidence] Relevant fact here...
+ [60% relevant, 100% confidence] Relevant fact here...
 
 ## Related Entities
 • Entity Name (type)
 
 ## Episodic Memory (Past Experiences)
-✅ Task: Previous task goal [similarity]
+ Task: Previous task goal [similarity]
    → Key learning from that task
 ```
 
@@ -148,7 +148,7 @@ When enabled, memory is automatically injected into every agent turn:
 
 1. **Enable in Mode UI:**
    - Open Control dashboard → Mode tab
-   - Scroll to "🧠 Memory & Knowledge Graph" section
+   - Scroll to " Memory & Knowledge Graph" section
    - Toggle "Auto-Inject Context"
    - Configure limits (max facts, max episodes, confidence threshold)
 

@@ -2,7 +2,7 @@
 name: mission-control
 description: macOS-native web dashboard for monitoring and controlling your OpenClaw agent. Live chat, cron management, task workshop, scout engine, cost tracking, and more.
 homepage: https://github.com/Jzineldin/mission-control
-metadata: { "openclaw": { "emoji": "🖥️", "requires": { "bins": ["node", "npm"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["node", "npm"] } } }
 ---
 
 # Mission Control — Dashboard for OpenClaw

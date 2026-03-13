@@ -43,13 +43,13 @@ infsh app run infsh/python-executor --input '{
 Pie charts are almost always the wrong choice:
 
 ```
-❌ Pie chart problems:
+ Pie chart problems:
    - Hard to compare similar-sized slices
    - Can't show more than 5-6 categories
    - 3D pie charts are always wrong
    - Impossible to read exact values
 
-✅ Use instead:
+ Use instead:
    - Horizontal bar chart (easy comparison)
    - Stacked bar (part of whole)
    - Treemap (hierarchical parts)
@@ -155,12 +155,12 @@ infsh app run infsh/python-executor --input '{
 ### Title as Insight
 
 ```
-❌ Descriptive titles (what the chart shows):
+ Descriptive titles (what the chart shows):
    "Q3 Revenue by Product Line"
    "Monthly Active Users 2024"
    "Customer Satisfaction Survey Results"
 
-✅ Insight titles (what the chart means):
+ Insight titles (what the chart means):
    "Enterprise product drives 70% of revenue growth"
    "User growth accelerated after the free tier launch"
    "Support response time is the #1 satisfaction driver"

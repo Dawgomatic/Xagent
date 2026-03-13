@@ -32,7 +32,7 @@ export class JobBrain extends ContextBrain {
                     updatedAt: Date.now()
                 });
                 
-                await this.sendMessage(`✅ Tracked application for **${position}** at **${company}**.`);
+                await this.sendMessage(` Tracked application for **${position}** at **${company}**.`);
             } 
             else if (sub === 'list') {
                 const jobs = await this.graph.getJobs();
@@ -48,7 +48,7 @@ export class JobBrain extends ContextBrain {
                     return;
                 }
                 await this.graph.deleteJob(id);
-                await this.sendMessage(`✅ Removed job \`${id}\`.`);
+                await this.sendMessage(` Removed job \`${id}\`.`);
             }
         } else {
             // Delegate non-job commands (!log, !read, !context, !task) to ContextBrain

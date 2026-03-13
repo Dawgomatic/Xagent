@@ -17,7 +17,7 @@ WORKSPACE="${2:-.}"
 DIR="${WORKSPACE}/war-rooms/${PROJECT}"
 
 if [ -d "$DIR" ]; then
-  echo "❌ War room already exists: $DIR"
+  echo " War room already exists: $DIR"
   exit 1
 fi
 
@@ -92,7 +92,7 @@ cat > "$DIR/TLDR.md" << 'TLDR'
 **Next Step:**
 TLDR
 
-echo "✅ War room initialized: $DIR"
+echo " War room initialized: $DIR"
 echo ""
 echo "Structure:"
 echo "  $DIR/"

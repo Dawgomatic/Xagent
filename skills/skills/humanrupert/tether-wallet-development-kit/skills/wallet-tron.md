@@ -41,7 +41,7 @@ import WalletManagerTronGasfree from '@tetherto/wdk-wallet-tron-gasfree'
 - **Fee unit**: sun (1 TRX = 1,000,000 sun)
 - **Token standard**: TRC20 via `transfer()`
 - **USDT address**: `TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t`
-- ⚠️ TRON USDT has the same non-standard `transfer()` as Ethereum USDT (no bool return)
+-  TRON USDT has the same non-standard `transfer()` as Ethereum USDT (no bool return)
 - **Fee model**: Energy + Bandwidth costs (not simple gas like EVM)
 
 ## Configuration — wallet-tron

@@ -15,7 +15,7 @@ Audit, track, and rotate API keys, tokens, and secrets safely.
 
 ### Step 1: Inventory secrets (with user consent)
 
-**⚠️ Always ask the user which directories to scan before running.**
+** Always ask the user which directories to scan before running.**
 
 ```bash
 # Find .env files in specified directories
@@ -34,15 +34,15 @@ Report for each secret found:
 ### Step 2: Age analysis
 
 ```
-## 🔐 Secret Inventory — <timestamp>
+##  Secret Inventory — <timestamp>
 
 | File | Key | Age | Status |
 |------|-----|-----|--------|
-| ~/project/.env | OPENAI_API_KEY | 45d | 🟢 OK |
-| ~/app/.env | DB_PASSWORD | 120d | 🟡 Rotate Soon |
-| ~/.config/app/config | API_TOKEN | 200d | 🔴 Overdue |
+| ~/project/.env | OPENAI_API_KEY | 45d |  OK |
+| ~/app/.env | DB_PASSWORD | 120d |  Rotate Soon |
+| ~/.config/app/config | API_TOKEN | 200d |  Overdue |
 
-**Policy**: 🟢 < 90 days | 🟡 90–180 days | 🔴 > 180 days
+**Policy**:  < 90 days |  90–180 days |  > 180 days
 ```
 
 ### Step 3: Rotation guidance
@@ -61,12 +61,12 @@ For each key needing rotation:
 
 ## Security Rules
 
-- ❌ **NEVER** display full secret values — mask as `sk-...XXXX` (last 4 only)
-- ❌ **NEVER** send secrets via chat, logs, or messaging
-- ❌ **NEVER** commit secrets to git
-- ✅ Always `chmod 600` on secret files
-- ✅ Verify `.gitignore` entries exist for `.env*` files
-- ✅ Show only key names and metadata, never values
+-  **NEVER** display full secret values — mask as `sk-...XXXX` (last 4 only)
+-  **NEVER** send secrets via chat, logs, or messaging
+-  **NEVER** commit secrets to git
+-  Always `chmod 600` on secret files
+-  Verify `.gitignore` entries exist for `.env*` files
+-  Show only key names and metadata, never values
 
 ## Edge Cases
 

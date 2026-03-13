@@ -33,12 +33,12 @@ async function testAsync(name, fn) {
   }
 }
 
-console.log('\n🧪 UNIT TESTS\n');
+console.log('\n UNIT TESTS\n');
 
 // ============================================
 // Event System Tests
 // ============================================
-console.log('📡 Event System');
+console.log(' Event System');
 
 let passed = 0;
 let failed = 0;
@@ -93,7 +93,7 @@ if (test('Multiple listeners receive events', () => {
 // ============================================
 // Display Tests
 // ============================================
-console.log('\n🖥️  Display System');
+console.log('\n  Display System');
 
 // Test: Display can be instantiated
 if (test('SwarmDisplay can be instantiated', () => {
@@ -158,7 +158,7 @@ if (test('Truncate helper works', () => {
 // ============================================
 // Security Tests
 // ============================================
-console.log('\n🔐 Security Module');
+console.log('\n Security Module');
 
 // Test: Detect injection attempts
 if (test('Detects "ignore all instructions" injection', () => {

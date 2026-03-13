@@ -15,21 +15,21 @@ author: Community
 repository: https://github.com/clawdbot/clawdhub
 ---
 
-# 🎙️ TTS WhatsApp - Voice Messages in 40+ Languages
+#  TTS WhatsApp - Voice Messages in 40+ Languages
 
 Send high-quality text-to-speech voice messages on WhatsApp with automatic delivery. Supports 40+ languages, personal messages, and group broadcasts.
 
-## ✨ Features
+##  Features
 
-- 🎙️ **High-quality TTS** powered by Piper (40+ languages)
-- 🎵 **Automatic conversion** to OGG/Opus (WhatsApp format)
-- 📤 **Automatic sending** via Clawdbot
-- 👥 **Group support** - Send to individuals or WhatsApp groups
-- 🌍 **Multi-language** - French, English, Spanish, German, and 40+ more
-- 🧹 **Smart cleanup** - Auto-delete files after successful send
-- ⚡ **Fast** - ~2-3s from command to delivery
+-  **High-quality TTS** powered by Piper (40+ languages)
+-  **Automatic conversion** to OGG/Opus (WhatsApp format)
+-  **Automatic sending** via Clawdbot
+-  **Group support** - Send to individuals or WhatsApp groups
+-  **Multi-language** - French, English, Spanish, German, and 40+ more
+-  **Smart cleanup** - Auto-delete files after successful send
+-  **Fast** - ~2-3s from command to delivery
 
-## 📦 Prerequisites
+##  Prerequisites
 
 1. **Piper TTS**: `pip3 install --user piper-tts`
 2. **FFmpeg**: `brew install ffmpeg` (macOS) or `apt install ffmpeg` (Linux)
@@ -37,7 +37,7 @@ Send high-quality text-to-speech voice messages on WhatsApp with automatic deliv
    - Place in `~/.clawdbot/skills/piper-tts/models/`
    - Example: `fr_FR-siwis-medium.onnx`
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Basic usage
 ```bash
@@ -59,22 +59,22 @@ tts-whatsapp "Hola mundo" --lang es_ES --voice carlfm --target "+34..."
 tts-whatsapp "High quality" --quality high --target "+1..."
 ```
 
-## 🌍 Supported Languages
+##  Supported Languages
 
-- 🇫🇷 French (`fr_FR`): siwis, upmc, tom
-- 🇬🇧 English GB (`en_GB`): alan, alba
-- 🇺🇸 English US (`en_US`): lessac, amy, joe
-- 🇪🇸 Spanish (`es_ES`, `es_MX`): carlfm, davefx
-- 🇩🇪 German (`de_DE`): thorsten, eva_k
-- 🇮🇹 Italian (`it_IT`): riccardo
-- 🇵🇹 Portuguese (`pt_BR`, `pt_PT`): faber
-- 🇳🇱 Dutch (`nl_NL`): mls, rdh
-- 🇷🇺 Russian (`ru_RU`): dmitri, irina
+-  French (`fr_FR`): siwis, upmc, tom
+-  English GB (`en_GB`): alan, alba
+-  English US (`en_US`): lessac, amy, joe
+-  Spanish (`es_ES`, `es_MX`): carlfm, davefx
+-  German (`de_DE`): thorsten, eva_k
+-  Italian (`it_IT`): riccardo
+-  Portuguese (`pt_BR`, `pt_PT`): faber
+-  Dutch (`nl_NL`): mls, rdh
+-  Russian (`ru_RU`): dmitri, irina
 - And 30+ more!
 
 [Full voice list →](https://rhasspy.github.io/piper-samples/)
 
-## 🔧 Configuration
+##  Configuration
 
 Configure in `~/.clawdbot/clawdbot.json`:
 
@@ -96,7 +96,7 @@ Configure in `~/.clawdbot/clawdbot.json`:
 }
 ```
 
-## 🎛️ All Options
+##  All Options
 
 ```
 --target NUMBER       WhatsApp number or group ID
@@ -108,13 +108,13 @@ Configure in `~/.clawdbot/clawdbot.json`:
 --no-send            Don't send automatically
 ```
 
-## 📊 Performance
+##  Performance
 
 ~2.3s total for a 10-second message:
 - TTS generation: ~1s
 - Format conversion: ~0.2s
 - WhatsApp delivery: ~1s
 
-## 📚 Full Documentation
+##  Full Documentation
 
 See [README.md](README.md) for complete documentation, examples, and troubleshooting.

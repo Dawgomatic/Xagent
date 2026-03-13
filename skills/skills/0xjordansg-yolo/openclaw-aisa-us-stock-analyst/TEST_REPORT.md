@@ -6,13 +6,13 @@
 
 ---
 
-## 📋 测试概述
+##  测试概述
 
 对美股分析程序进行了完整的功能测试，包括代码结构检查、依赖安装、API 调用测试和错误处理验证。
 
 ---
 
-## ✅ 测试结果总结
+##  测试结果总结
 
 ### 程序状态：**可正常运行** ✓
 
@@ -20,7 +20,7 @@
 
 ---
 
-## 🔍 详细测试结果
+##  详细测试结果
 
 ### 1. 代码结构检查 ✓
 
@@ -63,10 +63,10 @@ us-stock-analyst-skill-package/
 
 | API 端点 | 状态 | 说明 |
 |---------|------|------|
-| **Financial Metrics** | ✅ 成功 | 获取市值、P/E、收入等财务指标 |
-| **Stock News** | ✅ 成功 | 获取公司新闻和资讯 |
-| **Twitter** | ✅ 成功 | 获取社交媒体讨论数据 |
-| **YouTube** | ✅ 成功 | 获取相关视频内容 |
+| **Financial Metrics** |  成功 | 获取市值、P/E、收入等财务指标 |
+| **Stock News** |  成功 | 获取公司新闻和资讯 |
+| **Twitter** |  成功 | 获取社交媒体讨论数据 |
+| **YouTube** |  成功 | 获取相关视频内容 |
 
 **测试示例（AAPL）：**
 ```
@@ -76,14 +76,14 @@ Twitter: ✓ 成功获取
 YouTube: ✓ 成功获取
 ```
 
-#### 3.2 失败的 API 调用 ⚠️
+#### 3.2 失败的 API 调用 
 
 | API 端点 | 状态 | 错误代码 | 说明 |
 |---------|------|----------|------|
-| **Web Search** | ❌ 失败 | 500 | 服务器内部错误 |
-| **Analyst Estimates** | ❌ 失败 | 500 | 服务器内部错误 |
-| **Insider Trades** | ❌ 失败 | 500 | 服务器内部错误 |
-| **LLM Chat Completions** | ❌ 失败 | 503 | 服务不可用 |
+| **Web Search** |  失败 | 500 | 服务器内部错误 |
+| **Analyst Estimates** |  失败 | 500 | 服务器内部错误 |
+| **Insider Trades** |  失败 | 500 | 服务器内部错误 |
+| **LLM Chat Completions** |  失败 | 503 | 服务不可用 |
 
 **问题分析：**
 - 500 错误：AISA API 服务端部分接口存在问题
@@ -137,18 +137,18 @@ else:
 #### 4.3 修复后的效果
 
 程序现在可以：
-- ✅ 优雅地处理 API 错误
-- ✅ 在部分 API 失败时继续运行
-- ✅ 提供有意义的错误信息
-- ✅ 完整生成分析报告（即使部分数据缺失）
+-  优雅地处理 API 错误
+-  在部分 API 失败时继续运行
+-  提供有意义的错误信息
+-  完整生成分析报告（即使部分数据缺失）
 
 **修复后的运行结果：**
 ```
 ============================================================
-🔍 Analyzing NVDA
+ Analyzing NVDA
 ============================================================
 
-📊 Gathering data from multiple sources...
+ Gathering data from multiple sources...
   ✓ Financial Metrics
   ✓ Stock News
   ✗ Web Search: Server error '500 Internal Server Error'
@@ -157,14 +157,14 @@ else:
   ✗ Insider Trades: Server error '500 Internal Server Error'
   ✓ Youtube
 
-🤖 Running AI analysis...
+ Running AI analysis...
   ✗ Summary: Server error '503 Service Unavailable'
   ✗ Sentiment: Server error '503 Service Unavailable'
   ✗ Valuation: Server error '503 Service Unavailable'
 
-📝 Synthesizing report...
+ Synthesizing report...
 
-✅ Analysis complete!
+ Analysis complete!
 
 ======================================================================
 RESULTS
@@ -198,7 +198,7 @@ DATA SOURCES USED:
 
 ---
 
-## 📊 测试统计
+##  测试统计
 
 | 测试项目 | 通过 | 失败 | 通过率 |
 |---------|------|------|--------|
@@ -211,7 +211,7 @@ DATA SOURCES USED:
 
 ---
 
-## 🎯 结论
+##  结论
 
 ### 程序本身：**完全正常** ✓
 
@@ -220,7 +220,7 @@ DATA SOURCES USED:
 3. **错误处理**：已优化，能够优雅降级
 4. **功能完整性**：核心功能模块齐全
 
-### 外部依赖：**部分可用** ⚠️
+### 外部依赖：**部分可用** 
 
 1. **可用的 API**（4/8）：
    - Financial Metrics ✓
@@ -243,7 +243,7 @@ DATA SOURCES USED:
 
 ---
 
-## 🔧 已创建的测试文件
+##  已创建的测试文件
 
 1. **test_api_data.py** - 简单的 API 数据获取测试
    - 用途：快速验证各个 API 端点的可用性
@@ -251,7 +251,7 @@ DATA SOURCES USED:
 
 ---
 
-## 📝 备注
+##  备注
 
 - 程序架构设计优秀，具有良好的扩展性
 - 错误处理已优化，具有良好的容错能力

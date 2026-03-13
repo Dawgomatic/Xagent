@@ -334,7 +334,7 @@ Results:
 
 **If errors occur:**
 ```
-"⚠ Execution encountered errors:
+" Execution encountered errors:
 - Statement [N]: [error_code] - [error_message]
 
 This may indicate:
@@ -515,10 +515,10 @@ RDF Graph: http://demo.openlinksw.com/data/northwind
 Ontology: http://demo.openlinksw.com/schema/northwind
 
 Linked Data Access Enabled:
-✅ SPARQL queries: http://demo.openlinksw.com/sparql
-✅ GraphQL queries: Yes (ontology annotations enabled)
-✅ HTTP entity access: http://demo.openlinksw.com/about/resource/Customers/ALFKI
-✅ Content negotiation: RDF/XML, N-Triples, JSON-LD, HTML
+ SPARQL queries: http://demo.openlinksw.com/sparql
+ GraphQL queries: Yes (ontology annotations enabled)
+ HTTP entity access: http://demo.openlinksw.com/about/resource/Customers/ALFKI
+ Content negotiation: RDF/XML, N-Triples, JSON-LD, HTML
 
 Your Knowledge Graph is production-ready!"
 ```
@@ -647,7 +647,7 @@ Proceeding to table discovery in schema '[schema_name]'."
 
 **If connection fails:**
 ```
-"⚠ Connection failed. Possible causes:
+" Connection failed. Possible causes:
 1. Incorrect host/port
 2. Database user permissions
 3. Network connectivity
@@ -948,7 +948,7 @@ Results:
 
 **If errors occur:**
 ```
-"⚠ Execution encountered errors:
+" Execution encountered errors:
 - Statement [N]: [error_code] - [error_message]
 
 This may indicate:

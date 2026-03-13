@@ -38,7 +38,7 @@ Query and analyze DNS records for any domain.
 
 5. **Report format**:
    ```
-   🌐 DNS Report — example.com
+    DNS Report — example.com
 
    | Type  | Value | TTL |
    |-------|-------|-----|
@@ -50,8 +50,8 @@ Query and analyze DNS records for any domain.
    ## Propagation (A record)
    | DNS Server | Provider | Result | Match |
    |-----------|----------|--------|-------|
-   | 8.8.8.8   | Google   | 93.184.216.34 | ✅ |
-   | 1.1.1.1   | Cloudflare | 93.184.216.34 | ✅ |
+   | 8.8.8.8   | Google   | 93.184.216.34 |  |
+   | 1.1.1.1   | Cloudflare | 93.184.216.34 |  |
    ```
 
 ## Edge Cases

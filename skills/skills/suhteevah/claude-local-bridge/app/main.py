@@ -150,7 +150,7 @@ def main():
             f"  Token:      [bold yellow]{config.token}[/bold yellow]\n\n"
             f"[dim]Add this MCP config to your claude_desktop_config.json:[/dim]\n"
             f'[dim]{{"mcpServers": {{"local-bridge": {{"url": "{mcp_url}"}}}}}}[/dim]',
-            title="🔗 Bridge Ready",
+            title=" Bridge Ready",
             border_style="blue",
         ))
     except ImportError:

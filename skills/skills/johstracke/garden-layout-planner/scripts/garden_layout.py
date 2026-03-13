@@ -252,7 +252,7 @@ def add_bed(name, width, length, sun):
     db = load_db()
     
     if name in db["beds"]:
-        print(f"❌ Bed '{name}' already exists. Use 'layout' to view details.")
+        print(f" Bed '{name}' already exists. Use 'layout' to view details.")
         return False
     
     db["beds"][name] = {
@@ -274,7 +274,7 @@ def add_plant(bed_name, plant, row, col):
     db = load_db()
     
     if bed_name not in db["beds"]:
-        print(f"❌ Bed '{bed_name}' not found.")
+        print(f" Bed '{bed_name}' not found.")
         print("   Use 'add-bed' to create beds first.")
         return False
     
@@ -299,12 +299,12 @@ def add_plant(bed_name, plant, row, col):
         # Check for good companions already planted
         good_companions = [g for g in plant_data["good_with"] if g in existing_plants]
         if good_companions:
-            print(f"  ✨ Good companion(s) nearby: {', '.join(good_companions)}")
+            print(f"   Good companion(s) nearby: {', '.join(good_companions)}")
         
         # Check for incompatible plants
         bad_neighbors = [b for b in plant_data["bad_with"] if b in existing_plants]
         if bad_neighbors:
-            print(f"  ⚠️  Warning: Nearby {', '.join(bad_neighbors)} are incompatible with {plant}")
+            print(f"    Warning: Nearby {', '.join(bad_neighbors)} are incompatible with {plant}")
     
     return True
 
@@ -313,13 +313,13 @@ def get_companions(plant):
     plant = plant.lower()
     
     if plant not in COMPANION_PLANTS:
-        print(f"❌ No companion data for '{plant}'")
+        print(f" No companion data for '{plant}'")
         print("   Available plants: " + ", ".join(sorted(COMPANION_PLANTS.keys())[:10]) + "...")
         return False
     
     data = COMPANION_PLANTS[plant]
     
-    print(f"\n🌿 Companion Info: {plant.capitalize()}")
+    print(f"\n Companion Info: {plant.capitalize()}")
     print("=" * 70)
     print(f"Good companions: {', '.join(data['good_with'])}")
     print(f"Bad neighbors: {', '.join(data['bad_with'])}")
@@ -334,12 +334,12 @@ def get_spacing(plant):
     plant = plant.lower()
     
     if plant not in COMPANION_PLANTS:
-        print(f"❌ No spacing data for '{plant}'")
+        print(f" No spacing data for '{plant}'")
         return False
     
     data = COMPANION_PLANTS[plant]
     
-    print(f"\n📏 Spacing: {plant.capitalize()}")
+    print(f"\n Spacing: {plant.capitalize()}")
     print("=" * 70)
     print(f"Space plants {data['spacing']} inches apart")
     print(f"Sun requirements: {data['sun'].capitalize()}")
@@ -366,18 +366,18 @@ def show_layout():
     beds = db["beds"]
     
     if not beds:
-        print("🌱 No garden beds yet.")
+        print(" No garden beds yet.")
         print("   Use 'add-bed' to start planning your garden.")
         return False
     
-    print(f"\n📐 Garden Layout")
+    print(f"\n Garden Layout")
     print("=" * 70)
     
     if db.get("season"):
         print(f"Season: {db['season']}\n")
     
     for bed_name, bed in sorted(beds.items()):
-        print(f"\n🛏️  {bed_name}")
+        print(f"\n  {bed_name}")
         print("-" * 70)
         print(f"Dimensions: {bed['width']}' x {bed['length']}'")
         print(f"Sun: {bed['sun'].capitalize()}")
@@ -411,13 +411,13 @@ def export_layout(output_file):
     beds = db["beds"]
     
     if not beds:
-        print("🌱 No beds to export.")
+        print(" No beds to export.")
         return False
     
     # Security: Validate output path
     output_path = Path(output_file)
     if not is_safe_path(output_path):
-        print(f"❌ Security error: Cannot write to '{output_path}'")
+        print(f" Security error: Cannot write to '{output_path}'")
         print("   Path must be within workspace or home directory (not system paths)")
         return False
     
@@ -472,9 +472,9 @@ def export_layout(output_file):
                             bad_pairs.append(f"{plant} + {i}")
             
             if good_pairs:
-                md += f"\n✨ Good companions: {', '.join(good_pairs)}\n"
+                md += f"\n Good companions: {', '.join(good_pairs)}\n"
             if bad_pairs:
-                md += f"\n⚠️  Incompatible: {', '.join(bad_pairs)}\n"
+                md += f"\n  Incompatible: {', '.join(bad_pairs)}\n"
             
             md += "\n"
         else:
@@ -570,7 +570,7 @@ def main():
         export_layout(sys.argv[2])
 
     else:
-        print(f"❌ Unknown command: {command}")
+        print(f" Unknown command: {command}")
 
 if __name__ == "__main__":
     main()

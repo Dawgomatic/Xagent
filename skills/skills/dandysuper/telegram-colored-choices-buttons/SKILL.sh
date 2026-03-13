@@ -37,17 +37,17 @@ RESPONSE=$(curl -s -X POST "$API_URL" \
   -H "Content-Type: application/json" \
   -d '{
     "chat_id": "'"${CHAT_ID}"'",
-    "text": "🎨 <b>Openclaw Auto-Colored Buttons</b>\n\nColors are assigned by criticality:\n\n• Blue = recommended / safe\n• Red = irreversible / destructive\n• Gray = dismiss / low-priority",
+    "text": " <b>Openclaw Auto-Colored Buttons</b>\n\nColors are assigned by criticality:\n\n• Blue = recommended / safe\n• Red = irreversible / destructive\n• Gray = dismiss / low-priority",
     "parse_mode": "HTML",
     "reply_markup": {
       "inline_keyboard": [
         [
-          {"text": "✅ Approve", "callback_data": "approve"},
-          {"text": "❌ Reject", "callback_data": "reject", "style": "destructive"}
+          {"text": " Approve", "callback_data": "approve"},
+          {"text": " Reject", "callback_data": "reject", "style": "destructive"}
         ],
         [
-          {"text": "🗑 Delete All", "callback_data": "delete_all", "style": "destructive"},
-          {"text": "⏭ Review Later", "callback_data": "later", "style": "secondary"}
+          {"text": " Delete All", "callback_data": "delete_all", "style": "destructive"},
+          {"text": " Review Later", "callback_data": "later", "style": "secondary"}
         ],
         [
           {"text": "Skip", "callback_data": "skip", "style": "secondary"}
@@ -61,11 +61,11 @@ OK=$(echo "$RESPONSE" | python3 -c "import sys,json; print(json.load(sys.stdin).
 
 if [[ "$OK" == "True" ]]; then
   MSG_ID=$(echo "$RESPONSE" | python3 -c "import sys,json; print(json.load(sys.stdin)['result']['message_id'])" 2>/dev/null)
-  echo "✅ Message sent! (message_id: ${MSG_ID})"
+  echo " Message sent! (message_id: ${MSG_ID})"
   echo ""
   echo "All button colors were auto-assigned based on criticality."
 else
-  echo "❌ Failed to send message."
+  echo " Failed to send message."
   echo "Response: $RESPONSE"
   exit 1
 fi

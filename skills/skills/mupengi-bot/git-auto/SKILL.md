@@ -2,7 +2,7 @@
 name: git-auto
 description: Git workspace automation (status/commit/push/log/diff)
 version: 1.0.0
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
 # git-auto

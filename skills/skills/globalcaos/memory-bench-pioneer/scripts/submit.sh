@@ -14,13 +14,13 @@ REPORT="$1"
 CONTRIBUTOR="${2:-}"
 
 if [ -z "$REPORT" ] || [ ! -f "$REPORT" ]; then
-    echo "❌ Usage: submit.sh <report.json> [github-username]"
+    echo " Usage: submit.sh <report.json> [github-username]"
     exit 1
 fi
 
 # Validate JSON
 if ! python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$REPORT" 2>/dev/null; then
-    echo "❌ Invalid JSON file: $REPORT"
+    echo " Invalid JSON file: $REPORT"
     exit 1
 fi
 
@@ -31,7 +31,7 @@ fi
 
 # Validate contributor username
 if [[ ! "$CONTRIBUTOR" =~ ^[a-zA-Z0-9_-]+$ ]]; then
-    echo "❌ Invalid GitHub username: $CONTRIBUTOR"
+    echo " Invalid GitHub username: $CONTRIBUTOR"
     exit 1
 fi
 
@@ -40,7 +40,7 @@ TIMESTAMP=$(date -u +%Y%m%d-%H%M%S)
 BRANCH="bench/${CONTRIBUTOR}-${TIMESTAMP}"
 FILENAME="${CONTRIBUTOR}-${INSTANCE_ID}-${TIMESTAMP}.json"
 
-echo "📊 Memory Bench Submission"
+echo " Memory Bench Submission"
 echo "   Contributor: $CONTRIBUTOR"
 echo "   Instance:    $INSTANCE_ID"
 echo "   Branch:      $BRANCH"
@@ -48,19 +48,19 @@ echo ""
 
 # Verify gh auth
 if ! gh auth status &>/dev/null; then
-    echo "❌ GitHub CLI not authenticated. Run: gh auth login"
+    echo " GitHub CLI not authenticated. Run: gh auth login"
     exit 1
 fi
 
 # Fork if needed (idempotent)
-echo "🔄 Ensuring fork exists..."
+echo " Ensuring fork exists..."
 gh repo fork "$FORK_REPO" --clone=false 2>/dev/null || true
 
 # Create a temp workdir to avoid touching the user's repo
 TMPDIR=$(mktemp -d)
 trap 'rm -rf "$TMPDIR"' EXIT
 
-echo "📥 Cloning (shallow)..."
+echo " Cloning (shallow)..."
 gh repo clone "$CONTRIBUTOR/$( echo $FORK_REPO | cut -d/ -f2 )" "$TMPDIR/repo" -- --depth=1 -q 2>/dev/null || \
     gh repo clone "$FORK_REPO" "$TMPDIR/repo" -- --depth=1 -q
 
@@ -107,7 +107,7 @@ index = {
 }
 with open('$BENCH_DIR/INDEX.json', 'w') as f:
     json.dump(index, f, indent=2)
-print(f'✅ Index updated: {len(reports)} reports, {index[\"unique_instances\"]} instances')
+print(f' Index updated: {len(reports)} reports, {index[\"unique_instances\"]} instances')
 "
 
 # Commit
@@ -120,11 +120,11 @@ Active memories: $(python3 -c "import json; print(json.load(open('$REPORT'))['me
 "
 
 # Push to contributor's fork
-echo "📤 Pushing to your fork..."
+echo " Pushing to your fork..."
 git push origin "$BRANCH" -q
 
 # Create PR
-echo "📝 Creating pull request..."
+echo " Creating pull request..."
 PR_URL=$(gh pr create \
     --repo "$FORK_REPO" \
     --head "$CONTRIBUTOR:$BRANCH" \
@@ -168,6 +168,6 @@ By submitting benchmark data, you are eligible for co-authorship per [#13991](ht
     2>&1)
 
 echo ""
-echo "✅ PR created: $PR_URL"
+echo " PR created: $PR_URL"
 echo ""
-echo "Thank you for contributing to the research! 🧠"
+echo "Thank you for contributing to the research! "

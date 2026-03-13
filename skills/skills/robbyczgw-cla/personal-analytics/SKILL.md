@@ -20,7 +20,7 @@ Personal Analytics analyzes your conversation patterns to surface actionable ins
 
 ## Privacy First
 
-🔒 **All analysis happens locally. Nothing leaves your machine.**
+ **All analysis happens locally. Nothing leaves your machine.**
 
 - Raw conversations **never** stored
 - Only aggregated statistics saved
@@ -66,10 +66,10 @@ python3 scripts/recommend.py
 - Sentiment trends
 
 ### What's NOT Tracked
-- ❌ Raw message content
-- ❌ Personal information
-- ❌ Sensitive data (passwords, keys, etc.)
-- ❌ Specific conversations
+-  Raw message content
+-  Personal information
+-  Sensitive data (passwords, keys, etc.)
+-  Specific conversations
 
 ## Configuration
 
@@ -133,7 +133,7 @@ python3 scripts/analyze.py --verbose
 
 **Output:**
 ```
-📊 Personal Analytics Analysis
+ Personal Analytics Analysis
 
 Period: Jan 1 - Jan 28, 2026 (28 days)
 
@@ -187,17 +187,17 @@ python3 scripts/report.py weekly --send
 **Report Format:**
 
 ```markdown
-# 📊 Weekly Analytics Report
+#  Weekly Analytics Report
 **Jan 22 - Jan 28, 2026**
 
-## 🎯 Highlights
+##  Highlights
 
 - **Most productive day:** Wednesday (4 tasks completed)
 - **Peak hours:** 09:00-11:00 (3h 45m focused work)
 - **Emerging topic:** Rust (mentioned 12 times, +200% from last week)
-- **Mood trend:** ↗️ Improving (78% positive, up from 65%)
+- **Mood trend:**  Improving (78% positive, up from 65%)
 
-## ⏰ Time Patterns
+##  Time Patterns
 
 ### Activity Heatmap
 ```
@@ -219,7 +219,7 @@ Sun  ░░░░░░░░░░░░░░░░░░░░░░░░  4
 17-22: ██░░░░░░░░ (11%)
 ```
 
-## 📚 Topic Insights
+##  Topic Insights
 
 ### Top Topics This Week
 1. **Python Development** (32 sessions)
@@ -229,12 +229,12 @@ Sun  ░░░░░░░░░░░░░░░░░░░░░░░░  4
 
 2. **FM26** (28 sessions)
    - Focus: Tactics, transfers, editor
-   - Trend: ↗️ +15%
+   - Trend:  +15%
    - Suggestion: Already monitoring "FM26 patches" ✓
 
 3. **Audio Engineering** (15 sessions)
    - Focus: Dirac Live, room correction, bass management
-   - Trend: 🆕 New topic
+   - Trend:  New topic
    - Suggestion: Monitor "Dirac Live updates"
 
 ### Emerging Topics
@@ -242,7 +242,7 @@ Sun  ░░░░░░░░░░░░░░░░░░░░░░░░  4
 - **Kubernetes** (8 mentions, +300%)
 - **Machine Learning** (6 mentions)
 
-## 💡 Productivity Insights
+##  Productivity Insights
 
 ### Task Completion
 - Total tasks: 23 completed
@@ -260,13 +260,13 @@ Sun  ░░░░░░░░░░░░░░░░░░░░░░░░  4
 - Complex issues (>1h): 3 problems
 - Average: 24m per problem
 
-## 😊 Sentiment & Well-being
+##  Sentiment & Well-being
 
 ### Overall Mood
 ```
-😊 Positive  ████████████████░░  78%  (↗️ +13%)
-😐 Neutral   ████░░░░░░░░░░░░░░  18%
-😟 Negative  ██░░░░░░░░░░░░░░░░   4%
+ Positive  ████████████████░░  78%  ( +13%)
+ Neutral   ████░░░░░░░░░░░░░░  18%
+ Negative  ██░░░░░░░░░░░░░░░░   4%
 ```
 
 ### Stress Indicators
@@ -274,9 +274,9 @@ Sun  ░░░░░░░░░░░░░░░░░░░░░░░░  4
 - Urgent keywords: 5 (down from 12)
 - Late-night work: 2 sessions (down from 8)
 
-**Insight:** Stress levels decreasing. Good work-life balance this week! 🎉
+**Insight:** Stress levels decreasing. Good work-life balance this week! 
 
-## 🎯 Recommendations
+##  Recommendations
 
 ### For Proactive Research
 Based on your interests this week, consider monitoring:
@@ -320,7 +320,7 @@ python3 scripts/recommend.py --threshold 5
 
 **Output:**
 ```
-💡 Topic Recommendations for Proactive Research
+ Topic Recommendations for Proactive Research
 
 Based on your conversation patterns:
 
@@ -586,22 +586,22 @@ Automatically suggest topics based on:
 
 ## Use Cases
 
-### 🎯 Optimize Work Schedule
+###  Optimize Work Schedule
 Discover your peak productivity hours and schedule deep work accordingly.
 
-### 📚 Track Learning Journey
+###  Track Learning Journey
 See which topics you're exploring, how deeply, and identify knowledge gaps.
 
-### 🧘 Monitor Well-being
+###  Monitor Well-being
 Track stress indicators, late-night work, and mood trends.
 
-### 🔍 Discover Patterns
+###  Discover Patterns
 Surface interests you didn't realize were important.
 
-### 🤝 Improve Collaboration
+###  Improve Collaboration
 Understand when you're most responsive and schedule meetings accordingly.
 
-### 💡 Generate Content Ideas
+###  Generate Content Ideas
 Your most-discussed topics are content goldmines.
 
 ## Best Practices

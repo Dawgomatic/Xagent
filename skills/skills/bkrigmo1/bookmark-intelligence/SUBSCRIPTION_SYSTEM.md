@@ -1,6 +1,6 @@
-# 📋 Subscription System Implementation
+#  Subscription System Implementation
 
-## ✅ Completed Components
+##  Completed Components
 
 ### 1. License Management System (`scripts/license.js`) ✓
 **Status:** Created and tested
@@ -120,7 +120,7 @@ node scripts/admin.js revoke <key> [reason]
 - ✓ Test licenses for safe evaluation
 - ✓ Gitignore sensitive files
 
-## 📝 Remaining Tasks
+##  Remaining Tasks
 
 ### Critical (Must Complete)
 1. **Create `payment.js` file** - Core payment logic designed but file needs creation
@@ -140,7 +140,7 @@ node scripts/admin.js revoke <key> [reason]
 11. **API access** - Enterprise tier API key generation
 12. **Usage analytics** - Track feature usage patterns
 
-## 🧪 Testing Checklist
+##  Testing Checklist
 
 ### License System
 - [x] Default to Free tier
@@ -168,7 +168,7 @@ node scripts/admin.js revoke <key> [reason]
 - [ ] Notifications work for Pro+
 - [ ] Automation disabled for Free
 
-## 🚀 Quick Implementation Guide
+##  Quick Implementation Guide
 
 ### For Immediate Testing
 
@@ -206,7 +206,7 @@ node scripts/admin.js revoke <key> [reason]
    # Activate received license key
    ```
 
-## 💡 Design Decisions
+##  Design Decisions
 
 ### Why XOR Encryption?
 - Simple, no dependencies
@@ -233,7 +233,7 @@ node scripts/admin.js revoke <key> [reason]
 - Enterprise customers likely prefer this anyway
 - Automate later if needed
 
-## 📦 Distribution via ClawHub
+##  Distribution via ClawHub
 
 ### Seller Setup (5 minutes)
 
@@ -260,20 +260,20 @@ node scripts/admin.js revoke <key> [reason]
    node scripts/license.js activate <key>
    ```
 
-## 🎯 Success Metrics
+##  Success Metrics
 
 A successful implementation means:
-- ✅ Free tier works with limits enforced
-- ✅ Test licenses activate all tiers
-- ✅ Upgrade flow is clear and simple
-- ✅ License persists across restarts
-- ✅ Usage resets monthly
-- ✅ Admin can track revenue
-- ✅ Documentation is comprehensive
-- ⏳ Payment completes and issues license (needs payment.js)
-- ⏳ Stripe and crypto both work (needs payment.js)
+-  Free tier works with limits enforced
+-  Test licenses activate all tiers
+-  Upgrade flow is clear and simple
+-  License persists across restarts
+-  Usage resets monthly
+-  Admin can track revenue
+-  Documentation is comprehensive
+-  Payment completes and issues license (needs payment.js)
+-  Stripe and crypto both work (needs payment.js)
 
-## 📞 Support Strategy
+##  Support Strategy
 
 ### Free Tier
 - Community support via GitHub issues
@@ -291,7 +291,7 @@ A successful implementation means:
 - Custom onboarding
 - Feature requests considered
 
-## 🔐 Security Considerations
+##  Security Considerations
 
 ### What's Encrypted
 - License keys stored locally (XOR)
@@ -313,7 +313,7 @@ A successful implementation means:
 - Users should backup license.json
 - Rate limiting prevents abuse
 
-## 📈 Future Enhancements
+##  Future Enhancements
 
 ### Phase 2 (Post-MVP)
 - Web dashboard for admin
@@ -332,21 +332,21 @@ A successful implementation means:
 - Reseller program
 - White-label options
 
-## ✅ Ready for Review
+##  Ready for Review
 
 The current implementation is ready for:
-- ✅ ClawHub submission (with test licenses)
-- ✅ Free tier testing
-- ✅ License system demonstration
-- ✅ Admin dashboard review
-- ✅ Documentation review
+-  ClawHub submission (with test licenses)
+-  Free tier testing
+-  License system demonstration
+-  Admin dashboard review
+-  Documentation review
 
 Needs completion for:
-- ⏳ Live payment processing
-- ⏳ Automated license delivery
-- ⏳ End-to-end payment testing
+-  Live payment processing
+-  Automated license delivery
+-  End-to-end payment testing
 
-## 🎉 Summary
+##  Summary
 
 **90% Complete!**
 

@@ -43,7 +43,7 @@ export async function generateMilestoneMessage(
     century: '100-Day Streak'
   };
 
-  const subject = `🎉 ${milestoneNames[milestone.milestoneType]}!`;
+  const subject = ` ${milestoneNames[milestone.milestoneType]}!`;
 
   // Generate persona-specific message
   const { generateMessage } = await import('./message-templates.js');
@@ -81,7 +81,7 @@ export async function generateRiskWarning(
   const config = await loadConfig();
   const persona = config.activePersona;
 
-  const subject = `⚠️ Streak Alert: ${habit.name}`;
+  const subject = ` Streak Alert: ${habit.name}`;
 
   const { generateMessage } = await import('./message-templates.js');
   const body = generateMessage(persona, {
@@ -115,7 +115,7 @@ export async function generateWeeklyCheckin(
   const config = await loadConfig();
   const persona = config.activePersona;
 
-  const subject = `📊 Weekly Progress: ${habit.name}`;
+  const subject = ` Weekly Progress: ${habit.name}`;
 
   const { generateMessage } = await import('./message-templates.js');
   const body = generateMessage(persona, {
@@ -151,7 +151,7 @@ export async function generateInsightMessage(
   const config = await loadConfig();
   const persona = config.activePersona;
 
-  const subject = `🔍 Insight: ${habit.name}`;
+  const subject = ` Insight: ${habit.name}`;
 
   const { generateMessage } = await import('./message-templates.js');
   const body = generateMessage(persona, {

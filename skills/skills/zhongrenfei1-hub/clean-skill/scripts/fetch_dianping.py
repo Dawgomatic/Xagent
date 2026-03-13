@@ -61,7 +61,7 @@ class DianpingFetcher:
         # - Rate limiting
 
         search_query = f"{location} {cuisine}"
-        print(f"🔍 Searching Dianping for: {search_query}")
+        print(f" Searching Dianping for: {search_query}")
 
         # Simulated data for demonstration
         # In production, this would scrape actual Dianping pages

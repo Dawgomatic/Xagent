@@ -43,7 +43,7 @@ try:
     for p in posts:
         status = p.get('status', {}).get('name', 'unknown')
         status_type = p.get('status', {}).get('type', '')
-        emoji = {'reviewing': '🟡', 'unstarted': '⚪', 'active': '🔵', 'completed': '✅', 'canceled': '⚫'}.get(status_type, '⚪')
+        emoji = {'reviewing': '', 'unstarted': '', 'active': '', 'completed': '', 'canceled': ''}.get(status_type, '')
         upvotes = p.get('upvotes', 0)
         title = p.get('title', 'Untitled')[:50]
         pid = p.get('id', 'N/A')[:8]
@@ -65,11 +65,11 @@ try:
     convos = data.get('data', [])
     for c in convos:
         state = c.get('state', 'unknown')
-        emoji = {'open': '🔴', 'closed': '✅', 'snoozed': '💤'}.get(state, '⚪')
+        emoji = {'open': '', 'closed': '', 'snoozed': ''}.get(state, '')
         title = c.get('title', 'No subject')[:40] if c.get('title') else 'No subject'
         cid = c.get('id', 'N/A')
-        priority = '⭐' if c.get('priority') else ''
-        waiting = '⏳' if c.get('awaitingCustomerReply') else ''
+        priority = '' if c.get('priority') else ''
+        waiting = '' if c.get('awaitingCustomerReply') else ''
         print(f'{emoji}{priority}{waiting} {cid}\t{title}\t{state}')
     if not convos:
         print('No conversations found')
@@ -86,7 +86,7 @@ cmd_posts() {
   
   case "$action" in
     list)
-      echo "📋 Listing posts..."
+      echo " Listing posts..."
       local params="limit=20"
       while [[ $# -gt 0 ]]; do
         case "$1" in
@@ -130,7 +130,7 @@ cmd_conversations() {
   
   case "$action" in
     list)
-      echo "💬 Listing conversations..."
+      echo " Listing conversations..."
       local params="limit=20"
       while [[ $# -gt 0 ]]; do
         case "$1" in
@@ -171,7 +171,7 @@ cmd_conversations() {
 }
 
 cmd_boards() {
-  echo "📊 Listing boards..."
+  echo " Listing boards..."
   api GET "/v2/boards?limit=50" | python3 -c "
 import sys, json
 data = json.load(sys.stdin)
@@ -181,12 +181,12 @@ for b in data.get('data', []):
 }
 
 cmd_statuses() {
-  echo "🏷️ Listing post statuses..."
+  echo " Listing post statuses..."
   api GET "/v2/post-statuses?limit=50" | python3 -c "
 import sys, json
 data = json.load(sys.stdin)
 for s in data.get('data', []):
-    emoji = {'reviewing': '🟡', 'unstarted': '⚪', 'active': '🔵', 'completed': '✅', 'canceled': '⚫'}.get(s.get('type', ''), '⚪')
+    emoji = {'reviewing': '', 'unstarted': '', 'active': '', 'completed': '', 'canceled': ''}.get(s.get('type', ''), '')
     print(f\"{emoji} {s.get('id')}\t{s.get('name')}\t{s.get('type')}\")
 "
 }
@@ -197,12 +197,12 @@ cmd_changelog() {
   
   case "$action" in
     list)
-      echo "📝 Listing changelog entries..."
+      echo " Listing changelog entries..."
       api GET "/v2/changelogs?limit=20" | python3 -c "
 import sys, json
 data = json.load(sys.stdin)
 for c in data.get('data', []):
-    status = '✅' if c.get('isPublished') else '📝'
+    status = '' if c.get('isPublished') else ''
     print(f\"{status} {c.get('id')[:8]}\t{c.get('title', 'Untitled')[:50]}\t{c.get('publishedAt', 'draft')[:10]}\")
 "
       ;;

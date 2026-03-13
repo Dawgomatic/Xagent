@@ -37,7 +37,7 @@ def create_dashboard(tasks_folder: str) -> str:
     """Generate Dataview dashboard markdown."""
     return f"""# Task Dashboard
 
-## 🔴 Urgent (P1)
+##  Urgent (P1)
 ```dataview
 TABLE status, category, due
 FROM "{tasks_folder}"
@@ -45,7 +45,7 @@ WHERE priority = "P1" AND status != "done"
 SORT due ASC
 ```
 
-## 🟡 Pipeline (P2)
+##  Pipeline (P2)
 ```dataview
 TABLE status, category
 FROM "{tasks_folder}"
@@ -53,7 +53,7 @@ WHERE priority = "P2" AND status != "done"
 SORT status ASC
 ```
 
-## 🟢 Long Game (P3)
+##  Long Game (P3)
 ```dataview
 TABLE status, category, parked_until as "Parked Until"
 FROM "{tasks_folder}"
@@ -61,7 +61,7 @@ WHERE priority = "P3" AND status != "done"
 SORT status ASC
 ```
 
-## ⏰ Overdue
+##  Overdue
 ```dataview
 TABLE priority, category, due
 FROM "{tasks_folder}"
@@ -69,7 +69,7 @@ WHERE due AND due < date(today) AND status != "done"
 SORT due ASC
 ```
 
-## ✅ Recently Completed
+##  Recently Completed
 ```dataview
 TABLE category
 FROM "{tasks_folder}"

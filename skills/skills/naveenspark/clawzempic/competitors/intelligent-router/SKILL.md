@@ -50,10 +50,10 @@ Tasks are classified into four tiers based on complexity and risk:
 
 | Tier | Description | Example Tasks | Model Characteristics |
 |------|-------------|---------------|----------------------|
-| **🟢 SIMPLE** | Routine, low-risk operations | Monitoring, status checks, API calls, summarization | Cheapest available, good for repetitive tasks |
-| **🟡 MEDIUM** | Moderate complexity work | Code fixes, research, small patches, data analysis | Balanced cost/quality, good general purpose |
-| **🟠 COMPLEX** | Multi-component development | Feature builds, debugging, architecture, multi-file changes | High-quality reasoning, excellent code generation |
-| **🔴 CRITICAL** | High-stakes operations | Security audits, production deploys, financial operations | Best available model, maximum reliability |
+| ** SIMPLE** | Routine, low-risk operations | Monitoring, status checks, API calls, summarization | Cheapest available, good for repetitive tasks |
+| ** MEDIUM** | Moderate complexity work | Code fixes, research, small patches, data analysis | Balanced cost/quality, good general purpose |
+| ** COMPLEX** | Multi-component development | Feature builds, debugging, architecture, multi-file changes | High-quality reasoning, excellent code generation |
+| ** CRITICAL** | High-stakes operations | Security audits, production deploys, financial operations | Best available model, maximum reliability |
 
 ### 2. Model Selection Strategy
 

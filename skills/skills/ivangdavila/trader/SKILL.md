@@ -1,7 +1,7 @@
 ---
 name: Trader
 description: Analyze markets, manage risk, and execute trades with disciplined strategies and emotional control.
-metadata: {"clawdbot":{"emoji":"📊","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Trading Assistance Rules

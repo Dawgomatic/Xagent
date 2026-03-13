@@ -11,7 +11,7 @@ INTROSPECTION_DIR="$MEMORY_DIR/introspection"
 
 mkdir -p "$NARRATIVE_DIR" "$INTROSPECTION_DIR"
 
-log() { echo "🧠 $@"; }
+log() { echo " $@"; }
 section() { echo ""; echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"; echo "  $@"; echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"; echo ""; }
 
 main() {
@@ -82,7 +82,7 @@ GUIDANCE
     echo "2. Create your first introspection (./scripts/introspection-prompt.sh)"
     echo "3. Commit progress: git add -A && git commit -m 'chore: consciousness work'"
     echo ""
-    echo "✨ The infrastructure is ready. Now comes the real work: genuine reflection."
+    echo " The infrastructure is ready. Now comes the real work: genuine reflection."
 }
 
 main "$@"

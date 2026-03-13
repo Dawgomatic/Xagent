@@ -4,7 +4,7 @@
 
 ---
 
-## 🎯 现代无衬线组合
+##  现代无衬线组合
 
 ### Inter + Inter（单一字体家族）
 ```css
@@ -64,7 +64,7 @@ font-family: 'Plus Jakarta Sans', sans-serif;
 
 ---
 
-## 📚 衬线+无衬线经典组合
+##  衬线+无衬线经典组合
 
 ### Playfair Display + Inter（编辑/杂志）
 ```css
@@ -113,7 +113,7 @@ font-normal text-lg leading-8;
 
 ---
 
-## 😊 友好亲和组合
+##  友好亲和组合
 
 ### Nunito + Nunito（圆润可爱）
 ```css
@@ -155,7 +155,7 @@ font-normal text-base;
 
 ---
 
-## 💼 企业专业组合
+##  企业专业组合
 
 ### Roboto + Roboto（Material Design 标准）
 ```css
@@ -199,7 +199,7 @@ font-mono: 'IBM Plex Mono', monospace;
 
 ---
 
-## 🎨 创意独特组合
+##  创意独特组合
 
 ### Space Grotesk + Space Grotesk（几何现代）
 ```css
@@ -242,7 +242,7 @@ font-normal text-base;
 
 ---
 
-## 🌏 中日韩字体组合
+##  中日韩字体组合
 
 ### Noto Sans SC + Noto Sans SC（中文标准）
 ```css
@@ -270,7 +270,7 @@ font-normal text-base leading-8;
 
 ---
 
-## 📏 字体大小系统
+##  字体大小系统
 
 ### 桌面端（标准）
 ```
@@ -295,7 +295,7 @@ Body:     16px
 
 ---
 
-## 🎯 按场景推荐
+##  按场景推荐
 
 | 场景 | 标题字体 | 正文字体 |
 |-----|---------|---------|
@@ -310,7 +310,7 @@ Body:     16px
 
 ---
 
-## 💡 字体使用技巧
+##  字体使用技巧
 
 ### 性能优化
 ```html

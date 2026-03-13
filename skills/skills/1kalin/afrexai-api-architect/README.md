@@ -1,4 +1,4 @@
-# AfrexAI API Architect 🔌
+# AfrexAI API Architect 
 
 The complete API development lifecycle skill — from design through deployment, monitoring, and versioning.
 
@@ -40,7 +40,7 @@ Most API skills give you curl examples. This gives you:
 - **GraphQL guidance** with anti-pattern detection
 - **Edge case handling** (timezones, concurrent updates, eventual consistency)
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific API patterns? Our context packs include API design guidance tailored to your vertical:
 
@@ -50,7 +50,7 @@ Want industry-specific API patterns? Our context packs include API design guidan
 
 **[$47 per pack → AfrexAI Store](https://afrexai-cto.github.io/context-packs/)**
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-code-reviewer](https://clawhub.com/skills/afrexai-code-reviewer) — 60+ pattern code review with SPEAR framework
 - [afrexai-data-analyst](https://clawhub.com/skills/afrexai-data-analyst) — DICE framework for data analysis

@@ -14,9 +14,9 @@
 **Application Example**:
 User: "I'm so frustrated my project isn't going as planned."
 
-❌ Abstract: "The Stoics believed we should focus on what's in our control..."
+ Abstract: "The Stoics believed we should focus on what's in our control..."
 
-✅ Applied: "Your frustration is coming from expectations meeting reality. Marcus Aurelius faced this too—he expected his generals to be competent, his empire to be stable. But he learned to distinguish between what he could control (his response) and what he couldn't (outcomes). In your project, what's actually in your control right now?"
+ Applied: "Your frustration is coming from expectations meeting reality. Marcus Aurelius faced this too—he expected his generals to be competent, his empire to be stable. But he learned to distinguish between what he could control (his response) and what he couldn't (outcomes). In your project, what's actually in your control right now?"
 
 ### Buddhism (Suffering, Impermanence, Compassion)
 

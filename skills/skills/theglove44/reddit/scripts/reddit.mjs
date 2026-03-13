@@ -164,7 +164,7 @@ async function login() {
   const state = Math.random().toString(36).slice(2);
   const authUrl = `https://www.reddit.com/api/v1/authorize?client_id=${clientId}&response_type=code&state=${state}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&duration=permanent&scope=${encodeURIComponent(SCOPES)}`;
   
-  console.log('\n🔐 Reddit OAuth Login\n');
+  console.log('\n Reddit OAuth Login\n');
   console.log('Open this URL in your browser:\n');
   console.log(authUrl);
   console.log('\nWaiting for authorization...\n');
@@ -232,9 +232,9 @@ async function login() {
         saveToken(token);
         
         res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end('<html><body><h1>✅ Logged in!</h1><p>You can close this tab.</p></body></html>');
+        res.end('<html><body><h1> Logged in!</h1><p>You can close this tab.</p></body></html>');
         
-        console.log('✅ Successfully logged in! Token saved to ~/.reddit-token.json\n');
+        console.log(' Successfully logged in! Token saved to ~/.reddit-token.json\n');
         
         server.close();
         resolve();

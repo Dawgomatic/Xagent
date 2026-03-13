@@ -134,7 +134,7 @@ def main():
     with open(output_file, 'w') as f:
         json.dump(criteria, f, indent=2)
     
-    print(f"✅ Initial ranking criteria created: {output_file}")
+    print(f" Initial ranking criteria created: {output_file}")
     print(f"   Categories: {len(criteria['value_categories'])}")
     print(f"   Decay rate: {criteria['decay_rate']} (5% per day)")
 

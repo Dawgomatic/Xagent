@@ -1,8 +1,8 @@
-# 🦞 OpenClaw Unreal Skill
+#  OpenClaw Unreal Skill
 
 OpenClaw skill for Unreal Engine integration. Works with the [OpenClaw Unreal Plugin](https://github.com/openclaw/openclaw-unreal-plugin).
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 This software is in **beta**. Use at your own risk.
 

@@ -241,57 +241,57 @@ Rank the top 3 candidates with brief rationale for each.
    - Candidate name/identifier and number
    - Visual separator line
 
-2. **Overall Match Score** (📈)
+2. **Overall Match Score** ()
    - Display the similarity score (e.g., 0.89) with interpretation (excellent/good/moderate/fair)
    - Brief summary of why this candidate matches or doesn't match
 
-3. **Skill Alignment Analysis** (🔧)
-   - ✅ List matching skills with experience levels
-   - 💡 Highlight bonus skills (beyond requirements)
-   - ⚠️ Identify skill gaps (required but missing)
+3. **Skill Alignment Analysis** ()
+   -  List matching skills with experience levels
+   -  Highlight bonus skills (beyond requirements)
+   -  Identify skill gaps (required but missing)
    - Provide skill match percentage estimate
 
-4. **Experience Fit Analysis** (💼)
+4. **Experience Fit Analysis** ()
    - Compare required vs. actual years of experience
    - Assess industry/domain experience relevance
    - Evaluate project complexity and scale alignment
    - Determine seniority level match
    - Review career progression trajectory
 
-5. **Education & Qualifications** (🎓)
+5. **Education & Qualifications** ()
    - Education level match
    - Relevant certifications
    - Academic background relevance
 
-6. **Cultural & Team Fit** (🤝)
+6. **Cultural & Team Fit** ()
    - Work style indicators from resume
    - Team collaboration experience
    - Leadership potential (if applicable)
    - Communication skills evidence
 
-7. **Compensation Expectations** (💰)
+7. **Compensation Expectations** ()
    - Candidate's salary expectations vs. job offer
    - Negotiation room assessment
    - Total compensation considerations
 
-8. **Advantages & Disadvantages** (✅ ⚠️)
+8. **Advantages & Disadvantages** ( )
    - List 3-5 key strengths of this candidate
    - List 2-4 potential concerns or gaps
    - Be objective and balanced
 
-9. **Hiring Recommendation** (🎯)
-   - Priority level: 🔥 High Priority / ⭐ Medium Priority / 💭 Consider
+9. **Hiring Recommendation** ()
+   - Priority level:  High Priority /  Medium Priority /  Consider
    - Recommended action with clear reasoning
    - Suggested interview focus areas
    - Onboarding considerations
 
-10. **Interview Strategy** (📝)
+10. **Interview Strategy** ()
     - Key areas to probe during interview
     - Technical assessment recommendations
     - Behavioral questions to ask
     - Red flags to watch for
 
-11. **Retention & Growth Potential** (🚀)
+11. **Retention & Growth Potential** ()
     - Long-term fit assessment
     - Growth trajectory within the company
     - Retention risk factors
@@ -301,23 +301,23 @@ Rank the top 3 candidates with brief rationale for each.
 
 **Comparative Summary Section:**
 
-1. **Top 3 Recommendations** (🏆)
-   - Rank top 3 candidates with medal emojis (🥇🥈🥉)
+1. **Top 3 Recommendations** ()
+   - Rank top 3 candidates with medal emojis ()
    - Brief rationale for each ranking
 
-2. **Candidate Distribution** (📈)
+2. **Candidate Distribution** ()
    - Count of excellent matches (score > 0.85)
    - Count of good matches (score 0.75-0.85)
    - Count of moderate matches (score 0.65-0.75)
 
-3. **Hiring Strategy Advice** (💡)
+3. **Hiring Strategy Advice** ()
    - Which candidates to prioritize for interviews
    - Suggested interview panel composition
    - Timeline recommendations
    - Backup candidate strategy
    - Risk mitigation strategies
 
-4. **Action Checklist** (🎯)
+4. **Action Checklist** ()
    - Immediate next steps (contact candidates, schedule interviews)
    - Preparation tasks (interview questions, evaluation criteria)
    - Budget/compensation considerations

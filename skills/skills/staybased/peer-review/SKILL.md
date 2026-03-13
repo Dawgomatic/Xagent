@@ -56,9 +56,9 @@ Cloud Model (Claude) produces analysis
 
 | Bot | Model | Role | Strengths |
 |-----|-------|------|-----------|
-| **Drift** 🌊 | Mistral 7B | Methodical analyst | Structured reasoning, catches logical gaps |
-| **Pip** 🐣 | TinyLlama 1.1B | Fast checker | Quick sanity checks, low latency |
-| **Lume** 💡 | Llama 3.1 8B | Deep thinker | Nuanced analysis, catches subtle issues |
+| **Drift**  | Mistral 7B | Methodical analyst | Structured reasoning, catches logical gaps |
+| **Pip**  | TinyLlama 1.1B | Fast checker | Quick sanity checks, low latency |
+| **Lume**  | Llama 3.1 8B | Deep thinker | Nuanced analysis, catches subtle issues |
 
 ---
 

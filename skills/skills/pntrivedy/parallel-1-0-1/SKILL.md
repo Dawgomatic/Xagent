@@ -7,10 +7,10 @@ triggers:
   - research
 metadata:
   clawdbot:
-    emoji: "🔬"
+    emoji: ""
 ---
 
-# Parallel.ai 🔬
+# Parallel.ai 
 
 High-accuracy web search API built for AI agents. Outperforms Perplexity/Exa on research benchmarks.
 

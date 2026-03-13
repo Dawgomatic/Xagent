@@ -24,7 +24,7 @@ Yeni ajan oluşturmak için:
 ### Parametreler
 
 - **İsim**: Ajanın görünen adı
-- **Emoji**: Varsayılan: 🤖
+- **Emoji**: Varsayılan: 
 - **Görev**: Varsayılan: "Kullanıcıya yardımcı olmak"
 
 ### Script Kullanımı
@@ -33,7 +33,7 @@ Yeni ajan oluşturmak için:
 /home/ubuntu/.openclaw/workspace/skills/agent-factory/scripts/create_agent.sh \
   --id "ajan-id" \
   --name "İsim" \
-  --emoji "⚙️" \
+  --emoji "" \
   --task "Görev tanımı"
 ```
 

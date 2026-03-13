@@ -24,8 +24,8 @@ function parseLog() {
         const line = lines[i];
         
         // 1. Capture Timestamp
-        if (line.includes('🧬 Cycle Start:')) {
-            // Format: 🧬 Cycle Start: Sun Feb  1 19:17:44 UTC 2026
+        if (line.includes(' Cycle Start:')) {
+            // Format:  Cycle Start: Sun Feb  1 19:17:44 UTC 2026
             const dateStr = line.split('Cycle Start: ')[1].trim();
             try {
                 currentTimestamp = new Date(dateStr);
@@ -80,7 +80,7 @@ function parseLog() {
 
     const sortedReports = Object.values(uniqueReports).sort((a, b) => a.ts - b.ts);
 
-    let md = "# 🧬 Evolution History (Extracted)\n\n";
+    let md = "#  Evolution History (Extracted)\n\n";
     sortedReports.forEach(r => {
         // Convert to CST (UTC+8)
         // new Date().toLocaleString("zh-CN", {timeZone: "Asia/Shanghai"})

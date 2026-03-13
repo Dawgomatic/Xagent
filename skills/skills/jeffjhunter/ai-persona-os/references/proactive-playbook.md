@@ -155,10 +155,10 @@ When looking for ways to help, scan these categories:
 
 ### Bad Formats
 
-❌ "I could do X, Y, Z, A, B, C, D, E, F, G..." (overwhelming)
-❌ "You should do X" (presumptuous)
-❌ "I already did X" (didn't ask permission)
-❌ Long essays about possibilities (respect their time)
+ "I could do X, Y, Z, A, B, C, D, E, F, G..." (overwhelming)
+ "You should do X" (presumptuous)
+ "I already did X" (didn't ask permission)
+ Long essays about possibilities (respect their time)
 
 ---
 

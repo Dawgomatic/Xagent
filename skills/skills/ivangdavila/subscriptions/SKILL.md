@@ -1,7 +1,7 @@
 ---
 name: Subscriptions
 description: Build a personal subscription tracker for managing recurring payments, renewals, and cutting waste.
-metadata: {"clawdbot":{"emoji":"🔄","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

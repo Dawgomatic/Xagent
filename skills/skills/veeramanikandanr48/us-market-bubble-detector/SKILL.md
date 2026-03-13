@@ -8,12 +8,12 @@ description: Evaluates market bubble risk through quantitative data-driven analy
 ## Key Revisions in v2.1
 
 **Critical Changes from v2.0:**
-1. ✅ **Mandatory Quantitative Data Collection** - Use measured values, not impressions or speculation
-2. ✅ **Clear Threshold Settings** - Specific numerical criteria for each indicator
-3. ✅ **Two-Phase Evaluation Process** - Quantitative evaluation → Qualitative adjustment (strict order)
-4. ✅ **Stricter Qualitative Criteria** - Max +3 points (reduced from +5), requires measurable evidence
-5. ✅ **Confirmation Bias Prevention** - Explicit checklist to avoid over-scoring
-6. ✅ **Granular Risk Phases** - Added "Elevated Risk" phase (8-9 points) for nuanced risk management
+1.  **Mandatory Quantitative Data Collection** - Use measured values, not impressions or speculation
+2.  **Clear Threshold Settings** - Specific numerical criteria for each indicator
+3.  **Two-Phase Evaluation Process** - Quantitative evaluation → Qualitative adjustment (strict order)
+4.  **Stricter Qualitative Criteria** - Max +3 points (reduced from +5), requires measurable evidence
+5.  **Confirmation Bias Prevention** - Explicit checklist to avoid over-scoring
+6.  **Granular Risk Phases** - Added "Elevated Risk" phase (8-9 points) for nuanced risk management
 
 ---
 
@@ -76,7 +76,7 @@ Use this skill when:
   - Collect: Quarterly count + median first-day return
 ```
 
-**⚠️ CRITICAL: Do NOT proceed with evaluation without Phase 1 data collection**
+** CRITICAL: Do NOT proceed with evaluation without Phase 1 data collection**
 
 ---
 
@@ -150,7 +150,7 @@ Rationale: Rapid price acceleration is unsustainable
 
 **Limit: +3 points maximum (REDUCED from +5 in v2.0)**
 
-**⚠️ CONFIRMATION BIAS PREVENTION CHECKLIST:**
+** CONFIRMATION BIAS PREVENTION CHECKLIST:**
 ```
 Before adding ANY qualitative points:
 □ Do I have concrete, measurable data? (not impressions)
@@ -168,12 +168,12 @@ Before adding ANY qualitative points:
 
 +0 points: Any criteria missing
 
-⚠️ INVALID EXAMPLES:
+ INVALID EXAMPLES:
 - "AI narrative is prevalent" (unmeasurable)
 - "I saw articles about retail investors" (not direct report)
 - "Everyone is talking about stocks" (vague, unverified)
 
-✅ VALID EXAMPLE:
+ VALID EXAMPLE:
 "My barber asked about NVDA (Nov 1), dentist mentioned AI stocks (Nov 2),
 Uber driver discussed crypto (Nov 3)"
 ```
@@ -186,19 +186,19 @@ Uber driver discussed crypto (Nov 3)"
 
 +0 points: Search trends <5x OR no mainstream coverage
 
-⚠️ CRITICAL: "Elevated narrative" without data = +0 points
+ CRITICAL: "Elevated narrative" without data = +0 points
 
 HOW TO VERIFY:
 1. Search "[topic] Google Trends 2025" and document numbers
 2. Search "[topic] Time magazine cover" for specific dates
 3. Search "[topic] CNBC special" for episode confirmation
 
-✅ VALID EXAMPLE:
+ VALID EXAMPLE:
 "Google Trends: 'AI stocks' at 780 (baseline 150 = 5.2x).
 Time cover 'AI Revolution' (Oct 15, 2025).
 CNBC 'AI Investment Special' (3 episodes Oct 2025)."
 
-⚠️ INVALID EXAMPLE:
+ INVALID EXAMPLE:
 "AI/technology narrative seems elevated" (unmeasurable)
 ```
 
@@ -211,17 +211,17 @@ CNBC 'AI Investment Special' (3 episodes Oct 2025)."
 
 +0 points: P/E <25 OR fundamentals support valuations
 
-⚠️ SELF-CHECK QUESTIONS (if ANY is YES, score = 0):
+ SELF-CHECK QUESTIONS (if ANY is YES, score = 0):
 - Is P/E already in Phase 2 quantitative scoring?
 - Do companies have real earnings supporting valuations?
 - Is the narrative backed by fundamental improvements?
 
-✅ VALID EXAMPLE for +1:
+ VALID EXAMPLE for +1:
 "S&P P/E = 35x (vs historical 18x).
 CNBC article: 'Earnings don't matter in AI era' (Oct 2025).
 Bloomberg: 'Traditional metrics obsolete' (Nov 2025)."
 
-⚠️ INVALID EXAMPLE:
+ INVALID EXAMPLE:
 "P/E 30.8 but companies have real earnings and AI has fundamental backing"
 (fundamentals support = +0 points)
 ```
@@ -239,7 +239,7 @@ Range: 0 to 15 points
 Judgment Criteria (with Risk Budget):
 - 0-4 points: Normal (Risk Budget: 100%)
 - 5-7 points: Caution (Risk Budget: 70-80%)
-- 8-9 points: Elevated Risk (Risk Budget: 50-70%) ⚠️ NEW in v2.1
+- 8-9 points: Elevated Risk (Risk Budget: 50-70%)  NEW in v2.1
 - 10-12 points: Euphoria (Risk Budget: 40-50%)
 - 13-15 points: Critical (Risk Budget: 20-30%)
 ```
@@ -303,20 +303,20 @@ Do not readily acknowledge mass penetration without direct recommendations from 
 ## Common Failures and Solutions (Revised)
 
 ### Failure 1: Evaluating Based on News Articles
-❌ "Many reports on Takaichi Trade" → Media saturation 2 points
-✅ Verify Google Trends numbers → Evaluate with measured values
+ "Many reports on Takaichi Trade" → Media saturation 2 points
+ Verify Google Trends numbers → Evaluate with measured values
 
 ### Failure 2: Overreaction to Expert Comments
-❌ "Warning of overheating" → Euphoria zone
-✅ Judge with measured values of Put/Call, VIX, margin debt
+ "Warning of overheating" → Euphoria zone
+ Judge with measured values of Put/Call, VIX, margin debt
 
 ### Failure 3: Emotional Reaction to Price Rise
-❌ 4.5% rise in 1 day → Price acceleration 2 points
-✅ Verify position in 10-year distribution → Objective evaluation
+ 4.5% rise in 1 day → Price acceleration 2 points
+ Verify position in 10-year distribution → Objective evaluation
 
 ### Failure 4: Judgment Based on Valuation Alone
-❌ P/E 17 → Valuation disconnect 2 points
-✅ P/E + narrative dependence + other quantitative indicators for comprehensive judgment
+ P/E 17 → Valuation disconnect 2 points
+ P/E + narrative dependence + other quantitative indicators for comprehensive judgment
 
 ---
 
@@ -340,7 +340,7 @@ Do not readily acknowledge mass penetration without direct recommendations from 
 **Short-Selling: Not Recommended**
 - Wait for clearer reversal signals
 
-### Elevated Risk (8-9 points) ⚠️ NEW in v2.1
+### Elevated Risk (8-9 points)  NEW in v2.1
 **Risk Budget: 50-70%**
 - Increase profit-taking (30-50% reduction)
 - Tighten ATR to 1.6×
@@ -426,7 +426,7 @@ Only consider shorts after confirming at least 3 of the following:
 
 ## Qualitative Adjustment (Phase 3) - STRICT CRITERIA
 
-**⚠️ Confirmation Bias Check:**
+** Confirmation Bias Check:**
 - [ ] All qualitative points have measurable evidence
 - [ ] No double-counting with Phase 2
 - [ ] Independent observer would agree

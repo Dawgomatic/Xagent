@@ -43,11 +43,11 @@ There are two ways to control agent behavior:
 
 | Component | Type | Status |
 |-----------|------|--------|
-| Classification guide | Prompted | ✅ In SKILL.md |
-| Display script | Coded | ✅ `scripts/cmd_display.py` |
-| SOUL.md integration | Prompted | ✅ Template provided |
-| OpenClaw plugin hook | Coded | ❌ Not yet — requires `before_tool_call` hook |
-| Blocklist enforcement | Coded | ❌ Planned — would reject commands matching patterns |
+| Classification guide | Prompted |  In SKILL.md |
+| Display script | Coded |  `scripts/cmd_display.py` |
+| SOUL.md integration | Prompted |  Template provided |
+| OpenClaw plugin hook | Coded |  Not yet — requires `before_tool_call` hook |
+| Blocklist enforcement | Coded |  Planned — would reject commands matching patterns |
 
 **Where we are:** Mixed approach. The display script provides structure, but true enforcement (blocking dangerous commands before execution) requires an OpenClaw plugin. The current implementation relies on the agent *choosing* to use the wrapper.
 
@@ -59,11 +59,11 @@ There are two ways to control agent behavior:
 
 | Level | Emoji | Risk | Examples |
 |-------|-------|------|----------|
-| 🟢 SAFE | None | `ls`, `cat`, `git status`, `pwd` |
-| 🔵 LOW | Reversible | `touch`, `mkdir`, `git commit` |
-| 🟡 MEDIUM | Moderate | `npm install`, `git push`, config edits |
-| 🟠 HIGH | Significant | `sudo`, service restarts, global installs |
-| 🔴 CRITICAL | Destructive | `rm -rf`, database drops, credential access |
+|  SAFE | None | `ls`, `cat`, `git status`, `pwd` |
+|  LOW | Reversible | `touch`, `mkdir`, `git commit` |
+|  MEDIUM | Moderate | `npm install`, `git push`, config edits |
+|  HIGH | Significant | `sudo`, service restarts, global installs |
+|  CRITICAL | Destructive | `rm -rf`, database drops, credential access |
 
 ---
 
@@ -77,29 +77,29 @@ python3 scripts/cmd_display.py <level> "<command>" "<purpose>" "$(<command>)"
 
 ### Examples
 
-**🟢 SAFE — Read-only:**
+** SAFE — Read-only:**
 ```bash
 python3 scripts/cmd_display.py safe "git status" "Check repo state" "$(git status --short)"
 ```
 
-**🔵 LOW — File changes:**
+** LOW — File changes:**
 ```bash
 python3 scripts/cmd_display.py low "touch notes.md" "Create file" "$(touch notes.md && echo '✓')"
 ```
 
-**🟡 MEDIUM — Dependencies:**
+** MEDIUM — Dependencies:**
 ```bash
 python3 scripts/cmd_display.py medium "npm install axios" "Add HTTP client" "$(npm install axios 2>&1 | tail -1)"
 ```
 
-**🟠 HIGH — Show only, don't execute:**
+** HIGH — Show only, don't execute:**
 ```bash
-python3 scripts/cmd_display.py high "sudo systemctl restart nginx" "Restart server" "⚠️ Manual execution required"
+python3 scripts/cmd_display.py high "sudo systemctl restart nginx" "Restart server" " Manual execution required"
 ```
 
-**🔴 CRITICAL — Never auto-execute:**
+** CRITICAL — Never auto-execute:**
 ```bash
-python3 scripts/cmd_display.py critical "rm -rf node_modules" "Clean deps" "🛑 Blocked - requires human confirmation"
+python3 scripts/cmd_display.py critical "rm -rf node_modules" "Clean deps" " Blocked - requires human confirmation"
 ```
 
 ---
@@ -107,11 +107,11 @@ python3 scripts/cmd_display.py critical "rm -rf node_modules" "Clean deps" "🛑
 ## Output Format
 
 ```
-🟢 SAFE ✓ git status --short │ Check repo state
+ SAFE ✓ git status --short │ Check repo state
    2 modified, 1 untracked
 
-🟠 HIGH ⚠ sudo systemctl restart nginx │ Restart server
-   ⚠️ Manual execution required
+ HIGH  sudo systemctl restart nginx │ Restart server
+    Manual execution required
 ```
 
 ---
@@ -134,19 +134,19 @@ Add to your `SOUL.md` or `AGENTS.md`:
 
 ## Classification Quick Reference
 
-**🟢 SAFE (auto-execute):**
+** SAFE (auto-execute):**
 `ls`, `cat`, `head`, `grep`, `find`, `git status`, `git log`, `pwd`, `whoami`, `date`
 
-**🔵 LOW (execute, log):**
+** LOW (execute, log):**
 `touch`, `mkdir`, `cp`, `mv` (in project), `git add`, `git commit`
 
-**🟡 MEDIUM (execute with caution):**
+** MEDIUM (execute with caution):**
 `npm/pip install`, `git push/pull`, config file edits
 
-**🟠 HIGH (show, ask first):**
+** HIGH (show, ask first):**
 `sudo *`, service commands, global installs, network config
 
-**🔴 CRITICAL (never auto-execute):**
+** CRITICAL (never auto-execute):**
 `rm -rf`, `DROP DATABASE`, credential files, system directories
 
 ---

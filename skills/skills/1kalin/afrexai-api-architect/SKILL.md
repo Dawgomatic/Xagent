@@ -626,9 +626,9 @@ cors:
   max_age: 3600
 
 # Common mistakes to avoid:
-# ❌ Access-Control-Allow-Origin: *  (with credentials)
-# ❌ Reflecting Origin header without validation
-# ❌ Allowing all methods/headers
+#  Access-Control-Allow-Origin: *  (with credentials)
+#  Reflecting Origin header without validation
+#  Allowing all methods/headers
 ```
 
 ---
@@ -779,10 +779,10 @@ When reviewing an existing API, score across these dimensions:
 
 | Rating | Score | Action |
 |--------|-------|--------|
-| 🟢 Excellent | 85-100 | Minor improvements only |
-| 🟡 Good | 70-84 | Address gaps before next major release |
-| 🟠 Needs Work | 50-69 | Prioritize improvements, create tech debt tickets |
-| 🔴 Critical | <50 | Stop feature work, fix fundamentals first |
+|  Excellent | 85-100 | Minor improvements only |
+|  Good | 70-84 | Address gaps before next major release |
+|  Needs Work | 50-69 | Prioritize improvements, create tech debt tickets |
+|  Critical | <50 | Stop feature work, fix fundamentals first |
 
 ### Review Output Template
 

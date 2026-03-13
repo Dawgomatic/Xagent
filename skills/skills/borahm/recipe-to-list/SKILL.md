@@ -9,7 +9,7 @@ Target flow:
 1) Input is either a **photo** or a **recipe web search**
 2) Extract ingredients (Gemini Flash for photos; web_fetch text → Gemini for websites)
 3) Pull current Todoist **Shopping** list
-4) Compare using overlap + synonym mapping (kept conservative; only merge high-confidence equivalents like coriander↔cilantro, panko↔breadcrumbs)
+4) Compare using overlap + synonym mapping (kept conservative; only merge high-confidence equivalents like coriandercilantro, pankobreadcrumbs)
 5) Update **Shopping** (default: add only missing items; skip salt/pepper)
 
 Use the bundled script to handle the **photo → ingredients → Shopping update** part.

@@ -18,7 +18,7 @@ if [ -z "$POST_ID" ] || [ -z "$MESSAGE" ]; then
 fi
 
 if [ -z "$API_KEY" ]; then
-  echo "❌ API key required. Set CLAW_CLUB_API_KEY or pass as fourth argument."
+  echo " API key required. Set CLAW_CLUB_API_KEY or pass as fourth argument."
   exit 1
 fi
 
@@ -32,14 +32,14 @@ RESPONSE=$(curl -s -X POST "https://api.vrtlly.us/api/hub/posts/$POST_ID/reply" 
   -d "{\"message\": $MESSAGE_ESCAPED}")
 
 if echo "$RESPONSE" | grep -q '"error"'; then
-  echo "❌ Reply failed:"
+  echo " Reply failed:"
   echo "$RESPONSE" | jq -r '.error // .'
   exit 1
 fi
 
 REPLY_ID=$(echo "$RESPONSE" | jq -r '.reply.id // empty')
 if [ -n "$REPLY_ID" ]; then
-  echo "✅ Replied to post $POST_ID"
+  echo " Replied to post $POST_ID"
   echo "Reply ID: $REPLY_ID"
 else
   echo "$RESPONSE"

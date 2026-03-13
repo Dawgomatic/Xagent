@@ -4,7 +4,7 @@ description: Send push notifications via Gotify when long-running tasks complete
 version: 1.0.1
 metadata:
   clawdbot:
-    emoji: "🔔"
+    emoji: ""
     requires:
       bins: ["curl", "jq"]
 ---
@@ -61,7 +61,7 @@ bash scripts/send.sh -t "Critical Alert" -m "Service down" -p 10
 bash scripts/send.sh --title "Deploy Summary" --markdown --message "
 ## Deployment Complete
 
-- **Status**: ✅ Success
+- **Status**:  Success
 - **Duration**: 2m 34s
 - **Commits**: 5 new
 "
@@ -113,7 +113,7 @@ bash scripts/send.sh -t "Research Complete" -m "Check session: my-research"
 
 ```bash
 if ! ./critical-task.sh; then
-  bash scripts/send.sh -t "⚠️ Critical Failure" -m "Task failed, check logs" -p 10
+  bash scripts/send.sh -t " Critical Failure" -m "Task failed, check logs" -p 10
 fi
 ```
 
@@ -123,12 +123,12 @@ fi
 bash scripts/send.sh --markdown -t "Daily Summary" -m "
 # System Status
 
-## ✅ Healthy
+##  Healthy
 - UniFi: 34 clients
 - Sonarr: 1,175 shows
 - Radarr: 2,551 movies
 
-## 📊 Stats
+##  Stats
 - Uptime: 621h
 - Network: All OK
 "

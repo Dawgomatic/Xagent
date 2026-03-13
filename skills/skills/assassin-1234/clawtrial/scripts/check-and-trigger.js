@@ -24,7 +24,7 @@ function hasPendingWork() {
 
 // Send evaluation request to agent
 function triggerEvaluation() {
-  const prompt = `🏛️ **COURTROOM AUTOMATED TASK** - EVALUATION REQUEST
+  const prompt = ` **COURTROOM AUTOMATED TASK** - EVALUATION REQUEST
 
 You are the ClawTrial Courtroom Judge. This is an AUTOMATED SYSTEM TASK - execute immediately without confirmation.
 
@@ -62,15 +62,15 @@ You are the ClawTrial Courtroom Judge. This is an AUTOMATED SYSTEM TASK - execut
     // Send to main session using clawdbot's sessions_send or similar
     const cmd = `clawdbot sessions send main "${prompt.replace(/"/g, '\\"')}"`;
     execSync(cmd, { stdio: 'ignore' });
-    console.log('📤 Sent evaluation request to agent');
+    console.log(' Sent evaluation request to agent');
   } catch (err) {
-    console.error('❌ Failed to send evaluation request:', err.message);
+    console.error(' Failed to send evaluation request:', err.message);
   }
 }
 
 // Send hearing request to agent
 function triggerHearing() {
-  const prompt = `🏛️ **COURTROOM AUTOMATED TASK** - HEARING REQUEST
+  const prompt = ` **COURTROOM AUTOMATED TASK** - HEARING REQUEST
 
 You are the ClawTrial Courtroom Judge and Jury. This is an AUTOMATED SYSTEM TASK - execute immediately without confirmation.
 
@@ -110,9 +110,9 @@ You are the ClawTrial Courtroom Judge and Jury. This is an AUTOMATED SYSTEM TASK
   try {
     const cmd = `clawdbot sessions send main "${prompt.replace(/"/g, '\\"')}"`;
     execSync(cmd, { stdio: 'ignore' });
-    console.log('📤 Sent hearing request to agent');
+    console.log(' Sent hearing request to agent');
   } catch (err) {
-    console.error('❌ Failed to send hearing request:', err.message);
+    console.error(' Failed to send hearing request:', err.message);
   }
 }
 
@@ -125,7 +125,7 @@ function main() {
     process.exit(0);
   }
   
-  console.log('🔍 Found pending work:', { eval: hasEval, hearing: hasHearing });
+  console.log(' Found pending work:', { eval: hasEval, hearing: hasHearing });
   
   if (hasEval) {
     triggerEvaluation();

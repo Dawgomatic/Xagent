@@ -1,7 +1,7 @@
 ---
 name: decision-log
 description: Decision recording + result tracking skill
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
 # decision-log
@@ -87,4 +87,4 @@ Publish event when recording decision:
 
 ---
 
-**decision-log** | 무펭이 🐧
+**decision-log** | 무펭이 

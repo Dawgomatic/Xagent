@@ -4,7 +4,7 @@
 
 const { Loom } = require('../lib/index.js');
 
-console.log('🧪 Agent-Weave 基础测试\n');
+console.log(' Agent-Weave 基础测试\n');
 
 let passed = 0;
 let failed = 0;
@@ -12,10 +12,10 @@ let failed = 0;
 function test(name, fn) {
   try {
     fn();
-    console.log(`✅ ${name}`);
+    console.log(` ${name}`);
     passed++;
   } catch (err) {
-    console.log(`❌ ${name}: ${err.message}`);
+    console.log(` ${name}: ${err.message}`);
     failed++;
   }
 }
@@ -67,12 +67,12 @@ async function testDispatch() {
       throw new Error(`任务成功数错误: ${result.summary.success}`);
     }
     
-    console.log('✅ 任务分发和执行');
+    console.log(' 任务分发和执行');
     passed++;
     
     master.destroy();
   } catch (err) {
-    console.log(`❌ 任务分发和执行: ${err.message}`);
+    console.log(` 任务分发和执行: ${err.message}`);
     failed++;
   }
 }
@@ -86,8 +86,8 @@ async function testDispatch() {
   console.log('              测试报告');
   console.log('='.repeat(40));
   console.log(`总测试: ${passed + failed}`);
-  console.log(`✅ 通过: ${passed}`);
-  console.log(`❌ 失败: ${failed}`);
+  console.log(` 通过: ${passed}`);
+  console.log(` 失败: ${failed}`);
   console.log(`成功率: ${(((passed / (passed + failed)) * 100) || 0).toFixed(2)}%`);
   console.log('='.repeat(40) + '\n');
   

@@ -1,7 +1,7 @@
 ---
 name: evolve
 description: Local DevOps/autonomy skill for OpenClaw (safe evolution loop with guardrails).
-metadata: { "openclaw": { "emoji": "🧬" } }
+metadata: { "openclaw": { "emoji": "" } }
 ---
 
 # evolve

@@ -70,14 +70,14 @@ def scan_file(filepath):
         matches = list(re.finditer(pattern, content, re.MULTILINE))
         for match in matches:
             line_num = content[:match.start()].count('\n') + 1
-            issues.append(f"⚠️  Line {line_num}: Dangerous import: {match.group()}")
+            issues.append(f"  Line {line_num}: Dangerous import: {match.group()}")
     
     # Check dangerous functions
     for pattern in DANGEROUS_FUNCTIONS:
         matches = list(re.finditer(pattern, content, re.MULTILINE))
         for match in matches:
             line_num = content[:match.start()].count('\n') + 1
-            issues.append(f"⚠️  Line {line_num}: Dangerous function: {match.group()}")
+            issues.append(f"  Line {line_num}: Dangerous function: {match.group()}")
     
     # Check for hardcoded secrets
     for pattern in SECRET_PATTERNS:
@@ -85,14 +85,14 @@ def scan_file(filepath):
         for match in matches:
             line_num = content[:match.start()].count('\n') + 1
             # Don't show the actual secret
-            issues.append(f"🔴 Line {line_num}: Possible hardcoded secret detected")
+            issues.append(f" Line {line_num}: Possible hardcoded secret detected")
     
     # Check file operations
     for pattern in FILE_PATTERNS:
         matches = list(re.finditer(pattern, content, re.MULTILINE))
         for match in matches:
             line_num = content[:match.start()].count('\n') + 1
-            issues.append(f"⚠️  Line {line_num}: Potentially unsafe file operation: {match.group()}")
+            issues.append(f"  Line {line_num}: Potentially unsafe file operation: {match.group()}")
     
     return issues
 
@@ -102,7 +102,7 @@ def scan_directory(directory):
     directory = Path(directory)
     
     for py_file in directory.rglob('*.py'):
-        print(f"\n🔍 Scanning: {py_file.relative_to(directory)}")
+        print(f"\n Scanning: {py_file.relative_to(directory)}")
         file_issues = scan_file(py_file)
         
         if file_issues:
@@ -110,7 +110,7 @@ def scan_directory(directory):
             for issue in file_issues:
                 print(f"  {issue}")
         else:
-            print("  ✅ No issues found")
+            print("   No issues found")
     
     return issues
 
@@ -127,26 +127,26 @@ def main():
     
     target = Path(sys.argv[1])
     
-    print(f"\n🔒 Security Scan: {target}")
+    print(f"\n Security Scan: {target}")
     print("=" * 60)
     
     if target.is_file():
         issues = scan_file(target)
         if issues:
-            print(f"\n⚠️  Found {len(issues)} issue(s):\n")
+            print(f"\n  Found {len(issues)} issue(s):\n")
             for issue in issues:
                 print(issue)
         else:
-            print("\n✅ No security issues found")
+            print("\n No security issues found")
     elif target.is_dir():
         all_issues = scan_directory(target)
         total_issues = sum(len(file_issues) for _, file_issues in all_issues)
         
         print("\n" + "=" * 60)
         if total_issues > 0:
-            print(f"\n⚠️  Found {total_issues} total issue(s) across {len(all_issues)} file(s)")
+            print(f"\n  Found {total_issues} total issue(s) across {len(all_issues)} file(s)")
         else:
-            print("\n✅ All clear - No security issues found")
+            print("\n All clear - No security issues found")
     else:
         print(f"Error: {target} is not a valid file or directory")
 

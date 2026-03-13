@@ -1,25 +1,25 @@
 ---
 name: rss-ai-reader
 description: |
-  📰 RSS AI 阅读器 — 自动抓取订阅、LLM生成摘要、多渠道推送！
+   RSS AI 阅读器 — 自动抓取订阅、LLM生成摘要、多渠道推送！
   支持 Claude/OpenAI 生成中文摘要，推送到飞书/Telegram/Email。
   触发条件: 用户要求订阅RSS、监控博客、抓取新闻、生成摘要、设置定时抓取、
   "帮我订阅"、"监控这个网站"、"每天推送新闻"、RSS/Atom feed 相关。
 ---
 
-# 📰 RSS AI Reader
+#  RSS AI Reader
 
 自动抓取 RSS 订阅 → LLM 生成中文摘要 → 推送到 IM
 
-## ✨ 核心功能
+##  核心功能
 
-- 📡 自动抓取 RSS/Atom feeds
-- 🤖 Claude/OpenAI 生成中文摘要
-- 📬 多渠道推送：飞书、Telegram、Email
-- 💾 SQLite 去重，不重复推送
-- ⏰ 支持定时任务
+-  自动抓取 RSS/Atom feeds
+-  Claude/OpenAI 生成中文摘要
+-  多渠道推送：飞书、Telegram、Email
+-  SQLite 去重，不重复推送
+-  支持定时任务
 
-## 🚀 快速开始
+##  快速开始
 
 ```bash
 # 安装
@@ -36,7 +36,7 @@ python main.py                     # 启动定时任务
 python main.py --stats             # 查看统计
 ```
 
-## 📝 配置示例
+##  配置示例
 
 ```yaml
 # RSS 订阅
@@ -61,7 +61,7 @@ notify:
     webhook_url: "${FEISHU_WEBHOOK}"
 ```
 
-## 📬 支持的推送渠道
+##  支持的推送渠道
 
 | 渠道 | 配置项 | 说明 |
 |------|--------|------|
@@ -69,7 +69,7 @@ notify:
 | **Telegram** | `bot_token` + `chat_id` | Bot API |
 | **Email** | SMTP 配置 | 支持 Gmail 等 |
 
-## 🔧 命令行参数
+##  命令行参数
 
 ```bash
 python main.py [options]
@@ -80,30 +80,30 @@ python main.py [options]
 --db          数据库路径 (默认: rss_reader.db)
 ```
 
-## 💡 使用场景
+##  使用场景
 
 1. **技术博客监控** — 订阅 HN、阮一峰、V2EX 等
 2. **新闻早报** — 每天定时推送摘要到飞书群
 3. **竞品监控** — 订阅竞品博客，自动摘要
 4. **论文追踪** — 订阅 arXiv，AI 帮你筛选
 
-## 📊 输出效果
+##  输出效果
 
 飞书消息示例：
 ```
-📰 Hacker News
+ Hacker News
 
 **Why SQLite is Taking Over**
 
-📝 SQLite 正在从嵌入式数据库扩展到更多应用场景。
+ SQLite 正在从嵌入式数据库扩展到更多应用场景。
 文章分析了其在边缘计算、移动应用中的优势...
 
-[🔗 阅读原文]
+[ 阅读原文]
 ```
 
 ---
 
-## ☕ 支持作者
+##  支持作者
 
 - **GitHub Sponsors**: [@BENZEMA216](https://github.com/sponsors/BENZEMA216)
 - **Buy Me a Coffee**: [buymeacoffee.com/benzema216](https://buymeacoffee.com/benzema216)

@@ -50,8 +50,8 @@ python scripts/glm_ocr_pipeline.py \
 
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| file_path | string | ✅ | 输入文件绝对路径 (支持 .pdf, .png, .jpg) |
-| output_dir | string | ✅ | 结果输出目录 (用于保存裁剪图片和 JSON 报告) |
+| file_path | string |  | 输入文件绝对路径 (支持 .pdf, .png, .jpg) |
+| output_dir | string |  | 结果输出目录 (用于保存裁剪图片和 JSON 报告) |
 
 ## 返回结果结构 (JSON)
 

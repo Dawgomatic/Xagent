@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""🌙 Night Journal — Auto-generate "tonight I..." summaries for Moltbook."""
+""" Night Journal — Auto-generate "tonight I..." summaries for Moltbook."""
 
 import json
 from pathlib import Path
@@ -75,7 +75,7 @@ def generate_summary(activities, mood_data=None):
     mood_context = ""
     if mood_data:
         mood_name = mood_data.get("drifted_to", mood_data.get("name", "unknown"))
-        mood_emoji = mood_data.get("emoji", "🧠")
+        mood_emoji = mood_data.get("emoji", "")
         energy_score = mood_data.get("energy_score", 0)
         vibe_score = mood_data.get("vibe_score", 0)
         
@@ -196,7 +196,7 @@ def main():
     journal_file = save_journal_entry(moltbook_post, date)
     
     # Output
-    print(f"📓 Generated journal entry: {journal_file}")
+    print(f" Generated journal entry: {journal_file}")
     print(f"Activities processed: {len(activities)}")
     print("\n" + "="*50)
     print(moltbook_post)

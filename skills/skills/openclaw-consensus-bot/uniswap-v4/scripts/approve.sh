@@ -108,7 +108,7 @@ if [[ "$JSON_OUTPUT" == "true" ]]; then
   echo "{\"success\":true,\"token\":\"$TOKEN\",\"symbol\":\"$SYM\",\"erc20ApproveTx\":\"$HASH1\",\"permit2ApproveTx\":\"$HASH2\"}"
 else
   log ""
-  log "✅ Approvals set for $SYM"
+  log " Approvals set for $SYM"
   log "  ERC20 → Permit2: $HASH1"
   log "  Permit2 → Router: $HASH2"
 fi

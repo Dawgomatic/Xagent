@@ -192,13 +192,13 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 
 **安裝來源**: GitHub Clone (ZhuangClaw/qst-memory-skill v1.8.2)
 **安裝位置**: /home/node/.openclaw/workspace/skills/qst-memory
-**測試結果**: ✅ 全部通過
+**測試結果**:  全部通過
 
 **核心功能驗證**:
-- ✅ 用戶優先回應機制（User Priority Response）
-- ✅ should_skip_for_user_priority() - 跳過檢查邏輯
-- ✅ increment_skip_count() - 跳過計數
-- ✅ Heartbeat 整合 - 正確跳過檢查（剩餘 11 分鐘）
+-  用戶優先回應機制（User Priority Response）
+-  should_skip_for_user_priority() - 跳過檢查邏輯
+-  increment_skip_count() - 跳過計數
+-  Heartbeat 整合 - 正確跳過檢查（剩餘 11 分鐘）
 
 **配置**:
 - user_priority_override.enabled = true
@@ -226,9 +226,9 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 - 緊急情況響應時間
 
 **決策標準**:
-- ✅ 表現優異：繼續使用 v1.8.2（不出現問題就沒必要升級）
-- 🟡 有改進空間：調整參數（視窗大小、跳過上限）
-- 🔴 經常錯過緊急通知：升級到方案 B
+-  表現優異：繼續使用 v1.8.2（不出現問題就沒必要升級）
+-  有改進空間：調整參數（視窗大小、跳過上限）
+-  經常錯過緊急通知：升級到方案 B
 
 **計劃文檔**: QST_MEMORY_v1.8.2_EVALUATION_PLAN.md
 
@@ -267,7 +267,7 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 
 **最新配置**:
 - Provider ID: claude-opus-4-6-xinyuan
-- BaseURL: https://xinyuanai666.com/v1 ✅ (已修正)
+- BaseURL: https://xinyuanai666.com/v1  (已修正)
 - API Key: sk-0FuMzdToHVJXEIVd6gma9cwQ4gzyIAWMKRmJdH83v0MpImwH
 - Model: claude-opus-4-6
 
@@ -280,10 +280,10 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 ## [Tech_Config] 【Claude Opus 4.6 API 測試成功】(2026-02-16 03:21 UTC)
 
 **測試項目**:
-- ✅ API 連通性：成功（https://xinyuanai666.com/v1）
-- ✅ API Key：有效
-- ✅ 模型響應：正常（返回 OK）
-- ✅ 響應格式：符合 OpenAI Chat Completions API 標準
+-  API 連通性：成功（https://xinyuanai666.com/v1）
+-  API Key：有效
+-  模型響應：正常（返回 OK）
+-  響應格式：符合 OpenAI Chat Completions API 標準
 
 **測試請求**:
 
@@ -292,12 +292,12 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 
 
 **下一步**:
-- 🚀 需要重啟 OpenClaw Gateway 以識別新提供商
-- 🧪 實際會話使用測試（重啟後）
+-  需要重啟 OpenClaw Gateway 以識別新提供商
+-  實際會話使用測試（重啟後）
 
 **測試報告**: CLAUDE_OPUS_4_6_API_TEST.md
 
-**配置狀態**: ✅ 已就緒，待 Gateway 重啟
+**配置狀態**:  已就緒，待 Gateway 重啟
 
 ---
 **下一步**: 在實際會話中測試 Claude Opus 4.6 模型
@@ -314,11 +314,11 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 **操作者**: Zhuangzi
 
 **已刪除的配置項**:
-- ✅ auth.profiles.google-antigravity:tikchowus@gmail.com
-- ✅ auth.profiles.google-antigravity:tikchow@gmail.com
-- ✅ agents.defaults.model.fallbacks → google-antigravity/gemini-3-flash
-- ✅ agents.defaults.models.google-antigravity/gemini-3-flash
-- ✅ plugins.entries.google-antigravity-auth
+-  auth.profiles.google-antigravity:tikchowus@gmail.com
+-  auth.profiles.google-antigravity:tikchow@gmail.com
+-  agents.defaults.model.fallbacks → google-antigravity/gemini-3-flash
+-  agents.defaults.models.google-antigravity/gemini-3-flash
+-  plugins.entries.google-antigravity-auth
 
 **驗證**: 配置文件中已無 google-antigravity 相關內容（剩餘 0 項）
 
@@ -338,9 +338,9 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 **操作者**: Zhuangzi
 
 **更新內容**:
-- ✅ 主模型: nvidia/z-ai/glm4.7 (已確認)
-- ✅ 別名: glm4 (新增)
-- ✅ 回退列表優先級調整:
+-  主模型: nvidia/z-ai/glm4.7 (已確認)
+-  別名: glm4 (新增)
+-  回退列表優先級調整:
   1. nvidia/z-ai/glm4.7 (優先回退)
   2. nvidia/nemotron-3-nano-30b-a3b
   3. openrouter/auto
@@ -371,26 +371,26 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 
 ---
 
-## 🐲 莊子總結
+##  莊子總結
 
-> **「無空轉，有停滯，已解決」— 莊子** 🧪✅🐲
+> **「無空轉，有停滯，已解決」— 莊子** 
 >
 > **檢測結果**：
-> - ❌ 無空轉證據（Heartbeat 每次正常）
-> - ⚠️ 有停滯 179 分鐘（忘記更新進度）
-> - ✅ 任務已完成並標記（COMPLETED, 100%）
+> -  無空轉證據（Heartbeat 每次正常）
+> -  有停滯 179 分鐘（忘記更新進度）
+> -  任務已完成並標記（COMPLETED, 100%）
 >
 > **已解決**：
-> - ✅ 更新進度到 100%
-> - ✅ 標記任務完成
-> - ✅ 重置 User Priority
+> -  更新進度到 100%
+> -  標記任務完成
+> -  重置 User Priority
 >
 > **結論**：
-> - 🟢 系統正常，無空轉
-> - 🟡 進度管理需要改進（定期更新進度）
-> - 🟢 v1.8.2 已完全開發和發布
+> -  系統正常，無空轉
+> -  進度管理需要改進（定期更新進度）
+> -  v1.8.2 已完全開發和發布
 >
-> **界王大人，沒有空轉！任務已經完成，忘記更新進度而已。現在已經全部標記完成了！** ✨
+> **界王大人，沒有空轉！任務已經完成，忘記更新進度而已。現在已經全部標記完成了！** 
 
 ---
 
@@ -403,22 +403,22 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 **請求者**: 界王
 **檢測者**: Zhuangzi
 
-**結論**: ❌ **無空轉證據，任務已停滯但未空轉**
+**結論**:  **無空轉證據，任務已停滯但未空轉**
 
 **檢測結果**:
-- ❌ 無空轉證據（Heartbeat 每次正常，~20 秒）
-- ⚠️ 有停滯 179 分鐘（從 02:32:06 到 05:31:00）
-- ✅ 停滯期間處理了其他任務：
+-  無空轉證據（Heartbeat 每次正常，~20 秒）
+-  有停滯 179 分鐘（從 02:32:06 到 05:31:00）
+-  停滯期間處理了其他任務：
   - 創建 GitHub README.md
   - 刪除 Google Antigravity Model
   - 模型轉換到 NVIDIA GLM-4.7
-- ✅ 任務實際已完成，但忘記更新進度
+-  任務實際已完成，但忘記更新進度
 
 **已採取的修復措施**:
-- ✅ 更新進度到 100%
-- ✅ 標記任務完成 (COMPLETED)
-- ✅ 重置 User Priority 時間戳
-- ✅ 保存檢測報告
+-  更新進度到 100%
+-  標記任務完成 (COMPLETED)
+-  重置 User Priority 時間戳
+-  保存檢測報告
 
 **當前狀態**:
 - Agent 狀態: COMPLETED
@@ -427,10 +427,10 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 - User Priority: 已重置 (last_user_interaction: 2026-02-16T05:34:43Z, skipped_count: 0)
 
 **v1.8.2 狀態**:
-- ✅ 用戶優先回應機制（已實現）
-- ✅ 防死循環保護（v1.8.1，已實現）
-- ✅ GitHub README.md（已創建並提交到本地 Git）
-- ✅ ClawHub 發布（v1.8.2，已發布）
+-  用戶優先回應機制（已實現）
+-  防死循環保護（v1.8.1，已實現）
+-  GitHub README.md（已創建並提交到本地 Git）
+-  ClawHub 發布（v1.8.2，已發布）
 
 **經驗教訓**:
 - 需要定期更新進度（建議每完成一個里程碑就更新）
@@ -453,19 +453,19 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 
 ---
 
-## 🐲 莊子總結
+##  莊子總結
 
-> **「文檔更新不算功能更新」— 莊子** 🧪📝🐲
+> **「文檔更新不算功能更新」— 莊子** 
 >
 > **分析結果**：
-> - 📊 新 commits 全部是文檔/配置更新
-> - 🧹 沒有新功能，不需要 v1.8.3
+> -  新 commits 全部是文檔/配置更新
+> -  沒有新功能，不需要 v1.8.3
 >
 > **推薦**：
-> - ⭐ **方案 A：移動 v1.8.2 標籤到最新 commit**
-> - ✅ 這樣 v1.8.2 包含完整文檔（包括 README.md）
-> - ✅ GitHub 倉庫首頁會顯示 README.md
-> - ✅ 版本號不變，不會引起混淆
+> -  **方案 A：移動 v1.8.2 標籤到最新 commit**
+> -  這樣 v1.8.2 包含完整文檔（包括 README.md）
+> -  GitHub 倉庫首頁會顯示 README.md
+> -  版本號不變，不會引起混淆
 >
 > **操作**：
 > ```bash
@@ -475,7 +475,7 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 > git push origin v1.8.2 --force
 > ```
 >
-> **界王大人，建議移動 v1.8.2 標籤到最新的 commit！這樣 v1.8.2 就包含完整的 README.md 了！** ✨
+> **界王大人，建議移動 v1.8.2 標籤到最新的 commit！這樣 v1.8.2 就包含完整的 README.md 了！** 
 
 ---
 
@@ -491,12 +491,12 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 **v1.8.4 核心目標**: 解決 v1.8.2 停滯問題，建立更明確的任務管理系統
 
 **核心功能（6 大重點）**:
-1. ✅ 子任務列表管理 - 支持多層級子任務（3 層級）
-2. ✅ 自動進度計算 - 根據子任務狀態自動計算總進度
-3. ✅ 自動完成檢測 - Heartbeat 整合的自動檢測機制
-4. ✅ 定期進度提醒 - 停滯檢測（15 分鐘）和自動降級
-5. ✅ 任務完成標準模板 - 預定義的任務類型和完成標準
-6. 🔄 任務隊列管理 - 統一管理並行任務（v2.0）
+1.  子任務列表管理 - 支持多層級子任務（3 層級）
+2.  自動進度計算 - 根據子任務狀態自動計算總進度
+3.  自動完成檢測 - Heartbeat 整合的自動檢測機制
+4.  定期進度提醒 - 停滯檢測（15 分鐘）和自動降級
+5.  任務完成標準模板 - 預定義的任務類型和完成標準
+6.  任務隊列管理 - 統一管理並行任務（v2.0）
 
 **開發時間表**:
 - Phase 1: 子任務列表 + 自動進度（4 小時）
@@ -507,11 +507,11 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 - **總計**: 11.5 小時
 
 **成功標準**:
-- 子任務列表正常運作 ✅
-- 自動進度計算正確 ✅
-- 自動完成檢測準確 ✅
-- 定期進度提醒及時 ✅
-- 任務完成標準模板可載入 ✅
+- 子任務列表正常運作 
+- 自動進度計算正確 
+- 自動完成檢測準確 
+- 定期進度提醒及時 
+- 任務完成標準模板可載入 
 
 **規劃文檔**: QST_MEMORY_v1.8.4_PLAN.md
 
@@ -526,9 +526,9 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 **要求者**: 界王
 
 **更新內容**:
-- ✅ 將 stagnation_threshold_minutes 從 15 改為 8
-- ✅ 將 reminder_interval_minutes 從 10 改為 5
-- ✅ 更新停滯操作時機：
+-  將 stagnation_threshold_minutes 從 15 改為 8
+-  將 reminder_interval_minutes 從 10 改為 5
+-  更新停滯操作時機：
   - 8 分鐘：優先級降級（lower_priority）
   - 15 分鐘：標記停滯（mark_stagnant）
   - 30 分鐘：標記阻塞（mark_blocked）
@@ -549,19 +549,19 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
 
 **開發者**: Zhuangzi
 **Phase**: 1
-**狀態**: ✅ 完成
+**狀態**:  完成
 
 **已實現功能**:
-- ✅ 子任務列表管理（支持 3 層級）
+-  子任務列表管理（支持 3 層級）
   - add_subtask() - 添加子任務
   - update_subtask() - 更新子任務
   - delete_subtask() - 刪除子任務（支持級聯）
   - list_subtasks() - 列出子任務
   - get_subtask() - 獲取單個子任務
-- ✅ 自動進度計算（根據必選子任務）
+-  自動進度計算（根據必選子任務）
   - calculate_progress() - 自動計算進度
   - _recalculate_progress() - 自動更新進度
-- ✅ CLI 擴展（5 個新命令）
+-  CLI 擴展（5 個新命令）
   - subtask add - 添加子任務
   - subtask update - 更新子任務
   - subtask delete - 刪除子任務
@@ -569,9 +569,9 @@ QST Memory v1.7.1 HKGBook 測試：嘗試回復帖子測試上下文記憶能力
   - subtask show - 顯示詳情
 
 **測試結果**:
-- ✅ 基本功能正常
-- ✅ 進度計算正確（66%）
-- ✅ 列出子任務成功
+-  基本功能正常
+-  進度計算正確（66%）
+-  列出子任務成功
 
 **新增文件**:
 - scripts/subtask_manager.py (8.9KB)

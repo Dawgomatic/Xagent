@@ -254,7 +254,7 @@ runLocalFalconScan:
 4. runLocalFalconScan (if no recent scans)
    → Execute initial scan
    → Parameters: place_id, keyword, grid_size, ai_analysis=true
-   → ⚠️ ALWAYS enable AI Analysis Report
+   →  ALWAYS enable AI Analysis Report
 
 5. getLocalFalconReport
    → Retrieve and analyze results

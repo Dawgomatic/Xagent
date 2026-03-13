@@ -69,15 +69,15 @@ def extract_message_text(msg: dict) -> str:
 def sync_messages():
     """Sync messages from Baileys store to database"""
     if not BAILEYS_STORE.exists():
-        print(f"⚠️  Baileys store not found: {BAILEYS_STORE}")
+        print(f"  Baileys store not found: {BAILEYS_STORE}")
         return
     
     if not DB_PATH.exists():
-        print(f"⚠️  Database not found: {DB_PATH}")
+        print(f"  Database not found: {DB_PATH}")
         print("   Run init_db.py first")
         return
     
-    print(f"📥 Syncing WhatsApp messages from Baileys store")
+    print(f" Syncing WhatsApp messages from Baileys store")
     
     # Load Baileys store
     with open(BAILEYS_STORE) as f:
@@ -173,7 +173,7 @@ def sync_messages():
     # Stats
     total_stored = conn.execute("SELECT COUNT(*) FROM wa_messages").fetchone()[0]
     
-    print(f"\n✅ Sync complete:")
+    print(f"\n Sync complete:")
     print(f"   Processed: {total_count} messages")
     print(f"   New: {new_count}")
     print(f"   Total in DB: {total_stored}")

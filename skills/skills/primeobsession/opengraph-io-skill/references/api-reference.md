@@ -262,7 +262,7 @@ curl -s "https://opengraph.io/api/1.1/extract/$(echo -n 'https://example.com' | 
 
 Ask questions about a webpage using AI. Returns structured answers.
 
-> ⚠️ **Paid feature** — Not available on free tier.
+>  **Paid feature** — Not available on free tier.
 
 **URL Format:**
 ```
@@ -540,7 +540,7 @@ X-RateLimit-Reset: 1706547200
 | Screenshot | 100/month | Based on plan |
 | Scrape | 100/month | Based on plan |
 | Extract | 100/month | Based on plan |
-| Query (AI) | ❌ | ✅ |
+| Query (AI) |  |  |
 | Image Generation | 4/month | Based on plan |
 
 See [dashboard.opengraph.io](https://dashboard.opengraph.io) for current pricing.

@@ -6,7 +6,7 @@ homepage: https://github.com/globalcaos/clawdbot-moltbot-openclaw
 repository: https://github.com/globalcaos/clawdbot-moltbot-openclaw
 metadata:
   openclaw:
-    emoji: "🧠"
+    emoji: ""
     tags:
       - memory
       - cognitive
@@ -271,11 +271,11 @@ workspace/
 |---------|---------------------|-----------|--------------------------|
 | Token cost per recall | 3K-20K | 500-2K | 200-800 |
 | Precision | ~5-10% | ~50% | ~80-90% |
-| Associations | ❌ | ❌ | ✅ Knowledge graph |
-| Abstraction levels | ❌ | ❌ | ✅ RAPTOR hierarchy |
-| Context priming | ❌ | ❌ | ✅ Spreading activation |
-| Automatic decay | ❌ | ❌ | ✅ Configurable half-life |
-| Cross-agent sharing | ❌ | ❌ | ✅ With sensitivity gates |
+| Associations |  |  |  Knowledge graph |
+| Abstraction levels |  |  |  RAPTOR hierarchy |
+| Context priming |  |  |  Spreading activation |
+| Automatic decay |  |  |  Configurable half-life |
+| Cross-agent sharing |  |  |  With sensitivity gates |
 | Cloud dependency | None | Usually | **None — fully local** |
 | Setup complexity | Zero | High | `mem.py init` + one script |
 

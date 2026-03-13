@@ -137,19 +137,19 @@ python3 scripts/tracker.py --check
 
 Output example:
 ```
-🔍 Checking 2 order(s)...
+ Checking 2 order(s)...
 ============================================================
 
-📦 Checking: user@example.com / Order #ORD-123456
+ Checking: user@example.com / Order #ORD-123456
    Status: SHIPPED
    (No change)
 
-📦 Checking: other@example.com / Order #ORD-789012
+ Checking: other@example.com / Order #ORD-789012
    Status: PROCESSING
-   ✨ CHANGED: PENDING → PROCESSING
+    CHANGED: PENDING → PROCESSING
 
-✨ 1 change(s) detected!
-   📦 ORD-789012: PENDING → PROCESSING
+ 1 change(s) detected!
+    ORD-789012: PENDING → PROCESSING
 ```
 
 ### Show Configuration
@@ -208,11 +208,11 @@ Updated automatically on each run.
 
 ### When You Get Notified
 
-✨ **Status CHANGED** → Telegram message sent
+ **Status CHANGED** → Telegram message sent
 
 Example notification:
 ```
-📦 Order Update!
+ Order Update!
 
 Order: ORD-789012
 Email: user@example.com

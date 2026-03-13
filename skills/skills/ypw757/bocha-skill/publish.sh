@@ -5,7 +5,7 @@
 
 set -e
 
-echo "🚀 开始发布 Bocha Search Skill 到 ClawdHub..."
+echo " 开始发布 Bocha Search Skill 到 ClawdHub..."
 echo ""
 
 # 颜色定义
@@ -17,14 +17,14 @@ NC='\033[0m' # No Color
 
 # 检查 clawdhub 是否安装
 if ! command -v clawdhub &> /dev/null; then
-    echo -e "${YELLOW}⚠️  clawdhub CLI 未安装，正在安装...${NC}"
+    echo -e "${YELLOW}  clawdhub CLI 未安装，正在安装...${NC}"
     npm install -g clawdhub
 fi
 
 # 检查是否已登录
-echo -e "${BLUE}🔍 检查登录状态...${NC}"
+echo -e "${BLUE} 检查登录状态...${NC}"
 if ! clawdhub whoami &> /dev/null; then
-    echo -e "${YELLOW}⚠️  未登录到 ClawdHub${NC}"
+    echo -e "${YELLOW}  未登录到 ClawdHub${NC}"
     echo ""
     echo "请选择登录方式:"
     echo "1. 浏览器登录 (推荐)"
@@ -33,7 +33,7 @@ if ! clawdhub whoami &> /dev/null; then
     read -p "请输入选项 (1 或 2): " choice
     
     if [ "$choice" = "1" ]; then
-        echo -e "${BLUE}🌐 正在打开浏览器登录...${NC}"
+        echo -e "${BLUE} 正在打开浏览器登录...${NC}"
         clawdhub login
     elif [ "$choice" = "2" ]; then
         echo ""
@@ -46,17 +46,17 @@ if ! clawdhub whoami &> /dev/null; then
         read -p "请输入你的 API Token: " token
         clawdhub login --token "$token"
     else
-        echo -e "${RED}❌ 无效选项${NC}"
+        echo -e "${RED} 无效选项${NC}"
         exit 1
     fi
 fi
 
-echo -e "${GREEN}✅ 已登录到 ClawdHub${NC}"
+echo -e "${GREEN} 已登录到 ClawdHub${NC}"
 echo ""
 
 # 获取当前版本
 CURRENT_VERSION=$(grep -o '"version": "[^"]*"' scripts/package.json | cut -d'"' -f4)
-echo -e "${BLUE}📦 当前版本: $CURRENT_VERSION${NC}"
+echo -e "${BLUE} 当前版本: $CURRENT_VERSION${NC}"
 echo ""
 
 # 询问版本号
@@ -73,7 +73,7 @@ fi
 
 # 确认发布
 echo ""
-echo -e "${YELLOW}📋 发布信息确认:${NC}"
+echo -e "${YELLOW} 发布信息确认:${NC}"
 echo "  Skill 名称: Bocha Search"
 echo "  Slug: bocha-search"
 echo "  版本: $VERSION"
@@ -82,13 +82,13 @@ echo ""
 read -p "确认发布? (y/N): " confirm
 
 if [ "$confirm" != "y" ] && [ "$confirm" != "Y" ]; then
-    echo -e "${RED}❌ 发布已取消${NC}"
+    echo -e "${RED} 发布已取消${NC}"
     exit 0
 fi
 
 # 执行发布
 echo ""
-echo -e "${BLUE}🚀 正在发布...${NC}"
+echo -e "${BLUE} 正在发布...${NC}"
 echo ""
 
 clawdhub publish . \
@@ -99,7 +99,7 @@ clawdhub publish . \
     --tags "search,chinese,bocha,web,ai-search,news,中文搜索"
 
 echo ""
-echo -e "${GREEN}✅ 发布成功!${NC}"
+echo -e "${GREEN} 发布成功!${NC}"
 echo ""
 echo "你可以在以下地址查看:"
 echo "  https://clawdhub.com/skill/bocha-search"

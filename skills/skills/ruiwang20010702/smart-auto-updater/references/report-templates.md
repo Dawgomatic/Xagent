@@ -4,14 +4,14 @@
 
 ### Auto-Update Success
 ```
-🟢 Updated: {old} → {new}
+ Updated: {old} → {new}
 Skills: {updated}/{total}
 Errors: {errors}
 ```
 
 ### Update Skipped
 ```
-🟡 Update Available: {new}
+ Update Available: {new}
 Risk: {risk}
 Action: Skipped
 Reason: {reason}
@@ -21,111 +21,111 @@ Reason: {reason}
 
 ### Auto-Update Success
 ```
-🟢 Smart Auto-Updater
+ Smart Auto-Updater
 
-✅ Updated: {old} → {new}
+ Updated: {old} → {new}
 
-📊 Summary:
+ Summary:
 - OpenClaw: {old} → {new}
 - Skills updated: {updated_count}
 - Skills unchanged: {unchanged_count}
 - Errors: {error_count}
 
-📋 Key Changes:
+ Key Changes:
 {changes_summary}
 
-🏗️ Impact: {impact_summary}
+ Impact: {impact_summary}
 
-⏱️ Next check: {next_check}
+ Next check: {next_check}
 ```
 
 ### Update Skipped - LOW Risk Override
 ```
-🟡 Smart Auto-Updater
+ Smart Auto-Updater
 
 Update Available: {new}
 
-✅ Risk Assessment: LOW
+ Risk Assessment: LOW
 
-📋 Changes:
+ Changes:
 {changes_summary}
 
-🏗️ Impact: {impact_summary}
+ Impact: {impact_summary}
 
-⚠️ Note: Auto-update enabled, but skipped due to configuration
+ Note: Auto-update enabled, but skipped due to configuration
 
-💡 To auto-update LOW risk, set:
+ To auto-update LOW risk, set:
 SMART_UPDATER_AUTO_UPDATE="LOW"
 
-⏱️ Next check: {next_check}
+ Next check: {next_check}
 ```
 
 ### Update Skipped - MEDIUM Risk
 ```
-🟠 Smart Auto-Updater
+ Smart Auto-Updater
 
-⚠️ Update Available: {new}
+ Update Available: {new}
 
-🚫 Risk Level: MEDIUM
+ Risk Level: MEDIUM
 
-📋 Changes:
+ Changes:
 {changes_summary}
 
-🏗️ Impact Assessment:
+ Impact Assessment:
 - Architecture: {arch_impact}
 - Performance: {perf_impact}
 - Compatibility: {compat_impact}
 - Security: {sec_impact}
 
-🚫 Decision: SKIPPED
+ Decision: SKIPPED
 
-💡 Recommendations:
+ Recommendations:
 1. Review changelog manually
 2. Test in staging environment
 3. Update during maintenance window
 
-⏱️ Next check: {next_check}
+ Next check: {next_check}
 ```
 
 ### Update Skipped - HIGH Risk
 ```
-🔴 Smart Auto-Updater
+ Smart Auto-Updater
 
-🛑 Update Available: {new}
+ Update Available: {new}
 
-⚠️ Risk Level: HIGH
+ Risk Level: HIGH
 
-📋 Changes:
+ Changes:
 {changes_summary}
 
-🏗️ Impact Assessment:
+ Impact Assessment:
 - Architecture: {arch_impact}
 - Performance: {perf_impact}
 - Compatibility: {compat_impact}
 - Security: {sec_impact}
 
-🛑 Decision: SKIPPED (CRITICAL)
+ Decision: SKIPPED (CRITICAL)
 
-🚨 Warnings:
+ Warnings:
 {warnings}
 
-💡 Required Actions:
+ Required Actions:
 1. Manual review REQUIRED
 2. Backup current state
 3. Plan maintenance window
 4. Test thoroughly before production
 
-📄 Full Changelog:
+ Full Changelog:
 {full_changelog}
 
-⏱️ Next check: {next_check}
+ Next check: {next_check}
 ```
 
 ## Full Report (Complete)
 
 ### Complete Auto-Update Report
 ```
-🔄 Smart Auto-Updater - Complete Report
+ Smart Auto-Updater - Complete Report
 
 ═══════════════════════════════════════
 SYSTEM STATUS
@@ -204,9 +204,9 @@ ID: {report_id}
 
 | Risk Level | Emoji | Color | Auto-Update |
 |------------|-------|-------|-------------|
-| LOW | 🟢 | Green | ✅ Yes |
-| MEDIUM | 🟡 | Yellow | ⚠️ No |
-| HIGH | 🔴 | Red | 🚫 No |
+| LOW |  | Green |  Yes |
+| MEDIUM |  | Yellow |  No |
+| HIGH |  | Red |  No |
 
 ## Channel Formatting
 
@@ -223,7 +223,7 @@ ID: {report_id}
 
 ### Slack
 ```markdown
-🟢 *Smart Auto-Updater*
+ *Smart Auto-Updater*
 _Updated: {old} → {new}_
 Risk: *{risk_level}*
 {summary}

@@ -141,7 +141,7 @@ def csv_to_excel(csv_files, output_file, sheet_names=None):
         csv_path = Path(csv_file)
         
         if not csv_path.exists():
-            print(f"⚠️  Warning: File not found: {csv_file}")
+            print(f"  Warning: File not found: {csv_file}")
             continue
         
         # Determine sheet name
@@ -154,11 +154,11 @@ def csv_to_excel(csv_files, output_file, sheet_names=None):
         sheet_name = sheet_name[:31]
         
         # Read CSV data
-        print(f"📖 Reading: {csv_file}")
+        print(f" Reading: {csv_file}")
         rows = read_csv_with_encoding(csv_file)
         
         if not rows:
-            print(f"⚠️  Warning: Empty file: {csv_file}")
+            print(f"  Warning: Empty file: {csv_file}")
             continue
         
         # Create worksheet
@@ -171,11 +171,11 @@ def csv_to_excel(csv_files, output_file, sheet_names=None):
         # Apply formatting
         format_worksheet(ws, has_header=True)
         
-        print(f"✅ Added sheet: {sheet_name} ({len(rows)} rows, {len(rows[0]) if rows else 0} columns)")
+        print(f" Added sheet: {sheet_name} ({len(rows)} rows, {len(rows[0]) if rows else 0} columns)")
     
     # Save workbook
     wb.save(output_file)
-    print(f"\n🎉 Excel file created: {output_file}")
+    print(f"\n Excel file created: {output_file}")
 
 
 def main():
@@ -213,11 +213,11 @@ def main():
         csv_files = [csv_files[0]]
     
     if not csv_files:
-        print("❌ Error: No CSV files specified")
+        print(" Error: No CSV files specified")
         sys.exit(1)
     
     if not output_file:
-        print("❌ Error: No output file specified")
+        print(" Error: No output file specified")
         sys.exit(1)
     
     # Convert

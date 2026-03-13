@@ -7,7 +7,7 @@ set -euo pipefail
 CONFIG_DIR="${HOME}/.satgate"
 CONFIG_FILE="${CONFIG_DIR}/config.yaml"
 
-echo "⚡ SatGate CLI Configuration"
+echo " SatGate CLI Configuration"
 echo "───────────────────────────"
 echo ""
 
@@ -89,9 +89,9 @@ echo ""
 echo "  Testing connection..."
 if satgate ping 2>/dev/null; then
   echo ""
-  echo "  🎉 You're connected! Try: satgate status"
+  echo "   You're connected! Try: satgate status"
 else
   echo ""
-  echo "  ⚠️  Could not reach gateway. Check your config:"
+  echo "    Could not reach gateway. Check your config:"
   echo "     ${CONFIG_FILE}"
 fi

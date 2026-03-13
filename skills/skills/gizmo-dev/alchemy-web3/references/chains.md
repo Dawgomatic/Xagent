@@ -74,12 +74,12 @@ wss://{chain-id}.g.alchemy.com/v2/{apiKey}
 
 | Feature | ETH | Polygon | Arbitrum | Base | Solana |
 |---------|-----|---------|----------|------|--------|
-| Node API | ✅ | ✅ | ✅ | ✅ | ✅ |
-| NFT API | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Token API | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Transfers | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Webhooks | ✅ | ✅ | ✅ | ✅ | ⚠️ |
-| Debug/Trace | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Node API |  |  |  |  |  |
+| NFT API |  |  |  |  |  |
+| Token API |  |  |  |  |  |
+| Transfers |  |  |  |  |  |
+| Webhooks |  |  |  |  |  |
+| Debug/Trace |  |  |  |  |  |
 
 ## Examples
 

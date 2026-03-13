@@ -14,11 +14,11 @@ Schedule Tesla charging to reach target battery % by a specific time. Runs daily
 - Skill dependency: `tesla` skill must be installed and properly configured with Tesla API credentials
 
 **Security improvements (v1.1.0+):**
-- ✅ No shell injection risk: Uses argument lists instead of shell=True
-- ✅ Email validation: TESLA_EMAIL is validated before use
-- ✅ Input validation: Charge limits are validated (0-100% range)
-- ✅ Secure env passing: Credentials passed via environment variables, not string interpolation
-- ✅ Explicit dependencies: Metadata declares required env vars and skill dependencies
+-  No shell injection risk: Uses argument lists instead of shell=True
+-  Email validation: TESLA_EMAIL is validated before use
+-  Input validation: Charge limits are validated (0-100% range)
+-  Secure env passing: Credentials passed via environment variables, not string interpolation
+-  Explicit dependencies: Metadata declares required env vars and skill dependencies
 
 ## Quick Start
 
@@ -82,8 +82,8 @@ clawdbot cron add \
 ```
 
 The second job ensures charge limits are properly updated throughout the day:
-- ✅ During session: Maintains 100% (or user-specified) limit
-- ✅ After session: Applies 80% (or user-specified) limit for battery health
+-  During session: Maintains 100% (or user-specified) limit
+-  After session: Applies 80% (or user-specified) limit for battery health
 
 ## How It Works
 
@@ -164,8 +164,8 @@ TESLA_EMAIL="your@email.com" python3 scripts/tesla-smart-charge.py --check-sched
 ```
 
 Output:
-- ✅ If scheduled: Shows charge plan + charge limits + next date
-- ❌ If not scheduled: Shows next scheduled date + applies default 80% limit
+-  If scheduled: Shows charge plan + charge limits + next date
+-  If not scheduled: Shows next scheduled date + applies default 80% limit
 
 ### Manage Active Session (Run During or After Charge)
 

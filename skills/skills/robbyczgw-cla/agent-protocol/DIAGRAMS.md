@@ -274,7 +274,7 @@ Trigger Event
 │  ElevenLabs Voices  │
 │  speak()            │
 │                     │
-│  🔊 "Goal for FCB   │
+│   "Goal for FCB   │
 │     by Messi!"      │
 └─────────────────────┘
 ```
@@ -343,4 +343,4 @@ Step Execution
 
 ---
 
-**Visual guide to understanding the Agent Protocol architecture** 🦎
+**Visual guide to understanding the Agent Protocol architecture** 

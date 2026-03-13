@@ -7,7 +7,7 @@ API_URL="${1:-${REFINORE_API_URL:-https://automine.refinore.com/api}}"
 API_KEY="${2:-${REFINORE_API_KEY:-${REFINORE_AUTH_TOKEN:-}}}"
 
 if [ -z "$API_KEY" ]; then
-  echo "❌ No credentials. Set REFINORE_API_KEY"; exit 1
+  echo " No credentials. Set REFINORE_API_KEY"; exit 1
 fi
 
 if [[ "$API_KEY" == rsk_* ]]; then

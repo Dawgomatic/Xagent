@@ -9,7 +9,7 @@ A complete, enterprise-grade Discord server management skill. Everything a real 
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Set your bot token
@@ -24,7 +24,7 @@ chmod +x discord-admin.sh
 
 ---
 
-## 📋 Command Reference
+##  Command Reference
 
 ### 1. Server Intelligence
 
@@ -462,7 +462,7 @@ chmod +x discord-admin.sh
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -505,7 +505,7 @@ The script handles Discord's rate limits automatically:
 
 ---
 
-## 📊 Examples
+##  Examples
 
 ### Complete Server Setup
 
@@ -564,7 +564,7 @@ TOKEN="your-token"
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Common Errors
 
@@ -585,7 +585,7 @@ TOKEN="your-token"
 
 ---
 
-## 📝 Notes
+##  Notes
 
 - **14-day limit**: Bulk delete only works on messages from the last 14 days
 - **Role hierarchy**: Bot role must be higher than target roles
@@ -596,7 +596,7 @@ TOKEN="your-token"
 
 ---
 
-## 🤖 Supported API Endpoints
+##  Supported API Endpoints
 
 - Guilds & Guild Members
 - Channels & Threads

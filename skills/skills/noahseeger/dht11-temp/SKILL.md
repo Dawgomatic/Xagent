@@ -1,7 +1,7 @@
 ---
 name: dht11-temp
 description: Read temperature and humidity from DHT11 sensor. Supports custom GPIO pins via CLI argument or environment variable.
-metadata: {"openclaw": {"emoji": "🌡️", "requires": {"bins": ["python3", "sudo", "RPi.GPIO"]}}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["python3", "sudo", "RPi.GPIO"]}}}
 ---
 
 # DHT11 Temperature & Humidity Sensor

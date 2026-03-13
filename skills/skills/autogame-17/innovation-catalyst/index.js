@@ -113,17 +113,17 @@ const CANDIDATES = [
 ];
 
 function analyze() {
-  console.log('🔍 Innovation Catalyst v4.0 analyzing workspace...');
+  console.log(' Innovation Catalyst v4.0 analyzing workspace...');
   
   const suggestions = CANDIDATES.filter(c => c.condition());
   
   if (suggestions.length === 0) {
-    console.log('✅ All known innovation gaps filled. System is at peak capability density.');
+    console.log(' All known innovation gaps filled. System is at peak capability density.');
     console.log('- Consider purely creative tasks or manual overrides.');
     return;
   }
 
-  console.log(`💡 Found ${suggestions.length} potential innovations to break stagnation:\n`);
+  console.log(` Found ${suggestions.length} potential innovations to break stagnation:\n`);
   
   suggestions.forEach(s => {
     console.log(`[${s.type.toUpperCase()}] ${s.name} (${s.priority})`);

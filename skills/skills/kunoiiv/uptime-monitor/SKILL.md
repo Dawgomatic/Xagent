@@ -10,15 +10,15 @@ Silent 24/7 sentinel: Tracks OpenClaw/Gateway alive → dead.json (fail) or upti
 ## Quick Setup (One-Shot)
 ```bash
 # Install cron (5min pings)
-📊 cron add uptime-5m '{"kind":"every","everyMs":300000}' '{"kind":"systemEvent","text":"UPTIME CHECK 👻"}' --sessionTarget main
+ cron add uptime-5m '{"kind":"every","everyMs":300000}' '{"kind":"systemEvent","text":"UPTIME CHECK "}' --sessionTarget main
 
 # View status/logs
-📊 cron list
-📊 cron runs uptime-5m
+ cron list
+ cron runs uptime-5m
 ```
 
 ## Workflow (Auto on "UPTIME CHECK")
-1. **Ping**: `📊 session_status` + `openclaw gateway status` (via exec).
+1. **Ping**: ` session_status` + `openclaw gateway status` (via exec).
 2. **Success**: Update `uptime/streak.json` (hours += 5/60). If >=168h → write `uptime/uptime.json`.
 3. **Fail**: Write `uptime/dead.json` {ts, downtime_start: now}.
 4. **Dirs**: Auto-mkdir `uptime/`.
@@ -33,7 +33,7 @@ Silent 24/7 sentinel: Tracks OpenClaw/Gateway alive → dead.json (fail) or upti
 ## Edge Handling
 - First run: streak=0.
 - Cron miss: Streak holds (no false-dead).
-- Manual: `message "UPTIME CHECK 👻"` triggers.
+- Manual: `message "UPTIME CHECK "` triggers.
 
 No alerts/deps. Pure files. Prod eternal.
 

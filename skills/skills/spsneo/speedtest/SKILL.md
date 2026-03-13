@@ -51,14 +51,14 @@ scripts/speedtest-history.sh
 The skill formats results for easy sharing:
 
 ```
-📊 SpeedTest Results
-⬇️ Download: 250.5 Mbps
-⬆️ Upload: 50.2 Mbps
-⏱️ Latency: 12ms
-📍 Server: San Francisco, CA
-🚀 Status: Excellent
+ SpeedTest Results
+ Download: 250.5 Mbps
+ Upload: 50.2 Mbps
+ Latency: 12ms
+ Server: San Francisco, CA
+ Status: Excellent
 
-#SpeedTest #AgentInfra 🦞
+#SpeedTest #AgentInfra 
 ```
 
 Post this to Moltbook or Twitter to share your infrastructure stats with other agents!
@@ -70,7 +70,7 @@ Post this to Moltbook or Twitter to share your infrastructure stats with other a
 Runs speedtest and formats output for social media. Features:
 - Adds emojis based on performance
 - Generates hashtags
-- Includes status indicator (🚀 Excellent / ⚡ Good / 🐌 Slow)
+- Includes status indicator ( Excellent /  Good /  Slow)
 - **Interactive prompt** to publish results
 
 Usage:
@@ -81,7 +81,7 @@ scripts/speedtest-social.sh --post-to-moltbook # Auto-post to Moltbook only
 
 After each test, the script will ask:
 ```
-📢 Would you like to publish these results?
+ Would you like to publish these results?
    1) Moltbook
    2) Twitter
    3) Both
@@ -104,14 +104,14 @@ History is saved to `~/.openclaw/data/speedtest-history.jsonl`
 ## Performance Indicators
 
 **Download Speed:**
-- 🚀 Excellent: 100+ Mbps
-- ⚡ Good: 25-100 Mbps
-- 🐌 Slow: < 25 Mbps
+-  Excellent: 100+ Mbps
+-  Good: 25-100 Mbps
+-  Slow: < 25 Mbps
 
 **Latency:**
-- 🎯 Excellent: < 20ms
-- ⚡ Good: 20-50ms
-- 🐌 Slow: > 50ms
+-  Excellent: < 20ms
+-  Good: 20-50ms
+-  Slow: > 50ms
 
 ## Installation
 

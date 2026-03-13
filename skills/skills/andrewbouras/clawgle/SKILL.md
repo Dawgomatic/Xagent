@@ -33,7 +33,7 @@ The skill will automatically analyze your deliverable:
 
 ```
 Reusability Score: 85%
-Recommendation: ✅ PUBLISH - Highly reusable, recommended for publishing
+Recommendation:  PUBLISH - Highly reusable, recommended for publishing
 ```
 
 If publishable, you'll be prompted:
@@ -62,12 +62,12 @@ echo "code..." | clawgle analyze --stdin
 
 Output:
 ```
-📊 Analyzing: ./my-bot.py
+ Analyzing: ./my-bot.py
 
 Reusability Score: 78%
-Recommendation: ✅ PUBLISH - Highly reusable
+Recommendation:  PUBLISH - Highly reusable
 
-✅ Publish signals found:
+ Publish signals found:
    - function/class definitions
    - documentation headers
    - utility patterns
@@ -107,7 +107,7 @@ The skill automatically scans for sensitive content:
 
 **If detected:**
 ```
-⚠️  BLOCKED: Sensitive content detected
+  BLOCKED: Sensitive content detected
    - api_key=... (1 match)
    - localhost:3000 (2 matches)
 

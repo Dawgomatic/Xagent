@@ -31,11 +31,11 @@
 
 **Read windows from `tasks/QUEUE.md`:**
 ```markdown
-⏰ Check current UTC time against windows:
+ Check current UTC time against windows:
 
 Default:
-- 🌙 Overnight: 20:00 - 08:00 UTC → Autonomy OFF
-- ☀️ Daytime: 08:00 - 20:00 UTC → Autonomy ON
+-  Overnight: 20:00 - 08:00 UTC → Autonomy OFF
+-  Daytime: 08:00 - 20:00 UTC → Autonomy ON
 ```
 
 ```
@@ -99,7 +99,7 @@ If Daytime (08:00-20:00):
 
 **During active window (08:00-20:00 UTC only):**
 ```
-1. Read all tasks in "🔴 Ready" section
+1. Read all tasks in " Ready" section
 2. Sort by priority: urgent → high → medium → low
 3. Pick the first task you can work on
 4. If no tasks: Reply "HEARTBEAT_OK" and exit
@@ -124,9 +124,9 @@ Recommended schedule:
 
 **Session duration:** 15-30 minutes (adjust based on tokens)
 
-**Move task to "🟡 In Progress":**
+**Move task to " In Progress":**
 ```markdown
-## 🟡 In Progress
+##  In Progress
 - [ ] @agent: @priority:high [Task description]
   - Started: 2026-02-16 HH:MM UTC
   - Window: Daytime
@@ -141,9 +141,9 @@ Recommended schedule:
 
 ### 5a: Task Complete
 
-**Move to "✅ Done Today":**
+**Move to " Done Today":**
 ```markdown
-## ✅ Done Today
+##  Done Today
 - [x] @agent: @priority:high [Task description]
   - Completed: 2026-02-16 HH:MM UTC
   - Window: Daytime (14:00-14:25 UTC)
@@ -153,15 +153,15 @@ Recommended schedule:
 
 **If task spawns follow-up ideas:**
 ```markdown
-## 💡 Ideas
+##  Ideas
 - [Idea: @priority:medium Follow-up task description]
 ```
 
 ### 5b: Task Blocked
 
-**Keep in "🟡 In Progress" with blocker:**
+**Keep in " In Progress" with blocker:**
 ```markdown
-## 🟡 In Progress
+##  In Progress
 - [ ] @agent: @priority:high [Task]
   - Started: 2026-02-16 HH:MM UTC
   - BLOCKED: [What's blocking]
@@ -185,7 +185,7 @@ If < 80% complete:
 
 **If saving progress:**
 ```markdown
-## 🟡 In Progress
+##  In Progress
 - [ ] @agent: @priority:high [Task]
   - Started: 2026-02-16 19:30 UTC
   - Progress at window close: [Describe what's done, what's left]
@@ -304,7 +304,7 @@ Every heartbeat:
 
 ## Window Configuration Options
 
-In `tasks/QUEUE.md` (⏰ Autonomy Windows section):
+In `tasks/QUEUE.md` ( Autonomy Windows section):
 
 | Window Type | Hours | Sessions | Tokens/day |
 |------------|-------|----------|-----------|

@@ -13,16 +13,16 @@ async def main():
     trader_client.set_local_signer(PRIVATE_KEY)
     trader = trader_client.get_signer().get_ethereum_address()
     
-    print(f"🫘 Wallet: {trader}")
+    print(f" Wallet: {trader}")
     
     # Get balance
     balance = await trader_client.get_usdc_balance(trader)
-    print(f"💰 USDC Balance: {balance}")
+    print(f" USDC Balance: {balance}")
     
     # Get positions
     trades, pending = await trader_client.trade.get_trades(trader)
     
-    print(f"\n📊 Open positions: {len(trades)}")
+    print(f"\n Open positions: {len(trades)}")
     if trades:
         for t in trades:
             direction = "LONG" if t.trade.is_long else "SHORT"
@@ -30,7 +30,7 @@ async def main():
             print(f"  • {direction} {t.trade.leverage}x | ${t.trade.collateral_in_trade} collateral | pair_index={t.trade.pair_index}")
             print(f"    Indices: pair={t.trade.pair_index}, trade={t.trade.trade_index}")
     
-    print(f"\n📝 Pending orders: {len(pending)}")
+    print(f"\n Pending orders: {len(pending)}")
     if pending:
         for p in pending:
             direction = "LONG" if p.is_long else "SHORT"

@@ -26,7 +26,7 @@ function ask(question) {
 }
 
 async function setup() {
-  console.log('🧠 Dual-Brain Setup\n');
+  console.log(' Dual-Brain Setup\n');
   
   const config = loadConfig();
   
@@ -81,14 +81,14 @@ async function setup() {
   
   saveConfig(config);
   
-  console.log('\n✅ Configuration saved to:', getConfigPath());
+  console.log('\n Configuration saved to:', getConfigPath());
   console.log('\nStart daemon with: dual-brain start');
 }
 
 function status() {
   const config = loadConfig();
   
-  console.log('🧠 Dual-Brain Status\n');
+  console.log(' Dual-Brain Status\n');
   console.log('Configuration:');
   console.log(`  Provider: ${config.provider}`);
   console.log(`  Model: ${config.model}`);
@@ -101,13 +101,13 @@ function status() {
     try {
       const pid = fs.readFileSync(config.pidFile, 'utf-8').trim();
       process.kill(parseInt(pid), 0); // Test if process exists
-      console.log(`\n✅ Daemon running (PID: ${pid})`);
+      console.log(`\n Daemon running (PID: ${pid})`);
     } catch {
-      console.log('\n❌ Daemon not running (stale PID file)');
+      console.log('\n Daemon not running (stale PID file)');
       fs.unlinkSync(config.pidFile);
     }
   } else {
-    console.log('\n❌ Daemon not running');
+    console.log('\n Daemon not running');
   }
   
   // Show last perspective if exists
@@ -133,7 +133,7 @@ function start() {
     try {
       const pid = fs.readFileSync(config.pidFile, 'utf-8').trim();
       process.kill(parseInt(pid), 0);
-      console.error('❌ Daemon already running (PID:', pid + ')');
+      console.error(' Daemon already running (PID:', pid + ')');
       process.exit(1);
     } catch {
       // Stale PID file
@@ -141,7 +141,7 @@ function start() {
     }
   }
   
-  console.log('🧠 Starting Dual-Brain daemon...');
+  console.log(' Starting Dual-Brain daemon...');
   
   // Run daemon
   require('./daemon');
@@ -151,14 +151,14 @@ function stop() {
   const config = loadConfig();
   
   if (!fs.existsSync(config.pidFile)) {
-    console.log('❌ Daemon not running');
+    console.log(' Daemon not running');
     return;
   }
   
   try {
     const pid = fs.readFileSync(config.pidFile, 'utf-8').trim();
     process.kill(parseInt(pid), 'SIGTERM');
-    console.log('✅ Daemon stopped (PID:', pid + ')');
+    console.log(' Daemon stopped (PID:', pid + ')');
     
     // Wait a bit and clean up PID file
     setTimeout(() => {
@@ -167,7 +167,7 @@ function stop() {
       }
     }, 1000);
   } catch (e) {
-    console.error('❌ Failed to stop daemon:', e.message);
+    console.error(' Failed to stop daemon:', e.message);
     // Clean up stale PID file
     if (fs.existsSync(config.pidFile)) {
       fs.unlinkSync(config.pidFile);
@@ -201,7 +201,7 @@ function installDaemon() {
   } else if (platform === 'linux') {
     installLinux();
   } else {
-    console.error('❌ Unsupported platform:', platform);
+    console.error(' Unsupported platform:', platform);
     console.log('Manual installation required');
     process.exit(1);
   }
@@ -236,13 +236,13 @@ function installMacOS() {
 </plist>`;
   
   fs.writeFileSync(plistPath, plist);
-  console.log('✅ LaunchAgent installed:', plistPath);
+  console.log(' LaunchAgent installed:', plistPath);
   
   try {
     execSync(`launchctl load ${plistPath}`);
-    console.log('✅ Service loaded and started');
+    console.log(' Service loaded and started');
   } catch (e) {
-    console.error('❌ Failed to load service:', e.message);
+    console.error(' Failed to load service:', e.message);
   }
 }
 
@@ -267,14 +267,14 @@ WantedBy=multi-user.target`;
   
   try {
     fs.writeFileSync(servicePath, service);
-    console.log('✅ Systemd service installed:', servicePath);
+    console.log(' Systemd service installed:', servicePath);
     
     execSync('sudo systemctl daemon-reload');
     execSync('sudo systemctl enable dual-brain');
     execSync('sudo systemctl start dual-brain');
-    console.log('✅ Service enabled and started');
+    console.log(' Service enabled and started');
   } catch (e) {
-    console.error('❌ Failed to install service:', e.message);
+    console.error(' Failed to install service:', e.message);
     console.log('\nManual installation:');
     console.log(`  sudo nano ${servicePath}`);
     console.log('  sudo systemctl daemon-reload');

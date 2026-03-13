@@ -104,7 +104,7 @@ Send the exact USDT amount to the escrow address on **TRON (TRC20)** network. Th
 
 ```
 created → pending_payment → paid → shipped → delivered → completed
-                                                     ↘ disputed
+                                                      disputed
 ```
 
 - **Digital goods**: Delivered instantly after payment confirmation

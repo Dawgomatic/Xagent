@@ -116,7 +116,7 @@ delete_file = (
 
 def handle_tool(call):
     if call.requires_approval:
-        print(f"\n⚠️  Agent wants to: {call.name}")
+        print(f"\n  Agent wants to: {call.name}")
         print(f"   Arguments: {call.args}")
         confirm = input("Allow? (y/n): ")
 
@@ -197,11 +197,11 @@ def stream_handler(msg):
         sys.stdout.flush()
 
 def tool_handler(call):
-    print(f"\n🔧 Using tool: {call.name}")
+    print(f"\n Using tool: {call.name}")
     # Execute and return result
     result = execute_tool(call.name, call.args)
     agent.submit_tool_result(call.id, result)
-    print("✅ Tool completed")
+    print(" Tool completed")
 
 response = agent.send_message(
     "Generate a report on market trends",
@@ -209,7 +209,7 @@ response = agent.send_message(
     on_tool_call=tool_handler
 )
 
-print("\n\n📊 Report complete!")
+print("\n\n Report complete!")
 ```
 
 ## Error Recovery Pattern

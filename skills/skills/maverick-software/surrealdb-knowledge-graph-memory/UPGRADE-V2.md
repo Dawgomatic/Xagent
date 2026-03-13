@@ -25,11 +25,11 @@ mkdir -p ~/.openclaw/workspace/.working-memory
 
 ```
 Tier 1: Context Window (conversation)
-    ↕ (continuous read/write during loop iterations)
+     (continuous read/write during loop iterations)
 Tier 1.5: Working Memory (.working-memory/current-task.yaml)  ← NEW
-    ↕ (persisted every N iterations)
+     (persisted every N iterations)
 Tier 2: File-Based Memory (daily logs, MEMORY.md)
-    ↕ (cron extraction + sync writes for important facts)
+     (cron extraction + sync writes for important facts)
 Tier 3: Knowledge Graph (facts, entities, relations, episodes)  ← ENHANCED
 ```
 
@@ -78,7 +78,7 @@ similar = em.find_similar_episodes("Deploy marketing pipeline", limit=5)
 
 # Get actionable learnings
 learnings = em.get_learnings_for_task("Deploy API integration")
-# Returns: ["Always validate OAuth tokens first", "⚠️ Past failure: Token expired mid-deploy"]
+# Returns: ["Always validate OAuth tokens first", " Past failure: Token expired mid-deploy"]
 ```
 
 ### 3. Synchronous Fact Writes

@@ -250,7 +250,7 @@ llm-wallet pay "https://api.down-service.com/endpoint"
 ### Custom Network Configuration
 
 ```bash
-# Use mainnet (⚠️ real money!)
+# Use mainnet ( real money!)
 export WALLET_NETWORK="polygon"
 export FACILITATOR_URL="https://x402.polygon.technology"
 

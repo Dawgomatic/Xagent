@@ -15,11 +15,11 @@ metadata:
 
 High-performance extraction of direct assets from TeraBox using the browser-less XAPIverse API.
 
-## 📖 Navigation & Data
+##  Navigation & Data
 - **Primary Interaction**: Use the adaptive logic in `handler.js`. See [api-reference.md](references/api-reference.md) for command specs and [changelog.md](references/changelog.md) for version history.
 - **Secondary Interaction**: Use CLI via `node scripts/extract.js <url>`.
 
-## 🛠 AI Protocol (Security First)
+##  AI Protocol (Security First)
 
 ### 1. Informed Consent Protocol
 - **Trigger**: When a user provides a TeraBox link (`terabox.com`, etc.), inform them that you can extract direct links using the XAPIverse service.
@@ -30,16 +30,16 @@ High-performance extraction of direct assets from TeraBox using the browser-less
 Once permitted, present the extraction results as a text-only report. **DO NOT use interactive buttons.**
 
 **Format per file:**
-📦 **Name**: [name]
-📁 **Type**: [type] | 📺 **Quality**: [quality]
-📏 **Size**: [size_formatted] | ⏱️ **Duration**: [duration]
-🔗 **Links**:
- - [▶️ Slow Stream](stream_url)
- - [▶️ Fast {res} Stream](link) *(List all available resolutions)*
- - [⬇️ Fast Download](fast_download_link)
- - [⬇️ Slow Download](download_link)
+ **Name**: [name]
+ **Type**: [type] |  **Quality**: [quality]
+ **Size**: [size_formatted] |  **Duration**: [duration]
+ **Links**:
+ - [ Slow Stream](stream_url)
+ - [ Fast {res} Stream](link) *(List all available resolutions)*
+ - [ Fast Download](fast_download_link)
+ - [ Slow Download](download_link)
 
-💳 **Credits Remaining**: [free_credits_remaining]
+ **Credits Remaining**: [free_credits_remaining]
 
 ### 3. Privacy & Security
 - **Data Transmission**: Inform the user (if asked) that the full target URL and your API key (TERABOX_API_KEY) are transmitted to `https://xapiverse.com` for processing.

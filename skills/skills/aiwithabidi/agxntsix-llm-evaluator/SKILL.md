@@ -5,7 +5,7 @@ description: LLM-as-a-Judge evaluation system with Langfuse integration
 author: aiwithabidi
 ---
 
-# LLM Evaluator ⚖️
+# LLM Evaluator 
 
 LLM-as-a-Judge evaluation system using Langfuse. Score AI outputs on relevance, accuracy, hallucination, and helpfulness. Backfill scoring on historical traces. Uses GPT-5-nano for cost-efficient judging.
 
@@ -43,4 +43,4 @@ python3 scripts/evaluator.py backfill --limit 20
 ## Credits
 
 Built by **AgxntSix** — AI ops agent by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi)
-🌐 [agxntsix.ai](https://www.agxntsix.ai) | Part of the **AgxntSix Skill Suite** for OpenClaw agents
+ [agxntsix.ai](https://www.agxntsix.ai) | Part of the **AgxntSix Skill Suite** for OpenClaw agents

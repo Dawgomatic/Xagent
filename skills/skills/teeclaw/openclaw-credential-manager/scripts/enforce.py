@@ -72,12 +72,12 @@ def _decrypt_gpg_key(key_name: str) -> str:
     secrets_file = Path.home() / '.openclaw' / '.env.secrets.gpg'
 
     if not secrets_file.exists():
-        print(f"\n❌ GPG secrets file not found: {secrets_file}", file=sys.stderr)
+        print(f"\n GPG secrets file not found: {secrets_file}", file=sys.stderr)
         print("Run: ./scripts/encrypt.py --keys ... to set up GPG encryption\n", file=sys.stderr)
         return None
 
     if not is_gpg_available():
-        print("\n❌ GPG is not installed. Cannot decrypt secrets.", file=sys.stderr)
+        print("\n GPG is not installed. Cannot decrypt secrets.", file=sys.stderr)
         print("Install: sudo apt install gnupg\n", file=sys.stderr)
         return None
 
@@ -87,17 +87,17 @@ def _decrypt_gpg_key(key_name: str) -> str:
             capture_output=True, text=True, timeout=30
         )
         if result.returncode != 0:
-            print(f"\n❌ GPG decryption failed: {result.stderr.strip()}", file=sys.stderr)
+            print(f"\n GPG decryption failed: {result.stderr.strip()}", file=sys.stderr)
             return None
 
         secrets = json.loads(result.stdout)
         return secrets.get(key_name)
 
     except subprocess.TimeoutExpired:
-        print("\n❌ GPG decryption timed out (passphrase may be needed)", file=sys.stderr)
+        print("\n GPG decryption timed out (passphrase may be needed)", file=sys.stderr)
         return None
     except json.JSONDecodeError:
-        print("\n❌ GPG secrets file is corrupted", file=sys.stderr)
+        print("\n GPG secrets file is corrupted", file=sys.stderr)
         return None
 
 
@@ -112,9 +112,9 @@ def require_secure_env(exit_on_fail: bool = True) -> bool:
         True if all checks pass, False otherwise.
     """
     checks = [
-        (check_env_exists, "❌ ~/.openclaw/.env does not exist"),
-        (check_env_permissions, "❌ ~/.openclaw/.env has insecure permissions (should be 600)"),
-        (check_gitignore, "❌ .env is not git-ignored"),
+        (check_env_exists, " ~/.openclaw/.env does not exist"),
+        (check_env_permissions, " ~/.openclaw/.env has insecure permissions (should be 600)"),
+        (check_gitignore, " .env is not git-ignored"),
     ]
 
     failed = []
@@ -123,13 +123,13 @@ def require_secure_env(exit_on_fail: bool = True) -> bool:
             failed.append(error_msg)
 
     if failed:
-        print("\n🔒 SECURITY REQUIREMENT NOT MET\n", file=sys.stderr)
+        print("\n SECURITY REQUIREMENT NOT MET\n", file=sys.stderr)
         print("OpenClaw requires centralized credential management.", file=sys.stderr)
         print("\nIssues found:", file=sys.stderr)
         for msg in failed:
             print(f"  {msg}", file=sys.stderr)
 
-        print("\n💡 Fix this by running:", file=sys.stderr)
+        print("\n Fix this by running:", file=sys.stderr)
         print("   cd ~/.openclaw/skills/credential-manager", file=sys.stderr)
         print("   ./scripts/consolidate.py", file=sys.stderr)
         print("   ./scripts/validate.py --fix", file=sys.stderr)
@@ -167,7 +167,7 @@ def get_credential(key: str, required: bool = True) -> str:
     if value is None:
         if not required:
             return None
-        print(f"\n❌ Credential '{key}' not found in .env\n", file=sys.stderr)
+        print(f"\n Credential '{key}' not found in .env\n", file=sys.stderr)
         print("Add it to ~/.openclaw/.env:", file=sys.stderr)
         print(f"   {key}=your_value_here\n", file=sys.stderr)
         sys.exit(1)
@@ -179,7 +179,7 @@ def get_credential(key: str, required: bool = True) -> str:
         if decrypted is None:
             if not required:
                 return None
-            print(f"\n❌ Failed to decrypt '{key}' from GPG secrets\n", file=sys.stderr)
+            print(f"\n Failed to decrypt '{key}' from GPG secrets\n", file=sys.stderr)
             sys.exit(1)
         return decrypted
 
@@ -188,10 +188,10 @@ def get_credential(key: str, required: bool = True) -> str:
 
 if __name__ == '__main__':
     # When run directly, validate and report
-    print("🔍 Checking OpenClaw credential security...\n")
+    print(" Checking OpenClaw credential security...\n")
 
     if require_secure_env(exit_on_fail=False):
-        print("✅ All security checks passed")
+        print(" All security checks passed")
         print("\nYour credentials are properly secured:")
         print("  • ~/.openclaw/.env exists")
         print("  • Permissions are 600 (owner only)")
@@ -201,13 +201,13 @@ if __name__ == '__main__':
         if is_gpg_available():
             secrets_file = Path.home() / '.openclaw' / '.env.secrets.gpg'
             if secrets_file.exists():
-                print("  • GPG encryption active ✅")
+                print("  • GPG encryption active ")
             else:
                 print("  • GPG available but no encrypted secrets")
         else:
             print("  • GPG not installed (optional)")
 
-        print("\n🔒 Good job! Your OpenClaw deployment follows security best practices.")
+        print("\n Good job! Your OpenClaw deployment follows security best practices.")
         sys.exit(0)
     else:
         sys.exit(1)

@@ -182,7 +182,7 @@ Message context may contain reusable fields such as `channel` and `slack message
   "action": "react",
   "channelId": "C123",
   "messageId": "1712023032.1234",
-  "emoji": "✅"
+  "emoji": ""
 }
 ```
 
@@ -324,7 +324,7 @@ Message context may contain reusable fields such as `channel` and `slack message
   "action": "react",
   "channelId": "C123",
   "messageId": "1712023032.1234",
-  "emoji": "✅"
+  "emoji": ""
 }
 ```
 

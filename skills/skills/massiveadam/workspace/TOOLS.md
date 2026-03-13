@@ -2,7 +2,7 @@
 
 Skills define *how* tools work. This file is for *your* specifics — the stuff that's unique to your setup.
 
-## 🗝️ Legacy Gork Credentials
+##  Legacy Gork Credentials
 These keys were migrated from the `.env` on William on 2026-01-31.
 
 ### Google APIs

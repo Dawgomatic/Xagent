@@ -27,17 +27,17 @@ let domainToCheck;
 try {
   domainToCheck = sanitizeDomain(domainWithTld);
 } catch (error) {
-  console.error(`❌ Invalid domain: ${error.message}`);
+  console.error(` Invalid domain: ${error.message}`);
   process.exit(1);
 }
 
-console.log(`🔍 Checking availability for: ${domainToCheck}\n`);
+console.log(` Checking availability for: ${domainToCheck}\n`);
 
 try {
   const results = await checkAvailability([domainToCheck]);
   
   if (!results || !results.products || results.products.length === 0) {
-    console.log('❌ No results returned from API');
+    console.log(' No results returned from API');
     process.exit(1);
   }
   
@@ -49,11 +49,11 @@ try {
   console.log('');
   
   if (product.status === 'available') {
-    console.log('✅ Status: AVAILABLE');
+    console.log(' Status: AVAILABLE');
     
     // Show pricing
     if (product.prices && product.prices.length > 0) {
-      console.log('\n💰 Pricing:');
+      console.log('\n Pricing:');
       product.prices.forEach(price => {
         const durationUnit = price.duration_unit === 'y' ? 'year' : price.duration_unit;
         const minDuration = price.min_duration || 1;
@@ -76,7 +76,7 @@ try {
     
     // Show supported features
     if (product.process) {
-      console.log('\n📋 Supported Features:');
+      console.log('\n Supported Features:');
       if (Array.isArray(product.process)) {
         product.process.forEach(feature => {
           console.log(`  • ${feature}`);
@@ -88,33 +88,33 @@ try {
     
     // Show TLD info
     if (product.tld) {
-      console.log('\n🌐 TLD Information:');
+      console.log('\n TLD Information:');
       console.log(`  Extension: ${product.tld}`);
     }
     
   } else if (product.status === 'unavailable') {
-    console.log('❌ Status: UNAVAILABLE (already registered)');
+    console.log(' Status: UNAVAILABLE (already registered)');
     
   } else if (product.status === 'pending') {
-    console.log('⏳ Status: PENDING (registration in progress)');
+    console.log(' Status: PENDING (registration in progress)');
     
   } else if (product.status === 'error') {
-    console.log('⚠️  Status: ERROR');
+    console.log('  Status: ERROR');
     if (product.message) {
       console.log(`   Message: ${product.message}`);
     }
     
   } else {
-    console.log(`ℹ️  Status: ${product.status}`);
+    console.log(`  Status: ${product.status}`);
   }
   
   // Show additional details
   if (product.taxes_included !== undefined) {
-    console.log(`\n💵 Taxes included: ${product.taxes_included ? 'Yes' : 'No'}`);
+    console.log(`\n Taxes included: ${product.taxes_included ? 'Yes' : 'No'}`);
   }
   
 } catch (error) {
-  console.error('❌ Error checking domain:', error.message);
+  console.error(' Error checking domain:', error.message);
   if (error.response) {
     console.error('API Response:', error.response);
   }

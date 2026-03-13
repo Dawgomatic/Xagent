@@ -1,7 +1,7 @@
 ---
 name: FFmpeg
 description: Process video and audio with correct codec selection, filtering, and encoding settings.
-metadata: {"clawdbot":{"emoji":"🎬","requires":{"bins":["ffmpeg"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["ffmpeg"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Input Seeking (Major Difference)

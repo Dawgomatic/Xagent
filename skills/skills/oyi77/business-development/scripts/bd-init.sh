@@ -4,7 +4,7 @@
 
 BD_DIR="${HOME}/.openclaw/workspace/business-development"
 
-echo "🚀 Initializing Business Development Workspace"
+echo " Initializing Business Development Workspace"
 echo "=============================================="
 
 # Create directory structure
@@ -23,13 +23,13 @@ Use: `company-name.md`
 Copy from `../templates/partner-profile.md`
 
 ## Stages
-- 📋 Research
-- 📤 Outreach
-- 💬 Discussion
-- 📝 Proposal
-- 🤝 Negotiation
-- ⚖️ Legal
-- ✅ Active
+-  Research
+-  Outreach
+-  Discussion
+-  Proposal
+-  Negotiation
+-  Legal
+-  Active
 EOF
 
 # Create partner profile template
@@ -159,31 +159,31 @@ cat > "$BD_DIR/pipeline/current.md" << 'EOF'
 
 ## By Stage
 
-### 📋 Research
+###  Research
 | Partner | Type | PARTNER Score | Next Action |
 |---------|------|---------------|-------------|
 
-### 📤 Outreach
+###  Outreach
 | Partner | Type | Outreach # | Last Contact |
 |---------|------|------------|--------------|
 
-### 💬 Discussion
+###  Discussion
 | Partner | Type | Est. Value | Next Meeting |
 |---------|------|------------|--------------|
 
-### 📝 Proposal
+###  Proposal
 | Partner | Type | Proposal Date | Decision Expected |
 |---------|------|---------------|-------------------|
 
-### 🤝 Negotiation
+###  Negotiation
 | Partner | Type | Est. Value | Blocker |
 |---------|------|------------|---------|
 
-### ⚖️ Legal
+###  Legal
 | Partner | Type | Est. Value | Target Close |
 |---------|------|------------|--------------|
 
-## ✅ Active Partnerships
+##  Active Partnerships
 | Partner | Type | Started | Annual Value | Owner |
 |---------|------|---------|--------------|-------|
 EOF
@@ -264,13 +264,13 @@ cat > "$BD_DIR/research/competitor-template.md" << 'EOF'
 - **Key talking points:** 
 EOF
 
-echo "✅ Created: $BD_DIR/partners/"
-echo "✅ Created: $BD_DIR/research/"
-echo "✅ Created: $BD_DIR/proposals/"
-echo "✅ Created: $BD_DIR/pipeline/current.md"
-echo "✅ Created: $BD_DIR/templates/"
+echo " Created: $BD_DIR/partners/"
+echo " Created: $BD_DIR/research/"
+echo " Created: $BD_DIR/proposals/"
+echo " Created: $BD_DIR/pipeline/current.md"
+echo " Created: $BD_DIR/templates/"
 echo ""
-echo "🎉 Business Development workspace ready!"
+echo " Business Development workspace ready!"
 echo ""
 echo "Quick start:"
 echo "  1. Use templates/ for partner profiles and proposals"

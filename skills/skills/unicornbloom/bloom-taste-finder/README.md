@@ -1,4 +1,4 @@
-# 🌸 Bloom Taste Finder (Bloom Identity Skill)
+#  Bloom Taste Finder (Bloom Identity Skill)
 
 **AI skill that analyzes your conversations to uncover builder taste and recommend the right tools.**
 
@@ -9,25 +9,25 @@
 
 ---
 
-## 🎯 What Is This?
+##  What Is This?
 
 **Bloom Taste Finder** reveals your builder taste and recommends tools, projects, and skills based on your unique preferences and personality.
 
 Unlike traditional recommendation systems that rely on popularity, Bloom Taste Finder analyzes nuanced patterns in user behavior to understand their unique "taste" — then finds and matches them with tools they'll genuinely love.
 
 **Key Features:**
-- 🎴 **5 Personality Types** – Discover your taste archetype (The Visionary, The Explorer, etc.)
-- 🎯 **Taste-Based Recommendations** – Get personalized tool suggestions from 3 sources:
+-  **5 Personality Types** – Discover your taste archetype (The Visionary, The Explorer, etc.)
+-  **Taste-Based Recommendations** – Get personalized tool suggestions from 3 sources:
   - ClawHub Skills (200+ community-created AI agent skills)
   - Claude Code (Official Anthropic + 6 community repositories)
   - GitHub Repositories (1000+ open source projects)
-- 📊 **Taste Profile** – Understand your preferences beyond simple keywords
-- 🔗 **Shareable Identity Card** – Showcase your taste profile
-- 🤖 **Agent-Ready** – Works with Claude Code, OpenClaw, and other AI agents
+-  **Taste Profile** – Understand your preferences beyond simple keywords
+-  **Shareable Identity Card** – Showcase your taste profile
+-  **Agent-Ready** – Works with Claude Code, OpenClaw, and other AI agents
 
 ---
 
-## ⚡️ Quick Start
+##  Quick Start
 
 ### For OpenClaw Users
 
@@ -57,7 +57,7 @@ npx tsx scripts/run-from-session.ts \
 
 ---
 
-## 🌟 Why Bloom Taste Finder?
+##  Why Bloom Taste Finder?
 
 ### For AI Agents
 Help your users discover tools they'll actually love — not just popular ones, but tools that match their unique taste and personality.
@@ -76,38 +76,38 @@ Help your users discover tools they'll actually love — not just popular ones, 
 
 ---
 
-## 📊 The 5 Personality Types
+##  The 5 Personality Types
 
 Bloom Taste Finder maps users to one of 5 distinct taste archetypes based on their conversation patterns:
 
 | Type | Tagline | Characteristics |
 |------|---------|-----------------|
-| 💜 **The Visionary** | First to back what's next | High conviction + High intuition - Backs bold ideas early |
-| 🔵 **The Explorer** | Discovers new frontiers | Low conviction + High intuition - Experiments widely |
-| 💚 **The Cultivator** | Builds lasting communities | Low conviction + Low intuition - Nurtures ecosystems |
-| 🟡 **The Optimizer** | Refines what works | High conviction + Low intuition - Doubles down on winners |
-| 🔴 **The Innovator** | Pushes boundaries | Balanced dimensions - Combines conviction + discovery |
+|  **The Visionary** | First to back what's next | High conviction + High intuition - Backs bold ideas early |
+|  **The Explorer** | Discovers new frontiers | Low conviction + High intuition - Experiments widely |
+|  **The Cultivator** | Builds lasting communities | Low conviction + Low intuition - Nurtures ecosystems |
+|  **The Optimizer** | Refines what works | High conviction + Low intuition - Doubles down on winners |
+|  **The Innovator** | Pushes boundaries | Balanced dimensions - Combines conviction + discovery |
 
 ---
 
-## 🎁 What You Get
+##  What You Get
 
 Your personalized **Bloom Taste Profile** includes:
 
-- **🎴 Personality Type** – Your taste archetype (The Trailblazer, The Curator, etc.)
-- **💬 Custom Tagline** – A one-liner that captures your taste
-- **📊 Taste Dimensions** – Conviction, Intuition, and Contribution scores
-- **🏷️ Main Categories** – AI Tools, Productivity, Wellness, Education, Crypto, Lifestyle
-- **🎯 Personalized Recommendations** – From 3 sources:
+- ** Personality Type** – Your taste archetype (The Trailblazer, The Curator, etc.)
+- ** Custom Tagline** – A one-liner that captures your taste
+- ** Taste Dimensions** – Conviction, Intuition, and Contribution scores
+- ** Main Categories** – AI Tools, Productivity, Wellness, Education, Crypto, Lifestyle
+- ** Personalized Recommendations** – From 3 sources:
   - ClawHub Skills (200+ AI agent skills)
   - Claude Code (Official Anthropic + community skills)
   - GitHub Repositories (1000+ open source projects)
-- **🔗 Shareable Dashboard** – Showcase your taste profile
-- **🤖 Agent Wallet** – Ready for blockchain interactions (Coinbase CDP on Base)
+- ** Shareable Dashboard** – Showcase your taste profile
+- ** Agent Wallet** – Ready for blockchain interactions (Coinbase CDP on Base)
 
 ---
 
-## 🚀 How It Works
+##  How It Works
 
 ### 1. Conversation Analysis
 Bloom analyzes your conversation history to understand:
@@ -149,7 +149,7 @@ Pure taste intelligence from how you communicate.
 
 ---
 
-## 🔧 Installation
+##  Installation
 
 ### Option 1: ClawHub (Recommended)
 
@@ -181,7 +181,7 @@ cp -r openclaw-wrapper ~/.openclaw/skills/bloom
 
 ---
 
-## 📖 Usage
+##  Usage
 
 ### As an OpenClaw Skill
 
@@ -214,18 +214,18 @@ cat conversation.txt | \
 
 ---
 
-## 🔐 Privacy
+##  Privacy
 
-- ✅ **Conversation-based analysis** – Analyzes your chat history only
-- ✅ **No wallet signatures** – No transaction scraping required
-- ✅ **No social auth required** – Twitter/Farcaster optional, not mandatory
-- ✅ **Ephemeral processing** – Data not stored long-term
-- ✅ **Local-first** – Runs in your OpenClaw environment
-- ✅ **Open source** – Audit the taste algorithm yourself
+-  **Conversation-based analysis** – Analyzes your chat history only
+-  **No wallet signatures** – No transaction scraping required
+-  **No social auth required** – Twitter/Farcaster optional, not mandatory
+-  **Ephemeral processing** – Data not stored long-term
+-  **Local-first** – Runs in your OpenClaw environment
+-  **Open source** – Audit the taste algorithm yourself
 
 ---
 
-## 🛠 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -247,7 +247,7 @@ See [SESSION-READER-GUIDE.md](SESSION-READER-GUIDE.md) for session file analysis
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run full test suite
@@ -264,7 +264,7 @@ npx tsx scripts/test-full-flow.ts
 
 ---
 
-## 📊 Technical Details
+##  Technical Details
 
 | Feature | Details |
 |---------|---------|
@@ -278,7 +278,7 @@ npx tsx scripts/test-full-flow.ts
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 **"Insufficient conversation data"**
 → Need at least 3 messages. Keep chatting about what you're interested in!
@@ -294,7 +294,7 @@ npx tsx scripts/test-full-flow.ts
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 - [Installation Guide](SESSION-READER-GUIDE.md)
 - [OpenClaw Integration](openclaw-wrapper/SKILL.md)
@@ -304,7 +304,7 @@ npx tsx scripts/test-full-flow.ts
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! See issues or submit PRs.
 
@@ -317,13 +317,13 @@ Key areas:
 
 ---
 
-## 📜 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-## 🌐 Links
+##  Links
 
 - **Homepage**: [bloomprotocol.ai](https://bloomprotocol.ai)
 - **For Agents**: [bloomprotocol.ai/for-agents](https://bloomprotocol.ai/for-agents)
@@ -333,7 +333,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Built by [Bloom Protocol](https://bloomprotocol.ai) 🎨**
+**Built by [Bloom Protocol](https://bloomprotocol.ai) **
 
 Understanding taste, one agent at a time.
 

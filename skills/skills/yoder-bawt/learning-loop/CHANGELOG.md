@@ -32,7 +32,7 @@
 - Calculates daily event counts over rolling 7-day window
 - Z-score analysis for spike detection (threshold: 2.5)
 - Outputs anomaly alerts in weekly report
-- Distinguishes between spikes (📈) and drops (📉)
+- Distinguishes between spikes () and drops ()
 
 #### Regression Detection Enhancement
 - Enhanced in `detect-patterns.sh`

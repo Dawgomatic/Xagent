@@ -69,7 +69,7 @@ for i in $(seq 0 $((COUNT - 1))); do
   
   if [[ -n "$MATCH" ]]; then
     mv "$MATCH" "$DIR/$TARGET"
-    echo "✅ $(basename "$MATCH") → $TARGET"
+    echo " $(basename "$MATCH") → $TARGET"
     ((RENAMED++))
   fi
 done

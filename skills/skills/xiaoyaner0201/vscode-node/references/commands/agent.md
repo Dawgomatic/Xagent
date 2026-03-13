@@ -10,11 +10,11 @@ No parameters. **Returns:** `{ available: boolean, version?: string, authenticat
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `prompt` | string | ✅ | Task description or question |
-| `mode` | string | ❌ | `agent` (default), `plan`, or `ask` |
-| `model` | string | ❌ | Model name |
-| `cwd` | string | ❌ | Working directory |
-| `timeoutMs` | number | ❌ | Timeout (default: 300000) |
+| `prompt` | string |  | Task description or question |
+| `mode` | string |  | `agent` (default), `plan`, or `ask` |
+| `model` | string |  | Model name |
+| `cwd` | string |  | Working directory |
+| `timeoutMs` | number |  | Timeout (default: 300000) |
 
 ### Modes
 

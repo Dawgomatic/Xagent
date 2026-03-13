@@ -22,7 +22,7 @@ def load_cookies():
     """加载保存的 cookies"""
     cookie_file = Path.home() / '.xiaohongshu-scraper' / 'cookies.json'
     if not cookie_file.exists():
-        print(f"❌ Cookie 文件不存在: {cookie_file}")
+        print(f" Cookie 文件不存在: {cookie_file}")
         return None
     
     with open(cookie_file, 'r') as f:
@@ -393,7 +393,7 @@ def main():
     
     note_id = extract_note_id(args.url)
     if not note_id:
-        print(f"❌ 无法提取笔记 ID: {args.url}")
+        print(f" 无法提取笔记 ID: {args.url}")
         return
     
     print(f"笔记 ID: {note_id}")
@@ -402,7 +402,7 @@ def main():
     
     if result:
         print(f"\n" + "=" * 60)
-        print("✅ 抓取完成!")
+        print(" 抓取完成!")
         print("=" * 60)
         print(f"标题: {result['title']}")
         print(f"作者: {result['author']}")

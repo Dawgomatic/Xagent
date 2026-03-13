@@ -11,7 +11,7 @@ if [ -z "$CRAFT_API_KEY" ] || [ -z "$CRAFT_ENDPOINT" ]; then
   exit 1
 fi
 
-echo "🧹 Craft.do Cleanup Script"
+echo " Craft.do Cleanup Script"
 echo ""
 echo "This will delete ALL user-created folders and move ALL documents to trash."
 echo ""
@@ -82,7 +82,7 @@ else
 fi
 
 echo ""
-echo "✅ Cleanup complete!"
+echo " Cleanup complete!"
 echo ""
 echo "Your Craft space is now empty except for:"
 echo "  - Unsorted (empty)"

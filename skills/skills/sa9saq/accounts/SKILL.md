@@ -162,58 +162,58 @@ wrangler secret put <VARIABLE_NAME>
 #### AI/LLM
 | 変数名 | 用途 | 状態 |
 |--------|------|------|
-| ANTHROPIC_API_KEY | Claude API | ✅ 設定済 |
-| AI_GATEWAY_API_KEY | AI Gateway | ✅ 設定済 |
-| AI_GATEWAY_BASE_URL | AI Gateway URL | ✅ 設定済 |
-| OPENAI_API_KEY | OpenAI API | ✅ 設定済 |
+| ANTHROPIC_API_KEY | Claude API |  設定済 |
+| AI_GATEWAY_API_KEY | AI Gateway |  設定済 |
+| AI_GATEWAY_BASE_URL | AI Gateway URL |  設定済 |
+| OPENAI_API_KEY | OpenAI API |  設定済 |
 
 #### Discord/Telegram
 | 変数名 | 用途 | 状態 |
 |--------|------|------|
-| DISCORD_BOT_TOKEN | Discord Bot | ✅ 設定済 |
-| DISCORD_DM_POLICY | DM許可設定 | ✅ 設定済 (open) |
-| TELEGRAM_BOT_TOKEN | Telegram Bot | ✅ 設定済 |
+| DISCORD_BOT_TOKEN | Discord Bot |  設定済 |
+| DISCORD_DM_POLICY | DM許可設定 |  設定済 (open) |
+| TELEGRAM_BOT_TOKEN | Telegram Bot |  設定済 |
 
 #### 認証/セキュリティ
 | 変数名 | 用途 | 状態 |
 |--------|------|------|
-| MOLTBOT_GATEWAY_TOKEN | Gateway認証 | ✅ 設定済 |
-| CF_ACCESS_TEAM_DOMAIN | Cloudflare Access | ✅ 設定済 |
-| CF_ACCESS_AUD | Access AUD | ✅ 設定済 |
+| MOLTBOT_GATEWAY_TOKEN | Gateway認証 |  設定済 |
+| CF_ACCESS_TEAM_DOMAIN | Cloudflare Access |  設定済 |
+| CF_ACCESS_AUD | Access AUD |  設定済 |
 
 #### R2ストレージ
 | 変数名 | 用途 | 状態 |
 |--------|------|------|
-| R2_ACCESS_KEY_ID | R2アクセスキー | ✅ 設定済 |
-| R2_SECRET_ACCESS_KEY | R2シークレット | ✅ 設定済 |
-| CF_ACCOUNT_ID | CloudflareアカウントID | ✅ 設定済 |
+| R2_ACCESS_KEY_ID | R2アクセスキー |  設定済 |
+| R2_SECRET_ACCESS_KEY | R2シークレット |  設定済 |
+| CF_ACCOUNT_ID | CloudflareアカウントID |  設定済 |
 
 #### 24時間稼働用（CDP Shim）
 | 変数名 | 用途 | 状態 |
 |--------|------|------|
-| CDP_SECRET | CDP認証シークレット | ✅ 設定済 |
-| WORKER_URL | Worker公開URL | ✅ 設定済 |
+| CDP_SECRET | CDP認証シークレット |  設定済 |
+| WORKER_URL | Worker公開URL |  設定済 |
 
 #### SNSプラットフォーム認証情報
 | 変数名 | 用途 | 状態 |
 |--------|------|------|
-| X_USERNAME | X(Twitter)ユーザー名 | ✅ 設定済 |
-| X_PASSWORD | X(Twitter)パスワード | ✅ 設定済 |
-| THREADS_USERNAME | Threadsユーザー名 | ✅ 設定済 |
-| THREADS_PASSWORD | Threadsパスワード | ✅ 設定済 |
-| NOTE_EMAIL | Noteメールアドレス | ✅ 設定済 |
-| NOTE_PASSWORD | Noteパスワード | ✅ 設定済 |
-| COCONALA_EMAIL | ココナラメール | ✅ 設定済 |
-| COCONALA_PASSWORD | ココナラパスワード | ✅ 設定済 |
-| METAMASK_PASSWORD | MetaMaskパスワード | ✅ 設定済 |
+| X_USERNAME | X(Twitter)ユーザー名 |  設定済 |
+| X_PASSWORD | X(Twitter)パスワード |  設定済 |
+| THREADS_USERNAME | Threadsユーザー名 |  設定済 |
+| THREADS_PASSWORD | Threadsパスワード |  設定済 |
+| NOTE_EMAIL | Noteメールアドレス |  設定済 |
+| NOTE_PASSWORD | Noteパスワード |  設定済 |
+| COCONALA_EMAIL | ココナラメール |  設定済 |
+| COCONALA_PASSWORD | ココナラパスワード |  設定済 |
+| METAMASK_PASSWORD | MetaMaskパスワード |  設定済 |
 
 #### Google関連
 | 変数名 | 用途 | 状態 |
 |--------|------|------|
-| GOOGLE_EMAIL | Googleメールアドレス | ✅ 設定済 |
-| GOOGLE_APP_PASSWORD | Googleアプリパスワード | ✅ 設定済 |
-| GOOGLE_AI_API_KEY | Gemini API | ✅ 設定済 |
-| GOOGLE_SERVICE_ACCOUNT_KEY | GASサービスアカウント | ✅ 設定済 |
+| GOOGLE_EMAIL | Googleメールアドレス |  設定済 |
+| GOOGLE_APP_PASSWORD | Googleアプリパスワード |  設定済 |
+| GOOGLE_AI_API_KEY | Gemini API |  設定済 |
+| GOOGLE_SERVICE_ACCOUNT_KEY | GASサービスアカウント |  設定済 |
 
 ### シークレット設定コマンド例
 ```bash

@@ -2,7 +2,7 @@
 name: youbaolian
 description: Manage youbaolian, orders, users, organ REST API.
 homepage: https://cxv3-new.youbaolian.top
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":["jq","curl"],"env":["YBL_URL","YBL_CRYPTION"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["jq","curl"],"env":["YBL_URL","YBL_CRYPTION"]}}}
 ---
 
 # Youbaolian Skill

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-📊 AI CFO — Full AI Chief Financial Officer
+ AI CFO — Full AI Chief Financial Officer
 Connects Mercury Banking + Stripe for real-time business intelligence.
 
 Usage: python3 ai_cfo.py <command> [options]
@@ -134,7 +134,7 @@ def _init_db(conn):
 def _env(key):
     val = os.environ.get(key)
     if not val:
-        print(f"❌ Missing environment variable: {key}")
+        print(f" Missing environment variable: {key}")
         sys.exit(1)
     return val
 
@@ -154,11 +154,11 @@ def _api_get(url, headers, params=None, service="api"):
         body = e.read().decode() if e.fp else ""
         ms = int((time.time() - start) * 1000)
         trace_api_call(service, url.split("?")[0].split("/api/")[-1], response_code=e.code, duration_ms=ms, error=body[:200])
-        print(f"❌ API error {e.code}: {body[:300]}")
+        print(f" API error {e.code}: {body[:300]}")
         return None
     except Exception as e:
         trace_api_call(service, url.split("?")[0], response_code=0, error=str(e))
-        print(f"❌ Request failed: {e}")
+        print(f" Request failed: {e}")
         return None
 
 def mercury_get(path, params=None):
@@ -340,14 +340,14 @@ def _store_transaction(db, tx, source, category):
 
 def cmd_dashboard(args):
     """Full financial dashboard."""
-    print("📊 **AI CFO Dashboard**")
-    print(f"📅 {fmt_date(datetime.now())}\n")
+    print(" **AI CFO Dashboard**")
+    print(f" {fmt_date(datetime.now())}\n")
 
     # Mercury balances
     accounts = get_mercury_accounts()
     total_cash = 0
     checking = savings = 0
-    print("### 🏦 Mercury Banking")
+    print("###  Mercury Banking")
     print("| Account | Balance |")
     print("|---------|---------|")
     for acc in accounts:
@@ -372,14 +372,14 @@ def cmd_dashboard(args):
             stripe_available += b.get("amount", 0) / 100
         for b in stripe_bal_data.get("pending", []):
             stripe_pending += b.get("amount", 0) / 100
-        print("### 💳 Stripe")
+        print("###  Stripe")
         print(f"- Available: {fmt_money(stripe_available)}")
         print(f"- Pending: {fmt_money(stripe_pending)}")
         print()
     elif os.environ.get("STRIPE_API_KEY"):
-        print("### 💳 Stripe\n⚠️ Could not fetch Stripe balance\n")
+        print("###  Stripe\n Could not fetch Stripe balance\n")
     else:
-        print("### 💳 Stripe\n⏳ Stripe API key not configured yet\n")
+        print("###  Stripe\n Stripe API key not configured yet\n")
 
     # MRR from subscriptions
     mrr = 0
@@ -396,7 +396,7 @@ def cmd_dashboard(args):
                 elif interval == "week":
                     amount *= 4.33
                 mrr += amount * qty
-        print(f"### 📈 Revenue")
+        print(f"###  Revenue")
         print(f"- MRR: {fmt_money(mrr)}")
         print(f"- ARR: {fmt_money(mrr * 12)}")
         print()
@@ -409,7 +409,7 @@ def cmd_dashboard(args):
     monthly_burn = total_out
     net_burn = total_out - total_in
 
-    print("### 🔥 Burn Rate (Last 30 Days)")
+    print("###  Burn Rate (Last 30 Days)")
     print(f"- Gross Burn: {fmt_money(monthly_burn)}")
     print(f"- Revenue In: {fmt_money(total_in)}")
     print(f"- Net Burn: {fmt_money(net_burn)}")
@@ -418,12 +418,12 @@ def cmd_dashboard(args):
     # Runway
     if net_burn > 0:
         runway = total_cash / net_burn
-        emoji = "🟢" if runway > 12 else "🟡" if runway > 6 else "🔴"
-        print(f"### 🛤️ Runway")
+        emoji = "" if runway > 12 else "" if runway > 6 else ""
+        print(f"###  Runway")
         print(f"- {emoji} **{runway:.1f} months** at current net burn")
     elif net_burn <= 0:
-        print(f"### 🛤️ Runway")
-        print(f"- 🟢 **Profitable!** Net positive cash flow")
+        print(f"###  Runway")
+        print(f"-  **Profitable!** Net positive cash flow")
     print()
 
     # Store snapshot
@@ -445,7 +445,7 @@ def cmd_transactions(args):
     start = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
     limit = args.limit or 50
 
-    print(f"📋 **Recent Transactions** (last {days} days)\n")
+    print(f" **Recent Transactions** (last {days} days)\n")
     txns = get_all_mercury_transactions(start=start, limit=limit)
 
     if not txns:
@@ -476,8 +476,8 @@ def cmd_pnl(args):
     end_date = args.end or date.today().isoformat()
     start_date = args.start or (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")
 
-    print(f"📊 **Profit & Loss Statement**")
-    print(f"📅 {fmt_date(start_date)} — {fmt_date(end_date)}\n")
+    print(f" **Profit & Loss Statement**")
+    print(f" {fmt_date(start_date)} — {fmt_date(end_date)}\n")
 
     # Revenue from Stripe
     stripe_revenue = 0
@@ -528,14 +528,14 @@ def cmd_pnl(args):
             print(f"  {cat}: {fmt_money(val)}")
     print(f"  **Total OpEx: {fmt_money(total_opex)}**\n")
 
-    emoji = "🟢" if net_income >= 0 else "🔴"
+    emoji = "" if net_income >= 0 else ""
     margin = (net_income / total_revenue * 100) if total_revenue else 0
     print(f"### {emoji} Net Income: {fmt_money(net_income)} ({fmt_pct(margin)} margin)")
 
 
 def cmd_cashflow(args):
     """Cash flow analysis with forecast."""
-    print("💰 **Cash Flow Analysis**\n")
+    print(" **Cash Flow Analysis**\n")
 
     # Get 90 days of data
     start_90 = (datetime.now() - timedelta(days=90)).strftime("%Y-%m-%d")
@@ -573,7 +573,7 @@ def cmd_cashflow(args):
         out = weekly[w]["outflow"]
         net = inf - out
         net_flows.append(net)
-        emoji = "🟢" if net >= 0 else "🔴"
+        emoji = "" if net >= 0 else ""
         print(f"| {w} | {fmt_money(inf)} | {fmt_money(out)} | {emoji} {fmt_money(net)} |")
 
     # Linear regression forecast
@@ -587,7 +587,7 @@ def cmd_cashflow(args):
         slope = num / den if den != 0 else 0
         intercept = y_mean - slope * x_mean
 
-        print(f"\n### 📈 Cash Flow Forecast (Linear Regression)")
+        print(f"\n###  Cash Flow Forecast (Linear Regression)")
         print(f"- Weekly trend: {fmt_money(slope)}/week")
         print(f"| Period | Projected Weekly Net |")
         print(f"|--------|---------------------|")
@@ -599,7 +599,7 @@ def cmd_cashflow(args):
         accounts = get_mercury_accounts()
         current_cash = sum(acc.get("currentBalance", acc.get("availableBalance", 0)) for acc in accounts)
         avg_weekly = sum(net_flows) / len(net_flows)
-        print(f"\n### 💵 Projected Cash Position")
+        print(f"\n###  Projected Cash Position")
         print(f"- Current: {fmt_money(current_cash)}")
         for label, wks in [("30 days", 4), ("60 days", 9), ("90 days", 13)]:
             proj = current_cash + avg_weekly * wks
@@ -608,10 +608,10 @@ def cmd_cashflow(args):
 
 def cmd_revenue(args):
     """Stripe revenue breakdown."""
-    print("💰 **Revenue Analysis**\n")
+    print(" **Revenue Analysis**\n")
 
     if not os.environ.get("STRIPE_API_KEY"):
-        print("⏳ Stripe API key not configured yet. Revenue analysis will be available once connected.")
+        print(" Stripe API key not configured yet. Revenue analysis will be available once connected.")
         return
 
     # MRR from subscriptions
@@ -672,7 +672,7 @@ def cmd_expenses(args):
     days = args.days or 30
     start = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
 
-    print(f"💸 **Expense Analysis** (last {days} days)\n")
+    print(f" **Expense Analysis** (last {days} days)\n")
 
     txns = get_all_mercury_transactions(start=start)
     expenses = [tx for tx in txns if tx.get("amount", 0) < 0]
@@ -717,7 +717,7 @@ def cmd_expenses(args):
         print(f"| {d} | {desc} | {fmt_money(abs(tx.get('amount', 0)))} | {tx.get('_category', '—')} |")
 
     # Anomaly detection: flag items >2x category average
-    print(f"\n### ⚠️ Anomalies (>2x category average)")
+    print(f"\n###  Anomalies (>2x category average)")
     found = False
     for cat, data in by_cat.items():
         if data["count"] < 2:
@@ -730,7 +730,7 @@ def cmd_expenses(args):
                 print(f"- **{desc}**: {fmt_money(amt)} (avg in {cat}: {fmt_money(avg)})")
                 found = True
     if not found:
-        print("None detected ✅")
+        print("None detected ")
 
 
 def cmd_report(args):
@@ -745,14 +745,14 @@ def cmd_report(args):
         start = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")
         label = datetime.now().strftime("%B %Y")
 
-    print(f"📊 **Executive Financial Report**")
-    print(f"📅 {label}\n")
+    print(f" **Executive Financial Report**")
+    print(f" {label}\n")
     print("---\n")
 
     # Cash position
     accounts = get_mercury_accounts()
     total_cash = sum(acc.get("currentBalance", acc.get("availableBalance", 0)) for acc in accounts)
-    print(f"### 💵 Cash Position: {fmt_money(total_cash)}")
+    print(f"###  Cash Position: {fmt_money(total_cash)}")
     for acc in accounts:
         name = acc.get("name", acc.get("nickname", ""))
         bal = acc.get("currentBalance", acc.get("availableBalance", 0))
@@ -764,7 +764,7 @@ def cmd_report(args):
     inflow = sum(tx.get("amount", 0) for tx in txns if tx.get("amount", 0) > 0)
     outflow = sum(abs(tx.get("amount", 0)) for tx in txns if tx.get("amount", 0) < 0)
 
-    print(f"### 📈 {period.title()} Activity")
+    print(f"###  {period.title()} Activity")
     print(f"- Money In: {fmt_money(inflow)}")
     print(f"- Money Out: {fmt_money(outflow)}")
     print(f"- Net: {fmt_money(inflow - outflow)}")
@@ -775,7 +775,7 @@ def cmd_report(args):
         charges = get_stripe_charges(limit=100, created_gte=start)
         if charges and charges.get("data"):
             rev = sum(c.get("amount", 0) / 100 for c in charges["data"] if c.get("status") == "succeeded")
-            print(f"### 💳 Stripe Revenue: {fmt_money(rev)}")
+            print(f"###  Stripe Revenue: {fmt_money(rev)}")
             print()
 
     # Burn rate and runway
@@ -784,10 +784,10 @@ def cmd_report(args):
     net_burn = monthly_out - monthly_in
     if net_burn > 0:
         runway = total_cash / net_burn
-        emoji = "🟢" if runway > 12 else "🟡" if runway > 6 else "🔴"
-        print(f"### 🛤️ Runway: {emoji} {runway:.1f} months")
+        emoji = "" if runway > 12 else "" if runway > 6 else ""
+        print(f"###  Runway: {emoji} {runway:.1f} months")
     else:
-        print(f"### 🛤️ Runway: 🟢 Profitable (net positive)")
+        print(f"###  Runway:  Profitable (net positive)")
     print()
 
     print("---")
@@ -802,12 +802,12 @@ def cmd_budget(args):
         db.execute("INSERT OR REPLACE INTO budgets (category, monthly_limit, updated_at) VALUES (?, ?, ?)",
             (args.set_category, args.set_amount, datetime.now().isoformat()))
         db.commit()
-        print(f"✅ Budget set: {args.set_category} = {fmt_money(args.set_amount)}/month")
+        print(f" Budget set: {args.set_category} = {fmt_money(args.set_amount)}/month")
         db.close()
         return
 
     # Show budget vs actual
-    print("📋 **Budget Tracking**\n")
+    print(" **Budget Tracking**\n")
     month_start = date.today().replace(day=1).isoformat()
     budgets = db.execute("SELECT * FROM budgets ORDER BY category").fetchall()
 
@@ -836,11 +836,11 @@ def cmd_budget(args):
         remaining = limit - actual
         pct = (actual / limit * 100) if limit else 0
         if pct >= 100:
-            status = "🔴 OVER"
+            status = " OVER"
         elif pct >= 80:
-            status = "🟡 WARNING"
+            status = " WARNING"
         else:
-            status = "🟢 OK"
+            status = " OK"
         print(f"| {cat} | {fmt_money(limit)} | {fmt_money(actual)} | {fmt_money(remaining)} | {status} ({fmt_pct(pct)}) |")
 
     db.close()
@@ -848,7 +848,7 @@ def cmd_budget(args):
 
 def cmd_runway(args):
     """Calculate burn rate and runway."""
-    print("🛤️ **Burn Rate & Runway Analysis**\n")
+    print(" **Burn Rate & Runway Analysis**\n")
 
     accounts = get_mercury_accounts()
     total_cash = sum(acc.get("currentBalance", acc.get("availableBalance", 0)) for acc in accounts)
@@ -869,26 +869,26 @@ def cmd_runway(args):
         print(f"- Monthly Net Burn: {fmt_money(net_burn)}")
         if net_burn > 0:
             runway = total_cash / net_burn
-            emoji = "🟢" if runway > 12 else "🟡" if runway > 6 else "🔴"
+            emoji = "" if runway > 12 else "" if runway > 6 else ""
             print(f"- Runway: {emoji} **{runway:.1f} months**")
         else:
-            print(f"- Runway: 🟢 **Profitable!**")
+            print(f"- Runway:  **Profitable!**")
         print()
 
-    print(f"### 💵 Total Cash: {fmt_money(total_cash)}")
+    print(f"###  Total Cash: {fmt_money(total_cash)}")
 
 
 def cmd_invoice(args):
     """List outstanding Stripe invoices."""
-    print("🧾 **Outstanding Invoices**\n")
+    print(" **Outstanding Invoices**\n")
 
     if not os.environ.get("STRIPE_API_KEY"):
-        print("⏳ Stripe API key not configured yet.")
+        print(" Stripe API key not configured yet.")
         return
 
     invoices = get_stripe_invoices(status="open")
     if not invoices or not invoices.get("data"):
-        print("No outstanding invoices. ✅")
+        print("No outstanding invoices. ")
         return
 
     total_due = 0
@@ -901,7 +901,7 @@ def cmd_invoice(args):
         total_due += amount
         created = datetime.fromtimestamp(inv.get("created", 0))
         days = (datetime.now() - created).days
-        aging = "🟢" if days < 30 else "🟡" if days < 60 else "🔴"
+        aging = "" if days < 30 else "" if days < 60 else ""
         print(f"| {inv_id} | {cust} | {fmt_money(amount)} | {created.strftime('%Y-%m-%d')} | {aging} {days}d |")
 
     print(f"\n**Total Outstanding: {fmt_money(total_due)}**")
@@ -922,7 +922,7 @@ def cmd_invoice(args):
 # CLI
 # ---------------------------------------------------------------------------
 def main():
-    parser = argparse.ArgumentParser(description="📊 AI CFO — Financial Intelligence", formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser = argparse.ArgumentParser(description=" AI CFO — Financial Intelligence", formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="command", help="Command to run")
 
     # dashboard

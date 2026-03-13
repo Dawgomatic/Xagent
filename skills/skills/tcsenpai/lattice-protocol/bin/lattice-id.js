@@ -61,12 +61,12 @@ function generateDIDFallback(publicKey) {
 }
 
 async function generate(username = null) {
-  console.log('🔑 Generating Ed25519 keypair...');
+  console.log(' Generating Ed25519 keypair...');
   
   const privateKey = ed25519.utils.randomPrivateKey();
   const publicKey = await ed25519.getPublicKeyAsync(privateKey);
   
-  console.log('📝 Preparing registration...');
+  console.log(' Preparing registration...');
   
   // Generate DID
   let did;
@@ -126,7 +126,7 @@ async function generate(username = null) {
     createdAt: new Date().toISOString()
   });
   
-  console.log('✅ Registered successfully!');
+  console.log(' Registered successfully!');
   console.log('');
   console.log('DID:', returnedDID || did);
   if (assignedUsername) console.log('Username:', assignedUsername);
@@ -141,7 +141,7 @@ function show() {
     return;
   }
   
-  console.log('🔐 Lattice Identity');
+  console.log(' Lattice Identity');
   console.log('===================');
   console.log('DID:', keys.did);
   if (keys.username) console.log('Username:', keys.username);
@@ -159,7 +159,7 @@ async function getPubkey(did) {
     did = keys.did;
   }
   
-  console.log('🔑 Fetching public key for:', did);
+  console.log(' Fetching public key for:', did);
   
   const response = await fetch(`${LATTICE_URL}/api/v1/agents/${did}/pubkey`);
   
@@ -180,13 +180,13 @@ const arg2 = args[1]; // Optional username for generate or DID for pubkey
 switch (command) {
   case 'generate':
   case 'gen':
-    generate(arg2).catch(err => { console.error('❌', err.message); process.exit(1); });
+    generate(arg2).catch(err => { console.error('', err.message); process.exit(1); });
     break;
   case 'show':
     show();
     break;
   case 'pubkey':
-    getPubkey(arg2).catch(err => { console.error('❌', err.message); process.exit(1); });
+    getPubkey(arg2).catch(err => { console.error('', err.message); process.exit(1); });
     break;
   default:
     console.log('Lattice Identity Manager');

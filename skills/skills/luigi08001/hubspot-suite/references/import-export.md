@@ -355,10 +355,10 @@ validate_csv() {
     }
     
     if [ $errors -eq 0 ]; then
-        echo "✅ CSV validation passed"
+        echo " CSV validation passed"
         return 0
     else
-        echo "❌ CSV validation failed with $errors errors"
+        echo " CSV validation failed with $errors errors"
         return 1
     fi
 }

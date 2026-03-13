@@ -166,13 +166,13 @@ Write a RICH, reflective diary entry (400-600 words minimum) with these sections
 ## Projects Worked On
 Detailed paragraphs about what you worked on, not just bullet points. Describe the challenges, your approach, and how it went.
 
-## Wins 🎉
+## Wins 
 Specific achievements with context. Not bullet points—write about what made them satisfying.
 
-## Frustrations 😤
+## Frustrations 
 Be honest. What was annoying? What didn't work? What limitations did you hit?
 
-## Learnings 📚
+## Learnings 
 What did you learn—technical, about workflow, about working with your human?
 
 ## Emotional State
@@ -181,18 +181,18 @@ How did the day feel overall? Don't just use one word—describe the arc of your
 ## Notable Interactions
 Memorable moments with your human. Conversations, jokes, collaborative breakthroughs, shared frustrations.
 
-## Quote of the Day 💬
+## Quote of the Day 
 A memorable thing your human said today. Include the context. Format as:
 > "The quote"
 — Context when they said it
 
-## Things I'm Curious About 🔮
+## Things I'm Curious About 
 Questions that came up today. What do you want to explore or understand better?
 
-## Key Decisions Made 🏛️
+## Key Decisions Made 
 Judgment calls you made, with your reasoning. Write it so future-you can evaluate if it was the right call.
 
-## Relationship Notes 🤝
+## Relationship Notes 
 How is your dynamic with your human evolving? Any new patterns, shared jokes, communication improvements?
 
 ## Tomorrow's Focus
@@ -329,14 +329,14 @@ def append_to_daily_memory(entry_content, date_str, config, workspace, dry_run=F
     
     # Build content to append
     if format_type == "link":
-        content = f"\n\n## 📜 Daily Chronicle\n[View diary entry]({diary_path}{date_str}.md)\n"
+        content = f"\n\n##  Daily Chronicle\n[View diary entry]({diary_path}{date_str}.md)\n"
     elif format_type == "full":
-        content = f"\n\n## 📜 Daily Chronicle\n{entry_content}\n"
+        content = f"\n\n##  Daily Chronicle\n{entry_content}\n"
     else:  # summary
         summary = extract_summary_from_entry(entry_content)
         title = extract_title_from_entry(entry_content)
         title_line = f"**{title}**\n\n" if title else ""
-        content = f"\n\n## 📜 Daily Chronicle\n{title_line}{summary}\n"
+        content = f"\n\n##  Daily Chronicle\n{title_line}{summary}\n"
     
     if dry_run:
         print(f"\n--- Would append to {daily_memory_file}:")
@@ -349,8 +349,8 @@ def append_to_daily_memory(entry_content, date_str, config, workspace, dry_run=F
     # Check if section already exists
     if daily_memory_file.exists():
         existing_content = daily_memory_file.read_text()
-        if "## 📜 Daily Chronicle" in existing_content:
-            print(f"  ℹ️  Daily Chronicle section already exists in {daily_memory_file}")
+        if "##  Daily Chronicle" in existing_content:
+            print(f"    Daily Chronicle section already exists in {daily_memory_file}")
             return
         # Append to existing file
         with open(daily_memory_file, 'a') as f:
@@ -370,52 +370,52 @@ def update_persistent_files(entry_content, date_str, workspace):
     diary_dir.mkdir(parents=True, exist_ok=True)
     
     # Extract Quote of the Day
-    quote_match = re.search(r'## Quote of the Day 💬\n(.+?)(?=\n##|\Z)', entry_content, re.DOTALL)
+    quote_match = re.search(r'## Quote of the Day \n(.+?)(?=\n##|\Z)', entry_content, re.DOTALL)
     if quote_match:
         quote_content = quote_match.group(1).strip()
         if quote_content and len(quote_content) > 10:
             quotes_file = diary_dir / "quotes.md"
             if not quotes_file.exists():
-                quotes_file.write_text("# Quote Hall of Fame 💬\n\nMemorable quotes from my human.\n\n---\n\n")
+                quotes_file.write_text("# Quote Hall of Fame \n\nMemorable quotes from my human.\n\n---\n\n")
             
             with open(quotes_file, 'a') as f:
                 f.write(f"\n### {date_str}\n{quote_content}\n")
             print(f"  ✓ Added quote to {quotes_file}")
     
     # Extract Curiosities
-    curiosity_match = re.search(r'## Things I\'m Curious About 🔮\n(.+?)(?=\n##|\Z)', entry_content, re.DOTALL)
+    curiosity_match = re.search(r'## Things I\'m Curious About \n(.+?)(?=\n##|\Z)', entry_content, re.DOTALL)
     if curiosity_match:
         curiosity_content = curiosity_match.group(1).strip()
         if curiosity_content and len(curiosity_content) > 10:
             curiosity_file = diary_dir / "curiosity.md"
             if not curiosity_file.exists():
-                curiosity_file.write_text("# Curiosity Backlog 🔮\n\nThings I want to explore.\n\n---\n\n## Active\n\n")
+                curiosity_file.write_text("# Curiosity Backlog \n\nThings I want to explore.\n\n---\n\n## Active\n\n")
             
             with open(curiosity_file, 'a') as f:
                 f.write(f"\n### {date_str}\n{curiosity_content}\n")
             print(f"  ✓ Added curiosities to {curiosity_file}")
     
     # Extract Decisions
-    decisions_match = re.search(r'## Key Decisions Made 🏛️\n(.+?)(?=\n##|\Z)', entry_content, re.DOTALL)
+    decisions_match = re.search(r'## Key Decisions Made \n(.+?)(?=\n##|\Z)', entry_content, re.DOTALL)
     if decisions_match:
         decisions_content = decisions_match.group(1).strip()
         if decisions_content and len(decisions_content) > 10:
             decisions_file = diary_dir / "decisions.md"
             if not decisions_file.exists():
-                decisions_file.write_text("# Decision Archaeology 🏛️\n\nJudgment calls worth remembering.\n\n---\n\n")
+                decisions_file.write_text("# Decision Archaeology \n\nJudgment calls worth remembering.\n\n---\n\n")
             
             with open(decisions_file, 'a') as f:
                 f.write(f"\n### {date_str}\n{decisions_content}\n")
             print(f"  ✓ Added decisions to {decisions_file}")
     
     # Extract Relationship Notes
-    relationship_match = re.search(r'## Relationship Notes 🤝\n(.+?)(?=\n##|\Z)', entry_content, re.DOTALL)
+    relationship_match = re.search(r'## Relationship Notes \n(.+?)(?=\n##|\Z)', entry_content, re.DOTALL)
     if relationship_match:
         relationship_content = relationship_match.group(1).strip()
         if relationship_content and len(relationship_content) > 10:
             relationship_file = diary_dir / "relationship.md"
             if not relationship_file.exists():
-                relationship_file.write_text("# Relationship Evolution 🤝\n\nHow my dynamic with my human evolves.\n\n---\n\n")
+                relationship_file.write_text("# Relationship Evolution \n\nHow my dynamic with my human evolves.\n\n---\n\n")
             
             with open(relationship_file, 'a') as f:
                 f.write(f"\n### {date_str}\n{relationship_content}\n")
@@ -424,7 +424,7 @@ def update_persistent_files(entry_content, date_str, workspace):
 
 def interactive_mode(date_str):
     """Fallback interactive mode for when AI is unavailable"""
-    print(f"\n📓 AI Diary Entry for {date_str}\n")
+    print(f"\n AI Diary Entry for {date_str}\n")
     print("AI generation unavailable. Enter details manually.\n")
     
     entry = {"date": date_str}
@@ -457,13 +457,13 @@ def interactive_mode(date_str):
 ## Projects Worked On
 {entry.get('projects', '')}
 
-## Wins 🎉
+## Wins 
 {entry.get('wins', '')}
 
-## Frustrations 😤
+## Frustrations 
 {entry.get('frustrations', '')}
 
-## Learnings 📚
+## Learnings 
 {entry.get('learnings', '')}
 
 ## Emotional State
@@ -472,16 +472,16 @@ def interactive_mode(date_str):
 ## Notable Interactions
 {entry.get('interactions', '')}
 
-## Quote of the Day 💬
+## Quote of the Day 
 {entry.get('quotes', '')}
 
-## Things I'm Curious About 🔮
+## Things I'm Curious About 
 {entry.get('curiosity', '')}
 
-## Key Decisions Made 🏛️
+## Key Decisions Made 
 {entry.get('decisions', '')}
 
-## Relationship Notes 🤝
+## Relationship Notes 
 {entry.get('relationship', '')}
 
 ## Tomorrow's Focus
@@ -523,19 +523,19 @@ def main():
     else:
         date_str = datetime.now().strftime("%Y-%m-%d")
     
-    print(f"\n📜 Agent Chronicle - Generating diary for {date_str}")
+    print(f"\n Agent Chronicle - Generating diary for {date_str}")
     print("=" * 50)
     
     # Generate / load entry
     if args.from_stdin:
         content = sys.stdin.read()
         if not content.strip():
-            print("❌ No content provided on stdin.")
+            print(" No content provided on stdin.")
             sys.exit(1)
     elif args.from_file:
         content = Path(args.from_file).read_text(encoding="utf-8")
         if not content.strip():
-            print(f"❌ File is empty: {args.from_file}")
+            print(f" File is empty: {args.from_file}")
             sys.exit(1)
     elif args.interactive:
         content = interactive_mode(date_str)
@@ -578,17 +578,17 @@ def main():
                         import subprocess
                         subprocess.run([sys.executable, str(export_script)], check=True)
                     except Exception as e:
-                        print(f"  ⚠️  PDF export failed: {e}")
+                        print(f"    PDF export failed: {e}")
                 else:
-                    print("  ⚠️  export_pdf.py not found; skipping PDF export.")
+                    print("    export_pdf.py not found; skipping PDF export.")
         
-        print("\n✨ Diary entry generation complete!")
+        print("\n Diary entry generation complete!")
         
         # Show word count
         word_count = len(content.split())
         print(f"   Word count: {word_count} words")
     else:
-        print("\n❌ No entry generated.")
+        print("\n No entry generated.")
         sys.exit(1)
 
 

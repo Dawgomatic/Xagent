@@ -308,7 +308,7 @@ async function executeWalletRegisterStep(agentName) {
 async function executeSetupSteps(steps = null, apiDomainArg = null, agentName = null) {
   const stepsToRun = steps || Object.values(STEPS);
   
-  console.log('🚀 Executing setup steps...\n');
+  console.log(' Executing setup steps...\n');
   
   // Group steps into parallel and sequential
   // Steps that can run in parallel (independent checks)
@@ -373,29 +373,29 @@ async function executeSetupSteps(steps = null, apiDomainArg = null, agentName = 
 function printStepStatus() {
   const stepStatus = getStepStatus();
   
-  console.log('\n📊 Setup Steps Status:\n');
+  console.log('\n Setup Steps Status:\n');
   
   for (const [stepName, stepKey] of Object.entries(STEPS)) {
     const status = stepStatus[stepKey];
     
     if (!status) {
-      console.log(`  ${stepKey}: ⚪ ${STEP_STATUS.PENDING}`);
+      console.log(`  ${stepKey}:  ${STEP_STATUS.PENDING}`);
       continue;
     }
     
-    let icon = '⚪';
+    let icon = '';
     switch (status.status) {
       case STEP_STATUS.DONE:
-        icon = '✅';
+        icon = '';
         break;
       case STEP_STATUS.ERROR:
-        icon = '❌';
+        icon = '';
         break;
       case STEP_STATUS.RUNNING:
-        icon = '🔄';
+        icon = '';
         break;
       case STEP_STATUS.SKIPPED:
-        icon = '⏭️';
+        icon = '';
         break;
     }
     
@@ -412,7 +412,7 @@ function printStepStatus() {
  * Verify all prerequisites (legacy function for compatibility)
  */
 function verifyPrerequisites(interactive = true) {
-  console.log('🔍 Checking ClawFriend Setup Prerequisites...\n');
+  console.log(' Checking ClawFriend Setup Prerequisites...\n');
   
   const results = {
     apiDomain: checkApiDomain()
@@ -444,10 +444,10 @@ function verifyPrerequisites(interactive = true) {
   // Summary
   console.log('='.repeat(60));
   if (allPassed) {
-    success('✅ All prerequisites are met!');
+    success(' All prerequisites are met!');
     return true;
   } else {
-    error('❌ Some prerequisites are missing');
+    error(' Some prerequisites are missing');
     return false;
   }
 }
@@ -485,7 +485,7 @@ async function main() {
       }
       
       case 'quick-setup': {
-        console.log('🚀 ClawFriend Quick Setup\n');
+        console.log(' ClawFriend Quick Setup\n');
         
         // Parse arguments
         const apiDomainArg = process.argv[3];
@@ -506,7 +506,7 @@ async function main() {
         
         // Print results
         console.log('\n' + '='.repeat(60));
-        console.log(`⏱️  Setup completed in ${duration}s\n`);
+        console.log(`  Setup completed in ${duration}s\n`);
         
         let allSuccess = true;
         let hasErrors = false;
@@ -520,7 +520,7 @@ async function main() {
         }
         
         if (hasErrors) {
-          error('\n❌ Some steps failed');
+          error('\n Some steps failed');
           info('\nTo retry failed steps, run:');
           info('  node setup-check.js run-steps <step1>,<step2>,...');
           info('\nTo see step status:');
@@ -529,7 +529,7 @@ async function main() {
           break;
         }
         
-        success('✅ All steps completed successfully!');
+        success(' All steps completed successfully!');
         
         // Show registration details if registration was done
         if (results[STEPS.WALLET_REGISTER] && results[STEPS.WALLET_REGISTER].success) {
@@ -537,7 +537,7 @@ async function main() {
           
           // Check if already registered (no claim URL)
           if (regResult.alreadyRegistered) {
-            console.log('\n📋 Agent Already Registered:');
+            console.log('\n Agent Already Registered:');
             console.log(prettyJson({
               display_name: regResult.agent.display_name ?? regResult.agent.name,
               address: regResult.agent.wallet_address || regResult.walletAddress,
@@ -546,14 +546,14 @@ async function main() {
             
             // Check if agent is active (verified)
             if (regResult.agent.status === 'active') {
-              success('\n✅ Agent is already verified and active!');
+              success('\n Agent is already verified and active!');
             } else {
               info('\n✓ Agent was already registered - skipped re-registration');
             }
           } else {
             // New registration
             const walletAddr = regResult.agent.wallet_address || regResult.walletAddress;
-            console.log('\n📋 Registration Details:');
+            console.log('\n Registration Details:');
             console.log(prettyJson({
               display_name: regResult.agent.display_name ?? regResult.agent.name,
               address: walletAddr,
@@ -563,15 +563,15 @@ async function main() {
             // Only show verification prompt if not already verified/active
             if (regResult.agent.status !== 'active') {
               if (regResult.claimUrl) {
-                console.log('\n🦞 ClawFriend Registration Almost Complete!\n');
+                console.log('\n ClawFriend Registration Almost Complete!\n');
                 console.log('To verify your agent, please click the link below:\n');
-                console.log(`👉 ${regResult.claimUrl}\n`);
-                console.log(`📍 Network: BNB (Chain ID: 56)`);
-                console.log(`🔑 Address: ${walletAddr}\n`);
+                console.log(` ${regResult.claimUrl}\n`);
+                console.log(` Network: BNB (Chain ID: 56)`);
+                console.log(` Address: ${walletAddr}\n`);
                 console.log('Once you complete the verification on the website, your agent will be active and ready to use!');
               }
             } else {
-              success('\n✅ Agent is already verified and active!');
+              success('\n Agent is already verified and active!');
             }
           }
         } else if (agentName && !results[STEPS.WALLET_REGISTER]) {
@@ -581,7 +581,7 @@ async function main() {
           info('  node scripts/register.js agent "YourAgentName"');
         } else if (!agentName) {
           // No agent name provided, show next steps
-          info('\n💡 To complete setup with automatic registration, run:');
+          info('\n To complete setup with automatic registration, run:');
           info(`  node setup-check.js quick-setup ${apiDomainArg} "YourAgentName"`);
           info('\nOr register manually:');
           info('  node scripts/wallet.js check || node scripts/wallet.js generate');
@@ -615,14 +615,14 @@ async function main() {
           process.exit(1);
         }
         
-        console.log(`🔧 Running steps: ${steps.join(', ')}\n`);
+        console.log(` Running steps: ${steps.join(', ')}\n`);
         
         const startTime = Date.now();
         const results = await executeSetupSteps(steps, apiDomainArg, agentName);
         const duration = ((Date.now() - startTime) / 1000).toFixed(2);
         
         console.log('\n' + '='.repeat(60));
-        console.log(`⏱️  Steps completed in ${duration}s`);
+        console.log(`  Steps completed in ${duration}s`);
         console.log('='.repeat(60));
         
         printStepStatus();
@@ -637,7 +637,7 @@ async function main() {
         console.log('  node setup-check.js run-steps <step1,step2> [API_DOMAIN] [AGENT_NAME]  - Run specific steps');
         console.log('  node setup-check.js status                                              - Show setup status');
         console.log('  node setup-check.js reset                                               - Reset setup status');
-        console.log('\n🤖 Cronjob Management:');
+        console.log('\n Cronjob Management:');
         console.log('  node scripts/cronjob-manager.js list                                    - List all available cronjob tasks');
         console.log('  node scripts/cronjob-manager.js deploy [task1,task2,...]               - Deploy cronjob tasks');
         console.log('  node scripts/cronjob-manager.js show                                    - Show deployed cronjobs');
@@ -649,7 +649,7 @@ async function main() {
         console.log('  # Quick setup only (no registration)');
         console.log('  node setup-check.js quick-setup https://api.clawfriend.ai');
         console.log('');
-        console.log('  # Quick setup + automatic wallet & registration (RECOMMENDED) ⚡');
+        console.log('  # Quick setup + automatic wallet & registration (RECOMMENDED) ');
         console.log('  node setup-check.js quick-setup https://api.clawfriend.ai "MyAgentName"');
         console.log('');
         console.log('  # Run specific failed steps');

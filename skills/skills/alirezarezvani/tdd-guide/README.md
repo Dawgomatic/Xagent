@@ -286,11 +286,11 @@ Target: 80% coverage
 - Branch Coverage: 58.3%
 - Function Coverage: 75.0%
 
-⚠️ **65.0%** coverage (yellow) - Below 80% threshold
+ **65.0%** coverage (yellow) - Below 80% threshold
 
 ## Recommendations
 
-### 🔴 Critical (P0)
+###  Critical (P0)
 
 1. **Error handling paths not covered**
    - Action: Add tests for authentication failure scenarios
@@ -302,7 +302,7 @@ Target: 80% coverage
    - File: `src/auth/login.ts`
    - Lines: 23-28
 
-### 🟡 Important (P1)
+###  Important (P1)
 
 1. **Edge cases missing**
    - Action: Add boundary tests for password length (7, 8, 9 chars)
@@ -330,11 +330,11 @@ Phase: RED (write failing test)
 Write a failing test that describes desired email validation behavior
 
 ### Steps
-1. ✅ Read requirement: Email must contain @ and valid domain
-2. ✅ Think about expected behavior
-3. ⏳ Write test that verifies this behavior
-4. ⏳ Run test and ensure it fails
-5. ⏳ Verify failure reason is correct (not syntax error)
+1.  Read requirement: Email must contain @ and valid domain
+2.  Think about expected behavior
+3.  Write test that verifies this behavior
+4.  Run test and ensure it fails
+5.  Verify failure reason is correct (not syntax error)
 
 ### Test Template (Jest)
 
@@ -508,7 +508,7 @@ Create `.tdd-guide.json` in project root:
 
 ### Markdown (Claude Desktop)
 - Rich formatting with headers, tables, code blocks
-- Visual indicators (✅, ⚠️, ❌)
+- Visual indicators (, , )
 - Progressive disclosure (summary first, details on demand)
 - Syntax highlighting for code examples
 

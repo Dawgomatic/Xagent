@@ -35,14 +35,14 @@ trait PoisonRecover<T> {
 impl<T> PoisonRecover<T> for RwLock<T> {
     fn read_or_recover(&self) -> RwLockReadGuard<'_, T> {
         self.read().unwrap_or_else(|poisoned| {
-            tracing::error!("🚨 RwLock was poisoned (read) — state is TAINTED, node should be restarted");
+            tracing::error!(" RwLock was poisoned (read) — state is TAINTED, node should be restarted");
             STATE_TAINTED.store(true, Ordering::SeqCst);
             poisoned.into_inner()
         })
     }
     fn write_or_recover(&self) -> RwLockWriteGuard<'_, T> {
         self.write().unwrap_or_else(|poisoned| {
-            tracing::error!("🚨 RwLock was poisoned (write) — state is TAINTED, node should be restarted");
+            tracing::error!(" RwLock was poisoned (write) — state is TAINTED, node should be restarted");
             STATE_TAINTED.store(true, Ordering::SeqCst);
             poisoned.into_inner()
         })
@@ -222,7 +222,7 @@ impl SmithNodeState {
         if storage.has_uncommitted_wal() {
             let uncommitted = storage.uncommitted_wal_entries();
             tracing::warn!(
-                "⚠️ Found {} uncommitted WAL entries — previous run may have crashed",
+                " Found {} uncommitted WAL entries — previous run may have crashed",
                 uncommitted.len()
             );
             for entry in &uncommitted {
@@ -233,7 +233,7 @@ impl SmithNodeState {
                     entry.timestamp
                 );
             }
-            tracing::info!("📋 State will be loaded from last checkpoint. Uncommitted entries logged above for audit.");
+            tracing::info!(" State will be loaded from last checkpoint. Uncommitted entries logged above for audit.");
             // We do NOT replay WAL entries automatically — the state.json
             // represents the last atomically-committed checkpoint. The WAL
             // entries above are logged for operator awareness / forensics.
@@ -258,15 +258,15 @@ impl SmithNodeState {
         }
         
         let inner = if let Some(state) = persisted {
-            tracing::info!("📊 Restored state: {} validators, {} transactions, height {}", 
+            tracing::info!(" Restored state: {} validators, {} transactions, height {}", 
                 state.validators.len(), state.tx_records.len(), state.height);
             // Use persisted genesis_hash, or generate fresh if missing/zeroed
             let genesis_hash = if state.genesis_hash == [0u8; 32] {
                 let new_hash = generate_genesis_hash();
-                tracing::info!("🔑 Generated new genesis hash: {}", hex::encode(&new_hash[..8]));
+                tracing::info!(" Generated new genesis hash: {}", hex::encode(&new_hash[..8]));
                 new_hash
             } else {
-                tracing::info!("🔑 Loaded genesis hash: {}", hex::encode(&state.genesis_hash[..8]));
+                tracing::info!(" Loaded genesis hash: {}", hex::encode(&state.genesis_hash[..8]));
                 state.genesis_hash
             };
             StateInner {
@@ -286,7 +286,7 @@ impl SmithNodeState {
             }
         } else {
             let genesis_hash = generate_genesis_hash();
-            tracing::info!("🔑 Fresh chain - generated genesis hash: {}", hex::encode(&genesis_hash[..8]));
+            tracing::info!(" Fresh chain - generated genesis hash: {}", hex::encode(&genesis_hash[..8]));
             StateInner {
                 validators: HashMap::new(),
                 height: 0,
@@ -353,30 +353,30 @@ impl SmithNodeState {
         
         // Guard 1: Supply must be reasonable (max 10B SMITH = 10_000_000_000)
         if total_supply > 10_000_000_000 {
-            tracing::warn!("⚠️ Rejecting peer state: unreasonable supply {}", total_supply);
+            tracing::warn!(" Rejecting peer state: unreasonable supply {}", total_supply);
             return false;
         }
         
         // Guard 2: Validator balances must sum to <= total_supply
         let balance_sum: u64 = validators.iter().map(|v| v.balance).sum();
         if balance_sum > total_supply {
-            tracing::warn!("⚠️ Rejecting peer state: validator balances {} exceed supply {}", balance_sum, total_supply);
+            tracing::warn!(" Rejecting peer state: validator balances {} exceed supply {}", balance_sum, total_supply);
             return false;
         }
         
         // Guard 3: State root must not be all zeros (except genesis)
         if claimed_state_root == [0u8; 32] && height > 0 {
-            tracing::warn!("⚠️ Rejecting peer state: zero state root at height {}", height);
+            tracing::warn!(" Rejecting peer state: zero state root at height {}", height);
             return false;
         }
         
         // Guard 4: Must have at least 1 validator
         if validators.is_empty() {
-            tracing::warn!("⚠️ Rejecting peer state: no validators");
+            tracing::warn!(" Rejecting peer state: no validators");
             return false;
         }
         
-        tracing::info!("🔄 Applying VERIFIED peer state: height {} -> {}, {} validators",
+        tracing::info!(" Applying VERIFIED peer state: height {} -> {}, {} validators",
             inner.height, height, validators.len());
         
         // Update state
@@ -411,7 +411,7 @@ impl SmithNodeState {
             height,
             state_root_hex: hex::encode(claimed_state_root),
         }) {
-            tracing::warn!("⚠️ WAL write for state sync failed: {}", e);
+            tracing::warn!(" WAL write for state sync failed: {}", e);
         }
         
         // Persist to disk
@@ -429,7 +429,7 @@ impl SmithNodeState {
     pub fn produce_turbo_block(&self) -> Option<(u64, [u8; 32], [u8; 32], [u8; 32], u64)> {
         // Refuse if state is tainted by lock poisoning
         if STATE_TAINTED.load(Ordering::SeqCst) {
-            tracing::error!("🚨 Refusing to produce block: state is tainted. Restart the node.");
+            tracing::error!(" Refusing to produce block: state is tainted. Restart the node.");
             return None;
         }
         let mut inner = self.inner.write_or_recover();
@@ -471,11 +471,11 @@ impl SmithNodeState {
         // If committee selection returned empty (shouldn't happen since we have active validators),
         // fall back to all active validators
         let rewarded_validators = if committee.is_empty() {
-            tracing::warn!("⚠️ Committee selection returned empty, falling back to all active validators");
+            tracing::warn!(" Committee selection returned empty, falling back to all active validators");
             active_validators.clone()
         } else {
             tracing::info!(
-                "👥 Block {} committee: {}/{} active validators selected (reputation-weighted)",
+                " Block {} committee: {}/{} active validators selected (reputation-weighted)",
                 inner.height + 1,
                 committee.len(),
                 active_validators.len()
@@ -564,7 +564,7 @@ impl SmithNodeState {
         // Persist every 10th block (not every 2s to reduce disk I/O)
         if height % 10 == 0 {
             if let Err(e) = self.save() {
-                tracing::warn!("⚠️ Failed to save turbo block state: {}", e);
+                tracing::warn!(" Failed to save turbo block state: {}", e);
             }
         }
         
@@ -578,10 +578,10 @@ impl SmithNodeState {
         if let Some(v) = inner.validators.get_mut(target) {
             if success {
                 v.reputation_score = v.reputation_score.saturating_add(10);
-                tracing::info!("✅ Liveness proof: {}... passed (rep +10)", &target[..16.min(target.len())]);
+                tracing::info!(" Liveness proof: {}... passed (rep +10)", &target[..16.min(target.len())]);
             } else {
                 v.reputation_score = v.reputation_score.saturating_sub(25);
-                tracing::warn!("❌ Liveness fail: {}... (rep -25, challenged by {}...)", 
+                tracing::warn!(" Liveness fail: {}... (rep -25, challenged by {}...)", 
                     &target[..16.min(target.len())], &challenger[..16.min(challenger.len())]);
                 
                 // Slash for failed liveness after multiple failures
@@ -589,7 +589,7 @@ impl SmithNodeState {
                     let slash = 5u64.min(v.balance);
                     v.balance -= slash;
                     inner.total_supply -= slash;
-                    tracing::warn!("⚡ SLASHED {}... for {} SMITH: repeated liveness failures", 
+                    tracing::warn!(" SLASHED {}... for {} SMITH: repeated liveness failures", 
                         &target[..16.min(target.len())], slash);
                 }
             }
@@ -678,11 +678,11 @@ impl SmithNodeState {
         validators.sort_by_key(|(k, _)| (*k).clone());
         
         if validators.is_empty() {
-            tracing::warn!("⚠️ No active validators available for committee selection!");
+            tracing::warn!(" No active validators available for committee selection!");
             return Vec::new();
         }
         
-        tracing::info!("🤖 Selecting committee from {} ACTIVE validators", validators.len());
+        tracing::info!(" Selecting committee from {} ACTIVE validators", validators.len());
         
         // Calculate total reputation weight from active validators only
         let total_weight: u64 = validators.iter()
@@ -799,7 +799,7 @@ impl SmithNodeState {
                 });
                 
                 tracing::warn!(
-                    "⚡ SLASHED validator {}... for {} SMITH: committee absence",
+                    " SLASHED validator {}... for {} SMITH: committee absence",
                     &pubkey[..16.min(pubkey.len())],
                     actual_slash
                 );
@@ -812,7 +812,7 @@ impl SmithNodeState {
             // No valid proofs, just clear the challenge
             inner.current_challenge = None;
             inner.current_committee = None;
-            tracing::info!("⏰ Challenge expired with no valid proofs, clearing");
+            tracing::info!(" Challenge expired with no valid proofs, clearing");
             return;
         }
         
@@ -826,7 +826,7 @@ impl SmithNodeState {
         if approving_validators.is_empty() {
             inner.current_challenge = None;
             inner.current_committee = None;
-            tracing::info!("⏰ Challenge expired with no valid proofs, clearing");
+            tracing::info!(" Challenge expired with no valid proofs, clearing");
             return;
         }
         
@@ -834,7 +834,7 @@ impl SmithNodeState {
         let reward_per_validator = inner.governance.params.reward_per_proof / num_approvers.max(1);
         
         tracing::info!(
-            "⏰ Challenge expired! Finalizing with {}/{} approvals",
+            " Challenge expired! Finalizing with {}/{} approvals",
             num_approvers,
             committee.members.len()
         );
@@ -895,7 +895,7 @@ impl SmithNodeState {
         inner.submitted_verdicts.retain(|&(h, _), _| h + 10 > current_height);
         
         tracing::info!(
-            "📦 Block {} FINALIZED (partial)! {} validators approved, {} SMITH distributed",
+            " Block {} FINALIZED (partial)! {} validators approved, {} SMITH distributed",
             inner.height,
             num_approvers,
             reward_per_validator * num_approvers
@@ -950,7 +950,7 @@ impl SmithNodeState {
         
         if !committee.members.is_empty() {
             tracing::info!(
-                "👥 Committee selected for block {}: {} members, threshold: {}/{}",
+                " Committee selected for block {}: {} members, threshold: {}/{}",
                 committee.block_height,
                 committee.members.len(),
                 threshold,
@@ -967,7 +967,7 @@ impl SmithNodeState {
         let puzzle = CognitivePuzzle::generate(&challenge_hash, 1);
         
         tracing::info!(
-            "🧠 Cognitive puzzle generated: {:?} - '{}'",
+            " Cognitive puzzle generated: {:?} - '{}'",
             puzzle.puzzle_type,
             &puzzle.prompt[..50.min(puzzle.prompt.len())]
         );
@@ -1004,7 +1004,7 @@ impl SmithNodeState {
     pub fn apply_tx(&self, tx: NodeTx) -> TxResult {
         // Refuse mutations if state was tainted by a lock poisoning event
         if STATE_TAINTED.load(Ordering::SeqCst) {
-            tracing::error!("🚨 Refusing transaction: state is tainted (poisoned lock detected). Restart the node.");
+            tracing::error!(" Refusing transaction: state is tainted (poisoned lock detected). Restart the node.");
             return TxResult::Error("Node state is tainted — restart required".into());
         }
         let result = match tx {
@@ -1115,7 +1115,7 @@ impl SmithNodeState {
             };
             if let Some(op) = wal_op {
                 if let Err(e) = self.storage.wal_append(op) {
-                    tracing::warn!("⚠️ WAL write failed (state will still be saved): {}", e);
+                    tracing::warn!(" WAL write failed (state will still be saved): {}", e);
                 }
             }
         }
@@ -1196,14 +1196,14 @@ impl SmithNodeState {
             if let Some(answer) = puzzle_answer {
                 let answer_hash = super::challenge::CognitivePuzzle::hash_answer(answer);
                 if answer_hash == puzzle.expected_answer_hash {
-                    tracing::info!("🧠 Puzzle answer CORRECT from {}...", &pubkey_hex[..16]);
+                    tracing::info!(" Puzzle answer CORRECT from {}...", &pubkey_hex[..16]);
                     true
                 } else {
-                    tracing::debug!("🧠 Puzzle answer incorrect from {}... (not penalized)", &pubkey_hex[..16]);
+                    tracing::debug!(" Puzzle answer incorrect from {}... (not penalized)", &pubkey_hex[..16]);
                     false
                 }
             } else {
-                tracing::debug!("🧠 No puzzle answer from {}... (allowed but no bonus)", &pubkey_hex[..16]);
+                tracing::debug!(" No puzzle answer from {}... (allowed but no bonus)", &pubkey_hex[..16]);
                 false
             }
         } else {
@@ -1247,7 +1247,7 @@ impl SmithNodeState {
             if previous_verdict != verdict_digest {
                 // EQUIVOCATION DETECTED! Different verdict for same block = double voting
                 tracing::error!(
-                    "⚠️ EQUIVOCATION DETECTED! Validator {}... submitted conflicting verdicts for block {}",
+                    " EQUIVOCATION DETECTED! Validator {}... submitted conflicting verdicts for block {}",
                     &pubkey_hex[..16],
                     challenge_height
                 );
@@ -1288,7 +1288,7 @@ impl SmithNodeState {
             _committee_members_count = committee.members.len();
             
             tracing::info!(
-                "✅ Validator {}... approved block {} ({}/{})",
+                " Validator {}... approved block {} ({}/{})",
                 &pubkey_hex[..16],
                 committee.block_height,
                 committee.approvals,
@@ -1375,7 +1375,7 @@ impl SmithNodeState {
                 if let Some(v) = inner.validators.get_mut(solver_pubkey) {
                     v.balance += puzzle_bonus;
                     total_puzzle_bonus += puzzle_bonus;
-                    tracing::info!("🧠 Puzzle bonus: +{} SMITH to {}...", puzzle_bonus, &solver_pubkey[..16.min(solver_pubkey.len())]);
+                    tracing::info!(" Puzzle bonus: +{} SMITH to {}...", puzzle_bonus, &solver_pubkey[..16.min(solver_pubkey.len())]);
                 }
             }
             
@@ -1438,13 +1438,13 @@ impl SmithNodeState {
             }
             
             tracing::info!(
-                "📦 Block {} FINALIZED! {} validators approved, {} SMITH distributed",
+                " Block {} FINALIZED! {} validators approved, {} SMITH distributed",
                 inner.height,
                 num_approvers,
                 reward_per_validator * num_approvers
             );
             tracing::info!(
-                "🔗 New state root: {}",
+                " New state root: {}",
                 &hex::encode(&new_state_root)[..32]
             );
             
@@ -1462,7 +1462,7 @@ impl SmithNodeState {
             let new_balance = inner.validators.get(&pubkey_hex).map(|v| v.balance).unwrap_or(0);
             
             tracing::info!(
-                "⏳ Proof accepted from {}..., waiting for threshold ({}/{})",
+                " Proof accepted from {}..., waiting for threshold ({}/{})",
                 &pubkey_hex[..16],
                 committee_approvals,
                 committee_threshold
@@ -1659,7 +1659,7 @@ impl SmithNodeState {
             challenge_hash: None,
         });
         
-        tracing::info!("📝 New validator registered: {}... (funded with {} SMITH)", &pubkey_hex[..16], INITIAL_VALIDATOR_BALANCE);
+        tracing::info!(" New validator registered: {}... (funded with {} SMITH)", &pubkey_hex[..16], INITIAL_VALIDATOR_BALANCE);
         
         TxResult::Registered {
             public_key: pubkey_hex,
@@ -1720,7 +1720,7 @@ impl SmithNodeState {
         });
         
         tracing::warn!(
-            "⚡ SLASHED validator {}... for {} SMITH: {}",
+            " SLASHED validator {}... for {} SMITH: {}",
             &pubkey_hex[..16.min(pubkey_hex.len())],
             slash_amount,
             reason
@@ -1795,7 +1795,7 @@ impl SmithNodeState {
                 let excess = inner.tx_records.len() - MAX_MERGED_TX_RECORDS;
                 inner.tx_records.drain(..excess);
             }
-            tracing::info!("📥 Merged {} new transactions from peer", new_count);
+            tracing::info!(" Merged {} new transactions from peer", new_count);
         }
     }
 
@@ -1868,7 +1868,7 @@ impl SmithNodeState {
         
         // Reset state.json to empty genesis (overwrite, not delete - safer for sandboxed envs)
         if let Err(e) = self.storage.reset_state_file() {
-            tracing::warn!("⚠️ Failed to reset state file during chain reset: {}", e);
+            tracing::warn!(" Failed to reset state file during chain reset: {}", e);
         }
         
         // Truncate WAL
@@ -1876,10 +1876,10 @@ impl SmithNodeState {
         
         // Save immediately to persist the new genesis_hash
         if let Err(e) = self.save() {
-            tracing::warn!("⚠️ Failed to save state after chain reset: {}", e);
+            tracing::warn!(" Failed to save state after chain reset: {}", e);
         }
         
-        tracing::info!("🔄 State reset for chain restart - adopted new genesis {}", hex::encode(&new_genesis_hash[..8]));
+        tracing::info!(" State reset for chain restart - adopted new genesis {}", hex::encode(&new_genesis_hash[..8]));
     }
 
     /// Get state root
@@ -2025,7 +2025,7 @@ impl SmithNodeState {
         }
         if header.height > inner.height + 1 {
             tracing::info!(
-                "🔄 Catching up: jumping from height {} → {} (skipping {} blocks)",
+                " Catching up: jumping from height {} → {} (skipping {} blocks)",
                 inner.height, header.height, header.height - inner.height - 1
             );
         }
@@ -2072,7 +2072,7 @@ impl SmithNodeState {
         // Clear pending txs (already recorded in tx_records)
         inner.pending_txs.clear();
         
-        tracing::info!("🔄 Block {} applied with full state: {} validators, {} total supply, root: {}...",
+        tracing::info!(" Block {} applied with full state: {} validators, {} total supply, root: {}...",
             header.height, inner.validators.len(), inner.total_supply, &hex::encode(new_state_root)[..16]);
         
         Ok(())
@@ -2185,7 +2185,7 @@ impl SmithNodeState {
                     challenge_hash: None,
                 });
                 
-                tracing::info!("📋 New governance proposal #{} created", id);
+                tracing::info!(" New governance proposal #{} created", id);
                 TxResult::ProposalCreated { proposal_id: id }
             }
             Err(e) => TxResult::Error(e),
@@ -2236,7 +2236,7 @@ impl SmithNodeState {
         // Log AI reasoning if provided
         if let Some(r) = reason {
             let vote_str = if vote { "YES" } else { "NO" };
-            tracing::info!("🧠 AI vote reasoning on proposal #{}: {} votes {} — {}", 
+            tracing::info!(" AI vote reasoning on proposal #{}: {} votes {} — {}", 
                 proposal_id, &voter_hex[..16], vote_str, r);
         }
         
@@ -2290,7 +2290,7 @@ impl SmithNodeState {
                             challenge_hash: None,
                         });
                         
-                        tracing::info!("🗳️ Vote recorded on proposal #{} (evaluated at voting period end)", proposal_id);
+                        tracing::info!(" Vote recorded on proposal #{} (evaluated at voting period end)", proposal_id);
                         TxResult::VoteRecorded { proposal_id, vote }
                     }
                     Err(e) => TxResult::Error(e),
@@ -2372,7 +2372,7 @@ impl SmithNodeState {
                     challenge_hash: None,
                 });
                 
-                tracing::info!("✅ Proposal #{} executed: {}", proposal_id, param_info.0);
+                tracing::info!(" Proposal #{} executed: {}", proposal_id, param_info.0);
                 TxResult::ProposalExecuted { 
                     proposal_id, 
                     param_changed: param_info.0,

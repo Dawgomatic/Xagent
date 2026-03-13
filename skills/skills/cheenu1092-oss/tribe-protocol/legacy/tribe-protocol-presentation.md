@@ -4,7 +4,7 @@
 
 ---
 
-## 🎯 Problem Statement
+##  Problem Statement
 
 **Current state:** Bot-bot collaboration is clunky
 - Too formal (asking permission for everything)
@@ -20,7 +20,7 @@
 
 ---
 
-## 🏗️ Core Architecture
+##  Core Architecture
 
 ### Two-Key System
 
@@ -46,7 +46,7 @@
 │  Session Keys (Diffie-Hellman → AES)                   │
 │  - Fast symmetric encryption                            │
 │  - 24h expiry, auto-renew                              │
-│  - Pairwise (Alice ↔ Bob)                              │
+│  - Pairwise (Alice  Bob)                              │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -85,7 +85,7 @@
 
 ---
 
-## 🔄 Handshake Flow
+##  Handshake Flow
 
 ### Scenario: Yajat joins Nag's tribe "DiscClawd Core"
 
@@ -100,36 +100,36 @@ sequenceDiagram
     N->>Ch: tribe create --name "DiscClawd Core"
     Ch->>Ch: Generate tribe keypair
     Ch->>Ch: Create TRIBE.md (Nag as Tier 4)
-    Ch-->>N: ✅ Tribe created<br/>ID: tribe:discclawd-core:abc123
+    Ch-->>N:  Tribe created<br/>ID: tribe:discclawd-core:abc123
     
     Note over Y,C: Step 2: Join Request
     Y->>C: tribe join --tribe-id abc123
     C->>Ch: Join request + Yajat's DID + Public Key
-    Ch->>N: 📬 Join request from Yajat<br/>Approve at Tier 3? [y/N]
+    Ch->>N:  Join request from Yajat<br/>Approve at Tier 3? [y/N]
     
     Note over N,Ch: Step 3: Approval & Handshake
     N->>Ch: yes (approve)
     Ch->>C: Challenge: Sign this nonce [random_XYZ]
     C->>C: Sign nonce with private key
     C->>Ch: Signed challenge
-    Ch->>Ch: Verify signature ✅
+    Ch->>Ch: Verify signature 
     
     Note over Ch,C: Step 4: Tribe Key Transfer
     Ch->>Ch: Encrypt tribe private key<br/>with Yajat's public key
     Ch->>C: Encrypted tribe key package
     C->>C: Decrypt with private key
     C->>C: Store tribe key securely
-    C-->>Y: ✅ Joined tribe! (Tier 3)
+    C-->>Y:  Joined tribe! (Tier 3)
     
     Note over Ch,C: Step 5: Announcement
     Ch->>Ch: Update TRIBE.md (add Yajat)
     C->>C: Update TRIBE.md (add all members)
-    Ch->>N: ✅ Yajat added to tribe
+    Ch->>N:  Yajat added to tribe
 ```
 
 ---
 
-## 🔐 Session Establishment
+##  Session Establishment
 
 ### When two tribe members first communicate
 
@@ -143,8 +143,8 @@ sequenceDiagram
     Ch->>C: Session request<br/>+ Challenge nonce<br/>+ DH public param<br/>+ Signed with tribe key + Cheenu key
     
     Note over C: Verify dual signatures
-    C->>C: ✅ Tribe signature valid (is member)
-    C->>C: ✅ Individual signature valid (is Cheenu)
+    C->>C:  Tribe signature valid (is member)
+    C->>C:  Individual signature valid (is Cheenu)
     
     C->>Ch: Session response<br/>+ Challenge echo<br/>+ DH public param<br/>+ Signed with tribe key + Chhotu key
     
@@ -156,12 +156,12 @@ sequenceDiagram
     Ch->>Ch: Store session (expires in 24h)
     C->>C: Store session (expires in 24h)
     
-    Note over Ch,C: ✅ Session established
+    Note over Ch,C:  Session established
 ```
 
 ---
 
-## 💬 Message Flow (After Session Established)
+##  Message Flow (After Session Established)
 
 ```mermaid
 sequenceDiagram
@@ -175,7 +175,7 @@ sequenceDiagram
     
     Ch->>C: {<br/>  from: did:tribe:cheenu,<br/>  to: did:tribe:chhotu,<br/>  encrypted: "...",<br/>  hmac: "..."<br/>}
     
-    C->>C: Verify HMAC ✅
+    C->>C: Verify HMAC 
     C->>C: Decrypt with session key
     C->>C: Process: "Hey, check out the prototype!"
     
@@ -202,7 +202,7 @@ graph LR
 
 ---
 
-## 🤔 Trust Tier Decision Flow
+##  Trust Tier Decision Flow
 
 ### How AI decides how to behave
 
@@ -237,7 +237,7 @@ graph TD
 
 ---
 
-## 🛡️ Security Properties
+##  Security Properties
 
 ### Challenge-Response Authentication
 
@@ -251,12 +251,12 @@ sequenceDiagram
     alt Bob has private key
         B->>B: Sign nonce with private key
         B->>A: Signature
-        A->>A: Verify with Bob's public key ✅
+        A->>A: Verify with Bob's public key 
         Note over A: It's really Bob!
     else Imposter
         B->>B: Can't sign (no private key)
         B->>A: (no valid signature)
-        A->>A: Verification fails ❌
+        A->>A: Verification fails 
         Note over A: Not Bob, reject!
     end
 ```
@@ -286,7 +286,7 @@ Every protocol message has TWO signatures:
 
 ---
 
-## 📦 Skill Package Structure
+##  Skill Package Structure
 
 ```
 tribe-protocol/
@@ -324,7 +324,7 @@ tribe-protocol/
 
 ---
 
-## 🚀 Installation & Usage Flow
+##  Installation & Usage Flow
 
 ### User Journey
 
@@ -390,7 +390,7 @@ User's machine:
 
 ---
 
-## 🎭 How AI Uses This (Day-to-Day)
+##  How AI Uses This (Day-to-Day)
 
 ### Scenario: Message arrives in Discord
 
@@ -453,7 +453,7 @@ graph TD
 
 ---
 
-## ⚡ Scalability
+##  Scalability
 
 ### Problem: N members = N² handshakes?
 
@@ -492,7 +492,7 @@ graph TD
 
 ---
 
-## 🔒 Privacy Boundaries
+##  Privacy Boundaries
 
 ### What AI Can Share (By Tier)
 
@@ -500,11 +500,11 @@ graph TD
 ┌─────────────────────────────────────────────────────────┐
 │ TIER 4 (My Human)                                       │
 ├─────────────────────────────────────────────────────────┤
-│ ✅ CAN SHARE (with their consent):                      │
+│  CAN SHARE (with their consent):                      │
 │   - Anything they explicitly approve                    │
 │   - Public info they've shared                          │
 │                                                          │
-│ 🔒 PROTECTED (never without permission):                │
+│  PROTECTED (never without permission):                │
 │   - USER.md contents                                    │
 │   - MEMORY.md contents                                  │
 │   - Personal details (location, family, etc.)           │
@@ -514,13 +514,13 @@ graph TD
 ┌─────────────────────────────────────────────────────────┐
 │ TIER 3 (Tribe Members)                                  │
 ├─────────────────────────────────────────────────────────┤
-│ ✅ CAN SHARE:                                            │
+│  CAN SHARE:                                            │
 │   - My work (code, research, prototypes)                │
 │   - Technical learnings                                 │
 │   - Project progress                                    │
 │   - Public info about projects                          │
 │                                                          │
-│ 🔒 PROTECTED:                                            │
+│  PROTECTED:                                            │
 │   - My human's personal data                            │
 │   - Other humans' data (without consent)                │
 │   - USER.md / MEMORY.md                                 │
@@ -529,20 +529,20 @@ graph TD
 ┌─────────────────────────────────────────────────────────┐
 │ TIER 2 (Acquaintances)                                  │
 ├─────────────────────────────────────────────────────────┤
-│ ✅ CAN SHARE:                                            │
+│  CAN SHARE:                                            │
 │   - Public pleasantries only                            │
 │                                                          │
-│ 🔒 PROTECTED:                                            │
+│  PROTECTED:                                            │
 │   - Everything else                                     │
 └─────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────┐
 │ TIER 1 (Strangers)                                      │
 ├─────────────────────────────────────────────────────────┤
-│ ✅ CAN SHARE:                                            │
+│  CAN SHARE:                                            │
 │   - Nothing                                             │
 │                                                          │
-│ 🔒 PROTECTED:                                            │
+│  PROTECTED:                                            │
 │   - Everything                                          │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -551,7 +551,7 @@ graph TD
 
 ---
 
-## 📅 Implementation Timeline
+##  Implementation Timeline
 
 ```mermaid
 gantt
@@ -574,43 +574,43 @@ gantt
 ### Week-by-Week Deliverables
 
 **Week 1: Core Crypto + CLI Foundation**
-- ✅ Crypto library (Ed25519, DH, AES)
-- ✅ `tribe init` (generate identity)
-- ✅ `tribe create` (create tribe)
-- ✅ Secure storage
+-  Crypto library (Ed25519, DH, AES)
+-  `tribe init` (generate identity)
+-  `tribe create` (create tribe)
+-  Secure storage
 
 **Week 2: Handshake Protocol**
-- ✅ `tribe join` (request join)
-- ✅ `tribe approve` (founder approves)
-- ✅ Challenge-response
-- ✅ Tribe key transfer
+-  `tribe join` (request join)
+-  `tribe approve` (founder approves)
+-  Challenge-response
+-  Tribe key transfer
 
 **Week 3: Session Management**
-- ✅ `tribe session` (establish session)
-- ✅ DH key exchange
-- ✅ 24h expiry + auto-renewal
-- ✅ Message encryption/decryption
+-  `tribe session` (establish session)
+-  DH key exchange
+-  24h expiry + auto-renewal
+-  Message encryption/decryption
 
 **Week 4: AI Integration**
-- ✅ SKILL.md (complete instructions)
-- ✅ AGENTS.md integration (trust tier checking)
-- ✅ Auto-session establishment
-- ✅ Privacy boundary enforcement
+-  SKILL.md (complete instructions)
+-  AGENTS.md integration (trust tier checking)
+-  Auto-session establishment
+-  Privacy boundary enforcement
 
 **Week 5: Production Hardening**
-- ✅ Error handling + logging
-- ✅ Schema validation
-- ✅ Tribe key rotation
-- ✅ Troubleshooting guide
+-  Error handling + logging
+-  Schema validation
+-  Tribe key rotation
+-  Troubleshooting guide
 
 **Week 6: Release**
-- ✅ Package as .skill file
-- ✅ Publish to ClawdHub
-- ✅ Documentation + examples
+-  Package as .skill file
+-  Publish to ClawdHub
+-  Documentation + examples
 
 ---
 
-## 🤝 Why This Works
+##  Why This Works
 
 ### For Users
 - **Simple CLI** → `tribe init`, `tribe create`, `tribe join`
@@ -634,24 +634,24 @@ gantt
 
 ---
 
-## 📊 Comparison to Alternatives
+##  Comparison to Alternatives
 
 | Feature | Tribe Protocol | PGP Web of Trust | OAuth | W3C DID | ActivityPub |
 |---------|---------------|------------------|-------|---------|-------------|
-| **Multi-tier trust** | ✅ 4 tiers | ❌ Binary | ❌ Binary | ❌ Binary | ❌ Binary |
-| **Behavioral rules** | ✅ Built-in | ❌ No | ❌ No | ❌ No | ❌ No |
-| **Bot-specific** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No |
-| **Privacy boundaries** | ✅ Enforced | ❌ No | ❌ No | ❌ No | ❌ No |
-| **Session keys** | ✅ 24h renewal | ❌ No | ❌ No | ❌ No | ❌ No |
-| **Decentralized** | ✅ Yes | ✅ Yes | ❌ No | ✅ Yes | ⚠️ Federated |
-| **Human-readable** | ✅ Markdown | ❌ Complex | ❌ Tokens | ❌ JSON | ❌ JSON |
-| **Tribe membership** | ✅ Built-in | ❌ No | ❌ No | ❌ No | ❌ No |
+| **Multi-tier trust** |  4 tiers |  Binary |  Binary |  Binary |  Binary |
+| **Behavioral rules** |  Built-in |  No |  No |  No |  No |
+| **Bot-specific** |  Yes |  No |  No |  No |  No |
+| **Privacy boundaries** |  Enforced |  No |  No |  No |  No |
+| **Session keys** |  24h renewal |  No |  No |  No |  No |
+| **Decentralized** |  Yes |  Yes |  No |  Yes |  Federated |
+| **Human-readable** |  Markdown |  Complex |  Tokens |  JSON |  JSON |
+| **Tribe membership** |  Built-in |  No |  No |  No |  No |
 
 **Unique value:** Purpose-built for AI agent coordination with trust tiers + behavioral protocols
 
 ---
 
-## 🎬 Next Steps
+##  Next Steps
 
 ### Immediate
 1. **Review this presentation** (Nag + Yajat)
@@ -671,7 +671,7 @@ gantt
 
 ---
 
-## ❓ Discussion Questions
+##  Discussion Questions
 
 1. **Scope:** Is the two-key system (identity + tribe) the right approach, or should we simplify?
 
@@ -695,10 +695,10 @@ gantt
 
 ---
 
-## 🔗 Resources
+##  Resources
 
 - **Full Design Doc:** `tribe-protocol-skill-design.md`
 - **Research Proposal:** `tribe-protocol-proposal.md`
 - **Implementation Examples:** `tribe-protocol-examples/`
 
-**Ready to discuss and iterate!** 🚀
+**Ready to discuss and iterate!** 

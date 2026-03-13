@@ -1,8 +1,8 @@
-# 🚀 Clawdbot Dashboard - Premium AI Interface
+#  Clawdbot Dashboard - Premium AI Interface
 
 A gorgeous, premium React dashboard UI designed for Clawdbot AI sessions. Built with beauty-first design principles, featuring glassmorphism effects, real-time updates, and seamless interactions.
 
-## ✨ Features
+##  Features
 
 ### Design & UX
 - **Dark Mode Default** with light mode support
@@ -21,7 +21,7 @@ A gorgeous, premium React dashboard UI designed for Clawdbot AI sessions. Built 
 - **Copy-to-Clipboard** for session keys and data
 - **Live Status Indicators** (connection, latency, model info)
 
-## 🎨 Design System
+##  Design System
 
 ### Color Palette
 ```
@@ -49,7 +49,7 @@ Light Mode:
 - **Input Box**: Expandable textarea with gradient send button
 - **Session Card**: Multi-field info display with copy actions
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 ### Core
 - **React 19** + TypeScript 5.9
@@ -66,7 +66,7 @@ Light Mode:
 - **rehype-prism-plus** for code highlighting
 - **Socket.io-client** ready for real-time updates
 
-## 📦 Installation & Setup
+##  Installation & Setup
 
 ### Prerequisites
 - Node.js 18+ (v25.4.0 recommended)
@@ -93,7 +93,7 @@ npm run preview
 - **Hot Module Reload (HMR)**: Enabled
 - **Auto-open**: Browser tab opens on start
 
-## 🏗 Project Structure
+##  Project Structure
 
 ```
 clawdbot-dashboard/
@@ -118,7 +118,7 @@ clawdbot-dashboard/
 └── package.json                # Dependencies
 ```
 
-## 🎮 Features Deep Dive
+##  Features Deep Dive
 
 ### Session Info Card (Sidebar)
 Displays real-time session information in a premium glassmorphic card:
@@ -154,7 +154,7 @@ Each message supports:
 - **Accessible**: Uses semantic HTML + proper contrast
 - **Animated**: Scale and rotate effects on interaction
 
-## 🎬 Animations
+##  Animations
 
 All animations use Framer Motion with 300ms duration:
 
@@ -172,7 +172,7 @@ whileTap={{ scale: 0.95 }}
 transition={{ delay: index * 0.05 }}
 ```
 
-## 🖼 Dummy Data
+##  Dummy Data
 
 The app comes with **10 sample messages** demonstrating:
 - System message (welcome)
@@ -184,7 +184,7 @@ The app comes with **10 sample messages** demonstrating:
 
 Located in `src/data/messages.ts` - easily customizable.
 
-## 🔧 Configuration
+##  Configuration
 
 ### Tailwind Customization
 Edit `tailwind.config.js`:
@@ -213,7 +213,7 @@ build: {
 }
 ```
 
-## 📊 Performance
+##  Performance
 
 ### Bundle Size (Gzipped)
 - **Vendor**: 43.3 KB (React, Framer Motion)
@@ -227,7 +227,7 @@ build: {
 3. Image assets can be optimized with sharp
 4. Consider dynamic imports for markdown library
 
-## 🚀 Next Steps for Production
+##  Next Steps for Production
 
 ### Phase 2 - WebSocket Integration
 1. Connect to Socket.io server
@@ -248,7 +248,7 @@ build: {
 3. **ARIA Labels**: Screen reader support
 4. **Keyboard Navigation**: Full keyboard support
 
-## 📝 Environment Variables
+##  Environment Variables
 
 Create `.env` file:
 ```
@@ -261,7 +261,7 @@ Usage in code:
 const apiUrl = import.meta.env.VITE_API_URL
 ```
 
-## 🤝 Extending Components
+##  Extending Components
 
 ### Adding a New Message Type
 ```typescript
@@ -286,7 +286,7 @@ const handleCommand = (input: string) => {
 }
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Markdown not rendering?
 - Check if `react-markdown` is imported
@@ -303,13 +303,13 @@ const handleCommand = (input: string) => {
 - Check `tsconfig.json` for strict mode settings
 - Type all props with interfaces
 
-## 📄 License
+##  License
 
 Built for Clawdbot Premium Dashboard. All rights reserved.
 
-## 🎯 Goals Achieved
+##  Goals Achieved
 
-✅ **Phase 1 Complete:**
+ **Phase 1 Complete:**
 - [x] Project setup (Vite + React + Tailwind)
 - [x] Layout & components (Header, Sidebar, ChatPanel)
 - [x] Message bubbles (Discord-style)
@@ -321,15 +321,15 @@ Built for Clawdbot Premium Dashboard. All rights reserved.
 - [x] Session info card (glassmorphism)
 - [x] Premium styling (colors, typography, effects)
 
-## 🙌 Credits
+##  Credits
 
 Built with:
-- ⚡ Vite
-- ⚛️ React 19
-- 🎨 Tailwind CSS v4
-- ✨ Framer Motion
-- 🔤 Prism.js
-- 🎯 TypeScript
+-  Vite
+-  React 19
+-  Tailwind CSS v4
+-  Framer Motion
+-  Prism.js
+-  TypeScript
 
 ---
 

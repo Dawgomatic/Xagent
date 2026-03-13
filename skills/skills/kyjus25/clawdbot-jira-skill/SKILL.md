@@ -6,7 +6,7 @@ metadata:
   {
     "clawdbot":
       {
-        "emoji": "🧭",
+        "emoji": "",
         "requires":
           {
             "bins": ["curl", "jq", "bc", "python3"],

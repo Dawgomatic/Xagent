@@ -99,7 +99,7 @@ for SYM in $ASSETS; do
   DECIMALS=$(jq -r ".assets[\"$SYM\"].decimals" "$CONFIG")
   
   if [ "$ASSET_ADDR" = "null" ] || [ -z "$ASSET_ADDR" ]; then
-    echo "  ⚠ $SYM: not found in config"
+    echo "   $SYM: not found in config"
     continue
   fi
 

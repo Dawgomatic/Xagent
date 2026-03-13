@@ -14,8 +14,8 @@ if [ -n "$LOCATION" ]; then
 fi
 QUERY="${QUERY} ${INDUSTRY}"
 
-echo "🔍 Searching for: $QUERY"
-echo "📊 Looking for $COUNT leads..."
+echo " Searching for: $QUERY"
+echo " Looking for $COUNT leads..."
 echo ""
 
 # This would be replaced by actual web search API calls

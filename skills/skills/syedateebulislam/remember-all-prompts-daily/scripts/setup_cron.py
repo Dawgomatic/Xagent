@@ -12,7 +12,7 @@ def setup_heartbeat_check():
     hb_path = Path.home() / ".clawd" / "HEARTBEAT.md"
     
     heartbeat_entry = """
-### 🧠 Token Usage & Archive (Every Session)
+###  Token Usage & Archive (Every Session)
 - Run `python skills/remember-all-prompts-daily/scripts/check_token_usage.py`
 - If usage > 95%: exports current session to archive
 - If usage < 5%: fresh session, ready to ingest previous context
@@ -22,10 +22,10 @@ def setup_heartbeat_check():
         content = hb_path.read_text()
         if "Token Usage & Archive" not in content:
             hb_path.write_text(content + "\n" + heartbeat_entry)
-            print(f"✅ Added to {hb_path}")
+            print(f" Added to {hb_path}")
     else:
         hb_path.write_text(heartbeat_entry)
-        print(f"✅ Created {hb_path}")
+        print(f" Created {hb_path}")
 
 def setup_cron_job():
     """Set up optional cron job for periodic checks"""
@@ -36,7 +36,7 @@ def setup_cron_job():
         "enabled": False  # Default to disabled, user can enable
     }
     
-    print("\n📋 Optional Cron Job Config:")
+    print("\n Optional Cron Job Config:")
     print(json.dumps(cron_job, indent=2))
     print("\nTo enable periodic checks, run:")
     print("  clawdbot cron add --text 'Token usage check' --schedule '*/15 * * * *'")
@@ -44,12 +44,12 @@ def setup_cron_job():
 if __name__ == "__main__":
     from pathlib import Path
     
-    print("🔧 Setting up Remember All Prompts Daily...\n")
+    print(" Setting up Remember All Prompts Daily...\n")
     
     # Create memory directory if needed
     memory_dir = Path.home() / ".clawd" / "memory"
     memory_dir.mkdir(parents=True, exist_ok=True)
-    print(f"✅ Memory directory: {memory_dir}")
+    print(f" Memory directory: {memory_dir}")
     
     # Setup heartbeat
     setup_heartbeat_check()
@@ -57,7 +57,7 @@ if __name__ == "__main__":
     # Show cron option
     setup_cron_job()
     
-    print("\n✅ Setup complete!")
+    print("\n Setup complete!")
     print("\nNext steps:")
     print("1. Heartbeat will check token usage automatically")
     print("2. At 95% usage: prompts will auto-export to memory/remember-all-prompts-daily.md")

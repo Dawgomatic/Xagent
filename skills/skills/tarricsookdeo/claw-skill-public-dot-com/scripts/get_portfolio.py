@@ -43,7 +43,7 @@ def get_portfolio(account_id=None):
         print("=" * 60)
 
         # Buying Power
-        print("\n📊 BUYING POWER")
+        print("\n BUYING POWER")
         print("-" * 40)
         bp = portfolio.buying_power
         print(f"  Buying Power:         ${bp.buying_power:,.2f}")
@@ -51,7 +51,7 @@ def get_portfolio(account_id=None):
         print(f"  Options Buying Power: ${bp.options_buying_power:,.2f}")
 
         # Equity Breakdown
-        print("\n💰 EQUITY BREAKDOWN")
+        print("\n EQUITY BREAKDOWN")
         print("-" * 40)
         total_equity = sum(e.value for e in portfolio.equity)
         print(f"  Total Equity: ${total_equity:,.2f}")
@@ -87,19 +87,19 @@ def get_portfolio(account_id=None):
                     print(f"    Total Gain: {total_gain_sign}${cb.gain_value:,.2f} ({total_gain_sign}{cb.gain_percentage:.2f}%)")
 
             if equities:
-                print("\n📈 EQUITIES")
+                print("\n EQUITIES")
                 print("-" * 60)
                 for pos in equities:
                     print_position(pos)
 
             if options:
-                print("\n📜 OPTIONS")
+                print("\n OPTIONS")
                 print("-" * 60)
                 for pos in options:
                     print_position(pos)
 
             if crypto:
-                print("\n🪙 CRYPTO")
+                print("\n CRYPTO")
                 print("-" * 60)
                 for pos in crypto:
                     print_position(pos)

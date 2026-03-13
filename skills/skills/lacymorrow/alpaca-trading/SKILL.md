@@ -3,7 +3,7 @@ name: alpaca-trading
 description: Execute trades, analyze markets, and manage portfolios using apcacli command-line tool for Alpaca's Trading API. Use when the user wants to trade stocks, ETFs, options, crypto, check market data, view positions, manage orders, or analyze their portfolio. Also use when they mention "buy," "sell," "trade," "market data," "stock price," "portfolio," "account balance," or "alpaca trading."
 metadata:
   clawdbot:
-    emoji: "📈"
+    emoji: ""
     requires:
       bins: ["apcacli"]
       env: ["APCA_API_KEY_ID", "APCA_API_SECRET_KEY"]
@@ -530,7 +530,7 @@ apcacli account activity
 
 ## Safety Reminders
 
-⚠️ **IMPORTANT**:
+ **IMPORTANT**:
 - Always start with **PAPER TRADING** to test without risk
 - Review all order details before execution
 - Never share your API credentials

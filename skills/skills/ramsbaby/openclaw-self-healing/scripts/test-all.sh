@@ -3,7 +3,7 @@
 
 set -euo pipefail
 
-echo "🧪 Self-Healing v2.0.1 Test Suite"
+echo " Self-Healing v2.0.1 Test Suite"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -23,19 +23,19 @@ test_extract_learning() {
   
   # Simple test: check if function exists
   if grep -q "extract_learning()" ../scripts/emergency-recovery-v2.sh; then
-    echo "  ✅ Function exists"
+    echo "   Function exists"
     PASS=$((PASS + 1))
   else
-    echo "  ❌ Function not found"
+    echo "   Function not found"
     FAIL=$((FAIL + 1))
   fi
   
   # Test reasoning_file usage
   if grep -A 30 "extract_learning()" ../scripts/emergency-recovery-v2.sh | grep -q "\$reasoning_file"; then
-    echo "  ✅ reasoning_file parameter used"
+    echo "   reasoning_file parameter used"
     PASS=$((PASS + 1))
   else
-    echo "  ❌ reasoning_file parameter unused"
+    echo "   reasoning_file parameter unused"
     FAIL=$((FAIL + 1))
   fi
   
@@ -48,10 +48,10 @@ test_dependencies() {
   
   for dep in tmux claude jq; do
     if command -v "$dep" &>/dev/null; then
-      echo "  ✅ $dep installed"
+      echo "   $dep installed"
       PASS=$((PASS + 1))
     else
-      echo "  ❌ $dep missing"
+      echo "   $dep missing"
       FAIL=$((FAIL + 1))
     fi
   done
@@ -73,10 +73,10 @@ test_file_structure() {
   
   for file in "${required_files[@]}"; do
     if [ -f "$file" ]; then
-      echo "  ✅ $file exists"
+      echo "   $file exists"
       PASS=$((PASS + 1))
     else
-      echo "  ❌ $file missing"
+      echo "   $file missing"
       FAIL=$((FAIL + 1))
     fi
   done
@@ -90,10 +90,10 @@ test_version_consistency() {
   skill_v=$(grep -m1 "version:" ../SKILL.md | awk '{print $2}')
   
   if [ "$readme_v" = "2.0.1" ] && [ "$skill_v" = "2.0.1" ]; then
-    echo "  ✅ Versions match (v2.0.1)"
+    echo "   Versions match (v2.0.1)"
     PASS=$((PASS + 1))
   else
-    echo "  ❌ Version mismatch: README=$readme_v, SKILL=$skill_v"
+    echo "   Version mismatch: README=$readme_v, SKILL=$skill_v"
     FAIL=$((FAIL + 1))
   fi
   echo ""
@@ -107,15 +107,15 @@ test_version_consistency
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Test Results:"
-echo "  ✅ PASS: $PASS"
-echo "  ❌ FAIL: $FAIL"
+echo "   PASS: $PASS"
+echo "   FAIL: $FAIL"
 echo "  Total: $((PASS + FAIL))"
 echo ""
 
 if [ $FAIL -eq 0 ]; then
-  echo "  🎉 All tests passed!"
+  echo "   All tests passed!"
   exit 0
 else
-  echo "  ⚠️ Some tests failed"
+  echo "   Some tests failed"
   exit 1
 fi

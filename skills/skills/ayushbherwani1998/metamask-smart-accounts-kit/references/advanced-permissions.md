@@ -11,7 +11,7 @@ Advanced Permissions (ERC-7715) enable dapps to request fine-grained permissions
 - Human-readable permission UI in MetaMask
 - Users can modify permission parameters (if allowed)
 
-**⚠️ Requirements:**
+** Requirements:**
 
 - MetaMask Flask 13.5.0+ (or later stable versions with ERC-7715 support)
 - User must be upgraded to MetaMask Smart Account

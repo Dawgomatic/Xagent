@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-## 🚀 3步开始使用
+##  3步开始使用
 
 ### 1. 克隆项目
 
@@ -22,7 +22,7 @@ pip install edge-tts
 npm start
 ```
 
-## 🔧 配置
+##  配置
 
 ### OpenClaw集成
 
@@ -43,7 +43,7 @@ const DEFAULT_RATE = '+0%';                     // 语速
 const DEFAULT_VOLUME = '+0%';                   // 音量
 ```
 
-## 📝 使用示例
+##  使用示例
 
 ### 发送通知
 
@@ -73,7 +73,7 @@ tail -f logs/voice.log
 tail -f logs/performance.log
 ```
 
-## 🛠️ 开发
+##  开发
 
 ### 调试模式
 
@@ -91,7 +91,7 @@ node tests/test-voice-system.js
 node tests/test-log-management.js
 ```
 
-## ❓ 常见问题
+##  常见问题
 
 ### Q: 如何修改窗口大小?
 A: 编辑 `main.js` 中的 `width` 和 `height` 参数
@@ -105,7 +105,7 @@ A: 访问 http://localhost:18788/health 或查看 `logs/performance.log`
 ### Q: 如何禁用自动重启?
 A: 编辑 `auto-restart.js` 中的 `RESTART_ENABLED = false`
 
-## 📚 更多文档
+##  更多文档
 
 - [完整README](https://github.com/kk43994/claw-desktop-pet#readme)
 - [技术文档](https://github.com/kk43994/claw-desktop-pet/tree/master/docs)

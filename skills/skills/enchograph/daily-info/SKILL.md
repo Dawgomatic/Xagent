@@ -79,7 +79,7 @@ curl -s "https://api.open-meteo.com/v1/forecast?latitude=30.6&longitude=114.3¤t
 ```
 ---
 
-📅 YYYY年M月D日 星期X
+ YYYY年M月D日 星期X
 
 - 农历：农历X月X日
 - 节气：XX
@@ -87,7 +87,7 @@ curl -s "https://api.open-meteo.com/v1/forecast?latitude=30.6&longitude=114.3¤t
 
 ---
 
-🌤️ XX天气
+ XX天气
 
 - 天气：详细状况
 - 温度：X°C（体感X°C）
@@ -96,7 +96,7 @@ curl -s "https://api.open-meteo.com/v1/forecast?latitude=30.6&longitude=114.3¤t
 
 ---
 
-👕 穿衣：简洁建议
+ 穿衣：简洁建议
 
 ---
 ```
@@ -104,15 +104,15 @@ curl -s "https://api.open-meteo.com/v1/forecast?latitude=30.6&longitude=114.3¤t
 示例：
 
 ```
-📅 2026年2月19日 星期四
+ 2026年2月19日 星期四
 
 - 农历：正月十九
 - 节气：雨水
-- 🎉 春节假期中（至2月23日）
+-  春节假期中（至2月23日）
 
 ---
 
-🌤️ 武汉天气
+ 武汉天气
 
 - 天气：薄雾 → 晴
 - 温度：8°C（体感8°C）
@@ -121,7 +121,7 @@ curl -s "https://api.open-meteo.com/v1/forecast?latitude=30.6&longitude=114.3¤t
 
 ---
 
-👕 穿衣：保暖内衣+羽绒服，围巾手套保好暖，带伞防潮。
+ 穿衣：保暖内衣+羽绒服，围巾手套保好暖，带伞防潮。
 
 ---
 ```

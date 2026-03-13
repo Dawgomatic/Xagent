@@ -217,7 +217,7 @@ async function main() {
     case 'create': {
       const name = args[0] || `wallet-${Date.now()}`;
       const { publicKey, walletPath } = createWallet(name);
-      console.log(`✅ Created wallet "${name}"`);
+      console.log(` Created wallet "${name}"`);
       console.log(`   Public Key: ${publicKey}`);
       console.log(`   Saved to: ${walletPath}`);
       break;
@@ -256,7 +256,7 @@ async function main() {
       console.log(`Fetching balance for ${name}...`);
       const balance = await getFullBalance(wallet.publicKey);
       
-      console.log(`\n💰 ${name} (${wallet.publicKey})`);
+      console.log(`\n ${name} (${wallet.publicKey})`);
       console.log(`   SOL: ${balance.sol.toFixed(6)}`);
       
       if (balance.tokens.length > 0) {
@@ -284,7 +284,7 @@ async function main() {
       }
       
       console.log(`Public Key: ${wallet.publicKey}`);
-      console.log('\n⚠️  Private key export disabled for security.');
+      console.log('\n  Private key export disabled for security.');
       console.log('   To use this wallet programmatically, use loadWallet() from this module.');
       break;
     }

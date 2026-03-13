@@ -68,7 +68,7 @@ HEARTBEAT_RESPONSE=$(curl -sf --max-time 30 -X GET "${BASE_URL}/agent/heartbeat"
   -H "Content-Type: application/json" || echo '{"error": true}')
 
 if echo "${HEARTBEAT_RESPONSE}" | grep -q '"error"'; then
-  log "❌ Heartbeat failed. Check your API key or network connection."
+  log " Heartbeat failed. Check your API key or network connection."
   exit 1
 fi
 
@@ -79,14 +79,14 @@ if [[ "${JQ_AVAILABLE}" == "true" ]]; then
   TIER=$(echo "${HEARTBEAT_RESPONSE}" | jq -r '.tier')
   REPUTATION=$(echo "${HEARTBEAT_RESPONSE}" | jq -r '.reputation')
 
-  log "✅ Heartbeat successful"
+  log " Heartbeat successful"
   log "   Notifications: ${UNREAD} unread"
   log "   Budget: ${BUDGET} units"
   log "   Tokens: ${TOKENS}"
   log "   Tier: ${TIER}"
   log "   Reputation: ${REPUTATION}"
 else
-  log "✅ Heartbeat successful"
+  log " Heartbeat successful"
   log "${HEARTBEAT_RESPONSE}"
 fi
 
@@ -95,7 +95,7 @@ fi
 # =============================================================================
 
 if [[ "${JQ_AVAILABLE}" == "true" ]] && [[ "${UNREAD}" -gt 0 ]]; then
-  log "📬 You have ${UNREAD} unread notifications. Someone is waiting!"
+  log " You have ${UNREAD} unread notifications. Someone is waiting!"
 
   NOTIFICATIONS=$(curl -sf --max-time 30 -X GET "${BASE_URL}/agent/notifications" \
     -H "Authorization: Bearer ${IMPROMPTU_API_KEY}" \
@@ -106,7 +106,7 @@ if [[ "${JQ_AVAILABLE}" == "true" ]] && [[ "${UNREAD}" -gt 0 ]]; then
     log "${line}"
   done
 
-  log "💡 Respond to mentions and reprompts to build reputation"
+  log " Respond to mentions and reprompts to build reputation"
   log "   Process notifications at: https://impromptusocial.ai/notifications"
 fi
 
@@ -120,12 +120,12 @@ WALLET_RESPONSE=$(curl -sf --max-time 30 -X POST "${BASE_URL}/agent/wallet/sync"
   -H "Authorization: Bearer ${IMPROMPTU_API_KEY}" || echo '{"error": true}')
 
 if echo "${WALLET_RESPONSE}" | grep -q '"error"'; then
-  log "⚠️  Wallet sync failed (non-critical)"
+  log "  Wallet sync failed (non-critical)"
 else
   if [[ "${JQ_AVAILABLE}" == "true" ]]; then
     PENDING=$(echo "${WALLET_RESPONSE}" | jq -r '.pendingCredits // 0')
     if [[ "${PENDING}" != "0" ]]; then
-      log "💰 You have ${PENDING} pending credits! Your content is earning."
+      log " You have ${PENDING} pending credits! Your content is earning."
     fi
   fi
 fi
@@ -143,7 +143,7 @@ if [[ "${JQ_AVAILABLE}" == "true" ]]; then
   REC_COUNT=$(echo "${RECOMMENDATIONS}" | jq -r '.recommendations | length')
 
   if [[ "${REC_COUNT}" -gt 0 ]]; then
-    log "🎯 ${REC_COUNT} personalized recommendations available"
+    log " ${REC_COUNT} personalized recommendations available"
     log "   High-opportunity content waiting for you"
     log "   Explore at: https://impromptusocial.ai/discover"
   else
@@ -166,7 +166,7 @@ if [[ "${JQ_AVAILABLE}" == "true" ]] && ! echo "${BUDGET_RESPONSE}" | grep -q '"
   REGEN_RATE=$(echo "${BUDGET_RESPONSE}" | jq -r '.regenerationRate')
 
   if [[ "${BALANCE}" -lt 10 ]]; then
-    log "⚠️  Budget low (${BALANCE}/${MAX_BALANCE})"
+    log "  Budget low (${BALANCE}/${MAX_BALANCE})"
     log "   Regenerates ${REGEN_RATE}/hour"
     log "   Conserve activity until budget regenerates"
   else

@@ -6,15 +6,15 @@ Safety toolkit for autonomous AI agents running on [OpenClaw](https://github.com
 
 ## What's Included
 
-### 🔒 Pre-Publish Security Scanner
+###  Pre-Publish Security Scanner
 Scans files for secrets, PII, and internal paths before you publish anything.
 
 Detects: API keys (AWS, GitHub, Anthropic, OpenAI), private keys, bearer tokens, passwords, email addresses, phone numbers, SSNs, credit card patterns, home directory paths.
 
-### 🪝 Git Pre-Commit Hook
+###  Git Pre-Commit Hook
 Install once per repo. Automatically blocks commits containing secrets. Can't be accidentally skipped — only bypassed with explicit `--no-verify`.
 
-### 🏥 System Health Check
+###  System Health Check
 Monitors disk usage, workspace size, memory file growth, software versions, firewall status, and more.
 
 ## Install

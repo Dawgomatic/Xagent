@@ -6,13 +6,13 @@ Personal Analytics analyzes your conversation patterns to surface actionable ins
 
 ## Features
 
-- ⏰ **Time Pattern Analysis** - When you chat, for how long, productivity peaks
-- 📚 **Topic Tracking** - What you discuss most, emerging interests
-- 😊 **Sentiment Monitoring** - Mood trends, stress indicators
-- 💡 **Productivity Insights** - Task completion, optimal work times
-- 📊 **Beautiful Reports** - Weekly/monthly summaries
-- 🔗 **Proactive Research Integration** - Auto-suggest monitoring topics
-- 🔒 **Privacy First** - All local, no external data, opt-in design
+-  **Time Pattern Analysis** - When you chat, for how long, productivity peaks
+-  **Topic Tracking** - What you discuss most, emerging interests
+-  **Sentiment Monitoring** - Mood trends, stress indicators
+-  **Productivity Insights** - Task completion, optimal work times
+-  **Beautiful Reports** - Weekly/monthly summaries
+-  **Proactive Research Integration** - Auto-suggest monitoring topics
+-  **Privacy First** - All local, no external data, opt-in design
 
 ## Quick Start
 
@@ -35,7 +35,7 @@ python3 scripts/recommend.py --explain
 
 ## Privacy Guarantee
 
-🔒 **Your data never leaves your machine.**
+ **Your data never leaves your machine.**
 
 - Raw conversations NOT stored
 - Only aggregated statistics saved
@@ -46,14 +46,14 @@ python3 scripts/recommend.py --explain
 
 ## What Gets Tracked
 
-### ✅ Tracked (Aggregated Only)
+###  Tracked (Aggregated Only)
 - Session timestamps and duration
 - Topic frequencies
 - Sentiment distribution
 - Productivity markers
 - Time-of-day patterns
 
-### ❌ NOT Tracked
+###  NOT Tracked
 - Raw message content
 - Personal information
 - Sensitive data (passwords, keys)
@@ -61,25 +61,25 @@ python3 scripts/recommend.py --explain
 
 ## Use Cases
 
-### 📈 Optimize Your Schedule
+###  Optimize Your Schedule
 Discover when you're most productive and schedule deep work accordingly.
 
 **Example Insight:**
 > "Your peak productivity is 09:00-11:00 on Wednesdays. Task completion is 68% faster during this window."
 
-### 🎯 Focus on What Matters
+###  Focus on What Matters
 Identify topics you're spending time on and decide if they align with your goals.
 
 **Example Insight:**
 > "You've discussed 'Docker deployment' 23 times this month. Consider monitoring 'Docker security updates' proactively."
 
-### 😊 Track Well-being
+###  Track Well-being
 Monitor stress indicators, late-night work, and mood trends.
 
 **Example Insight:**
-> "Stress keywords decreased 40% this week. Work-life balance improving! 🎉"
+> "Stress keywords decreased 40% this week. Work-life balance improving! "
 
-### 💡 Discover Hidden Interests
+###  Discover Hidden Interests
 Surface emerging topics you didn't realize you cared about.
 
 **Example Insight:**
@@ -154,17 +154,17 @@ python3 scripts/recommend.py --auto-add
 ## Sample Report
 
 ```markdown
-# 📊 Weekly Analytics Report
+#  Weekly Analytics Report
 **Jan 22 - Jan 28, 2026**
 
-## 🎯 Highlights
+##  Highlights
 
 - **Most productive day:** Wednesday (6 tasks completed)
 - **Peak hours:** 09:00-11:00
 - **Emerging topic:** Rust (+1200%)
-- **Mood trend:** ↗️ 78% positive (up from 65%)
+- **Mood trend:**  78% positive (up from 65%)
 
-## ⏰ Time Patterns
+##  Time Patterns
 
 Mon  ████░░░░░░░░  4h
 Tue  ██████░░░░░░  6h 30m
@@ -172,13 +172,13 @@ Wed  ████████░░░░  8h 15m  ← Peak
 Thu  ██████░░░░░░  5h
 Fri  ████░░░░░░░░  3h 45m
 
-## 📚 Top Topics
+##  Top Topics
 
 1. **Python** (32 sessions)
 2. **FM26** (28 sessions)
 3. **Audio Engineering** (15 sessions)
 
-## 💡 Recommendations
+##  Recommendations
 
 - Schedule deep work 09:00-11:00 (your peak)
 - Monitor "Rust updates" (new interest)

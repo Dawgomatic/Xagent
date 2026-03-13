@@ -451,10 +451,10 @@ def cmd_status(_args):
     duration_ms = item.get("duration_ms", 0)
     progress = f"{progress_ms // 60000}:{(progress_ms // 1000) % 60:02d}"
     duration = f"{duration_ms // 60000}:{(duration_ms // 1000) % 60:02d}"
-    state = "▶" if pb.get("is_playing") else "⏸"
-    shuffle = "🔀" if pb.get("shuffle_state") else ""
+    state = "" if pb.get("is_playing") else ""
+    shuffle = "" if pb.get("shuffle_state") else ""
     repeat = pb.get("repeat_state", "off")
-    repeat_icon = {"track": "🔂", "context": "🔁"}.get(repeat, "")
+    repeat_icon = {"track": "", "context": ""}.get(repeat, "")
     print(f"[{active_name}] {state} {name} — {artists}")
     print(f"   Album: {album}")
     print(f"   {progress} / {duration}  {shuffle}{repeat_icon}")

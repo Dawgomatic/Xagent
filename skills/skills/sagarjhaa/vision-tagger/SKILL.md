@@ -2,7 +2,7 @@
 name: vision-tagger
 description: Tag and annotate images using Apple Vision framework (macOS only). Detects faces, bodies, hands, text (OCR), barcodes, objects, scene labels, and saliency regions. Use for image analysis, photo tagging, posture monitoring, or any task requiring computer vision on images.
 homepage: https://clawhub.ai/skills/vision-tagger
-metadata: {"clawdbot":{"emoji":"👁️","requires":{"os":"macos","bins":["swiftc","python3"]},"install":[{"id":"xcode","kind":"shell","command":"xcode-select --install","label":"Install Xcode CLI tools"},{"id":"pillow","kind":"shell","command":"pip3 install Pillow","label":"Install Pillow"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"os":"macos","bins":["swiftc","python3"]},"install":[{"id":"xcode","kind":"shell","command":"xcode-select --install","label":"Install Xcode CLI tools"},{"id":"pillow","kind":"shell","command":"pip3 install Pillow","label":"Install Pillow"}]}}
 ---
 
 # Vision Tagger
@@ -53,11 +53,11 @@ python3 scripts/annotate_image.py photo.jpg output.jpg
 ```
 
 Draws colored boxes:
-- 🟢 Green: faces
-- 🟠 Orange: body skeleton
-- 🟣 Magenta: hands
-- 🔵 Cyan: text regions
-- 🟡 Yellow: rectangles/objects
+-  Green: faces
+-  Orange: body skeleton
+-  Magenta: hands
+-  Cyan: text regions
+-  Yellow: rectangles/objects
 - Scene labels at bottom
 
 ### Python integration

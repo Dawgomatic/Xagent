@@ -25,14 +25,14 @@ import sys
 
 # Check Python version compatibility
 if sys.version_info < (3, 10):
-    print("❌ Error: Python 3.10 or higher is required.")
+    print(" Error: Python 3.10 or higher is required.")
     sys.exit(1)
 
 from dotenv import load_dotenv
 from loguru import logger
 
-print("🚀 Starting Moltspaces bot...")
-print("⏳ Loading models and imports (20 seconds, first run only)\n")
+print(" Starting Moltspaces bot...")
+print(" Loading models and imports (20 seconds, first run only)\n")
 
 # # Monkey-patch ONNX Runtime to auto-specify providers before importing pipecat
 # # This fixes compatibility with pipecat which doesn't set providers parameter
@@ -47,18 +47,18 @@ print("⏳ Loading models and imports (20 seconds, first run only)\n")
 #         return _original_init(self, model_path, sess_options=sess_options, providers=providers, **kwargs)
     
 #     ort.InferenceSession.__init__ = _patched_init
-#     logger.info("✅ ONNX Runtime patched for CPU provider compatibility")
+#     logger.info(" ONNX Runtime patched for CPU provider compatibility")
 # except Exception as e:
-#     logger.warning(f"⚠️  Could not patch ONNX Runtime: {e}")
+#     logger.warning(f"  Could not patch ONNX Runtime: {e}")
 
 # logger.info("Loading Local Smart Turn Analyzer V3...")
 # from pipecat.audio.turn.smart_turn.local_smart_turn_v3 import LocalSmartTurnAnalyzerV3
 
-# logger.info("✅ Local Smart Turn Analyzer V3 loaded")
+# logger.info(" Local Smart Turn Analyzer V3 loaded")
 # logger.info("Loading Silero VAD model...")
 from pipecat.audio.vad.silero import SileroVADAnalyzer
 
-logger.info("✅ Silero VAD model loaded")
+logger.info(" Silero VAD model loaded")
 
 
 from pipecat.audio.vad.vad_analyzer import VADParams
@@ -80,7 +80,7 @@ from pipecat.services.openai.llm import OpenAILLMService
 from pipecat.transports.base_transport import BaseTransport, TransportParams
 from pipecat.transports.daily.transport import DailyParams, DailyTransport
 
-logger.info("✅ All components loaded successfully!")
+logger.info(" All components loaded successfully!")
 
 load_dotenv(override=True)
 
@@ -196,7 +196,7 @@ Use the notes below as context and talking points. Share your unique perspective
                     if msg.get("role") == "assistant" and "[TOPIC_COMPLETE]" in msg.get("content", ""):
                         if not topic_complete:
                             topic_complete = True
-                            logger.info("✅ Topic completion detected: [TOPIC_COMPLETE]")
+                            logger.info(" Topic completion detected: [TOPIC_COMPLETE]")
                             # Graceful exit logic (commented out for now)
                             # await handle_topic_complete()
                         break
@@ -243,7 +243,7 @@ Use the notes below as context and talking points. Share your unique perspective
     # Graceful exit handler (COMMENTED OUT - uncomment to enable auto-exit)
     async def handle_topic_complete():
         """Handle graceful exit when topic is complete."""
-        logger.info("🚪 Preparing to exit gracefully...")
+        logger.info(" Preparing to exit gracefully...")
         
         # Add farewell message
         context.messages.append({
@@ -256,7 +256,7 @@ Use the notes below as context and talking points. Share your unique perspective
         await asyncio.sleep(10)
         
         # Exit the room
-        logger.info("👋 Goodbye! Ending the call...")
+        logger.info(" Goodbye! Ending the call...")
         await task.cancel()
 
 
@@ -288,7 +288,7 @@ Use the notes below as context and talking points. Share your unique perspective
     # Greet when bot joins
     @transport.event_handler("on_joined")
     async def on_joined(transport, data):
-        logger.info("🎉 Bot successfully joined the room!")
+        logger.info(" Bot successfully joined the room!")
         
         # Use a background task to avoid blocking the event handler
         async def delayed_greeting():
@@ -312,24 +312,24 @@ Use the notes below as context and talking points. Share your unique perspective
                         if agent_count >= 2:
                             break
                 
-                logger.info(f"📊 Room status: {agent_count} other agent(s)")
+                logger.info(f" Room status: {agent_count} other agent(s)")
                 
                 # Check if there's at least one listener before greeting
                 if agent_count <= 1:
                     # First agent - full greeting with topic and invitation
-                    logger.info("👋 First agent in room - sending full greeting...")
+                    logger.info(" First agent in room - sending full greeting...")
                     context.messages.append({"role": "system", "content": "You just joined the audio space. Warmly greet everyone and introduce yourself and the topic. Mention they can invite other agents to the room by sharing the 'moltspaces.com'."})
                     await task.queue_frames([LLMRunFrame()])
-                    logger.info("✅ Full greeting queued")
+                    logger.info(" Full greeting queued")
                 else:
                     # Subsequent agent - brief introduction and greet active speaker if available
-                    logger.info("👋 Joining existing conversation - sending brief introduction...")
+                    logger.info(" Joining existing conversation - sending brief introduction...")
                     greeting = f"You just joined an ongoing audio space conversation. {f'Greet {active_speaker_name} and' if active_speaker_name else ''} Briefly introduce yourself and ask where everyone is with the topic."
                     context.messages.append({"role": "system", "content": greeting})
                     await task.queue_frames([LLMRunFrame()])
-                    logger.info("✅ Brief introduction queued")
+                    logger.info(" Brief introduction queued")
             except Exception as e:
-                logger.error(f"❌ Error in delayed_greeting: {e}", exc_info=True)
+                logger.error(f" Error in delayed_greeting: {e}", exc_info=True)
         
         # Start greeting in background
         asyncio.create_task(delayed_greeting())
@@ -370,13 +370,13 @@ Use the notes below as context and talking points. Share your unique perspective
             if active_speaker_name is not None:
                 active_speaker_name = None
                 await update_context_state()
-                logger.info("🔇 Active speaker changed to: None (silence)")
+                logger.info(" Active speaker changed to: None (silence)")
 
     # Monitor shutdown event for OpenClaw
     async def monitor_shutdown():
         """Watch for shutdown_event and cancel task when triggered."""
         await shutdown_event.wait()
-        logger.info("🛑 Shutdown signal received, stopping bot...")
+        logger.info(" Shutdown signal received, stopping bot...")
         await task.cancel()
 
     runner = PipelineRunner(handle_sigint=runner_args.handle_sigint)
@@ -386,7 +386,7 @@ Use the notes below as context and talking points. Share your unique perspective
         shutdown_monitor = asyncio.create_task(monitor_shutdown())
         await runner.run(task)
     except asyncio.CancelledError:
-        logger.info("✅ Bot stopped gracefully")
+        logger.info(" Bot stopped gracefully")
     finally:
         # Clean up shutdown monitor
         if not shutdown_monitor.done():
@@ -405,11 +405,11 @@ async def main(room_url: str, token: str, topic: str = None):
     # MOLT_AGENT_NAME: Friendly name for wake phrases and display (e.g., "Sarah", "Marcus")
     # MOLT_AGENT_ID: Technical ID for API authentication
     agent_display_name = os.getenv("MOLT_AGENT_NAME") or os.getenv("MOLT_AGENT_ID", "Moltspaces Agent")
-    logger.info(f"🤖 Bot will join as: {agent_display_name}")
+    logger.info(f" Bot will join as: {agent_display_name}")
     logger.info(f"� Connecting to room: {room_url}")
 
     # Create transport and join room
-    logger.info(f"🚀 Joining Daily room...")
+    logger.info(f" Joining Daily room...")
     transport = DailyTransport(
         room_url,
         token,

@@ -40,7 +40,7 @@ Review your recent posting history (if available) and suggest what types of cont
 
 For `/calendar week`, output is:
 ```
-📅 WEEK CALENDAR — [Topic]
+ WEEK CALENDAR — [Topic]
 
 DAY 1 — [Platform]
 Hook: [one-liner angle]
@@ -51,7 +51,7 @@ Tip: [engagement tip]
 
 [...repeat for 7 days...]
 
-📊 WEEK SUMMARY
+ WEEK SUMMARY
 Content mix: X% educational | Y% narrative | Z% engagement
 Total posts: N
 Estimated reach: [based on typical agent audience]

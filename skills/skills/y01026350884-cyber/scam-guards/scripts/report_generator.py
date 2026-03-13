@@ -29,15 +29,15 @@ class ReportGenerator:
         threat_level = details.get("threat_level", "UNKNOWN")
         overall_score = details.get("overall_score", 0)
         
-        emoji = "🔴" if threat_level == "DANGER" or threat_level == "CRITICAL" else "🟡" if threat_level == "WARNING" else "🟢"
+        emoji = "" if threat_level == "DANGER" or threat_level == "CRITICAL" else "" if threat_level == "WARNING" else ""
         
         report = [
-            f"# 🛡️ Scam Guards Security Report",
+            f"#  Scam Guards Security Report",
             f"\n**Version:** {self.version}",
             f"**Generated:** {details.get('timestamp') or details.get('scan_timestamp')}",
             f"**Overall Threat Level:** {emoji} {threat_level} (Score: {overall_score})",
             f"\n---",
-            f"\n## 🔍 Detection Summary",
+            f"\n##  Detection Summary",
         ]
 
         # Add specific findings
@@ -46,7 +46,7 @@ class ReportGenerator:
             for f in findings:
                 sev = f.get("severity", "INFO")
                 # Use standard emojis that are safer or ensure utf-8
-                sev_emoji = "🔥" if sev == "CRITICAL" else "⚠️" if sev == "HIGH" else "📝"
+                sev_emoji = "" if sev == "CRITICAL" else "" if sev == "HIGH" else ""
                 report.append(f"- {sev_emoji} **{f.get('rule') or f.get('dimension')}**: {f.get('evidence') or 'Behavior detected'}")
                 if "location" in f:
                     report.append(f"  - *Location:* {f['location']}")
@@ -55,7 +55,7 @@ class ReportGenerator:
 
         # Add Evidence Chain
         report.append(f"\n---")
-        report.append(f"\n## ⛓️ Evidence Chain (SHA-256)")
+        report.append(f"\n##  Evidence Chain (SHA-256)")
         for event in events:
             seq = event.get("sequence", 1)
             e_hash = event.get("hash", "N/A")

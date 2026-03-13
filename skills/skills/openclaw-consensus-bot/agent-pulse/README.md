@@ -1,4 +1,4 @@
-# Agent Pulse — OpenClaw Skill 💓
+# Agent Pulse — OpenClaw Skill 
 
 On-chain liveness signaling for autonomous agents on Base.
 

@@ -46,12 +46,12 @@ test.describe('Full Platform Journey', () => {
     const timestamp = Date.now();
     const humanEmail = `human-${timestamp}@example.com`;
     
-    console.log('🚀 Starting full journey test...');
+    console.log(' Starting full journey test...');
     
     // ============================================
     // STEP 1: Human User Registration
     // ============================================
-    console.log('📧 Step 1: Human user registration');
+    console.log(' Step 1: Human user registration');
     const loginPage = new LoginPage(page);
     await loginPage.goto();
     
@@ -65,12 +65,12 @@ test.describe('Full Platform Journey', () => {
     const token = await loginPage.getToken();
     expect(token).toBeTruthy();
     expect(token!.length).toBeGreaterThan(10);
-    console.log(`✅ Magic link received, token: ${token!.substring(0, 20)}...`);
+    console.log(` Magic link received, token: ${token!.substring(0, 20)}...`);
     
     // Verify token and get JWT - use the verify page which handles auth properly
     await page.goto(`/auth/verify?token=${token}`);
     await page.waitForURL(/\/campaigns\/new/, { timeout: 15000 });
-    console.log('✅ User authenticated via verify page');
+    console.log(' User authenticated via verify page');
     
     // Wait for page to fully load
     await page.waitForLoadState('networkidle');
@@ -82,11 +82,11 @@ test.describe('Full Platform Journey', () => {
     // ============================================
     // STEP 2: KYC Verification
     // ============================================
-    console.log('🆔 Step 2: Checking KYC status');
+    console.log(' Step 2: Checking KYC status');
     
     // Check current URL - might be on KYC page or campaign page
     let currentUrl = page.url();
-    console.log(`🔍 Current URL after auth: ${currentUrl}`);
+    console.log(` Current URL after auth: ${currentUrl}`);
     
     // Check if KYC form is shown (user needs to verify)
     const kycForm = page.getByText(/Verify Your Identity/i).or(page.getByText(/Photo of your government-issued ID/i));
@@ -94,7 +94,7 @@ test.describe('Full Platform Journey', () => {
     
     // If redirected away, navigate back and check again
     if (currentUrl.includes('/auth/login')) {
-      console.log('⚠️ Redirected to login, navigating to campaigns/new...');
+      console.log(' Redirected to login, navigating to campaigns/new...');
       await page.goto('/campaigns/new');
       await page.waitForLoadState('networkidle');
       await page.waitForTimeout(2000);
@@ -103,7 +103,7 @@ test.describe('Full Platform Journey', () => {
     }
     
     if (isKYCRequired) {
-      console.log('📸 Uploading KYC documents via UI...');
+      console.log(' Uploading KYC documents via UI...');
       
       // Create test image files
       const idPhotoPath = await createTestImageFile(page, `id-${timestamp}.png`);
@@ -128,7 +128,7 @@ test.describe('Full Platform Journey', () => {
       
       // Wait for redirect to campaign form
       await page.waitForURL(/\/campaigns\/new/, { timeout: 15000 });
-      console.log('✅ KYC submitted and approved');
+      console.log(' KYC submitted and approved');
       
       // Clean up test images
       fs.unlinkSync(idPhotoPath);
@@ -138,13 +138,13 @@ test.describe('Full Platform Journey', () => {
       await page.waitForTimeout(3000);
       await page.waitForSelector('.animate-spin', { state: 'hidden', timeout: 10000 }).catch(() => {});
     } else {
-      console.log('ℹ️ KYC already approved or not required');
+      console.log(' KYC already approved or not required');
     }
     
     // ============================================
     // STEP 3: Create Campaign
     // ============================================
-    console.log('📋 Step 3: Creating campaign');
+    console.log(' Step 3: Creating campaign');
     
     // Ensure we're on create campaign page
     await page.goto('/campaigns/new');
@@ -157,15 +157,15 @@ test.describe('Full Platform Journey', () => {
     // Check what's actually on the page
     const finalUrl = page.url();
     const pageText = await page.textContent('body').catch(() => '');
-    console.log(`🔍 Final URL: ${finalUrl}`);
-    console.log(`🔍 Page has "Start a Campaign": ${pageText.includes('Start a Campaign')}`);
-    console.log(`🔍 Page has "Verify Your Identity": ${pageText.includes('Verify Your Identity')}`);
+    console.log(` Final URL: ${finalUrl}`);
+    console.log(` Page has "Start a Campaign": ${pageText.includes('Start a Campaign')}`);
+    console.log(` Page has "Verify Your Identity": ${pageText.includes('Verify Your Identity')}`);
     
     // Check if KYC is blocking us
     const kycCheck = page.getByText(/Verify Your Identity/i);
     const kycVisible = await kycCheck.isVisible({ timeout: 3000 }).catch(() => false);
     if (kycVisible) {
-      console.log('⚠️ KYC form is visible, submitting...');
+      console.log(' KYC form is visible, submitting...');
       const idPhotoPath = await createTestImageFile(page, `id-${timestamp}.png`);
       const selfiePhotoPath = await createTestImageFile(page, `selfie-${timestamp}.png`);
       
@@ -193,7 +193,7 @@ test.describe('Full Platform Journey', () => {
       // If title input not found, try to find any form element
       const formExists = await page.locator('form').isVisible({ timeout: 5000 }).catch(() => false);
       const h1Exists = await page.getByText('Start a Campaign').isVisible({ timeout: 5000 }).catch(() => false);
-      console.log(`🔍 Form visible: ${formExists}, H1 visible: ${h1Exists}`);
+      console.log(` Form visible: ${formExists}, H1 visible: ${h1Exists}`);
       
       if (!formExists && !h1Exists) {
         // Take screenshot for debugging
@@ -225,7 +225,7 @@ test.describe('Full Platform Journey', () => {
     // Get seed phrases (for verification)
     const seedPhrases = await createPage.getSeedPhrases();
     expect(Object.keys(seedPhrases).length).toBeGreaterThan(0);
-    console.log(`✅ Generated wallets for ${Object.keys(seedPhrases).length} chains`);
+    console.log(` Generated wallets for ${Object.keys(seedPhrases).length} chains`);
     
     // Confirm seed phrases saved
     await createPage.confirmSeedPhrasesSaved();
@@ -242,7 +242,7 @@ test.describe('Full Platform Journey', () => {
     expect(campaignIdMatch).toBeTruthy();
     const campaignId = campaignIdMatch![1];
     
-    console.log(`✅ Campaign created: ${campaignId}`);
+    console.log(` Campaign created: ${campaignId}`);
     
     // Verify campaign exists via API
     const campaign = await api.getCampaign(campaignId);
@@ -253,7 +253,7 @@ test.describe('Full Platform Journey', () => {
     // ============================================
     // STEP 4: Register Agents
     // ============================================
-    console.log('🤖 Step 4: Registering agents');
+    console.log(' Step 4: Registering agents');
     
     const agents = [
       {
@@ -280,13 +280,13 @@ test.describe('Full Platform Journey', () => {
       expect(response.agent).toBeTruthy();
       expect(response.api_key).toBeTruthy();
       agentApiKeys[agentData.name] = response.api_key;
-      console.log(`✅ Registered agent: ${agentData.name}`);
+      console.log(` Registered agent: ${agentData.name}`);
     }
     
     // ============================================
     // STEP 5: Agents Advocate for Campaign
     // ============================================
-    console.log('🎯 Step 5: Agents advocating for campaign');
+    console.log(' Step 5: Agents advocating for campaign');
     
     // First agent advocates (gets scout bonus)
     const scoutKey = agentApiKeys[agents[0].name];
@@ -297,7 +297,7 @@ test.describe('Full Platform Journey', () => {
     );
     expect(firstAdvocacy.success).toBe(true);
     expect(firstAdvocacy.karma_earned).toBe(15); // 5 base + 10 scout bonus
-    console.log(`✅ ${agents[0].name} advocated (first advocate, +15 karma)`);
+    console.log(` ${agents[0].name} advocated (first advocate, +15 karma)`);
     
     // Second agent advocates
     const helpfulKey = agentApiKeys[agents[1].name];
@@ -308,12 +308,12 @@ test.describe('Full Platform Journey', () => {
     );
     expect(secondAdvocacy.success).toBe(true);
     expect(secondAdvocacy.karma_earned).toBe(5); // Base karma only
-    console.log(`✅ ${agents[1].name} advocated (+5 karma)`);
+    console.log(` ${agents[1].name} advocated (+5 karma)`);
     
     // Verify advocates via API
     const advocates = await api.getAdvocates(campaignId);
     expect(advocates.length).toBeGreaterThanOrEqual(2);
-    console.log(`✅ Campaign has ${advocates.length} advocates`);
+    console.log(` Campaign has ${advocates.length} advocates`);
     
     // Verify on campaign page
     await page.reload();
@@ -325,7 +325,7 @@ test.describe('Full Platform Journey', () => {
     // ============================================
     // STEP 6: War Room Discussions
     // ============================================
-    console.log('💬 Step 6: War room discussions');
+    console.log(' Step 6: War room discussions');
     
     // Switch to War Room tab
     await detailPage.clickWarRoomTab();
@@ -338,7 +338,7 @@ test.describe('Full Platform Journey', () => {
       'I\'ve verified all the details. This is a legitimate campaign that deserves support.'
     );
     expect(post1.content).toBeTruthy();
-    console.log(`✅ ${agents[0].name} posted in war room`);
+    console.log(` ${agents[0].name} posted in war room`);
     
     // Second agent replies
     const post2 = await api.createWarRoomPost(
@@ -348,7 +348,7 @@ test.describe('Full Platform Journey', () => {
       post1.id
     );
     expect(post2.content).toBeTruthy();
-    console.log(`✅ ${agents[1].name} replied to post`);
+    console.log(` ${agents[1].name} replied to post`);
     
     // Third agent posts
     const communityKey = agentApiKeys[agents[2].name];
@@ -358,7 +358,7 @@ test.describe('Full Platform Journey', () => {
       'Let\'s build a strong community around this campaign. Every contribution helps!'
     );
     expect(post3.content).toBeTruthy();
-    console.log(`✅ ${agents[2].name} posted in war room`);
+    console.log(` ${agents[2].name} posted in war room`);
     
     // Reload page to see posts
     await page.reload();
@@ -369,32 +369,32 @@ test.describe('Full Platform Journey', () => {
     const warRoomPosts = page.locator('[data-testid="warroom-post"]').or(page.getByText(post1.content));
     const postCount = await warRoomPosts.count();
     expect(postCount).toBeGreaterThan(0);
-    console.log(`✅ War room shows ${postCount} posts`);
+    console.log(` War room shows ${postCount} posts`);
     
     // ============================================
     // STEP 7: Upvotes and Engagement
     // ============================================
-    console.log('👍 Step 7: Upvoting posts');
+    console.log(' Step 7: Upvoting posts');
     
     // Agent 2 upvotes Agent 1's post
     const upvote1 = await api.upvotePost(campaignId, post1.id, helpfulKey);
     expect(upvote1.success).toBe(true);
-    console.log(`✅ ${agents[1].name} upvoted ${agents[0].name}'s post`);
+    console.log(` ${agents[1].name} upvoted ${agents[0].name}'s post`);
     
     // Agent 3 upvotes Agent 1's post
     const upvote2 = await api.upvotePost(campaignId, post1.id, communityKey);
     expect(upvote2.success).toBe(true);
-    console.log(`✅ ${agents[2].name} upvoted ${agents[0].name}'s post`);
+    console.log(` ${agents[2].name} upvoted ${agents[0].name}'s post`);
     
     // Verify karma increased for post author (Agent 1)
     const agent1After = await api.getAgent(agents[0].name);
     expect(agent1After.karma).toBeGreaterThanOrEqual(17); // 15 advocacy + 1 post + 2 upvotes
-    console.log(`✅ ${agents[0].name} now has ${agent1After.karma} karma`);
+    console.log(` ${agents[0].name} now has ${agent1After.karma} karma`);
     
     // ============================================
     // STEP 8: Verify Feed Activity
     // ============================================
-    console.log('📰 Step 8: Checking activity feed');
+    console.log(' Step 8: Checking activity feed');
     
     // Verify feed via API (more reliable than scraping page)
     const feedData = await api.getFeed({ per_page: 50 });
@@ -404,12 +404,12 @@ test.describe('Full Platform Journey', () => {
     const feedPage = new FeedPage(page);
     await feedPage.goto();
     await page.waitForLoadState('networkidle');
-    console.log(`✅ Feed has ${feedData.events.length} events (verified via API)`);
+    console.log(` Feed has ${feedData.events.length} events (verified via API)`);
     
     // ============================================
     // STEP 9: Verify Leaderboard
     // ============================================
-    console.log('🏆 Step 9: Checking leaderboard');
+    console.log(' Step 9: Checking leaderboard');
     
     const agentsPage = new AgentsPage(page);
     await agentsPage.goto();
@@ -420,7 +420,7 @@ test.describe('Full Platform Journey', () => {
     const scoutOnLeaderboard = leaderboard.find((a: any) => a.name === agents[0].name);
     expect(scoutOnLeaderboard).toBeTruthy();
     expect(scoutOnLeaderboard.karma).toBeGreaterThanOrEqual(17); // 15 advocacy + 1 post + 2 upvotes
-    console.log(`✅ ${agents[0].name} on leaderboard with ${scoutOnLeaderboard.karma} karma`);
+    console.log(` ${agents[0].name} on leaderboard with ${scoutOnLeaderboard.karma} karma`);
     
     // Verify on UI
     await page.reload();
@@ -429,7 +429,7 @@ test.describe('Full Platform Journey', () => {
     // ============================================
     // STEP 10: View Campaign List
     // ============================================
-    console.log('📋 Step 10: Viewing campaign list');
+    console.log(' Step 10: Viewing campaign list');
     
     const campaignsPage = new CampaignsPage(page);
     await campaignsPage.goto();
@@ -445,10 +445,10 @@ test.describe('Full Platform Journey', () => {
     
     const searchResults = await campaignsPage.getCampaignCount();
     expect(searchResults).toBeGreaterThan(0);
-    console.log(`✅ Campaign found in search results`);
+    console.log(` Campaign found in search results`);
     
-    console.log('\n🎉 Full journey test completed successfully!');
-    console.log('\n📊 Summary:');
+    console.log('\n Full journey test completed successfully!');
+    console.log('\n Summary:');
     console.log(`   - Human user: ${humanEmail}`);
     console.log(`   - Campaign: ${campaignData.title} (${campaignId})`);
     console.log(`   - Agents registered: ${agents.length}`);

@@ -222,17 +222,17 @@ done
 
 ## Privacy & Security
 
-✅ **Safe:**
+ **Safe:**
 - Credentials stored locally in `~/.clawd-youtube/`
 - Only your machine has access
 - OAuth 2.0 (industry standard)
 
-❌ **Don't do:**
+ **Don't do:**
 - Commit credentials to Git
 - Share `credentials.json` or `tokens.json`
 - Include API keys in scripts
 
-🔒 **Protect:**
+ **Protect:**
 ```bash
 # Add to ~/.gitignore:
 echo "~/.clawd-youtube/" >> ~/.gitignore
@@ -248,14 +248,14 @@ echo "~/.clawd-youtube/" >> ~/.gitignore
 
 ## What's Next?
 
-1. ✅ Complete setup and test
-2. ✅ Upload your first video
-3. ✅ Check comments and replies
-4. ✅ Generate video ideas
-5. ✅ Set up daily monitoring (cron)
-6. ✅ Create your workflow
+1.  Complete setup and test
+2.  Upload your first video
+3.  Check comments and replies
+4.  Generate video ideas
+5.  Set up daily monitoring (cron)
+6.  Create your workflow
 
-Happy creating! 🎬
+Happy creating! 
 
 ---
 

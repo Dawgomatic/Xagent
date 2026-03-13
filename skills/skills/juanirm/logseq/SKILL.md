@@ -148,7 +148,7 @@ const tasks = blocks.filter(b => b.marker === 'TODO' || b.marker === 'DOING');
 logseq.App.pushState('page', { name: 'Project Notes' });
 
 // Show notification
-logseq.UI.showMsg('✅ Task completed!', 'success');
+logseq.UI.showMsg(' Task completed!', 'success');
 
 // Get app config
 const configs = await logseq.App.getUserConfigs();

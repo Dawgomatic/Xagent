@@ -21,5 +21,5 @@ if (!sessionId || !message) {
 
 const consultFile = `/tmp/mentor-consult-${sessionId}.txt`;
 fs.writeFileSync(consultFile, message, 'utf-8');
-console.log(`✅ Guidance written for session ${sessionId}`);
+console.log(` Guidance written for session ${sessionId}`);
 console.log(`   The mentor listener will pick this up and generate a response.`);

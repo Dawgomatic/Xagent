@@ -43,9 +43,9 @@ HORROR_PHRASES = [
 
 def horror_narrate():
     """Generate continuous horror commentary."""
-    print("🎃" * 20)
-    print("🎃" * 20)
-    print("\n🎙️ HORROR MODE ACTIVATED 🎙️\n")
+    print("" * 20)
+    print("" * 20)
+    print("\n HORROR MODE ACTIVATED \n")
     print("   The announcer awakens...\n")
     print("-" * 50)
     
@@ -53,7 +53,7 @@ def horror_narrate():
         idx = 0
         while True:
             phrase = HORROR_PHRASES[idx % len(HORROR_PHRASES)]
-            print(f"🎃 \"{phrase}\"")
+            print(f" \"{phrase}\"")
             sys.stdout.flush()
             
             # Random timing for dramatic effect
@@ -68,9 +68,9 @@ def horror_narrate():
             
     except KeyboardInterrupt:
         print("\n" + "-" * 50)
-        print("\n🎙️ \"AND... scene. Fade to black.\"\n")
-        print("🎃" * 20)
-        print("🎃" * 20)
+        print("\n \"AND... scene. Fade to black.\"\n")
+        print("" * 20)
+        print("" * 20)
 
 if __name__ == '__main__':
     horror_narrate()

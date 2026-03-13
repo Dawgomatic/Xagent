@@ -109,10 +109,10 @@ async function getSubredditInfo(subreddit) {
 
 function formatPost(post, index) {
   let out = `${index}. ${post.title}\n`;
-  out += `   👤 u/${post.author} | ⬆️ ${post.score} | 💬 ${post.comments}\n`;
-  if (post.subreddit) out += `   📍 r/${post.subreddit}\n`;
-  out += `   🔗 ${post.permalink}\n`;
-  if (post.selftext) out += `   📝 ${post.selftext.substring(0, 150)}...\n`;
+  out += `    u/${post.author} |  ${post.score} |  ${post.comments}\n`;
+  if (post.subreddit) out += `    r/${post.subreddit}\n`;
+  out += `    ${post.permalink}\n`;
+  if (post.selftext) out += `    ${post.selftext.substring(0, 150)}...\n`;
   return out;
 }
 
@@ -164,7 +164,7 @@ Examples:
         process.exit(1);
       }
 
-      console.log(`📮 r/${subreddit} - ${sort} posts\n${'─'.repeat(50)}\n`);
+      console.log(` r/${subreddit} - ${sort} posts\n${'─'.repeat(50)}\n`);
       const posts = await getPosts(subreddit, limit, sort);
       posts.forEach((p, i) => console.log(formatPost(p, i + 1)));
       return;
@@ -188,7 +188,7 @@ Examples:
         process.exit(1);
       }
 
-      console.log(`🔍 Search: "${query}"${subreddit ? ` in r/${subreddit}` : ''}\n${'─'.repeat(50)}\n`);
+      console.log(` Search: "${query}"${subreddit ? ` in r/${subreddit}` : ''}\n${'─'.repeat(50)}\n`);
       const posts = await search(query, subreddit, limit);
       posts.forEach((p, i) => console.log(formatPost(p, i + 1)));
       return;
@@ -202,12 +202,12 @@ Examples:
       }
 
       const info = await getSubredditInfo(subreddit);
-      console.log(`📮 r/${info.name}`);
+      console.log(` r/${info.name}`);
       console.log(`   ${info.title}`);
-      console.log(`   👥 ${info.subscribers.toLocaleString()} subscribers`);
-      console.log(`   🟢 ${info.active?.toLocaleString() || '?'} online`);
-      console.log(`   📅 Created: ${info.created}`);
-      if (info.description) console.log(`   📝 ${info.description}`);
+      console.log(`    ${info.subscribers.toLocaleString()} subscribers`);
+      console.log(`    ${info.active?.toLocaleString() || '?'} online`);
+      console.log(`    Created: ${info.created}`);
+      if (info.description) console.log(`    ${info.description}`);
       return;
     }
 

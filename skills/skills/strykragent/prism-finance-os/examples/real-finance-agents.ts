@@ -19,7 +19,7 @@ const prism = new PrismOS({
 // ─────────────────────────────────────────────
 
 async function equityAnalystAgent(ticker: string) {
-  console.log(`\n📈 Equity Analyst — ${ticker}\n`);
+  console.log(`\n Equity Analyst — ${ticker}\n`);
 
   // 1. Snapshot: quote + fundamentals in parallel
   const [quote, fundamentals, valuationRatios] = await Promise.all([
@@ -97,7 +97,7 @@ async function equityAnalystAgent(ticker: string) {
 // ─────────────────────────────────────────────
 
 async function macroTraderAgent() {
-  console.log('\n🌍 Macro Trader Agent\n');
+  console.log('\n Macro Trader Agent\n');
 
   // 1. Full macro summary in one call
   const summary = await prism.macro.getSummary();
@@ -113,7 +113,7 @@ async function macroTraderAgent() {
   const tenYear = yields.find((y: any) => y.maturity === '10Y')?.yield;
   const spread = (tenYear - twoYear);
   console.log(`\n2s10s Spread: ${spread > 0 ? '+' : ''}${spread?.toFixed(2)}bps`);
-  console.log(`Yield curve ${spread < 0 ? '⚠️ INVERTED' : '✅ Normal'}`);
+  console.log(`Yield curve ${spread < 0 ? ' INVERTED' : ' Normal'}`);
 
   // 3. Market sentiment
   const [fearGreed, overview] = await Promise.all([
@@ -180,7 +180,7 @@ async function macroTraderAgent() {
 // ─────────────────────────────────────────────
 
 async function portfolioManagerAgent() {
-  console.log('\n💼 Multi-Asset Portfolio Manager\n');
+  console.log('\n Multi-Asset Portfolio Manager\n');
 
   const portfolio = [
     { symbol: 'AAPL',  weight: 0.15, assetType: 'stock'  },
@@ -257,7 +257,7 @@ async function portfolioManagerAgent() {
 // ─────────────────────────────────────────────
 
 async function cryptoDeFiAgent() {
-  console.log('\n🔮 Crypto/DeFi Agent\n');
+  console.log('\n Crypto/DeFi Agent\n');
 
   // 1. Market context
   const [global, fearGreed] = await Promise.all([
@@ -358,7 +358,7 @@ async function cryptoDeFiAgent() {
     await portfolioManagerAgent();
     await cryptoDeFiAgent();
 
-    console.log('\n✅ All agents complete');
+    console.log('\n All agents complete');
   } catch (err) {
     console.error('Error:', err);
   }

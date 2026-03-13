@@ -234,7 +234,7 @@ Date: {card['Date']}
         
         # 添加AI建议
         if ai_cards:
-            markdown_output += "\n## 🚀 AI扩展建议\n"
+            markdown_output += "\n##  AI扩展建议\n"
             for card in ai_cards:
                 markdown_output += f"""
 ```markdown
@@ -299,11 +299,11 @@ Related: {card['Related_Card']}
     def suggest_connection(self, connections):
         """生成关联建议"""
         if not connections:
-            return """🔍 系统提示：
+            return """ 系统提示：
 暂时没有找到相关的旧笔记，继续积累卡片吧！
 """
         
-        response = """🔗 潜在联系：\n"""
+        response = """ 潜在联系：\n"""
         
         for conn in connections:
             card = conn['card']
@@ -322,9 +322,9 @@ Related: {card['Related_Card']}
         """生成每日回顾"""
         card = self.get_random_card()
         if not card:
-            return "📅 每日回顾：\n还没有任何卡片，开始记录你的第一个灵感吧！"
+            return " 每日回顾：\n还没有任何卡片，开始记录你的第一个灵感吧！"
         
-        return f"""📅 每日回顾：
+        return f""" 每日回顾：
 ```markdown
 ---
 ID: {card['ID']}
@@ -338,7 +338,7 @@ Date: {card['Date']}
 
 > AI 洞察：{card['AI_Insight']}
 ```\n
-💡 思考：这个观点现在对你还有价值吗？是否需要更新或关联新想法？
+ 思考：这个观点现在对你还有价值吗？是否需要更新或关联新想法？
 """
 
 def handle_message(user_input, user_id=None):
@@ -349,7 +349,7 @@ def handle_message(user_input, user_id=None):
         content = user_input[6:].strip()
         
         if not content:
-            return "❌ 请输入灵感内容"
+            return " 请输入灵感内容"
         
         cards, ai_cards, markdown = zk.create_card(content)
         
@@ -359,7 +359,7 @@ def handle_message(user_input, user_id=None):
         
         if suggestion:
             markdown += f"\n{suggestion}\n"
-            markdown += "\n💡 输入你的反馈或 '停止' 结束对话："
+            markdown += "\n 输入你的反馈或 '停止' 结束对话："
         
         return markdown
     
@@ -367,20 +367,20 @@ def handle_message(user_input, user_id=None):
         return zk.generate_daily_review()
     
     elif user_input == "统计":
-        return f"📊 当前共有 {len(zk.cards)} 张卡片"
+        return f" 当前共有 {len(zk.cards)} 张卡片"
     
     else:
-        return "❌ 未知命令，请使用 '记录灵感：[内容]' 或 '每日回顾'"
+        return " 未知命令，请使用 '记录灵感：[内容]' 或 '每日回顾'"
 
 if __name__ == '__main__':
-    print("📝 Zettelkasten 卡片盒笔记法系统已启动")
+    print(" Zettelkasten 卡片盒笔记法系统已启动")
     print("输入 '记录灵感：[内容]' 开始记录，输入 'exit' 退出")
     
     while True:
         user_input = input("\n> ").strip()
         
         if user_input.lower() in ['exit', 'quit', '停止']:
-            print("👋 再见！")
+            print(" 再见！")
             break
         
         response = handle_message(user_input)

@@ -156,9 +156,9 @@ When a user requests a domain authority audit:
 
 | Veto Item | Status | Action |
 |-----------|--------|--------|
-| T03: Link-Traffic Coherence | ✅ Pass / ⚠️ VETO | [If VETO: "Audit backlink profile; disavow toxic links"] |
-| T05: Backlink Profile Uniqueness | ✅ Pass / ⚠️ VETO | [If VETO: "Flag as manipulation network; investigate link sources"] |
-| T09: Penalty & Deindex History | ✅ Pass / ⚠️ VETO | [If VETO: "Address penalty first; all other optimization is futile"] |
+| T03: Link-Traffic Coherence |  Pass /  VETO | [If VETO: "Audit backlink profile; disavow toxic links"] |
+| T05: Backlink Profile Uniqueness |  Pass /  VETO | [If VETO: "Flag as manipulation network; investigate link sources"] |
+| T09: Penalty & Deindex History |  Pass /  VETO | [If VETO: "Address penalty first; all other optimization is futile"] |
 ```
 
 If any veto item triggers, flag it prominently at the top of the report. CITE Score is capped at 39 (Poor) regardless of other scores.
@@ -233,7 +233,7 @@ Calculate scores and generate the final report:
 - **Domain Type**: [type]
 - **Audit Date**: [date]
 - **CITE Score**: [score]/100 ([rating])
-- **Veto Status**: ✅ No triggers / ⚠️ [item] triggered — Score capped at 39
+- **Veto Status**:  No triggers /  [item] triggered — Score capped at 39
 
 ### Dimension Scores
 
@@ -343,15 +343,15 @@ For a complete assessment, pair this CITE audit with a CORE-EEAT content audit:
 - **Domain Type**: Content Publisher
 - **Audit Date**: 2025-02-03
 - **CITE Score**: 69.9/100 (Medium)
-- **Veto Status**: ✅ No triggers
+- **Veto Status**:  No triggers
 
 #### Veto Check (Emergency Brake)
 
 | Veto Item | Status | Action |
 |-----------|--------|--------|
-| T03: Link-Traffic Coherence | ✅ Pass | Link growth correlates with traffic growth |
-| T05: Backlink Profile Uniqueness | ✅ Pass | No PBN patterns detected; diverse link sources |
-| T09: Penalty & Deindex History | ✅ Pass | No manual actions; clean penalty history |
+| T03: Link-Traffic Coherence |  Pass | Link growth correlates with traffic growth |
+| T05: Backlink Profile Uniqueness |  Pass | No PBN patterns detected; diverse link sources |
+| T09: Penalty & Deindex History |  Pass | No manual actions; clean penalty history |
 
 ### Dimension Scores
 

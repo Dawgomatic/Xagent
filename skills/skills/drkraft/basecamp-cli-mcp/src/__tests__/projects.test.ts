@@ -245,7 +245,7 @@ describe('Projects Edge Cases', () => {
   });
 
   it('should handle unicode in project names', async () => {
-    const unicodeName = '🧪 TEST - Basecamp CLI';
+    const unicodeName = ' TEST - Basecamp CLI';
 
     server.use(
       http.post(

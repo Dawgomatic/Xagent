@@ -18,10 +18,10 @@ if (typeof window !== "undefined") {
 **Common SSR errors:**
 
 ```
-❌ ReferenceError: window is not defined
-❌ ReferenceError: document is not defined
-❌ Can't import the named export 'useEffect' from non EcmaScript module
-❌ Cannot find module '@formkit/auto-animate/react'
+ ReferenceError: window is not defined
+ ReferenceError: document is not defined
+ Can't import the named export 'useEffect' from non EcmaScript module
+ Cannot find module '@formkit/auto-animate/react'
 ```
 
 **Solution**: Only import and run AutoAnimate on the **client side**.
@@ -446,10 +446,10 @@ function AnimatedList({ todos }) {
 **Fix**: Use dynamic import or conditional rendering
 
 ```tsx
-// ❌ Wrong (runs on server)
+//  Wrong (runs on server)
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
-// ✅ Correct (client-only)
+//  Correct (client-only)
 useEffect(() => {
   import("@formkit/auto-animate").then(({ default: autoAnimate }) => {
     autoAnimate(parent);
@@ -475,10 +475,10 @@ export default defineConfig({
 **Fix**: Use dynamic import inside `useEffect`
 
 ```tsx
-// ❌ Wrong
+//  Wrong
 const { useAutoAnimate } = require("@formkit/auto-animate/react");
 
-// ✅ Correct
+//  Correct
 useEffect(() => {
   import("@formkit/auto-animate").then(({ default: autoAnimate }) => {
     autoAnimate(parent);
@@ -561,11 +561,11 @@ Choose the right pattern for your framework:
 - **Gatsby** → Pattern #9 (Conditional Rendering)
 
 **Key principles:**
-- ✅ Only import AutoAnimate on client side
-- ✅ Use `useEffect`, `onMount`, or `<script>` tag for client-only code
-- ✅ Check `typeof window !== "undefined"` before using DOM APIs
-- ✅ Add to `external` in build config if needed
-- ✅ Test with JavaScript disabled to verify SSR works
+-  Only import AutoAnimate on client side
+-  Use `useEffect`, `onMount`, or `<script>` tag for client-only code
+-  Check `typeof window !== "undefined"` before using DOM APIs
+-  Add to `external` in build config if needed
+-  Test with JavaScript disabled to verify SSR works
 
 ---
 

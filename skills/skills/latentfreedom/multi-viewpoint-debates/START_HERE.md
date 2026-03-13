@@ -1,4 +1,4 @@
-# 🚀 START HERE - Multi-Viewpoint Debates Skill
+#  START HERE - Multi-Viewpoint Debates Skill
 
 ## What You Just Built
 
@@ -69,12 +69,12 @@ multi-viewpoint-debates/
 
 ## Key Strengths
 
-✅ **Genuinely different worldviews** — Not just tone variations, but different decision-making frameworks  
-✅ **Isolated sub-agents** — No groupthink, each persona thinks independently  
-✅ **Archive system** — Debates become searchable patterns for learning  
-✅ **Extensible** — Users can create custom personas (Skeptic, Artist, Lawyer, etc.)  
-✅ **No competitor** — Likely first on ClawdHub  
-✅ **Tested & working** — Already used successfully on real decision  
+ **Genuinely different worldviews** — Not just tone variations, but different decision-making frameworks  
+ **Isolated sub-agents** — No groupthink, each persona thinks independently  
+ **Archive system** — Debates become searchable patterns for learning  
+ **Extensible** — Users can create custom personas (Skeptic, Artist, Lawyer, etc.)  
+ **No competitor** — Likely first on ClawdHub  
+ **Tested & working** — Already used successfully on real decision  
 
 ## Is This Really the First?
 

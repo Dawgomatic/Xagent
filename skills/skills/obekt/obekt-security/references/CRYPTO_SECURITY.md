@@ -4,7 +4,7 @@ Security recommendations and patterns specific to cryptocurrency and blockchain 
 
 ## Critical Warning
 
-🚨 **Blockchain transactions are irreversible.** Once a transaction is signed and broadcast, it cannot be reversed.
+ **Blockchain transactions are irreversible.** Once a transaction is signed and broadcast, it cannot be reversed.
 
 **Never:**
 - Never hardcode private keys or mnemonics
@@ -29,7 +29,7 @@ private_key = account.key.hex()
 address = account.address
 
 # The private_key must NEVER be committed to version control
-print(f"Private Key: {private_key}")  # ⚠️ WARNING: Only output once, then delete
+print(f"Private Key: {private_key}")  #  WARNING: Only output once, then delete
 ```
 
 **Never Do:**
@@ -257,11 +257,11 @@ def verify_contract(web3, contract_address):
     }
 
     if contract_address.lower() in [addr.lower() for addr in KNOWN_GOOD]:
-        print("✅ Contract is in known-good list")
+        print(" Contract is in known-good list")
         return True
 
-    print("⚠️  Contract is not in known-good list")
-    print("⚠️  Proceed with caution")
+    print("  Contract is not in known-good list")
+    print("  Proceed with caution")
 
     return False
 ```
@@ -551,4 +551,4 @@ Before deploying blockchain operations:
 
 ---
 
-**Remember:** In blockchain, security mistakes are irreversible. Validate twice, sign once. 🛡️
+**Remember:** In blockchain, security mistakes are irreversible. Validate twice, sign once. 

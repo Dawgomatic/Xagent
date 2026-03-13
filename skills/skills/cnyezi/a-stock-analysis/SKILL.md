@@ -116,7 +116,7 @@ uv run {baseDir}/scripts/portfolio.py analyze
     ...
 
   【主力动向判断】
-    🔥 早盘主力抢筹明显
+     早盘主力抢筹明显
 ```
 
 ## 持仓文件

@@ -3,7 +3,7 @@ name: resume-cog
 description: "7 seconds. That's how long a recruiter spends on your resume. CellCog makes every second count — #1 on DeepResearch Bench (Feb 2026) to research your target role, ATS optimization, and state-of-the-art PDF design. AI resume builder, cover letters, CV, LinkedIn optimization, career documents, portfolio — professional and personalized, not template-stuffed."
 metadata:
   openclaw:
-    emoji: "📝"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

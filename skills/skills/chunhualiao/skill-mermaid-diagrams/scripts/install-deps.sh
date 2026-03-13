@@ -32,19 +32,19 @@ MIN_MMDC_VERSION=11
 ###############################################################################
 
 print_info() {
-  echo -e "${BLUE}ℹ${NC} $1"
+  echo -e "${BLUE}${NC} $1"
 }
 
 print_success() {
-  echo -e "${GREEN}✅${NC} $1"
+  echo -e "${GREEN}${NC} $1"
 }
 
 print_warning() {
-  echo -e "${YELLOW}⚠${NC} $1"
+  echo -e "${YELLOW}${NC} $1"
 }
 
 print_error() {
-  echo -e "${RED}❌${NC} $1"
+  echo -e "${RED}${NC} $1"
 }
 
 ###############################################################################
@@ -195,7 +195,7 @@ fi
 ###############################################################################
 
 echo ""
-print_success "✨ All dependencies installed and verified ✨"
+print_success " All dependencies installed and verified "
 echo ""
 echo "Next steps:"
 echo "  1. Test rendering:"

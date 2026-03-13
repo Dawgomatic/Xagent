@@ -28,9 +28,9 @@ yt-digest analyze "https://youtube.com/watch?v=..."
 ## Output
 
 ```
-📺 Video: How to Build AI Agents
-👤 Channel: TechChannel
-⏱️ Duration: 15:32
+ Video: How to Build AI Agents
+ Channel: TechChannel
+ Duration: 15:32
 
 ## Summary
 This video covers the basics of building AI agents...

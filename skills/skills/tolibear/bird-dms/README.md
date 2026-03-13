@@ -1,4 +1,4 @@
-# Bird DM 💬
+# Bird DM 
 
 DM add-on for [bird](https://github.com/steipete/bird) - read your X/Twitter direct messages.
 

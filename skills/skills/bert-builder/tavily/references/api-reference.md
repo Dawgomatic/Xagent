@@ -170,14 +170,14 @@ Install: `pip install tavily-python`
 
 | Feature | Tavily | Brave Search | Perplexity |
 |---------|--------|--------------|------------|
-| AI Answer | ✅ Yes | ❌ No | ✅ Yes |
-| Raw Content | ✅ Yes | ❌ No | ❌ No |
-| Domain Filtering | ✅ Yes | Limited | ❌ No |
-| Image Search | ✅ Yes | ✅ Yes | ❌ No |
-| News Mode | ✅ Yes | ✅ Yes | ✅ Yes |
-| LLM Optimized | ✅ Yes | ❌ No | ✅ Yes |
+| AI Answer |  Yes |  No |  Yes |
+| Raw Content |  Yes |  No |  No |
+| Domain Filtering |  Yes | Limited |  No |
+| Image Search |  Yes |  Yes |  No |
+| News Mode |  Yes |  Yes |  Yes |
+| LLM Optimized |  Yes |  No |  Yes |
 | Speed | Medium | Fast | Medium |
-| Free Tier | ✅ Yes | ✅ Yes | Limited |
+| Free Tier |  Yes |  Yes | Limited |
 
 ## Additional Resources
 

@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Major feature release focused on real-time intelligence, social graph tracking, AI-powered sentiment, and structured export formats. Designed to make xint the most capable X intelligence skill for AI agents.
 
-### ✨ Added
+###  Added
 - **`watch` command** — Real-time monitoring. Polls a search query on interval, shows only new tweets. Supports webhook POST (Slack, Discord, etc.), JSONL output for piping, graceful shutdown with session stats. Auto-handles rate limits.
 - **`diff` command** — Follower/following tracking with local snapshots. Shows who followed/unfollowed since last check. Supports `--following` for tracking who you follow, `--history` to view all snapshots, `--json` for structured output.
 - **`report` command** — Automated intelligence reports combining search + Grok AI analysis + optional sentiment. Generates markdown with executive summary, top tweets, per-account activity, and metadata. `--save` writes to `data/exports/`.
@@ -20,7 +20,7 @@ Major feature release focused on real-time intelligence, social graph tracking, 
 - **`--jsonl` flag** — One JSON object per line. Optimized for Unix pipelines: `xint search "topic" --jsonl | jq 'select(.metrics.likes > 100)'`
 - **`data/snapshots/` directory** — Local storage for follower/following snapshots used by `diff` command.
 
-### 🔧 Changed
+###  Changed
 - **README rewritten** — Hero image, agent-first positioning, feature table, all new commands documented, "Use as an AI Agent Skill" section expanded.
 - **Commands table expanded** — 25 commands total (was 21), with shortcuts for `watch` (`w`), `diff` (also `followers`).
 - **Usage text updated** — All new commands and flags documented in `--help`.
@@ -58,14 +58,14 @@ Major feature release focused on real-time intelligence, social graph tracking, 
 
 ## [2.3.0] (2026-02-09)
 
-### 🔒 Security
+###  Security
 - **Purged all stale tier/subscription references** across 6 files (13 instances of "Basic tier", "current tier", "enterprise-only" etc.) — LLM hallucination fix
 - **Security section in README** — Documents bearer token exposure risk when running inside AI coding agents with session logging
 
-### 🐛 Fixed
+###  Fixed
 - **Tweet truncation bug** — `tweet` and `thread` commands now show full tweet text instead of cutting off at 200 characters. Search results still truncate for readability. (h/t @sergeykarayev)
 
-### ✨ Added
+###  Added
 - **Full-archive search** (`/2/tweets/search/all`) is available on pay-per-use — not enterprise-only as LLMs commonly claim
 - **Updated rate limits** — old per-15-min caps replaced by spending limits in Developer Console
 - **Clarified 7-day limit** — is a skill limitation (using recent search endpoint), not an API restriction
@@ -77,13 +77,13 @@ Major feature release focused on real-time intelligence, social graph tracking, 
 
 ## [2.2.0] (2026-02-08)
 
-### ✨ Added
+###  Added
 - **`--quick` mode** — Smarter, cheaper searches. Single page, auto noise filtering (`-is:retweet -is:reply`), 1hr cache TTL. Designed for fast pulse checks.
 - **`--from <username>`** — Shorthand for `from:username` queries. `search "topic" --from username` instead of typing the full operator.
 - **`--quality` flag** — Filters out low-engagement tweets (≥10 likes). Applied post-fetch since `min_faves` operator isn't available via the API.
-- **Cost display on all searches** — Every search now shows estimated API cost: `📊 N tweets read · est. cost ~$X`
+- **Cost display on all searches** — Every search now shows estimated API cost: ` N tweets read · est. cost ~$X`
 
-### 🔧 Changed
+###  Changed
 - README cleaned up — removed duplicate cost section, added Quick Mode and Cost docs
 - Cache supports variable TTL (1hr in quick mode, 15min default)
 
@@ -91,7 +91,7 @@ Major feature release focused on real-time intelligence, social graph tracking, 
 
 ## [2.1.0] (2026-02-08)
 
-### ✨ Added
+###  Added
 - **`--since` time filter** — search only recent tweets: `--since 1h`, `--since 3h`, `--since 30m`, `--since 1d`
   - Accepts shorthand (`1h`, `30m`, `2d`) or ISO 8601 timestamps
   - Great for monitoring during catalysts or checking what just dropped
@@ -102,7 +102,7 @@ Major feature release focused on real-time intelligence, social graph tracking, 
 
 ## [2.0.0] (2026-02-08)
 
-### ✨ Added
+###  Added
 - **`x-search.ts` CLI** — Bun script wrapping the X API. No more inline curl/python one-liners.
   - `search` — query with auto noise filtering, engagement sorting, pagination
   - `profile` — recent tweets from any user
@@ -120,7 +120,7 @@ Major feature release focused on real-time intelligence, social graph tracking, 
 - **Save to file** — `--save` flag auto-saves research to `data/exports/`
 - **Multiple output formats** — `--json` for raw data, `--markdown` for research docs, default for Telegram
 
-### 🔧 Changed
+###  Changed
 - **SKILL.md** rewritten to reference CLI tooling. Research loop instructions preserved and updated.
 - **README.md** expanded with full install, setup, usage, and API cost documentation.
 
@@ -133,7 +133,7 @@ Major feature release focused on real-time intelligence, social graph tracking, 
 
 ## [1.0.0] (2026-02-08)
 
-### ✨ Added
+###  Added
 - Initial release
 - SKILL.md with agentic research loop (decompose → search → refine → follow threads → deep-dive → synthesize)
 - `references/x-api.md` with full X API endpoint reference

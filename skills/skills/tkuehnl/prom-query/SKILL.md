@@ -207,4 +207,4 @@ If a query fails:
 - **"no data"** → The metric may not exist, or the label selector is too specific. Try `explore` to find the right metric name.
 - **Timeout** → The query is too expensive. Add filters, reduce the time range, or use `topk()`.
 
-Powered by CacheForge 📊
+Powered by CacheForge 

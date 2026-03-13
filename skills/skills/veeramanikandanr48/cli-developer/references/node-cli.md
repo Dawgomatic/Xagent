@@ -185,10 +185,10 @@ console.log(error('✗') + ' Build failed');
 
 // Disable colors for CI
 const log = {
-  info: (msg) => console.log(chalk.blue('ℹ'), msg),
-  success: (msg) => console.log(chalk.green('✔'), msg),
-  warn: (msg) => console.log(chalk.yellow('⚠'), msg),
-  error: (msg) => console.log(chalk.red('✖'), msg),
+  info: (msg) => console.log(chalk.blue(''), msg),
+  success: (msg) => console.log(chalk.green(''), msg),
+  warn: (msg) => console.log(chalk.yellow(''), msg),
+  error: (msg) => console.log(chalk.red(''), msg),
 };
 
 // Auto-detects TTY and CI environments

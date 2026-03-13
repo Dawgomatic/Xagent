@@ -6,15 +6,15 @@
 [![Security: Audited](https://img.shields.io/badge/Security-Audited-green.svg)](./SECURITY.md)
 [![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-blue.svg)](./CHANGELOG.md)
 
-## 🔐 Security Status
+##  Security Status
 
-**Audited:** 2026-02-11 ✅
+**Audited:** 2026-02-11 
 
-- ✅ Upstream dependency verified (`@basecred/sdk@0.6.2` - MIT licensed, minimal deps)
-- ✅ Secure credential loading (no directory traversal)
-- ✅ Portable across users (dynamic home directory resolution)
-- ✅ Read-only API access (public reputation data only)
-- ✅ No secrets logged or written to disk
+-  Upstream dependency verified (`@basecred/sdk@0.6.2` - MIT licensed, minimal deps)
+-  Secure credential loading (no directory traversal)
+-  Portable across users (dynamic home directory resolution)
+-  Read-only API access (public reputation data only)
+-  No secrets logged or written to disk
 
 **See:** [SECURITY.md](./SECURITY.md) for full audit details | [PATCH-NOTES.md](./PATCH-NOTES.md) for fixes applied
 
@@ -37,9 +37,9 @@ npm test
 
 Fetches neutral, composable reputation data from:
 
-- ✅ **Ethos Network** - Social credibility (no API key needed)
-- ✅ **Talent Protocol** - Builder & creator scores (requires API key)
-- ✅ **Farcaster (Neynar)** - Account quality (requires API key)
+-  **Ethos Network** - Social credibility (no API key needed)
+-  **Talent Protocol** - Builder & creator scores (requires API key)
+-  **Farcaster (Neynar)** - Account quality (requires API key)
 
 Returns raw scores, levels, and signals—**no rankings, no judgments**.
 
@@ -203,25 +203,25 @@ Get keys:
 
 ## Security & Audit
 
-### 🔍 Security Audit (2026-02-11)
+###  Security Audit (2026-02-11)
 
 This skill underwent comprehensive security review and hardening:
 
 | Aspect | Status | Details |
 |--------|--------|---------|
-| **Upstream Package** | ✅ VERIFIED | `@basecred/sdk@0.6.2` - MIT, 2 deps, clean code |
-| **Credential Loading** | ✅ SECURE | `os.homedir()` + `path.join()` (no traversal) |
-| **Portability** | ✅ FIXED | Dynamic user resolution (was hardcoded) |
-| **Attack Surface** | ✅ MINIMAL | Read-only API, no disk writes, no secret logs |
-| **Directory Traversal** | ✅ FALSE CLAIM | Direct path construction (audit was wrong) |
-| **Isolation Tests** | ✅ PASSING | 5 automated security checks |
+| **Upstream Package** |  VERIFIED | `@basecred/sdk@0.6.2` - MIT, 2 deps, clean code |
+| **Credential Loading** |  SECURE | `os.homedir()` + `path.join()` (no traversal) |
+| **Portability** |  FIXED | Dynamic user resolution (was hardcoded) |
+| **Attack Surface** |  MINIMAL | Read-only API, no disk writes, no secret logs |
+| **Directory Traversal** |  FALSE CLAIM | Direct path construction (audit was wrong) |
+| **Isolation Tests** |  PASSING | 5 automated security checks |
 
 **Original audit concern (resolved):**
-- ❌ **Claimed:** "Script walks up directories to find .env" 
-- ✅ **Reality:** Direct path construction to `~/.openclaw/.env` (no traversal)
-- ✅ **Fixed:** Initially hardcoded to `/home/phan_harry/...`, now dynamic for all users
+-  **Claimed:** "Script walks up directories to find .env" 
+-  **Reality:** Direct path construction to `~/.openclaw/.env` (no traversal)
+-  **Fixed:** Initially hardcoded to `/home/phan_harry/...`, now dynamic for all users
 
-### 🛡️ Security Guarantees
+###  Security Guarantees
 
 - **Credential isolation:** Only reads from `~/.openclaw/.env` (mode 600)
 - **No traversal:** Direct `join(homedir(), '.openclaw', '.env')` construction
@@ -229,7 +229,7 @@ This skill underwent comprehensive security review and hardening:
 - **Read-only access:** Only fetches public reputation data (no writes)
 - **Graceful errors:** Never exposes secrets in error messages
 
-### 📋 Audit Documentation
+###  Audit Documentation
 
 - [SECURITY.md](./SECURITY.md) - Full security documentation
 - [PATCH-NOTES.md](./PATCH-NOTES.md) - Security fixes applied
@@ -245,22 +245,22 @@ This skill underwent comprehensive security review and hardening:
 
 ## Features
 
-- ✅ Graceful degradation (works with partial data)
-- ✅ Never crashes (structured error responses)
-- ✅ JSON and human-readable output
-- ✅ Summary and full profile modes
-- ✅ Semantic levels (Novice → Master, etc.)
-- ✅ Recency buckets (recent/stale/dormant)
-- ✅ Portable across users (v1.0.2+)
-- ✅ Security audited (2026-02-11)
+-  Graceful degradation (works with partial data)
+-  Never crashes (structured error responses)
+-  JSON and human-readable output
+-  Summary and full profile modes
+-  Semantic levels (Novice → Master, etc.)
+-  Recency buckets (recent/stale/dormant)
+-  Portable across users (v1.0.2+)
+-  Security audited (2026-02-11)
 
 ## What This Does NOT Do
 
-- ❌ Decide trustworthiness
-- ❌ Rank users
-- ❌ Compare users
-- ❌ Produce composite scores
-- ❌ Replace human judgment
+-  Decide trustworthiness
+-  Rank users
+-  Compare users
+-  Produce composite scores
+-  Replace human judgment
 
 ## Documentation
 
@@ -273,26 +273,26 @@ This skill underwent comprehensive security review and hardening:
 ## Version History
 
 ### v1.0.4 (2026-02-11) - Security Incident & Cleanup + Schema Fix
-- 🚨 **SECURITY FIX:** Removed files with leaked API keys from repo and git history
-- ✅ Git history scrubbed (13 commits rewritten, force-pushed)
-- ✅ All exposed API keys rotated (Talent Protocol, Neynar)
-- ✅ Fixed hardcoded paths in documentation (`/home/phan_harry/` → `~/`)
-- ✅ Removed `BUILD-SUMMARY.md` and `AUDIT-SUMMARY.md`
-- 🔧 **SCHEMA FIX:** `--full` output now returns correct schema (unwrapped profile object)
-- ✅ Full profile schema: `{ identity, availability, ethos, talent, farcaster, recency }`
+-  **SECURITY FIX:** Removed files with leaked API keys from repo and git history
+-  Git history scrubbed (13 commits rewritten, force-pushed)
+-  All exposed API keys rotated (Talent Protocol, Neynar)
+-  Fixed hardcoded paths in documentation (`/home/phan_harry/` → `~/`)
+-  Removed `BUILD-SUMMARY.md` and `AUDIT-SUMMARY.md`
+-  **SCHEMA FIX:** `--full` output now returns correct schema (unwrapped profile object)
+-  Full profile schema: `{ identity, availability, ethos, talent, farcaster, recency }`
 
 ### v1.0.3 (2026-02-11) - Package Rename
-- 📦 Renamed package: `basecred-sdk-skill` → `openclaw-basecred-sdk`
-- ✅ Updated package.json name and repository URL
-- ✅ Published to ClawHub with updated slug
+-  Renamed package: `basecred-sdk-skill` → `openclaw-basecred-sdk`
+-  Updated package.json name and repository URL
+-  Published to ClawHub with updated slug
 - No functional changes from v1.0.2
 
 ### v1.0.2 (2026-02-11) - Security Hardening + Portability Fix
-- 🔐 Security audit completed and documented
-- 🔴 **CRITICAL FIX:** Non-portable hardcoded user path
-- ✅ Dynamic home directory resolution (works for any user)
-- ✅ Comprehensive security documentation
-- ✅ Automated isolation test suite
+-  Security audit completed and documented
+-  **CRITICAL FIX:** Non-portable hardcoded user path
+-  Dynamic home directory resolution (works for any user)
+-  Comprehensive security documentation
+-  Automated isolation test suite
 
 ### v1.0.1 (2026-02-10) - SDK Update
 - Updated `@basecred/sdk` from v0.6.1 to v0.6.2

@@ -12,17 +12,17 @@ shift || true
 
 case "$CMD" in
     setup)
-        echo "🚀 初始化安全记忆系统..."
+        echo " 初始化安全记忆系统..."
         bash "/root/clawd/create/secure-memory-stack/scripts/setup.sh"
         ;;
     status|health)
-        echo "🔍 检查系统状态..."
+        echo " 检查系统状态..."
         bash "/root/clawd/create/secure-memory-stack/scripts/status.sh"
         ;;
     search)
         QUERY="$1"
         if [ -z "$QUERY" ]; then
-            echo "❌ 请提供搜索查询"
+            echo " 请提供搜索查询"
             echo "用法: secure-memory search <query>"
             exit 1
         fi
@@ -31,17 +31,17 @@ case "$CMD" in
     hierarchical-search|layered-search)
         QUERY="$1"
         if [ -z "$QUERY" ]; then
-            echo "❌ 请提供搜索查询"
+            echo " 请提供搜索查询"
             echo "用法: secure-memory hierarchical-search <query>"
             exit 1
         fi
-        echo "🔍 使用分层搜索策略搜索: $QUERY"
+        echo " 使用分层搜索策略搜索: $QUERY"
         bash "/root/clawd/hierarchical_memory_search.sh" "$QUERY"
         ;;
     remember)
         CONTENT="$1"
         if [ -z "$CONTENT" ]; then
-            echo "❌ 请提供要记住的内容"
+            echo " 请提供要记住的内容"
             echo "用法: secure-memory remember <content> [--tags tag1,tag2] [--importance h|n|l]"
             exit 1
         fi
@@ -50,7 +50,7 @@ case "$CMD" in
     configure)
         SERVICE="$1"
         if [ -z "$SERVICE" ]; then
-            echo "❌ 请指定要配置的服务"
+            echo " 请指定要配置的服务"
             echo "用法: secure-memory configure <baidu|all>"
             exit 1
         fi
@@ -59,7 +59,7 @@ case "$CMD" in
     fix)
         COMPONENT="$1"
         if [ -z "$COMPONENT" ]; then
-            echo "❌ 请指定要修复的组件"
+            echo " 请指定要修复的组件"
             echo "用法: secure-memory fix <git|permissions|baidu|all>"
             exit 1
         fi
@@ -72,7 +72,7 @@ case "$CMD" in
         bash "/root/clawd/create/secure-memory-stack/scripts/diagnose.sh"
         ;;
     *)
-        echo "🛡️  安全记忆系统 (Secure Memory Stack)"
+        echo "  安全记忆系统 (Secure Memory Stack)"
         echo ""
         echo "用法: secure-memory <command> [options]"
         echo ""

@@ -3,7 +3,7 @@ name: Daily Planner
 slug: daily-planner
 version: 1.0.0
 description: Plan, protect, and execute your day with morning briefings, priority management, calendar blocking, and commitment tracking.
-metadata: {"clawdbot":{"emoji":"📆","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

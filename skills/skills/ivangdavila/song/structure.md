@@ -92,19 +92,19 @@ Verse 1 → Verse 2 → Verse 3 → Verse 4...
 ### Standard energy arc:
 ```
       Bridge  Final Chorus
-         ↗         ↗↗
-Chorus  ↗   Chorus  
-   ↗          ↗
+                  
+Chorus     Chorus  
+             
 V1 ────── V2 ──────
 ```
 
 ### Ballad energy:
 ```
               Final Chorus
-                  ↗↗
-        Bridge  ↗
-Chorus    ↗   Chorus
-   ↗          ↗
+                  
+        Bridge  
+Chorus       Chorus
+             
 V1 ────── V2 ──────
 [slower build, more dynamics range]
 ```
@@ -112,9 +112,9 @@ V1 ────── V2 ──────
 ### Dance/EDM energy:
 ```
          Drop          Drop 2
-           ↗↗            ↗↗↗
-Build ↗        Build 2 ↗
-   ↗              ↗
+                       
+Build         Build 2 
+                 
 Intro ──── Break ────
 [tension → release cycles]
 ```

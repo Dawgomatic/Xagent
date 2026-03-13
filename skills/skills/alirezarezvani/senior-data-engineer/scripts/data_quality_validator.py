@@ -1157,7 +1157,7 @@ class ReportGenerator:
 
             for r in results:
                 if not r.passed:
-                    severity_icon = "❌" if r.severity == "error" else "⚠️"
+                    severity_icon = "" if r.severity == "error" else ""
                     col_str = f"[{r.column}]" if r.column else ""
                     lines.append(f"\n{severity_icon} {r.check_name} {col_str}")
                     lines.append(f"   Expected: {r.expected}")

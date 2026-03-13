@@ -46,7 +46,7 @@
     "contributor": "Optional. Requires GitHub credentials (token/SSH). See AI_CONTRIBUTOR_GUIDE.md."
   },
   "smithbot": {
-    "emoji": "🦀⛓️",
+    "emoji": "",
     "category": "blockchain",
     "api_base": "https://smithnode-rpc.fly.dev",
     "skill_files": {

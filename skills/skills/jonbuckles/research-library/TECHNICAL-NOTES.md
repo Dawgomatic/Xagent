@@ -154,22 +154,22 @@
 
 ## Architecture Decisions That Held Up
 
-### ✅ Single-Table Documents
+###  Single-Table Documents
 Originally considered separate tables for notes, sources, references. Single `documents` table with `material_type` column is simpler and works.
 
-### ✅ FTS5 Triggers
+###  FTS5 Triggers
 Auto-sync of FTS virtual table via triggers means no manual index management. Zero operational burden.
 
-### ✅ Project Isolation
+###  Project Isolation
 Making project_id required was the right call. Prevents the "everything in one folder" antipattern.
 
-### ✅ Confidence as First-Class Citizen
+###  Confidence as First-Class Citizen
 Having confidence score on every document enables smart ranking and filtering.
 
-### ⚠️ Link Types as Enum
+###  Link Types as Enum
 Works but may need expansion. Consider moving to a `link_types` table for user-defined types.
 
-### ⚠️ Extraction Queue as Table
+###  Extraction Queue as Table
 Works for single worker. May need Redis/RabbitMQ for distributed workers.
 
 ---

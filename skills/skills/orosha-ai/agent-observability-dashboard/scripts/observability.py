@@ -182,7 +182,7 @@ class ObservabilityStore:
         """)
         row = cursor.fetchone()
         if row and row[0] and row[0] > thresholds['latency_ms']:
-            alerts.append(f"⚠️ High latency: {row[0]:.0f}ms (threshold: {thresholds['latency_ms']}ms)")
+            alerts.append(f" High latency: {row[0]:.0f}ms (threshold: {thresholds['latency_ms']}ms)")
         
         # Check success rate (last 24h)
         cursor.execute("""
@@ -198,7 +198,7 @@ class ObservabilityStore:
             if total > 0:
                 rate = successful / total
                 if rate < thresholds['success_rate']:
-                    alerts.append(f"⚠️ Low success rate: {rate*100:.1f}% (threshold: {thresholds['success_rate']*100:.0f}%)")
+                    alerts.append(f" Low success rate: {rate*100:.1f}% (threshold: {thresholds['success_rate']*100:.0f}%)")
         
         # Check error count (last 24h)
         cursor.execute("""
@@ -208,7 +208,7 @@ class ObservabilityStore:
         """)
         row = cursor.fetchone()
         if row and row[0] > thresholds['error_count']:
-            alerts.append(f"⚠️ High error count: {row[0]} (threshold: {thresholds['error_count']})")
+            alerts.append(f" High error count: {row[0]} (threshold: {thresholds['error_count']})")
         
         return alerts
     
@@ -295,7 +295,7 @@ def main():
         
         if args.trace:
             trace = store.get_session_trace(args.trace)
-            print(f"\n📊 Trace for session: {args.trace}\n")
+            print(f"\n Trace for session: {args.trace}\n")
             for i, step in enumerate(trace, 1):
                 status = "✓" if step['success'] else "✗"
                 print(f"{i}. {status} {step['tool']} ({step['latency_ms']}ms)")
@@ -307,7 +307,7 @@ def main():
         if args.report:
             period = args.report if args.report else "24h"
             report = store.export_report(period)
-            print(f"\n📊 Report ({period})\n")
+            print(f"\n Report ({period})\n")
             print(f"Total calls: {report['summary']['total_calls']}")
             print(f"Success rate: {report['summary']['success_rate']*100:.1f}%")
             print(f"Avg latency: {report['summary']['avg_latency_ms']}ms")
@@ -315,13 +315,13 @@ def main():
             print(f"Sessions: {report['summary']['unique_sessions']}")
             
             if report['alerts']:
-                print("\n⚠️ Alerts:")
+                print("\n Alerts:")
                 for alert in report['alerts']:
                     print(f"  {alert}")
         
         if args.alerts:
             alerts = store.check_alerts()
-            print("\n⚠️ Alerts:")
+            print("\n Alerts:")
             if alerts:
                 for alert in alerts:
                     print(f"  {alert}")

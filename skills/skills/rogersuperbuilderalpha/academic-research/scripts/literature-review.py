@@ -229,7 +229,7 @@ def generate_synthesis_md(topic, papers, themes, year_range=None):
             if len(p.get("authors", [])) > 2:
                 authors += " et al."
             yr = f" ({p['year']})" if p.get("year") else ""
-            oa = "🔓" if p.get("open_access") else "🔒"
+            oa = "" if p.get("open_access") else ""
             lines.append(f"- {oa} **{p['title']}** — {authors}{yr}")
             if p.get("abstract"):
                 # First sentence of abstract
@@ -261,25 +261,25 @@ def main():
     parser.add_argument("--json", action="store_true", help="Output JSON")
     args = parser.parse_args()
 
-    print(f"📚 Literature review: {args.topic}", file=sys.stderr)
+    print(f" Literature review: {args.topic}", file=sys.stderr)
     print(f"   Target: {args.papers} papers", file=sys.stderr)
 
     # Step 1: Gather
-    print("\n1️⃣  Gathering papers...", file=sys.stderr)
+    print("\n  Gathering papers...", file=sys.stderr)
     papers = gather_papers(args.topic, args.papers, args.years)
     print(f"   Found {len(papers)} unique papers", file=sys.stderr)
 
     if not papers:
-        print("❌ No papers found", file=sys.stderr)
+        print(" No papers found", file=sys.stderr)
         sys.exit(1)
 
     # Step 2: Theme identification
-    print("2️⃣  Identifying themes...", file=sys.stderr)
+    print("  Identifying themes...", file=sys.stderr)
     themes = identify_themes(papers)
     print(f"   {len(themes)} themes identified", file=sys.stderr)
 
     # Step 3: Synthesis
-    print("3️⃣  Generating synthesis...", file=sys.stderr)
+    print("  Generating synthesis...", file=sys.stderr)
 
     if args.json:
         output = json.dumps({
@@ -293,11 +293,11 @@ def main():
 
     if args.output:
         Path(args.output).write_text(output)
-        print(f"\n✅ Review written to {args.output}", file=sys.stderr)
+        print(f"\n Review written to {args.output}", file=sys.stderr)
     else:
         print(output)
 
-    print(f"\n📊 Summary: {len(papers)} papers, {len(themes)} themes", file=sys.stderr)
+    print(f"\n Summary: {len(papers)} papers, {len(themes)} themes", file=sys.stderr)
 
 
 if __name__ == "__main__":

@@ -77,7 +77,7 @@ DURATION=$(echo "$RESPONSE" | jq -r '.call_length // 0')
 TO_NUMBER=$(echo "$RESPONSE" | jq -r '.to // "unknown"')
 ANSWERED=$(echo "$RESPONSE" | jq -r '.answered_by // "unknown"')
 
-echo "📱 Call Status"
+echo " Call Status"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Call ID:     $CALL_ID"
 echo "To:          $TO_NUMBER"
@@ -90,7 +90,7 @@ echo ""
 # Show transcript if available
 TRANSCRIPT=$(echo "$RESPONSE" | jq -r '.concatenated_transcript // empty')
 if [[ -n "$TRANSCRIPT" && "$TRANSCRIPT" != "null" ]]; then
-    echo "📝 Transcript"
+    echo " Transcript"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "$TRANSCRIPT"
     echo ""
@@ -99,7 +99,7 @@ fi
 # Show summary if available
 SUMMARY=$(echo "$RESPONSE" | jq -r '.summary // empty')
 if [[ -n "$SUMMARY" && "$SUMMARY" != "null" ]]; then
-    echo "📋 Summary"
+    echo " Summary"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "$SUMMARY"
     echo ""
@@ -108,12 +108,12 @@ fi
 # Show recording URL if available
 RECORDING=$(echo "$RESPONSE" | jq -r '.recording_url // empty')
 if [[ -n "$RECORDING" && "$RECORDING" != "null" ]]; then
-    echo "🎙️ Recording: $RECORDING"
+    echo " Recording: $RECORDING"
     echo ""
 fi
 
 # Show any error info
 ERROR=$(echo "$RESPONSE" | jq -r '.error_message // empty')
 if [[ -n "$ERROR" && "$ERROR" != "null" ]]; then
-    echo "⚠️ Error: $ERROR"
+    echo " Error: $ERROR"
 fi

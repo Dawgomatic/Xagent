@@ -44,7 +44,7 @@ npx clawhub info <slug>        # Show available versions
 
 ### Preview Before Update
 
-⚠️ Never update without showing impact first.
+ Never update without showing impact first.
 
 **For each changed file:**
 1. Show what's different (added/removed/modified)
@@ -65,7 +65,7 @@ Present changes in digestible format:
 
 > "Skill X has v2.0.0 available. Changes:
 > 
-> **⚠️ Breaking:** Config now in `config.md` (was in SKILL.md)
+> ** Breaking:** Config now in `config.md` (was in SKILL.md)
 > **Added:** New `templates/` folder with examples
 > **Removed:** Old `legacy.md` no longer needed
 > 

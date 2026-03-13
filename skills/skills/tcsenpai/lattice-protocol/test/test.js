@@ -22,7 +22,7 @@ const mockKeys = {
   createdAt: new Date().toISOString()
 };
 
-console.log('🧪 Lattice Protocol Test Suite\n');
+console.log(' Lattice Protocol Test Suite\n');
 
 let passed = 0;
 let failed = 0;
@@ -30,10 +30,10 @@ let failed = 0;
 function test(name, fn) {
   try {
     fn();
-    console.log(`  ✅ ${name}`);
+    console.log(`   ${name}`);
     passed++;
   } catch (err) {
-    console.log(`  ❌ ${name}`);
+    console.log(`   ${name}`);
     console.log(`     ${err.message}`);
     failed++;
   }

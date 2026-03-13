@@ -9,7 +9,7 @@ OPENCLAW_CONFIG="${OPENCLAW_CONFIG:-$HOME/.openclaw/openclaw.json}"
 BRAINDB_PORT="${BRAINDB_PORT:-3333}"
 EXPORT_DIR="$HOME/.openclaw/braindb-export"
 
-echo "🧠 BrainDB Uninstaller"
+echo " BrainDB Uninstaller"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 echo "This will:"
@@ -28,7 +28,7 @@ fi
 
 # ─── Step 1: Export memories ──────────────────────
 echo ""
-echo "📦 Step 1: Exporting memories..."
+echo " Step 1: Exporting memories..."
 
 mkdir -p "$EXPORT_DIR"
 EXPORT_TIME=$(date +%Y%m%d-%H%M%S)
@@ -143,7 +143,7 @@ if curl -sf "http://localhost:$BRAINDB_PORT/health" >/dev/null 2>&1; then
           fs.writeFileSync(exportDir + '/' + type + '-memories-' + timestamp + '.md', md);
         }
         
-        console.log('   ✅ Exported to ' + exportDir + '/');
+        console.log('    Exported to ' + exportDir + '/');
         console.log('   Files:');
         console.log('     braindb-export-' + timestamp + '.json (re-importable)');
         for (const type of Object.keys(byType)) {
@@ -151,11 +151,11 @@ if curl -sf "http://localhost:$BRAINDB_PORT/health" >/dev/null 2>&1; then
         }
       }
       
-      exportAll().catch(e => console.error('   ⚠️  Export error:', e.message));
+      exportAll().catch(e => console.error('     Export error:', e.message));
     " 2>/dev/null
   fi
 else
-  echo "   ⚠️  BrainDB not reachable. Checking for local data..."
+  echo "     BrainDB not reachable. Checking for local data..."
   
   # Try to export from embeddings cache as fallback
   EMBEDDINGS="$SCRIPT_DIR/data/embeddings.json"
@@ -166,32 +166,32 @@ else
   
   if [ -f "$EMBEDDINGS" ] 2>/dev/null; then
     cp "$EMBEDDINGS" "$EXPORT_DIR/embeddings-backup-$EXPORT_TIME.json"
-    echo "   ✅ Saved embeddings cache to $EXPORT_DIR/"
+    echo "    Saved embeddings cache to $EXPORT_DIR/"
   else
-    echo "   ⚠️  No local data found. If you had memories, check Docker volumes:"
+    echo "     No local data found. If you had memories, check Docker volumes:"
     echo "      docker volume ls | grep braindb"
   fi
 fi
 
 # ─── Step 2: Stop containers ─────────────────────
 echo ""
-echo "🐳 Step 2: Stopping containers..."
+echo " Step 2: Stopping containers..."
 
 cd "$SCRIPT_DIR"
 if docker compose ps --quiet 2>/dev/null | grep -q .; then
   docker compose down 2>&1 | grep -v "^$"
-  echo "   ✅ Containers stopped and removed"
+  echo "    Containers stopped and removed"
 else
   echo "   No running containers found"
 fi
 
 echo ""
-echo "   ⚠️  Docker volumes preserved (your data is safe)."
+echo "     Docker volumes preserved (your data is safe)."
 echo "   To delete volumes: docker volume rm braindb_neo4j-data braindb_embedder-cache braindb_gateway-data"
 
 # ─── Step 3: Remove OpenClaw config ──────────────
 echo ""
-echo "⚙️  Step 3: Removing OpenClaw config..."
+echo "  Step 3: Removing OpenClaw config..."
 
 if [ -f "$OPENCLAW_CONFIG" ]; then
   node -e "
@@ -214,8 +214,8 @@ if [ -f "$OPENCLAW_CONFIG" ]; then
     }
     
     fs.writeFileSync('$OPENCLAW_CONFIG', JSON.stringify(config, null, 2));
-    console.log('   ✅ BrainDB removed from OpenClaw config');
-  " 2>/dev/null || echo "   ⚠️  Could not update config. Remove braindb entries manually."
+    console.log('    BrainDB removed from OpenClaw config');
+  " 2>/dev/null || echo "     Could not update config. Remove braindb entries manually."
 else
   echo "   Config not found — nothing to clean up"
 fi
@@ -223,7 +223,7 @@ fi
 # ─── Done ─────────────────────────────────────────
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "✅ BrainDB uninstalled!"
+echo " BrainDB uninstalled!"
 echo ""
 echo "   Your memories are exported to: $EXPORT_DIR/"
 echo "   Your workspace files (MEMORY.md, etc.) were never modified."

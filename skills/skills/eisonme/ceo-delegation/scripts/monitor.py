@@ -27,13 +27,13 @@ def get_sessions(label_filter=None):
             sessions = [s for s in sessions if label_filter in s.get("label", "")]
         return sessions
     except Exception as e:
-        print(f"❌ 获取会话失败: {e}")
+        print(f" 获取会话失败: {e}")
         return []
 
 def format_report(sessions):
     """格式化进度报告"""
     now = datetime.now().strftime("%H:%M:%S")
-    report = [f"📊 **子代理进度报告** ({now})", ""]
+    report = [f" **子代理进度报告** ({now})", ""]
     
     if not sessions:
         report.append("暂无活跃的子代理任务")
@@ -45,7 +45,7 @@ def format_report(sessions):
         created = s.get("createdAt", "")
         messages = s.get("messages", [])
         
-        status_emoji = "🟢" if status == "running" else "🔵" if status == "completed" else "🟡"
+        status_emoji = "" if status == "running" else "" if status == "completed" else ""
         
         report.append(f"{status_emoji} **{label}**")
         report.append(f"   状态: {status}")

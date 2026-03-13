@@ -9,7 +9,7 @@
  * - CORS configuration for SPA
  * - CamelCasePlugin for schema conversion
  *
- * ⚠️ CRITICAL: better-auth requires Kysely (or Drizzle) for D1
+ *  CRITICAL: better-auth requires Kysely (or Drizzle) for D1
  * There is NO direct d1Adapter()!
  */
 
@@ -57,7 +57,7 @@ function createAuth(env: Env) {
     // Secret for signing tokens
     secret: env.BETTER_AUTH_SECRET,
 
-    // ⚠️ CRITICAL: Use Kysely with D1Dialect
+    //  CRITICAL: Use Kysely with D1Dialect
     // There is NO direct d1Adapter()!
     database: {
       db: new Kysely({

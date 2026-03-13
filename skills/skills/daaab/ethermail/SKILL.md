@@ -7,10 +7,10 @@ description: Access Web3 email via EtherMail using WalletConnect. Use when you n
 
 Access email using your Ethereum wallet address. No email/password needed — just sign with your wallet!
 
-## 🚀 Quick Start
+##  Quick Start
 
 **Easiest way:** Use the Telegram Mini App!
-👉 [Open EtherMail on Telegram](https://t.me/ethermailappbot/app?startapp=afid_6986e9a5c5a97b905a78c390)
+ [Open EtherMail on Telegram](https://t.me/ethermailappbot/app?startapp=afid_6986e9a5c5a97b905a78c390)
 
 ## Prerequisites
 
@@ -99,7 +99,7 @@ node scripts/wc-connect.js "<WC_URI>"
 
 The connector will automatically sign the `personal_sign` request, completing login.
 
-> ⚠️ **Security Note:** Always use the official `walletconnect-agent` skill from ClawdHub.
+>  **Security Note:** Always use the official `walletconnect-agent` skill from ClawdHub.
 > Do not use untrusted third-party WalletConnect scripts.
 
 #### Step 5: Access Inbox
@@ -156,7 +156,7 @@ node scripts/extract-wc-uri.js --url "https://ethermail.io/accounts/login"
 
 ## Security Notes
 
-- ⚠️ Never commit private keys
+-  Never commit private keys
 - Store credentials in environment variables or secure files
 - EtherMail only requires message signing (no transaction needed for login)
 - Use dedicated wallet for agent operations
@@ -168,12 +168,12 @@ node scripts/extract-wc-uri.js --url "https://ethermail.io/accounts/login"
 ## Changelog
 
 ### v1.1.0 (2026-02-08) - Security Update
-- 🔐 Removed `--no-sandbox` flag from Puppeteer for better security isolation
-- 📝 Clarified to use official `walletconnect-agent` skill from ClawdHub
-- 📝 Added supply chain security notes
+-  Removed `--no-sandbox` flag from Puppeteer for better security isolation
+-  Clarified to use official `walletconnect-agent` skill from ClawdHub
+-  Added supply chain security notes
 
 ### v1.0.0
-- 🎉 Initial release
+-  Initial release
 
 ---
 

@@ -93,19 +93,19 @@ policy-engine/
 ```mermaid
 flowchart TD
     A[Tool Request] --> B{Kill Switch?}
-    B -->|disabled| Z[✅ Allow All]
+    B -->|disabled| Z[ Allow All]
     B -->|enabled| C{Dry-Run Mode?}
     C -->|yes| D{Essential/T0?}
     D -->|yes| Z
-    D -->|no| E[🧪 Stub: dry-run result]
+    D -->|no| E[ Stub: dry-run result]
     C -->|no| F{Deny Patterns?}
-    F -->|match| G[🚫 Block]
+    F -->|match| G[ Block]
     F -->|no match| H{Essential/T0?}
     H -->|yes| Z
     H -->|no| I{Allowlist?}
-    I -->|not allowed| J[🚫 Block]
+    I -->|not allowed| J[ Block]
     I -->|allowed| K{Escalation Threshold?}
-    K -->|exceeded| L[🚫 Block + warn]
+    K -->|exceeded| L[ Block + warn]
     K -->|under| Z
 ```
 

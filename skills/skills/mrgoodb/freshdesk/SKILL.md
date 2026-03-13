@@ -1,7 +1,7 @@
 ---
 name: freshdesk
 description: Manage support tickets, contacts, and knowledge base via Freshdesk API. Create, update, and resolve customer issues.
-metadata: {"clawdbot":{"emoji":"🎧","requires":{"env":["FRESHDESK_DOMAIN","FRESHDESK_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["FRESHDESK_DOMAIN","FRESHDESK_API_KEY"]}}}
 ---
 
 # Freshdesk

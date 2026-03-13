@@ -14,10 +14,10 @@ curl -sSL https://raw.githubusercontent.com/paulpreibisch/AgentVibes/main/skills
 ## What This Does
 
 Automatically configures your Clawdbot instance to speak all responses via AgentVibes with:
-- ✅ Local TTS generation on remote device (Android/Linux)
-- ✅ Full voice effects (reverb, background music)
-- ✅ Automatic triggering (no manual commands)
-- ✅ Secure SSH transmission
+-  Local TTS generation on remote device (Android/Linux)
+-  Full voice effects (reverb, background music)
+-  Automatic triggering (no manual commands)
+-  Secure SSH transmission
 
 ## Documentation
 

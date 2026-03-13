@@ -177,7 +177,7 @@ def deep_read(doi):
 
 def _format_paper(p, idx=None):
     prefix = f"{idx}. " if idx else ""
-    oa = "🔓" if p.get("open_access") else "🔒"
+    oa = "" if p.get("open_access") else ""
     year = f"({p['year']})" if p.get("year") else ""
     cites = f"[{p['citations']} citations]" if p.get("citations") else ""
     authors = ", ".join(p.get("authors", [])[:3])
@@ -245,7 +245,7 @@ def main():
         if use_json:
             print(json.dumps(results, indent=2))
         else:
-            print(f"🔍 Found {len(results)} results for: {args.query}\n")
+            print(f" Found {len(results)} results for: {args.query}\n")
             for i, p in enumerate(results, 1):
                 print(_format_paper(p, i))
                 print()
@@ -266,7 +266,7 @@ def main():
         elif paper:
             print(_format_paper(paper))
         else:
-            print("❌ Not found")
+            print(" Not found")
 
     elif args.cmd == "citations":
         result = get_citations(args.doi, args.direction, args.limit)
@@ -274,7 +274,7 @@ def main():
             print(json.dumps(result, indent=2))
         else:
             for dir_name, papers in result.items():
-                print(f"\n{'📥' if dir_name == 'cited_by' else '📤'} {dir_name.replace('_', ' ').title()} ({len(papers)}):\n")
+                print(f"\n{'' if dir_name == 'cited_by' else ''} {dir_name.replace('_', ' ').title()} ({len(papers)}):\n")
                 for i, p in enumerate(papers, 1):
                     print(_format_paper(p, i))
                     print()
@@ -286,7 +286,7 @@ def main():
         elif paper:
             print(_format_paper(paper))
         else:
-            print("❌ Not found")
+            print(" Not found")
 
     else:
         parser.print_help()

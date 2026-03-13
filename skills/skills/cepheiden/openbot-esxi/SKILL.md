@@ -19,7 +19,7 @@ Deploy fully configured Debian 13 VMs on ESXi 8 in ~8 minutes with zero manual i
 | `DOMAIN` | No | Domain for VMs (default: `local`) |
 | `VM_PASS` | **Yes** (resize only) | VM root password for disk resize script |
 
-> **⚠️ Note:** The deploy script generates a random VM password and prints it to stdout. The password is also embedded in the preseed ISO uploaded to the ESXi datastore. Remove the ISO after deployment and treat stdout output as sensitive.
+> ** Note:** The deploy script generates a random VM password and prints it to stdout. The password is also embedded in the preseed ISO uploaded to the ESXi datastore. Remove the ISO after deployment and treat stdout output as sensitive.
 
 ## Requirements
 

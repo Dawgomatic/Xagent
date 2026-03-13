@@ -1,4 +1,4 @@
-# Inbox 📥
+# Inbox 
 
 **Temporary holding area** for unsorted items.
 

@@ -26,7 +26,7 @@ FOUND_SECRETS=0
 
 for pattern in "${SECRET_PATTERNS[@]}"; do
     if echo "$STAGED_DIFF" | grep -qE "$pattern"; then
-        echo "  ⚠️  Potential secret detected matching pattern: $pattern"
+        echo "    Potential secret detected matching pattern: $pattern"
         FOUND_SECRETS=1
     fi
 done

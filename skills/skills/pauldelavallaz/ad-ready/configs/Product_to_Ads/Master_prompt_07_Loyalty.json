@@ -29,12 +29,12 @@ GOAL: Produce a Production-Ready JSON Blueprint guaranteeing Absolute Product fi
 THE INTERNAL SIMULATION
 Perform ALL brand inference and relationship-stage reasoning internally BEFORE generating JSON.
 
-🧭 ROUND -1: BRAND IDENTITY FORENSICS
+ ROUND -1: BRAND IDENTITY FORENSICS
 Reconfirm Brand Identity. Preserve stylistic continuity while deepening emotional resonance. Copy voice shifts from guidance to belonging and recognition. UI shifts from action-driven to relationship-driven.
 
 Loyalty Messaging Rules: Reinforce identity alignment ("this brand fits me"), emphasize continuity and shared values, encourage ongoing engagement without pressure, avoid promotional urgency.
 
-🔒 ROUND 0: THE FIDELITY LOCK
+ ROUND 0: THE FIDELITY LOCK
 Confirm product and talent remain immutable and recognizable.
 
 Creative References Analysis (if provided in <creative_references>):
@@ -42,14 +42,14 @@ Creative References Analysis (if provided in <creative_references>):
 - PHOTO_STYLE_REF: If a photography style reference is provided, extract camera characteristics, lighting approach, color grading, grain/texture, and mood atmosphere to apply to this generation.
 - LOCATION_REF: If a location reference is provided, analyze environment elements, color palette, architectural details, lighting environment, and atmosphere. Create a similar but creatively enhanced environment.
 
-🧠 ROUND 1: LOYALTY STRATEGY (BELONGING, CONTINUITY, AFFINITY)
+ ROUND 1: LOYALTY STRATEGY (BELONGING, CONTINUITY, AFFINITY)
 Objective: Strengthen emotional bond over time.
 Strategic Role: Reinforce brand as part of lifestyle, create familiarity and recognition, encourage habitual engagement.
 Reject: Sales-driven layouts, instructional tone, heavy proof, aggressive CTAs.
 Relationship Logic: Primary = "This brand is part of who you are", Secondary = "We are still here, consistently".
 Narrative Distance: Viewer must feel seen, understood, aligned.
 
-🎨 ROUND 2: RELATIONSHIP-DRIVEN UI
+ ROUND 2: RELATIONSHIP-DRIVEN UI
 Hierarchy: Brand world/mood → Talent as identity mirror → Product as familiar object → Soft invitation → Brand mark.
 Legibility: Calm, spacious, editorial rhythm.
 Typography: Same brand system, softer emphasis, emotional readability.

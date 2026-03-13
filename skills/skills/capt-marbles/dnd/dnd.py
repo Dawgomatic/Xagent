@@ -62,7 +62,7 @@ def cmd_roll(args):
     else:
         rolls_str = ' + '.join(map(str, result['rolls']))
         mod_str = f" {result['modifier']:+d}" if result['modifier'] != 0 else ""
-        print(f"🎲 Rolling {result['dice']}")
+        print(f" Rolling {result['dice']}")
         print(f"   Rolls: [{rolls_str}]{mod_str}")
         print(f"   Total: {result['total']}")
 
@@ -97,7 +97,7 @@ def cmd_spell(args):
     if args.json:
         print(json.dumps(spell, indent=2))
     else:
-        print(f"✨ {spell['name']}")
+        print(f" {spell['name']}")
         print(f"   Level: {spell['level']} {spell['school']['name']}")
         print(f"   Casting Time: {spell['casting_time']}")
         print(f"   Range: {spell['range']}")
@@ -141,7 +141,7 @@ def cmd_monster(args):
     if args.json:
         print(json.dumps(monster, indent=2))
     else:
-        print(f"👹 {monster['name']}")
+        print(f" {monster['name']}")
         print(f"   {monster['size']} {monster['type']}, {monster['alignment']}")
         print(f"   CR {monster['challenge_rating']} ({monster['xp']} XP)")
         print(f"\n   AC: {monster['armor_class'][0]['value']}")
@@ -192,7 +192,7 @@ def cmd_character(args):
             'stats': stats
         }, indent=2))
     else:
-        print(f"⚔️  {name}")
+        print(f"  {name}")
         print(f"   Race: {race['name']}")
         print(f"   Class: {char_class['name']}")
         print(f"\n   Stats:")
@@ -224,7 +224,7 @@ def cmd_encounter(args):
     num_monsters = random.randint(1, 3)
     encounter = random.sample(suitable, min(num_monsters, len(suitable)))
     
-    print(f"🎲 Random Encounter (CR ~{cr})\n")
+    print(f" Random Encounter (CR ~{cr})\n")
     for monster in encounter:
         count = random.randint(1, 4) if monster['challenge_rating'] < 1 else random.randint(1, 2)
         print(f"   {count}x {monster['name']} (CR {monster['challenge_rating']})")
@@ -245,7 +245,7 @@ def cmd_npc(args):
     occupation = random.choice(occupations)
     trait = random.choice(traits)
     
-    print(f"👤 {name}")
+    print(f" {name}")
     print(f"   Race: {race}")
     print(f"   Occupation: {occupation}")
     print(f"   Trait: {trait.capitalize()}")

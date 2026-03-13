@@ -1,7 +1,7 @@
 ---
 name: timer
 description: Set timers and alarms. When a background timer completes, you receive a System notification - respond with the reminder message (NOT HEARTBEAT_OK) to notify the user.
-metadata: {"clawdbot":{"emoji":"⏱️","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Timer
@@ -35,24 +35,24 @@ bash background:true command:"node {baseDir}/timer.js 1h"
 | `MM:SS` | Minutes and seconds | `5:30` |
 | `HH:MM:SS` | Hours, minutes, seconds | `1:30:00` |
 
-## ⚠️ CRITICAL: Timer Completion Notification
+##  CRITICAL: Timer Completion Notification
 
 When a timer completes, you receive a `System:` message like:
 ```
-System: [2026-01-24 21:27:13] Exec completed (swift-me, code 0) :: ⏰ Timer complete! Check the pasta!
+System: [2026-01-24 21:27:13] Exec completed (swift-me, code 0) ::  Timer complete! Check the pasta!
 ```
 
-### ❌ WRONG - Do NOT respond like this:
+###  WRONG - Do NOT respond like this:
 ```
 HEARTBEAT_OK
 
-🎉 Your timer is complete! Check the pasta!
+ Your timer is complete! Check the pasta!
 ```
 This response will be **filtered and NOT delivered** to the user!
 
-### ✅ CORRECT - Respond like this:
+###  CORRECT - Respond like this:
 ```
-⏰ Timer Alert! Your timer is complete: Check the pasta!
+ Timer Alert! Your timer is complete: Check the pasta!
 ```
 Start directly with the notification message. Do NOT include HEARTBEAT_OK.
 
@@ -64,7 +64,7 @@ Start directly with the notification message. Do NOT include HEARTBEAT_OK.
 ```bash
 bash background:true command:"node {baseDir}/timer.js 12m 'Pasta is ready!'"
 ```
-When complete, respond: "⏰ Your 12-minute timer is up! Pasta is ready!"
+When complete, respond: " Your 12-minute timer is up! Pasta is ready!"
 
 ### Quick Reminder
 ```bash

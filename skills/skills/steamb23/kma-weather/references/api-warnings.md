@@ -266,10 +266,10 @@ data = fetch_warnings()
 items = data["response"]["body"]["items"]["item"]
 
 if items:
-    print("⚠️  Active weather warnings!")
+    print("  Active weather warnings!")
     print(format_warnings(data))
 else:
-    print("✅ No active weather warnings")
+    print(" No active weather warnings")
 ```
 
 **Filter by warning type**:
@@ -283,7 +283,7 @@ typhoon_warnings = [
 ]
 
 if typhoon_warnings:
-    print("🌀 Typhoon warning in effect!")
+    print(" Typhoon warning in effect!")
 ```
 
 ---

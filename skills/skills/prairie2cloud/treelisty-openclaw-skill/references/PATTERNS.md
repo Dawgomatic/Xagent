@@ -8,7 +8,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 📋 generic — Generic Project
+##  generic — Generic Project
 
 **Use for:** General projects, default structure, anything that doesn't fit another pattern.
 
@@ -27,7 +27,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 💼 sales — Sales Pipeline
+##  sales — Sales Pipeline
 
 **Use for:** Sales tracking, deal management, quarterly pipelines.
 
@@ -49,7 +49,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 🎓 thesis — Academic Writing
+##  thesis — Academic Writing
 
 **Use for:** Dissertations, academic papers, research documents.
 
@@ -71,7 +71,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 🚀 roadmap — Product Roadmap
+##  roadmap — Product Roadmap
 
 **Use for:** Product planning, feature roadmaps, sprint organization.
 
@@ -92,7 +92,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 📚 book — Book Writing
+##  book — Book Writing
 
 **Use for:** Novels, non-fiction books, screenplays.
 
@@ -114,7 +114,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 🎉 event — Event Planning
+##  event — Event Planning
 
 **Use for:** Conferences, parties, corporate events, weddings.
 
@@ -136,7 +136,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 💪 fitness — Fitness Program
+##  fitness — Fitness Program
 
 **Use for:** Training programs, workout plans, athletic periodization.
 
@@ -159,7 +159,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 📊 strategy — Strategic Plan
+##  strategy — Strategic Plan
 
 **Use for:** Business strategy, OKRs, strategic initiatives.
 
@@ -181,7 +181,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 📖 course — Course Design
+##  course — Course Design
 
 **Use for:** Educational curricula, training programs, lesson planning.
 
@@ -204,7 +204,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 🎬 film — AI Video Production
+##  film — AI Video Production
 
 **Use for:** AI video projects using Sora, Veo, Runway, Pika, etc.
 
@@ -229,7 +229,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 🤔 philosophy — Philosophy
+##  philosophy — Philosophy
 
 **Use for:** Philosophical arguments, Socratic dialogues, treatises.
 
@@ -256,7 +256,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 🧠 prompting — Prompt Engineering
+##  prompting — Prompt Engineering
 
 **Use for:** Prompt libraries, AI instruction design, prompt testing.
 
@@ -281,7 +281,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 👨‍👩‍👧‍👦 familytree — Family Tree
+##  familytree — Family Tree
 
 **Use for:** Genealogy, family history documentation.
 
@@ -311,7 +311,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 💬 dialogue — Dialogue & Rhetoric
+##  dialogue — Dialogue & Rhetoric
 
 **Use for:** Debate analysis, conversation mapping, rhetoric study.
 
@@ -337,7 +337,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 💾 filesystem — File System
+##  filesystem — File System
 
 **Use for:** File organization, folder structure planning, drive mapping.
 
@@ -363,7 +363,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 📧 gmail — Email Workflow
+##  gmail — Email Workflow
 
 **Use for:** Email campaign planning, inbox organization, email analysis.
 
@@ -386,7 +386,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 📚 knowledge-base — Knowledge Base
+##  knowledge-base — Knowledge Base
 
 **Use for:** Document corpora, RAG preparation, knowledge management.
 
@@ -410,7 +410,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 💰 capex — CAPEX / Angel Pitch
+##  capex — CAPEX / Angel Pitch
 
 **Use for:** Capital expenditure planning, investor pitch decks, fundraising structures.
 
@@ -431,7 +431,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 🎙️ freespeech — Free Speech
+##  freespeech — Free Speech
 
 **Use for:** Voice transcription analysis, stream-of-consciousness capture, psychological pattern detection.
 
@@ -451,7 +451,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## 🌳 lifetree — LifeTree
+##  lifetree — LifeTree
 
 **Use for:** Biographical timelines, life stories, memoir planning.
 
@@ -477,7 +477,7 @@ Complete reference for all 21 TreeListy patterns. Each pattern provides:
 
 ---
 
-## ✏️ custom — Custom Names
+##  custom — Custom Names
 
 **Use for:** When none of the above fit. Define your own level names.
 

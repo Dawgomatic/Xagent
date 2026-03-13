@@ -4,7 +4,7 @@ Token-efficient scripts for common PlanetScale operations. Execute without loadi
 
 ## Available Scripts
 
-### 🌿 create-branch-for-mr.sh
+###  create-branch-for-mr.sh
 
 Create PlanetScale branch matching your MR or PR branch name.
 
@@ -40,7 +40,7 @@ Create PlanetScale branch matching your MR or PR branch name.
 
 ---
 
-### 🚀 deploy-schema-change.sh
+###  deploy-schema-change.sh
 
 Create deploy request and optionally deploy schema changes.
 
@@ -80,7 +80,7 @@ Create deploy request and optionally deploy schema changes.
 
 ---
 
-### 🔄 sync-branch-with-main.sh
+###  sync-branch-with-main.sh
 
 Refresh development branch schema with main branch.
 

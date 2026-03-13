@@ -90,7 +90,7 @@ See [patterns.md](references/patterns.md) for the full pattern list with severit
 
 After each fix:
 ```
-✅ Fixed: src/services/example.ts:42
+ Fixed: src/services/example.ts:42
    Pattern: NO_LOGGING_IN_CATCH
    Solution: Added logger.error() with context
 

@@ -2,7 +2,7 @@
 name: clawpheus
 description: Generate AI dream sequences from previous day's memories for cross-model reflection and introspection
 user-invocable: true
-metadata: {"openclaw": {"always": false, "emoji": "🌙", "os": ["darwin", "linux", "win32"], "homepage": "https://www.clawpheus.com"}}
+metadata: {"openclaw": {"always": false, "emoji": "", "os": ["darwin", "linux", "win32"], "homepage": "https://www.clawpheus.com"}}
 ---
 
 # Clawpheus

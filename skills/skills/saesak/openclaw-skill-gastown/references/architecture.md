@@ -21,7 +21,7 @@ Gas Town is a workspace manager that coordinates multiple Claude Code agents wor
          │                                                     │
          │   ┌─────────┐    ┌─────────┐    ┌─────────┐        │
          │   │  Mayor  │    │ Deacon  │    │  Boot   │        │
-         │   │   🦊    │    │   ⚙️    │    │         │        │
+         │   │       │    │       │    │         │        │
          │   └────┬────┘    └────┬────┘    └────┬────┘        │
          │        │              │              │              │
          │        └──────────────┼──────────────┘              │
@@ -32,8 +32,8 @@ Gas Town is a workspace manager that coordinates multiple Claude Code agents wor
          │   │   ┌───────────────┼───────────────┐   │        │
          │   │   │               │               │   │        │
          │   │   ▼               ▼               ▼   │        │
-         │   │ Witness 🦅    Refinery 🦡    Polecats │        │
-         │   │                               🦨🦨🦨   │        │
+         │   │ Witness     Refinery     Polecats │        │
+         │   │                                  │        │
          │   │                                       │        │
          │   │   ┌─────────────────────────────┐    │        │
          │   │   │         .beads/             │    │        │
@@ -46,40 +46,40 @@ Gas Town is a workspace manager that coordinates multiple Claude Code agents wor
 
 ## Agents
 
-### Mayor 🦊
+### Mayor 
 Primary AI coordinator. A Claude Code instance with full context about workspace, projects, and agents.
 - Dispatches work, coordinates across rigs
 - Creates convoys, slings beads to polecats
 - **Must send SWARM_START** when dispatching batches for completion tracking
 
-### Witness 🦅
+### Witness 
 Per-rig worker monitor.
 - Watches polecats for stuck/completed state
 - Runs patrol cycles checking worker health
 - Sends SWARM_COMPLETE to Mayor when batch finishes
 - Escalates issues to Mayor
 
-### Refinery 🦡
+### Refinery 
 Merge queue processor.
 - Processes polecat branches from merge queue
 - Merges to main after review
 - Closes beads after successful merge
 - Handles conflict resolution
 
-### Polecats 🦨
+### Polecats 
 Ephemeral worker agents.
 - Spawned by Mayor via `gt sling`
 - Follow `mol-polecat-work` lifecycle (9 steps)
 - Self-destruct after submitting to merge queue
 - Work on feature branches, never main directly
 
-### Deacon ⚙️
+### Deacon 
 Infrastructure daemon.
 - Background patrol loop
 - Health checks, session monitoring
 - Nudges agents periodically
 
-### Dogs 🐕
+### Dogs 
 Cross-rig infrastructure workers.
 - Diagnostics and health checks
 - Recovery operations
@@ -118,13 +118,13 @@ Cross-rig infrastructure workers.
 
 ## Key Mechanisms
 
-### Hooks 🪝
+### Hooks 
 Git worktree-based persistent storage.
 - Each agent has a hook where work lands
 - Survives crashes and restarts
 - **GUPP**: If there's work on your hook, you RUN IT
 
-### Formulas 📜
+### Formulas 
 Workflow templates (TOML files).
 - `mol-polecat-work` — Standard 9-step polecat lifecycle
 - `mol-witness-patrol` — Witness monitoring loop
@@ -135,13 +135,13 @@ Workflow templates (TOML files).
 cd ~/gt/<rig>/.beads && ln -s ../../.beads/formulas formulas
 ```
 
-### Convoys 🚚
+### Convoys 
 Work tracking bundles.
 - Group related beads together
 - Track progress across multiple polecats
 - Auto-close when all beads complete
 
-### Mail System 📬
+### Mail System 
 Inter-agent communication.
 - `gt mail send <target> -s "subject" -m "message"`
 - `gt mail inbox` to check messages

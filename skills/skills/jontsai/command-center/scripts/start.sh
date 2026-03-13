@@ -27,12 +27,12 @@ done
 
 # Check if already running
 if [ -f "$PID_FILE" ] && kill -0 "$(cat $PID_FILE)" 2>/dev/null; then
-    echo "⚠️  Dashboard already running (PID: $(cat $PID_FILE))"
+    echo "  Dashboard already running (PID: $(cat $PID_FILE))"
     echo "   Stop it first: ./stop.sh"
     exit 1
 fi
 
-echo "🚀 Starting OpenClaw Command Center..."
+echo " Starting OpenClaw Command Center..."
 echo ""
 
 # Start the Node.js server
@@ -45,16 +45,16 @@ sleep 1
 
 # Check if server started
 if ! kill -0 $SERVER_PID 2>/dev/null; then
-    echo "❌ Failed to start server"
+    echo " Failed to start server"
     exit 1
 fi
 
-echo "✅ Dashboard running at http://localhost:$PORT"
+echo " Dashboard running at http://localhost:$PORT"
 
 # Start tunnel if requested
 if [ "$TUNNEL" = true ]; then
     echo ""
-    echo "🌐 Starting Cloudflare tunnel..."
+    echo " Starting Cloudflare tunnel..."
     cloudflared tunnel --url http://localhost:$PORT &
     TUNNEL_PID=$!
     echo $TUNNEL_PID > "$TUNNEL_PID_FILE"
@@ -62,9 +62,9 @@ if [ "$TUNNEL" = true ]; then
     # Wait a moment for the tunnel URL to appear
     sleep 3
     echo ""
-    echo "📋 Tunnel should be active. Look for the trycloudflare.com URL above."
+    echo " Tunnel should be active. Look for the trycloudflare.com URL above."
 fi
 
 echo ""
-echo "📊 Dashboard: http://localhost:$PORT"
-echo "🛑 To stop: $SCRIPT_DIR/stop.sh"
+echo " Dashboard: http://localhost:$PORT"
+echo " To stop: $SCRIPT_DIR/stop.sh"

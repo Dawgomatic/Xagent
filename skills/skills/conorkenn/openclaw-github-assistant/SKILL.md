@@ -3,7 +3,7 @@ name: github
 description: Query and manage GitHub repositories - list repos, check CI status, create issues, search repos, and view recent activity.
 metadata:
   openclaw:
-    emoji: "🐙"
+    emoji: ""
     requires:
       env:
         - GITHUB_TOKEN
@@ -84,14 +84,14 @@ openclaw gateway restart
 
 ## Security Notes
 
-⚠️ **Protect Your Token:**
+ **Protect Your Token:**
 
 - Never commit your token to git or share it publicly
 - Use the minimal required scopes (`repo` for private repos, `public_repo` for public-only)
 - Rotate your token if you suspect it was compromised
 - Consider using a secrets manager for production use
 
-⚠️ **Best Practices:**
+ **Best Practices:**
 
 - Don't store tokens in shell profiles (~/.zshrc) on shared machines
 - For local development, environment variables are acceptable

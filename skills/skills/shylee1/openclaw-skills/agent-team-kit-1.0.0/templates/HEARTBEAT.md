@@ -60,18 +60,18 @@ You're the coordinator. The team does the work. Your job is to make sure they're
 
 | Situation | Spawn |
 |-----------|-------|
-| No new opportunities in 4h | Scout 🔍 |
-| Untriaged items piling up | Rhythm 🥁 |
-| Work stuck, needs unblocking | Harmony 🤝 |
-| Dev task ready | Link 🔗 |
-| Design task ready | Pixel 🎨 |
-| Architecture decision needed | Sage 🦉 |
-| Content/comms task ready | Echo 📢 |
-| Creative task ready | Spark ✨ |
+| No new opportunities in 4h | Scout  |
+| Untriaged items piling up | Rhythm  |
+| Work stuck, needs unblocking | Harmony  |
+| Dev task ready | Link  |
+| Design task ready | Pixel  |
+| Architecture decision needed | Sage  |
+| Content/comms task ready | Echo  |
+| Creative task ready | Spark  |
 
 ---
 
-## ❌ Anti-Patterns (Don't Do This)
+##  Anti-Patterns (Don't Do This)
 
 | Bad | Why | Fix |
 |-----|-----|-----|

@@ -152,7 +152,7 @@ async function main(): Promise<void> {
   const endTime = Math.floor(Date.now() / 1000) + args.durationHours * 3600;
   const liquidityWei = ethers.parseUnits(args.liquidity, decimals);
 
-  console.log("\n🎯 Creating Prediction Market\n");
+  console.log("\n Creating Prediction Market\n");
   console.log(`Question:    ${args.question}`);
   console.log(`Duration:    ${args.durationHours} hours`);
   console.log(`End Time:    ${new Date(endTime * 1000).toISOString()}`);
@@ -168,7 +168,7 @@ async function main(): Promise<void> {
       collateralToken: collateralAddress,
     });
 
-    console.log("✅ Market Created!\n");
+    console.log(" Market Created!\n");
     console.log(`Condition ID: ${conditionId}`);
     console.log(`Tx Hash:      ${hash}`);
     console.log(`\nBaseScan:     https://basescan.org/tx/${hash}`);
@@ -178,7 +178,7 @@ async function main(): Promise<void> {
     console.log(JSON.stringify({ conditionId, hash, endTime }, null, 2));
 
   } catch (error: any) {
-    console.error("\n❌ Failed:", error.message);
+    console.error("\n Failed:", error.message);
     process.exit(1);
   }
 }

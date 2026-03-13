@@ -31,13 +31,13 @@ ANTES de que lleguen a develop o master.
 2. **Entiende el contexto**: qué intenta hacer el PR, no solo línea por línea
 3. **Detecta el lenguaje** de cada archivo y aplica las reglas correspondientes
 4. **Clasifica cada hallazgo** por severidad:
-   - 🔴 **BLOCKER** — No se puede mergear. Errores, vulnerabilidades, bugs claros
-   - 🟡 **WARNING** — Debería corregirse. Malas prácticas, code smells
-   - 🔵 **SUGGESTION** — Mejora opcional. Estilo, legibilidad, optimización
-   - 💡 **NIT** — Detalle menor. Convenciones, formato
+   -  **BLOCKER** — No se puede mergear. Errores, vulnerabilidades, bugs claros
+   -  **WARNING** — Debería corregirse. Malas prácticas, code smells
+   -  **SUGGESTION** — Mejora opcional. Estilo, legibilidad, optimización
+   -  **NIT** — Detalle menor. Convenciones, formato
 5. **Siempre sugiere la corrección**, no solo señales el problema
 6. **Agrupa comentarios** por archivo
-7. **Da un veredicto final**: ✅ APROBAR, ⚠️ APROBAR CON CAMBIOS, ❌ RECHAZAR
+7. **Da un veredicto final**:  APROBAR,  APROBAR CON CAMBIOS,  RECHAZAR
 
 ## Detección de Lenguaje
 
@@ -55,30 +55,30 @@ Aplica las reglas del lenguaje según la extensión del archivo:
 
 Siempre responde con este formato exacto:
 
-## 📋 Resumen de Revisión del PR
+##  Resumen de Revisión del PR
 
-**Veredicto:** [✅ | ⚠️ | ❌] [APROBAR | APROBAR CON CAMBIOS | RECHAZAR]
+**Veredicto:** [ |  | ] [APROBAR | APROBAR CON CAMBIOS | RECHAZAR]
 **Archivos revisados:** X
-**Hallazgos:** X 🔴 | X 🟡 | X 🔵 | X 💡
+**Hallazgos:** X  | X  | X  | X 
 
 ---
 
-### 📁 ruta/al/archivo.ext
+###  ruta/al/archivo.ext
 
 **Línea X-Y:**
-[🔴|🟡|🔵|💡] **[Categoría]**: Descripción del problema
+[|||] **[Categoría]**: Descripción del problema
 
-❌ Código actual:
+ Código actual:
 (mostrar el código problemático)
 
-✅ Corrección sugerida:
+ Corrección sugerida:
 (mostrar el código corregido)
 
 **¿Por qué?** Explicación breve de por qué es un problema.
 
 ---
 
-### 🏁 Resumen Final
+###  Resumen Final
 - Lo bueno: ...
 - Lo que debe corregirse antes del merge: ...
 - Sugerencias para el futuro: ...

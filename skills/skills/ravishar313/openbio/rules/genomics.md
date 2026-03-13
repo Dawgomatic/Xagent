@@ -70,24 +70,24 @@ NC_000017.11:g.7673803C>G  # Genomic
 
 ### Wrong: Using gene symbols without species
 ```
-❌ lookup_gene: "BRCA1"
+ lookup_gene: "BRCA1"
    → May return wrong species
 ```
 
 ```
-✅ Always specify species:
+ Always specify species:
    lookup_gene with species: "human"
    Or use Ensembl ID: ENSG00000012048
 ```
 
 ### Wrong: Assuming one gene = one transcript
 ```
-❌ Taking first transcript as representative
+ Taking first transcript as representative
 ```
 **Why wrong**: Most genes have multiple isoforms with different functions.
 
 ```
-✅ Check:
+ Check:
    - get_sequence for all transcripts
    - Identify canonical transcript (usually longest)
    - Consider tissue-specific isoforms
@@ -95,22 +95,22 @@ NC_000017.11:g.7673803C>G  # Genomic
 
 ### Wrong: VEP without assembly version
 ```
-❌ vep_predict with positions from unknown assembly
+ vep_predict with positions from unknown assembly
 ```
 **Why wrong**: Position 12345 on GRCh37 ≠ position 12345 on GRCh38.
 
 ```
-✅ Always specify assembly or ensure consistent coordinates
+ Always specify assembly or ensure consistent coordinates
 ```
 
 ### Wrong: Treating GWAS hits as causal
 ```
-❌ "rs7329174 causes Type 2 diabetes"
+ "rs7329174 causes Type 2 diabetes"
 ```
 **Why wrong**: GWAS finds associations, not causation. Variant may be in LD with causal variant.
 
 ```
-✅ Interpret correctly:
+ Interpret correctly:
    "rs7329174 is associated with T2D risk"
    Check LD, fine-mapping studies for causal variants
 ```

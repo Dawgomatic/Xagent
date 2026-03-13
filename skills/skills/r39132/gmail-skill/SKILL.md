@@ -6,7 +6,7 @@ requires:
   env: ["GMAIL_ACCOUNT"]
 metadata:
   openclaw:
-    emoji: "📧"
+    emoji: ""
 ---
 
 # Gmail Skill

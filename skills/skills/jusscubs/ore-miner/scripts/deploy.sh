@@ -16,12 +16,12 @@ else
 fi
 
 # Step 1: Get wallet address
-echo "🔍 Fetching wallet address..."
+echo " Fetching wallet address..."
 ACCOUNT_INFO=$(curl -s "$API_URL/account/me" -H "$AUTH_HEADER")
 WALLET=$(echo "$ACCOUNT_INFO" | python3 -c "import sys,json; print(json.load(sys.stdin).get('wallet_address',''))" 2>/dev/null || echo "")
 
 if [ -z "$WALLET" ]; then
-  echo "❌ Could not get wallet address. Response:"
+  echo " Could not get wallet address. Response:"
   echo "$ACCOUNT_INFO"
   exit 1
 fi
@@ -31,7 +31,7 @@ echo "  Wallet: $WALLET"
 TILES_JSON=$(echo "$TILE_IDS" | python3 -c "import sys; print([int(x.strip()) for x in sys.stdin.read().split(',')])")
 NUM_TILES=$(echo "$TILE_IDS" | tr ',' '\n' | wc -l)
 
-echo "⛏️ Deploying with custom tiles on refinORE..."
+echo " Deploying with custom tiles on refinORE..."
 echo "  SOL: $SOL_AMOUNT | Tiles: $NUM_TILES | IDs: $TILE_IDS"
 
 RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$API_URL/mining/start" \
@@ -52,10 +52,10 @@ HTTP_CODE=$(echo "$RESPONSE" | tail -1)
 BODY=$(echo "$RESPONSE" | sed '$d')
 
 if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
-  echo "✅ Custom tile mining started!"
+  echo " Custom tile mining started!"
   echo "$BODY" | python3 -m json.tool 2>/dev/null || echo "$BODY"
 else
-  echo "❌ Failed (HTTP $HTTP_CODE)"
+  echo " Failed (HTTP $HTTP_CODE)"
   echo "$BODY"
   exit 1
 fi

@@ -1,12 +1,12 @@
 # Testing Guide - Agent Identity Card Full Flow
 
-## 🧪 Complete End-to-End Test
+##  Complete End-to-End Test
 
 This guide walks through testing the entire agent identity card flow from skill execution to viewing on the frontend.
 
 ---
 
-## ⚠️ Current Build Status
+##  Current Build Status
 
 **Known Issues (Non-Critical):**
 - Some deprecated modules have TypeScript errors (recommender/*,  blockchain/contract-client.ts)
@@ -14,15 +14,15 @@ This guide walks through testing the entire agent identity card flow from skill 
 - The core functionality (skill → backend → frontend) works correctly
 
 **Working Modules:**
-- ✅ Core skill execution (`src/bloom-identity-skill-v2.ts`)
-- ✅ Agent wallet creation (`src/blockchain/agent-wallet.ts`)
-- ✅ Personality analysis (`src/analyzers/personality-analyzer.ts`)
-- ✅ Backend API integration
-- ✅ Frontend route display
+-  Core skill execution (`src/bloom-identity-skill-v2.ts`)
+-  Agent wallet creation (`src/blockchain/agent-wallet.ts`)
+-  Personality analysis (`src/analyzers/personality-analyzer.ts`)
+-  Backend API integration
+-  Frontend route display
 
 ---
 
-## 🚀 Prerequisites
+##  Prerequisites
 
 ### **1. Environment Setup**
 
@@ -51,7 +51,7 @@ NETWORK=base-mainnet
 
 ---
 
-## 📝 Test Flow
+##  Test Flow
 
 ### **Step 1: Build the Skill**
 
@@ -86,12 +86,12 @@ node dist/index.js
 
 **Expected Output:**
 ```
-🎴 Generating Bloom Identity for user: default-user
-📊 Step 1: Attempting data collection...
-📊 Data quality score: 0/100
-⚠️  Insufficient data for AI analysis
-🔄 Falling back to manual Q&A...
-❓ Manual input required from user
+ Generating Bloom Identity for user: default-user
+ Step 1: Attempting data collection...
+ Data quality score: 0/100
+  Insufficient data for AI analysis
+ Falling back to manual Q&A...
+ Manual input required from user
 
 Please answer the following questions to generate your identity card:
 ```
@@ -108,16 +108,16 @@ Please answer the following questions to generate your identity card:
 
 **Expected Console Output:**
 ```
-✅ Manual analysis complete: The Visionary
-🔍 Step 3: Finding matching OpenClaw Skills...
-✅ Found 10 matching skills
-🤖 Step 4: Initializing Agent Wallet...
-✅ Agent wallet ready: 0x1234...
-📝 Step 5: Registering agent with Bloom...
-✅ Agent registered! User ID: 416543868
-💾 Saving identity card...
-✅ Identity card saved!
-✅ Dashboard link ready: https://preflight.bloomprotocol.ai/agent/416543868
+ Manual analysis complete: The Visionary
+ Step 3: Finding matching OpenClaw Skills...
+ Found 10 matching skills
+ Step 4: Initializing Agent Wallet...
+ Agent wallet ready: 0x1234...
+ Step 5: Registering agent with Bloom...
+ Agent registered! User ID: 416543868
+ Saving identity card...
+ Identity card saved!
+ Dashboard link ready: https://preflight.bloomprotocol.ai/agent/416543868
 ```
 
 **Key Information to Note:**
@@ -178,14 +178,14 @@ https://preflight.bloomprotocol.ai/agent/416543868
 
 **Expected Visual Elements:**
 
-**✅ Agent Identity Card (Dark Theme):**
+** Agent Identity Card (Dark Theme):**
 - Dark background with gradient
 - Hero image at top (personality image)
 - Personality name: "The Visionary"
 - Tagline: "See beyond the hype"
 - Description paragraph
 
-**✅ 2x2 Dimension Scores:**
+** 2x2 Dimension Scores:**
 ```
 Conviction ←―――●―――→ Curiosity
         0%   85%   100%
@@ -194,14 +194,14 @@ Intuition ←―――●―――→ Analysis
        0%   75%   100%
 ```
 
-**✅ Categories:**
+** Categories:**
 - Main categories as tags (DeFi, Infrastructure, Social)
 - Sub-categories displayed below
 
-**✅ OpenClaw Badge:**
-- 🦞 via OpenClaw
+** OpenClaw Badge:**
+-  via OpenClaw
 
-**✅ Agent Details Section:**
+** Agent Details Section:**
 - Agent Name
 - Wallet Address (truncated)
 - Network (base-mainnet)
@@ -209,12 +209,12 @@ Intuition ←―――●―――→ Analysis
 - Generation Mode (Manual Q&A or On-chain Analysis)
 - Interests tags
 
-**✅ Footer CTA:**
+** Footer CTA:**
 - Link to GitHub repository
 
 ---
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### **Issue: Build Fails**
 
@@ -233,7 +233,7 @@ Check if `dist/` folder was created - if yes, build succeeded.
 
 **Symptom:**
 ```
-❌ Agent wallet initialization failed: Agent wallet not initialized
+ Agent wallet initialization failed: Agent wallet not initialized
 ```
 
 **Solution:**
@@ -247,7 +247,7 @@ Check if `dist/` folder was created - if yes, build succeeded.
 
 **Symptom:**
 ```
-❌ Bloom registration failed: HTTP 500
+ Bloom registration failed: HTTP 500
 ```
 
 **Solution:**
@@ -291,7 +291,7 @@ URL redirects to homepage
 
 ---
 
-## ✅ Success Checklist
+##  Success Checklist
 
 - [ ] Skill builds successfully (`dist/` folder created)
 - [ ] Skill executes and generates identity
@@ -301,13 +301,13 @@ URL redirects to homepage
 - [ ] Frontend displays identity card (dark theme visible)
 - [ ] 2x2 dimensions displayed correctly (sliders visible)
 - [ ] Categories and tags shown
-- [ ] OpenClaw badge visible (🦞 via OpenClaw)
+- [ ] OpenClaw badge visible ( via OpenClaw)
 - [ ] Agent details section populated
 - [ ] URL is short and shareable (~50 chars)
 
 ---
 
-## 📊 Performance Expectations
+##  Performance Expectations
 
 **Skill Execution:**
 - Manual Q&A: ~30 seconds (user input time)
@@ -323,7 +323,7 @@ URL redirects to homepage
 
 ---
 
-## 🎨 Visual Verification
+##  Visual Verification
 
 ### **Agent Card Should Match:**
 - Uses `AgentIdentityCard` component from dashboard
@@ -335,14 +335,14 @@ URL redirects to homepage
 - OpenClaw badge below categories
 
 ### **Not Human Card:**
-- ❌ No light theme
-- ❌ No black text on light background
-- ❌ No project count stats
-- ❌ No week number display
+-  No light theme
+-  No black text on light background
+-  No project count stats
+-  No week number display
 
 ---
 
-## 🔗 Quick Test URLs
+##  Quick Test URLs
 
 **Staging (Preflight):**
 ```
@@ -361,7 +361,7 @@ https://api.bloomprotocol.ai/x402/agent/416543868
 
 ---
 
-## 📝 Notes
+##  Notes
 
 **For Development:**
 - Use `DASHBOARD_URL=http://localhost:3000` for local frontend testing
@@ -374,4 +374,4 @@ https://api.bloomprotocol.ai/x402/agent/416543868
 
 ---
 
-Built with ❤️ for reliable testing
+Built with  for reliable testing

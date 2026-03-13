@@ -4,7 +4,7 @@ description: Create distinctive, production-grade static sites with React, Tailw
 homepage: https://github.com/kesslerio/frontend-design-ultimate-clawhub-skill
 metadata:
   openclaw:
-    emoji: "🎨"
+    emoji: ""
     requires:
       bins: ["node", "npm"]
 ---

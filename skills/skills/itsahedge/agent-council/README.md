@@ -55,7 +55,7 @@ openclaw gateway config.patch --raw '{
 ~/.openclaw/skills/agent-council/scripts/create-agent.sh \
   --name "Watson" \
   --id "watson" \
-  --emoji "🔬" \
+  --emoji "" \
   --specialty "Research and analysis specialist" \
   --model "anthropic/claude-opus-4-5" \
   --workspace "$HOME/agents/watson" \
@@ -99,7 +99,7 @@ openclaw gateway config.patch --raw '{"channels": {...}}'
 scripts/create-agent.sh \
   --name "Watson" \
   --id "watson" \
-  --emoji "🔬" \
+  --emoji "" \
   --specialty "Deep research and competitive analysis" \
   --model "anthropic/claude-opus-4-5" \
   --workspace "$HOME/agents/watson" \
@@ -116,7 +116,7 @@ scripts/create-agent.sh \
 scripts/create-agent.sh \
   --name "Agent Name" \
   --id "agent-id" \
-  --emoji "🤖" \
+  --emoji "" \
   --specialty "What this agent does" \
   --model "provider/model-name" \
   --workspace "/path/to/workspace" \
@@ -125,13 +125,13 @@ scripts/create-agent.sh \
 
 ### What It Does
 
-- ✅ Creates workspace with memory subdirectory
-- ✅ Generates SOUL.md (personality & responsibilities)
-- ✅ Generates HEARTBEAT.md (cron execution logic)
-- ✅ Updates gateway config automatically
-- ✅ Adds Discord channel binding (if specified)
-- ✅ Restarts gateway to apply changes
-- ✅ Optionally sets up daily memory cron job
+-  Creates workspace with memory subdirectory
+-  Generates SOUL.md (personality & responsibilities)
+-  Generates HEARTBEAT.md (cron execution logic)
+-  Updates gateway config automatically
+-  Adds Discord channel binding (if specified)
+-  Restarts gateway to apply changes
+-  Optionally sets up daily memory cron job
 
 ### Examples
 
@@ -140,7 +140,7 @@ scripts/create-agent.sh \
 scripts/create-agent.sh \
   --name "Watson" \
   --id "watson" \
-  --emoji "🔬" \
+  --emoji "" \
   --specialty "Deep research and competitive analysis" \
   --model "anthropic/claude-opus-4-5" \
   --workspace "$HOME/agents/watson" \
@@ -152,7 +152,7 @@ scripts/create-agent.sh \
 scripts/create-agent.sh \
   --name "Picasso" \
   --id "picasso" \
-  --emoji "🎨" \
+  --emoji "" \
   --specialty "Image generation and editing specialist" \
   --model "google/gemini-3-flash-preview" \
   --workspace "$HOME/agents/picasso" \
@@ -164,7 +164,7 @@ scripts/create-agent.sh \
 scripts/create-agent.sh \
   --name "Nurse Joy" \
   --id "nurse-joy" \
-  --emoji "💊" \
+  --emoji "" \
   --specialty "Health tracking and wellness monitoring" \
   --model "anthropic/claude-opus-4-5" \
   --workspace "$HOME/agents/nurse-joy" \
@@ -260,7 +260,7 @@ Agents and channels are automatically configured:
         },
         "identity": {
           "name": "Watson",
-          "emoji": "🔬"
+          "emoji": ""
         }
       }
     ]
@@ -403,20 +403,20 @@ sessions_send({
 ### Best Practices
 
 **When to use Discord bindings:**
-- ✅ Domain-specific agents (research, health, images)
-- ✅ User wants direct access to agent
-- ✅ Agent should respond to channel activity
+-  Domain-specific agents (research, health, images)
+-  User wants direct access to agent
+-  Agent should respond to channel activity
 
 **When to use sessions_send:**
-- ✅ Programmatic coordination
-- ✅ Main agent delegates to specialists
-- ✅ Need response in same session
+-  Programmatic coordination
+-  Main agent delegates to specialists
+-  Need response in same session
 
 **When to use sessions_spawn:**
-- ✅ Long-running tasks (>5 minutes)
-- ✅ Complex multi-step work
-- ✅ Want isolation from main session
-- ✅ Background processing
+-  Long-running tasks (>5 minutes)
+-  Complex multi-step work
+-  Want isolation from main session
+-  Background processing
 
 ### Example: Research Workflow
 

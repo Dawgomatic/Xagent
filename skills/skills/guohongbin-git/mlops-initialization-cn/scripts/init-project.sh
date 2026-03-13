@@ -5,15 +5,15 @@ set -e
 
 PROJECT_NAME="${1:-my-mlops-project}"
 
-echo "🚀 Initializing MLOps project: $PROJECT_NAME"
+echo " Initializing MLOps project: $PROJECT_NAME"
 
 # Create directory
 mkdir -p "$PROJECT_NAME"
 cd "$PROJECT_NAME"
 
 # Check tools
-command -v uv >/dev/null 2>&1 || { echo "❌ uv not installed. Run: curl -LsSf https://astral.sh/uv/install.sh | sh"; exit 1; }
-command -v git >/dev/null 2>&1 || { echo "❌ git not installed"; exit 1; }
+command -v uv >/dev/null 2>&1 || { echo " uv not installed. Run: curl -LsSf https://astral.sh/uv/install.sh | sh"; exit 1; }
+command -v git >/dev/null 2>&1 || { echo " git not installed"; exit 1; }
 
 # Initialize with uv
 uv init
@@ -114,7 +114,7 @@ git branch -M main
 git add .
 git commit -m "chore: initialize project with uv and vscode settings"
 
-echo "✅ Project initialized!"
+echo " Project initialized!"
 echo ""
 echo "Next steps:"
 echo "  cd $PROJECT_NAME"

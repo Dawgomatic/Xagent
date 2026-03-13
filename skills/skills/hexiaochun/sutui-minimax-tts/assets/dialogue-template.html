@@ -57,7 +57,7 @@
         }
         
         .full-audio-section h2::before {
-            content: "🎵";
+            content: "";
         }
         
         .full-audio-player {
@@ -104,7 +104,7 @@
         }
         
         .characters-section h2::before {
-            content: "👥 ";
+            content: " ";
         }
         
         .character-list {
@@ -146,7 +146,7 @@
         }
         
         .dialogues-section h2::before {
-            content: "💬 ";
+            content: " ";
         }
         
         .dialogue-item {
@@ -288,7 +288,7 @@
         <div class="full-audio-section">
             <h2>完整对话音频</h2>
             <button class="play-all-btn" onclick="playAll()">
-                <span class="icon">▶️</span>
+                <span class="icon"></span>
                 <span class="text">播放完整对话</span>
             </button>
             <div class="progress-bar">
@@ -302,7 +302,7 @@
             <div class="character-list">
                 {{#each characters}}
                 <div class="character-tag {{gender}}">
-                    <span>{{#if (eq gender 'male')}}👨{{else}}👩{{/if}}</span>
+                    <span>{{#if (eq gender 'male')}}{{else}}{{/if}}</span>
                     <span>{{name}}</span>
                     <span style="opacity: 0.7; font-size: 0.8rem;">({{voice_name}})</span>
                 </div>
@@ -324,7 +324,7 @@
                         </div>
                         <div class="dialogue-text">{{text}}</div>
                         <div class="dialogue-audio">
-                            <button class="play-btn" onclick="playSingle({{@index}})">▶</button>
+                            <button class="play-btn" onclick="playSingle({{@index}})"></button>
                             <audio id="audio-{{@index}}" src="{{audio_url}}" preload="metadata"></audio>
                         </div>
                     </div>
@@ -420,10 +420,10 @@
             const btn = document.querySelector('.play-all-btn');
             if (playing) {
                 btn.classList.add('playing');
-                btn.innerHTML = '<span class="icon">⏹️</span><span class="text">停止播放</span>';
+                btn.innerHTML = '<span class="icon"></span><span class="text">停止播放</span>';
             } else {
                 btn.classList.remove('playing');
-                btn.innerHTML = '<span class="icon">▶️</span><span class="text">播放完整对话</span>';
+                btn.innerHTML = '<span class="icon"></span><span class="text">播放完整对话</span>';
             }
         }
         

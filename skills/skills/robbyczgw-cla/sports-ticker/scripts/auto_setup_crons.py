@@ -82,7 +82,7 @@ def fixture_to_crons(fixture: dict, reminder_mins: int = 30,
             "schedule": reminder_cron,
             "oneshot": True,
             "enabled": True,
-            "message": f"⏰ **Match Reminder!**\n\n{fixture.get('team_emoji', '⚽')} {match_desc}\n\n🕐 Kickoff in {reminder_mins} minutes!\n📍 {fixture.get('venue', 'TBD')}",
+            "message": f" **Match Reminder!**\n\n{fixture.get('team_emoji', '')} {match_desc}\n\n Kickoff in {reminder_mins} minutes!\n {fixture.get('venue', 'TBD')}",
             "metadata": {
                 "type": "reminder",
                 "fixture_id": event_id,
@@ -160,7 +160,7 @@ def format_cron_summary(crons: list) -> str:
     if not crons:
         return "No cron jobs to generate (no upcoming fixtures found)."
     
-    lines = ["📅 **Generated Cron Jobs**\n"]
+    lines = [" **Generated Cron Jobs**\n"]
     
     # Group by fixture
     fixtures = {}
@@ -174,10 +174,10 @@ def format_cron_summary(crons: list) -> str:
         fixtures[fixture_id]["crons"].append(cron)
     
     for fixture_id, data in fixtures.items():
-        lines.append(f"\n🎯 **{data['desc'].split(': ')[-1]}**")
+        lines.append(f"\n **{data['desc'].split(': ')[-1]}**")
         for cron in data["crons"]:
             cron_type = cron.get("metadata", {}).get("type", "?")
-            enabled = "✅" if cron.get("enabled") else "⏸️"
+            enabled = "" if cron.get("enabled") else ""
             schedule = cron.get("schedule", "?")
             lines.append(f"  {enabled} `{cron['name']}` ({cron_type})")
             lines.append(f"      Schedule: `{schedule}`")
@@ -245,7 +245,7 @@ Examples:
     # Output
     if args.output:
         Path(args.output).write_text(json.dumps(crons, indent=2))
-        print(f"✅ Wrote {len(crons)} cron configs to {args.output}")
+        print(f" Wrote {len(crons)} cron configs to {args.output}")
     elif args.commands:
         print(output_openclaw_commands(crons))
     elif args.json:
@@ -253,7 +253,7 @@ Examples:
     else:
         # Default: summary
         print(format_cron_summary(crons))
-        print("\n💡 Use --json or --commands for machine-readable output")
+        print("\n Use --json or --commands for machine-readable output")
 
 
 if __name__ == "__main__":

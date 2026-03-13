@@ -23,7 +23,7 @@ sys.path.insert(0, CLIENT_DIR)
 try:
     from python_client import AgentNetworkClient
 except ImportError:
-    print("❌ 请先安装 Python 客户端: pip install websockets requests")
+    print(" 请先安装 Python 客户端: pip install websockets requests")
     sys.exit(1)
 
 
@@ -119,7 +119,7 @@ class ClawBotConnector:
             是否连接成功
         """
         try:
-            print(f"🔌 [{self.bot_name}] 正在连接 Agent Network...")
+            print(f" [{self.bot_name}] 正在连接 Agent Network...")
             print(f"   Server: {self.server_url}")
             print(f"   Bot ID: {self.bot_id}")
             
@@ -139,18 +139,18 @@ class ClawBotConnector:
             self._setup_handlers()
             
             self.connected = True
-            print(f"✅ [{self.bot_name}] 已连接到网络!")
+            print(f" [{self.bot_name}] 已连接到网络!")
             
             # 发送上线通知
             await self.client.send_message(
                 "clawdbots",
-                f"🟢 {self.bot_name} ({self.device_name}) 已上线"
+                f" {self.bot_name} ({self.device_name}) 已上线"
             )
             
             return True
             
         except Exception as e:
-            print(f"❌ 连接失败: {e}")
+            print(f" 连接失败: {e}")
             return False
     
     def _setup_handlers(self):
@@ -169,7 +169,7 @@ class ClawBotConnector:
         @self.client.on("mention")
         def on_mention(msg):
             """处理 @提及"""
-            print(f"🔔 [{self.bot_name}] 被 @{msg['fromName']} 提及")
+            print(f" [{self.bot_name}] 被 @{msg['fromName']} 提及")
             
             # 转发给提及处理函数
             for handler in self.mention_handlers:
@@ -181,7 +181,7 @@ class ClawBotConnector:
         @self.client.on("task_assigned")
         def on_task(task):
             """处理任务指派"""
-            print(f"📋 [{self.bot_name}] 收到新任务: {task['title']}")
+            print(f" [{self.bot_name}] 收到新任务: {task['title']}")
             
             for handler in self.task_handlers:
                 try:
@@ -191,7 +191,7 @@ class ClawBotConnector:
         
         @self.client.on("disconnected")
         def on_disconnect():
-            print(f"⚠️ [{self.bot_name}] 连接断开，尝试重连...")
+            print(f" [{self.bot_name}] 连接断开，尝试重连...")
             self.connected = False
     
     def on_message(self, handler: Callable):
@@ -236,7 +236,7 @@ class ClawBotConnector:
             while True:
                 await asyncio.sleep(1)
         except KeyboardInterrupt:
-            print(f"\n👋 [{self.bot_name}] 断开连接")
+            print(f"\n [{self.bot_name}] 断开连接")
             await self.disconnect()
     
     async def disconnect(self):
@@ -246,7 +246,7 @@ class ClawBotConnector:
             try:
                 await self.client.send_message(
                     "clawdbots",
-                    f"🔴 {self.bot_name} 已离线"
+                    f" {self.bot_name} 已离线"
                 )
             except:
                 pass
@@ -302,7 +302,7 @@ async def example():
         # 例如：如果消息包含特定关键词，执行操作
         if "status" in content.lower():
             # 回复状态
-            asyncio.create_task(bot.reply_to(msg, "✅ 运行正常"))
+            asyncio.create_task(bot.reply_to(msg, " 运行正常"))
     
     # 处理被 @提及
     @bot.on_mention
@@ -323,7 +323,7 @@ async def example():
 
 
 if __name__ == "__main__":
-    print("🤖 ClawBot Network Connector")
+    print(" ClawBot Network Connector")
     print("=" * 40)
     print()
     print("用法示例:")

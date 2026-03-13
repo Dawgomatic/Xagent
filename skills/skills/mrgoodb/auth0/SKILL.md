@@ -1,7 +1,7 @@
 ---
 name: auth0
 description: Manage users, applications, and authentication via Auth0 Management API.
-metadata: {"clawdbot":{"emoji":"🔐","requires":{"env":["AUTH0_DOMAIN","AUTH0_MGMT_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["AUTH0_DOMAIN","AUTH0_MGMT_TOKEN"]}}}
 ---
 # Auth0
 Identity platform.

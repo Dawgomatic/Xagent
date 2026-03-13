@@ -195,7 +195,7 @@ if (!walletAddress && privateKey) {
 }
 if (!walletAddress) {
   walletAddress = '(not set)';
-  walletSource = '⚠️ missing';
+  walletSource = ' missing';
 }
 
 // --- DRAFT ---
@@ -288,9 +288,9 @@ if (args['dry-run']) {
     supportedTrust: reg.trusts,
   };
   
-  console.log('📋 Registration file (merged A2A + ERC-8004 format):');
+  console.log(' Registration file (merged A2A + ERC-8004 format):');
   console.log(JSON.stringify(preview, null, 2));
-  console.log('\n🏁 Dry run complete. No transaction submitted.');
+  console.log('\n Dry run complete. No transaction submitted.');
   process.exit(0);
 }
 
@@ -323,7 +323,7 @@ if (walletAddress && walletAddress !== '(not set)') {
       args: [walletAddress],
     });
     if (Number(balance) > 0) {
-      console.log(`\n⚠️  Warning: This wallet already owns ${balance} agent(s) on ${chainInfo.name}.`);
+      console.log(`\n  Warning: This wallet already owns ${balance} agent(s) on ${chainInfo.name}.`);
       console.log('   Registering again will create a duplicate.');
       console.log('   Use update.mjs to modify an existing agent instead.');
       if (!args.yes) {
@@ -395,34 +395,34 @@ try {
   let txHandle;
   if (reg.storage === 'http') {
     const agentUri = reg.a2a || '';
-    console.log(`📡 Registering fully onchain (URI: ${agentUri || '(none)'})`);
+    console.log(` Registering fully onchain (URI: ${agentUri || '(none)'})`);
     txHandle = await agent.registerHTTP(agentUri);
   } else {
-    console.log('📦 Registering with IPFS storage...');
+    console.log(' Registering with IPFS storage...');
     txHandle = await agent.registerIPFS();
   }
 
   // Wait for confirmation
-  console.log('\n⏳ Waiting for transaction confirmation...');
+  console.log('\n Waiting for transaction confirmation...');
   const result = await txHandle.waitMined();
 
-  console.log('\n✅ Agent registered successfully!');
+  console.log('\n Agent registered successfully!');
   console.log(`  Agent ID:  ${result?.agentId ?? agent.agentId ?? '(check explorer)'}`);
   console.log(`  Agent URI: ${result?.agentURI ?? agent.agentURI ?? '(pending)'}`);
   console.log(`  Chain:     ${chainInfo.name} (${chainId})`);
 
   // Set agent wallet on-chain
   if (walletAddress && walletAddress !== '(dry-run)') {
-    console.log(`\n🔑 Setting agent wallet: ${walletAddress}`);
+    console.log(`\n Setting agent wallet: ${walletAddress}`);
     try {
       const walletTxHandle = await agent.setWallet(walletAddress);
       if (walletTxHandle) {
-        console.log('⏳ Waiting for wallet confirmation...');
+        console.log(' Waiting for wallet confirmation...');
         await walletTxHandle.waitMined();
       }
-      console.log(`✅ Agent wallet set: ${walletAddress}`);
+      console.log(` Agent wallet set: ${walletAddress}`);
     } catch (err) {
-      console.error(`⚠️  Wallet set failed (can retry later): ${err.message}`);
+      console.error(`  Wallet set failed (can retry later): ${err.message}`);
     }
   }
 
@@ -467,10 +467,10 @@ try {
     ...baseRegFile,
   };
   
-  console.log('\n📋 Registration file (merged A2A + ERC-8004 format):');
+  console.log('\n Registration file (merged A2A + ERC-8004 format):');
   console.log(JSON.stringify(regFile, null, 2));
 
 } catch (err) {
-  console.error('\n❌ Registration failed:', err.message);
+  console.error('\n Registration failed:', err.message);
   process.exit(1);
 }

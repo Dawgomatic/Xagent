@@ -261,23 +261,23 @@ function formatStats(stats) {
   const contextIndicator = getQuotaIndicator(100 - (stats.contextPercentage || 0));
   const timeRemaining = formatDuration(stats.sessionTimeRemaining);
 
-  let message = '<b>📊 Session Usage Report</b>\n\n';
+  let message = '<b> Session Usage Report</b>\n\n';
 
-  message += '<b>🔋 Quota Remaining</b>\n';
+  message += '<b> Quota Remaining</b>\n';
   message += `${quotaIndicator} <code>${stats.quotaRemaining}%</code> of API quota\n`;
   message += `Provider: ${stats.provider}\n\n`;
 
-  message += '<b>⏱️ Session Time</b>\n';
+  message += '<b> Session Time</b>\n';
   message += `${timeRemaining} remaining\n`;
   message += '(resets daily at 4:00 AM)\n\n';
 
-  message += '<b>🎯 Tokens Used</b>\n';
+  message += '<b> Tokens Used</b>\n';
   const total = stats.totalTokens.input + stats.totalTokens.output;
   message += `${total.toLocaleString('en-US')} total tokens\n`;
   message += `├─ Input: ${stats.totalTokens.input.toLocaleString('en-US')}\n`;
   message += `└─ Output: ${stats.totalTokens.output.toLocaleString('en-US')}\n\n`;
 
-  message += '<b>📦 Context Window</b>\n';
+  message += '<b> Context Window</b>\n';
   message += `${contextIndicator} <code>${stats.contextPercentage || 0}%</code> used\n`;
   message += `${stats.contextUsage.used.toLocaleString('en-US')} / ${stats.contextUsage.total.toLocaleString('en-US')} tokens\n`;
 
@@ -293,10 +293,10 @@ function formatStats(stats) {
  * Get quota indicator emoji
  */
 function getQuotaIndicator(percentage) {
-  if (percentage >= 75) return '🟢';
-  if (percentage >= 50) return '🟡';
-  if (percentage >= 25) return '🟠';
-  return '🔴';
+  if (percentage >= 75) return '';
+  if (percentage >= 50) return '';
+  if (percentage >= 25) return '';
+  return '';
 }
 
 // Export

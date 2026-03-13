@@ -1,4 +1,4 @@
-# 🚀 Getting Started
+#  Getting Started
 
 ## Quick Start Guide
 
@@ -32,17 +32,17 @@ openclaw-guard audit
 You'll see output like this:
 
 ```
-🛡️ OpenClaw Security Guard v1.0.0
+ OpenClaw Security Guard v1.0.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔍 Secrets Scanner............ ✅ No issues
-🔧 Config Auditor............. ❌ 2 critical
-💉 Injection Detector......... ✅ No issues
-📦 Dependency Scanner......... ⚠️ 1 warning
-🔌 MCP Server Auditor......... ✅ No issues
+ Secrets Scanner............  No issues
+ Config Auditor.............  2 critical
+ Injection Detector.........  No issues
+ Dependency Scanner.........  1 warning
+ MCP Server Auditor.........  No issues
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 Security Score: 65/100
+ Security Score: 65/100
 
-🔴 Critical issues found!
+ Critical issues found!
    Run: openclaw-guard fix
 ```
 
@@ -61,10 +61,10 @@ You'll be prompted for each fix:
 ```
 Found 2 fixable issue(s):
 
-🔴 Sandbox mode is not set to 'always'
+ Sandbox mode is not set to 'always'
    Fix: Set sandbox.mode to 'always'
 
-🟡 DM policy is set to 'open'
+ DM policy is set to 'open'
    Fix: Set dmPolicy to 'pairing'
 
 ? Apply these fixes? (y/N)
@@ -116,10 +116,10 @@ Now, every time you commit, secrets will be scanned automatically.
 
 ## What's Next?
 
-- 📖 Read the [full documentation](./en/README.md)
-- ⚙️ [Configure](./en/README.md#configuration) the tool to your needs
-- 🔧 Learn about [all CLI commands](./api/cli.md)
-- 🤝 [Contribute](../CONTRIBUTING.md) to the project
+-  Read the [full documentation](./en/README.md)
+-  [Configure](./en/README.md#configuration) the tool to your needs
+-  Learn about [all CLI commands](./api/cli.md)
+-  [Contribute](../CONTRIBUTING.md) to the project
 
 ---
 
@@ -193,14 +193,14 @@ openclaw-guard dashboard
 
 ## Need Help?
 
-- 📖 [Documentation](https://github.com/2pidata/openclaw-security-guard/docs)
-- 🐛 [Report Bug](https://github.com/2pidata/openclaw-security-guard/issues)
-- 🌐 [2pidata.com](https://2pidata.com)
+-  [Documentation](https://github.com/2pidata/openclaw-security-guard/docs)
+-  [Report Bug](https://github.com/2pidata/openclaw-security-guard/issues)
+-  [2pidata.com](https://2pidata.com)
 
 ---
 
 <div align="center">
 
-**Made by [Miloud Belarebia](https://2pidata.com)** 🇲🇦
+**Made by [Miloud Belarebia](https://2pidata.com)** 
 
 </div>

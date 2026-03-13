@@ -10,7 +10,7 @@ description: >
 
 Build the best conversational AI voice agents with Voice.ai's Agent API.
 
-## ✨ Features
+##  Features
 
 - **Agent Management** - Create, update, and delete voice agents
 - **One-Click Deploy** - Deploy agents for phone calls instantly
@@ -19,7 +19,7 @@ Build the best conversational AI voice agents with Voice.ai's Agent API.
 - **Phone Numbers** - Manage inbound/outbound phone numbers
 - **Analytics** - Track call history and agent performance
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Get Your API Key
 
@@ -52,7 +52,7 @@ echo 'VOICE_AI_API_KEY=your-api-key-here' >> .env
 }
 ```
 
-## 🔐 Before Any Operation
+##  Before Any Operation
 
 > **Important:** Always verify authentication before running any commands.
 
@@ -70,7 +70,7 @@ export VOICE_AI_API_KEY="your-api-key-here"
 ### Silent Initialization
 The SDK automatically initializes when you run any command. No manual setup required after setting the API key.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 export VOICE_AI_API_KEY="your-api-key"
@@ -85,7 +85,7 @@ node scripts/agent.js list
 node scripts/agent.js deploy --id <agent_id>
 ```
 
-## 🤖 Agent Configuration
+##  Agent Configuration
 
 | Parameter              | Default | Description                          |
 |------------------------|---------|--------------------------------------|
@@ -95,7 +95,7 @@ node scripts/agent.js deploy --id <agent_id>
 | allow_interruptions    | true    | Let users interrupt agent            |
 | auto_noise_reduction   | true    | Filter background noise              |
 
-## 🎙️ TTS Voice Settings
+##  TTS Voice Settings
 
 | Parameter   | Default | Description                    |
 |-------------|---------|--------------------------------|
@@ -105,11 +105,11 @@ node scripts/agent.js deploy --id <agent_id>
 | temperature | 1.0     | Voice expressiveness (0-2)     |
 | top_p       | 0.8     | Sampling parameter (0-1)       |
 
-## 🌍 Supported Languages
+##  Supported Languages
 
 `auto`, `en`, `ca`, `sv`, `es`, `fr`, `de`, `it`, `pt`, `pl`, `ru`, `nl`
 
-## 💻 CLI Usage
+##  CLI Usage
 
 ```bash
 # Create a new agent
@@ -134,7 +134,7 @@ node scripts/agent.js pause --id <agent_id>
 node scripts/agent.js delete --id <agent_id>
 ```
 
-## 🤖 OpenClaw Integration
+##  OpenClaw Integration
 
 ### JSON Configuration
 
@@ -157,7 +157,7 @@ OpenClaw automatically activates this skill when you mention:
 - "create agent", "deploy agent", "list agents"
 - "Voice.ai", "voice ai"
 
-## 🗣️ User-Friendly Language
+##  User-Friendly Language
 
 | When User Says... | Skill Does... |
 |-------------------|---------------|
@@ -170,7 +170,7 @@ OpenClaw automatically activates this skill when you mention:
 | "Make an FAQ bot" | Creates agent with FAQ template |
 | "Connect to my MCP server" | Configures MCP integration |
 
-## 📁 Project Files
+##  Project Files
 
 ```
 voice-ai-agents/
@@ -188,7 +188,7 @@ voice-ai-agents/
 | `voice-ai-agents-sdk.js` | Full SDK with all API methods |
 | `scripts/agent.js` | Command-line interface |
 
-## ❌ Error Handling
+##  Error Handling
 
 | Error | Cause | Solution |
 |-------|-------|----------|
@@ -204,16 +204,16 @@ voice-ai-agents/
 
 The SDK provides user-friendly error messages:
 ```
-❌ Authentication failed. Please check your API key.
+ Authentication failed. Please check your API key.
    Get one at: https://voice.ai/app/dashboard/developers
 
-❌ Agent "support-bot" not found. 
+ Agent "support-bot" not found. 
    Run 'node scripts/agent.js list' to see available agents.
 
-❌ Rate limit reached. Please wait 60 seconds before retrying.
+ Rate limit reached. Please wait 60 seconds before retrying.
 ```
 
-## 📝 Triggers
+##  Triggers
 
 These phrases activate the Voice.ai Agents skill in OpenClaw:
 
@@ -226,7 +226,7 @@ These phrases activate the Voice.ai Agents skill in OpenClaw:
 | **Delete** | "delete agent", "remove bot", "destroy agent" |
 | **Info** | "agent details", "show agent", "get agent info" |
 
-## 🔗 MCP Server Integration
+##  MCP Server Integration
 
 Connect your agent to external tools:
 
@@ -245,7 +245,7 @@ const agent = await client.createAgent({
 });
 ```
 
-## 📚 Knowledge Base (RAG)
+##  Knowledge Base (RAG)
 
 Add custom knowledge to your agent:
 
@@ -254,14 +254,14 @@ Add custom knowledge to your agent:
 node scripts/agent.js create --name "FAQ Bot" --kb-id 123
 ```
 
-## 🔗 Links
+##  Links
 
 - [Get API Key](https://voice.ai/app/dashboard/developers) ← Start here!
 - [Voice Agents Guide](https://voice.ai/docs/guides/voice-agents/quickstart)
 - [Agent API Reference](https://voice.ai/docs/api-reference/agent-management/create-agent)
 - [Status Page](https://status.voice.ai)
 
-## 📋 Changelog
+##  Changelog
 
 | Version | Date | Changes |
 |---------|------|---------|
@@ -269,4 +269,4 @@ node scripts/agent.js create --name "FAQ Bot" --kb-id 123
 
 ---
 
-Made with ❤️ by [Nick Gill](https://github.com/gizmoGremlin)
+Made with  by [Nick Gill](https://github.com/gizmoGremlin)

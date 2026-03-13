@@ -3,7 +3,7 @@ name: memory-sync-enhanced
 description: 增强版记忆系统 - Ebbinghaus 遗忘曲线 + Hebbian 共现图
 metadata:
   openclaw:
-    emoji: "🧠"
+    emoji: ""
     category: "system"
     tags: ["memory", "cortexgraph", "hebbian", "ebbinghaus", "forgetting-curve"]
 ---
@@ -52,7 +52,7 @@ effective_weight = weight × 2^(-age_days / 30)
 
 - 每次记忆 A 和 B 同时被检索 → 边(A,B) 权重 +1
 - 边权重 30 天半衰期
-- **跨域桥接**：音乐记忆 ↔ 编码记忆（因为同时发生）
+- **跨域桥接**：音乐记忆  编码记忆（因为同时发生）
 
 ## 检索流程
 
@@ -183,10 +183,10 @@ CREATE TABLE co_occurrence (
 
 | 系统 | 向量搜索 | 遗忘曲线 | 共现图 |
 |------|---------|---------|--------|
-| Markdown 文件 | ❌ | ❌ | ❌ |
-| CortexGraph 原版 | ✅ | ✅ | ❌ |
-| Zeph 的 Hebbian | ✅ | ❌ | ✅ |
-| **本系统** | ✅ | ✅ | ✅ |
+| Markdown 文件 |  |  |  |
+| CortexGraph 原版 |  |  |  |
+| Zeph 的 Hebbian |  |  |  |
+| **本系统** |  |  |  |
 
 ## 设计理念
 

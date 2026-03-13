@@ -10,7 +10,7 @@ description: Extract a structured cooking recipe from a shared video URL when th
 1. Trigger on user messages in the form `recipe <url>`.
 2. Validate URL format quickly.
 3. Immediately acknowledge before extraction starts.
-   - Example: `Got it ✅ I’m extracting the recipe now.`
+   - Example: `Got it  I’m extracting the recipe now.`
 
 ## Progress messaging contract
 

@@ -34,12 +34,12 @@ Works with typos: "Leicestr", "Bimringham" - fuzzy search finds it!
 
 ## Features
 
-✅ Auto-detects your location (via IP)
-✅ Works for ANY UK city, town, or area
-✅ Handles typos and misspellings
-✅ Shows location clearly at top of results
-✅ 12-hour format (AM/PM)
-✅ Uses ISNA calculation method (UK standard)
+ Auto-detects your location (via IP)
+ Works for ANY UK city, town, or area
+ Handles typos and misspellings
+ Shows location clearly at top of results
+ 12-hour format (AM/PM)
+ Uses ISNA calculation method (UK standard)
 
 ## Examples
 ```bash
@@ -69,8 +69,8 @@ python uk_prayer_times.py "Tower Hamlets"
 ## Output Format
 ```
 ==================================================
-🕌 PRAYER TIMES - BIRMINGHAM
-📅 08 Feb 2026
+ PRAYER TIMES - BIRMINGHAM
+ 08 Feb 2026
 ==================================================
 
 Fajr:    06:02 AM

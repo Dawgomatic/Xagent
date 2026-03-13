@@ -1,7 +1,7 @@
 {
   "name": "Content Pipeline",
   "description": "Editorial calendar for content creators - track ideas through publication",
-  "icon": "📝",
+  "icon": "",
   "properties": {
     "Title": {
       "type": "title",

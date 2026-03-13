@@ -140,12 +140,12 @@ func attack() -> void:
     deal_damage(weapon.damage)
 ```
 
-⚠️ **AI PITFALL：直接修改資源**
+ **AI PITFALL：直接修改資源**
 ```gdscript
-# ❌ WRONG - 修改會影響所有使用該資源的實例
+#  WRONG - 修改會影響所有使用該資源的實例
 weapon.damage += 10
 
-# ✅ CORRECT - 複製後再修改
+#  CORRECT - 複製後再修改
 var my_weapon = weapon.duplicate()
 my_weapon.damage += 10
 ```
@@ -273,26 +273,26 @@ await get_tree().process_frame
 
 ---
 
-## ⚠️ AI PITFALL：信號連接錯誤
+##  AI PITFALL：信號連接錯誤
 
 ```gdscript
-# ❌ WRONG - 字符串連接（Godot 4 不支援）
+#  WRONG - 字符串連接（Godot 4 不支援）
 button.connect("pressed", self, "_on_button_pressed")
 
-# ✅ CORRECT - Callable 連接
+#  CORRECT - Callable 連接
 button.pressed.connect(_on_button_pressed)
 
-# ✅ CORRECT - 帶參數
+#  CORRECT - 帶參數
 timer.timeout.connect(_on_timeout.bind(extra_data))
 ```
 
-## ⚠️ AI PITFALL：@onready 時機
+##  AI PITFALL：@onready 時機
 
 ```gdscript
-# ❌ WRONG - 在宣告時存取其他節點的屬性
+#  WRONG - 在宣告時存取其他節點的屬性
 @onready var target_pos: Vector2 = $Target.position
 
-# ✅ CORRECT - 在 _ready 中初始化
+#  CORRECT - 在 _ready 中初始化
 @onready var target: Node2D = $Target
 var target_pos: Vector2
 
@@ -300,13 +300,13 @@ func _ready() -> void:
     target_pos = target.position
 ```
 
-## ⚠️ AI PITFALL：is_instance_valid 檢查
+##  AI PITFALL：is_instance_valid 檢查
 
 ```gdscript
-# ❌ WRONG - 直接使用可能已刪除的節點
+#  WRONG - 直接使用可能已刪除的節點
 target.take_damage(10)
 
-# ✅ CORRECT - 檢查有效性
+#  CORRECT - 檢查有效性
 if is_instance_valid(target):
     target.take_damage(10)
 ```

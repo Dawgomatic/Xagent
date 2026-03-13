@@ -54,8 +54,8 @@ crontab -e
 ### Customize Chat Appearance (Optional)
 
 Edit `scripts/format_message_v2.jq` to change:
-- User emoji (default: 🐉)
-- Assistant emoji (default: 🦞)  
+- User emoji (default: )
+- Assistant emoji (default: )  
 - Callout types (default: `[!quote]` for user, `[!check]` for assistant)
 
 ## Usage
@@ -122,13 +122,13 @@ Messages appear as colored Obsidian callouts:
 
 **User messages** (blue `[!quote]` callout):
 ```
-> [!quote] 🐉 User · 15:30
+> [!quote]  User · 15:30
 > This is my message
 ```
 
 **Assistant messages** (green `[!check]` callout):
 ```
-> [!check] 🦞 Zoidbot · 15:31  
+> [!check]  Zoidbot · 15:31  
 > This is the response
 ```
 

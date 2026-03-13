@@ -159,14 +159,14 @@ export default class SkillVettr implements OpenClawSkill {
           if (report.recommendation === 'BLOCK') {
             event.preventDefault();
             ctx.ui.notify(
-              `🚫 Installation blocked: ${report.findings[0]?.message ?? 'Critical risk detected'}`
+              ` Installation blocked: ${report.findings[0]?.message ?? 'Critical risk detected'}`
             );
             return;
           }
 
           if (report.recommendation === 'REVIEW') {
             const approved = await ctx.ui.confirm(
-              `⚠️ Skill "${report.skillName}" flagged (score: ${report.riskScore}/100). Install anyway?`
+              ` Skill "${report.skillName}" flagged (score: ${report.riskScore}/100). Install anyway?`
             );
             if (!approved) {
               event.preventDefault();
@@ -185,16 +185,16 @@ export default class SkillVettr implements OpenClawSkill {
 
     if (report.recommendation === 'REVIEW') {
       const approved = await ctx.ui.confirm(
-        `⚠️ Skill "${report.skillName}" requires review (score: ${report.riskScore}/100). Approve?`
+        ` Skill "${report.skillName}" requires review (score: ${report.riskScore}/100). Approve?`
       );
-      return approved ? output + '\n\n✅ User approved' : output + '\n\n❌ User rejected';
+      return approved ? output + '\n\n User approved' : output + '\n\n User rejected';
     }
 
     if (report.recommendation === 'BLOCK') {
-      return output + '\n\n🚫 Installation BLOCKED - critical security risks detected';
+      return output + '\n\n Installation BLOCKED - critical security risks detected';
     }
 
-    return output + '\n\n✅ Skill passed vetting';
+    return output + '\n\n Skill passed vetting';
   }
 
   private formatReport(report: VettingReport): string {
@@ -213,7 +213,7 @@ export default class SkillVettr implements OpenClawSkill {
       ``,
       `┌─ Metadata ─────────────────────────────────────────────────`,
       `│  Author Verified:     ${report.metadata.authorVerified ? '✓ Yes' : '✗ No'}`,
-      `│  External Deps:       ${report.metadata.hasExternalDeps ? '⚠ Yes' : '✓ No'}`,
+      `│  External Deps:       ${report.metadata.hasExternalDeps ? ' Yes' : '✓ No'}`,
       `│  Network Calls:       ${report.metadata.networkCalls.length}`,
       `│  Files Analysed:      ${report.metadata.fileCount}`,
       `│  Total Lines:         ${report.metadata.totalLines}`,
@@ -279,11 +279,11 @@ export default class SkillVettr implements OpenClawSkill {
 
   private formatRiskLevel(level: VettingReport['riskLevel']): string {
     const icons: Record<VettingReport['riskLevel'], string> = {
-      SAFE: '🟢 SAFE',
-      LOW: '🟡 LOW',
-      MEDIUM: '🟠 MEDIUM',
-      HIGH: '🔴 HIGH',
-      CRITICAL: '⛔ CRITICAL',
+      SAFE: ' SAFE',
+      LOW: ' LOW',
+      MEDIUM: ' MEDIUM',
+      HIGH: ' HIGH',
+      CRITICAL: ' CRITICAL',
     };
     return icons[level];
   }
@@ -291,8 +291,8 @@ export default class SkillVettr implements OpenClawSkill {
   private formatRecommendation(rec: VettingReport['recommendation']): string {
     const icons: Record<VettingReport['recommendation'], string> = {
       INSTALL: '✓ INSTALL',
-      REVIEW: '⚠ REVIEW',
-      BLOCK: '🚫 BLOCK',
+      REVIEW: ' REVIEW',
+      BLOCK: ' BLOCK',
     };
     return icons[rec];
   }

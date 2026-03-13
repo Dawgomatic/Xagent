@@ -6,7 +6,7 @@
 Visit: https://github.com/jzOcb/agent-guardrails
 
 ### 2. Click the Settings Gear
-Look for the "About" section on the right side → Click the ⚙️ gear icon
+Look for the "About" section on the right side → Click the  gear icon
 
 ### 3. Add Topics
 In the "Topics" field, type each of these and press Enter:
@@ -43,17 +43,17 @@ Click "Save changes"
 
 ## What This Does
 
-✅ **Claude Code users can find your skill:**
+ **Claude Code users can find your skill:**
 - Search: "claude code skill enforcement"
 - Browse: https://github.com/topics/claude-code-skill
 - Recommended when searching for guardrails/quality tools
 
-✅ **Skill appears in relevant categories:**
+ **Skill appears in relevant categories:**
 - AI agents tools
 - Code quality
 - DevOps automation
 
-✅ **Better GitHub SEO:**
+ **Better GitHub SEO:**
 - Shows up in searches
 - Recommended to similar repos
 - Featured in topic pages
@@ -84,4 +84,4 @@ After adding topics, check:
 
 ---
 
-**Done? Your skill is now discoverable by both Claude Code and Clawdbot users! 🎉**
+**Done? Your skill is now discoverable by both Claude Code and Clawdbot users! **

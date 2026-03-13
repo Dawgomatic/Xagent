@@ -345,11 +345,11 @@ aos activity log "Added verification protocol after missed bug"
 ### Verification Checklist
 
 Before saying "done":
-1. ✅ Code compiles/runs without errors
-2. ✅ Tested the actual functionality
-3. ✅ Checked edge cases
-4. ✅ Verified deployment (if applicable)
-5. ✅ Updated documentation (if needed)
+1.  Code compiles/runs without errors
+2.  Tested the actual functionality
+3.  Checked edge cases
+4.  Verified deployment (if applicable)
+5.  Updated documentation (if needed)
 
 ---
 

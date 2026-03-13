@@ -38,7 +38,7 @@ try_download() {
   local label="$2"
   curl -sL --max-time 30 --connect-timeout 10 -H "User-Agent: $UA" -o "$OUTPATH" "$url" 2>/dev/null
   if file -b "$OUTPATH" | grep -q "PDF"; then
-    echo "✅ Downloaded from $label: $OUTPATH"
+    echo " Downloaded from $label: $OUTPATH"
     return 0
   fi
   rm -f "$OUTPATH"
@@ -101,6 +101,6 @@ if [[ -n "$DOI" ]]; then
   fi
 fi
 
-echo "❌ Could not download: $INPUT"
+echo " Could not download: $INPUT"
 echo "   Manual download needed. DOI: ${DOI:-N/A}"
 exit 1

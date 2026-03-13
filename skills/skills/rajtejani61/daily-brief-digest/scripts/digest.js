@@ -39,7 +39,7 @@ const htmlContent = `
 
     <section style="margin-bottom: 30px;">
         <h2 style="color: #0077b5; border-bottom: 1px solid #e1e8ed; padding-bottom: 8px; font-size: 1.4em; display: flex; align-items: center;">
-            <span style="margin-right: 10px;">📧</span> Urgent Emails (Top 20)
+            <span style="margin-right: 10px;"></span> Urgent Emails (Top 20)
         </h2>
         ${emails.length > 0 ? emails.map(e => `
             <div style="padding: 12px; border-radius: 8px; background: #f8fafc; margin-bottom: 10px; border-left: 4px solid #0077b5;">
@@ -51,7 +51,7 @@ const htmlContent = `
 
     <section style="margin-bottom: 30px;">
         <h2 style="color: #0077b5; border-bottom: 1px solid #e1e8ed; padding-bottom: 8px; font-size: 1.4em; display: flex; align-items: center;">
-            <span style="margin-right: 10px;">🗓️</span> Calendar Events
+            <span style="margin-right: 10px;"></span> Calendar Events
         </h2>
         ${calendar.length > 0 ? calendar.map(c => `
             <div style="padding: 12px; border-radius: 8px; background: #fdf2f2; margin-bottom: 10px; border-left: 4px solid #ef4444;">
@@ -63,7 +63,7 @@ const htmlContent = `
 
     <section style="margin-bottom: 30px;">
         <h2 style="color: #0077b5; border-bottom: 1px solid #e1e8ed; padding-bottom: 8px; font-size: 1.4em; display: flex; align-items: center;">
-            <span style="margin-right: 10px;">✅</span> Tasks & To-Dos
+            <span style="margin-right: 10px;"></span> Tasks & To-Dos
         </h2>
         ${tasks.length > 0 ? tasks.map(t => `
             <div style="padding: 12px; border-radius: 8px; background: #f0fdf4; margin-bottom: 10px; border-left: 4px solid #22c55e;">
@@ -75,7 +75,7 @@ const htmlContent = `
 
     <section style="margin-bottom: 20px;">
         <h2 style="color: #0077b5; border-bottom: 1px solid #e1e8ed; padding-bottom: 8px; font-size: 1.4em; display: flex; align-items: center;">
-            <span style="margin-right: 10px;">📰</span> Top News
+            <span style="margin-right: 10px;"></span> Top News
         </h2>
         ${news.length > 0 ? news.map(n => `
             <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #e2e8f0;">

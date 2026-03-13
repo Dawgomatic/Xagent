@@ -15,7 +15,7 @@ description: >
   reconfigure date night preferences.
 metadata:
   openclaw:
-    emoji: "💑"
+    emoji: ""
     requires:
       bins:
         - playwright-cli
@@ -173,7 +173,7 @@ Ask questions **one at a time**, conversationally. This is a date night skill �
    > "Last one — how do you manage your calendar? I can add events automatically. Options: `gog` (Google), `gcal`, `ical`, or tell me what you use."
 
 **Closing:**
-> "Perfect — you're all set! 🎉 Just say 'plan a date night,' 'find us a restaurant,' or 'get us tickets' anytime. I've got the rest."
+> "Perfect — you're all set!  Just say 'plan a date night,' 'find us a restaurant,' or 'get us tickets' anytime. I've got the rest."
 
 ### Save Config
 
@@ -356,7 +356,7 @@ Full flow details: [opentable-flow.md](references/opentable-flow.md) | [resy-flo
 
 1. Start at preferred theater (from config) or search via Fandango
 2. Select movie, showtime, seats
-3. ⚠️ **STOP at payment** — show all-in price, confirm with user before purchase
+3.  **STOP at payment** — show all-in price, confirm with user before purchase
 4. Post-purchase actions (below)
 
 Full details: [movie-booking.md](references/movie-booking.md) | [search-movies.md](references/search-movies.md)
@@ -370,8 +370,8 @@ Full details: [movie-booking.md](references/movie-booking.md) | [search-movies.m
 playwright-cli open "https://seatgeek.com/search?q={event}&location={config.location}" --headed
 ```
 Then cross-check Ticketmaster (official) and StubHub (resale).
-⚠️ Ticketmaster has aggressive bot protection — see [event-tickets.md](references/event-tickets.md).
-⚠️ **STOP at payment** — confirm all-in price with user before purchase.
+ Ticketmaster has aggressive bot protection — see [event-tickets.md](references/event-tickets.md).
+ **STOP at payment** — confirm all-in price with user before purchase.
 
 ---
 
@@ -426,7 +426,7 @@ Execute after **every** reservation or ticket purchase:
 ### 2. Notify Partner (if configured)
 Draft in user's casual voice → show draft → **require approval before sending**.
 ```
-"Hey {partner}, got us a reservation at {Restaurant} on {date} at {time} 🍽️"
+"Hey {partner}, got us a reservation at {Restaurant} on {date} at {time} "
 ```
 
 ### 3. Childcare Prompt

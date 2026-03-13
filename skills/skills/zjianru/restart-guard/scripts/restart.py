@@ -100,7 +100,7 @@ def main():
     if rc != 0:
         log_entry(log_path, "precheck_fail", "openclaw doctor failed")
         notify(notif, config, oc_bin,
-               f"⚠️ Restart aborted: precheck failed (openclaw doctor rc={rc})")
+               f" Restart aborted: precheck failed (openclaw doctor rc={rc})")
         cleanup_lock(lock_path)
         sys.exit(1)
 
@@ -128,7 +128,7 @@ def main():
     # --- Send pre-restart notification ---
     reason = args.reason or "(see context file)"
     notify(notif, config, oc_bin,
-           f"🔄 OpenClaw: preparing to restart\n- reason: {reason}\n- guardian: watching")
+           f" OpenClaw: preparing to restart\n- reason: {reason}\n- guardian: watching")
 
     # --- Trigger restart ---
     url = f"http://{host}:{port}/tools/invoke"
@@ -155,7 +155,7 @@ def main():
         else:
             log_entry(log_path, "trigger_failed", f"http={http_code}")
             notify(notif, config, oc_bin,
-                   f"❌ Restart trigger failed (http={http_code})")
+                   f" Restart trigger failed (http={http_code})")
             cleanup_lock(lock_path)
             sys.exit(1)
     except subprocess.TimeoutExpired:
@@ -165,7 +165,7 @@ def main():
         sys.exit(0)
     except Exception as e:
         log_entry(log_path, "trigger_error", str(e))
-        notify(notif, config, oc_bin, f"❌ Restart trigger error: {e}")
+        notify(notif, config, oc_bin, f" Restart trigger error: {e}")
         cleanup_lock(lock_path)
         sys.exit(1)
 

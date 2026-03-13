@@ -57,7 +57,7 @@
 
 ### 第3步：开通并发布权限
 
-⚠️ **重要：需要开通权限并发布应用新版本**
+ **重要：需要开通权限并发布应用新版本**
 
 1. **进入权限管理**
    - 登录 https://open.feishu.cn
@@ -70,7 +70,7 @@
 3. **发布新版本（关键！）**
    - 点击页面右上角的 **"发布"** 按钮
    - 等待发布完成
-   - ⚠️ **不发布的话，权限不会生效！**
+   -  **不发布的话，权限不会生效！**
 
 ### 第4步：配置 Skill
 
@@ -98,7 +98,7 @@ result = await ctx.invoke_tool("feishu_smart_doc_writer.write_smart", {
 #   "doc_url": "https://feishu.cn/docx/xxx",
 #   "chunks_count": 5,
 #   "owner_transferred": true,
-#   "message": "✅ 文档创建成功，共分 5 块写入，所有权已转移"
+#   "message": " 文档创建成功，共分 5 块写入，所有权已转移"
 # }
 ```
 
@@ -119,7 +119,7 @@ result = await ctx.invoke_tool("feishu_smart_doc_writer.write_smart", {
 ### 原生 feishu_doc 的问题
 
 ```python
-# ❌ 原生方式 - 长内容会失败
+#  原生方式 - 长内容会失败
 feishu_doc.create(
     title="项目报告",
     content="# 很长很长的内容..." * 1000  # 超过4000字符
@@ -130,7 +130,7 @@ feishu_doc.create(
 ### 使用本 Skill
 
 ```python
-# ✅ 自动处理 - 内容分块写入，自动转移所有权
+#  自动处理 - 内容分块写入，自动转移所有权
 write_smart(
     title="项目报告",
     content="# 很长很长的内容..." * 1000,  # 10000字符

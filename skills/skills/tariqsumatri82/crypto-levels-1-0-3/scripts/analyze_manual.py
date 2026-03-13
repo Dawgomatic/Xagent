@@ -32,14 +32,14 @@ class ManualCryptoAnalyzer:
         # 检查是否有默认价格
         default_price = self.mock_prices.get(symbol, 1000)
         
-        print(f"\n💰 输入 {symbol} 的当前价格 (默认: ${default_price}):")
+        print(f"\n 输入 {symbol} 的当前价格 (默认: ${default_price}):")
         user_input = input(f"  价格 (USD): ").strip()
         
         if user_input:
             try:
                 return float(user_input)
             except ValueError:
-                print(f"  ⚠️  无效输入，使用默认价格: ${default_price}")
+                print(f"    无效输入，使用默认价格: ${default_price}")
                 return default_price
         else:
             return default_price
@@ -57,7 +57,7 @@ class ManualCryptoAnalyzer:
         resistance3 = round(current_price * 1.08, 2)  # +8%
         
         # 24h变化
-        print(f"\n📊 输入技术指标 (可直接回车使用默认值):")
+        print(f"\n 输入技术指标 (可直接回车使用默认值):")
         change_input = input(f"  24h变化 % (默认: 0): ").strip()
         change_24h = float(change_input) if change_input else 0
         
@@ -87,7 +87,7 @@ class ManualCryptoAnalyzer:
         base = pair.upper().replace("-USDT", "").replace("/USDT", "").replace("USDT", "")
         
         print(f"\n{'='*60}")
-        print(f"🔍 手动分析模式: {base}-USDT")
+        print(f" 手动分析模式: {base}-USDT")
         print(f"{'='*60}")
         
         # 获取价格
@@ -117,58 +117,58 @@ class ManualCryptoAnalyzer:
         ma100 = analysis.get("ma100")
         
         # 格式化变化指示
-        change_color = "🟢" if change_24h >= 0 else "🔴"
+        change_color = "" if change_24h >= 0 else ""
         change_sign = "+" if change_24h >= 0 else ""
         
         # 构建输出
         output = []
-        output.append(f"📊 {symbol}-USDT 技术分析")
+        output.append(f" {symbol}-USDT 技术分析")
         output.append("")
-        output.append(f"💰 当前价格: ${current_price:,.2f}")
-        output.append(f"📈 24h变化: {change_color} {change_sign}{change_24h:.2f}%")
+        output.append(f" 当前价格: ${current_price:,.2f}")
+        output.append(f" 24h变化: {change_color} {change_sign}{change_24h:.2f}%")
         output.append("")
         
         # 压力位
         if resistance:
-            output.append("🔴 压力位 (Resistance):")
+            output.append(" 压力位 (Resistance):")
             for i, level in enumerate(resistance, 1):
                 diff_pct = ((level - current_price) / current_price) * 100
                 output.append(f"   • R{i}: ${level:,.2f} (+{diff_pct:.2f}%)")
         else:
-            output.append("🔴 压力位: 暂无明显阻力")
+            output.append(" 压力位: 暂无明显阻力")
         
         output.append("")
         
         # 支撑位
         if support:
-            output.append("🟢 支撑位 (Support):")
+            output.append(" 支撑位 (Support):")
             for i, level in enumerate(support, 1):
                 diff_pct = ((current_price - level) / current_price) * 100
                 output.append(f"   • S{i}: ${level:,.2f} (-{diff_pct:.2f}%)")
         else:
-            output.append("🟢 支撑位: 暂无明显支撑")
+            output.append(" 支撑位: 暂无明显支撑")
         
         output.append("")
         
         # 技术指标
-        output.append("📊 技术指标:")
+        output.append(" 技术指标:")
         if rsi:
             rsi_status = "超买" if rsi > 70 else "超卖" if rsi < 30 else "中性"
-            rsi_color = "🔴" if rsi > 70 else "🟢" if rsi < 30 else "🟡"
+            rsi_color = "" if rsi > 70 else "" if rsi < 30 else ""
             output.append(f"   {rsi_color} RSI: {rsi} ({rsi_status})")
         
         if ma50:
             ma50_status = "支撑" if current_price > ma50 else "阻力"
-            output.append(f"   📈 MA50: ${ma50:,.2f} ({ma50_status})")
+            output.append(f"    MA50: ${ma50:,.2f} ({ma50_status})")
         
         if ma100:
             ma100_status = "支撑" if current_price > ma100 else "阻力"
-            output.append(f"   📈 MA100: ${ma100:,.2f} ({ma100_status})")
+            output.append(f"    MA100: ${ma100:,.2f} ({ma100_status})")
         
         output.append("")
         
         # 交易建议
-        output.append("💡 交易建议:")
+        output.append(" 交易建议:")
         
         if rsi and rsi < 30:
             output.append("   • RSI超卖，可能有反弹机会")
@@ -189,8 +189,8 @@ class ManualCryptoAnalyzer:
             output.append("   • 短期情绪: 中性")
         
         output.append("")
-        output.append("⚠️  风险提示: 本分析仅供参考，不构成投资建议。加密货币交易风险极高，请谨慎投资。")
-        output.append("📝 注意: 此为手动输入模式，价格数据由用户输入。")
+        output.append("  风险提示: 本分析仅供参考，不构成投资建议。加密货币交易风险极高，请谨慎投资。")
+        output.append(" 注意: 此为手动输入模式，价格数据由用户输入。")
         
         return "\n".join(output)
 
@@ -219,13 +219,13 @@ def main():
         try:
             with open("/tmp/crypto_analysis_manual.json", "w") as f:
                 json.dump(analysis, f, indent=2, ensure_ascii=False)
-            print(f"\n✅ 分析结果已保存到 /tmp/crypto_analysis_manual.json")
+            print(f"\n 分析结果已保存到 /tmp/crypto_analysis_manual.json")
         except:
             pass
         
         sys.exit(0)
     else:
-        print("❌ 分析失败")
+        print(" 分析失败")
         sys.exit(1)
 
 

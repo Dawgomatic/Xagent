@@ -34,12 +34,12 @@ if command -v clawdbot &> /dev/null; then
         
         echo ""
     else
-        echo "⚠ Gateway not running, skipping webhook test"
+        echo " Gateway not running, skipping webhook test"
         echo "  Start with: clawdbot gateway start"
         echo ""
     fi
 else
-    echo "⚠ Clawdbot CLI not found, skipping webhook test"
+    echo " Clawdbot CLI not found, skipping webhook test"
     echo ""
 fi
 

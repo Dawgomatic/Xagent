@@ -5,17 +5,17 @@ set -e
 
 SKILL_DIR="/home/clawdbot/clawd/skills/agent-guardrails"
 
-echo "📦 Publishing Agent Guardrails v1.1.0 to ClawdHub"
+echo " Publishing Agent Guardrails v1.1.0 to ClawdHub"
 echo ""
 
 # Check if logged in
 echo "1. Checking ClawdHub authentication..."
 if ! clawdhub whoami > /dev/null 2>&1; then
-    echo "   ⚠️  Not logged in"
+    echo "     Not logged in"
     echo "   Opening browser for login..."
     clawdhub login
 else
-    echo "   ✅ Already logged in"
+    echo "    Already logged in"
 fi
 
 echo ""
@@ -29,7 +29,7 @@ clawdhub publish . \
   --changelog "Meta-enforcement system: Deployment verification + skill update feedback loop. Prevents 4 common agent failure modes through mechanical enforcement."
 
 echo ""
-echo "✅ Published to ClawdHub!"
+echo " Published to ClawdHub!"
 echo ""
 echo "View at: https://clawdhub.com/skills/agent-guardrails"
 echo ""

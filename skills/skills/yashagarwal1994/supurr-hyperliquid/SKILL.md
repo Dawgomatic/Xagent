@@ -164,7 +164,7 @@ Hyperliquid spot tokens for major assets use a `U`-prefix naming convention:
 
 Resolution order: try `U{ASSET}` first → fallback to exact name → fail if neither exists.
 
-> **⚠️ U-prefix Hazard**: Do NOT pass asset names that already start with `U` (e.g., `UNIT`). The CLI will prepend another `U` and look for `UUNIT`, which doesn't exist. Always use the **perp ticker name** (e.g., `BTC`, not `UBTC`).
+> ** U-prefix Hazard**: Do NOT pass asset names that already start with `U` (e.g., `UNIT`). The CLI will prepend another `U` and look for `UUNIT`, which doesn't exist. Always use the **perp ticker name** (e.g., `BTC`, not `UBTC`).
 
 #### Arb Options
 
@@ -252,7 +252,7 @@ supurr configs    # Lists all configs in ~/.supurr/configs/
 **Output:**
 
 ```
-📁 Configs (/Users/you/.supurr/configs):
+ Configs (/Users/you/.supurr/configs):
   btc-grid.json         grid     BTC-USDC
   hype-usdc-spot.json   grid     HYPE-USDC
   hyna-btc.json         grid     BTC-USDE
@@ -352,10 +352,10 @@ supurr deploy -c config.json -s HL:0x804e57d7baeca937d4b30d3cbe017f8d73c21f1b
 **Output:**
 
 ```
-✔ Loaded config for grid strategy
-✔ Subaccount verified: 0x804e57d7...
-✔ Bot deployed successfully!
-📦 Deployment Details
+ Loaded config for grid strategy
+ Subaccount verified: 0x804e57d7...
+ Bot deployed successfully!
+ Deployment Details
   Bot ID:       217
   Pod Name:     bot-217
   Bot Type:     grid

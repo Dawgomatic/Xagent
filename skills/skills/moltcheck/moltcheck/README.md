@@ -1,4 +1,4 @@
-# 🛡️ MoltCheck Skill
+#  MoltCheck Skill
 
 Security scanner for Moltbot skills. Scan GitHub repositories for security risks before installation.
 
@@ -53,12 +53,12 @@ Pay with SOL at [moltcheck.com/buy](https://moltcheck.com/buy)
 {
   "url": "https://github.com/example/skill",
   "score": 85,
-  "grade": "👍 B",
-  "type": "🦞 Moltbot Skill",
-  "summary": "👍 Generally safe with some capabilities to review.",
+  "grade": " B",
+  "type": " Moltbot Skill",
+  "summary": " Generally safe with some capabilities to review.",
   "risks": [
     {
-      "level": "🟡 MEDIUM",
+      "level": " MEDIUM",
       "issue": "Makes HTTP requests",
       "file": "src/api.js"
     }
@@ -68,9 +68,9 @@ Pay with SOL at [moltcheck.com/buy](https://moltcheck.com/buy)
 
 ## Links
 
-- 🌐 [MoltCheck Website](https://moltcheck.com)
-- 📚 [API Documentation](https://moltcheck.com/api-docs.md)
-- 🤖 [OpenAPI Spec](https://moltcheck.com/openapi.json)
+-  [MoltCheck Website](https://moltcheck.com)
+-  [API Documentation](https://moltcheck.com/api-docs.md)
+-  [OpenAPI Spec](https://moltcheck.com/openapi.json)
 
 ## License
 

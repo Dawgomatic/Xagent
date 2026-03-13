@@ -1,9 +1,9 @@
 ---
 name: fomo-research-skill
-description: "⚠️ DEPRECATED — use fomo-research instead. Install: npx clawhub install fomo-research"
+description: " DEPRECATED — use fomo-research instead. Install: npx clawhub install fomo-research"
 ---
 
-# ⚠️ DEPRECATED
+#  DEPRECATED
 
 This skill has been replaced by **fomo-research**.
 

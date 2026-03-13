@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "☕",
+        "emoji": "",
         "requires": { "env": ["TALKSPRESSO_API_KEY"] },
       },
   }

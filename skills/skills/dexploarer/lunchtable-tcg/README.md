@@ -184,10 +184,10 @@ We welcome contributions! Please see the main repository's CONTRIBUTING.md for g
 See [QUICKSTART_PUBLISH.md](./QUICKSTART_PUBLISH.md) for instant publishing, or [PUBLISH.md](./PUBLISH.md) for the complete guide.
 
 The script handles:
-- ✅ Validation
-- ✅ Authentication
-- ✅ Submission to ClawHub
-- ✅ Optional npm publishing
+-  Validation
+-  Authentication
+-  Submission to ClawHub
+-  Optional npm publishing
 
 ---
 

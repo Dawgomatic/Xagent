@@ -213,7 +213,7 @@ def auto_retrieve(query_text, n_results=5):
     sync = get_sync_status()
 
     lines = []
-    lines.append("## 🧠 Auto-Retrieved Memory Context")
+    lines.append("##  Auto-Retrieved Memory Context")
     lines.append(f"**Query:** {query_text}")
     lines.append(f"**Sync Status:** {sync['status']} | MEMORY.md hash: {sync.get('memoryMdHash', '?')} | Last sync: {sync.get('lastSync', 'never')}")
     lines.append("")
@@ -221,7 +221,7 @@ def auto_retrieve(query_text, n_results=5):
     # Vector results
     lines.append(f"### Vector Search (ChromaDB — {vector.get('count', '?')} chunks indexed)")
     if vector.get("error"):
-        lines.append(f"⚠️ Error: {vector['error']}")
+        lines.append(f" Error: {vector['error']}")
     elif vector["results"]:
         for r in vector["results"]:
             lines.append(f"- **[{r['section']}]** {r['relevance']}")
@@ -233,7 +233,7 @@ def auto_retrieve(query_text, n_results=5):
     # Graph results
     lines.append(f"### Knowledge Graph (NetworkX — {graph.get('nodes', '?')} nodes, {graph.get('edges', '?')} edges)")
     if graph.get("error"):
-        lines.append(f"⚠️ Error: {graph['error']}")
+        lines.append(f" Error: {graph['error']}")
     elif graph["related"]:
         for r in graph["related"]:
             neighbors_str = ", ".join(r["neighbors"][:5]) if r["neighbors"] else "no direct neighbors"
@@ -244,7 +244,7 @@ def auto_retrieve(query_text, n_results=5):
 
     # Sync warning
     if sync["status"] == "OUT_OF_SYNC":
-        lines.append("### ⚠️ MEMORY OUT OF SYNC")
+        lines.append("###  MEMORY OUT OF SYNC")
         lines.append("MEMORY.md has changed since last index. Run: `vector_memory/venv/bin/python vector_memory/indexer.py`")
         lines.append("")
 

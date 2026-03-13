@@ -1,7 +1,7 @@
 ---
 name: ralph-promax
 description: "Maximum paranoia security audit with 10,000 iterations (~2-5 days) using 8 expert personas. Use when user says 'ralph promax', 'maximum security audit', 'full paranoia audit', 'exhaustive security review', 'security incident deep investigation', or 'maximum paranoia mode'. Covers OWASP, supply chain, API, containers, CI/CD, performance, AI/RAG, compliance."
-metadata: { "openclaw": { "emoji": "☠️" }, "author": "dorukardahan", "version": "2.0.0", "category": "security", "tags": ["security", "audit", "exhaustive", "paranoia", "owasp", "supply-chain", "compliance"] }
+metadata: { "openclaw": { "emoji": "" }, "author": "dorukardahan", "version": "2.0.0", "category": "security", "tags": ["security", "audit", "exhaustive", "paranoia", "owasp", "supply-chain", "compliance"] }
 ---
 
 # Ralph Promax — 10,000 Iterations (~2-5 days)

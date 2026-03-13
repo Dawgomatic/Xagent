@@ -3,7 +3,7 @@ name: metrika-analysis
 description: Используется для анализа данных из API Яндекс.Метрики, когда пользователь просит проанализировать трафик, конверсии, поведение посетителей или отчет по сайту.
 metadata:
   openclaw:
-    emoji: "📈"
+    emoji: ""
 ---
 
 # Metrika Analysis

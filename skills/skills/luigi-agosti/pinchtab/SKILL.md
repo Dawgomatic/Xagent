@@ -10,7 +10,7 @@ description: >
 homepage: https://pinchtab.com
 metadata:
   openclaw:
-    emoji: "🦀"
+    emoji: ""
     requires:
       bins: ["pinchtab"]
       env:

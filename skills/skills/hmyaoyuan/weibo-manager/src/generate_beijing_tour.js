@@ -41,12 +41,12 @@ for (const scene of SCENES) {
         execSync(cmd, { stdio: 'inherit' });
         if (fs.existsSync(filename)) {
             generatedFiles.push(filename);
-            console.log(`✅ Saved to ${filename}`);
+            console.log(` Saved to ${filename}`);
         } else {
-            console.error(`❌ Failed to generate ${filename}`);
+            console.error(` Failed to generate ${filename}`);
         }
     } catch (e) {
-        console.error(`❌ Error generating ${scene.name}:`, e.message);
+        console.error(` Error generating ${scene.name}:`, e.message);
     }
 }
 

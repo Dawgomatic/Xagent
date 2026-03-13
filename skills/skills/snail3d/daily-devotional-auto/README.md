@@ -4,12 +4,12 @@ Automated daily devotional generation for YouTube. Fetches news, generates conte
 
 ## Features
 
-- 📰 **News-Based Content** - Fetches national/international news for contextual devotionals
-- 💬 **User Suggestions** - Reads YouTube comments for viewer topic requests
-- 🎙️ **Your Voice** - Uses your ElevenLabs custom voice for TTS
-- 🎬 **Auto Video Creation** - Generates videos with titles, scripture, and audio visualizer
-- 📤 **Auto Upload** - Uploads to YouTube as public and adds to playlist
-- ⏰ **Daily Schedule** - Runs automatically at 9:00 AM MST
+-  **News-Based Content** - Fetches national/international news for contextual devotionals
+-  **User Suggestions** - Reads YouTube comments for viewer topic requests
+-  **Your Voice** - Uses your ElevenLabs custom voice for TTS
+-  **Auto Video Creation** - Generates videos with titles, scripture, and audio visualizer
+-  **Auto Upload** - Uploads to YouTube as public and adds to playlist
+-  **Daily Schedule** - Runs automatically at 9:00 AM MST
 
 ## Setup
 

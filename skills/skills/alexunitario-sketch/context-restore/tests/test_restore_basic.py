@@ -48,7 +48,7 @@ class TestLoadCompressedContext(unittest.TestCase):
     def test_load_json_format(self):
         """测试 JSON 格式加载"""
         test_data = {
-            "content": "✅ 测试消息",
+            "content": " 测试消息",
             "metadata": {"timestamp": "2026-02-06T23:42:00Z"}
         }
         
@@ -63,14 +63,14 @@ class TestLoadCompressedContext(unittest.TestCase):
             os.unlink(f.name)
             
             self.assertIsInstance(result, dict)
-            self.assertEqual(result["content"], "✅ 测试消息")
+            self.assertEqual(result["content"], " 测试消息")
 
     def test_load_text_format(self):
         """测试纯文本格式加载"""
         test_content = """原始消息数: 100
 压缩后消息数: 10
 上下文压缩于 2026-02-06T23:42:00
-✅ 完成数据清洗模块"""
+ 完成数据清洗模块"""
         
         with tempfile.NamedTemporaryFile(
             mode='w', suffix='.txt', delete=False
@@ -83,7 +83,7 @@ class TestLoadCompressedContext(unittest.TestCase):
             os.unlink(f.name)
             
             self.assertIsInstance(result, str)
-            self.assertIn("✅ 完成数据清洗模块", result)
+            self.assertIn(" 完成数据清洗模块", result)
 
     def test_file_not_found(self):
         """测试文件不存在情况"""
@@ -111,10 +111,10 @@ class TestOperationExtraction(unittest.TestCase):
     """测试操作提取功能"""
 
     def test_extract_operations_with_checkmarks(self):
-        """测试带 ✅ 标记的操作提取"""
-        content = """✅ 完成数据清洗模块
-✅ 修复登录漏洞
-✅ 添加新功能"""
+        """测试带  标记的操作提取"""
+        content = """ 完成数据清洗模块
+ 修复登录漏洞
+ 添加新功能"""
         
         operations = extract_recent_operations(content, max_count=5)
         
@@ -162,7 +162,7 @@ class TestFormatReports(unittest.TestCase):
 
     def test_format_minimal_report(self):
         """测试 Minimal 级别报告"""
-        content = "✅ 完成数据清洗模块\nHermes Plan 进行中"
+        content = " 完成数据清洗模块\nHermes Plan 进行中"
         
         report = format_minimal_report(content)
         
@@ -170,7 +170,7 @@ class TestFormatReports(unittest.TestCase):
 
     def test_format_normal_report(self):
         """测试 Normal 级别报告"""
-        content = "✅ 完成数据清洗模块\n原始消息数: 100"
+        content = " 完成数据清洗模块\n原始消息数: 100"
         
         report = format_normal_report(content)
         
@@ -179,7 +179,7 @@ class TestFormatReports(unittest.TestCase):
 
     def test_format_detailed_report(self):
         """测试 Detailed 级别报告"""
-        content = "✅ 完成数据清洗模块\n✅ 修复登录漏洞\n原始消息数: 100"
+        content = " 完成数据清洗模块\n 修复登录漏洞\n原始消息数: 100"
         
         report = format_detailed_report(content)
         
@@ -192,7 +192,7 @@ class TestRestoreContext(unittest.TestCase):
     def test_restore_with_valid_file(self):
         """测试有效文件恢复"""
         test_data = {
-            "content": "✅ 测试消息\n原始消息数: 50\n压缩后消息数: 5"
+            "content": " 测试消息\n原始消息数: 50\n压缩后消息数: 5"
         }
         
         with tempfile.NamedTemporaryFile(
@@ -219,7 +219,7 @@ class TestGetContextSummary(unittest.TestCase):
     def test_get_summary_success(self):
         """测试成功获取摘要"""
         test_data = {
-            "content": "✅ 完成数据清洗模块\n原始消息数: 100"
+            "content": " 完成数据清洗模块\n原始消息数: 100"
         }
         
         with tempfile.NamedTemporaryFile(

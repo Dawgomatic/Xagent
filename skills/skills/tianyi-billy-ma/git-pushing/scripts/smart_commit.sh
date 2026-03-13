@@ -12,7 +12,7 @@ NC='\033[0m' # No Color
 
 # Function to print colored messages
 info() { echo -e "${GREEN}→${NC} $1"; }
-warn() { echo -e "${YELLOW}⚠${NC} $1"; }
+warn() { echo -e "${YELLOW}${NC} $1"; }
 error() { echo -e "${RED}✗${NC} $1" >&2; }
 
 # Get current branch
@@ -110,7 +110,7 @@ fi
 git commit -m "$(cat <<EOF
 ${COMMIT_MSG}
 
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
+ Generated with [Claude Code](https://claude.com/claude-code)
 
 Co-Authored-By: Claude <noreply@anthropic.com>
 EOF

@@ -119,7 +119,7 @@ function buildTaskMessage(comment, issue, commentor, mention) {
   const priority = getPriorityLabel(issue.priority);
 
   const taskLines = [
-    `🔗 **LINEAR WEBHOOK TASK** 🔗`,
+    ` **LINEAR WEBHOOK TASK** `,
     ``,
     `**Issue:** ${issue.identifier} - ${issue.title}`,
     `**Requested by:** ${commentor}`,
@@ -139,7 +139,7 @@ function buildTaskMessage(comment, issue, commentor, mention) {
     `${comment.body}`,
     ``,
     `---`,
-    `**⚠️ MANDATORY: After responding, run this command to post back to Linear:**`,
+    `** MANDATORY: After responding, run this command to post back to Linear:**`,
     `\`\`\``,
     `LINEAR_API_KEY=$(cat ~/.linear_api_key) node -e "const {postLinearComment} = require('/home/sven/clawd-mason/skills/linear-webhook/linear-transform.js'); postLinearComment('${issue.id}', \\\`YOUR_RESPONSE_HERE\\\`, '${AGENT_NAMES[agentSession] || agentSession}');"`,
     `\`\`\``,
@@ -217,7 +217,7 @@ async function postLinearComment(issueId, responseText, agentName) {
 
   console.log('[Linear Webhook] Posting as:', agentToken ? `OAuth app (${agentKey})` : 'Personal API key');
 
-  const body = `---\n🤖 **${agentName}**\n\n${responseText}\n\n---\n*Posted via Clawdbot webhook integration*`;
+  const body = `---\n **${agentName}**\n\n${responseText}\n\n---\n*Posted via Clawdbot webhook integration*`;
 
   const mutation = `
     mutation CreateComment($issueId: String!, $body: String!) {

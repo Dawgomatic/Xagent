@@ -3,7 +3,7 @@ name: Ecommerce
 slug: ecommerce
 version: 1.0.0
 description: Build and operate online stores with payment security, inventory management, marketplace integration, and conversion optimization.
-metadata: {"clawdbot":{"emoji":"🛒","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

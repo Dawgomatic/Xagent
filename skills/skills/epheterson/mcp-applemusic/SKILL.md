@@ -22,8 +22,8 @@ Invoke when users ask to:
 **You CANNOT add catalog songs directly to playlists.**
 
 Songs must be in the user's library first:
-- ❌ Catalog ID → Playlist (fails)
-- ✅ Catalog ID → Library → Playlist (works)
+-  Catalog ID → Playlist (fails)
+-  Catalog ID → Library → Playlist (works)
 
 **Why:** Playlists use library IDs (`i.abc123`), not catalog IDs (`1234567890`).
 
@@ -524,21 +524,21 @@ Content-Type: application/json
 
 # Common Mistakes
 
-**❌ Using catalog IDs in playlists:**
+** Using catalog IDs in playlists:**
 ```python
 # WRONG
 json={"data": [{"id": "1234567890", "type": "songs"}]}
 ```
 **Fix:** Add to library first, get library ID, then add.
 
-**❌ Playing catalog songs via AppleScript:**
+** Playing catalog songs via AppleScript:**
 ```applescript
 # WRONG
 play track id "1234567890"
 ```
 **Fix:** Song must be in library.
 
-**❌ Unescaped AppleScript strings:**
+** Unescaped AppleScript strings:**
 ```python
 # WRONG
 name = "Rock 'n Roll"
@@ -546,7 +546,7 @@ script = f'tell application "Music" to play playlist "{name}"'
 ```
 **Fix:** Escape quotes.
 
-**❌ Expired tokens:**
+** Expired tokens:**
 Dev tokens last 180 days max.
 **Fix:** Check expiration, handle 401 errors.
 

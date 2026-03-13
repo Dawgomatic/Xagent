@@ -7,19 +7,19 @@ license: MIT
 repository: https://github.com/pinkpixel/fix-life-in-1-day
 metadata:
   clawdbot:
-    emoji: "🧠"
+    emoji: ""
     triggers: ["/life", "/architect"]
   tags: ["psychology", "self-improvement", "coaching", "life-design", "dan-koe"]
 ---
 
-# Fix Your Entire Life in 1 Day 🧠
+# Fix Your Entire Life in 1 Day 
 
 10 psychological sessions based on Dan Koe's viral article.
 
 Based on:
-- 📝 [@thedankoe](https://x.com/thedankoe) — "How to fix your entire life in 1 day"
-- 🔧 [@alex_prompter](https://x.com/alex_prompter) — 10 AI prompts reverse-engineered from Dan's article
-- ⚡ [@chip1cr](https://x.com/chip1cr) — Clawdbot skill implementation
+-  [@thedankoe](https://x.com/thedankoe) — "How to fix your entire life in 1 day"
+-  [@alex_prompter](https://x.com/alex_prompter) — 10 AI prompts reverse-engineered from Dan's article
+-  [@chip1cr](https://x.com/chip1cr) — Clawdbot skill implementation
 
 ## What It Does
 
@@ -55,7 +55,7 @@ Guides users through 10 structured sessions:
 bash scripts/handler.sh intro en $WORKSPACE
 ```
 
-If `showIntro: true` → Send intro message with image and "🐇 Jump into the rabbit hole" button (`life:begin`)
+If `showIntro: true` → Send intro message with image and " Jump into the rabbit hole" button (`life:begin`)
 
 If `showIntro: false` → Run `start` and show current phase
 
@@ -66,7 +66,7 @@ bash scripts/handler.sh start en $WORKSPACE
 
 **Step 3:** Format and show to user:
 ```
-🧠 **Life Architect** — Session {session}/10
+ **Life Architect** — Session {session}/10
 **{title}**
 Phase {phase}/{totalPhases}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━

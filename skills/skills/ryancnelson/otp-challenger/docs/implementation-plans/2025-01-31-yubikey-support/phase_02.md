@@ -131,7 +131,7 @@ Append to tests/verify.bats:
   CODE=$(get_valid_code)
   run bash "$VERIFY_SCRIPT" "user1" "$CODE"
   [ "$status" -eq 0 ]
-  [[ "$output" =~ "✅ OTP verified" ]]
+  [[ "$output" =~ " OTP verified" ]]
 }
 
 @test "verify.sh: does not require OTP_SECRET for YubiKey" {

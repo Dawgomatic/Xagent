@@ -479,14 +479,14 @@ def main():
             print("\nNote: For SudokuPad link, letters are mapped to numbers (A=1, B=2...).")
             
         link_scl = generate_scl_link(clues, size, title=f"Sudoku {size}x{size}")
-        print(f"\n🔗 SudokuPad Link (SCL):\n{link_scl}")
+        print(f"\n SudokuPad Link (SCL):\n{link_scl}")
         
         link_fp = generate_fpuzzles_link(clues, size, title=f"Sudoku {size}x{size}")
-        print(f"\n🔗 SudokuPad Link (F-Puzzles Fallback):\n{link_fp}\n")
+        print(f"\n SudokuPad Link (F-Puzzles Fallback):\n{link_fp}\n")
         
         short_id = str(puzzle['id']).split('-')[0]
         link_native = generate_native_link(clues, size, title=f"Sudoku {size}x{size} [{short_id}]")
-        print(f"\n🔗 SudokuPad Link (Native Short Share):\n{link_native}\n")
+        print(f"\n SudokuPad Link (Native Short Share):\n{link_native}\n")
     except Exception as e:
         print(f"Error generating link: {e}")
     

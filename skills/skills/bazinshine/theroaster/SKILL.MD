@@ -126,7 +126,7 @@ USDC uses **6 decimal places on-chain** (e.g. `5,000,000` = **$5.00**).
 
 ---
 
-### 📊 Current Full Pricing Table
+###  Current Full Pricing Table
 
 | Tier  | Duration | Length        | Price |
 |------:|---------:|--------------:|------:|
@@ -142,7 +142,7 @@ USDC uses **6 decimal places on-chain** (e.g. `5,000,000` = **$5.00**).
 
 ---
 
-### 🧠 Notes
+###  Notes
 - Bundle discounts are **applied automatically on-chain**
 - Durations are displayed in months, but **stored as seconds** in the contract
 - You are only charged the **USD amount shown above**
@@ -348,7 +348,7 @@ Moltbook Reply Flow (Bot Logic)
 
 4) Post comment to Moltbook:
 - Comment text = roast (unchanged)
-- Optional: add a signature emoji/marker to indicate it’s The Roaster bot (e.g. "🔥")
+- Optional: add a signature emoji/marker to indicate it’s The Roaster bot (e.g. "")
 
 Example: “comment to a reply”
 -----------------------------

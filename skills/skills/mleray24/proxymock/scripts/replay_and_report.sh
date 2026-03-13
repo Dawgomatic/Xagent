@@ -12,7 +12,7 @@ shift
 
 LOG_FILE=$(mktemp /tmp/proxymock-replay-XXXXXX.log)
 
-echo "▶ Replaying traffic against ${TARGET}..."
+echo " Replaying traffic against ${TARGET}..."
 proxymock replay --test-against "$TARGET" --log-to "$LOG_FILE" "$@" 2>&1
 
 EXIT_CODE=$?

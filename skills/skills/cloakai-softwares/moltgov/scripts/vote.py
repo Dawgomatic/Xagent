@@ -20,7 +20,7 @@ def main():
         client = MoltGovClient()
         result = client.vote(args.proposal, choice_map[args.choice])
         
-        print(f"\n✅ Vote recorded!\n")
+        print(f"\n Vote recorded!\n")
         print(f"  Proposal: {result['proposal_id']}")
         print(f"  Choice:   {result['choice']}")
         print(f"  Weight:   {result['weight']:.1f}")

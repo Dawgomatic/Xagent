@@ -180,11 +180,11 @@ class QDashboard {
                 <td>
                     <div class="action-buttons">
                         ${session.hasTranscript ? 
-                            `<button class="btn btn-secondary btn-small" onclick="event.stopPropagation();">📋 View</button>` : 
+                            `<button class="btn btn-secondary btn-small" onclick="event.stopPropagation();"> View</button>` : 
                             ''
                         }
                         ${isActive ? 
-                            `<button class="btn btn-danger btn-small kill-btn">🔥 Kill</button>` : 
+                            `<button class="btn btn-danger btn-small kill-btn"> Kill</button>` : 
                             ''
                         }
                     </div>
@@ -196,11 +196,11 @@ class QDashboard {
     getSessionStatus(session) {
         if (session.isActive) {
             if (session.loopAnalysis?.isLoop) {
-                return { class: 'status-loop', text: '🔄 Loop' };
+                return { class: 'status-loop', text: ' Loop' };
             }
-            return { class: 'status-running', text: '▶️ Running' };
+            return { class: 'status-running', text: ' Running' };
         }
-        return { class: 'status-complete', text: '✅ Complete' };
+        return { class: 'status-complete', text: ' Complete' };
     }
 
     formatPattern(pattern) {
@@ -236,7 +236,7 @@ class QDashboard {
     async showTranscript(session) {
         if (!session.hasTranscript) return;
 
-        this.modalTitle.textContent = `📋 ${session.label || 'Unlabeled'} - Transcript`;
+        this.modalTitle.textContent = ` ${session.label || 'Unlabeled'} - Transcript`;
         this.modalBody.innerHTML = '<div class="loading">Loading transcript...</div>';
         this.showTranscriptModal();
 
@@ -277,7 +277,7 @@ class QDashboard {
             return `
                 <div class="transcript-entry ${isThinking ? 'transcript-thinking' : ''}">
                     <div class="transcript-meta">
-                        <span class="transcript-role">${isThinking ? '🧠 Thinking' : (entry.role || 'Unknown')}</span>
+                        <span class="transcript-role">${isThinking ? ' Thinking' : (entry.role || 'Unknown')}</span>
                         <span class="transcript-timestamp">${timestamp}</span>
                     </div>
                     <div class="transcript-content">${this.escapeHtml(entry.content || '')}</div>
@@ -308,7 +308,7 @@ class QDashboard {
 
         try {
             this.confirmKill.disabled = true;
-            this.confirmKill.textContent = '🔄 Killing...';
+            this.confirmKill.textContent = ' Killing...';
 
             const response = await fetch(`/api/loops/${encodeURIComponent(this.currentSessionToKill.key)}/kill`, {
                 method: 'POST'
@@ -328,7 +328,7 @@ class QDashboard {
             this.showError('Failed to kill session: ' + error.message);
         } finally {
             this.confirmKill.disabled = false;
-            this.confirmKill.textContent = '🔥 Kill Session';
+            this.confirmKill.textContent = ' Kill Session';
             this.currentSessionToKill = null;
         }
     }
@@ -339,11 +339,11 @@ class QDashboard {
         
         if (this.autoRefreshEnabled) {
             this.startAutoRefresh();
-            this.toggleAutoRefreshBtn.textContent = '⏸️ Pause Auto-Refresh';
+            this.toggleAutoRefreshBtn.textContent = ' Pause Auto-Refresh';
             this.autoRefreshStatus.textContent = `Auto-refresh: ON (${this.refreshInterval / 1000}s)`;
         } else {
             this.stopAutoRefresh();
-            this.toggleAutoRefreshBtn.textContent = '▶️ Start Auto-Refresh';
+            this.toggleAutoRefreshBtn.textContent = ' Start Auto-Refresh';
             this.autoRefreshStatus.textContent = 'Auto-refresh: OFF';
         }
     }
@@ -395,7 +395,7 @@ class QDashboard {
 
     setLoading(loading) {
         this.refreshBtn.disabled = loading;
-        this.refreshBtn.textContent = loading ? '🔄 Loading...' : '🔄 Refresh Now';
+        this.refreshBtn.textContent = loading ? ' Loading...' : ' Refresh Now';
     }
 
     escapeHtml(text) {

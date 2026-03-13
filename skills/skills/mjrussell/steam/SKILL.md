@@ -4,7 +4,7 @@ description: Browse, filter, and discover games in a Steam library. Filter by pl
 homepage: https://github.com/mjrussell/steam-cli
 metadata:
   clawdbot:
-    emoji: "🎮"
+    emoji: ""
     requires:
       bins: ["steam"]
       env: ["STEAM_API_KEY"]

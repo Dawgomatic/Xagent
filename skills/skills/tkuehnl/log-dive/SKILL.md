@@ -9,11 +9,11 @@ author: CacheForge
 tags: [logs, observability, loki, elasticsearch, cloudwatch, incident-response, sre, discord, discord-v2]
 ---
 
-# Log Dive — Unified Log Search 🤿
+# Log Dive — Unified Log Search 
 
 Search logs across **Loki**, **Elasticsearch/OpenSearch**, and **AWS CloudWatch** from a single interface. Ask in plain English; the skill translates to the right query language.
 
-> **⚠️ Sensitive Data Warning:** Logs frequently contain PII, secrets, tokens, passwords, and other sensitive data. Never cache, store, or repeat raw log content beyond the current conversation. Treat all log output as confidential.
+> ** Sensitive Data Warning:** Logs frequently contain PII, secrets, tokens, passwords, and other sensitive data. Never cache, store, or repeat raw log content beyond the current conversation. Treat all log output as confidential.
 
 ## Activation
 
@@ -297,7 +297,7 @@ When presenting search results, use this structure:
 - [ ] Review recent deployments to checkout service
 
 ---
-*Powered by CacheForge 🤿*
+*Powered by CacheForge *
 ```
 
 ## Common Workflows
@@ -331,4 +331,4 @@ When presenting search results, use this structure:
 | "401 Unauthorized" | Bad credentials | Check `LOKI_TOKEN`, `ELASTICSEARCH_TOKEN`, or AWS credentials |
 
 ---
-*Powered by CacheForge 🤿*
+*Powered by CacheForge *

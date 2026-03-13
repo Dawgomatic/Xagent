@@ -12,7 +12,7 @@ Myriad is the largest prediction market platform on Abstract with 415K+ users an
 | USDC.e Token | `0x84A71ccD554Cc1b02749b35d22F684CC8ec987e1` (6 decimals) |
 | Fee Treasury | `0xBc30e9765Dc8c735206c76DE96d369754eBbcc1f` |
 
-> ⚠️ **The `myriad-sdk` npm package has an outdated contract address** (`0x4f4988a...`, dead since Nov 2025). Use the address above for the live contract.
+>  **The `myriad-sdk` npm package has an outdated contract address** (`0x4f4988a...`, dead since Nov 2025). Use the address above for the live contract.
 
 ## API
 
@@ -37,7 +37,7 @@ The `token` field in the API response tells you which token a market uses.
 
 ## On-Chain Trading ABI
 
-### ⚠️ CRITICAL: Parameter Order
+###  CRITICAL: Parameter Order
 
 The function signatures have **non-obvious parameter ordering**:
 
@@ -100,11 +100,11 @@ await walletClient.writeContract({
 ## Using the `myriad-sdk` npm Package
 
 The SDK wraps `polkamarkets-js` and provides API + on-chain access, but:
-- ❌ Hardcoded contract address is outdated
-- ❌ `buy()` uses wrong function selector (V2 vs V3)
-- ❌ `getUserAddress()` is broken (should be `getAddress()`)
-- ✅ `calcBuyAmount()` works through polkamarkets-js (different param order internally)
-- ✅ API client works for reading market data
+-  Hardcoded contract address is outdated
+-  `buy()` uses wrong function selector (V2 vs V3)
+-  `getUserAddress()` is broken (should be `getAddress()`)
+-  `calcBuyAmount()` works through polkamarkets-js (different param order internally)
+-  API client works for reading market data
 
 **Recommendation:** Use the API for reading markets, call the contract directly via viem for trading.
 

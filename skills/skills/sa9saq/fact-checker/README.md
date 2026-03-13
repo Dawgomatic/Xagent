@@ -1,4 +1,4 @@
-# 🔍 fact-checker
+#  fact-checker
 
 Automated fact-checking skill that verifies claims using web search and assigns confidence scores.
 

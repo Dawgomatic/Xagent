@@ -63,7 +63,7 @@ class CryptoLearning:
         self.progress["last_push_date"] = date.today().isoformat()
         self._save_progress()
 
-        return "🎉 加密货币学习计划已启动！明天早上9点将收到第一课。"
+        return " 加密货币学习计划已启动！明天早上9点将收到第一课。"
 
     def stop(self):
         """停止学习计划"""
@@ -72,13 +72,13 @@ class CryptoLearning:
 
         self.progress["enabled"] = False
         self._save_progress()
-        return "⏸️ 学习计划已暂停。使用 'start' 重新开始。"
+        return " 学习计划已暂停。使用 'start' 重新开始。"
 
     def reset(self):
         """重置学习计划"""
         self.progress = self._init_progress()
         self._save_progress()
-        return "🔄 学习计划已重置。使用 'start' 重新开始。"
+        return " 学习计划已重置。使用 'start' 重新开始。"
 
     def skip_today(self):
         """跳过今天的学习"""
@@ -91,12 +91,12 @@ class CryptoLearning:
 
         self.progress["skipped_dates"].append(today)
         self._save_progress()
-        return "⏭️ 已跳过今天的学习。"
+        return " 已跳过今天的学习。"
 
     def get_status(self):
         """获取学习状态"""
         if not self.progress["started_at"]:
-            return "📊 学习计划尚未开始。使用 'start' 开始学习。"
+            return " 学习计划尚未开始。使用 'start' 开始学习。"
 
         stage = self.progress["current_stage"]
         stage_info = self.content["stages"][stage]
@@ -113,12 +113,12 @@ class CryptoLearning:
         else:
             current = f"{stage_info['name']}（已完成）"
 
-        status = f"""📊 学习进度
+        status = f""" 学习进度
 
 当前阶段：{stage_info['name']}
 当前学习：{current}
 已完成天数：{self.progress['total_days_completed']}
-状态：{'进行中 🟢' if self.progress['enabled'] else '已暂停 🔴'}
+状态：{'进行中 ' if self.progress['enabled'] else '已暂停 '}
 
 使用 'next' 获取今日学习内容
 使用 'start' 开始/继续
@@ -147,7 +147,7 @@ class CryptoLearning:
                 self.progress["current_subtopic_index"] = 0
                 return self.get_next_content()
             else:
-                return "🎊 恭喜！你已经完成了所有学习内容！"
+                return " 恭喜！你已经完成了所有学习内容！"
 
         topic = stage["topics"][topic_idx]
 
@@ -167,15 +167,15 @@ class CryptoLearning:
         self._save_progress()
 
         # 格式化消息
-        message = f"""📚 加密货币学习计划 - 第 {self.progress['total_days_completed']} 天
+        message = f""" 加密货币学习计划 - 第 {self.progress['total_days_completed']} 天
 
 【{stage['name']}】{topic['name']}
-📖 {subtopic['title']}
+ {subtopic['title']}
 
 {subtopic['content']}
 
 ---
-💡 每天进步一点点，坚持就是胜利！
+ 每天进步一点点，坚持就是胜利！
 使用 'status' 查看进度
 """
         return message
@@ -193,7 +193,7 @@ class CryptoLearning:
 
     def get_all_content_summary(self):
         """获取所有内容概览"""
-        summary = "📖 学习内容概览\n\n"
+        summary = " 学习内容概览\n\n"
 
         for stage_key, stage in self.content["stages"].items():
             summary += f"【{stage['name']}】{stage['description']}（{stage['duration_days']}天）\n"

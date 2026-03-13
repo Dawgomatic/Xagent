@@ -33,12 +33,12 @@ Now all channels share one memory tree, one access level, one user state.
 
 ## Features
 
-✅ **Auto-registers owner** from workspace USER.md  
-✅ **Thread-safe** file operations (fcntl locking)  
-✅ **CLI + Python API** — works for users and skill developers  
-✅ **Path traversal protection** — secure by design  
-✅ **Zero dependencies** — pure Python stdlib  
-✅ **Test coverage** — 24 tests, 100% passing
+ **Auto-registers owner** from workspace USER.md  
+ **Thread-safe** file operations (fcntl locking)  
+ **CLI + Python API** — works for users and skill developers  
+ **Path traversal protection** — secure by design  
+ **Zero dependencies** — pure Python stdlib  
+ **Test coverage** — 24 tests, 100% passing
 
 ## Installation
 
@@ -127,12 +127,12 @@ user_data_path = f"data/users/{canonical_id}/state.json"
 
 **Skills that need this:**
 
-- 🧠 **tiered-memory** — unified memory across channels
-- 🔐 **agent-access-control** — recognize users across platforms
-- 💬 **conversation-history** — cross-channel chat logs
-- ⚙️ **user-preferences** — settings follow the user
-- 📊 **analytics** — accurate per-user metrics
-- ✅ **task-manager** — tasks linked to canonical user
+-  **tiered-memory** — unified memory across channels
+-  **agent-access-control** — recognize users across platforms
+-  **conversation-history** — cross-channel chat logs
+-  **user-preferences** — settings follow the user
+-  **analytics** — accurate per-user metrics
+-  **task-manager** — tasks linked to canonical user
 
 **Any skill storing per-user data should use identity-resolver.**
 
@@ -154,7 +154,7 @@ uv run python tests/test_identity_resolver.py
 ```
 Ran 24 tests in 0.078s
 OK
-✅ ALL TESTS PASSED!
+ ALL TESTS PASSED!
 ```
 
 ## Security
@@ -192,7 +192,7 @@ Pull requests welcome! Please:
 
 ## License
 
-MIT © ClawInfra Contributors
+MIT  ClawInfra Contributors
 
 ## Links
 
@@ -203,4 +203,4 @@ MIT © ClawInfra Contributors
 
 ---
 
-**Stop fragmenting user state. Use canonical IDs.** 🚀
+**Stop fragmenting user state. Use canonical IDs.** 

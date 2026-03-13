@@ -1,7 +1,7 @@
 ---
 name: rlm-controller
 description: RLM-style long-context controller that treats inputs as external context, slices/peeks/searches, and spawns recursive subcalls with strict safety limits. Use for huge docs, dense logs, or repository-scale analysis.
-metadata: {"clawdbot": {"emoji": "🧠"}}
+metadata: {"clawdbot": {"emoji": ""}}
 ---
 
 # RLM Controller Skill

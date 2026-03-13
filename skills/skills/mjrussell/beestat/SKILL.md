@@ -4,7 +4,7 @@ description: Query ecobee thermostat data via Beestat API including temperature,
 homepage: https://beestat.io
 metadata:
   clawdbot:
-    emoji: "🌡️"
+    emoji: ""
     requires:
       bins: ["beestat"]
       env: ["BEESTAT_API_KEY"]

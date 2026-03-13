@@ -955,7 +955,7 @@ Use these to interact with this skill:
 
 ---
 
-## ⚡ Level Up Your Risk Management
+##  Level Up Your Risk Management
 
 This free skill gives you the complete ERM methodology. Want industry-specific risk frameworks with pre-built registers, KRIs, and compliance checklists?
 
@@ -973,7 +973,7 @@ This free skill gives you the complete ERM methodology. Want industry-specific r
 
 Browse all packs: https://afrexai-cto.github.io/context-packs/
 
-### 🔗 More Free Skills by AfrexAI
+###  More Free Skills by AfrexAI
 - `afrexai-contract-review` — Legal contract review with CLAWS risk scoring
 - `afrexai-competitive-intel` — 7-phase competitive intelligence system
 - `afrexai-fpa-engine` — Financial planning & analysis

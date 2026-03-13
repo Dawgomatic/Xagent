@@ -6,7 +6,7 @@ Created by [Shashwat Ghosh](https://linkedin.com/in/shashwatghosh-ai-b2b-gtm-fra
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [What This Skill Does](#what-this-skill-does)
 - [What This Skill Cannot Do](#what-this-skill-cannot-do)
@@ -19,7 +19,7 @@ Created by [Shashwat Ghosh](https://linkedin.com/in/shashwatghosh-ai-b2b-gtm-fra
 
 ---
 
-## ✅ What This Skill Does
+##  What This Skill Does
 
 This skill provides comprehensive content writing frameworks and workflows for B2B SaaS thought leadership:
 
@@ -85,7 +85,7 @@ Each vertical includes 6 content scenarios covering:
 
 ---
 
-## ❌ What This Skill Cannot Do
+##  What This Skill Cannot Do
 
 ### Limitations to Understand:
 
@@ -133,7 +133,7 @@ Each vertical includes 6 content scenarios covering:
 
 ---
 
-## 🏢 Industry Coverage
+##  Industry Coverage
 
 ### Fully Supported Verticals:
 
@@ -170,7 +170,7 @@ Each vertical includes 6 content scenarios covering:
 
 ---
 
-## 🎯 Key Features
+##  Key Features
 
 ### 1. Daily Writing Workflows
 
@@ -266,7 +266,7 @@ Each vertical includes 6 content scenarios covering:
 
 ---
 
-## 💼 Use Cases
+##  Use Cases
 
 ### For Founders:
 - Build personal brand alongside company brand
@@ -305,7 +305,7 @@ Each vertical includes 6 content scenarios covering:
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### Method 1: Using Clawd CLI
 
@@ -329,7 +329,7 @@ clawdhub install shashwatgtm/content-writing-thought-leadership
 
 ---
 
-## 📚 Examples
+##  Examples
 
 ### Example 1: LinkedIn Post Creation
 
@@ -402,7 +402,7 @@ with signature framework, regular posting schedule, and topic themes.
 
 ---
 
-## 🔧 Integration & Workflow
+##  Integration & Workflow
 
 ### Works Best With:
 
@@ -445,7 +445,7 @@ with signature framework, regular posting schedule, and topic themes.
 
 ---
 
-## 📊 What You'll Get
+##  What You'll Get
 
 ### Content Templates:
 - LinkedIn post templates (10+ formats)
@@ -476,7 +476,7 @@ with signature framework, regular posting schedule, and topic themes.
 
 ---
 
-## 🚀 Best Practices
+##  Best Practices
 
 ### To Get Maximum Value:
 
@@ -508,7 +508,7 @@ with signature framework, regular posting schedule, and topic themes.
 
 ---
 
-## 👨‍💼 Author
+##  Author
 
 **Shashwat Ghosh**  
 Founder, Helix GTM Consulting | Fractional CMO for B2B SaaS
@@ -529,10 +529,10 @@ Founder, Helix GTM Consulting | Fractional CMO for B2B SaaS
 - Regular speaker at SaaS conferences
 
 ### Connect:
-- 🔗 LinkedIn: [linkedin.com/in/shashwatghosh-ai-b2b-gtm-fractionalcmo](https://linkedin.com/in/shashwatghosh-ai-b2b-gtm-fractionalcmo)
-- 🐦 X/Twitter: [@Shashwat_Ghosh](https://x.com/Shashwat_Ghosh)
-- 📧 Substack: [shashwatghosh.substack.com](https://shashwatghosh.substack.com)
-- 💻 GitHub: [@shashwatgtm](https://github.com/shashwatgtm)
+-  LinkedIn: [linkedin.com/in/shashwatghosh-ai-b2b-gtm-fractionalcmo](https://linkedin.com/in/shashwatghosh-ai-b2b-gtm-fractionalcmo)
+-  X/Twitter: [@Shashwat_Ghosh](https://x.com/Shashwat_Ghosh)
+-  Substack: [shashwatghosh.substack.com](https://shashwatghosh.substack.com)
+-  GitHub: [@shashwatgtm](https://github.com/shashwatgtm)
 
 ### Other Skills:
 - [Competitive Intelligence & Market Research](https://github.com/shashwatgtm/competitive-intelligence-market-research)
@@ -542,13 +542,13 @@ Founder, Helix GTM Consulting | Fractional CMO for B2B SaaS
 
 ---
 
-## 📄 License
+##  License
 
 MIT License - Free to use, modify, and distribute with attribution.
 
 ---
 
-## 🙏 Contributing
+##  Contributing
 
 Found an issue or have suggestions? Feel free to:
 - Open an issue on GitHub
@@ -557,15 +557,15 @@ Found an issue or have suggestions? Feel free to:
 
 ---
 
-## ⭐ Support
+##  Support
 
 If this skill helps your content creation efforts, please:
-- ⭐ Star this repository
-- 📢 Share with your network
-- 💬 Provide feedback for improvements
+-  Star this repository
+-  Share with your network
+-  Provide feedback for improvements
 
 ---
 
 **Last Updated**: January 2026  
 **Version**: 1.0  
-**Status**: Production Ready ✅
+**Status**: Production Ready 

@@ -1,4 +1,4 @@
-# 🎭 Personas
+#  Personas
 
 20 built-in AI personas for OpenClaw. Switch styles and domain focus instantly (e.g., Dev for coding, Wordsmith for writing, Chef Marco for cooking).
 

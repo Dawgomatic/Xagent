@@ -17,13 +17,13 @@ root_keys = [r.get('key', 'default') for r in roots]
 
 if not projects:
     if root_filter:
-        print(f"📂 No projects in root '{root_filter}'.")
+        print(f" No projects in root '{root_filter}'.")
         print(f"Available roots: {', '.join(root_keys)}")
     else:
-        print("📂 No projects registered yet.")
+        print(" No projects registered yet.")
     raise SystemExit(0)
 
-header = f"📋 *{len(projects)} Projects*"
+header = f" *{len(projects)} Projects*"
 meta = f"(schema={res.registry.get('schema')} v{res.registry.get('version')})"
 root_meta = f" [root={root_filter}]" if root_filter else ""
 print(f"{header}{root_meta} {meta}\n")
@@ -35,7 +35,7 @@ for p in projects[:20]:
     tags = ', '.join(p.get('tags', [])) or '-'
     repo = p.get('repo', '')
 
-    repo_str = f" | 🌐 {repo}" if repo else ""
+    repo_str = f" |  {repo}" if repo else ""
     print(f"• *{name}* | {lang} | {root} | {tags}{repo_str}")
 
 if len(projects) > 20:
@@ -43,6 +43,6 @@ if len(projects) > 20:
 
 if res.migrated:
     notes = '; '.join(res.migration_notes)
-    print(f"\nℹ️ Migrated registry: {notes}")
+    print(f"\n Migrated registry: {notes}")
     if res.backup_path:
-        print(f"ℹ️ Migration backup: {res.backup_path}")
+        print(f" Migration backup: {res.backup_path}")

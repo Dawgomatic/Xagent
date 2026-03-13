@@ -88,7 +88,7 @@ async function main() {
     console.log(`\nTotal: ${targetOrders.length} order(s)`);
 
     if (dryRun) {
-      console.log('\n🔍 Dry run - orders not cancelled');
+      console.log('\n Dry run - orders not cancelled');
       return;
     }
 
@@ -101,14 +101,14 @@ async function main() {
       try {
         const response = await client.cancel(order.coin, order.oid);
         if (response.status === 'ok') {
-          console.log(`✅ Cancelled ${order.coin} order ${order.oid}`);
+          console.log(` Cancelled ${order.coin} order ${order.oid}`);
           successCount++;
         } else {
-          console.log(`❌ Failed to cancel ${order.coin} order ${order.oid}`);
+          console.log(` Failed to cancel ${order.coin} order ${order.oid}`);
           failCount++;
         }
       } catch (err) {
-        console.log(`❌ Error cancelling ${order.coin} order ${order.oid}: ${err}`);
+        console.log(` Error cancelling ${order.coin} order ${order.oid}: ${err}`);
         failCount++;
       }
     }

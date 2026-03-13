@@ -203,11 +203,11 @@ def format_post(post, include_link=True):
     lines = [
         f"@{author} · {time_str}",
         f"  {text[:200]}",
-        f"  ❤️ {likes}  🔁 {reposts}  💬 {replies}",
+        f"   {likes}   {reposts}   {replies}",
     ]
     if include_link:
         lines.append(
-            f"  🔗 https://bsky.app/profile/{author}/post/{post.uri.split('/')[-1]}"
+            f"   https://bsky.app/profile/{author}/post/{post.uri.split('/')[-1]}"
         )
 
     return "\n".join(lines)
@@ -542,9 +542,9 @@ def cmd_thread_view(args):
             print(f"{prefix}┌─ @{author} · {time_str}")
             for line in text.split("\n"):
                 print(f"{prefix}│  {line[:200]}")
-            print(f"{prefix}│  ❤️ {likes}  🔁 {reposts}  💬 {replies}")
+            print(f"{prefix}│   {likes}   {reposts}   {replies}")
             print(
-                f"{prefix}└─ 🔗 https://bsky.app/profile/{author}/post/{post.uri.split('/')[-1]}"
+                f"{prefix}└─  https://bsky.app/profile/{author}/post/{post.uri.split('/')[-1]}"
             )
             print()
 
@@ -567,7 +567,7 @@ def cmd_thread_view(args):
 
         print_parents(response.thread.parent)
         print("─" * 40)
-        print("📍 This post:")
+        print(" This post:")
         print()
 
     if args.json:
@@ -629,7 +629,7 @@ def cmd_create_thread(args):
     if args.dry_run:
         print(f"=== DRY RUN: Thread with {len(texts)} posts ===")
         for i, text in enumerate(texts, 1):
-            print(f"\n📝 Post {i}/{len(texts)} ({len(text)} chars):")
+            print(f"\n Post {i}/{len(texts)} ({len(text)} chars):")
             print(f"  {text}")
 
             url_pattern = r"(https?://[^\s]+)"
@@ -638,7 +638,7 @@ def cmd_create_thread(args):
                 print(f"  Links: {', '.join(urls)}")
 
         if args.image:
-            print(f"\n🖼️ Image on post 1: {args.image}")
+            print(f"\n Image on post 1: {args.image}")
             print(f"  Alt: {args.alt}")
             if image_data:
                 print(f"  Size: {len(image_data) / 1000:.1f}KB")
@@ -700,18 +700,18 @@ def cmd_create_thread(args):
             print(f"Posted {post_num}/{total}: {url}")
 
         except Exception as e:
-            print(f"\n❌ Failed on post {post_num}/{total}: {e}", file=sys.stderr)
+            print(f"\n Failed on post {post_num}/{total}: {e}", file=sys.stderr)
             if posted_urls:
                 print(
-                    f"\n✅ Successfully posted {len(posted_urls)}/{total}:",
+                    f"\n Successfully posted {len(posted_urls)}/{total}:",
                     file=sys.stderr,
                 )
                 for url in posted_urls:
                     print(f"  {url}", file=sys.stderr)
             sys.exit(1)
 
-    print(f"\n🧵 Thread complete! ({total} posts)")
-    print(f"🔗 {posted_urls[0]}")
+    print(f"\n Thread complete! ({total} posts)")
+    print(f" {posted_urls[0]}")
 
 
 def cmd_delete(args):
@@ -786,7 +786,7 @@ def cmd_search(args):
 
         print(f"@{author}: {text[:150]}")
         print(
-            f"  ❤️ {likes}  🔗 https://bsky.app/profile/{author}/post/{post.uri.split('/')[-1]}"
+            f"   {likes}   https://bsky.app/profile/{author}/post/{post.uri.split('/')[-1]}"
         )
         print()
 
@@ -814,7 +814,7 @@ def cmd_notifications(args):
         return
 
     if not response.notifications:
-        print("No notifications yet — go make some noise! 📢")
+        print("No notifications yet — go make some noise! ")
         return
 
     for notif in response.notifications:
@@ -823,12 +823,12 @@ def cmd_notifications(args):
         time_str = notif.indexed_at[:16] if notif.indexed_at else ""
 
         icons = {
-            "like": "❤️",
-            "repost": "🔁",
-            "follow": "👤",
-            "reply": "💬",
-            "mention": "📢",
-            "quote": "💭",
+            "like": "",
+            "repost": "",
+            "follow": "",
+            "reply": "",
+            "mention": "",
+            "quote": "",
         }
         icon = icons.get(reason, "•")
 
@@ -860,7 +860,7 @@ def cmd_like(args):
     try:
         client.like(uri=post.uri, cid=post.cid)
         print(
-            f"❤️ Liked: https://bsky.app/profile/{post.author.handle}/post/{post.uri.split('/')[-1]}"
+            f" Liked: https://bsky.app/profile/{post.author.handle}/post/{post.uri.split('/')[-1]}"
         )
     except Exception as e:
         print(f"Like failed: {e}", file=sys.stderr)
@@ -896,7 +896,7 @@ def cmd_unlike(args):
         rkey = like_uri.split("/")[-1]
         client.app.bsky.feed.like.delete(client.me.did, rkey)
         print(
-            f"💔 Unliked: https://bsky.app/profile/{post.author.handle}/post/{post.uri.split('/')[-1]}"
+            f" Unliked: https://bsky.app/profile/{post.author.handle}/post/{post.uri.split('/')[-1]}"
         )
     except Exception as e:
         print(f"Unlike failed: {e}", file=sys.stderr)
@@ -915,7 +915,7 @@ def cmd_repost(args):
     try:
         client.repost(uri=post.uri, cid=post.cid)
         print(
-            f"🔁 Reposted: https://bsky.app/profile/{post.author.handle}/post/{post.uri.split('/')[-1]}"
+            f" Reposted: https://bsky.app/profile/{post.author.handle}/post/{post.uri.split('/')[-1]}"
         )
     except Exception as e:
         print(f"Repost failed: {e}", file=sys.stderr)
@@ -951,7 +951,7 @@ def cmd_unrepost(args):
         rkey = repost_uri.split("/")[-1]
         client.app.bsky.feed.repost.delete(client.me.did, rkey)
         print(
-            f"🔄 Unreposted: https://bsky.app/profile/{post.author.handle}/post/{post.uri.split('/')[-1]}"
+            f" Unreposted: https://bsky.app/profile/{post.author.handle}/post/{post.uri.split('/')[-1]}"
         )
     except Exception as e:
         print(f"Unrepost failed: {e}", file=sys.stderr)
@@ -966,7 +966,7 @@ def cmd_follow(args):
     try:
         profile = client.get_profile(handle)
         client.follow(profile.did)
-        print(f"👤 Following @{profile.handle}")
+        print(f" Following @{profile.handle}")
     except Exception as e:
         print(f"Follow failed: {e}", file=sys.stderr)
         sys.exit(1)
@@ -992,7 +992,7 @@ def cmd_unfollow(args):
         follow_uri = profile.viewer.following
         rkey = follow_uri.split("/")[-1]
         client.app.bsky.graph.follow.delete(client.me.did, rkey)
-        print(f"👋 Unfollowed @{profile.handle}")
+        print(f" Unfollowed @{profile.handle}")
     except Exception as e:
         print(f"Unfollow failed: {e}", file=sys.stderr)
         sys.exit(1)
@@ -1019,7 +1019,7 @@ def cmd_block(args):
                 created_at=client.get_current_time_iso(),
             ),
         )
-        print(f"🚫 Blocked @{profile.handle}")
+        print(f" Blocked @{profile.handle}")
     except Exception as e:
         print(f"Block failed: {e}", file=sys.stderr)
         sys.exit(1)
@@ -1045,7 +1045,7 @@ def cmd_unblock(args):
         block_uri = profile.viewer.blocking
         rkey = block_uri.split("/")[-1]
         client.app.bsky.graph.block.delete(client.me.did, rkey)
-        print(f"✅ Unblocked @{profile.handle}")
+        print(f" Unblocked @{profile.handle}")
     except Exception as e:
         print(f"Unblock failed: {e}", file=sys.stderr)
         sys.exit(1)
@@ -1059,7 +1059,7 @@ def cmd_mute(args):
     try:
         profile = client.get_profile(handle)
         client.mute(profile.did)
-        print(f"🔇 Muted @{profile.handle}")
+        print(f" Muted @{profile.handle}")
     except Exception as e:
         print(f"Mute failed: {e}", file=sys.stderr)
         sys.exit(1)
@@ -1073,7 +1073,7 @@ def cmd_unmute(args):
     try:
         profile = client.get_profile(handle)
         client.unmute(profile.did)
-        print(f"🔊 Unmuted @{profile.handle}")
+        print(f" Unmuted @{profile.handle}")
     except Exception as e:
         print(f"Unmute failed: {e}", file=sys.stderr)
         sys.exit(1)
@@ -1096,9 +1096,9 @@ def cmd_stats(args):
         return
 
     print(f"@{profile.handle}")
-    print(f"📝 Posts: {profile.posts_count}")
-    print(f"👥 Followers: {profile.followers_count}")
-    print(f"👤 Following: {profile.follows_count}")
+    print(f" Posts: {profile.posts_count}")
+    print(f" Followers: {profile.followers_count}")
+    print(f" Following: {profile.follows_count}")
 
 
 def main():

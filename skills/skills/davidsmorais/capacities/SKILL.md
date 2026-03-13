@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🧠",
+        "emoji": "",
         "requires": { "env": ["CAPACITIES_API_TOKEN"] },
         "primaryEnv": "CAPACITIES_API_TOKEN",
       },

@@ -72,7 +72,7 @@ def trigger_ai_analysis(image_path):
     with open(trigger_file, 'w') as f:
         json.dump(trigger, f)
     
-    log(f"🚨 Motion! Triggered AI analysis: {trigger_file}")
+    log(f" Motion! Triggered AI analysis: {trigger_file}")
     return trigger_file
 
 def main():
@@ -81,7 +81,7 @@ def main():
     with open(ACTIVE_FILE, 'w') as f:
         f.write(str(os.getpid()))
     
-    log("🔥 SMART OVERWATCH ACTIVATED")
+    log(" SMART OVERWATCH ACTIVATED")
     log("Mode: Local motion detection → AI escalation on person detected")
     log("=" * 50)
     
@@ -96,7 +96,7 @@ def main():
             check_count += 1
             
             if check_count % 120 == 0:  # Every minute
-                log("👀 Still watching locally (zero cost)...")
+                log(" Still watching locally (zero cost)...")
             
             if detect_motion():
                 now = time.time()
@@ -113,27 +113,27 @@ def main():
                     
                     # Pause for 2 minutes to let AI analyze
                     # (Prevents spam while AI is checking)
-                    log("⏸️  Paused 2min for AI analysis...")
+                    log("  Paused 2min for AI analysis...")
                     time.sleep(120)
-                    log("▶️  Resuming local monitoring...")
+                    log("  Resuming local monitoring...")
                 else:
                     remaining = int(COOLDOWN - (now - last_trigger))
-                    log(f"⏳ Motion (cooldown: {remaining}s)")
+                    log(f" Motion (cooldown: {remaining}s)")
     
     except KeyboardInterrupt:
-        log("🛑 Stopped by user")
+        log(" Stopped by user")
     except Exception as e:
-        log(f"❌ Error: {e}")
+        log(f" Error: {e}")
     finally:
         if os.path.exists(ACTIVE_FILE):
             os.remove(ACTIVE_FILE)
-        log("👋 Smart overwatch deactivated")
+        log(" Smart overwatch deactivated")
 
 if __name__ == "__main__":
     import sys
     if len(sys.argv) > 1 and sys.argv[1] == "stop":
         if os.path.exists(ACTIVE_FILE):
             os.remove(ACTIVE_FILE)
-            print("🛑 Stop signal sent")
+            print(" Stop signal sent")
     else:
         main()

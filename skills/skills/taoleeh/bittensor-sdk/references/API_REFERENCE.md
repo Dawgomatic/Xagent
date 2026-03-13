@@ -3173,7 +3173,7 @@ ExtrinsicResponse
 
 <!-- image -->
 
-## Warning ⚠
+## Warning 
 
 All access to this account will be lost. Any funds remaining in the pure proxy account will become permanently inaccessible after this operation.
 

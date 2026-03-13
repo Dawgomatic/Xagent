@@ -4,7 +4,7 @@ slug: gif
 version: 1.0.1
 description: Find, search, and create GIFs with proper optimization and accessibility.
 changelog: Declare required binary (ffmpeg), document optional deps (gifsicle, API keys)
-metadata: {"clawdbot":{"emoji":"🎞️","requires":{"bins":["ffmpeg"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["ffmpeg"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Requirements

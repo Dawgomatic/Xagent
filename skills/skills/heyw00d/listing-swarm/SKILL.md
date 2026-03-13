@@ -21,7 +21,7 @@ metadata:
     disable-model-invocation: true
 ---
 
-# Listing Swarm 🐝
+# Listing Swarm 
 
 **A Clawdbot skill to list your AI product on 70+ AI directories.**
 
@@ -29,16 +29,16 @@ Your agent does the submissions. You bring your captcha API key. Human assists w
 
 ---
 
-## 🔒 Security Model: BYOK (Bring Your Own Key)
+##  Security Model: BYOK (Bring Your Own Key)
 
 > **This skill contains ZERO credentials.** All API keys and passwords are provided by YOU at runtime via environment variables. Nothing is stored, logged, or transmitted to LinkSwarm.
 
 | What | Security |
 |------|----------|
-| Captcha API | ✅ Your key, your account, your billing |
-| Email/IMAP | ✅ Your credentials, optional, never stored |
-| Data flow | ✅ Your product info → directory forms (that's it) |
-| Source code | ✅ Fully readable, no obfuscation |
+| Captcha API |  Your key, your account, your billing |
+| Email/IMAP |  Your credentials, optional, never stored |
+| Data flow |  Your product info → directory forms (that's it) |
+| Source code |  Fully readable, no obfuscation |
 
 **See [SECURITY.md](SECURITY.md) for complete security documentation.**
 
@@ -58,7 +58,7 @@ Automates submitting your AI tool to directories like:
 
 ### 1. Get Your Own Captcha Solver API Key (Required)
 
-⚠️ **You must get your own API key.** The skill does not include one.
+ **You must get your own API key.** The skill does not include one.
 
 1. Go to [2Captcha.com](https://2captcha.com) (recommended)
 2. Create an account

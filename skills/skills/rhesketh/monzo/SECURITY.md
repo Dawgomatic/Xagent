@@ -11,7 +11,7 @@ Your `MONZO_KEYRING_PASSWORD` protects your banking credentials. Choose wisely:
 
 ## Multi-User Systems
 
-⚠️ **Important Security Consideration**
+ **Important Security Consideration**
 
 This skill stores credentials in your home directory and uses environment variables. On multi-user systems, be aware:
 
@@ -70,27 +70,27 @@ This shows sanitized API responses. Even in debug mode, sensitive IDs are redact
 
 ## What's Protected
 
-- ✅ Credentials encrypted at rest (AES-256-CBC, PBKDF2 100k iterations)
-- ✅ OAuth 2.0 with automatic token refresh
-- ✅ State parameter validation (CSRF protection)
-- ✅ HTTPS-only API communication
-- ✅ File permissions locked to owner-only (600)
-- ✅ Cryptographically secure random IDs
-- ✅ Error messages sanitize sensitive IDs
+-  Credentials encrypted at rest (AES-256-CBC, PBKDF2 100k iterations)
+-  OAuth 2.0 with automatic token refresh
+-  State parameter validation (CSRF protection)
+-  HTTPS-only API communication
+-  File permissions locked to owner-only (600)
+-  Cryptographically secure random IDs
+-  Error messages sanitize sensitive IDs
 
 ## Threat Model
 
 This skill protects against:
-- ✅ Credentials stolen from disk (encrypted)
-- ✅ OAuth CSRF attacks (state validation)
-- ✅ Accidental credential exposure (file permissions)
-- ✅ Information leakage in logs (sanitized errors)
+-  Credentials stolen from disk (encrypted)
+-  OAuth CSRF attacks (state validation)
+-  Accidental credential exposure (file permissions)
+-  Information leakage in logs (sanitized errors)
 
 This skill does NOT protect against:
-- ❌ Root/admin access to your system
-- ❌ Keyloggers capturing your password
-- ❌ Physical access to unlocked machine
-- ❌ Malicious code running as your user
+-  Root/admin access to your system
+-  Keyloggers capturing your password
+-  Physical access to unlocked machine
+-  Malicious code running as your user
 
 If your system is compromised at the OS level, assume your Monzo credentials are compromised too.
 

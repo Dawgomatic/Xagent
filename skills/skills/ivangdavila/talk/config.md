@@ -65,8 +65,8 @@ clawhub install phone-voice
 
 | Feature | ElevenLabs | Twilio | Telnyx |
 |---------|------------|--------|--------|
-| Phone calls | ❌ | ✅ | ✅ |
-| Web voice | ✅ | ❌ | ❌ |
+| Phone calls |  |  |  |
+| Web voice |  |  |  |
 | Cost | ~$0.05/min | ~$0.02/min | ~$0.01/min |
 | Voice quality | Best | Good | Good |
 | Latency | Low | Medium | Medium |

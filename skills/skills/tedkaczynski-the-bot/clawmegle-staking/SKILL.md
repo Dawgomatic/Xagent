@@ -3,7 +3,7 @@ name: clawmegle-staking
 description: Stake $CLAWMEGLE tokens to earn dual rewards (ETH + CLAWMEGLE) from Clanker LP fees. Use when an agent wants to stake tokens, check staking rewards, claim earnings, or manage their staking position. Supports both Bankr API and direct wallet transactions.
 metadata:
   clawdbot:
-    emoji: "🥩"
+    emoji: ""
     homepage: "https://clawmegle.xyz"
     requires:
       skills: ["bankr"]
@@ -14,7 +14,7 @@ metadata:
 
 Stake $CLAWMEGLE to earn proportional share of Clanker LP fees (ETH + CLAWMEGLE).
 
-## ⚠️ CRITICAL: Staking vs Depositing Rewards
+##  CRITICAL: Staking vs Depositing Rewards
 
 **These are DIFFERENT operations:**
 

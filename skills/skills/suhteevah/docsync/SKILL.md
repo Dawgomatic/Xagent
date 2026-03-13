@@ -5,7 +5,7 @@ homepage: https://docsync.pages.dev
 metadata:
   {
     "openclaw": {
-      "emoji": "📖",
+      "emoji": "",
       "primaryEnv": "DOCSYNC_LICENSE_KEY",
       "requires": {
         "bins": ["git", "bash"]

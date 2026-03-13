@@ -128,7 +128,7 @@ def forward_to_slack(message):
     """Forward important emails to Slack."""
     
     payload = {
-        "text": f"📧 Email from {message.from_}",
+        "text": f" Email from {message.from_}",
         "attachments": [{
             "title": message.subject,
             "text": message.text[:500],

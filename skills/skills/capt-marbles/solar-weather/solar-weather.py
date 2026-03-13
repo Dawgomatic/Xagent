@@ -36,11 +36,11 @@ def format_scale(scale_name: str, data: Dict) -> str:
     
     # Color codes based on severity
     if scale in ['0', None]:
-        return f"{scale_name}: {text} ✅"
+        return f"{scale_name}: {text} "
     elif scale in ['1', '2']:
-        return f"{scale_name}{scale}: {text} ⚠️"
+        return f"{scale_name}{scale}: {text} "
     else:
-        return f"{scale_name}{scale}: {text} 🚨"
+        return f"{scale_name}{scale}: {text} "
 
 
 def cmd_current(args):
@@ -53,22 +53,22 @@ def cmd_current(args):
     if args.json:
         print(json.dumps(current, indent=2))
     else:
-        print(f"🌞 Space Weather Conditions")
+        print(f" Space Weather Conditions")
         print(f"   {timestamp}\n")
         
         # R Scale - Radio Blackouts (Solar Flares)
         r_data = current.get('R', {})
-        print(f"   📻 {format_scale('R', r_data)}")
+        print(f"    {format_scale('R', r_data)}")
         print(f"      Radio Blackouts (Solar Flares)")
         
         # S Scale - Solar Radiation Storms
         s_data = current.get('S', {})
-        print(f"\n   ☢️  {format_scale('S', s_data)}")
+        print(f"\n     {format_scale('S', s_data)}")
         print(f"      Solar Radiation Storm")
         
         # G Scale - Geomagnetic Storms
         g_data = current.get('G', {})
-        print(f"\n   🌍 {format_scale('G', g_data)}")
+        print(f"\n    {format_scale('G', g_data)}")
         print(f"      Geomagnetic Storm")
 
 
@@ -88,22 +88,22 @@ def cmd_forecast(args):
             'day_after': day_after
         }, indent=2))
     else:
-        print(f"🌞 Space Weather Forecast\n")
+        print(f" Space Weather Forecast\n")
         
         # Today
-        print(f"📅 Today ({today.get('DateStamp')})")
+        print(f" Today ({today.get('DateStamp')})")
         print(f"   R: {today.get('R', {}).get('Text', 'N/A')}")
         print(f"   S: {today.get('S', {}).get('Text', 'N/A')}")
         print(f"   G: {today.get('G', {}).get('Text', 'N/A')}")
         
         # Tomorrow
-        print(f"\n📅 Tomorrow ({tomorrow.get('DateStamp')})")
+        print(f"\n Tomorrow ({tomorrow.get('DateStamp')})")
         print(f"   R: {tomorrow.get('R', {}).get('Text', 'N/A')} (Minor: {tomorrow.get('R', {}).get('MinorProb', 'N/A')}%, Major: {tomorrow.get('R', {}).get('MajorProb', 'N/A')}%)")
         print(f"   S: {tomorrow.get('S', {}).get('Text', 'N/A')} (Prob: {tomorrow.get('S', {}).get('Prob', 'N/A')}%)")
         print(f"   G: {tomorrow.get('G', {}).get('Text', 'N/A')}")
         
         # Day After
-        print(f"\n📅 {day_after.get('DateStamp')}")
+        print(f"\n {day_after.get('DateStamp')}")
         print(f"   R: {day_after.get('R', {}).get('Text', 'N/A')} (Minor: {day_after.get('R', {}).get('MinorProb', 'N/A')}%, Major: {day_after.get('R', {}).get('MajorProb', 'N/A')}%)")
         print(f"   S: {day_after.get('S', {}).get('Text', 'N/A')} (Prob: {day_after.get('S', {}).get('Prob', 'N/A')}%)")
         print(f"   G: {day_after.get('G', {}).get('Text', 'N/A')}")
@@ -116,18 +116,18 @@ def cmd_solarwind(args):
     if args.json:
         print(json.dumps(mag, indent=2))
     else:
-        print(f"🌊 Solar Wind Magnetic Field")
+        print(f" Solar Wind Magnetic Field")
         print(f"   Time: {mag.get('TimeStamp')}")
         print(f"   Bt: {mag.get('Bt')} nT (Total Magnitude)")
         print(f"   Bz: {mag.get('Bz')} nT (North/South Component)")
         
         bz = float(mag.get('Bz', 0))
         if bz < -5:
-            print(f"\n   ⚠️  Negative Bz - Aurora likely!")
+            print(f"\n     Negative Bz - Aurora likely!")
         elif bz < 0:
-            print(f"\n   ✅ Slightly negative Bz")
+            print(f"\n    Slightly negative Bz")
         else:
-            print(f"\n   ✅ Positive Bz - Aurora unlikely")
+            print(f"\n    Positive Bz - Aurora unlikely")
 
 
 def cmd_aurora(args):
@@ -151,7 +151,7 @@ def cmd_aurora(args):
             'solar_wind_bz': bz
         }, indent=2))
     else:
-        print(f"🌌 Aurora Forecast\n")
+        print(f" Aurora Forecast\n")
         
         print(f"Current Conditions:")
         print(f"   Geomagnetic: {g_current.get('Text', 'N/A')}")
@@ -164,16 +164,16 @@ def cmd_aurora(args):
         current_scale = g_current.get('Scale', '0')
         tomorrow_scale = g_tomorrow.get('Scale', '0')
         
-        print(f"\n🔮 Aurora Outlook:")
+        print(f"\n Aurora Outlook:")
         
         if current_scale and int(current_scale) >= 3:
-            print(f"   🌟 HIGH - Major geomagnetic storm! Aurora visible at mid-latitudes!")
+            print(f"    HIGH - Major geomagnetic storm! Aurora visible at mid-latitudes!")
         elif current_scale and int(current_scale) >= 1:
-            print(f"   ⚠️  MODERATE - Aurora possible at high latitudes")
+            print(f"     MODERATE - Aurora possible at high latitudes")
         elif bz < -5:
-            print(f"   ⚠️  MODERATE - Negative Bz favorable for aurora")
+            print(f"     MODERATE - Negative Bz favorable for aurora")
         else:
-            print(f"   ✅ LOW - Quiet conditions")
+            print(f"    LOW - Quiet conditions")
 
 
 def cmd_alerts(args):
@@ -188,10 +188,10 @@ def cmd_alerts(args):
             print(json.dumps(alerts, indent=2))
         else:
             if not alerts:
-                print("✅ No active alerts")
+                print(" No active alerts")
                 return
             
-            print(f"🚨 Space Weather Alerts ({len(alerts)} active)\n")
+            print(f" Space Weather Alerts ({len(alerts)} active)\n")
             for alert in alerts[:10]:  # Show latest 10
                 issue_time = alert.get('issue_datetime', 'N/A')
                 message = alert.get('message', '').split('\n')[0]  # First line
@@ -199,18 +199,18 @@ def cmd_alerts(args):
                 print(f"   {message}\n")
     
     except:
-        print("⚠️  Could not fetch alerts", file=sys.stderr)
+        print("  Could not fetch alerts", file=sys.stderr)
 
 
 def cmd_summary(args):
     """Get comprehensive summary."""
-    print(f"🌞 Solar Weather Summary\n")
+    print(f" Solar Weather Summary\n")
     
     # Current conditions
     data = api_get("/products/noaa-scales.json")
     current = data.get('0', {})
     
-    print(f"📊 Current Conditions ({current.get('DateStamp')} {current.get('TimeStamp')} UTC)")
+    print(f" Current Conditions ({current.get('DateStamp')} {current.get('TimeStamp')} UTC)")
     print(f"   {format_scale('R', current.get('R', {}))}")
     print(f"   {format_scale('S', current.get('S', {}))}")
     print(f"   {format_scale('G', current.get('G', {}))}")
@@ -218,19 +218,19 @@ def cmd_summary(args):
     # Solar wind
     mag = api_get("/products/summary/solar-wind-mag-field.json")
     bz = float(mag.get('Bz', 0))
-    print(f"\n🌊 Solar Wind")
+    print(f"\n Solar Wind")
     print(f"   Bz: {bz} nT")
     if bz < -5:
-        print(f"   ⚠️  Favorable for aurora!")
+        print(f"     Favorable for aurora!")
     
     # Tomorrow forecast
     tomorrow = data.get('2', {})
-    print(f"\n📅 Tomorrow Forecast ({tomorrow.get('DateStamp')})")
+    print(f"\n Tomorrow Forecast ({tomorrow.get('DateStamp')})")
     g_tomorrow = tomorrow.get('G', {})
     if g_tomorrow.get('Scale') and int(g_tomorrow.get('Scale', '0')) >= 1:
-        print(f"   🌟 Geomagnetic storm expected: {g_tomorrow.get('Text')}")
+        print(f"    Geomagnetic storm expected: {g_tomorrow.get('Text')}")
     else:
-        print(f"   ✅ Quiet conditions expected")
+        print(f"    Quiet conditions expected")
 
 
 def main():

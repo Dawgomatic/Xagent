@@ -1,7 +1,7 @@
 ---
 name: apple-contacts
 description: Look up contacts from macOS Contacts.app. Use when resolving phone numbers to names, finding contact info, or searching the address book.
-metadata: {"clawdbot":{"emoji":"👤","os":["darwin"]}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin"]}}
 ---
 
 # Apple Contacts
@@ -23,7 +23,7 @@ osascript -e 'tell application "Contacts" to get name of every person'
 
 ## Full Contact Info
 
-⚠️ Don't use `first person whose` — buggy. Use this pattern:
+ Don't use `first person whose` — buggy. Use this pattern:
 
 ```bash
 # By phone
@@ -47,12 +47,12 @@ end tell'
 
 ## Phone Lookup
 
-⚠️ **Exact string match required** — must match stored format exactly.
+ **Exact string match required** — must match stored format exactly.
 
 | Stored | Search | Works? |
 |--------|--------|--------|
-| `+1XXXXXXXXXX` | `+1XXXXXXXXXX` | ✅ |
-| `+1XXXXXXXXXX` | `XXXXXXXXXX` | ❌ |
+| `+1XXXXXXXXXX` | `+1XXXXXXXXXX` |  |
+| `+1XXXXXXXXXX` | `XXXXXXXXXX` |  |
 
 Try with `+1` prefix first. If fails, search by name instead.
 

@@ -43,7 +43,7 @@ if [ -d "$SKILL_DIR" ]; then
 fi
 
 echo ""
-echo -e "${BLUE}🔨 Scaffolding new skill:${NC} $SKILL_NAME"
+echo -e "${BLUE} Scaffolding new skill:${NC} $SKILL_NAME"
 echo "   Location: $SKILL_DIR"
 echo ""
 

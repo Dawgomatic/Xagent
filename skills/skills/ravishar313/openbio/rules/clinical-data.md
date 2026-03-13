@@ -53,10 +53,10 @@ What clinical information do you need?
 
 | Stars | Meaning | Confidence |
 |-------|---------|------------|
-| ⭐⭐⭐⭐ | Expert panel reviewed | Highest |
-| ⭐⭐⭐ | Multiple submitters, no conflict | High |
-| ⭐⭐ | Multiple submitters, some conflict | Moderate |
-| ⭐ | Single submitter | Lower |
+|  | Expert panel reviewed | Highest |
+|  | Multiple submitters, no conflict | High |
+|  | Multiple submitters, some conflict | Moderate |
+|  | Single submitter | Lower |
 | No stars | No assertion criteria | Lowest |
 
 **Rule**: For clinical decisions, prioritize variants with ≥ 2 stars.
@@ -65,12 +65,12 @@ What clinical information do you need?
 
 ### Wrong: Treating VUS as pathogenic
 ```
-❌ "ClinVar says VUS, so it might cause disease"
+ "ClinVar says VUS, so it might cause disease"
 ```
 **Why wrong**: VUS means we don't know. Cannot be used for clinical decisions.
 
 ```
-✅ Interpretation:
+ Interpretation:
    - Pathogenic/Likely pathogenic → Clinically relevant
    - VUS → Uncertain, needs more evidence
    - Benign/Likely benign → Not clinically relevant
@@ -78,12 +78,12 @@ What clinical information do you need?
 
 ### Wrong: Single adverse event = causation
 ```
-❌ "Patient had X after taking drug Y, so Y causes X"
+ "Patient had X after taking drug Y, so Y causes X"
 ```
 **Why wrong**: FAERS is spontaneous reports, not controlled data.
 
 ```
-✅ Correct interpretation:
+ Correct interpretation:
    - Multiple reports = potential signal
    - PRR/ROR statistics for proper analysis
    - Correlation ≠ causation
@@ -91,12 +91,12 @@ What clinical information do you need?
 
 ### Wrong: Ignoring trial phase
 ```
-❌ Citing Phase 1 results as efficacy evidence
+ Citing Phase 1 results as efficacy evidence
 ```
 **Why wrong**: Phase 1 is primarily safety/dosing, not efficacy.
 
 ```
-✅ Understand phases:
+ Understand phases:
    - Phase 1: Safety, dosing (20-80 patients)
    - Phase 2: Efficacy signal (100-300 patients)
    - Phase 3: Confirmatory efficacy (1000+ patients)
@@ -105,11 +105,11 @@ What clinical information do you need?
 
 ### Wrong: Conflating association with causation (Open Targets)
 ```
-❌ "Open Targets shows score 0.7, so this target causes the disease"
+ "Open Targets shows score 0.7, so this target causes the disease"
 ```
 
 ```
-✅ Open Targets score reflects:
+ Open Targets score reflects:
    - Multiple lines of evidence
    - Genetic associations
    - Expression data

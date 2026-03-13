@@ -70,7 +70,7 @@
   <body>
     <div class="header-row">
       <div>
-        <h1>🎬 Claw<span>ARR</span> Suite</h1>
+        <h1> Claw<span>ARR</span> Suite</h1>
         <p class="subtitle">Media stack setup & management console</p>
       </div>
       <div class="stats" id="headerStats"></div>
@@ -82,7 +82,7 @@
       <p class="desc">Scans your local network for media services. Leave blank to auto-detect, or enter a specific IP/hostname.</p>
       <div class="row">
         <input type="text" id="hostInput" class="host-input" placeholder="(optional) IP or hostname" />
-        <button id="discoverBtn">🔍 Scan Network</button>
+        <button id="discoverBtn"> Scan Network</button>
         <button id="clearDiscoverBtn" class="secondary small">Clear</button>
       </div>
       <div class="progress-bar" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
@@ -103,7 +103,7 @@
       <div class="row">
         <select id="appSel"></select>
         <input id="apiKeyInput" type="text" placeholder="Paste API key" />
-        <button id="saveKeyBtn">💾 Save</button>
+        <button id="saveKeyBtn"> Save</button>
       </div>
       <div id="saveOut" class="status-msg"></div>
       <div id="keyGrid" class="key-grid"></div>
@@ -115,8 +115,8 @@
       <h2><span class="num">3</span> Connection Test</h2>
       <p class="desc">Test connectivity to all discovered services using stored API keys.</p>
       <div class="row">
-        <button id="testBtn">⚡ Test All</button>
-        <button id="exportBtn" class="secondary">📋 Export Config</button>
+        <button id="testBtn"> Test All</button>
+        <button id="exportBtn" class="secondary"> Export Config</button>
       </div>
       <table id="testTable" style="display:none">
         <thead><tr><th>Service</th><th>URL</th><th>Auth</th><th>Response</th><th>Details</th></tr></thead>
@@ -127,7 +127,7 @@
 
     <!-- EXPORT -->
     <div class="card" id="exportCard" style="display:none">
-      <h2><span class="num">⚙</span> Environment Config</h2>
+      <h2><span class="num"></span> Environment Config</h2>
       <p class="desc">Copy this into your shell profile or <code>.env</code> file to use with ClawARR scripts.</p>
       <textarea id="exportOut" readonly></textarea>
     </div>
@@ -137,27 +137,27 @@
 
     // All known services with their default ports
     const APPS = [
-      { id: 'sonarr',       name: 'Sonarr',       port: 8989,  type: 'arr',       icon: '📺' },
-      { id: 'radarr',       name: 'Radarr',       port: 7878,  type: 'arr',       icon: '🎬' },
-      { id: 'lidarr',       name: 'Lidarr',       port: 8686,  type: 'arr',       icon: '🎵' },
-      { id: 'readarr',      name: 'Readarr',      port: 8787,  type: 'arr',       icon: '📚' },
-      { id: 'prowlarr',     name: 'Prowlarr',     port: 9696,  type: 'arr',       icon: '🔎' },
-      { id: 'bazarr',       name: 'Bazarr',       port: 6767,  type: 'arr',       icon: '💬' },
-      { id: 'overseerr',    name: 'Overseerr',    port: 5055,  type: 'arr',       icon: '📋' },
-      { id: 'plex',         name: 'Plex',         port: 32400, type: 'media',     icon: '▶️' },
-      { id: 'tautulli',     name: 'Tautulli',     port: 8181,  type: 'media',     icon: '📊' },
-      { id: 'sabnzbd',      name: 'SABnzbd',      port: 38080, type: 'download',  icon: '⬇️' },
-      { id: 'nzbget',       name: 'NZBGet',       port: 6789,  type: 'download',  icon: '⬇️' },
-      { id: 'qbittorrent',  name: 'qBittorrent',  port: 8080,  type: 'download',  icon: '🌊' },
-      { id: 'transmission', name: 'Transmission', port: 9091,  type: 'download',  icon: '🌊' },
-      { id: 'deluge',       name: 'Deluge',       port: 8112,  type: 'download',  icon: '🌊' },
-      { id: 'maintainerr',  name: 'Maintainerr',  port: 6246,  type: 'companion', icon: '🧹' },
-      { id: 'notifiarr',    name: 'Notifiarr',    port: 5454,  type: 'companion', icon: '🔔' },
-      { id: 'flaresolverr', name: 'FlareSolverr', port: 8191,  type: 'companion', icon: '🛡️' },
-      { id: 'homarr',       name: 'Homarr',       port: 7575,  type: 'companion', icon: '🏠' },
-      { id: 'kometa',       name: 'Kometa',       port: null,  type: 'companion', icon: '🎨' },
-      { id: 'recyclarr',    name: 'Recyclarr',    port: null,  type: 'companion', icon: '♻️' },
-      { id: 'unpackerr',    name: 'Unpackerr',    port: null,  type: 'companion', icon: '📦' },
+      { id: 'sonarr',       name: 'Sonarr',       port: 8989,  type: 'arr',       icon: '' },
+      { id: 'radarr',       name: 'Radarr',       port: 7878,  type: 'arr',       icon: '' },
+      { id: 'lidarr',       name: 'Lidarr',       port: 8686,  type: 'arr',       icon: '' },
+      { id: 'readarr',      name: 'Readarr',      port: 8787,  type: 'arr',       icon: '' },
+      { id: 'prowlarr',     name: 'Prowlarr',     port: 9696,  type: 'arr',       icon: '' },
+      { id: 'bazarr',       name: 'Bazarr',       port: 6767,  type: 'arr',       icon: '' },
+      { id: 'overseerr',    name: 'Overseerr',    port: 5055,  type: 'arr',       icon: '' },
+      { id: 'plex',         name: 'Plex',         port: 32400, type: 'media',     icon: '' },
+      { id: 'tautulli',     name: 'Tautulli',     port: 8181,  type: 'media',     icon: '' },
+      { id: 'sabnzbd',      name: 'SABnzbd',      port: 38080, type: 'download',  icon: '' },
+      { id: 'nzbget',       name: 'NZBGet',       port: 6789,  type: 'download',  icon: '' },
+      { id: 'qbittorrent',  name: 'qBittorrent',  port: 8080,  type: 'download',  icon: '' },
+      { id: 'transmission', name: 'Transmission', port: 9091,  type: 'download',  icon: '' },
+      { id: 'deluge',       name: 'Deluge',       port: 8112,  type: 'download',  icon: '' },
+      { id: 'maintainerr',  name: 'Maintainerr',  port: 6246,  type: 'companion', icon: '' },
+      { id: 'notifiarr',    name: 'Notifiarr',    port: 5454,  type: 'companion', icon: '' },
+      { id: 'flaresolverr', name: 'FlareSolverr', port: 8191,  type: 'companion', icon: '' },
+      { id: 'homarr',       name: 'Homarr',       port: 7575,  type: 'companion', icon: '' },
+      { id: 'kometa',       name: 'Kometa',       port: null,  type: 'companion', icon: '' },
+      { id: 'recyclarr',    name: 'Recyclarr',    port: null,  type: 'companion', icon: '' },
+      { id: 'unpackerr',    name: 'Unpackerr',    port: null,  type: 'companion', icon: '' },
     ];
 
     // Ports worth scanning on each candidate host
@@ -361,7 +361,7 @@
       const hostsEl = $id('hostsFound');
 
       btn.disabled = true;
-      btn.textContent = '⏳ Scanning...';
+      btn.textContent = ' Scanning...';
       bar.classList.add('active');
       liveEl.innerHTML = '';
       hostsEl.innerHTML = '';
@@ -419,7 +419,7 @@
         scanLog('No hosts with media services found on this network.');
         $id('discoverOut').textContent = 'No media services detected. Try entering a specific IP.';
         btn.disabled = false;
-        btn.textContent = '🔍 Scan Network';
+        btn.textContent = ' Scan Network';
         bar.classList.remove('active');
         return;
       }
@@ -462,7 +462,7 @@
       updateStats(s);
 
       btn.disabled = false;
-      btn.textContent = '🔍 Scan Network';
+      btn.textContent = ' Scan Network';
       setTimeout(() => bar.classList.remove('active'), 1000);
     };
 
@@ -489,7 +489,7 @@
 
       for (const r of sorted) {
         const app = APPS.find(a => a.id === r.id);
-        const icon = app ? app.icon : '❓';
+        const icon = app ? app.icon : '';
         const typeBadge = r.type === 'companion'
           ? '<span class="badge companion">companion</span>'
           : r.type === 'download'
@@ -591,13 +591,13 @@
     $id('saveKeyBtn').onclick = () => {
       const appId = $id('appSel').value;
       const key = $id('apiKeyInput').value.trim();
-      if (!key) { $id('saveOut').textContent = '⚠️ Paste an API key first.'; return; }
+      if (!key) { $id('saveOut').textContent = ' Paste an API key first.'; return; }
       const s = getState();
       s.keys[appId] = { key, ts: Date.now() };
       setState({ keys: s.keys });
       $id('apiKeyInput').value = '';
       const app = APPS.find(a => a.id === appId);
-      $id('saveOut').innerHTML = `✅ <strong>${app ? app.name : appId}</strong> key saved.`;
+      $id('saveOut').innerHTML = ` <strong>${app ? app.name : appId}</strong> key saved.`;
       renderKeys(getState());
       updateStats(getState());
     };
@@ -612,14 +612,14 @@
       $id('testOut').textContent = 'Testing...';
       const discovered = (s.discovered || []).filter(d => d.ok);
       if (discovered.length === 0) {
-        $id('testOut').textContent = '⚠️ No online services found. Run discovery first.';
+        $id('testOut').textContent = ' No online services found. Run discovery first.';
         table.style.display = 'none';
         return;
       }
       for (const svc of discovered) {
         const keyInfo = (s.keys || {})[svc.id];
         const hasKey = !!(keyInfo && keyInfo.key);
-        let authStatus = hasKey ? '🔑 Stored' : '⚠️ Missing';
+        let authStatus = hasKey ? ' Stored' : ' Missing';
         let response = '—';
         let details = '';
         if (hasKey && svc.url !== '—') {
@@ -637,10 +637,10 @@
             clearTimeout(timer);
             response = `${r.status} ${r.statusText}`;
             if (r.ok) {
-              try { const j = await r.json(); details = j.version || j.response?.data?.version || j.appName || '✅ OK'; } catch { details = '✅ OK'; }
-              authStatus = '<span class="badge ok">✅ Authenticated</span>';
+              try { const j = await r.json(); details = j.version || j.response?.data?.version || j.appName || ' OK'; } catch { details = ' OK'; }
+              authStatus = '<span class="badge ok"> Authenticated</span>';
             } else {
-              authStatus = '<span class="badge fail">❌ Auth failed</span>';
+              authStatus = '<span class="badge fail"> Auth failed</span>';
             }
           } catch (e) {
             response = 'CORS/Network';

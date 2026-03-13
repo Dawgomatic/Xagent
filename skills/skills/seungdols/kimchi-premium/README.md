@@ -1,4 +1,4 @@
-# Kimchi Premium 🌶️
+# Kimchi Premium 
 
 Calculate the real-time Bitcoin Kimchi Premium by comparing prices on Upbit (KRW) and Binance (USD).
 
@@ -8,11 +8,11 @@ The Kimchi Premium refers to the price difference of Bitcoin between South Korea
 
 ## Features
 
-- 🚀 Real-time price comparison
-- 💱 Automatic USD/KRW exchange rate conversion
-- 📊 Premium percentage calculation
-- ⚡ Fast parallel API calls
-- 🎯 No dependencies (uses only Node.js built-ins)
+-  Real-time price comparison
+-  Automatic USD/KRW exchange rate conversion
+-  Premium percentage calculation
+-  Fast parallel API calls
+-  No dependencies (uses only Node.js built-ins)
 
 ## Installation
 

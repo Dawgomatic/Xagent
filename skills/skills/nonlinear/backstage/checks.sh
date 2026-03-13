@@ -9,7 +9,7 @@ MODE="${2:-start}" # start or end
 
 cd "$PROJECT_ROOT"
 
-echo "🔍 Running backstage checks (mode: $MODE)..."
+echo " Running backstage checks (mode: $MODE)..."
 echo ""
 
 # ============================================================================
@@ -21,28 +21,28 @@ PROJECT_POLICY="backstage/POLICY.md"
 GLOBAL_HEALTH="$HOME/Documents/backstage/backstage/global/HEALTH.md"
 PROJECT_HEALTH="backstage/HEALTH.md"
 
-echo "📋 Locating POLICY + HEALTH files..."
+echo " Locating POLICY + HEALTH files..."
 
 POLICY_FILES=()
 HEALTH_FILES=()
 
 if [ -f "$GLOBAL_POLICY" ]; then
-    echo "  ✅ Global POLICY: $GLOBAL_POLICY"
+    echo "   Global POLICY: $GLOBAL_POLICY"
     POLICY_FILES+=("$GLOBAL_POLICY")
 fi
 
 if [ -f "$PROJECT_POLICY" ]; then
-    echo "  ✅ Project POLICY: $PROJECT_POLICY (takes precedence)"
+    echo "   Project POLICY: $PROJECT_POLICY (takes precedence)"
     POLICY_FILES+=("$PROJECT_POLICY")
 fi
 
 if [ -f "$GLOBAL_HEALTH" ]; then
-    echo "  ✅ Global HEALTH: $GLOBAL_HEALTH"
+    echo "   Global HEALTH: $GLOBAL_HEALTH"
     HEALTH_FILES+=("$GLOBAL_HEALTH")
 fi
 
 if [ -f "$PROJECT_HEALTH" ]; then
-    echo "  ✅ Project HEALTH: $PROJECT_HEALTH (takes precedence)"
+    echo "   Project HEALTH: $PROJECT_HEALTH (takes precedence)"
     HEALTH_FILES+=("$PROJECT_HEALTH")
 fi
 
@@ -51,20 +51,20 @@ fi
 # ============================================================================
 
 echo ""
-echo "🔧 Extracting executable rules from POLICY..."
+echo " Extracting executable rules from POLICY..."
 
 # Extract current backstage version from POLICY
 VERSION=""
 for policy in "${POLICY_FILES[@]}"; do
     VERSION=$(grep -o 'backstage rules.*v[0-9.]*' "$policy" | sed 's/.*v\([0-9.]*\).*/\1/' | head -1)
     if [ -n "$VERSION" ]; then
-        echo "  ✅ Found version: v$VERSION"
+        echo "   Found version: v$VERSION"
         break
     fi
 done
 
 if [ -z "$VERSION" ]; then
-    echo "  ⚠️  No version found in POLICY"
+    echo "    No version found in POLICY"
     VERSION="unknown"
 fi
 
@@ -72,9 +72,9 @@ fi
 NAV_TEMPLATE=$(awk '/Navigation block template \(current version\):/,/```markdown/,/```/' "${POLICY_FILES[0]}" 2>/dev/null || echo "")
 
 if [ -n "$NAV_TEMPLATE" ]; then
-    echo "  ✅ Navigation block template extracted"
+    echo "   Navigation block template extracted"
 else
-    echo "  ⚠️  No navigation block template found"
+    echo "    No navigation block template found"
 fi
 
 # ============================================================================
@@ -82,7 +82,7 @@ fi
 # ============================================================================
 
 echo ""
-echo "🧪 Extracting executable rules from HEALTH..."
+echo " Extracting executable rules from HEALTH..."
 
 HEALTH_CHECKS=()
 
@@ -95,24 +95,24 @@ for health in "${HEALTH_FILES[@]}"; do
     done < <(awk '/```bash/,/```/ {if (!/```/) print}' "$health")
 done
 
-echo "  ✅ Found ${#HEALTH_CHECKS[@]} executable checks"
+echo "   Found ${#HEALTH_CHECKS[@]} executable checks"
 
 # ============================================================================
 # STEP 4: Execute DETERMINISTIC rules (SH domain)
 # ============================================================================
 
 echo ""
-echo "⚙️  Executing deterministic rules..."
+echo "  Executing deterministic rules..."
 
 EXEC_PASS=true
 
 # Check: Navigation blocks exist in backstage files
 for file in README.md backstage/ROADMAP.md backstage/CHANGELOG.md backstage/POLICY.md backstage/HEALTH.md; do
     if [ -f "$file" ]; then
-        if grep -q "> 🤖" "$file"; then
-            echo "  ✅ $file has navigation block"
+        if grep -q "> " "$file"; then
+            echo "   $file has navigation block"
         else
-            echo "  ⚠️  $file missing navigation block (AI will add)"
+            echo "    $file missing navigation block (AI will add)"
             EXEC_PASS=false
         fi
     fi
@@ -122,9 +122,9 @@ done
 if [ -f "README.md" ]; then
     README_VERSION=$(grep -o 'backstage rules.*v[0-9.]*' README.md | sed 's/.*v\([0-9.]*\).*/\1/' | head -1 || echo "")
     if [ "$README_VERSION" = "$VERSION" ]; then
-        echo "  ✅ README version matches POLICY (v$VERSION)"
+        echo "   README version matches POLICY (v$VERSION)"
     else
-        echo "  ⚠️  README version mismatch (has: $README_VERSION, expected: $VERSION)"
+        echo "    README version mismatch (has: $README_VERSION, expected: $VERSION)"
         EXEC_PASS=false
     fi
 fi
@@ -132,9 +132,9 @@ fi
 # Execute HEALTH checks
 for check in "${HEALTH_CHECKS[@]}"; do
     if eval "$check" >/dev/null 2>&1; then
-        echo "  ✅ HEALTH check passed: ${check:0:50}..."
+        echo "   HEALTH check passed: ${check:0:50}..."
     else
-        echo "  ❌ HEALTH check failed: ${check:0:50}..."
+        echo "   HEALTH check failed: ${check:0:50}..."
         EXEC_PASS=false
     fi
 done
@@ -144,7 +144,7 @@ done
 # ============================================================================
 
 echo ""
-echo "🤖 Interpretive rules (AI handles):"
+echo " Interpretive rules (AI handles):"
 echo "  - README protection (needs confirmation before edits)"
 echo "  - Surgical changes only (quality judgment)"
 echo "  - Context decisions (project wins on conflict)"
@@ -157,18 +157,18 @@ echo "  → AI will enforce these via prompts in backstage-start/end"
 # ============================================================================
 
 echo ""
-echo "📊 Integrated Compliance Report:"
+echo " Integrated Compliance Report:"
 echo ""
 
 if [ "$EXEC_PASS" = true ]; then
-    echo "  ✅ All deterministic checks passed"
-    echo "  ✅ Executable enforcement: COMPLETE"
+    echo "   All deterministic checks passed"
+    echo "   Executable enforcement: COMPLETE"
 else
-    echo "  ⚠️  Some deterministic checks failed (see above)"
-    echo "  ⚠️  Executable enforcement: NEEDS FIXES"
+    echo "    Some deterministic checks failed (see above)"
+    echo "    Executable enforcement: NEEDS FIXES"
 fi
 
-echo "  🤖 Interpretive enforcement: Pending AI action"
+echo "   Interpretive enforcement: Pending AI action"
 echo ""
 
 # ============================================================================
@@ -176,14 +176,14 @@ echo ""
 # ============================================================================
 
 if [ "$EXEC_PASS" = true ]; then
-    echo "✅ checks.sh complete (all deterministic rules passed)"
+    echo " checks.sh complete (all deterministic rules passed)"
     exit 0
 else
     if [ "$MODE" = "start" ]; then
-        echo "🛑 checks.sh failed (blocking commit - fix issues above)"
+        echo " checks.sh failed (blocking commit - fix issues above)"
         exit 1
     else
-        echo "⚠️  checks.sh soft fail (add issues to ROADMAP)"
+        echo "  checks.sh soft fail (add issues to ROADMAP)"
         exit 0
     fi
 fi

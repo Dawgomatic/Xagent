@@ -477,7 +477,7 @@ Environment Variables:
             parser.print_help()
 
     except Exception as e:
-        print(f"\n❌ Error: {e}\n")
+        print(f"\n Error: {e}\n")
         import traceback
         traceback.print_exc()
         sys.exit(1)

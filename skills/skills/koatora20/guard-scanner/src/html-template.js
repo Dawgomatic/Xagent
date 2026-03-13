@@ -45,7 +45,7 @@ function generateHTML(version, stats, findings) {
     let cards = '';
     for (const sr of findings) {
         const vc = sr.verdict === 'MALICIOUS' ? 'mal' : sr.verdict === 'SUSPICIOUS' ? 'sus' : sr.verdict === 'LOW RISK' ? 'low' : 'ok';
-        const icon = sr.verdict === 'MALICIOUS' ? '💀' : sr.verdict === 'SUSPICIOUS' ? '⚡' : sr.verdict === 'LOW RISK' ? '⚠️' : '✅';
+        const icon = sr.verdict === 'MALICIOUS' ? '' : sr.verdict === 'SUSPICIOUS' ? '' : sr.verdict === 'LOW RISK' ? '' : '';
         const rows = sr.findings.map(f => {
             const sc = f.severity.toLowerCase();
             return `<tr class="f-row"><td><span class="pill ${sc}">${f.severity}</span></td><td class="mono dim">${f.cat}</td><td>${f.desc}</td><td class="mono muted">${f.file}${f.line ? ':' + f.line : ''}</td></tr>`;
@@ -204,7 +204,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;
 </style></head><body>
 <div class="wrap">
 <div class="hdr">
-  <h1>🛡️ guard-scanner v${version}</h1>
+  <h1> guard-scanner v${version}</h1>
   <div class="sub">Security Scan Report</div>
   <div class="ts">${new Date().toISOString()}</div>
 </div>
@@ -225,12 +225,12 @@ ${total > 0 ? `<div class="ag">
 
 <div>
   <div class="sec-title">Skill Analysis</div>
-  ${cards || `<div class="empty"><div class="ei">✅</div><p>All Clear — No Threats Detected</p><div class="es">${stats.scanned} skill(s) scanned, 0 findings</div></div>`}
+  ${cards || `<div class="empty"><div class="ei"></div><p>All Clear — No Threats Detected</p><div class="es">${stats.scanned} skill(s) scanned, 0 findings</div></div>`}
 </div>
 
 <div class="ft">
-  guard-scanner v${version} &mdash; Zero dependencies. Zero compromises. 🛡️<br>
-  Built by <a href="https://github.com/koatora20">Guava 🍈 &amp; Dee</a>
+  guard-scanner v${version} &mdash; Zero dependencies. Zero compromises. <br>
+  Built by <a href="https://github.com/koatora20">Guava  &amp; Dee</a>
 </div>
 </div>
 </body></html>`;

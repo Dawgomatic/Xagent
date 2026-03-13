@@ -1,7 +1,7 @@
 ---
 name: sarvam
 description: Use Sarvam AI for Indian language Text-to-Speech (TTS), Speech-to-Text (STT), Translation, and Chat.
-metadata: {"clawdbot":{"emoji":"🧘","requires":{"env":["SARVAM_API_KEY"],"bins":["skills/sarvam/.venv/Scripts/python.exe"]},"primaryEnv":"SARVAM_API_KEY","installNotes":"Requires SARVAM_API_KEY. Local script execution may require explicit pathing (e.g., .\\skills\\sarvam\\.venv\\Scripts\\python.exe) due to current shell environment."}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SARVAM_API_KEY"],"bins":["skills/sarvam/.venv/Scripts/python.exe"]},"primaryEnv":"SARVAM_API_KEY","installNotes":"Requires SARVAM_API_KEY. Local script execution may require explicit pathing (e.g., .\\skills\\sarvam\\.venv\\Scripts\\python.exe) due to current shell environment."}}
 ---
 
 # Sarvam AI Skill

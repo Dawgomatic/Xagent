@@ -81,7 +81,7 @@ def load_alert_state(filepath):
 def send_alert(arb, webhook_url=None):
     """Send alert for arbitrage opportunity."""
     message = f"""
-🚨 ARBITRAGE OPPORTUNITY DETECTED
+ ARBITRAGE OPPORTUNITY DETECTED
 
 {arb['title'][:80]}
 
@@ -159,7 +159,7 @@ def monitor_loop(interval, min_edge, alert_webhook, data_dir):
                     alerted_ids.add(arb_id)
             
             if new_arbs:
-                print(f"\n🔔 {len(new_arbs)} NEW opportunities!", file=sys.stderr)
+                print(f"\n {len(new_arbs)} NEW opportunities!", file=sys.stderr)
                 for arb in new_arbs:
                     send_alert(arb, alert_webhook)
                 

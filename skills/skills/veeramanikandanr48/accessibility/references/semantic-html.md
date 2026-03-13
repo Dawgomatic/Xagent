@@ -121,14 +121,14 @@ Collecting user input?
 **Use for**: Self-contained, independently distributable content.
 
 ```html
-<!-- ✅ Blog post -->
+<!--  Blog post -->
 <article>
   <h2>Article Title</h2>
   <p>Content...</p>
   <footer>By Author, Jan 1, 2026</footer>
 </article>
 
-<!-- ✅ Product card -->
+<!--  Product card -->
 <article>
   <h3>Product Name</h3>
   <img src="product.jpg" alt="Product photo">
@@ -136,7 +136,7 @@ Collecting user input?
   <button>Add to cart</button>
 </article>
 
-<!-- ✅ Comment -->
+<!--  Comment -->
 <article>
   <header>
     <h4>John Doe</h4>
@@ -153,13 +153,13 @@ Collecting user input?
 **Use for**: Thematic grouping of content, usually with a heading.
 
 ```html
-<!-- ✅ Chapter or topic -->
+<!--  Chapter or topic -->
 <section>
   <h2>Getting Started</h2>
   <p>Content about getting started...</p>
 </section>
 
-<!-- ✅ Tab panel -->
+<!--  Tab panel -->
 <div role="tabpanel">
   <section>
     <h3>Overview</h3>
@@ -167,7 +167,7 @@ Collecting user input?
   </section>
 </div>
 
-<!-- ❌ WRONG - no heading -->
+<!--  WRONG - no heading -->
 <section>
   <p>Random content</p>  <!-- Use div instead -->
 </section>
@@ -180,7 +180,7 @@ Collecting user input?
 **Use for**: Navigation links.
 
 ```html
-<!-- ✅ Primary navigation -->
+<!--  Primary navigation -->
 <nav aria-label="Primary">
   <ul>
     <li><a href="/">Home</a></li>
@@ -188,7 +188,7 @@ Collecting user input?
   </ul>
 </nav>
 
-<!-- ✅ Breadcrumbs -->
+<!--  Breadcrumbs -->
 <nav aria-label="Breadcrumb">
   <ol>
     <li><a href="/">Home</a></li>
@@ -197,13 +197,13 @@ Collecting user input?
   </ol>
 </nav>
 
-<!-- ✅ Pagination -->
+<!--  Pagination -->
 <nav aria-label="Pagination">
   <a href="?page=1">Previous</a>
   <a href="?page=3">Next</a>
 </nav>
 
-<!-- ❌ WRONG - not navigation -->
+<!--  WRONG - not navigation -->
 <nav>
   <button onclick="doThing()">Action</button>  <!-- Use div -->
 </nav>
@@ -216,19 +216,19 @@ Collecting user input?
 **Use for**: Content tangentially related to main content.
 
 ```html
-<!-- ✅ Sidebar -->
+<!--  Sidebar -->
 <aside>
   <h3>Related Articles</h3>
   <ul>...</ul>
 </aside>
 
-<!-- ✅ Callout box -->
+<!--  Callout box -->
 <aside class="note">
   <h4>Note</h4>
   <p>This feature requires subscription.</p>
 </aside>
 
-<!-- ✅ Pull quote -->
+<!--  Pull quote -->
 <aside>
   <blockquote>"Accessibility is essential"</blockquote>
 </aside>
@@ -258,13 +258,13 @@ Collecting user input?
 **Use for**: Introductory content or group of navigation (header), or closing content (footer).
 
 ```html
-<!-- ✅ Site header -->
+<!--  Site header -->
 <header>
   <img src="logo.png" alt="Company">
   <nav>...</nav>
 </header>
 
-<!-- ✅ Article header -->
+<!--  Article header -->
 <article>
   <header>
     <h2>Article Title</h2>
@@ -273,7 +273,7 @@ Collecting user input?
   <p>Content...</p>
 </article>
 
-<!-- ✅ Site footer -->
+<!--  Site footer -->
 <footer>
   <p>&copy; 2026 Company</p>
   <nav aria-label="Footer">...</nav>
@@ -289,18 +289,18 @@ Collecting user input?
 **Critical rule**: Never skip levels.
 
 ```html
-<!-- ✅ CORRECT - logical hierarchy -->
+<!--  CORRECT - logical hierarchy -->
 <h1>Page Title</h1>
   <h2>Section</h2>
     <h3>Subsection</h3>
     <h3>Another Subsection</h3>
   <h2>Another Section</h2>
 
-<!-- ❌ WRONG - skipped h2 -->
+<!--  WRONG - skipped h2 -->
 <h1>Page Title</h1>
   <h3>Subsection</h3>  <!-- Skipped h2! -->
 
-<!-- ❌ WRONG - using for styling -->
+<!--  WRONG - using for styling -->
 <h1>Title</h1>
 <h3 class="looks-like-h2">Not a heading, just want it big</h3>
 <!-- Use h2 and style it with CSS -->
@@ -362,20 +362,20 @@ Collecting user input?
 **Decision**: Does it navigate or perform an action?
 
 ```html
-<!-- ✅ Navigates → use <a> -->
+<!--  Navigates → use <a> -->
 <a href="/products">View products</a>
 <a href="#section">Jump to section</a>
 
-<!-- ✅ Performs action → use <button> -->
+<!--  Performs action → use <button> -->
 <button type="submit">Submit form</button>
 <button type="button" onclick="openModal()">Open modal</button>
 <button type="button" aria-pressed="false">Toggle</button>
 
-<!-- ❌ WRONG - action with <a> -->
+<!--  WRONG - action with <a> -->
 <a href="#" onclick="openModal()">Open modal</a>
 <!-- Use <button> instead -->
 
-<!-- ❌ WRONG - navigation with <button> -->
+<!--  WRONG - navigation with <button> -->
 <button onclick="location.href='/products'">View products</button>
 <!-- Use <a> instead -->
 ```
@@ -409,20 +409,20 @@ Collecting user input?
 **Critical**: Every form input must have an associated label.
 
 ```html
-<!-- ✅ Explicit association (preferred) -->
+<!--  Explicit association (preferred) -->
 <label for="email">Email address</label>
 <input type="email" id="email" name="email">
 
-<!-- ✅ Implicit association -->
+<!--  Implicit association -->
 <label>
   Email address
   <input type="email" name="email">
 </label>
 
-<!-- ❌ WRONG - no label -->
+<!--  WRONG - no label -->
 <input type="email" placeholder="Email">  <!-- Placeholder is NOT a label -->
 
-<!-- ✅ CORRECT - label + placeholder -->
+<!--  CORRECT - label + placeholder -->
 <label for="email">Email address</label>
 <input type="email" id="email" placeholder="name@example.com">
 ```
@@ -602,15 +602,15 @@ Collecting user input?
 
 ## Common Anti-Patterns
 
-### ❌ Clickable Divs
+###  Clickable Divs
 
 ```html
-<!-- ❌ WRONG -->
+<!--  WRONG -->
 <div onclick="doThing()" class="button">
   Click me
 </div>
 
-<!-- ✅ CORRECT -->
+<!--  CORRECT -->
 <button type="button" onclick="doThing()">
   Click me
 </button>
@@ -618,17 +618,17 @@ Collecting user input?
 
 **Why wrong**: Div is not focusable, not keyboard accessible, no semantic role.
 
-### ❌ Divs for Everything
+###  Divs for Everything
 
 ```html
-<!-- ❌ WRONG -->
+<!--  WRONG -->
 <div class="header">
   <div class="nav">
     <div class="link" onclick="navigate()">Home</div>
   </div>
 </div>
 
-<!-- ✅ CORRECT -->
+<!--  CORRECT -->
 <header>
   <nav>
     <a href="/">Home</a>
@@ -636,14 +636,14 @@ Collecting user input?
 </header>
 ```
 
-### ❌ Headings for Styling
+###  Headings for Styling
 
 ```html
-<!-- ❌ WRONG - h3 used just for size -->
+<!--  WRONG - h3 used just for size -->
 <h1>Title</h1>
 <h3>This should be h2 but h3 looks better</h3>
 
-<!-- ✅ CORRECT - use correct heading + CSS -->
+<!--  CORRECT - use correct heading + CSS -->
 <h1>Title</h1>
 <h2 class="smaller">This is correctly h2, styled smaller</h2>
 
@@ -652,14 +652,14 @@ Collecting user input?
 </style>
 ```
 
-### ❌ Links Without href
+###  Links Without href
 
 ```html
-<!-- ❌ WRONG -->
+<!--  WRONG -->
 <a class="button">Click me</a>
 <a href="javascript:void(0)" onclick="doThing()">Action</a>
 
-<!-- ✅ CORRECT -->
+<!--  CORRECT -->
 <button type="button">Click me</button>
 <button type="button" onclick="doThing()">Action</button>
 ```

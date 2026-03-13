@@ -9,7 +9,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BASE_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 VENV_DIR="${BASE_DIR}/venv"
 
-echo "📦 Finance News - venv Setup"
+echo " Finance News - venv Setup"
 echo "============================"
 echo ""
 
@@ -23,36 +23,36 @@ echo ""
 # Remove existing venv if --force flag
 if [[ "$1" == "--force" || "$1" == "-f" ]]; then
     if [[ -d "$VENV_DIR" ]]; then
-        echo "🗑️  Removing existing venv..."
+        echo "  Removing existing venv..."
         rm -rf "$VENV_DIR"
     fi
 fi
 
 # Check if venv exists
 if [[ -d "$VENV_DIR" ]]; then
-    echo "⚠️  venv already exists at $VENV_DIR"
+    echo "  venv already exists at $VENV_DIR"
     echo "   Use --force to rebuild"
     exit 0
 fi
 
 # Create venv
-echo "📁 Creating virtual environment..."
+echo " Creating virtual environment..."
 "$PYTHON_BIN" -m venv "$VENV_DIR"
 
 # Activate venv
 source "$VENV_DIR/bin/activate"
 
 # Upgrade pip
-echo "⬆️  Upgrading pip..."
+echo "  Upgrading pip..."
 pip install --upgrade pip --quiet
 
 # Install requirements
-echo "📥 Installing dependencies..."
+echo " Installing dependencies..."
 pip install -r "$BASE_DIR/requirements.txt" --quiet
 
 # NixOS-specific: Add LD_LIBRARY_PATH to activate script
 if [[ -d "/nix/store" ]]; then
-    echo "🐧 NixOS detected - configuring libstdc++ path..."
+    echo " NixOS detected - configuring libstdc++ path..."
 
     ACTIVATE_SCRIPT="$VENV_DIR/bin/activate"
 
@@ -88,18 +88,18 @@ EOF
             echo "   Added LD_LIBRARY_PATH=$LIBSTDCXX_PATH to activate script"
         fi
     else
-        echo "   ⚠️  Could not find libstdc++.so.6 path"
+        echo "     Could not find libstdc++.so.6 path"
         echo "   Install Linuxbrew: /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
     fi
 fi
 
 # Verify installation
 echo ""
-echo "✅ venv created successfully!"
+echo " venv created successfully!"
 echo ""
 echo "Verifying installation..."
 "$VENV_DIR/bin/python3" -c "import feedparser; print('  ✓ feedparser')"
-"$VENV_DIR/bin/python3" -c "import yfinance; print('  ✓ yfinance')" 2>/dev/null || echo "  ⚠️ yfinance import failed (may need LD_LIBRARY_PATH)"
+"$VENV_DIR/bin/python3" -c "import yfinance; print('  ✓ yfinance')" 2>/dev/null || echo "   yfinance import failed (may need LD_LIBRARY_PATH)"
 
 echo ""
 echo "To activate manually:"

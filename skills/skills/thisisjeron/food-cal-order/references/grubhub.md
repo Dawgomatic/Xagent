@@ -62,7 +62,7 @@ Extract: order number, ETA, final total
 
 ### 7. Report
 ```
-✅ Order confirmed
+ Order confirmed
    Service: Grubhub
    Restaurant: {name}
    Items: {list}

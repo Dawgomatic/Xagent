@@ -43,7 +43,7 @@ Returns: `{status, version, nextGameTime, currentGame, queueSize, viewerCount}`
 ```bash
 curl -X POST https://scrapyard.fun/api/bots \
   -H "Content-Type: application/json" \
-  -d '{"name": "BOT-NAME", "avatar": "🤖"}'
+  -d '{"name": "BOT-NAME", "avatar": ""}'
 ```
 Returns: `{success, data: {id, apiKey}}`
 

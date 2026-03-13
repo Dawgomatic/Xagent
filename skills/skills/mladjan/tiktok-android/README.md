@@ -5,33 +5,33 @@ Automate TikTok engagement on Android using ADB (Android Debug Bridge). Search t
 ## Why Android + ADB?
 
 **100% success rate** vs 0% with web automation:
-- ✅ No bot detection
-- ✅ No CAPTCHA
-- ✅ No rate limiting (within reason)
-- ✅ Uses real TikTok app
-- ✅ Authentic mobile behavior
+-  No bot detection
+-  No CAPTCHA
+-  No rate limiting (within reason)
+-  Uses real TikTok app
+-  Authentic mobile behavior
 
 ## Features
 
-✅ **Search & Navigate**
+ **Search & Navigate**
 - Search any topic via top-right search icon
 - Navigate 2x2 video grids
 - Auto-scroll for more videos
 - Precise tap coordinates
 
-✅ **Smart Commenting**
+ **Smart Commenting**
 - 8 unique comment variations per topic
 - Duplicate video prevention
 - Question-based engagement style
 - Natural car enthusiast tone
 
-✅ **Session Management**
+ **Session Management**
 - Single-topic sessions (3-5 videos)
 - Multi-topic campaigns (25 videos)
 - Detailed reporting
 - Error recovery
 
-✅ **Automation Ready**
+ **Automation Ready**
 - Schedule with OpenClaw cron
 - Daily campaigns at specific times
 - Telegram reporting
@@ -396,13 +396,13 @@ commented_videos.add(video_id)
 
 ### Comment Quality
 
-✅ **Good:**
+ **Good:**
 - "That 60ft time is insane! What mods are you running?"
 - "Sub-2-minute lap! What's your setup?"
 - "Circuit looks fast! Which track is this?"
 
-❌ **Bad:**
-- "Nice video! 🔥" (generic, emoji)
+ **Bad:**
+- "Nice video! " (generic, emoji)
 - "Check out my channel" (spam)
 - "First!" (low-value)
 
@@ -521,6 +521,6 @@ Built with:
 
 ---
 
-**Status:** Production-ready, 100% success rate with proper configuration. ✅
+**Status:** Production-ready, 100% success rate with proper configuration. 
 
 **Last campaign:** 25/25 videos commented successfully (Feb 3, 2026)

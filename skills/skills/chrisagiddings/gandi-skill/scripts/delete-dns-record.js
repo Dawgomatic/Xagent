@@ -17,7 +17,7 @@ const [rawDomain, rawName, type] = args.filter(arg => !arg.startsWith('--'));
 
 // Check required arguments
 if (!rawDomain || !rawName || !type) {
-  console.error('❌ Usage: node delete-dns-record.js <domain> <name> <type> [--force]');
+  console.error(' Usage: node delete-dns-record.js <domain> <name> <type> [--force]');
   console.error('');
   console.error('Examples:');
   console.error('  node delete-dns-record.js example.com old A');
@@ -34,7 +34,7 @@ try {
   domain = sanitizeDomain(rawDomain);
   name = sanitizeRecordName(rawName);
 } catch (error) {
-  console.error(`❌ Invalid input: ${error.message}`);
+  console.error(` Invalid input: ${error.message}`);
   process.exit(1);
 }
 
@@ -45,7 +45,7 @@ async function confirmDelete() {
       output: process.stdout
     });
     
-    rl.question('⚠️  Are you sure you want to delete this record? (yes/no): ', (answer) => {
+    rl.question('  Are you sure you want to delete this record? (yes/no): ', (answer) => {
       rl.close();
       resolve(answer.toLowerCase() === 'yes' || answer.toLowerCase() === 'y');
     });
@@ -54,7 +54,7 @@ async function confirmDelete() {
 
 async function main() {
   try {
-    console.log(`🔍 Checking ${type} record for ${name}.${domain}...`);
+    console.log(` Checking ${type} record for ${name}.${domain}...`);
     console.log('');
     
     // Check if record exists
@@ -63,7 +63,7 @@ async function main() {
       existingRecord = await getDnsRecord(domain, name, type);
     } catch (error) {
       if (error.statusCode === 404) {
-        console.error(`❌ Record not found: ${name} ${type}`);
+        console.error(` Record not found: ${name} ${type}`);
         console.error('   The record may have already been deleted.');
         process.exit(1);
       }
@@ -71,7 +71,7 @@ async function main() {
     }
     
     // Show existing record
-    console.log('📋 Record to be deleted:');
+    console.log(' Record to be deleted:');
     console.log(`   Domain: ${domain}`);
     console.log(`   Name: ${name}`);
     console.log(`   Type: ${type}`);
@@ -83,23 +83,23 @@ async function main() {
     if (!force) {
       const confirmed = await confirmDelete();
       if (!confirmed) {
-        console.log('❌ Deletion cancelled.');
+        console.log(' Deletion cancelled.');
         process.exit(0);
       }
       console.log('');
     }
     
     // Delete the record
-    console.log('🗑️  Deleting record...');
+    console.log('  Deleting record...');
     await deleteDnsRecord(domain, name, type);
     
-    console.log('✅ DNS record deleted successfully!');
+    console.log(' DNS record deleted successfully!');
     console.log('');
-    console.log('⏱️  DNS propagation may take a few minutes.');
+    console.log('  DNS propagation may take a few minutes.');
     console.log('   The old record may still resolve until TTL expires.');
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('   Authentication failed. Check your API token.');

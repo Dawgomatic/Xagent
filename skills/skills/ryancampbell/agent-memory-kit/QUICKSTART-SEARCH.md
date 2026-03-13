@@ -224,16 +224,16 @@ memory-search "kits" --format json | jq '.[0]'
 ## 7. Tips
 
 **Do:**
-- ✅ Tag as you write (not batch cleanup)
-- ✅ Use 2-4 tags per entry
-- ✅ Search before asking "where's that thing?"
-- ✅ Use shortcuts (`--today`, `--recent-decisions`)
+-  Tag as you write (not batch cleanup)
+-  Use 2-4 tags per entry
+-  Search before asking "where's that thing?"
+-  Use shortcuts (`--today`, `--recent-decisions`)
 
 **Don't:**
-- ❌ Over-tag everything (dilutes signal)
-- ❌ Create one-off tags
-- ❌ Skip tagging important decisions
-- ❌ Forget to use search (it's fast!)
+-  Over-tag everything (dilutes signal)
+-  Create one-off tags
+-  Skip tagging important decisions
+-  Forget to use search (it's fast!)
 
 ---
 

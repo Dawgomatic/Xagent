@@ -419,7 +419,7 @@ def main() -> int:
         track_link = fr24 or adsbx
 
         caption = (
-            f"✈️ Overhead ({dist_km:.2f}km ≤ {args.radius_km:g}km)\n"
+            f" Overhead ({dist_km:.2f}km ≤ {args.radius_km:g}km)\n"
             f"Callsign: {cs}\n"
             f"Type: {typ} · Reg: {reg} · Op: {op} · EmitterCat: {ec}\n"
             f"Alt/Speed: {alt} · {gs}\n"

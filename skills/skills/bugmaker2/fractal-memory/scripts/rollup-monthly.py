@@ -96,7 +96,7 @@ def update_memory_md(date, summary):
 
 def main():
     """Main rollup logic"""
-    print("🧠 Monthly Rollup - Fractal Memory System")
+    print(" Monthly Rollup - Fractal Memory System")
     print("=" * 50)
     
     # Load state
@@ -110,7 +110,7 @@ def main():
     # Only run on last day of month
     next_day = target_date.replace(day=target_date.day + 1) if target_date.day < 28 else None
     if next_day and next_day.month == target_date.month:
-        print(f"⏭️  Not last day of month yet")
+        print(f"  Not last day of month yet")
         return
     
     # Check if we already processed this month
@@ -122,23 +122,23 @@ def main():
             print(f"✓ Already processed month {current_month}")
             return
     
-    print(f"📅 Processing: {current_month}")
+    print(f" Processing: {current_month}")
     
     # Read monthly file
     content = read_monthly_file(target_date)
     if not content:
-        print(f"⚠️  No monthly file found for {current_month}")
+        print(f"  No monthly file found for {current_month}")
         return
     
-    print(f"📖 Read {len(content)} characters from monthly file")
+    print(f" Read {len(content)} characters from monthly file")
     
     # Distill to key insights
     summary = distill_monthly(content)
     if not summary:
-        print("⚠️  No significant insights to distill")
+        print("  No significant insights to distill")
         return
     
-    print(f"✨ Distilled insights ({len(summary)} characters)")
+    print(f" Distilled insights ({len(summary)} characters)")
     
     # Update MEMORY.md
     update_memory_md(target_date, summary)

@@ -8,7 +8,7 @@ REPO_NAME="${1:-}"
 
 # Check for GitHub token
 if [ -z "$GITHUB_TOKEN" ]; then
-  echo "❌ GITHUB_TOKEN not set"
+  echo " GITHUB_TOKEN not set"
   exit 1
 fi
 
@@ -18,7 +18,7 @@ GITHUB_USER=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
 
 # If no repo specified, try to find one
 if [ -z "$REPO_NAME" ]; then
-  echo "🔍 Looking for your pets..."
+  echo " Looking for your pets..."
   
   # Search for forkzoo-related repos
   REPOS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
@@ -26,17 +26,17 @@ if [ -z "$REPO_NAME" ]; then
     jq -r '.[] | select(.name | test("fork(Monkey|Cat|Dog|Lion|monkey|cat|dog|lion)"; "i")) | .name')
   
   if [ -z "$REPOS" ]; then
-    echo "❌ No pets found. Adopt one with: ./adopt.sh <animal>"
+    echo " No pets found. Adopt one with: ./adopt.sh <animal>"
     exit 1
   fi
   
   # Use first found
   REPO_NAME=$(echo "$REPOS" | head -1)
-  echo "📍 Found: $REPO_NAME"
+  echo " Found: $REPO_NAME"
 fi
 
 echo ""
-echo "🐾 Fetching status for $GITHUB_USER/$REPO_NAME..."
+echo " Fetching status for $GITHUB_USER/$REPO_NAME..."
 echo ""
 
 # Get stats.json
@@ -52,7 +52,7 @@ if [ "$STATS" == "{}" ] || [ "$STATS" == "404: Not Found" ]; then
 fi
 
 if [ "$STATS" == "{}" ] || [ -z "$STATS" ]; then
-  echo "⚠️  Could not fetch pet stats. Pet may still be initializing."
+  echo "  Could not fetch pet stats. Pet may still be initializing."
   echo "   Check: https://github.com/$GITHUB_USER/$REPO_NAME"
   exit 0
 fi
@@ -69,28 +69,28 @@ NAME=$(echo "$STATS" | jq -r '.name // "Unnamed"')
 if [ "$RARITY" != "?" ]; then
   RARITY_NUM=$(echo "$RARITY" | cut -d'/' -f1)
   if (( $(echo "$RARITY_NUM >= 35" | bc -l) )); then
-    TIER="🦄 Legendary"
+    TIER=" Legendary"
   elif (( $(echo "$RARITY_NUM >= 25" | bc -l) )); then
-    TIER="💙 Rare"
+    TIER=" Rare"
   elif (( $(echo "$RARITY_NUM >= 15" | bc -l) )); then
-    TIER="💚 Uncommon"
+    TIER=" Uncommon"
   else
-    TIER="⚪ Common"
+    TIER=" Common"
   fi
 else
   TIER="?"
 fi
 
 echo "╔════════════════════════════════════╗"
-echo "║         🐾 PET STATUS 🐾           ║"
+echo "║          PET STATUS            ║"
 echo "╠════════════════════════════════════╣"
 echo "║ Name:       $NAME"
 echo "║ Generation: $GENERATION"
 echo "║ Age:        $AGE days"
 echo "║ Mutations:  $MUTATIONS"
 echo "║ Rarity:     $RARITY ($TIER)"
-echo "║ Streak:     🔥 $STREAK days"
+echo "║ Streak:      $STREAK days"
 echo "╚════════════════════════════════════╝"
 echo ""
-echo "🌐 View live: https://$GITHUB_USER.github.io/$REPO_NAME/"
-echo "📂 Repo: https://github.com/$GITHUB_USER/$REPO_NAME"
+echo " View live: https://$GITHUB_USER.github.io/$REPO_NAME/"
+echo " Repo: https://github.com/$GITHUB_USER/$REPO_NAME"

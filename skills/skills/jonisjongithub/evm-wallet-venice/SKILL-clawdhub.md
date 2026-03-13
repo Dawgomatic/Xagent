@@ -1,14 +1,14 @@
 ---
 name: evm-wallet-skill
 description: Self-sovereign EVM wallet for AI agents with Venice AI integration. Use when the user wants to create a crypto wallet, check balances, send ETH or ERC20 tokens, swap tokens, interact with smart contracts, or access Venice's private AI inference API with DIEM tokens. Supports Base, Ethereum, Polygon, Arbitrum, and Optimism. Private keys stored locally — no cloud custody.
-metadata: {"clawdbot":{"emoji":"💰","homepage":"https://github.com/surfer77/evm-wallet-skill","requires":{"bins":["node","git"]}}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://github.com/surfer77/evm-wallet-skill","requires":{"bins":["node","git"]}}}
 ---
 
 # EVM Wallet Skill
 
 Self-sovereign EVM wallet. Private keys stored locally, no external API dependencies.
 
-## ⚠️ SECURITY WARNING
+##  SECURITY WARNING
 
 **NEVER expose your private key!**
 
@@ -89,7 +89,7 @@ node src/transfer.js <chain> <to_address> <amount> --yes --json
 node src/transfer.js <chain> <to_address> <amount> <token_address> --yes --json
 ```
 
-**⚠️ ALWAYS confirm with the user before executing transfers.** Show them:
+** ALWAYS confirm with the user before executing transfers.** Show them:
 - Recipient address
 - Amount and token
 - Chain
@@ -113,7 +113,7 @@ node src/swap.js <chain> <from_token> <to_token> <amount> --yes --json
 - Default slippage: 0.5%. Override with `--slippage <percent>`
 - Powered by Odos aggregator (best-route across hundreds of DEXs)
 
-**⚠️ ALWAYS show the quote first and get user confirmation before executing.**
+** ALWAYS show the quote first and get user confirmation before executing.**
 
 ### Contract Interactions
 

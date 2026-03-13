@@ -52,6 +52,6 @@ try {
     console.log('  ---');
   }
 } catch (err) {
-  console.error('❌ Search failed:', err.message);
+  console.error(' Search failed:', err.message);
   process.exit(1);
 }

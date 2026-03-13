@@ -40,11 +40,11 @@ Common metro IDs: New York=1, Los Angeles=4, Chicago=5, Dallas=9, San Francisco=
 
 **Comparison output:**
 ```
-📊 **Availability for {Date} (Party of {N}):**
+ **Availability for {Date} (Party of {N}):**
 
-1. 🍽️ **{Restaurant A}** — 6:00, 6:30, 8:15
-2. 🍽️ **{Restaurant B}** — 5:30, 7:45, 8:30
-3. 🍽️ **{Restaurant C}** — 6:15, 6:45, 7:00
+1.  **{Restaurant A}** — 6:00, 6:30, 8:15
+2.  **{Restaurant B}** — 5:30, 7:45, 8:30
+3.  **{Restaurant C}** — 6:15, 6:45, 7:00
 
 Which catches your eye?
 ```
@@ -79,7 +79,7 @@ When a desired reservation is unavailable:
 | High-demand venue | Every 15–30 min |
 
 Notification when found:
-> "🍽️ Table available! {Restaurant} has a {time} opening on {date} for {N}. Want me to book it?"
+> " Table available! {Restaurant} has a {time} opening on {date} for {N}. Want me to book it?"
 
 ---
 
@@ -173,17 +173,17 @@ echo "Babysitter: ~\$$(( HOURS * (RATE - 2) ))–\$$(( HOURS * (RATE + 2) ))"
 ### Full Budget Presentation
 
 ```
-💰 **Date Night Budget Estimate**
+ **Date Night Budget Estimate**
 
-🍽️  Dinner at {Restaurant} (×{party_size}):   ~${dinner_low}–${dinner_high}
+  Dinner at {Restaurant} (×{party_size}):   ~${dinner_low}–${dinner_high}
      ({price_symbol} pricing + ~20% tip)
 
-🎬/🎤  {Movie/Event} tickets (×{N}):           ${ticket_total}
+/  {Movie/Event} tickets (×{N}):           ${ticket_total}
 
-👶  Babysitter (~{hours} hrs @ $${rate}/hr):  ~${sitter_low}–${sitter_high}
+  Babysitter (~{hours} hrs @ $${rate}/hr):  ~${sitter_low}–${sitter_high}
 
 ──────────────────────────────────────
-📊  **Estimated total: ~${grand_low}–${grand_high}**
+  **Estimated total: ~${grand_low}–${grand_high}**
 ```
 
 Omit babysitter line if `has_children: false`. Make ticket line configurable — omit if dinner only.
@@ -306,15 +306,15 @@ cat ~/.openclaw/skills/date-night/history.jsonl 2>/dev/null | \
 
 **Dashboard presentation:**
 ```
-📊 **Date Night Dashboard — {Year}**
+ **Date Night Dashboard — {Year}**
 
-🍽️  Total date nights: {count}
-💰  Average spend: ~${avg}/night
-⭐  Top rated: {restaurant} ({rating}/5)
-🔁  Would return: {pct}%
-🍝  Favorite cuisine: {cuisine}
+  Total date nights: {count}
+  Average spend: ~${avg}/night
+  Top rated: {restaurant} ({rating}/5)
+  Would return: {pct}%
+  Favorite cuisine: {cuisine}
 
 **Recent:**
-{date} — {restaurant} ⭐{rating} {✅ if would_return}
+{date} — {restaurant} {rating} { if would_return}
 ...
 ```

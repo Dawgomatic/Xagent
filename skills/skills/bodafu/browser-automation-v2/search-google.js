@@ -16,7 +16,7 @@ async function main() {
   });
   
   try {
-    console.log(`🔍 执行 Google 搜索: ${keyword}`);
+    console.log(` 执行 Google 搜索: ${keyword}`);
     
     await browser.start();
     
@@ -42,19 +42,19 @@ async function main() {
     
     // 按回车（Google 搜索框支持回车提交）
     await browser.press('Enter');
-    console.log('✅ 搜索完成');
+    console.log(' 搜索完成');
     
     // 等待结果加载
     await browser.waitForLoadState('networkidle', 10000);
     
     // 截图
     const screenshotPath = await browser.screenshot();
-    console.log('📸 截图:', screenshotPath);
+    console.log(' 截图:', screenshotPath);
     
     // 导出 PDF
     await browser.pdf();
     
-    console.log('🎉 搜索完成！正在清理...');
+    console.log(' 搜索完成！正在清理...');
     
     // 关闭所有标签页并停止浏览器（v2 会自动清理）
     await browser.cleanup();

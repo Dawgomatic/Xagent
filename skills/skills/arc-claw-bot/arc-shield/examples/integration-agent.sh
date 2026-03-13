@@ -19,7 +19,7 @@ pre_send_message() {
     
     # Scan for secrets
     if ! echo "$message" | "$ARC_SHIELD" --strict 2>/dev/null; then
-        echo "⚠️  [ARC-SHIELD] Message blocked: contains secrets" >&2
+        echo "  [ARC-SHIELD] Message blocked: contains secrets" >&2
         echo "    Channel: $channel" >&2
         echo "    Run with --report to see details" >&2
         

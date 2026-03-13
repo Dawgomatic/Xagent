@@ -73,12 +73,12 @@ Save:
 User: View all allergies
 
 Output:
-📋 Allergy History List
+ Allergy History List
 Total 5 allergy records (4 active)
 
 Drug Allergies (2):
-1. Penicillin 🔴 Severe
-2. Iodine contrast 🟠 Severe
+1. Penicillin  Severe
+2. Iodine contrast  Severe
 ...
 ```
 
@@ -87,7 +87,7 @@ Drug Allergies (2):
 User: View drug allergies
 
 Output:
-📋 Drug Allergy List
+ Drug Allergy List
 Total 2 drug allergy records
 ...
 ```
@@ -97,7 +97,7 @@ Total 2 drug allergy records
 User: View severe allergies
 
 Output:
-📋 Severe Allergy List
+ Severe Allergy List
 Total 3 severe allergy records
 ...
 ```

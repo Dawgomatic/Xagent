@@ -141,7 +141,7 @@ https://map.geo.admin.ch/?lang=de&E=LON&N=LAT&zoom=12&layers=ch.bafu.silvaprotec
 **Aktuelles Wetter (via wttr.in):**
 ```bash
 curl -s "wttr.in/Zürich?format=%l:+%c+%t+%h+%w&lang=de"
-# Zürich: ⛅️ +5°C 78% ↙12km/h
+# Zürich:  +5°C 78% 12km/h
 ```
 
 **MeteoSwiss Warnungen (Karte):**
@@ -240,19 +240,19 @@ out body;'
 
 | Kategorie | OSM-Tag | Beispiel |
 |-----------|---------|----------|
-| 🍦 Eisdiele | `amenity=ice_cream` | Gelateria |
-| 🍕 Restaurant | `amenity=restaurant` | + `cuisine=*` |
-| ☕ Café | `amenity=cafe` | |
-| 🍺 Bar/Pub | `amenity=bar` / `pub` | |
-| 🏛️ Museum | `tourism=museum` | |
-| 🎭 Theater | `amenity=theatre` | |
-| ⛪ Kirche | `amenity=place_of_worship` | |
-| 🏰 Sehenswürdigkeit | `tourism=attraction` | |
-| 👁️ Aussichtspunkt | `tourism=viewpoint` | |
-| 🎡 Freizeitpark | `leisure=amusement_arcade` | |
-| 🏊 Schwimmbad | `leisure=swimming_pool` | + `access=yes` |
-| 🎮 Spielplatz | `leisure=playground` | |
-| 🌳 Park | `leisure=park` | |
+|  Eisdiele | `amenity=ice_cream` | Gelateria |
+|  Restaurant | `amenity=restaurant` | + `cuisine=*` |
+|  Café | `amenity=cafe` | |
+|  Bar/Pub | `amenity=bar` / `pub` | |
+|  Museum | `tourism=museum` | |
+|  Theater | `amenity=theatre` | |
+|  Kirche | `amenity=place_of_worship` | |
+|  Sehenswürdigkeit | `tourism=attraction` | |
+|  Aussichtspunkt | `tourism=viewpoint` | |
+|  Freizeitpark | `leisure=amusement_arcade` | |
+|  Schwimmbad | `leisure=swimming_pool` | + `access=yes` |
+|  Spielplatz | `leisure=playground` | |
+|  Park | `leisure=park` | |
 
 #### Beispiel: Museen & Sehenswürdigkeiten in Zürich Altstadt
 ```bash
@@ -289,9 +289,9 @@ for el in data.get('elements', []):
     website = tags.get('website', '')
     opening = tags.get('opening_hours', '')
     print(f'{name}')
-    if addr: print(f'  📍 {addr} {tags.get(\"addr:housenumber\", \"\")}')
-    if opening: print(f'  🕐 {opening}')
-    if website: print(f'  🔗 {website}')
+    if addr: print(f'   {addr} {tags.get(\"addr:housenumber\", \"\")}')
+    if opening: print(f'   {opening}')
+    if website: print(f'   {website}')
     print()
 "
 ```
@@ -309,7 +309,7 @@ for el in data.get('elements', []):
 
 ### 13. Schweiz Tourismus API (MySwitzerland)
 
-**⚠️ Benötigt API-Key** (Header: `x-api-key`)
+** Benötigt API-Key** (Header: `x-api-key`)
 
 **Hinweis:** Diese API ist primär für Outdoor-Tourismus (Wandern, Bergtouren, Regionen) geeignet. Für städtische POIs (Restaurants, Cafés, Museen) ist die Overpass API (Abschnitt 12) besser.
 

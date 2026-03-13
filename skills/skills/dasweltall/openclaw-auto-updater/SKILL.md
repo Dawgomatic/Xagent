@@ -67,7 +67,7 @@ openclaw cron add \
 
 ## Summary format (recommended)
 ```
-🔄 OpenClaw Auto-Update
+ OpenClaw Auto-Update
 
 OpenClaw: 2026.2.1 → 2026.2.2 (OK)
 Skills updated: 3

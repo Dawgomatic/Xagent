@@ -60,124 +60,124 @@ export type PipedreamProps = PipedreamState & {
 // Comprehensive list of popular Pipedream apps
 const ALL_APPS: PipedreamApp[] = [
   // Google
-  { slug: "gmail", name: "Gmail", icon: "📧", connected: false },
-  { slug: "google-calendar", name: "Google Calendar", icon: "📅", connected: false },
-  { slug: "google-sheets", name: "Google Sheets", icon: "📊", connected: false },
-  { slug: "google-drive", name: "Google Drive", icon: "📁", connected: false },
-  { slug: "google-docs", name: "Google Docs", icon: "📄", connected: false },
-  { slug: "google-tasks", name: "Google Tasks", icon: "✔️", connected: false },
-  { slug: "youtube", name: "YouTube", icon: "▶️", connected: false },
-  { slug: "youtube-data-api", name: "YouTube Data API", icon: "📺", connected: false },
+  { slug: "gmail", name: "Gmail", icon: "", connected: false },
+  { slug: "google-calendar", name: "Google Calendar", icon: "", connected: false },
+  { slug: "google-sheets", name: "Google Sheets", icon: "", connected: false },
+  { slug: "google-drive", name: "Google Drive", icon: "", connected: false },
+  { slug: "google-docs", name: "Google Docs", icon: "", connected: false },
+  { slug: "google-tasks", name: "Google Tasks", icon: "", connected: false },
+  { slug: "youtube", name: "YouTube", icon: "", connected: false },
+  { slug: "youtube-data-api", name: "YouTube Data API", icon: "", connected: false },
   // Communication
-  { slug: "slack", name: "Slack", icon: "💬", connected: false },
-  { slug: "discord", name: "Discord", icon: "🎮", connected: false },
-  { slug: "telegram-bot-api", name: "Telegram", icon: "📱", connected: false },
-  { slug: "twilio", name: "Twilio", icon: "📞", connected: false },
-  { slug: "sendgrid", name: "SendGrid", icon: "✉️", connected: false },
-  { slug: "mailgun", name: "Mailgun", icon: "📬", connected: false },
-  { slug: "mailchimp", name: "Mailchimp", icon: "🐵", connected: false },
-  { slug: "intercom", name: "Intercom", icon: "💭", connected: false },
-  { slug: "zoom", name: "Zoom", icon: "📹", connected: false },
-  { slug: "microsoft_teams", name: "Microsoft Teams", icon: "👥", connected: false },
+  { slug: "slack", name: "Slack", icon: "", connected: false },
+  { slug: "discord", name: "Discord", icon: "", connected: false },
+  { slug: "telegram-bot-api", name: "Telegram", icon: "", connected: false },
+  { slug: "twilio", name: "Twilio", icon: "", connected: false },
+  { slug: "sendgrid", name: "SendGrid", icon: "", connected: false },
+  { slug: "mailgun", name: "Mailgun", icon: "", connected: false },
+  { slug: "mailchimp", name: "Mailchimp", icon: "", connected: false },
+  { slug: "intercom", name: "Intercom", icon: "", connected: false },
+  { slug: "zoom", name: "Zoom", icon: "", connected: false },
+  { slug: "microsoft_teams", name: "Microsoft Teams", icon: "", connected: false },
   // Project Management
-  { slug: "notion", name: "Notion", icon: "📝", connected: false },
-  { slug: "linear", name: "Linear", icon: "📋", connected: false },
-  { slug: "asana", name: "Asana", icon: "✅", connected: false },
-  { slug: "trello", name: "Trello", icon: "📌", connected: false },
-  { slug: "monday", name: "Monday.com", icon: "📆", connected: false },
-  { slug: "clickup", name: "ClickUp", icon: "🎯", connected: false },
-  { slug: "basecamp", name: "Basecamp", icon: "🏕️", connected: false },
-  { slug: "jira", name: "Jira", icon: "🔷", connected: false },
-  { slug: "todoist", name: "Todoist", icon: "☑️", connected: false },
+  { slug: "notion", name: "Notion", icon: "", connected: false },
+  { slug: "linear", name: "Linear", icon: "", connected: false },
+  { slug: "asana", name: "Asana", icon: "", connected: false },
+  { slug: "trello", name: "Trello", icon: "", connected: false },
+  { slug: "monday", name: "Monday.com", icon: "", connected: false },
+  { slug: "clickup", name: "ClickUp", icon: "", connected: false },
+  { slug: "basecamp", name: "Basecamp", icon: "", connected: false },
+  { slug: "jira", name: "Jira", icon: "", connected: false },
+  { slug: "todoist", name: "Todoist", icon: "", connected: false },
   // Development
-  { slug: "github", name: "GitHub", icon: "🐙", connected: false },
-  { slug: "gitlab", name: "GitLab", icon: "🦊", connected: false },
-  { slug: "bitbucket", name: "Bitbucket", icon: "🪣", connected: false },
+  { slug: "github", name: "GitHub", icon: "", connected: false },
+  { slug: "gitlab", name: "GitLab", icon: "", connected: false },
+  { slug: "bitbucket", name: "Bitbucket", icon: "", connected: false },
   { slug: "vercel", name: "Vercel", icon: "▲", connected: false },
-  { slug: "netlify", name: "Netlify", icon: "🌐", connected: false },
-  { slug: "railway", name: "Railway", icon: "🚂", connected: false },
-  { slug: "render", name: "Render", icon: "🖼️", connected: false },
-  { slug: "fly-io", name: "Fly.io", icon: "✈️", connected: false },
-  { slug: "sentry", name: "Sentry", icon: "🐛", connected: false },
-  { slug: "datadog", name: "Datadog", icon: "🐕", connected: false },
+  { slug: "netlify", name: "Netlify", icon: "", connected: false },
+  { slug: "railway", name: "Railway", icon: "", connected: false },
+  { slug: "render", name: "Render", icon: "", connected: false },
+  { slug: "fly-io", name: "Fly.io", icon: "", connected: false },
+  { slug: "sentry", name: "Sentry", icon: "", connected: false },
+  { slug: "datadog", name: "Datadog", icon: "", connected: false },
   // CRM & Sales
-  { slug: "hubspot", name: "HubSpot", icon: "🧲", connected: false },
-  { slug: "salesforce_rest_api", name: "Salesforce", icon: "☁️", connected: false },
-  { slug: "pipedrive", name: "Pipedrive", icon: "🔀", connected: false },
-  { slug: "zoho-crm", name: "Zoho CRM", icon: "📊", connected: false },
-  { slug: "freshsales", name: "Freshsales", icon: "🍃", connected: false },
-  { slug: "close", name: "Close", icon: "🎯", connected: false },
+  { slug: "hubspot", name: "HubSpot", icon: "", connected: false },
+  { slug: "salesforce_rest_api", name: "Salesforce", icon: "", connected: false },
+  { slug: "pipedrive", name: "Pipedrive", icon: "", connected: false },
+  { slug: "zoho-crm", name: "Zoho CRM", icon: "", connected: false },
+  { slug: "freshsales", name: "Freshsales", icon: "", connected: false },
+  { slug: "close", name: "Close", icon: "", connected: false },
   // Storage & Files
-  { slug: "dropbox", name: "Dropbox", icon: "📦", connected: false },
-  { slug: "box", name: "Box", icon: "📥", connected: false },
-  { slug: "onedrive", name: "OneDrive", icon: "☁️", connected: false },
-  { slug: "aws", name: "AWS", icon: "🟠", connected: false },
-  { slug: "supabase", name: "Supabase", icon: "⚡", connected: false },
-  { slug: "firebase", name: "Firebase", icon: "🔥", connected: false },
-  { slug: "cloudinary", name: "Cloudinary", icon: "🖼️", connected: false },
+  { slug: "dropbox", name: "Dropbox", icon: "", connected: false },
+  { slug: "box", name: "Box", icon: "", connected: false },
+  { slug: "onedrive", name: "OneDrive", icon: "", connected: false },
+  { slug: "aws", name: "AWS", icon: "", connected: false },
+  { slug: "supabase", name: "Supabase", icon: "", connected: false },
+  { slug: "firebase", name: "Firebase", icon: "", connected: false },
+  { slug: "cloudinary", name: "Cloudinary", icon: "", connected: false },
   // Databases
-  { slug: "airtable", name: "Airtable", icon: "📑", connected: false },
-  { slug: "mongodb", name: "MongoDB", icon: "🍃", connected: false },
-  { slug: "postgresql", name: "PostgreSQL", icon: "🐘", connected: false },
-  { slug: "mysql", name: "MySQL", icon: "🐬", connected: false },
-  { slug: "redis", name: "Redis", icon: "🔴", connected: false },
-  { slug: "snowflake", name: "Snowflake", icon: "❄️", connected: false },
+  { slug: "airtable", name: "Airtable", icon: "", connected: false },
+  { slug: "mongodb", name: "MongoDB", icon: "", connected: false },
+  { slug: "postgresql", name: "PostgreSQL", icon: "", connected: false },
+  { slug: "mysql", name: "MySQL", icon: "", connected: false },
+  { slug: "redis", name: "Redis", icon: "", connected: false },
+  { slug: "snowflake", name: "Snowflake", icon: "", connected: false },
   // AI & ML
-  { slug: "openai", name: "OpenAI", icon: "🤖", connected: false },
-  { slug: "anthropic", name: "Anthropic", icon: "🧠", connected: false },
-  { slug: "replicate", name: "Replicate", icon: "🔄", connected: false },
-  { slug: "huggingface", name: "Hugging Face", icon: "🤗", connected: false },
-  { slug: "stability-ai", name: "Stability AI", icon: "🎨", connected: false },
-  { slug: "eleven-labs", name: "ElevenLabs", icon: "🔊", connected: false },
-  { slug: "deepgram", name: "Deepgram", icon: "🎤", connected: false },
+  { slug: "openai", name: "OpenAI", icon: "", connected: false },
+  { slug: "anthropic", name: "Anthropic", icon: "", connected: false },
+  { slug: "replicate", name: "Replicate", icon: "", connected: false },
+  { slug: "huggingface", name: "Hugging Face", icon: "", connected: false },
+  { slug: "stability-ai", name: "Stability AI", icon: "", connected: false },
+  { slug: "eleven-labs", name: "ElevenLabs", icon: "", connected: false },
+  { slug: "deepgram", name: "Deepgram", icon: "", connected: false },
   // Social Media
-  { slug: "twitter", name: "Twitter/X", icon: "🐦", connected: false },
-  { slug: "linkedin", name: "LinkedIn", icon: "💼", connected: false },
-  { slug: "facebook_pages", name: "Facebook Pages", icon: "📘", connected: false },
-  { slug: "instagram_business", name: "Instagram", icon: "📸", connected: false },
-  { slug: "tiktok", name: "TikTok", icon: "🎵", connected: false },
-  { slug: "reddit", name: "Reddit", icon: "🤖", connected: false },
-  { slug: "pinterest", name: "Pinterest", icon: "📍", connected: false },
+  { slug: "twitter", name: "Twitter/X", icon: "", connected: false },
+  { slug: "linkedin", name: "LinkedIn", icon: "", connected: false },
+  { slug: "facebook_pages", name: "Facebook Pages", icon: "", connected: false },
+  { slug: "instagram_business", name: "Instagram", icon: "", connected: false },
+  { slug: "tiktok", name: "TikTok", icon: "", connected: false },
+  { slug: "reddit", name: "Reddit", icon: "", connected: false },
+  { slug: "pinterest", name: "Pinterest", icon: "", connected: false },
   // Payments
-  { slug: "stripe", name: "Stripe", icon: "💳", connected: false },
-  { slug: "paypal", name: "PayPal", icon: "🅿️", connected: false },
-  { slug: "square", name: "Square", icon: "⬛", connected: false },
-  { slug: "shopify", name: "Shopify", icon: "🛍️", connected: false },
-  { slug: "gumroad", name: "Gumroad", icon: "🎁", connected: false },
-  { slug: "lemonsqueezy", name: "Lemon Squeezy", icon: "🍋", connected: false },
+  { slug: "stripe", name: "Stripe", icon: "", connected: false },
+  { slug: "paypal", name: "PayPal", icon: "", connected: false },
+  { slug: "square", name: "Square", icon: "", connected: false },
+  { slug: "shopify", name: "Shopify", icon: "", connected: false },
+  { slug: "gumroad", name: "Gumroad", icon: "", connected: false },
+  { slug: "lemonsqueezy", name: "Lemon Squeezy", icon: "", connected: false },
   // Forms & Surveys
-  { slug: "typeform", name: "Typeform", icon: "📋", connected: false },
-  { slug: "google-forms", name: "Google Forms", icon: "📝", connected: false },
-  { slug: "surveymonkey", name: "SurveyMonkey", icon: "🐒", connected: false },
-  { slug: "tally", name: "Tally", icon: "📊", connected: false },
-  { slug: "jotform", name: "JotForm", icon: "📄", connected: false },
+  { slug: "typeform", name: "Typeform", icon: "", connected: false },
+  { slug: "google-forms", name: "Google Forms", icon: "", connected: false },
+  { slug: "surveymonkey", name: "SurveyMonkey", icon: "", connected: false },
+  { slug: "tally", name: "Tally", icon: "", connected: false },
+  { slug: "jotform", name: "JotForm", icon: "", connected: false },
   // Analytics
-  { slug: "google_analytics", name: "Google Analytics", icon: "📈", connected: false },
-  { slug: "mixpanel", name: "Mixpanel", icon: "📊", connected: false },
-  { slug: "amplitude", name: "Amplitude", icon: "📉", connected: false },
-  { slug: "segment", name: "Segment", icon: "📀", connected: false },
-  { slug: "posthog", name: "PostHog", icon: "🦔", connected: false },
+  { slug: "google_analytics", name: "Google Analytics", icon: "", connected: false },
+  { slug: "mixpanel", name: "Mixpanel", icon: "", connected: false },
+  { slug: "amplitude", name: "Amplitude", icon: "", connected: false },
+  { slug: "segment", name: "Segment", icon: "", connected: false },
+  { slug: "posthog", name: "PostHog", icon: "", connected: false },
   // Productivity
-  { slug: "calendar", name: "Calendly", icon: "📅", connected: false },
-  { slug: "loom", name: "Loom", icon: "🎬", connected: false },
-  { slug: "coda", name: "Coda", icon: "📑", connected: false },
-  { slug: "evernote", name: "Evernote", icon: "🐘", connected: false },
-  { slug: "obsidian", name: "Obsidian", icon: "💎", connected: false },
-  { slug: "roam", name: "Roam Research", icon: "🧠", connected: false },
+  { slug: "calendar", name: "Calendly", icon: "", connected: false },
+  { slug: "loom", name: "Loom", icon: "", connected: false },
+  { slug: "coda", name: "Coda", icon: "", connected: false },
+  { slug: "evernote", name: "Evernote", icon: "", connected: false },
+  { slug: "obsidian", name: "Obsidian", icon: "", connected: false },
+  { slug: "roam", name: "Roam Research", icon: "", connected: false },
   // Support
-  { slug: "zendesk", name: "Zendesk", icon: "🎫", connected: false },
-  { slug: "freshdesk", name: "Freshdesk", icon: "🍃", connected: false },
-  { slug: "help-scout", name: "Help Scout", icon: "🆘", connected: false },
-  { slug: "crisp", name: "Crisp", icon: "💬", connected: false },
+  { slug: "zendesk", name: "Zendesk", icon: "", connected: false },
+  { slug: "freshdesk", name: "Freshdesk", icon: "", connected: false },
+  { slug: "help-scout", name: "Help Scout", icon: "", connected: false },
+  { slug: "crisp", name: "Crisp", icon: "", connected: false },
   // Other
-  { slug: "webhook", name: "Webhook", icon: "🪝", connected: false },
-  { slug: "http", name: "HTTP/REST", icon: "🌐", connected: false },
-  { slug: "rss", name: "RSS", icon: "📡", connected: false },
-  { slug: "weather-api", name: "Weather API", icon: "🌤️", connected: false },
-  { slug: "openweathermap", name: "OpenWeatherMap", icon: "☀️", connected: false },
-  { slug: "spotify", name: "Spotify", icon: "🎵", connected: false },
-  { slug: "pocket", name: "Pocket", icon: "📚", connected: false },
-  { slug: "raindrop", name: "Raindrop.io", icon: "🌧️", connected: false },
+  { slug: "webhook", name: "Webhook", icon: "", connected: false },
+  { slug: "http", name: "HTTP/REST", icon: "", connected: false },
+  { slug: "rss", name: "RSS", icon: "", connected: false },
+  { slug: "weather-api", name: "Weather API", icon: "", connected: false },
+  { slug: "openweathermap", name: "OpenWeatherMap", icon: "", connected: false },
+  { slug: "spotify", name: "Spotify", icon: "", connected: false },
+  { slug: "pocket", name: "Pocket", icon: "", connected: false },
+  { slug: "raindrop", name: "Raindrop.io", icon: "", connected: false },
 ];
 
 // Featured apps shown in the main UI
@@ -205,7 +205,7 @@ export function renderPipedream(props: PipedreamProps) {
       <div class="row" style="justify-content: space-between; align-items: flex-start;">
         <div>
           <div class="card-title">
-            🔗 Connection Status
+             Connection Status
             <span class="chip ${statusClass}" style="margin-left: 8px;">${statusLabel}</span>
           </div>
           <div class="card-sub">
@@ -219,7 +219,7 @@ export function renderPipedream(props: PipedreamProps) {
 
     <section class="card" style="margin-top: 16px;">
       <div class="row" style="justify-content: space-between; align-items: center;">
-        <div class="card-title">🔑 Credentials</div>
+        <div class="card-title"> Credentials</div>
         ${!props.showCredentialsForm
           ? html`
               <button class="btn" @click=${props.onConfigure}>
@@ -259,7 +259,7 @@ export function renderPipedream(props: PipedreamProps) {
     ${props.configured ? renderAvailableApps(props) : nothing}
 
     <section class="card" style="margin-top: 16px;">
-      <div class="card-title">📚 Setup Guide</div>
+      <div class="card-title"> Setup Guide</div>
       <div class="card-sub" style="margin-top: 8px;">
         <ol style="margin: 12px 0; padding-left: 20px; line-height: 1.8;">
           <li>
@@ -357,7 +357,7 @@ function renderConnectedApps(props: PipedreamProps) {
 
   return html`
     <section class="card" style="margin-top: 16px;">
-      <div class="card-title">✅ Connected Apps</div>
+      <div class="card-title"> Connected Apps</div>
       <div class="card-sub">Apps your agent can use. Tokens refresh automatically.</div>
       
       <div class="list" style="margin-top: 12px;">
@@ -390,7 +390,7 @@ function renderConnectedApp(app: PipedreamApp, props: PipedreamProps) {
           @click=${() => props.onRefreshToken(app.slug)}
           title="Refresh OAuth token"
         >
-          ${isRefreshing ? "..." : "🔄"}
+          ${isRefreshing ? "..." : ""}
         </button>
         <button
           class="btn small"
@@ -419,7 +419,7 @@ function renderAvailableApps(props: PipedreamProps) {
     <section class="card" style="margin-top: 16px;">
       <div class="row" style="justify-content: space-between; align-items: flex-start;">
         <div>
-          <div class="card-title">➕ Available Apps</div>
+          <div class="card-title"> Available Apps</div>
           <div class="card-sub">Connect more apps to expand your agent's capabilities.</div>
         </div>
         <button class="btn" @click=${props.onOpenAppBrowser}>
@@ -528,7 +528,7 @@ function renderAppBrowserModal(props: PipedreamProps) {
             : nothing}
           ${!props.configured
             ? html`<div class="callout warning" style="margin-bottom: 12px; font-size: 13px;">
-                ⚠️ Configure your Pipedream credentials first before connecting apps.
+                 Configure your Pipedream credentials first before connecting apps.
                 <a href="#" @click=${(e: Event) => { e.preventDefault(); props.onCloseAppBrowser(); props.onConfigure(); }} style="margin-left: 4px;">Configure Now →</a>
               </div>`
             : nothing}
@@ -552,7 +552,7 @@ function renderAppBrowserModal(props: PipedreamProps) {
             : filteredApps.length === 0
             ? html`
                 <div style="text-align: center; padding: 40px;">
-                  <div style="font-size: 48px; margin-bottom: 16px;">🔍</div>
+                  <div style="font-size: 48px; margin-bottom: 16px;"></div>
                   <div style="color: var(--muted);">No apps found matching "${props.appBrowserSearch}"</div>
                   <div class="muted" style="margin-top: 8px; font-size: 13px;">
                     Try a different search, or enter the slug directly in "Connect by slug" below

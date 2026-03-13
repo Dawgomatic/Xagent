@@ -1,6 +1,6 @@
 # guard-scanner — STATUS
 
-## ステータス: 🟢 v2.1.0 公開済み（PII検出 + Shadow AI + Plugin Hook実ブロック）
+## ステータス:  v2.1.0 公開済み（PII検出 + Shadow AI + Plugin Hook実ブロック）
 
 ## ファネル上の位置: ② TRUST（信頼構築）
 

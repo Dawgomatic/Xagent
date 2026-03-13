@@ -98,10 +98,10 @@ class BambuPrinter:
     def watch(self, callback=None):
         """Dauerhaft überwachen"""
         if not self.connect():
-            print("❌ Keine Verbindung möglich")
+            print(" Keine Verbindung möglich")
             return
         
-        print("🔴 Live-Überwachung gestartet (Strg+C zum Beenden)...")
+        print(" Live-Überwachung gestartet (Strg+C zum Beenden)...")
         print("")
         
         try:
@@ -126,11 +126,11 @@ class BambuPrinter:
         
         state = p.get("gcode_state", "UNKNOWN")
         state_icons = {
-            "IDLE": "🟡 Bereit",
-            "RUNNING": "🟢 Druckt",
-            "PAUSE": "⏸️  Pausiert",
-            "FINISH": "✅ Fertig",
-            "FAILED": "❌ Fehlgeschlagen"
+            "IDLE": " Bereit",
+            "RUNNING": " Druckt",
+            "PAUSE": "  Pausiert",
+            "FINISH": " Fertig",
+            "FAILED": " Fehlgeschlagen"
         }
         state_text = state_icons.get(state, state)
         
@@ -147,7 +147,7 @@ class BambuPrinter:
         error = p.get("print_error", 0)
         
         print("=" * 40)
-        print(f"    🖨️  Bambu Lab {MODEL} Status")
+        print(f"      Bambu Lab {MODEL} Status")
         print("=" * 40)
         print(f"Status:    {state_text}")
         print(f"Datei:     {filename}")
@@ -155,13 +155,13 @@ class BambuPrinter:
         print(f"Layer:     {layer} / {total_layer}")
         print(f"Restzeit:  {hours}h {mins}min")
         print("-" * 40)
-        print("🌡️  Temperaturen:")
+        print("  Temperaturen:")
         print(f"   Nozzle: {nozzle}°C")
         print(f"   Bett:   {bed}°C")
         
         if error and error != 0:
             print("-" * 40)
-            print(f"⚠️  Fehler-Code: {error}")
+            print(f"  Fehler-Code: {error}")
         print("=" * 40)
         print(f"Aktualisiert: {datetime.now().strftime('%H:%M:%S')}")
 
@@ -174,7 +174,7 @@ def cmd_status():
     if status:
         printer._print_status(status)
     else:
-        print("❌ Keine Verbindung möglich")
+        print(" Keine Verbindung möglich")
         print("   Prüfe: Ist der Drucker im LAN-Mode?")
 
 
@@ -186,7 +186,7 @@ def cmd_progress():
         p = status.get("print", {})
         print(f"Druckfortschritt: {p.get('mc_percent', 0)}% ({p.get('gcode_state', 'UNKNOWN')})")
     else:
-        print("❌ Keine Verbindung")
+        print(" Keine Verbindung")
 
 
 def cmd_temps():
@@ -195,11 +195,11 @@ def cmd_temps():
     
     if status:
         p = status.get("print", {})
-        print("🌡️  Temperaturen:")
+        print("  Temperaturen:")
         print(f"   Nozzle: {p.get('nozzle_temper', 0)}°C / {p.get('nozzle_target_temper', 0)}°C")
         print(f"   Bett:   {p.get('bed_temper', 0)}°C / {p.get('bed_target_temper', 0)}°C")
     else:
-        print("❌ Keine Verbindung")
+        print(" Keine Verbindung")
 
 
 def cmd_watch():
@@ -209,25 +209,25 @@ def cmd_watch():
 
 def cmd_pause():
     printer = BambuPrinter()
-    print("⏸️  Pausiere Druck...")
+    print("  Pausiere Druck...")
     if printer.send_command({"command": "pause"}):
-        print("✅ Pausiert")
+        print(" Pausiert")
 
 
 def cmd_resume():
     printer = BambuPrinter()
-    print("▶️  Setze Druck fort...")
+    print("  Setze Druck fort...")
     if printer.send_command({"command": "resume"}):
-        print("✅ Fortgesetzt")
+        print(" Fortgesetzt")
 
 
 def cmd_stop():
     printer = BambuPrinter()
-    confirm = input("❌ Druck wirklich abbrechen? (j/N) ")
+    confirm = input(" Druck wirklich abbrechen? (j/N) ")
     if confirm.lower() == "j":
         print("Breche Druck ab...")
         if printer.send_command({"command": "stop"}):
-            print("✅ Abgebrochen")
+            print(" Abgebrochen")
     else:
         print("Abbruch verworfen")
 
@@ -241,11 +241,11 @@ def cmd_light(mode):
         print("Fehler: on oder off angeben")
         return
     
-    icon = "💡" if led_mode == "on" else "🌑"
+    icon = "" if led_mode == "on" else ""
     print(f"{icon} Schalte Licht {led_mode}...")
     
     if printer.send_command({"command": "ledctrl", "led_node": "chamber_light", "led_mode": led_mode}):
-        print("✅ Fertig")
+        print(" Fertig")
 
 
 def cmd_notify():
@@ -266,26 +266,26 @@ def cmd_notify():
         if state != last_state:
             if state == "FINISH":
                 print(f"\n{'='*40}")
-                print(f"✅ DRUCK FERTIG: {filename}")
+                print(f" DRUCK FERTIG: {filename}")
                 print(f"{'='*40}\n")
             elif state == "FAILED":
                 print(f"\n{'='*40}")
-                print(f"❌ DRUCK FEHLGESCHLAGEN: {filename}")
+                print(f" DRUCK FEHLGESCHLAGEN: {filename}")
                 print(f"{'='*40}\n")
             elif state == "PAUSE":
-                print(f"⏸️  Druck pausiert: {filename}")
+                print(f"  Druck pausiert: {filename}")
             elif state == "RUNNING" and last_state != "RUNNING":
-                print(f"🟢 Druck läuft: {filename}")
+                print(f" Druck läuft: {filename}")
             
             last_state = state
         
         # Fehler
         if error and error != 0:
-            print(f"⚠️  FEHLER Code {error}!")
+            print(f"  FEHLER Code {error}!")
         
         # Fortschritt alle 10%
         if state == "RUNNING" and percent >= last_percent + 10:
-            print(f"📊 Fortschritt: {percent}%")
+            print(f" Fortschritt: {percent}%")
             last_percent = percent
     
     printer.watch(callback=check_notify)

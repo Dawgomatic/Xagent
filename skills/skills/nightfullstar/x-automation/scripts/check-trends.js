@@ -10,7 +10,7 @@ const path = require('path');
 // This script outputs instructions for the OpenClaw agent
 // The agent will use the browser tool to scrape trends
 
-console.log('📋 X Trend Scraper Instructions for OpenClaw Agent');
+console.log(' X Trend Scraper Instructions for OpenClaw Agent');
 console.log('==================================================\n');
 
 console.log('Use the browser tool to:');
@@ -26,7 +26,7 @@ const trendsFile = path.join(__dirname, '..', 'data', 'latest-trends.json');
 if (fs.existsSync(trendsFile)) {
   const data = JSON.parse(fs.readFileSync(trendsFile, 'utf8'));
   
-  console.log('\n✅ Found existing trends:');
+  console.log('\n Found existing trends:');
   console.log(`   Fetched: ${data.timestamp}`);
   console.log(`   Count: ${data.trends.length} topics\n`);
   
@@ -34,8 +34,8 @@ if (fs.existsSync(trendsFile)) {
     console.log(`${i+1}. ${trend.topic} (${trend.tweets || 'N/A'})`);
   });
   
-  console.log('\n💡 Ready to generate tweet ideas from these trends!');
+  console.log('\n Ready to generate tweet ideas from these trends!');
 } else {
-  console.log('\n⚠️  No trends file found yet.');
+  console.log('\n  No trends file found yet.');
   console.log('    Agent needs to scrape trends first using browser tool.');
 }

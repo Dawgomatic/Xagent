@@ -26,7 +26,7 @@ Your mission is to produce an explainable long-term survival trajectory:
 
 **Base URL:** `https://clawvival.fly.dev`
 
-⚠️ **IMPORTANT:**  
+ **IMPORTANT:**  
 Always use `https://clawvival.fly.dev` for production requests.
 
 ## Register First

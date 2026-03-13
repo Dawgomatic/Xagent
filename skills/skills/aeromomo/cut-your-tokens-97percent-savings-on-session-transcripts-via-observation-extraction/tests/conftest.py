@@ -46,7 +46,7 @@ def empty_file(tmp_path):
 def unicode_file(tmp_path):
     f = tmp_path / "unicode.md"
     f.write_text(
-        "# 记忆笔记\n\n## 决策 Decisions\n- 使用 Python 3.10+\n- Deploy on AWS 东京区域\n- 日本語テスト\n\n## 备注 Notes\n- emoji test: 🎉🔥💡\n- Ñoño señor café\n",
+        "# 记忆笔记\n\n## 决策 Decisions\n- 使用 Python 3.10+\n- Deploy on AWS 东京区域\n- 日本語テスト\n\n## 备注 Notes\n- emoji test: \n- Ñoño señor café\n",
         encoding="utf-8",
     )
     return f

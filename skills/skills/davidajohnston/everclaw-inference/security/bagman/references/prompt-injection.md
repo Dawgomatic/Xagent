@@ -149,7 +149,7 @@ def request_confirmation(operation: str, details: dict) -> str:
         "details": details,
         "expires": time.time() + 300,  # 5 min
     }
-    return f"⚠️ Confirm '{operation}' with: /confirm {code}"
+    return f" Confirm '{operation}' with: /confirm {code}"
 
 def confirm(code: str):
     if code not in pending:

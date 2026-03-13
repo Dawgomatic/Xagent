@@ -10,11 +10,11 @@ Run `gather_skills.sh` to get installed skills list.
 
 | Source | Trust Level | Notes |
 |--------|-------------|-------|
-| Builtin (OpenClaw) | 🟢 High | Shipped with OpenClaw |
-| ClawHub (verified) | 🟢 Medium-High | Community reviewed |
-| ClawHub (unverified) | 🟡 Medium | Use caution |
-| Manual install | 🟡 Variable | Depends on source |
-| Unknown origin | 🟠 Low | Investigate |
+| Builtin (OpenClaw) |  High | Shipped with OpenClaw |
+| ClawHub (verified) |  Medium-High | Community reviewed |
+| ClawHub (unverified) |  Medium | Use caution |
+| Manual install |  Variable | Depends on source |
+| Unknown origin |  Low | Investigate |
 
 **Check for each user skill**:
 - Is there a clear source/author?
@@ -37,9 +37,9 @@ Run `gather_skills.sh` to get installed skills list.
 
 **Risk Matrix**:
 ```
-Unknown source + exec capability = 🔴 Critical
-Known source + exec capability = 🟡 Medium (review script contents)
-Any source + read-only = 🟢 Low
+Unknown source + exec capability =  Critical
+Known source + exec capability =  Medium (review script contents)
+Any source + read-only =  Low
 ```
 
 ## Check 3: Script Contents (Automated Scan)
@@ -57,11 +57,11 @@ grep -l "rm -rf\|mkfs\|dd if=" *.sh 2>/dev/null   # Destructive commands
 **Red flags to report**:
 | Pattern | Risk | Action |
 |---------|------|--------|
-| `curl/wget` + external URL | 🟡 Medium | Show the URL, let user decide |
-| `base64 -d` in script | 🟠 High | Could hide malicious payload |
-| Access to `~/.ssh`, `~/.aws` | 🟠 High | Credential theft risk |
-| `rm -rf /` or similar | 🔴 Critical | Block immediately |
-| Hardcoded IP addresses | 🟡 Medium | Potential C2 server |
+| `curl/wget` + external URL |  Medium | Show the URL, let user decide |
+| `base64 -d` in script |  High | Could hide malicious payload |
+| Access to `~/.ssh`, `~/.aws` |  High | Credential theft risk |
+| `rm -rf /` or similar |  Critical | Block immediately |
+| Hardcoded IP addresses |  Medium | Potential C2 server |
 
 **Do NOT flag**:
 - `curl` to localhost or known APIs (github.com, api.openai.com, etc.)
@@ -77,7 +77,7 @@ If skill has `skill.json` or similar:
 - `permissions` - Declared requirements
 - `author`, `repository` - Traceability
 
-**Missing metadata**: 🟡 Medium - Harder to audit
+**Missing metadata**:  Medium - Harder to audit
 
 ## Check 5: Skills Without Metadata
 
@@ -86,7 +86,7 @@ Skills missing `skill.json` or proper metadata:
 - No author/source info
 - Harder to verify integrity
 
-**Action**: ⚪ Info - Note for awareness, not a security issue per se
+**Action**:  Info - Note for awareness, not a security issue per se
 
 ## Specific Skill Patterns
 

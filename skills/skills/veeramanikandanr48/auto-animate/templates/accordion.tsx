@@ -107,6 +107,6 @@ function AccordionItem({
  * - Parent div is always in DOM (not conditional)
  * - Only the child content is conditional
  *
- * ❌ Wrong: <div ref={parent}>{isOpen && <div>...</div>}</div> is outside component
- * ✅ Correct: <div ref={parent}>{isOpen && <div>...</div>}</div> inside component
+ *  Wrong: <div ref={parent}>{isOpen && <div>...</div>}</div> is outside component
+ *  Correct: <div ref={parent}>{isOpen && <div>...</div>}</div> inside component
  */

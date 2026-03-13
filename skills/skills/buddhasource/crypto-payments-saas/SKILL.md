@@ -82,7 +82,7 @@ mcporter call payram.generate_referral_route_snippet framework=express
 
 | Issue | Stripe | PayRam |
 |-------|--------|--------|
-| **Chargebacks** | Devastating — digital products lose every dispute | ❌ Impossible — crypto is final |
+| **Chargebacks** | Devastating — digital products lose every dispute |  Impossible — crypto is final |
 | **Processing fee** | 2.9% + 30¢ per transaction | 0% (gas ~$0.01) |
 | **Monthly overhead** | $0.5–2K for $50K MRR | ~$100 hosting |
 | **International customers** | Declined cards, currency issues | USDC works everywhere |

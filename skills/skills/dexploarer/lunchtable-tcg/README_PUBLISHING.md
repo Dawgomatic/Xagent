@@ -193,16 +193,16 @@ chmod +x publish.sh
 ## File Manifest
 
 ```
-📁 Publishing System
-├── 📜 publish.sh                      # Main automation
-├── 📘 GETTING_STARTED_PUBLISHING.md   # Beginner guide
-├── 📗 QUICKSTART_PUBLISH.md           # Quick reference
-├── 📕 PUBLISH.md                      # Complete guide
-├── 📙 TESTING_CHECKLIST.md            # Testing guide
-├── 📔 PUBLISHING_SUMMARY.md           # Technical overview
-├── 📓 PUBLISHING_FLOW.md              # Visual diagrams
-├── 📋 README_PUBLISHING.md            # This file
-└── ⚙️ .github/workflows/publish.yml   # GitHub Actions
+ Publishing System
+├──  publish.sh                      # Main automation
+├──  GETTING_STARTED_PUBLISHING.md   # Beginner guide
+├──  QUICKSTART_PUBLISH.md           # Quick reference
+├──  PUBLISH.md                      # Complete guide
+├──  TESTING_CHECKLIST.md            # Testing guide
+├──  PUBLISHING_SUMMARY.md           # Technical overview
+├──  PUBLISHING_FLOW.md              # Visual diagrams
+├──  README_PUBLISHING.md            # This file
+└──  .github/workflows/publish.yml   # GitHub Actions
 ```
 
 **Total:** 2,133 lines of code + documentation
@@ -211,19 +211,19 @@ chmod +x publish.sh
 
 ## Features
 
-- ✅ One-command publishing
-- ✅ Automated validation
-- ✅ Authentication checking
-- ✅ Pre-flight confirmation
-- ✅ Error handling with helpful messages
-- ✅ Color-coded output
-- ✅ Progress tracking (Step 1/6, 2/6, etc.)
-- ✅ Success summaries with next steps
-- ✅ GitHub Actions integration
-- ✅ Optional npm publishing
-- ✅ Comprehensive documentation (6 guides)
-- ✅ Testing procedures
-- ✅ Troubleshooting guides
+-  One-command publishing
+-  Automated validation
+-  Authentication checking
+-  Pre-flight confirmation
+-  Error handling with helpful messages
+-  Color-coded output
+-  Progress tracking (Step 1/6, 2/6, etc.)
+-  Success summaries with next steps
+-  GitHub Actions integration
+-  Optional npm publishing
+-  Comprehensive documentation (6 guides)
+-  Testing procedures
+-  Troubleshooting guides
 
 ---
 
@@ -251,10 +251,10 @@ chmod +x publish.sh
 
 ```bash
 $ ./publish.sh
-🎴 Publishing LunchTable-TCG to ClawHub...
+ Publishing LunchTable-TCG to ClawHub...
 
 Step 1/6: Validating skill format...
-✅ Validation passed!
+ Validation passed!
 
 Step 2/6: Checking ClawHub CLI...
 ✓ ClawHub CLI found
@@ -272,10 +272,10 @@ Step 5/6: Submitting to ClawHub...
 ✓ Successfully submitted to ClawHub
 
 Step 6/6: Publish to npm (optional)...
-📦 Also publish to npm? [y/N] n
+ Also publish to npm? [y/N] n
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Publishing complete!
+ Publishing complete!
 
 Next steps:
   • Track submission status: clawhub status lunchtable-tcg
@@ -317,4 +317,4 @@ openclaw skill install lunchtable-tcg
 
 **Version:** 1.0.0
 **Created:** 2026-02-05
-**Status:** Production Ready ✅
+**Status:** Production Ready 

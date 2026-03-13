@@ -551,7 +551,7 @@ def format_alert_human(drifted: list[dict[str, Any]]) -> str:
     lines = []
     lines.append("")
     lines.append("=" * 50)
-    lines.append("🚨 SOUL GUARDIAN SECURITY ALERT")
+    lines.append(" SOUL GUARDIAN SECURITY ALERT")
     lines.append("=" * 50)
     lines.append("")
     
@@ -562,17 +562,17 @@ def format_alert_human(drifted: list[dict[str, Any]]) -> str:
         error = d.get("error")
         
         if error:
-            lines.append(f"⚠️  ERROR: {path}")
+            lines.append(f"  ERROR: {path}")
             lines.append(f"   {error}")
         else:
-            lines.append(f"📄 FILE: {path}")
+            lines.append(f" FILE: {path}")
             lines.append(f"   Mode: {mode}")
             if restored:
-                lines.append(f"   Status: ✅ RESTORED to approved baseline")
+                lines.append(f"   Status:  RESTORED to approved baseline")
                 if d.get("quarantinePath"):
                     lines.append(f"   Quarantined: {d.get('quarantinePath')}")
             else:
-                lines.append(f"   Status: ⚠️  DRIFT DETECTED (not auto-restored)")
+                lines.append(f"   Status:   DRIFT DETECTED (not auto-restored)")
             
             if d.get("approvedSha"):
                 lines.append(f"   Expected hash: {d.get('approvedSha')[:16]}...")
@@ -691,7 +691,7 @@ def watch_cmd(state: GuardianState, actor: str, note: str, *, interval: int = 30
     """Continuous watch mode - checks periodically and alerts on drift."""
     import time
     
-    print(f"👻 Soul Guardian watching... (interval: {interval}s)")
+    print(f" Soul Guardian watching... (interval: {interval}s)")
     print("Press Ctrl+C to stop.\n")
     
     try:
@@ -703,7 +703,7 @@ def watch_cmd(state: GuardianState, actor: str, note: str, *, interval: int = 30
             # Sleep before next check
             time.sleep(interval)
     except KeyboardInterrupt:
-        print("\n👻 Soul Guardian stopped.")
+        print("\n Soul Guardian stopped.")
         return 0
 
 

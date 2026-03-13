@@ -9,7 +9,7 @@ description: WPS Office automation skill supporting document creation, Markdown 
 
 WPS Office 自动化操作 Skill，支持本地文档操作和 WPS 365 云端协作功能。
 
-## ⚠️ 安全警告
+##  安全警告
 
 ### 本地自动化风险
 - **GUI 自动化**：本 Skill 使用 `pyautogui` 进行键盘输入模拟，可能会与当前活动窗口交互
@@ -31,37 +31,37 @@ WPS Office 自动化操作 Skill，支持本地文档操作和 WPS 365 云端协
 ## 功能特性
 
 ### 本地文档操作（无需凭证）
-- 📄 **创建文档** - 创建 Word、Excel、PPT 文档
-- 📂 **打开文档** - 打开已有文档
-- 📋 **文档列表** - 列出文档目录中的文件
-- 🔄 **格式转换** - 支持 MD 转 Word/RTF/HTML
-- 📦 **批量处理** - 批量转换文档格式
+-  **创建文档** - 创建 Word、Excel、PPT 文档
+-  **打开文档** - 打开已有文档
+-  **文档列表** - 列出文档目录中的文件
+-  **格式转换** - 支持 MD 转 Word/RTF/HTML
+-  **批量处理** - 批量转换文档格式
 
 ### Markdown 转换功能（新增）
-- 📝 **MD → Word** - 完整 Markdown 转 Word（支持标题、列表、表格、代码块等）
-- 📝 **Word → MD** - Word 文档导出为 Markdown
-- 📊 **MD → Excel** - Markdown 转 Excel（表格变工作表，列表变数据）
-- 📊 **Excel → MD** - Excel 转 Markdown
-- 🎬 **MD → PPT** - Markdown 转 PPT（标题变幻灯片）
-- 🎬 **PPT → MD** - PPT 转 Markdown
-- 🖼️ **MD 含图片** - Markdown 转 Word 并处理图片
+-  **MD → Word** - 完整 Markdown 转 Word（支持标题、列表、表格、代码块等）
+-  **Word → MD** - Word 文档导出为 Markdown
+-  **MD → Excel** - Markdown 转 Excel（表格变工作表，列表变数据）
+-  **Excel → MD** - Excel 转 Markdown
+-  **MD → PPT** - Markdown 转 PPT（标题变幻灯片）
+-  **PPT → MD** - PPT 转 Markdown
+-  **MD 含图片** - Markdown 转 Word 并处理图片
 
 ### 图片处理与图文混排（新增）
-- 🖼️ **Word 图片插入** - 向 Word 文档插入图片，支持对齐和标题
-- 🖼️ **Word 图片网格** - 批量插入图片形成网格布局
-- 📐 **Word 图文混排** - 支持左图右文、右图左文、上图下文等布局
-- 🖼️ **PPT 图片插入** - 向 PPT 幻灯片插入图片
-- 📐 **PPT 图文混排** - PPT 幻灯片图文混排（4种布局）
-- 🖼️ **Excel 图片插入** - 向 Excel 单元格插入图片
-- 📐 **Excel 图文混排** - Excel 单元格图文混排
-- 🎨 **图片处理** - 调整图片尺寸、批量压缩
+-  **Word 图片插入** - 向 Word 文档插入图片，支持对齐和标题
+-  **Word 图片网格** - 批量插入图片形成网格布局
+-  **Word 图文混排** - 支持左图右文、右图左文、上图下文等布局
+-  **PPT 图片插入** - 向 PPT 幻灯片插入图片
+-  **PPT 图文混排** - PPT 幻灯片图文混排（4种布局）
+-  **Excel 图片插入** - 向 Excel 单元格插入图片
+-  **Excel 图文混排** - Excel 单元格图文混排
+-  **图片处理** - 调整图片尺寸、批量压缩
 
 ### WPS 365 云端功能（需要凭证）
-- 📊 **智能表单** - 表单创建、数据收集
-- 📄 **智能文档** - 在线协作文档
-- 📊 **多维表格** - 视图管理、字段管理、高级查询
-- 📊 **流程图** - 流程图创建和导出
-- 🧠 **思维导图** - 思维导图创建和导出
+-  **智能表单** - 表单创建、数据收集
+-  **智能文档** - 在线协作文档
+-  **多维表格** - 视图管理、字段管理、高级查询
+-  **流程图** - 流程图创建和导出
+-  **思维导图** - 思维导图创建和导出
 
 ## 安装
 

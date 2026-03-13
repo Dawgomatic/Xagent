@@ -9,7 +9,7 @@ author: CacheForge
 tags: [meetings, productivity, action-items, email-drafts, transcripts, operations, discord, discord-v2]
 ---
 
-# ✈️ Meeting Autopilot
+#  Meeting Autopilot
 
 Turn meeting transcripts into structured operational outputs — NOT just summaries.
 
@@ -82,13 +82,13 @@ The script handles all three passes automatically:
 The script outputs a complete Markdown report to stdout. Present it directly — the formatting is designed to look great in Slack, email, or any Markdown renderer.
 
 The report includes:
-- 📊 Overview table (counts by category)
-- ✅ Decisions with rationale
-- 📋 Action items table (owner, deadline, status)
-- ❓ Open questions
-- 🅿️ Parking lot items
-- 📧 Follow-up email draft(s) — ready to send
-- 🎫 Ticket/issue drafts — ready to file
+-  Overview table (counts by category)
+-  Decisions with rationale
+-  Action items table (owner, deadline, status)
+-  Open questions
+-  Parking lot items
+-  Follow-up email draft(s) — ready to send
+-  Ticket/issue drafts — ready to file
 
 ### Discord v2 Delivery Mode (OpenClaw v2026.2.14+)
 

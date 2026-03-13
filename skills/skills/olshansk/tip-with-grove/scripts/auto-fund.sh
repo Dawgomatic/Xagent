@@ -148,7 +148,7 @@ compare_balance() {
 }
 
 # Main logic
-echo -e "${BLUE}🤖 Grove Auto-Fund${NC}"
+echo -e "${BLUE} Grove Auto-Fund${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Min balance:    $MIN_BALANCE USDC"
 echo "Fund amount:    $FUND_AMOUNT USDC"
@@ -160,7 +160,7 @@ fi
 echo ""
 
 # Check current balance
-echo -e "${BLUE}💰 Checking current balance...${NC}"
+echo -e "${BLUE} Checking current balance...${NC}"
 
 balance_json=$(grove balance --json 2>&1)
 if [[ $? -ne 0 ]]; then
@@ -193,7 +193,7 @@ if ! compare_balance "$current_balance" "$MIN_BALANCE"; then
 fi
 
 # Balance is low - need to fund
-echo -e "${YELLOW}⚠️  Balance is below minimum threshold${NC}"
+echo -e "${YELLOW}  Balance is below minimum threshold${NC}"
 echo "  Current: $current_balance USDC"
 echo "  Minimum: $MIN_BALANCE USDC"
 echo ""
@@ -206,20 +206,20 @@ echo ""
 
 # Check if new balance would exceed maximum
 if ! compare_balance "$new_balance" "$MAX_BALANCE"; then
-    echo -e "${YELLOW}⚠️  Warning: New balance ($new_balance USDC) would exceed maximum ($MAX_BALANCE USDC)${NC}"
+    echo -e "${YELLOW}  Warning: New balance ($new_balance USDC) would exceed maximum ($MAX_BALANCE USDC)${NC}"
     echo "  Consider reducing --fund-amount or increasing --max-balance"
     echo ""
 fi
 
 # Dry run - stop here
 if [[ "$DRY_RUN" == "true" ]]; then
-    echo -e "${YELLOW}🚫 Dry run mode - would fund $FUND_AMOUNT USDC${NC}"
+    echo -e "${YELLOW} Dry run mode - would fund $FUND_AMOUNT USDC${NC}"
     exit 0
 fi
 
 # Confirm funding
 if [[ "$SKIP_CONFIRM" == "false" ]]; then
-    echo -e "${YELLOW}⚠️  About to fund $FUND_AMOUNT USDC${NC}"
+    echo -e "${YELLOW}  About to fund $FUND_AMOUNT USDC${NC}"
     read -p "Continue? [y/N] " -n 1 -r
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -230,7 +230,7 @@ if [[ "$SKIP_CONFIRM" == "false" ]]; then
 fi
 
 # Check if wallet exists and has sufficient funds
-echo -e "${BLUE}🔍 Checking wallet...${NC}"
+echo -e "${BLUE} Checking wallet...${NC}"
 
 if [[ ! -f ~/.grove/keyfile.txt ]]; then
     echo -e "${RED}✗ Wallet not found${NC}" >&2
@@ -242,7 +242,7 @@ echo "  Wallet: OK"
 echo ""
 
 # Execute funding
-echo -e "${BLUE}💸 Funding account...${NC}"
+echo -e "${BLUE} Funding account...${NC}"
 
 fund_result=$(grove fund "$FUND_AMOUNT" --network "$NETWORK" --json 2>&1)
 if [[ $? -ne 0 ]]; then

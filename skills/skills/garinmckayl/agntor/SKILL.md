@@ -2,7 +2,7 @@
 name: agntor
 description: Trust layer for AI agents — verify identities, guard prompts, redact PII, and manage x402 escrow payments.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🛡️", "homepage": "https://github.com/agntor/agntor", "requires": {"env": ["AGNTOR_API_KEY"]}, "primaryEnv": "AGNTOR_API_KEY", "install": [{"id": "npm", "kind": "node", "package": "@agntor/mcp", "bins": ["agntor-mcp-server"], "label": "Install Agntor MCP (npm)"}]}}
+metadata: {"openclaw": {"emoji": "", "homepage": "https://github.com/agntor/agntor", "requires": {"env": ["AGNTOR_API_KEY"]}, "primaryEnv": "AGNTOR_API_KEY", "install": [{"id": "npm", "kind": "node", "package": "@agntor/mcp", "bins": ["agntor-mcp-server"], "label": "Install Agntor MCP (npm)"}]}}
 ---
 
 # Agntor Trust Skill

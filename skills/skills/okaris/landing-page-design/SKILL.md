@@ -73,14 +73,14 @@ Everything visible before scrolling must communicate value in 5 seconds.
 ### What Makes Headlines Fail
 
 ```
-❌ "Welcome to Our Platform" (says nothing about value)
-❌ "The World's Most Advanced AI-Powered Solution" (buzzwords, no specifics)
-❌ "We Help Businesses Grow" (vague, generic)
-❌ "Next-Generation Enterprise Software" (what does it DO?)
+ "Welcome to Our Platform" (says nothing about value)
+ "The World's Most Advanced AI-Powered Solution" (buzzwords, no specifics)
+ "We Help Businesses Grow" (vague, generic)
+ "Next-Generation Enterprise Software" (what does it DO?)
 
-✅ "Turn customer feedback into product features, automatically"
-✅ "The spreadsheet that thinks like a database"
-✅ "Find and fix bugs before your users do"
+ "Turn customer feedback into product features, automatically"
+ "The spreadsheet that thinks like a database"
+ "Find and fix bugs before your users do"
 ```
 
 ## Hero Images
@@ -88,13 +88,13 @@ Everything visible before scrolling must communicate value in 5 seconds.
 ### Show the Outcome, Not the Product
 
 ```
-❌ Screenshot of your dashboard (boring, hard to parse at a glance)
-❌ Abstract geometric background (says nothing)
-❌ Stock photo of a handshake (cliché)
+ Screenshot of your dashboard (boring, hard to parse at a glance)
+ Abstract geometric background (says nothing)
+ Stock photo of a handshake (cliché)
 
-✅ Person looking satisfied at clear results on their screen
-✅ Before/after transformation
-✅ The end result of using your product
+ Person looking satisfied at clear results on their screen
+ Before/after transformation
+ The end result of using your product
 ```
 
 ```bash

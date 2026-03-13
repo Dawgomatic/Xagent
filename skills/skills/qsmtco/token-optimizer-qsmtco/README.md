@@ -13,12 +13,12 @@ This skill helps you reduce token usage (and thus API costs) by:
 ## Safety & Security
 
 **This skill is 100% safe:**
-- ✅ No unsolicited network requests
-- ✅ Network only for optional pricing refresh (user-initiated, requires OPENROUTER_API_KEY)
-- ✅ No code execution (no eval/exec)
-- ✅ Only reads/writes local JSON files for state tracking
-- ✅ Uses only Python standard library
-- ✅ All code is auditable
+-  No unsolicited network requests
+-  Network only for optional pricing refresh (user-initiated, requires OPENROUTER_API_KEY)
+-  No code execution (no eval/exec)
+-  Only reads/writes local JSON files for state tracking
+-  Uses only Python standard library
+-  All code is auditable
 
 See [SECURITY.md](SECURITY.md) for detailed security analysis.
 

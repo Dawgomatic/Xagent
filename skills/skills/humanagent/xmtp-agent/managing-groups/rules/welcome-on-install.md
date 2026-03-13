@@ -18,7 +18,7 @@ async function sendWelcomeMessage(
   ctx: ConversationContext<unknown, Conversation>
 ) {
   await ctx.conversation.sendText(
-    "👋 Welcome! I'm your XMTP agent. How can I help you today?"
+    " Welcome! I'm your XMTP agent. How can I help you today?"
   );
 }
 
@@ -39,10 +39,10 @@ agent.on("group", async (ctx) => {
 async function sendWelcomeMessage(ctx: ConversationContext) {
   const welcomeActions = ActionBuilder.create(
     `welcome-${Date.now()}`,
-    "👋 Welcome! I'm your ETH price agent. What would you like to do?"
+    " Welcome! I'm your ETH price agent. What would you like to do?"
   )
-    .add("get-current-price", "💰 Get Current ETH Price")
-    .add("get-price-chart", "📊 Get Price with 24h Change")
+    .add("get-current-price", " Get Current ETH Price")
+    .add("get-price-chart", " Get Price with 24h Change")
     .build();
 
   await ctx.conversation.sendActions(welcomeActions);
@@ -59,8 +59,8 @@ const GROUP_CONFIG = {
   groupName: "Secret Group",
   messages: {
     welcome: "Hi! What's the secret passphrase?",
-    success: "🎉 Correct! You've been added to the group.",
-    invalid: "❌ Invalid passphrase. Please try again.",
+    success: " Correct! You've been added to the group.",
+    invalid: " Invalid passphrase. Please try again.",
   },
 };
 

@@ -261,7 +261,7 @@ class ReportGenerator:
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(report)
         
-        print(f"✅ 已生成需求调研报告到 {output_path}")
+        print(f" 已生成需求调研报告到 {output_path}")
 
 def main():
     parser = argparse.ArgumentParser(description='生成需求调研报告')

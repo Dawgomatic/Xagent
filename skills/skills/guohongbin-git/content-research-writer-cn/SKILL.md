@@ -3,7 +3,7 @@ name: content-research-writer-cn
 description: "内容研究写作助手。进行研究、添加引用、改进开头、迭代大纲、提供实时反馈。触发词：写文章、内容创作、文案、博客。翻译自 ComposioHQ。"
 metadata:
   openclaw:
-    emoji: ✍️
+    emoji: 
     fork-of: ComposioHQ/awesome-claude-skills/content-research-writer
 ---
 
@@ -348,7 +348,7 @@ When a user requests writing assistance:
    - [ ] Call to action present
    - [ ] Proofread for typos
    
-   Ready to publish! 🚀
+   Ready to publish! 
    ```
 
 ## Examples

@@ -39,7 +39,7 @@ try:
     import chromadb
     from sentence_transformers import SentenceTransformer
 except ImportError as e:
-    print(f"❌ Missing dependency: {e}", file=sys.stderr)
+    print(f" Missing dependency: {e}", file=sys.stderr)
     print("Run 'npx jasper-recall setup' to install dependencies.", file=sys.stderr)
     sys.exit(1)
 
@@ -62,7 +62,7 @@ def append_to_learnings_file(title: str, content: str, agent: str, category: str
     entry += f"{content}\n"
     
     if dry_run:
-        print("\n📄 Would append to agent-learnings.md:")
+        print("\n Would append to agent-learnings.md:")
         print("-" * 40)
         print(entry)
         return
@@ -78,13 +78,13 @@ def append_to_learnings_file(title: str, content: str, agent: str, category: str
     with open(LEARNINGS_FILE, 'a') as f:
         f.write(entry)
     
-    print(f"📄 Added to {os.path.relpath(LEARNINGS_FILE, WORKSPACE)}")
+    print(f" Added to {os.path.relpath(LEARNINGS_FILE, WORKSPACE)}")
 
 
 def index_to_chromadb(title: str, content: str, agent: str, category: str, dry_run: bool = False):
     """Index the learning directly to ChromaDB."""
     if dry_run:
-        print("\n🗄️ Would index to agent_learnings collection")
+        print("\n Would index to agent_learnings collection")
         return
     
     # Initialize
@@ -124,7 +124,7 @@ def index_to_chromadb(title: str, content: str, agent: str, category: str, dry_r
         metadatas=[metadata]
     )
     
-    print(f"🗄️ Indexed to {COLLECTION_LEARNINGS} (id: {doc_id})")
+    print(f" Indexed to {COLLECTION_LEARNINGS} (id: {doc_id})")
 
 
 def main():
@@ -142,14 +142,14 @@ def main():
     
     # Validate inputs
     if len(args.title) > 200:
-        print("❌ Title too long (max 200 chars)", file=sys.stderr)
+        print(" Title too long (max 200 chars)", file=sys.stderr)
         sys.exit(1)
     
     if len(args.content) > 5000:
-        print("❌ Content too long (max 5000 chars)", file=sys.stderr)
+        print(" Content too long (max 5000 chars)", file=sys.stderr)
         sys.exit(1)
     
-    print(f"📝 Writing learning from agent '{args.agent}'...")
+    print(f" Writing learning from agent '{args.agent}'...")
     print(f"   Category: {args.category}")
     print(f"   Title: {args.title}")
     
@@ -161,7 +161,7 @@ def main():
     index_to_chromadb(args.title, args.content, args.agent, args.category, args.dry_run)
     
     if not args.dry_run:
-        print("\n✅ Learning saved!")
+        print("\n Learning saved!")
         
         if args.json:
             print(json.dumps({

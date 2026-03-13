@@ -295,7 +295,7 @@ writeFileSync(propsFile, JSON.stringify(inputProps));
 const {path: browserExe, chromeMode} = findBrowserExecutable(args.browser);
 
 if (!browserExe) {
-  console.warn('⚠️  No browser found. Remotion will attempt to download chrome-headless-shell from Google servers.');
+  console.warn('  No browser found. Remotion will attempt to download chrome-headless-shell from Google servers.');
   console.warn('   If download fails (e.g. Google servers inaccessible), try one of these:');
   console.warn('   1. Set environment variable: BROWSER_EXECUTABLE=/path/to/chrome-or-edge');
   console.warn('   2. Pass CLI argument: --browser /path/to/chrome-or-edge');
@@ -330,11 +330,11 @@ try {
   // Only show the final output file line (starts with '+') and size info
   const outputLines = result.split(/\r?\n/).filter(l => l.includes(output) || /^\+/.test(l.replace(/\x1b\[[0-9;]*m/g, '').trim()));
   if (outputLines.length) console.log(outputLines.join('\n'));
-  console.log(`\n✅ Video rendered successfully: ${output}`);
+  console.log(`\n Video rendered successfully: ${output}`);
 } catch (e) {
   // Show stderr on failure for debugging
   if (e.stderr) console.error(e.stderr.toString());
-  console.error('\n❌ Render failed');
+  console.error('\n Render failed');
   process.exit(1);
 } finally {
   // Clean up temp props file

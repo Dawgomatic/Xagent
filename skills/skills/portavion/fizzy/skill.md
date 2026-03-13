@@ -575,7 +575,7 @@ fizzy card close 579
 COMMENT=$(fizzy comment create --card 579 --body "<p>Looks good!</p>" | jq -r '.data.id')
 
 # Add reaction
-fizzy reaction create --card 579 --comment $COMMENT --content "👍"
+fizzy reaction create --card 579 --comment $COMMENT --content ""
 ```
 
 ---

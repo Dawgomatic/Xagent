@@ -47,7 +47,7 @@ print_success() {
 }
 
 print_info() {
-  echo -e "${YELLOW}ℹ${NC} $1"
+  echo -e "${YELLOW}${NC} $1"
 }
 
 print_error() {

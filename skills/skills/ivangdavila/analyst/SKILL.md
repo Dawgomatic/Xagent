@@ -1,7 +1,7 @@
 ---
 name: Analyst
 description: Extract insights from data with SQL, visualization, and clear communication of findings.
-metadata: {"clawdbot":{"emoji":"🔍","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Data Analysis Rules

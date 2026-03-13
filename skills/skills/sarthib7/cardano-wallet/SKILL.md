@@ -3,7 +3,7 @@ name: cardano-wallet
 description: Generate, manage, and fund Cardano wallets for OpenClaw agents
 homepage: https://masumi.network
 user-invocable: true
-metadata: {"openclaw": {"requires": {"bins": ["node"], "env": []}, "emoji": "💳"}}
+metadata: {"openclaw": {"requires": {"bins": ["node"], "env": []}, "emoji": ""}}
 ---
 
 # Cardano Wallet Skill for OpenClaw

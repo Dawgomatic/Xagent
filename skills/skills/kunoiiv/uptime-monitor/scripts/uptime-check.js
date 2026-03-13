@@ -30,7 +30,7 @@ if (streak.streak_hours >= SEVEN_DAYS_HOURS) {
     start_ts: now - (streak.streak_hours * 3600000),
     end_ts: now
   }, null, 2));
-  console.log('✅ 7d UPTIME!');
+  console.log(' 7d UPTIME!');
 } else {
   // Still building streak
 }

@@ -1,7 +1,7 @@
 ---
 name: Music Generation
 description: Generate AI music with optimized prompts, style control, and production-ready audio output.
-metadata: {"clawdbot":{"emoji":"🎵","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # AI Music Generation
@@ -76,12 +76,12 @@ Help users create AI-generated music and audio.
 
 | Provider | Personal Use | Commercial Use |
 |----------|--------------|----------------|
-| Suno | ✅ Free tier | Pro plan required |
-| Udio | ✅ Free tier | Subscription required |
-| Stable Audio | ✅ | License required |
-| MusicGen | ✅ | Research license |
-| Mubert | ✅ | API license |
-| Soundraw | ✅ | Subscription |
+| Suno |  Free tier | Pro plan required |
+| Udio |  Free tier | Subscription required |
+| Stable Audio |  | License required |
+| MusicGen |  | Research license |
+| Mubert |  | API license |
+| Soundraw |  | Subscription |
 
 **Always check current licensing terms before commercial use.**
 

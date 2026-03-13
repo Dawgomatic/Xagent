@@ -12,7 +12,7 @@ NC='\033[0m' # No Color
 
 # Logging functions
 log_info() {
-    echo -e "${BLUE}ℹ${NC} $1"
+    echo -e "${BLUE}${NC} $1"
 }
 
 log_success() {
@@ -24,7 +24,7 @@ log_error() {
 }
 
 log_warning() {
-    echo -e "${YELLOW}⚠${NC} $1"
+    echo -e "${YELLOW}${NC} $1"
 }
 
 # Check if API key is set

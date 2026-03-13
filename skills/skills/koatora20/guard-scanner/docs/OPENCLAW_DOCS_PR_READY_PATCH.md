@@ -40,7 +40,7 @@ interface InternalHookEvent {
 name: security-runtime-guard
 description: "Reference runtime guard hook for tool-call safety"
 metadata:
-  { "openclaw": { "emoji": "🛡️", "events": ["agent:before_tool_call"] } }
+  { "openclaw": { "emoji": "", "events": ["agent:before_tool_call"] } }
 ---
 
 # security-runtime-guard
@@ -63,7 +63,7 @@ const handler: HookHandler = async (event) => {
   const hit = HIGH_RISK.find((re) => re.test(text));
   if (!hit) return;
 
-  event.messages.push(`🛡️ Runtime guard detected risky pattern: ${hit}`);
+  event.messages.push(` Runtime guard detected risky pattern: ${hit}`);
 
   if (mode === "warn") return;
 

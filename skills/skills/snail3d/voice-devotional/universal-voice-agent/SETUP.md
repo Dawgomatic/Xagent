@@ -63,9 +63,9 @@ node scripts/websocket-server.js
 
 You should see:
 ```
-🚀 WebSocket server running on port 5000
-📍 Webhook URL: http://localhost:5000/call-webhook
-🔌 WebSocket URL: wss://localhost:5000/media-stream
+ WebSocket server running on port 5000
+ Webhook URL: http://localhost:5000/call-webhook
+ WebSocket URL: wss://localhost:5000/media-stream
 ```
 
 ### 5. Expose with ngrok
@@ -102,9 +102,9 @@ curl -X POST http://localhost:5000/make-call \
 2. **TwiML response** tells Twilio to connect to your WebSocket
 3. **WebSocket opens** - audio streams from the call come to your server
 4. **Real-time loop:**
-   - 🔊 **Transcribe** (Groq Whisper) - What did they say?
-   - 🤖 **Think** (Haiku) - What should I say next?
-   - 🎤 **Speak** (ElevenLabs) - Say it in your voice
+   -  **Transcribe** (Groq Whisper) - What did they say?
+   -  **Think** (Haiku) - What should I say next?
+   -  **Speak** (ElevenLabs) - Say it in your voice
    - Repeat until goal achieved or timeout
 5. **SMS summary** sent to `NOTIFY_TO` number
 

@@ -1,7 +1,7 @@
 ---
 name: frontend-design
 description: Expert frontend design guidelines for creating beautiful, modern UIs. Use when building landing pages, dashboards, or any user interface.
-metadata: {"clawdbot":{"emoji":"🎨"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Frontend Design Skill
@@ -107,7 +107,7 @@ Display: Architects Daughter, Oxanium
 **Micro-syntax for planning:**
 ```
 button: 150ms [S1→0.95→1] press
-hover: 200ms [Y0→-2, shadow↗]
+hover: 200ms [Y0→-2, shadow]
 fadeIn: 400ms ease-out [Y+20→0, α0→1]
 slideIn: 350ms ease-out [X-100→0, α0→1]
 bounce: 600ms [S0.95→1.05→1]

@@ -111,7 +111,7 @@ export class MuninnMiddleware {
      * Format context for injection into tool response
      */
     formatContextInjection(injection) {
-        const prefix = injection.isCritical ? '🧠 **CRITICAL CONTEXT**' : '📚 **Relevant Context**';
+        const prefix = injection.isCritical ? ' **CRITICAL CONTEXT**' : ' **Relevant Context**';
         return `${prefix} (auto-loaded from Muninn)
 Query: "${injection.query}"
 

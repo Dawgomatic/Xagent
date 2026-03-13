@@ -133,7 +133,7 @@ interactive_prompt() {
 
   echo ""
   echo -e "${B}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
-  echo -e "${B}🆕 새 제안 도착${N}"
+  echo -e "${B} 새 제안 도착${N}"
   echo -e "${B}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
   echo -e "  ${B}ID:${N}       ${C}${id}${N}"
   echo -e "  ${B}제목:${N}     ${title}"
@@ -159,14 +159,14 @@ interactive_prompt() {
     a|approve|y|yes)
       info "승인: $id"
       bash "$SEA_BIN" approve "$id" 2>&1 || warn "sea approve 실패 (수동 확인 필요)"
-      ok "✅ 제안 승인됨: $id"
+      ok " 제안 승인됨: $id"
       ;;
     r|reject|n|no)
       printf "거부 이유를 입력하세요: "
       read -r reason </dev/tty 2>/dev/null || reason="사용자 거부 (watch 모드)"
       [ -z "$reason" ] && reason="사용자 거부 (watch 모드)"
       bash "$SEA_BIN" reject "$id" "$reason" 2>&1 || warn "sea reject 실패"
-      ok "❌ 제안 거부됨: $id"
+      ok " 제안 거부됨: $id"
       ;;
     s|skip|*)
       warn "건너뜀: $id"
@@ -181,13 +181,13 @@ discord_footer() {
 
 ---
 
-## 💬 승인 방법
+##  승인 방법
 
 > Discord 리액션으로 즉시 응답하세요:
 >
-> ✅ **리액션** → 이 제안 **승인** (자동으로 `sea approve` 실행)
-> ❌ **리액션** → 이 제안 **거부**
-> 🔍 **리액션** → diff 전체 보기 (스레드로 확장)
+>  **리액션** → 이 제안 **승인** (자동으로 `sea approve` 실행)
+>  **리액션** → 이 제안 **거부**
+>  **리액션** → diff 전체 보기 (스레드로 확장)
 >
 > 또는 터미널에서: `sea watch` (대화형 승인)
 
@@ -206,9 +206,9 @@ prop_id, short_id = sys.argv[1], sys.argv[2]
 keyboard = {
     "inline_keyboard": [
         [
-            {"text": "✅ 승인",   "callback_data": f"sea_approve:{short_id}"},
-            {"text": "❌ 거부",   "callback_data": f"sea_reject:{short_id}"},
-            {"text": "🔍 diff",   "callback_data": f"sea_diff:{short_id}"}
+            {"text": " 승인",   "callback_data": f"sea_approve:{short_id}"},
+            {"text": " 거부",   "callback_data": f"sea_reject:{short_id}"},
+            {"text": " diff",   "callback_data": f"sea_diff:{short_id}"}
         ]
     ]
 }
@@ -277,7 +277,7 @@ ENDPY
 # sea watch 메인 루프
 # ══════════════════════════════════════════════════════════
 cmd_watch() {
-  echo -e "${B}👁  sea watch 시작${N} — ${WATCH_INTERVAL}초마다 새 제안 확인"
+  echo -e "${B}  sea watch 시작${N} — ${WATCH_INTERVAL}초마다 새 제안 확인"
   echo -e "    종료: Ctrl+C"
   echo ""
 
@@ -289,21 +289,21 @@ cmd_watch() {
     pid=$(pfield "$f" id)
     if ! is_notified "$pid" 2>/dev/null; then
       if [ "$initial_shown" = false ]; then
-        echo -e "${Y}📋 기존 미처리 제안 발견:${N}"
+        echo -e "${Y} 기존 미처리 제안 발견:${N}"
         initial_shown=true
       fi
       local title
       title=$(pfield "$f" title)
       echo -e "  ${C}${pid}${N}: ${title}"
-      notify_desktop "🧠 Self-Evolving Agent" "미처리 제안: ${title}"
+      notify_desktop " Self-Evolving Agent" "미처리 제안: ${title}"
       interactive_prompt "$f"
       mark_notified "$pid"
     fi
   done < <(get_pending_proposals)
 
-  [ "$initial_shown" = false ] && echo -e "${G}✅ 현재 미처리 제안 없음${N}" || true
+  [ "$initial_shown" = false ] && echo -e "${G} 현재 미처리 제안 없음${N}" || true
   echo ""
-  echo -e "${C}⏱  대기 중... (${WATCH_INTERVAL}초 폴링)${N}"
+  echo -e "${C}  대기 중... (${WATCH_INTERVAL}초 폴링)${N}"
 
   # 폴링 루프
   while true; do
@@ -321,8 +321,8 @@ cmd_watch() {
         sev=$(pfield "$f" severity)
 
         echo ""
-        ok "🆕 새 제안 감지: ${pid}"
-        notify_desktop "🧠 새 제안 도착 (${sev})" "${title}"
+        ok " 새 제안 감지: ${pid}"
+        notify_desktop " 새 제안 도착 (${sev})" "${title}"
         interactive_prompt "$f"
         mark_notified "$pid"
       fi
@@ -331,7 +331,7 @@ cmd_watch() {
     if [ "$found_new" = false ]; then
       local now
       now=$(TZ="Asia/Seoul" date "+%H:%M:%S" 2>/dev/null || date "+%H:%M:%S")
-      printf "\r${C}⏱  [%s] 새 제안 없음 — %s초 후 재확인${N}   " "$now" "$WATCH_INTERVAL"
+      printf "\r${C}  [%s] 새 제안 없음 — %s초 후 재확인${N}   " "$now" "$WATCH_INTERVAL"
     fi
   done
 }
@@ -347,7 +347,7 @@ cmd_notify() {
   title=$(pfield "$file" title)
   sev=$(pfield "$file" severity)
 
-  notify_desktop "🧠 Self-Evolving Agent [${sev}]" "${title}"
+  notify_desktop " Self-Evolving Agent [${sev}]" "${title}"
   interactive_prompt "$file"
 }
 

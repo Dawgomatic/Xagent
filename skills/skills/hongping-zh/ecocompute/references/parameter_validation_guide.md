@@ -25,13 +25,13 @@ This guide provides comprehensive parameter validation rules, error handling pat
 
 **Error Handling**:
 ```
-❌ Invalid: model_id = ""
+ Invalid: model_id = ""
 Response: "Error: model_id is required. Please specify a model name (e.g., 'Mistral-7B') or Hugging Face ID (e.g., 'mistralai/Mistral-7B-Instruct-v0.2')."
 
-⚠️ Warning: model_id = "Llama-3-70B"
+ Warning: model_id = "Llama-3-70B"
 Response: "Warning: Llama-3-70B (70B params) not directly measured. Extrapolating from 7B model data. For accurate results, consider benchmarking with our measurement protocol."
 
-✅ Valid: model_id = "mistralai/Mistral-7B-Instruct-v0.2"
+ Valid: model_id = "mistralai/Mistral-7B-Instruct-v0.2"
 ```
 
 ---
@@ -54,13 +54,13 @@ Response: "Warning: Llama-3-70B (70B params) not directly measured. Extrapolatin
 
 **Error Handling**:
 ```
-❌ Invalid: hardware_platform = "gtx1080"
+ Invalid: hardware_platform = "gtx1080"
 Response: "Error: GPU 'gtx1080' not supported. Supported GPUs: RTX 5090, RTX 4090D, A800, A100 (extrapolated), H100 (extrapolated), RTX 3090 (extrapolated), V100 (extrapolated). For other GPUs, use our measurement protocol: [link]"
 
-⚠️ Warning: hardware_platform = "h100"
+ Warning: hardware_platform = "h100"
 Response: "Note: H100 data extrapolated from A800 (both Ampere/Hopper architecture). Expect ±10-15% variance. For production deployments, consider validation benchmarking."
 
-✅ Valid: hardware_platform = "a800"
+ Valid: hardware_platform = "a800"
 Response: "Using NVIDIA A800 (Ampere, 80GB HBM2e) — direct measurements available."
 ```
 
@@ -79,16 +79,16 @@ Response: "Using NVIDIA A800 (Ampere, 80GB HBM2e) — direct measurements availa
 
 **Error Handling**:
 ```
-❌ Invalid: quantization = "int4"
+ Invalid: quantization = "int4"
 Response: "Error: 'int4' not supported. Did you mean 'nf4' (4-bit NormalFloat)? Supported: fp16, bf16, fp32, nf4, int8_default, int8_pure."
 
-⚠️ Warning: quantization = "bf16", hardware_platform = "rtx3090"
+ Warning: quantization = "bf16", hardware_platform = "rtx3090"
 Response: "Warning: BF16 requires Ampere or newer (RTX 30-series uses GA102 which supports BF16, but with lower efficiency than Ampere). Consider FP16 for RTX 3090."
 
-⚠️ Warning: quantization = "nf4", model_id = "Qwen2-1.5B"
+ Warning: quantization = "nf4", model_id = "Qwen2-1.5B"
 Response: "Warning: NF4 on small models (≤3B) wastes 11-29% energy vs FP16. Recommendation: Use FP16 for Qwen2-1.5B (1.5B params) on this GPU."
 
-✅ Valid: quantization = "int8_pure", model_id = "Mistral-7B", hardware_platform = "a800"
+ Valid: quantization = "int8_pure", model_id = "Mistral-7B", hardware_platform = "a800"
 Response: "Using Pure INT8 (threshold=0.0) — saves ~5% energy vs FP16 on A800 for 7B models."
 ```
 
@@ -109,19 +109,19 @@ Response: "Using Pure INT8 (threshold=0.0) — saves ~5% energy vs FP16 on A800 
 
 **Error Handling**:
 ```
-❌ Invalid: batch_size = 0
+ Invalid: batch_size = 0
 Response: "Error: batch_size must be ≥1. Did you mean batch_size=1?"
 
-❌ Invalid: batch_size = 128
+ Invalid: batch_size = 128
 Response: "Error: batch_size=128 exceeds maximum supported (64). For larger batches, use vLLM with continuous batching."
 
-⚠️ Warning: batch_size = 5
+ Warning: batch_size = 5
 Response: "Warning: batch_size=5 is not a power of 2. GPU kernels are optimized for powers of 2. Consider BS=4 or BS=8 for better performance."
 
-⚠️ Warning: batch_size = 1, use_case = "production API"
-Response: "⚠️ Critical optimization opportunity: BS=1 in production wastes up to 95.7% energy. Recommendation: Use BS≥8 with request batching (vLLM continuous batching)."
+ Warning: batch_size = 1, use_case = "production API"
+Response: " Critical optimization opportunity: BS=1 in production wastes up to 95.7% energy. Recommendation: Use BS≥8 with request batching (vLLM continuous batching)."
 
-✅ Valid: batch_size = 16
+ Valid: batch_size = 16
 Response: "Using BS=16 — reduces energy by 87.5% vs BS=1."
 ```
 
@@ -140,16 +140,16 @@ Response: "Using BS=16 — reduces energy by 87.5% vs BS=1."
 
 **Error Handling**:
 ```
-❌ Invalid: sequence_length = 0
+ Invalid: sequence_length = 0
 Response: "Error: sequence_length must be ≥1. Typical values: 512 (chat), 1024 (documents), 2048 (long context)."
 
-⚠️ Warning: sequence_length = 8192, model_id = "Mistral-7B"
+ Warning: sequence_length = 8192, model_id = "Mistral-7B"
 Response: "Warning: sequence_length=8192 exceeds Mistral-7B's context window (8192 max with sliding window). Ensure your use case fits within model limits."
 
-⚠️ Note: sequence_length = 2048
+ Note: sequence_length = 2048
 Response: "Note: 2048 tokens = 4× baseline (512). Energy per request will scale approximately linearly. Estimated energy: [X] J (vs [Y] J at 512 tokens)."
 
-✅ Valid: sequence_length = 1024
+ Valid: sequence_length = 1024
 Response: "Using 1024 input tokens (2× baseline). Energy estimates adjusted accordingly."
 ```
 
@@ -168,13 +168,13 @@ Response: "Using 1024 input tokens (2× baseline). Energy estimates adjusted acc
 
 **Error Handling**:
 ```
-❌ Invalid: generation_length = -1
+ Invalid: generation_length = -1
 Response: "Error: generation_length must be ≥1. Typical values: 128 (short answers), 256 (default), 512 (detailed responses)."
 
-⚠️ Warning: generation_length = 2048
+ Warning: generation_length = 2048
 Response: "Warning: Generating 2048 tokens = 8× baseline (256). Energy per request: [X] J (vs [Y] J at 256 tokens). Consider if this length is necessary for your use case."
 
-✅ Valid: generation_length = 512
+ Valid: generation_length = 512
 Response: "Generating 512 tokens (2× baseline). Energy per request: ~2× baseline measurement."
 ```
 
@@ -193,16 +193,16 @@ Response: "Generating 512 tokens (2× baseline). Energy per request: ~2× baseli
 
 **Error Handling**:
 ```
-❌ Invalid: precision = "int8"
+ Invalid: precision = "int8"
 Response: "Error: 'int8' is a quantization method, not a precision. Use quantization='int8_pure' instead. Precision options: fp32, bf16, fp16, tf32."
 
-⚠️ Warning: precision = "bf16", hardware_platform = "rtx4090d"
+ Warning: precision = "bf16", hardware_platform = "rtx4090d"
 Response: "Note: RTX 4090D (Ada Lovelace) supports BF16, but FP16 may be faster for inference. BF16 is primarily beneficial for training."
 
-⚠️ Conflict: precision = "fp32", quantization = "nf4"
+ Conflict: precision = "fp32", quantization = "nf4"
 Response: "Warning: Conflicting parameters. NF4 quantization uses FP16/BF16 for dequantization, not FP32. Using FP16 compute with NF4 weights."
 
-✅ Valid: precision = "fp16"
+ Valid: precision = "fp16"
 Response: "Using FP16 precision (default for inference)."
 ```
 
@@ -227,12 +227,12 @@ kv_cache_gb = batch_size * sequence_length * 0.0001  # Rough estimate
 total_vram_needed = model_size_gb + kv_cache_gb
 
 if total_vram_needed > gpu_vram_capacity:
-    return "⚠️ Warning: Estimated VRAM usage ({total_vram_needed}GB) may exceed GPU capacity ({gpu_vram_capacity}GB). Consider: (1) reducing batch_size, (2) using quantization, or (3) reducing sequence_length."
+    return " Warning: Estimated VRAM usage ({total_vram_needed}GB) may exceed GPU capacity ({gpu_vram_capacity}GB). Consider: (1) reducing batch_size, (2) using quantization, or (3) reducing sequence_length."
 ```
 
 **Error Example**:
 ```
-⚠️ Warning: Mistral-7B FP16 (14GB) + BS=32 + seq_len=2048 (~18GB total) may exceed RTX 4090D capacity (24GB). Recommendation: Use BS=16 or NF4 quantization.
+ Warning: Mistral-7B FP16 (14GB) + BS=32 + seq_len=2048 (~18GB total) may exceed RTX 4090D capacity (24GB). Recommendation: Use BS=16 or NF4 quantization.
 ```
 
 ---
@@ -254,10 +254,10 @@ if total_vram_needed > gpu_vram_capacity:
 - Model: Qwen2-7B (7B parameters)
 - GPU: RTX 4090D (default, Ada Lovelace, 24GB)
 - Precision: FP16 (default)
-- Batch size: 1 (default, ⚠️ consider increasing for production)
+- Batch size: 1 (default,  consider increasing for production)
 - Sequence length: 512 tokens → Generation: 256 tokens (defaults)
 
-## ⚠️ Optimization Recommendations
+##  Optimization Recommendations
 1. **Increase batch_size**: BS=1 wastes 87-95% energy. Use BS≥8 for production.
 2. **Specify hardware_platform**: Defaulting to RTX 4090D. Specify your actual GPU for accurate estimates.
 
@@ -288,19 +288,19 @@ if total_vram_needed > gpu_vram_capacity:
 **Response**:
 ```
 ## Validated Configuration
-- Model: Mistral-7B-Instruct-v0.2 (7B parameters) ✅
-- GPU: NVIDIA A800 (Ampere, 80GB HBM2e) ✅
-- Precision: Pure INT8 (threshold=0.0) ✅
-- Batch size: 32 ✅
-- Sequence length: 1024 tokens → Generation: 512 tokens ✅
+- Model: Mistral-7B-Instruct-v0.2 (7B parameters) 
+- GPU: NVIDIA A800 (Ampere, 80GB HBM2e) 
+- Precision: Pure INT8 (threshold=0.0) 
+- Batch size: 32 
+- Sequence length: 1024 tokens → Generation: 512 tokens 
 
 ## Validation Notes
-✅ All parameters valid
-✅ VRAM check: ~8GB model + ~3GB KV cache = 11GB total (well within 80GB capacity)
-✅ Pure INT8 on A800 saves ~5% energy vs FP16 (no paradox with threshold=0.0)
-✅ BS=32 provides 93% energy reduction vs BS=1
-⚠️ Sequence length 2× baseline (1024 vs 512) — energy estimates scaled accordingly
-⚠️ Generation length 2× baseline (512 vs 256) — energy per request doubled
+ All parameters valid
+ VRAM check: ~8GB model + ~3GB KV cache = 11GB total (well within 80GB capacity)
+ Pure INT8 on A800 saves ~5% energy vs FP16 (no paradox with threshold=0.0)
+ BS=32 provides 93% energy reduction vs BS=1
+ Sequence length 2× baseline (1024 vs 512) — energy estimates scaled accordingly
+ Generation length 2× baseline (512 vs 256) — energy per request doubled
 
 ## Performance Metrics (Measured + Extrapolated)
 - Throughput: 312 tok/s (±2.1% std dev, n=10)
@@ -321,7 +321,7 @@ if total_vram_needed > gpu_vram_capacity:
 
 [... rest of output ...]
 
-## 🔬 Measurement Transparency
+##  Measurement Transparency
 - Hardware: NVIDIA A800, Driver 535.183.01
 - Software: PyTorch 2.4.1, CUDA 12.1, transformers 4.47.0
 - Method: NVML 10Hz power monitoring, n=10 runs, CV<2%
@@ -350,7 +350,7 @@ if total_vram_needed > gpu_vram_capacity:
 
 **Response**:
 ```
-## ❌ Parameter Validation Errors
+##  Parameter Validation Errors
 
 1. **model_id**: Required parameter missing
    - Error: model_id cannot be empty
@@ -374,7 +374,7 @@ if total_vram_needed > gpu_vram_capacity:
    - Error: sequence_length must be ≥1
    - Typical values: 512 (chat), 1024 (documents), 2048 (long context)
 
-## 🔧 Suggested Corrected Request
+##  Suggested Corrected Request
 ```json
 {
   "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
@@ -405,13 +405,13 @@ Please correct the errors and try again.
 **Response**:
 ```
 ## Configuration (with warnings)
-- Model: Qwen2-1.5B (1.5B parameters) ✅
-- GPU: NVIDIA A800 (Ampere, 80GB HBM2e) ✅
-- Precision: NF4 ⚠️
-- Batch size: 1 ⚠️
+- Model: Qwen2-1.5B (1.5B parameters) 
+- GPU: NVIDIA A800 (Ampere, 80GB HBM2e) 
+- Precision: NF4 
+- Batch size: 1 
 - Sequence length: 512 tokens → Generation: 256 tokens (defaults)
 
-## ⚠️ Critical Warnings
+##  Critical Warnings
 
 ### 1. NF4 on Small Model (Energy Waste: +29%)
 **Issue**: NF4 quantization on 1.5B model wastes 29% more energy than FP16
@@ -433,7 +433,7 @@ Please correct the errors and try again.
 - Optimized (BS=16): ~143 J/1k tokens
 - Savings: 1,007 J/1k tokens (87.5% reduction)
 
-## 💡 Optimized Configuration
+##  Optimized Configuration
 ```json
 {
   "model_id": "Qwen/Qwen2-1.5B",
@@ -457,28 +457,28 @@ Would you like me to provide the optimized configuration analysis?
 
 ### Template 1: Missing Required Parameter
 ```
-❌ Error: {parameter_name} is required.
+ Error: {parameter_name} is required.
 Fix: {suggestion}
 Example: {example_value}
 ```
 
 ### Template 2: Invalid Value
 ```
-❌ Error: '{value}' is not a valid {parameter_name}.
+ Error: '{value}' is not a valid {parameter_name}.
 Supported values: {valid_options}
 Did you mean: {closest_match}?
 ```
 
 ### Template 3: Out of Range
 ```
-❌ Error: {parameter_name}={value} is out of valid range [{min}, {max}].
+ Error: {parameter_name}={value} is out of valid range [{min}, {max}].
 Fix: {suggestion}
 Typical values: {examples}
 ```
 
 ### Template 4: Suboptimal Configuration
 ```
-⚠️ Warning: {parameter_name}={value} may cause {issue}.
+ Warning: {parameter_name}={value} may cause {issue}.
 Impact: {quantified_impact}
 Recommendation: {alternative}
 Expected improvement: {benefit}
@@ -486,7 +486,7 @@ Expected improvement: {benefit}
 
 ### Template 5: Extrapolation Notice
 ```
-ℹ️ Note: {parameter} data extrapolated from {baseline}.
+ Note: {parameter} data extrapolated from {baseline}.
 Method: {extrapolation_method}
 Confidence: {confidence_level}
 Recommendation: {validation_suggestion if confidence < HIGH}

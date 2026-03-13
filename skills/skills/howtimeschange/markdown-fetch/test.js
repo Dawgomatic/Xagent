@@ -12,12 +12,12 @@ const TEST_URLS = [
 ];
 
 async function runTests() {
-  console.log('🧪 Markdown Fetch 测试\n');
+  console.log(' Markdown Fetch 测试\n');
   console.log('默认 Headers:', DEFAULT_HEADERS);
   console.log('---\n');
 
   for (const url of TEST_URLS) {
-    console.log(`📡 Fetching: ${url}`);
+    console.log(` Fetching: ${url}`);
     
     try {
       const result = await optimizedFetch(url);
@@ -27,7 +27,7 @@ async function runTests() {
       console.log(`   Content-Type: ${result.contentType}`);
       
       if (result.tokensSaved) {
-        console.log(`   💰 Token 节省: ${result.tokensSaved}`);
+        console.log(`    Token 节省: ${result.tokensSaved}`);
       }
       
       const preview = result.content ? result.content.substring(0, 100) : 'N/A';
@@ -35,7 +35,7 @@ async function runTests() {
       console.log('');
       
     } catch (error) {
-      console.log(`   ❌ Error: ${error.message}`);
+      console.log(`    Error: ${error.message}`);
       console.log('');
     }
   }

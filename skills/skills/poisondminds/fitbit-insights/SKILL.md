@@ -9,12 +9,12 @@ Get AI-powered insights from your Fitbit data. Query your fitness metrics, analy
 
 ## Features
 
-- 📊 Daily activity summaries (steps, calories, distance, active minutes)
-- 💓 Heart rate data and zones
-- 😴 Sleep tracking and analysis
-- 🏃 Workout/activity logs
-- 📈 Weekly and trend analysis
-- 🤖 AI-powered insights and Q&A
+-  Daily activity summaries (steps, calories, distance, active minutes)
+-  Heart rate data and zones
+-  Sleep tracking and analysis
+-  Workout/activity logs
+-  Weekly and trend analysis
+-  AI-powered insights and Q&A
 
 ## Prerequisites
 

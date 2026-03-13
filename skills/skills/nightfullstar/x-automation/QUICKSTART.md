@@ -1,6 +1,6 @@
 # Quick Start: X Automation (Bypass API)
 
-## 🚀 Setup (5 minutes)
+##  Setup (5 minutes)
 
 ### 1. Log in to X
 Open your browser and log in to x.com. Keep it open.
@@ -19,13 +19,13 @@ node scripts/trends.js
 
 Should output current trending topics!
 
-## ✍️ Post Your First Tweet
+##  Post Your First Tweet
 
 ```bash
 node scripts/post.js "Testing automation - hello from BountyLock!"
 ```
 
-## 🤖 Auto-Tweet on Trends
+##  Auto-Tweet on Trends
 
 Coming soon - will:
 1. Fetch trends every 4 hours
@@ -33,7 +33,7 @@ Coming soon - will:
 3. Send to Telegram for approval
 4. Post approved tweets
 
-## 📋 Next Steps
+##  Next Steps
 
 - [ ] Test trend scraping
 - [ ] Test posting
@@ -42,14 +42,14 @@ Coming soon - will:
 - [ ] Monitor mentions
 - [ ] Strategic liking/RTing
 
-## ⚠️ Important
+##  Important
 
 - Keep browser logged in
 - Don't spam (human-like delays built in)
 - Review auto-generated tweets before posting
 - This uses YOUR browser session (no API violations)
 
-## 🎯 Goal
+##  Goal
 
 Post 3-5 quality tweets per day about:
 - Crypto trends

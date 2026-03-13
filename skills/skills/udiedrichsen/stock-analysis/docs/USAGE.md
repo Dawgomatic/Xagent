@@ -233,7 +233,7 @@ uv run scripts/analyze_stock.py --portfolio "Retirement" --period monthly
 
 The analysis flags concentration warnings:
 ```
-⚠️ CONCENTRATION WARNINGS:
+ CONCENTRATION WARNINGS:
    • AAPL: 45.1% (>30% of portfolio)
 ```
 
@@ -301,11 +301,11 @@ uv run scripts/watchlist.py check --notify
 
 **Alert Example:**
 ```
-📢 Stock Alerts
+ Stock Alerts
 
-🎯 NVDA hit target! $802.50 >= $800.00
-🛑 TSLA hit stop! $195.00 <= $200.00
-📊 AAPL signal changed: HOLD → BUY
+ NVDA hit target! $802.50 >= $800.00
+ TSLA hit stop! $195.00 <= $200.00
+ AAPL signal changed: HOLD → BUY
 ```
 
 ### Remove from Watchlist
@@ -381,8 +381,8 @@ Second analysis of different stock reuses cached data.
 CAVEATS:
 • Earnings in 5 days - high volatility expected    ← Timing risk
 • RSI 78 (overbought) + near 52w high              ← Technical risk
-• ⚠️ BREAKING NEWS: Fed emergency rate discussion  ← External risk
-• ⚠️ SECTOR RISK: China tensions affect tech       ← Geopolitical
+•  BREAKING NEWS: Fed emergency rate discussion  ← External risk
+•  SECTOR RISK: China tensions affect tech       ← Geopolitical
 ```
 
 ### When to Ignore the Signal

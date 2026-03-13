@@ -50,15 +50,15 @@ class UserConfig:
 
 
 # 引导消息模板
-FIRST_TIME_GUIDE = """👋 **欢迎使用 Feishu Smart Doc Writer！**
+FIRST_TIME_GUIDE = """ **欢迎使用 Feishu Smart Doc Writer！**
 
 本 Skill 可以帮助你：
-✅ **智能分块写入** - 解决长文档写入时因API限制导致的空白问题
-✅ **自动转移所有权** - 创建文档后自动转移给你，拥有完全控制权
+ **智能分块写入** - 解决长文档写入时因API限制导致的空白问题
+ **自动转移所有权** - 创建文档后自动转移给你，拥有完全控制权
 
 ---
 
-## 🔧 首次使用配置
+##  首次使用配置
 
 ### 第1步：获取你的 OpenID
 
@@ -84,13 +84,13 @@ FIRST_TIME_GUIDE = """👋 **欢迎使用 Feishu Smart Doc Writer！**
    - 点击 **"复制"** 按钮
    - 得到格式如：`ou_5b921cba0fd6e7c885276a02d730ec19`
 
-💡 **提示**：OpenID 是以 `ou_` 开头的一串字符，不是数字ID
+ **提示**：OpenID 是以 `ou_` 开头的一串字符，不是数字ID
 
 ---
 
 ### 第2步：开通并发布权限
 
-⚠️ **重要：需要开通权限并发布应用新版本**
+ **重要：需要开通权限并发布应用新版本**
 
 **开通权限步骤：**
 
@@ -107,11 +107,11 @@ FIRST_TIME_GUIDE = """👋 **欢迎使用 Feishu Smart Doc Writer！**
 3. **发布新版本（关键！）**
    - 开通后，点击页面右上角的 **"发布"** 按钮
    - 等待发布完成（显示"已发布"状态）
-   - ⚠️ **不发布的话，权限不会生效！**
+   -  **不发布的话，权限不会生效！**
 
 ---
 
-## 💬 请回复配置信息
+##  请回复配置信息
 
 请按以下格式回复：
 
@@ -192,7 +192,7 @@ async def write_smart(ctx, args: dict) -> dict:
             "chunks_count": result["chunks_count"],
             "owner_transferred": result["owner_transferred"],
             "need_config": False,
-            "message": f"✅ 文档创建成功，共分 {result['chunks_count']} 块写入{transfer_msg}"
+            "message": f" 文档创建成功，共分 {result['chunks_count']} 块写入{transfer_msg}"
         }
     except Exception as e:
         return {
@@ -201,7 +201,7 @@ async def write_smart(ctx, args: dict) -> dict:
             "chunks_count": 0,
             "owner_transferred": False,
             "need_config": False,
-            "message": f"❌ 创建失败: {e}"
+            "message": f" 创建失败: {e}"
         }
 
 
@@ -225,13 +225,13 @@ async def configure(ctx, args: dict) -> dict:
     if not openid:
         return {
             "success": False,
-            "message": "❌ 请提供 OpenID"
+            "message": " 请提供 OpenID"
         }
     
     if not openid.startswith("ou_"):
         return {
             "success": False,
-            "message": "❌ OpenID 格式错误，应以 'ou_' 开头，请检查"
+            "message": " OpenID 格式错误，应以 'ou_' 开头，请检查"
         }
     
     # 保存配置
@@ -244,12 +244,12 @@ async def configure(ctx, args: dict) -> dict:
         return {
             "success": True,
             "openid": openid,
-            "message": f"✅ 配置成功！\n\n你的 OpenID：{openid}\n\n配置已保存，现在可以使用 write_smart 创建文档，所有权会自动转移给你。"
+            "message": f" 配置成功！\n\n你的 OpenID：{openid}\n\n配置已保存，现在可以使用 write_smart 创建文档，所有权会自动转移给你。"
         }
     else:
         return {
             "success": False,
-            "message": "❌ 配置保存失败"
+            "message": " 配置保存失败"
         }
 
 
@@ -289,13 +289,13 @@ async def append_smart(ctx, args: dict) -> dict:
         return {
             "success": success,
             "chunks_count": len(chunks),
-            "message": f"{'✅' if success else '❌'} 追加 {'成功' if success else '失败'}，共分 {len(chunks)} 块"
+            "message": f"{'' if success else ''} 追加 {'成功' if success else '失败'}，共分 {len(chunks)} 块"
         }
     except Exception as e:
         return {
             "success": False,
             "chunks_count": 0,
-            "message": f"❌ 追加失败: {e}"
+            "message": f" 追加失败: {e}"
         }
 
 
@@ -326,12 +326,12 @@ async def transfer_ownership(ctx, args: dict) -> dict:
         
         return {
             "success": success,
-            "message": f"{'✅' if success else '❌'} 所有权转移{'成功' if success else '失败'}"
+            "message": f"{'' if success else ''} 所有权转移{'成功' if success else '失败'}"
         }
     except Exception as e:
         return {
             "success": False,
-            "message": f"❌ 转移失败: {e}"
+            "message": f" 转移失败: {e}"
         }
 
 
@@ -349,14 +349,14 @@ async def get_config_status(ctx, args: dict) -> dict:
             "configured": True,
             "openid": config.owner_openid,
             "first_time": config.first_time,
-            "message": f"✅ 已配置\nOpenID: {config.owner_openid}"
+            "message": f" 已配置\nOpenID: {config.owner_openid}"
         }
     else:
         return {
             "configured": False,
             "openid": None,
             "first_time": config.first_time,
-            "message": "⚠️ 未配置\n请使用 configure 工具进行配置"
+            "message": " 未配置\n请使用 configure 工具进行配置"
         }
 
 

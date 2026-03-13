@@ -142,7 +142,7 @@ Before doing anything:
 3. Read `state/DECISIONS.md` — recent choices
 4. Read `memory/recent-work.md` — last 48 hours
 
-## 🐠 Dory-Proof Pattern
+##  Dory-Proof Pattern
 
 When user gives a task:
 1. **IMMEDIATELY** write EXACT WORDS to `state/ACTIVE.md`

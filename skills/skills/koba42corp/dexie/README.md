@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">💱 Dexie.space API Client</h1>
+  <h1 align="center"> Dexie.space API Client</h1>
   <p align="center">
     <strong>Track Chia DEX trading - offers, prices, liquidity</strong>
   </p>
@@ -27,21 +27,21 @@
 
 ---
 
-## 🎯 Overview
+##  Overview
 
 Access the Dexie.space API to track decentralized exchange activity on Chia. Monitor offers, check token prices, view liquidity pools, and analyze trading pairs.
 
 **No API key required** — Dexie's API is free and public.
 
-## ✨ Features
+##  Features
 
-- 💱 **Offers** — Browse active, completed, and cancelled trades
-- 🪙 **Tokens** — View prices, volume, liquidity for CATs
-- 📊 **Pairs** — List trading pairs and markets
-- 🔍 **Search** — Find tokens by name or code
-- 📈 **Stats** — Platform-wide statistics
+-  **Offers** — Browse active, completed, and cancelled trades
+-  **Tokens** — View prices, volume, liquidity for CATs
+-  **Pairs** — List trading pairs and markets
+-  **Search** — Find tokens by name or code
+-  **Stats** — Platform-wide statistics
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -116,7 +116,7 @@ const assets = await api.getAssets({ sort: 'volume' });
 const pairs = await api.getPairs();
 ```
 
-## 📖 Command Reference
+##  Command Reference
 
 ### Offers
 
@@ -143,7 +143,7 @@ const pairs = await api.getPairs();
 | `dex SBX` | Get SBX price |
 | `dex DBX` | Get DBX price |
 
-## 🛠️ API Methods
+##  API Methods
 
 Complete method reference:
 
@@ -163,11 +163,11 @@ Complete method reference:
 ### Stats
 - `getStats()` — Platform statistics
 
-## 📊 Output Examples
+##  Output Examples
 
 ### Token List
 ```
-🪙 Top Tokens by Volume (24h):
+ Top Tokens by Volume (24h):
 
 1. SBX - Spacebucks
    Price: $0.000067
@@ -182,7 +182,7 @@ Complete method reference:
 
 ### Offers
 ```
-💱 Active Offers:
+ Active Offers:
 
 1. 163.48 wUSDC.b → 43.91 XCH
    Price: 0.268585
@@ -193,7 +193,7 @@ Complete method reference:
    ID: Bk6Lr12H6P4DuhPdzzAcXXApErMxo8712aEfKeNyDPL7
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 No configuration required! The API is public and doesn't need authentication.
 
@@ -210,7 +210,7 @@ Methods accept an `options` object:
 }
 ```
 
-## 🧪 Examples
+##  Examples
 
 ### Track a specific token
 
@@ -239,7 +239,7 @@ setInterval(async () => {
 }, 60000); // Every minute
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please:
 
@@ -249,11 +249,11 @@ Contributions welcome! Please:
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) for details
 
-## 🔗 Links
+##  Links
 
 - **Dexie**: https://dexie.space
 - **API**: https://api.dexie.space/v1
@@ -261,7 +261,7 @@ MIT License - see [LICENSE](LICENSE) for details
 - **ClawdHub**: https://clawdhub.com
 - **Chia Network**: https://chia.net
 
-## 💬 Support
+##  Support
 
 - Issues: [GitHub Issues](https://github.com/Koba42Corp/dexie-skill/issues)
 - Discord: [Clawdbot Community](https://discord.gg/clawd)
@@ -269,4 +269,4 @@ MIT License - see [LICENSE](LICENSE) for details
 
 ---
 
-<p align="center">Made with 🖖 by the Clawdbot community</p>
+<p align="center">Made with  by the Clawdbot community</p>

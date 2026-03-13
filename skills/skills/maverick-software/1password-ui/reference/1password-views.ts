@@ -22,7 +22,7 @@ export function renderOnePassword(state: OnePasswordViewState): TemplateResult {
     <div class="page-content">
       <div class="section-header">
         <div class="header-info">
-          <h2>🔐 1Password</h2>
+          <h2> 1Password</h2>
           <span
             class="status-badge ${state.onePasswordStatus.signedIn || state.onePasswordStatus.connected ? "connected" : "disconnected"}"
           >

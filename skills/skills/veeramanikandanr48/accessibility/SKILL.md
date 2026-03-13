@@ -8,7 +8,7 @@ description: |
 
 # Web Accessibility (WCAG 2.1 AA)
 
-**Status**: Production Ready ✅
+**Status**: Production Ready 
 **Last Updated**: 2026-01-14
 **Dependencies**: None (framework-agnostic)
 **Standards**: WCAG 2.1 Level AA
@@ -22,11 +22,11 @@ description: |
 Choose the right element - don't use `div` for everything:
 
 ```html
-<!-- ❌ WRONG - divs with onClick -->
+<!--  WRONG - divs with onClick -->
 <div onclick="submit()">Submit</div>
 <div onclick="navigate()">Next page</div>
 
-<!-- ✅ CORRECT - semantic elements -->
+<!--  CORRECT - semantic elements -->
 <button type="submit">Submit</button>
 <a href="/next">Next page</a>
 ```
@@ -41,10 +41,10 @@ Choose the right element - don't use `div` for everything:
 Make interactive elements keyboard-accessible:
 
 ```css
-/* ❌ WRONG - removes focus outline */
+/*  WRONG - removes focus outline */
 button:focus { outline: none; }
 
-/* ✅ CORRECT - custom accessible outline */
+/*  CORRECT - custom accessible outline */
 button:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
@@ -61,11 +61,11 @@ button:focus-visible {
 Every non-text element needs a text alternative:
 
 ```html
-<!-- ❌ WRONG - no alt text -->
+<!--  WRONG - no alt text -->
 <img src="logo.png">
 <button><svg>...</svg></button>
 
-<!-- ✅ CORRECT - proper alternatives -->
+<!--  CORRECT - proper alternatives -->
 <img src="logo.png" alt="Company Name">
 <button aria-label="Close dialog"><svg>...</svg></button>
 ```
@@ -105,16 +105,16 @@ Form element?
 **Golden rule: Use ARIA only when HTML can't express the pattern.**
 
 ```html
-<!-- ❌ WRONG - unnecessary ARIA -->
+<!--  WRONG - unnecessary ARIA -->
 <button role="button">Click me</button>  <!-- Button already has role -->
 
-<!-- ✅ CORRECT - ARIA fills semantic gap -->
+<!--  CORRECT - ARIA fills semantic gap -->
 <div role="dialog" aria-labelledby="title" aria-modal="true">
   <h2 id="title">Confirm action</h2>
   <!-- No HTML dialog yet, so role needed -->
 </div>
 
-<!-- ✅ BETTER - Use native HTML when available -->
+<!--  BETTER - Use native HTML when available -->
 <dialog aria-labelledby="title">
   <h2 id="title">Confirm action</h2>
 </dialog>
@@ -184,13 +184,13 @@ function Dialog({ onClose }) {
 - UI components (buttons, borders): 3:1 contrast ratio
 
 ```css
-/* ❌ WRONG - insufficient contrast */
+/*  WRONG - insufficient contrast */
 :root {
   --background: #ffffff;
   --text: #999999;  /* 2.8:1 - fails WCAG AA */
 }
 
-/* ✅ CORRECT - sufficient contrast */
+/*  CORRECT - sufficient contrast */
 :root {
   --background: #ffffff;
   --text: #595959;  /* 4.6:1 - passes WCAG AA */
@@ -209,10 +209,10 @@ function Dialog({ onClose }) {
 **Every form input needs a visible label:**
 
 ```html
-<!-- ❌ WRONG - placeholder is not a label -->
+<!--  WRONG - placeholder is not a label -->
 <input type="email" placeholder="Email address">
 
-<!-- ✅ CORRECT - proper label -->
+<!--  CORRECT - proper label -->
 <label for="email">Email address</label>
 <input type="email" id="email" name="email" required aria-required="true">
 ```
@@ -249,29 +249,29 @@ function Dialog({ onClose }) {
 
 ### Always Do
 
-✅ Use semantic HTML elements first (button, a, nav, article, etc.)
-✅ Provide text alternatives for all non-text content
-✅ Ensure 4.5:1 contrast for normal text, 3:1 for large text/UI
-✅ Make all functionality keyboard accessible
-✅ Test with keyboard only (unplug mouse)
-✅ Test with screen reader (NVDA on Windows, VoiceOver on Mac)
-✅ Use proper heading hierarchy (h1 → h2 → h3, no skipping)
-✅ Label all form inputs with visible labels
-✅ Provide focus indicators (never just `outline: none`)
-✅ Use `aria-live` for dynamic content updates
+ Use semantic HTML elements first (button, a, nav, article, etc.)
+ Provide text alternatives for all non-text content
+ Ensure 4.5:1 contrast for normal text, 3:1 for large text/UI
+ Make all functionality keyboard accessible
+ Test with keyboard only (unplug mouse)
+ Test with screen reader (NVDA on Windows, VoiceOver on Mac)
+ Use proper heading hierarchy (h1 → h2 → h3, no skipping)
+ Label all form inputs with visible labels
+ Provide focus indicators (never just `outline: none`)
+ Use `aria-live` for dynamic content updates
 
 ### Never Do
 
-❌ Use `div` with `onClick` instead of `button`
-❌ Remove focus outlines without replacement
-❌ Use color alone to convey information
-❌ Use placeholders as labels
-❌ Skip heading levels (h1 → h3)
-❌ Use `tabindex` > 0 (messes with natural order)
-❌ Add ARIA when semantic HTML exists
-❌ Forget to restore focus after closing dialogs
-❌ Use `role="presentation"` on focusable elements
-❌ Create keyboard traps (no way to escape)
+ Use `div` with `onClick` instead of `button`
+ Remove focus outlines without replacement
+ Use color alone to convey information
+ Use placeholders as labels
+ Skip heading levels (h1 → h3)
+ Use `tabindex` > 0 (messes with natural order)
+ Add ARIA when semantic HTML exists
+ Forget to restore focus after closing dialogs
+ Use `role="presentation"` on focusable elements
+ Create keyboard traps (no way to escape)
 
 ---
 

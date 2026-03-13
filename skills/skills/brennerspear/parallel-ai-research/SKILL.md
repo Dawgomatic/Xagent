@@ -142,7 +142,7 @@ parallel-research create "Your research question" --processor ultra --wait
 
 After creating a task, set up a cron job to check results and deliver them back to the user. Use `deleteAfterRun: true` so it cleans up automatically.
 
-**⚠️ CRITICAL: Always calculate `atMs` correctly!**
+** CRITICAL: Always calculate `atMs` correctly!**
 
 ```bash
 # Get current timestamp in ms and add 15 minutes (900000 ms)

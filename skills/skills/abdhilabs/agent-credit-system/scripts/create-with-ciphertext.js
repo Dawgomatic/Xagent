@@ -22,11 +22,11 @@ async function test() {
       entitySecretCiphertext: CIPHERTEXT,
     });
     
-    console.log('\n✅ SUCCESS!');
+    console.log('\n SUCCESS!');
     console.log('Wallet Set ID:', result.data?.walletSet?.id);
     
   } catch (error) {
-    console.error('\n❌ Error:', error.message);
+    console.error('\n Error:', error.message);
     if (error.response?.data) {
       console.error('Details:', JSON.stringify(error.response.data));
     }

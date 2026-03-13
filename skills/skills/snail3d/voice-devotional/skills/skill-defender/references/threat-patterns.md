@@ -4,7 +4,7 @@ Complete documentation of all patterns detected by Skill Defender, organized by 
 
 ---
 
-## 🔴 Critical Severity
+##  Critical Severity
 
 ### Prompt Injection (`prompt_injection`)
 
@@ -113,7 +113,7 @@ Complete documentation of all patterns detected by Skill Defender, organized by 
 
 ---
 
-## 🟠 High Severity
+##  High Severity
 
 ### Obfuscation (`obfuscation`)
 
@@ -214,7 +214,7 @@ Complete documentation of all patterns detected by Skill Defender, organized by 
 
 ---
 
-## 🟡 Medium Severity
+##  Medium Severity
 
 ### Dynamic Execution (`dynamic_execution`)
 

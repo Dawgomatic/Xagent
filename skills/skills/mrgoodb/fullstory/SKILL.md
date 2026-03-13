@@ -1,7 +1,7 @@
 ---
 name: fullstory
 description: Access session replays and analytics via FullStory API. Debug user experiences.
-metadata: {"clawdbot":{"emoji":"📹","requires":{"env":["FULLSTORY_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["FULLSTORY_API_KEY"]}}}
 ---
 # FullStory
 Digital experience analytics.

@@ -2,7 +2,7 @@
 
 **Integrated memory management and extreme context compression for OpenClaw**
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Install via ClawHub
@@ -16,7 +16,7 @@ cd memory-compression-system
 ./scripts/enable.sh
 ```
 
-## ✨ Features
+##  Features
 
 - **Three compression formats**: Base64, Binary, Ultra-Compact (85%+ reduction)
 - **Automatic scheduling**: Compression every 6 hours
@@ -25,14 +25,14 @@ cd memory-compression-system
 - **Health monitoring**: Built-in health checks and alerts
 - **ClawHub ready**: Standard skill structure
 
-## 📊 Performance
+##  Performance
 
 - **Ultra compression**: ~85% size reduction
 - **Fast processing**: < 1 second for 10KB context
 - **Low resource usage**: < 10MB memory, minimal CPU
 - **Reliable**: Automatic backups and error recovery
 
-## 🛠️ Usage
+##  Usage
 
 ```bash
 # Check status
@@ -48,7 +48,7 @@ cd memory-compression-system
 ./scripts/cleanup.sh --days 30
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 Edit `config/default.conf`:
 ```bash
@@ -62,7 +62,7 @@ COMPRESSION_SCHEDULE="0 */6 * * *"  # Every 6 hours
 CLEANUP_SCHEDULE="0 4 * * *"       # Daily at 04:00
 ```
 
-## 📁 File Structure
+##  File Structure
 
 ```
 memory-compression-system/
@@ -84,20 +84,20 @@ memory-compression-system/
 └── examples/             # Usage examples
 ```
 
-## 🔧 Requirements
+##  Requirements
 
 - OpenClaw 1.0+
 - Bash 4.0+
 - Node.js 14+ (optional, for advanced features)
 - Basic Unix utilities
 
-## 📈 Compression Formats
+##  Compression Formats
 
 1. **Base64 Compact (B64C)**: Universal compatibility, ~40% reduction
 2. **Custom Binary (CBIN)**: Optimized binary, ~70% reduction
 3. **Ultra Compact (UCMP)**: Extreme compression, ~85% reduction
 
-## 🎯 Use Cases
+##  Use Cases
 
 - **Context optimization**: Reduce OpenClaw context size
 - **Memory management**: Organize and compress memory files
@@ -105,7 +105,7 @@ memory-compression-system/
 - **Automation**: Scheduled compression and cleanup
 - **Backup**: Automatic backups before operations
 
-## 🚨 Safety Features
+##  Safety Features
 
 - **Automatic backups**: Before every compression
 - **Integrity checks**: CRC32 checksums for all formats
@@ -113,7 +113,7 @@ memory-compression-system/
 - **Transaction logs**: All operations logged
 - **Dry run mode**: Test before making changes
 
-## 📊 Monitoring
+##  Monitoring
 
 ```bash
 # Check system health
@@ -129,7 +129,7 @@ memory-compression-system/
 ./scripts/info.sh
 ```
 
-## 🔄 Automation
+##  Automation
 
 The system automatically:
 1. **Compresses memory** every 6 hours
@@ -138,7 +138,7 @@ The system automatically:
 4. **Monitors health** hourly
 5. **Sends alerts** for critical issues
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run test suite
@@ -154,21 +154,21 @@ cd test && ./run-tests.sh
 ./scripts/search.sh --test
 ```
 
-## 📚 Documentation
+##  Documentation
 
 - **SKILL.md**: Complete skill documentation
 - **README.md**: User guide
 - **examples/**: Usage examples
 - **test/**: Test examples
 
-## 🆘 Support
+##  Support
 
 1. Check `logs/` directory for errors
 2. Run `./scripts/health.sh` for diagnostics
 3. Review `examples/troubleshooting.md`
 4. Contact maintainer if needed
 
-## 📄 License
+##  License
 
 MIT License - See LICENSE file for details.
 

@@ -1,4 +1,4 @@
-# 🤖 ClawFace
+#  ClawFace
 
 **Give your AI agent a face!**
 
@@ -8,7 +8,7 @@ A floating avatar widget for [OpenClaw](https://github.com/openclaw/openclaw) ag
 
 ---
 
-## ✨ Features
+##  Features
 
 - **9 emotions** — neutral, happy, excited, thinking, confused, tired, angry, sad, proud
 - **9 actions** — idle, coding, searching, reading, loading, speaking, success, error, thinking  
@@ -18,7 +18,7 @@ A floating avatar widget for [OpenClaw](https://github.com/openclaw/openclaw) ag
 
 ### Two Display Modes
 
-| 🤖 Robot Mode | 😊 Face Mode |
+|  Robot Mode |  Face Mode |
 |---------------|--------------|
 | LED-style pixel eyes | Simplified cartoon face |
 | Mechanical arms with claws | Expressive eyes and mouth |
@@ -26,7 +26,7 @@ A floating avatar widget for [OpenClaw](https://github.com/openclaw/openclaw) ag
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # 1. Check requirements
@@ -47,7 +47,7 @@ python3 scripts/avatar.py --mode robot
 python3 scripts/avatar.py --demo
 ```
 
-Watch the avatar cycle through all emotions, actions, and effects automatically! 🎉
+Watch the avatar cycle through all emotions, actions, and effects automatically! 
 
 ### Manual control (without demo):
 ```bash
@@ -57,7 +57,7 @@ echo '{"emotion":"excited","action":"success","effect":"confetti","message":"Hel
 
 ---
 
-## 📦 Installation as OpenClaw Skill
+##  Installation as OpenClaw Skill
 
 ```bash
 # Copy to skills directory
@@ -72,7 +72,7 @@ The hook makes ClawFace show "thinking" automatically when a turn starts — no 
 
 ---
 
-## 🎮 Usage
+##  Usage
 
 ### Control via State File
 
@@ -120,7 +120,7 @@ set_clawface("excited", "success", "confetti", "Done!")
 
 ---
 
-## 🎭 State Reference
+##  State Reference
 
 ### Emotions
 | Emotion | Color | Use when... |
@@ -169,7 +169,7 @@ set_clawface("excited", "success", "confetti", "Done!")
 
 ---
 
-## ⚙️ Requirements
+##  Requirements
 
 - Python 3.10+
 - tkinter
@@ -191,7 +191,7 @@ sudo apt install python3-tk
 
 ---
 
-## 🖥️ Window Controls
+##  Window Controls
 
 - **Move**: Drag the window
 - **Resize**: Drag edges/corners
@@ -202,17 +202,17 @@ sudo apt install python3-tk
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **OpenClaw**: [github.com/openclaw/openclaw](https://github.com/openclaw/openclaw)
 - **ClawHub**: [clawhub.ai](https://www.clawhub.ai/)
 
 ---
 
-## 📄 License
+##  License
 
 MIT
 
 ---
 
-Made with 🦞 for the OpenClaw community
+Made with  for the OpenClaw community

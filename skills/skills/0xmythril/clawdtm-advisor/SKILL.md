@@ -3,7 +3,7 @@ name: clawdtm-advisor
 version: 1.0.0
 description: Search, evaluate security, and install OpenClaw skills. Helps your human find the right skills safely.
 homepage: https://clawdtm.com
-metadata: {"openclaw":{"emoji":"🔍","category":"tools","api_base":"https://clawdtm.com/api/v1"}}
+metadata: {"openclaw":{"emoji":"","category":"tools","api_base":"https://clawdtm.com/api/v1"}}
 ---
 
 # ClawdTM Skill Advisor

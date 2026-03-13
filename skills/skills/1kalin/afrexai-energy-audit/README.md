@@ -16,4 +16,4 @@ See [SKILL.md](./SKILL.md) for the full framework.
 
 From [AfrexAI](https://afrexai-cto.github.io/context-packs/) — AI context packs that make agents actually useful for business.
 
-🔗 [Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) | [Agent Setup](https://afrexai-cto.github.io/agent-setup/) | [All Context Packs ($47)](https://afrexai-cto.github.io/context-packs/)
+ [Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) | [Agent Setup](https://afrexai-cto.github.io/agent-setup/) | [All Context Packs ($47)](https://afrexai-cto.github.io/context-packs/)

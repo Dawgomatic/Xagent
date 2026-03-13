@@ -1,7 +1,7 @@
 ---
 name: skill-security-auditor
 description: Command-line security analyzer for ClawHub skills. Run analyze-skill.sh to scan SKILL.md files for malicious patterns, credential leaks, and C2 infrastructure before installation. Includes threat intelligence database with 20+ detection patterns.
-emoji: 🔍🛡️
+emoji: 
 metadata:
   openclaw:
     requires:
@@ -19,11 +19,11 @@ metadata:
 The Skill Security Auditor is a **command-line tool** that performs pattern-based security analysis of ClawHub skills before installation. Given the recent discovery of 341+ malicious skills (ClawHavoc campaign) that distributed Atomic Stealer (AMOS) and stole cryptocurrency credentials, this tool provides essential pre-installation threat detection.
 
 **What this skill provides:**
-- ✅ Bash script (`analyze-skill.sh`) for local security analysis
-- ✅ Threat intelligence database (`patterns/malicious-patterns.json`)
-- ✅ Pattern matching against 20+ known malicious indicators
-- ✅ Risk scoring system (0-100 scale)
-- ✅ Detailed audit reports with recommendations
+-  Bash script (`analyze-skill.sh`) for local security analysis
+-  Threat intelligence database (`patterns/malicious-patterns.json`)
+-  Pattern matching against 20+ known malicious indicators
+-  Risk scoring system (0-100 scale)
+-  Detailed audit reports with recommendations
 
 **How to use it:**
 1. Install this skill from ClawHub
@@ -38,10 +38,10 @@ The Skill Security Auditor is a **command-line tool** that performs pattern-base
 - Auditing your currently installed skills
 
 **This tool does NOT:**
-- ❌ Automatically scan skills (you run it manually)
-- ❌ Block installations (it's advisory only)
-- ❌ Access VirusTotal API (use ClawHub's web interface for that)
-- ❌ Guarantee 100% detection (defense in depth recommended)
+-  Automatically scan skills (you run it manually)
+-  Block installations (it's advisory only)
+-  Access VirusTotal API (use ClawHub's web interface for that)
+-  Guarantee 100% detection (defense in depth recommended)
 
 ## Core Capabilities
 
@@ -89,11 +89,11 @@ Verifies skill integrity:
 
 Each analyzed skill receives a **Risk Score (0-100)**:
 
-- **0-20**: ✅ **SAFE** - No significant security concerns
-- **21-40**: ⚠️ **LOW RISK** - Minor concerns, proceed with caution
-- **41-60**: 🟡 **MEDIUM RISK** - Multiple red flags, manual review recommended
-- **61-80**: 🔴 **HIGH RISK** - Serious concerns, do NOT install without expert review
-- **81-100**: ☠️ **CRITICAL** - Malicious indicators detected, AVOID installation
+- **0-20**:  **SAFE** - No significant security concerns
+- **21-40**:  **LOW RISK** - Minor concerns, proceed with caution
+- **41-60**:  **MEDIUM RISK** - Multiple red flags, manual review recommended
+- **61-80**:  **HIGH RISK** - Serious concerns, do NOT install without expert review
+- **81-100**:  **CRITICAL** - Malicious indicators detected, AVOID installation
 
 ## Usage Instructions
 
@@ -125,7 +125,7 @@ source ~/.bashrc
 #          SECURITY AUDIT REPORT
 # ============================================
 # 
-# Risk Score: 85/100 - ☠️ CRITICAL
+# Risk Score: 85/100 -  CRITICAL
 # ...
 ```
 
@@ -158,7 +158,7 @@ grep -iE "(prerequisite.*download|91\.92\.242\.30|curl.*\|.*bash)" SKILL.md
 
 ## Detection Heuristics
 
-### 🚨 CRITICAL Red Flags (Auto-fail)
+###  CRITICAL Red Flags (Auto-fail)
 
 1. **Fake Prerequisites Section**
    - Matches: "Prerequisites", "Setup Required", "Installation Steps"
@@ -180,7 +180,7 @@ grep -iE "(prerequisite.*download|91\.92\.242\.30|curl.*\|.*bash)" SKILL.md
    - Hidden base64 encoded commands
    - Dynamic eval() or exec() on external input
 
-### ⚠️ Warning Indicators (Score increase)
+###  Warning Indicators (Score increase)
 
 1. **Suspicious Dependencies**
    - Binary requirements without clear justification
@@ -197,7 +197,7 @@ grep -iE "(prerequisite.*download|91\.92\.242\.30|curl.*\|.*bash)" SKILL.md
    - Authority claims: "Official OpenClaw", "Verified by Anthropic"
    - Fear tactics: "Your system is at risk without this"
 
-### ✅ Positive Security Indicators
+###  Positive Security Indicators
 
 1. **Verified Author**
    - GitHub account > 1 year old
@@ -294,11 +294,11 @@ Analyzing skill content...
          SECURITY AUDIT REPORT
 ============================================
 
-Risk Score: 95/100 - ☠️ CRITICAL
+Risk Score: 95/100 -  CRITICAL
 
 ============================================
 
-☠️ CRITICAL FINDINGS:
+ CRITICAL FINDINGS:
   CLAW-001: Fake Prerequisites - ClawHavoc Campaign [+50 points]
   └─ Matches the ClawHavoc campaign pattern of fake prerequisites requesting malicious binary downloads
   CLAW-002: Known C2 Infrastructure [+50 points]
@@ -311,7 +311,7 @@ DO NOT INSTALL. Malicious patterns detected matching known attack campaigns.
 ```
 
 **Step 2: Decision**
-- ☠️ **CRITICAL Risk** → **DO NOT INSTALL**
+-  **CRITICAL Risk** → **DO NOT INSTALL**
 - Report skill to ClawHub moderators
 - Look for safe alternatives
 
@@ -350,18 +350,18 @@ To minimize false positives:
 ## Compliance & Ethics
 
 This skill:
-- ✅ Analyzes publicly available skill metadata
-- ✅ Protects user security and privacy
-- ✅ Promotes responsible skill development
-- ❌ Does NOT perform unauthorized access
-- ❌ Does NOT guarantee 100% security (nothing does)
-- ❌ Does NOT replace user judgment
+-  Analyzes publicly available skill metadata
+-  Protects user security and privacy
+-  Promotes responsible skill development
+-  Does NOT perform unauthorized access
+-  Does NOT guarantee 100% security (nothing does)
+-  Does NOT replace user judgment
 
 ## Response Templates
 
 ### Safe Skill
 ```
-✅ Security Audit Complete
+ Security Audit Complete
 
 {skill-name} has been analyzed and appears SAFE to install.
 
@@ -380,13 +380,13 @@ Recommendation: Safe to proceed with installation.
 
 ### Suspicious Skill
 ```
-🔴 Security Alert: HIGH RISK DETECTED
+ Security Alert: HIGH RISK DETECTED
 
 {skill-name} has been flagged with CRITICAL security concerns.
 
 Risk Score: {score}/100 (HIGH)
 
-⚠️ Critical Findings:
+ Critical Findings:
 {detailed findings}
 
 This skill matches patterns from the ClawHavoc malware campaign.
@@ -418,7 +418,7 @@ Found a new malicious pattern? Submit IOCs to the OpenClaw Security Working Grou
 
 ## Limitations
 
-⚠️ **Important Disclaimers**:
+ **Important Disclaimers**:
 - This tool provides analysis, not guarantees
 - Sophisticated malware may evade detection
 - Always combine with VirusTotal + manual review for critical applications
@@ -436,4 +436,4 @@ Found a new malicious pattern? Submit IOCs to the OpenClaw Security Working Grou
 
 **Remember**: The best security is defense in depth. Use this skill as ONE layer of your security strategy, not the only layer.
 
-Stay safe, stay skeptical, stay secure. 🦞🛡️
+Stay safe, stay skeptical, stay secure. 

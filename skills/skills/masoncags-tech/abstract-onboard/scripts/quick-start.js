@@ -23,7 +23,7 @@ const ERC20_ABI = [
 async function quickHealthCheck(wallet) {
   const provider = new ethers.JsonRpcProvider(ABSTRACT_RPC);
   
-  console.log("🏥 Agent Health Check for Abstract\n");
+  console.log(" Agent Health Check for Abstract\n");
   console.log(`Wallet: ${wallet}\n`);
   
   const results = {
@@ -41,10 +41,10 @@ async function quickHealthCheck(wallet) {
       chainId: Number(network.chainId),
       name: "Abstract Mainnet"
     };
-    console.log("✅ Network: Connected to Abstract (Chain ID: 2741)");
+    console.log(" Network: Connected to Abstract (Chain ID: 2741)");
   } catch (e) {
     results.network = { status: "error", message: e.message };
-    console.log("❌ Network: Connection failed");
+    console.log(" Network: Connection failed");
   }
   
   // Check ETH balance
@@ -55,14 +55,14 @@ async function quickHealthCheck(wallet) {
       status: ethAmount > 0.001 ? "ok" : "low",
       amount: ethAmount
     };
-    const icon = ethAmount > 0.001 ? "✅" : "⚠️";
+    const icon = ethAmount > 0.001 ? "" : "";
     console.log(`${icon} ETH Balance: ${ethAmount.toFixed(6)} ETH`);
     if (ethAmount < 0.001) {
-      console.log("   💡 Consider bridging more ETH for gas");
+      console.log("    Consider bridging more ETH for gas");
     }
   } catch (e) {
     results.ethBalance = { status: "error", message: e.message };
-    console.log("❌ ETH Balance: Could not fetch");
+    console.log(" ETH Balance: Could not fetch");
   }
   
   // Check USDC balance
@@ -75,11 +75,11 @@ async function quickHealthCheck(wallet) {
       status: usdcAmount > 0 ? "ok" : "zero",
       amount: usdcAmount
     };
-    const icon = usdcAmount > 0 ? "✅" : "ℹ️";
+    const icon = usdcAmount > 0 ? "" : "";
     console.log(`${icon} USDC Balance: ${usdcAmount.toFixed(2)} USDC`);
   } catch (e) {
     results.usdcBalance = { status: "error", message: e.message };
-    console.log("❌ USDC Balance: Could not fetch");
+    console.log(" USDC Balance: Could not fetch");
   }
   
   // Check gas prices
@@ -90,10 +90,10 @@ async function quickHealthCheck(wallet) {
       status: "ok",
       gwei: gasPrice
     };
-    console.log(`✅ Gas Price: ${gasPrice.toFixed(4)} gwei`);
+    console.log(` Gas Price: ${gasPrice.toFixed(4)} gwei`);
   } catch (e) {
     results.gasPrice = { status: "error", message: e.message };
-    console.log("❌ Gas Price: Could not fetch");
+    console.log(" Gas Price: Could not fetch");
   }
   
   console.log("\n" + "=".repeat(50));
@@ -104,11 +104,11 @@ async function quickHealthCheck(wallet) {
                 results.gasPrice.status === "ok";
   
   if (allOk) {
-    console.log("🎉 Agent is ready to operate on Abstract!");
+    console.log(" Agent is ready to operate on Abstract!");
   } else if (results.ethBalance.status === "low") {
-    console.log("⚠️ Agent needs more ETH for gas. Use relay-bridge.js to bridge funds.");
+    console.log(" Agent needs more ETH for gas. Use relay-bridge.js to bridge funds.");
   } else {
-    console.log("❌ Some checks failed. Review the issues above.");
+    console.log(" Some checks failed. Review the issues above.");
   }
   
   return results;
@@ -117,23 +117,23 @@ async function quickHealthCheck(wallet) {
 function showSetupGuide() {
   console.log(`
 ╔══════════════════════════════════════════════════════════════╗
-║           🚀 AI Agent Quick Start for Abstract               ║
+║            AI Agent Quick Start for Abstract               ║
 ╚══════════════════════════════════════════════════════════════╝
 
 Welcome! This guide will help you get your AI agent running on Abstract.
 
-📋 PREREQUISITES
+ PREREQUISITES
 ────────────────
 1. Node.js 18+ installed
 2. A wallet with private key (EOA)
 3. Some ETH on Ethereum mainnet (for bridging)
 
-🔧 STEP 1: SET UP ENVIRONMENT
+ STEP 1: SET UP ENVIRONMENT
 ─────────────────────────────
 export WALLET_PRIVATE_KEY="0x..."   # Your EOA private key
 export WALLET_ADDRESS="0x..."       # Your EOA address
 
-🌉 STEP 2: BRIDGE ETH TO ABSTRACT
+ STEP 2: BRIDGE ETH TO ABSTRACT
 ─────────────────────────────────
 # Use Relay to bridge ETH from any chain to Abstract
 node relay-bridge.js <amount>
@@ -141,11 +141,11 @@ node relay-bridge.js <amount>
 Example: node relay-bridge.js 0.05
 (Bridges 0.05 ETH from Ethereum to Abstract)
 
-✅ STEP 3: VERIFY SETUP
+ STEP 3: VERIFY SETUP
 ───────────────────────
 node quick-start.js check $WALLET_ADDRESS
 
-🎮 STEP 4: START OPERATING
+ STEP 4: START OPERATING
 ──────────────────────────
 Now you can:
 • Check balances:    node check-balances.js $WALLET_ADDRESS all
@@ -155,18 +155,18 @@ Now you can:
 • Deploy contracts:  node deploy-abstract.js <artifactPath>
 • Watch events:      node watch-events.js blocks
 
-📚 KEY ADDRESSES
+ KEY ADDRESSES
 ────────────────
 • USDC: 0x84A71ccD554Cc1b02749b35d22F684CC8ec987e1
 • WETH: 0x3439153EB7AF838Ad19d56E1571FBD09333C2809
 
-🔗 RESOURCES
+ RESOURCES
 ────────────
 • Explorer: https://abscan.org
 • Bridge: https://relay.link/bridge/abstract
 • Docs: https://docs.abs.xyz
 
-Need help? Join the Abstract Discord or ask @BigHossbot on Twitter 😈
+Need help? Join the Abstract Discord or ask @BigHossbot on Twitter 
 `);
 }
 

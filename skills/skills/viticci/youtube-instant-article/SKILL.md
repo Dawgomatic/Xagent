@@ -44,11 +44,11 @@ Required environment variables are loaded from `/Users/viticci/clawd/.env`:
 ## Output
 
 Telegraph Instant View article with:
-- 📺 Video link at top
-- 🖼️ Slides interleaved with timestamped sections
-- ⏱️ Key moments with timestamps
-- 💬 Notable quotes as blockquotes
-- ✨ Proper title from YouTube
+-  Video link at top
+-  Slides interleaved with timestamped sections
+-  Key moments with timestamps
+-  Notable quotes as blockquotes
+-  Proper title from YouTube
 
 ## Architecture
 
@@ -84,10 +84,10 @@ YouTube URL
 - Not grouped at top
 - Each major section gets a relevant slide
 
-## ⚠️ Important Notes
+##  Important Notes
 
 ### Instant View Timing
-Telegram needs **1-2 minutes** to generate Instant View for new pages. If the ⚡ button doesn't appear immediately, wait and try again.
+Telegram needs **1-2 minutes** to generate Instant View for new pages. If the  button doesn't appear immediately, wait and try again.
 
 ### Script Requirements
 - Uses **zsh** (not bash) for associative array support

@@ -61,21 +61,21 @@ send_notification() {
   # Build message
   local message=""
   if [[ "$status" == "success" ]]; then
-    message="✅ *OpenClaw Update Complete*"
-    message+="\n\n📦 Updates applied successfully."
+    message=" *OpenClaw Update Complete*"
+    message+="\n\n Updates applied successfully."
   elif [[ "$status" == "info" ]]; then
-    message="ℹ️ *OpenClaw Update Check*"
-    message+="\n\n📋 Everything is already up to date."
+    message=" *OpenClaw Update Check*"
+    message+="\n\n Everything is already up to date."
   else
-    message="❌ *OpenClaw Update Failed*"
-    message+="\n\n⚠️ An error occurred during the update."
+    message=" *OpenClaw Update Failed*"
+    message+="\n\n An error occurred during the update."
   fi
 
   if [[ -n "$details" ]]; then
     message+="\n\n$details"
   fi
 
-  message+="\n\n🕐 $(date '+%Y-%m-%d %H:%M:%S')"
+  message+="\n\n $(date '+%Y-%m-%d %H:%M:%S')"
 
   # Send via openclaw message
   if openclaw message send --channel "$channel" --target "$NOTIFY_TARGET" --message "$message" 2>/dev/null; then

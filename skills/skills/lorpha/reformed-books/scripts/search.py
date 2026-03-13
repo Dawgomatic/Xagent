@@ -93,21 +93,21 @@ def search_books(keywords: str, format_filter: Optional[str] = None, limit: int 
     
     # 由于该网站使用 JavaScript 前端搜索，无法直接通过 HTTP 请求获取结果
     # 返回搜索指导信息
-    print(f"\n📚 改革宗书籍乐园搜索")
+    print(f"\n 改革宗书籍乐园搜索")
     print(f"{'='*50}")
-    print(f"\n🔍 搜索关键词: {search_query}")
-    print(f"\n📌 请在浏览器中打开以下链接进行搜索:")
+    print(f"\n 搜索关键词: {search_query}")
+    print(f"\n 请在浏览器中打开以下链接进行搜索:")
     print(f"\n   {SEARCH_URL}")
-    print(f"\n💡 搜索步骤:")
+    print(f"\n 搜索步骤:")
     print(f"   1. 在搜索框输入: {search_query}")
-    print(f"   2. 点击 '🔍 搜索' 按钮")
+    print(f"   2. 点击 ' 搜索' 按钮")
     print(f"   3. 点击文件名即可下载")
     
     if format_filter:
-        print(f"\n📁 已添加格式过滤: {format_filter}")
+        print(f"\n 已添加格式过滤: {format_filter}")
         print(f"   或使用下拉菜单选择 '{format_filter}' 格式")
     
-    print(f"\n🔗 其他有用链接:")
+    print(f"\n 其他有用链接:")
     print(f"   • 高级搜索: http://www.https.ng:5757")
     print(f"   • 资源导航: http://www.https.ng:1234/0.html")
     print(f"   • 在线浏览: {BROWSE_URL}")
@@ -121,9 +121,9 @@ def search_books(keywords: str, format_filter: Optional[str] = None, limit: int 
         )
         with urllib.request.urlopen(req, timeout=10) as response:
             if response.status == 200:
-                print(f"\n✅ 网站可访问")
+                print(f"\n 网站可访问")
     except Exception as e:
-        print(f"\n⚠️  网站可能暂时无法访问，请稍后重试")
+        print(f"\n  网站可能暂时无法访问，请稍后重试")
         print(f"   错误: {e}")
     
     print(f"\n{'='*50}")

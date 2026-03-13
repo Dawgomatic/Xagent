@@ -2,7 +2,7 @@
 
 ## Version 1.3.0 (2026-02-07)
 
-### 🎯 Consolidation Rule - Single Source Enforcement
+###  Consolidation Rule - Single Source Enforcement
 
 **Major update:** Formal enforcement of the single source principle — all credentials MUST be in `~/.openclaw/.env` ONLY.
 
@@ -81,17 +81,17 @@ This update was prompted by discovering scattered `.env` files in a live OpenCla
 - Moltbook: `~/.config/moltbook/credentials.json` (insecure permissions)
 
 After consolidation:
-- ✅ Single .env with 23 keys
-- ✅ Mode 600 permissions
-- ✅ Git-ignored
-- ✅ All scattered files removed (backed up first)
-- ✅ All scripts already pointed to root (no fixes needed)
+-  Single .env with 23 keys
+-  Mode 600 permissions
+-  Git-ignored
+-  All scattered files removed (backed up first)
+-  All scripts already pointed to root (no fixes needed)
 
 ---
 
 ## Version 1.2.0 (2026-02-06)
 
-### 🔐 Crypto-Specific Credential Detection
+###  Crypto-Specific Credential Detection
 
 **Enhanced detection patterns** for blockchain and cryptocurrency credentials.
 
@@ -125,7 +125,7 @@ This update ensures wallet keys and seed phrases are treated with the same secur
 
 ## Version 1.1.0 (2026-02-05)
 
-### 🔒 SECURITY FOUNDATION UPDATE
+###  SECURITY FOUNDATION UPDATE
 
 **Major philosophical shift:** This is now positioned as **mandatory core infrastructure**, not an optional convenience tool.
 

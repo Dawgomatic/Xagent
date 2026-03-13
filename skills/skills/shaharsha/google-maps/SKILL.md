@@ -7,13 +7,13 @@ description: >
   planning with arrival times. Supports future departure times, traffic models (pessimistic/optimistic), 
   avoid options (tolls/highways), and multiple travel modes (driving/walking/bicycling/transit).
 version: 3.1.2
-author: Leo 🦁
+author: Leo 
 tags: [maps, places, location, navigation, google, traffic, directions, geocoding, routes-api]
-metadata: {"clawdbot":{"emoji":"🗺️","requires":{"env":["GOOGLE_API_KEY"]},"primaryEnv":"GOOGLE_API_KEY","secondaryEnv":["GOOGLE_MAPS_API_KEY"],"install":[{"id":"pip","kind":"pip","package":"requests","label":"Install requests library"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["GOOGLE_API_KEY"]},"primaryEnv":"GOOGLE_API_KEY","secondaryEnv":["GOOGLE_MAPS_API_KEY"],"install":[{"id":"pip","kind":"pip","package":"requests","label":"Install requests library"}]}}
 allowed-tools: [exec]
 ---
 
-# Google Maps 🗺️
+# Google Maps 
 
 Google Maps integration powered by the Routes API.
 

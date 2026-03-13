@@ -31,5 +31,5 @@ python3 ~/Projects/agent-scripts/skills/openai-image-gen/scripts/gen.py --size 1
 ## Output
 
 - `*.png` images
-- `prompts.json` (prompt ↔ file mapping)
+- `prompts.json` (prompt  file mapping)
 - `index.html` (thumbnail gallery)

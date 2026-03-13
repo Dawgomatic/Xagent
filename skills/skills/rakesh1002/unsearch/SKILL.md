@@ -2,7 +2,7 @@
 name: unsearch
 version: 1.0.0
 description: Search the web, scrape content, and conduct deep research using the UnSearch API. Use when the user needs real-time web search results, content extraction from URLs, fact verification, or multi-source research for AI agents, RAG pipelines, or LLM applications.
-metadata: {"openclaw":{"emoji":"🔍","homepage":"https://unsearch.dev","primaryEnv":"UNSEARCH_API_KEY","requires":{"env":["UNSEARCH_API_KEY"]}}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://unsearch.dev","primaryEnv":"UNSEARCH_API_KEY","requires":{"env":["UNSEARCH_API_KEY"]}}}
 ---
 
 # UnSearch Web Search Skill

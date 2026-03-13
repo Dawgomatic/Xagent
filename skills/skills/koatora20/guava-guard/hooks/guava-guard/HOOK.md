@@ -1,7 +1,7 @@
 ---
 name: guava-guard
 description: "GuavaGuard Runtime Guard — warns on dangerous tool call patterns in real-time"
-metadata: { "openclaw": { "emoji": "🍈", "events": ["agent:before_tool_call"], "requires": { "bins": ["node"] } } }
+metadata: { "openclaw": { "emoji": "", "events": ["agent:before_tool_call"], "requires": { "bins": ["node"] } } }
 ---
 
 # GuavaGuard Runtime Guard — before_tool_call Hook

@@ -96,5 +96,5 @@ Test both for UI work. v6 often better for production-style mockups.
 - Real content
 
 ### Anti-Pattern
-❌ Trying to use AI output directly in production
-✅ Using AI output as detailed reference for manual rebuild
+ Trying to use AI output directly in production
+ Using AI output as detailed reference for manual rebuild

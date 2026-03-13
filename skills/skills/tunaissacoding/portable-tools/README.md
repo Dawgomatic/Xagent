@@ -8,14 +8,14 @@ Build tools that work on everyone's device, not just yours.
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 - bash
 - Basic understanding of shell scripts
 
 ---
 
-## ⚡ What It Does
+##  What It Does
 
 **Your tools work on any device without manual configuration.**
 
@@ -29,7 +29,7 @@ Learned from fixing tools that failed on other devices despite working perfectly
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ```bash
 clawdhub install portable-tools
@@ -37,7 +37,7 @@ clawdhub install portable-tools
 
 ---
 
-## 🔧 How It Works
+##  How It Works
 
 **Result:** You build tools once and they work everywhere.
 
@@ -59,10 +59,10 @@ clawdhub install portable-tools
 **Don't assume.** Pass parameters explicitly.
 
 ```bash
-# ❌ Ambiguous
+#  Ambiguous
 find_entry "service"
 
-# ✅ Explicit  
+#  Explicit  
 find_entry "service" "account"
 ```
 
@@ -104,9 +104,9 @@ bash ~/clawd/skills/portable-tools/pre-publish-checklist.sh /path/to/your/code
 
 Output:
 ```
-✅ No hardcoded paths
-✅ Has validation patterns
-⚠️  Errors could be more helpful
+ No hardcoded paths
+ Has validation patterns
+  Errors could be more helpful
 ```
 
 **Success metric:** Someone with a different setup can use your tool without asking you questions.
@@ -114,7 +114,7 @@ Output:
 ---
 ---
 
-# 📚 Additional Information
+#  Additional Information
 
 **Everything below is optional.** The four patterns above handle most cases.
 

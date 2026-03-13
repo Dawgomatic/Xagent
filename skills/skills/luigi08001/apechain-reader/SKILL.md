@@ -83,13 +83,13 @@ node scripts/wallet-lookup.js <address> [--chain <name>] [--pretty]
 
 **Example Output (Pretty)**:
 ```
-🔍 Wallet: 0x8dd6390be6dc732c92b161b9793a3948b56c0126
-⛓️  Chain: ApeChain (33139)
-💰 Balance: 10.1398 APE
-📊 Transactions: 6,352
-🎨 NFT Activity: 2 received, 1 sent
-📦 Collections: 1
-🔗 Explorer: https://apescan.io/address/0x8dd6390be6dc732c92b161b9793a3948b56c0126
+ Wallet: 0x8dd6390be6dc732c92b161b9793a3948b56c0126
+  Chain: ApeChain (33139)
+ Balance: 10.1398 APE
+ Transactions: 6,352
+ NFT Activity: 2 received, 1 sent
+ Collections: 1
+ Explorer: https://apescan.io/address/0x8dd6390be6dc732c92b161b9793a3948b56c0126
 ```
 
 ### Contract Information
@@ -154,13 +154,13 @@ node scripts/bot-detect.js <address> [--chain <name>] [--pretty]
 
 See [references/CHAINS.md](references/CHAINS.md) for comprehensive chain information including reliability status and performance characteristics.
 
-### Reliable Chains ✅
+### Reliable Chains 
 - **ApeChain** (primary) - Fastest, most reliable
 - **Ethereum** - Stable, high-value addresses
 - **Base** - Fast L2 performance
 - **Arbitrum** - Reliable L2 with official RPC
 
-### Intermittent Chains 🟡
+### Intermittent Chains 
 - **Polygon** - May timeout, use with retry logic
 - **Optimism** - Occasional performance issues
 - **BNB Chain** - Variable reliability

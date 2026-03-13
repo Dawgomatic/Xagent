@@ -3,7 +3,7 @@ name: Grocery
 slug: grocery
 version: 1.0.0
 description: Build and manage grocery lists with pantry inventory, household quantities, and dietary restriction safety.
-metadata: {"clawdbot":{"emoji":"🛒","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

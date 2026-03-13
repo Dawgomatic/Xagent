@@ -107,9 +107,9 @@ Can resume previous conversation:
 
 ## Safety Boundaries
 
-- ⚠️ This system **does not replace doctor diagnosis**
-- ⚠️ This system **does not provide prescription recommendations**
-- ⚠️ High-risk situations will **recommend medical care**
+-  This system **does not replace doctor diagnosis**
+-  This system **does not provide prescription recommendations**
+-  High-risk situations will **recommend medical care**
 - All responses include medical disclaimer
 
 ## Relationship with Other Skills

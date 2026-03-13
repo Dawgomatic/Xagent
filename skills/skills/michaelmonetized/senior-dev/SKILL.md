@@ -77,7 +77,7 @@ If build fails → `gh issue create` with error logs, restart from step 6.
 
 ### 12. Report & Cleanup
 Report completion format:
-> ✅ [Project] Task completed
+>  [Project] Task completed
 > PR: <url>
 > Deploy: success/failed
 

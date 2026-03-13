@@ -112,11 +112,11 @@ def format_result(result: dict, use_json: bool = False) -> str:
     
     # Verdict symbols
     symbols = {
-        "allow": "✅",
-        "caution": "⚠️",
-        "block": "🚫",
+        "allow": "",
+        "caution": "",
+        "block": "",
     }
-    symbol = symbols.get(verdict, "❓")
+    symbol = symbols.get(verdict, "")
     
     lines = [
         f"{symbol} {color}Verdict: {verdict.upper()}{reset}",
@@ -138,11 +138,11 @@ def format_result(result: dict, use_json: bool = False) -> str:
     if semantic and semantic.get("enabled"):
         if semantic.get("is_suspicious"):
             conf = semantic.get("confidence", 0) * 100
-            lines.append(f"   🧠 Semantic: {conf:.0f}% similar to known attack")
+            lines.append(f"    Semantic: {conf:.0f}% similar to known attack")
             if semantic.get("closest_attack"):
                 lines.append(f"       Closest: \"{semantic['closest_attack'][:50]}...\"")
         else:
-            lines.append("   🧠 Semantic: No similarity to known attacks")
+            lines.append("    Semantic: No similarity to known attacks")
     
     if reasoning:
         lines.append(f"   Reasoning: {reasoning}")

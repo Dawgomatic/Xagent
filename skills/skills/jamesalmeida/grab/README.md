@@ -1,4 +1,4 @@
-# 🫳 grab
+#  grab
 
 Download and archive content from URLs into organized folders with transcripts and AI summaries.
 
@@ -47,7 +47,7 @@ grab --help      # Show help
 On first run, `grab` asks where to save files:
 
 ```
-🫳 grab — First time setup
+ grab — First time setup
 
 Where should grabbed files be saved?
   Default: ~/Dropbox/ClawdBox

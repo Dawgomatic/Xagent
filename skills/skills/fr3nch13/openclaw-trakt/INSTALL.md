@@ -134,7 +134,7 @@ python3 ~/.openclaw/skills/openclaw-trakt/scripts/trakt_client.py recommend
 ```
 
 **If successful (returns JSON with shows):**
-"🎬 Success! The Trakt integration is working! 
+" Success! The Trakt integration is working! 
 
 Here are some shows you might like:
 [Parse and display recommendations]
@@ -145,7 +145,7 @@ You can now ask me things like:
 - 'What's trending?'
 - 'Search for Breaking Bad'
 
-Setup complete! 🎉"
+Setup complete! "
 
 **If failed:**
 "Hmm, something's not working. Let me help troubleshoot..."

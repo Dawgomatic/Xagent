@@ -89,7 +89,7 @@ router:
 agents:
   watson:
     id: watson
-    emoji: 🔬
+    emoji: 
     capabilities: [research, analysis, web_search]
     max_concurrent: 3
     current_tasks: [task-abc123, task-def456]
@@ -103,7 +103,7 @@ agents:
     
   picasso:
     id: picasso
-    emoji: 🎨
+    emoji: 
     capabilities: [image_gen, image_edit]
     max_concurrent: 2
     current_tasks: []
@@ -191,7 +191,7 @@ task export --status completed --since 2026-02-13 > ~/reports/tasks.ndjson
 task agent register watson \
   --capabilities "research analysis web_search" \
   --max-concurrent 3 \
-  --emoji 🔬
+  --emoji 
 
 # Update agent
 task agent update watson --add-capability "competitive-analysis"
@@ -368,7 +368,7 @@ const recent = await Task.query({
 for (const task of recent) {
   if (task.created_by === "main") {
     sessions_send({
-      message: `✅ Task complete: ${task.title}\nResult: ${task.result}`
+      message: ` Task complete: ${task.title}\nResult: ${task.result}`
     });
   }
 }

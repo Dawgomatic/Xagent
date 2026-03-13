@@ -11,7 +11,7 @@ Portfolio: [mathewpittard.vercel.app](https://mathewpittard.vercel.app)
 
 This skill allows **Clawdbot** to control your smart home devices (lights, TVs, appliances) directly using a Python-based bridge to the Google Assistant SDK.
 
-## 🛠️ Step-by-Step Setup
+##  Step-by-Step Setup
 
 To get this skill working, you'll need to link it to your own Google account. Follow these steps:
 
@@ -50,7 +50,7 @@ Ensure the `google_home_env` is accessible to Clawdbot. When Clawdbot runs the s
 
 ---
 
-## 🚀 Usage
+##  Usage
 Simply tell the agent what to do:
 - "Turn off the office lights."
 - "Set the TV volume to 20."

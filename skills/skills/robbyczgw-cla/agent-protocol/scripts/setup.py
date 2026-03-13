@@ -12,7 +12,7 @@ SKILL_DIR = Path(__file__).parent.parent
 
 def setup():
     """Initialize agent-protocol directories and config."""
-    print("🦎 Setting up Agent Protocol...")
+    print(" Setting up Agent Protocol...")
     
     # Create directories
     dirs = [
@@ -45,7 +45,7 @@ def setup():
         subscriptions_file.write_text("[]")
         print(f"  ✓ Created subscriptions file")
     
-    print("\n✅ Setup complete!")
+    print("\n Setup complete!")
     print("\nNext steps:")
     print("  1. Test the event bus:")
     print("     python3 scripts/publish.py --type 'test.hello' --source 'test' --payload '{}'")

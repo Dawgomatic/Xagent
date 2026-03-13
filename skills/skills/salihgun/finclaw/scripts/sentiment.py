@@ -34,10 +34,10 @@ def main():
     d = get_sentiment(args.symbol, args.topics)
     if args.json: print(json.dumps(d, indent=2)); return
     if "error" in d: print(f"Error: {d['error']}"); return
-    e = {"Bullish": "🟢", "Somewhat Bullish": "🟡", "Neutral": "⚪", "Somewhat Bearish": "🟡", "Bearish": "🔴"}.get(d["label"], "⚪")
+    e = {"Bullish": "", "Somewhat Bullish": "", "Neutral": "", "Somewhat Bearish": "", "Bearish": ""}.get(d["label"], "")
     print(f"**Sentiment: {d['query']}**\n\n{e} {d['label']} ({d['avg_sentiment']:.4f}) — {d['count']} articles\n")
     for a in d["articles"][:10]:
-        ae = "🟢" if a["score"] > 0.15 else "🔴" if a["score"] < -0.15 else "⚪"
+        ae = "" if a["score"] > 0.15 else "" if a["score"] < -0.15 else ""
         print(f"{ae} {a['title']}\n   _{a['source']} | {a['label']}_")
 
 

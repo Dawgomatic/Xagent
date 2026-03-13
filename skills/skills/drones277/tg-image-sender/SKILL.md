@@ -10,7 +10,7 @@ description: Send test or generated images directly to Telegram chats using the 
 Call the `message` tool directly:
 
 ```
-message action=send channel=telegram media="https://picsum.photos/800/600?random=1" caption="Test image 🦞"
+message action=send channel=telegram media="https://picsum.photos/800/600?random=1" caption="Test image "
 ```
 
 - **Size**: Adjust width/height, e.g., `https://picsum.photos/400/300`

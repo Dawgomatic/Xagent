@@ -3,14 +3,14 @@
   "timezone": "UTC",
   "quests": {
     "daily": [
-      {"name": "Gym / workout session", "stat": "STR", "stat_amount": 30, "secondary_stat": "VIT", "secondary_amount": 10, "xp": 30, "icon": "🏋️", "verification": "photo_or_detail"},
-      {"name": "Running / cardio (30 min)", "stat": "AGI", "stat_amount": 25, "secondary_stat": "VIT", "secondary_amount": 10, "xp": 25, "icon": "🏃", "verification": "photo_or_detail"},
-      {"name": "Track meals / diet", "stat": "VIT", "stat_amount": 20, "xp": 20, "icon": "🥗", "verification": "detail"},
-      {"name": "Stretching / mobility (15 min)", "stat": "AGI", "stat_amount": 15, "secondary_stat": "VIT", "secondary_amount": 5, "xp": 15, "icon": "🤸", "verification": "detail"},
-      {"name": "Sleep on time", "stat": "VIT", "stat_amount": 30, "secondary_stat": "AGI", "secondary_amount": 10, "xp": 30, "icon": "😴", "verification": "time_check"}
+      {"name": "Gym / workout session", "stat": "STR", "stat_amount": 30, "secondary_stat": "VIT", "secondary_amount": 10, "xp": 30, "icon": "", "verification": "photo_or_detail"},
+      {"name": "Running / cardio (30 min)", "stat": "AGI", "stat_amount": 25, "secondary_stat": "VIT", "secondary_amount": 10, "xp": 25, "icon": "", "verification": "photo_or_detail"},
+      {"name": "Track meals / diet", "stat": "VIT", "stat_amount": 20, "xp": 20, "icon": "", "verification": "detail"},
+      {"name": "Stretching / mobility (15 min)", "stat": "AGI", "stat_amount": 15, "secondary_stat": "VIT", "secondary_amount": 5, "xp": 15, "icon": "", "verification": "detail"},
+      {"name": "Sleep on time", "stat": "VIT", "stat_amount": 30, "secondary_stat": "AGI", "secondary_amount": 10, "xp": 30, "icon": "", "verification": "time_check"}
     ],
     "weekend_bonus": [
-      {"name": "Outdoor activity (hike/sport/swim)", "stat": "STR", "stat_amount": 20, "secondary_stat": "CHA", "secondary_amount": 15, "xp": 30, "icon": "🏔️", "verification": "photo_or_detail"}
+      {"name": "Outdoor activity (hike/sport/swim)", "stat": "STR", "stat_amount": 20, "secondary_stat": "CHA", "secondary_amount": 15, "xp": 30, "icon": "", "verification": "photo_or_detail"}
     ]
   },
   "sleep_curfew": "22:30",

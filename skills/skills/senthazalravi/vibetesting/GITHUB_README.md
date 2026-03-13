@@ -1,4 +1,4 @@
-# 🧪 VibeTesting
+#  VibeTesting
 
 [![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://github.com/senthazalravi/vibetesting)
 [![Version](https://img.shields.io/badge/Version-1.0.0-green)]()
@@ -6,16 +6,16 @@
 
 **Browser automation testing skill for OpenClaw** - Perform functional, accessibility, performance, visual, and security testing on any website.
 
-## ✨ Features
+##  Features
 
-- 🔍 **Functional Testing** - Analyze forms, inputs, buttons, and links
-- ♿ **Accessibility Testing** - WCAG 2.1 compliance checks (A, AA, AAA)
-- ⚡ **Performance Testing** - Page load time, size, and Core Web Vitals
-- 🎨 **Visual Testing** - Color palette, layout, and responsive design analysis
-- 🔒 **Security Testing** - HTTPS, CSP, and vulnerability scanning
-- 🔄 **E2E Testing** - User journeys and workflow testing
+-  **Functional Testing** - Analyze forms, inputs, buttons, and links
+-  **Accessibility Testing** - WCAG 2.1 compliance checks (A, AA, AAA)
+-  **Performance Testing** - Page load time, size, and Core Web Vitals
+-  **Visual Testing** - Color palette, layout, and responsive design analysis
+-  **Security Testing** - HTTPS, CSP, and vulnerability scanning
+-  **E2E Testing** - User journeys and workflow testing
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -44,13 +44,13 @@ testing_type: accessibility
 wcag_level: AA
 ```
 
-## 📖 Documentation
+##  Documentation
 
 - **[SKILL.md](SKILL.md)** - Complete technical documentation
 - **[README.md](README.md)** - User guide and examples
 - **[EXAMPLES.md](EXAMPLES.md)** - Configuration examples
 
-## 🎯 Test Types
+##  Test Types
 
 | Type | Duration | Description |
 |------|----------|-------------|
@@ -63,21 +63,21 @@ wcag_level: AA
 | `security` | 30-60s | Vulnerability scan |
 | `e2e` | Varies | User journey testing |
 
-## 📊 Example Results
+##  Example Results
 
 ```
-🚀 VibeTesting starting...
-📍 Target: https://example.com
-🧪 Test Type: comprehensive
+ VibeTesting starting...
+ Target: https://example.com
+ Test Type: comprehensive
 
-✅ Testing complete!
-⏱️  Duration: 12.34s
-📊 Score: 85/100
+ Testing complete!
+  Duration: 12.34s
+ Score: 85/100
 
-📄 HTML report saved to: vibetesting-report.html
+ HTML report saved to: vibetesting-report.html
 ```
 
-## 🛠️ Installation & Setup
+##  Installation & Setup
 
 ### Prerequisites
 
@@ -103,21 +103,21 @@ npm install
 npm test
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 vibetesting/
-├── 📄 index.js           # Main testing framework
-├── 📄 SKILL.md           # Technical documentation
-├── 📄 README.md          # User guide
-├── 📄 EXAMPLES.md        # Configuration examples
-├── 📄 package.json       # Package metadata
-├── 📄 publish.sh         # Publishing script
-├── 📄 PUBLISHING.md      # Publishing guide
-└── 📄 .gitignore         # Git ignore rules
+├──  index.js           # Main testing framework
+├──  SKILL.md           # Technical documentation
+├──  README.md          # User guide
+├──  EXAMPLES.md        # Configuration examples
+├──  package.json       # Package metadata
+├──  publish.sh         # Publishing script
+├──  PUBLISHING.md      # Publishing guide
+└──  .gitignore         # Git ignore rules
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Parameters
 
@@ -146,23 +146,23 @@ vibetesting/
 }
 ```
 
-## 📈 Scoring
+##  Scoring
 
 All test categories receive a score from 0-100:
 
-- **90-100** ✅ Excellent
-- **70-89** ⚠️ Good  
-- **50-69** 🔶 Needs Improvement
-- **0-49** ❌ Poor
+- **90-100**  Excellent
+- **70-89**  Good  
+- **50-69**  Needs Improvement
+- **0-49**  Poor
 
-## 🔒 Security
+##  Security
 
-- ✅ Tests with permission only
-- ✅ Respects rate limits
-- ✅ No credential storage
-- ✅ Safe for CI/CD
+-  Tests with permission only
+-  Respects rate limits
+-  No credential storage
+-  Safe for CI/CD
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
@@ -172,11 +172,11 @@ Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md) 
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+##  Support
 
 - **Documentation:** See [SKILL.md](SKILL.md)
 - **Examples:** See [EXAMPLES.md](EXAMPLES.md)
@@ -184,7 +184,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Discord:** [OpenClaw Community](https://discord.gg/clawd)
 - **Email:** ravi.antone@gmail.com
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [OpenClaw](https://github.com/openclaw/openclaw) - The amazing platform this skill is built for
 - [TestFox](https://github.com/senthazalravi/TestFox) - The parent project
@@ -192,6 +192,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Happy Testing!** 🧪🔍✨
+**Happy Testing!** 
 
-Made with ❤️ by the VibeTesting Team
+Made with  by the VibeTesting Team

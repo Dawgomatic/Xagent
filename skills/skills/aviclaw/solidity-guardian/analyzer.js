@@ -607,10 +607,10 @@ function generateMarkdownReport(findings, projectPath) {
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | ${bySeverity.critical.length} |
-| 🟠 High | ${bySeverity.high.length} |
-| 🟡 Medium | ${bySeverity.medium.length} |
-| 🔵 Low | ${bySeverity.low.length} |
+|  Critical | ${bySeverity.critical.length} |
+|  High | ${bySeverity.high.length} |
+|  Medium | ${bySeverity.medium.length} |
+|  Low | ${bySeverity.low.length} |
 | **Total** | **${findings.length}** |
 
 `;
@@ -618,7 +618,7 @@ function generateMarkdownReport(findings, projectPath) {
   for (const [severity, items] of Object.entries(bySeverity)) {
     if (items.length === 0) continue;
     
-    const emoji = { critical: '🔴', high: '🟠', medium: '🟡', low: '🔵' }[severity];
+    const emoji = { critical: '', high: '', medium: '', low: '' }[severity];
     report += `## ${emoji} ${severity.charAt(0).toUpperCase() + severity.slice(1)} Findings
 
 `;
@@ -686,12 +686,12 @@ if (require.main === module) {
     console.log('='.repeat(80));
     
     if (findings.length === 0) {
-      console.log('\n✅ No issues found!\n');
+      console.log('\n No issues found!\n');
     } else {
       for (const f of findings) {
         console.log(`${colors[f.severity]}[${f.severity.toUpperCase()}]${reset} ${f.id}: ${f.title}`);
-        console.log(`  📁 ${f.file}:${f.line}`);
-        console.log(`  💡 ${f.suggestion}`);
+        console.log(`   ${f.file}:${f.line}`);
+        console.log(`   ${f.suggestion}`);
         console.log();
       }
       

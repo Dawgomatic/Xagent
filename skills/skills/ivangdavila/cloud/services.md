@@ -13,11 +13,11 @@
 
 | Feature | iCloud | Google Drive | Dropbox | OneDrive |
 |---------|--------|--------------|---------|----------|
-| Photo auto-backup | ✅ | ✅ | ✅ | ✅ |
-| Offline access | ✅ | ✅ | ✅ | ✅ |
+| Photo auto-backup |  |  |  |  |
+| Offline access |  |  |  |  |
 | File versioning | 30 days | 30 days (100 versions) | 30-180 days | 30 days |
-| Native on Windows | ❌ | ✅ | ✅ | ✅ |
-| Native on Mac | ✅ | ✅ | ✅ | ✅ |
+| Native on Windows |  |  |  |  |
+| Native on Mac |  |  |  |  |
 | Office integration | Pages/Numbers | Google Docs | Paper | Word/Excel |
 
 ## Best For

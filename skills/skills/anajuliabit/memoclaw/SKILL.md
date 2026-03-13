@@ -215,17 +215,17 @@ Use namespaces to organize memories:
 
 ### Anti-patterns
 
-❌ **Store-everything syndrome** — Don't store every sentence. Be selective.
-❌ **Recall-on-every-turn** — Don't recall before every response. Only when relevant.
-❌ **Ignoring duplicates** — Always recall before storing to check for existing memories.
-❌ **Vague content** — "User likes editors" is useless. Be specific: "User prefers VSCode with vim bindings."
-❌ **Storing secrets** — Never store passwords, API keys, or tokens. No exceptions.
-❌ **Namespace sprawl** — Don't create a new namespace for every conversation. Use `default` + project namespaces.
-❌ **Skipping importance** — Leaving importance at default 0.5 for everything defeats ranking.
-❌ **Forgetting memory_type** — Always set it. Decay half-lives depend on it.
-❌ **Never consolidating** — Over time, memories become fragmented. Run consolidate periodically.
-❌ **Ignoring decay** — Memories naturally decay. Review stale memories regularly.
-❌ **Single namespace for everything** — Use namespaces to isolate different contexts.
+ **Store-everything syndrome** — Don't store every sentence. Be selective.
+ **Recall-on-every-turn** — Don't recall before every response. Only when relevant.
+ **Ignoring duplicates** — Always recall before storing to check for existing memories.
+ **Vague content** — "User likes editors" is useless. Be specific: "User prefers VSCode with vim bindings."
+ **Storing secrets** — Never store passwords, API keys, or tokens. No exceptions.
+ **Namespace sprawl** — Don't create a new namespace for every conversation. Use `default` + project namespaces.
+ **Skipping importance** — Leaving importance at default 0.5 for everything defeats ranking.
+ **Forgetting memory_type** — Always set it. Decay half-lives depend on it.
+ **Never consolidating** — Over time, memories become fragmented. Run consolidate periodically.
+ **Ignoring decay** — Memories naturally decay. Review stale memories regularly.
+ **Single namespace for everything** — Use namespaces to isolate different contexts.
 
 ### Example flow
 

@@ -3,7 +3,7 @@ name: Flutter
 slug: flutter
 version: 1.0.1
 description: Build reliable Flutter apps avoiding state loss, widget rebuild traps, and async pitfalls.
-metadata: {"clawdbot":{"emoji":"🐦","requires":{"bins":["flutter"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["flutter"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

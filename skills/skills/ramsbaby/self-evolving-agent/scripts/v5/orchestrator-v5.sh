@@ -78,7 +78,7 @@ V4_TMP_DIR="/tmp/sea-v4"
 # ── config.yaml 검증 ────────────────────────────────────────
 if [[ -f "$SKILL_DIR/scripts/validate-config.sh" ]]; then
   bash "$SKILL_DIR/scripts/validate-config.sh" --quiet 2>/dev/null || {
-    echo "⚠️  Config 검증 실패 — 기본값으로 계속" >&2
+    echo "  Config 검증 실패 — 기본값으로 계속" >&2
   }
 fi 2>/dev/null || true
 
@@ -208,10 +208,10 @@ run_stage() {
 
   if [[ -n "$_outfile" && -f "$_outfile" && -s "$_outfile" ]]; then
     eval "_ST_${_key}=\"ok:${_elapsed}s\""
-    log_info "✅ 스테이지 완료: ${_key} (${_elapsed}s)"
+    log_info " 스테이지 완료: ${_key} (${_elapsed}s)"
   else
     eval "_ST_${_key}=\"failed:${_elapsed}s\""
-    log_err "❌ 스테이지 실패: ${_key} (${_elapsed}s)"
+    log_err " 스테이지 실패: ${_key} (${_elapsed}s)"
     if [[ "$VERBOSE" != "true" && -f "$_log" ]]; then
       tail -5 "$_log" >&2 2>/dev/null || true
     fi
@@ -269,7 +269,7 @@ run_stage "embedding_analyze" "$ANALYSIS_JSON" \
 # Stage 2 실패 시: v4 시맨틱 분석으로 폴백
 _ST2_STATUS=$(eval "echo \"\${_ST_embedding_analyze:-failed}\"")
 if [[ "$_ST2_STATUS" == failed* ]] || [[ ! -f "$ANALYSIS_JSON" ]] || [[ ! -s "$ANALYSIS_JSON" ]]; then
-  log_err "⚠️  v5 임베딩 분석 실패 — v4 휴리스틱으로 폴백"
+  log_err "  v5 임베딩 분석 실패 — v4 휴리스틱으로 폴백"
   run_stage "embedding_analyze" "$ANALYSIS_JSON" \
     "${V4_SCRIPT_DIR}/semantic-analyze.sh" \
     "LOGS_JSON=${LOGS_JSON}" "OUTPUT_JSON=${ANALYSIS_JSON}"
@@ -291,7 +291,7 @@ try:
 except Exception as e:
     print(f'메타 추가 실패: {e}', end='')
 " 2>/dev/null || true
-    log_always "✅ v4 폴백 성공"
+    log_always " v4 폴백 성공"
   fi
 fi
 
@@ -408,7 +408,7 @@ computed = sa.get("embeddings_computed", 0)
 hits = sa.get("cache_hits", 0)
 clusters = sa.get("failure_semantic_clusters", [])
 
-print("## 🤖 SEA v5.0 요약 (폴백)")
+print("##  SEA v5.0 요약 (폴백)")
 print()
 print(f"- 분석 엔진: **{engine}**")
 print(f"- 세션: {data.get('sessions_analyzed', 'N/A')}개")

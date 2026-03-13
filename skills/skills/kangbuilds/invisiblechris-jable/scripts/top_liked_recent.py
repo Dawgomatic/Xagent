@@ -122,9 +122,9 @@ def main():
         return
 
     for i, r in enumerate(rows[: args.top], start=1):
-        print(f"{i}️⃣ {r['title']}")
-        print(f"❤️ {r['likes']}")
-        print(f"🔗 {r['url']}")
+        print(f"{i}⃣ {r['title']}")
+        print(f" {r['likes']}")
+        print(f" {r['url']}")
         print()
 
 

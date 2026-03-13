@@ -136,39 +136,39 @@ def main():
         print(json.dumps(result, indent=2))
     else:
         if result["ok"]:
-            print("✅ NIMA Memory Health Check: PASSED")
+            print(" NIMA Memory Health Check: PASSED")
             print()
             stats = result["stats"]
-            print(f"📊 Database Stats:")
+            print(f" Database Stats:")
             print(f"  Location: {args.db}")
             print(f"  Size: {stats['db_size_mb']} MB")
             print(f"  Nodes: {stats['nodes']:,}")
             print(f"  Turns: {stats['turns']:,}")
             print(f"  Recent (24h): {stats['recent_24h']:,}")
             print()
-            print(f"📁 Layer Distribution:")
+            print(f" Layer Distribution:")
             for layer, count in sorted(stats['layers'].items(), key=lambda x: x[1], reverse=True):
                 pct = (count / stats['nodes'] * 100) if stats['nodes'] > 0 else 0
                 print(f"  {layer:20s} {count:6,} ({pct:5.1f}%)")
             print()
-            print(f"⏰ Timeline:")
+            print(f" Timeline:")
             print(f"  First memory: {stats.get('first_memory', 'N/A')}")
             print(f"  Last memory:  {stats.get('last_memory', 'N/A')}")
             print()
-            print(f"🔍 Features:")
-            print(f"  FTS search: {'✅ Enabled' if stats['fts_enabled'] else '❌ Disabled'}")
+            print(f" Features:")
+            print(f"  FTS search: {' Enabled' if stats['fts_enabled'] else ' Disabled'}")
             
             if args.verbose and "top_contributors" in stats:
                 print()
-                print(f"👥 Top Contributors:")
+                print(f" Top Contributors:")
                 for contrib in stats["top_contributors"]:
                     print(f"  {contrib['who']:20s} {contrib['count']:6,} memories")
                 
                 if stats.get("avg_fe_score"):
                     print()
-                    print(f"🧠 Average Free Energy: {stats['avg_fe_score']:.3f}")
+                    print(f" Average Free Energy: {stats['avg_fe_score']:.3f}")
         else:
-            print(f"❌ NIMA Memory Health Check: FAILED")
+            print(f" NIMA Memory Health Check: FAILED")
             print()
             print(f"Error: {result['error']}")
             if result.get("path"):

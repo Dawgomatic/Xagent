@@ -49,10 +49,10 @@ After setup:
 
 The setup process is **interactive and friendly**:
 
-1. ✅ Check for web search and crawling capabilities
-2. 🎯 Learn your event preferences through a friendly conversation
-3. ⏰ Set up automated daily searches (optional)
-4. 📁 Create workspace structure with proper permissions
+1.  Check for web search and crawling capabilities
+2.  Learn your event preferences through a friendly conversation
+3.  Set up automated daily searches (optional)
+4.  Create workspace structure with proper permissions
 
 **Setup takes 2-3 minutes**. If you don't have search/crawling tools installed, I'll ask you to provide them.
 
@@ -146,7 +146,7 @@ cat ~/.openclaw/workspace/meetup-planner/config.json 2>/dev/null
 ```
 
 **If file doesn't exist OR `bootstrapComplete: false`:**
-- Tell human: "👋 Welcome to Meetup Planner! I need to set up a few things first. This will only take a couple of minutes."
+- Tell human: " Welcome to Meetup Planner! I need to set up a few things first. This will only take a couple of minutes."
 - **Follow BOOTSTRAP.md step-by-step** (all steps in order)
 - Do NOT proceed to Phase 1/2/3 until bootstrap is complete
 

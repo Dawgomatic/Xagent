@@ -19,7 +19,7 @@ export class FarcasterCast {
    * Share Identity Card results on Farcaster
    */
   async share(content: CastContent): Promise<string> {
-    console.log(`📢 Sharing on Farcaster...`);
+    console.log(` Sharing on Farcaster...`);
 
     const castText = this.formatCastText(content);
 
@@ -27,7 +27,7 @@ export class FarcasterCast {
     // For hackathon demo, simulate cast
     const castUrl = await this.simulateCast(castText, content.nftImageUrl);
 
-    console.log(`✅ Cast published: ${castUrl}`);
+    console.log(` Cast published: ${castUrl}`);
 
     return castUrl;
   }
@@ -41,11 +41,11 @@ export class FarcasterCast {
     return `
 ${emoji} Just discovered my Bloom Identity: ${content.personalityType}!
 
-My AI Agent analyzed my on-chain & social activity, minted my Supporter Identity Card (SBT), and auto-supported ${content.supportedProjects.length} matching projects 🚀
+My AI Agent analyzed my on-chain & social activity, minted my Supporter Identity Card (SBT), and auto-supported ${content.supportedProjects.length} matching projects 
 
 Powered by @bloom @openclaw on @base
 
-🔗 View my card: https://bloomprotocol.ai/identity/${content.tokenId}
+ View my card: https://bloomprotocol.ai/identity/${content.tokenId}
     `.trim();
   }
 
@@ -54,13 +54,13 @@ Powered by @bloom @openclaw on @base
    */
   private getPersonalityEmoji(type: PersonalityType): string {
     const emojiMap = {
-      [PersonalityType.THE_VISIONARY]: '💜',
-      [PersonalityType.THE_EXPLORER]: '💚',
-      [PersonalityType.THE_CULTIVATOR]: '🩵',
-      [PersonalityType.THE_OPTIMIZER]: '🧡',
-      [PersonalityType.THE_INNOVATOR]: '💙',
+      [PersonalityType.THE_VISIONARY]: '',
+      [PersonalityType.THE_EXPLORER]: '',
+      [PersonalityType.THE_CULTIVATOR]: '',
+      [PersonalityType.THE_OPTIMIZER]: '',
+      [PersonalityType.THE_INNOVATOR]: '',
     };
-    return emojiMap[type] || '🎴';
+    return emojiMap[type] || '';
   }
 
   /**

@@ -6,22 +6,22 @@ Turn your AI assistant into a seasoned Agile Coach that helps facilitate ceremon
 
 ## Features
 
-### 🔄 Sprint Retrospective Facilitator
+###  Sprint Retrospective Facilitator
 Run retros in 5 formats: Mad/Sad/Glad, Sailboat, 4Ls, Start/Stop/Continue, and DAKI. Includes the Prime Directive, starter questions, clustering guidance, and action item templates.
 
-### 📋 Sprint Planning Helper
+###  Sprint Planning Helper
 Capacity planning calculations, story point estimation guidance (Planning Poker flow), and sprint goal formulation using outcome-oriented templates.
 
-### ✍️ User Story Writer
+###  User Story Writer
 Generate well-structured user stories ("As a... I want... so that...") with Given/When/Then acceptance criteria. Includes INVEST checklist and edge case prompts.
 
-### 📢 Daily Standup Facilitator
+###  Daily Standup Facilitator
 Async standup templates with blocker tracking. Supports both people-focused and board-walk formats.
 
-### 📊 Agile Metrics
+###  Agile Metrics
 Velocity tracking, burndown analysis, cycle time and lead time concepts, and Kanban flow metrics (WIP, throughput, Little's Law).
 
-### 💚 Team Health Check
+###  Team Health Check
 Spotify Health Check Model (10 dimensions with traffic light ratings) and Team Radar for visualizing strengths and growth areas.
 
 ## Built On Real-World Knowledge

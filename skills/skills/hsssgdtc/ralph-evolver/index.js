@@ -61,10 +61,10 @@ function updateLoopProgress(projectPath, state) {
     state.loopRemaining--;
     if (state.loopRemaining > 0) {
       saveState(projectPath, state);
-      console.log(`📊 Progress: ${state.loopTotal - state.loopRemaining}/${state.loopTotal}, ${state.loopRemaining} remaining`);
+      console.log(` Progress: ${state.loopTotal - state.loopRemaining}/${state.loopTotal}, ${state.loopRemaining} remaining`);
       return false; // Not complete
     } else {
-      console.log(`✅ All ${state.loopTotal} cycles complete!`);
+      console.log(` All ${state.loopTotal} cycles complete!`);
       state.loopRemaining = 0;
       state.loopTotal = 0;
       saveState(projectPath, state);
@@ -160,15 +160,15 @@ Examples:
     const stateDir = path.join(projectPath, '.ralph');
     if (fs.existsSync(stateDir)) {
       fs.rmSync(stateDir, { recursive: true });
-      console.log(`🔄 Reset: removed ${stateDir}`);
+      console.log(` Reset: removed ${stateDir}`);
     } else {
-      console.log(`ℹ️  No state to reset`);
+      console.log(`  No state to reset`);
     }
     return;
   }
 
-  console.log(`🚀 Starting Ralph-Evolver...`);
-  console.log(`📁 Project: ${projectPath}`);
+  console.log(` Starting Ralph-Evolver...`);
+  console.log(` Project: ${projectPath}`);
 
   // Load state
   let state = loadState(projectPath);
@@ -178,9 +178,9 @@ Examples:
     state.loopRemaining = loopCount;
     state.loopTotal = loopCount;
     saveState(projectPath, state);
-    console.log(`🐕 **MAD DOG MODE ACTIVATED** - Running ${loopCount} cycles`);
+    console.log(` **MAD DOG MODE ACTIVATED** - Running ${loopCount} cycles`);
   } else if (state.loopRemaining > 0) {
-    console.log(`🔄 Cycle ${state.loopTotal - state.loopRemaining + 1}/${state.loopTotal}`);
+    console.log(` Cycle ${state.loopTotal - state.loopRemaining + 1}/${state.loopTotal}`);
   }
 
   try {
@@ -200,13 +200,13 @@ Examples:
     console.log('\n' + evolutionPrompt);
     const completed = updateLoopProgress(projectPath, state);
     if (!completed) {
-      console.log(`\n⚠️  Use --spawn flag with sessions_spawn to continue the loop.`);
+      console.log(`\n  Use --spawn flag with sessions_spawn to continue the loop.`);
     }
 
   } catch (error) {
     console.error('Evolution failed:', error);
     console.log(`
-*** 🧬 EVOLUTION ERROR ***
+***  EVOLUTION ERROR ***
 
 Cycle ${state.iteration + 1} failed.
 **Error**: ${error.message}

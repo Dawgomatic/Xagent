@@ -64,9 +64,9 @@ Description and notes here.
 ### Priority Labels on Board
 
 Use emoji prefixes on the Kanban board for visual priority:
-- 🔴 P1 (urgent)
-- 🟡 P2 (normal)
-- 🟢 P3 (backlog/parked)
+-  P1 (urgent)
+-  P2 (normal)
+-  P3 (backlog/parked)
 
 ## Managing Tasks
 
@@ -75,7 +75,7 @@ Use emoji prefixes on the Kanban board for visual priority:
 1. Create a markdown file in the tasks folder with frontmatter
 2. Add a card to Board.md in the appropriate column:
 ```
-- [ ] [[Task Name]] 🔴 P1 @{2026-02-07}
+- [ ] [[Task Name]]  P1 @{2026-02-07}
 ```
 
 ### Move a Task
@@ -88,7 +88,7 @@ Use emoji prefixes on the Kanban board for visual priority:
 1. Set `status: done` in frontmatter
 2. Move to Done column and mark checkbox:
 ```
-- [x] [[Task Name]] ✅ 2026-02-03
+- [x] [[Task Name]]  2026-02-03
 ```
 
 ### Always update both Board.md AND the task note frontmatter to keep them in sync.

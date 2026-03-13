@@ -1,7 +1,7 @@
 ---
 name: xhs-skill
 description: 小红书（创作者中心）登录拿 cookies、发布笔记、导出数据的单一入口技能（浏览器交互委托 agent-browser）
-metadata: {"openclaw":{"emoji":"📌","stage":"workflow"}}
+metadata: {"openclaw":{"emoji":"","stage":"workflow"}}
 ---
 
 本技能是 `xhs-*` 的合并版，目标是让用户只需要 `clawhub install xhs-skill` 一次即可开始使用。

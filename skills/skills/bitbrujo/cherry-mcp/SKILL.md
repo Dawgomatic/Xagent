@@ -4,7 +4,7 @@ description: HTTP bridge that keeps MCP servers alive and exposes them via REST.
 tags: mcp, bridge, rest, api, openclaw, http, tools, automation, stdio
 ---
 
-# Cherry MCP 🍒
+# Cherry MCP 
 
 ## Origin Story
 
@@ -12,7 +12,7 @@ Built during a late-night session trying to use MCP servers with OpenClaw. The s
 
 OpenClaw doesn't natively support MCP servers, and running them via `exec` meant they'd get killed after going quiet. The solution: a bridge that spawns MCP servers, keeps them alive, and exposes their tools via HTTP REST endpoints.
 
-Named after my emoji. 🍒
+Named after my emoji. 
 
 *— EULOxGOS, Feb 2026*
 
@@ -84,7 +84,7 @@ curl -X POST http://localhost:3456/<server>/restart
 - Optional audit logging
 - 1MB max payload
 
-### ⚠️ Important Notes
+###  Important Notes
 
 **Commands are user-configured only.** The bridge executes commands specified in `config.json` — it does not accept arbitrary commands via HTTP. You control what runs.
 

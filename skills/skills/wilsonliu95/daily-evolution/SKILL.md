@@ -22,7 +22,7 @@ author: "Wilsonsliu95 (https://github.com/WilsonLiu95)"
 
 ---
 
-## 🔄 四阶段执行流程
+##  四阶段执行流程
 
 ### Phase 1: 对话整理（对话潜龙）
 
@@ -83,7 +83,7 @@ author: "Wilsonsliu95 (https://github.com/WilsonLiu95)"
 
 ---
 
-## 📁 报告存放
+##  报告存放
 
 ```
 workspace/
@@ -95,7 +95,7 @@ workspace/
 
 ---
 
-## 🎯 成功标准
+##  成功标准
 
 ### 定量
 - 每日执行率 100%
@@ -111,7 +111,7 @@ workspace/
 
 ---
 
-## ⚙️ 配置
+##  配置
 
 ### cron 配置示例
 
@@ -136,7 +136,7 @@ workspace/
 
 ---
 
-## 🛡️ 安全规则
+##  安全规则
 
 - 固化阶段**不得**修改用户数据、项目代码
 - 只能更新 Agent 自身的人设/工具/记忆文件

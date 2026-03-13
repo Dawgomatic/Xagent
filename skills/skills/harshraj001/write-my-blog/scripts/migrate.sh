@@ -5,7 +5,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PLATFORM_DIR="$(dirname "$SCRIPT_DIR")/platform"
 
-echo "🗄️  Running database migrations..."
+echo "  Running database migrations..."
 cd "$PLATFORM_DIR"
 
 # Load env vars
@@ -19,12 +19,12 @@ const { getDatabase } = require('./src/lib/db/index.ts');
 (async () => {
   const db = await getDatabase();
   await db.migrate();
-  console.log('✅ Migration complete');
+  console.log(' Migration complete');
   await db.close();
 })().catch(err => {
-  console.error('❌ Migration failed:', err.message);
+  console.error(' Migration failed:', err.message);
   process.exit(1);
 });
 "
 
-echo "✅ Migrations complete"
+echo " Migrations complete"

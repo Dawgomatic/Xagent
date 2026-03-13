@@ -209,12 +209,12 @@ def cmd_send(args):
         result = client.send_transaction(tx, opts=opts)
         signature = result.value
         
-        print(f"\n✅ Transaction sent!")
+        print(f"\n Transaction sent!")
         print(f"◎ Signature: {signature}")
         print(f"◎ Explorer: https://solscan.io/tx/{signature}" + ("?cluster=devnet" if args.network == "devnet" else ""))
         
     except Exception as e:
-        print(f"\n❌ Transaction failed: {e}")
+        print(f"\n Transaction failed: {e}")
         sys.exit(1)
 
 
@@ -343,12 +343,12 @@ def cmd_send_token(args):
         result = client.send_transaction(tx, opts=opts)
         signature = result.value
         
-        print(f"\n✅ Token transfer sent!")
+        print(f"\n Token transfer sent!")
         print(f"◎ Signature: {signature}")
         print(f"◎ Explorer: https://solscan.io/tx/{signature}" + ("?cluster=devnet" if args.network == "devnet" else ""))
         
     except Exception as e:
-        print(f"\n❌ Transaction failed: {e}")
+        print(f"\n Transaction failed: {e}")
         sys.exit(1)
 
 

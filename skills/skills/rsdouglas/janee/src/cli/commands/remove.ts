@@ -6,7 +6,7 @@ export async function removeCommand(serviceName: string): Promise<void> {
   try {
     // Check for YAML config
     if (!hasYAMLConfig()) {
-      console.error('❌ No config found. Run `janee init` first.');
+      console.error(' No config found. Run `janee init` first.');
       process.exit(1);
     }
 
@@ -14,7 +14,7 @@ export async function removeCommand(serviceName: string): Promise<void> {
 
     // Check if service exists
     if (!config.services[serviceName]) {
-      console.error(`❌ Service "${serviceName}" not found`);
+      console.error(` Service "${serviceName}" not found`);
       process.exit(1);
     }
 
@@ -26,7 +26,7 @@ export async function removeCommand(serviceName: string): Promise<void> {
       .map(([name, _]) => name);
 
     if (dependentCaps.length > 0) {
-      console.log(`⚠️  The following capabilities depend on this service:`);
+      console.log(`  The following capabilities depend on this service:`);
       dependentCaps.forEach(cap => console.log(`   - ${cap}`));
       console.log();
     }
@@ -39,7 +39,7 @@ export async function removeCommand(serviceName: string): Promise<void> {
     rl.close();
 
     if (answer.toLowerCase() !== 'y' && answer.toLowerCase() !== 'yes') {
-      console.log('❌ Cancelled');
+      console.log(' Cancelled');
       return;
     }
 
@@ -53,17 +53,17 @@ export async function removeCommand(serviceName: string): Promise<void> {
 
     saveYAMLConfig(config);
 
-    console.log(`✅ Service "${serviceName}" removed successfully!`);
+    console.log(` Service "${serviceName}" removed successfully!`);
 
     if (dependentCaps.length > 0) {
-      console.log(`✅ Removed ${dependentCaps.length} dependent capability(ies)`);
+      console.log(` Removed ${dependentCaps.length} dependent capability(ies)`);
     }
 
   } catch (error) {
     if (error instanceof Error) {
-      console.error('❌ Error:', error.message);
+      console.error(' Error:', error.message);
     } else {
-      console.error('❌ Unknown error occurred');
+      console.error(' Unknown error occurred');
     }
     process.exit(1);
   }

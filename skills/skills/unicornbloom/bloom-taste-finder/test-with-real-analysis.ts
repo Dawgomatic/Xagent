@@ -10,18 +10,18 @@ dotenv.config();
 async function main() {
   const skill = new BloomIdentitySkillV2();
   
-  console.log('🎯 Running full analysis with mock data...\n');
+  console.log(' Running full analysis with mock data...\n');
   
   const userId = `test-${Date.now()}`;
   const result = await skill.execute(userId, { skipShare: true });
   
   if (!result.success) {
-    console.error('❌ Failed:', result.error);
+    console.error(' Failed:', result.error);
     return;
   }
   
-  console.log('\n✅ Analysis complete!\n');
-  console.log('🎴 Identity:', result.identityData);
+  console.log('\n Analysis complete!\n');
+  console.log(' Identity:', result.identityData);
   
   // Generate token with real identity data
   const jwtSecret = process.env.JWT_SECRET!;
@@ -49,7 +49,7 @@ async function main() {
   const dashboardUrl = `${process.env.DASHBOARD_URL}/dashboard?token=${token}`;
   
   console.log('\n═══════════════════════════════════════\n');
-  console.log('🌐 Dashboard URL:\n');
+  console.log(' Dashboard URL:\n');
   console.log(dashboardUrl);
   console.log('\n═══════════════════════════════════════\n');
 }

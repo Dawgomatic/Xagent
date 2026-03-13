@@ -36,95 +36,95 @@ cmd_push() {
     
     # Check if git repo exists
     if [ ! -d ".git" ]; then
-        echo "❌ Not a git repository. Run 'git init' first."
+        echo " Not a git repository. Run 'git init' first."
         exit 1
     fi
     
     # Check if there are changes
     if [ -z "$(git status --porcelain)" ]; then
-        echo "✅ No changes to push (already up to date)"
+        echo " No changes to push (already up to date)"
         git log -1 --oneline
         exit 0
     fi
     
-    echo "📦 Adding changes..."
+    echo " Adding changes..."
     git add -A
     
-    echo "💾 Committing: $message"
+    echo " Committing: $message"
     git commit -m "$message"
     
-    echo "🚀 Pushing to remote..."
+    echo " Pushing to remote..."
     git push
     
-    echo "✅ Push complete!"
+    echo " Push complete!"
     git log -1 --oneline
 }
 
 cmd_pull() {
     # Check if git repo exists
     if [ ! -d ".git" ]; then
-        echo "❌ Not a git repository. Run 'git init' first."
+        echo " Not a git repository. Run 'git init' first."
         exit 1
     fi
     
-    echo "📥 Fetching from remote..."
+    echo " Fetching from remote..."
     git fetch origin
     
     local local_commit=$(git rev-parse HEAD)
     local remote_commit=$(git rev-parse origin/$(git branch --show-current))
     
     if [ "$local_commit" = "$remote_commit" ]; then
-        echo "✅ Already up to date"
+        echo " Already up to date"
         git log -1 --oneline
         exit 0
     fi
     
-    echo "🔄 Pulling changes..."
+    echo " Pulling changes..."
     git pull origin $(git branch --show-current)
     
-    echo "✅ Pull complete!"
+    echo " Pull complete!"
     git log -1 --oneline
     
     # If on VPS, suggest restarting gateway
     if [ -n "$OPENCLAW_VPS" ] || [ -f "/etc/openclaw/vps" ]; then
         echo ""
-        echo "💡 VPS detected. Restart OpenClaw gateway to apply changes:"
+        echo " VPS detected. Restart OpenClaw gateway to apply changes:"
         echo "   openclaw gateway restart"
     fi
 }
 
 cmd_merge_from() {
     local from_branch="${1:-}"
-    [ -n "$from_branch" ] || { echo "❌ missing branch name"; echo "   usage: claw-roam merge-from <branch>"; exit 1; }
+    [ -n "$from_branch" ] || { echo " missing branch name"; echo "   usage: claw-roam merge-from <branch>"; exit 1; }
 
     if [ ! -d ".git" ]; then
-        echo "❌ Not a git repository."
+        echo " Not a git repository."
         exit 1
     fi
 
     local cur_branch
     cur_branch=$(git branch --show-current)
-    echo "🔀 Merging from: $from_branch -> $cur_branch"
+    echo " Merging from: $from_branch -> $cur_branch"
 
-    echo "📥 Fetching..."
+    echo " Fetching..."
     git fetch origin --prune
 
-    echo "🔧 Merge..."
+    echo " Merge..."
     git merge "origin/${from_branch}" -m "merge: ${from_branch} -> ${cur_branch}" || {
-      echo "❌ Merge failed (likely conflicts). Resolve them, then run:"
+      echo " Merge failed (likely conflicts). Resolve them, then run:"
       echo "   git status"
       echo "   git add -A && git commit"
       exit 1
     }
 
-    echo "✅ Merge complete."
+    echo " Merge complete."
     git log -1 --oneline
 }
 
 cmd_status() {
     # Check if git repo exists
     if [ ! -d ".git" ]; then
-        echo "❌ Not a git repository"
+        echo " Not a git repository"
         echo ""
         echo "Setup steps:"
         echo "   cd ~/.openclaw/workspace"
@@ -134,32 +134,32 @@ cmd_status() {
         exit 1
     fi
 
-    echo "📍 Current branch: $(git branch --show-current)"
-    echo "🔖 Latest commit:  $(git log -1 --oneline)"
+    echo " Current branch: $(git branch --show-current)"
+    echo " Latest commit:  $(git log -1 --oneline)"
     echo ""
 
     # Check for unpushed commits
     local unpushed=$(git log --branches --not --remotes --oneline 2>/dev/null || echo "")
     if [ -n "$unpushed" ]; then
-        echo "⚠️  Unpushed commits:"
+        echo "  Unpushed commits:"
         echo "$unpushed" | head -5
         local count=$(echo "$unpushed" | wc -l | tr -d ' ')
         [ "$count" -gt 5 ] && echo "   ... and $((count - 5)) more"
         echo ""
-        echo "💡 Run: claw-roam push"
+        echo " Run: claw-roam push"
     else
-        echo "✅ All commits pushed"
+        echo " All commits pushed"
     fi
 
     # Check for uncommitted changes
     if [ -n "$(git status --porcelain)" ]; then
         echo ""
-        echo "📝 Uncommitted changes:"
+        echo " Uncommitted changes:"
         git status --short
         echo ""
-        echo "💡 Run: claw-roam push"
+        echo " Run: claw-roam push"
     else
-        echo "✅ No uncommitted changes"
+        echo " No uncommitted changes"
     fi
 
     # Check remote status
@@ -167,8 +167,8 @@ cmd_status() {
     local behind=$(git rev-list --count HEAD..origin/$(git branch --show-current) 2>/dev/null || echo "0")
     if [ "$behind" -gt 0 ]; then
         echo ""
-        echo "🔄 Remote is $behind commit(s) ahead"
-        echo "💡 Run: claw-roam pull"
+        echo " Remote is $behind commit(s) ahead"
+        echo " Run: claw-roam pull"
     fi
 }
 
@@ -176,7 +176,7 @@ cmd_sync() {
     local current_branch
     current_branch=$(git branch --show-current)
     
-    echo "🔄 Full sync workflow: $current_branch -> main"
+    echo " Full sync workflow: $current_branch -> main"
     echo ""
     
     # Step 1: Commit and push current branch
@@ -184,27 +184,27 @@ cmd_sync() {
     if [ -n "$(git status --porcelain)" ]; then
         git add -A
         git commit -m "sync: auto-commit on $current_branch"
-        echo "✅ Committed changes"
+        echo " Committed changes"
     else
-        echo "ℹ️ No changes to commit"
+        echo " No changes to commit"
     fi
     
-    echo "🚀 Pushing $current_branch..."
+    echo " Pushing $current_branch..."
     git push origin "$current_branch"
-    echo "✅ Pushed $current_branch"
+    echo " Pushed $current_branch"
     echo ""
     
     # Step 2: Merge main into current branch
     echo "Step 2: Merge main into $current_branch"
     git fetch origin main
     if git merge-base --is-ancestor origin/main HEAD; then
-        echo "ℹ️ Already up to date with main"
+        echo " Already up to date with main"
     else
         git merge origin/main -m "sync: merge main -> $current_branch" || {
-            echo "❌ Merge failed. Resolve conflicts and run: git add -A && git commit"
+            echo " Merge failed. Resolve conflicts and run: git add -A && git commit"
             exit 1
         }
-        echo "✅ Merged main into $current_branch"
+        echo " Merged main into $current_branch"
     fi
     echo ""
     
@@ -241,7 +241,7 @@ cmd_sync() {
     
     # Push main
     git push origin "$main_branch"
-    echo "✅ Pushed to main"
+    echo " Pushed to main"
     
     # Switch back to original branch
     git checkout "$current_branch"
@@ -252,7 +252,7 @@ cmd_sync() {
     fi
     
     echo ""
-    echo "🎉 Sync complete!"
+    echo " Sync complete!"
     echo "   $current_branch: $(git log -1 --oneline)"
     echo "   main: $(git log origin/main -1 --oneline)"
 }

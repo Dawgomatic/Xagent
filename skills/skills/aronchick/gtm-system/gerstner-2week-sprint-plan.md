@@ -45,8 +45,8 @@ Sacks: *"The risk is they become an old layer of the stack."*
 | | Expanso | Cribl | DIY (K8s) | Cloud-native |
 |---|---------|-------|-----------|-------------|
 | **Scope** | General distributed compute | Observability routing only | Unlimited but painful | Vendor-locked |
-| **Edge-native** | ✅ Built for it | Partial | Manual | ❌ |
-| **AI/ML workloads** | ✅ | ❌ | DIY | Limited |
+| **Edge-native** |  Built for it | Partial | Manual |  |
+| **AI/ML workloads** |  |  | DIY | Limited |
 | **Setup time** | Hours | Days | Weeks | Days |
 | **Lock-in** | None | Low | None | High |
 
@@ -147,7 +147,7 @@ Sacks: *"The risk is they become an old layer of the stack."*
 
 **X Thread (Tuesday):**
 
-> 🧵 Brad Gerstner just dropped the clearest thesis on who wins in AI infrastructure.
+>  Brad Gerstner just dropped the clearest thesis on who wins in AI infrastructure.
 >
 > His answer? Data transformation companies.
 >
@@ -241,7 +241,7 @@ Sacks: *"The risk is they become an old layer of the stack."*
 >
 > We're seeing 40-70% of ingested data is effectively noise.
 >
-> Curious if that matches your experience. 👇
+> Curious if that matches your experience. 
 
 ---
 
@@ -359,10 +359,10 @@ Sacks: *"The risk is they become an old layer of the stack."*
 
 | Outcome | Grade |
 |---------|-------|
-| **5+ demo calls completed** with qualified prospects | 🟢 A — Sprint worked, scale it |
-| **3-4 demo calls** + clear signal on messaging | 🟡 B — Iterate and continue |
-| **1-2 demo calls** + some content traction | 🟠 C — Messaging needs work, keep testing |
-| **0 demo calls**, no inbound, no engagement | 🔴 D — Fundamental positioning problem, regroup |
+| **5+ demo calls completed** with qualified prospects |  A — Sprint worked, scale it |
+| **3-4 demo calls** + clear signal on messaging |  B — Iterate and continue |
+| **1-2 demo calls** + some content traction |  C — Messaging needs work, keep testing |
+| **0 demo calls**, no inbound, no engagement |  D — Fundamental positioning problem, regroup |
 
 ### Leading Indicators (Check Daily)
 

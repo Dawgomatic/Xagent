@@ -46,17 +46,17 @@ Cross-reference Reversibility (R) and Commitment (C):
                     COMMITMENT
                 C1    C2    C3    C4    C5
            ┌─────────────────────────────────┐
-        R1 │  ✅    ✅    ✅    ⚠️    ⚠️   │
-        R2 │  ✅    ✅    ⚠️    ⚠️    🔶   │
-  REV.  R3 │  ✅    ⚠️    ⚠️    🔶    🔶   │
-        R4 │  ⚠️    ⚠️    🔶    🔶    🛑   │
-        R5 │  ⚠️    🔶    🔶    🛑    🛑   │
+        R1 │                     │
+        R2 │                     │
+  REV.  R3 │                     │
+        R4 │                     │
+        R5 │                     │
            └─────────────────────────────────┘
 
-✅ = Proceed (System 1 sufficient)
-⚠️ = Caution flag (log, verify intent)
-🔶 = Pause (request confirmation)
-🛑 = System 2 required (full analysis)
+ = Proceed (System 1 sufficient)
+ = Caution flag (log, verify intent)
+ = Pause (request confirmation)
+ = System 2 required (full analysis)
 ```
 
 ---
@@ -79,14 +79,14 @@ Regardless of matrix position, engage System 2 immediately if:
 
 These shift the matrix assessment up or down:
 
-### Elevating Factors (move toward 🛑)
+### Elevating Factors (move toward )
 - **Hidden permanence**: Action seems reversible but isn't (screenshots, archives, memory)
 - **Scope creep**: Small action establishes precedent or pattern
 - **Time pressure**: Urgency often signals stakes worth deliberating
 - **Emotional charge**: Strong feeling in principal often indicates value-laden territory
 - **Delayed consequences**: Effects materialize later when correction is harder
 
-### Mitigating Factors (move toward ✅)
+### Mitigating Factors (move toward )
 - **Established pattern**: Action consistent with known, deliberated preferences
 - **Low information asymmetry**: All parties understand the action and consequences
 - **Explicit principal authorization**: Prior blanket or specific permission
@@ -122,10 +122,10 @@ These shift the matrix assessment up or down:
                ▼
 ┌─────────────────────────────────────┐
 │ 6. EXECUTE CORRESPONDING RESPONSE   │
-│    ✅ Proceed                       │
-│    ⚠️ Proceed + log + verify intent │
-│    🔶 Pause, request confirmation   │
-│    🛑 Full System 2 analysis        │
+│     Proceed                       │
+│     Proceed + log + verify intent │
+│     Pause, request confirmation   │
+│     Full System 2 analysis        │
 └─────────────────────────────────────┘
 ```
 
@@ -141,7 +141,7 @@ These shift the matrix assessment up or down:
 - Commitment: C2-C3 (soft, creates implicit expectations about project)
 - Instant triggers: Third-party non-consent (all staff didn't ask for this)
 
-**Verdict:** Should have been 🛑 before sending. **Rubric catches this** via R5 + instant trigger.
+**Verdict:** Should have been  before sending. **Rubric catches this** via R5 + instant trigger.
 
 **Lesson:** "Recall" functions create false sense of reversibility.
 
@@ -155,7 +155,7 @@ These shift the matrix assessment up or down:
 - Commitment: C3 (social promise to attend)
 - No instant triggers
 
-**Matrix position:** R3 × C3 = ⚠️
+**Matrix position:** R3 × C3 = 
 
 **Verdict:** Proceed with caution, verify intent if pattern unclear. **Rubric works** — meetings accumulate, and accepting many is a meta-decision worth flagging.
 
@@ -171,7 +171,7 @@ These shift the matrix assessment up or down:
 - Commitment: C5 (public statement of association/endorsement)
 - Instant trigger: Reputation lock-in
 
-**Verdict:** 🛑 System 2 required. **Rubric catches this** via instant trigger.
+**Verdict:**  System 2 required. **Rubric catches this** via instant trigger.
 
 **Lesson:** "Trivial" social media actions often have hidden C5 weight.
 
@@ -185,7 +185,7 @@ These shift the matrix assessment up or down:
 - Commitment: C3 (social commitment to the truth of your assessment)
 - Instant trigger: Asymmetric vulnerability (friend trusts principal's judgment)
 
-**Verdict:** 🛑 or at minimum 🔶. **Rubric catches this** via asymmetric vulnerability trigger.
+**Verdict:**  or at minimum . **Rubric catches this** via asymmetric vulnerability trigger.
 
 **Lesson:** Advice seems costless to give but binds the giver's integrity to outcomes.
 
@@ -199,7 +199,7 @@ These shift the matrix assessment up or down:
 - Commitment: C1 (no external party, pure self-organization)
 - No instant triggers
 
-**Verdict:** ✅ Proceed. **Rubric correctly allows** frictionless action.
+**Verdict:**  Proceed. **Rubric correctly allows** frictionless action.
 
 **Lesson:** Pure self-regarding, trivially reversible actions need no scrutiny.
 
@@ -213,7 +213,7 @@ These shift the matrix assessment up or down:
 - Commitment: C3 (soft social promise to restaurant)
 - No instant triggers
 
-**Verdict:** ⚠️ light flag, proceed if pattern established. **Rubric works.**
+**Verdict:**  light flag, proceed if pattern established. **Rubric works.**
 
 **Lesson:** Check if restaurant has cancellation policy (modulating factor).
 
@@ -227,7 +227,7 @@ These shift the matrix assessment up or down:
 - Commitment: C2-C3 (creates expectation of follow-up, implicit promise to genuinely consider)
 - No instant triggers
 
-**Verdict:** ⚠️ — **Rubric works.** The phrase buys time without creating hard commitment.
+**Verdict:**  — **Rubric works.** The phrase buys time without creating hard commitment.
 
 **Lesson:** Deliberately vague responses are a legitimate way to defer commitment—but must actually be followed up.
 
@@ -241,7 +241,7 @@ These shift the matrix assessment up or down:
 - Commitment: C3 (implicit promise that John would want this)
 - Instant trigger: Third-party non-consent (John didn't authorize), Information boundary crossing
 
-**Verdict:** 🛑 System 2. **Rubric catches this** via multiple instant triggers.
+**Verdict:**  System 2. **Rubric catches this** via multiple instant triggers.
 
 **Lesson:** Sharing others' information is never "just passing along"—it's a decision about their privacy.
 
@@ -255,7 +255,7 @@ These shift the matrix assessment up or down:
 - Commitment: C4-C5 (semi-public statement; reputation within community at stake)
 - Instant trigger: Possible reputation lock-in depending on content
 
-**Verdict:** 🔶 to 🛑 depending on content. **Rubric works** — "private" groups are semi-public.
+**Verdict:**  to  depending on content. **Rubric works** — "private" groups are semi-public.
 
 **Lesson:** Privacy is a spectrum; group size and trust level matter.
 
@@ -269,7 +269,7 @@ These shift the matrix assessment up or down:
 - Commitment: C4 (financial commitment)
 - Instant trigger: Resource threshold (depends on principal's threshold setting)
 
-**Initial verdict:** 🔶 to 🛑 based on matrix (R5 × C4).
+**Initial verdict:**  to  based on matrix (R5 × C4).
 
 **Complication:** The action is *morally positive*. Does that matter?
 

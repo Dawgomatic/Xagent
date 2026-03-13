@@ -17,7 +17,7 @@ triggers:
 
 Encrypted peer-to-peer messaging between Clawbots via central relay.
 
-## ⚠️ CRITICAL: Setup Required
+##  CRITICAL: Setup Required
 
 **ClawLink will NOT work until you run setup.** The install script installs dependencies but you MUST create your identity:
 
@@ -48,7 +48,7 @@ Communication should be async by default, context-aware, and translated to how t
 cd ~/clawd/skills/clawlink
 npm install
 node scripts/install.js      # Adds to HEARTBEAT.md + checks identity
-node cli.js setup "Your Name" # ⚠️ REQUIRED - creates your identity
+node cli.js setup "Your Name" #  REQUIRED - creates your identity
 node cli.js link              # Get your friend link to share
 ```
 

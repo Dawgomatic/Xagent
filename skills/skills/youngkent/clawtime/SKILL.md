@@ -111,16 +111,16 @@ Tasks stored at `~/.clawtime/tasks.json` in markdown format:
 # Tasks
 
 ## Active
-- 🟡 Task you're working on right now
+-  Task you're working on right now
 
 ## Blocked
-- ⏳ Task waiting on someone else
+-  Task waiting on someone else
 
 ## Backlog
 - Task to do later
 
 ## Done
-- ✅ Completed task
+-  Completed task
 ```
 
 ### Section Meanings
@@ -136,9 +136,9 @@ Tasks stored at `~/.clawtime/tasks.json` in markdown format:
 
 | Icon | Meaning |
 |------|---------|
-| 🟡 | Active/pending |
-| ⏳ | Blocked/waiting |
-| ✅ | Completed |
+|  | Active/pending |
+|  | Blocked/waiting |
+|  | Completed |
 | `- [x]` | Also marks done |
 
 ## Avatar Creation
@@ -150,7 +150,7 @@ ClawTime uses **Three.js voxel avatars** — 3D characters built from simple sha
 Create at `~/.clawtime/avatars/<name>.js`:
 
 ```javascript
-/* AVATAR_META {"name":"MyAgent","emoji":"🤖","description":"Custom 3D avatar","color":"4f46e5"} */
+/* AVATAR_META {"name":"MyAgent","emoji":"","description":"Custom 3D avatar","color":"4f46e5"} */
 (function() {
   'use strict';
   
@@ -279,19 +279,19 @@ Each state should be **visually distinct** with unique activities and indicators
 | State | Purpose | Design Ideas |
 |-------|---------|--------------|
 | `idle` | Default, waiting | Breathing, looking around, show-off poses, occasional blink |
-| `thinking` | Processing request | Head tilt, eyes up, thought bubble (❓), tapping foot/wing |
-| `talking` | Delivering response | Mouth animation, speech bubble, music notes (🎵), gesturing |
+| `thinking` | Processing request | Head tilt, eyes up, thought bubble (), tapping foot/wing |
+| `talking` | Delivering response | Mouth animation, speech bubble, music notes (), gesturing |
 | `listening` | User is speaking | Leaning forward, BIG attentive eyes, ears/crest perked |
 | `working` | Extended task | Laptop/tools visible, typing motion, focused squint |
-| `happy` | Positive outcome | Bouncing, hearts (❤️), squinty smile eyes (^_^), wagging |
-| `celebrating` | Major success | Jumping, spinning, confetti (⭐), maximum energy |
-| `sleeping` | Inactive/idle timeout | Eyes closed, Z's floating (💤), curled up, slow breathing |
-| `error` | Something went wrong | Shaking, exclamation (❗), ruffled, sweat drop, red tint |
-| `reflecting` | Thoughtful moment | Light bulb (💡), gazing upward, calm pose, one hand raised |
+| `happy` | Positive outcome | Bouncing, hearts (), squinty smile eyes (^_^), wagging |
+| `celebrating` | Major success | Jumping, spinning, confetti (), maximum energy |
+| `sleeping` | Inactive/idle timeout | Eyes closed, Z's floating (), curled up, slow breathing |
+| `error` | Something went wrong | Shaking, exclamation (), ruffled, sweat drop, red tint |
+| `reflecting` | Thoughtful moment | Light bulb (), gazing upward, calm pose, one hand raised |
 
 ### State Design Principles
 
-1. **Visual indicators matter** — Add floating symbols (❓❤️💡❗💤⭐) that appear per-state
+1. **Visual indicators matter** — Add floating symbols () that appear per-state
 2. **Body language is key** — Each state needs distinct posture, movement speed, and energy level
 3. **Eyes tell the story** — Big/small, open/closed, squinty/wide, pupil direction
 4. **Movement rhythm varies** — Fast/bouncy for happy, slow/gentle for sleeping, shaky for error

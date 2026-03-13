@@ -66,7 +66,7 @@ def login_xiaohongshu():
             cookie_str = '; '.join([f"{c['name']}={c['value']}" for c in cookies if 'xiaohongshu' in c.get('domain', '')])
             
             print("\n" + "=" * 50)
-            print("✅ Cookie 保存成功!")
+            print(" Cookie 保存成功!")
             print("=" * 50)
             print(f"\nCookie 文件: {cookie_file}")
             print(f"\n共保存 {len(cookies)} 个 Cookie")
@@ -78,7 +78,7 @@ def login_xiaohongshu():
             print(f"Cookie 字符串: {cookie_str_file}")
             
         except Exception as e:
-            print(f"\n❌ 出错: {e}")
+            print(f"\n 出错: {e}")
         finally:
             browser.close()
     

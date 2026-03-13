@@ -11,12 +11,12 @@ Get notified when someone messages you on LinkedIn. Drafts replies in your voice
 
 ## Features
 
-- 🔔 **Hourly monitoring** — Checks your inbox every hour, 24/7
-- 🚫 **No duplicates** — Each message reported exactly once (file-based state)
-- ✍️ **Draft replies** — AI drafts responses in your communication style
-- 🛡️ **Approval required** — Nothing sent without your OK
-- 🌐 **Browser-based** — Works with your normal LinkedIn login
-- ⚡ **Watchdog included** — Alerts you if monitoring stops working
+-  **Hourly monitoring** — Checks your inbox every hour, 24/7
+-  **No duplicates** — Each message reported exactly once (file-based state)
+-  **Draft replies** — AI drafts responses in your communication style
+-  **Approval required** — Nothing sent without your OK
+-  **Browser-based** — Works with your normal LinkedIn login
+-  **Watchdog included** — Alerts you if monitoring stops working
 
 ---
 
@@ -169,7 +169,7 @@ Each message gets a unique ID (`Name_Timestamp`). Once reported, it's added to `
 When a new message arrives, you'll get an alert like:
 
 ```
-📬 **John Smith**
+ **John Smith**
 > Hey, I saw your post about AI automation. Would love to chat!
 
 **Draft reply:**

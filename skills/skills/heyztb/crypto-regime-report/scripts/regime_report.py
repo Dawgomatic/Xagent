@@ -316,7 +316,7 @@ def process_asset_data(asset: dict, candles: list, funding: dict, oi: float,
 
 def format_report(results: list, cache: dict) -> str:
     now = datetime.now().strftime("%Y-%m-%d %H:%M PST")
-    lines = [f"📊 *Crypto Regime Report*", f"_{now}_", ""]
+    lines = [f" *Crypto Regime Report*", f"_{now}_", ""]
     
     # Build watching section
     watching = []
@@ -333,41 +333,41 @@ def format_report(results: list, cache: dict) -> str:
         # Check regime change
         prev_regime = cache.get(f"{symbol}_regime")
         if prev_regime and prev_regime != regime:
-            watching.append(f"🔄 *{symbol}*: {prev_regime} → {regime}")
+            watching.append(f" *{symbol}*: {prev_regime} → {regime}")
         
         # Check ADX near threshold
         if adx is not None:
             if regime in ["Weak Bull", "Weak Bear"] and adx < 22:
-                watching.append(f"⚠️ *{symbol}*: ADX {adx:.1f} (near Ranging)")
+                watching.append(f" *{symbol}*: ADX {adx:.1f} (near Ranging)")
             elif regime == "Ranging" and adx > 18:
-                watching.append(f"⚠️ *{symbol}*: ADX {adx:.1f} (trending)")
+                watching.append(f" *{symbol}*: ADX {adx:.1f} (trending)")
         
         # Check contrarian funding signals (price/funding divergence)
         # Only flag when funding is at least 0.03% in the opposite direction
         if funding is not None and abs(funding) > 0.03:
             if change_24h < 0 and funding > 0:
                 # Price down, longs paying → trapped longs
-                watching.append(f"⚡ *{symbol}*: CONTRARIAN - Price down, longs paying (trapped longs)")
+                watching.append(f" *{symbol}*: CONTRARIAN - Price down, longs paying (trapped longs)")
             elif change_24h > 0 and funding < 0:
                 # Price up, shorts paying → trapped shorts
-                watching.append(f"⚡ *{symbol}*: CONTRARIAN - Price up, shorts paying (squeeze setup)")
+                watching.append(f" *{symbol}*: CONTRARIAN - Price up, shorts paying (squeeze setup)")
         
         # Check funding extremes (threshold: 0.03%)
         if funding is not None and abs(funding) > 0.03:
             direction = "longs paying" if funding > 0 else "shorts paying"
-            watching.append(f"🔥 *{symbol}*: Funding {funding:+.2f}% ({direction})")
+            watching.append(f" *{symbol}*: Funding {funding:+.2f}% ({direction})")
         
         # Check volume spike (threshold: 3x average)
         if r.get("vol_ratio", 0) > 3.0:
-            watching.append(f"🔊 *{symbol}*: Volume {r['vol_ratio']:.1f}x avg")
+            watching.append(f" *{symbol}*: Volume {r['vol_ratio']:.1f}x avg")
         
         # Check large OI change
         if r.get("oi_change") is not None and abs(r["oi_change"]) > 10:
             direction = "building" if r["oi_change"] > 0 else "unwinding"
-            watching.append(f"📊 *{symbol}*: OI {r['oi_change']:+.1f}% ({direction})")
+            watching.append(f" *{symbol}*: OI {r['oi_change']:+.1f}% ({direction})")
     
     if watching:
-        lines.append("👁️ *WATCHING:*")
+        lines.append(" *WATCHING:*")
         lines.extend(watching)
         lines.append("")
     
@@ -376,16 +376,16 @@ def format_report(results: list, cache: dict) -> str:
     
     for r in sorted_results:
         if "error" in r:
-            lines.append(f"❌ *{r['symbol']}*: {r['error']}")
+            lines.append(f" *{r['symbol']}*: {r['error']}")
             continue
         
-        regime_emoji = {"Strong Bull": "🟢", "Weak Bull": "🟡", "Ranging": "⚪", "Weak Bear": "🟠", "Strong Bear": "🔴"}.get(r["regime"], "❓")
+        regime_emoji = {"Strong Bull": "", "Weak Bull": "", "Ranging": "", "Weak Bear": "", "Strong Bear": ""}.get(r["regime"], "")
         
         if r["price"] >= 1000: price_str = f"${r['price']:,.0f}"
         elif r["price"] >= 1: price_str = f"${r['price']:,.2f}"
         else: price_str = f"${r['price']:,.4f}"
         
-        change_emoji = "📈" if r["change_24h"] > 0 else "📉" if r["change_24h"] < 0 else "➡️"
+        change_emoji = "" if r["change_24h"] > 0 else "" if r["change_24h"] < 0 else ""
         
         lines.append(f"{regime_emoji} *{r['symbol']}* {price_str} {change_emoji} {r['change_24h']:+.1f}%")
         lines.append(f"   _{r['regime']}_ | ADX: {r['adx']:.1f} | {r['direction'].capitalize()}")
@@ -393,11 +393,11 @@ def format_report(results: list, cache: dict) -> str:
         st_dir = "above" if r["st_distance"] > 0 else "below"
         lines.append(f"   ST dist: {abs(r['st_distance']):.1f}% {st_dir}")
         
-        vol_emoji = "🔊" if r["vol_ratio"] > 1.5 else "🔇" if r["vol_ratio"] < 0.5 else ""
+        vol_emoji = "" if r["vol_ratio"] > 1.5 else "" if r["vol_ratio"] < 0.5 else ""
         lines.append(f"   Vol: {r['vol_ratio']:.1f}x 20d avg {vol_emoji}")
         
         if r["funding_rate"] is not None:
-            funding_emoji = "🔥" if abs(r["funding_rate"]) > 0.01 else ""
+            funding_emoji = "" if abs(r["funding_rate"]) > 0.01 else ""
             change_str = f" ({r['funding_change']:+.2f}bps)" if r["funding_change"] is not None else ""
             lines.append(f"   Funding: {r['funding_rate']:+.4f}%{change_str} {funding_emoji}")
         
@@ -406,7 +406,7 @@ def format_report(results: list, cache: dict) -> str:
             lines.append(f"   OI: ${r['open_interest']:.1f}B{oi_change_str}")
         
         if r["btc_correlation"] is not None:
-            corr_emoji = "🔗" if r["btc_correlation"] > 0.7 else "〰️" if r["btc_correlation"] < 0.3 else ""
+            corr_emoji = "" if r["btc_correlation"] > 0.7 else "" if r["btc_correlation"] < 0.3 else ""
             lines.append(f"   BTC corr: {r['btc_correlation']:.2f} {corr_emoji}")
         
         lines.append("")
@@ -415,7 +415,7 @@ def format_report(results: list, cache: dict) -> str:
     bear_count = sum(1 for r in sorted_results if "Bear" in r.get("regime", ""))
     range_count = sum(1 for r in sorted_results if r.get("regime") == "Ranging")
     
-    lines.append(f"📈 Bulls: {bull_count} | 📉 Bears: {bear_count} | ⚪ Range: {range_count}")
+    lines.append(f" Bulls: {bull_count} |  Bears: {bear_count} |  Range: {range_count}")
     
     return "\n".join(lines)
 

@@ -3,7 +3,7 @@
 /**
  * Request SSL/TLS certificate via Gandi
  * 
- * ⚠️  WARNING: Gandi SSL certificates may have costs. Check pricing before requesting.
+ *   WARNING: Gandi SSL certificates may have costs. Check pricing before requesting.
  * 
  * Usage:
  *   node request-certificate.js <domain> [options]
@@ -33,13 +33,13 @@ if (args.length < 1) {
   console.error('  --method <dns|email|http>   Validation method (default: dns)');
   console.error('  --dry-run                   Check setup without requesting');
   console.error('');
-  console.error('⚠️  WARNING: Gandi SSL certificates may have costs associated with them.');
+  console.error('  WARNING: Gandi SSL certificates may have costs associated with them.');
   console.error('');
   console.error('Examples:');
   console.error('  node request-certificate.js example.com --dry-run');
   console.error('  node request-certificate.js example.com --method dns');
   console.error('');
-  console.error('💡 Note: This requests certificates through Gandi\'s certificate service.');
+  console.error(' Note: This requests certificates through Gandi\'s certificate service.');
   console.error('   For free Let\'s Encrypt certificates, consider using certbot or acme.sh');
   console.error('   directly on your web server.');
   process.exit(1);
@@ -61,7 +61,7 @@ for (let i = 1; i < args.length; i++) {
 
 // Validate method
 if (!['dns', 'email', 'http'].includes(method)) {
-  console.error(`❌ Invalid validation method: ${method}`);
+  console.error(` Invalid validation method: ${method}`);
   console.error('   Valid methods: dns, email, http');
   process.exit(1);
 }
@@ -84,7 +84,7 @@ function confirm(message) {
 // Main function
 async function main() {
   try {
-    console.log(`🔒 SSL Certificate Request for ${domain}`);
+    console.log(` SSL Certificate Request for ${domain}`);
     console.log('');
     
     // Check if domain exists
@@ -93,17 +93,17 @@ async function main() {
       domainInfo = await getDomain(domain);
     } catch (err) {
       if (err.statusCode === 404) {
-        console.error(`❌ Domain ${domain} not found in your account`);
+        console.error(` Domain ${domain} not found in your account`);
         process.exit(1);
       }
       throw err;
     }
     
-    console.log('📋 Domain verified in your account');
+    console.log(' Domain verified in your account');
     console.log('');
     
     // Show validation method info
-    console.log('🔐 Validation Method:');
+    console.log(' Validation Method:');
     console.log('');
     
     if (method === 'dns') {
@@ -129,11 +129,11 @@ async function main() {
     
     // Dry run check
     if (dryRun) {
-      console.log('🏁 Dry run complete. No certificate requested.');
+      console.log(' Dry run complete. No certificate requested.');
       console.log('');
-      console.log('💡 To request this certificate, run without --dry-run');
+      console.log(' To request this certificate, run without --dry-run');
       console.log('');
-      console.log('⚠️  IMPORTANT: Gandi SSL certificates may have associated costs.');
+      console.log('  IMPORTANT: Gandi SSL certificates may have associated costs.');
       console.log('   Check your Gandi account pricing before proceeding.');
       console.log('   https://www.gandi.net/en-US/domain/ssl');
       return;
@@ -141,10 +141,10 @@ async function main() {
     
     // Warning and confirmation
     console.log('═'.repeat(70));
-    console.log('         ⚠️  SSL CERTIFICATE REQUEST WARNING ⚠️');
+    console.log('           SSL CERTIFICATE REQUEST WARNING ');
     console.log('═'.repeat(70));
     console.log('');
-    console.log('⚠️  IMPORTANT CONSIDERATIONS:');
+    console.log('  IMPORTANT CONSIDERATIONS:');
     console.log('');
     console.log('1. COST:');
     console.log('   Gandi SSL certificates may have associated costs.');
@@ -170,18 +170,18 @@ async function main() {
     const confirmed = await confirm('Type "yes" to proceed with certificate request: ');
     
     if (!confirmed) {
-      console.log('❌ Certificate request cancelled.');
+      console.log(' Certificate request cancelled.');
       process.exit(0);
     }
     
     console.log('');
-    console.log('⏳ Requesting certificate...');
+    console.log(' Requesting certificate...');
     console.log('');
     
     // Request certificate
     const result = await requestCertificate(domain, { dcv_method: method });
     
-    console.log('✅ Certificate request submitted successfully!');
+    console.log(' Certificate request submitted successfully!');
     console.log('');
     
     if (result.id || result.uuid) {
@@ -193,7 +193,7 @@ async function main() {
     }
     
     console.log('');
-    console.log('📝 Next Steps:');
+    console.log(' Next Steps:');
     console.log('');
     
     if (method === 'dns') {
@@ -214,14 +214,14 @@ async function main() {
     }
     
     console.log('');
-    console.log('📊 To check certificate status:');
+    console.log(' To check certificate status:');
     console.log(`   node cert-details.js ${result.id || result.uuid || '<cert-id>'}`);
     console.log('');
-    console.log('📋 To list all certificates:');
+    console.log(' To list all certificates:');
     console.log('   node list-certificates.js');
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('');
@@ -233,7 +233,7 @@ async function main() {
       console.error('  - SSL certificate service not available for your account');
       console.error('  - No active SSL certificate subscription');
       console.error('');
-      console.error('💡 Gandi SSL certificates require a subscription or purchase.');
+      console.error(' Gandi SSL certificates require a subscription or purchase.');
       console.error('   Visit: https://www.gandi.net/en-US/domain/ssl');
     } else if (error.statusCode === 402) {
       console.error('');

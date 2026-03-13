@@ -3,7 +3,7 @@ name: Internet
 slug: internet
 version: 1.0.0
 description: Manage internet connectivity, compare providers, diagnose issues, optimize performance, and handle mobile data when away from home.
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

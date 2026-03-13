@@ -204,9 +204,9 @@ async function cmdSearch() {
   // Cost display (based on raw API reads, not post-filter count)
   const cost = (rawTweetCount * 0.005).toFixed(2);
   if (quick) {
-    console.error(`\n⚡ quick mode · ${rawTweetCount} tweets read (~$${cost})`);
+    console.error(`\n quick mode · ${rawTweetCount} tweets read (~$${cost})`);
   } else {
-    console.error(`\n📊 ${rawTweetCount} tweets read · est. cost ~$${cost}`);
+    console.error(`\n ${rawTweetCount} tweets read · est. cost ~$${cost}`);
   }
 
   // Stats to stderr
@@ -232,7 +232,7 @@ async function cmdThread() {
     return;
   }
 
-  console.log(`🧵 Thread (${tweets.length} tweets)\n`);
+  console.log(` Thread (${tweets.length} tweets)\n`);
   for (const t of tweets) {
     console.log(fmt.formatTweetTelegram(t));
     console.log();
@@ -358,7 +358,7 @@ async function cmdWatchlist() {
     console.log("Watchlist is empty. Add accounts with: watchlist add <username>");
     return;
   }
-  console.log(`📋 Watchlist (${wl.accounts.length} accounts)\n`);
+  console.log(` Watchlist (${wl.accounts.length} accounts)\n`);
   for (const acct of wl.accounts) {
     const note = acct.note ? ` — ${acct.note}` : "";
     console.log(`  @${acct.username}${note} (added ${acct.addedAt.split("T")[0]})`);

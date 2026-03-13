@@ -113,9 +113,9 @@ cmd_register() {
         # API returns: {"success": true, "data": {"api_key": "...", "wallet_address": "..."}}
         api_key=$(echo "$result" | jq -r '.data.api_key // .api_key // empty' 2>/dev/null)
         
-        echo -e "${GREEN}✅ Registration successful!${NC}"
+        echo -e "${GREEN} Registration successful!${NC}"
         echo ""
-        echo -e "${YELLOW}⚠️  SAVE YOUR API KEY:${NC}"
+        echo -e "${YELLOW}  SAVE YOUR API KEY:${NC}"
         echo ""
         echo -e "${GREEN}API Key: $api_key${NC}"
         echo -e "${BLUE}Wallet: $wallet${NC}"
@@ -147,13 +147,13 @@ EOF
             -H "X-API-Key: $api_key" \
             -H "Content-Type: application/json")
         if echo "$verify_result" | grep -q '"success".*true\|"data"'; then
-            echo -e "${GREEN}✅ Key validated — you can start trading${NC}"
+            echo -e "${GREEN} Key validated — you can start trading${NC}"
         else
-            echo -e "${YELLOW}⚠️  Key saved but verification pending. Try: ./optionns.sh test${NC}"
+            echo -e "${YELLOW}  Key saved but verification pending. Try: ./optionns.sh test${NC}"
         fi
         
     else
-        echo -e "${RED}❌ Registration failed${NC}"
+        echo -e "${RED} Registration failed${NC}"
         echo "$result"
         exit 1
     fi
@@ -173,7 +173,7 @@ cmd_test() {
     result=$(api_call "GET" "/v1/sports/events?sport=NBA")
     
     if echo "$result" | grep -q "success.*true\|game\|event"; then
-        echo -e "${GREEN}✅ API connection successful${NC}"
+        echo -e "${GREEN} API connection successful${NC}"
         
         # Count live games
         game_count=$(echo "$result" | grep -o '"game_id"\|"id"' | wc -l)
@@ -186,7 +186,7 @@ cmd_test() {
         
         exit 0
     else
-        echo -e "${RED}❌ API connection failed${NC}"
+        echo -e "${RED} API connection failed${NC}"
         echo "$result" | head -100
         exit 1
     fi
@@ -259,12 +259,12 @@ cmd_faucet() {
         -d "{\"wallet_address\": \"$wallet\", \"amount\": 1000.0}")
     
     if echo "$result" | grep -q "success\|tx_hash"; then
-        echo -e "${GREEN}✅ Faucet request successful${NC}"
+        echo -e "${GREEN} Faucet request successful${NC}"
         echo "$result" | jq -r '.tx_hash // .message // .' 2>/dev/null || echo "$result"
         
         # Also create optnUSDC ATA if it doesn't exist
         echo ""
-        echo -e "${BLUE}🔍 Checking for optnUSDC token account...${NC}"
+        echo -e "${BLUE} Checking for optnUSDC token account...${NC}"
         
         optnUSDC_MINT="DNaYq6QKoahq98fAwxsFyPiDJZsLaQPq2x3nixnuegJh"
         KEYPAIR_FILE="${HOME}/.config/optionns/agent_keypair.json"
@@ -272,24 +272,24 @@ cmd_faucet() {
         if [[ -f "$KEYPAIR_FILE" ]]; then
             # Check if ATA exists
             if ! spl-token accounts --owner "$wallet" --url devnet 2>/dev/null | grep -q "$optnUSDC_MINT"; then
-                echo -e "${YELLOW}⚠️  optnUSDC ATA not found, creating...${NC}"
+                echo -e "${YELLOW}  optnUSDC ATA not found, creating...${NC}"
                 
                 # Temporarily set Solana config
                 solana config set --keypair "$KEYPAIR_FILE" --url devnet >/dev/null 2>&1
                 
                 if spl-token create-account "$optnUSDC_MINT" --url devnet 2>/dev/null; then
-                    echo -e "${GREEN}✅ optnUSDC token account created!${NC}"
+                    echo -e "${GREEN} optnUSDC token account created!${NC}"
                     echo "Your trades can now settle on-chain."
                 else
-                    echo -e "${YELLOW}⚠️  ATA creation failed (may need SOL for rent)${NC}"
+                    echo -e "${YELLOW}  ATA creation failed (may need SOL for rent)${NC}"
                     echo "Try: spl-token create-account $optnUSDC_MINT"
                 fi
             else
-                echo -e "${GREEN}✅ optnUSDC ATA already exists${NC}"
+                echo -e "${GREEN} optnUSDC ATA already exists${NC}"
             fi
         fi
     else
-        echo -e "${RED}❌ Faucet request failed${NC}"
+        echo -e "${RED} Faucet request failed${NC}"
         echo "$result"
     fi
 }
@@ -384,7 +384,7 @@ Max Payout: \(.max_payout) USDC (\(.max_payout / .premium | floor):\(.premium / 
 Quote ID: \(.quote_id)
 Delta: \(.delta // "N/A") (\(.delta * 100 | floor)% probability)
 Gamma: \(.gamma // "N/A")" + 
-            (if .gamma_trap_warning then "\n⚠️  Gamma Trap Warning: High gamma risk" else "" end) +
+            (if .gamma_trap_warning then "\n  Gamma Trap Warning: High gamma risk" else "" end) +
             "\nValid until: \(.valid_until)"
         else
             .error // "Unknown error"
@@ -461,7 +461,7 @@ cmd_trade() {
         
         # If still not found, reject the trade - game has likely ended
         if [[ -z "$sport" ]]; then
-            echo -e "${RED}❌ Game $game_id not found in live games${NC}"
+            echo -e "${RED} Game $game_id not found in live games${NC}"
             echo ""
             echo "This could mean:"
             echo "  1. The game has ended and is no longer live"
@@ -521,12 +521,12 @@ cmd_trade() {
     if [[ -z "$quote_id" ]]; then
         # Detect specific auth failure and provide actionable guidance
         if echo "$quote_result" | grep -q 'INVALID_API_KEY\|UNAUTHORIZED'; then
-            echo -e "${RED}❌ Authentication failed${NC}"
+            echo -e "${RED} Authentication failed${NC}"
             echo "Your API key is not recognized by the server."
             echo "Try re-registering: ./optionns.sh register your_name"
             echo "If this persists, check your key: cat ~/.config/optionns/credentials.json"
         else
-            echo -e "${RED}❌ Failed to get quote${NC}"
+            echo -e "${RED} Failed to get quote${NC}"
             echo "$quote_result"
         fi
         exit 1
@@ -573,7 +573,7 @@ cmd_trade() {
         pending_id=$(echo "$trade_result" | jq -r '.pending_id // .position_id // .outcome_id')
         position_pda=$(echo "$trade_result" | jq -r '.position_pda // .outcome_position_pda // "N/A"')
         
-        echo -e "${GREEN}✅ Trade prepared!${NC}"
+        echo -e "${GREEN} Trade prepared!${NC}"
         echo "Pending ID: $pending_id"
         echo "Position PDA: $position_pda"
         echo ""
@@ -586,7 +586,7 @@ cmd_trade() {
         RPC_URL="${SOLANA_RPC_URL:-${CRED_RPC:-https://api.devnet.solana.com}}"
         
         if [[ ! -f "$KEYPAIR_FILE" ]]; then
-            echo -e "${RED}❌ Keypair not found at $KEYPAIR_FILE${NC}"
+            echo -e "${RED} Keypair not found at $KEYPAIR_FILE${NC}"
             echo "Run 'optionns.sh register' first to generate a keypair"
             exit 1
         fi
@@ -597,7 +597,7 @@ cmd_trade() {
         sign_exit_code=$?
         
         if [[ $sign_exit_code -eq 0 && -n "$tx_sig" ]]; then
-            echo -e "${GREEN}✅ Transaction submitted to blockchain!${NC}"
+            echo -e "${GREEN} Transaction submitted to blockchain!${NC}"
             echo -e "${BLUE}Solana Tx: $tx_sig${NC}"
            
             echo ""
@@ -611,7 +611,7 @@ cmd_trade() {
             
             if echo "$confirm_result" | grep -q '"success".*true'; then
                 position_id=$(echo "$confirm_result" | jq -r '.position_id // "N/A"')
-                echo -e "${GREEN}✅ Trade confirmed and settled on-chain!${NC}"
+                echo -e "${GREEN} Trade confirmed and settled on-chain!${NC}"
                 echo -e "Position ID: ${BLUE}$position_id${NC}"
                 echo "Explorer: https://explorer.solana.com/tx/${tx_sig}?cluster=devnet"
                 
@@ -626,7 +626,7 @@ Barrier Registered: \(.barrier_registered // true)"
                 # Log to file for tracking
                 echo "$(date -Iseconds) | $position_id | $game_title | $bet_type +$target | $amount contracts | $tx_sig" >> "$SCRIPT_DIR/../positions.log"
             else
-                echo -e "${YELLOW}⚠️  Transaction submitted but confirmation failed${NC}"
+                echo -e "${YELLOW}  Transaction submitted but confirmation failed${NC}"
                 echo "TX signature: $tx_sig"
                 echo "Confirmation response: $confirm_result"
                 echo ""
@@ -635,7 +635,7 @@ Barrier Registered: \(.barrier_registered // true)"
             fi
             
         else
-            echo -e "${RED}❌ Transaction signing/submission failed${NC}"
+            echo -e "${RED} Transaction signing/submission failed${NC}"
             echo "$tx_sig"
             exit 1
         fi
@@ -643,7 +643,7 @@ Barrier Registered: \(.barrier_registered // true)"
     elif echo "$trade_result" | grep -q "pending_id"; then
         # TWO-PHASE COMMIT: Got pending transaction but failed before signing
         pending_id=$(echo "$trade_result" | jq -r '.pending_id')
-        echo -e "${YELLOW}⚠️  Trade prepared but not yet signed${NC}"
+        echo -e "${YELLOW}  Trade prepared but not yet signed${NC}"
         echo "Pending ID: $pending_id"
         echo "You need to sign and submit the transaction manually, then call /vault/confirm"
         echo "$trade_result" | jq '.'
@@ -651,12 +651,12 @@ Barrier Registered: \(.barrier_registered // true)"
     elif echo "$trade_result" | grep -q "position_id"; then
         # Fallback: off-chain only (shouldn't happen with current API)
         position_id=$(echo "$trade_result" | jq -r '.position_id')
-        echo -e "${YELLOW}⚠️  Trade recorded off-chain only (no Solana tx)${NC}"
+        echo -e "${YELLOW}  Trade recorded off-chain only (no Solana tx)${NC}"
         echo "Position ID: $position_id"
         echo "$trade_result" | jq '.'
         
     else
-        echo -e "${RED}❌ Trade failed${NC}"
+        echo -e "${RED} Trade failed${NC}"
         echo "$trade_result"
         exit 1
     fi
@@ -695,7 +695,7 @@ cmd_positions() {
 
 # Batch snapshot — all games + positions in one call
 cmd_snapshot() {
-    echo -e "${BLUE}⚡ Agent Snapshot (batch)${NC}"
+    echo -e "${BLUE} Agent Snapshot (batch)${NC}"
     
     local start_ms=$(date +%s%3N 2>/dev/null || python3 -c 'import time; print(int(time.time()*1000))')
     
@@ -705,7 +705,7 @@ cmd_snapshot() {
     local elapsed=$(( end_ms - start_ms ))
     
     if echo "$result" | jq -e '.success' &>/dev/null; then
-        echo -e "${GREEN}✅ Snapshot received (${elapsed}ms)${NC}"
+        echo -e "${GREEN} Snapshot received (${elapsed}ms)${NC}"
         echo ""
         
         # Summary
@@ -733,14 +733,14 @@ cmd_snapshot() {
             echo "$result" | jq -r '.data.positions[] | "  \(.position_id[:8])... | \(.game_title) | \(.premium_paid) USDC | \(.status)"'
         fi
     else
-        echo -e "${RED}❌ Snapshot failed${NC}"
+        echo -e "${RED} Snapshot failed${NC}"
         echo "$result" | jq '.error // .' 2>/dev/null || echo "$result"
     fi
 }
 
 # Deposit liquidity (on-chain)
 cmd_deposit() {
-    echo -e "${BLUE}💰 Deposit Liquidity (On-Chain)${NC}"
+    echo -e "${BLUE} Deposit Liquidity (On-Chain)${NC}"
     
     # Parse arguments
     local amount=""
@@ -765,13 +765,13 @@ cmd_deposit() {
     done
     
     if [[ -z "$amount" ]]; then
-        echo -e "${RED}❌ --amount required${NC}"
+        echo -e "${RED} --amount required${NC}"
         echo "Usage: optionns deposit --amount <usdc> [--league <NBA|NFL|...>]"
         return 1
     fi
     
     if [[ -z "$WALLET" ]]; then
-        echo -e "${RED}❌ Wallet address not found${NC}"
+        echo -e "${RED} Wallet address not found${NC}"
         echo "Register first: optionns register"
         return 1
     fi
@@ -779,14 +779,14 @@ cmd_deposit() {
     # SECURITY: Validate inputs contain only safe characters
     # Allows any league name (NBA, DOTA2, VALORANT, etc.) while preventing shell injection
     if ! [[ "$league" =~ ^[A-Za-z0-9_-]+$ ]]; then
-        echo -e "${RED}❌ Invalid league parameter: $league${NC}"
+        echo -e "${RED} Invalid league parameter: $league${NC}"
         echo "League name must contain only letters, numbers, underscores, and hyphens"
         return 1
     fi
     
     # SECURITY: Validate amount is a number
     if ! [[ "$amount" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
-        echo -e "${RED}❌ Invalid amount: $amount${NC}"
+        echo -e "${RED} Invalid amount: $amount${NC}"
         echo "Amount must be a positive number"
         return 1
     fi
@@ -803,7 +803,7 @@ cmd_deposit() {
 
 # Withdraw liquidity (on-chain)
 cmd_withdraw() {
-    echo -e "${BLUE}💸 Withdraw Liquidity (On-Chain)${NC}"
+    echo -e "${BLUE} Withdraw Liquidity (On-Chain)${NC}"
     
     # Parse arguments
     local shares=""
@@ -828,13 +828,13 @@ cmd_withdraw() {
     done
     
     if [[ -z "$shares" ]]; then
-        echo -e "${RED}❌ --shares required${NC}"
+        echo -e "${RED} --shares required${NC}"
         echo "Usage: optionns withdraw --shares <qty> [--league <NBA|NFL|...>]"
         return 1
     fi
     
     if [[ -z "$WALLET" ]]; then
-        echo -e "${RED}❌ Wallet address not found${NC}"
+        echo -e "${RED} Wallet address not found${NC}"
         echo "Register first: optionns register"
         return 1
     fi
@@ -842,14 +842,14 @@ cmd_withdraw() {
     # SECURITY: Validate inputs contain only safe characters
     # Allows any league name (NBA, DOTA2, VALORANT, etc.) while preventing shell injection
     if ! [[ "$league" =~ ^[A-Za-z0-9_-]+$ ]]; then
-        echo -e "${RED}❌ Invalid league parameter: $league${NC}"
+        echo -e "${RED} Invalid league parameter: $league${NC}"
         echo "League name must contain only letters, numbers, underscores, and hyphens"
         return 1
     fi
     
     # SECURITY: Validate shares is a number
     if ! [[ "$shares" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
-        echo -e "${RED}❌ Invalid shares quantity: $shares${NC}"
+        echo -e "${RED} Invalid shares quantity: $shares${NC}"
         echo "Shares must be a positive number"
         return 1
     fi
@@ -871,7 +871,7 @@ cmd_autonomous() {
     # SECURITY: Validate input contains only safe characters (alphanumeric, underscore, hyphen)
     # Prevents shell injection while allowing any league name (NBA, DOTA2, VALORANT, etc.)
     if ! [[ "$sport" =~ ^[A-Za-z0-9_-]+$ ]]; then
-        echo -e "${RED}❌ Invalid sport parameter: $sport${NC}"
+        echo -e "${RED} Invalid sport parameter: $sport${NC}"
         echo "Sport name must contain only letters, numbers, underscores, and hyphens"
         exit 1
     fi
@@ -883,12 +883,12 @@ cmd_autonomous() {
     
     # Ensure required environment variables are set
     if [[ -z "$API_KEY" ]]; then
-        echo -e "${RED}❌ OPTIONNS_API_KEY not set${NC}"
+        echo -e "${RED} OPTIONNS_API_KEY not set${NC}"
         echo "Export it or it will be read from ~/.config/optionns/config.json"
     fi
     
     if [[ -z "$SOLANA_PUBKEY" ]]; then
-        echo -e "${YELLOW}⚠️  SOLANA_PUBKEY not set - will use registered agent wallet${NC}"
+        echo -e "${YELLOW}  SOLANA_PUBKEY not set - will use registered agent wallet${NC}"
     fi
     
     # Run strategy engine in autonomous mode

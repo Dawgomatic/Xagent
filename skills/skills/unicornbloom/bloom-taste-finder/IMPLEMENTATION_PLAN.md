@@ -1,11 +1,11 @@
 # Agent Wallet Implementation Plan
 
 ## Current State
-- ✅ Agent wallet creation (CDP AgentKit)
-- ✅ Wallet address generation
-- ❌ Wallet export/storage
-- ❌ Dashboard wallet management
-- ❌ X402 payment implementation
+-  Agent wallet creation (CDP AgentKit)
+-  Wallet address generation
+-  Wallet export/storage
+-  Dashboard wallet management
+-  X402 payment implementation
 
 ## Safety Issue
 **Problem**: Wallets are created but not exported/stored. If users send funds, they cannot be recovered.
@@ -17,7 +17,7 @@
 ## Implementation Phases
 
 ### Phase 1: Wallet Export & Storage (CRITICAL - Do First)
-**Priority**: 🔴 High - Safety critical
+**Priority**:  High - Safety critical
 
 **Backend Changes:**
 1. Export wallet data after creation
@@ -65,7 +65,7 @@ ALTER TABLE users ADD COLUMN agent_wallet_network VARCHAR(20);
 ---
 
 ### Phase 2: Dashboard - Agent Tab/Section
-**Priority**: 🟡 Medium - Required before showing wallet to users
+**Priority**:  Medium - Required before showing wallet to users
 
 **Dashboard Location Options:**
 
@@ -108,7 +108,7 @@ Dashboard > Identity Card
 
 <Card>
   <CardHeader>
-    <h2>🤖 Your Agent Wallet</h2>
+    <h2> Your Agent Wallet</h2>
     <Badge>Base Network</Badge>
   </CardHeader>
 
@@ -217,7 +217,7 @@ Dashboard > Identity Card
 ---
 
 ### Phase 4: X402 Payment Implementation
-**Priority**: 🟢 Low - Nice to have, build after wallet management
+**Priority**:  Low - Nice to have, build after wallet management
 
 **4.1 Backend: Implement sendX402Payment**
 ```typescript
@@ -227,7 +227,7 @@ async sendX402Payment(to: string, amount: number): Promise<string> {
     throw new Error('Agent wallet not initialized');
   }
 
-  console.log(`💸 Sending ${amount} USDC via X402 to ${to}...`);
+  console.log(` Sending ${amount} USDC via X402 to ${to}...`);
 
   try {
     // Use CDP SDK to send transaction
@@ -239,7 +239,7 @@ async sendX402Payment(to: string, amount: number): Promise<string> {
 
     return tx.transactionHash;
   } catch (error) {
-    console.error('❌ X402 payment failed:', error);
+    console.error(' X402 payment failed:', error);
     throw new Error(`X402 payment failed: ${error.message}`);
   }
 }
@@ -304,12 +304,12 @@ async sendX402Payment(to: string, amount: number): Promise<string> {
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🤖 **Your Agent Wallet**
+ **Your Agent Wallet**
 
 ${agentWallet.address}
 Network: ${networkDisplay}
 
-🌐 **Manage your wallet in Dashboard**
+ **Manage your wallet in Dashboard**
    ${dashboardUrl.replace('/dashboard', '/dashboard/agent-wallet')}
 
    • View balance
@@ -328,7 +328,7 @@ Network: ${networkDisplay}
 Dashboard > Agent Wallet Tab
 
 ┌─────────────────────────────────────────┐
-│ 🤖 Your Agent Wallet                    │
+│  Your Agent Wallet                    │
 ├─────────────────────────────────────────┤
 │                                         │
 │ [Wallet Overview Card]                  │
@@ -340,7 +340,7 @@ Dashboard > Agent Wallet Tab
 │   [Receive] [Send] [Export] [History]   │
 │                                         │
 │ [Security & Backup]                     │
-│   ⚠️  Backup reminder if not done       │
+│     Backup reminder if not done       │
 │                                         │
 │ [Recent Transactions]                   │
 │   • Last 10 transactions                │
@@ -361,11 +361,11 @@ Dashboard > Agent Wallet Tab
 5. **Coming Soon** - Future value
 
 ### Privacy Considerations
-- ✅ Wallet address is public (blockchain)
-- ✅ Show it prominently
-- ⚠️  Wallet data (seed/keys) is private
-- ⚠️  Only show export after password confirmation
-- ⚠️  Add warning: "Store securely, don't share"
+-  Wallet address is public (blockchain)
+-  Show it prominently
+-   Wallet data (seed/keys) is private
+-   Only show export after password confirmation
+-   Add warning: "Store securely, don't share"
 
 ---
 
@@ -408,13 +408,13 @@ Dashboard > Agent Wallet Tab
 
 ## Decision Point: Do We Build This Now?
 
-### ✅ Build Now If:
+###  Build Now If:
 - You're ready to commit to wallet management
 - Dashboard exists and is maintained
 - This is core to your agent identity value prop
 - You have 2-3 weeks to complete it
 
-### ⏸️ Defer If:
+###  Defer If:
 - Other features are higher priority
 - Dashboard needs major work first
 - Agent tipping is not core to MVP

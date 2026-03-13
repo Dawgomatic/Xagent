@@ -95,10 +95,10 @@ All features verified end-to-end with RDKit 2024.03+:
 
 | Molecule | MW | logP | Lipinski | Key Findings |
 |----------|-----|------|----------|-------------|
-| Caffeine | 194.08 | -1.03 | ✅ Pass (0 violations) | High solubility, moderate BBB, QED 0.54 |
-| Aspirin | 180.04 | 1.31 | ✅ Pass (0 violations) | Moderate solubility, SA 1.58 (easy), QED 0.55 |
-| Sotorasib | 560.23 | 4.48 | ✅ Pass (1 violation: MW) | Low solubility, CYP3A4 risk, high PPB |
-| Metformin | 129.10 | -1.03 | ✅ Pass (0 violations) | High solubility, low BBB, QED 0.25 |
+| Caffeine | 194.08 | -1.03 |  Pass (0 violations) | High solubility, moderate BBB, QED 0.54 |
+| Aspirin | 180.04 | 1.31 |  Pass (0 violations) | Moderate solubility, SA 1.58 (easy), QED 0.55 |
+| Sotorasib | 560.23 | 4.48 |  Pass (1 violation: MW) | Low solubility, CYP3A4 risk, high PPB |
+| Metformin | 129.10 | -1.03 |  Pass (0 violations) | High solubility, low BBB, QED 0.25 |
 | Invalid SMILES | — | — | — | Graceful JSON error |
 | Empty input | — | — | — | Graceful JSON error |
 

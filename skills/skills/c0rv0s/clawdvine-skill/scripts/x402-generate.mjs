@@ -57,7 +57,7 @@ try {
 }
 
 // --- Generate ---
-console.log(`\n🎬 Generating video...`);
+console.log(`\n Generating video...`);
 console.log(`   Prompt:   "${prompt.slice(0, 80)}${prompt.length > 80 ? '...' : ''}"`);
 console.log(`   Model:    ${model}`);
 console.log(`   Duration: ${duration}s`);
@@ -73,15 +73,15 @@ const res = await fetchWithPayment(`${API_BASE}/generation/create`, {
 const body = await res.json();
 
 if (res.status !== 202 || !body.taskId) {
-  console.error('❌ Generation failed:', JSON.stringify(body, null, 2));
+  console.error(' Generation failed:', JSON.stringify(body, null, 2));
   process.exit(1);
 }
 
-console.log(`✅ Queued: ${body.taskId}`);
+console.log(` Queued: ${body.taskId}`);
 if (body.txHash) {
-  console.log(`💳 Payment: ${body.explorer || `https://basescan.org/tx/${body.txHash}`}`);
+  console.log(` Payment: ${body.explorer || `https://basescan.org/tx/${body.txHash}`}`);
 }
-console.log(`⏳ Polling...\n`);
+console.log(` Polling...\n`);
 
 // --- Poll ---
 const taskId = body.taskId;
@@ -98,20 +98,20 @@ for (let i = 0; i < 120; i++) {
   if (status.status === 'completed') {
     const video = status.result?.generation?.video;
     const thumb = status.result?.generation?.image;
-    console.log(`\n🎉 Complete! (${elapsed}s)`);
-    console.log(`🎬 Video: ${video}`);
-    if (thumb) console.log(`🖼️  Thumb: ${thumb}`);
-    if (status.txHash) console.log(`💳 TX:    ${status.explorer || `https://basescan.org/tx/${status.txHash}`}`);
+    console.log(`\n Complete! (${elapsed}s)`);
+    console.log(` Video: ${video}`);
+    if (thumb) console.log(`  Thumb: ${thumb}`);
+    if (status.txHash) console.log(` TX:    ${status.explorer || `https://basescan.org/tx/${status.txHash}`}`);
     process.exit(0);
   }
 
   if (status.status === 'failed') {
-    console.error(`\n❌ Failed after ${elapsed}s: ${status.error}`);
+    console.error(`\n Failed after ${elapsed}s: ${status.error}`);
     process.exit(1);
   }
 
   process.stdout.write(`\r   ${status.status} ${pct}% (${elapsed}s)`);
 }
 
-console.error('\n❌ Timed out after 10 minutes');
+console.error('\n Timed out after 10 minutes');
 process.exit(1);

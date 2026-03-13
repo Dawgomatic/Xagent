@@ -123,7 +123,7 @@ CWE doesn't have a "by design" category, but:
 **How it works:**
 - Findings split into `vulnerabilities[]` and `known_patterns[]`
 - Only vulnerabilities affect the score
-- Known patterns displayed separately in UI ("⚠️ Known Patterns: This package uses exec() for code execution — this is expected for its purpose")
+- Known patterns displayed separately in UI (" Known Patterns: This package uses exec() for code execution — this is expected for its purpose")
 
 **Pros:**
 - Cleanest UX: users immediately understand the distinction
@@ -297,18 +297,18 @@ Create `config/known-patterns.json`:
 **Trust Score display (agent output):**
 
 ```
-✅ llama-index-core — Trust Score: 85/100
+ llama-index-core — Trust Score: 85/100
 
   Vulnerabilities: 1 medium (outdated dependency)
   Known Patterns (by design):
-    ℹ️ exec() usage — expected for agent framework
-    ℹ️ Dynamic imports — plugin system
-    ℹ️ Network access — API calls to LLM providers
+     exec() usage — expected for agent framework
+     Dynamic imports — plugin system
+     Network access — API calls to LLM providers
 ```
 
 vs. current (broken):
 ```
-⚠️ llama-index-core — Trust Score: 45/100
+ llama-index-core — Trust Score: 45/100
   Findings: 1 high, 3 medium, 2 low
 ```
 
@@ -373,10 +373,10 @@ Total: ~1 hour for the backend. The agents will automatically calculate correct 
 
 | Approach | Accuracy | Effort | Risk | Recommended? |
 |----------|----------|--------|------|-------------|
-| A: by_design flag | Good | Low | Low (could be gamed) | ✅ Yes (mechanism) |
+| A: by_design flag | Good | Low | Low (could be gamed) |  Yes (mechanism) |
 | B: Informational severity | OK | Low | Medium (loses signal) | Partial |
 | C: Contextual by category | Best | High | Low | Future enhancement |
-| D: Known Patterns section | Great | Medium | Low | ✅ Yes (UX layer) |
-| E: Popularity modifier | Poor | Medium | **High** (hides real vulns) | ❌ No |
+| D: Known Patterns section | Great | Medium | Low |  Yes (UX layer) |
+| E: Popularity modifier | Poor | Medium | **High** (hides real vulns) |  No |
 
 **Final recommendation: A+D combined, with minimum viable path being just A (the flag) since agents handle the display logic themselves.**

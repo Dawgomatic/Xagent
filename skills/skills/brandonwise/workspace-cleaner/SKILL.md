@@ -69,14 +69,14 @@ Default patterns (customizable via config):
 
 | Category | Patterns | Safe? |
 |----------|----------|-------|
-| Temp downloads | `*.skill` in root | ✅ |
-| Generated images | `*.png`, `*.jpg` in root | ✅ |
-| macOS cruft | `.DS_Store` | ✅ |
-| Logs | `*.log` | ✅ |
-| Temp files | `*.tmp`, `*.bak`, `*~` | ✅ |
-| Node modules | `node_modules/` in root | ✅ |
-| Python venvs | `.venv*/`, `venv/` (except known) | ⚠️ |
-| Duplicate repos | Same remote as projects/* | ⚠️ |
+| Temp downloads | `*.skill` in root |  |
+| Generated images | `*.png`, `*.jpg` in root |  |
+| macOS cruft | `.DS_Store` |  |
+| Logs | `*.log` |  |
+| Temp files | `*.tmp`, `*.bak`, `*~` |  |
+| Node modules | `node_modules/` in root |  |
+| Python venvs | `.venv*/`, `venv/` (except known) |  |
+| Duplicate repos | Same remote as projects/* |  |
 
 ## What's Protected
 

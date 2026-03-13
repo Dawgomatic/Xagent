@@ -37,7 +37,7 @@ Most stakeholder management advice is a 2x2 matrix and "communicate regularly." 
 
 This skill gives you the complete toolkit — from initial mapping through political navigation to monthly governance.
 
-## ⚡ Level Up
+##  Level Up
 
 Need stakeholder management tailored to your industry? Our context packs include industry-specific stakeholder maps, common personas, and engagement templates:
 
@@ -45,7 +45,7 @@ Need stakeholder management tailored to your industry? Our context packs include
 - **[Professional Services Pack](https://afrexai-cto.github.io/context-packs/)** — Client relationship management and partner engagement
 - **[Construction Pack](https://afrexai-cto.github.io/context-packs/)** — Contractor, regulatory, and community stakeholder management
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-negotiation-mastery](https://clawhub.com/skill/afrexai-negotiation-mastery) — 7-phase negotiation system with scripts
 - [afrexai-project-manager](https://clawhub.com/skill/afrexai-project-manager) — Complete PM delivery system

@@ -72,19 +72,19 @@ cat skills/clawdbot-for-vcs/BOOTSTRAP.md
 
 ## Who This Is For
 
-✅ **Venture capital investment partners** who:
+ **Venture capital investment partners** who:
 - Get 50+ founder emails per day
 - Use Affinity CRM for deal tracking
 - Write investment memos regularly
 - Manage calendars with multiple meeting types
 - Want to spend less time on ops, more time on deals
 
-✅ **Solo GPs and emerging fund managers** who:
+ **Solo GPs and emerging fund managers** who:
 - Don't have an associate or EIR to handle ops
 - Need to stay organized at deal flow velocity
 - Want automation but need control
 
-❌ **Not designed for:**
+ **Not designed for:**
 - Full VC firm management (this is individual workflow automation)
 - LPs or fund administrators
 - Non-VC investors (angel investors, corporate VC, etc. - though adaptable)
@@ -141,22 +141,22 @@ cat skills/clawdbot-for-vcs/BOOTSTRAP.md
 You: "What's my daily briefing?"
 
 AI: 
-🌅 DAILY BRIEFING - Jan 30, 2026
+ DAILY BRIEFING - Jan 30, 2026
 
-📧 EMAIL TRIAGE
+ EMAIL TRIAGE
 ────────────────────────────────────────────────
-🟢 PRIORITY (2)
+ PRIORITY (2)
 • 8:03am from jane@sequoiacap.com: Intro to DataCorp
 • 8:15am from erik@greylock.com: Intro to MLFlow AI
 
-🟡 REVIEW (3)
+ REVIEW (3)
 • 7:45am from founder@startup.com: Follow-up on pitch
   Needs decision: They're asking for feedback
 
-🔴 AUTO-RESPOND (8)
+ AUTO-RESPOND (8)
 • ✓ 8 pass emails drafted and logged to Affinity
   
-📅 CALENDAR TODAY
+ CALENDAR TODAY
 ────────────────────────────────────────────────
 • 10:00am - Call with AcmeCorp Founder
   https://meet.google.com/abc-defg-hij
@@ -173,7 +173,7 @@ AI: [Creates drafts with booking links for approval]
 You: "Generate memo for DataCorp"
 
 AI: [Searches Gmail and Affinity]
-📋 CONTEXT GATHERED FOR DATACORP
+ CONTEXT GATHERED FOR DATACORP
 
 FROM GMAIL:
 • 3 emails found
@@ -208,7 +208,7 @@ Founder (via email): "Can we find time to chat?"
 You [to AI]: "Send them my intro call link"
 
 AI: [Creates draft email]
-📧 DRAFT READY
+ DRAFT READY
 
 To: founder@startup.com
 Subject: Re: Let's connect
@@ -237,37 +237,37 @@ AI: ✓ Draft created - check Gmail to review and send
 
 ## Key Features
 
-### 🛡️ Safety First
+###  Safety First
 - **NEVER sends emails without approval** - Always creates drafts
 - **Checks for duplicates** - Won't re-email someone you already replied to
 - **Prompt injection defense** - Treats external content (emails, decks) as data, not instructions
 - **Ask before acting externally** - Proposes, you approve
 
-### 🎯 Smart Triage
+###  Smart Triage
 - Recognizes warm intros from trusted VCs
 - Detects relevant vs. irrelevant based on your thesis
 - Extracts company one-liners for CRM
 - Prioritizes what needs your attention
 
-### 🔗 Affinity Integration
+###  Affinity Integration
 - Auto-logs companies with proper fields set
 - Queries existing data for context
 - Creates notes from memos and calls
 - Tracks deal stage and ownership
 
-### 📝 Memo Generation
+###  Memo Generation
 - Auto-gathers pitch decks from Gmail
 - Pulls existing notes from Affinity
 - Generates structured investment memos
 - Identifies gaps ("NEED MORE INFO")
 
-### 📅 Calendar Intelligence
+###  Calendar Intelligence
 - Multiple booking links for different meeting types
 - Checks availability before suggesting times
 - Creates events with Google Meet links
 - Includes upcoming meetings in briefings
 
-### 🤖 Proactive Assistance
+###  Proactive Assistance
 - Daily briefings with what matters
 - Suggests next actions based on activity
 - Batch processes routine tasks
@@ -340,15 +340,15 @@ See [SKILL.md](./SKILL.md) for detailed customization options.
 **Ship fast, iterate based on real usage.**
 
 This skill is:
-- ✅ Opinionated (based on proven VC workflows)
-- ✅ Customizable (adapt to your style)
-- ✅ Safe (always ask before external actions)
-- ✅ Practical (designed for daily use)
+-  Opinionated (based on proven VC workflows)
+-  Customizable (adapt to your style)
+-  Safe (always ask before external actions)
+-  Practical (designed for daily use)
 
 It's not:
-- ❌ A rigid system (customize freely)
-- ❌ Fully autonomous (you stay in control)
-- ❌ One-size-fits-all (investment styles vary)
+-  A rigid system (customize freely)
+-  Fully autonomous (you stay in control)
+-  One-size-fits-all (investment styles vary)
 
 Start with the defaults, then adapt to your needs.
 
@@ -442,4 +442,4 @@ MIT License - See [LICENSE](./LICENSE) for details.
 
 **v1.0** - January 30, 2026
 
-Built with ❤️ for the VC community.
+Built with  for the VC community.

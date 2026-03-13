@@ -535,9 +535,9 @@ class MemoryTree:
             desc = node.get('desc', '')
             
             if path == 'root':
-                lines.append(f"{prefix}📂 Root (warm:{warm}, cold:{cold})")
+                lines.append(f"{prefix} Root (warm:{warm}, cold:{cold})")
             else:
-                lines.append(f"{prefix}📁 {path} — {desc}")
+                lines.append(f"{prefix} {path} — {desc}")
                 lines.append(f"{prefix}   Memories: warm={warm}, cold={cold}")
             
             for child in sorted(node.get('children', [])):
@@ -663,7 +663,7 @@ class HotMemory:
         # Identity
         identity = self.state.get('identity', {})
         if identity:
-            lines.append("## 🤖 Agent Identity")
+            lines.append("##  Agent Identity")
             lines.append("")
             for k, v in identity.items():
                 lines.append(f"- **{k.replace('_', ' ').title()}:** {v}")
@@ -672,7 +672,7 @@ class HotMemory:
         # Owner Profile
         owner = self.state.get('owner_profile', {})
         if owner:
-            lines.append("## 👤 Owner Profile")
+            lines.append("##  Owner Profile")
             lines.append("")
             for k, v in owner.items():
                 if isinstance(v, list):
@@ -685,7 +685,7 @@ class HotMemory:
         context = self.state.get('active_context', {})
         
         if context.get('projects'):
-            lines.append("## 💼 Active Projects")
+            lines.append("##  Active Projects")
             lines.append("")
             for p in context['projects']:
                 lines.append(f"### {p.get('name', 'Unnamed')}")
@@ -696,7 +696,7 @@ class HotMemory:
                 lines.append("")
         
         if context.get('tasks'):
-            lines.append("## ✅ Pending Tasks")
+            lines.append("##  Pending Tasks")
             lines.append("")
             for task in context['tasks'][-10:]:
                 status = task.get('status', 'pending')
@@ -705,7 +705,7 @@ class HotMemory:
             lines.append("")
         
         if context.get('events'):
-            lines.append("## 📅 Recent Events")
+            lines.append("##  Recent Events")
             lines.append("")
             for event in context['events'][-10:]:
                 ts = event.get('timestamp', 0)
@@ -717,7 +717,7 @@ class HotMemory:
         # Critical Lessons
         lessons = self.state.get('critical_lessons', [])
         if lessons:
-            lines.append("## 🎯 Critical Lessons")
+            lines.append("##  Critical Lessons")
             lines.append("")
             for lesson in lessons[-20:]:
                 if isinstance(lesson, dict):

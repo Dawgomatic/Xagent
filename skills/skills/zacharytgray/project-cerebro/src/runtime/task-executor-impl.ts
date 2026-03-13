@@ -55,7 +55,7 @@ export class OpenClawTaskExecutor implements TaskExecutor {
     const announceFromExecutor = task.sendDiscordNotification !== false;
 
     if (announceFromExecutor) {
-      await this.openClawAdapter.sendMessage(notifyTarget, `▶️ **Task started:** ${task.title}`, notifyChannel);
+      await this.openClawAdapter.sendMessage(notifyTarget, ` **Task started:** ${task.title}`, notifyChannel);
     }
 
     // Execute with OpenClaw
@@ -86,7 +86,7 @@ export class OpenClawTaskExecutor implements TaskExecutor {
     if (announceFromExecutor) {
       await this.openClawAdapter.sendMessage(
         notifyTarget,
-        `✅ **Task completed:** ${task.title}`,
+        ` **Task completed:** ${task.title}`,
         notifyChannel
       );
     }

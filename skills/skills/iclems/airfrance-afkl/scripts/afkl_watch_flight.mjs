@@ -371,7 +371,7 @@ if (!prev) {
   const depPretty = prettyWhen(snap.depScheduled || snap.depBest, { timeZone: tz });
   const routeStr = (snap.depCity && snap.arrCity) ? `${snap.depCity}→${snap.arrCity}` : snap.route.join('→');
   const where = `${snap.terminal ? ` • T${snap.terminal}` : ''}${snap.gate ? ` Gate ${snap.gate}` : ''}`;
-  console.log(`🛫 ${carrier}${snap.flightNumber} (${routeStr}) — suivi activé\n🕤 Départ: ${depPretty}${where}`);
+  console.log(` ${carrier}${snap.flightNumber} (${routeStr}) — suivi activé\n Départ: ${depPretty}${where}`);
   process.exit(0);
 }
 
@@ -394,9 +394,9 @@ function wifiLine(snap) {
   const sat = snap.satelliteConnectivityOnBoard;
 
   // Output format: emoji + the word "wifi" + text fast/slow.
-  if (hs === true || hs === 'Y') return `⚡️📶 wifi fast${(sat === true || sat === 'Y') ? ' • 📡' : ''}`;
-  if (we === true || we === 'Y') return `📶 wifi slow${(sat === true || sat === 'Y') ? ' • 📡' : ''}`;
-  if (we === false || we === 'N') return `📶 wifi off`;
+  if (hs === true || hs === 'Y') return ` wifi fast${(sat === true || sat === 'Y') ? ' • ' : ''}`;
+  if (we === true || we === 'Y') return ` wifi slow${(sat === true || sat === 'Y') ? ' • ' : ''}`;
+  if (we === false || we === 'N') return ` wifi off`;
   return '';
 }
 
@@ -410,25 +410,25 @@ if (prev) {
 
   // Time changes
   if (changes.includes('depBest') || changes.includes('depScheduled')) {
-    headlineParts.push('🟡 nouveau départ');
+    headlineParts.push(' nouveau départ');
   }
   if (changes.includes('arrBest') || changes.includes('arrScheduled')) {
-    headlineParts.push('🟡 nouvelle arrivée');
+    headlineParts.push(' nouvelle arrivée');
   }
 
   // Gate/terminal
   if (changes.includes('terminal') || changes.includes('gate')) {
-    headlineParts.push('🟦 gate/terminal update');
+    headlineParts.push(' gate/terminal update');
   }
 
   // Boarding started
   if (changes.includes('boardingStatus') && String(old.boardingStatus||'').toLowerCase().includes('not') && !String(snap.boardingStatus||'').toLowerCase().includes('not')) {
-    headlineParts.push('🟢 boarding started');
+    headlineParts.push(' boarding started');
   }
 
   // Aircraft/config
   if (changes.includes('aircraftReg') || changes.includes('aircraftType') || changes.includes('physicalPaxConfiguration') || changes.includes('operationalConfiguration')) {
-    headlineParts.push('🚨 nouvel avion/config');
+    headlineParts.push(' nouvel avion/config');
   }
 
   // Inbound impact
@@ -436,8 +436,8 @@ if (prev) {
     const parts = String(snap.prevSummary||'').split('|');
     const label = (parts[1]||'').toUpperCase();
     const delayMin = Number(parts[2]||0);
-    if (label === 'DELAYED' && delayMin >= 10) headlineParts.push(`⚠️ inbound +${delayMin}m`);
-    if (label === 'CANCELLED') headlineParts.push('⚠️ inbound cancelled');
+    if (label === 'DELAYED' && delayMin >= 10) headlineParts.push(` inbound +${delayMin}m`);
+    if (label === 'CANCELLED') headlineParts.push(' inbound cancelled');
   }
 
   if (headlineParts.length) {
@@ -463,7 +463,7 @@ const statusPretty = String(statusRaw)
   .split('_')
   .map(w => w ? (w[0].toUpperCase() + w.slice(1).toLowerCase()) : '')
   .join(' ');
-lines.push(`🛫 ${carrier}${snap.flightNumber} (${routeStr}) — ${statusPretty}`);
+lines.push(` ${carrier}${snap.flightNumber} (${routeStr}) — ${statusPretty}`);
 if (snap.depScheduled) {
   const depPretty = prettyWhen(snap.depScheduled, { timeZone: tz });
   const depBestPretty = snap.depBest ? prettyWhen(snap.depBest, { timeZone: tz }) : '';
@@ -473,7 +473,7 @@ if (snap.depScheduled) {
   const where = `${origin}${snap.terminal ? ` T${snap.terminal}` : ''}${snap.gate ? ` Gate ${snap.gate}` : ''}`;
   const bs = (snap.boardingStatus || '').trim();
   const bsShow = bs && !/^not\s*open$/i.test(bs) ? ` • boarding: ${bs}` : '';
-  lines.push(`🕤 Départ: ${depStr}${closedTime ? ` (boarding close ${closedTime})` : ''}${bsShow} — ${where}`);
+  lines.push(` Départ: ${depStr}${closedTime ? ` (boarding close ${closedTime})` : ''}${bsShow} — ${where}`);
 }
 if (snap.arrScheduled) {
   const dstTz = (snap.route[1] === 'CDG') ? 'Europe/Paris' : tz;
@@ -482,7 +482,7 @@ if (snap.arrScheduled) {
   const arrStr = (arrBestPretty && arrBestPretty !== arrPretty) ? `${arrPretty} → ${arrBestPretty}` : arrPretty;
   const dst = snap.route[1] || '';
   const dstTerm = snap.arrivalPositionTerminal ? ` ${snap.arrivalPositionTerminal}` : '';
-  lines.push(`🛬 Arrivée: ${arrStr} — ${dst}${dstTerm}`);
+  lines.push(` Arrivée: ${arrStr} — ${dst}${dstTerm}`);
 }
 // (terminal/gate already included in departure line)
 
@@ -493,7 +493,7 @@ if (snap.aircraftType || snap.aircraftReg) {
   const wifi = wifiLine(snap);
   const age = (snap.aircraftIntel && (snap.aircraftIntel.ageYears != null)) ? `(~${snap.aircraftIntel.ageYears} ans)` : '';
   const tail = snap.aircraftReg ? snap.aircraftReg.replace(/^F([A-Z0-9]{4})$/, 'F-$1') : '';
-  lines.push(`✈️ ${tail} ${age} • ${snap.aircraftType} ${snap.aircraftTypeName}${cfgPretty}`.trim());
+  lines.push(` ${tail} ${age} • ${snap.aircraftType} ${snap.aircraftTypeName}${cfgPretty}`.trim());
   if (wifi) lines.push(wifi);
 
 }
@@ -506,9 +506,9 @@ if (prevChain.length && snap.prevSummary) {
   const statusSuffix = label === 'ON TIME' ? '(on time)' : (label === 'DELAYED' ? `(delayed ${delayMin} mins)` : (label === 'CANCELLED' ? '(cancelled)' : `(${String(label||'').toLowerCase()})`));
 
   if (snap.prevPath) {
-    lines.push(`↩️ ${snap.prevPath} ${statusSuffix}`);
+    lines.push(` ${snap.prevPath} ${statusSuffix}`);
   } else {
-    lines.push(`↩️ ${city} • ${label}${delayStr}`);
+    lines.push(` ${city} • ${label}${delayStr}`);
   }
 }
 console.log(lines.join('\n'));

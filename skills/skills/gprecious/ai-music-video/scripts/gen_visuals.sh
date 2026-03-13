@@ -123,18 +123,18 @@ TOTAL_IMG=$(python3 -c "print(f'{$NUM_IMAGES * $IMG_COST:.2f}')")
 TOTAL_VID=$(python3 -c "print(f'{$NUM_VIDEOS * $VID_COST:.2f}')")
 TOTAL=$(python3 -c "print(f'{$NUM_IMAGES * $IMG_COST + $NUM_VIDEOS * $VID_COST:.2f}')")
 
-echo "📊 Visual Generation Cost Estimate"
+echo " Visual Generation Cost Estimate"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "  Mode: $MODE ($NUM_SCENES scenes)"
 if [[ $NUM_IMAGES -gt 0 ]]; then
-  echo "  🎨 Images: ${NUM_IMAGES}× $IMAGE_PROVIDER/$IMAGE_MODEL ($IMAGE_QUALITY, $IMAGE_SIZE)"
+  echo "   Images: ${NUM_IMAGES}× $IMAGE_PROVIDER/$IMAGE_MODEL ($IMAGE_QUALITY, $IMAGE_SIZE)"
   echo "     Cost: ${NUM_IMAGES} × \$${IMG_COST} = \$${TOTAL_IMG}"
 fi
 if [[ $NUM_VIDEOS -gt 0 ]]; then
-  echo "  🎬 Videos: ${NUM_VIDEOS}× $VIDEO_PROVIDER"
+  echo "   Videos: ${NUM_VIDEOS}× $VIDEO_PROVIDER"
   echo "     Cost: ${NUM_VIDEOS} × \$${VID_COST} = \$${TOTAL_VID}"
 fi
-echo "  💰 Total: \$${TOTAL}"
+echo "   Total: \$${TOTAL}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 if [[ "$DRY_RUN" = true ]]; then
@@ -227,7 +227,7 @@ if 'data' in d and len(d['data']) > 0:
 elif 'error' in d:
     print(f'ERROR: {d[\"error\"][\"message\"]}', file=sys.stderr)
     sys.exit(1)
-" && echo "  ✅ $(basename "$outpath")" || echo "  ❌ Image gen failed" >&2
+" && echo "   $(basename "$outpath")" || echo "   Image gen failed" >&2
 
   rm -f "$pfile" "$resp_file" "${resp_file}.body"
 }
@@ -285,7 +285,7 @@ if 'data' in d and len(d['data']) > 0:
 elif 'error' in d:
     print(f'ERROR: {d[\"error\"][\"message\"]}', file=sys.stderr)
     sys.exit(1)
-" && echo "  ✅ $(basename "$outpath")" || echo "  ❌ Seedream gen failed" >&2
+" && echo "   $(basename "$outpath")" || echo "   Seedream gen failed" >&2
 
   rm -f "$pfile" "$resp_file" "${resp_file}.body"
 }
@@ -324,10 +324,10 @@ else:
     print('ERROR', file=sys.stderr); sys.exit(1)
 " 2>&1)
   if [[ -z "$url" || "$url" == ERROR* ]]; then
-    echo "  ❌ Image gen failed" >&2; return 1
+    echo "   Image gen failed" >&2; return 1
   fi
   curl -s -o "$outpath" "$url"
-  echo "  ✅ $(basename "$outpath")"
+  echo "   $(basename "$outpath")"
 }
 
 # ── Generate videos ──
@@ -356,17 +356,17 @@ print(json.dumps({
   local video_id
   video_id=$(echo "$resp" | python3 -c "import sys,json; print(json.load(sys.stdin).get('id',''))" 2>/dev/null)
   if [[ -z "$video_id" ]]; then
-    echo "  ❌ Video gen failed: $resp" >&2; return 1
+    echo "   Video gen failed: $resp" >&2; return 1
   fi
   # Poll
-  echo "  ⏳ Video generating (id: $video_id)..."
+  echo "   Video generating (id: $video_id)..."
   local status="processing"
   local attempts=0
   while [[ "$status" == "processing" || "$status" == "pending" ]]; do
     sleep 15
     attempts=$((attempts + 1))
     if [[ $attempts -ge 40 ]]; then
-      echo "  ❌ Video timeout" >&2; return 1
+      echo "   Video timeout" >&2; return 1
     fi
     local poll
     poll=$(curl -s "https://api.together.xyz/v2/videos/${video_id}" \
@@ -378,11 +378,11 @@ print(json.dumps({
       vid_url=$(echo "$poll" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('output',{}).get('video_url', d.get('result',{}).get('url','')))" 2>/dev/null)
       if [[ -n "$vid_url" ]]; then
         curl -s -o "$outpath" "$vid_url"
-        echo "  ✅ $(basename "$outpath")"
+        echo "   $(basename "$outpath")"
         return 0
       fi
     elif [[ "$status" == "failed" ]]; then
-      echo "  ❌ Video generation failed" >&2; return 1
+      echo "   Video generation failed" >&2; return 1
     fi
   done
 }
@@ -421,7 +421,7 @@ print(json.dumps({
 
 # ── Main generation loop ──
 echo ""
-echo "🎨 Generating visuals ($MODE mode)..."
+echo " Generating visuals ($MODE mode)..."
 
 VISUAL_IDX=0
 IMAGE_IDX=0
@@ -440,7 +440,7 @@ for i, p in enumerate(prompts):
     # Image
     FNAME="scene_$(printf '%03d' "$idx").png"
     echo ""
-    echo "  [$((idx+1))/$NUM_SCENES] 🎨 Image: ${prompt:0:60}..."
+    echo "  [$((idx+1))/$NUM_SCENES]  Image: ${prompt:0:60}..."
     case "$IMAGE_PROVIDER" in
       openai) generate_openai_image "$prompt" "$OUTDIR/images/$FNAME" ;;
       seedream) generate_seedream_image "$prompt" "$OUTDIR/images/$FNAME" ;;
@@ -451,7 +451,7 @@ for i, p in enumerate(prompts):
     # Video
     FNAME="scene_$(printf '%03d' "$idx").mp4"
     echo ""
-    echo "  [$((idx+1))/$NUM_SCENES] 🎬 Video: ${prompt:0:60}..."
+    echo "  [$((idx+1))/$NUM_SCENES]  Video: ${prompt:0:60}..."
     case "$VIDEO_PROVIDER" in
       sora) generate_sora_video "$prompt" "$OUTDIR/videos/$FNAME" "" ;;
       sora-pro) generate_sora_video "$prompt" "$OUTDIR/videos/$FNAME" "pro" ;;
@@ -516,7 +516,7 @@ with open(os.path.join(outdir, 'visuals_meta.json'), 'w') as f:
     json.dump(meta, f, indent=2, ensure_ascii=False)
 
 print()
-print('📊 Visual Generation Complete')
+print(' Visual Generation Complete')
 print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 print(f'  Model: {meta[\"image_model\"]}')
 tic_est = meta['total_image_cost_estimated']
@@ -524,12 +524,12 @@ tic_act = meta['total_image_cost_actual']
 tvc = meta['total_video_cost']
 tc_est = meta['total_cost_estimated']
 tc_act = meta['total_cost_actual']
-print(f'  🎨 Images: {len(images)} (estimated \${tic_est:.4f} / actual \${tic_act:.4f})')
-print(f'  🎬 Videos: {len(videos)} (\${tvc:.2f})')
-print(f'  💰 Total estimated: \${tc_est:.4f}')
-print(f'  💰 Total actual:    \${tc_act:.4f}')
+print(f'   Images: {len(images)} (estimated \${tic_est:.4f} / actual \${tic_act:.4f})')
+print(f'   Videos: {len(videos)} (\${tvc:.2f})')
+print(f'   Total estimated: \${tc_est:.4f}')
+print(f'   Total actual:    \${tc_act:.4f}')
 if tic_est > 0:
     savings_pct = (1 - tic_act / tic_est) * 100
-    print(f'  📐 Estimation accuracy: {savings_pct:+.1f}% vs estimate')
+    print(f'   Estimation accuracy: {savings_pct:+.1f}% vs estimate')
 print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 "

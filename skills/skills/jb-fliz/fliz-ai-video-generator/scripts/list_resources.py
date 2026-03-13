@@ -83,7 +83,7 @@ def print_voices(voices: list, as_json: bool = False):
         print(json.dumps(voices, indent=2))
         return
     
-    print(f"\n🎙️ Available Voices ({len(voices)} total)")
+    print(f"\n Available Voices ({len(voices)} total)")
     print("=" * 60)
     
     # Group by gender
@@ -109,7 +109,7 @@ def print_musics(musics: list, as_json: bool = False):
         print(json.dumps(musics, indent=2))
         return
     
-    print(f"\n🎵 Available Music Tracks ({len(musics)} total)")
+    print(f"\n Available Music Tracks ({len(musics)} total)")
     print("=" * 60)
     
     # Group by theme
@@ -158,7 +158,7 @@ def main():
             if not args.json:
                 print_voices(result["voices"], args.json)
         else:
-            print(f"❌ Failed to fetch voices: {result.get('error')}")
+            print(f" Failed to fetch voices: {result.get('error')}")
             sys.exit(1)
     
     if args.musics or args.all:
@@ -168,7 +168,7 @@ def main():
             if not args.json:
                 print_musics(result["musics"], args.json)
         else:
-            print(f"❌ Failed to fetch musics: {result.get('error')}")
+            print(f" Failed to fetch musics: {result.get('error')}")
             sys.exit(1)
     
     if args.json:

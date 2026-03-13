@@ -3,7 +3,7 @@ name: smart-meme-generator
 description: AI-powered meme generator that creates perfect, context-aware memes from any topic or situation. Use when user wants to create memes, needs reaction images, wants to make jokes visual, or needs viral social media content. Automatically selects optimal meme templates and generates witty captions based on context.
 ---
 
-# Smart Meme Generator 🎭
+# Smart Meme Generator 
 
 Generate actual meme images from any topic. Uses imgflip API (free) for real image generation — returns shareable URLs.
 

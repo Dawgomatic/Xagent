@@ -3,7 +3,7 @@ name: basal-ganglia-memory
 description: "Habit formation and procedural learning for AI agents. Develop preferences and shortcuts through repetition. Part of the AI Brain series."
 metadata:
   openclaw:
-    emoji: "🎯"
+    emoji: ""
     version: "0.1.1"
     author: "ImpKind"
     requires:
@@ -11,11 +11,11 @@ metadata:
     tags: ["memory", "habits", "ai-brain"]
 ---
 
-# Basal Ganglia Memory 🎯
+# Basal Ganglia Memory 
 
 **Habit formation for AI agents.** Part of the AI Brain series.
 
-## Status: 🚧 Under Development
+## Status:  Under Development
 
 This skill is being developed. Star/watch for updates!
 
@@ -32,11 +32,11 @@ The basal ganglia is responsible for habit formation and procedural learning. Th
 
 | Part | Function | Status |
 |------|----------|--------|
-| [hippocampus](https://www.clawhub.ai/skills/hippocampus) | Memory formation, decay, reinforcement | ✅ Live |
-| [amygdala-memory](https://www.clawhub.ai/skills/amygdala-memory) | Emotional processing | ✅ Live |
-| **basal-ganglia-memory** | Habit formation | 🚧 Development |
-| [anterior-cingulate-memory](https://www.clawhub.ai/skills/anterior-cingulate-memory) | Conflict detection | 🚧 Development |
-| [insula-memory](https://www.clawhub.ai/skills/insula-memory) | Internal state awareness | 🚧 Development |
+| [hippocampus](https://www.clawhub.ai/skills/hippocampus) | Memory formation, decay, reinforcement |  Live |
+| [amygdala-memory](https://www.clawhub.ai/skills/amygdala-memory) | Emotional processing |  Live |
+| **basal-ganglia-memory** | Habit formation |  Development |
+| [anterior-cingulate-memory](https://www.clawhub.ai/skills/anterior-cingulate-memory) | Conflict detection |  Development |
+| [insula-memory](https://www.clawhub.ai/skills/insula-memory) | Internal state awareness |  Development |
 
 ## Coming Soon
 
@@ -44,4 +44,4 @@ Based on neuroscience research on the basal ganglia's role in procedural learnin
 
 ---
 
-*Built with ❤️ by the OpenClaw community*
+*Built with  by the OpenClaw community*

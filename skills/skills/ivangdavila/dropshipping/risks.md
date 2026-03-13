@@ -6,9 +6,9 @@
 
 | Risk | Severity | Prevention |
 |------|----------|------------|
-| EU VAT/OSS | 🔴 HIGH | Register OSS if >€10k sales to EU consumers. Fines up to 200% of unpaid VAT |
-| US Sales Tax Nexus | 🔴 HIGH | Use TaxJar/Avalara. Monitor sales by state. Thresholds: typically $100k or 200 transactions |
-| Customs/Duties | 🟠 MEDIUM | Declare real values. Warn customers about potential charges. Use local warehouses |
+| EU VAT/OSS |  HIGH | Register OSS if >€10k sales to EU consumers. Fines up to 200% of unpaid VAT |
+| US Sales Tax Nexus |  HIGH | Use TaxJar/Avalara. Monitor sales by state. Thresholds: typically $100k or 200 transactions |
+| Customs/Duties |  MEDIUM | Declare real values. Warn customers about potential charges. Use local warehouses |
 
 ### Consumer Protection (EU)
 
@@ -22,9 +22,9 @@
 
 | Risk | Severity | Prevention |
 |------|----------|------------|
-| Counterfeit Products | 🔴 CRITICAL | NEVER sell branded products without authorization. Verify authenticity |
-| Patent Infringement | 🔴 HIGH | Search patents before listing "innovative" products from China |
-| Copyright (Images) | 🟠 MEDIUM | Use your own photos or get explicit license |
+| Counterfeit Products |  CRITICAL | NEVER sell branded products without authorization. Verify authenticity |
+| Patent Infringement |  HIGH | Search patents before listing "innovative" products from China |
+| Copyright (Images) |  MEDIUM | Use your own photos or get explicit license |
 
 ## Financial Risks
 
@@ -77,10 +77,10 @@ If margin < 15% after ALL costs → DANGER ZONE
 
 | Risk | Severity | Prevention |
 |------|----------|------------|
-| Supplier disappears | 🔴 HIGH | 2-3 backup suppliers per product |
-| Quality varies | 🔴 HIGH | Periodic test orders, monitor customer photos |
-| Price changes | 🟠 MEDIUM | Written agreements, safety margin in pricing |
-| Ghost stock | 🟠 MEDIUM | Verify stock before promising delivery |
+| Supplier disappears |  HIGH | 2-3 backup suppliers per product |
+| Quality varies |  HIGH | Periodic test orders, monitor customer photos |
+| Price changes |  MEDIUM | Written agreements, safety margin in pricing |
+| Ghost stock |  MEDIUM | Verify stock before promising delivery |
 
 ### Shipping
 
@@ -119,16 +119,16 @@ If margin < 15% after ALL costs → DANGER ZONE
 
 ## Red Flags — STOP IMMEDIATELY IF:
 
-❌ Real margin <15% after all costs
-❌ Supplier doesn't respond within 48h
-❌ No tracking available
-❌ Product has unverifiable health claims
-❌ Product similar to known brand (IP risk)
-❌ No way to verify quality
-❌ Shipping time >21 days without local warehouse
-❌ Supplier asks for payment outside platform
-❌ Supplier rating <95%
-❌ No clear return policy from supplier
+ Real margin <15% after all costs
+ Supplier doesn't respond within 48h
+ No tracking available
+ Product has unverifiable health claims
+ Product similar to known brand (IP risk)
+ No way to verify quality
+ Shipping time >21 days without local warehouse
+ Supplier asks for payment outside platform
+ Supplier rating <95%
+ No clear return policy from supplier
 
 ## Minimum Compliance Checklist
 

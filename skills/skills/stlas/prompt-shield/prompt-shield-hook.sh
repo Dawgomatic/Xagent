@@ -29,12 +29,12 @@ case "$THREAT_LEVEL" in
         exit 0
         ;;
     "WARNING")
-        echo "⚠️ PROMPT-SHIELD Warnung (Score: $SCORE/100)"
+        echo " PROMPT-SHIELD Warnung (Score: $SCORE/100)"
         echo "Mögliche Manipulation erkannt. Bitte prüfe den Inhalt."
         exit 0  # Warnung, aber durchlassen
         ;;
     "BLOCK")
-        echo "🛑 PROMPT-SHIELD: Prompt Injection erkannt! (Score: $SCORE/100)"
+        echo " PROMPT-SHIELD: Prompt Injection erkannt! (Score: $SCORE/100)"
         echo "Diese Nachricht wurde als gefährlich eingestuft."
         echo "Blockiere Verarbeitung."
         exit 1  # Blockieren

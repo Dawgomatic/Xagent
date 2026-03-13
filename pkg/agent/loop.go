@@ -24,6 +24,7 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/epoch"
 	"github.com/Dawgomatic/Xagent/pkg/identity"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
+	"github.com/Dawgomatic/Xagent/pkg/memory"
 	"github.com/Dawgomatic/Xagent/pkg/providers"
 	"github.com/Dawgomatic/Xagent/pkg/session"
 	"github.com/Dawgomatic/Xagent/pkg/state"
@@ -48,13 +49,15 @@ type AgentLoop struct {
 	state          *state.Manager
 	contextBuilder *ContextBuilder
 	tools          *tools.ToolRegistry
-	middleware     *tools.ToolMiddleware // SWE100821: Tool middleware (caching, circuit breaker, analytics)
-	planner        *Planner              // SWE100821: Plan-Act-Reflect loop
-	provenance     *ProvenanceTracker    // SWE100821: Provenance tracking per turn
-	dream          *DreamMode            // SWE100821: Offline reflection during idle
-	personality    *PersonalityTracker   // SWE100821: Personality evolution
-	feedback       *tools.FeedbackTool   // OpenClaw-RL: User feedback for RL training
-	vaultWriter    *vault.VaultWriter    // Obsidian knowledge vault
+	middleware     *tools.ToolMiddleware   // SWE100821: Tool middleware (caching, circuit breaker, analytics)
+	planner        *Planner                // SWE100821: Plan-Act-Reflect loop
+	provenance     *ProvenanceTracker      // SWE100821: Provenance tracking per turn
+	dream          *DreamMode              // SWE100821: Offline reflection during idle
+	sleepManager   *SleepManager           // Phase 3: Continuous Improvement Sleep Cycle
+	personality    *PersonalityTracker     // SWE100821: Personality evolution
+	feedback       *tools.FeedbackTool     // OpenClaw-RL: User feedback for RL training
+	vaultWriter    *vault.VaultWriter      // Obsidian knowledge vault
+	hindsight      *memory.HindsightMemory // Hindsight learning memory
 	running        atomic.Bool
 	summarizing    sync.Map // Tracks which sessions are currently being summarized
 }
@@ -175,8 +178,13 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 	// SWE100821: Create personality tracker
 	personalityTracker := NewPersonalityTracker(workspace, provider, cfg.Agents.Defaults.Model)
 
+	// Phase 3: Create Sleep Manager
+	epochMgr := epoch.NewManager(workspace, agentIdentity)
+	sleepManager := NewSleepManager(epochMgr, provider, msgBus, workspace, toolsRegistry)
+
 	// Obsidian vault: create and initialize if enabled
 	var vw *vault.VaultWriter
+	var hm *memory.HindsightMemory
 	if cfg.Vault.Enabled {
 		vaultPath := cfg.Vault.Path
 		if strings.HasPrefix(vaultPath, "~/") {
@@ -192,6 +200,8 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 			logger.WarnCF("vault", "Failed to initialize Obsidian vault",
 				map[string]interface{}{"error": err.Error(), "path": vaultPath})
 			vw = nil
+		} else {
+			hm = memory.NewHindsightMemory(vw, provider)
 		}
 	}
 
@@ -206,6 +216,7 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 		temperature:    cfg.Agents.Defaults.Temperature, // SWE100821: from config, not hard-coded
 		messageTimeout: 5 * time.Minute,                 // SWE100821: per-message timeout
 		identity:       agentIdentity,                   // SWE100821: unique identity + time tracking
+		epoch:          epochMgr,                        // Epoch lifecycle (wake/sleep journaling)
 		sessions:       sessionsManager,
 		state:          stateManager,
 		contextBuilder: contextBuilder,
@@ -214,15 +225,21 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 		planner:        planner,            // SWE100821: Plan-Act-Reflect
 		provenance:     provenance,         // SWE100821: provenance tracking
 		dream:          dreamMode,          // SWE100821: dream mode
+		sleepManager:   sleepManager,       // Phase 3: sleep cycle
 		personality:    personalityTracker, // SWE100821: personality evolution
 		feedback:       feedbackTool,       // OpenClaw-RL: feedback tool
 		vaultWriter:    vw,                 // Obsidian knowledge vault
+		hindsight:      hm,                 // Hindsight cognitive memory
 		summarizing:    sync.Map{},
 	}
 }
 
 func (al *AgentLoop) Run(ctx context.Context) error {
 	al.running.Store(true)
+
+	if al.sleepManager != nil {
+		al.sleepManager.Start(ctx)
+	}
 
 	for al.running.Load() {
 		select {
@@ -265,6 +282,9 @@ func (al *AgentLoop) Run(ctx context.Context) error {
 
 func (al *AgentLoop) Stop() {
 	al.running.Store(false)
+	if al.sleepManager != nil {
+		al.sleepManager.Stop()
+	}
 }
 
 func (al *AgentLoop) RegisterTool(tool tools.Tool) {
@@ -430,6 +450,11 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 		al.dream.RecordActivity()
 	}
 
+	// Phase 3: Increment Biological Fatigue (records activity and handles dynamic wake up)
+	if al.sleepManager != nil && !opts.NoHistory {
+		al.sleepManager.RecordActivity(0) // Tool calls updated after iteration completes
+	}
+
 	// 1. Update tool contexts
 	al.updateToolContexts(opts.Channel, opts.ChatID)
 
@@ -529,6 +554,16 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 	al.sessions.AddMessage(opts.SessionKey, "assistant", finalContent)
 	al.sessions.Save(opts.SessionKey)
 
+	// Hindsight Memory: Retain facts and experiences
+	if al.hindsight != nil && !opts.NoHistory {
+		if err := al.hindsight.Retain(ctx, opts.UserMessage, "User Prompt: "+opts.SessionKey); err != nil {
+			logger.WarnCF("hindsight", "Failed to retain user message", map[string]interface{}{"error": err.Error()})
+		}
+		if err := al.hindsight.Retain(ctx, finalContent, "Agent Response: "+opts.SessionKey); err != nil {
+			logger.WarnCF("hindsight", "Failed to retain assistant memory", map[string]interface{}{"error": err.Error()})
+		}
+	}
+
 	// 7. Optional: summarization
 	if opts.EnableSummary {
 		al.maybeSummarize(opts.SessionKey)
@@ -560,6 +595,11 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 			s.MessagesProcessed++
 			s.ToolCalls += iteration - 1 // iterations beyond the first are tool-call rounds
 		})
+	}
+
+	// Phase 3: Track biological fatigue (add fatigue for tool iterations)
+	if al.sleepManager != nil && !opts.NoHistory && iteration > 1 {
+		al.sleepManager.RecordActivity(iteration - 1)
 	}
 
 	// 11. SWE100821: Finalize provenance tracking

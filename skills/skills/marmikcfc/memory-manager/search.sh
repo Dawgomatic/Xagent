@@ -26,7 +26,7 @@ TYPE="$1"
 shift
 QUERY="$*"
 
-echo "🔍 Memory Search"
+echo " Memory Search"
 echo "Type: $TYPE | Query: \"$QUERY\""
 echo ""
 
@@ -62,11 +62,11 @@ case "$TYPE" in
     search_in_dir "$MEMORY_DIR/snapshots" "Snapshots"
     ;;
   *)
-    echo "❌ Unknown type: $TYPE"
+    echo " Unknown type: $TYPE"
     echo ""
     echo "Valid types: episodic, semantic, procedural, all"
     exit 1
     ;;
 esac
 
-echo "💡 Tip: Use memory_get tool to read full context from specific files"
+echo " Tip: Use memory_get tool to read full context from specific files"

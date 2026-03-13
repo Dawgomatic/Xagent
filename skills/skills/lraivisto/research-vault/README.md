@@ -1,4 +1,4 @@
-# ResearchVault 🦞
+# ResearchVault 
 
 **The local-first orchestration engine for high-velocity AI research.**
 
@@ -6,7 +6,7 @@ ResearchVault is a local-first state manager and orchestration framework for lon
 
 Vault is built CLI-first to close the loop between planning, ingestion, verification, and synthesis.
 
-## ✨ Core Features
+##  Core Features
 
 *   **The Vault (SQLite)**: A persistent local ledger stored at `~/.researchvault/research_vault.db` (override via `RESEARCHVAULT_DB`).
 *   **Normalized Evidence Core**: Scalable storage for `artifacts`, `findings`, and `links` (graph-ready).
@@ -28,12 +28,12 @@ Vault is built CLI-first to close the loop between planning, ingestion, verifica
 *   **SSRF Safety**: Robust URL validation blocks internal network probes and private IP ranges.
 *   **Hardened Logic**: Versioned database migrations and a comprehensive `pytest` suite.
 
-## ⚙️ Configuration
+##  Configuration
 
 *   `RESEARCHVAULT_DB`: Override the SQLite path (default: `~/.researchvault/research_vault.db`).
 *   `BRAVE_API_KEY`: Enables live Brave search, verification mission execution, and query watch targets (otherwise these paths must use cached or manually-injected search results).
 
-## 🚀 Workflows
+##  Workflows
 
 ### 1. Project Management
 Initialize a project, set objectives, and assign priority levels.
@@ -100,7 +100,7 @@ uv run python -m scripts.vault summary --id "metal-v1"
 uv run python -m scripts.vault status --id "metal-v1"
 ```
 
-## 🛠️ Development & Environment
+##  Development & Environment
 
 ResearchVault is formalized using **uv** for dependency management and Python >=3.13.
 

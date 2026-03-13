@@ -1,11 +1,11 @@
 # Vercel Deployment Skill - Setup Guide
 
-## ✅ Skill Ready
+##  Skill Ready
 
 **Location:** `~/.openclaw/workspace/skills/infra-deploy/`  
-**Status:** ✅ Vercel-only, no Azure bloat
+**Status:**  Vercel-only, no Azure bloat
 
-## 🔑 Setup (Quick)
+##  Setup (Quick)
 
 **1. Get your Vercel token:**
 - Go to: https://vercel.com/account/tokens
@@ -24,7 +24,7 @@ echo 'export VERCEL_TOKEN="vtk_xxx..."' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## 🚀 Usage
+##  Usage
 
 Once `VERCEL_TOKEN` is set, just tell me:
 
@@ -41,7 +41,7 @@ Once `VERCEL_TOKEN` is set, just tell me:
 - **"Check latest deployment"**
 - **"Get deployment logs"**
 
-## 📝 Example: First Testnet Deployment
+##  Example: First Testnet Deployment
 
 **1. Deploy contracts to Sepolia** (Hardhat)
 
@@ -58,19 +58,19 @@ Set these on Vercel:
 Deploy BountyLock to production
 ```
 
-## 🎯 What This Does
+##  What This Does
 
 **YES:**
-- ✅ Deploy existing projects
-- ✅ Manage env vars
-- ✅ Check status/logs
+-  Deploy existing projects
+-  Manage env vars
+-  Check status/logs
 
 **NO:**
-- ❌ "AI will build your app"
-- ❌ Code generation
-- ❌ Magic deployments
+-  "AI will build your app"
+-  Code generation
+-  Magic deployments
 
-## 🔒 Security
+##  Security
 
 - Production deploys ask for confirmation
 - Destructive ops require approval

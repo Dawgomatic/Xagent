@@ -1,10 +1,10 @@
 # CONFIGURARE HEARTBEAT.md - Ghid Rapid
 
-## 🎯 Ce face acest fișier?
+##  Ce face acest fișier?
 
 Transformă Immortal Brain dintr-un skill **pasiv** (care așteaptă comenzi) într-un sistem **autonom** (care acționează singur).
 
-## 🚀 Cum să îl activezi în OpenClaw:
+##  Cum să îl activezi în OpenClaw:
 
 ### Opțiunea 1: Copiază în workspace-ul principal
 ```bash
@@ -24,33 +24,33 @@ D:\OpenClaw_Setup\.openclaw\workspace\HEARTBEAT.md  ← Pune fișierul aici
 @include skills/immortal-brain/HEARTBEAT.md
 ```
 
-## ⏰ Ce se întâmplă automat:
+##  Ce se întâmplă automat:
 
 ### Fără să faci nimic, sistemul va:
 
 **La fiecare 30 minute:**
-- ✅ Procesează notițe noi din `memory/`
-- ✅ Organizează în `Creier/`
-- ✅ Trimite notificare cu rezultatele
+-  Procesează notițe noi din `memory/`
+-  Organizează în `Creier/`
+-  Trimite notificare cu rezultatele
 
 **Zilnic la 09:00:**
-- ✨ Generează o curiozitate nouă
-- ✨ Te întreabă dacă vrei să o explorezi
+-  Generează o curiozitate nouă
+-  Te întreabă dacă vrei să o explorezi
 
 **La fiecare oră:**
-- 🔥 Caută task-uri urgente
-- 🔥 Te alertează dacă există
+-  Caută task-uri urgente
+-  Te alertează dacă există
 
 **Zilnic la 20:00:**
-- 📊 Trimite raport zilnic
-- 📊 Statistici complete
+-  Trimite raport zilnic
+-  Statistici complete
 
 **Când salvezi un fișier în `memory/`:**
-- 📁 Detectează automat
-- 📁 Procesează imediat
-- 📁 Confirmă integrarea
+-  Detectează automat
+-  Procesează imediat
+-  Confirmă integrarea
 
-## 📝 Exemplu Flow Complet:
+##  Exemplu Flow Complet:
 
 ### Tu faci (doar atât):
 ```bash
@@ -63,27 +63,27 @@ echo "- [ ] Implementare API #dev #urgent" >> memory/idei.md
 2. Rulează `brain_service.py pulse`
 3. Procesează neuronul
 4. Organizează în `Creier/DEV.md`
-5. **Notificare**: "🧠 1 neuron nou integrat"
+5. **Notificare**: " 1 neuron nou integrat"
 
 6. **La următoarea oră**: Caută `#urgent`
 7. Găsește task-ul tău
-8. **Notificare**: "🔥 1 task urgent în așteptare!"
+8. **Notificare**: " 1 task urgent în așteptare!"
 
 9. **Seara la 20:00**: 
-10. **Notificare raport**: "📊 Total: 150 neuroni..."
+10. **Notificare raport**: " Total: 150 neuroni..."
 
 ### Tu primești notificări precum:
-- "🧠 3 neuroni noi integrați în Creier"
-- "🔥 ATENȚIE: 2 task-uri URGENTE!"
-- "✨ Curiozitatea zilei: teoria haosului"
-- "📊 Raport zilnic: 150 neuroni total"
+- " 3 neuroni noi integrați în Creier"
+- " ATENȚIE: 2 task-uri URGENTE!"
+- " Curiozitatea zilei: teoria haosului"
+- " Raport zilnic: 150 neuroni total"
 
-## 🎮 Tu doar:
+##  Tu doar:
 1. **Adaugi notițe** în `memory/*.md`
 2. **Primești notificări** despre ce se întâmplă
 3. **Acționezi** doar când vrei (opțional)
 
-## 🔧 Personalizare:
+##  Personalizare:
 
 ### Schimbă frecvența:
 ```markdown
@@ -99,13 +99,13 @@ echo "- [ ] Implementare API #dev #urgent" >> memory/idei.md
 ### Modifică notificările:
 Editează textele între ghilimele în HEARTBEAT.md
 
-## ✅ Verificare:
+##  Verificare:
 
 După ce activezi HEARTBEAT.md:
 1. Așteaptă 30 minute
-2. Ar trebui să primești prima notificare: "🧠 0 neuroni noi..."
+2. Ar trebui să primești prima notificare: " 0 neuroni noi..."
 3. Adaugă o notiță în `memory/test.md`
 4. Așteaptă încă 30 minute
-5. Primești: "🧠 X neuroni noi integrați"
+5. Primești: " X neuroni noi integrați"
 
-**Succes! Sistemul are acum INIȚIATIVE!** 🎉
+**Succes! Sistemul are acum INIȚIATIVE!** 

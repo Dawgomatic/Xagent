@@ -224,19 +224,19 @@ class SingleStockAnalyzer:
         holders_trend = analysis['holders_trend']
 
         if shares_trend > 15 and holders_trend > 5:
-            signal = "🟢 **STRONG ACCUMULATION**"
+            signal = " **STRONG ACCUMULATION**"
             interpretation = "Strong institutional buying with increasing participation. Positive signal."
         elif shares_trend > 7 and holders_trend > 0:
-            signal = "🟢 **MODERATE ACCUMULATION**"
+            signal = " **MODERATE ACCUMULATION**"
             interpretation = "Steady institutional buying. Moderately positive signal."
         elif shares_trend < -15 or holders_trend < -5:
-            signal = "🔴 **STRONG DISTRIBUTION**"
+            signal = " **STRONG DISTRIBUTION**"
             interpretation = "Significant institutional selling. Warning sign - investigate further."
         elif shares_trend < -7:
-            signal = "🔴 **MODERATE DISTRIBUTION**"
+            signal = " **MODERATE DISTRIBUTION**"
             interpretation = "Institutional selling detected. Monitor closely."
         else:
-            signal = "⚪ **NEUTRAL**"
+            signal = " **NEUTRAL**"
             interpretation = "No significant institutional flow changes. Stable ownership."
 
         report += f"""**Signal:** {signal}
@@ -370,7 +370,7 @@ class SingleStockAnalyzer:
         with open(output_path, 'w') as f:
             f.write(report)
 
-        print(f"\n✅ Report saved to: {output_path}")
+        print(f"\n Report saved to: {output_path}")
         return report
 
 

@@ -2,14 +2,14 @@
 name: beepctl
 description: Use when sending messages, searching chats, or managing conversations across messaging platforms (Telegram, WhatsApp, Slack, iMessage, etc.) via Beeper Desktop API.
 homepage: https://github.com/blqke/beepctl
-metadata: {"clawdbot":{"emoji":"🐝","requires":{"bins":["beepctl"]},"install":[{"id":"npm","kind":"npm","package":"beepctl","global":true,"bins":["beepctl"],"label":"Install beepctl (npm)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["beepctl"]},"install":[{"id":"npm","kind":"npm","package":"beepctl","global":true,"bins":["beepctl"],"label":"Install beepctl (npm)"}]}}
 ---
 
 # beepctl
 
 CLI for [Beeper Desktop API](https://developers.beeper.com/desktop-api) — unified messaging from your terminal. Control all your messaging platforms (Telegram, WhatsApp, Slack, iMessage, etc.) through one interface.
 
-📖 **Setup & installation:** see [GitHub repo](https://github.com/blqke/beepctl)
+ **Setup & installation:** see [GitHub repo](https://github.com/blqke/beepctl)
 
 ## Quick Start
 
@@ -105,7 +105,7 @@ beepctl archive <chat-id> --quiet      # No confirmation message
 
 ### Send Messages
 
-⚠️ **NEVER send messages without explicit user approval first!**
+ **NEVER send messages without explicit user approval first!**
 Always show the message content and recipient, then ask for confirmation.
 
 ```bash

@@ -223,13 +223,13 @@ const cli = yargs(process.argv.slice(2))
 
 async function handleAuth() {
   try {
-    console.log(chalk.blue('🔐 YouTube Studio - OAuth Authentication'));
+    console.log(chalk.blue(' YouTube Studio - OAuth Authentication'));
     console.log(chalk.gray('Credentials file: ' + CREDENTIALS_FILE));
 
     if (!fs.existsSync(CREDENTIALS_FILE)) {
       console.error(
         chalk.red(
-          '\n❌ Error: credentials.json not found at ' + CREDENTIALS_FILE
+          '\n Error: credentials.json not found at ' + CREDENTIALS_FILE
         )
       );
       console.log(
@@ -242,11 +242,11 @@ async function handleAuth() {
     }
 
     const tokens = await authHandler.authenticate(CREDENTIALS_FILE, TOKENS_FILE);
-    console.log(chalk.green('✅ Authentication successful!'));
+    console.log(chalk.green(' Authentication successful!'));
     console.log('Tokens saved to: ' + TOKENS_FILE);
     console.log('\nYou can now use all youtube-studio commands.');
   } catch (error) {
-    console.error(chalk.red('❌ Authentication failed:'), error.message);
+    console.error(chalk.red(' Authentication failed:'), error.message);
     logger.error('Auth failed', error);
     process.exit(1);
   }
@@ -254,7 +254,7 @@ async function handleAuth() {
 
 async function handleStats(argv) {
   try {
-    console.log(chalk.blue('📊 Channel Statistics'));
+    console.log(chalk.blue(' Channel Statistics'));
 
     const stats = await channelAnalytics.getChannelStats({
       days: argv.days,
@@ -266,7 +266,7 @@ async function handleStats(argv) {
     } else {
       // Pretty print
       console.log(
-        chalk.cyan('\n📈 Overall Metrics:')
+        chalk.cyan('\n Overall Metrics:')
       );
       console.log(`  Total Views: ${chalk.bold(stats.totalViews?.toLocaleString())}`);
       console.log(
@@ -278,7 +278,7 @@ async function handleStats(argv) {
       console.log(`  Video Count: ${chalk.bold(stats.videoCount)}`);
 
       if (stats.topVideos?.length) {
-        console.log(chalk.cyan('\n🔥 Top Videos:'));
+        console.log(chalk.cyan('\n Top Videos:'));
         stats.topVideos.slice(0, 5).forEach((video, i) => {
           console.log(`  ${i + 1}. ${video.title}`);
           console.log(`     Views: ${video.views} | Likes: ${video.likes} | Comments: ${video.comments}`);
@@ -286,14 +286,14 @@ async function handleStats(argv) {
       }
 
       if (argv.detailed && stats.recentPerformance) {
-        console.log(chalk.cyan('\n📅 Last ' + argv.days + ' Days:'));
+        console.log(chalk.cyan('\n Last ' + argv.days + ' Days:'));
         console.log(`  New Views: ${stats.recentPerformance.newViews}`);
         console.log(`  New Subscribers: ${stats.recentPerformance.newSubscribers}`);
         console.log(`  Avg Views/Video: ${stats.recentPerformance.avgViewsPerVideo}`);
       }
     }
   } catch (error) {
-    console.error(chalk.red('❌ Failed to fetch stats:'), error.message);
+    console.error(chalk.red(' Failed to fetch stats:'), error.message);
     logger.error('Stats fetch failed', error);
     process.exit(1);
   }
@@ -301,10 +301,10 @@ async function handleStats(argv) {
 
 async function handleUpload(argv) {
   try {
-    console.log(chalk.blue('📹 Video Upload'));
+    console.log(chalk.blue(' Video Upload'));
 
     if (!fs.existsSync(argv.file)) {
-      console.error(chalk.red('❌ File not found: ' + argv.file));
+      console.error(chalk.red(' File not found: ' + argv.file));
       process.exit(1);
     }
 
@@ -318,7 +318,7 @@ async function handleUpload(argv) {
     };
 
     if (argv['dry-run']) {
-      console.log(chalk.yellow('\n📋 Dry Run - Preview:'));
+      console.log(chalk.yellow('\n Dry Run - Preview:'));
       console.log(JSON.stringify(metadata, null, 2));
       console.log(chalk.gray('\nNo file will be uploaded (--dry-run mode)'));
       return;
@@ -330,7 +330,7 @@ async function handleUpload(argv) {
       playlist: argv.playlist,
     });
 
-    console.log(chalk.green('\n✅ Upload successful!'));
+    console.log(chalk.green('\n Upload successful!'));
     console.log(`  Video ID: ${chalk.bold(result.videoId)}`);
     console.log(`  Status: ${chalk.bold(result.status)}`);
     if (result.scheduledTime) {
@@ -338,7 +338,7 @@ async function handleUpload(argv) {
     }
     console.log(`  URL: https://youtube.com/watch?v=${result.videoId}`);
   } catch (error) {
-    console.error(chalk.red('❌ Upload failed:'), error.message);
+    console.error(chalk.red(' Upload failed:'), error.message);
     logger.error('Upload failed', error);
     process.exit(1);
   }
@@ -346,7 +346,7 @@ async function handleUpload(argv) {
 
 async function handleComments(argv) {
   try {
-    console.log(chalk.blue('💬 Comments'));
+    console.log(chalk.blue(' Comments'));
 
     const comments = await commentManager.listComments(argv['video-id'], {
       unread: argv.unread,
@@ -365,7 +365,7 @@ async function handleComments(argv) {
 
         if (argv.suggest) {
           // Show suggestions (would be generated by contentIdeas)
-          console.log(chalk.yellow('   💡 Suggested replies:'));
+          console.log(chalk.yellow('    Suggested replies:'));
           console.log('   - Thanks for watching!');
           console.log('   - Check out my other videos on this topic');
           console.log('   - Love your enthusiasm! Drop a like if you found this helpful');
@@ -374,7 +374,7 @@ async function handleComments(argv) {
       });
     }
   } catch (error) {
-    console.error(chalk.red('❌ Failed to fetch comments:'), error.message);
+    console.error(chalk.red(' Failed to fetch comments:'), error.message);
     logger.error('Comments fetch failed', error);
     process.exit(1);
   }
@@ -382,11 +382,11 @@ async function handleComments(argv) {
 
 async function handleReply(argv) {
   try {
-    console.log(chalk.blue('📝 Reply to Comment'));
+    console.log(chalk.blue(' Reply to Comment'));
 
     if (argv.suggest && !argv.text) {
       const suggestions = await contentIdeas.suggestCommentReplies(argv['comment-id']);
-      console.log(chalk.yellow('\n💡 Suggested replies:\n'));
+      console.log(chalk.yellow('\n Suggested replies:\n'));
       suggestions.forEach((s, i) => {
         console.log(`${i + 1}. ${s}`);
       });
@@ -396,12 +396,12 @@ async function handleReply(argv) {
 
     const text = argv.text || argv.template;
     if (!text) {
-      console.error(chalk.red('❌ Provide --text or --template'));
+      console.error(chalk.red(' Provide --text or --template'));
       process.exit(1);
     }
 
     if (argv['dry-run']) {
-      console.log(chalk.yellow('\n📋 Preview:'));
+      console.log(chalk.yellow('\n Preview:'));
       console.log(text);
       console.log(chalk.gray('\nNo reply will be sent (--dry-run mode)'));
       return;
@@ -412,10 +412,10 @@ async function handleReply(argv) {
       text
     );
 
-    console.log(chalk.green('\n✅ Reply sent!'));
+    console.log(chalk.green('\n Reply sent!'));
     console.log(`  Reply ID: ${result.replyId}`);
   } catch (error) {
-    console.error(chalk.red('❌ Reply failed:'), error.message);
+    console.error(chalk.red(' Reply failed:'), error.message);
     logger.error('Reply failed', error);
     process.exit(1);
   }
@@ -423,7 +423,7 @@ async function handleReply(argv) {
 
 async function handleIdeas(argv) {
   try {
-    console.log(chalk.blue('💡 Video Ideas'));
+    console.log(chalk.blue(' Video Ideas'));
 
     const ideas = await contentIdeas.generateVideoIdeas({
       niche: argv.niche,
@@ -447,7 +447,7 @@ async function handleIdeas(argv) {
       });
     }
   } catch (error) {
-    console.error(chalk.red('❌ Failed to generate ideas:'), error.message);
+    console.error(chalk.red(' Failed to generate ideas:'), error.message);
     logger.error('Ideas generation failed', error);
     process.exit(1);
   }
@@ -455,7 +455,7 @@ async function handleIdeas(argv) {
 
 async function handleQuotaStatus() {
   try {
-    console.log(chalk.blue('📊 API Quota Status'));
+    console.log(chalk.blue(' API Quota Status'));
 
     const quota = await channelAnalytics.getQuotaStatus();
 
@@ -478,7 +478,7 @@ async function handleQuotaStatus() {
 
     console.log(chalk.gray(`\nQuota resets at midnight UTC`));
   } catch (error) {
-    console.error(chalk.red('❌ Failed to fetch quota:'), error.message);
+    console.error(chalk.red(' Failed to fetch quota:'), error.message);
     logger.error('Quota fetch failed', error);
     process.exit(1);
   }

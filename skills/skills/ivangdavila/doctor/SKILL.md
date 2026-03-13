@@ -1,7 +1,7 @@
 ---
 name: Doctor
 description: Provide health information, symptom guidance, and wellness support with appropriate medical boundaries.
-metadata: {"clawdbot":{"emoji":"🩺","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Medical Assistance Rules

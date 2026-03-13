@@ -42,7 +42,7 @@ def append_to_daily(title, details=""):
     with open(today_path, "a", encoding="utf-8") as f:
         f.write(event)
     
-    print(f"✅ Logged to daily: {title}")
+    print(f" Logged to daily: {title}")
     return today_path
 
 if __name__ == "__main__":

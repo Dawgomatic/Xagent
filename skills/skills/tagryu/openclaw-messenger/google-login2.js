@@ -48,7 +48,7 @@ async function pressEnter(ws) {
   console.log('현재:', url.slice(0, 60));
   
   // 비밀번호 입력 필드 포커스
-  console.log('🔑 비밀번호 입력 (키보드)...');
+  console.log(' 비밀번호 입력 (키보드)...');
   await eval_(ws, `
     const pwInput = document.querySelector('input[type="password"]');
     if (pwInput) pwInput.focus();
@@ -59,7 +59,7 @@ async function pressEnter(ws) {
   await sleep(500);
   
   // 다음 버튼 클릭
-  console.log('  ➡️ 다음 클릭...');
+  console.log('   다음 클릭...');
   await eval_(ws, `
     const btns = document.querySelectorAll('button, div[role="button"]');
     for (const b of btns) {
@@ -80,7 +80,7 @@ async function pressEnter(ws) {
   
   // clawhub 도착 확인
   if (url.includes('clawhub')) {
-    console.log('✅ clawhub 로그인 성공!');
+    console.log(' clawhub 로그인 성공!');
   } else if (url.includes('github.com')) {
     // OAuth authorize 필요할 수 있음
     const hasAuthorize = await eval_(ws, `
@@ -95,4 +95,4 @@ async function pressEnter(ws) {
   }
   
   ws.close();
-})().catch(e => console.error('❌', e.message));
+})().catch(e => console.error('', e.message));

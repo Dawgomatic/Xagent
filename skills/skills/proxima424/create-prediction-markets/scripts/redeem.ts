@@ -84,14 +84,14 @@ async function main(): Promise<void> {
   });
 
   // Check settlement status
-  console.log("\n📊 Checking Market\n");
+  console.log("\n Checking Market\n");
 
   const isSettled = await client.redemption.isResolved(args.conditionId);
 
   if (!isSettled) {
     const info = await client.market.getMarketInfo(args.conditionId);
     console.log(`Question: ${info.question}`);
-    console.error("\n❌ Market is not yet settled. Cannot redeem.");
+    console.error("\n Market is not yet settled. Cannot redeem.");
     process.exit(1);
   }
 
@@ -106,13 +106,13 @@ async function main(): Promise<void> {
   console.log(`Collateral: ${info.collateral}`);
 
   // Execute redemption
-  console.log(`\n💰 Redeeming Position\n`);
+  console.log(`\n Redeeming Position\n`);
   console.log(`Wallet:     ${client.client.signer?.address}`);
 
   try {
     const result = await client.redemption.redeem(args.conditionId);
 
-    console.log("\n✅ Redemption Successful!\n");
+    console.log("\n Redemption Successful!\n");
     console.log(`Tx Hash:  ${result.hash}`);
     console.log(`\nBaseScan: https://basescan.org/tx/${result.hash}`);
 
@@ -120,7 +120,7 @@ async function main(): Promise<void> {
     console.log(JSON.stringify({ redeemed: true, hash: result.hash }, null, 2));
 
   } catch (error: any) {
-    console.error("\n❌ Redemption failed:", error.message);
+    console.error("\n Redemption failed:", error.message);
     process.exit(1);
   }
 }

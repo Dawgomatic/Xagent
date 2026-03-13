@@ -23,13 +23,13 @@
 
 | # | 쿼리 | Top-1 Score | Top-1 타입 | 적합도 |
 |---|---|---|---|---|
-| Q1 | TIPS 합격하려면? | 0.7060 | success_case | ✅ HIGH |
-| Q2 | 초기창업패키지 심사기준 | 0.8431 | criteria | ✅ HIGH |
-| Q3 | 예비창업패키지 합격 후기 | 0.8217 | success_case | ✅ HIGH |
-| Q4 | 2026년 정부 창업지원사업 | 0.8277 | success_case | ✅ HIGH |
-| Q5 | 벤처투자 현황 | 0.8011 | vc_investment | ✅ HIGH |
-| Q6 | TIPS 운영사별 차이점 | 0.7755 | gov_program | ✅ HIGH |
-| Q7 | 창업도약패키지 신청 자격 | 0.7896 | criteria | ✅ HIGH |
-| Q8 | 청년창업사관학교 합격 노하우 | 0.7906 | success_case | ✅ HIGH |
-| Q9 | 시리즈A 투자 받으려면 | 0.7421 | success_case | ✅ HIGH |
-| Q10 | 정부지원사업 가점 방법 | 0.7633 | criteria | ✅ HIGH |
+| Q1 | TIPS 합격하려면? | 0.7060 | success_case |  HIGH |
+| Q2 | 초기창업패키지 심사기준 | 0.8431 | criteria |  HIGH |
+| Q3 | 예비창업패키지 합격 후기 | 0.8217 | success_case |  HIGH |
+| Q4 | 2026년 정부 창업지원사업 | 0.8277 | success_case |  HIGH |
+| Q5 | 벤처투자 현황 | 0.8011 | vc_investment |  HIGH |
+| Q6 | TIPS 운영사별 차이점 | 0.7755 | gov_program |  HIGH |
+| Q7 | 창업도약패키지 신청 자격 | 0.7896 | criteria |  HIGH |
+| Q8 | 청년창업사관학교 합격 노하우 | 0.7906 | success_case |  HIGH |
+| Q9 | 시리즈A 투자 받으려면 | 0.7421 | success_case |  HIGH |
+| Q10 | 정부지원사업 가점 방법 | 0.7633 | criteria |  HIGH |

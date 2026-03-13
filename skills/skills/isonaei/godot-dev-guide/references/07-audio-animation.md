@@ -80,17 +80,17 @@ func pulse() -> void:
 
 ---
 
-## ⚠️ AI PITFALL：Tween 生命週期
+##  AI PITFALL：Tween 生命週期
 
 ```gdscript
-# ❌ WRONG - 儲存 tween 引用但不處理
+#  WRONG - 儲存 tween 引用但不處理
 var tween: Tween
 
 func animate() -> void:
     tween = create_tween()  # 舊的 tween 可能還在運行
     tween.tween_property(...)
 
-# ✅ CORRECT - 停止舊的 tween
+#  CORRECT - 停止舊的 tween
 var tween: Tween
 
 func animate() -> void:
@@ -102,14 +102,14 @@ func animate() -> void:
 
 ---
 
-## ⚠️ AI PITFALL：animation_finished 信號
+##  AI PITFALL：animation_finished 信號
 
 ```gdscript
-# ❌ WRONG - 忘記檢查是哪個動畫結束
+#  WRONG - 忘記檢查是哪個動畫結束
 func _on_animation_finished(anim_name: StringName) -> void:
     queue_free()  # 任何動畫結束都會觸發！
 
-# ✅ CORRECT - 檢查動畫名稱
+#  CORRECT - 檢查動畫名稱
 func _on_animation_finished(anim_name: StringName) -> void:
     if anim_name == "death":
         queue_free()

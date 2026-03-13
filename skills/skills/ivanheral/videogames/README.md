@@ -1,24 +1,24 @@
-# Videogames 🎮
+# Videogames 
 
 A skill for [OpenClaw](https://github.com/openclaw/openclaw) that allows you to query video game information, search for deals, and compare prices across multiple stores. Now supercharged with ProtonDB, HowLongToBeat, and System Requirements!
 
 ## Features
 
-- 🔎 **Search**: Find games by name on Steam.
-- 💰 **Deals**: Search for the lowest price across more than 25 stores (powered by CheapShark) with **Historical Low detection**.
-- ℹ️ **Details**: Get description, price, developers, Metacritic score, and **PC System Requirements**.
-- 🗣️ **Languages**: Check if a game supports your language (Text/Audio).
-- 🎮 **Input**: View Controller support (Full/Partial) and Multiplayer modes (Co-op/PvP).
-- 🔗 **Resources**: Direct links to **PCGamingWiki** and **SteamDB** for fixes and deep data.
-- 🐧 **Compatibility**: Check Linux & Steam Deck compatibility status via **ProtonDB**.
-- ⏱️ **Duration**: Get estimated playtime (Main Story, Completionist) via **HowLongToBeat**.
-- 💡 **Recommendations**: Get suggestions for similar games based on genres and tags.
-- 🏷️ **Offers**: Check current featured offers on Steam.
-- 👥 **Players**: View current concurrent player counts.
-- 📈 **Trends**: Explore Top Sellers and New Releases on Steam.
-- 📰 **News**: Read the latest news for a game.
-- 🏆 **Achievements**: View the rarest global achievements for a game.
-- ⭐ **Reviews**: Get a summary of user reviews for a game.
+-  **Search**: Find games by name on Steam.
+-  **Deals**: Search for the lowest price across more than 25 stores (powered by CheapShark) with **Historical Low detection**.
+-  **Details**: Get description, price, developers, Metacritic score, and **PC System Requirements**.
+-  **Languages**: Check if a game supports your language (Text/Audio).
+-  **Input**: View Controller support (Full/Partial) and Multiplayer modes (Co-op/PvP).
+-  **Resources**: Direct links to **PCGamingWiki** and **SteamDB** for fixes and deep data.
+-  **Compatibility**: Check Linux & Steam Deck compatibility status via **ProtonDB**.
+-  **Duration**: Get estimated playtime (Main Story, Completionist) via **HowLongToBeat**.
+-  **Recommendations**: Get suggestions for similar games based on genres and tags.
+-  **Offers**: Check current featured offers on Steam.
+-  **Players**: View current concurrent player counts.
+-  **Trends**: Explore Top Sellers and New Releases on Steam.
+-  **News**: Read the latest news for a game.
+-  **Achievements**: View the rarest global achievements for a game.
+-  **Reviews**: Get a summary of user reviews for a game.
 
 ## Installation
 
@@ -96,7 +96,7 @@ export STEAM_CURRENCY=USD
 python3 scripts/game_tool.py search "Portal"
 ```
 
-## Data Sources & Credits 📚
+## Data Sources & Credits 
 
 This tool would not be possible without the excellent public APIs and data from:
 

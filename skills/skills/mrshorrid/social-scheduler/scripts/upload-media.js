@@ -31,7 +31,7 @@ async function uploadMedia(platform, configPath, mediaPath) {
       config = configPath;
     }
 
-    console.log(`📤 Uploading media to ${platform}...`);
+    console.log(` Uploading media to ${platform}...`);
     console.log(`   File: ${mediaPath}`);
 
     let result;
@@ -59,7 +59,7 @@ async function uploadMedia(platform, configPath, mediaPath) {
           'Supported platforms: twitter, mastodon, bluesky, reddit');
     }
 
-    console.log(`✅ Upload successful!\n`);
+    console.log(` Upload successful!\n`);
     console.log(`Platform: ${result.platform}`);
     console.log(`Media ID: ${result.mediaId}`);
     if (result.url) {
@@ -70,7 +70,7 @@ async function uploadMedia(platform, configPath, mediaPath) {
     return result;
 
   } catch (error) {
-    console.error(`❌ Upload failed: ${error.message}`);
+    console.error(` Upload failed: ${error.message}`);
     process.exit(1);
   }
 }

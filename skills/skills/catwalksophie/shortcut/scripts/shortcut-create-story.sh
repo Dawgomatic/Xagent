@@ -59,10 +59,10 @@ STORY_ID=$(echo "$RESPONSE" | jq -r '.id')
 STORY_URL=$(echo "$RESPONSE" | jq -r '.app_url')
 
 if [ "$STORY_ID" != "null" ]; then
-  echo "✅ Created story #$STORY_ID: $STORY_NAME"
+  echo " Created story #$STORY_ID: $STORY_NAME"
   echo "   $STORY_URL"
 else
-  echo "❌ Failed to create story"
+  echo " Failed to create story"
   echo "$RESPONSE" | jq .
   exit 1
 fi

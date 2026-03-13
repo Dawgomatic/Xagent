@@ -3,7 +3,7 @@ name: crypto-regime-report
 description: Generate market regime reports for crypto perpetuals using Supertrend and ADX indicators. Use when the user asks for a regime check, market report, trend analysis, or scheduled morning/evening crypto updates. Reports include price action, trend direction/strength, funding rates, open interest, volume analysis, and BTC correlation for a configurable watchlist.
 metadata:
   openclaw:
-    emoji: "📊"
+    emoji: ""
     requires:
       bins: ["python3", "curl"]
 ---
@@ -39,16 +39,16 @@ Or ask directly: "What's the regime on BTC?" or "Run a market report."
 
 **Volume & Liquidity:**
 - Volume vs 20-day average (%)
-- 🔇 = low volume, 🔊 = high volume
+-  = low volume,  = high volume
 
 **Perpetuals Data:**
 - Funding rate + change direction (↑↓→)
 - Open Interest (current, in $B)
-- 🔥 = elevated funding rate
+-  = elevated funding rate
 
 **Market Context:**
 - BTC correlation (0.0 to 1.0)
-- 🔗 = high correlation (> 0.7)
+-  = high correlation (> 0.7)
 
 ---
 

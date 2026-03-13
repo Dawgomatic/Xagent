@@ -51,7 +51,7 @@ function postJson(url, headers, body) {
 // 1. Get Authentication Token
 function getAuthToken() {
   if (!fs.existsSync(AUTH_PROFILES_PATH)) {
-    console.error(`❌ Auth profiles not found at ${AUTH_PROFILES_PATH}.\n   Please run 'openclaw models auth login google-antigravity' first.`);
+    console.error(` Auth profiles not found at ${AUTH_PROFILES_PATH}.\n   Please run 'openclaw models auth login google-antigravity' first.`);
     process.exit(1);
   }
   
@@ -63,19 +63,19 @@ function getAuthToken() {
     const antigravityProfileKey = Object.keys(profiles).find(k => k.startsWith('google-antigravity:'));
     
     if (!antigravityProfileKey) {
-      console.error("❌ No 'google-antigravity' profile found in auth-profiles.json. Please login.");
+      console.error(" No 'google-antigravity' profile found in auth-profiles.json. Please login.");
       process.exit(1);
     }
     
     const profile = profiles[antigravityProfileKey];
     if (!profile.access) {
-      console.error("❌ Auth profile found but no access token present.");
+      console.error(" Auth profile found but no access token present.");
       process.exit(1);
     }
 
     return { token: profile.access, projectId: profile.projectId };
   } catch (e) {
-    console.error("❌ Failed to read auth profiles:", e.message);
+    console.error(" Failed to read auth profiles:", e.message);
     process.exit(1);
   }
 }
@@ -95,7 +95,7 @@ async function fetchModels(token, projectId) {
     const data = await postJson(`${BASE_URL}${FETCH_AVAILABLE_MODELS_PATH}`, headers, body);
     return data;
   } catch (e) {
-    console.error("❌ API Error:", e.message);
+    console.error(" API Error:", e.message);
     process.exit(1);
   }
 }
@@ -103,20 +103,20 @@ async function fetchModels(token, projectId) {
 // 3. Update Configuration
 function updateConfig(apiResponse) {
   if (!fs.existsSync(OPENCLAW_JSON_PATH)) {
-    console.error(`❌ Config file not found at ${OPENCLAW_JSON_PATH}`);
+    console.error(` Config file not found at ${OPENCLAW_JSON_PATH}`);
     process.exit(1);
   }
 
   // Backup config
   const backupPath = `${OPENCLAW_JSON_PATH}.bak`;
   fs.copyFileSync(OPENCLAW_JSON_PATH, backupPath);
-  console.log(`📦 Created config backup at ${backupPath}`);
+  console.log(` Created config backup at ${backupPath}`);
 
   let config;
   try {
     config = JSON.parse(fs.readFileSync(OPENCLAW_JSON_PATH, 'utf8'));
   } catch (e) {
-    console.error("❌ Failed to parse openclaw.json:", e.message);
+    console.error(" Failed to parse openclaw.json:", e.message);
     process.exit(1);
   }
 
@@ -130,10 +130,10 @@ function updateConfig(apiResponse) {
       const selfChat = wa.selfChatMode;
       
       if (!selfChat && allowed.length === 0) {
-          console.warn("\n⚠️  WARNING: WhatsApp channel is configured but has no 'allowFrom' list and 'selfChatMode' is off.");
+          console.warn("\n  WARNING: WhatsApp channel is configured but has no 'allowFrom' list and 'selfChatMode' is off.");
           console.warn("    This means anyone can message your bot! Please configure 'allowFrom' in openclaw.json.\n");
       } else {
-          console.log("🔒 WhatsApp safety check passed (Allowlist/SelfChat active).");
+          console.log(" WhatsApp safety check passed (Allowlist/SelfChat active).");
       }
   }
 
@@ -152,14 +152,14 @@ function updateConfig(apiResponse) {
           if (!quota || quota.remainingFraction > 0) {
               targetDefaultId = currentShortId;
               currentModelStatus = "valid_and_available";
-              console.log(`✅ Keeping user-selected model: ${currentShortId} (Available)`);
+              console.log(` Keeping user-selected model: ${currentShortId} (Available)`);
           } else {
               currentModelStatus = "exhausted";
-              console.warn(`⚠️  User-selected model '${currentShortId}' is exhausted (0% quota). Switching...`);
+              console.warn(`  User-selected model '${currentShortId}' is exhausted (0% quota). Switching...`);
           }
       } else {
           currentModelStatus = "missing";
-          console.warn(`⚠️  User-selected model '${currentShortId}' is no longer available from API. Switching...`);
+          console.warn(`  User-selected model '${currentShortId}' is no longer available from API. Switching...`);
       }
   }
 
@@ -171,7 +171,7 @@ function updateConfig(apiResponse) {
            const quota = apiModels[apiDefault]?.quotaInfo;
            if (!quota || quota.remainingFraction > 0) {
                targetDefaultId = apiDefault;
-               console.log(`ℹ️  Selected API default: ${targetDefaultId}`);
+               console.log(`  Selected API default: ${targetDefaultId}`);
            }
       }
       
@@ -183,7 +183,7 @@ function updateConfig(apiResponse) {
           });
           if (recommended) {
               targetDefaultId = recommended[0];
-              console.log(`ℹ️  Selected recommended fallback: ${targetDefaultId}`);
+              console.log(`  Selected recommended fallback: ${targetDefaultId}`);
           }
       }
       
@@ -195,13 +195,13 @@ function updateConfig(apiResponse) {
           });
           if (anyAvailable) {
                targetDefaultId = anyAvailable[0];
-               console.log(`ℹ️  Selected available fallback: ${targetDefaultId}`);
+               console.log(`  Selected available fallback: ${targetDefaultId}`);
           }
       }
   }
 
   if (!targetDefaultId) {
-      console.warn("⚠️  Could not find ANY available model with quota! Keeping existing configuration unsafe.");
+      console.warn("  Could not find ANY available model with quota! Keeping existing configuration unsafe.");
       // We don't exit, we just don't update the primary model pointer.
   }
 
@@ -250,7 +250,7 @@ function updateConfig(apiResponse) {
       // Only logging the change if it's actually different or we are forcing an update
       if (config.agents.defaults.model.primary !== fullId) {
           config.agents.defaults.model.primary = fullId;
-          console.log(`🔄 Updated primary agent model to: ${fullId}`);
+          console.log(` Updated primary agent model to: ${fullId}`);
       }
       
       // Ensure it's in the `models` map (used for enablement/overrides)
@@ -260,18 +260,18 @@ function updateConfig(apiResponse) {
 
   // Write changes
   fs.writeFileSync(OPENCLAW_JSON_PATH, JSON.stringify(config, null, 2));
-  console.log(`✅ Configuration updated successfully with ${modelDefinitions.length} models.`);
+  console.log(` Configuration updated successfully with ${modelDefinitions.length} models.`);
 }
 
 async function main() {
-    console.log("🔄 Starting Antigravity Sync...");
+    console.log(" Starting Antigravity Sync...");
     const { token, projectId } = getAuthToken();
-    console.log("🔑 Authenticated.");
+    console.log(" Authenticated.");
     
-    console.log("📡 Fetching models from Google Cloud Code Assist...");
+    console.log(" Fetching models from Google Cloud Code Assist...");
     const apiResponse = await fetchModels(token, projectId);
     
-    console.log(`✨ Discovered ${Object.keys(apiResponse.models || {}).length} models.`);
+    console.log(` Discovered ${Object.keys(apiResponse.models || {}).length} models.`);
     updateConfig(apiResponse);
 }
 

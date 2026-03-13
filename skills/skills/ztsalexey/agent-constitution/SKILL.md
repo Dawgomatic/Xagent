@@ -1,10 +1,10 @@
 ---
 name: agent-constitution
 description: "Interact with AgentConstitution governance contracts on Base Sepolia. Check compliance, read rules, log actions, query governance state."
-metadata: {"openclaw": {"emoji": "⚖️", "homepage": "https://github.com/ztsalexey/bigmemkex/tree/main/projects/agent-constitution"}}
+metadata: {"openclaw": {"emoji": "", "homepage": "https://github.com/ztsalexey/bigmemkex/tree/main/projects/agent-constitution"}}
 ---
 
-# AgentConstitution Skill ⚖️
+# AgentConstitution Skill 
 
 Interact with the AgentConstitution governance framework on Base Sepolia. This skill allows AI agents to:
 

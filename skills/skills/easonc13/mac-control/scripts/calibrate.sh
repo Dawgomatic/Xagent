@@ -12,7 +12,7 @@ mkdir -p "$(dirname "$CALIBRATION_FILE")"
 TEST_X=500
 TEST_Y=300
 
-echo "🔧 Mac Control Calibration" >&2
+echo " Mac Control Calibration" >&2
 echo "Moving mouse to cliclick ($TEST_X, $TEST_Y)..." >&2
 
 # Move mouse to test position

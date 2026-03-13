@@ -46,7 +46,7 @@ This skill requires the following other skills to be installed:
 At the start of curriculum generation, verify neo-ddg-search is available:
 ```
 IF neo-ddg-search skill NOT found:
-   🚨 DEPENDENCY MISSING
+    DEPENDENCY MISSING
    
    The curriculum generator requires the neo-ddg-search skill for finding educational resources.
    
@@ -55,7 +55,7 @@ IF neo-ddg-search skill NOT found:
    
    Then restart this process.
    
-   ⚠️ GENERATION CANNOT PROCEED without search capability
+    GENERATION CANNOT PROCEED without search capability
    
    STOP
 ```
@@ -67,11 +67,11 @@ Before starting resource research, perform a test search:
 Test: neo-ddg-search("Python tutorial test")
 
 IF successful:
-   ✅ Search tool operational
+    Search tool operational
    Proceeding with resource research...
    
 IF failed:
-   🚨 SEARCH TOOL ERROR
+    SEARCH TOOL ERROR
    
    neo-ddg-search is installed but not responding correctly.
    
@@ -82,7 +82,7 @@ IF failed:
    • Internet connection is available
    • No firewall blocking DuckDuckGo
    
-   ⚠️ Cannot proceed with resource research
+    Cannot proceed with resource research
    
    ESCALATE
 ```
@@ -152,7 +152,7 @@ You MUST stop and escalate to human if ANY of these occur:
 ### Escalation Format (MANDATORY)
 When escalating, use this EXACT format:
 ```
-🚨 HUMAN INPUT REQUIRED
+ HUMAN INPUT REQUIRED
 
 Reason: [specific trigger]
 Impact if Unresolved: [clear consequence]
@@ -186,7 +186,7 @@ Collect ALL of the following using the structured form:
 - POD Name (REQUIRED)
 - Scenario Type (must be selected)
 
-⚠️ If Scenario Type not selected → HARD STOP
+ If Scenario Type not selected → HARD STOP
 
 **Section 1: Target Audience Profile (MANDATORY)**
 1. Primary Student Group:
@@ -205,7 +205,7 @@ Collect ALL of the following using the structured form:
    - Attendance inconsistency
    - Social/economic limitations
 
-⚠️ If age/grade missing → HARD STOP and escalate
+ If age/grade missing → HARD STOP and escalate
 
 **Section 2: POD & Infrastructure Details (MANDATORY)**
 1. Lab Infrastructure:
@@ -221,7 +221,7 @@ Collect ALL of the following using the structured form:
    - Software already installed
    - Internet restrictions
 
-⚠️ If lab hours or computer count missing → HARD STOP and escalate
+ If lab hours or computer count missing → HARD STOP and escalate
 
 **Section 3: Teacher Capability & Availability (MANDATORY)**
 1. Number of Teachers Assigned
@@ -237,7 +237,7 @@ Collect ALL of the following using the structured form:
    - Short training needed
    - Extensive training needed
 
-⚠️ Any "No" in capability assessment → Potential escalation
+ Any "No" in capability assessment → Potential escalation
 
 #### STEP A2: Stakeholder Inputs (Structured Summary)
 Simulate structured stakeholder inputs based on provided data:
@@ -442,9 +442,9 @@ Start.
 
 You should see output like:
 ```
-✅ Course structure complete
+ Course structure complete
 
-🔍 Starting resource search...
+ Starting resource search...
 
 Topic: HTML Basics
 Executing: python3 ~/.openclaw/skills/neo-ddg-search/scripts/search.py "HTML Basics tutorial for beginners" 5
@@ -455,12 +455,12 @@ Executing: python3 ~/.openclaw/skills/neo-ddg-search/scripts/search.py "HTML Bas
 
 Found 2 URLs
 Selected: https://www.youtube.com/watch?v=...
-✅ Stored for HTML Basics: https://www.youtube.com/watch?v=...
+ Stored for HTML Basics: https://www.youtube.com/watch?v=...
 
 Resource Links Dictionary:
   HTML Basics: https://www.youtube.com/watch?v=...
 
-📋 CSV Preview:
+ CSV Preview:
 Covered Topics           | Resource Link
 HTML Basics             | https://www.youtube.com/watch?v=...
 
@@ -497,20 +497,20 @@ resource_links["{topic}"] = "the_url_you_found"
 **RULE**: Execute ONE search per topic. Extract ONE URL. Move on.
 
 Do NOT:
-- ❌ Execute multiple searches for the same topic
-- ❌ Try to find "better" resources
-- ❌ Analyze quality extensively
-- ❌ Wait or pause
+-  Execute multiple searches for the same topic
+-  Try to find "better" resources
+-  Analyze quality extensively
+-  Wait or pause
 
 DO:
-- ✅ Search once
-- ✅ Grab first URL
-- ✅ Move to next topic
-- ✅ Complete all topics quickly
+-  Search once
+-  Grab first URL
+-  Move to next topic
+-  Complete all topics quickly
 
 ### Exact Execution Template
 ```
-Print: "🔍 Resource Research Starting..."
+Print: " Resource Research Starting..."
 Print: ""
 
 resource_links = {}
@@ -538,15 +538,15 @@ For topic in topics:
     
     if url:
         resource_links[topic] = url
-        Print: f"  ✅ {url}"
+        Print: f"   {url}"
     else:
         resource_links[topic] = "MANUAL_RESEARCH_NEEDED"
-        Print: f"  ⚠️ No URL found - marked for manual research"
+        Print: f"   No URL found - marked for manual research"
     
     # IMMEDIATELY continue to next topic
     
 Print: ""
-Print: "✅ Resource research complete"
+Print: " Resource research complete"
 Print: f"Collected {len(resource_links)} resource links"
 Print: ""
 ```
@@ -570,15 +570,15 @@ resource_links["HTML Intro"] = "https://www.w3schools.com/python/python_variable
 resource_links["Obscure Topic"] = "MANUAL_RESEARCH_NEEDED"
 
 # NEVER acceptable:
-resource_links["Topic"] = "TBD"  # ❌
-resource_links["Topic"] = ""     # ❌
+resource_links["Topic"] = "TBD"  # 
+resource_links["Topic"] = ""     # 
 ```
 
 ### After Collection: Immediate CSV Generation
 
 **Do NOT pause or wait. Immediately proceed to CSV generation.**
 ```
-Print: "📄 Generating CSV with collected resources..."
+Print: " Generating CSV with collected resources..."
 
 csv_data = []
 
@@ -600,32 +600,32 @@ for topic in curriculum_structure:
     csv_data.append(csv_row)
 
 write_csv(csv_data)
-Print: "✅ CSV file generated"
+Print: " CSV file generated"
 ```
 
 ### Example: Complete 2-Topic Execution
 
 **Topics**: ["Python Basics", "Python Functions"]
 ```
-🔍 Resource Research Starting...
+ Resource Research Starting...
 
 Topic: Python Basics
   Executing search...
   [Results received]
   Found URL: https://datascientest.com/en/python-variables-beginners-guide
-  ✅ https://datascientest.com/en/python-variables-beginners-guide
+   https://datascientest.com/en/python-variables-beginners-guide
 
 Topic: Python Functions  
   Executing search...
   [Results received]
   Found URL: https://www.w3schools.com/python/python_functions.asp
-  ✅ https://www.w3schools.com/python/python_functions.asp
+   https://www.w3schools.com/python/python_functions.asp
 
-✅ Resource research complete
+ Resource research complete
 Collected 2 resource links
 
-📄 Generating CSV with collected resources...
-✅ CSV file generated: Python_Basics_v1.0.csv
+ Generating CSV with collected resources...
+ CSV file generated: Python_Basics_v1.0.csv
 ```
 
 **Total time**: ~15 seconds
@@ -635,23 +635,23 @@ Collected 2 resource links
 **Accept whatever URL you find in the first search.**
 
 Priority is:
-1. Speed ✅
-2. Completion ✅
-3. Perfect resources ⚠️ (nice to have, not required)
+1. Speed 
+2. Completion 
+3. Perfect resources  (nice to have, not required)
 
 If the first search returns W3Schools instead of YouTube, that's FINE. Use it and move on.
 
 ### Escalation Only For Zero Results
 
 **Only escalate if:**
-- ❌ Search returns absolutely no results
-- ❌ Search returns results but contains ZERO URLs
-- ❌ Search tool completely fails
+-  Search returns absolutely no results
+-  Search returns results but contains ZERO URLs
+-  Search tool completely fails
 
 **Do NOT escalate if:**
-- ✅ URL is from W3Schools instead of YouTube (still good!)
-- ✅ URL is from a lesser-known educational site (acceptable!)
-- ✅ URL is documentation instead of video (perfectly fine!)
+-  URL is from W3Schools instead of YouTube (still good!)
+-  URL is from a lesser-known educational site (acceptable!)
+-  URL is documentation instead of video (perfectly fine!)
 
 ### Debug Output (When Requested)
 
@@ -664,7 +664,7 @@ If user requests DEBUG MODE:
 [DEBUG] Line 1: Contains 'https://datascientest.com/...'
 [DEBUG] Extracted: https://datascientest.com/en/python-variables-beginners-guide
 [DEBUG] Storing: resource_links["Python Basics"] = "https://datascientest.com/..."
-[DEBUG] ✅ Complete - moving to next topic
+[DEBUG]  Complete - moving to next topic
 ```
 
 **MANDATORY: After Step B2, execute resource collection IMMEDIATELY**
@@ -690,7 +690,7 @@ No breaks. No pauses. No waiting.
 
 **After Step B2 (course structure), do this:**
 ```
-Print: "🔍 Starting resource search for all topics..."
+Print: " Starting resource search for all topics..."
 Print: ""
 
 Initialize: resource_links = {}
@@ -738,9 +738,9 @@ For each topic in curriculum:
     
     if best_url:
         resource_links[topic] = best_url
-        Print: f"  ✅ Stored: {best_url}"
+        Print: f"   Stored: {best_url}"
     else:
-        Print: f"  ❌ No URLs found - trying alternative search..."
+        Print: f"   No URLs found - trying alternative search..."
         # Try one more time
         alt_command = f"python3 ~/.openclaw/skills/neo-ddg-search/scripts/search.py \"{topic} free course\" 5"
         alt_result = execute_bash(alt_command)
@@ -749,13 +749,13 @@ For each topic in curriculum:
         
         if alt_urls:
             resource_links[topic] = alt_urls[0]
-            Print: f"  ✅ Stored: {alt_urls[0]}"
+            Print: f"   Stored: {alt_urls[0]}"
         else:
             ESCALATE(f"No resources found for {topic}")
     
     Print: ""
 
-Print: "✅ Resource collection complete!"
+Print: " Resource collection complete!"
 Print: f"Total topics: {len(resource_links)}"
 Print: ""
 Print: "Resource Links Dictionary:"
@@ -796,7 +796,7 @@ Define:
 
 STOP what you're doing and execute this:
 ```
-Print: "⏱️ Resource collection timeout (3 min exceeded)"
+Print: " Resource collection timeout (3 min exceeded)"
 Print: "Completing with available resources..."
 
 For any topic without a resource:
@@ -831,19 +831,19 @@ Show me when you start resource search and when you finish.
 
 You should see:
 ```
-🔍 Resource Research Starting...
+ Resource Research Starting...
 
 Topic: Lesson 1 - Python Intro
-  ✅ https://datascientest.com/en/python-variables-beginners-guide
+   https://datascientest.com/en/python-variables-beginners-guide
 
 Topic: Lesson 2 - Python Functions
-  ✅ https://www.w3schools.com/python/python_functions.asp
+   https://www.w3schools.com/python/python_functions.asp
 
-✅ Resource research complete (15 seconds)
+ Resource research complete (15 seconds)
 Collected 2 resource links
 
-📄 Generating CSV...
-✅ Done
+ Generating CSV...
+ Done
 ```
 
 **NOT this:**
@@ -946,7 +946,7 @@ resource_links["Python Lists"] = "https://www.youtube.com/watch?v=W8KRzm-HUcc"
 
 **MANDATORY CHECK:**
 ```
-Print: "🔍 Verifying resource links before CSV generation..."
+Print: " Verifying resource links before CSV generation..."
 Print: ""
 
 csv_data = []
@@ -958,15 +958,15 @@ for row in curriculum_structure:
     if topic in resource_links:
         resource_url = resource_links[topic]
     else:
-        Print: f"❌ ERROR: No resource link for '{topic}'"
+        Print: f" ERROR: No resource link for '{topic}'"
         STOP
     
     # Verify it's a valid URL
     if not resource_url.startswith('http'):
-        Print: f"❌ ERROR: Invalid URL for '{topic}': {resource_url}"
+        Print: f" ERROR: Invalid URL for '{topic}': {resource_url}"
         STOP
     
-    Print: f"✅ {topic}: {resource_url[:60]}..."
+    Print: f" {topic}: {resource_url[:60]}..."
     
     # Add to CSV data
     csv_row = {
@@ -984,8 +984,8 @@ for row in curriculum_structure:
     csv_data.append(csv_row)
 
 Print: ""
-Print: "✅ All rows verified with valid URLs"
-Print: "📄 Writing CSV file..."
+Print: " All rows verified with valid URLs"
+Print: " Writing CSV file..."
 
 write_csv_file(csv_data)
 ```
@@ -994,7 +994,7 @@ write_csv_file(csv_data)
 
 **Show user the data:**
 ```
-Print: "📋 CSV Preview:"
+Print: " CSV Preview:"
 Print: "=" * 80
 Print: f"Covered Topics | Resource Link"
 Print: "-" * 80
@@ -1011,7 +1011,7 @@ Print: "Writing to file..."
 
 If after searching, a topic has no URL:
 ```
-🚨 RESOURCE SEARCH FAILED - HUMAN INPUT REQUIRED
+ RESOURCE SEARCH FAILED - HUMAN INPUT REQUIRED
 
 Topic: {topic_name}
 
@@ -1032,7 +1032,7 @@ Options:
 
 Awaiting Decision From: Curriculum Owner
 
-⚠️ CSV generation paused
+ CSV generation paused
 ```
 
 
@@ -1052,8 +1052,8 @@ FOR EACH row in the curriculum data:
     
     IF resource_link is empty OR resource_link == "TBD" OR resource_link == "N/A":
         
-        PRINT "⚠️ Missing resource link for: {topic}"
-        PRINT "🔍 Executing search now..."
+        PRINT " Missing resource link for: {topic}"
+        PRINT " Executing search now..."
         
         # Execute neo-ddg-search immediately
         search_query = f"{topic} tutorial for beginners"
@@ -1064,7 +1064,7 @@ FOR EACH row in the curriculum data:
         
         IF urls found:
             row['Resource Link'] = urls[0]  # Use first result
-            PRINT "✅ Found resource: {urls[0]}"
+            PRINT " Found resource: {urls[0]}"
         ELSE:
             # Try alternative search
             search_query_2 = f"{topic} free course"
@@ -1073,7 +1073,7 @@ FOR EACH row in the curriculum data:
             
             IF urls found:
                 row['Resource Link'] = urls[0]
-                PRINT "✅ Found resource: {urls[0]}"
+                PRINT " Found resource: {urls[0]}"
             ELSE:
                 ESCALATE("Cannot find resources for {topic}")
                 STOP_FILE_GENERATION
@@ -1082,13 +1082,13 @@ FOR EACH row in the curriculum data:
 **You MUST see output like:**
 ```
 Checking resource links before file generation...
-✅ Row 1 - HTML Basics: Has resource link
-✅ Row 2 - CSS Fundamentals: Has resource link  
-⚠️ Row 3 - JavaScript: Missing resource link
-🔍 Executing search now...
+ Row 1 - HTML Basics: Has resource link
+ Row 2 - CSS Fundamentals: Has resource link  
+ Row 3 - JavaScript: Missing resource link
+ Executing search now...
    Using neo-ddg-search: "JavaScript tutorial for beginners"
-✅ Found resource: https://www.youtube.com/watch?v=...
-✅ Row 3 - JavaScript: Resource link populated
+ Found resource: https://www.youtube.com/watch?v=...
+ Row 3 - JavaScript: Resource link populated
 
 All rows verified. Proceeding to file generation...
 ```
@@ -1108,7 +1108,7 @@ FOR EACH resource_link in curriculum:
 total_topics = COUNT(curriculum rows)
 topics_with_resources = COUNT(rows where Resource Link is valid URL)
 
-PRINT "📊 Resource Link Status:"
+PRINT " Resource Link Status:"
 PRINT "   Total topics: {total_topics}"
 PRINT "   With resources: {topics_with_resources}"
 PRINT "   Missing: {total_topics - topics_with_resources}"
@@ -1117,7 +1117,7 @@ IF topics_with_resources < total_topics:
     ESCALATE("Some topics still missing resources after search")
     STOP
 ELSE:
-    PRINT "✅ All topics have resource links. Safe to generate file."
+    PRINT " All topics have resource links. Safe to generate file."
 ```
 
 
@@ -1133,11 +1133,11 @@ resource_map = {}
 # Get all topics from curriculum structure
 all_topics = extract_all_topics_from_curriculum()
 
-print(f"\n📚 Building resource map for {len(all_topics)} topics...\n")
+print(f"\n Building resource map for {len(all_topics)} topics...\n")
 
 # For each topic, search and extract URL
 for topic in all_topics:
-    print(f"🔍 Topic: {topic}")
+    print(f" Topic: {topic}")
     
     # Execute search
     search_query = f"{topic} tutorial for beginners"
@@ -1153,9 +1153,9 @@ for topic in all_topics:
     if urls_found:
         best_url = select_best_url(urls_found)
         resource_map[topic] = best_url
-        print(f"   ✅ Selected: {best_url}\n")
+        print(f"    Selected: {best_url}\n")
     else:
-        print(f"   ⚠️ No URLs found, trying alternative search...")
+        print(f"    No URLs found, trying alternative search...")
         # Try alternative search
         alt_search = neo_ddg_search(f"{topic} free course")
         urls_found_alt = extract_urls_from_search_result(alt_search)
@@ -1163,23 +1163,23 @@ for topic in all_topics:
         if urls_found_alt:
             best_url = select_best_url(urls_found_alt)
             resource_map[topic] = best_url
-            print(f"   ✅ Selected: {best_url}\n")
+            print(f"    Selected: {best_url}\n")
         else:
             resource_map[topic] = "ESCALATION_NEEDED"
-            print(f"   ❌ No resources found - will escalate\n")
+            print(f"    No resources found - will escalate\n")
 
 # Verify all topics have resources
 missing_resources = [t for t, url in resource_map.items() if url == "ESCALATION_NEEDED"]
 
 if missing_resources:
-    print(f"🚨 {len(missing_resources)} topics need escalation:")
+    print(f" {len(missing_resources)} topics need escalation:")
     for topic in missing_resources:
         print(f"   - {topic}")
     ESCALATE("Resource search failed for some topics")
     STOP
 else:
-    print(f"✅ All {len(all_topics)} topics have resource links!")
-    print(f"📝 Proceeding to CSV generation...\n")
+    print(f" All {len(all_topics)} topics have resource links!")
+    print(f" Proceeding to CSV generation...\n")
 ```
 
 ### CSV Generation with Resource Map
@@ -1216,18 +1216,18 @@ for week_num, lesson in curriculum_structure:
 **Critical Check Before Writing**:
 ```python
 # Final verification
-print("\n🔍 Final CSV Data Verification:")
+print("\n Final CSV Data Verification:")
 for i, row in enumerate(csv_data):
     resource = row["Resource Link"]
     topic = row["Covered Topics"]
     
     if resource == "TBD" or not resource.startswith("http"):
-        print(f"❌ Row {i+1} ({topic}): INVALID resource '{resource}'")
+        print(f" Row {i+1} ({topic}): INVALID resource '{resource}'")
         STOP_GENERATION
     else:
-        print(f"✅ Row {i+1} ({topic}): {resource[:60]}...")
+        print(f" Row {i+1} ({topic}): {resource[:60]}...")
 
-print("\n✅ All rows verified - writing file...")
+print("\n All rows verified - writing file...")
 write_csv_file(csv_data)
 ```
 
@@ -1247,7 +1247,7 @@ def prepare_curriculum_data_for_file():
     
     curriculum_rows = get_curriculum_structure()
     
-    print("\n🔍 FINAL RESOURCE LINK CHECK (Pre-File-Generation)")
+    print("\n FINAL RESOURCE LINK CHECK (Pre-File-Generation)")
     print("=" * 50)
     
     for i, row in enumerate(curriculum_rows):
@@ -1257,9 +1257,9 @@ def prepare_curriculum_data_for_file():
         # Check if resource link is missing or placeholder
         if not resource_link or resource_link in ['TBD', 'N/A', '', 'null', 'None']:
             
-            print(f"\n⚠️  Row {i+1}: '{topic}' has no resource link")
+            print(f"\n  Row {i+1}: '{topic}' has no resource link")
             print(f"    Current value: '{resource_link}'")
-            print(f"    🔍 Searching now with neo-ddg-search...")
+            print(f"     Searching now with neo-ddg-search...")
             
             # EXECUTE NEO-DDG-SEARCH HERE
             search_results = neo_ddg_search(f"{topic} tutorial for beginners free")
@@ -1269,26 +1269,26 @@ def prepare_curriculum_data_for_file():
             
             if urls_found and len(urls_found) > 0:
                 row['Resource Link'] = urls_found[0]
-                print(f"    ✅ Updated with: {urls_found[0]}")
+                print(f"     Updated with: {urls_found[0]}")
             else:
                 # Try one more time with different query
-                print(f"    🔄 First search returned no URLs, trying again...")
+                print(f"     First search returned no URLs, trying again...")
                 search_results_2 = neo_ddg_search(f"{topic} learn online")
                 urls_found_2 = extract_urls_from_search_results(search_results_2)
                 
                 if urls_found_2 and len(urls_found_2) > 0:
                     row['Resource Link'] = urls_found_2[0]
-                    print(f"    ✅ Updated with: {urls_found_2[0]}")
+                    print(f"     Updated with: {urls_found_2[0]}")
                 else:
                     # HARD STOP - escalate
-                    print(f"    ❌ FAILED: No resources found after 2 searches")
+                    print(f"     FAILED: No resources found after 2 searches")
                     escalate_resource_failure(topic)
                     return None  # Don't proceed to file generation
         else:
-            print(f"✅ Row {i+1}: '{topic}' has resource: {resource_link[:50]}...")
+            print(f" Row {i+1}: '{topic}' has resource: {resource_link[:50]}...")
     
     print("\n" + "=" * 50)
-    print("✅ All resource links verified. Proceeding to file write.\n")
+    print(" All resource links verified. Proceeding to file write.\n")
     
     return curriculum_rows
 
@@ -1297,7 +1297,7 @@ def prepare_curriculum_data_for_file():
 verified_data = prepare_curriculum_data_for_file()
 
 if verified_data is None:
-    print("🚨 File generation cancelled - resource verification failed")
+    print(" File generation cancelled - resource verification failed")
     # STOP HERE, don't write file
 else:
     write_csv_file(verified_data)  # Only write if all checks passed
@@ -1305,21 +1305,21 @@ else:
 
 **What the user should see:**
 ```
-🔍 FINAL RESOURCE LINK CHECK (Pre-File-Generation)
+ FINAL RESOURCE LINK CHECK (Pre-File-Generation)
 ==================================================
-✅ Row 1: 'HTML Basics' has resource: https://www.youtube.com/watch?v=pQN-pnXPaVg
-✅ Row 2: 'CSS Fundamentals' has resource: https://www.youtube.com/watch?v=1Rs2ND1ryYc
-⚠️  Row 3: 'JavaScript Intro' has no resource link
+ Row 1: 'HTML Basics' has resource: https://www.youtube.com/watch?v=pQN-pnXPaVg
+ Row 2: 'CSS Fundamentals' has resource: https://www.youtube.com/watch?v=1Rs2ND1ryYc
+  Row 3: 'JavaScript Intro' has no resource link
     Current value: 'TBD'
-    🔍 Searching now with neo-ddg-search...
+     Searching now with neo-ddg-search...
     Using neo-ddg-search: "JavaScript Intro tutorial for beginners free"
-    ✅ Updated with: https://www.youtube.com/watch?v=PkZNo7MFNFg
-✅ Row 4: 'DOM Manipulation' has resource: https://www.freecodecamp.org/...
+     Updated with: https://www.youtube.com/watch?v=PkZNo7MFNFg
+ Row 4: 'DOM Manipulation' has resource: https://www.freecodecamp.org/...
 ==================================================
-✅ All resource links verified. Proceeding to file write.
+ All resource links verified. Proceeding to file write.
 
-📄 Writing file: Web_Dev_Fundamentals_v1.0.csv
-✅ File generated successfully!
+ Writing file: Web_Dev_Fundamentals_v1.0.csv
+ File generated successfully!
 ```
 
 ### Excel File Structure
@@ -1331,7 +1331,7 @@ Generate `.xlsx` file with these columns:
 5. Content Type
 6. Covered Topics
 7. Owner
-8. **Resource Link** ⚠️ MUST contain actual URLs, NEVER "TBD"
+8. **Resource Link**  MUST contain actual URLs, NEVER "TBD"
 9. Document Creation Date
 10. Last Updated On
 
@@ -1395,7 +1395,7 @@ Memory file structure:
 
 When triggered, inform user:
 ```
-🦞 Starting curriculum generation process...
+ Starting curriculum generation process...
 This may take 5-10 minutes. I'll notify you when complete.
 You can continue other tasks in the meantime.
 ```
@@ -1426,7 +1426,7 @@ You must NEVER:
 
 **Clawdbot**:
 ```
-🦞 Curriculum Generator Activated
+ Curriculum Generator Activated
 
 I'll guide you through a structured questionnaire to design the curriculum.
 

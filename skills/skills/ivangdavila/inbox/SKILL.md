@@ -3,7 +3,7 @@ name: Inbox
 slug: inbox
 version: 1.0.0
 description: Master any inbox with triage frameworks, cognitive load reduction, and multi-channel prioritization.
-metadata: {"clawdbot":{"emoji":"📥","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

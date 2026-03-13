@@ -78,9 +78,9 @@ Details, notes, and references here.
 ```
 
 The Kanban board (`Board.md`) uses priority emoji for visual scanning:
-- 🔴 P1 (urgent)
-- 🟡 P2 (normal)
-- 🟢 P3 (backlog)
+-  P1 (urgent)
+-  P2 (normal)
+-  P3 (backlog)
 
 ## License
 

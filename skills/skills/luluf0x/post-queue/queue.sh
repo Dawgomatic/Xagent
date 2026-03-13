@@ -89,7 +89,7 @@ case "$action" in
             now_ts=$(date +%s)
             if [[ $now_ts -lt $cooldown_ts ]]; then
                 remaining=$(( (cooldown_ts - now_ts) / 60 ))
-                echo "⏳ Cooldown active for $platform: ${remaining}m remaining"
+                echo " Cooldown active for $platform: ${remaining}m remaining"
                 exit 0
             fi
         fi

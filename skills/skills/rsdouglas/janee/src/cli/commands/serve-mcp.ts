@@ -35,7 +35,7 @@ export async function serveMCPCommand(): Promise<void> {
   try {
     // Check for YAML config
     if (!hasYAMLConfig()) {
-      console.error('❌ YAML config required for MCP mode');
+      console.error(' YAML config required for MCP mode');
       console.error('');
       console.error('Run: janee migrate');
       console.error('Or: janee init (for new setup)');
@@ -125,9 +125,9 @@ export async function serveMCPCommand(): Promise<void> {
 
   } catch (error) {
     if (error instanceof Error) {
-      console.error('❌ Error:', error.message);
+      console.error(' Error:', error.message);
     } else {
-      console.error('❌ Unknown error occurred');
+      console.error(' Unknown error occurred');
     }
     process.exit(1);
   }

@@ -53,8 +53,8 @@ def trigger_reauth():
     auth_script = os.path.join(script_dir, "..", "authenticate.sh")
     
     if os.path.exists(auth_script):
-        log("🔄 Session expired - triggering re-authentication...")
-        log("📱 Check your phone for IBKR Key notification!")
+        log(" Session expired - triggering re-authentication...")
+        log(" Check your phone for IBKR Key notification!")
         subprocess.Popen(["bash", auth_script], 
                         stdout=subprocess.DEVNULL, 
                         stderr=subprocess.DEVNULL)
@@ -66,22 +66,22 @@ def main():
     auth_ok, status = check_auth_status()
     
     if "error" in status:
-        log(f"❌ Gateway not responding: {status['error']}")
+        log(f" Gateway not responding: {status['error']}")
         return
     
     if auth_ok:
         # Session active - just tickle
         if tickle():
-            log("✅ Session active - keepalive sent")
+            log(" Session active - keepalive sent")
         else:
-            log("⚠️ Tickle failed but session reports authenticated")
+            log(" Tickle failed but session reports authenticated")
     else:
         # Session expired
-        log("⚠️ Session not authenticated")
+        log(" Session not authenticated")
         if trigger_reauth():
-            log("📱 Re-auth triggered - waiting for phone approval...")
+            log(" Re-auth triggered - waiting for phone approval...")
         else:
-            log("❌ Could not find authenticate.sh script")
+            log(" Could not find authenticate.sh script")
 
 if __name__ == "__main__":
     main()

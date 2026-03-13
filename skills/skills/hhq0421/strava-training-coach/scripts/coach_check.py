@@ -540,7 +540,7 @@ def check_consistency_streak(activities: List[Dict]) -> Optional[Dict]:
             return {
                 'type': 'streak_milestone',
                 'severity': 'positive',
-                'message': f"🔥 {milestone}-Day Streak!",
+                'message': f" {milestone}-Day Streak!",
                 'recommendation': "Consistency beats intensity. Well done."
             }
     
@@ -622,7 +622,7 @@ def check_oura_sleep(date: str, state: CoachState) -> Optional[Dict]:
             return {
                 'type': 'poor_sleep',
                 'severity': 'medium',
-                'message': f"😴 Poor sleep last night (score: {score}/100).",
+                'message': f" Poor sleep last night (score: {score}/100).",
                 'recommendation': "Consider an easy day or extra rest. Poor sleep increases injury risk."
             }
     except (IndexError, TypeError):
@@ -648,7 +648,7 @@ def check_oura_readiness(date: str, state: CoachState) -> Optional[Dict]:
             return {
                 'type': 'low_readiness',
                 'severity': 'medium',
-                'message': f"📉 Low readiness this morning (score: {score}/100).",
+                'message': f" Low readiness this morning (score: {score}/100).",
                 'recommendation': "Your body needs recovery. Skip hard workouts today."
             }
     except (IndexError, TypeError):
@@ -693,7 +693,7 @@ def send_discord_alert(alert: Dict, webhook_url: str) -> bool:
     message = str(alert.get('message', ''))[:1000]
     recommendation = str(alert.get('recommendation', ''))[:1000]
     
-    title = "🎉 Achievement" if alert.get('severity') == 'positive' else "🏃 Training Coach Alert"
+    title = " Achievement" if alert.get('severity') == 'positive' else " Training Coach Alert"
     
     embed = {
         "title": title,
@@ -736,13 +736,13 @@ def send_slack_alert(alert: Dict, webhook_url: str) -> bool:
         logger.error("Invalid Slack webhook URL format")
         return False
     
-    emoji = {'high': '🚨', 'medium': '⚠️', 'low': '💡', 'positive': '🎉'}
+    emoji = {'high': '', 'medium': '', 'low': '', 'positive': ''}
     
     message = str(alert.get('message', ''))[:3000]
     recommendation = str(alert.get('recommendation', ''))[:3000]
     
     payload = {
-        "text": f"{emoji.get(alert.get('severity'), 'ℹ️')} *Training Coach*",
+        "text": f"{emoji.get(alert.get('severity'), '')} *Training Coach*",
         "blocks": [
             {
                 "type": "section",
@@ -785,7 +785,7 @@ def send_slack_alert(alert: Dict, webhook_url: str) -> bool:
 
 def main() -> int:
     """Main entry point"""
-    logger.info(f"🏃 Training Coach Check - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    logger.info(f" Training Coach Check - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     logger.info("=" * 50)
     
     # Load state
@@ -795,17 +795,17 @@ def main() -> int:
     # Load tokens
     access_token = load_tokens()
     if not access_token:
-        logger.error("❌ No Strava tokens. Run: python3 scripts/auth.py")
+        logger.error(" No Strava tokens. Run: python3 scripts/auth.py")
         return 1
     
     # Get webhook
     webhook_url = DISCORD_WEBHOOK_URL if NOTIFICATION_CHANNEL == 'discord' else SLACK_WEBHOOK_URL
     if not webhook_url:
-        logger.error(f"❌ No webhook URL set. Set {'DISCORD_WEBHOOK_URL' if NOTIFICATION_CHANNEL == 'discord' else 'SLACK_WEBHOOK_URL'} environment variable.")
+        logger.error(f" No webhook URL set. Set {'DISCORD_WEBHOOK_URL' if NOTIFICATION_CHANNEL == 'discord' else 'SLACK_WEBHOOK_URL'} environment variable.")
         return 1
     
     if not validate_webhook_url(webhook_url):
-        logger.error("❌ Invalid webhook URL format")
+        logger.error(" Invalid webhook URL format")
         return 1
     
     # Fetch activities
@@ -824,48 +824,48 @@ def main() -> int:
     load_alert, weekly_miles = analyze_weekly_load(activities)
     if load_alert and state.should_alert('load'):
         alerts.append(load_alert)
-        logger.info(f"⚠️  Load spike: {weekly_miles:.1f} mi")
+        logger.info(f"  Load spike: {weekly_miles:.1f} mi")
     else:
-        logger.info(f"✅ Weekly load: {weekly_miles:.1f} mi")
+        logger.info(f" Weekly load: {weekly_miles:.1f} mi")
     
     # Intensity
     intensity_alert = analyze_intensity(activities)
     if intensity_alert and state.should_alert('intensity'):
         alerts.append(intensity_alert)
-        logger.info(f"⚠️  Intensity imbalance")
+        logger.info(f"  Intensity imbalance")
     else:
-        logger.info("✅ Intensity OK")
+        logger.info(" Intensity OK")
     
     # Recovery gap
     recovery_alert = check_recovery_gap(activities, state)
     if recovery_alert and state.should_alert('recovery'):
         alerts.append(recovery_alert)
-        logger.info(f"💡 Recovery gap")
+        logger.info(f" Recovery gap")
     
     # Streak
     streak_alert = check_consistency_streak(activities)
     if streak_alert and state.should_alert('streak'):
         alerts.append(streak_alert)
-        logger.info(f"🎉 Streak milestone")
+        logger.info(f" Streak milestone")
     
     # Oura checks
     if OURA_ENABLED:
-        logger.info("\n📊 Oura checks...")
+        logger.info("\n Oura checks...")
         today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
         
         sleep_alert = check_oura_sleep(today, state)
         if sleep_alert:
             alerts.append(sleep_alert)
-            logger.info(f"😴 Sleep alert")
+            logger.info(f" Sleep alert")
         
         readiness_alert = check_oura_readiness(today, state)
         if readiness_alert:
             alerts.append(readiness_alert)
-            logger.info(f"📉 Readiness alert")
+            logger.info(f" Readiness alert")
     
     # Send alerts
     if alerts:
-        logger.info(f"\n📤 Sending {len(alerts)} alert(s)...")
+        logger.info(f"\n Sending {len(alerts)} alert(s)...")
         for alert in alerts:
             if NOTIFICATION_CHANNEL == 'slack':
                 send_slack_alert(alert, webhook_url)
@@ -873,7 +873,7 @@ def main() -> int:
                 send_discord_alert(alert, webhook_url)
         state.last_alert_time = datetime.now(timezone.utc).isoformat()
     else:
-        logger.info("\n✅ All checks passed. No alerts.")
+        logger.info("\n All checks passed. No alerts.")
     
     state.save()
     logger.info(f"\n{'=' * 50}\n")

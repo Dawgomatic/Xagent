@@ -1,4 +1,4 @@
-# 🚀 JITS Builder - Just-In-Time Software
+#  JITS Builder - Just-In-Time Software
 
 Build instant mini-apps from voice or text descriptions. Describe what you need, get a working tool deployed in seconds via Cloudflare tunnel.
 
@@ -13,11 +13,11 @@ Build instant mini-apps from voice or text descriptions. Describe what you need,
 
 ## Features
 
-- 🎤 **Voice or text** - Describe what you want naturally
-- ⚡ **Instant deploy** - Live URL in seconds
-- 🌐 **Cloudflare tunnel** - Shareable public URLs
-- 📱 **Mobile-ready** - Responsive by default
-- 🎨 **Beautiful** - Dark theme, polished UI
+-  **Voice or text** - Describe what you want naturally
+-  **Instant deploy** - Live URL in seconds
+-  **Cloudflare tunnel** - Shareable public URLs
+-  **Mobile-ready** - Responsive by default
+-  **Beautiful** - Dark theme, polished UI
 
 ## How It Works
 
@@ -28,14 +28,14 @@ Build instant mini-apps from voice or text descriptions. Describe what you need,
 
 ## Example Apps Built
 
-- ⏱️ Pomodoro Timer
-- 💰 Tip Calculator
-- 🎨 Color Palette Generator
-- 📊 JSON Formatter
-- 🔢 Unit Converter
-- ✂️ Text Diff Tool
-- 🎲 Random Decision Maker
-- ⏳ Event Countdown
+-  Pomodoro Timer
+-  Tip Calculator
+-  Color Palette Generator
+-  JSON Formatter
+-  Unit Converter
+-  Text Diff Tool
+-  Random Decision Maker
+-  Event Countdown
 
 ## Installation
 
@@ -77,4 +77,4 @@ MIT
 
 ---
 
-Built with 🐱🦞 by [Cluka](https://github.com/Cluka-399)
+Built with  by [Cluka](https://github.com/Cluka-399)

@@ -76,11 +76,11 @@ if curl -s --max-time 30 \
         
         # 写入Markdown
         {
-            echo "## 🔥 Hacker News - AI相关内容"
+            echo "##  Hacker News - AI相关内容"
             echo ""
             echo "$ITEMS" | jq -r '.[] | 
                 "### " + .title + "\n" +
-                "- **热度**: ⬆️ " + (.points | tostring) + " points, 💬 " + (.comments | tostring) + " comments\n" +
+                "- **热度**:  " + (.points | tostring) + " points,  " + (.comments | tostring) + " comments\n" +
                 "- **作者**: @" + .author + "\n" +
                 "- **链接**: " + .url + "\n" +
                 "---\n"
@@ -128,11 +128,11 @@ if curl -s --max-time 30 \
         jq --argjson source "$SOURCE_JSON" '.sources += [$source]' "$RAW_FILE" > "${RAW_FILE}.tmp" && mv "${RAW_FILE}.tmp" "$RAW_FILE"
         
         {
-            echo "## 🤖 Reddit - ArtificialIntelligence"
+            echo "##  Reddit - ArtificialIntelligence"
             echo ""
             echo "$ITEMS" | jq -r '.[] | 
                 "### " + .title + "\n" +
-                "- **热度**: ⬆️ " + (.upvotes | tostring) + " upvotes, 💬 " + (.comments | tostring) + " comments\n" +
+                "- **热度**:  " + (.upvotes | tostring) + " upvotes,  " + (.comments | tostring) + " comments\n" +
                 "- **作者**: u/" + .author + "\n" +
                 "- **来源**: " + .domain + "\n" +
                 "- **链接**: " + .url + "\n" +
@@ -157,5 +157,5 @@ log "总条目: $TOTAL 条"
 log "输出: $OUTPUT_DIR"
 
 echo ""
-echo "✅ 收集完成! 共 $TOTAL 条内容"
-echo "📄 查看: cat $MARKDOWN_FILE"
+echo " 收集完成! 共 $TOTAL 条内容"
+echo " 查看: cat $MARKDOWN_FILE"

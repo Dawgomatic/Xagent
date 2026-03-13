@@ -37,7 +37,7 @@ Primary ports define the operations that the application offers. They are implem
 
 The primary port is the use case interface. Primary adapters (controllers, CLI handlers) call the port to trigger application behavior.
 
-❌ **Bad: Controller calling domain directly, bypassing the port**
+ **Bad: Controller calling domain directly, bypassing the port**
 
 ```typescript
 class UserController {
@@ -60,7 +60,7 @@ class UserController {
 }
 ```
 
-✅ **Good: Controller calls primary port (use case interface)**
+ **Good: Controller calls primary port (use case interface)**
 
 ```typescript
 // Primary port — defines what the application can do
@@ -111,7 +111,7 @@ class UserController {
 
 The same business logic is accessible through multiple entry points — REST API, GraphQL, CLI, message queue — without any duplication.
 
-❌ **Bad: Business logic duplicated across entry points**
+ **Bad: Business logic duplicated across entry points**
 
 ```typescript
 // REST controller
@@ -137,7 +137,7 @@ class CliOrderCommand {
 }
 ```
 
-✅ **Good: Single port, multiple adapters**
+ **Good: Single port, multiple adapters**
 
 ```typescript
 // One primary port
@@ -192,7 +192,7 @@ Secondary ports define what the application needs from the outside world. The do
 
 The most common secondary port — abstracting persistence.
 
-❌ **Bad: Domain service importing database client directly**
+ **Bad: Domain service importing database client directly**
 
 ```typescript
 import { PrismaClient } from "@prisma/client";
@@ -211,7 +211,7 @@ class OrderService {
 }
 ```
 
-✅ **Good: Domain defines the interface, infrastructure implements it**
+ **Good: Domain defines the interface, infrastructure implements it**
 
 ```typescript
 // Secondary port — defined in domain layer
@@ -253,7 +253,7 @@ class PrismaOrderRepository implements OrderRepository {
 
 Abstracting external services (payment processors, notification services, etc.) behind domain-defined interfaces.
 
-❌ **Bad: Business logic calling Stripe SDK directly**
+ **Bad: Business logic calling Stripe SDK directly**
 
 ```typescript
 import Stripe from "stripe";
@@ -273,7 +273,7 @@ class PaymentService {
 }
 ```
 
-✅ **Good: Port defines what the domain needs, adapter wraps Stripe**
+ **Good: Port defines what the domain needs, adapter wraps Stripe**
 
 ```typescript
 // Secondary port — domain vocabulary, not Stripe vocabulary
@@ -329,7 +329,7 @@ class StripePaymentAdapter implements PaymentGateway {
 
 Notification services (email, SMS, push) follow the same pattern — the domain defines what to notify, adapters decide how.
 
-❌ **Bad: Use case importing nodemailer directly**
+ **Bad: Use case importing nodemailer directly**
 
 ```typescript
 import nodemailer from "nodemailer";
@@ -350,7 +350,7 @@ class CreateOrderUseCase {
 }
 ```
 
-✅ **Good: Notification port with multiple adapter options**
+ **Good: Notification port with multiple adapter options**
 
 ```typescript
 // Secondary port
@@ -403,7 +403,7 @@ class CreateOrderUseCase {
 
 Infrastructure errors should not leak into the domain. Adapters catch infrastructure-specific errors and throw domain errors.
 
-❌ **Bad: Prisma errors leaking into use cases**
+ **Bad: Prisma errors leaking into use cases**
 
 ```typescript
 class PrismaUserRepository implements UserRepository {
@@ -428,7 +428,7 @@ class CreateUserUseCase {
 }
 ```
 
-✅ **Good: Adapter translates errors to domain exceptions**
+ **Good: Adapter translates errors to domain exceptions**
 
 ```typescript
 class PrismaUserRepository implements UserRepository {
@@ -568,7 +568,7 @@ describe("CreateUserUseCase", () => {
 
 The composition root is the single place where all adapters are wired to ports. It lives in the infrastructure layer.
 
-❌ **Bad: Dependencies scattered across the codebase**
+ **Bad: Dependencies scattered across the codebase**
 
 ```typescript
 // user.controller.ts
@@ -583,7 +583,7 @@ const prisma = new PrismaClient();  // Second instance!
 const repo = new PrismaOrderRepository(prisma);
 ```
 
-✅ **Good: Single composition root**
+ **Good: Single composition root**
 
 ```typescript
 // src/infrastructure/composition-root.ts
@@ -656,7 +656,7 @@ function createOrderModule(deps: {
 
 Creating a separate interface for every single method fragments the design and adds unnecessary indirection.
 
-❌ **Bad: One port per operation**
+ **Bad: One port per operation**
 
 ```typescript
 interface FindUserByIdPort { findById(id: UserId): Promise<User | null>; }
@@ -665,7 +665,7 @@ interface SaveUserPort { save(user: User): Promise<void>; }
 interface DeleteUserPort { delete(id: UserId): Promise<void>; }
 ```
 
-✅ **Good: Cohesive port interface**
+ **Good: Cohesive port interface**
 
 ```typescript
 interface UserRepository {
@@ -684,7 +684,7 @@ interface UserRepository {
 
 Port interfaces shaped by a specific adapter's capabilities rather than domain needs.
 
-❌ **Bad: Port shaped by SQL capabilities**
+ **Bad: Port shaped by SQL capabilities**
 
 ```typescript
 interface UserRepository {
@@ -694,7 +694,7 @@ interface UserRepository {
 }
 ```
 
-✅ **Good: Port shaped by domain needs**
+ **Good: Port shaped by domain needs**
 
 ```typescript
 interface UserRepository {
@@ -713,7 +713,7 @@ interface UserRepository {
 
 Adapters translate between the outside world and the domain. They should not contain business decisions.
 
-❌ **Bad: Adapter making business decisions**
+ **Bad: Adapter making business decisions**
 
 ```typescript
 class PrismaOrderRepository implements OrderRepository {
@@ -728,7 +728,7 @@ class PrismaOrderRepository implements OrderRepository {
 }
 ```
 
-✅ **Good: Adapter only translates data**
+ **Good: Adapter only translates data**
 
 ```typescript
 class PrismaOrderRepository implements OrderRepository {

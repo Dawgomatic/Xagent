@@ -8,7 +8,7 @@ async function main() {
   const token = process.argv[2];
 
   if (!token || token.length !== 42) {
-    console.log("❌ 사용법: node scan.js 0x토큰주소");
+    console.log(" 사용법: node scan.js 0x토큰주소");
     return;
   }
 
@@ -27,7 +27,7 @@ async function main() {
   const contract = new ethers.Contract(token, abi, provider);
 
   /* =========================
-     1️⃣ owner 체크
+      owner 체크
   ========================= */
   let owner = null;
   let owner_renounced = null;
@@ -43,7 +43,7 @@ async function main() {
   }
 
   /* =========================
-     2️⃣ mint 가능 여부
+      mint 가능 여부
   ========================= */
   let mintable = false;
   try {
@@ -54,7 +54,7 @@ async function main() {
   }
 
   /* =========================
-     3️⃣ blacklist 기능 여부
+      blacklist 기능 여부
   ========================= */
   let blacklist_capable = false;
 
@@ -71,8 +71,8 @@ async function main() {
   }
 
   /* =========================
-     4️⃣ Honeypot / Tax (API)
-     ⚠️ 무료 공개 API (데모용)
+      Honeypot / Tax (API)
+      무료 공개 API (데모용)
   ========================= */
   let honeypot = null;
   let buy_tax = null;
@@ -99,7 +99,7 @@ async function main() {
   }
 
   /* =========================
-     5️⃣ Risk 간단 평가
+      Risk 간단 평가
   ========================= */
   let risk = "LOW";
 
@@ -108,7 +108,7 @@ async function main() {
   if (mintable && !owner_renounced) risk = "MEDIUM";
 
   /* =========================
-     6️⃣ 결과 출력
+      결과 출력
   ========================= */
   const result = {
     token,

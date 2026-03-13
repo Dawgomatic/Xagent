@@ -1,7 +1,7 @@
 ---
 name: WebSocket
 description: Implement reliable WebSocket connections with proper reconnection, heartbeats, and scaling.
-metadata: {"clawdbot":{"emoji":"🔌","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Reconnection (Always Forget)

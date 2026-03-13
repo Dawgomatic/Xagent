@@ -123,14 +123,14 @@ Update it the same way as before.
 #### File Locations
 
 **Scripts:**
-- ✅ `scripts/fetch-edstem.py` (updated)
-- ✅ `scripts/fetch-edstem.sh` (updated)
+-  `scripts/fetch-edstem.py` (updated)
+-  `scripts/fetch-edstem.sh` (updated)
 
 **Documentation:**
-- ✅ `SKILL.md` (completely rewritten)
-- 🆕 `README.md` (new)
-- 🆕 `CHANGELOG.md` (new)
-- 🆕 `VERSION` (new)
+-  `SKILL.md` (completely rewritten)
+-  `README.md` (new)
+-  `CHANGELOG.md` (new)
+-  `VERSION` (new)
 
 ### Examples for Different Institutions
 

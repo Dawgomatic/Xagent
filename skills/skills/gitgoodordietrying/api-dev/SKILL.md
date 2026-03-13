@@ -1,7 +1,7 @@
 ---
 name: api-dev
 description: Scaffold, test, document, and debug REST and GraphQL APIs. Use when the user needs to create API endpoints, write integration tests, generate OpenAPI specs, test with curl, mock APIs, or troubleshoot HTTP issues.
-metadata: {"clawdbot":{"emoji":"🔌","requires":{"anyBins":["curl","node","python3"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["curl","node","python3"]},"os":["linux","darwin","win32"]}}
 ---
 
 # API Development

@@ -120,14 +120,14 @@ class StarType(Enum):
         self.lifespan_years = lifespan
 
 class PlanetType(Enum):
-    GAS_GIANT = ("Gas Giant", C.ORANGE, "🪐", False)
-    ICE_GIANT = ("Ice Giant", C.CYAN, "🪐", False)
-    ROCKY = ("Rocky World", C.YELLOW, "🌍", True)
-    OCEAN = ("Ocean World", C.BLUE, "🌊", True)
-    LAVA = ("Lava World", C.RED, "🔥", False)
-    FROZEN = ("Frozen World", C.WHITE, "❄", True)
-    DESERT = ("Desert World", C.GOLD, "🏜", True)
-    GARDEN = ("Garden World", C.GREEN, "🌿", True)
+    GAS_GIANT = ("Gas Giant", C.ORANGE, "", False)
+    ICE_GIANT = ("Ice Giant", C.CYAN, "", False)
+    ROCKY = ("Rocky World", C.YELLOW, "", True)
+    OCEAN = ("Ocean World", C.BLUE, "", True)
+    LAVA = ("Lava World", C.RED, "", False)
+    FROZEN = ("Frozen World", C.WHITE, "", True)
+    DESERT = ("Desert World", C.GOLD, "", True)
+    GARDEN = ("Garden World", C.GREEN, "", True)
 
     def __init__(self, name, color, symbol, habitable_potential):
         self.display_name = name
@@ -492,7 +492,7 @@ def render_star_system(star: Star) -> str:
     elif star.star_type in [StarType.BLUE_GIANT, StarType.RED_GIANT]:
         star_symbol = "★"
     else:
-        star_symbol = "☀"
+        star_symbol = ""
 
     color = star.star_type.color
     lines.append(f"    {color}{star_symbol} {star.name}{C.END} ({star.star_type.display_name})")
@@ -513,7 +513,7 @@ def render_star_system(star: Star) -> str:
                 if "Intelligent" in planet.life_complexity:
                     life_marker = f" {C.YELLOW}★ {planet.life_complexity}!{C.END}"
                 else:
-                    life_marker = f" {C.GREEN}♦ {planet.life_complexity}{C.END}"
+                    life_marker = f" {C.GREEN} {planet.life_complexity}{C.END}"
 
             lines.append(f"      {pcolor}● {planet.name}{C.END}")
             lines.append(f"        {planet.planet_type.display_name} | {planet.distance_au:.2f} AU | {planet.mass_earth:.1f} M⊕{hz_marker}{life_marker}")

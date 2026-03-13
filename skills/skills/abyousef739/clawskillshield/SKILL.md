@@ -1,4 +1,4 @@
-# ClawSkillShield 🛡️
+# ClawSkillShield 
 
 **Local-first security scanner for OpenClaw/ClawHub skills.**
 

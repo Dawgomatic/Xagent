@@ -26,7 +26,7 @@ If something matters later, **write it to disk**.
 
 ---
 
-> ⚠️ **CRITICAL REQUIREMENT**
+>  **CRITICAL REQUIREMENT**
 >
 > Session memory indexing must be enabled.
 
@@ -63,7 +63,7 @@ OpenClaw memory has **three layers**. Confusion usually comes from mixing them u
 - Indexed for retrieval
 - **Never reliable long-term**
 
-👉 Treat as short-term thinking space.
+ Treat as short-term thinking space.
 
 ---
 
@@ -72,7 +72,7 @@ OpenClaw memory has **three layers**. Confusion usually comes from mixing them u
 - What happened today
 - Commands, edits, short-lived issues
 
-👉 Treat as a work log, not a knowledge base.
+ Treat as a work log, not a knowledge base.
 
 ---
 
@@ -82,7 +82,7 @@ OpenClaw memory has **three layers**. Confusion usually comes from mixing them u
 - High-signal only
 - Indexed and retrievable
 
-👉 Treat as facts the agent must not forget.
+ Treat as facts the agent must not forget.
 
 ---
 
@@ -168,11 +168,11 @@ This keeps context small and precise.
 
 ## Anti-Patterns (do not do these)
 
-- ❌ Copy chat transcripts into memory
-- ❌ Store secrets or credentials
-- ❌ Treat daily logs as long-term memory
-- ❌ Overwrite memory files instead of appending
-- ❌ Store speculation as fact
+-  Copy chat transcripts into memory
+-  Store secrets or credentials
+-  Treat daily logs as long-term memory
+-  Overwrite memory files instead of appending
+-  Store speculation as fact
 
 ---
 

@@ -52,9 +52,9 @@ This will:
 3. Present matching items interactively:
 
 ```
-🔍 Auto-discovering credentials for app.neilpatel.com...
+ Auto-discovering credentials for app.neilpatel.com...
 
-📋 Found 2 matching credential(s) in Bitwarden:
+ Found 2 matching credential(s) in Bitwarden:
 
   1) Neil Patel Account
      Username: user@example.com
@@ -64,10 +64,10 @@ This will:
   m) Manually enter credentials
 
 Select credential to use (1-2, n, or m): 1
-🔐 Retrieving credentials for neilpatel...
+ Retrieving credentials for neilpatel...
 
 Save this credential mapping for future use? (y/n): y
-✅ Saved credential mapping for "neilpatel" to ~/.browser-secure/config.yaml
+ Saved credential mapping for "neilpatel" to ~/.browser-secure/config.yaml
    Default vault provider set to: Bitwarden
 ```
 
@@ -85,7 +85,7 @@ Create isolated Chrome profiles for secure automation with automatic welcome pag
 browser-secure profile --create "Funny Name"
 
 # Create and immediately launch Chrome
-browser-secure profile --create "The Crustacean Station 🦞" --launch
+browser-secure profile --create "The Crustacean Station " --launch
 
 # List all Chrome profiles
 browser-secure profile --list
@@ -95,13 +95,13 @@ browser-secure profile --list
 
 When you create a new profile, it opens with a custom welcome page that guides you through:
 
-1. **📖 Why This Profile Exists** - Explains the isolated automation concept
-2. **🔌 Required Extensions** - Direct links to install:
+1. ** Why This Profile Exists** - Explains the isolated automation concept
+2. ** Required Extensions** - Direct links to install:
    - Bitwarden password manager
    - OpenClaw Browser Relay
-3. **🗝️ Vault Setup** - Step-by-step for Bitwarden or 1Password
-4. **✅ Setup Checklist** - Interactive checklist to track progress
-5. **🛡️ Security Info** - "Your vault is secure" messaging with key features
+3. ** Vault Setup** - Step-by-step for Bitwarden or 1Password
+4. ** Setup Checklist** - Interactive checklist to track progress
+5. ** Security Info** - "Your vault is secure" messaging with key features
 
 ### Why Separate Profiles?
 
@@ -123,7 +123,7 @@ browser-secure navigate https://example.com --list-profiles
 
 Output:
 ```
-📋 Available Chrome profiles:
+ Available Chrome profiles:
 
   1. Person 1 ★
      ID: Default
@@ -148,8 +148,8 @@ browser-secure navigate https://gmail.com --profile select
 
 | Mode | Cookies | Logins | Extensions | Use Case |
 |------|---------|--------|------------|----------|
-| **Incognito (default)** | ❌ None | ❌ None | ❌ None | Secure, isolated testing |
-| **Chrome Profile** | ✅ Yes | ✅ Yes | ✅ Yes | Access existing sessions |
+| **Incognito (default)** |  None |  None |  None | Secure, isolated testing |
+| **Chrome Profile** |  Yes |  Yes |  Yes | Access existing sessions |
 
 **Security Note**: Browser Secure creates isolated profiles for automation without modifying your existing Chrome profiles. When using `--profile`, it reads from (but does not write to) existing profiles.
 
@@ -186,10 +186,10 @@ npm run setup
 ```
 
 This will:
-1. ✅ Check prerequisites (Node.js 18+, Chrome)
-2. 📦 **Auto-install missing dependencies** (Playwright browsers, optional vault CLIs)
-3. 🔨 Build and link the CLI globally
-4. 📝 Create default configuration
+1.  Check prerequisites (Node.js 18+, Chrome)
+2.  **Auto-install missing dependencies** (Playwright browsers, optional vault CLIs)
+3.  Build and link the CLI globally
+4.  Create default configuration
 
 ### What Gets Auto-Installed
 
@@ -204,7 +204,7 @@ After setup, configure your preferred vault using **environment variables** (rec
 
 #### Option A: .env File (Convenience for Automation)
 
-> ⚠️ **Security Note:** `.env` files store credentials in plaintext. Only use this on trusted, private machines. Vault integration (Bitwarden/1Password) is the recommended secure approach.
+>  **Security Note:** `.env` files store credentials in plaintext. Only use this on trusted, private machines. Vault integration (Bitwarden/1Password) is the recommended secure approach.
 
 ```bash
 cd ~/.openclaw/workspace/skills/browser-secure
@@ -259,7 +259,7 @@ browser-secure close
 
 ## Vault Providers
 
-### Bitwarden (Default, Free) ⭐
+### Bitwarden (Default, Free) 
 
 **Recommended** — free for personal use, open source, cross-platform.
 
@@ -346,11 +346,11 @@ When you run `browser-secure navigate` without a URL, it opens the **welcome pag
 ```
 
 The welcome page provides:
-- 📖 **Onboarding guide** — Why browser-secure exists and how it works
-- 🔌 **Extension links** — Direct install for Bitwarden and OpenClaw Browser Relay
-- 🗝️ **Vault setup** — Step-by-step for Bitwarden or 1Password
-- ✅ **Setup checklist** — Interactive checklist to track progress
-- 🛡️ **Security info** — "Your vault is secure" messaging with key features
+-  **Onboarding guide** — Why browser-secure exists and how it works
+-  **Extension links** — Direct install for Bitwarden and OpenClaw Browser Relay
+-  **Vault setup** — Step-by-step for Bitwarden or 1Password
+-  **Setup checklist** — Interactive checklist to track progress
+-  **Security info** — "Your vault is secure" messaging with key features
 
 **Pro tip:** Use the welcome page as your starting point for new profiles:
 ```bash
@@ -374,10 +374,10 @@ browser-secure extract "get all links"
 ```
 
 In this mode:
-- ✅ All non-destructive actions execute immediately
-- ✅ Credentials auto-injected from vault
-- ✅ Audit trail written automatically
-- ⚠️ Destructive actions (delete, purchase) require `--skip-approval` or `--interactive`
+-  All non-destructive actions execute immediately
+-  Credentials auto-injected from vault
+-  Audit trail written automatically
+-  Destructive actions (delete, purchase) require `--skip-approval` or `--interactive`
 
 ### Interactive Mode (Human-in-the-Loop)
 
@@ -407,7 +407,7 @@ Approval tiers in interactive mode:
 browser-secure act "delete account" --skip-approval
 ```
 
-⚠️ **Warning:** `--skip-approval` bypasses all safety checks. Use only in fully automated, sandboxed environments.
+ **Warning:** `--skip-approval` bypasses all safety checks. Use only in fully automated, sandboxed environments.
 
 ### Session Security
 - Time-bounded (30 min default, auto-expiry)
@@ -446,7 +446,7 @@ browser-secure act "delete account" --skip-approval
 | Feature | browser-automation | browser-secure |
 |---------|-------------------|----------------|
 | Credentials | CLI (exposed) | Vault-backed |
-| Chrome Profiles | ❌ No | ✅ Yes (with cookies/logins) |
+| Chrome Profiles |  No |  Yes (with cookies/logins) |
 | Approval | None | Tiered gates |
 | Audit | None | Full trail |
 | Session timeout | None | 30 min default |

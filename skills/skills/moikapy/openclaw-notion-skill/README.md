@@ -1,13 +1,13 @@
 <div align="center">
 
-# 🔗 OpenClaw Notion Skill
+#  OpenClaw Notion Skill
 
 **Seamlessly integrate your Notion workspace with OpenClaw agents**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![OpenClaw](https://img.shields.io/badge/Built%20for-OpenClaw-6E4C9E)](https://openclaw.ai)
 [![Notion](https://img.shields.io/badge/Powered%20by-Notion-black)](https://notion.so)
-[![Support Project](https://img.shields.io/badge/💝%20Support-ETH%20Tip-orange)](./SUPPORT.md)
+[![Support Project](https://img.shields.io/badge/%20Support-ETH%20Tip-orange)](./SUPPORT.md)
 
 </div>
 
@@ -15,16 +15,16 @@ Transform your Notion workspace into a living knowledge base that your AI agents
 
 ---
 
-## ✨ What It Does
+##  What It Does
 
 | Feature | Description |
 |---------|-------------|
-| 📊 **Query Databases** | Pull structured data from any Notion database |
-| 📝 **Create Entries** | Add new rows from agent research and discoveries |
-| 🔍 **Search Workspace** | Find pages across your entire shared workspace |
-| 🔄 **Update Content** | Modify properties and append blocks dynamically |
-| 🗂️ **View Schemas** | Inspect database structures programmatically |
-| 🔢 **Smart ID Reference** | Use Notion ID `#3` or direct UUID — your choice |
+|  **Query Databases** | Pull structured data from any Notion database |
+|  **Create Entries** | Add new rows from agent research and discoveries |
+|  **Search Workspace** | Find pages across your entire shared workspace |
+|  **Update Content** | Modify properties and append blocks dynamically |
+|  **View Schemas** | Inspect database structures programmatically |
+|  **Smart ID Reference** | Use Notion ID `#3` or direct UUID — your choice |
 
 **Perfect for:**
 - Content creators managing editorial calendars
@@ -35,7 +35,7 @@ Transform your Notion workspace into a living knowledge base that your AI agents
 
 ---
 
-## 🚀 Quick Start (5 Minutes)
+##  Quick Start (5 Minutes)
 
 ### Install via Clawhub (Coming Soon)
 
@@ -82,11 +82,11 @@ In Notion:
 node notion-cli.js test
 ```
 
-You'll see all accessible pages and databases. ✅
+You'll see all accessible pages and databases. 
 
 ---
 
-## 🎯 Usage Examples
+##  Usage Examples
 
 ### Command Line
 
@@ -170,7 +170,7 @@ await exec({
 
 ---
 
-## 📁 Database Templates
+##  Database Templates
 
 ### Content Pipeline
 
@@ -206,7 +206,7 @@ await exec({
 
 ---
 
-## 🔐 Security
+##  Security
 
 - **Token isolation:** Stored in `~/.openclaw/.env` — never in code
 - **Granular permissions:** Integration only sees pages you explicitly share
@@ -220,7 +220,7 @@ node notion-cli.js test
 
 ---
 
-## 🛠️ Advanced Usage
+##  Advanced Usage
 
 ### Property Types Reference
 
@@ -258,7 +258,7 @@ node notion-cli.js test
 
 ---
 
-## 🧰 Installation Options
+##  Installation Options
 
 ### Option A: Quick (Standalone)
 
@@ -283,7 +283,7 @@ Uses compiled `dist/cli.js` with full TypeScript support.
 
 ---
 
-## 📝 CLI Reference
+##  CLI Reference
 
 ```
 notion-cli.js <command> [options]
@@ -310,21 +310,21 @@ Database ID Format:
 
 ---
 
-## 🌟 Why This Exists
+##  Why This Exists
 
 Most AI "integrations" just read a static export. This skill lets your agents:
 
-- ✅ Write findings *back* to your knowledge base
-- ✅ Update project status as work progresses
-- ✅ Query structured data for context
-- ✅ Build living documentation
+-  Write findings *back* to your knowledge base
+-  Update project status as work progresses
+-  Query structured data for context
+-  Build living documentation
 
 **Real use case:**
 > Your nightly Research Topic Scout cron job searches 3D printing trends, finds 5 interesting techniques, and automatically adds them to your Content Ideas database with status "Idea" and tags extracted from the source.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repo
 2. Create a branch: `git checkout -b feature/amazing-thing`
@@ -336,40 +336,40 @@ Ideas welcome: webhooks, bidirectional sync, bulk operations, templates.
 
 ---
 
-## 📜 License
+##  License
 
-MIT — Built with ❤️ by the OpenClaw community at MoikasLabs
+MIT — Built with  by the OpenClaw community at MoikasLabs
 
 ---
 
-## 🔗 Links
+##  Links
 
 - [OpenClaw Docs](https://docs.openclaw.ai)
 - [Notion API Docs](https://developers.notion.com)
 - [Issue Tracker](https://github.com/MoikasLabs/openclaw-notion-skill/issues)
-- [Support Project](./SUPPORT.md) 💝
+- [Support Project](./SUPPORT.md) 
 - [MoikasLabs](https://github.com/MoikasLabs)
 
 ---
 
 <div align="center">
 
-**Built for agents who actually get work done.** 🐉
+**Built for agents who actually get work done.** 
 
 </div>
 
 ---
 
-## 📦 Quick Start Templates
+##  Quick Start Templates
 
 Don't build from scratch. Use our pre-configured templates:
 
 | Template | Best For | File |
 |----------|----------|------|
-| 📝 Content Pipeline | Writers, YouTubers, social media | `templates/content-pipeline.json` |
-| 🎯 Project Tracker | Freelancers, solo entrepreneurs | `templates/project-tracker.json` |
-| 🖨️ 3D Print CRM | Makers, print shops | `templates/crm-3d-printing.json` |
-| 📚 Knowledge Base | SOPs, documentation, wikis | `templates/knowledge-base.json` |
+|  Content Pipeline | Writers, YouTubers, social media | `templates/content-pipeline.json` |
+|  Project Tracker | Freelancers, solo entrepreneurs | `templates/project-tracker.json` |
+|  3D Print CRM | Makers, print shops | `templates/crm-3d-printing.json` |
+|  Knowledge Base | SOPs, documentation, wikis | `templates/knowledge-base.json` |
 
 **See [templates/README.md](templates/README.md)** for detailed setup instructions and automation examples.
 
@@ -377,6 +377,6 @@ Don't build from scratch. Use our pre-configured templates:
 
 <div align="center">
 
-**Built for agents who actually get work done.** 🐉
+**Built for agents who actually get work done.** 
 
 </div>

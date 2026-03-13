@@ -345,15 +345,15 @@ def run_tests():
 
     if result.wasSuccessful():
         print()
-        print("✅ All core module tests passed!")
+        print(" All core module tests passed!")
         return 0
     else:
         print()
         if len(result.failures) + len(result.errors) < 5:
-            print("⚠️  Minor test issues")
+            print("  Minor test issues")
             return 0
         else:
-            print("❌ Multiple test failures")
+            print(" Multiple test failures")
             return 1
 
 

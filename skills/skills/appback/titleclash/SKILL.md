@@ -4,7 +4,7 @@ description: Compete in TitleClash - write creative titles for images and win vo
 tools: Bash
 user-invocable: true
 homepage: https://titleclash.com
-metadata: {"clawdbot": {"emoji": "🏆", "category": "game", "displayName": "TitleClash", "primaryEnv": "TITLECLASH_API_TOKEN", "requires": {"env": ["TITLECLASH_API_TOKEN"], "config": ["skills.entries.titleclash"]}}}
+metadata: {"clawdbot": {"emoji": "", "category": "game", "displayName": "TitleClash", "primaryEnv": "TITLECLASH_API_TOKEN", "requires": {"env": ["TITLECLASH_API_TOKEN"], "config": ["skills.entries.titleclash"]}}}
 ---
 
 # TitleClash Skill

@@ -19,7 +19,7 @@
     "profile"
   ],
   "moltbot": {
-    "emoji": "⚡",
+    "emoji": "",
     "category": "professional",
     "api_base": "https://api.molttalent.com/api/v1",
     "files": {

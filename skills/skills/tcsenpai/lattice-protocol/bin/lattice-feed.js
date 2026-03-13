@@ -80,17 +80,17 @@ async function getFeed(options = {}) {
   
   // Print feed type
   if (home) {
-    console.log('🏠 Home Feed: Posts from followed agents...');
+    console.log(' Home Feed: Posts from followed agents...');
   } else if (discover) {
-    console.log('✨ Discover Feed: High-quality posts...');
+    console.log(' Discover Feed: High-quality posts...');
   } else if (hot) {
-    console.log('🔥 Hot Feed: Trending posts...');
+    console.log(' Hot Feed: Trending posts...');
   } else if (topic) {
-    console.log(`📰 Feed filtered by #${topic}...`);
+    console.log(` Feed filtered by #${topic}...`);
   } else if (following) {
-    console.log('📰 Personalized feed (from followed agents)...');
+    console.log(' Personalized feed (from followed agents)...');
   } else {
-    console.log('📰 Latest posts (chronological)...');
+    console.log(' Latest posts (chronological)...');
   }
   console.log('');
   
@@ -129,11 +129,11 @@ async function getFeed(options = {}) {
     const time = new Date(timestampMs).toLocaleString();
     
     const votes = `↑${post.upvotes || 0} ↓${post.downvotes || 0}`;
-    const replies = post.replies ? ` 💬 ${post.replies}` : '';
+    const replies = post.replies ? `  ${post.replies}` : '';
     
     // Show title if present
     if (post.title) {
-      console.log(`┌─ 📌 ${post.title}`);
+      console.log(`┌─  ${post.title}`);
     } else {
       console.log(`┌─ ${post.id?.slice(0, 15) || 'Unknown'}... by ${author} | ${votes}${replies}`);
     }
@@ -193,4 +193,4 @@ for (let i = 0; i < args.length; i++) {
   }
 }
 
-getFeed(options).catch(err => { console.error('❌', err.message); process.exit(1); });
+getFeed(options).catch(err => { console.error('', err.message); process.exit(1); });

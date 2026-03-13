@@ -19,9 +19,9 @@ echo "--- Disk Space ---"
 df -h "$WORKSPACE" | tail -1 | awk '{print "Used: "$3" / "$2" ("$5" full)"}'
 DISK_PCT=$(df "$WORKSPACE" | tail -1 | awk '{print $5}' | tr -d '%')
 if [ "$DISK_PCT" -gt 90 ]; then
-    echo -e "${RED}⚠️  WARNING: Disk over 90% full!${NC}"
+    echo -e "${RED}  WARNING: Disk over 90% full!${NC}"
 elif [ "$DISK_PCT" -gt 75 ]; then
-    echo -e "${YELLOW}⚠️  Disk over 75% full${NC}"
+    echo -e "${YELLOW}  Disk over 75% full${NC}"
 else
     echo -e "${GREEN}✓ Disk OK${NC}"
 fi
@@ -50,7 +50,7 @@ if [ -f "$WORKSPACE/MEMORY.md" ]; then
     LONGTERM_SIZE=$(du -h "$WORKSPACE/MEMORY.md" | awk '{print $1}')
     echo "MEMORY.md: $LONGTERM_SIZE ($LONGTERM_LINES lines)"
     if [ "$LONGTERM_LINES" -gt 500 ]; then
-        echo -e "${YELLOW}⚠️  MEMORY.md over 500 lines - consider pruning${NC}"
+        echo -e "${YELLOW}  MEMORY.md over 500 lines - consider pruning${NC}"
     fi
 fi
 
@@ -59,7 +59,7 @@ if [ -f "$WORKSPACE/STREAM.md" ]; then
     STREAM_SIZE=$(du -h "$WORKSPACE/STREAM.md" | awk '{print $1}')
     echo "STREAM.md: $STREAM_SIZE ($STREAM_LINES lines)"
     if [ "$STREAM_LINES" -gt 300 ]; then
-        echo -e "${YELLOW}⚠️  STREAM.md over 300 lines - consider archiving${NC}"
+        echo -e "${YELLOW}  STREAM.md over 300 lines - consider archiving${NC}"
     fi
 fi
 echo ""
@@ -71,7 +71,7 @@ if [ -f "$WORKSPACE/memory/$TODAY.md" ]; then
     TODAY_SIZE=$(du -h "$WORKSPACE/memory/$TODAY.md" | awk '{print $1}')
     echo "Today ($TODAY.md): $TODAY_SIZE ($TODAY_LINES lines)"
     if [ "$TODAY_LINES" -gt 400 ]; then
-        echo -e "${YELLOW}⚠️  Today's log over 400 lines${NC}"
+        echo -e "${YELLOW}  Today's log over 400 lines${NC}"
     fi
 fi
 echo ""
@@ -90,7 +90,7 @@ GROUNDING_BYTES=$(cat "$WORKSPACE/THE_FRAMEWORK.md" "$WORKSPACE/ENNEAGRAM.md" "$
 GROUNDING_TOKENS=$((GROUNDING_BYTES / 4))
 echo "Grounding files: ~${GROUNDING_TOKENS} tokens"
 if [ "$GROUNDING_TOKENS" -gt 15000 ]; then
-    echo -e "${YELLOW}⚠️  Grounding over 15K tokens — consider condensing${NC}"
+    echo -e "${YELLOW}  Grounding over 15K tokens — consider condensing${NC}"
 fi
 echo ""
 
@@ -107,7 +107,7 @@ echo "Current: $CURRENT_VERSION"
 LATEST=$(npm view openclaw version 2>/dev/null || echo "check failed")
 echo "Latest:  $LATEST"
 if [ "$CURRENT_VERSION" != "$LATEST" ] && [ "$LATEST" != "check failed" ]; then
-    echo -e "${YELLOW}⚠️  OpenClaw update available: $LATEST${NC}"
+    echo -e "${YELLOW}  OpenClaw update available: $LATEST${NC}"
 fi
 echo ""
 
@@ -119,7 +119,7 @@ UPDATES=$(softwareupdate -l 2>&1 | grep -c "Label:" 2>/dev/null || true)
 UPDATES=$(echo "$UPDATES" | tr -d '[:space:]')
 UPDATES=${UPDATES:-0}
 if [ "$UPDATES" -gt 0 ]; then
-    echo -e "${YELLOW}⚠️  $UPDATES macOS update(s) available${NC}"
+    echo -e "${YELLOW}  $UPDATES macOS update(s) available${NC}"
     softwareupdate -l 2>&1 | grep "Label:" | sed 's/^/  /'
 else
     echo -e "${GREEN}✓ macOS up to date${NC}"
@@ -133,7 +133,7 @@ echo "  $FW_STATE"
 FW_OFF=$(echo "$FW_STATE" | grep -c "disabled" 2>/dev/null || true)
 FW_OFF=$(echo "$FW_OFF" | tr -d '[:space:]')
 if [ "${FW_OFF:-0}" -gt 0 ]; then
-    echo -e "${RED}⚠️  Firewall DISABLED${NC}"
+    echo -e "${RED}  Firewall DISABLED${NC}"
 else
     echo -e "${GREEN}✓ Firewall active${NC}"
 fi
@@ -144,7 +144,7 @@ SIP=${SIP:-0}
 if [ "$SIP" -gt 0 ]; then
     echo -e "${GREEN}✓ SIP enabled${NC}"
 else
-    echo -e "${YELLOW}⚠️  SIP status unknown or disabled${NC}"
+    echo -e "${YELLOW}  SIP status unknown or disabled${NC}"
 fi
 echo ""
 

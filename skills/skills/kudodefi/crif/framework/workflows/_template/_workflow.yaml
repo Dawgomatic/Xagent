@@ -45,7 +45,7 @@ configuration:
 
 # --- DIRECTIVE ---
 # ═══════════════════════════════════════════════════════════════
-# ⚠️ MANDATORY EXECUTION - DO NOT SKIP
+#  MANDATORY EXECUTION - DO NOT SKIP
 # ═══════════════════════════════════════════════════════════════
 # You MUST execute BOTH steps below in order:
 #   1. initialization → READ and EXECUTE workflow-init.md

@@ -133,24 +133,24 @@ def main():
     
     # Druck fertig
     if current_state == "FINISH" and saved.get("state") != "FINISH" and not saved.get("notified_finish"):
-        notifications.append(f"✅ DRUCK FERTIG!\n🖨️ {filename}")
+        notifications.append(f" DRUCK FERTIG!\n {filename}")
         saved["notified_finish"] = True
     
     # Druck gestartet
     if current_state == "RUNNING" and saved.get("state") != "RUNNING":
-        notifications.append(f"🟢 Druck gestartet\n🖨️ {filename}")
+        notifications.append(f" Druck gestartet\n {filename}")
         saved["notified_finish"] = False
     
     # Fehler
     if error and error != 0 and saved.get("error") != error:
-        notifications.append(f"❌ FEHLER beim Drucken!\nCode: {error}\n🖨️ {filename}")
+        notifications.append(f" FEHLER beim Drucken!\nCode: {error}\n {filename}")
     
     # Fortschritt alle 25%
     last_percent = saved.get("percent", 0)
     if current_state == "RUNNING":
         for milestone in [25, 50, 75]:
             if last_percent < milestone and current_percent >= milestone:
-                notifications.append(f"📊 Fortschritt: {current_percent}%\n🖨️ {filename}")
+                notifications.append(f" Fortschritt: {current_percent}%\n {filename}")
                 break
     
     # Sende Benachrichtigungen

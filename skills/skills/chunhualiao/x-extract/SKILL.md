@@ -69,9 +69,9 @@ Output as structured markdown:
 - ![Image 2](<media-url-2>)
 
 **Engagement:**
-- 👍 Likes: 1,234
-- 🔄 Retweets: 567
-- 💬 Replies: 89
+-  Likes: 1,234
+-  Retweets: 567
+-  Replies: 89
 
 **Thread:** [Part 2/5] | [View full thread](<thread-url>)
 ```

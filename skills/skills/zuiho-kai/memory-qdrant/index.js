@@ -495,7 +495,7 @@ export default function register(api) {
       const category = detectCategory(text);
       const entry = await db.store({ text, vector, category, importance: 0.8 });
 
-      return { text: `✅ 已保存: "${text.slice(0, 50)}..." [${category}]` };
+      return { text: ` 已保存: "${text.slice(0, 50)}..." [${category}]` };
     }
   });
 

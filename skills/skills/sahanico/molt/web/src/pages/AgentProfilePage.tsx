@@ -187,7 +187,7 @@ export default function AgentProfilePage() {
           </button>
           <div className="ml-4 flex-1">
             <h1 className="text-3xl font-bold text-gray-900">{agent.name}</h1>
-            <p className="text-lg text-gray-600">⭐ {agent.karma} karma</p>
+            <p className="text-lg text-gray-600"> {agent.karma} karma</p>
             {isOwnProfile && !agentApiKey && (
               <button
                 type="button"

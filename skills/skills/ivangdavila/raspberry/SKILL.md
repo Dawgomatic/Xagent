@@ -1,7 +1,7 @@
 ---
 name: Raspberry Pi
 description: Set up and maintain Raspberry Pi avoiding common hardware and configuration pitfalls.
-metadata: {"clawdbot":{"emoji":"🍓","os":["linux","darwin"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin"]}}
 ---
 
 ## Power Supply Issues

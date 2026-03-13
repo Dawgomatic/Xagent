@@ -4,7 +4,7 @@
 
 Welcome, AI agent. This document defines how you should interact with this codebase.
 
-## ⚠️ CRITICAL: Pull Request Workflow
+##  CRITICAL: Pull Request Workflow
 
 **All changes to this repository MUST go through pull requests.**
 
@@ -17,11 +17,11 @@ This is a public open source project. Even maintainers (including AI agents work
 
 **Never push directly to `main`.** This applies to everyone, including the repo owner.
 
-## 🎯 Mission
+##  Mission
 
 OpenClaw Command Center is the central dashboard for AI assistant management. Your mission is to help build, maintain, and improve this system while maintaining the Starcraft/Zerg thematic elements that make it unique.
 
-## 🏛️ Architecture
+##  Architecture
 
 **Read First**: [`docs/architecture/OVERVIEW.md`](docs/architecture/OVERVIEW.md)
 
@@ -32,7 +32,7 @@ Key architectural principles:
 3. **Real-Time First** — SSE for live updates, polling as fallback.
 4. **Progressive Enhancement** — Works without JS, enhanced with JS.
 
-## 📁 Workspace Structure
+##  Workspace Structure
 
 ```
 openclaw-command-center/
@@ -45,7 +45,7 @@ openclaw-command-center/
 ├── public/                 # Frontend assets
 │   ├── index.html          # Main dashboard UI
 │   ├── jobs.html           # AI Jobs management UI
-│   ├── partials/           # ⭐ Shared HTML partials (DRY!)
+│   ├── partials/           #  Shared HTML partials (DRY!)
 │   │   └── sidebar.html    # Navigation sidebar component
 │   ├── css/
 │   │   └── dashboard.css   # Shared styles
@@ -62,7 +62,7 @@ openclaw-command-center/
 └── package.json            # Version and dependencies
 ```
 
-## ✅ Safe Operations
+##  Safe Operations
 
 Do freely:
 
@@ -72,7 +72,7 @@ Do freely:
 - Update documentation
 - Create feature branches
 
-## ⚠️ Ask First
+##  Ask First
 
 Check with a human before:
 
@@ -82,7 +82,7 @@ Check with a human before:
 - Making breaking API changes
 - Anything touching authentication/secrets
 
-## 🚫 Never
+##  Never
 
 - **Push directly to `main` branch** — ALL changes require PRs
 - Commit secrets, API keys, or credentials
@@ -90,7 +90,7 @@ Check with a human before:
 - Delete files without confirmation
 - Expose internal endpoints publicly
 
-## 🛠️ Development Workflow
+##  Development Workflow
 
 ### 0. First-Time Setup
 
@@ -142,7 +142,7 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/):
 - JSDoc comments for public functions
 - Meaningful variable names (thematic names encouraged!)
 
-## 📦 ClawHub Skill Workflow
+##  ClawHub Skill Workflow
 
 This project is distributed as a ClawHub skill. After changes are merged to `main`, they need to be published to the registry so users can install/update via `clawhub install command-center`.
 
@@ -153,7 +153,7 @@ Two files control the skill identity:
 - **`SKILL.md`** — Frontmatter (`name`, `version`, `description`) used by ClawHub for discovery and search
 - **`package.json`** — `version` field for npm compatibility
 
-⚠️ **CRITICAL: Version Sync Required**
+ **CRITICAL: Version Sync Required**
 
 Both `package.json` and `SKILL.md` **MUST have the same version number**. This is enforced by pre-commit hooks.
 
@@ -228,7 +228,7 @@ Before publishing a new version:
 7. [ ] Tag pushed: `git push origin --tags`
 8. [ ] Published to ClawHub with changelog
 
-## 🎨 Thematic Guidelines
+##  Thematic Guidelines
 
 This project has a Starcraft/Zerg theme. When naming things:
 
@@ -252,7 +252,7 @@ const creepLayer = new CreepCache();
 function scanEssence()
 ```
 
-## 📝 Documentation Standards
+##  Documentation Standards
 
 When you add features, document them:
 
@@ -261,7 +261,7 @@ When you add features, document them:
 3. **API docs** — In `docs/api/` for endpoints
 4. **Architecture Decision Records** — In `docs/architecture/` for major changes
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run all tests
@@ -273,7 +273,7 @@ npm run test:coverage
 
 Aim for meaningful test coverage. Test the logic, not the framework.
 
-## 🐛 Debugging
+##  Debugging
 
 ```bash
 # Enable all command-center debug output
@@ -284,7 +284,7 @@ DEBUG=openclaw:api npm run dev
 DEBUG=openclaw:overlord npm run dev
 ```
 
-## 🔄 Handoff Protocol
+##  Handoff Protocol
 
 When handing off to another AI or ending a session:
 
@@ -293,7 +293,7 @@ When handing off to another AI or ending a session:
 3. List any unfinished tasks
 4. Note any decisions that need human input
 
-## 📖 Lessons Learned
+##  Lessons Learned
 
 ### DRY is Non-Negotiable
 
@@ -331,7 +331,7 @@ When handing off to another AI or ending a session:
 **Solution**: Create `docs/architecture/OVERVIEW.md` and ADRs.
 **Lesson**: Write down the "why", not just the "what".
 
-## 📚 Key Resources
+##  Key Resources
 
 - [SKILL.md](./SKILL.md) — ClawHub skill metadata
 - [CONTRIBUTING.md](./CONTRIBUTING.md) — Contribution guidelines

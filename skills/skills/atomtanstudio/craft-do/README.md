@@ -3,12 +3,12 @@
 Complete Craft.do API integration for automation, migration, and ongoing workflows. Includes full API reference, helper scripts, Obsidian migration tools, and task management automation.
 
 **Capabilities:**
-- 🔄 **Obsidian Migration** - Full vault migration with nested folders & content
-- 📝 **Document Management** - Create, read, organize documents programmatically  
-- ✅ **Task Automation** - Create, update, list tasks across inbox/daily notes/logbook
-- 📁 **Folder Organization** - Build nested folder hierarchies via API
-- 🔧 **Helper Scripts** - Ready-to-use bash scripts for common operations
-- 🧹 **Cleanup Tools** - Safe deletion and recovery utilities
+-  **Obsidian Migration** - Full vault migration with nested folders & content
+-  **Document Management** - Create, read, organize documents programmatically  
+-  **Task Automation** - Create, update, list tasks across inbox/daily notes/logbook
+-  **Folder Organization** - Build nested folder hierarchies via API
+-  **Helper Scripts** - Ready-to-use bash scripts for common operations
+-  **Cleanup Tools** - Safe deletion and recovery utilities
 
 ## Overview
 
@@ -62,7 +62,7 @@ cd ~/.openclaw/workspace/skills/craft-do
 
 ## What This Skill Enables
 
-### ✅ Fully Supported
+###  Fully Supported
 - **Task Management** - Create, update, list tasks across inbox/daily notes/logbook
 - **Document Management** - Create, read, move documents between folders
 - **Folder Organization** - List and navigate folder hierarchy (including nested folders!)
@@ -70,7 +70,7 @@ cd ~/.openclaw/workspace/skills/craft-do
 - **Obsidian Migration** - Full vault migration with nested folders and content
 - **Cleanup Tools** - Safe deletion and recovery via trash
 
-### ❌ Not Yet Available
+###  Not Yet Available
 - **Collections API** - Database tables only accessible in UI
 - **Task Deletion** - Can only create/update, not delete
 - **Document Deletion** - Can only move, not delete (use cleanup script)
@@ -90,11 +90,11 @@ export CRAFT_ENDPOINT="https://connect.craft.do/links/YOUR_LINK/api/v1"
 ```
 
 **Features:**
-- ✅ Preserves full nested folder hierarchy
-- ✅ Migrates all markdown files with content
-- ✅ Skips files starting with `_` or `.`
-- ✅ Safe to re-run - checks for existing folders
-- ✅ No duplicates created on subsequent runs
+-  Preserves full nested folder hierarchy
+-  Migrates all markdown files with content
+-  Skips files starting with `_` or `.`
+-  Safe to re-run - checks for existing folders
+-  No duplicates created on subsequent runs
 
 **If you need to start over:**
 ```bash
@@ -103,7 +103,7 @@ export CRAFT_ENDPOINT="https://connect.craft.do/links/YOUR_LINK/api/v1"
 
 ## Integration Patterns
 
-### Mission Control ↔ Craft Sync
+### Mission Control  Craft Sync
 
 **Use Case:** Keep automation in Mission Control, beautiful UI in Craft
 

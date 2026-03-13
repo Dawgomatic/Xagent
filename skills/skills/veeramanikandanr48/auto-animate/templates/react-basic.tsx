@@ -85,24 +85,24 @@ export function BasicListExample() {
 
 /**
  * CRITICAL:
- * - ✅ Always use unique, stable keys for list items
- * - ✅ Attach ref to immediate parent of animated children
- * - ✅ Parent element must always be in DOM (not conditionally rendered)
- * - ✅ AutoAnimate respects prefers-reduced-motion automatically
+ * -  Always use unique, stable keys for list items
+ * -  Attach ref to immediate parent of animated children
+ * -  Parent element must always be in DOM (not conditionally rendered)
+ * -  AutoAnimate respects prefers-reduced-motion automatically
  */
 
 /**
  * Common Mistakes:
  *
- * ❌ Wrong: Conditional parent
+ *  Wrong: Conditional parent
  * {showList && <ul ref={parent}>...</ul>}
  *
- * ✅ Correct: Always-rendered parent, conditional children
+ *  Correct: Always-rendered parent, conditional children
  * <ul ref={parent}>{showList && items.map(...)}</ul>
  *
- * ❌ Wrong: Missing or non-unique keys
+ *  Wrong: Missing or non-unique keys
  * {items.map((item, index) => <li key={index}>...)}
  *
- * ✅ Correct: Unique, stable keys
+ *  Correct: Unique, stable keys
  * {items.map(item => <li key={item.id}>...)}
  */

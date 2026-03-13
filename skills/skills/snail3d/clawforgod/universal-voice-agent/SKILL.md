@@ -82,7 +82,7 @@ Phone: 555-123-4567
   ↓
 [THINK] (Haiku) → "Goal achieved! Order confirmed."
   ↓
-[SEND SMS] → "✅ Order placed: 2 large pepperoni, pickup 6pm, $35"
+[SEND SMS] → " Order placed: 2 large pepperoni, pickup 6pm, $35"
   ↓
 [HANGUP]
 ```
@@ -112,7 +112,7 @@ Phone: 555-123-4567
 
 **SMS Summary:**
 - After call ends, sends you a text with:
-  - Status (✅ ✅ with issues, ❌ failed)
+  - Status (  with issues,  failed)
   - Brief recap of what happened
   - Key confirmations/details
   - Call duration

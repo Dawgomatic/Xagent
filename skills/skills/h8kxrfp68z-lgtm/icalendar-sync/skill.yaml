@@ -9,32 +9,32 @@
 # These are explicitly declared as REQUIRED in ALL metadata files.
 #
 # NEW in v2.3.0:
-#   - ✨ UPDATE command: modify existing events without breaking UID
-#   - 🔁 Smart Recurrence: update single instance, all, or future instances
-#   - 📅 Exception handling: RECURRENCE-ID support for series modifications
-#   - 🎯 Modes: --mode single/all/future for granular control
+#   -  UPDATE command: modify existing events without breaking UID
+#   -  Smart Recurrence: update single instance, all, or future instances
+#   -  Exception handling: RECURRENCE-ID support for series modifications
+#   -  Modes: --mode single/all/future for granular control
 #
 # From v2.2.16:
-#   - 🔧 ClawHub integration fixes
-#   - 📦 Added _meta.json for proper registry integration
+#   -  ClawHub integration fixes
+#   -  Added _meta.json for proper registry integration
 #
 # From v2.2.15:
-#   - 🧹 Cleaned up repository: removed old internal files (bugfix notes, release instructions, etc.)
-#   - 🛡️ Added comprehensive security documentation addressing ClawHub concerns
-#   - 📋 Added authoritative CLAWHUB.yaml with explicit metadata declarations
-#   - ✅ Removed redundant metadata files
+#   -  Cleaned up repository: removed old internal files (bugfix notes, release instructions, etc.)
+#   -  Added comprehensive security documentation addressing ClawHub concerns
+#   -  Added authoritative CLAWHUB.yaml with explicit metadata declarations
+#   -  Removed redundant metadata files
 #
 # From v2.2.14:
-#   - 📁 Restructured repository: flattened directory structure for ClawHub
+#   -  Restructured repository: flattened directory structure for ClawHub
 #
 # From v2.2.13:
-#   - 🔄 Version bump to force ClawHub re-indexing (cache issue fix)
+#   -  Version bump to force ClawHub re-indexing (cache issue fix)
 #
 # From v2.2.12:
-#   - 🌍 Cyrillic/Unicode calendar names support (Личный, Работа, 工作, etc.)
-#   - 🔧 Headless configuration: --username and --non-interactive flags
-#   - ✅ Fixed RuntimeWarning when using python -m icalendar_sync
-#   - 🙏 Field-tested fixes from real OpenClaw users (thanks Alfred!)
+#   -  Cyrillic/Unicode calendar names support (Личный, Работа, 工作, etc.)
+#   -  Headless configuration: --username and --non-interactive flags
+#   -  Fixed RuntimeWarning when using python -m icalendar_sync
+#   -  Field-tested fixes from real OpenClaw users (thanks Alfred!)
 #
 # From v2.2.9:
 #   - Added explicit branch: skills to metadata for ClawHub indexing

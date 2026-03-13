@@ -37,22 +37,22 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ -z "$NODE_NAME" ]]; then
-    echo "❌ --name is required"
+    echo " --name is required"
     echo "Usage: unregister.sh --name <name>"
     exit 1
 fi
 
 # Check telnyx CLI
 if ! command -v telnyx &> /dev/null; then
-    echo "❌ Telnyx CLI not found. Install with: npm install -g @telnyx/api-cli"
+    echo " Telnyx CLI not found. Install with: npm install -g @telnyx/api-cli"
     exit 1
 fi
 
-echo "🔄 Unregistering node: $NODE_NAME"
+echo " Unregistering node: $NODE_NAME"
 
 # Delete registration (--force skips confirmation prompt)
 if telnyx storage object delete "$BUCKET" "nodes/$NODE_NAME.json" --force 2>/dev/null; then
-    echo "✅ Node unregistered"
+    echo " Node unregistered"
 else
-    echo "⚠️  Node not found or already unregistered"
+    echo "  Node not found or already unregistered"
 fi

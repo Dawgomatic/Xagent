@@ -51,11 +51,11 @@ Madrid is one of the safest major European capitals. Violent crime against touri
 
 | Safety | Areas |
 |--------|-------|
-| ⭐⭐⭐⭐⭐ Very Safe | Salamanca, Retiro, Chamberí, Moncloa, Moratalaz, Vicálvaro |
-| ⭐⭐⭐⭐ Safe | Malasaña, Chueca, La Latina, Arganzuela, Chamartín |
-| ⭐⭐⭐ Generally Safe | Tetuán, Lavapiés, Centro (Sol/Gran Vía), Carabanchel (main) |
-| ⭐⭐ Caution Advised | Parts of Vallecas, Villaverde (certain areas), isolated spots late night |
-| ⭐ Avoid (Tourist) | Industrial areas, isolated parks at night |
+|  Very Safe | Salamanca, Retiro, Chamberí, Moncloa, Moratalaz, Vicálvaro |
+|  Safe | Malasaña, Chueca, La Latina, Arganzuela, Chamartín |
+|  Generally Safe | Tetuán, Lavapiés, Centro (Sol/Gran Vía), Carabanchel (main) |
+|  Caution Advised | Parts of Vallecas, Villaverde (certain areas), isolated spots late night |
+|  Avoid (Tourist) | Industrial areas, isolated parks at night |
 
 **Note:** Even "caution" areas are fine during daytime. Issues arise late night, away from main streets.
 

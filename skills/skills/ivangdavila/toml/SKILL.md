@@ -1,7 +1,7 @@
 ---
 name: TOML
 description: Write valid TOML configuration files with correct types and structure.
-metadata: {"clawdbot":{"emoji":"⚙️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Strings

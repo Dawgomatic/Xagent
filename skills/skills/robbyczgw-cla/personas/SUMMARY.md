@@ -1,4 +1,4 @@
-# Personas - 20 Expert AI Personalities 🎭
+# Personas - 20 Expert AI Personalities 
 
 Transform OpenClaw into specialized experts on demand. Switch from senior programmer to Italian chef to doctor mid-conversation.
 
@@ -13,12 +13,12 @@ Transform OpenClaw into specialized experts on demand. Switch from senior progra
 
 ## Quick Categories
 
-🦎 **Core** (5): Cami, Chameleon Agent, Professor Stein, Dev, Flash  
-🎨 **Creative** (2): Luna, Wordsmith  
-🎧 **Curator** (1): Vibe  
-📚 **Learning** (3): Herr Müller (ELI5), Scholar, Lingua  
-🌟 **Lifestyle** (3): Chef Marco, Fit, Zen  
-💼 **Professional** (6): CyberGuard, DataViz, Career Coach, Legal Guide, Startup Sam, Dr. Med
+ **Core** (5): Cami, Chameleon Agent, Professor Stein, Dev, Flash  
+ **Creative** (2): Luna, Wordsmith  
+ **Curator** (1): Vibe  
+ **Learning** (3): Herr Müller (ELI5), Scholar, Lingua  
+ **Lifestyle** (3): Chef Marco, Fit, Zen  
+ **Professional** (6): CyberGuard, DataViz, Career Coach, Legal Guide, Startup Sam, Dr. Med
 
 ## Usage Examples
 

@@ -1,7 +1,7 @@
 ---
 name: pulpminer
 description: "Convert any webpage into structured JSON data using AI. Scrape websites, extract data into custom JSON schemas, and call saved APIs programmatically. Useful for web scraping, data extraction, content monitoring, lead generation, price tracking, and building data pipelines."
-emoji: ⛏️
+emoji: 
 homepage: https://pulpminer.com
 metadata: {"clawdbot":{"requires":{"env":["PULPMINER_API_KEY"]},"config":["pulpminer_api_key"]}}
 ---

@@ -4,7 +4,7 @@ slug: agentic-engineering
 version: 1.0.0
 homepage: https://clawic.com/skills/agentic-engineering
 description: Work effectively with AI coding agents using parallel terminals, blast radius thinking, atomic commits, and pragmatic tool selection.
-metadata: {"clawdbot":{"emoji":"🤖","requires":{"bins":["git"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["git"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use
@@ -71,8 +71,8 @@ Iterate fast, then pay back tech debt.
 ### 5. CLIs Over MCPs
 Prefer CLIs that agents already know:
 ```
-✅ gh, vercel, psql, axiom
-❌ Complex MCPs that pollute context
+ gh, vercel, psql, axiom
+ Complex MCPs that pollute context
 ```
 One line in AGENTS.md: "logs: use vercel cli" is enough.
 

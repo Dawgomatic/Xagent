@@ -6,7 +6,7 @@ Compare 10 AI models with latency, cost, quality, and consistency measurements.
 
 ---
 
-## 🚀 Why This Skill?
+##  Why This Skill?
 
 ### Problem Statement
 Comparing LLM models across providers requires manual testing:
@@ -26,7 +26,7 @@ For 10,000 requests/day with average 28 input + 115 output tokens:
 
 ---
 
-## ✨ What You Get
+##  What You Get
 
 ### Multi-Provider Testing
 Test prompts across **3 major AI providers** simultaneously:
@@ -36,17 +36,17 @@ Test prompts across **3 major AI providers** simultaneously:
 
 ### 10 Models Supported (Latest 2026)
 
-**🔵 Claude 4.5 Series (Anthropic)**
+** Claude 4.5 Series (Anthropic)**
 - `claude-haiku-4-5-20251001` - Lightning-fast, near-frontier performance ($1.00/$5.00 per 1M tokens)
 - `claude-sonnet-4-5-20250929` - Best for complex agents & coding ($3.00/$15.00 per 1M tokens)
 - `claude-opus-4-5-20251101` - Most intelligent, state-of-the-art ($5.00/$25.00 per 1M tokens)
 
-**🟢 GPT-5.2 Series (OpenAI)**
+** GPT-5.2 Series (OpenAI)**
 - `gpt-5.2-instant` - Low latency for daily tasks ($1.75/$14.00 per 1M tokens)
 - `gpt-5.2-thinking` - Deep reasoning for complex problems ($1.75/$14.00 per 1M tokens)
 - `gpt-5.2-pro` - Maximum intelligence for research ($1.75/$14.00 per 1M tokens)
 
-**🔴 Gemini Latest (Google)**
+** Gemini Latest (Google)**
 - `gemini-3-pro` - Newest flagship model ($2.00/$12.00 per 1M tokens)
 - `gemini-2.5-pro` - Exceptional value for quality ($1.25/$10.00 per 1M tokens)
 - `gemini-2.5-flash` - Fast & efficient ($0.30/$2.50 per 1M tokens)
@@ -55,12 +55,12 @@ Test prompts across **3 major AI providers** simultaneously:
 ### Performance Metrics
 
 Every test measures:
-- ⚡ **Latency** - Response time in milliseconds
-- 💰 **Cost** - Exact API cost per request (input + output tokens)
-- 🎯 **Quality** - AI-evaluated response quality score (0-100)
-- 📊 **Token Usage** - Input and output token counts
-- 🔄 **Consistency** - Variance across multiple test runs
-- ❌ **Error Tracking** - API failures, timeouts, rate limits
+-  **Latency** - Response time in milliseconds
+-  **Cost** - Exact API cost per request (input + output tokens)
+-  **Quality** - AI-evaluated response quality score (0-100)
+-  **Token Usage** - Input and output token counts
+-  **Consistency** - Variance across multiple test runs
+-  **Error Tracking** - API failures, timeouts, rate limits
 
 ### Smart Recommendations
 
@@ -72,13 +72,13 @@ Get instant answers to:
 
 ---
 
-## 📊 Real-World Example
+##  Real-World Example
 
 ```
 PROMPT: "Write a professional customer service response about a delayed shipment"
 
 ┌─────────────────────────────────────────────────────────────────┐
-│ GEMINI 2.5 FLASH-LITE (Google) 💰 MOST AFFORDABLE             │
+│ GEMINI 2.5 FLASH-LITE (Google)  MOST AFFORDABLE             │
 ├─────────────────────────────────────────────────────────────────┤
 │ Latency:  523ms                                                 │
 │ Cost:     $0.000025                                            │
@@ -87,7 +87,7 @@ PROMPT: "Write a professional customer service response about a delayed shipment
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
-│ GEMINI 2.5 FLASH (Google) ⚡ FAST & AFFORDABLE                 │
+│ GEMINI 2.5 FLASH (Google)  FAST & AFFORDABLE                 │
 ├─────────────────────────────────────────────────────────────────┤
 │ Latency:  612ms                                                 │
 │ Cost:     $0.000078                                            │
@@ -96,7 +96,7 @@ PROMPT: "Write a professional customer service response about a delayed shipment
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
-│ CLAUDE HAIKU 4.5 (Anthropic) 🚀 BALANCED PERFORMER            │
+│ CLAUDE HAIKU 4.5 (Anthropic)  BALANCED PERFORMER            │
 ├─────────────────────────────────────────────────────────────────┤
 │ Latency:  891ms                                                 │
 │ Cost:     $0.000145                                            │
@@ -105,7 +105,7 @@ PROMPT: "Write a professional customer service response about a delayed shipment
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
-│ GPT-5.2 INSTANT (OpenAI) 💡 EXCELLENT QUALITY                 │
+│ GPT-5.2 INSTANT (OpenAI)  EXCELLENT QUALITY                 │
 ├─────────────────────────────────────────────────────────────────┤
 │ Latency:  645ms                                                 │
 │ Cost:     $0.000402                                            │
@@ -114,7 +114,7 @@ PROMPT: "Write a professional customer service response about a delayed shipment
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
-│ CLAUDE OPUS 4.5 (Anthropic) 🏆 HIGHEST QUALITY                │
+│ CLAUDE OPUS 4.5 (Anthropic)  HIGHEST QUALITY                │
 ├─────────────────────────────────────────────────────────────────┤
 │ Latency:  1,234ms                                               │
 │ Cost:     $0.001875                                            │
@@ -122,14 +122,14 @@ PROMPT: "Write a professional customer service response about a delayed shipment
 │ Tokens:   28 in / 125 out                                      │
 └─────────────────────────────────────────────────────────────────┘
 
-🎯 RECOMMENDATIONS:
+ RECOMMENDATIONS:
 1. Most cost-effective: Gemini 2.5 Flash-Lite ($0.00004/request) - 99.98% cheaper than Opus
 2. Best value: Gemini 2.5 Flash ($0.000289/request) - 90% cheaper, 77% quality match
 3. Best quality: Claude Opus 4.5 (94/100) - state-of-the-art reasoning & analysis
 4. Smart pick: Claude Haiku 4.5 ($0.000578/request) - 81% cheaper, 83% quality match
 5. Speed + Quality: GPT-5.2 Instant ($0.000402/request) - 87% cheaper, 94% quality
 
-💡 Potential monthly savings (10,000 requests/day, 28 input + 115 output tokens avg):
+ Potential monthly savings (10,000 requests/day, 28 input + 115 output tokens avg):
    - Using Gemini 2.5 Flash-Lite vs Opus: $903/month saved ($1.44 vs $904.50)
    - Using Claude Haiku vs Opus: $731/month saved ($173.40 vs $904.50)
    - Using Gemini 2.5 Flash vs Opus: $818/month saved ($86.52 vs $904.50)
@@ -161,7 +161,7 @@ PROMPT: "Write a professional customer service response about a delayed shipment
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Subscribe to Skill
 Click "Subscribe" on ClawhHub to get access
@@ -211,10 +211,10 @@ results = tester.test_prompt(
 )
 
 # Get smart recommendations
-print(f"🏆 Best quality: {results.best_model}")
-print(f"💰 Cheapest: {results.cheapest_model}")
-print(f"⚡ Fastest: {results.fastest_model}")
-print(f"💡 Recommended: {results.recommended_model}")
+print(f" Best quality: {results.best_model}")
+print(f" Cheapest: {results.cheapest_model}")
+print(f" Fastest: {results.fastest_model}")
+print(f" Recommended: {results.recommended_model}")
 
 # Export detailed report
 results.export_csv("prompt_test_results.csv")
@@ -236,30 +236,30 @@ prompt-tester test "Your prompt here" --export results.json
 
 ---
 
-## 🔒 Security & Privacy
+##  Security & Privacy
 
 ### API Key Safety
-- ✅ Keys stored securely in environment variables
-- ✅ Never logged, stored, or transmitted to our servers
-- ✅ HTTPS encryption for all API communication
-- ✅ Zero-knowledge architecture
+-  Keys stored securely in environment variables
+-  Never logged, stored, or transmitted to our servers
+-  HTTPS encryption for all API communication
+-  Zero-knowledge architecture
 
 ### Data Privacy
-- ✅ Your prompts are NEVER used for training
-- ✅ Results only visible to you (or your team on Enterprise)
-- ✅ GDPR compliant data handling
-- ✅ SOC 2 Type II certified (Enterprise tier)
-- ✅ Delete your data anytime
+-  Your prompts are NEVER used for training
+-  Results only visible to you (or your team on Enterprise)
+-  GDPR compliant data handling
+-  SOC 2 Type II certified (Enterprise tier)
+-  Delete your data anytime
 
 ### IP Protection
-- ✅ Proprietary quality scoring algorithm
-- ✅ License validation on each execution
-- ✅ Usage monitoring to prevent abuse
-- ✅ Commercial license with legal enforcement
+-  Proprietary quality scoring algorithm
+-  License validation on each execution
+-  Usage monitoring to prevent abuse
+-  Commercial license with legal enforcement
 
 ---
 
-## 📚 Technical Details
+##  Technical Details
 
 ### System Requirements
 - **Python**: 3.8+
@@ -290,7 +290,7 @@ Every test captures:
 
 ---
 
-## ❓ Frequently Asked Questions
+##  Frequently Asked Questions
 
 **Q: Do I need API keys for all 3 providers?**
 A: No. You only need keys for the providers you want to test. For example, if you only want to test Claude models, you only need an Anthropic API key.
@@ -327,9 +327,9 @@ A: No. Prompts are processed in-memory and immediately discarded unless you expl
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
-### ✅ Current Release (v1.1.5)
+###  Current Release (v1.1.5)
 - Multi-provider support (Claude 4.5, GPT-5.2, Gemini 2.5/3.0)
 - 10 models across 3 providers
 - Cross-provider cost comparison
@@ -339,7 +339,7 @@ A: No. Prompts are processed in-memory and immediately discarded unless you expl
 - GPT-5.2 models support
 - Gemini 3 Pro support
 
-### 🚧 Coming Soon (v1.3)
+###  Coming Soon (v1.3)
 - **More models**: Llama 3.2, Mistral Large, Claude 5 (when available)
 - **Advanced analytics**: Prompt optimization suggestions powered by Claude
 - **Batch testing**: Test 100+ prompts simultaneously
@@ -347,7 +347,7 @@ A: No. Prompts are processed in-memory and immediately discarded unless you expl
 - **Webhook integrations**: Slack, Discord, email notifications
 - **Historical tracking**: Track model performance over time
 
-### 🔮 Future (v1.3+)
+###  Future (v1.3+)
 - **A/B testing framework**: Scientific prompt experimentation
 - **Fine-tuning insights**: Which models to fine-tune for your use case
 - **Custom benchmarks**: Create your own evaluation criteria
@@ -356,18 +356,18 @@ A: No. Prompts are processed in-memory and immediately discarded unless you expl
 
 ---
 
-## 📞 Support
+##  Support
 
 ### Documentation
-- 📚 **Full Documentation**: https://docs.unisai.vercel.app/tester
-- 🔧 **API Reference**: https://docs.unisai.vercel.app/tester/api
-- 💡 **Tutorials**: https://docs.unisai.vercel.app/tester/tutorials
+-  **Full Documentation**: https://docs.unisai.vercel.app/tester
+-  **API Reference**: https://docs.unisai.vercel.app/tester/api
+-  **Tutorials**: https://docs.unisai.vercel.app/tester/tutorials
 
 ### Community
-- 💬 **Slack Community**: https://slack.unisai.vercel.app
-- 📧 **Email Support**: support@unisai.vercel.app
-- 🐛 **Bug Reports**: support@unisai.vercel.app
-- ⭐ **Feature Requests**: https://slack.unisai.vercel.app
+-  **Slack Community**: https://slack.unisai.vercel.app
+-  **Email Support**: support@unisai.vercel.app
+-  **Bug Reports**: support@unisai.vercel.app
+-  **Feature Requests**: https://slack.unisai.vercel.app
 
 ### Contact
 - Email: support@unisai.vercel.app
@@ -375,18 +375,18 @@ A: No. Prompts are processed in-memory and immediately discarded unless you expl
 
 ---
 
-## 📄 License & Terms
+##  License & Terms
 
 This skill is **proprietary software** licensed under a commercial agreement.
 
-### ✅ You CAN:
+###  You CAN:
 - Use for your own business and projects
 - Test prompts for internal applications
 - Share results with your team (Professional+ tiers)
 - Use in production applications
 - Export and analyze test data
 
-### ❌ You CANNOT:
+###  You CANNOT:
 - Share license keys with others
 - Reverse engineer the skill
 - Redistribute or resell the skill
@@ -397,7 +397,7 @@ This skill is **proprietary software** licensed under a commercial agreement.
 
 ---
 
-## 🚀 Get Started
+##  Get Started
 
 1. Subscribe to this skill on ClawhHub
 2. Set your API keys (Anthropic, OpenAI, Google)
@@ -406,7 +406,7 @@ This skill is **proprietary software** licensed under a commercial agreement.
 
 ---
 
-## 🏷️ Tags
+##  Tags
 
 **Primary**: ai-testing, multi-provider, prompt-optimization, cost-analysis, llm-benchmarking
 
@@ -416,24 +416,24 @@ This skill is **proprietary software** licensed under a commercial agreement.
 
 ---
 
-## 📝 Changelog
+##  Changelog
 
 ### [1.1.5] - 2026-02-01
 
-#### 🚀 Latest Models Update
+####  Latest Models Update
 - **GPT-5.2 Series** - Added Instant, Thinking, and Pro variants
 - **Gemini 3.0 Pro** - Newest flagship model from Google
 - **Gemini 2.5 Series** - Updated to 2.5 Pro, Flash, and Flash-Lite
 - **Claude 4.5 Pricing** - Updated Haiku to $1/$5 per 1M tokens
 - **10 Total Models** - Expanded from 9 to 10 models across 3 providers
 
-#### 📊 Pricing Updates
+####  Pricing Updates
 - All model pricing updated to 2026 rates
 - GPT-5.2: $1.75/$14.00 per 1M tokens
 - Gemini 3 Pro: $2.00/$12.00 per 1M tokens
 - Gemini 2.5 Flash-Lite: $0.10/$0.40 per 1M tokens (most affordable)
 
-#### 🔧 Technical Improvements
+####  Technical Improvements
 - Support for latest API versions
 - Improved cost calculations with 2026 pricing
 - Enhanced model routing for new GPT-5.2 and Gemini 3.0
@@ -442,24 +442,24 @@ This skill is **proprietary software** licensed under a commercial agreement.
 
 ### [1.1.0] - 2026-01-15
 
-#### ✨ Major Features
+####  Major Features
 - **Multi-Provider Support** - Test prompts across Anthropic, OpenAI, and Google
 - **10 Models Supported** - Claude 4.5 (3), GPT-5.2 (3), Gemini 2.5/3.0 (4)
 - **Cross-Provider Comparison** - Direct cost and performance analysis across providers
 - **Provider-Specific Optimizations** - Tailored API calls for each service
 - **Enhanced Recommendations** - Multi-provider insights and cost savings analysis
 
-#### 🎨 Branding Updates
+####  Branding Updates
 - Rebranded from Prompt Migrator to UniAI
 - Updated all URLs to unisai.vercel.app
 - Updated company name and contact information
 - Maintained full IP protection and licensing
 
-#### 🏷️ Expanded Tag Coverage
+####  Expanded Tag Coverage
 - Added multi-provider, claude, gpt, gemini, api-comparison tags
 - Comprehensive tag set for platform indexing
 
-#### 🔧 Technical Improvements
+####  Technical Improvements
 - OpenAI SDK integration for GPT models
 - Google Generative AI integration for Gemini models
 - Provider detection and routing logic
@@ -467,14 +467,14 @@ This skill is **proprietary software** licensed under a commercial agreement.
 - Better error handling across providers
 - Enhanced quality scoring algorithm
 
-#### 📊 Cost Analysis Enhancements
+####  Cost Analysis Enhancements
 - Real-time pricing for all 10 models
 - Provider-specific cost calculations
 - Comparison metrics across providers
 - ROI calculations showing potential savings
 - Cross-provider cost optimization recommendations
 
-#### 🔒 Security & IP Protection
+####  Security & IP Protection
 - IP watermark: `PROPRIETARY_SKILL_VEDANT_2024_MULTI_PROVIDER`
 - Zero API key exposure (environment variables only)
 - Maintained proprietary code protection
@@ -498,4 +498,4 @@ This skill is **proprietary software** licensed under a commercial agreement.
 **Current Version**: 1.1.5
 **Status**: Active & Maintained
 
-© 2026 UniAI. All rights reserved.
+ 2026 UniAI. All rights reserved.

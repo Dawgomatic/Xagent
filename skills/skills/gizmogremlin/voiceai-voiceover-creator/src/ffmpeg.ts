@@ -106,7 +106,7 @@ export async function stitchSegments(
     ]);
     return true;
   } catch (err) {
-    console.error(chalk.yellow(`   ⚠ Stitch failed, trying re-encode…`));
+    console.error(chalk.yellow(`    Stitch failed, trying re-encode…`));
     try {
       // Fallback: re-encode with consistent format
       await exec('ffmpeg', [
@@ -196,14 +196,14 @@ export async function muxAudioVideo(opts: MuxOptions): Promise<MuxResult> {
   const videoDuration = await probeDuration(opts.videoPath);
   const audioDuration = await probeDuration(opts.audioPath);
 
-  console.log(chalk.cyan('\n🎬 Muxing audio into video…'));
+  console.log(chalk.cyan('\n Muxing audio into video…'));
   console.log(chalk.gray(`   Video: ${opts.videoPath} (${videoDuration?.toFixed(1) ?? '?'}s)`));
   console.log(chalk.gray(`   Audio: ${opts.audioPath} (${audioDuration?.toFixed(1) ?? '?'}s)`));
   console.log(chalk.gray(`   Sync:  ${opts.syncPolicy}`));
 
   try {
     await exec('ffmpeg', ffmpegArgs);
-    console.log(chalk.green(`   ✅ Muxed → ${opts.outputPath}`));
+    console.log(chalk.green(`    Muxed → ${opts.outputPath}`));
     return {
       success: true,
       outputPath: opts.outputPath,
@@ -262,7 +262,7 @@ VIDEO_INPUT="${videoPath}"
 AUDIO_INPUT="${audioPath}"
 OUTPUT="${outputPath}"
 
-echo "🎬 Muxing audio into video…"
+echo " Muxing audio into video…"
 echo "   Video: \$VIDEO_INPUT"
 echo "   Audio: \$AUDIO_INPUT"
 echo "   Sync:  ${syncPolicy}"
@@ -271,7 +271,7 @@ echo ""
 ${cmdString}
 
 echo ""
-echo "✅ Done → \$OUTPUT"
+echo " Done → \$OUTPUT"
 `;
 
   // PowerShell script
@@ -289,7 +289,7 @@ $VideoInput = "${videoPath.replace(/\\/g, '\\\\')}"
 $AudioInput = "${audioPath.replace(/\\/g, '\\\\')}"
 $Output = "${outputPath.replace(/\\/g, '\\\\')}"
 
-Write-Host "🎬 Muxing audio into video…"
+Write-Host " Muxing audio into video…"
 Write-Host "   Video: $VideoInput"
 Write-Host "   Audio: $AudioInput"
 Write-Host "   Sync:  ${syncPolicy}"
@@ -298,7 +298,7 @@ Write-Host ""
 ${cmdString}
 
 Write-Host ""
-Write-Host "✅ Done → $Output"
+Write-Host " Done → $Output"
 `;
 
   await writeOutputFile(join(ffmpegDir, 'replace-audio.sh'), bash);

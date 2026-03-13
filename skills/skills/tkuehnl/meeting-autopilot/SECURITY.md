@@ -9,7 +9,7 @@
 | History files (`~/.meeting-autopilot/history/`) | **Write** | Extracted items stored locally as JSON |
 | Report output | **Write** (optional) | Markdown report saved to user-specified directory |
 
-## ⚠️ Data Sensitivity Warning
+##  Data Sensitivity Warning
 
 **Meeting transcripts often contain sensitive information** — strategy discussions, personnel matters, financial data, confidential projects. Be aware:
 
@@ -27,7 +27,7 @@
 
 ## Security Patterns (What We Do / Don't Do)
 
-### ✅ Safe Patterns Used
+###  Safe Patterns Used
 - All user-controlled strings passed via env vars or stdin to Python
 - All JSON construction via `jq --arg` / `jq -n`
 - Python parsers receive data via `sys.stdin.read()`, never via f-string or format injection
@@ -35,7 +35,7 @@
 - Temporary files created in system temp directory with `mktemp`
 - Temp directory cleaned up via `trap ... EXIT`
 
-### ❌ Patterns We Avoid
+###  Patterns We Avoid
 - No `eval` on any user-controlled data
 - No backtick substitution on user-controlled data
 - No `'''${VAR}'''` Python injection patterns

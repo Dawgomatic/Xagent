@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">🌿 Sage Wallet</h1>
+  <h1 align="center"> Sage Wallet</h1>
   <p align="center">
     <strong>Complete RPC interface to the Sage Chia blockchain wallet</strong>
   </p>
@@ -32,31 +32,31 @@
 
 ---
 
-## 🎯 Overview
+##  Overview
 
 Full RPC integration with [Sage Wallet](https://github.com/xch-dev/sage) for Chia blockchain operations. Send XCH, manage CAT tokens, mint NFTs, create offers, and more — all through natural language or slash commands.
 
 ---
 
-## ✨ Features
+##  Features
 
 <table>
 <tr>
 <td width="50%">
 
-### 💰 **XCH Transactions**
+###  **XCH Transactions**
 - Send to single or multiple addresses
 - Combine and split coins
 - Auto-combine dust
 - Clawback support
 
-### 🪙 **CAT Tokens**
+###  **CAT Tokens**
 - Issue new tokens
 - Send and receive CATs
 - Track balances
 - Auto-combine CAT coins
 
-### 🖼️ **NFTs**
+###  **NFTs**
 - Mint single or bulk NFTs
 - Transfer ownership
 - Manage collections
@@ -65,19 +65,19 @@ Full RPC integration with [Sage Wallet](https://github.com/xch-dev/sage) for Chi
 </td>
 <td width="50%">
 
-### 🆔 **DIDs**
+###  **DIDs**
 - Create identities
 - Transfer DIDs
 - Link NFTs to DIDs
 - Provenance tracking
 
-### 🤝 **Offers**
+###  **Offers**
 - Create P2P offers
 - Accept and combine offers
 - Cancel on-chain
 - View offer details
 
-### ⚙️ **System**
+###  **System**
 - Sync status monitoring
 - Database maintenance
 - Network peer management
@@ -89,7 +89,7 @@ Full RPC integration with [Sage Wallet](https://github.com/xch-dev/sage) for Chi
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 | Requirement | Version | Notes |
 |-------------|---------|-------|
@@ -101,7 +101,7 @@ Full RPC integration with [Sage Wallet](https://github.com/xch-dev/sage) for Chi
 
 ---
 
-## 🖥️ Platform Support
+##  Platform Support
 
 | Platform | Default Cert Path |
 |----------|-------------------|
@@ -113,7 +113,7 @@ Platform auto-detected, or set manually with `/sage config platform`.
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### Via ClawdHub (Recommended)
 
@@ -131,13 +131,13 @@ clawdhub install sage-wallet
 
 ---
 
-## 🎬 Quick Start
+##  Quick Start
 
-### Step 1️⃣: Verify Sage is Running
+### Step : Verify Sage is Running
 
 Ensure Sage Wallet is running with RPC enabled (default port 9257).
 
-### Step 2️⃣: Test Connection
+### Step : Test Connection
 
 ```
 /sage status
@@ -145,7 +145,7 @@ Ensure Sage Wallet is running with RPC enabled (default port 9257).
 
 This auto-detects your platform, finds certificates, and tests the connection.
 
-### Step 3️⃣: Login to Wallet
+### Step : Login to Wallet
 
 ```
 /sage login 1234567890
@@ -153,7 +153,7 @@ This auto-detects your platform, finds certificates, and tests the connection.
 
 Replace with your wallet fingerprint.
 
-### Step 4️⃣: Start Using
+### Step : Start Using
 
 ```
 /sage balance
@@ -163,9 +163,9 @@ Replace with your wallet fingerprint.
 
 ---
 
-## 💬 Commands Reference
+##  Commands Reference
 
-### ⚙️ Configuration
+###  Configuration
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -179,7 +179,7 @@ Replace with your wallet fingerprint.
 | `/sage config autologin <on/off>` | Toggle auto-login | `/sage config autologin on` |
 | `/sage config reset` | Reset to defaults | `/sage config reset` |
 
-### 🔐 Authentication
+###  Authentication
 
 | Command | Description |
 |---------|-------------|
@@ -188,7 +188,7 @@ Replace with your wallet fingerprint.
 | `/sage keys` | List wallet keys |
 | `/sage mnemonic generate` | Generate new mnemonic |
 
-### 💰 XCH Transactions
+###  XCH Transactions
 
 | Command | Description |
 |---------|-------------|
@@ -198,7 +198,7 @@ Replace with your wallet fingerprint.
 | `/sage combine` | Auto-combine dust |
 | `/sage split <coin_id> <count>` | Split coin |
 
-### 🪙 CAT Tokens
+###  CAT Tokens
 
 | Command | Description |
 |---------|-------------|
@@ -206,7 +206,7 @@ Replace with your wallet fingerprint.
 | `/sage send cat <asset_id> <addr> <amount>` | Send CAT |
 | `/sage issue cat <name> <ticker> <supply>` | Issue new CAT |
 
-### 🖼️ NFTs
+###  NFTs
 
 | Command | Description |
 |---------|-------------|
@@ -216,7 +216,7 @@ Replace with your wallet fingerprint.
 | `/sage mint nft --did <did> --data <uri>` | Mint NFT |
 | `/sage transfer nft <nft_id> <address>` | Transfer NFT |
 
-### 🆔 DIDs
+###  DIDs
 
 | Command | Description |
 |---------|-------------|
@@ -224,7 +224,7 @@ Replace with your wallet fingerprint.
 | `/sage create did <name>` | Create DID |
 | `/sage transfer did <did_id> <address>` | Transfer DID |
 
-### 🤝 Offers
+###  Offers
 
 | Command | Description |
 |---------|-------------|
@@ -234,7 +234,7 @@ Replace with your wallet fingerprint.
 | `/sage offer take <offer_string>` | Accept offer |
 | `/sage offer cancel <offer_id>` | Cancel on-chain |
 
-### 📊 System
+###  System
 
 | Command | Description |
 |---------|-------------|
@@ -244,7 +244,7 @@ Replace with your wallet fingerprint.
 | `/sage network` | Current network |
 | `/sage pending` | Pending transactions |
 
-### 🔧 Global Options
+###  Global Options
 
 All commands accept optional overrides:
 
@@ -257,7 +257,7 @@ All commands accept optional overrides:
 
 ---
 
-## 📁 Skill Structure
+##  Skill Structure
 
 ```
 sage-wallet/
@@ -288,7 +288,7 @@ sage-wallet/
 
 ---
 
-## 🔌 Sub-Skills
+##  Sub-Skills
 
 Each domain has a dedicated sub-skill with full endpoint documentation:
 
@@ -311,7 +311,7 @@ Each domain has a dedicated sub-skill with full endpoint documentation:
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Run Config Tests
 
@@ -339,7 +339,7 @@ Each domain has a dedicated sub-skill with full endpoint documentation:
 
 ---
 
-## ⚙️ Configuration File
+##  Configuration File
 
 Location: `~/.config/sage-wallet/config.json`
 
@@ -365,7 +365,7 @@ Location: `~/.config/sage-wallet/config.json`
 
 ---
 
-## 💱 Amount Formatting
+##  Amount Formatting
 
 Sage uses **mojos** (smallest unit). Conversions:
 
@@ -380,10 +380,10 @@ CAT amounts are in the token's smallest unit (no decimals in RPC).
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 <details>
-<summary><b>❌ "Certificate not found"</b></summary>
+<summary><b> "Certificate not found"</b></summary>
 
 **Solution:**
 1. Verify Sage is installed and has been run at least once
@@ -396,7 +396,7 @@ CAT amounts are in the token's smallest unit (no decimals in RPC).
 </details>
 
 <details>
-<summary><b>❌ "Connection refused"</b></summary>
+<summary><b> "Connection refused"</b></summary>
 
 **Solution:**
 1. Ensure Sage wallet is running
@@ -409,7 +409,7 @@ CAT amounts are in the token's smallest unit (no decimals in RPC).
 </details>
 
 <details>
-<summary><b>❌ "Unauthorized" error</b></summary>
+<summary><b> "Unauthorized" error</b></summary>
 
 **Solution:**
 1. Sage uses mutual TLS — both cert and key required
@@ -419,7 +419,7 @@ CAT amounts are in the token's smallest unit (no decimals in RPC).
 </details>
 
 <details>
-<summary><b>❌ "Not logged in"</b></summary>
+<summary><b> "Not logged in"</b></summary>
 
 **Solution:**
 1. Login with fingerprint: `/sage login 1234567890`
@@ -431,7 +431,7 @@ CAT amounts are in the token's smallest unit (no decimals in RPC).
 </details>
 
 <details>
-<summary><b>❌ Wrong platform detected</b></summary>
+<summary><b> Wrong platform detected</b></summary>
 
 **Solution:**
 ```
@@ -442,11 +442,11 @@ Options: `auto`, `mac`, `linux`, `windows`
 
 ---
 
-## 🔐 Security Notes
+##  Security Notes
 
 > **Important:** This skill interacts with real cryptocurrency wallets.
 
-### ✅ Best Practices
+###  Best Practices
 
 - Never share your mnemonic or wallet.key file
 - Use testnet for development and testing
@@ -454,7 +454,7 @@ Options: `auto`, `mac`, `linux`, `windows`
 - Keep Sage wallet software updated
 - Use clawback for large transfers to new addresses
 
-### 🔒 What This Skill Does
+###  What This Skill Does
 
 - Reads certificates from your local Sage installation
 - Makes authenticated RPC calls to your local wallet
@@ -463,28 +463,28 @@ Options: `auto`, `mac`, `linux`, `windows`
 
 ---
 
-## 📊 Use Cases
+##  Use Cases
 
-### 💼 **Portfolio Management**
+###  **Portfolio Management**
 Check balances, track NFTs, and monitor transactions across wallets.
 
-### 🤖 **Automated Trading**
+###  **Automated Trading**
 Create and manage offers programmatically through natural language.
 
-### 🎨 **NFT Operations**
+###  **NFT Operations**
 Bulk mint, transfer, and organize NFT collections.
 
-### 🔄 **Token Distribution**
+###  **Token Distribution**
 Bulk send CAT tokens or XCH to multiple addresses.
 
-### 📈 **Wallet Monitoring**
+###  **Wallet Monitoring**
 Track sync status, pending transactions, and network health.
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
-### ✅ Completed (v1.0.0)
+###  Completed (v1.0.0)
 - [x] All 112 RPC endpoints mapped
 - [x] 12 domain sub-skills
 - [x] Cross-platform support (Mac/Linux/Windows)
@@ -492,7 +492,7 @@ Track sync status, pending transactions, and network health.
 - [x] Test suites
 - [x] Comprehensive documentation
 
-### 🚧 Planned
+###  Planned
 - [ ] Transaction builder with confirmation prompts
 - [ ] Offer marketplace integration
 - [ ] Price feed integration (XCH/USD)
@@ -503,7 +503,7 @@ Track sync status, pending transactions, and network health.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! 
 
@@ -513,22 +513,22 @@ Contributions welcome!
 
 ---
 
-## 📄 License
+##  License
 
 MIT License — Koba42 Corp
 
 ---
 
-## 🙏 Credits
+##  Credits
 
-Built with ❤️ by **Koba42 Corp**
+Built with  by **Koba42 Corp**
 
 ### Powered By:
-- 🌿 [Sage Wallet](https://github.com/xch-dev/sage) - Chia wallet
-- 🌱 [Chia Blockchain](https://www.chia.net/) - Green cryptocurrency
-- 🦾 [Clawdbot](https://clawd.bot) - Agent framework
-- 🔧 [curl](https://curl.se/) - HTTP client
-- 📋 [jq](https://jqlang.github.io/jq/) - JSON processor
+-  [Sage Wallet](https://github.com/xch-dev/sage) - Chia wallet
+-  [Chia Blockchain](https://www.chia.net/) - Green cryptocurrency
+-  [Clawdbot](https://clawd.bot) - Agent framework
+-  [curl](https://curl.se/) - HTTP client
+-  [jq](https://jqlang.github.io/jq/) - JSON processor
 
 ### Resources:
 - [Sage Wallet GitHub](https://github.com/xch-dev/sage)
@@ -538,16 +538,16 @@ Built with ❤️ by **Koba42 Corp**
 
 ---
 
-## 📬 Support
+##  Support
 
-- 💬 **Discord:** [discord.com/invite/clawd](https://discord.com/invite/clawd)
-- 📖 **Docs:** [docs.clawd.bot](https://docs.clawd.bot)
-- 🐛 **Issues:** GitHub Issues
+-  **Discord:** [discord.com/invite/clawd](https://discord.com/invite/clawd)
+-  **Docs:** [docs.clawd.bot](https://docs.clawd.bot)
+-  **Issues:** GitHub Issues
 
 ---
 
 <p align="center">
-  <strong>⭐ Star us on GitHub if this skill helped you!</strong>
+  <strong> Star us on GitHub if this skill helped you!</strong>
 </p>
 
 <p align="center">

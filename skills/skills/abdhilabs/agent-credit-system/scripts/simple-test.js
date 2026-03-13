@@ -15,11 +15,11 @@ async function test() {
       name: 'KarmaBank Credit Pool',
     });
     
-    console.log('✅ SUCCESS!');
+    console.log(' SUCCESS!');
     console.log('Wallet Set ID:', result.data?.walletSet?.id);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     if (error.response?.data) {
       console.error('Details:', JSON.stringify(error.response.data));
     }

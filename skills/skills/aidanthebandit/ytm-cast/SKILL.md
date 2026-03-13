@@ -39,7 +39,7 @@ config:
     - ~/.youtube-music-cast
 metadata:
   clawdbot:
-    emoji: "🎵"
+    emoji: ""
 
 ---
 
@@ -51,15 +51,15 @@ Download audio from YouTube or YouTube Music and stream it through Home Assistan
 
 ## Features
 
-- ✅ **Free forever** — No subscriptions, no premium accounts needed
-- ✅ **High quality** — 320K MP3, crystal clear audio
-- ✅ **Video mode** — Create MP4 videos with album art and text overlays
-- ✅ **Radio mode** — Auto-discover and play related songs
-- ✅ **Local storage** — Your music stays on your machine, no cloud
-- ✅ **Multi-room** — Cast to any Chromecast device in your home
-- ✅ **Batch download** — Download entire playlists, stream anytime
-- ✅ **Simple CLI** — Fast commands, no browser required
-- ✅ **Works offline** — Once downloaded, music is yours to keep
+-  **Free forever** — No subscriptions, no premium accounts needed
+-  **High quality** — 320K MP3, crystal clear audio
+-  **Video mode** — Create MP4 videos with album art and text overlays
+-  **Radio mode** — Auto-discover and play related songs
+-  **Local storage** — Your music stays on your machine, no cloud
+-  **Multi-room** — Cast to any Chromecast device in your home
+-  **Batch download** — Download entire playlists, stream anytime
+-  **Simple CLI** — Fast commands, no browser required
+-  **Works offline** — Once downloaded, music is yours to keep
 
 ## Use Cases
 
@@ -122,10 +122,10 @@ Home Assistant's `media_player.play_media` service sends the HTTP URL to your Ch
 Home Assistant's `play_media` service requires a URL, not a file path. The web server bridges that gap.
 
 ```yaml
-# ✅ This works — HA can fetch via HTTP
+#  This works — HA can fetch via HTTP
 media_content_id: "http://192.168.1.81:8735/song.mp3"
 
-# ❌ This fails — HA can't read file paths
+#  This fails — HA can't read file paths
 media_content_id: "/tmp/youtube-music/song.mp3"
 ```
 
@@ -248,7 +248,7 @@ cast-status media_player.bedroom_display
 
 Output:
 ```
-📺 media_player.bedroom_display
+ media_player.bedroom_display
 
 State: playing
 Friendly Name: Bedroom display
@@ -281,7 +281,7 @@ cast-list
 
 Output:
 ```
-🎵 Downloaded Music
+ Downloaded Music
 
 boneheads-bank-holiday.mp3                                    9.3M
 never-gonna-give-you-up.mp3                                 8.2M
@@ -298,7 +298,7 @@ cast-devices
 
 Output:
 ```
-📺 Available Media Players
+ Available Media Players
 
 media_player.bedroom_display
   Name: Bedroom display
@@ -315,7 +315,7 @@ Default device: media_player.bedroom_display
 
 ## New Features: Radio Mode & Video Mode
 
-### 📻 Radio Mode
+###  Radio Mode
 
 Radio mode automatically discovers and downloads related songs based on YouTube recommendations. After downloading a seed song, it searches for similar tracks and adds them to your queue.
 
@@ -373,7 +373,7 @@ cast-play radio_another-song.mp3
 - Use `--count` to control how many related songs to download
 - Combine with `--video` flag for visual radio mode
 
-### 🎬 Video Mode with Visuals
+###  Video Mode with Visuals
 
 Video mode creates MP4 videos instead of plain MP3 files. Each video includes:
 - The original audio track
@@ -485,7 +485,7 @@ Keep URLs clean. Simple filenames save you from headaches later.
 
 ### The Problem
 
-❌ Bad filenames:
+ Bad filenames:
 ```
 http://192.168.1.81:8735/Bonehead's%20Bank%20Holiday%20(Remastered).mp3
 ```
@@ -493,7 +493,7 @@ This URL is messy, hard to type, and prone to encoding errors.
 
 ### The Solution
 
-✅ Good filenames:
+ Good filenames:
 ```
 http://192.168.1.81:8735/boneheads-bank-holiday.mp3
 ```

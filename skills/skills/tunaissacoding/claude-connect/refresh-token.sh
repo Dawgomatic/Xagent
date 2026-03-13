@@ -92,7 +92,7 @@ notify() {
 error_exit() {
     local error_message="$1"
     log "ERROR: $error_message"
-    notify "❌ Claude token refresh failed: $error_message" "failure"
+    notify " Claude token refresh failed: $error_message" "failure"
     exit 1
 }
 
@@ -161,7 +161,7 @@ while IFS= read -r account; do
         log "✓ Found complete OAuth tokens"
         break
     else
-        log "⚠ Entry incomplete, continuing..."
+        log " Entry incomplete, continuing..."
     fi
 done <<< "$ALL_ACCOUNTS"
 
@@ -258,7 +258,7 @@ PYEOF
         fi
     fi
     
-    echo "✅ Token still valid ($TIME_LEFT_MIN minutes remaining)"
+    echo " Token still valid ($TIME_LEFT_MIN minutes remaining)"
     echo "Use --force to refresh anyway"
     exit 0
 fi
@@ -392,11 +392,11 @@ fi
 
 log "Refresh complete"
 
-notify "✅ Claude token refreshed!
+notify " Claude token refreshed!
 New expiry: $NEW_EXPIRES_TIME
 Next refresh: ~$((EXPIRES_IN / 3600 - REFRESH_BUFFER / 60))h" "success"
 
 echo ""
-echo "✅ Token refreshed successfully!"
+echo " Token refreshed successfully!"
 echo "New expiry: $NEW_EXPIRES_TIME"
 echo "Expires in: $((EXPIRES_IN / 3600)) hours"

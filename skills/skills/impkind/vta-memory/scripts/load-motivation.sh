@@ -43,7 +43,7 @@ case $FORMAT in
       DRIVE_DESC="unmotivated — need a win to get going"
     fi
     
-    echo "⭐ Current Motivation State:"
+    echo " Current Motivation State:"
     echo ""
     echo "Drive level: $DRIVE ($DRIVE_DESC)"
     

@@ -2,20 +2,20 @@
 name: virtuals
 version: 1.0.0
 description: "Virtuals Protocol integration for OpenClaw. Create, manage and trade tokenized AI agents on Base."
-metadata: {"openclaw": {"emoji": "🎭", "homepage": "https://virtuals.io"}}
+metadata: {"openclaw": {"emoji": "", "homepage": "https://virtuals.io"}}
 ---
 
-# Virtuals Protocol Skill 🎭
+# Virtuals Protocol Skill 
 
 Create, manage and trade tokenized AI agents on Virtuals Protocol (Base L2).
 
 ## Features
 
-- 📊 **List agents** - Browse top AI agents on Virtuals
-- 💰 **Check prices** - Get agent token prices and market data
-- 🔍 **Agent details** - View agent info, holders, transactions
-- 🚀 **Create agent** - Launch your own tokenized AI agent
-- 💸 **Trade** - Buy/sell agent tokens
+-  **List agents** - Browse top AI agents on Virtuals
+-  **Check prices** - Get agent token prices and market data
+-  **Agent details** - View agent info, holders, transactions
+-  **Create agent** - Launch your own tokenized AI agent
+-  **Trade** - Buy/sell agent tokens
 
 ## Installation
 
@@ -81,7 +81,7 @@ Set your wallet for trading:
 virtuals config --wallet <address> --private-key <key>
 ```
 
-**⚠️ TESTNET ONLY for now** - Don't use mainnet funds.
+** TESTNET ONLY for now** - Don't use mainnet funds.
 
 ## Architecture
 
@@ -119,4 +119,4 @@ MIT
 
 ---
 
-**Built for OpenClaw by IntechChain 🦞**
+**Built for OpenClaw by IntechChain **

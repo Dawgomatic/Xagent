@@ -4,13 +4,13 @@ Fully local, offline text-to-speech using Kyutai's Pocket TTS model. Generate hi
 
 ## Features
 
-- 🎯 **Fully local** - No API calls, runs completely offline
-- 🚀 **CPU-only** - No GPU required, works on any computer
-- ⚡ **Fast generation** - ~2-6x real-time on CPU
-- 🎤 **8 built-in voices** - alba, marius, javert, jean, fantine, cosette, eponine, azelma
-- 🎭 **Voice cloning** - Clone any voice from a WAV sample
-- 🔊 **Low latency** - ~200ms first audio chunk
-- 📚 **Simple Python API** - Easy integration into any project
+-  **Fully local** - No API calls, runs completely offline
+-  **CPU-only** - No GPU required, works on any computer
+-  **Fast generation** - ~2-6x real-time on CPU
+-  **8 built-in voices** - alba, marius, javert, jean, fantine, cosette, eponine, azelma
+-  **Voice cloning** - Clone any voice from a WAV sample
+-  **Low latency** - ~200ms first audio chunk
+-  **Simple Python API** - Easy integration into any project
 
 ## Installation
 
@@ -108,10 +108,10 @@ Or use `--voice-file /path/to/wav.wav` for custom voice cloning.
 
 ## Notes
 
-- ⚠️ Model is gated - accept license on Hugging Face first
-- 🌍 English language only (v1)
-- 💾 First run downloads model (~100M parameters)
-- 🔊 Audio is returned as 1D torch tensor (PCM data)
+-  Model is gated - accept license on Hugging Face first
+-  English language only (v1)
+-  First run downloads model (~100M parameters)
+-  Audio is returned as 1D torch tensor (PCM data)
 
 ## Links
 

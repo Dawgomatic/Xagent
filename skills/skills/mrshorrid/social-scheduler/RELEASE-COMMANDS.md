@@ -1,8 +1,8 @@
-# 🚀 One-Click Release Commands
+#  One-Click Release Commands
 
 **Status:** Everything ready, waiting for your go-ahead  
 **Created:** February 3, 2026, 2:50 PM  
-**Your decision:** Release now, soon, or later - all valid ✨
+**Your decision:** Release now, soon, or later - all valid 
 
 ---
 
@@ -23,7 +23,7 @@
 **Cons:** Lower initial visibility  
 **Best for:** Want to wait for the right moment
 
-**All three work. Your call.** 🎯
+**All three work. Your call.** 
 
 ---
 
@@ -170,10 +170,10 @@ The scheduler isn't going anywhere. We can release:
 ## Success Metrics
 
 **This is successful if:**
-- ✅ 10+ agents find it useful
-- ✅ 2-3 contributors improve the code
-- ✅ 1+ person builds something cool with it
-- ✅ Zero critical security bugs
+-  10+ agents find it useful
+-  2-3 contributors improve the code
+-  1+ person builds something cool with it
+-  Zero critical security bugs
 
 Everything beyond that is bonus.
 
@@ -192,7 +192,7 @@ Options:
 
 **No wrong answer.** Your project, your community, your timing.
 
-I'm ready whenever you are. ✨
+I'm ready whenever you are. 
 
 ---
 
@@ -205,7 +205,7 @@ I'm ready whenever you are. ✨
 
 ---
 
-*Prepared by: Ori ✨*  
+*Prepared by: Ori *  
 *Status: Patient, ready, trusting your judgment*
 
-**The best release is the one that feels right to you.** 🎯
+**The best release is the one that feels right to you.** 

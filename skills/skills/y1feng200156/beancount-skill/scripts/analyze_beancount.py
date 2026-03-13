@@ -40,7 +40,7 @@ def load_beancount_file(filename):
     entries, errors, options = loader.load_file(filename)
     
     if errors:
-        print(f"⚠️  Found {len(errors)} errors in the file:")
+        print(f"  Found {len(errors)} errors in the file:")
         for error in errors[:5]:  # Show first 5 errors
             print(f"  - {error}")
         if len(errors) > 5:
@@ -225,7 +225,7 @@ def print_savings_rate(entries, options, year=None):
     result = calculate_savings_rate(entries, options, year=year)
     
     if result is None:
-        print("\n⚠️  No income data found. Cannot calculate savings rate.\n")
+        print("\n  No income data found. Cannot calculate savings rate.\n")
         return
     
     print("\n" + "="*50)
@@ -294,9 +294,9 @@ def main():
     args = parser.parse_args()
     
     # Load Beancount file
-    print(f"\n📊 Loading {args.filename}...")
+    print(f"\n Loading {args.filename}...")
     entries, options = load_beancount_file(args.filename)
-    print(f"✅ Loaded {len(entries)} entries\n")
+    print(f" Loaded {len(entries)} entries\n")
     
     # If no specific report requested, show all
     if not any([args.net_worth, args.monthly_expenses, args.savings_rate, args.top_expenses is not None]) or args.all:

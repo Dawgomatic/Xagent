@@ -21,10 +21,10 @@ def load_json(filepath):
         with open(filepath, 'r', encoding='utf-8') as f:
             return json.load(f)
     except FileNotFoundError:
-        print(f"❌ 文件不存在: {filepath}")
+        print(f" 文件不存在: {filepath}")
         return None
     except json.JSONDecodeError as e:
-        print(f"❌ JSON 解析错误: {e}")
+        print(f" JSON 解析错误: {e}")
         return None
 
 
@@ -35,7 +35,7 @@ def save_json(filepath, data):
             json.dump(data, f, ensure_ascii=False, indent=2)
         return True
     except Exception as e:
-        print(f"❌ 保存文件失败: {e}")
+        print(f" 保存文件失败: {e}")
         return False
 
 
@@ -95,7 +95,7 @@ def update_progress():
             else:
                 # 所有阶段都学完了
                 progress['enabled'] = False
-                print("🎉 恭喜！你已经完成了所有学习内容！")
+                print(" 恭喜！你已经完成了所有学习内容！")
                 return True
 
     # 更新其他信息
@@ -151,13 +151,13 @@ def show_progress():
     if not progress or not content:
         return
 
-    print("\n📊 学习进度")
+    print("\n 学习进度")
     print("=" * 50)
     print(f"用户: {progress['user_id']}")
     print(f"开始时间: {progress['started_at'][:10]}")
     print(f"已完成天数: {progress['total_days_completed']}")
     print(f"最后学习: {progress['last_push_date']}")
-    print(f"状态: {'✅ 进行中' if progress['enabled'] else '⏸️ 已暂停'}")
+    print(f"状态: {' 进行中' if progress['enabled'] else ' 已暂停'}")
 
     stage = content['stages'][progress['current_stage']]
     topic = stage['topics'][progress['current_topic_index']]
@@ -225,22 +225,22 @@ def main():
         if learning_content:
             print(json.dumps(learning_content, ensure_ascii=False, indent=2))
         else:
-            print("❌ 无法获取学习内容")
+            print(" 无法获取学习内容")
 
     elif command == "progress":
         show_progress()
 
     elif command == "skip":
         if skip_today():
-            print("✅ 已跳过今天的学习")
+            print(" 已跳过今天的学习")
         else:
-            print("❌ 跳过失败")
+            print(" 跳过失败")
 
     elif command == "reset":
         if reset_progress():
-            print("✅ 学习计划已重置")
+            print(" 学习计划已重置")
         else:
-            print("❌ 重置失败")
+            print(" 重置失败")
 
     elif command == "next":
         next_topic = get_next_topic_preview()
@@ -248,12 +248,12 @@ def main():
 
     elif command == "update":
         if update_progress():
-            print("✅ 进度已更新")
+            print(" 进度已更新")
         else:
-            print("❌ 更新失败")
+            print(" 更新失败")
 
     else:
-        print(f"❌ 未知命令: {command}")
+        print(f" 未知命令: {command}")
 
 
 if __name__ == "__main__":

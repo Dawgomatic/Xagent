@@ -22,7 +22,7 @@ description: |
 **Check parent before trading:**
 - Verify portfolio-level exposure limits in `../../references/master_portfolio.md`
 - Check correlation limits (crypto exposure across strategies)
-- Respect parent's risk level (🟢/🟡/🟠/🔴)
+- Respect parent's risk level (///)
 
 **Your job within the system**:
 1. Discover early memecoins using scanners

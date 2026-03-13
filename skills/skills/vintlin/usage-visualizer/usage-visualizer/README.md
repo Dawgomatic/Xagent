@@ -4,7 +4,7 @@
 
 ![Usage Visualizer Report](assets/report-sample.png)
 
-## ✨ Features
+##  Features
 
 - **No config required!** - Automatically detects OpenClaw and Clawdbot session logs.
 - **Token-First Analytics** - Deep dive into input/output tokens and Anthropic prompt caching (read/write) performance.
@@ -14,7 +14,7 @@
 - **Budget & Usage Guards** - Threshold-based monitoring for daily/weekly/monthly usage with flexible notification formats.
 - **Multi-Provider Support** - Native support for Anthropic, OpenAI, Gemini, MiniMax, and more.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Clone the repository
@@ -31,7 +31,7 @@ python3 scripts/fetch_usage.py --full
 python3 scripts/generate_report_image.py --today
 ```
 
-## 📈 Usage Guide
+##  Usage Guide
 
 ### Visual Reports
 The visualizer produces high-fidelity PNG images saved directly to your workspace.
@@ -66,7 +66,7 @@ Set limits to receive alerts when usage spikes.
 python3 scripts/alert.py --budget-usd 10 --period today
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 usage-visualizer/
@@ -87,7 +87,7 @@ usage-visualizer/
     └── report-sample.png       # Sample image output
 ```
 
-## 🔧 Available Commands
+##  Available Commands
 
 ```bash
 # Full flow: fetch + generate report
@@ -100,7 +100,7 @@ python3 scripts/report.py --period week
 python3 scripts/alert.py --budget-usd 50
 ```
 
-## 💾 Data Schema (SQLite)
+##  Data Schema (SQLite)
 
 | Field | Description |
 |-------|-------------|
@@ -113,7 +113,7 @@ python3 scripts/alert.py --budget-usd 50
 | `cost` | Total calculated cost in USD |
 | `savings` | Estimated money saved via prompt caching |
 
-## ⏰ Automation
+##  Automation
 
 ### OpenClaw Cron Integration
 
@@ -131,13 +131,13 @@ Add this to your OpenClaw cron configuration:
 }
 ```
 
-## 📝 Requirements
+##  Requirements
 
 - Python 3.8+
 - `html2image` (Browser-based rendering)
 - `Pillow` (Smart cropping and image processing)
 - `PyYAML` (Config parsing)
 
-## 📄 License
+##  License
 
 MIT

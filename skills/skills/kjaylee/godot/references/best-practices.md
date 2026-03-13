@@ -2,7 +2,7 @@
 
 Godot 4.x 게임 개발 모범 사례 가이드
 
-## 🏗️ 프로젝트 구조
+##  프로젝트 구조
 
 ### 권장 폴더 구조
 ```
@@ -41,7 +41,7 @@ MyGame/
 
 ---
 
-## 📝 코딩 스타일
+##  코딩 스타일
 
 ### 네이밍
 ```gdscript
@@ -129,7 +129,7 @@ class Weapon:
 
 ---
 
-## 🎯 씬 설계
+##  씬 설계
 
 ### 씬 분리 원칙
 - **재사용 가능한 단위로 분리** (예: Player, Enemy, Bullet)
@@ -160,16 +160,16 @@ Player (CharacterBody2D)
 
 ---
 
-## 🔧 스크립트 작성
+##  스크립트 작성
 
 ### @onready 활용
 ```gdscript
-# ❌ Bad: _ready()에서 매번 get_node()
+#  Bad: _ready()에서 매번 get_node()
 func _ready():
     var sprite = get_node("Sprite2D")
     sprite.texture = load("res://...")
 
-# ✅ Good: @onready로 초기화
+#  Good: @onready로 초기화
 @onready var sprite = $Sprite2D
 
 func _ready():
@@ -178,12 +178,12 @@ func _ready():
 
 ### 타입 힌트 사용
 ```gdscript
-# ❌ Bad: 타입 미지정
+#  Bad: 타입 미지정
 var speed = 100
 func move(dir):
     pass
 
-# ✅ Good: 타입 명시
+#  Good: 타입 명시
 var speed: float = 100.0
 func move(dir: Vector2) -> void:
     pass
@@ -191,13 +191,13 @@ func move(dir: Vector2) -> void:
 
 ### Signal vs Call
 ```gdscript
-# ❌ Bad: 직접 호출 (결합도 높음)
+#  Bad: 직접 호출 (결합도 높음)
 # player.gd
 func take_damage(amount):
     health -= amount
     get_parent().get_node("UI").update_health(health)  # 나쁨!
 
-# ✅ Good: Signal 사용 (디커플링)
+#  Good: Signal 사용 (디커플링)
 # player.gd
 signal health_changed(new_health)
 
@@ -215,11 +215,11 @@ func _on_player_health_changed(new_health):
 
 ### Null 체크
 ```gdscript
-# ❌ Bad: Null 체크 없음
+#  Bad: Null 체크 없음
 var player = get_tree().get_first_node_in_group("player")
 player.take_damage(10)  # player가 null이면 에러!
 
-# ✅ Good: Null 체크
+#  Good: Null 체크
 var player = get_tree().get_first_node_in_group("player")
 if player:
     player.take_damage(10)
@@ -227,7 +227,7 @@ if player:
 
 ---
 
-## 🎮 물리 처리
+##  물리 처리
 
 ### _process vs _physics_process
 ```gdscript
@@ -245,18 +245,18 @@ func _physics_process(delta):
 
 ### Delta Time 사용
 ```gdscript
-# ❌ Bad: 프레임 의존
+#  Bad: 프레임 의존
 func _process(delta):
     position.x += 5  # 프레임레이트에 따라 속도 변함
 
-# ✅ Good: Delta 곱하기
+#  Good: Delta 곱하기
 func _process(delta):
     position.x += 100 * delta  # 초당 100픽셀
 ```
 
 ---
 
-## 🗂️ 리소스 관리
+##  리소스 관리
 
 ### Preload vs Load
 ```gdscript
@@ -276,7 +276,7 @@ func load_level(level_name: String):
 
 ### 씬 인스턴스 생성
 ```gdscript
-# ✅ Good: 재사용 패턴
+#  Good: 재사용 패턴
 const BULLET_SCENE = preload("res://scenes/bullet.tscn")
 
 func shoot():
@@ -295,7 +295,7 @@ $Enemy.queue_free()  # 프레임 끝에 안전하게 제거
 
 ---
 
-## 🎨 성능 최적화
+##  성능 최적화
 
 ### 그룹 활용
 ```gdscript
@@ -312,11 +312,11 @@ for enemy in enemies:
 
 ### 불필요한 _process 제거
 ```gdscript
-# ❌ Bad: 빈 _process
+#  Bad: 빈 _process
 func _process(delta):
     pass  # 불필요한 오버헤드
 
-# ✅ Good: 필요 없으면 삭제 또는 비활성화
+#  Good: 필요 없으면 삭제 또는 비활성화
 func _ready():
     set_process(false)  # _process 비활성화
 ```
@@ -339,7 +339,7 @@ func _on_screen_entered():
 
 ---
 
-## 🧪 테스트 & 디버깅
+##  테스트 & 디버깅
 
 ### Breakpoint 사용
 ```gdscript
@@ -372,7 +372,7 @@ push_error("Critical error!")
 
 ---
 
-## 🌐 Autoload (싱글톤)
+##  Autoload (싱글톤)
 
 ### 전역 스크립트 생성
 ```gdscript
@@ -400,27 +400,27 @@ print(Global.player_name)
 
 ---
 
-## 🚫 피해야 할 패턴
+##  피해야 할 패턴
 
-### ❌ 글로벌 변수 남용
+###  글로벌 변수 남용
 ```gdscript
 # global.gd에 모든 것을 넣지 말 것
 # 대신 관련 기능별로 분리 (AudioManager, SaveManager 등)
 ```
 
-### ❌ 긴 함수
+###  긴 함수
 ```gdscript
 # 함수는 한 가지 일만 (Single Responsibility)
 # 50줄 이상이면 분리 고려
 ```
 
-### ❌ 매직 넘버
+###  매직 넘버
 ```gdscript
-# ❌ Bad
+#  Bad
 if health < 20:
     play_low_health_sound()
 
-# ✅ Good
+#  Good
 const LOW_HEALTH_THRESHOLD = 20
 
 if health < LOW_HEALTH_THRESHOLD:
@@ -429,7 +429,7 @@ if health < LOW_HEALTH_THRESHOLD:
 
 ---
 
-## 📚 추가 자료
+##  추가 자료
 
 - [GDScript 스타일 가이드](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html)
 - [Godot 성능 최적화](https://docs.godotengine.org/en/stable/tutorials/performance/index.html)

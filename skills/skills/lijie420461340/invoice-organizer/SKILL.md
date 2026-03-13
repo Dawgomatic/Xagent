@@ -124,19 +124,19 @@ This skill helps you:
 
 ### By Year and Category
 ```
-📁 Invoices/
-├── 📁 2026/
-│   ├── 📁 Office/
+ Invoices/
+├──  2026/
+│   ├──  Office/
 │   │   └── 2026-01-15_Staples_125.50_INV001.pdf
-│   ├── 📁 Software/
+│   ├──  Software/
 │   │   └── 2026-01-20_Adobe_54.99_INV002.pdf
-│   ├── 📁 Travel/
+│   ├──  Travel/
 │   │   └── 2026-01-22_United_450.00_INV003.pdf
-│   ├── 📁 Professional/
-│   └── 📁 Other/
-├── 📁 2025/
+│   ├──  Professional/
+│   └──  Other/
+├──  2025/
 │   └── ...
-└── 📁 Archive/
+└──  Archive/
 ```
 
 ### Naming Convention
@@ -159,9 +159,9 @@ YYYY-MM-DD_Vendor_Amount_InvoiceNumber.pdf
 ### Open Invoices
 | Invoice # | Vendor | Date | Due | Amount | Status | Days |
 |-----------|--------|------|-----|--------|--------|------|
-| INV-042 | Acme | 01/15 | 02/14 | $1,350 | ⏳ Pending | 14 |
-| INV-045 | Beta | 01/18 | 02/17 | $890 | ⏳ Pending | 11 |
-| INV-048 | Gamma | 01/22 | 01/29 | $500 | 🔴 Overdue | -1 |
+| INV-042 | Acme | 01/15 | 02/14 | $1,350 |  Pending | 14 |
+| INV-045 | Beta | 01/18 | 02/17 | $890 |  Pending | 11 |
+| INV-048 | Gamma | 01/22 | 01/29 | $500 |  Overdue | -1 |
 
 ### Recently Paid
 | Invoice # | Vendor | Paid Date | Amount | Method |
@@ -245,18 +245,18 @@ YYYY-MM-DD_Vendor_Amount_InvoiceNumber.pdf
 ### Annual Summary
 | Category | Total | Tax Deductible |
 |----------|-------|----------------|
-| Office Supplies | $4,500 | ✅ Yes |
-| Software | $18,000 | ✅ Yes |
-| Travel - Business | $8,200 | ✅ Yes |
-| Travel - Meals (50%) | $1,200 | ⚠️ Partial |
-| Professional Services | $12,000 | ✅ Yes |
+| Office Supplies | $4,500 |  Yes |
+| Software | $18,000 |  Yes |
+| Travel - Business | $8,200 |  Yes |
+| Travel - Meals (50%) | $1,200 |  Partial |
+| Professional Services | $12,000 |  Yes |
 | **Total Deductible** | **$43,900** | |
 
 ### Required Documentation
 | Expense Over $75 | Count | Status |
 |------------------|-------|--------|
-| With receipt | 45 | ✅ |
-| Missing receipt | 3 | ⚠️ |
+| With receipt | 45 |  |
+| Missing receipt | 3 |  |
 
 ### Missing Receipts
 | Date | Vendor | Amount | Action |
@@ -268,8 +268,8 @@ YYYY-MM-DD_Vendor_Amount_InvoiceNumber.pdf
 ### Vendor 1099 Review
 | Vendor | Total Paid | 1099 Required |
 |--------|------------|---------------|
-| Consultant A | $8,500 | ✅ Yes (>$600) |
-| Consultant B | $450 | ❌ No |
+| Consultant A | $8,500 |  Yes (>$600) |
+| Consultant B | $450 |  No |
 ```
 
 ## Automation Rules

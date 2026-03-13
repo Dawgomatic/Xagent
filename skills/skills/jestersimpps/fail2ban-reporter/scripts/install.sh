@@ -8,19 +8,19 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Check prerequisites
 if ! command -v fail2ban-client &>/dev/null; then
-  echo "❌ fail2ban not installed. Run: sudo apt install -y fail2ban"
+  echo " fail2ban not installed. Run: sudo apt install -y fail2ban"
   exit 1
 fi
 
 if ! command -v jq &>/dev/null; then
-  echo "❌ jq not installed. Run: sudo apt install -y jq"
+  echo " jq not installed. Run: sudo apt install -y jq"
   exit 1
 fi
 
 # Verify API key exists
 API_KEY="${ABUSEIPDB_KEY:-$(pass show abuseipdb/api-key 2>/dev/null || echo "")}"
 if [ -z "$API_KEY" ]; then
-  echo "❌ No AbuseIPDB API key found."
+  echo " No AbuseIPDB API key found."
   echo "   Get one free at: https://www.abuseipdb.com/account/api"
   echo "   Then run: pass insert abuseipdb/api-key"
   exit 1
@@ -47,7 +47,7 @@ fi
 # Restart fail2ban
 sudo systemctl restart fail2ban
 
-echo "✅ Auto-reporting installed!"
+echo " Auto-reporting installed!"
 echo "   New bans will be reported to AbuseIPDB automatically."
 echo "   Logs: /var/log/abuseipdb-reports.log"
 echo ""

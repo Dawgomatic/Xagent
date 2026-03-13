@@ -79,8 +79,8 @@ def print_aviationstack_results(data, origin, dest):
     origin_name = AIRPORTS.get(origin, origin)
     dest_name = AIRPORTS.get(dest, dest)
     
-    print(f"\n✈️  Flight Schedule: {origin_name} ({origin}) → {dest_name} ({dest})")
-    print(f"📊 Found {len(flights)} flight(s)\n")
+    print(f"\n  Flight Schedule: {origin_name} ({origin}) → {dest_name} ({dest})")
+    print(f" Found {len(flights)} flight(s)\n")
     print("=" * 100)
     
     for flight in flights:
@@ -121,23 +121,23 @@ def show_manual_options(origin, dest, date=None):
     
     today = datetime.now().strftime('%Y-%m-%d') if not date else date
     
-    print(f"\n✈️  Flight Schedule Search: {origin_name} ({origin}) → {dest_name} ({dest})")
-    print(f"📅 Date: {today}\n")
+    print(f"\n  Flight Schedule Search: {origin_name} ({origin}) → {dest_name} ({dest})")
+    print(f" Date: {today}\n")
     print("=" * 100)
-    print("\n⚠️  No API key configured. Use these resources:\n")
+    print("\n  No API key configured. Use these resources:\n")
     
     # Google Flights URL
     google_url = f"https://www.google.com/travel/flights?q=Flights%20from%20{origin}%20to%20{dest}%20on%20{today}"
-    print(f"🔍 Google Flights:")
+    print(f" Google Flights:")
     print(f"   {google_url}\n")
     
     # FlightRadar24 route
     fr24_url = f"https://www.flightradar24.com/data/flights/{origin.lower()}-{dest.lower()}"
-    print(f"📡 FlightRadar24:")
+    print(f" FlightRadar24:")
     print(f"   {fr24_url}\n")
     
     # Airline websites
-    print(f"🏢 Check airline websites:")
+    print(f" Check airline websites:")
     if origin == 'HAM' and dest == 'ZRH':
         print(f"   • SWISS: https://www.swiss.com")
         print(f"   • Lufthansa: https://www.lufthansa.com")
@@ -146,7 +146,7 @@ def show_manual_options(origin, dest, date=None):
         print(f"   • Search for direct carriers between {origin} and {dest}")
     
     print("\n" + "=" * 100)
-    print("\n💡 Tip: Get a free API key at https://aviationstack.com (100 requests/month)")
+    print("\n Tip: Get a free API key at https://aviationstack.com (100 requests/month)")
     print("   Then set: export AVIATIONSTACK_API_KEY='your_key_here'\n")
 
 def main():

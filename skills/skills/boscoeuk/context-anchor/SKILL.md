@@ -51,7 +51,7 @@ This skill automates that recovery.
 | `memory/current-task.md` | Current task status, blockers, next steps |
 | `memory/YYYY-MM-DD.md` | Recent daily logs (last 2 days by default) |
 | `context/active/*.md` | In-progress task files |
-| Daily logs | Decisions (lines with "Decision:", "Decided:", "✅") |
+| Daily logs | Decisions (lines with "Decision:", "Decided:", "") |
 | Daily logs | Open loops (lines with "?", "TODO:", "Blocker:", "Need to") |
 
 ---
@@ -66,21 +66,21 @@ The script outputs a structured briefing:
               Where You Left Off
 ═══════════════════════════════════════════════════════════
 
-📋 CURRENT TASK
+ CURRENT TASK
 ───────────────────────────────────────────────────────────
 [Contents of memory/current-task.md or "No current task set"]
 
-📂 ACTIVE CONTEXT FILES
+ ACTIVE CONTEXT FILES
 ───────────────────────────────────────────────────────────
 • context/active/project-name.md (updated 2h ago)
   └─ First line preview...
 
-🎯 RECENT DECISIONS (last 2 days)
+ RECENT DECISIONS (last 2 days)
 ───────────────────────────────────────────────────────────
 [2026-01-30] Decision: Use Cloudflare Pages for hosting
-[2026-01-30] ✅ Completed email capture setup
+[2026-01-30]  Completed email capture setup
 
-❓ OPEN LOOPS
+ OPEN LOOPS
 ───────────────────────────────────────────────────────────
 [2026-01-30] Need to enable SFTP on NAS
 [2026-01-30] TODO: Create Product Hunt account

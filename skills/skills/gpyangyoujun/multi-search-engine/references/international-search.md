@@ -1,6 +1,6 @@
 # 国际搜索引擎深度搜索指南
 
-## 🔍 Google 深度搜索
+##  Google 深度搜索
 
 ### 1.1 基础高级搜索操作符
 
@@ -94,7 +94,7 @@ web_fetch({"url": "https://www.google.com/search?q=related:stackoverflow.com"})
 
 ---
 
-## 🦆 DuckDuckGo 深度搜索
+##  DuckDuckGo 深度搜索
 
 ### 2.1 DuckDuckGo 特色功能
 
@@ -205,7 +205,7 @@ web_fetch({"url": "https://duckduckgo.com/?q=qr+https://github.com"})
 
 ---
 
-## 🔎 Brave Search 深度搜索
+##  Brave Search 深度搜索
 
 ### 3.1 Brave Search 特色功能
 
@@ -261,7 +261,7 @@ web_fetch({"url": "https://search.brave.com/search?q=privacy+tools"})
 
 ---
 
-## 📊 WolframAlpha 知识计算搜索
+##  WolframAlpha 知识计算搜索
 
 ### 4.1 WolframAlpha 数据类型
 
@@ -317,7 +317,7 @@ web_fetch({"url": "https://www.wolframalpha.com/input?i=events+on+July+20+1969"}
 
 ---
 
-## 🔧 Startpage 隐私搜索
+##  Startpage 隐私搜索
 
 ### 5.1 Startpage 特色功能
 
@@ -361,7 +361,7 @@ web_fetch({"url": "https://www.startpage.com/sp/search?query=machine+learning&la
 
 ---
 
-## 🌍 综合搜索策略
+##  综合搜索策略
 
 ### 6.1 按搜索目标选择引擎
 
@@ -466,7 +466,7 @@ web_fetch({"url": "https://duckduckgo.com/html/?q=tech+news&ia=news"})
 
 ---
 
-## 🛠️ 高级搜索技巧汇总
+##  高级搜索技巧汇总
 
 ### URL编码工具函数
 
@@ -525,7 +525,7 @@ const recentNews = googleTimeSearch("AI breakthrough", "week");
 
 ---
 
-## 📝 完整搜索示例集
+##  完整搜索示例集
 
 ```javascript
 // ==================== 技术开发 ====================
@@ -620,7 +620,7 @@ web_fetch({"url": "https://scholar.google.com/scholar?q=author:%22Geoffrey+Hinto
 
 ---
 
-## 🔐 隐私保护最佳实践
+##  隐私保护最佳实践
 
 ### 搜索引擎隐私级别
 
@@ -643,7 +643,7 @@ web_fetch({"url": "https://scholar.google.com/scholar?q=author:%22Geoffrey+Hinto
 
 ---
 
-## 📚 参考资料
+##  参考资料
 
 - [Google搜索操作符完整列表](https://support.google.com/websearch/answer/...)
 - [DuckDuckGo Bangs完整列表](https://duckduckgo.com/bang)

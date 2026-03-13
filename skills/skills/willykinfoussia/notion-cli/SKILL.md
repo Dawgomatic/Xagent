@@ -2,7 +2,7 @@
 name: notion-cli
 description: Notion CLI for creating and managing pages, databases, and blocks.
 homepage: https://github.com/litencatt/notion-cli
-metadata: {"openclaw":{"emoji":"📓","requires":{"env":["NOTION_TOKEN"]},"primaryEnv":"NOTION_TOKEN"}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["NOTION_TOKEN"]},"primaryEnv":"NOTION_TOKEN"}}
 ---
 
 # notion

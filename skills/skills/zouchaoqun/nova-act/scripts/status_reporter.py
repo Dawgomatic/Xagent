@@ -96,22 +96,22 @@ class StatusReporter:
         status_lines = [
             "",
             "="*60,
-            f"📊 STATUS UPDATE ({datetime.now().strftime('%H:%M:%S')})",
+            f" STATUS UPDATE ({datetime.now().strftime('%H:%M:%S')})",
             "="*60,
-            f"⏱️  Elapsed Time: {elapsed_min}m {elapsed_sec}s",
-            f"🔄 Current Phase: {self.current_phase}",
+            f"  Elapsed Time: {elapsed_min}m {elapsed_sec}s",
+            f" Current Phase: {self.current_phase}",
         ]
         
         if self.current_persona:
-            status_lines.append(f"👤 Testing Persona: {self.current_persona}")
+            status_lines.append(f" Testing Persona: {self.current_persona}")
         
         if self.current_test:
-            status_lines.append(f"🧪 Current Test: {self.current_test}")
+            status_lines.append(f" Current Test: {self.current_test}")
         
         if self.tests_total > 0:
             progress_pct = (self.tests_completed / self.tests_total * 100)
-            status_lines.append(f"📈 Progress: {self.tests_completed}/{self.tests_total} tests ({progress_pct:.0f}%)")
-            status_lines.append(f"✅ Passed: {self.tests_passed}  |  ❌ Failed: {self.tests_failed}")
+            status_lines.append(f" Progress: {self.tests_completed}/{self.tests_total} tests ({progress_pct:.0f}%)")
+            status_lines.append(f" Passed: {self.tests_passed}  |   Failed: {self.tests_failed}")
         
         status_lines.append("="*60)
         status_lines.append("")
@@ -129,13 +129,13 @@ class StatusReporter:
         report_lines = [
             "",
             "="*60,
-            "🎉 TEST COMPLETE",
+            " TEST COMPLETE",
             "="*60,
-            f"⏱️  Total Time: {elapsed_min}m {elapsed_sec}s",
-            f"📊 Tests Run: {self.tests_completed}/{self.tests_total}",
-            f"✅ Passed: {self.tests_passed}",
-            f"❌ Failed: {self.tests_failed}",
-            f"📈 Success Rate: {success_rate:.1f}%",
+            f"  Total Time: {elapsed_min}m {elapsed_sec}s",
+            f" Tests Run: {self.tests_completed}/{self.tests_total}",
+            f" Passed: {self.tests_passed}",
+            f" Failed: {self.tests_failed}",
+            f" Success Rate: {success_rate:.1f}%",
             "="*60,
             ""
         ]

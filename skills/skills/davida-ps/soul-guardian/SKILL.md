@@ -3,14 +3,14 @@ name: soul-guardian
 version: 0.0.2
 description: Drift detection + baseline integrity guard for agent workspace files with automatic alerting support
 homepage: https://clawsec.prompt.security
-metadata: {"openclaw":{"emoji":"👻","category":"security"}}
+metadata: {"openclaw":{"emoji":"","category":"security"}}
 clawdis:
-  emoji: "👻"
+  emoji: ""
   requires:
     bins: [python3]
 ---
 
-# soul-guardian 👻
+# soul-guardian 
 
 Protects your agent's core files (SOUL.md, AGENTS.md, etc.) from unauthorized changes with automatic detection, restoration, and **user alerting**.
 
@@ -39,9 +39,9 @@ Add this to your HEARTBEAT.md for automatic monitoring:
 ```
 
 That's it! Soul Guardian will now:
-- ✅ Detect unauthorized changes to protected files
-- ✅ Auto-restore SOUL.md and AGENTS.md to approved baseline
-- ✅ Alert you when drift is detected and handled
+-  Detect unauthorized changes to protected files
+-  Auto-restore SOUL.md and AGENTS.md to approved baseline
+-  Alert you when drift is detected and handled
 
 ---
 
@@ -97,12 +97,12 @@ When drift is detected, the `--output-format alert` produces output like:
 
 ```
 ==================================================
-🚨 SOUL GUARDIAN SECURITY ALERT
+ SOUL GUARDIAN SECURITY ALERT
 ==================================================
 
-📄 FILE: SOUL.md
+ FILE: SOUL.md
    Mode: restore
-   Status: ✅ RESTORED to approved baseline
+   Status:  RESTORED to approved baseline
    Expected hash: abc123def456...
    Found hash:    789xyz000111...
    Diff saved: /path/to/patches/drift.patch

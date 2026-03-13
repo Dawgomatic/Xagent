@@ -6,7 +6,7 @@ set -e
 
 TRADING_DIR="${1:-$HOME/trading}"
 
-echo "🏦 IBKR Trading Setup"
+echo " IBKR Trading Setup"
 echo "====================="
 echo "Installing to: $TRADING_DIR"
 echo ""
@@ -17,56 +17,56 @@ cd "$TRADING_DIR"
 
 # Check for Java
 if ! command -v java &> /dev/null; then
-    echo "❌ Java not found. Install with:"
+    echo " Java not found. Install with:"
     echo "   sudo apt-get install -y openjdk-17-jre-headless"
     exit 1
 fi
-echo "✅ Java found: $(java -version 2>&1 | head -1)"
+echo " Java found: $(java -version 2>&1 | head -1)"
 
 # Check for Chrome/Chromium
 if ! command -v chromium-browser &> /dev/null && ! command -v google-chrome &> /dev/null; then
-    echo "❌ Chrome/Chromium not found. Install with:"
+    echo " Chrome/Chromium not found. Install with:"
     echo "   sudo apt-get install -y chromium-browser chromium-chromedriver"
     exit 1
 fi
-echo "✅ Chrome found"
+echo " Chrome found"
 
 # Check for Xvfb
 if ! command -v Xvfb &> /dev/null; then
-    echo "❌ Xvfb not found. Install with:"
+    echo " Xvfb not found. Install with:"
     echo "   sudo apt-get install -y xvfb"
     exit 1
 fi
-echo "✅ Xvfb found"
+echo " Xvfb found"
 
 # Download Client Portal Gateway if not exists
 if [ ! -d "clientportal" ]; then
     echo ""
-    echo "📥 Downloading IBKR Client Portal Gateway..."
+    echo " Downloading IBKR Client Portal Gateway..."
     wget -q https://download2.interactivebrokers.com/portal/clientportal.gw.zip
     unzip -q clientportal.gw.zip -d clientportal
     rm clientportal.gw.zip
-    echo "✅ Client Portal Gateway installed"
+    echo " Client Portal Gateway installed"
 else
-    echo "✅ Client Portal Gateway already exists"
+    echo " Client Portal Gateway already exists"
 fi
 
 # Create Python venv
 if [ ! -d "venv" ]; then
     echo ""
-    echo "🐍 Creating Python virtual environment..."
+    echo " Creating Python virtual environment..."
     python3 -m venv venv
     source venv/bin/activate
     pip install -q ibeam requests urllib3
-    echo "✅ Python environment ready"
+    echo " Python environment ready"
 else
-    echo "✅ Python venv already exists"
+    echo " Python venv already exists"
 fi
 
 # Create .env template if not exists
 if [ ! -f ".env" ]; then
     echo ""
-    echo "📝 Creating .env template..."
+    echo " Creating .env template..."
     cat > .env << 'EOF'
 # IBKR Credentials - EDIT THESE
 IBEAM_ACCOUNT=your_username
@@ -82,9 +82,9 @@ IBEAM_OAUTH_TIMEOUT=180
 IBEAM_PAGE_LOAD_TIMEOUT=60
 EOF
     sed -i "s|\${TRADING_DIR}|$TRADING_DIR|g" .env
-    echo "✅ Created .env template - EDIT WITH YOUR CREDENTIALS"
+    echo " Created .env template - EDIT WITH YOUR CREDENTIALS"
 else
-    echo "✅ .env already exists"
+    echo " .env already exists"
 fi
 
 # Create start script
@@ -122,14 +122,14 @@ export IBEAM_TWO_FA_SELECT_TARGET
 export IBEAM_OAUTH_TIMEOUT
 export IBEAM_PAGE_LOAD_TIMEOUT
 
-echo "📱 Starting authentication - CHECK YOUR PHONE for IBKR Key!"
+echo " Starting authentication - CHECK YOUR PHONE for IBKR Key!"
 python -m ibeam --authenticate
 EOF
 chmod +x authenticate.sh
 
 echo ""
 echo "=========================================="
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Next steps:"
 echo "1. Edit .env with your IBKR credentials"

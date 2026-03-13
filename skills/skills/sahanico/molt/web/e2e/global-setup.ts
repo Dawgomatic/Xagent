@@ -26,12 +26,12 @@ async function globalSetup(config: FullConfig) {
       signal: AbortSignal.timeout(10000),
     });
     if (!healthCheck.ok) {
-      console.warn(`⚠ Backend not available at ${healthUrl} (${healthCheck.status}), skipping global setup`);
+      console.warn(` Backend not available at ${healthUrl} (${healthCheck.status}), skipping global setup`);
       return;
     }
     console.log(`✓ Backend is reachable`);
   } catch (error) {
-    console.warn(`⚠ Backend not available at ${healthUrl}, skipping global setup`);
+    console.warn(` Backend not available at ${healthUrl}, skipping global setup`);
     return;
   }
 
@@ -57,8 +57,8 @@ async function globalSetup(config: FullConfig) {
     const tokenMatch = magicLinkData.message?.match(/Token: ([^\s]+)/);
     if (!tokenMatch) {
       // In production, token is not exposed - this is expected
-      console.warn('⚠ Token not in magic link response (expected in production mode)');
-      console.warn('⚠ Authenticated tests will use their own login flow');
+      console.warn(' Token not in magic link response (expected in production mode)');
+      console.warn(' Authenticated tests will use their own login flow');
       return;
     }
     const token = tokenMatch[1];
@@ -107,7 +107,7 @@ async function globalSetup(config: FullConfig) {
   } catch (error) {
     console.error('Error during global setup:', error);
     // Don't throw - allow tests to run without global setup
-    console.warn('⚠ Continuing without global setup auth state');
+    console.warn(' Continuing without global setup auth state');
   }
 }
 

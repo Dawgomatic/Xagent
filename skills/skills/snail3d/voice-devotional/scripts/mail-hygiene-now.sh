@@ -5,7 +5,7 @@
 # Immediately run a mail hygiene scan and display results
 ###############################################################################
 
-echo "🔍 Running Mail Hygiene Scan Now..."
+echo " Running Mail Hygiene Scan Now..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -15,7 +15,7 @@ echo ""
 # Display results
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "📋 SCAN RESULTS"
+echo " SCAN RESULTS"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -26,4 +26,4 @@ else
 fi
 
 echo ""
-echo "✅ Scan complete!"
+echo " Scan complete!"

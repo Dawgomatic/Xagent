@@ -55,41 +55,41 @@ Key fields in the response:
 Present information in this order:
 
 ```
-📦 FUTA Express - Tra cứu vận đơn: <barcode>
+ FUTA Express - Tra cứu vận đơn: <barcode>
 
-👤 Người gửi: <from_fullname>
-   📞 <from_phone>
-   🏢 Điểm gửi: <from_department_name>
+ Người gửi: <from_fullname>
+    <from_phone>
+    Điểm gửi: <from_department_name>
 
-👤 Người nhận: <to_fullname>
-   📞 <to_phone>
-   🏢 Điểm đến: <to_department_name>
+ Người nhận: <to_fullname>
+    <to_phone>
+    Điểm đến: <to_department_name>
 
-📋 Thông tin đơn hàng:
+ Thông tin đơn hàng:
    • Loại dịch vụ: <service_type_name>
    • Hình thức thanh toán: <pay_type>
    • Số kiện: <package_total>
    • Tổng chi phí: <totalcost>đ (cước chính: <cost_main>đ + phụ: <addcost>đ)
    • Trạng thái: <status_bill>
 
-📦 Chi tiết hàng hóa:
+ Chi tiết hàng hóa:
    • <packages[*].package_description>
    Ghi chú vận chuyển: <packages[*].arrival_note>
 
-🔐 Người nhận thực tế (nếu đã giao):
+ Người nhận thực tế (nếu đã giao):
    • Tên: <packages[*].receive_fullname>
    • SĐT: <packages[*].receive_phone>
    • CMND/CCCD: <packages[*].receive_identity>
    • Thời gian nhận: <packages[*].receive_time>
 
-📝 Ghi chú đơn hàng: <note>
+ Ghi chú đơn hàng: <note>
 
-📍 Lịch sử vận chuyển:
+ Lịch sử vận chuyển:
 | Thời gian | Trạng thái | Chi tiết |
 |-----------|------------|----------|
 | <time> | <status> | <details> |
 
-🛎️ Dịch vụ thêm:
+ Dịch vụ thêm:
    • <add_service_name>: <value>đ
 ```
 

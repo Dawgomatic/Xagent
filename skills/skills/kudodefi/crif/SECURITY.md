@@ -126,30 +126,30 @@ Document URL → WebFetch → Content → Analyzed for research
 
 ## What CRIF Does NOT Do
 
-### ❌ No Data Exfiltration
+###  No Data Exfiltration
 - Does not send user data to unauthorized external servers
 - Does not transmit research outputs to third parties
 - All outputs saved locally in `workspaces/` directory
 - WebSearch/WebFetch only used for gathering PUBLIC research data
 
-### ❌ No System Modifications
+###  No System Modifications
 - Does not modify system files
 - Does not install background processes
 - Does not create persistence mechanisms
 - Only operates within project directory
 
-### ❌ No Remote Control
+###  No Remote Control
 - Does not connect to command & control servers
 - Does not receive remote commands
 - Does not establish backdoors
 - All instructions come from LOCAL framework files
 
-### ❌ No Credential Harvesting
+###  No Credential Harvesting
 - Does not collect API keys, passwords, or credentials
 - Does not access sensitive system data
 - Does not scan for private information
 
-### ❌ No Obfuscation
+###  No Obfuscation
 - All framework files are plain text (YAML/Markdown)
 - Zero binary code
 - Zero encryption or obfuscation
@@ -178,15 +178,15 @@ framework/components/*.md               ← Execution protocols (Markdown)
 ### No Hidden Behavior
 
 Unlike malware that:
-- ❌ Hides code in encrypted binaries
-- ❌ Obfuscates logic
-- ❌ Uses stealth techniques
+-  Hides code in encrypted binaries
+-  Obfuscates logic
+-  Uses stealth techniques
 
 CRIF:
-- ✅ All instructions in plain text
-- ✅ Fully transparent design
-- ✅ User-modifiable
-- ✅ Open source
+-  All instructions in plain text
+-  Fully transparent design
+-  User-modifiable
+-  Open source
 
 ### Data Flow is Transparent
 
@@ -315,11 +315,11 @@ No step involves:
 
 ### Key Points
 
-1. ✅ **Not malware** - Framework for AI-assisted crypto research
-2. ✅ **Transparent design** - All code is readable plain text
-3. ✅ **Required permissions** - File system and network access for research functionality
-4. ✅ **No malicious behavior** - No data exfiltration, no system modifications, no remote control
-5. ✅ **False positive** - Security scanners don't yet recognize prompt engineering frameworks as legitimate
+1.  **Not malware** - Framework for AI-assisted crypto research
+2.  **Transparent design** - All code is readable plain text
+3.  **Required permissions** - File system and network access for research functionality
+4.  **No malicious behavior** - No data exfiltration, no system modifications, no remote control
+5.  **False positive** - Security scanners don't yet recognize prompt engineering frameworks as legitimate
 
 ### Safe to Use
 

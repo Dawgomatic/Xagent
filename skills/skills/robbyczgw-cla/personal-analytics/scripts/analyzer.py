@@ -250,11 +250,11 @@ def generate_insights(analysis: Dict) -> List[str]:
     overall_score = sentiment.get("overall_score", 0)
     
     if overall_score > 0.5:
-        insights.append("Overall mood: Positive 😊")
+        insights.append("Overall mood: Positive ")
     elif overall_score < -0.2:
-        insights.append("Overall mood: Challenging 😟")
+        insights.append("Overall mood: Challenging ")
     else:
-        insights.append("Overall mood: Balanced 😐")
+        insights.append("Overall mood: Balanced ")
     
     return insights
 
@@ -262,7 +262,7 @@ def generate_insights(analysis: Dict) -> List[str]:
 def analyze(since: str = None, until: str = None, insights: bool = False, verbose: bool = False) -> Dict:
     """Main analysis function."""
     if not is_enabled():
-        print("⚠️ Analytics tracking is disabled", file=sys.stderr)
+        print(" Analytics tracking is disabled", file=sys.stderr)
         return {}
     
     # Load data
@@ -270,14 +270,14 @@ def analyze(since: str = None, until: str = None, insights: bool = False, verbos
     sessions = data.get("sessions", [])
     
     if not sessions:
-        print("⚠️ No session data available", file=sys.stderr)
+        print(" No session data available", file=sys.stderr)
         return {}
     
     # Filter by date range
     filtered_sessions = filter_sessions(sessions, since=since, until=until)
     
     if not filtered_sessions:
-        print("⚠️ No sessions in specified range", file=sys.stderr)
+        print(" No sessions in specified range", file=sys.stderr)
         return {}
     
     # Run analyses
@@ -304,27 +304,27 @@ def print_analysis(analysis: Dict, verbose: bool = False):
     """Print analysis results."""
     period = analysis.get("period", {})
     
-    print("\n📊 Personal Analytics Analysis\n")
+    print("\n Personal Analytics Analysis\n")
     print(f"Period: {period.get('start', 'N/A')} to {period.get('end', 'N/A')}")
     print(f"Sessions: {period.get('session_count', 0)}\n")
     
     # Time patterns
     time_patterns = analysis.get("time_patterns", {})
-    print("⏰ Time Patterns:")
+    print(" Time Patterns:")
     print(f"  Peak hour: {time_patterns.get('peak_hour', 'N/A'):02d}:00")
     print(f"  Peak day: {time_patterns.get('peak_day', 'N/A')}\n")
     
     # Topics
     topics = analysis.get("topics", {})
     top_topics = topics.get("top_topics", [])
-    print(f"📚 Top Topics ({len(top_topics)}):")
+    print(f" Top Topics ({len(top_topics)}):")
     for idx, (topic, count) in enumerate(top_topics[:5], 1):
         print(f"  {idx}. {topic} ({count} sessions)")
     print()
     
     # Productivity
     productivity = analysis.get("productivity", {})
-    print("💡 Productivity:")
+    print(" Productivity:")
     print(f"  Tasks completed: {productivity.get('total_tasks_completed', 0)}")
     print(f"  Success rate: {productivity.get('success_rate', 0) * 100:.1f}%")
     peak_hours = productivity.get("peak_productivity_hours", [])
@@ -336,15 +336,15 @@ def print_analysis(analysis: Dict, verbose: bool = False):
     # Sentiment
     sentiment = analysis.get("sentiment", {})
     distribution = sentiment.get("distribution", {})
-    print("😊 Sentiment:")
+    print(" Sentiment:")
     for sent, pct in distribution.items():
-        emoji = {"positive": "😊", "neutral": "😐", "negative": "😟", "mixed": "🤔"}.get(sent, "")
+        emoji = {"positive": "", "neutral": "", "negative": "", "mixed": ""}.get(sent, "")
         print(f"  {emoji} {sent.capitalize()}: {pct * 100:.1f}%")
     print()
     
     # Insights
     if "insights" in analysis:
-        print("💡 Insights:")
+        print(" Insights:")
         for insight in analysis["insights"]:
             print(f"  • {insight}")
         print()
@@ -375,7 +375,7 @@ def main():
             print_analysis(analysis, verbose=args.verbose)
     
     except Exception as e:
-        print(f"❌ Analysis failed: {e}", file=sys.stderr)
+        print(f" Analysis failed: {e}", file=sys.stderr)
         if args.verbose:
             import traceback
             traceback.print_exc()

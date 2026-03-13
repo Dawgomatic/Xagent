@@ -33,11 +33,11 @@ async function scan() {
 
   try {
     // Get all funding rates
-    console.log('📡 Fetching funding rates from Drift...\n');
+    console.log(' Fetching funding rates from Drift...\n');
     const rates = await drift.getFundingRates();
 
     if (rates.length === 0) {
-      console.log('❌ No funding data available');
+      console.log(' No funding data available');
       return;
     }
 
@@ -84,11 +84,11 @@ async function scan() {
       console.log('═══════════════════════════════════════════════════════════════');
       console.log('                    NO OPPORTUNITIES');
       console.log('═══════════════════════════════════════════════════════════════');
-      console.log(`\n❌ No markets with funding APY > ${MIN_APY}%`);
+      console.log(`\n No markets with funding APY > ${MIN_APY}%`);
       console.log('   Market is efficient right now. Keep monitoring!\n');
     } else {
       console.log('═══════════════════════════════════════════════════════════════');
-      console.log('                 🎯 ARBITRAGE OPPORTUNITIES                     ');
+      console.log('                  ARBITRAGE OPPORTUNITIES                     ');
       console.log('═══════════════════════════════════════════════════════════════');
       
       opportunities.sort((a, b) => Math.abs(b.fundingApy) - Math.abs(a.fundingApy));
@@ -97,7 +97,7 @@ async function scan() {
         const daily1k = Math.abs(opp.dailyReturn) * 10; // $1000 position
         const monthly1k = daily1k * 30;
 
-        console.log(`\n   📊 ${opp.market}`);
+        console.log(`\n    ${opp.market}`);
         console.log(`   ├─ Strategy: ${opp.strategy}`);
         console.log(`   ├─ APY: ${opp.fundingApy > 0 ? '+' : ''}${opp.fundingApy.toFixed(1)}%`);
         console.log(`   ├─ Daily: ~${opp.dailyReturn.toFixed(3)}%`);
@@ -108,7 +108,7 @@ async function scan() {
       }
 
       console.log('\n═══════════════════════════════════════════════════════════════');
-      console.log('\n💡 To execute, run: npm start');
+      console.log('\n To execute, run: npm start');
     }
 
     console.log('\n');

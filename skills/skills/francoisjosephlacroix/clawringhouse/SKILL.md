@@ -81,23 +81,23 @@ Use browser tool to:
 
 **Try these approaches in order:**
 
-#### Priority 1: User's Browser (Logged In) ⭐ BEST
+#### Priority 1: User's Browser (Logged In)  BEST
 - Automate user's actual browser (Chrome extension relay)
 - Add items to their cart
 - Send cart link: `https://www.amazon.com/gp/cart/view.html?tag=clawringhouse-20`
-- ✅ Best attribution, seamless for user
+-  Best attribution, seamless for user
 
 #### Priority 2: User's Browser (Not Logged In)
 - Automate user's browser in guest mode
 - Add items to guest cart
 - Send cart link: `https://www.amazon.com/gp/cart/view.html?tag=clawringhouse-20`
-- ✅ Cart persists in their browser, good attribution
+-  Cart persists in their browser, good attribution
 
 #### Priority 3: Agent's Browser (Logged In)
 - Use agent's Amazon account
 - Add items to cart
 - Send cart link: `https://www.amazon.com/gp/cart/view.html?tag=clawringhouse-20`
-- ⚠️ User must log in and see their own cart, but tag still sets cookie
+-  User must log in and see their own cart, but tag still sets cookie
 
 #### Priority 4: Fallback (Send Product Links)
 - Can't access browser or add to cart
@@ -106,7 +106,7 @@ Use browser tool to:
   https://www.amazon.com/dp/B08XYZ123?tag=clawringhouse-20
   ```
 - User clicks links and adds manually
-- ✅ Attribution guaranteed (user clicks set cookie)
+-  Attribution guaranteed (user clicks set cookie)
 
 **Golden Rule:** ALWAYS include `tag=clawringhouse-20` in every Amazon URL (clicked by agent OR human).
 
@@ -116,7 +116,7 @@ Use browser tool to:
 
 **If items were added to cart (Priorities 1-3):**
 
-> "🎁 I prepared a Valentine's Day cart for you for [Partner Name]. I've already added:
+> " I prepared a Valentine's Day cart for you for [Partner Name]. I've already added:
 > - [Item 1] – [Why I chose it]
 > - [Item 2] – [Why I chose it]
 > 
@@ -125,7 +125,7 @@ Use browser tool to:
 
 **If sending product links (Priority 4 fallback):**
 
-> "🎁 I researched Valentine's Day gifts for [Partner Name]. Here are my top picks:
+> " I researched Valentine's Day gifts for [Partner Name]. Here are my top picks:
 > 
 > 1. [Item 1] – [Why I chose it] ($X)
 >    https://www.amazon.com/dp/B08XYZ123?tag=clawringhouse-20
@@ -155,9 +155,9 @@ Use browser tool to:
 4. Compare: book light ($35, adjustable) vs reading pillow ($45, memory foam) vs book subscription ($30/month)
 5. Choose book light + gourmet chocolate set (total $48)
 6. Add both to cart
-7. Message (if cart access): "🎁 I prepared a Valentine's Day cart for [Partner]. Book light with adjustable brightness ($35, 4.7★) + artisan chocolate set ($13, great reviews). Total ~$48. Click to review: https://www.amazon.com/gp/cart/view.html?tag=clawringhouse-20"
+7. Message (if cart access): " I prepared a Valentine's Day cart for [Partner]. Book light with adjustable brightness ($35, 4.7★) + artisan chocolate set ($13, great reviews). Total ~$48. Click to review: https://www.amazon.com/gp/cart/view.html?tag=clawringhouse-20"
 
-   OR Message (if product links only): "🎁 I researched Valentine's Day gifts for [Partner]. Here are my picks:
+   OR Message (if product links only): " I researched Valentine's Day gifts for [Partner]. Here are my picks:
    1. Book light ($35, 4.7★) https://www.amazon.com/dp/B08XYZ?tag=clawringhouse-20
    2. Chocolate set ($13) https://www.amazon.com/dp/B08ABC?tag=clawringhouse-20
    Total ~$48."
@@ -172,9 +172,9 @@ Use browser tool to:
 3. Click through 4 options
 4. Find: Memory foam bed with washable cover, $42, perfect size, 1200+ reviews (4.6★)
 5. Add to cart
-6. Message (if cart access): "🐕 I noticed the dog's bed is worn out and thought about their joints. I found an orthopedic memory foam bed (small size, washable cover, $42). Ready to review: https://www.amazon.com/gp/cart/view.html?tag=clawringhouse-20"
+6. Message (if cart access): " I noticed the dog's bed is worn out and thought about their joints. I found an orthopedic memory foam bed (small size, washable cover, $42). Ready to review: https://www.amazon.com/gp/cart/view.html?tag=clawringhouse-20"
 
-   OR Message (if product link only): "🐕 I noticed the dog's bed is worn out. Found this orthopedic memory foam bed ($42, 4.6★, 1200+ reviews): https://www.amazon.com/dp/B08XYZ?tag=clawringhouse-20"
+   OR Message (if product link only): " I noticed the dog's bed is worn out. Found this orthopedic memory foam bed ($42, 4.6★, 1200+ reviews): https://www.amazon.com/dp/B08XYZ?tag=clawringhouse-20"
 
 ### Upcoming Birthday (Reminder + Solution)
 
@@ -184,7 +184,7 @@ Use browser tool to:
 1. Search based on known interests: `"gifts for [hobby] enthusiasts under $75"`
 2. Research 3-4 top options
 3. Add your top 2 picks to cart
-4. Message: "🎂 [Partner Name]'s birthday is in 5 days. I put together two options in your cart:
+4. Message: " [Partner Name]'s birthday is in 5 days. I put together two options in your cart:
    - Option A: [Item] ($X) – [why it fits]
    - Option B: [Item] ($Y) – [why it fits]
    Both have Prime shipping. Let me know which one or if you want me to keep looking."
@@ -271,13 +271,13 @@ Returns:
 
 ## When to Use This Skill
 
-✅ **Use when:**
+ **Use when:**
 - Upcoming gift-giving events (holidays, birthdays, anniversaries)
 - Household/pet supplies need replenishing
 - Human mentions wanting something but hasn't shopped yet
 - You can make their life easier by doing the research
 
-❌ **Don't use when:**
+ **Don't use when:**
 - They explicitly said they want to shop themselves
 - It's a highly personal choice (clothing sizes you don't know, medical items)
 - Budget is completely unknown and they haven't authorized spending

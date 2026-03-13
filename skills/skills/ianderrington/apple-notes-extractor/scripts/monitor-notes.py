@@ -69,12 +69,12 @@ class NotesMonitor:
                     self.last_check = datetime.fromisoformat(
                         state.get("last_check", datetime.now().isoformat())
                     )
-                print(f"📊 Loaded state: {len(self.known_notes)} known notes")
+                print(f" Loaded state: {len(self.known_notes)} known notes")
             except Exception as e:
-                print(f"⚠️ Error loading monitor state: {e}")
+                print(f" Error loading monitor state: {e}")
                 self.known_notes = {}
         else:
-            print("🔄 Starting fresh monitoring session")
+            print(" Starting fresh monitoring session")
     
     def save_state(self):
         """Save the current monitoring state"""
@@ -123,7 +123,7 @@ class NotesMonitor:
             )
             
             if result.returncode != 0:
-                print(f"❌ Error getting notes state: {result.stderr}")
+                print(f" Error getting notes state: {result.stderr}")
                 return {}
             
             # Parse the result
@@ -146,10 +146,10 @@ class NotesMonitor:
             return current_state
             
         except subprocess.TimeoutExpired:
-            print("⏰ Timeout getting notes state")
+            print(" Timeout getting notes state")
             return {}
         except Exception as e:
-            print(f"❌ Error getting notes state: {e}")
+            print(f" Error getting notes state: {e}")
             return {}
     
     def detect_changes(self, current_state):
@@ -192,11 +192,11 @@ class NotesMonitor:
         
         if "console" in methods:
             if level == "info":
-                print(f"ℹ️ {formatted_message}")
+                print(f" {formatted_message}")
             elif level == "warning":
-                print(f"⚠️ {formatted_message}")
+                print(f" {formatted_message}")
             elif level == "success":
-                print(f"✅ {formatted_message}")
+                print(f" {formatted_message}")
             else:
                 print(formatted_message)
         
@@ -212,7 +212,7 @@ class NotesMonitor:
                 }
                 requests.post(webhook_url, json=payload, timeout=5)
             except Exception as e:
-                print(f"⚠️ Webhook notification failed: {e}")
+                print(f" Webhook notification failed: {e}")
     
     def trigger_extraction(self, reason="scheduled"):
         """Trigger a note extraction"""
@@ -270,12 +270,12 @@ class NotesMonitor:
         if new_notes:
             self.notify(f"Found {len(new_notes)} new notes")
             for note in new_notes[:3]:  # Show first 3
-                self.notify(f"  📝 New: {note['title']}")
+                self.notify(f"   New: {note['title']}")
         
         if modified_notes:
             self.notify(f"Found {len(modified_notes)} modified notes")
             for note in modified_notes[:3]:  # Show first 3
-                self.notify(f"  📝 Modified: {note['title']}")
+                self.notify(f"   Modified: {note['title']}")
         
         # Trigger extraction if thresholds are met
         auto_extract = self.config.get("monitoring", {}).get("auto_extract_new", True)
@@ -291,7 +291,7 @@ class NotesMonitor:
         self.running = True
         interval_minutes = self.config.get("monitoring", {}).get("check_interval_minutes", 30)
         
-        print(f"🔄 Starting Notes monitoring daemon")
+        print(f" Starting Notes monitoring daemon")
         print(f"   Check interval: {interval_minutes} minutes")
         print(f"   Press Ctrl+C to stop")
         
@@ -313,7 +313,7 @@ class NotesMonitor:
     
     def signal_handler(self, signum, frame):
         """Handle shutdown signals"""
-        print("\n🛑 Shutting down monitor...")
+        print("\n Shutting down monitor...")
         self.running = False
         self.save_state()
         self.notify("Notes monitoring stopped")
@@ -347,13 +347,13 @@ def main():
     monitor = NotesMonitor(args.config, args.extract_config)
     
     if args.check_once:
-        print("🔍 Performing one-time check...")
+        print(" Performing one-time check...")
         monitor.check_notes()
-        print("✅ Check completed")
+        print(" Check completed")
     elif args.daemon:
         monitor.run_daemon()
     else:
-        print("📖 Use --daemon to run as a monitoring daemon")
+        print(" Use --daemon to run as a monitoring daemon")
         print("    Use --check-once to perform a single check")
         print("    See --help for more options")
 

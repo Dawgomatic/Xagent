@@ -8,12 +8,12 @@ TOKEN="${SHORTCUT_API_TOKEN:-$(cat ~/.config/shortcut/api-token 2>/dev/null | tr
 BASE_URL="https://api.app.shortcut.com/api/v3"
 
 if [ -z "$TOKEN" ]; then
-  echo "❌ SHORTCUT_API_TOKEN not found"
+  echo " SHORTCUT_API_TOKEN not found"
   echo "Set it via environment variable or store in ~/.config/shortcut/api-token"
   exit 1
 fi
 
-echo "🔍 Fetching workflow states from your Shortcut workspace..."
+echo " Fetching workflow states from your Shortcut workspace..."
 echo
 
 STATES=$(curl -s -X GET \
@@ -22,7 +22,7 @@ STATES=$(curl -s -X GET \
   "$BASE_URL/workflows")
 
 if [ $? -ne 0 ]; then
-  echo "❌ Failed to fetch workflow states"
+  echo " Failed to fetch workflow states"
   exit 1
 fi
 
@@ -44,7 +44,7 @@ EOF
 
 echo "$STATES" | jq -r '.[] | .states[] | "export SHORTCUT_STATE_\(.name | ascii_upcase | gsub(" "; "_"))=\(.id)"' >> "$CONFIG_DIR/workflow-states"
 
-echo "✅ Workflow states saved to: $CONFIG_DIR/workflow-states"
+echo " Workflow states saved to: $CONFIG_DIR/workflow-states"
 echo
 echo "To use these states, either:"
 echo "  1. Source the file: source $CONFIG_DIR/workflow-states"

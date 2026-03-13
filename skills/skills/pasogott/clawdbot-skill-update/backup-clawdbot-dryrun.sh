@@ -9,7 +9,7 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
-echo -e "${CYAN}🔍 Clawdbot Backup Dry Run${NC}"
+echo -e "${CYAN} Clawdbot Backup Dry Run${NC}"
 echo -e "${CYAN}===========================${NC}"
 echo ""
 echo -e "${YELLOW}This is a DRY RUN - no files will be created or modified${NC}"
@@ -17,18 +17,18 @@ echo ""
 
 # Config check
 if [ ! -f ~/.clawdbot/clawdbot.json ]; then
-  echo -e "${RED}❌ Config file not found: ~/.clawdbot/clawdbot.json${NC}"
+  echo -e "${RED} Config file not found: ~/.clawdbot/clawdbot.json${NC}"
   exit 1
 fi
 
 # What backup directory would be created
 BACKUP_DIR=~/.clawdbot-backups/pre-update-$(date +%Y%m%d-%H%M%S)
-echo -e "${BLUE}📁 Would create backup at:${NC}"
+echo -e "${BLUE} Would create backup at:${NC}"
 echo "   $BACKUP_DIR"
 echo ""
 
 # Config analysis
-echo -e "${YELLOW}📋 Configuration Analysis${NC}"
+echo -e "${YELLOW} Configuration Analysis${NC}"
 CONFIG_SIZE=$(du -h ~/.clawdbot/clawdbot.json | cut -f1)
 echo -e "${GREEN}✓${NC} Config file: ~/.clawdbot/clawdbot.json ($CONFIG_SIZE)"
 
@@ -39,7 +39,7 @@ fi
 
 # Sessions check
 echo ""
-echo -e "${YELLOW}💾 Sessions Analysis${NC}"
+echo -e "${YELLOW} Sessions Analysis${NC}"
 if [ -d ~/.clawdbot/sessions ]; then
   SESSION_COUNT=$(find ~/.clawdbot/sessions -type f -name "*.jsonl" 2>/dev/null | wc -l | tr -d ' ')
   SESSION_SIZE=$(du -sh ~/.clawdbot/sessions 2>/dev/null | cut -f1)
@@ -48,12 +48,12 @@ if [ -d ~/.clawdbot/sessions ]; then
   echo "   Size: $SESSION_SIZE"
   echo -e "${CYAN}→${NC} Would create: sessions.tar.gz"
 else
-  echo -e "${BLUE}ℹ${NC}  No sessions directory (would skip)"
+  echo -e "${BLUE}${NC}  No sessions directory (would skip)"
 fi
 
 # Agents check
 echo ""
-echo -e "${YELLOW}🤖 Agents Analysis${NC}"
+echo -e "${YELLOW} Agents Analysis${NC}"
 if [ -d ~/.clawdbot/agents ]; then
   AGENT_DIRS=$(find ~/.clawdbot/agents -maxdepth 1 -type d | tail -n +2 | wc -l | tr -d ' ')
   AGENT_SIZE=$(du -sh ~/.clawdbot/agents 2>/dev/null | cut -f1)
@@ -71,12 +71,12 @@ if [ -d ~/.clawdbot/agents ]; then
     fi
   done
 else
-  echo -e "${BLUE}ℹ${NC}  No agents directory (would skip)"
+  echo -e "${BLUE}${NC}  No agents directory (would skip)"
 fi
 
 # Credentials check
 echo ""
-echo -e "${YELLOW}🔐 Credentials Analysis${NC}"
+echo -e "${YELLOW} Credentials Analysis${NC}"
 if [ -d ~/.clawdbot/credentials ]; then
   CRED_COUNT=$(find ~/.clawdbot/credentials -type f 2>/dev/null | wc -l | tr -d ' ')
   CRED_SIZE=$(du -sh ~/.clawdbot/credentials 2>/dev/null | cut -f1)
@@ -85,13 +85,13 @@ if [ -d ~/.clawdbot/credentials ]; then
   echo "   Size: $CRED_SIZE"
   echo -e "${CYAN}→${NC} Would create: credentials.tar.gz"
 else
-  echo -e "${RED}⚠${NC}  No credentials directory!"
+  echo -e "${RED}${NC}  No credentials directory!"
   echo -e "${CYAN}→${NC} Would skip credentials backup"
 fi
 
 # Cron check
 echo ""
-echo -e "${YELLOW}⏰ Cron Analysis${NC}"
+echo -e "${YELLOW} Cron Analysis${NC}"
 if [ -d ~/.clawdbot/cron ]; then
   CRON_COUNT=$(find ~/.clawdbot/cron -type f 2>/dev/null | wc -l | tr -d ' ')
   CRON_SIZE=$(du -sh ~/.clawdbot/cron 2>/dev/null | cut -f1)
@@ -100,12 +100,12 @@ if [ -d ~/.clawdbot/cron ]; then
   echo "   Size: $CRON_SIZE"
   echo -e "${CYAN}→${NC} Would create: cron.tar.gz"
 else
-  echo -e "${BLUE}ℹ${NC}  No cron directory (would skip)"
+  echo -e "${BLUE}${NC}  No cron directory (would skip)"
 fi
 
 # Sandboxes check
 echo ""
-echo -e "${YELLOW}📦 Sandboxes Analysis${NC}"
+echo -e "${YELLOW} Sandboxes Analysis${NC}"
 if [ -d ~/.clawdbot/sandboxes ]; then
   SANDBOX_COUNT=$(find ~/.clawdbot/sandboxes -maxdepth 1 -type d 2>/dev/null | tail -n +2 | wc -l | tr -d ' ')
   SANDBOX_SIZE=$(du -sh ~/.clawdbot/sandboxes 2>/dev/null | cut -f1)
@@ -114,18 +114,18 @@ if [ -d ~/.clawdbot/sandboxes ]; then
   echo "   Size: $SANDBOX_SIZE"
   echo -e "${CYAN}→${NC} Would create: sandboxes.tar.gz"
 else
-  echo -e "${BLUE}ℹ${NC}  No sandboxes directory (would skip)"
+  echo -e "${BLUE}${NC}  No sandboxes directory (would skip)"
 fi
 
 # Workspaces analysis (DYNAMIC!)
 echo ""
-echo -e "${YELLOW}🏠 Workspaces Analysis (Dynamic Detection)${NC}"
+echo -e "${YELLOW} Workspaces Analysis (Dynamic Detection)${NC}"
 
 # Read workspaces from config
 WORKSPACE_DATA=$(jq -r '.routing.agents // {} | to_entries[] | "\(.key)|\(.value.workspace // "none")|\(.value.name // .key)"' ~/.clawdbot/clawdbot.json)
 
 if [ -z "$WORKSPACE_DATA" ]; then
-  echo -e "${BLUE}ℹ${NC}  No agents configured in routing.agents"
+  echo -e "${BLUE}${NC}  No agents configured in routing.agents"
 else
   WORKSPACE_COUNT=0
   TOTAL_SIZE=0
@@ -165,7 +165,7 @@ fi
 
 # Git state check
 echo ""
-echo -e "${YELLOW}🔧 Git Repository Analysis${NC}"
+echo -e "${YELLOW} Git Repository Analysis${NC}"
 if [ -d ~/code/clawdbot/.git ]; then
   cd ~/code/clawdbot
   CURRENT_COMMIT=$(git log -1 --oneline)
@@ -178,13 +178,13 @@ if [ -d ~/code/clawdbot/.git ]; then
   echo "   Uncommitted changes: $UNCOMMITTED"
   echo -e "${CYAN}→${NC} Would create: git-version.txt, git-status.txt, git-remotes.txt"
 else
-  echo -e "${YELLOW}⚠${NC}  Git repository not found at ~/code/clawdbot"
+  echo -e "${YELLOW}${NC}  Git repository not found at ~/code/clawdbot"
   echo -e "${CYAN}→${NC} Would skip git state backup"
 fi
 
 # Calculate total size
 echo ""
-echo -e "${YELLOW}📊 Backup Size Estimation${NC}"
+echo -e "${YELLOW} Backup Size Estimation${NC}"
 
 TOTAL_SIZE=0
 [ -d ~/.clawdbot/sessions ] && TOTAL_SIZE=$((TOTAL_SIZE + $(du -sk ~/.clawdbot/sessions 2>/dev/null | cut -f1)))
@@ -217,7 +217,7 @@ echo "   Compressed size: ~$(echo "scale=1; $TOTAL_SIZE*0.3/1024" | bc)M (estima
 
 # Check disk space
 echo ""
-echo -e "${YELLOW}💿 Disk Space Check${NC}"
+echo -e "${YELLOW} Disk Space Check${NC}"
 BACKUP_PARENT=$(dirname ~/.clawdbot-backups)
 DISK_AVAIL=$(df -h "$BACKUP_PARENT" 2>/dev/null | tail -1 | awk '{print $4}')
 DISK_USED=$(df -h "$BACKUP_PARENT" 2>/dev/null | tail -1 | awk '{print $5}')
@@ -234,7 +234,7 @@ fi
 # Summary
 echo ""
 echo -e "${BLUE}════════════════════════════════════════${NC}"
-echo -e "${CYAN}📋 Backup Summary${NC}"
+echo -e "${CYAN} Backup Summary${NC}"
 echo -e "${BLUE}════════════════════════════════════════${NC}"
 echo ""
 
@@ -284,8 +284,8 @@ echo -e "${CYAN}Location:${NC} $BACKUP_DIR"
 echo -e "${CYAN}Estimated size:${NC} ~$TOTAL_HUMAN"
 
 echo ""
-echo -e "${GREEN}✨ Dry run complete!${NC}"
+echo -e "${GREEN} Dry run complete!${NC}"
 echo ""
-echo -e "${YELLOW}💡 To perform the actual backup:${NC}"
+echo -e "${YELLOW} To perform the actual backup:${NC}"
 echo "   ~/.skills/clawdbot-update/backup-clawdbot-full.sh"
 echo ""

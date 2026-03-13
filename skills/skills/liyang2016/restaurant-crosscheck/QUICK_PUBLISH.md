@@ -1,6 +1,6 @@
-# 🚀 快速发布到 ClawHub
+#  快速发布到 ClawHub
 
-## ⚡ 方法 1：使用发布脚本（最简单）
+##  方法 1：使用发布脚本（最简单）
 
 ```bash
 cd /home/ubuntu/.openclaw/workspace/skills/restaurant-review-crosscheck
@@ -8,15 +8,15 @@ cd /home/ubuntu/.openclaw/workspace/skills/restaurant-review-crosscheck
 ```
 
 脚本会自动：
-1. ✅ 检查环境
-2. ✅ 验证登录状态
-3. ✅ 显示 skill 信息
-4. ✅ 确认发布
-5. ✅ 执行发布命令
+1.  检查环境
+2.  验证登录状态
+3.  显示 skill 信息
+4.  确认发布
+5.  执行发布命令
 
 ---
 
-## 📋 方法 2：手动发布
+##  方法 2：手动发布
 
 ### 第一步：安装 ClawHub CLI
 
@@ -53,7 +53,7 @@ clawhub publish . \
 
 ---
 
-## ✅ 发布后验证
+##  发布后验证
 
 ```bash
 # 搜索 skill
@@ -68,7 +68,7 @@ clawhub list
 
 ---
 
-## 📦 Skill 信息
+##  Skill 信息
 
 - **Slug**: `restaurant-crosscheck`
 - **Name**: 餐厅推荐交叉验证
@@ -77,7 +77,7 @@ clawhub list
 
 ---
 
-## 🔄 更新 Skill
+##  更新 Skill
 
 如果需要更新：
 
@@ -94,7 +94,7 @@ clawhub publish . \
 
 ---
 
-## 📖 详细文档
+##  详细文档
 
 查看完整的发布指南：
 
@@ -104,7 +104,7 @@ cat PUBLISH_GUIDE.md
 
 ---
 
-## ⚠️ 当前限制
+##  当前限制
 
 **服务器环境**：
 - 当前服务器没有浏览器
@@ -118,4 +118,4 @@ cat PUBLISH_GUIDE.md
 
 ---
 
-**准备好了吗？运行 `./publish.sh` 开始发布！** 🚀
+**准备好了吗？运行 `./publish.sh` 开始发布！** 

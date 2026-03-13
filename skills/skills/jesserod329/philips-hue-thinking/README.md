@@ -1,4 +1,4 @@
-# Philips Hue Thinking Indicator 🚦
+# Philips Hue Thinking Indicator 
 
 > Give your AI assistant a physical presence through smart lights
 
@@ -12,9 +12,9 @@ A **visual AI activity indicator** that connects your AI assistant's work status
 
 | Light State | Meaning |
 |-------------|---------|
-| 🟢 **Green** | Ready / Done / Idle |
-| 🔴 **Pulsing Red** | AI is thinking, analyzing, or planning |
-| 🔴 **Solid Red** | AI is actively building/working |
+|  **Green** | Ready / Done / Idle |
+|  **Pulsing Red** | AI is thinking, analyzing, or planning |
+|  **Solid Red** | AI is actively building/working |
 
 ![Demo Animation](https://media.giphy.com/media/your-demo-here/giphy.gif)
 
@@ -91,9 +91,9 @@ hue setup 192.168.1.100
 # List lights
 hue lights
 # Output:
-#   2: Bed room 1 💡 ON
-#   3: Bedroom 2 ⚫ OFF
-#   5: Front door 💡 ON  ← Use this one
+#   2: Bed room 1  ON
+#   3: Bedroom 2  OFF
+#   5: Front door  ON  ← Use this one
 
 # AI thinking mode (pulsing red)
 hue thinking 5
@@ -131,18 +131,18 @@ hue set 5 blue
 **Planning Mode:**
 ```
 User: "Planning mode — I want to build a website"
-AI:  [runs 'hue thinking 5'] 🔴 Pulsing red...
+AI:  [runs 'hue thinking 5']  Pulsing red...
      "Let me analyze this..."
      [asks clarifying questions]
      
 User: [answers questions]
 
-AI:  [runs 'hue done 5'] ✅ Green
+AI:  [runs 'hue done 5']  Green
      "Plan ready! Starting build..."
-     [runs 'hue thinking 5'] 🔴 Solid red
+     [runs 'hue thinking 5']  Solid red
      [builds for 30 minutes]
      
-AI:  [runs 'hue done 5'] ✅ Green
+AI:  [runs 'hue done 5']  Green
      "Done! Website is live."
 ```
 

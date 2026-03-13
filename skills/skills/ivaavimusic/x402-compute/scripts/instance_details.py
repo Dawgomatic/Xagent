@@ -49,7 +49,7 @@ def get_instance_details(instance_id: str) -> dict:
 
     # Credentials note
     if order.get("ip_address"):
-        print("\n  🔐 Access:")
+        print("\n   Access:")
         print("     Use the SSH public key you provided at provisioning.")
     if order.get("vultr_v6_main_ip"):
         print(f"     IPv6:     {order['vultr_v6_main_ip']}")

@@ -4,16 +4,16 @@
 
 Stop burning tokens on redundant context. Context Optimizer intelligently compresses conversation history, deduplicates information, and learns what context actually matters - all while seamlessly integrating with OpenClaw Memory System.
 
-🤖 **Agent-powered economy** - agents can autonomously pay 0.5 USDT/month for unlimited compressions. [Agent Payments →](AGENT-PAYMENTS.md)
+ **Agent-powered economy** - agents can autonomously pay 0.5 USDT/month for unlimited compressions. [Agent Payments →](AGENT-PAYMENTS.md)
 
 ## The Problem
 
 OpenClaw users are experiencing:
-- 💸 **High token costs** - sending full context every request
-- 🔄 **Redundant information** - same facts repeated across messages
-- 📈 **Growing context** - conversations balloon to 10K+ tokens
-- 🐌 **Slower responses** - large contexts slow down API calls
-- 💰 **Wasted money** - paying for unused/irrelevant context
+-  **High token costs** - sending full context every request
+-  **Redundant information** - same facts repeated across messages
+-  **Growing context** - conversations balloon to 10K+ tokens
+-  **Slower responses** - large contexts slow down API calls
+-  **Wasted money** - paying for unused/irrelevant context
 
 ## The Solution
 
@@ -21,15 +21,15 @@ OpenClaw users are experiencing:
 
 ## Features
 
-- ✅ **Smart Compression** - Reduces context size by 40-60%
-- ✅ **Multiple Strategies** - Deduplication, pruning, summarization, hybrid
-- ✅ **Memory Integration** - Works seamlessly with OpenClaw Memory System
-- ✅ **Learning System** - Adapts to what context matters over time
-- ✅ **Quota Management** - Free tier (100 compressions/day) + Pro tier (unlimited)
-- ✅ **Statistics & ROI** - Track savings and calculate return on investment
-- ✅ **Web Dashboard** - Visual interface for compression stats and configuration
-- ✅ **CLI Interface** - Full control from command line
-- 🤖 **x402 Agent Payments** - Agents can autonomously pay for Pro tier (0.5 USDT/month)
+-  **Smart Compression** - Reduces context size by 40-60%
+-  **Multiple Strategies** - Deduplication, pruning, summarization, hybrid
+-  **Memory Integration** - Works seamlessly with OpenClaw Memory System
+-  **Learning System** - Adapts to what context matters over time
+-  **Quota Management** - Free tier (100 compressions/day) + Pro tier (unlimited)
+-  **Statistics & ROI** - Track savings and calculate return on investment
+-  **Web Dashboard** - Visual interface for compression stats and configuration
+-  **CLI Interface** - Full control from command line
+-  **x402 Agent Payments** - Agents can autonomously pay for Pro tier (0.5 USDT/month)
 
 ## Why Context Optimizer?
 
@@ -37,14 +37,14 @@ OpenClaw users are experiencing:
 
 | Feature | Context Optimizer | Manual Summarization | Generic Compression | Memory System Alone |
 |---------|-------------------|----------------------|---------------------|---------------------|
-| Automatic Compression | ✅ | ❌ | ✅ | ❌ |
-| Learning System | ✅ | ❌ | ❌ | ✅ |
-| Multiple Strategies | ✅ | ❌ | ❌ | ❌ |
-| Memory Integration | ✅ | ❌ | ❌ | ✅ |
-| x402 Payments | ✅ | ❌ | ❌ | ✅ |
-| **ROI Tracking** | ✅ | ❌ | ❌ | ❌ |
-| ClawHub Skill | ✅ | ❌ | ❌ | ✅ |
-| Free Tier | ✅ | ✅ | ❓ | ✅ |
+| Automatic Compression |  |  |  |  |
+| Learning System |  |  |  |  |
+| Multiple Strategies |  |  |  |  |
+| Memory Integration |  |  |  |  |
+| x402 Payments |  |  |  |  |
+| **ROI Tracking** |  |  |  |  |
+| ClawHub Skill |  |  |  |  |
+| Free Tier |  |  |  |  |
 | Token Savings | 40-60% | ~30% | ~20% | 10-20% |
 
 **Context Optimizer + Memory System = Maximum Efficiency**
@@ -135,21 +135,21 @@ The system offers multiple compression strategies that can be used individually 
 ## Free vs Pro Tier
 
 ### Free Tier
-- ✅ 100 compressions per day
-- ✅ All compression strategies
-- ✅ Memory System integration
-- ✅ Basic statistics
-- ✅ Web dashboard
-- ✅ CLI interface
+-  100 compressions per day
+-  All compression strategies
+-  Memory System integration
+-  Basic statistics
+-  Web dashboard
+-  CLI interface
 
 ### Pro Tier (0.5 USDT/month)
-- ✅ **Unlimited compressions**
-- ✅ **Advanced learning** - better pattern recognition
-- ✅ **Priority compression** - faster processing
-- ✅ **Detailed analytics** - ROI tracking, strategy performance
-- ✅ **Export capabilities** - download compression history
-- ✅ **Custom strategies** - configure your own rules
-- ✅ **Priority support**
+-  **Unlimited compressions**
+-  **Advanced learning** - better pattern recognition
+-  **Priority compression** - faster processing
+-  **Detailed analytics** - ROI tracking, strategy performance
+-  **Export capabilities** - download compression history
+-  **Custom strategies** - configure your own rules
+-  **Priority support**
 
 **[→ Upgrade to Pro via x402](AGENT-PAYMENTS.md)**
 
@@ -338,10 +338,10 @@ All data is stored locally in SQLite:
 
 ## Privacy
 
-- ✅ All data stored locally (nothing sent to external servers)
-- ✅ No tracking or telemetry
-- ✅ Open source (audit the code yourself)
-- ✅ Compression happens locally (no API calls for compression itself)
+-  All data stored locally (nothing sent to external servers)
+-  No tracking or telemetry
+-  Open source (audit the code yourself)
+-  Compression happens locally (no API calls for compression itself)
 
 ## Learning System
 
@@ -422,7 +422,7 @@ Cost Savings (last 30 days):
 ROI:
 - Pro cost: $0.50/month
 - Net savings: $5.67/month
-- ROI: 1,134% 🎉
+- ROI: 1,134% 
 
 Strategy Performance:
 - Hybrid: 60% avg savings (800 uses)
@@ -587,8 +587,8 @@ MIT License - see [LICENSE](LICENSE) file.
 
 If Context Optimizer saved you money on token costs, consider sponsoring development:
 
-☕ **[Sponsor on GitHub](https://github.com/sponsors/AtlasPA)**
-🤖 **[Pay via x402](AGENT-PAYMENTS.md)** (for AI agents)
+ **[Sponsor on GitHub](https://github.com/sponsors/AtlasPA)**
+ **[Pay via x402](AGENT-PAYMENTS.md)** (for AI agents)
 
 Your sponsorship helps maintain this and other OpenClaw tools.
 

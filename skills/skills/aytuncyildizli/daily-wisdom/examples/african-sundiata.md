@@ -1,11 +1,11 @@
 # Example: Sundiata Keita — The Lion King of Mali
 
-📜 **The Epic of Sundiata — Mandinka Oral Tradition, ~1235 CE**
+ **The Epic of Sundiata — Mandinka Oral Tradition, ~1235 CE**
 
 > *"Nàani kélen tɛ́ se kà dùnkafa bìn"*
 > — Mandinka proverb
 
-🌍 "One hand cannot tie a bundle."
+ "One hand cannot tie a bundle."
 
 ---
 
@@ -43,7 +43,7 @@ The griots who carry this story aren't just storytellers. They're a decentralize
 
 ---
 
-💡 **Modern Connection:**
+ **Modern Connection:**
 
 Every investor has a pattern for what founders look like. Sundiata broke every pattern — crippled, exiled, written off by everyone except a father who assigned him a griot when he couldn't even stand. That one decision (investing in an advisor for a boy who can't walk) is the most contrarian angel investment in recorded history.
 

@@ -1,4 +1,4 @@
-# 🔒 Clawdbot Security Suite - Installation Guide
+#  Clawdbot Security Suite - Installation Guide
 
 Complete setup instructions for the Clawdbot Security Suite.
 
@@ -64,7 +64,7 @@ Choose your security integration level:
 if ~/.clawdbot/skills/security/security.sh validate-command "$cmd" | grep -q "ALLOWED"; then
     bash -c "$cmd"
 else
-    echo "❌ Command blocked for security"
+    echo " Command blocked for security"
 fi
 
 # Before web requests
@@ -72,7 +72,7 @@ if ~/.clawdbot/skills/security/security.sh check-url "$url" | grep -q "ALLOWED";
     # Safe to proceed with web_fetch
     echo "URL validated"
 else
-    echo "❌ URL blocked"
+    echo " URL blocked"
 fi
 ```
 
@@ -130,14 +130,14 @@ command="$1"
 security_result=$(~/.clawdbot/skills/security/security.sh validate-command "$command")
 
 if echo "$security_result" | grep -q "ALLOWED"; then
-    echo "✅ Executing: $command"
+    echo " Executing: $command"
     eval "$command"
 elif echo "$security_result" | grep -q "BLOCKED"; then
-    echo "❌ BLOCKED: Command contains security threats"
+    echo " BLOCKED: Command contains security threats"
     echo "Security analysis: $security_result"
     exit 1
 else
-    echo "⚠️ WARNING: Unexpected security result"
+    echo " WARNING: Unexpected security result"
     echo "Result: $security_result"
     read -p "Proceed anyway? (y/N): " -n 1 -r
     if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -157,14 +157,14 @@ url="$1"
 security_result=$(~/.clawdbot/skills/security/security.sh check-url "$url")
 
 if echo "$security_result" | grep -q "ALLOWED"; then
-    echo "✅ Fetching: $url"
+    echo " Fetching: $url"
     curl -L "$url"
 elif echo "$security_result" | grep -q "BLOCKED"; then
-    echo "❌ BLOCKED: URL flagged as potential SSRF or malicious"
+    echo " BLOCKED: URL flagged as potential SSRF or malicious"
     echo "Security analysis: $security_result"
     exit 1
 else
-    echo "⚠️ WARNING: Could not validate URL"
+    echo " WARNING: Could not validate URL"
     exit 1
 fi
 ```

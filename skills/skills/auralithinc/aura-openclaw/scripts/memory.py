@@ -95,7 +95,7 @@ Examples:
             source=args.source,
             tags=args.tags
         )
-        print(f"✅ Written to /{args.namespace}: {entry.entry_id}")
+        print(f" Written to /{args.namespace}: {entry.entry_id}")
     
     elif args.action == 'list':
         memory.list_shards()
@@ -122,7 +122,7 @@ Examples:
             top_k=args.top_k
         )
         if results:
-            print(f"🔍 Found {len(results)} result(s):\n")
+            print(f" Found {len(results)} result(s):\n")
             for i, r in enumerate(results, 1):
                 print(f"  {i}. [{r['namespace']}] (score: {r['score']:.2f})")
                 print(f"     {r['content'][:120]}...")

@@ -35,7 +35,7 @@ PY
 
 # 결과 출력(텔레그램으로 보여줄 문구)
 if [ -z "$OWNER" ] || [ -z "$DUE" ]; then
-  echo "✅ 임시 저장(draft) 완료: $ID
+  echo " 임시 저장(draft) 완료: $ID
 - 제목: $TITLE
 - 담당: ${OWNER:-미정}
 - 납기: ${DUE:-미정}
@@ -43,7 +43,7 @@ if [ -z "$OWNER" ] || [ -z "$DUE" ]; then
 담당자(owner)와 납기(due)를 알려줘야 확정 저장(open)할 수 있어!
 예) /todo $TITLE / owner:홍길동 / due:내일 18:00"
 else
-  echo "✅ 저장 완료(open): $ID
+  echo " 저장 완료(open): $ID
 - 제목: $TITLE
 - 담당: $OWNER
 - 납기: $DUE"

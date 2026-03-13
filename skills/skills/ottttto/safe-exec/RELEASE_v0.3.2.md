@@ -1,6 +1,6 @@
 # 更新说明 - v0.3.2
 
-## 🎯 本次更新
+##  本次更新
 
 ### 完全向后兼容的结构优化
 
@@ -9,27 +9,27 @@
 #### 新增内容
 
 1. **README 拆分**
-   - ✨ 简洁的 README.md（快速开始）
-   - 📖 详细的 README-detail.md（完整指南）
+   -  简洁的 README.md（快速开始）
+   -  详细的 README-detail.md（完整指南）
 
 2. **对话式安装**
-   - 📦 ClawdHub 一键安装：`Help me install SafeExec skill from ClawdHub`
+   -  ClawdHub 一键安装：`Help me install SafeExec skill from ClawdHub`
 
 3. **清晰的目录结构**
-   - 📁 scripts/ - 核心脚本
-   - 📁 monitoring/ - 监控系统
-   - 📁 tests/ - 测试
-   - 📁 tools/ - 工具
-   - 📁 docs/ - 详细文档
+   -  scripts/ - 核心脚本
+   -  monitoring/ - 监控系统
+   -  tests/ - 测试
+   -  tools/ - 工具
+   -  docs/ - 详细文档
 
 #### 兼容性保证
 
 **所有现有用户无需任何更改！**
 
-✅ **核心脚本**：
+ **核心脚本**：
 - `safe-exec.sh` → 软链接到 `scripts/safe-exec.sh`
 
-✅ **辅助脚本**：
+ **辅助脚本**：
 - `safe-exec-approve.sh` → 软链接到 `scripts/safe-exec-approve.sh`
 - `safe-exec-reject.sh` → 软链接到 `scripts/safe-exec-reject.sh`
 - `safe-exec-list.sh` → 软链接到 `scripts/safe-exec-list.sh`
@@ -40,10 +40,10 @@
 
 如果你是以下用户，**完全不受影响**：
 
-- ✅ 对话式用户（`Enable SafeExec`）
-- ✅ ClawdHub 用户
-- ✅ 直接调用 `safe-exec.sh` 的用户
-- ✅ 所有命令行接口保持不变
+-  对话式用户（`Enable SafeExec`）
+-  ClawdHub 用户
+-  直接调用 `safe-exec.sh` 的用户
+-  所有命令行接口保持不变
 
 #### 可选更新
 
@@ -62,7 +62,7 @@
 
 ---
 
-## 📦 升级方式
+##  升级方式
 
 ### ClawdHub 用户
 
@@ -84,7 +84,7 @@ git pull origin master
 
 ---
 
-## 📚 相关文档
+##  相关文档
 
 - [完整影响评估](IMPACT_ASSESSMENT.md)
 - [项目结构说明](PROJECT_STRUCTURE.md)

@@ -2,7 +2,7 @@
 name: trackyard
 description: Search and download licensed music from Trackyard's AI-powered catalog. Use for finding background music for videos, social content, podcasts, or any project needing royalty-free tracks. Supports natural language search ("upbeat electronic for tech video"), smart audio trimming to exact durations with hit-point alignment, and filtering by genre, mood, BPM, vocals, energy, and instruments.
 homepage: https://trackyard.com
-metadata: {"openclaw":{"emoji":"🎵","requires":{"bins":["curl","jq"],"env":["TRACKYARD_API_KEY"]},"primaryEnv":"TRACKYARD_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","jq"],"env":["TRACKYARD_API_KEY"]},"primaryEnv":"TRACKYARD_API_KEY"}}
 ---
 
 # Trackyard Music API

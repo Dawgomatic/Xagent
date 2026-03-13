@@ -10,7 +10,7 @@
 
 ## 发布准备情况
 
-### ✅ 已完成的准备工作
+###  已完成的准备工作
 
 1. **技能开发完成**: 100%
 2. **文档完善**: README.md、SKILL.md、config.json
@@ -19,23 +19,23 @@
 5. **本地仓库**: Git仓库已创建并提交
 6. **BOOTSTRAP模式**: 已成功启动BOOTSTRAP模式
 
-### 🔍 系统环境检查结果
+###  系统环境检查结果
 
 ```
 === OpenClaw系统诊断 ===
 
-🔧 系统信息: Darwin 26.2
-🐍 Python: 3.14.2
-📦 OpenClaw: 2026.2.15
+ 系统信息: Darwin 26.2
+ Python: 3.14.2
+ OpenClaw: 2026.2.15
 
-📦 依赖检查:
-✅ 所有5个依赖项已安装
+ 依赖检查:
+ 所有5个依赖项已安装
 
-📂 工作区检查:
-✅ 工作区结构完整
+ 工作区检查:
+ 工作区结构完整
 
-🔐 权限检查:
-✅ 权限配置正常
+ 权限检查:
+ 权限配置正常
 ```
 
 ## 发布到ClawHub平台
@@ -65,7 +65,7 @@ clawhub publish /Users/sunyanguang/.openclaw/workspace/custom-skills/openclaw-tr
 
 ## 技能功能介绍
 
-### 📋 主要功能
+###  主要功能
 
 1. **系统诊断**：检查OpenClaw系统环境
 2. **依赖管理**：自动安装缺失的Python依赖库
@@ -73,7 +73,7 @@ clawhub publish /Users/sunyanguang/.openclaw/workspace/custom-skills/openclaw-tr
 4. **工作区优化**：完善OpenClaw工作区结构
 5. **系统优化**：提供系统资源使用优化建议
 
-### 🎯 适用场景
+###  适用场景
 
 - 首次安装OpenClaw遇到的问题
 - 技能开发过程中的技术障碍
@@ -110,7 +110,7 @@ python3 ~/.openclaw/workspace/custom-skills/openclaw-troubleshooting/scripts/ope
 
 ## 技术架构
 
-### 📊 技能架构
+###  技能架构
 
 ```
 openclaw-troubleshooting/
@@ -127,7 +127,7 @@ openclaw-troubleshooting/
 └── BOOTSTRAP.md                 # BOOTSTRAP模式配置
 ```
 
-### 🚀 技术特点
+###  技术特点
 
 - **自动化程度高**：大部分诊断和修复过程自动化完成
 - **针对性强**：专门针对OpenClaw用户遇到的问题
@@ -136,13 +136,13 @@ openclaw-troubleshooting/
 
 ## 预期成果
 
-### 📈 短期目标 (1周内)
+###  短期目标 (1周内)
 
 - **技能安装次数**: 100+
 - **用户反馈评分**: 4.5/5.0
 - **解决问题成功率**: 90%+
 
-### 🎯 长期目标 (1个月内)
+###  长期目标 (1个月内)
 
 - **技能下载量**: 1000+
 - **用户留存率**: 75%+
@@ -150,19 +150,19 @@ openclaw-troubleshooting/
 
 ## 风险评估
 
-### 🟢 低风险 (已解决)
+###  低风险 (已解决)
 
 - 系统兼容性问题
 - 依赖安装失败
 - 权限配置错误
 
-### 🟡 中风险 (可控)
+###  中风险 (可控)
 
 - 技能加载失败
 - 性能优化不充分
 - 问题报告不准确
 
-### 🔴 高风险 (需要监控)
+###  高风险 (需要监控)
 
 - 安全漏洞
 - 系统资源耗尽

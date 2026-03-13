@@ -1,4 +1,4 @@
-# OpenClaw CN-LLM 🐉
+# OpenClaw CN-LLM 
 
 **China LLM Unified Gateway. Powered by AIsa.**
 

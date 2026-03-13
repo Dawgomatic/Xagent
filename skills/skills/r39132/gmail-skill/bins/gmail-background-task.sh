@@ -45,7 +45,7 @@ mkdir -p "$REGISTRY_DIR"
 openclaw message send \
     --channel whatsapp \
     --target "$NOTIFY_TARGET" \
-    --message "📧 Gmail Skill: Starting task '$TASK_NAME'
+    --message " Gmail Skill: Starting task '$TASK_NAME'
 
 Account: $ACCOUNT
 Started: $(date '+%Y-%m-%d %H:%M:%S')
@@ -121,7 +121,7 @@ while kill -0 $TASK_PID 2>/dev/null; do
     if kill -0 $TASK_PID 2>/dev/null && [[ $ELAPSED -ge $UPDATE_INTERVAL ]]; then
         UPDATE_COUNT=$((UPDATE_COUNT + 1))
         LAST_NOTIFY_TIME=$NOW
-        send_notify "⏳ Gmail Skill: Task '"'"'$TASK_NAME'"'"' still running...
+        send_notify " Gmail Skill: Task '"'"'$TASK_NAME'"'"' still running...
 
 Duration: $(get_duration $START_TIME)
 Updates: $UPDATE_COUNT"
@@ -156,7 +156,7 @@ REOF
 OUTPUT=$(tail -50 "$LOG_FILE")
 
 if [[ $EXIT_CODE -eq 0 ]]; then
-    send_notify "✅ Gmail Skill: Task '"'"'$TASK_NAME'"'"' completed successfully
+    send_notify " Gmail Skill: Task '"'"'$TASK_NAME'"'"' completed successfully
 
 Duration: $DURATION
 Account: $ACCOUNT
@@ -164,7 +164,7 @@ Account: $ACCOUNT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 $OUTPUT"
 else
-    send_notify "❌ Gmail Skill: Task '"'"'$TASK_NAME'"'"' failed (exit $EXIT_CODE)
+    send_notify " Gmail Skill: Task '"'"'$TASK_NAME'"'"' failed (exit $EXIT_CODE)
 
 Duration: $DURATION
 Account: $ACCOUNT

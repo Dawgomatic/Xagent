@@ -35,7 +35,7 @@ TARGET_PATH="$(cd "$TARGET_PATH" && pwd)"
 
 # Check if already initialized
 if [[ -d "$TARGET_PATH/.workplace" ]]; then
-  echo "⚠️  Workplace already initialized at $TARGET_PATH/.workplace"
+  echo "  Workplace already initialized at $TARGET_PATH/.workplace"
   echo "    UUID: $(jq -r '.uuid' "$TARGET_PATH/.workplace/config.json" 2>/dev/null || echo 'unknown')"
   exit 0
 fi
@@ -61,7 +61,7 @@ if [[ "$HAS_GIT" == false ]]; then
   done
 
   if [[ "$IS_PARENT" == true ]]; then
-    echo "📂 No .git found at $TARGET_PATH"
+    echo " No .git found at $TARGET_PATH"
     echo "   Detected as parent workspace with ${#CHILD_DIRS[@]} child repo(s):"
     for cd in "${CHILD_DIRS[@]}"; do
       echo "   - $(basename "$cd")"
@@ -254,7 +254,7 @@ EOF
 
 # --- Summary ---
 echo ""
-echo "✅ Workplace initialized!"
+echo " Workplace initialized!"
 echo "   Name:     $WP_NAME"
 echo "   UUID:     $WP_UUID"
 echo "   Path:     $TARGET_PATH"
@@ -277,7 +277,7 @@ echo "   └── process-status.json"
 # --- Auto-init children if parent workspace ---
 if [[ "$IS_PARENT" == true && ${#CHILD_DIRS[@]} -gt 0 ]]; then
   echo ""
-  echo "🔄 Initializing child workplaces..."
+  echo " Initializing child workplaces..."
   echo ""
 
   CHILD_UUIDS=()
@@ -286,7 +286,7 @@ if [[ "$IS_PARENT" == true && ${#CHILD_DIRS[@]} -gt 0 ]]; then
     CHILD_NAME="$(basename "$child_dir")"
 
     if [[ -d "$child_dir/.workplace" ]]; then
-      echo "   ⚠️  $CHILD_NAME — already initialized"
+      echo "     $CHILD_NAME — already initialized"
       CHILD_UUID="$(jq -r '.uuid' "$child_dir/.workplace/config.json" 2>/dev/null || true)"
       CHILD_UUIDS+=("$CHILD_UUID")
 
@@ -312,7 +312,7 @@ if [[ "$IS_PARENT" == true && ${#CHILD_DIRS[@]} -gt 0 ]]; then
   # Cross-link all children with each other
   if [[ ${#CHILD_UUIDS[@]} -gt 1 ]]; then
     echo ""
-    echo "🔗 Cross-linking ${#CHILD_UUIDS[@]} child workplaces..."
+    echo " Cross-linking ${#CHILD_UUIDS[@]} child workplaces..."
 
     for child_dir in "${CHILD_DIRS[@]}"; do
       if [[ ! -f "$child_dir/.workplace/config.json" ]]; then
@@ -331,7 +331,7 @@ if [[ "$IS_PARENT" == true && ${#CHILD_DIRS[@]} -gt 0 ]]; then
         fi
       done
     done
-    echo "   ✅ All children linked"
+    echo "    All children linked"
   fi
 
   # Add all children to parent's linked list
@@ -400,7 +400,7 @@ if [[ "$IS_PARENT" == true && ${#CHILD_DIRS[@]} -gt 0 ]]; then
   done
 
   echo ""
-  echo "✅ Parent workspace with ${#CHILD_DIRS[@]} children initialized and linked"
+  echo " Parent workspace with ${#CHILD_DIRS[@]} children initialized and linked"
 
   # Set current back to parent
   cat > "$REGISTRY_DIR/current.json" << EOF

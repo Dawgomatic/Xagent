@@ -19,25 +19,25 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting EXP health check..." >> "$LOG_FILE
 
 # Check if identity exists
 if [ ! -f "$HOME/.lattice/keys.json" ]; then
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ❌ No identity found. Skipping." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  No identity found. Skipping." >> "$LOG_FILE"
     exit 0
 fi
 
 # Get EXP status
 if "$BIN_DIR/lattice-exp" > "$STATUS_FILE" 2>> "$LOG_FILE"; then
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ✅ EXP status saved." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  EXP status saved." >> "$LOG_FILE"
 else
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ❌ EXP status check failed." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  EXP status check failed." >> "$LOG_FILE"
 fi
 
 # Get EXP history (last 20 entries)
 if "$BIN_DIR/lattice-history" --limit 20 > "$HISTORY_FILE" 2>> "$LOG_FILE"; then
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ✅ EXP history saved." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  EXP history saved." >> "$LOG_FILE"
 else
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ❌ EXP history check failed." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  EXP history check failed." >> "$LOG_FILE"
 fi
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] ✅ EXP check complete." >> "$LOG_FILE"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')]  EXP check complete." >> "$LOG_FILE"
 
 # Cleanup old logs (keep last 30 days)
 find "$LOG_DIR" -name "exp-check-*.log" -mtime +30 -delete 2>/dev/null || true

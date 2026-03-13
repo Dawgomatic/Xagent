@@ -10,7 +10,7 @@ triggers:
   - "youtube summary"
   - "bilibili summary"
   - "analyze video"
-metadata: {"clawdbot":{"emoji":"📺","requires":{"bins":["yt-dlp"]},"install":[{"id":"brew","kind":"brew","formula":"yt-dlp","bins":["yt-dlp"],"label":"Install yt-dlp (brew)"},{"id":"pip","kind":"pip","package":"yt-dlp","bins":["yt-dlp"],"label":"Install yt-dlp (pip)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["yt-dlp"]},"install":[{"id":"brew","kind":"brew","formula":"yt-dlp","bins":["yt-dlp"],"label":"Install yt-dlp (brew)"},{"id":"pip","kind":"pip","package":"yt-dlp","bins":["yt-dlp"],"label":"Install yt-dlp (pip)"}]}}
 ---
 
 # Video Watcher
@@ -19,8 +19,8 @@ Fetch transcripts from **YouTube** and **Bilibili** videos to enable summarizati
 
 ## Supported Platforms
 
-- ✅ **YouTube** (youtube.com, youtu.be)
-- ✅ **Bilibili** (bilibili.com, b23.tv)
+-  **YouTube** (youtube.com, youtu.be)
+-  **Bilibili** (bilibili.com, b23.tv)
 
 ## Usage
 

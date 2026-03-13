@@ -2,7 +2,7 @@
 name: skill-health-monitor
 description: Monitor deployed skills for performance drift, errors, and unexpected behavior changes. Continuous post-deployment health checks with alerting and trend tracking.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "📊", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Skill Health Monitor

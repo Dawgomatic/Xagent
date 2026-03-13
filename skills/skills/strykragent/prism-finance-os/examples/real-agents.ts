@@ -14,7 +14,7 @@ const prism = new PrismOS({ apiKey: process.env.PRISM_API_KEY ?? '' });
 // ─────────────────────────────────────────────────────────────────
 
 async function cryptoDueDiligence(input: string) {
-  console.log(`\n🔍 Crypto DD: ${input}`);
+  console.log(`\n Crypto DD: ${input}`);
 
   // 1. Resolve whatever identifier the user passed
   const asset = await prism.resolve.resolve(input, { expand: true, live_price: true });
@@ -30,8 +30,8 @@ async function cryptoDueDiligence(input: string) {
     prism.analysis.analyze(asset.symbol, { chain: asset.chain, contract_address: asset.contract_address }),
     prism.analysis.checkCopycat(asset.symbol, { chain: asset.chain, contract_address: asset.contract_address }),
   ]);
-  if (analysis.risk_flags?.length) console.log('⚠️  Risk flags:', analysis.risk_flags);
-  if (copycat.is_copycat) console.log('🚨 COPYCAT detected — original:', copycat.original);
+  if (analysis.risk_flags?.length) console.log('  Risk flags:', analysis.risk_flags);
+  if (copycat.is_copycat) console.log(' COPYCAT detected — original:', copycat.original);
 
   // 3. Holder concentration
   const [topHolders, distribution] = await Promise.all([
@@ -41,7 +41,7 @@ async function cryptoDueDiligence(input: string) {
   console.log(`Top holder: ${topHolders[0]?.pct_supply?.toFixed(1)}% of supply`);
   console.log(`Total holders: ${distribution.total_holders?.toLocaleString()}`);
   if (distribution.top_10_pct && distribution.top_10_pct > 50) {
-    console.log('⚠️  Top 10 wallets control >50% of supply');
+    console.log('  Top 10 wallets control >50% of supply');
   }
 
   // 4. Supply breakdown
@@ -80,7 +80,7 @@ async function cryptoDueDiligence(input: string) {
 // ─────────────────────────────────────────────────────────────────
 
 async function equityAnalysis(ticker: string) {
-  console.log(`\n📈 Equity Analysis: ${ticker}`);
+  console.log(`\n Equity Analysis: ${ticker}`);
 
   // 1. Macro context first
   const [macroSummary, yields] = await Promise.all([
@@ -153,7 +153,7 @@ async function equityAnalysis(ticker: string) {
   // 10. Upcoming earnings
   const upcomingEarnings = await prism.calendar.getEarningsThisWeek(20);
   const nextReport = upcomingEarnings.find(e => e.symbol === ticker);
-  if (nextReport) console.log(`\n⏰ Upcoming earnings: ${nextReport.report_date} (${nextReport.time_of_day})`);
+  if (nextReport) console.log(`\n Upcoming earnings: ${nextReport.report_date} (${nextReport.time_of_day})`);
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -163,7 +163,7 @@ async function equityAnalysis(ticker: string) {
 // ─────────────────────────────────────────────────────────────────
 
 async function macroDashboard() {
-  console.log('\n🌍 Macro Dashboard');
+  console.log('\n Macro Dashboard');
 
   const [summary, fedRate, inflation, gdp, unemployment, yields, m2, joblessClaims, housing] =
     await Promise.all([
@@ -181,7 +181,7 @@ async function macroDashboard() {
   console.log('\n── Fed & Rates ──');
   console.log(`Fed Funds: ${fedRate.value}% (prev: ${fedRate.previous}%)`);
   console.log(`10yr Treasury: ${yields['10y']}% | 2yr: ${yields['2y']}% | 2s10s: ${yields['2s10s']?.toFixed(0)}bps`);
-  console.log(`Yield Curve: ${yields.inverted ? '⚠️ INVERTED' : '✅ Normal'}`);
+  console.log(`Yield Curve: ${yields.inverted ? ' INVERTED' : ' Normal'}`);
 
   console.log('\n── Economy ──');
   console.log(`CPI: ${inflation.value}% YoY`);
@@ -214,7 +214,7 @@ async function macroDashboard() {
 // ─────────────────────────────────────────────────────────────────
 
 async function defiYieldHunter() {
-  console.log('\n💰 DeFi Yield Hunter');
+  console.log('\n DeFi Yield Hunter');
 
   // 1. Market context
   const [fearGreed, global] = await Promise.all([
@@ -242,7 +242,7 @@ async function defiYieldHunter() {
   const stablecoins = await prism.defi.getStablecoins(10);
   const depegged = stablecoins.filter(s => Math.abs((s.depeg_pct ?? 0)) > 0.5);
   if (depegged.length > 0) {
-    console.log('\n⚠️  Depegged stablecoins:', depegged.map(s => `${s.symbol} (${s.depeg_pct?.toFixed(2)}%)`).join(', '));
+    console.log('\n  Depegged stablecoins:', depegged.map(s => `${s.symbol} (${s.depeg_pct?.toFixed(2)}%)`).join(', '));
   }
 
   // 5. Top protocols by TVL
@@ -263,7 +263,7 @@ async function defiYieldHunter() {
 // ─────────────────────────────────────────────────────────────────
 
 async function arbitrageBot() {
-  console.log('\n🎯 Prediction Market & Sports Arbitrage Bot');
+  console.log('\n Prediction Market & Sports Arbitrage Bot');
 
   // 1. Prediction market arb
   const predArb = await prism.predictions.getArbitrage({ min_profit: 0.02, limit: 10 });
@@ -307,7 +307,7 @@ async function arbitrageBot() {
 // ─────────────────────────────────────────────────────────────────
 
 async function fxCommodityTrader() {
-  console.log('\n💱 FX & Commodity Trader');
+  console.log('\n FX & Commodity Trader');
 
   // 1. Macro context for FX
   const [macroSummary, fedRate] = await Promise.all([
@@ -371,5 +371,5 @@ async function fxCommodityTrader() {
   // await arbitrageBot();
   // await fxCommodityTrader();
 
-  console.log('\n✅ SDK grounded. Every call maps to a real endpoint.');
+  console.log('\n SDK grounded. Every call maps to a real endpoint.');
 })();

@@ -50,9 +50,9 @@ while IFS= read -r URL; do
   
   # Detect change
   if [[ "$PREV_STATUS" == "full" && "$CURRENT_STATUS" == "available" ]]; then
-    CHANGES+=("🎉 **$APP_NAME** beta now has open slots! $URL")
+    CHANGES+=(" **$APP_NAME** beta now has open slots! $URL")
   elif [[ "$PREV_STATUS" == "unknown" && "$CURRENT_STATUS" == "available" ]]; then
-    CHANGES+=("🎉 **$APP_NAME** beta has open slots! $URL")
+    CHANGES+=(" **$APP_NAME** beta has open slots! $URL")
   fi
   
   # Update state

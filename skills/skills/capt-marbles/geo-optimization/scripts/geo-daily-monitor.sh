@@ -8,7 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORKSPACE="/Users/awalker/clawd"
 cd "$WORKSPACE"
 
-echo "🔍 Running daily GEO test..."
+echo " Running daily GEO test..."
 
 # Run the GEO monitor test
 python3 scripts/geo-monitor.py --test > /tmp/geo-test-output.txt 2>&1
@@ -39,12 +39,12 @@ rate = data.get('citation_rate', 0) * 100
 results = data.get('results', [])
 critical_misses = sum(1 for r in results if r.get('priority') == 'critical' and r.get('expected') and not r.get('actual_cited'))
 
-print(f'📊 Gameye Citation Rate: {cited}/{total} ({rate:.1f}%)')
-print(f'⚠️  Critical gaps remaining: {critical_misses}')
+print(f' Gameye Citation Rate: {cited}/{total} ({rate:.1f}%)')
+print(f'  Critical gaps remaining: {critical_misses}')
 ")
     
     # Send summary to Telegram
-    MESSAGE="📊 **Daily GEO Test Results** - $(date +%Y-%m-%d)
+    MESSAGE=" **Daily GEO Test Results** - $(date +%Y-%m-%d)
 
 ${METRICS}
 
@@ -53,7 +53,7 @@ Full report: \`geo-history/summary-${TODAY}-*.json\`
 Run \`python3 scripts/geo-monitor.py --report\` for detailed analysis."
 
 else
-    MESSAGE="⚠️ GEO test ran but no summary file generated. Check logs."
+    MESSAGE=" GEO test ran but no summary file generated. Check logs."
 fi
 
 # Send to Telegram using clawdbot message tool

@@ -293,7 +293,7 @@ OpenWeather is a team of IT experts and data scientists that has been practising
 
 Supplier of Achilles UVDB community
 
-© 2012 - 2026 OpenWeather ® All rights reserved
+ 2012 - 2026 OpenWeather  All rights reserved
 
 *   [Terms & conditions of sale](https://openweather.co.uk/api/files/file/OpenWeather_T%26C_of_sale.pdf)
 *   [Website terms & conditions](https://openweather.co.uk/api/files/file/Openweather_website_terms_and_conditions_of_use.pdf)

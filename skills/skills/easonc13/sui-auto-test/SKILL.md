@@ -32,9 +32,9 @@ python3 ~/clawd/skills/sui-coverage/analyze_source.py -m <module_name> -o covera
 ### Step 2: Read the Coverage Report
 
 Read the generated `coverage.md` to identify:
-- 🔴 **Uncalled functions** - Functions never executed
-- 🔴 **Uncovered assertions** - `assert!()` failure paths not tested
-- 🔴 **Uncovered branches** - `if/else` paths not taken
+-  **Uncalled functions** - Functions never executed
+-  **Uncovered assertions** - `assert!()` failure paths not tested
+-  **Uncovered branches** - `if/else` paths not taken
 
 ### Step 3: Write Missing Tests
 

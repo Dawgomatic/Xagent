@@ -1,7 +1,7 @@
 ---
 name: grafana
 description: Manage Grafana dashboards, data sources, and alerts via API. Visualize metrics and logs.
-metadata: {"clawdbot":{"emoji":"📉","requires":{"env":["GRAFANA_URL","GRAFANA_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["GRAFANA_URL","GRAFANA_API_KEY"]}}}
 ---
 # Grafana
 Observability dashboards.

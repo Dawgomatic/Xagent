@@ -15,8 +15,8 @@ TWEMOJI_DIR = os.path.expanduser("~/.cache/md2pdf/emojis")
 def parse_twemoji_filename(filename):
     """
     解析 Twemoji 文件名，返回 Unicode 代码点列表
-    例如: "0023-fe0f-20e3.png" -> [0x23, 0xfe0f, 0x20e3] (⌛)
-    例如: "1f600.png" -> [0x1f600] (🙀)
+    例如: "0023-fe0f-20e3.png" -> [0x23, 0xfe0f, 0x20e3] ()
+    例如: "1f600.png" -> [0x1f600] ()
     """
     if not filename.endswith('.png'):
         return None
@@ -59,14 +59,14 @@ def generate_mapping():
             # 存储映射
             mapping[emoji_str] = filename
 
-    print(f"✅ 找到 {len(mapping)} 个 emoji")
+    print(f" 找到 {len(mapping)} 个 emoji")
 
     # 保存映射表
     mapping_file = os.path.join(os.path.dirname(TWEMOJI_DIR), "emoji_mapping.json")
     with open(mapping_file, 'w', encoding='utf-8') as f:
         json.dump(mapping, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ 映射表已保存至: {mapping_file}")
+    print(f" 映射表已保存至: {mapping_file}")
 
     return mapping
 

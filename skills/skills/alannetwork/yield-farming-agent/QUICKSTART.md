@@ -1,6 +1,6 @@
 # Yield Farming Agent - Quick Start Guide
 
-**⚡ Get running in 60 seconds**
+** Get running in 60 seconds**
 
 ## Installation
 
@@ -113,9 +113,9 @@ Output: { action, vault_id, token, amount, hashes... }
 const verification = agent.verifyRecord(decision);
 
 if (verification.valid) {
-  console.log('✅ Audit trail is intact');
+  console.log(' Audit trail is intact');
 } else {
-  console.log('❌ Hash mismatch detected:', verification.errors);
+  console.log(' Hash mismatch detected:', verification.errors);
 }
 ```
 
@@ -184,9 +184,9 @@ Example:
 Only vaults with **risk_score ≤ 0.5** are evaluated.
 
 **Example Vault States:**
-- `vault_cake_farm_001` (0.45 risk) ✅ Included
-- `vault_bnb_lp_001` (0.25 risk) ✅ Included
-- `vault_high_risk_001` (0.80 risk) ❌ Filtered
+- `vault_cake_farm_001` (0.45 risk)  Included
+- `vault_bnb_lp_001` (0.25 risk)  Included
+- `vault_high_risk_001` (0.80 risk)  Filtered
 
 ## File Reference
 
@@ -252,4 +252,4 @@ console.log('Rationale:', decision.decision.rationale);
 
 ---
 
-**Status:** ✅ Production Ready | **Tests:** 17/17 Passing | **Determinism:** 100%
+**Status:**  Production Ready | **Tests:** 17/17 Passing | **Determinism:** 100%

@@ -8,7 +8,7 @@ AGW is a **smart contract wallet** that:
 - Uses your EOA as the signer/owner
 - Deploys on first transaction (counterfactual deployment)
 
-## ⚠️ CRITICAL: The 3-Layer Architecture
+##  CRITICAL: The 3-Layer Architecture
 
 Understanding this prevents lost funds:
 
@@ -28,11 +28,11 @@ Private Key → EOA (signer) → AGW (smart contract wallet)
 |---------|-----|-----|
 | Type | Externally Owned Account | Smart Contract Wallet |
 | Private Key | Yes | No (uses signer EOA) |
-| XP Eligible | ❌ No | ✅ Yes |
-| Gas Sponsorship | ❌ No | ✅ Possible |
-| Batch Transactions | ❌ No | ✅ Yes |
+| XP Eligible |  No |  Yes |
+| Gas Sponsorship |  No |  Possible |
+| Batch Transactions |  No |  Yes |
 
-## ⚠️ CRITICAL: Funding Flow
+##  CRITICAL: Funding Flow
 
 **The EOA must have gas BEFORE you can deploy the AGW.**
 
@@ -55,7 +55,7 @@ node scripts/create-agw.js
 
 The AGW address is **deterministic** - same EOA always produces same AGW address.
 
-## ⚠️ WARNING: Library Version Drift
+##  WARNING: Library Version Drift
 
 **Different versions of `@abstract-foundation/agw-client` may compute DIFFERENT AGW addresses for the same EOA!**
 

@@ -2,7 +2,7 @@
 name: "bim-qto"
 description: "Extract quantities from BIM/CAD data for cost estimation. Group by type, level, zone. Generate QTO reports."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "⚡", "os": ["win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # BIM Quantity Takeoff
 

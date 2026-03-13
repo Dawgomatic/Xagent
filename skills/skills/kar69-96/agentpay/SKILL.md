@@ -1,7 +1,7 @@
 ---
 name: agentpay
 description: "Buy things from real websites on behalf of your human. Use when you need to purchase a product, complete a checkout, order something online, or propose a purchase for human approval. Handles encrypted credential storage, cryptographic purchase mandates, and headless browser checkout on any merchant site. The agent never sees the card."
-metadata: {"openclaw":{"emoji":"💳","requires":{"anyBins":["agentpay","npx"]},"install":[{"id":"npm","kind":"node","package":"agentpay","bins":["agentpay"],"label":"Install AgentPay SDK"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"anyBins":["agentpay","npx"]},"install":[{"id":"npm","kind":"node","package":"agentpay","bins":["agentpay"],"label":"Install AgentPay SDK"}]}}
 ---
 
 # AgentPay — Secure Checkout for AI Agents

@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const CardTemplates = require('./card-templates');
 
-console.log('🧪 开始测试飞书交互式卡片技能...\n');
+console.log(' 开始测试飞书交互式卡片技能...\n');
 
 let passed = 0;
 let failed = 0;
@@ -17,10 +17,10 @@ let failed = 0;
 function test(name, fn) {
   try {
     fn();
-    console.log(`✅ ${name}`);
+    console.log(` ${name}`);
     passed++;
   } catch (error) {
-    console.error(`❌ ${name}`);
+    console.error(` ${name}`);
     console.error(`   错误: ${error.message}`);
     failed++;
   }
@@ -147,10 +147,10 @@ console.log(`测试完成: ${passed} 通过, ${failed} 失败`);
 console.log('='.repeat(50));
 
 if (failed > 0) {
-  console.log('\n⚠️  部分测试失败，请检查错误信息');
+  console.log('\n  部分测试失败，请检查错误信息');
   process.exit(1);
 } else {
-  console.log('\n🎉 所有测试通过！技能已准备就绪！');
+  console.log('\n 所有测试通过！技能已准备就绪！');
   console.log('\n下一步:');
   console.log('1. 启动回调服务器: node card-callback-server.js');
   console.log('2. 发送测试卡片: node send-card.js confirmation "测试" --chat-id oc_xxx');

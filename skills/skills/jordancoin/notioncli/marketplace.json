@@ -5,7 +5,7 @@
   "longDescription": "A powerful CLI for the Notion API built for both humans and AI agents. Auto-discovers databases and creates aliases so you never type UUIDs. Full CRUD: query, add, update, delete, get, search. Relations & rollups, blocks CRUD, multi-workspace profiles, database management (db-create, db-update), file uploads, templates, page moves. Correctly routes property changes through dataSources.update() for the 2025 Notion API. Zero-UUID workflow via alias + filter on every command.",
   "category": "Productivity",
   "price": 0,
-  "icon": "📝",
+  "icon": "",
   "author": "JordanCoin",
   "authorUrl": "https://github.com/JordanCoin",
   "repository": "https://github.com/JordanCoin/notioncli",

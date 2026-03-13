@@ -2,7 +2,7 @@
 # Persona Generation Runner
 # Usage: ./generate-persona.sh
 
-echo "🎭 Persona Evolution - Interactive Generator"
+echo " Persona Evolution - Interactive Generator"
 echo ""
 echo "This will create a rich, AI-generated persona for you."
 echo ""
@@ -49,7 +49,7 @@ echo -n "Anything else to personalize? "
 read EXTRA_CONTEXT
 
 echo ""
-echo "🤖 Generating persona with Opus..."
+echo " Generating persona with Opus..."
 echo "   This will take 2-3 minutes"
 echo ""
 

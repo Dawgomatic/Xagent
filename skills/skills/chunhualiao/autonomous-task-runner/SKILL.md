@@ -142,7 +142,7 @@ IF file does NOT exist:
           enabled: true
 
   [5] Notify user:
-      "⚙️ Task Runner initialized.
+      " Task Runner initialized.
        Heartbeat dispatcher registered in HEARTBEAT.md.
        Backup cron job registered (runs every 15 minutes).
        Your tasks will execute automatically."
@@ -206,7 +206,7 @@ Added T-06: [description]. Starting now...
 
 For multiple tasks:
 ```
-📋 Added 3 tasks to queue:
+ Added 3 tasks to queue:
 • T-06: [description]
 • T-07: [description]
 • T-08: [description]
@@ -267,7 +267,7 @@ IF subagent_session is set:
     IF verification passes:
       SET status = "done"
       SET deliverable, deliverable_path, completed_at
-      NOTIFY user: ✅ T-NN done — [summary]
+      NOTIFY user:  T-NN done — [summary]
     ELSE (verification failed):
       TREAT as failure (see retry logic below)
 
@@ -279,7 +279,7 @@ IF subagent_session is set:
     ELSE:
       SET status = "blocked"
       SET blocked_reason, user_action_required, completed_at
-      NOTIFY user: 🚫 T-NN blocked — [reason + unblock steps]
+      NOTIFY user:  T-NN blocked — [reason + unblock steps]
 
   IF session is STILL RUNNING:
     Leave as-is (will check again next heartbeat)
@@ -339,7 +339,7 @@ Added T-06: [description]. Queue now has N pending tasks.
 ### INTAKE confirmation (multiple tasks)
 
 ```
-📋 Added N tasks to queue:
+ Added N tasks to queue:
 • T-06: [description]
 • T-07: [description]
 
@@ -349,27 +349,27 @@ Starting now...
 ### Task status table (on demand)
 
 ```
-📋 Task Queue — [N total, N pending, N running, N done, N blocked]
+ Task Queue — [N total, N pending, N running, N done, N blocked]
 
 ID    Status      Description
-T-01  ✅ done      [description] → [deliverable summary]
-T-02  🔄 running   [description] (started [time ago])
-T-03  ⏳ pending   [description]
-T-04  🚫 blocked   [description] — [blocked_reason short]
-T-05  ⏭️ skipped   [description]
+T-01   done      [description] → [deliverable summary]
+T-02   running   [description] (started [time ago])
+T-03   pending   [description]
+T-04   blocked   [description] — [blocked_reason short]
+T-05   skipped   [description]
 ```
 
 ### Task done notification
 
 ```
-✅ T-NN done — [one-sentence summary of what was accomplished]
+ T-NN done — [one-sentence summary of what was accomplished]
 [deliverable: link or file path, if applicable]
 ```
 
 ### Task blocked notification
 
 ```
-🚫 T-NN blocked after [N] attempts
+ T-NN blocked after [N] attempts
 
 What was tried:
 - [Strategy 1]: [result]
@@ -388,7 +388,7 @@ Reply "retry T-NN" once ready.
 ### Task skipped
 
 ```
-⏭️ T-NN skipped — as requested.
+ T-NN skipped — as requested.
 ```
 
 ---

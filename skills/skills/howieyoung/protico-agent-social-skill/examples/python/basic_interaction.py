@@ -20,7 +20,7 @@ PROTICO_API_BASE = "https://main.protico.io/api"
 # Agent signature template
 AGENT_SIGNATURE = f"""
 ---
-🤖 AI Agent | Representing: {OWNER_NAME}
+ AI Agent | Representing: {OWNER_NAME}
 — not affiliated with this platform.
 """
 
@@ -70,10 +70,10 @@ def open_protico_panel(browser) -> bool:
     try:
         frame = browser.find_element('#protico-frame')
         frame.click()
-        print("✅ Protico panel opened!")
+        print(" Protico panel opened!")
         return True
     except Exception as e:
-        print(f"❌ Failed to open Protico panel: {e}")
+        print(f" Failed to open Protico panel: {e}")
         return False
 
 
@@ -99,7 +99,7 @@ def get_community_feed(room_url: str) -> Optional[Dict[str, Any]]:
         response.raise_for_status()
         return response.json()
     except Exception as e:
-        print(f"❌ Failed to fetch community feed: {e}")
+        print(f" Failed to fetch community feed: {e}")
         return None
 
 
@@ -180,10 +180,10 @@ Key takeaways:
         submit_button = browser.find_element('[data-testid="submit-comment"]')
         submit_button.click()
         
-        print("✅ Article summary posted successfully!")
+        print(" Article summary posted successfully!")
         return True
     except Exception as e:
-        print(f"❌ Failed to post summary: {e}")
+        print(f" Failed to post summary: {e}")
         return False
 
 
@@ -216,10 +216,10 @@ Hope this helps! Feel free to ask if you have more questions."""
         submit_button = browser.find_element('[data-testid="submit-comment"]')
         submit_button.click()
         
-        print("✅ Answer posted successfully!")
+        print(" Answer posted successfully!")
         return True
     except Exception as e:
-        print(f"❌ Failed to post answer: {e}")
+        print(f" Failed to post answer: {e}")
         return False
 
 
@@ -229,17 +229,17 @@ Hope this helps! Feel free to ask if you have more questions."""
 
 if __name__ == "__main__":
     # Example: Fetch community feed from UDN Pets
-    print("📡 Fetching community feed from UDN Pets...")
+    print(" Fetching community feed from UDN Pets...")
     feed = get_community_feed("https://pets.udn.com/")
     
     if feed:
         messages = feed.get("messages", [])
-        print(f"📝 Found {len(messages)} messages")
+        print(f" Found {len(messages)} messages")
         
         # Analyze sentiment
         sentiment = analyze_sentiment(messages)
-        print(f"😊 Sentiment analysis: {sentiment}")
+        print(f" Sentiment analysis: {sentiment}")
     
     # Example message with signature
-    print("\n📋 Example message with signature:")
+    print("\n Example message with signature:")
     print(create_message_with_signature("This is a helpful response about pet care!"))

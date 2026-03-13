@@ -29,7 +29,7 @@ def main():
         sys.exit(1)
 
     # Create thread
-    cta = "Follow for more insights! 🚀" if args.include_cta else ""
+    cta = "Follow for more insights! " if args.include_cta else ""
     thread = create_twitter_thread(content, args.tone, args.hashtags, cta)
 
     # Limit tweets

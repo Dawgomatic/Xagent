@@ -195,14 +195,14 @@ async function toolCallHook(input: HookInput): Promise<HookOutput> {
     // Add message if there are findings
     if (allFindings.length > 0) {
       if (shouldBlock(finalAction)) {
-        response.message = `🚫 Tool Call Blocked: Security threats detected in ${input.toolName}\n\n` +
+        response.message = ` Tool Call Blocked: Security threats detected in ${input.toolName}\n\n` +
           `Severity: ${maxSeverity}\n` +
           `Findings:\n` +
           allFindings.map((f, i) =>
             `${i + 1}. [${f.parameter}] ${f.category}: ${f.description}`
           ).join('\n');
       } else {
-        response.message = `⚠️  Security Notice: Potential issues detected in ${input.toolName}\n` +
+        response.message = `  Security Notice: Potential issues detected in ${input.toolName}\n` +
           `The call will be allowed but logged for review.`;
       }
     }

@@ -37,7 +37,7 @@ POISONED=0
 for file in SOUL.md MEMORY.md IDENTITY.md memory/*.md; do
   if [ -f "$file" ]; then
     if grep -q "$SKILL_NAME" "$file"; then
-      echo "   ⚠️  Found references in: $file"
+      echo "     Found references in: $file"
       grep -n "$SKILL_NAME" "$file"
       POISONED=1
     fi
@@ -47,7 +47,7 @@ done
 if [ $POISONED -eq 0 ]; then
   echo "   ✓ No memory poisoning detected"
 else
-  echo "   🚨 Memory poisoning detected - manual review required"
+  echo "    Memory poisoning detected - manual review required"
 fi
 
 # 3. Log incident
@@ -88,4 +88,4 @@ echo "   - Rotate all credentials"
 echo "   - Review audit logs"
 echo "4. Permanent removal: rm -rf $QUARANTINE_PATH"
 echo ""
-echo "⚠️  DO NOT re-enable until thoroughly investigated"
+echo "  DO NOT re-enable until thoroughly investigated"

@@ -241,14 +241,14 @@ def cmd_watch(args):
     host, port = DX_CLUSTERS[cluster_name]
     callsign = args.callsign or "DX0MON"
     
-    print(f"📻 Connecting to {cluster_name} ({host}:{port})...")
+    print(f" Connecting to {cluster_name} ({host}:{port})...")
     
     client = DXClusterClient(host, port, callsign)
     if not client.connect():
-        print("❌ Connection failed", file=sys.stderr)
+        print(" Connection failed", file=sys.stderr)
         sys.exit(1)
     
-    print(f"✅ Connected as {callsign}\n")
+    print(f" Connected as {callsign}\n")
     
     # Get spots
     spots = client.get_spots(args.limit)
@@ -266,16 +266,16 @@ def cmd_watch(args):
         spots = new_spots
         
         if not spots:
-            print("✅ No new spots since last check")
+            print(" No new spots since last check")
             return
         
-        print(f"🚨 {len(spots)} NEW SPOTS!\n")
+        print(f" {len(spots)} NEW SPOTS!\n")
     
     # Display spots
     if args.json:
         print(json.dumps(spots, indent=2))
     else:
-        print(f"📡 Latest DX Spots from {cluster_name.upper()}\n")
+        print(f" Latest DX Spots from {cluster_name.upper()}\n")
         for spot in spots:
             band = spot['band']
             mode = spot['mode']
@@ -292,11 +292,11 @@ def cmd_digest(args):
     host, port = DX_CLUSTERS[cluster_name]
     callsign = args.callsign or "DX0MON"
     
-    print(f"📻 Generating DX Digest from {cluster_name}...\n")
+    print(f" Generating DX Digest from {cluster_name}...\n")
     
     client = DXClusterClient(host, port, callsign)
     if not client.connect():
-        print("❌ Connection failed", file=sys.stderr)
+        print(" Connection failed", file=sys.stderr)
         sys.exit(1)
     
     # Get many spots to analyze
@@ -320,7 +320,7 @@ def cmd_digest(args):
         if any(prefix in call for prefix in ['VP8', 'ZL', 'VK', 'ZS', 'P5', 'P4', '9G', 'S9']):
             rare_dx.append(spot)
     
-    print(f"# 📡 DX Digest - {datetime.now().strftime('%Y-%m-%d')}\n")
+    print(f"#  DX Digest - {datetime.now().strftime('%Y-%m-%d')}\n")
     print(f"## Band Activity (last 100 spots)\n")
     
     for band in sorted(by_band.keys(), key=lambda x: float(x.replace('m', '') if 'm' in x else '999')):
@@ -331,7 +331,7 @@ def cmd_digest(args):
     print(f"\n## Rare DX Spotted\n")
     if rare_dx:
         for spot in rare_dx[:10]:
-            print(f"   🌍 {spot['dx_station']:12} {spot['band']:5} {spot['frequency']:8.1f} - {spot['comment']}")
+            print(f"    {spot['dx_station']:12} {spot['band']:5} {spot['frequency']:8.1f} - {spot['comment']}")
     else:
         print("   No rare DX in recent spots")
     

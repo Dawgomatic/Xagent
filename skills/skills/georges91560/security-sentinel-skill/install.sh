@@ -24,7 +24,7 @@ echo -e "${BLUE}"
 cat << "EOF"
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
-║        🛡️  SECURITY SENTINEL - Installation 🛡️           ║
+║          SECURITY SENTINEL - Installation            ║
 ║                                                           ║
 ║     Production-grade prompt injection defense             ║
 ║     for autonomous AI agents                              ║
@@ -257,7 +257,7 @@ show_usage() {
     echo "  - GitHub: https://github.com/$GITHUB_REPO"
     echo "  - Issues: https://github.com/$GITHUB_REPO/issues"
     echo ""
-    echo -e "${GREEN}Happy defending! 🛡️${NC}"
+    echo -e "${GREEN}Happy defending! ${NC}"
     echo ""
 }
 

@@ -44,11 +44,11 @@
 | **Sergio's** | Multiple | $10 | Local chain, solid |
 
 ### Cuban Sandwich Rules
-- ❌ Never salami (that's Tampa-style)
-- ❌ Never lettuce or tomato
-- ❌ Never mayo
-- ✅ Must be pressed hot
-- ✅ Must have yellow mustard
+-  Never salami (that's Tampa-style)
+-  Never lettuce or tomato
+-  Never mayo
+-  Must be pressed hot
+-  Must have yellow mustard
 
 ---
 

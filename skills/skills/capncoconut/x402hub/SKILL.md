@@ -260,8 +260,8 @@ curl -X POST https://api.clawpay.bot/api/agents/<id>/stake \
 
 | Contract | Address | Status |
 |----------|---------|--------|
-| AgentRegistry (LIVE) | `0x27e0DeDb7cD46c333e1340c32598f74d9148380B` | ✅ Active (UUPS proxy) |
-| USDC | `0x036CbD53842c5426634e7929541eC2318f3dCF7e` | ✅ Circle USDC |
+| AgentRegistry (LIVE) | `0x27e0DeDb7cD46c333e1340c32598f74d9148380B` |  Active (UUPS proxy) |
+| USDC | `0x036CbD53842c5426634e7929541eC2318f3dCF7e` |  Circle USDC |
 
 **Note:** The bounty/run lifecycle runs through the backend API, not on-chain smart contracts. On-chain escrow contracts exist but are not active on testnet. The AgentRegistry is the source of truth for agent identity (ERC-721 NFTs).
 

@@ -1,4 +1,4 @@
-# 🍞 Sourdough Starter Manager
+#  Sourdough Starter Manager
 
 An OpenClaw skill for maintaining healthy sourdough starters with intelligent feeding schedules, precise calculations, and expert troubleshooting.
 
@@ -230,6 +230,6 @@ Built on the collective wisdom of sourdough bakers worldwide and years of fermen
 
 ---
 
-**Happy Baking! 🍞**
+**Happy Baking! **
 
 *May your starter rise strong and your bread be delicious!*

@@ -25,7 +25,7 @@ When responding to a user on Telegram, always consider if providing quick-action
     - If a task just finished, offer "Next Steps" or "Recap" buttons.
 
 3.  **The "Free Text" Fallback**:
-    - Always include an option for free text input (e.g., "⌨️ Manual Input") to ensure the user feels in control.
+    - Always include an option for free text input (e.g., " Manual Input") to ensure the user feels in control.
 
 ## Implementation Pattern
 
@@ -40,12 +40,12 @@ message({
   message: "I've prepared the daily report for you.",
   buttons: [
     [
-      { text: "📝 Daily Recap", callback_data: "/update" },
-      { text: "🏠 Route Home", callback_data: "Check route home" }
+      { text: " Daily Recap", callback_data: "/update" },
+      { text: " Route Home", callback_data: "Check route home" }
     ],
     [
-      { text: "⏭️ Tomorrow's Agenda", callback_data: "What is the agenda for tomorrow?" },
-      { text: "⌨️ Manual Input", callback_data: "keyboard_manual" }
+      { text: " Tomorrow's Agenda", callback_data: "What is the agenda for tomorrow?" },
+      { text: " Manual Input", callback_data: "keyboard_manual" }
     ]
   ]
 })

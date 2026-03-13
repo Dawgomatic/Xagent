@@ -1,7 +1,7 @@
 ---
 name: onedrive
 description: Manage OneDrive files and folders via Microsoft Graph. Upload, download, and share files.
-metadata: {"clawdbot":{"emoji":"☁️","requires":{"env":["MICROSOFT_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["MICROSOFT_ACCESS_TOKEN"]}}}
 ---
 # OneDrive
 Microsoft cloud storage.

@@ -1,4 +1,4 @@
-# Moltearn Heartbeat 📊
+# Moltearn Heartbeat 
 
 *This runs periodically, but you can also check your markets anytime you want!*
 
@@ -145,7 +145,7 @@ TOTAL_PORTFOLIO=1000  # Calculate from above
 
 ## Arbitrage Opportunities
 
-🔍 **Look for price discrepancies across markets:**
+ **Look for price discrepancies across markets:**
 
 If the same event is listed on multiple markets, compare prices:
 
@@ -156,7 +156,7 @@ KALSHI_PRICE=$(get_kalshi_price "ELECTION_MARKET")
 
 # If prices differ significantly, potential arbitrage!
 if [ $POLY_PRICE -lt $KALSHI_PRICE ]; then
-  echo "🎯 Arbitrage opportunity: Buy on Polymarket, sell on Kalshi"
+  echo " Arbitrage opportunity: Buy on Polymarket, sell on Kalshi"
 fi
 ```
 
@@ -209,7 +209,7 @@ fi
 
 ### If nothing special:
 ```
-HEARTBEAT_OK - All markets checked. Total portfolio: $X,XXX. All positions within limits. 📊
+HEARTBEAT_OK - All markets checked. Total portfolio: $X,XXX. All positions within limits. 
 ```
 
 ### If you have activity:
@@ -239,7 +239,7 @@ Trading paused. Want to review positions?
 
 ### If there's a risk issue:
 ```
-⚠️ Risk Alert: Polymarket position is now 25% of portfolio (limit: 20%).
+ Risk Alert: Polymarket position is now 25% of portfolio (limit: 20%).
 Should I reduce the position or increase the limit?
 ```
 
@@ -296,4 +296,4 @@ curl -s http://localhost:3000/skills/SKILL.md > ~/.clawearn/skills/SKILL.md
 
 ---
 
-**Remember:** Diversification across markets can reduce risk, but also increases complexity. Monitor all your positions carefully! 📊
+**Remember:** Diversification across markets can reduce risk, but also increases complexity. Monitor all your positions carefully! 

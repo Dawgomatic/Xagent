@@ -9,7 +9,7 @@ Dubai has one of the most modern road systems in the world, and for most expats,
 
 ---
 
-## 🚗 Do You Need a UAE Driving License?
+##  Do You Need a UAE Driving License?
 
 ### Quick Reference
 
@@ -30,7 +30,7 @@ Dubai has one of the most modern road systems in the world, and for most expats,
 
 ---
 
-## 📋 UAE License - Eligible Countries (Direct Conversion)
+##  UAE License - Eligible Countries (Direct Conversion)
 
 If your license is from these countries, you can **convert directly** without driving tests:
 
@@ -50,7 +50,7 @@ If your country isn't listed (India, Pakistan, Philippines, Bangladesh, Egypt, N
 
 ---
 
-## 📝 License Conversion Process (Exempt Countries)
+##  License Conversion Process (Exempt Countries)
 
 ### Required Documents
 - Original home country driving license (valid)
@@ -75,7 +75,7 @@ If your country isn't listed (India, Pakistan, Philippines, Bangladesh, Egypt, N
 
 ---
 
-## 🎓 Getting a License (Non-Exempt Countries)
+##  Getting a License (Non-Exempt Countries)
 
 ### Approved Driving Schools in Dubai
 | School | Location |
@@ -150,7 +150,7 @@ Tests include:
 
 ---
 
-## 🚙 Buying a Car
+##  Buying a Car
 
 ### New vs Used
 
@@ -204,7 +204,7 @@ Tests include:
 
 ---
 
-## 📑 Car Registration
+##  Car Registration
 
 ### New Car Registration
 - Dealer handles for first 2 years
@@ -229,7 +229,7 @@ Required every year:
 
 ---
 
-## 🛡️ Car Insurance
+##  Car Insurance
 
 ### Types of Insurance
 
@@ -262,7 +262,7 @@ Required every year:
 
 ---
 
-## 🛣️ Salik (Toll System)
+##  Salik (Toll System)
 
 ### What is Salik?
 Automatic toll system in Dubai. Your car passes through gates, and AED 4 is charged per crossing.
@@ -296,7 +296,7 @@ Automatic toll system in Dubai. Your car passes through gates, and AED 4 is char
 
 ---
 
-## ⚠️ Traffic Rules & Fines
+##  Traffic Rules & Fines
 
 ### Speed Limits
 
@@ -340,7 +340,7 @@ Automatic toll system in Dubai. Your car passes through gates, and AED 4 is char
 
 ---
 
-## 🅿️ Parking
+##  Parking
 
 ### Types of Paid Parking
 
@@ -370,7 +370,7 @@ Automatic toll system in Dubai. Your car passes through gates, and AED 4 is char
 
 ---
 
-## 🔧 Car Maintenance
+##  Car Maintenance
 
 ### Recommended Servicing
 | Service | Frequency |
@@ -398,7 +398,7 @@ Dubai heat is brutal on cars:
 
 ---
 
-## 🆘 Emergencies & Accidents
+##  Emergencies & Accidents
 
 ### If You Have an Accident
 
@@ -426,7 +426,7 @@ Dubai heat is brutal on cars:
 
 ---
 
-## 📱 Useful Apps
+##  Useful Apps
 
 | App | Purpose |
 |-----|---------|

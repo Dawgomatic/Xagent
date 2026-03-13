@@ -1,7 +1,7 @@
 ---
 name: airpoint
 description: Control a Mac through natural language — open apps, click buttons, read the screen, type text, manage windows, and automate multi-step tasks via Airpoint's AI computer-use agent.
-metadata: {"openclaw": {"emoji": "🖐️", "homepage": "https://airpoint.app", "requires": {"bins": ["airpoint"]}, "os": ["darwin"]}}
+metadata: {"openclaw": {"emoji": "", "homepage": "https://airpoint.app", "requires": {"bins": ["airpoint"]}, "os": ["darwin"]}}
 ---
 
 # Airpoint — AI Computer Use for macOS

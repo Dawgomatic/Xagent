@@ -35,7 +35,7 @@ INITIAL ACTIONS:
      Start technical analysis and debugging
 
 COMMUNICATION:
-  Subject: ⚠️ [SEV2] web-frontend - Users reporting slow page loads on the main websit...
+  Subject:  [SEV2] web-frontend - Users reporting slow page loads on the main websit...
   Urgency: SEV2
   Recipients: on-call, engineering-leadership, product-team
   Channels: pager, slack, email

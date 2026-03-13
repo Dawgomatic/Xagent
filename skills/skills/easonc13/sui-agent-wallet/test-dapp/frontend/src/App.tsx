@@ -112,7 +112,7 @@ export default function App() {
     <div style={styles.container}>
       <div style={styles.card}>
         <div style={styles.header}>
-          <h1 style={styles.title}>🔢 Counter DApp</h1>
+          <h1 style={styles.title}> Counter DApp</h1>
           <p style={styles.subtitle}>Sui Agent Wallet Demo</p>
         </div>
 

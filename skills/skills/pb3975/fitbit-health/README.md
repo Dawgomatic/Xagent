@@ -1,4 +1,4 @@
-# 💪 Fitbit Skill for Clawdbot
+#  Fitbit Skill for Clawdbot
 
 A [Clawdbot](https://github.com/clawdbot/clawdbot) skill that provides CLI access to Fitbit health data. Enables your AI agent to answer questions about your activity, heart rate, and fitness metrics.
 
@@ -8,12 +8,12 @@ A [Clawdbot](https://github.com/clawdbot/clawdbot) skill that provides CLI acces
 
 ## Features
 
-- 🔐 Secure OAuth 2.0 PKCE authentication
-- 📊 Activity summaries (steps, calories, distance, floors)
-- 💓 Heart rate and resting HR data
-- 🏃 Active minutes breakdown
-- 📅 Historical data by date
-- 🤖 Natural language queries through Clawdbot
+-  Secure OAuth 2.0 PKCE authentication
+-  Activity summaries (steps, calories, distance, floors)
+-  Heart rate and resting HR data
+-  Active minutes breakdown
+-  Historical data by date
+-  Natural language queries through Clawdbot
 
 ## Installation
 

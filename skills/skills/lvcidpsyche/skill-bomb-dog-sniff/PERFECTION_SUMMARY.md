@@ -1,12 +1,12 @@
 # bomb-dog-sniff v1.2.0 - Perfection Summary
 
-## 🐕‍🦺 Review & Refinement Complete
+##  Review & Refinement Complete
 
 The bomb-dog-sniff security skill has been reviewed and refined to production-ready perfection.
 
 ---
 
-## ✨ Major Improvements
+##  Major Improvements
 
 ### 1. **Enhanced Detection Patterns** (patterns.js)
 
@@ -42,7 +42,7 @@ The bomb-dog-sniff security skill has been reviewed and refined to production-re
 - Progress indicators for large scans
 
 **Better Output:**
-- Risk emojis (✅ ⚠️ 🚫 ☠️)
+- Risk emojis (   )
 - Formatted summary with visual separators
 - Top 15 findings with context
 - Scan duration reporting
@@ -72,7 +72,7 @@ The bomb-dog-sniff security skill has been reviewed and refined to production-re
 
 ---
 
-## 🛡️ Security Enhancements
+##  Security Enhancements
 
 ### Supply Chain Attack Detection
 - Typosquatting detection in imports
@@ -91,7 +91,7 @@ The bomb-dog-sniff security skill has been reviewed and refined to production-re
 
 ---
 
-## 📊 Risk Scoring Refinements
+##  Risk Scoring Refinements
 
 ### Severity Weights
 - **CRITICAL**: 25 points
@@ -111,7 +111,7 @@ The bomb-dog-sniff security skill has been reviewed and refined to production-re
 
 ---
 
-## 🎯 False Positive Reduction
+##  False Positive Reduction
 
 ### Documentation Whitelist
 ```javascript
@@ -132,7 +132,7 @@ Only matches actual key assignments with hex values, not documentation mentions.
 
 ---
 
-## 🚀 Performance Benchmarks
+##  Performance Benchmarks
 
 | Metric | Before | After | Improvement |
 |--------|--------|-------|-------------|
@@ -145,7 +145,7 @@ Only matches actual key assignments with hex values, not documentation mentions.
 
 ---
 
-## 📁 Files Changed
+##  Files Changed
 
 | File | Changes |
 |------|---------|
@@ -157,7 +157,7 @@ Only matches actual key assignments with hex values, not documentation mentions.
 
 ---
 
-## 🧪 Testing Recommendations
+##  Testing Recommendations
 
 ### Safe Skills (Should Pass)
 ```bash
@@ -179,27 +179,27 @@ openclaw skill bomb-dog-sniff batch all-skills.txt
 
 ---
 
-## 🔒 Security Posture
+##  Security Posture
 
 ### What We Catch
-- ✅ Crypto wallet stealers
-- ✅ Credential harvesters
-- ✅ Reverse shells
-- ✅ Keyloggers
-- ✅ Encoded payloads
-- ✅ Suspicious API calls
-- ✅ Supply chain attacks
-- ✅ Prototype pollution
-- ✅ Malicious npm scripts
+-  Crypto wallet stealers
+-  Credential harvesters
+-  Reverse shells
+-  Keyloggers
+-  Encoded payloads
+-  Suspicious API calls
+-  Supply chain attacks
+-  Prototype pollution
+-  Malicious npm scripts
 
 ### What We're Aware Of
-- ⚠️ Heavily obfuscated code may evade detection
-- ⚠️ Zero-day patterns not in signature database
-- ⚠️ Legitimate code might trigger low-confidence findings
+-  Heavily obfuscated code may evade detection
+-  Zero-day patterns not in signature database
+-  Legitimate code might trigger low-confidence findings
 
 ---
 
-## 📝 Usage Examples
+##  Usage Examples
 
 ### Basic Scan
 ```bash
@@ -223,7 +223,7 @@ node scan.js ./skill --json | jq '.riskScore'
 
 ---
 
-## 🎉 Summary
+##  Summary
 
 **bomb-dog-sniff v1.2.0** is now production-ready with:
 - 12 threat detection categories
@@ -233,7 +233,7 @@ node scan.js ./skill --json | jq '.riskScore'
 - Professional CLI output
 - CI/CD integration ready
 
-**Your skills are now protected by a trained security K9.** 🐕‍🦺
+**Your skills are now protected by a trained security K9.** 
 
 ---
 

@@ -7,7 +7,7 @@ author: vincentchan
 
 # Linear Autopilot
 
-> **🔒 Security Note:** This skill mentions API keys, tokens, and webhook URLs because it teaches you how to set up integrations with Linear, Discord, and automation services (Make.com, Pipedream, Zapier). These are necessary for the tutorial — the skill does NOT collect or transmit your credentials. All setup happens on your local machine and the services you configure.
+> ** Security Note:** This skill mentions API keys, tokens, and webhook URLs because it teaches you how to set up integrations with Linear, Discord, and automation services (Make.com, Pipedream, Zapier). These are necessary for the tutorial — the skill does NOT collect or transmit your credentials. All setup happens on your local machine and the services you configure.
 
 Automated pipeline: **Linear → Webhook Service → Discord → Clawdbot → Git**
 
@@ -20,9 +20,9 @@ Before setup, be aware of free plan limits:
 | Service | Free Tier Limits | Recommendation |
 |---------|------------------|----------------|
 | **Linear** | 250 issues, unlimited members | Sufficient for most personal/small team use |
-| **Make.com** | 1,000 ops/month, 2 scenarios, 15-min interval | ✅ **Best free option** — generous limits |
+| **Make.com** | 1,000 ops/month, 2 scenarios, 15-min interval |  **Best free option** — generous limits |
 | **Pipedream** | ~100 credits (unclear reset), instant triggers | Good if you need real-time, burns credits fast |
-| **Zapier** | 100 tasks/month, 5 zaps, 15-min polling, **no webhooks** | ⚠️ Paid plan required for this workflow |
+| **Zapier** | 100 tasks/month, 5 zaps, 15-min polling, **no webhooks** |  Paid plan required for this workflow |
 
 **Important notes:**
 - **Make.com** offers 1,000 ops/month free — our recommendation for free tier users
@@ -101,7 +101,7 @@ Quick setup:
 4. Message template:
    ```
    <@BOT_ID>
-   📋 New task: {{steps.trigger.event.data.title}}
+    New task: {{steps.trigger.event.data.title}}
      Status: {{steps.trigger.event.data.state.name}}
      ID: {{steps.trigger.event.data.identifier}}
    ```
@@ -151,7 +151,7 @@ When a task arrives in the Discord channel:
 Use message tool:
 - action: send
 - target: [user ID from config]
-- message: "📋 New task: [ID] - [title]. Starting now..."
+- message: " New task: [ID] - [title]. Starting now..."
 ```
 
 ### 3. Process Task

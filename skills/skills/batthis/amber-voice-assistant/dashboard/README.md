@@ -4,12 +4,12 @@ A beautiful web dashboard for viewing and managing call logs from the Amber Voic
 
 ## Features
 
-- 📞 Timeline view of all calls (inbound/outbound)
-- 📝 Full transcript display with captured messages
-- 📊 Statistics and filtering
-- 🔍 Search by name, number, or transcript content
-- 🔔 Follow-up tracking with localStorage persistence
-- ⚡ Auto-refresh when data changes (every 30s)
+-  Timeline view of all calls (inbound/outbound)
+-  Full transcript display with captured messages
+-  Statistics and filtering
+-  Search by name, number, or transcript content
+-  Follow-up tracking with localStorage persistence
+-  Auto-refresh when data changes (every 30s)
 
 ## Setup
 
@@ -120,7 +120,7 @@ node scripts/watch.js --logs /path/to/logs --out /path/to/data --interval-ms 200
 
 - **Stats Cards:** Click to filter by type (inbound, outbound, messages, etc.)
 - **Search:** Filter by name, number, transcript content, or Call SID
-- **Follow-ups:** Click 🔔 icon on any call to mark for follow-up
+- **Follow-ups:** Click  icon on any call to mark for follow-up
 - **Refresh:** Click ↻ button or wait for auto-refresh (30s)
 - **Transcript:** Click "Transcript" to expand full conversation
 

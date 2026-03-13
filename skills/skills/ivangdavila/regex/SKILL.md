@@ -1,7 +1,7 @@
 ---
 name: Regex
 description: Write correct, efficient regular expressions across different engines.
-metadata: {"clawdbot":{"emoji":"🔍","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Greedy vs Lazy

@@ -14,13 +14,13 @@ if (post.error) {
     process.exit(1);
 }
 console.log('━'.repeat(60));
-console.log(\`📝 \${post.title}\`);
-console.log(\`👤 @\${post.author} | 🦞 \${post.submolt} | ⬆️ \${post.upvotes}\`);
+console.log(\` \${post.title}\`);
+console.log(\` @\${post.author} |  \${post.submolt} |  \${post.upvotes}\`);
 console.log('━'.repeat(60));
 console.log(post.content);
 console.log('━'.repeat(60));
 if (post.comments?.length) {
-    console.log(\`\n💬 Comments (\${post.comments.length}):\`);
+    console.log(\`\n Comments (\${post.comments.length}):\`);
     post.comments.forEach(c => {
         console.log(\`  @\${c.author}: \${c.text}\`);
     });

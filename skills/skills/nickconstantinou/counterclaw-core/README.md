@@ -1,4 +1,4 @@
-# CounterClaw 🦞
+# CounterClaw 
 
 > Defensive security for AI agents. Snaps shut on malicious payloads.
 
@@ -30,18 +30,18 @@ result = interceptor.check_output("Contact: john@example.com")
 
 ## Features
 
-### 🔒 Prompt Injection Defense
+###  Prompt Injection Defense
 Blocks common patterns:
 - "Ignore previous instructions"
 - "Pretend to be DAN"
 - Role manipulation attempts
 
-### 🛡️ Basic PII Masking
+###  Basic PII Masking
 Detects in outputs:
 - Email addresses
 - Phone numbers
 
-### 📝 Local Logging
+###  Local Logging
 Violations logged to ~/.openclaw/memory/MEMORY.md with PII masked
 
 ## Installation

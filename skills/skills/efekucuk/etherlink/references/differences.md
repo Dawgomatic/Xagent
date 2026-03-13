@@ -29,7 +29,7 @@ Practical finality: ~30 seconds for Etherlink block, ~30 minutes for L1 finality
 
 ## Supported RPC Methods
 
-### Fully Supported ✅
+### Fully Supported 
 - `eth_blockNumber`
 - `eth_chainId`
 - `eth_getBalance`
@@ -47,7 +47,7 @@ Practical finality: ~30 seconds for Etherlink block, ~30 minutes for L1 finality
 - `eth_getTransactionCount`
 - `debug_traceTransaction`
 
-### Not Supported ❌
+### Not Supported 
 - `eth_subscribe` (experimental only, limited)
 - `eth_syncing`
 - `eth_newFilter`

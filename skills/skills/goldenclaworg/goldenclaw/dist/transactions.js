@@ -145,7 +145,7 @@ function formatTransactionError(error) {
 function formatSendResult(result) {
     if (result.success) {
         return [
-            `✅ Transaction Successful!`,
+            ` Transaction Successful!`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
             `Amount: ${result.amount} ${config_js_1.TOKEN_SYMBOL}`,
             `To: ${result.recipient}`,
@@ -155,7 +155,7 @@ function formatSendResult(result) {
         ].join('\n');
     }
     else {
-        return `❌ Transaction Failed: ${result.error}`;
+        return ` Transaction Failed: ${result.error}`;
     }
 }
 const MIN_SOL_FEE_LAMPORTS = 5000; // reserve for tx fee
@@ -230,7 +230,7 @@ async function donateSol(amountSol, password) {
 function formatDonateResult(result) {
     if (result.success) {
         return [
-            `✅ Donation Sent!`,
+            ` Donation Sent!`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
             `Amount: ${result.amountSol} SOL`,
             `To: ${config_js_1.GCLAW_DONATE_ADDRESS}`,
@@ -239,7 +239,7 @@ function formatDonateResult(result) {
             `View on Solscan: https://solscan.io/tx/${result.signature}`,
         ].join('\n');
     }
-    return `❌ Donation Failed: ${result.error}`;
+    return ` Donation Failed: ${result.error}`;
 }
 // =============================================================================
 // TRANSACTION HISTORY
@@ -348,14 +348,14 @@ function parseTransaction(tx, walletAddress, tokenAccountAddress) {
  */
 function formatTransactionHistory(transactions) {
     if (transactions.length === 0) {
-        return `📜 No transactions found yet.`;
+        return ` No transactions found yet.`;
     }
     const lines = [
-        `📜 Recent Transactions`,
+        ` Recent Transactions`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
     ];
     for (const tx of transactions) {
-        const icon = tx.type === 'send' ? '📤' : tx.type === 'receive' ? '📥' : '❓';
+        const icon = tx.type === 'send' ? '' : tx.type === 'receive' ? '' : '';
         const sign = tx.type === 'send' ? '-' : '+';
         const date = tx.timestamp ? tx.timestamp.toLocaleDateString() : 'Unknown';
         const time = tx.timestamp ? tx.timestamp.toLocaleTimeString() : '';

@@ -143,9 +143,9 @@ async function main() {
         }
         const available = await checkAvailability(name);
         if (available) {
-          console.log(`✅ ${name}.near is available!`);
+          console.log(` ${name}.near is available!`);
         } else {
-          console.log(`❌ ${name}.near is already taken.`);
+          console.log(` ${name}.near is already taken.`);
         }
         break;
 
@@ -171,7 +171,7 @@ async function main() {
         }
         console.log(`Registering ${name}.near for ${accountId}...`);
         await registerName(name, accountId);
-        console.log('✅ Registration successful!');
+        console.log(' Registration successful!');
         break;
 
       default:

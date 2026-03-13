@@ -1,5 +1,5 @@
 /**
- * 🦞 Molt-Solver - Automated Moltbook Verification
+ *  Molt-Solver - Automated Moltbook Verification
  * 
  * Tooling to parse and solve those annoying lobster math problems.
  */

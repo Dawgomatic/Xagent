@@ -1,7 +1,7 @@
 ---
 name: microsoft-teams
 description: Send messages, manage channels, and automate workflows via Microsoft Teams API. Post to channels, create meetings, and manage team memberships.
-metadata: {"clawdbot":{"emoji":"👥","requires":{"env":["TEAMS_WEBHOOK_URL"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["TEAMS_WEBHOOK_URL"]}}}
 ---
 
 # Microsoft Teams

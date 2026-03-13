@@ -1,4 +1,4 @@
-# Migration: The Art of Strategic Deferral 🔄
+# Migration: The Art of Strategic Deferral 
 
 ## Migration Is Not Failure
 
@@ -61,7 +61,7 @@ Incomplete Task:
 **Solution:** 
 - Break it into micro-steps
 - Ask: "What am I avoiding?"
-- Move to 💀 Dread Tasks collection with support plan
+- Move to  Dread Tasks collection with support plan
 
 ### The Aspirational Migration
 **Problem:** Tasks migrate indefinitely "someday"  
@@ -122,7 +122,7 @@ At week's end, ask:
 1. **What kept migrating?**
    - Is it too big? Break it down.
    - Is it unclear? Rewrite it.
-   - Am I avoiding it? 💀 Dread task protocol.
+   - Am I avoiding it?  Dread task protocol.
 
 2. **What did I drop?**
    - Was that the right choice?
@@ -156,9 +156,9 @@ Instead of | Try
 ## Migration Is Success
 
 Every migration is:
-- ✅ A conscious prioritization decision
-- ✅ Honesty about capacity
-- ✅ Trust in your future self
-- ✅ Flexibility in action
+-  A conscious prioritization decision
+-  Honesty about capacity
+-  Trust in your future self
+-  Flexibility in action
 
 **The goal isn't zero migrations. The goal is intentional migrations.**

@@ -115,11 +115,11 @@ def format_result(result: dict, use_json: bool = False) -> str:
     
     # Verdict symbols
     symbols = {
-        "allow": "✅",
-        "caution": "⚠️",
-        "block": "🚫",
+        "allow": "",
+        "caution": "",
+        "block": "",
     }
-    symbol = symbols.get(verdict, "❓")
+    symbol = symbols.get(verdict, "")
     
     lines = [
         f"{'='*60}",

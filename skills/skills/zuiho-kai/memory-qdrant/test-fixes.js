@@ -21,20 +21,20 @@ let testsFailed = 0;
 
 function assert(condition, message) {
   if (condition) {
-    console.log(`✅ PASS: ${message}`);
+    console.log(` PASS: ${message}`);
     testsPassed++;
   } else {
-    console.error(`❌ FAIL: ${message}`);
+    console.error(` FAIL: ${message}`);
     testsFailed++;
   }
 }
 
 function assertEquals(actual, expected, message) {
   if (actual === expected) {
-    console.log(`✅ PASS: ${message}`);
+    console.log(` PASS: ${message}`);
     testsPassed++;
   } else {
-    console.error(`❌ FAIL: ${message}`);
+    console.error(` FAIL: ${message}`);
     console.error(`  Expected: ${expected}`);
     console.error(`  Actual: ${actual}`);
     testsFailed++;
@@ -45,10 +45,10 @@ function assertEquals(actual, expected, message) {
 // 测试套件
 // ============================================================================
 
-console.log('\n🧪 开始自验证测试...\n');
+console.log('\n 开始自验证测试...\n');
 
 // 测试 1: sanitizeInput - HTML 标签清理
-console.log('📋 测试组 1: 输入清理 (sanitizeInput)');
+console.log(' 测试组 1: 输入清理 (sanitizeInput)');
 {
   const input1 = '<script>alert("xss")</script>Hello';
   const result1 = sanitizeInput(input1);
@@ -74,7 +74,7 @@ console.log('📋 测试组 1: 输入清理 (sanitizeInput)');
 }
 
 // 测试 2: detectCategory - 正则表达式一致性
-console.log('\n📋 测试组 2: 分类检测 (detectCategory)');
+console.log('\n 测试组 2: 分类检测 (detectCategory)');
 {
   // 测试电话号码（应该限制长度）
   const phone1 = '+1234567890';  // 10 位
@@ -106,7 +106,7 @@ console.log('\n📋 测试组 2: 分类检测 (detectCategory)');
 }
 
 // 测试 3: shouldCapture - 邮箱正则一致性
-console.log('\n📋 测试组 3: 捕获过滤 (shouldCapture)');
+console.log('\n 测试组 3: 捕获过滤 (shouldCapture)');
 {
   const email1 = 'My email is test@example.com';
   const result1 = shouldCapture(email1);
@@ -130,7 +130,7 @@ console.log('\n📋 测试组 3: 捕获过滤 (shouldCapture)');
 }
 
 // 测试 4: ReDoS 防护
-console.log('\n📋 测试组 4: ReDoS 防护');
+console.log('\n 测试组 4: ReDoS 防护');
 {
   // 测试可能导致 ReDoS 的输入
   const malicious1 = '+' + '1'.repeat(100);  // 超长电话号码
@@ -147,7 +147,7 @@ console.log('\n📋 测试组 4: ReDoS 防护');
 }
 
 // 测试 5: 边界情况
-console.log('\n📋 测试组 5: 边界情况');
+console.log('\n 测试组 5: 边界情况');
 {
   // null/undefined 输入
   const result1 = sanitizeInput(null);
@@ -168,7 +168,7 @@ console.log('\n📋 测试组 5: 边界情况');
 }
 
 // 测试 6: 中文支持
-console.log('\n📋 测试组 6: 中文支持');
+console.log('\n 测试组 6: 中文支持');
 {
   const chinese1 = '记住这个重要信息';
   const result1 = shouldCapture(chinese1);
@@ -192,17 +192,17 @@ console.log('\n📋 测试组 6: 中文支持');
 // ============================================================================
 
 console.log('\n' + '='.repeat(60));
-console.log('📊 测试结果汇总');
+console.log(' 测试结果汇总');
 console.log('='.repeat(60));
-console.log(`✅ 通过: ${testsPassed}`);
-console.log(`❌ 失败: ${testsFailed}`);
-console.log(`📈 通过率: ${((testsPassed / (testsPassed + testsFailed)) * 100).toFixed(1)}%`);
+console.log(` 通过: ${testsPassed}`);
+console.log(` 失败: ${testsFailed}`);
+console.log(` 通过率: ${((testsPassed / (testsPassed + testsFailed)) * 100).toFixed(1)}%`);
 console.log('='.repeat(60));
 
 if (testsFailed === 0) {
-  console.log('\n🎉 所有测试通过！代码修复验证成功。\n');
+  console.log('\n 所有测试通过！代码修复验证成功。\n');
   process.exit(0);
 } else {
-  console.log('\n⚠️  部分测试失败，请检查代码。\n');
+  console.log('\n  部分测试失败，请检查代码。\n');
   process.exit(1);
 }

@@ -473,16 +473,16 @@ class StrategyAnalyzer:
         # Based on overall score
         score = results['strategic_health_score']
         if score < 40:
-            recommendations.append('🚨 URGENT: Immediate turnaround required - consider bringing in crisis management team')
+            recommendations.append(' URGENT: Immediate turnaround required - consider bringing in crisis management team')
             recommendations.append('Focus on cash preservation and core business stabilization')
         elif score < 60:
-            recommendations.append('⚠️ Strategic repositioning needed - prioritize 2-3 key initiatives')
+            recommendations.append(' Strategic repositioning needed - prioritize 2-3 key initiatives')
             recommendations.append('Strengthen weak pillars before pursuing growth')
         elif score < 80:
             recommendations.append('✓ Solid position - focus on selective improvements and growth')
             recommendations.append('Invest in innovation and market expansion')
         else:
-            recommendations.append('⭐ Excellent position - maintain momentum and explore bold moves')
+            recommendations.append(' Excellent position - maintain momentum and explore bold moves')
             recommendations.append('Consider industry disruption or category creation')
         
         # Based on specific weaknesses

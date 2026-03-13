@@ -117,12 +117,12 @@ const RSS_FEEDS: Array<{ name: string; xmlUrl: string; htmlUrl: string }> = [
 type CategoryId = 'ai-ml' | 'security' | 'engineering' | 'tools' | 'opinion' | 'other';
 
 const CATEGORY_META: Record<CategoryId, { emoji: string; label: string }> = {
-  'ai-ml':       { emoji: '🤖', label: 'AI / ML' },
-  'security':    { emoji: '🔒', label: '安全' },
-  'engineering': { emoji: '⚙️', label: '工程' },
-  'tools':       { emoji: '🛠', label: '工具 / 开源' },
-  'opinion':     { emoji: '💡', label: '观点 / 杂谈' },
-  'other':       { emoji: '📝', label: '其他' },
+  'ai-ml':       { emoji: '', label: 'AI / ML' },
+  'security':    { emoji: '', label: '安全' },
+  'engineering': { emoji: '', label: '工程' },
+  'tools':       { emoji: '', label: '工具 / 开源' },
+  'opinion':     { emoji: '', label: '观点 / 杂谈' },
+  'other':       { emoji: '', label: '其他' },
 };
 
 interface Article {
@@ -896,39 +896,39 @@ function generateDigestReport(articles: ScoredArticle[], highlights: string, sta
   const now = new Date();
   const dateStr = now.toISOString().split('T')[0];
   
-  let report = `# 📰 AI 博客每日精选 — ${dateStr}\n\n`;
+  let report = `#  AI 博客每日精选 — ${dateStr}\n\n`;
   report += `> 来自 Karpathy 推荐的 ${stats.totalFeeds} 个顶级技术博客，AI 精选 Top ${articles.length}\n\n`;
 
   // ── Today's Highlights ──
   if (highlights) {
-    report += `## 📝 今日看点\n\n`;
+    report += `##  今日看点\n\n`;
     report += `${highlights}\n\n`;
     report += `---\n\n`;
   }
 
   // ── Top 3 Deep Showcase ──
   if (articles.length >= 3) {
-    report += `## 🏆 今日必读\n\n`;
+    report += `##  今日必读\n\n`;
     for (let i = 0; i < Math.min(3, articles.length); i++) {
       const a = articles[i];
-      const medal = ['🥇', '🥈', '🥉'][i];
+      const medal = ['', '', ''][i];
       const catMeta = CATEGORY_META[a.category];
       
       report += `${medal} **${a.titleZh || a.title}**\n\n`;
       report += `[${a.title}](${a.link}) — ${a.sourceName} · ${humanizeTime(a.pubDate)} · ${catMeta.emoji} ${catMeta.label}\n\n`;
       report += `> ${a.summary}\n\n`;
       if (a.reason) {
-        report += `💡 **为什么值得读**: ${a.reason}\n\n`;
+        report += ` **为什么值得读**: ${a.reason}\n\n`;
       }
       if (a.keywords.length > 0) {
-        report += `🏷️ ${a.keywords.join(', ')}\n\n`;
+        report += ` ${a.keywords.join(', ')}\n\n`;
       }
     }
     report += `---\n\n`;
   }
 
   // ── Visual Statistics ──
-  report += `## 📊 数据概览\n\n`;
+  report += `##  数据概览\n\n`;
 
   report += `| 扫描源 | 抓取文章 | 时间范围 | 精选 |\n`;
   report += `|:---:|:---:|:---:|:---:|\n`;
@@ -946,12 +946,12 @@ function generateDigestReport(articles: ScoredArticle[], highlights: string, sta
 
   const asciiChart = generateAsciiBarChart(articles);
   if (asciiChart) {
-    report += `<details>\n<summary>📈 纯文本关键词图（终端友好）</summary>\n\n${asciiChart}\n</details>\n\n`;
+    report += `<details>\n<summary> 纯文本关键词图（终端友好）</summary>\n\n${asciiChart}\n</details>\n\n`;
   }
 
   const tagCloud = generateTagCloud(articles);
   if (tagCloud) {
-    report += `### 🏷️ 话题标签\n\n${tagCloud}\n\n`;
+    report += `###  话题标签\n\n${tagCloud}\n\n`;
   }
 
   report += `---\n\n`;
@@ -977,10 +977,10 @@ function generateDigestReport(articles: ScoredArticle[], highlights: string, sta
       const scoreTotal = a.scoreBreakdown.relevance + a.scoreBreakdown.quality + a.scoreBreakdown.timeliness;
 
       report += `### ${globalIndex}. ${a.titleZh || a.title}\n\n`;
-      report += `[${a.title}](${a.link}) — **${a.sourceName}** · ${humanizeTime(a.pubDate)} · ⭐ ${scoreTotal}/30\n\n`;
+      report += `[${a.title}](${a.link}) — **${a.sourceName}** · ${humanizeTime(a.pubDate)} ·  ${scoreTotal}/30\n\n`;
       report += `> ${a.summary}\n\n`;
       if (a.keywords.length > 0) {
-        report += `🏷️ ${a.keywords.join(', ')}\n\n`;
+        report += ` ${a.keywords.join(', ')}\n\n`;
       }
       report += `---\n\n`;
     }
@@ -989,7 +989,7 @@ function generateDigestReport(articles: ScoredArticle[], highlights: string, sta
   // ── Footer ──
   report += `*生成于 ${dateStr} ${now.toISOString().split('T')[1]?.slice(0, 5) || ''} | 扫描 ${stats.successFeeds} 源 → 获取 ${stats.totalArticles} 篇 → 精选 ${articles.length} 篇*\n`;
   report += `*基于 [Hacker News Popularity Contest 2025](https://refactoringenglish.com/tools/hn-popularity/) RSS 源列表，由 [Andrej Karpathy](https://x.com/karpathy) 推荐*\n`;
-  report += `*由「懂点儿AI」制作，欢迎关注同名微信公众号获取更多 AI 实用技巧 💡*\n`;
+  report += `*由「懂点儿AI」制作，欢迎关注同名微信公众号获取更多 AI 实用技巧 *\n`;
 
   return report;
 }
@@ -1164,13 +1164,13 @@ async function main(): Promise<void> {
   await writeFile(outputPath, report);
   
   console.log('');
-  console.log(`[digest] ✅ Done!`);
-  console.log(`[digest] 📁 Report: ${outputPath}`);
-  console.log(`[digest] 📊 Stats: ${successfulSources.size} sources → ${allArticles.length} articles → ${recentArticles.length} recent → ${finalArticles.length} selected`);
+  console.log(`[digest]  Done!`);
+  console.log(`[digest]  Report: ${outputPath}`);
+  console.log(`[digest]  Stats: ${successfulSources.size} sources → ${allArticles.length} articles → ${recentArticles.length} recent → ${finalArticles.length} selected`);
   
   if (finalArticles.length > 0) {
     console.log('');
-    console.log(`[digest] 🏆 Top 3 Preview:`);
+    console.log(`[digest]  Top 3 Preview:`);
     for (let i = 0; i < Math.min(3, finalArticles.length); i++) {
       const a = finalArticles[i];
       console.log(`  ${i + 1}. ${a.titleZh || a.title}`);

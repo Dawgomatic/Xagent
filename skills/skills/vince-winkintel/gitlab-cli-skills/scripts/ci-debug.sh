@@ -15,7 +15,7 @@ if [ -z "$PIPELINE_ID" ]; then
     exit 1
 fi
 
-echo "🔍 Fetching pipeline #$PIPELINE_ID..."
+echo " Fetching pipeline #$PIPELINE_ID..."
 
 # Get pipeline status
 PIPELINE_STATUS=$(glab ci view "$PIPELINE_ID" --json status -q .status 2>/dev/null || echo "unknown")
@@ -24,15 +24,15 @@ echo "Pipeline Status: $PIPELINE_STATUS"
 echo ""
 
 # Get failed jobs
-echo "🔍 Finding failed jobs..."
+echo " Finding failed jobs..."
 FAILED_JOBS=$(glab ci view "$PIPELINE_ID" --json jobs -q '.jobs[] | select(.status=="failed") | .id' 2>/dev/null)
 
 if [ -z "$FAILED_JOBS" ]; then
-    echo "✅ No failed jobs found in pipeline #$PIPELINE_ID"
+    echo " No failed jobs found in pipeline #$PIPELINE_ID"
     exit 0
 fi
 
-echo "❌ Failed jobs found:"
+echo " Failed jobs found:"
 echo "$FAILED_JOBS" | while read -r job_id; do
     JOB_NAME=$(glab ci view "$PIPELINE_ID" --json jobs -q ".jobs[] | select(.id==$job_id) | .name")
     echo "  - Job #$job_id: $JOB_NAME"
@@ -40,7 +40,7 @@ done
 echo ""
 
 # Show logs for each failed job
-echo "📋 Fetching logs for failed jobs..."
+echo " Fetching logs for failed jobs..."
 echo "=================================="
 echo ""
 

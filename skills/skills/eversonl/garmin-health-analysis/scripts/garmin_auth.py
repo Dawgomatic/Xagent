@@ -14,7 +14,7 @@ import argparse
 try:
     from garminconnect import Garmin, GarminConnectAuthenticationError, GarminConnectConnectionError
 except ImportError:
-    print("❌ garminconnect library not installed", file=sys.stderr)
+    print(" garminconnect library not installed", file=sys.stderr)
     print("Install with: pip3 install garminconnect", file=sys.stderr)
     sys.exit(1)
 
@@ -30,14 +30,14 @@ def load_config():
         with open(CONFIG_FILE) as f:
             return json.load(f)
     except Exception as e:
-        print(f"⚠️  Failed to load config: {e}", file=sys.stderr)
+        print(f"  Failed to load config: {e}", file=sys.stderr)
         return None
 
 
 def login(email, password):
     """Perform login and save tokens using garminconnect's tokenstore."""
     try:
-        print(f"🔐 Logging in as {email}...", file=sys.stderr)
+        print(f" Logging in as {email}...", file=sys.stderr)
         
         # Create token directory
         TOKEN_DIR.mkdir(parents=True, exist_ok=True)
@@ -49,14 +49,14 @@ def login(email, password):
         
         # Save tokens to tokenstore
         client.garth.dump(tokenstore)
-        print(f"✅ Tokens saved to {tokenstore}", file=sys.stderr)
+        print(f" Tokens saved to {tokenstore}", file=sys.stderr)
         
         # Test the connection
         try:
             profile = client.get_user_summary(datetime.now().strftime("%Y-%m-%d"))
-            print(f"✅ Login successful! User: {profile.get('displayName', 'Unknown')}", file=sys.stderr)
+            print(f" Login successful! User: {profile.get('displayName', 'Unknown')}", file=sys.stderr)
         except Exception as e:
-            print(f"✅ Login successful! (Unable to fetch profile: {e})", file=sys.stderr)
+            print(f" Login successful! (Unable to fetch profile: {e})", file=sys.stderr)
         
         # Make tokenstore directory secure
         TOKEN_DIR.chmod(0o700)
@@ -64,11 +64,11 @@ def login(email, password):
         return True
         
     except GarminConnectAuthenticationError as e:
-        print(f"❌ Authentication failed: {e}", file=sys.stderr)
+        print(f" Authentication failed: {e}", file=sys.stderr)
         print("Check your email/password and try again.", file=sys.stderr)
         return False
     except Exception as e:
-        print(f"❌ Login error: {e}", file=sys.stderr)
+        print(f" Login error: {e}", file=sys.stderr)
         return False
 
 
@@ -89,7 +89,7 @@ def get_client():
         return client
         
     except Exception as e:
-        print(f"⚠️  Saved tokens expired or invalid: {e}", file=sys.stderr)
+        print(f"  Saved tokens expired or invalid: {e}", file=sys.stderr)
         return None
 
 
@@ -98,24 +98,24 @@ def check_status():
     tokenstore = str(TOKEN_DIR)
     
     if not TOKEN_DIR.exists():
-        print("❌ Not authenticated", file=sys.stderr)
+        print(" Not authenticated", file=sys.stderr)
         print("Run: python3 scripts/garmin_auth.py login", file=sys.stderr)
         return False
     
-    print(f"✅ Token store found at {tokenstore}", file=sys.stderr)
+    print(f" Token store found at {tokenstore}", file=sys.stderr)
     
     # Test if they work
     client = get_client()
     if client:
         try:
             profile = client.get_user_summary(datetime.now().strftime("%Y-%m-%d"))
-            print(f"✅ Authentication valid! User: {profile.get('displayName', 'Unknown')}", file=sys.stderr)
+            print(f" Authentication valid! User: {profile.get('displayName', 'Unknown')}", file=sys.stderr)
             return True
         except Exception as e:
-            print(f"⚠️  Tokens may be expired: {e}", file=sys.stderr)
+            print(f"  Tokens may be expired: {e}", file=sys.stderr)
             return False
     
-    print("❌ Authentication invalid. Please login again.", file=sys.stderr)
+    print(" Authentication invalid. Please login again.", file=sys.stderr)
     return False
 
 
@@ -149,7 +149,7 @@ def main():
             password = password or os.getenv("GARMIN_PASSWORD")
         
         if not email or not password:
-            print("❌ Email and password required", file=sys.stderr)
+            print(" Email and password required", file=sys.stderr)
             print("Set via:", file=sys.stderr)
             print("  1. CLI: --email and --password", file=sys.stderr)
             print("  2. Config: create config.json from config.example.json", file=sys.stderr)

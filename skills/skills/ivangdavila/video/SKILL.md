@@ -4,7 +4,7 @@ slug: video
 version: 1.0.1
 description: Process, edit, and optimize videos for any platform with compression, format conversion, captioning, and repurposing workflows.
 changelog: Declare required binaries (ffmpeg, ffprobe), add requirements section with optional deps, add explicit scope
-metadata: {"clawdbot":{"emoji":"🎬","requires":{"bins":["ffmpeg","ffprobe"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["ffmpeg","ffprobe"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Requirements

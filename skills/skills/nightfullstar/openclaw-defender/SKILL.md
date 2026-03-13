@@ -86,7 +86,7 @@ crontab -e
 ```bash
 ~/.openclaw/workspace/bin/check-integrity.sh
 ```
-Expected: "✅ All files integrity verified"
+Expected: " All files integrity verified"
 
 ### Monthly Security Audit
 
@@ -175,9 +175,9 @@ These config files are **protected**: file integrity monitoring tracks them (if 
 **NEVER install from ClawHub.** Period.
 
 **ONLY install skills that:**
-1. We created ourselves ✅
-2. Come from verified npm packages (>10k downloads, active maintenance) ⚠️ Review first
-3. Are from known trusted contributors ⚠️ Verify identity first
+1. We created ourselves 
+2. Come from verified npm packages (>10k downloads, active maintenance)  Review first
+3. Are from known trusted contributors  Verify identity first
 
 **BEFORE any external skill installation:**
 1. Manual SKILL.md review (line by line)
@@ -412,4 +412,4 @@ A: No tool catches everything. We detect KNOWN patterns. Defense in depth + huma
 
 **Remember:** Skills have root access. One malicious skill = total compromise. Stay vigilant.
 
-**Stay safe. Stay paranoid. Stay clawed. 🦞**
+**Stay safe. Stay paranoid. Stay clawed. **

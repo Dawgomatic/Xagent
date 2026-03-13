@@ -1,4 +1,4 @@
-# 📊 KPI Tracker — OpenClaw Skill
+#  KPI Tracker — OpenClaw Skill
 
 Track key business metrics, set targets, and get status reports — all through your AI agent.
 
@@ -26,11 +26,11 @@ No SaaS subscription. No dashboard login. Just ask your agent "how are we doing?
 ## Example Report
 
 ```
-📊 KPI Report — Week of Feb 10
+ KPI Report — Week of Feb 10
 
-🟢 MRR: $48,200 / $50,000 (96.4%)
-🔴 Churn: 8.1% / 3.0% — needs attention
-🟡 Lead Conversion: 11% / 15% — trending up
+ MRR: $48,200 / $50,000 (96.4%)
+ Churn: 8.1% / 3.0% — needs attention
+ Lead Conversion: 11% / 15% — trending up
 ```
 
 ## Works Great With
@@ -39,7 +39,7 @@ No SaaS subscription. No dashboard login. Just ask your agent "how are we doing?
 - **Slack/Telegram** — get KPI summaries delivered to your channel
 - **[AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/)** — pre-built KPI frameworks for Fintech, Healthcare, SaaS, Legal, and 7 more industries. Drop-in configs with industry-specific metrics already defined.
 
-## Built by AfrexAI 🖤💛
+## Built by AfrexAI 
 
 We build AI agent tools that actually work. Check out our free tools:
 - [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — see if AI agents make financial sense for your business

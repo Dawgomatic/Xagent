@@ -62,11 +62,11 @@ if json_mode:
     sys.exit(0)
 
 # Human-readable output
-print(f"📚 Lessons Learned ({len(resolved)} resolved pattern(s))")
+print(f" Lessons Learned ({len(resolved)} resolved pattern(s))")
 print("=" * 50)
 
 for name, data in resolved.items():
-    print(f"\n🎓 {name}")
+    print(f"\n {name}")
     print(f"   Context: {data.get('context', 'unknown')}")
     count = data.get('count', 0)
     days_clear = data.get('daysClear', 0)

@@ -21,25 +21,25 @@ Most health apps are passive — they store data and wait for you to look. Healt
 
 ## Features
 
-### 📊 Data Integration
+###  Data Integration
 - **Apple Health** via Health Auto Export (iCloud sync)
 - 39 metrics supported: HR, HRV, sleep, steps, temperature, BP, SpO2, and more
 - Hourly import option for real-time monitoring
 
-### 🔍 Pattern Detection
+###  Pattern Detection
 - Rolling averages with deviation alerts
 - Day-over-day comparisons
 - Correlation analysis (what affects what)
 - Trend direction (improving/declining/stable)
 
-### 🚨 Proactive Alerts
+###  Proactive Alerts
 - Fever detection (with baseline awareness)
 - Heart rate anomalies
 - Sleep degradation patterns
 - Missed medication inference
 - Configurable thresholds per metric
 
-### ♿ Accessibility-First
+###  Accessibility-First
 - Designed for humans with disabilities and chronic conditions
 - Understands that "normal" ranges may differ
 - Supports caregiver/agent notification patterns
@@ -126,7 +126,7 @@ All data stays local in `data/`:
 
 **Fever Detection:**
 ```
-🌡️ Temperature Alert
+ Temperature Alert
 Current: 100.8°F
 Baseline (14d avg): 98.2°F
 Deviation: +2.6°F
@@ -135,7 +135,7 @@ Action: Monitor closely. Consider hydration, check for infection signs.
 
 **Sleep Pattern:**
 ```
-😴 Sleep Degradation Detected
+ Sleep Degradation Detected
 Last 3 nights: 4.2h, 5.1h, 4.8h avg
 Previous week: 7.1h avg
 Deviation: -32%
@@ -155,4 +155,4 @@ Special considerations built in:
 
 Found a bug? Have a metric to add? PRs welcome.
 
-Built with 🎩 by Egvert — the agent who ships.
+Built with  by Egvert — the agent who ships.

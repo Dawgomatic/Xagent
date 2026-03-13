@@ -113,7 +113,7 @@ def merge_audio_files(audio_paths: list[str], output_path: str,
         duration_min = int(duration_sec // 60)
         duration_sec_remain = duration_sec % 60
         
-        print(f"\n✅ 合并完成!")
+        print(f"\n 合并完成!")
         print(f"   总时长: {duration_min}分{duration_sec_remain:.1f}秒")
         print(f"   文件大小: {os.path.getsize(output_path) / 1024:.1f} KB")
         
@@ -190,7 +190,7 @@ def merge_from_urls(urls: list[str], output_path: str,
     
     try:
         # 下载所有音频
-        print("📥 下载音频文件...")
+        print(" 下载音频文件...")
         audio_paths = []
         for i, url in enumerate(urls):
             local_path = download_audio(url, temp_dir, i)

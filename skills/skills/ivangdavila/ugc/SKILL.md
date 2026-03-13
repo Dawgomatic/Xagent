@@ -1,7 +1,7 @@
 ---
 name: UGC
 description: Create viral user-generated content for marketing with effective hooks, formats, and creator strategies.
-metadata: {"clawdbot":{"emoji":"📱","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Hook (First 1-3 Seconds)

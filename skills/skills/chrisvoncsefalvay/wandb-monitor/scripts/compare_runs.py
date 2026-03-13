@@ -130,7 +130,7 @@ def compare_configs(config_a: dict, config_b: dict) -> dict:
 def print_comparison(run_a, run_b, history_a: list, history_b: list, config_diff: dict):
     """Print side-by-side comparison."""
     print(f"\n{'='*70}")
-    print("🔬 RUN COMPARISON")
+    print(" RUN COMPARISON")
     print(f"{'='*70}")
     
     # Basic info
@@ -148,7 +148,7 @@ def print_comparison(run_a, run_b, history_a: list, history_b: list, config_diff
     print(f"Runtime: {runtime_a:<24.2f}h Runtime: {runtime_b:<24.2f}h")
     
     # Config differences
-    print(f"\n⚙️ CONFIG DIFFERENCES")
+    print(f"\n CONFIG DIFFERENCES")
     print("-" * 70)
     if config_diff["different"]:
         for key, vals in config_diff["different"].items():
@@ -164,7 +164,7 @@ def print_comparison(run_a, run_b, history_a: list, history_b: list, config_diff
         print(f"\n   Only in B: {config_diff['only_b']}")
     
     # Loss comparison
-    print(f"\n📉 LOSS COMPARISON")
+    print(f"\n LOSS COMPARISON")
     print("-" * 70)
     
     # Get losses at various steps
@@ -197,7 +197,7 @@ def print_comparison(run_a, run_b, history_a: list, history_b: list, config_diff
         print("   Insufficient loss data for comparison")
     
     # Gradient comparison
-    print(f"\n📊 GRADIENT NORM")
+    print(f"\n GRADIENT NORM")
     print("-" * 70)
     grads_a = [get_metric(r, "train/grad_norm", "grad_norm") for r in history_a if get_metric(r, "train/grad_norm", "grad_norm")]
     grads_b = [get_metric(r, "train/grad_norm", "grad_norm") for r in history_b if get_metric(r, "train/grad_norm", "grad_norm")]
@@ -209,7 +209,7 @@ def print_comparison(run_a, run_b, history_a: list, history_b: list, config_diff
         print(f"   Max:  {max(grads_a):.4f} (A) vs {max(grads_b):.4f} (B)")
     
     # Eval metrics
-    print(f"\n🎯 EVAL METRICS")
+    print(f"\n EVAL METRICS")
     print("-" * 70)
     eval_loss_a = get_metric(summary_a, "eval/loss", "eval_loss")
     eval_loss_b = get_metric(summary_b, "eval/loss", "eval_loss")
@@ -224,7 +224,7 @@ def print_comparison(run_a, run_b, history_a: list, history_b: list, config_diff
         print("   No eval metrics available")
     
     # Performance
-    print(f"\n⚡ PERFORMANCE")
+    print(f"\n PERFORMANCE")
     print("-" * 70)
     tps_a = get_metric(summary_a, "train/train_tokens_per_second", "tokens_per_second")
     tps_b = get_metric(summary_b, "train/train_tokens_per_second", "tokens_per_second")
@@ -240,18 +240,18 @@ def print_comparison(run_a, run_b, history_a: list, history_b: list, config_diff
     
     # Verdict
     print(f"\n{'='*70}")
-    print("📋 VERDICT")
+    print(" VERDICT")
     print("-" * 70)
     
     if loss_a and loss_b:
         if loss_a[-1] < loss_b[-1]:
             diff = ((loss_b[-1] - loss_a[-1]) / loss_b[-1]) * 100
-            print(f"   🏆 Run A has {diff:.1f}% lower loss")
+            print(f"    Run A has {diff:.1f}% lower loss")
         elif loss_b[-1] < loss_a[-1]:
             diff = ((loss_a[-1] - loss_b[-1]) / loss_a[-1]) * 100
-            print(f"   🏆 Run B has {diff:.1f}% lower loss")
+            print(f"    Run B has {diff:.1f}% lower loss")
         else:
-            print("   🤝 Runs are performing similarly")
+            print("    Runs are performing similarly")
     
     print(f"{'='*70}\n")
 

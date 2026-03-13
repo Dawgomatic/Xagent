@@ -1,7 +1,7 @@
 ---
 name: S3
 description: Work with S3-compatible object storage with proper security, lifecycle policies, and access patterns.
-metadata: {"clawdbot":{"emoji":"🪣","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Public Access Control

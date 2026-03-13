@@ -32,15 +32,15 @@ async function eval_(ws, expr) {
 (async () => {
   const ws = new WebSocket(CDP_WS);
   await new Promise(r => ws.on('open', r));
-  console.log('✅ CDP 연결');
+  console.log(' CDP 연결');
 
   // 현재 URL 확인
   let url = await eval_(ws, 'location.href');
-  console.log('📍 URL:', url);
+  console.log(' URL:', url);
 
   // GitHub 로그인 페이지인 경우
   if (url.includes('github.com/login')) {
-    console.log('🔐 GitHub 로그인 중...');
+    console.log(' GitHub 로그인 중...');
     
     // username
     await eval_(ws, `
@@ -58,15 +58,15 @@ async function eval_(ws, expr) {
     
     // submit
     await eval_(ws, `document.querySelector('input[type="submit"]').click()`);
-    console.log('  📤 로그인 제출');
+    console.log('   로그인 제출');
     await sleep(5000);
     
     url = await eval_(ws, 'location.href');
-    console.log('📍 로그인 후 URL:', url);
+    console.log(' 로그인 후 URL:', url);
     
     // OAuth authorize 페이지일 수 있음
     if (url.includes('authorize')) {
-      console.log('🔑 OAuth 승인 중...');
+      console.log(' OAuth 승인 중...');
       await eval_(ws, `
         const btn = document.querySelector('button[type="submit"][name="authorize"]') || 
                     document.querySelector('#js-oauth-authorize-btn') ||
@@ -75,16 +75,16 @@ async function eval_(ws, expr) {
       `);
       await sleep(5000);
       url = await eval_(ws, 'location.href');
-      console.log('📍 승인 후 URL:', url);
+      console.log(' 승인 후 URL:', url);
     }
   }
 
   // clawhub.ai로 돌아왔는지 확인
   if (!url.includes('clawhub')) {
-    console.log('⏳ clawhub으로 리다이렉트 대기...');
+    console.log(' clawhub으로 리다이렉트 대기...');
     await sleep(3000);
     url = await eval_(ws, 'location.href');
-    console.log('📍 URL:', url);
+    console.log(' URL:', url);
   }
 
   // upload 페이지로 이동
@@ -92,7 +92,7 @@ async function eval_(ws, expr) {
     await sendCDP(ws, 'Page.navigate', { url: 'https://clawhub.ai/upload' });
     await sleep(3000);
     url = await eval_(ws, 'location.href');
-    console.log('📍 upload 페이지:', url);
+    console.log(' upload 페이지:', url);
   }
 
   // 로그인 상태 확인
@@ -102,16 +102,16 @@ async function eval_(ws, expr) {
     if (signIn && signIn.textContent.includes('Sign in')) return 'NOT_LOGGED_IN';
     return 'LOGGED_IN';
   `);
-  console.log('🔐 상태:', loginState);
+  console.log(' 상태:', loginState);
 
   if (loginState === 'NOT_LOGGED_IN') {
-    console.log('❌ 로그인 실패. 수동으로 진행 필요.');
+    console.log(' 로그인 실패. 수동으로 진행 필요.');
     ws.close();
     return;
   }
 
   // 폼 채우기
-  console.log('📝 폼 채우기...');
+  console.log(' 폼 채우기...');
   await sleep(1000);
   
   const formResult = await eval_(ws, `
@@ -157,10 +157,10 @@ async function eval_(ws, expr) {
       return results.join(', ');
     })()
   `);
-  console.log('📝 결과:', formResult);
+  console.log(' 결과:', formResult);
 
   // 파일 업로드 — input[type=file] 사용
-  console.log('📦 파일 업로드...');
+  console.log(' 파일 업로드...');
   
   const skillDir = '/Users/tag/.openclaw/workspace/skills/openclaw-messenger';
   const filesToUpload = [
@@ -210,7 +210,7 @@ async function eval_(ws, expr) {
       return 'no upload target found. inputs: ' + document.querySelectorAll('input').length;
     })()
   `);
-  console.log('📂 업로드:', uploadResult);
+  console.log(' 업로드:', uploadResult);
   
   await sleep(2000);
   
@@ -221,7 +221,7 @@ async function eval_(ws, expr) {
     if (validIdx >= 0) return allText.slice(validIdx, validIdx + 200);
     return 'no validation section found';
   `);
-  console.log('✅ Validation:', validation);
+  console.log(' Validation:', validation);
 
   // 페이지 전체 input 상태
   const pageState = await eval_(ws, `
@@ -232,8 +232,8 @@ async function eval_(ws, expr) {
       fileCount: document.querySelectorAll('input[type="file"]').length
     })
   `);
-  console.log('📄 페이지 상태:', pageState);
+  console.log(' 페이지 상태:', pageState);
 
   ws.close();
-  console.log('\n🏁 완료');
-})().catch(e => console.error('❌', e.message));
+  console.log('\n 완료');
+})().catch(e => console.error('', e.message));

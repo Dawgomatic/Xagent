@@ -2,7 +2,7 @@
 
 Lightweight cleanup skill for AI agents with **automatic session management**. Removes cache files, logs, temporary files, and intelligently manages OpenClaw context to prevent token limit errors.
 
-## ⚠️ Security Notice
+##  Security Notice
 
 **This is a high-privilege skill** that requires file deletion, process execution, and optional network access. Before installation:
 1. **Read [SECURITY.md](SECURITY.md)** for complete security guidelines
@@ -131,27 +131,27 @@ Automatic emergency cleanup when context usage exceeds 95%:
 
 ## Features
 
-- 🧹 **Core Cleanup** - Cache, logs, temp files
-- 🗑️ **Memory Optimization** - Garbage collection
-- 📊 **Statistics** - Track cleanups and space saved
-- 🛡️ **Safe** - Protected file patterns
-- 🚀 **Minimal Dependencies** - Only Node.js built-ins
-- 🔍 **Context Monitoring** - Real-time token usage tracking
-- 🤖 **Auto-Cleanup** - Background session management
-- 📦 **Session Archiving** - Safe backup before deletion
-- 🚨 **Emergency Recovery** - Automatic critical cleanup
-- 📈 **Dashboard** - Beautiful CLI visualization
+-  **Core Cleanup** - Cache, logs, temp files
+-  **Memory Optimization** - Garbage collection
+-  **Statistics** - Track cleanups and space saved
+-  **Safe** - Protected file patterns
+-  **Minimal Dependencies** - Only Node.js built-ins
+-  **Context Monitoring** - Real-time token usage tracking
+-  **Auto-Cleanup** - Background session management
+-  **Session Archiving** - Safe backup before deletion
+-  **Emergency Recovery** - Automatic critical cleanup
+-  **Dashboard** - Beautiful CLI visualization
 
 ## Differences from Full Version
 
 This is a **lightweight version** for ClawHub.ai with only core cleanup features.
 
 **Missing features** (available in full version):
-- ⏰ Automated scheduling/cron
-- 💾 GitHub backups
-- 🔄 Auto-cleanup after git push
-- 📈 Advanced reporting
-- ⚙️ Complex configuration
+-  Automated scheduling/cron
+-  GitHub backups
+-  Auto-cleanup after git push
+-  Advanced reporting
+-  Complex configuration
 
 ## Full Version
 
@@ -517,4 +517,4 @@ MIT
 
 **Janitor v1.1.0** - Part of OpenClaw AI Agent Framework
 
-**Full Feature Complete** - All PRD features implemented ✅
+**Full Feature Complete** - All PRD features implemented 

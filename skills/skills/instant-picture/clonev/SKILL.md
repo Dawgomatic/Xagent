@@ -5,7 +5,7 @@ description: Clone any voice and generate speech using Coqui XTTS v2. SUPER SIMP
 
 # CloneV Skill - Voice Cloning Made Simple
 
-## ⚠️ CRITICAL INSTRUCTIONS FOR AI MODELS
+##  CRITICAL INSTRUCTIONS FOR AI MODELS
 
 **DO NOT** try to use Docker containers directly.
 **DO NOT** try to interact with `coqui-xtts` container - it is broken and restarting.
@@ -119,24 +119,24 @@ Full list: en, cs, de, fr, es, it, pl, pt, tr, ru, nl, ar, zh, ja, hu, ko
 - **Content**: Any speech (the actual words don't matter)
 
 **Good samples**:
-- ✅ Recording of someone speaking clearly
-- ✅ No music or noise in background
-- ✅ Consistent volume
+-  Recording of someone speaking clearly
+-  No music or noise in background
+-  Consistent volume
 
 **Bad samples**:
-- ❌ Music or songs
-- ❌ Heavy background noise
-- ❌ Very short (< 6 seconds)
-- ❌ Very long (> 30 seconds)
+-  Music or songs
+-  Heavy background noise
+-  Very short (< 6 seconds)
+-  Very long (> 30 seconds)
 
 ---
 
-## ⚠️ Important Notes
+##  Important Notes
 
 ### Model Download
 - First use downloads ~1.87GB model (one-time)
 - Model is stored at: `/mnt/c/TEMP/Docker-containers/coqui-tts/models-xtts/`
-- Status: ✅ Already downloaded
+- Status:  Already downloaded
 
 ### Processing Time
 - Takes 20-40 seconds depending on text length

@@ -3,7 +3,7 @@ name: claude-code-teams
 description: Production skill for orchestrating Claude Code's native agent teams feature. Use when: (1) Multi-lens reviews, (2) Competing hypotheses debugging, (3) Full-stack features, (4) Architecture debates, (5) Cross-domain investigations.
 metadata:
   openclaw:
-    emoji: "🎭"
+    emoji: ""
     requires:
       bins: ["claude"]
       env: ["CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS"]
@@ -18,7 +18,7 @@ Orchestrate multiple Claude Code agents working together on complex tasks. Agent
 
 ## When to Use
 
-✅ **Use for parallel independent work:**
+ **Use for parallel independent work:**
 - Multi-lens code reviews (security, performance, tests in parallel)
 - Debugging with competing hypotheses (test theories simultaneously)
 - Full-stack features (frontend/backend/tests by separate specialists)
@@ -26,7 +26,7 @@ Orchestrate multiple Claude Code agents working together on complex tasks. Agent
 - Cross-domain investigations (bottleneck analysis across systems)
 - Data-parallel work (inventory classification, bulk refactoring)
 
-❌ **Don't use for:**
+ **Don't use for:**
 - Sequential work with tight dependencies
 - Same-file edits (conflict risk)
 - Simple tasks (coordination overhead > benefit)

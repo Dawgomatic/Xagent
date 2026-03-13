@@ -30,10 +30,10 @@ Use for lightweight tasks:
 9. Provide concise output, just plain answer, no explaining
 
 **DO NOT:**
-- ❌ DO NOT CODE WITH GLM-4.7
-- ❌ DO NOT ANALYZE USING GLM-4.7
-- ❌ DO NOT ATTEMPT ANY REASONING USING GLM-4.7
-- ❌ DO NOT RESEARCH USING GLM-4.7
+-  DO NOT CODE WITH GLM-4.7
+-  DO NOT ANALYZE USING GLM-4.7
+-  DO NOT ATTEMPT ANY REASONING USING GLM-4.7
+-  DO NOT RESEARCH USING GLM-4.7
 - If you think the request does not fall into point 1-8, THEN ESCALATE TO GLM-5
 - If you think you will violate the DO NOT list, THEN ESCALATE TO GLM-5
 

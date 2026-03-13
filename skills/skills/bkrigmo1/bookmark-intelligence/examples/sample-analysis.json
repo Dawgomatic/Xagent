@@ -1,7 +1,7 @@
 {
   "bookmark": {
     "id": "1234567890123456789",
-    "text": "Just discovered this amazing approach to building AI agents that can remember context across sessions using vector embeddings + semantic search. Game changer for long-running automation tasks. 🤖\n\nhttps://example.com/article-about-ai-memory",
+    "text": "Just discovered this amazing approach to building AI agents that can remember context across sessions using vector embeddings + semantic search. Game changer for long-running automation tasks. \n\nhttps://example.com/article-about-ai-memory",
     "author": {
       "username": "ai_researcher",
       "name": "AI Research Daily"

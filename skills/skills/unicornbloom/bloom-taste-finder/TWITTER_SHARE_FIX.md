@@ -25,23 +25,23 @@ export const runtime = 'edge';
 const PERSONALITY_CONFIG: Record<string, { gradient: string; emoji: string }> = {
   'visionary': {
     gradient: 'linear-gradient(135deg, #9333ea, #7c3aed)',
-    emoji: '💜',
+    emoji: '',
   },
   'explorer': {
     gradient: 'linear-gradient(135deg, #10b981, #059669)',
-    emoji: '💚',
+    emoji: '',
   },
   'cultivator': {
     gradient: 'linear-gradient(135deg, #06b6d4, #0891b2)',
-    emoji: '🩵',
+    emoji: '',
   },
   'optimizer': {
     gradient: 'linear-gradient(135deg, #f97316, #ea580c)',
-    emoji: '🧡',
+    emoji: '',
   },
   'innovator': {
     gradient: 'linear-gradient(135deg, #3b82f6, #2563eb)',
-    emoji: '💙',
+    emoji: '',
   },
 };
 
@@ -381,9 +381,9 @@ https://preflight.bloomprotocol.ai/api/og/agent/123
 1. 訪問：https://cards-dev.twitter.com/validator
 2. 輸入你的 agent URL：`https://preflight.bloomprotocol.ai/agents/123`
 3. 檢查預覽：
-   - ✅ 應該顯示卡片圖片
-   - ✅ 標題：`{personalityType} | Bloom Identity`
-   - ✅ 描述：tagline
+   -  應該顯示卡片圖片
+   -  標題：`{personalityType} | Bloom Identity`
+   -  描述：tagline
 
 ---
 
@@ -395,13 +395,13 @@ https://preflight.bloomprotocol.ai/api/og/agent/123
 const handleShareOnX = () => {
   if (!agentData) return;
 
-  const shareText = `I just discovered my Bloom Identity: ${agentData.personalityType}! 🌸
+  const shareText = `I just discovered my Bloom Identity: ${agentData.personalityType}! 
 
 "${agentData.tagline}"
 
 Top categories: ${agentData.mainCategories.slice(0, 2).join(', ')}
 
-Check out my personalized skill recommendations 👇`;
+Check out my personalized skill recommendations `;
 
   const shareUrl = window.location.href;
 
@@ -415,10 +415,10 @@ Check out my personalized skill recommendations 👇`;
 ```
 
 **結果**：
-- ✅ 包含個性化文案
-- ✅ 包含 tagline
-- ✅ 包含 top categories
-- ✅ OG image 會自動附加（Twitter 會抓取）
+-  包含個性化文案
+-  包含 tagline
+-  包含 top categories
+-  OG image 會自動附加（Twitter 會抓取）
 
 ---
 
@@ -437,7 +437,7 @@ const handleCopyLink = () => {
 
 // 在 UI 中：
 <button onClick={handleCopyLink}>
-  {copied ? '✅ Copied!' : '📋 Copy Link'}
+  {copied ? ' Copied!' : ' Copy Link'}
 </button>
 ```
 
@@ -472,14 +472,14 @@ const handleCopyLink = () => {
 [用戶的分享文案]
 
 ┌─────────────────────────────────┐
-│  💜                              │
+│                                │
 │  The Visionary                   │
 │  "See beyond the hype"           │
 │                                  │
-│  🎯 50    💡 75                  │
+│   50     75                  │
 │  Conviction  Intuition           │
 │                                  │
-│  🏷️ Crypto · AI Tools            │
+│   Crypto · AI Tools            │
 │                                  │
 │  bloomprotocol.ai                │
 └─────────────────────────────────┘

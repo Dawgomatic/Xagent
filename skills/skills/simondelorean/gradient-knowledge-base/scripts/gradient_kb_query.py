@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🦞 Gradient AI — Knowledge Base Query
+ Gradient AI — Knowledge Base Query
 
 Query a DigitalOcean Gradient Knowledge Base with semantic or hybrid search.
 Optionally combine with an LLM call for full RAG (Retrieval-Augmented Generation).
@@ -206,7 +206,7 @@ def query_with_rag(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🦞 Query a Gradient Knowledge Base"
+        description=" Query a Gradient Knowledge Base"
     )
     parser.add_argument("--query", required=True, help="Search query")
     parser.add_argument("--kb-uuid", default=None, help="Knowledge Base UUID")
@@ -231,7 +231,7 @@ def main():
             print(json.dumps(result, indent=2))
         elif result["success"]:
             print(result["answer"])
-            print(f"\n📚 Used {result['sources_count']} sources.", file=sys.stderr)
+            print(f"\n Used {result['sources_count']} sources.", file=sys.stderr)
         else:
             print(f"Error: {result['message']}", file=sys.stderr)
             sys.exit(1)
@@ -249,7 +249,7 @@ def main():
                 content = r.get("content", r.get("text", ""))
                 score = r.get("score", 0)
                 print(f"[{i}] (score: {score:.2f}) {content[:200]}...")
-            print(f"\n🔍 {result['message']}", file=sys.stderr)
+            print(f"\n {result['message']}", file=sys.stderr)
         else:
             print(f"Error: {result['message']}", file=sys.stderr)
             sys.exit(1)

@@ -36,7 +36,7 @@ Most meeting skills just pull calendar events. This one:
 
 Zero dependencies. Works with any calendar. Pure agent skill.
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific meeting frameworks (discovery calls, vendor evaluations, compliance reviews)?
 
@@ -45,7 +45,7 @@ Want industry-specific meeting frameworks (discovery calls, vendor evaluations, 
 - **Professional Services Pack** — SOW review meetings, client kickoffs, project retros
 - **Recruitment Pack** — Interview scorecards, panel coordination, offer call scripts
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Find and qualify leads
 - [afrexai-seo-content-engine](https://clawhub.com/skills/afrexai-seo-content-engine) — SEO content that ranks

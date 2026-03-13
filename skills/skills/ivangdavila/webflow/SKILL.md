@@ -3,7 +3,7 @@ name: Webflow
 slug: webflow
 version: 1.0.0
 description: Build, launch, and optimize Webflow sites with responsive design, CMS architecture, and clean handoffs.
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

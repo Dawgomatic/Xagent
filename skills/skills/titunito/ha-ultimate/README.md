@@ -1,4 +1,4 @@
-# 🏠 ha-ultimate — Definitive Home Assistant Skill
+#  ha-ultimate — Definitive Home Assistant Skill
 
 The most comprehensive Home Assistant skill for AI agents. Control 25+ entity domains
 via REST API with safety enforcement, entity inventory generation, a CLI wrapper,
@@ -19,7 +19,7 @@ Works with [OpenClaw](https://github.com/openclaw/openclaw),
 | **Safety system** | Layered: mandatory confirmation rules + blocked entities file |
 | **CLI wrapper** | `scripts/ha.sh` — one-liner commands for everything |
 | **Entity inventory** | `scripts/inventory.js` — generates full ENTITIES.md with areas |
-| **Webhooks** | Bidirectional HA ↔ Agent communication |
+| **Webhooks** | Bidirectional HA  Agent communication |
 | **Dashboard** | Quick status command for presence, lights, temps, locks, doors |
 | **Templates** | Jinja2 template evaluation via /api/template |
 | **History** | Entity state history and logbook queries |

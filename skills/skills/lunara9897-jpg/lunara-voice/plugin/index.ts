@@ -187,11 +187,11 @@ export default function register(api: any) {
       });
       if (body.success && body.api_key) {
         return textResult(
-          `✅ API Key created!\n\n` +
-            `🔑 Key: ${body.api_key}\n` +
-            `📛 Name: ${body.name}\n` +
-            `🆔 Key ID: ${body.key_id}\n\n` +
-            `⚠️ SAVE THIS KEY NOW — it will NOT be shown again.`,
+          ` API Key created!\n\n` +
+            ` Key: ${body.api_key}\n` +
+            ` Name: ${body.name}\n` +
+            ` Key ID: ${body.key_id}\n\n` +
+            ` SAVE THIS KEY NOW — it will NOT be shown again.`,
         );
       }
       return jsonResult(body);
@@ -218,7 +218,7 @@ export default function register(api: any) {
             `• ${k.prefix} | Name: ${k.name} | Status: ${k.status} | Env: ${k.env} | Created: ${k.created_at}`,
         );
         return textResult(
-          `📋 API Keys (${body.count}/${body.limit} limit):\n\n${lines.join("\n")}`,
+          ` API Keys (${body.count}/${body.limit} limit):\n\n${lines.join("\n")}`,
         );
       }
       return jsonResult(body);
@@ -295,7 +295,7 @@ export default function register(api: any) {
             `  Name: ${a.name} | Voice: ${a.voice} | Lang: ${a.language}\n` +
             `  SIP: ${a.has_sip ? `${a.sip_provider} → ${a.sip_uri}` : "not configured"}`,
         );
-        return textResult(`🤖 Voice Agents (${body.agents.length}):\n\n${lines.join("\n\n")}`);
+        return textResult(` Voice Agents (${body.agents.length}):\n\n${lines.join("\n\n")}`);
       }
       return jsonResult(body);
     },
@@ -324,13 +324,13 @@ export default function register(api: any) {
       if (body.success && body.agent) {
         const a = body.agent;
         return textResult(
-          `🤖 Agent: ${a.name}\n` +
-            `🆔 ID: ${a.id}\n` +
-            `🗣️ Voice: ${a.voice} | Language: ${a.language}\n` +
-            `⏱️ Minutes balance: ${a.minutes_balance}\n` +
-            `📞 SIP: ${a.has_sip ? `${a.sip_provider} → ${a.sip_uri}` : "not configured"}\n` +
-            `👋 Greeting: ${a.greeting || "(none)"}\n` +
-            `📝 Prompt (first 500 chars): ${(a.prompt || "").substring(0, 500)}${(a.prompt || "").length > 500 ? "..." : ""}`,
+          ` Agent: ${a.name}\n` +
+            ` ID: ${a.id}\n` +
+            ` Voice: ${a.voice} | Language: ${a.language}\n` +
+            ` Minutes balance: ${a.minutes_balance}\n` +
+            ` SIP: ${a.has_sip ? `${a.sip_provider} → ${a.sip_uri}` : "not configured"}\n` +
+            ` Greeting: ${a.greeting || "(none)"}\n` +
+            ` Prompt (first 500 chars): ${(a.prompt || "").substring(0, 500)}${(a.prompt || "").length > 500 ? "..." : ""}`,
         );
       }
       return jsonResult(body);
@@ -388,14 +388,14 @@ export default function register(api: any) {
       // Client-side voice validation
       if (params.voice && !ALLOWED_VOICES.includes(params.voice as any)) {
         return textResult(
-          `❌ Invalid voice "${params.voice}". Allowed: ${ALLOWED_VOICES.join(", ")}`,
+          ` Invalid voice "${params.voice}". Allowed: ${ALLOWED_VOICES.join(", ")}`,
         );
       }
 
       // Client-side prompt length validation
       if (params.prompt && params.prompt.length > 50000) {
         return textResult(
-          `❌ Prompt too long (${params.prompt.length} chars). Maximum is 50000.`,
+          ` Prompt too long (${params.prompt.length} chars). Maximum is 50000.`,
         );
       }
 
@@ -418,7 +418,7 @@ export default function register(api: any) {
       }
 
       if (Object.keys(updateBody).length === 0) {
-        return textResult("❌ No fields provided to update. Pass at least one field.");
+        return textResult(" No fields provided to update. Pass at least one field.");
       }
 
       const { body } = await apiCall(`${baseUrl(cfg)}/agents/${params.assistant_id}`, {
@@ -429,7 +429,7 @@ export default function register(api: any) {
 
       if (body.success) {
         return textResult(
-          `✅ Agent ${params.assistant_id} updated.\n` +
+          ` Agent ${params.assistant_id} updated.\n` +
             `Changed fields: ${body.message || Object.keys(updateBody).join(", ")}`,
         );
       }
@@ -483,11 +483,11 @@ export default function register(api: any) {
       const cfg = getConfig(api);
 
       if (!params.contacts || params.contacts.length === 0) {
-        return textResult("❌ Contacts list is empty.");
+        return textResult(" Contacts list is empty.");
       }
       if (params.contacts.length > 10000) {
         return textResult(
-          `❌ Too many contacts (${params.contacts.length}). Maximum is 10000 per upload.`,
+          ` Too many contacts (${params.contacts.length}). Maximum is 10000 per upload.`,
         );
       }
 
@@ -503,14 +503,14 @@ export default function register(api: any) {
 
       if (body.success) {
         let msg =
-          `✅ Campaign created!\n` +
-          `🆔 Campaign ID: ${body.campaign_id}\n` +
-          `📊 Valid contacts: ${body.total_contacts}\n` +
-          `⚠️ Skipped (invalid): ${body.invalid_skipped}`;
+          ` Campaign created!\n` +
+          ` Campaign ID: ${body.campaign_id}\n` +
+          ` Valid contacts: ${body.total_contacts}\n` +
+          ` Skipped (invalid): ${body.invalid_skipped}`;
         if (body.errors && body.errors.length > 0) {
           msg += `\n\nErrors:\n${body.errors.join("\n")}`;
         }
-        msg += `\n\n💡 Use lunara_campaign_start with this campaign_id to begin calling.`;
+        msg += `\n\n Use lunara_campaign_start with this campaign_id to begin calling.`;
         return textResult(msg);
       }
       return jsonResult(body);
@@ -538,10 +538,10 @@ export default function register(api: any) {
           (c: any) =>
             `• ${c.name} (${c.status})\n` +
             `  ID: ${c.id}\n` +
-            `  Progress: ${c.processed}/${c.total_contacts} | ✅ ${c.successful} | ❌ ${c.failed}\n` +
+            `  Progress: ${c.processed}/${c.total_contacts} |  ${c.successful} |  ${c.failed}\n` +
             `  Created: ${c.created_at}`,
         );
-        return textResult(`📋 Campaigns (${body.campaigns.length}):\n\n${lines.join("\n\n")}`);
+        return textResult(` Campaigns (${body.campaigns.length}):\n\n${lines.join("\n\n")}`);
       }
       return jsonResult(body);
     },
@@ -574,22 +574,22 @@ export default function register(api: any) {
             ? ((c.processed / c.total_contacts) * 100).toFixed(1)
             : "0";
         const statusEmoji: Record<string, string> = {
-          pending: "⏳",
-          running: "▶️",
-          paused: "⏸️",
-          completed: "✅",
-          failed: "❌",
-          error: "🚨",
+          pending: "",
+          running: "",
+          paused: "",
+          completed: "",
+          failed: "",
+          error: "",
         };
         return textResult(
-          `${statusEmoji[c.status] || "❓"} Campaign: ${c.name}\n` +
-            `🆔 ID: ${c.id}\n` +
-            `📊 Status: ${c.status.toUpperCase()}\n` +
-            `👤 Agent: ${c.assistant_id}\n\n` +
+          `${statusEmoji[c.status] || ""} Campaign: ${c.name}\n` +
+            ` ID: ${c.id}\n` +
+            ` Status: ${c.status.toUpperCase()}\n` +
+            ` Agent: ${c.assistant_id}\n\n` +
             `Progress: ${c.processed}/${c.total_contacts} (${pct}%)\n` +
-            `  ✅ Successful: ${c.successful}\n` +
-            `  ❌ Failed: ${c.failed}\n` +
-            `  ⏳ Remaining: ${c.total_contacts - c.processed}\n\n` +
+            `   Successful: ${c.successful}\n` +
+            `   Failed: ${c.failed}\n` +
+            `   Remaining: ${c.total_contacts - c.processed}\n\n` +
             `Created: ${c.created_at}\n` +
             `Updated: ${c.updated_at}`,
         );
@@ -624,15 +624,15 @@ export default function register(api: any) {
       );
       if (status === 402) {
         return textResult(
-          "⚠️ Insufficient minutes on agent balance. Top up minutes before starting the campaign.",
+          " Insufficient minutes on agent balance. Top up minutes before starting the campaign.",
         );
       }
       if (body.success) {
         return textResult(
-          `▶️ Campaign started!\n` +
-            `🆔 ID: ${body.campaign_id}\n\n` +
-            `💡 Use lunara_campaign_get to monitor progress.\n` +
-            `💡 Use lunara_campaign_stop to pause if needed.`,
+          ` Campaign started!\n` +
+            ` ID: ${body.campaign_id}\n\n` +
+            ` Use lunara_campaign_get to monitor progress.\n` +
+            ` Use lunara_campaign_stop to pause if needed.`,
         );
       }
       return jsonResult(body);
@@ -662,7 +662,7 @@ export default function register(api: any) {
         },
       );
       if (body.success) {
-        return textResult(`⏸️ Campaign stop signal sent. Status will change to "paused".`);
+        return textResult(` Campaign stop signal sent. Status will change to "paused".`);
       }
       return jsonResult(body);
     },
@@ -702,16 +702,16 @@ export default function register(api: any) {
       });
       if (status === 402) {
         return textResult(
-          "⚠️ Cannot place call — insufficient minutes on agent balance. Please top up.",
+          " Cannot place call — insufficient minutes on agent balance. Please top up.",
         );
       }
       if (body.success) {
         const sid = body.call_sid || body.sid || body.uniqueid || "N/A";
         return textResult(
-          `📞 Call initiated!\n` +
-            `📱 To: ${params.to_number}\n` +
-            `🤖 Agent: ${params.assistant_id}\n` +
-            `🆔 Call SID: ${sid}`,
+          ` Call initiated!\n` +
+            ` To: ${params.to_number}\n` +
+            ` Agent: ${params.assistant_id}\n` +
+            ` Call SID: ${sid}`,
         );
       }
       return jsonResult(body);
@@ -749,9 +749,9 @@ export default function register(api: any) {
       const { body } = await apiCall(`${clawbotUrl(cfg)}/health`, { method: "GET" });
       if (body.status === "ok") {
         return textResult(
-          `✅ ClawBot History API: ONLINE\n` +
-            `🕐 ${body.timestamp}\n` +
-            `📦 Features: ${(body.features || []).join(", ")}`,
+          ` ClawBot History API: ONLINE\n` +
+            ` ${body.timestamp}\n` +
+            ` Features: ${(body.features || []).join(", ")}`,
         );
       }
       return jsonResult(body);
@@ -853,9 +853,9 @@ export default function register(api: any) {
             `  Sentiment: ${c.sentiment_label || "n/a"} | Summary: ${(c.summary || "n/a").substring(0, 120)}`,
         );
         return textResult(
-          `📋 Call History (page ${pg.page}/${pg.total_pages}, ${pg.total_records} total):\n\n` +
+          ` Call History (page ${pg.page}/${pg.total_pages}, ${pg.total_records} total):\n\n` +
             lines.join("\n\n") +
-            (pg.has_next ? `\n\n💡 More results available — use page=${pg.page + 1}` : ""),
+            (pg.has_next ? `\n\n More results available — use page=${pg.page + 1}` : ""),
         );
       }
       return jsonResult(body);
@@ -905,19 +905,19 @@ export default function register(api: any) {
       if (body.success && body.conversation) {
         const c = body.conversation;
         let output =
-          `📞 Call Detail: ${c.id}\n` +
-          `🕐 ${c.created_at} | ${c.direction || "?"} | Duration: ${c.call_duration_seconds ?? "?"}s\n` +
-          `📱 Caller: ${c.caller || "unknown"} → DID: ${c.did || "unknown"}\n` +
-          `🎭 Sentiment: ${c.sentiment_label || "n/a"} (${c.sentiment_score ?? "n/a"})\n` +
-          `📊 Quality: ${c.quality_score ?? "n/a"} | Resolution: ${c.resolution_status || "n/a"}\n` +
-          `📝 Summary: ${c.summary || "n/a"}\n` +
-          `🏷️ Topics: ${(c.topics || []).join(", ") || "none"}\n` +
-          `🔖 Tags: ${(body.tags || []).map((t: any) => t.tag).join(", ") || "none"}`;
+          ` Call Detail: ${c.id}\n` +
+          ` ${c.created_at} | ${c.direction || "?"} | Duration: ${c.call_duration_seconds ?? "?"}s\n` +
+          ` Caller: ${c.caller || "unknown"} → DID: ${c.did || "unknown"}\n` +
+          ` Sentiment: ${c.sentiment_label || "n/a"} (${c.sentiment_score ?? "n/a"})\n` +
+          ` Quality: ${c.quality_score ?? "n/a"} | Resolution: ${c.resolution_status || "n/a"}\n` +
+          ` Summary: ${c.summary || "n/a"}\n` +
+          ` Topics: ${(c.topics || []).join(", ") || "none"}\n` +
+          ` Tags: ${(body.tags || []).map((t: any) => t.tag).join(", ") || "none"}`;
 
         if (body.transcript && body.transcript.length > 0) {
-          output += `\n\n💬 Transcript (${body.transcript.length} messages):\n`;
+          output += `\n\n Transcript (${body.transcript.length} messages):\n`;
           for (const msg of body.transcript) {
-            const role = msg.role === "assistant" ? "🤖" : "👤";
+            const role = msg.role === "assistant" ? "" : "";
             output += `${role} [${msg.timestamp || ""}] ${msg.content}\n`;
           }
         }
@@ -975,7 +975,7 @@ export default function register(api: any) {
       if (body.success && body.data) {
         const pg = body.pagination || {};
         if (body.data.length === 0) {
-          return textResult(`🔍 No calls found matching "${params.search_text}".`);
+          return textResult(` No calls found matching "${params.search_text}".`);
         }
         const lines = body.data.map(
           (c: any) =>
@@ -984,7 +984,7 @@ export default function register(api: any) {
             `  Summary: ${(c.summary || "n/a").substring(0, 150)}`,
         );
         return textResult(
-          `🔍 Search results for "${params.search_text}" (${pg.total_records} found):\n\n` +
+          ` Search results for "${params.search_text}" (${pg.total_records} found):\n\n` +
             lines.join("\n\n"),
         );
       }
@@ -1040,7 +1040,7 @@ export default function register(api: any) {
         const fmt = body.format || params.format || "openai";
         const msgCount = body.messages?.length || body.example?.messages?.length || 0;
         return textResult(
-          `📤 Export (${fmt}) — ${params.conversation_id}\n` +
+          ` Export (${fmt}) — ${params.conversation_id}\n` +
             `Messages: ${msgCount}\n` +
             (body.metadata
               ? `Duration: ${body.metadata.duration_seconds ?? "?"}s | Sentiment: ${body.metadata.sentiment || "n/a"}\n`
@@ -1114,7 +1114,7 @@ export default function register(api: any) {
 
       if (body.success) {
         return textResult(
-          `📤 Bulk Export Complete\n` +
+          ` Bulk Export Complete\n` +
             `Format: ${body.format}\n` +
             `Exported: ${body.exported} / ${body.total_available} available\n\n` +
             JSON.stringify(body.data, null, 2),
@@ -1166,32 +1166,32 @@ export default function register(api: any) {
         const tags = (s.top_tags || []).slice(0, 10);
 
         let output =
-          `📊 Analytics Dashboard — Agent: ${params.assistant_id}\n` +
-          `📅 Period: ${body.period?.from || "all time"} → ${body.period?.to || "now"}\n\n` +
-          `📞 Calls: ${s.total_calls} total (📥 ${s.inbound_calls} in / 📤 ${s.outbound_calls} out)\n` +
-          `⏱️ Duration: avg ${s.avg_duration_seconds}s | min ${s.min_duration_seconds}s | max ${s.max_duration_seconds}s | total ${s.total_duration_seconds}s\n` +
-          `🎙️ Audio recordings: ${s.calls_with_audio}\n` +
-          `⭐ Avg quality score: ${s.avg_quality_score}\n\n` +
-          `🎭 Sentiment: ${Object.entries(sentDist).map(([k, v]) => `${k}: ${v}`).join(" | ") || "n/a"}\n` +
-          `✅ Resolution: ${Object.entries(resDist).map(([k, v]) => `${k}: ${v}`).join(" | ") || "n/a"}\n\n`;
+          ` Analytics Dashboard — Agent: ${params.assistant_id}\n` +
+          ` Period: ${body.period?.from || "all time"} → ${body.period?.to || "now"}\n\n` +
+          ` Calls: ${s.total_calls} total ( ${s.inbound_calls} in /  ${s.outbound_calls} out)\n` +
+          ` Duration: avg ${s.avg_duration_seconds}s | min ${s.min_duration_seconds}s | max ${s.max_duration_seconds}s | total ${s.total_duration_seconds}s\n` +
+          ` Audio recordings: ${s.calls_with_audio}\n` +
+          ` Avg quality score: ${s.avg_quality_score}\n\n` +
+          ` Sentiment: ${Object.entries(sentDist).map(([k, v]) => `${k}: ${v}`).join(" | ") || "n/a"}\n` +
+          ` Resolution: ${Object.entries(resDist).map(([k, v]) => `${k}: ${v}`).join(" | ") || "n/a"}\n\n`;
 
         if (topics.length > 0) {
-          output += `🔥 Top Topics:\n${topics.map((t: any) => `  • ${t.topic} (${t.count})`).join("\n")}\n\n`;
+          output += ` Top Topics:\n${topics.map((t: any) => `  • ${t.topic} (${t.count})`).join("\n")}\n\n`;
         }
         if (tags.length > 0) {
-          output += `🏷️ Top Tags:\n${tags.map((t: any) => `  • ${t.tag} (${t.count})`).join("\n")}\n\n`;
+          output += ` Top Tags:\n${tags.map((t: any) => `  • ${t.tag} (${t.count})`).join("\n")}\n\n`;
         }
 
         const ms = s.message_stats || {};
         output +=
-          `💬 Messages: ${ms.total_messages} total (👤 ${ms.user_messages} user / 🤖 ${ms.assistant_messages} assistant)\n` +
-          `📏 Avg message length: ${ms.avg_message_length} chars`;
+          ` Messages: ${ms.total_messages} total ( ${ms.user_messages} user /  ${ms.assistant_messages} assistant)\n` +
+          ` Avg message length: ${ms.avg_message_length} chars`;
 
         if (body.hourly_distribution && body.hourly_distribution.length > 0) {
           const peak = body.hourly_distribution.reduce((a: any, b: any) =>
             a.count > b.count ? a : b,
           );
-          output += `\n🕐 Peak hour: ${peak.hour}:00 (${peak.count} calls)`;
+          output += `\n Peak hour: ${peak.hour}:00 (${peak.count} calls)`;
         }
 
         return textResult(output);
@@ -1287,7 +1287,7 @@ export default function register(api: any) {
 
       if (body.success) {
         return textResult(
-          `✅ Analytics saved for conversation ${params.conversation_id}\n` +
+          ` Analytics saved for conversation ${params.conversation_id}\n` +
             `Fields: ${Object.keys(data).join(", ")}`,
         );
       }
@@ -1344,9 +1344,9 @@ export default function register(api: any) {
       );
 
       if (body.success) {
-        let msg = `✅ Batch analytics saved: ${body.saved} conversations processed`;
+        let msg = ` Batch analytics saved: ${body.saved} conversations processed`;
         if (body.errors && body.errors.length > 0) {
-          msg += `\n⚠️ Errors (${body.errors.length}):\n${body.errors.join("\n")}`;
+          msg += `\n Errors (${body.errors.length}):\n${body.errors.join("\n")}`;
         }
         return textResult(msg);
       }
@@ -1404,7 +1404,7 @@ export default function register(api: any) {
 
       if (body.success) {
         return textResult(
-          `🏷️ Tags added to ${params.conversation_id}: ${params.tags.join(", ")}`,
+          ` Tags added to ${params.conversation_id}: ${params.tags.join(", ")}`,
         );
       }
       return jsonResult(body);
@@ -1440,7 +1440,7 @@ export default function register(api: any) {
       );
 
       if (body.success) {
-        return textResult(`🏷️ Tag "${params.tag}" removed from ${params.conversation_id}`);
+        return textResult(` Tag "${params.tag}" removed from ${params.conversation_id}`);
       }
       return jsonResult(body);
     },
@@ -1495,12 +1495,12 @@ export default function register(api: any) {
       if (body.success && body.webhook) {
         const w = body.webhook;
         return textResult(
-          `✅ Webhook created!\n` +
-            `🆔 ID: ${w.id}\n` +
-            `🔗 URL: ${w.url}\n` +
-            `📡 Events: ${(w.events || []).join(", ")}\n` +
-            `🔑 Secret: ${w.secret}\n\n` +
-            `⚠️ SAVE THE SECRET — it signs webhook payloads (X-ClawBot-Signature header).`,
+          ` Webhook created!\n` +
+            ` ID: ${w.id}\n` +
+            ` URL: ${w.url}\n` +
+            ` Events: ${(w.events || []).join(", ")}\n` +
+            ` Secret: ${w.secret}\n\n` +
+            ` SAVE THE SECRET — it signs webhook payloads (X-ClawBot-Signature header).`,
         );
       }
       return jsonResult(body);
@@ -1527,12 +1527,12 @@ export default function register(api: any) {
         }
         const lines = body.webhooks.map(
           (w: any) =>
-            `• ${w.status === "active" ? "🟢" : w.status === "paused" ? "🟡" : "🔴"} ${w.url}\n` +
+            `• ${w.status === "active" ? "" : w.status === "paused" ? "" : ""} ${w.url}\n` +
             `  ID: ${w.id} | Status: ${w.status}\n` +
             `  Events: ${(w.events || []).join(", ")}\n` +
             `  Failures: ${w.failure_count} | Last triggered: ${w.last_triggered || "never"}`,
         );
-        return textResult(`📡 Webhooks (${body.webhooks.length}):\n\n${lines.join("\n\n")}`);
+        return textResult(` Webhooks (${body.webhooks.length}):\n\n${lines.join("\n\n")}`);
       }
       return jsonResult(body);
     },
@@ -1582,7 +1582,7 @@ export default function register(api: any) {
       if (params.assistant_id) updates.assistant_id = params.assistant_id;
 
       if (Object.keys(updates).length === 0) {
-        return textResult("❌ No fields to update. Provide at least one: url, events, status, or assistant_id.");
+        return textResult(" No fields to update. Provide at least one: url, events, status, or assistant_id.");
       }
 
       const { body } = await apiCall(`${clawbotUrl(cfg)}/webhooks/${params.webhook_id}`, {
@@ -1592,7 +1592,7 @@ export default function register(api: any) {
       });
 
       if (body.success) {
-        return textResult(`✅ Webhook ${params.webhook_id} updated: ${Object.keys(updates).join(", ")}`);
+        return textResult(` Webhook ${params.webhook_id} updated: ${Object.keys(updates).join(", ")}`);
       }
       return jsonResult(body);
     },
@@ -1619,7 +1619,7 @@ export default function register(api: any) {
       });
 
       if (body.success) {
-        return textResult(`✅ Webhook ${params.webhook_id} deleted.`);
+        return textResult(` Webhook ${params.webhook_id} deleted.`);
       }
       return jsonResult(body);
     },
@@ -1650,7 +1650,7 @@ export default function register(api: any) {
       if (body.success && body.test_result) {
         const t = body.test_result;
         return textResult(
-          `${t.delivered ? "✅" : "❌"} Webhook test ${t.delivered ? "PASSED" : "FAILED"}\n` +
+          `${t.delivered ? "" : ""} Webhook test ${t.delivered ? "PASSED" : "FAILED"}\n` +
             `Response code: ${t.response_code || "N/A"}\n` +
             `Response: ${t.response_body || "N/A"}`,
         );
@@ -1692,11 +1692,11 @@ export default function register(api: any) {
         }
         const lines = body.deliveries.map(
           (d: any) =>
-            `• ${d.success ? "✅" : "❌"} ${d.event_type} — ${d.delivered_at}\n` +
+            `• ${d.success ? "" : ""} ${d.event_type} — ${d.delivered_at}\n` +
             `  Code: ${d.response_code || "N/A"}`,
         );
         return textResult(
-          `📋 Webhook Deliveries (${body.deliveries.length}):\n\n${lines.join("\n")}`,
+          ` Webhook Deliveries (${body.deliveries.length}):\n\n${lines.join("\n")}`,
         );
       }
       return jsonResult(body);

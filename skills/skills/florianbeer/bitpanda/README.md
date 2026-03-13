@@ -4,10 +4,10 @@ A read-only OpenClaw skill for monitoring your Bitpanda crypto portfolio, wallet
 
 ## Features
 
-- 📊 **Portfolio Summary** — grouped overview of all holdings (crypto/fiat/index)
-- 💰 **Wallet Balances** — non-zero wallets with current balances
-- 📜 **Trade History** — filter buy/sell trades with limits
-- 🪙 **Asset Lookup** — current price + your balance for any asset
+-  **Portfolio Summary** — grouped overview of all holdings (crypto/fiat/index)
+-  **Wallet Balances** — non-zero wallets with current balances
+-  **Trade History** — filter buy/sell trades with limits
+-  **Asset Lookup** — current price + your balance for any asset
 
 > **Note:** Assets in Bitpanda Earn/Staking are not exposed by the API and won't appear in balances.
 

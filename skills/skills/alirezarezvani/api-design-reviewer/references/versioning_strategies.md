@@ -39,17 +39,17 @@ GET /api/2024-02/users/123  # Date-based
 ```
 
 ### Pros
-✅ **Highly Visible**: Version is immediately apparent in the URL  
-✅ **Easy to Test**: Can easily test different versions in browsers/tools  
-✅ **Simple Routing**: Easy to route different versions to different handlers  
-✅ **Caching Friendly**: Each version has distinct URLs for caching  
-✅ **Documentation**: Clear separation in API documentation  
+ **Highly Visible**: Version is immediately apparent in the URL  
+ **Easy to Test**: Can easily test different versions in browsers/tools  
+ **Simple Routing**: Easy to route different versions to different handlers  
+ **Caching Friendly**: Each version has distinct URLs for caching  
+ **Documentation**: Clear separation in API documentation  
 
 ### Cons
-❌ **URL Proliferation**: Multiple URLs for the same logical resource  
-❌ **Coupling**: Tight coupling between version and URL structure  
-❌ **Migration Complexity**: Clients must change URLs to upgrade  
-❌ **SEO Impact**: Multiple URLs might affect search engine optimization  
+ **URL Proliferation**: Multiple URLs for the same logical resource  
+ **Coupling**: Tight coupling between version and URL structure  
+ **Migration Complexity**: Clients must change URLs to upgrade  
+ **SEO Impact**: Multiple URLs might affect search engine optimization  
 
 ### Best Practices
 ```
@@ -62,8 +62,8 @@ GET /api/2024-02/users/123  # Date-based
 /v1/api/...  (alternative)
 
 # Avoid deep versioning in URLs
-❌ /api/v1.2.3/users
-✅ /api/v1/users
+ /api/v1.2.3/users
+ /api/v1/users
 ```
 
 ### Example Implementation
@@ -109,18 +109,18 @@ Accept: application/vnd.myapi+json;version=2
 ```
 
 ### Pros
-✅ **Clean URLs**: URLs remain consistent across versions  
-✅ **RESTful**: Proper use of HTTP content negotiation  
-✅ **Flexible**: Can support multiple versioning schemes  
-✅ **Backward Compatible**: Easier to provide default behavior  
-✅ **Caching**: Can cache based on headers  
+ **Clean URLs**: URLs remain consistent across versions  
+ **RESTful**: Proper use of HTTP content negotiation  
+ **Flexible**: Can support multiple versioning schemes  
+ **Backward Compatible**: Easier to provide default behavior  
+ **Caching**: Can cache based on headers  
 
 ### Cons
-❌ **Less Visible**: Version not immediately apparent in URLs  
-❌ **Testing Complexity**: Requires setting headers for testing  
-❌ **Client Complexity**: Clients must remember to set headers  
-❌ **Debugging**: Harder to debug issues related to versioning  
-❌ **Documentation**: More complex to document different versions  
+ **Less Visible**: Version not immediately apparent in URLs  
+ **Testing Complexity**: Requires setting headers for testing  
+ **Client Complexity**: Clients must remember to set headers  
+ **Debugging**: Harder to debug issues related to versioning  
+ **Documentation**: More complex to document different versions  
 
 ### Best Practices
 ```
@@ -173,16 +173,16 @@ GET /api/users/123?api-version=2024-02
 ```
 
 ### Pros
-✅ **Visible**: Version is visible in the URL  
-✅ **Simple**: Easy to implement and understand  
-✅ **Testing**: Easy to test different versions  
-✅ **Optional**: Can provide default version if omitted  
+ **Visible**: Version is visible in the URL  
+ **Simple**: Easy to implement and understand  
+ **Testing**: Easy to test different versions  
+ **Optional**: Can provide default version if omitted  
 
 ### Cons
-❌ **Not RESTful**: Query parameters should be for filtering, not versioning  
-❌ **Caching Issues**: Can complicate caching strategies  
-❌ **URL Pollution**: Makes URLs longer and less clean  
-❌ **Semantic Confusion**: Mixes versioning with query functionality  
+ **Not RESTful**: Query parameters should be for filtering, not versioning  
+ **Caching Issues**: Can complicate caching strategies  
+ **URL Pollution**: Makes URLs longer and less clean  
+ **Semantic Confusion**: Mixes versioning with query functionality  
 
 ### Best Practices
 ```
@@ -228,16 +228,16 @@ Accept: application/vnd.myapi+json;version=2;format=compact
 ```
 
 ### Pros
-✅ **RESTful**: Proper use of HTTP content negotiation  
-✅ **Granular**: Can version specific resource types differently  
-✅ **Standards Compliant**: Follows HTTP specifications  
-✅ **Flexible**: Supports complex versioning scenarios  
+ **RESTful**: Proper use of HTTP content negotiation  
+ **Granular**: Can version specific resource types differently  
+ **Standards Compliant**: Follows HTTP specifications  
+ **Flexible**: Supports complex versioning scenarios  
 
 ### Cons
-❌ **Complex**: More complex to implement and maintain  
-❌ **Client Complexity**: Clients need to understand media types  
-❌ **Less Common**: Not as widely understood by developers  
-❌ **Debugging**: Can be harder to debug  
+ **Complex**: More complex to implement and maintain  
+ **Client Complexity**: Clients need to understand media types  
+ **Less Common**: Not as widely understood by developers  
+ **Debugging**: Can be harder to debug  
 
 ### Best Practices
 ```
@@ -281,14 +281,14 @@ GET /api/v2/orders/456    # Orders API v2 (evolved separately)
 ```
 
 ### Benefits
-✅ **Flexibility**: Different strategies for different needs  
-✅ **Migration**: Smooth migration paths  
-✅ **Granularity**: Different versioning for different resources  
+ **Flexibility**: Different strategies for different needs  
+ **Migration**: Smooth migration paths  
+ **Granularity**: Different versioning for different resources  
 
 ### Drawbacks
-❌ **Complexity**: More complex to implement and maintain  
-❌ **Confusion**: Can confuse developers  
-❌ **Inconsistency**: May lead to inconsistent experiences  
+ **Complexity**: More complex to implement and maintain  
+ **Confusion**: Can confuse developers  
+ **Inconsistency**: May lead to inconsistent experiences  
 
 ## Semantic Versioning for APIs
 
@@ -480,32 +480,32 @@ API-Version: 1
 
 ### 1. No Versioning Strategy
 ```
-❌ Bad: Making breaking changes without versioning
-✅ Good: Plan versioning from day one
+ Bad: Making breaking changes without versioning
+ Good: Plan versioning from day one
 ```
 
 ### 2. Over-versioning
 ```
-❌ Bad: /api/v1.2.3/users (too granular in URL)
-✅ Good: /api/v1/users with API-Version: 1.2.3 header
+ Bad: /api/v1.2.3/users (too granular in URL)
+ Good: /api/v1/users with API-Version: 1.2.3 header
 ```
 
 ### 3. No Deprecation Plan
 ```
-❌ Bad: Immediately removing old versions
-✅ Good: Gradual deprecation with clear timelines
+ Bad: Immediately removing old versions
+ Good: Gradual deprecation with clear timelines
 ```
 
 ### 4. Inconsistent Versioning
 ```
-❌ Bad: Different strategies for different endpoints
-✅ Good: Consistent strategy across the entire API
+ Bad: Different strategies for different endpoints
+ Good: Consistent strategy across the entire API
 ```
 
 ### 5. No Default Version
 ```
-❌ Bad: Requiring explicit version for every request
-✅ Good: Sensible defaults with option to override
+ Bad: Requiring explicit version for every request
+ Good: Sensible defaults with option to override
 ```
 
 ## Conclusion

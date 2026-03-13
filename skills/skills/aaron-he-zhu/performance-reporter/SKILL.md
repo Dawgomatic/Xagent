@@ -148,27 +148,27 @@ When a user requests a performance report:
    
    **Key Highlights**:
    
-   🟢 **Wins**:
+    **Wins**:
    - [Win 1 - e.g., "Organic traffic increased 25%"]
    - [Win 2 - e.g., "3 new #1 rankings achieved"]
    - [Win 3 - e.g., "Conversion rate improved 15%"]
    
-   🟡 **Watch Areas**:
+    **Watch Areas**:
    - [Area 1 - e.g., "Mobile rankings declining slightly"]
    - [Area 2 - e.g., "Competitor gaining ground on key terms"]
    
-   🔴 **Action Required**:
+    **Action Required**:
    - [Issue 1 - e.g., "Technical SEO audit needed"]
    
    ### Key Metrics at a Glance
    
    | Metric | This Period | Last Period | Change | Target | Status |
    |--------|-------------|-------------|--------|--------|--------|
-   | Organic Traffic | [X] | [Y] | [+/-Z%] | [T] | ✅/⚠️/❌ |
-   | Keyword Rankings (Top 10) | [X] | [Y] | [+/-Z] | [T] | ✅/⚠️/❌ |
-   | Organic Conversions | [X] | [Y] | [+/-Z%] | [T] | ✅/⚠️/❌ |
-   | Domain Authority | [X] | [Y] | [+/-Z] | [T] | ✅/⚠️/❌ |
-   | AI Citations | [X] | [Y] | [+/-Z%] | [T] | ✅/⚠️/❌ |
+   | Organic Traffic | [X] | [Y] | [+/-Z%] | [T] | // |
+   | Keyword Rankings (Top 10) | [X] | [Y] | [+/-Z] | [T] | // |
+   | Organic Conversions | [X] | [Y] | [+/-Z%] | [T] | // |
+   | Domain Authority | [X] | [Y] | [+/-Z] | [T] | // |
+   | AI Citations | [X] | [Y] | [+/-Z%] | [T] | // |
    
    ### SEO ROI
    
@@ -300,8 +300,8 @@ When a user requests a performance report:
    
    | Query | Citation Status | Source Page | Impact |
    |-------|-----------------|-------------|--------|
-   | [query 1] | 🆕 New citation | [page] | High visibility |
-   | [query 2] | ⬆️ Improved position | [page] | Better exposure |
+   | [query 1] |  New citation | [page] | High visibility |
+   | [query 2] |  Improved position | [page] | Better exposure |
    
    ### GEO Optimization Opportunities
    
@@ -327,7 +327,7 @@ When a user requests a performance report:
    | T — Trust | [X]/100 | [Y]/100 | [+/-Z] |
    | E — Eminence | [X]/100 | [Y]/100 | [+/-Z] |
 
-   **Veto Status**: ✅ No triggers / ⚠️ [item] triggered
+   **Veto Status**:  No triggers /  [item] triggered
 
    ### Key Changes
 
@@ -432,9 +432,9 @@ When a user requests a performance report:
    
    | Content | Traffic | Rankings | Conversions | Status |
    |---------|---------|----------|-------------|--------|
-   | [Title 1] | [X] | [Y] keywords | [Z] | ⭐ Top performer |
-   | [Title 2] | [X] | [Y] keywords | [Z] | 📈 Growing |
-   | [Title 3] | [X] | [Y] keywords | [Z] | ✅ Stable |
+   | [Title 1] | [X] | [Y] keywords | [Z] |  Top performer |
+   | [Title 2] | [X] | [Y] keywords | [Z] |  Growing |
+   | [Title 3] | [X] | [Y] keywords | [Z] |  Stable |
    
    ### Content Needing Attention
    
@@ -459,21 +459,21 @@ When a user requests a performance report:
    
    | Priority | Action | Expected Impact | Owner |
    |----------|--------|-----------------|-------|
-   | 🔴 High | [Action 1] | [Impact] | [Owner] |
-   | 🔴 High | [Action 2] | [Impact] | [Owner] |
+   |  High | [Action 1] | [Impact] | [Owner] |
+   |  High | [Action 2] | [Impact] | [Owner] |
    
    ### Short-term (This Month)
    
    | Priority | Action | Expected Impact | Owner |
    |----------|--------|-----------------|-------|
-   | 🟡 Medium | [Action 1] | [Impact] | [Owner] |
-   | 🟡 Medium | [Action 2] | [Impact] | [Owner] |
+   |  Medium | [Action 1] | [Impact] | [Owner] |
+   |  Medium | [Action 2] | [Impact] | [Owner] |
    
    ### Long-term (This Quarter)
    
    | Priority | Action | Expected Impact | Owner |
    |----------|--------|-----------------|-------|
-   | 🟢 Planned | [Action 1] | [Impact] | [Owner] |
+   |  Planned | [Action 1] | [Impact] | [Owner] |
    
    ### Goals for Next Period
    
@@ -568,27 +568,27 @@ When a user requests a performance report:
 
 **Key Highlights**:
 
-🟢 **Wins**:
+ **Wins**:
 - Organic traffic increased 15.3% (45,200 → 52,100 sessions)
 - 4 new Top 10 keyword rankings in "cloud hosting" cluster
 - Organic conversions up 11.8% (612 → 684 trial signups)
 
-🟡 **Watch Areas**:
+ **Watch Areas**:
 - Mobile page speed declining (LCP 3.1s → 3.4s)
 - Competitor SiteGround gaining on "managed cloud hosting" terms
 
-🔴 **Action Required**:
+ **Action Required**:
 - Fix crawl errors on /pricing/ pages (37 404s detected)
 
 ### Key Metrics at a Glance
 
 | Metric | Jan 2025 | Dec 2024 | Change | Target | Status |
 |--------|----------|----------|--------|--------|--------|
-| Organic Traffic | 52,100 | 45,200 | +15.3% | 50,000 | ✅ |
-| Keywords Top 10 | 87 | 79 | +8 | 90 | ⚠️ |
-| Organic Conversions | 684 | 612 | +11.8% | 700 | ⚠️ |
-| Domain Rating | 54 | 53 | +1 | 55 | ⚠️ |
-| AI Citations | 18 | 12 | +50.0% | 20 | ⚠️ |
+| Organic Traffic | 52,100 | 45,200 | +15.3% | 50,000 |  |
+| Keywords Top 10 | 87 | 79 | +8 | 90 |  |
+| Organic Conversions | 684 | 612 | +11.8% | 700 |  |
+| Domain Rating | 54 | 53 | +1 | 55 |  |
+| AI Citations | 18 | 12 | +50.0% | 20 |  |
 
 ### SEO ROI
 
@@ -635,9 +635,9 @@ When a user requests a performance report:
 
 | Query | Citation Status | Source Page | Impact |
 |-------|-----------------|-------------|--------|
-| "best cloud hosting for startups" | 🆕 New citation | /guide/cloud-hosting | High visibility |
-| "cloud hosting vs shared hosting" | ⬆️ Position 4→2 | /compare/cloud-vs-shared | Better exposure |
-| "managed cloud hosting benefits" | 🆕 New citation | /features/managed | High visibility |
+| "best cloud hosting for startups" |  New citation | /guide/cloud-hosting | High visibility |
+| "cloud hosting vs shared hosting" |  Position 4→2 | /compare/cloud-vs-shared | Better exposure |
+| "managed cloud hosting benefits" |  New citation | /features/managed | High visibility |
 
 ---
 
@@ -653,7 +653,7 @@ When a user requests a performance report:
 | T — Trust | 82/100 | 80/100 | +2 |
 | E — Eminence | 61/100 | 58/100 | +3 |
 
-**Veto Status**: ✅ No triggers
+**Veto Status**:  No triggers
 
 _For full 40-item evaluation, run `/seo:audit-domain`_
 

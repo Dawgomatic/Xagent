@@ -86,7 +86,7 @@ Configurable in `.env`:
 - `MIN_LIQUIDITY` — Minimum pool liquidity in USD (default: $5000)
 - `SLIPPAGE_BPS` — Slippage tolerance in bps (default: 500 = 5%)
 
-## ⚠️ Security Considerations
+##  Security Considerations
 
 - **Use a DEDICATED wallet** with only what you're willing to lose
 - **Memecoin trading is extremely high risk** — most new tokens go to zero

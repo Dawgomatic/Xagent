@@ -1,7 +1,7 @@
 ---
 name: proxmox-full
 description: Complete Proxmox VE management - create/clone/start/stop VMs and LXC containers, manage snapshots, backups, storage, and templates. Use when user wants to manage Proxmox infrastructure, virtual machines, or containers.
-metadata: {"clawdbot":{"emoji":"🖥️","homepage":"https://www.proxmox.com/","requires":{"bins":["curl","jq"],"env":["PVE_TOKEN"]},"primaryEnv":"PVE_TOKEN"}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://www.proxmox.com/","requires":{"bins":["curl","jq"],"env":["PVE_TOKEN"]},"primaryEnv":"PVE_TOKEN"}}
 ---
 
 # Proxmox VE - Full Management

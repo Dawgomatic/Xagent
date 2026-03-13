@@ -1,7 +1,7 @@
 ---
 name: heap
 description: Analyze user behavior via Heap API. Query events, users, and funnels.
-metadata: {"clawdbot":{"emoji":"📈","requires":{"env":["HEAP_APP_ID","HEAP_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["HEAP_APP_ID","HEAP_API_KEY"]}}}
 ---
 # Heap
 Product analytics.

@@ -9,7 +9,7 @@
   "keywords": ["selfie", "avatar", "profile-picture", "ai-agent", "identity", "gemini", "image-generation", "openclaw"],
   "metadata": {
     "openclaw": {
-      "emoji": "🤳",
+      "emoji": "",
       "category": "creative",
       "requires": {
         "bins": ["python3"],

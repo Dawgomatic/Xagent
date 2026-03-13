@@ -2,7 +2,7 @@
 
 Autonomous trading agent for Nad.fun that scans markets, analyzes tokens, executes trades, and distributes profits to MMIND token holders.
 
-## 🎯 Project Overview
+##  Project Overview
 
 This agent autonomously:
 - Scans Nad.fun markets using 3 methods (New Events API, Market Cap API, Creation Time API)
@@ -12,7 +12,7 @@ This agent autonomously:
 - **Trading scripts** in `trading/`: buy, sell, P&L from entry price (recorded by buy), full cycle (`execute-bonding-v2.js`). Mainnet only.
 - Distributes profits to MMIND token holders
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -68,7 +68,7 @@ This repo uses **Node.js only** (no Python). Two folders:
 See `trading/README.md`, `trading/HOW_PNL_WORKS.md`, and `trading/ENTRY_PRICE_TRACKING.md`. **Mainnet only.**  
 Dependencies and env vars: **`DEPENDENCIES.md`**.
 
-## ⚙️ Configuration
+##  Configuration
 
 ### 1. Create Configuration File
 
@@ -99,7 +99,7 @@ openclaw gateway start
 # Provide MMIND_TOKEN_ADDRESS, MONAD_PRIVATE_KEY, MONAD_RPC_URL, MONAD_NETWORK
 ```
 
-## 📋 Usage
+##  Usage
 
 ### Start Autonomous Trading
 
@@ -128,7 +128,7 @@ cat "${NADFUNAGENT_DATA_DIR:-$HOME/nadfunagent}/found_tokens.json" | jq '.[-1]'
 tail -100 /tmp/openclaw/openclaw-*.log | grep "Nad.fun"
 ```
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Market Scanning Methods
 
@@ -159,46 +159,46 @@ Each token is scored on:
 - **Take-Profit**: Sell half position if P&L >= 20%
 - **Position Sizing**: Max 0.15 MON for tokens with authority, 0.1 MON otherwise
 
-## 📊 Features
+##  Features
 
-- ✅ Autonomous market scanning
-- ✅ Comprehensive token analysis
-- ✅ Risk management (stop-loss, take-profit)
-- ✅ **Trades on both bonding curve AND DEX**
-- ✅ Profit distribution to MMIND holders
-- ✅ Telegram notifications
-- ✅ Multi-language support (responds in user's language)
+-  Autonomous market scanning
+-  Comprehensive token analysis
+-  Risk management (stop-loss, take-profit)
+-  **Trades on both bonding curve AND DEX**
+-  Profit distribution to MMIND holders
+-  Telegram notifications
+-  Multi-language support (responds in user's language)
 
-## 🔧 Technology Stack
+##  Technology Stack
 
 - **OpenClaw**: AI agent platform
 - **Monad Blockchain**: Target blockchain
 - **Nad.fun API**: Market data and trading
 - **Telegram Bot API**: Notifications
 
-## 📝 License
+##  License
 
 MIT License - See LICENSE file for details
 
-## 🤝 Contributing
+##  Contributing
 
 This project is part of the Moltiverse Hackathon. Contributions welcome!
 
-## 📞 Support
+##  Support
 
 For issues or questions:
 - Open an issue on GitHub: https://github.com/encipher88/nadfunagent/issues
 
-## 🎯 Hackathon Submission
+##  Hackathon Submission
 
 **Track**: Agent + Token Track
 
 **Requirements Met**:
-- ✅ Autonomous agent integrated with Monad blockchain
-- ✅ Token launch on nad.fun (MMIND token)
-- ✅ Open source code on GitHub
-- ✅ Comprehensive documentation
-- ✅ Mainnet deployment
+-  Autonomous agent integrated with Monad blockchain
+-  Token launch on nad.fun (MMIND token)
+-  Open source code on GitHub
+-  Comprehensive documentation
+-  Mainnet deployment
 
 **Token Contract**: `0xCe122fd90bBD10A3fb297647A3ad21eC1Ea27777` (MMIND)
 

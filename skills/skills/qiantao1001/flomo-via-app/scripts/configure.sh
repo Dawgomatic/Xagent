@@ -7,7 +7,7 @@
 
 set -e
 
-echo "📝 Flomo Skill Configuration"
+echo " Flomo Skill Configuration"
 echo "============================"
 echo ""
 
@@ -25,7 +25,7 @@ read -r HAS_PRO
 case "$HAS_PRO" in
     [Yy]*)
         echo ""
-        echo "✅ PRO account selected"
+        echo " PRO account selected"
         echo ""
         echo "Please enter your flomo webhook token."
         echo "You can find it at: https://flomoapp.com/mine?source=incoming_webhook"
@@ -33,7 +33,7 @@ case "$HAS_PRO" in
         read -rp "Webhook token (or full URL): " WEBHOOK_INPUT
         
         if [ -z "$WEBHOOK_INPUT" ]; then
-            echo "⚠️  No webhook provided. You can configure it later by running this script again."
+            echo "  No webhook provided. You can configure it later by running this script again."
             exit 0
         fi
         
@@ -43,13 +43,13 @@ case "$HAS_PRO" in
             WEBHOOK_URL="$WEBHOOK_INPUT"
             WEBHOOK_TOKEN=$(echo "$WEBHOOK_URL" | sed 's|https://flomoapp.com/iwh/||')
             echo ""
-            echo "✅ Webhook URL configured"
+            echo " Webhook URL configured"
         else
             # Just token provided
             WEBHOOK_TOKEN="$WEBHOOK_INPUT"
             WEBHOOK_URL="https://flomoapp.com/iwh/$WEBHOOK_TOKEN"
             echo ""
-            echo "✅ Webhook token configured"
+            echo " Webhook token configured"
         fi
         
         # Determine shell config file for display
@@ -81,10 +81,10 @@ case "$HAS_PRO" in
                     echo "# Flomo Skill Configuration" >> "$SHELL_CONFIG"
                     echo "export FLOMO_WEBHOOK_TOKEN=$WEBHOOK_TOKEN" >> "$SHELL_CONFIG"
                     echo ""
-                    echo "✅ Configuration saved to: $SHELL_CONFIG"
+                    echo " Configuration saved to: $SHELL_CONFIG"
                     echo "   Please run: source $SHELL_CONFIG"
                 else
-                    echo "⚠️  Could not detect shell config file."
+                    echo "  Could not detect shell config file."
                     echo "   Please manually add to your shell config:"
                     echo "   export FLOMO_WEBHOOK_TOKEN=$WEBHOOK_TOKEN"
                 fi
@@ -97,32 +97,32 @@ case "$HAS_PRO" in
                 echo "# FLOMO_WEBHOOK_URL=$WEBHOOK_URL" >> "$ENV_FILE"
                 chmod 600 "$ENV_FILE"
                 echo ""
-                echo "✅ Configuration saved to: $ENV_FILE"
+                echo " Configuration saved to: $ENV_FILE"
                 echo "   The .env file has been created with restricted permissions (600)"
                 echo "   This is the recommended option - keeps config isolated to this skill."
                 ;;
         esac
         
         echo ""
-        echo "🎉 Configuration complete!"
+        echo " Configuration complete!"
         echo "   You can now use the flomo_send.sh script with webhook fallback."
         ;;
     
     [Nn]*)
         echo ""
-        echo "✅ Free account selected"
+        echo " Free account selected"
         echo "   The skill will use URL Scheme only (requires flomo app on macOS)."
         echo "   If you upgrade to PRO later, run: ./scripts/configure.sh"
         ;;
     
     *)
         echo ""
-        echo "⚠️  Invalid input. Skipping configuration."
+        echo "  Invalid input. Skipping configuration."
         echo "   You can run this script later to configure: ./scripts/configure.sh"
         exit 0
         ;;
 esac
 
 echo ""
-echo "📖 Quick start:"
+echo " Quick start:"
 echo "   ./scripts/flomo_send.sh \"Your note\" \"#tag1 #tag2\""

@@ -61,10 +61,10 @@ def setup_account(use_keyring=False):
     if use_keyring:
         try:
             keyring.set_password('imap-idle', username, password)
-            print(f"✅ Password stored in system keyring for {username}")
+            print(f" Password stored in system keyring for {username}")
             # Don't include password in config
         except Exception as e:
-            print(f"⚠️  Failed to store in keyring: {e}")
+            print(f"  Failed to store in keyring: {e}")
             print("Falling back to config file storage")
             account['password'] = password
     else:
@@ -96,18 +96,18 @@ def main():
     # Ask about keyring for secure password storage
     use_keyring = False
     if KEYRING_AVAILABLE:
-        print("\n🔐 Secure Password Storage")
+        print("\n Secure Password Storage")
         print("="*60)
         print("Keyring is available on your system!")
         print("Passwords can be stored securely in system keychain instead of plain text config.")
         print()
         use_keyring = get_yes_no("Use keyring for password storage? (recommended)", True)
         if use_keyring:
-            print("✅ Passwords will be stored in system keyring")
+            print(" Passwords will be stored in system keyring")
         else:
-            print("⚠️  Passwords will be stored in config file (less secure)")
+            print("  Passwords will be stored in config file (less secure)")
     else:
-        print("\n⚠️  Keyring library not available")
+        print("\n  Keyring library not available")
         print("Install with: pip3 install keyring --user")
         print("Passwords will be stored in config file")
     
@@ -165,8 +165,8 @@ def main():
     with open(config_path, 'w') as f:
         json.dump(config, f, indent=2)
     
-    print(f"\n✅ Configuration saved to: {config_path}")
-    print(f"✅ Configured {len(accounts)} account(s)")
+    print(f"\n Configuration saved to: {config_path}")
+    print(f" Configured {len(accounts)} account(s)")
     
     print("\n" + "="*60)
     print("Next Steps")
@@ -189,7 +189,7 @@ def test_connection(account):
     try:
         from imapclient import IMAPClient
     except ImportError:
-        print("❌ imapclient library not installed")
+        print(" imapclient library not installed")
         print("Run: pip3 install imapclient --user")
         return
     
@@ -201,11 +201,11 @@ def test_connection(account):
         try:
             password = keyring.get_password('imap-idle', username)
         except Exception as e:
-            print(f"❌ Could not retrieve password from keyring: {e}")
+            print(f" Could not retrieve password from keyring: {e}")
             return
     
     if not password:
-        print(f"❌ No password available for {username}")
+        print(f" No password available for {username}")
         return
     
     try:
@@ -226,10 +226,10 @@ def test_connection(account):
         
         client.logout()
         
-        print(f"✅ Connection successful! Found {count} messages in INBOX")
+        print(f" Connection successful! Found {count} messages in INBOX")
         
     except Exception as e:
-        print(f"❌ Connection failed: {e}")
+        print(f" Connection failed: {e}")
 
 
 if __name__ == '__main__':

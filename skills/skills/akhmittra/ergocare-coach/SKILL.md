@@ -3,7 +3,7 @@ name: ergocare-coach
 description: Your personal desk health coach with automated break reminders. Generates platform-specific scripts (bash/PowerShell) for 20-20-20 eye care, lower back exercises, and RSI prevention. Comprehensive exercise routines, ergonomic guidance, and customizable notification systems for computer professionals.
 metadata:
   openclaw:
-    emoji: "👁️"
+    emoji: ""
     version: "1.0.0"
     author: "AM"
     tags: ["health", "wellness", "ergonomics", "eye-exercises", "break-reminders", "posture", "rsi-prevention", "desk-health", "automation"]
@@ -13,7 +13,7 @@ metadata:
       config: []
 ---
 
-# ErgoCare Coach 👁️🦴💪
+# ErgoCare Coach 
 
 ## Description
 
@@ -28,13 +28,13 @@ Your intelligent desk health and wellness coach that actually reminds you automa
 **"The greatest wealth is Health."**
 
 Perfect for:
-- 💻 Computer professionals working long hours
-- 👁️ Anyone experiencing eye strain or dry eyes  
-- 🦴 People with lower back, neck, or shoulder pain
-- 🎮 Gamers and content creators
-- 📚 Students and researchers
-- 🏢 Remote workers and desk workers
-- 🩺 Anyone wanting to prevent RSI and chronic issues
+-  Computer professionals working long hours
+-  Anyone experiencing eye strain or dry eyes  
+-  People with lower back, neck, or shoulder pain
+-  Gamers and content creators
+-  Students and researchers
+-  Remote workers and desk workers
+-  Anyone wanting to prevent RSI and chronic issues
 
 ---
 
@@ -47,7 +47,7 @@ Perfect for:
 - Get instant guidance: "I have neck pain, what should I do?"
 - Learn routines: "Give me a 5-minute full body desk stretch"
 
-**Mode 2: Automated Reminder Scripts** ⭐ **NEW!**
+**Mode 2: Automated Reminder Scripts**  **NEW!**
 - Request a custom script: "Generate a 20-20-20 reminder script for Mac"
 - Get platform-specific code (bash/PowerShell) ready to run
 - Scripts run in background, send notifications automatically
@@ -71,18 +71,18 @@ Just ask ErgoCare Coach:
 ### Script Features
 
 **All Scripts Include:**
-- ✅ Desktop notifications with exercise instructions
-- ✅ Countdown timers between breaks
-- ✅ Sound alerts (optional, can be disabled)
-- ✅ Customizable intervals
-- ✅ Multiple exercise types embedded
-- ✅ Easy start/stop/restart
-- ✅ Run on system startup (optional)
+-  Desktop notifications with exercise instructions
+-  Countdown timers between breaks
+-  Sound alerts (optional, can be disabled)
+-  Customizable intervals
+-  Multiple exercise types embedded
+-  Easy start/stop/restart
+-  Run on system startup (optional)
 
 **Platform Support:**
-- 🐧 **Linux**: bash script with `notify-send`, `zenity`, or terminal alerts
-- 🍎 **macOS**: bash script with `osascript` notifications and `say` voice alerts
-- 🪟 **Windows**: PowerShell with `BurntToast` module or native notifications
+-  **Linux**: bash script with `notify-send`, `zenity`, or terminal alerts
+-  **macOS**: bash script with `osascript` notifications and `say` voice alerts
+-  **Windows**: PowerShell with `BurntToast` module or native notifications
 
 ---
 
@@ -101,17 +101,17 @@ When you focus on a screen, your eye muscles maintain constant tension:
 - **Blue light exposure** increases eye fatigue
 
 Looking into the distance:
-- ✅ Relaxes ciliary muscles
-- ✅ Triggers natural blinking
-- ✅ Resets focus mechanism
-- ✅ Reduces strain accumulation
+-  Relaxes ciliary muscles
+-  Triggers natural blinking
+-  Resets focus mechanism
+-  Reduces strain accumulation
 
 ### 20-20-20 Implementation
 
 **Your automated script will:**
 1. Run silently in background
 2. Track 20-minute intervals
-3. Send desktop notification: "👁️ 20-20-20 Break: Look 20 feet away for 20 seconds"
+3. Send desktop notification: " 20-20-20 Break: Look 20 feet away for 20 seconds"
 4. (Optional) Play gentle sound alert
 5. (Optional) Show countdown timer
 6. Repeat every 20 minutes
@@ -630,24 +630,24 @@ NOTIFICATION_TYPE="all"  # "popup", "sound", "terminal", "all"
 ## 11. Warning Signs & When to See a Doctor
 
 ### Immediate medical attention needed:
-- 🚨 Sudden vision loss or changes
-- 🚨 Severe eye pain
-- 🚨 Numbness or tingling that spreads or worsens
-- 🚨 Loss of bowel/bladder control (back issues)
-- 🚨 Weakness in arms or legs
+-  Sudden vision loss or changes
+-  Severe eye pain
+-  Numbness or tingling that spreads or worsens
+-  Loss of bowel/bladder control (back issues)
+-  Weakness in arms or legs
 
 ### See doctor soon if experiencing:
-- ⚠️ Persistent headaches (daily for weeks)
-- ⚠️ Double vision or blurred vision that doesn't improve with rest
-- ⚠️ Pain that radiates down arms or legs
-- ⚠️ Chronic pain lasting more than 6 weeks
-- ⚠️ Pain that worsens despite exercises and breaks
+-  Persistent headaches (daily for weeks)
+-  Double vision or blurred vision that doesn't improve with rest
+-  Pain that radiates down arms or legs
+-  Chronic pain lasting more than 6 weeks
+-  Pain that worsens despite exercises and breaks
 
 ### ErgoCare Coach is preventive, not treatment!
-- ✅ Use for prevention and mild discomfort
-- ✅ Maintain healthy habits
-- ❌ Don't use instead of medical treatment
-- ❌ Don't ignore severe or worsening symptoms
+-  Use for prevention and mild discomfort
+-  Maintain healthy habits
+-  Don't use instead of medical treatment
+-  Don't ignore severe or worsening symptoms
 
 ---
 
@@ -774,8 +774,8 @@ NOTIFICATION_TYPE="all"  # "popup", "sound", "terminal", "all"
 
 **Your health is your most valuable asset. Small breaks today prevent big problems tomorrow. Let ErgoCare Coach help you build sustainable healthy habits!**
 
-👁️ "Take care of your eyes—they're the only pair you get."
-🦴 "Your spine will thank you in 20 years."
-💪 "Prevention beats cure. Every. Single. Time."
+ "Take care of your eyes—they're the only pair you get."
+ "Your spine will thank you in 20 years."
+ "Prevention beats cure. Every. Single. Time."
 
-🔔 **Ready to start? Ask for your custom break reminder script now!** 🔔
+ **Ready to start? Ask for your custom break reminder script now!** 

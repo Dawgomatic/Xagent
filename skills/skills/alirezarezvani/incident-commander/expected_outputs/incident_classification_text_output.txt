@@ -35,7 +35,7 @@ INITIAL ACTIONS:
      Page relevant SMEs based on affected systems
 
 COMMUNICATION:
-  Subject: 🚨 [SEV1] payment-api - Database connection timeouts causing 500 errors fo...
+  Subject:  [SEV1] payment-api - Database connection timeouts causing 500 errors fo...
   Urgency: SEV1
   Recipients: on-call, engineering-leadership, executives, customer-success
   Channels: pager, phone, slack, email, status-page

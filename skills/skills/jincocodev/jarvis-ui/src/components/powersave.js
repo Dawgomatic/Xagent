@@ -25,7 +25,7 @@ export function initPowerSave() {
     localStorage.setItem(POWERSAVE_KEY, powerSaveEnabled);
     updateButton(btn);
     applyPowerSave();
-    showNotification(powerSaveEnabled ? '🔋 POWER SAVE ON' : '⚡ POWER SAVE OFF');
+    showNotification(powerSaveEnabled ? ' POWER SAVE ON' : ' POWER SAVE OFF');
   });
 
   // 初始套用

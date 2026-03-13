@@ -121,11 +121,11 @@ class ThinkingInterface:
             return f"模式 {mode_name} 暂不可用"
         
         lines = [
-            f"✅ 已启动{model.name}！",
+            f" 已启动{model.name}！",
             f"",
-            f"📋 模式说明: {model.description}",
+            f" 模式说明: {model.description}",
             f"",
-            f"🔄 处理阶段:",
+            f" 处理阶段:",
         ]
         
         for i, stage in enumerate(model.stages, 1):
@@ -133,7 +133,7 @@ class ThinkingInterface:
         
         lines.extend([
             f"",
-            f"💡 请描述您要处理的问题或任务",
+            f" 请描述您要处理的问题或任务",
         ])
         
         return "\n".join(lines)
@@ -170,13 +170,13 @@ class ThinkingInterface:
             return f"未找到与「{query}」相关的历史记录"
         
         lines = [
-            f"📚 找到 {len(history)} 条历史记录:",
+            f" 找到 {len(history)} 条历史记录:",
             ""
         ]
         
         for i, record in enumerate(history, 1):
             timestamp = record.get("timestamp", "")[:16]
-            success = "✅" if record.get("success") else "❌"
+            success = "" if record.get("success") else ""
             rating = record.get("user_rating", "-")
             
             lines.append(f"{i}. {success} [{timestamp}] 评分: {rating}/5")
@@ -192,21 +192,21 @@ class ThinkingInterface:
         stats = self.memory.get_model_statistics()
         
         lines = [
-            "📊 思维模型使用统计",
+            " 思维模型使用统计",
             "=" * 50,
             "",
-            f"📁 快照总数: {stats['total_snapshots']}",
-            f"📈 成功率: {stats['by_success']['success']}/{stats['by_success']['success'] + stats['by_success']['failed']}",
+            f" 快照总数: {stats['total_snapshots']}",
+            f" 成功率: {stats['by_success']['success']}/{stats['by_success']['success'] + stats['by_success']['failed']}",
             f"   ({stats.get('success_rate', 0)*100:.1f}%)",
         ]
         
         if stats.get("by_type"):
-            lines.extend(["", "📂 按模型类型:"])
+            lines.extend(["", " 按模型类型:"])
             for model_type, count in sorted(stats["by_type"].items(), key=lambda x: x[1], reverse=True):
                 lines.append(f"   • {model_type}: {count}次")
         
         if stats.get("avg_rating", 0) > 0:
-            lines.extend(["", f"⭐ 平均评分: {stats['avg_rating']:.1f}/5"])
+            lines.extend(["", f" 平均评分: {stats['avg_rating']:.1f}/5"])
         
         return "\n".join(lines)
     
@@ -219,7 +219,7 @@ class ThinkingInterface:
         # 清除旧快照
         cleared = self.memory.clear_old_snapshots(days)
         
-        return f"🧹 已清除 {cleared} 条超过 {days} 天的旧记录"
+        return f" 已清除 {cleared} 条超过 {days} 天的旧记录"
     
     def _handle_general_query(self, user_input: str) -> str:
         """处理一般问题查询"""
@@ -231,17 +231,17 @@ class ThinkingInterface:
         
         # 生成响应
         lines = [
-            f"🧠 思维模型分析结果",
+            f" 思维模型分析结果",
             "=" * 50,
             "",
-            f"📝 问题分析:",
+            f" 问题分析:",
             f"   类型: {analysis.problem_type.value}",
             f"   复杂度: {analysis.complexity}/10",
             f"   置信度: {analysis.confidence.value}",
             "",
-            f"🎯 推荐模型: {model.name}",
+            f" 推荐模型: {model.name}",
             f"",
-            f"📌 关键发现:",
+            f" 关键发现:",
             f"   • 识别关键词: {', '.join(analysis.keywords[:5])}",
         ]
         
@@ -249,11 +249,11 @@ class ThinkingInterface:
             lines.append(f"   • 约束条件: {len(analysis.constraints)}个")
         
         if analysis.urgency:
-            lines.extend(["", f"⚠️ 紧急程度: {analysis.urgency.value}"])
+            lines.extend(["", f" 紧急程度: {analysis.urgency.value}"])
         
         lines.extend([
             "",
-            f"🔄 处理阶段:",
+            f" 处理阶段:",
         ])
         
         for i, stage in enumerate(model.stages, 1):
@@ -261,7 +261,7 @@ class ThinkingInterface:
         
         lines.extend([
             "",
-            f"💡 您可以说:",
+            f" 您可以说:",
             f"   • '使用{model.name}处理这个问题'",
             f"   • '运行完整思维模型分析'",
             f"   • '查看相关历史案例'",
@@ -293,14 +293,14 @@ class ThinkingInterface:
     
     def get_welcome_message(self) -> str:
         """获取欢迎消息"""
-        return """🧠 **思维模型增强器已就位！**
+        return """ **思维模型增强器已就位！**
 
 我可以帮你：
-• 📊 分析问题类型和复杂度
-• 🎯 选择合适的思维模型
-• 🔍 执行结构化思考流程
-• 💾 存储和查询历史案例
-• 📈 追踪思维模型效果
+•  分析问题类型和复杂度
+•  选择合适的思维模型
+•  执行结构化思考流程
+•  存储和查询历史案例
+•  追踪思维模型效果
 
 **使用方式：**
 • "启动研究型思维模式" - 用于创建技能或功能
@@ -313,7 +313,7 @@ class ThinkingInterface:
     
     def get_help_message(self) -> str:
         """获取帮助消息"""
-        return """🧠 **思维模型增强器 - 使用指南**
+        return """ **思维模型增强器 - 使用指南**
 
 ## 核心功能
 
@@ -354,7 +354,7 @@ class ThinkingInterface:
 - 查询历史案例进行参考
 - 追踪成功率持续优化
 
-有任何问题随时问我！💡"""
+有任何问题随时问我！"""
     
     def batch_process(self, problems: List[str]) -> List[Dict]:
         """

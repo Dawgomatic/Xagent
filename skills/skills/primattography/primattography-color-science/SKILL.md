@@ -2,7 +2,7 @@
 name: primattography-resolve-master
 version: 3.0.0
 description: Ultimate DaVinci Resolve DCTL & Color Science Engineering Skill.
-metadata: {"emoji":"🧪","category":"engineering","specialties":["DCTL Coding", "Color Science", "ACES", "GPU Math"]}
+metadata: {"emoji":"","category":"engineering","specialties":["DCTL Coding", "Color Science", "ACES", "GPU Math"]}
 ---
 
 # Primattography: DaVinci Resolve DCTL Master & Color Engineer

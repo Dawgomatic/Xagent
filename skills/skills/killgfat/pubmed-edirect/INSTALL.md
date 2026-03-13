@@ -1,6 +1,6 @@
-# EDirect Installation and Configuration ⚠️
+# EDirect Installation and Configuration 
 
-## ⚠️ Important Security Warning
+##  Important Security Warning
 
 **Before proceeding, understand that:**
 
@@ -26,7 +26,7 @@
 
 ## Installation Methods
 
-### 🔴 Security First: User Confirmation Steps
+###  Security First: User Confirmation Steps
 
 **Before executing any installation command, you must:**
 1. Understand the commands that will be executed
@@ -56,14 +56,14 @@ chmod +x install-edirect.sh
 ./install-edirect.sh
 ```
 
-### ⛔ Unsafe Practices (Prohibited)
+###  Unsafe Practices (Prohibited)
 
 **Never do this:**
 ```bash
-# ❌ Dangerous: Piping remote script directly to shell
+#  Dangerous: Piping remote script directly to shell
 curl https://example.com/install.sh | bash
 
-# ❌ Dangerous: Executing without review
+#  Dangerous: Executing without review
 sh -c "$(curl -fsSL https://example.com/install.sh)"
 ```
 
@@ -323,15 +323,15 @@ docker run -it --rm \
 ## Compliance Notes
 
 This installation process is suitable for:
-- ✅ Personal research environments
-- ✅ Academic institution laboratories
-- ✅ Testing and development systems
+-  Personal research environments
+-  Academic institution laboratories
+-  Testing and development systems
 
 Not suitable for:
-- ⚠️ Production servers
-- ⚠️ Critical business systems
-- ⚠️ Multi-user shared environments
-- ⚠️ Scenarios without audit capabilities
+-  Production servers
+-  Critical business systems
+-  Multi-user shared environments
+-  Scenarios without audit capabilities
 
 ## Final Reminder
 

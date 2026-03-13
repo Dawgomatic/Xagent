@@ -130,7 +130,7 @@ def get_relative_image_path(daily_file_path: str, image_path: str) -> str:
 #### Single Photo (Moment)
 Used for capturing a specific point in time or a single highlight.
 ```markdown
-> [!moment] 🍜 12:30 Lunch
+> [!moment]  12:30 Lunch
 > ![[../assets/2026-02-01/img_001.jpg|400]]
 > Spicy miso ramen with a perfectly soft-boiled egg at the new shop downtown.
 ```
@@ -138,7 +138,7 @@ Used for capturing a specific point in time or a single highlight.
 #### Multiple Photos (Gallery)
 Used when several photos are sent together or relate to the same context.
 ```markdown
-> [!gallery] 📷 Today's Moments
+> [!gallery]  Today's Moments
 > ![[../assets/2026-02-01/img_002.jpg|200]] ![[../assets/2026-02-01/img_003.jpg|200]]
 > ![[../assets/2026-02-01/img_004.jpg|200]]
 ```

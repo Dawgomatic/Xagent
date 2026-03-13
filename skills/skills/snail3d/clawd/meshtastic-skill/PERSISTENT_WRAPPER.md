@@ -118,11 +118,11 @@ export MESH_DEBUG=true
 ## Testing
 
 The wrapper has been tested with:
-- ✅ Command queueing (multiple rapid commands)
-- ✅ Timeout handling (30s per-command timeout)
-- ✅ Error recovery (invalid commands don't crash)
-- ✅ Natural language parsing (all formats supported)
-- ✅ Graceful disconnect (proper cleanup)
+-  Command queueing (multiple rapid commands)
+-  Timeout handling (30s per-command timeout)
+-  Error recovery (invalid commands don't crash)
+-  Natural language parsing (all formats supported)
+-  Graceful disconnect (proper cleanup)
 
 To test with a real device:
 
@@ -134,7 +134,7 @@ To test with a real device:
 MESH_DEBUG=true node meshtastic-persistent.js "broadcast: hello mesh"
 
 # Should output:
-# ✅ Broadcast sent: "hello mesh"
+#  Broadcast sent: "hello mesh"
 ```
 
 ## Integration

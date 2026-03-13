@@ -275,7 +275,7 @@ Defines the vocabulary of edges:
 
 ## Structural
 - `develops` — person → project
-- `uses` / `used-by` — project ↔ tool/concept
+- `uses` / `used-by` — project  tool/concept
 - `part-of` / `contains` — hierarchical nesting
 - `depends-on` — dependency relationship
 
@@ -593,23 +593,23 @@ The meta-reflection phase enables the agent's understanding to deepen over time 
 ```markdown
 # Reflection Summary — 2026-02-02
 
-## 🧠 New Knowledge Extracted
+##  New Knowledge Extracted
 - Learned that Alex prefers hybrid approaches over pure implementations
 - Extracted architectural decision: decay model for forgetting (not hard delete)
 - New entity: concept--sleep-time-compute (connected to project--moltbot-memory)
 
-## 🔗 New Connections
+##  New Connections
 - person--alex → prefers → concept--brainstorm-first (NEW)
 - project--moltbot-memory → inspired-by → concept--letta-sleep-time (NEW)
 
-## 📦 Proposed Archival (decay score < 0.05)
+##  Proposed Archival (decay score < 0.05)
 - Episode 2025-12-15: discussion about unrelated CSS bug (score: 0.03)
 - Entity: concept--old-api-key-rotation (score: 0.04, last accessed 45 days ago)
 
-## ⚠️ Contradictions Detected
+##  Contradictions Detected
 - None this cycle
 
-## ✏️ Core Memory Changes
+##  Core Memory Changes
 ```diff
 ## Active Context
 - Currently working on: [research phase of memory architecture]
@@ -617,7 +617,7 @@ The meta-reflection phase enables the agent's understanding to deepen over time 
 + Open decisions: [decay parameters, reflection token budget, implementation order]
 ```
 
-## 🌱 Philosophical Evolution
+##  Philosophical Evolution
 ### What I've Learned About Learning
 This reflection continues a pattern from Reflection #3: Alex values systematic 
 approaches but wants flexibility within structure.
@@ -630,7 +630,7 @@ and systems, preferring to establish foundations before building features.
 Across 5 reflections, I notice Alex consistently chooses "both/and" over "either/or"
 solutions (hybrid memory model, soft migration, gated write access).
 
-## ❓ Questions for You
+##  Questions for You
 - Should I pin the memory architecture decisions to the vault? They seem foundational.
 - The OAuth2 PKCE fact hasn't been accessed in 13 days. Still relevant?
 
@@ -706,17 +706,17 @@ Every mutation to any system file is tracked. This covers the entire agent works
 
 | File | Change Frequency | Typical Actor | Sensitivity |
 |------|-----------------|---------------|-------------|
-| SOUL.md | Rare | Human only | 🔴 Critical — behavioral constitution |
-| IDENTITY.md | Rare | Human / first-run | 🔴 Critical — agent identity |
-| USER.md | Occasional | Reflection engine (approved) | 🟡 High — human context |
-| TOOLS.md | Occasional | Human / system | 🟡 High — capability definitions |
-| MEMORY.md | Frequent | Bot, reflection, user triggers | 🟢 Standard — dynamic working memory |
-| memory/episodes/* | Frequent | Bot (append-only) | 🟢 Standard — chronological logs |
-| memory/graph/* | Frequent | Bot, reflection | 🟢 Standard — knowledge graph |
-| memory/procedures/* | Occasional | Bot, reflection | 🟢 Standard — learned workflows |
-| memory/vault/* | Rare | Human only (pins) | 🟡 High — protected memories |
-| memory/meta/* | Frequent | System, reflection | 🟢 Standard — system metadata |
-| Config (moltbot.json) | Rare | Human only | 🔴 Critical — system configuration |
+| SOUL.md | Rare | Human only |  Critical — behavioral constitution |
+| IDENTITY.md | Rare | Human / first-run |  Critical — agent identity |
+| USER.md | Occasional | Reflection engine (approved) |  High — human context |
+| TOOLS.md | Occasional | Human / system |  High — capability definitions |
+| MEMORY.md | Frequent | Bot, reflection, user triggers |  Standard — dynamic working memory |
+| memory/episodes/* | Frequent | Bot (append-only) |  Standard — chronological logs |
+| memory/graph/* | Frequent | Bot, reflection |  Standard — knowledge graph |
+| memory/procedures/* | Occasional | Bot, reflection |  Standard — learned workflows |
+| memory/vault/* | Rare | Human only (pins) |  High — protected memories |
+| memory/meta/* | Frequent | System, reflection |  Standard — system metadata |
+| Config (moltbot.json) | Rare | Human only |  Critical — system configuration |
 
 ### 12.2 Dual-Layer Architecture
 
@@ -743,7 +743,7 @@ The audit system uses two layers — git for ground truth, and a lightweight log
 │                                                      │
 │  Alerts                                              │
 │  ┌────────────────────────────────────────────────┐ │
-│  │  ⚠️ Unexpected edits to critical files           │ │
+│  │   Unexpected edits to critical files           │ │
 │  │  Flag SOUL.md / IDENTITY.md / config changes    │ │
 │  └────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────┘
@@ -785,7 +785,7 @@ Trigger: reflection session 2026-02-03
 Actor: manual
 Approval: —
 Trigger: direct human edit
-⚠️ CRITICAL FILE CHANGED
+ CRITICAL FILE CHANGED
 ```
 
 **Actor tags:**
@@ -820,7 +820,7 @@ TIMESTAMP | ACTION | FILE | ACTOR | APPROVAL | SUMMARY
 2026-02-03T03:00Z | EDIT   | USER.md                  | reflection:r-012     | approved | added timezone preference to Context
 2026-02-03T03:00Z | MERGE  | memory/graph/entities/*  | reflection:r-012     | approved | consolidated 3 duplicate entities
 2026-02-03T03:01Z | DECAY  | memory/meta/decay-scores.json | system:decay    | auto     | 2 entries transitioned: fading→dormant
-2026-02-05T10:00Z | EDIT   | SOUL.md                  | manual               | —        | ⚠️ CRITICAL: behavioral guideline modified
+2026-02-05T10:00Z | EDIT   | SOUL.md                  | manual               | —        |  CRITICAL: behavioral guideline modified
 2026-02-06T12:00Z | REVERT | MEMORY.md                | manual               | —        | user reverted to commit abc1234
 ```
 
@@ -839,7 +839,7 @@ TIMESTAMP | ACTION | FILE | ACTOR | APPROVAL | SUMMARY
 
 ### 12.5 Critical File Alerts
 
-Files marked 🔴 Critical in the scope table receive special treatment:
+Files marked  Critical in the scope table receive special treatment:
 
 1. **Any edit triggers an alert** — the bot should surface the change to the user at the start of the next conversation: "Heads up — SOUL.md was modified on [date]. Here's what changed: [diff summary]. Was this intentional?"
 
@@ -849,7 +849,7 @@ Files marked 🔴 Critical in the scope table receive special treatment:
 
 **Alert format in audit.log:**
 ```
-2026-02-05T10:00Z | EDIT | SOUL.md | manual | — | ⚠️ CRITICAL: behavioral guideline modified
+2026-02-05T10:00Z | EDIT | SOUL.md | manual | — |  CRITICAL: behavioral guideline modified
 2026-02-05T10:01Z | ALERT | SOUL.md | system:audit | — | Critical file change detected. Pending user acknowledgment.
 ```
 
@@ -1043,7 +1043,7 @@ reviewed to ensure memory coherence across all agents.
 When multiple sub-agents propose conflicting memories:
 
 1. **Detection** — main agent or reflection engine identifies contradiction
-2. **Flagging** — both proposals marked with `⚠️ CONFLICT` status
+2. **Flagging** — both proposals marked with ` CONFLICT` status
 3. **Resolution options**:
    - Main agent decides which is correct
    - Both are stored with `confidence: low` and linked as contradictory
@@ -1052,12 +1052,12 @@ When multiple sub-agents propose conflicting memories:
 
 Example conflict flag in pending-memories.md:
 ```markdown
-## Proposal #3 ⚠️ CONFLICT with #4
+## Proposal #3  CONFLICT with #4
 - **From**: researcher
 - **Content**: Project deadline is March 15
 - **Status**: conflict — see #4
 
-## Proposal #4 ⚠️ CONFLICT with #3
+## Proposal #4  CONFLICT with #3
 - **From**: coder
 - **Content**: Project deadline is March 30
 - **Status**: conflict — see #3
@@ -1141,7 +1141,7 @@ During scheduled reflection or when manually triggered:
 Every file mutation must be tracked. When writing, editing, or deleting any file:
 1. Commit the change to git with a structured message (actor, approval, trigger)
 2. Append a one-line entry to `memory/meta/audit.log`
-3. If the changed file is SOUL.md, IDENTITY.md, or config — flag as ⚠️ CRITICAL
+3. If the changed file is SOUL.md, IDENTITY.md, or config — flag as  CRITICAL
 
 On session start:
 - Check if any critical files changed since last session

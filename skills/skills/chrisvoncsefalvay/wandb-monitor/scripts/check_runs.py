@@ -65,7 +65,7 @@ def main():
         else:
             print(f"Found {len(results)} run(s) in last {args.hours}h:\n")
             for r in results:
-                status_icon = {"running": "🔄", "finished": "✅", "failed": "❌", "crashed": "💥", "canceled": "⏹️"}.get(r["state"], "❓")
+                status_icon = {"running": "", "finished": "", "failed": "", "crashed": "", "canceled": ""}.get(r["state"], "")
                 print(f"  {status_icon} {r['name']} ({r['state']})")
                 print(f"     ID: {r['id']}")
                 print(f"     Created: {r['created_at']}")

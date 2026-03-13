@@ -10,11 +10,11 @@
 
 Connect AI agents to [Meshtastic](https://meshtastic.org) LoRa mesh networks. Send messages, monitor traffic, and stay connected when the internet isn't an option.
 
-- 📡 **Send/receive** via LoRa mesh
-- 🌐 **Global traffic** via MQTT bridge
-- 🗺️ **Map integration** with privacy fuzzing
-- 🔔 **Alerts & digests** for interesting messages
-- 🛠️ **Framework-agnostic** core, AI-native design
+-  **Send/receive** via LoRa mesh
+-  **Global traffic** via MQTT bridge
+-  **Map integration** with privacy fuzzing
+-  **Alerts & digests** for interesting messages
+-  **Framework-agnostic** core, AI-native design
 
 ## Architecture
 
@@ -72,7 +72,7 @@ Mesh message broadcast
 |-----------|---------|----------|
 | `mesh.py` | CLI for agents | `scripts/mesh.py` |
 | `mcp_server.py` | MCP server for Claude Desktop | `scripts/mcp_server.py` |
-| `mqtt_bridge.py` | MQTT↔Socket↔Serial bridge | `scripts/mqtt_bridge.py` |
+| `mqtt_bridge.py` | MQTTSocketSerial bridge | `scripts/mqtt_bridge.py` |
 | `mesh_monitor.py` | Alert filtering | `scripts/mesh_monitor.py` |
 | `mesh_digest.py` | Periodic summaries | `scripts/mesh_digest.py` |
 
@@ -168,7 +168,7 @@ Fields: `timestamp|channel|sender|distance|text`
 | Heltec V3 | USB | Budget-friendly |
 | LilyGo T-Echo | USB | E-paper display |
 
-> ⚠️ **BLE not recommended on Linux/Pi** — BlueZ has known issues with Meshtastic (notification bugs, random disconnects, device stops advertising). Use USB serial instead.
+>  **BLE not recommended on Linux/Pi** — BlueZ has known issues with Meshtastic (notification bugs, random disconnects, device stops advertising). Use USB serial instead.
 
 ## AI Framework Integration
 
@@ -280,7 +280,7 @@ meshtastic-skill/
 ├── scripts/
 │   ├── mesh.py               # CLI tool
 │   ├── mcp_server.py         # MCP server for Claude Desktop etc.
-│   ├── mqtt_bridge.py        # MQTT↔Socket bridge
+│   ├── mqtt_bridge.py        # MQTTSocket bridge
 │   ├── mesh_monitor.py       # Alert filtering
 │   └── mesh_digest.py        # Digest generator
 └── references/

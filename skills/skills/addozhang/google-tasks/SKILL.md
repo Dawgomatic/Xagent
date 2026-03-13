@@ -80,15 +80,15 @@ If `token.json` doesn't exist:
 ## Output Format
 
 ```
-📋 Your Google Tasks:
+ Your Google Tasks:
 
-📌 List Name
+ List Name
 ──────────────────────────────────────────────────
-  1. ⬜ Task title (due: YYYY-MM-DD)
+  1.  Task title (due: YYYY-MM-DD)
      Note: Task notes if present
-  2. ⬜ Another task
+  2.  Another task
 
-📌 Another List
+ Another List
 ──────────────────────────────────────────────────
   (no tasks)
 ```

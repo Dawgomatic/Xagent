@@ -8,7 +8,7 @@ license: UNLICENSED
 keywords: [llm, proxy, routing, caching, cost-optimization, memory, security, openrouter, openai, openclaw, anthropic, api-proxy, smart-routing, prompt-caching, claude, opus, sonnet, haiku, cheaper, save-money, reduce-costs, agent-memory, cursor, claude-code, vibe-coding, credential-leak, prompt-injection]
 metadata:
   openclaw:
-    emoji: "⚡"
+    emoji: ""
     category: ai-tools
     requires:
       env: []
@@ -137,7 +137,7 @@ npx clawzempic savings   # Savings dashboard (24h, 7d, 30d)
 ## Example Savings Output
 
 ```
-  ⚡ Clawzempic Savings Dashboard
+   Clawzempic Savings Dashboard
 
   Last 24h:  $2.41 saved  (82% reduction)
   Last 7d:   $18.93 saved (71% reduction)

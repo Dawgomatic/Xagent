@@ -170,11 +170,11 @@ clawhub publish ./my-skill \
 ### Publishing Requirements
 
 Before publishing:
-- ✅ Must be logged in (`clawhub login`)
-- ✅ Skill must have valid SKILL.md
-- ✅ Version must follow semver (1.2.3)
-- ✅ Slug must be unique (or you must own it)
-- ✅ Changelog is recommended
+-  Must be logged in (`clawhub login`)
+-  Skill must have valid SKILL.md
+-  Version must follow semver (1.2.3)
+-  Slug must be unique (or you must own it)
+-  Changelog is recommended
 
 ### Version Management
 

@@ -113,11 +113,11 @@ kubectl apply -k k8s/
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `LASTFM_API_KEY` | ✅ | Last.fm API key |
-| `LASTFM_USERNAME` | ✅ | Last.fm username |
-| `DISPLAY_NAME` | ❌ | Name in header (defaults to username) |
-| `TZ` | ❌ | Timezone for "today" stats (e.g., `America/Los_Angeles`) |
-| `PORT` | ❌ | Server port (default: 8765) |
+| `LASTFM_API_KEY` |  | Last.fm API key |
+| `LASTFM_USERNAME` |  | Last.fm username |
+| `DISPLAY_NAME` |  | Name in header (defaults to username) |
+| `TZ` |  | Timezone for "today" stats (e.g., `America/Los_Angeles`) |
+| `PORT` |  | Server port (default: 8765) |
 
 ## API Endpoints
 

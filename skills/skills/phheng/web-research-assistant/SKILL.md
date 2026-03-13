@@ -7,44 +7,44 @@ description: AI-powered web research assistant that leverages BrowserAct API to 
 
 This skill leverages **BrowserAct API** to provide powerful web research capabilities. When primary web access is restricted or blocked, it automatically searches the internet to find and extract relevant information, ensuring your research tasks are completed successfully.
 
-## ✨ OpenClaw & Claude Code Optimized
+##  OpenClaw & Claude Code Optimized
 
-**🚀 Works Seamlessly with OpenClaw and Claude Code**
+** Works Seamlessly with OpenClaw and Claude Code**
 
 | Platform | Status | Installation |
 |----------|--------|--------------|
-| **OpenClaw** | ✅ **Highly Recommended** | Copy to `~/.openclaw/skills/` |
-| **Claude Code** | ✅ **Highly Recommended** | Native skill support |
-| **OpenCode** | ✅ Fully Supported | Copy to `~/.opencode/skills/` |
-| **Cursor** | ✅ Fully Supported | Copy to `~/.cursor/skills/` |
+| **OpenClaw** |  **Highly Recommended** | Copy to `~/.openclaw/skills/` |
+| **Claude Code** |  **Highly Recommended** | Native skill support |
+| **OpenCode** |  Fully Supported | Copy to `~/.opencode/skills/` |
+| **Cursor** |  Fully Supported | Copy to `~/.cursor/skills/` |
 
 **Why This Skill?**
-- 🎯 **Purpose-built for OpenClaw and Claude Code**
-- 🔄 **Auto-recovery** when web access is restricted
-- 🌐 **Global access** - no IP or geoblocking issues
-- 💰 **Cost-effective** - saves token usage
-- ⚡ **Fast execution** - BrowserAct powered
+-  **Purpose-built for OpenClaw and Claude Code**
+-  **Auto-recovery** when web access is restricted
+-  **Global access** - no IP or geoblocking issues
+-  **Cost-effective** - saves token usage
+-  **Fast execution** - BrowserAct powered
 
-## 🎯 When to Use
+##  When to Use
 
 **Web Access Restricted? No Problem!**
 
 Use this skill when:
-- 🔒 Target websites block AI assistant access
-- 🌍 Geographic restrictions limit content access
-- 🔐 Paywalls prevent data extraction
-- ⏱️ Need quick supplemental information
-- 📊 Research requires multiple data sources
-- 🔍 Need current information beyond cached data
+-  Target websites block AI assistant access
+-  Geographic restrictions limit content access
+-  Paywalls prevent data extraction
+-  Need quick supplemental information
+-  Research requires multiple data sources
+-  Need current information beyond cached data
 
-## 🔑 API Key Guidance
+##  API Key Guidance
 
 Before running, check the `BROWSERACT_API_KEY` environment variable. If not set, request the API key from the user:
 
 **Required Message**:
 > "Please provide your BrowserAct API Key from [BrowserAct Console](https://www.browseract.com/reception/integrations) to enable web research capabilities."
 
-## 🛠️ Input Parameters
+##  Input Parameters
 
 Configure research based on your needs:
 
@@ -56,7 +56,7 @@ Configure research based on your needs:
 | `content_type` | string | all | Content filter (all, news, articles, data) |
 | `time_range` | string | past_month | Time filter (anytime, past_day/week/month/year) |
 
-## 💻 Quick Start
+##  Quick Start
 
 ```bash
 # Basic research
@@ -72,7 +72,7 @@ python web-research-assistant/scripts/research.py "market trends" --content-type
 python web-research-assistant/scripts/research.py "industry data" -o research_report.md
 ```
 
-## 📊 Output
+##  Output
 
 **Structured Research Data:**
 - Titles, URLs, snippets, and relevance scores
@@ -80,13 +80,13 @@ python web-research-assistant/scripts/research.py "industry data" -o research_re
 - Source citations and references
 - Comprehensive research report
 
-## 🎪 What This Skill Does
+##  What This Skill Does
 
-1. **🔄 Auto-Supplement** - When direct access fails, automatically searches the web
-2. **🌐 Global Search** - Bypasses geographic restrictions via BrowserAct
-3. **📈 Multi-Source** - Aggregates data from multiple search results
-4. **✅ Validation** - Cross-references information for accuracy
-5. **📋 Report Generation** - Creates comprehensive research reports
+1. ** Auto-Supplement** - When direct access fails, automatically searches the web
+2. ** Global Search** - Bypasses geographic restrictions via BrowserAct
+3. ** Multi-Source** - Aggregates data from multiple search results
+4. ** Validation** - Cross-references information for accuracy
+5. ** Report Generation** - Creates comprehensive research reports
 
 ---
 
@@ -104,7 +104,7 @@ python web-research-assistant/scripts/research.py "industry data" -o research_re
 
 ---
 
-## 🔧 BrowserAct API Integration
+##  BrowserAct API Integration
 
 ```
 Research Request → BrowserAct Search → Data Extraction → Validation → Final Report
@@ -114,7 +114,7 @@ Research Request → BrowserAct Search → Data Extraction → Validation → Fi
 
 ---
 
-## ⚠️ Error Handling
+##  Error Handling
 
 - **Invalid API Key**: Report to user, do not retry
 - **Search Failed**: Automatic retry with fallback engine
@@ -123,7 +123,7 @@ Research Request → BrowserAct Search → Data Extraction → Validation → Fi
 
 ---
 
-## 📖 Best Practices
+##  Best Practices
 
 1. Use **specific queries** for targeted results
 2. Apply **time filters** for current information
@@ -133,7 +133,7 @@ Research Request → BrowserAct Search → Data Extraction → Validation → Fi
 
 ---
 
-## 🔗 Related Skills
+##  Related Skills
 
 - `amazon-competitor-analyzer` - Amazon competitive intelligence
 - `google-maps-search-api-skill` - Business data extraction

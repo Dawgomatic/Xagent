@@ -88,14 +88,14 @@ func _process(_delta: float) -> void:
 
 ---
 
-## ⚠️ AI PITFALL：在 _process 中使用 get_node
+##  AI PITFALL：在 _process 中使用 get_node
 
 ```gdscript
-# ❌ WRONG - 每幀查找節點
+#  WRONG - 每幀查找節點
 func _process(delta: float) -> void:
     $Sprite2D.modulate.a = health / max_health  # 每幀調用 get_node
 
-# ✅ CORRECT - 緩存節點引用
+#  CORRECT - 緩存節點引用
 @onready var sprite: Sprite2D = $Sprite2D
 
 func _process(delta: float) -> void:
@@ -104,17 +104,17 @@ func _process(delta: float) -> void:
 
 ---
 
-## ⚠️ AI PITFALL：熱路徑中分配記憶體
+##  AI PITFALL：熱路徑中分配記憶體
 
 ```gdscript
-# ❌ WRONG - 每幀創建新陣列
+#  WRONG - 每幀創建新陣列
 func _process(_delta: float) -> void:
     var nearby = []  # 每幀分配
     for enemy in get_tree().get_nodes_in_group("enemies"):
         if global_position.distance_to(enemy.global_position) < 100:
             nearby.append(enemy)
 
-# ✅ CORRECT - 重用陣列
+#  CORRECT - 重用陣列
 var _nearby_cache: Array = []
 
 func _process(_delta: float) -> void:

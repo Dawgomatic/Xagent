@@ -7,7 +7,7 @@ compatibility: curl, jq, Deepgram API key
 metadata: {"openclaw": {"emoji": "\ud83c\udf99\ufe0f", "requires": {"env": ["DEEPGRAM_API_KEY"], "bins": ["curl", "jq"]}, "primaryEnv": "DEEPGRAM_API_KEY", "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# Voice Transcriber 🎙️
+# Voice Transcriber 
 
 Audio transcription via Whisper + voice note journaling.
 
@@ -39,4 +39,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

@@ -43,10 +43,10 @@ When motion detected:
 ### 4. Smart Alerting
 
 When match found:
-- 🚨 Alert notification
-- 📸 Frame with metadata
-- ⏰ Timestamp
-- 📌 Which BOLO matched
+-  Alert notification
+-  Frame with metadata
+-  Timestamp
+-  Which BOLO matched
 
 ## Example Usage
 
@@ -77,13 +77,13 @@ Person in dark hoodie
 
 Output:
 ```
-👀 SENTRY WATCH MODE ACTIVATED
-⏱️ Check interval: 2000ms
-🔍 Motion threshold: 10%
-⏰ Alert cooldown: 180s
-📌 Active BOLOs: 3
+ SENTRY WATCH MODE ACTIVATED
+ Check interval: 2000ms
+ Motion threshold: 10%
+ Alert cooldown: 180s
+ Active BOLOs: 3
 
-📋 ACTIVE BOLOs:
+ ACTIVE BOLOs:
 ─────────────────────────────────────
 1. Guy with black hat
    Added: 1/27/2026, 12:30:00 PM
@@ -97,25 +97,25 @@ Output:
    Added: 1/27/2026, 12:30:10 PM
    Alerts: 0
 
-🎥 Starting continuous monitoring...
+ Starting continuous monitoring...
 ```
 
 ### Motion Detected
 ```
-🎬 MOTION DETECTED (15.2%)
+ MOTION DETECTED (15.2%)
 ```
 
 ### Match Found
 ```
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-🚨 BOLO ALERT!
+ BOLO ALERT!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-📌 BOLO: Guy with black hat
-⏰ Time: 1/27/2026, 12:31:45 PM
-📸 Frame: frame-1706369505123.jpg
+ BOLO: Guy with black hat
+ Time: 1/27/2026, 12:31:45 PM
+ Frame: frame-1706369505123.jpg
 
-👤 Detected:
+ Detected:
 {
   "people": 1,
   "descriptions": ["Person with dark hat and clothing"],
@@ -184,11 +184,11 @@ alertCooldown: 5 * 60 * 1000 // 5 minutes
 ## BOLO Description Tips
 
 ### Be Specific
-✅ "Guy with black baseball hat and red hoodie"
-✅ "Little blond girl in pink jacket"
-✅ "Person in blue jeans"
-❌ "Suspicious person"
-❌ "Someone"
+ "Guy with black baseball hat and red hoodie"
+ "Little blond girl in pink jacket"
+ "Person in blue jeans"
+ "Suspicious person"
+ "Someone"
 
 ### Include Details
 - **Clothing**: hat, jacket, shirt color
@@ -250,7 +250,7 @@ When BOLO match found, system can:
 
 ## Privacy & Legal
 
-⚠️ **Important Considerations:**
+ **Important Considerations:**
 - Only use in spaces you control
 - Inform others if recording
 - Follow local privacy laws
@@ -307,7 +307,7 @@ cron add "sentry-watch" "0 */8 * * *" "node ~/clawd/sentry-mode-skill/scripts/se
 // Send Telegram alert
 message.send({
   target: "YOUR_USER",
-  message: `🚨 BOLO ALERT: ${bolo.description}\n📸 Frame attached`
+  message: ` BOLO ALERT: ${bolo.description}\n Frame attached`
 });
 ```
 
@@ -317,7 +317,7 @@ message.send({
 twilioClient.messages.create({
   to: "+1-555-730-8926",
   from: "+1-915-223-7302",
-  body: `🚨 BOLO: ${bolo.description} - ${timestamp}`
+  body: ` BOLO: ${bolo.description} - ${timestamp}`
 });
 ```
 

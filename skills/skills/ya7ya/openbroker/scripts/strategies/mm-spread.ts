@@ -394,7 +394,7 @@ async function printSummary(
   console.log(`Total PnL:       ${formatUsd(realizedPnl + inventoryPnl)}`);
 
   if (Math.abs(finalPosition) > 0.0001) {
-    console.log(`\n⚠️  You have an open position of ${finalPosition.toFixed(6)} ${coin}`);
+    console.log(`\n  You have an open position of ${finalPosition.toFixed(6)} ${coin}`);
     console.log(`   Close it manually if desired.`);
   }
 }

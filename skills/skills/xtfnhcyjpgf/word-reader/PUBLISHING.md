@@ -1,6 +1,6 @@
 # Word Reader 技能发布指南
 
-## 🚀 发布到 ClawHub
+##  发布到 ClawHub
 
 ### 1. 准备工作
 

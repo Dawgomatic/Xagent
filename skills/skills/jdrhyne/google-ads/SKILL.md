@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📊",
+        "emoji": "",
         "requires":
           {
             "anyBins": ["python3"],
@@ -168,8 +168,8 @@ When reporting findings, use tables:
 ## Campaign Performance (Last 30 Days)
 | Campaign | Cost | Conv | CPA | Status |
 |----------|------|------|-----|--------|
-| Branded  | $5K  | 50   | $100| ✅ Good |
-| SDK Web  | $10K | 2    | $5K | ❌ Pause |
+| Branded  | $5K  | 50   | $100|  Good |
+| SDK Web  | $10K | 2    | $5K |  Pause |
 
 ## Recommended Actions
 1. **PAUSE**: SDK Web campaign ($5K CPA)

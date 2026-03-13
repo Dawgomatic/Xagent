@@ -2,7 +2,7 @@
 name: "data-source-audit"
 description: "Comprehensive audit of all construction data sources and systems. Map data flows, identify silos, assess quality, and create integration roadmap."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "🔗", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # Data Source Audit for Construction
 
@@ -307,7 +307,7 @@ class DataSourceAuditor:
         for flow in self.flows:
             if flow.source in source_names and flow.target in source_names:
                 current = matrix.loc[flow.source, flow.target]
-                symbol = '→' if flow.flow_type == 'push' else '←' if flow.flow_type == 'pull' else '↔'
+                symbol = '→' if flow.flow_type == 'push' else '←' if flow.flow_type == 'pull' else ''
                 matrix.loc[flow.source, flow.target] = f"{current}{symbol}" if current else symbol
 
         return matrix

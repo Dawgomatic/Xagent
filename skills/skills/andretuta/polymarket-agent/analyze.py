@@ -102,7 +102,7 @@ def _format_market(m):
 
 def print_market_table(markets):
     """Print markets in a nice table"""
-    table = Table(title="📊 Polymarket Opportunities")
+    table = Table(title=" Polymarket Opportunities")
     table.add_column("Question", style="cyan", max_width=50)
     table.add_column("Prices", style="green")
     table.add_column("Volume (24h)", style="magenta", justify="right")

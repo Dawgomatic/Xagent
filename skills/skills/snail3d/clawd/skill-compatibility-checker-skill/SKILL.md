@@ -66,7 +66,7 @@ Runs the **security-scanner** skill (if installed):
 
 ## Output: Installation Readiness
 
-### 🟢 GO
+###  GO
 **Ready to install. No blocking issues detected.**
 
 - No system requirement mismatches
@@ -75,7 +75,7 @@ Runs the **security-scanner** skill (if installed):
 - Security scan clear (SAFE)
 - Missing optional dependencies (with install commands provided)
 
-### 🟡 CAUTION
+###  CAUTION
 **Proceed with caution. Review issues before installation.**
 
 - All system requirements met, but see warnings
@@ -84,7 +84,7 @@ Runs the **security-scanner** skill (if installed):
 - Security scan shows CAUTION level
 - Resolution steps provided for each issue
 
-### 🔴 BLOCKED
+###  BLOCKED
 **Do not install.**
 
 - System requirements NOT met (wrong OS, architecture, or Node version)
@@ -108,18 +108,18 @@ Path:  /Users/ericwoodard/clawd/my-skill
 Date:  2026-01-29T15:30:00.000Z
 
 ┌─ INSTALLATION READINESS ─────────────────────────────────────────────────┐
-│ ✅ GO - Safe to install
+│  GO - Safe to install
 │
 └────────────────────────────────────────────────────────────────────────────┘
 
 ┌─ SYSTEM REQUIREMENTS ────────────────────────────────────────────────────┐
 │ Your System: darwin / arm64 / Node 25.4.0
 │
-│ System requirements met ✅
+│ System requirements met 
 └────────────────────────────────────────────────────────────────────────────┘
 
 ┌─ RECOMMENDATION ─────────────────────────────────────────────────────────┐
-│ ✅ Ready to install. No blocking issues detected.
+│  Ready to install. No blocking issues detected.
 │
 │ Next step: npm install && clawdbot skill install
 └────────────────────────────────────────────────────────────────────────────┘
@@ -131,22 +131,22 @@ Date:  2026-01-29T15:30:00.000Z
 $ skill-compatibility-checker ~/clawd/another-skill
 
 ┌─ INSTALLATION READINESS ─────────────────────────────────────────────────┐
-│ ⚠️  CAUTION - Review issues before installation
+│   CAUTION - Review issues before installation
 │
 └────────────────────────────────────────────────────────────────────────────┘
 
 ┌─ DEPENDENCIES ───────────────────────────────────────────────────────────┐
 │ Missing CLI Tools:
-│ ❌ ffmpeg
+│  ffmpeg
 │    Install: brew install ffmpeg
 │
 │ Missing API Keys/Tokens:
-│ ⚠️  groq - configure in TOOLS.md or environment
-│ ⚠️  elevenlabs - configure in TOOLS.md or environment
+│   groq - configure in TOOLS.md or environment
+│   elevenlabs - configure in TOOLS.md or environment
 └────────────────────────────────────────────────────────────────────────────┘
 
 ┌─ RECOMMENDATION ─────────────────────────────────────────────────────────┐
-│ ⚠️  Proceed with caution. Review all issues above.
+│   Proceed with caution. Review all issues above.
 │
 │ Actions before installation:
 │ 1. Install missing CLI tools (see above)

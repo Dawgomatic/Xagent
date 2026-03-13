@@ -29,11 +29,11 @@ model = WhisperModel('small', device='cpu', compute_type='int8')  # Options: tin
 
 | Model | Size | VRAM/RAM | Speed | Use Case |
 |-------|------|----------|-------|----------|
-| tiny | 39 MB | ~1 GB | ⚡⚡⚡ | Quick drafts |
-| base | 74 MB | ~1 GB | ⚡⚡ | Basic accuracy |
-| **small** | **244 MB** | **~2 GB** | **⚡** | **Recommended** |
-| medium | 769 MB | ~5 GB | 🐢 | Better accuracy |
-| large-v3 | 1.5 GB | ~10 GB | 🐢🐢 | Best accuracy |
+| tiny | 39 MB | ~1 GB |  | Quick drafts |
+| base | 74 MB | ~1 GB |  | Basic accuracy |
+| **small** | **244 MB** | **~2 GB** | **** | **Recommended** |
+| medium | 769 MB | ~5 GB |  | Better accuracy |
+| large-v3 | 1.5 GB | ~10 GB |  | Best accuracy |
 
 ## Integration
 

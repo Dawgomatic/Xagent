@@ -3,7 +3,7 @@ name: duely
 description: Track recurring maintenance tasks from the command line. Use when scheduling, checking, and logging periodic tasks like backups, reviews, or any repeating chore. Shows overdue items and keeps an execution log.
 metadata:
   openclaw:
-    emoji: "🔁"
+    emoji: ""
     os: ["darwin"]
     requires:
       bins: ["duely"]
@@ -56,7 +56,7 @@ duely list
 duely due
 ```
 
-Shows overdue tasks with ⚠️ warnings.
+Shows overdue tasks with  warnings.
 
 ### Mark a task as done
 

@@ -8,7 +8,7 @@ if [ -z "$COMPOSIO_API_KEY" ]; then
   exit 1
 fi
 
-echo "📋 Fetching available Composio apps..."
+echo " Fetching available Composio apps..."
 echo ""
 
 curl -s -X GET "https://backend.composio.dev/api/v1/apps" \
@@ -16,4 +16,4 @@ curl -s -X GET "https://backend.composio.dev/api/v1/apps" \
   | jq -r '.items[] | "\(.key): \(.displayName)"' | head -50
 
 echo ""
-echo "💡 See full list at: https://docs.composio.dev/apps"
+echo " See full list at: https://docs.composio.dev/apps"

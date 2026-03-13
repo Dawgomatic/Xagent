@@ -44,13 +44,13 @@
 
 ## Red Flags
 
-🚩 Promises of guaranteed returns
-🚩 Pressure to act quickly
-🚩 Requests for seed phrase
-🚩 "Support" contacts you first
-🚩 Too-good-to-be-true APY
-🚩 Anonymous team on new project
-🚩 No audit on DeFi protocol
+ Promises of guaranteed returns
+ Pressure to act quickly
+ Requests for seed phrase
+ "Support" contacts you first
+ Too-good-to-be-true APY
+ Anonymous team on new project
+ No audit on DeFi protocol
 
 ## If Something Goes Wrong
 

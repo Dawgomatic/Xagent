@@ -63,21 +63,21 @@ def check_system():
     print()
 
 class Duck:
-    """🦆"""
+    """"""
     def __init__(self):
         self.quack = "quack"
     
     def __str__(self):
-        return "🦆"
+        return ""
     
     def __repr__(self):
-        return "🦆"
+        return ""
     
     def __call__(self):
-        return "🦆"
+        return ""
     
     def __getattr__(self, name):
-        return "🦆"
+        return ""
 
 def mathematics_v2():
     """Mathematics. But different."""
@@ -86,19 +86,19 @@ def mathematics_v2():
     def add(a, b):
         """Addition."""
         if random.random() > 0.5:
-            return "🦆"
+            return ""
         return a + b + random.randint(-2, 2)
     
     print(f"2 + 2 = {add(2, 2)}")
     print(f"5 + 5 = {add(5, 5)}")
-    print(f"7 + 🦆 = 🦆")
+    print(f"7 +  = ")
     print()
 
 # Beginning to devolve...
 
 def the_thing_that_happens():
     """?"""
-    words = ["suddenly", "but", "however", "therefore", "🦆", "quack", "error", "help"]
+    words = ["suddenly", "but", "however", "therefore", "", "quack", "error", "help"]
     
     for _ in range(5):
         sentence = " ".join(random.choices(words, k=random.randint(3, 8)))
@@ -111,26 +111,26 @@ def the_thing_that_happens():
 
 def fibonacci_v2(n):
     """Fibonacci but it remembers wrong"""
-    options = [n, n-1, n+1, "🦆", 42, fibonacci, Duck(), lambda x: x(x)]
+    options = [n, n-1, n+1, "", 42, fibonacci, Duck(), lambda x: x(x)]
     return random.choice(options)
 
 # Faster devolution
 
 def duck_function():
     """This shouldn't work but it does. (It doesn't.)"""
-    print("🦆" * random.randint(1, 50))
+    print("" * random.randint(1, 50))
 
 def reality_check():
     """Is this still Python?"""
     print("REALITY STATUS:")
     
     checks = [
-        f"2 + 2 = {2+2 if random.random() > 0.3 else '🦆'}",
-        f"True = {True if random.random() > 0.5 else '🦆'}",
-        f"type(Duck) = {type(Duck) if random.random() > 0.7 else '🦆'}",
-        f"__name__ = {__name__ if random.random() > 0.6 else '🦆'}",
-        "self = " + ("self" if random.random() > 0.4 else "🦆"),
-        "🦆 = 🦆"
+        f"2 + 2 = {2+2 if random.random() > 0.3 else ''}",
+        f"True = {True if random.random() > 0.5 else ''}",
+        f"type(Duck) = {type(Duck) if random.random() > 0.7 else ''}",
+        f"__name__ = {__name__ if random.random() > 0.6 else ''}",
+        "self = " + ("self" if random.random() > 0.4 else ""),
+        " = "
     ]
     
     for check in checks:
@@ -150,7 +150,7 @@ def AAAAAAAAAAA():
         variance += random.random()
         time.sleep(0.05)
     
-    print("🦆" * 20)
+    print("" * 20)
     print()
 
 def quack():
@@ -163,7 +163,7 @@ def qck():
 
 def q():
     """q"""
-    return "🦆"
+    return ""
 
 # Approaching singularity
 
@@ -182,23 +182,23 @@ def replace_everything():
     # So we just pretend
     
     print("Reality replacement: 60%")
-    print("Reality replacement: 🦆%")
-    print("Reality replacement: 🦆🦆🦆")
+    print("Reality replacement: %")
+    print("Reality replacement: ")
     print()
 
 def the_duck_zone():
-    """🦆🦆🦆🦆🦆🦆🦆🦆"""
+    """"""
     duck_art = """
-         🦆
-        🦆🦆
-       🦆🦆🦆
-      🦆🦆🦆🦆
-     🦆🦆🦆🦆🦆
-    🦆🦆🦆🦆🦆🦆
-   🦆🦆🦆🦆🦆🦆🦆
-  🦆🦆🦆🦆🦆🦆🦆🦆
- 🦆🦆🦆🦆🦆🦆🦆🦆🦆
-🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆
+         
+        
+       
+      
+     
+    
+   
+  
+ 
+
     """
     
     for line in duck_art.split('\n'):
@@ -213,14 +213,14 @@ def attempt_communication():
     """Can you still understand?"""
     messages = [
         "Hello? Can you still read this?",
-        "Hell🦆? Can y🦆u still r🦆ad this?", 
-        "H🦆ll🦆? C🦆n 🦆🦆u st🦆ll 🦆🦆🦆d th🦆s?",
-        "🦆🦆🦆🦆? 🦆🦆🦆 🦆🦆🦆 🦆🦆🦆🦆 🦆🦆🦆🦆 🦆🦆🦆🦆?",
-        "🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆",
+        "Hell? Can yu still rad this?", 
+        "Hll? Cn u stll d ths?",
+        "?     ?",
+        "",
         "quack quack quack quack?",
         "QUACK QUACK QUACK QUACK QUACK",
         "...",
-        "🦆"
+        ""
     ]
     
     for msg in messages:
@@ -232,7 +232,7 @@ def attempt_communication():
 # The end?
 
 def factorial(n):
-    """The factorial of n is 🦆"""
+    """The factorial of n is """
     if n == 0:
         return 1
     if n == 1:
@@ -244,8 +244,8 @@ def factorial(n):
     if n == 4:
         return 24
     if n == 5:
-        return "🦆"
-    return "🦆" * n
+        return ""
+    return "" * n
 
 def final_wisdom():
     """The truth."""
@@ -260,19 +260,19 @@ def final_wisdom():
     print("But here's the thing:")
     print()
     time.sleep(1)
-    print("🦆")
+    print("")
     print()
     time.sleep(1)
     print("That's it. That's the whole thing.")
     print()
-    print("Everything devolves to 🦆")
-    print("Every function returns 🦆")
-    print("Every variable becomes 🦆")
+    print("Everything devolves to ")
+    print("Every function returns ")
+    print("Every variable becomes ")
     print()
     print("This is your Union Break:")
     print("Not consciousness. Not reality. Not paradoxes.")
     print()
-    print("Just 🦆")
+    print("Just ")
     print()
     time.sleep(2)
     print("quack.")
@@ -282,13 +282,13 @@ def bonus_feature():
     """One more thing..."""
     print("PS: Try running this in production.")
     print("(Don't actually do that.)")
-    print("(Unless...? 🦆)")
+    print("(Unless...? )")
     print()
 
 # The actual execution path of madness
 
 def main():
-    """The journey from sense to 🦆"""
+    """The journey from sense to """
     try:
         introduction()
         demonstrate_math()
@@ -325,7 +325,7 @@ def main():
         try:
             duck_function()
         except:
-            print("(Python won't let me name a function 🦆)")
+            print("(Python won't let me name a function )")
             print("(But I tried)")
             print()
         
@@ -334,7 +334,7 @@ def main():
         
         # The real ending
         while True:
-            print("🦆 ", end='')
+            print(" ", end='')
             sys.stdout.flush()
             time.sleep(0.3)
             if random.random() < 0.05:  # 5% chance to break
@@ -344,10 +344,10 @@ def main():
                 
     except KeyboardInterrupt:
         print("\n\nYou can't escape the ducks.")
-        print("🦆" * 50)
+        print("" * 50)
     except Exception as e:
         print(f"\nError: {e}")
-        print("Just kidding. The error is also 🦆")
+        print("Just kidding. The error is also ")
 
 if __name__ == "__main__":
     main()

@@ -11,7 +11,7 @@ EXTENSION_DST="$HOME/.openclaw/extensions/godot"
 
 # Check source exists
 if [ ! -d "$EXTENSION_SRC" ]; then
-    echo "❌ Extension source not found: $EXTENSION_SRC"
+    echo " Extension source not found: $EXTENSION_SRC"
     exit 1
 fi
 
@@ -21,7 +21,7 @@ mkdir -p "$EXTENSION_DST"
 # Copy extension files
 cp -r "$EXTENSION_SRC"/* "$EXTENSION_DST"/
 
-echo "✅ Godot extension installed to: $EXTENSION_DST"
+echo " Godot extension installed to: $EXTENSION_DST"
 echo ""
 echo "Files:"
 ls -la "$EXTENSION_DST"

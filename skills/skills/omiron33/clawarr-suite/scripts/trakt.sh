@@ -72,7 +72,7 @@ TOKEN_FILE="${TRAKT_TOKEN_FILE:-$HOME/.config/clawarr/trakt_tokens.json}"
 API_BASE="https://api.trakt.tv"
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required"
+  echo " Error: jq is required"
   exit 1
 fi
 
@@ -124,7 +124,7 @@ EOF
 # Helper: Check if token is expired and refresh if needed
 check_and_refresh_token() {
   if ! load_tokens; then
-    echo "❌ Not authenticated. Run: trakt.sh auth"
+    echo " Not authenticated. Run: trakt.sh auth"
     exit 1
   fi
   
@@ -133,7 +133,7 @@ check_and_refresh_token() {
   
   # Refresh if expired or expiring in next hour
   if [[ $EXPIRES_AT -lt $((now + 3600)) ]]; then
-    echo "🔄 Token expired, refreshing..."
+    echo " Token expired, refreshing..."
     
     local response
     response=$(curl -sf -X POST "$API_BASE/oauth/token" \
@@ -147,7 +147,7 @@ check_and_refresh_token() {
       }" || echo "")
     
     if [[ -z "$response" ]]; then
-      echo "❌ Failed to refresh token. Re-authenticate: trakt.sh auth"
+      echo " Failed to refresh token. Re-authenticate: trakt.sh auth"
       exit 1
     fi
     
@@ -161,7 +161,7 @@ check_and_refresh_token() {
     save_tokens "$new_access" "$new_refresh" "$expires_in"
     load_tokens
     
-    echo "✅ Token refreshed"
+    echo " Token refreshed"
   fi
 }
 
@@ -203,7 +203,7 @@ trakt_api_public() {
 
 # Command: auth (device flow)
 cmd_auth() {
-  echo "🔐 Trakt.tv Device Authentication"
+  echo " Trakt.tv Device Authentication"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -262,7 +262,7 @@ cmd_auth() {
       save_tokens "$access_token" "$refresh_token" "$token_expires_in"
       
       echo ""
-      echo "✅ Successfully authenticated!"
+      echo " Successfully authenticated!"
       echo "Tokens saved to: $TOKEN_FILE"
       echo ""
       
@@ -283,18 +283,18 @@ cmd_auth() {
   done
   
   echo ""
-  echo "❌ Authentication timed out. Please try again."
+  echo " Authentication timed out. Please try again."
   exit 1
 }
 
 # Command: auth-status
 cmd_auth_status() {
-  echo "🔐 Trakt Authentication Status"
+  echo " Trakt Authentication Status"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
   if ! load_tokens; then
-    echo "❌ Not authenticated"
+    echo " Not authenticated"
     echo ""
     echo "Run: trakt.sh auth"
     echo ""
@@ -306,7 +306,7 @@ cmd_auth_status() {
   local time_remaining
   time_remaining=$((EXPIRES_AT - now))
   
-  echo "✅ Authenticated"
+  echo " Authenticated"
   echo ""
   
   if [[ $time_remaining -gt 0 ]]; then
@@ -347,9 +347,9 @@ cmd_profile() {
   
   if [[ "$username" == "me" ]]; then
     username="me"
-    echo "👤 Your Trakt Profile"
+    echo " Your Trakt Profile"
   else
-    echo "👤 Trakt Profile: $username"
+    echo " Trakt Profile: $username"
   fi
   
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -409,7 +409,7 @@ cmd_stats() {
     username=$(echo "$user_info" | jq -r '.user.username')
   fi
   
-  echo "📊 Detailed Statistics: $username"
+  echo " Detailed Statistics: $username"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -458,7 +458,7 @@ cmd_stats() {
 
 # Command: watching
 cmd_watching() {
-  echo "👀 Currently Watching"
+  echo " Currently Watching"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -511,12 +511,12 @@ cmd_history() {
     episodes) type_path="/episodes" ;;
     all) type_path="" ;;
     *)
-      echo "❌ Invalid type. Use: movies, shows, episodes, or all"
+      echo " Invalid type. Use: movies, shows, episodes, or all"
       exit 1
       ;;
   esac
   
-  echo "📜 Watch History: $type (last $limit)"
+  echo " Watch History: $type (last $limit)"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -553,12 +553,12 @@ cmd_scrobble() {
     pause) endpoint="/scrobble/pause" ;;
     stop) endpoint="/scrobble/stop" ;;
     *)
-      echo "❌ Invalid action. Use: start, pause, or stop"
+      echo " Invalid action. Use: start, pause, or stop"
       exit 1
       ;;
   esac
   
-  echo "📡 Scrobble: $action $type"
+  echo " Scrobble: $action $type"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -568,10 +568,10 @@ cmd_scrobble() {
   response=$(trakt_api POST "$endpoint" "$data")
   
   if [[ -n "$response" ]]; then
-    echo "✅ Scrobble successful"
+    echo " Scrobble successful"
     echo ""
   else
-    echo "❌ Scrobble failed"
+    echo " Scrobble failed"
     exit 1
   fi
 }
@@ -586,7 +586,7 @@ cmd_checkin() {
     exit 1
   fi
   
-  echo "📍 Check-in: $title"
+  echo " Check-in: $title"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -598,7 +598,7 @@ cmd_checkin() {
   item_id=$(echo "$search" | jq -r ".[0].$type.ids.trakt")
   
   if [[ -z "$item_id" ]] || [[ "$item_id" == "null" ]]; then
-    echo "❌ Could not find: $title"
+    echo " Could not find: $title"
     exit 1
   fi
   
@@ -608,10 +608,10 @@ cmd_checkin() {
   response=$(trakt_api POST "/checkin" "$data")
   
   if [[ -n "$response" ]]; then
-    echo "✅ Checked in to: $title"
+    echo " Checked in to: $title"
     echo ""
   else
-    echo "❌ Check-in failed"
+    echo " Check-in failed"
     exit 1
   fi
 }
@@ -626,12 +626,12 @@ cmd_watchlist() {
     shows) type_path="/shows" ;;
     all) type_path="" ;;
     *)
-      echo "❌ Invalid type. Use: movies, shows, or all"
+      echo " Invalid type. Use: movies, shows, or all"
       exit 1
       ;;
   esac
   
-  echo "⭐ Watchlist: $type"
+  echo " Watchlist: $type"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -666,7 +666,7 @@ cmd_watchlist_add() {
     exit 1
   fi
   
-  echo "➕ Adding to watchlist: $query"
+  echo " Adding to watchlist: $query"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -682,7 +682,7 @@ cmd_watchlist_add() {
     item_id=$(echo "$search" | jq -r ".[0].$type.ids.trakt")
     
     if [[ -z "$item_id" ]] || [[ "$item_id" == "null" ]]; then
-      echo "❌ Could not find: $query"
+      echo " Could not find: $query"
       exit 1
     fi
   fi
@@ -696,10 +696,10 @@ cmd_watchlist_add() {
   added=$(echo "$response" | jq -r ".added.${type}s")
   
   if [[ "$added" -gt 0 ]]; then
-    echo "✅ Added to watchlist"
+    echo " Added to watchlist"
     echo ""
   else
-    echo "⚠️  Already in watchlist"
+    echo "  Already in watchlist"
     echo ""
   fi
 }
@@ -714,12 +714,12 @@ cmd_collection() {
     shows) type_path="/shows" ;;
     all) type_path="" ;;
     *)
-      echo "❌ Invalid type. Use: movies, shows, or all"
+      echo " Invalid type. Use: movies, shows, or all"
       exit 1
       ;;
   esac
   
-  echo "📚 Collection: $type"
+  echo " Collection: $type"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -754,7 +754,7 @@ cmd_collection_add() {
     exit 1
   fi
   
-  echo "➕ Adding to collection: $query"
+  echo " Adding to collection: $query"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -770,7 +770,7 @@ cmd_collection_add() {
     item_id=$(echo "$search" | jq -r ".[0].$type.ids.trakt")
     
     if [[ -z "$item_id" ]] || [[ "$item_id" == "null" ]]; then
-      echo "❌ Could not find: $query"
+      echo " Could not find: $query"
       exit 1
     fi
   fi
@@ -784,10 +784,10 @@ cmd_collection_add() {
   added=$(echo "$response" | jq -r ".added.${type}s")
   
   if [[ "$added" -gt 0 ]]; then
-    echo "✅ Added to collection"
+    echo " Added to collection"
     echo ""
   else
-    echo "⚠️  Already in collection"
+    echo "  Already in collection"
     echo ""
   fi
 }
@@ -803,12 +803,12 @@ cmd_ratings() {
     shows) type_path="/shows" ;;
     all) type_path="" ;;
     *)
-      echo "❌ Invalid type. Use: movies, shows, or all"
+      echo " Invalid type. Use: movies, shows, or all"
       exit 1
       ;;
   esac
   
-  echo "⭐ Your Ratings: $type (>= $min_rating)"
+  echo " Your Ratings: $type (>= $min_rating)"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -845,11 +845,11 @@ cmd_rate() {
   fi
   
   if [[ ! "$rating" =~ ^[1-9]$|^10$ ]]; then
-    echo "❌ Rating must be between 1 and 10"
+    echo " Rating must be between 1 and 10"
     exit 1
   fi
   
-  echo "⭐ Rating: $query"
+  echo " Rating: $query"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -865,7 +865,7 @@ cmd_rate() {
     item_id=$(echo "$search" | jq -r ".[0].$type.ids.trakt")
     
     if [[ -z "$item_id" ]] || [[ "$item_id" == "null" ]]; then
-      echo "❌ Could not find: $query"
+      echo " Could not find: $query"
       exit 1
     fi
   fi
@@ -879,10 +879,10 @@ cmd_rate() {
   added=$(echo "$response" | jq -r ".added.${type}s")
   
   if [[ "$added" -gt 0 ]]; then
-    echo "✅ Rated $rating/10"
+    echo " Rated $rating/10"
     echo ""
   else
-    echo "⚠️  Rating may have already existed (updated)"
+    echo "  Rating may have already existed (updated)"
     echo ""
   fi
 }
@@ -892,11 +892,11 @@ cmd_recommendations() {
   local type="${1:-movies}"
   
   if [[ "$type" != "movies" ]] && [[ "$type" != "shows" ]]; then
-    echo "❌ Invalid type. Use: movies or shows"
+    echo " Invalid type. Use: movies or shows"
     exit 1
   fi
   
-  echo "💡 Personalized Recommendations: $type"
+  echo " Personalized Recommendations: $type"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -920,11 +920,11 @@ cmd_trending() {
   local type="${1:-movies}"
   
   if [[ "$type" != "movies" ]] && [[ "$type" != "shows" ]]; then
-    echo "❌ Invalid type. Use: movies or shows"
+    echo " Invalid type. Use: movies or shows"
     exit 1
   fi
   
-  echo "🔥 Trending: $type"
+  echo " Trending: $type"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -948,11 +948,11 @@ cmd_popular() {
   local type="${1:-movies}"
   
   if [[ "$type" != "movies" ]] && [[ "$type" != "shows" ]]; then
-    echo "❌ Invalid type. Use: movies or shows"
+    echo " Invalid type. Use: movies or shows"
     exit 1
   fi
   
-  echo "📈 Most Popular: $type"
+  echo " Most Popular: $type"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -972,7 +972,7 @@ cmd_calendar() {
   local today
   today=$(date -u +"%Y-%m-%d")
   
-  echo "📅 Upcoming Releases: $type (next $days days)"
+  echo " Upcoming Releases: $type (next $days days)"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -1006,7 +1006,7 @@ cmd_calendar() {
 
 # Command: lists
 cmd_lists() {
-  echo "📋 Your Custom Lists"
+  echo " Your Custom Lists"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -1035,7 +1035,7 @@ cmd_list_items() {
     exit 1
   fi
   
-  echo "📋 List Items: $slug"
+  echo " List Items: $slug"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -1076,7 +1076,7 @@ cmd_search() {
     type_param="&type=$type"
   fi
   
-  echo "🔍 Search Results: $query"
+  echo " Search Results: $query"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -1107,7 +1107,7 @@ cmd_sync_history() {
   local file="${2:-trakt_history.json}"
   
   if [[ "$action" == "export" ]]; then
-    echo "📤 Exporting watch history to: $file"
+    echo " Exporting watch history to: $file"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     
@@ -1119,16 +1119,16 @@ cmd_sync_history() {
     local count
     count=$(echo "$history" | jq 'length')
     
-    echo "✅ Exported $count items to: $file"
+    echo " Exported $count items to: $file"
     echo ""
     
   elif [[ "$action" == "import" ]]; then
-    echo "📥 Importing watch history from: $file"
+    echo " Importing watch history from: $file"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     
     if [[ ! -f "$file" ]]; then
-      echo "❌ File not found: $file"
+      echo " File not found: $file"
       exit 1
     fi
     
@@ -1152,25 +1152,25 @@ cmd_sync_history() {
     local added_episodes
     added_episodes=$(echo "$response" | jq -r '.added.episodes')
     
-    echo "✅ Imported:"
+    echo " Imported:"
     echo "  Movies: $added_movies"
     echo "  Episodes: $added_episodes"
     echo ""
   else
-    echo "❌ Invalid action. Use: export or import"
+    echo " Invalid action. Use: export or import"
     exit 1
   fi
 }
 
 # Command: sync-plex
 cmd_sync_plex() {
-  echo "🔄 Syncing Plex History to Trakt"
+  echo " Syncing Plex History to Trakt"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
   # Check for Tautulli
   if [[ -z "${TAUTULLI_KEY:-}" ]] || [[ -z "${CLAWARR_HOST:-}" ]]; then
-    echo "❌ Tautulli not configured"
+    echo " Tautulli not configured"
     echo "Set: TAUTULLI_KEY and CLAWARR_HOST"
     exit 1
   fi
@@ -1182,7 +1182,7 @@ cmd_sync_plex() {
   tautulli_history=$(curl -sf "http://${CLAWARR_HOST}:8181/api/v2?apikey=${TAUTULLI_KEY}&cmd=get_history&length=500")
   
   if [[ -z "$tautulli_history" ]]; then
-    echo "❌ Failed to fetch Tautulli history"
+    echo " Failed to fetch Tautulli history"
     exit 1
   fi
   
@@ -1250,9 +1250,9 @@ cmd_sync_plex() {
     local added
     added=$(echo "$response" | jq -r '.added.movies')
     
-    echo "✅ Added $added movies to Trakt history"
+    echo " Added $added movies to Trakt history"
   else
-    echo "⚠️  No movies to sync"
+    echo "  No movies to sync"
   fi
   
   echo ""
@@ -1334,13 +1334,13 @@ get_retraktarr_config() {
 
 # Command: traktarr-status
 cmd_traktarr_status() {
-  echo "🔍 Traktarr Status"
+  echo " Traktarr Status"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
   local traktarr_bin=""
   if traktarr_bin=$(find_traktarr); then
-    echo "✅ Traktarr found: $traktarr_bin"
+    echo " Traktarr found: $traktarr_bin"
     
     # Get version
     if [[ -x "$traktarr_bin" ]]; then
@@ -1348,7 +1348,7 @@ cmd_traktarr_status() {
       "$traktarr_bin" --version 2>/dev/null || echo "   (version unknown)"
     fi
   else
-    echo "❌ Traktarr not found"
+    echo " Traktarr not found"
     echo ""
     echo "Install with: pip install traktarr"
     echo "Or: git clone https://github.com/l3uddz/traktarr && cd traktarr && pip install -r requirements.txt"
@@ -1363,7 +1363,7 @@ cmd_traktarr_status() {
   config_file=$(get_traktarr_config)
   
   if [[ -f "$config_file" ]]; then
-    echo "✅ Config found: $config_file"
+    echo " Config found: $config_file"
     echo ""
     
     # Show config summary
@@ -1384,7 +1384,7 @@ cmd_traktarr_status() {
       echo "  (jq not available for parsing)"
     fi
   else
-    echo "⚠️  Config not found: $config_file"
+    echo "  Config not found: $config_file"
     echo ""
     echo "Run: trakt.sh traktarr-config"
     echo "Or manually create config"
@@ -1408,17 +1408,17 @@ cmd_traktarr_add() {
   fi
   
   if [[ "$type" != "movies" ]] && [[ "$type" != "shows" ]]; then
-    echo "❌ Type must be 'movies' or 'shows'"
+    echo " Type must be 'movies' or 'shows'"
     exit 1
   fi
   
-  echo "➕ Adding from Trakt to $(echo "$type" | sed 's/s$//')arr"
+  echo " Adding from Trakt to $(echo "$type" | sed 's/s$//')arr"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
   local traktarr_bin=""
   if ! traktarr_bin=$(find_traktarr); then
-    echo "❌ Traktarr not installed"
+    echo " Traktarr not installed"
     echo "Run: trakt.sh traktarr-status"
     exit 1
   fi
@@ -1454,10 +1454,10 @@ cmd_traktarr_add() {
   # Execute
   if $cmd; then
     echo ""
-    echo "✅ Traktarr add complete"
+    echo " Traktarr add complete"
   else
     echo ""
-    echo "❌ Traktarr failed (check config and logs)"
+    echo " Traktarr failed (check config and logs)"
     exit 1
   fi
   
@@ -1466,7 +1466,7 @@ cmd_traktarr_add() {
 
 # Command: traktarr-config
 cmd_traktarr_config() {
-  echo "⚙️  Traktarr Configuration"
+  echo "  Traktarr Configuration"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -1576,7 +1576,7 @@ cmd_traktarr_config() {
 EOF
     
     echo ""
-    echo "✅ Config created: $config_file"
+    echo " Config created: $config_file"
     echo ""
     echo "Edit config: $EDITOR $config_file"
     echo "Test with: trakt.sh traktarr-status"
@@ -1587,13 +1587,13 @@ EOF
 
 # Command: retraktarr-status
 cmd_retraktarr_status() {
-  echo "🔍 Retraktarr Status"
+  echo " Retraktarr Status"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
   local retraktarr_bin=""
   if retraktarr_bin=$(find_retraktarr); then
-    echo "✅ Retraktarr found: $retraktarr_bin"
+    echo " Retraktarr found: $retraktarr_bin"
     
     # Get version
     if [[ -x "$retraktarr_bin" ]]; then
@@ -1601,7 +1601,7 @@ cmd_retraktarr_status() {
       "$retraktarr_bin" --version 2>/dev/null || echo "   (version unknown)"
     fi
   else
-    echo "❌ Retraktarr not found"
+    echo " Retraktarr not found"
     echo ""
     echo "Install with: pip install retraktarr"
     echo "Or: git clone https://github.com/l3uddz/retraktarr && cd retraktarr && pip install -r requirements.txt"
@@ -1616,7 +1616,7 @@ cmd_retraktarr_status() {
   config_file=$(get_retraktarr_config)
   
   if [[ -f "$config_file" ]]; then
-    echo "✅ Config found: $config_file"
+    echo " Config found: $config_file"
     echo ""
     
     # Show config summary
@@ -1637,7 +1637,7 @@ cmd_retraktarr_status() {
       echo "  (jq not available for parsing)"
     fi
   else
-    echo "⚠️  Config not found: $config_file"
+    echo "  Config not found: $config_file"
     echo ""
     echo "Run: trakt.sh retraktarr-config"
     echo "Or manually create config"
@@ -1655,13 +1655,13 @@ cmd_retraktarr_sync() {
     exit 1
   fi
   
-  echo "🔄 Syncing Library to Trakt"
+  echo " Syncing Library to Trakt"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
   local retraktarr_bin=""
   if ! retraktarr_bin=$(find_retraktarr); then
-    echo "❌ Retraktarr not installed"
+    echo " Retraktarr not installed"
     echo "Run: trakt.sh retraktarr-status"
     exit 1
   fi
@@ -1690,14 +1690,14 @@ cmd_retraktarr_sync() {
   # Execute
   if $cmd; then
     echo ""
-    echo "✅ Retraktarr sync complete"
+    echo " Retraktarr sync complete"
     echo ""
     echo "Your library is now synced to Trakt lists:"
     echo "  • Movies: https://trakt.tv/users/me/lists/radarr-library"
     echo "  • Shows: https://trakt.tv/users/me/lists/sonarr-library"
   else
     echo ""
-    echo "❌ Retraktarr failed (check config and logs)"
+    echo " Retraktarr failed (check config and logs)"
     exit 1
   fi
   
@@ -1706,7 +1706,7 @@ cmd_retraktarr_sync() {
 
 # Command: retraktarr-config
 cmd_retraktarr_config() {
-  echo "⚙️  Retraktarr Configuration"
+  echo "  Retraktarr Configuration"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -1790,7 +1790,7 @@ cmd_retraktarr_config() {
 EOF
     
     echo ""
-    echo "✅ Config created: $config_file"
+    echo " Config created: $config_file"
     echo ""
     echo "Edit config: $EDITOR $config_file"
     echo "Test with: trakt.sh retraktarr-status"
@@ -1834,7 +1834,7 @@ case "$COMMAND" in
   retraktarr-config)   cmd_retraktarr_config ;;
   help|--help|-h)      show_help ;;
   *)
-    echo "❌ Unknown command: $COMMAND"
+    echo " Unknown command: $COMMAND"
     echo "Run '$0 help' for usage"
     exit 1
     ;;

@@ -113,7 +113,7 @@ export async function getAccessToken(hubUrl, locale = "en") {
 
         console.log(
           chalk.cyan(
-            "\n🔗 Please open the following URL in your browser to authorize:",
+            "\n Please open the following URL in your browser to authorize:",
           ),
           chalk.underline(connectUrl),
           "\n",
@@ -126,7 +126,7 @@ export async function getAccessToken(hubUrl, locale = "en") {
     // Save token for future use
     await saveAccessToken(hubUrl, accessToken);
 
-    console.log(chalk.green("✅ Authorization successful!\n"));
+    console.log(chalk.green(" Authorization successful!\n"));
 
     return accessToken;
   } catch (error) {
@@ -151,7 +151,7 @@ export async function handleAuthError(hubUrl, statusCode) {
   if (statusCode === 401 || statusCode === 403) {
     console.log(
       chalk.yellow(
-        `\n⚠️ Authorization error (${statusCode}). Clearing saved token...`,
+        `\n Authorization error (${statusCode}). Clearing saved token...`,
       ),
     );
     await clearAccessToken(hubUrl);

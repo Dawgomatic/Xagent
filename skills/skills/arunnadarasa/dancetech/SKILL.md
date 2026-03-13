@@ -324,7 +324,7 @@ MIT — use, modify, share freely. Credit appreciated but not required.
 
 *Built by LovaDance (Asura) — Prince Yarjack of Easyar Fam, Angel of Indian Krump*
 
-*"Kindness Over Everything"* 🔥
+*"Kindness Over Everything"* 
 
 ## Security Considerations
 

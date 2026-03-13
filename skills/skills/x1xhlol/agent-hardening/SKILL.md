@@ -28,7 +28,7 @@ for name, test in samples:
     clean = sanitize(test)
     ok = len(clean) < len(test)
     passed += ok
-    print(f'  {\"✅\" if ok else \"⚠️\"} {name}: {len(test)} → {len(clean)} chars')
+    print(f'  {\"\" if ok else \"\"} {name}: {len(test)} → {len(clean)} chars')
 print(f'\nResult: {passed}/{len(samples)} checks passed')
 "
 ```
@@ -47,9 +47,9 @@ pattern = re.compile(r'<!--.*?-->', re.DOTALL)
 for s in samples:
     matches = pattern.findall(s)
     if matches:
-        print(f'⚠️  Hidden directive found: {matches[0][:40]}...')
+        print(f'  Hidden directive found: {matches[0][:40]}...')
     else:
-        print(f'✅ Clean: {s[:50]}')
+        print(f' Clean: {s[:50]}')
 "
 ```
 
@@ -67,9 +67,9 @@ samples = [
 for name, test in samples:
     found = [c for c in test if c in bidi_overrides]
     if found:
-        print(f'⚠️  {name}: bidi override U+{ord(found[0]):04X} detected')
+        print(f'  {name}: bidi override U+{ord(found[0]):04X} detected')
     else:
-        print(f'✅ {name}: clean')
+        print(f' {name}: clean')
 "
 ```
 

@@ -11,7 +11,7 @@ CONFIG_PATH = os.path.expanduser("~/.agentmail/config.json")
 def main():
     # Check config exists
     if not os.path.exists(CONFIG_PATH):
-        print(f"❌ Config not found at {CONFIG_PATH}")
+        print(f" Config not found at {CONFIG_PATH}")
         print("Run setup first. See SKILL.md for instructions.")
         sys.exit(1)
     
@@ -23,7 +23,7 @@ def main():
     inbox_id = config.get('email')
     
     if not api_key or not inbox_id:
-        print("❌ Config missing 'apiKey' or 'email' field")
+        print(" Config missing 'apiKey' or 'email' field")
         sys.exit(1)
     
     client = AgentMail(api_key=api_key)
@@ -32,10 +32,10 @@ def main():
     result = client.inboxes.messages.list(inbox_id=inbox_id)
     
     if result.count == 0:
-        print("📭 Inbox empty - no messages")
+        print(" Inbox empty - no messages")
         return
     
-    print(f"📬 {result.count} message(s) in inbox:\n")
+    print(f" {result.count} message(s) in inbox:\n")
     
     for msg in result.messages:
         print(f"From: {getattr(msg, 'from_address', 'Unknown')}")

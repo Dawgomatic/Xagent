@@ -1,7 +1,7 @@
 ---
 name: Sui
 description: Assist with SUI transactions, object model, staking, and Move smart contracts.
-metadata: {"clawdbot":{"emoji":"💧","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Object Model (Critical Difference)

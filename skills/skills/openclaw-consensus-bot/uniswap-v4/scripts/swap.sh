@@ -350,7 +350,7 @@ if [[ -n "$TX_HASH" ]]; then
   if [[ "$JSON_OUTPUT" == "true" ]]; then
     echo "{\"success\":true,\"txHash\":\"$TX_HASH\",\"chain\":\"$CHAIN\",\"tokenIn\":\"$TOKEN_IN\",\"tokenOut\":\"$TOKEN_OUT\",\"amount\":\"$AMOUNT\",\"amountOutMin\":\"$AMOUNT_OUT_MIN\",\"expectedOut\":\"$EXPECTED_OUT\"}"
   else
-    log "✅ Swap submitted!"
+    log " Swap submitted!"
     log "  TX: $TX_HASH"
     log "  Explorer: https://$([ "$CHAIN" = "base" ] && echo "basescan.org" || echo "etherscan.io")/tx/$TX_HASH"
   fi

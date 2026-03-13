@@ -2,7 +2,7 @@
 name: grounding-lite
 description: Google Maps Grounding Lite MCP for location search, weather, and routes via mcporter.
 homepage: https://developers.google.com/maps/ai/grounding-lite
-metadata: {"clawdbot":{"emoji":"🗺️","requires":{"bins":["mcporter"],"env":["GOOGLE_MAPS_API_KEY"]},"primaryEnv":"GOOGLE_MAPS_API_KEY","install":[{"id":"node","kind":"node","package":"mcporter","bins":["mcporter"],"label":"Install mcporter (npm)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mcporter"],"env":["GOOGLE_MAPS_API_KEY"]},"primaryEnv":"GOOGLE_MAPS_API_KEY","install":[{"id":"node","kind":"node","package":"mcporter","bins":["mcporter"],"label":"Install mcporter (npm)"}]}}
 ---
 
 # Grounding Lite

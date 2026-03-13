@@ -2,7 +2,7 @@
 name: mailchannels-email-api
 description: Send email via MailChannels Email API and ingest signed delivery-event webhooks into Clawdbot (Moltbot).
 homepage: https://docs.mailchannels.net/email-api/
-metadata: {"moltbot":{"emoji":"📨","requires":{"env":["MAILCHANNELS_API_KEY","MAILCHANNELS_ACCOUNT_ID"],"bins":["curl"]},"primaryEnv":"MAILCHANNELS_API_KEY"}}
+metadata: {"moltbot":{"emoji":"","requires":{"env":["MAILCHANNELS_API_KEY","MAILCHANNELS_ACCOUNT_ID"],"bins":["curl"]},"primaryEnv":"MAILCHANNELS_API_KEY"}}
 ---
 
 # MailChannels Email API (Send + Delivery Events)

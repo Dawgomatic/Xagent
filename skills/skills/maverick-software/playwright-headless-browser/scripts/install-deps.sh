@@ -28,4 +28,4 @@ else
     exit 1
 fi
 
-echo "✅ Dependencies installed"
+echo " Dependencies installed"

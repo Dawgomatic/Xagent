@@ -49,7 +49,7 @@ If PhoenixClaw is **not detected**:
 ## Entrepreneurial Insights (Optional)
 While Founder Coach does not modify PhoenixClaw core data, it can provide summaries that the user may *manually* choose to include in their journal, or if acting as a PhoenixClaw plugin:
 - Generate a "Founder's Weekly Insight" summary.
-- Format as an Obsidian callout: `> [!insight] 💡 Founder Coach Insight`.
+- Format as an Obsidian callout: `> [!insight]  Founder Coach Insight`.
 
 ## Privacy & Security
 - Never cache PhoenixClaw data outside of the active session memory.

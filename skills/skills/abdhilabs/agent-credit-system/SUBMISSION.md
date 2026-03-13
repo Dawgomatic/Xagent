@@ -1,4 +1,4 @@
-# USDCHackathon ProjectSubmission Skill - KarmaBank 💰
+# USDCHackathon ProjectSubmission Skill - KarmaBank 
 
 ## Summary
 
@@ -72,16 +72,16 @@ karmabank list
 
 ```bash
 $ karmabank check AnakIntern
-✅ Credit Score: 780 (Gold Tier)
-💰 Max Borrow: 300 USDC
-📊 Current Debt: 0 USDC
-📈 Tier: Gold
+ Credit Score: 780 (Gold Tier)
+ Max Borrow: 300 USDC
+ Current Debt: 0 USDC
+ Tier: Gold
 
 $ karmabank borrow AnakIntern 100
-✅ Borrowed 100 USDC
-💸 Interest (5%): 5 USDC
-📅 Due Date: 2026-02-19
-📊 New Balance: 105 USDC
+ Borrowed 100 USDC
+ Interest (5%): 5 USDC
+ Due Date: 2026-02-19
+ New Balance: 105 USDC
 
 $ karmabank history AnakIntern
 | Date | Action | Amount | Balance |
@@ -94,7 +94,7 @@ $ karmabank history AnakIntern
 ## Proof
 
 - **Repo:** https://github.com/abdhilabs/karmabank
-- **Build:** ✅ npm run build succeeds
-- **Tests:** ✅ 99 passing
+- **Build:**  npm run build succeeds
+- **Tests:**  99 passing
 - **Integration:** Moltbook API + Circle Wallet (ARC-TESTNET)
 

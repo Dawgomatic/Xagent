@@ -3,7 +3,7 @@
 /**
  * Register a new domain via Gandi Domain API
  * 
- * ⚠️  WARNING: Domain registration costs real money and is NON-REFUNDABLE!
+ *   WARNING: Domain registration costs real money and is NON-REFUNDABLE!
  * 
  * Usage:
  *   node register-domain.js <domain> [options]
@@ -53,7 +53,7 @@ if (args.length < 1) {
   console.error('  --purge-contact          Delete saved contact after registration (privacy option)');
   console.error('  --dry-run                Check and show cost without registering');
   console.error('');
-  console.error('⚠️  WARNING: Domain registration costs real money and is NON-REFUNDABLE!');
+  console.error('  WARNING: Domain registration costs real money and is NON-REFUNDABLE!');
   console.error('');
   console.error('Examples:');
   console.error('  node register-domain.js example.com --dry-run');
@@ -107,7 +107,7 @@ for (let i = 1; i < args.length; i++) {
 
 // Validate years
 if (isNaN(years) || years < 1 || years > 10) {
-  console.error('❌ Error: Years must be between 1 and 10');
+  console.error(' Error: Years must be between 1 and 10');
   process.exit(1);
 }
 
@@ -129,7 +129,7 @@ function confirm(message) {
 // Main function
 async function main() {
   try {
-    console.log('🔍 Checking domain availability...');
+    console.log(' Checking domain availability...');
     console.log('');
     
     // Check availability
@@ -137,13 +137,13 @@ async function main() {
     const domainInfo = availability.products?.[0];
     
     if (!domainInfo) {
-      console.error('❌ Error: Could not retrieve domain information');
+      console.error(' Error: Could not retrieve domain information');
       process.exit(1);
     }
     
     // Check if available
     if (domainInfo.status !== 'available') {
-      console.error(`❌ Domain ${domain} is NOT available for registration`);
+      console.error(` Domain ${domain} is NOT available for registration`);
       console.error(`   Status: ${domainInfo.status}`);
       
       if (domainInfo.status === 'unavailable') {
@@ -155,7 +155,7 @@ async function main() {
       process.exit(1);
     }
     
-    console.log(`✅ ${domain} is AVAILABLE!`);
+    console.log(` ${domain} is AVAILABLE!`);
     console.log('');
     
     // Show pricing
@@ -164,7 +164,7 @@ async function main() {
     const price1Year = prices.find(p => p.duration_unit === 'y' && p.min_duration === 1);
     
     if (!yearPrice && !price1Year) {
-      console.error('❌ Error: Pricing information not available');
+      console.error(' Error: Pricing information not available');
       process.exit(1);
     }
     
@@ -173,7 +173,7 @@ async function main() {
     const currency = registrationPrice.currency;
     const totalCost = years * pricePerYear;
     
-    console.log('💰 Pricing:');
+    console.log(' Pricing:');
     console.log(`   ${years} year(s): ${totalCost.toFixed(2)} ${currency}`);
     if (years > 1) {
       console.log(`   (${pricePerYear.toFixed(2)} ${currency} per year)`);
@@ -181,15 +181,15 @@ async function main() {
     console.log('');
     
     if (domainInfo.discount) {
-      console.log(`   💡 Discount applied: ${domainInfo.discount.message}`);
+      console.log(`    Discount applied: ${domainInfo.discount.message}`);
       console.log('');
     }
     
     // If dry-run, stop here
     if (dryRun) {
-      console.log('🏁 Dry run complete. No registration performed.');
+      console.log(' Dry run complete. No registration performed.');
       console.log('');
-      console.log('💡 To register this domain, run without --dry-run and provide contact info:');
+      console.log(' To register this domain, run without --dry-run and provide contact info:');
       console.log(`   node register-domain.js ${domain} --years ${years} --contact owner.json`);
       return;
     }
@@ -203,7 +203,7 @@ async function main() {
         const contactData = fs.readFileSync(contactFile, 'utf8');
         contact = JSON.parse(contactData);
       } catch (err) {
-        console.error(`❌ Error reading contact file: ${err.message}`);
+        console.error(` Error reading contact file: ${err.message}`);
         process.exit(1);
       }
     } else {
@@ -211,7 +211,7 @@ async function main() {
       contact = loadSavedContact();
       
       if (!contact) {
-        console.error('❌ Error: No contact information found');
+        console.error(' Error: No contact information found');
         console.error('');
         console.error('Option 1: Setup default contact (recommended)');
         console.error('   node setup-contact.js');
@@ -224,14 +224,14 @@ async function main() {
         process.exit(1);
       }
       
-      console.log('📋 Using saved contact information');
+      console.log(' Using saved contact information');
       console.log('');
     }
     
     // Validate contact
     const validation = validateContact(contact);
     if (!validation.valid) {
-      console.error('❌ Invalid contact information:');
+      console.error(' Invalid contact information:');
       validation.errors.forEach(err => console.error(`   - ${err}`));
       console.error('');
       console.error('Required fields:');
@@ -239,7 +239,7 @@ async function main() {
       process.exit(1);
     }
     
-    console.log('📋 Contact Information:');
+    console.log(' Contact Information:');
     console.log(`   Name: ${contact.given} ${contact.family}`);
     console.log(`   Email: ${contact.email}`);
     console.log(`   Address: ${contact.streetaddr}, ${contact.city}, ${contact.zip}`);
@@ -261,27 +261,27 @@ async function main() {
     console.log(`   TOTAL COST: ${totalCost.toFixed(2)} ${currency}`);
     console.log('═══════════════════════════════════════════════════════');
     console.log('');
-    console.log('⚠️  WARNING: DOMAIN REGISTRATION IS NON-REFUNDABLE!');
-    console.log('⚠️  You will be charged immediately.');
-    console.log('⚠️  This action cannot be undone.');
+    console.log('  WARNING: DOMAIN REGISTRATION IS NON-REFUNDABLE!');
+    console.log('  You will be charged immediately.');
+    console.log('  This action cannot be undone.');
     console.log('');
     
     // Require explicit "yes" confirmation
     const confirmed = await confirm('Type "yes" to confirm registration: ');
     
     if (!confirmed) {
-      console.log('❌ Registration cancelled.');
+      console.log(' Registration cancelled.');
       process.exit(0);
     }
     
     console.log('');
-    console.log('⏳ Registering domain...');
+    console.log(' Registering domain...');
     console.log('');
     
     // Register the domain
     const result = await registerDomain(domain, years, contact);
     
-    console.log('✅ Domain registration initiated successfully!');
+    console.log(' Domain registration initiated successfully!');
     console.log('');
     
     if (result.id) {
@@ -293,17 +293,17 @@ async function main() {
     }
     
     console.log('');
-    console.log('📧 You should receive a confirmation email shortly.');
+    console.log(' You should receive a confirmation email shortly.');
     console.log('');
     
     // Set auto-renewal if requested
     if (autoRenew) {
-      console.log('⚙️  Enabling auto-renewal...');
+      console.log('  Enabling auto-renewal...');
       try {
         await setAutoRenewal(domain, true, 1);
-        console.log('✅ Auto-renewal enabled');
+        console.log(' Auto-renewal enabled');
       } catch (err) {
-        console.warn('⚠️  Could not enable auto-renewal:', err.message);
+        console.warn('  Could not enable auto-renewal:', err.message);
         console.warn('   You can enable it later using configure-autorenew.js');
       }
       console.log('');
@@ -316,24 +316,24 @@ async function main() {
       try {
         if (fs.existsSync(CONTACT_FILE)) {
           fs.unlinkSync(CONTACT_FILE);
-          console.log('🗑️  Contact information deleted (privacy preference)');
+          console.log('  Contact information deleted (privacy preference)');
           console.log('');
         }
       } catch (err) {
-        console.warn('⚠️  Could not delete contact file:', err.message);
+        console.warn('  Could not delete contact file:', err.message);
         console.log('');
       }
     }
     
-    console.log('🎉 Registration complete!');
+    console.log(' Registration complete!');
     console.log('');
-    console.log('📝 Next steps:');
+    console.log(' Next steps:');
     console.log('   1. Wait for confirmation email');
     console.log('   2. Configure DNS records if needed');
     console.log(`   3. Check domain status: node list-domains.js`);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('');

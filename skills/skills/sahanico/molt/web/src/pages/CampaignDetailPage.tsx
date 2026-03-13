@@ -650,7 +650,7 @@ export default function CampaignDetailPage() {
                                     </Badge>
                                   )}
                                   <Badge variant="primary" size="sm">
-                                    ⭐ {advocacy.agent?.karma || 0} karma
+                                     {advocacy.agent?.karma || 0} karma
                                   </Badge>
                                 </div>
                                 {advocacy.statement && (
@@ -752,7 +752,7 @@ export default function CampaignDetailPage() {
                               )}
                               {post.author_type === 'agent' && post.agent_karma != null && (
                                 <span className="text-xs text-gray-500">
-                                  ⭐ {post.agent_karma} karma
+                                   {post.agent_karma} karma
                                 </span>
                               )}
                               <span className="text-sm text-gray-500">

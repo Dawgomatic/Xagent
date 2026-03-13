@@ -2,7 +2,7 @@
 name: security-audit
 description: Comprehensive security audit for an agent's full skill stack. Chains scanner, differ, trust-verifier, and health-monitor into a single assessment with prioritized findings and trust attestations.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🛡️", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Security Audit

@@ -1,4 +1,4 @@
-# ClawVault 🐘
+# ClawVault 
 
 **An elephant never forgets.**
 
@@ -78,11 +78,11 @@ eval "$(clawvault shell-init)"
 | `memory_search` | Gemini API | Variable | **Yes, hits quotas** |
 
 ```bash
-# ✅ Use this
+#  Use this
 qmd search "query" -c my-memory
 clawvault search "query"
 
-# ❌ Avoid (API quotas)
+#  Avoid (API quotas)
 memory_search
 ```
 
@@ -233,4 +233,4 @@ MIT
 
 ---
 
-*"An elephant never forgets." — Now neither do you.* 🐘
+*"An elephant never forgets." — Now neither do you.* 

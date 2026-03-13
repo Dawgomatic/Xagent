@@ -31,7 +31,7 @@ def check_context(query: str, max_results: int = 5, min_score: float = 0.3) -> N
 
     Example:
         >>> check_context("how to send SMS")
-        📚 Found 3 relevant items...
+         Found 3 relevant items...
         [prints context]
     """
     if not query or len(query) < 3:
@@ -42,7 +42,7 @@ def check_context(query: str, max_results: int = 5, min_score: float = 0.3) -> N
 
         if results and results.get('count', 0) > 0:
             print("\n" + "="*80)
-            print("📚 RELEVANT CONTEXT FROM KNOWLEDGE BASE\n")
+            print(" RELEVANT CONTEXT FROM KNOWLEDGE BASE\n")
             formatted = format_for_ai(results)
             print(formatted)
             print("="*80 + "\n")

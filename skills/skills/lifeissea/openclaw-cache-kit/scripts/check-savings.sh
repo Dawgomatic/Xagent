@@ -18,15 +18,15 @@ PRICE_INPUT=3.00
 PRICE_CACHE_READ=0.30
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "📊 OpenClaw 캐시 절약 리포트"
+echo " OpenClaw 캐시 절약 리포트"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "📅 대상 날짜: $TARGET_DATE"
+echo " 대상 날짜: $TARGET_DATE"
 echo ""
 
 if [[ ! -f "$LOG_FILE" ]]; then
-  echo "⚠️  로그 파일 없음: $LOG_FILE"
+  echo "  로그 파일 없음: $LOG_FILE"
   echo ""
-  echo "💡 캐시 추적을 활성화하려면:"
+  echo " 캐시 추적을 활성화하려면:"
   echo "   bash scripts/apply.sh"
   exit 0
 fi
@@ -89,13 +89,13 @@ print(f"  Output 토큰      : {total_output:,}")
 print("")
 print(f"  캐시 없을 때 비용: ${would_cost:.4f}")
 print(f"  실제 비용        : ${actual_cost:.4f}")
-print(f"  💰 절약 금액     : ${savings:.4f}")
+print(f"   절약 금액     : ${savings:.4f}")
 print("")
 if total_cache_read > 0:
     pct = savings / would_cost * 100 if would_cost > 0 else 0
     print(f"  절약률           : {pct:.1f}%")
 else:
-    print("  ℹ️  오늘 캐시 히트 기록 없음")
+    print("    오늘 캐시 히트 기록 없음")
     print("  (diagnostics.cacheTrace.enabled: true 확인)")
 PYEOF
 

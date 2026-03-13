@@ -248,11 +248,11 @@ Improvement Priority: [High/Medium/Low]
 ```
                     POSITIVE
                        │
-        Delighted  ────┤──── 😄 5
-        Pleased    ────┤──── 🙂 4
-        Neutral    ────┤──── 😐 3
-        Frustrated ────┤──── 😕 2
-        Angry      ────┤──── 😠 1
+        Delighted  ────┤────  5
+        Pleased    ────┤────  4
+        Neutral    ────┤────  3
+        Frustrated ────┤────  2
+        Angry      ────┤────  1
                        │
                     NEGATIVE
 ```
@@ -284,25 +284,25 @@ Improvement Priority: [High/Medium/Low]
 
 **The Valley of Death:**
 ```
-😄 ─┐
+ ─┐
     │     ╱
     │    ╱
-😐 ─│───╱────────
+ ─│───╱────────
     │╲ ╱
     │ ╳  ← Critical drop-off point
-😠 ─│╱ ╲─────────
+ ─│╱ ╲─────────
     │
     Onboarding  First Use  Regular
 ```
 
 **The Aha Moment:**
 ```
-😄 ─┐         ╱──
+ ─┐         ╱──
     │        ╱
     │       ╱
-😐 ─│──────╱────── ← Before: neutral
+ ─│──────╱────── ← Before: neutral
     │     ↑
-😠 ─│     Aha!
+ ─│     Aha!
     │
     Stage 1  Stage 2  Stage 3
 ```

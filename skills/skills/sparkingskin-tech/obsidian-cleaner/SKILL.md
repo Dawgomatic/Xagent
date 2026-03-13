@@ -65,21 +65,21 @@ Default attachments folder: `Attachments/`
 ## Example Output
 
 ```
-🔍 Scanning /Users/skin/Documents/Obsidian Vault for loose attachments...
+ Scanning /Users/skin/Documents/Obsidian Vault for loose attachments...
 
-📁 Found 3 files:
+ Found 3 files:
   ├── screenshot_20240101.png
   ├── photo.jpg
   └── diagram.gif
 
-📦 Moving to Attachments/...
+ Moving to Attachments/...
 
-✅ Success!
+ Success!
   ├── screenshot_20240101.png → Attachments/screenshot_20240101.png
   ├── photo.jpg → Attachments/photo.jpg
   └── diagram.gif → Attachments/diagram.gif
 
-🎉 3 files moved. Vault is now clean!
+ 3 files moved. Vault is now clean!
 ```
 
 ## Integration

@@ -136,14 +136,14 @@ The war room doesn't stop at the blueprint. After consolidation, **suggest concr
 
 ```
 "Based on the war room results, I can:"
-├── 📄 Generate a complete PRD (Product Requirements Document)
-├── 💻 Scaffold the project (Xcode, npm init, cargo new, etc.)
-├── 🎨 Create detailed mockups/wireframes
-├── 📋 Create a task board (Linear, GitHub Issues)
-├── 🔍 Run specific research (trademark, competitive, market)
-├── 🌐 Build a landing page
-├── 🧪 Run Wave 0 proof-of-concept
-├── 📊 Deep-dive on any specialist's area
+├──  Generate a complete PRD (Product Requirements Document)
+├──  Scaffold the project (Xcode, npm init, cargo new, etc.)
+├──  Create detailed mockups/wireframes
+├──  Create a task board (Linear, GitHub Issues)
+├──  Run specific research (trademark, competitive, market)
+├──  Build a landing page
+├──  Run Wave 0 proof-of-concept
+├──  Deep-dive on any specialist's area
 └── [Any domain-specific deliverable]
 ```
 

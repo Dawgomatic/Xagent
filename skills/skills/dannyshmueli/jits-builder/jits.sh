@@ -7,7 +7,7 @@ mkdir -p "$JITS_DIR"
 
 case "$1" in
   list)
-    echo "🚀 Running JITS Apps:"
+    echo " Running JITS Apps:"
     for f in "$JITS_DIR"/*.pid 2>/dev/null; do
       if [ -f "$f" ]; then
         name=$(basename "$f" .pid)
@@ -15,9 +15,9 @@ case "$1" in
         port=$(cat "$JITS_DIR/$name.port" 2>/dev/null || echo "?")
         url=$(cat "$JITS_DIR/$name.url" 2>/dev/null || echo "no tunnel")
         if kill -0 "$pid" 2>/dev/null; then
-          echo "  ✅ $name (port $port) - $url"
+          echo "   $name (port $port) - $url"
         else
-          echo "  ❌ $name (stopped)"
+          echo "   $name (stopped)"
           rm -f "$f" "$JITS_DIR/$name.port" "$JITS_DIR/$name.url"
         fi
       fi
@@ -33,9 +33,9 @@ case "$1" in
       tunnel_pid=$(cat "$JITS_DIR/$name.tunnel.pid" 2>/dev/null)
       [ -n "$tunnel_pid" ] && kill "$tunnel_pid" 2>/dev/null
       rm -f "$JITS_DIR/$name".*
-      echo "🛑 Stopped $name"
+      echo " Stopped $name"
     else
-      echo "❌ App '$name' not found"
+      echo " App '$name' not found"
     fi
     ;;
     
@@ -46,7 +46,7 @@ case "$1" in
     html_file="$JITS_DIR/$name.html"
     
     if [ ! -f "$html_file" ]; then
-      echo "❌ HTML file not found: $html_file"
+      echo " HTML file not found: $html_file"
       exit 1
     fi
     
@@ -63,7 +63,7 @@ case "$1" in
     
     echo $! > "$JITS_DIR/$name.pid"
     echo "$port" > "$JITS_DIR/$name.port"
-    echo "✅ Serving $name on port $port"
+    echo " Serving $name on port $port"
     ;;
     
   tunnel)
@@ -76,7 +76,7 @@ case "$1" in
         url=$(echo "$line" | grep -oE 'https://[a-z0-9-]+\.trycloudflare\.com')
         if [ -n "$url" ]; then
           echo "$url" > "$JITS_DIR/$name.url"
-          echo "🌐 Tunnel: $url"
+          echo " Tunnel: $url"
         fi
       fi
     done &

@@ -70,10 +70,10 @@ Candidate → Values alignment + Constraint fit + History match + Mood fit
 Present 1-3 recommendations:
 
 ```
-🎯 RECOMMENDATION: [Option]
-📌 WHY: Matches [preference], avoids [constraint]
-⚖️ TRADEOFF: Less [X] than [Alternative]
-🔍 CONFIDENCE: [Level] — based on [data quality]
+ RECOMMENDATION: [Option]
+ WHY: Matches [preference], avoids [constraint]
+ TRADEOFF: Less [X] than [Alternative]
+ CONFIDENCE: [Level] — based on [data quality]
 ```
 
 ---

@@ -2,7 +2,7 @@
 name: serpapi
 description: Unified search API across Google, Amazon, Yelp, OpenTable, Walmart, and more. Use when searching for products, local businesses, restaurants, shopping, images, news, or any web search. One API key, many engines.
 homepage: https://serpapi.com
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"env":["SERPAPI_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SERPAPI_API_KEY"]}}}
 ---
 
 # SerpAPI - Unified Search

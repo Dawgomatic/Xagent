@@ -14,7 +14,7 @@ const supportsEmoji = !process.env.NO_EMOJI && !process.argv.includes("--no-emoj
 const showTs = process.argv.includes("--ts");
 const e = (emoji, fallback = "") => supportsEmoji ? emoji + " " : fallback;
 
-const HELP = `${e("💬")}slk — Slack CLI for macOS (auto-auth from Slack desktop app)
+const HELP = `${e("")}slk — Slack CLI for macOS (auto-auth from Slack desktop app)
 
 Commands:
   slk auth                                Test auth, show user/team info

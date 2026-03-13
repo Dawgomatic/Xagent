@@ -115,5 +115,5 @@ Standard fields:
 - ripgrep for fast initial filtering
 - Title matching (highest weight)
 - Tag matching
-- Fuzzy content search with phonetic transliteration (RU↔EN)
+- Fuzzy content search with phonetic transliteration (RUEN)
 - Returns: path, title, score, matched context

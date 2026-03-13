@@ -447,7 +447,7 @@ interface PlatformAdapter {
 
 **The fix:**
 ```typescript
-// ✅ GOOD: Derive mock from interface
+//  GOOD: Derive mock from interface
 
 // Step 1: Open interface definition (PlatformAdapter)
 // Step 2: List methods defined there (close, initialize, etc.)
@@ -475,7 +475,7 @@ BEFORE writing any mock:
   6. DO NOT: Look at what your code calls
 
   IF your test fails because code calls something not in mock:
-    ✅ GOOD - The test found a bug in your code
+     GOOD - The test found a bug in your code
     Fix the code to call the correct interface method
     NOT the mock
 

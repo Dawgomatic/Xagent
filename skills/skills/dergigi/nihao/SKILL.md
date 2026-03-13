@@ -3,7 +3,7 @@ name: nihao
 description: Self-sovereign identity and unstoppable money in one command. Use nihao to give any agent or human a complete Nostr identity — keypair, profile, relay list, lightning address, and Cashu ecash wallet — with no accounts, no API keys, no KYC. Also audits existing npub health with a 0-8 score covering profile, NIP-05, lightning, relays, follows, and NIP-60 wallets.
 ---
 
-# nihao 👋
+# nihao 
 
 Nostr identity setup and health-check CLI. Single binary, non-interactive, agent-friendly.
 

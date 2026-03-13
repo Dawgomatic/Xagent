@@ -71,7 +71,7 @@ function generateDashboardCard(stats, systemInfo, cycleInfo) {
             },
             {
                 is_short: true,
-                text: { tag: 'lark_md', content: `**Intents**: ✨${intents.innovate} 🔧${intents.repair} ⚡${intents.optimize}` }
+                text: { tag: 'lark_md', content: `**Intents**: ${intents.innovate} ${intents.repair} ${intents.optimize}` }
             },
             {
                 is_short: true,
@@ -92,8 +92,8 @@ function generateDashboardCard(stats, systemInfo, cycleInfo) {
 
     // 3. Recent Activity Timeline
     let timelineMd = recent.map(e => {
-        const icon = e.intent === 'innovate' ? '✨' : (e.intent === 'repair' ? '🔧' : '⚡');
-        const statusIcon = e.status === 'success' ? '✅' : '❌';
+        const icon = e.intent === 'innovate' ? '' : (e.intent === 'repair' ? '' : '');
+        const statusIcon = e.status === 'success' ? '' : '';
         return `${statusIcon} **#${e.id}** ${icon} ${e.summary || 'No summary'}`;
     }).join('\n');
 
@@ -111,14 +111,14 @@ function generateDashboardCard(stats, systemInfo, cycleInfo) {
     if (loopStatus.includes('STOPPED')) {
         elements.push({
             tag: 'note',
-            elements: [{ tag: 'plain_text', content: '⚠️ Evolver loop is stopped. Run "lifecycle.js start" to resume.' }]
+            elements: [{ tag: 'plain_text', content: ' Evolver loop is stopped. Run "lifecycle.js start" to resume.' }]
         });
     }
 
     return {
         header: {
             template: headerColor,
-            title: { tag: 'plain_text', content: '🧬 Evolver Capability Dashboard' }
+            title: { tag: 'plain_text', content: ' Evolver Capability Dashboard' }
         },
         elements: elements
     };

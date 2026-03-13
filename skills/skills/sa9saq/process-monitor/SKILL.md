@@ -34,20 +34,20 @@ Monitor system processes and resource usage with threshold-based alerts.
    ```
 
 4. **Threshold alerts** — Flag processes exceeding limits:
-   - Single process CPU > 80% → ⚠️ Warning
-   - Single process memory > 50% → ⚠️ Warning
-   - System memory > 90% → 🔴 Critical
-   - Load average > 2× CPU count → 🔴 Critical
+   - Single process CPU > 80% →  Warning
+   - Single process memory > 50% →  Warning
+   - System memory > 90% →  Critical
+   - Load average > 2× CPU count →  Critical
 
 5. **Output format**:
    ```
-   ## 📊 Process Report — <hostname> (<timestamp>)
+   ##  Process Report — <hostname> (<timestamp>)
 
    | Metric        | Value          | Status |
    |---------------|----------------|--------|
-   | Load Average  | 1.2 / 0.8 / 0.5 | 🟢   |
-   | Memory        | 12.3/16.0 GB (77%) | 🟢 |
-   | Swap          | 0.0/4.0 GB    | 🟢     |
+   | Load Average  | 1.2 / 0.8 / 0.5 |    |
+   | Memory        | 12.3/16.0 GB (77%) |  |
+   | Swap          | 0.0/4.0 GB    |      |
 
    ### Top 5 by Memory
    | PID   | User  | %MEM | %CPU | Command        |

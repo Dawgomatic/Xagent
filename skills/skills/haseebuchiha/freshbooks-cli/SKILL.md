@@ -1,7 +1,7 @@
 ---
 name: freshbooks-cli
 description: FreshBooks CLI for managing invoices, clients, and billing. Use when the user mentions freshbooks, invoicing, billing, clients, or accounting.
-metadata: {"openclaw":{"emoji":"💰","requires":{"bins":["freshbooks"]},"install":[{"id":"npm","kind":"node","package":"@haseebuchiha/freshbooks-cli","bins":["freshbooks"],"label":"Install freshbooks-cli (npm)"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["freshbooks"]},"install":[{"id":"npm","kind":"node","package":"@haseebuchiha/freshbooks-cli","bins":["freshbooks"],"label":"Install freshbooks-cli (npm)"}]}}
 ---
 
 # freshbooks-cli

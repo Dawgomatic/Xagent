@@ -4,7 +4,7 @@ description: Track stock and crypto portfolios with CLI - real-time prices, P&L,
 homepage: https://github.com/rsoutar/claw-portfolio
 metadata:
   clawdbot:
-    emoji: "💰"
+    emoji: ""
     requires:
       env: []
       files:

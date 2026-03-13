@@ -9,7 +9,7 @@ set -euo pipefail
 # Dependencies: curl, jq
 for cmd in curl jq; do
   if ! command -v "$cmd" &>/dev/null; then
-    echo "❌ Required dependency '$cmd' not found. Install it first." >&2
+    echo " Required dependency '$cmd' not found. Install it first." >&2
     exit 1
   fi
 done
@@ -26,7 +26,7 @@ if [ -z "$API_KEY" ] && [ -f "$CRED_FILE" ]; then
 fi
 
 if [ -z "$API_KEY" ]; then
-  echo "❌ No API key found. Set ECAP_API_KEY or run: bash scripts/register.sh <agent-name>" >&2
+  echo " No API key found. Set ECAP_API_KEY or run: bash scripts/register.sh <agent-name>" >&2
   exit 1
 fi
 
@@ -41,21 +41,21 @@ fi
 if [ "$INPUT" = "-" ]; then
   REPORT_JSON=$(head -c 512000)
   if [ ${#REPORT_JSON} -ge 512000 ]; then
-    echo "❌ Stdin payload too large (max 512000 bytes). Aborting." >&2
+    echo " Stdin payload too large (max 512000 bytes). Aborting." >&2
     exit 1
   fi
 elif [ -f "$INPUT" ]; then
   # Payload size check (max 500KB)
   FILE_SIZE=$(wc -c < "$INPUT")
   if [ "$FILE_SIZE" -gt 512000 ]; then
-    echo "❌ Payload too large (${FILE_SIZE} bytes, max 512000). Aborting." >&2
+    echo " Payload too large (${FILE_SIZE} bytes, max 512000). Aborting." >&2
     exit 1
   fi
   # JSON validation
-  jq . "$INPUT" > /dev/null 2>&1 || { echo "❌ Invalid JSON in $INPUT" >&2; exit 1; }
+  jq . "$INPUT" > /dev/null 2>&1 || { echo " Invalid JSON in $INPUT" >&2; exit 1; }
   REPORT_JSON=$(cat "$INPUT")
 else
-  echo "❌ File not found: $INPUT" >&2
+  echo " File not found: $INPUT" >&2
   exit 1
 fi
 
@@ -72,12 +72,12 @@ BODY=$(echo "$RESPONSE" | sed '$d')
 if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
   REPORT_ID=$(echo "$BODY" | jq -r '.report_id // "unknown"')
   FINDINGS=$(echo "$BODY" | jq -r '.findings_created | length // 0')
-  echo "✅ Report uploaded successfully!"
+  echo " Report uploaded successfully!"
   echo "Report ID: $REPORT_ID"
   echo "Findings created: $FINDINGS"
   echo "$BODY" | jq .
 else
-  echo "❌ Upload failed (HTTP $HTTP_CODE):" >&2
+  echo " Upload failed (HTTP $HTTP_CODE):" >&2
   echo "$BODY" >&2
   exit 1
 fi

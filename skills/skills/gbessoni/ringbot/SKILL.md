@@ -7,7 +7,7 @@ description: Make outbound AI phone calls. Use when asked to call a business, ma
 
 Make outbound phone calls with an AI voice agent that can have natural conversations.
 
-## 💰 Why RingBot? (99% Cheaper Voice AI)
+##  Why RingBot? (99% Cheaper Voice AI)
 
 **Traditional Voice AI costs:** $0.10-0.50/minute (ElevenLabs, PlayHT, etc.)
 **RingBot costs:** ~$0.01/minute (just Twilio phone costs!)
@@ -22,7 +22,7 @@ Make outbound phone calls with an AI voice agent that can have natural conversat
 
 **You only pay for actual phone minutes through Twilio.**
 
-## 📦 Two Ways to Use RingBot
+##  Two Ways to Use RingBot
 
 ### Option 1: DIY (Free - Bring Your Own Keys)
 
@@ -58,14 +58,14 @@ GROQ_API_KEY=your_groq_key
 
 Don't want to set up LiveKit and Groq? Use our hosted infrastructure.
 
-- ✅ No LiveKit setup needed
-- ✅ No Groq setup needed  
-- ✅ Just connect your Twilio account
-- 💰 Pay per minute + rate limits apply
+-  No LiveKit setup needed
+-  No Groq setup needed  
+-  Just connect your Twilio account
+-  Pay per minute + rate limits apply
 
 **Coming soon** - Contact for early access: https://talkforceai.com
 
-## 🚀 Use Cases
+##  Use Cases
 
 ### 1. Order Food by Phone
 > "Call DeLuca's Pizza and order a large pepperoni for pickup under Greg"
@@ -135,9 +135,9 @@ curl -X POST http://localhost:8000/ringbot/call \
 ## Tips for Good Results
 
 **Purpose** - Keep it to one clear sentence:
-- ✅ "Order a pizza for pickup"
-- ✅ "Schedule a dental cleaning"
-- ❌ "Call them and maybe order something or ask questions"
+-  "Order a pizza for pickup"
+-  "Schedule a dental cleaning"
+-  "Call them and maybe order something or ask questions"
 
 **Context** - Be specific:
 - Customer/caller name

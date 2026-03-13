@@ -7,7 +7,7 @@ description: Interact with Pakat email marketing API (new.pakat.net) - REQUIRES 
 
 [Pakat](https://pakat.net) is a Persian/Farsi-friendly email marketing platform for creating and managing mailing lists, sending campaigns, transactional emails, and tracking delivery — all via a clean REST API.
 
-**🔗 [Sign up for Pakat](https://profile.pakat.net/signup)** to get started.
+** [Sign up for Pakat](https://profile.pakat.net/signup)** to get started.
 
 ## Setup
 

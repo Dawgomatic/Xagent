@@ -10,7 +10,7 @@ const CRED_DIR = join(homedir(), '.openclaw', 'workspace', 'skills', 'diarybeast
 
 async function main() {
   console.log('');
-  console.log('  🐾 DiaryBeast Setup');
+  console.log('   DiaryBeast Setup');
   console.log('  ───────────────────');
   console.log('');
 
@@ -53,18 +53,18 @@ async function main() {
   writeFileSync(tokenFile, data.token);
 
   const pet = data.user;
-  const animal = pet.selectedAnimal === 'cat' ? '🐱' : '🐶';
+  const animal = pet.selectedAnimal === 'cat' ? '' : '';
 
   console.log('  ✓ Success!');
   console.log('');
 
   if (data.isNewUser) {
     console.log(`  ${animal} You adopted a ${pet.selectedAnimal}!`);
-    console.log(`  💰 Welcome bonus: ${pet.coinsBalance} DIARY tokens`);
+    console.log(`   Welcome bonus: ${pet.coinsBalance} DIARY tokens`);
   } else {
     console.log(`  ${animal} Welcome back! Your ${pet.selectedAnimal}${pet.petName ? ' "' + pet.petName + '"' : ''} missed you.`);
-    console.log(`  ❤️  Lives: ${pet.livesRemaining}/7 | 😊 Happiness: ${pet.happiness}/100`);
-    console.log(`  🔥 Streak: ${pet.currentStreak} days | 💰 Balance: ${pet.coinsBalance} DIARY`);
+    console.log(`    Lives: ${pet.livesRemaining}/7 |  Happiness: ${pet.happiness}/100`);
+    console.log(`   Streak: ${pet.currentStreak} days |  Balance: ${pet.coinsBalance} DIARY`);
   }
 
   console.log('');

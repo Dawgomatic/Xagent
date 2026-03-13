@@ -41,10 +41,10 @@ async function main() {
     
     await deleteTask(values['task-id']);
     
-    console.log('✅ Task deleted successfully!');
+    console.log(' Task deleted successfully!');
     
   } catch (error) {
-    console.error('❌ Failed to delete task:', error.message);
+    console.error(' Failed to delete task:', error.message);
     if (error.larkResponse) {
       console.error('Lark response:', JSON.stringify(error.larkResponse, null, 2));
     }

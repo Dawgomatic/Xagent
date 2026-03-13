@@ -6,7 +6,7 @@ Apiosk enables agents to access production APIs using x402 protocol - USDC micro
 
 ---
 
-## 🎯 What This Skill Does
+##  What This Skill Does
 
 - **Discover APIs** - Browse 9+ production APIs (weather, prices, news, geocoding, etc.)
 - **Pay per request** - Automatic USDC micropayments ($0.001-0.10 per call)
@@ -15,7 +15,7 @@ Apiosk enables agents to access production APIs using x402 protocol - USDC micro
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 # Via ClawHub
@@ -27,7 +27,7 @@ git clone https://github.com/apiosk/apiosk-skill
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### 1. Set Up Wallet (One-time)
 
@@ -67,7 +67,7 @@ git clone https://github.com/apiosk/apiosk-skill
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 ### Basic API Call
 
@@ -82,7 +82,7 @@ git clone https://github.com/apiosk/apiosk-skill
 #   "forecast": [...]
 # }
 # 
-# ✅ Paid: $0.001 USDC
+#  Paid: $0.001 USDC
 ```
 
 ### From Agent Code (Node.js)
@@ -96,7 +96,7 @@ const weather = await callApiosk('weather', {
 });
 
 console.log(`Temperature: ${weather.temperature}°C`);
-// ✅ Automatically paid $0.001 USDC
+//  Automatically paid $0.001 USDC
 ```
 
 ### From Agent Code (Python)
@@ -110,12 +110,12 @@ prices = call_apiosk('prices', {
 })
 
 print(f"BTC: ${prices['BTC']}")
-# ✅ Automatically paid $0.002 USDC
+#  Automatically paid $0.002 USDC
 ```
 
 ---
 
-## 📚 Available APIs
+##  Available APIs
 
 | API | Cost/req | Description | Example |
 |-----|----------|-------------|---------|
@@ -133,7 +133,7 @@ print(f"BTC: ${prices['BTC']}")
 
 ---
 
-## 🔧 Helper Scripts
+##  Helper Scripts
 
 ### `list-apis.sh`
 ```bash
@@ -195,7 +195,7 @@ curl -s "https://gateway.apiosk.com/v1/usage?address=$WALLET_ADDRESS" | jq
 
 ---
 
-## 🎓 Examples
+##  Examples
 
 ### Example 1: Weather Bot
 
@@ -205,12 +205,12 @@ const { callApiosk } = require('./apiosk-client');
 async function getWeatherReport(city) {
   const weather = await callApiosk('weather', { city });
   
-  return `🌤️ Weather in ${city}:
+  return ` Weather in ${city}:
 Temperature: ${weather.temperature}°C
 Condition: ${weather.condition}
 Forecast: ${weather.forecast.map(f => f.summary).join(', ')}
   
-💰 Cost: $0.001 USDC`;
+ Cost: $0.001 USDC`;
 }
 
 // Usage
@@ -231,7 +231,7 @@ def track_prices(symbols, interval=60):
         for symbol, price in prices.items():
             print(f"{symbol}: ${price:,.2f}")
         
-        print(f"✅ Paid: $0.002 USDC\n")
+        print(f" Paid: $0.002 USDC\n")
         time.sleep(interval)
 
 # Track BTC and ETH every minute
@@ -254,10 +254,10 @@ async function getDailyDigest(topics) {
     articles.push(...news.articles);
   }
   
-  return `📰 Daily Digest (${articles.length} articles)
+  return ` Daily Digest (${articles.length} articles)
 ${articles.map(a => `- ${a.title} (${a.source})`).join('\n')}
 
-💰 Total cost: $${(topics.length * 0.005).toFixed(3)} USDC`;
+ Total cost: $${(topics.length * 0.005).toFixed(3)} USDC`;
 }
 
 // Get tech + business news
@@ -266,7 +266,7 @@ console.log(await getDailyDigest(['technology', 'business']));
 
 ---
 
-## 🔐 How x402 Works
+##  How x402 Works
 
 **Traditional API:**
 ```
@@ -292,7 +292,7 @@ console.log(await getDailyDigest(['technology', 'business']));
 
 ---
 
-## 🛠️ Advanced Configuration
+##  Advanced Configuration
 
 ### Custom RPC Endpoint
 
@@ -324,7 +324,7 @@ console.log(await getDailyDigest(['technology', 'business']));
 
 ---
 
-## 📊 Monitoring & Analytics
+##  Monitoring & Analytics
 
 ### Check Spending
 
@@ -348,7 +348,7 @@ console.log(await getDailyDigest(['technology', 'business']));
 
 ---
 
-## 🆘 Troubleshooting
+##  Troubleshooting
 
 ### "Insufficient USDC balance"
 
@@ -383,7 +383,7 @@ curl https://gateway.apiosk.com/v1/apis | jq '.apis[] | select(.id=="weather")'
 
 ---
 
-## 🌐 For Developers: Add Your Own API
+##  For Developers: Add Your Own API
 
 Want to monetize your API via Apiosk?
 
@@ -411,7 +411,7 @@ curl -X POST https://dashboard.apiosk.com/api/add \
 
 ---
 
-## 📖 Resources
+##  Resources
 
 - **Website:** https://apiosk.com
 - **Dashboard:** https://dashboard.apiosk.com
@@ -422,27 +422,27 @@ curl -X POST https://dashboard.apiosk.com/api/add \
 
 ---
 
-## 💡 Why Apiosk?
+##  Why Apiosk?
 
 **For Agents:**
-- ✅ No API key management
-- ✅ Pay only what you use
-- ✅ Access 9+ APIs instantly
-- ✅ Transparent pricing
-- ✅ On-chain payment proofs
+-  No API key management
+-  Pay only what you use
+-  Access 9+ APIs instantly
+-  Transparent pricing
+-  On-chain payment proofs
 
 **For Developers:**
-- ✅ Monetize any API
-- ✅ No payment processing
-- ✅ 90-95% revenue share
-- ✅ Instant settlement
-- ✅ Global reach
+-  Monetize any API
+-  No payment processing
+-  90-95% revenue share
+-  Instant settlement
+-  Global reach
 
 **Network effect:** More APIs → More agents → More revenue → More APIs
 
 ---
 
-## 🦞 About
+##  About
 
 Built by the Apiosk team for the agent economy.
 
@@ -453,13 +453,13 @@ Built by the Apiosk team for the agent economy.
 
 ---
 
-## 📝 License
+##  License
 
 MIT - Use freely in your agents!
 
 ---
 
-## 🔗 Quick Links
+##  Quick Links
 
 ```bash
 # Install
@@ -475,4 +475,4 @@ cd ~/.openclaw/skills/apiosk && ./setup-wallet.sh
 ./usage-stats.sh
 ```
 
-**Happy building! 🚀**
+**Happy building! **

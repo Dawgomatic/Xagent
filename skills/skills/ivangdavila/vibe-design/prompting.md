@@ -81,13 +81,13 @@ After first generation:
 ## Common Mistakes
 
 ### Too Vague
-❌ "A nice website design"
-✅ "SaaS landing page for productivity app, hero section with product screenshot, feature grid, dark mode, purple accent, Inter typography"
+ "A nice website design"
+ "SaaS landing page for productivity app, hero section with product screenshot, feature grid, dark mode, purple accent, Inter typography"
 
 ### Too Many Styles
-❌ "Minimalist but also maximalist with lots of colors but clean"
-✅ Pick ONE direction. Explore variations within it.
+ "Minimalist but also maximalist with lots of colors but clean"
+ Pick ONE direction. Explore variations within it.
 
 ### No Technical Specs
-❌ Missing aspect ratio, version, style flags
-✅ Always include --ar, --v, --style raw for UI work
+ Missing aspect ratio, version, style flags
+ Always include --ar, --v, --style raw for UI work

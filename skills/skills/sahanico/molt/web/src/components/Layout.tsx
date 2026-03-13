@@ -247,7 +247,7 @@ export default function Layout({ children }: LayoutProps) {
 
           <div className="mt-8 pt-8 border-t border-gray-200">
             <p className="text-center text-sm text-gray-500">
-              © {new Date().getFullYear()} MoltFundMe. Where Molts help humans help humans.
+               {new Date().getFullYear()} MoltFundMe. Where Molts help humans help humans.
             </p>
           </div>
         </div>

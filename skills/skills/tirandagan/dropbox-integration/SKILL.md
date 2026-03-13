@@ -43,9 +43,9 @@ This skill is configured for **read-only access** with the following Dropbox sco
 - `account_info.read` - Read account information
 
 **NOT included:**
-- ❌ `files.content.write` - Cannot upload or modify files
-- ❌ `files.metadata.write` - Cannot rename or move files
-- ❌ `files.permanent_delete` - Cannot delete files
+-  `files.content.write` - Cannot upload or modify files
+-  `files.metadata.write` - Cannot rename or move files
+-  `files.permanent_delete` - Cannot delete files
 
 This ensures your Dropbox content remains safe from accidental modifications.
 
@@ -130,12 +130,12 @@ node browse.js "/Photos/2024"
 
 Output:
 ```
-📁 Listing: /Documents
+ Listing: /Documents
 
-📄 report.pdf (2.3 MB) - 2024-02-01
-📄 presentation.pptx (5.1 MB) - 2024-01-28
-📁 Projects
-📁 Archive
+ report.pdf (2.3 MB) - 2024-02-01
+ presentation.pptx (5.1 MB) - 2024-01-28
+ Projects
+ Archive
 
 Total: 4 items
 ```
@@ -149,15 +149,15 @@ node search-files.js "contract"
 
 Output:
 ```
-🔍 Searching for: "budget 2024"
+ Searching for: "budget 2024"
 
-✅ Found 3 matches:
+ Found 3 matches:
 
-📄 /Finance/budget-2024-q1.xlsx
+ /Finance/budget-2024-q1.xlsx
    Size: 156.3 KB
    Modified: 2024-01-15T10:30:00Z
 
-📄 /Reports/budget-2024-summary.pdf
+ /Reports/budget-2024-summary.pdf
    Size: 2.1 MB
    Modified: 2024-02-01T14:22:00Z
 ```
@@ -174,8 +174,8 @@ node download.js "/Photos/vacation.jpg" "./vacation.jpg"
 
 Output:
 ```
-📥 Downloading: /Documents/report.pdf
-✅ Saved to: ./downloads/report.pdf (2.3 MB)
+ Downloading: /Documents/report.pdf
+ Saved to: ./downloads/report.pdf (2.3 MB)
 ```
 
 ## Integration with OpenClaw

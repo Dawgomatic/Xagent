@@ -1,7 +1,7 @@
 ---
 name: telnyx-tts
 description: Generate speech audio from text using Telnyx Text-to-Speech API. Use when you need to convert text to spoken audio, create voice messages, or generate audio content.
-metadata: {"openclaw":{"emoji":"🔊","requires":{"bins":["python3"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
 ---
 
 # Telnyx Text-to-Speech

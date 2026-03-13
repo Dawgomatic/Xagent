@@ -2,7 +2,7 @@
 name: domainkits
 description: Turn AI into your domain investment expert. Search newly registered, expired, deleted domains. Check availability with pricing. WHOIS/DNS lookup. Track market trends.
 homepage: https://domainkits.com/mcp
-metadata: {"openclaw":{"emoji":"🌐","primaryEnv":"DOMAINKITS_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","primaryEnv":"DOMAINKITS_API_KEY"}}
 
 ---
 

@@ -4,12 +4,12 @@ A comprehensive OpenClaw skill for viewing, extracting, editing, and manipulatin
 
 ## Features
 
-- 📄 **Text Extraction** - Extract text from entire PDFs or specific pages
-- ✏️ **Text Editing** - Add text overlays to PDF pages with custom positioning and font size
-- 📊 **PDF Info** - View metadata, page count, dimensions, and document properties
-- 🔗 **Merge PDFs** - Combine multiple PDF files into one
-- ✂️ **Split PDFs** - Split by individual pages or custom page ranges
-- 🔄 **Rotate Pages** - Rotate pages at 90°, 180°, 270°, or -90° angles
+-  **Text Extraction** - Extract text from entire PDFs or specific pages
+-  **Text Editing** - Add text overlays to PDF pages with custom positioning and font size
+-  **PDF Info** - View metadata, page count, dimensions, and document properties
+-  **Merge PDFs** - Combine multiple PDF files into one
+-  **Split PDFs** - Split by individual pages or custom page ranges
+-  **Rotate Pages** - Rotate pages at 90°, 180°, 270°, or -90° angles
 
 ## Installation
 

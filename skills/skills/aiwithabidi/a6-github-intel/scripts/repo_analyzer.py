@@ -6,7 +6,7 @@ Usage:
     python3 repo_analyzer.py https://github.com/owner/repo
     python3 repo_analyzer.py owner/repo --depth 3 --json
 
-⚠️ SECURITY: Read-only analysis. NEVER executes code from repositories.
+ SECURITY: Read-only analysis. NEVER executes code from repositories.
 """
 
 import argparse
@@ -159,7 +159,7 @@ def analyze(owner: str, repo: str, depth: int = 2) -> str:
     output.append(f"# Repository: {owner}/{repo}")
     output.append("")
     output.append(f"**{info.get('description', 'No description')}**")
-    output.append(f"- ⭐ {info.get('stargazers_count', 0):,} stars | 🍴 {info.get('forks_count', 0):,} forks")
+    output.append(f"-  {info.get('stargazers_count', 0):,} stars |  {info.get('forks_count', 0):,} forks")
     output.append(f"- License: {info.get('license', {}).get('spdx_id', 'Unknown') if info.get('license') else 'None'}")
     output.append(f"- Default branch: {branch}")
     output.append(f"- Last push: {info.get('pushed_at', 'Unknown')}")

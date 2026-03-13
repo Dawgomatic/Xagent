@@ -7,7 +7,7 @@ description: Accept crypto payments (NEAR, USDC, USDT) via a beautiful payment p
 
 Accept crypto payments (NEAR, USDC, USDT) via a beautiful payment page with PingPay or HOT PAY integration.
 
-## 🎯 What It Does
+##  What It Does
 
 Creates a hosted payment page where people can pay you in crypto with just a few clicks:
 
@@ -18,7 +18,7 @@ Creates a hosted payment page where people can pay you in crypto with just a few
 5. **First-time friendly** - Setup wizard guides new users
 6. **Smart token selection** - Once a token is selected, others are hidden to avoid confusion (great for HOT PAY where each token has a unique checkout link)
 
-## 🎨 User Flow
+##  User Flow
 
 ### PingPay Flow (default, best flow)
 1. User selects token (NEAR, USDC, or USDT)
@@ -33,7 +33,7 @@ Creates a hosted payment page where people can pay you in crypto with just a few
 4. Clicks "Pay Now"
 5. Redirects to HOT PAY checkout link for that specific token and amount
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Installation
 
@@ -106,7 +106,7 @@ This will:
 
 Share the generated `https://xxxxx.lhr.life` URL to accept payments!
 
-## ⚠️ Important Notes
+##  Important Notes
 
 ### Recipient Address Configuration
 
@@ -127,7 +127,7 @@ localhost.run generates random URLs that change each restart. For a permanent do
 
 Or use your own reverse proxy (Cloudflare Tunnel, ngrok paid, etc.)
 
-## 📖 Usage in OpenClaw
+##  Usage in OpenClaw
 
 When a user asks to accept payments:
 
@@ -168,13 +168,13 @@ Agent: Perfect! Starting your payment server...
 
 [runs start.sh]
 
-✅ Your payment page is live:
+ Your payment page is live:
 https://abc123xyz.lhr.life
 
 Share this link to accept NEAR, USDC, or USDT payments!
 ```
 
-## 🛠️ File Structure
+##  File Structure
 
 ```
 near-getpay/
@@ -191,7 +191,7 @@ near-getpay/
     └── payment-orchestrator.ts
 ```
 
-## 🔧 Advanced Configuration
+##  Advanced Configuration
 
 ### Custom Port
 
@@ -224,7 +224,7 @@ HOT PAY sends webhooks to `/webhook/hotpay`. To use:
 2. Configure webhook URL in HOT PAY dashboard
 3. Server logs payment confirmations automatically
 
-## 🎨 Customization
+##  Customization
 
 ### Payment Amounts
 
@@ -259,7 +259,7 @@ Add to the `tokens` array (requires provider support):
 }
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### "No provider configured"
 
@@ -282,16 +282,16 @@ You need to create a payment link for each token. Missing tokens won't appear on
 - **PingPay**: Check API key is valid and account is active
 - **HOT PAY**: Verify item_ids match your created links
 
-## 🔐 Security
+##  Security
 
-- ✅ API keys stored in `.env` (gitignored)
-- ✅ No private keys needed (payments go directly to provider)
-- ✅ HTTPS via tunnel
-- ✅ Webhook signature verification (HOT PAY)
+-  API keys stored in `.env` (gitignored)
+-  No private keys needed (payments go directly to provider)
+-  HTTPS via tunnel
+-  Webhook signature verification (HOT PAY)
 
 **Never commit `.env` to git!**
 
-## 📦 Sharing This Skill
+##  Sharing This Skill
 
 ### As a Skill Package
 
@@ -329,17 +329,17 @@ npm install
 3. Add description and tags
 4. Publish!
 
-## 🤝 Support
+##  Support
 
 - **Issues**: GitHub Issues (if published)
 - **PingPay**: https://pingpay.io/docs
 - **HOT PAY**: https://pay.hot-labs.org/admin
 - **OpenClaw**: https://docs.openclaw.ai
 
-## 📝 License
+##  License
 
 MIT
 
 ---
 
-**Made for OpenClaw** 🐾
+**Made for OpenClaw** 

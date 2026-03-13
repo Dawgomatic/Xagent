@@ -1999,7 +1999,7 @@ class TestEdgeCases:
         """Handle unicode content in documents."""
         filepath = integration_dir / "unicode_doc.txt"
         filepath.write_text(
-            "Unicode content: こんにちは 🚀 Ñoño émoji résumé naïve"
+            "Unicode content: こんにちは  Ñoño émoji résumé naïve"
         )
         
         result = runner.invoke(cli, cli_env + [
@@ -2183,7 +2183,7 @@ class TestFinalValidationSummary:
         assert status["project_count"] >= 2
         assert status["link_count"] >= 1
         
-        print(f"\n✅ Final Workflow Complete:")
+        print(f"\n Final Workflow Complete:")
         print(f"   Documents: {status['total_documents']}")
         print(f"   Projects: {status['project_count']}")
         print(f"   Links: {status['link_count']}")

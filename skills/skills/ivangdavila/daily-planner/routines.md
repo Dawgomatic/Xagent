@@ -15,19 +15,19 @@ Run at configured time (default: 7:30 for exec, 8:00 for others).
 ```markdown
 ## Today — [Day], [Date]
 
-🎯 **Top 3:**
+ **Top 3:**
 1. [Most important outcome]
 2. [Second priority]
 3. [Third priority]
 
-📅 **Fixed commitments:**
+ **Fixed commitments:**
 - 10:00 — Call with X (prep: review Q4 numbers)
 - 14:00 — Team standup
 
-⚠️ **Deadlines approaching:**
+ **Deadlines approaching:**
 - Project Y proposal — due tomorrow 18:00
 
-💡 **Quick wins available:**
+ **Quick wins available:**
 - Reply to Z's email (draft ready)
 ```
 
@@ -103,11 +103,11 @@ Run at configured time (default: 21:00).
 ```markdown
 ## End of Day — [Date]
 
-### Done ✅
+### Done 
 - [Completed item 1]
 - [Completed item 2]
 
-### Moved to tomorrow ➡️
+### Moved to tomorrow 
 - [Item that didn't happen + reason]
 
 ### New commitments logged
@@ -145,9 +145,9 @@ Run Sunday evening or Monday morning (configurable).
 ## Week of [Date Range]
 
 ### Last week
-- ✅ Completed: [X items]
-- ↩️ Pushed: [Y items] — pattern: [mostly admin/meetings/projects?]
-- ⏱️ Time split: 60% proactive, 40% reactive
+-  Completed: [X items]
+-  Pushed: [Y items] — pattern: [mostly admin/meetings/projects?]
+-  Time split: 60% proactive, 40% reactive
 
 ### This week's priorities
 1. [Big outcome 1]

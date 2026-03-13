@@ -13,11 +13,11 @@ An AI agent that automatically creates prediction markets on betbud.live by anal
 
 ## Features
 
-- ✅ Fetches from 5+ premium crypto Twitter accounts
-- ✅ Uses Claude Sonnet 4 for intelligent topic selection
-- ✅ Professional images from Unsplash
-- ✅ Deduplication cache (last 20 predictions)
-- ✅ Creates markets on blockchain + registers to betbud.live
+-  Fetches from 5+ premium crypto Twitter accounts
+-  Uses Claude Sonnet 4 for intelligent topic selection
+-  Professional images from Unsplash
+-  Deduplication cache (last 20 predictions)
+-  Creates markets on blockchain + registers to betbud.live
 
 ## Requirements
 
@@ -60,7 +60,7 @@ Creates prediction markets like:
 
 ---
 
-### **📄 Create `.env.example`**
+### ** Create `.env.example`**
 
 Create this file to show what keys are needed:
 ```
@@ -73,7 +73,7 @@ UNSPLASH_ACCESS_KEY=your_unsplash_access_key_here
 
 ---
 
-### **📄 Create/Update `requirements.txt`**
+### ** Create/Update `requirements.txt`**
 ```
 anthropic==0.79.0
 web3==7.14.1

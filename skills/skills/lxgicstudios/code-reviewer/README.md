@@ -31,10 +31,10 @@ npx ai-code-review
 ```
 
 You'll get color-coded feedback:
-- 🔴 **CRITICAL** - Bugs, security issues. Fix these.
-- 🟡 **WARNING** - Code smells, things that might bite you later.
-- 🔵 **SUGGESTION** - Style and readability stuff.
-- 🟢 **GOOD** - Things you did right. Everyone needs a pat on the back.
+-  **CRITICAL** - Bugs, security issues. Fix these.
+-  **WARNING** - Code smells, things that might bite you later.
+-  **SUGGESTION** - Style and readability stuff.
+-  **GOOD** - Things you did right. Everyone needs a pat on the back.
 
 ## Why bother?
 

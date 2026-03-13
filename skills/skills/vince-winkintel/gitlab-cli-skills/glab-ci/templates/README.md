@@ -145,8 +145,8 @@ Set required variables in GitLab:
 - `DOCKER_AUTH_CONFIG` - For private Docker registries
 
 **Protection:**
-- ✅ Mark as **Protected** for production secrets (only available on protected branches)
-- ✅ Mark as **Masked** to hide in job logs
+-  Mark as **Protected** for production secrets (only available on protected branches)
+-  Mark as **Masked** to hide in job logs
 
 ---
 

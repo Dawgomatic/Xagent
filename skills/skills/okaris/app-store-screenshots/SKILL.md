@@ -116,12 +116,12 @@ UI screenshot with arrows/circles pointing to specific features.
 ### Examples
 
 ```
-❌ Feature-focused:
+ Feature-focused:
 "Push Notification System"
 "Calendar View with Filters"
 "Data Export Functionality"
 
-✅ Benefit-focused:
+ Benefit-focused:
 "Never Miss a Deadline Again"
 "See Your Week at a Glance"
 "Share Reports in One Tap"

@@ -2,7 +2,7 @@
 name: frinkiac
 description: Search TV show screenshots and generate memes from The Simpsons, Futurama, Rick and Morty, and 30 Rock
 metadata:
-  {"openclaw":{"emoji":"📺","requires":{"bins":["node","npx"]}}}
+  {"openclaw":{"emoji":"","requires":{"bins":["node","npx"]}}}
 ---
 
 # Frinkiac TV Screenshot & Meme Tool

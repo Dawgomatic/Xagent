@@ -64,7 +64,7 @@ try:
     }
     
     if len(failures) == 0:
-        result['message'] = f'No reload failures in the last {hours} hours! 🎉'
+        result['message'] = f'No reload failures in the last {hours} hours! '
     
     print(json.dumps(result, indent=2))
 except Exception as e:

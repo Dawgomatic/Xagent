@@ -262,7 +262,7 @@ cron add --schedule "0 2 * * *" \
 
 **Example (bad):**
 ```bash
-# ❌ Using Deep for simple check (60x more expensive!)
+#  Using Deep for simple check (60x more expensive!)
 cron add --schedule "*/15 * * * *" \
   --payload '{
     "kind":"agentTurn",
@@ -376,14 +376,14 @@ See `references/PROVIDERS.md` for comprehensive guide on:
 See `assets/config-patches.json` for advanced optimizations:
 
 **Implemented by this skill:**
-- ✅ Heartbeat optimization (fully functional)
-- ✅ Token budget tracking (fully functional)
-- ✅ Model routing logic (fully functional)
+-  Heartbeat optimization (fully functional)
+-  Token budget tracking (fully functional)
+-  Model routing logic (fully functional)
 
 **Requires OpenClaw core support:**
-- ⏳ Prompt caching (Anthropic API feature, OpenClaw integration pending)
-- ⏳ Lazy context loading (requires core changes)
-- ⏳ Multi-provider fallback (partially supported)
+-  Prompt caching (Anthropic API feature, OpenClaw integration pending)
+-  Lazy context loading (requires core changes)
+-  Multi-provider fallback (partially supported)
 
 **Apply config patches:**
 ```bash

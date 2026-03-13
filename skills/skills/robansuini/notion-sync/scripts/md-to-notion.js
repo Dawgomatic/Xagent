@@ -69,9 +69,9 @@ async function main() {
     if (hasJsonFlag()) {
       console.log(JSON.stringify(result, null, 2));
     } else {
-      console.log('\n✅ Successfully created Notion page!');
-      console.log(`📄 URL: ${page.url}`);
-      console.log(`🆔 Page ID: ${page.id}`);
+      console.log('\n Successfully created Notion page!');
+      console.log(` URL: ${page.url}`);
+      console.log(` Page ID: ${page.id}`);
     }
   } catch (error) {
     if (hasJsonFlag()) {

@@ -1,7 +1,7 @@
 ---
 name: chaterimo
 description: AI Customer Service for Shopify & E-commerce - Query conversations, analyze chatbot performance, and manage your Chaterimo AI assistant
-emoji: 🛒
+emoji: 
 homepage: https://www.chaterimo.com
 tags:
   - shopify
@@ -36,7 +36,7 @@ Chaterimo is an AI-powered customer service platform that integrates with **Shop
 
 You can use Chaterimo with your own API keys (BYOK - Bring Your Own Key) or choose a custom plan with included AI credits.
 
-📖 **Learn more:** [How to connect Chaterimo with Shopify](https://www.chaterimo.com/en/blog/shopify-ai-customer-service/)
+ **Learn more:** [How to connect Chaterimo with Shopify](https://www.chaterimo.com/en/blog/shopify-ai-customer-service/)
 
 ## What can this skill do?
 

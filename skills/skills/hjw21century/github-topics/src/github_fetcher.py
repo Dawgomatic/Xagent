@@ -76,7 +76,7 @@ class GitHubFetcher:
         sort_by = sort_by or GITHUB_SEARCH_SORT
         limit = limit or (self.per_page * self.max_pages)
 
-        print(f"📡 正在获取话题 '{self.topic}' 的仓库列表...")
+        print(f" 正在获取话题 '{self.topic}' 的仓库列表...")
         print(f"   排序方式: {sort_by}")
 
         repos = []
@@ -118,7 +118,7 @@ class GitHubFetcher:
             if page <= self.max_pages and len(repos) < limit:
                 time.sleep(self.delay)
 
-        print(f"✅ 成功获取 {len(repos)} 个仓库")
+        print(f" 成功获取 {len(repos)} 个仓库")
         return repos
 
     def _fetch_page(self, page: int, sort_by: str) -> Optional[Dict]:
@@ -149,7 +149,7 @@ class GitHubFetcher:
             return response.json()
 
         except requests.RequestException as e:
-            print(f"   ⚠️ 请求失败 (页 {page}): {e}")
+            print(f"    请求失败 (页 {page}): {e}")
             return None
 
     def _parse_repo_item(self, item: Dict, rank: int) -> Dict:
@@ -205,7 +205,7 @@ class GitHubFetcher:
             wait_time = self.rate_limit_reset - now + 1
 
             if wait_time > 0:
-                print(f"⏳ 速率限制已用尽，等待 {wait_time} 秒后重试...")
+                print(f" 速率限制已用尽，等待 {wait_time} 秒后重试...")
                 time.sleep(wait_time)
 
     def fetch_new_repos(self, days: int = 7) -> List[Dict]:
@@ -221,7 +221,7 @@ class GitHubFetcher:
         cutoff_date = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
         query = f"topic:{self.topic} created:>{cutoff_date}"
 
-        print(f"📡 正在获取最近 {days} 天创建的仓库...")
+        print(f" 正在获取最近 {days} 天创建的仓库...")
 
         repos = []
         page = 1
@@ -261,10 +261,10 @@ class GitHubFetcher:
                 time.sleep(self.delay)
 
             except requests.RequestException as e:
-                print(f"   ⚠️ 请求失败: {e}")
+                print(f"    请求失败: {e}")
                 break
 
-        print(f"✅ 获取到 {len(repos)} 个新仓库")
+        print(f" 获取到 {len(repos)} 个新仓库")
         return repos
 
     def fetch_repo_details(self, owner: str, repo: str) -> Optional[Dict]:
@@ -286,7 +286,7 @@ class GitHubFetcher:
             return response.json()
 
         except requests.RequestException as e:
-            print(f"   ⚠️ 获取仓库详情失败 {owner}/{repo}: {e}")
+            print(f"    获取仓库详情失败 {owner}/{repo}: {e}")
             return None
 
 

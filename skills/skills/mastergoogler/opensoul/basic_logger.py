@@ -19,12 +19,12 @@ from datetime import datetime
 
 
 async def main():
-    print("🧠 OpenSoul Basic Logger Example\n")
+    print(" OpenSoul Basic Logger Example\n")
     
     # Check for private key
     priv_wif = os.getenv("BSV_PRIV_WIF")
     if not priv_wif:
-        print("❌ Error: BSV_PRIV_WIF environment variable not set")
+        print(" Error: BSV_PRIV_WIF environment variable not set")
         print("   Run: export BSV_PRIV_WIF='your_private_key_here'")
         return
     
@@ -87,13 +87,13 @@ async def main():
     try:
         tx_id = await logger.flush()
         print(f"✓ Logs successfully written to blockchain!")
-        print(f"\n📍 Transaction ID: {tx_id}")
-        print(f"🔗 View at: https://whatsonchain.com/tx/{tx_id}")
+        print(f"\n Transaction ID: {tx_id}")
+        print(f" View at: https://whatsonchain.com/tx/{tx_id}")
     except Exception as e:
-        print(f"❌ Error flushing logs: {e}")
+        print(f" Error flushing logs: {e}")
         print("   Tip: Check your BSV balance and network connectivity")
     
-    print("\n✅ Example complete!")
+    print("\n Example complete!")
 
 
 if __name__ == "__main__":

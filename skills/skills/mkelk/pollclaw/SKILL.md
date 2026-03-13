@@ -3,7 +3,7 @@ name: pollclaw
 description: "Deprecated: Pollclaw is now MeetLark. Use the coordinate-meeting skill instead for meeting scheduling. See https://meetlark.ai"
 homepage: https://meetlark.ai
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🗳️"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # Pollclaw has moved to MeetLark

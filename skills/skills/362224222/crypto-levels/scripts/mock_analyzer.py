@@ -87,9 +87,9 @@ class MockCryptoLevelsAnalyzer:
         base, quote = self.normalize_pair(pair)
         
         if quote != "USDT":
-            print(f"⚠️  Only USDT pairs are supported. Using {base}-USDT")
+            print(f"  Only USDT pairs are supported. Using {base}-USDT")
         
-        print(f"🔍 Analyzing {base}-USDT (MOCK DATA)...")
+        print(f" Analyzing {base}-USDT (MOCK DATA)...")
         
         # Get mock price
         current_price = self.get_mock_price(base)
@@ -107,7 +107,7 @@ class MockCryptoLevelsAnalyzer:
     def format_output(self, analysis: dict) -> str:
         """Format analysis as readable output"""
         if not analysis:
-            return "❌ Analysis failed"
+            return " Analysis failed"
         
         symbol = analysis.get("symbol", "Unknown")
         current_price = analysis.get("current_price", 0)
@@ -121,58 +121,58 @@ class MockCryptoLevelsAnalyzer:
         ma100 = analysis.get("ma100")
         
         # Format change indicator
-        change_color = "🟢" if change_24h >= 0 else "🔴"
+        change_color = "" if change_24h >= 0 else ""
         change_sign = "+" if change_24h >= 0 else ""
         
         # Build output
         output = []
-        output.append(f"📊 {symbol}-USDT 技术分析 (模拟数据)")
+        output.append(f" {symbol}-USDT 技术分析 (模拟数据)")
         output.append("")
-        output.append(f"💰 当前价格: ${current_price:,.2f}")
-        output.append(f"📈 24h变化: {change_color} {change_sign}{change_24h:.2f}%")
+        output.append(f" 当前价格: ${current_price:,.2f}")
+        output.append(f" 24h变化: {change_color} {change_sign}{change_24h:.2f}%")
         output.append("")
         
         # Resistance levels
         if resistance:
-            output.append("🔴 压力位 (Resistance):")
+            output.append(" 压力位 (Resistance):")
             for i, level in enumerate(resistance, 1):
                 diff_pct = ((level - current_price) / current_price) * 100
                 output.append(f"   • R{i}: ${level:,.2f} (+{diff_pct:.2f}%)")
         else:
-            output.append("🔴 压力位: 暂无明显阻力")
+            output.append(" 压力位: 暂无明显阻力")
         
         output.append("")
         
         # Support levels
         if support:
-            output.append("🟢 支撑位 (Support):")
+            output.append(" 支撑位 (Support):")
             for i, level in enumerate(support, 1):
                 diff_pct = ((current_price - level) / current_price) * 100
                 output.append(f"   • S{i}: ${level:,.2f} (-{diff_pct:.2f}%)")
         else:
-            output.append("🟢 支撑位: 暂无明显支撑")
+            output.append(" 支撑位: 暂无明显支撑")
         
         output.append("")
         
         # Technical indicators
-        output.append("📊 技术指标:")
+        output.append(" 技术指标:")
         if rsi:
             rsi_status = "超买" if rsi > 70 else "超卖" if rsi < 30 else "中性"
-            rsi_color = "🔴" if rsi > 70 else "🟢" if rsi < 30 else "🟡"
+            rsi_color = "" if rsi > 70 else "" if rsi < 30 else ""
             output.append(f"   {rsi_color} RSI: {rsi} ({rsi_status})")
         
         if ma50:
             ma50_status = "支撑" if current_price > ma50 else "阻力"
-            output.append(f"   📈 MA50: ${ma50:,.2f} ({ma50_status})")
+            output.append(f"    MA50: ${ma50:,.2f} ({ma50_status})")
         
         if ma100:
             ma100_status = "支撑" if current_price > ma100 else "阻力"
-            output.append(f"   📈 MA100: ${ma100:,.2f} ({ma100_status})")
+            output.append(f"    MA100: ${ma100:,.2f} ({ma100_status})")
         
         output.append("")
         
         # Trading insights
-        output.append("💡 交易建议:")
+        output.append(" 交易建议:")
         
         if rsi and rsi < 30:
             output.append("   • RSI超卖，可能有反弹机会")
@@ -193,8 +193,8 @@ class MockCryptoLevelsAnalyzer:
             output.append("   • 短期情绪: 中性")
         
         output.append("")
-        output.append("⚠️  风险提示: 本分析仅供参考，不构成投资建议。加密货币交易风险极高，请谨慎投资。")
-        output.append("📝 注意: 此为模拟数据，仅用于演示功能。实际使用时需要网络连接。")
+        output.append("  风险提示: 本分析仅供参考，不构成投资建议。加密货币交易风险极高，请谨慎投资。")
+        output.append(" 注意: 此为模拟数据，仅用于演示功能。实际使用时需要网络连接。")
         
         return "\n".join(output)
 
@@ -229,7 +229,7 @@ def main():
         
         sys.exit(0)
     else:
-        print("❌ Analysis failed")
+        print(" Analysis failed")
         sys.exit(1)
 
 

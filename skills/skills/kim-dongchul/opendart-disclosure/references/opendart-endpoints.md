@@ -5,7 +5,7 @@
 - URL: `https://opendart.fss.or.kr/api/corpCode.xml`
 - Params: `crtfc_key=<API_KEY>`
 - Response: ZIP containing `CORPCODE.xml`
-- Use this to map company name ↔ `corp_code`.
+- Use this to map company name  `corp_code`.
 
 ## 2) Disclosure list
 

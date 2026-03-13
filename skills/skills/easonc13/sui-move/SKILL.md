@@ -50,7 +50,7 @@ A curated list of Move resources, including:
 - Tools and utilities
 - Learning resources
 
-⚠️ **Note**: Some code examples in awesome-move may be outdated as the Move language and Sui platform evolve. Always verify against the latest Move Book and Sui documentation.
+ **Note**: Some code examples in awesome-move may be outdated as the Move language and Sui platform evolve. Always verify against the latest Move Book and Sui documentation.
 
 ## Reference Structure
 

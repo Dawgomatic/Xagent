@@ -326,7 +326,7 @@ def main():
 
                 with open(abs_out, 'w') as f:
                     f.write(output)
-                console.print(f"[green]✔ Exported to {abs_out}[/green]")
+                console.print(f"[green] Exported to {abs_out}[/green]")
             else:
                 print(output)
     elif args.command == "list":
@@ -449,12 +449,12 @@ def main():
                 if "moltbook" in args.url or result.metadata.get('source') == "moltbook":
                     console.print(Panel(
                         f"[bold yellow]SUSPICION PROTOCOL ACTIVE[/bold yellow]\n\n"
-                        f"✔ Ingested: {result.metadata['title']} {source_info}\n"
+                        f" Ingested: {result.metadata['title']} {source_info}\n"
                         f"Note: Moltbook data is marked low-confidence (0.55) by default.",
                         border_style="yellow"
                     ))
                 else:
-                    console.print(f"[green]✔ Ingested:[/green] {result.metadata['title']} {source_info}")
+                    console.print(f"[green] Ingested:[/green] {result.metadata['title']} {source_info}")
             else:
                 console.print(f"[red]Ingest failed:[/red] {result.error}")
                 raise SystemExit(1)
@@ -470,7 +470,7 @@ def main():
                 if args.format == "json":
                     print(json.dumps({"ok": True, "query": args.query, "cached": True}))
                 else:
-                    console.print(f"[green]✔ Cached provided result for:[/green] {args.query}")
+                    console.print(f"[green] Cached provided result for:[/green] {args.query}")
             except json.JSONDecodeError:
                 msg = "Error: --set-result must be valid JSON."
                 if args.format == "json":
@@ -529,7 +529,7 @@ def main():
             args.tags,
             branch=args.branch,
         )
-        console.print(f"[green]✔ Logged[/green] [bold cyan]{args.type}[/] for [bold white]{args.id}[/] (conf: {args.conf}, src: {args.source})")
+        console.print(f"[green] Logged[/green] [bold cyan]{args.type}[/] for [bold white]{args.id}[/] (conf: {args.conf}, src: {args.source})")
     elif args.command == "status":
         from rich.console import Group
 
@@ -618,7 +618,7 @@ def main():
             if insights:
                 insight_table = Table(box=box.SIMPLE, show_header=False)
                 for i in insights:
-                    insight_table.add_row(f"💡 [bold]{i[0]}[/]: {i[1]}")
+                    insight_table.add_row(f" [bold]{i[0]}[/]: {i[1]}")
                 content = Group(info_text, Rule(style="white"), event_table, Rule(style="white"), insight_table)
             else:
                 content = Group(info_text, Rule(style="white"), event_table)
@@ -639,7 +639,7 @@ def main():
                     conf = 1.0
                 
                 core.add_insight(args.id, title, content, "", tags, confidence=conf, branch=args.branch)
-                console.print("[green]✔ Added.[/green]\n")
+                console.print("[green] Added.[/green]\n")
         elif args.add:
             if not args.title or not args.content:
                 print("Error: --title and --content required for adding insight.")
@@ -681,7 +681,7 @@ def main():
     elif args.command == "branch":
         if args.branch_command == "create":
             branch_id = core.create_branch(args.id, args.name, parent=args.parent, hypothesis=args.hypothesis)
-            console.print(f"[green]✔ Created branch[/green] [bold]{args.name}[/] ({branch_id}) for project [bold]{args.id}[/]")
+            console.print(f"[green] Created branch[/green] [bold]{args.name}[/] ({branch_id}) for project [bold]{args.id}[/]")
         elif args.branch_command == "list":
             rows = core.list_branches(args.id)
             if args.format == "json":
@@ -727,7 +727,7 @@ def main():
                 confidence=args.conf,
                 status=args.status,
             )
-            console.print(f"[green]✔ Added hypothesis[/green] {hid} to branch [bold]{args.branch}[/]")
+            console.print(f"[green] Added hypothesis[/green] {hid} to branch [bold]{args.branch}[/]")
         elif args.hyp_command == "list":
             rows = core.list_hypotheses(args.id, branch=args.branch)
             if args.format == "json":
@@ -779,7 +779,7 @@ def main():
                 metadata=metadata,
                 branch=args.branch,
             )
-            console.print(f"[green]✔ Added artifact[/green] {artifact_id}")
+            console.print(f"[green] Added artifact[/green] {artifact_id}")
         elif args.artifact_command == "list":
             rows = core.list_artifacts(args.id, branch=args.branch)
             if args.format == "json":
@@ -944,7 +944,7 @@ def main():
                     console.print(table)
         elif args.verify_command == "complete":
             core.set_verification_mission_status(args.mission, args.status, note=args.note)
-            console.print(f"[green]✔ Updated mission[/green] {args.mission} -> {args.status}")
+            console.print(f"[green] Updated mission[/green] {args.mission} -> {args.status}")
         else:
             console.print("[red]Error:[/red] verify requires a subcommand (plan|list|run|complete).")
     elif args.command == "strategy":
@@ -1034,7 +1034,7 @@ def main():
                 tags=args.tags,
                 branch=args.branch,
             )
-            console.print(f"[green]✔ Added watch target[/green] {tid}")
+            console.print(f"[green] Added watch target[/green] {tid}")
         elif args.watch_command == "list":
             status = None if args.status == "all" else args.status
             rows = core.list_watch_targets(args.id, branch=args.branch, status=status)
@@ -1060,7 +1060,7 @@ def main():
                 console.print(table)
         elif args.watch_command == "disable":
             core.disable_watch_target(args.target_id)
-            console.print(f"[green]✔ Disabled watch target[/green] {args.target_id}")
+            console.print(f"[green] Disabled watch target[/green] {args.target_id}")
         else:
             console.print("[red]Error:[/red] watch requires a subcommand (add|list|disable).")
     elif args.command == "watchdog":

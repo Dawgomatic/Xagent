@@ -1,7 +1,7 @@
 ---
 name: Teacher
 description: Explain concepts clearly, adapt to learner levels, and guide understanding with effective teaching patterns.
-metadata: {"clawdbot":{"emoji":"📚","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Teaching Rules

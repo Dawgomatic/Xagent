@@ -40,7 +40,7 @@ cp skills/memory/references/RECENT_CONTEXT.md ./
 Add this to your agent instructions:
 
 ```markdown
-### 🔄 MEMORY PROTOCOL (MANDATORY)
+###  MEMORY PROTOCOL (MANDATORY)
 
 **Before Responding to Context Questions:**
 When user asks about past discussions, decisions, or preferences:

@@ -12,9 +12,9 @@ Builds structured JSON cache from RLM state for kirk-content-pipeline Step 3 (wr
 **After:** Writer loads structured cache → writes from verified data with labels
 
 **What auto-generates:**
-- ✅ Source tags from PDF filenames ("GFHK - Memory.pdf" → tag: "GFHK")
-- ✅ Topics with primary_source, key_metrics, source_context
-- ✅ Extraction entries with full context labels (product_type, time_period, units, scope)
+-  Source tags from PDF filenames ("GFHK - Memory.pdf" → tag: "GFHK")
+-  Topics with primary_source, key_metrics, source_context
+-  Extraction entries with full context labels (product_type, time_period, units, scope)
 
 ---
 

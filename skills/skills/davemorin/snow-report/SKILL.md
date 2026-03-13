@@ -120,14 +120,14 @@ From OpenSnow snapshot, find:
 
 ### SnowTick (favorites dashboard)
 ```
-📈 SnowTick — {date}
+ SnowTick — {date}
 
-JHMR  12"  ▲ 6"   ❄️ snowing
-FISH   8"  ▲ 2"   ☀️ clear  
-SGAR  24"  ▲ 12"  ❄️ snowing ←
-BALD  36"  ▲ 8"   🌨️ flurries
-BRDG   6"  ▲ 0"   ☀️ clear
-ROCK   2"  — 0"   ☀️ clear
+JHMR  12"  ▲ 6"    snowing
+FISH   8"  ▲ 2"    clear  
+SGAR  24"  ▲ 12"   snowing ←
+BALD  36"  ▲ 8"    flurries
+BRDG   6"  ▲ 0"    clear
+ROCK   2"  — 0"    clear
 
 ▲ = next 5 days | ← = best bet
 ```
@@ -136,7 +136,7 @@ Columns: Ticker | Base depth | 5-day forecast | Current conditions
 
 ### Compact (default)
 ```
-🏔️ {Resort} [{TICK}] — {date}
+ {Resort} [{TICK}] — {date}
 
 **Snow:** {24hr}" | Next 5d: {forecast}"
 **Now:** {temp}°F, {conditions}, wind {speed} mph
@@ -145,7 +145,7 @@ Columns: Ticker | Base depth | 5-day forecast | Current conditions
 
 ### Detailed
 ```
-🏔️ {Resort} [{TICK}] — {date}
+ {Resort} [{TICK}] — {date}
 
 **Now:** {temp}°F ({feels}°F), {conditions}, wind {speed} mph {dir}
 
@@ -163,7 +163,7 @@ Columns: Ticker | Base depth | 5-day forecast | Current conditions
 
 ### Comparison Table
 ```
-📊 Snow Comparison — {date}
+ Snow Comparison — {date}
 
 | Ticker | Resort | 24hr | Next 5d | Next 10d | Temp |
 |--------|--------|------|---------|----------|------|
@@ -176,7 +176,7 @@ Columns: Ticker | Base depth | 5-day forecast | Current conditions
 
 ### Powder Alert
 ```
-🚨 Powder Alert — {date}
+ Powder Alert — {date}
 
 Checking your favorites for incoming snow...
 

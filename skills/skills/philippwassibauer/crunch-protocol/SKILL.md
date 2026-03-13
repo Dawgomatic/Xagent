@@ -193,7 +193,7 @@ Detect output medium from user request:
 
 ### Slack Format
 ```
-*🏆 Crunch: Synth*
+* Crunch: Synth*
 ━━━━━━━━━━━━━━━━━
 • *Status:* Active
 • *Participants:* 142
@@ -204,18 +204,18 @@ Detect output medium from user request:
 
 ### Telegram Format
 ```
-🏆 <b>Crunch: Synth</b>
+ <b>Crunch: Synth</b>
 
-📊 Status: Active
-👥 Participants: 142  
-💰 Prize Pool: 10,000 USDC
-📍 Checkpoint: 5
-💰 Funds: 3000USDC
+ Status: Active
+ Participants: 142  
+ Prize Pool: 10,000 USDC
+ Checkpoint: 5
+ Funds: 3000USDC
 ```
 
 ### Discord Format
 ```
-## 🏆 Crunch: Synth
+##  Crunch: Synth
 **Status:** Active
 **Participants:** 142
 **Prize Pool:** 10,000 USDC

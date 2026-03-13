@@ -47,7 +47,7 @@ class FinanceStorage:
     
     def _init_markdown(self):
         """Create initial markdown file."""
-        content = f"""# 💰 Finance Log
+        content = f"""#  Finance Log
 
 **Currency:** UZS  
 **Started:** {datetime.now().strftime("%Y-%m-%d")}

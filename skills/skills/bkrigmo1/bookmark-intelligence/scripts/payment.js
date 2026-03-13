@@ -414,7 +414,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       console.log(`\nStripe: ${config.stripe.enabled ? 'Enabled' : 'Disabled'}`);
       console.log(`Crypto: ${config.crypto.enabled ? 'Enabled' : 'Disabled'}`);
       if (config.crypto.walletAddress === '0x0000000000000000000000000000000000000000') {
-        console.log('\n⚠️  WARNING: Crypto wallet not configured!');
+        console.log('\n  WARNING: Crypto wallet not configured!');
       }
       break;
       

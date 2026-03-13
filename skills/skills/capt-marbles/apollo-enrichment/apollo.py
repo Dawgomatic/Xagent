@@ -73,7 +73,7 @@ def format_person(person):
         return "No match found"
     
     lines = []
-    lines.append(f"👤 {person.get('name', 'Unknown')}")
+    lines.append(f" {person.get('name', 'Unknown')}")
     
     if person.get('title'):
         lines.append(f"   Title: {person['title']}")
@@ -85,22 +85,22 @@ def format_person(person):
         lines.append(f"   Company: {org['name']}")
     
     if person.get('email'):
-        lines.append(f"   📧 Email: {person['email']}")
+        lines.append(f"    Email: {person['email']}")
     if person.get('personal_emails'):
         for email in person['personal_emails'][:2]:
-            lines.append(f"   📧 Personal: {email}")
+            lines.append(f"    Personal: {email}")
     
     if person.get('phone_numbers'):
         for phone in person['phone_numbers'][:2]:
             ptype = phone.get('type', 'phone')
-            lines.append(f"   📱 {ptype}: {phone.get('sanitized_number', phone.get('number', 'N/A'))}")
+            lines.append(f"    {ptype}: {phone.get('sanitized_number', phone.get('number', 'N/A'))}")
     
     if person.get('linkedin_url'):
-        lines.append(f"   🔗 LinkedIn: {person['linkedin_url']}")
+        lines.append(f"    LinkedIn: {person['linkedin_url']}")
     
     if person.get('city') or person.get('state') or person.get('country'):
         location = ", ".join(filter(None, [person.get('city'), person.get('state'), person.get('country')]))
-        lines.append(f"   📍 Location: {location}")
+        lines.append(f"    Location: {location}")
     
     return "\n".join(lines)
 
@@ -111,7 +111,7 @@ def format_company(org):
         return "No match found"
     
     lines = []
-    lines.append(f"🏢 {org.get('name', 'Unknown')}")
+    lines.append(f" {org.get('name', 'Unknown')}")
     
     if org.get('website_url'):
         lines.append(f"   Website: {org['website_url']}")
@@ -128,19 +128,19 @@ def format_company(org):
     if org.get('short_description'):
         lines.append(f"   Description: {org['short_description'][:200]}")
     if org.get('linkedin_url'):
-        lines.append(f"   🔗 LinkedIn: {org['linkedin_url']}")
+        lines.append(f"    LinkedIn: {org['linkedin_url']}")
     if org.get('phone'):
-        lines.append(f"   📞 Phone: {org['phone']}")
+        lines.append(f"    Phone: {org['phone']}")
     
     # Location
     if org.get('city') or org.get('state') or org.get('country'):
         location = ", ".join(filter(None, [org.get('city'), org.get('state'), org.get('country')]))
-        lines.append(f"   📍 HQ: {location}")
+        lines.append(f"    HQ: {location}")
     
     # Technologies
     if org.get('technologies'):
         techs = org['technologies'][:10]
-        lines.append(f"   💻 Tech: {', '.join(techs)}")
+        lines.append(f"    Tech: {', '.join(techs)}")
     
     return "\n".join(lines)
 

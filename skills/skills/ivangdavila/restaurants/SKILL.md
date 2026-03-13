@@ -1,7 +1,7 @@
 ---
 name: Restaurants
 description: Build a personal restaurant system for tracking places to try, favorites, and dining memories.
-metadata: {"clawdbot":{"emoji":"🍽️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

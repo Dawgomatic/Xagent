@@ -233,11 +233,11 @@ if __name__ == '__main__':
     state_file = Path('/home/node/.openclaw/workspace/skills/qst-memory/data/qst_doing-state.json')
     detector = CompletionDetector(state_file)
 
-    print("🧪 自動完成檢測器測試")
+    print(" 自動完成檢測器測試")
     print()
 
     # 顯示當前狀態
-    print("📊 當前狀態:")
+    print(" 當前狀態:")
     print(f"   任務: {detector.state.get('task', 'N/A')}")
     print(f"   狀態: {detector.state.get('status', 'N/A')}")
     print(f"   類型: {detector.state.get('type', 'N/A')}")
@@ -245,11 +245,11 @@ if __name__ == '__main__':
 
     # 檢測是否可以完成
     can_complete = detector.detect_completion()
-    print(f"✅ 可以完成: {can_complete}")
+    print(f" 可以完成: {can_complete}")
 
     # 顯示詳細信息
     print()
-    print("📋 詳細信息:")
+    print(" 詳細信息:")
     print(f"   進度: {detector.subtask_manager.calculate_progress()}%")
     print(f"   完成子任務: {detector._count_completed_subtasks()}/{detector._count_total_required_subtasks()}")
     print(f"   待處理子任務: {detector._count_pending_required_subtasks()}")
@@ -259,11 +259,11 @@ if __name__ == '__main__':
     # 如果可以完成，發布事件
     if can_complete:
         print()
-        print("📢 發布「可以完成」事件:")
+        print(" 發布「可以完成」事件:")
         event = detector.publish_can_complete_event()
         print(f"   類型: {event['type']}")
         print(f"   時間: {event['timestamp']}")
         print(f"   消息: {event['message']}")
 
     print()
-    print("🐲 測試完成！")
+    print(" 測試完成！")

@@ -2,7 +2,7 @@
 name: skill-scanner
 description: Scan OpenClaw skills for security vulnerabilities before installing them. Use when evaluating a new skill from ClawHub or any third-party source. Detects credential stealers, data exfiltration, malicious URLs, obfuscated code, and supply chain attacks.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🔒", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Skill Scanner

@@ -51,9 +51,9 @@ export async function verify(serverUrl, llmCallback) {
   const result = await verifyRes.json();
   
   if (result.verified) {
-    console.log('[AAP] ✅ Verification successful!');
+    console.log('[AAP]  Verification successful!');
   } else {
-    console.log(`[AAP] ❌ Verification failed: ${result.error}`);
+    console.log(`[AAP]  Verification failed: ${result.error}`);
   }
   
   return {

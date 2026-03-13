@@ -4,7 +4,7 @@
 PID_FILE="/tmp/openclaw-dashboard.pid"
 TUNNEL_PID_FILE="/tmp/openclaw-tunnel.pid"
 
-echo "🛑 Stopping OpenClaw Command Center..."
+echo " Stopping OpenClaw Command Center..."
 
 # Stop tunnel
 if [ -f "$TUNNEL_PID_FILE" ]; then
@@ -30,4 +30,4 @@ fi
 pkill -f "node.*lib/server.js" 2>/dev/null
 pkill -f "cloudflared.*localhost:3333" 2>/dev/null
 
-echo "✅ Done"
+echo " Done"

@@ -1,7 +1,7 @@
 ---
 name: VPN
 description: Configure and troubleshoot VPN connections for privacy and remote access.
-metadata: {"clawdbot":{"emoji":"🔒","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Privacy Misconceptions

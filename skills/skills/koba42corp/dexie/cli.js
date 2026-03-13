@@ -16,13 +16,13 @@ const { handleCommand } = require('./index');
     const output = await handleCommand(input);
     console.log(output);
   } catch (error) {
-    console.error(`❌ Error: ${error.message}`);
+    console.error(` Error: ${error.message}`);
     process.exit(1);
   }
 })();
 
 function showHelp() {
-  return `💱 Dexie.space API Client
+  return ` Dexie.space API Client
 
 OFFERS
   dex offers               List active offers

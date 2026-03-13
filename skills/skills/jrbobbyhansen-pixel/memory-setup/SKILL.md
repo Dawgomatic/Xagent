@@ -168,4 +168,4 @@ With memory:
 - Tracks project history
 - Builds relationship over time
 
-Goldfish → Elephant. 🐘
+Goldfish → Elephant. 

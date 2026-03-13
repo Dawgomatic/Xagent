@@ -82,15 +82,15 @@ attack_speed = 1.5
 
 ---
 
-## ⚠️ AI PITFALL：.tres 中使用 GDScript 語法
+##  AI PITFALL：.tres 中使用 GDScript 語法
 
 ```
-# ❌ WRONG - .tres 中
+#  WRONG - .tres 中
 script = preload("res://script.gd")
 var items = [1, 2, 3]
 const DAMAGE = 10
 
-# ✅ CORRECT - .tres 中
+#  CORRECT - .tres 中
 [ext_resource type="Script" path="res://script.gd" id="1"]
 
 [resource]
@@ -101,14 +101,14 @@ damage = 10
 
 ---
 
-## ⚠️ AI PITFALL：未宣告 ExtResource
+##  AI PITFALL：未宣告 ExtResource
 
 ```
-# ❌ WRONG - 直接使用未宣告的 ID
+#  WRONG - 直接使用未宣告的 ID
 [resource]
 script = ExtResource("1_script")  # 錯誤！未宣告
 
-# ✅ CORRECT - 先宣告再使用
+#  CORRECT - 先宣告再使用
 [ext_resource type="Script" path="res://script.gd" id="1_script"]
 
 [resource]
@@ -117,28 +117,28 @@ script = ExtResource("1_script")
 
 ---
 
-## ⚠️ AI PITFALL：未類型化陣列
+##  AI PITFALL：未類型化陣列
 
 ```
-# ❌ WRONG - .tres 中
+#  WRONG - .tres 中
 effects = [SubResource("Effect_1")]
 
-# ✅ CORRECT - .tres 中
+#  CORRECT - .tres 中
 effects = Array[Resource]([SubResource("Effect_1")])
 ```
 
 ---
 
-## ⚠️ AI PITFALL：實例屬性覆蓋
+##  AI PITFALL：實例屬性覆蓋
 
 當實例化場景時，需要覆蓋子節點屬性：
 
 ```
-# ❌ WRONG - 忘記設置實例的子節點屬性
+#  WRONG - 忘記設置實例的子節點屬性
 [node name="KeyPickup" parent="." instance=ExtResource("6_pickup")]
 # 子節點的 item_resource 是 null！
 
-# ✅ CORRECT - 使用 index 語法覆蓋
+#  CORRECT - 使用 index 語法覆蓋
 [node name="KeyPickup" parent="." instance=ExtResource("6_pickup")]
 
 [node name="PickupInteraction" parent="KeyPickup" index="0"]

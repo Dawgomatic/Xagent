@@ -68,18 +68,18 @@ exo internal clone
 
 ```bash
 $ exo doctor
-🔍 E.x.O. Health Check
+ E.x.O. Health Check
 
-jasper-recall ................. ✅ v0.4.2
-  ChromaDB: ✅ connected
-  Embeddings: ✅ loaded
+jasper-recall .................  v0.4.2
+  ChromaDB:  connected
+  Embeddings:  loaded
   Documents: 847
 
-hopeIDS ...................... ✅ v1.3.3
-  Analyzer: ✅ ready
+hopeIDS ......................  v1.3.3
+  Analyzer:  ready
   Models: 3 loaded
 
-jasper-context-compactor ...... ✅ v0.2.2
+jasper-context-compactor ......  v0.2.2
 
 Overall: 3/3 healthy
 ```

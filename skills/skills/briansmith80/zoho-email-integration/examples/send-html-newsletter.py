@@ -69,19 +69,19 @@ def main():
         
         result = zoho.send_html_email(
             to=test_email,
-            subject="📰 Your Monthly Newsletter",
+            subject=" Your Monthly Newsletter",
             html_body=newsletter_html
         )
         print(f"✓ Newsletter sent! Result: {result}")
     except FileNotFoundError as e:
-        print(f"⚠ Skipping newsletter example: {e}")
+        print(f" Skipping newsletter example: {e}")
     
     # Example 3: Send HTML with custom plain text fallback
     print("\nExample 3: Sending with custom plain text fallback...")
     html_with_images = """
     <html>
         <body style="font-family: Arial; text-align: center;">
-            <h1 style="color: #e74c3c;">🎉 Special Offer!</h1>
+            <h1 style="color: #e74c3c;"> Special Offer!</h1>
             <div style="background: #f8f9fa; padding: 20px; margin: 20px 0;">
                 <p style="font-size: 24px; font-weight: bold;">50% OFF</p>
                 <p>Use code: <strong>SAVE50</strong></p>
@@ -95,7 +95,7 @@ def main():
     """
     
     plain_text = """
-    🎉 SPECIAL OFFER!
+     SPECIAL OFFER!
     
     Get 50% OFF your next purchase!
     
@@ -108,7 +108,7 @@ def main():
     
     result = zoho.send_email(
         to=test_email,
-        subject="🎉 Special Offer Inside!",
+        subject=" Special Offer Inside!",
         body=plain_text,
         html_body=html_with_images
     )

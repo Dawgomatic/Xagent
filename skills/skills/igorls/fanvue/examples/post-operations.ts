@@ -139,21 +139,21 @@ export async function listSubscribers(accessToken: string) {
 /*
 // Create a free post visible to everyone
 const freePost = await createPost(accessToken, {
-  content: 'Hey everyone! Check out my profile for exclusive content 💕',
+  content: 'Hey everyone! Check out my profile for exclusive content ',
   isSubscribersOnly: false,
 });
 console.log(`Created post: ${freePost.uuid}`);
 
 // Create a subscribers-only post
 const exclusivePost = await createPost(accessToken, {
-  content: 'Exclusive content for my amazing subscribers! 🔥',
+  content: 'Exclusive content for my amazing subscribers! ',
   mediaIds: ['media-uuid-1', 'media-uuid-2'],
   isSubscribersOnly: true,
 });
 
 // Create a PPV (pay-per-view) post
 const ppvPost = await createPost(accessToken, {
-  content: 'Special content available for purchase! 🎁',
+  content: 'Special content available for purchase! ',
   mediaIds: ['premium-media-uuid'],
   isSubscribersOnly: false,
   price: 9.99,

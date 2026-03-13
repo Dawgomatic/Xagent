@@ -8,16 +8,16 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 VENV_DIR="$SKILL_DIR/venv"
 
-echo "🔧 Aliyun Bailian TTS Setup"
+echo " Aliyun Bailian TTS Setup"
 echo "==========================="
 echo
 
 # ============ Check System Dependencies ============
-echo "📋 Checking system dependencies..."
+echo " Checking system dependencies..."
 
 # Check ffmpeg
 if ! command -v ffmpeg &> /dev/null; then
-    echo "❌ ffmpeg not installed"
+    echo " ffmpeg not installed"
     echo "   Please install first:"
     echo "   - Mac: brew install ffmpeg"
     echo "   - Ubuntu: apt install ffmpeg"
@@ -28,7 +28,7 @@ echo "✓ ffmpeg installed"
 
 # Check curl
 if ! command -v curl &> /dev/null; then
-    echo "❌ curl not installed"
+    echo " curl not installed"
     exit 1
 fi
 echo "✓ curl installed"
@@ -50,7 +50,7 @@ for cmd in python3.12 python3.11 python3.10 python3; do
 done
 
 if [ -z "$PYTHON_CMD" ]; then
-    echo "❌ Error: Python 3.10+ required"
+    echo " Error: Python 3.10+ required"
     echo "   Current python3: $(python3 --version 2>&1)"
     exit 1
 fi
@@ -58,7 +58,7 @@ fi
 # ============ Check API Key ============
 if [ -z "$DASHSCOPE_API_KEY" ]; then
     echo ""
-    echo "⚠️  Warning: DASHSCOPE_API_KEY not set"
+    echo "  Warning: DASHSCOPE_API_KEY not set"
     echo "   You'll need to set it before using TTS:"
     echo "   export DASHSCOPE_API_KEY=\"sk-your-api-key\""
 fi
@@ -66,7 +66,7 @@ fi
 # ============ Create Virtual Environment ============
 if [ -d "$VENV_DIR" ]; then
     echo ""
-    echo "⚠️  Virtual environment already exists at: $VENV_DIR"
+    echo "  Virtual environment already exists at: $VENV_DIR"
     read -p "Remove and recreate? (y/N): " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -78,11 +78,11 @@ if [ -d "$VENV_DIR" ]; then
 fi
 
 echo ""
-echo "📦 Creating virtual environment..."
+echo " Creating virtual environment..."
 $PYTHON_CMD -m venv "$VENV_DIR"
 
 # ============ Install Python Dependencies ============
-echo "📥 Installing Python dependencies..."
+echo " Installing Python dependencies..."
 source "$VENV_DIR/bin/activate"
 
 # Upgrade pip
@@ -99,7 +99,7 @@ echo "   Installing soundfile (for audio processing)..."
 pip install soundfile
 
 echo ""
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Virtual environment created at:"
 echo "  $VENV_DIR"

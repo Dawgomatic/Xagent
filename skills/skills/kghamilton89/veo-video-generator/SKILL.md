@@ -3,7 +3,7 @@ name: veo-video-generator
 description: Generates high-fidelity 1080p videos with synced audio using Google Veo 3.1. Use for creating cinematic clips from text descriptions.
 metadata:
   clawdbot:
-    emoji: "🎬"
+    emoji: ""
     requires:
       env: ["GEMINI_API_KEY"]
       bins: ["node", "npm"]

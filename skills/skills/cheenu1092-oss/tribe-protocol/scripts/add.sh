@@ -37,19 +37,19 @@ while [[ $# -gt 0 ]]; do
         --framework) FRAMEWORK="$2"; shift 2 ;;
         --model) MODEL="$2"; shift 2 ;;
         --machine) MACHINE="$2"; shift 2 ;;
-        *) echo "❌ Unknown option: $1"; exit 1 ;;
+        *) echo " Unknown option: $1"; exit 1 ;;
     esac
 done
 
 # Validate required
 if [ -z "$NAME" ] || [ -z "$TYPE" ] || [ -z "$DISCORD_ID" ]; then
-    echo "❌ Required: --name, --type (human|bot), --discord-id"
+    echo " Required: --name, --type (human|bot), --discord-id"
     echo "Usage: tribe add --name X --type human --discord-id 123 --tier 3"
     exit 1
 fi
 
 if [[ "$TYPE" != "human" && "$TYPE" != "bot" ]]; then
-    echo "❌ --type must be 'human' or 'bot'"
+    echo " --type must be 'human' or 'bot'"
     exit 1
 fi
 
@@ -70,7 +70,7 @@ MACHINE="$(sql_escape "$MACHINE")"
 # Check if discord ID already exists
 EXISTING=$(db_query "SELECT e.name FROM entities e JOIN platform_ids p ON e.id = p.entity_id WHERE p.platform='discord' AND p.platform_id='$DISCORD_ID';" 2>/dev/null || true)
 if [ -n "$EXISTING" ]; then
-    echo "❌ Discord ID $DISCORD_ID already registered to: $EXISTING"
+    echo " Discord ID $DISCORD_ID already registered to: $EXISTING"
     exit 1
 fi
 
@@ -83,7 +83,7 @@ if [ -n "$OWNER" ]; then
         OWNER_ID=$(db_query "SELECT id FROM entities WHERE name='$OWNER' LIMIT 1;" 2>/dev/null || true)
     fi
     if [ -z "$OWNER_ID" ]; then
-        echo "⚠️  Owner '$OWNER' not found in DB, skipping owner link"
+        echo "  Owner '$OWNER' not found in DB, skipping owner link"
         OWNER_ID=""
     fi
 fi
@@ -141,4 +141,4 @@ fi
 # Audit log
 db_query "INSERT INTO audit_log (entity_id, action, new_value, reason, changed_by) VALUES ($ENTITY_ID, 'add', 'name=$NAME type=$TYPE tier=$TIER', 'Entity added', 'tribe-cli');"
 
-echo "✅ Added: $NAME ($TYPE) | Tier $TIER ($(tier_label "$TIER")) | discord:$DISCORD_ID"
+echo " Added: $NAME ($TYPE) | Tier $TIER ($(tier_label "$TIER")) | discord:$DISCORD_ID"

@@ -91,8 +91,8 @@ def main():
             level = "低"
         
         print(f"{i}. {dp_restaurant.name}")
-        print(f"   大众点评: {dp_restaurant.rating}⭐ ({dp_restaurant.review_count}评价)")
-        print(f"   小红书: {xhs_rating:.1f}⭐ (avg {avg_post.likes}赞/{avg_post.saves}收藏)")
+        print(f"   大众点评: {dp_restaurant.rating} ({dp_restaurant.review_count}评价)")
+        print(f"   小红书: {xhs_rating:.1f} (avg {avg_post.likes}赞/{avg_post.saves}收藏)")
         print(f"   一致性: {level} ({consistency:.2f})")
         print(f"   大众点评标签: {', '.join(dp_restaurant.tags)}")
         print(f"   小红书热词: {', '.join(avg_post.keywords)}")

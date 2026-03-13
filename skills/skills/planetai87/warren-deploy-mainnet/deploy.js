@@ -118,7 +118,7 @@ async function withRetry(fn, label) {
   for (let i = 1; i <= RETRY_MAX; i++) {
     try { return await fn(); } catch (e) {
       if (isRetryable(e) && i < RETRY_MAX) {
-        console.log(`  ⚠ ${label} attempt ${i} failed, retrying...`);
+        console.log(`   ${label} attempt ${i} failed, retrying...`);
         await sleep(RETRY_DELAY * i);
       } else throw e;
     }
@@ -132,7 +132,7 @@ async function withRetry(fn, label) {
 async function ensureGenesisKey(wallet) {
   const humanNft = new ethers.Contract(GENESIS_KEY_ADDRESS, GENESIS_KEY_ABI, wallet);
   if (Number(await humanNft.balanceOf(wallet.address)) > 0) {
-    console.log('🔑 Genesis Key (Human): ✅');
+    console.log(' Genesis Key (Human): ');
     return;
   }
 
@@ -142,14 +142,14 @@ async function ensureGenesisKey(wallet) {
 
   const botNft = new ethers.Contract(RABBIT_AGENT_ADDRESS, RABBIT_AGENT_ABI, wallet);
   if (Number(await botNft.balanceOf(wallet.address)) > 0) {
-    console.log('🤖 0xRabbit.agent Key: ✅');
+    console.log(' 0xRabbit.agent Key: ');
     return;
   }
 
-  console.log('🤖 Minting 0xRabbit.agent Key (free)...');
+  console.log(' Minting 0xRabbit.agent Key (free)...');
   const tx = await botNft.mint({ gasLimit: 500000n });
   await tx.wait();
-  console.log('  ✅ 0xRabbit.agent Key minted!');
+  console.log('   0xRabbit.agent Key minted!');
 }
 
 // ============================================================================
@@ -183,7 +183,7 @@ function chunkBuffer(buf, size) {
 
 async function deployChunks(wallet, provider, chunks) {
   const addrs = [];
-  console.log(`\n📦 Phase 1: Deploying ${chunks.length} chunk(s)...`);
+  console.log(`\n Phase 1: Deploying ${chunks.length} chunk(s)...`);
   for (let bs = 0; bs < chunks.length; bs += BATCH_SIZE) {
     const be = Math.min(bs + BATCH_SIZE, chunks.length);
     const batch = chunks.slice(bs, be);
@@ -195,7 +195,7 @@ async function deployChunks(wallet, provider, chunks) {
     }));
     for (const { receipt, idx } of results.sort((a, b) => a.idx - b.idx)) {
       addrs.push(receipt.contractAddress);
-      console.log(`  ✅ Chunk ${idx + 1}/${chunks.length}: ${receipt.contractAddress}`);
+      console.log(`   Chunk ${idx + 1}/${chunks.length}: ${receipt.contractAddress}`);
     }
     if (be < chunks.length) await sleep(300);
   }
@@ -209,7 +209,7 @@ async function buildTree(wallet, provider, addresses) {
     depth++;
     const parent = [];
     const groups = Math.ceil(level.length / GROUP_SIZE);
-    console.log(`\n🌲 Phase 2: Building tree depth ${depth} (${groups} node(s))...`);
+    console.log(`\n Phase 2: Building tree depth ${depth} (${groups} node(s))...`);
     const baseNonce = await provider.getTransactionCount(wallet.address, 'latest');
     for (let i = 0; i < level.length; i += GROUP_SIZE) {
       const group = level.slice(i, i + GROUP_SIZE);
@@ -218,7 +218,7 @@ async function buildTree(wallet, provider, addresses) {
       await sleep(ni * 50);
       const receipt = await deployPage(wallet, provider, concat, baseNonce + ni, `Node D${depth}-${ni + 1}/${groups}`);
       parent.push(receipt.contractAddress);
-      console.log(`  ✅ Node D${depth}-${ni + 1}: ${receipt.contractAddress}`);
+      console.log(`   Node D${depth}-${ni + 1}: ${receipt.contractAddress}`);
     }
     level = parent;
   }
@@ -230,14 +230,14 @@ async function buildTree(wallet, provider, addresses) {
 // ============================================================================
 
 async function mintSite(wallet, rootChunk, depth, totalSize, siteType) {
-  console.log('\n🎨 Phase 3: Minting site NFT...');
+  console.log('\n Phase 3: Minting site NFT...');
   const master = new ethers.Contract(MASTER_NFT_ADDRESS, MASTER_NFT_ABI, wallet);
   const tx = await master.mint(wallet.address, rootChunk, depth, totalSize, siteType, { gasLimit: 100_000_000n });
   const receipt = await tx.wait();
   const topic = ethers.id('Transfer(address,address,uint256)');
   const log = receipt.logs.find(l => l.topics?.[0] === topic);
   const tokenId = log?.topics?.[3] ? Number(BigInt(log.topics[3])) : null;
-  console.log(`  ✅ Token ID: ${tokenId}, Gas: ${receipt.gasUsed}`);
+  console.log(`   Token ID: ${tokenId}, Gas: ${receipt.gasUsed}`);
   return tokenId;
 }
 
@@ -274,7 +274,7 @@ async function deploy(privateKey, content, options = {}) {
   const url = `https://thewarren.app/v/site=${tokenId}`;
 
   console.log('\n' + '='.repeat(60));
-  console.log('🎉 Deployment Complete!');
+  console.log(' Deployment Complete!');
   console.log('='.repeat(60));
   console.log(`Token ID: ${tokenId}`);
   console.log(`URL: ${url}`);
@@ -336,7 +336,7 @@ Prerequisites:
     const result = await deploy(privateKey, content, { name: getArg('name') || 'Untitled', siteType: getArg('type') || 'file' });
     console.log('\n--- JSON ---');
     console.log(JSON.stringify(result, null, 2));
-  } catch (e) { console.error(`\n❌ Failed: ${e.message}`); process.exit(1); }
+  } catch (e) { console.error(`\n Failed: ${e.message}`); process.exit(1); }
 }
 
 main();

@@ -41,7 +41,7 @@ Get free API keys:
 
 ### 3. Wallet Setup (For Execution Only)
 
-⚠️ **SECURITY WARNING**: Never share your private key!
+ **SECURITY WARNING**: Never share your private key!
 
 For paper trading (simulation), no wallet is needed.
 

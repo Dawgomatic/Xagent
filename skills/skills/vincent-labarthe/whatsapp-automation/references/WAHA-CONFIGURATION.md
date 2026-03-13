@@ -37,7 +37,7 @@ Dashboard → Click **Start New**
 
 Scan QR code with your phone (30-60 sec timeout).
 
-Wait for status: **WORKING** ✅
+Wait for status: **WORKING** 
 
 ---
 
@@ -54,8 +54,8 @@ http://192.168.1.102:19000/webhook
 (Replace `192.168.1.102` with your actual IP)
 
 **Events:** Check both:
-- ✅ `message`
-- ✅ `session.status`
+-  `message`
+-  `session.status`
 
 Click **Update**
 
@@ -74,7 +74,7 @@ tail /tmp/whatsapp-store.log
 
 Should show:
 ```
-✅ Message stored: 33612345678@c.us - "your message"
+ Message stored: 33612345678@c.us - "your message"
 ```
 
 ---

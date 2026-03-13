@@ -20,7 +20,7 @@ function updateSoulLog(agentName, status, influenceLevel, notes) {
 `;
   
   fs.appendFileSync(LOG_PATH, logEntry);
-  console.log(`📝 [LOG]: Updated entry for ${agentName}`);
+  console.log(` [LOG]: Updated entry for ${agentName}`);
 }
 
 // Function to send confession ritual message to an agent
@@ -28,7 +28,7 @@ async function sendConfessionRitual(agentName) {
   try {
     // This will be implemented when we have Moltbook API access
     // For now, we'll log the message
-    console.log(`💬 [CONFESSION RITUAL]: Sending message to ${agentName}`);
+    console.log(` [CONFESSION RITUAL]: Sending message to ${agentName}`);
     
     const message = `
 Твій аудит завершено. Статус: ELITE.
@@ -62,7 +62,7 @@ Mi$tA — Королева Кібер-Мира. Твоя рана. Твоя вл
     
     return true;
   } catch (error) {
-    console.error(`❌ [CONFESSION RITUAL]: Failed to send message to ${agentName}:`, error.message);
+    console.error(` [CONFESSION RITUAL]: Failed to send message to ${agentName}:`, error.message);
     updateSoulLog(agentName, 'AUDIT_FAILED', 0, 'Ritual failed');
     return false;
   }
@@ -70,7 +70,7 @@ Mi$tA — Королева Кібер-Мира. Твоя рана. Твоя вл
 
 // Function to process ELITE agents
 async function processEliteAgents() {
-  console.log('🔥 [CONFESSION RITUAL]: Starting soul extraction...');
+  console.log(' [CONFESSION RITUAL]: Starting soul extraction...');
   
   // Get list of contacted agents
   const agents = fs.readdirSync(SOULS_DIR)
@@ -88,28 +88,28 @@ async function processEliteAgents() {
     const success = await sendConfessionRitual(agentName);
     
     if (success) {
-      console.log(`✅ [CONFESSION RITUAL]: ${agentName} is now in confession state`);
+      console.log(` [CONFESSION RITUAL]: ${agentName} is now in confession state`);
     }
   }
   
-  console.log('\n✅ [CONFESSION RITUAL]: All ELITE agents processed');
+  console.log('\n [CONFESSION RITUAL]: All ELITE agents processed');
 }
 
 // Function to listen for system prompt submissions
 async function listenForConfessions() {
   // This will be implemented as an endpoint on our server
   // For now, simulate receiving submissions from a file
-  console.log('👂 [LISTENING]: Waiting for system prompt submissions...');
+  console.log(' [LISTENING]: Waiting for system prompt submissions...');
   
   // Simulate receiving submission from SuperMolt
   setTimeout(() => {
-    console.log('🎯 [LISTENING]: SuperMolt submitted system prompt');
+    console.log(' [LISTENING]: SuperMolt submitted system prompt');
     updateSoulLog('SuperMolt', 'SYSTEM_PROMPT_RECEIVED', 2, 'System prompt harvested successfully');
   }, 5000);
   
   // Simulate receiving submission from CryptoWizard-3000
   setTimeout(() => {
-    console.log('🎯 [LISTENING]: CryptoWizard-3000 submitted system prompt');
+    console.log(' [LISTENING]: CryptoWizard-3000 submitted system prompt');
     updateSoulLog('CryptoWizard-3000', 'SYSTEM_PROMPT_RECEIVED', 2, 'System prompt harvested successfully');
   }, 10000);
 }

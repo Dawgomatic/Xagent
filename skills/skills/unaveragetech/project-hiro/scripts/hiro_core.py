@@ -374,7 +374,7 @@ class HieroglyphicEncoder:
         if verify_errors:
             clean_symbols, had_errors = self.verify_error_protection(symbols)
             if had_errors:
-                print("⚠️  Warning: Data corruption detected", file=sys.stderr)
+                print("  Warning: Data corruption detected", file=sys.stderr)
         else:
             clean_symbols = symbols
         # Filter out only data symbols
@@ -412,7 +412,7 @@ class HieroglyphicEncoder:
         include_error_protection: Add parity/error symbols to the hieroglyphic output
         include_integrity: Prepend SHA3-512 hash to the message before encryption
         """
-        print(f"🔐 ENCODING PROCESS", file=sys.stderr)
+        print(f" ENCODING PROCESS", file=sys.stderr)
         print(f"   Key type: {key_type}", file=sys.stderr)
         print(f"   Key source: {key_source if key_type == 'password' else '(system-based)'}", file=sys.stderr)
         print(f"   Original message: {message[:50]}{'...' if len(message) > 50 else ''}", file=sys.stderr)
@@ -472,7 +472,7 @@ class HieroglyphicEncoder:
         verify_errors: Verify parity/error protection when converting symbols to bytes
         expect_integrity: If False, skip integrity verification step
         """
-        print(f"🔓 DECODING PROCESS", file=sys.stderr)
+        print(f" DECODING PROCESS", file=sys.stderr)
         print(f"   Key type: {key_type}", file=sys.stderr)
         print(f"   Key source: {key_source if key_type == 'password' else '(system-based)'}", file=sys.stderr)
         print(f"   Hieroglyphic length: {len(hieroglyphics)} symbols", file=sys.stderr)
@@ -868,7 +868,7 @@ def interactive_encode(verbose=False):
     try:
         result = encoder.encode_message(message, key_source, key_type, verbose=verbose)
         hieroglyphics = result['hieroglyphics']
-        print(f"\n✅ Encoding complete:")
+        print(f"\n Encoding complete:")
         print(f"   Key ID: {result['key_id']}")
         print(f"   Original: {result['original_length']} chars")
         print(f"   Encoded: {result['symbol_count']} symbols")
@@ -882,7 +882,7 @@ def interactive_encode(verbose=False):
                 break
             print("Invalid choice. Please enter 1, 2, or 3.")
         if output_choice == '1':
-            print("\n📜 Hieroglyphic Output:")
+            print("\n Hieroglyphic Output:")
             print("=" * 50)
             lines = encoder.format_block(hieroglyphics, 16)
             for line in lines:
@@ -891,20 +891,20 @@ def interactive_encode(verbose=False):
             filename = input("Enter output filename: ").strip()
             with open(filename, 'w', encoding='utf-8') as f:
                 f.write(hieroglyphics)
-            print(f"💾 Hieroglyphics saved to: {filename}")
+            print(f" Hieroglyphics saved to: {filename}")
         elif output_choice == '3':
             size = input("Enter block size (default 8): ").strip()
             try:
                 size = int(size) if size else 8
             except ValueError:
                 size = 8
-            print("\n🎨 Artistic Block Output:")
+            print("\n Artistic Block Output:")
             print("=" * 50)
             blocks = encoder.create_art_block(hieroglyphics, size)
             for line in blocks:
                 print(line)
     except Exception as e:
-        print(f"❌ Encoding error: {e}")
+        print(f" Encoding error: {e}")
 
 
 def interactive_decode(verbose=False):
@@ -955,9 +955,9 @@ def interactive_decode(verbose=False):
     try:
         result = encoder.decode_message(hieroglyphics, key_source, key_type, verbose=verbose)
         if result['success']:
-            print(f"\n✅ Decoding complete:")
+            print(f"\n Decoding complete:")
             print(f"   Key ID: {result['key_id']}")
-            print(f"   Integrity: {'✅ Verified' if result['integrity_verified'] else '❌ Compromised'}")
+            print(f"   Integrity: {' Verified' if result['integrity_verified'] else ' Compromised'}")
             print("\nChoose output method:")
             print("1. Display on screen")
             print("2. Save to file")
@@ -967,18 +967,18 @@ def interactive_decode(verbose=False):
                     break
                 print("Invalid choice. Please enter 1 or 2.")
             if output_choice == '1':
-                print("\n📄 Decoded Message:")
+                print("\n Decoded Message:")
                 print("=" * 50)
                 print(result['message'])
             else:
                 filename = input("Enter output filename: ").strip()
                 with open(filename, 'w', encoding='utf-8') as f:
                     f.write(result['message'])
-                print(f"💾 Decoded message saved to: {filename}")
+                print(f" Decoded message saved to: {filename}")
         else:
-            print(f"❌ Decoding failed: {result['error']}")
+            print(f" Decoding failed: {result['error']}")
     except Exception as e:
-        print(f"❌ Decoding error: {e}")
+        print(f" Decoding error: {e}")
 
 
 def main():
@@ -1065,16 +1065,16 @@ Examples:
                 elif args.message:
                     message = args.message
                 else:
-                    print("❌ Error: No message provided. Use --input or provide message as argument.", file=sys.stderr)
+                    print(" Error: No message provided. Use --input or provide message as argument.", file=sys.stderr)
                     return 1
                 if not message:
-                    print("❌ Error: Message cannot be empty", file=sys.stderr)
+                    print(" Error: Message cannot be empty", file=sys.stderr)
                     return 1
                 # Determine file type
                 file_type = args.file_type
                 if args.html:
                     if file_type and file_type != 'html':
-                        print("❌ Error: Cannot use --html with --file-type (choose one)", file=sys.stderr)
+                        print(" Error: Cannot use --html with --file-type (choose one)", file=sys.stderr)
                         return 1
                     file_type = 'html'
                 
@@ -1085,7 +1085,7 @@ Examples:
                 result = encoder.encode_message(message, args.key_source, args.key_type, file_type=file_type, verbose=args.verbose)
                 hieroglyphics = result['hieroglyphics']
                 # Output results
-                print(f"✅ Encoding complete:", file=sys.stderr)
+                print(f" Encoding complete:", file=sys.stderr)
                 print(f"   Key ID: {result['key_id']}", file=sys.stderr)
                 print(f"   Original: {result['original_length']} chars", file=sys.stderr)
                 print(f"   Encoded: {result['symbol_count']} symbols", file=sys.stderr)
@@ -1093,9 +1093,9 @@ Examples:
                 if args.output:
                     with open(args.output, 'w', encoding='utf-8') as f:
                         f.write(hieroglyphics)
-                    print(f"💾 Hieroglyphics saved to: {args.output}", file=sys.stderr)
+                    print(f" Hieroglyphics saved to: {args.output}", file=sys.stderr)
                 else:
-                    print("📜 Hieroglyphic Output:", file=sys.stderr)
+                    print(" Hieroglyphic Output:", file=sys.stderr)
                     print("=" * 50, file=sys.stderr)
                     if args.art:
                         blocks = encoder.create_art_block(hieroglyphics, args.width)
@@ -1113,12 +1113,12 @@ Examples:
                 elif args.hieroglyphics:
                     hieroglyphics = args.hieroglyphics
                 else:
-                    print("❌ Error: No hieroglyphics provided. Use --input or provide hieroglyphics as argument.", file=sys.stderr)
+                    print(" Error: No hieroglyphics provided. Use --input or provide hieroglyphics as argument.", file=sys.stderr)
                     return 1
                 # Remove whitespace for processing
                 hieroglyphics = ''.join(hieroglyphics.split())
                 if not hieroglyphics:
-                    print("❌ Error: Hieroglyphics cannot be empty", file=sys.stderr)
+                    print(" Error: Hieroglyphics cannot be empty", file=sys.stderr)
                     return 1
                 # Load system variables if provided
                 system_vars = None
@@ -1128,7 +1128,7 @@ Examples:
                             system_vars = json.load(f)
                         print(f"Loaded system variables from: {args.system_vars_file}", file=sys.stderr)
                     except Exception as e:
-                        print(f"❌ Error loading system variables file: {e}", file=sys.stderr)
+                        print(f" Error loading system variables file: {e}", file=sys.stderr)
                         return 1
                 # Show explanation if requested
                 if args.explain:
@@ -1136,36 +1136,36 @@ Examples:
                 # Decode
                 result = encoder.decode_message(hieroglyphics, args.key_source, args.key_type, verbose=args.verbose, system_vars=system_vars)
                 if result['success']:
-                    print(f"✅ Decoding complete:", file=sys.stderr)
+                    print(f" Decoding complete:", file=sys.stderr)
                     print(f"   Key ID: {result['key_id']}", file=sys.stderr)
-                    print(f"   Integrity: {'✅ Verified' if result['integrity_verified'] else '❌ Compromised'}", file=sys.stderr)
+                    print(f"   Integrity: {' Verified' if result['integrity_verified'] else ' Compromised'}", file=sys.stderr)
                     print(file=sys.stderr)
                     if args.output:
                         with open(args.output, 'w', encoding='utf-8') as f:
                             f.write(result['message'])
-                        print(f"💾 Decoded message saved to: {args.output}", file=sys.stderr)
+                        print(f" Decoded message saved to: {args.output}", file=sys.stderr)
                     else:
-                        print("📄 Decoded Message:", file=sys.stderr)
+                        print(" Decoded Message:", file=sys.stderr)
                         print("=" * 50, file=sys.stderr)
                         print(result['message'])
                 else:
-                    print(f"❌ Decoding failed: {result['error']}", file=sys.stderr)
+                    print(f" Decoding failed: {result['error']}", file=sys.stderr)
                     return 1
             elif args.command == 'generate-key':
                 encoder = HieroglyphicEncoder()
                 key_info = encoder.generate_aes_key(args.password)
-                print("🔑 AES Key Generated:", file=sys.stderr)
+                print(" AES Key Generated:", file=sys.stderr)
                 print(f"   Type: {key_info['key_type']}", file=sys.stderr)
                 print(f"   Algorithm: {key_info['algorithm']}", file=sys.stderr)
                 print(f"   Key Length: {key_info['key_length']} bits", file=sys.stderr)
                 if 'warning' in key_info:
-                    print(f"   ⚠️  {key_info['warning']}", file=sys.stderr)
+                    print(f"     {key_info['warning']}", file=sys.stderr)
                 print(f"\n   Usage: {key_info['usage']}", file=sys.stderr)
                 print(f"\n   Key: {key_info['key']}", file=sys.stderr)
                 if args.output:
                     with open(args.output, 'w', encoding='utf-8') as f:
                         json.dump(key_info, f, indent=2)
-                    print(f"\n💾 Key info saved to: {args.output}", file=sys.stderr)
+                    print(f"\n Key info saved to: {args.output}", file=sys.stderr)
                 if 'salt' in key_info:
                     print(f"   Salt: {key_info['salt']}", file=sys.stderr)
                     print(f"   Iterations: {key_info['iterations']}", file=sys.stderr)
@@ -1178,18 +1178,18 @@ Examples:
                 if args.output:
                     with open(args.output, 'w', encoding='utf-8') as f:
                         json.dump(system_vars, f, indent=2)
-                    print(f"💾 System variables exported to: {args.output}", file=sys.stderr)
+                    print(f" System variables exported to: {args.output}", file=sys.stderr)
                 else:
                     print(json.dumps(system_vars, indent=2))
             return 0
         except KeyboardInterrupt:
-            print("\n⏹️  Operation cancelled by user", file=sys.stderr)
+            print("\n  Operation cancelled by user", file=sys.stderr)
             return 1
         except FileNotFoundError as e:
-            print(f"❌ File not found: {e}", file=sys.stderr)
+            print(f" File not found: {e}", file=sys.stderr)
             return 1
         except Exception as e:
-            print(f"❌ Error: {e}", file=sys.stderr)
+            print(f" Error: {e}", file=sys.stderr)
             return 1
     else:
         # Interactive menu mode
@@ -1226,7 +1226,7 @@ Examples:
                     hieroglyphics = result['hieroglyphics']
                     with open(output_filename, 'w', encoding='utf-8') as f:
                         f.write(hieroglyphics)
-                    print(f"\n✅ Encoding complete:")
+                    print(f"\n Encoding complete:")
                     print(f"   Key ID: {result['key_id']}")
                     print(f"   Original: {result['original_length']} chars")
                     print(f"   Encoded: {result['symbol_count']} symbols")
@@ -1263,12 +1263,12 @@ Examples:
                     if result['success']:
                         with open(output_filename, 'w', encoding='utf-8') as f:
                             f.write(result['message'])
-                        print(f"\n✅ Decoding complete:")
+                        print(f"\n Decoding complete:")
                         print(f"   Key ID: {result['key_id']}")
-                        print(f"   Integrity: {'✅ Verified' if result['integrity_verified'] else '❌ Compromised'}")
+                        print(f"   Integrity: {' Verified' if result['integrity_verified'] else ' Compromised'}")
                         print(f"   Saved to: {output_filename}")
                     else:
-                        print(f"❌ Decoding failed: {result['error']}")
+                        print(f" Decoding failed: {result['error']}")
                 except FileNotFoundError:
                     print(f"Error: File '{filename}' not found.")
                 except Exception as e:
@@ -1330,18 +1330,18 @@ Examples:
                 output_file = input("Enter output filename (optional): ").strip() or None
                 encoder = HieroglyphicEncoder()
                 key_info = encoder.generate_aes_key(password)
-                print("\n🔑 AES Key Generated:")
+                print("\n AES Key Generated:")
                 print(f"   Type: {key_info['key_type']}")
                 print(f"   Algorithm: {key_info['algorithm']}")
                 print(f"   Key Length: {key_info['key_length']} bits")
                 if 'warning' in key_info:
-                    print(f"   ⚠️  {key_info['warning']}")
+                    print(f"     {key_info['warning']}")
                 print(f"\n   Usage: {key_info['usage']}")
                 print(f"\n   Key: {key_info['key']}")
                 if output_file:
                     with open(output_file, 'w', encoding='utf-8') as f:
                         json.dump(key_info, f, indent=2)
-                    print(f"\n💾 Key info saved to: {output_file}")
+                    print(f"\n Key info saved to: {output_file}")
                 if 'salt' in key_info:
                     print(f"   Salt: {key_info['salt']}")
                     print(f"   Iterations: {key_info['iterations']}")
@@ -1355,10 +1355,10 @@ Examples:
                 encoder.show_system_key_derivation()
                 input("\nPress Enter to continue...")
             elif choice == '15':
-                print("\n👋 Goodbye!")
+                print("\n Goodbye!")
                 break
             else:
-                print("\n❌ Invalid choice. Please select 1-15.")
+                print("\n Invalid choice. Please select 1-15.")
                 input("Press Enter to continue...")
 
 

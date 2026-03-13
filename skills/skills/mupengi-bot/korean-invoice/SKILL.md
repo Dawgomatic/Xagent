@@ -2,7 +2,7 @@
 name: korean-invoice
 description: 한국형 견적서/세금계산서 자동 생성 (사업자등록번호, 부가세 자동 계산)
 version: 1.0.0
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
 # korean-invoice
@@ -46,22 +46,22 @@ korean-invoice item list
 
 | 필드 | 설명 | 필수 |
 |------|------|------|
-| client | 거래처명 (저장된 거래처 ID) | ✅ |
-| items | 품목 리스트 (품목명, 수량, 단가) | ✅ |
-| issueDate | 작성일자 (기본: 오늘) | ❌ |
-| validUntil | 유효기간 (기본: +30일) | ❌ |
-| notes | 비고 | ❌ |
-| includeVAT | 부가세 포함 여부 (기본: true) | ❌ |
+| client | 거래처명 (저장된 거래처 ID) |  |
+| items | 품목 리스트 (품목명, 수량, 단가) |  |
+| issueDate | 작성일자 (기본: 오늘) |  |
+| validUntil | 유효기간 (기본: +30일) |  |
+| notes | 비고 |  |
+| includeVAT | 부가세 포함 여부 (기본: true) |  |
 
 ## 세금계산서 필드
 
 | 필드 | 설명 | 필수 |
 |------|------|------|
-| client | 공급받는자 (거래처 ID) | ✅ |
-| items | 품목 리스트 | ✅ |
-| issueDate | 작성일자 | ✅ |
-| type | 영수/청구 (기본: 영수) | ❌ |
-| notes | 비고 | ❌ |
+| client | 공급받는자 (거래처 ID) |  |
+| items | 품목 리스트 |  |
+| issueDate | 작성일자 |  |
+| type | 영수/청구 (기본: 영수) |  |
+| notes | 비고 |  |
 
 ## 자동 계산
 

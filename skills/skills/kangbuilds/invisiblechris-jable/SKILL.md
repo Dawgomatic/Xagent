@@ -49,13 +49,13 @@ Ask for a list like:
 Use this style when replying to users:
 
 ```text
-1️⃣ <title>
-❤️ <likes>
-🔗 <url>
+ <title>
+ <likes>
+ <url>
 
-2️⃣ <title>
-❤️ <likes>
-🔗 <url>
+ <title>
+ <likes>
+ <url>
 ```
 
 ## Notes

@@ -122,7 +122,7 @@
 
 ### Serious Legal Issues (Can Mean Jail/Fines)
 
-⚠️ **Zero tolerance**:
+ **Zero tolerance**:
 - Drug possession (ANY amount, including CBD/hemp products)
 - Public drunkenness
 - Insulting UAE leadership/government
@@ -233,7 +233,7 @@ Estimated: **February 19 - March 19, 2026**
 
 | Mode | Best For | Cost |
 |------|----------|------|
-| Metro | Long distances, Downtown ↔ Marina | AED 3-7.5 per trip |
+| Metro | Long distances, Downtown  Marina | AED 3-7.5 per trip |
 | Taxi | Convenience, groups | AED 15-50 typical, meter based |
 | Uber/Careem | Same as taxi, app convenience | Similar to taxi |
 | Tram | JBR/Marina area | AED 3-4 |
@@ -310,15 +310,15 @@ Dubai is **extremely safe**:
 ## Quick Reference Card
 
 **Must remember**:
-- 🕌 Dress modestly in malls/Old Dubai
-- 🚫 No PDA (public displays of affection)
-- 📸 Ask before photographing people
-- 🍺 Alcohol only in licensed venues
-- ☀️ Sunscreen + hydration = essential
-- 🚇 Metro is cheap and efficient
-- 💵 AED 1 ≈ $0.27 USD
-- ⚡ UK-style plugs (Type G)
-- 🌙 During Ramadan: Don't eat/drink in public view during daylight
+-  Dress modestly in malls/Old Dubai
+-  No PDA (public displays of affection)
+-  Ask before photographing people
+-  Alcohol only in licensed venues
+-  Sunscreen + hydration = essential
+-  Metro is cheap and efficient
+-  AED 1 ≈ $0.27 USD
+-  UK-style plugs (Type G)
+-  During Ramadan: Don't eat/drink in public view during daylight
 
 ---
 

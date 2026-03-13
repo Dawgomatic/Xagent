@@ -47,7 +47,7 @@ export async function jingmeGroupSendEmoji(pcService: IPCService) {
   setScreenshotConfig({ mode: 'window' });
 
   // 使用PCDevice确保应用正常运行
-  console.log("🚀 初始化PC设备...");
+  console.log(" 初始化PC设备...");
   const pcDevice = new PCDevice({
     pcService,
     launchOptions: {
@@ -61,48 +61,48 @@ export async function jingmeGroupSendEmoji(pcService: IPCService) {
 
   try {
     await pcDevice.launch();
-    console.log("✅ PC设备启动成功");
+    console.log(" PC设备启动成功");
 
     const pcAgent = new PCAgent(pcDevice);
 
     // 截取当前屏幕
-    console.log("📸 截取当前屏幕...");
+    console.log(" 截取当前屏幕...");
     
     // 创建截图保存路径并打印
     const screenshotPath = path.join(process.cwd(), `screenshot-${Date.now()}.png`);
-    console.log(`💾 截图保存路径: ${screenshotPath}`);
+    console.log(` 截图保存路径: ${screenshotPath}`);
     
     const screenshot = await pcDevice.screenshotBase64();
-    console.log(`✅ 截图成功，大小: ${screenshot.length.toLocaleString()} 字符`);
+    console.log(` 截图成功，大小: ${screenshot.length.toLocaleString()} 字符`);
 
     // 步骤1: 在顶部搜索"daijie27"
-    console.log("🔍 步骤1: 搜索群聊'10220534754'");
+    console.log(" 步骤1: 搜索群聊'10220534754'");
     await pcAgent.aiAction("点击京ME应用中间顶部的搜索框，如果没有激活再点击一下；输入'10220534754'并按 Enter 键搜索");
     
     // 步骤2: 等待搜索结果加载
-    console.log("⏳ 步骤2: 等待搜索结果加载...");
+    console.log(" 步骤2: 等待搜索结果加载...");
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     // 步骤3: 打开第一个搜索结果
-    console.log("👆 步骤3: 打开第一个搜索结果");
+    console.log(" 步骤3: 打开第一个搜索结果");
     await pcAgent.aiAction("点击“综合”tab 下搜索结果中含有“10220534754”的会话");
     
     // 步骤4: 等待聊天窗口打开
-    console.log("⏳ 步骤4: 等待聊天窗口打开...");
+    console.log(" 步骤4: 等待聊天窗口打开...");
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     // 步骤5: 发送小表情
-    console.log("💬 步骤5: 发送小表情");
+    console.log(" 步骤5: 发送小表情");
     await pcAgent.aiTap("点击“请输入消息”上方的表情符号");
 
     await pcAgent.aiAction("在弹出来的表情弹窗上，点击“默认表情”下方第一个微笑表情");
     await new Promise(resolve => setTimeout(resolve, 1000));
     await pcAgent.aiKeyboardPress("Enter");
 
-    console.log("🎉 京ME发送小表情执行完成！");
+    console.log(" 京ME发送小表情执行完成！");
 
   } catch (error) {
-    console.error("❌ 京ME发送小表情执行失败:", error);
+    console.error(" 京ME发送小表情执行失败:", error);
     throw error;
   }
 }

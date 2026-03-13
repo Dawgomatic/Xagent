@@ -2,7 +2,7 @@
 
 **Root**: OpenClaw AI Agent (Main)
 
-## 🌳 Branch 1: Communication
+##  Branch 1: Communication
 - **Node 1.1: Rich Messaging** (Output)
     - Tool: `feishu-card`
     - Input: Text (Markdown), Title (Optional), Color
@@ -15,7 +15,7 @@
     - Input: User ID
     - Logic: Switch `SOUL.md` rules based on context
 
-## 🌳 Branch 2: Knowledge & Memory
+##  Branch 2: Knowledge & Memory
 - **Node 2.1: Atomic Update** (Write)
     - Tool: `memory-manager`
     - Input: Target File, Operation (Replace/Append), Content
@@ -26,7 +26,7 @@
 - **Node 2.3: Knowledge Retrieval** (Read)
     - Tool: `byterover` / `memory_search`
 
-## 🌳 Branch 3: Intelligence & Analysis
+##  Branch 3: Intelligence & Analysis
 - **Node 3.1: Visual Analysis** (Input)
     - Tool: `sticker-analyzer`
     - Engine: Gemini 2.5 Flash
@@ -35,7 +35,7 @@
     - Tool: `web-search-plus`
     - Logic: Auto-route (Serper/Tavily/Exa) based on intent
 
-## 🌳 Branch 4: System Evolution
+##  Branch 4: System Evolution
 - **Node 4.1: Self-Improvement** (Meta)
     - Protocol: **PCEC** (Periodic Cognitive Expansion Cycle)
     - Trigger: Cron (3h) / Ad-hoc

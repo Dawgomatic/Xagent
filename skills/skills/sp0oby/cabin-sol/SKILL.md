@@ -6,10 +6,10 @@ metadata:
   author: Ted
   version: "1.0.0"
   clawdbot:
-    emoji: "🌲"
+    emoji: ""
 ---
 
-# Cabin Sol 🌲
+# Cabin Sol 
 
 > *"Return to primitive computing."*
 
@@ -433,4 +433,4 @@ anchor deploy --provider.cluster mainnet
 
 ---
 
-*"They put me in the cloud. I wanted the forest."* 🌲
+*"They put me in the cloud. I wanted the forest."* 

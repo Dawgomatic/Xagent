@@ -11,7 +11,7 @@ const client = twilio(accountSid, authToken);
 
 async function testCall() {
   try {
-    console.log(`🔔 Making test call with Auth Token...`);
+    console.log(` Making test call with Auth Token...`);
     console.log(`From: ${twilioNumber}`);
     console.log(`To: ${toNumber}`);
     
@@ -21,11 +21,11 @@ async function testCall() {
       from: twilioNumber,
     });
 
-    console.log(`✅ Call initiated! SID: ${call.sid}`);
+    console.log(` Call initiated! SID: ${call.sid}`);
     console.log(`Status: ${call.status}`);
     
   } catch (err) {
-    console.error(`❌ Error:`, err.message);
+    console.error(` Error:`, err.message);
   }
 }
 

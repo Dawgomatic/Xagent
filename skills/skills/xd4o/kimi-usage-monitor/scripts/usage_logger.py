@@ -30,17 +30,17 @@ def check_usage():
 def make_decision(data):
     """Return decision recommendation based on usage."""
     if "error" in data:
-        return "⚠️ Could not check usage — proceed with caution"
+        return " Could not check usage — proceed with caution"
     
     usage = data.get('weekly_usage_percent', 50)
     remaining = 100 - usage
     
     if remaining > 50:
-        return "🟢 High capacity — full operations approved"
+        return " High capacity — full operations approved"
     elif remaining > 25:
-        return "🟡 Moderate capacity — prioritize essential tasks"
+        return " Moderate capacity — prioritize essential tasks"
     else:
-        return "🔴 Low capacity — essential tasks only, defer proactive work"
+        return " Low capacity — essential tasks only, defer proactive work"
 
 if __name__ == "__main__":
     data = check_usage()

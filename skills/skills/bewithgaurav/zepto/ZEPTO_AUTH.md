@@ -1,7 +1,7 @@
 ---
 name: zepto-auth
 description: Zepto authentication flow - handle phone number entry, OTP verification, and address confirmation
-metadata: {"openclaw":{"emoji":"🔐"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # Zepto Authentication Skill
@@ -101,7 +101,7 @@ browser navigate url=https://www.zepto.com profile=openclaw
 
 **If serviceable:**
 ```
-✅ You're all set! I can now order groceries for you.
+ You're all set! I can now order groceries for you.
 Delivery ETA: {eta} mins
 Store: {store_name}
 
@@ -110,7 +110,7 @@ What would you like to add to cart?
 
 **If NOT serviceable:**
 ```
-⚠️ Your location ({address}) is currently not serviceable by Zepto.
+ Your location ({address}) is currently not serviceable by Zepto.
 
 This could be because:
 - Store temporarily closed (back in {eta} mins)

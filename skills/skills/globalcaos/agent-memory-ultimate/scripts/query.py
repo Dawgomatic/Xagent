@@ -39,7 +39,7 @@ def cmd_search(term: str):
     """Search across all content"""
     conn = get_conn()
     
-    print(f"🔍 Searching for: {term}\n")
+    print(f" Searching for: {term}\n")
     
     # Contacts
     results = conn.execute("""
@@ -48,7 +48,7 @@ def cmd_search(term: str):
         LIMIT 5
     """, (f"%{term}%", f"%{term}%")).fetchall()
     if results:
-        print("📇 Contacts:")
+        print(" Contacts:")
         for phone, name, source in results:
             print(f"  {phone} - {name or '(no name)'} [{source}]")
         print()
@@ -60,7 +60,7 @@ def cmd_search(term: str):
         LIMIT 5
     """, (f"%{term}%",)).fetchall()
     if results:
-        print("👥 WhatsApp Groups:")
+        print(" WhatsApp Groups:")
         for jid, name, count in results:
             print(f"  {name} ({count} members)")
         print()
@@ -72,7 +72,7 @@ def cmd_search(term: str):
         LIMIT 5
     """, (f"%{term}%", f"%{term}%")).fetchall()
     if results:
-        print("📄 Documents:")
+        print(" Documents:")
         for title, path, snippet in results:
             print(f"  {title} ({path})")
             print(f"    ...{snippet[:80]}...")
@@ -98,7 +98,7 @@ def cmd_search(term: str):
         """, (f"%{term}%",)).fetchall()
     
     if results:
-        print("💬 ChatGPT Messages:")
+        print(" ChatGPT Messages:")
         for title, role, snippet in results:
             print(f"  [{role}] {title}")
             print(f"    {snippet}...")
@@ -119,7 +119,7 @@ def cmd_contact(query: str):
         return
     
     for phone, name, source, notes in results:
-        print(f"📱 {phone}")
+        print(f" {phone}")
         print(f"   Name: {name or '(unknown)'}")
         print(f"   Source: {source}")
         if notes:
@@ -136,7 +136,7 @@ def cmd_contact(query: str):
         if groups:
             print(f"   Groups ({len(groups)}):")
             for gname, is_admin in groups[:10]:
-                admin = "👑" if is_admin else ""
+                admin = "" if is_admin else ""
                 print(f"     {admin} {gname}")
             if len(groups) > 10:
                 print(f"     ... and {len(groups) - 10} more")
@@ -164,9 +164,9 @@ def cmd_groups(phone: str):
         print(f"No groups found for {phone}")
         return
     
-    print(f"👥 Groups for {phone}: {len(results)}\n")
+    print(f" Groups for {phone}: {len(results)}\n")
     for name, count, is_admin in results:
-        admin = "👑" if is_admin else "  "
+        admin = "" if is_admin else "  "
         print(f"  {admin} {name} ({count})")
     
     conn.close()
@@ -187,7 +187,7 @@ def cmd_members(group_name: str):
         return
     
     jid, name, count = group
-    print(f"👥 {name} ({count} members)\n")
+    print(f" {name} ({count} members)\n")
     
     # Get members
     members = conn.execute("""
@@ -199,7 +199,7 @@ def cmd_members(group_name: str):
     """, (jid,)).fetchall()
     
     for phone, cname, is_admin in members:
-        admin = "👑" if is_admin else "  "
+        admin = "" if is_admin else "  "
         display = cname or phone
         print(f"  {admin} {display}")
     
@@ -230,9 +230,9 @@ def cmd_chatgpt(term: str):
         print(f"No ChatGPT messages matching '{term}'")
         return
     
-    print(f"💬 ChatGPT conversations mentioning '{term}':\n")
+    print(f" ChatGPT conversations mentioning '{term}':\n")
     for conv_id, title, msg_count in results:
-        print(f"  📝 {title} ({msg_count} messages)")
+        print(f"   {title} ({msg_count} messages)")
     
     conn.close()
 
@@ -240,7 +240,7 @@ def cmd_stats():
     """Show database statistics"""
     conn = get_conn()
     
-    print("📊 JarvisOne Knowledge Base Statistics\n")
+    print(" JarvisOne Knowledge Base Statistics\n")
     
     tables = [
         ("Contacts", "SELECT COUNT(*) FROM contacts"),
@@ -307,7 +307,7 @@ def cmd_wa(term: str):
         print(f"No WhatsApp messages matching '{term}'")
         return
     
-    print(f"📱 WhatsApp messages matching '{term}':\n")
+    print(f" WhatsApp messages matching '{term}':\n")
     for sender, chat, content, ts in results:
         date = ts[:10] if ts else "?"
         print(f"  [{date}] {sender or 'unknown'}")

@@ -443,7 +443,7 @@ const YieldVaultABI = [
 ];
 
 function generateABI() {
-  console.log("📄 Generating YieldVault ABI...\n");
+  console.log(" Generating YieldVault ABI...\n");
 
   const outputFile = path.join(__dirname, "../abi/YieldVault.json");
   const outputDir = path.dirname(outputFile);
@@ -451,12 +451,12 @@ function generateABI() {
   // Create abi directory if it doesn't exist
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
-    console.log(`📁 Created directory: ${outputDir}`);
+    console.log(` Created directory: ${outputDir}`);
   }
 
   // Write ABI to file
   fs.writeFileSync(outputFile, JSON.stringify(YieldVaultABI, null, 2));
-  console.log(`✅ ABI saved to: ${outputFile}`);
+  console.log(` ABI saved to: ${outputFile}`);
 
   // Also create a JavaScript export
   const jsFile = path.join(__dirname, "../abi/YieldVault.js");
@@ -464,7 +464,7 @@ function generateABI() {
 module.exports = ${JSON.stringify(YieldVaultABI, null, 2)};
 `;
   fs.writeFileSync(jsFile, jsContent);
-  console.log(`✅ JS export saved to: ${jsFile}`);
+  console.log(` JS export saved to: ${jsFile}`);
 
   // Create a TypeScript declaration file
   const tsFile = path.join(__dirname, "../abi/YieldVault.d.ts");
@@ -473,7 +473,7 @@ export const YieldVaultABI: any[];
 export default YieldVaultABI;
 `;
   fs.writeFileSync(tsFile, tsContent);
-  console.log(`✅ TypeScript declaration saved to: ${tsFile}`);
+  console.log(` TypeScript declaration saved to: ${tsFile}`);
 
   // Create integration guide
   const integrationFile = path.join(__dirname, "../ABI_USAGE.md");
@@ -564,9 +564,9 @@ The contract is compatible with mockdata.json structure:
 Generated: $(date)
 `;
   fs.writeFileSync(integrationFile, integrationContent);
-  console.log(`✅ Integration guide saved to: ${integrationFile}`);
+  console.log(` Integration guide saved to: ${integrationFile}`);
 
-  console.log("\n✨ ABI generation complete!");
+  console.log("\n ABI generation complete!");
   console.log("\nUse these files for agent integration:");
   console.log(`  • ${outputFile}`);
   console.log(`  • ${jsFile}`);
@@ -578,7 +578,7 @@ if (require.main === module) {
   try {
     generateABI();
   } catch (error) {
-    console.error("❌ Error:", error.message);
+    console.error(" Error:", error.message);
     process.exit(1);
   }
 }

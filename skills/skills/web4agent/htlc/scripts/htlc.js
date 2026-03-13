@@ -65,7 +65,7 @@ async function lock(seller, preimageHash, timeout, ethAmount) {
   
   console.log('TX:', tx.hash);
   await tx.wait();
-  console.log('✅ ETH locked!');
+  console.log(' ETH locked!');
   
   return { lockHash, preimageHash };
 }
@@ -82,7 +82,7 @@ async function reveal(lockHash, preimage) {
   const tx = await contract.reveal(lockHash, preimage);
   console.log('TX:', tx.hash);
   await tx.wait();
-  console.log('✅ Funds released!');
+  console.log(' Funds released!');
 }
 
 // Full trade workflow

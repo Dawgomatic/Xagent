@@ -14,7 +14,7 @@
     "requires": {
       "bins": ["node", "npx"]
     },
-    "emoji": "🧪",
+    "emoji": "",
     "os": ["darwin", "linux", "win32"]
   }
 }

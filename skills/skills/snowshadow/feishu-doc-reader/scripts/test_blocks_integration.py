@@ -19,20 +19,20 @@ def test_config_exists():
     
     for path in config_paths:
         if os.path.exists(path):
-            print(f"✅ Configuration loaded successfully from {path}")
+            print(f" Configuration loaded successfully from {path}")
             try:
                 with open(path, 'r') as f:
                     config = json.load(f)
                     if 'app_id' in config and 'app_secret' in config:
                         return True
                     else:
-                        print("❌ Configuration file missing required fields")
+                        print(" Configuration file missing required fields")
                         return False
             except Exception as e:
-                print(f"❌ Configuration file parse error: {e}")
+                print(f" Configuration file parse error: {e}")
                 return False
     
-    print("❌ Configuration file not found")
+    print(" Configuration file not found")
     return False
 
 def test_python_script():
@@ -40,21 +40,21 @@ def test_python_script():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     script_path = os.path.join(script_dir, "get_feishu_doc_blocks.py")
     if os.path.exists(script_path):
-        print("✅ Blocks extraction script found")
+        print(" Blocks extraction script found")
         # 简单的语法检查
         try:
             with open(script_path, 'r') as f:
                 compile(f.read(), script_path, 'exec')
-            print("✅ Python script syntax OK")
+            print(" Python script syntax OK")
             return True
         except SyntaxError as e:
-            print(f"❌ Python script syntax error: {e}")
+            print(f" Python script syntax error: {e}")
             return False
         except Exception as e:
-            print(f"❌ Python script error: {e}")
+            print(f" Python script error: {e}")
             return False
     else:
-        print("❌ Blocks extraction script not found")
+        print(" Blocks extraction script not found")
         return False
 
 def test_shell_script():
@@ -62,15 +62,15 @@ def test_shell_script():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     shell_path = os.path.join(script_dir, "get_blocks.sh")
     if os.path.exists(shell_path):
-        print("✅ Shell wrapper script found")
+        print(" Shell wrapper script found")
         if os.access(shell_path, os.X_OK):
-            print("✅ Shell wrapper script is executable")
+            print(" Shell wrapper script is executable")
             return True
         else:
-            print("❌ Shell wrapper script is not executable")
+            print(" Shell wrapper script is not executable")
             return False
     else:
-        print("❌ Shell wrapper script not found")
+        print(" Shell wrapper script not found")
         return False
 
 def main():
@@ -83,13 +83,13 @@ def main():
     ]
     
     if all(tests):
-        print("\n✅ All tests passed! The integration is ready.")
+        print("\n All tests passed! The integration is ready.")
         print("\nUsage examples:")
         print("  ./scripts/get_blocks.sh <doc_token>")
         print("  python scripts/get_feishu_doc_blocks.py --doc-token <doc_token>")
         return 0
     else:
-        print(f"\n❌ {tests.count(False)} out of {len(tests)} tests failed.")
+        print(f"\n {tests.count(False)} out of {len(tests)} tests failed.")
         return 1
 
 if __name__ == "__main__":

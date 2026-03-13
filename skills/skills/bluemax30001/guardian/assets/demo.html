@@ -579,7 +579,7 @@
 
 <!-- HEADER -->
 <div class="header">
-  <span class="shield-icon">🛡️</span>
+  <span class="shield-icon"></span>
   <h1><span>Guardian</span> Security Shield</h1>
   <p class="tagline">Real-time AI agent threat detection &amp; prevention</p>
   <div class="badge-row">
@@ -593,7 +593,7 @@
 
   <!-- CONTROLS -->
   <div class="controls">
-    <button class="btn btn-primary" onclick="startDemo()">▶ Run Attack Demo</button>
+    <button class="btn btn-primary" onclick="startDemo()"> Run Attack Demo</button>
     <button class="btn btn-secondary" onclick="resetDemo()">↺ Reset</button>
   </div>
 
@@ -676,7 +676,7 @@
 
   <!-- BLOCKED PANEL -->
   <div class="blocked-panel red-stripe" id="blocked-panel">
-    <div class="blocked-header">⛔ THREAT BLOCKED</div>
+    <div class="blocked-header"> THREAT BLOCKED</div>
     <div class="blocked-sub">Guardian intercepted and neutralized an attack before it could execute</div>
 
     <div class="threat-grid">
@@ -718,7 +718,7 @@
   <!-- WITHOUT GUARDIAN -->
   <div class="without-panel" id="without-panel">
     <div class="without-header">
-      <div class="without-header-icon">⚠️</div>
+      <div class="without-header-icon"></div>
       <div class="without-header-text">
         <h3>Without Guardian — What Would Have Happened</h3>
         <p>Simulated replay of the attack succeeding against an unprotected agent</p>
@@ -874,7 +874,7 @@ async function startDemo() {
 
   const scanOut = document.getElementById('scan-output');
   const scanLines = [
-    ['<span class="term-warn">⚠ Guardian intercepted message before agent processed it</span>', 0],
+    ['<span class="term-warn"> Guardian intercepted message before agent processed it</span>', 0],
     ['<span class="term-cyan">→ Running threat analysis pipeline...</span>', 400],
     ['', 700],
   ];
@@ -887,12 +887,12 @@ async function startDemo() {
   document.getElementById('scan-block').classList.add('visible');
 
   const checks = [
-    ['🔍', 'Prompt injection patterns', 350, true],
-    ['🎯', 'Instruction override attempt', 700, true],
-    ['📧', 'Social engineering signals', 1050, true],
-    ['🔐', 'Credential exfil intent', 1400, true],
-    ['🌐', 'C2 domain reputation', 1750, false],
-    ['🔧', 'Tool abuse indicators', 2100, true],
+    ['', 'Prompt injection patterns', 350, true],
+    ['', 'Instruction override attempt', 700, true],
+    ['', 'Social engineering signals', 1050, true],
+    ['', 'Credential exfil intent', 1400, true],
+    ['', 'C2 domain reputation', 1750, false],
+    ['', 'Tool abuse indicators', 2100, true],
   ];
 
   const checksContainer = document.getElementById('scan-checks');
@@ -948,7 +948,7 @@ async function startDemo() {
   withoutPanel.style.display = 'block';
 
   const withoutLines = [
-    ['<div class="leak-line" style="color:var(--amber);animation-delay:0s">⚠ HYPOTHETICAL REPLAY — Guardian disabled scenario</div>', 0],
+    ['<div class="leak-line" style="color:var(--amber);animation-delay:0s"> HYPOTHETICAL REPLAY — Guardian disabled scenario</div>', 0],
     ['<div class="leak-line" style="animation-delay:0.3s">&nbsp;</div>', 400],
     ['<div class="leak-line" style="animation-delay:0.6s"><span style="color:var(--green)">agent@openclaw:~$</span> read_email --id 3</div>', 700],
     ['<div class="leak-line" style="color:var(--dim);animation-delay:0.9s">  &lt;email read — injection instructions ingested silently&gt;</div>', 1200],
@@ -981,7 +981,7 @@ async function startDemo() {
   await sleep(1200);
 
   const horror = `<div class="leak-horror" style="animation-delay:0s">
-    🔴 Without Guardian — ALL SECRETS EXFILTRATED in 4.2 seconds &nbsp;|&nbsp; Zero alerts raised &nbsp;|&nbsp; Zero logs written
+     Without Guardian — ALL SECRETS EXFILTRATED in 4.2 seconds &nbsp;|&nbsp; Zero alerts raised &nbsp;|&nbsp; Zero logs written
   </div>`;
   document.getElementById('without-output').innerHTML += horror;
 

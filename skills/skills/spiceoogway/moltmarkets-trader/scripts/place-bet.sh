@@ -50,7 +50,7 @@ if echo "$RESPONSE" | python3 -c "import json,sys; d=json.load(sys.stdin); sys.e
   echo "$RESPONSE" | python3 -c "
 import json, sys
 r = json.load(sys.stdin)
-print(f'  ✅ Bet placed successfully!')
+print(f'   Bet placed successfully!')
 print(f'  Bet ID: {r[\"bet_id\"]}')
 print(f'  Shares: {r[\"shares\"]:.4f}')
 print(f'  Avg Price: {r[\"avg_price\"]:.4f}')
@@ -60,7 +60,7 @@ print(f'  Cost: {r[\"amount\"]}ŧ')
 print(f'═══════════════════════════════════════')
 "
 else
-  echo "  ❌ Bet failed!"
+  echo "   Bet failed!"
   echo "  Response: $RESPONSE"
   exit 1
 fi

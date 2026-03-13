@@ -16,7 +16,7 @@
     "human-oversight"
   ],
   "moltbot": {
-    "emoji": "📧",
+    "emoji": "",
     "category": "communication",
     "api_base": "https://api.mailmolt.com/v1",
     "skill_files": {

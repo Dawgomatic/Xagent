@@ -185,7 +185,7 @@ assert "sea config --json is valid JSON"                          "[ '$_CJ_VALID
 # sea config set key val → updates value, shows confirmation
 # Use a non-critical value (verbose) to avoid breaking the config
 CONFIG_SET_OUT=$("$SEA_BIN" config set output.verbose true 2>/dev/null) || true
-assert_output_contains "sea config set shows confirmation"        "$CONFIG_SET_OUT" "Updated\|✅\|updated\|set"
+assert_output_contains "sea config set shows confirmation"        "$CONFIG_SET_OUT" "Updated\|\|updated\|set"
 
 # sea config set (no args) → error exit
 assert_exit_nonzero    "sea config set (no args) exits non-zero"  "'$SEA_BIN' config set"

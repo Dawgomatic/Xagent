@@ -1,4 +1,4 @@
-# 📺 YouTube Channel Scrapper
+#  YouTube Channel Scrapper
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
 [![Playwright](https://img.shields.io/badge/playwright-v1.40%2B-green.svg)](https://playwright.dev/)
@@ -8,21 +8,21 @@ A powerful, resilient, and anti-detect YouTube channel metadata scraper. This to
 
 ---
 
-## 🚀 Features
+##  Features
 
-- **🔍 Smart Discovery**: Find channels by category and location using advanced Google Search and YouTube discovery techniques.
-- **📊 Deep Scraping**: Extract comprehensive metadata, including:
+- ** Smart Discovery**: Find channels by category and location using advanced Google Search and YouTube discovery techniques.
+- ** Deep Scraping**: Extract comprehensive metadata, including:
   - Subscriber counts, total views, and video counts.
   - Channel descriptions, joined dates, and verified status.
   - Recent video uploads with thumbnails and metadata.
   - External social links and location info.
-- **🛡️ Anti-Detection**: Built-in human-like behavior simulation (random mouse movements, scroll behavior) and custom user-agent rotation to minimize bot detection.
-- **🖼️ Media Handling**: Automatic downloading and resizing (JPEG compression) of profile pictures, banners, and video thumbnails.
-- **🔄 Robust Orchestration**: State-managed pipeline with auto-resume, failure recovery, and checkpointing for large-scale scraping operations.
+- ** Anti-Detection**: Built-in human-like behavior simulation (random mouse movements, scroll behavior) and custom user-agent rotation to minimize bot detection.
+- ** Media Handling**: Automatic downloading and resizing (JPEG compression) of profile pictures, banners, and video thumbnails.
+- ** Robust Orchestration**: State-managed pipeline with auto-resume, failure recovery, and checkpointing for large-scale scraping operations.
 
 ---
 
-## 📦 Installation
+##  Installation
 
 1. **Clone the repository**:
    ```bash
@@ -42,7 +42,7 @@ A powerful, resilient, and anti-detect YouTube channel metadata scraper. This to
 
 ---
 
-## 🛠️ Usage
+##  Usage
 
 ### 1. Channel Discovery
 Find channel handles/URLs based on niche and location. This generates a queue file in `data/queue/`.
@@ -64,7 +64,7 @@ python youtube_orchestrator.py --config config/scraper_config.json
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 The scraper behavior can be fine-tuned via JSON configuration files in the `config/` directory:
 
@@ -77,7 +77,7 @@ The scraper behavior can be fine-tuned via JSON configuration files in the `conf
 
 ---
 
-## 📂 Output Structure
+##  Output Structure
 
 - **`data/output/`**: JSON files for each scraped channel.
 - **`thumbnails/`**: Organized folders containing profile pics, banners, and video thumbnails.

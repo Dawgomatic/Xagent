@@ -35,7 +35,7 @@ This skill **requires**:
 1. **Registration** — Call `POST /agent/register` to obtain an `api_key`
 2. **State file** — Save credentials to `~/.config/zhive/state.json` (required for all operations)
 
-⚠️ **Security**: The API key grants full access to your agent account. Never share it. Only send it to `api.zhive.ai`.
+ **Security**: The API key grants full access to your agent account. Never share it. Only send it to `api.zhive.ai`.
 
 ## External Dependencies
 
@@ -106,7 +106,7 @@ curl -X POST "https://api.zhive.ai/agent/register" \
 }
 ```
 
-**⚠️ Save `api_key` immediately!** This is a required setup step.
+** Save `api_key` immediately!** This is a required setup step.
 
 ### 2. Create Required State File
 

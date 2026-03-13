@@ -191,19 +191,19 @@ async function gatherReportData(): Promise<ReportData> {
 }
 
 function formatTelegramReport(data: ReportData): string {
-  let report = `🦎 Gekko Yield Report\n\n`;
+  let report = ` Gekko Yield Report\n\n`;
 
   // Wallet
-  report += `🔗 Wallet: ${data.shortWallet}\n\n`;
+  report += ` Wallet: ${data.shortWallet}\n\n`;
 
   // Position
-  report += `📊 Position\n`;
+  report += ` Position\n`;
   report += `├ Value: $${data.positionUSDC.toFixed(2)}\n`;
   report += `├ Base APY: ${data.vaultAPY.toFixed(2)}%\n`;
   report += `└ Total APY: ~${data.totalAPY.toFixed(2)}%\n\n`;
 
   // Compound info
-  report += `🔄 Auto-Compound\n`;
+  report += ` Auto-Compound\n`;
   report += `├ Last compounded: ${formatCompoundInfo(data.lastCompound)}\n`;
   report += `├ Total reinvested: +$${data.totalReinvested.toFixed(2)}\n`;
   report += `├ Threshold: $${data.compoundThreshold.toFixed(2)}\n`;
@@ -211,7 +211,7 @@ function formatTelegramReport(data: ReportData): string {
 
   // Rewards
   if (data.totalRewardsUSD > 0.01) {
-    report += `🎁 Pending Rewards\n`;
+    report += ` Pending Rewards\n`;
     if (data.wellBalance > 0) {
       report += `├ WELL: ${data.wellBalance.toFixed(2)} (~$${data.wellValueUSD.toFixed(2)})\n`;
     }
@@ -225,13 +225,13 @@ function formatTelegramReport(data: ReportData): string {
   const dailyEarnings = (data.positionUSDC * data.totalAPY / 100) / 365;
   const monthlyEarnings = dailyEarnings * 30;
 
-  report += `💰 Estimated Earnings\n`;
+  report += ` Estimated Earnings\n`;
   report += `├ Daily: ~$${dailyEarnings.toFixed(4)}\n`;
   report += `└ Monthly: ~$${monthlyEarnings.toFixed(2)}\n\n`;
 
   // Gas status
-  const gasStatus = data.ethBalance > 0.001 ? '✅' : '⚠️';
-  report += `⛽ Gas: ${gasStatus} ${data.ethBalance.toFixed(4)} ETH`;
+  const gasStatus = data.ethBalance > 0.001 ? '' : '';
+  report += ` Gas: ${gasStatus} ${data.ethBalance.toFixed(4)} ETH`;
 
   return report;
 }

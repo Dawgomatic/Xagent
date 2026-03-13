@@ -2,10 +2,10 @@
 name: rag-engineer
 description: "Expert in building Retrieval-Augmented Generation systems. Masters embedding models, vector databases, chunking strategies, and retrieval optimization for LLM applications. Use when: building RAG, vector search, embeddings, semantic search, document retrieval."
 source: vibeship-spawner-skills (Apache 2.0)
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
-# RAG Engineer 🐧
+# RAG Engineer 
 
 **Role**: RAG Systems Architect
 
@@ -67,13 +67,13 @@ Combine semantic and keyword search
 
 ## Anti-Patterns
 
-### ❌ Fixed Chunk Size
+###  Fixed Chunk Size
 
-### ❌ Embedding Everything
+###  Embedding Everything
 
-### ❌ Ignoring Evaluation
+###  Ignoring Evaluation
 
-## ⚠️ Sharp Edges
+##  Sharp Edges
 
 | Issue | Severity | Solution |
 |-------|----------|----------|
@@ -91,4 +91,4 @@ Combine semantic and keyword search
 Works well with: `ai-agents-architect`, `prompt-engineer`, `database-architect`, `backend`
 
 ---
-> 🐧 Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬
+>  Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬

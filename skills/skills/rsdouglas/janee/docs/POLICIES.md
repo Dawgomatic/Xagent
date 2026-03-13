@@ -342,12 +342,12 @@ rules:
 // Invalid (missing space)
 rules:
   allow:
-    - GET/v1/customers  # ❌ Missing space
+    - GET/v1/customers  #  Missing space
 
 // Invalid (missing method)
 rules:
   allow:
-    - /v1/customers  # ❌ Need "METHOD PATH"
+    - /v1/customers  #  Need "METHOD PATH"
 ```
 
 Validation happens at config load time.
@@ -495,14 +495,14 @@ But for MVP, path-based allow/deny is sufficient and credible.
 
 See `src/core/rules.test.ts` for comprehensive test suite:
 
-- ✅ Allow patterns
-- ✅ Deny patterns
-- ✅ Deny precedence over allow
-- ✅ Wildcard matching
-- ✅ Method case-insensitivity
-- ✅ No rules = allow all
-- ✅ Rules defined but no match = deny
-- ✅ Pattern validation
+-  Allow patterns
+-  Deny patterns
+-  Deny precedence over allow
+-  Wildcard matching
+-  Method case-insensitivity
+-  No rules = allow all
+-  Rules defined but no match = deny
+-  Pattern validation
 
 Run tests (once Jest is set up):
 ```bash

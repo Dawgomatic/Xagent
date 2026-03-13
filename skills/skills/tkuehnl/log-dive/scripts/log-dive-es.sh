@@ -2,7 +2,7 @@
 # log-dive Elasticsearch/OpenSearch backend — queries via curl
 # Read-only. Never modifies or deletes logs.
 #
-# Powered by CacheForge 🤿
+# Powered by CacheForge 
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

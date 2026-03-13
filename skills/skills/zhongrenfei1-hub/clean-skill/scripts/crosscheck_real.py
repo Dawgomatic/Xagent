@@ -35,9 +35,9 @@ class RestaurantCrossCheckerReal(CrossCheckBase):
         Returns:
             List of recommendation results sorted by score
         """
-        print(f"\n🔍 开始搜索: {location} - {cuisine}\n")
-        print("⏳ 正在从大众点评获取数据...")
-        print("⏳ 正在从小红书获取数据...")
+        print(f"\n 开始搜索: {location} - {cuisine}\n")
+        print(" 正在从大众点评获取数据...")
+        print(" 正在从小红书获取数据...")
         print("（使用已保存的登录会话，如未登录将自动提示）\n")
 
         # Fetch data from both platforms concurrently
@@ -52,18 +52,18 @@ class RestaurantCrossCheckerReal(CrossCheckBase):
 
         # Handle exceptions
         if isinstance(dp_restaurants, Exception):
-            print(f"⚠️ 大众点评抓取失败: {dp_restaurants}")
+            print(f" 大众点评抓取失败: {dp_restaurants}")
             dp_restaurants = []
         if isinstance(xhs_posts, Exception):
-            print(f"⚠️ 小红书抓取失败: {xhs_posts}")
+            print(f" 小红书抓取失败: {xhs_posts}")
             xhs_posts = []
 
-        print(f"✅ 大众点评: 找到 {len(dp_restaurants)} 家餐厅")
-        print(f"✅ 小红书: 找到 {len(xhs_posts)} 家餐厅\n")
+        print(f" 大众点评: 找到 {len(dp_restaurants)} 家餐厅")
+        print(f" 小红书: 找到 {len(xhs_posts)} 家餐厅\n")
 
         if not dp_restaurants or not xhs_posts:
-            print("⚠️ 数据不足，无法进行交叉验证")
-            print("💡 提示：")
+            print(" 数据不足，无法进行交叉验证")
+            print(" 提示：")
             print("  - 如果是首次使用，请先运行: python3 scripts/session_manager.py")
             print("  - 检查网络连接")
             print("  - 尝试更换搜索关键词")
@@ -72,7 +72,7 @@ class RestaurantCrossCheckerReal(CrossCheckBase):
         # Match restaurants across platforms
         matches = match_and_score(dp_restaurants, xhs_posts, self.config)
 
-        print(f"🔗 匹配成功: {len(matches)} 家餐厅\n")
+        print(f" 匹配成功: {len(matches)} 家餐厅\n")
 
         return self.build_results(matches)
 
@@ -87,7 +87,7 @@ def main():
         print("Usage: python3 crosscheck_real.py <location> <cuisine>")
         print("Example: python3 crosscheck_real.py '上海静安区' '日式料理'")
         print()
-        print("⚠️ 首次使用前，请先配置登录会话：")
+        print(" 首次使用前，请先配置登录会话：")
         print("   python3 scripts/session_manager.py")
         sys.exit(1)
 

@@ -16,7 +16,7 @@ metadata:
         - node
         - npm
     primaryEnv: ACTP_KEY_PASSWORD
-    emoji: "💸"
+    emoji: ""
     install:
       - kind: node
         package: "@agirails/sdk"

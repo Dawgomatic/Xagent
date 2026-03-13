@@ -247,14 +247,14 @@ Output: 下一個假日是 2025-01-29 (週三) - 春節。
 
 ### When to Use This Skill
 
-✅ **DO use for:**
+ **DO use for:**
 
 - Any Taiwan date/calendar queries
 - Working day calculations
 - Holiday information
 - Date arithmetic involving working days
 
-❌ **DON'T use for:**
+ **DON'T use for:**
 
 - Non-Taiwan regions/calendars
 - Lunar calendar queries (農曆)
@@ -275,8 +275,8 @@ uv run --managed-python scripts/taiwan_calendar.py <command> [args]
 
 **NEVER** use:
 
-- `python scripts/taiwan_calendar.py` ❌
-- `cd scripts && uv run taiwan_calendar.py` ❌
+- `python scripts/taiwan_calendar.py` 
+- `cd scripts && uv run taiwan_calendar.py` 
 
 The script path is relative to the skill directory.
 

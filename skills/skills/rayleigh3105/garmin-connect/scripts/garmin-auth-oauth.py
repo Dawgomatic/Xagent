@@ -11,7 +11,7 @@ from pathlib import Path
 try:
     from garth import Client
 except ImportError:
-    print("❌ garth not installed. Run: pip install garth")
+    print(" garth not installed. Run: pip install garth")
     exit(1)
 
 def get_oauth_client():
@@ -26,13 +26,13 @@ def get_oauth_client():
     # Try to load existing token
     try:
         client.load("/home/mamotec/.garth/session.json")
-        print("✅ Loaded existing Garmin OAuth session")
+        print(" Loaded existing Garmin OAuth session")
         return client
     except:
         pass
     
     # Need to authenticate - this requires browser login
-    print("⚠️  First-time setup: Need to authenticate via browser")
+    print("  First-time setup: Need to authenticate via browser")
     print("\nGarmin switched to OAuth. Follow these steps:")
     print("1. Run: python3 garmin-auth-oauth.py")
     print("2. Open: https://sso.garmin.com/sso/signin")
@@ -44,7 +44,7 @@ def get_oauth_client():
 def save_session(client):
     """Save OAuth session for future use"""
     client.dump("/home/mamotec/.garth/session.json")
-    print("✅ Session saved to ~/.garth/session.json")
+    print(" Session saved to ~/.garth/session.json")
 
 if __name__ == "__main__":
     print("Garmin OAuth Setup")
@@ -54,10 +54,10 @@ if __name__ == "__main__":
     try:
         client = Client()
         client.load("/home/mamotec/.garth/session.json")
-        print("✅ OAuth session already configured")
+        print(" OAuth session already configured")
         print("Try: python3 garmin-sync.py")
     except:
-        print("❌ No OAuth session found")
+        print(" No OAuth session found")
         print("\nManuelle Authentifizierung nötig:")
         print("1. Geh zu: https://sso.garmin.com/sso/signin")
         print("2. Melde dich an (moritz.vogt@vogges.de)")

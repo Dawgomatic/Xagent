@@ -59,11 +59,11 @@ Paris is a safe major city. Violent crime against tourists is very rare. Main co
 
 | Safety | Areas |
 |--------|-------|
-| ⭐⭐⭐⭐⭐ Very Safe | 6th, 7th, 8th, 16th, Marais (3rd-4th) |
-| ⭐⭐⭐⭐ Safe | 1st, 2nd, 5th, 9th, 11th, 12th, 15th |
-| ⭐⭐⭐ Generally Safe | 10th (central), 14th, 17th, 13th, 20th (south) |
-| ⭐⭐ Caution at Night | North 18th (Goutte d'Or), 19th (parts), La Chapelle |
-| ⭐ Avoid | Porte de la Chapelle, Stalingrad area late night |
+|  Very Safe | 6th, 7th, 8th, 16th, Marais (3rd-4th) |
+|  Safe | 1st, 2nd, 5th, 9th, 11th, 12th, 15th |
+|  Generally Safe | 10th (central), 14th, 17th, 13th, 20th (south) |
+|  Caution at Night | North 18th (Goutte d'Or), 19th (parts), La Chapelle |
+|  Avoid | Porte de la Chapelle, Stalingrad area late night |
 
 **Note:** Even "caution" areas are fine during daytime. Issues are late night, isolated streets.
 

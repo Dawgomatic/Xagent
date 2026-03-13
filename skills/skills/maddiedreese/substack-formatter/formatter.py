@@ -18,7 +18,7 @@ class SubstackFormatter:
             "What's your take?",
             "Have you noticed this too?",
             "What am I missing here?",
-            "Share your story below 👇"
+            "Share your story below "
         ]
         
         self.contrarian_hooks = [
@@ -230,7 +230,7 @@ class SubstackFormatter:
         html_parts.append(f"<p><strong>{html.escape(punchline)}</strong></p>")
         
         # Light engagement
-        html_parts.append(f"<p><em>Can you relate? 😅</em></p>")
+        html_parts.append(f"<p><em>Can you relate? </em></p>")
         
         return '\n\n'.join(html_parts)
     

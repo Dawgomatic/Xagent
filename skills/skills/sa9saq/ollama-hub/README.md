@@ -1,4 +1,4 @@
-# 🦙 ollama-hub
+#  ollama-hub
 
 Manage, list, benchmark, and switch between local Ollama models from your agent.
 

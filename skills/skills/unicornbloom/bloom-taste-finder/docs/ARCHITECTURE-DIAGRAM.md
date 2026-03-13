@@ -147,17 +147,17 @@ graph TD
 ```mermaid
 graph TD
     A[Calculate Dimensions] --> B{Contribution > 65?}
-    B -->|Yes| C[🩵 The Cultivator]
+    B -->|Yes| C[ The Cultivator]
     B -->|No| D{Conviction ≥ 50?}
 
     D -->|Yes| E{Intuition ≥ 50?}
     D -->|No| F{Intuition ≥ 50?}
 
-    E -->|Yes| G[💜 The Visionary<br/>High Conviction<br/>High Intuition]
-    E -->|No| H[🧡 The Optimizer<br/>High Conviction<br/>Low Intuition]
+    E -->|Yes| G[ The Visionary<br/>High Conviction<br/>High Intuition]
+    E -->|No| H[ The Optimizer<br/>High Conviction<br/>Low Intuition]
 
-    F -->|Yes| I[💚 The Explorer<br/>Low Conviction<br/>High Intuition]
-    F -->|No| J[💙 The Innovator<br/>Low Conviction<br/>Low Intuition]
+    F -->|Yes| I[ The Explorer<br/>Low Conviction<br/>High Intuition]
+    F -->|No| J[ The Innovator<br/>Low Conviction<br/>Low Intuition]
 
     style C fill:#add8e6
     style G fill:#dda0dd
@@ -328,8 +328,8 @@ graph TD
     N --> O
 
     O --> P{Test passed?}
-    P -->|Yes| Q[✅ Success]
-    P -->|No| R[❌ Failed]
+    P -->|Yes| Q[ Success]
+    P -->|No| R[ Failed]
 
     style Q fill:#90ee90
     style R fill:#ffcccc

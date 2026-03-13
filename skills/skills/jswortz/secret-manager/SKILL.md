@@ -2,7 +2,7 @@
 name: secret-manager
 description: Manage API keys securely via GNOME Keyring and inject them into OpenClaw config.
 homepage: https://github.com/openclaw/skills
-metadata: {"clawdbot":{"emoji":"🔐","requires":{"bins":["secret-tool","systemctl","python3"]},"install":[{"id":"bash","kind":"bash","bin":"secret-manager.sh","label":"Install Secret Manager (bash)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["secret-tool","systemctl","python3"]},"install":[{"id":"bash","kind":"bash","bin":"secret-manager.sh","label":"Install Secret Manager (bash)"}]}}
 ---
 
 # Secret Manager

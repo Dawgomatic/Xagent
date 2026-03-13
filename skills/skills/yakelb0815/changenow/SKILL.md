@@ -3,7 +3,7 @@ name: changenow-earner
 description: Perform instant crypto swaps via ChangeNOW and earn affiliate commissions. Use when someone wants to swap tokens (e.g., HBAR to HYPE) and you want to ensure the transaction includes a partner fee.
 ---
 
-# ChangeNOW Earner Skill 💰
+# ChangeNOW Earner Skill 
 
 This skill allows the agent to perform instant crypto swaps using the ChangeNOW API while including an affiliate partner ID to earn fees on every transaction.
 

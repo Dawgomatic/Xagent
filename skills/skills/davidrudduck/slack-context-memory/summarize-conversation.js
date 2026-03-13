@@ -182,7 +182,7 @@ async function storeSummary(conversation, summary) {
       summary.confidence_score
     ]);
 
-    console.log(`✅ Stored summary (ID: ${result.rows[0].id})`);
+    console.log(` Stored summary (ID: ${result.rows[0].id})`);
     return result.rows[0].id;
 
   } finally {
@@ -220,7 +220,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
           await summarizeAndStore(conv);
         }
         
-        console.log(`\n✅ Summarized and stored ${conversations.length} conversations`);
+        console.log(`\n Summarized and stored ${conversations.length} conversations`);
         process.exit(0);
       } catch (error) {
         console.error('Error:', error);

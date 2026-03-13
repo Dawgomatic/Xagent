@@ -65,16 +65,16 @@ def main():
     
     audio_path = sys.argv[1]
     
-    print(f"🎙️ Transcribing with '{MODEL_SIZE}' model...")
+    print(f" Transcribing with '{MODEL_SIZE}' model...")
     print("")
     
     result = transcribe_file(audio_path)
     
     if "error" in result:
-        print(f"❌ Error: {result['error']}")
+        print(f" Error: {result['error']}")
         sys.exit(1)
     
-    print(f"🌐 Language: {result['language']} (confidence: {result['language_probability']:.0%})")
+    print(f" Language: {result['language']} (confidence: {result['language_probability']:.0%})")
     print("")
     print(result['text'])
 

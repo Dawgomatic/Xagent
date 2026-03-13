@@ -2,7 +2,7 @@
 
 本文档介绍如何升级安全记忆系统栈以及从其他记忆系统迁移到本系统。
 
-## 🔄 版本升级
+##  版本升级
 
 ### 从旧版本升级
 
@@ -36,7 +36,7 @@ secure-memory diagnose
 secure-memory stats
 ```
 
-## 📤 数据迁移
+##  数据迁移
 
 ### 从其他记忆系统迁移
 
@@ -111,7 +111,7 @@ except Exception as e:
 "
 ```
 
-## 📥 导入功能
+##  导入功能
 
 ### 批量导入
 
@@ -146,7 +146,7 @@ tail -n +2 your_data.csv | while IFS=, read -r content tags importance; do
 done
 ```
 
-## 🔄 配置迁移
+##  配置迁移
 
 ### 环境变量配置
 
@@ -172,7 +172,7 @@ ls -la /root/clawd/memory_config.json
 # vim /root/clawd/memory_config.json
 ```
 
-## 🧪 验证迁移
+##  验证迁移
 
 ### 数据完整性检查
 
@@ -199,7 +199,7 @@ secure-memory search "test"
 secure-memory remember "Test successful" --tags test --importance normal
 ```
 
-## 🚨 常见问题
+##  常见问题
 
 ### 迁移失败
 
@@ -223,7 +223,7 @@ secure-memory stats
 secure-memory fix all
 ```
 
-## 📋 迁移清单
+##  迁移清单
 
 ### 准备阶段
 - [ ] 备份现有数据
@@ -243,7 +243,7 @@ secure-memory fix all
 - [ ] 性能评估
 - [ ] 用户验收
 
-## 📞 支持
+##  支持
 
 如果在升级或迁移过程中遇到问题：
 

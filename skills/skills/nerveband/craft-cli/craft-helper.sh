@@ -11,11 +11,11 @@ PERSONAL_API="https://connect.craft.do/links/HHRuPxZZTJ6/api/v1"
 case "$1" in
   "wavedepth"|"business"|"wd")
     "$CRAFT" config set-api "$WAVEDEPTH_API"
-    echo "✅ Switched to wavedepth space"
+    echo " Switched to wavedepth space"
     ;;
   "personal"|"me")
     "$CRAFT" config set-api "$PERSONAL_API"
-    echo "✅ Switched to personal space"
+    echo " Switched to personal space"
     ;;
   "which"|"current")
     "$CRAFT" config get-api

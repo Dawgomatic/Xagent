@@ -4,7 +4,7 @@ description: Deploy, manage, and monitor static websites via the EzyHost API. Up
 homepage: https://ezyhost.io
 metadata:
   openclaw:
-    emoji: "🚀"
+    emoji: ""
     requires:
       env:
         - EZYHOST_API_KEY
@@ -461,22 +461,22 @@ Returns `{ used, limit, remaining, resetsAt }`.
 | Storage | 50 MB | 2 GB | 20 GB |
 | Max file size | 10 MB | 100 MB | 500 MB |
 | Custom domains | — | 3 | Unlimited |
-| API access | — | ✅ | ✅ |
-| GitHub import | — | ✅ | ✅ |
+| API access | — |  |  |
+| GitHub import | — |  |  |
 | Version rollback | — | Up to 5 | Up to 30 |
-| Password protection | — | ✅ | ✅ |
-| Remove branding | — | ✅ | ✅ |
-| SEO tools | — | ✅ | ✅ |
-| Advanced analytics | — | ✅ | ✅ |
-| QR codes | ✅ | ✅ | ✅ |
-| Hide from search | — | ✅ | ✅ |
-| Email capture | — | — | ✅ |
+| Password protection | — |  |  |
+| Remove branding | — |  |  |
+| SEO tools | — |  |  |
+| Advanced analytics | — |  |  |
+| QR codes |  |  |  |
+| Hide from search | — |  |  |
+| Email capture | — | — |  |
 | Team members | — | — | Up to 5 |
-| Priority support | — | — | ✅ |
+| Priority support | — | — |  |
 | AI generations | 3/mo | 10/mo | 30/mo |
 | AI templates | 1 | 10 | Unlimited |
-| Presentation mode | — | ✅ | ✅ |
-| Basic analytics | ✅ | ✅ | ✅ |
+| Presentation mode | — |  |  |
+| Basic analytics |  |  |  |
 
 ---
 

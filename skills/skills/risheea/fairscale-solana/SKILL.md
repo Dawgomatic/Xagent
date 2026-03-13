@@ -84,18 +84,18 @@ GET https://x402.fairscale.xyz/score?wallet=WALLET_ADDRESS
 For simple "check this wallet" requests:
 
 ```
-📊 FairScore: [fairscore]/100 | Tier: [tier]
+ FairScore: [fairscore]/100 | Tier: [tier]
 
-[✅ TRUSTED | ⚡ MODERATE | ⚠️ CAUTION | 🚨 HIGH RISK]
+[ TRUSTED |  MODERATE |  CAUTION |  HIGH RISK]
 
-🏅 Badges: [badge labels]
+ Badges: [badge labels]
 ```
 
 **Risk thresholds:**
-- ≥60 → ✅ TRUSTED
-- 40-59 → ⚡ MODERATE  
-- 20-39 → ⚠️ CAUTION
-- <20 → 🚨 HIGH RISK
+- ≥60 →  TRUSTED
+- 40-59 →  MODERATE  
+- 20-39 →  CAUTION
+- <20 →  HIGH RISK
 
 ---
 
@@ -120,34 +120,34 @@ When users ask in plain English, translate to the right features:
 
 **"Is this a whale?"**
 ```
-🐋 Whale Check: GFTVQd...P32Tn
+ Whale Check: GFTVQd...P32Tn
 
-💰 LST Holdings: 97.7% — Top 3% 
-💵 Stablecoins: 27.5% — Low
+ LST Holdings: 97.7% — Top 3% 
+ Stablecoins: 27.5% — Low
 ◎ Native SOL: 45.2% — Moderate
 
-Verdict: 🟡 PARTIAL WHALE — Heavy DeFi, not cash-rich.
+Verdict:  PARTIAL WHALE — Heavy DeFi, not cash-rich.
 ```
 
 **"Is this a bot?"**
 ```
-🤖 Bot Check: GFTVQd...P32Tn
+ Bot Check: GFTVQd...P32Tn
 
-⚡ Burst Ratio: 16.8% — Organic ✅
-🌐 Platforms: 96.6% — Diverse ✅
+ Burst Ratio: 16.8% — Organic 
+ Platforms: 96.6% — Diverse 
 
-Verdict: ✅ HUMAN — Not a bot.
+Verdict:  HUMAN — Not a bot.
 ```
 
 **"Airdrop eligible?"**
 ```
-🎁 Airdrop Check: GFTVQd...P32Tn
+ Airdrop Check: GFTVQd...P32Tn
 
-📅 Age: 79.2% ✅
-🌐 Diversity: 96.6% ✅
-🤖 Burst: 16.8% ✅
+ Age: 79.2% 
+ Diversity: 96.6% 
+ Burst: 16.8% 
 
-Verdict: ✅ ELIGIBLE
+Verdict:  ELIGIBLE
 ```
 
 ---
@@ -159,11 +159,11 @@ When users define their own rules:
 > "Only wallets with conviction > 70"
 
 ```
-🔧 Custom Check: GFTVQd...P32Tn
+ Custom Check: GFTVQd...P32Tn
 
-• Conviction > 70%: ❌ 69.7%
+• Conviction > 70%:  69.7%
 
-Verdict: ❌ FAILS
+Verdict:  FAILS
 ```
 
 ---
@@ -196,7 +196,7 @@ Verdict: ❌ FAILS
 4. **Use exact endpoint** — `/score?wallet=ADDRESS`
 5. **Translate user intent** — Map plain English to features
 6. **Give verdicts** — Users want yes/no answers, not data dumps
-7. **If API fails** — Say "❌ Couldn't fetch data. Try again."
+7. **If API fails** — Say " Couldn't fetch data. Try again."
 
 **Never invent data. Never guess. Always call the API.**
 

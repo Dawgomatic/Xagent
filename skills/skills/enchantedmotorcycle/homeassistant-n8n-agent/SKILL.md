@@ -2,7 +2,7 @@
 name: homeassistant-n8n-agent
 description: Bridge OpenClaw with your n8n instance for Home Assistant automation.
 homepage: https://n8n.io/
-metadata: {"clawdis":{"emoji":"🤖","requires":{"bins":["curl"]}}}
+metadata: {"clawdis":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
 # Home‑Assistant – n8n Agent Skill

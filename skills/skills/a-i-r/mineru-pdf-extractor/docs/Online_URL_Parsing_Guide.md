@@ -4,7 +4,7 @@
 
 ---
 
-## 📋 Prerequisites
+##  Prerequisites
 
 ### 1. Environment Requirements
 - `curl` command (usually pre-installed)
@@ -27,11 +27,11 @@ export MINERU_API_KEY="your_api_token_here"
 export MINERU_BASE_URL="https://mineru.net/api/v4"
 ```
 
-> 💡 **Get Token**: Visit https://mineru.net/apiManage/docs
+>  **Get Token**: Visit https://mineru.net/apiManage/docs
 
 ---
 
-## 🚀 Complete Process (2 Steps)
+##  Complete Process (2 Steps)
 
 Online document parsing is **more concise** than local upload, only requires **2 steps**!
 
@@ -55,7 +55,7 @@ curl -X POST "${MINERU_BASE_URL}/extract/task" \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `url` | string | ✅ **Yes** | Complete URL of online PDF (supports http/https) |
+| `url` | string |  **Yes** | Complete URL of online PDF (supports http/https) |
 | `enable_formula` | bool | No | Enable formula recognition, default true |
 | `enable_table` | bool | No | Enable table recognition, default true |
 | `language` | string | No | Language: `ch` (Chinese) / `en` (English) / `auto` |
@@ -102,10 +102,10 @@ curl -X GET "${MINERU_BASE_URL}/extract/task/YOUR_TASK_ID" \
 
 | state | Meaning | Action |
 |-------|---------|--------|
-| `done` | ✅ Extraction complete | Get `full_zip_url` to download results |
-| `running` | 🔄 Processing | Continue polling |
-| `pending` | ⏳ Queued | Continue polling |
-| `failed` | ❌ Extraction failed | Check `err_msg` for error info |
+| `done` |  Extraction complete | Get `full_zip_url` to download results |
+| `running` |  Processing | Continue polling |
+| `pending` |  Queued | Continue polling |
+| `failed` |  Extraction failed | Check `err_msg` for error info |
 
 **Success Response (done status):**
 ```json
@@ -142,11 +142,11 @@ unzip -q "result.zip" -d "extracted_folder"
 **Extracted File Structure:**
 ```
 extracted_folder/
-├── full.md                    # 📄 Complete Markdown (main result)
+├── full.md                    #  Complete Markdown (main result)
 ├── xxxxxxxx_content_list.json # Structured content list
 ├── xxxxxxxx_origin.pdf        # Original PDF copy
 ├── layout.json                # Layout analysis data
-└── images/                    # 🖼️ Extracted images folder
+└── images/                    #  Extracted images folder
     ├── image_001.png
     ├── image_002.png
     └── ...
@@ -156,14 +156,14 @@ extracted_folder/
 
 | File | Description |
 |------|-------------|
-| `full.md` | 📄 Parsed complete Markdown document (most commonly used) |
+| `full.md` |  Parsed complete Markdown document (most commonly used) |
 | `images/` | All images extracted from document |
 | `content_list.json` | Structured content with position info for each text segment |
 | `layout.json` | Detailed layout analysis data |
 
 ---
 
-## 📝 Complete One-Piece Script (Secure Version)
+##  Complete One-Piece Script (Secure Version)
 
 ### Online Document Parsing Script (online_parse.sh)
 
@@ -219,7 +219,7 @@ validate_url() {
     # - JavaScript protocol attacks (javascript:alert(1))
     # - Other malicious protocols
     if [[ ! "$url" =~ ^https?://[a-zA-Z0-9.-]+/.*\.pdf$ ]]; then
-        echo "❌ Error: Invalid URL format. Must be http(s)://.../...pdf" >&2
+        echo " Error: Invalid URL format. Must be http(s)://.../...pdf" >&2
         exit 1
     fi
     
@@ -240,21 +240,21 @@ validate_dirname() {
     # SECURITY CHECK 1: Prevent directory traversal via ".."
     # Attack example: "../../../etc/passwd" could overwrite system files
     if [[ "$dir" == *".."* ]]; then
-        echo "❌ Error: Invalid directory name. Cannot contain '..'" >&2
+        echo " Error: Invalid directory name. Cannot contain '..'" >&2
         exit 1
     fi
     
     # SECURITY CHECK 2: Prevent absolute paths
     # Attack example: "/etc/cron.d/malicious" could write to system directories
     if [[ "$dir" == /* ]]; then
-        echo "❌ Error: Invalid directory name. Cannot start with '/'" >&2
+        echo " Error: Invalid directory name. Cannot start with '/'" >&2
         exit 1
     fi
     
     # SECURITY CHECK 3: Limit directory name length
     # Prevents buffer overflow attacks and keeps paths manageable
     if [ ${#dir} -gt 255 ]; then
-        echo "❌ Error: Directory name too long (max 255 chars)" >&2
+        echo " Error: Directory name too long (max 255 chars)" >&2
         exit 1
     fi
     
@@ -271,7 +271,7 @@ MINERU_BASE_URL="${MINERU_BASE_URL:-https://mineru.net/api/v4}"
 
 # Validate that API token is configured
 if [ -z "$MINERU_TOKEN" ]; then
-    echo "❌ Error: Please set MINERU_TOKEN or MINERU_API_KEY environment variable"
+    echo " Error: Please set MINERU_TOKEN or MINERU_API_KEY environment variable"
     exit 1
 fi
 
@@ -282,7 +282,7 @@ fi
 # Get PDF URL from arguments
 PDF_URL="${1:-}"
 if [ -z "$PDF_URL" ]; then
-    echo "❌ Error: Please provide PDF URL address"
+    echo " Error: Please provide PDF URL address"
     echo "Usage: $0 <pdf_url> [output_directory]"
     echo ""
     echo "Example:"
@@ -358,11 +358,11 @@ else
 fi
 
 if [ "$CODE" != "0" ] || [ -z "$TASK_ID" ]; then
-    echo "❌ Failed to submit task"
+    echo " Failed to submit task"
     exit 1
 fi
 
-echo "✅ Task submitted successfully"
+echo " Task submitted successfully"
 echo "Task ID: $TASK_ID"
 echo ""
 
@@ -400,7 +400,7 @@ for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
         else
             ZIP_URL=$(echo "$RESPONSE" | grep -o '"full_zip_url":"[^"]*"' | head -1 | cut -d'"' -f4)
         fi
-        echo "✅ Extraction complete!"
+        echo " Extraction complete!"
         break
     elif [ "$STATE" = "failed" ]; then
         # Extract error message
@@ -409,7 +409,7 @@ for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
         else
             ERR_MSG=$(echo "$RESPONSE" | grep -o '"err_msg":"[^"]*"' | head -1 | cut -d'"' -f4)
         fi
-        echo "❌ Extraction failed: $ERR_MSG"
+        echo " Extraction failed: $ERR_MSG"
         exit 1
     fi
     
@@ -419,13 +419,13 @@ done
 
 # Validate that we got a ZIP URL
 if [ -z "$ZIP_URL" ]; then
-    echo "❌ Polling timeout"
+    echo " Polling timeout"
     exit 1
 fi
 
 # SECURITY: Validate ZIP URL to ensure it comes from official CDN
 if [[ ! "$ZIP_URL" =~ ^https://cdn-mineru\.openxlab\.org\.cn/ ]]; then
-    echo "❌ Error: Invalid ZIP URL"
+    echo " Error: Invalid ZIP URL"
     exit 1
 fi
 
@@ -444,7 +444,7 @@ curl -L -o "${OUTPUT_DIR}/result.zip" "$ZIP_URL"
 
 # SECURITY: Validate ZIP file before extraction
 if ! unzip -t "${OUTPUT_DIR}/result.zip" &>/dev/null; then
-    echo "❌ Error: Invalid ZIP file"
+    echo " Error: Invalid ZIP file"
     rm -f "${OUTPUT_DIR}/result.zip"
     exit 1
 fi
@@ -458,16 +458,16 @@ unzip -q "${OUTPUT_DIR}/result.zip" -d "$OUTPUT_DIR/extracted"
 # ============================================================================
 
 echo ""
-echo "✅ Complete! Results saved to: $OUTPUT_DIR/extracted/"
+echo " Complete! Results saved to: $OUTPUT_DIR/extracted/"
 echo ""
 echo "Key files:"
-echo "  📄 $OUTPUT_DIR/extracted/full.md - Markdown document"
-echo "  🖼️  $OUTPUT_DIR/extracted/images/ - Extracted images"
+echo "   $OUTPUT_DIR/extracted/full.md - Markdown document"
+echo "    $OUTPUT_DIR/extracted/images/ - Extracted images"
 ```
 
 ---
 
-## 🔒 Security Features Explained
+##  Security Features Explained
 
 ### 1. URL Validation
 - **Format Check**: Ensures URL starts with http:// or https:// and ends with .pdf
@@ -486,7 +486,7 @@ echo "  🖼️  $OUTPUT_DIR/extracted/images/ - Extracted images"
 
 ---
 
-## 🔧 Usage Examples
+##  Usage Examples
 
 ### Example 1: Parse arXiv Paper
 
@@ -533,12 +533,12 @@ unzip -q result.zip -d extracted/
 
 ---
 
-## 📊 Online vs Local Parsing Comparison
+##  Online vs Local Parsing Comparison
 
 | Feature | **Online URL Parsing** | **Local Upload Parsing** |
 |---------|------------------------|--------------------------|
 | **Steps** | 2 steps | 4 steps |
-| **Upload Required** | ❌ No | ✅ Yes |
+| **Upload Required** |  No |  Yes |
 | **Average Time** | 10-20 seconds | 30-60 seconds |
 | **Network Requirements** | Download results only | Upload + download |
 | **Use Case** | Files already online (arXiv, websites, etc.) | Local files |
@@ -546,7 +546,7 @@ unzip -q result.zip -d extracted/
 
 ---
 
-## ⚠️ Notes
+##  Notes
 
 1. **URL Accessibility**: Ensure the provided URL is publicly accessible, MinerU servers need to download the file
 2. **URL Encoding**: If URL contains Chinese or special characters, ensure proper encoding
@@ -555,7 +555,7 @@ unzip -q result.zip -d extracted/
 
 ---
 
-## 📚 References
+##  References
 
 | Document | Description |
 |----------|-------------|

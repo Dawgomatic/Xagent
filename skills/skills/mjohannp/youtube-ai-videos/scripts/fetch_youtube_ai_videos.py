@@ -47,12 +47,12 @@ if not YOUTUBE_API_KEY:
 if not YOUTUBE_API_KEY:
     YOUTUBE_API_KEY = config.get('youtubeApiKey', '')
     if YOUTUBE_API_KEY and YOUTUBE_API_KEY != 'YOUR_API_KEY_HERE':
-        print("⚠️  Warning: Using API key from config.json. For security, use:")
+        print("  Warning: Using API key from config.json. For security, use:")
         print("   export YOUTUBE_API_KEY='your_key'")
         print(f"   Or save to: {secrets_file}")
 
 if not YOUTUBE_API_KEY or YOUTUBE_API_KEY == '' or YOUTUBE_API_KEY == 'YOUR_API_KEY_HERE':
-    print("❌ YouTube Data API key is required!")
+    print(" YouTube Data API key is required!")
     print("Please add your API key:")
     print("  Option 1: export YOUTUBE_API_KEY='YOUR_KEY'")
     print(f"  Option 2: echo 'YOUR_KEY' > {secrets_file}")
@@ -76,7 +76,7 @@ def fetch_channel_videos(channel_input, api_key):
         data = json.loads(response.read().decode('utf-8'))
         
         if not data.get('items'):
-            print(f"❌ Channel not found: {channel_input}")
+            print(f" Channel not found: {channel_input}")
             return []
         
         channel_id = data['items'][0]['id']
@@ -150,7 +150,7 @@ def is_within_age(published_str, max_days):
         return False
 
 def main():
-    print(f"🎬 Fetching AI videos (last {MAX_AGE_DAYS} days)")
+    print(f" Fetching AI videos (last {MAX_AGE_DAYS} days)")
     print(f"Keywords: {', '.join(KEYWORDS)}")
     print(f"Channels: {len(CHANNELS)}")
     print()
@@ -187,7 +187,7 @@ def main():
     
     # Display results
     if not filtered_videos:
-        print("❌ No matching videos found.")
+        print(" No matching videos found.")
         return
     
     for i, video in enumerate(filtered_videos, 1):
@@ -204,7 +204,7 @@ def main():
         print(f"   by @{video['channel']}")
         print()
     
-    print(f"✅ Found {len(filtered_videos)} videos (from {len(CHANNELS)} channels)")
+    print(f" Found {len(filtered_videos)} videos (from {len(CHANNELS)} channels)")
 
 if __name__ == '__main__':
     main()

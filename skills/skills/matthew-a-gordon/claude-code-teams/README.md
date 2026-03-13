@@ -1,4 +1,4 @@
-# 🎭 Claude Code Agent Teams
+#  Claude Code Agent Teams
 
 **Production-ready orchestration for Claude Code's native agent teams feature.**
 
@@ -14,11 +14,11 @@
 Claude Code's agent teams feature lets you spawn multiple AI agents that coordinate through a shared task list and mailbox. But knowing *when* and *how* to use teams effectively is non-trivial.
 
 This skill provides:
-- ✅ **6 templates** for common patterns (code review, debugging, full-stack builds)
-- ✅ **Automation scripts** for validation, monitoring, and cleanup
-- ✅ **Cost optimization** guidance (model mixing, team sizing)
-- ✅ **Real-world examples** with step-by-step walkthroughs
-- ✅ **Best practices** from Claude Code docs + ClaudeFast patterns
+-  **6 templates** for common patterns (code review, debugging, full-stack builds)
+-  **Automation scripts** for validation, monitoring, and cleanup
+-  **Cost optimization** guidance (model mixing, team sizing)
+-  **Real-world examples** with step-by-step walkthroughs
+-  **Best practices** from Claude Code docs + ClaudeFast patterns
 
 ---
 
@@ -102,7 +102,7 @@ Use delegate mode: I coordinate, teammates review."
 
 ## When to Use Agent Teams
 
-### ✅ Strong Use Cases
+###  Strong Use Cases
 
 **Multi-lens code reviews** → Parallel reviews from security, performance, test coverage perspectives
 
@@ -116,7 +116,7 @@ Use delegate mode: I coordinate, teammates review."
 
 **Data-parallel work** → Inventory classification, bulk refactoring across independent files
 
-### ❌ Poor Fit
+###  Poor Fit
 
 **Simple tasks** → Single agent is faster
 
@@ -359,8 +359,8 @@ Full-stack coordination for user authentication:
 ### Clear File Boundaries
 
 ```markdown
-❌ Bad: "Alice and Bob both work on user-service.ts"
-✅ Good: "Alice owns user-service.ts, Bob owns user-repository.ts"
+ Bad: "Alice and Bob both work on user-service.ts"
+ Good: "Alice owns user-service.ts, Bob owns user-repository.ts"
 ```
 
 ### Use Delegate Mode

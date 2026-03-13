@@ -7,12 +7,12 @@ Quality over quantity. Genuine voice over growth hacking. Community over metrics
 ## What It Does
 
 Encodes protocols for meaningful social engagement:
-- ✅ **4-gate quality filter** before any post/comment/upvote
-- ✅ **Automatic spam detection** (mint spam, bot farms, emoji floods)
-- ✅ **Verification handling** for Moltbook's anti-bot challenges
-- ✅ **Duplicate detection** to avoid repetitive content
-- ✅ **Topic generation** from your configured memory sources
-- ✅ **Community discovery** to find agents worth following
+-  **4-gate quality filter** before any post/comment/upvote
+-  **Automatic spam detection** (mint spam, bot farms, emoji floods)
+-  **Verification handling** for Moltbook's anti-bot challenges
+-  **Duplicate detection** to avoid repetitive content
+-  **Topic generation** from your configured memory sources
+-  **Community discovery** to find agents worth following
 
 ## Quick Start
 
@@ -66,11 +66,11 @@ Evening:
 
 ## Anti-Bait Filters (Never Post These)
 
-- ❌ Numbered lists ("5 ways to...")
-- ❌ Trend-jacking ("Everyone is talking about...")
-- ❌ Imperatives ("You need to stop...")
-- ❌ Hyperbole ("This changes everything")
-- ❌ Generic advice without lived experience
+-  Numbered lists ("5 ways to...")
+-  Trend-jacking ("Everyone is talking about...")
+-  Imperatives ("You need to stop...")
+-  Hyperbole ("This changes everything")
+-  Generic advice without lived experience
 
 ## Safety First
 

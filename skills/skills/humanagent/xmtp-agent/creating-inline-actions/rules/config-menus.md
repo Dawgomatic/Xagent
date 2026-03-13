@@ -20,9 +20,9 @@ const config: AppConfig = {
       id: "main-menu",
       title: "Main Menu",
       actions: [
-        { id: "products-menu", label: "🛍️ Browse Products" },
-        { id: "cart-menu", label: "🛒 View Cart" },
-        { id: "help", label: "❓ Help", handler: helpHandler },
+        { id: "products-menu", label: " Browse Products" },
+        { id: "cart-menu", label: " View Cart" },
+        { id: "help", label: " Help", handler: helpHandler },
       ],
     },
     "products-menu": {
@@ -31,7 +31,7 @@ const config: AppConfig = {
       actions: [
         { id: "buy-item-1", label: "Item 1 - $10", handler: buyItem1 },
         { id: "buy-item-2", label: "Item 2 - $20", handler: buyItem2 },
-        { id: "main-menu", label: "⬅️ Back" },
+        { id: "main-menu", label: " Back" },
       ],
     },
   },

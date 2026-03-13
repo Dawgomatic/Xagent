@@ -1,7 +1,7 @@
 ---
 name: thoughtful
 description: Your thoughtful companion for WhatsApp - remembers what matters, helps you stay present in your relationships.
-metadata: {"openclaw":{"emoji":"💭","requires":{"bins":["wacli-readonly"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["wacli-readonly"]}}}
 ---
 
 # thoughtful
@@ -12,7 +12,7 @@ Goes beyond simple message summaries - helps you maintain relationships, catch w
 
 ## What It Does
 
-### 📊 Smart Tracking
+###  Smart Tracking
 - **Pending tasks** - action items from any conversation, tracked until complete
 - **Waiting on** - things you asked about, waiting for responses
 - **Commitments** - promises you made, deadlines you mentioned
@@ -20,7 +20,7 @@ Goes beyond simple message summaries - helps you maintain relationships, catch w
 - **Important dates** - birthdays, events, deadlines mentioned in chat
 - **Decisions** - choices you made that you might need to remember
 
-### 🧠 Communication Coaching
+###  Communication Coaching
 Acts as your emotionally intelligent assistant to help you:
 - Catch things left hanging that need reply or closure
 - Notice when tone/sentiment shifts in relationships
@@ -28,7 +28,7 @@ Acts as your emotionally intelligent assistant to help you:
 - Re-engage quiet conversations without awkwardness
 - Stay intentional, not reactive
 
-### 📝 Daily Summaries
+###  Daily Summaries
 Warm, conversational catch-ups that feel like a friend briefing you, not a robot checklist.
 
 **Includes:**
@@ -110,19 +110,19 @@ Creates warm, human summary with:
 
 ### Interactive Task Management
 Summary includes buttons to:
-- ✅ Mark tasks done
-- ⏭️ Still pending
-- ❌ Won't do
-- 💬 Draft reply
+-  Mark tasks done
+-  Still pending
+-  Won't do
+-  Draft reply
 
 ## Example Summary
 
 ```
-Morning, Neil! ☀️
+Morning, Neil! 
 
 Here's your WhatsApp catch-up:
 
-🆕 WHAT'S NEW (last 24h):
+ WHAT'S NEW (last 24h):
 
 **Alice is waiting on you** (3 messages)
 She's asked about Tuesday's meeting twice now and sent a restaurant link. 
@@ -136,13 +136,13 @@ This has been pending for 2 days.
 Weekend plans firming up. They're organizing who brings what.
 Not urgent, but you might want to check in before Saturday.
 
-⏰ STILL PENDING:
+ STILL PENDING:
 
 - Confirm Tuesday meeting - Alice (**5 days old**, asked 3x)
 - Send design files - Bob (urgent, 2 days old)
 - Review contract - Lawyer (low priority, 1 week old)
 
-💡 COMMUNICATION INSIGHTS:
+ COMMUNICATION INSIGHTS:
 
 **Relationships that need attention:**
 - Alice: Tone shifted from casual to "please let me know" - 
@@ -153,7 +153,7 @@ Not urgent, but you might want to check in before Saturday.
 - Haven't heard from Priya in 2 weeks (you asked about her project)
 - Charlie went quiet after you said you'd think about his idea
 
-📝 SUGGESTED ACTIONS:
+ SUGGESTED ACTIONS:
 
 **For Alice:**
 "Hey! Sorry for the delay - yes, Tuesday works. That restaurant 
@@ -167,7 +167,7 @@ looks perfect, let's do 7pm?"
 how's it going?"
 
 Did you complete: "Confirm Tuesday meeting with Alice"?
-[✅ Done] [⏭️ Still pending] [❌ Won't do] [💬 Draft reply]
+[ Done] [ Still pending] [ Won't do] [ Draft reply]
 ```
 
 ## First-Time Setup

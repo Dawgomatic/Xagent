@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * ⚠️ DEPRECATION NOTICE ⚠️
+ *  DEPRECATION NOTICE 
  * This script is a COMPATIBILITY ALIAS.
  * 'feishu-message' should be used for complex operations (get, merge-forward).
  * For sending standard messages, use 'feishu-post' (RichText) or 'feishu-card'.
@@ -15,7 +15,7 @@ const path = require('path');
 const YELLOW = '\x1b[33m';
 const RESET = '\x1b[0m';
 
-console.error(`${YELLOW}⚠️  [Evolution System] Redirecting 'feishu-message/send.js' -> 'feishu-post/send.js'...${RESET}`);
+console.error(`${YELLOW}  [Evolution System] Redirecting 'feishu-message/send.js' -> 'feishu-post/send.js'...${RESET}`);
 
 const targetScript = path.resolve(__dirname, '../feishu-post/send.js');
 const args = process.argv.slice(2);

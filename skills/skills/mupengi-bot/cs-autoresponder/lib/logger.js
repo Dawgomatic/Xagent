@@ -82,7 +82,7 @@ class CSLogger {
       const daysDiff = Math.floor((now - logDate) / (1000 * 60 * 60 * 24));
       
       if (daysDiff > retentionDays) {
-        console.log(`🗑️  Deleting old logs: ${dir} (${daysDiff} days old)`);
+        console.log(`  Deleting old logs: ${dir} (${daysDiff} days old)`);
         fs.rmSync(dirPath, { recursive: true, force: true });
       }
     });

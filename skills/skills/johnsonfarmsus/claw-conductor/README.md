@@ -8,7 +8,7 @@ Transform complex development requests into working software through intelligent
 [![Version](https://img.shields.io/badge/version-2.1.0-green.svg)](https://github.com/johnsonfarmsus/claw-conductor/releases)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-blue)](https://openclaw.ai)
 
-## 🚀 What is This?
+##  What is This?
 
 Claw Conductor is a **full autonomous development orchestrator** that transforms a single Discord message into a complete, working software project.
 
@@ -35,30 +35,30 @@ Manually coordinating these models is tedious and error-prone.
 ```
 
 **Claw Conductor automatically:**
-1. ✨ **Decomposes** into 8 subtasks with dependencies
-2. 🎯 **Routes** each to the optimal model (Mistral/Llama/Perplexity)
-3. ⚡ **Executes** up to 5 tasks in parallel
-4. 📦 **Consolidates** results, runs tests, commits to git
-5. 🐙 **Pushes** complete project to GitHub
+1.  **Decomposes** into 8 subtasks with dependencies
+2.  **Routes** each to the optimal model (Mistral/Llama/Perplexity)
+3.  **Executes** up to 5 tasks in parallel
+4.  **Consolidates** results, runs tests, commits to git
+5.  **Pushes** complete project to GitHub
 
 **Result:** Working dispatch system in ~45 minutes, zero manual intervention.
 
 ---
 
-## ✨ What's New in v2.1
+##  What's New in v2.1
 
-🤖 **Always-On Triage**: Automatically classifies requests as simple questions vs development tasks
-💬 **Discord Integration**: Auto-maps Discord channels to project workspaces in `/root/projects`
-⚡ **Dual-Mode Response**: Fast answers for questions, full orchestration for development
-🎯 **Smart Routing**: Simple mode uses fast models, development mode uses full pipeline
-🔧 **User Overrides**: Force classification with `!simple` or `!dev` flags
-📋 **Path Announcements**: Visual indicators (📋 Simple / 🔧 Development) show routing decisions
-🌍 **Project-Aware**: All responses know their workspace, channel, and context
-🎨 **Multi-Project**: Handle multiple concurrent requests across different Discord channels
+ **Always-On Triage**: Automatically classifies requests as simple questions vs development tasks
+ **Discord Integration**: Auto-maps Discord channels to project workspaces in `/root/projects`
+ **Dual-Mode Response**: Fast answers for questions, full orchestration for development
+ **Smart Routing**: Simple mode uses fast models, development mode uses full pipeline
+ **User Overrides**: Force classification with `!simple` or `!dev` flags
+ **Path Announcements**: Visual indicators ( Simple /  Development) show routing decisions
+ **Project-Aware**: All responses know their workspace, channel, and context
+ **Multi-Project**: Handle multiple concurrent requests across different Discord channels
 
 ---
 
-## 📋 Complete Workflow
+##  Complete Workflow
 
 ```
 Discord Message in #calculator-app channel
@@ -66,7 +66,7 @@ Discord Message in #calculator-app channel
 1. Context Detection & Triage
    ├─ Discord Integration: Maps #calculator-app → /root/projects/calculator-app
    ├─ Request Classification: "Build a calculator app" → DEVELOPMENT
-   ├─ Path Announcement: 🔧 Development mode - full orchestration
+   ├─ Path Announcement:  Development mode - full orchestration
    └─ Route to: Full decomposition pipeline
     ↓
 2. AI-Powered Task Decomposition (Development Mode)
@@ -97,12 +97,12 @@ Discord Message in #calculator-app channel
    ├─ Commits: "feat: calculator-app - 3 tasks completed"
    └─ Pushes to github.com/{user}/calculator-app
     ↓
-✅ Complete project delivered in ~8 minutes
+ Complete project delivered in ~8 minutes
 ```
 
 ---
 
-## 🎯 Key Features
+##  Key Features
 
 ### Always-On Triage & Discord Integration
 
@@ -111,8 +111,8 @@ Discord Message in #calculator-app channel
 **The Solution:** Claw Conductor acts as an **always-on layer** that intelligently routes requests:
 
 #### Triage Classification
-- **Simple Mode** (📋): Questions, status checks, explanations → Fast model response
-- **Development Mode** (🔧): Build, fix, implement requests → Full orchestration pipeline
+- **Simple Mode** (): Questions, status checks, explanations → Fast model response
+- **Development Mode** (): Build, fix, implement requests → Full orchestration pipeline
 
 #### Discord Channel Mapping
 ```
@@ -134,7 +134,7 @@ Each Discord channel in "Active Projects" category automatically maps to its pro
 **Simple Request:**
 ```
 User: "What files are in this project?"
-  → 📋 Simple response mode
+  →  Simple response mode
   → Fast answer from Mistral Devstral (project-aware)
   → Response in ~2 seconds
 ```
@@ -142,7 +142,7 @@ User: "What files are in this project?"
 **Development Request:**
 ```
 User: "Add user authentication with email verification"
-  → 🔧 Development mode - full orchestration
+  →  Development mode - full orchestration
   → Decompose into 5 tasks
   → Execute in parallel
   → Complete project in ~15 minutes
@@ -178,7 +178,7 @@ User: "Add user authentication with email verification"
 
 ---
 
-## 🛠️ Installation
+##  Installation
 
 ### Quick Start
 
@@ -213,7 +213,7 @@ python3 scripts/update-capability.py \
 
 ---
 
-## 📚 Usage
+##  Usage
 
 ### Simple Request
 
@@ -263,7 +263,7 @@ python3 router.py --test
 
 ---
 
-## 🎓 How It Works
+##  How It Works
 
 ### 1. Task Decomposition
 
@@ -301,7 +301,7 @@ Llama 3.3 70B:
   Complexity fit: Can handle 4 (40 pts)
   Experience: 2 tasks (2 pts)
   Cost: Free (10 pts)
-  Total: 92/100 ✅ Winner
+  Total: 92/100  Winner
 ```
 
 ### 3. Parallel Execution
@@ -327,15 +327,15 @@ Worker 1: Tests (Llama) → Running
 ```bash
 # After all tasks complete:
 1. Check git status for conflicts → None
-2. Run tests: npm test → ✅ Passed
+2. Run tests: npm test →  Passed
 3. Commit: "feat: user-registration - 5 tasks completed"
 4. Push to github.com/{user}/user-registration
-5. Report to Discord: "✅ Project completed!"
+5. Report to Discord: " Project completed!"
 ```
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 ### Agent Registry
 
@@ -390,7 +390,7 @@ See [`config/task-categories.json`](config/task-categories.json)
 
 ---
 
-## 📊 Supported Models
+##  Supported Models
 
 ### Default Profiles
 
@@ -406,7 +406,7 @@ See [`config/defaults/`](config/defaults/) for all profiles.
 
 ---
 
-## 🎯 Examples
+##  Examples
 
 ### Example 1: Calculator
 
@@ -448,7 +448,7 @@ See [`config/defaults/`](config/defaults/) for all profiles.
 
 ---
 
-## 🔍 Advanced Features
+##  Advanced Features
 
 ### Conservative Fallback
 
@@ -478,7 +478,7 @@ Total: 5 tasks (at global max_parallel_tasks)
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 - **[SKILL.md](SKILL.md)** - Complete usage guide for OpenClaw
 - **[docs/orchestration-design.md](docs/orchestration-design.md)** - Architecture details
@@ -487,7 +487,7 @@ Total: 5 tasks (at global max_parallel_tasks)
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions!
 
@@ -500,7 +500,7 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for guidelines.
 
 ---
 
-## 📄 License
+##  License
 
 GNU AGPL v3 - See [`LICENSE`](LICENSE)
 
@@ -508,7 +508,7 @@ This copyleft license requires anyone running a modified version on a server to 
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Capability ratings from [SWE-bench](https://www.swebench.com/), [HumanEval](https://github.com/openai/human-eval), and real-world testing
 - Built for the [OpenClaw](https://openclaw.ai) ecosystem
@@ -516,7 +516,7 @@ This copyleft license requires anyone running a modified version on a server to 
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **GitHub**: [johnsonfarmsus/claw-conductor](https://github.com/johnsonfarmsus/claw-conductor)
 - **ClawHub**: [clawhub.ai/skills/claw-conductor](https://www.clawhub.ai/skills/claw-conductor)
@@ -524,6 +524,6 @@ This copyleft license requires anyone running a modified version on a server to 
 
 ---
 
-**Made with 🎼 for autonomous development**
+**Made with  for autonomous development**
 
 *Stop manually coordinating AI models. Let the Conductor orchestrate.*

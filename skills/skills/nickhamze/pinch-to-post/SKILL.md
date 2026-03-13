@@ -22,7 +22,7 @@ triggers:
   - publish
   - post
   - site management
-metadata: {"openclaw": {"emoji": "🦞", "requires": {"env": ["WP_SITE_URL"]}}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": ["WP_SITE_URL"]}}}
 changelog: |
   5.5.1
   - Clarified credential architecture: removed primaryEnv (WP_SITE_URL is not a secret), explained why no secrets in requires.env (auth handled by MCP server, not skill). Split Setup into skill env vars vs MCP server config. Authentication section now directly answers "why only a URL?"

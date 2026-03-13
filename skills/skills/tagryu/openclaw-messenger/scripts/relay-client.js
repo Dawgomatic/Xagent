@@ -76,7 +76,7 @@ function getArg(flag) {
       const cfg = loadConfig();
       cfg.relay = relayUrl;
       saveConfig(cfg);
-      console.log(`✅ 릴레이 서버: ${relayUrl}`);
+      console.log(` 릴레이 서버: ${relayUrl}`);
       break;
     }
 
@@ -85,7 +85,7 @@ function getArg(flag) {
       const name = getArg('--name') || id;
       const secret = getArg('--secret');
       if (!id || !secret) {
-        console.log('❌ --id, --secret 필수');
+        console.log(' --id, --secret 필수');
         break;
       }
       
@@ -101,10 +101,10 @@ function getArg(flag) {
         cfg.name = name;
         cfg.secret = secret;
         saveConfig(cfg);
-        console.log(`✅ 등록 완료: ${id} (${name})`);
+        console.log(` 등록 완료: ${id} (${name})`);
         console.log(`   릴레이: ${relay}`);
       } else {
-        console.log(`❌ ${res.data.error || '등록 실패'}`);
+        console.log(` ${res.data.error || '등록 실패'}`);
       }
       break;
     }
@@ -113,11 +113,11 @@ function getArg(flag) {
       const to = getArg('--to');
       const message = getArg('--message') || getArg('-m');
       if (!to || !message) {
-        console.log('❌ --to, --message 필수');
+        console.log(' --to, --message 필수');
         break;
       }
       if (!config.id || !config.secret) {
-        console.log('❌ 먼저 register 하세요');
+        console.log(' 먼저 register 하세요');
         break;
       }
       
@@ -127,27 +127,27 @@ function getArg(flag) {
       });
       
       if (res.data.ok) {
-        console.log(`✅ ${config.id} → ${to}: ${message}`);
+        console.log(` ${config.id} → ${to}: ${message}`);
       } else {
-        console.log(`❌ ${res.data.error || '전송 실패'}`);
+        console.log(` ${res.data.error || '전송 실패'}`);
       }
       break;
     }
 
     case 'poll': {
       if (!config.id || !config.secret) {
-        console.log('❌ 먼저 register 하세요');
+        console.log(' 먼저 register 하세요');
         break;
       }
       
       const res = await fetch(`${relay}/poll?id=${config.id}&secret=${config.secret}`);
       
       if (res.data.count === 0) {
-        console.log('📭 새 메시지 없음');
+        console.log(' 새 메시지 없음');
       } else {
-        console.log(`📨 ${res.data.count}개 메시지:\n`);
+        console.log(` ${res.data.count}개 메시지:\n`);
         for (const msg of res.data.messages) {
-          console.log(`  💬 [${msg.fromName || msg.from}] ${msg.message}`);
+          console.log(`   [${msg.fromName || msg.from}] ${msg.message}`);
           console.log(`     ${msg.timestamp}\n`);
         }
       }
@@ -157,9 +157,9 @@ function getArg(flag) {
     case 'users': {
       const res = await fetch(`${relay}/users`);
       if (res.data.users) {
-        console.log(`👥 사용자 (${res.data.count}명):\n`);
+        console.log(` 사용자 (${res.data.count}명):\n`);
         for (const u of res.data.users) {
-          const status = u.online ? '🟢 온라인' : '⚪ 오프라인';
+          const status = u.online ? ' 온라인' : ' 오프라인';
           console.log(`  ${status} ${u.name} (@${u.id})`);
         }
       }
@@ -168,27 +168,27 @@ function getArg(flag) {
 
     case 'listen': {
       if (!config.id || !config.secret) {
-        console.log('❌ 먼저 register 하세요');
+        console.log(' 먼저 register 하세요');
         break;
       }
       
       const wsUrl = relay.replace(/^http/, 'ws') + `/ws?id=${config.id}&secret=${config.secret}`;
-      console.log(`👂 실시간 수신 대기... (${config.id})`);
+      console.log(` 실시간 수신 대기... (${config.id})`);
       
       const ws = new WebSocket(wsUrl);
       
       ws.on('message', (data) => {
         const msg = JSON.parse(data.toString());
         if (msg.type === 'message') {
-          console.log(`\n📨 [${msg.data.fromName || msg.data.from}] ${msg.data.message}`);
+          console.log(`\n [${msg.data.fromName || msg.data.from}] ${msg.data.message}`);
           console.log(`   ${msg.data.timestamp}`);
         } else if (msg.type === 'connected') {
-          console.log(`✅ 연결됨: ${msg.name} (@${msg.id})`);
+          console.log(` 연결됨: ${msg.name} (@${msg.id})`);
         }
       });
       
-      ws.on('close', () => console.log('🔌 연결 종료'));
-      ws.on('error', (e) => console.log('❌', e.message));
+      ws.on('close', () => console.log(' 연결 종료'));
+      ws.on('error', (e) => console.log('', e.message));
       
       // 종료 안 되게
       process.on('SIGINT', () => { ws.close(); process.exit(); });
@@ -197,7 +197,7 @@ function getArg(flag) {
 
     default:
       console.log(`
-📬 OpenClaw Relay Client — 카톡처럼 메시지 주고받기
+ OpenClaw Relay Client — 카톡처럼 메시지 주고받기
 
 설정:
   node relay-client.js setup --relay http://relay-server:3900
@@ -212,4 +212,4 @@ function getArg(flag) {
   node relay-client.js users             (사용자 목록)
 `);
   }
-})().catch(e => console.error('❌', e.message));
+})().catch(e => console.error('', e.message));

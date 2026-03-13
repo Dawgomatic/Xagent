@@ -4,10 +4,10 @@ description: "Analyze any GitHub repository in AI-friendly format. Convert entir
 homepage: https://www.agxntsix.ai
 license: MIT
 compatibility: Python 3.10+ (stdlib only — no dependencies)
-metadata: {"openclaw": {"emoji": "🔍", "requires": {"env": []}, "primaryEnv": "GITHUB_TOKEN", "homepage": "https://www.agxntsix.ai"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": []}, "primaryEnv": "GITHUB_TOKEN", "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# 🔍 GitHub Intelligence
+#  GitHub Intelligence
 
 Analyze any GitHub repository in AI-friendly format. Convert repos to markdown, generate architecture diagrams, understand structure and patterns.
 
@@ -28,7 +28,7 @@ Analyze any GitHub repository in AI-friendly format. Convert repos to markdown, 
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `GITHUB_TOKEN` | ❌ | Optional — increases rate limit from 60 to 5000 req/hr. Get from [GitHub Settings](https://github.com/settings/tokens) |
+| `GITHUB_TOKEN` |  | Optional — increases rate limit from 60 to 5000 req/hr. Get from [GitHub Settings](https://github.com/settings/tokens) |
 
 ## Quick Start
 
@@ -114,7 +114,7 @@ graph TD
 | `{baseDir}/scripts/repo_analyzer.py` | Full repository analysis with diagrams |
 | `{baseDir}/scripts/repo_to_markdown.py` | Convert repo to single markdown document |
 
-## ⚠️ Security
+##  Security
 
 **This tool is READ-ONLY. It NEVER:**
 - Executes code from repositories

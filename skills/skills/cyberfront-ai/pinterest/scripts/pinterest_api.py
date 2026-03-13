@@ -272,11 +272,11 @@ def format_pin(pin: dict) -> str:
         desc = pin["description"][:200] + "..." if len(pin.get("description", "")) > 200 else pin.get("description", "")
         lines.append(desc)
     if pin.get("image_url"):
-        lines.append(f"🖼 {pin['image_url']}")
+        lines.append(f" {pin['image_url']}")
     if pin.get("link"):
-        lines.append(f"🔗 {pin['link']}")
+        lines.append(f" {pin['link']}")
     if pin.get("save_count"):
-        lines.append(f"💾 {pin['save_count']} saves")
+        lines.append(f" {pin['save_count']} saves")
     return "\n".join(lines)
 
 

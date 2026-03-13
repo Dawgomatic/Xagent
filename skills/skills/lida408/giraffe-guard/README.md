@@ -1,4 +1,4 @@
-# 🦒 Giraffe Guard — 长颈鹿卫士
+#  Giraffe Guard — 长颈鹿卫士
 
 **Standing tall, watching over your code.**
 
@@ -11,7 +11,7 @@
 
 A security scanner for [OpenClaw](https://github.com/openclaw/openclaw) skills — detect supply chain attacks, malicious code, and suspicious patterns before they compromise your system.
 
-> Born from a real supply chain poisoning incident in the OpenClaw community. Stand tall, stay safe. 🦒
+> Born from a real supply chain poisoning incident in the OpenClaw community. Stand tall, stay safe. 
 
 ### Features
 
@@ -191,7 +191,7 @@ Every new skill must be scanned before activation:
 
 [OpenClaw](https://github.com/openclaw/openclaw) 技能安全扫描器 —— 在供应链攻击、恶意代码和可疑模式危害你的系统之前将其检测出来。
 
-> 诞生于 OpenClaw 社区中一起真实的供应链投毒事件。站得高，看得远。🦒
+> 诞生于 OpenClaw 社区中一起真实的供应链投毒事件。站得高，看得远。
 
 ### 特性
 

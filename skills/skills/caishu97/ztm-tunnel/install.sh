@@ -11,13 +11,13 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}🔌 ZTM Tunnel Skill Installer${NC}"
+echo -e "${BLUE} ZTM Tunnel Skill Installer${NC}"
 echo "=================================="
 
 # Check if running on macOS or Linux
 OS=$(uname -s)
 if [[ "$OS" != "Darwin" && "$OS" != "Linux" ]]; then
-    echo -e "${RED}❌ Unsupported OS: $OS${NC}"
+    echo -e "${RED} Unsupported OS: $OS${NC}"
     exit 1
 fi
 
@@ -31,19 +31,19 @@ case "$ARCH" in
         ZTM_ARCH="generic_linux-arm64"
         ;;
     *)
-        echo -e "${RED}❌ Unsupported architecture: $ARCH${NC}"
+        echo -e "${RED} Unsupported architecture: $ARCH${NC}"
         exit 1
         ;;
 esac
 
-echo -e "${YELLOW}📦 Step 1: Checking ZTM installation...${NC}"
+echo -e "${YELLOW} Step 1: Checking ZTM installation...${NC}"
 
 # Check if ztm is already installed
 if command -v ztm &> /dev/null; then
     ZTM_VERSION=$(ztm version 2>/dev/null | head -1 || echo "unknown")
-    echo -e "${GREEN}✅ ZTM already installed: $ZTM_VERSION${NC}"
+    echo -e "${GREEN} ZTM already installed: $ZTM_VERSION${NC}"
 else
-    echo -e "${YELLOW}📥 Installing ZTM...${NC}"
+    echo -e "${YELLOW} Installing ZTM...${NC}"
     
     # Create temp directory
     TEMP_DIR=$(mktemp -d)
@@ -53,7 +53,7 @@ else
     LATEST_VERSION=$(curl -s https://api.github.com/repos/flomesh-io/ztm/releases/latest | grep -o '"tag_name":.*' | cut -d'"' -f4)
     
     if [[ -z "$LATEST_VERSION" ]]; then
-        echo -e "${RED}❌ Could not get latest ZTM version${NC}"
+        echo -e "${RED} Could not get latest ZTM version${NC}"
         exit 1
     fi
     
@@ -79,9 +79,9 @@ else
             sudo chmod +x /usr/local/bin/ztm
         fi
         
-        echo -e "${GREEN}✅ ZTM installed successfully!${NC}"
+        echo -e "${GREEN} ZTM installed successfully!${NC}"
     else
-        echo -e "${RED}❌ Failed to download ZTM${NC}"
+        echo -e "${RED} Failed to download ZTM${NC}"
         exit 1
     fi
     
@@ -91,14 +91,14 @@ else
 fi
 
 # Verify installation
-echo -e "${YELLOW}🔍 Step 2: Verifying ZTM...${NC}"
+echo -e "${YELLOW} Step 2: Verifying ZTM...${NC}"
 ztm version
 
-echo -e "${YELLOW}🚀 Step 3: Starting ZTM Agent...${NC}"
+echo -e "${YELLOW} Step 3: Starting ZTM Agent...${NC}"
 
 # Check if agent is already running
 if curl -s http://localhost:7777/api/status &> /dev/null; then
-    echo -e "${GREEN}✅ ZTM Agent is already running${NC}"
+    echo -e "${GREEN} ZTM Agent is already running${NC}"
 else
     echo -e "${BLUE}   Starting ZTM Agent on localhost:7777...${NC}"
     
@@ -109,31 +109,31 @@ else
     echo -e "${BLUE}   Waiting for agent to be ready...${NC}"
     for i in {1..30}; do
         if curl -s http://localhost:7777/api/status &> /dev/null; then
-            echo -e "${GREEN}✅ ZTM Agent is ready!${NC}"
+            echo -e "${GREEN} ZTM Agent is ready!${NC}"
             break
         fi
         sleep 1
     done
     
     if ! curl -s http://localhost:7777/api/status &> /dev/null; then
-        echo -e "${RED}❌ Failed to start ZTM Agent${NC}"
+        echo -e "${RED} Failed to start ZTM Agent${NC}"
         exit 1
     fi
 fi
 
-echo -e "${YELLOW}📱 Step 4: Checking Tunnel App...${NC}"
+echo -e "${YELLOW} Step 4: Checking Tunnel App...${NC}"
 
 # Install tunnel app if not already installed
 ztm get app 2>/dev/null | grep -q "ztm/tunnel"
 if [[ $? -eq 0 ]]; then
-    echo -e "${GREEN}✅ Tunnel app is already installed${NC}"
+    echo -e "${GREEN} Tunnel app is already installed${NC}"
 else
     echo -e "${BLUE}   Installing tunnel app...${NC}"
     ztm app install tunnel
-    echo -e "${GREEN}✅ Tunnel app installed!${NC}"
+    echo -e "${GREEN} Tunnel app installed!${NC}"
 fi
 
-echo -e "${YELLOW}⚙️  Step 5: Configuration...${NC}"
+echo -e "${YELLOW}  Step 5: Configuration...${NC}"
 
 # Create default config if not exists
 ZTM_CONF="$HOME/.ztm.conf"
@@ -145,13 +145,13 @@ if [[ ! -f "$ZTM_CONF" ]]; then
   "mesh": ""
 }
 EOF
-    echo -e "${GREEN}✅ Default config created${NC}"
+    echo -e "${GREEN} Default config created${NC}"
 else
     echo -e "${BLUE}   Config already exists at $ZTM_CONF${NC}"
 fi
 
 echo ""
-echo -e "${GREEN}🎉 Installation complete!${NC}"
+echo -e "${GREEN} Installation complete!${NC}"
 echo ""
 echo "Next steps:"
 echo "  1. Join a mesh network (if not already joined):"

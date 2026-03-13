@@ -5,13 +5,13 @@ description: Prepare projects for sharing, collaboration, and community
 license: MIT
 ---
 
-# MLOps Collaboration 🤝
+# MLOps Collaboration 
 
 Make projects collaborative and community-ready.
 
 ## Features
 
-### 1. README Template 📖
+### 1. README Template 
 
 Professional documentation:
 
@@ -27,7 +27,7 @@ Includes:
 - Usage examples
 - Contributing guide
 
-### 2. Required Files Checklist ✅
+### 2. Required Files Checklist 
 
 Community files:
 - `LICENSE` - MIT/Apache/GPL
@@ -35,7 +35,7 @@ Community files:
 - `CONTRIBUTING.md` - How to contribute
 - `CHANGELOG.md` - Version history
 
-### 3. Dev Container 📦
+### 3. Dev Container 
 
 VS Code Dev Container:
 

@@ -9,7 +9,7 @@ version: 1.0.0
 
 Godot 4.x 게임 엔진 개발을 위한 종합 가이드. 프로젝트 생성부터 빌드, GDScript 코딩, Scene/Node 시스템, 2D/3D 게임 제작까지 전 과정을 지원합니다.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 신규 프로젝트 생성 (CLI)
 ```bash
@@ -45,7 +45,7 @@ MyGame/
 3. 스크립트 첨부 (Attach Script)
 4. `_ready()`, `_process(delta)` 함수 작성
 
-## 📚 GDScript Basics
+##  GDScript Basics
 
 ### 핵심 라이프사이클 함수
 ```gdscript
@@ -115,7 +115,7 @@ var sibling = get_parent().get_node("OtherNode")
 GlobalScript.some_function()
 ```
 
-## 🎮 2D Game Workflows
+##  2D Game Workflows
 
 ### 플레이어 이동 (8방향)
 ```gdscript
@@ -162,7 +162,7 @@ func _ready():
     tilemap.set_cell(0, Vector2i(0, 0), 1)
 ```
 
-## 🌍 3D Game Workflows
+##  3D Game Workflows
 
 ### FPS 플레이어 컨트롤러
 ```gdscript
@@ -206,7 +206,7 @@ func _input(event):
         rotation.x = clamp(rotation.x, -PI/2, PI/2)
 ```
 
-## 🛠️ Common Patterns
+##  Common Patterns
 
 ### 씬 전환
 ```gdscript
@@ -249,7 +249,7 @@ func update_score(score):
     label.text = "Score: %d" % score
 ```
 
-## 🏗️ 빌드 & Export (MiniPC)
+##  빌드 & Export (MiniPC)
 
 ### Web (HTML5) 빌드
 ```bash
@@ -272,7 +272,7 @@ export_path="export/web/index.html"
 cp $HOME/godot-demo/boot_splash.png MyGame/
 ```
 
-## 📖 References
+##  References
 
 ### 자주 쓰는 노드
 - **2D**: Node2D, Sprite2D, CharacterBody2D, RigidBody2D, Area2D, Camera2D, TileMap, AnimatedSprite2D

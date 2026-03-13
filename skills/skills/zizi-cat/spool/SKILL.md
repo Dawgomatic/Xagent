@@ -2,7 +2,7 @@
 name: spool
 description: "Threads CLI - Read, post, reply, and search on Meta's Threads using OpenClaw browser tool. Use when the user wants to interact with Threads: posting, reading timeline, viewing profiles, replying to threads, or searching."
 homepage: https://github.com/zizi-cat/spool
-metadata: {"clawdhub":{"emoji":"🧵"}}
+metadata: {"clawdhub":{"emoji":""}}
 ---
 
 # spool

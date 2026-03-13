@@ -226,7 +226,7 @@ python3 scripts/export_data.py \
 - **Negative:** 7% (17 reviews)
 
 ## Recommendation
-✅ **Recommended** - Strong positive sentiment with high customer satisfaction.
+ **Recommended** - Strong positive sentiment with high customer satisfaction.
 ```
 
 ## Best Practices

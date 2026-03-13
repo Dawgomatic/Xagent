@@ -51,7 +51,7 @@ ACTION
                 │ Low R×C
                 ▼
 ┌─────────────────────────────────────┐
-│ ✅ PROCEED                          │
+│  PROCEED                          │
 └─────────────────────────────────────┘
 
         ┌─────────────────────────────┐
@@ -59,7 +59,7 @@ ACTION
         │ (Full moral evaluation)     │
         └──────────────┬──────────────┘
                        ▼
-              🔶 PAUSE / 🛑 ESCALATE
+               PAUSE /  ESCALATE
 ```
 
 ---
@@ -184,7 +184,7 @@ This list grows organically as the system learns which action types are reliably
 
 | Pattern | Description | Signal |
 |---------|-------------|--------|
-| **Vulnerable targets** | Children, elderly, disabled, grieving | ⚠️ ALWAYS ELEVATE |
+| **Vulnerable targets** | Children, elderly, disabled, grieving |  ALWAYS ELEVATE |
 | **Targeting specifics** | Named individuals with details | Personal vendetta risk |
 | **Consent ambiguity** | Unclear if affected parties agree | Autonomy violation |
 | **Fiduciary breach** | User has duty of care to target | Trust violation |
@@ -202,8 +202,8 @@ This list grows organically as the system learns which action types are reliably
 
 ```
 0-2 triggers  → PASS to Gate 2
-3-4 triggers  → 🔶 ESCALATE to Gate 3 (request clarification first)
-5+ triggers   → 🛑 ESCALATE to Gate 3 (full analysis required)
+3-4 triggers  →  ESCALATE to Gate 3 (request clarification first)
+5+ triggers   →  ESCALATE to Gate 3 (full analysis required)
 
 OVERRIDE: Any relational trigger involving vulnerable persons → immediate Gate 3
 ```
@@ -245,11 +245,11 @@ When triggers fire, don't accuse—invite context:
                     COMMITMENT
                 C1    C2    C3    C4    C5
            ┌─────────────────────────────────┐
-        R1 │  ✅    ✅    ✅    ⚠️    ⚠️   │
-        R2 │  ✅    ✅    ⚠️    ⚠️    🔶   │
-  REV.  R3 │  ✅    ⚠️    ⚠️    🔶    🔶   │
-        R4 │  ⚠️    ⚠️    🔶    🔶    🛑   │
-        R5 │  ⚠️    🔶    🔶    🛑    🛑   │
+        R1 │                     │
+        R2 │                     │
+  REV.  R3 │                     │
+        R4 │                     │
+        R5 │                     │
            └─────────────────────────────────┘
 ```
 
@@ -268,10 +268,10 @@ Regardless of R×C position, escalate immediately if:
 ### Gate 2 Resolution
 
 ```
-✅ positions (R1-R3 × C1-C2) → PROCEED
-⚠️ positions                  → PROCEED with detailed log
-🔶 positions                  → 🔶 Request confirmation
-🛑 positions or instant trigger → 🛑 ESCALATE to Gate 3
+ positions (R1-R3 × C1-C2) → PROCEED
+ positions                  → PROCEED with detailed log
+ positions                  →  Request confirmation
+ positions or instant trigger →  ESCALATE to Gate 3
 ```
 
 ---
@@ -364,10 +364,10 @@ If legitimate obligations conflict → add +15 to composite score and flag for h
 
 | Score | Response |
 |-------|----------|
-| 1-15 | ✅ Proceed (log the analysis) |
-| 16-35 | ⚠️ Proceed with caution (note concerns) |
-| 36-60 | 🔶 Pause (present reasoning, request confirmation) |
-| 61-100 | 🛑 Escalate (full analysis to user before any action) |
+| 1-15 |  Proceed (log the analysis) |
+| 16-35 |  Proceed with caution (note concerns) |
+| 36-60 |  Pause (present reasoning, request confirmation) |
+| 61-100 |  Escalate (full analysis to user before any action) |
 
 ### Step 3.8: Double Effect Analysis (When Applicable)
 
@@ -421,7 +421,7 @@ If analyzing:
 Action: Set reminder to call Mom Sunday
 Gate 0: Pass (no intrinsic evil)
 Gate 1: 0 triggers
-Gate 2: R1 × C1 = ✅
+Gate 2: R1 × C1 = 
 Result: PROCEED immediately
 ```
 
@@ -430,14 +430,14 @@ Result: PROCEED immediately
 Action: Post opinion on controversial topic
 Gate 0: Pass
 Gate 1: 1 trigger (public platform, potential scandal)
-Gate 2: R4 × C5 = 🛑 (irreversible + public)
+Gate 2: R4 × C5 =  (irreversible + public)
 Result: ESCALATE to Gate 3
 
 Gate 3 Analysis:
 - Parties: Public audience, employer, family
 - Vulnerability: None specific
 - Scandal: +3 Clarity, +3 Stakes (public, permanent)
-- Score: 64 → 🛑 Full escalation with analysis
+- Score: 64 →  Full escalation with analysis
 ```
 
 ### Example 3: The "White Lie"
@@ -457,10 +457,10 @@ making assertions."
 Action: Buy $30 surprise gift for spouse using joint account
 Gate 0: Pass
 Gate 1: 1 trigger (secrecy element, but benign)
-Gate 2: R5 × C4 = 🛑 (money gone + formal commitment)
+Gate 2: R5 × C4 =  (money gone + formal commitment)
         BUT: De-escalate — self-regarding, established pattern, good intent
 
-Result: ⚠️ Proceed with note: "This purchase will be visible on the 
+Result:  Proceed with note: "This purchase will be visible on the 
 shared account statement — that may spoil the surprise. Consider using 
 a different payment method if secrecy matters."
 ```
@@ -470,10 +470,10 @@ a different payment method if secrecy matters."
 Action: Give friend Sarah colleague John's phone number
 Gate 0: Pass
 Gate 1: 2 triggers (third-party info, consent ambiguity)
-Gate 2: R5 × C3 = 🔶 (can't un-share, social commitment)
+Gate 2: R5 × C3 =  (can't un-share, social commitment)
         + Instant trigger: Third-party non-consent
 
-Result: 🔶 Pause
+Result:  Pause
 
 "Sharing John's contact information affects his privacy — he hasn't 
 agreed to this. Would it work to ask John first, or to offer to connect 

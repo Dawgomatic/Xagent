@@ -71,21 +71,21 @@ Output: 0-10 scale, where >8.0 = high confidence recommendation
 ## Output Format
 
 ```
-📍 [Location] [Cuisine Type] 餐厅推荐
+ [Location] [Cuisine Type] 餐厅推荐
 
 1. [Restaurant Name]
-   🏆 推荐指数: X.X/10
-   ⭐ 大众点评: X.X (Xk评价)
-   💬 小红书: X.X⭐ (X笔记)
-   📍 地址: [Address]
-   💰 人均: ¥[Price]
-   ✅ 一致性: [高/中/低] - [Brief explanation]
+    推荐指数: X.X/10
+    大众点评: X.X (Xk评价)
+    小红书: X.X (X笔记)
+    地址: [Address]
+    人均: ¥[Price]
+    一致性: [高/中/低] - [Brief explanation]
    
-   📊 平台对比:
+    平台对比:
    - 大众点评标签: [Tags]
    - 小红书热词: [Keywords]
    
-   ⚠️ 注意: [Any discrepancies or warnings]
+    注意: [Any discrepancies or warnings]
 
 [Continue for top 5-10 restaurants...]
 ```

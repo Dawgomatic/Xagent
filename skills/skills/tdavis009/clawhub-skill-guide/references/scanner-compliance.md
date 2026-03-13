@@ -6,7 +6,7 @@ across 5 categories. Each category receives a rating:
 | Rating | Meaning |
 |--------|---------|
 | ✓ | Pass — no concerns |
-| ℹ | Informational — minor observations, not blocking |
+|  | Informational — minor observations, not blocking |
 | ! | Warning — significant concerns that reduce trust |
 
 The goal is **all ✓ marks**. This guide covers what triggers each rating and
@@ -28,7 +28,7 @@ how to fix issues.
 - `requires` list matches actual dependencies
 - No hidden functionality beyond what's described
 
-### ℹ Informational
+###  Informational
 
 - Description is vague or overly broad relative to actual functionality
 - Minor mismatch between described and actual capabilities
@@ -61,7 +61,7 @@ how to fix issues.
 - Privileged operations documented as requiring explicit user approval
 - `requireMention:false` usage documented with data exposure implications
 
-### ℹ Informational
+###  Informational
 
 - Instructions slightly broader than description suggests
 - Config recommendations exist but aren't clearly marked as manual-review
@@ -98,7 +98,7 @@ how to fix issues.
 - SKILL.md includes "inspect before running" warning
 - Script line counts and purposes documented
 
-### ℹ Informational
+###  Informational
 
 - Scripts exist but without explicit inspection warning
 - Scripts are mostly safe but documentation could be clearer
@@ -140,7 +140,7 @@ how to fix issues.
 - No requests for credentials outside the skill's scope
 - Prerequisites table lists all required accounts/services
 
-### ℹ Informational
+###  Informational
 
 - Env vars declared but `sensitive` flag missing on what appears to be a secret
 - Minor mismatch between body references and frontmatter
@@ -176,7 +176,7 @@ how to fix issues.
 - No persistent daemons or background processes
 - Skill operates within its own workspace boundary
 
-### ℹ Informational
+###  Informational
 
 - Multi-user patterns exist but isolation not explicitly recommended
 - Config changes mentioned without clear manual-review gating
@@ -206,9 +206,9 @@ This traces the real progression of a multi-user skill through scanner iteration
 **Scanner results:**
 - PURPOSE & CAPABILITY: ✓
 - INSTRUCTION SCOPE: **!** — Instructions told agent to "apply config changes" automatically
-- INSTALL MECHANISM: ℹ — Scripts existed but no inspection warning
+- INSTALL MECHANISM:  — Scripts existed but no inspection warning
 - CREDENTIALS: **!** — Skill used env vars for API keys but none declared in frontmatter
-- PERSISTENCE & PRIVILEGE: ℹ — Multi-user skill without agent isolation recommendation
+- PERSISTENCE & PRIVILEGE:  — Multi-user skill without agent isolation recommendation
 
 **Issues identified:**
 1. SKILL.md said "add this to your gateway config" as a directive, not a suggestion
@@ -226,10 +226,10 @@ This traces the real progression of a multi-user skill through scanner iteration
 
 **Scanner results:**
 - PURPOSE & CAPABILITY: ✓
-- INSTRUCTION SCOPE: ℹ — Better but some residual automatic-sounding language
+- INSTRUCTION SCOPE:  — Better but some residual automatic-sounding language
 - INSTALL MECHANISM: ✓ — Inspection warning resolved this
 - CREDENTIALS: **!** — Body mentioned env vars still not in frontmatter YAML
-- PERSISTENCE & PRIVILEGE: ℹ — Still missing explicit isolation recommendation
+- PERSISTENCE & PRIVILEGE:  — Still missing explicit isolation recommendation
 
 **Lesson:** Adding a Prerequisites *section in the body* is not enough. The scanner
 checks **frontmatter** for credential declarations. Body-only documentation of

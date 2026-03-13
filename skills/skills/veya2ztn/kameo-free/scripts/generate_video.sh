@@ -16,7 +16,7 @@ if [ -z "$API_KEY" ]; then
 fi
 
 if [ -z "$API_KEY" ]; then
-    echo "❌ Error: KAMEO_API_KEY not set"
+    echo " Error: KAMEO_API_KEY not set"
     echo "Set it via: export KAMEO_API_KEY='kam_...'"
     echo "Or save to: ~/.config/kameo/credentials.json"
     exit 1
@@ -39,15 +39,15 @@ if [ -z "$IMAGE_PATH" ] || [ -z "$PROMPT" ]; then
 fi
 
 if [ ! -f "$IMAGE_PATH" ]; then
-    echo "❌ Error: Image file not found: $IMAGE_PATH"
+    echo " Error: Image file not found: $IMAGE_PATH"
     exit 1
 fi
 
-echo "🎬 Kameo Video Generation"
+echo " Kameo Video Generation"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "📷 Image: $IMAGE_PATH"
-echo "💬 Prompt: ${PROMPT:0:80}..."
-echo "📐 Aspect: $ASPECT_RATIO"
+echo " Image: $IMAGE_PATH"
+echo " Prompt: ${PROMPT:0:80}..."
+echo " Aspect: $ASPECT_RATIO"
 echo ""
 
 # Create request JSON
@@ -61,7 +61,7 @@ cat > "$REQUEST_FILE" << EOF
 }
 EOF
 
-echo "🚀 Sending generation request..."
+echo " Sending generation request..."
 
 # Send request
 RESPONSE=$(curl -s -X POST "$API_BASE/generate" \
@@ -80,19 +80,19 @@ PROCESSING_TIME=$(echo "$RESPONSE" | jq -r '.processing_time_ms // 0')
 
 if [ "$STATUS" = "completed" ] && [ -n "$VIDEO_URL" ]; then
     PROCESSING_SEC=$(echo "scale=1; $PROCESSING_TIME / 1000" | bc)
-    echo "✅ Generation completed in ${PROCESSING_SEC}s"
+    echo " Generation completed in ${PROCESSING_SEC}s"
     echo ""
-    echo "🎬 Video URL:"
+    echo " Video URL:"
     echo "$VIDEO_URL"
     echo ""
-    echo "📋 Job ID: $JOB_ID"
+    echo " Job ID: $JOB_ID"
     echo ""
-    echo "💾 To download (may require browser):"
+    echo " To download (may require browser):"
     echo "   $VIDEO_URL"
     echo ""
     echo "MEDIA: $VIDEO_URL"
 else
-    echo "❌ Generation failed"
+    echo " Generation failed"
     if [ -n "$ERROR" ] && [ "$ERROR" != "null" ]; then
         echo "Error: $ERROR"
     fi

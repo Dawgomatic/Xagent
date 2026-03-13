@@ -1,7 +1,7 @@
 ---
 name: ai-ppt-generate
 description: The intelligent PPT generation tool is provided by Baidu. It is a tool that intelligently generates PPTS based on the themes or questions given by users. Users can choose PPT themes, templates, or even customize their own templates. It also provides image or resource files (such as pdf,word,txt, etc.). The download address for the final generated PPT file is provided
-metadata: { "openclaw": { "emoji": "📑", "requires": { "bins": ["python"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["python"] } } }
 ---
 
 # AI PPT Generation

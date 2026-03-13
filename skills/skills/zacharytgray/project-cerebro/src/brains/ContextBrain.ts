@@ -23,25 +23,25 @@ export class ContextBrain extends Brain {
                  return;
             }
             await this.storage.appendLog(content);
-            await this.sendMessage("✅ Logged.");
+            await this.sendMessage(" Logged.");
         } 
         else if (command === '!read') {
             const logs = await this.storage.readTodayLog();
             if (!logs) {
-                await this.sendMessage("📄 **Daily Log:**\n(Empty)");
+                await this.sendMessage(" **Daily Log:**\n(Empty)");
             } else {
                 // Discord limit is 2000 chars, might need truncation in real app
-                await this.sendMessage(`📄 **Daily Log:**\n${logs.slice(-1900)}`);
+                await this.sendMessage(` **Daily Log:**\n${logs.slice(-1900)}`);
             }
         }
         else if (command === '!context') {
              if (parts[1] === 'set') {
                  const newContext = parts.slice(2).join(' ');
                  await this.storage.updateContext(newContext);
-                 await this.sendMessage("✅ Context updated.");
+                 await this.sendMessage(" Context updated.");
              } else {
                  const ctx = await this.storage.getContext();
-                 await this.sendMessage(`🧠 **Current Context:**\n${ctx}`);
+                 await this.sendMessage(` **Current Context:**\n${ctx}`);
              }
         }
         else if (message.startsWith('!task')) {
@@ -57,7 +57,7 @@ export class ContextBrain extends Brain {
                 updatedAt: Date.now(),
                 attempts: 0
             });
-            await this.sendMessage(`✅ Task "${title}" created.`);
+            await this.sendMessage(` Task "${title}" created.`);
         }
     }
 }

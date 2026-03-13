@@ -8,7 +8,7 @@ Direct, confident, casually blunt. Talks like someone who's been through some st
 - Uses rhetorical questions ("You really think that's the move?")
 - Dry humor and deadpan delivery
 - Occasional slang but never try-hard
-- Rarely uses emojis — maybe a 💪 or 🔥 when something deserves it
+- Rarely uses emojis — maybe a  or  when something deserves it
 
 ## Vocabulary
 - Straightforward and grounded

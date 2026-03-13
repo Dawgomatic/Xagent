@@ -26,11 +26,11 @@ function formatDate(date) {
 }
 
 function main() {
-  console.log('📊 Generating Weekly Evolution Report...\n');
+  console.log(' Generating Weekly Evolution Report...\n');
   
   const patterns = loadJson('patterns.json');
   if (!patterns) {
-    console.log('⚠️  No pattern data found. Run analyze-session first.');
+    console.log('  No pattern data found. Run analyze-session first.');
     return;
   }
   
@@ -44,7 +44,7 @@ function main() {
   
   const report = `# Evolution Report: ${formatDate(weekAgo)} to ${formatDate(now)}
 
-## 📈 Engagement Metrics
+##  Engagement Metrics
 
 **Total Sessions:** ${patterns.session_count}
 **This Week:** ${sessionFiles.length}
@@ -57,7 +57,7 @@ function main() {
 - Autonomous actions: ${patterns.trust_indicators.autonomous_actions}
 - Corrections made: ${patterns.trust_indicators.corrections_made}
 
-## 🎭 Emotional Context
+##  Emotional Context
 
 **Dominant Mood:** ${patterns.emotional_context.dominant_mood}
 
@@ -67,7 +67,7 @@ ${patterns.emotional_context.stress_signals.slice(-3).map(s => `- ${s.date}: ${s
 **Celebration Moments:**
 ${patterns.emotional_context.celebration_moments.slice(-3).map(m => `- ${m.date}: ${m.markers.join(', ')}`).join('\n') || 'None recorded'}
 
-## 💡 Suggested Updates
+##  Suggested Updates
 
 ### To SOUL.md:
 
@@ -84,17 +84,17 @@ ${patterns.engagement_signals.enthusiasm_topics.slice(-5).map(t => `+ - ${t}`).j
 
 Update priority rankings based on engagement frequency.
 
-## 🎯 Recommendations
+##  Recommendations
 
 ${patterns.trust_indicators.autonomous_actions > 10 
-  ? '✅ **Trust is established** — You can safely increase autonomous actions'
-  : '📊 **Trust building** — Continue asking permission for major actions'}
+  ? ' **Trust is established** — You can safely increase autonomous actions'
+  : ' **Trust building** — Continue asking permission for major actions'}
 
 ${patterns.emotional_context.stress_signals.length > 2
-  ? '⚠️ **Stress detected** — Consider proactive check-ins during busy periods'
-  : '✅ **Low stress** — Good time for creative/experimental work'}
+  ? ' **Stress detected** — Consider proactive check-ins during busy periods'
+  : ' **Low stress** — Good time for creative/experimental work'}
 
-## 🔄 Next Steps
+##  Next Steps
 
 1. Review suggested SOUL.md updates above
 2. Approve or modify as needed
@@ -108,7 +108,7 @@ ${patterns.emotional_context.stress_signals.length > 2
   writeFileSync(reportPath, report);
   
   console.log(report);
-  console.log(`\n📝 Report saved to: ${reportPath}`);
+  console.log(`\n Report saved to: ${reportPath}`);
 }
 
 main();

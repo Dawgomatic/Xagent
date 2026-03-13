@@ -454,9 +454,9 @@ Fetal Development:
 Size: Plum size (about 5-6cm)
 Weight: About 14g
 Important Milestones:
-✅ Organ development mostly complete
-✅ Fingers and toes differentiated
-✅ External genitalia beginning to form
+ Organ development mostly complete
+ Fingers and toes differentiated
+ External genitalia beginning to form
 
 Weight Tracking:
 Pre-pregnancy Weight: 60.0 kg
@@ -473,7 +473,7 @@ Recent Blood Pressure:
 March 20: 115/75 mmHg (normal)
 
 Completed Checkups:
-✅ 12 weeks NT scan - March 25 (normal)
+ 12 weeks NT scan - March 25 (normal)
 
 Next Checkup:
 16 weeks Triple Screen - April 22, 2025

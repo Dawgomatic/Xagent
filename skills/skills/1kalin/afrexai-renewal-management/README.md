@@ -36,4 +36,4 @@ Stop losing revenue to missed renewals and botched negotiations. This skill give
 - [Industry Context Packs](https://afrexai-cto.github.io/context-packs/) — $47/pack with vertical-specific playbooks
 - [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — configure your AI agent stack
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

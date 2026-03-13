@@ -2,7 +2,7 @@
 name: browse
 description: Complete guide for creating and deploying browser automation functions using the stagehand CLI
 homepage: https://browserbase.com
-metadata: {"moltbot":{"emoji":"🌐","requires":{"bins":["stagehand"],"env":["BROWSERBASE_API_KEY","BROWSERBASE_PROJECT_ID"]},"primaryEnv":"BROWSERBASE_API_KEY"}}
+metadata: {"moltbot":{"emoji":"","requires":{"bins":["stagehand"],"env":["BROWSERBASE_API_KEY","BROWSERBASE_PROJECT_ID"]},"primaryEnv":"BROWSERBASE_API_KEY"}}
 ---
 
 # Browser Automation & Functions Skill
@@ -59,7 +59,7 @@ Creates:
 - `index.ts` - Function template
 - `tsconfig.json` - TypeScript config
 
-### Step 3: ⚠️ FIX package.json IMMEDIATELY
+### Step 3:  FIX package.json IMMEDIATELY
 
 **CRITICAL BUG**: `stagehand fn init` generates incomplete `package.json` that causes deployment to fail with "No functions were built."
 
@@ -89,10 +89,10 @@ Creates:
 ```
 
 **Key changes from generated file:**
-- ✅ Add `description` and `main` fields
-- ✅ Add `packageManager` field
-- ✅ Change `"latest"` to pinned versions like `"^0.0.5"`
-- ✅ Add `devDependencies` with TypeScript and types
+-  Add `description` and `main` fields
+-  Add `packageManager` field
+-  Change `"latest"` to pinned versions like `"^0.0.5"`
+-  Add `devDependencies` with TypeScript and types
 
 Then install:
 ```bash
@@ -300,7 +300,7 @@ defineFn("multi-page", async (context) => {
 
 ## Troubleshooting
 
-### 🔴 "No functions were built. Please check your entrypoint and function exports."
+###  "No functions were built. Please check your entrypoint and function exports."
 
 **This is the #1 error!**
 
@@ -353,16 +353,16 @@ pnpm add -g @browserbasehq/sdk-functions
 
 ## Best Practices
 
-1. ✅ **Fix package.json immediately** after `stagehand fn init`
-2. ✅ **Explore interactively first** - Use local browser session to understand site
-3. ✅ **Test manually** - Verify each step works before writing code
-4. ✅ **Test locally** - Use dev server before deploying
-5. ✅ **Return meaningful data** - Include timestamps, counts, URLs
-6. ✅ **Handle errors gracefully** - Try/catch around risky operations
-7. ✅ **Use specific selectors** - Prefer data attributes over CSS classes
-8. ✅ **Add logging** - `console.log()` helps debug deployed functions
-9. ✅ **Validate parameters** - Check `params` before using
-10. ✅ **Set reasonable timeouts** - Don't wait forever
+1.  **Fix package.json immediately** after `stagehand fn init`
+2.  **Explore interactively first** - Use local browser session to understand site
+3.  **Test manually** - Verify each step works before writing code
+4.  **Test locally** - Use dev server before deploying
+5.  **Return meaningful data** - Include timestamps, counts, URLs
+6.  **Handle errors gracefully** - Try/catch around risky operations
+7.  **Use specific selectors** - Prefer data attributes over CSS classes
+8.  **Add logging** - `console.log()` helps debug deployed functions
+9.  **Validate parameters** - Check `params` before using
+10.  **Set reasonable timeouts** - Don't wait forever
 
 ## Quick Checklist
 

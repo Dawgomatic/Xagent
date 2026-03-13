@@ -125,11 +125,11 @@ def _print_task(tl, ts, t, show_notes=True):
             note_id = n.get("id", "")
             id_str = f" (note_id={note_id})" if note_id else ""
             if note_title:
-                print(f"    📝 {note_title}{id_str}")
+                print(f"     {note_title}{id_str}")
                 if body:
                     print(f"    {body}")
             elif body:
-                print(f"    📝 {body}{id_str}")
+                print(f"     {body}{id_str}")
 
 
 def _iter_tasks(rsp):

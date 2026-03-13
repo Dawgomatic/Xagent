@@ -1,7 +1,7 @@
 ---
 name: grepwrapper
 description: Search exact code matches across public GitHub repos using grep.app via the grepwrapper CLI.
-metadata: {"openclaw":{"emoji":"🔎","requires":{"bins":["grepwrapper"],"env":[]},"install":[{"id":"npm","kind":"node","package":"git+https://github.com/riprsa/grepwrapper.git","bins":["grepwrapper"],"label":"Install grepwrapper CLI"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["grepwrapper"],"env":[]},"install":[{"id":"npm","kind":"node","package":"git+https://github.com/riprsa/grepwrapper.git","bins":["grepwrapper"],"label":"Install grepwrapper CLI"}]}}
 ---
 
 # grepwrapper

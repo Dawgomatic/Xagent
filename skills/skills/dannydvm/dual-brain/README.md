@@ -1,4 +1,4 @@
-# 🧠 openclaw-dual-brain
+#  openclaw-dual-brain
 
 **Multi-LLM perspective synthesis for OpenClaw agents.**
 
@@ -15,12 +15,12 @@ Give your AI agents cognitive diversity by automatically generating perspectives
 
 ## Features
 
-✅ **Provider-agnostic** - Supports Ollama (local), Moonshot/Kimi, OpenAI, Groq  
-✅ **Zero agent overhead** - Background daemon, <1s latency  
-✅ **Plug-and-play** - Works with any OpenClaw agent  
-✅ **Engram integration** - Optional semantic memory storage  
-✅ **System service** - Install as launchd (macOS) or systemd (Linux)  
-✅ **Plain JavaScript** - No TypeScript, no build step  
+ **Provider-agnostic** - Supports Ollama (local), Moonshot/Kimi, OpenAI, Groq  
+ **Zero agent overhead** - Background daemon, <1s latency  
+ **Plug-and-play** - Works with any OpenClaw agent  
+ **Engram integration** - Optional semantic memory storage  
+ **System service** - Install as launchd (macOS) or systemd (Linux)  
+ **Plain JavaScript** - No TypeScript, no build step  
 
 ## Architecture
 
@@ -312,7 +312,7 @@ PRs welcome! Please:
 
 ## License
 
-MIT © Danny Veiga
+MIT  Danny Veiga
 
 ## Credits
 

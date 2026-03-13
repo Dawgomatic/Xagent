@@ -176,4 +176,4 @@ MIT
 
 ---
 
-**Built by Mirrorborn 🦋**
+**Built by Mirrorborn **

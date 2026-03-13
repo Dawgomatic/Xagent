@@ -121,7 +121,7 @@ curl -s -X POST \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Compelling Session Title",
-    "description": "🔥 Theme one\n⚡ Theme two\n💡 Theme three",
+    "description": " Theme one\n Theme two\n Theme three",
     "pineconeIds": ["clip_id_1", "clip_id_2"],
     "items": [
       {

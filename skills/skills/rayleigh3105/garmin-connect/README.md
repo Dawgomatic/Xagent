@@ -20,7 +20,7 @@ python3 scripts/garmin-auth.py your-email@gmail.com your-password
 
 This saves your OAuth session to `~/.garth/session.json` (local, secure).
 
-⚠️ **Keep this file safe** — it contains your Garmin OAuth token.
+ **Keep this file safe** — it contains your Garmin OAuth token.
 
 ### 3. Test
 
@@ -57,14 +57,14 @@ sleep_hours = data['sleep']['duration_hours']
 
 ## Features
 
-- ✅ OAuth-based authentication (secure)
-- ✅ Real-time sync every 5 minutes
-- ✅ Sleep quality tracking (duration, deep/REM/light sleep)
-- ✅ Daily activity metrics (steps, HR, calories, distance)
-- ✅ Workout tracking (all activity types)
-- ✅ Body battery monitoring
-- ✅ Local caching (JSON)
-- ✅ Easy Clawdbot integration
+-  OAuth-based authentication (secure)
+-  Real-time sync every 5 minutes
+-  Sleep quality tracking (duration, deep/REM/light sleep)
+-  Daily activity metrics (steps, HR, calories, distance)
+-  Workout tracking (all activity types)
+-  Body battery monitoring
+-  Local caching (JSON)
+-  Easy Clawdbot integration
 
 ## Scripts
 

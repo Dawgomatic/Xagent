@@ -1,7 +1,7 @@
 ---
 name: monday
 description: Manage monday.com boards, items, and workflows via GraphQL API. Create tasks, update statuses, and automate work.
-metadata: {"clawdbot":{"emoji":"📋","requires":{"env":["MONDAY_API_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["MONDAY_API_TOKEN"]}}}
 ---
 
 # Monday.com

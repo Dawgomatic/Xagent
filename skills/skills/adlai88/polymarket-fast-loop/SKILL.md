@@ -2,7 +2,7 @@
 name: polymarket-fast-loop
 displayName: Polymarket FastLoop Trader
 description: Trade Polymarket BTC 5-minute and 15-minute fast markets using CEX price momentum signals via Simmer API. Default signal is Binance BTC/USDT klines. Use when user wants to trade sprint/fast markets, automate short-term crypto trading, or use CEX momentum as a Polymarket signal.
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"env":["SIMMER_API_KEY"],"pip":["simmer-sdk"]},"cron":null,"autostart":false}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SIMMER_API_KEY"],"pip":["simmer-sdk"]},"cron":null,"autostart":false}}
 authors:
   - Simmer (@simmer_markets)
 version: "1.0.10"
@@ -17,7 +17,7 @@ Trade Polymarket's 5-minute crypto fast markets using real-time price signals. D
 
 > **This is a template.** The default signal (Binance momentum) gets you started — remix it with your own signals, data sources, or strategy. The skill handles all the plumbing (market discovery, import, trade execution). Your agent provides the alpha.
 
-> ⚠️ Fast markets carry Polymarket's 10% fee (`is_paid: true`). Factor this into your edge calculations.
+>  Fast markets carry Polymarket's 10% fee (`is_paid: true`). Factor this into your edge calculations.
 
 ## How It Finds Markets
 
@@ -179,12 +179,12 @@ To customize, edit `get_momentum()` in `fastloop_trader.py` or add your own sign
 ## Example Output
 
 ```
-⚡ Simmer FastLoop Trading Skill
+ Simmer FastLoop Trading Skill
 ==================================================
 
   [DRY RUN] No trades will be executed. Use --live to enable trading.
 
-⚙️  Configuration:
+  Configuration:
   Asset:            BTC
   Entry threshold:  0.05 (min divergence from 50¢)
   Min momentum:     0.5% (min price move)
@@ -194,23 +194,23 @@ To customize, edit `get_momentum()` in `fastloop_trader.py` or add your own sign
   Min time left:    60s
   Volume weighting: ✓
 
-🔍 Discovering BTC fast markets...
+ Discovering BTC fast markets...
   Found 3 active fast markets
 
-🎯 Selected: Bitcoin Up or Down - February 15, 5:30AM-5:35AM ET
+ Selected: Bitcoin Up or Down - February 15, 5:30AM-5:35AM ET
   Expires in: 185s
   Current YES price: $0.480
 
-📈 Fetching BTC price signal (binance)...
+ Fetching BTC price signal (binance)...
   Price: $97,234.50 (was $96,812.30)
   Momentum: +0.436%
   Direction: up
   Volume ratio: 1.45x avg
 
-🧠 Analyzing...
-  ⏸️  Momentum 0.436% < minimum 0.500% — skip
+ Analyzing...
+    Momentum 0.436% < minimum 0.500% — skip
 
-📊 Summary: No trade (momentum too weak: 0.436%)
+ Summary: No trade (momentum too weak: 0.436%)
 ```
 
 ## Source Tagging

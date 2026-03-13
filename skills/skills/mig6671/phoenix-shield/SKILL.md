@@ -3,7 +3,7 @@ name: phoenix-shield
 description: Self-healing backup and update system with intelligent rollback. Protects against failed updates by automatically monitoring system health post-update and recovering from backups when needed. Features canary deployment testing, health baselines, smart rollback, and 24/7 automated monitoring. Use when performing critical system updates, managing production deployments, or ensuring high availability of services. Prevents downtime through pre-flight checks, integrity verification, and automatic recovery workflows.
 ---
 
-# PhoenixShield 🔥🛡️
+# PhoenixShield 
 
 > *"Like the Phoenix, your system rises from its own backup"*
 
@@ -16,11 +16,11 @@ Self-healing backup and update system with intelligent rollback capabilities.
 **Solution:** PhoenixShield provides a complete safety net with automatic rollback when things go wrong.
 
 **Benefits:**
-- 🔄 **Automatic Recovery** - Self-heals when updates fail
-- 🧪 **Canary Testing** - Test updates before production
-- 📊 **Health Monitoring** - 24h post-update monitoring
-- ⚡ **Smart Rollback** - Only revert changed components
-- 🛡️ **Zero-Downtime** - Graceful degradation when possible
+-  **Automatic Recovery** - Self-heals when updates fail
+-  **Canary Testing** - Test updates before production
+-  **Health Monitoring** - 24h post-update monitoring
+-  **Smart Rollback** - Only revert changed components
+-  **Zero-Downtime** - Graceful degradation when possible
 
 ---
 
@@ -66,11 +66,11 @@ phoenix-shield preflight
 ```
 
 **Checks:**
-- ✅ Disk space available
-- ✅ No critical processes running
-- ✅ Backup storage accessible
-- ✅ Network connectivity
-- ✅ Service health baseline
+-  Disk space available
+-  No critical processes running
+-  Backup storage accessible
+-  Network connectivity
+-  Service health baseline
 
 ### 2. Intelligent Backup
 
@@ -364,7 +364,7 @@ MIT License - Free for personal and commercial use.
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **ClawHub:** https://clawhub.com/skills/phoenix-shield
 - **GitHub:** https://github.com/mig6671/phoenix-shield
@@ -373,7 +373,7 @@ MIT License - Free for personal and commercial use.
 
 ---
 
-**Like the Phoenix, your system rises from backup 🔥🛡️**
+**Like the Phoenix, your system rises from backup **
 
 ---
 

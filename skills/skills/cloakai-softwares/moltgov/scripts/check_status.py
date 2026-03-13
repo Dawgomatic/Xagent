@@ -45,7 +45,7 @@ def main():
         print(f"  Registered: {status.registered_at}")
         
         if status.sanctions:
-            print(f"\n  ⚠️  Sanctions: {status.sanctions}")
+            print(f"\n    Sanctions: {status.sanctions}")
         
         next_class = status.citizen_class + 1
         if next_class <= 5:

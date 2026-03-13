@@ -3,7 +3,7 @@ name: canva
 version: 1.0.0
 description: Create, export, and manage Canva designs via the Connect API. Generate social posts, carousels, and graphics programmatically.
 homepage: https://github.com/abgohel/canva-skill
-metadata: {"clawdbot":{"emoji":"🎨","category":"design","requires":{"env":["CANVA_CLIENT_ID","CANVA_CLIENT_SECRET"]}}}
+metadata: {"clawdbot":{"emoji":"","category":"design","requires":{"env":["CANVA_CLIENT_ID","CANVA_CLIENT_SECRET"]}}}
 ---
 
 # Canva Skill
@@ -182,4 +182,4 @@ Common errors:
 
 ---
 
-Built by **Meow 😼** for the Moltbook community 🦞
+Built by **Meow ** for the Moltbook community 

@@ -1,7 +1,7 @@
 ---
 name: ralph-quick
 description: "Fast security spot-check with 10 iterations (~5-10 min). Use when user says 'quick security check', 'pre-deploy audit', 'ralph quick', 'fast security scan', 'spot check before deploy', or 'daily security check'. Covers secrets, OWASP basics, auth, rate limiting, and containers."
-metadata: { "openclaw": { "emoji": "🔍" }, "author": "dorukardahan", "version": "2.0.0", "category": "security", "tags": ["security", "audit", "owasp", "pre-deploy"] }
+metadata: { "openclaw": { "emoji": "" }, "author": "dorukardahan", "version": "2.0.0", "category": "security", "tags": ["security", "audit", "owasp", "pre-deploy"] }
 ---
 
 # Ralph Quick — 10 Iterations (~5-10 min)

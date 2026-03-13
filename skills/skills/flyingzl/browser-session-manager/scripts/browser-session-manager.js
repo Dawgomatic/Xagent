@@ -18,7 +18,7 @@ async function applySessionData(url, sessionJsonPath, options = {}) {
   // Read session data
   const sessionData = JSON.parse(fs.readFileSync(sessionJsonPath, 'utf8'));
   
-  console.log('🌐 启动浏览器...');
+  console.log(' 启动浏览器...');
   const browser = await chromium.launch({
     headless,
     args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -32,7 +32,7 @@ async function applySessionData(url, sessionJsonPath, options = {}) {
 
   // Apply cookies if present
   if (sessionData.cookies && sessionData.cookies.length > 0) {
-    console.log(`🍪 设置 ${sessionData.cookies.length} 个 cookies...`);
+    console.log(` 设置 ${sessionData.cookies.length} 个 cookies...`);
     
     // Group cookies by domain for proper setting
     const cookiesByDomain = {};
@@ -92,12 +92,12 @@ async function applySessionData(url, sessionJsonPath, options = {}) {
   }
 
   // Navigate to target URL
-  console.log(`🔗 访问目标页面: ${url}`);
+  console.log(` 访问目标页面: ${url}`);
   await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
 
   // Apply localStorage if present
   if (sessionData.localStorage && Object.keys(sessionData.localStorage).length > 0) {
-    console.log(`💾 设置 ${Object.keys(sessionData.localStorage).length} 个 localStorage 项...`);
+    console.log(` 设置 ${Object.keys(sessionData.localStorage).length} 个 localStorage 项...`);
     await page.evaluate((data) => {
       for (const [key, value] of Object.entries(data)) {
         try {
@@ -111,7 +111,7 @@ async function applySessionData(url, sessionJsonPath, options = {}) {
 
   // Apply sessionStorage if present
   if (sessionData.sessionStorage && Object.keys(sessionData.sessionStorage).length > 0) {
-    console.log(`📦 设置 ${Object.keys(sessionData.sessionStorage).length} 个 sessionStorage 项...`);
+    console.log(` 设置 ${Object.keys(sessionData.sessionStorage).length} 个 sessionStorage 项...`);
     await page.evaluate((data) => {
       for (const [key, value] of Object.entries(data)) {
         try {
@@ -124,18 +124,18 @@ async function applySessionData(url, sessionJsonPath, options = {}) {
   }
 
   // Reload page to apply storage changes
-  console.log('🔄 刷新页面以应用存储数据...');
+  console.log(' 刷新页面以应用存储数据...');
   await page.reload({ waitUntil: 'networkidle' });
 
   // Wait for specified time
   if (waitTime > 0) {
-    console.log(`⏱️  等待 ${waitTime}ms...`);
+    console.log(`  等待 ${waitTime}ms...`);
     await page.waitForTimeout(waitTime);
   }
 
   // Execute custom actions if provided
   for (const action of actions) {
-    console.log(`🎬 执行动作: ${action.type}`);
+    console.log(` 执行动作: ${action.type}`);
     switch (action.type) {
       case 'click':
         await page.click(action.selector);
@@ -149,7 +149,7 @@ async function applySessionData(url, sessionJsonPath, options = {}) {
       case 'screenshot':
         const ssPath = action.path || '/tmp/screenshot.png';
         await page.screenshot({ path: ssPath, fullPage: action.fullPage || false });
-        console.log(`📸 截图已保存: ${ssPath}`);
+        console.log(` 截图已保存: ${ssPath}`);
         break;
     }
   }
@@ -157,7 +157,7 @@ async function applySessionData(url, sessionJsonPath, options = {}) {
   // Take final screenshot if requested
   if (screenshotPath) {
     await page.screenshot({ path: screenshotPath, fullPage: false });
-    console.log(`📸 截图已保存: ${screenshotPath}`);
+    console.log(` 截图已保存: ${screenshotPath}`);
   }
 
   // Get page info
@@ -184,7 +184,7 @@ async function applySessionData(url, sessionJsonPath, options = {}) {
   };
 
   await browser.close();
-  console.log('✅ 浏览器已关闭');
+  console.log(' 浏览器已关闭');
 
   return pageInfo;
 }
@@ -206,7 +206,7 @@ if (require.main === module) {
 
   applySessionData(url, sessionJsonPath, { screenshotPath })
     .then(info => {
-      console.log('\n📊 页面信息:');
+      console.log('\n 页面信息:');
       console.log(`  标题: ${info.title}`);
       console.log(`  URL: ${info.url}`);
       console.log(`  Cookies: ${info.cookies.length} 个`);
@@ -214,7 +214,7 @@ if (require.main === module) {
       console.log(`  sessionStorage: ${Object.keys(info.sessionStorage).length} 项`);
     })
     .catch(err => {
-      console.error('❌ 错误:', err.message);
+      console.error(' 错误:', err.message);
       process.exit(1);
     });
 }

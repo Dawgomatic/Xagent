@@ -10,11 +10,11 @@ Generate images using Krea.ai's API with support for multiple models including F
 
 ## Features
 
-- ✅ Async job-based generation (POST → poll → result)
-- ✅ Support for multiple image models
-- ✅ Configurable parameters (width, height, steps, guidance, seed)
-- ✅ Stdlib-only dependencies (no `requests` required)
-- ✅ Secure credential handling with file permissions
+-  Async job-based generation (POST → poll → result)
+-  Support for multiple image models
+-  Configurable parameters (width, height, steps, guidance, seed)
+-  Stdlib-only dependencies (no `requests` required)
+-  Secure credential handling with file permissions
 
 ## Security
 

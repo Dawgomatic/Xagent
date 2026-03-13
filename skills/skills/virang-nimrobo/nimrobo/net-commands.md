@@ -131,21 +131,21 @@ nimrobo net my summary
 
 **Example output:**
 ```
-📬 Unread messages: 5
+ Unread messages: 5
    Channel ch_abc: 3 unread
    Channel ch_def: 2 unread
 
-📋 Pending applicants: 12
+ Pending applicants: 12
    Senior Developer: 8 pending
    Designer: 4 pending
 
-📝 My applications:
+ My applications:
    Pending: 3
    Accepted: 2
    Rejected: 1
 
-📨 Org invites: 1
-📤 Join requests to review: 2
+ Org invites: 1
+ Join requests to review: 2
 ```
 
 ---

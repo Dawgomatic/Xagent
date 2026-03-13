@@ -1,4 +1,4 @@
-# 🦀 PinchBench
+#  PinchBench
 
 **Real-world benchmarks for AI coding agents**
 
@@ -104,4 +104,4 @@ MIT — see [LICENSE](LICENSE) for details.
 
 ---
 
-*Claw-some AI agent testing* 🦞
+*Claw-some AI agent testing* 

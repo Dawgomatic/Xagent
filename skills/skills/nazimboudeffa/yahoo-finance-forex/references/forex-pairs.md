@@ -16,7 +16,7 @@ Complete reference for the 7 major currency pairs supported by this skill.
 
 ## Detailed Pair Information
 
-### EUR/USD (Euro Dollar) 🇪🇺🇺🇸
+### EUR/USD (Euro Dollar) 
 
 **Most Traded Pair in the World**
 - **Trading Volume:** ~28% of global FOREX volume
@@ -38,7 +38,7 @@ Complete reference for the 7 major currency pairs supported by this skill.
 - Responds strongly to monetary policy
 - Affected by geopolitical events in Europe
 
-### GBP/USD (Cable) 🇬🇧🇺🇸
+### GBP/USD (Cable) 
 
 **The Pound Sterling vs US Dollar**
 - **Trading Volume:** ~13% of global FOREX volume
@@ -60,7 +60,7 @@ Complete reference for the 7 major currency pairs supported by this skill.
 - Sensitive to UK political events
 - Strong intraday trends
 
-### USD/JPY (Dollar Yen) 🇺🇸🇯🇵
+### USD/JPY (Dollar Yen) 
 
 **The Dollar vs Japanese Yen**
 - **Trading Volume:** ~17% of global FOREX volume
@@ -82,7 +82,7 @@ Complete reference for the 7 major currency pairs supported by this skill.
 - Carry trade favorite (when JPY rates are low)
 - Smooth, trending moves
 
-### USD/CHF (Swissy) 🇺🇸🇨🇭
+### USD/CHF (Swissy) 
 
 **The Dollar vs Swiss Franc**
 - **Trading Volume:** ~4% of global FOREX volume
@@ -104,7 +104,7 @@ Complete reference for the 7 major currency pairs supported by this skill.
 - Moves opposite to EUR/USD often
 - SNB occasionally intervenes
 
-### AUD/USD (Aussie) 🇦🇺🇺🇸
+### AUD/USD (Aussie) 
 
 **The Australian Dollar vs US Dollar**
 - **Trading Volume:** ~5% of global FOREX volume
@@ -126,7 +126,7 @@ Complete reference for the 7 major currency pairs supported by this skill.
 - High correlation with gold and commodities
 - Sensitive to China's economy
 
-### USD/CAD (Loonie) 🇺🇸🇨🇦
+### USD/CAD (Loonie) 
 
 **The Dollar vs Canadian Dollar**
 - **Trading Volume:** ~4% of global FOREX volume
@@ -148,7 +148,7 @@ Complete reference for the 7 major currency pairs supported by this skill.
 - Closely tied to US economy
 - Lower volatility than other commodity currencies
 
-### NZD/USD (Kiwi) 🇳🇿🇺🇸
+### NZD/USD (Kiwi) 
 
 **The New Zealand Dollar vs US Dollar**
 - **Trading Volume:** ~2% of global FOREX volume

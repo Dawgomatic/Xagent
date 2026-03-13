@@ -50,7 +50,7 @@ tmx search <query> [options]
 | `plan show` | Display current week plan |
 | `plan sync` | Sync plan from Cookidoo servers |
 | `plan add <id> <day>` | Add recipe to day (mon/tue/wed/thu/fri/sat/sun) |
-| `plan remove <id> <day>` | Remove recipe from day ⚠️ |
+| `plan remove <id> <day>` | Remove recipe from day  |
 | `plan move <id> <from> <to>` | Move recipe between days |
 
 ---
@@ -64,7 +64,7 @@ tmx search <query> [options]
 | `shopping add <recipe_id>` | Add recipe ingredients to list |
 | `shopping add-item "<name>" "<amount>"` | Add custom item (no recipe) |
 | `shopping remove <recipe_id>` | Remove recipe ingredients |
-| `shopping clear` | Clear entire list ⚠️ |
+| `shopping clear` | Clear entire list  |
 | `shopping export [--format md\|json]` | Export list (default: markdown) |
 
 ---

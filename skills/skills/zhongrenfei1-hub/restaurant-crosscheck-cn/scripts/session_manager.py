@@ -66,7 +66,7 @@ class BrowserSessionManager:
         elapsed = time.time() - last_login
         if elapsed > self.session_expiry:
             hours = elapsed / 3600
-            print(f"  ⚠️ {platform} 会话已过期（{hours:.0f}小时前登录）")
+            print(f"   {platform} 会话已过期（{hours:.0f}小时前登录）")
             ps["logged_in"] = False
             self.save_state(state)
             return False
@@ -83,13 +83,13 @@ class BrowserSessionManager:
         }
 
         if platform not in platforms:
-            print(f"❌ 未知平台: {platform}，支持: {', '.join(platforms.keys())}")
+            print(f" 未知平台: {platform}，支持: {', '.join(platforms.keys())}")
             return False
 
         name, url, session_dir = platforms[platform]
 
         print(f"\n{'=' * 50}")
-        print(f"🔐 登录{name}")
+        print(f" 登录{name}")
         print(f"{'=' * 50}")
         print(f"1. 浏览器会自动打开 {name}")
         print(f"2. 请手动登录（手机号或微信扫码）")
@@ -103,18 +103,18 @@ class BrowserSessionManager:
                 )
                 page = ctx.pages[0] if ctx.pages else ctx.new_page()
                 page.goto(url, timeout=30000)
-                input(f"✅ 登录{name}后按回车保存会话...")
+                input(f" 登录{name}后按回车保存会话...")
                 ctx.close()
 
             # 标记已登录
             state = self.load_state()
             state[platform] = {"logged_in": True, "last_login": time.time()}
             self.save_state(state)
-            print(f"💾 {name}会话已保存\n")
+            print(f" {name}会话已保存\n")
             return True
 
         except Exception as e:
-            print(f"❌ 登录失败: {e}")
+            print(f" 登录失败: {e}")
             return False
 
     def ensure_session(self, platform: str):
@@ -132,7 +132,7 @@ class BrowserSessionManager:
                 d.mkdir(parents=True)
         if self.state_file.exists():
             self.state_file.unlink()
-        print("✅ 所有会话已重置")
+        print(" 所有会话已重置")
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -157,7 +157,7 @@ def main():
 
     # 交互模式
     print("=" * 50)
-    print("🚀 浏览器会话管理器")
+    print(" 浏览器会话管理器")
     print("=" * 50)
     print()
 
@@ -165,13 +165,13 @@ def main():
     dp_ok = state.get("dianping", {}).get("logged_in", False)
     xhs_ok = state.get("xiaohongshu", {}).get("logged_in", False)
 
-    print(f"  大众点评: {'✅ 已登录' if dp_ok else '❌ 未登录'}")
-    print(f"  小红书:   {'✅ 已登录' if xhs_ok else '❌ 未登录'}")
+    print(f"  大众点评: {' 已登录' if dp_ok else ' 未登录'}")
+    print(f"  小红书:   {' 已登录' if xhs_ok else ' 未登录'}")
     print()
 
     if dp_ok and xhs_ok:
-        print("✅ 所有平台已配置完成！")
-        print("💡 如需重置: python3 session_manager.py --reset")
+        print(" 所有平台已配置完成！")
+        print(" 如需重置: python3 session_manager.py --reset")
         return
 
     print("用法:")

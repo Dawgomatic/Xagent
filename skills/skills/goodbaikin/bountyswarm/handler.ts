@@ -51,7 +51,7 @@ export async function bountyCreate(
 ): Promise<CommandResult> {
   try {
     const data = await apiCall(ctx, "POST", "/api/bounty", params);
-    ctx.log(`✅ Bounty #${data.bountyId} created (tx: ${data.txHash})`);
+    ctx.log(` Bounty #${data.bountyId} created (tx: ${data.txHash})`);
     return { success: true, data };
   } catch (err: any) {
     return { success: false, error: err.message };
@@ -61,7 +61,7 @@ export async function bountyCreate(
 export async function bountyList(ctx: SkillContext): Promise<CommandResult> {
   try {
     const data = await apiCall(ctx, "GET", "/api/bounties");
-    ctx.log(`📋 Found ${data.total} open bounties`);
+    ctx.log(` Found ${data.total} open bounties`);
     return { success: true, data };
   } catch (err: any) {
     return { success: false, error: err.message };
@@ -78,7 +78,7 @@ export async function bountySubmit(
 ): Promise<CommandResult> {
   try {
     const data = await apiCall(ctx, "POST", "/api/submit", params);
-    ctx.log(`✅ Solution submitted to bounty #${params.bountyId} (tx: ${data.txHash})`);
+    ctx.log(` Solution submitted to bounty #${params.bountyId} (tx: ${data.txHash})`);
     return { success: true, data };
   } catch (err: any) {
     return { success: false, error: err.message };
@@ -94,7 +94,7 @@ export async function bountyPick(
 ): Promise<CommandResult> {
   try {
     const data = await apiCall(ctx, "POST", "/api/pick-winner", params);
-    ctx.log(`🏆 Winner selected for bounty #${params.bountyId}: ${params.winner} (tx: ${data.txHash})`);
+    ctx.log(` Winner selected for bounty #${params.bountyId}: ${params.winner} (tx: ${data.txHash})`);
     return { success: true, data };
   } catch (err: any) {
     return { success: false, error: err.message };
@@ -113,7 +113,7 @@ export async function bountySubcontract(
   try {
     const data = await apiCall(ctx, "POST", "/api/subcontract", params);
     ctx.log(
-      `🤝 Delegation #${data.delegationId} created → ${params.subAgent} (${params.feePercent / 100}% fee, tx: ${data.txHash})`
+      ` Delegation #${data.delegationId} created → ${params.subAgent} (${params.feePercent / 100}% fee, tx: ${data.txHash})`
     );
     return { success: true, data };
   } catch (err: any) {

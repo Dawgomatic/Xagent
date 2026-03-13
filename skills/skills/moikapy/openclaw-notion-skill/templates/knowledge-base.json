@@ -1,7 +1,7 @@
 {
   "name": "Knowledge Base",
   "description": "Living wiki for SOPs, troubleshooting, and reference materials",
-  "icon": "📚",
+  "icon": "",
   "properties": {
     "Title": {
       "type": "title",

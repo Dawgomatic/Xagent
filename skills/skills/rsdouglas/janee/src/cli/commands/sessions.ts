@@ -65,9 +65,9 @@ export async function sessionsCommand(): Promise<void> {
 
   } catch (error) {
     if (error instanceof Error) {
-      console.error('❌ Error:', error.message);
+      console.error(' Error:', error.message);
     } else {
-      console.error('❌ Unknown error occurred');
+      console.error(' Unknown error occurred');
     }
     process.exit(1);
   }

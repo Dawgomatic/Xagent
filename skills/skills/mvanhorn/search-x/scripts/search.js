@@ -104,7 +104,7 @@ function buildXApiQuery(options) {
 async function searchXNative(options) {
   const bearerToken = getApiKey('x');
   if (!bearerToken) {
-    console.error('❌ No X API Bearer Token found.');
+    console.error(' No X API Bearer Token found.');
     console.error('   Set X_BEARER_TOKEN environment variable.');
     console.error('   Get your token at: https://console.x.com');
     process.exit(1);
@@ -137,7 +137,7 @@ async function searchXNative(options) {
       
       res.on('end', () => {
         if (res.statusCode !== 200) {
-          console.error(`❌ X API Error (${res.statusCode}):`, data.slice(0, 500));
+          console.error(` X API Error (${res.statusCode}):`, data.slice(0, 500));
           process.exit(1);
         }
         
@@ -179,11 +179,11 @@ async function searchXNative(options) {
             if (!options.linksOnly) {
               const date = tweet.created_at ? new Date(tweet.created_at).toLocaleDateString() : '';
               const metrics = tweet.public_metrics || {};
-              const engagement = metrics.like_count ? ` (❤️ ${metrics.like_count})` : '';
+              const engagement = metrics.like_count ? ` ( ${metrics.like_count})` : '';
               
               lines.push(`**@${user.username}** (${user.name}) — ${date}${engagement}`);
               lines.push(tweet.text);
-              lines.push(`🔗 ${url}`);
+              lines.push(` ${url}`);
               lines.push('');
             }
           }
@@ -199,19 +199,19 @@ async function searchXNative(options) {
           console.log(lines.join('\n'));
           
           if (!options.compact) {
-            console.log(`\n📊 Found ${tweets.length} tweets via X API`);
+            console.log(`\n Found ${tweets.length} tweets via X API`);
           }
           
           resolve({ text: lines.join('\n'), citations });
         } catch (e) {
-          console.error('❌ Failed to parse response:', e.message);
+          console.error(' Failed to parse response:', e.message);
           process.exit(1);
         }
       });
     });
     
     req.on('error', (e) => {
-      console.error('❌ Request failed:', e.message);
+      console.error(' Request failed:', e.message);
       process.exit(1);
     });
     
@@ -254,11 +254,11 @@ function extractContent(response) {
 async function searchXGrok(options) {
   const apiKey = getApiKey('xai');
   if (!apiKey) {
-    console.error('❌ No xAI API key found.');
+    console.error(' No xAI API key found.');
     console.error('   Set XAI_API_KEY or run: clawdbot config set skills.entries.search-x.apiKey "xai-YOUR-KEY"');
     console.error('   Get your key at: https://console.x.ai');
     console.error('');
-    console.error('   💡 Alternatively, use --x-api flag with X_BEARER_TOKEN for native X API search.');
+    console.error('    Alternatively, use --x-api flag with X_BEARER_TOKEN for native X API search.');
     process.exit(1);
   }
   
@@ -315,7 +315,7 @@ Only include REAL posts. If none found, say so clearly.`,
       
       res.on('end', () => {
         if (res.statusCode !== 200) {
-          console.error(`❌ API Error (${res.statusCode}):`, data.slice(0, 500));
+          console.error(` API Error (${res.statusCode}):`, data.slice(0, 500));
           process.exit(1);
         }
         
@@ -347,7 +347,7 @@ Only include REAL posts. If none found, say so clearly.`,
           }
           
           if (!options.compact && citations.length > 0) {
-            console.log('\n📎 Citations (' + citations.length + '):');
+            console.log('\n Citations (' + citations.length + '):');
             citations.slice(0, 10).forEach(url => console.log('   ' + url));
             if (citations.length > 10) {
               console.log(`   ... and ${citations.length - 10} more`);
@@ -356,14 +356,14 @@ Only include REAL posts. If none found, say so clearly.`,
           
           resolve({ text, citations });
         } catch (e) {
-          console.error('❌ Failed to parse response:', e.message);
+          console.error(' Failed to parse response:', e.message);
           process.exit(1);
         }
       });
     });
     
     req.on('error', (e) => {
-      console.error('❌ Request failed:', e.message);
+      console.error(' Request failed:', e.message);
       process.exit(1);
     });
     
@@ -378,7 +378,7 @@ const args = process.argv.slice(2);
 
 if (args.length === 0 || args.includes('--help')) {
   console.log(`
-🔍 Search X — Real-time Twitter/X search
+ Search X — Real-time Twitter/X search
 
 Two modes:
   1. xAI Grok (default) - Uses x_search tool, up to 30 days, requires XAI_API_KEY
@@ -417,20 +417,20 @@ Examples:
 const options = parseArgs(args);
 
 if (!options.query) {
-  console.error('❌ Please provide a search query');
+  console.error(' Please provide a search query');
   process.exit(1);
 }
 
 // Adjust days for X API (max 7)
 if (options.useXApi && options.days > 7) {
-  console.error(`⚠️  X API only supports 7-day lookback (requested ${options.days}), using 7 days.\n`);
+  console.error(`  X API only supports 7-day lookback (requested ${options.days}), using 7 days.\n`);
   options.days = 7;
 }
 
 // Show search params
 if (!options.json && !options.linksOnly) {
   const mode = options.useXApi ? 'X API' : 'xAI Grok';
-  console.error(`🔍 Searching X via ${mode}: "${options.query}" (last ${options.days} days)...\n`);
+  console.error(` Searching X via ${mode}: "${options.query}" (last ${options.days} days)...\n`);
 }
 
 // Run search

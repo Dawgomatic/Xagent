@@ -32,14 +32,14 @@ if (!date || !time || !service || !customer) {
 // Load config
 const CONFIG_FILE = path.join(process.env.HOME, '.openclaw', 'workspace', 'config', 'appointment-scheduler.json');
 if (!fs.existsSync(CONFIG_FILE)) {
-  console.error('❌ Config not found. Run init-config.js first.');
+  console.error(' Config not found. Run init-config.js first.');
   process.exit(1);
 }
 const config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
 
 // Check if service exists
 if (!config.services[service]) {
-  console.error(`❌ Unknown service: ${service}`);
+  console.error(` Unknown service: ${service}`);
   console.error('Available services:', Object.keys(config.services).join(', '));
   process.exit(1);
 }
@@ -71,9 +71,9 @@ const conflict = bookings.find(b => {
 });
 
 if (conflict) {
-  console.error('❌ Conflict detected with existing booking:');
+  console.error(' Conflict detected with existing booking:');
   console.error(JSON.stringify(conflict, null, 2));
-  console.error('\n💡 Suggestion: Add to waitlist or choose different time');
+  console.error('\n Suggestion: Add to waitlist or choose different time');
   process.exit(2);
 }
 
@@ -104,7 +104,7 @@ bookings.sort((a, b) => a.time.localeCompare(b.time));
 // Save
 fs.writeFileSync(dailyFile, JSON.stringify(bookings, null, 2));
 
-console.log('✅ Booking created:');
+console.log(' Booking created:');
 console.log(JSON.stringify(booking, null, 2));
 
 // Log event

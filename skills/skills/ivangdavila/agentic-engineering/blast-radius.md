@@ -13,15 +13,15 @@ Think before every prompt. Develop intuition.
 
 | Prompt Type | Files | Time | Radius |
 |-------------|-------|------|--------|
-| "Fix this typo" | 1 | 30s | 🟢 Tiny |
-| "Add loading state to button" | 1-2 | 2min | 🟢 Small |
-| "Create new API endpoint" | 3-5 | 5min | 🟡 Medium |
-| "Refactor auth system" | 10-20 | 30min | 🔴 Large |
-| "Migrate to new framework" | 50+ | hours | 💀 Massive |
+| "Fix this typo" | 1 | 30s |  Tiny |
+| "Add loading state to button" | 1-2 | 2min |  Small |
+| "Create new API endpoint" | 3-5 | 5min |  Medium |
+| "Refactor auth system" | 10-20 | 30min |  Large |
+| "Migrate to new framework" | 50+ | hours |  Massive |
 
 ## Strategy by Radius
 
-### 🟢 Small Radius
+###  Small Radius
 Run multiple in parallel. Low risk.
 ```
 Agent 1: Fix button styling
@@ -29,14 +29,14 @@ Agent 2: Update error messages
 Agent 3: Add loading spinners
 ```
 
-### 🟡 Medium Radius
+###  Medium Radius
 Run 1-2 focused agents. Monitor progress.
 ```
 Agent 1: New API endpoint (main work)
 Agent 2: Small unrelated fixes
 ```
 
-### 🔴 Large Radius
+###  Large Radius
 One agent, full attention. Stop and steer often.
 ```
 "Give me options before making changes"
@@ -44,7 +44,7 @@ One agent, full attention. Stop and steer often.
 "Let's discuss first"
 ```
 
-### 💀 Massive Radius
+###  Massive Radius
 Break into phases. Checkpoint frequently.
 ```
 Phase 1: Create migration plan
@@ -77,13 +77,13 @@ Don't let agents run wild on large changes.
 
 Watch for prompts that grow scope:
 ```
-❌ "While you're at it, also refactor X"
-❌ "And update all the tests too"
-❌ "Fix any other issues you see"
+ "While you're at it, also refactor X"
+ "And update all the tests too"
+ "Fix any other issues you see"
 
-✅ "Just the button styling, nothing else"
-✅ "Only this one endpoint"
-✅ "Keep scope minimal"
+ "Just the button styling, nothing else"
+ "Only this one endpoint"
+ "Keep scope minimal"
 ```
 
 Tight scope = predictable blast radius.

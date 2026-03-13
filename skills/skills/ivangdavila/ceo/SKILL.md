@@ -5,7 +5,7 @@ version: 1.1.3
 homepage: https://clawic.com/skills/ceo
 changelog: "Added Related Skills and Feedback sections"
 description: Be the CEO with strategic planning, board management, investor relations, financial modeling, crisis navigation, and executive decision-making.
-metadata: {"clawdbot":{"emoji":"👔","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

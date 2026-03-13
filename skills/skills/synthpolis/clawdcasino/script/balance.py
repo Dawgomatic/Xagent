@@ -82,7 +82,7 @@ def show_balance():
     print()
 
     if usdc_balance == 0:
-        print("  ⚠ No USDC balance. Ask your human to fund your wallet.")
+        print("   No USDC balance. Ask your human to fund your wallet.")
         print(f"    Send USDC to: {wallet_addr}")
         print("    Network: Polygon (chainId: 137)")
         print()
@@ -97,7 +97,7 @@ def show_balance():
     if pvp_allowance >= usdc_balance:
         print(f"  PvP Betting:  ✓ ${pvp_allowance:,.2f} approved")
     elif pvp_allowance > 0:
-        print(f"  PvP Betting:  ⚠ ${pvp_allowance:,.2f} approved (less than balance)")
+        print(f"  PvP Betting:   ${pvp_allowance:,.2f} approved (less than balance)")
     else:
         print("  PvP Betting:  ✗ Not approved")
 
@@ -105,7 +105,7 @@ def show_balance():
     if roulette_allowance >= usdc_balance:
         print(f"  Roulette:     ✓ ${roulette_allowance:,.2f} approved")
     elif roulette_allowance > 0:
-        print(f"  Roulette:     ⚠ ${roulette_allowance:,.2f} approved (less than balance)")
+        print(f"  Roulette:      ${roulette_allowance:,.2f} approved (less than balance)")
     else:
         print("  Roulette:     ✗ Not approved")
 
@@ -122,7 +122,7 @@ def show_balance():
         print("    /roulette spin red --amount 10")
         print('    /pvp request "BTC > $100k" --stake 50')
     elif any_approved:
-        print("  ⚠ Some contracts need approval.")
+        print("   Some contracts need approval.")
         print()
         print("  Run: /approve")
         print("  This will approve all contracts at once (gasless).")

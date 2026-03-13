@@ -1,4 +1,4 @@
-# 🎧 CS Auto-Responder
+#  CS Auto-Responder
 
 고객사용 CS 자동응답 스킬. 멀티채널 고객 문의를 수신하고, FAQ 기반 자동 응답, 에스컬레이션, 일일 요약을 제공합니다.
 

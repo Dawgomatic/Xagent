@@ -26,7 +26,7 @@ def authenticate():
     
     # Check if credentials.json exists
     if not os.path.exists(credentials_path):
-        print(f"❌ Error: credentials.json not found at {credentials_path}")
+        print(f" Error: credentials.json not found at {credentials_path}")
         print("Please place your OAuth credentials file there first.")
         sys.exit(1)
     
@@ -41,9 +41,9 @@ def authenticate():
             print("Token expired, refreshing...")
             try:
                 creds.refresh(Request())
-                print("✅ Token refreshed successfully!")
+                print(" Token refreshed successfully!")
             except Exception as e:
-                print(f"⚠️  Failed to refresh token: {e}")
+                print(f"  Failed to refresh token: {e}")
                 print("Starting new authentication flow...")
                 creds = None
         
@@ -52,21 +52,21 @@ def authenticate():
             print("A browser window will open. Please log in and authorize access.")
             flow = InstalledAppFlow.from_client_secrets_file(credentials_path, SCOPES)
             creds = flow.run_local_server(port=0)
-            print("✅ Authentication successful!")
+            print(" Authentication successful!")
         
         # Save credentials for future use
         with open(token_path, 'w') as token:
             token.write(creds.to_json())
-        print(f"✅ Token saved to {token_path}")
+        print(f" Token saved to {token_path}")
     else:
-        print("✅ Valid token already exists!")
+        print(" Valid token already exists!")
     
     return creds
 
 if __name__ == '__main__':
     try:
         authenticate()
-        print("\n✨ You can now use the bash scripts to manage your tasks!")
+        print("\n You can now use the bash scripts to manage your tasks!")
     except Exception as e:
-        print(f"\n❌ Authentication failed: {e}")
+        print(f"\n Authentication failed: {e}")
         sys.exit(1)

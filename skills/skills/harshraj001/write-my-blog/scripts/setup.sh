@@ -151,7 +151,7 @@ choose() {
 # ═══════════════════════════════════════
 echo ""
 echo "  ╔══════════════════════════════════════════╗"
-echo "  ║   🖊️  Write My Blog — Setup              ║"
+echo "  ║     Write My Blog — Setup              ║"
 if $INTERACTIVE; then
   echo "  ║   mode: interactive                      ║"
 else
@@ -164,12 +164,12 @@ echo ""
 # 2. Install dependencies
 # ═══════════════════════════════════════
 if [ "$SKIP_INSTALL" = "true" ]; then
-  echo "⏭️  Skipping npm install (--skip-install)"
+  echo "  Skipping npm install (--skip-install)"
 else
-  echo "📦 Installing dependencies..."
+  echo " Installing dependencies..."
   cd "$PLATFORM_DIR"
   npm install --loglevel=error
-  echo "✅ Dependencies installed"
+  echo " Dependencies installed"
 fi
 echo ""
 
@@ -179,16 +179,16 @@ echo ""
 ENV_FILE="$PLATFORM_DIR/.env.local"
 
 if [ -f "$ENV_FILE" ] && $INTERACTIVE; then
-  echo "⚠️  .env.local already exists."
+  echo "  .env.local already exists."
   read -rp "Overwrite? (y/N): " overwrite
   if [[ ! "$overwrite" =~ ^[Yy] ]]; then
-    echo "↩️  Keeping existing .env.local"
+    echo "  Keeping existing .env.local"
     SKIP_ENV=true
   else
     SKIP_ENV=false
   fi
 elif [ -f "$ENV_FILE" ] && ! $INTERACTIVE; then
-  echo "⚠️  .env.local already exists — overwriting (non-interactive mode)"
+  echo "  .env.local already exists — overwriting (non-interactive mode)"
   SKIP_ENV=false
 else
   SKIP_ENV=false
@@ -227,7 +227,7 @@ if [ "${SKIP_ENV:-false}" = "false" ]; then
       fi
     fi
     if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_KEY" ]; then
-      echo "❌ Supabase URL and key are required for supabase/postgres provider"
+      echo " Supabase URL and key are required for supabase/postgres provider"
       exit 1
     fi
   fi
@@ -249,7 +249,7 @@ if [ "${SKIP_ENV:-false}" = "false" ]; then
       ask MONGODB_URI "MongoDB Atlas URI" ""
     fi
     if [ -z "$MONGODB_URI" ]; then
-      echo "❌ MongoDB Atlas URI is required"
+      echo " MongoDB Atlas URI is required"
       exit 1
     fi
     ask MONGODB_DB_NAME "Database name" "$MONGODB_DB_NAME"
@@ -312,7 +312,7 @@ MEDIA_DIR=./public/uploads
 EOF
 
   echo ""
-  echo "✅ .env.local created"
+  echo " .env.local created"
 fi
 
 # ═══════════════════════════════════════
@@ -320,18 +320,18 @@ fi
 # ═══════════════════════════════════════
 mkdir -p "$PLATFORM_DIR/data"
 mkdir -p "$PLATFORM_DIR/public/uploads"
-echo "📁 Data directories ready"
+echo " Data directories ready"
 echo ""
 
 # ═══════════════════════════════════════
 # 5. Build verification
 # ═══════════════════════════════════════
-echo "🔨 Running production build to verify everything..."
+echo " Running production build to verify everything..."
 cd "$PLATFORM_DIR"
 if npx next build > /dev/null 2>&1; then
-  echo "✅ Build passed"
+  echo " Build passed"
 else
-  echo "⚠️  Build had warnings (may still work — check output with 'npx next build')"
+  echo "  Build had warnings (may still work — check output with 'npx next build')"
 fi
 echo ""
 
@@ -359,7 +359,7 @@ fi
 if [ "$DEPLOY_TARGET" != "none" ] && [ "$DB_PROVIDER" = "sqlite" ]; then
   echo ""
   echo "  ┌─────────────────────────────────────────────────────────┐"
-  echo "  │ ⚠️  SQLite uses a native C module (better-sqlite3)      │"
+  echo "  │   SQLite uses a native C module (better-sqlite3)      │"
   echo "  │ which does NOT work on Vercel or Cloudflare serverless. │"
   echo "  │                                                         │"
   echo "  │ You need a cloud database for deployment.               │"
@@ -383,7 +383,7 @@ if [ "$DEPLOY_TARGET" != "none" ] && [ "$DB_PROVIDER" = "sqlite" ]; then
       echo ""
 
       if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_KEY" ]; then
-        echo "❌ Both URL and key are required. Skipping deploy."
+        echo " Both URL and key are required. Skipping deploy."
         DEPLOY_TARGET="none"
       else
         sed -i "s/^DATABASE_PROVIDER=.*/DATABASE_PROVIDER=supabase/" "$ENV_FILE"
@@ -396,11 +396,11 @@ if [ "$DEPLOY_TARGET" != "none" ] && [ "$DB_PROVIDER" = "sqlite" ]; then
           sed -i "s|^SUPABASE_URL=.*|SUPABASE_URL=$SUPABASE_URL|" "$ENV_FILE"
           sed -i "s|^SUPABASE_SERVICE_KEY=.*|SUPABASE_SERVICE_KEY=$SUPABASE_KEY|" "$ENV_FILE"
         fi
-        echo "✅ Switched to Supabase. .env.local updated."
+        echo " Switched to Supabase. .env.local updated."
         echo ""
-        echo "🔨 Rebuilding..."
+        echo " Rebuilding..."
         cd "$PLATFORM_DIR"
-        npx next build > /dev/null 2>&1 && echo "✅ Build passed" || echo "⚠️  Build had issues"
+        npx next build > /dev/null 2>&1 && echo " Build passed" || echo "  Build had issues"
       fi
 
     elif [ "$sqlite_fix" = "2" ]; then
@@ -413,7 +413,7 @@ if [ "$DEPLOY_TARGET" != "none" ] && [ "$DB_PROVIDER" = "sqlite" ]; then
       MONGODB_DB_NAME="${MONGODB_DB_NAME:-blog}"
 
       if [ -z "$MONGODB_URI" ]; then
-        echo "❌ Atlas URI is required. Skipping deploy."
+        echo " Atlas URI is required. Skipping deploy."
         DEPLOY_TARGET="none"
       else
         sed -i "s/^DATABASE_PROVIDER=.*/DATABASE_PROVIDER=mongodb/" "$ENV_FILE"
@@ -426,14 +426,14 @@ if [ "$DEPLOY_TARGET" != "none" ] && [ "$DB_PROVIDER" = "sqlite" ]; then
           sed -i "s|^MONGODB_URI=.*|MONGODB_URI=$MONGODB_URI|" "$ENV_FILE"
           sed -i "s|^MONGODB_DB_NAME=.*|MONGODB_DB_NAME=$MONGODB_DB_NAME|" "$ENV_FILE"
         fi
-        echo "✅ Switched to MongoDB Atlas. .env.local updated."
+        echo " Switched to MongoDB Atlas. .env.local updated."
         echo ""
-        echo "🔨 Rebuilding..."
+        echo " Rebuilding..."
         cd "$PLATFORM_DIR"
-        npx next build > /dev/null 2>&1 && echo "✅ Build passed" || echo "⚠️  Build had issues"
+        npx next build > /dev/null 2>&1 && echo " Build passed" || echo "  Build had issues"
       fi
     else
-      echo "⏭️  Skipping deploy. Set up a cloud DB and redeploy later:"
+      echo "  Skipping deploy. Set up a cloud DB and redeploy later:"
       echo "   1. Create a free Supabase or MongoDB Atlas account"
       echo "   2. Update .env.local with the credentials"
       echo "   3. Change DATABASE_PROVIDER to supabase or mongodb"
@@ -441,7 +441,7 @@ if [ "$DEPLOY_TARGET" != "none" ] && [ "$DB_PROVIDER" = "sqlite" ]; then
       DEPLOY_TARGET="none"
     fi
   else
-    echo "❌ Cannot deploy with SQLite to serverless. Set SETUP_DB_PROVIDER=supabase or mongodb"
+    echo " Cannot deploy with SQLite to serverless. Set SETUP_DB_PROVIDER=supabase or mongodb"
     DEPLOY_TARGET="none"
   fi
 fi
@@ -449,12 +449,12 @@ fi
 # ── Vercel Deploy ── 
 if [ "$DEPLOY_TARGET" = "vercel" ]; then
   echo ""
-  echo "🚀 Deploying to Vercel..."
+  echo " Deploying to Vercel..."
   echo ""
 
   # Step 1: Install Vercel CLI if missing
   if ! npx -y vercel --version &>/dev/null; then
-    echo "📦 Installing Vercel CLI..."
+    echo " Installing Vercel CLI..."
     npm install -g vercel
   fi
   echo "   Vercel CLI: $(npx -y vercel --version 2>/dev/null)"
@@ -483,14 +483,14 @@ if [ "$DEPLOY_TARGET" = "vercel" ]; then
 
       # Verify login succeeded
       if ! npx -y vercel whoami &>/dev/null 2>&1; then
-        echo "❌ Login failed. You can deploy later with:"
+        echo " Login failed. You can deploy later with:"
         echo "   cd platform && npx vercel login && npx vercel --prod"
         DEPLOY_TARGET="none"
       else
-        echo "✅ Logged in as: $(npx -y vercel whoami 2>/dev/null)"
+        echo " Logged in as: $(npx -y vercel whoami 2>/dev/null)"
       fi
     else
-      echo "✅ Already logged in as: $(npx -y vercel whoami 2>/dev/null)"
+      echo " Already logged in as: $(npx -y vercel whoami 2>/dev/null)"
     fi
 
     # Step 3: Link project and deploy
@@ -506,10 +506,10 @@ if [ "$DEPLOY_TARGET" = "vercel" ]; then
         echo "Deploying to production..."
         if npx -y vercel --prod; then
           echo ""
-          echo "✅ Deployed to Vercel (production)!"
+          echo " Deployed to Vercel (production)!"
         else
           echo ""
-          echo "⚠️  Deploy failed. You can retry with:"
+          echo "  Deploy failed. You can retry with:"
           echo "   cd platform && npx vercel --prod"
         fi
       else
@@ -517,10 +517,10 @@ if [ "$DEPLOY_TARGET" = "vercel" ]; then
         echo "Deploying preview..."
         if npx -y vercel; then
           echo ""
-          echo "✅ Preview deployed to Vercel!"
+          echo " Preview deployed to Vercel!"
         else
           echo ""
-          echo "⚠️  Deploy failed. You can retry with:"
+          echo "  Deploy failed. You can retry with:"
           echo "   cd platform && npx vercel"
         fi
       fi
@@ -531,12 +531,12 @@ if [ "$DEPLOY_TARGET" = "vercel" ]; then
     if [ -n "${VERCEL_TOKEN:-}" ]; then
       echo "Deploying with token (non-interactive)..."
       if npx -y vercel --token "$VERCEL_TOKEN" --yes --prod 2>&1; then
-        echo "✅ Deployed to Vercel (production)"
+        echo " Deployed to Vercel (production)"
       else
-        echo "❌ Deploy failed. Check VERCEL_TOKEN and project settings."
+        echo " Deploy failed. Check VERCEL_TOKEN and project settings."
       fi
     else
-      echo "⚠️  VERCEL_TOKEN not set — skipping automated deploy"
+      echo "  VERCEL_TOKEN not set — skipping automated deploy"
       echo "   Set VERCEL_TOKEN, VERCEL_ORG_ID, and VERCEL_PROJECT_ID env vars"
       echo "   Then run: cd platform && npx vercel --token \$VERCEL_TOKEN --yes --prod"
       DEPLOY_TARGET="none"
@@ -546,12 +546,12 @@ if [ "$DEPLOY_TARGET" = "vercel" ]; then
 # ── Cloudflare Deploy ──
 elif [ "$DEPLOY_TARGET" = "cloudflare" ]; then
   echo ""
-  echo "🚀 Deploying to Cloudflare Pages..."
+  echo " Deploying to Cloudflare Pages..."
   echo ""
 
   # Step 1: Install Wrangler CLI if missing
   if ! npx -y wrangler --version &>/dev/null; then
-    echo "📦 Installing Wrangler CLI..."
+    echo " Installing Wrangler CLI..."
     npm install -g wrangler
   fi
   echo "   Wrangler CLI: $(npx -y wrangler --version 2>/dev/null)"
@@ -571,14 +571,14 @@ elif [ "$DEPLOY_TARGET" = "cloudflare" ]; then
       npx -y wrangler login
 
       if ! npx -y wrangler whoami &>/dev/null 2>&1; then
-        echo "❌ Login failed. You can deploy later with:"
+        echo " Login failed. You can deploy later with:"
         echo "   cd platform && npx wrangler login && npx wrangler pages deploy"
         DEPLOY_TARGET="none"
       else
-        echo "✅ Logged in to Cloudflare"
+        echo " Logged in to Cloudflare"
       fi
     else
-      echo "✅ Already logged in to Cloudflare"
+      echo " Already logged in to Cloudflare"
     fi
 
     # Step 3: Deploy
@@ -599,15 +599,15 @@ elif [ "$DEPLOY_TARGET" = "cloudflare" ]; then
         echo "Deploying to Cloudflare Pages..."
         if npx -y wrangler pages deploy .vercel/output/static --project-name "$CF_PROJECT" 2>&1; then
           echo ""
-          echo "✅ Deployed to Cloudflare Pages!"
+          echo " Deployed to Cloudflare Pages!"
           echo "   Project: $CF_PROJECT"
         else
           echo ""
-          echo "⚠️  Deploy failed. You can retry with:"
+          echo "  Deploy failed. You can retry with:"
           echo "   cd platform && npx wrangler pages deploy .vercel/output/static --project-name \"$CF_PROJECT\""
         fi
       else
-        echo "❌ Build for Cloudflare failed."
+        echo " Build for Cloudflare failed."
         echo "   Try: cd platform && npx @cloudflare/next-on-pages"
       fi
     fi
@@ -620,15 +620,15 @@ elif [ "$DEPLOY_TARGET" = "cloudflare" ]; then
       if CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" npx -y @cloudflare/next-on-pages 2>&1; then
         if CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" npx -y wrangler pages deploy \
             .vercel/output/static --project-name "$CF_PROJECT" --commit-dirty=true 2>&1; then
-          echo "✅ Deployed to Cloudflare Pages"
+          echo " Deployed to Cloudflare Pages"
         else
-          echo "❌ Deploy failed. Check CLOUDFLARE_API_TOKEN."
+          echo " Deploy failed. Check CLOUDFLARE_API_TOKEN."
         fi
       else
-        echo "❌ Build for Cloudflare failed."
+        echo " Build for Cloudflare failed."
       fi
     else
-      echo "⚠️  CLOUDFLARE_API_TOKEN not set — skipping automated deploy"
+      echo "  CLOUDFLARE_API_TOKEN not set — skipping automated deploy"
       echo "   Set CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID env vars"
       echo "   Then run: cd platform && npx @cloudflare/next-on-pages && npx wrangler pages deploy .vercel/output/static"
       DEPLOY_TARGET="none"
@@ -636,7 +636,7 @@ elif [ "$DEPLOY_TARGET" = "cloudflare" ]; then
   fi
 
 else
-  echo "⏭️  Skipping deployment (run locally with 'cd platform && npm run dev')"
+  echo "  Skipping deployment (run locally with 'cd platform && npm run dev')"
 fi
 echo ""
 
@@ -644,7 +644,7 @@ echo ""
 # 7. Summary
 # ═══════════════════════════════════════
 echo "  ╔══════════════════════════════════════════════╗"
-echo "  ║   ✅ Setup Complete!                         ║"
+echo "  ║    Setup Complete!                         ║"
 echo "  ╠══════════════════════════════════════════════╣"
 echo "  ║                                              ║"
 printf "  ║   Blog:    %-33s║\n" "$BLOG_NAME"
@@ -654,7 +654,7 @@ printf "  ║   Cache:   %-33s║\n" "$CACHE_PROVIDER"
 printf "  ║   Deploy:  %-33s║\n" "$DEPLOY_TARGET"
 echo "  ║                                              ║"
 printf "  ║   API Key: %-33s║\n" "${API_KEY:0:12}..."
-echo "  ║   ⚠️  Save this key for API calls!           ║"
+echo "  ║     Save this key for API calls!           ║"
 echo "  ║                                              ║"
 echo "  ║   Start:  cd platform && npm run dev         ║"
 echo "  ║   Visit:  http://localhost:3000               ║"

@@ -13,13 +13,13 @@ This system provides multiple extraction methods to handle different types of Ap
 
 ## Features
 
-- ✅ Extract text content from all notes
-- ✅ Handle embedded images and attachments
-- ✅ Process note metadata (creation date, modification date, folders)
-- ✅ Support for different output formats (JSON, Markdown, SQLite)
-- ✅ Integration with existing workflows
-- ✅ Automatic deduplication and incremental updates
-- ✅ Privacy-first design with local processing
+-  Extract text content from all notes
+-  Handle embedded images and attachments
+-  Process note metadata (creation date, modification date, folders)
+-  Support for different output formats (JSON, Markdown, SQLite)
+-  Integration with existing workflows
+-  Automatic deduplication and incremental updates
+-  Privacy-first design with local processing
 
 ## System Architecture
 

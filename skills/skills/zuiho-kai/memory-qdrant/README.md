@@ -2,14 +2,14 @@
 
 OpenClaw 本地语义记忆插件，基于 Qdrant 和 Transformers.js 实现零配置的语义搜索。
 
-**📦 ClawHub**: https://clawhub.ai/skills/memory-qdrant
+** ClawHub**: https://clawhub.ai/skills/memory-qdrant
 
 ## 特性
 
-- 🧠 **本地语义搜索** - 使用 Transformers.js 在本地生成 embeddings
-- 💾 **内存模式** - 零配置，无需外部服务
-- 🔄 **自动捕获** - 通过 lifecycle hooks 自动记录重要信息
-- 🎯 **智能召回** - 根据上下文自动检索相关记忆
+-  **本地语义搜索** - 使用 Transformers.js 在本地生成 embeddings
+-  **内存模式** - 零配置，无需外部服务
+-  **自动捕获** - 通过 lifecycle hooks 自动记录重要信息
+-  **智能召回** - 根据上下文自动检索相关记忆
 
 ## 安装
 
@@ -117,7 +117,7 @@ npm rebuild                    # 然后重新构建原生模块
   - 达到上限时自动删除最旧的记忆（LRU 淘汰策略）
   - 范围：100-1000000 条
   - 设置为 999999 表示无限制（不会自动删除旧记忆）
-  - ⚠️ 无限制模式可能导致内存耗尽，请谨慎使用
+  -  无限制模式可能导致内存耗尽，请谨慎使用
   - 外部 Qdrant 模式不受此限制
 
 ## 隐私与安全
@@ -126,7 +126,7 @@ npm rebuild                    # 然后重新构建原生模块
 
 - **内存模式**（默认）: 数据仅在进程运行期间保存，重启后清空
 - **Qdrant 模式**: 如果配置了 `qdrantUrl`，数据会发送到该服务器
-  - ⚠️ 仅配置受信任的 Qdrant 服务器
+  -  仅配置受信任的 Qdrant 服务器
   - 建议使用本地 Qdrant 实例或专用服务账户
 
 ### 网络访问

@@ -41,14 +41,14 @@ streamlit run streamlit_ui.py
 ```
 
 This will open a web interface in your browser with:
-- 🏠 **Build Flow**: Enter natural language requests and watch the 5-step process
-- 📚 **Skill Registry**: Browse, search, and filter available skills
-- ℹ️ **About**: Learn more about Flow's architecture and features
+-  **Build Flow**: Enter natural language requests and watch the 5-step process
+-  **Skill Registry**: Browse, search, and filter available skills
+-  **About**: Learn more about Flow's architecture and features
 
 The web UI provides real-time feedback on:
 - Intent parsing results
 - Skill matching scores
-- Security scan status (✅ Safe / ⚠️ Warning / ❌ Unsafe)
+- Security scan status ( Safe /  Warning /  Unsafe)
 - Composition progress
 
 ### In Clawdbot

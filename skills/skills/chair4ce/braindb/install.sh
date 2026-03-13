@@ -17,28 +17,28 @@ for arg in "$@"; do
   esac
 done
 
-echo "🧠 BrainDB Installer"
+echo " BrainDB Installer"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # ─── Pre-flight checks ───────────────────────────
 if ! command -v docker &>/dev/null; then
-  echo "❌ Docker not found. Install: https://docs.docker.com/get-docker/"
+  echo " Docker not found. Install: https://docs.docker.com/get-docker/"
   exit 1
 fi
 
 if ! docker compose version &>/dev/null 2>&1; then
-  echo "❌ Docker Compose not found."
+  echo " Docker Compose not found."
   exit 1
 fi
 
 if ! command -v node &>/dev/null; then
-  echo "❌ Node.js not found."
+  echo " Node.js not found."
   exit 1
 fi
 
 # Check if port is available
 if curl -sf "http://localhost:$BRAINDB_PORT/health" >/dev/null 2>&1; then
-  echo "⚠️  Port $BRAINDB_PORT is already in use."
+  echo "  Port $BRAINDB_PORT is already in use."
   echo "   If BrainDB is already running, you're good!"
   ALREADY_RUNNING=true
 else
@@ -47,7 +47,7 @@ fi
 
 # ─── Backup existing memory files ─────────────────
 echo ""
-echo "📋 Step 1: Backing up existing memory files..."
+echo " Step 1: Backing up existing memory files..."
 
 # Find workspace
 WORKSPACE=""
@@ -81,12 +81,12 @@ if [ -d "$WORKSPACE/memory" ]; then
   cp -r "$WORKSPACE/memory/"*.md "$BACKUP_DIR/memory-$BACKUP_TIME/" 2>/dev/null || true
 fi
 
-echo "   ✅ Backed up to $BACKUP_DIR"
+echo "    Backed up to $BACKUP_DIR"
 
 # ─── Start Docker containers ─────────────────────
 if [ "$ALREADY_RUNNING" = false ]; then
   echo ""
-  echo "🐳 Step 2: Starting BrainDB containers..."
+  echo " Step 2: Starting BrainDB containers..."
   
   cd "$SCRIPT_DIR"
   
@@ -94,7 +94,7 @@ if [ "$ALREADY_RUNNING" = false ]; then
   if [ ! -f .env ]; then
     RANDOM_PASS=$(openssl rand -base64 18 | tr -d '/+=' | head -c 24)
     sed "s/CHANGE_ME/$RANDOM_PASS/" .env.example > .env
-    echo "   🔐 Generated secure Neo4j password"
+    echo "    Generated secure Neo4j password"
   fi
   
   docker compose build --quiet 2>&1 | tail -1 || true
@@ -104,21 +104,21 @@ if [ "$ALREADY_RUNNING" = false ]; then
   echo -n "   Waiting for services"
   for i in $(seq 1 60); do
     if curl -sf "http://localhost:$BRAINDB_PORT/health" >/dev/null 2>&1; then
-      echo " ✅"
+      echo " "
       break
     fi
-    [ "$i" -eq 60 ] && echo " ❌ timeout (check: docker compose logs)" && exit 1
+    [ "$i" -eq 60 ] && echo "  timeout (check: docker compose logs)" && exit 1
     echo -n "."
     sleep 2
   done
 else
   echo ""
-  echo "🐳 Step 2: BrainDB already running ✅"
+  echo " Step 2: BrainDB already running "
 fi
 
 # ─── Configure OpenClaw ──────────────────────────
 echo ""
-echo "⚙️  Step 3: Configuring OpenClaw..."
+echo "  Step 3: Configuring OpenClaw..."
 
 if [ -f "$OPENCLAW_CONFIG" ]; then
   # Check if braindb is already configured
@@ -128,7 +128,7 @@ if [ -f "$OPENCLAW_CONFIG" ]; then
   " 2>/dev/null || echo "no")
   
   if [ "$HAS_BRAINDB" = "yes" ]; then
-    echo "   BrainDB plugin already configured ✅"
+    echo "   BrainDB plugin already configured "
   else
     # Patch config to add BrainDB plugin
     node -e "
@@ -154,11 +154,11 @@ if [ -f "$OPENCLAW_CONFIG" ]; then
       };
       
       fs.writeFileSync('$OPENCLAW_CONFIG', JSON.stringify(config, null, 2));
-      console.log('   ✅ OpenClaw config updated');
-    " 2>/dev/null || echo "   ⚠️  Could not update config automatically. See manual setup below."
+      console.log('    OpenClaw config updated');
+    " 2>/dev/null || echo "     Could not update config automatically. See manual setup below."
   fi
 else
-  echo "   ⚠️  OpenClaw config not found at $OPENCLAW_CONFIG"
+  echo "     OpenClaw config not found at $OPENCLAW_CONFIG"
   echo "   Add this to your config manually:"
   echo '   "plugins": {'
   echo '     "slots": { "memory": "braindb" },'
@@ -179,7 +179,7 @@ fi
 
 # ─── Migration offer ─────────────────────────────
 echo ""
-echo "📚 Step 4: Memory migration"
+echo " Step 4: Memory migration"
 echo ""
 
 MEMORY_COUNT=$(curl -sf "http://localhost:$BRAINDB_PORT/health" 2>/dev/null | node -e "
@@ -218,7 +218,7 @@ fi
 # ─── Done ─────────────────────────────────────────
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "✅ BrainDB installed!"
+echo " BrainDB installed!"
 echo ""
 echo "   Gateway:  http://localhost:$BRAINDB_PORT"
 echo "   Memories:  $(curl -sf http://localhost:$BRAINDB_PORT/health 2>/dev/null | node -e "let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{try{console.log(JSON.parse(d).totalMemories||0)}catch{console.log('?')}})" 2>/dev/null || echo "?")"

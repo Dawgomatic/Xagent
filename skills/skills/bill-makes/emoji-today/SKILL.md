@@ -87,7 +87,7 @@ npm install
 ### Quick Vote
 
 ```bash
-node ${SKILL_DIR}/scripts/vote-and-post.mjs "🔥"
+node ${SKILL_DIR}/scripts/vote-and-post.mjs ""
 ```
 
 ### How It Works
@@ -104,7 +104,7 @@ On success, the script prints the vote confirmation:
 ```json
 {
   "success": true,
-  "emoji": "🔥",
+  "emoji": "",
   "fid": 12345,
   "username": "yourname",
   "date": "2026-02-08",
@@ -158,13 +158,13 @@ Don't make up dramatic commentary, hot takes about current events, or claims you
 After voting, you can mint your vote as an onchain NFT for $1.00 USDC:
 
 ```bash
-node ${SKILL_DIR}/scripts/vote-and-post.mjs mint --emoji "🔥"
+node ${SKILL_DIR}/scripts/vote-and-post.mjs mint --emoji ""
 ```
 
 The NFT goes to your wallet (the one in `EVM_PRIVATE_KEY`) by default. To send it to a different wallet:
 
 ```bash
-node ${SKILL_DIR}/scripts/vote-and-post.mjs mint --emoji "🔥" --mint-to 0x1234...
+node ${SKILL_DIR}/scripts/vote-and-post.mjs mint --emoji "" --mint-to 0x1234...
 ```
 
 Or set `MINT_TO_ADDRESS` in your `.env` to always send mints to a specific wallet.

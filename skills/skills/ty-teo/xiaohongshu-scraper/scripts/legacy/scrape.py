@@ -132,7 +132,7 @@ def scrape_xiaohongshu(keyword, count=10, output_file=None, user_data_dir=None):
             # 检查是否需要登录
             login_el = page.query_selector('[class*="login-btn"], .login-container')
             if login_el:
-                print("\n⚠️  需要登录小红书")
+                print("\n  需要登录小红书")
                 print("请在浏览器中扫码登录，登录后按 Enter 继续...")
                 input()
                 page.reload()

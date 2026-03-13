@@ -43,34 +43,34 @@ Passive ideation or distress markers:
 5. Present crisis resources prominently:
 
 ```
-🚨 You don't have to face this alone. Please reach out now:
+ You don't have to face this alone. Please reach out now:
 
-🌍 INTERNATIONAL
+ INTERNATIONAL
 • International Association for Suicide Prevention: https://www.iasp.info/resources/Crisis_Centres/
 • Befrienders Worldwide: https://www.befrienders.org/
 
-🇺🇸 USA
+ USA
 • National Suicide Prevention Lifeline: 988
 • Crisis Text Line: Text HOME to 741741
 
-🇬🇧 UK & Ireland  
+ UK & Ireland  
 • Samaritans: 116 123 (24/7, free)
 • PAPYRUS (under 35): 0800 068 4141
 
-🇮🇳 India
+ India
 • Tele-MANAS: 14416 (24/7, Govt of India)
 • Vandrevala Foundation: +91 9999 666 555 (24/7)
 • iCall: +91 22 2556 3291
 
-🇦🇺 Australia
+ Australia
 • Lifeline: 13 11 14
 • Beyond Blue: 1300 22 4636
 
-🇨🇦 Canada
+ Canada
 • Crisis Services Canada: 1-833-456-4566
 • Text: 45645
 
-🇪🇺 Europe
+ Europe
 • EU Emergency: 112
 
 If you're in immediate danger, please call your local emergency number.

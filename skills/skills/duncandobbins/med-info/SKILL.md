@@ -1,7 +1,7 @@
 ---
 name: med-info
 description: Medication info with citations and traceable IDs (RxCUI/NDC/set_id) from authoritative public sources (openFDA, RxNorm/RxClass, DailyMed, MedlinePlus). Includes label sections plus optional recalls/shortages/FAERS and Orange/Purple Book context.
-metadata: {"clawdbot": {"emoji": "💊", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"clawdbot": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # med-info
@@ -31,7 +31,7 @@ Get a label-backed, traceable summary from authoritative public sources (FDA lab
 
 This skill queries:
 - **openFDA** (drug labels, NDC directory, recalls/enforcement reports, shortages, FAERS)
-- **RxNorm (RxNav)** for normalization (RxCUI, brand↔generic mapping)
+- **RxNorm (RxNav)** for normalization (RxCUI, brandgeneric mapping)
 - **RxClass (RxNav)** for drug class membership
 - **DailyMed** for SPL history/media (including labeler-submitted images)
 - **Orange Book** data files for TE/RLD context

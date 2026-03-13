@@ -67,11 +67,11 @@ The bridge will forward to OpenClaw with the API key injected.
 
 ## Benefits
 
-- ✅ **Security**: API key never appears in OpenClaw session transcripts
-- ✅ **Reliability**: Doesn't depend on OpenClaw transform system
-- ✅ **Debugging**: Centralized logs (keys redacted)
-- ✅ **Flexibility**: Can add retry logic, rate limiting, etc.
-- ✅ **Simplicity**: Single Node.js file, no dependencies
+-  **Security**: API key never appears in OpenClaw session transcripts
+-  **Reliability**: Doesn't depend on OpenClaw transform system
+-  **Debugging**: Centralized logs (keys redacted)
+-  **Flexibility**: Can add retry logic, rate limiting, etc.
+-  **Simplicity**: Single Node.js file, no dependencies
 
 ## Running as a Service
 

@@ -86,7 +86,7 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
 
-    print(f"✅ Curated {len(curated)} articles")
+    print(f" Curated {len(curated)} articles")
     print(f"   Output: {args.output}")
 
 

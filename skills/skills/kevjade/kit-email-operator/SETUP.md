@@ -120,10 +120,10 @@ Main website: https://yoursite.com
 OpenClaw will test the connection and fetch your tags/custom fields.
 
 ```
-✅ Connected to Kit
-✅ Found 12 tags
-✅ Found 3 custom fields
-✅ Setup complete!
+ Connected to Kit
+ Found 12 tags
+ Found 3 custom fields
+ Setup complete!
 ```
 
 ---

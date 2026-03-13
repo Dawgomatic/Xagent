@@ -83,14 +83,14 @@ def main():
         return
 
     if "error" in result:
-        print(f"❌ Error: {result['error']}")
+        print(f" Error: {result['error']}")
         sys.exit(1)
 
     products = result.get("products", [])
     total = result.get("totalResults", 0)
     has_more = result.get("hasMore", False)
 
-    print(f"📦 Found {total} products (showing {len(products)}, page {args.page})")
+    print(f" Found {total} products (showing {len(products)}, page {args.page})")
     print("-" * 60)
 
     for i, product in enumerate(products, 1):
@@ -102,21 +102,21 @@ def main():
         url = product.get("productUrl", "")
 
         print(f"{i}. {title}")
-        print(f"   💰 {currency} {price} | ⭐ {rating} | 🏷️ {source}")
+        print(f"    {currency} {price} |  {rating} |  {source}")
 
         if source == "amazon":
             asin = product.get("asin") or product.get("id", "N/A")
-            print(f"   🛒 ASIN: {asin}")
+            print(f"    ASIN: {asin}")
         else:  # shopify
             variant_id = product.get("variantId") or extract_variant_id(url) or "N/A"
             # Clean URL for display (remove query params)
             clean_url = url.split('?')[0] if url else "N/A"
-            print(f"   🛒 URL: {clean_url}")
-            print(f"   🔖 Variant ID: {variant_id}")
+            print(f"    URL: {clean_url}")
+            print(f"    Variant ID: {variant_id}")
         print()
 
     if has_more:
-        print(f"📄 More results available. Use --page {args.page + 1} to see next page.")
+        print(f" More results available. Use --page {args.page + 1} to see next page.")
 
 
 if __name__ == "__main__":

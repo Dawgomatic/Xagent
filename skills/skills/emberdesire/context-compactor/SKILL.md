@@ -133,7 +133,7 @@ Show current context token usage and whether compaction would trigger.
 
 Output:
 ```
-📊 Context Stats
+ Context Stats
 
 Messages: 47 total
 - User: 23
@@ -144,7 +144,7 @@ Estimated Tokens: ~6,234
 Limit: 8,000
 Usage: 77.9%
 
-✅ Within limits
+ Within limits
 ```
 
 ## How Summarization Works
@@ -163,8 +163,8 @@ If the LLM runtime isn't available (e.g., during startup), a fallback truncation
 | Feature | Built-in | Context Compactor |
 |---------|----------|-------------------|
 | Trigger | Model reports overflow | Token estimate threshold |
-| Works with local models | ❌ (need overflow error) | ✅ |
-| Persists to transcript | ✅ | ❌ (session-only) |
+| Works with local models |  (need overflow error) |  |
+| Persists to transcript |  |  (session-only) |
 | Summarization | Pi runtime | Plugin LLM call |
 
 Context Compactor is **complementary** — it catches cases before they hit the model's hard limit.

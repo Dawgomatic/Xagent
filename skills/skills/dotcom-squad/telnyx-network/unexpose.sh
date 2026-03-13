@@ -64,4 +64,4 @@ with open('$CONFIG_FILE', 'w') as f:
 EOF
 
 echo ""
-echo -e "${GREEN}✅ Ports closed${NC}"
+echo -e "${GREEN} Ports closed${NC}"

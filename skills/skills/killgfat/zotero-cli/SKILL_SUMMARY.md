@@ -1,14 +1,14 @@
 # OpenClaw Skill: zotero-cli - Complete Summary
 
-## 📦 Skill Overview
+##  Skill Overview
 
 This is a complete OpenClaw skill for **zotero-cli**, a command-line interface for Zotero reference manager. The skill includes comprehensive documentation, installation guides, usage examples, and automated helper scripts, with special consideration for **PEP 668-compliant systems** (Debian 11+, Ubuntu 23.04+, Fedora 34+, etc.).
 
 ---
 
-## 🎯 Key Features
+##  Key Features
 
-### 1. PEP 668 Compliance ✨
+### 1. PEP 668 Compliance 
 
 The skill is designed for modern Linux distributions that follow PEP 668 (which prevents system-wide pip installations):
 
@@ -60,7 +60,7 @@ The skill is designed for modern Linux distributions that follow PEP 668 (which 
 
 ---
 
-## 📚 File Structure
+##  File Structure
 
 ```
 skills/zotero-cli/
@@ -79,16 +79,16 @@ skills/zotero-cli/
     ├── quick_search.py             # Formatted search output
     ├── export_citations.py         # Citation export
     ├── batch_process.sh            # Batch query processing
-    ├── setup_and_check.sh          # Setup and verification ⭐ NEW
-    ├── backup_restore.sh           # Backup and restore ⭐ NEW
-    └── update_check.sh             # Update management ⭐ NEW
+    ├── setup_and_check.sh          # Setup and verification  NEW
+    ├── backup_restore.sh           # Backup and restore  NEW
+    └── update_check.sh             # Update management  NEW
 ```
 
 **Total Size:** ~156KB with 4,600+ lines of code and documentation
 
 ---
 
-## 🚀 Installation Quick Reference
+##  Installation Quick Reference
 
 ### For PEP 668-Compliant Systems (Recommended)
 
@@ -124,7 +124,7 @@ pip install zotero-cli
 
 ---
 
-## 💡 Usage Examples
+##  Usage Examples
 
 ### Basic Commands
 
@@ -159,7 +159,7 @@ python scripts/export_citations.py "topic" --format bib > refs.bib
 
 ---
 
-## 🔧 Script Capabilities
+##  Script Capabilities
 
 ### 1. quick_search.py
 - Multiple output formats
@@ -179,21 +179,21 @@ python scripts/export_citations.py "topic" --format bib > refs.bib
 - Progress tracking
 - Support for comments
 
-### 4. setup_and_check.sh ⭐
+### 4. setup_and_check.sh 
 - Automatic installation
 - Prerequisites checking
 - Configuration guidance
 - Functionality testing
 - Next steps guidance
 
-### 5. backup_restore.sh ⭐
+### 5. backup_restore.sh 
 - Full configuration backup
 - Library data export
 - Custom content preservation
 - Version management
 - Automatic cleanup
 
-### 6. update_check.sh ⭐
+### 6. update_check.sh 
 - Version checking (PyPI + GitHub)
 - Automatic updates
 - Installation assistance
@@ -201,7 +201,7 @@ python scripts/export_citations.py "topic" --format bib > refs.bib
 
 ---
 
-## 📖 Documentation Highlights
+##  Documentation Highlights
 
 ### SKILL.md - Complete Skill Documentation
 - Core features and capabilities
@@ -247,7 +247,7 @@ python scripts/export_citations.py "topic" --format bib > refs.bib
 
 ---
 
-## 🎓 Supported Use Cases
+##  Supported Use Cases
 
 ### 1. Literature Review
 - Comprehensive search and organization
@@ -281,28 +281,28 @@ python scripts/export_citations.py "topic" --format bib > refs.bib
 
 ---
 
-## 🔒 Security & Best Practices
+##  Security & Best Practices
 
 1. **Installation**
-   - ✅ Use pipx for isolated environments
-   - ✅ Avoid `sudo pip install`
-   - ✅ Use virtual environments when appropriate
-   - ❌ Never use `--break-system-packages`
+   -  Use pipx for isolated environments
+   -  Avoid `sudo pip install`
+   -  Use virtual environments when appropriate
+   -  Never use `--break-system-packages`
 
 2. **Configuration**
-   - ✅ Secure permissions: `chmod 600 ~/.config/zotcli/config.ini`
-   - ✅ Keep API keys private
-   - ✅ Use environment variables for sensitive data
+   -  Secure permissions: `chmod 600 ~/.config/zotcli/config.ini`
+   -  Keep API keys private
+   -  Use environment variables for sensitive data
 
 3. **Maintenance**
-   - ✅ Regular backups
-   - ✅ Keep software updated
-   - ✅ Review access permissions
-   - ✅ Monitor for security updates
+   -  Regular backups
+   -  Keep software updated
+   -  Review access permissions
+   -  Monitor for security updates
 
 ---
 
-## 🔗 Integration
+##  Integration
 
 ### Compatible with Other OpenClaw Skills
 
@@ -319,7 +319,7 @@ python scripts/export_citations.py "topic" --format bib > refs.bib
 
 ---
 
-## 📊 Statistics
+##  Statistics
 
 | Metric | Count |
 |--------|-------|
@@ -336,7 +336,7 @@ python scripts/export_citations.py "topic" --format bib > refs.bib
 
 ---
 
-## 🎯 Key Strengths
+##  Key Strengths
 
 1. **PEP 668 Compliance** - Designed for modern Linux distributions
 2. **Complete Documentation** - Every aspect thoroughly documented
@@ -349,7 +349,7 @@ python scripts/export_citations.py "topic" --format bib > refs.bib
 
 ---
 
-## 📝 Version Information
+##  Version Information
 
 - **Skill Version:** 1.0.0
 - **zotero-cli Version:** Latest from PyPI/GitHub
@@ -359,7 +359,7 @@ python scripts/export_citations.py "topic" --format bib > refs.bib
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. **Quick install:**
    ```bash
@@ -385,7 +385,7 @@ For detailed instructions, see [QUICKSTART.md](QUICKSTART.md).
 
 ---
 
-## 📚 Additional Resources
+##  Additional Resources
 
 - **Official Repository:** https://github.com/jbaiter/zotero-cli
 - **Zotero Documentation:** https://www.zotero.org/support/
@@ -394,20 +394,20 @@ For detailed instructions, see [QUICKSTART.md](QUICKSTART.md).
 
 ---
 
-## ✨ Summary
+##  Summary
 
 This is a **production-ready** OpenClaw skill for zotero-cli that:
 
-- ✅ Fully supports PEP 668-compliant systems with pipx
-- ✅ Includes 6 comprehensive helper scripts
-- ✅ Provides 4,600+ lines of documentation
-- ✅ Covers 8+ platforms with specific instructions
-- ✅ Includes 20+ practical usage examples
-- ✅ Offers multiple installation methods
-- ✅ Provides automated setup, backup, and update tools
-- ✅ Integrates with LaTeX, Pandoc, and other research tools
+-  Fully supports PEP 668-compliant systems with pipx
+-  Includes 6 comprehensive helper scripts
+-  Provides 4,600+ lines of documentation
+-  Covers 8+ platforms with specific instructions
+-  Includes 20+ practical usage examples
+-  Offers multiple installation methods
+-  Provides automated setup, backup, and update tools
+-  Integrates with LaTeX, Pandoc, and other research tools
 
-**Ready for immediate use in research environments!** 🎉
+**Ready for immediate use in research environments!** 
 
 ---
 

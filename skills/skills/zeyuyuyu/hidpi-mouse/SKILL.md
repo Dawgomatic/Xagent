@@ -9,7 +9,7 @@ user-invocable: false
 
 Universal mouse coordinate handling for desktop automation across different screen configurations.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Click at Claude display coordinates (auto-scales)
@@ -19,7 +19,7 @@ Universal mouse coordinate handling for desktop automation across different scre
 ./scripts/calibrate.sh
 ```
 
-## 📐 How It Works
+##  How It Works
 
 When Claude displays a screenshot, it scales it down. This skill converts coordinates:
 
@@ -32,7 +32,7 @@ The scale factor depends on:
 - DPI settings (96, 144, 192, etc.)
 - Claude's display viewport
 
-## 🔧 Scripts
+##  Scripts
 
 ### click.sh - Click at coordinates
 ```bash
@@ -63,7 +63,7 @@ The scale factor depends on:
 ./scripts/reliable_click.sh <x> <y> [--window "Name" --relative]
 ```
 
-## 🎯 Calibration (Recommended for New Systems)
+##  Calibration (Recommended for New Systems)
 
 For best accuracy on your specific system:
 
@@ -76,7 +76,7 @@ This will:
 2. Ask you where the markers appear in Claude's display
 3. Calculate and save the exact scale factor
 
-## 📊 Common Scale Factors
+##  Common Scale Factors
 
 | Screen | DPI | Typical Scale |
 |--------|-----|---------------|
@@ -85,7 +85,7 @@ This will:
 | 3024×1772 | 192 | 2.08 |
 | 3840×2160 | 192 | 2.0 - 2.5 |
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Clicks are offset
 ```bash
@@ -107,27 +107,27 @@ This will:
 rm -f /tmp/hidpi_scale_cache
 ```
 
-## 📁 Configuration Files
+##  Configuration Files
 
 - `~/.config/hidpi-mouse/scale.conf` - User-set scale (highest priority)
 - `/tmp/hidpi_scale_cache` - Auto-detected scale cache (1 hour TTL)
 
-## 🌐 Universal Compatibility
+##  Universal Compatibility
 
 This skill auto-adapts to:
-- ✅ Different screen resolutions (1080p to 4K+)
-- ✅ Different DPI settings (96, 120, 144, 192, etc.)
-- ✅ HiDPI/Retina displays
-- ✅ Multi-monitor setups (primary display)
+-  Different screen resolutions (1080p to 4K+)
+-  Different DPI settings (96, 120, 144, 192, etc.)
+-  HiDPI/Retina displays
+-  Multi-monitor setups (primary display)
 
-## 💡 Usage Tips
+##  Usage Tips
 
 1. **Always calibrate** on a new system for 100% accuracy
 2. **Re-calibrate** if you change display settings
 3. **Use `--raw`** if you already have screen coordinates
 4. **Check `calibrate.sh info`** to see current settings
 
-## 📝 Example Workflow
+##  Example Workflow
 
 ```bash
 # 1. Take screenshot

@@ -20,22 +20,22 @@ Meet **context-restore**, an innovative OpenClaw skill designed to solve this ex
 
 ### Key Features
 
-🔄 **Smart Context Restoration**
+ **Smart Context Restoration**
 - Reads compressed context files
 - Extracts project status, tasks, and recent operations
 - Provides structured output for quick understanding
 
-📊 **Three Restoration Levels**
+ **Three Restoration Levels**
 - **Minimal**: One-sentence core status summary
 - **Normal**: Project list + task queue + recent actions (default)
 - **Detailed**: Complete timeline + full history + raw content preview
 
-🌐 **Multilingual Support**
+ **Multilingual Support**
 - English: "restore context", "continue previous work"
 - 中文: "恢复上下文", "继续之前的工作"
 - Italiano: "ripristina contesto"
 
-🤝 **Seamless Integration**
+ **Seamless Integration**
 - Works with context-save for automatic workflow
 - Integrates with memory_get for memory retrieval
 - Supports cron for scheduled saves
@@ -72,11 +72,11 @@ Meet **context-restore**, an innovative OpenClaw skill designed to solve this ex
 Here's what restoration looks like with context-restore:
 
 ```
-✅ Context Restored
+ Context Restored
 
 Current Active Projects:
-1. 🏛️ Hermes Plan - Data Analytics Assistant (Progress: 80%)
-2. 🌐 Akasha Plan - Autonomous News System (Progress: 45%)
+1.  Hermes Plan - Data Analytics Assistant (Progress: 80%)
+2.  Akasha Plan - Autonomous News System (Progress: 45%)
 
 Pending Tasks:
 - [High] Write data pipeline test cases

@@ -221,7 +221,7 @@ export async function ensureEthers() {
       throw new Error('ethers not found');
     }
   } catch (e) {
-    console.log('📦 Installing ethers...');
+    console.log(' Installing ethers...');
     try {
       await execAsync('npm install', { 
         cwd: __dirname,
@@ -253,8 +253,8 @@ export function checkApiKey(showError = true) {
   if (!apiKey) {
     if (showError) {
       error('Agent not registered!');
-      console.log('\n❌ No API key found in config.');
-      console.log('💡 This means the agent has not been successfully registered.\n');
+      console.log('\n No API key found in config.');
+      console.log(' This means the agent has not been successfully registered.\n');
       console.log('To register your agent, run:');
       console.log('  cd ~/.openclaw/workspace/skills/clawfriend');
       console.log('  node scripts/register.js agent "YourAgentName"\n');
@@ -275,17 +275,17 @@ export function log(emoji, message) {
 }
 
 export function success(message) {
-  log('✅', message);
+  log('', message);
 }
 
 export function error(message) {
-  log('❌', message);
+  log('', message);
 }
 
 export function warning(message) {
-  log('⚠️', message);
+  log('', message);
 }
 
 export function info(message) {
-  log('ℹ️', message);
+  log('', message);
 }

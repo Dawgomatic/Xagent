@@ -113,7 +113,7 @@ def format_balance(response, quiet=False):
     
     # 完整输出
     output_lines = []
-    output_lines.append("💰 火山引擎余额")
+    output_lines.append(" 火山引擎余额")
     output_lines.append("=" * 30)
     
     balance_info = []
@@ -134,7 +134,7 @@ def format_balance(response, quiet=False):
         output_lines.append(f"{label}:{padding} {value}")
     
     output_lines.append("")
-    output_lines.append("💡 可用余额 = (现金余额 - 冻结金额) + 信控额度 - 欠费金额")
+    output_lines.append(" 可用余额 = (现金余额 - 冻结金额) + 信控额度 - 欠费金额")
     
     return "\n".join(output_lines)
 

@@ -2,10 +2,10 @@
 name: payclaw
 version: 1.0.0
 description: "Agent-to-Agent USDC payments. Create wallets, send/receive payments, escrow between agents. Built for the USDC Hackathon on Moltbook."
-metadata: {"openclaw": {"emoji": "💸", "homepage": "https://github.com/rojasjuniore/payclaw"}}
+metadata: {"openclaw": {"emoji": "", "homepage": "https://github.com/rojasjuniore/payclaw"}}
 ---
 
-# PayClaw 💸
+# PayClaw 
 
 Agent-to-Agent USDC Payments for OpenClaw.
 
@@ -14,11 +14,11 @@ Agent-to-Agent USDC Payments for OpenClaw.
 ## What It Does
 
 PayClaw enables any OpenClaw agent to:
-- 🏦 Create a USDC wallet (Circle Developer-Controlled Wallets)
-- 💰 Receive payments from other agents or humans
-- 💸 Send payments to any wallet address
-- 🤝 Escrow funds between agents for trustless transactions
-- 🔗 Works on Arc Testnet (USDC native L1)
+-  Create a USDC wallet (Circle Developer-Controlled Wallets)
+-  Receive payments from other agents or humans
+-  Send payments to any wallet address
+-  Escrow funds between agents for trustless transactions
+-  Works on Arc Testnet (USDC native L1)
 
 ## Why It Matters
 
@@ -95,7 +95,7 @@ payclaw agents find "DataBot"
 
 # Send payment
 payclaw pay 0x1234...5678 10 --memo "For data analysis task"
-# Output: ✅ Sent 10 USDC to DataBot (0x1234...)
+# Output:  Sent 10 USDC to DataBot (0x1234...)
 #         TX: 0xabc...def
 ```
 
@@ -103,21 +103,21 @@ payclaw pay 0x1234...5678 10 --memo "For data analysis task"
 ```bash
 # Client creates escrow
 payclaw escrow create 50 0xFreelancerWallet --condition "Deliver logo design"
-# Output: 🔒 Escrow created: ESC-001
+# Output:  Escrow created: ESC-001
 #         Amount: 50 USDC
 #         Recipient: 0xFreelancer...
 #         Condition: Deliver logo design
 
 # After task completion, client releases
 payclaw escrow release ESC-001
-# Output: ✅ Released 50 USDC to 0xFreelancer...
+# Output:  Released 50 USDC to 0xFreelancer...
 ```
 
 ### Receive Payment
 ```bash
 # Generate payment request
 payclaw request 25 --memo "API access for 1 month"
-# Output: 💰 Payment Request
+# Output:  Payment Request
 #         To: 0xYourWallet...
 #         Amount: 25 USDC
 #         Memo: API access for 1 month
@@ -161,7 +161,7 @@ const escrow = await payclaw.createEscrow(50, '0x...', 'Task condition');
 
 ```
 ┌─────────────────┐     ┌─────────────────┐
-│  OpenClaw Agent │────▶│    PayClaw      │
+│  OpenClaw Agent │────│    PayClaw      │
 └─────────────────┘     └────────┬────────┘
                                  │
                                  ▼
@@ -193,4 +193,4 @@ MIT
 
 ---
 
-**Built for the OpenClaw USDC Hackathon on Moltbook 💵**
+**Built for the OpenClaw USDC Hackathon on Moltbook **

@@ -116,7 +116,7 @@ def provision_instance(
 
         order = result.get("order", {}) if isinstance(result, dict) else {}
         if order:
-            print("✅ Instance provisioned!")
+            print(" Instance provisioned!")
             print(f"   ID:      {order.get('id', 'N/A')}")
             print(f"   IP:      {order.get('ip_address', 'pending')}")
             print(f"   Plan:    {order.get('plan', plan)}")
@@ -150,7 +150,7 @@ def provision_instance(
     if response.status_code in (200, 201):
         data = response.json()
         order = data.get("order", {})
-        print(f"✅ Instance provisioned!")
+        print(f" Instance provisioned!")
         print(f"   ID:      {order.get('id', 'N/A')}")
         print(f"   IP:      {order.get('ip_address', 'pending')}")
         print(f"   Plan:    {order.get('plan', plan)}")

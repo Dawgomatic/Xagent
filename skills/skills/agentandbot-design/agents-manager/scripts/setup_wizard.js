@@ -16,7 +16,7 @@ const config = {
     reports_to: ''
 };
 
-console.log('🧙 Agents Manager Setup Wizard');
+console.log(' Agents Manager Setup Wizard');
 console.log('──────────────────────────────────────');
 console.log('This wizard will help you register a new agent or configure the system.\n');
 
@@ -40,10 +40,10 @@ async function main() {
 
     if (confirm.toLowerCase() === 'y') {
         appendAgentToRegistry(config);
-        console.log(`\n✅ Agent '${config.id}' registered successfully!`);
+        console.log(`\n Agent '${config.id}' registered successfully!`);
         console.log('Run `node scripts/scan_agents.js` to see it.');
     } else {
-        console.log('\n❌ Setup cancelled.');
+        console.log('\n Setup cancelled.');
     }
 
     rl.close();
@@ -74,7 +74,7 @@ function appendAgentToRegistry(agent) {
 | \`reports_to\` | ${agent.reports_to} |
 | \`can_assign_to\` | (none) |
 
-**Health Status:** 🟢 New
+**Health Status:**  New
 *Last updated: ${timestamp}*
 \n`;
 

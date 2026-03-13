@@ -6,10 +6,10 @@ Get ClawMeter running in 5 minutes.
 
 ## Prerequisites
 
-- ✅ OpenClaw installed and configured
-- ✅ Node.js v18 or higher (`node --version`)
-- ✅ npm installed (`npm --version`)
-- ✅ OpenClaw has generated at least a few session logs
+-  OpenClaw installed and configured
+-  Node.js v18 or higher (`node --version`)
+-  npm installed (`npm --version`)
+-  OpenClaw has generated at least a few session logs
 
 ---
 
@@ -76,7 +76,7 @@ npm run ingest
 
 **Expected output:**
 ```
-✅ Ingested 109 new usage events
+ Ingested 109 new usage events
 ```
 
 This scans all your existing OpenClaw session logs and extracts cost data.
@@ -96,9 +96,9 @@ npm start
 
 **Expected output:**
 ```
-🔄 Ingesting existing session logs...
-✅ Ingested 0 new usage events
-🔥 ClawMeter running at http://localhost:3377
+ Ingesting existing session logs...
+ Ingested 0 new usage events
+ ClawMeter running at http://localhost:3377
 ```
 
 **Open in your browser:**
@@ -106,7 +106,7 @@ npm start
 http://localhost:3377
 ```
 
-You should see the dashboard with your usage stats! 🎉
+You should see the dashboard with your usage stats! 
 
 ---
 
@@ -337,7 +337,7 @@ Open browser console (F12) and check for CDN errors.
 1. Verify server is running (`npm start`)
 2. Check terminal for "Watching logs" message
 3. Test by generating a new OpenClaw session
-4. Look for `📥 X new events` in terminal
+4. Look for ` X new events` in terminal
 
 ---
 
@@ -410,6 +410,6 @@ Keep the dashboard open in a browser tab — it auto-refreshes every 30 seconds.
 
 ---
 
-**You're all set! 🎉**
+**You're all set! **
 
 ClawMeter is now tracking your OpenClaw spending. Check back regularly to stay within budget and optimize your AI costs.

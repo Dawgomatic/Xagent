@@ -12,14 +12,14 @@ metadata: {
 
 # Skill: Registro de Contrato de Locação (Google Forms)
 
-## 📝 Descrição
+##  Descrição
 Esta skill automatiza o registro de contratos de locação imobiliária. Ela envia os dados coletados pelo agente para um Google Form, que por sua vez dispara um Google Apps Script responsável por:
 1. Gerar um contrato em PDF baseado em um template do Google Docs.
 2. Calcular automaticamente a **Permanência** (em dias) e o **Valor da Diária**.
 3. Formatar valores monetários para o padrão brasileiro (R$).
 4. Enviar o PDF assinado via e-mail para o locatário e administradores.
 
-## 🛠 Parâmetros de Entrada
+##  Parâmetros de Entrada
 O agente deve extrair os seguintes dados da conversa. Todos são obrigatórios, exceto onde indicado.
 
 | Campo | Tipo | Descrição | Exemplo |
@@ -39,13 +39,13 @@ O agente deve extrair os seguintes dados da conversa. Todos são obrigatórios, 
 | `caucao` | string | Valor do depósito/caução (Opcional). | `200` |
 | `complemento` | string | Apto, bloco, etc. (Opcional). | `Casa A` |
 
-## 🤖 Instruções para a IA (System Prompt)
+##  Instruções para a IA (System Prompt)
 - **Formatação de Data:** Sempre converta datas relativas ("próximo domingo") ou em formato brasileiro ("10/02/26") para o padrão `YYYY-MM-DD`.
 - **Validação:** Não execute a skill se o e-mail ou CPF estiverem ausentes.
 - **Confirmação:** Antes de enviar, apresente um resumo: *"Confirmando: Contrato para David Evaristo, de 10/02 a 15/02, total R$ 2.000,00. Posso gerar?"*
 - **Pós-execução:** Informe ao usuário que o contrato chegará no e-mail em instantes.
 
-## ⚙️ Fluxo de Dados
+##  Fluxo de Dados
 
 
 1. O agente chama a função `fill_rental_form`.

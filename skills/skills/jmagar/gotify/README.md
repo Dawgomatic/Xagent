@@ -78,7 +78,7 @@ Priority levels:
 bash scripts/send.sh --markdown -t "Deploy Summary" -m "
 ## Deployment Complete
 
-- **Status**: ✅ Success
+- **Status**:  Success
 - **Duration**: 2m 34s
 - **Commits**: 5 new
 "
@@ -91,7 +91,7 @@ bash scripts/send.sh --markdown -t "Deploy Summary" -m "
 ./deploy.sh && bash scripts/send.sh "Deploy finished"
 
 # Notify on error
-./critical-task.sh || bash scripts/send.sh -t "⚠️ Failure" -m "Task failed" -p 10
+./critical-task.sh || bash scripts/send.sh -t " Failure" -m "Task failed" -p 10
 ```
 
 ## Parameters

@@ -39,7 +39,7 @@ class MemoryGraph:
         data = nx.node_link_data(self.graph)
         with open(GRAPH_FILE, 'w') as f:
             json.dump(data, f, indent=2)
-        print(f"🕸️  Graph saved to {GRAPH_FILE} ({self.graph.number_of_nodes()} nodes, {self.graph.number_of_edges()} edges)")
+        print(f"  Graph saved to {GRAPH_FILE} ({self.graph.number_of_nodes()} nodes, {self.graph.number_of_edges()} edges)")
 
     def load(self):
         if os.path.exists(GRAPH_FILE):
@@ -47,7 +47,7 @@ class MemoryGraph:
                 data = json.load(f)
             self.graph = nx.node_link_graph(data)
         else:
-            print("🕸️  New graph initialized")
+            print("  New graph initialized")
 
     def build_from_chunks(self, chunks):
         """
@@ -55,7 +55,7 @@ class MemoryGraph:
         Nodes = Section Headers + **Bolded Concepts**.
         Edges = Hierarchical (Structure) + Semantic (Mentions).
         """
-        print("🕸️  Building Knowledge Graph from Memory Chunks...")
+        print("  Building Knowledge Graph from Memory Chunks...")
         self.graph.clear() # Rebuild fresh from current state
         import re
         

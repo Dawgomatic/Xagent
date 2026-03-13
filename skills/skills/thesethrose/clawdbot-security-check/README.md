@@ -1,6 +1,6 @@
 # Clawdbot Security Check
 
-🔒 **Self-security audit framework for Clawdbot**
+ **Self-security audit framework for Clawdbot**
 
 Inspired by the security hardening framework from [ᴅᴀɴɪᴇʟ ᴍɪᴇssʟᴇʀ](https://x.com/DanielMiessler) and integrated with [official ClawdBot security documentation](https://docs.clawd.bot/gateway/security).
 
@@ -8,27 +8,27 @@ This skill teaches Clawdbot to audit its own security posture using first-princi
 
 ## What This Is
 
-- 🧠 **Knowledge-based** - Embeds the security framework directly in Clawdbot
-- 🔍 **Dynamic detection** - Clawdbot learns to find issues, not just run a script
-- 📚 **Extensible** - Add new checks by updating the skill
-- 🔒 **100% Read-only** - Only audits; never modifies configuration
+-  **Knowledge-based** - Embeds the security framework directly in Clawdbot
+-  **Dynamic detection** - Clawdbot learns to find issues, not just run a script
+-  **Extensible** - Add new checks by updating the skill
+-  **100% Read-only** - Only audits; never modifies configuration
 
 ## The 12 Security Domains
 
 | # | Domain | Severity | Key Question |
 |---|--------|----------|--------------|
-| 1 | Gateway Exposure | 🔴 Critical | Is the gateway bound to 0.0.0.0 without auth? |
-| 2 | DM Policy | 🟠 High | Are DMs restricted to an allowlist? |
-| 3 | Group Access Control | 🟠 High | Are group policies set to allowlist? |
-| 4 | Credentials Security | 🔴 Critical | Are secrets in plaintext with loose permissions? |
-| 5 | Browser Control Exposure | 🟠 High | Is remote browser control secured? |
-| 6 | Gateway Bind & Network | 🟠 High | Is network exposure intentional and controlled? |
-| 7 | Tool Access & Elevated | 🟡 Medium | Are tools restricted to minimum needed? |
-| 8 | File Permissions & Disk | 🟡 Medium | Are file permissions properly set? |
-| 9 | Plugin Trust & Model | 🟡 Medium | Are plugins allowlisted and models current? |
-| 10| Logging & Redaction | 🟡 Medium | Is sensitive data redacted in logs? |
-| 11| Prompt Injection | 🟡 Medium | Is untrusted content wrapped? |
-| 12| Dangerous Commands | 🟡 Medium | Are destructive commands blocked? |
+| 1 | Gateway Exposure |  Critical | Is the gateway bound to 0.0.0.0 without auth? |
+| 2 | DM Policy |  High | Are DMs restricted to an allowlist? |
+| 3 | Group Access Control |  High | Are group policies set to allowlist? |
+| 4 | Credentials Security |  Critical | Are secrets in plaintext with loose permissions? |
+| 5 | Browser Control Exposure |  High | Is remote browser control secured? |
+| 6 | Gateway Bind & Network |  High | Is network exposure intentional and controlled? |
+| 7 | Tool Access & Elevated |  Medium | Are tools restricted to minimum needed? |
+| 8 | File Permissions & Disk |  Medium | Are file permissions properly set? |
+| 9 | Plugin Trust & Model |  Medium | Are plugins allowlisted and models current? |
+| 10| Logging & Redaction |  Medium | Is sensitive data redacted in logs? |
+| 11| Prompt Injection |  Medium | Is untrusted content wrapped? |
+| 12| Dangerous Commands |  Medium | Are destructive commands blocked? |
 
 ## Installation
 
@@ -72,19 +72,19 @@ The `--fix` flag applies these guardrails:
 
 Treat findings in this priority order:
 
-1. 🔴 Lock down DMs and groups if tools are enabled on open settings
-2. 🔴 Fix public network exposure immediately
-3. 🟠 Secure browser control with tokens and HTTPS
-4. 🟠 Correct file permissions for credentials and config
-5. 🟡 Only load trusted plugins
-6. 🟡 Use modern models for bots with tool access
+1.  Lock down DMs and groups if tools are enabled on open settings
+2.  Fix public network exposure immediately
+3.  Secure browser control with tokens and HTTPS
+4.  Correct file permissions for credentials and config
+5.  Only load trusted plugins
+6.  Use modern models for bots with tool access
 
 ## Extending the Framework
 
 Add new checks by contributing to SKILL.md:
 
 ```markdown
-## 13. New Vulnerability 🟡 Medium
+## 13. New Vulnerability  Medium
 
 **What to check:** What config reveals this?
 
@@ -117,10 +117,10 @@ Clawdbot-Security-Check/
 
 Hard-coded scripts get stale. A knowledge framework evolves:
 
-- ✅ Add new vulnerabilities without code changes
-- ✅ Customize checks for your environment
-- ✅ Clawdbot understands the "why" behind each check
-- ✅ Enables intelligent follow-up questions
+-  Add new vulnerabilities without code changes
+-  Customize checks for your environment
+-  Clawdbot understands the "why" behind each check
+-  Enables intelligent follow-up questions
 
 > "The goal isn't to find vulnerabilities—it's to understand security deeply enough that vulnerabilities can't hide." — Daniel Miessler
 
@@ -128,23 +128,23 @@ Hard-coded scripts get stale. A knowledge framework evolves:
 
 ```
 ═══════════════════════════════════════════════════════════════
-🔒 CLAWDBOT SECURITY AUDIT
+ CLAWDBOT SECURITY AUDIT
 ═══════════════════════════════════════════════════════════════
 Timestamp: 2026-01-26T15:30:00.000Z
 
 ┌─ SUMMARY ───────────────────────────────────────────────
-│ 🔴 Critical:  1
-│ 🟠 High:      2
-│ 🟡 Medium:    1
-│ ✅ Passed:    8
+│  Critical:  1
+│  High:      2
+│  Medium:    1
+│  Passed:    8
 └────────────────────────────────────────────────────────
 
 ┌─ FINDINGS ──────────────────────────────────────────────
-│ 🔴 [CRITICAL] Gateway Exposure
+│  [CRITICAL] Gateway Exposure
 │    Finding: Gateway bound to 0.0.0.0:18789 without auth
 │    → Fix: Set gateway.auth_token environment variable
 │
-│ 🟠 [HIGH] DM Policy
+│  [HIGH] DM Policy
 │    Finding: dm_policy is "allow" (all users)
 │    → Fix: Set dm_policy to "allowlist" with trusted users
 └────────────────────────────────────────────────────────

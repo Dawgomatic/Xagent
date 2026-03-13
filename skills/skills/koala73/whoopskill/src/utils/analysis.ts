@@ -260,25 +260,25 @@ export function formatTrends(data: TrendData, pretty: boolean): string {
   if (!pretty) return JSON.stringify(data, null, 2);
 
   const arrow = (t: 'up' | 'down' | 'stable') => t === 'up' ? '↑' : t === 'down' ? '↓' : '→';
-  const lines: string[] = [`📊 ${data.period}-Day Trends`, ''];
+  const lines: string[] = [` ${data.period}-Day Trends`, ''];
 
   if (data.recovery) {
-    lines.push(`💚 Recovery: ${data.recovery.avg}% avg (${data.recovery.min}-${data.recovery.max}) ${arrow(data.recovery.trend)}`);
+    lines.push(` Recovery: ${data.recovery.avg}% avg (${data.recovery.min}-${data.recovery.max}) ${arrow(data.recovery.trend)}`);
   }
   if (data.hrv) {
-    lines.push(`💓 HRV: ${data.hrv.avg}ms avg (${data.hrv.min.toFixed(0)}-${data.hrv.max.toFixed(0)}) ${arrow(data.hrv.trend)}`);
+    lines.push(` HRV: ${data.hrv.avg}ms avg (${data.hrv.min.toFixed(0)}-${data.hrv.max.toFixed(0)}) ${arrow(data.hrv.trend)}`);
   }
   if (data.rhr) {
-    lines.push(`❤️ RHR: ${data.rhr.avg}bpm avg (${data.rhr.min}-${data.rhr.max}) ${arrow(data.rhr.trend)}`);
+    lines.push(` RHR: ${data.rhr.avg}bpm avg (${data.rhr.min}-${data.rhr.max}) ${arrow(data.rhr.trend)}`);
   }
   if (data.sleepPerformance) {
-    lines.push(`😴 Sleep: ${data.sleepPerformance.avg}% avg (${data.sleepPerformance.min}-${data.sleepPerformance.max}) ${arrow(data.sleepPerformance.trend)}`);
+    lines.push(` Sleep: ${data.sleepPerformance.avg}% avg (${data.sleepPerformance.min}-${data.sleepPerformance.max}) ${arrow(data.sleepPerformance.trend)}`);
   }
   if (data.sleepHours) {
-    lines.push(`🛏️ Hours: ${data.sleepHours.avg.toFixed(1)}h avg (${data.sleepHours.min.toFixed(1)}-${data.sleepHours.max.toFixed(1)}) ${arrow(data.sleepHours.trend)}`);
+    lines.push(` Hours: ${data.sleepHours.avg.toFixed(1)}h avg (${data.sleepHours.min.toFixed(1)}-${data.sleepHours.max.toFixed(1)}) ${arrow(data.sleepHours.trend)}`);
   }
   if (data.strain) {
-    lines.push(`🔥 Strain: ${data.strain.avg.toFixed(1)} avg (${data.strain.min.toFixed(1)}-${data.strain.max.toFixed(1)}) ${arrow(data.strain.trend)}`);
+    lines.push(` Strain: ${data.strain.avg.toFixed(1)} avg (${data.strain.min.toFixed(1)}-${data.strain.max.toFixed(1)}) ${arrow(data.strain.trend)}`);
   }
 
   return lines.join('\n');
@@ -287,12 +287,12 @@ export function formatTrends(data: TrendData, pretty: boolean): string {
 export function formatInsights(insights: Insight[], pretty: boolean): string {
   if (!pretty) return JSON.stringify(insights, null, 2);
 
-  if (insights.length === 0) return '✅ No actionable insights — all metrics look healthy!';
+  if (insights.length === 0) return ' No actionable insights — all metrics look healthy!';
 
   const icon = (level: 'good' | 'warning' | 'critical') =>
-    level === 'good' ? '✅' : level === 'warning' ? '⚠️' : '🔴';
+    level === 'good' ? '' : level === 'warning' ? '' : '';
 
-  const lines: string[] = ['💡 Insights & Recommendations', ''];
+  const lines: string[] = [' Insights & Recommendations', ''];
 
   for (const i of insights) {
     lines.push(`${icon(i.level)} ${i.title}`);

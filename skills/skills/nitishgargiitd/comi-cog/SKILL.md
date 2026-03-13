@@ -3,7 +3,7 @@ name: comi-cog
 description: Comic and manga creation powered by CellCog. Create comics, manga, webtoons, graphic novels, comic strips, visual storytelling, sequential art, character consistency. AI-powered comic creator.
 metadata:
   openclaw:
-    emoji: "📚"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

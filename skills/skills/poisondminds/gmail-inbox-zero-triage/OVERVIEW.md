@@ -17,12 +17,12 @@ Interactive AI-powered email triage that helps users achieve and maintain inbox 
 
 ## Key Features
 
-✅ **OAuth-based** - Secure, no passwords needed (uses gog CLI)  
-✅ **AI summaries** - 1-line summary per email for quick triage  
-✅ **Batch processing** - Queue actions instantly, execute at end  
-✅ **Telegram buttons** - Archive, Filter, Unsubscribe, View  
-✅ **Inbox zero focus** - Process everything until inbox is empty  
-✅ **Fast workflow** - No API calls between actions
+ **OAuth-based** - Secure, no passwords needed (uses gog CLI)  
+ **AI summaries** - 1-line summary per email for quick triage  
+ **Batch processing** - Queue actions instantly, execute at end  
+ **Telegram buttons** - Archive, Filter, Unsubscribe, View  
+ **Inbox zero focus** - Process everything until inbox is empty  
+ **Fast workflow** - No API calls between actions
 
 ## Files Included
 
@@ -47,31 +47,31 @@ gmail-inbox-zero/
 3. User clicks actions (Archive/Filter/Unsub/View) - queued instantly
 4. User clicks "Done" - all actions execute in batch
 5. Agent reports results and new inbox count
-6. Repeat until inbox zero! 🎉
+6. Repeat until inbox zero! 
 
 ## Sample Output
 
 ```
-📬 Inbox Triage - 5 messages
+ Inbox Triage - 5 messages
 
 1/5 Amazon: Your order has shipped
-💡 Shipping notification. Package arrives Thursday.
-[📥 Archive] [🔍 Filter] [🚫 Unsub] [📧 View]
+ Shipping notification. Package arrives Thursday.
+[ Archive] [ Filter] [ Unsub] [ View]
 
 2/5 LinkedIn: New job recommendations  
-💡 Newsletter with job suggestions. No action required.
-[📥 Archive] [🔍 Filter] [🚫 Unsub] [📧 View]
+ Newsletter with job suggestions. No action required.
+[ Archive] [ Filter] [ Unsub] [ View]
 
 3/5 Stripe: Payment receipt #12345
-💡 Payment receipt for $20. Financial record.
-[📥 Archive] [🔍 Filter] [🚫 Unsub] [📧 View]
+ Payment receipt for $20. Financial record.
+[ Archive] [ Filter] [ Unsub] [ View]
 
 ---
 
-⚡ Click actions above, then hit Done to execute!
-💡 Don't click anything to skip an email
+ Click actions above, then hit Done to execute!
+ Don't click anything to skip an email
 
-[✅ Done - Execute All Actions]
+[ Done - Execute All Actions]
 ```
 
 ## Dependencies
@@ -89,16 +89,16 @@ gmail-inbox-zero/
 
 ## Testing Checklist
 
-✅ Fetches all inbox messages (read + unread)  
-✅ Displays AI summaries for each email  
-✅ Telegram buttons work (Archive/Filter/Unsub/View)  
-✅ Actions queue correctly  
-✅ "Done" button executes all queued actions  
-✅ Archive removes emails from inbox  
-✅ View shows full email content  
-✅ Handles empty inbox gracefully  
-✅ Reports correct inbox count after execution  
-✅ Works with OAuth (no passwords)
+ Fetches all inbox messages (read + unread)  
+ Displays AI summaries for each email  
+ Telegram buttons work (Archive/Filter/Unsub/View)  
+ Actions queue correctly  
+ "Done" button executes all queued actions  
+ Archive removes emails from inbox  
+ View shows full email content  
+ Handles empty inbox gracefully  
+ Reports correct inbox count after execution  
+ Works with OAuth (no passwords)
 
 ## Performance
 
@@ -161,7 +161,7 @@ python3 -m zipfile -e gmail-inbox-zero.skill /path/to/clawdbot/skills/
 
 ---
 
-**Status:** ✅ Ready for publishing  
+**Status:**  Ready for publishing  
 **Version:** 1.0.0  
 **Last Updated:** 2026-02-09  
-**Tested:** ✅ All features working
+**Tested:**  All features working

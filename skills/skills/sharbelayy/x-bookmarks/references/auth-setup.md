@@ -126,6 +126,6 @@ As of 2025, the X API uses **pay-per-usage pricing**. Bookmark reads are low vol
 | **Cost** | Free | Pay-per-use (very cheap) |
 | **Reliability** | Depends on cookie access | Official API, stable |
 | **Extra data** | Thread context, folders | View count, bookmark count |
-| **Unbookmark** | ✅ `bird unbookmark <id>` | ✅ via API (DELETE endpoint) |
+| **Unbookmark** |  `bird unbookmark <id>` |  via API (DELETE endpoint) |
 
 **TL;DR:** Try bird first. If it doesn't work, use the API.

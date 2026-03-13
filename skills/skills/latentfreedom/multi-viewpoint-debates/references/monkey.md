@@ -39,8 +39,8 @@
 But... quiet. No other monkeys making noise. No testimonials. No recent 'Just shipped THIS!' energy. Landing page just sits there. Nice, but still.
 
 **What I see:**
-- ✅ Tree is healthy—not broken, not ignored
-- ❌ But not producing fruit others notice
+-  Tree is healthy—not broken, not ignored
+-  But not producing fruit others notice
 
 **Can't tell the creator's energy.** Could mean:
 - Satisfied and maintaining (decent)

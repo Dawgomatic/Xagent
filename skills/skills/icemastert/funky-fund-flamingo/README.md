@@ -1,4 +1,4 @@
-# 🦩 Funky Fund Flamingo
+#  Funky Fund Flamingo
 
 **Repair-first self-evolution for OpenClaw. Audit logs, memory, and skills — run measurable mutation cycles. Get paid. Evolve. Repeat. Dolla dolla bill y'all.**
 
@@ -105,4 +105,4 @@ MIT
 
 ---
 
-*Dolla, dolla bill y'all. 🦩*
+*Dolla, dolla bill y'all. *

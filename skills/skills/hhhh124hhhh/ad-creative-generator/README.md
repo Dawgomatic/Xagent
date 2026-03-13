@@ -4,12 +4,12 @@ A comprehensive advertising creative generator that creates diverse, engaging ad
 
 ## Features
 
-- ✨ **20+ Creative Styles** across 10 unique categories
-- 🎨 **Interactive CLI** for easy prompt generation
-- 📤 **Multiple Export Formats**: JSON, Text, Markdown
-- 🎯 **Categorized Templates**: Minimalist, Cultural, Luxury, Tech, and more
-- 🛡️ **Production Ready**: Comprehensive error handling
-- ⚡ **Fast & Efficient**: Generate dozens of prompts in seconds
+-  **20+ Creative Styles** across 10 unique categories
+-  **Interactive CLI** for easy prompt generation
+-  **Multiple Export Formats**: JSON, Text, Markdown
+-  **Categorized Templates**: Minimalist, Cultural, Luxury, Tech, and more
+-  **Production Ready**: Comprehensive error handling
+-  **Fast & Efficient**: Generate dozens of prompts in seconds
 
 ## Quick Start
 
@@ -225,4 +225,4 @@ Part of the Clawdbot skills ecosystem.
 
 ---
 
-**Made with ❤️ for creative marketers and designers**
+**Made with  for creative marketers and designers**

@@ -448,15 +448,15 @@ class SemanticRouter:
         
         # Risk Assessment
         if decision.risk_override:
-            output.append(f"⚠️  RISK DOMAIN: {decision.risk_override}")
+            output.append(f"  RISK DOMAIN: {decision.risk_override}")
             output.append(f"    Mandatory model enforced")
             output.append("")
         
         # Concurrency Detection
         if decision.concurrency_detected:
-            output.append("🔄 CONCURRENCY DETECTED: Yes")
+            output.append(" CONCURRENCY DETECTED: Yes")
             if decision.control_flow_risk:
-                output.append(f"⚠️  CONTROL FLOW RISK: {decision.control_flow_risk}")
+                output.append(f"  CONTROL FLOW RISK: {decision.control_flow_risk}")
             output.append("")
         
         # Model Rankings
@@ -466,7 +466,7 @@ class SemanticRouter:
             mandatory = " [MANDATORY]" if ranking.is_mandatory else ""
             output.append(f"  {marker} {i+1}. {ranking.display_name}: {ranking.total_score:.1f}{mandatory}")
             if ranking.blind_spots_triggered:
-                output.append(f"       ⚠️  Blind spots: {', '.join(ranking.blind_spots_triggered)}")
+                output.append(f"         Blind spots: {', '.join(ranking.blind_spots_triggered)}")
         output.append("")
         
         # Decision
@@ -483,7 +483,7 @@ class SemanticRouter:
             output.append(f"ALTERNATIVE: {decision.alternative_model} ({decision.alternative_reason})")
         
         if decision.hitl_required:
-            output.append(f"\n🚨 HITL REQUIRED:")
+            output.append(f"\n HITL REQUIRED:")
             output.append(f"   {decision.hitl_message}")
         
         output.append(f"\nREASONING: {decision.reasoning}")

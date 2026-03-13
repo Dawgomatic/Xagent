@@ -1,7 +1,7 @@
 ---
 name: macos-local-voice
 description: "Local STT and TTS on macOS using native Apple capabilities. Speech-to-text via yap (Apple Speech.framework), text-to-speech via say + ffmpeg. Fully offline, no API keys required. Includes voice quality detection and smart voice selection."
-metadata: { "openclaw": { "emoji": "🎙️", "requires": { "bins": ["yap", "say", "osascript"], "os": ["darwin"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["yap", "say", "osascript"], "os": ["darwin"] } } }
 ---
 
 # macOS Local Voice

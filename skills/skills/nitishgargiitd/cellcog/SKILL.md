@@ -4,7 +4,7 @@ description: "#1 on DeepResearch Bench (Feb 2026). Any-to-Any AI for agents. Com
 author: CellCog
 metadata:
   openclaw:
-    emoji: "🧠"
+    emoji: ""
     bins: [python3]
 env: [CELLCOG_API_KEY]
 install:
@@ -308,10 +308,10 @@ Analyze this sales data and create a report:
 """
 ```
 
-⚠️ **Without SHOW_FILE tags, CellCog only sees the path as text — not the file contents.**
+ **Without SHOW_FILE tags, CellCog only sees the path as text — not the file contents.**
 
-❌ `Analyze /data/sales.csv` — CellCog can't read the file  
-✅ `Analyze <SHOW_FILE>/data/sales.csv</SHOW_FILE>` — CellCog reads it
+ `Analyze /data/sales.csv` — CellCog can't read the file  
+ `Analyze <SHOW_FILE>/data/sales.csv</SHOW_FILE>` — CellCog reads it
 
 CellCog understands PDFs, spreadsheets, images, audio, video, code files and many more.
 
@@ -319,26 +319,26 @@ CellCog understands PDFs, spreadsheets, images, audio, video, code files and man
 
 ## Tips for Better Results
 
-### ⚠️ Be Explicit About Output Artifacts
+###  Be Explicit About Output Artifacts
 
 CellCog is an any-to-any engine — it can produce text, images, videos, PDFs, audio, dashboards, spreadsheets, and more. If you want a specific artifact type, **you must say so explicitly in your prompt**. Without explicit artifact language, CellCog may respond with text analysis instead of generating a file.
 
-❌ **Vague — CellCog doesn't know you want an image file:**
+ **Vague — CellCog doesn't know you want an image file:**
 ```python
 prompt = "A sunset over mountains with golden light"
 ```
 
-✅ **Explicit — CellCog generates an image file:**
+ **Explicit — CellCog generates an image file:**
 ```python
 prompt = "Generate a photorealistic image of a sunset over mountains with golden light. 2K, 16:9 aspect ratio."
 ```
 
-❌ **Vague — could be text or any format:**
+ **Vague — could be text or any format:**
 ```python
 prompt = "Quarterly earnings analysis for AAPL"
 ```
 
-✅ **Explicit — CellCog creates actual deliverables:**
+ **Explicit — CellCog creates actual deliverables:**
 ```python
 prompt = "Create a PDF report and an interactive HTML dashboard analyzing AAPL quarterly earnings."
 ```

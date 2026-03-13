@@ -23,15 +23,15 @@ echo ""
 
 # Check mount
 if mountpoint -q "$MOUNT" 2>/dev/null; then
-    echo "Mount:     ✅ $MOUNT → //$HOST/$SHARE"
+    echo "Mount:      $MOUNT → //$HOST/$SHARE"
 else
-    echo "Mount:     ❌ Not mounted"
+    echo "Mount:      Not mounted"
     echo "           Attempting mount..."
     mkdir -p "$MOUNT"
     if mount -t cifs "//$HOST/$SHARE" "$MOUNT" -o credentials="$CREDS",vers="$SMB_VER" 2>/dev/null; then
-        echo "           ✅ Mounted successfully"
+        echo "            Mounted successfully"
     else
-        echo "           ❌ Mount failed — check host, share, and credentials"
+        echo "            Mount failed — check host, share, and credentials"
         exit 1
     fi
 fi
@@ -72,7 +72,7 @@ if [[ -d "$BACKUP_DIR" ]]; then
         AGE_HOURS=$(( (NOW_EPOCH - LATEST_EPOCH) / 3600 ))
         
         if [[ $AGE_HOURS -gt 48 ]]; then
-            echo "⚠️  WARNING: Last backup is ${AGE_HOURS}h old!"
+            echo "  WARNING: Last backup is ${AGE_HOURS}h old!"
         fi
     fi
     

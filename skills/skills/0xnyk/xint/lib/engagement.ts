@@ -361,7 +361,7 @@ export async function cmdFollow(args: string[]): Promise<void> {
   }
 
   if (ok) {
-    console.log(`✅ Following @${resolved.username}`);
+    console.log(` Following @${resolved.username}`);
   } else {
     console.error(`Failed to follow @${resolved.username}`);
   }
@@ -403,7 +403,7 @@ export async function cmdUnfollow(args: string[]): Promise<void> {
   }
 
   if (ok) {
-    console.log(`✅ Unfollowed @${resolved.username}`);
+    console.log(` Unfollowed @${resolved.username}`);
   } else {
     console.error(`Failed to unfollow @${resolved.username}`);
   }

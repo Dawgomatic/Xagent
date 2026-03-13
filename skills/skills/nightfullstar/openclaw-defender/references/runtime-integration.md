@@ -20,11 +20,11 @@ openclaw-defender v1.1.0 adds **runtime protection** to complement pre-installat
 ### After (v1.1): 7 Layers
 1. Pre-installation auditing
 2. File integrity monitoring
-3. **Runtime network monitoring** ⬅️ NEW
-4. **Runtime file access control** ⬅️ NEW
-5. **Runtime command validation** ⬅️ NEW
-6. **RAG operation blocking** ⬅️ NEW
-7. **Kill switch + analytics** ⬅️ NEW
+3. **Runtime network monitoring**  NEW
+4. **Runtime file access control**  NEW
+5. **Runtime command validation**  NEW
+6. **RAG operation blocking**  NEW
+7. **Kill switch + analytics**  NEW
 
 ---
 
@@ -309,7 +309,7 @@ ls -lh memory/security-report-*.md
 
 ## Migration Path
 
-### Phase 1: Install openclaw-defender v1.1.0 ✅
+### Phase 1: Install openclaw-defender v1.1.0 
 - Copy skill to workspace
 - Run generate-baseline.sh
 - Add integrity monitoring cron
@@ -339,20 +339,20 @@ Skills don't need to know about runtime-monitor.sh - OpenClaw intercepts tool ca
 ## Security Guarantees
 
 ### What v1.1.0 Protects:
-✅ Pre-installation vetting (audit-skills.sh)
-✅ File integrity (check-integrity.sh)
-✅ Network exfiltration (runtime-monitor.sh)
-✅ Credential theft (runtime-monitor.sh)
-✅ Dangerous commands (runtime-monitor.sh)
-✅ RAG poisoning (runtime-monitor.sh)
-✅ Memory poisoning (check-integrity.sh + runtime-monitor.sh)
-✅ Kill switch on attack (runtime-monitor.sh)
+ Pre-installation vetting (audit-skills.sh)
+ File integrity (check-integrity.sh)
+ Network exfiltration (runtime-monitor.sh)
+ Credential theft (runtime-monitor.sh)
+ Dangerous commands (runtime-monitor.sh)
+ RAG poisoning (runtime-monitor.sh)
+ Memory poisoning (check-integrity.sh + runtime-monitor.sh)
+ Kill switch on attack (runtime-monitor.sh)
 
 ### What it DOESN'T protect:
-❌ Zero-day exploits in OpenClaw core
-❌ Hardware-level attacks
-❌ Social engineering (humans bypassing policies)
-❌ Compromised npm dependencies (supply chain above skills)
+ Zero-day exploits in OpenClaw core
+ Hardware-level attacks
+ Social engineering (humans bypassing policies)
+ Compromised npm dependencies (supply chain above skills)
 
 **Defense in depth required. No single tool is sufficient.**
 
@@ -379,4 +379,4 @@ A: Edit runtime-monitor.sh `whitelist` arrays. Document why. Commit to git. Shar
 
 **For questions, open an issue at: github.com/nightfullstar/openclaw-defender**
 
-**Stay clawed. 🦞**
+**Stay clawed. **

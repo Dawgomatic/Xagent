@@ -4,7 +4,7 @@ description: Agent-controlled memory plugin for OpenClaw with confidence scoring
 homepage: https://github.com/Purple-Horizons/memory-tools
 metadata:
   openclaw:
-    emoji: 🧠
+    emoji: 
     kind: plugin
 ---
 

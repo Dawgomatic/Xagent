@@ -13,7 +13,7 @@ export class ResponseFormatter {
     switch (verbosity) {
       case 'ultra-light': {
         const total = accounts.reduce((sum, acc) => sum + (acc.currentBalance || 0), 0);
-        return `💰 ${accounts.length} accounts, Total: $${total.toLocaleString()}`;
+        return ` ${accounts.length} accounts, Total: $${total.toLocaleString()}`;
       }
 
       case 'light':
@@ -35,12 +35,12 @@ export class ResponseFormatter {
   static formatTransactions(transactions: any[], verbosity: VerbosityLevel, originalQuery?: string): string {
     if (!transactions.length) return '';
 
-    const header = originalQuery ? `🧠 **Smart Query**: "${originalQuery}"\n\n` : '';
+    const header = originalQuery ? ` **Smart Query**: "${originalQuery}"\n\n` : '';
 
     switch (verbosity) {
       case 'ultra-light': {
         const total = transactions.reduce((sum, txn) => sum + Math.abs(txn.amount), 0);
-        return `${header}💳 ${transactions.length} transactions, Volume: $${total.toLocaleString()}`;
+        return `${header} ${transactions.length} transactions, Volume: $${total.toLocaleString()}`;
       }
 
       case 'light':
@@ -76,9 +76,9 @@ export class ResponseFormatter {
     }) || [];
 
     const monthlyChange = thisMonth.reduce((sum, t) => sum + t.amount, 0);
-    const changeSymbol = monthlyChange >= 0 ? '⬆️' : '⬇️';
+    const changeSymbol = monthlyChange >= 0 ? '' : '';
 
-    return `💰 $${totalBalance.toLocaleString()} • ${changeSymbol} ${monthlyChange >= 0 ? '+' : ''}$${Math.abs(monthlyChange).toLocaleString()} • 📊 ${accountCount} accounts`;
+    return ` $${totalBalance.toLocaleString()} • ${changeSymbol} ${monthlyChange >= 0 ? '+' : ''}$${Math.abs(monthlyChange).toLocaleString()} •  ${accountCount} accounts`;
   }
 
   /**
@@ -101,7 +101,7 @@ export class ResponseFormatter {
       .slice(0, topN);
 
     if (sortedCategories.length === 0) {
-      return '💸 No expenses found';
+      return ' No expenses found';
     }
 
     // Create ultra-compact summary
@@ -121,27 +121,27 @@ export class ResponseFormatter {
    */
   private static getCategoryIcon(category: string): string {
     const categoryIcons: Record<string, string> = {
-      'dining': '🍽️',
-      'restaurants': '🍽️',
-      'food': '🍽️',
-      'groceries': '🛒',
-      'gas': '⛽',
-      'fuel': '⛽',
-      'transportation': '🚗',
-      'shopping': '🛍️',
-      'entertainment': '🎬',
-      'utilities': '⚡',
-      'rent': '🏠',
-      'mortgage': '🏠',
-      'insurance': '🛡️',
-      'healthcare': '🏥',
-      'medical': '🏥',
-      'travel': '✈️',
-      'education': '📚',
-      'fitness': '💪',
-      'subscriptions': '📱',
-      'income': '💰',
-      'salary': '💰'
+      'dining': '',
+      'restaurants': '',
+      'food': '',
+      'groceries': '',
+      'gas': '',
+      'fuel': '',
+      'transportation': '',
+      'shopping': '',
+      'entertainment': '',
+      'utilities': '',
+      'rent': '',
+      'mortgage': '',
+      'insurance': '',
+      'healthcare': '',
+      'medical': '',
+      'travel': '',
+      'education': '',
+      'fitness': '',
+      'subscriptions': '',
+      'income': '',
+      'salary': ''
     };
 
     const lowerCategory = category.toLowerCase();
@@ -151,6 +151,6 @@ export class ResponseFormatter {
       }
     }
 
-    return '💸'; // Default expense icon
+    return ''; // Default expense icon
   }
 }

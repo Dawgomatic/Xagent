@@ -157,7 +157,7 @@ class EchoService:
 # Telegram Bot Handlers
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "🎉 Echo is running!\n\n"
+        " Echo is running!\n\n"
         "Available commands:\n"
         "/status - Check Echo status\n"
         "/emails - Fetch and classify recent emails\n"
@@ -168,7 +168,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "✅ Echo is running and ready!\n\n"
+        " Echo is running and ready!\n\n"
         "Status:\n"
         "- Gmail: Connected\n"
         "- Database: Active\n"
@@ -178,14 +178,14 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def emails(update: Update, context: ContextTypes.DEFAULT_TYPE):
     echo_service = context.bot_data.get('echo_service')
     if not echo_service:
-        await update.message.reply_text("❌ Echo service not initialized")
+        await update.message.reply_text(" Echo service not initialized")
         return
     await update.message.reply_text("Fetching and classifying recent emails...")
     email_details = echo_service.fetch_recent_emails(5)
     if not email_details:
         await update.message.reply_text("No recent emails found")
         return
-    response = f"📧 Found and classified {len(email_details)} recent emails\n\n"
+    response = f" Found and classified {len(email_details)} recent emails\n\n"
     for i, detail in enumerate(email_details, 1):
         response += f"{i}. ID: {detail['id']} - Type: {detail['type']}\n"
     await update.message.reply_text(response)
@@ -193,7 +193,7 @@ async def emails(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def classify_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     echo_service = context.bot_data.get('echo_service')
     if not echo_service:
-        await update.message.reply_text("❌ Echo service not initialized")
+        await update.message.reply_text(" Echo service not initialized")
         return
     text_to_classify = ' '.join(context.args)
     if not text_to_classify:
@@ -206,7 +206,7 @@ async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Interpret natural language feedback"""
     echo_service = context.bot_data.get('echo_service')
     if not echo_service:
-        await update.message.reply_text("❌ Echo service not initialized")
+        await update.message.reply_text(" Echo service not initialized")
         return
 
     feedback_text = ' '.join(context.args)
@@ -226,7 +226,7 @@ async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "🤖 Echo - AI Sales Assistant\n\n"
+        " Echo - AI Sales Assistant\n\n"
         "Commands:\n"
         "/start - Start Echo\n"
         "/status - Check status\n"

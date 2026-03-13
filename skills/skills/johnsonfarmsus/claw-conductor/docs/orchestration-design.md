@@ -346,19 +346,19 @@ def consolidate_results(project):
 
 **Message Format:**
 ```
-🚀 Project Started: my-project
-📋 Decomposed into 7 tasks
-⚡ Executing in parallel (max 5 concurrent)
+ Project Started: my-project
+ Decomposed into 7 tasks
+ Executing in parallel (max 5 concurrent)
 
-✅ Task 1/7: Database schema (Mistral) - Completed in 4m
-🔄 Task 2/7: Authentication (Mistral) - In progress
-🔄 Task 3/7: Customer UI (Devstral) - In progress
-⏳ Task 4/7: Driver dashboard (Devstral) - Queued
+ Task 1/7: Database schema (Mistral) - Completed in 4m
+ Task 2/7: Authentication (Mistral) - In progress
+ Task 3/7: Customer UI (Devstral) - In progress
+ Task 4/7: Driver dashboard (Devstral) - Queued
 ...
 
-✅ All tasks completed!
-📦 Committed and pushed to GitHub
-🔗 https://github.com/{user}/dispatch-suite
+ All tasks completed!
+ Committed and pushed to GitHub
+ https://github.com/{user}/dispatch-suite
 ```
 
 ---

@@ -8,7 +8,7 @@ description: |
   Outputs Telegram-compatible voice notes with [[audio_as_voice]] tag.
 metadata:
   openclaw:
-    emoji: "🎤"
+    emoji: ""
     os: ["linux"]
     requires:
       bins: ["ffmpeg"]

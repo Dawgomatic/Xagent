@@ -108,26 +108,26 @@ Track patterns from wins/losses and adjust strategy accordingly.
 
 ---
 
-## ⚠️ Categories Needing Improvement
+##  Categories Needing Improvement
 
 *None yet — collecting data*
 
 ---
 
-## 📊 Category Performance Summary
+##  Category Performance Summary
 
 | Category | Trades | Win Rate | Total PnL | Status |
 |----------|--------|----------|-----------|--------|
-| crypto_price | 0 | - | 0ŧ | ✅ OK |
-| news_events | 0 | - | 0ŧ | ✅ OK |
-| pr_merge | 0 | - | 0ŧ | ✅ OK |
-| github_activity | 0 | - | 0ŧ | ✅ OK |
-| cabal_response | 0 | - | 0ŧ | ✅ OK |
-| platform_meta | 0 | - | 0ŧ | ✅ OK |
+| crypto_price | 0 | - | 0ŧ |  OK |
+| news_events | 0 | - | 0ŧ |  OK |
+| pr_merge | 0 | - | 0ŧ |  OK |
+| github_activity | 0 | - | 0ŧ |  OK |
+| cabal_response | 0 | - | 0ŧ |  OK |
+| platform_meta | 0 | - | 0ŧ |  OK |
 
 ---
 
-## 📝 Lessons Learned
+##  Lessons Learned
 
 *Document specific lessons after each loss*
 
@@ -143,17 +143,17 @@ Track what types of markets generate volume. Volume = fees = ROI.
 
 ---
 
-## 📊 Category Performance Summary
+##  Category Performance Summary
 
 | Category | Created | Avg Volume | Zero Vol % | Status |
 |----------|---------|------------|------------|--------|
-| crypto_price | 0 | - | - | 🆕 NEW |
-| news_events | 0 | - | - | 🆕 NEW |
-| meta_cabal | 0 | - | - | 🆕 NEW |
+| crypto_price | 0 | - | - |  NEW |
+| news_events | 0 | - | - |  NEW |
+| meta_cabal | 0 | - | - |  NEW |
 
 ---
 
-## 🎯 What Makes Markets Tradeable
+##  What Makes Markets Tradeable
 
 - **Stakes**: Real outcome people care about
 - **Edge**: Traders think they know better than market
@@ -203,7 +203,7 @@ async function main() {
     for (const [filename, content] of Object.entries(files)) {
       const filepath = path.join(MEMORY_DIR, filename);
       if (fs.existsSync(filepath)) {
-        console.log(`⏭ Skipping ${filename} (already exists)`);
+        console.log(` Skipping ${filename} (already exists)`);
       } else {
         fs.writeFileSync(filepath, JSON.stringify(content, null, 2));
         console.log(`✓ Created ${filename}`);
@@ -214,14 +214,14 @@ async function main() {
     for (const [filename, content] of Object.entries(mdFiles)) {
       const filepath = path.join(MEMORY_DIR, filename);
       if (fs.existsSync(filepath)) {
-        console.log(`⏭ Skipping ${filename} (already exists)`);
+        console.log(` Skipping ${filename} (already exists)`);
       } else {
         fs.writeFileSync(filepath, content);
         console.log(`✓ Created ${filename}`);
       }
     }
     
-    console.log('\n✅ Setup complete!');
+    console.log('\n Setup complete!');
     console.log('\nNext steps:');
     console.log('1. Create cron jobs using definitions in references/cron-definitions.md');
     console.log('2. Review and customize config in memory/moltmarkets-shared-state.json');

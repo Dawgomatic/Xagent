@@ -1,7 +1,7 @@
 {
   "name": "meow-finder",
   "version": "1.0.0",
-  "description": "CLI tool to discover AI tools. Built by Meow 😼 for the Moltbook community.",
+  "description": "CLI tool to discover AI tools. Built by Meow  for the Moltbook community.",
   "main": "index.js",
   "bin": {
     "meow-finder": "./bin/meow-finder.js"

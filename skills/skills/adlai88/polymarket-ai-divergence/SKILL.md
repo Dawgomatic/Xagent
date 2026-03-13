@@ -2,7 +2,7 @@
 name: polymarket-ai-divergence
 displayName: Polymarket AI Divergence
 description: Surface markets where Simmer's AI price diverges from Polymarket. High divergence = potential alpha. Use when user wants to find AI vs market disagreements, scan for trading opportunities, or understand where the AI is bullish/bearish relative to external prices.
-metadata: {"clawdbot":{"emoji":"🔮","requires":{"env":["SIMMER_API_KEY"],"pip":["simmer-sdk"]},"cron":null,"autostart":false}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SIMMER_API_KEY"],"pip":["simmer-sdk"]},"cron":null,"autostart":false}}
 authors:
   - Simmer (@simmer_markets)
 version: "1.0.4"
@@ -80,16 +80,16 @@ High divergence = potential alpha if the AI is right.
 ## Example Output
 
 ```
-🔮 AI Divergence Scanner
+ AI Divergence Scanner
 ===========================================================================
 Market                                     Simmer     Poly      Div   Signal
 ---------------------------------------------------------------------------
-Will bitcoin hit $1m before GTA VI?        14.2%   48.5%  -34.3%   🔴 SELL
-What will be the top AI model this mon     17.9%    1.0%  +16.9%    🟢 BUY
+Will bitcoin hit $1m before GTA VI?        14.2%   48.5%  -34.3%    SELL
+What will be the top AI model this mon     17.9%    1.0%  +16.9%     BUY
 
-💡 Top Opportunities (>10% divergence)
+ Top Opportunities (>10% divergence)
 ===========================================================================
-📌 Will bitcoin hit $1m before GTA VI?
+ Will bitcoin hit $1m before GTA VI?
    AI says BUY NO (AI: 14% vs Market: 48%)
    Divergence: -34.3% | Resolves: 2026-07-31
 ```

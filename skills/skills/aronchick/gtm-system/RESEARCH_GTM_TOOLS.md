@@ -17,7 +17,7 @@ These are purpose-built for developer tool companies:
 
 | Tool | What It Does | Pricing | Recommendation |
 |------|--------------|---------|----------------|
-| **Reo.Dev** | Tracks 625M+ developer signals: npm installs, GitHub activity, docs visits, API usage, cloud sign-ups. Deanonymizes sign-ups, predicts buyers. | Enterprise ($$$) | ⭐ **TOP PICK** for dev tools. Purpose-built for companies like Expanso. |
+| **Reo.Dev** | Tracks 625M+ developer signals: npm installs, GitHub activity, docs visits, API usage, cloud sign-ups. Deanonymizes sign-ups, predicts buyers. | Enterprise ($$$) |  **TOP PICK** for dev tools. Purpose-built for companies like Expanso. |
 | **Common Room** | Aggregates signals from 50+ sources, AI-powered identity resolution, community listening. "Person360" profiles. | Enterprise | Good but broader than just devs. More for community-led growth. |
 
 ### 2. Product-Led Growth (PLG) Intelligence
@@ -26,11 +26,11 @@ Track in-product behavior to identify sales-ready users:
 
 | Tool | What It Does | Pricing | Recommendation |
 |------|--------------|---------|----------------|
-| **Koala** | Website visitor identification, product usage tracking, real-time alerts. "360-view" for sales. | Freemium + Paid | ✅ Good for tracking free tier users |
+| **Koala** | Website visitor identification, product usage tracking, real-time alerts. "360-view" for sales. | Freemium + Paid |  Good for tracking free tier users |
 | **Pocus** | AI recommendations for reps, intent signals, automated guidance. Enterprise-focused. | Enterprise | For larger sales teams |
-| **UserMotion** | Predictive lead scoring, PQL scoring, playbooks. Cross-channel intent signals. | Free trial + Paid | ✅ Good for PQL identification |
+| **UserMotion** | Predictive lead scoring, PQL scoring, playbooks. Cross-channel intent signals. | Free trial + Paid |  Good for PQL identification |
 | **Heap** (now Contentsquare) | Product analytics, session replay, behavioral insights. | Enterprise | More analytics than GTM |
-| **June.so** | ❌ Acquired by Amplitude | - | Use Amplitude instead |
+| **June.so** |  Acquired by Amplitude | - | Use Amplitude instead |
 
 ### 3. Data Enrichment & Prospecting Platforms
 
@@ -38,9 +38,9 @@ General B2B data and outreach:
 
 | Tool | What It Does | Pricing | Recommendation |
 |------|--------------|---------|----------------|
-| **Clay** | 150+ data providers, AI agents (Claygent), workflow automation. Industry darling. | $149-$800/mo | ⭐ **TOP PICK** for enrichment. Extremely powerful. |
-| **Apollo.io** | B2B database, email sequences, engagement tracking. | Free tier + $49/mo+ | ✅ Good value, strong free tier |
-| **Clearbit** | ❌ Acquired by HubSpot | - | Use HubSpot or alternatives |
+| **Clay** | 150+ data providers, AI agents (Claygent), workflow automation. Industry darling. | $149-$800/mo |  **TOP PICK** for enrichment. Extremely powerful. |
+| **Apollo.io** | B2B database, email sequences, engagement tracking. | Free tier + $49/mo+ |  Good value, strong free tier |
+| **Clearbit** |  Acquired by HubSpot | - | Use HubSpot or alternatives |
 | **BuiltWith** | Technographic data (what tech companies use). | Paid | Useful for finding prospects using specific tech |
 
 ### 4. ICP & Account Scoring
@@ -58,8 +58,8 @@ Monitor where developers talk:
 
 | Tool | What It Does | Pricing | Recommendation |
 |------|--------------|---------|----------------|
-| **Syften** | Real-time keyword monitoring across Reddit, HN, Twitter, Indie Hackers, forums. Webhook support. | $29-$79/mo | ⭐ **TOP PICK** for community monitoring. Very dev-focused. |
-| **F5Bot** | Free alerts for Reddit, HN, Lobsters mentions. | **FREE** | ✅ Start here - zero cost |
+| **Syften** | Real-time keyword monitoring across Reddit, HN, Twitter, Indie Hackers, forums. Webhook support. | $29-$79/mo |  **TOP PICK** for community monitoring. Very dev-focused. |
+| **F5Bot** | Free alerts for Reddit, HN, Lobsters mentions. | **FREE** |  Start here - zero cost |
 | **Mention** | Social listening, analytics, social management. Broader than dev. | $41-$149/mo | More for brands than dev tools |
 
 ### 6. Website Visitor Identification
@@ -70,7 +70,7 @@ See which companies visit your site:
 |------|--------------|---------|----------------|
 | **Leadfeeder** (Dealfront) | IP-based company identification, 50+ filters, CRM sync. | $99-$1199/mo | Good but generic |
 | **Reo.Dev** | Combines this with developer-specific signals | Enterprise | Better for dev tools |
-| **Koala** | Lighter weight, focuses on high-intent | Freemium | ✅ Good starting point |
+| **Koala** | Lighter weight, focuses on high-intent | Freemium |  Good starting point |
 
 ### 7. Network-Based GTM
 
@@ -86,8 +86,8 @@ Connect everything together:
 
 | Tool | What It Does | Pricing | Recommendation |
 |------|--------------|---------|----------------|
-| **Clay** | Best-in-class for GTM workflows | $149/mo+ | ⭐ Already mentioned |
-| **n8n** | Open-source workflow automation | Self-host free | ✅ Good for custom integrations |
+| **Clay** | Best-in-class for GTM workflows | $149/mo+ |  Already mentioned |
+| **n8n** | Open-source workflow automation | Self-host free |  Good for custom integrations |
 | **Zapier** | General automation | $19/mo+ | Less GTM-specific |
 
 ---
@@ -228,9 +228,9 @@ def syften_webhook():
 ## Summary
 
 **Immediate actions:**
-1. ✅ GTM system is running (done)
-2. ⏳ Sign up for F5Bot (free)
-3. ⏳ Create Apollo.io account (free)
+1.  GTM system is running (done)
+2.  Sign up for F5Bot (free)
+3.  Create Apollo.io account (free)
 
 **Next month:**
 1. Evaluate Syften ($29-79/mo) for better monitoring

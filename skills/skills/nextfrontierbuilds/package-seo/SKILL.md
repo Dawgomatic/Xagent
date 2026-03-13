@@ -90,11 +90,11 @@ coding agent, ai assistant, developer tools, productivity
 
 ## Works With
 
-- 🤖 Claude / Claude Code
-- 🔵 Cursor
-- 💚 GPT / ChatGPT
-- ⚡ Copilot
-- 🧩 MCP servers
+-  Claude / Claude Code
+-  Cursor
+-  GPT / ChatGPT
+-  Copilot
+-  MCP servers
 
 ## Install
 
@@ -110,9 +110,9 @@ npm install package-name
 
 ## Features
 
-- ✅ Feature 1 with keyword
-- ✅ Feature 2 with keyword
-- ✅ Feature 3 with keyword
+-  Feature 1 with keyword
+-  Feature 2 with keyword
+-  Feature 3 with keyword
 
 ## API / Usage
 
@@ -235,14 +235,14 @@ Use shields.io:
 
 ## Anti-Patterns (Avoid)
 
-❌ Obscure/clever names that aren't searchable  
-❌ Descriptions without keywords  
-❌ Empty or minimal keywords array  
-❌ README without badges  
-❌ No "Works With" section  
-❌ Mismatched npm/GitHub/ClawdHub descriptions  
-❌ No quick start example  
-❌ Walls of text before install command  
+ Obscure/clever names that aren't searchable  
+ Descriptions without keywords  
+ Empty or minimal keywords array  
+ README without badges  
+ No "Works With" section  
+ Mismatched npm/GitHub/ClawdHub descriptions  
+ No quick start example  
+ Walls of text before install command  
 
 ---
 

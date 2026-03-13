@@ -2,7 +2,7 @@
 name: protonmail
 description: ProtonMail integration via Proton Mail Bridge for reading and sending encrypted emails.
 homepage: https://github.com/rvacyber/openclaw-protonmail-skill
-metadata: {"openclaw":{"emoji":"🔐","requires":{"env":["PROTONMAIL_ACCOUNT","PROTONMAIL_BRIDGE_PASSWORD"]},"install":[{"id":"brew-bridge","kind":"brew","formula":"proton-mail-bridge","bins":[],"label":"Install Proton Mail Bridge (macOS)","cask":true}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["PROTONMAIL_ACCOUNT","PROTONMAIL_BRIDGE_PASSWORD"]},"install":[{"id":"brew-bridge","kind":"brew","formula":"proton-mail-bridge","bins":[],"label":"Install Proton Mail Bridge (macOS)","cask":true}]}}
 ---
 
 # ProtonMail Skill
@@ -83,11 +83,11 @@ protonmail reply <uid> --body="Sounds good!"
 
 ## Security
 
-- ✅ Official Proton software (audited, open-source Bridge)
-- ✅ End-to-end encryption maintained
-- ✅ Credentials stored locally only
-- ✅ No API keys or tokens — uses standard IMAP/SMTP
-- ✅ Bridge password is separate from your ProtonMail password
+-  Official Proton software (audited, open-source Bridge)
+-  End-to-end encryption maintained
+-  Credentials stored locally only
+-  No API keys or tokens — uses standard IMAP/SMTP
+-  Bridge password is separate from your ProtonMail password
 
 ## Troubleshooting
 

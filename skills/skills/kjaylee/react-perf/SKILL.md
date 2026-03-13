@@ -13,27 +13,27 @@ React 코드 작성 시 성능 최적화 핵심 패턴.
 
 ## 우선순위별 핵심 규칙
 
-### 🔴 CRITICAL: 워터폴 제거
+###  CRITICAL: 워터폴 제거
 
 ```javascript
-// ❌ 순차 await — 각 요청이 이전을 기다림
+//  순차 await — 각 요청이 이전을 기다림
 const user = await getUser();
 const posts = await getPosts();
 
-// ✅ 병렬 — 독립 요청은 Promise.all
+//  병렬 — 독립 요청은 Promise.all
 const [user, posts] = await Promise.all([getUser(), getPosts()]);
 ```
 
 - `await`를 실제 사용 브랜치로 이동 (불필요한 대기 제거)
 - Suspense 경계로 콘텐츠 스트리밍
 
-### 🔴 CRITICAL: 번들 크기
+###  CRITICAL: 번들 크기
 
 ```javascript
-// ❌ barrel import — 전체 모듈 로드
+//  barrel import — 전체 모듈 로드
 import { Button } from '@/components';
 
-// ✅ 직접 import
+//  직접 import
 import { Button } from '@/components/ui/Button';
 ```
 
@@ -41,20 +41,20 @@ import { Button } from '@/components/ui/Button';
 - 분석/로깅은 hydration 후 로드
 - hover/focus 시 preload로 체감 속도 향상
 
-### 🟡 HIGH: 서버사이드
+###  HIGH: 서버사이드
 
 - `React.cache()`로 요청 내 중복 제거
 - 클라이언트로 전달하는 데이터 최소화
 - 컴포넌트 구조 변경으로 fetch 병렬화
 
-### 🟢 MEDIUM: 리렌더 방지
+###  MEDIUM: 리렌더 방지
 
 ```javascript
-// ❌ 콜백에서만 쓰는 state를 구독
+//  콜백에서만 쓰는 state를 구독
 const [items, setItems] = useState([]);
 const handleClick = () => process(items);
 
-// ✅ ref로 전환 (리렌더 방지)
+//  ref로 전환 (리렌더 방지)
 const itemsRef = useRef([]);
 const handleClick = () => process(itemsRef.current);
 ```
@@ -64,7 +64,7 @@ const handleClick = () => process(itemsRef.current);
 - `startTransition`으로 긴급하지 않은 업데이트 분리
 - 파생 state는 effect 대신 렌더 중 계산
 
-### 🔵 LOW: JS 성능
+###  LOW: JS 성능
 
 - 반복 조회 → `Map`/`Set` 사용 (O(1))
 - `filter().map()` → 하나의 루프로 결합

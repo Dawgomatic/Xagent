@@ -134,4 +134,4 @@ Preferences → Cursor Settings → MCP → Add new global MCP Server
 
 ## Cost Notice
 
-⚠️ Using these tools will incur API call fees. Please monitor your MiniMax account usage.
+ Using these tools will incur API call fees. Please monitor your MiniMax account usage.

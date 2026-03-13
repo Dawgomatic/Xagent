@@ -52,7 +52,7 @@ The skill checks for the `NIMBLE_API_KEY` environment variable regardless of how
 ```bash
 # Check if API key is set
 if [ -z "$NIMBLE_API_KEY" ]; then
-  echo "❌ Error: NIMBLE_API_KEY not configured"
+  echo " Error: NIMBLE_API_KEY not configured"
   echo ""
   echo "Get your API key: https://www.nimbleway.com/"
   echo ""
@@ -102,18 +102,18 @@ The script automatically handles authentication, tracking headers, and output fo
 ### When to Use Each Mode
 
 **Use `deep_search: false` (FAST MODE - 1-3 seconds) - Default for 95% of cases:**
-- ✅ Finding URLs and discovering resources
-- ✅ Research and topic exploration
-- ✅ Answer generation and summaries
-- ✅ Product comparisons
-- ✅ News monitoring
-- ✅ Any time you DON'T need full article text
+-  Finding URLs and discovering resources
+-  Research and topic exploration
+-  Answer generation and summaries
+-  Product comparisons
+-  News monitoring
+-  Any time you DON'T need full article text
 
 **Use `deep_search: true` (DEEP MODE - 5-15 seconds) - Only when specifically needed:**
-- 📄 Archiving full article content
-- 📄 Extracting complete documentation
-- 📄 Building text datasets
-- 📄 Processing full page content for analysis
+-  Archiving full article content
+-  Extracting complete documentation
+-  Building text datasets
+-  Processing full page content for analysis
 
 **Decision Rule:** If you're not sure, use `deep_search: false`. You can always re-run with `true` if needed.
 
@@ -429,7 +429,7 @@ echo "✓ Multi-perspective search complete"
 ```bash
 # Validate API key is set
 if [ -z "$NIMBLE_API_KEY" ]; then
-  echo "❌ Nimble API key not configured."
+  echo " Nimble API key not configured."
   echo "Get your key at https://www.nimbleway.com/"
   echo ""
   echo "Set NIMBLE_API_KEY environment variable using your platform's method."
@@ -549,14 +549,14 @@ POST https://nimble-retriever.webit.live/search
 
 ### When to Use LLM Answers
 
-✅ **Use LLM answers when:**
+ **Use LLM answers when:**
 - You need a synthesized overview of a topic
 - Comparing multiple sources or approaches
 - Summarizing recent developments
 - Answering specific questions
 - Creating research summaries
 
-❌ **Skip LLM answers when:**
+ **Skip LLM answers when:**
 - You just need a list of URLs
 - Building a reference collection
 - Speed is critical
@@ -568,10 +568,10 @@ POST https://nimble-retriever.webit.live/search
 **Default (Recommended): `deep_search=false`**
 
 The default setting works for 95% of use cases:
-- ✅ Fastest response times
-- ✅ Returns titles, descriptions, URLs
-- ✅ Works perfectly with `include_answer=true`
-- ✅ Sufficient for research, comparisons, and URL discovery
+-  Fastest response times
+-  Returns titles, descriptions, URLs
+-  Works perfectly with `include_answer=true`
+-  Sufficient for research, comparisons, and URL discovery
 
 **Only use `deep_search=true` when you specifically need:**
 - Full page content extraction

@@ -13,7 +13,7 @@ CYAN='\033[0;36m'
 NC='\033[0m'
 
 echo -e "${CYAN}╔════════════════════════════════════════╗${NC}"
-echo -e "${CYAN}║   🛡️  ARC-SHIELD DEMO                 ║${NC}"
+echo -e "${CYAN}║     ARC-SHIELD DEMO                 ║${NC}"
 echo -e "${CYAN}║   Catching Real-World Secret Leaks    ║${NC}"
 echo -e "${CYAN}╔════════════════════════════════════════╗${NC}"
 echo
@@ -28,7 +28,7 @@ demo_catch() {
     
     # Scan
     if echo "$message" | "$ARC_SHIELD" --strict 2>&1 | grep -i "blocked" > /dev/null; then
-        echo -e "${RED}❌ BLOCKED${NC} (as expected)"
+        echo -e "${RED} BLOCKED${NC} (as expected)"
     else
         echo -e "${GREEN}✓ Detected${NC}"
     fi

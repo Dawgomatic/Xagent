@@ -184,7 +184,7 @@ async function readEmails(options = {}) {
       const mail = await simpleParser(idHeader + all.body);
       
       console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-      console.log(`📧 UID: ${uid}`);
+      console.log(` UID: ${uid}`);
       console.log(`From: ${mail.from.text}`);
       console.log(`To: ${mail.to ? mail.to.text : EMAIL_USER}`);
       console.log(`Subject: ${mail.subject}`);
@@ -192,15 +192,15 @@ async function readEmails(options = {}) {
       console.log(`Attachments: ${mail.attachments.length > 0 ? mail.attachments.length : 'None'}`);
       
       if (mail.attachments.length > 0) {
-        console.log(`\n📎 Attachment Details:`);
+        console.log(`\n Attachment Details:`);
         console.log(formatAttachments(mail.attachments));
       }
       
-      console.log(`\n📝 Body:\n${mail.text.substring(0, 500)}${mail.text.length > 500 ? '...' : ''}`);
+      console.log(`\n Body:\n${mail.text.substring(0, 500)}${mail.text.length > 500 ? '...' : ''}`);
       console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`);
     }
   } catch (err) {
-    console.error("❌ IMAP Operation Error:", err.message);
+    console.error(" IMAP Operation Error:", err.message);
   } finally {
     if (connection) {
       connection.end();
@@ -222,7 +222,7 @@ async function listFolders() {
       const delimiter = box.delimiter || '/';
       const hasChildren = box.children && Object.keys(box.children).length > 0;
       
-      console.log(`${indent}📁 ${name}${hasChildren ? delimiter : ''} ${flags.join(', ')}`);
+      console.log(`${indent} ${name}${hasChildren ? delimiter : ''} ${flags.join(', ')}`);
       
       if (box.children) {
         Object.keys(box.children).forEach(childName => {
@@ -236,7 +236,7 @@ async function listFolders() {
     });
     
   } catch (err) {
-    console.error("❌ Error listing folders:", err.message);
+    console.error(" Error listing folders:", err.message);
   } finally {
     if (connection) {
       connection.end();
@@ -257,7 +257,7 @@ async function moveEmail(uid, targetFolder) {
     const folderExists = checkFolderExists(boxes, targetFolder);
     
     if (!folderExists) {
-      console.error(`❌ Error: Folder "${targetFolder}" does not exist.`);
+      console.error(` Error: Folder "${targetFolder}" does not exist.`);
       console.log('\nAvailable folders:');
       Object.keys(boxes).forEach(name => console.log(`  - ${name}`));
       return;
@@ -271,7 +271,7 @@ async function moveEmail(uid, targetFolder) {
     console.log(`✓ Email UID ${uid} moved to "${targetFolder}"`);
     
   } catch (err) {
-    console.error("❌ Error moving email:", err.message);
+    console.error(" Error moving email:", err.message);
   } finally {
     if (connection) {
       connection.end();
@@ -302,7 +302,7 @@ function checkFolderExists(boxes, targetFolder) {
 }
 
 async function searchEmails(searchOptions) {
-  console.log('🔍 Advanced search...\n');
+  console.log(' Advanced search...\n');
   await readEmails(searchOptions);
 }
 

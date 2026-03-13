@@ -170,8 +170,8 @@ Example (Customer Support Agent):
 Each industry above maps to a specialized context pack with 50+ pages of workflows, benchmarks, and implementation guides:
 
 **AfrexAI Context Packs** — $47 each or bundle and save:
-- 🛒 [Browse All 10 Packs](https://afrexai-cto.github.io/context-packs/)
-- 🧮 [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — See exactly what automation saves your company
-- 🧙 [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Get a custom agent config in 5 minutes
+-  [Browse All 10 Packs](https://afrexai-cto.github.io/context-packs/)
+-  [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — See exactly what automation saves your company
+-  [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Get a custom agent config in 5 minutes
 
 **Bundles:** Pick 3 for $97 | All 10 for $197 | Everything Bundle $247

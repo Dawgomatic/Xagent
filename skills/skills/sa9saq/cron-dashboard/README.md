@@ -1,14 +1,14 @@
-# ⏰ cron-dashboard
+#  cron-dashboard
 
 View and manage OpenClaw cron jobs at a glance.
 
 ## Features
 
-- 📋 List all cron jobs with status, schedule, and last run
-- 🔍 Detailed job inspection with execution history
-- 🚨 Health checks — flag stale or failing jobs
-- ✏️ Create, pause, resume, and delete jobs
-- 📊 Dashboard summary grouped by status
+-  List all cron jobs with status, schedule, and last run
+-  Detailed job inspection with execution history
+-  Health checks — flag stale or failing jobs
+-  Create, pause, resume, and delete jobs
+-  Dashboard summary grouped by status
 
 ## Usage Examples
 

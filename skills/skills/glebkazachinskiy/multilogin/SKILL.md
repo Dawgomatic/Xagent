@@ -1,7 +1,7 @@
 ---
 name: multilogin
 description: Use when you need to manage Multilogin X browser profiles — launch quick disposable profiles, list/start/stop saved profiles, or check launcher status using the xcli CLI tool.
-metadata: { "openclaw": { "emoji": "🌐", "requires": { "bins": ["xcli", "mlx-launcher"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["xcli", "mlx-launcher"] } } }
 ---
 
 # Multilogin X
@@ -235,7 +235,7 @@ The most elegant setup: VPS runs 24/7 headless, Mac node handles GUI tasks on de
 
 ```
 VPS (OpenClaw main agent, 24/7, headless)
-  ↕ paired via gateway
+   paired via gateway
 Mac (OpenClaw Node, paired device)
   → runs Multilogin with visible browser windows
   → VPS delegates GUI tasks here
@@ -360,7 +360,7 @@ The Mac node needs:
 | `object-delete` | Delete an object |
 | `object-restore` | Restore object from trash |
 | `object-stats` | Display object usage statistics |
-| `object-convert` | Convert storage type (local ↔ cloud) |
+| `object-convert` | Convert storage type (local  cloud) |
 | `enable-object` | Enable object for profiles |
 | `disable-object` | Disable object for profiles |
 | `object-extension-create` | Create an extension object from a URL |

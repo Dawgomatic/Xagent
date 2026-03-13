@@ -139,7 +139,7 @@ Madrid uses concentric zones from center.
 | **L4** | Brown | Argüelles, Bilbao, Goya |
 | **L5** | Green | Sol, Gran Vía, Callao, Casa de Campo |
 | **L6** | Gray (Circular) | Connects all major hubs |
-| **L8** | Pink | Airport ↔ Nuevos Ministerios |
+| **L8** | Pink | Airport  Nuevos Ministerios |
 | **L10** | Dark blue | Chamartín, airport, Casa de Campo |
 
 **Tourist Lines:** L1, L2, L3, L5 cover most attractions.
@@ -161,10 +161,10 @@ RENFE operates commuter trains from two main hubs:
 
 | Route | Line | Time | Notes |
 |-------|------|------|-------|
-| Atocha ↔ Airport T4 | C1 | 25 min | Cheapest airport option |
-| Atocha ↔ Chamartín | Multiple | 10 min | Cross-city |
-| Atocha ↔ El Escorial | C3, C8a | 1 hr | Day trip |
-| Atocha ↔ Alcalá de Henares | C2, C7 | 35 min | Day trip |
+| Atocha  Airport T4 | C1 | 25 min | Cheapest airport option |
+| Atocha  Chamartín | Multiple | 10 min | Cross-city |
+| Atocha  El Escorial | C3, C8a | 1 hr | Day trip |
+| Atocha  Alcalá de Henares | C2, C7 | 35 min | Day trip |
 
 ### Cercanías Fares
 

@@ -38,4 +38,4 @@ Install via ClawHub, then ask your agent:
 
 ---
 
-🖤💛 Built by AfrexAI
+ Built by AfrexAI

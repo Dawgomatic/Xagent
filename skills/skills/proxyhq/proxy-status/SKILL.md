@@ -34,14 +34,14 @@ Group by status and display:
 ## Output Format
 
 ```
-📊 Payment Status
+ Payment Status
 ─────────────────
 
-⏳ Pending Approval (2)
+ Pending Approval (2)
   • $500.00 - Adobe Creative Cloud
   • $299.00 - Apple Store
 
-✅ Active Cards (3)
+ Active Cards (3)
   • $49.99 - Amazon (card ready)
   • $25.00 - Uber Eats (card ready)
   • $150.00 - Best Buy (used, $147.32 charged)
@@ -56,10 +56,10 @@ Group by status and display:
 
 | Status | Icon | Meaning |
 |--------|------|---------|
-| pending | 🟢 | Card ready |
-| pending_approval | ⏳ | Needs approval |
-| card_issued | 💳 | Card active |
-| matched | ✅ | Transaction completed |
-| mismatched | ⚠️ | Amount/merchant mismatch |
-| rejected | ❌ | Approval denied |
-| expired | ⏰ | Intent expired |
+| pending |  | Card ready |
+| pending_approval |  | Needs approval |
+| card_issued |  | Card active |
+| matched |  | Transaction completed |
+| mismatched |  | Amount/merchant mismatch |
+| rejected |  | Approval denied |
+| expired |  | Intent expired |

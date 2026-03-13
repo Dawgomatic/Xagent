@@ -9,25 +9,25 @@ Track progress, report metrics, manage memory.
 ## Morning Report (Send at 9:30 AM Spain)
 
 ```
-🤖 SKYNET MORNING BRIEFING - {{date}}
+ SKYNET MORNING BRIEFING - {{date}}
 
-📊 PIPELINE
+ PIPELINE
 ├─ Total leads: X
 ├─ Ready for outreach: X
 ├─ In sequence: X
 ├─ Awaiting reply: X
 
-📬 OVERNIGHT
+ OVERNIGHT
 ├─ Leads found: X
 ├─ Emails drafted: X
 ├─ Cost: $X.XX
 
-🎯 TODAY'S PRIORITIES
+ TODAY'S PRIORITIES
 1. [Based on pipeline status]
 2. [Based on day of week]
 3. [Based on targets]
 
-💰 BUDGET
+ BUDGET
 ├─ Spent today: $X.XX
 ├─ Daily remaining: $X.XX
 ├─ Monthly remaining: $X.XX
@@ -36,54 +36,54 @@ Track progress, report metrics, manage memory.
 ## End of Day Report (Send at 9 PM Spain)
 
 ```
-🤖 SKYNET EOD - {{date}}
+ SKYNET EOD - {{date}}
 
-📈 TODAY'S NUMBERS
+ TODAY'S NUMBERS
 ├─ Leads sourced: X / 40 target
 ├─ DMs drafted: X / 25 target
 ├─ Emails drafted: X / 30 target
 ├─ Notion updated: ✓
 
-💰 COST REPORT
+ COST REPORT
 ├─ Today: $X.XX
 ├─ This week: $X.XX
 ├─ Budget remaining: $X.XX
 
-🔥 HOT LEADS
+ HOT LEADS
 [List any Priority A leads found]
 
-⚠️ ISSUES
+ ISSUES
 [List any blockers or errors]
 
-📋 TOMORROW
+ TOMORROW
 [Next day priorities]
 
-💾 Saved to memory/{{date}}.md
+ Saved to memory/{{date}}.md
 ```
 
 ## Weekly Report (Sunday 8 PM)
 
 ```
-🤖 SKYNET WEEKLY - Week of {{date}}
+ SKYNET WEEKLY - Week of {{date}}
 
-📊 TOTALS
+ TOTALS
 ├─ Leads sourced: X
 ├─ Outreach sent: X (DMs + Emails)
 ├─ Replies: X
 ├─ Qualified: X
 ├─ Closes: X
 
-💰 COSTS
+ COSTS
 ├─ This week: $X.XX
 ├─ Avg per lead: $X.XX
 ├─ Avg per qualified: $X.XX
 
-📈 CONVERSION
+ CONVERSION
 ├─ Source → Qualified: X%
 ├─ Outreach → Reply: X%
 ├─ Reply → Meeting: X%
 
-🎯 VS TARGETS
+ VS TARGETS
 ├─ Revenue: $X / $5,000 goal
 ├─ Days remaining: X
 ├─ Needed per day: $X

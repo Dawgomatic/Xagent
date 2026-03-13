@@ -49,13 +49,13 @@ Edit `voice-processor.js` to add your own intents and handlers. See `example-cus
 
 ## Built-In Features
 
-✅ Automatic transcription (5-10 seconds per message)  
-✅ Intent detection from keywords  
-✅ Handler-based response generation  
-✅ English + Hindi support (easily extended)  
-✅ Automatic language detection  
-✅ No FFmpeg required (uses soundfile + libsndfile)  
-✅ Production-tested in Clawdbot
+ Automatic transcription (5-10 seconds per message)  
+ Intent detection from keywords  
+ Handler-based response generation  
+ English + Hindi support (easily extended)  
+ Automatic language detection  
+ No FFmpeg required (uses soundfile + libsndfile)  
+ Production-tested in Clawdbot
 
 ## Use Cases
 
@@ -204,10 +204,10 @@ For issues, questions, or ideas:
 
 ## Recognition
 
-Built with ❤️ for the Clawdbot community. Thanks to OpenAI Whisper and soundfile maintainers.
+Built with  for the Clawdbot community. Thanks to OpenAI Whisper and soundfile maintainers.
 
 ---
 
 **Ready to use.** Production-tested. Community-driven.
 
-Questions? Suggestions? Want to contribute? Join the community! 🎤✨
+Questions? Suggestions? Want to contribute? Join the community! 

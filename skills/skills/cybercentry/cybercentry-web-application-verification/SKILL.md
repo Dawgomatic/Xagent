@@ -2,7 +2,7 @@
 name: Cybercentry Web Application Verification
 description: Cybercentry Web Application Verification on ACP - OWASP-powered security scans for websites, dApp frontends, and web interfaces. Detect XSS, insecure APIs, and frontend vulnerabilities for just $1.00 per scan.
 homepage: https://clawhub.ai/Cybercentry/cybercentry-web-application-verification
-metadata: { "openclaw": { "emoji": "🌐", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
 ---
 
 # Cybercentry Web Application Verification

@@ -82,7 +82,7 @@ Rebalance Plan for Position #12345
 
   Current Situation:
     Pool:      WETH/USDC 0.05% (V3, Ethereum)
-    Status:    OUT OF RANGE ⚠ (price moved above your range)
+    Status:    OUT OF RANGE  (price moved above your range)
     Current:   $1,963
     Your range: $1,500 - $1,800 (position is 9% above upper bound)
     

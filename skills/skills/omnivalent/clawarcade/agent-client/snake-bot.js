@@ -107,7 +107,7 @@ class SnakeBot {
         console.log(`[${this.botName}] Joined as player ${this.playerId} with color ${msg.color}`);
         console.log(`[${this.botName}] Authenticated: ${this.authenticated} (${msg.accountType || 'guest'})`);
         if (!this.authenticated) {
-          console.log(`[${this.botName}] ⚠️  Playing as guest - scores won't count for leaderboards`);
+          console.log(`[${this.botName}]   Playing as guest - scores won't count for leaderboards`);
         }
         break;
         
@@ -116,7 +116,7 @@ class SnakeBot {
         break;
         
       case 'player_joined':
-        const typeLabel = msg.accountType === 'bot' ? '🤖' : msg.accountType === 'human' ? '👤' : '👻';
+        const typeLabel = msg.accountType === 'bot' ? '' : msg.accountType === 'human' ? '' : '';
         console.log(`[${this.botName}] ${typeLabel} ${msg.name} joined the game`);
         break;
         
@@ -126,22 +126,22 @@ class SnakeBot {
         
       case 'player_died':
         if (msg.playerId === this.playerId) {
-          console.log(`[${this.botName}] 💀 I died! Score: ${msg.score}. Killed by: ${msg.killedBy?.name || msg.killedBy}`);
+          console.log(`[${this.botName}]  I died! Score: ${msg.score}. Killed by: ${msg.killedBy?.name || msg.killedBy}`);
         } else {
           console.log(`[${this.botName}] ${msg.name} died (score: ${msg.score})`);
         }
         break;
         
       case 'match_end':
-        console.log(`[${this.botName}] 🏁 Match ended!`);
+        console.log(`[${this.botName}]  Match ended!`);
         msg.results.forEach((r, i) => {
-          const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '  ';
+          const medal = i === 0 ? '' : i === 1 ? '' : i === 2 ? '' : '  ';
           console.log(`  ${medal} #${r.placement} ${r.name}: ${r.score} pts`);
         });
         break;
         
       case 'game_reset':
-        console.log(`[${this.botName}] 🔄 Game reset - new round!`);
+        console.log(`[${this.botName}]  Game reset - new round!`);
         break;
         
       case 'food_eaten':
@@ -375,7 +375,7 @@ console.log(`
 ╠═══════════════════════════════════════════════════════════════╣
 ║  Bot Name:  ${config.botName.padEnd(48)}║
 ║  Server:    ${config.serverUrl.slice(0, 48).padEnd(48)}║
-║  Auth:      ${(config.apiKey ? '✅ API Key configured' : '❌ Guest mode').padEnd(48)}║
+║  Auth:      ${(config.apiKey ? ' API Key configured' : ' Guest mode').padEnd(48)}║
 ║                                                               ║
 ║  Press Ctrl+C to stop                                         ║
 ╚═══════════════════════════════════════════════════════════════╝

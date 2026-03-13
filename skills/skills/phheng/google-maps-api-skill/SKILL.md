@@ -5,22 +5,22 @@ description: This skill helps users automatically scrape business data from Goog
 
 # Google Maps Automation Scraper Skill
 
-## 📖 Introduction
+##  Introduction
 This skill leverages BrowserAct's Google Maps API template to provide a one-stop business data collection service. It extracts structured details directly from Google Maps, including business names, categories, contact info, ratings, and more. Simply provide the search keywords and location bias to get clean, actionable data.
 
-## ✨ Features
+##  Features
 1. **No Hallucinations, Stable & Precise Data Extraction**: Preset workflows avoid AI-generated hallucinations.
 2. **No CAPTCHA Issues**: Built-in mechanisms bypass reCAPTCHA and other verification challenges.
 3. **No IP Access Restrictions or Geo-fencing**: Overcomes regional IP limits for global access.
 4. **Faster Execution**: Tasks run more quickly than pure AI-driven browser automation.
 5. **High Cost-Effectiveness**: Significantly reduces data acquisition costs compared to high-token AI solutions.
 
-## 🔑 API Key Setup
+##  API Key Setup
 Before running, ensure the `BROWSERACT_API_KEY` environment variable is set. If missing, do not proceed; request the user to provide it.
 **Agent must inform the user**:
 > "Since you haven't configured the BrowserAct API Key, please go to the [BrowserAct Console](https://www.browseract.com/reception/integrations) to get your Key and provide it in this chat."
 
-## 🛠️ Input Parameters
+##  Input Parameters
 Configure the following parameters based on user requirements:
 
 1. **keywords (Search Keywords)**
@@ -38,7 +38,7 @@ Configure the following parameters based on user requirements:
    - **Description**: Specifies the country or region bias (e.g., us, gb, ca).
    - **Default**: `us`
 
-## 🚀 How to Call
+##  How to Call
 Execute the following script to get results in one command:
 
 ```bash
@@ -46,14 +46,14 @@ Execute the following script to get results in one command:
 python -u ./scripts/google_maps_api.py "keywords" "language" "country"
 ```
 
-### ⏳ Execution Monitoring
+###  Execution Monitoring
 As this involves automated browser operations, it may take several minutes. The script will output timestamped status logs (e.g., `[14:30:05] Task Status: running`).
 **Agent Note**:
 - Monitor the terminal output while waiting.
 - New status logs mean the task is running; do not assume it is hung.
 - Retry only if the status stops updating or the script exits without results.
 
-## 📊 Output Data
+##  Output Data
 Upon success, the script parses and prints the following fields from the API:
 - `Title Name`: Official business name
 - `Category_primary`: Main business category
@@ -64,7 +64,7 @@ Upon success, the script parses and prints the following fields from the API:
 - `reviews_count`: Total number of reviews
 - `business_status`: Operational status (e.g., operational)
 
-## ⚠️ Error Handling & Retry
+##  Error Handling & Retry
 If an error occurs (network issues or task failure), follow this logic:
 
 1. **Check Output**:
@@ -74,7 +74,7 @@ If an error occurs (network issues or task failure), follow this logic:
 2. **Retry Limit**:
    - Only one automatic retry. If it fails again, report the specific error to the user.
 
-## 🌟 Typical Use Cases
+##  Typical Use Cases
 1. **Lead Generation**: Find "SaaS companies" in "us" for sales outreach.
 2. **Competitor Research**: Extract data on "coffee shops" in a specific neighborhood.
 3. **Market Analysis**: Identify the density of "dental clinics" in a region.

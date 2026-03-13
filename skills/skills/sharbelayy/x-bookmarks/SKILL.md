@@ -154,9 +154,9 @@ The key differentiator: don't just summarize, **propose actions the agent can ex
 
 Format output as:
 ```
-📂 CATEGORY (count)
+ CATEGORY (count)
 • Bookmark summary (@author)
-→ 🤖 I CAN: [specific action the agent can take]
+→  I CAN: [specific action the agent can take]
 ```
 
 ### 2. Scheduled Digest (Cron)

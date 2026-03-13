@@ -110,12 +110,12 @@ For most WSL2 environments with v2rayN:
 The script displays models in a structured format:
 
 ```
-🤖 Hugging Face 热门模型 (5 个)
+ Hugging Face 热门模型 (5 个)
 ============================================================
 1. moonshotai/Kimi-K2.5
-   ⭐ 2.0K likes   📥 647.6K downloads
-   📊 Task: image-text-to-text   📚 Library: transformers
-   📅 Created: 2026-01-01   Updated: N/A
+    2.0K likes    647.6K downloads
+    Task: image-text-to-text    Library: transformers
+    Created: 2026-01-01   Updated: N/A
 ...
 ```
 

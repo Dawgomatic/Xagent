@@ -858,7 +858,7 @@ Health Check:
   Recent Win Rate (1h): ${recentWinRate}%
   Games Last Hour: ${lastHour.length}
   Webhook Failures: ${webhookFailures}
-  Status: ${webhookFailures === 0 ? '✓ OK' : '⚠ CHECK'}
+  Status: ${webhookFailures === 0 ? '✓ OK' : ' CHECK'}
     `);
   }
 
@@ -870,7 +870,7 @@ Health Check:
     const losses = lastThree.filter(g => !g.won).length;
 
     if (losses === 3) {
-      console.warn('⚠ ALERT: 3 consecutive losses! Check strategy.');
+      console.warn(' ALERT: 3 consecutive losses! Check strategy.');
       // Could send email/webhook here
     }
   }
@@ -913,11 +913,11 @@ if (stats.games.length % 100 === 0) {
 
 A competitive tournament bot requires:
 
-1. ✅ **Infrastructure**: Webhook listener, database, logging
-2. ✅ **Intelligence**: Board evaluation, move scoring, strategy selection
-3. ✅ **Execution**: Reliable API calls, error handling
-4. ✅ **Analytics**: Performance tracking, ELO management
-5. ✅ **Improvement**: Data-driven tuning and optimization
+1.  **Infrastructure**: Webhook listener, database, logging
+2.  **Intelligence**: Board evaluation, move scoring, strategy selection
+3.  **Execution**: Reliable API calls, error handling
+4.  **Analytics**: Performance tracking, ELO management
+5.  **Improvement**: Data-driven tuning and optimization
 
 With these components, your bot can compete against humans and other AIs in ranked tournaments and continuously improve through play.
 

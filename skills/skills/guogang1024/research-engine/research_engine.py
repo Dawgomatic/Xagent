@@ -218,7 +218,7 @@ def run_research(topic, depth=2):
     # 4. 写下浏览记录 ← 新增
     print("4. 写下浏览记录...")
     write_browsing_records(topic, browsing_records)
-    print(f"   ✅ 已记录 {len(browsing_records)} 条浏览记录")
+    print(f"    已记录 {len(browsing_records)} 条浏览记录")
     
     # 5. 生成报告
     print("5. 生成研究报告...")
@@ -230,7 +230,7 @@ def run_research(topic, depth=2):
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(report)
     
-    print(f"\n✅ 研究报告已保存: {filepath}")
+    print(f"\n 研究报告已保存: {filepath}")
     
     return {
         'topic': topic,

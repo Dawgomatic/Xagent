@@ -45,20 +45,20 @@ function handleChallenge(args) {
   const userId = args[1] || 'cli_user';
   
   if (!address) {
-    console.error('❌ Error: Address required');
+    console.error(' Error: Address required');
     console.log('\nUsage: chia-wallet challenge <address> [userId]');
     process.exit(1);
   }
   
   if (!isValidChiaAddress(address)) {
-    console.error('❌ Error: Invalid Chia address format');
+    console.error(' Error: Invalid Chia address format');
     console.log('Expected format: xch1...');
     process.exit(1);
   }
   
   const challenge = generateChallenge(address, userId);
   
-  console.log('📝 Challenge Generated\n');
+  console.log(' Challenge Generated\n');
   console.log('Message to sign:');
   console.log('─'.repeat(50));
   console.log(challenge.message);
@@ -77,12 +77,12 @@ async function handleVerify(args) {
   const publicKey = args[3];
   
   if (!address || !message || !signature) {
-    console.error('❌ Error: Missing required arguments');
+    console.error(' Error: Missing required arguments');
     console.log('\nUsage: chia-wallet verify <address> <message> <signature> [publicKey]');
     process.exit(1);
   }
   
-  console.log('🔐 Verifying signature...\n');
+  console.log(' Verifying signature...\n');
   console.log(`Address:   ${address}`);
   console.log(`Message:   ${message.substring(0, 50)}...`);
   console.log(`Signature: ${signature.substring(0, 50)}...`);
@@ -94,11 +94,11 @@ async function handleVerify(args) {
   const result = await verifySignature(address, message, signature, publicKey);
   
   if (result.verified) {
-    console.log('✅ Signature verified successfully!\n');
+    console.log(' Signature verified successfully!\n');
     console.log('Verification Details:');
     console.log(JSON.stringify(result, null, 2));
   } else {
-    console.log('❌ Signature verification failed!\n');
+    console.log(' Signature verification failed!\n');
     console.log('Error:', result.error);
   }
 }
@@ -110,7 +110,7 @@ function handleValidate(args) {
   const address = args[0];
   
   if (!address) {
-    console.error('❌ Error: Address required');
+    console.error(' Error: Address required');
     console.log('\nUsage: chia-wallet validate <address>');
     process.exit(1);
   }
@@ -118,9 +118,9 @@ function handleValidate(args) {
   const isValid = isValidChiaAddress(address);
   
   if (isValid) {
-    console.log(`✅ Valid Chia address: ${address}`);
+    console.log(` Valid Chia address: ${address}`);
   } else {
-    console.log(`❌ Invalid Chia address: ${address}`);
+    console.log(` Invalid Chia address: ${address}`);
     console.log('\nExpected format: xch1 followed by 59 lowercase alphanumeric characters');
   }
 }
@@ -129,7 +129,7 @@ function handleValidate(args) {
  * Start the web server
  */
 function handleServer() {
-  console.log('🚀 Starting Chia WalletConnect server...\n');
+  console.log(' Starting Chia WalletConnect server...\n');
   require('./server/index.js');
 }
 
@@ -138,7 +138,7 @@ function handleServer() {
  */
 function showHelp() {
   console.log(`
-🌱 Chia Wallet Verification CLI
+ Chia Wallet Verification CLI
 
 USAGE:
   chia-wallet <command> [options]
@@ -175,6 +175,6 @@ For more info, see README.md
 
 // Run CLI
 main().catch(error => {
-  console.error('❌ Fatal error:', error.message);
+  console.error(' Fatal error:', error.message);
   process.exit(1);
 });

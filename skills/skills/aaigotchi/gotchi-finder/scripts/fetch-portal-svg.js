@@ -22,10 +22,10 @@ async function getPortalSvg(status, hauntId) {
   
   try {
     const svg = await contract.getSvg(svgTypeBytes32, hauntId);
-    console.log(`✅ Got SVG (${svg.length} bytes)`);
+    console.log(` Got SVG (${svg.length} bytes)`);
     return svg;
   } catch (error) {
-    console.error(`❌ Error:`, error.message);
+    console.error(` Error:`, error.message);
     throw error;
   }
 }

@@ -18,11 +18,11 @@ Clerk deprecated Session Token JWT v1 on **April 14, 2025**. Projects using `@cl
 ## Next.js v6: auth() is Async
 
 ```typescript
-/* ❌ v5 (synchronous) */
+/*  v5 (synchronous) */
 import { auth } from '@clerk/nextjs/server'
 const { userId } = auth()
 
-/* ✅ v6 (asynchronous) */
+/*  v6 (asynchronous) */
 import { auth } from '@clerk/nextjs/server'
 const { userId } = await auth()
 ```
@@ -30,10 +30,10 @@ const { userId } = await auth()
 ## auth.protect() is Async
 
 ```typescript
-/* ❌ v5 */
+/*  v5 */
 auth.protect()
 
-/* ✅ v6 */
+/*  v6 */
 await auth.protect()
 ```
 
@@ -89,16 +89,16 @@ Custom claims in session cookies are limited to **1.2KB**. Browsers cap cookies 
 ## API Version 2025-11-10 Changes
 
 ```typescript
-/* ❌ Old field names */
+/*  Old field names */
 { payment_source_id: "...", payment_source: {...} }
 
-/* ✅ New field names */
+/*  New field names */
 { payment_method_id: "...", payment_method: {...} }
 
-/* ❌ Old endpoints */
+/*  Old endpoints */
 GET /v1/commerce/plans
 
-/* ✅ New endpoints */
+/*  New endpoints */
 GET /v1/billing/plans
 ```
 

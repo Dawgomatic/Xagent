@@ -50,7 +50,7 @@ if (!outputFile) {
 }
 
 // --- Auth Loading ---
-console.log("🔐 Loading Antigravity credentials...");
+console.log(" Loading Antigravity credentials...");
 if (!fs.existsSync(PROFILE_PATH)) {
     console.error(`Error: Auth profile not found at ${PROFILE_PATH}`);
     process.exit(1);
@@ -100,7 +100,7 @@ const payload = {
     userAgent: "antigravity"
 };
 
-console.log(`🎨 Generating image...`);
+console.log(` Generating image...`);
 console.log(`   Prompt: "${prompt.substring(0, 50)}..."`);
 console.log(`   Ratio:  ${aspectRatio}`);
 
@@ -144,7 +144,7 @@ const req = https.request(ENDPOINT, {
                             if (part.inlineData && part.inlineData.data) {
                                 // Success!
                                 fs.writeFileSync(outputFile, Buffer.from(part.inlineData.data, 'base64'));
-                                console.log(`✅ Image saved to: ${outputFile}`);
+                                console.log(` Image saved to: ${outputFile}`);
                                 // Clawdbot magic tag
                                 console.log(`MEDIA: ${outputFile}`);
                                 process.exit(0);
@@ -158,7 +158,7 @@ const req = https.request(ENDPOINT, {
                 }
             }
         }
-        console.error("❌ No image data found in response.");
+        console.error(" No image data found in response.");
         console.error("Raw start:", data.substring(0, 200));
         process.exit(1);
     });

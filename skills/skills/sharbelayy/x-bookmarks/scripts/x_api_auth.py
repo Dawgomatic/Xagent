@@ -172,7 +172,7 @@ def authorize(client_id: str, client_secret: str = ""):
                 self.send_response(200)
                 self.send_header("Content-Type", "text/html")
                 self.end_headers()
-                msg = "✅ Authorization successful! You can close this tab." if result["code"] else f"❌ Error: {result['error']}"
+                msg = " Authorization successful! You can close this tab." if result["code"] else f" Error: {result['error']}"
                 self.wfile.write(f"<html><body><h2>{msg}</h2></body></html>".encode())
             else:
                 self.send_response(404)
@@ -184,7 +184,7 @@ def authorize(client_id: str, client_secret: str = ""):
     server = http.server.HTTPServer(("localhost", REDIRECT_PORT), Handler)
     server.timeout = 120
 
-    print(f"\n🔐 Opening browser for X authorization...")
+    print(f"\n Opening browser for X authorization...")
     print(f"   If it doesn't open, visit:\n   {auth_url}\n")
     webbrowser.open(auth_url)
 
@@ -193,23 +193,23 @@ def authorize(client_id: str, client_secret: str = ""):
     server.server_close()
 
     if result["error"]:
-        print(f"❌ Authorization failed: {result['error']}")
+        print(f" Authorization failed: {result['error']}")
         sys.exit(1)
 
     if not result["code"]:
-        print("❌ No authorization code received (timeout?)")
+        print(" No authorization code received (timeout?)")
         sys.exit(1)
 
-    print("🔄 Exchanging code for tokens...")
+    print(" Exchanging code for tokens...")
     tokens = exchange_code(result["code"], verifier, client_id, client_secret)
     save_tokens(tokens)
     save_config(client_id, client_secret)
 
-    print(f"✅ Authenticated! Access token expires in {tokens.get('expires_in', '?')}s")
+    print(f" Authenticated! Access token expires in {tokens.get('expires_in', '?')}s")
     if tokens.get("refresh_token"):
         print("   Refresh token saved — will auto-refresh.")
     else:
-        print("   ⚠️  No refresh token. Add 'offline.access' scope or re-auth when expired.")
+        print("     No refresh token. Add 'offline.access' scope or re-auth when expired.")
 
 
 def main():
@@ -234,9 +234,9 @@ def main():
         save_config(args.client_id, args.client_secret)
         token = get_valid_token()
         if token:
-            print(f"✅ Token refreshed successfully")
+            print(f" Token refreshed successfully")
         else:
-            print("❌ Refresh failed. Re-run without --refresh to re-authorize.")
+            print(" Refresh failed. Re-run without --refresh to re-authorize.")
             sys.exit(1)
         return
 

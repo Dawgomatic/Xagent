@@ -3,7 +3,7 @@ name: project-orchestrator
 description: AI agent orchestrator with Neo4j knowledge graph, Meilisearch search, and Tree-sitter parsing. Use for coordinating multiple coding agents on complex projects with shared context and plans.
 metadata:
   clawdbot:
-    emoji: "🎯"
+    emoji: ""
     requires:
       bins: ["docker", "cargo"]
 ---

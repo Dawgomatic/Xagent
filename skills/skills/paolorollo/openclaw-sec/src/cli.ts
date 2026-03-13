@@ -373,7 +373,7 @@ program
 
       const result = await engine.validate(text, metadata);
 
-      console.log(chalk.bold('\n📊 Scan Results'));
+      console.log(chalk.bold('\n Scan Results'));
       console.log(chalk.bold('Severity:'), formatSeverity(result.severity));
       console.log(chalk.bold('Action:'), formatAction(result.action));
       console.log(chalk.bold('Fingerprint:'), result.fingerprint);
@@ -388,7 +388,7 @@ program
           byModule.set(finding.module, findings);
         });
 
-        console.log(chalk.bold('\n🔍 Detections by Module:'));
+        console.log(chalk.bold('\n Detections by Module:'));
         byModule.forEach((findings, module) => {
           console.log(chalk.bold(`\n  ${module}`), chalk.gray(`(${findings.length} findings)`));
           findings.forEach((finding, i) => {
@@ -400,7 +400,7 @@ program
       }
 
       if (result.recommendations.length > 0) {
-        console.log(chalk.bold('\n💡 Recommendations:'));
+        console.log(chalk.bold('\n Recommendations:'));
         result.recommendations.forEach(rec => {
           console.log(chalk.cyan('  •'), rec);
         });
@@ -454,7 +454,7 @@ program
         return;
       }
 
-      console.log(chalk.bold('\n📋 Security Events\n'));
+      console.log(chalk.bold('\n Security Events\n'));
 
       const widths = [20, 10, 12, 15, 20];
       printTableRow(['Timestamp', 'Severity', 'Action', 'User ID', 'Module'], widths);
@@ -493,7 +493,7 @@ program
       }
 
       const db = new DatabaseManager(dbPath);
-      console.log(chalk.bold('\n📊 Security Statistics\n'));
+      console.log(chalk.bold('\n Security Statistics\n'));
 
       const tables = db.getTables();
       console.log(chalk.bold('Database Tables:'));
@@ -525,7 +525,7 @@ program
       }
 
       const db = new DatabaseManager(dbPath);
-      console.log(chalk.bold('\n🔬 Security Analysis\n'));
+      console.log(chalk.bold('\n Security Analysis\n'));
 
       if (options.userId) {
         const reputation = db.getUserReputation(options.userId);
@@ -569,7 +569,7 @@ program
       const db = new DatabaseManager(dbPath);
       const reputation = db.getUserReputation(userId);
 
-      console.log(chalk.bold('\n👤 User Reputation\n'));
+      console.log(chalk.bold('\n User Reputation\n'));
 
       if (reputation) {
         console.log(chalk.bold('User ID:'), userId);
@@ -643,7 +643,7 @@ program
         config = ConfigManager.getDefaultConfig();
       }
 
-      console.log(chalk.bold('\n⚙️  Configuration\n'));
+      console.log(chalk.bold('\n  Configuration\n'));
 
       if (configPath) {
         console.log(chalk.bold('Config File:'), configPath);
@@ -694,7 +694,7 @@ program
   .description('Test security configuration')
   .action(async () => {
     try {
-      console.log(chalk.bold('\n🧪 Testing Security Configuration\n'));
+      console.log(chalk.bold('\n Testing Security Configuration\n'));
 
       const engine = await initializeEngine();
 
@@ -731,7 +731,7 @@ program
         }
       }
 
-      console.log(chalk.bold('\n📊 Test Results:'));
+      console.log(chalk.bold('\n Test Results:'));
       console.log(chalk.green('  Passed:'), passed);
       console.log(failed > 0 ? chalk.red('  Failed:') : chalk.gray('  Failed:'), failed);
 
@@ -760,7 +760,7 @@ program
         return;
       }
 
-      console.log(chalk.bold('\n📄 Security Report\n'));
+      console.log(chalk.bold('\n Security Report\n'));
       console.log(chalk.yellow('Report generation not yet fully implemented.'));
       console.log(chalk.gray('Use "stats" and "events" commands for now.'));
     } catch (error) {

@@ -15,7 +15,7 @@ def validate_titles(titles_list):
         "综上所述", "此外", "探索", "不仅...而且"        # AI Fingerprints
     ]
     
-    REQUIRED_CHARS = ["!", "?", "...", "✨", "🔥", "😭", "💰", "✅", "❌"]
+    REQUIRED_CHARS = ["!", "?", "...", "", "", "", "", "", ""]
     
     valid = []
     rejected = []

@@ -812,7 +812,7 @@ app.use('/admin', express.static(path.resolve(__dirname, '../dashboard/dist')));
 const server = app.listen(config.port, () => {
   console.log(`
 ╔══════════════════════════════════════════════╗
-║              ⚡ WINDFALL v0.1.0              ║
+║               WINDFALL v0.1.0              ║
 ║   Spatially-Routed Inference Gateway         ║
 ║   Ecofrontiers SARL                          ║
 ╠══════════════════════════════════════════════╣
@@ -828,7 +828,7 @@ const server = app.listen(config.port, () => {
 
   // C2: Warn if admin password is not set
   if (!config.dashboardPassword) {
-    console.warn('\n⚠️  WARNING: DASHBOARD_PASSWORD is not set. Admin panel (/admin) is DISABLED.');
+    console.warn('\n  WARNING: DASHBOARD_PASSWORD is not set. Admin panel (/admin) is DISABLED.');
     console.warn('   Set DASHBOARD_PASSWORD in .env to enable the admin command center.\n');
   }
 

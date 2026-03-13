@@ -10,13 +10,13 @@ module.exports = async function track(anum) {
     const client = new VariflightClient();
 
     try {
-        console.log('📍 追踪飞机 ' + anum.toUpperCase() + ' 的实时位置...\n');
+        console.log(' 追踪飞机 ' + anum.toUpperCase() + ' 的实时位置...\n');
 
         const result = await client.trackAircraft(anum.toUpperCase());
 
         // 解析标准响应格式
         if (!result || result.code !== 200) {
-            console.log('❌ 查询失败:', result?.message || '未知错误');
+            console.log(' 查询失败:', result?.message || '未知错误');
             return;
         }
 
@@ -24,7 +24,7 @@ module.exports = async function track(anum) {
         const position = Array.isArray(data) ? data[0] : data;
 
         if (!position || Object.keys(position).length === 0) {
-            console.log('❌ 未找到飞机位置信息');
+            console.log(' 未找到飞机位置信息');
             return;
         }
 
@@ -45,7 +45,7 @@ module.exports = async function track(anum) {
         }
 
     } catch (error) {
-        console.error('❌ 查询失败: ' + error.message);
+        console.error(' 查询失败: ' + error.message);
         process.exit(1);
     } finally {
         await client.disconnect();

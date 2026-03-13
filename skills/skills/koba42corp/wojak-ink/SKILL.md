@@ -12,12 +12,12 @@ Browse, search, and analyze Wojak Farmers Plot NFTs from the wojak.ink collectio
 - Track collection statistics
 
 **Advanced Features:**
-- 🎯 Rarity estimation & scoring
-- 📊 Price history tracking & trends
-- 🎨 Trait analysis & distribution
-- 💎 Deal finder (underpriced NFTs)
-- 📈 Market statistics & analytics
-- 🔔 Historical data storage
+-  Rarity estimation & scoring
+-  Price history tracking & trends
+-  Trait analysis & distribution
+-  Deal finder (underpriced NFTs)
+-  Market statistics & analytics
+-  Historical data storage
 
 ## Collection Info
 
@@ -234,12 +234,12 @@ wojak search "king crown"
 
 ## Implemented Features
 
-✅ Rarity score estimation
-✅ Price history tracking
-✅ Trait analysis framework
-✅ Deal finder
-✅ Market trend detection
-✅ Historical data storage
+ Rarity score estimation
+ Price history tracking
+ Trait analysis framework
+ Deal finder
+ Market trend detection
+ Historical data storage
 
 ## Future Enhancements
 

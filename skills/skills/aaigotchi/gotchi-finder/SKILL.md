@@ -20,14 +20,14 @@ Find and display any Aavegotchi by ID with complete traits and image.
 
 ## Features
 
-- ✅ **Instant ID lookup** - Fetch any gotchi by ID number
-- ✅ Fetch any gotchi by ID from Base mainnet
-- ✅ Display full traits (BRS, Kinship, Level, XP, Haunt, Name, Owner)
-- ✅ Generate PNG images (standard 512x512 or hi-res 1024x1024)
-- ✅ Export as SVG (scalable vector graphics)
-- ✅ Flexible format options (PNG, hi-res, SVG, or all)
-- ✅ Support for all gotchi states (Portal, Gotchi, etc.)
-- ✅ Automatic image conversion and delivery
+-  **Instant ID lookup** - Fetch any gotchi by ID number
+-  Fetch any gotchi by ID from Base mainnet
+-  Display full traits (BRS, Kinship, Level, XP, Haunt, Name, Owner)
+-  Generate PNG images (standard 512x512 or hi-res 1024x1024)
+-  Export as SVG (scalable vector graphics)
+-  Flexible format options (PNG, hi-res, SVG, or all)
+-  Support for all gotchi states (Portal, Gotchi, etc.)
+-  Automatic image conversion and delivery
 
 ## Usage
 
@@ -39,9 +39,9 @@ bash scripts/find-gotchi.sh 9638
 ```
 
 **Presentation order:**
-1. 🖼️ Gotchi image (PNG preview 512x512) - **shown first**
-2. 📊 Complete trait information - **shown below image**
-3. 📥 Download options menu - **at the end**
+1.  Gotchi image (PNG preview 512x512) - **shown first**
+2.  Complete trait information - **shown below image**
+3.  Download options menu - **at the end**
 
 **Step 2: User chooses format**
 User can then request specific format(s):
@@ -100,17 +100,17 @@ Image: Gotchi PNG (512×512)
 
 Caption:
 ```
-👻 Gotchi #{ID} "{Name}"
+ Gotchi #{ID} "{Name}"
 
-📊 Stats:
-⭐ BRS: {brs} (Modified: {modifiedBrs})
-💜 Kinship: {kinship}
-🎯 Level: {level}
-✨ XP: {xp}
-🏰 Haunt: {haunt}
-🔒 Locked: {Yes/No}
+ Stats:
+ BRS: {brs} (Modified: {modifiedBrs})
+ Kinship: {kinship}
+ Level: {level}
+ XP: {xp}
+ Haunt: {haunt}
+ Locked: {Yes/No}
 
-🎭 Traits:
+ Traits:
 • Energy: {value}
 • Aggression: {value}
 • Spookiness: {value}
@@ -118,7 +118,7 @@ Caption:
 • Eye Shape: {value}
 • Eye Color: {value}
 
-📥 Download options:
+ Download options:
 • Standard PNG (512×512)
 • Hi-res PNG (1024×1024)
 • SVG (vector)
@@ -180,32 +180,32 @@ done
 
 ---
 
-Built with 💜 by AAI
+Built with  by AAI
 
 ---
 
-## 🔒 Security
+##  Security
 
-**This skill is 100% SAFE - Read-only!** ✅
+**This skill is 100% SAFE - Read-only!** 
 
 ### Security Features
-- ✅ **Read-only** - No wallet interaction at all
-- ✅ **No transactions** - Cannot modify blockchain state
-- ✅ **No credentials needed** - Public data only
-- ✅ **No private keys** - Zero wallet access
-- ✅ **Safe for anyone** - Cannot cause harm
+-  **Read-only** - No wallet interaction at all
+-  **No transactions** - Cannot modify blockchain state
+-  **No credentials needed** - Public data only
+-  **No private keys** - Zero wallet access
+-  **Safe for anyone** - Cannot cause harm
 
 ### What This Skill Does
-- ✅ Fetches gotchi data from public subgraph
-- ✅ Generates images from public SVG data
-- ✅ Displays gotchi traits (read-only)
+-  Fetches gotchi data from public subgraph
+-  Generates images from public SVG data
+-  Displays gotchi traits (read-only)
 
 ### What This Skill CANNOT Do
-- ❌ Access wallets
-- ❌ Sign transactions
-- ❌ Modify gotchis
-- ❌ Transfer anything
-- ❌ Spend money
+-  Access wallets
+-  Sign transactions
+-  Modify gotchis
+-  Transfer anything
+-  Spend money
 
 ### Data Sources
 - Public subgraph: `api.goldsky.com` (read-only)
@@ -213,18 +213,18 @@ Built with 💜 by AAI
 - No authentication required
 
 ### Privacy
-- ✅ Fetches only PUBLIC gotchi data
-- ✅ No wallet addresses exposed
-- ✅ No sensitive information
+-  Fetches only PUBLIC gotchi data
+-  No wallet addresses exposed
+-  No sensitive information
 
 ### Compliance
-- ✅ ClawHub security standards
-- ✅ Read-only best practices
-- ✅ Zero-risk skill classification
+-  ClawHub security standards
+-  Read-only best practices
+-  Zero-risk skill classification
 
 ---
 
-**Security Score:** 10/10 ✅ (Read-only = Maximum Safety)  
+**Security Score:** 10/10  (Read-only = Maximum Safety)  
 **ClawHub Status:** Approved  
 **Risk Level:** NONE (Read-only)  
 **Last Audit:** 2026-02-19

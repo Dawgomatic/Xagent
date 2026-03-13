@@ -59,7 +59,7 @@ bash ~/openclaw/skills/self-evolving-agent/scripts/generate-proposal.sh
 bash ~/openclaw/skills/self-evolving-agent/scripts/v4/orchestrator.sh 2>/dev/null || echo '분석 실패'
 
 위 스크립트 실행 결과를 그대로 출력하세요.
-⛔ message 도구 호출 절대 금지. 텍스트 출력만.
+ message 도구 호출 절대 금지. 텍스트 출력만.
 ```
 
 ### New `delivery` Section

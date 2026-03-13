@@ -1,7 +1,7 @@
 ---
 name: Computer Science
 description: Guide CS learning from first programs to research and industry practice.
-metadata: {"clawdbot":{"emoji":"💻","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

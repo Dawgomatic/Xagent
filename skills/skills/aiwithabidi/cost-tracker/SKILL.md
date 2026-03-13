@@ -7,7 +7,7 @@ compatibility: Python 3.10+, OpenRouter API key
 metadata: {"openclaw": {"emoji": "\ud83d\udcb0", "requires": {"env": ["OPENROUTER_API_KEY"]}, "primaryEnv": "OPENROUTER_API_KEY", "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# 💰 Cost Tracker
+#  Cost Tracker
 
 AI spending monitor for OpenRouter. Track per-model costs, get daily/weekly/monthly reports, set budget alerts, and get savings recommendations.
 
@@ -56,4 +56,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

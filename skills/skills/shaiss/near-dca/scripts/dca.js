@@ -108,7 +108,7 @@ async function main() {
           process.exit(1);
         }
         const plan = await createPlan(arg1, arg2, arg3, account);
-        console.log(`✅ DCA plan created:`);
+        console.log(` DCA plan created:`);
         console.log(`   ID: ${plan.id}`);
         console.log(`   Token: ${plan.token}`);
         console.log(`   Amount: ${plan.amount} per purchase`);
@@ -145,7 +145,7 @@ async function main() {
           process.exit(1);
         }
         const plan = await cancelPlan(arg1);
-        console.log(`✅ Cancelled DCA plan ${arg1}`);
+        console.log(` Cancelled DCA plan ${arg1}`);
         break;
       }
 

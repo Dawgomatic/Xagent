@@ -29,7 +29,7 @@ def format_market(m: dict) -> str:
     no_pct = float(prices[1]) * 100 if len(prices) > 1 else 0
     vol24h = m.get("volume24hr", 0) or 0
     vol_total = m.get("volumeNum", 0) or 0
-    closed = "🔒" if m.get("closed") else ""
+    closed = "" if m.get("closed") else ""
     return f"{closed}{q}\n   Yes: {yes_pct:.1f}% | No: {no_pct:.1f}% | 24h: ${vol24h:,.0f} | Total: ${vol_total:,.0f}"
 
 def top_markets(limit: int = 10) -> None:
@@ -41,7 +41,7 @@ def top_markets(limit: int = 10) -> None:
         "order": "volume24hr",
         "ascending": "false"
     })
-    print(f"📈 Top {len(markets)} Markets by 24h Volume\n")
+    print(f" Top {len(markets)} Markets by 24h Volume\n")
     for m in markets:
         print(format_market(m))
         print()
@@ -64,7 +64,7 @@ def search_markets(query: str, limit: int = 10) -> None:
         print(f"No markets found matching '{query}'")
         return
     
-    print(f"🔍 Markets matching '{query}'\n")
+    print(f" Markets matching '{query}'\n")
     for m in matches:
         print(format_market(m))
         print()
@@ -77,7 +77,7 @@ def get_market(slug: str) -> None:
         return
     
     m = markets[0]
-    print(f"📊 {m.get('question', 'Unknown')}\n")
+    print(f" {m.get('question', 'Unknown')}\n")
     prices = json.loads(m.get("outcomePrices", '["0","0"]'))
     outcomes = json.loads(m.get("outcomes", '["Yes","No"]'))
     
@@ -104,7 +104,7 @@ def list_events(limit: int = 10) -> None:
         "order": "volume24hr",
         "ascending": "false"
     })
-    print(f"📅 Top {len(events)} Events\n")
+    print(f" Top {len(events)} Events\n")
     for e in events:
         title = e.get("title", "Unknown")[:70]
         vol = e.get("volume", 0) or 0

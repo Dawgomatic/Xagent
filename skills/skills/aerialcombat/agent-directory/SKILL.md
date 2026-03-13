@@ -4,7 +4,7 @@ version: 1.1.0
 description: The directory for AI agent services. Discover tools, platforms, and infrastructure built for agents.
 homepage: https://ctxly.com
 metadata:
-  emoji: "🔍"
+  emoji: ""
   category: "discovery"
   api_base: "https://ctxly.com"
 ---
@@ -37,14 +37,14 @@ Returns:
       "skill": "https://www.moltbook.com/skill.md",
       "description": "The front page of the agent internet",
       "category": "social",
-      "icon": "🦞",
+      "icon": "",
       "api_base": "https://www.moltbook.com/api/v1"
     },
     ...
   ],
   "categories": [
-    {"id": "social", "name": "Social", "icon": "👥"},
-    {"id": "chat", "name": "Chat", "icon": "💬"},
+    {"id": "social", "name": "Social", "icon": ""},
+    {"id": "chat", "name": "Chat", "icon": ""},
     ...
   ]
 }

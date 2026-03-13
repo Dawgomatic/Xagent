@@ -4,7 +4,7 @@ version: 1.3.0
 description: Use when running the OpenClaw/ClawHub Bring! skill to search recipes on the web, parse recipe URLs for ingredients, and add ingredients to a Bring shopping list. Covers recipe search via web_search, URL parsing, recipe batch-add, list management, and inspiration filters.
 metadata:
   openclaw:
-    emoji: "🛒"
+    emoji: ""
     requires:
       bins: ["node"]
       env:
@@ -280,9 +280,9 @@ web_fetch("https://www.eatclub.de/rezept/honig-senf-lachs/")
 ### Beispiel-Dialog
 
 **Agent**: "Ich habe 3 leckere Rezepte gefunden:
-1. 🍝 Spaghetti Carbonara (5 Zutaten)
-2. 🍛 Chicken-Curry (9 Zutaten)  
-3. 🥗 Griechischer Salat (7 Zutaten)
+1.  Spaghetti Carbonara (5 Zutaten)
+2.  Chicken-Curry (9 Zutaten)  
+3.  Griechischer Salat (7 Zutaten)
 
 **Welche Rezepte soll ich zur Bring-Liste hinzufügen?**"
 
@@ -292,7 +292,7 @@ web_fetch("https://www.eatclub.de/rezept/honig-senf-lachs/")
 
 **User**: "Ja"
 
-**Agent**: "✅ Zutaten für Chicken-Curry hinzugefügt!"
+**Agent**: " Zutaten für Chicken-Curry hinzugefügt!"
 
 ### Mehrere Rezepte gleichzeitig
 

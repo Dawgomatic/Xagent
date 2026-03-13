@@ -30,7 +30,7 @@ format_progress() {
     local build_status=$(echo "$status" | jq -r '.status')
     local landing_ready=$(echo "$status" | jq -r '.landingPageReady')
     
-    echo "🏗️ Building \"$name\"..."
+    echo " Building \"$name\"..."
     echo ""
     
     # Show parallel build status if available
@@ -38,7 +38,7 @@ format_progress() {
     
     if [[ "$has_parallel" -gt 0 ]]; then
         echo "$status" | jq -r '.parallelBuildStatus[] | 
-            (if .status == "done" then "✅" elif .status == "in_progress" then "🔄" else "⏳" end) + " " + .name + 
+            (if .status == "done" then "" elif .status == "in_progress" then "" else "" end) + " " + .name + 
             (if .status == "in_progress" then " (" + (.tasks | map(select(.status == "complete")) | length | tostring) + "/" + (.tasks | length | tostring) + ")" else "" end)'
         echo ""
     else
@@ -55,16 +55,16 @@ format_progress() {
     printf "] %d%%\n" "$progress"
     echo ""
     
-    echo "⏱️ ~$time_remaining"
+    echo " ~$time_remaining"
     
     # URLs if available
     if [[ "$landing_ready" == "true" ]]; then
         local landing_url=$(echo "$status" | jq -r '.urls.landingPage // ""')
         local workspace_url=$(echo "$status" | jq -r '.urls.workspace // ""')
         echo ""
-        echo "🎉 READY!"
-        echo "🌐 Landing: $landing_url"
-        echo "🏠 Workspace: $workspace_url"
+        echo " READY!"
+        echo " Landing: $landing_url"
+        echo " Workspace: $workspace_url"
     fi
 }
 
@@ -97,7 +97,7 @@ while true; do
     
     ready=$(echo "$status" | jq -r '.landingPageReady')
     if [[ "$ready" == "true" ]]; then
-        echo "✅ BUILD COMPLETE"
+        echo " BUILD COMPLETE"
         break
     fi
     

@@ -4,7 +4,7 @@ updated: {{UPDATED_DATE}}
 version: {{VERSION}}
 ---
 
-# 🔥 Personal Profile
+#  Personal Profile
 
 ## Identity
 

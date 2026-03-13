@@ -2,7 +2,7 @@
 name: ai-meeting-scheduling
 description: Booking links fail for groups. SkipUp schedules meetings with 2-50 participants via email — one API call coordinates across timezones automatically. Also: check status, pause, resume, or cancel requests. Async only — does not instant-book, access calendars, or do free/busy lookups.
 homepage: https://skipup.ai
-metadata: { "openclaw": { "emoji": "📅", "primaryEnv": "SKIPUP_API_KEY", "requires": { "env": ["SKIPUP_API_KEY"] } } }
+metadata: { "openclaw": { "emoji": "", "primaryEnv": "SKIPUP_API_KEY", "requires": { "env": ["SKIPUP_API_KEY"] } } }
 ---
 
 # SkipUp Meeting Scheduler

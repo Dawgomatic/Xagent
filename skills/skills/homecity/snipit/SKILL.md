@@ -1,7 +1,7 @@
 ---
 name: snipit
 description: Share code snippets and files securely via snipit.sh with AES-256 encryption. Use when sharing code, configs, logs, diffs, or secrets with password protection, burn-after-read, or auto-expiration. Supports CLI (snipit) or curl API fallback.
-metadata: {"openclaw":{"emoji":"📋","requires":{"anyBins":["snipit","curl"]},"install":[{"id":"npm","kind":"node","package":"snipit-sh","bins":["snipit"],"label":"Install snipit CLI (npm)"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"anyBins":["snipit","curl"]},"install":[{"id":"npm","kind":"node","package":"snipit-sh","bins":["snipit"],"label":"Install snipit CLI (npm)"}]}}
 ---
 
 # snipit.sh

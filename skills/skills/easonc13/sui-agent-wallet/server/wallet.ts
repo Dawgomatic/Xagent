@@ -70,7 +70,7 @@ export class AgentWallet {
     // Try to load from Keychain first
     const stored = retrieveMnemonic();
     if (stored && validateMnemonic(stored)) {
-      console.log('🔐 Loaded seed phrase from macOS Keychain');
+      console.log(' Loaded seed phrase from macOS Keychain');
       return stored;
     }
 
@@ -81,7 +81,7 @@ export class AgentWallet {
     if (storeMnemonic(mnemonic)) {
       console.log('');
       console.log('═══════════════════════════════════════════════════════════');
-      console.log('  🔐 NEW WALLET CREATED');
+      console.log('   NEW WALLET CREATED');
       console.log('═══════════════════════════════════════════════════════════');
       console.log('');
       console.log('  Seed phrase stored securely in macOS Keychain.');
@@ -98,7 +98,7 @@ export class AgentWallet {
     } else {
       // Fallback: print to console if Keychain fails
       console.log('');
-      console.log('⚠️  Failed to store in Keychain. SAVE THIS SEED PHRASE:');
+      console.log('  Failed to store in Keychain. SAVE THIS SEED PHRASE:');
       console.log('');
       console.log(`  ${mnemonic}`);
       console.log('');
@@ -119,7 +119,7 @@ export class AgentWallet {
         if ((data as any).mnemonic) {
           delete (data as any).mnemonic;
           this.saveWalletData(data);
-          console.log('📦 Migrated wallet data (removed mnemonic from file)');
+          console.log(' Migrated wallet data (removed mnemonic from file)');
         }
         return data;
       } catch (e) {

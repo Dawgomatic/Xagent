@@ -1,7 +1,7 @@
 ---
 name: Dates
 description: Build a personal dating system for tracking connections, planning dates, and remembering details.
-metadata: {"clawdbot":{"emoji":"💜","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

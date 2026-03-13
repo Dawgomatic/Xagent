@@ -7,7 +7,7 @@ homepage: https://jeffjhunter.com
 tags: [daily-briefing, morning-routine, productivity, todo, priorities, calendar, focus, daily-ops, task-management, planning]
 ---
 
-# ☀️ AI Daily Briefing
+#  AI Daily Briefing
 
 **Start every day focused. Know exactly what matters.**
 
@@ -17,35 +17,35 @@ No setup. Just say "briefing".
 
 ---
 
-## ⚠️ CRITICAL: BRIEFING FORMAT (READ FIRST)
+##  CRITICAL: BRIEFING FORMAT (READ FIRST)
 
 **When the user asks for a briefing, you MUST respond with this EXACT format:**
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-☀️ DAILY BRIEFING — [Day], [Month] [Date], [Year]
+ DAILY BRIEFING — [Day], [Month] [Date], [Year]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-⚠️ OVERDUE ([X] items)
+ OVERDUE ([X] items)
 • Task 1 — was due [date]
 • Task 2 — was due [date]
 
-📅 TODAY'S PRIORITIES
+ TODAY'S PRIORITIES
 1. [ ] Priority task 1 — [deadline/context]
 2. [ ] Priority task 2 — [deadline/context]
 3. [ ] Priority task 3 — [deadline/context]
 
-📆 CALENDAR
+ CALENDAR
 • [Time] — [Event]
 • [Time] — [Event]
 • [Time] — [Event]
 
-💡 CONTEXT (from recent meetings)
+ CONTEXT (from recent meetings)
 • [Key insight 1]
 • [Key insight 2]
 • [Key insight 3]
 
-🎯 FOCUS FOR TODAY
+ FOCUS FOR TODAY
 [One sentence: What's the ONE thing that matters most today?]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -79,11 +79,11 @@ Instead of checking 5 different places, get one briefing.
 
 | Input | Output |
 |-------|--------|
-| "briefing" | ✅ Complete daily overview |
-| "what's overdue?" | ✅ Overdue tasks only |
-| "what's on my calendar?" | ✅ Today's schedule |
-| "what should I focus on?" | ✅ Priority recommendation |
-| "weekly preview" | ✅ Week-ahead view |
+| "briefing" |  Complete daily overview |
+| "what's overdue?" |  Overdue tasks only |
+| "what's on my calendar?" |  Today's schedule |
+| "what should I focus on?" |  Priority recommendation |
+| "weekly preview" |  Week-ahead view |
 
 ---
 
@@ -98,17 +98,17 @@ The briefing pulls from these locations (if they exist):
 ```markdown
 # To-Do List
 
-## ⚠️ Overdue
+##  Overdue
 | # | Task | Owner | Due | Source |
 |---|------|-------|-----|--------|
 | 3 | Send proposal | @You | Jan 25 | client-call.md |
 
-## 📅 Due Today
+##  Due Today
 | # | Task | Owner | Source |
 |---|------|-------|--------|
 | 5 | Review budget | @You | team-sync.md |
 
-## 📆 This Week
+##  This Week
 | # | Task | Owner | Due | Source |
 |---|------|-------|-----|--------|
 | 1 | Finalize report | @You | Fri | planning.md |
@@ -191,11 +191,11 @@ Would you like me to:
 
 ### Step 2: Extract Overdue Items
 
-From `todo.md`, find items in the "⚠️ Overdue" section.
+From `todo.md`, find items in the " Overdue" section.
 
 **Display format:**
 ```
-⚠️ OVERDUE ([X] items)
+ OVERDUE ([X] items)
 • [Task] — was due [date]
 • [Task] — was due [date]
 ```
@@ -211,8 +211,8 @@ From `todo.md`, find items in the "⚠️ Overdue" section.
 Combine from multiple sources:
 
 1. **From todo.md:**
-   - "📅 Due Today" section
-   - "📆 This Week" items due today
+   - " Due Today" section
+   - " This Week" items due today
 
 2. **From meeting-notes/:**
    - Action items assigned to user with today's deadline
@@ -224,7 +224,7 @@ Combine from multiple sources:
 
 **Display format:**
 ```
-📅 TODAY'S PRIORITIES
+ TODAY'S PRIORITIES
 1. [ ] [Task] — [deadline/context]
 2. [ ] [Task] — [deadline/context]
 3. [ ] [Task] — [deadline/context]
@@ -242,7 +242,7 @@ If calendar data is available:
 
 **Display format:**
 ```
-📆 CALENDAR
+ CALENDAR
 • [Time] — [Event]
 • [Time] — [Event]
 • [Time] — [Event]
@@ -266,7 +266,7 @@ Extract:
 
 **Display format:**
 ```
-💡 CONTEXT (from recent meetings)
+ CONTEXT (from recent meetings)
 • [Key insight 1]
 • [Key insight 2]
 • [Key insight 3]
@@ -290,7 +290,7 @@ Based on everything gathered, determine the ONE most important thing.
 
 **Display format:**
 ```
-🎯 FOCUS FOR TODAY
+ FOCUS FOR TODAY
 [One clear sentence about the single most important thing]
 ```
 
@@ -306,7 +306,7 @@ Put it all together in the exact format:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-☀️ DAILY BRIEFING — [Day], [Month] [Date], [Year]
+ DAILY BRIEFING — [Day], [Month] [Date], [Year]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 [Overdue section — if any]
@@ -326,7 +326,7 @@ Put it all together in the exact format:
 
 **"What's overdue?"**
 ```
-⚠️ OVERDUE ITEMS
+ OVERDUE ITEMS
 
 1. [Task] — was due [date]
 2. [Task] — was due [date]
@@ -336,7 +336,7 @@ Put it all together in the exact format:
 
 **"What's on my calendar?"**
 ```
-📆 TODAY'S CALENDAR — [Date]
+ TODAY'S CALENDAR — [Date]
 
 • [Time] — [Event]
 • [Time] — [Event]
@@ -347,7 +347,7 @@ Put it all together in the exact format:
 **"Weekly preview" / "What's this week look like?"**
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📅 WEEKLY PREVIEW — Week of [Date]
+ WEEKLY PREVIEW — Week of [Date]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 MONDAY
@@ -358,7 +358,7 @@ TUESDAY
 
 [etc.]
 
-⚠️ WATCH OUT FOR
+ WATCH OUT FOR
 • [Key deadline or conflict]
 • [Important meeting]
 
@@ -445,31 +445,31 @@ Want to customize your briefing? Tell me your preferences:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-☀️ DAILY BRIEFING — Tuesday, February 3, 2026
+ DAILY BRIEFING — Tuesday, February 3, 2026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-⚠️ OVERDUE (2 items)
+ OVERDUE (2 items)
 • Send Acme proposal — was due Feb 1
 • Review Week 2 training materials — was due Jan 31
 
-📅 TODAY'S PRIORITIES
+ TODAY'S PRIORITIES
 1. [ ] Anne follow-up call — 2pm today
 2. [ ] Finalize Week 3 training content — EOD
 3. [ ] Prep for Makati trip — flights need booking
 4. [ ] Respond to Karlen re: workflow docs
 5. [ ] Clear overdue Acme proposal
 
-📆 CALENDAR
+ CALENDAR
 • 10:00 AM — Team standup (30 min)
 • 2:00 PM — Anne follow-up call (1 hour)
 • 4:30 PM — Workshop dry run (90 min)
 
-💡 CONTEXT (from recent meetings)
+ CONTEXT (from recent meetings)
 • Anne partnership confirmed — ready to move forward (from anne-call)
 • OpenClaw bot architecture changing to specialists (from pm-meeting)
 • Makati trip deadline approaching — need flights by Friday
 
-🎯 FOCUS FOR TODAY
+ FOCUS FOR TODAY
 Get the Acme proposal out first thing — it's 2 days overdue and blocking the deal.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -488,8 +488,8 @@ He's trained thousands through the AI Persona Method and runs AI communities wit
 Most people burn API credits with nothing to show.
 Jeff teaches you how to build AI systems that pay for themselves.
 
-👉 **Join AI Money Group:** https://aimoneygroup.com
-👉 **Connect with Jeff:** https://jeffjhunter.com
+ **Join AI Money Group:** https://aimoneygroup.com
+ **Connect with Jeff:** https://jeffjhunter.com
 
 ---
 

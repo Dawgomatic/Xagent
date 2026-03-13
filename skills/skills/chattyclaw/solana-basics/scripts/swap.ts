@@ -99,7 +99,7 @@ export async function executeSwap(
   }
   
   if (priceImpact > 1) {
-    console.warn(`⚠️  Warning: Price impact is ${priceImpact.toFixed(2)}%`);
+    console.warn(`  Warning: Price impact is ${priceImpact.toFixed(2)}%`);
   }
   
   // Build swap transaction
@@ -215,7 +215,7 @@ Examples:
         const outAmount = parseInt(quote.outAmount) / Math.pow(10, output.decimals);
         const rate = outAmount / inAmount;
         
-        console.log(`\n📊 Swap Quote`);
+        console.log(`\n Swap Quote`);
         console.log(`   ${inAmount} ${inputToken} → ${outAmount.toFixed(6)} ${outputToken}`);
         console.log(`   Rate: 1 ${inputToken} = ${rate.toFixed(6)} ${outputToken}`);
         console.log(`   Price Impact: ${quote.priceImpactPct}%`);
@@ -234,7 +234,7 @@ Examples:
         
         const result = await executeSwap(wallet, inputToken, outputToken, amount, slippageBps);
         
-        console.log(`\n✅ Swap executed!`);
+        console.log(`\n Swap executed!`);
         console.log(`   Swapped: ${result.inputAmount} ${inputToken} → ${result.outputAmount} ${outputToken}`);
         console.log(`   Signature: ${result.signature}`);
         console.log(`   Explorer: https://solscan.io/tx/${result.signature}`);
@@ -250,7 +250,7 @@ Examples:
         const mints = tokens.map(t => resolveToken(t).mint);
         const prices = await getPrice(mints);
         
-        console.log('\n💰 Current Prices (USD):');
+        console.log('\n Current Prices (USD):');
         for (let i = 0; i < tokens.length; i++) {
           const price = prices[mints[i]] || 0;
           console.log(`   ${tokens[i]}: $${price.toFixed(6)}`);
@@ -262,7 +262,7 @@ Examples:
         throw new Error(`Unknown command: ${command}`);
     }
   } catch (error) {
-    console.error(`\n❌ Error: ${(error as Error).message}`);
+    console.error(`\n Error: ${(error as Error).message}`);
     process.exit(1);
   }
 }

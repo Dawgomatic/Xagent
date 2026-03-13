@@ -60,7 +60,7 @@ def main():
     }
     
     report_path = generate_enhanced_report(page_analysis, results, [])
-    print(f"✅ Report regenerated: {report_path}")
+    print(f" Report regenerated: {report_path}")
 
 if __name__ == "__main__":
     main()

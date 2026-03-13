@@ -643,11 +643,11 @@ JSONEOF
 auto_out=$(bash "$PROJECT_ROOT/scripts/telegram-commands.sh" switch demo 2>&1)
 assert_contains "switch shows multiple candidates" "$auto_out" "Multiple matches (3)"
 assert_contains "switch auto-select message" "$auto_out" "Auto-selected #1"
-assert_contains "switch auto-select picks exact name" "$auto_out" "📁 *demo*"
+assert_contains "switch auto-select picks exact name" "$auto_out" " *demo*"
 
 index_out=$(bash "$PROJECT_ROOT/scripts/telegram-commands.sh" switch demo --index 2 2>&1)
 assert_contains "switch index selection message" "$index_out" "Selected candidate #2"
-assert_contains "switch index picks second candidate" "$index_out" "📁 *demo-app*"
+assert_contains "switch index picks second candidate" "$index_out" " *demo-app*"
 
 bad_index_out=$(bash "$PROJECT_ROOT/scripts/telegram-commands.sh" switch demo --index 9 2>&1 || true)
 assert_contains "switch index out-of-range" "$bad_index_out" "--index out of range"

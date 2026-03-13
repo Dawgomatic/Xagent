@@ -1,8 +1,8 @@
-# 🔪 oktk - LLM Token Optimizer
+#  oktk - LLM Token Optimizer
 
 ### Reduce AI API Costs by 60-90% | GPT-4 & Claude Token Saver
 
-> **By Buba Draugelis** 🇱🇹
+> **By Buba Draugelis** 
 
 Compresses CLI command outputs before sending to your LLM, dramatically cutting token usage and API costs.
 
@@ -12,7 +12,7 @@ Compresses CLI command outputs before sending to your LLM, dramatically cutting 
 
 ---
 
-## 🤔 The Problem
+##  The Problem
 
 When you use an AI assistant to run terminal commands, **the entire output goes into the LLM context**:
 
@@ -25,13 +25,13 @@ $ git status
 ```
 
 This wastes:
-- 💸 **Money** — tokens cost real dollars
-- 📊 **Context window** — less space for actual conversation
-- ⏱️ **Time** — more tokens = slower responses
+-  **Money** — tokens cost real dollars
+-  **Context window** — less space for actual conversation
+-  **Time** — more tokens = slower responses
 
 ---
 
-## ✅ The Solution
+##  The Solution
 
 **oktk** compresses command outputs before they reach the LLM:
 
@@ -48,7 +48,7 @@ This wastes:
 
 ---
 
-## 📊 When Does It Work?
+##  When Does It Work?
 
 oktk automatically compresses these commands:
 
@@ -57,7 +57,7 @@ oktk automatically compresses these commands:
 | `git status` | Branch, ahead/behind, file counts | **90%** |
 | `git log` | Hash + message + author (1 line each) | **85%** |
 | `git diff` | Summary: files changed, +/- lines | **80%** |
-| `npm test` | ✅ passed / ❌ failed + counts | **98%** |
+| `npm test` |  passed /  failed + counts | **98%** |
 | `cargo test` | Same as npm test | **98%** |
 | `pytest` | Pass/fail summary | **95%** |
 | `ls -la` | Grouped by type, sizes only | **83%** |
@@ -66,7 +66,7 @@ oktk automatically compresses these commands:
 
 ---
 
-## 🔍 Concrete Example
+##  Concrete Example
 
 ### Before oktk — sent to LLM (800 tokens):
 
@@ -97,17 +97,17 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ### After oktk — sent to LLM (80 tokens):
 
 ```
-📍 main
+ main
 ↑ Ahead 3 commits
-✏️  Modified: 6
-❓ Untracked: 3
+  Modified: 6
+ Untracked: 3
 ```
 
 **The AI gets the same useful information. You pay 90% less.**
 
 ---
 
-## ⚙️ How It Works
+##  How It Works
 
 ```
 1. You run:     git status
@@ -148,7 +148,7 @@ Command Output
 
 ---
 
-## 🛡️ Safety — Never Breaks
+##  Safety — Never Breaks
 
 oktk has **3 fallback layers**:
 
@@ -164,14 +164,14 @@ oktk has **3 fallback layers**:
 
 | Guarantee | How |
 |-----------|-----|
-| ✅ Never crashes | 3-layer fallback |
-| ✅ Never loses data | `--raw` flag always works |
-| ✅ Preserves errors | Error messages never filtered |
-| ✅ Hides secrets | Auto-redacts API keys, tokens |
+|  Never crashes | 3-layer fallback |
+|  Never loses data | `--raw` flag always works |
+|  Preserves errors | Error messages never filtered |
+|  Hides secrets | Auto-redacts API keys, tokens |
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Basic Usage
 
@@ -200,7 +200,7 @@ node skills/oktk/scripts/oktk.js cache --clear
 ```bash
 $ node skills/oktk/scripts/oktk.js gain
 
-📊 Token Savings (All time)
+ Token Savings (All time)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Commands filtered: 1,247
@@ -212,12 +212,12 @@ By filter:
   files    43,212 (81%)
   curl     22,221 (94%)
 
-💰 At $0.01/1K tokens = $4.57 saved this week
+ At $0.01/1K tokens = $4.57 saved this week
 ```
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 skills/oktk/
@@ -243,7 +243,7 @@ skills/oktk/
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -268,7 +268,7 @@ node skills/oktk/scripts/oktk.js git status --raw
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run all 24 tests
@@ -280,7 +280,7 @@ node skills/oktk/examples/git-status-example.js
 
 ---
 
-## 🔧 Add Your Own Filter
+##  Add Your Own Filter
 
 ```javascript
 // scripts/filters/MyFilter.js
@@ -313,7 +313,7 @@ this.filters = [
 
 ---
 
-## 📈 Performance
+##  Performance
 
 | Metric | Value |
 |--------|-------|
@@ -323,13 +323,13 @@ this.filters = [
 
 ---
 
-## 📜 License
+##  License
 
 MIT License
 
 ---
 
-## 🙏 Credits
+##  Credits
 
 - Inspired by [rtk](https://github.com/rtk-ai/rtk)
 - Built for [OpenClaw](https://openclaw.ai)
@@ -338,7 +338,7 @@ MIT License
 
 <div align="center">
 
-**Made with ❤️ in Lithuania 🇱🇹**
+**Made with  in Lithuania **
 
 *Saving tokens, saving money, one command at a time.*
 

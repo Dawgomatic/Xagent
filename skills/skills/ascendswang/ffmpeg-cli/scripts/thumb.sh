@@ -25,4 +25,4 @@ done
 [ -z "$INPUT" ] || [ -z "$OUTPUT" ] && usage
 
 ffmpeg -ss "$TIMESTAMP" -i "$INPUT" -vframes 1 -q:v 2 -y "$OUTPUT"
-echo "✅ Thumbnail saved: $OUTPUT"
+echo " Thumbnail saved: $OUTPUT"

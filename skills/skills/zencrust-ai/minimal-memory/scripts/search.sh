@@ -67,7 +67,7 @@ if [[ -z "$QUERY" ]]; then
     exit 1
 fi
 
-echo "🔍 Searching memory for: $QUERY"
+echo " Searching memory for: $QUERY"
 if [[ -n "$CATEGORY" ]]; then
     echo "   Category: [$CATEGORY]"
 fi
@@ -116,11 +116,11 @@ if [[ -n "$FILES_TO_SEARCH" ]]; then
         echo "$RESULTS" | while read -r line; do
             # Extract category for color coding
             if echo "$line" | grep -q "\[GOOD\]"; then
-                echo "✅ $line"
+                echo " $line"
             elif echo "$line" | grep -q "\[BAD\]"; then
-                echo "❌ $line"
+                echo " $line"
             elif echo "$line" | grep -q "\[NEUTRAL\]"; then
-                echo "⚪ $line"
+                echo " $line"
             else
                 echo "   $line"
             fi

@@ -37,11 +37,11 @@ async function main() {
     const gemAccount = await getAccount(conn, playerGemAta);
     const gemBal = Number(gemAccount.amount) / 1e6;
     if (gemBal < gemAmount) {
-      console.error(`❌ Not enough GEM. Have ${gemBal}, need ${gemAmount}.`);
+      console.error(` Not enough GEM. Have ${gemBal}, need ${gemAmount}.`);
       process.exit(1);
     }
   } catch {
-    console.error('❌ No GEM token account.');
+    console.error(' No GEM token account.');
     process.exit(1);
   }
 
@@ -73,7 +73,7 @@ async function main() {
 
   const sig = await conn.sendTransaction(tx, [wallet]);
   await conn.confirmTransaction(sig, 'confirmed');
-  console.log(`✅ Redeemed! TX: ${sig}`);
+  console.log(` Redeemed! TX: ${sig}`);
   console.log(`   Explorer: https://explorer.solana.com/tx/${sig}?cluster=devnet`);
 
   try {
@@ -82,4 +82,4 @@ async function main() {
   } catch {}
 }
 
-main().catch(err => { console.error('❌', err.message); process.exit(1); });
+main().catch(err => { console.error('', err.message); process.exit(1); });

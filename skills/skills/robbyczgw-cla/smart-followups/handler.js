@@ -24,9 +24,9 @@ const SLASH_COMMANDS = ['/followups', '/fu', '/suggestions', '/next'];
 const FOLLOWUPS_PROMPT = `Based on our recent conversation, generate exactly 3 follow-up questions.
 
 **Categories (one question each):**
-1. ⚡ Quick — Short clarification or immediate next step (max 50 chars)
-2. 🧠 Deep Dive — Technical depth or detailed exploration (max 50 chars)
-3. 🔗 Related — Connected topic or broader context (max 50 chars)
+1.  Quick — Short clarification or immediate next step (max 50 chars)
+2.  Deep Dive — Technical depth or detailed exploration (max 50 chars)
+3.  Related — Connected topic or broader context (max 50 chars)
 
 **Rules:**
 - Make questions natural and conversational
@@ -69,9 +69,9 @@ function parseSuggestions(text) {
  */
 function formatButtons(suggestions) {
   return [
-    [{ text: `⚡ ${suggestions.quick}`, callback_data: suggestions.quick }],
-    [{ text: `🧠 ${suggestions.deep}`, callback_data: suggestions.deep }],
-    [{ text: `🔗 ${suggestions.related}`, callback_data: suggestions.related }]
+    [{ text: ` ${suggestions.quick}`, callback_data: suggestions.quick }],
+    [{ text: ` ${suggestions.deep}`, callback_data: suggestions.deep }],
+    [{ text: ` ${suggestions.related}`, callback_data: suggestions.related }]
   ];
 }
 
@@ -85,21 +85,21 @@ function formatTextList(suggestions, options = {}) {
     // Minimal format for SMS
     let text = `Follow-ups:\n1. ${suggestions.quick}\n2. ${suggestions.deep}\n3. ${suggestions.related}\n\nReply 1, 2, or 3`;
     if (stripEmoji) {
-      text = text.replace(/[⚡🧠🔗💡]/g, '');
+      text = text.replace(/[]/g, '');
     }
     return text;
   }
   
   // Full format with categories
-  return `💡 **Smart Follow-up Suggestions**
+  return ` **Smart Follow-up Suggestions**
 
-⚡ **Quick**
+ **Quick**
 1. ${suggestions.quick}
 
-🧠 **Deep Dive**
+ **Deep Dive**
 2. ${suggestions.deep}
 
-🔗 **Related**
+ **Related**
 3. ${suggestions.related}
 
 Reply with 1, 2, or 3 to ask that question.`;
@@ -184,7 +184,7 @@ module.exports = {
             
             if (useButtons) {
               return {
-                text: '💡 **What would you like to explore next?**',
+                text: ' **What would you like to explore next?**',
                 buttons: formatButtons(suggestions)
               };
             } else {

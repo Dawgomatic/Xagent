@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📱",
+        "emoji": "",
       },
   }
 ---
@@ -18,11 +18,11 @@ metadata:
 
 ## 功能
 
-- ✅ Markdown 自动转换为微信公众号格式
-- ✅ 自动上传图片到微信图床
-- ✅ 一键推送到草稿箱
-- ✅ 多主题支持（代码高亮、Mac 风格代码块）
-- ✅ 支持本地和网络图片
+-  Markdown 自动转换为微信公众号格式
+-  自动上传图片到微信图床
+-  一键推送到草稿箱
+-  多主题支持（代码高亮、Mac 风格代码块）
+-  支持本地和网络图片
 
 ## 快速开始
 
@@ -70,7 +70,7 @@ cover: https://example.com/cover.jpg  # 封面图（必填！）
 你的内容...
 ```
 
-**⚠️ 关键发现（实测）：**
+** 关键发现（实测）：**
 - `title` 和 `cover` **都是必填字段**！
 - 缺少任何一个都会报错："未能找到文章封面"
 - 虽然文档说"正文有图可省略cover"，但实际测试必须提供 cover
@@ -88,7 +88,7 @@ cover: /Users/bruce/photos/cover.jpg
 cover: https://your-cdn.com/image.jpg
 ```
 
-**💡 提示：** 使用相对路径时，从 Markdown 文件所在目录开始计算。
+** 提示：** 使用相对路径时，从 Markdown 文件所在目录开始计算。
 
 ### 4. 发布文章
 
@@ -178,7 +178,7 @@ wenyan theme -l
 
 ### 必需的 Frontmatter
 
-**⚠️ 关键（实测结果）：wenyan-cli 强制要求完整的 frontmatter！**
+** 关键（实测结果）：wenyan-cli 强制要求完整的 frontmatter！**
 
 ```markdown
 ---
@@ -217,7 +217,7 @@ cover: https://example.com/cover.jpg
 # 正文...
 ```
 
-**❌ 错误示例（会报错）：**
+** 错误示例（会报错）：**
 
 ```markdown
 # 只有 title，没有 cover
@@ -235,15 +235,15 @@ title: 我的文章
 错误信息：未能找到文章封面
 ```
 
-**💡 重要发现：**
+** 重要发现：**
 - 虽然 wenyan 官方文档说"正文有图片可省略cover"
 - 但**实际测试必须提供 cover**，否则报错
 - title 和 cover **缺一不可**
 
 ### 图片支持
-- ✅ 本地路径：`![](./images/photo.jpg)`
-- ✅ 绝对路径：`![](/Users/bruce/photo.jpg)`
-- ✅ 网络图片：`![](https://example.com/photo.jpg)`
+-  本地路径：`![](./images/photo.jpg)`
+-  绝对路径：`![](/Users/bruce/photo.jpg)`
+-  网络图片：`![](https://example.com/photo.jpg)`
 
 所有图片会自动上传到微信图床！
 
@@ -310,11 +310,11 @@ title: 你的文章标题
 ## 更新日志
 
 ### 2026-02-05 - v1.0.0
-- ✅ 初始版本
-- ✅ 基于 wenyan-cli 封装
-- ✅ 支持一键发布到草稿箱
-- ✅ 多主题支持
-- ✅ 自动图片上传
+-  初始版本
+-  基于 wenyan-cli 封装
+-  支持一键发布到草稿箱
+-  多主题支持
+-  自动图片上传
 
 ## License
 

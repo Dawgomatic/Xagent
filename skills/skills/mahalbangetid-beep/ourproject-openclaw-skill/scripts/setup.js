@@ -56,7 +56,7 @@ function testApiKey(apiUrl, apiKey) {
 
 async function setup() {
     console.log('');
-    console.log('🦞 OurProject × OpenClaw Setup');
+    console.log(' OurProject × OpenClaw Setup');
     console.log('================================');
     console.log('');
     console.log('Get your API key from: https://ourproject.app');
@@ -80,25 +80,25 @@ async function setup() {
     const apiKey = await ask('API Key (starts with op_): ');
 
     if (!apiKey.trim()) {
-        console.error('❌ API key is required. Get one from Integrations → API Keys.');
+        console.error(' API key is required. Get one from Integrations → API Keys.');
         rl.close();
         process.exit(1);
     }
 
     if (!apiKey.trim().startsWith('op_')) {
-        console.error('❌ Invalid API key format. Must start with "op_"');
+        console.error(' Invalid API key format. Must start with "op_"');
         rl.close();
         process.exit(1);
     }
 
     // Test connection
-    console.log('\n🔍 Testing connection...');
+    console.log('\n Testing connection...');
 
     try {
         const result = await testApiKey(finalApiUrl, apiKey.trim());
         const user = result.user;
 
-        console.log(`\n✅ Connection successful!`);
+        console.log(`\n Connection successful!`);
         console.log(`   User: ${user.name}`);
         console.log(`   Email: ${user.email}`);
         console.log(`   Role: ${user.role}`);
@@ -113,12 +113,12 @@ async function setup() {
         };
 
         fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
-        console.log(`\n💾 Config saved to .config.json`);
-        console.log('\n🎉 Setup complete! You can now use OurProject commands.');
+        console.log(`\n Config saved to .config.json`);
+        console.log('\n Setup complete! You can now use OurProject commands.');
         console.log('   Try: node scripts/summary.js');
 
     } catch (err) {
-        console.error(`\n❌ Connection failed: ${err.message}`);
+        console.error(`\n Connection failed: ${err.message}`);
         console.error('   Check your API key and URL, then try again.');
     }
 

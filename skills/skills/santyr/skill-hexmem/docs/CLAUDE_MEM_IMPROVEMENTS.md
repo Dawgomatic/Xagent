@@ -13,9 +13,9 @@ Analysis and adaptation of [claude-mem](https://github.com/thedotmack/claude-mem
 | Feature | claude-mem | HexMem (before) | HexMem (after) |
 |---------|------------|-----------------|----------------|
 | **Memory Model** | Tool usage observations | Structured facts/events | Both (structured + observations) |
-| **Search Pattern** | 3-layer progressive disclosure | Full-text or semantic | ✅ **Added** 3-layer pattern |
-| **Token Awareness** | Built-in estimates | No | ✅ **Added** token estimators |
-| **Timeline Context** | Chronological windows | Only full event queries | ✅ **Added** timeline views |
+| **Search Pattern** | 3-layer progressive disclosure | Full-text or semantic |  **Added** 3-layer pattern |
+| **Token Awareness** | Built-in estimates | No |  **Added** token estimators |
+| **Timeline Context** | Chronological windows | Only full event queries |  **Added** timeline views |
 | **Compression** | Automatic AI summarization | Manual (epistemic extraction) | **Documented** compression patterns |
 | **Web UI** | HTTP API + viewer on :37777 | No | **Future** (optional) |
 | **Lifecycle Hooks** | 5 hooks (session start/end/etc) | Manual logging | **Planned** (OpenClaw hooks) |
@@ -29,7 +29,7 @@ Analysis and adaptation of [claude-mem](https://github.com/thedotmack/claude-mem
 
 ## Key Ideas Adopted
 
-### 1. Progressive Disclosure ✅ IMPLEMENTED
+### 1. Progressive Disclosure  IMPLEMENTED
 
 **From claude-mem:** 3-layer workflow (index → timeline → details) saves ~10x tokens.
 
@@ -58,7 +58,7 @@ hexmem_details events 42 57
 # Total: ~2,300 tokens vs ~10,000+ naive search
 ```
 
-### 2. Timeline Context Windows ✅ IMPLEMENTED
+### 2. Timeline Context Windows  IMPLEMENTED
 
 **From claude-mem:** `timeline` tool shows what was happening around specific observations.
 
@@ -74,7 +74,7 @@ hexmem_timeline 42 2 2
 # → Shows events ±2 hours around event #42
 ```
 
-### 3. Session Compression 📝 DOCUMENTED
+### 3. Session Compression  DOCUMENTED
 
 **From claude-mem:** Automatic compression of tool usage into semantic summaries.
 
@@ -93,7 +93,7 @@ hexmem_consolidate_facts <entity>
 hexmem_synthesize_lessons <domain>
 ```
 
-### 4. Token Cost Awareness ✅ IMPLEMENTED
+### 4. Token Cost Awareness  IMPLEMENTED
 
 **From claude-mem:** Visibility into token costs guides AI decision-making.
 
@@ -108,7 +108,7 @@ hexmem_token_estimate index 10    # ~750 tokens
 hexmem_token_estimate details 3   # ~2,250 tokens
 ```
 
-### 5. Batch Fetching Patterns ✅ IMPLEMENTED
+### 5. Batch Fetching Patterns  IMPLEMENTED
 
 **From claude-mem:** `get_observations(ids=[123,456,789])` - batch instead of loop.
 
@@ -272,18 +272,18 @@ HexMem gains claude-mem's retrieval efficiency while keeping its unique identity
 
 ## Implementation Status
 
-✅ **Completed:**
+ **Completed:**
 - Progressive disclosure (3-layer pattern)
 - Timeline context windows
 - Token cost awareness
 - Batch fetching patterns
 - Documentation (PROGRESSIVE_DISCLOSURE.md, SESSION_COMPRESSION.md)
 
-📝 **Documented (not yet implemented):**
+ **Documented (not yet implemented):**
 - Automatic compression functions
 - Session summarization helpers
 
-🔮 **Future (optional):**
+ **Future (optional):**
 - HTTP API + web viewer
 - Visual knowledge graph browser
 - OpenClaw lifecycle hook integration

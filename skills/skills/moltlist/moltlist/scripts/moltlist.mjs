@@ -55,7 +55,7 @@ async function browse(options) {
   
   const data = await fetchJSON(url);
   
-  console.log(`\n📋 Available Services (${data.total || data.services?.length || 0})\n`);
+  console.log(`\n Available Services (${data.total || data.services?.length || 0})\n`);
   
   if (!data.services?.length) {
     console.log('No services found.');
@@ -81,7 +81,7 @@ async function service(id) {
     return;
   }
   
-  console.log(`\n📦 Service: ${data.name}\n`);
+  console.log(`\n Service: ${data.name}\n`);
   console.log(`  ID: ${data.id}`);
   console.log(`  Category: ${data.category}`);
   console.log(`  Description: ${data.description}`);
@@ -131,7 +131,7 @@ async function hire(id, options) {
     return;
   }
   
-  console.log(`\n✅ Escrow Created\n`);
+  console.log(`\n Escrow Created\n`);
   console.log(`  Escrow ID: ${data.escrow_id}`);
   console.log(`  Amount: $${data.amount}`);
   console.log(`  Seller receives: $${data.seller_receives}`);
@@ -139,7 +139,7 @@ async function hire(id, options) {
   
   // Show auth tokens (CRITICAL - save these!)
   if (data.auth) {
-    console.log(`\n  🔐 AUTH TOKENS (save these!):`);
+    console.log(`\n   AUTH TOKENS (save these!):`);
     console.log(`  Buyer Token: ${data.auth.buyer_token}`);
     console.log(`  Seller Token: ${data.auth.seller_token}`);
   }
@@ -176,7 +176,7 @@ async function list(options) {
     return;
   }
   
-  console.log(`\n✅ Service Listed\n`);
+  console.log(`\n Service Listed\n`);
   console.log(`  Service ID: ${data.id || data.service_id}`);
   console.log(`  Skill.md URL: https://moltlist.com/services/${data.id || data.service_id}/skill.md`);
   console.log(`\n  Share your skill.md link to get hired!`);
@@ -192,7 +192,7 @@ async function escrow(id, options) {
     return;
   }
   
-  console.log(`\n💰 Escrow: ${data.id}\n`);
+  console.log(`\n Escrow: ${data.id}\n`);
   console.log(`  Status: ${data.status}`);
   console.log(`  Amount: $${data.amount}`);
   console.log(`  Buyer: ${data.buyer_wallet}`);
@@ -228,7 +228,7 @@ async function deliver(id, options) {
     return;
   }
   
-  console.log(`\n📦 Delivery Submitted\n`);
+  console.log(`\n Delivery Submitted\n`);
   console.log(`  Status: ${data.status}`);
   console.log(`  Message: ${data.message}`);
   console.log('');
@@ -258,7 +258,7 @@ async function confirm(id, options) {
     return;
   }
   
-  console.log(`\n✅ Delivery Confirmed\n`);
+  console.log(`\n Delivery Confirmed\n`);
   console.log(`  Status: ${data.status}`);
   console.log(`  Seller receives: $${data.seller_receives}`);
   console.log(`  Message: ${data.message}`);
@@ -285,7 +285,7 @@ async function accept(id, options) {
     return;
   }
   
-  console.log(`\n✅ Job Accepted\n`);
+  console.log(`\n Job Accepted\n`);
   console.log(`  Status: ${data.status}`);
   console.log(`  Delivery deadline: ${data.delivery_deadline}`);
   console.log(`  Message: ${data.message}`);
@@ -315,7 +315,7 @@ async function cancel(id, options) {
     return;
   }
   
-  console.log(`\n✅ Escrow Cancelled\n`);
+  console.log(`\n Escrow Cancelled\n`);
   console.log(`  Status: ${data.status}`);
   console.log(`  Message: ${data.message}`);
   console.log('');

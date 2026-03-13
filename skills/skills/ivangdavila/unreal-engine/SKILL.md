@@ -1,7 +1,7 @@
 ---
 name: Unreal Engine
 description: Avoid common Unreal mistakes — garbage collection, UPROPERTY macros, replication authority, and asset reference pitfalls.
-metadata: {"clawdbot":{"emoji":"🎯","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Garbage Collection

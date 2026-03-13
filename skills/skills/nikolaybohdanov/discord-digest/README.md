@@ -1,4 +1,4 @@
-# 🎮 Discord Digest — OpenClaw Skill
+#  Discord Digest — OpenClaw Skill
 
 Generate formatted digests from Discord servers. Reads messages from selected channels/threads via user token and creates concise summaries with direct links.
 
@@ -8,17 +8,17 @@ Generate formatted digests from Discord servers. Reads messages from selected ch
 ![Python](https://img.shields.io/badge/Python-3.10+-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-## ✨ Features
+##  Features
 
-- 🔐 **User Token Auth** — no bot needed, works on any server you're a member of
-- 🏠 **Multi-Server Support** — configure multiple servers with per-server channel selection
-- 📋 **Interactive Setup** — scan servers → pick channels → save config
-- ✅ **Token Validation** — auto-check before each run, notify on expiry
-- 📝 **Formatted Output** — clean digest with post links, titles, summaries, and source links
-- ⏰ **Cron Ready** — designed for daily automated digests via OpenClaw cron
-- 📦 **Zero Dependencies** — Python 3 stdlib only (`urllib`, `json`)
+-  **User Token Auth** — no bot needed, works on any server you're a member of
+-  **Multi-Server Support** — configure multiple servers with per-server channel selection
+-  **Interactive Setup** — scan servers → pick channels → save config
+-  **Token Validation** — auto-check before each run, notify on expiry
+-  **Formatted Output** — clean digest with post links, titles, summaries, and source links
+-  **Cron Ready** — designed for daily automated digests via OpenClaw cron
+-  **Zero Dependencies** — Python 3 stdlib only (`urllib`, `json`)
 
-## 📦 Installation
+##  Installation
 
 ### Via ClawHub (recommended)
 
@@ -33,7 +33,7 @@ git clone https://github.com/NikolayBohdanov/discord-digest.git
 cp -r discord-digest ~/.openclaw/workspace/skills/
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Get Your Discord User Token
 
@@ -78,18 +78,18 @@ python3 scripts/config_manager.py add-server '{
 python3 scripts/run_digest.py --hours 24
 ```
 
-## 📄 Output Format
+##  Output Format
 
 ```
 **#SERVER_NAME DD.MM.YY**
 
-**[→post](message_url) | 📝 channel-name**
+**[→post](message_url) |  channel-name**
 **Post Title Here**
 **Details:** Brief 1-sentence summary of the post content...
 **Links:** [source 1](url) | [source 2](url)
 ```
 
-## ⏰ Cron Setup (OpenClaw)
+##  Cron Setup (OpenClaw)
 
 Add to your OpenClaw cron for daily automated digests:
 
@@ -106,7 +106,7 @@ Add to your OpenClaw cron for daily automated digests:
 }
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 discord-digest/
@@ -122,7 +122,7 @@ discord-digest/
     └── setup.sh             # Setup verification
 ```
 
-## 🔧 Scripts Reference
+##  Scripts Reference
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
@@ -131,7 +131,7 @@ discord-digest/
 | `config_manager.py` | Manage config | `python3 config_manager.py get\|set-token\|add-server\|list-servers` |
 | `run_digest.py` | Generate digest | `python3 run_digest.py [--hours 24] [--server ID]` |
 
-## ⚙️ Configuration
+##  Configuration
 
 Config is stored at `~/.openclaw/workspace/config/discord-digest.json`:
 
@@ -153,20 +153,20 @@ Config is stored at `~/.openclaw/workspace/config/discord-digest.json`:
 
 Override config directory with `DISCORD_DIGEST_CONFIG_DIR` env variable.
 
-## ⚠️ Important Notes
+##  Important Notes
 
 - **User tokens** may violate Discord ToS — use at your own risk for personal use only
 - Discord user tokens can expire — the skill validates before each run
 - Rate limits are handled automatically (1 req/sec with retry on 429)
 - No messages are sent or modified — **read-only access**
 
-## 🤝 Contributing
+##  Contributing
 
 PRs welcome! Please ensure:
 - No hardcoded tokens or personal data
 - Python 3.10+ compatibility
 - No external dependencies
 
-## 📝 License
+##  License
 
 MIT — see [LICENSE](LICENSE)

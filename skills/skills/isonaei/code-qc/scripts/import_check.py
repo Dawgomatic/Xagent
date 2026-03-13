@@ -319,12 +319,12 @@ def main() -> None:
         logger.info(f"  Skipped: {len(results.skipped)}")
 
         if results.critical_failures:
-            logger.info("\n❌ Critical Failures:")
+            logger.info("\n Critical Failures:")
             for f in results.critical_failures:
                 logger.info(f"  {f.module}: {f.error}")
 
         if results.optional_failures:
-            logger.info("\n⚠️  Optional Failures:")
+            logger.info("\n  Optional Failures:")
             for f in results.optional_failures:
                 logger.info(f"  {f.module}: {f.error}")
 

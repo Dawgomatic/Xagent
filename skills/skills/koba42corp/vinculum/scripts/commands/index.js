@@ -108,7 +108,7 @@ async function handleCommand(input, context) {
     
     // Unknown command
     default:
-      return `❓ Unknown command: \`/link ${subcommand}\`
+      return ` Unknown command: \`/link ${subcommand}\`
 
 **Core Commands**
 \`/link\` — Quick status
@@ -173,7 +173,7 @@ async function handleRelayCommand(args, context) {
       return relay.listPeers(context);
     
     default:
-      return `❓ Unknown relay command: \`${subCmd}\`
+      return ` Unknown relay command: \`${subCmd}\`
 
 **Relay Commands**
 \`/link relay\` — Show relay status
@@ -192,7 +192,7 @@ async function handleRelayCommand(args, context) {
  * Show full help
  */
 function showHelp() {
-  return `📖 **Vinculum Help**
+  return ` **Vinculum Help**
 
 *Shared consciousness for Clawdbot instances*
 

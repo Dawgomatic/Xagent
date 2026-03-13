@@ -2,7 +2,7 @@
 name: hiro  
 ## Security Warning: Semi-Traceless Execution
 
-**⚠️ HIGH RISK: This skill enables execution of encrypted Python code with minimal traces.**
+** HIGH RISK: This skill enables execution of encrypted Python code with minimal traces.**
 
 The Hiro system executes decoded Python scripts entirely in memory using `exec()`, leaving no temporary files or disk artifacts. This "semi-traceless" execution provides strong security for legitimate use but poses significant risks:
 

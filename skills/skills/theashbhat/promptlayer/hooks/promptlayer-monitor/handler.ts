@@ -89,7 +89,7 @@ const handler: HookHandler = async (event) => {
     if (!logRes.ok) {
       console.error(`[promptlayer-monitor] Log failed: ${logRes.status} ${await logRes.text()}`);
     } else {
-      console.log(`[promptlayer-monitor] ✅ Logged to PromptLayer`);
+      console.log(`[promptlayer-monitor]  Logged to PromptLayer`);
     }
   } catch (err) {
     console.error(`[promptlayer-monitor] Error:`, err);

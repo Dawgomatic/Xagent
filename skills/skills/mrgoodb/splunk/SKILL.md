@@ -1,7 +1,7 @@
 ---
 name: splunk
 description: Search and analyze machine data via Splunk API. Run searches and manage dashboards.
-metadata: {"clawdbot":{"emoji":"📊","requires":{"env":["SPLUNK_URL","SPLUNK_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SPLUNK_URL","SPLUNK_TOKEN"]}}}
 ---
 # Splunk
 Data analytics and SIEM.

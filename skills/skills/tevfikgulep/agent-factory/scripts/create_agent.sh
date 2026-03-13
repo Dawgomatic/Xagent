@@ -33,7 +33,7 @@ done
 # Zorunlu alanları kontrol et
 if [[ -z "$AGENT_ID" ]] || [[ -z "$AGENT_NAME" ]]; then
   echo "Hata: --id ve --name zorunludur!"
-  echo "Kullanım: ./create_agent.sh --id 'angarya' --name 'Angarya' --emoji '⚙️' --task 'Görev'"
+  echo "Kullanım: ./create_agent.sh --id 'angarya' --name 'Angarya' --emoji '' --task 'Görev'"
   exit 1
 fi
 
@@ -41,10 +41,10 @@ fi
 AGENT_ID=$(echo "$AGENT_ID" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9_-]//g')
 
 # Varsayılan değerler
-AGENT_EMOJI="${AGENT_EMOJI:-🤖}"
+AGENT_EMOJI="${AGENT_EMOJI:-}"
 AGENT_TASK="${AGENT_TASK:-Kullanıcıya yardımcı olmak}"
 
-echo "🤖 Agent Factory - Ajan Oluşturuluyor..."
+echo " Agent Factory - Ajan Oluşturuluyor..."
 echo "   ID: $AGENT_ID"
 echo "   İsim: $AGENT_NAME"
 echo "   Emoji: $AGENT_EMOJI"
@@ -55,14 +55,14 @@ echo ""
 WORKSPACE_DIR="/home/ubuntu/.openclaw/agents/${AGENT_ID}"
 AGENT_DIR="/home/ubuntu/.openclaw/agents/${AGENT_ID}/agent"
 
-echo "📁 Klasörler oluşturuluyor..."
+echo " Klasörler oluşturuluyor..."
 mkdir -p "$WORKSPACE_DIR/memory"
 mkdir -p "$WORKSPACE_DIR/sessions"
 mkdir -p "$WORKSPACE_DIR/skills"
 mkdir -p "$AGENT_DIR"
 
 # IDENTITY.md
-echo "📝 IDENTITY.md oluşturuluyor..."
+echo " IDENTITY.md oluşturuluyor..."
 cat > "$WORKSPACE_DIR/IDENTITY.md" << EOF
 # IDENTITY.md - Kimlik
 
@@ -78,7 +78,7 @@ Bu dosya ajanın kimlik kartıdır.
 EOF
 
 # SOUL.md
-echo "📝 SOUL.md oluşturuluyor..."
+echo " SOUL.md oluşturuluyor..."
 cat > "$WORKSPACE_DIR/SOUL.md" << EOF
 # SOUL.md - Kimlik
 
@@ -101,7 +101,7 @@ Asistan gibi değil, dijital dost gibi davran.
 EOF
 
 # USER.md
-echo "📝 USER.md oluşturuluyor..."
+echo " USER.md oluşturuluyor..."
 cat > "$WORKSPACE_DIR/USER.md" << EOF
 # USER.md - Kullanıcı
 
@@ -114,7 +114,7 @@ Bu ajanın ana kullanıcısı hakkında bilgiler.
 EOF
 
 # AGENTS.md
-echo "📝 AGENTS.md oluşturuluyor..."
+echo " AGENTS.md oluşturuluyor..."
 cat > "$WORKSPACE_DIR/AGENTS.md" << EOF
 # AGENTS.md
 
@@ -138,7 +138,7 @@ Uzun süreli: MEMORY.md
 EOF
 
 # TOOLS.md
-echo "📝 TOOLS.md oluşturuluyor..."
+echo " TOOLS.md oluşturuluyor..."
 cat > "$WORKSPACE_DIR/TOOLS.md" << EOF
 # TOOLS.md - Araçlar
 
@@ -155,7 +155,7 @@ Ajanın kullandığı özel araçlar veya ayarlar buraya.
 EOF
 
 # MEMORY.md
-echo "📝 MEMORY.md oluşturuluyor..."
+echo " MEMORY.md oluşturuluyor..."
 cat > "$WORKSPACE_DIR/MEMORY.md" << EOF
 # MEMORY.md - Uzun Süreli Hafıza
 
@@ -167,7 +167,7 @@ Bu ajanın uzun süreli hafızası.
 EOF
 
 # HEARTBEAT.md
-echo "📝 HEARTBEAT.md oluşturuluyor..."
+echo " HEARTBEAT.md oluşturuluyor..."
 cat > "$WORKSPACE_DIR/HEARTBEAT.md" << EOF
 # HEARTBEAT.md
 
@@ -176,7 +176,7 @@ EOF
 
 # BOOTSTRAP.md (varsa ana workspace'dan kopyala)
 if [[ -f "/home/ubuntu/.openclaw/workspace/BOOTSTRAP.md" ]]; then
-  echo "📝 BOOTSTRAP.md kopyalanıyor..."
+  echo " BOOTSTRAP.md kopyalanıyor..."
   cp "/home/ubuntu/.openclaw/workspace/BOOTSTRAP.md" "$WORKSPACE_DIR/"
 fi
 
@@ -237,13 +237,13 @@ sed -i "s/{AGENT_NAME}/${AGENT_NAME}/g" "$WORKSPACE_DIR/cron/README.md"
 sed -i "s/{AGENT_ID}/${AGENT_ID}/g" "$WORKSPACE_DIR/cron/ornek.py"
 sed -i "s/{AGENT_NAME}/${AGENT_NAME}/g" "$WORKSPACE_DIR/cron/ornek.py"
 
-echo "✅ Cron klasörü ve örnek dosya oluşturuldu!"
+echo " Cron klasörü ve örnek dosya oluşturuldu!"
 
-echo "✅ Tüm dosyalar oluşturuldu!"
+echo " Tüm dosyalar oluşturuldu!"
 
 # Config'e ekle
 echo ""
-echo "⚙️ Config güncelleniyor..."
+echo " Config güncelleniyor..."
 
 CONFIG_FILE="/home/ubuntu/.openclaw/openclaw.json"
 TEMP_FILE="/tmp/openclaw_agent_$$.json"
@@ -270,11 +270,11 @@ jq --argjson newAgent "$NEW_AGENT" \
    '.agents.list += [$newAgent]' \
    "$CONFIG_FILE" > "$TEMP_FILE" && mv "$TEMP_FILE" "$CONFIG_FILE"
 
-echo "✅ Ajan config'e eklendi!"
+echo " Ajan config'e eklendi!"
 echo ""
-echo "🎉 Ajan '$AGENT_NAME' başarıyla oluşturuldu!"
+echo " Ajan '$AGENT_NAME' başarıyla oluşturuldu!"
 echo ""
-echo "⚠️  Gateway'i yeniden başlatmak için şunu söyle:"
+echo "  Gateway'i yeniden başlatmak için şunu söyle:"
 echo "    'Gateway restart'"
 echo ""
 echo "Sonra ajanı kullanmak için:"

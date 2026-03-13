@@ -148,7 +148,7 @@ The plugin catches:
 - **Leetspeak**: `f4ck`, `sh1t`, `@$$`, `b1tch`
 - **Unicode tricks**: Cyrillic `а` instead of `a`, etc.
 - **Spaced letters**: `f u c k`, `s.h.i.t`
-- **Mixed obfuscation**: `fü©k`, `$h!t`
+- **Mixed obfuscation**: `fük`, `$h!t`
 
 ## Resources
 

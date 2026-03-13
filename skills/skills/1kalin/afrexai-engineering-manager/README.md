@@ -1,4 +1,4 @@
-# Engineering Manager OS ⚙️
+# Engineering Manager OS 
 
 The complete operating system for engineering managers — from first-time leads to directors scaling multiple teams.
 
@@ -33,7 +33,7 @@ clawhub install afrexai-engineering-manager
 "Create job description for Senior Backend Engineer" → Full JD from template
 ```
 
-## ⚡ Level Up
+##  Level Up
 
 This skill gives you the frameworks. For industry-specific engineering management context:
 
@@ -41,7 +41,7 @@ This skill gives you the frameworks. For industry-specific engineering managemen
 - **[Fintech Context Pack ($47)](https://afrexai-cto.github.io/context-packs/)** — Compliance-heavy engineering management, regulated deployment patterns
 - **[Healthcare Context Pack ($47)](https://afrexai-cto.github.io/context-packs/)** — HIPAA-compliant engineering operations, clinical system ownership
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-code-reviewer](https://clawhub.com/skills/afrexai-code-reviewer) — SPEAR code review framework
 - [afrexai-devops-engine](https://clawhub.com/skills/afrexai-devops-engine) — Complete DevOps & platform engineering

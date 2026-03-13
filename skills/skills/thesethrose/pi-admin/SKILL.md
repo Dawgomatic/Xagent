@@ -1,7 +1,7 @@
 ---
 name: pi-admin
 description: Raspberry Pi system administration. Monitor resources, manage services, perform updates and maintenance.
-metadata: {"clawdis":{"emoji":"🥧","requires":{"bins":[]}}}
+metadata: {"clawdis":{"emoji":"","requires":{"bins":[]}}}
 ---
 
 # Raspberry Pi Administration

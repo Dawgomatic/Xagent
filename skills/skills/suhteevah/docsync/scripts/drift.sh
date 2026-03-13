@@ -123,7 +123,7 @@ generate_drift_report() {
   if [[ "$warnings" -gt 0 ]]; then
     echo -e "${YELLOW}${BOLD}WARNING ($warnings)${NC} — Possibly stale docs"
     grep "^warning" "$report_file" | while IFS=$'\t' read -r sev name type file doc reason; do
-      echo -e "  ${YELLOW}⚠${NC} ${BOLD}$name${NC} ${DIM}($type in $file → $doc)${NC}"
+      echo -e "  ${YELLOW}${NC} ${BOLD}$name${NC} ${DIM}($type in $file → $doc)${NC}"
     done
     echo ""
   fi
@@ -136,7 +136,7 @@ generate_drift_report() {
 
   # Summary bar
   echo -e "${BOLD}Summary:${NC} $total symbols analyzed"
-  echo -e "  ${GREEN}✓ $ok documented${NC}  ${YELLOW}⚠ $warnings possibly stale${NC}  ${RED}✗ $critical undocumented${NC}"
+  echo -e "  ${GREEN}✓ $ok documented${NC}  ${YELLOW} $warnings possibly stale${NC}  ${RED}✗ $critical undocumented${NC}"
 
   if [[ "$critical" -gt 0 ]]; then
     echo ""

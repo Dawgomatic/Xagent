@@ -16,7 +16,7 @@
 
 ## STEP 1: READ CORE CONFIGURATIONS
 
-> ⚠️ **CRITICAL:** Must read core config first
+>  **CRITICAL:** Must read core config first
 
 ### 1.1 Read Core Config File
 
@@ -38,13 +38,13 @@ Extract from core config:
 ### 1.3 Validation
 
 - Verify ALL session variables extracted
-- ⛔ If ANY missing → STOP and report error
+-  If ANY missing → STOP and report error
 
 ---
 
 ## STEP 2: CHECK WORKSPACE SELECTION
 
-> ⚠️ **CRITICAL:** Workspace required for execution
+>  **CRITICAL:** Workspace required for execution
 
 ### 2.1 Check If Provided
 

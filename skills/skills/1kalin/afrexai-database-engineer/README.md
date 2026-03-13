@@ -30,13 +30,13 @@ Tell your agent:
 - "Audit this database for performance issues"
 - "Write a safe migration to add a column"
 
-## ⚡ Level Up
+##  Level Up
 
 Get the complete **SaaS Context Pack** ($47) — includes database patterns plus full SaaS architecture, billing, auth, and scaling strategies.
 
-👉 [Browse all context packs](https://afrexai-cto.github.io/context-packs/)
+ [Browse all context packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-code-reviewer](https://clawhub.com/skills/afrexai-code-reviewer) — SPEAR code review framework
 - [afrexai-api-architect](https://clawhub.com/skills/afrexai-api-architect) — Complete API lifecycle
@@ -46,4 +46,4 @@ Get the complete **SaaS Context Pack** ($47) — includes database patterns plus
 
 ---
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

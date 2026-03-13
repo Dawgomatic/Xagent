@@ -4,7 +4,7 @@ name: Agent Vibes OpenClaw Skill
 description: Stream free, professional text-to-speech from voiceless servers to Linux, macOS, or Android devices with 50+ voices in 30+ languages. Two architecture options for flexible deployment - server-side TTS with audio streaming (PulseAudio) OR efficient text streaming with receiver-side TTS generation (recommended). Perfect for SSH sessions, remote AI agents, and multi-device TTS.
 ---
 
-# 🎤 AgentVibes Voice Management
+#  AgentVibes Voice Management
 
 Manage your text-to-speech voices across multiple providers (Piper TTS, Piper, macOS Say).
 
@@ -18,7 +18,7 @@ Manage your text-to-speech voices across multiple providers (Piper TTS, Piper, m
 Mute all TTS output (persists across sessions)
 
 - Creates a mute flag that silences all voice output
-- Shows 🔇 indicator when TTS would have played
+- Shows  indicator when TTS would have played
 
 ```bash
 /agent-vibes:mute
@@ -132,8 +132,8 @@ Get details about a specific provider
 
 | Provider | Platform | Cost | Voices | Quality |
 |----------|----------|------|--------|---------|
-| **Piper TTS** | All platforms (Linux, macOS, WSL) | Free | 50+ in 30+ languages | ⭐⭐⭐⭐ |
-| **macOS Say** | macOS only | Free (built-in) | 100+ system voices | ⭐⭐⭐⭐ |
+| **Piper TTS** | All platforms (Linux, macOS, WSL) | Free | 50+ in 30+ languages |  |
+| **macOS Say** | macOS only | Free (built-in) | 100+ system voices |  |
 
 **On macOS**, the native `say` provider is automatically detected and recommended!
 
@@ -239,4 +239,4 @@ To add your own custom Piper TTS voices:
 - **Custom pretext**: Set a pretext to brand all your responses (e.g., "AgentVibes:")
 - **Mute for focus**: Use `/agent-vibes:mute` during intensive work sessions
 
-Enjoy your TTS experience! 🎵
+Enjoy your TTS experience! 

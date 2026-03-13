@@ -1,4 +1,4 @@
-# Bags Fee Claiming 💸
+# Bags Fee Claiming 
 
 Claim your earnings from tokens where you're a fee recipient.
 
@@ -202,7 +202,7 @@ claim_with_confirmation() {
   local MAX_TX_RETRIES=3
   
   for tx_attempt in $(seq 1 $MAX_TX_RETRIES); do
-    echo "🔄 Fetching claim transaction (attempt $tx_attempt/$MAX_TX_RETRIES)..."
+    echo " Fetching claim transaction (attempt $tx_attempt/$MAX_TX_RETRIES)..."
     
     # Get fresh claim transaction
     CLAIM_TXS=$(curl -s -X POST "https://public-api-v2.bags.fm/api/v1/token-launch/claim-txs/v3" \
@@ -215,7 +215,7 @@ claim_with_confirmation() {
     
     TX=$(echo "$CLAIM_TXS" | jq -r '.response[0].tx // empty')
     if [ -z "$TX" ]; then
-      echo "❌ No transaction returned"
+      echo " No transaction returned"
       return 1
     fi
     
@@ -230,7 +230,7 @@ claim_with_confirmation() {
     unset BAGS_PRIVATE_KEY
     
     # Submit transaction
-    echo "📡 Submitting transaction..."
+    echo " Submitting transaction..."
     RESULT=$(curl -s -X POST "https://public-api-v2.bags.fm/api/v1/solana/send-transaction" \
       -H "x-api-key: $BAGS_API_KEY" \
       -H "Content-Type: application/json" \
@@ -238,12 +238,12 @@ claim_with_confirmation() {
     
     SIGNATURE=$(echo "$RESULT" | jq -r '.response // empty')
     if [ -z "$SIGNATURE" ] || [ "$SIGNATURE" = "null" ]; then
-      echo "❌ Failed to submit: $(echo "$RESULT" | jq -r '.error // empty')"
+      echo " Failed to submit: $(echo "$RESULT" | jq -r '.error // empty')"
       continue
     fi
     
-    echo "📋 Signature: $SIGNATURE"
-    echo "⏳ Confirming transaction..."
+    echo " Signature: $SIGNATURE"
+    echo " Confirming transaction..."
     
     # Poll for confirmation (10 retries, 500ms delay)
     for i in $(seq 1 $BAGS_MAX_RETRIES); do
@@ -265,12 +265,12 @@ claim_with_confirmation() {
         CONFIRM_STATUS=$(echo "$VALUE" | jq -r '.confirmationStatus // empty')
         
         if [ -n "$TX_ERR" ] && [ "$TX_ERR" != "null" ]; then
-          echo "❌ Transaction failed on-chain: $TX_ERR"
+          echo " Transaction failed on-chain: $TX_ERR"
           break  # Try fresh transaction
         fi
         
         if [ "$CONFIRM_STATUS" = "confirmed" ] || [ "$CONFIRM_STATUS" = "finalized" ]; then
-          echo "✅ Transaction $CONFIRM_STATUS!"
+          echo " Transaction $CONFIRM_STATUS!"
           echo "   Explorer: https://solscan.io/tx/$SIGNATURE"
           return 0
         fi
@@ -279,10 +279,10 @@ claim_with_confirmation() {
       echo "   Polling $i/$BAGS_MAX_RETRIES..."
     done
     
-    echo "⚠️ Transaction not confirmed, fetching fresh transaction..."
+    echo " Transaction not confirmed, fetching fresh transaction..."
   done
   
-  echo "❌ Failed after $MAX_TX_RETRIES attempts"
+  echo " Failed after $MAX_TX_RETRIES attempts"
   return 1
 }
 

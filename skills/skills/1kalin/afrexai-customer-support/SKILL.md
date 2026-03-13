@@ -1,7 +1,7 @@
 ---
 name: Customer Support Command Center
 description: "Enterprise-grade customer support system: ticket triage, response templates, escalation workflows, CSAT tracking, knowledge base management, and churn prevention. Turns your AI agent into a support team lead."
-metadata: {"clawdbot":{"emoji":"🎯","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Customer Support Command Center
@@ -337,11 +337,11 @@ After resolution, send:
 ```
 How would you rate your support experience?
 
-⭐ 1 — Poor
-⭐⭐ 2 — Below expectations
-⭐⭐⭐ 3 — Met expectations
-⭐⭐⭐⭐ 4 — Good
-⭐⭐⭐⭐⭐ 5 — Excellent
+ 1 — Poor
+ 2 — Below expectations
+ 3 — Met expectations
+ 4 — Good
+ 5 — Excellent
 
 [Optional] What could we have done better?
 ```

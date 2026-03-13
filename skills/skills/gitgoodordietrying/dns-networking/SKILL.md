@@ -1,7 +1,7 @@
 ---
 name: dns-networking
 description: Debug DNS resolution and network connectivity. Use when troubleshooting DNS failures, testing port connectivity, diagnosing firewall rules, inspecting HTTP requests with curl verbose mode, configuring /etc/hosts, or debugging proxy and certificate issues.
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"anyBins":["dig","nslookup","curl","ping","nc"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["dig","nslookup","curl","ping","nc"]},"os":["linux","darwin","win32"]}}
 ---
 
 # DNS & Networking

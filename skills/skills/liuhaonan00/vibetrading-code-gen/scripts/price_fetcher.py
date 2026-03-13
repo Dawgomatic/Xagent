@@ -69,7 +69,7 @@ def fetch_prices(symbols: list, use_testnet: bool = False) -> dict:
     if not symbols:
         return {"error": "No symbols provided"}
     
-    print(f"🔍 Fetching prices for {len(symbols)} symbol(s): {', '.join(symbols)}")
+    print(f" Fetching prices for {len(symbols)} symbol(s): {', '.join(symbols)}")
     
     results = {
         "symbols": symbols,
@@ -86,7 +86,7 @@ def fetch_prices(symbols: list, use_testnet: bool = False) -> dict:
             results["valid_symbols"].append(symbol)
         else:
             results["invalid_symbols"].append(symbol)
-            print(f"⚠️  Symbol '{symbol}' may not be valid on Hyperliquid")
+            print(f"  Symbol '{symbol}' may not be valid on Hyperliquid")
     
     if not results["valid_symbols"]:
         return {"error": "No valid symbols found"}
@@ -108,16 +108,16 @@ def generate_price_report(results: dict) -> str:
     """Generate formatted price report."""
     report_lines = []
     
-    report_lines.append("📊 HYPERLIQUID PRICE REPORT")
+    report_lines.append(" HYPERLIQUID PRICE REPORT")
     report_lines.append("=" * 50)
     
     if "error" in results:
-        report_lines.append(f"❌ Error: {results['error']}")
+        report_lines.append(f" Error: {results['error']}")
         return "\n".join(report_lines)
     
     # Valid symbols
     if results["valid_symbols"]:
-        report_lines.append(f"✅ Valid Symbols ({len(results['valid_symbols'])}):")
+        report_lines.append(f" Valid Symbols ({len(results['valid_symbols'])}):")
         for symbol in results["valid_symbols"]:
             price = results["prices"].get(symbol)
             if price:
@@ -127,13 +127,13 @@ def generate_price_report(results: dict) -> str:
     
     # Invalid symbols
     if results["invalid_symbols"]:
-        report_lines.append(f"\n⚠️  Invalid Symbols ({len(results['invalid_symbols'])}):")
+        report_lines.append(f"\n  Invalid Symbols ({len(results['invalid_symbols'])}):")
         for symbol in results["invalid_symbols"]:
             report_lines.append(f"   • {symbol}: Not found on Hyperliquid")
     
     # Recommendations
     if results["recommendations"]:
-        report_lines.append("\n🎯 GRID TRADING RECOMMENDATIONS:")
+        report_lines.append("\n GRID TRADING RECOMMENDATIONS:")
         for symbol, rec in results["recommendations"].items():
             report_lines.append(f"\n   {symbol}:")
             report_lines.append(f"     Current Price:    ${rec['current_price']:.4f}")
@@ -151,7 +151,7 @@ def generate_price_report(results: dict) -> str:
     
     # Summary
     report_lines.append("\n" + "=" * 50)
-    report_lines.append("💡 RECOMMENDED STRATEGY PARAMETERS:")
+    report_lines.append(" RECOMMENDED STRATEGY PARAMETERS:")
     
     if results["recommendations"]:
         for symbol, rec in results["recommendations"].items():
@@ -176,10 +176,10 @@ def save_price_data(results: dict, output_file: str = "price_data.json"):
     try:
         with open(output_file, 'w') as f:
             json.dump(results, f, indent=2, default=str)
-        print(f"💾 Price data saved to: {output_file}")
+        print(f" Price data saved to: {output_file}")
         return output_file
     except Exception as e:
-        print(f"⚠️  Could not save price data: {e}")
+        print(f"  Could not save price data: {e}")
         return None
 
 def main():
@@ -201,16 +201,16 @@ def main():
     elif args.prompt:
         symbols = parse_symbols_from_prompt(args.prompt)
     else:
-        print("❌ Please provide symbols with --symbols or a prompt with --prompt")
+        print(" Please provide symbols with --symbols or a prompt with --prompt")
         parser.print_help()
         return
     
     if not symbols:
-        print("❌ No symbols found in prompt")
+        print(" No symbols found in prompt")
         return
     
-    print(f"🚀 Fetching prices from Hyperliquid {'Testnet' if args.testnet else 'Mainnet'}")
-    print(f"📈 Symbols: {', '.join(symbols)}")
+    print(f" Fetching prices from Hyperliquid {'Testnet' if args.testnet else 'Mainnet'}")
+    print(f" Symbols: {', '.join(symbols)}")
     
     # Fetch prices
     results = fetch_prices(symbols, args.testnet)
@@ -224,7 +224,7 @@ def main():
     saved_file = save_price_data(results, args.output)
     
     # Print summary
-    print("\n✅ Price fetching completed!")
+    print("\n Price fetching completed!")
     
     if "valid_symbols" in results:
         valid_count = len(results["valid_symbols"])
@@ -241,8 +241,8 @@ def main():
                     print(f"     {symbol}: ${price:.4f}")
     
     if saved_file:
-        print(f"\n📁 Data saved to: {saved_file}")
-        print(f"💡 Use this data for strategy generation with: python scripts/strategy_generator.py --price-data {saved_file}")
+        print(f"\n Data saved to: {saved_file}")
+        print(f" Use this data for strategy generation with: python scripts/strategy_generator.py --price-data {saved_file}")
 
 if __name__ == "__main__":
     main()

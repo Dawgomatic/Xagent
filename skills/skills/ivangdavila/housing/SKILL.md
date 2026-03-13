@@ -3,7 +3,7 @@ name: Housing
 slug: housing
 version: 1.0.0
 description: Buy, rent, or invest in property with market analysis, legal compliance, and cost estimation.
-metadata: {"clawdbot":{"emoji":"🏠","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

@@ -63,7 +63,7 @@ async function listDeliveries(mode = 'recent') {
     // Expected: ...
     // Last Event: ...
     res.deliveries.forEach(d => {
-      console.log(`📦 ${d.description} (${d.carrier_code})`);
+      console.log(` ${d.description} (${d.carrier_code})`);
       console.log(`   Status Code: ${d.status_code} | Tracking: ${d.tracking_number}`);
       if (d.date_expected) console.log(`   Expected: ${d.date_expected}`);
       
@@ -95,7 +95,7 @@ async function addDelivery(tracking, carrier, description, notify) {
       process.exit(1);
     }
     
-    console.log("✅ Delivery added successfully!");
+    console.log(" Delivery added successfully!");
   } catch (err) {
     console.error("Request failed:", err.message);
     process.exit(1);

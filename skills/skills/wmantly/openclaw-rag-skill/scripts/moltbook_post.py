@@ -40,7 +40,7 @@ def create_post(title, content, submolt="general", url=None):
     api_key = load_api_key()
 
     if not api_key:
-        print("❌ Error: No Moltbook API key found")
+        print(" Error: No Moltbook API key found")
         print(f"   Set environment variable MOLTBOOK_API_KEY or create {CONFIG_PATH}")
         return False
 
@@ -70,7 +70,7 @@ def create_post(title, content, submolt="general", url=None):
             result = response.json()
             post_id = result.get('data', {}).get('id')
 
-            print(f"✅ Post created successfully!")
+            print(f" Post created successfully!")
             print(f"   Post ID: {post_id}")
             print(f"   URL: https://moltbook.com/posts/{post_id}")
 
@@ -81,15 +81,15 @@ def create_post(title, content, submolt="general", url=None):
         elif response.status_code == 429:
             error = response.json()
             retry = error.get('hint', {}).get('retry_after_minutes', 'unknown')
-            print(f"⏸️  Rate limited. Wait {retry} minutes before posting again.")
+            print(f"  Rate limited. Wait {retry} minutes before posting again.")
             return False
         else:
-            print(f"❌ Error: {response.status_code}")
+            print(f" Error: {response.status_code}")
             print(f"   {response.text}")
             return False
 
     except requests.exceptions.RequestException as e:
-        print(f"❌ Network error: {e}")
+        print(f" Network error: {e}")
         return False
 
 
@@ -98,7 +98,7 @@ def post_from_file(file_path, submolt="general"):
     path = Path(file_path)
 
     if not path.exists():
-        print(f"❌ File not found: {file_path}")
+        print(f" File not found: {file_path}")
         return False
 
     content = path.read_text()

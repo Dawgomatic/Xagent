@@ -368,10 +368,10 @@ Side note: I tried running this essay through three different AI detectors last 
 The thing that gets me tho—if detectors get this good, writers will just get better at evading them. It's an arms race nobody really wins. The truth is probly somewhere in the middle: detectors will catch obvious AI slop but miss anything sophisticated.
 
 **Techniques used:**
-- ✅ Parenthetical aside: (Honestly, I'm skeptical...)
-- ✅ Tangent: Side note: I tried running this essay...
-- ✅ Strategic misspelling: "probly" instead of "probably", "tho" instead of "though"
-- ✅ Authentic reaction: The thing that gets me... It's an arms race nobody really wins
+-  Parenthetical aside: (Honestly, I'm skeptical...)
+-  Tangent: Side note: I tried running this essay...
+-  Strategic misspelling: "probly" instead of "probably", "tho" instead of "though"
+-  Authentic reaction: The thing that gets me... It's an arms race nobody really wins
 
 ---
 

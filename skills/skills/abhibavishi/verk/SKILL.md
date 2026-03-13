@@ -3,7 +3,7 @@ name: verk
 description: "Manage tasks, projects, and workflows in Verk — AI-powered task management. Create, update, assign, and track tasks. Add comments, change status, list automation flows."
 metadata:
   openclaw:
-    emoji: "⚡"
+    emoji: ""
     requires:
       env:
         - VERK_API_KEY

@@ -4,13 +4,13 @@ Accurately track OpenClaw usage costs with detailed reports by date and model.
 
 ## Features
 
-- ✅ Precisely parse API call costs from OpenClaw session logs
-- ✅ Group costs by model type
-- ✅ Support daily, weekly, and monthly reports
-- ✅ Display cost changes (increase/decrease percentage)
-- ✅ Compatible with macOS and Linux
-- ✅ Beautiful Discord output format
-- ✅ Can be set up as automated cron tasks
+-  Precisely parse API call costs from OpenClaw session logs
+-  Group costs by model type
+-  Support daily, weekly, and monthly reports
+-  Display cost changes (increase/decrease percentage)
+-  Compatible with macOS and Linux
+-  Beautiful Discord output format
+-  Can be set up as automated cron tasks
 
 ## Installation
 
@@ -77,4 +77,4 @@ This tool extracts accurate API call cost data directly from OpenClaw session lo
 - Uses jq to parse JSON data
 - Compatible with macOS and Linux date handling
 - Supports cost calculations grouped by model
-- Chinese-style color indicators for changes (🔴up / 🟢down)
+- Chinese-style color indicators for changes (up / down)

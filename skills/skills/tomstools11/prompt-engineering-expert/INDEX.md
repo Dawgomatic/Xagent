@@ -1,6 +1,6 @@
 # Prompt Engineering Expert Skill - Complete Index
 
-## 📋 Quick Navigation
+##  Quick Navigation
 
 ### Getting Started
 - **[README.md](README.md)** - Start here! Overview, how to use, and quick start guide
@@ -20,7 +20,7 @@
 
 ---
 
-## 📚 What's Included
+##  What's Included
 
 ### Expertise Areas (7 Major Areas)
 1. Prompt Writing Best Practices
@@ -54,7 +54,7 @@
 
 ---
 
-## 🎯 How to Use This Skill
+##  How to Use This Skill
 
 ### For Prompt Analysis
 ```
@@ -94,7 +94,7 @@ How can I fix it?"
 
 ---
 
-## 📖 Documentation Structure
+##  Documentation Structure
 
 ### BEST_PRACTICES.md (Comprehensive Guide)
 - Core principles (clarity, conciseness, degrees of freedom)
@@ -135,9 +135,9 @@ How can I fix it?"
 
 ---
 
-## ✅ Best Practices Summary
+##  Best Practices Summary
 
-### Do's ✅
+### Do's 
 - Be clear and specific
 - Provide examples
 - Specify format
@@ -147,7 +147,7 @@ How can I fix it?"
 - Use progressive disclosure
 - Handle edge cases
 
-### Don'ts ❌
+### Don'ts 
 - Be vague or ambiguous
 - Assume understanding
 - Skip format specification
@@ -159,7 +159,7 @@ How can I fix it?"
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Step 1: Read the Overview
 Start with **README.md** to understand what this skill provides.
@@ -178,7 +178,7 @@ Use **docs/TROUBLESHOOTING.md** if you encounter issues.
 
 ---
 
-## 🔧 Advanced Topics
+##  Advanced Topics
 
 ### Chain-of-Thought Prompting
 Encourage step-by-step reasoning for complex tasks.
@@ -210,7 +210,7 @@ Work with images, files, and embeddings.
 
 ---
 
-## 📊 File Structure
+##  File Structure
 
 ```
 prompt-engineering-expert/
@@ -229,7 +229,7 @@ prompt-engineering-expert/
 
 ---
 
-## 🎓 Learning Path
+##  Learning Path
 
 ### Beginner
 1. Read: README.md
@@ -251,7 +251,7 @@ prompt-engineering-expert/
 
 ---
 
-## 🔗 Integration Points
+##  Integration Points
 
 This skill works well with:
 - **Claude Code** - For testing and iterating on prompts
@@ -262,7 +262,7 @@ This skill works well with:
 
 ---
 
-## 📝 Key Concepts
+##  Key Concepts
 
 ### Clarity
 - Explicit objectives
@@ -290,7 +290,7 @@ This skill works well with:
 
 ---
 
-## ⚠️ Limitations
+##  Limitations
 
 - **Analysis Only**: Doesn't execute code or run actual prompts
 - **No Real-Time Data**: Can't access external APIs or current data
@@ -300,7 +300,7 @@ This skill works well with:
 
 ---
 
-## 🎯 Common Use Cases
+##  Common Use Cases
 
 ### 1. Refining Vague Prompts
 Transform unclear prompts into specific, actionable ones.
@@ -336,7 +336,7 @@ Design prompts for vision, embeddings, and files.
 
 ---
 
-## 📞 Support & Resources
+##  Support & Resources
 
 ### Within This Skill
 - Detailed documentation
@@ -353,7 +353,7 @@ Design prompts for vision, embeddings, and files.
 
 ---
 
-## 🚀 Next Steps
+##  Next Steps
 
 1. **Explore the documentation** - Start with README.md
 2. **Review examples** - Check examples/EXAMPLES.md

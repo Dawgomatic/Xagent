@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🐾 Query OEE's Second Brain.
+ Query OEE's Second Brain.
 
 Usage:
     python query.py "What did I save about transformers?"
@@ -13,7 +13,7 @@ from kb import ask, retrieve
 
 
 def main():
-    parser = argparse.ArgumentParser(description="🐾 Query OEE's Second Brain")
+    parser = argparse.ArgumentParser(description=" Query OEE's Second Brain")
     parser.add_argument("query", help="Question or search query")
     parser.add_argument("--search", action="store_true", help="Search only (no LLM answer)")
     parser.add_argument("--top", type=int, default=10, help="Number of results")

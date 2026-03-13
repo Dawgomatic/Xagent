@@ -304,7 +304,7 @@ scan_for_malware() {
             return 1
         fi
     else
-        echo "⚠ ClamAV未インストール。スキャンスキップ。"
+        echo " ClamAV未インストール。スキャンスキップ。"
         return 0
     fi
 }
@@ -626,7 +626,7 @@ check_alerts() {
     local max_size="$((1024 * 1024 * 1024))"  # 1GB
     
     if [[ "$temp_size" -gt "$max_size" ]]; then
-        echo "⚠️ 警告: 使用容量が1GBを超えています ($temp_size bytes)"
+        echo " 警告: 使用容量が1GBを超えています ($temp_size bytes)"
         
         # 古いファイル自動削除
         find "$media_root/temp" -type f -mtime +3 -delete
@@ -636,7 +636,7 @@ check_alerts() {
     # 破損ファイルチェック
     find "$media_root/temp" -type f \( -name "*.jpg" -o -name "*.png" \) | while read file; do
         if ! file "$file" | grep -q "image data"; then
-            echo "⚠️ 破損ファイル検出: $(basename "$file")"
+            echo " 破損ファイル検出: $(basename "$file")"
             rm "$file"
         fi
     done

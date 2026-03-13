@@ -9,7 +9,7 @@ description: >
 version: 0.1.10
 homepage: https://github.com/Aegis-Scan/aegis-scan
 url: https://pypi.org/project/aegis-audit/
-metadata: {"openclaw":{"emoji":"🔍","homepage":"https://github.com/Aegis-Scan/aegis-scan","requires":{"bins":["aegis"],"config":["~/.aegis/config.yaml"]},"install":[{"kind":"uv","package":"aegis-audit","bins":["aegis"]}]}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://github.com/Aegis-Scan/aegis-scan","requires":{"bins":["aegis"],"config":["~/.aegis/config.yaml"]},"install":[{"kind":"uv","package":"aegis-audit","bins":["aegis"]}]}}
 ---
 
 # Aegis Audit

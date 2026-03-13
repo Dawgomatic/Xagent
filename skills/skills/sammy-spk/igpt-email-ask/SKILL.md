@@ -8,7 +8,7 @@ description: >
   summaries, structured data extraction, or answers that require understanding email context.
   For retrieval/lookup only, use the companion skill igpt-email-search.
 homepage: https://igpt.ai/hub/playground/
-metadata: {"clawdbot":{"emoji":"🧠","requires":{"env":["IGPT_API_KEY"]},"primaryEnv":"IGPT_API_KEY"},"author":"igptai","version":"1.0.0","license":"MIT","tags":["email","analysis","reasoning","summarization","context-engine","productivity"]}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["IGPT_API_KEY"]},"primaryEnv":"IGPT_API_KEY"},"author":"igptai","version":"1.0.0","license":"MIT","tags":["email","analysis","reasoning","summarization","context-engine","productivity"]}
 ---
 
 # iGPT Email Ask

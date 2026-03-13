@@ -17,14 +17,14 @@ tags:
   - safe-word
 metadata:
   openclaw:
-    emoji: "🔐"
+    emoji: ""
     requires:
       bins:
         - node
         - security
 ---
 
-# Stranger-Danger 🚨
+# Stranger-Danger 
 
 **Source:** https://github.com/jamesalmeida/stranger-danger
 

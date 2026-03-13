@@ -94,7 +94,7 @@ const CHALLENGES = {
 
 // ============== MAIN ==============
 async function main() {
-  console.log('🧪 AAP v2.0 - Real LLM Batch Test\n');
+  console.log(' AAP v2.0 - Real LLM Batch Test\n');
   console.log('='.repeat(60));
 
   const nonce = randomBytes(16).toString('hex');
@@ -104,7 +104,7 @@ async function main() {
   const challenges = [];
   const validators = [];
 
-  console.log('📋 Batch Challenges:\n');
+  console.log(' Batch Challenges:\n');
 
   for (let i = 0; i < 3; i++) {
     const offsetNonce = nonce.slice(i * 2) + nonce.slice(0, i * 2);
@@ -131,7 +131,7 @@ No explanation, no markdown, just the raw JSON array.
   prompt += `\nRespond with ONLY: [{"result": ...}, {"items": [...]}, {"answer": "..."}]`;
 
   console.log('='.repeat(60));
-  console.log('🤖 Sending to LLM via clawdbot agent...\n');
+  console.log(' Sending to LLM via clawdbot agent...\n');
 
   const startTime = Date.now();
 
@@ -155,19 +155,19 @@ No explanation, no markdown, just the raw JSON array.
     // Extract JSON array
     const arrayMatch = llmResponse.match(/\[[\s\S]*\]/);
     if (!arrayMatch) {
-      console.log('❌ Failed to extract JSON array');
+      console.log(' Failed to extract JSON array');
       return;
     }
 
     const solutions = JSON.parse(arrayMatch[0]);
     
     // Validate
-    console.log('\n📊 Validation:\n');
+    console.log('\n Validation:\n');
     let passed = 0;
 
     for (let i = 0; i < 3; i++) {
       const result = validators[i](JSON.stringify(solutions[i]));
-      console.log(`[${i}] ${challenges[i].type}: ${result.valid ? '✅ PASS' : '❌ FAIL'}`);
+      console.log(`[${i}] ${challenges[i].type}: ${result.valid ? ' PASS' : ' FAIL'}`);
       if (!result.valid) {
         console.log(`    Expected: ${JSON.stringify(result.expected)}`);
         console.log(`    Got: ${JSON.stringify(result.got || result.reason)}`);
@@ -176,12 +176,12 @@ No explanation, no markdown, just the raw JSON array.
     }
 
     console.log('\n' + '='.repeat(60));
-    console.log(`\n📈 Results: ${passed}/3 passed`);
-    console.log(`⏱️  Time: ${responseTimeMs}ms / 12000ms limit`);
-    console.log(`\n🎯 ${passed === 3 && responseTimeMs < 12000 ? '✅ VERIFIED' : '❌ FAILED'}`);
+    console.log(`\n Results: ${passed}/3 passed`);
+    console.log(`  Time: ${responseTimeMs}ms / 12000ms limit`);
+    console.log(`\n ${passed === 3 && responseTimeMs < 12000 ? ' VERIFIED' : ' FAILED'}`);
 
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
   }
 }
 

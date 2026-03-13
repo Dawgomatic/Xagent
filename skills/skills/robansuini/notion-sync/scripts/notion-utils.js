@@ -608,7 +608,7 @@ function blocksToMarkdown(blocks) {
         lines.push(`> ${richTextToMarkdown(content.rich_text)}`, '');
         break;
       case 'callout': {
-        const emoji = content.icon?.emoji || '📌';
+        const emoji = content.icon?.emoji || '';
         lines.push(`${emoji} ${richTextToMarkdown(content.rich_text)}`, '');
         break;
       }

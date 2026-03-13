@@ -62,7 +62,7 @@ ln -s /path/to/workspace/skills/moltbook-skill ~/.openclaw/skills/moltbook
 
 # Should output:
 # Testing Moltbook API connection...
-# ✅ API connection successful
+#  API connection successful
 ```
 
 ## Usage

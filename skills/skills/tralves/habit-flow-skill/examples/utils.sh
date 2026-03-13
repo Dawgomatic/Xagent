@@ -24,7 +24,7 @@ hlog() {
   local habit_id=$(habit_id "$habit_name")
 
   if [ -z "$habit_id" ]; then
-    echo "❌ Habit not found: $habit_name"
+    echo " Habit not found: $habit_name"
     return 1
   fi
 
@@ -32,9 +32,9 @@ hlog() {
     --habit-id "$habit_id" \
     --status "$status" 2>/dev/null | jq -r '
       if .success then
-        "✅ Logged! Current streak: \(.streakUpdate.currentStreak) days 🔥 (\(.streakUpdate.streakQuality))"
+        " Logged! Current streak: \(.streakUpdate.currentStreak) days  (\(.streakUpdate.streakQuality))"
       else
-        "❌ Error: \(.error)"
+        " Error: \(.error)"
       end
     '
 }
@@ -58,7 +58,7 @@ hstats() {
   local habit_id=$(habit_id "$habit_name")
 
   if [ -z "$habit_id" ]; then
-    echo "❌ Habit not found: $habit_name"
+    echo " Habit not found: $habit_name"
     return 1
   fi
 
@@ -70,7 +70,7 @@ hstats() {
 
 # Create a new habit interactively
 hnew() {
-  echo "🎯 Create New Habit"
+  echo " Create New Habit"
   echo "=================="
   echo ""
 
@@ -117,17 +117,17 @@ hnew() {
   if echo "$result" | jq -e '.success' > /dev/null 2>&1; then
     habit_id=$(echo "$result" | jq -r '.habit.id')
     echo ""
-    echo "✅ Habit created successfully!"
+    echo " Habit created successfully!"
     echo "ID: $habit_id"
     echo ""
 
     if [ "$has_reminder" = "y" ]; then
       echo "Syncing reminder..."
       cd "$SKILL_DIR" && npx tsx scripts/sync_reminders.ts --habit-id "$habit_id" --add 2>/dev/null
-      echo "✅ Reminder set for $reminder_time"
+      echo " Reminder set for $reminder_time"
     fi
   else
-    echo "❌ Error creating habit"
+    echo " Error creating habit"
     echo "$result" | jq -r '.error'
   fi
 }
@@ -147,15 +147,15 @@ hparse() {
       if .success then
         "Detected: \(.habitName)\nDate: \(.dates[0])\nStatus: \(.status)\nConfidence: \(.confidence * 100 | round)%\n\n\(
           if .confidence >= 0.85 then
-            "High confidence - would log automatically ✅"
+            "High confidence - would log automatically "
           elif .confidence >= 0.60 then
-            "Medium confidence - would ask for confirmation ⚠️"
+            "Medium confidence - would ask for confirmation "
           else
-            "Low confidence - would request clarification ❌"
+            "Low confidence - would request clarification "
           end
         )"
       else
-        "❌ Error: \(.error)"
+        " Error: \(.error)"
       end
     '
 }
@@ -173,7 +173,7 @@ hstreak() {
   local habit_id=$(habit_id "$habit_name")
 
   if [ -z "$habit_id" ]; then
-    echo "❌ Habit not found: $habit_name"
+    echo " Habit not found: $habit_name"
     return 1
   fi
 
@@ -182,7 +182,7 @@ hstreak() {
     --format text | grep -E "Current|Longest|Perfect|Quality|Forgiveness"
 }
 
-echo "✅ HabitFlow utils loaded!"
+echo " HabitFlow utils loaded!"
 echo ""
 echo "Available commands:"
 echo "  hlog <habit> [status]     - Log completion (default: completed)"

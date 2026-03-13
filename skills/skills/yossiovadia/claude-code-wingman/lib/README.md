@@ -86,7 +86,7 @@ Get the current status of a Claude Code session.
 {
   "session": "my-session",
   "status": "waiting_approval",
-  "details": "⏺ Write(test.txt)"
+  "details": " Write(test.txt)"
 }
 ```
 

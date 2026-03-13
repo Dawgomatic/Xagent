@@ -37,9 +37,9 @@ Install on OpenClaw and ask:
 
 This skill is part of the AfrexAI operations toolkit:
 
-- 🏭 [Manufacturing Context Pack](https://afrexai-cto.github.io/context-packs/) — production scheduling, quality control, supply chain ($47)
-- 🏗️ [Construction Context Pack](https://afrexai-cto.github.io/context-packs/) — project tracking, safety compliance, resource allocation ($47)
-- 📊 [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — find where you're losing money to manual processes (free)
-- 🤖 [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — configure your AI agent in 5 minutes (free)
+-  [Manufacturing Context Pack](https://afrexai-cto.github.io/context-packs/) — production scheduling, quality control, supply chain ($47)
+-  [Construction Context Pack](https://afrexai-cto.github.io/context-packs/) — project tracking, safety compliance, resource allocation ($47)
+-  [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — find where you're losing money to manual processes (free)
+-  [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — configure your AI agent in 5 minutes (free)
 
 **Browse all packs:** [afrexai-cto.github.io/context-packs](https://afrexai-cto.github.io/context-packs/)

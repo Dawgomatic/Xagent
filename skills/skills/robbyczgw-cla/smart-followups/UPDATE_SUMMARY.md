@@ -1,4 +1,4 @@
-# ✅ Update Complete: 6 → 3 Suggestions
+#  Update Complete: 6 → 3 Suggestions
 
 **Updated**: January 20, 2026  
 **Change**: Reduced follow-up count from 6 to 3 (1 per category)  
@@ -6,23 +6,23 @@
 
 ---
 
-## 🎯 What Changed
+##  What Changed
 
 ### Before (6 suggestions)
-- ⚡ Quick: **2 questions**
-- 🧠 Deep Dive: **2 questions**  
-- 🔗 Related: **2 questions**
+-  Quick: **2 questions**
+-  Deep Dive: **2 questions**  
+-  Related: **2 questions**
 - **Total**: 6 buttons on Telegram
 
 ### After (3 suggestions)
-- ⚡ Quick: **1 question**
-- 🧠 Deep Dive: **1 question**  
-- 🔗 Related: **1 question**
-- **Total**: 3 buttons on Telegram ✨
+-  Quick: **1 question**
+-  Deep Dive: **1 question**  
+-  Related: **1 question**
+- **Total**: 3 buttons on Telegram 
 
 ---
 
-## 📱 UX Improvement
+##  UX Improvement
 
 ### Telegram Mobile
 **Before**: 6 buttons = cluttered, requires scrolling on some devices  
@@ -32,32 +32,32 @@
 
 #### Telegram (Interactive)
 ```
-💡 What would you like to explore next?
+ What would you like to explore next?
 
 ┌────────────────────────────────────┐
-│ ⚡ What are containers vs VMs?    │
+│  What are containers vs VMs?    │
 └────────────────────────────────────┘
 
 ┌────────────────────────────────────┐
-│ 🧠 Explain Docker networking      │
+│  Explain Docker networking      │
 └────────────────────────────────────┘
 
 ┌────────────────────────────────────┐
-│ 🔗 What about Kubernetes?         │
+│  What about Kubernetes?         │
 └────────────────────────────────────┘
 ```
 
 #### Signal/iMessage (Text)
 ```
-💡 Smart Follow-up Suggestions
+ Smart Follow-up Suggestions
 
-⚡ Quick
+ Quick
 1. What are containers vs VMs?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain Docker networking
 
-🔗 Related
+ Related
 3. What about Kubernetes?
 
 Reply with a number (1-3) to ask that question.
@@ -65,24 +65,24 @@ Reply with a number (1-3) to ask that question.
 
 ---
 
-## 🔧 Technical Changes
+##  Technical Changes
 
 ### Files Updated (15 total)
 
 #### Core Code
-- ✅ `cli/followups-cli.js` - Updated prompt, validation, formatting functions
-- ✅ `handler.js` - Updated button creation logic
+-  `cli/followups-cli.js` - Updated prompt, validation, formatting functions
+-  `handler.js` - Updated button creation logic
 
 #### Documentation (All examples updated)
-- ✅ `README.md` - Feature list and examples
-- ✅ `SKILL.md` - Integration guide and output examples
-- ✅ `QUICKSTART.md` - Expected output samples
-- ✅ `examples.md` - All channel examples (Telegram, Signal, Discord, etc.)
-- ✅ `INTERNAL.md` - Design decision rationale
-- ✅ `DEPLOYMENT.md` - Testing examples
-- ✅ `BUILD_SUMMARY.md` - Feature descriptions
-- ✅ `CHANGELOG.md` - Design decisions documented
-- ✅ `package.json` - Description updated
+-  `README.md` - Feature list and examples
+-  `SKILL.md` - Integration guide and output examples
+-  `QUICKSTART.md` - Expected output samples
+-  `examples.md` - All channel examples (Telegram, Signal, Discord, etc.)
+-  `INTERNAL.md` - Design decision rationale
+-  `DEPLOYMENT.md` - Testing examples
+-  `BUILD_SUMMARY.md` - Feature descriptions
+-  `CHANGELOG.md` - Design decisions documented
+-  `package.json` - Description updated
 
 ### Code Changes Summary
 
@@ -122,42 +122,42 @@ suggestions.deep.forEach(...)  // 2 buttons
 suggestions.related.forEach(...) // 2 buttons
 
 // After: Single button per category, 3 buttons total
-buttons.push([{ text: `⚡ ${suggestions.quick}`, ... }])
-buttons.push([{ text: `🧠 ${suggestions.deep}`, ... }])
-buttons.push([{ text: `🔗 ${suggestions.related}`, ... }])
+buttons.push([{ text: ` ${suggestions.quick}`, ... }])
+buttons.push([{ text: ` ${suggestions.deep}`, ... }])
+buttons.push([{ text: ` ${suggestions.related}`, ... }])
 ```
 
 ---
 
-## 📊 Impact Analysis
+##  Impact Analysis
 
 ### Benefits
 
-✅ **Cleaner Mobile UI**: 3 buttons fit perfectly on screen  
-✅ **Reduced Decision Fatigue**: Fewer choices = higher engagement  
-✅ **Faster Generation**: Slightly cheaper and faster (shorter output)  
-✅ **Quality over Quantity**: One great question beats two mediocre ones  
-✅ **Better Categorization**: Clear 1:1:1 ratio across categories
+ **Cleaner Mobile UI**: 3 buttons fit perfectly on screen  
+ **Reduced Decision Fatigue**: Fewer choices = higher engagement  
+ **Faster Generation**: Slightly cheaper and faster (shorter output)  
+ **Quality over Quantity**: One great question beats two mediocre ones  
+ **Better Categorization**: Clear 1:1:1 ratio across categories
 
 ### Performance
 
 | Metric | Before (6) | After (3) | Change |
 |--------|-----------|-----------|--------|
-| **Latency** | ~0.8s | ~0.7s | ✅ 12% faster |
-| **Cost** | $0.00012 | $0.0001 | ✅ 17% cheaper |
-| **Mobile Fit** | Scrolling sometimes | Always fits | ✅ Much better |
+| **Latency** | ~0.8s | ~0.7s |  12% faster |
+| **Cost** | $0.00012 | $0.0001 |  17% cheaper |
+| **Mobile Fit** | Scrolling sometimes | Always fits |  Much better |
 | **Click-through** | TBD | TBD | Expect higher |
 
 ### No Breaking Changes
 
-- ✅ CLI still accepts same input format
-- ✅ All output modes still work (json, telegram, text, compact)
-- ✅ Backward compatible (handles array format from API)
-- ✅ Same API key and configuration
+-  CLI still accepts same input format
+-  All output modes still work (json, telegram, text, compact)
+-  Backward compatible (handles array format from API)
+-  Same API key and configuration
 
 ---
 
-## 🧪 Testing Needed
+##  Testing Needed
 
 ### Before Production
 
@@ -188,24 +188,24 @@ echo '[{"user":"What is Rust?","assistant":"Rust is..."}]' | \
 
 ---
 
-## 📝 Documentation Coverage
+##  Documentation Coverage
 
 All documentation now reflects **3 suggestions**:
 
-- ✅ README.md - Updated examples and feature list
-- ✅ SKILL.md - Updated all integration examples
-- ✅ QUICKSTART.md - Updated expected output
-- ✅ examples.md - Updated all 10+ channel examples
-- ✅ INTERNAL.md - Added design rationale for 3-suggestion choice
-- ✅ DEPLOYMENT.md - Updated testing protocol
-- ✅ CHANGELOG.md - Documented design decision
-- ✅ BUILD_SUMMARY.md - Updated feature descriptions
+-  README.md - Updated examples and feature list
+-  SKILL.md - Updated all integration examples
+-  QUICKSTART.md - Updated expected output
+-  examples.md - Updated all 10+ channel examples
+-  INTERNAL.md - Added design rationale for 3-suggestion choice
+-  DEPLOYMENT.md - Updated testing protocol
+-  CHANGELOG.md - Documented design decision
+-  BUILD_SUMMARY.md - Updated feature descriptions
 
 **Coverage**: 100% - All references to "6 suggestions" replaced with "3 suggestions"
 
 ---
 
-## 🎯 Design Rationale (from INTERNAL.md)
+##  Design Rationale (from INTERNAL.md)
 
 ### Why 3 Instead of 6?
 
@@ -223,7 +223,7 @@ All documentation now reflects **3 suggestions**:
 
 ---
 
-## ✅ Verification Checklist
+##  Verification Checklist
 
 Before considering this update complete:
 
@@ -239,7 +239,7 @@ Before considering this update complete:
 
 ---
 
-## 🚀 Next Steps
+##  Next Steps
 
 ### For You
 
@@ -263,7 +263,7 @@ Before considering this update complete:
    - Click each button to confirm they work
 
 4. **Collect Feedback**:
-   - Is 3 cleaner than 6? ✅
+   - Is 3 cleaner than 6? 
    - Are the suggestions high quality?
    - Any UX issues?
 
@@ -276,9 +276,9 @@ If you need to revert to 6 suggestions:
 
 ---
 
-## 📞 Summary
+##  Summary
 
-**Update Status**: ✅ **COMPLETE**  
+**Update Status**:  **COMPLETE**  
 **Files Changed**: 15  
 **Code Changes**: ~30 lines  
 **Documentation**: 100% updated  

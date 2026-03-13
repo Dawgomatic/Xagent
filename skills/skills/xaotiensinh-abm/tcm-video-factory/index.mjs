@@ -33,8 +33,8 @@ async function callPerplexity(messages, model = 'sonar-pro') {
 
 async function main() {
   const topicArg = process.argv.slice(2).join(' ') || 'mẹo sức khỏe mùa đông';
-  console.log(`🎬 TCM VIDEO FACTORY starting...`);
-  console.log(`🔍 Researching topic: "${topicArg}" via Perplexity...`);
+  console.log(` TCM VIDEO FACTORY starting...`);
+  console.log(` Researching topic: "${topicArg}" via Perplexity...`);
 
   try {
     // STEP 1: RESEARCH
@@ -50,10 +50,10 @@ async function main() {
     ];
 
     const selectedTopic = await callPerplexity(researchPrompt);
-    console.log(`✅ Selected Topic: ${selectedTopic}`);
+    console.log(` Selected Topic: ${selectedTopic}`);
 
     // STEP 2-5: PRODUCTION PLAN GENERATION
-    console.log(`✍️ Generating full production plan (Script, Character, Prompts)...`);
+    console.log(` Generating full production plan (Script, Character, Prompts)...`);
     
     const productionPrompt = [
       {
@@ -72,7 +72,7 @@ async function main() {
             - Format: [Character Desc], Beat 1 [0-2s action], Beat 2 [2-4s action], Beat 3 [4-6s action], Beat 4 [6-8s action], Vietnamese dialogue "[Vietnamese Script Line]" [Voice Type] lip-sync, Pixar style.
         
         OUTPUT FORMAT (Markdown):
-        # 🎬 Production Plan: [Topic Name]
+        #  Production Plan: [Topic Name]
         
         ## 1. Character Design
         **Prompt:** [English Prompt]
@@ -101,12 +101,12 @@ async function main() {
     
     fs.writeFileSync(outputPath, productionPlan, 'utf8');
     
-    console.log(`\n🎉 DONE! Production plan saved to: ${filename}`);
+    console.log(`\n DONE! Production plan saved to: ${filename}`);
     console.log(`\n--- PREVIEW ---\n`);
     console.log(productionPlan.substring(0, 500) + "...");
 
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
   }
 }
 

@@ -56,10 +56,10 @@ chart_data.add_series('Sales', (100, 200, 150))
 
 ### Critical: Always Use Units
 ```python
-# ❌ WRONG
+#  WRONG
 shape.left = 100
 
-# ✅ CORRECT
+#  CORRECT
 from pptx.util import Inches, Pt, Emu
 shape.left = Inches(1)
 shape.width = Inches(4)

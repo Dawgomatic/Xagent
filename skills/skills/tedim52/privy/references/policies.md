@@ -1,6 +1,6 @@
 # Policies
 
-**⚠️ MANDATORY: Every wallet MUST have a policy attached.**
+** MANDATORY: Every wallet MUST have a policy attached.**
 
 Policies define guardrails for agent behavior — what transactions are allowed or denied. They are your first line of defense against abuse.
 
@@ -66,7 +66,7 @@ POST /v1/policies
 
 ## Recommended Policy Templates
 
-### 🔒 Conservative (Recommended for Start)
+###  Conservative (Recommended for Start)
 
 Maximum safety, minimum risk:
 
@@ -106,7 +106,7 @@ Maximum safety, minimum risk:
 }
 ```
 
-### ⚖️ Moderate
+###  Moderate
 
 Balanced for regular use:
 
@@ -146,7 +146,7 @@ Balanced for regular use:
 }
 ```
 
-### 🎯 DeFi-Specific
+###  DeFi-Specific
 
 For DeFi operations with contract allowlist:
 
@@ -253,12 +253,12 @@ Fields: `to`, `value`, `chain_id`
 
 ---
 
-## ⚠️ Policy Anti-Patterns
+##  Policy Anti-Patterns
 
 **Never do these:**
 
 ```json
-// ❌ No spending limit
+//  No spending limit
 {
   "name": "Allow everything",
   "method": "*",
@@ -266,14 +266,14 @@ Fields: `to`, `value`, `chain_id`
   "action": "ALLOW"
 }
 
-// ❌ Limit too high
+//  Limit too high
 {
   "field": "value",
   "operator": "lte",
   "value": "10000000000000000000"  // 10 ETH = ~$25,000!
 }
 
-// ❌ No chain restriction (allows expensive mainnet txs)
+//  No chain restriction (allows expensive mainnet txs)
 {
   "name": "Any chain",
   "method": "eth_sendTransaction",
@@ -308,7 +308,7 @@ PATCH /v1/policies/{policy_id}
 DELETE /v1/policies/{policy_id}
 ```
 
-**⚠️ PROTECTED: Requires explicit verbal confirmation from user.**
+** PROTECTED: Requires explicit verbal confirmation from user.**
 
 Before executing, the agent must:
 1. Explain what policy will be deleted and security implications
@@ -327,7 +327,7 @@ POST /v1/policies/{policy_id}/rules
 DELETE /v1/policies/{policy_id}/rules/{rule_id}
 ```
 
-**⚠️ PROTECTED: Requires explicit verbal confirmation from user.**
+** PROTECTED: Requires explicit verbal confirmation from user.**
 
 Rule deletion weakens security. Always confirm with user before executing.
 

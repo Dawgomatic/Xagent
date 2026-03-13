@@ -24,4 +24,4 @@ FDCPA-compliant collection letter sequences, payment plan frameworks, aging anal
 - [Revenue Leak Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)
 - [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

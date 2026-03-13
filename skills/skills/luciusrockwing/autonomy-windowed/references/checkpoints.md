@@ -10,11 +10,11 @@
 
 | Context % | Action | Checkpoint Type |
 |-----------|--------|-----------------|
-| < 50% | 🟢 Normal operation | Quick notes only as needed |
-| 50-69% | 🟡 Vigilant | Quick notes after significant exchanges |
-| 70-84% | 🟠 **Active — MUST CHECKPOINT NOW** | Full checkpoint to memory/episodic/[today].md |
-| 85-94% | 🔴 **Emergency — MUST CHECKPOINT NOW** | Emergency checkpoint, then pause |
-| 95%+ | 🚨 Survival | Emergency checkpoint (survival data only) |
+| < 50% |  Normal operation | Quick notes only as needed |
+| 50-69% |  Vigilant | Quick notes after significant exchanges |
+| 70-84% |  **Active — MUST CHECKPOINT NOW** | Full checkpoint to memory/episodic/[today].md |
+| 85-94% |  **Emergency — MUST CHECKPOINT NOW** | Emergency checkpoint, then pause |
+| 95%+ |  Survival | Emergency checkpoint (survival data only) |
 
 **Rule:** Write checkpoint to memory/episodic/[today].md IMMEDIATELY when context ≥70%.
 
@@ -92,7 +92,7 @@
 
 **Then pause and acknowledge in chat:**
 ```
-⚠️ Emergency checkpoint written at [HH:MM]. Context at [XX%]. Pausing to await compaction recovery.
+ Emergency checkpoint written at [HH:MM]. Context at [XX%]. Pausing to await compaction recovery.
 ```
 
 ---
@@ -148,18 +148,18 @@ Use short notes to capture important context without full checkpoint overhead wh
 > **"Could future-me continue this conversation from notes alone?"**
 
 **Include in checkpoints:**
-- ✅ **Decisions made and their reasoning** — Why we chose this path
-- ✅ **Action items and who owns them** — What needs to happen next
-- ✅ **Open questions or threads** — Unresolved items we need to address
-- ✅ **Significant learnings** — Things we discovered
-- ✅ **Preferences expressed** — How they want things done
-- ✅ **Blockers and constraints** — What's stopping us
-- ✅ **File states** — What we're working on and where we left off
+-  **Decisions made and their reasoning** — Why we chose this path
+-  **Action items and who owns them** — What needs to happen next
+-  **Open questions or threads** — Unresolved items we need to address
+-  **Significant learnings** — Things we discovered
+-  **Preferences expressed** — How they want things done
+-  **Blockers and constraints** — What's stopping us
+-  **File states** — What we're working on and where we left off
 
 **Don't include:**
-- ❌ Complete conversation history (that's in the session itself)
-- ❌ Trivial details (doesn't help recovery)
-- ❌ Speculation without decision (we can recover context for speculation)
+-  Complete conversation history (that's in the session itself)
+-  Trivial details (doesn't help recovery)
+-  Speculation without decision (we can recover context for speculation)
 
 ---
 
@@ -272,7 +272,7 @@ If context ≥70%, stopping to write checkpoint is ALWAYS worth it. A 30-second 
 
 Then acknowledge:
 ```
-⚠️ Emergency checkpoint written at 19:45. Context at 88%. Pausing to await compaction recovery.
+ Emergency checkpoint written at 19:45. Context at 88%. Pausing to await compaction recovery.
 ```
 
 ---

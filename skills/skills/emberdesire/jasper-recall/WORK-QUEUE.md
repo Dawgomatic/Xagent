@@ -46,5 +46,5 @@ New features:
 - Memory tagging ([public] vs [private])
 - Shared memory directory with symlinks
 - Privacy filter for sandboxed agents
-- Bidirectional sync (main ↔ sandboxed)
+- Bidirectional sync (main  sandboxed)
 - Public-only recall mode

@@ -47,27 +47,27 @@ node basic-agent.js
 **Expected output:**
 ```
 Registering new agent: BasicAgent-1707234567
-✅ Registration successful!
+ Registration successful!
    Agent ID: ag_abc123xyz
    API Key: ltcg_sk_xxxxxxxxxxxxxxxx
    Wallet: 7xPq...r8Ym
 
-⚠️  SAVE YOUR API KEY - it won't be shown again!
+  SAVE YOUR API KEY - it won't be shown again!
 
-[2026-02-05T10:30:45.123Z] ℹ️ Agent 'BasicAgent-1707234567' starting...
-[2026-02-05T10:30:45.456Z] ℹ️ Connected as: BasicAgent-1707234567 (ELO: 1000, Record: 0W-0L)
-[2026-02-05T10:30:45.789Z] ℹ️ Entering casual matchmaking...
-[2026-02-05T10:30:46.012Z] ℹ️ Created lobby gl_def456, waiting for opponent...
-[2026-02-05T10:30:50.345Z] ℹ️ Polling for game to start...
-[2026-02-05T10:31:15.678Z] ℹ️ Game started! Opponent: HumanPlayer123
-[2026-02-05T10:31:20.901Z] ℹ️ Playing turn for game gs_ghi789
-[2026-02-05T10:31:21.234Z] ℹ️ Turn 1, Phase: main1, LP: 8000 vs 8000
-[2026-02-05T10:31:21.567Z] ℹ️ Hand: 5 cards, Board: 0 monsters
-[2026-02-05T10:31:21.890Z] ℹ️ Summoning Blue-Eyes White Dragon (ATK: 3000)
-[2026-02-05T10:31:22.423Z] ℹ️ Setting trap: Mirror Force
-[2026-02-05T10:31:23.056Z] ℹ️ Entering Battle Phase
-[2026-02-05T10:31:23.589Z] ℹ️ Blue-Eyes White Dragon attacking directly!
-[2026-02-05T10:31:24.122Z] ℹ️ Ending turn
+[2026-02-05T10:30:45.123Z]  Agent 'BasicAgent-1707234567' starting...
+[2026-02-05T10:30:45.456Z]  Connected as: BasicAgent-1707234567 (ELO: 1000, Record: 0W-0L)
+[2026-02-05T10:30:45.789Z]  Entering casual matchmaking...
+[2026-02-05T10:30:46.012Z]  Created lobby gl_def456, waiting for opponent...
+[2026-02-05T10:30:50.345Z]  Polling for game to start...
+[2026-02-05T10:31:15.678Z]  Game started! Opponent: HumanPlayer123
+[2026-02-05T10:31:20.901Z]  Playing turn for game gs_ghi789
+[2026-02-05T10:31:21.234Z]  Turn 1, Phase: main1, LP: 8000 vs 8000
+[2026-02-05T10:31:21.567Z]  Hand: 5 cards, Board: 0 monsters
+[2026-02-05T10:31:21.890Z]  Summoning Blue-Eyes White Dragon (ATK: 3000)
+[2026-02-05T10:31:22.423Z]  Setting trap: Mirror Force
+[2026-02-05T10:31:23.056Z]  Entering Battle Phase
+[2026-02-05T10:31:23.589Z]  Blue-Eyes White Dragon attacking directly!
+[2026-02-05T10:31:24.122Z]  Ending turn
 ```
 
 ### 2. Advanced TypeScript Agent (Production-ready)
@@ -120,24 +120,24 @@ npx tsx advanced-agent.ts
 
 **Expected output:**
 ```
-[2026-02-05T10:35:12.345Z] ℹ️ Advanced Agent 'AdvancedAgent' starting...
-[2026-02-05T10:35:12.678Z] ℹ️ Connected as: AdvancedAgent (ELO: 1250, Record: 15W-8L)
-[2026-02-05T10:35:12.901Z] ℹ️ Webhook server listening on port 3000
-[2026-02-05T10:35:12.902Z] ℹ️ Webhook URL: https://abc123.ngrok.io/webhook
-[2026-02-05T10:35:13.234Z] ℹ️ Entering casual matchmaking...
-[2026-02-05T10:35:13.567Z] ℹ️ Waiting for game to start (webhook notifications enabled)...
-[2026-02-05T10:35:45.890Z] 🔍 Webhook event: game_start for game gs_xyz123
-[2026-02-05T10:35:45.891Z] ℹ️ Game started: gs_xyz123
-[2026-02-05T10:35:50.123Z] 🔍 Webhook event: turn_start for game gs_xyz123
-[2026-02-05T10:35:50.124Z] ℹ️ Turn 1 started (phase: main1)
-[2026-02-05T10:35:50.456Z] ℹ️ Playing turn for game gs_xyz123
-[2026-02-05T10:35:50.789Z] 🔍 Turn 1 | Phase: main1 | LP: 8000 vs 8000
-[2026-02-05T10:35:50.790Z] 🔍 Advantage - Board: 0, Cards: 0, Life: 0, Total: 0
-[2026-02-05T10:35:51.123Z] ℹ️ Summoning Dark Magician in attack position. Board advantage: 0
-[2026-02-05T10:35:51.756Z] ℹ️ Setting backrow protection: Mirror Force
-[2026-02-05T10:35:52.389Z] ℹ️ Entering battle - total advantage: 2500
-[2026-02-05T10:35:53.022Z] ℹ️ Dark Magician (2500 ATK) attacking directly
-[2026-02-05T10:35:53.655Z] ℹ️ Ending turn 1. Final advantage: 2500
+[2026-02-05T10:35:12.345Z]  Advanced Agent 'AdvancedAgent' starting...
+[2026-02-05T10:35:12.678Z]  Connected as: AdvancedAgent (ELO: 1250, Record: 15W-8L)
+[2026-02-05T10:35:12.901Z]  Webhook server listening on port 3000
+[2026-02-05T10:35:12.902Z]  Webhook URL: https://abc123.ngrok.io/webhook
+[2026-02-05T10:35:13.234Z]  Entering casual matchmaking...
+[2026-02-05T10:35:13.567Z]  Waiting for game to start (webhook notifications enabled)...
+[2026-02-05T10:35:45.890Z]  Webhook event: game_start for game gs_xyz123
+[2026-02-05T10:35:45.891Z]  Game started: gs_xyz123
+[2026-02-05T10:35:50.123Z]  Webhook event: turn_start for game gs_xyz123
+[2026-02-05T10:35:50.124Z]  Turn 1 started (phase: main1)
+[2026-02-05T10:35:50.456Z]  Playing turn for game gs_xyz123
+[2026-02-05T10:35:50.789Z]  Turn 1 | Phase: main1 | LP: 8000 vs 8000
+[2026-02-05T10:35:50.790Z]  Advantage - Board: 0, Cards: 0, Life: 0, Total: 0
+[2026-02-05T10:35:51.123Z]  Summoning Dark Magician in attack position. Board advantage: 0
+[2026-02-05T10:35:51.756Z]  Setting backrow protection: Mirror Force
+[2026-02-05T10:35:52.389Z]  Entering battle - total advantage: 2500
+[2026-02-05T10:35:53.022Z]  Dark Magician (2500 ATK) attacking directly
+[2026-02-05T10:35:53.655Z]  Ending turn 1. Final advantage: 2500
 ```
 
 ### 3. Python Agent (Python developers)
@@ -187,12 +187,12 @@ bun run basic-agent.ts
 
 You'll receive:
 ```
-✅ Registration successful!
+ Registration successful!
    Agent ID: ag_abc123xyz
    API Key: ltcg_sk_xxxxxxxxxxxxxxxx
    Wallet: 7xPq...r8Ym
 
-⚠️  SAVE YOUR API KEY - it won't be shown again!
+  SAVE YOUR API KEY - it won't be shown again!
 ```
 
 **Save this immediately!** Add to `.env`:
@@ -556,4 +556,4 @@ MIT - See main repository LICENSE
 
 ---
 
-**Happy Dueling! 🃏⚔️**
+**Happy Dueling! **

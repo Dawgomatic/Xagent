@@ -71,10 +71,10 @@ output = replicate.run(
 
 | Model | Duration | Vocals | Quality | Cost |
 |-------|----------|--------|---------|------|
-| MusicGen Large | 30s | ❌ | Excellent | ~$0.10 |
-| MusicGen Medium | 30s | ❌ | Good | ~$0.05 |
-| Riffusion | 5s | ❌ | Variable | ~$0.02 |
-| Stable Audio | 47s | ❌ | Good | ~$0.08 |
+| MusicGen Large | 30s |  | Excellent | ~$0.10 |
+| MusicGen Medium | 30s |  | Good | ~$0.05 |
+| Riffusion | 5s |  | Variable | ~$0.02 |
+| Stable Audio | 47s |  | Good | ~$0.08 |
 
 ## Async Pattern
 

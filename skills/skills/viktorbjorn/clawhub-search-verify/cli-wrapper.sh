@@ -16,12 +16,12 @@ echo "- Searching Clawhub for: \"$SEARCH_TERM\""
 RESULTS=$(clawhub search "$SEARCH_TERM" --limit 3 2>/dev/null)
 
 if [[ $? -ne 0 ]]; then
-  echo "❌ Error: clawhub CLI not installed or logged in. Run clawhub login first."
+  echo " Error: clawhub CLI not installed or logged in. Run clawhub login first."
   exit 1
 fi
 
 if [[ -z "$RESULTS" ]]; then
-  echo "❌ No skills found. Try a different search term."
+  echo " No skills found. Try a different search term."
   exit 1
 fi
 
@@ -37,11 +37,11 @@ while IFS= read -r line; do
     
     # Risk score: low if downloads > 1000, medium if > 100, high if < 100
     if (( DOWNLOADS >= 1000 )); then
-      RISK="✅ Trusted"
+      RISK=" Trusted"
     elif (( DOWNLOADS >= 100 )); then
-      RISK="⚠️ Suspicious"
+      RISK=" Suspicious"
     else
-      RISK="❌ Low trust (under 100 installs)"
+      RISK=" Low trust (under 100 installs)"
     fi
     
     echo "1. \`$SLUG\` (v$VERSION | $DOWNLOADS installs)" 

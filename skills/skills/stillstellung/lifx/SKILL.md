@@ -4,7 +4,7 @@ description: "Control LIFX smart lights via natural language. Toggle, set colors
 homepage: https://github.com/Stillstellung/via-clara-claw
 metadata:
   openclaw:
-    emoji: "💡"
+    emoji: ""
     requires:
       env: ["LIFX_TOKEN"]
 ---
@@ -46,7 +46,7 @@ Location: **Maple Lane** — 24 lights, 11 rooms, 17 scenes, 1 multi-zone device
 | Master Shower | `e8eaecec90582c1b390267bce3401a73` | Shower One, Shower Two |
 | Office | `4033b4e975c7fba7ffbbb32de0e3da3c` | Office Corner |
 | Porch | `55bf10fe4f5617b1d076cb4cab00446d` | Porch |
-| Reading Room | `8e2fabffaa3b12212bb8a5c94a9f28eb` | Reading Room Bookshelf Lamp, Reading Room Floor Lamp, Reading Room Beam  ⚡multizone |
+| Reading Room | `8e2fabffaa3b12212bb8a5c94a9f28eb` | Reading Room Bookshelf Lamp, Reading Room Floor Lamp, Reading Room Beam  multizone |
 | Stairwell | `e6040214e4199c2c3e1366ec08741370` | Upstairs Hallway 2 , Upstairs Hallway 1 |
 
 ### Scenes

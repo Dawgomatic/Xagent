@@ -36,11 +36,11 @@ Automated tracking of Evenrealities orders with status history and change notifi
 
 ## How It Works
 
-- ✅ Checks orders daily at 9 AM
-- ✅ Stores status history
-- ✅ Notifies only on changes
-- ✅ Uses browser automation (fast-browser-use skill)
-- ✅ Fully automated
+-  Checks orders daily at 9 AM
+-  Stores status history
+-  Notifies only on changes
+-  Uses browser automation (fast-browser-use skill)
+-  Fully automated
 
 ## Usage
 

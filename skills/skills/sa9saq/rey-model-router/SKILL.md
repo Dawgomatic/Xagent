@@ -78,8 +78,8 @@ Ask yourself these questions:
 ## Cost Tracking (Optional)
 
 After completing tasks, you may note:
-- "💰 Sonnetで処理しました（コスト効率: 高）"
-- "🎯 Opus 4.6で高品質な結果を生成しました"
+- " Sonnetで処理しました（コスト効率: 高）"
+- " Opus 4.6で高品質な結果を生成しました"
 
 ## Important Notes
 
@@ -90,7 +90,7 @@ After completing tasks, you may note:
 
 ---
 
-## サブスク ↔ API 自動切り替え機能
+## サブスク  API 自動切り替え機能
 
 ### 概要
 
@@ -198,13 +198,13 @@ async function switchToSubscription() {
 
 ```
 【制限検出時】
-⚠️ サブスク使用量制限に達しました。
+ サブスク使用量制限に達しました。
 → Anthropic APIに自動切り替えします。
 → 約6時間後にサブスクに自動復帰します。
 → API使用中はコストが発生します。
 
 【復帰時】
-✅ サブスクモードに復帰しました。
+ サブスクモードに復帰しました。
 → 制限がリセットされ、サブスク枠を使用します。
 → API使用量: 約$X.XX
 ```

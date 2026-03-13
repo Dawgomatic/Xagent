@@ -1,4 +1,4 @@
-# 📁 Filesystem Management
+#  Filesystem Management
 
 Advanced filesystem operations for AI agents. Comprehensive file and directory operations with intelligent filtering, searching, and batch processing capabilities.
 
@@ -6,33 +6,33 @@ Advanced filesystem operations for AI agents. Comprehensive file and directory o
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org/)
 
-## 🚀 Features
+##  Features
 
-### 📋 **Smart File Listing**
+###  **Smart File Listing**
 - **Advanced Filtering** - Filter by file types, patterns, size, and date
 - **Recursive Traversal** - Deep directory scanning with depth control  
 - **Rich Formatting** - Table, tree, and JSON output formats
 - **Sort Options** - By name, size, date, or type
 
-### 🔍 **Powerful Search**
+###  **Powerful Search**
 - **Pattern Matching** - Glob patterns and regex support
 - **Content Search** - Full-text search within files
 - **Multi-criteria** - Combine filename and content searches
 - **Context Display** - Show matching lines with context
 
-### 🔄 **Batch Operations**
+###  **Batch Operations**
 - **Safe Copying** - Pattern-based file copying with validation
 - **Dry Run Mode** - Preview operations before execution
 - **Progress Tracking** - Real-time operation progress
 - **Error Handling** - Graceful failure recovery
 
-### 🌳 **Directory Analysis**
+###  **Directory Analysis**
 - **Tree Visualization** - ASCII tree structure display
 - **Statistics** - File counts, size distribution, type analysis
 - **Space Analysis** - Identify large files and directories
 - **Performance Metrics** - Operation timing and optimization
 
-## 📦 Installation
+##  Installation
 
 ### Via ClawdHub (Recommended)
 
@@ -54,7 +54,7 @@ chmod +x filesystem
 npm install -g .
 ```
 
-## 🛠️ Usage
+##  Usage
 
 ### Basic Commands
 
@@ -110,7 +110,7 @@ filesystem list --path /tmp --sort date --details
 filesystem list --path /tmp --filter "*.tmp" --details
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 The skill uses a `config.json` file for default settings:
 
@@ -132,7 +132,7 @@ The skill uses a `config.json` file for default settings:
 }
 ```
 
-## 📖 Command Reference
+##  Command Reference
 
 ### `filesystem list`
 List files and directories with advanced filtering.
@@ -191,7 +191,7 @@ Analyze directory structure and statistics.
 | `--sizes` | Size distribution | false |
 | `--largest` | Show N largest files | 10 |
 
-## 🛡️ Safety Features
+##  Safety Features
 
 - **Path Validation** - Prevents directory traversal attacks
 - **Permission Checks** - Verifies access before operations
@@ -200,7 +200,7 @@ Analyze directory structure and statistics.
 - **Size Limits** - Prevents processing huge files
 - **Timeout Protection** - Prevents infinite operations
 
-## 🔧 Integration
+##  Integration
 
 ### With Other Clawdbot Skills
 
@@ -228,7 +228,7 @@ filesystem search --pattern "TODO|FIXME" --content --path ./src
 filesystem copy --pattern "*.config*" --to ./backup/$(date +%Y%m%d)/
 ```
 
-## 🧪 Testing
+##  Testing
 
 Test the installation:
 
@@ -248,7 +248,7 @@ filesystem tree --depth 2 --size
 filesystem analyze --stats --types
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -275,7 +275,7 @@ filesystem tree --depth 2
 node -e "console.log(require('./config.json').performance)"
 ```
 
-## 📈 Performance Tips
+##  Performance Tips
 
 - Use `--filter` to narrow file scope
 - Set appropriate `--depth` limits for tree operations  
@@ -283,33 +283,33 @@ node -e "console.log(require('./config.json').performance)"
 - Use `--dry-run` first for batch operations
 - Monitor output with `--stats` for large directories
 
-## 🤝 Contributing
+##  Contributing
 
 1. **Report Issues** - Submit bugs and feature requests
 2. **Add Patterns** - Contribute common file patterns
 3. **Performance** - Submit optimization improvements
 4. **Documentation** - Help improve examples and guides
 
-## 📄 License
+##  License
 
 MIT License - Free for personal and commercial use.
 
 See [LICENSE](LICENSE) file for details.
 
-## 🔗 Links
+##  Links
 
 - **ClawdHub** - [clawdhub.com/unknown/clawdbot-filesystem](https://clawdhub.com/unknown/clawdbot-filesystem)
 - **Issues** - [GitHub Issues](https://github.com/gtrusler/clawdbot-filesystem/issues)
 - **Documentation** - [Clawdbot Docs](https://docs.clawd.bot)
 
-## 📢 Updates & Community
+##  Updates & Community
 
 **Stay informed about the latest Clawdbot skills and filesystem tools:**
 
-- 🐦 **Follow [@LexpertAI](https://x.com/LexpertAI)** on X for skill updates and releases
-- 🛠️ **New filesystem features** and enhancements
-- 📋 **Best practices** for file management automation
-- 💡 **Tips and tricks** for productivity workflows
+-  **Follow [@LexpertAI](https://x.com/LexpertAI)** on X for skill updates and releases
+-  **New filesystem features** and enhancements
+-  **Best practices** for file management automation
+-  **Tips and tricks** for productivity workflows
 
 Get early access to new skills and improvements by following @LexpertAI for:
 - **Skill announcements** and new releases
@@ -319,4 +319,4 @@ Get early access to new skills and improvements by following @LexpertAI for:
 
 ---
 
-**Built with ❤️ for the Clawdbot community**
+**Built with  for the Clawdbot community**

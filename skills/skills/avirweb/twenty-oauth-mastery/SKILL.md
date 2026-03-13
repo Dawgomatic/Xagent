@@ -42,12 +42,12 @@ keywords:
 
 You should use this skill when working on:
 
-✅ **Implementing** new OAuth providers  
-✅ **Fixing** OAuth login issues  
-✅ **Setting up** automatic Gmail/Calendar sync after OAuth  
-✅ **Debugging** token refresh failures  
-✅ **Configuring** domain restrictions  
-✅ **Troubleshooting** redirect loops  
+ **Implementing** new OAuth providers  
+ **Fixing** OAuth login issues  
+ **Setting up** automatic Gmail/Calendar sync after OAuth  
+ **Debugging** token refresh failures  
+ **Configuring** domain restrictions  
+ **Troubleshooting** redirect loops  
 
 ### Quick Reference for Common Issues
 
@@ -92,7 +92,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
       clientSecret: twentyConfigService.get('AUTH_GOOGLE_CLIENT_SECRET'),
       callbackURL: twentyConfigService.get('AUTH_GOOGLE_CALLBACK_URL'),
       scope: getGoogleApisOauthScopes(),
-      passReqToCallback: true, // 🔴 CRITICAL: Required for request state
+      passReqToCallback: true, //  CRITICAL: Required for request state
     });
   }
 
@@ -102,7 +102,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
     _refreshToken: string,
     profile: GoogleProfile,
   ) {
-    // 🔴 CRITICAL: Include tokens in return object
+    //  CRITICAL: Include tokens in return object
     // Without this, automatic sync setup fails
     return {
       ...profile,
@@ -152,7 +152,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
      path: '/',
      secure: true,
      sameSite: 'lax',
-     httpOnly: false, // 🔴 Must be false for JavaScript access
+     httpOnly: false, //  Must be false for JavaScript access
    });
    ```
 
@@ -166,19 +166,19 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 
 1. **Google Strategy** (`google.auth.strategy.ts`):
    ```typescript
-   // ❌ WRONG - Hardcoded
+   //  WRONG - Hardcoded
    hd: 'company.com'
    
-   // ✅ CORRECT - Remove hd parameter
+   //  CORRECT - Remove hd parameter
    // (no hd parameter)
    ```
 
 2. **Controller** (`google-auth.controller.ts`):
    ```typescript
-   // ❌ WRONG - Hardcoded check
+   //  WRONG - Hardcoded check
    if (hostedDomain !== 'company.com') { throw ... }
    
-   // ✅ CORRECT - Allowlist
+   //  CORRECT - Allowlist
    const allowedOAuthDomains = ['company.com', 'company.co'];
    if (!hostedDomain || !allowedOAuthDomains.includes(hostedDomain)) {
      throw new UnauthorizedException(
@@ -205,10 +205,10 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 ```typescript
 // google.auth.strategy.ts validate()
 async validate(request, accessToken, refreshToken, profile) {
-  // ❌ WRONG - Tokens lost
+  //  WRONG - Tokens lost
   return { ...profile };
   
-  // ✅ CORRECT - Tokens preserved
+  //  CORRECT - Tokens preserved
   return {
     ...profile,
     accessToken,
@@ -241,7 +241,7 @@ useEffect(() => {
   if (tokenPairFromUrl) {
     const tokenSignature = JSON.stringify(tokenPairFromUrl);
     
-    // 🔴 CRITICAL: Skip if already processed
+    //  CRITICAL: Skip if already processed
     if (processedTokenSignatures.current.has(tokenSignature)) {
       return;
     }
@@ -286,7 +286,7 @@ useEffect(() => {
    // auth.service.ts:signInUpWithSocialSSO()
    const { redirectUrl, authTokens } = await this.generateTokens(...);
    
-   // 🔴 CRITICAL: Call sync setup BEFORE redirect
+   //  CRITICAL: Call sync setup BEFORE redirect
    if (provider === 'google') {
      try {
        await this.oauthSyncService.setupSyncForOAuthUser({
@@ -324,7 +324,7 @@ async refreshTokens(refreshToken: string): Promise<ConnectedAccountTokens> {
   try {
     const { token } = await oAuth2Client.getAccessToken();
     
-    // 🔴 CRITICAL: Preserve original refresh token
+    //  CRITICAL: Preserve original refresh token
     // Google may not return a new one
     return {
       accessToken: token,
@@ -346,7 +346,7 @@ export const parseGoogleOAuthError = (error: unknown) => {
   switch (code) {
     case 400:
       if (reason === 'invalid_grant') {
-        // 🔴 FATAL: Refresh token expired/revoked
+        //  FATAL: Refresh token expired/revoked
         return new ConnectedAccountRefreshAccessTokenException(
           'invalid_grant',
           ConnectedAccountRefreshAccessTokenExceptionCode.INVALID_REFRESH_TOKEN,
@@ -359,7 +359,7 @@ export const parseGoogleOAuthError = (error: unknown) => {
         ConnectedAccountRefreshAccessTokenExceptionCode.UNAUTHORIZED,
       );
     case 429:
-      // 🔴 RETRYABLE: Rate limit error
+      //  RETRYABLE: Rate limit error
       return new ConnectedAccountRefreshAccessTokenException(
         'rate_limit',
         ConnectedAccountRefreshAccessTokenExceptionCode.RATE_LIMIT_ERROR,
@@ -506,7 +506,7 @@ docker logs fratres-twenty --tail 100 | grep -i oauth
 
 ---
 
-### 10. Common Pitfalls ❌
+### 10. Common Pitfalls 
 
 1. **Forgetting to rebuild** - Source changes don't auto-compile
 2. **Hardcoding domains** - Use allowlists instead

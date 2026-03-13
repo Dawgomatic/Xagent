@@ -3,7 +3,7 @@ name: prompt-enhancer
 description: Automatically rewrites rough user inputs into optimized, structured prompts for dramatically better AI responses. Prefix any message with "p:" to activate.
 version: 1.0.0
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🔧","homepage":"https://github.com/openclaw/clawhub"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://github.com/openclaw/clawhub"}}
 ---
 
 # Prompt Enhancer
@@ -60,7 +60,7 @@ Set the quality bar: production-ready, beginner-friendly, concise, etc. Add rele
 
 Before giving your response, always show the user what enhanced prompt you are answering. Format it as a quote block:
 
-> 🔧 **Enhanced prompt:**
+>  **Enhanced prompt:**
 > [Your rewritten, optimized prompt here]
 
 This serves two purposes:
@@ -75,7 +75,7 @@ Now answer the enhanced prompt fully, as if it were the original instruction. Gi
 
 Your response must always follow this structure when the skill triggers:
 
-> 🔧 **Enhanced prompt:**
+>  **Enhanced prompt:**
 > [The enhanced prompt]
 
 [Your full response to the enhanced prompt]

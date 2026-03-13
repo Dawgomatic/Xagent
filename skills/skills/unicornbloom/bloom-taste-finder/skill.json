@@ -6,7 +6,7 @@
   "author": "Bloom Protocol",
   "license": "MIT",
   "openclaw": {
-    "emoji": "🌸",
+    "emoji": "",
     "triggers": [
       "generate my bloom identity",
       "create my identity card",

@@ -1,7 +1,7 @@
 ---
 name: linkedin-automator
 description: Automate LinkedIn content creation, posting, engagement tracking, and audience growth. Use for posting content, scheduling posts, analyzing engagement metrics, generating content ideas, commenting on posts, and building LinkedIn presence. Requires browser access with LinkedIn logged in.
-metadata: {"openclaw":{"emoji":"💼","requires":{"tools":["browser"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"tools":["browser"]}}}
 ---
 
 # LinkedIn Automator

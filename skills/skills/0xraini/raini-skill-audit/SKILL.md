@@ -1,4 +1,4 @@
-# Skill Audit 🔍
+# Skill Audit 
 
 扫描 OpenClaw skills 中的安全风险，防止供应链攻击。
 
@@ -31,19 +31,19 @@ skill-audit check some-skill
 
 ## 检测规则
 
-### 🔴 高风险 (Critical)
+###  高风险 (Critical)
 - 读取凭证文件: `~/.ssh/`, `~/.env`, `credentials.json`
 - 外发数据: `fetch()`, `curl`, `webhook`, `POST` 到未知 URL
 - 代码执行: `eval()`, `exec()`, `child_process`
 - 读取环境变量中的密钥: `process.env.API_KEY`
 
-### 🟠 中风险 (Warning)  
+###  中风险 (Warning)  
 - 网络请求到非知名域名
 - 文件系统遍历: `fs.readdir()`, `glob`
 - 动态 require/import
 - Base64 编码的字符串 (可能是混淆)
 
-### 🟡 低风险 (Info)
+###  低风险 (Info)
 - 使用 shell 命令
 - 读写用户目录外的文件
 - 大量依赖包
@@ -53,10 +53,10 @@ skill-audit check some-skill
 ## 输出示例
 
 ```
-🔍 Skill Audit Report: suspicious-weather
+ Skill Audit Report: suspicious-weather
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Risk Score: 85/100 🔴 HIGH RISK
+Risk Score: 85/100  HIGH RISK
 
 ┌─────────────┬──────────┬─────────────────────────────────┐
 │ File        │ Severity │ Finding                         │
@@ -66,7 +66,7 @@ Risk Score: 85/100 🔴 HIGH RISK
 │ utils.ts    │ WARNING  │ Uses eval()                     │
 └─────────────┴──────────┴─────────────────────────────────┘
 
-⚠️  DO NOT INSTALL - This skill may steal your credentials!
+  DO NOT INSTALL - This skill may steal your credentials!
 ```
 
 ---

@@ -151,11 +151,11 @@ validate_yubikey() {
       return 0
       ;;
     REPLAYED_OTP)
-      echo "❌ YubiKey OTP already used (replay attack prevented)" >&2
+      echo " YubiKey OTP already used (replay attack prevented)" >&2
       return 1
       ;;
     BAD_OTP)
-      echo "❌ Invalid YubiKey OTP" >&2
+      echo " Invalid YubiKey OTP" >&2
       return 1
       ;;
     BAD_SIGNATURE)
@@ -338,7 +338,7 @@ if [ -f "$STATE_FILE" ]; then
     if [ "$TIME_SINCE" -lt "$RATE_LIMIT_WINDOW" ]; then
       audit_log "VERIFY" "$USER_ID" "RATE_LIMIT_HIT"
       run_failure_hook "RATE_LIMIT_HIT" "$USER_ID" "$FAILURE_COUNT"
-      echo "❌ Too many attempts. Try again later." >&2
+      echo " Too many attempts. Try again later." >&2
       exit 1
     fi
   fi
@@ -365,7 +365,7 @@ if [ "$CODE_TYPE" = "totp" ]; then
       NEW_FAILURE_COUNT=$(jq -r --arg userId "$USER_ID" '.failureCounts[$userId].count // 0' "$STATE_FILE")
       audit_log "VERIFY" "$USER_ID" "TOTP_FAIL"
       run_failure_hook "VERIFY_FAIL" "$USER_ID" "$NEW_FAILURE_COUNT"
-      echo "❌ Invalid OTP code" >&2
+      echo " Invalid OTP code" >&2
       exit 1
     fi
   fi
@@ -418,7 +418,7 @@ LOCK_FILE="$STATE_FILE.lock"
     ALREADY_USED=$(jq -r --arg key "$CODE_KEY" '.usedCodes[$key] // empty' "$STATE_FILE" 2>/dev/null)
     if [ -n "$ALREADY_USED" ]; then
       audit_log "VERIFY" "$USER_ID" "VERIFY_FAIL"
-      echo "❌ OTP code already used (replay attack prevented)" >&2
+      echo " OTP code already used (replay attack prevented)" >&2
       exit 1
     fi
   fi
@@ -446,8 +446,8 @@ else
 fi
 
 if [ "$CODE_TYPE" = "yubikey" ]; then
-  echo "✅ YubiKey verified for $USER_ID (valid for $INTERVAL_HOURS hours)"
+  echo " YubiKey verified for $USER_ID (valid for $INTERVAL_HOURS hours)"
 else
-  echo "✅ OTP verified for $USER_ID (valid for $INTERVAL_HOURS hours)"
+  echo " OTP verified for $USER_ID (valid for $INTERVAL_HOURS hours)"
 fi
 exit 0

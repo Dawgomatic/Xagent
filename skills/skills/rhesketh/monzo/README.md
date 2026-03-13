@@ -1,6 +1,6 @@
 # Monzo Banking Skill for OpenClaw
 
-> ⚠️ **Disclaimer:** This software was built for personal use and is provided as-is, without warranty of any kind, express or implied. Use at your own risk. This is not affiliated with or endorsed by Monzo Bank. You are solely responsible for securing your credentials and for any actions taken through the Monzo API using this skill.
+>  **Disclaimer:** This software was built for personal use and is provided as-is, without warranty of any kind, express or implied. Use at your own risk. This is not affiliated with or endorsed by Monzo Bank. You are solely responsible for securing your credentials and for any actions taken through the Monzo API using this skill.
 
 A skill for [OpenClaw](https://github.com/openclaw/openclaw) that provides access to [Monzo](https://monzo.com) bank accounts via the Monzo API. Check balances, view transactions, manage savings pots, send in-app notifications.
 

@@ -102,7 +102,7 @@ Spawn gsd-roadmapper with:
 
 {N} phases | {M} requirements
 
-**▶ Next:** `/gsd plan-phase {first-phase}`
+** Next:** `/gsd plan-phase {first-phase}`
 
 ---
 ```

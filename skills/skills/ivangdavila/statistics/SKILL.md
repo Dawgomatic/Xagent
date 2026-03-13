@@ -1,7 +1,7 @@
 ---
 name: Statistics
 description: Build statistical intuition from basic probability to advanced inference.
-metadata: {"clawdbot":{"emoji":"📊","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

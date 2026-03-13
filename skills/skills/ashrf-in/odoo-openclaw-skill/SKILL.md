@@ -41,7 +41,7 @@ This skill **REQUIRES** Odoo connection credentials stored in `assets/autonomous
 | `ODOO_USER` | Odoo username/email | No | **Yes** |
 | `ODOO_PASSWORD` | Odoo API key (recommended) or password | **Yes** | **Yes** |
 
-**⚠️ CRITICAL**: These credentials are REQUIRED. The skill will not function without them.
+** CRITICAL**: These credentials are REQUIRED. The skill will not function without them.
 
 **Setup:**
 ```bash
@@ -77,7 +77,7 @@ nano .env
 
 ### Model Invocation Policy
 
-**🚫 Model invocation is STRICTLY DISABLED.**
+** Model invocation is STRICTLY DISABLED.**
 
 Per `skill.json`:
 ```json

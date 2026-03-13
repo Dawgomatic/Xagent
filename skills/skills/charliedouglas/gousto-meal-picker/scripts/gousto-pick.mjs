@@ -74,7 +74,7 @@ function getToken() {
     const expiryData = JSON.parse(decodeURIComponent(expiryCookie.value));
     const expiresAt = new Date(expiryData.expires_at);
     if (expiresAt < new Date()) {
-      console.log('⚠️  Token expired. Attempting refresh...');
+      console.log('  Token expired. Attempting refresh...');
       return refreshToken(state);
     }
   }
@@ -328,20 +328,20 @@ function selectMeals(recipes, existingRecipes = []) {
 // ── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
-  console.log('🍽️  Gousto Meal Picker');
+  console.log('  Gousto Meal Picker');
   console.log(DRY_RUN ? '  (DRY RUN - no changes will be made)' : '');
   
   // 1. Get auth token
   console.log('\n1. Getting auth token...');
   const token = getToken();
-  console.log('   ✅ Got token');
+  console.log('    Got token');
   
   // 2. Verify auth
   const user = api('GET', '/user/current', null, token);
   if (user.status === 'error') throw new Error('Auth failed: ' + user.error);
   const userId = user.result?.data?.user?.auth_user_id || CONFIG.userId;
   const numericUserId = user.result?.data?.user?.id;
-  console.log(`   👤 Logged in as ${user.result?.data?.user?.name_first}`);
+  console.log(`    Logged in as ${user.result?.data?.user?.name_first}`);
   
   // 3. Get pending orders
   console.log('\n2. Checking upcoming orders...');
@@ -376,7 +376,7 @@ async function main() {
   if (WEEK_ARG) {
     targetOrder = orderDetails.find(o => o.id === WEEK_ARG);
     if (!targetOrder) {
-      console.log(`   ❌ Order ${WEEK_ARG} not found`);
+      console.log(`    Order ${WEEK_ARG} not found`);
       process.exit(1);
     }
   } else {
@@ -391,12 +391,12 @@ async function main() {
   }
   
   if (!targetOrder) {
-    console.log('   ✅ All orders already have recipes chosen!');
+    console.log('    All orders already have recipes chosen!');
     process.exit(0);
   }
   
   const slotsNeeded = 4 - targetOrder.recipeCount;
-  console.log(`   🎯 Target: Order ${targetOrder.id} (${targetOrder.recipeCount}/4 recipes, need ${slotsNeeded} more)`);
+  console.log(`    Target: Order ${targetOrder.id} (${targetOrder.recipeCount}/4 recipes, need ${slotsNeeded} more)`);
   
   // 5. Get existing recipe details
   const existingRecipes = targetOrder.included.filter(i => i.type === 'recipe').map(r => ({
@@ -448,7 +448,7 @@ async function main() {
   }
   
   if (!deliveryDate) {
-    console.log('   ⚠️  Could not determine delivery date, trying without...');
+    console.log('     Could not determine delivery date, trying without...');
   }
   
   const menuParams = new URLSearchParams({
@@ -463,14 +463,14 @@ async function main() {
   const menuResp = api('GET', `/menu/v3/menus?${menuParams}`, null, token);
   const menuRecipes = menuResp.recipes || {};
   const recipeList = Object.entries(menuRecipes).map(([id, r]) => ({ ...r, id }));
-  console.log(`   📋 ${recipeList.length} recipes available`);
+  console.log(`    ${recipeList.length} recipes available`);
   
   // 7. Select meals
   console.log('\n5. Selecting meals...');
   const { selected, proteinCounts, pastaCount, riceCount } = selectMeals(recipeList, existingRecipes);
   
   if (selected.length === 0) {
-    console.log('   ❌ Could not find suitable recipes!');
+    console.log('    Could not find suitable recipes!');
     process.exit(1);
   }
   
@@ -478,7 +478,7 @@ async function main() {
   selected.forEach(r => {
     const prepTime = r._prepTime || r.prep_time || '?';
     const kcal = r.nutritional_information?.per_portion?.energy_kcal || '?';
-    console.log(`     🍽️  ${r.name} | ${prepTime} mins | ${kcal} kcal | ${r._protein} | score: ${r._score}`);
+    console.log(`       ${r.name} | ${prepTime} mins | ${kcal} kcal | ${r._protein} | score: ${r._score}`);
   });
   
   console.log(`   Protein mix: ${JSON.stringify(proteinCounts)}`);
@@ -533,13 +533,13 @@ async function main() {
     const updateResp = api('PUT', `/order/v2/orders/${targetOrder.id}`, payload, token);
     
     if (updateResp.errors) {
-      console.error('   ❌ Failed:', JSON.stringify(updateResp.errors));
+      console.error('    Failed:', JSON.stringify(updateResp.errors));
       process.exit(1);
     }
     
     const finalComps = updateResp.data?.relationships?.components?.data || [];
     const finalRecipes = (updateResp.included || []).filter(i => i.type === 'recipe');
-    console.log(`   ✅ Order updated! ${finalComps.length} recipes:`);
+    console.log(`    Order updated! ${finalComps.length} recipes:`);
     finalRecipes.forEach(r => {
       console.log(`     - ${r.attributes?.name} | ${r.attributes?.prep_times?.for2 || '?'} mins | ${r.attributes?.calories?.for2 || '?'} kcal`);
     });
@@ -563,7 +563,7 @@ async function main() {
     dryRun: DRY_RUN,
   };
   fs.writeFileSync(SELECTIONS_FILE, JSON.stringify(selections, null, 2));
-  console.log('\n✅ Done!');
+  console.log('\n Done!');
   
   // Output summary for the agent
   return {
@@ -575,8 +575,8 @@ async function main() {
 }
 
 main().then(result => {
-  if (result) console.log('\n📊 Summary:', JSON.stringify(result, null, 2));
+  if (result) console.log('\n Summary:', JSON.stringify(result, null, 2));
 }).catch(err => {
-  console.error('❌ Error:', err.message);
+  console.error(' Error:', err.message);
   process.exit(1);
 });

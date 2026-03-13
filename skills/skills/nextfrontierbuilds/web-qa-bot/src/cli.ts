@@ -199,7 +199,7 @@ async function runSuite(suitePath: string, options: Record<string, any>) {
     console.log()
 
     for (const test of result.tests) {
-      const icon = test.status === 'pass' ? '✓' : test.status === 'fail' ? '✗' : test.status === 'warn' ? '⚠' : '○'
+      const icon = test.status === 'pass' ? '✓' : test.status === 'fail' ? '✗' : test.status === 'warn' ? '' : '○'
       console.log(`${icon} ${test.name}`)
       if (test.error) {
         console.log(`  → ${test.error}`)

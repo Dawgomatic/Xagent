@@ -1,6 +1,6 @@
 # Markdown-Formatter
 
-**Format markdown. Keep your docs beautiful.** 🔮
+**Format markdown. Keep your docs beautiful.** 
 
 ## Quick Start
 
@@ -15,12 +15,12 @@ node index.js formatMarkdown '{"markdown":"# My Title","style":"github"}'
 
 ## Features
 
-- ✅ Multiple style guides (CommonMark, GitHub Flavored Markdown, custom rules)
-- ✅ Linting & Cleanup
-- ✅ Beautification
-- ✅ Validation
-- ✅ Smart heading normalization
-- ✅ Link reference optimization
+-  Multiple style guides (CommonMark, GitHub Flavored Markdown, custom rules)
+-  Linting & Cleanup
+-  Beautification
+-  Validation
+-  Smart heading normalization
+-  Link reference optimization
 
 ## Tool Functions
 
@@ -134,4 +134,4 @@ console.log(`Warnings: ${result.warnings.length}`);
 
 ---
 
-**Format markdown. Keep your docs beautiful.** 🔮
+**Format markdown. Keep your docs beautiful.** 

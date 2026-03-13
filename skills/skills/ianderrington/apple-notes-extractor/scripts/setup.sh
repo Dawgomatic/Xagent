@@ -3,7 +3,7 @@
 
 set -e  # Exit on any error
 
-echo "🍎 Setting up Apple Notes Extraction System..."
+echo " Setting up Apple Notes Extraction System..."
 echo "=============================================="
 
 # Get the script directory
@@ -18,19 +18,19 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 print_status() {
-    echo -e "${BLUE}ℹ️${NC} $1"
+    echo -e "${BLUE}${NC} $1"
 }
 
 print_success() {
-    echo -e "${GREEN}✅${NC} $1"
+    echo -e "${GREEN}${NC} $1"
 }
 
 print_warning() {
-    echo -e "${YELLOW}⚠️${NC} $1"
+    echo -e "${YELLOW}${NC} $1"
 }
 
 print_error() {
-    echo -e "${RED}❌${NC} $1"
+    echo -e "${RED}${NC} $1"
 }
 
 # Check if we're on macOS
@@ -262,22 +262,22 @@ fi
 
 # Final setup summary
 echo ""
-echo "🎉 Setup Complete!"
+echo " Setup Complete!"
 echo "=================="
 echo ""
 print_success "Apple Notes Extraction System is ready to use"
 echo ""
-echo "📖 Quick Start:"
+echo " Quick Start:"
 echo "  cd $(basename "$ROOT_DIR")"
 echo "  python3 scripts/extract-notes.py --method simple    # Fast text extraction"
 echo "  python3 scripts/extract-notes.py --method full      # Complete extraction with attachments"
 echo "  python3 scripts/extract-notes.py --method auto      # Automatic method selection"
 echo ""
-echo "🔧 Configuration:"
+echo " Configuration:"
 echo "  Edit configs/extractor.json to customize extraction settings"
 echo "  Edit configs/monitor.json to set up automatic monitoring"
 echo ""
-echo "📁 Output:"
+echo " Output:"
 echo "  JSON files: output/json/"
 echo "  Markdown files: output/markdown/"
 echo "  Attachments: output/attachments/"

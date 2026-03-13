@@ -1,7 +1,7 @@
 /**
  * guard-scanner Runtime Guard — Hook Handler (LEGACY)
  *
- * ⚠️ DEPRECATED: Use plugin.ts instead.
+ *  DEPRECATED: Use plugin.ts instead.
  * This Internal Hook version can only WARN, not block.
  * The Plugin Hook version (plugin.ts) uses the native
  * `block` / `blockReason` API to actually prevent execution.
@@ -23,7 +23,7 @@
  *   enforce  — will block CRITICAL when cancel API is available
  *   strict   — will block HIGH+CRITICAL when cancel API is available
  *
- * @author Guava 🍈 & Dee
+ * @author Guava  & Dee
  * @version 1.1.0
  * @license MIT
  */
@@ -177,7 +177,7 @@ const handler: HookHandler = async (event) => {
             // if (mode === 'strict' && (check.severity === 'CRITICAL' || check.severity === 'HIGH')) {
             //     entry.action = 'blocked';
             //     logAudit(entry);
-            //     event.messages.push(`🛡️ guard-scanner BLOCKED: ${check.desc} [${check.id}]`);
+            //     event.messages.push(` guard-scanner BLOCKED: ${check.desc} [${check.id}]`);
             //     event.cancel = true;  // Not yet in the public API
             //     return;
             // }
@@ -185,7 +185,7 @@ const handler: HookHandler = async (event) => {
             // if (mode === 'enforce' && check.severity === 'CRITICAL') {
             //     entry.action = 'blocked';
             //     logAudit(entry);
-            //     event.messages.push(`🛡️ guard-scanner BLOCKED: ${check.desc} [${check.id}]`);
+            //     event.messages.push(` guard-scanner BLOCKED: ${check.desc} [${check.id}]`);
             //     event.cancel = true;  // Not yet in the public API
             //     return;
             // }
@@ -194,11 +194,11 @@ const handler: HookHandler = async (event) => {
             logAudit(entry);
 
             if (check.severity === 'CRITICAL') {
-                event.messages.push(`🛡️ guard-scanner WARNING: ${check.desc} [${check.id}]`);
-                console.warn(`[guard-scanner] ⚠️ WARNING: ${check.desc} [${check.id}]`);
+                event.messages.push(` guard-scanner WARNING: ${check.desc} [${check.id}]`);
+                console.warn(`[guard-scanner]  WARNING: ${check.desc} [${check.id}]`);
             } else if (check.severity === 'HIGH') {
-                event.messages.push(`🛡️ guard-scanner NOTICE: ${check.desc} [${check.id}]`);
-                console.warn(`[guard-scanner] ℹ️ NOTICE: ${check.desc} [${check.id}]`);
+                event.messages.push(` guard-scanner NOTICE: ${check.desc} [${check.id}]`);
+                console.warn(`[guard-scanner]  NOTICE: ${check.desc} [${check.id}]`);
             }
         }
     }

@@ -18,7 +18,7 @@ metadata:
         - curl
     primaryEnv: LOWKEY_VIRAL_API_KEY
     homepage: https://github.com/tiotdev/lowkey-viral
-    emoji: "🎬"
+    emoji: ""
 ---
 
 # lowkey viral — AI Social Media Video & Slideshow Creator

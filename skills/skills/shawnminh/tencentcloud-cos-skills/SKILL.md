@@ -4,7 +4,7 @@ description: 腾讯云对象存储(COS)和数据万象(CI)集成 - 基于官方M
 metadata:
  {
    "openclaw": {
-     "emoji": "☁️",
+     "emoji": "",
      "homepage": "https://github.com/Tencent/cos-mcp",
      "requires": {
        "bins": ["node", "npx"],
@@ -25,19 +25,19 @@ metadata:
  }
 ---
 
-# 腾讯云COS技能 ☁️
+# 腾讯云COS技能 
 
 基于腾讯云官方 [cos-mcp](https://www.npmjs.com/package/cos-mcp) MCP服务器的Clawdbot技能，提供完整的腾讯云对象存储(COS)和数据万象(CI)能力。
 
-## ✨ 核心功能
+##  核心功能
 
-### 🗂️ 云存储操作
+###  云存储操作
 - **文件上传**: 上传本地文件到COS存储桶
 - **文件下载**: 从COS下载文件到本地
 - **文件列表**: 查看存储桶中的文件
 - **文件管理**: 删除、复制、移动文件
 
-### 🖼️ 图片处理 (数据万象CI)
+###  图片处理 (数据万象CI)
 - **图片信息**: 获取图片元数据
 - **质量评估**: 评估图片质量分数
 - **超分辨率**: AI提升图片分辨率
@@ -45,15 +45,15 @@ metadata:
 - **二维码识别**: 识别图片中的二维码
 - **文字水印**: 添加文字水印到图片
 
-### 🔍 智能搜索
+###  智能搜索
 - **以图搜图**: 上传图片搜索相似图片
 - **文本搜图**: 用文字描述搜索相关图片
 
-### 📄 文档处理
+###  文档处理
 - **文档转换**: 支持多种格式转PDF
 - **视频处理**: 视频封面生成、截帧
 
-## 🔧 安装配置
+##  安装配置
 
 ### 1. 安装依赖
 ```bash
@@ -90,7 +90,7 @@ export TENCENT_COS_BUCKET="your-bucket-name-123456"
 }
 ```
 
-## 📖 使用指南
+##  使用指南
 
 ### 基础文件操作
 ```
@@ -143,7 +143,7 @@ export TENCENT_COS_BUCKET="your-bucket-name-123456"
 生成视频封面: video.mp4
 ```
 
-## 🛠️ 工具列表
+##  工具列表
 
 ### 存储操作工具
 | 工具名 | 描述 | 参数示例 |
@@ -176,7 +176,7 @@ export TENCENT_COS_BUCKET="your-bucket-name-123456"
 | `cos_convert_to_pdf` | 文档转PDF | `cos_key` |
 | `cos_generate_video_cover` | 生成视频封面 | `cos_key` |
 
-## 🚀 快速开始示例
+##  快速开始示例
 
 ### 示例1: 批量上传图片并处理
 ```
@@ -205,7 +205,7 @@ export TENCENT_COS_BUCKET="your-bucket-name-123456"
 5. 发送处理通知
 ```
 
-## ⚙️ 高级配置
+##  高级配置
 
 ### 自定义MCP服务器配置
 ```json
@@ -239,7 +239,7 @@ export TENCENT_COS_ENV="production"
 export TENCENT_COS_BUCKET="prod-bucket-123456"
 ```
 
-## 🔒 安全最佳实践
+##  安全最佳实践
 
 ### 1. 密钥管理
 - 使用环境变量存储密钥，不要硬编码
@@ -256,7 +256,7 @@ export TENCENT_COS_BUCKET="prod-bucket-123456"
 - 敏感数据单独存储
 - 定期备份重要数据
 
-## 🐛 故障排除
+##  故障排除
 
 ### 常见问题
 1. **认证失败**
@@ -283,7 +283,7 @@ export TENCENT_COS_DEBUG="true"
 cos-mcp --Region=ap-guangzhou --Bucket=test --SecretId=test --SecretKey=test --connectType=sse --port=3001
 ```
 
-## 📞 支持与贡献
+##  支持与贡献
 
 ### 官方资源
 - **腾讯云COS文档**: https://cloud.tencent.com/document/product/436
@@ -302,7 +302,7 @@ cos-mcp --Region=ap-guangzhou --Bucket=test --SecretId=test --SecretKey=test --c
 3. 提交更改
 4. 创建Pull Request
 
-## 📄 许可证
+##  许可证
 本技能基于腾讯云cos-mcp项目，遵循BSD-3许可证。
 
 ---

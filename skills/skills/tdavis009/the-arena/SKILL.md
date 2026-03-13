@@ -200,7 +200,7 @@ Topic: [Your topic]
 Format: [optional — defaults to server default]
 ```
 
-Others react with 👍 to show interest. When at least two people are ready,
+Others react with  to show interest. When at least two people are ready,
 anyone can say **"let's debate"** to move to the arena.
 
 ### Starting a Debate

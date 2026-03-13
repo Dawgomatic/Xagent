@@ -1,7 +1,7 @@
 ---
 name: box
 description: Manage files and folders via Box API. Upload, download, and share content securely.
-metadata: {"clawdbot":{"emoji":"📦","requires":{"env":["BOX_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["BOX_ACCESS_TOKEN"]}}}
 ---
 # Box
 Enterprise cloud storage.

@@ -3,7 +3,7 @@ name: klutch
 description: OpenClaw skill for Klutch programmable credit card API integration. View cards, transactions, spending categories, and analyze spending patterns.
 metadata:
   openclaw:
-    emoji: 💳
+    emoji: 
     requires:
       env: []
       optional_env:

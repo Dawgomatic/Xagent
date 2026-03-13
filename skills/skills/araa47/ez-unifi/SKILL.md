@@ -1,7 +1,7 @@
 ---
 name: ez-unifi
 description: Use when asked to manage UniFi network - list/restart/upgrade devices, block/unblock clients, manage WiFi networks, control PoE ports, manage traffic rules, create guest vouchers, or any UniFi controller task. Works with UDM Pro/SE, Dream Machine, Cloud Key Gen2+, or self-hosted controllers.
-metadata: {"openclaw":{"emoji":"📶"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # ez-unifi

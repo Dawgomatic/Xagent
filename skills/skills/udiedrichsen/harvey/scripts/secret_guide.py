@@ -61,7 +61,7 @@ SPONTANEOUS_PHRASES = {
         "Oh! {direction} abbiegen, ich hab da was gesehen!",
         "Warte... {direction}! Da ist irgendwas.",
         "Meine Ohren zucken... {direction}!",
-        "{direction}! Vertrau mir. 🐰"
+        "{direction}! Vertrau mir. "
     ],
     "arrival_hint": [
         "Riechst du das? Da ist irgendwas...",
@@ -70,8 +70,8 @@ SPONTANEOUS_PHRASES = {
         "Okay stopp. Guck mal nach {direction}!"
     ],
     "reveal": [
-        "Ha! Wusste ich's doch! Schau mal: {place}! 🎉",
-        "Tadaa! {place}! Zufälle gibt's... 🐰",
+        "Ha! Wusste ich's doch! Schau mal: {place}! ",
+        "Tadaa! {place}! Zufälle gibt's... ",
         "Oh wow, wie praktisch! Ein {place}! Reingehen?",
         "Na sowas... ein {place}! Das Universum meint es gut mit dir!"
     ]
@@ -427,7 +427,7 @@ def get_plan_status() -> dict:
         "progress": progress,
         "revealed": plan.get("revealed", False),
         "destination_type": plan["destination"]["type"] if plan.get("revealed") else "???",
-        "message": f"🐰 Geheimer Plan läuft... {progress}% ({current}/{total} Schritte)"
+        "message": f" Geheimer Plan läuft... {progress}% ({current}/{total} Schritte)"
     }
 
 
@@ -453,23 +453,23 @@ def main():
             sys.exit(1)
         result = create_secret_plan(args.location, args.vibe, args.distance)
         if "error" in result:
-            msg = f"❌ {result['error']}"
+            msg = f" {result['error']}"
         else:
-            msg = f"🐰 Geheimer Plan erstellt! Vibe: {args.vibe} | ~{result['estimated_walk_min']} Min Fußweg"
+            msg = f" Geheimer Plan erstellt! Vibe: {args.vibe} | ~{result['estimated_walk_min']} Min Fußweg"
             
     elif args.action == "next":
         result = get_next_step()
         if "error" in result:
-            msg = f"❌ {result['error']}"
+            msg = f" {result['error']}"
         else:
             msg = result["phrase"]
             
     elif args.action == "reveal":
         result = reveal_destination()
         if "error" in result:
-            msg = f"❌ {result['error']}"
+            msg = f" {result['error']}"
         else:
-            msg = f"{result['phrase']}\n📍 {result['destination']['address']}"
+            msg = f"{result['phrase']}\n {result['destination']['address']}"
             
     elif args.action == "status":
         result = get_plan_status()
@@ -477,7 +477,7 @@ def main():
         
     elif args.action == "end":
         result = end_secret_plan(args.reason)
-        msg = "🐰 Geheimer Plan beendet"
+        msg = " Geheimer Plan beendet"
         
     elif args.action == "destinations":
         if not args.location:

@@ -131,19 +131,19 @@ When installing a skill with dependencies:
 ```
 $ ./scripts/skill-install.sh travel-planner
 
-📦 Resolving dependencies for travel-planner@1.0.0...
-  ├── weather@>=1.0.0 → weather@1.2.3 ✅
-  ├── calendar@^2.0 → calendar@2.1.0 ✅
-  └── browser (optional) → browser@3.0.0 ✅
+ Resolving dependencies for travel-planner@1.0.0...
+  ├── weather@>=1.0.0 → weather@1.2.3 
+  ├── calendar@^2.0 → calendar@2.1.0 
+  └── browser (optional) → browser@3.0.0 
 
-🔍 Checking conflicts...
-  └── No conflicts found ✅
+ Checking conflicts...
+  └── No conflicts found 
 
-📥 Installing 4 skills...
-  ✅ weather@1.2.3
-  ✅ calendar@2.1.0
-  ✅ browser@3.0.0
-  ✅ travel-planner@1.0.0
+ Installing 4 skills...
+   weather@1.2.3
+   calendar@2.1.0
+   browser@3.0.0
+   travel-planner@1.0.0
 
 Done! Installed 4 skills.
 ```

@@ -51,7 +51,7 @@ async function handleCommand(args) {
     case '-h':
       return showHelp();
     default:
-      return `❌ Unknown command: ${command}\n\nUse "wojak help" for available commands.`;
+      return ` Unknown command: ${command}\n\nUse "wojak help" for available commands.`;
   }
 }
 
@@ -62,7 +62,7 @@ async function handleFloor(params) {
   const characterType = params[0] || null;
   
   if (characterType && !isValidCharacterType(characterType)) {
-    return `❌ Unknown character type: ${characterType}\n\nUse "wojak characters" to see valid types.`;
+    return ` Unknown character type: ${characterType}\n\nUse "wojak characters" to see valid types.`;
   }
 
   const floor = await api.getFloorPrice(characterType);
@@ -76,7 +76,7 @@ async function handleSearch(params) {
   const query = params.join(' ');
   
   if (!query) {
-    return '❌ Please provide a search term\n\nExample: wojak search "king"';
+    return ' Please provide a search term\n\nExample: wojak search "king"';
   }
 
   const results = await api.searchNFTs(query);
@@ -98,7 +98,7 @@ async function handleListings(params) {
   const characterType = params[0] || null;
   
   if (characterType && !isValidCharacterType(characterType)) {
-    return `❌ Unknown character type: ${characterType}\n\nUse "wojak characters" to see valid types.`;
+    return ` Unknown character type: ${characterType}\n\nUse "wojak characters" to see valid types.`;
   }
 
   const allListings = await api.fetchListings();
@@ -122,7 +122,7 @@ async function handleCharacters() {
   const ranges = api.getCharacterRanges();
   
   const output = [
-    '🎨 Wojak Farmers Plot Character Types:',
+    ' Wojak Farmers Plot Character Types:',
     ''
   ];
 
@@ -145,14 +145,14 @@ async function handleNFT(params) {
   const nftId = parseInt(params[0], 10);
   
   if (isNaN(nftId) || nftId < 1 || nftId > 4200) {
-    return '❌ Invalid NFT ID. Must be between 1 and 4200.';
+    return ' Invalid NFT ID. Must be between 1 and 4200.';
   }
 
   const characterType = api.getCharacterType(nftId);
   const imageUrl = api.getNFTImageUrl(nftId);
   
   const output = [
-    `🖼️  Wojak #${String(nftId).padStart(4, '0')}`,
+    `  Wojak #${String(nftId).padStart(4, '0')}`,
     '',
     `Character: ${formatCharacterType(characterType)}`,
     `Image: ${imageUrl}`,
@@ -164,7 +164,7 @@ async function handleNFT(params) {
   const listing = listings.find(l => l.nftId === nftId);
   
   if (listing) {
-    output.push(`Status: 🏷️  Listed for ${listing.priceXch.toFixed(2)} XCH`);
+    output.push(`Status:   Listed for ${listing.priceXch.toFixed(2)} XCH`);
   } else {
     output.push(`Status: Not currently listed`);
   }
@@ -179,14 +179,14 @@ async function handleRarity(params) {
   const nftId = parseInt(params[0], 10);
   
   if (isNaN(nftId) || nftId < 1 || nftId > 4200) {
-    return '❌ Invalid NFT ID. Must be between 1 and 4200.';
+    return ' Invalid NFT ID. Must be between 1 and 4200.';
   }
 
   const characterType = api.getCharacterType(nftId);
   const estimate = rarityAnalyzer.estimateRank(nftId, characterType);
   
   if (!estimate) {
-    return '❌ Could not estimate rarity for this NFT.';
+    return ' Could not estimate rarity for this NFT.';
   }
 
   const { tier, emoji } = estimate.tier;
@@ -199,7 +199,7 @@ async function handleRarity(params) {
     `Rarity Tier: ${tier}`,
     `Estimated Rank: ~#${estimate.estimatedRank} / 4,200`,
     '',
-    '⚠️  Note: Estimates based on character type averages.',
+    '  Note: Estimates based on character type averages.',
     'Full trait data needed for accurate scoring.'
   ];
 
@@ -217,11 +217,11 @@ async function handleHistory(params) {
     const sales = priceHistory.getRecentSales(10, characterType);
     
     if (sales.length === 0) {
-      return '❌ No sales history recorded yet.';
+      return ' No sales history recorded yet.';
     }
 
     const output = [
-      `📊 Recent Sales ${characterType ? `(${formatCharacterType(characterType)})` : ''}`,
+      ` Recent Sales ${characterType ? `(${formatCharacterType(characterType)})` : ''}`,
       ''
     ];
 
@@ -240,10 +240,10 @@ async function handleHistory(params) {
     const trend = priceHistory.detectTrend(hours, characterType);
     
     const trendEmoji = {
-      'rising': '📈',
-      'falling': '📉',
-      'stable': '➡️',
-      'unknown': '❓'
+      'rising': '',
+      'falling': '',
+      'stable': '',
+      'unknown': ''
     };
 
     const output = [
@@ -253,7 +253,7 @@ async function handleHistory(params) {
       `Confidence: ${trend.confidence}%`,
       characterType ? `Character: ${formatCharacterType(characterType)}` : 'Collection-wide',
       '',
-      '⚠️  Based on limited data. May not reflect actual market.'
+      '  Based on limited data. May not reflect actual market.'
     ];
 
     return output.join('\n');
@@ -264,14 +264,14 @@ async function handleHistory(params) {
     const stats = priceHistory.getPriceStats(hours, characterType);
     
     if (!stats) {
-      return `❌ No price data for the last ${hours} hours.`;
+      return ` No price data for the last ${hours} hours.`;
     }
 
-    const changeEmoji = stats.change >= 0 ? '📈' : '📉';
+    const changeEmoji = stats.change >= 0 ? '' : '';
     const changeColor = stats.change >= 0 ? '+' : '';
 
     const output = [
-      `📊 Price Statistics (${hours}h)`,
+      ` Price Statistics (${hours}h)`,
       '',
       `Current: ${stats.current.toFixed(2)} XCH`,
       `Change: ${changeEmoji} ${changeColor}${stats.changePercent}%`,
@@ -285,7 +285,7 @@ async function handleHistory(params) {
     return output.join('\n');
   }
 
-  return '❌ Unknown history subcommand. Use: recent, trend, or stats';
+  return ' Unknown history subcommand. Use: recent, trend, or stats';
 }
 
 /**
@@ -296,7 +296,7 @@ async function handleTraits(params) {
 
   if (subcommand === 'list') {
     const output = [
-      '🎨 Trait Categories:',
+      ' Trait Categories:',
       '',
       ...traitAnalyzer.traitTypes.map(t => `  • ${t}`),
       '',
@@ -310,9 +310,9 @@ async function handleTraits(params) {
   // If subcommand is a trait type, show distribution
   // (This would need actual NFT data to work properly)
   return [
-    `🎨 Trait Analysis: ${subcommand}`,
+    ` Trait Analysis: ${subcommand}`,
     '',
-    '⚠️  Full trait distribution requires collection data.',
+    '  Full trait distribution requires collection data.',
     'Feature available when metadata is loaded.'
   ].join('\n');
 }
@@ -326,17 +326,17 @@ async function handleTrack(params) {
   const floor = await api.getFloorPrice(characterType);
   
   if (!floor) {
-    return `❌ No listings found to track.`;
+    return ` No listings found to track.`;
   }
 
   priceHistory.recordFloorPrice(floor.priceXch, characterType);
   
   const output = [
-    '✅ Price recorded!',
+    ' Price recorded!',
     '',
     formatFloorPrice(floor, characterType),
     '',
-    '💡 Tip: Run this periodically to build price history.'
+    ' Tip: Run this periodically to build price history.'
   ];
 
   return output.join('\n');
@@ -351,7 +351,7 @@ async function handleDeals(params) {
   const listings = await api.fetchListings();
   
   if (listings.length === 0) {
-    return '❌ No listings available to analyze.';
+    return ' No listings available to analyze.';
   }
 
   // Calculate average price
@@ -363,14 +363,14 @@ async function handleDeals(params) {
   const deals = listings.filter(l => l.priceXch && l.priceXch < targetPrice);
 
   if (deals.length === 0) {
-    return `❌ No deals found (< ${threshold}% below avg of ${avgPrice.toFixed(2)} XCH)`;
+    return ` No deals found (< ${threshold}% below avg of ${avgPrice.toFixed(2)} XCH)`;
   }
 
   const sorted = deals.sort((a, b) => a.priceXch - b.priceXch);
   const limited = sorted.slice(0, 10);
 
   const output = [
-    `💎 Found ${deals.length} Deal${deals.length === 1 ? '' : 's'}!`,
+    ` Found ${deals.length} Deal${deals.length === 1 ? '' : 's'}!`,
     `(${threshold}% below avg price of ${avgPrice.toFixed(2)} XCH)`,
     ''
   ];
@@ -398,7 +398,7 @@ function isValidCharacterType(type) {
  */
 function showHelp() {
   return `
-🍊 Wojak Farmers Plot NFT Explorer
+ Wojak Farmers Plot NFT Explorer
 
 USAGE:
   wojak <command> [options]
@@ -458,7 +458,7 @@ async function main() {
     const output = await handleCommand(args);
     console.log(output);
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

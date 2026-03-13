@@ -33,7 +33,7 @@ def check_mark(ok: bool) -> str:
 
 def warn_mark() -> str:
     """Return yellow warning mark."""
-    return "[yellow]⚠[/yellow]"
+    return "[yellow][/yellow]"
 
 
 def load_json(path: Path) -> dict | None:

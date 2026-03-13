@@ -1,4 +1,4 @@
-# 📈 Alpaca Trading Skill
+#  Alpaca Trading Skill
 
 > **Command-line trading made simple.** Execute trades, monitor positions, and manage your portfolio directly from your terminal using Alpaca's powerful API.
 
@@ -11,11 +11,11 @@
 ## Why This Skill?
 
 **For developers and traders who want:**
-- ✅ **Speed**: Execute trades faster than clicking through a web interface
-- ✅ **Automation**: Script your trading strategies with simple shell commands
-- ✅ **Transparency**: See exactly what commands are being run
-- ✅ **Control**: Manage everything from your terminal without context switching
-- ✅ **Safety**: Test with paper trading before risking real money
+-  **Speed**: Execute trades faster than clicking through a web interface
+-  **Automation**: Script your trading strategies with simple shell commands
+-  **Transparency**: See exactly what commands are being run
+-  **Control**: Manage everything from your terminal without context switching
+-  **Safety**: Test with paper trading before risking real money
 
 **What makes this different:**
 Unlike GUI-based trading platforms, `apcacli` gives you programmatic access to your Alpaca account through a clean, efficient command-line interface. Perfect for developers, algorithmic traders, and terminal enthusiasts.
@@ -65,37 +65,37 @@ apcacli account get
 # See if the market is open
 apcacli market clock
 
-# You're ready to trade! 🎉
+# You're ready to trade! 
 ```
 
 ---
 
 ## What You Can Do
 
-### 💰 Trading Operations
+###  Trading Operations
 - Execute market, limit, stop, and trailing-stop orders
 - Buy and sell stocks, ETFs, options, and crypto
 - Cancel orders individually or in bulk
 - Close positions partially or completely
 
-### 📊 Portfolio Management
+###  Portfolio Management
 - View all open positions with real-time P/L
 - Check account balance and buying power
 - Track daily and total profit/loss (color-coded!)
 - Review position history
 
-### 📈 Market Data
+###  Market Data
 - Get asset information and availability
 - Check market clock and trading hours
 - Search for symbols
 - Access real-time quotes through Alpaca's API
 
-### 🔔 Real-time Monitoring
+###  Real-time Monitoring
 - Stream account events (orders, fills, updates)
 - Monitor trade executions live
 - Track portfolio changes in real-time
 
-### ⚡ Advanced Features
+###  Advanced Features
 - Shell completion for faster command entry
 - Scriptable automation for strategies
 - Session management for multiple accounts
@@ -163,19 +163,19 @@ Never hold a position without a stop loss. Trailing stops let you capture upside
 #!/bin/bash
 # Save as ~/check-portfolio.sh
 
-echo "📊 Daily Portfolio Report - $(date)"
+echo " Daily Portfolio Report - $(date)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-echo "💰 Account Status"
+echo " Account Status"
 apcacli account get
 echo ""
 
-echo "📈 Open Positions"
+echo " Open Positions"
 apcacli position list
 echo ""
 
-echo "📝 Recent Activity"
+echo " Recent Activity"
 apcacli account activity | head -10
 ```
 
@@ -222,7 +222,7 @@ chmod +x ~/check-portfolio.sh
 
 ---
 
-## Safety First ⚠️
+## Safety First 
 
 **ALWAYS start with paper trading:**
 - Paper trading uses fake money - perfect for learning
@@ -312,7 +312,7 @@ export APCA_API_KEY_ID='LIVE_KEY'
 export APCA_API_SECRET_KEY='LIVE_SECRET'
 ```
 
-⚠️ **Double-check the URL!** Wrong URL = trading with wrong account.
+ **Double-check the URL!** Wrong URL = trading with wrong account.
 
 ---
 
@@ -360,4 +360,4 @@ By using this skill, you acknowledge that trading decisions are your own respons
 
 ---
 
-**Ready to start?** Install apcacli and get your free paper trading account today! 🚀
+**Ready to start?** Install apcacli and get your free paper trading account today! 

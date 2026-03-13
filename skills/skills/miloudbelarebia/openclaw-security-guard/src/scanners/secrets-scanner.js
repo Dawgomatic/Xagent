@@ -1,5 +1,5 @@
 /**
- * 🔍 Secrets Scanner
+ *  Secrets Scanner
  * 
  * Detects exposed secrets like API keys, tokens, passwords
  * Inspired by detect-secrets, truffleHog, gitleaks

@@ -34,10 +34,10 @@ Call `prepare` with the parsed intent. If it succeeds, present the summary to th
 > Confirm?
 
 **If price impact > 1%**, add a warning:
-> ⚠️ Price impact is 3.2% — this is high. You'll get significantly less than market rate. Still want to proceed?
+>  Price impact is 3.2% — this is high. You'll get significantly less than market rate. Still want to proceed?
 
 **If price impact > 5%**, strongly discourage:
-> ⚠️ Price impact is 7.8% — this is very high. You'll lose a lot to slippage. Consider a smaller amount or a different pair. Proceed anyway?
+>  Price impact is 7.8% — this is very high. You'll lose a lot to slippage. Consider a smaller amount or a different pair. Proceed anyway?
 
 Wait for explicit confirmation. Acceptable confirmations: "yes", "y", "go", "do it", "confirm", "proceed", "send it", etc.
 
@@ -56,17 +56,17 @@ Then poll `status` every 2-3 seconds until the state is `confirmed`, `failed`, o
 
 On **confirmed**:
 Call `receipt` and report:
-> ✅ Swap complete!
+>  Swap complete!
 > Sent: 1 SOL
 > Received: 150.19 USDC
 > Tx: https://solscan.io/tx/{signature}
 
 On **failed**:
-> ❌ Swap failed on-chain (likely slippage — price moved too much). No tokens were lost beyond the transaction fee.
+>  Swap failed on-chain (likely slippage — price moved too much). No tokens were lost beyond the transaction fee.
 > Want to try again with higher slippage?
 
 On **expired** (status stays `submitted` for too long):
-> ⏰ Transaction may have expired. Checking...
+>  Transaction may have expired. Checking...
 > If not confirmed after ~60s, suggest re-preparing.
 
 ## Error Handling

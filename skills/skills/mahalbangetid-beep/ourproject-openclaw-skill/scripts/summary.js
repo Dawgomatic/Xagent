@@ -53,17 +53,17 @@ async function getSummary() {
         return days !== null && days <= 1;
     });
 
-    console.log(`📊 *DAILY SUMMARY* — ${today}\n`);
+    console.log(` *DAILY SUMMARY* — ${today}\n`);
 
-    console.log(`💼 *Projects*`);
+    console.log(` *Projects*`);
     console.log(`   Total: ${results.projects.length} | Active: ${activeProjects.length}`);
     console.log(`   Pending tasks: ${pendingTasks.length}`);
     if (urgentTasks.length > 0) {
-        console.log(`   ⚠️ Urgent (due today/tomorrow): ${urgentTasks.length}`);
+        console.log(`    Urgent (due today/tomorrow): ${urgentTasks.length}`);
         urgentTasks.slice(0, 5).forEach(t => console.log(`      - ${t.title || t.name}`));
     }
 
-    console.log(`\n💰 *Finance*`);
+    console.log(`\n *Finance*`);
     if (results.finance) {
         console.log(`   Balance: ${formatRupiah(results.finance.totalBalance || results.finance.total_balance || 0)}`);
         console.log(`   Income this month: ${formatRupiah(results.finance.monthlyIncome || results.finance.monthly_income || 0)}`);
@@ -73,21 +73,21 @@ async function getSummary() {
     }
 
     if (results.bills.length > 0) {
-        console.log(`\n📋 *Bills Due (7 Days)*`);
+        console.log(`\n *Bills Due (7 Days)*`);
         results.bills.forEach(b => {
             const days = daysUntil(b.dueDate || b.due_date || b.nextDue);
-            const icon = days <= 1 ? '🔴' : days <= 3 ? '🟡' : '🟢';
+            const icon = days <= 1 ? '' : days <= 3 ? '' : '';
             console.log(`   ${icon} ${b.name || b.title}: ${formatRupiah(b.amount)} (${days === 0 ? 'today' : days + ' days'})`);
         });
     }
 
-    console.log(`\n🔔 Unread notifications: ${results.unread}`);
+    console.log(`\n Unread notifications: ${results.unread}`);
 
     if (urgentTasks.length > 0 || results.bills.length > 0) {
-        console.log(`\n⚡ *Needs Attention*`);
+        console.log(`\n *Needs Attention*`);
         if (urgentTasks.length > 0) console.log(`   - ${urgentTasks.length} urgent task(s)`);
         if (results.bills.length > 0) console.log(`   - ${results.bills.length} bill(s) due within 7 days`);
     }
 }
 
-getSummary().catch(err => console.error('❌', err.message));
+getSummary().catch(err => console.error('', err.message));

@@ -621,19 +621,19 @@ curl -I https://example.com/page
 
 | Code | Name | SEO Impact | Use When | Passes Link Equity? |
 |------|------|------------|----------|---------------------|
-| 200 | OK | ✅ Positive | Page works normally | N/A (original URL) |
-| 301 | Moved Permanently | ✅ Positive | Permanent URL change | ✅ Yes (~90-99%) |
-| 302 | Found | ⚠️ Neutral | Temporary redirect | ❌ No |
-| 307 | Temporary Redirect | ⚠️ Neutral | Temporary (method preserved) | ❌ No |
-| 308 | Permanent Redirect | ✅ Positive | Permanent (method preserved) | ✅ Yes |
-| 404 | Not Found | ⚠️ Neutral | Content doesn't exist | N/A |
-| 410 | Gone | ⚠️ Neutral | Permanent deletion | N/A |
-| 403 | Forbidden | ❌ Negative | Access denied | N/A |
-| 401 | Unauthorized | ❌ Negative | Auth required | N/A |
-| 500 | Internal Server Error | ❌ Negative | Server error | N/A |
-| 502 | Bad Gateway | ❌ Negative | Upstream error | N/A |
-| 503 | Service Unavailable | ⚠️ Neutral | Temporary downtime | N/A |
-| 504 | Gateway Timeout | ❌ Negative | Timeout error | N/A |
+| 200 | OK |  Positive | Page works normally | N/A (original URL) |
+| 301 | Moved Permanently |  Positive | Permanent URL change |  Yes (~90-99%) |
+| 302 | Found |  Neutral | Temporary redirect |  No |
+| 307 | Temporary Redirect |  Neutral | Temporary (method preserved) |  No |
+| 308 | Permanent Redirect |  Positive | Permanent (method preserved) |  Yes |
+| 404 | Not Found |  Neutral | Content doesn't exist | N/A |
+| 410 | Gone |  Neutral | Permanent deletion | N/A |
+| 403 | Forbidden |  Negative | Access denied | N/A |
+| 401 | Unauthorized |  Negative | Auth required | N/A |
+| 500 | Internal Server Error |  Negative | Server error | N/A |
+| 502 | Bad Gateway |  Negative | Upstream error | N/A |
+| 503 | Service Unavailable |  Neutral | Temporary downtime | N/A |
+| 504 | Gateway Timeout |  Negative | Timeout error | N/A |
 
 ---
 

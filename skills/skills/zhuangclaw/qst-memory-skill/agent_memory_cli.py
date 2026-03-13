@@ -23,7 +23,7 @@ def print_basic_tree(agent_name: str):
     agent_config = get_agent_config(agent_name, config)
     tree = agent_config.get('tree', {})
     
-    print(f"\n📁 Agent: {agent_name} 記憶樹結構")
+    print(f"\n Agent: {agent_name} 記憶樹結構")
     print()
     
     def print_tree(node, prefix="", level=1):
@@ -31,7 +31,7 @@ def print_basic_tree(agent_name: str):
             is_last = i == len(node) - 1
             connector = "└" if is_last else "├"
             
-            print(f"{prefix}{connector} 📂 L{level} {name}")
+            print(f"{prefix}{connector}  L{level} {name}")
             
             children = data.get('children', {})
             if children:
@@ -42,8 +42,8 @@ def print_basic_tree(agent_name: str):
     
     # Show memory stats
     memories = load_memories(agent_name)
-    print(f"\n💾 記憶文件: {get_memory_file(agent_name)}")
-    print(f"📊 記憶數量: {len(memories)} 條")
+    print(f"\n 記憶文件: {get_memory_file(agent_name)}")
+    print(f" 記憶數量: {len(memories)} 條")
 
 if __name__ == "__main__":
     import argparse
@@ -81,23 +81,23 @@ if __name__ == "__main__":
             category=args.category,
             source=args.source
         )
-        print(f"✅ 已保存到 {args.agent} 記憶庫")
+        print(f" 已保存到 {args.agent} 記憶庫")
         print(f"   ID: {result}")
     
     elif args.command == 'search':
         if args.method == 'tree':
             config = load_config()
             result = tree_search(args.query, args.agent, config)
-            print(f"\n📁 路徑: {' → '.join(result['path'])}")
-            print(f"📊 找到 {result['count']} 條記憶\n")
+            print(f"\n 路徑: {' → '.join(result['path'])}")
+            print(f" 找到 {result['count']} 條記憶\n")
             for i, mem in enumerate(result['results'][:5], 1):
                 print(f"--- 記憶 {i} ---")
                 print(mem[:200] + "..." if len(mem) > 200 else mem)
                 print()
         else:  # semantic
             result = semantic_search(args.query, args.agent)
-            print(f"\n🔍 {result['method']} 搜索")
-            print(f"📊 找到 {result['count']} 條記憶\n")
+            print(f"\n {result['method']} 搜索")
+            print(f" 找到 {result['count']} 條記憶\n")
     
     elif args.command == 'tree':
         print_basic_tree(args.agent)

@@ -16,13 +16,13 @@ backup_repo() {
         git add -A
         git commit -m "Auto backup: $TIMESTAMP"
         git push
-        echo "✅ $name: backed up"
+        echo " $name: backed up"
     else
-        echo "⏭️  $name: no changes"
+        echo "  $name: no changes"
     fi
 }
 
-echo "🔄 Starting Clawdbot backup..."
+echo " Starting Clawdbot backup..."
 
 # Backup workspace
 backup_repo "$HOME/clawd" "workspace"
@@ -30,4 +30,4 @@ backup_repo "$HOME/clawd" "workspace"
 # Backup config
 backup_repo "$HOME/.clawdbot" "config"
 
-echo "✅ Backup complete!"
+echo " Backup complete!"

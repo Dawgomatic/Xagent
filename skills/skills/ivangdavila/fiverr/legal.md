@@ -51,10 +51,10 @@ Before using AI commercially, verify tool permits resale:
 
 | Tool | Commercial Use |
 |------|---------------|
-| ChatGPT (paid) | ✅ Permitted |
-| Claude (paid) | ✅ Permitted |
-| Midjourney (paid) | ✅ Permitted |
-| DALL-E | ✅ Permitted |
+| ChatGPT (paid) |  Permitted |
+| Claude (paid) |  Permitted |
+| Midjourney (paid) |  Permitted |
+| DALL-E |  Permitted |
 | Stable Diffusion | Varies by model license |
 | GitHub Copilot | Complex—code may have license obligations |
 
@@ -78,17 +78,17 @@ Before using AI commercially, verify tool permits resale:
 
 | Activity | Risk Level | Notes |
 |----------|------------|-------|
-| AI for drafting + human editing | ✅ Low | Best practice |
-| Full AI output, light editing | ⚠️ Medium | Add more human value |
-| Denying AI use when asked | ❌ High | Never do this |
-| Using unlicensed AI tool output | ❌ High | Verify tool's ToS |
-| Mass identical AI outputs | ❌ High | Customize each |
+| AI for drafting + human editing |  Low | Best practice |
+| Full AI output, light editing |  Medium | Add more human value |
+| Denying AI use when asked |  High | Never do this |
+| Using unlicensed AI tool output |  High | Verify tool's ToS |
+| Mass identical AI outputs |  High | Customize each |
 
 ## Comparison: Fiverr vs Upwork
 
 | Factor | Fiverr | Upwork |
 |--------|--------|--------|
-| AI policy | ✅ Explicitly permits | ⚠️ More restrictive |
+| AI policy |  Explicitly permits |  More restrictive |
 | Disclosure | When asked | Recommended proactively |
 | Automation tools | Permitted for workflow | Prohibited for platform access |
 | Enforcement | Moderate | Aggressive (known legal actions) |

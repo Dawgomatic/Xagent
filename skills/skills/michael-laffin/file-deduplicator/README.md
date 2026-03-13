@@ -237,4 +237,4 @@ MIT
 
 ---
 
-**Find duplicates. Save space. Keep your system clean.** 🔮
+**Find duplicates. Save space. Keep your system clean.** 

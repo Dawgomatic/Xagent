@@ -106,12 +106,12 @@ async function getAccessToken(appId, appSecret) {
 async function uploadImage(url, accessToken, articleTitle = "") {
   let imgRes = await fetch(url);
   if (!imgRes.ok) {
-    console.log(`  ⚠️ Cover fetch failed (${imgRes.status}), trying fallback...`);
+    console.log(`   Cover fetch failed (${imgRes.status}), trying fallback...`);
     const startIdx = pickFallbackIndex(articleTitle);
     for (let i = 0; i < FALLBACK_COVERS.length; i++) {
       const id = FALLBACK_COVERS[(startIdx + i) % FALLBACK_COVERS.length];
       imgRes = await fetch(`https://images.unsplash.com/${id}?w=900&h=383&fit=crop&q=80`);
-      if (imgRes.ok) { console.log(`  ✅ Using fallback [${id.slice(0, 20)}...]`); break; }
+      if (imgRes.ok) { console.log(`   Using fallback [${id.slice(0, 20)}...]`); break; }
     }
     if (!imgRes.ok) throw new Error("All cover image sources failed");
   }
@@ -255,16 +255,16 @@ async function main() {
     });
     const data = await res.json();
     if (data.errcode) throw new Error(`Publish failed ${data.errcode}: ${data.errmsg}`);
-    console.log(`✅ Published! publish_id: ${data.publish_id}`);
+    console.log(` Published! publish_id: ${data.publish_id}`);
     return;
   }
 
   // Render articles
-  console.log(`📝 Rendering ${mdFiles.length} article(s)...`);
+  console.log(` Rendering ${mdFiles.length} article(s)...`);
   const rendered = [];
   for (let i = 0; i < mdFiles.length; i++) {
     const art = await renderArticle(mdFiles[i]);
-    console.log(`  ✅ [${i === 0 ? "main" : "sub"}] ${art.title}`);
+    console.log(`   [${i === 0 ? "main" : "sub"}] ${art.title}`);
     rendered.push(art);
   }
 
@@ -273,21 +273,21 @@ async function main() {
     rendered.forEach((art, i) => {
       const f = `/tmp/wechat-preview/article-${i + 1}.html`;
       fs.writeFileSync(f, `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="max-width:600px;margin:0 auto;padding:20px;">${art.content}</body></html>`);
-      console.log(`📄 Preview: ${f}`);
+      console.log(` Preview: ${f}`);
     });
     return;
   }
 
   const { appId, appSecret } = getCredentials();
-  console.log("🔑 Getting access token...");
+  console.log(" Getting access token...");
   const token = await getAccessToken(appId, appSecret);
 
-  console.log("🖼️  Processing inline images...");
+  console.log("  Processing inline images...");
   for (const art of rendered) {
     art.content = await processInlineImages(art.content, art.mdDir, token);
   }
 
-  console.log("🖼️  Uploading cover images...");
+  console.log("  Uploading cover images...");
   const coverIds = [];
   for (const art of rendered) {
     const coverUrl = selectCoverUrl(art.title, art.markdown);
@@ -302,13 +302,13 @@ async function main() {
     digest: art.digest,
   }));
 
-  console.log(`\n📤 Pushing ${articles.length} article(s) to draft box...`);
+  console.log(`\n Pushing ${articles.length} article(s) to draft box...`);
   const draftRes = await fetch(`${WECHAT_API}/draft/add?access_token=${token}`, {
     method: "POST", body: JSON.stringify({ articles })
   });
   const draftData = await draftRes.json();
   if (draftData.errcode) throw new Error(`Draft failed ${draftData.errcode}: ${draftData.errmsg}`);
-  console.log(`✅ Draft created! media_id: ${draftData.media_id}`);
+  console.log(` Draft created! media_id: ${draftData.media_id}`);
 
   if (shouldPublish) {
     const pubRes = await fetch(`${WECHAT_API}/freepublish/submit?access_token=${token}`, {
@@ -316,8 +316,8 @@ async function main() {
     });
     const pubData = await pubRes.json();
     if (pubData.errcode) throw new Error(`Publish failed ${pubData.errcode}: ${pubData.errmsg}`);
-    console.log(`✅ Published! publish_id: ${pubData.publish_id}`);
+    console.log(` Published! publish_id: ${pubData.publish_id}`);
   }
 }
 
-main().catch(e => { console.error("❌ Error:", e.message); process.exit(1); });
+main().catch(e => { console.error(" Error:", e.message); process.exit(1); });

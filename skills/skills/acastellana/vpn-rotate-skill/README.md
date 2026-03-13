@@ -1,22 +1,22 @@
-# 🔄 VPN Rotate Skill
+#  VPN Rotate Skill
 
 **Break free from API restrictions. Rotate IPs. Scrape without limits.**
 
 ## The Problem
 
 APIs fight back against data collection:
-- 🚫 IP blocks after a few requests
-- 🚫 Rate limits killing throughput
-- 🚫 Geo-restrictions locking you out
+-  IP blocks after a few requests
+-  Rate limits killing throughput
+-  Geo-restrictions locking you out
 
 ## The Solution
 
 Automatically rotate VPN servers to get fresh IPs. Works with **any OpenVPN-compatible VPN**:
 
-- ✅ ProtonVPN
-- ✅ NordVPN  
-- ✅ Mullvad
-- ✅ Any provider with .ovpn configs
+-  ProtonVPN
+-  NordVPN  
+-  Mullvad
+-  Any provider with .ovpn configs
 
 ## Quick Start
 

@@ -6,7 +6,7 @@ Copy and adapt this template for your project's AGENTS.md file.
 
 # AGENTS.md — [Project Name]
 
-## 🚨 Iron Laws
+##  Iron Laws
 
 ### 1. Never Hardcode Secrets
 - All secrets from environment variables — no exceptions
@@ -24,7 +24,7 @@ Copy and adapt this template for your project's AGENTS.md file.
 - Write code → research first, test after
 - Uncertain → look it up, don't guess
 
-## 🔧 Mechanical Enforcement
+##  Mechanical Enforcement
 
 **Rules in markdown are suggestions. Code hooks are laws.**
 

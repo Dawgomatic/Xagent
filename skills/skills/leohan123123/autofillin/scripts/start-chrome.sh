@@ -70,7 +70,7 @@ echo -e "${CYAN}Starting Chrome with Debug Mode...${NC}"
 # IMPORTANT: Must close ALL Chrome instances first to use debug mode
 CHROME_RUNNING=$(pgrep -x "Google Chrome" 2>/dev/null || true)
 if [ -n "$CHROME_RUNNING" ]; then
-    echo -e "${YELLOW}⚠️  Chrome is already running!${NC}"
+    echo -e "${YELLOW}  Chrome is already running!${NC}"
     echo -e "${YELLOW}   Debug mode requires closing existing Chrome instances.${NC}"
     read -p "Close Chrome and continue? (y/n): " -n 1 -r
     echo

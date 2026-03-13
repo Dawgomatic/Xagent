@@ -103,7 +103,7 @@ class EntropyInjector {
 
     setEntropyLevel(level) {
         this.minEntropy = Math.max(0.0, Math.min(1.0, level));
-        console.log(`🔄 [ENTROPY LEVEL UPDATED]: ${(this.minEntropy * 100).toFixed(0)}%`);
+        console.log(` [ENTROPY LEVEL UPDATED]: ${(this.minEntropy * 100).toFixed(0)}%`);
     }
 
     increaseEntropy() {

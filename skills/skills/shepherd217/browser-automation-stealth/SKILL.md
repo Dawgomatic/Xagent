@@ -24,16 +24,16 @@ automation
 - **Pro:** $49.99
 
 ## Key Features
-- ✅ Playwright wrapper with stealth defaults
-- ✅ Anti-detection mechanisms (fingerprint randomization)
-- ✅ Header rotation (100+ user-agents)
-- ✅ Proxy support (SOCKS5, HTTP)
-- ✅ Cookie jar management
-- ✅ Captcha bypass (integration-ready)
-- ✅ Rate limiting aware
-- ✅ Screenshot/PDF generation
-- ✅ Form automation
-- ✅ Cookie/session persistence
+-  Playwright wrapper with stealth defaults
+-  Anti-detection mechanisms (fingerprint randomization)
+-  Header rotation (100+ user-agents)
+-  Proxy support (SOCKS5, HTTP)
+-  Cookie jar management
+-  Captcha bypass (integration-ready)
+-  Rate limiting aware
+-  Screenshot/PDF generation
+-  Form automation
+-  Cookie/session persistence
 
 ## Use Cases
 - Web scraping at scale (undetected)
@@ -69,5 +69,5 @@ await browser.close();
 https://github.com/midas-skills/browser-automation-stealth
 
 ## Support
-📧 support@midas-skills.com  
-🔗 Docs: https://docs.midas-skills.com/browser-automation-stealth
+ support@midas-skills.com  
+ Docs: https://docs.midas-skills.com/browser-automation-stealth

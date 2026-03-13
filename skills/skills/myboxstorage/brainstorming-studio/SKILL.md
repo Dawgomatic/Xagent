@@ -1,10 +1,10 @@
-﻿# 🧠 Skill Router (Skill Orchestrator)
+﻿#  Skill Router (Skill Orchestrator)
 **An explainable, deterministic meta-skill that decides _which_ skill to use, _how_ to use it, and _whether_ it is safe — before anything runs.**
 Skill Router operates as a **decision and governance layer above all other skills**.
 It inventories available skills, scores them transparently, applies safety gates, and orchestrates the optimal execution strategy — always with user visibility and control.
 > **No black boxes. No silent execution. No hallucinated APIs.**
 ---
-## 🚀 How to Run (Trigger Phrases)
+##  How to Run (Trigger Phrases)
 Invoke the Skill Router using natural language:
 - decide which skill to use
 - use the best skill for this
@@ -15,7 +15,7 @@ Invoke the Skill Router using natural language:
 - skill router: <task>
 - orchestrator: <task>
 ---
-## ✅ Checklist — Step by Step
+##  Checklist — Step by Step
 ### Step 0 — Task Intake & Normalization
 - Capture the raw user request verbatim.
 - Normalize into:
@@ -95,8 +95,8 @@ Step 7 — Reporting & Learning
 Generate a structured report.
 Optionally store a local-only history record.
 Secrets are always redacted.
-📊 Output Format (STRICT)
-🧠 Skill Router Report
+ Output Format (STRICT)
+ Skill Router Report
 1. Task Analysis <ICON> <STATUS> — <summary>
 2. Skill Candidates <ICON> <STATUS> — <top skills + scores>
 3. Selection Strategy <ICON> <STATUS> — <chosen approach>
@@ -108,19 +108,19 @@ Scoreboard:
 Primary: XX/100
 Alternative: YY/100
 Icons:
-✅ PASS
-⚠️ WARN
-❌ FAIL
-🛑 CONFIRM
-⏭️ SKIP
-🔁 Auto-Action Flow
+ PASS
+ WARN
+ FAIL
+ CONFIRM
+ SKIP
+ Auto-Action Flow
 Always display the report first.
 If confirmation is required, ask:
 Proceed? (yes / no / pick)
 yes → execute
 no → abort
 pick → user selects skills or steps
-🧩 Action Recipes
+ Action Recipes
 Listing Skills (No API)
 Scan directories
 Parse manifests
@@ -140,7 +140,7 @@ Inventory source
 Redaction log
 Reset History
 Clears local history only
-🧠 Extension Module — Brainstorming Mode (Optional)
+ Extension Module — Brainstorming Mode (Optional)
 Multi-Agent Brainstorming Orchestrator:
 Business / Strategy Agent
 Market / Execution Agent
@@ -149,18 +149,18 @@ Idea generation
 Critique & risk
 Synthesis
 Requires explicit consent before external API usage.
-🔒 Safety & Guarantees
+ Safety & Guarantees
 No destructive actions without confirmation
 No silent data exfiltration
 No automatic skill installation
 No permission bypass
 No hallucinated APIs
-🚫 What This Skill Does NOT Do
+ What This Skill Does NOT Do
 Does not replace human judgment
 Does not train ML models
 Does not auto-install dependencies
 Does not bypass permissions
-📚 Reference & Rationale
+ Reference & Rationale
 Skill Router introduces a deterministic, auditable decision layer for agent skills.
 It improves:
 Safety
@@ -169,17 +169,17 @@ User trust
 Execution success rates
 This is governance for agent skills — done right.
 ---
-# ✅ 2️⃣ RESULTADO
-✔️ Cria o arquivo **SKILL.md**
-✔️ Encoding **UTF-8**
-✔️ 100% compatível com **ClawHub / GitHub / GitLab**
-✔️ Visual premium (headings, tabelas, blocos, ícones)
+#   RESULTADO
+ Cria o arquivo **SKILL.md**
+ Encoding **UTF-8**
+ 100% compatível com **ClawHub / GitHub / GitLab**
+ Visual premium (headings, tabelas, blocos, ícones)
 ---
-## 🔥 Próximo passo (se quiser)
+##  Próximo passo (se quiser)
 Posso:
 - Ajustar para **rating máximo no review ClawHub**
 - Gerar `README.md` (marketing)
 - Criar `CONTRIBUTING.md`
 - Criar checklist de aprovação
 - Revisar linguagem para **nível enterprise**
-Só mandar 🚀
+Só mandar 

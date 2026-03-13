@@ -3,7 +3,7 @@ name: dash-cog
 description: Interactive dashboards and apps powered by CellCog. Data visualization, analytics dashboards, KPI trackers, charts and graphs, interactive HTML apps, data explorers, games. Build web apps with AI.
 metadata:
   openclaw:
-    emoji: "📊"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

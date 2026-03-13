@@ -18,7 +18,7 @@ def format_company(company: dict) -> str:
     lines = []
     
     name = company.get("name", "N/A")
-    lines.append(f"🏢 {name}")
+    lines.append(f" {name}")
     
     # Domain/website
     domain = company.get("primary_domain")

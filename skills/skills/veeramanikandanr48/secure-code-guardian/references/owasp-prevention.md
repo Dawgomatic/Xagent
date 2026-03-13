@@ -19,20 +19,20 @@
 
 ```typescript
 // SQL Injection - Use parameterized queries
-// ❌ Bad
+//  Bad
 const bad = `SELECT * FROM users WHERE id = ${userId}`;
 
-// ✅ Good
+//  Good
 const good = await db.query('SELECT * FROM users WHERE id = $1', [userId]);
 
-// ✅ Good - Use ORM
+//  Good - Use ORM
 const user = await prisma.user.findUnique({ where: { id: userId } });
 
 // Command Injection - Avoid shell execution
-// ❌ Bad
+//  Bad
 exec(`ls ${userInput}`);
 
-// ✅ Good - Use library functions
+//  Good - Use library functions
 const files = fs.readdirSync(safeDirectory);
 ```
 

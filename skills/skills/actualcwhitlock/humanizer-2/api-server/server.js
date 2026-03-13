@@ -105,7 +105,7 @@ async function handleRequest(req, res) {
       switch (path) {
         case '/api/score': {
           const s = score(body.text);
-          const badge = s <= 25 ? '🟢' : s <= 50 ? '🟡' : s <= 75 ? '🟠' : '🔴';
+          const badge = s <= 25 ? '' : s <= 50 ? '' : s <= 75 ? '' : '';
           const interpretation = s <= 25
             ? 'Mostly human-sounding'
             : s <= 50

@@ -29,7 +29,7 @@ class ComfyUIClient:
             response = urllib.request.urlopen(req)
             return json.loads(response.read())
         except urllib.error.URLError as e:
-            print(f"❌ Failed to connect to ComfyUI: {e}")
+            print(f" Failed to connect to ComfyUI: {e}")
             return None
     
     def get_image(self, filename, subfolder, folder_type):
@@ -41,7 +41,7 @@ class ComfyUIClient:
             with urllib.request.urlopen(f"http://{self.server_address}/view?{url_values}") as response:
                 return response.read()
         except urllib.error.URLError as e:
-            print(f"❌ Failed to download output: {e}")
+            print(f" Failed to download output: {e}")
             return None
     
     def get_history(self, prompt_id):
@@ -50,7 +50,7 @@ class ComfyUIClient:
             with urllib.request.urlopen(f"http://{self.server_address}/history/{prompt_id}") as response:
                 return json.loads(response.read())
         except urllib.error.URLError as e:
-            print(f"❌ Failed to get history: {e}")
+            print(f" Failed to get history: {e}")
             return None
     
     def wait_for_completion(self, prompt_id, timeout=300):
@@ -67,7 +67,7 @@ class ComfyUIClient:
             
             time.sleep(2)
         
-        print(f"⏱️  Timeout waiting for generation")
+        print(f"  Timeout waiting for generation")
         return None
 
 def generate_video_ltx2(prompt, duration=4, width=768, height=512, fps=24, output_dir="/tmp"):
@@ -77,7 +77,7 @@ def generate_video_ltx2(prompt, duration=4, width=768, height=512, fps=24, outpu
     workflow_path = Path(__file__).parent.parent / "workflows" / "video-ltx2.json"
     
     if not workflow_path.exists():
-        print(f"❌ Workflow not found: {workflow_path}")
+        print(f" Workflow not found: {workflow_path}")
         return None
     
     with open(workflow_path) as f:
@@ -91,7 +91,7 @@ def generate_video_ltx2(prompt, duration=4, width=768, height=512, fps=24, outpu
     # TODO: Parse workflow to find prompt, duration, seed nodes
     # For now, just queue the workflow as-is
     
-    print(f"🎬 Generating LTX-2 video...")
+    print(f" Generating LTX-2 video...")
     print(f"   Prompt: {prompt}")
     print(f"   Duration: {duration}s @ {fps}fps")
     print(f"   Resolution: {width}x{height}")
@@ -107,11 +107,11 @@ def generate_video_ltx2(prompt, duration=4, width=768, height=512, fps=24, outpu
     
     prompt_id = result.get('prompt_id')
     if not prompt_id:
-        print("❌ No prompt_id returned")
+        print(" No prompt_id returned")
         return None
     
-    print(f"✅ Queued with ID: {prompt_id}")
-    print(f"⏳ Waiting for generation...")
+    print(f" Queued with ID: {prompt_id}")
+    print(f" Waiting for generation...")
     
     # Wait for completion
     outputs = client.wait_for_completion(prompt_id)
@@ -128,7 +128,7 @@ def generate_video_ltx2(prompt, duration=4, width=768, height=512, fps=24, outpu
                 filename = file_info['filename']
                 subfolder = file_info.get('subfolder', '')
                 
-                print(f"📥 Downloading: {filename}")
+                print(f" Downloading: {filename}")
                 
                 # Download the file
                 data = client.get_image(filename, subfolder, "output")
@@ -138,24 +138,24 @@ def generate_video_ltx2(prompt, duration=4, width=768, height=512, fps=24, outpu
                     with open(output_path, 'wb') as f:
                         f.write(data)
                     
-                    print(f"✅ Saved to: {output_path}")
-                    print(f"📦 Size: {len(data) / 1024:.1f} KB")
+                    print(f" Saved to: {output_path}")
+                    print(f" Size: {len(data) / 1024:.1f} KB")
                     return str(output_path)
     
-    print("❌ No video output found")
+    print(" No video output found")
     return None
 
 def generate_image_comfyui(prompt, style="realistic", width=1024, height=1024, output_dir="/tmp"):
     """Generate image using ComfyUI (simplified for now)"""
     
-    print(f"🎨 Generating image...")
+    print(f" Generating image...")
     print(f"   Prompt: {prompt}")
     print(f"   Style: {style}")
     print(f"   Resolution: {width}x{height}")
     
     # For now, return a placeholder
     # TODO: Implement proper workflow execution
-    print("⚠️  Image generation via ComfyUI API not yet implemented")
+    print("  Image generation via ComfyUI API not yet implemented")
     print("   Use ComfyUI web interface at http://localhost:8188")
     return None
 
@@ -175,12 +175,12 @@ if __name__ == "__main__":
         style = sys.argv[3] if len(sys.argv) > 3 else "realistic"
         result = generate_image_comfyui(prompt, style=style)
     else:
-        print(f"❌ Unknown type: {gen_type}")
+        print(f" Unknown type: {gen_type}")
         sys.exit(1)
     
     if result:
-        print(f"\n✅ Generation complete: {result}")
+        print(f"\n Generation complete: {result}")
         sys.exit(0)
     else:
-        print(f"\n❌ Generation failed")
+        print(f"\n Generation failed")
         sys.exit(1)

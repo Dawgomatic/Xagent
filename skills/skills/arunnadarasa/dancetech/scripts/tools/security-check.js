@@ -24,7 +24,7 @@ try {
     process.exit(0);
   }
 
-  console.log(`\n🛡️  Security Railcard: Checking ${stagedFiles.length} staged file(s)...\n`);
+  console.log(`\n  Security Railcard: Checking ${stagedFiles.length} staged file(s)...\n`);
 
   // Scan only staged files (not whole directory) for speed
   const fs = require('fs');
@@ -57,7 +57,7 @@ try {
           const val = match[0] || match[1] || '';
           const isPlaceholder = /(your_|example|placeholder|changeme|xxx+|replace|test_|dummy)/i.test(val);
           if (!isPlaceholder) {
-            console.log(`  ❌ ${file}:${idx + 1} — Possible secret detected`);
+            console.log(`   ${file}:${idx + 1} — Possible secret detected`);
             console.log(`     ${line.trim().substring(0, 70)}...`);
             found = true;
           }
@@ -67,11 +67,11 @@ try {
   });
 
   if (found) {
-    console.log('\n🚨 Commit blocked: Secrets detected in staged files.');
+    console.log('\n Commit blocked: Secrets detected in staged files.');
     console.log('Move sensitive data to .env (already gitignored) and use placeholders.\n');
     process.exit(1);
   } else {
-    console.log('✅ No secrets in staged files. Commit allowed.\n');
+    console.log(' No secrets in staged files. Commit allowed.\n');
     process.exit(0);
   }
 

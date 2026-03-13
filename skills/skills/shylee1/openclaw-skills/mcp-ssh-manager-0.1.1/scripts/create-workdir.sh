@@ -102,7 +102,7 @@ chmod 600 "${WORKDIR}/summary.md"
 chmod 755 "${OUTPUT_DIR}"
 
 echo ""
-echo -e "${GREEN}✅ Workdir created successfully!${NC}"
+echo -e "${GREEN} Workdir created successfully!${NC}"
 echo ""
 echo "Structure:"
 find "${WORKDIR}" -type f | sed "s|${WORKDIR}|  .|g"

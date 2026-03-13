@@ -145,7 +145,7 @@ function handleFood(action, positional, flags) {
     
     case 'order':
       if (!flags.confirm) {
-        console.error('⚠️  ERROR: --confirm flag required to place order');
+        console.error('  ERROR: --confirm flag required to place order');
         console.error('This is a safety check. Review cart first with: swiggy food cart show');
         process.exit(1);
       }
@@ -187,7 +187,7 @@ function handleInstamart(action, positional, flags) {
     
     case 'order':
       if (!flags.confirm) {
-        console.error('⚠️  ERROR: --confirm flag required to place order');
+        console.error('  ERROR: --confirm flag required to place order');
         console.error('This is a safety check. Review cart first with: swiggy im cart show');
         process.exit(1);
       }
@@ -230,7 +230,7 @@ function handleDineout(action, positional, flags) {
     
     case 'book':
       if (!flags.confirm) {
-        console.error('⚠️  ERROR: --confirm flag required to book table');
+        console.error('  ERROR: --confirm flag required to book table');
         console.error('This is a safety check. Review details first.');
         process.exit(1);
       }

@@ -122,7 +122,7 @@ async function startOAuthFlow() {
         throw new Error("Authorization timeout. Please try again.");
     }
 
-    console.log("\n✅ Authorization received! Exchanging for access token...");
+    console.log("\n Authorization received! Exchanging for access token...");
     
     const tokenData = await exchangeCodeForToken(code);
     saveToken(tokenData);
@@ -183,7 +183,7 @@ async function findOrganizationUrn(accessToken, orgName) {
         
         if (orgInfo && orgInfo.name) {
             if (orgInfo.name.toLowerCase().includes(normalizedTarget)) {
-                console.log(`✅ Found organization: ${orgInfo.name} (${urn})`);
+                console.log(` Found organization: ${orgInfo.name} (${urn})`);
                 return urn;
             }
         }
@@ -253,7 +253,7 @@ async function postToLinkedIn(accessToken, text, orgName) {
     }
 
     const data = await postResponse.json();
-    console.log("\n✅ Successfully posted to LinkedIn!");
+    console.log("\n Successfully posted to LinkedIn!");
     console.log("Post ID:", data.id);
 }
 

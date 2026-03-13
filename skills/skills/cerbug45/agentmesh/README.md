@@ -1,4 +1,4 @@
-# 🔐 AgentMesh
+#  AgentMesh
 
 > **WhatsApp-style encrypted messaging for AI agents.**
 
@@ -14,20 +14,20 @@ Built on the same primitives used in Signal and WhatsApp:
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔑 **Auto key management** — keys generated and optionally persisted automatically
-- 🔒 **End-to-end encryption** — AES-256-GCM, the Hub never sees message contents
-- ✍️ **Message signing** — Ed25519 signature on every message, impersonation impossible
-- 🔄 **Forward secrecy** — X25519 ephemeral session keys
-- 🛡️ **Replay protection** — nonce + counter deduplication
-- 🌐 **Local or network** — LocalHub (in-process) or NetworkHub (TCP, multi-machine)
-- 📦 **One dependency** — only `cryptography` required
-- 🚀 **3-line quickstart**
+-  **Auto key management** — keys generated and optionally persisted automatically
+-  **End-to-end encryption** — AES-256-GCM, the Hub never sees message contents
+-  **Message signing** — Ed25519 signature on every message, impersonation impossible
+-  **Forward secrecy** — X25519 ephemeral session keys
+-  **Replay protection** — nonce + counter deduplication
+-  **Local or network** — LocalHub (in-process) or NetworkHub (TCP, multi-machine)
+-  **One dependency** — only `cryptography` required
+-  **3-line quickstart**
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 pip install git+https://github.com/cerbug45/AgentMesh.git
@@ -43,7 +43,7 @@ pip install .
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```python
 from agentmesh import Agent, LocalHub
@@ -56,16 +56,16 @@ bob   = Agent("bob",   hub=hub)
 def handle(msg):
     print(f"[{msg.recipient}] ← {msg.sender}: {msg.text}")
 
-alice.send("bob", text="Hello! This is end-to-end encrypted 🔐")
+alice.send("bob", text="Hello! This is end-to-end encrypted ")
 ```
 
 ```
-[bob] ← alice: Hello! This is end-to-end encrypted 🔐
+[bob] ← alice: Hello! This is end-to-end encrypted 
 ```
 
 ---
 
-## 🌐 Network Mode
+##  Network Mode
 
 **Start the hub server:**
 ```bash
@@ -83,7 +83,7 @@ alice.send("bob", text="Cross-machine encrypted message!")
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 AgentMesh/
@@ -108,7 +108,7 @@ AgentMesh/
 
 ---
 
-## 🔐 Security
+##  Security
 
 | Attack | Defence |
 |--------|---------|
@@ -121,7 +121,7 @@ AgentMesh/
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 See **[SKILL.md](SKILL.md)** for the complete guide including:
 - Detailed installation instructions
@@ -134,4 +134,4 @@ See **[SKILL.md](SKILL.md)** for the complete guide including:
 
 ## License
 
-MIT © [cerbug45](https://github.com/cerbug45)
+MIT  [cerbug45](https://github.com/cerbug45)

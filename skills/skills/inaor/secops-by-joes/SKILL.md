@@ -8,7 +8,7 @@ homepage: https://www.securityjoes.com
 license: MIT
 metadata:
   openclaw:
-    emoji: "🔒"
+    emoji: ""
     category: "security"
 tags:
   - security

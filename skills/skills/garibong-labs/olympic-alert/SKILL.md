@@ -42,7 +42,7 @@ python3 "$SKILL_DIR/scripts/check_olympic.py"
 python3 "$SKILL_DIR/scripts/check_olympic.py" list
 
 # 경기 추가
-python3 "$SKILL_DIR/scripts/check_olympic.py" add "2026-02-15 14:00" "🏒 쇼트트랙 준결승" "최민정"
+python3 "$SKILL_DIR/scripts/check_olympic.py" add "2026-02-15 14:00" " 쇼트트랙 준결승" "최민정"
 
 # 경기 삭제 (이름 패턴 매칭)
 python3 "$SKILL_DIR/scripts/check_olympic.py" remove "준결승"
@@ -57,13 +57,13 @@ python3 "$SKILL_DIR/scripts/check_olympic.py" remove "준결승"
 ```json
 {
   "country": "Korea",
-  "flag": "🇰🇷",
+  "flag": "",
   "links": {
     "네이버 스포츠": "https://m.sports.naver.com/milanocortina2026",
     "치지직": "https://chzzk.naver.com/search?query=올림픽"
   },
   "events": [
-    {"time": "2026-02-10 18:00", "name": "🏒 쇼트트랙", "athletes": "최민정"}
+    {"time": "2026-02-10 18:00", "name": " 쇼트트랙", "athletes": "최민정"}
   ]
 }
 ```
@@ -91,11 +91,11 @@ On each heartbeat:
 ## 알림 예시
 
 ```
-🇰🇷 10분 후
-🏒 쇼트트랙 여자1500m 결승
-👤 최민정 3연속 금 도전
+ 10분 후
+ 쇼트트랙 여자1500m 결승
+ 최민정 3연속 금 도전
 
-📺 네이버 스포츠 | 치지직
+ 네이버 스포츠 | 치지직
 ```
 
 ## 다른 국가/대회 적용

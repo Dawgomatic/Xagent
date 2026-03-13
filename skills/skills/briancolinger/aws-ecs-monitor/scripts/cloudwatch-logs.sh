@@ -158,7 +158,7 @@ cmd_errors() {
 import json,sys; d=json.load(sys.stdin); e=d.get('events',[])
 print(json.dumps({'service':'$svc','error_count':len(e),'events':e},indent=2))"
       else
-        echo "🔴 $svc — $count error(s) in last ${MINUTES}m:"
+        echo " $svc — $count error(s) in last ${MINUTES}m:"
         echo "$result" | python3 -c "
 import json,sys,datetime
 for e in json.load(sys.stdin).get('events',[]):
@@ -168,7 +168,7 @@ for e in json.load(sys.stdin).get('events',[]):
         echo ""
       fi
     else
-      $JSON_OUT || echo "✅ $svc — no errors in last ${MINUTES}m"
+      $JSON_OUT || echo " $svc — no errors in last ${MINUTES}m"
     fi
   done
   FILTER="$orig_filter"
@@ -194,7 +194,7 @@ for e in events:
     if any(re.search(p,m) for p in dn_re): dns.append((ts,m[:200]))
 print(f'=== $svc — {len(ups)} startups, {len(dns)} shutdowns (~{min(len(ups),len(dns))} restarts) in last ${MINUTES}m ===')
 for ts,k,m in sorted([(t,'START',m) for t,m in ups]+[(t,'STOP',m) for t,m in dns]):
-    print(f\"  {'🟢' if k=='START' else '🔴'} [{ts}] {m}\")
+    print(f\"  {'' if k=='START' else ''} [{ts}] {m}\")
 print()" 2>/dev/null
   done
   FILTER="$orig_filter"
@@ -305,7 +305,7 @@ else:
     has_issues = False
     for svc, f in sorted(all_findings.items()):
         st = f.get("status","unknown")
-        ic = {"healthy":"✅","degraded":"⚠️","unhealthy":"🔴","critical":"🚨","no_logs":"⚪","error":"❌"}.get(st,"❓")
+        ic = {"healthy":"","degraded":"","unhealthy":"","critical":"","no_logs":"","error":""}.get(st,"")
         print(f"{ic} {svc} — {st} ({f.get('event_count',0)} events, {f.get('unique_streams',0)} streams)")
         if st in ("degraded","unhealthy","critical"): has_issues = True
         cats = f.get("error_categories",{})
@@ -376,12 +376,12 @@ if alb.get('status') not in ('healthy',):
 
 if not svcs and overall == 'healthy':
     print('', file=sys.stderr)
-    print('✅ All services healthy — no log analysis needed.', file=sys.stderr)
+    print(' All services healthy — no log analysis needed.', file=sys.stderr)
     sys.exit(0)
 
 if issues:
     print('Issues detected:', file=sys.stderr)
-    for i in issues: print(f'  ⚠️  {i}', file=sys.stderr)
+    for i in issues: print(f'    {i}', file=sys.stderr)
     print(file=sys.stderr)
 
 # If we couldn't identify specific services, check those with desired > 0
@@ -421,7 +421,7 @@ print(' '.join(svcs) if svcs else '')
       LIMIT=300
       cmd_diagnose
     else
-      echo "⚠️  $svc — not in detected service list, skipping"
+      echo "  $svc — not in detected service list, skipping"
     fi
   done
 }

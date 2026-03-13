@@ -1,4 +1,4 @@
-# 🔒 secucheck
+#  secucheck
 
 **Comprehensive security audit skill for OpenClaw**
 
@@ -29,21 +29,21 @@ On first run, you'll be asked to choose a level:
 
 | Level | Description |
 |-------|-------------|
-| 🌱 Beginner | Simple analogies, no jargon |
-| 💻 Intermediate | Technical details, config examples |
-| 🔐 Expert | Attack vectors + edge cases |
+|  Beginner | Simple analogies, no jargon |
+|  Intermediate | Technical details, config examples |
+|  Expert | Attack vectors + edge cases |
 
 All levels run identical checks—only explanation depth varies.
 
 ## What It Checks
 
-- ⚡ **Runtime**: Network exposure, VPN, containers, privileges
-- 📢 **Channels**: DM policies, group policies, mention settings
-- 🤖 **Agents**: Tool permissions, workspace isolation
-- ⏰ **Cron Jobs**: Automated tasks, external data dependencies
-- 🧩 **Skills**: Installed skill security scan
-- 🔐 **Sessions**: Session isolation, memory settings
-- 🌐 **Network**: Gateway binding, authentication
+-  **Runtime**: Network exposure, VPN, containers, privileges
+-  **Channels**: DM policies, group policies, mention settings
+-  **Agents**: Tool permissions, workspace isolation
+-  **Cron Jobs**: Automated tasks, external data dependencies
+-  **Skills**: Installed skill security scan
+-  **Sessions**: Session isolation, memory settings
+-  **Network**: Gateway binding, authentication
 
 ## Dashboard
 
@@ -69,11 +69,11 @@ This skill runs automatically when:
 
 | Icon | Severity | Meaning |
 |------|----------|---------|
-| 🔴 | Critical | Immediate action required |
-| 🟠 | High | Significant risk, fix soon |
-| 🟡 | Medium | Notable concern |
-| 🟢 | Low | Minor issue or best practice |
-| ⚪ | Info | Not a risk, but notable |
+|  | Critical | Immediate action required |
+|  | High | Significant risk, fix soon |
+|  | Medium | Notable concern |
+|  | Low | Minor issue or best practice |
+|  | Info | Not a risk, but notable |
 
 ## Context-Aware
 
@@ -85,18 +85,18 @@ secucheck considers your environment:
 ## Example Output
 
 ```
-🔒 Security Audit Results
+ Security Audit Results
 
-🟢 Good
+ Good
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 0 |
-| 🟠 High | 0 |
-| 🟡 Medium | 1 |
-| 🟢 Low | 2 |
+|  Critical | 0 |
+|  High | 0 |
+|  Medium | 1 |
+|  Low | 2 |
 
-Runtime: VPN active ✅ | No container | sudo available
+Runtime: VPN active  | No container | sudo available
 ```
 
 ## Safe by Design

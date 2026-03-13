@@ -1,7 +1,7 @@
 ---
 name: minimax-usage
 description: Check MiniMax coding plan usage/credits remaining. Requires MINIMAX_API_KEY environment variable.
-metadata: {"openclaw":{"emoji":"💳","requires":{"bins":["curl","jq"],"env":["MINIMAX_API_KEY"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","jq"],"env":["MINIMAX_API_KEY"]}}}
 ---
 
 # MiniMax Usage
@@ -37,7 +37,7 @@ Returns a Discord-formatted message:
 When remaining usage falls below the configured threshold:
 
 ```
-⚠️ MiniMax Usage Alert — MiniMax-M1
+ MiniMax Usage Alert — MiniMax-M1
 Remaining: 42 of 500 requests (8.4%)
 Resets: Feb 17, 2026 12:00 AM ET
 Time left: 7:23:15

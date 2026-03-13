@@ -67,9 +67,9 @@ Providers retry failed webhooks. Your endpoint must be:
 **Always store amounts in smallest unit (cents, pence).**
 
 ```plaintext
-✅ $10.00 = 1000 (cents)
-✅ €25.50 = 2550 (cents)
-❌ $10.00 = 10.00 (floating point disasters)
+ $10.00 = 1000 (cents)
+ €25.50 = 2550 (cents)
+ $10.00 = 10.00 (floating point disasters)
 ```
 
 **Display vs Storage:**

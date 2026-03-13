@@ -391,8 +391,8 @@ def _is_precheck_approved(docx_path: Path) -> bool:
     text = _docx_text_via_xml(docx_path)
     if not text:
         return False
-    text = text.replace("[✓]", "☑").replace("[√]", "☑").replace("✅", "☑")
-    return ("☑ 信息无误" in text) and ("☑ 同意输出" in text)
+    text = text.replace("[✓]", "").replace("[√]", "").replace("", "")
+    return (" 信息无误" in text) and (" 同意输出" in text)
 
 
 def _normalize_casebook_input_for_generate(src_path: Path, out_dir: Path) -> Path:
@@ -626,7 +626,7 @@ def main() -> int:
         if args.precheck_required == "on":
             if not precheck_doc.exists() or (not _is_precheck_approved(precheck_doc)):
                 print("错误：生成前信息核验单未勾选确认，已禁止输出。")
-                print(f"请先勾选“☑ 信息无误”“☑ 同意输出”：{precheck_doc}")
+                print(f"请先勾选“ 信息无误”“ 同意输出”：{precheck_doc}")
                 rc = 4
                 audit({"type": "run_end", "step": "generate_only", "ok": False, "exit_code": rc})
                 return rc

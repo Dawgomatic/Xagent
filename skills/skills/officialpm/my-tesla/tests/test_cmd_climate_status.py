@@ -65,7 +65,7 @@ class CmdClimateStatusTests(unittest.TestCase):
                 tesla.cmd_climate(args)
 
         out = buf.getvalue()
-        self.assertIn("🚗 Test Car", out)
+        self.assertIn(" Test Car", out)
         self.assertIn("Climate: Off", out)
         self.assertIn("Inside:", out)
         self.assertIn("Outside:", out)

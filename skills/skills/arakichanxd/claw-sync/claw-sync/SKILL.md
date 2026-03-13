@@ -102,7 +102,7 @@ BACKUP_TOKEN=ghp_YOUR_TOKEN_HERE
 /sync-status
 ```
 
-If configured correctly, you'll see ✅ Configured.
+If configured correctly, you'll see  Configured.
 
 ### Step 6: First sync
 ```bash
@@ -195,10 +195,10 @@ node skills/claw-sync/index.js setup
 
 ## Features
 
-- 🏷️ **Versioned** - Each sync creates a restorable version (git tag)
-- 💾 **Disaster Recovery** - Local backup before every restore
-- 🔒 **Secure** - No config files synced, token sanitization
-- 🖥️ **Cross-platform** - Windows, Mac, Linux
+-  **Versioned** - Each sync creates a restorable version (git tag)
+-  **Disaster Recovery** - Local backup before every restore
+-  **Secure** - No config files synced, token sanitization
+-  **Cross-platform** - Windows, Mac, Linux
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: hotjar
 description: Access Hotjar recordings and heatmaps via API. Understand user behavior on your site.
-metadata: {"clawdbot":{"emoji":"🔥","requires":{"env":["HOTJAR_API_KEY","HOTJAR_SITE_ID"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["HOTJAR_API_KEY","HOTJAR_SITE_ID"]}}}
 ---
 # Hotjar
 Behavior analytics.

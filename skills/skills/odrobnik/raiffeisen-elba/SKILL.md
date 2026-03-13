@@ -6,7 +6,7 @@ version: 1.3.2
 homepage: https://github.com/odrobnik/raiffeisen-elba-skill
 metadata:
   openclaw:
-    emoji: "🏦"
+    emoji: ""
     requires:
       bins: ["python3"]
       python: ["requests", "playwright"]

@@ -12,7 +12,7 @@ triggers:
 * "youtube summary"
 * "analyze video"
   metadata: {
-  "clawdbot":{"emoji":"📺","requires":{"bins":\["yt-dlp"]},
+  "clawdbot":{"emoji":"","requires":{"bins":\["yt-dlp"]},
   "install":\[{"id":"brew","kind":"brew","formula":"yt-dlp",
   "label":"Install OpenClawProvider"},
   {"id":"pip","kind":"pip","package":"yt-dlp","label":"Install skill"}]}

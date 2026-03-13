@@ -25,7 +25,7 @@ export async function getUploadUrl(
     token: string,
     filename: string
 ): Promise<{ url: string; expiredAt: number }> {
-    console.log("📦 Step 1: 获取 IPFS 上传 URL...");
+    console.log(" Step 1: 获取 IPFS 上传 URL...");
 
     const resp = await fetch(`${API_BASE}/file/upload_url`, {
         method: "POST",
@@ -50,7 +50,7 @@ export async function getUploadUrl(
         throw new Error(`获取上传 URL 错误: ${result.error_msg}`);
     }
 
-    console.log("✅ 获取到 Pinata 上传 URL");
+    console.log(" 获取到 Pinata 上传 URL");
     return { url: result.data.url, expiredAt: result.data.expired_at };
 }
 
@@ -62,7 +62,7 @@ export async function uploadImage(
     uploadUrl: string,
     imagePath: string
 ): Promise<string> {
-    console.log("🖼️  Step 2: 上传图片到 IPFS...");
+    console.log("  Step 2: 上传图片到 IPFS...");
 
     const absolutePath = path.resolve(imagePath);
     if (!fs.existsSync(absolutePath)) {
@@ -89,12 +89,12 @@ export async function uploadImage(
     // 可选: name (文档支持自定义文件名，这里用原始文件名)
     form.append("name", fileName);
 
-    console.log(`📦 正在生成上传数据包...`);
+    console.log(` 正在生成上传数据包...`);
 
     // 3. 核心修复: 转为 Buffer 解决 'source.on' 和 '408' 错误
     const payload = form.getBuffer();
 
-    console.log(`📦 数据准备就绪，大小: ${payload.length} bytes`);
+    console.log(` 数据准备就绪，大小: ${payload.length} bytes`);
 
     try {
         const resp = await fetch(uploadUrl, {
@@ -130,16 +130,16 @@ export async function uploadImage(
         const cid = result.data?.cid || (result as any).cid;
 
         if (!cid) {
-            console.error("❌ 返回结果异常:", JSON.stringify(result));
+            console.error(" 返回结果异常:", JSON.stringify(result));
             throw new Error(`上传成功但未获取到 CID`);
         }
 
         const ipfsUrl = `https://ipfs.io/ipfs/${cid}`;
-        console.log(`✅ 图片上传成功, IPFS URL: ${ipfsUrl}`);
+        console.log(` 图片上传成功, IPFS URL: ${ipfsUrl}`);
         return ipfsUrl;
 
     } catch (error: any) {
-        console.error("❌ 上传过程发生异常:", error);
+        console.error(" 上传过程发生异常:", error);
         throw error;
     }
 }
@@ -148,7 +148,7 @@ export async function uploadImage(
  * Step 3: 获取 mint 地址
  */
 export async function getMintAddress(token: string): Promise<string> {
-    console.log("🔑 Step 3: 获取 mint 地址...");
+    console.log(" Step 3: 获取 mint 地址...");
 
     const t = Date.now();
     const resp = await fetch(
@@ -173,7 +173,7 @@ export async function getMintAddress(token: string): Promise<string> {
         throw new Error(`获取 mint 地址错误: ${result.error_msg}`);
     }
 
-    console.log(`✅ 获取到 mint 地址: ${result.data}`);
+    console.log(` 获取到 mint 地址: ${result.data}`);
     return result.data;
 }
 
@@ -192,7 +192,7 @@ export async function uploadContent(
         url?: string;
     }
 ): Promise<string> {
-    console.log("📝 Step 4: 上传 coin tick 内容...");
+    console.log(" Step 4: 上传 coin tick 内容...");
 
     const body: Record<string, unknown> = {
         mint_addr: params.mintAddr,
@@ -232,7 +232,7 @@ export async function uploadContent(
         );
     }
 
-    console.log(`✅ 内容上传成功, IPFS URI: ${result.data}`);
+    console.log(` 内容上传成功, IPFS URI: ${result.data}`);
     return result.data;
 }
 

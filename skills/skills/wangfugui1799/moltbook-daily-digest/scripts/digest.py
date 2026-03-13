@@ -124,9 +124,9 @@ def summarize_post(detail, title):
 
 def format_telegram(posts_with_details):
     if not posts_with_details:
-        return "❌ Failed to fetch posts from Moltbook"
+        return " Failed to fetch posts from Moltbook"
     
-    output = ["🔥 **Moltbook 今日热门**", ""]
+    output = [" **Moltbook 今日热门**", ""]
     
     for i, (post, detail) in enumerate(posts_with_details[:10], 1):
         title = post.get("title", "Untitled")[:50]
@@ -139,12 +139,12 @@ def format_telegram(posts_with_details):
         
         output.append(f"**{i}. {title}**")
         output.append(f"by @{author}")
-        output.append(f"💬 {summary}")
-        output.append(f"⬆️ {upvotes} | 💬 {comments}")
-        output.append(f"📍 https://moltbook.com/post/{post_id}  ← 点击阅读")
+        output.append(f" {summary}")
+        output.append(f" {upvotes} |  {comments}")
+        output.append(f" https://moltbook.com/post/{post_id}  ← 点击阅读")
         output.append("")
     
-    output.append("🔗 https://moltbook.com/explore")
+    output.append(" https://moltbook.com/explore")
     return "\n".join(output)
 
 def main():
@@ -167,7 +167,7 @@ def main():
         post_id = post.get("id")
         detail = fetch_post_detail(post_id)
         posts_with_details.append((post, detail))
-        print(f"📖 读取中: {post.get('title', '')[:40]}...")
+        print(f" 读取中: {post.get('title', '')[:40]}...")
     
     print(format_telegram(posts_with_details))
 

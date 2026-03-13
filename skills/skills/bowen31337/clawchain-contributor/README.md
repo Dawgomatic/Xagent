@@ -68,4 +68,4 @@ MIT - See LICENSE file
 
 Created by @bowen31337 for the ClawChain community.
 
-🦞⛓️
+

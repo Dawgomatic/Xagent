@@ -3,7 +3,7 @@ name: nest-sdm
 description: Control Nest thermostat, doorbell, and cameras via the Google Smart Device Management (SDM) API.
 metadata:
   openclaw:
-    emoji: "🏠"
+    emoji: ""
     requires:
       bins: ["curl", "python3"]
 ---
@@ -155,13 +155,13 @@ nest-events listen              # Poll continuously (daemon)
 
 | Event | Alert |
 |-------|-------|
-| `DoorbellChime.Chime` | 🔔 DOORBELL — Someone rang! |
-| `CameraPerson.Person` | 👤 Person detected at device |
-| `CameraMotion.Motion` | 🏃 Motion at device |
-| `CameraSound.Sound` | 🔊 Sound at device |
-| `ThermostatHvac` status change | ❄️/🔥 HVAC now COOLING/HEATING |
-| `ThermostatTemperatureSetpoint` | 🌡️ Setpoint changed |
-| `Temperature` trait | 🌡️ Ambient temperature change |
+| `DoorbellChime.Chime` |  DOORBELL — Someone rang! |
+| `CameraPerson.Person` |  Person detected at device |
+| `CameraMotion.Motion` |  Motion at device |
+| `CameraSound.Sound` |  Sound at device |
+| `ThermostatHvac` status change | / HVAC now COOLING/HEATING |
+| `ThermostatTemperatureSetpoint` |  Setpoint changed |
+| `Temperature` trait |  Ambient temperature change |
 
 ### Configuration
 
@@ -187,7 +187,7 @@ Same event type won't re-alert within 60 seconds to prevent alert fatigue.
 ## Important Notes
 
 - **Token expiry:** If the GCP app is in "testing" mode, refresh tokens expire in 7 days. Publish the app to avoid re-auth.
-- **Temperature:** API uses Celsius internally. The CLI handles F↔C conversion.
+- **Temperature:** API uses Celsius internally. The CLI handles FC conversion.
 - **Setpoint constraints:** HEATCOOL range must have at least 1.5°C (2.7°F) gap between heat and cool setpoints.
 - **Camera streams:** WebRTC only (no RTSP). Requires SDP offer/answer exchange.
 - **Rate limits:** 10 queries/min per device, 10 commands/min per device.

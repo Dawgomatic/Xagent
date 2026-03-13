@@ -116,13 +116,13 @@ Add or remove a reaction to a post.
 **Parameters:**
 - `groupId` (string, required): Group ID
 - `postId` (string, required): Post ID
-- `reaction` (string, required): Reaction emoji or key (e.g., '👍', 'like', 'heart')
+- `reaction` (string, required): Reaction emoji or key (e.g., '', 'like', 'heart')
 
 **Returns:**
 ```javascript
 {
   reacted: true,
-  reaction: '👍',
+  reaction: '',
   count: 5
 }
 ```
@@ -190,7 +190,7 @@ await actions['groups.post']({
 await actions['groups.react']({
   groupId: result.group.id,
   postId: 'post_xyz789',
-  reaction: '🔥'
+  reaction: ''
 });
 ```
 

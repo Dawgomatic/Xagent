@@ -1,7 +1,7 @@
 ---
 name: Gifts
 description: Build a personal gift system for tracking ideas, occasions, and gift-giving history.
-metadata: {"clawdbot":{"emoji":"🎁","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

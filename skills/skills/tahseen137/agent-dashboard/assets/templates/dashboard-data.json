@@ -76,23 +76,23 @@
   "recentActivity": [
     {
       "time": "2024-01-15T11:30:00Z",
-      "event": "✅ Deployed v2.1.0 to production"
+      "event": " Deployed v2.1.0 to production"
     },
     {
       "time": "2024-01-15T10:45:00Z",
-      "event": "🔄 Merged feature branch #feature-42"
+      "event": " Merged feature branch #feature-42"
     },
     {
       "time": "2024-01-15T10:00:00Z",
-      "event": "📊 Generated weekly analytics report"
+      "event": " Generated weekly analytics report"
     },
     {
       "time": "2024-01-15T09:00:00Z",
-      "event": "📧 Sent daily digest to team"
+      "event": " Sent daily digest to team"
     },
     {
       "time": "2024-01-14T18:00:00Z",
-      "event": "🛠️ Fixed auth bug in login flow"
+      "event": " Fixed auth bug in login flow"
     }
   ]
 }

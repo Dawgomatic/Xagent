@@ -1,4 +1,4 @@
-# Stripe CLI for Moltbot 🧾
+# Stripe CLI for Moltbot 
 
 A universal Moltbot skill wrapping Stripe CLI for payment processing, webhook testing, and API operations. Includes optional ShapeScale-specific extensions.
 
@@ -7,12 +7,12 @@ A universal Moltbot skill wrapping Stripe CLI for payment processing, webhook te
 
 ## Features
 
-- 💳 **Payment Operations** - Create payment intents, process refunds
-- 👤 **Customer Management** - Create and list customers
-- 🔄 **Subscriptions** - Recurring payments (ShapeScale extension)
-- 🏥 **Clinic Presets** - Pre-configured templates (ShapeScale extension)
-- 📡 **Webhook Testing** - Listen and trigger webhooks locally
-- 🔧 **Generic API** - Full Stripe API access
+-  **Payment Operations** - Create payment intents, process refunds
+-  **Customer Management** - Create and list customers
+-  **Subscriptions** - Recurring payments (ShapeScale extension)
+-  **Clinic Presets** - Pre-configured templates (ShapeScale extension)
+-  **Webhook Testing** - Listen and trigger webhooks locally
+-  **Generic API** - Full Stripe API access
 
 ## Quick Start
 

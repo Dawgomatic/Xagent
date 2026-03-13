@@ -2,7 +2,7 @@
 name: memory-system-v2
 description: Fast semantic memory system with JSON indexing, auto-consolidation, and <20ms search. Capture learnings, decisions, insights, events. Use when you need persistent memory across sessions or want to recall prior work/decisions.
 homepage: https://github.com/austenallred/memory-system-v2
-metadata: {"clawdbot":{"emoji":"🧠","requires":{"bins":["jq"]},"install":[{"id":"brew-jq","kind":"brew","formula":"jq","bins":["jq"],"label":"Install jq via Homebrew"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["jq"]},"install":[{"id":"brew-jq","kind":"brew","formula":"jq","bins":["jq"],"label":"Install jq via Homebrew"}]}}
 ---
 
 # Memory System v2.0
@@ -21,14 +21,14 @@ Built in pure bash + jq. No databases required.
 
 ## Features
 
-- ⚡ **Fast Search:** <20ms average search time (36 tests passed)
-- 🧠 **Semantic Memory:** Capture 5 types of memories (learning, decision, insight, event, interaction)
-- 📊 **Importance Scoring:** 1-10 scale for memory prioritization
-- 🏷️ **Tagging System:** Organize memories with tags
-- 📝 **Context Tracking:** Remember what you were doing when memory was created
-- 📅 **Auto-Consolidation:** Weekly summaries generated automatically
-- 🔍 **Smart Search:** Multi-word search with importance weighting
-- 📈 **Stats & Analytics:** Track memory counts, types, importance distribution
+-  **Fast Search:** <20ms average search time (36 tests passed)
+-  **Semantic Memory:** Capture 5 types of memories (learning, decision, insight, event, interaction)
+-  **Importance Scoring:** 1-10 scale for memory prioritization
+-  **Tagging System:** Organize memories with tags
+-  **Context Tracking:** Remember what you were doing when memory was created
+-  **Auto-Consolidation:** Weekly summaries generated automatically
+-  **Smart Search:** Multi-word search with importance weighting
+-  **Stats & Analytics:** Track memory counts, types, importance distribution
 
 ## Quick Start
 
@@ -183,7 +183,7 @@ memory/
 - Capture: <50ms average
 - Stats: <10ms
 - Recent: <15ms
-- All operations: <100ms target ✅
+- All operations: <100ms target 
 
 ## Commands Reference
 
@@ -328,15 +328,15 @@ Full test suite with 36 tests covering:
 ./memory-cli.sh test  # If test suite is included
 ```
 
-**All tests passed ✅** - See `memory-system-v2-test-results.md` for details.
+**All tests passed ** - See `memory-system-v2-test-results.md` for details.
 
 ## Performance
 
 **Design goals:**
-- Search: <20ms ✅
-- Capture: <50ms ✅
-- Stats: <10ms ✅
-- All operations: <100ms ✅
+- Search: <20ms 
+- Capture: <50ms 
+- Stats: <10ms 
+- All operations: <100ms 
 
 **Tested on:** M1 Mac, 247 memories in index
 

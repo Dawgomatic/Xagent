@@ -302,7 +302,7 @@ Same addresses on Mainnet, Arbitrum, Base, and all major chains.
 
 Benefits: If agent key is compromised, human removes it. Human can always recover funds. Agent can batch transactions.
 
-## 🚨 NEVER COMMIT SECRETS TO GIT
+##  NEVER COMMIT SECRETS TO GIT
 
 **This is the #1 way AI agents lose funds and leak credentials.** Bots scrape GitHub in real-time and exploit leaked secrets within seconds — even from private repos, even if deleted immediately. A secret committed to Git is compromised forever.
 
@@ -375,12 +375,12 @@ cast send ... --ledger
 
 ### Storage Options (Worst to Best)
 
-❌ Plain text in code/logs — NEVER
-❌ Environment variables in shared environments — NEVER
-❌ Committed to Git — NEVER
-⚠️ Local `.env` file — testing only
-✅ Encrypted keystore (password-protected)
-✅ Hardware wallet / Cloud KMS / TEE
+ Plain text in code/logs — NEVER
+ Environment variables in shared environments — NEVER
+ Committed to Git — NEVER
+ Local `.env` file — testing only
+ Encrypted keystore (password-protected)
+ Hardware wallet / Cloud KMS / TEE
 
 ### Safe Transaction Pattern
 
@@ -455,7 +455,7 @@ description: Ethereum Layer 2 landscape — Arbitrum, Optimism, Base, zkSync, Sc
 | **Scroll** | ZK | $250M+ | $0.002-0.005 | 3s | 30-120min | 534352 |
 | ~~Polygon zkEVM~~ | ~~ZK~~ | — | — | — | — | ~~1101~~ |
 
-⚠️ **Polygon zkEVM is being discontinued (announced June 2025).** Do not start new projects there. Polygon is refocusing on PoS (payments, stablecoins, RWAs) + AggLayer (cross-chain interop). MATIC → POL token migration ~85% complete.
+ **Polygon zkEVM is being discontinued (announced June 2025).** Do not start new projects there. Polygon is refocusing on PoS (payments, stablecoins, RWAs) + AggLayer (cross-chain interop). MATIC → POL token migration ~85% complete.
 
 **Mainnet for comparison:** $50B+ TVL, $0.002-0.01, 8s blocks, instant finality.
 
@@ -524,7 +524,7 @@ Members contribute **15% of sequencer revenue** to the Optimism Collective. Cros
 ## Deployment Differences (Gotchas)
 
 ### Optimistic Rollups (Arbitrum, Optimism, Base, Unichain, Celo)
-✅ Deploy like mainnet — just change RPC URL and chain ID. No code changes.
+ Deploy like mainnet — just change RPC URL and chain ID. No code changes.
 
 **Gotchas:**
 - Don't use `block.number` for time-based logic (increments at different rates). Use `block.timestamp`.
@@ -533,7 +533,7 @@ Members contribute **15% of sequencer revenue** to the Optimism Collective. Cros
 
 ### ZK Rollups
 - **zkSync Era:** Must use `zksolc` compiler. No `EXTCODECOPY` (compile-time error). 65K instruction limit. Non-inlinable libraries must be pre-deployed. Native account abstraction (all accounts are smart contracts).
-- **Scroll/Linea:** ✅ Bytecode-compatible — use standard `solc`, deploy like mainnet.
+- **Scroll/Linea:**  Bytecode-compatible — use standard `solc`, deploy like mainnet.
 
 ### Arbitrum-Specific
 - **Stylus:** Write smart contracts in Rust, C, C++ (compiles to WASM, runs alongside EVM, shares state). Use for compute-heavy operations (10-100x gas savings). Contracts must be "activated" via `ARB_WASM_ADDRESS` (0x0000…0071).
@@ -916,14 +916,14 @@ EOAs temporarily delegate to smart contracts within a transaction. Best of both 
 
 | Standard | What | Status |
 |----------|------|--------|
-| ERC-8004 | Agent identity + reputation | ✅ Live Jan 2026 |
-| x402 | HTTP payments protocol | ✅ Production Q1 2026 |
-| EIP-3009 | Gasless token transfers | ✅ Live (USDC) |
-| EIP-7702 | Smart EOAs | ✅ Live May 2025 |
-| ERC-4337 | Account abstraction | ✅ Growing adoption |
-| ERC-2612 | Gasless approvals (Permit) | ✅ Widely adopted |
-| ERC-4626 | Tokenized vaults | ✅ Standard for yield |
-| ERC-6551 | Token-bound accounts (NFT wallets) | ✅ Niche adoption |
+| ERC-8004 | Agent identity + reputation |  Live Jan 2026 |
+| x402 | HTTP payments protocol |  Production Q1 2026 |
+| EIP-3009 | Gasless token transfers |  Live (USDC) |
+| EIP-7702 | Smart EOAs |  Live May 2025 |
+| ERC-4337 | Account abstraction |  Growing adoption |
+| ERC-2612 | Gasless approvals (Permit) |  Widely adopted |
+| ERC-4626 | Tokenized vaults |  Standard for yield |
+| ERC-6551 | Token-bound accounts (NFT wallets) |  Niche adoption |
 
 **These are all LIVE and being used in production. Not "coming soon."**
 
@@ -1434,7 +1434,7 @@ Never show Approve and Execute simultaneously.
 
 **Validate:** Full user journey works with real wallet on localhost. All edge cases handled.
 
-## 🚨 NEVER COMMIT SECRETS TO GIT
+##  NEVER COMMIT SECRETS TO GIT
 
 **Before touching Phase 2, read this.** AI agents are the #1 source of leaked credentials on GitHub. Bots scrape repos in real-time and exploit leaked secrets within seconds.
 
@@ -1444,17 +1444,17 @@ Never show Approve and Execute simultaneously.
 - **RPC URLs with embedded keys** — e.g. `https://base-mainnet.g.alchemy.com/v2/YOUR_KEY`
 - **OAuth tokens, passwords, bearer tokens**
 
-**⚠️ Common SE2 Trap: `scaffold.config.ts`**
+** Common SE2 Trap: `scaffold.config.ts`**
 
 `rpcOverrides` and `alchemyApiKey` in `scaffold.config.ts` are committed to Git. **NEVER paste API keys directly into this file.** Use environment variables:
 
 ```typescript
-// ❌ WRONG — key committed to public repo
+//  WRONG — key committed to public repo
 rpcOverrides: {
   [chains.base.id]: "https://base-mainnet.g.alchemy.com/v2/8GVG8WjDs-LEAKED",
 },
 
-// ✅ RIGHT — key stays in .env.local
+//  RIGHT — key stays in .env.local
 rpcOverrides: {
   [chains.base.id]: process.env.NEXT_PUBLIC_BASE_RPC || "https://mainnet.base.org",
 },
@@ -1659,28 +1659,28 @@ description: Verified contract addresses for major Ethereum protocols across mai
 ### USDC (Circle) — Native
 | Network | Address | Status |
 |---------|---------|--------|
-| Mainnet | `0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48` | ✅ Verified |
-| Arbitrum | `0xaf88d065e77c8cC2239327C5EDb3A432268e5831` | ✅ Verified |
-| Optimism | `0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85` | ✅ Verified |
-| Base | `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913` | ✅ Verified |
-| Polygon | `0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359` | ✅ Verified |
-| zkSync Era | `0x1d17CBcF0D6D143135aE902365D2E5e2A16538D4` | ✅ Verified |
+| Mainnet | `0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48` |  Verified |
+| Arbitrum | `0xaf88d065e77c8cC2239327C5EDb3A432268e5831` |  Verified |
+| Optimism | `0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85` |  Verified |
+| Base | `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913` |  Verified |
+| Polygon | `0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359` |  Verified |
+| zkSync Era | `0x1d17CBcF0D6D143135aE902365D2E5e2A16538D4` |  Verified |
 
 ### USDT (Tether)
 | Network | Address | Status |
 |---------|---------|--------|
-| Mainnet | `0xdAC17F958D2ee523a2206206994597C13D831ec7` | ✅ Verified |
-| Arbitrum | `0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9` | ✅ Verified |
-| Optimism | `0x94b008aA00579c1307B0EF2c499aD98a8ce58e58` | ✅ Verified |
-| Base | `0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2` | ✅ Verified |
+| Mainnet | `0xdAC17F958D2ee523a2206206994597C13D831ec7` |  Verified |
+| Arbitrum | `0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9` |  Verified |
+| Optimism | `0x94b008aA00579c1307B0EF2c499aD98a8ce58e58` |  Verified |
+| Base | `0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2` |  Verified |
 
 ### DAI (MakerDAO)
 | Network | Address | Status |
 |---------|---------|--------|
-| Mainnet | `0x6B175474E89094C44Da98b954EedeAC495271d0F` | ✅ Verified |
-| Arbitrum | `0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1` | ✅ Verified |
-| Optimism | `0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1` | ✅ Verified |
-| Base | `0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb` | ✅ Verified |
+| Mainnet | `0x6B175474E89094C44Da98b954EedeAC495271d0F` |  Verified |
+| Arbitrum | `0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1` |  Verified |
+| Optimism | `0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1` |  Verified |
+| Base | `0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb` |  Verified |
 
 ---
 
@@ -1688,10 +1688,10 @@ description: Verified contract addresses for major Ethereum protocols across mai
 
 | Network | Address | Status |
 |---------|---------|--------|
-| Mainnet | `0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2` | ✅ Verified |
-| Arbitrum | `0x82aF49447D8a07e3bd95BD0d56f35241523fBab1` | ✅ Verified |
-| Optimism | `0x4200000000000000000000000000000000000006` | ✅ Verified |
-| Base | `0x4200000000000000000000000000000000000006` | ✅ Verified |
+| Mainnet | `0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2` |  Verified |
+| Arbitrum | `0x82aF49447D8a07e3bd95BD0d56f35241523fBab1` |  Verified |
+| Optimism | `0x4200000000000000000000000000000000000006` |  Verified |
+| Base | `0x4200000000000000000000000000000000000006` |  Verified |
 
 ---
 
@@ -1702,81 +1702,81 @@ description: Verified contract addresses for major Ethereum protocols across mai
 #### V2 (Mainnet)
 | Contract | Address | Status |
 |----------|---------|--------|
-| Router | `0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D` | ✅ Verified |
-| Factory | `0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f` | ✅ Verified |
+| Router | `0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D` |  Verified |
+| Factory | `0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f` |  Verified |
 
 #### V3 (Mainnet)
 | Contract | Address | Status |
 |----------|---------|--------|
-| SwapRouter | `0xE592427A0AEce92De3Edee1F18E0157C05861564` | ✅ Verified |
-| SwapRouter02 | `0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45` | ✅ Verified |
-| Factory | `0x1F98431c8aD98523631AE4a59f267346ea31F984` | ✅ Verified |
-| Quoter V2 | `0x61fFE014bA17989E743c5F6cB21bF9697530B21e` | ✅ Verified |
-| Position Manager | `0xC36442b4a4522E871399CD717aBDD847Ab11FE88` | ✅ Verified |
+| SwapRouter | `0xE592427A0AEce92De3Edee1F18E0157C05861564` |  Verified |
+| SwapRouter02 | `0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45` |  Verified |
+| Factory | `0x1F98431c8aD98523631AE4a59f267346ea31F984` |  Verified |
+| Quoter V2 | `0x61fFE014bA17989E743c5F6cB21bF9697530B21e` |  Verified |
+| Position Manager | `0xC36442b4a4522E871399CD717aBDD847Ab11FE88` |  Verified |
 
 #### V3 Multi-Chain
 | Contract | Arbitrum | Optimism | Base |
 |----------|----------|----------|------|
-| SwapRouter02 | `0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45` ✅ | `0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45` ✅ | `0x2626664c2603336E57B271c5C0b26F421741e481` ✅ |
-| Factory | `0x1F98431c8aD98523631AE4a59f267346ea31F984` ✅ | `0x1F98431c8aD98523631AE4a59f267346ea31F984` ✅ | `0x33128a8fC17869897dcE68Ed026d694621f6FDfD` ✅ |
+| SwapRouter02 | `0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45`  | `0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45`  | `0x2626664c2603336E57B271c5C0b26F421741e481`  |
+| Factory | `0x1F98431c8aD98523631AE4a59f267346ea31F984`  | `0x1F98431c8aD98523631AE4a59f267346ea31F984`  | `0x33128a8fC17869897dcE68Ed026d694621f6FDfD`  |
 
 #### Universal Router (Mainnet)
 | Contract | Address | Status |
 |----------|---------|--------|
-| Universal Router | `0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD` | ✅ Verified |
+| Universal Router | `0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD` |  Verified |
 
 #### UNI Token
 | Network | Address | Status |
 |---------|---------|--------|
-| Mainnet | `0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984` | ✅ Verified |
+| Mainnet | `0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984` |  Verified |
 
 ### Aave
 
 #### V2 (Mainnet - Legacy)
 | Contract | Address | Status |
 |----------|---------|--------|
-| LendingPool | `0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9` | ✅ Verified |
+| LendingPool | `0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9` |  Verified |
 
 #### V3 (Mainnet)
 | Contract | Address | Status |
 |----------|---------|--------|
-| Pool | `0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2` | ✅ Verified |
-| PoolAddressesProvider | `0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e` | ✅ Verified |
+| Pool | `0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2` |  Verified |
+| PoolAddressesProvider | `0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e` |  Verified |
 
 #### V3 Multi-Chain
 | Contract | Arbitrum | Optimism | Base |
 |----------|----------|----------|------|
-| Pool | `0x794a61358D6845594F94dc1DB02A252b5b4814aD` ✅ | `0x794a61358D6845594F94dc1DB02A252b5b4814aD` ✅ | `0xA238Dd80C259a72e81d7e4664a9801593F98d1c5` ✅ |
-| PoolAddressesProvider | `0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb` ✅ | `0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb` ✅ | `0xe20fCBdBfFC4Dd138cE8b2E6FBb6CB49777ad64D` ✅ |
+| Pool | `0x794a61358D6845594F94dc1DB02A252b5b4814aD`  | `0x794a61358D6845594F94dc1DB02A252b5b4814aD`  | `0xA238Dd80C259a72e81d7e4664a9801593F98d1c5`  |
+| PoolAddressesProvider | `0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb`  | `0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb`  | `0xe20fCBdBfFC4Dd138cE8b2E6FBb6CB49777ad64D`  |
 
 ### Compound
 
 #### V2 (Mainnet - Legacy)
 | Contract | Address | Status |
 |----------|---------|--------|
-| Comptroller | `0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B` | ✅ Verified |
-| cETH | `0x4Ddc2D193948926D02f9B1fE9e1daa0718270ED5` | ✅ Verified |
-| cUSDC | `0x39AA39c021dfbaE8faC545936693aC917d5E7563` | ✅ Verified |
-| cDAI | `0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643` | ✅ Verified |
+| Comptroller | `0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B` |  Verified |
+| cETH | `0x4Ddc2D193948926D02f9B1fE9e1daa0718270ED5` |  Verified |
+| cUSDC | `0x39AA39c021dfbaE8faC545936693aC917d5E7563` |  Verified |
+| cDAI | `0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643` |  Verified |
 
 #### V3 Comet (USDC Markets)
 | Network | Address | Status |
 |---------|---------|--------|
-| Mainnet | `0xc3d688B66703497DAA19211EEdff47f25384cdc3` | ✅ Verified |
-| Arbitrum | `0x9c4ec768c28520B50860ea7a15bd7213a9fF58bf` | ✅ Verified |
-| Base | `0xb125E6687d4313864e53df431d5425969c15Eb2F` | ✅ Verified |
-| Optimism | `0x2e44e174f7D53F0212823acC11C01A11d58c5bCB` | ✅ Verified |
+| Mainnet | `0xc3d688B66703497DAA19211EEdff47f25384cdc3` |  Verified |
+| Arbitrum | `0x9c4ec768c28520B50860ea7a15bd7213a9fF58bf` |  Verified |
+| Base | `0xb125E6687d4313864e53df431d5425969c15Eb2F` |  Verified |
+| Optimism | `0x2e44e174f7D53F0212823acC11C01A11d58c5bCB` |  Verified |
 
 ### Curve Finance (Mainnet)
 | Contract | Address | Status |
 |----------|---------|--------|
-| Address Provider | `0x0000000022D53366457F9d5E68Ec105046FC4383` | ✅ Verified |
-| CRV Token | `0xD533a949740bb3306d119CC777fa900bA034cd52` | ✅ Verified |
+| Address Provider | `0x0000000022D53366457F9d5E68Ec105046FC4383` |  Verified |
+| CRV Token | `0xD533a949740bb3306d119CC777fa900bA034cd52` |  Verified |
 
 ### Balancer V2 (Mainnet)
 | Contract | Address | Status |
 |----------|---------|--------|
-| Vault | `0xBA12222222228d8Ba445958a75a0704d566BF2C8` | ✅ Verified |
+| Vault | `0xBA12222222228d8Ba445958a75a0704d566BF2C8` |  Verified |
 
 ---
 
@@ -1785,17 +1785,17 @@ description: Verified contract addresses for major Ethereum protocols across mai
 ### OpenSea Seaport
 | Version | Address | Status |
 |---------|---------|--------|
-| Seaport 1.1 | `0x00000000006c3852cbEf3e08E8dF289169EdE581` | ✅ Verified |
-| Seaport 1.5 | `0x00000000000000ADc04C56Bf30aC9d3c0aAF14dC` | ✅ Verified |
+| Seaport 1.1 | `0x00000000006c3852cbEf3e08E8dF289169EdE581` |  Verified |
+| Seaport 1.5 | `0x00000000000000ADc04C56Bf30aC9d3c0aAF14dC` |  Verified |
 
 Multi-chain via CREATE2 (Ethereum, Polygon, Arbitrum, Optimism, Base).
 
 ### ENS (Mainnet)
 | Contract | Address | Status |
 |----------|---------|--------|
-| Registry | `0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e` | ✅ Verified |
-| Public Resolver | `0x231b0Ee14048e9dCcD1d247744d114a4EB5E8E63` | ✅ Verified |
-| Registrar Controller | `0x253553366Da8546fC250F225fe3d25d0C782303b` | ✅ Verified |
+| Registry | `0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e` |  Verified |
+| Public Resolver | `0x231b0Ee14048e9dCcD1d247744d114a4EB5E8E63` |  Verified |
+| Registrar Controller | `0x253553366Da8546fC250F225fe3d25d0C782303b` |  Verified |
 
 ---
 
@@ -1804,16 +1804,16 @@ Multi-chain via CREATE2 (Ethereum, Polygon, Arbitrum, Optimism, Base).
 ### Safe (Gnosis Safe)
 | Contract | Address | Status |
 |----------|---------|--------|
-| Singleton 1.3.0 | `0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552` | ✅ Verified |
-| ProxyFactory | `0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2` | ✅ Verified |
-| Singleton 1.4.1 | `0x41675C099F32341bf84BFc5382aF534df5C7461a` | ✅ Verified |
-| MultiSend | `0x38869bf66a61cF6bDB996A6aE40D5853Fd43B526` | ✅ Verified |
+| Singleton 1.3.0 | `0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552` |  Verified |
+| ProxyFactory | `0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2` |  Verified |
+| Singleton 1.4.1 | `0x41675C099F32341bf84BFc5382aF534df5C7461a` |  Verified |
+| MultiSend | `0x38869bf66a61cF6bDB996A6aE40D5853Fd43B526` |  Verified |
 
 ### Account Abstraction (ERC-4337)
 | Contract | Address | Status |
 |----------|---------|--------|
-| EntryPoint v0.7 | `0x0000000071727De22E5E9d8BAf0edAc6f37da032` | ✅ Verified |
-| EntryPoint v0.6 | `0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789` | ✅ Verified |
+| EntryPoint v0.7 | `0x0000000071727De22E5E9d8BAf0edAc6f37da032` |  Verified |
+| EntryPoint v0.6 | `0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789` |  Verified |
 
 All EVM chains (CREATE2).
 
@@ -1822,23 +1822,23 @@ All EVM chains (CREATE2).
 #### Mainnet
 | Feed | Address | Status |
 |------|---------|--------|
-| LINK Token | `0x514910771AF9Ca656af840dff83E8264EcF986CA` | ✅ Verified |
-| ETH/USD | `0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419` | ✅ Verified |
-| BTC/USD | `0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c` | ✅ Verified |
-| USDC/USD | `0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6` | ✅ Verified |
+| LINK Token | `0x514910771AF9Ca656af840dff83E8264EcF986CA` |  Verified |
+| ETH/USD | `0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419` |  Verified |
+| BTC/USD | `0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c` |  Verified |
+| USDC/USD | `0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6` |  Verified |
 
 #### ETH/USD Price Feeds (Multi-Chain)
 | Network | Address | Status |
 |---------|---------|--------|
-| Arbitrum | `0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612` | ✅ Verified |
-| Base | `0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70` | ✅ Verified |
-| Optimism | `0x13e3Ee699D1909E989722E753853AE30b17e08c5` | ✅ Verified |
+| Arbitrum | `0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612` |  Verified |
+| Base | `0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70` |  Verified |
+| Optimism | `0x13e3Ee699D1909E989722E753853AE30b17e08c5` |  Verified |
 
 #### LINK Token (Multi-Chain)
 | Network | Address | Status |
 |---------|---------|--------|
-| Arbitrum | `0xf97f4df75117a78c1A5a0DBb814Af92458539FB4` | ✅ Verified |
-| Base | `0x88Fb150BDc53A65fe94Dea0c9BA0a6dAf8C6e196` | ✅ Verified |
+| Arbitrum | `0xf97f4df75117a78c1A5a0DBb814Af92458539FB4` |  Verified |
+| Base | `0x88Fb150BDc53A65fe94Dea0c9BA0a6dAf8C6e196` |  Verified |
 
 ---
 
@@ -1852,15 +1852,15 @@ The largest DEX on Base by TVL (~$500-600M). Uses the ve(3,3) model — **LPs ea
 
 | Contract | Address | Status |
 |----------|---------|--------|
-| AERO Token | `0x940181a94A35A4569E4529A3CDfB74e38FD98631` | ✅ Verified |
-| Router | `0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43` | ✅ Verified |
-| Voter | `0x16613524e02ad97eDfeF371bC883F2F5d6C480A5` | ✅ Verified |
-| VotingEscrow | `0xeBf418Fe2512e7E6bd9b87a8F0f294aCDC67e6B4` | ✅ Verified |
-| PoolFactory | `0x420DD381b31aEf6683db6B902084cB0FFECe40Da` | ✅ Verified |
-| GaugeFactory | `0x35f35cA5B132CaDf2916BaB57639128eAC5bbcb5` | ✅ Verified |
-| Minter | `0xeB018363F0a9Af8f91F06FEe6613a751b2A33FE5` | ✅ Verified |
-| RewardsDistributor | `0x227f65131A261548b057215bB1D5Ab2997964C7d` | ✅ Verified |
-| FactoryRegistry | `0x5C3F18F06CC09CA1910767A34a20F771039E37C0` | ✅ Verified |
+| AERO Token | `0x940181a94A35A4569E4529A3CDfB74e38FD98631` |  Verified |
+| Router | `0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43` |  Verified |
+| Voter | `0x16613524e02ad97eDfeF371bC883F2F5d6C480A5` |  Verified |
+| VotingEscrow | `0xeBf418Fe2512e7E6bd9b87a8F0f294aCDC67e6B4` |  Verified |
+| PoolFactory | `0x420DD381b31aEf6683db6B902084cB0FFECe40Da` |  Verified |
+| GaugeFactory | `0x35f35cA5B132CaDf2916BaB57639128eAC5bbcb5` |  Verified |
+| Minter | `0xeB018363F0a9Af8f91F06FEe6613a751b2A33FE5` |  Verified |
+| RewardsDistributor | `0x227f65131A261548b057215bB1D5Ab2997964C7d` |  Verified |
+| FactoryRegistry | `0x5C3F18F06CC09CA1910767A34a20F771039E37C0` |  Verified |
 
 Source: [aerodrome-finance/contracts](https://github.com/aerodrome-finance/contracts)
 
@@ -1870,16 +1870,16 @@ Same ve(3,3) model as Aerodrome — same team (Dromos Labs). Velodrome was built
 
 | Contract | Address | Status |
 |----------|---------|--------|
-| VELO Token (V2) | `0x9560e827aF36c94D2Ac33a39bCE1Fe78631088Db` | ✅ Verified |
-| Router | `0xa062aE8A9c5e11aaA026fc2670B0D65cCc8B2858` | ✅ Verified |
-| Voter | `0x41C914ee0c7E1A5edCD0295623e6dC557B5aBf3C` | ✅ Verified |
-| VotingEscrow | `0xFAf8FD17D9840595845582fCB047DF13f006787d` | ✅ Verified |
-| PoolFactory | `0xF1046053aa5682b4F9a81b5481394DA16BE5FF5a` | ✅ Verified |
-| Minter | `0x6dc9E1C04eE59ed3531d73a72256C0da46D10982` | ✅ Verified |
-| GaugeFactory | `0x8391fE399640E7228A059f8Fa104b8a7B4835071` | ✅ Verified |
-| FactoryRegistry | `0xF4c67CdEAaB8360370F41514d06e32CcD8aA1d7B` | ✅ Verified |
+| VELO Token (V2) | `0x9560e827aF36c94D2Ac33a39bCE1Fe78631088Db` |  Verified |
+| Router | `0xa062aE8A9c5e11aaA026fc2670B0D65cCc8B2858` |  Verified |
+| Voter | `0x41C914ee0c7E1A5edCD0295623e6dC557B5aBf3C` |  Verified |
+| VotingEscrow | `0xFAf8FD17D9840595845582fCB047DF13f006787d` |  Verified |
+| PoolFactory | `0xF1046053aa5682b4F9a81b5481394DA16BE5FF5a` |  Verified |
+| Minter | `0x6dc9E1C04eE59ed3531d73a72256C0da46D10982` |  Verified |
+| GaugeFactory | `0x8391fE399640E7228A059f8Fa104b8a7B4835071` |  Verified |
+| FactoryRegistry | `0xF4c67CdEAaB8360370F41514d06e32CcD8aA1d7B` |  Verified |
 
-⚠️ **V1 VELO token** (`0x3c8B650257cFb5f272f799F5e2b4e65093a11a05`) is deprecated. Use V2 above.
+ **V1 VELO token** (`0x3c8B650257cFb5f272f799F5e2b4e65093a11a05`) is deprecated. Use V2 above.
 
 Source: [velodrome-finance/contracts](https://github.com/velodrome-finance/contracts)
 
@@ -1889,12 +1889,12 @@ Leading onchain perpetual exchange. V2 uses isolated GM pools per market (Fully 
 
 | Contract | Address | Status |
 |----------|---------|--------|
-| GMX Token | `0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a` | ✅ Verified |
-| Exchange Router (latest) | `0x1C3fa76e6E1088bCE750f23a5BFcffa1efEF6A41` | ✅ Verified |
-| Exchange Router (previous) | `0x7C68C7866A64FA2160F78EeAe12217FFbf871fa8` | ✅ Verified |
-| DataStore | `0xFD70de6b91282D8017aA4E741e9Ae325CAb992d8` | ✅ Verified |
-| Reader | `0x470fbC46bcC0f16532691Df360A07d8Bf5ee0789` | ✅ Verified |
-| Reward Router V2 | `0xA906F338CB21815cBc4Bc87ace9e68c87eF8d8F1` | ✅ Verified |
+| GMX Token | `0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a` |  Verified |
+| Exchange Router (latest) | `0x1C3fa76e6E1088bCE750f23a5BFcffa1efEF6A41` |  Verified |
+| Exchange Router (previous) | `0x7C68C7866A64FA2160F78EeAe12217FFbf871fa8` |  Verified |
+| DataStore | `0xFD70de6b91282D8017aA4E741e9Ae325CAb992d8` |  Verified |
+| Reader | `0x470fbC46bcC0f16532691Df360A07d8Bf5ee0789` |  Verified |
+| Reward Router V2 | `0xA906F338CB21815cBc4Bc87ace9e68c87eF8d8F1` |  Verified |
 
 **Note:** Both Exchange Router addresses are valid — both point to the same DataStore. The latest (`0x1C3f...`) is from the current gmx-synthetics repo deployment.
 
@@ -1906,15 +1906,15 @@ Tokenizes future yield into PT (Principal Token) and YT (Yield Token). Core inva
 
 | Contract | Address | Status |
 |----------|---------|--------|
-| PENDLE Token | `0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8` | ✅ Verified |
-| Router | `0x888888888889758F76e7103c6CbF23ABbF58F946` | ✅ Verified |
-| RouterStatic | `0xAdB09F65bd90d19e3148D9ccb693F3161C6DB3E8` | ✅ Verified |
-| Market Factory V3 | `0x2FCb47B58350cD377f94d3821e7373Df60bD9Ced` | ✅ Verified |
-| Market Factory V4 | `0xd9f5e9589016da862D2aBcE980A5A5B99A94f3E8` | ✅ Verified |
-| PT/YT Oracle | `0x5542be50420E88dd7D5B4a3D488FA6ED82F6DAc2` | ✅ Verified |
-| Limit Router | `0x000000000000c9B3E2C3Ec88B1B4c0cD853f4321` | ✅ Verified |
-| Yield Contract Factory V3 | `0xEb38531db128EcA928aea1B1CE9E5609B15ba146` | ✅ Verified |
-| Yield Contract Factory V4 | `0xc7F8F9F1DdE1104664b6fC8F33E49b169C12F41E` | ✅ Verified |
+| PENDLE Token | `0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8` |  Verified |
+| Router | `0x888888888889758F76e7103c6CbF23ABbF58F946` |  Verified |
+| RouterStatic | `0xAdB09F65bd90d19e3148D9ccb693F3161C6DB3E8` |  Verified |
+| Market Factory V3 | `0x2FCb47B58350cD377f94d3821e7373Df60bD9Ced` |  Verified |
+| Market Factory V4 | `0xd9f5e9589016da862D2aBcE980A5A5B99A94f3E8` |  Verified |
+| PT/YT Oracle | `0x5542be50420E88dd7D5B4a3D488FA6ED82F6DAc2` |  Verified |
+| Limit Router | `0x000000000000c9B3E2C3Ec88B1B4c0cD853f4321` |  Verified |
+| Yield Contract Factory V3 | `0xEb38531db128EcA928aea1B1CE9E5609B15ba146` |  Verified |
+| Yield Contract Factory V4 | `0xc7F8F9F1DdE1104664b6fC8F33E49b169C12F41E` |  Verified |
 
 Source: [pendle-finance/pendle-core-v2-public](https://github.com/pendle-finance/pendle-core-v2-public/blob/main/deployments/42161-core.json)
 
@@ -1924,12 +1924,12 @@ Arbitrum-native DEX with concentrated liquidity and launchpad. Two AMM versions:
 
 | Contract | Address | Status |
 |----------|---------|--------|
-| GRAIL Token | `0x3d9907F9a368ad0a51Be60f7Da3b97cf940982D8` | ✅ Verified |
-| xGRAIL | `0x3CAaE25Ee616f2C8E13C74dA0813402eae3F496b` | ✅ Verified |
-| Router (AMM V2) | `0xc873fEcbd354f5A56E00E710B90EF4201db2448d` | ✅ Verified |
-| Factory (AMM V2) | `0x6EcCab422D763aC031210895C81787E87B43A652` | ✅ Verified |
-| SwapRouter (AMM V4 / Algebra) | `0x4ee15342d6Deb297c3A2aA7CFFd451f788675F53` | ✅ Verified |
-| AlgebraFactory (AMM V4) | `0xBefC4b405041c5833f53412fF997ed2f697a2f37` | ✅ Verified |
+| GRAIL Token | `0x3d9907F9a368ad0a51Be60f7Da3b97cf940982D8` |  Verified |
+| xGRAIL | `0x3CAaE25Ee616f2C8E13C74dA0813402eae3F496b` |  Verified |
+| Router (AMM V2) | `0xc873fEcbd354f5A56E00E710B90EF4201db2448d` |  Verified |
+| Factory (AMM V2) | `0x6EcCab422D763aC031210895C81787E87B43A652` |  Verified |
+| SwapRouter (AMM V4 / Algebra) | `0x4ee15342d6Deb297c3A2aA7CFFd451f788675F53` |  Verified |
+| AlgebraFactory (AMM V4) | `0xBefC4b405041c5833f53412fF997ed2f697a2f37` |  Verified |
 
 Source: [docs.camelot.exchange](https://docs.camelot.exchange/contracts/arbitrum/one-mainnet)
 
@@ -1939,13 +1939,13 @@ The leading native DEX on zkSync Era. Multiple router and factory versions.
 
 | Contract | Address | Status |
 |----------|---------|--------|
-| Router V1 | `0x2da10A1e27bF85cEdD8FFb1AbBe97e53391C0295` | ✅ Verified |
-| Router V2 | `0x9B5def958d0f3b6955cBEa4D5B7809b2fb26b059` | ✅ Verified |
-| Router V3 | `0x1B887a14216Bdeb7F8204Ee6a269Bd9Ff73A084C` | ✅ Verified |
-| Classic Pool Factory V1 | `0xf2DAd89f2788a8CD54625C60b55cD3d2D0ACa7Cb` | ✅ Verified |
-| Classic Pool Factory V2 | `0x0a34FBDf37C246C0B401da5f00ABd6529d906193` | ✅ Verified |
-| Stable Pool Factory V1 | `0x5b9f21d407F35b10CbfDDca17D5D84b129356ea3` | ✅ Verified |
-| Vault V1 | `0x621425a1Ef6abE91058E9712575dcc4258F8d091` | ✅ Verified |
+| Router V1 | `0x2da10A1e27bF85cEdD8FFb1AbBe97e53391C0295` |  Verified |
+| Router V2 | `0x9B5def958d0f3b6955cBEa4D5B7809b2fb26b059` |  Verified |
+| Router V3 | `0x1B887a14216Bdeb7F8204Ee6a269Bd9Ff73A084C` |  Verified |
+| Classic Pool Factory V1 | `0xf2DAd89f2788a8CD54625C60b55cD3d2D0ACa7Cb` |  Verified |
+| Classic Pool Factory V2 | `0x0a34FBDf37C246C0B401da5f00ABd6529d906193` |  Verified |
+| Stable Pool Factory V1 | `0x5b9f21d407F35b10CbfDDca17D5D84b129356ea3` |  Verified |
+| Vault V1 | `0x621425a1Ef6abE91058E9712575dcc4258F8d091` |  Verified |
 
 **Note:** SYNC token is not yet deployed.
 
@@ -1957,8 +1957,8 @@ Permissionless lending protocol. Deployed on Base and Ethereum, but **NOT on Arb
 
 | Contract | Address | Chain | Status |
 |----------|---------|-------|--------|
-| Morpho | `0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb` | Base | ✅ Verified |
-| Morpho | `0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb` | Arbitrum | ❌ Not deployed |
+| Morpho | `0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb` | Base |  Verified |
+| Morpho | `0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb` | Arbitrum |  Not deployed |
 
 Source: [docs.morpho.org](https://docs.morpho.org/get-started/resources/addresses/)
 
@@ -1969,8 +1969,8 @@ Source: [docs.morpho.org](https://docs.morpho.org/get-started/resources/addresse
 ### ERC-8004 (Same addresses on 20+ chains)
 | Contract | Address | Status |
 |----------|---------|--------|
-| IdentityRegistry | `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432` | ✅ Verified |
-| ReputationRegistry | `0x8004BAa17C55a88189AE136b182e5fdA19dE9b63` | ✅ Verified |
+| IdentityRegistry | `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432` |  Verified |
+| ReputationRegistry | `0x8004BAa17C55a88189AE136b182e5fdA19dE9b63` |  Verified |
 
 Verified on: Mainnet, Arbitrum, Base, Optimism (CREATE2 — same address on all chains).
 
@@ -1980,14 +1980,14 @@ Verified on: Mainnet, Arbitrum, Base, Optimism (CREATE2 — same address on all 
 
 | Token | Address | Status |
 |-------|---------|--------|
-| UNI | `0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984` | ✅ Verified |
-| AAVE | `0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9` | ✅ Verified |
-| COMP | `0xc00e94Cb662C3520282E6f5717214004A7f26888` | ✅ Verified |
-| MKR | `0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2` | ✅ Verified |
-| LDO | `0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32` | ✅ Verified |
-| WBTC | `0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599` | ✅ Verified |
-| stETH (Lido) | `0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84` | ✅ Verified |
-| rETH (Rocket Pool) | `0xae78736Cd615f374D3085123A210448E74Fc6393` | ✅ Verified |
+| UNI | `0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984` |  Verified |
+| AAVE | `0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9` |  Verified |
+| COMP | `0xc00e94Cb662C3520282E6f5717214004A7f26888` |  Verified |
+| MKR | `0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2` |  Verified |
+| LDO | `0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32` |  Verified |
+| WBTC | `0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599` |  Verified |
+| stETH (Lido) | `0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84` |  Verified |
+| rETH (Rocket Pool) | `0xae78736Cd615f374D3085123A210448E74Fc6393` |  Verified |
 
 ---
 
@@ -2027,7 +2027,7 @@ cast code 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 --rpc-url https://eth.llama
 
 ---
 
-✅ **All addresses verified onchain via `cast code` + `cast call` — February 15, 2026. Bytecode confirmed present, identity confirmed via symbol/name/cross-reference calls. Does NOT guarantee safety — always verify on block explorer before sending transactions.**
+ **All addresses verified onchain via `cast code` + `cast call` — February 15, 2026. Bytecode confirmed present, identity confirmed via symbol/name/cross-reference calls. Does NOT guarantee safety — always verify on block explorer before sending transactions.**
 
 ---
 
@@ -2123,19 +2123,19 @@ ETH is $2000 on Uniswap, $2010 on SushiSwap
 ### Examples of BAD Design (Missing Incentives)
 
 ```
-❌ "The contract will check prices every hour"
+ "The contract will check prices every hour"
    → WHO calls it every hour? WHY would they pay gas?
    → Fix: make it profitable to call. Or let users trigger it when they interact.
 
-❌ "Expired listings get automatically removed"
+ "Expired listings get automatically removed"
    → Nothing is automatic. WHO removes them? WHY?
    → Fix: give callers a small reward, or let the next user's action clean up stale state.
 
-❌ "The protocol rebalances daily"
+ "The protocol rebalances daily"
    → WHOSE gas pays for this? What's their profit?
    → Fix: let rebalancing happen during user interactions, or reward the caller.
 
-❌ "An admin will manually trigger the next phase"
+ "An admin will manually trigger the next phase"
    → What if the admin disappears? Gets hit by a bus? Loses their key?
    → Fix: make phase transitions permissionless with time-based or condition-based triggers.
 ```
@@ -2160,13 +2160,13 @@ Smart contracts are deterministic. Every node computes the same result. You can'
 ### What Doesn't Work
 
 ```solidity
-// ❌ Validators can manipulate block.timestamp (within ~15 seconds)
+//  Validators can manipulate block.timestamp (within ~15 seconds)
 uint random = uint(keccak256(abi.encodePacked(block.timestamp)));
 
-// ❌ blockhash(block.number) is ALWAYS zero for the current block
+//  blockhash(block.number) is ALWAYS zero for the current block
 uint random = uint(blockhash(block.number));
 
-// ❌ Validators can withhold blocks if they don't like the result
+//  Validators can withhold blocks if they don't like the result
 uint random = uint(blockhash(block.number - 1));
 ```
 
@@ -2273,10 +2273,10 @@ description: Solidity security patterns, common vulnerabilities, and pre-deploy 
 **USDC has 6 decimals, not 18.** This is the #1 source of "where did my money go?" bugs.
 
 ```solidity
-// ❌ WRONG — assumes 18 decimals. Transfers 1 TRILLION USDC.
+//  WRONG — assumes 18 decimals. Transfers 1 TRILLION USDC.
 uint256 oneToken = 1e18;
 
-// ✅ CORRECT — check decimals
+//  CORRECT — check decimals
 uint256 oneToken = 10 ** IERC20Metadata(token).decimals();
 ```
 
@@ -2298,10 +2298,10 @@ uint256 normalized = usdcAmount * 1e12; // 6 + 12 = 18 decimals
 Solidity has no `float` or `double`. Division truncates to zero.
 
 ```solidity
-// ❌ WRONG — this equals 0
+//  WRONG — this equals 0
 uint256 fivePercent = 5 / 100;
 
-// ✅ CORRECT — basis points (1 bp = 0.01%)
+//  CORRECT — basis points (1 bp = 0.01%)
 uint256 FEE_BPS = 500; // 5% = 500 basis points
 uint256 fee = (amount * FEE_BPS) / 10_000;
 ```
@@ -2309,10 +2309,10 @@ uint256 fee = (amount * FEE_BPS) / 10_000;
 **Always multiply before dividing.** Division first = precision loss.
 
 ```solidity
-// ❌ WRONG — loses precision
+//  WRONG — loses precision
 uint256 result = a / b * c;
 
-// ✅ CORRECT — multiply first
+//  CORRECT — multiply first
 uint256 result = (a * c) / b;
 ```
 
@@ -2323,7 +2323,7 @@ For complex math, use fixed-point libraries like `PRBMath` or `ABDKMath64x64`.
 An external call can call back into your contract before the first call finishes. If you update state AFTER the external call, the attacker re-enters with stale state.
 
 ```solidity
-// ❌ VULNERABLE — state updated after external call
+//  VULNERABLE — state updated after external call
 function withdraw() external {
     uint256 bal = balances[msg.sender];
     (bool success,) = msg.sender.call{value: bal}(""); // ← attacker re-enters here
@@ -2331,7 +2331,7 @@ function withdraw() external {
     balances[msg.sender] = 0; // Too late — attacker already withdrew again
 }
 
-// ✅ SAFE — Checks-Effects-Interactions pattern + reentrancy guard
+//  SAFE — Checks-Effects-Interactions pattern + reentrancy guard
 import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 function withdraw() external nonReentrant {
@@ -2357,11 +2357,11 @@ Always use OpenZeppelin's `ReentrancyGuard` as a safety net on top of CEI.
 Some tokens (notably USDT) don't return `bool` on `transfer()` and `approve()`. Standard calls will revert even on success.
 
 ```solidity
-// ❌ WRONG — breaks with USDT and other non-standard tokens
+//  WRONG — breaks with USDT and other non-standard tokens
 token.transfer(to, amount);
 token.approve(spender, amount);
 
-// ✅ CORRECT — handles all token implementations
+//  CORRECT — handles all token implementations
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 using SafeERC20 for IERC20;
 
@@ -2380,13 +2380,13 @@ token.safeApprove(spender, amount);
 A flash loan can manipulate any pool's spot price within a single transaction. This has caused hundreds of millions in losses.
 
 ```solidity
-// ❌ DANGEROUS — manipulable in one transaction
+//  DANGEROUS — manipulable in one transaction
 function getPrice() internal view returns (uint256) {
     (uint112 reserve0, uint112 reserve1,) = uniswapPair.getReserves();
     return (reserve1 * 1e18) / reserve0; // Spot price — easily manipulated
 }
 
-// ✅ SAFE — Chainlink with staleness + sanity checks
+//  SAFE — Chainlink with staleness + sanity checks
 function getPrice() internal view returns (uint256) {
     (, int256 price,, uint256 updatedAt,) = priceFeed.latestRoundData();
     require(block.timestamp - updatedAt < 3600, "Stale price");
@@ -2430,13 +2430,13 @@ OpenZeppelin's ERC4626 implementation includes this mitigation by default since 
 **Never use `type(uint256).max` as approval amount.**
 
 ```solidity
-// ❌ DANGEROUS — if this contract is exploited, attacker drains your entire balance
+//  DANGEROUS — if this contract is exploited, attacker drains your entire balance
 token.approve(someContract, type(uint256).max);
 
-// ✅ SAFE — approve only what's needed
+//  SAFE — approve only what's needed
 token.approve(someContract, exactAmountNeeded);
 
-// ✅ ACCEPTABLE — approve a small multiple for repeated interactions
+//  ACCEPTABLE — approve a small multiple for repeated interactions
 token.approve(someContract, amountPerTx * 5); // 5 transactions worth
 ```
 
@@ -2449,12 +2449,12 @@ Every state-changing function needs explicit access control. "Who should be able
 ```solidity
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
-// ❌ WRONG — anyone can drain the contract
+//  WRONG — anyone can drain the contract
 function emergencyWithdraw() external {
     token.transfer(msg.sender, token.balanceOf(address(this)));
 }
 
-// ✅ CORRECT — only owner
+//  CORRECT — only owner
 function emergencyWithdraw() external onlyOwner {
     token.transfer(owner(), token.balanceOf(address(this)));
 }
@@ -2557,7 +2557,7 @@ ANY button that triggers a blockchain transaction MUST:
 4. **Show success/error feedback** when done
 
 ```typescript
-// ✅ CORRECT: Separate loading state PER ACTION
+//  CORRECT: Separate loading state PER ACTION
 const [isApproving, setIsApproving] = useState(false);
 const [isStaking, setIsStaking] = useState(false);
 
@@ -2579,16 +2579,16 @@ const [isStaking, setIsStaking] = useState(false);
 </button>
 ```
 
-**❌ NEVER use a single shared `isLoading` for multiple buttons.** Each button gets its own loading state. A shared state causes the WRONG loading text to appear when UI conditionally switches between buttons.
+** NEVER use a single shared `isLoading` for multiple buttons.** Each button gets its own loading state. A shared state causes the WRONG loading text to appear when UI conditionally switches between buttons.
 
 ### Scaffold Hooks Only — Never Raw Wagmi
 
 ```typescript
-// ❌ WRONG: Raw wagmi — resolves after signing, not confirmation
+//  WRONG: Raw wagmi — resolves after signing, not confirmation
 const { writeContractAsync } = useWriteContract();
 await writeContractAsync({...}); // Returns immediately after MetaMask signs!
 
-// ✅ CORRECT: Scaffold hooks — waits for tx to be mined
+//  CORRECT: Scaffold hooks — waits for tx to be mined
 const { writeContractAsync } = useScaffoldWriteContract("MyContract");
 await writeContractAsync({...}); // Waits for actual onchain confirmation
 ```
@@ -2647,10 +2647,10 @@ const wrongNetwork = chain?.id !== targetChainId;
 ```typescript
 import { Address } from "~~/components/scaffold-eth";
 
-// ✅ CORRECT
+//  CORRECT
 <Address address={userAddress} />
 
-// ❌ WRONG — never render raw hex
+//  WRONG — never render raw hex
 <span>{userAddress}</span>
 <p>0x1234...5678</p>
 ```
@@ -2664,10 +2664,10 @@ import { Address } from "~~/components/scaffold-eth";
 ```typescript
 import { AddressInput } from "~~/components/scaffold-eth";
 
-// ✅ CORRECT
+//  CORRECT
 <AddressInput value={recipient} onChange={setRecipient} placeholder="Recipient address" />
 
-// ❌ WRONG — never use a raw text input for addresses
+//  WRONG — never use a raw text input for addresses
 <input type="text" value={recipient} onChange={e => setRecipient(e.target.value)} />
 ```
 
@@ -2683,17 +2683,17 @@ import { AddressInput } from "~~/components/scaffold-eth";
 **EVERY token or ETH input should show a live USD preview.**
 
 ```typescript
-// ✅ CORRECT — Display with USD
+//  CORRECT — Display with USD
 <span>1,000 TOKEN (~$4.20)</span>
 <span>0.5 ETH (~$1,250.00)</span>
 
-// ✅ CORRECT — Input with live USD preview
+//  CORRECT — Input with live USD preview
 <input value={amount} onChange={...} />
 <span className="text-sm text-gray-500">
   ≈ ${(parseFloat(amount || "0") * tokenPrice).toFixed(2)} USD
 </span>
 
-// ❌ WRONG — Amount with no USD context
+//  WRONG — Amount with no USD context
 <span>1,000 TOKEN</span>  // User has no idea what this is worth
 ```
 
@@ -2713,15 +2713,15 @@ import { AddressInput } from "~~/components/scaffold-eth";
 **DO NOT put the app name as an `<h1>` at the top of the page body.** The SE2 header already displays the app name. Repeating it wastes space and looks amateur.
 
 ```typescript
-// ❌ WRONG — AI agents ALWAYS do this
-<Header />  {/* Already shows "🦞 My dApp" */}
+//  WRONG — AI agents ALWAYS do this
+<Header />  {/* Already shows " My dApp" */}
 <main>
-  <h1>🦞 My dApp</h1>  {/* DUPLICATE! Delete this. */}
+  <h1> My dApp</h1>  {/* DUPLICATE! Delete this. */}
   <p>Description of the app</p>
   ...
 </main>
 
-// ✅ CORRECT — Jump straight into content
+//  CORRECT — Jump straight into content
 <Header />  {/* Shows the app name */}
 <main>
   <div className="grid grid-cols-2 gap-4">
@@ -2778,7 +2778,7 @@ export const metadata: Metadata = {
 };
 ```
 
-**⚠️ The OG image URL MUST be:**
+** The OG image URL MUST be:**
 - Absolute URL starting with `https://`
 - The LIVE production domain (NOT `localhost`, NOT relative path)
 - NOT an environment variable that could be unset
@@ -2902,7 +2902,7 @@ The fork runs locally on Anvil with chain ID 31337. Even if you're forking Base:
 
 ```typescript
 // scaffold.config.ts during development
-targetNetworks: [chains.foundry],  // ✅ NOT chains.base!
+targetNetworks: [chains.foundry],  //  NOT chains.base!
 ```
 
 Only switch to `chains.base` when deploying contracts to the REAL network.
@@ -2979,8 +2979,8 @@ IPFS gateways serve static files. No server handles routing. Three things MUST b
 - `trailingSlash: false` (default) → generates `debug.html`
 - `trailingSlash: true` → generates `debug/index.html`
 - IPFS gateways resolve directories to `index.html` automatically, but NOT bare filenames
-- Without trailing slash: `/debug` → 404 ❌
-- With trailing slash: `/debug` → `debug/` → `debug/index.html` ✅
+- Without trailing slash: `/debug` → 404 
+- With trailing slash: `/debug` → `debug/` → `debug/index.html` 
 
 **3. Pages must survive static prerendering** — any page that crashes during `yarn build` (browser APIs at import time, localStorage) gets skipped silently → 404 on IPFS.
 
@@ -3110,20 +3110,20 @@ curl -s -L "https://myapp.yourname.eth.link" | grep 'og:image'
 
 When the user says "ship it", follow this EXACT sequence.
 
-### Step 1: Final Code Review 🤖
+### Step 1: Final Code Review 
 - All feedback incorporated
 - No duplicate h1, no raw addresses, no shared isLoading
 - `scaffold.config.ts` has `rpcOverrides` and `pollingInterval: 3000`
 
-### Step 2: Choose Domain 👤
+### Step 2: Choose Domain 
 Ask: *"What subdomain do you want? e.g. `myapp.yourname.eth` → `myapp.yourname.eth.link`"*
 
-### Step 3: Generate OG Image + Fix Metadata 🤖
+### Step 3: Generate OG Image + Fix Metadata 
 - Create 1200×630 PNG (`public/thumbnail.png`) — NOT the stock SE2 thumbnail
 - Set `NEXT_PUBLIC_PRODUCTION_URL` to the live domain
 - Verify `og:image` will resolve to an absolute production URL
 
-### Step 4: Clean Build + IPFS Deploy 🤖
+### Step 4: Clean Build + IPFS Deploy 
 ```bash
 cd packages/nextjs && rm -rf .next out
 NEXT_PUBLIC_PRODUCTION_URL="https://myapp.yourname.eth.link" \
@@ -3140,20 +3140,20 @@ stat -f '%Sm' out/
 yarn bgipfs upload out                     # Save the CID
 ```
 
-### Step 5: Share for Approval 👤
+### Step 5: Share for Approval 
 Send: *"Build ready for review: `https://community.bgipfs.com/ipfs/<CID>`"*
 **Wait for approval before touching ENS.**
 
-### Step 6: Set ENS 🤖
+### Step 6: Set ENS 
 Create subdomain (if new) + set IPFS content hash. Two mainnet transactions.
 
-### Step 7: Verify 🤖
+### Step 7: Verify 
 - Content hash matches onchain
 - `.eth.link` gateway responds with 200
 - OG image loads correctly
 - Routes work (`/debug/`, etc.)
 
-### Step 8: Report 👤
+### Step 8: Report 
 *"Live at `https://myapp.yourname.eth.link` — ENS content hash confirmed onchain, unfurl metadata set."*
 
 ---
@@ -3199,13 +3199,13 @@ For bigger projects, spawn a sub-agent with fresh context. Give it the repo path
 
 ## Don't Do These
 
-- ❌ `yarn chain` — use `yarn fork --network <chain>`
-- ❌ `forge init` — use `npx create-eth@latest`
-- ❌ Manual Next.js setup — SE2 handles it
-- ❌ Manual wallet connection — SE2 has RainbowKit pre-configured
-- ❌ Edit `deployedContracts.ts` — it's auto-generated by `yarn deploy`
-- ❌ Hardcode API keys in `scaffold.config.ts` — use `.env.local`
-- ❌ Use `mainnet.base.org` in production — use Alchemy or similar
+-  `yarn chain` — use `yarn fork --network <chain>`
+-  `forge init` — use `npx create-eth@latest`
+-  Manual Next.js setup — SE2 handles it
+-  Manual wallet connection — SE2 has RainbowKit pre-configured
+-  Edit `deployedContracts.ts` — it's auto-generated by `yarn deploy`
+-  Hardcode API keys in `scaffold.config.ts` — use `.env.local`
+-  Use `mainnet.base.org` in production — use Alchemy or similar
 
 ---
 

@@ -131,14 +131,14 @@ function notify(message) {
 function notifyCheckpoint(runId, stage, processName) {
   const config = loadConfig();
   if (!config.notifications?.on_checkpoint) return;
-  notify(`🛑 Colony checkpoint: Process "${processName}" paused after stage "${stage}". To continue: colony approve ${runId}`);
+  notify(` Colony checkpoint: Process "${processName}" paused after stage "${stage}". To continue: colony approve ${runId}`);
 }
 
 function notifyComplete(runId, processName, durationMs) {
   const config = loadConfig();
   if (!config.notifications?.on_complete) return;
   const duration = (durationMs / 1000).toFixed(0);
-  notify(`✅ Colony complete: Process "${processName}" finished in ${duration}s. Run ID: ${runId}`);
+  notify(` Colony complete: Process "${processName}" finished in ${duration}s. Run ID: ${runId}`);
 }
 
 function notifyFailure(runId, processName, stage, error) {
@@ -146,7 +146,7 @@ function notifyFailure(runId, processName, stage, error) {
   if (!config.notifications?.on_failure) return;
   // Truncate error message if too long
   const shortError = error && error.length > 100 ? error.substring(0, 100) + '...' : error;
-  notify(`❌ Colony failed: Process "${processName}" failed at stage "${stage}". Error: ${shortError}. Run ID: ${runId}`);
+  notify(` Colony failed: Process "${processName}" failed at stage "${stage}". Error: ${shortError}. Run ID: ${runId}`);
 }
 
 // ============ Utilities ============
@@ -654,7 +654,7 @@ async function startProcess(processName, context) {
   // Log process started
   logProcessStarted(runId, processName, context);
   
-  console.log(`\n🚀 Starting process: ${processName}`);
+  console.log(`\n Starting process: ${processName}`);
   console.log(`   Run ID: ${runId}`);
   console.log(`   Context: ${context}`);
   console.log(`   Stages: ${proc.stages.length}\n`);
@@ -701,7 +701,7 @@ async function executeNextStage(runId, procDef, agentConfig) {
     // Send completion notification
     notifyComplete(runId, run.processId, durationMs);
     
-    console.log(`\n✅ Process ${run.processId} completed!`);
+    console.log(`\n Process ${run.processId} completed!`);
     console.log(`   Run ID: ${runId}`);
     console.log(`   Duration: ${timeSince(new Date(run.startedAt))}`);
     return;
@@ -730,7 +730,7 @@ async function executeNextStage(runId, procDef, agentConfig) {
     // Send checkpoint notification
     notifyCheckpoint(runId, stage.id, run.processId);
     
-    console.log(`\n⏸️  Process paused at checkpoint: ${stage.id}`);
+    console.log(`\n  Process paused at checkpoint: ${stage.id}`);
     console.log(`   Reason: ${stage.description || 'Human review required'}`);
     console.log(`   To continue: colony approve ${runId}`);
     return;
@@ -807,7 +807,7 @@ async function executeNextStage(runId, procDef, agentConfig) {
         // Send failure notification
         notifyFailure(runId, run.processId, failedStage, failedError);
         
-        console.log(`\n❌ Process failed in parallel group at stage: ${failedStage}`);
+        console.log(`\n Process failed in parallel group at stage: ${failedStage}`);
         console.log(`   Error: ${failedError}`);
         console.log(`   To retry: colony approve ${runId}`);
         return;
@@ -833,7 +833,7 @@ async function executeNextStage(runId, procDef, agentConfig) {
         // Send checkpoint notification
         notifyCheckpoint(runId, parallelCheckpoint.stage.id, run.processId);
         
-        console.log(`\n⏸️  Process paused at checkpoint after parallel group: ${parallelGroup}`);
+        console.log(`\n  Process paused at checkpoint after parallel group: ${parallelGroup}`);
         console.log(`   To continue: colony approve ${runId}`);
         return;
       }
@@ -888,7 +888,7 @@ async function executeNextStage(runId, procDef, agentConfig) {
     // Send failure notification
     notifyFailure(runId, run.processId, stage.id, result.error);
     
-    console.log(`\n❌ Process failed at stage: ${stage.id}`);
+    console.log(`\n Process failed at stage: ${stage.id}`);
     console.log(`   Error: ${result.error}`);
     console.log(`   To retry: colony approve ${runId}`);
     return;
@@ -912,7 +912,7 @@ async function executeNextStage(runId, procDef, agentConfig) {
     // Send checkpoint notification
     notifyCheckpoint(runId, stage.id, run.processId);
     
-    console.log(`\n⏸️  Process paused at checkpoint after: ${stage.id}`);
+    console.log(`\n  Process paused at checkpoint after: ${stage.id}`);
     console.log(`   To continue: colony approve ${runId}`);
     return;
   }
@@ -978,14 +978,14 @@ function showProcessStatus(runId) {
       if (result.durationMs) extra += ` (${result.durationMs}ms)`;
       if (result.error) extra += ` error: ${result.error}`;
     } else if (i === run.currentStageIndex && run.status === 'running') {
-      status = '▶';
+      status = '';
     } else if (i === run.currentStageIndex && run.status === 'paused') {
-      status = '⏸';
+      status = '';
     }
     
     const checkpoints = proc.checkpoints || [];
     const isCheckpoint = checkpoints.includes(stage.id) || stage.checkpoint;
-    const checkpointMark = isCheckpoint ? ' 🔒' : '';
+    const checkpointMark = isCheckpoint ? ' ' : '';
     
     console.log(`  ${status} ${stage.id}${checkpointMark}${extra}`);
   }
@@ -1018,7 +1018,7 @@ async function approveRun(runId) {
   
   // Handle failed runs - retry the failed stage
   if (run.status === 'failed') {
-    console.log(`\n🔄 Retrying failed stage: ${run.failedStage}`);
+    console.log(`\n Retrying failed stage: ${run.failedStage}`);
     run.status = 'running';
     delete run.failedAt;
     delete run.failedStage;
@@ -1031,7 +1031,7 @@ async function approveRun(runId) {
     delete run.pauseReason;
     runs.active[runId] = run;
     writeRuns(runs);
-    console.log(`\n▶️  Resuming process: ${runId}`);
+    console.log(`\n  Resuming process: ${runId}`);
   }
   
   const processConfig = loadProcesses();
@@ -1067,7 +1067,7 @@ function cancelRun(runId) {
   runs.completed.push(run);
   writeRuns(runs);
   
-  console.log(`\n🛑 Cancelled process run: ${runId}`);
+  console.log(`\n Cancelled process run: ${runId}`);
 }
 
 function showRuns(limit = 10) {
@@ -1083,14 +1083,14 @@ function showRuns(limit = 10) {
   }
   
   if (activeList.length > 0) {
-    console.log('\n🏃 Active Runs:');
+    console.log('\n Active Runs:');
     for (const run of activeList) {
       console.log(`  [${run.id}] ${run.processId} - Stage: ${run.currentStage} (${timeSince(new Date(run.startedAt))})`);
     }
   }
   
   if (pausedList.length > 0) {
-    console.log('\n⏸️  Paused Runs:');
+    console.log('\n  Paused Runs:');
     for (const run of pausedList.slice(-limit)) {
       const reason = run.pauseReason || (run.status === 'failed' ? 'Failed' : 'Checkpoint');
       console.log(`  [${run.id}] ${run.processId} - ${reason}`);
@@ -1098,9 +1098,9 @@ function showRuns(limit = 10) {
   }
   
   if (completedList.length > 0) {
-    console.log('\n✅ Recent Completed:');
+    console.log('\n Recent Completed:');
     for (const run of completedList.slice(-limit)) {
-      const status = run.status === 'cancelled' ? '🛑' : '✅';
+      const status = run.status === 'cancelled' ? '' : '';
       console.log(`  ${status} [${run.id}] ${run.processId} (${timeSince(new Date(run.completedAt || run.cancelledAt))})`);
     }
   }

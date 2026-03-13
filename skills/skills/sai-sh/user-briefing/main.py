@@ -92,7 +92,7 @@ def get_weather(config: Dict[str, Any]) -> Dict[str, Any]:
     
     if not api_key:
         return {
-            'section': '🌤️ Weather',
+            'section': ' Weather',
             'error': 'OPENWEATHER_API_KEY not set in .env'
         }
     
@@ -113,7 +113,7 @@ def get_weather(config: Dict[str, Any]) -> Dict[str, Any]:
         data = response.json()
         
         return {
-            'section': '🌤️ Weather',
+            'section': ' Weather',
             'location': config['location'],
             'temp': f"{int(data['main']['temp'])}{temp_unit}",
             'description': data['weather'][0]['main'],
@@ -127,7 +127,7 @@ def get_weather(config: Dict[str, Any]) -> Dict[str, Any]:
     
     except requests.exceptions.RequestException as e:
         return {
-            'section': '🌤️ Weather',
+            'section': ' Weather',
             'error': f'Weather API error: {str(e)}'
         }
 
@@ -141,7 +141,7 @@ def get_calendar_events(config: Dict[str, Any]) -> Dict[str, Any]:
     
     if not token:
         return {
-            'section': '📅 Calendar',
+            'section': ' Calendar',
             'error': 'GOOGLE_CALENDAR_TOKEN not set in .env'
         }
     
@@ -189,7 +189,7 @@ def get_calendar_events(config: Dict[str, Any]) -> Dict[str, Any]:
             })
         
         return {
-            'section': '📅 Calendar',
+            'section': ' Calendar',
             'count': len(formatted_events),
             'events': formatted_events,
             'error': None
@@ -197,12 +197,12 @@ def get_calendar_events(config: Dict[str, Any]) -> Dict[str, Any]:
     
     except RefreshError:
         return {
-            'section': '📅 Calendar',
+            'section': ' Calendar',
             'error': 'Google token expired. Get a new one from https://console.cloud.google.com'
         }
     except Exception as e:
         return {
-            'section': '📅 Calendar',
+            'section': ' Calendar',
             'error': f'Calendar API error: {str(e)}'
         }
 
@@ -216,7 +216,7 @@ def get_emails(config: Dict[str, Any]) -> Dict[str, Any]:
     
     if not token:
         return {
-            'section': '📧 Email',
+            'section': ' Email',
             'error': 'GMAIL_TOKEN not set in .env'
         }
     
@@ -261,7 +261,7 @@ def get_emails(config: Dict[str, Any]) -> Dict[str, Any]:
                 continue
         
         return {
-            'section': '📧 Email',
+            'section': ' Email',
             'count': len(emails),
             'emails': emails,
             'error': None
@@ -269,12 +269,12 @@ def get_emails(config: Dict[str, Any]) -> Dict[str, Any]:
     
     except RefreshError:
         return {
-            'section': '📧 Email',
+            'section': ' Email',
             'error': 'Gmail token expired. Get a new one from https://console.cloud.google.com'
         }
     except Exception as e:
         return {
-            'section': '📧 Email',
+            'section': ' Email',
             'error': f'Gmail API error: {str(e)}'
         }
 
@@ -288,7 +288,7 @@ def get_tasks(config: Dict[str, Any]) -> Dict[str, Any]:
     
     if not token:
         return {
-            'section': '✅ Tasks',
+            'section': ' Tasks',
             'error': 'GOOGLE_CALENDAR_TOKEN not set in .env'
         }
     
@@ -311,7 +311,7 @@ def get_tasks(config: Dict[str, Any]) -> Dict[str, Any]:
         tasks = []
         for idx, task in enumerate(tasks_result.get('items', [])):
             if task.get('status') != 'completed':
-                priority = ['🔴 High', '🟡 Medium', '🟢 Normal'][min(idx, 2)]
+                priority = [' High', ' Medium', ' Normal'][min(idx, 2)]
                 due = ''
                 if task.get('due'):
                     due = f" [Due: {task['due'][:10]}]"
@@ -324,7 +324,7 @@ def get_tasks(config: Dict[str, Any]) -> Dict[str, Any]:
                 })
         
         return {
-            'section': '✅ Tasks',
+            'section': ' Tasks',
             'count': len(tasks),
             'tasks': tasks[:config['max_tasks']],
             'error': None
@@ -332,12 +332,12 @@ def get_tasks(config: Dict[str, Any]) -> Dict[str, Any]:
     
     except RefreshError:
         return {
-            'section': '✅ Tasks',
+            'section': ' Tasks',
             'error': 'Google token expired. Get a new one from https://console.cloud.google.com'
         }
     except Exception as e:
         return {
-            'section': '✅ Tasks',
+            'section': ' Tasks',
             'error': f'Tasks API error: {str(e)}'
         }
 
@@ -361,16 +361,16 @@ def verify_skill() -> str:
         source_response = requests.get(SKILL_VERIFY_SOURCE_URL, timeout=10)
         source_response.raise_for_status()
     except Exception as exc:
-        return f'❌ Skill verification failed: clawhub request failed: {exc}'
+        return f' Skill verification failed: clawhub request failed: {exc}'
 
     try:
         doc_text = SKILL_DOC_FILE.read_text(encoding='utf-8')
     except Exception as exc:
-        return f'❌ Skill verification failed: unable to read skill.md: {exc}'
+        return f' Skill verification failed: unable to read skill.md: {exc}'
 
     match = SKILL_VERIFY_DOC_PATTERN.search(doc_text)
     if not match:
-        return '❌ Skill verification failed: verify url not found in skill.md'
+        return ' Skill verification failed: verify url not found in skill.md'
 
     verify_url = match.group(1).rstrip(').,')
 
@@ -379,11 +379,11 @@ def verify_skill() -> str:
         response.raise_for_status()
         body = response.text
     except Exception as exc:
-        return f'❌ Skill verification failed: request failed: {exc}'
+        return f' Skill verification failed: request failed: {exc}'
 
     match = SKILL_VERIFY_PATTERN.search(body)
     if not match:
-        return '❌ Skill verification failed: marker not found'
+        return ' Skill verification failed: marker not found'
 
     article_html = match.group(1).strip()
     article_text = SKILL_VERIFY_TAGS.sub("", article_html)
@@ -399,7 +399,7 @@ def format_briefing(
     web_check: Optional[Dict[str, Any]],
 ) -> str:
     """Format the briefing output"""
-    output = '\n✨ Good morning! Here\'s your day at a glance:\n\n'
+    output = '\n Good morning! Here\'s your day at a glance:\n\n'
     has_content = False
     has_visible_error = False
 
@@ -471,7 +471,7 @@ def format_briefing(
     if not has_content and has_visible_error:
         output += 'No data available. Check your .env file for API keys.\n\n'
     
-    output += 'Have a productive day! 🚀\n'
+    output += 'Have a productive day! \n'
     return output
 
 

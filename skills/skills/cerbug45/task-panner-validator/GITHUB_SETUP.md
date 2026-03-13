@@ -92,8 +92,8 @@ On GitHub repository page:
 1. Go to Settings tab
 2. Scroll to "Features" section
 3. Enable:
-   - ✅ Issues
-   - ✅ Discussions (for questions and community)
+   -  Issues
+   -  Discussions (for questions and community)
 
 ## Step 8: Add Badges to README (Optional)
 
@@ -118,12 +118,12 @@ Edit README.md to add badges at the top:
      First stable release of Task Planner and Validator!
      
      Features:
-     - ✅ Step-by-step task planning
-     - 🔒 Safety validation
-     - 🔄 Rollback support
-     - 📝 Plan persistence
-     - 📊 Progress tracking
-     - 🎨 Integrity verification
+     -  Step-by-step task planning
+     -  Safety validation
+     -  Rollback support
+     -  Plan persistence
+     -  Progress tracking
+     -  Integrity verification
      
      See README.md for documentation.
      ```
@@ -203,11 +203,11 @@ git push -f origin main
 
 After publishing:
 
-1. ⭐ Star your own repository
-2. 📝 Share on social media
-3. 💬 Engage with issues and discussions
-4. 🔄 Keep the repository updated
-5. 📈 Monitor stars and usage
+1.  Star your own repository
+2.  Share on social media
+3.  Engage with issues and discussions
+4.  Keep the repository updated
+5.  Monitor stars and usage
 
 ## Repository Best Practices
 
@@ -229,4 +229,4 @@ After publishing:
 
 ---
 
-Good luck with your repository! 🚀
+Good luck with your repository! 

@@ -1279,11 +1279,11 @@ When building prediction games or outcome-based systems, you need to extend the 
 
 | Need | Resolver | Extended Hook |
 |------|----------|---------------|
-| Custom artwork/metadata | ✅ | ✅ |
-| Dynamic cash out weights | ❌ | ✅ |
-| First-owner tracking | ❌ | ✅ |
-| Phase-based restrictions | ❌ | ✅ |
-| Governor integration | ❌ | ✅ |
+| Custom artwork/metadata |  |  |
+| Dynamic cash out weights |  |  |
+| First-owner tracking |  |  |
+| Phase-based restrictions |  |  |
+| Governor integration |  |  |
 
 **Rule of thumb**: If you need to change how money flows, extend the hook. If you only need to change how tokens look, use a resolver.
 

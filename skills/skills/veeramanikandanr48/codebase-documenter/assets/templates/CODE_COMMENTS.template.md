@@ -443,36 +443,36 @@ if (isSafari()) {
 ### Don't Explain Obvious Code
 
 ```javascript
-// ❌ BAD: Comment explains what code obviously does
+//  BAD: Comment explains what code obviously does
 // Increment counter by 1
 counter++;
 
-// ✅ GOOD: No comment needed, code is self-explanatory
+//  GOOD: No comment needed, code is self-explanatory
 counter++;
 ```
 
 ### Don't Describe Implementation That's Clear
 
 ```javascript
-// ❌ BAD: Describes obvious loop logic
+//  BAD: Describes obvious loop logic
 // Loop through all users and find the one with matching ID
 const user = users.find(u => u.id === userId);
 
-// ✅ GOOD: No comment needed, code is clear
+//  GOOD: No comment needed, code is clear
 const user = users.find(u => u.id === userId);
 ```
 
 ### Don't Leave Commented-Out Code
 
 ```javascript
-// ❌ BAD: Leaving old code as comments
+//  BAD: Leaving old code as comments
 function calculateTotal(items) {
   // return items.reduce((sum, item) => sum + item.price, 0);
   // return items.map(i => i.price).reduce((a, b) => a + b);
   return items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 }
 
-// ✅ GOOD: Delete old code, use version control instead
+//  GOOD: Delete old code, use version control instead
 function calculateTotal(items) {
   return items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 }

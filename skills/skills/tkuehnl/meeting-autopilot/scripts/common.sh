@@ -6,7 +6,7 @@ set -euo pipefail
 
 # ── Branding ──────────────────────────────────────────────
 BRAND="Meeting Autopilot"
-BRAND_FOOTER="Powered by CacheForge ✈️"
+BRAND_FOOTER="Powered by CacheForge "
 VERSION="0.1.1"
 
 # ── Colors (when stdout is a terminal) ────────────────────
@@ -24,10 +24,10 @@ else
 fi
 
 # ── Logging ───────────────────────────────────────────────
-log_info()  { echo -e "${BLUE}ℹ${RESET} $*" >&2; }
-log_ok()    { echo -e "${GREEN}✔${RESET} $*" >&2; }
-log_warn()  { echo -e "${YELLOW}⚠${RESET} $*" >&2; }
-log_error() { echo -e "${RED}✖${RESET} $*" >&2; }
+log_info()  { echo -e "${BLUE}${RESET} $*" >&2; }
+log_ok()    { echo -e "${GREEN}${RESET} $*" >&2; }
+log_warn()  { echo -e "${YELLOW}${RESET} $*" >&2; }
+log_error() { echo -e "${RED}${RESET} $*" >&2; }
 log_step()  { echo -e "${CYAN}▸${RESET} ${BOLD}$*${RESET}" >&2; }
 
 # ── Error exit with branded message ───────────────────────
@@ -35,7 +35,7 @@ die() {
   local msg="$1"
   local hint="${2:-}"
   echo "" >&2
-  echo -e "${RED}✖ ${BRAND} error:${RESET} $msg" >&2
+  echo -e "${RED} ${BRAND} error:${RESET} $msg" >&2
   if [ -n "$hint" ]; then
     echo -e "  ${DIM}Hint:${RESET} $hint" >&2
   fi

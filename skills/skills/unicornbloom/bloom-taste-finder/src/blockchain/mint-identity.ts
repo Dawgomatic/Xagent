@@ -32,7 +32,7 @@ export class MintIdentity {
     mainCategories: string[],
     subCategories: string[]
   ): Promise<MintResult> {
-    console.log(`⛓️  Minting Identity Card for ${userId}...`);
+    console.log(`  Minting Identity Card for ${userId}...`);
 
     // Check if user already has a card
     const hasCard = await this.hasCard(userId);
@@ -50,7 +50,7 @@ export class MintIdentity {
       subCategories,
     });
 
-    console.log(`✅ Identity Card minted! Token ID: ${result.tokenId}`);
+    console.log(` Identity Card minted! Token ID: ${result.tokenId}`);
 
     return {
       tokenId: result.tokenId,
@@ -83,7 +83,7 @@ export class MintIdentity {
    * Update existing Identity Card
    */
   async update(userId: string, identityData: IdentityData): Promise<boolean> {
-    console.log(`🔄 Updating Identity Card for ${userId}...`);
+    console.log(` Updating Identity Card for ${userId}...`);
 
     const tokenId = await this.contractClient.getTokenIdByAddress(userId);
     if (tokenId === 0) {
@@ -92,7 +92,7 @@ export class MintIdentity {
 
     await this.contractClient.updateIdentity(tokenId, identityData);
 
-    console.log(`✅ Identity Card updated!`);
+    console.log(` Identity Card updated!`);
     return true;
   }
 }

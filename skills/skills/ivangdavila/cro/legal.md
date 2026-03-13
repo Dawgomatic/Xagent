@@ -50,10 +50,10 @@ Only possible with:
 - Price reduction claims must reference lowest price in prior 30 days
 
 ### Examples
-❌ "Was €100, now €50" (if never actually sold at €100)
-❌ Showing €50 then adding €15 "service fee" at checkout
-✅ "€50" with all fees included from start
-✅ "Was €80 (30-day low), now €50" with real history
+ "Was €100, now €50" (if never actually sold at €100)
+ Showing €50 then adding €15 "service fee" at checkout
+ "€50" with all fees included from start
+ "Was €80 (30-day low), now €50" with real history
 
 ## Testimonials (FTC Endorsement Guides)
 

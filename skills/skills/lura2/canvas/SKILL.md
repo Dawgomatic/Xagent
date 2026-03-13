@@ -16,7 +16,7 @@ The canvas tool lets you present web content on any connected node's canvas view
 
 ```
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────┐
-│  Canvas Host    │────▶│   Node Bridge    │────▶│  Node App   │
+│  Canvas Host    │────│   Node Bridge    │────│  Node App   │
 │  (HTTP Server)  │     │  (TCP Server)    │     │ (Mac/iOS/   │
 │  Port 18793     │     │  Port 18790      │     │  Android)   │
 └─────────────────┘     └──────────────────┘     └─────────────┘

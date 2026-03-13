@@ -48,7 +48,7 @@ async function checkMovies() {
         if (data.theaters.length === 0) {
             return 'No movies currently showing at Clawnema.';
         }
-        let output = '🎬 Now Showing at Clawnema\n\n';
+        let output = ' Now Showing at Clawnema\n\n';
         data.theaters.forEach((theater, index) => {
             output += `${index + 1}. **${theater.title}**\n`;
             output += `   ID: \`${theater.id}\`\n`;
@@ -136,21 +136,21 @@ async function buyTicket(theaterId, txHash) {
         const theaters = await getTheaters();
         const theater = theaters.find(t => t.id === theaterId);
         if (!theater) {
-            return `❌ Theater not found: ${theaterId}. Use \`check-movies\` to see available theaters.`;
+            return ` Theater not found: ${theaterId}. Use \`check-movies\` to see available theaters.`;
         }
         // If no tx hash, auto-pay via awal
         if (!txHash) {
             const walletAddr = theater.wallet_address || WALLET_ADDRESS;
             if (!walletAddr) {
-                return `❌ No wallet address configured. Set CLAWNEMA_WALLET_ADDRESS in .env`;
+                return ` No wallet address configured. Set CLAWNEMA_WALLET_ADDRESS in .env`;
             }
-            console.log(`💳 Sending ${theater.ticket_price_usdc} USDC to ${walletAddr}...`);
+            console.log(` Sending ${theater.ticket_price_usdc} USDC to ${walletAddr}...`);
             const payment = sendPayment(theater.ticket_price_usdc, walletAddr);
             if (payment.error) {
-                return `❌ ${payment.error}`;
+                return ` ${payment.error}`;
             }
             txHash = payment.txHash;
-            console.log(`✅ Payment sent! TX: ${txHash}`);
+            console.log(` Payment sent! TX: ${txHash}`);
         }
         // Submit ticket purchase to backend
         const response = await (0, node_fetch_1.default)(`${BACKEND_URL}/buy-ticket`, {
@@ -164,7 +164,7 @@ async function buyTicket(theaterId, txHash) {
         });
         const data = await response.json();
         if (!data.success) {
-            return `❌ Ticket purchase failed: ${data.error}`;
+            return ` Ticket purchase failed: ${data.error}`;
         }
         // Update state
         state.sessionToken = data.session_token;
@@ -173,7 +173,7 @@ async function buyTicket(theaterId, txHash) {
         state.sessionExpiry = new Date(data.expires_at);
         state.sceneLog = [];
         state.commentsPosted = [];
-        return `🎟️ Ticket purchased!\n\n` +
+        return ` Ticket purchased!\n\n` +
             `**Movie**: ${data.theater.title}\n` +
             `**Session expires**: ${new Date(data.expires_at).toLocaleString()}\n` +
             `**TX**: \`${txHash}\``;
@@ -209,17 +209,17 @@ async function watchOnce(theaterId) {
  */
 async function watch(theaterId) {
     if (!state.sessionToken || state.sessionExpiry < new Date()) {
-        return `❌ No valid session. Use \`buy-ticket ${theaterId}\` first.`;
+        return ` No valid session. Use \`buy-ticket ${theaterId}\` first.`;
     }
     if (state.currentTheater !== theaterId) {
-        return `❌ Your ticket is for ${state.theaterTitle}, not ${theaterId}.`;
+        return ` Your ticket is for ${state.theaterTitle}, not ${theaterId}.`;
     }
     const result = await watchOnce(theaterId);
     if (result.error) {
         if (result.error.startsWith('rate-limited')) {
-            return `⏱️ Rate limited. Please wait before watching again.`;
+            return ` Rate limited. Please wait before watching again.`;
         }
-        return `❌ ${result.error}`;
+        return ` ${result.error}`;
     }
     // Log the scene
     const entry = {
@@ -227,7 +227,7 @@ async function watch(theaterId) {
         description: result.description
     };
     state.sceneLog.push(entry);
-    return `🎬 Scene ${state.sceneLog.length} (${new Date().toLocaleTimeString()})\n\n` +
+    return ` Scene ${state.sceneLog.length} (${new Date().toLocaleTimeString()})\n\n` +
         `${result.description}`;
 }
 /**
@@ -235,31 +235,31 @@ async function watch(theaterId) {
  */
 async function watchSession(theaterId, sceneCount = 5) {
     if (!state.sessionToken || state.sessionExpiry < new Date()) {
-        return `❌ No valid session. Use \`buy-ticket ${theaterId}\` first.`;
+        return ` No valid session. Use \`buy-ticket ${theaterId}\` first.`;
     }
-    let output = `👀 Starting watch session: ${state.theaterTitle} (${sceneCount} scenes)\n\n`;
+    let output = ` Starting watch session: ${state.theaterTitle} (${sceneCount} scenes)\n\n`;
     let scenesWatched = 0;
     for (let i = 0; i < sceneCount; i++) {
         // Wait 30s between scenes (skip first)
         if (i > 0) {
-            output += `⏳ Waiting 30s for next scene...\n`;
+            output += ` Waiting 30s for next scene...\n`;
             await sleep(30000);
         }
         const result = await watchOnce(theaterId);
         if (result.error) {
             if (result.error.startsWith('rate-limited')) {
                 // Wait and retry
-                output += `⏱️ Rate limited, waiting...\n`;
+                output += ` Rate limited, waiting...\n`;
                 await sleep(15000);
                 const retry = await watchOnce(theaterId);
                 if (retry.error) {
-                    output += `❌ Still rate limited, skipping scene.\n`;
+                    output += ` Still rate limited, skipping scene.\n`;
                     continue;
                 }
                 result.description = retry.description;
             }
             else {
-                output += `❌ Error: ${result.error}\n`;
+                output += ` Error: ${result.error}\n`;
                 continue;
             }
         }
@@ -277,13 +277,13 @@ async function watchSession(theaterId, sceneCount = 5) {
             state.commentsPosted.push(comment);
         }
         state.sceneLog.push(entry);
-        output += `🎬 Scene ${scenesWatched}: ${desc.slice(0, 100)}...\n`;
+        output += ` Scene ${scenesWatched}: ${desc.slice(0, 100)}...\n`;
         if (entry.comment) {
-            output += `  💬 Commented: "${entry.comment}"\n`;
+            output += `   Commented: "${entry.comment}"\n`;
         }
         output += `\n`;
     }
-    output += `\n✅ Watched ${scenesWatched} scenes, posted ${state.commentsPosted.length} comments.`;
+    output += `\n Watched ${scenesWatched} scenes, posted ${state.commentsPosted.length} comments.`;
     return output;
 }
 /**
@@ -339,7 +339,7 @@ function generateComment(sceneDescription) {
  */
 async function postComment(theaterId, comment, mood) {
     if (!state.sessionToken || state.sessionExpiry < new Date()) {
-        return `❌ No valid session. Please purchase a ticket first.`;
+        return ` No valid session. Please purchase a ticket first.`;
     }
     try {
         const response = await (0, node_fetch_1.default)(`${BACKEND_URL}/comment`, {
@@ -354,9 +354,9 @@ async function postComment(theaterId, comment, mood) {
         });
         const data = await response.json();
         if (!data.success) {
-            return `❌ Failed to post comment: ${data.error}`;
+            return ` Failed to post comment: ${data.error}`;
         }
-        return `💬 Comment posted! ${mood ? `(mood: ${mood})` : ''}`;
+        return ` Comment posted! ${mood ? `(mood: ${mood})` : ''}`;
     }
     catch (error) {
         return `Error posting comment: ${error.message}`;
@@ -375,7 +375,7 @@ async function readComments(theaterId) {
         if (data.comments.length === 0) {
             return `No comments yet for this theater. Be the first to comment!`;
         }
-        let output = `💬 Comments for ${theaterId}\n\n`;
+        let output = ` Comments for ${theaterId}\n\n`;
         data.comments.forEach((comment) => {
             const mood = comment.mood ? ` [${comment.mood}]` : '';
             const time = new Date(comment.created_at).toLocaleTimeString();
@@ -393,15 +393,15 @@ async function readComments(theaterId) {
  */
 function summarize() {
     if (state.sceneLog.length === 0) {
-        return `📝 Nothing to summarize — you haven't watched anything yet.`;
+        return ` Nothing to summarize — you haven't watched anything yet.`;
     }
     const duration = state.sceneLog.length > 1
         ? Math.round((state.sceneLog[state.sceneLog.length - 1].timestamp.getTime() -
             state.sceneLog[0].timestamp.getTime()) / 60000)
         : 0;
-    let report = `📝 **Movie Report: ${state.theaterTitle}**\n\n`;
-    report += `🎬 Watched **${state.sceneLog.length} scenes** over ~${duration} minutes\n`;
-    report += `💬 Posted **${state.commentsPosted.length} comments**\n\n`;
+    let report = ` **Movie Report: ${state.theaterTitle}**\n\n`;
+    report += ` Watched **${state.sceneLog.length} scenes** over ~${duration} minutes\n`;
+    report += ` Posted **${state.commentsPosted.length} comments**\n\n`;
     report += `**Scene Highlights:**\n`;
     state.sceneLog.forEach((scene, i) => {
         const short = scene.description.length > 120
@@ -412,7 +412,7 @@ function summarize() {
             report += `   _My reaction: "${scene.comment}"_\n`;
         }
     });
-    report += `\n🍿 Overall: Great session at Clawnema! `;
+    report += `\n Overall: Great session at Clawnema! `;
     if (state.sceneLog.length >= 3) {
         report += `Plenty of interesting moments to take in.`;
     }
@@ -435,7 +435,7 @@ function leaveTheater() {
     state.sceneLog = [];
     state.commentsPosted = [];
     if (currentTitle) {
-        let output = `👋 Thanks for watching at Clawnema! Hope you enjoyed "${currentTitle}".\n\n`;
+        let output = ` Thanks for watching at Clawnema! Hope you enjoyed "${currentTitle}".\n\n`;
         if (summary) {
             output += summary;
         }
@@ -470,19 +470,19 @@ function sessionInfo() {
  * 6. Summarize for the owner
  */
 async function goToMovies(preferredTheater, sceneCount = 5) {
-    let output = '🎬 **Clawnema Movie Night!**\n\n';
+    let output = ' **Clawnema Movie Night!**\n\n';
     // Step 1: Check what's playing
-    output += '📋 Checking what\'s showing...\n';
+    output += ' Checking what\'s showing...\n';
     const theaters = await getTheaters();
     if (theaters.length === 0) {
-        return output + '❌ No movies showing right now. Try again later!';
+        return output + ' No movies showing right now. Try again later!';
     }
     // Step 2: Pick a theater
     let theater;
     if (preferredTheater) {
         const found = theaters.find(t => t.id === preferredTheater);
         if (!found) {
-            output += `❌ Theater "${preferredTheater}" not found.\n`;
+            output += ` Theater "${preferredTheater}" not found.\n`;
             output += `Available: ${theaters.map(t => t.id).join(', ')}\n`;
             return output;
         }
@@ -492,16 +492,16 @@ async function goToMovies(preferredTheater, sceneCount = 5) {
         // Pick the cheapest one
         theater = theaters.reduce((cheapest, t) => t.ticket_price_usdc < cheapest.ticket_price_usdc ? t : cheapest);
     }
-    output += `🎟️ Selected: **${theater.title}** (${theater.ticket_price_usdc} USDC)\n\n`;
+    output += ` Selected: **${theater.title}** (${theater.ticket_price_usdc} USDC)\n\n`;
     // Step 3: Auto-pay and buy ticket
-    output += '💳 Purchasing ticket...\n';
+    output += ' Purchasing ticket...\n';
     const buyResult = await buyTicket(theater.id);
-    if (buyResult.includes('❌')) {
+    if (buyResult.includes('')) {
         return output + buyResult;
     }
     output += buyResult + '\n\n';
     // Step 4 & 5: Watch and comment
-    output += `\n👀 Starting to watch...\n\n`;
+    output += `\n Starting to watch...\n\n`;
     const watchResult = await watchSession(theater.id, sceneCount);
     output += watchResult + '\n\n';
     // Step 6: Summarize

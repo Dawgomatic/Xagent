@@ -2,8 +2,8 @@
   {
     "type": "callout",
     "version": 1,
-    "calloutText": "<p><span style=\"white-space: pre-wrap;\">💡 Pro Tip: Always save your work before making major changes!</span></p>",
-    "calloutEmoji": "💡",
+    "calloutText": "<p><span style=\"white-space: pre-wrap;\"> Pro Tip: Always save your work before making major changes!</span></p>",
+    "calloutEmoji": "",
     "backgroundColor": "blue"
   }
 ]

@@ -5,7 +5,7 @@ metadata:
   openclaw:
     requires:
       bins: ["ping"]  # Requires the 'ping' command-line tool
-    emoji: "🔔"  # Optional: UI icon for the skill
+    emoji: ""  # Optional: UI icon for the skill
     homepage: "https://example.com/host-ping"  # Optional: Link to more info
     os: ["darwin", "linux", "win32"]  # Supported OS (macOS, Linux, Windows)
     install: []  # No additional installation needed if ping is available

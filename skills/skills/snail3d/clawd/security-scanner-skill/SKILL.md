@@ -37,7 +37,7 @@ security-scanner ./skill --fix
 
 ## Risk Levels & Recommendations
 
-### 🔴 DANGEROUS → REJECT
+###  DANGEROUS → REJECT
 **Verdict:** Do not install this code.
 
 Detected patterns:
@@ -48,7 +48,7 @@ Detected patterns:
 
 **Action:** Request source code review from maintainer or reject entirely.
 
-### 🟡 CAUTION → QUARANTINE
+###  CAUTION → QUARANTINE
 **Verdict:** Review before installation.
 
 Detected patterns:
@@ -61,7 +61,7 @@ Detected patterns:
 
 **Action:** Examine findings, ask maintainer about suspicious patterns, install with caution.
 
-### 🟢 SAFE → INSTALL
+###  SAFE → INSTALL
 **Verdict:** No obvious malicious patterns detected.
 
 **Action:** Safe to install. Standard security practices still recommended (keep updated, monitor permissions).
@@ -72,22 +72,22 @@ Detected patterns:
 - ✗ `eval()`
 - ✗ `exec()`
 - ✗ Dynamic `require()` with variable paths
-- ⚠ `child_process` module imports
+-  `child_process` module imports
 
 ### Credential Theft
 - ✗ `process.env.SECRET`, `process.env.API_KEY`, etc.
-- ⚠ Dynamic environment variable access `process.env[varName]`
-- ⚠ `fs.readFileSync()` on sensitive system files (`/etc/`, `~/`)
+-  Dynamic environment variable access `process.env[varName]`
+-  `fs.readFileSync()` on sensitive system files (`/etc/`, `~/`)
 
 ### Network/Data Exfiltration
-- ⚠ Network calls to unknown external domains (via `fetch`, `http.get`, etc.)
-- ⚠ HTTP/HTTPS module imports (potential network calls)
-- ⚠ Low-level socket access (`net`, `dgram`)
+-  Network calls to unknown external domains (via `fetch`, `http.get`, etc.)
+-  HTTP/HTTPS module imports (potential network calls)
+-  Low-level socket access (`net`, `dgram`)
 
 ### Obfuscation (Red Flag)
-- ⚠ Minified code (unusually high symbol density, very short lines)
-- ⚠ Hex-encoded strings (`\x41\x42\x43`)
-- ⚠ Unicode-encoded strings (`\u0041\u0042`)
+-  Minified code (unusually high symbol density, very short lines)
+-  Hex-encoded strings (`\x41\x42\x43`)
+-  Unicode-encoded strings (`\u0041\u0042`)
 
 **Why it matters:** Obfuscated code hides malicious logic. Legitimate libraries don't need to be obfuscated.
 
@@ -192,8 +192,8 @@ fi
 **Interpretation:** Code can run any arbitrary JavaScript at runtime. Extremely dangerous.
 
 **Response:** 
-- ❌ If malicious: REJECT
-- ⚠️ If legitimate: Ask author why eval is needed (usually there's a safer way)
+-  If malicious: REJECT
+-  If legitimate: Ask author why eval is needed (usually there's a safer way)
 
 ### child_process Import
 **Finding:** "child_process allows spawning external commands"
@@ -223,9 +223,9 @@ fi
 **Interpretation:** Source code is intentionally hidden. Why?
 
 **Response:**
-- ❌ Single-file skill that's minified → Suspicious, ask for source
-- ✅ Node module with both `.js` and `.min.js` → Standard practice
-- ⚠️ Hex-encoded strings → Request deobfuscation
+-  Single-file skill that's minified → Suspicious, ask for source
+-  Node module with both `.js` and `.min.js` → Standard practice
+-  Hex-encoded strings → Request deobfuscation
 
 ### Fetch to Unknown Domain
 **Finding:** "Network call to external domain"
@@ -233,9 +233,9 @@ fi
 **Interpretation:** Code calls some external API. Is it expected?
 
 **Response:**
-- ✅ `fetch('https://api.github.com/...')` → Normal
-- ❌ `fetch('https://malware-collection.ru/...')` → Dangerous
-- ⚠️ `fetch(userProvidedUrl)` → Dangerous (open redirect)
+-  `fetch('https://api.github.com/...')` → Normal
+-  `fetch('https://malware-collection.ru/...')` → Dangerous
+-  `fetch(userProvidedUrl)` → Dangerous (open redirect)
 
 ## How to Use with Sub-Agents
 
@@ -261,7 +261,7 @@ riskLevel=$(echo "$result" | jq -r '.riskLevel')
 
 ## Limitations
 
-⚠️ **Static analysis only** - Does not execute code, so:
+ **Static analysis only** - Does not execute code, so:
 - Runtime tricks might not be detected
 - Obfuscated strings that are decoded at runtime won't be flagged
 - Complex control flow analysis not performed

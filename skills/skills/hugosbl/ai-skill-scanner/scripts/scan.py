@@ -315,40 +315,40 @@ def scan_skill(skill_path: str) -> ScanResult:
 def format_text(result: ScanResult, verbose: bool = False) -> str:
     """Format scan result as human-readable text."""
     lines = []
-    lines.append(f"🔍 Skill Scanner — {result.skill_name}")
+    lines.append(f" Skill Scanner — {result.skill_name}")
     lines.append(f"   Path: {result.skill_path}")
     lines.append(f"   Files scanned: {result.files_scanned}")
     lines.append("")
 
     if not result.findings:
-        lines.append("✅ CLEAN — No security issues detected")
+        lines.append(" CLEAN — No security issues detected")
         return "\n".join(lines)
 
     # Score
     score = result.score
-    emoji = {"DANGEROUS": "🚨", "SUSPICIOUS": "⚠️", "REVIEW": "🔎", "INFO": "ℹ️"}.get(score, "❓")
+    emoji = {"DANGEROUS": "", "SUSPICIOUS": "", "REVIEW": "", "INFO": ""}.get(score, "")
     lines.append(f"{emoji} Score: {score}")
     lines.append(f"   Summary: {result.summary}")
     lines.append("")
 
     # Findings
-    sev_emoji = {CRITICAL: "🔴", HIGH: "🟠", MEDIUM: "🟡", LOW: "🔵", INFO: "⚪"}
+    sev_emoji = {CRITICAL: "", HIGH: "", MEDIUM: "", LOW: "", INFO: ""}
 
     for f in result.findings:
-        e = sev_emoji.get(f.severity, "❓")
+        e = sev_emoji.get(f.severity, "")
         try:
             rel_file = Path(f.file).relative_to(result.skill_path)
         except ValueError:
             rel_file = f.file or "(structural)"
         lines.append(f"{e} [{f.severity}] {f.rule_id}")
         lines.append(f"   {f.description}")
-        lines.append(f"   📁 {rel_file}:{f.line_num}")
+        lines.append(f"    {rel_file}:{f.line_num}")
         if verbose:
             lines.append(f"   > {f.line_content}")
         lines.append("")
 
     if result.errors:
-        lines.append("⚠️ Scan errors:")
+        lines.append(" Scan errors:")
         for e in result.errors:
             lines.append(f"   - {e}")
 

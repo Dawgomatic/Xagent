@@ -41,9 +41,9 @@ pip install volcengine-python-sdk
 
 # 检查安装是否成功
 if python3 -c "import volcenginesdkbilling" &> /dev/null; then
-    echo "✅ 火山引擎 SDK 安装成功"
+    echo " 火山引擎 SDK 安装成功"
 else
-    echo "❌ 火山引擎 SDK 安装失败"
+    echo " 火山引擎 SDK 安装失败"
     exit 1
 fi
 
@@ -52,7 +52,7 @@ chmod +x volcengine_balance.sh
 chmod +x setup.sh
 
 echo ""
-echo "✅ 安装完成！"
+echo " 安装完成！"
 echo ""
 echo "下一步：配置火山引擎 AK/SK"
 echo "=============================="

@@ -126,7 +126,7 @@ async function setup() {
         body: 'Generate an eye-catching image for the social media posts. The image should be visually appealing, modern, and relevant to the topic.'
       }
     ],
-    // ⚠️ CRITICAL: Edges define the workflow execution path
+    //  CRITICAL: Edges define the workflow execution path
     edges: [
       { from: 'trigger:webhook', to: 'task:research' },
       { from: 'task:research', to: 'task:content' },

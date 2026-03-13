@@ -4,13 +4,13 @@ Also replaced all specific paths with `$USER` variables, and added a note about 
 
 ---
 
-# 🧠 ULTIMATEMEMORY.md (Universal Template)
+#  ULTIMATEMEMORY.md (Universal Template)
 
 This is the **Ultimate Project Memory Manifest**. It consolidates your local intelligence architecture, file-based long-term memory, and distributed agent logic into a single, robust "Source of Truth" for your sovereign AI stack.
 
 ---
 
-## 🏛️ 1. Complete Memory Architecture
+##  1. Complete Memory Architecture
 
 ### A. The "Silicon Brain" (Local Vector Layer)
 
@@ -47,7 +47,7 @@ OpenClaw runs specialized agents, each with its own localized memory silo to pre
 
 ---
 
-## 🔄 2. Operational Data Flow & Automation
+##  2. Operational Data Flow & Automation
 
 | Stage | Mechanism | Source/Destination | Description |
 | --- | --- | --- | --- |
@@ -59,7 +59,7 @@ OpenClaw runs specialized agents, each with its own localized memory silo to pre
 
 ---
 
-## 🛡️ 3. Operational Directives & Guardrails
+##  3. Operational Directives & Guardrails
 
 1. **Zero-Knowledge Leakage:** All project files remain in the local environment. No context or embeddings are ever sent to external APIs.
 2. **Absolute Pathing:** Reference directories using full paths to ensure agent reliability.
@@ -68,7 +68,7 @@ OpenClaw runs specialized agents, each with its own localized memory silo to pre
 
 ---
 
-## 📂 4. Master Path Context Map
+##  4. Master Path Context Map
 
 | Component | Path |
 | --- | --- |
@@ -79,12 +79,12 @@ OpenClaw runs specialized agents, each with its own localized memory silo to pre
 | **Skills Directory** | `/home/$USER/.openclaw/skills` |
 | **Main Config** | `/home/$USER/.openclaw/openclaw.json` |
 
-> **💡 NOTE ON EXTERNAL DIRECTORIES:** > If you have infrastructure or data outside of the standard workspace that you want the AI to "remember," create a manual symbolic link inside `~/.openclaw/workspace/` pointing to that directory. The memory engine will automatically follow the link and index the external data.
+> ** NOTE ON EXTERNAL DIRECTORIES:** > If you have infrastructure or data outside of the standard workspace that you want the AI to "remember," create a manual symbolic link inside `~/.openclaw/workspace/` pointing to that directory. The memory engine will automatically follow the link and index the external data.
 > **Example:** `ln -s /path/to/my-external-data ~/.openclaw/workspace/external-data`
 
 ---
 
-### 🏁 Final Deployment Instructions ((IN YOUR REAL`ULTIMATEMEMORY.md` DELETE FROM THIS LINE DOWN ITS JUST TIPS IN THESE SECTIONS NOT NEEDED IN YOUR ACTUAL md FILE))
+###  Final Deployment Instructions ((IN YOUR REAL`ULTIMATEMEMORY.md` DELETE FROM THIS LINE DOWN ITS JUST TIPS IN THESE SECTIONS NOT NEEDED IN YOUR ACTUAL md FILE))
 
 1. Edit this file unique to your environment if paths differ, and Save this file as `ULTIMATEMEMORY.md` in your `~/.openclaw/workspace/` folder with other core md files.
 2. Edit the **Master Path Context Map** to reflect your specific binary paths.
@@ -92,7 +92,7 @@ OpenClaw runs specialized agents, each with its own localized memory silo to pre
 
 ---
 
-💡 A Tip for users 
+ A Tip for users 
 
 If you're a "New Recruit" and don't have the skill yet, run command: 
 `openclaw skills install neverforget`
@@ -134,14 +134,14 @@ When you want to get the latest updated version, you won't have to manually copy
 
 `openclaw skills update neverforget`
 
-🛡️ One more small tip:
+ One more small tip:
 If you're on a fresh WSL2 install, make sure to have pnpm installed globally first, or the script might trip at Step 1. You can have your agent do this or do it manually yourself with:
 
 `npm install -g pnpm`
 
 ---
 
-### 🐾 Next Step
+###  Next Step
 
 Your memory stack is complete. The system is now monitoring your workspace in real-time. To begin, ask the agent: *"Search my memory: what is the current mission priority?"*
 

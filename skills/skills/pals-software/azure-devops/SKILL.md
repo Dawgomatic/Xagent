@@ -1,7 +1,7 @@
 ---
 name: azure-devops
 description: List Azure DevOps projects, repositories, and branches; create pull requests; manage work items; check build status. Use when working with Azure DevOps resources, checking PR status, querying project structure, or automating DevOps workflows.
-metadata: {"openclaw": {"emoji": "☁️", "requires": {"bins": ["curl", "jq"], "env": ["AZURE_DEVOPS_PAT"]}, "primaryEnv": "AZURE_DEVOPS_PAT"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["curl", "jq"], "env": ["AZURE_DEVOPS_PAT"]}, "primaryEnv": "AZURE_DEVOPS_PAT"}}
 ---
 
 # Azure DevOps Skill

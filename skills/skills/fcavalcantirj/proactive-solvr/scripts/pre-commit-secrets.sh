@@ -70,7 +70,7 @@ for file in $STAGED; do
     
     for i in "${!PATTERNS[@]}"; do
         if grep -qE "${PATTERNS[$i]}" "$file" 2>/dev/null; then
-            echo -e "${RED}🚨 BLOCKED: ${PATTERN_NAMES[$i]} found in $file${NC}"
+            echo -e "${RED} BLOCKED: ${PATTERN_NAMES[$i]} found in $file${NC}"
             BLOCKED=1
         fi
     done
@@ -78,7 +78,7 @@ done
 
 if [[ $BLOCKED -eq 1 ]]; then
     echo ""
-    echo -e "${RED}❌ Commit blocked - secrets detected!${NC}"
+    echo -e "${RED} Commit blocked - secrets detected!${NC}"
     echo ""
     echo "To fix:"
     echo "  1. Remove the secret from the file"

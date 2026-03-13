@@ -1,4 +1,4 @@
-# Stripe CLI Skill 🧾
+# Stripe CLI Skill 
 
 A universal Moltbot skill wrapping Stripe CLI for payment processing, webhook testing, and API operations. Includes optional ShapeScale-specific extensions for clinic management.
 

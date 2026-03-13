@@ -302,7 +302,7 @@ def check_emails():
       "agent": "telegram-notifier",
       "action": "send",
       "input": {
-        "message": "🚨 Urgent Email\nFrom: {{payload.from}}\nSubject: {{payload.subject}}"
+        "message": " Urgent Email\nFrom: {{payload.from}}\nSubject: {{payload.subject}}"
       }
     },
     {
@@ -322,17 +322,17 @@ def check_emails():
 `<domain>.<action_past_tense>`
 
 ### Good Examples
-✅ `research.article_found`  
-✅ `sports.goal_scored`  
-✅ `email.received`  
-✅ `analytics.insight_generated`  
-✅ `notification.sent`  
+ `research.article_found`  
+ `sports.goal_scored`  
+ `email.received`  
+ `analytics.insight_generated`  
+ `notification.sent`  
 
 ### Bad Examples
-❌ `research_article` (missing action)  
-❌ `sports.score` (not past tense)  
-❌ `EmailReceived` (camelCase, not snake_case)  
-❌ `new-email` (no domain namespace)  
+ `research_article` (missing action)  
+ `sports.score` (not past tense)  
+ `EmailReceived` (camelCase, not snake_case)  
+ `new-email` (no domain namespace)  
 
 ### Domain Examples
 - `research.*` - Research and discovery
@@ -474,4 +474,4 @@ echo '{"event_type":"test","payload":{}}' | python3 your_handler.py
 
 ---
 
-**Ready to integrate? Start with the simplest event and build from there!** 🦎
+**Ready to integrate? Start with the simplest event and build from there!** 

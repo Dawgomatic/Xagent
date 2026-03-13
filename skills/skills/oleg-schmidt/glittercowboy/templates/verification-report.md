@@ -66,9 +66,9 @@ score: N/M must-haves verified
 
 | File | Line | Pattern | Severity | Impact |
 |------|------|---------|----------|--------|
-| src/app/api/chat/route.ts | 12 | `// TODO: implement` | ⚠️ Warning | Indicates incomplete |
-| src/components/Chat.tsx | 45 | `return <div>Placeholder</div>` | 🛑 Blocker | Renders no content |
-| src/hooks/useChat.ts | - | File missing | 🛑 Blocker | Expected hook doesn't exist |
+| src/app/api/chat/route.ts | 12 | `// TODO: implement` |  Warning | Indicates incomplete |
+| src/components/Chat.tsx | 45 | `return <div>Placeholder</div>` |  Blocker | Renders no content |
+| src/hooks/useChat.ts | - | File missing |  Blocker | Expected hook doesn't exist |
 
 **Anti-patterns:** {N} found ({blockers} blockers, {warnings} warnings)
 
@@ -173,9 +173,9 @@ None — all verifiable items checked programmatically.
 - For FAILED: "Missing because X" or "Stub because Y"
 
 **Severity levels:**
-- 🛑 Blocker: Prevents goal achievement, must fix
-- ⚠️ Warning: Indicates incomplete but doesn't block
-- ℹ️ Info: Notable but not problematic
+-  Blocker: Prevents goal achievement, must fix
+-  Warning: Indicates incomplete but doesn't block
+-  Info: Notable but not problematic
 
 **Fix plan generation:**
 - Only generate if gaps_found
@@ -251,9 +251,9 @@ score: 2/5 must-haves verified
 
 | File | Line | Pattern | Severity | Impact |
 |------|------|---------|----------|--------|
-| src/components/Chat.tsx | 8 | `<div>Chat will be here</div>` | 🛑 Blocker | No actual content |
-| src/app/api/chat/route.ts | 5 | `return Response.json([])` | 🛑 Blocker | Hardcoded empty |
-| src/app/api/chat/route.ts | 12 | `// TODO: save to database` | ⚠️ Warning | Incomplete |
+| src/components/Chat.tsx | 8 | `<div>Chat will be here</div>` |  Blocker | No actual content |
+| src/app/api/chat/route.ts | 5 | `return Response.json([])` |  Blocker | Hardcoded empty |
+| src/app/api/chat/route.ts | 12 | `// TODO: save to database` |  Warning | Incomplete |
 
 **Anti-patterns:** 3 found (2 blockers, 1 warning)
 

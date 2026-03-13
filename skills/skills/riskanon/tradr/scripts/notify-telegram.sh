@@ -47,7 +47,7 @@ case "$TYPE" in
         send_broadcast "$TEXT"
         ;;
     error)
-        send_dm "⚠️ $TEXT"
+        send_dm " $TEXT"
         ;;
     *)
         send_dm "$TEXT"

@@ -12,16 +12,16 @@ CRON_SCHEDULE="15 10 * * *"  # 10:15 AM daily
 CRON_COMMAND="/bin/bash ${WORKSPACE}/morning-briefing.sh >> ${WORKSPACE}/logs/morning-briefing.log 2>&1"
 
 echo "════════════════════════════════════════════════════════════"
-echo "🌅 Morning Briefing Cron Job Installer"
+echo " Morning Briefing Cron Job Installer"
 echo "════════════════════════════════════════════════════════════"
 echo ""
 
 # Step 1: Verify timezone
-echo "📍 Step 1: Checking system timezone..."
+echo " Step 1: Checking system timezone..."
 CURRENT_TZ=$(sudo systemsetup -gettimezone 2>/dev/null | grep -oE 'America/(Denver|Los_Angeles|Chicago|New_York)' || echo "unknown")
 
 if [[ "$CURRENT_TZ" != "America/Denver" ]]; then
-    echo "⚠️  Current timezone is $CURRENT_TZ (expected: America/Denver)"
+    echo "  Current timezone is $CURRENT_TZ (expected: America/Denver)"
     read -p "Do you want to set timezone to America/Denver? (y/n) " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -34,7 +34,7 @@ fi
 
 # Step 2: Create necessary directories
 echo ""
-echo "📁 Step 2: Creating necessary directories..."
+echo " Step 2: Creating necessary directories..."
 mkdir -p "${WORKSPACE}/logs"
 mkdir -p "${WORKSPACE}/scripts"
 mkdir -p "${WORKSPACE}/crontabs"
@@ -43,7 +43,7 @@ echo "✓ Directories created"
 
 # Step 3: Verify script files exist
 echo ""
-echo "📋 Step 3: Verifying script files..."
+echo " Step 3: Verifying script files..."
 REQUIRED_FILES=(
     "${WORKSPACE}/morning-briefing.sh"
     "${WORKSPACE}/scripts/generate-morning-briefing.js"
@@ -61,7 +61,7 @@ done
 
 # Step 4: Make scripts executable
 echo ""
-echo "🔐 Step 4: Making scripts executable..."
+echo " Step 4: Making scripts executable..."
 chmod +x "${WORKSPACE}/morning-briefing.sh"
 chmod +x "${WORKSPACE}/scripts/generate-morning-briefing.js"
 chmod +x "${WORKSPACE}/scripts/skill-discovery-agent.js"
@@ -69,11 +69,11 @@ echo "✓ Scripts are executable"
 
 # Step 5: Check for existing cron job
 echo ""
-echo "🔍 Step 5: Checking for existing cron jobs..."
+echo " Step 5: Checking for existing cron jobs..."
 EXISTING_CRON=$(crontab -l 2>/dev/null | grep "morning-briefing.sh" || echo "")
 
 if [[ -n "$EXISTING_CRON" ]]; then
-    echo "⚠️  An existing morning briefing cron job was found:"
+    echo "  An existing morning briefing cron job was found:"
     echo "   $EXISTING_CRON"
     read -p "Do you want to replace it? (y/n) " -n 1 -r
     echo
@@ -87,7 +87,7 @@ fi
 
 # Step 6: Install cron job
 echo ""
-echo "⏰ Step 6: Installing cron job..."
+echo " Step 6: Installing cron job..."
 echo "   Schedule: $CRON_SCHEDULE (10:15 AM daily)"
 echo "   Command: $CRON_COMMAND"
 
@@ -102,13 +102,13 @@ echo "✓ Cron job installed"
 
 # Step 7: Verify installation
 echo ""
-echo "✅ Step 7: Verifying installation..."
+echo " Step 7: Verifying installation..."
 VERIFY_CRON=$(crontab -l 2>/dev/null | grep "morning-briefing.sh" || echo "")
 
 if [[ -n "$VERIFY_CRON" ]]; then
     echo "✓ Cron job successfully installed!"
     echo ""
-    echo "📋 Installed cron job:"
+    echo " Installed cron job:"
     echo "   $VERIFY_CRON"
 else
     echo "✗ Cron job installation failed"
@@ -117,7 +117,7 @@ fi
 
 # Step 8: Test the scripts
 echo ""
-echo "🧪 Step 8: Testing scripts..."
+echo " Step 8: Testing scripts..."
 read -p "Do you want to test the briefing generator now? (y/n) " -n 1 -r
 echo
 
@@ -134,24 +134,24 @@ fi
 # Step 9: Summary
 echo ""
 echo "════════════════════════════════════════════════════════════"
-echo "✅ Installation Complete!"
+echo " Installation Complete!"
 echo "════════════════════════════════════════════════════════════"
 echo ""
-echo "📅 Your morning briefing is scheduled to run:"
+echo " Your morning briefing is scheduled to run:"
 echo "   • Time: 10:15 AM Mountain Standard Time (daily)"
 echo "   • Script: ${WORKSPACE}/morning-briefing.sh"
 echo "   • Logs: ${WORKSPACE}/logs/morning-briefing.log"
 echo ""
-echo "📖 For setup details, see:"
+echo " For setup details, see:"
 echo "   ${WORKSPACE}/MORNING-BRIEFING-SETUP.md"
 echo ""
-echo "🔧 To modify the schedule:"
+echo " To modify the schedule:"
 echo "   crontab -e"
 echo ""
-echo "📊 To monitor logs:"
+echo " To monitor logs:"
 echo "   tail -f ${WORKSPACE}/logs/morning-briefing.log"
 echo ""
-echo "🧪 To test manually:"
+echo " To test manually:"
 echo "   node ${WORKSPACE}/scripts/generate-morning-briefing.js"
 echo ""
 echo "════════════════════════════════════════════════════════════"

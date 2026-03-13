@@ -34,7 +34,7 @@ Just paste code and say "review this"
 
 Every review follows the **SPEAR** framework — 5 dimensions, each scored 1-10:
 
-### 🔴 S — Security (Weight: 3x)
+###  S — Security (Weight: 3x)
 | Check | Severity | Example |
 |-------|----------|---------|
 | Hardcoded secrets | CRITICAL | API keys, passwords, tokens in source |
@@ -50,7 +50,7 @@ Every review follows the **SPEAR** framework — 5 dimensions, each scored 1-10:
 | Insecure randomness | MEDIUM | `Math.random()` for security-sensitive values |
 | Missing rate limiting | MEDIUM | Auth endpoints without throttling |
 
-### 🟡 P — Performance (Weight: 2x)
+###  P — Performance (Weight: 2x)
 | Check | Severity | Example |
 |-------|----------|---------|
 | N+1 queries | HIGH | DB call inside a loop |
@@ -64,7 +64,7 @@ Every review follows the **SPEAR** framework — 5 dimensions, each scored 1-10:
 | Redundant computation | LOW | Same expensive calc repeated without caching |
 | Connection pool exhaustion | HIGH | Not releasing DB/HTTP connections |
 
-### 🟠 E — Error Handling (Weight: 2x)
+###  E — Error Handling (Weight: 2x)
 | Check | Severity | Example |
 |-------|----------|---------|
 | Swallowed errors | HIGH | Empty catch blocks, Go `_ :=` on error |
@@ -77,7 +77,7 @@ Every review follows the **SPEAR** framework — 5 dimensions, each scored 1-10:
 | Unhandled promise rejections | HIGH | Async calls without `.catch()` or try/catch |
 | Error type conflation | MEDIUM | All errors treated the same (4xx vs 5xx, retriable vs fatal) |
 
-### 🔵 A — Architecture (Weight: 1.5x)
+###  A — Architecture (Weight: 1.5x)
 | Check | Severity | Example |
 |-------|----------|---------|
 | God functions (>50 lines) | MEDIUM | Single function doing too many things |
@@ -91,7 +91,7 @@ Every review follows the **SPEAR** framework — 5 dimensions, each scored 1-10:
 | Dead code | LOW | Unreachable branches, unused imports/variables |
 | Inconsistent patterns | LOW | Different error handling styles in same codebase |
 
-### 📊 R — Reliability (Weight: 1.5x)
+###  R — Reliability (Weight: 1.5x)
 | Check | Severity | Example |
 |-------|----------|---------|
 | Missing tests for changes | HIGH | New logic without corresponding test |
@@ -127,11 +127,11 @@ Final Score = Raw Score × 10  (scale 0-100)
 ### Verdict Thresholds
 | Score | Verdict | Action |
 |-------|---------|--------|
-| 90-100 | ✅ EXCELLENT | Ship it |
-| 75-89 | 🟢 GOOD | Minor suggestions, approve |
-| 60-74 | 🟡 NEEDS WORK | Address findings before merge |
-| 40-59 | 🟠 SIGNIFICANT ISSUES | Major rework needed |
-| 0-39 | 🔴 BLOCK | Critical issues, do not merge |
+| 90-100 |  EXCELLENT | Ship it |
+| 75-89 |  GOOD | Minor suggestions, approve |
+| 60-74 |  NEEDS WORK | Address findings before merge |
+| 40-59 |  SIGNIFICANT ISSUES | Major rework needed |
+| 0-39 |  BLOCK | Critical issues, do not merge |
 
 ---
 
@@ -149,15 +149,15 @@ Use this structure for every review:
 
 | Dimension | Score | Key Finding |
 |-----------|-------|-------------|
-| 🔴 Security | X/10 | [worst finding or "Clean"] |
-| 🟡 Performance | X/10 | [worst finding or "Clean"] |
-| 🟠 Error Handling | X/10 | [worst finding or "Clean"] |
-| 🔵 Architecture | X/10 | [worst finding or "Clean"] |
-| 📊 Reliability | X/10 | [worst finding or "Clean"] |
+|  Security | X/10 | [worst finding or "Clean"] |
+|  Performance | X/10 | [worst finding or "Clean"] |
+|  Error Handling | X/10 | [worst finding or "Clean"] |
+|  Architecture | X/10 | [worst finding or "Clean"] |
+|  Reliability | X/10 | [worst finding or "Clean"] |
 
 ## Findings
 
-### [CRITICAL/HIGH] 🔴 [Title]
+### [CRITICAL/HIGH]  [Title]
 **File:** `path/to/file.ts:42`
 **Category:** Security
 **Issue:** [What's wrong]
@@ -167,7 +167,7 @@ Use this structure for every review:
 // suggested fix
 ```
 
-### [MEDIUM] 🟡 [Title]
+### [MEDIUM]  [Title]
 ...
 
 ## What's Done Well

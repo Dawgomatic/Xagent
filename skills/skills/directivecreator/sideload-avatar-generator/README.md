@@ -1,4 +1,4 @@
-# 🎭 Sideload Avatar Generator
+#  Sideload Avatar Generator
 
 Generate 3D avatars from text prompts or reference images using [Sideload.gg](https://sideload.gg).
 

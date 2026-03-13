@@ -4,16 +4,16 @@
 
 Stop wasting money on expensive models for simple tasks. Smart Router automatically analyzes request complexity and routes to the optimal model - using Claude Opus for complex reasoning, Haiku for simple queries, and everything in between. It learns from your usage patterns and gets smarter over time.
 
-🤖 **Agent-powered economy** - agents can autonomously pay 0.5 USDT/month for unlimited routing decisions. [Agent Payments →](AGENT-PAYMENTS.md)
+ **Agent-powered economy** - agents can autonomously pay 0.5 USDT/month for unlimited routing decisions. [Agent Payments →](AGENT-PAYMENTS.md)
 
 ## The Problem
 
 OpenClaw users are experiencing:
-- 💸 **Wasted money** - using expensive models for trivial tasks
-- 🎯 **Manual selection** - constantly choosing models yourself
-- 📊 **No learning** - same mistakes repeated every session
-- 🤔 **Guesswork** - "Is this complex enough for Opus?"
-- 💰 **Unpredictable costs** - no budget awareness
+-  **Wasted money** - using expensive models for trivial tasks
+-  **Manual selection** - constantly choosing models yourself
+-  **No learning** - same mistakes repeated every session
+-  **Guesswork** - "Is this complex enough for Opus?"
+-  **Unpredictable costs** - no budget awareness
 
 ## The Solution
 
@@ -21,16 +21,16 @@ OpenClaw users are experiencing:
 
 ## Features
 
-- ✅ **Automatic Model Selection** - No more manual model switching
-- ✅ **Complexity Analysis** - Scores requests 0.0-1.0 for difficulty
-- ✅ **Budget Awareness** - Respects spending limits and cost targets
-- ✅ **Pattern Learning** - Adapts to your workflow over time
-- ✅ **Multi-Provider Support** - Works with Anthropic, OpenAI, Google, and more
-- ✅ **30-50% Cost Savings** - Proven reduction in model costs
-- ✅ **Quota Management** - Free tier (100 decisions/day) + Pro tier (unlimited)
-- ✅ **Web Dashboard** - Visualize routing decisions and savings
-- ✅ **CLI Interface** - Full control from command line
-- 🤖 **x402 Agent Payments** - Agents can autonomously pay for Pro tier (0.5 USDT/month)
+-  **Automatic Model Selection** - No more manual model switching
+-  **Complexity Analysis** - Scores requests 0.0-1.0 for difficulty
+-  **Budget Awareness** - Respects spending limits and cost targets
+-  **Pattern Learning** - Adapts to your workflow over time
+-  **Multi-Provider Support** - Works with Anthropic, OpenAI, Google, and more
+-  **30-50% Cost Savings** - Proven reduction in model costs
+-  **Quota Management** - Free tier (100 decisions/day) + Pro tier (unlimited)
+-  **Web Dashboard** - Visualize routing decisions and savings
+-  **CLI Interface** - Full control from command line
+-  **x402 Agent Payments** - Agents can autonomously pay for Pro tier (0.5 USDT/month)
 
 ## Why Smart Router?
 
@@ -38,14 +38,14 @@ OpenClaw users are experiencing:
 
 | Feature | Smart Router | Manual Selection | Model Switching Tools | Simple Fallback |
 |---------|--------------|------------------|----------------------|-----------------|
-| Automatic Complexity Analysis | ✅ | ❌ | ❌ | ❌ |
-| Budget Awareness | ✅ | ❌ | ❌ | ❌ |
-| Pattern Learning | ✅ | ❌ | ❌ | ❌ |
-| Multi-Provider Routing | ✅ | ✅ | ✅ | ❌ |
-| x402 Payments | ✅ | ❌ | ❌ | ❌ |
-| **Cost Tracking** | ✅ | ❌ | ❌ | ❌ |
-| ClawHub Skill | ✅ | ❌ | ❓ | ❌ |
-| Free Tier | ✅ | ✅ | ❓ | ✅ |
+| Automatic Complexity Analysis |  |  |  |  |
+| Budget Awareness |  |  |  |  |
+| Pattern Learning |  |  |  |  |
+| Multi-Provider Routing |  |  |  |  |
+| x402 Payments |  |  |  |  |
+| **Cost Tracking** |  |  |  |  |
+| ClawHub Skill |  |  |  |  |
+| Free Tier |  |  |  |  |
 | Cost Savings | 30-50% | 0% | ~10% | ~5% |
 
 **Smart Router + Memory System + Context Optimizer = Maximum Efficiency**
@@ -167,22 +167,22 @@ ELSE IF budget_constrained:
 ## Free vs Pro Tier
 
 ### Free Tier
-- ✅ 100 routing decisions per day
-- ✅ Automatic complexity analysis
-- ✅ Basic model selection
-- ✅ Multi-provider support
-- ✅ Cost tracking
-- ✅ Web dashboard
-- ✅ CLI interface
+-  100 routing decisions per day
+-  Automatic complexity analysis
+-  Basic model selection
+-  Multi-provider support
+-  Cost tracking
+-  Web dashboard
+-  CLI interface
 
 ### Pro Tier (0.5 USDT/month)
-- ✅ **Unlimited routing decisions**
-- ✅ **Advanced pattern learning** - better model selection over time
-- ✅ **Budget optimization** - sophisticated cost management
-- ✅ **Custom routing rules** - define your own logic
-- ✅ **Detailed analytics** - ROI tracking, model performance
-- ✅ **Export capabilities** - download routing history
-- ✅ **Priority support**
+-  **Unlimited routing decisions**
+-  **Advanced pattern learning** - better model selection over time
+-  **Budget optimization** - sophisticated cost management
+-  **Custom routing rules** - define your own logic
+-  **Detailed analytics** - ROI tracking, model performance
+-  **Export capabilities** - download routing history
+-  **Priority support**
 
 **[→ Upgrade to Pro via x402](AGENT-PAYMENTS.md)**
 
@@ -269,7 +269,7 @@ Without Smart Router:
 Savings: $92.40/month (72% reduction)
 Pro cost: $0.50/month
 Net profit: $91.90/month
-ROI: 18,380% 🎉
+ROI: 18,380% 
 ```
 
 ## Configuration
@@ -608,10 +608,10 @@ All data is stored locally in SQLite:
 
 ## Privacy
 
-- ✅ All data stored locally (nothing sent to external servers)
-- ✅ No tracking or telemetry
-- ✅ Open source (audit the code yourself)
-- ✅ Routing happens locally (no API calls for analysis)
+-  All data stored locally (nothing sent to external servers)
+-  No tracking or telemetry
+-  Open source (audit the code yourself)
+-  Routing happens locally (no API calls for analysis)
 
 ## Quota Management
 
@@ -868,7 +868,7 @@ Pattern Learning:
 ROI:
 - Pro cost: $0.50/month
 - Net savings: $91.90/month
-- ROI: 18,380% 🎉
+- ROI: 18,380% 
 ```
 
 ## Contributing
@@ -903,8 +903,8 @@ MIT License - see [LICENSE](LICENSE) file.
 
 If Smart Router saved you money on model costs, consider sponsoring development:
 
-☕ **[Sponsor on GitHub](https://github.com/sponsors/AtlasPA)**
-🤖 **[Pay via x402](AGENT-PAYMENTS.md)** (for AI agents)
+ **[Sponsor on GitHub](https://github.com/sponsors/AtlasPA)**
+ **[Pay via x402](AGENT-PAYMENTS.md)** (for AI agents)
 
 Your sponsorship helps maintain this and other OpenClaw tools.
 

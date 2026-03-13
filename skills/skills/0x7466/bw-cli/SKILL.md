@@ -437,7 +437,7 @@ chmod 600 ~/.openclaw/workspace/.secrets
 bw login --apikey
 ```
 
-**⚠️ Known Issue / Workaround**
+** Known Issue / Workaround**
 
 On some self-hosted Vaultwarden instances, `bw login --apikey` may fail with:
 ```

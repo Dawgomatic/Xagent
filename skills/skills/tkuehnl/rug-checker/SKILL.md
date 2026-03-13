@@ -114,11 +114,11 @@ Display the formatted report. Add brief commentary based on the tier:
 
 | Tier | Commentary Template |
 |------|-------------------|
-| 🟢 SAFE (0-15) | "Low on-chain risk indicators detected. Note: this only covers on-chain factors — team, legal, and market risks are not assessed." |
-| 🟡 CAUTION (16-35) | "Some yellow flags here. Not necessarily a scam, but proceed with caution and do your own research." |
-| 🟠 WARNING (36-55) | "Several risk factors detected. Be careful with this one." |
-| 🔴 DANGER (56-75) | "Significant red flags. This has multiple indicators of a potential rug pull." |
-| ⛔ CRITICAL (76-100) | "Extreme risk. This token has critical safety issues. Strongly avoid." |
+|  SAFE (0-15) | "Low on-chain risk indicators detected. Note: this only covers on-chain factors — team, legal, and market risks are not assessed." |
+|  CAUTION (16-35) | "Some yellow flags here. Not necessarily a scam, but proceed with caution and do your own research." |
+|  WARNING (36-55) | "Several risk factors detected. Be careful with this one." |
+|  DANGER (56-75) | "Significant red flags. This has multiple indicators of a potential rug pull." |
+|  CRITICAL (76-100) | "Extreme risk. This token has critical safety issues. Strongly avoid." |
 
 **Always end with the disclaimer** (it's built into format-report.sh). **Never use language that implies a buy/sell recommendation** (e.g., "looks solid", "good investment", "safe bet").
 
@@ -170,7 +170,7 @@ When running in a Discord channel:
 
 ## Safety
 
-### ⚠️ NOT Financial Advice — This Is Non-Negotiable
+###  NOT Financial Advice — This Is Non-Negotiable
 
 This skill provides **informational risk signals only**. The agent MUST NOT:
 - Recommend buying or selling any token — ever
@@ -182,7 +182,7 @@ This skill provides **informational risk signals only**. The agent MUST NOT:
 
 A low risk score means **low on-chain risk indicators were detected** — it does NOT mean the token is a good investment or free from risk.
 
-### 🔒 Read-Only
+###  Read-Only
 
 This skill:
 - **Never** interacts with any wallet
@@ -191,7 +191,7 @@ This skill:
 - **Never** sends tokens or funds
 - Only reads publicly available on-chain data and public API endpoints
 
-### 🛡️ No API Keys
+###  No API Keys
 
 All data sources are free, public APIs. No API keys are stored or transmitted.
 

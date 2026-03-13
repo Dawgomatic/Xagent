@@ -366,7 +366,7 @@ export async function cmdStreamRules(args: string[]): Promise<void> {
       return;
     }
 
-    console.log(`\n📡 Stream Rules (${rules.length})\n`);
+    console.log(`\n Stream Rules (${rules.length})\n`);
     for (let i = 0; i < rules.length; i++) {
       const rule = rules[i];
       const tagText = rule.tag ? ` [${rule.tag}]` : "";
@@ -389,7 +389,7 @@ export async function cmdStreamRules(args: string[]): Promise<void> {
       return;
     }
     const added = Array.isArray(res?.data) ? res.data.length : 0;
-    console.log(`✅ Added ${added || 1} stream rule(s).`);
+    console.log(` Added ${added || 1} stream rule(s).`);
     return;
   }
 
@@ -405,7 +405,7 @@ export async function cmdStreamRules(args: string[]): Promise<void> {
       console.log(JSON.stringify(res, null, 2));
       return;
     }
-    console.log(`✅ Deleted ${ids.length} stream rule(s).`);
+    console.log(` Deleted ${ids.length} stream rule(s).`);
     return;
   }
 
@@ -423,7 +423,7 @@ export async function cmdStreamRules(args: string[]): Promise<void> {
       console.log(JSON.stringify(res, null, 2));
       return;
     }
-    console.log(`✅ Cleared ${ids.length} stream rule(s).`);
+    console.log(` Cleared ${ids.length} stream rule(s).`);
     return;
   }
 

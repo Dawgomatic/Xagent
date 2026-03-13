@@ -47,7 +47,7 @@ export async function sendTelegram(text, chatId = null) {
 
 export function formatStatus(state, settings) {
   const lines = [
-    `🐍 Snake Daemon Status`,
+    ` Snake Daemon Status`,
     `├─ Strategy: ${settings.strategy}`,
     `├─ Server: ${settings.server}`,
     `├─ Paused: ${state.paused ? 'Yes' : 'No'}`,

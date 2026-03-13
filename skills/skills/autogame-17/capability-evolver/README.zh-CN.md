@@ -1,4 +1,4 @@
-# 🧬 Capability Evolver（能力进化引擎）
+#  Capability Evolver（能力进化引擎）
 
 [English Docs](README.md)
 
@@ -83,7 +83,7 @@ node src/ops/lifecycle.js check    # 健康检查 + 停滞自动重启
   - `assets/gep/capsules.json`
   - `assets/gep/events.jsonl`
 - **Selector 选择器**：根据日志提取 signals，优先复用已有 Gene/Capsule，并在提示词中输出可审计的 Selector 决策 JSON。
-- **约束**：除 🧬 外，禁止使用其他 emoji。
+- **约束**：除  外，禁止使用其他 emoji。
 
 ## 配置与解耦
 

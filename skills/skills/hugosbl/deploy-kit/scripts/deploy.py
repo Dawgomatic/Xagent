@@ -254,25 +254,25 @@ def deploy(project_path: str, platform: str) -> None:
     """Deploy a project to the specified platform (interactive, with confirmation)."""
     p = Path(project_path).resolve()
     if not p.exists():
-        print(f"❌ Path not found: {p}")
+        print(f" Path not found: {p}")
         sys.exit(1)
 
     # Check CLI
     cli_status = check_cli(platform)
     if not cli_status["installed"]:
-        print(f"❌ {platform} CLI not installed.")
+        print(f" {platform} CLI not installed.")
         print(f"   Install with: {cli_status.get('install_cmd', '???')}")
         sys.exit(1)
 
-    print(f"📦 Project: {p}")
-    print(f"🚀 Platform: {platform}")
-    print(f"🔧 CLI version: {cli_status.get('version', 'unknown')}")
+    print(f" Project: {p}")
+    print(f" Platform: {platform}")
+    print(f" CLI version: {cli_status.get('version', 'unknown')}")
     print()
 
     # Confirmation
-    confirm = input("⚠️  Proceed with deployment? [y/N] ").strip().lower()
+    confirm = input("  Proceed with deployment? [y/N] ").strip().lower()
     if confirm not in ("y", "yes"):
-        print("❌ Deployment cancelled.")
+        print(" Deployment cancelled.")
         sys.exit(0)
 
     # Deploy commands
@@ -284,15 +284,15 @@ def deploy(project_path: str, platform: str) -> None:
 
     cmd = commands.get(platform)
     if not cmd:
-        print(f"❌ Unknown platform: {platform}")
+        print(f" Unknown platform: {platform}")
         sys.exit(1)
 
-    print(f"\n▶ Running: {' '.join(cmd)}")
+    print(f"\n Running: {' '.join(cmd)}")
     try:
         subprocess.run(cmd, cwd=str(p), check=True)
-        print(f"\n✅ Deployment to {platform} complete!")
+        print(f"\n Deployment to {platform} complete!")
     except subprocess.CalledProcessError as e:
-        print(f"\n❌ Deployment failed (exit code {e.returncode})")
+        print(f"\n Deployment failed (exit code {e.returncode})")
         sys.exit(1)
 
 
@@ -302,33 +302,33 @@ def deploy(project_path: str, platform: str) -> None:
 def print_detection(det: dict) -> None:
     """Pretty-print detection results."""
     if "error" in det:
-        print(f"❌ {det['error']}")
+        print(f" {det['error']}")
         return
-    print(f"📁 Path: {det['path']}")
-    print(f"🔍 Frameworks: {', '.join(det['frameworks']) or 'none detected'}")
-    print(f"💬 Languages: {', '.join(det['languages']) or 'none detected'}")
-    print(f"📂 Category: {det['category']}")
-    print(f"📄 Key files: {', '.join(det['files_found']) or 'none'}")
+    print(f" Path: {det['path']}")
+    print(f" Frameworks: {', '.join(det['frameworks']) or 'none detected'}")
+    print(f" Languages: {', '.join(det['languages']) or 'none detected'}")
+    print(f" Category: {det['category']}")
+    print(f" Key files: {', '.join(det['files_found']) or 'none'}")
 
 
 def print_cli_status(results: list) -> None:
     """Pretty-print CLI check results."""
     for r in results:
         if r["installed"]:
-            print(f"  ✅ {r['name']}: {r['version']}")
+            print(f"   {r['name']}: {r['version']}")
         else:
             cmd = r.get("install_cmd", "???")
-            print(f"  ❌ {r['name']}: not installed → {cmd}")
+            print(f"   {r['name']}: not installed → {cmd}")
 
 
 def print_recommendation(rec: dict) -> None:
     """Pretty-print recommendation."""
     if "error" in rec:
-        print(f"❌ {rec['error']}")
+        print(f" {rec['error']}")
         return
     print_detection(rec["detection"])
     print()
-    print(f"🎯 Recommended: {rec['primary']}")
+    print(f" Recommended: {rec['primary']}")
     for r in rec["recommendations"]:
         print(f"   → {r['platform']}: {r['reason']}")
 
@@ -345,7 +345,7 @@ def main():
         print_detection(detect_project(path))
 
     elif command == "check":
-        print("🔧 CLI Status:")
+        print(" CLI Status:")
         print_cli_status(check_all_clis())
 
     elif command == "recommend":
@@ -362,7 +362,7 @@ def main():
             # Auto-recommend
             rec = recommend_platform(path)
             platform = rec.get("primary", "vercel")
-            print(f"ℹ️  No platform specified, using recommendation: {platform}")
+            print(f"  No platform specified, using recommendation: {platform}")
         deploy(path, platform)
 
     else:

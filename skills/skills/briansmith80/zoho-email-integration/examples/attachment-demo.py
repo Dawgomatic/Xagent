@@ -112,7 +112,7 @@ def main():
     try:
         zoho = ZohoEmail(verbose=True)
     except ValueError as e:
-        print(f"\n❌ Error: {e}")
+        print(f"\n Error: {e}")
         print("\nPlease set your Zoho credentials:")
         print("  export ZOHO_EMAIL='your-email@domain.com'")
         print("  export ZOHO_PASSWORD='your-app-specific-password'")

@@ -1,7 +1,7 @@
 ---
 name: Files
 description: Safely organize, deduplicate, and analyze files with intelligent bulk operations and full undo support.
-metadata: {"clawdbot":{"emoji":"📁","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## What This Skill Does (and Doesn't)

@@ -55,7 +55,7 @@ Add before closing `</body>`:
 
 | Attribute | Description | Required |
 |-----------|-------------|----------|
-| `data-tag` | Your Amazon affiliate tag (e.g., "yoursite-20") | ✅ Yes |
+| `data-tag` | Your Amazon affiliate tag (e.g., "yoursite-20") |  Yes |
 
 ## Performance Benchmarks (Real Data)
 

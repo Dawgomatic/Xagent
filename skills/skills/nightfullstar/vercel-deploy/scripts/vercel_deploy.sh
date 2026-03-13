@@ -53,7 +53,7 @@ if [ "$ENV" = "production" ] && [ "$YES" = false ]; then
     fi
 fi
 
-echo "🚀 Deploying $PROJECT to $ENV..."
+echo " Deploying $PROJECT to $ENV..."
 
 # Build deployment command
 CMD="npx vercel --token $VERCEL_TOKEN --yes"
@@ -65,5 +65,5 @@ fi
 # Execute deployment
 $CMD
 
-echo "✅ Deployment complete!"
+echo " Deployment complete!"
 echo "Check status: scripts/vercel_status.sh --project $PROJECT"

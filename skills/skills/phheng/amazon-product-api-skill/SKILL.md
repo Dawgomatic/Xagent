@@ -7,14 +7,14 @@ description: Extract structured product listings from Amazon, including titles, 
 
 This skill allows you to extract structured product data from Amazon search results using a single API request, eliminating the need for complex scrapers or manual data entry.
 
-## ✨ Features
+##  Features
 
 - **One-call integration**: Send product results directly into your pricing database, BI dashboards, competitor trackers, or automation workflows via API.
 - **Zero maintenance**: No scraping scripts, proxy setup, or anti-bot handling required.
 - **Production-ready output**: Consistent, structured responses designed for automated processing and monitoring.
 - **Built for workflows**: Perfect for competitive pricing, product research, catalog monitoring, and merchandising insights.
 
-## 🔑 API Key Setup
+##  API Key Setup
 
 This skill requires a `BROWSERACT_API_KEY`. 
 
@@ -29,7 +29,7 @@ The associated script will automatically check for the `BROWSERACT_API_KEY` envi
    $env:BROWSERACT_API_KEY = "your-api-key-here"
    ```
 
-## 📥 Input Parameters
+##  Input Parameters
 
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
@@ -38,7 +38,7 @@ The associated script will automatically check for the `BROWSERACT_API_KEY` envi
 | `Maximum_number_of_page_turns` | number | Number of search result pages to paginate through. | `1`, `3` |
 | `language` | string | UI language for the Amazon browsing session. | `en`, `de`, `zh-CN` |
 
-## 🚀 How to Call
+##  How to Call
 
 You can trigger this skill using the provided Python script:
 
@@ -46,7 +46,7 @@ You can trigger this skill using the provided Python script:
 python -u .cursor/skills/amazon-product-api-skill/scripts/amazon_product_api.py --keywords "laptop" --brand "Dell" --pages 1 --lang "en"
 ```
 
-## 📊 Output Data
+##  Output Data
 
 The script returns a JSON array of products with the following fields:
 
@@ -61,7 +61,7 @@ The script returns a JSON array of products with the following fields:
 - `featured`: Whether it's a sponsored/featured item.
 - `color`, `material`, `style`: Product attributes (if available).
 
-## 🛠 Error Handling & Retries
+##  Error Handling & Retries
 
 - **Invalid Authorization**: If the API key is incorrect or expired, the script will catch the "Invalid authorization" error and prompt you to check your configuration.
 - **Network Issues**: The script includes built-in retry logic for common network timeouts.

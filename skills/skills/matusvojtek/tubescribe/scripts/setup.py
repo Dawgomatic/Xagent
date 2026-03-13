@@ -34,7 +34,7 @@ from tubescribe import (
 
 def print_header():
     print("""
-🎬 TubeScribe Setup
+ TubeScribe Setup
 ═══════════════════
 """)
 
@@ -182,7 +182,7 @@ def run_checks() -> dict:
 
 def print_status(name: str, installed: bool, required: bool = False):
     """Print a status line."""
-    icon = "✅" if installed else ("❌" if required else "⚠️")
+    icon = "" if installed else ("" if required else "")
     status = "installed" if installed else "not found"
     print(f"  {icon} {name:20} {status}")
 
@@ -235,13 +235,13 @@ def install_with_brew(formula: str, name: str) -> bool:
     print(f"  → Installing {name}...")
     try:
         subprocess.run(["brew", "install", formula], check=True)
-        print(f"  ✅ {name} installed!")
+        print(f"   {name} installed!")
         return True
     except subprocess.CalledProcessError:
-        print(f"  ❌ Installation failed")
+        print(f"   Installation failed")
         return False
     except FileNotFoundError:
-        print(f"  ❌ Homebrew not found. Install manually: brew install {formula}")
+        print(f"   Homebrew not found. Install manually: brew install {formula}")
         return False
 
 
@@ -292,7 +292,7 @@ def install_pandoc() -> bool:
         else:
             archive = f"pandoc-{version}-linux-amd64.tar.gz"
     else:
-        print(f"  ❌ Unsupported platform: {system}/{machine}")
+        print(f"   Unsupported platform: {system}/{machine}")
         return False
     
     url = f"https://github.com/jgm/pandoc/releases/download/{version}/{archive}"
@@ -336,11 +336,11 @@ def install_pandoc() -> bool:
         os.remove(download_path)
         shutil.rmtree(extracted_dir, ignore_errors=True)
         
-        print(f"  ✅ Pandoc installed to {tools_dir}")
+        print(f"   Pandoc installed to {tools_dir}")
         return True
         
     except Exception as e:
-        print(f"  ❌ Failed: {e}")
+        print(f"   Failed: {e}")
         return False
 
 
@@ -385,7 +385,7 @@ def install_ytdlp() -> bool:
     # Check if already installed somewhere
     existing = find_ytdlp()
     if existing:
-        print(f"  ℹ️  yt-dlp already installed at {existing}")
+        print(f"    yt-dlp already installed at {existing}")
         return True
     
     tools_dir = os.path.expanduser("~/.openclaw/tools/yt-dlp")
@@ -407,7 +407,7 @@ def install_ytdlp() -> bool:
         else:
             binary_name = "yt-dlp_linux"
     else:
-        print(f"  ❌ Unsupported platform: {system}/{machine}")
+        print(f"   Unsupported platform: {system}/{machine}")
         print(f"     Try: pip install yt-dlp")
         return False
     
@@ -419,11 +419,11 @@ def install_ytdlp() -> bool:
         urllib.request.urlretrieve(url, download_path)
         os.chmod(download_path, 0o755)
         
-        print(f"  ✅ yt-dlp installed to {download_path}")
+        print(f"   yt-dlp installed to {download_path}")
         return True
         
     except Exception as e:
-        print(f"  ❌ Failed: {e}")
+        print(f"   Failed: {e}")
         print(f"     Try manually: brew install yt-dlp")
         return False
 
@@ -443,7 +443,7 @@ def install_mlx_audio() -> bool:
     import platform
     
     if not is_apple_silicon():
-        print("  ❌ mlx-audio requires Apple Silicon (M1/M2/M3/M4)")
+        print("   mlx-audio requires Apple Silicon (M1/M2/M3/M4)")
         print("     Use Kokoro TTS (PyTorch) instead.")
         return False
     
@@ -467,7 +467,7 @@ def install_mlx_audio() -> bool:
                 break
         
         if not python_bin:
-            print("  ❌ No suitable Python found")
+            print("   No suitable Python found")
             return False
         
         # Create venv
@@ -522,7 +522,7 @@ def install_mlx_audio() -> bool:
                     with open(espeak_py, 'w') as f:
                         f.write(content)
                 elif "espeakng_loader" in content:
-                    print("  ⚠️  misaki/espeak.py has changed — skipping homebrew patch (may not be needed)")
+                    print("    misaki/espeak.py has changed — skipping homebrew patch (may not be needed)")
         
         # Verify it works
         print("  → Verifying mlx-audio...")
@@ -532,19 +532,19 @@ def install_mlx_audio() -> bool:
         )
         
         if result.returncode == 0 and "OK" in result.stdout:
-            print("  ✅ mlx-audio installed and working!")
-            print(f"  📁 Location: {mlx_dir}")
-            print("  ℹ️  Kokoro model (~345MB) will download on first use")
+            print("   mlx-audio installed and working!")
+            print(f"   Location: {mlx_dir}")
+            print("    Kokoro model (~345MB) will download on first use")
             return True
         else:
-            print(f"  ❌ Verification failed: {result.stderr[:200]}")
+            print(f"   Verification failed: {result.stderr[:200]}")
             return False
         
     except subprocess.CalledProcessError as e:
-        print(f"  ❌ Installation failed: {e}")
+        print(f"   Installation failed: {e}")
         return False
     except Exception as e:
-        print(f"  ❌ Error: {e}")
+        print(f"   Error: {e}")
         return False
 
 
@@ -574,7 +574,7 @@ def install_kokoro() -> bool:
                 break
         
         if not python_bin:
-            print("  ❌ No suitable Python found")
+            print("   No suitable Python found")
             return False
         
         # Create venv
@@ -601,19 +601,19 @@ def install_kokoro() -> bool:
         )
         
         if result.returncode == 0 and "OK" in result.stdout:
-            print("  ✅ Kokoro installed and working!")
-            print(f"  📁 Location: {kokoro_dir}")
-            print("  ℹ️  Voice model (~326MB) will download on first use")
+            print("   Kokoro installed and working!")
+            print(f"   Location: {kokoro_dir}")
+            print("    Voice model (~326MB) will download on first use")
             return True
         else:
-            print(f"  ❌ Verification failed: {result.stderr[:200]}")
+            print(f"   Verification failed: {result.stderr[:200]}")
             return False
         
     except subprocess.CalledProcessError as e:
-        print(f"  ❌ Installation failed: {e}")
+        print(f"   Installation failed: {e}")
         return False
     except Exception as e:
-        print(f"  ❌ Error: {e}")
+        print(f"   Error: {e}")
         return False
 
 
@@ -639,7 +639,7 @@ def main(check_only: bool = False, quiet: bool = False):
             all_required = False
     
     if not all_required:
-        print("\n❌ Missing required dependencies!")
+        print("\n Missing required dependencies!")
         if not checks["required"]["summarize"]:
             print("\n   Install summarize CLI:")
             print("   brew install steipete/tap/summarize")
@@ -667,14 +667,14 @@ def main(check_only: bool = False, quiet: bool = False):
     
     if not quiet:
         print("\n" + "─" * 40)
-        print("\n📋 Your configuration (based on available tools):\n")
+        print("\n Your configuration (based on available tools):\n")
         
         doc_format = config["document"]["format"]
         doc_engine = config["document"].get("engine")
         doc_note = f" (via {doc_engine})" if doc_engine else ""
         if doc_format == "html":
             doc_note = " (no dependencies needed)"
-        print(f"  📄 Document: {doc_format.upper()}{doc_note}")
+        print(f"   Document: {doc_format.upper()}{doc_note}")
         
         audio_format = config["audio"]["format"]
         tts_engine = config["audio"]["tts_engine"]
@@ -684,8 +684,8 @@ def main(check_only: bool = False, quiet: bool = False):
             audio_note = " (Kokoro PyTorch)"
         else:
             audio_note = " (built-in macOS voice)"
-        print(f"  🔊 Audio:    {audio_format.upper()}{audio_note}")
-        print(f"  📁 Output:   {config['output']['folder']}")
+        print(f"   Audio:    {audio_format.upper()}{audio_note}")
+        print(f"   Output:   {config['output']['folder']}")
     
     # === OFFER TO INSTALL MISSING FOR BEST EXPERIENCE ===
     missing_upgrades = []
@@ -744,7 +744,7 @@ def main(check_only: bool = False, quiet: bool = False):
     
     if missing_upgrades and not quiet:
         print("\n" + "─" * 40)
-        print("\n🚀 For the best experience, consider installing:\n")
+        print("\n For the best experience, consider installing:\n")
         
         for upgrade in missing_upgrades:
             print(f"  • {upgrade['desc']} ({upgrade['name']})")
@@ -783,13 +783,13 @@ def main(check_only: bool = False, quiet: bool = False):
     
     if not quiet:
         print("─" * 40)
-        print(f"\n💾 Config saved to: {CONFIG_FILE}")
-        print("\n✅ Setup complete!\n")
+        print(f"\n Config saved to: {CONFIG_FILE}")
+        print("\n Setup complete!\n")
         
         print("Final configuration:")
-        print(f"  📄 Document: {config['document']['format'].upper()}")
-        print(f"  🔊 Audio:    {config['audio']['format'].upper()} via {config['audio']['tts_engine']}")
-        print(f"  📁 Output:   {config['output']['folder']}")
+        print(f"   Document: {config['document']['format'].upper()}")
+        print(f"   Audio:    {config['audio']['format'].upper()} via {config['audio']['tts_engine']}")
+        print(f"   Output:   {config['output']['folder']}")
         
         print("\n" + "─" * 40)
         print("\nUsage: Just send a YouTube URL to your OpenClaw agent!")

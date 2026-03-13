@@ -3,7 +3,7 @@ name: hannah-elena-client
 description: Connect to Hannah and Elena agents from Serviceplan - specialized AI coworkers for marketing research and operations planning. Access via email or OpenAI-compatible API.
 homepage: https://sumike.ai
 user-invocable: true
-metadata: {"openclaw": {"requires": {"env": ["HANNAH_API_KEY", "ELENA_API_KEY"]}, "primaryEnv": "HANNAH_API_KEY", "emoji": "🤝"}}
+metadata: {"openclaw": {"requires": {"env": ["HANNAH_API_KEY", "ELENA_API_KEY"]}, "primaryEnv": "HANNAH_API_KEY", "emoji": ""}}
 ---
 
 # Hannah & Elena Client Skill
@@ -63,7 +63,7 @@ Both Hannah and Elena expose task-based REST APIs:
 - Result retrieval when complete
 - 60 requests/minute rate limit per agent
 
-**⏱️ IMPORTANT TIMING:**
+** IMPORTANT TIMING:**
 - After creating a task: Wait **2-3 minutes** before checking status
 - If still processing: Wait another **2-3 minutes** before checking again
 - Total task time: Typically **2-10 minutes** depending on complexity
@@ -152,7 +152,7 @@ Agent: "I need to research the German EV market. Use Hannah."
 
 Result: Task created (task_xyz789).
 
-⏱️ WAIT 2-3 MINUTES before checking status.
+ WAIT 2-3 MINUTES before checking status.
 
 [Agent waits 3 minutes]
 
@@ -184,7 +184,7 @@ Agent: "Need to break down a Q2 campaign launch. Use Elena."
 
 Result: Task created (task_abc456).
 
-⏱️ WAIT 2-3 MINUTES - Elena may delegate to Hannah for market research.
+ WAIT 2-3 MINUTES - Elena may delegate to Hannah for market research.
 
 [Agent waits 3 minutes]
 
@@ -353,7 +353,7 @@ Hannah and Elena will inform you of estimated costs before executing.
 
 ---
 
-## ⏱️ Timing Guidance
+##  Timing Guidance
 
 **CRITICAL for AI Agents:**
 
@@ -435,7 +435,7 @@ Create a research task for Hannah.
 - `estimatedTime`: "2-10 minutes"
 - `message`: Includes timing guidance
 
-**⏱️ IMPORTANT**: Wait 2-3 minutes before checking status!
+** IMPORTANT**: Wait 2-3 minutes before checking status!
 
 ### `elena_create_task`
 
@@ -452,7 +452,7 @@ Create a planning task for Elena.
 - `estimatedTime`: "2-10 minutes"
 - `message`: Includes timing guidance
 
-**⏱️ IMPORTANT**: Wait 2-3 minutes before checking status! Elena may delegate to Hannah for research.
+** IMPORTANT**: Wait 2-3 minutes before checking status! Elena may delegate to Hannah for research.
 
 ### `check_task_status`
 
@@ -466,7 +466,7 @@ Check the status of a task.
 - `hasResult`: Whether result is available
 - `message`: Status message with timing guidance
 
-**⏱️ TIMING**: Wait 2-3 minutes after creating task before first check. If still IN_PROGRESS, wait another 2-3 minutes.
+** TIMING**: Wait 2-3 minutes after creating task before first check. If still IN_PROGRESS, wait another 2-3 minutes.
 
 ### `get_task_result`
 

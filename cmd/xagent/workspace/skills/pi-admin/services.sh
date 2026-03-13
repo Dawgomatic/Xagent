@@ -1,14 +1,14 @@
 #!/bin/bash
 # Services and processes
 
-echo "🔧 Services Information"
+echo " Services Information"
 echo "========================"
 echo ""
 
 # Gateway service
 echo "Gateway Service:"
 echo "----------------"
-pgrep -f "clawdis gateway" > /dev/null && echo "  ✅ Running" || echo "  ❌ Not running"
+pgrep -f "clawdis gateway" > /dev/null && echo "   Running" || echo "   Not running"
 if pgrep -f "clawdis gateway" > /dev/null; then
   pids=$(pgrep -f "clawdis gateway" | tr '\n' ' ')
   echo "  PIDs: $pids"

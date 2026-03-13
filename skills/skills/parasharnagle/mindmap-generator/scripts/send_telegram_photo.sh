@@ -61,14 +61,14 @@ RESPONSE=$(curl -s -X POST "$TELEGRAM_API" \
 
 # Check if the API call succeeded
 if echo "$RESPONSE" | grep -q '"ok":true'; then
-    echo "✅ Mindmap sent successfully to Telegram"
+    echo " Mindmap sent successfully to Telegram"
     # Extract message_id for reference
     MSG_ID=$(echo "$RESPONSE" | grep -o '"message_id":[0-9]*' | head -1 | cut -d: -f2)
     if [[ -n "$MSG_ID" ]]; then
         echo "Message ID: $MSG_ID"
     fi
 else
-    echo "❌ Failed to send mindmap to Telegram" >&2
+    echo " Failed to send mindmap to Telegram" >&2
     echo "Response: $RESPONSE" >&2
 
     # Parse common errors

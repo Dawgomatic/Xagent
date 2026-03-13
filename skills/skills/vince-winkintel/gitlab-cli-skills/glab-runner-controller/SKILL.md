@@ -7,7 +7,7 @@ description: Manage GitLab runner controllers and authentication tokens. Create,
 
 Manage GitLab runner controllers and their authentication tokens.
 
-## ⚠️ Experimental Feature
+##  Experimental Feature
 
 **Status:** EXPERIMENTAL (Admin-only)
 - This feature may be broken or removed without prior notice
@@ -190,7 +190,7 @@ Do you need the controller active?
 **Cannot delete controller:**
 - Check if controller has active runners
 - May need to decommission runners first
-- Use `--force` to override (⚠️ destructive)
+- Use `--force` to override ( destructive)
 
 **Experimental feature not available:**
 - Verify glab version: `glab version` (requires v1.83.0+)

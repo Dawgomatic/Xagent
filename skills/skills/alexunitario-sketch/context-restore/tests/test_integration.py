@@ -67,8 +67,8 @@ class TestIntegrationFlow(unittest.TestCase):
         """测试完整的恢复流程"""
         # 创建测试上下文文件
         test_context = {
-            "content": """✅ 完成数据清洗模块
-✅ 修复登录漏洞
+            "content": """ 完成数据清洗模块
+ 修复登录漏洞
 原始消息数: 100
 压缩后消息数: 10
 上下文压缩于 2026-02-06T23:42:00
@@ -123,9 +123,9 @@ cron 任务正在运行"""
     def test_level_progression(self):
         """测试级别递进（minimal → normal → detailed）"""
         test_context = {
-            "content": """✅ 操作1
-✅ 操作2
-✅ 操作3
+            "content": """ 操作1
+ 操作2
+ 操作3
 原始消息数: 100"""
         }
         
@@ -229,7 +229,7 @@ class TestOutputFormats(unittest.TestCase):
     def test_json_output_with_summary(self):
         """测试 JSON 格式输出"""
         test_context = {
-            "content": "✅ 测试操作\n原始消息数: 10"
+            "content": " 测试操作\n原始消息数: 10"
         }
         
         with tempfile.NamedTemporaryFile(
@@ -263,7 +263,7 @@ class TestOutputFormats(unittest.TestCase):
     def test_file_output(self):
         """测试输出到文件"""
         test_context = {
-            "content": "✅ 测试操作"
+            "content": " 测试操作"
         }
         
         with tempfile.NamedTemporaryFile(
@@ -309,7 +309,7 @@ class TestPerformance(unittest.TestCase):
         import time
         
         test_context = {
-            "content": "✅ " + "\n✅ ".join([f"操作{i}" for i in range(20)])
+            "content": " " + "\n ".join([f"操作{i}" for i in range(20)])
         }
         
         with tempfile.NamedTemporaryFile(
@@ -344,8 +344,8 @@ def generate_test_data():
         {
             "name": "basic_context.json",
             "data": {
-                "content": """✅ 完成数据清洗模块
-✅ 修复登录漏洞
+                "content": """ 完成数据清洗模块
+ 修复登录漏洞
 原始消息数: 100
 压缩后消息数: 10
 上下文压缩于 2026-02-06T23:42:00
@@ -355,8 +355,8 @@ Hermes Plan 进行中"""
         {
             "name": "multi_project_context.json",
             "data": {
-                "content": """✅ 完成数据清洗模块
-✅ 设计 Akasha UI
+                "content": """ 完成数据清洗模块
+ 设计 Akasha UI
 原始消息数: 200
 压缩后消息数: 15
 Hermes Plan: 数据分析助手

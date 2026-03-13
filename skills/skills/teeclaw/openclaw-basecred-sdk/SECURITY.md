@@ -50,11 +50,11 @@ Declared in `skill.json` manifest:
 
 **@basecred/sdk v0.6.2**
 
-- ✅ **Repository:** https://github.com/GeoartStudio/basecred-sdk
-- ✅ **License:** MIT
-- ✅ **Runtime Dependencies:** Only `dotenv@16.6.1` (no transitive deps)
-- ✅ **No network access** outside declared API endpoints (Ethos, Talent, Neynar)
-- ✅ **No filesystem access** except reading .env via dotenv
+-  **Repository:** https://github.com/GeoartStudio/basecred-sdk
+-  **License:** MIT
+-  **Runtime Dependencies:** Only `dotenv@16.6.1` (no transitive deps)
+-  **No network access** outside declared API endpoints (Ethos, Talent, Neynar)
+-  **No filesystem access** except reading .env via dotenv
 
 **Last audited:** 2026-02-11
 
@@ -86,17 +86,17 @@ This skill is **isolated by design:**
 
 **Risks mitigated:**
 
-- ✅ Credential leakage → Dynamic path resolves to user's `.openclaw/.env` only
-- ✅ Directory traversal → No upward path resolution (direct `join()` construction)
-- ✅ Dependency injection → Locked to @basecred/sdk@0.6.2
-- ✅ API key exposure → Keys never logged or written to disk
-- ✅ Non-portability → Works for any user (not hardcoded to specific username)
+-  Credential leakage → Dynamic path resolves to user's `.openclaw/.env` only
+-  Directory traversal → No upward path resolution (direct `join()` construction)
+-  Dependency injection → Locked to @basecred/sdk@0.6.2
+-  API key exposure → Keys never logged or written to disk
+-  Non-portability → Works for any user (not hardcoded to specific username)
 
 **Residual risks:**
 
-- ⚠️ Compromised upstream package → Pin version and audit before upgrading
-- ⚠️ Man-in-the-middle → API calls use HTTPS but trust system CA store
-- ⚠️ API key theft → If .env is compromised, keys can be stolen (standard OpenClaw risk)
+-  Compromised upstream package → Pin version and audit before upgrading
+-  Man-in-the-middle → API calls use HTTPS but trust system CA store
+-  API key theft → If .env is compromised, keys can be stolen (standard OpenClaw risk)
 
 ## Recommendations
 

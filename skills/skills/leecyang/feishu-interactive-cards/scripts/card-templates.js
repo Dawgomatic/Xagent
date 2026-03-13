@@ -11,10 +11,10 @@
  */
 function createConfirmationCard(message, options = {}) {
   const {
-    title = '⚠️ 确认操作',
+    title = ' 确认操作',
     template = 'orange',
-    confirmText = '✅ 确认',
-    cancelText = '❌ 取消',
+    confirmText = ' 确认',
+    cancelText = ' 取消',
     confirmType = 'danger',
     operation = 'confirm',
     data = {}
@@ -67,7 +67,7 @@ function createConfirmationCard(message, options = {}) {
  */
 function createPollCard(question, options = [], config = {}) {
   const {
-    title = '📊 投票',
+    title = ' 投票',
     template = 'purple',
     showResults = true
   } = config;
@@ -114,7 +114,7 @@ function createPollCard(question, options = [], config = {}) {
       actions: [
         {
           tag: "button",
-          text: { content: "📊 查看结果", tag: "plain_text" },
+          text: { content: " 查看结果", tag: "plain_text" },
           type: "primary",
           value: { action: "view_poll_results" }
         }
@@ -140,7 +140,7 @@ function createPollCard(question, options = [], config = {}) {
  */
 function createTodoCard(todos = [], config = {}) {
   const {
-    title = '📋 任务清单',
+    title = ' 任务清单',
     showProgress = true,
     showActions = true
   } = config;
@@ -173,7 +173,7 @@ function createTodoCard(todos = [], config = {}) {
   if (highPriority.length > 0) {
     elements.push({
       tag: "div",
-      text: { content: "**🔴 高优先级**", tag: "lark_md" }
+      text: { content: "** 高优先级**", tag: "lark_md" }
     });
     
     highPriority.forEach(todo => {
@@ -183,7 +183,7 @@ function createTodoCard(todos = [], config = {}) {
           {
             tag: "button",
             text: { 
-              content: todo.completed ? `✅ ${todo.text}` : `⬜ ${todo.text}`, 
+              content: todo.completed ? ` ${todo.text}` : ` ${todo.text}`, 
               tag: "plain_text" 
             },
             type: todo.completed ? "default" : "primary",
@@ -200,7 +200,7 @@ function createTodoCard(todos = [], config = {}) {
   if (mediumPriority.length > 0) {
     elements.push({
       tag: "div",
-      text: { content: "**🟡 中优先级**", tag: "lark_md" }
+      text: { content: "** 中优先级**", tag: "lark_md" }
     });
     
     mediumPriority.forEach(todo => {
@@ -210,7 +210,7 @@ function createTodoCard(todos = [], config = {}) {
           {
             tag: "button",
             text: { 
-              content: todo.completed ? `✅ ${todo.text}` : `⬜ ${todo.text}`, 
+              content: todo.completed ? ` ${todo.text}` : ` ${todo.text}`, 
               tag: "plain_text" 
             },
             type: todo.completed ? "default" : "primary",
@@ -227,7 +227,7 @@ function createTodoCard(todos = [], config = {}) {
   if (lowPriority.length > 0) {
     elements.push({
       tag: "div",
-      text: { content: "**🟢 低优先级**", tag: "lark_md" }
+      text: { content: "** 低优先级**", tag: "lark_md" }
     });
     
     lowPriority.forEach(todo => {
@@ -237,7 +237,7 @@ function createTodoCard(todos = [], config = {}) {
           {
             tag: "button",
             text: { 
-              content: todo.completed ? `✅ ${todo.text}` : `⬜ ${todo.text}`, 
+              content: todo.completed ? ` ${todo.text}` : ` ${todo.text}`, 
               tag: "plain_text" 
             },
             type: todo.completed ? "default" : "primary",
@@ -256,19 +256,19 @@ function createTodoCard(todos = [], config = {}) {
       actions: [
         {
           tag: "button",
-          text: { content: "✅ 全部完成", tag: "plain_text" },
+          text: { content: " 全部完成", tag: "plain_text" },
           type: "primary",
           value: { action: "complete_all_todos", todos: todos }
         },
         {
           tag: "button",
-          text: { content: "🔄 重置全部", tag: "plain_text" },
+          text: { content: " 重置全部", tag: "plain_text" },
           type: "default",
           value: { action: "reset_all_todos", todos: todos }
         },
         {
           tag: "button",
-          text: { content: "🗑️ 清除已完成", tag: "plain_text" },
+          text: { content: " 清除已完成", tag: "plain_text" },
           type: "danger",
           value: { action: "clear_completed_todos", todos: todos }
         }
@@ -278,7 +278,7 @@ function createTodoCard(todos = [], config = {}) {
     elements.push({
       tag: "note",
       elements: [
-        { tag: "plain_text", content: "💡 提示：点击任务可以切换完成状态" }
+        { tag: "plain_text", content: " 提示：点击任务可以切换完成状态" }
       ]
     });
   }
@@ -301,7 +301,7 @@ function createTodoCard(todos = [], config = {}) {
  */
 function createNotificationCard(message, options = {}) {
   const {
-    title = '📢 通知',
+    title = ' 通知',
     template = 'blue',
     type = 'info', // info, success, warning, error
     showButton = false,
@@ -310,10 +310,10 @@ function createNotificationCard(message, options = {}) {
   } = options;
   
   const icons = {
-    info: 'ℹ️',
-    success: '✅',
-    warning: '⚠️',
-    error: '❌'
+    info: '',
+    success: '',
+    warning: '',
+    error: ''
   };
   
   const templates = {
@@ -367,7 +367,7 @@ function createNotificationCard(message, options = {}) {
  */
 function createChoiceCard(question, choices = [], options = {}) {
   const {
-    title = '❓ 请选择',
+    title = ' 请选择',
     template = 'blue',
     multiSelect = false
   } = options;
@@ -413,7 +413,7 @@ function createChoiceCard(question, choices = [], options = {}) {
       actions: [
         {
           tag: "button",
-          text: { content: "✅ 确认选择", tag: "plain_text" },
+          text: { content: " 确认选择", tag: "plain_text" },
           type: "primary",
           value: { action: "confirm_choices" }
         }

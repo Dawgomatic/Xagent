@@ -200,12 +200,12 @@ def main():
     if args.json:
         print(json.dumps({"alerts": low_days}, indent=2))
     elif low_days:
-        print("⚠️  Fitbit Alerts:")
+        print("  Fitbit Alerts:")
         for day in low_days:
-            severity_icon = "🔴" if day.get("severity") == "warning" else "⚠️"
+            severity_icon = "" if day.get("severity") == "warning" else ""
             print(f"  {severity_icon} {day['date']}: {day['alert']}")
     else:
-        print("✅ All metrics above thresholds")
+        print(" All metrics above thresholds")
     
     return low_days
 

@@ -1,19 +1,19 @@
-# ⚠️ DEPRECATED
+#  DEPRECATED
 
 This skill has been replaced by a newer version with significant improvements.
 
-## 🔗 Use This Instead
+##  Use This Instead
 
 **New Skill:** https://www.clawhub.ai/Vincent-Labarthe/whatsapp-telegram-calendar-alert
 
 ## Why Switch?
 
-✅ Better appointment detection  
-✅ Full calendar integration (with confirmation)  
-✅ Cleaner, automated setup  
-✅ Better documentation  
-✅ Production-tested  
-✅ Zero duplicate alerts  
+ Better appointment detection  
+ Full calendar integration (with confirmation)  
+ Cleaner, automated setup  
+ Better documentation  
+ Production-tested  
+ Zero duplicate alerts  
 
 ## What Changed?
 

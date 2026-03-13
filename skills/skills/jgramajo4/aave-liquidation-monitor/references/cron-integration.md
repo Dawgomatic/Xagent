@@ -141,7 +141,7 @@ Output:
 ```
 2026-02-11 08:15:24 UTC | Health Factor: 2.31 (no alert needed)
 2026-02-11 02:15:18 UTC | Health Factor: 2.28 (no alert needed)
-2026-02-11 00:15:12 UTC | Health Factor: 1.18 ⚠️ WARNING ALERT SENT
+2026-02-11 00:15:12 UTC | Health Factor: 1.18  WARNING ALERT SENT
 ```
 
 ### Deletion
@@ -167,11 +167,11 @@ To permanently delete the job:
 ## Scheduler Reliability
 
 OpenClaw's cron scheduler:
-- ✅ Persists across restarts
-- ✅ Automatically retries failed checks
-- ✅ Prevents duplicate runs (no overlap)
-- ✅ Logs all executions with timestamps
-- ✅ Supports concurrent jobs for multiple wallets/chains (future)
+-  Persists across restarts
+-  Automatically retries failed checks
+-  Prevents duplicate runs (no overlap)
+-  Logs all executions with timestamps
+-  Supports concurrent jobs for multiple wallets/chains (future)
 
 ## Timezone Notes
 

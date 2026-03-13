@@ -13,7 +13,7 @@ metadata:
   }
 ---
 
-# 📊 Presage — AI Prediction Market Analysis Skill
+#  Presage — AI Prediction Market Analysis Skill
 
 **Analyze prediction markets with AI superpowers**
 
@@ -26,10 +26,10 @@ Built on **Solana** — fast, cheap, on-chain settlements
 
 This skill provides **read-only market analysis tools** for Presage prediction markets:
 
-- 📊 **Live Market Data** — Real-time prices, volumes, and orderbooks
-- 🔍 **Opportunity Detection** — Find mispriced markets automatically
-- 📈 **Portfolio View** — Check balances and positions
-- 🧠 **AI Insights** — Get analysis and recommendations
+-  **Live Market Data** — Real-time prices, volumes, and orderbooks
+-  **Opportunity Detection** — Find mispriced markets automatically
+-  **Portfolio View** — Check balances and positions
+-  **AI Insights** — Get analysis and recommendations
 
 **Note:** This skill analyzes markets. Trading execution would require additional implementation.
 
@@ -146,10 +146,10 @@ curl https://presage.market/api/markets/{ticker}
 
 ## Resources
 
-- 🌐 **Terminal**: [presage.market](https://presage.market)
-- 📖 **Docs**: [presage.market/api](https://presage.market/api)
-- 🦞 **Skill**: [clawhub.ai/Seenfinity/presage](https://clawhub.ai/Seenfinity/presage)
-- 📂 **GitHub**: [github.com/Seenfinity/presage-skill](https://github.com/Seenfinity/presage-skill)
+-  **Terminal**: [presage.market](https://presage.market)
+-  **Docs**: [presage.market/api](https://presage.market/api)
+-  **Skill**: [clawhub.ai/Seenfinity/presage](https://clawhub.ai/Seenfinity/presage)
+-  **GitHub**: [github.com/Seenfinity/presage-skill](https://github.com/Seenfinity/presage-skill)
 
 ---
 

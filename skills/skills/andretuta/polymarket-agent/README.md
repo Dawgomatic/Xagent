@@ -1,6 +1,6 @@
 # Polymarket Agent
 
-🎰 AI-powered prediction market assistant for Clawdbot.
+ AI-powered prediction market assistant for Clawdbot.
 
 ## What This Does
 

@@ -26,7 +26,7 @@ REPORT_FILE="$SYSTEM_TOOL_RESULTS_DIR/system_report_$TIMESTAMP.md"
     
     echo "## 2. CPU信息"
     echo "<details>"
-    echo "<summary>🔍 点击查看详细CPU信息 (lscpu)</summary>"
+    echo "<summary> 点击查看详细CPU信息 (lscpu)</summary>"
     
     echo "| CPU属性 | 详情 |"
     echo "|---------|------|"
@@ -37,7 +37,7 @@ REPORT_FILE="$SYSTEM_TOOL_RESULTS_DIR/system_report_$TIMESTAMP.md"
     
     echo "## 3. 内存信息"
     echo "<details>"
-    echo "<summary>🔍 点击查看详细内存信息 (free -h)</summary>"
+    echo "<summary> 点击查看详细内存信息 (free -h)</summary>"
     free -h
     echo "</details>"
     echo ""
@@ -45,34 +45,34 @@ REPORT_FILE="$SYSTEM_TOOL_RESULTS_DIR/system_report_$TIMESTAMP.md"
     echo "## 4. 磁盘信息"
     echo "### 4.1 块设备信息"
     echo "<details>"
-    echo "<summary>🔍 点击查看块设备信息 (lsblk)</summary>"
+    echo "<summary> 点击查看块设备信息 (lsblk)</summary>"
     lsblk
     echo "</details>"
     echo ""
     echo "### 4.2 磁盘使用情况"
     echo "<details>"
-    echo "<summary>🔍 点击查看磁盘使用情况 (df -h)</summary>"
+    echo "<summary> 点击查看磁盘使用情况 (df -h)</summary>"
     df -h
     echo "</details>"
     echo ""
     
     echo "## 5. 网络信息"
     echo "<details>"
-    echo "<summary>🔍 点击查看网络接口信息 (ip addr)</summary>"
+    echo "<summary> 点击查看网络接口信息 (ip addr)</summary>"
     ip addr
     echo "</details>"
     echo ""
     
     echo "## 6. 进程信息"
     echo "<details>"
-    echo "<summary>🔍 点击查看进程信息 (top -bn1)</summary>"
+    echo "<summary> 点击查看进程信息 (top -bn1)</summary>"
     top -bn1 | head -20
     echo "</details>"
     echo ""
     
     echo "## 7. 服务状态"
     echo "<details>"
-    echo "<summary>🔍 点击查看运行中的服务 (systemctl list-units --type=service --state=running)</summary>"
+    echo "<summary> 点击查看运行中的服务 (systemctl list-units --type=service --state=running)</summary>"
     systemctl list-units --type=service --state=running 2>/dev/null || echo "systemctl命令不可用"
     echo "</details>"
     

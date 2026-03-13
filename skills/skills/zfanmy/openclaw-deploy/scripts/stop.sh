@@ -9,12 +9,12 @@ VERSION="${1:-all}"
 stop_container() {
     local name="$1"
     if docker ps -a --format '{{.Names}}' | grep -q "^$name$"; then
-        echo "🛑 Stopping: $name"
+        echo " Stopping: $name"
         docker stop "$name" 2>/dev/null || true
         docker rm "$name" 2>/dev/null || true
-        echo "✅ $name stopped"
+        echo " $name stopped"
     else
-        echo "ℹ️  $name not running"
+        echo "  $name not running"
     fi
 }
 

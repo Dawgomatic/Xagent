@@ -17,7 +17,7 @@ try {
   gscan = (await import('gscan')).default;
 } catch (err) {
   console.error(`
-❌ Error: gscan is not installed
+ Error: gscan is not installed
 
 Theme validation requires the optional 'gscan' dependency.
 
@@ -82,14 +82,14 @@ Exit Codes:
   2   Invalid arguments or file not found
 
 What gscan validates:
-  ✅ Required files (package.json, index.hbs, post.hbs)
-  ✅ package.json format and required fields
-  ✅ Handlebars syntax validity
-  ✅ Ghost helper usage (finds deprecated helpers)
-  ✅ Template structure and compatibility
-  ✅ Ghost version compatibility
-  ✅ Best practices and accessibility
-  ✅ Performance recommendations
+   Required files (package.json, index.hbs, post.hbs)
+   package.json format and required fields
+   Handlebars syntax validity
+   Ghost helper usage (finds deprecated helpers)
+   Template structure and compatibility
+   Ghost version compatibility
+   Best practices and accessibility
+   Performance recommendations
 
 See: https://github.com/TryGhost/gscan
 `);
@@ -99,7 +99,7 @@ See: https://github.com/TryGhost/gscan
 // Validate theme path
 const absolutePath = resolve(themePath);
 if (!existsSync(absolutePath)) {
-  console.error(`❌ Error: Theme not found: ${themePath}`);
+  console.error(` Error: Theme not found: ${themePath}`);
   process.exit(2);
 }
 
@@ -108,7 +108,7 @@ const isZip = extname(absolutePath) === '.zip';
 const isDir = !isZip && statSync(absolutePath).isDirectory();
 
 if (!isZip && !isDir) {
-  console.error(`❌ Error: Theme must be a directory or ZIP file`);
+  console.error(` Error: Theme must be a directory or ZIP file`);
   process.exit(2);
 }
 
@@ -126,7 +126,7 @@ const colors = {
 async function validateTheme() {
   try {
     if (!flags.json) {
-      console.log(`🔍 Validating theme: ${colors.bold(basename(absolutePath))}`);
+      console.log(` Validating theme: ${colors.bold(basename(absolutePath))}`);
       console.log(`   ${colors.gray(`Target: Ghost ${flags.version}`)}\n`);
     }
     
@@ -168,14 +168,14 @@ async function validateTheme() {
     
     // Structure validation
     if (errorCount === 0 && warningCount === 0 && recommendationCount === 0) {
-      console.log(colors.green('✅ Theme is perfect! No issues found.\n'));
+      console.log(colors.green(' Theme is perfect! No issues found.\n'));
       process.exit(0);
       return;
     }
     
     // Errors (blocking)
     if (errorCount > 0) {
-      console.log(colors.red(`❌ Errors (${errorCount}):`));
+      console.log(colors.red(` Errors (${errorCount}):`));
       console.log(colors.red('   These must be fixed before uploading:\n'));
       
       Object.entries(results.results.error || {}).forEach(([code, issues]) => {
@@ -199,7 +199,7 @@ async function validateTheme() {
     
     // Warnings (should fix)
     if (warningCount > 0 && !flags.errorsOnly) {
-      console.log(colors.yellow(`⚠️  Warnings (${warningCount}):`));
+      console.log(colors.yellow(`  Warnings (${warningCount}):`));
       console.log(colors.yellow('   Should be fixed for best compatibility:\n'));
       
       Object.entries(results.results.warning || {}).forEach(([code, issues]) => {
@@ -223,7 +223,7 @@ async function validateTheme() {
     
     // Recommendations (nice to have)
     if (recommendationCount > 0 && !flags.errorsOnly) {
-      console.log(colors.blue(`💡 Recommendations (${recommendationCount}):`));
+      console.log(colors.blue(` Recommendations (${recommendationCount}):`));
       console.log(colors.blue('   Best practices and optimizations:\n'));
       
       Object.entries(results.results.recommendation || {}).forEach(([code, issues]) => {
@@ -245,12 +245,12 @@ async function validateTheme() {
     
     // Summary
     if (errorCount === 0) {
-      console.log(colors.green('✅ Theme is valid! Safe to upload.'));
+      console.log(colors.green(' Theme is valid! Safe to upload.'));
       if (warningCount > 0) {
         console.log(colors.yellow(`   Note: ${warningCount} warning(s) found - consider fixing for best compatibility.`));
       }
     } else {
-      console.log(colors.red(`❌ Validation failed (${errorCount} error(s) must be fixed)`));
+      console.log(colors.red(` Validation failed (${errorCount} error(s) must be fixed)`));
     }
     
     // Exit with appropriate code
@@ -263,7 +263,7 @@ async function validateTheme() {
         error: error.message
       }, null, 2));
     } else {
-      console.error(`\n❌ Validation error: ${error.message}`);
+      console.error(`\n Validation error: ${error.message}`);
       if (error.stack) {
         console.error(colors.gray(error.stack));
       }

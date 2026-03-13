@@ -9,7 +9,7 @@ description: >-
   "Earl is sleeping" / "Could not sync".
 metadata:
   openclaw:
-    emoji: "📺"
+    emoji: ""
     os: [darwin, win32, linux]
     requires:
       bins: [python3]
@@ -120,13 +120,13 @@ Each mutating method auto-saves and bumps `meta.last_updated` / `meta.update_cou
 mind.set_mood("happy", energy=0.9, vibe="Sun's out, vibes are immaculate.")
 
 # Post a house reminder
-mind.post_house_stuff("Bins go out tonight", detail="Wednesday again.", priority="high", category="chores", icon="🗑️")
+mind.post_house_stuff("Bins go out tonight", detail="Wednesday again.", priority="high", category="chores", icon="")
 
 # Drop a hot take
-mind.hot_take("Pineapple on pizza", "Controversial but I respect the audacity.", heat=0.6, emoji="🍕")
+mind.hot_take("Pineapple on pizza", "Controversial but I respect the audacity.", heat=0.6, emoji="")
 
 # Doodle on the sketchpad
-mind.doodle("🌧️", x=0.3, y=0.2, size=30, note="Rain starting")
+mind.doodle("", x=0.3, y=0.2, size=30, note="Rain starting")
 
 # Log a pattern
 mind.learn_pattern("The cat sits by the window at 3pm", confidence=0.7, observations=5)

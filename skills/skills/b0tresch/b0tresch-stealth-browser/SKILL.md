@@ -17,11 +17,11 @@ Bypass bot detection and IP blocks with puppeteer-extra stealth plugin and optio
 
 ## Tested Working On
 
-✅ Relay.link (was blocked by Vercel, now works)
-✅ X/Twitter profiles
-✅ Bot detection tests (sannysoft.com)
-✅ Faucet sites with protection
-✅ Reddit (datacenter IP blocks)
+ Relay.link (was blocked by Vercel, now works)
+ X/Twitter profiles
+ Bot detection tests (sannysoft.com)
+ Faucet sites with protection
+ Reddit (datacenter IP blocks)
 
 ## Quick Start
 
@@ -108,12 +108,12 @@ The browser includes multiple anti-detection measures:
 
 | Protection | Headless Puppeteer | Stealth Plugin | + Residential Proxy |
 |------------|-------------------|----------------|-------------------|
-| navigator.webdriver | ❌ Detected | ✅ Hidden | ✅ Hidden |
-| User Agent | ❌ Generic | ✅ Realistic | ✅ Realistic |
-| WebGL/Canvas | ❌ Headless | ✅ Spoofed | ✅ Spoofed |
-| IP Blocks | ❌ Datacenter | ❌ Datacenter | ✅ Residential |
-| Cloudflare | ❌ Blocked | ⚠️  Sometimes | ✅ Usually works |
-| Turnstile CAPTCHA | ❌ Blocked | ❌ Blocked | ⚠️  Reduced chance |
+| navigator.webdriver |  Detected |  Hidden |  Hidden |
+| User Agent |  Generic |  Realistic |  Realistic |
+| WebGL/Canvas |  Headless |  Spoofed |  Spoofed |
+| IP Blocks |  Datacenter |  Datacenter |  Residential |
+| Cloudflare |  Blocked |   Sometimes |  Usually works |
+| Turnstile CAPTCHA |  Blocked |  Blocked |   Reduced chance |
 
 ## Usage Examples
 

@@ -20,7 +20,7 @@ if [ -z "$JIRA_API_TOKEN" ]; then
     exit 1
 fi
 
-echo "🐳 Starting MCP Atlassian container..."
+echo " Starting MCP Atlassian container..."
 echo "   URL: $JIRA_URL"
 echo "   User: $JIRA_USERNAME"
 

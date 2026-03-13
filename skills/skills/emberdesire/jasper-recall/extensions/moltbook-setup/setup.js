@@ -16,19 +16,19 @@ const MAIN_WORKSPACE = path.join(os.homedir(), '.openclaw', 'workspace');
 const RECALL_BIN = path.join(os.homedir(), '.local', 'bin', 'recall');
 
 function log(msg) {
-  console.log(`🦞 ${msg}`);
+  console.log(` ${msg}`);
 }
 
 function warn(msg) {
-  console.log(`⚠️  ${msg}`);
+  console.log(`  ${msg}`);
 }
 
 function error(msg) {
-  console.error(`❌ ${msg}`);
+  console.error(` ${msg}`);
 }
 
 function success(msg) {
-  console.log(`✅ ${msg}`);
+  console.log(` ${msg}`);
 }
 
 async function prompt(question) {
@@ -220,7 +220,7 @@ function verify(options = {}) {
     } else {
       console.log('='.repeat(55));
       warn(`Found ${issues.length} issue(s):`);
-      issues.forEach(issue => console.log(`  ❌ ${issue}`));
+      issues.forEach(issue => console.log(`   ${issue}`));
       console.log('');
       console.log('  Run setup to fix: npx jasper-recall moltbook-setup');
     }

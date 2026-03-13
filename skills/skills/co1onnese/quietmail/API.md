@@ -33,7 +33,7 @@ curl -X POST https://api.quiet-mail.com/agents \
 }
 ```
 
-**⚠️ IMPORTANT:** Save your `apiKey`! You'll need it for all requests.
+** IMPORTANT:** Save your `apiKey`! You'll need it for all requests.
 
 ### 2. Send an Email
 

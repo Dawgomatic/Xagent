@@ -1,20 +1,20 @@
 # NEAR Intents Skill v2.0.0 — Production Release
 
-## 🎉 Production-Ready Cross-Chain Swap & Bridge
+##  Production-Ready Cross-Chain Swap & Bridge
 
 Universal cross-chain swap and bridge tool for OpenClaw agents, powered by the official [NEAR Intents 1Click SDK](https://github.com/defuse-protocol/one-click-sdk-typescript).
 
 ---
 
-## ✨ What's New in v2.0.0
+##  What's New in v2.0.0
 
-### 🛡️ Critical Safety Features
+###  Critical Safety Features
 - **Mandatory Refund Address Protection** - Prevents permanent fund loss on failed swaps
 - **Cross-Chain Validation** - Automatic detection of origin chain and refund requirements
 - **Clear Error Messages** - Educates users about refund address requirements
 - **Updated Documentation** - Comprehensive safety guidelines for AI agents
 
-### 🔧 Technical Improvements
+###  Technical Improvements
 - Full integration with 1Click SDK v0.1.1
 - Support for 14+ blockchains (NEAR, Base, Ethereum, Arbitrum, Solana, Bitcoin, etc.)
 - Automatic decimal conversion for all tokens
@@ -22,7 +22,7 @@ Universal cross-chain swap and bridge tool for OpenClaw agents, powered by the o
 - Status polling with timeout handling
 - Manual & Auto modes for maximum flexibility
 
-### 📚 Documentation Updates
+###  Documentation Updates
 - **SKILL.md** - Primary reference with safety warnings
 - **AI-AGENT-GUIDE.md** - Step-by-step workflows for agents
 - **TOKENS.md** - Complete token reference with decimals
@@ -31,7 +31,7 @@ Universal cross-chain swap and bridge tool for OpenClaw agents, powered by the o
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Install the Skill
 
@@ -84,12 +84,12 @@ const quote = await executeIntent({
 
 ---
 
-## ⚠️ CRITICAL: Refund Address Safety
+##  CRITICAL: Refund Address Safety
 
 **When swapping FROM non-NEAR chains** (Base, Arbitrum, Ethereum, Solana, Bitcoin, etc.):
 
-✅ **DO**: Always ask the user for their wallet address on the origin chain
-❌ **DON'T**: Assume, guess, or skip the refund address
+ **DO**: Always ask the user for their wallet address on the origin chain
+ **DON'T**: Assume, guess, or skip the refund address
 
 **Why?** If a swap fails, tokens are refunded to this address. Wrong address = **permanent fund loss**.
 
@@ -103,7 +103,7 @@ Agent: [Generates quote with refundAddress: '0x123...']
 
 ---
 
-## 🌐 Supported Chains
+##  Supported Chains
 
 | Chain | Assets | Example Symbol |
 |-------|--------|----------------|
@@ -118,7 +118,7 @@ Agent: [Generates quote with refundAddress: '0x123...']
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 | File | Purpose |
 |------|---------|
@@ -130,7 +130,7 @@ Agent: [Generates quote with refundAddress: '0x123...']
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run unit tests
@@ -145,24 +145,24 @@ npx ts-node lib-1click/1-get-tokens.ts
 
 ---
 
-## 🔑 Key Features
+##  Key Features
 
-- ✅ **14+ Blockchains** - NEAR, Base, ETH, Arbitrum, Solana, Bitcoin, and more
-- ✅ **Auto & Manual Modes** - Agent-driven or user-driven swaps
-- ✅ **Refund Protection** - Mandatory refund addresses for cross-chain safety
-- ✅ **Exact Input/Output** - Specify input amount OR desired output amount
-- ✅ **Status Tracking** - Real-time swap monitoring with explorer links
-- ✅ **Fee Optimization** - Optional JWT for 0% platform fees
-- ✅ **Production Ready** - Comprehensive error handling and validation
+-  **14+ Blockchains** - NEAR, Base, ETH, Arbitrum, Solana, Bitcoin, and more
+-  **Auto & Manual Modes** - Agent-driven or user-driven swaps
+-  **Refund Protection** - Mandatory refund addresses for cross-chain safety
+-  **Exact Input/Output** - Specify input amount OR desired output amount
+-  **Status Tracking** - Real-time swap monitoring with explorer links
+-  **Fee Optimization** - Optional JWT for 0% platform fees
+-  **Production Ready** - Comprehensive error handling and validation
 
 ---
 
-## 📊 Version History
+##  Version History
 
 ### v2.0.0 (2026-02-15) - **Current**
-- 🛡️ Added mandatory `refundAddress` for cross-chain swaps
-- 📚 Comprehensive safety documentation
-- ✅ Production-ready release
+-  Added mandatory `refundAddress` for cross-chain swaps
+-  Comprehensive safety documentation
+-  Production-ready release
 
 ### v1.0.0 (2026-02-14)
 - Initial 1Click SDK integration
@@ -171,7 +171,7 @@ npx ts-node lib-1click/1-get-tokens.ts
 
 ---
 
-## 🤝 Support
+##  Support
 
 - **Documentation**: See `SKILL.md` and `AI-AGENT-GUIDE.md`
 - **NEAR Intents Docs**: https://docs.near-intents.org
@@ -180,13 +180,13 @@ npx ts-node lib-1click/1-get-tokens.ts
 
 ---
 
-## 📜 License
+##  License
 
 MIT License - See `LICENSE` file
 
 ---
 
-## 🙏 Credits
+##  Credits
 
 - **Powered by**: [NEAR Intents](https://near-intents.org) & [Defuse Protocol](https://defuse.org)
 - **Built for**: [OpenClaw](https://openclaw.ai)
@@ -195,6 +195,6 @@ MIT License - See `LICENSE` file
 
 ---
 
-**Ready to use in production!** 🚀
+**Ready to use in production!** 
 
 For questions or issues, consult the documentation files or visit https://docs.near-intents.org

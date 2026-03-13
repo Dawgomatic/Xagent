@@ -38,7 +38,7 @@ async function checkTestnetBalance(wallet) {
 
 function getFaucetInstructions() {
   return `
-🚰 Abstract Testnet Faucet Instructions
+ Abstract Testnet Faucet Instructions
 
 Abstract testnet uses Sepolia ETH bridged over.
 
@@ -65,7 +65,7 @@ Testnet Details:
 }
 
 async function verifySetup(wallet) {
-  console.log("🔍 Verifying Abstract testnet setup...\n");
+  console.log(" Verifying Abstract testnet setup...\n");
   
   const provider = new ethers.JsonRpcProvider(ABSTRACT_TESTNET_RPC);
   
@@ -80,47 +80,47 @@ async function verifySetup(wallet) {
   try {
     const network = await provider.getNetwork();
     checks.rpcConnection = Number(network.chainId) === ABSTRACT_TESTNET_CHAIN_ID;
-    console.log(`✅ RPC connection: OK (Chain ID: ${network.chainId})`);
+    console.log(` RPC connection: OK (Chain ID: ${network.chainId})`);
   } catch (e) {
-    console.log(`❌ RPC connection: Failed - ${e.message}`);
+    console.log(` RPC connection: Failed - ${e.message}`);
   }
   
   // Check wallet validity
   try {
     if (ethers.isAddress(wallet)) {
       checks.walletValid = true;
-      console.log(`✅ Wallet address: Valid`);
+      console.log(` Wallet address: Valid`);
     } else {
-      console.log(`❌ Wallet address: Invalid`);
+      console.log(` Wallet address: Invalid`);
     }
   } catch (e) {
-    console.log(`❌ Wallet address: ${e.message}`);
+    console.log(` Wallet address: ${e.message}`);
   }
   
   // Check balance
   try {
     const balance = await provider.getBalance(wallet);
     checks.hasBalance = balance > 0n;
-    console.log(`${checks.hasBalance ? '✅' : '⚠️'} Balance: ${ethers.formatEther(balance)} ETH`);
+    console.log(`${checks.hasBalance ? '' : ''} Balance: ${ethers.formatEther(balance)} ETH`);
     if (!checks.hasBalance) {
       console.log(`   Hint: Use 'node testnet-setup.js faucet' for instructions`);
     }
   } catch (e) {
-    console.log(`❌ Balance check: ${e.message}`);
+    console.log(` Balance check: ${e.message}`);
   }
   
   // Check gas estimation works
   try {
     const feeData = await provider.getFeeData();
     checks.canEstimateGas = feeData.gasPrice > 0n;
-    console.log(`✅ Gas estimation: ${ethers.formatUnits(feeData.gasPrice, 'gwei')} gwei`);
+    console.log(` Gas estimation: ${ethers.formatUnits(feeData.gasPrice, 'gwei')} gwei`);
   } catch (e) {
-    console.log(`❌ Gas estimation: ${e.message}`);
+    console.log(` Gas estimation: ${e.message}`);
   }
   
   console.log("\n" + "=".repeat(40));
   const allPassed = Object.values(checks).every(v => v);
-  console.log(allPassed ? "✅ All checks passed! Ready to test." : "⚠️ Some checks failed. See above.");
+  console.log(allPassed ? " All checks passed! Ready to test." : " Some checks failed. See above.");
   
   return checks;
 }
@@ -128,7 +128,7 @@ async function verifySetup(wallet) {
 async function main() {
   const [, , action, ...args] = process.argv;
   
-  console.log("🧪 Abstract Testnet Setup\n");
+  console.log(" Abstract Testnet Setup\n");
   
   if (!action) {
     console.log("Usage:");

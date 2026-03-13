@@ -192,7 +192,7 @@ curl -s -X POST "https://api.deapi.ai/api/v1/client/txt2audio" \
 - Text-to-Video: `txt2video` (multipart/form-data)
 - Image-to-Video: `img2video` (multipart/form-data)
 
-**⚠️ IMPORTANT: Model-specific constraints for `Ltxv_13B_0_9_8_Distilled_FP8`:**
+** IMPORTANT: Model-specific constraints for `Ltxv_13B_0_9_8_Distilled_FP8`:**
 - `guidance`: MUST be 0 (max value!)
 - `steps`: MUST be 1 (max value!)
 - `fps`: minimum 30

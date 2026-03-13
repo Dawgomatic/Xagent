@@ -12,7 +12,7 @@ async function checkCall() {
     // Get last 3 calls
     const calls = await client.calls.list({ limit: 3 });
     
-    console.log('📞 Recent Calls:');
+    console.log(' Recent Calls:');
     calls.forEach(call => {
       console.log(`\nSID: ${call.sid}`);
       console.log(`From: ${call.from}`);
@@ -20,12 +20,12 @@ async function checkCall() {
       console.log(`Status: ${call.status}`);
       console.log(`Duration: ${call.duration}s`);
       if (call.status === 'failed') {
-        console.log(`❌ FAILED`);
+        console.log(` FAILED`);
       }
     });
     
   } catch (err) {
-    console.error(`❌ Error:`, err.message);
+    console.error(` Error:`, err.message);
   }
 }
 

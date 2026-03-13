@@ -3,7 +3,7 @@ name: roku
 description: Control Roku devices via CLI. Discovery, remote control, app launching, search, and HTTP bridge mode for real-time control.
 homepage: https://github.com/gumadeiras/roku-cli
 repository: https://github.com/gumadeiras/roku-cli
-metadata: {"clawdbot":{"emoji":"📺","requires":{"bins":["roku"]},"install":[{"id":"node","kind":"node","package":"roku-ts-cli","bins":["roku"],"label":"Install Roku CLI (npm)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["roku"]},"install":[{"id":"node","kind":"node","package":"roku-ts-cli","bins":["roku"],"label":"Install Roku CLI (npm)"}]}}
 ---
 
 # Roku CLI

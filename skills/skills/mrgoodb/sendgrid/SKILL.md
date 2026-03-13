@@ -1,7 +1,7 @@
 ---
 name: sendgrid
 description: Send transactional and marketing emails via SendGrid API. Supports templates, attachments, and email analytics.
-metadata: {"clawdbot":{"emoji":"📧","requires":{"env":["SENDGRID_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SENDGRID_API_KEY"]}}}
 ---
 
 # SendGrid

@@ -212,7 +212,7 @@ Create a comparison report:
 |---------|--------|-------|--------|
 | nginx | Running | Running | ✓ |
 | docker | Running | Running | ✓ |
-| postgres | Running | Stopped | ⚠️ |
+| postgres | Running | Stopped |  |
 
 ## Key Findings
 

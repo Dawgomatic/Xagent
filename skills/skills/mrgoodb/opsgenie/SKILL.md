@@ -1,7 +1,7 @@
 ---
 name: opsgenie
 description: Manage incidents and on-call schedules via Opsgenie API. Create alerts and escalations.
-metadata: {"clawdbot":{"emoji":"🚨","requires":{"env":["OPSGENIE_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["OPSGENIE_API_KEY"]}}}
 ---
 # Opsgenie
 Incident management.

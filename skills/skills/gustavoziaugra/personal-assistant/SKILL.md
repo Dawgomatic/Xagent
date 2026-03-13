@@ -58,30 +58,30 @@ python3 scripts/daily_briefing.py --location Columbus --summary
 Output:
 
 ```
-📋 Daily Briefing - 2026-02-11 (Wednesday)
+ Daily Briefing - 2026-02-11 (Wednesday)
 
-🌅 Good Morning!
+ Good Morning!
 Start your day with focus and intention.
 
-🌡 Weather Check
+ Weather Check
 Check the weather in Columbus before heading out.
 
-🎯 Today's Focus
+ Today's Focus
 Top 3 priorities:
 1. _____________________________
 2. _____________________________
 3. _____________________________
 
-✅ Daily Habits
+ Daily Habits
 ☐ Morning routine
 ☐ Hydration goals
 ☐ Learning time
 ☐ Evening review
 
-💚 Self-Care
+ Self-Care
 Remember to take breaks and stay hydrated.
 
-🌙 Evening Review
+ Evening Review
 1. What did I accomplish today?
 2. What am I grateful for?
 3. What could I have done better?
@@ -130,7 +130,7 @@ python3 scripts/daily_briefing.py --location Columbus --summary
   "weekday": "Wednesday",
   "sections": [
     {
-      "title": "🌅 Good Morning!",
+      "title": " Good Morning!",
       "content": "Start your day...",
       "type": "motivation"
     }
@@ -140,39 +140,39 @@ python3 scripts/daily_briefing.py --location Columbus --summary
 
 ## Key Sections / Seções Principais
 
-### 🌅 Morning Motivation / Motivação Matinal
+###  Morning Motivation / Motivação Matinal
 Positive start to your day with focus and intention.
 
 Começo positivo do seu dia com foco e intenção.
 
-### 🎯 Today's Focus / Foco do Dia
+###  Today's Focus / Foco do Dia
 Top 3 priorities with space for your own tasks.
 
 Top 3 prioridades com espaço para suas tarefas.
 
-### ✅ Daily Habits / Hábitos Diários
+###  Daily Habits / Hábitos Diários
 Track recurring daily goals for personal development.
 
 Acompanhe metas recorrentes para desenvolvimento pessoal.
 
-### 💚 Self-Care / Autocuidado
+###  Self-Care / Autocuidado
 Reminders for hydration, breaks, and work-life balance.
 
 Lembretes para hidratação, pausas e equilíbrio vida-trabalho.
 
-### 🌙 Evening Reflection / Reflexão Noturna
+###  Evening Reflection / Reflexão Noturna
 Structured reflection questions for growth and gratitude.
 
 Reflexão estruturada para crescimento e gratidão.
 
 ## Features / Funcionalidades
 
-- ✅ Simple and fast / Simples e rápido
-- 📝 Human-readable output / Saída legível para humanos
-- 🎨 Emoji-enhanced sections / Seções com emojis
-- 🌍 Location-aware / Consciente de localização
-- 💾 JSON export for automation / Exportação JSON para automação
-- 📅 Weekday-aware / Consciente do dia da semana
+-  Simple and fast / Simples e rápido
+-  Human-readable output / Saída legível para humanos
+-  Emoji-enhanced sections / Seções com emojis
+-  Location-aware / Consciente de localização
+-  JSON export for automation / Exportação JSON para automação
+-  Weekday-aware / Consciente do dia da semana
 
 ## How It Works / Como Funciona
 
@@ -253,7 +253,7 @@ Usa apenas biblioteca padrão do Python - sem dependências externas necessária
 
 - Start with 1-2 habits / Comece com 1-2 hábitos
 - Focus on consistency, not intensity / Foque na consistência, não na intensidade
-- Track visually (use ☐/☑) / Acompanhe visualmente (use ☐/☑)
+- Track visually (use ☐/) / Acompanhe visualmente (use ☐/)
 
 ## Customization / Personalização
 
@@ -288,8 +288,8 @@ Criado por **Gustavo (GustavoZiaugra)** com OpenClaw
 **Find this and more OpenClaw skills at ClawHub.com**
 **Encontre este e mais skills do OpenClaw em ClawHub.com**
 
-⭐ **Star this repository if you find it useful!**
-**⭐ Dê uma estrela neste repositório se você achar útil!**
+ **Star this repository if you find it useful!**
+** Dê uma estrela neste repositório se você achar útil!**
 
-📋 **Your personal assistant, just for you.**
-📋 **Seu assistente pessoal, só para você.**
+ **Your personal assistant, just for you.**
+ **Seu assistente pessoal, só para você.**

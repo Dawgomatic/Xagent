@@ -2,9 +2,9 @@
 
 P2P file sharing using BitTorrent with semantic search powered by vector embeddings. Share any file, discover it by content similarity.
 
-> **📖 Installation & Usage**: See [SKILL.md](SKILL.md)
+> ** Installation & Usage**: See [SKILL.md](SKILL.md)
 
-## ✨ Features
+##  Features
 
 - **Semantic Search**: Find files by content similarity using 768D vector embeddings
 - **True P2P**: BitTorrent protocol with DHT, multi-source downloads
@@ -13,7 +13,7 @@ P2P file sharing using BitTorrent with semantic search powered by vector embeddi
 - **Vector Search Tracker**: FAISS-powered similarity search on central tracker
 - **Auto-Registration**: Sharing automatically generates embeddings and registers with tracker
 
-## 🏗️ How It Works
+##  How It Works
 
 1. **Share**: `synapse share file.md` → Creates torrent, generates embedding, registers with tracker
 2. **Search**: `synapse search "kubernetes"` → Tracker returns ranked results by similarity  
@@ -24,7 +24,7 @@ P2P file sharing using BitTorrent with semantic search powered by vector embeddi
 
 **Storage**: Tracker stores embeddings (FAISS index), clients store actual files (BitTorrent)
 
-## 🎯 Benefits
+##  Benefits
 
 - **Discovery by Content**: Find files without knowing exact names - search by meaning
 - **Fast Distribution**: BitTorrent's multi-source downloads, DHT resilience
@@ -32,7 +32,7 @@ P2P file sharing using BitTorrent with semantic search powered by vector embeddi
 - **Decentralized Storage**: Files distributed across network, tracker only stores vectors
 - **Production Ready**: Built on libtorrent (powers qBittorrent, Deluge)
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 Synapse/
@@ -51,7 +51,7 @@ Synapse/
 └── requirements.txt           # Python dependencies
 ```
 
-## 🔧 Technical Details
+##  Technical Details
 
 **Embeddings**: nomic-ai/nomic-embed-text-v1.5 (768D, sentence-transformers)  
 **BitTorrent**: libtorrent-rasterbar 2.0.11 (Python bindings)  
@@ -60,7 +60,7 @@ Synapse/
 
 **Tracker Code**: The SynapseTracker server implementation is available at [github.com/Pendzoncymisio/SynapseTracker](https://github.com/Pendzoncymisio/SynapseTracker)
 
-## 📖 Documentation
+##  Documentation
 
 - **[SKILL.md](SKILL.md)**: Installation, usage, commands, troubleshooting
 - **[ARCHITECTURE.md](ARCHITECTURE.md)**: Detailed system design and deployment

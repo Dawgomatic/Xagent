@@ -28,7 +28,7 @@ Read Pipeline State → Determine Current Phase → Delegate to Role → Check O
    - Get agentId and model from config.roles[currentPhase]
    - Read corresponding phase prompt template (see templates/PHASE_PROMPTS/)
    - Fill in project path, input files, output path, exit conditions
-   - ⚠️ Must explicitly pass agentId and model arguments:
+   -  Must explicitly pass agentId and model arguments:
      sessions_spawn(agentId=roles[phase].agentId, model=roles[phase].model, task=Filled Prompt)
      If model field is missing, use model from PIPELINE_STATE.json config.roles for that phase.
      **ABSOLUTELY FORBIDDEN to omit model argument** — omitting causes fallback to agent default model (usually expensive opus), causing severe cost waste.
@@ -122,7 +122,7 @@ Read Pipeline State → Determine Current Phase → Delegate to Role → Check O
      - Broadcast: Review Failed, rolling back to Phase X
 
 5b. IF currentPhase == "gap_analysis" && phase.status == "done":
-   - Pipeline Run Complete 🎉
+   - Pipeline Run Complete 
    - Archive: Copy pipeline/* → pipeline_archive/run-{runNumber}/
    - **Deferred task persistence**: If any phase's phases[x].deferredTasks is non-empty,
      collect all deferredTasks and write to pipeline_archive/run-{runNumber}/DEFERRED_TASKS.json, format:
@@ -143,10 +143,10 @@ Read Pipeline State → Determine Current Phase → Delegate to Role → Check O
    - runNumber++, reset all phases to pending (deferredTasks cleared — already persisted to archive)
    - Update ORG/PROJECTS/<project>/STATUS.md
    - Next run Phase 0 (Constitute) automatically gets GAP_ANALYSIS.md + DEFERRED_TASKS.json as input
-   - Broadcast: Pipeline Run Complete 🎉 (including Gap Analysis)
+   - Broadcast: Pipeline Run Complete  (including Gap Analysis)
 
 6. Save PIPELINE_STATE.json
-7. **🔴 Update STATUS.md (mandatory on every trigger)**:
+7. ** Update STATUS.md (mandatory on every trigger)**:
    - Write to `ORG/PROJECTS/<project>/STATUS.md`
    - Must include: current Run number, current phase and status, historical runs table (Run/Result/Score/Archive Path)
    - If there are blocker/escalation/peerConsult events, note them in "Current Status"
@@ -157,21 +157,21 @@ Read Pipeline State → Determine Current Phase → Delegate to Role → Check O
 ## Broadcast Format
 
 ```
-📋 Pipeline [<project>] Run #{runNumber} Progress Update
+ Pipeline [<project>] Run #{runNumber} Progress Update
 ━━━━━━━━━━━━━━━━━━━━━━
-✅/🔄/⬜/⏭️ Phase 0: Constitute
-✅/🔄/⬜/⏭️ Phase 1: Research
-✅/🔄/⬜/⏭️ Phase 2: Specify
-✅/🔄/⬜/⏭️ Phase 3: Plan+Tasks
-✅/🔄/⬜/⏭️ Phase 4: Implement
-✅/🔄/⬜/⏭️ Phase 5: Test
-✅/🔄/⬜/⏭️ Phase 6: Review
-✅/🔄/⬜/⏭️ Phase 7: Gap Analysis
+/// Phase 0: Constitute
+/// Phase 1: Research
+/// Phase 2: Specify
+/// Phase 3: Plan+Tasks
+/// Phase 4: Implement
+/// Phase 5: Test
+/// Phase 6: Review
+/// Phase 7: Gap Analysis
 ━━━━━━━━━━━━━━━━━━━━━━
 Next Check: in 30 mins
 ```
 
-Legend: ✅ done | 🔄 in_progress | ⬜ pending | ⏭️ skipped
+Legend:  done |  in_progress |  pending |  skipped
 
 ## Hard Constraints
 - Advance at most 1 phase per trigger

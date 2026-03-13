@@ -1,7 +1,7 @@
 ---
 name: qianfan-knowledgebase-search
 description: Search knowledge from Qianfan Knowledgebase. Use this when you need to retrieve information from user's private knowledge bases on Baidu Qianfan platform.
-metadata: { "openclaw": { "emoji": "📚",  "requires": { "bins": ["python3"], "env":["BAIDU_API_KEY", "QIANFAN_KNOWLEDGEBASE_IDS"]},"primaryEnv":"BAIDU_API_KEY" } }
+metadata: { "openclaw": { "emoji": "",  "requires": { "bins": ["python3"], "env":["BAIDU_API_KEY", "QIANFAN_KNOWLEDGEBASE_IDS"]},"primaryEnv":"BAIDU_API_KEY" } }
 ---
 
 # Qianfan Knowledgebase Search Skill

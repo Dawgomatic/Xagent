@@ -31,7 +31,7 @@ Controller signs LSP25 → Relay API submits → KeyManager.executeRelayCall() �
 ```
 The controller signs a message, then the LUKSO relay service submits the transaction. **Do NOT call executeRelayCall() yourself — the relay API does this.**
 
-**⚠️ CRITICAL: The relay/gasless option exists ONLY on LUKSO mainnet (42) and testnet (4201). On Base, Ethereum, and all other chains, the controller must hold native ETH and pay gas directly. There is no gasless alternative.**
+** CRITICAL: The relay/gasless option exists ONLY on LUKSO mainnet (42) and testnet (4201). On Base, Ethereum, and all other chains, the controller must hold native ETH and pay gas directly. There is no gasless alternative.**
 
 Typical gas costs: LUKSO ~free via relay, Base ~$0.001-0.01/tx, Ethereum ~$0.10-1.00/tx.
 
@@ -41,8 +41,8 @@ Typical gas costs: LUKSO ~free via relay, Base ~$0.001-0.01/tx, Ethereum ~$0.10-
 |---|---|---|---|---|---|
 | LUKSO | 42 | `https://42.rpc.thirdweb.com` | `https://explorer.lukso.network` | `https://relayer.mainnet.lukso.network/api` | LYX |
 | LUKSO Testnet | 4201 | `https://rpc.testnet.lukso.network` | `https://explorer.testnet.lukso.network` | `https://relayer.testnet.lukso.network/api` | LYXt |
-| Base | 8453 | `https://mainnet.base.org` | `https://basescan.org` | ❌ | ETH |
-| Ethereum | 1 | `https://eth.llamarpc.com` | `https://etherscan.io` | ❌ | ETH |
+| Base | 8453 | `https://mainnet.base.org` | `https://basescan.org` |  | ETH |
+| Ethereum | 1 | `https://eth.llamarpc.com` | `https://etherscan.io` |  | ETH |
 
 ## CLI
 
@@ -58,7 +58,7 @@ up authorize url [--permissions <preset|hex>]  # Generate auth URL
 up quota                                       # Check relay gas quota (LUKSO only)
 ```
 
-Presets: `read-only` 🟢 | `token-operator` 🟡 | `nft-trader` 🟡 | `defi-trader` 🟠 | `profile-manager` 🟡 | `full-access` 🔴
+Presets: `read-only`  | `token-operator`  | `nft-trader`  | `defi-trader`  | `profile-manager`  | `full-access` 
 
 ## Credentials
 
@@ -72,29 +72,29 @@ Key file permissions: `chmod 600`. Keys loaded only for signing, then cleared.
 
 | Permission | Hex | Risk | Notes |
 |---|---|---|---|
-| CHANGEOWNER | 0x01 | 🔴 | |
-| ADDCONTROLLER | 0x02 | 🟠 | |
-| EDITPERMISSIONS | 0x04 | 🟠 | |
-| ADDEXTENSIONS | 0x08 | 🟡 | |
-| CHANGEEXTENSIONS | 0x10 | 🟡 | |
-| ADDUNIVERSALRECEIVERDELEGATE | 0x20 | 🟡 | |
-| CHANGEUNIVERSALRECEIVERDELEGATE | 0x40 | 🟡 | |
-| REENTRANCY | 0x80 | 🟡 | |
-| SUPER_TRANSFERVALUE | 0x0100 | 🟠 | Any recipient |
-| TRANSFERVALUE | 0x0200 | 🟡 | AllowedCalls only |
-| SUPER_CALL | 0x0400 | 🟠 | Any contract |
-| CALL | 0x0800 | 🟡 | AllowedCalls only |
-| SUPER_STATICCALL | 0x1000 | 🟢 | |
-| STATICCALL | 0x2000 | 🟢 | |
-| SUPER_DELEGATECALL | 0x4000 | 🔴 | |
-| DELEGATECALL | 0x8000 | 🔴 | |
-| DEPLOY | 0x010000 | 🟡 | |
-| SUPER_SETDATA | 0x020000 | 🟠 | Any key |
-| SETDATA | 0x040000 | 🟡 | AllowedERC725YDataKeys only |
-| ENCRYPT | 0x080000 | 🟢 | |
-| DECRYPT | 0x100000 | 🟢 | |
-| SIGN | 0x200000 | 🟢 | |
-| EXECUTE_RELAY_CALL | 0x400000 | 🟢 | |
+| CHANGEOWNER | 0x01 |  | |
+| ADDCONTROLLER | 0x02 |  | |
+| EDITPERMISSIONS | 0x04 |  | |
+| ADDEXTENSIONS | 0x08 |  | |
+| CHANGEEXTENSIONS | 0x10 |  | |
+| ADDUNIVERSALRECEIVERDELEGATE | 0x20 |  | |
+| CHANGEUNIVERSALRECEIVERDELEGATE | 0x40 |  | |
+| REENTRANCY | 0x80 |  | |
+| SUPER_TRANSFERVALUE | 0x0100 |  | Any recipient |
+| TRANSFERVALUE | 0x0200 |  | AllowedCalls only |
+| SUPER_CALL | 0x0400 |  | Any contract |
+| CALL | 0x0800 |  | AllowedCalls only |
+| SUPER_STATICCALL | 0x1000 |  | |
+| STATICCALL | 0x2000 |  | |
+| SUPER_DELEGATECALL | 0x4000 |  | |
+| DELEGATECALL | 0x8000 |  | |
+| DEPLOY | 0x010000 |  | |
+| SUPER_SETDATA | 0x020000 |  | Any key |
+| SETDATA | 0x040000 |  | AllowedERC725YDataKeys only |
+| ENCRYPT | 0x080000 |  | |
+| DECRYPT | 0x100000 |  | |
+| SIGN | 0x200000 |  | |
+| EXECUTE_RELAY_CALL | 0x400000 |  | |
 
 SUPER variants = unrestricted. Regular = restricted to AllowedCalls/AllowedERC725YDataKeys. Prefer restricted.
 

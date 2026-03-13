@@ -5,17 +5,17 @@ Query your Strava activities, stats, and workout data through OpenClaw using Pyt
 ## Why This Skill?
 
 **Compared to other Strava skills:**
-- ✅ **Python-based** (not curl) - easier to extend and maintain
-- ✅ **Interactive setup wizard** - no manual JSON configuration
-- ✅ **User-friendly** - simple commands, clear output
-- ✅ **Auto-refresh tokens** - handles OAuth automatically
+-  **Python-based** (not curl) - easier to extend and maintain
+-  **Interactive setup wizard** - no manual JSON configuration
+-  **User-friendly** - simple commands, clear output
+-  **Auto-refresh tokens** - handles OAuth automatically
 
 ## Features
 
-- 📊 View recent activities
-- 🏃 Get weekly/monthly running stats
-- 🚴 Get weekly/monthly cycling stats
-- ⏱️ Check your last workout
+-  View recent activities
+-  Get weekly/monthly running stats
+-  Get weekly/monthly cycling stats
+-  Check your last workout
 
 ## Quick Start
 
@@ -114,4 +114,4 @@ Feel free to open issues or PRs on GitHub!
 
 ## Author
 
-Created for the OpenClaw community 🏃‍♂️
+Created for the OpenClaw community 

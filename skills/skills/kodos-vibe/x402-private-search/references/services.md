@@ -9,7 +9,7 @@
 - **Response**: Brave Search API compatible JSON
 - **Free endpoints**: `GET /health`, `GET /routes`
 
-> ⚠️ This URL is a quick Cloudflare tunnel and may change on service restart. Check `/health` to verify availability.
+>  This URL is a quick Cloudflare tunnel and may change on service restart. Check `/health` to verify availability.
 
 ### Response format
 

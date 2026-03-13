@@ -8,11 +8,11 @@ Complete pricing details and credit system information.
 
 ### Key Benefits
 
-- ✅ **Credits never expire** - Use them at your own pace
-- ✅ **No subscriptions** - Pay only for what you use
-- ✅ **Volume discounts** - Save up to 20% on larger packages
-- ✅ **3-day refund window** - Risk-free purchase
-- ✅ **500 free credits** - Free trial for new users
+-  **Credits never expire** - Use them at your own pace
+-  **No subscriptions** - Pay only for what you use
+-  **Volume discounts** - Save up to 20% on larger packages
+-  **3-day refund window** - Risk-free purchase
+-  **500 free credits** - Free trial for new users
 
 ## Credit Packages
 

@@ -1,7 +1,7 @@
 ---
 name: segment
 description: Track events and manage customer data via Segment API. Route data to destinations.
-metadata: {"clawdbot":{"emoji":"📊","requires":{"env":["SEGMENT_WRITE_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SEGMENT_WRITE_KEY"]}}}
 ---
 # Segment
 Customer data platform.

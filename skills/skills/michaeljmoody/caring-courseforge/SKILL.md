@@ -3,7 +3,7 @@ name: courseforge
 description: Create and manage online courses via the CourseForge API (caringcourseforge.com). Use when the user wants to create courses, modules, lessons, generate AI content, export to SCORM/xAPI, manage knowledge libraries, or interact with the CourseForge platform. Handles course building, content generation, quizzes, accessibility validation, and course export.
 metadata:
   openclaw:
-    emoji: "📚"
+    emoji: ""
     requires:
       bins: ["node"]
       env: ["COURSEFORGE_API_KEY"]

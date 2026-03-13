@@ -5,13 +5,13 @@ description: Full stack observability - reproducibility, lineage, monitoring, al
 license: MIT
 ---
 
-# MLOps Observability 👁️
+# MLOps Observability 
 
 Glass box system - reproducible, traceable, monitored.
 
 ## Features
 
-### 1. MLflow Tracking 📊
+### 1. MLflow Tracking 
 
 Complete tracking setup:
 
@@ -26,7 +26,7 @@ Tracks:
 - Datasets (lineage)
 - Git commit (reproducibility)
 
-### 2. Drift Detection 📉
+### 2. Drift Detection 
 
 Using Evidently:
 
@@ -38,7 +38,7 @@ report = Report(metrics=[DataDriftTable()])
 report.run(reference_data=train, current_data=prod)
 ```
 
-### 3. Explainability (SHAP) 🔍
+### 3. Explainability (SHAP) 
 
 ```python
 import shap

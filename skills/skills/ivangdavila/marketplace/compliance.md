@@ -41,18 +41,18 @@
 ## Where AI Gives Dangerous Advice
 
 **Tax advice failures:**
-- ❌ "Under $X you don't need to report" — confuses 1099-K threshold with actual obligation
-- ❌ "Register in Delaware for no taxes" — conflates entity formation with nexus
-- ❌ Citing outdated thresholds from training data
+-  "Under $X you don't need to report" — confuses 1099-K threshold with actual obligation
+-  "Register in Delaware for no taxes" — conflates entity formation with nexus
+-  Citing outdated thresholds from training data
 
 **Legal structure failures:**
-- ❌ "LLC protects you from product liability" — veil piercing is real
-- ❌ Generic advice without jurisdiction context
+-  "LLC protects you from product liability" — veil piercing is real
+-  Generic advice without jurisdiction context
 
 **Platform rule failures:**
-- ❌ Outdated ToS interpretation (policies change frequently)
-- ❌ "Everyone does it" normalization of violations
-- ❌ US-centric assumptions ignoring EU consumer rights
+-  Outdated ToS interpretation (policies change frequently)
+-  "Everyone does it" normalization of violations
+-  US-centric assumptions ignoring EU consumer rights
 
 ## Intellectual Property
 

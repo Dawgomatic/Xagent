@@ -11,14 +11,14 @@ triggers:
   - user count
 metadata:
   clawdbot:
-    emoji: "⚡"
+    emoji: ""
     primaryEnv: SUPABASE_SERVICE_KEY
     requires:
       bins: [python3]
       env: [SUPABASE_URL, SUPABASE_SERVICE_KEY]
 ---
 
-# Supabase ⚡
+# Supabase 
 
 Query your Supabase projects directly from chat.
 
@@ -32,7 +32,7 @@ You'll see two tabs:
 - **"Publishable and secret API keys"** - New format (limited functionality)
 - **"Legacy anon, service_role API keys"** - JWT format (full functionality)
 
-**⚠️ Use the Legacy JWT key for full access!**
+** Use the Legacy JWT key for full access!**
 
 The `service_role` JWT key (starts with `eyJ...`) gives full admin access including:
 - Listing users with details
@@ -113,8 +113,8 @@ python3 {baseDir}/scripts/supabase.py list-users --json
 
 | Key Type | Format | User Listing | User Count | REST Tables |
 |----------|--------|--------------|------------|-------------|
-| JWT service_role | `eyJ...` | ✅ Yes | ✅ Yes | ✅ Yes |
-| New secret | `sb_secret_...` | ❌ No | ❌ No | ✅ Yes |
+| JWT service_role | `eyJ...` |  Yes |  Yes |  Yes |
+| New secret | `sb_secret_...` |  No |  No |  Yes |
 
 **Recommendation:** Always use the JWT `service_role` key for Clawdbot integration.
 
@@ -148,7 +148,7 @@ This creates a cron job like:
 ### Sample Report Output
 
 ```
-📊 Supabase Daily Report
+ Supabase Daily Report
 
 New signups (last 24h): 2
 
@@ -162,7 +162,7 @@ Last 5 signups:
 
 ## GraphQL API (pg_graphql)
 
-⚠️ **pg_graphql is disabled by default** on new Supabase projects (as of late 2025).
+ **pg_graphql is disabled by default** on new Supabase projects (as of late 2025).
 
 If you need the GraphQL API:
 

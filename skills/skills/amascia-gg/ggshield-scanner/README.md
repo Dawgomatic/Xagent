@@ -10,7 +10,7 @@ MoltHub skills are **capabilities for AI agents** (like Cursor, Claude Code, Mol
 
 ```
 You: "Scan this repository for secrets"
-Agent: [uses ggshield skill] ✅ Repository clean: 0 secrets found
+Agent: [uses ggshield skill]  Repository clean: 0 secrets found
 ```
 
 The skill provides the AI agent with methods it can call on your behalf.
@@ -87,7 +87,7 @@ You: Before I push, can you check if there are any secrets in my staged changes?
 
 Agent: I'll scan your staged changes for secrets.
 
-       ✅ Staged changes are clean
+        Staged changes are clean
 
        No hardcoded secrets detected. Safe to commit!
 ```
@@ -193,7 +193,7 @@ async def test_scan_file_not_found():
     skill = GGShieldSkill()
     result = await skill.scan_file("/nonexistent/file.py")
     assert "File not found" in result
-    assert "❌" in result
+    assert "" in result
 
 @pytest.mark.asyncio
 async def test_scan_repo_not_found():
@@ -205,7 +205,7 @@ async def test_scan_repo_not_found():
     skill = GGShieldSkill()
     result = await skill.scan_repo("/nonexistent/dir")
     assert "Path not found" in result
-    assert "❌" in result
+    assert "" in result
 EOF
 
 uv run pytest test_skill.py -v
@@ -321,7 +321,7 @@ The skill is a Python class that:
 
 1. **Wraps ggshield CLI** - Calls `ggshield` via subprocess
 2. **Handles errors gracefully** - Missing API key, ggshield not installed, file not found
-3. **Returns user-friendly messages** - With emoji indicators (✅ ❌ 🔍)
+3. **Returns user-friendly messages** - With emoji indicators (  )
 4. **Async methods** - Compatible with async AI agent frameworks
 
 ```python

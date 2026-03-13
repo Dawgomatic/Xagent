@@ -28,7 +28,7 @@ def search(objective: str, max_results: int = 10, mode: str = "one-shot"):
 def format_results(response) -> str:
     """Format search results for display."""
     output = []
-    output.append(f"🔍 Search ID: {response.search_id}\n")
+    output.append(f" Search ID: {response.search_id}\n")
     
     for i, result in enumerate(response.results, 1):
         title = result.title or "No title"
@@ -46,7 +46,7 @@ def format_results(response) -> str:
     
     if response.usage:
         usage = ", ".join(f"{u.name}: {u.count}" for u in response.usage)
-        output.append(f"📊 Usage: {usage}")
+        output.append(f" Usage: {usage}")
     
     return "\n".join(output)
 

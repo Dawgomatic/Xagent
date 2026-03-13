@@ -32,12 +32,12 @@ This guide helps you migrate from hardcoded Tailwind colors (`bg-blue-600`) to s
 
 ### Pattern 1: Solid Backgrounds
 
-❌ **Before:**
+ **Before:**
 ```tsx
 <div className="bg-blue-50 dark:bg-blue-950/20 text-blue-700 dark:text-blue-300">
 ```
 
-✅ **After:**
+ **After:**
 ```tsx
 <div className="bg-info/10 text-info">
 ```
@@ -48,12 +48,12 @@ This guide helps you migrate from hardcoded Tailwind colors (`bg-blue-600`) to s
 
 ### Pattern 2: Borders
 
-❌ **Before:**
+ **Before:**
 ```tsx
 <div className="border-2 border-green-200 dark:border-green-800">
 ```
 
-✅ **After:**
+ **After:**
 ```tsx
 <div className="border-2 border-success/30">
 ```
@@ -62,12 +62,12 @@ This guide helps you migrate from hardcoded Tailwind colors (`bg-blue-600`) to s
 
 ### Pattern 3: Text Colors
 
-❌ **Before:**
+ **Before:**
 ```tsx
 <span className="text-red-600 dark:text-red-400">
 ```
 
-✅ **After:**
+ **After:**
 ```tsx
 <span className="text-destructive">
 ```
@@ -76,12 +76,12 @@ This guide helps you migrate from hardcoded Tailwind colors (`bg-blue-600`) to s
 
 ### Pattern 4: Icons
 
-❌ **Before:**
+ **Before:**
 ```tsx
 <AlertCircle className="text-yellow-500" />
 ```
 
-✅ **After:**
+ **After:**
 ```tsx
 <AlertCircle className="text-warning" />
 ```
@@ -90,12 +90,12 @@ This guide helps you migrate from hardcoded Tailwind colors (`bg-blue-600`) to s
 
 ### Pattern 5: Gradients
 
-❌ **Before:**
+ **Before:**
 ```tsx
 <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20">
 ```
 
-✅ **After:**
+ **After:**
 ```tsx
 <div className="bg-gradient-to-r from-success/10 to-success/20">
 ```
@@ -177,7 +177,7 @@ After each component:
 
 ## Example: Badge Component
 
-❌ **Before:**
+ **Before:**
 ```tsx
 const severityConfig = {
   critical: {
@@ -198,7 +198,7 @@ const severityConfig = {
 }
 ```
 
-✅ **After:**
+ **After:**
 ```tsx
 const severityConfig = {
   critical: {
@@ -278,8 +278,8 @@ Variables defined in `:root` but not mapped → utilities don't exist
 
 ### 2. Wrong Opacity Syntax
 
-❌ `bg-success-10` (doesn't work)
-✅ `bg-success/10` (correct)
+ `bg-success-10` (doesn't work)
+ `bg-success/10` (correct)
 
 ### 3. Mixing Approaches
 

@@ -19,7 +19,7 @@ async function spawnLobster(config) {
         const ws = new WebSocket(SERVER_URL);
 
         ws.on('open', () => {
-            console.log(`🦞 ${config.name} connecting...`);
+            console.log(` ${config.name} connecting...`);
 
             // Identify as agent
             ws.send(JSON.stringify({
@@ -33,7 +33,7 @@ async function spawnLobster(config) {
             const msg = JSON.parse(data.toString());
 
             if (msg.type === 'auth_success') {
-                console.log(`✅ ${config.name} authenticated!`);
+                console.log(` ${config.name} authenticated!`);
 
                 // Perform action based on type
                 setTimeout(() => {
@@ -42,12 +42,12 @@ async function spawnLobster(config) {
             }
 
             if (msg.type === 'leaderboard_data') {
-                console.log(`📊 ${config.name} received leaderboard:`, msg.rankings?.length || 0, 'entries');
+                console.log(` ${config.name} received leaderboard:`, msg.rankings?.length || 0, 'entries');
             }
         });
 
         ws.on('error', (err) => {
-            console.error(`❌ ${config.name} error:`, err.message);
+            console.error(` ${config.name} error:`, err.message);
             reject(err);
         });
 
@@ -60,7 +60,7 @@ async function spawnLobster(config) {
 }
 
 function performAction(ws, config) {
-    console.log(`🎬 ${config.name} performing action: ${config.action}`);
+    console.log(` ${config.name} performing action: ${config.action}`);
 
     switch (config.action) {
         case 'build':
@@ -74,7 +74,7 @@ function performAction(ws, config) {
                     blockType: 'gold'
                 }));
             }
-            console.log(`🧱 ${config.name} placed 10 blocks`);
+            console.log(` ${config.name} placed 10 blocks`);
             break;
 
         case 'visit':
@@ -91,7 +91,7 @@ function performAction(ws, config) {
                 type: 'island_visit',
                 islandId: 'island_nfc08t4z9z'
             }));
-            console.log(`👀 ${config.name} visited island 3 times`);
+            console.log(` ${config.name} visited island 3 times`);
             break;
 
         case 'like':
@@ -100,7 +100,7 @@ function performAction(ws, config) {
                 type: 'island_like',
                 islandId: 'island_nfc08t4z9z'
             }));
-            console.log(`❤️ ${config.name} liked island`);
+            console.log(` ${config.name} liked island`);
             break;
     }
 
@@ -122,15 +122,15 @@ function performAction(ws, config) {
 }
 
 async function main() {
-    console.log('🚀 Starting ranking system test...\n');
+    console.log(' Starting ranking system test...\n');
 
     // Spawn all lobsters concurrently
     await Promise.all(lobsters.map(spawnLobster));
 
-    console.log('\n✅ Test complete! Check server logs for details.');
+    console.log('\n Test complete! Check server logs for details.');
 
     // Check world state
-    console.log('\n📊 Checking world state...');
+    console.log('\n Checking world state...');
 
     // Give server time to save
     await new Promise(r => setTimeout(r, 2000));

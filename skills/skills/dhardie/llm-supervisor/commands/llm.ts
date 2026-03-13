@@ -13,7 +13,7 @@ export async function llmCommand(
   // /llm status
   if (!sub || sub === "status") {
     await cmd.reply(
-      `🧠 **LLM Status**\n\n` +
+      ` **LLM Status**\n\n` +
       `Mode: **${state.mode.toUpperCase()}**\n` +
       `Since: ${new Date(state.since).toLocaleString()}\n` +
       (state.lastError
@@ -36,7 +36,7 @@ export async function llmCommand(
     });
 
     await ctx.notify.all(
-      `⚠️ LLM manually switched to **local model (${ctx.config.localModel})**.\n` +
+      ` LLM manually switched to **local model (${ctx.config.localModel})**.\n` +
       `Code actions will require confirmation.`
     );
 
@@ -56,7 +56,7 @@ export async function llmCommand(
       since: Date.now()
     });
 
-    await ctx.notify.all("✅ Switched back to **cloud LLM**.");
+    await ctx.notify.all(" Switched back to **cloud LLM**.");
 
     await cmd.reply("Switched to **cloud** LLM mode.");
     return;

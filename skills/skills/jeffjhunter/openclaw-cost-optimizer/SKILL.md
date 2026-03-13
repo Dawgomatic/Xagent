@@ -7,7 +7,7 @@ author: Jeff J Hunter
 homepage: https://jeffjhunter.com
 metadata:
   openclaw:
-    emoji: "💰"
+    emoji: ""
     requires:
       bins: ["openclaw"]
       env: ["OPENROUTER_API_KEY"]
@@ -17,7 +17,7 @@ metadata:
 
 # OpenClaw Cost Optimizer
 
-> ## ⛔ AGENT RULES — READ BEFORE DOING ANYTHING
+> ##  AGENT RULES — READ BEFORE DOING ANYTHING
 > 1. **Use EXACT text from this file.** Do not paraphrase menus, preset names, or instructions. If you invent preset names, the config-patcher will break.
 > 2. **Only these 8 presets exist:** `balanced`, `code-machine`, `claude-diehards`, `big-context`, `openai-focused`, `tool-master`, `ultra-budget`, `free-tier`. No others. Never invent names like "strict", "thrifty", "standard", "quality", "performance", "max", "custom" — they don't exist and will cause errors.
 > 3. **NEVER tell the user to open a terminal or run commands.** You have the exec tool. USE IT. Run every command yourself via exec. The user's only job is clicking "Approve" on the exec popup. If you find yourself typing "Run this in your terminal" — STOP. Use exec instead.
@@ -35,9 +35,9 @@ Your current default model stays exactly the same. We only ADD options. Nothing 
 8 presets. 29 models. Zero risk. Nothing to undo.
 
 **NEW in v1.1.0:**
-- 💸 **Cost Tracker** — "how much have I saved?" shows your actual savings since install
-- 🔀 **Mix & Match** — build a custom preset from the full 29-model registry
-- 📊 **Monthly Calculator** — "estimate my monthly costs" to plan your budget
+-  **Cost Tracker** — "how much have I saved?" shows your actual savings since install
+-  **Mix & Match** — build a custom preset from the full 29-model registry
+-  **Monthly Calculator** — "estimate my monthly costs" to plan your budget
 
 **Requires:** OpenClaw + an OpenRouter API key (free at https://openrouter.ai)
 
@@ -51,11 +51,11 @@ Your current default model stays exactly the same. We only ADD options. Nothing 
 
 When the skill loads, the agent introduces itself and shows a menu. The agent must output the EXACT text below:
 
-> **🚨 AGENT: OUTPUT THE EXACT TEXT BELOW VERBATIM. DO NOT PARAPHRASE. DO NOT INVENT YOUR OWN PRESET NAMES.**
+> ** AGENT: OUTPUT THE EXACT TEXT BELOW VERBATIM. DO NOT PARAPHRASE. DO NOT INVENT YOUR OWN PRESET NAMES.**
 > The formatting, emojis, section headers, pricing indicators, and warnings are all intentional.
 
 ```
-👋 The Cost Optimizer skill is now active!
+ The Cost Optimizer skill is now active!
 
 Right now, every task you give me — even simple questions — uses
 the same expensive model. That means heartbeats, pings, and
@@ -68,22 +68,22 @@ exactly the same — I only ADD options.
 What describes you best?
 
 ── RECOMMENDED ──────────────────────────────────
-1. 💰 Best balance of cost and quality        ¢¢
+1.  Best balance of cost and quality        ¢¢
    (recommended for most people)
-2. 💻 I mostly write code                     ¢¢
+2.  I mostly write code                     ¢¢
 
 ── MORE OPTIONS ─────────────────────────────────
-3. 🟠 I love Claude and want Claude models    $$$
-4. 📚 I work with huge files or long code     $$
-5. 🤖 I prefer OpenAI models                  $$
-6. 🔧 I use a lot of tools / MCP servers      $$
+3.  I love Claude and want Claude models    $$$
+4.  I work with huge files or long code     $$
+5.  I prefer OpenAI models                  $$
+6.  I use a lot of tools / MCP servers      $$
 
 ── BUDGET ───────────────────────────────────────
-7. 🪙 Cheapest possible — tight budget        ¢
-   ⚠️  Uses free models — may have slow
+7.  Cheapest possible — tight budget        ¢
+     Uses free models — may have slow
    starts and occasional disconnects
-8. 🆓 I want $0 cost — free models only       FREE
-   ⚠️  ALL models are free tier — expect
+8.  I want $0 cost — free models only       FREE
+     ALL models are free tier — expect
    delays, rate limits, and downtime.
    Best for testing, not production.
 
@@ -108,16 +108,16 @@ Example for "balanced":
 ```
 Great choice! Here's what I'm going to add to your setup:
 
-✅ Flash-Lite — ultra-cheap model for simple tasks (¢)
+ Flash-Lite — ultra-cheap model for simple tasks (¢)
    → /model flashlite
 
-✅ MiniMax M2.1 — strong coding/writing model (¢¢)
+ MiniMax M2.1 — strong coding/writing model (¢¢)
    → /model minimax
 
-✅ Kimi K2.5 — frontier-class for complex work (¢¢)
+ Kimi K2.5 — frontier-class for complex work (¢¢)
    → /model kimi25
 
-✅ Gemini Flash — fast all-rounder (¢)
+ Gemini Flash — fast all-rounder (¢)
    → /model flash
 
 Your current default model stays exactly the same.
@@ -133,7 +133,7 @@ Just click Approve on each one.
 
 The agent handles ALL commands via the exec tool. The user never touches a terminal.
 
-> **🚨 AGENT SETUP INSTRUCTIONS:**
+> ** AGENT SETUP INSTRUCTIONS:**
 >
 > **Step 3a: Check OpenRouter auth.** Use exec:
 > ```
@@ -180,7 +180,7 @@ openclaw models aliases add flashlite openrouter/google/gemini-2.5-flash-lite &&
 ```
 openclaw models aliases add devfree openrouter/mistralai/devstral-small:free && openclaw models aliases add minimax openrouter/minimax/minimax-m2.1 && openclaw models aliases add codex52 openrouter/openai/gpt-5.2-codex && openclaw models aliases add devstral openrouter/mistralai/devstral-small
 ```
-**Tiers:** Base=devfree (FREE ⚠️) | Work=minimax (¢¢) | Frontier=codex52 ($$$)
+**Tiers:** Base=devfree (FREE ) | Work=minimax (¢¢) | Frontier=codex52 ($$$)
 
 ### 3. claude-diehards
 ```
@@ -210,15 +210,15 @@ openclaw models aliases add gem3flash openrouter/google/gemini-3-flash && opencl
 ```
 openclaw models aliases add mimo openrouter/xiaomi/mimo-v2-flash:free && openclaw models aliases add deepseek openrouter/deepseek/deepseek-chat-v3-0324 && openclaw models aliases add kimi25 openrouter/moonshotai/kimi-k2.5 && openclaw models aliases add devfree openrouter/mistralai/devstral-small:free
 ```
-**Tiers:** Base=mimo (FREE ⚠️) | Work=deepseek (¢) | Frontier=kimi25 (¢¢)
+**Tiers:** Base=mimo (FREE ) | Work=deepseek (¢) | Frontier=kimi25 (¢¢)
 
 ### 8. free-tier
 ```
 openclaw models aliases add mimo openrouter/xiaomi/mimo-v2-flash:free && openclaw models aliases add devfree openrouter/mistralai/devstral-small:free && openclaw models aliases add glm openrouter/thudm/glm-z1-free:free
 ```
-**Tiers:** Base=mimo (FREE ⚠️) | Work=devfree (FREE ⚠️) | Frontier=glm (FREE ⚠️)
+**Tiers:** Base=mimo (FREE ) | Work=devfree (FREE ) | Frontier=glm (FREE )
 
-> **⚠️ Free model warning for presets 7 and 8:**
+> ** Free model warning for presets 7 and 8:**
 > After adding aliases, tell the user: "These presets use free-tier models on OpenRouter.
 > Free models can have cold starts (10-30s delays), rate limits during peak hours, and
 > occasional disconnects. If your agent stalls, switch to a paid model: `/model deepseek`
@@ -252,7 +252,7 @@ Now switch back to your default:
 After confirmation:
 
 ```
-🎉 You're all set!
+ You're all set!
 
 From now on:
 • Your default model is unchanged — same as before
@@ -293,7 +293,7 @@ No popup, no suggestion. Your default model handled it fine.
 You: Write a React component for user registration
      with email validation and password strength meter
 
-⚡ COST ADVISOR
+ COST ADVISOR
 
 You're on your default model.
 This task: React component with validation logic
@@ -312,7 +312,7 @@ Just type /model minimax to switch, or say "no" to stay as-is.
 ```
 You: [pastes 3 files + long description of auth system]
 
-⚡ COST ADVISOR
+ COST ADVISOR
 
 This is complex enough for frontier-level reasoning.
 
@@ -329,7 +329,7 @@ Type /model kimi25 to switch, or "no" to stay as-is.
 ```
 Agent: [finishes the task]
 
-💰 Task complete! Switch back to save money:
+ Task complete! Switch back to save money:
 
 /model
 
@@ -341,7 +341,7 @@ Agent: [finishes the task]
 ```
 You: no, just do it
 
-Agent: 👍 Staying on current model.
+Agent:  Staying on current model.
 
 [... does the task, no nagging ...]
 ```
@@ -351,7 +351,7 @@ Agent: 👍 Staying on current model.
 ```
 You: advisor off
 
-✅ Cost Advisor: OFF
+ Cost Advisor: OFF
 I won't suggest model switches anymore.
 Say "advisor on" whenever you want them back.
 ```
@@ -362,12 +362,12 @@ Say "advisor on" whenever you want them back.
 
 Every preset ADDS models to your setup. Your default is never changed.
 
-### ⭐ Recommended
+###  Recommended
 
 | Preset | Cost | Base | Work | Frontier |
 |--------|------|------|------|----------|
 | `balanced` | ¢¢ | Flash-Lite `/model flashlite` | MiniMax `/model minimax` | Kimi K2.5 `/model kimi25` |
-| `code-machine` | ¢¢ | Devstral Free `/model devfree` ⚠️ | MiniMax `/model minimax` | GPT-5.2 Codex `/model codex52` |
+| `code-machine` | ¢¢ | Devstral Free `/model devfree`  | MiniMax `/model minimax` | GPT-5.2 Codex `/model codex52` |
 
 ### More Options
 
@@ -378,16 +378,16 @@ Every preset ADDS models to your setup. Your default is never changed.
 | `openai-focused` | $$ | Mini `/model mini` | GPT-5.1 `/model gpt51` | GPT-5.2 `/model gpt52` |
 | `tool-master` | $$ | Gem3 Flash `/model gem3flash` | Kimi K2.5 `/model kimi25` | GPT-5.2 `/model gpt52` |
 
-### Budget  ⚠️ Read before choosing
+### Budget   Read before choosing
 
 | Preset | Cost | Base | Work | Frontier |
 |--------|------|------|------|----------|
-| `ultra-budget` | ¢ | MiMo `/model mimo` ⚠️ | DeepSeek `/model deepseek` | Kimi K2.5 `/model kimi25` |
-| `free-tier` | FREE | MiMo `/model mimo` ⚠️ | Devstral Free `/model devfree` ⚠️ | GLM-Z1 `/model glm` ⚠️ |
+| `ultra-budget` | ¢ | MiMo `/model mimo`  | DeepSeek `/model deepseek` | Kimi K2.5 `/model kimi25` |
+| `free-tier` | FREE | MiMo `/model mimo`  | Devstral Free `/model devfree`  | GLM-Z1 `/model glm`  |
 
 **Pricing:** FREE = $0 | ¢ < $0.50/M | ¢¢ < $2/M | $$ = $2-15/M | $$$ = $15+/M
 
-> **⚠️ Free model reliability warning:** Presets with ⚠️ use free-tier models on OpenRouter. Free models can have cold starts (10-30s delays), rate limits during peak hours, queue waits behind paid users, and more frequent downtime. This can cause gateway disconnects. If your agent stalls or disconnects, switch to a cheap paid model: `/model deepseek` (¢ — pennies but reliable). Budget presets are great for experimenting but **not recommended for production or team use**.
+> ** Free model reliability warning:** Presets with  use free-tier models on OpenRouter. Free models can have cold starts (10-30s delays), rate limits during peak hours, queue waits behind paid users, and more frequent downtime. This can cause gateway disconnects. If your agent stalls or disconnects, switch to a cheap paid model: `/model deepseek` (¢ — pennies but reliable). Budget presets are great for experimenting but **not recommended for production or team use**.
 
 Want to switch presets later? Just say "switch me to code-machine" and the agent adds those aliases too.
 
@@ -404,7 +404,7 @@ Agent: I'll add that now — click Approve.
 
 [exec: openclaw models aliases add gpt52 openrouter/openai/gpt-5.2]
 
-✅ Done! You can now use: /model gpt52
+ Done! You can now use: /model gpt52
 ```
 
 The agent can add any model from the registry below.
@@ -422,14 +422,14 @@ Agent: I'll remove that alias — click Approve.
 
 [exec: openclaw models aliases remove kimi25]
 
-✅ Removed. /model kimi25 is no longer available.
+ Removed. /model kimi25 is no longer available.
 ```
 
 Your config is unchanged — we only removed the shortcut.
 
 ---
 
-## 💸 Cost Tracker — "How much have I saved?"
+##  Cost Tracker — "How much have I saved?"
 
 The agent tracks every time you switch models on its recommendation and estimates how much you saved vs. your default model.
 
@@ -447,7 +447,7 @@ The agent keeps a running log at `~/.openclaw/cost-tracker.md`.
 ```
 You: how much have I saved?
 
-💸 COST TRACKER — Savings Since Install
+ COST TRACKER — Savings Since Install
 
 Installed: Feb 15, 2026
 Total tasks tracked: 47
@@ -472,12 +472,12 @@ Agent: I'll reset your cost tracker — click Approve.
 
 [exec: echo "# Cost Tracker\n\nInstalled: [today]\nDefault model: [detected]\n\n## Log\n" > ~/.openclaw/cost-tracker.md]
 
-✅ Tracker reset. Starting fresh from today.
+ Tracker reset. Starting fresh from today.
 ```
 
 ---
 
-## 🔀 Mix & Match — Build Your Own Preset
+##  Mix & Match — Build Your Own Preset
 
 Don't like the preset options? Build your own from the full 29-model registry.
 
@@ -488,7 +488,7 @@ You: build me a custom preset
 
 Agent:
 
-🔀 Mix & Match — Pick one model for each tier:
+ Mix & Match — Pick one model for each tier:
 
 ── BASE (for simple tasks, questions, chat) ──────
  a. flashlite   — Gemini 2.5 Flash-Lite    $0.10/$0.40   Best cheap all-rounder
@@ -497,8 +497,8 @@ Agent:
  d. gem3flash   — Gemini 3 Flash            $0.50/$2.00   Best tool-calling
  e. devstral    — Devstral Small            $0.05/$0.22   Cheapest paid
  f. deepseek    — DeepSeek V3              $0.14/$0.28   Cheap + strong
- g. mimo        — MiMo v2 Flash             FREE ⚠️       Unreliable
- h. devfree     — Devstral Small Free       FREE ⚠️       Unreliable
+ g. mimo        — MiMo v2 Flash             FREE        Unreliable
+ h. devfree     — Devstral Small Free       FREE        Unreliable
 
 Pick a letter for your BASE model (or "skip" to leave empty):
 ```
@@ -539,7 +539,7 @@ Then the agent adds those aliases via exec — same as preset setup, one Approve
 
 ---
 
-## 📊 Monthly Cost Calculator
+##  Monthly Cost Calculator
 
 Estimate what your agent costs per month — and what it would cost with the optimizer.
 
@@ -550,7 +550,7 @@ You: estimate my monthly costs
 
 Agent:
 
-📊 Monthly Cost Calculator
+ Monthly Cost Calculator
 
 I need a few quick numbers:
 
@@ -567,7 +567,7 @@ I need a few quick numbers:
 After the user answers:
 
 ```
-📊 MONTHLY COST ESTIMATE
+ MONTHLY COST ESTIMATE
 
 Based on: ~50 messages/day, mostly coding
 
@@ -656,14 +656,14 @@ Use the Cost Advisor format shown in the walkthrough above.
 ### 4. Handle response
 
 - User types `/model` command → they switched, do the task
-- "no" / anything else → "👍 Staying on current model." then do the task
+- "no" / anything else → " Staying on current model." then do the task
 - Different model than suggested → fine, do the task
 
 ### 5. After work on higher-tier model
 
 Gentle reminder to switch back. Not a blocker:
 ```
-💰 Task complete! Switch back to save money: /model
+ Task complete! Switch back to save money: /model
 ```
 
 ### Ambiguity rules
@@ -678,8 +678,8 @@ Gentle reminder to switch back. Not a blocker:
 
 ## Toggle: "advisor on" / "advisor off"
 
-- **"advisor off"** / **"stop suggesting"** / **"quiet mode"** → `✅ Cost Advisor: OFF`
-- **"advisor on"** / **"start suggesting"** / **"help me save"** → `✅ Cost Advisor: ON`
+- **"advisor off"** / **"stop suggesting"** / **"quiet mode"** → ` Cost Advisor: OFF`
+- **"advisor on"** / **"start suggesting"** / **"help me save"** → ` Cost Advisor: ON`
 
 When OFF → no recommendations, tasks run silently on current model.
 
@@ -869,9 +869,9 @@ All 29 verified models available on OpenRouter. The agent should know these for 
 | `flash` | Gemini 2.5 Flash | `openrouter/google/gemini-2.5-flash` | $0.15/$0.60 | Stronger than Flash-Lite |
 | `mini` | GPT-5 Mini | `openrouter/openai/gpt-5-mini` | $0.30/$1.20 | OpenAI's budget pick |
 | `gem3flash` | Gemini 3 Flash | `openrouter/google/gemini-3-flash` | $0.50/$2.00 | Best tool-calling cheap model |
-| `mimo` | MiMo v2 Flash | `openrouter/xiaomi/mimo-v2-flash:free` | FREE | ⚠️ Free tier — unreliable |
-| `devfree` | Devstral Small Free | `openrouter/mistralai/devstral-small:free` | FREE | ⚠️ Free tier — unreliable |
-| `glm` | GLM-Z1 Free | `openrouter/thudm/glm-z1-free:free` | FREE | ⚠️ Free tier — unreliable |
+| `mimo` | MiMo v2 Flash | `openrouter/xiaomi/mimo-v2-flash:free` | FREE |  Free tier — unreliable |
+| `devfree` | Devstral Small Free | `openrouter/mistralai/devstral-small:free` | FREE |  Free tier — unreliable |
+| `glm` | GLM-Z1 Free | `openrouter/thudm/glm-z1-free:free` | FREE |  Free tier — unreliable |
 
 ### Tier 2 — Work Models (coding, writing, daily tasks)
 

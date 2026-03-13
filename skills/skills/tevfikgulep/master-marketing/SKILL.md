@@ -3,7 +3,7 @@ name: master-marketing
 description: All-in-one marketing engine combining growth strategy, content remixing, and trend monitoring. Drive growth with data-driven strategies, repurposed content across all platforms, and real-time trend analysis.
 metadata:
   openclaw:
-    emoji: "🚀"
+    emoji: ""
     version: "1.0.0"
     author: "Sencer"
     tags: ["marketing", "growth", "content", "trends", "seo", "social-media", "strategy"]
@@ -25,21 +25,21 @@ Stop juggling multiple tools. Master Marketing handles everything from funnel an
 
 ## What This Skill Combines
 
-### 🎯 Growth Strategy (from Growth Skill)
+###  Growth Strategy (from Growth Skill)
 - North Star Metric definition and tracking
 - AARRR funnel analysis (Acquisition → Activation → Retention → Referral → Revenue)
 - Growth loop identification and optimization
 - Experiment framework (ICE scoring)
 - Retention analysis with cohort tracking
 
-### 🎬 Content Remixing (from Content Remix Studio)
+###  Content Remixing (from Content Remix Studio)
 - Single source → multi-platform transformation
 - YouTube, TikTok, Instagram, LinkedIn, Twitter, Blog, Newsletter optimization
 - Platform-specific hook psychology
 - Content atomization strategies
 - Cross-promotion planning
 
-### 📈 Trend Monitoring (from Trend Watcher)
+###  Trend Monitoring (from Trend Watcher)
 - Real-time trend detection
 - Industry-specific trend analysis
 - Trend opportunity scoring
@@ -200,23 +200,23 @@ Create campaigns around trending topics:
 
 **Phase 1: Growth Audit**
 ```
-🔍 North Star Metric: Weekly Active Users (WAU)
+ North Star Metric: Weekly Active Users (WAU)
 
-📊 AARRR Analysis:
+ AARRR Analysis:
 - Acquisition: Good (CAC $50, industry avg $80)
 - Activation: PROBLEM (only 23% complete onboarding)
 - Retention: WARNING (40% churn in week 1)
 - Referral: Weak (0.8 viral coefficient)
 - Revenue: Stable (3% conversion, $99 ARPU)
 
-🎯 Priority: Fix activation first (leaky bucket)
+ Priority: Fix activation first (leaky bucket)
 ```
 
 **Phase 2: Content Strategy**
 ```
-📝 Content Pillar: "Productivity for Remote Teams"
+ Content Pillar: "Productivity for Remote Teams"
 
-🎬 Multi-Platform Distribution:
+ Multi-Platform Distribution:
 - YouTube: 15-min deep dive
 - TikTok: 5 clips (30-60 sec each)
 - LinkedIn: 3-part series
@@ -228,7 +228,7 @@ Create campaigns around trending topics:
 
 **Phase 3: Trend Integration**
 ```
-📈 Trending Topics to Leverage:
+ Trending Topics to Leverage:
 1. "Remote work burnout" - High relevance
 2. "AI productivity tools" - High opportunity
 3. "Hybrid work policies" - Growing interest
@@ -251,13 +251,13 @@ Campaign: "5 AI Tools That Actually Boost Remote Productivity"
 | YouTube | Video summary | "AI is Revolutionizing Education - Here's Proof" |
 | TikTok | 3 clips | "POV: Your teacher just used AI" |
 | LinkedIn | Article series | "3 Ways AI Changes Education Forever" |
-| Twitter | Thread | "I analyzed 100 education AI tools. Here's what I found 🧵" |
+| Twitter | Thread | "I analyzed 100 education AI tools. Here's what I found " |
 | Instagram | Carousel | "AI in Education - By the Numbers" |
 | Newsletter | Email | "The Future is Here: AI in Classrooms" |
 
 **Trend Integration:**
 ```
-📈 Current Trends to Leverage:
+ Current Trends to Leverage:
 - "AI in classrooms" - Trending up 200%
 - "ChatGPT for students" - Peak search interest
 - "EdTech investment" - News cycle opportunity
@@ -287,10 +287,10 @@ Suggested Angle: "Beyond the Hype: What Actually Works in AI Education"
 
 **Hour 0-4: Planning**
 ```
-🎯 Trend: [Industry Trend Name]
-📊 Trend Score: 8/10 (High opportunity)
-💰 Estimated Reach: 500K+ impressions
-⏰ Decay: ~72 hours until saturation
+ Trend: [Industry Trend Name]
+ Trend Score: 8/10 (High opportunity)
+ Estimated Reach: 500K+ impressions
+ Decay: ~72 hours until saturation
 ```
 
 **Hour 4-24: Creation**
@@ -307,7 +307,7 @@ Content Assets:
 
 **Hour 24-48: Distribution**
 ```
-🚀 Launch Sequence:
+ Launch Sequence:
 Hour 24: Twitter thread (fastest reach)
 Hour 26: TikTok clips (viral potential)
 Hour 28: LinkedIn article (professional)
@@ -428,7 +428,7 @@ Current: [Value] | Target: [Value] | Gap: [Diff]
 | Stage | Rate | Industry Avg | Gap |
 |-------|------|--------------|-----|
 | Acquisition | 5.2% | 4.8% | +0.4% |
-| Activation | 23% | 45% | -22% ⚠️ |
+| Activation | 23% | 45% | -22%  |
 | Retention | 60% | 65% | -5% |
 | Referral | 0.8 | 1.2 | -0.4 |
 | Revenue | 3% | 4% | -1% |
@@ -547,10 +547,10 @@ Trend Score: 8/10
 *Master Marketing: Grow smarter, content louder, trends faster.*
 
 
-## 🚀 Gelişen Uygulama Dersleri
+##  Gelişen Uygulama Dersleri
 _Son Güncelleme: 2026-02-12 09:25_
 
-### 🔄 Güncellenen Framework'ler
+###  Güncellenen Framework'ler
 
 | Framework | Güncelleme | Tarih |
 |-----------|------------|-------|

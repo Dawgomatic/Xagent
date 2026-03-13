@@ -43,7 +43,7 @@ SUDOEOF
     echo "✓ Created user: $DASHBOARD_USER with limited sudo privileges"
 else
     SERVICE_USER="root"
-    echo "⚠️  Running as root (not recommended for production)"
+    echo "  Running as root (not recommended for production)"
 fi
 
 # Create systemd service file
@@ -92,7 +92,7 @@ systemctl restart $SERVICE_NAME
 sleep 2
 if systemctl is-active --quiet $SERVICE_NAME; then
     echo ""
-    echo "✅ Security Dashboard installed and running on port 18791"
+    echo " Security Dashboard installed and running on port 18791"
     echo ""
     echo "User: $SERVICE_USER"
     echo "Security: Localhost-only binding (127.0.0.1)"
@@ -107,7 +107,7 @@ if systemctl is-active --quiet $SERVICE_NAME; then
     echo "  sudo systemctl stop $SERVICE_NAME"
 else
     echo ""
-    echo "❌ Installation failed. Check logs:"
+    echo " Installation failed. Check logs:"
     echo "  sudo journalctl -u $SERVICE_NAME -n 50"
     exit 1
 fi

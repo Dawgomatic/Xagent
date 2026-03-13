@@ -18,7 +18,7 @@ async function main() {
   const command = args[0];
 
   if (!command || command === 'help' || command === '--help') {
-    console.log('🐝 Swarm CLI');
+    console.log(' Swarm CLI');
     console.log('');
     console.log('Usage:');
     console.log('  swarm status');
@@ -54,7 +54,7 @@ async function main() {
   // Check daemon
   const ready = await client.isReady();
   if (!ready && command !== 'status') {
-    console.error('❌ Swarm Daemon is not running');
+    console.error(' Swarm Daemon is not running');
     console.error('   Start it with: swarm-daemon start');
     process.exit(1);
   }
@@ -62,11 +62,11 @@ async function main() {
   switch (command) {
     case 'status': {
       if (!ready) {
-        console.log('❌ Swarm Daemon is not running');
+        console.log(' Swarm Daemon is not running');
         console.log('   Start with: swarm-daemon start');
       } else {
         const status = await client.status();
-        console.log('🐝 Swarm Status');
+        console.log(' Swarm Status');
         console.log('─'.repeat(40));
         console.log(`   Workers:   ${status.workers?.totalNodes || 0}`);
         console.log(`   Requests:  ${status.requests}`);
@@ -75,7 +75,7 @@ async function main() {
         console.log(`   Uptime:    ${Math.round(status.uptime / 1000)}s`);
         if (status.cache && status.cache.entries > 0) {
           console.log('');
-          console.log('📦 Cache');
+          console.log(' Cache');
           console.log('─'.repeat(40));
           console.log(`   Entries:   ${status.cache.entries}/${status.cache.maxEntries}`);
           console.log(`   Hit rate:  ${status.cache.hitRate}`);
@@ -85,7 +85,7 @@ async function main() {
           const s = status.cost.session || status.cost;
           const d = status.cost.daily;
           console.log('');
-          console.log('💰 Cost (this session)');
+          console.log(' Cost (this session)');
           console.log('─'.repeat(40));
           console.log(`   Tokens:    ${s.inputTokens.toLocaleString()} in / ${s.outputTokens.toLocaleString()} out`);
           console.log(`   Swarm:     $${s.swarmCost}`);
@@ -93,7 +93,7 @@ async function main() {
           console.log(`   Saved:     $${s.saved} (${s.savingsMultiplier})`);
           if (d && parseFloat(d.swarmCost) !== parseFloat(s.swarmCost)) {
             console.log('');
-            console.log('📊 Cost (today total)');
+            console.log(' Cost (today total)');
             console.log('─'.repeat(40));
             console.log(`   Tokens:    ${d.inputTokens.toLocaleString()} in / ${d.outputTokens.toLocaleString()} out`);
             console.log(`   Swarm:     $${d.swarmCost}`);
@@ -125,9 +125,9 @@ async function main() {
         process.exit(1);
       }
 
-      console.log(`🐝 Researching ${subjects.length} subjects: ${subjects.join(', ')}`);
+      console.log(` Researching ${subjects.length} subjects: ${subjects.join(', ')}`);
       console.log(`   Topic: ${topic}`);
-      if (useContextR) console.log(`   🧠 BrainDB context: enabled`);
+      if (useContextR) console.log(`    BrainDB context: enabled`);
       console.log('');
 
       const startTime = Date.now();
@@ -135,10 +135,10 @@ async function main() {
       for await (const event of client.research(subjects, topic, { context: useContextR })) {
         switch (event.event) {
           case 'context':
-            console.log(`🧠 ${event.message}`);
+            console.log(` ${event.message}`);
             break;
           case 'start':
-            console.log(`⚡ ${event.message}`);
+            console.log(` ${event.message}`);
             break;
           case 'phase':
             console.log(`   Phase: ${event.name} (${event.taskCount} tasks)`);
@@ -158,7 +158,7 @@ async function main() {
             }
             break;
           case 'error':
-            console.error(`❌ Error: ${event.error}`);
+            console.error(` Error: ${event.error}`);
             break;
         }
       }
@@ -174,16 +174,16 @@ async function main() {
         process.exit(1);
       }
 
-      console.log(`🐝 Executing ${prompts.length} prompts in parallel`);
-      if (useContextP) console.log(`   🧠 BrainDB context: enabled`);
+      console.log(` Executing ${prompts.length} prompts in parallel`);
+      if (useContextP) console.log(`    BrainDB context: enabled`);
 
       for await (const event of client.parallel(prompts, { context: useContextP })) {
         switch (event.event) {
           case 'context':
-            console.log(`🧠 ${event.message}`);
+            console.log(` ${event.message}`);
             break;
           case 'start':
-            console.log(`⚡ ${event.message}`);
+            console.log(` ${event.message}`);
             break;
           case 'progress':
             process.stdout.write('.');
@@ -198,7 +198,7 @@ async function main() {
             });
             break;
           case 'error':
-            console.error(`❌ Error: ${event.error}`);
+            console.error(` Error: ${event.error}`);
             break;
         }
       }
@@ -209,15 +209,15 @@ async function main() {
     case 'caps': {
       const capsResp = await fetch(`http://localhost:9999/capabilities`);
       const caps = await capsResp.json();
-      console.log('🐝 Swarm Capabilities');
+      console.log(' Swarm Capabilities');
       console.log('─'.repeat(50));
       console.log(`   Provider: ${caps.provider} (${caps.model})`);
-      console.log(`   Web search: ${caps.webSearch ? '✅' : '❌'}`);
+      console.log(`   Web search: ${caps.webSearch ? '' : ''}`);
       console.log(`   Max workers: ${caps.limits.maxWorkers}`);
       console.log('');
       console.log('Execution Modes:');
       for (const [name, mode] of Object.entries(caps.modes)) {
-        console.log(`\n   📌 ${name}`);
+        console.log(`\n    ${name}`);
         console.log(`      ${mode.description}`);
         console.log(`      When: ${mode.when}`);
         if (mode.stageModes) {
@@ -252,7 +252,7 @@ async function main() {
         process.exit(1);
       }
 
-      console.log(`🐝 Running chain: ${chainDef.name || 'unnamed'}`);
+      console.log(` Running chain: ${chainDef.name || 'unnamed'}`);
       console.log(`   Stages: ${chainDef.stages?.length || 0}`);
       for (const stage of chainDef.stages || []) {
         console.log(`   → ${stage.name || '?'} (${stage.mode || 'single'}) [${stage.perspective || stage.perspectives?.join(', ') || 'default'}]`);
@@ -283,20 +283,20 @@ async function main() {
             const event = JSON.parse(line);
             switch (event.event) {
               case 'start':
-                console.log(`⚡ ${event.message}`);
+                console.log(` ${event.message}`);
                 break;
               case 'phase_start':
-                console.log(`\n📍 Stage: ${event.name} (${event.taskCount} tasks)`);
+                console.log(`\n Stage: ${event.name} (${event.taskCount} tasks)`);
                 break;
               case 'phase_complete':
-                console.log(`   ✅ ${event.name} — ${event.durationMs}ms`);
+                console.log(`    ${event.name} — ${event.durationMs}ms`);
                 break;
               case 'task':
                 process.stdout.write('.');
                 break;
               case 'complete':
                 console.log('\n');
-                console.log(`✅ Chain complete in ${event.duration}ms`);
+                console.log(` Chain complete in ${event.duration}ms`);
                 console.log(`   Tasks: ${event.stats.totalTasks} (${event.stats.successful} ok, ${event.stats.failed} failed)`);
                 if (event.cost?.session) {
                   console.log(`   Cost:  $${event.cost.session.swarmCost} (Opus eq: $${event.cost.session.opusEquivalent}, ${event.cost.session.savingsMultiplier} cheaper)`);
@@ -314,11 +314,11 @@ async function main() {
                 // Stage breakdown
                 console.log('Stage breakdown:');
                 for (const stage of event.stages) {
-                  console.log(`   ${stage.success ? '✅' : '❌'} ${stage.stage} (${stage.mode}) — ${stage.durationMs}ms — ${stage.results.length} results`);
+                  console.log(`   ${stage.success ? '' : ''} ${stage.stage} (${stage.mode}) — ${stage.durationMs}ms — ${stage.results.length} results`);
                 }
                 break;
               case 'error':
-                console.error(`❌ Error: ${event.error || JSON.stringify(event.errors)}`);
+                console.error(` Error: ${event.error || JSON.stringify(event.errors)}`);
                 break;
             }
           } catch (e) {

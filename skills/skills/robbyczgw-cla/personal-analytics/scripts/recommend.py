@@ -135,7 +135,7 @@ def print_recommendations(recommendations: list, explain: bool = False):
         print("No recommendations at this time.")
         return
     
-    print("\n💡 Topic Recommendations for Proactive Research\n")
+    print("\n Topic Recommendations for Proactive Research\n")
     print("Based on your conversation patterns:\n")
     
     for idx, rec in enumerate(recommendations, 1):
@@ -167,7 +167,7 @@ def auto_add_topics(recommendations: list) -> int:
     pr_manage_script = Path(__file__).parent.parent.parent / "proactive-research" / "scripts" / "manage_topics.py"
     
     if not pr_manage_script.exists():
-        print("❌ proactive-research skill not found", file=sys.stderr)
+        print(" proactive-research skill not found", file=sys.stderr)
         return 0
     
     added = 0
@@ -204,13 +204,13 @@ def auto_add_topics(recommendations: list) -> int:
             )
             
             if result.returncode == 0:
-                print(f"✅ Added '{topic}' to proactive-research")
+                print(f" Added '{topic}' to proactive-research")
                 added += 1
             else:
-                print(f"❌ Failed to add '{topic}': {result.stderr}", file=sys.stderr)
+                print(f" Failed to add '{topic}': {result.stderr}", file=sys.stderr)
         
         except Exception as e:
-            print(f"❌ Error adding '{topic}': {e}", file=sys.stderr)
+            print(f" Error adding '{topic}': {e}", file=sys.stderr)
     
     return added
 
@@ -229,7 +229,7 @@ def main():
     args = parser.parse_args()
     
     if not is_enabled():
-        print("⚠️ Analytics tracking is disabled", file=sys.stderr)
+        print(" Analytics tracking is disabled", file=sys.stderr)
         sys.exit(1)
     
     # Get recommendations
@@ -246,7 +246,7 @@ def main():
     if args.auto_add and recommendations:
         print("\n" + "="*60)
         added = auto_add_topics(recommendations)
-        print(f"\n✅ Added {added} topic(s) to proactive-research")
+        print(f"\n Added {added} topic(s) to proactive-research")
 
 
 if __name__ == "__main__":

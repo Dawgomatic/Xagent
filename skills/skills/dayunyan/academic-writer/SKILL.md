@@ -12,7 +12,7 @@ env:
 
 A comprehensive agent skill for orchestrating academic paper writing in a WSL2/Linux environment. It manages the lifecycle from template analysis to PDF compilation.
 
-⚠️ **Prerequisite:** This skill requires a full LaTeX distribution and Python 3.
+ **Prerequisite:** This skill requires a full LaTeX distribution and Python 3.
 
 ## Installation & Setup
 

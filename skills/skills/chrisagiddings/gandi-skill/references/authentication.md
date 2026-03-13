@@ -45,7 +45,7 @@ See [Organization API documentation](https://api.gandi.net/docs/organization/) f
 
 ## API Key (Deprecated)
 
-⚠️ **API Keys are deprecated and should not be used for new integrations.**
+ **API Keys are deprecated and should not be used for new integrations.**
 
 **Limitations compared to PATs:**
 - Cannot be scoped

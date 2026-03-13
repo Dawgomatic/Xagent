@@ -6,7 +6,7 @@
 ┌─────────────────────────────────┐
 │         [Close Button]     X    │
 │                                 │
-│          🎯 HEADLINE           │
+│           HEADLINE           │
 │     Value proposition           │
 │                                 │
 │    ┌─────────────────────┐     │
@@ -20,7 +20,7 @@
 │    │  $4.99/month        │     │
 │    └─────────────────────┘     │
 │    ┌─────────────────────┐     │
-│    │  $29.99/year ✨     │ ← Best value
+│    │  $29.99/year      │ ← Best value
 │    │  SAVE 50%           │     │
 │    └─────────────────────┘     │
 │                                 │
@@ -45,17 +45,17 @@ Why it works: Weekly makes monthly seem reasonable. Annual shows commitment.
 
 ### 2. Trial First, Price Second
 ```
-✅ "Start your 7-day free trial"
+ "Start your 7-day free trial"
    After trial: $4.99/month
 
-❌ "$4.99/month with 7-day free trial"
+ "$4.99/month with 7-day free trial"
 ```
 
 Lead with free. Price is secondary.
 
 ### 3. Social Proof
 ```
-⭐⭐⭐⭐⭐ "Life-changing app!" - @user
+ "Life-changing app!" - @user
 "Used by 500,000+ people"
 "Featured in App Store"
 ```
@@ -77,7 +77,7 @@ Works after user has invested time.
 "Limited time offer"
 ```
 
-⚠️ Don't fake scarcity. Apple/Google can reject.
+ Don't fake scarcity. Apple/Google can reject.
 
 ## Layout Patterns
 
@@ -112,33 +112,33 @@ Free tier with paid upgrades:
 
 ### Headlines
 ```
-✅ "Unlock your full potential"     ← Aspirational
-✅ "Never lose a workout again"     ← Problem-solving
-✅ "Join 1M+ members"               ← Social proof
+ "Unlock your full potential"     ← Aspirational
+ "Never lose a workout again"     ← Problem-solving
+ "Join 1M+ members"               ← Social proof
 
-❌ "Subscribe to Premium"           ← Boring
-❌ "Pay for more features"          ← Transactional
+ "Subscribe to Premium"           ← Boring
+ "Pay for more features"          ← Transactional
 ```
 
 ### Feature Lists
 Benefits over features:
 ```
-✅ "Save 10 hours per week"         ← Outcome
-❌ "Unlimited exports"              ← Feature
+ "Save 10 hours per week"         ← Outcome
+ "Unlimited exports"              ← Feature
 
-✅ "Access anywhere, anytime"       ← Freedom
-❌ "Cloud sync enabled"             ← Technical
+ "Access anywhere, anytime"       ← Freedom
+ "Cloud sync enabled"             ← Technical
 ```
 
 ### CTA Buttons
 ```
-✅ "Start Free Trial"
-✅ "Try Premium Free"
-✅ "Continue" (if trial is default)
+ "Start Free Trial"
+ "Try Premium Free"
+ "Continue" (if trial is default)
 
-❌ "Subscribe"
-❌ "Buy Now"
-❌ "Pay $4.99"
+ "Subscribe"
+ "Buy Now"
+ "Pay $4.99"
 ```
 
 ## A/B Testing

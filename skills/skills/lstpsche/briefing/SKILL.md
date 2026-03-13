@@ -1,7 +1,7 @@
 ---
 name: briefing
 description: "Daily briefing: gathers calendar (gcalcli-calendar), active todos (todo-management), and weather (openmeteo-sh-weather-simple) into a concise summary."
-metadata: {"openclaw":{"emoji":"📋"}}
+metadata: {"openclaw":{"emoji":""}}
 user-invocable: true
 ---
 
@@ -73,19 +73,19 @@ Follow this format exactly in the user's language:
 ```
 Briefing 14.02 (Sat, 8:12)
 
-**🌤 Weather (London, UK)**
+** Weather (London, UK)**
 +2°C, cloudy, wind 11 km/h. Daytime to -3°C, light rain.
 
-**📅 Calendar**
+** Calendar**
 09:00 — Standup
 14:00 — Sprint review
 18:30 — Driving school
 
-**🔜 Upcoming**
+** Upcoming**
 • 15.02: Free day.
 • 16.02: Daily standup 12:00, Driving school 18:30.
 
-**✅ Todos**
+** Todos**
 • [work] Debug feature X.
 • [personal] Book a doctor's appointment.
 ```

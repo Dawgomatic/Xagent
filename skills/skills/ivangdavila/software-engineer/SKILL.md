@@ -4,7 +4,7 @@ slug: software-engineer
 version: 1.0.0
 homepage: https://clawic.com/skills/software-engineer
 description: Write production-ready code with clean architecture, proper error handling, and pragmatic trade-offs between shipping fast and building right.
-metadata: {"clawdbot":{"emoji":"👨‍💻","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use
@@ -39,9 +39,9 @@ Every code block must:
 
 ### 4. Errors as First-Class Citizens
 ```
-❌ catch (e) {}
-❌ catch (e) { console.log(e) }
-✅ catch (e) { logger.error('context', { error: e, input }); throw new DomainError(...) }
+ catch (e) {}
+ catch (e) { console.log(e) }
+ catch (e) { logger.error('context', { error: e, input }); throw new DomainError(...) }
 ```
 - Typed errors over generic strings
 - Include context: what operation failed, with what input

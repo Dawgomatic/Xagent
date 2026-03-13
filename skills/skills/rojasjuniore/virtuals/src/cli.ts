@@ -117,7 +117,7 @@ program
   .command('price')
   .description('Get $VIRTUAL token price and market data')
   .action(async () => {
-    console.log('💰 Fetching $VIRTUAL price...\n');
+    console.log(' Fetching $VIRTUAL price...\n');
     
     try {
       const data = await getVirtualPrice();
@@ -133,7 +133,7 @@ program
       console.log(`\n  Contract: ${CONTRACTS.VIRTUAL_TOKEN}`);
       console.log('  Chain: Base (L2)');
     } catch (e: any) {
-      console.error('❌ Error:', e.message);
+      console.error(' Error:', e.message);
     }
   });
 
@@ -145,7 +145,7 @@ agents
   .description('List top AI agents')
   .option('--top <n>', 'Number of agents to show', '10')
   .action(async (options) => {
-    console.log('🤖 Top AI Agents on Virtuals\n');
+    console.log(' Top AI Agents on Virtuals\n');
     
     try {
       const agentList = await getTopAgents();
@@ -162,9 +162,9 @@ agents
       });
       
       console.log('═══════════════════════════════════════════════════');
-      console.log('\n  📍 View all: https://app.virtuals.io');
+      console.log('\n   View all: https://app.virtuals.io');
     } catch (e: any) {
-      console.error('❌ Error:', e.message);
+      console.error(' Error:', e.message);
     }
   });
 
@@ -172,14 +172,14 @@ agents
   .command('info <name>')
   .description('Get agent details')
   .action(async (name) => {
-    console.log(`🔍 Looking up agent: ${name}\n`);
+    console.log(` Looking up agent: ${name}\n`);
     
     // For now, show placeholder info
     console.log('═══════════════════════════════════════');
     console.log(`  Agent: ${name}`);
     console.log('═══════════════════════════════════════');
-    console.log('  ℹ️  Full agent info requires Virtuals API access');
-    console.log(`  📍 View on app: https://app.virtuals.io/agents/${name}`);
+    console.log('    Full agent info requires Virtuals API access');
+    console.log(`   View on app: https://app.virtuals.io/agents/${name}`);
     console.log('');
   });
 
@@ -188,7 +188,7 @@ program
   .command('balance <address>')
   .description('Check $VIRTUAL balance')
   .action(async (address) => {
-    console.log(`💳 Checking balance for ${address.slice(0, 10)}...`);
+    console.log(` Checking balance for ${address.slice(0, 10)}...`);
     
     try {
       const provider = getProvider();
@@ -208,7 +208,7 @@ program
       console.log(`  Value:   $${usdValue.toFixed(2)} USD`);
       console.log('═══════════════════════════════════════');
     } catch (e: any) {
-      console.error('❌ Error:', e.message);
+      console.error(' Error:', e.message);
     }
   });
 
@@ -221,11 +221,11 @@ program
   .requiredOption('--description <desc>', 'Agent description')
   .option('--image <url>', 'Profile image URL')
   .action(async (options) => {
-    console.log('🚀 Creating Agent on Virtuals\n');
+    console.log(' Creating Agent on Virtuals\n');
     
     const config = loadConfig();
     if (!config.privateKey) {
-      console.log('❌ No wallet configured. Run:');
+      console.log(' No wallet configured. Run:');
       console.log('   virtuals config --wallet <address> --private-key <key>');
       return;
     }
@@ -236,11 +236,11 @@ program
     console.log(`  Description: ${options.description}`);
     console.log('');
     
-    console.log('⚠️  Creating agents requires:');
+    console.log('  Creating agents requires:');
     console.log('   • 1,000 $VIRTUAL (~$590)');
     console.log('   • ETH for gas on Base');
     console.log('');
-    console.log('📍 For now, create agents at: https://fun.virtuals.io');
+    console.log(' For now, create agents at: https://fun.virtuals.io');
     console.log('   (Smart contract integration coming soon)');
   });
 
@@ -254,7 +254,7 @@ program
   .action(async (options) => {
     if (options.show) {
       const config = loadConfig();
-      console.log('\n⚙️  Virtuals Configuration');
+      console.log('\n  Virtuals Configuration');
       console.log('═══════════════════════════════════════');
       console.log(`  Wallet: ${config.wallet || 'Not set'}`);
       console.log(`  Key:    ${config.privateKey ? '••••••••' : 'Not set'}`);
@@ -272,7 +272,7 @@ program
     }
     
     saveConfig(config);
-    console.log('✅ Configuration saved');
+    console.log(' Configuration saved');
   });
 
 // Info command

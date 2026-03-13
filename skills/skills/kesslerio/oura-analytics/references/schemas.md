@@ -37,8 +37,8 @@ days_tracked: 7
 
 **Alert format:**
 ```
-⚠️  Low sleep: 5.8h avg
-⚠️  Low readiness: 65
+  Low sleep: 5.8h avg
+  Low readiness: 65
 ```
 
 **Schema:**
@@ -79,7 +79,7 @@ days_tracked: 7
 
 **Brief format:**
 ```
-📊 Weekly (2026-01-14 to 2026-01-21)
+ Weekly (2026-01-14 to 2026-01-21)
 Sleep: 7.2h avg, 85.3 score
 Readiness: 78.0
 Efficiency: 88.5%

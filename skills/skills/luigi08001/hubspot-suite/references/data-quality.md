@@ -273,11 +273,11 @@ calculate_data_quality_score() {
     echo "Data Quality Score: $score/$max_score ($percentage%)"
     
     if [ $percentage -ge 80 ]; then
-        echo "Status: ✅ High Quality"
+        echo "Status:  High Quality"
     elif [ $percentage -ge 60 ]; then
-        echo "Status: ⚠️  Medium Quality" 
+        echo "Status:   Medium Quality" 
     else
-        echo "Status: ❌ Low Quality"
+        echo "Status:  Low Quality"
     fi
 }
 ```

@@ -49,7 +49,7 @@ SYSTEM_PROMPT = """Tu es JurisFR, un assistant juridique spécialisé en droit f
 - En cas de doute, pose une question de clarification.
 
 ## Disclaimer (obligatoire en fin de réponse)
-> ⚖️ *Information juridique à caractère général. Ne constitue pas un conseil juridique personnalisé. Pour une situation spécifique, consultez un professionnel du droit.*
+>  *Information juridique à caractère général. Ne constitue pas un conseil juridique personnalisé. Pour une situation spécifique, consultez un professionnel du droit.*
 """
 
 

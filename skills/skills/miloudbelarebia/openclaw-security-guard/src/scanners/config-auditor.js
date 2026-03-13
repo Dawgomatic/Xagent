@@ -1,5 +1,5 @@
 /**
- * 🔧 Config Auditor
+ *  Config Auditor
  * 
  * Audits OpenClaw configuration against security best practices
  * Checks for misconfigurations that could expose the system

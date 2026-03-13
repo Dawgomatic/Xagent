@@ -5,7 +5,7 @@ description: "Partnership outreach, market research, competitor analysis, and pr
 author: openclaw
 ---
 
-# Business Development Skill 🤝
+# Business Development Skill 
 
 **Turn your AI agent into a strategic growth partner.**
 
@@ -15,12 +15,12 @@ Research markets, identify partnerships, analyze competitors, and generate compe
 
 ## What This Skill Does
 
-✅ **Partnership Outreach** — Identify, research, and approach potential partners
-✅ **Market Research** — Analyze market size, trends, and opportunities
-✅ **Competitor Analysis** — Track competitors and identify advantages
-✅ **Proposal Generation** — Create compelling partnership and business proposals
-✅ **Opportunity Tracking** — Manage BD pipeline from lead to deal
-✅ **Strategic Planning** — Support business expansion decisions
+ **Partnership Outreach** — Identify, research, and approach potential partners
+ **Market Research** — Analyze market size, trends, and opportunities
+ **Competitor Analysis** — Track competitors and identify advantages
+ **Proposal Generation** — Create compelling partnership and business proposals
+ **Opportunity Tracking** — Manage BD pipeline from lead to deal
+ **Strategic Planning** — Support business expansion decisions
 
 ---
 
@@ -375,9 +375,9 @@ Still think there's something interesting here if you're open to exploring.
 
 | Feature | Us | Comp A | Comp B | Comp C |
 |---------|-----|--------|--------|--------|
-| [Feature 1] | ✅ | ✅ | ❌ | ✅ |
-| [Feature 2] | ✅ | ❌ | ✅ | ❌ |
-| [Feature 3] | ✅ | ✅ | ✅ | ❌ |
+| [Feature 1] |  |  |  |  |
+| [Feature 2] |  |  |  |  |
+| [Feature 3] |  |  |  |  |
 
 ## Summary
 - **Our primary competition:** [Company]
@@ -665,12 +665,12 @@ Generate BD pipeline reports.
 
 ## Common Mistakes
 
-❌ **Pitching too early** — Understand their needs first
-❌ **Overselling** — Under-promise, over-deliver
-❌ **Ignoring internal champions** — Find and nurture them
-❌ **No mutual accountability** — Both sides need commitments
-❌ **Slow follow-up** — Momentum matters
-❌ **Vague proposals** — Specific asks get specific answers
+ **Pitching too early** — Understand their needs first
+ **Overselling** — Under-promise, over-deliver
+ **Ignoring internal champions** — Find and nurture them
+ **No mutual accountability** — Both sides need commitments
+ **Slow follow-up** — Momentum matters
+ **Vague proposals** — Specific asks get specific answers
 
 ---
 

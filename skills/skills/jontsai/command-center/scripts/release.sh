@@ -67,14 +67,14 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ -z "$VERSION" ]]; then
-    echo "❌ Version required"
+    echo " Version required"
     show_help
     exit 1
 fi
 
 # Validate semver (basic check)
 if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9.]+)?$ ]]; then
-    echo "❌ Invalid semver: $VERSION"
+    echo " Invalid semver: $VERSION"
     echo "   Expected format: X.Y.Z or X.Y.Z-prerelease"
     exit 1
 fi
@@ -82,18 +82,18 @@ fi
 TAG="v$VERSION"
 CURRENT=$(get_current_version)
 
-echo "📦 Release: $CURRENT → $VERSION"
+echo " Release: $CURRENT → $VERSION"
 echo ""
 
 # Check for uncommitted changes
 if ! git diff --quiet || ! git diff --cached --quiet; then
-    echo "❌ Uncommitted changes detected. Commit or stash first."
+    echo " Uncommitted changes detected. Commit or stash first."
     exit 1
 fi
 
 # Check if tag already exists
 if git rev-parse "$TAG" >/dev/null 2>&1; then
-    echo "❌ Tag $TAG already exists"
+    echo " Tag $TAG already exists"
     exit 1
 fi
 
@@ -114,21 +114,21 @@ git add package.json package-lock.json SKILL.md 2>/dev/null || true
 git commit -m "chore: release v$VERSION" --allow-empty
 
 # Create annotated tag
-echo "🏷️  Creating tag $TAG..."
+echo "  Creating tag $TAG..."
 git tag -a "$TAG" -m "Release $VERSION"
 
 # Push commit and tag
-echo "⬆️  Pushing to origin..."
+echo "  Pushing to origin..."
 git push origin main
 git push origin "$TAG"
 
 echo ""
-echo "✅ Tagged $TAG"
+echo " Tagged $TAG"
 
 # Publish to ClawHub unless --tag-only
 if [[ "$TAG_ONLY" == "false" ]]; then
     echo ""
-    echo "📤 Publishing to ClawHub..."
+    echo " Publishing to ClawHub..."
     
     # Get changelog from CHANGELOG.md if available
     CHANGELOG=""
@@ -143,15 +143,15 @@ if [[ "$TAG_ONLY" == "false" ]]; then
             clawhub publish . --version "$VERSION" --changelog "Release v$VERSION"
         fi
         echo ""
-        echo "✅ Published to ClawHub: $VERSION"
+        echo " Published to ClawHub: $VERSION"
     else
-        echo "⚠️  clawhub CLI not found. Skipping ClawHub publish."
+        echo "  clawhub CLI not found. Skipping ClawHub publish."
         echo "   Install: npm install -g clawhub"
     fi
 fi
 
 echo ""
-echo "🎉 Release $VERSION complete!"
+echo " Release $VERSION complete!"
 echo ""
 echo "   Git tag: $TAG"
 echo "   GitHub:  https://github.com/jontsai/openclaw-command-center/releases/tag/$TAG"

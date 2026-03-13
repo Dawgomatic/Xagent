@@ -2,7 +2,7 @@
 name: whisnap
 description: macOS CLI for transcribing audio and video files using local Whisper models or Whisnap Cloud.
 homepage: https://whisnap.com
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"bins":["whisnap"]},"install":[{"id":"app","kind":"manual","label":"Install via Whisnap app Settings → Advanced → Enable CLI"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["whisnap"]},"install":[{"id":"app","kind":"manual","label":"Install via Whisnap app Settings → Advanced → Enable CLI"}]}}
 ---
 
 # whisnap

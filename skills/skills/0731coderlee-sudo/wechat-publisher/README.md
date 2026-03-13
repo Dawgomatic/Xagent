@@ -1,23 +1,23 @@
 # wechat-publisher
 
-**一键发布 Markdown 到微信公众号草稿箱 🚀**
+**一键发布 Markdown 到微信公众号草稿箱 **
 
 基于 [wenyan-cli](https://github.com/caol64/wenyan-cli) 封装的 OpenClaw skill。
 
 ---
 
-## ✨ 功能特性
+##  功能特性
 
-- 🚀 **一键发布** - Markdown 自动转换并推送到草稿箱
-- 🎨 **多主题支持** - lapis、phycat、default 等精美主题
-- 💻 **代码高亮** - 9 种代码高亮主题，Mac 风格代码块
-- 🖼️ **图片自动处理** - 本地/网络图片自动上传到微信图床
-- 🔒 **安全设计** - 凭证从 TOOLS.md 读取，不会泄露
-- 📚 **完整文档** - 详细的使用说明和故障排查指南
+-  **一键发布** - Markdown 自动转换并推送到草稿箱
+-  **多主题支持** - lapis、phycat、default 等精美主题
+-  **代码高亮** - 9 种代码高亮主题，Mac 风格代码块
+-  **图片自动处理** - 本地/网络图片自动上传到微信图床
+-  **安全设计** - 凭证从 TOOLS.md 读取，不会泄露
+-  **完整文档** - 详细的使用说明和故障排查指南
 
 ---
 
-## 🚀 快速开始
+##  快速开始
 
 ### 1. 安装 wenyan-cli
 
@@ -37,7 +37,7 @@ cd wechat-publisher
 在 OpenClaw workspace 的 `TOOLS.md` 中添加：
 
 ```markdown
-## 🔐 WeChat Official Account (微信公众号)
+##  WeChat Official Account (微信公众号)
 
 **API Credentials:**
 \`\`\`bash
@@ -67,7 +67,7 @@ export WECHAT_APP_SECRET=your_wechat_app_secret
 
 ---
 
-## 📝 使用方法
+##  使用方法
 
 ### Markdown 格式要求
 
@@ -105,7 +105,7 @@ cover: ./assets/cover.jpg  # 封面图（必填！推荐 1080×864）
 
 ---
 
-## 🎨 主题预览
+##  主题预览
 
 | 主题 | 风格 | 适合场景 |
 |------|------|----------|
@@ -119,7 +119,7 @@ cover: ./assets/cover.jpg  # 封面图（必填！推荐 1080×864）
 
 ---
 
-## 🛠️ 故障排查
+##  故障排查
 
 ### 常见问题
 
@@ -143,7 +143,7 @@ cover: ./assets/cover.jpg  # 封面图（必填！推荐 1080×864）
 
 ---
 
-## 📂 项目结构
+##  项目结构
 
 ```
 wechat-publisher/
@@ -163,7 +163,7 @@ wechat-publisher/
 
 ---
 
-## 🔧 高级用法
+##  高级用法
 
 ### 自定义主题
 
@@ -192,7 +192,7 @@ wenyan publish -f article.md
 
 ---
 
-## 🤝 贡献
+##  贡献
 
 欢迎提交 Issue 和 Pull Request！
 
@@ -206,24 +206,24 @@ wenyan publish -f article.md
 
 ---
 
-## 📄 许可证
+##  许可证
 
 MIT License - 详见 [LICENSE](LICENSE) 文件
 
 ---
 
-## 🙏 致谢
+##  致谢
 
 - [wenyan-cli](https://github.com/caol64/wenyan-cli) - 优秀的微信公众号发布工具
 - [OpenClaw](https://openclaw.ai) - 强大的 AI Agent 框架
 
 ---
 
-## 📮 联系方式
+##  联系方式
 
 - **GitHub**: [@0731coderlee-sudo](https://github.com/0731coderlee-sudo)
 - **Issues**: [提交问题](https://github.com/0731coderlee-sudo/wechat-publisher/issues)
 
 ---
 
-**如果这个 skill 对你有帮助，请给个 ⭐️ Star！**
+**如果这个 skill 对你有帮助，请给个  Star！**

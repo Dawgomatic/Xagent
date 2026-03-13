@@ -2,16 +2,16 @@
 name: AIsaFinancialData
 description: "Query real-time and historical financial data across equities and crypto—prices, market moves, metrics, and trends for analysis, alerts, and reporting."
 homepage: https://openclaw.ai
-metadata: {"openclaw":{"emoji":"📊","requires":{"bins":["curl","python3"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","python3"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
 ---
 
-# OpenClaw Market 📊
+# OpenClaw Market 
 
 **Complete market data for autonomous agents. Powered by AIsa.**
 
 One API key. Stocks + Crypto + Financials. Everything you need.
 
-## 🔥 What Can You Do?
+##  What Can You Do?
 
 ### Cross-Asset Portfolio
 ```
@@ -51,7 +51,7 @@ export AISA_API_KEY="your-key"
 
 ---
 
-## 🏦 Traditional Finance
+##  Traditional Finance
 
 ### Stock Prices
 

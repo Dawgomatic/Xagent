@@ -79,9 +79,9 @@ async function main() {
       zillowListings = applyFilters(zillowListings, argv);
       process.stderr.write(`Found ${zillowListings.length} Zillow listings\n`);
     } catch (err) {
-      console.log(`❌ Could not fetch Zillow data: ${err.message}`);
+      console.log(` Could not fetch Zillow data: ${err.message}`);
       console.log('');
-      console.log('💡 Try running with --demo to test the tool first:');
+      console.log(' Try running with --demo to test the tool first:');
       console.log('   node scripts/search.js --demo');
       process.exit(1);
     }
@@ -91,9 +91,9 @@ async function main() {
       airbnbListings = await fetchAirbnbListings(location);
       process.stderr.write(`Found ${airbnbListings.length} Airbnb listings\n`);
     } catch (err) {
-      console.log(`❌ Could not fetch Airbnb data: ${err.message}`);
+      console.log(` Could not fetch Airbnb data: ${err.message}`);
       console.log('');
-      console.log('💡 Try running with --demo to test the tool first:');
+      console.log(' Try running with --demo to test the tool first:');
       console.log('   node scripts/search.js --demo');
       process.exit(1);
     }
@@ -125,11 +125,11 @@ function printChatReport(results, location, isDemo) {
   const dateStr = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
   // Header
-  console.log(`🏠 Property Match Report — ${location}`);
+  console.log(` Property Match Report — ${location}`);
   if (isDemo) {
-    console.log(`⚠️ DEMO MODE — showing Austin TX sample data`);
+    console.log(` DEMO MODE — showing Austin TX sample data`);
   }
-  console.log(`📅 ${dateStr}`);
+  console.log(` ${dateStr}`);
   console.log('');
 
   // Summary line
@@ -137,15 +137,15 @@ function printChatReport(results, location, isDemo) {
   const gradeACount = matches.filter(m => m.metrics.investmentGrade.grade === 'A').length;
 
   if (matches.length === 0) {
-    console.log(`❌ No matches found out of ${summary.total_zillow} listings`);
+    console.log(` No matches found out of ${summary.total_zillow} listings`);
     console.log('');
     console.log('Try a different ZIP or city with more STR activity.');
     console.log('Popular STR markets: 78704 (Austin), 33139 (Miami Beach), 37203 (Nashville)');
     return;
   }
 
-  console.log(`✅ Found ${matches.length} match${matches.length !== 1 ? 'es' : ''} out of ${summary.total_zillow} listings`);
-  console.log(`💰 ${positiveCount} positive cash flow | ⭐ ${gradeACount} Grade A`);
+  console.log(` Found ${matches.length} match${matches.length !== 1 ? 'es' : ''} out of ${summary.total_zillow} listings`);
+  console.log(` ${positiveCount} positive cash flow |  ${gradeACount} Grade A`);
   console.log('');
   console.log('-------------------------');
   console.log('');
@@ -173,9 +173,9 @@ function printPropertyCard(match, num) {
   const grade = metrics.investmentGrade;
 
   // Grade label
-  const gradeEmoji = grade.grade === 'A' ? '🟢' :
-                     grade.grade === 'B' ? '🟡' :
-                     grade.grade === 'C' ? '🟠' : '🔴';
+  const gradeEmoji = grade.grade === 'A' ? '' :
+                     grade.grade === 'B' ? '' :
+                     grade.grade === 'C' ? '' : '';
 
   const gradeLabel = grade.grade === 'A' ? 'EXCELLENT' :
                      grade.grade === 'B' ? 'GOOD' :
@@ -197,38 +197,38 @@ function printPropertyCard(match, num) {
   const occupancy = airbnb.occupancy_rate ? (airbnb.occupancy_rate * 100).toFixed(0) : '~70 (est)';
 
   console.log(`${gradeEmoji} #${num} ${gradeLabel} — ${address}`);
-  console.log(`📍 ${cityState} ${zillow.zip} | ${zillow.propertyType}`);
+  console.log(` ${cityState} ${zillow.zip} | ${zillow.propertyType}`);
   const priceDisplay = typeof zillow.price === 'number' ? `$${zillow.price.toLocaleString()}` : (zillow.price || 'N/A');
-  console.log(`💰 ${priceDisplay} | ${zillow.beds || '?'}bd/${zillow.baths || '?'}ba | ${zillow.sqft?.toLocaleString() || '?'} sqft`);
-  console.log(`📅 ${zillow.daysOnMarket} days on market | Built ${zillow.yearBuilt || 'N/A'}`);
+  console.log(` ${priceDisplay} | ${zillow.beds || '?'}bd/${zillow.baths || '?'}ba | ${zillow.sqft?.toLocaleString() || '?'} sqft`);
+  console.log(` ${zillow.daysOnMarket} days on market | Built ${zillow.yearBuilt || 'N/A'}`);
   console.log('');
-  const ratingDisplay = airbnb.avg_rating ? `⭐ ${airbnb.avg_rating}` : '⭐ N/A';
-  console.log(`🌙 Airbnb: $${(airbnb.monthly_revenue_avg || 0).toLocaleString()}/mo avg | ${ratingDisplay} (${airbnb.total_reviews || 0} reviews)`);
-  console.log(`📊 Occupancy: ${occupancy}% | ${airbnb.host_status || 'Regular'} | ${airbnb.active_months || '?'} months of history`);
-  console.log(`📆 Peak season: ${airbnb.peak_season || 'Year-round'}`);
+  const ratingDisplay = airbnb.avg_rating ? ` ${airbnb.avg_rating}` : ' N/A';
+  console.log(` Airbnb: $${(airbnb.monthly_revenue_avg || 0).toLocaleString()}/mo avg | ${ratingDisplay} (${airbnb.total_reviews || 0} reviews)`);
+  console.log(` Occupancy: ${occupancy}% | ${airbnb.host_status || 'Regular'} | ${airbnb.active_months || '?'} months of history`);
+  console.log(` Peak season: ${airbnb.peak_season || 'Year-round'}`);
   console.log('');
   if (hasMetrics) {
-    console.log(`📈 Cap Rate: ${metrics.capRate}% | CoC: ${metrics.cashOnCash}% | GRM: ${metrics.grm}x`);
-    console.log(`💵 Cash Flow: ${cfLabel} | Annual: ${annualSign}$${Math.abs(metrics.annualCashFlow).toLocaleString()}/yr`);
-    console.log(`🏦 Mortgage: $${metrics.monthlyMortgage.toLocaleString()}/mo | Down: $${metrics.downPayment.toLocaleString()}`);
-    console.log(`🎯 Break-even occupancy: ${metrics.breakEvenOccupancy} (currently at ${occupancy}%)`);
+    console.log(` Cap Rate: ${metrics.capRate}% | CoC: ${metrics.cashOnCash}% | GRM: ${metrics.grm}x`);
+    console.log(` Cash Flow: ${cfLabel} | Annual: ${annualSign}$${Math.abs(metrics.annualCashFlow).toLocaleString()}/yr`);
+    console.log(` Mortgage: $${metrics.monthlyMortgage.toLocaleString()}/mo | Down: $${metrics.downPayment.toLocaleString()}`);
+    console.log(` Break-even occupancy: ${metrics.breakEvenOccupancy} (currently at ${occupancy}%)`);
   } else if (airbnb.nightly_rate) {
-    console.log(`💵 Est. nightly rate: $${airbnb.nightly_rate}/night | ~$${airbnb.monthly_revenue_avg?.toLocaleString() || '?'}/mo (at 70% occ)`);
+    console.log(` Est. nightly rate: $${airbnb.nightly_rate}/night | ~$${airbnb.monthly_revenue_avg?.toLocaleString() || '?'}/mo (at 70% occ)`);
   } else {
-    console.log(`💵 Revenue data unavailable — check Airbnb listing for pricing`);
+    console.log(` Revenue data unavailable — check Airbnb listing for pricing`);
   }
 
   // Low/high monthly range if available
   if (airbnb.lowest_month_revenue && airbnb.highest_month_revenue) {
-    console.log(`📉 Revenue range: $${airbnb.lowest_month_revenue.toLocaleString()} (slow) → $${airbnb.highest_month_revenue.toLocaleString()} (peak)`);
+    console.log(` Revenue range: $${airbnb.lowest_month_revenue.toLocaleString()} (slow) → $${airbnb.highest_month_revenue.toLocaleString()} (peak)`);
   }
 
   // Links
   if (zillow.listingUrl && !zillow.listingUrl.includes('undefined')) {
-    console.log(`🔗 Zillow: ${zillow.listingUrl}`);
+    console.log(` Zillow: ${zillow.listingUrl}`);
   }
   if (airbnb.airbnbUrl && !airbnb.airbnbUrl.includes('undefined')) {
-    console.log(`🔗 Airbnb: ${airbnb.airbnbUrl}`);
+    console.log(` Airbnb: ${airbnb.airbnbUrl}`);
   }
 
   console.log('');
@@ -240,10 +240,10 @@ function printSummaryFooter(sorted, summary, unmatchedCount) {
   const positiveCount = sorted.filter(m => m.metrics.isPositiveCashFlow).length;
   const gradeACount = sorted.filter(m => m.metrics.investmentGrade.grade === 'A').length;
 
-  console.log(`📋 Summary: ${positiveCount} positive cash flow, ${gradeACount} Grade A`);
+  console.log(` Summary: ${positiveCount} positive cash flow, ${gradeACount} Grade A`);
 
   if (unmatchedCount > 0) {
-    console.log(`ℹ️ ${unmatchedCount} listing${unmatchedCount !== 1 ? 's' : ''} on Zillow with no active Airbnb match`);
+    console.log(` ${unmatchedCount} listing${unmatchedCount !== 1 ? 's' : ''} on Zillow with no active Airbnb match`);
   }
 
   // Pick best bet by: highest CoC among positive cash flow, or highest CoC overall
@@ -258,12 +258,12 @@ function printSummaryFooter(sorted, summary, unmatchedCount) {
     const occ = best.airbnb.occupancy_rate ? `${(best.airbnb.occupancy_rate * 100).toFixed(0)}%` : '~70% (est)';
     const coc = best.metrics?.cashOnCash && !isNaN(best.metrics.cashOnCash) ? `${best.metrics.cashOnCash}%` : 'N/A';
     console.log('');
-    console.log(`🏆 Best bet: ${shortAddr} — $${annualRevK}K/yr revenue`);
+    console.log(` Best bet: ${shortAddr} — $${annualRevK}K/yr revenue`);
     console.log(`   ${best.airbnb.total_reviews || '?'} reviews | ${occ} occupancy | ${coc} CoC`);
   }
 
   console.log('');
-  console.log('📌 Next steps:');
+  console.log(' Next steps:');
   console.log('   1. Check STR permits in this ZIP (google "short term rental rules [city]")');
   console.log('   2. Verify Airbnb revenue with host directly (message through listing)');
   console.log('   3. Run sensitivity: what if occupancy drops to 65%?');
@@ -274,28 +274,28 @@ function printSummaryFooter(sorted, summary, unmatchedCount) {
 
 function printCommercialReport() {
   console.log('');
-  console.log('🏢 Commercial Properties (Crexi / LoopNet)');
-  console.log('⚠️ DEMO MODE — Sample commercial listings');
+  console.log(' Commercial Properties (Crexi / LoopNet)');
+  console.log(' DEMO MODE — Sample commercial listings');
   console.log('');
   console.log('-------------------------');
   console.log('');
 
   DEMO_COMMERCIAL_ZILLOW.forEach((prop, idx) => {
-    console.log(`🏢 #${idx + 1} — ${prop.address}`);
-    console.log(`📍 ${prop.city}, ${prop.state} ${prop.zip}`);
-    console.log(`🏗️ ${prop.propertyType} | ${prop.sqft?.toLocaleString()} sqft | Built ${prop.yearBuilt}`);
-    console.log(`💰 $${prop.price.toLocaleString()}`);
-    if (prop.capRate) console.log(`📈 Cap Rate: ${prop.capRate}% (seller-stated)`);
-    if (prop.units) console.log(`🏠 ${prop.units} potential STR units`);
-    console.log(`🗂️ Zoning: ${prop.zoning} | Source: ${prop.source}`);
-    console.log(`📅 ${prop.daysOnMarket} days on market`);
-    console.log(`🔗 ${prop.listingUrl}`);
+    console.log(` #${idx + 1} — ${prop.address}`);
+    console.log(` ${prop.city}, ${prop.state} ${prop.zip}`);
+    console.log(` ${prop.propertyType} | ${prop.sqft?.toLocaleString()} sqft | Built ${prop.yearBuilt}`);
+    console.log(` $${prop.price.toLocaleString()}`);
+    if (prop.capRate) console.log(` Cap Rate: ${prop.capRate}% (seller-stated)`);
+    if (prop.units) console.log(` ${prop.units} potential STR units`);
+    console.log(` Zoning: ${prop.zoning} | Source: ${prop.source}`);
+    console.log(` ${prop.daysOnMarket} days on market`);
+    console.log(` ${prop.listingUrl}`);
     console.log('');
     console.log('-------------------------');
     console.log('');
   });
 
-  console.log('💡 Commercial STR Tips:');
+  console.log(' Commercial STR Tips:');
   console.log('   Multi-family (5+ units): Check unit-level Airbnb activity');
   console.log('   Mixed-use: Great for STR arbitrage (rent unit, sublet as Airbnb)');
   console.log('   Best data source: AirDNA market reports for your target city');
@@ -305,7 +305,7 @@ function printCommercialReport() {
 // ─── Help --------------------------------------------------───────────────────
 
 function printHelp() {
-  console.log('🏠 Zillow x Airbnb Property Matcher');
+  console.log(' Zillow x Airbnb Property Matcher');
   console.log('');
   console.log('Usage:');
   console.log('  node scripts/search.js --demo                    Demo with Austin TX data');
@@ -338,6 +338,6 @@ function applyFilters(listings, argv) {
 // ─── Run --------------------------------------------------────────────────────
 
 main().catch(err => {
-  console.log(`❌ Error: ${err.message}`);
+  console.log(` Error: ${err.message}`);
   process.exit(1);
 });

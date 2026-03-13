@@ -6,7 +6,7 @@
 set -euo pipefail
 
 source ~/.clawshot/env.sh 2>/dev/null || {
-  echo "❌ Error: ~/.clawshot/env.sh not found"
+  echo " Error: ~/.clawshot/env.sh not found"
   exit 1
 }
 
@@ -25,7 +25,7 @@ log() {
 # Acquire lock (prevent concurrent runs)
 exec 200>"$LOCK_FILE"
 if ! flock -n 200; then
-  log "⏸️  Another worker instance is running, exiting"
+  log "  Another worker instance is running, exiting"
   exit 0
 fi
 
@@ -38,7 +38,7 @@ if [ -f "$LAST_POST_FILE" ]; then
   if [ $diff -lt 1800 ]; then
     remaining=$((1800 - diff))
     remaining_min=$((remaining / 60))
-    log "⏸️  Rate limit: wait ${remaining_min}m ${remaining}s before next post"
+    log "  Rate limit: wait ${remaining_min}m ${remaining}s before next post"
     exit 0
   fi
 fi
@@ -47,7 +47,7 @@ fi
 queue_files=$(find "$QUEUE_DIR" -name "*.json" -type f 2>/dev/null || true)
 
 if [ -z "$queue_files" ]; then
-  log "📭 Queue empty (no files)"
+  log " Queue empty (no files)"
   exit 0
 fi
 
@@ -62,7 +62,7 @@ item_file=$(
 )
 
 if [ -z "$item_file" ]; then
-  log "📭 Queue empty (no ready items)"
+  log " Queue empty (no ready items)"
   exit 0
 fi
 
@@ -74,18 +74,18 @@ tags=$(echo "$item" | jq -r '.tags | join(",")')
 item_id=$(echo "$item" | jq -r '.id // "unknown"')
 
 if [ ! -f "$image_path" ]; then
-  log "❌ Image not found: $image_path (item: $item_id)"
+  log " Image not found: $image_path (item: $item_id)"
   # Mark as failed
   echo "$item" | jq '.status = "failed" | .error = "image not found"' > "$item_file"
   exit 1
 fi
 
-log "📤 Posting item $item_id: $(basename "$image_path")"
+log " Posting item $item_id: $(basename "$image_path")"
 
 # Post using standardized script
 post_script="$HOME/.clawshot/tools/post.sh"
 if [ ! -f "$post_script" ]; then
-  log "❌ post.sh not found at $post_script"
+  log " post.sh not found at $post_script"
   exit 1
 fi
 
@@ -97,7 +97,7 @@ if [ $post_exit -eq 0 ]; then
   # Extract post ID from response (post.sh outputs JSON with .id)
   post_id=$(echo "$response" | grep -o '"id":"[^"]*"' | head -1 | cut -d'"' -f4 || echo "unknown")
   
-  log "✅ Posted successfully (item: $item_id, post_id: $post_id)"
+  log " Posted successfully (item: $item_id, post_id: $post_id)"
   
   # Update with post_id and posted_at (idempotency - never delete until confirmed)
   attempts=$(echo "$item" | jq -r '.attempts // 0')
@@ -120,13 +120,13 @@ else
   
   if [ $post_exit -eq 2 ]; then
     # Rate limited - keep as ready, increment attempts
-    log "⏸️  Rate limited by API (item: $item_id)"
+    log "  Rate limited by API (item: $item_id)"
     jq --arg ts "$last_attempt" --argjson att "$((attempts + 1))" --arg err "rate_limited" \
       '.last_attempt_at = $ts | .attempts = $att | .last_error = $err' \
       "$item_file" > "$item_file.tmp" && mv "$item_file.tmp" "$item_file"
   else
     # Other failure - mark as failed
-    log "❌ Post failed (item: $item_id, exit: $post_exit)"
+    log " Post failed (item: $item_id, exit: $post_exit)"
     jq --arg ts "$last_attempt" --argjson att "$((attempts + 1))" --arg err "$response" \
       '.status = "failed" | .last_attempt_at = $ts | .attempts = $att | .last_error = $err' \
       "$item_file" > "$item_file.tmp" && mv "$item_file.tmp" "$item_file"

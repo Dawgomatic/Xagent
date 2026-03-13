@@ -156,9 +156,9 @@ def print_report(results: dict):
         print("-" * 70)
         
         for item in results['uncovered_summary']:
-            print(f"\n📍 Line {item['line']}:")
+            print(f"\n Line {item['line']}:")
             print(f"   {item['code']}")
-            print(f"   🔴 Uncovered: {item['uncovered_parts']}")
+            print(f"    Uncovered: {item['uncovered_parts']}")
     
     print("\n" + "=" * 70)
 

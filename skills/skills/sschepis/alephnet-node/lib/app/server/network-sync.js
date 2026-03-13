@@ -168,12 +168,12 @@ function createNetworkSync(server) {
     async function connectToSeeds() {
         const seeds = server.options.seeds || [];
         if (seeds.length === 0) {
-            console.log(`${c.yellow}⚠ No seed nodes configured - running as standalone root node${c.reset}`);
+            console.log(`${c.yellow} No seed nodes configured - running as standalone root node${c.reset}`);
             loggers.node('Running as standalone root node');
             return;
         }
         
-        console.log(`${c.cyan}🌐 Connecting to ${seeds.length} seed node(s)...${c.reset}`);
+        console.log(`${c.cyan} Connecting to ${seeds.length} seed node(s)...${c.reset}`);
         
         for (const seedUrl of seeds) {
             await connectToSeed(seedUrl);
@@ -181,7 +181,7 @@ function createNetworkSync(server) {
         
         // Summary
         const connected = server.outboundConnections.filter(c => c.status === 'connected').length;
-        console.log(`${c.cyan}🌐 Connected to ${connected}/${seeds.length} seed nodes${c.reset}`);
+        console.log(`${c.cyan} Connected to ${connected}/${seeds.length} seed nodes${c.reset}`);
     }
 
     return {

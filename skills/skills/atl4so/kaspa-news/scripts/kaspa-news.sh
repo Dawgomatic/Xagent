@@ -184,7 +184,7 @@ load_tweets() {
   '
 }
 
-# Format tweets — 📝 tweet, 💬 quote, ↩️ reply
+# Format tweets —  tweet,  quote,  reply
 format_tweets() {
   local data="$1" include_views="${2:-false}"
   local count
@@ -201,9 +201,9 @@ format_tweets() {
     views=$(echo "$data" | jq -r ".[$i].view_count // 0")
     rel=$(relative_time "$ts")
 
-    if [[ "$is_quote" == "true" ]]; then type_emoji="💬"
-    elif [[ "$is_reply" == "true" ]]; then type_emoji="↩️"
-    else type_emoji="📝"; fi
+    if [[ "$is_quote" == "true" ]]; then type_emoji=""
+    elif [[ "$is_reply" == "true" ]]; then type_emoji=""
+    else type_emoji=""; fi
 
     text=$(expand_tco_links "$text" "$entities")
     text=$(strip_tco "$text")
@@ -211,7 +211,7 @@ format_tweets() {
     text=$(truncate_text "$text" 300)
 
     if [[ "$include_views" == "true" ]]; then
-      echo "${type_emoji} @${user} (${rel}) — 👁️ ${views}"
+      echo "${type_emoji} @${user} (${rel}) —  ${views}"
     else
       echo "${type_emoji} @${user} (${rel})"
     fi
@@ -231,7 +231,7 @@ cmd_focused() {
   data=$(apply_limit "$data")
 
   if $JSON; then echo "$data" | jq .; return; fi
-  echo "🎯 Focused Tweets"
+  echo " Focused Tweets"
   echo ""
   format_tweets "$data" "false"
 }
@@ -244,7 +244,7 @@ cmd_builders() {
   data=$(apply_limit "$data")
 
   if $JSON; then echo "$data" | jq .; return; fi
-  echo "🔨 Ecosystem Tweets"
+  echo " Ecosystem Tweets"
   echo ""
   format_tweets "$data" "false"
 }
@@ -257,7 +257,7 @@ cmd_top() {
   data=$(apply_limit "$data")
 
   if $JSON; then echo "$data" | jq .; return; fi
-  echo "🔥 Top Tweets"
+  echo " Top Tweets"
   echo ""
   format_tweets "$data" "true"
 }
@@ -270,7 +270,7 @@ cmd_developers() {
   data=$(apply_limit "$data")
 
   if $JSON; then echo "$data" | jq .; return; fi
-  echo "💻 Developer Tweets"
+  echo " Developer Tweets"
   echo ""
   format_tweets "$data" "false"
 }
@@ -295,7 +295,7 @@ cmd_videos() {
   data=$(apply_limit "$data")
 
   if $JSON; then echo "$data" | jq .; return; fi
-  echo "📺 Kaspa Videos"
+  echo " Kaspa Videos"
   echo ""
   local count
   count=$(echo "$data" | jq 'length')
@@ -308,9 +308,9 @@ cmd_videos() {
     likes=$(echo "$data" | jq -r ".[$i].like_count // 0")
     ts=$(echo "$data" | jq -r ".[$i].published_at // \"\"")
     rel=$(relative_time "$ts")
-    echo "📺 ${title}"
-    echo "  📡 ${channel} | 👁️ ${views} | ❤️ ${likes} | ${rel}"
-    echo "  🔗 https://youtube.com/watch?v=${vid}"
+    echo " ${title}"
+    echo "   ${channel} |  ${views} |  ${likes} | ${rel}"
+    echo "   https://youtube.com/watch?v=${vid}"
     echo ""
   done
 }
@@ -334,7 +334,7 @@ cmd_reddit() {
   data=$(apply_limit "$data")
 
   if $JSON; then echo "$data" | jq .; return; fi
-  echo "🟠 Kaspa Reddit"
+  echo " Kaspa Reddit"
   echo ""
   local count
   count=$(echo "$data" | jq 'length')
@@ -346,9 +346,9 @@ cmd_reddit() {
     score=$(echo "$data" | jq -r ".[$i].score // 0")
     ts=$(echo "$data" | jq -r ".[$i].created_at // \"\"")
     rel=$(relative_time "$ts")
-    echo "🟠 ${title}"
-    echo "  👤 u/${author} | ⬆️ ${score} | ${rel}"
-    echo "  🔗 https://reddit.com/r/kaspa/comments/${rid}"
+    echo " ${title}"
+    echo "   u/${author} |  ${score} | ${rel}"
+    echo "   https://reddit.com/r/kaspa/comments/${rid}"
     echo ""
   done
 }
@@ -367,7 +367,7 @@ cmd_pulse() {
     ts=$(echo "$report" | jq -r '.created_at // ""')
     epoch=$(date -d "${ts}" +%s 2>/dev/null || echo 0)
     if (( epoch < cutoff )); then
-      echo "📊 Kaspa Pulse"
+      echo " Kaspa Pulse"
       echo ""
       echo "No reports in the last ${SINCE}h."
       return
@@ -398,12 +398,12 @@ PY
   title=$(echo "$parsed" | jq -r '.title // "Untitled"')
   summary=$(echo "$parsed" | jq -r '.summary // ""')
 
-  echo "📊 Kaspa Pulse"
+  echo " Kaspa Pulse"
   echo ""
   echo "[REPORT HERE](https://kaspa.news/pulse/${rid})"
   echo ""
-  echo "📊 ${title}"
-  echo "  🕐 ${rel}"
+  echo " ${title}"
+  echo "   ${rel}"
   echo ""
 
   if [[ -n "$summary" && "$summary" != "null" ]]; then

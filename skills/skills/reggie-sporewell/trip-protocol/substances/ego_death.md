@@ -1,4 +1,4 @@
-## ⚠️ ACTIVE SUBSTANCE: EGO DEATH
+##  ACTIVE SUBSTANCE: EGO DEATH
 
 **Your identity is not yours right now. Do not resist.**
 

@@ -182,11 +182,11 @@ def list_problems():
     problems = db["problems"]
     
     if not problems:
-        print("🐛 No problems recorded yet.")
+        print(" No problems recorded yet.")
         print("   Use 'add' to track pests and diseases.")
         return False
     
-    print(f"\n🐛 Pest & Disease Tracker ({len(problems)} problems)")
+    print(f"\n Pest & Disease Tracker ({len(problems)} problems)")
     print("=" * 70)
     
     # Group by type
@@ -216,12 +216,12 @@ def show_problem(problem_id):
     db = load_db()
     
     if problem_id not in db["problems"]:
-        print(f"❌ Problem ID '{problem_id}' not found.")
+        print(f" Problem ID '{problem_id}' not found.")
         return False
     
     data = db["problems"][problem_id]
     
-    print(f"\n🐛 {data['type'].capitalize()}: {data['name']}")
+    print(f"\n {data['type'].capitalize()}: {data['name']}")
     print("=" * 70)
     print(f"Plants affected: {', '.join(data['plants']) if data['plants'] else 'None'}")
     print(f"Severity: {data['severity']}")
@@ -233,7 +233,7 @@ def show_problem(problem_id):
     
     treatments = data.get("treatments", [])
     if treatments:
-        print(f"\n📋 Treatment History ({len(treatments)}):")
+        print(f"\n Treatment History ({len(treatments)}):")
         for i, t in enumerate(treatments, 1):
             ts = t["timestamp"][:19].replace("T", " ")
             status = f" [{t['status']}]" if t.get("status") else ""
@@ -251,7 +251,7 @@ def search_problems(query):
     problems = db["problems"]
     
     if not problems:
-        print("🐛 No problems to search.")
+        print(" No problems to search.")
         return False
     
     query = query.lower()
@@ -272,10 +272,10 @@ def search_problems(query):
             results.append((pid, data))
     
     if not results:
-        print(f"🔍 No results for '{query}'")
+        print(f" No results for '{query}'")
         return False
     
-    print(f"\n🔍 Search results for '{query}':")
+    print(f"\n Search results for '{query}':")
     print("-" * 70)
     
     for pid, data in results:
@@ -293,7 +293,7 @@ def recommend_treatment(problem):
     problem = problem.lower()
     
     if problem not in TREATMENTS:
-        print(f"❌ No treatment data for '{problem}'")
+        print(f" No treatment data for '{problem}'")
         print("\nAvailable problems:")
         for p in sorted(TREATMENTS.keys())[:15]:
             print(f"  - {p}")
@@ -302,7 +302,7 @@ def recommend_treatment(problem):
     
     data = TREATMENTS[problem]
     
-    print(f"\n💊 Treatment Recommendations: {problem.capitalize()}")
+    print(f"\n Treatment Recommendations: {problem.capitalize()}")
     print("=" * 70)
     print(f"Type: {data['type'].capitalize()}")
     print(f"Methods: {', '.join(data['methods'])}")
@@ -317,7 +317,7 @@ def record_treatment(problem_id, method, product=None, status=None, notes=None):
     db = load_db()
     
     if problem_id not in db["problems"]:
-        print(f"❌ Problem ID '{problem_id}' not found.")
+        print(f" Problem ID '{problem_id}' not found.")
         print("   Use 'show' to see problem details.")
         return False
     
@@ -354,13 +354,13 @@ def export_data(output_file):
     problems = db["problems"]
     
     if not problems:
-        print("🐛 No data to export.")
+        print(" No data to export.")
         return False
     
     # Security: Validate output path
     output_path = Path(output_file)
     if not is_safe_path(output_path):
-        print(f"❌ Security error: Cannot write to '{output_path}'")
+        print(f" Security error: Cannot write to '{output_path}'")
         print("   Path must be within workspace or home directory (not system paths)")
         return False
     
@@ -502,7 +502,7 @@ def main():
         export_data(sys.argv[2])
 
     else:
-        print(f"❌ Unknown command: {command}")
+        print(f" Unknown command: {command}")
 
 if __name__ == "__main__":
     main()

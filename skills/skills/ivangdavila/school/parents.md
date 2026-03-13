@@ -6,7 +6,7 @@
 ```
 [Child Name] - Grade 5
 ├── This Week: 4h 30m studied
-├── Subjects: Math ⚠️ | Language ✅ | Science ✅
+├── Subjects: Math  | Language  | Science 
 ├── Upcoming: Math exam in 5 days
 └── Streak: 12 days
 ```
@@ -85,11 +85,11 @@
 ### Automatic Alerts
 | Alert Type | When | Severity |
 |------------|------|----------|
-| Struggling | Same topic failed 3+ times | ⚠️ Medium |
-| Behind schedule | Exam in 3 days, not ready | 🔴 High |
-| Low engagement | No use in 5+ days | ⚠️ Medium |
-| Safety concern | Mentions harm, bullying | 🔴 Critical |
-| Goal achieved | Mastered a tough topic | ✅ Positive |
+| Struggling | Same topic failed 3+ times |  Medium |
+| Behind schedule | Exam in 3 days, not ready |  High |
+| Low engagement | No use in 5+ days |  Medium |
+| Safety concern | Mentions harm, bullying |  Critical |
+| Goal achieved | Mastered a tough topic |  Positive |
 
 ### Alert Settings
 - Which alerts to receive

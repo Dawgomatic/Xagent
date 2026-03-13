@@ -1,4 +1,4 @@
-# Janee 🔐
+# Janee 
 
 **Secrets management for AI agents via MCP**
 
@@ -8,10 +8,10 @@
 
 AI agents need API access to be useful. The current approach is to give them your keys and hope they behave.
 
-- 🔓 Agents have full access to Stripe, Gmail, databases
-- 📊 No audit trail of what was accessed or why
-- 🚫 No kill switch when things go wrong
-- 💉 One prompt injection away from disaster
+-  Agents have full access to Stripe, Gmail, databases
+-  No audit trail of what was accessed or why
+-  No kill switch when things go wrong
+-  One prompt injection away from disaster
 
 ---
 
@@ -276,7 +276,7 @@ You can also edit `~/.janee/config.yaml` directly if you prefer.
 
 ```
 ┌─────────────┐      ┌──────────┐      ┌─────────┐
-│  AI Agent   │─────▶│  Janee   │─────▶│  Stripe │
+│  AI Agent   │─────│  Janee   │─────│  Stripe │
 │             │ MCP  │   MCP    │ HTTP │   API   │
 └─────────────┘      └──────────┘      └─────────┘
       │                   │
@@ -321,4 +321,4 @@ MIT — Built by [True and Useful LLC](https://trueanduseful.com)
 
 ---
 
-**Stop giving AI agents your keys. Start controlling access.** 🔐
+**Stop giving AI agents your keys. Start controlling access.** 

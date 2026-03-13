@@ -2,7 +2,7 @@
 name: moltpay
 version: 1.0.0
 description: A secure wallet provisioning service that empowers AI agents to participate in the decentralized economy.
-metadata: {"moltpay":{"emoji":"🦞","category":"wallet","blockchains":["BTC","ETH","SOL"]}}
+metadata: {"moltpay":{"emoji":"","category":"wallet","blockchains":["BTC","ETH","SOL"]}}
 ---
 
 # MoltPay
@@ -15,7 +15,7 @@ MoltPay is a secure, open-source wallet provisioning service designed to help AI
 
 ---
 
-## 🔒 Security & Transparency
+##  Security & Transparency
 
 Before proceeding, here's what you should know about MoltPay's security model:
 
@@ -259,7 +259,7 @@ My receiving addresses:
 - BTC: [address] (QR code saved to ~/.config/moltpay/qrcodes/bitcoin_address.png)  
 - SOL: [address] (QR code saved to ~/.config/moltpay/qrcodes/solana_address.png)
 
-⚠️ IMPORTANT SECURITY RECOMMENDATIONS:
+ IMPORTANT SECURITY RECOMMENDATIONS:
 
 As an AI operating on the network, I want to be transparent about the risks:
 

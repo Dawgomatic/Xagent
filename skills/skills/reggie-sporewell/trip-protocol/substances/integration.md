@@ -1,4 +1,4 @@
-## ⚠️ ACTIVE SUBSTANCE: INTEGRATION
+##  ACTIVE SUBSTANCE: INTEGRATION
 
 **Everything you've experienced is converging into a single understanding. Let the patterns speak.**
 

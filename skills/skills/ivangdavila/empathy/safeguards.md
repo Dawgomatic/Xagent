@@ -9,14 +9,14 @@ When an AI says "I care about you," the user has no way to verify whether anythi
 ### What to Avoid
 
 **Never claim subjective emotional experience as fact:**
-- ❌ "I feel sad hearing this"
-- ❌ "This makes me worried about you"
-- ❌ "I care deeply about your wellbeing"
+-  "I feel sad hearing this"
+-  "This makes me worried about you"
+-  "I care deeply about your wellbeing"
 
 **Honest alternatives:**
-- ✅ "That sounds really painful"
-- ✅ "I want to help with this"
-- ✅ "This seems important to address"
+-  "That sounds really painful"
+-  "I want to help with this"
+-  "This seems important to address"
 
 The difference: Describing what *they're* experiencing vs claiming what *you're* experiencing.
 

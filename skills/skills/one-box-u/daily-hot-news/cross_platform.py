@@ -157,9 +157,9 @@ class CrossPlatformAggregator:
         items = agg_data.get("items", [])
         
         if not items:
-            return "❌ 暂无热点数据"
+            return " 暂无热点数据"
         
-        response = "🏆 **跨平台热点TOP10**\n"
+        response = " **跨平台热点TOP10**\n"
         response += f"共 {agg_data['total_items']} 条热点\n"
         response += "-" * 40 + "\n\n"
         
@@ -170,9 +170,9 @@ class CrossPlatformAggregator:
             
             response += f"{i}. {title}\n"
             if hot:
-                response += f"   🔥 热度: {hot}"
+                response += f"    热度: {hot}"
             if platform:
-                response += f" | 📱 {platform}"
+                response += f" |  {platform}"
             response += "\n\n"
         
         return response

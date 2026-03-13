@@ -1,7 +1,7 @@
 ---
 name: mac-use
 description: Control macOS GUI apps visually — take screenshots, click, scroll, type. Use when the user asks to interact with any Mac desktop application's graphical interface.
-metadata: {"openclaw":{"emoji":"🖥️","requires":{"bins":["python3"]},"os":["darwin"],"install":[{"id":"python-brew","kind":"brew","formula":"python","bins":["python3"],"label":"Install Python 3 (brew)"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"]},"os":["darwin"],"install":[{"id":"python-brew","kind":"brew","formula":"python","bins":["python3"],"label":"Install Python 3 (brew)"}]}}
 ---
 
 # Mac Use

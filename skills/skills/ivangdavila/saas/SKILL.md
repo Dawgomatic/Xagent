@@ -1,7 +1,7 @@
 ---
 name: SaaS
 description: Build and scale profitable software-as-a-service with viral growth, retention, and monetization strategies.
-metadata: {"clawdbot":{"emoji":"💎","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # SaaS Rules

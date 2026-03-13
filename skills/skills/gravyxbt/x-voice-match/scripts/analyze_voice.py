@@ -43,7 +43,7 @@ def parse_bird_output(output: str) -> List[Dict[str, Any]]:
             current_tweet = {'text': text_part.strip()}
         
         # Continue text from previous line
-        elif current_tweet and 'text' in current_tweet and line and not line.startswith(('http', '🖼️', '📅', '🔗', '──', 'QT @', '│', '└─', '┌─', 'ℹ️', '🎬', '🔄')):
+        elif current_tweet and 'text' in current_tweet and line and not line.startswith(('http', '', '', '', '──', 'QT @', '│', '└─', '┌─', '', '', '')):
             current_tweet['text'] += ' ' + line
         
         # Detect QT (quote tweet)
@@ -252,7 +252,7 @@ def main():
     with open(args.output, 'w') as f:
         json.dump(profile, f, indent=2)
     
-    print(f"\n✅ Voice profile saved to {args.output}", file=sys.stderr)
+    print(f"\n Voice profile saved to {args.output}", file=sys.stderr)
     print(f"\nProfile Summary:", file=sys.stderr)
     print(f"  Topics: {', '.join(profile['patterns']['topics'])}", file=sys.stderr)
     print(f"  Avg Length: {profile['patterns']['avg_length']} chars", file=sys.stderr)

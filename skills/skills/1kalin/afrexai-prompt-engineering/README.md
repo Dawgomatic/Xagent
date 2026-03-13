@@ -1,4 +1,4 @@
-# Prompt Engineering Mastery ⚡
+# Prompt Engineering Mastery 
 
 > The complete prompt engineering system — 10 phases, 8 ready-to-use patterns, scoring rubrics, and agent design templates. Turn vague instructions into reliable AI outputs.
 
@@ -30,13 +30,13 @@ Just ask your agent:
 - "Break this prompt" — find vulnerabilities
 - "Make this an agent" — design a complete system prompt
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific prompt templates for your vertical?
 
 **[AfrexAI Context Packs — $47](https://afrexai-cto.github.io/context-packs/)** include domain-tuned prompt libraries for SaaS, Fintech, Healthcare, Legal, Construction, Ecommerce, Recruitment, Manufacturing, Real Estate, and Professional Services.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - `afrexai-lead-hunter` — Complete lead generation system
 - `afrexai-seo-content-engine` — SEO content methodology

@@ -1,7 +1,7 @@
 ---
 name: ev-charger
 description: "Find EV charging stations along a route or near a destination using Camino AI's location intelligence with OpenStreetMap data."
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"env":["CAMINO_API_KEY"]},"primaryEnv":"CAMINO_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["CAMINO_API_KEY"]},"primaryEnv":"CAMINO_API_KEY"}}
 ---
 
 ## Installation

@@ -1,6 +1,6 @@
 # Installation Guide - Nad.fun Autonomous Trading Agent
 
-## 📋 Table of Contents
+##  Table of Contents
 
 1. [Prerequisites](#prerequisites)
 2. [Installation Steps](#installation-steps)
@@ -342,4 +342,4 @@ For issues:
 
 ---
 
-**Happy Trading! 🚀**
+**Happy Trading! **

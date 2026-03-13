@@ -3,7 +3,7 @@ name: arya-model-router
 description: Token-saver router: elige modelo (cheap/default/pro) y usa sub-agentes para tareas pesadas. Incluye compresión/briefing opcional.
 metadata:
   openclaw:
-    emoji: "🧭"
+    emoji: ""
     requires:
       bins: ["bash", "python3"]
 ---

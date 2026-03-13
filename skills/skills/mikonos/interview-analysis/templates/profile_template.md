@@ -29,7 +29,7 @@ Dynamically select {Expert_Persona_X} based on candidate's role:
 
 ## 2. Core Competency Assessment
 
-### 🔴 Disguise & Risks (The "Methodology Actor")
+###  Disguise & Risks (The "Methodology Actor")
 *Focus on where candidates "know but can't do," identifying "performative knowledge."*
 
 *   **Evidence A ({label})**:
@@ -38,7 +38,7 @@ Dynamically select {Expert_Persona_X} based on candidate's role:
 *   **Evidence B ({label})**:
     *   ...
 
-### 🟢 Highlights & Value (Green Signals)
+###  Highlights & Value (Green Signals)
 *Focus on genuine achievements and qualities candidates unconsciously reveal.*
 
 *   **{Highlight 1}**: ...

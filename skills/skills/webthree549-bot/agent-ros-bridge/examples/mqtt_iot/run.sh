@@ -3,17 +3,17 @@
 
 set -e
 
-echo "📡 Starting MQTT IoT Demo"
+echo " Starting MQTT IoT Demo"
 echo "=========================="
 echo ""
 
 if ! command -v python3 &> /dev/null; then
-    echo "❌ Python 3 not found"
+    echo " Python 3 not found"
     exit 1
 fi
 
 if [ ! -f "mqtt_demo.py" ]; then
-    echo "❌ Run this script from the mqtt_iot/ directory"
+    echo " Run this script from the mqtt_iot/ directory"
     exit 1
 fi
 

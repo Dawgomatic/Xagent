@@ -53,7 +53,7 @@ def log(
     
     pricing = get_pricing(provider, model)
     if not pricing:
-        console.print(f"[yellow]⚠️  Unknown model {provider}/{model} - cost set to $0[/yellow]")
+        console.print(f"[yellow]  Unknown model {provider}/{model} - cost set to $0[/yellow]")
     
     record_id = log_usage(
         provider=provider,
@@ -136,7 +136,7 @@ def costs(
         period_label = {"day": "today", "week": "this week", "month": "this month"}.get(period or "day", period or "day")
     
     table = Table(
-        title=f"💰 Cost Breakdown — {period_label}",
+        title=f" Cost Breakdown — {period_label}",
         box=box.ROUNDED,
         show_header=True,
         header_style="bold cyan",
@@ -174,7 +174,7 @@ def costs(
 def models():
     """List supported models and their pricing."""
     table = Table(
-        title="📋 Supported Models & Pricing",
+        title=" Supported Models & Pricing",
         box=box.ROUNDED,
         show_header=True,
         header_style="bold cyan",
@@ -214,7 +214,7 @@ def history(
     records = get_usage(provider=provider)[:limit]
     
     table = Table(
-        title="📜 Recent Usage",
+        title=" Recent Usage",
         box=box.ROUNDED,
         show_header=True,
         header_style="bold cyan",
@@ -264,7 +264,7 @@ def _render_summary_table(
         period_label = {"day": "today", "week": "this week", "month": "this month"}.get(period or "day", period or "day")
     
     table = Table(
-        title=f"🪙 tokenmeter — {period_label}",
+        title=f" tokenmeter — {period_label}",
         box=box.ROUNDED,
         show_header=True,
         header_style="bold cyan",
@@ -328,7 +328,7 @@ def dashboard():
     
     console.print(Panel(
         stats_text,
-        title="🪙 tokenmeter",
+        title=" tokenmeter",
         border_style="cyan",
         padding=(1, 2),
     ))
@@ -379,13 +379,13 @@ def import_cmd(
         
         console.print(f"[bold]Found {len(dirs)} session source(s):[/bold]")
         for d in dirs:
-            console.print(f"  📁 {d['base']}/{d['agent']} — {d['files']} files")
+            console.print(f"   {d['base']}/{d['agent']} — {d['files']} files")
         console.print()
         
         # Determine incremental mode
         inc_mode = False if full else incremental
         if full:
-            console.print("[yellow]⚠️  Full re-scan mode (ignoring checkpoint)[/yellow]\n")
+            console.print("[yellow]  Full re-scan mode (ignoring checkpoint)[/yellow]\n")
         
         # Load checkpoint once and share across all import_sessions calls
         from .checkpoint import load_checkpoint, save_checkpoint
@@ -409,13 +409,13 @@ def import_cmd(
                 inc_label = ""
                 if result.get("incremental"):
                     inc_label = f" [dim]({result.get('files_incremental', 0)} incremental, {result.get('files_full', 0)} full, {skipped} skipped)[/dim]"
-                console.print(f"  ✅ {result['records_imported']} records ({format_cost(result['total_cost'])}){inc_label}")
+                console.print(f"   {result['records_imported']} records ({format_cost(result['total_cost'])}){inc_label}")
             elif skipped > 0:
-                console.print(f"  ⏭️  {skipped} files unchanged (checkpoint)")
+                console.print(f"    {skipped} files unchanged (checkpoint)")
             elif result.get("records_skipped_dup", 0) > 0:
-                console.print(f"  ⏭️  {result['records_skipped_dup']} already imported")
+                console.print(f"    {result['records_skipped_dup']} already imported")
             else:
-                console.print(f"  ⚪ No new records")
+                console.print(f"   No new records")
         
         # Save shared checkpoint once after all directories processed
         if not dry_run:
@@ -428,7 +428,7 @@ def import_cmd(
         console.print(Panel(
             f"{prefix}Imported [bold green]{total_imported}[/bold green] records\n"
             f"Total cost: [bold green]{format_cost(total_cost)}[/bold green]{skip_note}{checkpoint_note}",
-            title="🪙 Import Complete",
+            title=" Import Complete",
             border_style="green",
         ))
         return
@@ -452,7 +452,7 @@ def import_cmd(
     inc_mode = False if full else incremental
     console.print(f"{prefix}Importing from: [bold]{sessions_dir}[/bold]")
     if full:
-        console.print("[yellow]⚠️  Full re-scan mode[/yellow]")
+        console.print("[yellow]  Full re-scan mode[/yellow]")
     console.print()
     
     result = import_sessions(sessions_dir, app_name=app_name, dry_run=dry_run, incremental=inc_mode)
@@ -463,7 +463,7 @@ def import_cmd(
     
     # Summary table
     table = Table(
-        title=f"📥 {prefix}Import Results",
+        title=f" {prefix}Import Results",
         box=box.ROUNDED,
         show_header=True,
         header_style="bold cyan",
@@ -515,7 +515,7 @@ def import_cmd(
         console.print()
         console.print("[yellow]Warnings:[/yellow]")
         for err in result["errors"][:5]:
-            console.print(f"  ⚠️  {err}")
+            console.print(f"    {err}")
     
     console.print()
 
@@ -535,7 +535,7 @@ def scan():
         return
     
     table = Table(
-        title="🔍 Discovered Session Sources",
+        title=" Discovered Session Sources",
         box=box.ROUNDED,
         show_header=True,
         header_style="bold cyan",
@@ -577,7 +577,7 @@ def fetch(
         env_var = env_vars.get(provider)
         
         if not env_var:
-            console.print(f"[red]❌ No API key found for {provider}[/red]")
+            console.print(f"[red] No API key found for {provider}[/red]")
             console.print(f"Set one of: {', '.join(scan_env_vars.__code__.co_consts)}")
             raise typer.Exit(1)
         
@@ -588,16 +588,16 @@ def fetch(
         _print_fetch_result(provider, result)
     else:
         # Auto-detect and fetch from all providers
-        console.print("[bold]🔍 Scanning environment...[/bold]")
+        console.print("[bold] Scanning environment...[/bold]")
         env_vars = scan_env_vars()
         
         found_any = False
         for prov, env_var in env_vars.items():
             if env_var:
-                console.print(f"  [green]✅[/green] {env_var} found")
+                console.print(f"  [green][/green] {env_var} found")
                 found_any = True
             else:
-                console.print(f"  [dim]❌ {prov.upper()}_API_KEY not set[/dim]")
+                console.print(f"  [dim] {prov.upper()}_API_KEY not set[/dim]")
         
         if not found_any:
             console.print()
@@ -623,7 +623,7 @@ def fetch(
         console.print()
         if total_imported > 0:
             prefix = "[DRY RUN] " if dry_run else ""
-            console.print(f"[bold green]{prefix}✅ Fetching complete! {total_imported} records imported ({format_cost(total_cost)})[/bold green]")
+            console.print(f"[bold green]{prefix} Fetching complete! {total_imported} records imported ({format_cost(total_cost)})[/bold green]")
         else:
             console.print("[bold]Fetching complete![/bold]")
     
@@ -633,22 +633,22 @@ def fetch(
 def _print_fetch_result(provider: str, result: dict):
     """Print the result of a fetch operation."""
     if result.get("no_api"):
-        console.print(f"  [yellow]ℹ️  {result.get('message', 'No usage API available')}[/yellow]")
+        console.print(f"  [yellow]  {result.get('message', 'No usage API available')}[/yellow]")
     elif result.get("not_found"):
         pass  # Already printed during scan
     elif not result.get("success"):
-        console.print(f"  [red]❌ {result.get('error', 'Unknown error')}[/red]")
+        console.print(f"  [red] {result.get('error', 'Unknown error')}[/red]")
     else:
         imported = result.get("records_imported", 0)
         skipped = result.get("records_skipped", 0)
         cost = result.get("total_cost", 0.0)
         
         if imported > 0:
-            console.print(f"  [green]✅ {imported} usage records imported ({format_cost(cost)})[/green]")
+            console.print(f"  [green] {imported} usage records imported ({format_cost(cost)})[/green]")
         elif skipped > 0:
-            console.print(f"  [dim]⏭️  {skipped} records already imported[/dim]")
+            console.print(f"  [dim]  {skipped} records already imported[/dim]")
         else:
-            console.print(f"  [dim]⚪ No new records[/dim]")
+            console.print(f"  [dim] No new records[/dim]")
 
 
 @app.command()
@@ -660,7 +660,7 @@ def version():
 @app.callback()
 def main():
     """
-    🪙 tokenmeter - Track your AI API usage and costs
+     tokenmeter - Track your AI API usage and costs
     
     All data is stored locally in ~/.tokenmeter/usage.db
     """

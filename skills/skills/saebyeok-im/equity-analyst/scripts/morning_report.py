@@ -201,9 +201,9 @@ def main():
         # Also write to file for cron delivery
         with open('morning_report_output.txt', 'w', encoding='utf-8') as f:
             f.write(report)
-        print("\n✅ Report generated and saved to morning_report_output.txt")
+        print("\n Report generated and saved to morning_report_output.txt")
     else:
-        print("❌ No results to report.")
+        print(" No results to report.")
 
 if __name__ == '__main__':
     main()

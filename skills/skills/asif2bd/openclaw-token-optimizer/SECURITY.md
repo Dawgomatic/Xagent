@@ -16,7 +16,7 @@ These are the actual working components of the skill.
 - **External API keys:** None required
 - **Code execution:** No eval/exec/compile
 - **Data storage:** Local JSON files in `~/.openclaw/workspace/memory/` only
-- **Verdict:** ✅ Safe to run
+- **Verdict:**  Safe to run
 
 ### Category 2: Reference Documentation (`references/PROVIDERS.md`, `assets/config-patches.json`)
 These are informational guides describing optional multi-provider strategies.
@@ -24,7 +24,7 @@ These are informational guides describing optional multi-provider strategies.
 - **External API keys:** Referenced as examples (`${OPENROUTER_API_KEY}`, `${TOGETHER_API_KEY}`)
 - **Code execution:** None — these are JSON/Markdown documentation
 - **Purpose:** Help users who *choose* to configure alternative providers (OpenRouter, Together.ai, etc.)
-- **Verdict:** ✅ Safe files — but describe services that require external credentials if you choose to use them
+- **Verdict:**  Safe files — but describe services that require external credentials if you choose to use them
 
 **Why this matters:** Security scanners that flag API key patterns or external service references in documentation files are technically correct — those references exist. They are not executable, not auto-applied, and require explicit manual user action to use.
 
@@ -55,12 +55,12 @@ esac
 ```
 
 **Security properties:**
-- ✅ No network requests
-- ✅ No system modifications
-- ✅ No subprocess spawning beyond the Python scripts already bundled
-- ✅ No eval, exec, or dynamic code execution
-- ✅ Only calls scripts already in this package (same directory via `$SCRIPT_DIR`)
-- ✅ Included in `.clawhubsafe` SHA256 manifest
+-  No network requests
+-  No system modifications
+-  No subprocess spawning beyond the Python scripts already bundled
+-  No eval, exec, or dynamic code execution
+-  Only calls scripts already in this package (same directory via `$SCRIPT_DIR`)
+-  Included in `.clawhubsafe` SHA256 manifest
 
 **To verify before running:**
 ```bash
@@ -86,12 +86,12 @@ grep -E "curl|wget|nc |ncat|ssh|sudo|chmod|eval|exec\(" scripts/optimize.sh
 - Writes usage statistics to JSON
 
 **Security**:
-- ✅ No network requests
-- ✅ No code execution (no eval, exec, compile)
-- ✅ Only standard library imports: `json, re, pathlib, datetime`
-- ✅ Read/write permissions limited to OpenClaw workspace
-- ✅ No subprocess calls
-- ✅ No system modifications
+-  No network requests
+-  No code execution (no eval, exec, compile)
+-  Only standard library imports: `json, re, pathlib, datetime`
+-  Read/write permissions limited to OpenClaw workspace
+-  No subprocess calls
+-  No system modifications
 
 **Data Handling**:
 - Stores: File access counts, last access timestamps
@@ -109,11 +109,11 @@ grep -E "curl|wget|nc |ncat|ssh|sudo|chmod|eval|exec\(" scripts/optimize.sh
 - Enforces quiet hours (23:00-08:00)
 
 **Security**:
-- ✅ No network requests
-- ✅ No code execution
-- ✅ Only standard library imports: `json, os, datetime, pathlib`
-- ✅ Read/write limited to heartbeat state file
-- ✅ No system commands
+-  No network requests
+-  No code execution
+-  Only standard library imports: `json, os, datetime, pathlib`
+-  Read/write limited to heartbeat state file
+-  No system commands
 
 **Data Handling**:
 - Stores: Last check timestamps, check intervals
@@ -131,11 +131,11 @@ grep -E "curl|wget|nc |ncat|ssh|sudo|chmod|eval|exec\(" scripts/optimize.sh
 - No state file (pure analysis)
 
 **Security**:
-- ✅ No network requests
-- ✅ No code execution
-- ✅ Only standard library imports: `json, re`
-- ✅ No file writes
-- ✅ Stateless operation
+-  No network requests
+-  No code execution
+-  Only standard library imports: `json, re`
+-  No file writes
+-  Stateless operation
 
 **Data Handling**:
 - No data storage
@@ -153,11 +153,11 @@ grep -E "curl|wget|nc |ncat|ssh|sudo|chmod|eval|exec\(" scripts/optimize.sh
 - Records daily/monthly usage
 
 **Security**:
-- ✅ No network requests
-- ✅ No code execution
-- ✅ Only standard library imports: `json, os, datetime, pathlib`
-- ✅ Read/write limited to budget file
-- ✅ No system access
+-  No network requests
+-  No code execution
+-  Only standard library imports: `json, os, datetime, pathlib`
+-  Read/write limited to budget file
+-  No system access
 
 **Data Handling**:
 - Stores: Usage totals, budget limits, alert thresholds

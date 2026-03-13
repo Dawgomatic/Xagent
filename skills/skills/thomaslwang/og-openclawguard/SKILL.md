@@ -7,7 +7,7 @@ homepage: https://github.com/yourusername/flaw0
 license: MIT
 metadata:
   openclaw:
-    emoji: "🔍"
+    emoji: ""
     category: "security"
 tags:
   - security
@@ -21,7 +21,7 @@ tags:
 
 Security and vulnerability scanner for OpenClaw ecosystems. Analyzes source code, plugins, skills, and Node.js dependencies to detect potential security flaws.
 
-**Goal: Achieve flaw 0** (zero flaws detected) 🎯
+**Goal: Achieve flaw 0** (zero flaws detected) 
 
 ## Installation
 
@@ -191,10 +191,10 @@ flaw0 scan --target all
 
 Results are reported with a **flaw score** - lower is better:
 
-- **flaw 0** 🎯 - Perfect! No issues detected
-- **flaw 1-3** 🟡 - Minor issues
-- **flaw 4-10** 🟠 - Needs attention
-- **flaw 10+** 🔴 - Critical issues
+- **flaw 0**  - Perfect! No issues detected
+- **flaw 1-3**  - Minor issues
+- **flaw 4-10**  - Needs attention
+- **flaw 10+**  - Critical issues
 
 ### Score Calculation
 
@@ -211,38 +211,38 @@ Each issue is weighted by severity:
 #### Clean Code (flaw 0)
 
 ```
-🔍 flaw0 Security Scan Results
+ flaw0 Security Scan Results
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📊 Result: flaw 0
-✅ Status: SECURE
+ Result: flaw 0
+ Status: SECURE
 
 ✓ No security issues detected!
 ✓ All checks passed
 
-Great job! 🎉
+Great job! 
 ```
 
 #### Issues Found (flaw 12)
 
 ```
-🔍 flaw0 Security Scan Results
+ flaw0 Security Scan Results
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📊 Result: flaw 12
-⚠️  Status: ISSUES FOUND
+ Result: flaw 12
+  Status: ISSUES FOUND
 
 Code Flaws: 5
-├─ 🔴 Critical: 2
-├─ 🟠 High: 1
-├─ 🟡 Medium: 2
-└─ ⚪ Low: 0
+├─  Critical: 2
+├─  High: 1
+├─  Medium: 2
+└─  Low: 0
 
 Dependency Flaws: 7
-├─ 🔴 Critical CVEs: 3
-├─ 🟠 High CVEs: 2
-├─ 🟡 Medium: 2
-└─ ⚪ Low: 0
+├─  Critical CVEs: 3
+├─  High CVEs: 2
+├─  Medium: 2
+└─  Low: 0
 
 Detailed Report:
 ─────────────────────────────────
@@ -252,8 +252,8 @@ Detailed Report:
    Code: `exec(\`ls ${userInput}\`)`
    Description: Unsanitized exec() call
    → Fix: Use execFile() or validate input
-   🤖 AI Confidence: high
-   💡 AI Suggestion: Replace exec() with execFile()
+    AI Confidence: high
+    AI Suggestion: Replace exec() with execFile()
       and validate input against whitelist
 
 2. [HIGH] Hardcoded API Key
@@ -378,21 +378,21 @@ jobs:
         run: |
           SCORE=$(flaw0 audit --json | jq '.flawScore')
           if [ "$SCORE" -gt 0 ]; then
-            echo "❌ Flaws detected: flaw $SCORE"
+            echo " Flaws detected: flaw $SCORE"
             exit 1
           fi
-          echo "✅ No flaws: flaw 0"
+          echo " No flaws: flaw 0"
 ```
 
 ### Pre-commit Hook
 
 ```bash
 #!/bin/bash
-echo "🔍 Running flaw0 scan..."
+echo " Running flaw0 scan..."
 flaw0 scan
 
 if [ $? -ne 0 ]; then
-  echo "❌ Flaws detected! Commit blocked."
+  echo " Flaws detected! Commit blocked."
   exit 1
 fi
 ```
@@ -421,7 +421,7 @@ flaw0 scan --target skills
 # Example output:
 # ✓ clawdex - flaw 0
 # ✓ database-helper - flaw 0
-# ⚠ crypto-bot - flaw 3
+#  crypto-bot - flaw 3
 # ✓ git-assistant - flaw 0
 # Overall: flaw 3
 ```
@@ -464,7 +464,7 @@ const results = await scanner.scan();
 console.log(`Flaw Score: ${results.flawScore}`);
 
 if (results.flawScore === 0) {
-  console.log('✅ No flaws detected!');
+  console.log(' No flaws detected!');
 } else {
   results.codeFlaws.forEach(flaw => {
     console.log(`[${flaw.severity}] ${flaw.name}`);
@@ -500,12 +500,12 @@ if (results.flawScore === 0) {
 
 | Feature | flaw0 | npm audit | Snyk | ESLint Security |
 |---------|-------|-----------|------|-----------------|
-| Dependency CVEs | ✅ | ✅ | ✅ | ❌ |
-| AI Code Analysis | ✅ | ❌ | ❌ | ❌ |
-| OpenClaw-specific | ✅ | ❌ | ❌ | ❌ |
-| Context-aware | ✅ | ❌ | ⚠️ | ⚠️ |
-| False positive reduction | ✅ | ❌ | ⚠️ | ❌ |
-| Fix suggestions | ✅ | ⚠️ | ✅ | ⚠️ |
+| Dependency CVEs |  |  |  |  |
+| AI Code Analysis |  |  |  |  |
+| OpenClaw-specific |  |  |  |  |
+| Context-aware |  |  |  |  |
+| False positive reduction |  |  |  |  |
+| Fix suggestions |  |  |  |  |
 
 ## Requirements
 
@@ -577,6 +577,6 @@ MIT License - see LICENSE file
 
 ---
 
-**Goal: flaw 0 for everyone! 🎯**
+**Goal: flaw 0 for everyone! **
 
 **Remember**: Security is not a one-time check. Run flaw0 regularly to maintain **flaw 0** status!

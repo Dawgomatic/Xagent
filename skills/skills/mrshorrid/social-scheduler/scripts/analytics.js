@@ -199,17 +199,17 @@ async function getReport(options = {}) {
 
 // Export report to formatted text
 function formatReport(report) {
-  let output = `📊 Social Scheduler Analytics - ${report.period}\n\n`;
+  let output = ` Social Scheduler Analytics - ${report.period}\n\n`;
   
-  output += `📈 Overview:\n`;
+  output += ` Overview:\n`;
   output += `  Total Posts: ${report.totalPosts}\n`;
-  output += `  ✅ Successful: ${report.successfulPosts}\n`;
-  output += `  ❌ Failed: ${report.failedPosts}\n`;
+  output += `   Successful: ${report.successfulPosts}\n`;
+  output += `   Failed: ${report.failedPosts}\n`;
   output += `  Success Rate: ${report.successRate}\n`;
-  output += `  ⏱️  Average Delay: ${report.averageDelayMinutes} minutes\n\n`;
+  output += `    Average Delay: ${report.averageDelayMinutes} minutes\n\n`;
   
   if (Object.keys(report.byPlatform).length > 0) {
-    output += `🌐 By Platform:\n`;
+    output += ` By Platform:\n`;
     Object.entries(report.byPlatform).forEach(([platform, stats]) => {
       const rate = Math.round((stats.successful / stats.total) * 100);
       output += `  ${platform}: ${stats.total} posts (${rate}% success)\n`;
@@ -218,24 +218,24 @@ function formatReport(report) {
   }
   
   if (report.threadStats.totalThreads > 0) {
-    output += `🧵 Thread Stats:\n`;
+    output += ` Thread Stats:\n`;
     output += `  Total Threads: ${report.threadStats.totalThreads}\n`;
     output += `  Average Length: ${report.threadStats.averageThreadLength} posts\n\n`;
   }
   
   if (Object.keys(report.byDay).length > 0) {
-    output += `📅 Daily Activity:\n`;
+    output += ` Daily Activity:\n`;
     Object.entries(report.byDay)
       .sort(([a], [b]) => b.localeCompare(a))
       .slice(0, 7)
       .forEach(([day, stats]) => {
-        output += `  ${day}: ${stats.total} posts (${stats.successful} ✅, ${stats.failed} ❌)\n`;
+        output += `  ${day}: ${stats.total} posts (${stats.successful} , ${stats.failed} )\n`;
       });
     output += '\n';
   }
   
   if (report.recentFailures.length > 0) {
-    output += `⚠️  Recent Failures:\n`;
+    output += `  Recent Failures:\n`;
     report.recentFailures.forEach(f => {
       const time = new Date(f.time).toLocaleString();
       output += `  ${f.platform} - ${time}\n`;
@@ -260,7 +260,7 @@ if (require.main === module) {
         console.log(formatReport(report));
       })
       .catch(err => {
-        console.error('❌ Error generating report:', err.message);
+        console.error(' Error generating report:', err.message);
         process.exit(1);
       });
   } else if (command === 'export') {
@@ -273,10 +273,10 @@ if (require.main === module) {
         return fs.writeFile(outputFile, formatted);
       })
       .then(() => {
-        console.log(`✅ Report exported to ${outputFile}`);
+        console.log(` Report exported to ${outputFile}`);
       })
       .catch(err => {
-        console.error('❌ Error exporting report:', err.message);
+        console.error(' Error exporting report:', err.message);
         process.exit(1);
       });
   } else if (command === 'raw') {
@@ -285,12 +285,12 @@ if (require.main === module) {
         console.log(JSON.stringify(data, null, 2));
       })
       .catch(err => {
-        console.error('❌ Error loading analytics:', err.message);
+        console.error(' Error loading analytics:', err.message);
         process.exit(1);
       });
   } else {
     console.log(`
-📊 Social Scheduler Analytics
+ Social Scheduler Analytics
 
 Usage:
   node analytics.js report [days] [platform]  - View analytics report

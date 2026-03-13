@@ -265,17 +265,17 @@ results = screener.get_scanner_data()
 
 ## Important Notes
 
-⚠️ **Field Name Accuracy:**
+ **Field Name Accuracy:**
 - Always use FULL field names (e.g., `SIMPLE_MOVING_AVERAGE_50`)
 - Short aliases like `SMA50`, `RSI14` do NOT exist
 - Use `StockField.search("keyword")` when unsure
 
-⚠️ **Asset Class Differences:**
+ **Asset Class Differences:**
 - Not all fields exist across all asset classes
 - Fundamental fields (market cap, sector) only for stocks
 - Always test field availability with `.search()`
 
-⚠️ **13,000+ Fields Available:**
+ **13,000+ Fields Available:**
 - This guide covers the most common fields
 - Use discovery commands to explore all available fields
 - Custom indicators and exotic metrics require field search

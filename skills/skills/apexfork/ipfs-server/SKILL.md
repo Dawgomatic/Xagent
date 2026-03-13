@@ -277,7 +277,7 @@ ipfs config --json Bitswap.MaxOutstandingBytesPerPeer 1048576
 # Generate swarm key
 echo -e "/key/swarm/psk/1.0.0/\n/base16/\n$(tr -dc 'a-f0-9' < /dev/urandom | head -c64)" > ~/.ipfs/swarm.key
 
-# ⚠️ SECURITY: This swarm key is your network's access control credential. 
+#  SECURITY: This swarm key is your network's access control credential. 
 # Anyone with this file can join your private network. Protect it accordingly.
 
 # Remove all bootstrap nodes

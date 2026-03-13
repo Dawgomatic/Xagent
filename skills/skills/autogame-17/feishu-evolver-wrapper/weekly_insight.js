@@ -87,43 +87,43 @@ function analyze() {
         .slice(0, 3);
 
     // --- Generate Report ---
-    let md = `# 🧬 Weekly Evolution Insight\n`;
+    let md = `#  Weekly Evolution Insight\n`;
     md += `> Period: ${oneWeekAgo.toISOString().split('T')[0]} to ${now.toISOString().split('T')[0]}\n\n`;
     
-    md += `## 📊 Key Metrics\n`;
+    md += `##  Key Metrics\n`;
     md += `- **Total Cycles**: ${total}\n`;
-    md += `- **Success Rate**: ${successRate}% ${successRate < 80 ? '⚠️' : '✅'}\n`;
+    md += `- **Success Rate**: ${successRate}% ${successRate < 80 ? '' : ''}\n`;
     md += `- **Innovation Ratio**: ${innovationRatio}% (Target: >30%)\n`;
-    md += `  - ✨ Innovate: ${intents.innovate}\n`;
-    md += `  - 🔧 Repair: ${intents.repair}\n`;
-    md += `  - ⚡ Optimize: ${intents.optimize}\n\n`;
+    md += `  -  Innovate: ${intents.innovate}\n`;
+    md += `  -  Repair: ${intents.repair}\n`;
+    md += `  -  Optimize: ${intents.optimize}\n\n`;
 
-    md += `## 🧬 Gene Performance\n`;
+    md += `##  Gene Performance\n`;
     md += `| Gene ID | Usage | Failures | Status |\n`;
     md += `|---|---|---|---|\n`;
     
     for (const [gene, count] of topGenes) {
         const fails = geneFailures[gene] || 0;
         const failRate = ((fails / count) * 100).toFixed(0);
-        let status = '✅';
-        if (failRate > 20) status = '⚠️';
-        if (failRate > 50) status = '❌';
+        let status = '';
+        if (failRate > 20) status = '';
+        if (failRate > 50) status = '';
         
         md += `| \`${gene}\` | ${count} | ${fails} (${failRate}%) | ${status} |\n`;
     }
     
-    md += `\n## 🚨 Stagnation Signals\n`;
+    md += `\n##  Stagnation Signals\n`;
     if (intents.innovate === 0) {
-        md += `- ⚠️ **No Innovation**: Zero innovation cycles in the last 7 days.\n`;
+        md += `-  **No Innovation**: Zero innovation cycles in the last 7 days.\n`;
     }
     if (topFailures.length > 0 && topFailures[0][1] > 2) {
-        md += `- ⚠️ **Recurring Failures**: Gene \`${topFailures[0][0]}\` failed ${topFailures[0][1]} times.\n`;
+        md += `-  **Recurring Failures**: Gene \`${topFailures[0][0]}\` failed ${topFailures[0][1]} times.\n`;
     }
     if (total < 5) {
-        md += `- ⚠️ **Low Activity**: Only ${total} cycles this week.\n`;
+        md += `-  **Low Activity**: Only ${total} cycles this week.\n`;
     }
-    if (!md.includes('⚠️')) {
-        md += `- ✅ No stagnation signals detected.\n`;
+    if (!md.includes('')) {
+        md += `-  No stagnation signals detected.\n`;
     }
 
     // Output

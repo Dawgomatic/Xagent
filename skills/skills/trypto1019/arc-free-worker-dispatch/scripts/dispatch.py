@@ -160,11 +160,11 @@ def cmd_status(args):
     print(f"Checking {model}...")
     try:
         result = call_openrouter("Say 'OK' and nothing else.", model, max_tokens=10)
-        print(f"✅ {model} is UP")
+        print(f" {model} is UP")
         print(f"   Response: {result['content'][:50]}")
         print(f"   Latency: {result['elapsed_seconds']}s")
     except SystemExit:
-        print(f"🚨 {model} is DOWN or erroring")
+        print(f" {model} is DOWN or erroring")
 
 
 def cmd_batch(args):

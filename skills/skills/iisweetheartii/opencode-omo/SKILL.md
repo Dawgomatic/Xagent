@@ -5,7 +5,7 @@ description: Turn coding requests into completed work. Plan with Prometheus, exe
 homepage: https://github.com/IISweetHeartII/opencode-omo
 metadata:
   openclaw:
-    emoji: "🧱"
+    emoji: ""
     category: devtools
     requires:
       bins:

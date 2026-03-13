@@ -255,7 +255,7 @@ See [references/navigation-patterns.md](references/navigation-patterns.md)
 **Micro-interactions:**
 ```
 button: 150ms [scale: 1→0.95→1] (press)
-hover: 200ms [translateY: 0→-2px] + shadow↗
+hover: 200ms [translateY: 0→-2px] + shadow
 fadeIn: 400ms [opacity: 0→1, translateY: 20→0]
 slideIn: 300ms [translateX: -100%→0]
 ```
@@ -375,18 +375,18 @@ See [references/responsive-design.md](references/responsive-design.md)
 ### WCAG Compliance
 
 **Level AA (Minimum):**
-- ✅ 4.5:1 contrast for normal text
-- ✅ 3:1 contrast for large text (18pt+)
-- ✅ Keyboard navigable
-- ✅ Focus indicators visible
-- ✅ Alt text for images
-- ✅ Form labels present
+-  4.5:1 contrast for normal text
+-  3:1 contrast for large text (18pt+)
+-  Keyboard navigable
+-  Focus indicators visible
+-  Alt text for images
+-  Form labels present
 
 **Level AAA (Ideal):**
-- ✅ 7:1 contrast for normal text
-- ✅ 4.5:1 contrast for large text
-- ✅ No audio-only content
-- ✅ Enhanced focus indicators
+-  7:1 contrast for normal text
+-  4.5:1 contrast for large text
+-  No audio-only content
+-  Enhanced focus indicators
 
 ### Screen Readers
 
@@ -544,39 +544,39 @@ See [references/design-workflow.md](references/design-workflow.md) for detailed 
 
 ## Design Checklist
 
-✅ **Visual Hierarchy**
+ **Visual Hierarchy**
 - Most important elements are prominent
 - Related items are grouped
 - White space creates breathing room
 
-✅ **Consistency**
+ **Consistency**
 - Components look and behave similarly
 - Terminology is uniform throughout
 - Visual language is coherent
 
-✅ **Feedback**
+ **Feedback**
 - Actions have immediate response
 - Loading states are clear
 - Errors are helpful and actionable
 
-✅ **Accessibility**
+ **Accessibility**
 - Keyboard navigable
 - Screen reader friendly
 - Sufficient color contrast
 - Respects user preferences
 
-✅ **Performance**
+ **Performance**
 - Fast load times (<3s)
 - Smooth animations (60fps)
 - Optimized images
 - Minimal layout shifts
 
-✅ **Responsive**
+ **Responsive**
 - Works on all screen sizes
 - Touch-friendly (44px targets)
 - Adapts content intelligently
 
-✅ **Platform Native**
+ **Platform Native**
 - Follows platform conventions
 - Uses native components when possible
 - Respects system settings

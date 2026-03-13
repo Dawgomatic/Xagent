@@ -38,7 +38,7 @@ class TestExtractKeyFacts:
         assert any("192.168.1.1" in f for f in facts)
 
     def test_important_markers(self):
-        facts = extract_key_facts("⚠️ Critical: do not delete\nNormal line\n")
+        facts = extract_key_facts(" Critical: do not delete\nNormal line\n")
         assert any("Critical" in f for f in facts)
 
     def test_empty(self):

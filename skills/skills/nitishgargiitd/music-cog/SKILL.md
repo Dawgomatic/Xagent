@@ -3,7 +3,7 @@ name: music-cog
 description: "Original music, fully yours. 5 seconds to 10 minutes using frontier music generation models. Instrumental and vocal tracks with perfect vocals. Cinematic scores, background tracks, podcast intros, game soundtracks, ambient soundscapes, jingles, lo-fi beats, orchestral compositions, songs with lyrics."
 metadata:
   openclaw:
-    emoji: "🎶"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

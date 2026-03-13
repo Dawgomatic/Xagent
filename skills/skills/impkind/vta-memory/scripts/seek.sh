@@ -10,7 +10,7 @@ WORKSPACE="${WORKSPACE:-$HOME/.openclaw/workspace}"
 STATE_FILE="$WORKSPACE/memory/reward-state.json"
 
 if [ ! -f "$STATE_FILE" ]; then
-  echo "❌ No reward state found"
+  echo " No reward state found"
   exit 1
 fi
 
@@ -55,7 +55,7 @@ case $ACTION in
        '.seeking = (.seeking + [$item] | unique) | .lastUpdated = $now' \
        "$STATE_FILE" > "$STATE_FILE.tmp"
     mv "$STATE_FILE.tmp" "$STATE_FILE"
-    echo "⭐ Now seeking: $ITEM"
+    echo " Now seeking: $ITEM"
     ;;
     
   remove)
@@ -67,11 +67,11 @@ case $ACTION in
        '.seeking = [.seeking[] | select(. != $item)] | .lastUpdated = $now' \
        "$STATE_FILE" > "$STATE_FILE.tmp"
     mv "$STATE_FILE.tmp" "$STATE_FILE"
-    echo "⭐ No longer seeking: $ITEM"
+    echo " No longer seeking: $ITEM"
     ;;
     
   list)
-    echo "⭐ Currently seeking:"
+    echo " Currently seeking:"
     jq -r '.seeking[]?' "$STATE_FILE" | while read -r item; do
       echo "  • $item"
     done
@@ -84,7 +84,7 @@ case $ACTION in
   clear)
     jq --arg now "$NOW" '.seeking = [] | .lastUpdated = $now' "$STATE_FILE" > "$STATE_FILE.tmp"
     mv "$STATE_FILE.tmp" "$STATE_FILE"
-    echo "⭐ Cleared all seeking"
+    echo " Cleared all seeking"
     ;;
     
   *)

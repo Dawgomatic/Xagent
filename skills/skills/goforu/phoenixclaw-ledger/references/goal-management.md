@@ -170,8 +170,8 @@ Integration with `assets/yearly-report.md`:
 ```markdown
 ## Financial Goals
 
-- Travel Fund 2026: ¥12,500/¥50,000 (25%) 🧗
-- Dine-out Limit: ¥850/¥2,000 (42%) ✅
-- Anti-Takeout Habit: 4/7 days streak (57%) 🔥
-- MacBook Pro: ¥3,000/¥15,000 (20%) 🔋
+- Travel Fund 2026: ¥12,500/¥50,000 (25%) 
+- Dine-out Limit: ¥850/¥2,000 (42%) 
+- Anti-Takeout Habit: 4/7 days streak (57%) 
+- MacBook Pro: ¥3,000/¥15,000 (20%) 
 ```

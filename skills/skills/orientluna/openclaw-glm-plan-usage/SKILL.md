@@ -97,7 +97,7 @@ OPENCLAW_LANGUAGE=en bash ~/.openclaw/skills/glm-plan-usage/scripts/query-usage.
 ### 示例输出 / Sample Output
 
 ```
-📊 GLM 编码套餐使用统计 / GLM Coding Plan Usage Statistics
+ GLM 编码套餐使用统计 / GLM Coding Plan Usage Statistics
 
 提供商 / Provider: zhipu
 统计时间 / Statistics Time: 2026-02-13 20:30:15

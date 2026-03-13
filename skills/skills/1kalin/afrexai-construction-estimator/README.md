@@ -1,4 +1,4 @@
-# 📊 AfrexAI Construction Estimator Pro
+#  AfrexAI Construction Estimator Pro
 
 > Complete construction estimating methodology — from quantity takeoff to bid submission. Zero dependencies.
 
@@ -34,13 +34,13 @@ Tell your agent:
 - "Value engineer the HVAC system"
 - "Generate a monthly cost report for the Johnson project"
 
-## ⚡ Level Up
+##  Level Up
 
 **Need the full Construction AI Context Pack?** Get industry-specific estimating databases, RFI management, schedule integration, safety compliance, and 50+ construction-specific templates:
 
 → [**AfrexAI Construction Context Pack — $47**](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-project-manager](https://clawhub.com/skills/afrexai-project-manager) — Complete PM delivery system
 - [afrexai-proposal-engine](https://clawhub.com/skills/afrexai-proposal-engine) — Win more deals with data-driven proposals
@@ -52,4 +52,4 @@ Tell your agent:
 
 ---
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

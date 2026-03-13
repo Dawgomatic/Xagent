@@ -2,7 +2,7 @@
 name: perplexity
 description: Search the web with AI-powered answers via Perplexity API. Returns grounded responses with citations. Supports batch queries.
 homepage: https://docs.perplexity.ai
-metadata: {"clawdbot":{"emoji":"🔮","requires":{"bins":["node"],"env":["PERPLEXITY_API_KEY"]},"primaryEnv":"PERPLEXITY_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"],"env":["PERPLEXITY_API_KEY"]},"primaryEnv":"PERPLEXITY_API_KEY"}}
 ---
 
 # Perplexity Search

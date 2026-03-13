@@ -1,4 +1,4 @@
-# 📺 YouTube Research Pro
+#  YouTube Research Pro
 
 **The most comprehensive YouTube skill for AI agents.**
 
@@ -28,23 +28,23 @@ Most YouTube tools use the official YouTube Data API for transcripts, which cost
 
 ## What Can Your Agent Do With This?
 
-### 🔍 Research & Analysis
+###  Research & Analysis
 - Search YouTube with filters (date, duration, view count)
 - Get video details in batch (up to 50 at once)
 - Extract full transcripts for content analysis
 - Read comments to gauge audience sentiment
 
-### 📝 Content Extraction
+###  Content Extraction
 - Pull transcripts in any available language
 - Get timestamped transcripts for precise references
 - Export everything as JSON for further processing
 
-### 📥 Downloads
+###  Downloads
 - Download videos at any resolution
 - Extract audio only (podcasts, music, interviews)
 - Grab subtitles as separate files
 
-### 📊 Channel Intelligence
+###  Channel Intelligence
 - Analyze channel statistics
 - Track subscriber counts and view totals
 - List and explore playlists
@@ -205,16 +205,16 @@ For faster typing:
 
 | Feature | YouTube Research Pro | kimtaeyoon83 | kevinwatt/yt-dlp | dannySubsense | kirbah |
 |---------|---------------------|--------------|------------------|---------------|--------|
-| Free transcripts | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Search | ✅ | ❌ | ✅ | ✅ | ✅ |
-| Filtered search | ✅ | ❌ | ✅ | ❌ | ❌ |
-| Batch operations | ✅ | ❌ | ❌ | ❌ | ✅ |
-| Comments | ✅ | ❌ | ❌ | ✅ | ✅ |
-| Downloads | ✅ | ❌ | ✅ | ❌ | ❌ |
-| Audio extraction | ✅ | ❌ | ✅ | ❌ | ❌ |
-| JSON output | ✅ | ❌ | ❌ | ❌ | ✅ |
-| Multi-language | ✅ | ✅ | ✅ | ❌ | ❌ |
-| URL + ID support | ✅ | ❌ | ✅ | ❌ | ❌ |
+| Free transcripts |  |  |  |  |  |
+| Search |  |  |  |  |  |
+| Filtered search |  |  |  |  |  |
+| Batch operations |  |  |  |  |  |
+| Comments |  |  |  |  |  |
+| Downloads |  |  |  |  |  |
+| Audio extraction |  |  |  |  |  |
+| JSON output |  |  |  |  |  |
+| Multi-language |  |  |  |  |  |
+| URL + ID support |  |  |  |  |  |
 
 **Result:** No other skill covers all these capabilities in one package.
 
@@ -222,23 +222,23 @@ For faster typing:
 
 ## Use Cases
 
-### 📚 Research Assistant
+###  Research Assistant
 "Summarize the key points from this conference talk"
 → Fetch transcript, analyze with LLM, extract insights
 
-### 🎓 Learning Helper  
+###  Learning Helper  
 "Create study notes from this lecture series"
 → Batch fetch transcripts from playlist, synthesize content
 
-### 📰 News Monitoring
+###  News Monitoring
 "What are people saying about [topic] this week?"
 → Search recent videos, extract transcripts, analyze trends
 
-### 🎵 Music/Podcast
+###  Music/Podcast
 "Download this interview as audio for my commute"
 → Extract audio, convert to MP3
 
-### 📊 Competitor Analysis
+###  Competitor Analysis
 "How is [channel] performing?"
 → Get channel stats, analyze recent videos, track growth
 

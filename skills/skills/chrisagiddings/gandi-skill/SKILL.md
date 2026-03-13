@@ -8,9 +8,9 @@ metadata: {"openclaw":{"disable-model-invocation":true,"capabilities":["dns-modi
 
 Comprehensive Gandi domain registrar integration for Moltbot.
 
-**Status:** ✅ Phase 2 Complete - DNS modification & snapshots functional
+**Status:**  Phase 2 Complete - DNS modification & snapshots functional
 
-## ⚠️ Security Warning
+##  Security Warning
 
 **This skill can perform DESTRUCTIVE operations on your Gandi account:**
 
@@ -26,16 +26,16 @@ Comprehensive Gandi domain registrar integration for Moltbot.
 4. Test on non-production domains first
 5. Understand that some operations cannot be undone
 
-**Destructive scripts** (⚠️ modify or delete data):
+**Destructive scripts** ( modify or delete data):
 - `add-dns-record.js`, `delete-dns-record.js`, `update-dns-bulk.js`
 - `add-email-forward.js`, `update-email-forward.js`, `delete-email-forward.js`
 - `restore-snapshot.js` (replaces current DNS)
 
-**Read-only scripts** (✅ safe, no modifications):
+**Read-only scripts** ( safe, no modifications):
 - `list-domains.js`, `list-dns.js`, `list-snapshots.js`
 - `list-email-forwards.js`, `check-domain.js`, `check-ssl.js`
 
-📖 **For complete script documentation:** See [SCRIPTS.md](SCRIPTS.md) for detailed information about:
+ **For complete script documentation:** See [SCRIPTS.md](SCRIPTS.md) for detailed information about:
 - What each script does
 - Network operations and API calls
 - Security implications
@@ -45,24 +45,24 @@ Comprehensive Gandi domain registrar integration for Moltbot.
 ## Current Capabilities
 
 ### Phase 1 (Complete)
-- ✅ Personal Access Token authentication
-- ✅ List domains in your account
-- ✅ Get domain details (expiration, status, services)
-- ✅ List DNS records for domains
-- ✅ View domain and DNS information
-- ✅ **Domain availability checking** ([#4](https://github.com/chrisagiddings/moltbot-gandi-skill/issues/4))
-- ✅ **Smart domain suggestions with variations** ([#4](https://github.com/chrisagiddings/moltbot-gandi-skill/issues/4))
-- ✅ SSL certificate status checker
-- ✅ Error handling and validation
+-  Personal Access Token authentication
+-  List domains in your account
+-  Get domain details (expiration, status, services)
+-  List DNS records for domains
+-  View domain and DNS information
+-  **Domain availability checking** ([#4](https://github.com/chrisagiddings/moltbot-gandi-skill/issues/4))
+-  **Smart domain suggestions with variations** ([#4](https://github.com/chrisagiddings/moltbot-gandi-skill/issues/4))
+-  SSL certificate status checker
+-  Error handling and validation
 
 ### Phase 2 (Complete)
-- ✅ **Add/update DNS records** (A, AAAA, CNAME, MX, TXT, NS, SRV, CAA, PTR)
-- ✅ **Delete DNS records**
-- ✅ **Bulk DNS operations** (replace all records at once)
-- ✅ **DNS zone snapshots** (create, list, restore)
-- ✅ **Email forwarding** (create, list, update, delete forwards including catch-all)
-- ✅ **Record validation** (automatic validation for each record type)
-- ✅ **Safety features** (automatic snapshots before bulk changes, confirmation prompts)
+-  **Add/update DNS records** (A, AAAA, CNAME, MX, TXT, NS, SRV, CAA, PTR)
+-  **Delete DNS records**
+-  **Bulk DNS operations** (replace all records at once)
+-  **DNS zone snapshots** (create, list, restore)
+-  **Email forwarding** (create, list, update, delete forwards including catch-all)
+-  **Record validation** (automatic validation for each record type)
+-  **Safety features** (automatic snapshots before bulk changes, confirmation prompts)
 
 ## Coming Soon (Phase 3+)
 
@@ -78,7 +78,7 @@ Comprehensive Gandi domain registrar integration for Moltbot.
 
 ### Step 1: Create Personal Access Token
 
-**⚠️ Security Recommendation:** Use the **minimum required scopes** for your use case.
+** Security Recommendation:** Use the **minimum required scopes** for your use case.
 
 1. Go to [Gandi Admin → Personal Access Tokens](https://admin.gandi.net/organizations/account/pat)
 2. Click **"Create a token"**
@@ -86,13 +86,13 @@ Comprehensive Gandi domain registrar integration for Moltbot.
 4. Choose scopes:
    
    **Read-Only (Recommended for viewing only):**
-   - ✅ Domain: read (required for listing domains)
-   - ✅ LiveDNS: read (required for viewing DNS records)
-   - ✅ Email: read (required for viewing email forwards)
+   -  Domain: read (required for listing domains)
+   -  LiveDNS: read (required for viewing DNS records)
+   -  Email: read (required for viewing email forwards)
    
    **Write Access (Required for modifications - use with caution):**
-   - ⚠️ LiveDNS: write (enables DNS modification, deletion, bulk operations)
-   - ⚠️ Email: write (enables email forward creation, updates, deletions)
+   -  LiveDNS: write (enables DNS modification, deletion, bulk operations)
+   -  Email: write (enables email forward creation, updates, deletions)
 
 5. Copy the token (you won't see it again!)
 
@@ -123,10 +123,10 @@ echo 'export GANDI_API_TOKEN="YOUR_PERSONAL_ACCESS_TOKEN"' >> ~/.bashrc
 ```
 
 **Benefits:**
-- ✅ CI/CD friendly (standard pattern for automation)
-- ✅ Container-ready (no file mounts needed)
-- ✅ Works with secret management tools (1Password, Vault, etc.)
-- ✅ Easy to switch between multiple tokens
+-  CI/CD friendly (standard pattern for automation)
+-  Container-ready (no file mounts needed)
+-  Works with secret management tools (1Password, Vault, etc.)
+-  Easy to switch between multiple tokens
 
 #### Option B: File-based (Recommended for local development)
 
@@ -142,10 +142,10 @@ chmod 600 ~/.config/gandi/api_token
 ```
 
 **Benefits:**
-- ✅ Token persists across shell sessions
-- ✅ Secure file permissions (0600 = owner read-only)
-- ✅ No risk of exposing token in process list
-- ✅ Works offline (no external dependencies)
+-  Token persists across shell sessions
+-  Secure file permissions (0600 = owner read-only)
+-  No risk of exposing token in process list
+-  Works offline (no external dependencies)
 
 ### Step 3: Install Dependencies
 
@@ -179,13 +179,13 @@ node test-auth.js
 
 Expected output:
 ```
-✅ Authentication successful!
+ Authentication successful!
 
 Your organizations:
   1. Personal Account (uuid-here)
      Type: individual
 
-🎉 You're ready to use the Gandi skill!
+ You're ready to use the Gandi skill!
 ```
 
 ### Step 5: Setup Contact Information (Optional, for Domain Registration)
@@ -304,22 +304,22 @@ node check-domain.js example.com
 
 **Example Output:**
 ```
-🔍 Checking availability for: example.com
+ Checking availability for: example.com
 
 Domain: example.com
 
-✅ Status: AVAILABLE
+ Status: AVAILABLE
 
-💰 Pricing:
+ Pricing:
   1 year: 12.00 EUR (+ 2.40 tax)
   2 years: 24.00 EUR (+ 4.80 tax)
 
-📋 Supported Features:
+ Supported Features:
   • create
   • dnssec
   • livedns
 
-🌐 TLD Information:
+ TLD Information:
   Extension: com
 ```
 
@@ -350,45 +350,45 @@ node suggest-domains.js example --json
 
 **Example Output:**
 ```
-🔍 Checking availability for: example
+ Checking availability for: example
 
-📊 Checking 13 TLDs and generating variations...
+ Checking 13 TLDs and generating variations...
 
 ═══════════════════════════════════════════════════════
-📋 EXACT MATCHES (Different TLDs)
+ EXACT MATCHES (Different TLDs)
 ═══════════════════════════════════════════════════════
 
-✅ Available:
+ Available:
 
   example.net                    12.00 EUR
   example.io                     39.00 EUR
   example.dev                    15.00 EUR
 
-❌ Unavailable:
+ Unavailable:
 
   example.com                    (unavailable)
   example.org                    (unavailable)
 
 ═══════════════════════════════════════════════════════
-🎨 NAME VARIATIONS
+ NAME VARIATIONS
 ═══════════════════════════════════════════════════════
 
 Hyphenated:
 
-  ✅ ex-ample.com                12.00 EUR
+   ex-ample.com                12.00 EUR
 
 Prefix:
 
-  ✅ get-example.com             12.00 EUR
-  ✅ my-example.com              12.00 EUR
+   get-example.com             12.00 EUR
+   my-example.com              12.00 EUR
 
 Suffix:
 
-  ✅ example-app.com             12.00 EUR
-  ✅ example-io.com              12.00 EUR
+   example-app.com             12.00 EUR
+   example-io.com              12.00 EUR
 
 ═══════════════════════════════════════════════════════
-📊 SUMMARY: 8 available domains found
+ SUMMARY: 8 available domains found
 ═══════════════════════════════════════════════════════
 ```
 
@@ -872,13 +872,13 @@ const available = await checkAvailability(['example.com', 'example.net']);
 
 ### Token Storage
 
-✅ **DO:**
+ **DO:**
 - Store at `~/.config/gandi/api_token`
 - Use 600 permissions (owner read-only)
 - Rotate tokens regularly
 - Use minimal required scopes
 
-❌ **DON'T:**
+ **DON'T:**
 - Commit tokens to repositories
 - Share tokens between users
 - Give tokens unnecessary permissions
@@ -917,7 +917,7 @@ gandi-skill/
 
 ## Development Roadmap
 
-**Phase 1: Read Operations** (✅ Current)
+**Phase 1: Read Operations** ( Current)
 - Authentication with PAT
 - List domains
 - Get domain details

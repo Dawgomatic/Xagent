@@ -74,7 +74,7 @@ parse_time() {
 # Parse the time
 TIMESTAMP=$(parse_time "$WHEN")
 if [[ -z "$TIMESTAMP" ]]; then
-    echo "❌ Error: Could not parse time: $WHEN"
+    echo " Error: Could not parse time: $WHEN"
     exit 1
 fi
 
@@ -83,9 +83,9 @@ OUTPUT=$(remindctl add "$MESSAGE" --due "$TIMESTAMP" --json 2>&1)
 
 if [[ $? -eq 0 ]]; then
     DISPLAY_TIME=$(date -j -f "%Y-%m-%dT%H:%M:%S%z" "$TIMESTAMP" "+%Y-%m-%d %H:%M" 2>/dev/null || echo "$TIMESTAMP")
-    echo "✅ Reminder created: \"$MESSAGE\" at $DISPLAY_TIME"
-    echo "📱 Check Reminders.app to see it"
+    echo " Reminder created: \"$MESSAGE\" at $DISPLAY_TIME"
+    echo " Check Reminders.app to see it"
 else
-    echo "❌ Error creating reminder: $OUTPUT"
+    echo " Error creating reminder: $OUTPUT"
     exit 1
 fi

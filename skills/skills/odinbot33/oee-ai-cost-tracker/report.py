@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""🐾 AI Usage & Cost Reporter — CLI dashboard.
+""" AI Usage & Cost Reporter — CLI dashboard.
 
 Usage:
     python report.py                    # full report
@@ -62,7 +62,7 @@ def report_summary(entries: list[dict]):
     total_out = sum(e["tokens"]["output"] for e in entries)
     total_cost = sum(e["costEstimate"] for e in entries)
     print("═" * 50)
-    print("  🐾 AI USAGE SUMMARY")
+    print("   AI USAGE SUMMARY")
     print("═" * 50)
     print(f"  Total calls:    {total_calls:,}")
     print(f"  Input tokens:   {_fmt_tokens(total_in)}")
@@ -115,7 +115,7 @@ def report_by_day(entries: list[dict], max_days: int = 10):
 
 
 def report_routing(entries: list[dict]):
-    """🐾 sniff out wasteful routing"""
+    """ sniff out wasteful routing"""
     pricing = _load_pricing()
     simple_tasks = set(pricing.get("simple_task_types", []))
     expensive = {"claude-opus-4", "o1", "gpt-5.3"}
@@ -125,7 +125,7 @@ def report_routing(entries: list[dict]):
     for e in entries:
         model_low = e["model"].lower()
         if any(x in model_low for x in expensive) and e["taskType"].lower() in simple_tasks:
-            warnings.append(f"  ⚠️  {e['model']} used for simple task '{e['taskType']}' — consider a cheaper model")
+            warnings.append(f"    {e['model']} used for simple task '{e['taskType']}' — consider a cheaper model")
 
     # Flag >25% spend from single source
     total_cost = sum(e["costEstimate"] for e in entries)
@@ -136,10 +136,10 @@ def report_routing(entries: list[dict]):
         for src, cost in by_source.items():
             pct = cost / total_cost * 100
             if pct > 25:
-                warnings.append(f"  📊 Source '{src}' accounts for {pct:.0f}% of spend ({_fmt_cost(cost)})")
+                warnings.append(f"   Source '{src}' accounts for {pct:.0f}% of spend ({_fmt_cost(cost)})")
 
     if warnings:
-        print("── 🐾 Routing Suggestions ──")
+        print("──  Routing Suggestions ──")
         seen = set()
         for w in warnings:
             if w not in seen:
@@ -147,11 +147,11 @@ def report_routing(entries: list[dict]):
                 print(w)
         print()
     else:
-        print("── 🐾 Routing: all good! ──\n")
+        print("──  Routing: all good! ──\n")
 
 
 def main():
-    p = argparse.ArgumentParser(description="AI Usage & Cost Report 🐾")
+    p = argparse.ArgumentParser(description="AI Usage & Cost Report ")
     p.add_argument("--days", type=int, default=None, help="Filter to last N days")
     p.add_argument("--model", type=str, default=None, help="Filter by model name (substring)")
     p.add_argument("--task-type", type=str, default=None, help="Filter by task type (substring)")
@@ -159,7 +159,7 @@ def main():
 
     entries = _load_entries(args.days, args.model, args.task_type)
     if not entries:
-        print("🐾 No usage entries found. Start tracking with tracker.py!")
+        print(" No usage entries found. Start tracking with tracker.py!")
         return
 
     report_summary(entries)

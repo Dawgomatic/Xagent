@@ -3,7 +3,7 @@ name: jo4
 description: URL shortener, QR code generator, and link analytics API. Create short links, generate QR codes, and track click analytics.
 homepage: https://jo4.io
 user-invocable: true
-metadata: { "openclaw": { "emoji": "🔗", "primaryEnv": "JO4_API_KEY", "requires": { "env": ["JO4_API_KEY"] } } }
+metadata: { "openclaw": { "emoji": "", "primaryEnv": "JO4_API_KEY", "requires": { "env": ["JO4_API_KEY"] } } }
 ---
 
 # Jo4 - URL Shortener & Analytics API

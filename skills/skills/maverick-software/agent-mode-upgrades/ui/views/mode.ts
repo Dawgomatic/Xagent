@@ -99,7 +99,7 @@ export function renderMode(props: ModeProps) {
     <section class="card">
       <div class="row" style="justify-content: space-between; align-items: flex-start;">
         <div>
-          <div class="card-title">⚡ Agent Loop Mode</div>
+          <div class="card-title"> Agent Loop Mode</div>
           <div class="card-sub">
             Switch between core and enhanced agentic loop implementations.
           </div>
@@ -120,7 +120,7 @@ export function renderMode(props: ModeProps) {
             ?disabled=${props.loading || props.saving}
             @click=${props.onSave}
           >
-            ${props.saving ? "Saving…" : "💾 Save Configuration"}
+            ${props.saving ? "Saving…" : " Save Configuration"}
           </button>
         </div>
       </div>
@@ -132,12 +132,12 @@ export function renderMode(props: ModeProps) {
 
     <!-- Mode Toggle -->
     <section class="card" style="margin-top: 16px;">
-      <div class="card-title">🔄 Active Mode</div>
+      <div class="card-title"> Active Mode</div>
       <div class="row" style="margin-top: 16px; gap: 16px;">
         ${renderModeCard({
           title: "Core Loop",
           description: "Original Clawdbot agent loop. Reactive, sequential tool execution with retry-based error handling.",
-          icon: "🔧",
+          icon: "",
           active: !isEnhanced,
           features: [
             "Sequential tool execution",
@@ -150,7 +150,7 @@ export function renderMode(props: ModeProps) {
         ${renderModeCard({
           title: "Enhanced Loop",
           description: "Advanced agentic infrastructure with planning, parallel execution, and confidence-gated autonomy.",
-          icon: "🚀",
+          icon: "",
           active: isEnhanced,
           features: [
             "Planning + reflection layers",
@@ -244,7 +244,7 @@ function renderEnhancedConfig(
   return html`
     <!-- Orchestrator Model -->
     <section class="card" style="margin-top: 16px;">
-      <div class="card-title">🤖 Orchestrator Model</div>
+      <div class="card-title"> Orchestrator Model</div>
       <div class="muted" style="margin-top: 4px; font-size: 13px;">
         Model used for planning, reflection, and orchestration calls. Use a cheaper model to save costs.
       </div>
@@ -298,7 +298,7 @@ function renderEnhancedConfig(
     <div class="row" style="margin-top: 16px; gap: 16px; align-items: flex-start;">
       <!-- Planning & Reflection -->
       <section class="card" style="flex: 1; min-width: 300px;">
-        <div class="card-title">🎯 Planning & Reflection</div>
+        <div class="card-title"> Planning & Reflection</div>
         <div class="muted" style="margin-top: 4px; font-size: 13px;">
           Decompose goals and assess progress after each action.
         </div>
@@ -332,7 +332,7 @@ function renderEnhancedConfig(
 
       <!-- Execution -->
       <section class="card" style="flex: 1; min-width: 300px;">
-        <div class="card-title">⚡ Execution</div>
+        <div class="card-title"> Execution</div>
         <div class="muted" style="margin-top: 4px; font-size: 13px;">
           Parallel execution and confidence-gated actions.
         </div>
@@ -377,7 +377,7 @@ function renderEnhancedConfig(
     <div class="row" style="margin-top: 16px; gap: 16px; align-items: flex-start;">
       <!-- Context Management -->
       <section class="card" style="flex: 1; min-width: 300px;">
-        <div class="card-title">📊 Context Management</div>
+        <div class="card-title"> Context Management</div>
         <div class="muted" style="margin-top: 4px; font-size: 13px;">
           Proactive context pruning and summarization.
         </div>
@@ -413,7 +413,7 @@ function renderEnhancedConfig(
 
       <!-- Error Recovery -->
       <section class="card" style="flex: 1; min-width: 300px;">
-        <div class="card-title">🔧 Error Recovery</div>
+        <div class="card-title"> Error Recovery</div>
         <div class="muted" style="margin-top: 4px; font-size: 13px;">
           Semantic error diagnosis and adaptive recovery.
         </div>
@@ -448,7 +448,7 @@ function renderEnhancedConfig(
 
     <!-- State Machine -->
     <section class="card" style="margin-top: 16px;">
-      <div class="card-title">📈 State Machine & Observability</div>
+      <div class="card-title"> State Machine & Observability</div>
       <div class="muted" style="margin-top: 4px; font-size: 13px;">
         Explicit state tracking for debugging and dashboards.
       </div>

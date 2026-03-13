@@ -1,4 +1,4 @@
-# ADHD Body Doubling Skill v2.1 🐱⚡
+# ADHD Body Doubling Skill v2.1 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-skill-blue)](https://openclaw.ai)
@@ -103,7 +103,7 @@ This skill is a free, fully functional body doubling system. It's also a taste o
 
 **No fluff. No shame. Just systems that work.**
 
-🔗 **[adhd-founder.com](https://adhd-founder.com)**
+ **[adhd-founder.com](https://adhd-founder.com)**
 
 ---
 

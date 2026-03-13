@@ -2,7 +2,7 @@
 name: yap
 description: Fast on-device speech-to-text using Apple Speech.framework (macOS 26+).
 homepage: https://github.com/finnvoor/yap
-metadata: {"openclaw":{"emoji":"🗣️","os":["darwin"],"requires":{"bins":["yap"]},"install":[{"id":"brew","kind":"brew","formula":"finnvoor/tools/yap","bins":["yap"],"label":"Install yap (brew)"}]}}
+metadata: {"openclaw":{"emoji":"","os":["darwin"],"requires":{"bins":["yap"]},"install":[{"id":"brew","kind":"brew","formula":"finnvoor/tools/yap","bins":["yap"],"label":"Install yap (brew)"}]}}
 ---
 
 # yap

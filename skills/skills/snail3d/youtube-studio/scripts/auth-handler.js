@@ -60,7 +60,7 @@ async function authenticate(credentialsPath, tokensPath) {
       scope: SCOPES,
     });
 
-    console.log('\n🔐 Opening browser for authentication...');
+    console.log('\n Opening browser for authentication...');
     console.log(`If browser doesn't open, visit: ${authUrl}`);
 
     // Open browser and get auth code
@@ -103,7 +103,7 @@ async function getAuthorizationCode(authUrl) {
           <html>
             <head><title>Authorization Successful</title></head>
             <body style="font-family: Arial; text-align: center; padding: 50px;">
-              <h1>✅ Authorization Successful!</h1>
+              <h1> Authorization Successful!</h1>
               <p>You can close this window and return to the terminal.</p>
               <p>YouTube Studio is now connected.</p>
             </body>
@@ -118,7 +118,7 @@ async function getAuthorizationCode(authUrl) {
           <html>
             <head><title>Authorization Failed</title></head>
             <body style="font-family: Arial; text-align: center; padding: 50px;">
-              <h1>❌ Authorization Failed</h1>
+              <h1> Authorization Failed</h1>
               <p>Error: ${query.error}</p>
               <p>${query.error_description || ''}</p>
             </body>

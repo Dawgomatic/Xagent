@@ -226,30 +226,30 @@ async def main():
 ### Do's
 
 ```python
-# ✅ Create a new thread for each logical conversation
+#  Create a new thread for each logical conversation
 thread = agent.get_new_thread()
 
-# ✅ Pass the same thread to maintain context
+#  Pass the same thread to maintain context
 await agent.run("Message 1", thread=thread)
 await agent.run("Message 2", thread=thread)
 
-# ✅ Save thread IDs for conversations that need resumption
+#  Save thread IDs for conversations that need resumption
 conversation_id = thread.conversation_id
 ```
 
 ### Don'ts
 
 ```python
-# ❌ Don't create a new thread for each message (loses context)
+#  Don't create a new thread for each message (loses context)
 for msg in messages:
     thread = agent.get_new_thread()  # Wrong!
     await agent.run(msg, thread=thread)
 
-# ❌ Don't share threads between different agents
+#  Don't share threads between different agents
 agent1_thread = agent1.get_new_thread()
 await agent2.run("Hello", thread=agent1_thread)  # May cause issues
 
-# ❌ Don't forget to pass the thread (single-turn only)
+#  Don't forget to pass the thread (single-turn only)
 await agent.run("Message 1")  # No thread - no context saved
 await agent.run("Message 2")  # Can't reference previous message
 ```

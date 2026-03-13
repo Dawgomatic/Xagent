@@ -30,7 +30,7 @@ AgentNexus implements **defense-in-depth** security with multiple layers of prot
 
 ---
 
-## 📊 Security Layers
+##  Security Layers
 
 ### Layer 1: Input Sanitization & Validation
 
@@ -38,20 +38,20 @@ AgentNexus implements **defense-in-depth** security with multiple layers of prot
 
 #### Features
 
-✅ **Command Injection Detection**
+ **Command Injection Detection**
 
 - Detects shell metacharacters: `;`, `|`, `&`, `` ` ``, `$()`, `${}`
 - Blocks path traversal attempts: `../`
 - Identifies common attack patterns: `/etc/passwd`, `/bin/bash`
 
-✅ **Input Sanitization**
+ **Input Sanitization**
 
 - Removes null bytes (`\0`)
 - Strips control characters (except `\n`, `\t`)
 - Enforces length limits (100KB max)
 - Recursive sanitization for nested objects/arrays
 
-✅ **Schema Validation**
+ **Schema Validation**
 
 - Type checking (string, number, boolean, object, array)
 - Required field validation
@@ -73,10 +73,10 @@ const sanitizedInput = sanitizeInput(dto.inputData);
 
 #### Test Coverage
 
-- ✅ 25/25 security tests passing
-- ✅ Injection detection tests
-- ✅ Sanitization tests
-- ✅ Validation tests
+-  25/25 security tests passing
+-  Injection detection tests
+-  Sanitization tests
+-  Validation tests
 
 ---
 
@@ -86,7 +86,7 @@ const sanitizedInput = sanitizeInput(dto.inputData);
 
 #### Protected Secrets
 
-🔐 **API Keys & Tokens**
+ **API Keys & Tokens**
 
 - API keys (32+ char hex strings)
 - AWS credentials (AKIA...)
@@ -94,20 +94,20 @@ const sanitizedInput = sanitizeInput(dto.inputData);
 - Bearer tokens
 - JWT tokens (eyJ...)
 
-🔐 **Credentials**
+ **Credentials**
 
 - Passwords
 - Database URLs (postgres://, mongodb://)
 - Private keys (RSA, OpenSSH)
 - Ethereum private keys (0x + 64 hex)
 
-🔐 **Personal Information**
+ **Personal Information**
 
 - Email addresses
 - Internal IP addresses (10.x, 192.168.x, 172.16-31.x)
 - Credit card numbers (basic pattern)
 
-🔐 **Environment Variables**
+ **Environment Variables**
 
 - `*_KEY=`, `*_SECRET=`, `*_TOKEN=`, `*_PASSWORD=`
 - Case-insensitive matching
@@ -151,19 +151,19 @@ await prisma.execution.update({
 
 #### Isolation Features
 
-🔒 **Process Isolation**
+ **Process Isolation**
 
 - Separate PID namespace
 - Non-root user (UID 1000)
 - No privilege escalation
 
-🔒 **Network Isolation**
+ **Network Isolation**
 
 - Zero network access (`NetworkMode: 'none'`)
 - No internet connectivity
 - No host network access
 
-🔒 **Filesystem Isolation**
+ **Filesystem Isolation**
 
 - Optional read-only root filesystem
 - Restricted `/tmp` directory
@@ -250,20 +250,20 @@ SecurityOpt: ['no-new-privileges:true'];
 
 #### Allowed Syscalls (50+)
 
-✅ **File I/O:** read, write, open, close, stat, lseek  
-✅ **Memory:** mmap, munmap, mprotect, brk  
-✅ **Process:** exit, wait, getpid, getuid  
-✅ **Time:** clock_gettime, gettimeofday, nanosleep  
-✅ **Threading:** clone, futex (limited)  
-✅ **Execution:** execve, execveat
+ **File I/O:** read, write, open, close, stat, lseek  
+ **Memory:** mmap, munmap, mprotect, brk  
+ **Process:** exit, wait, getpid, getuid  
+ **Time:** clock_gettime, gettimeofday, nanosleep  
+ **Threading:** clone, futex (limited)  
+ **Execution:** execve, execveat
 
 #### Blocked Syscalls (100+)
 
-❌ **Network:** socket, connect, bind, listen, accept  
-❌ **Privilege:** setuid, setgid, capset  
-❌ **System:** mount, umount, pivot_root, chroot  
-❌ **Kernel:** ptrace, kexec_load, bpf  
-❌ **Devices:** ioctl, mknod
+ **Network:** socket, connect, bind, listen, accept  
+ **Privilege:** setuid, setgid, capset  
+ **System:** mount, umount, pivot_root, chroot  
+ **Kernel:** ptrace, kexec_load, bpf  
+ **Devices:** ioctl, mknod
 
 #### Implementation
 
@@ -285,7 +285,7 @@ docker run --security-opt seccomp=./seccomp-profile.json \
 
 ---
 
-## 🧪 Automated Security Testing
+##  Automated Security Testing
 
 ### GitHub Actions CI/CD
 
@@ -318,81 +318,81 @@ GENERATE_HTML_REPORT=true ./scan-image.sh agentnexus-python-echo:v1
 
 #### Severity Thresholds
 
-- **CRITICAL:** ❌ Deployment blocked
-- **HIGH:** ❌ Deployment blocked
-- **MEDIUM:** ⚠️ Warning only
-- **LOW:** ✅ Acceptable
+- **CRITICAL:**  Deployment blocked
+- **HIGH:**  Deployment blocked
+- **MEDIUM:**  Warning only
+- **LOW:**  Acceptable
 
 ---
 
-## 📈 Security Metrics
+##  Security Metrics
 
 ### Current Status
 
 | Layer               | Status         | Coverage           |
 | ------------------- | -------------- | ------------------ |
-| Input Sanitization  | ✅ Implemented | 100%               |
-| Log Sanitization    | ✅ Implemented | 100%               |
-| Container Isolation | ✅ Implemented | 100%               |
-| Resource Limits     | ✅ Implemented | 100%               |
-| Capabilities        | ✅ Implemented | 100%               |
-| Seccomp             | ✅ Implemented | 50+ syscalls       |
-| Tests               | ✅ Passing     | 25/25 (100%)       |
-| CI/CD Scanning      | ✅ Automated   | Daily + Per-commit |
+| Input Sanitization  |  Implemented | 100%               |
+| Log Sanitization    |  Implemented | 100%               |
+| Container Isolation |  Implemented | 100%               |
+| Resource Limits     |  Implemented | 100%               |
+| Capabilities        |  Implemented | 100%               |
+| Seccomp             |  Implemented | 50+ syscalls       |
+| Tests               |  Passing     | 25/25 (100%)       |
+| CI/CD Scanning      |  Automated   | Daily + Per-commit |
 
 ### Test Coverage
 
 ```
 Security Tests:     25/25 passing (100%)
 Integration Tests:  4/4 passing (100%)
-Total Test Suites:  All passing ✅
+Total Test Suites:  All passing 
 ```
 
 ---
 
-## 🚨 Threat Model
+##  Threat Model
 
 ### Threats Mitigated
 
-#### ✅ Container Escape
+####  Container Escape
 
 - **Mitigation:** Seccomp, capabilities, non-root user
 - **Risk:** LOW (multiple layers of defense)
 
-#### ✅ Resource Exhaustion (DoS)
+####  Resource Exhaustion (DoS)
 
 - **Mitigation:** Memory limits, CPU limits, PID limits, timeout
 - **Risk:** LOW (hard limits enforced)
 
-#### ✅ Data Exfiltration
+####  Data Exfiltration
 
 - **Mitigation:** Network isolation, no outbound connections
 - **Risk:** VERY LOW (no network access)
 
-#### ✅ Privilege Escalation
+####  Privilege Escalation
 
 - **Mitigation:** No new privileges, all capabilities dropped
 - **Risk:** VERY LOW (kernel-enforced)
 
-#### ✅ Command Injection
+####  Command Injection
 
 - **Mitigation:** Input sanitization, injection detection
 - **Risk:** LOW (validated before execution)
 
-#### ✅ Secret Leakage
+####  Secret Leakage
 
 - **Mitigation:** Log sanitization, 30+ secret patterns
 - **Risk:** LOW (comprehensive redaction)
 
 ### Residual Risks
 
-#### ⚠️ Zero-Day Vulnerabilities
+####  Zero-Day Vulnerabilities
 
 - **Mitigation:** Daily Trivy scans, automated updates
 - **Risk:** MEDIUM (inherent to all software)
 - **Action:** Continuous monitoring
 
-#### ⚠️ Supply Chain Attacks
+####  Supply Chain Attacks
 
 - **Mitigation:** Lockfiles (package-lock.json), dependency audits
 - **Risk:** MEDIUM (dependencies constantly evolve)
@@ -400,13 +400,13 @@ Total Test Suites:  All passing ✅
 
 ---
 
-## 🔧 Security Maintenance
+##  Security Maintenance
 
 ### Daily Tasks (Automated)
 
-- ✅ Trivy vulnerability scans
-- ✅ Dependency audits (npm, pip)
-- ✅ Security test suite execution
+-  Trivy vulnerability scans
+-  Dependency audits (npm, pip)
+-  Security test suite execution
 
 ### Weekly Tasks
 
@@ -428,7 +428,7 @@ Total Test Suites:  All passing ✅
 
 ---
 
-## 📚 Security References
+##  Security References
 
 ### Standards & Frameworks
 
@@ -450,7 +450,7 @@ Total Test Suites:  All passing ✅
 
 ---
 
-## 🆘 Security Incidents
+##  Security Incidents
 
 ### Reporting
 
@@ -469,7 +469,7 @@ Total Test Suites:  All passing ✅
 
 ---
 
-## ✅ Security Checklist
+##  Security Checklist
 
 ### Before Deployment
 
@@ -495,19 +495,19 @@ Total Test Suites:  All passing ✅
 
 ---
 
-## 🏆 Security Achievements
+##  Security Achievements
 
-✅ **50+ syscalls whitelisted** (minimal attack surface)  
-✅ **30+ secret patterns** redacted  
-✅ **10+ security layers** implemented  
-✅ **100% test coverage** for security features  
-✅ **Automated CI/CD** security scanning  
-✅ **Zero HIGH/CRITICAL** vulnerabilities  
-✅ **Production-grade** security posture
+ **50+ syscalls whitelisted** (minimal attack surface)  
+ **30+ secret patterns** redacted  
+ **10+ security layers** implemented  
+ **100% test coverage** for security features  
+ **Automated CI/CD** security scanning  
+ **Zero HIGH/CRITICAL** vulnerabilities  
+ **Production-grade** security posture
 
 ---
 
-## 📞 Contact
+##  Contact
 
 **Security Reports:** [GitHub Security Advisories](https://github.com/up2itnow/AgentNexus2/security/advisories/new)  
 **Bug Bounty:** Coming soon  

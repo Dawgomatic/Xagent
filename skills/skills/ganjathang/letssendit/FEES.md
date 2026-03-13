@@ -1,4 +1,4 @@
-# 💰 Let's Send It - Fee Structure
+#  Let's Send It - Fee Structure
 
 Understand how fees work and why your committed SOL is never affected.
 

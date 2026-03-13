@@ -82,10 +82,10 @@ Analyze any webpage for SEO issues and generate an actionable report.
 ## Scores
 | Category | Score | Status |
 |----------|-------|--------|
-| Meta & Head | X/25 | ✅/⚠️/❌ |
-| Content | X/25 | ✅/⚠️/❌ |
-| Technical | X/25 | ✅/⚠️/❌ |
-| Performance | X/25 | ✅/⚠️/❌ |
+| Meta & Head | X/25 | // |
+| Content | X/25 | // |
+| Technical | X/25 | // |
+| Performance | X/25 | // |
 
 ## Findings
 ### Critical Issues
@@ -101,9 +101,9 @@ Analyze any webpage for SEO issues and generate an actionable report.
 
 ## Scoring
 
-- ✅ 80%+ of category points = Good
-- ⚠️ 50-79% = Needs improvement
-- ❌ Below 50% = Critical issues
+-  80%+ of category points = Good
+-  50-79% = Needs improvement
+-  Below 50% = Critical issues
 
 ## Common Mistakes to Avoid
 

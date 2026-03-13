@@ -35,7 +35,7 @@ The skill walks you through the full process — no design tools required.
 
 Other skills generate HTML/PDF slides using APIs. This one teaches your agent the *methodology* of great presentations — narrative structure, visual design principles, audience psychology, delivery coaching. Zero dependencies.
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific presentation templates and messaging frameworks?
 
@@ -45,7 +45,7 @@ Want industry-specific presentation templates and messaging frameworks?
 - **Professional Services Pack** — client proposal decks, thought leadership presentations
 - **Recruitment Pack** — employer brand presentations, hiring committee decks
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-sales-playbook](https://clawhub.com/skills/afrexai-sales-playbook) — Complete B2B sales system
 - [afrexai-brand-strategy](https://clawhub.com/skills/afrexai-brand-strategy) — Brand identity & GTM

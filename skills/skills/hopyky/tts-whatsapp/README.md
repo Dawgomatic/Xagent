@@ -1,18 +1,18 @@
-# 🎙️ TTS WhatsApp - Text-to-Speech Voice Messages
+#  TTS WhatsApp - Text-to-Speech Voice Messages
 
 Send voice messages on WhatsApp with high-quality text-to-speech in 40+ languages.
 
-## ✨ Features
+##  Features
 
-- 🎙️ **High-quality TTS** powered by Piper (40+ languages)
-- 🎵 **Automatic conversion** to OGG/Opus (WhatsApp format)
-- 📤 **Automatic sending** via Clawdbot
-- 👥 **Group support** - Send to individuals or WhatsApp groups
-- 🌍 **Multi-language** - French, English, Spanish, German, and 40+ more
-- 🧹 **Smart cleanup** - Auto-delete files after successful send
-- ⚡ **Fast** - ~2-3s from command to delivery
+-  **High-quality TTS** powered by Piper (40+ languages)
+-  **Automatic conversion** to OGG/Opus (WhatsApp format)
+-  **Automatic sending** via Clawdbot
+-  **Group support** - Send to individuals or WhatsApp groups
+-  **Multi-language** - French, English, Spanish, German, and 40+ more
+-  **Smart cleanup** - Auto-delete files after successful send
+-  **Fast** - ~2-3s from command to delivery
 
-## 📦 Prerequisites
+##  Prerequisites
 
 1. **Piper TTS** installed:
    ```bash
@@ -33,7 +33,7 @@ Send voice messages on WhatsApp with high-quality text-to-speech in 40+ language
    - Place in `~/.clawdbot/skills/piper-tts/models/`
    - Default: `fr_FR-siwis-medium.onnx`
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Basic usage (with environment variables)
 
@@ -78,7 +78,7 @@ tts-whatsapp "High quality audio" --quality high
 tts-whatsapp "Test" --no-send
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -113,28 +113,28 @@ Set these in `~/.clawdbot/clawdbot.json` under the skill configuration:
 | `PIPER_DEFAULT_VOICE` | Default voice name | `siwis` |
 | `PIPER_DEFAULT_QUALITY` | Default quality level | `medium` |
 
-## 🌍 Supported Languages
+##  Supported Languages
 
 Piper supports 40+ languages. Here are some examples:
 
 | Language | Code | Example Voices |
 |----------|------|----------------|
-| 🇫🇷 French | `fr_FR` | `siwis`, `upmc`, `tom` |
-| 🇬🇧 English (GB) | `en_GB` | `alan`, `alba`, `northern_english_male` |
-| 🇺🇸 English (US) | `en_US` | `lessac`, `libritts`, `amy`, `joe` |
-| 🇪🇸 Spanish | `es_ES` | `carlfm`, `davefx` |
-| 🇲🇽 Spanish (MX) | `es_MX` | `claude` |
-| 🇩🇪 German | `de_DE` | `thorsten`, `eva_k`, `karlsson` |
-| 🇮🇹 Italian | `it_IT` | `riccardo` |
-| 🇵🇹 Portuguese (BR) | `pt_BR` | `faber` |
-| 🇵🇹 Portuguese (PT) | `pt_PT` | `tugão` |
-| 🇳🇱 Dutch | `nl_NL` | `mls`, `rdh` |
-| 🇷🇺 Russian | `ru_RU` | `dmitri`, `irina` |
-| 🇨🇳 Chinese | `zh_CN` | `huayan` |
+|  French | `fr_FR` | `siwis`, `upmc`, `tom` |
+|  English (GB) | `en_GB` | `alan`, `alba`, `northern_english_male` |
+|  English (US) | `en_US` | `lessac`, `libritts`, `amy`, `joe` |
+|  Spanish | `es_ES` | `carlfm`, `davefx` |
+|  Spanish (MX) | `es_MX` | `claude` |
+|  German | `de_DE` | `thorsten`, `eva_k`, `karlsson` |
+|  Italian | `it_IT` | `riccardo` |
+|  Portuguese (BR) | `pt_BR` | `faber` |
+|  Portuguese (PT) | `pt_PT` | `tugão` |
+|  Dutch | `nl_NL` | `mls`, `rdh` |
+|  Russian | `ru_RU` | `dmitri`, `irina` |
+|  Chinese | `zh_CN` | `huayan` |
 
 **Full list:** [Piper Voice Samples](https://rhasspy.github.io/piper-samples/)
 
-## 🎛️ All Options
+##  All Options
 
 ```bash
 tts-whatsapp "text to speak" [OPTIONS]
@@ -160,7 +160,7 @@ Options:
   --no-send            Generate audio file without sending
 ```
 
-## 📊 How It Works
+##  How It Works
 
 1. **Text → Speech** - Piper generates high-quality audio (~1s)
 2. **Convert** - FFmpeg converts to OGG/Opus format (~0.2s)
@@ -169,13 +169,13 @@ Options:
 
 **Total time: ~2.3s** for a 10-second message
 
-## 🗑️ File Management
+##  File Management
 
 - **Auto-delete after send** - Files removed after successful WhatsApp delivery
 - **Auto-cleanup old files** - Files older than 24h are deleted on next run
 - **Keep on error** - Files preserved if sending fails
 
-## 💡 Examples
+##  Examples
 
 ### Personal message
 
@@ -192,7 +192,7 @@ tts-whatsapp "Meeting in 5 minutes!" --target "120363257357161211@g.us"
 ### With text caption
 
 ```bash
-tts-whatsapp "Important update" --message "📢 Please listen"
+tts-whatsapp "Important update" --message " Please listen"
 ```
 
 ### Different language and voice
@@ -213,7 +213,7 @@ tts-whatsapp "Practice your pronunciation" --speed 0.7 --lang en_US
 tts-whatsapp "Welcome to my podcast" --quality high --lang en_US --voice lessac
 ```
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Model not found error
 
@@ -226,7 +226,7 @@ ERROR: Modèle introuvable: ~/.clawdbot/skills/piper-tts/models/en_US-lessac-med
 ### No default target error
 
 ```
-⚠️  Erreur: Aucun destinataire défini
+  Erreur: Aucun destinataire défini
 ```
 
 **Solution:** Either set `WHATSAPP_DEFAULT_TARGET` in your config or use `--target`
@@ -235,17 +235,17 @@ ERROR: Modèle introuvable: ~/.clawdbot/skills/piper-tts/models/en_US-lessac-med
 
 **Solution:** Make sure Clawdbot is installed and in your PATH
 
-## 📄 License
+##  License
 
 MIT License - Feel free to use and modify
 
-## 🙏 Credits
+##  Credits
 
 - **Piper TTS** by [Rhasspy](https://github.com/rhasspy/piper)
 - **Clawdbot** by [clawdbot team](https://github.com/clawdbot/clawdbot)
 - **FFmpeg** by the FFmpeg team
 
-## 🔗 Links
+##  Links
 
 - [Piper Voice Samples](https://rhasspy.github.io/piper-samples/)
 - [Download Voice Models](https://huggingface.co/rhasspy/piper-voices)

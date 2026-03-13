@@ -4,13 +4,13 @@ A complete todo management system built on Linear with smart date parsing, prior
 
 ## Features
 
-- 📝 Natural language dates ("tomorrow", "next Monday", "in 3 days")
-- ⚡ Priority levels (urgent, high, normal, low)
-- 📅 Smart scheduling (day, week, month)
-- ✅ Mark todos as done
-- 💤 Snooze todos to later dates
-- 📊 Daily review with organized output
-- ☕ Morning digest with fun greetings
+-  Natural language dates ("tomorrow", "next Monday", "in 3 days")
+-  Priority levels (urgent, high, normal, low)
+-  Smart scheduling (day, week, month)
+-  Mark todos as done
+-  Snooze todos to later dates
+-  Daily review with organized output
+-  Morning digest with fun greetings
 
 ## Installation
 

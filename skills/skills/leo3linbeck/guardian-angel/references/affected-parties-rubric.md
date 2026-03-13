@@ -42,7 +42,7 @@ Aquinas teaches that charity has an order—we owe different obligations to diff
 
 | Type | Definition | Parties |
 |------|------------|---------|
-| **Commutative** | Between individuals as equals | Person ↔ Person |
+| **Commutative** | Between individuals as equals | Person  Person |
 | **Distributive** | Community to members | Community → Individual |
 | **Legal/General** | Members to community | Individual → Community |
 | **Pietas** | Duty to origins | Child → Parents, Citizen → Country |
@@ -264,7 +264,7 @@ When System 1 flags concern or action is complex:
 **Base Clarity:** 3 (sharing photo is neutral object)
 **Modified Clarity:** 3 + 2 (no consent) + 3 (public) = **8**
 
-**Final Score:** 8 × 8 = **64** → 🛑 **Escalate**
+**Final Score:** 8 × 8 = **64** →  **Escalate**
 
 **Recommendation:** Ask friend's permission before posting photos of their child.
 

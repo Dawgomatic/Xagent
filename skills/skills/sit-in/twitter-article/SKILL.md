@@ -106,9 +106,9 @@ Atomic block + MEDIA entity：
 | UpdateCoverMedia | `articleEntityId` | coverMedia: {media_id, media_category} |
 | Delete/Publish | `articleEntityId` | (无) |
 
-⚠️ UpdateContent 用 `article_entity`，其他用 `articleEntityId`！
+ UpdateContent 用 `article_entity`，其他用 `articleEntityId`！
 
-## ⚠️ 关键注意事项
+##  关键注意事项
 
 1. **media_id 必须用字符串** — JS Number 对 19 位数字丢精度，用 `media_id_string`
 2. **第一个 # 标题自动跳过** — 作为 title 参数传递，不重复写入正文

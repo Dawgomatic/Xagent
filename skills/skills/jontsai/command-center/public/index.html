@@ -58,7 +58,7 @@
           style="cursor: pointer"
         >
           <div class="stat-value" id="est-cost">-</div>
-          <div class="stat-label">Est. Cost (24h) 📊</div>
+          <div class="stat-label">Est. Cost (24h) </div>
         </div>
         <div
           class="stat"
@@ -93,7 +93,7 @@
               <option value="3dma">3dma</option>
               <option value="7dma" selected>7dma</option>
             </select>
-            💰
+            
           </div>
         </div>
         <div class="stat" title="Main session capacity">
@@ -113,7 +113,7 @@
           <div class="vitals-panel">
             <div class="vitals-header">
               <div class="vitals-title">
-                🖥️ System Vitals
+                 System Vitals
                 <span class="vitals-hostname" id="vitals-hostname">-</span>
               </div>
               <div class="vitals-uptime">Uptime: <span id="vitals-uptime">-</span></div>
@@ -122,7 +122,7 @@
               <!-- CPU -->
               <div class="vital-card">
                 <div class="vital-header">
-                  <span class="vital-label">⚡ CPU</span>
+                  <span class="vital-label"> CPU</span>
                   <span class="vital-value" id="cpu-percent">-%</span>
                 </div>
                 <div
@@ -178,7 +178,7 @@
               <!-- Memory -->
               <div class="vital-card">
                 <div class="vital-header">
-                  <span class="vital-label">🧠 Memory</span>
+                  <span class="vital-label"> Memory</span>
                   <span class="vital-value" id="mem-percent"
                     >-% <small style="font-size: 0.6em; opacity: 0.7">used</small></span
                   >
@@ -228,7 +228,7 @@
               <!-- Disk -->
               <div class="vital-card">
                 <div class="vital-header">
-                  <span class="vital-label">💾 Disk</span>
+                  <span class="vital-label"> Disk</span>
                   <span class="vital-value" id="disk-percent"
                     >-% <small style="font-size: 0.6em; opacity: 0.7">used</small></span
                   >
@@ -268,7 +268,7 @@
               <!-- Temperature -->
               <div class="vital-card" id="temp-card">
                 <div class="vital-header">
-                  <span class="vital-label">🌡️ Temperature</span>
+                  <span class="vital-label"> Temperature</span>
                 </div>
                 <div class="temp-display">
                   <span class="temp-value" id="temp-value">-</span>
@@ -288,7 +288,7 @@
         <div class="utilization-section">
           <div class="utilization-card" id="anthropic-quota">
             <div class="utilization-header">
-              <div class="utilization-icon anthropic">🧠</div>
+              <div class="utilization-icon anthropic"></div>
               <div>
                 <div class="utilization-title">Claude (Anthropic)</div>
                 <div class="utilization-subtitle">API Usage</div>
@@ -326,7 +326,7 @@
 
           <div class="utilization-card" id="openai-quota">
             <div class="utilization-header">
-              <div class="utilization-icon openai">⚡</div>
+              <div class="utilization-icon openai"></div>
               <div>
                 <div class="utilization-title">Codex (OpenAI)</div>
                 <div class="utilization-subtitle">ChatGPT Plus</div>
@@ -369,11 +369,11 @@
 
         <!-- Quick Actions -->
         <div class="quick-actions">
-          <div class="quick-actions-title">⚡ Quick Actions</div>
-          <button class="quick-action-btn" onclick="runHealthCheck()">🔍 Health Check</button>
-          <button class="quick-action-btn" onclick="getGatewayStatus()">🚪 Gateway Status</button>
+          <div class="quick-actions-title"> Quick Actions</div>
+          <button class="quick-action-btn" onclick="runHealthCheck()"> Health Check</button>
+          <button class="quick-action-btn" onclick="getGatewayStatus()"> Gateway Status</button>
           <button class="quick-action-btn" onclick="pruneStalesSessions()">
-            🧹 Clean Stale Sessions
+             Clean Stale Sessions
           </button>
         </div>
 
@@ -381,7 +381,7 @@
         <div class="section" id="subagents-section">
           <div class="section-header">
             <div class="section-title">
-              🦞 Active Sub-agents
+               Active Sub-agents
               <span class="section-count" id="subagent-count">0</span>
             </div>
           </div>
@@ -395,7 +395,7 @@
           <div class="vitals-panel">
             <div class="vitals-header">
               <div class="vitals-title">
-                ⛽ LLM Fuel Gauges
+                 LLM Fuel Gauges
                 <span class="vitals-hostname" id="llm-sync-time">-</span>
               </div>
               <div class="vitals-uptime">Routing: <span id="llm-routing-summary">-</span></div>
@@ -404,7 +404,7 @@
               <!-- Claude Session -->
               <div class="vital-card">
                 <div class="vital-header">
-                  <span class="vital-label">🔮 Session Limit</span>
+                  <span class="vital-label"> Session Limit</span>
                   <span class="vital-value" id="claude-session-pct"
                     >-% <small style="font-size: 0.6em; opacity: 0.7">used</small></span
                   >
@@ -431,7 +431,7 @@
               <!-- Claude Weekly -->
               <div class="vital-card">
                 <div class="vital-header">
-                  <span class="vital-label">📅 Weekly (All Models)</span>
+                  <span class="vital-label"> Weekly (All Models)</span>
                   <span class="vital-value" id="claude-weekly-pct"
                     >-% <small style="font-size: 0.6em; opacity: 0.7">used</small></span
                   >
@@ -454,7 +454,7 @@
               <!-- Sonnet Weekly -->
               <div class="vital-card">
                 <div class="vital-header">
-                  <span class="vital-label">✨ Sonnet Weekly</span>
+                  <span class="vital-label"> Sonnet Weekly</span>
                   <span class="vital-value" id="sonnet-weekly-pct"
                     >-% <small style="font-size: 0.6em; opacity: 0.7">used</small></span
                   >
@@ -477,7 +477,7 @@
               <!-- LLM Routing -->
               <div class="vital-card">
                 <div class="vital-header">
-                  <span class="vital-label">🦞 Task Routing</span>
+                  <span class="vital-label"> Task Routing</span>
                   <span class="vital-value" id="total-routed-tasks">-</span>
                 </div>
                 <div class="vital-detail" style="margin-top: 12px">
@@ -493,11 +493,11 @@
                 <div class="vital-detail" style="margin-top: 8px">
                   <div class="vital-detail-item">
                     <span class="vital-detail-value" id="llama-task-count">-</span>
-                    <span class="vital-detail-label">🦙 Llama</span>
+                    <span class="vital-detail-label"> Llama</span>
                   </div>
                   <div class="vital-detail-item">
                     <span class="vital-detail-value" id="qwen-task-count">-</span>
-                    <span class="vital-detail-label">🐱 Qwen</span>
+                    <span class="vital-detail-label"> Qwen</span>
                   </div>
                 </div>
                 <div
@@ -515,7 +515,7 @@
         <div class="section" id="sessions-section">
           <div class="section-header">
             <div class="section-title">
-              📡 Sessions <span class="section-count" id="session-count">0</span>
+               Sessions <span class="section-count" id="session-count">0</span>
             </div>
           </div>
 
@@ -575,7 +575,7 @@
                 data-group="session-channel"
                 onclick="setSessionFilter('channel', 'slack')"
               >
-                💬 Slack
+                 Slack
               </button>
               <button
                 class="filter-btn"
@@ -583,7 +583,7 @@
                 data-group="session-channel"
                 onclick="setSessionFilter('channel', 'telegram')"
               >
-                📱 Telegram
+                 Telegram
               </button>
               <button
                 class="filter-btn"
@@ -591,7 +591,7 @@
                 data-group="session-channel"
                 onclick="setSessionFilter('channel', 'discord')"
               >
-                🎮 Discord
+                 Discord
               </button>
               <button
                 class="filter-btn"
@@ -599,7 +599,7 @@
                 data-group="session-channel"
                 onclick="setSessionFilter('channel', 'signal')"
               >
-                🔒 Signal
+                 Signal
               </button>
               <button
                 class="filter-btn"
@@ -607,7 +607,7 @@
                 data-group="session-channel"
                 onclick="setSessionFilter('channel', 'whatsapp')"
               >
-                📲 WhatsApp
+                 WhatsApp
               </button>
             </div>
             <div class="filter-group">
@@ -642,7 +642,7 @@
                 data-group="session-kind"
                 onclick="setSessionFilter('kind', 'cron')"
               >
-                ⏰ Cron
+                 Cron
               </button>
             </div>
           </div>
@@ -704,7 +704,7 @@
         <div class="section" id="cron-section">
           <div class="section-header">
             <div class="section-title">
-              ⏰ Cron Jobs <span class="section-count" id="cron-count">0</span>
+               Cron Jobs <span class="section-count" id="cron-count">0</span>
             </div>
           </div>
 
@@ -726,7 +726,7 @@
                 data-group="cron-status"
                 onclick="setCronFilter('status', 'enabled')"
               >
-                ✅ Enabled
+                 Enabled
               </button>
               <button
                 class="filter-btn"
@@ -734,7 +734,7 @@
                 data-group="cron-status"
                 onclick="setCronFilter('status', 'disabled')"
               >
-                ⏸️ Disabled
+                 Disabled
               </button>
             </div>
             <div class="filter-group">
@@ -753,7 +753,7 @@
                 data-group="cron-schedule"
                 onclick="setCronFilter('schedule', 'frequent')"
               >
-                ⚡ Frequent (&lt;1h)
+                 Frequent (&lt;1h)
               </button>
               <button
                 class="filter-btn"
@@ -761,7 +761,7 @@
                 data-group="cron-schedule"
                 onclick="setCronFilter('schedule', 'daily')"
               >
-                📅 Daily
+                 Daily
               </button>
               <button
                 class="filter-btn"
@@ -769,7 +769,7 @@
                 data-group="cron-schedule"
                 onclick="setCronFilter('schedule', 'weekly')"
               >
-                📆 Weekly
+                 Weekly
               </button>
             </div>
           </div>
@@ -799,7 +799,7 @@
         <div class="section" id="memory-section">
           <div class="section-header">
             <div class="section-title">
-              🧠 Memory <span class="section-count" id="memory-count">0 files</span>
+               Memory <span class="section-count" id="memory-count">0 files</span>
             </div>
           </div>
 
@@ -821,7 +821,7 @@
                 data-group="memory-type"
                 onclick="setMemoryFilter('type', 'daily')"
               >
-                📅 Daily Logs
+                 Daily Logs
               </button>
               <button
                 class="filter-btn"
@@ -829,7 +829,7 @@
                 data-group="memory-type"
                 onclick="setMemoryFilter('type', 'state')"
               >
-                📊 State Files
+                 State Files
               </button>
             </div>
             <div class="filter-group">
@@ -874,7 +874,7 @@
               <!-- MEMORY.md -->
               <div class="vital-card">
                 <div class="vital-header">
-                  <span class="vital-label">📜 MEMORY.md</span>
+                  <span class="vital-label"> MEMORY.md</span>
                 </div>
                 <div class="vital-detail" style="margin-top: 8px">
                   <div class="vital-detail-item">
@@ -894,7 +894,7 @@
               <!-- Daily Files -->
               <div class="vital-card">
                 <div class="vital-header">
-                  <span class="vital-label">📅 Daily Notes</span>
+                  <span class="vital-label"> Daily Notes</span>
                 </div>
                 <div class="vital-detail" style="margin-top: 8px">
                   <div class="vital-detail-item">
@@ -914,7 +914,7 @@
               <!-- Recent Files -->
               <div class="vital-card" style="grid-column: span 2">
                 <div class="vital-header">
-                  <span class="vital-label">🕐 Recent Memory Files</span>
+                  <span class="vital-label"> Recent Memory Files</span>
                 </div>
                 <div id="memory-recent-files" style="margin-top: 8px">
                   <em style="color: var(--text-muted); font-size: 0.8rem">Loading...</em>
@@ -931,7 +931,7 @@
               "
             >
               <span style="font-size: 0.75rem; color: var(--text-muted)">
-                🔒 Memory editing UI coming soon (Inside Out style!)
+                 Memory editing UI coming soon (Inside Out style!)
               </span>
             </div>
           </div>
@@ -941,7 +941,7 @@
         <div class="section" id="cerebro-section">
           <div class="section-header">
             <div class="section-title">
-              🔮 Cerebro <span class="section-count" id="cerebro-count">0 topics</span>
+               Cerebro <span class="section-count" id="cerebro-count">0 topics</span>
             </div>
             <!-- SSE provides live updates -->
           </div>
@@ -950,7 +950,7 @@
             <!-- Not Initialized State -->
             <div id="cerebro-not-initialized" class="vitals-panel" style="display: none">
               <div style="text-align: center; padding: 40px 20px">
-                <div style="font-size: 3rem; margin-bottom: 16px">🔮</div>
+                <div style="font-size: 3rem; margin-bottom: 16px"></div>
                 <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px">
                   Cerebro Not Initialized
                 </h3>
@@ -987,7 +987,7 @@
                 <!-- Topic Counts -->
                 <div class="vital-card">
                   <div class="vital-header">
-                    <span class="vital-label">📊 Topics by Status</span>
+                    <span class="vital-label"> Topics by Status</span>
                   </div>
                   <div class="vital-detail" style="margin-top: 8px">
                     <div class="vital-detail-item">
@@ -1026,7 +1026,7 @@
                 <!-- Thread Stats -->
                 <div class="vital-card">
                   <div class="vital-header">
-                    <span class="vital-label">🧵 Threads</span>
+                    <span class="vital-label"> Threads</span>
                   </div>
                   <div class="vital-detail" style="margin-top: 8px">
                     <div class="vital-detail-item">
@@ -1051,7 +1051,7 @@
                 <!-- Recent Topics -->
                 <div class="vital-card" style="grid-column: span 2">
                   <div class="vital-header">
-                    <span class="vital-label">🕐 Recent Active Topics</span>
+                    <span class="vital-label"> Recent Active Topics</span>
                   </div>
                   <div id="cerebro-recent-topics" style="margin-top: 8px">
                     <em style="color: var(--text-muted); font-size: 0.8rem"
@@ -1078,7 +1078,7 @@
                   href="file://#"
                   style="font-size: 0.75rem; color: var(--accent); text-decoration: none"
                 >
-                  📁 Open cerebro/
+                   Open cerebro/
                 </a>
               </div>
             </div>
@@ -1088,9 +1088,9 @@
         <!-- Operators Section -->
         <div class="section" id="operators-section">
           <div class="section-header">
-            <div class="section-title">👥 Operators</div>
+            <div class="section-title"> Operators</div>
             <div class="section-actions">
-              <button class="btn-secondary" onclick="refreshOperators()" title="Refresh">🔄</button>
+              <button class="btn-secondary" onclick="refreshOperators()" title="Refresh"></button>
             </div>
           </div>
           <div class="operators-grid" id="operators-grid">
@@ -1158,11 +1158,11 @@
         <!-- About Section -->
         <div class="section" id="about-section">
           <div class="section-header">
-            <div class="section-title">ℹ️ About</div>
+            <div class="section-title"> About</div>
           </div>
           <div class="vitals-panel">
             <div style="text-align: center; padding: 20px 0">
-              <div style="font-size: 3rem; margin-bottom: 12px">🦞</div>
+              <div style="font-size: 3rem; margin-bottom: 12px"></div>
               <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 8px">
                 OpenClaw Command Center
               </h2>
@@ -1212,7 +1212,7 @@
                   class="link-tag github"
                   style="padding: 8px 16px"
                 >
-                  🐙 GitHub
+                   GitHub
                 </a>
                 <a
                   href="https://x.com/jontsai"
@@ -1220,7 +1220,7 @@
                   class="link-tag"
                   style="padding: 8px 16px"
                 >
-                  🐦 Twitter
+                   Twitter
                 </a>
                 <a
                   href="https://openclaw.ai"
@@ -1228,7 +1228,7 @@
                   class="link-tag"
                   style="padding: 8px 16px"
                 >
-                  🦞 OpenClaw
+                   OpenClaw
                 </a>
               </div>
             </div>
@@ -1254,11 +1254,11 @@
                   color: var(--text-muted);
                 "
               >
-                <span>🎮 Starcraft</span>
-                <span>📊 iStatMenus</span>
-                <span>💾 DaisyDisk</span>
-                <span>📧 Gmail</span>
-                <span>🧠 Inside Out</span>
+                <span> Starcraft</span>
+                <span> iStatMenus</span>
+                <span> DaisyDisk</span>
+                <span> Gmail</span>
+                <span> Inside Out</span>
               </div>
             </div>
           </div>
@@ -1282,38 +1282,38 @@
       </div>
       <div class="detail-content">
         <div class="detail-section">
-          <h3>📊 Overview</h3>
+          <h3> Overview</h3>
           <div class="detail-box" id="detail-overview"></div>
         </div>
         <div class="detail-section">
-          <h3>📝 Summary</h3>
+          <h3> Summary</h3>
           <div class="detail-box" id="detail-summary"></div>
         </div>
         <div class="detail-section">
-          <h3>🔗 References</h3>
+          <h3> References</h3>
           <div class="detail-box" id="detail-links"></div>
         </div>
         <div class="detail-section attention">
-          <h3>⚠️ Needs Attention</h3>
+          <h3> Needs Attention</h3>
           <div class="detail-box" id="detail-attention"></div>
         </div>
         <div class="detail-section">
-          <h3>🎯 Key Facts</h3>
+          <h3> Key Facts</h3>
           <div class="detail-box" id="detail-facts"></div>
         </div>
         <div class="detail-section">
-          <h3>🔧 Tools Used</h3>
+          <h3> Tools Used</h3>
           <div class="detail-box" id="detail-tools"></div>
         </div>
         <div class="detail-section">
-          <h3>💬 Recent Messages</h3>
+          <h3> Recent Messages</h3>
           <div class="detail-box" id="detail-messages"></div>
         </div>
         <!-- Future: Read-Write Controls -->
         <div class="detail-actions" id="detail-actions" style="display: none">
-          <button class="action-btn" disabled title="Coming soon">💬 Send Message</button>
-          <button class="action-btn" disabled title="Coming soon">🔄 Refresh</button>
-          <button class="action-btn danger" disabled title="Coming soon">🗑️ Clear Session</button>
+          <button class="action-btn" disabled title="Coming soon"> Send Message</button>
+          <button class="action-btn" disabled title="Coming soon"> Refresh</button>
+          <button class="action-btn danger" disabled title="Coming soon"> Clear Session</button>
         </div>
       </div>
     </div>
@@ -1322,7 +1322,7 @@
     <div id="auth-modal-overlay" class="detail-overlay hidden" onclick="closeAuthModal()"></div>
     <div id="auth-modal" class="detail-panel hidden" style="max-width: 550px">
       <div class="detail-header">
-        <h2>🔑 Fix Claude Authentication</h2>
+        <h2> Fix Claude Authentication</h2>
         <button class="close-btn" onclick="closeAuthModal()">✕</button>
       </div>
       <div class="detail-content" id="auth-modal-content">
@@ -1336,7 +1336,7 @@
           "
         >
           <p style="margin: 0; color: #f59e0b">
-            ⚠️ Your Claude OAuth token has expired or lacks the required permissions.
+             Your Claude OAuth token has expired or lacks the required permissions.
           </p>
         </div>
 
@@ -1415,31 +1415,31 @@
     <div id="cost-modal-overlay" class="detail-overlay hidden" onclick="closeCostModal()"></div>
     <div id="cost-modal" class="detail-panel hidden" style="max-width: 500px">
       <div class="detail-header">
-        <h2>💰 Cost Breakdown (24h)</h2>
+        <h2> Cost Breakdown (24h)</h2>
         <button class="close-btn" onclick="closeCostModal()">✕</button>
       </div>
       <div class="detail-content" id="cost-modal-content">
         <div class="detail-section">
-          <h3>📊 Token Usage</h3>
+          <h3> Token Usage</h3>
           <div class="detail-box" id="cost-tokens"></div>
         </div>
         <div class="detail-section">
-          <h3>💵 Pricing Rates (Claude Opus)</h3>
+          <h3> Pricing Rates (Claude Opus)</h3>
           <div class="detail-box" id="cost-rates"></div>
         </div>
         <div class="detail-section">
-          <h3>🧮 Calculation</h3>
+          <h3> Calculation</h3>
           <div class="detail-box" id="cost-calculation"></div>
         </div>
         <div
           class="detail-section"
           style="background: rgba(63, 185, 80, 0.1); border-radius: 8px; padding: 16px"
         >
-          <h3>✨ Est. Savings</h3>
+          <h3> Est. Savings</h3>
           <div class="detail-box" id="cost-savings"></div>
         </div>
         <div class="detail-section">
-          <h3>🔥 Top Sessions by Tokens (24h)</h3>
+          <h3> Top Sessions by Tokens (24h)</h3>
           <div class="detail-box" id="cost-top-sessions" style="font-size: 0.85rem"></div>
         </div>
       </div>
@@ -1453,7 +1453,7 @@
     ></div>
     <div id="operator-modal" class="detail-panel hidden" style="max-width: 500px">
       <div class="detail-header">
-        <h2>👤 <span id="operator-modal-name">User Stats</span></h2>
+        <h2> <span id="operator-modal-name">User Stats</span></h2>
         <button class="close-btn" onclick="closeOperatorModal()">✕</button>
       </div>
       <div class="detail-content" id="operator-modal-content">
@@ -1469,7 +1469,7 @@
     ></div>
     <div id="privacy-modal" class="detail-panel hidden" style="max-width: 550px">
       <div class="detail-header">
-        <h2>🔒 Privacy Settings</h2>
+        <h2> Privacy Settings</h2>
         <button class="close-btn" onclick="closePrivacyModal()">✕</button>
       </div>
       <div class="detail-content" id="privacy-modal-content">
@@ -1485,7 +1485,7 @@
           style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border)"
         >
           <label style="font-size: 0.95rem; font-weight: 600; display: block; margin-bottom: 12px"
-            >🏷️ Hidden Topics
+            > Hidden Topics
             <span id="privacy-topics-count" style="color: var(--text-muted); font-weight: normal"
               >(0)</span
             ></label
@@ -1517,7 +1517,7 @@
           style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border)"
         >
           <label style="font-size: 0.95rem; font-weight: 600; display: block; margin-bottom: 12px"
-            >📋 Hidden Sessions
+            > Hidden Sessions
             <span id="privacy-sessions-count" style="color: var(--text-muted); font-weight: normal"
               >(0)</span
             ></label
@@ -1543,7 +1543,7 @@
             <em style="color: var(--text-muted); font-size: 0.85rem">No sessions hidden</em>
           </div>
           <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 8px">
-            💡 Tip: You can also click the 👁️ icon on any session card to hide it quickly.
+             Tip: You can also click the  icon on any session card to hide it quickly.
           </p>
         </div>
 
@@ -1552,7 +1552,7 @@
           style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border)"
         >
           <label style="font-size: 0.95rem; font-weight: 600; display: block; margin-bottom: 12px"
-            >⏰ Hidden Cron Jobs
+            > Hidden Cron Jobs
             <span id="privacy-crons-count" style="color: var(--text-muted); font-weight: normal"
               >(0)</span
             ></label
@@ -1584,7 +1584,7 @@
           style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border)"
         >
           <label style="font-size: 0.95rem; font-weight: 600; display: block; margin-bottom: 12px"
-            >🖥️ Display Options</label
+            > Display Options</label
           >
           <label
             style="
@@ -1732,7 +1732,7 @@
         document
           .getElementById("main-wrapper")
           .classList.toggle("sidebar-collapsed", sidebarCollapsed);
-        $set("sidebar-toggle-btn", "textContent", sidebarCollapsed ? "▶" : "◀");
+        $set("sidebar-toggle-btn", "textContent", sidebarCollapsed ? "" : "");
       }
 
       // Navigation
@@ -2118,7 +2118,7 @@
             sessionsEl,
             `
                     <div class="empty-state">
-                        <div class="empty-state-icon">📡</div>
+                        <div class="empty-state-icon"></div>
                         <div class="empty-state-text">No active sessions</div>
                     </div>
                 `,
@@ -2131,7 +2131,7 @@
               .map((s) => {
                 const iconClass =
                   s.channel === "slack" ? "slack" : s.channel === "telegram" ? "telegram" : "main";
-                const icon = s.channel === "slack" ? "💬" : s.channel === "telegram" ? "📱" : "🏠";
+                const icon = s.channel === "slack" ? "" : s.channel === "telegram" ? "" : "";
                 const badgeClass = s.active
                   ? "badge-live"
                   : s.recentlyActive
@@ -2166,7 +2166,7 @@
                 // Cerebro tag (filtered by privacy settings)
                 const cerebroTagHtml =
                   s.cerebroTopic && !isTopicHidden(s.cerebroTopic)
-                    ? `<span class="cerebro-tag" title="Cerebro topic: ${escapeHtml(s.cerebroTopic)}">🏷️ ${escapeHtml(s.cerebroTopic)}</span>`
+                    ? `<span class="cerebro-tag" title="Cerebro topic: ${escapeHtml(s.cerebroTopic)}"> ${escapeHtml(s.cerebroTopic)}</span>`
                     : "";
 
                 // Originator info
@@ -2186,7 +2186,7 @@
                 // Activity state indicator
                 const activityState = s.activityState || {
                   state: "idle",
-                  icon: "💤",
+                  icon: "",
                   label: "Idle",
                 };
                 const activityHtml = `
@@ -2211,12 +2211,12 @@
                 const operatorId = s.originator?.userId || s.originator?.id || null;
                 const operatorMetricHtml = operatorName
                   ? `<div class="metric-ring operator" title="User: ${escapeHtml(operatorName)}" onclick="event.stopPropagation(); openOperatorModal('${escapeHtml(operatorId || operatorName)}')">
-                      <span class="metric-icon">👤</span>
+                      <span class="metric-icon"></span>
                       <span class="metric-value" style="font-size: 0.7rem; max-width: 50px; overflow: hidden; text-overflow: ellipsis;">${escapeHtml(operatorName.split(" ")[0])}</span>
                       <span class="metric-label">user</span>
                    </div>`
                   : `<div class="metric-ring operator" title="Unknown user">
-                      <span class="metric-icon">👤</span>
+                      <span class="metric-icon"></span>
                       <span class="metric-value">—</span>
                       <span class="metric-label">user</span>
                    </div>`;
@@ -2224,13 +2224,13 @@
                 const metricsHtml = `
                         <div class="metrics-bar">
                             <div class="metric-ring burn ${burnRateClass}" title="Token burn rate: ${m.burnRate} tokens/min">
-                                <span class="metric-icon">🔥</span>
+                                <span class="metric-icon"></span>
                                 <span class="metric-value">${burnRateFormatted}</span>
                                 <span class="metric-label">tok/min</span>
                             </div>
                             ${operatorMetricHtml}
                             <div class="metric-ring time" title="Time active: ${m.minutesActive} minutes">
-                                <span class="metric-icon">⏱️</span>
+                                <span class="metric-icon"></span>
                                 <span class="metric-value">${timeActiveFormatted}</span>
                                 <span class="metric-label">active</span>
                             </div>
@@ -2248,14 +2248,14 @@
                             </div>
                             ${activityHtml}
                             <span class="card-badge ${badgeClass}">${badgeText}</span>
-                            <button class="hide-btn" onclick="event.stopPropagation(); quickHideSession('${escapeHtml(s.sessionKey).replace(/'/g, "\\'")}', '${escapeHtml(s.label).replace(/'/g, "\\'")}');" title="Hide session">👁️</button>
+                            <button class="hide-btn" onclick="event.stopPropagation(); quickHideSession('${escapeHtml(s.sessionKey).replace(/'/g, "\\'")}', '${escapeHtml(s.label).replace(/'/g, "\\'")}');" title="Hide session"></button>
                         </div>
                         ${topicHtml}
                         ${previewHtml}
                         <div class="card-stats">
                             ${cerebroTagHtml}
                             <div class="card-stat ${tokenClass}">
-                                <span>🎫</span>
+                                <span></span>
                                 <span class="card-stat-value">${(s.tokens / 1000).toFixed(1)}k</span>
                             </div>
                         </div>
@@ -2292,7 +2292,7 @@
             cronEl,
             `
                     <div class="empty-state">
-                        <div class="empty-state-icon">⏰</div>
+                        <div class="empty-state-icon"></div>
                         <div class="empty-state-text">No scheduled jobs</div>
                     </div>
                 `,
@@ -2307,7 +2307,7 @@
                   : "";
                 return `
                     <div class="cron-card ${c.enabled === false ? "disabled" : ""}">
-                        <div class="cron-icon">⏰</div>
+                        <div class="cron-icon"></div>
                         <div class="cron-info">
                             <div class="cron-name">${escapeHtml(c.name)}</div>
                             <div class="cron-schedule">${c.schedule}</div>
@@ -2318,7 +2318,7 @@
                                 ${c.enabled !== false ? "✓ Enabled" : "○ Disabled"}
                             </span>
                             <div class="cron-next">${c.nextRun}</div>
-                            <button class="hide-btn" onclick="event.stopPropagation(); quickHideCron('${escapeHtml(c.id || c.name).replace(/'/g, "\\'")}', '${escapeHtml(c.name).replace(/'/g, "\\'")}');" title="Hide cron job">👁️</button>
+                            <button class="hide-btn" onclick="event.stopPropagation(); quickHideCron('${escapeHtml(c.id || c.name).replace(/'/g, "\\'")}', '${escapeHtml(c.name).replace(/'/g, "\\'")}');" title="Hide cron job"></button>
                         </div>
                     </div>
                 `;
@@ -2343,7 +2343,7 @@
             operatorsEl,
             `
                     <div class="empty-state">
-                        <div class="empty-state-icon">👥</div>
+                        <div class="empty-state-icon"></div>
                         <div class="empty-state-text">No operators configured</div>
                         <div class="empty-state-hint" style="margin-top: 8px; font-size: 0.8rem; color: var(--text-muted);">
                             Operators are auto-detected from session activity
@@ -2676,7 +2676,7 @@
         try {
           // Handle auth errors - show clear error state instead of 0%
           if (data?.errorType === "auth" || data?.claude?.session?.error) {
-            const errorMsg = "⚠️ Auth Error";
+            const errorMsg = " Auth Error";
             const clickableError =
               '<a href="#" onclick="openAuthModal(); return false;" style="color:#f59e0b; text-decoration: underline; cursor: pointer;">Auth Error - Click to Fix</a>';
 
@@ -3020,7 +3020,7 @@
               .map(
                 (f) => `
                     <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 0.8rem;">
-                        <span style="color: var(--accent);">📄 ${escapeHtml(f.name)}</span>
+                        <span style="color: var(--accent);"> ${escapeHtml(f.name)}</span>
                         <span style="color: var(--text-muted);">${f.sizeFormatted} • ${f.age}</span>
                     </div>
                 `,
@@ -3094,7 +3094,7 @@
             visibleTopics
               .map((t) => {
                 const statusIcon =
-                  t.status === "active" ? "🟢" : t.status === "resolved" ? "✅" : "⏸️";
+                  t.status === "active" ? "" : t.status === "resolved" ? "" : "";
                 const statusColor =
                   t.status === "active"
                     ? "var(--green)"
@@ -3103,17 +3103,17 @@
                       : "var(--text-muted)";
 
                 // Action buttons based on status (always include hide button)
-                const hideBtn = `<button class="topic-action-btn hide" onclick="quickHideTopic('${escapeHtml(t.name).replace(/'/g, "\\'")}', '${escapeHtml(t.title || t.name).replace(/'/g, "\\'")}'); event.stopPropagation();" title="Hide topic">👁️</button>`;
+                const hideBtn = `<button class="topic-action-btn hide" onclick="quickHideTopic('${escapeHtml(t.name).replace(/'/g, "\\'")}', '${escapeHtml(t.title || t.name).replace(/'/g, "\\'")}'); event.stopPropagation();" title="Hide topic"></button>`;
                 let actionButtons = "";
                 if (t.status === "active") {
                   actionButtons = `
                             <button class="topic-action-btn resolve" onclick="updateTopicStatus('${escapeHtml(t.name)}', 'resolved')" title="Mark as resolved">✓</button>
-                            <button class="topic-action-btn park" onclick="updateTopicStatus('${escapeHtml(t.name)}', 'parked')" title="Park topic">⏸</button>
+                            <button class="topic-action-btn park" onclick="updateTopicStatus('${escapeHtml(t.name)}', 'parked')" title="Park topic"></button>
                             ${hideBtn}
                         `;
                 } else {
                   actionButtons = `
-                            <button class="topic-action-btn reactivate" onclick="updateTopicStatus('${escapeHtml(t.name)}', 'active')" title="Reactivate topic">↩</button>
+                            <button class="topic-action-btn reactivate" onclick="updateTopicStatus('${escapeHtml(t.name)}', 'active')" title="Reactivate topic"></button>
                             ${hideBtn}
                         `;
                 }
@@ -3300,10 +3300,10 @@
         const initial = displayName.charAt(0).toUpperCase();
         const roleLabel =
           operator.role === "owner"
-            ? "👑 Owner"
+            ? " Owner"
             : operator.role === "admin"
-              ? "⭐ Admin"
-              : "👤 User";
+              ? " Admin"
+              : " User";
 
         document.getElementById("operator-modal-content").innerHTML = `
           <div class="detail-section">
@@ -3320,7 +3320,7 @@
           </div>
           
           <div class="detail-section">
-            <h3>📊 Stats</h3>
+            <h3> Stats</h3>
             <div class="detail-box">
               <div class="detail-row"><span class="detail-label">Active Sessions</span><span class="detail-value">${activeSessions}</span></div>
               <div class="detail-row"><span class="detail-label">Total Sessions</span><span class="detail-value">${userSessions.length}</span></div>
@@ -3330,7 +3330,7 @@
           </div>
           
           <div class="detail-section">
-            <h3>💬 Recent Sessions</h3>
+            <h3> Recent Sessions</h3>
             <div class="detail-box" style="font-size: 0.85rem;">
               ${
                 userSessions
@@ -3338,7 +3338,7 @@
                   .map(
                     (s) => `
                 <div class="detail-row" style="cursor: pointer;" onclick="closeOperatorModal(); openDetail('${escapeHtml(s.sessionKey)}', '${escapeHtml(s.label)}')">
-                  <span class="detail-label">${s.active ? "🟢" : "⚪"} ${escapeHtml(s.label?.substring(0, 30) || "Unknown")}${(s.label?.length || 0) > 30 ? "..." : ""}</span>
+                  <span class="detail-label">${s.active ? "" : ""} ${escapeHtml(s.label?.substring(0, 30) || "Unknown")}${(s.label?.length || 0) > 30 ? "..." : ""}</span>
                   <span class="detail-value">${((s.tokens || 0) / 1000).toFixed(1)}k</span>
                 </div>
               `,
@@ -3864,7 +3864,7 @@
         if (!hasSavings) {
           savingsHtml += `
             <p style="margin-top: 12px; font-size: 0.85rem; color: var(--text-muted);">
-              📈 Keep going! Once your monthly cost exceeds $${planCost}, you'll start seeing savings.
+               Keep going! Once your monthly cost exceeds $${planCost}, you'll start seeing savings.
             </p>
           `;
         }
@@ -3882,7 +3882,7 @@
                   : s.tokens >= 1000
                     ? (s.tokens / 1000).toFixed(1) + "k"
                     : s.tokens;
-              const statusIcon = s.active ? "🟢" : "⚪";
+              const statusIcon = s.active ? "" : "";
               return `<div class="detail-row">
               <span class="detail-label">${statusIcon} ${s.label.substring(0, 30)}${s.label.length > 30 ? "..." : ""}</span>
               <span class="detail-value">${tokensFormatted}</span>
@@ -3937,7 +3937,7 @@
       }
 
       function renderDetailError(message) {
-        const errorHtml = `<em style="color: var(--red, #ff6b6b)">⚠️ ${escapeHtml(message)}</em>`;
+        const errorHtml = `<em style="color: var(--red, #ff6b6b)"> ${escapeHtml(message)}</em>`;
         ["overview", "summary", "links", "attention", "facts", "tools", "messages"].forEach(
           (id) => {
             const el = document.getElementById(`detail-${id}`);
@@ -4003,12 +4003,12 @@
                         : "slack";
                 const icon =
                   l.type === "linear"
-                    ? "📋"
+                    ? ""
                     : l.type === "github"
-                      ? "🐙"
+                      ? ""
                       : l.type === "file"
-                        ? "📁"
-                        : "💬";
+                        ? ""
+                        : "";
                 if (l.url) {
                   return `<a href="${l.url}" target="_blank" class="link-tag ${cls}">${icon} ${l.id}</a>`;
                 }
@@ -4042,7 +4042,7 @@
         if (data.facts?.length > 0) {
           smartUpdate(
             document.getElementById("detail-facts"),
-            data.facts.map((f) => `<div class="attention-item">✅ ${escapeHtml(f)}</div>`).join(""),
+            data.facts.map((f) => `<div class="attention-item"> ${escapeHtml(f)}</div>`).join(""),
           );
         } else {
           smartUpdate(
@@ -4077,7 +4077,7 @@
               .map(
                 (m) => `
                     <div class="message-item">
-                        <div class="message-role ${m.role}">${m.role === "user" ? "👤 User" : "🦞 Assistant"}</div>
+                        <div class="message-role ${m.role}">${m.role === "user" ? " User" : " Assistant"}</div>
                         <div class="message-text">${escapeHtml(m.text?.slice(0, 400) || "")}${m.text?.length > 400 ? "..." : ""}</div>
                     </div>
                 `,
@@ -4121,7 +4121,7 @@
 
         // Update refresh bar mode indicator
         if (status === "connected") {
-          refreshMode.textContent = "Real-time updates via SSE ⚡";
+          refreshMode.textContent = "Real-time updates via SSE ";
         } else if (status === "disconnected") {
           refreshMode.textContent = "Polling mode (SSE disconnected)";
         } else {
@@ -4147,7 +4147,7 @@
             console.log("[SSE] Connected");
             sseConnected = true;
             sseReconnectAttempts = 0;
-            setConnectionStatus("connected", "🟢 Live");
+            setConnectionStatus("connected", " Live");
             stopPolling(); // Stop polling when SSE connects
           };
 
@@ -4173,7 +4173,7 @@
               console.log("[SSE] Heartbeat, clients:", data.clients);
               // Update timestamp on heartbeat
               const now = new Date().toLocaleTimeString();
-              document.getElementById("last-updated").textContent = now + " ⚡";
+              document.getElementById("last-updated").textContent = now + " ";
               document.getElementById("sidebar-updated").textContent = `Live: ${now}`;
             } catch (err) {}
           });
@@ -4183,7 +4183,7 @@
             sseConnected = false;
             eventSource.close();
             eventSource = null;
-            setConnectionStatus("disconnected", "🔴 Disconnected");
+            setConnectionStatus("disconnected", " Disconnected");
 
             // Exponential backoff for reconnection
             sseReconnectAttempts++;
@@ -4200,7 +4200,7 @@
           };
         } catch (err) {
           console.error("[SSE] Failed to create EventSource:", err);
-          setConnectionStatus("disconnected", "🔴 Error");
+          setConnectionStatus("disconnected", " Error");
           startPolling();
         }
       }
@@ -4208,7 +4208,7 @@
       function handleSSEUpdate(data) {
         // Update timestamp with live indicator
         const now = new Date().toLocaleTimeString();
-        document.getElementById("last-updated").textContent = now + " ⚡";
+        document.getElementById("last-updated").textContent = now + " ";
         document.getElementById("sidebar-updated").textContent = `Live: ${now}`;
 
         // Render full state (unified approach)
@@ -4236,7 +4236,7 @@
         const container = document.getElementById("toast-container");
         const toast = document.createElement("div");
         toast.className = `toast ${type}`;
-        const icon = type === "success" ? "✅" : "❌";
+        const icon = type === "success" ? "" : "";
         toast.innerHTML = `<span>${icon}</span><span>${escapeHtml(message)}</span>`;
         container.appendChild(toast);
 
@@ -4363,12 +4363,12 @@
           const data = await response.json();
 
           if (data.success) {
-            showToast("✅ Health check passed", "success");
+            showToast(" Health check passed", "success");
           } else {
-            showToast("❌ Health check failed: " + (data.error || data.output), "error");
+            showToast(" Health check failed: " + (data.error || data.output), "error");
           }
         } catch (e) {
-          showToast("❌ Health check error: " + e.message, "error");
+          showToast(" Health check error: " + e.message, "error");
         }
       }
 
@@ -4378,12 +4378,12 @@
           const data = await response.json();
 
           if (data.success) {
-            showToast("🚪 Gateway: " + data.output, "success");
+            showToast(" Gateway: " + data.output, "success");
           } else {
-            showToast("❌ Gateway status failed: " + (data.error || data.output), "error");
+            showToast(" Gateway status failed: " + (data.error || data.output), "error");
           }
         } catch (e) {
-          showToast("❌ Gateway error: " + e.message, "error");
+          showToast(" Gateway error: " + e.message, "error");
         }
       }
 
@@ -4393,12 +4393,12 @@
           const data = await response.json();
 
           if (data.success) {
-            showToast("🧹 " + data.output, "success");
+            showToast(" " + data.output, "success");
           } else {
-            showToast("❌ Cleanup failed: " + (data.error || data.output), "error");
+            showToast(" Cleanup failed: " + (data.error || data.output), "error");
           }
         } catch (e) {
-          showToast("❌ Cleanup error: " + e.message, "error");
+          showToast(" Cleanup error: " + e.message, "error");
         }
       }
 
@@ -4409,7 +4409,7 @@
 
         const toast = document.createElement("div");
         toast.className = `toast ${type}`;
-        const icon = type === "success" ? "✅" : "❌";
+        const icon = type === "success" ? "" : "";
         toast.innerHTML = `<span>${icon}</span><span>${escapeHtml(message)}</span>`;
         container.appendChild(toast);
 

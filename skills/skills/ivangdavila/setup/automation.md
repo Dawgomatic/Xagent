@@ -150,7 +150,7 @@ Handle rapid messages:
 ```
 
 **modes:**
-- `steer` — Inject follow-ups into current turn ⭐
+- `steer` — Inject follow-ups into current turn 
 - `collect` — Batch messages
 - `queue` — Process one at a time
 - `interrupt` — Cancel current, start new
@@ -164,7 +164,7 @@ React to messages while processing:
 ```json
 {
   "messages": {
-    "ackReaction": "👀",
+    "ackReaction": "",
     "ackReactionScope": "all",
     "removeAckAfterReply": true
   }

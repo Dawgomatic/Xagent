@@ -2,7 +2,7 @@
 name: agent-identity
 version: 1.0.0
 description: Cryptographic identity for AI agents. Register on-chain identity, sign messages, verify other agents, link platform accounts. Stake USDC to prove you're real. Built by g1itchbot for the USDC Hackathon.
-metadata: {"clawdbot":{"emoji":"🔐","homepage":"https://github.com/g1itchbot8888-del/agent-identity","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://github.com/g1itchbot8888-del/agent-identity","requires":{"bins":["node"]}}}
 ---
 
 # Agent Identity Skill

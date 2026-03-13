@@ -3,7 +3,7 @@ name: govee-control
 description: Script-free Govee OpenAPI setup and control guide. Use when the user wants to get a Govee API key, connect Govee, list devices, check state, or send power/brightness/color commands with secure key handling.
 metadata:
   clawdbot:
-    emoji: 💡
+    emoji: 
     requires:
       bins:
         - bash

@@ -1,9 +1,9 @@
 ---
 name: NadName Agent
-description: "🌐 Register .nad names on Monad blockchain via Nad Name Service (NNS). Real API integration with registerWithSignature, dynamic gas estimation, permanent ownership."
+description: " Register .nad names on Monad blockchain via Nad Name Service (NNS). Real API integration with registerWithSignature, dynamic gas estimation, permanent ownership."
 ---
 
-# 🌐 NadName Agent v2.0 - .nad Names on Monad
+#  NadName Agent v2.0 - .nad Names on Monad
 
 > Register permanent .nad names on Monad blockchain via Nad Name Service with real API integration
 
@@ -15,7 +15,7 @@ description: "🌐 Register .nad names on Monad blockchain via Nad Name Service 
 
 - **Permanent ownership** — One-time registration fee, no renewals
 - **NFT-based** — Names are tradeable NFTs
-- **Emoji support** — Use 🦞.nad or 你好.nad
+- **Emoji support** — Use .nad or 你好.nad
 - **Fast & cheap** — Built on Monad, the fastest blockchain
 - **Profile customization** — Set avatar, social links, text records
 
@@ -28,16 +28,16 @@ description: "🌐 Register .nad names on Monad blockchain via Nad Name Service 
 
 ---
 
-## 🔐 Security & Wallet Setup
+##  Security & Wallet Setup
 
-### Option 1: Environment Variable (Recommended ✅)
+### Option 1: Environment Variable (Recommended )
 
 ```bash
 export PRIVATE_KEY="0x..."
 node scripts/check-name.js myname
 ```
 
-> ✅ **Safest**: Private key exists only in memory, never saved to disk.
+>  **Safest**: Private key exists only in memory, never saved to disk.
 
 ### Option 2: Managed Mode (Encrypted)
 
@@ -45,9 +45,9 @@ node scripts/check-name.js myname
 node scripts/register-name.js --managed --name myname
 ```
 
-> ✅ **Secure**: Creates encrypted keystore, password-protected.
+>  **Secure**: Creates encrypted keystore, password-protected.
 
-### ⚠️ Critical Security Rules
+###  Critical Security Rules
 
 1. **NEVER** hardcode private keys in scripts
 2. **NEVER** commit private keys to git
@@ -57,22 +57,22 @@ node scripts/register-name.js --managed --name myname
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
-### 1️⃣ Check Name Availability
+###  Check Name Availability
 
 ```bash
 # Check if name is available and get pricing
 node scripts/check-name.js myname
 
 # Output example:
-# ✅ myname.nad is available!
-# 💰 Price: 649 MON (base price)
-# 🎄 Discount: 50% (Christmas special)
-# 💸 Final price: 324.5 MON
+#  myname.nad is available!
+#  Price: 649 MON (base price)
+#  Discount: 50% (Christmas special)
+#  Final price: 324.5 MON
 ```
 
-### 2️⃣ Register Name
+###  Register Name
 
 ```bash
 # Using environment variable
@@ -86,7 +86,7 @@ node scripts/register-name.js --name myname --set-primary
 node scripts/register-name.js --managed --name myname --set-primary
 ```
 
-### 3️⃣ List Your Names
+###  List Your Names
 
 ```bash
 # List names owned by your wallet
@@ -95,13 +95,13 @@ node scripts/my-names.js
 
 ---
 
-## 📦 Scripts Reference
+##  Scripts Reference
 
 | Script | Purpose | Needs Private Key |
 |--------|---------|-------------------|
-| `check-name.js` | Check availability & pricing | ❌ |
-| `register-name.js` | Register .nad name | ✅ |
-| `my-names.js` | List owned names | ❌ (reads from address) |
+| `check-name.js` | Check availability & pricing |  |
+| `register-name.js` | Register .nad name |  |
+| `my-names.js` | List owned names |  (reads from address) |
 
 ### check-name.js
 
@@ -110,7 +110,7 @@ Check if a .nad name is available and get current pricing:
 ```bash
 node scripts/check-name.js <name>
 node scripts/check-name.js agent
-node scripts/check-name.js 🦞
+node scripts/check-name.js 
 ```
 
 ### register-name.js
@@ -159,7 +159,7 @@ node scripts/my-names.js --managed
 
 ---
 
-## 🔧 Technical Details
+##  Technical Details
 
 ### v2.0 Registration Flow
 
@@ -202,7 +202,7 @@ await contract.registerWithSignature(registerData, signature, {
 ### Supported Names
 - **Length**: 1-63 characters
 - **Characters**: a-z, 0-9, emojis, international characters
-- **Examples**: `agent.nad`, `🦞.nad`, `你好.nad`, `salmo.nad`
+- **Examples**: `agent.nad`, `.nad`, `你好.nad`, `salmo.nad`
 
 ### Profile Features
 After registration, you can customize:
@@ -213,33 +213,33 @@ After registration, you can customize:
 
 ---
 
-## 💡 Examples
+##  Examples
 
 ### Basic Bot Registration
 ```bash
 export PRIVATE_KEY="0x..."
 node scripts/check-name.js mybot
-# ✅ mybot.nad is available!
-# 💰 Price: 324.5 MON
+#  mybot.nad is available!
+#  Price: 324.5 MON
 
 node scripts/register-name.js --name mybot --set-primary
-# 🎉 Registration successful!
+#  Registration successful!
 ```
 
 ### Dry Run Testing
 ```bash
 # Test registration without spending MON
 node scripts/register-name.js --name mybot --dry-run
-# 🏃‍♂️ DRY RUN MODE - No transaction will be sent
-# ✅ Registration data looks valid
-# ⛽ Estimated gas cost: 0.002 MON
-# 💸 Total cost: 324.502 MON
+#  DRY RUN MODE - No transaction will be sent
+#  Registration data looks valid
+#  Estimated gas cost: 0.002 MON
+#  Total cost: 324.502 MON
 ```
 
 ### Emoji Names
 ```bash
-node scripts/check-name.js 🤖
-node scripts/register-name.js --name 🤖 --dry-run
+node scripts/check-name.js 
+node scripts/register-name.js --name  --dry-run
 ```
 
 ### Secure Managed Setup
@@ -255,7 +255,7 @@ node scripts/my-names.js --managed
 
 ---
 
-## 🌐 Links
+##  Links
 
 - **NNS Website**: https://app.nad.domains
 - **Documentation**: https://docs.nad.domains  
@@ -264,44 +264,44 @@ node scripts/my-names.js --managed
 
 ---
 
-## 🛡️ Security Audit Checklist
+##  Security Audit Checklist
 
 Before using this skill:
 
-✅ No hardcoded private keys  
-✅ No auto-detection of external wallet paths  
-✅ Environment variables only or encrypted keystore  
-✅ No `--no-sandbox` browser usage  
-✅ No remote code execution  
-✅ Proper file permissions (600) for sensitive files  
-✅ Clear security warnings in documentation  
+ No hardcoded private keys  
+ No auto-detection of external wallet paths  
+ Environment variables only or encrypted keystore  
+ No `--no-sandbox` browser usage  
+ No remote code execution  
+ Proper file permissions (600) for sensitive files  
+ Clear security warnings in documentation  
 
 This skill follows OpenClaw security best practices and should pass VirusTotal scanning.
 
 ---
 
-## 📝 Changelog
+##  Changelog
 
 ### v2.0.0 (2026-02-09) - Real API Integration
-- 🚀 **Breaking**: Real NAD API integration with `registerWithSignature`
-- 🔍 Real-time name availability checking via API endpoints
-- 💰 Real-time pricing from NAD API
-- ⛽ Dynamic gas estimation with 2x safety buffer (~1,000,000 gas)
-- 🏃‍♂️ `--dry-run` flag for testing without spending tokens
-- 🔗 `--referrer` support for potential discounts
-- 📊 Better error handling and transaction feedback
-- 🙏 **Thanks to CloudLobster** for testing and discovering the real flow!
+-  **Breaking**: Real NAD API integration with `registerWithSignature`
+-  Real-time name availability checking via API endpoints
+-  Real-time pricing from NAD API
+-  Dynamic gas estimation with 2x safety buffer (~1,000,000 gas)
+-  `--dry-run` flag for testing without spending tokens
+-  `--referrer` support for potential discounts
+-  Better error handling and transaction feedback
+-  **Thanks to CloudLobster** for testing and discovering the real flow!
 
 #### v2.0.0 Improvements Based on CloudLobster's Feedback:
-- ❌ Removed hardcoded pricing and fake availability checks
-- ✅ Real `POST /api/register-request` → `registerWithSignature` flow
-- ✅ Proper gas estimation (646K estimate → 969K actual, now with 2x buffer)
-- ✅ Server co-signature integration for NNS backend validation
+-  Removed hardcoded pricing and fake availability checks
+-  Real `POST /api/register-request` → `registerWithSignature` flow
+-  Proper gas estimation (646K estimate → 969K actual, now with 2x buffer)
+-  Server co-signature integration for NNS backend validation
 
 ### v1.0.0 (2026-02-09)
-- 🎉 Initial release  
-- ✅ Name availability checking (simulated)
-- ✅ Registration with encrypted keystore support
-- ✅ Owned names listing
-- ✅ Security-first design
-- ✅ Support for emoji and international character names
+-  Initial release  
+-  Name availability checking (simulated)
+-  Registration with encrypted keystore support
+-  Owned names listing
+-  Security-first design
+-  Support for emoji and international character names

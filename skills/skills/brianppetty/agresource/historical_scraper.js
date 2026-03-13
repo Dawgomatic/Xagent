@@ -255,7 +255,7 @@ async function scrapeHistorical(targetDateCount = 7) {
         const dayMatch = dateHtml.match(/<time[^>]*>(\d{1,2})<\/time>/);
 
         if (!monthMatch || !dayMatch) {
-          console.log('  ⚠ Could not parse date from entry, skipping');
+          console.log('   Could not parse date from entry, skipping');
           continue;
         }
 
@@ -293,7 +293,7 @@ async function scrapeHistorical(targetDateCount = 7) {
         }
 
         if (!contentEntry) {
-          console.log(`  ⚠ No content found for ${dateStr}, skipping`);
+          console.log(`   No content found for ${dateStr}, skipping`);
           continue;
         }
 

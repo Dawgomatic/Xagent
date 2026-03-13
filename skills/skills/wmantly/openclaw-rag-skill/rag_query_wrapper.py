@@ -81,7 +81,7 @@ def format_for_ai(results: dict) -> str:
     if results['count'] == 0:
         return ""
 
-    output = [f"📚 Found {results['count']} relevant items from knowledge base:\n"]
+    output = [f" Found {results['count']} relevant items from knowledge base:\n"]
 
     for item in results['items']:
         doc_type = item['type']
@@ -89,13 +89,13 @@ def format_for_ai(results: dict) -> str:
         text = item['text']
 
         if doc_type == 'session':
-            header = f"📄 Past Conversation ({source})"
+            header = f" Past Conversation ({source})"
         elif doc_type == 'workspace':
-            header = f"📁 Code/Documentation ({source})"
+            header = f" Code/Documentation ({source})"
         elif doc_type == 'skill':
-            header = f"📜 Skill Guide ({source})"
+            header = f" Skill Guide ({source})"
         else:
-            header = f"🔹 Reference ({doc_type})"
+            header = f" Reference ({doc_type})"
 
         # Truncate if too long
         if len(text) > 700:

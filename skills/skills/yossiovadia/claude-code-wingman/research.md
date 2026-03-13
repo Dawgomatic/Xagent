@@ -35,7 +35,7 @@ Can Claude Code be configured to auto-approve commands without interactive promp
 
 ## Findings
 
-### Test 1: CLAUDE.md for Auto-Approval ❌
+### Test 1: CLAUDE.md for Auto-Approval 
 
 **Tested:** Created `test-project/CLAUDE.md` with instructions to auto-approve commands
 
@@ -51,11 +51,11 @@ Do you want to proceed?
 
 ---
 
-### Test 2: Programmatic Approval Detection ✅
+### Test 2: Programmatic Approval Detection 
 
 **Approach:** Background script monitors tmux output and auto-responds to approval prompts
 
-**Result:** SUCCESS! 🎉
+**Result:** SUCCESS! 
 
 **Key Findings:**
 1. Claude Code uses TUI menus - need arrow keys, not text input

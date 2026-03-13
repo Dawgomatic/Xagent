@@ -106,13 +106,13 @@ class MarketDataProvider:
                 if not validation_report['passed']:
                     logger.error(f"Validation failed for {symbol} [{timeframe}]")
                     logger.error(f"Critical issues: {', '.join(validation_report['critical_failures'])}")
-                    print(f"\n❌ VALIDATION FAILURE for {symbol} [{timeframe}]")
+                    print(f"\n VALIDATION FAILURE for {symbol} [{timeframe}]")
                     print(f"   Critical Issues: {', '.join(validation_report['critical_failures'])}")
                     return None
 
                 if validation_report['warnings']:
                     logger.warning(f"Validation warnings for {symbol} [{timeframe}]")
-                    print(f"\n⚠️  VALIDATION WARNINGS for {symbol} [{timeframe}]:")
+                    print(f"\n  VALIDATION WARNINGS for {symbol} [{timeframe}]:")
                     for warning in validation_report['warnings']:
                         logger.warning(f"  {warning}")
                         print(f"   {warning}")
@@ -123,7 +123,7 @@ class MarketDataProvider:
         except Exception as e:
             error_msg = f"Data fetch error for {symbol} [{timeframe}]: {str(e)}"
             logger.error(error_msg)
-            print(f"❌ {error_msg}")
+            print(f" {error_msg}")
             return None
 
     def get_available_symbols(self) -> list:

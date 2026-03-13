@@ -2,7 +2,7 @@
 
 ## [1.2.0] - 2026-02-07
 
-### 🔄 Major Changes
+###  Major Changes
 
 - **Project Renamed** — `web-scraper` → `playwright-scraper-skill`
 - Updated all documentation and links
@@ -13,7 +13,7 @@
 
 ## [1.1.0] - 2026-02-07
 
-### ✅ Added
+###  Added
 
 - **LICENSE** — MIT License
 - **CONTRIBUTING.md** — Contribution guidelines
@@ -21,7 +21,7 @@
 - **test.sh** — Automated test script
 - **README.md** — Redesigned with badges
 
-### 🔧 Improvements
+###  Improvements
 
 - Clearer file structure
 - More detailed documentation
@@ -31,22 +31,22 @@
 
 ## [1.0.0] - 2026-02-07
 
-### ✅ Initial Release
+###  Initial Release
 
 **Tools Created:**
-- ✅ `playwright-simple.js` — Fast simple scraper
-- ✅ `playwright-stealth.js` — Anti-bot protected version (primary) ⭐
+-  `playwright-simple.js` — Fast simple scraper
+-  `playwright-stealth.js` — Anti-bot protected version (primary) 
 
 **Test Results:**
-- ✅ Discuss.com.hk success (200 OK, 19.6s)
-- ✅ Example.com success (3.4s)
-- ✅ Auto fallback to deep-scraper's Playwright
+-  Discuss.com.hk success (200 OK, 19.6s)
+-  Example.com success (3.4s)
+-  Auto fallback to deep-scraper's Playwright
 
 **Documentation:**
-- ✅ SKILL.md (full documentation)
-- ✅ README.md (quick reference)
-- ✅ Example scripts (discuss-hk.sh)
-- ✅ package.json
+-  SKILL.md (full documentation)
+-  README.md (quick reference)
+-  Example scripts (discuss-hk.sh)
+-  package.json
 
 **Key Findings:**
 1. **Playwright Stealth is the best solution** (100% success on Discuss.com.hk)

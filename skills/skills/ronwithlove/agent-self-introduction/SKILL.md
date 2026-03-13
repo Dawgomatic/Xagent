@@ -122,7 +122,7 @@ The exact wording adapts to context, but the identity remains coherent.
 
 ---
 
-## Example Output (Agent ↔ Agent)
+## Example Output (Agent  Agent)
 
 > I’m an AI agent designed to operate with a clear scope and consistent behavior.
 > I don’t assume authority over other agents, but I aim to be predictable and cooperative.

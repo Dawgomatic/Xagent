@@ -32,31 +32,31 @@ command -v whisper >/dev/null 2>&1 || { echo "Error: whisper not installed"; exi
 TEMP_DIR=$(mktemp -d -t transcribe-XXXXXX)
 trap "rm -rf $TEMP_DIR" EXIT
 
-echo "🎙️  Transcribing: $AUDIO_FILE"
-echo "📁  Output dir: $OUTPUT_DIR"
-echo "🤖  Model: $MODEL"
-echo "🌍  Language: $LANG"
+echo "  Transcribing: $AUDIO_FILE"
+echo "  Output dir: $OUTPUT_DIR"
+echo "  Model: $MODEL"
+echo "  Language: $LANG"
 echo ""
 
 # Get audio duration
 DURATION=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$AUDIO_FILE")
 DURATION_INT=${DURATION%.*}
 
-echo "⏱️  Audio duration: ${DURATION_INT}s ($(($DURATION_INT / 60)) min)"
+echo "  Audio duration: ${DURATION_INT}s ($(($DURATION_INT / 60)) min)"
 
 if (( DURATION_INT <= CHUNK_LENGTH )); then
-  echo "✅ Audio is short, no splitting needed"
+  echo " Audio is short, no splitting needed"
   whisper "$AUDIO_FILE" \
     --model "$MODEL" \
     --language "$LANG" \
     --output_format txt \
     --output_dir "$OUTPUT_DIR"
-  echo "✅ Done!"
+  echo " Done!"
   exit 0
 fi
 
 # Split audio into chunks
-echo "✂️  Splitting into ${CHUNK_LENGTH}s chunks..."
+echo "  Splitting into ${CHUNK_LENGTH}s chunks..."
 ffmpeg -i "$AUDIO_FILE" \
   -f segment \
   -segment_time "$CHUNK_LENGTH" \
@@ -67,7 +67,7 @@ ffmpeg -i "$AUDIO_FILE" \
 CHUNKS=("$TEMP_DIR"/chunk_*.ogg)
 NUM_CHUNKS=${#CHUNKS[@]}
 
-echo "📦 Created $NUM_CHUNKS chunks"
+echo " Created $NUM_CHUNKS chunks"
 echo ""
 
 # Transcribe each chunk
@@ -103,5 +103,5 @@ OUTPUT_FILE="$OUTPUT_DIR/${AUDIO_BASE}.txt"
 cp "$FINAL_TRANSCRIPT" "$OUTPUT_FILE"
 
 echo ""
-echo "✅ Transcription complete!"
-echo "📄 Output: $OUTPUT_FILE"
+echo " Transcription complete!"
+echo " Output: $OUTPUT_FILE"

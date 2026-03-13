@@ -47,7 +47,7 @@ large frontal sofibox, gentle fill light and subtle rim light, creating a natura
 retouching and realistic skincare advertising aesthetics. ar:16:9
 Nano Banana Pro
 Tarcisio Junior
-© Aaarcisiojrr
+ Aaarcisiojrr
 ```
 
 ### Time: 06:00
@@ -277,17 +277,17 @@ Editorial fashion photography, elegant 1 in confident pose with arms crossed, we
 Quer ser notificado quando Claude responder? x
 Responder.
 1 a Sanna ace a
-™ O- Do &
+ O- Do &
 Chat Reagir Q&A Mostrar legendas Configurações
-claude.ai © on +o
-© Desafio.
-© “Gravando.
+claude.ai  on +o
+ Desafio.
+ “Gravando.
 8
 ```
 
 ### Time: 33:30
 ```text
-FREEPIK ©
+FREEPIK 
 EB Personal ”
 @ Home
 88 Stock
@@ -299,7 +299,7 @@ Ch Video Generator
 S Spaces New
 All tools
 (e!
-© History
+ History
 View project
 Buy credits
 Top up anytime
@@ -358,7 +358,7 @@ o
 ata
 “e [0 Criação de pe.
 Bi create
-® Pinterest
+ Pinterest
 E Imagens
 IF Mockups
 EE Simbolos
@@ -384,7 +384,7 @@ D
 Help
 Updates
 Dark Mode
-® ¢ooe
+ ¢ooe
 marcelo ki.
 sor-ss
 BM Se & SF BF B s/a 14
@@ -434,7 +434,7 @@ PROMPT:
 
 ### Time: 15:30
 ```text
-Kimura X Flavio Marts © b
+Kimura X Flavio Marts  b
 é Fioma File Edit View Object Text Arrange Phigins Widgets Window Help Mm seserzvare
 A Dao x
 CLAUDE
@@ -577,7 +577,7 @@ E Guia1
 ### Timestamp: 101:53
 docs.google.com
 o
-Documento semtitulo * © @
+Documento semtitulo *  @
 Arquivo Editar Ver Inserir Formatar Ferramentas Extensões Ajuda
 Qa s é BA S 100% - Textonor.. >» Arial E o
 2 1 = 2 5 11, 12, 13
@@ -594,7 +594,7 @@ camera analógica.
 Arquivo Editar Visualizar ico Favoritos nela Ajuda
 "o
 chatgpt.com @ a
-EB Prompt, O Visual E. © maser O Accesso. O Dashbo O Acesso. © mese r E doc. IM IALAS, ‘ 4 H
+EB Prompt, O Visual E.  maser O Accesso. O Dashbo O Acesso.  mese r E doc. IM IALAS, ‘ 4 H
 “a
 D Photoshoot 40 v A NA
 (Z Novo chat Quero gerar um prompt avançado
@@ -604,7 +604,7 @@ Q Buscar em chats
 Etapa 1 - Estilo da imagem
 É Investigação . . . ' .
 Para começar, preciso entender o estilo da imagem que você quer criar.
-© Codex
+ Codex
 Aqui vão algumas perguntas para te ajudar a decidir:
 GPTs y
 * Essa imagem tem um estilo mais comercial, editorial, artístico, documental ou surreal?
@@ -629,7 +629,7 @@ Q Buscar em chats
 @ Imagens
 88 Aplicativos
 PL Investigação
-© Codex
+ Codex
 GPTs
 [+] Photoshoot
 [47] Explorar GPTs
@@ -641,7 +641,7 @@ Estúdio Kimura
 Plus
 "o
 chatgpt.com @
-O Visual E. © maser O Acesso. O Dashbo O Accesso. © imase P E doc. IMIALAS, ‘
+O Visual E.  maser O Acesso. O Dashbo O Accesso.  imase P E doc. IMIALAS, ‘
 Photoshoot 40 v Kimura = (A.
 7 Etapa 2 - Objeto/Sujeito da imagem
 Você já descreveu muito bem o sujeito! Só vou confirmar e organizar os principais pontos
@@ -669,7 +669,7 @@ Q Buscar em chats
 @ Imagens
 88 Aplicativos
 cu Investigação
-© Codex
+ Codex
 GPTs
 (+) Photoshoot
 [45] Explorar GPTs
@@ -702,7 +702,7 @@ suficient
 ### Timestamp: 103:53
 Arquivo Editar Histérico Favoritos nela Ajuda
 = chatgpt.com é
-EB Prompt, O Visual E. © image P. O Acesso. O Dashbo O Acesso. © mese r E doc. IM IALAS, ‘
+EB Prompt, O Visual E.  image P. O Acesso. O Dashbo O Acesso.  mese r E doc. IM IALAS, ‘
 “a
 D Photoshoot 40 v Kimura SNe A
 G Novo chat * Angulo: Medium shot
@@ -713,12 +713,12 @@ Q Buscar em chats * Lente: 35mm
 00 Anficati eae a " ' E
 00 Aplicativos * Composição: Ainda não foi especificada — posso sugerir algumas opções:
 & Investigação Aqui vão três sugestões de composição que combinam com sua cena:
-© Codex 1. Regra dos terços — para destacar o sujeito sem centralizá-lo totalmente
+ Codex 1. Regra dos terços — para destacar o sujeito sem centralizá-lo totalmente
 2. Simetria urbana - aproveita elementos arquitetônicos para reforçar a atitude confiante
 GPTs 5 Ra :
 3. Retrato ambiental - onde o fundo urbano contribui para contar mais sobre o
 [+] Photoshoot personagem
-® Explorar GPTs Vocé quer escolher uma dessas opgées ou prefere outra?
+ Explorar GPTs Vocé quer escolher uma dessas opgées ou prefere outra?
 Projetos Aguardo sua escolha para composição fotográfica para finalizarmos essa etapa.
 E MEU Posso sugerir mais ideias se você quiser.
 +
@@ -731,7 +731,7 @@ Plus
 Arquivo Editar Visualizar ico Favoritos nela Ajuda
 "o
 chatgpt.com @
-EB Prompt. O Visual E © maser O Accesso. O Deshbo O Accesso. © imase P E doc. IM IALAB, ‘
+EB Prompt. O Visual E  maser O Accesso. O Deshbo O Accesso.  imase P E doc. IM IALAB, ‘
 D Photoshoot 40 v Kimura WII
 (Z Novo chat
 Q Buscar em chats
@@ -740,7 +740,7 @@ Agora vamos para a última etapa antes de montar o prompt:
 88 Aplicativos 7 Etapa 5 - Efeitos
 R Investigação Você quer incluir algum tipo de efeito na imagem, como:
 * Direção de arte (ex: granulação, desfoque de lente, estética de filme antigo, etc.)
-© Codex . .
+ Codex . .
 * Dinâmicas visuais (ex: movimento de cabelo, poeira no ar, vento, etc.)
 GPTs * VFX ou manipulações (ex: vazamento de luz, queimadura de filme, moldura de
 [+] Photoshoot negativo, etc.)
@@ -765,9 +765,9 @@ Q Buscar em chats
 @ Imagens
 88 Aplicativos
 cu Investigação
-© Codex
+ Codex
 GPTs
-© Photoshoot
+ Photoshoot
 [7] Explorar GPTs
 Projetos
 E& Novo projeto
@@ -777,7 +777,7 @@ Estúdio Kimura
 Plus
 chatgpt.com é a
 if
-O Visual € © mese”. O Accesso. O dashvo. O cesso. © maser... E voam IMIALAS, ‘ E on
+O Visual €  mese”. O Accesso. O dashvo. O cesso.  maser... E voam IMIALAS, ‘ E on
 en |
 4 PB
 o
@@ -811,7 +811,7 @@ abstract chiaroscuro baroque
 ### Timestamp: 105:53
 Safari Arquivo Editar ze istórico Favoritos Janela Ajuda
 eeo M- < 2
-O rim (tn) Nano, EB rom O Visual ©) imase. O heess.
+O rim (tn) Nano, EB rom O Visual ) imase. O heess.
 ra
 30-year-old Asian woman with an
 angular face, defined cheekbones,
@@ -832,7 +832,7 @@ Safari Arquivo Editar V a a Janela Ajuda
 fari dl id
 "o
 eeo M- < labs.google See , a
-O Fim (tn) Nano. EB rom O Visual © mese. @ hoes. O Des O Access. ©) mass | docu. MALA. @ eer ‘ < =
+O Fim (tn) Nano. EB rom O Visual  mese. @ hoes. O Des O Access. ) mass | docu. MALA. @ eer ‘ < =
 a |
 30-year-old Asian woman with an
 angular face, defined cheekbones,
@@ -887,7 +887,7 @@ visible tattoos on her arms, with a dragon tattoo on her neck. She stands uprigh
 camera with a serious expression. Captured from a worm eye view using a 35mm wide-
 angle lens on an analog film camera, under harsh backlight from the noon sun, with
 natural hard lighting and visible film grain texture, evoking a vintage urban editorial style.
-© Codex
+ Codex
 GPTs
 [45] Explorar GPTs
 Projetos
@@ -904,9 +904,9 @@ Q Buscar em chats
 @ Imagens
 88 Aplicativos
 LP Investigação
-© Codex
+ Codex
 GPTs
-© Photoshoot
+ Photoshoot
 [7] Explorar GPTs
 Projetos
 E& Novo projeto
@@ -931,7 +931,7 @@ Q Buscar em chats
 @ Imagens
 88 Aplicativos
 PL Investigação
-© Codex
+ Codex
 GPTs
 [+ Photoshoot
 [45] Explorar GPTs
@@ -942,7 +942,7 @@ D IALAB7
 Estúdio Kimura
 Plus
 E] chatgpt.com &
-EB Prom. O visual © move O cess. O Desh. O “cess. ©) mese. | docu. MALA @ re o
+EB Prom. O visual  move O cess. O Desh. O “cess. ) mese. | docu. MALA @ re o
 a
 D Photoshoot 40 v cme E"
 backlighting at noon, natural lighting
@@ -1022,7 +1022,7 @@ a co) a o fe) e e o fo) E M 8 any: E H-
 Kimura > tá
 Pe Personal Image Generator KR.
 EA)
-Image Video Audio Tools © Personal v ® Community EB Templates
+Image Video Audio Tools  Personal v  Community EB Templates
 88
 [= Ei runway gen 4 5 sec 16:9 +3 Today
 Browse templates
@@ -1033,7 +1033,7 @@ G Google Nano Banana Pro v
 REFERENCES + Add
 wan 2.2 5 sec 16:9 +3 Today
 o 2 Lo
-aA ® &
+aA  &
 on Generate +t
 ### Timestamp: 110:52
 @ Safari Arquivo Editar Visualizar Histórico Favoritos Janela Ajuda
@@ -1041,12 +1041,12 @@ eee M- <
 "o
 freepik.com Sac
 4 a
-fp) (5) 8 ° B re) o e © = m 8 em. E: |:
+fp) (5) 8 ° B re) o e  = m 8 em. E: |:
 s (A
 KR.
 B Personal Image Generator
 o neck. She stands upright with a
-© Personal v & Community Templates
+ Personal v & Community Templates
 99 confident posture, one hand in her
 pocket and the other relaxed, looking
 8 directly at the camera with a serious runway gen4 5Ssec 16:9 +3 Today

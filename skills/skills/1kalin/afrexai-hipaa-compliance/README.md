@@ -19,4 +19,4 @@ Built for compliance officers, CISOs, and healthcare IT teams rolling out AI age
 - [AI Revenue Leak Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)
 - [AI Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)
 
-*© 2026 AfrexAI*
+* 2026 AfrexAI*

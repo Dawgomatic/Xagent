@@ -163,16 +163,16 @@ I approved it. Retry events: 405/week → 12/week. v4.2 shows that trend in the 
 **What the weekly output looks like:**
 
 ```
-📋 AGENTS.md Weekly Review — 2026-02-16
+ AGENTS.md Weekly Review — 2026-02-16
 
-🔴 NEW PROPOSALS (2):
+ NEW PROPOSALS (2):
    1. exec retry limit [405 events, max 119 consecutive]
    2. heartbeat error suppression [18× same error]
 
-📊 ACTIVE RULE EFFECTIVENESS:
-   ✅ exec retry limit (applied 2026-02-09)
+ ACTIVE RULE EFFECTIVENESS:
+    exec retry limit (applied 2026-02-09)
       Before: 405 events/week → After: 12 (-97%)
-   ⚠️  memory compaction rule (applied 2026-01-26)
+     memory compaction rule (applied 2026-01-26)
       Pattern still present — consider revision
 ```
 

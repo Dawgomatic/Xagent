@@ -4,7 +4,7 @@ slug: brief
 version: 1.0.1
 description: Condense information into actionable briefings. User specifies sources, skill structures the output.
 changelog: Added explicit data sources and storage location
-metadata: {"clawdbot":{"emoji":"📋","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Data Storage
@@ -20,9 +20,9 @@ Create on first use: `mkdir -p ~/brief/templates`
 ## Scope
 
 This skill:
-- ✅ Structures information user provides into briefs
-- ✅ Learns format preferences from explicit feedback
-- ✅ Stores preferences in ~/brief/preferences.md
+-  Structures information user provides into briefs
+-  Learns format preferences from explicit feedback
+-  Stores preferences in ~/brief/preferences.md
 
 **User-driven model:**
 - User specifies WHAT information to include
@@ -30,9 +30,9 @@ This skill:
 - Skill handles STRUCTURE and FORMAT
 
 This skill does NOT:
-- ❌ Access files, email, or calendar without user request
-- ❌ Pull data from sources user hasn't specified
-- ❌ Store content (only format preferences)
+-  Access files, email, or calendar without user request
+-  Pull data from sources user hasn't specified
+-  Store content (only format preferences)
 
 ## Quick Reference
 
@@ -60,17 +60,17 @@ User: [shares doc or grants access]
 
 ### 2. Brief Structure
 ```
-📋 [BRIEF TYPE] — [SUBJECT]
+ [BRIEF TYPE] — [SUBJECT]
 
-⚡ BOTTOM LINE
+ BOTTOM LINE
 [1-2 sentences: key takeaway]
 
-📊 KEY POINTS
+ KEY POINTS
 • [Point 1]
 • [Point 2]
 • [Point 3]
 
-🎯 ACTION NEEDED
+ ACTION NEEDED
 [Decision or action required]
 ```
 

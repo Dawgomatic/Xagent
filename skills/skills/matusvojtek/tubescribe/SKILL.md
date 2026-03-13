@@ -5,19 +5,19 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎬",
+        "emoji": "",
         "requires": { "bins": ["summarize"] }
       }
   }
 ---
 
-# TubeScribe 🎬
+# TubeScribe 
 
 **Turn any YouTube video into a polished document + audio summary.**
 
 Drop a YouTube link → get a beautiful transcript with speaker labels, key quotes, timestamps that link back to the video, and an audio summary you can listen to on the go.
 
-### 💸 Free & No Paid APIs
+###  Free & No Paid APIs
 
 - **No subscriptions or API keys** — works out of the box
 - **Local processing** — transcription, speaker detection, and TTS run on your machine
@@ -25,17 +25,17 @@ Drop a YouTube link → get a beautiful transcript with speaker labels, key quot
 - **No data uploaded** — nothing is sent to external services; all processing stays on your machine
 - **Safe sub-agent** — spawned sub-agent has strict instructions: no software installation, no network calls beyond YouTube
 
-### ✨ Features
+###  Features
 
-- **📄 Transcript with summary and key quotes** — Export as DOCX, HTML, or Markdown
-- **🎯 Smart Speaker Detection** — Automatically identifies participants
-- **🔊 Audio Summaries** — Listen to key points (MP3/WAV)
-- **📝 Clickable Timestamps** — Every quote links directly to that moment in the video
-- **💬 YouTube Comments** — Viewer sentiment analysis and best comments
-- **📋 Queue Support** — Send multiple links, they get processed in order
-- **🚀 Non-Blocking Workflow** — Conversation continues while video processes in background
+- ** Transcript with summary and key quotes** — Export as DOCX, HTML, or Markdown
+- ** Smart Speaker Detection** — Automatically identifies participants
+- ** Audio Summaries** — Listen to key points (MP3/WAV)
+- ** Clickable Timestamps** — Every quote links directly to that moment in the video
+- ** YouTube Comments** — Viewer sentiment analysis and best comments
+- ** Queue Support** — Send multiple links, they get processed in order
+- ** Non-Blocking Workflow** — Conversation continues while video processes in background
 
-### 🎬 Works With Any Video
+###  Works With Any Video
 
 - Interviews & podcasts (multi-speaker detection)
 - Lectures & tutorials (single speaker)
@@ -47,7 +47,7 @@ Drop a YouTube link → get a beautiful transcript with speaker labels, key quot
 
 When user sends a YouTube URL:
 1. Spawn sub-agent with the full pipeline task **immediately**
-2. Reply: "🎬 TubeScribe is processing — I'll let you know when it's ready!"
+2. Reply: " TubeScribe is processing — I'll let you know when it's ready!"
 3. Continue conversation (don't wait!)
 4. Sub-agent notification will announce completion with title and details
 
@@ -72,7 +72,7 @@ sessions_spawn(
     task=f"""
 ## TubeScribe: Process {youtube_url}
 
-⚠️ CRITICAL: Do NOT install any software.
+ CRITICAL: Do NOT install any software.
 No pip, brew, curl, venv, or binary downloads.
 If a tool is missing, STOP and report what's needed.
 
@@ -173,7 +173,7 @@ Tell what was created: DOCX name, MP3 name + duration, video stats.
 ```
 
 **After spawning, reply immediately:**
-> 🎬 TubeScribe is processing - I'll let you know when it's ready!
+>  TubeScribe is processing - I'll let you know when it's ready!
 Then continue the conversation. The sub-agent notification announces completion.
 
 ## Configuration
@@ -323,7 +323,7 @@ python skills/tubescribe/scripts/tubescribe.py --queue-status
 ```bash
 # Add to queue instead of starting parallel processing
 python skills/tubescribe/scripts/tubescribe.py --queue-add "NEW_URL"
-# → Replies: "📋 Added to queue (position 2)"
+# → Replies: " Added to queue (position 2)"
 ```
 
 ### After Completion
@@ -353,15 +353,15 @@ The script detects and reports these errors with clear messages:
 
 | Error | Message |
 |-------|---------|
-| Invalid URL | ❌ Not a valid YouTube URL |
-| Private video | ❌ Video is private — can't access |
-| Video removed | ❌ Video not found or removed |
-| No captions | ❌ No captions available for this video |
-| Age-restricted | ❌ Age-restricted video — can't access without login |
-| Region-blocked | ❌ Video blocked in your region |
-| Live stream | ❌ Live streams not supported — wait until it ends |
-| Network error | ❌ Network error — check your connection |
-| Timeout | ❌ Request timed out — try again later |
+| Invalid URL |  Not a valid YouTube URL |
+| Private video |  Video is private — can't access |
+| Video removed |  Video not found or removed |
+| No captions |  No captions available for this video |
+| Age-restricted |  Age-restricted video — can't access without login |
+| Region-blocked |  Video blocked in your region |
+| Live stream |  Live streams not supported — wait until it ends |
+| Network error |  Network error — check your connection |
+| Timeout |  Request timed out — try again later |
 
 When an error occurs, report it to the user and don't proceed with that video.
 

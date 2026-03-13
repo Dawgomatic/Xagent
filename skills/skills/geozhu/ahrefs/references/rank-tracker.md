@@ -2,7 +2,7 @@
 
 Track keyword rankings and monitor SERP positions over time.
 
-**⚠️ Important**: Rank Tracker requires pre-configured projects in the Ahrefs web interface. You must set up tracking projects before using these API endpoints.
+** Important**: Rank Tracker requires pre-configured projects in the Ahrefs web interface. You must set up tracking projects before using these API endpoints.
 
 ## Base URL
 ```

@@ -1,4 +1,4 @@
-# AfrexAI Conversion Copywriter ✍️⚡
+# AfrexAI Conversion Copywriter 
 
 The complete persuasion system for AI agents. Write landing pages, emails, ads, and sales pages that convert — using proven frameworks, psychology, and systematic testing.
 
@@ -32,7 +32,7 @@ Tell your agent:
 - `"Write 25 headlines for [topic]"` — headline variations across all 7 types
 - `"Write cold email for [audience]"` — research-backed PAS outreach
 
-## ⚡ Level Up Your Copywriting
+##  Level Up Your Copywriting
 
 This free skill gives you the frameworks. Our **AI Agent Context Packs** ($47) give your agent deep industry knowledge to write copy that actually resonates with specific verticals:
 
@@ -41,9 +41,9 @@ This free skill gives you the frameworks. Our **AI Agent Context Packs** ($47) g
 - **Professional Services Pack** — Authority positioning, case study copy, proposal language
 - **Healthcare / Fintech / Legal Packs** — Compliant copy that still converts
 
-👉 **Browse all 10 packs:** [AfrexAI Context Packs Store](https://afrexai-cto.github.io/context-packs/)
+ **Browse all 10 packs:** [AfrexAI Context Packs Store](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-email-marketing-engine](https://clawhub.com/skills/afrexai-email-marketing-engine) — Complete email marketing & deliverability system
 - [afrexai-seo-content-engine](https://clawhub.com/skills/afrexai-seo-content-engine) — SEO article writing with keyword research
@@ -53,4 +53,4 @@ This free skill gives you the frameworks. Our **AI Agent Context Packs** ($47) g
 
 ---
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

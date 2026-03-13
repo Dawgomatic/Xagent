@@ -1,4 +1,4 @@
-# 📊 Weekly Report — {{WEEK}}
+#  Weekly Report — {{WEEK}}
 
 ## Revenue
 - Gumroad sales: ${{SALES}}

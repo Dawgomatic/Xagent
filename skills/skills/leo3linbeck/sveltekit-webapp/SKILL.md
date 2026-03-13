@@ -131,7 +131,7 @@ Only ask what's missing—don't interrogate.
 Before proceeding, confirm understanding:
 
 ```
-📝 PROJECT SUMMARY: [Name]
+ PROJECT SUMMARY: [Name]
 
 Purpose: [one sentence]
 Primary user: [who]
@@ -214,7 +214,7 @@ Check `SKILL-CONFIG.json` for user preferences. Common patterns:
 - **Prefer `bind:` over callbacks** — For child→parent data flow, use `bind:value` instead of `onchange` callback props. More declarative, less boilerplate.
 - **Avoid `onMount`** — Use `$effect()` for side effects. It's reactive and works with SSR.
 - **Runes everywhere** — `$state()`, `$derived()`, `$effect()` over legacy stores and lifecycle hooks.
-- **Small components** — Default soft limit of ~200 lines per component (configurable in SKILL-CONFIG.json). If growing larger, extract sub-components. Small is beautiful. 🤩
+- **Small components** — Default soft limit of ~200 lines per component (configurable in SKILL-CONFIG.json). If growing larger, extract sub-components. Small is beautiful. 
 
 ### Directory Structure
 
@@ -322,12 +322,12 @@ Present the PRD and refine until the user approves.
 ### Present the PRD
 
 ```
-📋 PRD: [Project Name]
+ PRD: [Project Name]
 
 TECHNICAL STACK:
-✅ Always: TypeScript, Tailwind, Skeleton + Bits UI, ESLint, 
+ Always: TypeScript, Tailwind, Skeleton + Bits UI, ESLint, 
    Prettier, Vitest, Playwright, PWA
-🔍 Inferred:
+ Inferred:
    [✓/✗] Database (drizzle) - [reason]
    [✓/✗] Authentication (lucia) - [reason]  
    [✓/✗] Internationalization (paraglide) - [reason]
@@ -343,7 +343,7 @@ US-XXX: Configure PWA manifest (Polish)
 US-XXX: Add E2E tests (Tests)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🔐 External dependencies:
+ External dependencies:
    • GitHub CLI (required now)
    • Vercel CLI (required now)
    • DATABASE_URL (required for staging)
@@ -367,7 +367,7 @@ Expect refinement. Common adjustments:
 
 When user approves:
 ```
-✅ PRD CONFIRMED
+ PRD CONFIRMED
 
 [N] user stories ready for execution.
 Proceeding to preflight checks...
@@ -387,7 +387,7 @@ Verify authentication for required CLIs (GitHub, pnpm, Vercel, and optionally Tu
 
 ```
 ┌─────────────────────────────────────────────┐
-│ 🔐 PREFLIGHT CHECK                          │
+│  PREFLIGHT CHECK                          │
 ├─────────────────────────────────────────────┤
 │ For development (Stage 1):                  │
 │ ✓ GitHub CLI         authenticated          │
@@ -432,10 +432,10 @@ EXECUTE
 
 **Live progress updates:** Report each completed story:
 ```
-✅ US-001: Scaffold project
-✅ US-002: Configure Skeleton + Bits UI
-✅ US-003: Set up mock data
-⏳ US-004: Create root layout (in progress)
+ US-001: Scaffold project
+ US-002: Configure Skeleton + Bits UI
+ US-003: Set up mock data
+ US-004: Create root layout (in progress)
 ```
 
 ---
@@ -570,7 +570,7 @@ Run E2E tests against the production URL to confirm everything works. See [refer
 #### Completion Report
 
 ```
-🚀 DEPLOYED
+ DEPLOYED
 
 Repository: github.com/[user]/[project-name]
 Live URL: https://[production-url]
@@ -651,7 +651,7 @@ Push to `main` branch → auto-deploys to Vercel.
 ### Report Handoff
 
 ```
-📖 HANDOFF COMPLETE
+ HANDOFF COMPLETE
 
 Admin manual: ADMIN.md
 - How to run locally

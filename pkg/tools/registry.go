@@ -11,13 +11,17 @@ import (
 )
 
 type ToolRegistry struct {
-	tools map[string]Tool
-	mu    sync.RWMutex
+	tools           map[string]Tool
+	mu              sync.RWMutex
+	cachedDefs      []providers.ToolDefinition
+	cachedSummaries []string
+	dirty           bool
 }
 
 func NewToolRegistry() *ToolRegistry {
 	return &ToolRegistry{
 		tools: make(map[string]Tool),
+		dirty: true,
 	}
 }
 
@@ -25,6 +29,7 @@ func (r *ToolRegistry) Register(tool Tool) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	r.tools[tool.Name()] = tool
+	r.dirty = true
 }
 
 func (r *ToolRegistry) Get(name string) (Tool, bool) {
@@ -112,11 +117,20 @@ func (r *ToolRegistry) GetDefinitions() []map[string]interface{} {
 	return definitions
 }
 
-// ToProviderDefs converts tool definitions to provider-compatible format.
-// This is the format expected by LLM provider APIs.
 func (r *ToolRegistry) ToProviderDefs() []providers.ToolDefinition {
 	r.mu.RLock()
-	defer r.mu.RUnlock()
+	if !r.dirty && r.cachedDefs != nil {
+		defs := r.cachedDefs
+		r.mu.RUnlock()
+		return defs
+	}
+	r.mu.RUnlock()
+
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if !r.dirty && r.cachedDefs != nil {
+		return r.cachedDefs
+	}
 
 	definitions := make([]providers.ToolDefinition, 0, len(r.tools))
 	for _, tool := range r.tools {
@@ -141,6 +155,15 @@ func (r *ToolRegistry) ToProviderDefs() []providers.ToolDefinition {
 			},
 		})
 	}
+	r.cachedDefs = definitions
+
+	summaries := make([]string, 0, len(r.tools))
+	for _, tool := range r.tools {
+		summaries = append(summaries, fmt.Sprintf("- `%s` - %s", tool.Name(), tool.Description()))
+	}
+	r.cachedSummaries = summaries
+	r.dirty = false
+
 	return definitions
 }
 
@@ -163,15 +186,19 @@ func (r *ToolRegistry) Count() int {
 	return len(r.tools)
 }
 
-// GetSummaries returns human-readable summaries of all registered tools.
-// Returns a slice of "name - description" strings.
 func (r *ToolRegistry) GetSummaries() []string {
 	r.mu.RLock()
-	defer r.mu.RUnlock()
-
-	summaries := make([]string, 0, len(r.tools))
-	for _, tool := range r.tools {
-		summaries = append(summaries, fmt.Sprintf("- `%s` - %s", tool.Name(), tool.Description()))
+	if !r.dirty && r.cachedSummaries != nil {
+		summaries := r.cachedSummaries
+		r.mu.RUnlock()
+		return summaries
 	}
-	return summaries
+	r.mu.RUnlock()
+
+	// Call ToProviderDefs to rebuild both caches
+	r.ToProviderDefs()
+
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	return r.cachedSummaries
 }

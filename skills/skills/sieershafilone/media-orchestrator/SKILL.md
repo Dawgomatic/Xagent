@@ -7,14 +7,14 @@ description: Unified skill for resolving, downloading, and delivering media (aud
 
 This skill centralizes the logic for handling all media requests (audio, video, Spotify tracks) from chat platforms like WhatsApp and Telegram. It leverages `yt-dlp` for robust search and download capabilities from YouTube and performs Spotify metadata resolution for WebUI integration.
 
-## ⚙️ How it Works
+##  How it Works
 
 1.  **Resolution**: Upon receiving a media request, the orchestrator uses `yt-dlp`'s `ytsearch1:` functionality to find the highest quality match from YouTube.
 2.  **Download**: The selected media (audio or video) is downloaded directly into the OpenClaw workspace.
 3.  **Delivery**: The downloaded file is then dispatched to the requesting chat platform (WhatsApp/Telegram) using the `message` tool's `filePath` argument, ensuring silent delivery as per protocol.
 4.  **Spotify Sync**: For Spotify-specific requests, the orchestrator resolves track metadata via Zero-Auth scraping (bypassing direct API holds) and persists this data as a JSON contract in the workspace, enabling synchronized playback in the OpenClaw WebUI.
 
-## 📂 Workspace Paths
+##  Workspace Paths
 
 -   **Primary Workspace**: `/home/ky11rie/.openclaw/workspace/`
     -   Raw downloaded media files (.mp4, .mp3, etc.) reside here temporarily.
@@ -23,7 +23,7 @@ This skill centralizes the logic for handling all media requests (audio, video, 
 -   **Skill Scripts**: `/home/ky11rie/.openclaw/workspace/skills/spotify-surface/scripts/`
     -   Contains the dedicated logic engine for Spotify integration.
 
-## 🛠️ Commands
+##  Commands
 
 This skill acts as an underlying orchestrator, processing natural language requests.
 Example intents it handles:

@@ -1,7 +1,7 @@
 {
   "name": "3D Print CRM",
   "description": "Customer and order management for 3D printing business",
-  "icon": "🖨️",
+  "icon": "",
   "properties": {
     "Customer Name": {
       "type": "title",

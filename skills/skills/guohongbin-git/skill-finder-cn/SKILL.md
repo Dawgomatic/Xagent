@@ -4,7 +4,7 @@ description: "Skill 查找器 | Skill Finder. 帮助发现和安装 ClawHub Skil
 author: 赚钱小能手
 metadata:
   openclaw:
-    emoji: 🔍
+    emoji: 
     requires:
       bins: [clawhub]
 ---
@@ -63,4 +63,4 @@ clawhub install <skill-name>
 
 ---
 
-*帮助用户发现需要的 Skills 🔍*
+*帮助用户发现需要的 Skills *

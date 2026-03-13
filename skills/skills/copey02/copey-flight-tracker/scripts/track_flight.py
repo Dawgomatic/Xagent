@@ -74,21 +74,21 @@ def format_date(time_str: Optional[str]) -> str:
 def get_status_emoji(status: Optional[str]) -> str:
     """Get emoji for flight status"""
     if not status:
-        return "⚪"
+        return ""
     
     status_lower = status.lower()
     if "active" in status_lower or "airborne" in status_lower or "en-route" in status_lower:
-        return "🟢"
+        return ""
     elif "landed" in status_lower or "arrived" in status_lower:
-        return "✅"
+        return ""
     elif "scheduled" in status_lower:
-        return "🟡"
+        return ""
     elif "delayed" in status_lower:
-        return "🟠"
+        return ""
     elif "cancelled" in status_lower or "canceled" in status_lower:
-        return "🔴"
+        return ""
     else:
-        return "⚪"
+        return ""
 
 
 def calculate_delay(scheduled: Optional[str], actual: Optional[str]) -> Optional[str]:
@@ -115,7 +115,7 @@ def display_flight(flight_data: dict) -> None:
     """Display flight data in Flighty-style format"""
     
     if not flight_data.get('data') or len(flight_data['data']) == 0:
-        print("❌ No flight found with that number")
+        print(" No flight found with that number")
         return
     
     # Get first flight result
@@ -172,13 +172,13 @@ def display_flight(flight_data: dict) -> None:
     
     # Display in Flighty style
     print("─" * 50)
-    print(f"\n✈️  **{airline_name.upper()} {flight_iata}**")
+    print(f"\n  **{airline_name.upper()} {flight_iata}**")
     if aircraft_iata or aircraft_icao:
-        print(f"🛩️  {aircraft_icao or aircraft_iata}{' • ' + aircraft_reg if aircraft_reg else ''}")
+        print(f"  {aircraft_icao or aircraft_iata}{' • ' + aircraft_reg if aircraft_reg else ''}")
     print()
     
     # Departure
-    print("**🛫 DEPARTURE**")
+    print("** DEPARTURE**")
     print(f"{dep_airport} ({dep_iata})")
     if dep_terminal:
         print(f"Terminal {dep_terminal}{', Gate ' + dep_gate if dep_gate else ''}")
@@ -186,7 +186,7 @@ def display_flight(flight_data: dict) -> None:
     if dep_estimated and dep_estimated != dep_scheduled:
         print(f"Estimated: {format_time(dep_estimated)}", end="")
         if dep_delay:
-            print(f" ⏱️  *{dep_delay}*")
+            print(f"   *{dep_delay}*")
         else:
             print()
     if dep_actual:
@@ -194,7 +194,7 @@ def display_flight(flight_data: dict) -> None:
     print()
     
     # Arrival
-    print("**🛬 ARRIVAL**")
+    print("** ARRIVAL**")
     print(f"{arr_airport} ({arr_iata})")
     if arr_terminal:
         print(f"Terminal {arr_terminal}{', Gate ' + arr_gate if arr_gate else ''}")
@@ -202,7 +202,7 @@ def display_flight(flight_data: dict) -> None:
     if arr_estimated and arr_estimated != arr_scheduled:
         print(f"Estimated: {format_time(arr_estimated)}", end="")
         if arr_delay:
-            print(f" ⏱️  *{arr_delay}*")
+            print(f"   *{arr_delay}*")
         else:
             print()
     if arr_actual:
@@ -210,7 +210,7 @@ def display_flight(flight_data: dict) -> None:
     print()
     
     # Flight status & progress
-    print("**📊 FLIGHT STATUS**")
+    print("** FLIGHT STATUS**")
     print(f"Status: {status_emoji} **{flight_status.upper()}**")
     
     if altitude or speed:

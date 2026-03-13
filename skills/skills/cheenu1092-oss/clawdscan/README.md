@@ -5,21 +5,21 @@
 <p align="center">[![ClawHub](https://img.shields.io/badge/ClawHub-clawdscan-teal)](https://clawhub.ai/skills/clawdscan)</p>
 <p align="center">**Install via ClawHub:** `clawhub install clawdscan`</p>
 
-# ClawdScan - Clawdbot Session Health Analyzer 🔍
+# ClawdScan - Clawdbot Session Health Analyzer 
 
 A comprehensive diagnostic tool for Clawdbot sessions. Analyze JSONL session files to identify performance issues, bloated sessions, zombie processes, and get actionable cleanup recommendations.
 
 ## Features
 
-- 🔍 **Session Health Analysis** - Detect bloated sessions, high message counts, disk usage patterns
-- 💀 **Zombie Detection** - Find sessions created but never used  
-- 🗓️ **Stale Session Identification** - Identify sessions inactive for configurable periods
-- 📊 **Tool Usage Analytics** - Track which tools are being used and how frequently
-- 🤖 **Model Usage Patterns** - Monitor model switching and usage trends
-- 💾 **Disk Space Management** - Breakdown of storage usage by agent and session
-- 🧹 **Automatic Cleanup** - Safe archive and deletion of problematic sessions
-- 📈 **Trend Tracking** - Historical analysis of session health over time
-- 💓 **Heartbeat Integration** - Automated monitoring and alerts
+-  **Session Health Analysis** - Detect bloated sessions, high message counts, disk usage patterns
+-  **Zombie Detection** - Find sessions created but never used  
+-  **Stale Session Identification** - Identify sessions inactive for configurable periods
+-  **Tool Usage Analytics** - Track which tools are being used and how frequently
+-  **Model Usage Patterns** - Monitor model switching and usage trends
+-  **Disk Space Management** - Breakdown of storage usage by agent and session
+-  **Automatic Cleanup** - Safe archive and deletion of problematic sessions
+-  **Trend Tracking** - Historical analysis of session health over time
+-  **Heartbeat Integration** - Automated monitoring and alerts
 
 ## Quick Start
 
@@ -35,25 +35,25 @@ chmod +x clawdscan.py
 ## Example Output
 
 ```
-🔍 ClawdScan v0.1.0 — Clawdbot Session Health Analysis
+ ClawdScan v0.1.0 — Clawdbot Session Health Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📊 Overview
+ Overview
   Total Sessions: 42
   Total Size: 23.4 MB
   Agents: main(38), dj(4)
 
-⚠️  Issues Found
-  🔥 Bloated: 3 sessions (>1MB or >300 msgs)
-  💀 Zombies: 2 sessions (created but unused)  
-  🗓️  Stale: 7 sessions (inactive >7 days)
+  Issues Found
+   Bloated: 3 sessions (>1MB or >300 msgs)
+   Zombies: 2 sessions (created but unused)  
+    Stale: 7 sessions (inactive >7 days)
 
-🔝 Top Sessions by Size
+ Top Sessions by Size
   1. main-20240108-143022  4.2 MB  (1,247 msgs)
   2. main-20240107-091534  2.8 MB  (892 msgs)
   3. dj-20240105-220145    1.9 MB  (734 msgs)
 
-💡 Recommendations
+ Recommendations
   • Archive 2 zombie sessions → save 145 KB
   • Clean 7 stale sessions → save 3.2 MB
   • Consider shorter session lifetimes
@@ -140,7 +140,7 @@ clawdscan disk
 # Add to HEARTBEAT.md
 clawdscan scan --json /tmp/health.json
 if [[ $(jq '.bloated_sessions | length' /tmp/health.json) -gt 5 ]]; then
-  echo "🔥 Bloated sessions detected - cleanup needed"
+  echo " Bloated sessions detected - cleanup needed"
 fi
 ```
 
@@ -189,10 +189,10 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## Support
 
-- 📖 Documentation: [SKILL.md](SKILL.md)
-- 🐛 Issues: [GitHub Issues](https://github.com/yajatns/clawdscan/issues)  
-- 💬 Community: Clawdbot Discord server
+-  Documentation: [SKILL.md](SKILL.md)
+-  Issues: [GitHub Issues](https://github.com/yajatns/clawdscan/issues)  
+-  Community: Clawdbot Discord server
 
 ---
 
-*Version 0.1.0 - Built with ❤️ for the Clawdbot community*
+*Version 0.1.0 - Built with  for the Clawdbot community*

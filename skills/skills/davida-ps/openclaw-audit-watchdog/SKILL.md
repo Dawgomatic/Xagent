@@ -3,9 +3,9 @@ name: openclaw-audit-watchdog
 version: 0.1.0
 description: Automated daily security audits for OpenClaw agents with email reporting. Runs deep audits and sends formatted reports.
 homepage: https://clawsec.prompt.security
-metadata: {"openclaw":{"emoji":"🔭","category":"security"}}
+metadata: {"openclaw":{"emoji":"","category":"security"}}
 clawdis:
-  emoji: "🔭"
+  emoji: ""
   requires:
     bins: [bash, curl]
 ---
@@ -127,7 +127,7 @@ Agent: ✓ Updated cron job
 Each day at the scheduled time, you'll receive a report like:
 
 ```
-🔭 Daily Security Audit Report
+ Daily Security Audit Report
 Host: prod-server-01
 Time: 2026-02-16 23:00:00 America/New_York
 

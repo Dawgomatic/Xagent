@@ -28,7 +28,7 @@ Read relevant architecture section and explain where new code fits in the system
 
 ### Filepath Declaration
 ```
-📁 [exact filepath]
+ [exact filepath]
 Purpose: [one-line description]
 Depends on: [list of imports and dependencies]
 Used by: [list of consumers/modules that will use this]
@@ -44,7 +44,7 @@ Used by: [list of consumers/modules that will use this]
 - Test filepath: [matching test file location]
 
 ### Architectural Impact
-⚠️ ARCHITECTURE UPDATE (if applicable)
+ ARCHITECTURE UPDATE (if applicable)
 - What: [describe any structural changes]
 - Why: [justify the change]
 - Impact: [explain consequences and affected modules]

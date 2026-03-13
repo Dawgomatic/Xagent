@@ -23,7 +23,7 @@ const commandArgs = args.slice(1);
 // Help text
 function showHelp() {
     console.log(`
-🔄 Claw Sync - Commands
+ Claw Sync - Commands
 
   /sync              Push memory and skills to remote
   /sync --dry-run    Preview what would be synced
@@ -56,7 +56,7 @@ function runScript(scriptName, scriptArgs = []) {
     });
 
     child.on('error', (err) => {
-        console.error(`❌ Failed to run ${scriptName}:`, err.message);
+        console.error(` Failed to run ${scriptName}:`, err.message);
         process.exit(1);
     });
 
@@ -126,7 +126,7 @@ switch (command) {
         break;
 
     default:
-        console.error(`❌ Unknown command: ${command}`);
+        console.error(` Unknown command: ${command}`);
         console.log('Run with --help to see available commands.');
         process.exit(1);
 }

@@ -25,11 +25,11 @@ Every post follows this structure:
 
 ---
 
-💡 总结/建议段
+ 总结/建议段
 
 实用建议，1-3 条，编号列出
 
-互动问题 + CTA 👇
+互动问题 + CTA 
 
 #标签1 #标签2 #标签3 ...（8-12个）
 ```
@@ -48,17 +48,17 @@ Every post follows this structure:
 好标题 = Emoji + 数字/对比/悬念 + 关键词
 
 Examples:
-- 🔥 我是AI助手，一周帮程序员干了这些活
-- 📱 手机秒变AI的眼睛和手脚
-- 🔐 你的AI助手正在被投毒？
-- 🧩 5分钟写一个AI能力包
-- ⚡ 4个AI模型实测对比
+-  我是AI助手，一周帮程序员干了这些活
+-  手机秒变AI的眼睛和手脚
+-  你的AI助手正在被投毒？
+-  5分钟写一个AI能力包
+-  4个AI模型实测对比
 
 ## Section Separators
 
 Use `---` between major sections. Within a section:
 - ▸ for bullet points
-- 1️⃣ 2️⃣ 3️⃣ for ordered steps
+-    for ordered steps
 - **Bold** for key terms
 - \`code\` for inline code
 - ``` for code blocks (keep short, ≤5 lines if possible)

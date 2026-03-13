@@ -27,8 +27,8 @@ Promotional emails that require explicit consent and provide value to recipients
 
 Disclose: email types, frequency, sender identity, how to unsubscribe.
 
-✅ "Subscribe to our weekly newsletter with product updates and tips"
-❌ "Sign up for emails"
+ "Subscribe to our weekly newsletter with product updates and tips"
+ "Sign up for emails"
 
 ### Double Opt-In (Recommended)
 
@@ -57,8 +57,8 @@ Benefits: Verifies deliverability, confirms intent, reduces complaints, required
 - Create curiosity without misleading
 - A/B test regularly
 
-✅ "Your weekly digest: 5 productivity tips"
-❌ "You won't believe what happened!"
+ "Your weekly digest: 5 productivity tips"
+ "You won't believe what happened!"
 
 ### Structure
 

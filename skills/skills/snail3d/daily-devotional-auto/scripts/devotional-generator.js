@@ -98,7 +98,7 @@ When we face the fragility of life, we have a choice: we can let fear consume us
     title: theme.title,
     scripture: theme.scripture,
     scriptureText: theme.scriptureText,
-    content: `${theme.intro}\n\n${theme.body}\n\n🤔 Reflection Question:\n${theme.reflection}\n\n🙏 Prayer:\n${theme.prayer}`,
+    content: `${theme.intro}\n\n${theme.body}\n\n Reflection Question:\n${theme.reflection}\n\n Prayer:\n${theme.prayer}`,
     fullText: `${theme.title}\n\n${theme.scripture}\n"${theme.scriptureText}"\n\n${theme.intro}\n\n${theme.body}\n\nReflection Question: ${theme.reflection}\n\nPrayer: ${theme.prayer}`
   };
 }
@@ -148,7 +148,7 @@ async function uploadToYouTube(videoPath, devotional) {
   
   const metadata = {
     title: `Daily Devotional - ${devotional.title} | ${devotional.scripture}`,
-    description: `${devotional.content}\n\n---\n🙏 Subscribe for daily devotionals\n📖 Scripture: ${devotional.scripture}\n📅 ${devotional.date}`,
+    description: `${devotional.content}\n\n---\n Subscribe for daily devotionals\n Scripture: ${devotional.scripture}\n ${devotional.date}`,
     tags: ['devotional', 'daily devotion', 'christian', 'bible', 'faith', 'prayer', 'scripture'],
     privacyStatus: 'public',
   };
@@ -162,15 +162,15 @@ async function uploadToYouTube(videoPath, devotional) {
  * Main function - creates and uploads daily devotional
  */
 async function createDailyDevotional() {
-  console.log('🌅 Creating daily devotional...');
+  console.log(' Creating daily devotional...');
   
   // 1. Fetch news
   const newsData = await fetchLocalNews();
-  console.log('📰 News theme:', newsData.theme);
+  console.log(' News theme:', newsData.theme);
   
   // 2. Generate devotional
   const devotional = await generateDevotional(newsData);
-  console.log('✍️ Devotional:', devotional.title);
+  console.log(' Devotional:', devotional.title);
   
   // 3. Create video
   const outputPath = path.join(CONFIG.outputDir, `devotional-${new Date().toISOString().split('T')[0]}.mp4`);
@@ -181,7 +181,7 @@ async function createDailyDevotional() {
   
   // 5. Clean up
   fs.unlinkSync(outputPath);
-  console.log('✅ Devotional uploaded and local file cleaned up');
+  console.log(' Devotional uploaded and local file cleaned up');
   
   return devotional;
 }

@@ -47,7 +47,7 @@ async function main() {
     transport: http(rpcUrl)
   });
 
-  console.log('🔧 Fixing entry prices for existing positions...\n');
+  console.log(' Fixing entry prices for existing positions...\n');
   console.log('Wallet:', walletAddress);
   console.log('');
 
@@ -143,7 +143,7 @@ async function main() {
       report.positions.push(position);
     }
 
-    console.log(`✅ ${symbol} (${tokenAddress}): entryValueMON = ${entryValueMON} MON`);
+    console.log(` ${symbol} (${tokenAddress}): entryValueMON = ${entryValueMON} MON`);
   }
 
   report.timestamp = new Date().toISOString();
@@ -159,7 +159,7 @@ async function main() {
   }
 
   await fs.writeFile(reportPath, JSON.stringify(report, null, 2), 'utf-8');
-  console.log(`\n✅ Entry prices fixed! Saved to ${reportPath}`);
+  console.log(`\n Entry prices fixed! Saved to ${reportPath}`);
   console.log(`   Total positions: ${report.positions.length}`);
 }
 

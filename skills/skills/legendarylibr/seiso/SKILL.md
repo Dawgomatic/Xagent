@@ -1,7 +1,7 @@
 ---
 name: seisoai
 description: Unified media generation gateway for agents. Discover tools dynamically, choose API key or x402 auth, invoke image/video/audio/music/3D/training tools, and handle queue jobs reliably.
-metadata: {"openclaw":{"homepage":"https://seisoai.com","emoji":"🎨"}}
+metadata: {"openclaw":{"homepage":"https://seisoai.com","emoji":""}}
 version: 1.1.1
 last_synced: 2026-02-09
 ---

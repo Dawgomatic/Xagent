@@ -47,13 +47,13 @@ Please include as much detail as possible:
 
 This security policy covers:
 
-✅ **Security detection bypasses** - Ways to evade threat detection  
-✅ **False negative vulnerabilities** - Threats that should be caught but aren't  
-✅ **Code injection in the security suite itself**  
-✅ **Privilege escalation through the security components**  
-✅ **Information disclosure** through logs or error messages
+ **Security detection bypasses** - Ways to evade threat detection  
+ **False negative vulnerabilities** - Threats that should be caught but aren't  
+ **Code injection in the security suite itself**  
+ **Privilege escalation through the security components**  
+ **Information disclosure** through logs or error messages
 
-❌ **Out of scope**:
+ **Out of scope**:
 - General Clawdbot vulnerabilities (report to Clawdbot project)
 - Social engineering attacks
 - Physical security issues

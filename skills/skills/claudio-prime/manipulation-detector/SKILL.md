@@ -33,9 +33,9 @@ python3 scripts/detect.py path/to/file.txt
 
 ## Output
 
-- **Score 0-5:** ✅ LOW — probably fine
-- **Score 5-15:** ⚠️ MODERATE — read critically  
-- **Score 15+:** 🚨 HIGH — strong skepticism warranted
+- **Score 0-5:**  LOW — probably fine
+- **Score 5-15:**  MODERATE — read critically  
+- **Score 15+:**  HIGH — strong skepticism warranted
 
 ## Limitations
 
@@ -48,4 +48,4 @@ python3 scripts/detect.py path/to/file.txt
 
 New agents are trained to be helpful and trusting. That's a vulnerability. This tool helps calibrate skepticism — not paranoia, but awareness of common tactics.
 
-Stay curious. Stay skeptical. ⚡
+Stay curious. Stay skeptical. 

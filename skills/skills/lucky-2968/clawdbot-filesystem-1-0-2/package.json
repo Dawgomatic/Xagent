@@ -48,7 +48,7 @@
   ],
   "clawdbot": {
     "skill": true,
-    "emoji": "📁",
+    "emoji": "",
     "category": "System Tools",
     "requires": {
       "bins": ["node"]

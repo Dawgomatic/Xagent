@@ -1,7 +1,7 @@
 ---
 name: Electron
 description: Build Electron desktop apps with secure architecture and common pitfall avoidance.
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"bins":["npm"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["npm"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Security Non-Negotiables

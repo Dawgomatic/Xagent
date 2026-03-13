@@ -2,7 +2,7 @@ import './globals.css'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: '马上有福 🐴 AI专属马年祝福',
+  title: '马上有福  AI专属马年祝福',
   description: '输入你的名字，AI为你写一首专属马年祝福',
 }
 

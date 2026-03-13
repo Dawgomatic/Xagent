@@ -20,7 +20,7 @@ async def main():
         print(f"Working with sandbox {sandbox_id}")
         
         # Download a sample CSV file
-        print("\n📥 Downloading file into sandbox...")
+        print("\n Downloading file into sandbox...")
         file_url = "https://raw.githubusercontent.com/plotly/datasets/master/iris.csv"
         
         try:
@@ -36,11 +36,11 @@ async def main():
             )
             print("✓ File downloaded to /tmp/iris.csv")
         except Exception as e:
-            print(f"❌ Error downloading file: {e}")
+            print(f" Error downloading file: {e}")
             return
         
         # List files to verify
-        print("\n📂 Listing files in /tmp...")
+        print("\n Listing files in /tmp...")
         result = await client.sandbox.execute_process(
             sandbox_id,
             executable="ls",
@@ -50,7 +50,7 @@ async def main():
         print(base64.b64decode(result.stdoutBase64 or '').decode())
         
         # Process the file with Python
-        print("\n🐍 Processing file with Python...")
+        print("\n Processing file with Python...")
         code = """
 import csv
 
@@ -90,9 +90,9 @@ for species, count in species_count.items():
         print(output)
         
         if result.exitCode == 0:
-            print("\n✅ File processed successfully!")
+            print("\n File processed successfully!")
         else:
-            print(f"\n❌ Process failed with exit code: {result.exitCode}")
+            print(f"\n Process failed with exit code: {result.exitCode}")
             stderr = base64.b64decode(result.stderrBase64 or '').decode()
             if stderr:
                 print(f"Error: {stderr}")

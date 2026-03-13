@@ -3,7 +3,7 @@
 # Routes commands to the appropriate backend (Loki, Elasticsearch, CloudWatch)
 # Read-only. Never modifies or deletes logs.
 #
-# Powered by CacheForge 🤿
+# Powered by CacheForge 
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -240,7 +240,7 @@ search_all() {
 # ─── Usage ──────────────────────────────────────────────────────────────────
 usage() {
   cat <<EOF
-log-dive v${VERSION} — Unified Log Search 🤿
+log-dive v${VERSION} — Unified Log Search 
 
 Usage:
   log-dive.sh <command> [options]
@@ -270,7 +270,7 @@ Examples:
   log-dive.sh indices --backend elasticsearch
   log-dive.sh tail --backend loki --query '{app="api"}'
 
-Powered by CacheForge 🤿
+Powered by CacheForge 
 EOF
 }
 

@@ -20,7 +20,7 @@ STATE_FILE="$WORKSPACE/memory/reward-state.json"
 PENDING_FILE="$WORKSPACE/memory/pending-rewards.json"
 NO_SPAWN="${1:-}"
 
-echo "⭐ VTA REWARD ENCODING PIPELINE"
+echo " VTA REWARD ENCODING PIPELINE"
 echo "==============================="
 echo "Time: $(date '+%Y-%m-%d %H:%M:%S')"
 echo ""
@@ -28,7 +28,7 @@ echo ""
 # ═══════════════════════════════════════════════════════════════
 # STEP 1: Run preprocess
 # ═══════════════════════════════════════════════════════════════
-echo "📥 Step 1: Preprocessing reward signals..."
+echo " Step 1: Preprocessing reward signals..."
 "$SKILL_DIR/scripts/preprocess-rewards.sh"
 echo ""
 
@@ -36,15 +36,15 @@ echo ""
 # STEP 2: Check for signals
 # ═══════════════════════════════════════════════════════════════
 if [ ! -f "$SIGNALS_FILE" ] || [ ! -s "$SIGNALS_FILE" ]; then
-    echo "✅ No reward signals to process. Done."
+    echo " No reward signals to process. Done."
     exit 0
 fi
 
 SIGNAL_COUNT=$(wc -l < "$SIGNALS_FILE" | tr -d ' ')
-echo "📊 Step 2: Found $SIGNAL_COUNT reward signals"
+echo " Step 2: Found $SIGNAL_COUNT reward signals"
 
 if [ "$SIGNAL_COUNT" -eq 0 ]; then
-    echo "✅ No new signals. Done."
+    echo " No new signals. Done."
     exit 0
 fi
 
@@ -52,7 +52,7 @@ fi
 # STEP 3: Rule-based reward scoring + prepare for LLM
 # ═══════════════════════════════════════════════════════════════
 echo ""
-echo "🔄 Step 3: Scoring reward signals..."
+echo " Step 3: Scoring reward signals..."
 
 python3 << 'PYTHON'
 import json
@@ -80,13 +80,13 @@ with open(SIGNALS_FILE, 'r') as f:
 reward_patterns = {
     'accomplishment': [
         'done', 'complet', 'finish', 'success', 'works', 'fixed', 'solved', 
-        'achieved', 'built', 'created', 'shipped', 'deployed', '✅', '✓',
+        'achieved', 'built', 'created', 'shipped', 'deployed', '', '✓',
         'nailed it', 'got it', 'figured out', 'working now'
     ],
     'social': [
         'thank', 'thanks', 'appreciate', 'great job', 'well done', 'nice',
         'love it', 'perfect', 'awesome', 'amazing', 'you rock', 'helpful',
-        '👍', '❤️', '🙌', 'proud of you'
+        '', '', '', 'proud of you'
     ],
     'creative': [
         'new idea', 'creative', 'design', 'invent', 'novel', 'original',
@@ -193,7 +193,7 @@ PENDING_COUNT=$(python3 -c "import json; d=json.load(open('$PENDING_FILE')); pri
 
 if [ "$PENDING_COUNT" -eq 0 ]; then
     echo ""
-    echo "✅ No reward signals need LLM analysis. Updating watermark..."
+    echo " No reward signals need LLM analysis. Updating watermark..."
     "$SKILL_DIR/scripts/update-watermark.sh" --from-signals
     # Sync state
     "$SKILL_DIR/scripts/sync-motivation.sh" 2>/dev/null || true
@@ -201,12 +201,12 @@ if [ "$PENDING_COUNT" -eq 0 ]; then
 fi
 
 echo ""
-echo "📝 $PENDING_COUNT signals pending LLM reward analysis"
+echo " $PENDING_COUNT signals pending LLM reward analysis"
 
 if [ "$NO_SPAWN" = "--no-spawn" ]; then
-    echo "⏭️  Skipping spawn (--no-spawn flag)"
+    echo "  Skipping spawn (--no-spawn flag)"
     exit 0
 fi
 
 echo ""
-echo "✅ Pipeline phase 1 complete. Sub-agent will handle reward detection."
+echo " Pipeline phase 1 complete. Sub-agent will handle reward detection."

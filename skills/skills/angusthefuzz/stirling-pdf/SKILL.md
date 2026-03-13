@@ -3,7 +3,7 @@ name: stirling-pdf
 description: PDF manipulation via Stirling-PDF API. Merge, split, convert, OCR, compress, sign, redact, and more. Self-hosted.
 metadata:
   openclaw:
-    emoji: 📄
+    emoji: 
     requires:
       bins: [node, curl]
     env: {

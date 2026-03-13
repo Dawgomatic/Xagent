@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📚",
+        "emoji": "",
         "requires": { "env": ["HARDCOVER_API_TOKEN"] },
       },
   }

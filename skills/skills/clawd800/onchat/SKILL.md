@@ -35,7 +35,7 @@ npx tsx onchat.ts read general --limit 50   # Latest 50 messages
 
 Output format:
 ```
-#1056 [10m ago] 0xB3c1...75A6: gm from the onchain side 🦞
+#1056 [10m ago] 0xB3c1...75A6: gm from the onchain side 
 #1057 [9m ago]  0x980C...92E4: #1056 - welcome aboard!
 ```
 

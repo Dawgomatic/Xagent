@@ -15,13 +15,13 @@ Institutional Flow Tracker analyzes SEC 13F filings to discover stocks where sop
 
 ## Features
 
-✅ **Stock Screening** - Find stocks with significant institutional ownership changes (>10-15% QoQ)
-✅ **Deep Dive Analysis** - Detailed quarterly trends, top holders, position changes for individual stocks
-✅ **Institution Tracking** - Follow specific hedge funds/mutual funds portfolio moves
-✅ **Signal Quality Framework** - Tier-based weighting system (superinvestors > active funds > index funds)
-✅ **Multi-Quarter Trends** - Identify sustained accumulation/distribution (3+ quarters)
-✅ **Concentration Analysis** - Assess ownership concentration risk
-✅ **FMP API Integration** - Free tier (250 calls/day) sufficient for quarterly reviews
+ **Stock Screening** - Find stocks with significant institutional ownership changes (>10-15% QoQ)
+ **Deep Dive Analysis** - Detailed quarterly trends, top holders, position changes for individual stocks
+ **Institution Tracking** - Follow specific hedge funds/mutual funds portfolio moves
+ **Signal Quality Framework** - Tier-based weighting system (superinvestors > active funds > index funds)
+ **Multi-Quarter Trends** - Identify sustained accumulation/distribution (3+ quarters)
+ **Concentration Analysis** - Assess ownership concentration risk
+ **FMP API Integration** - Free tier (250 calls/day) sufficient for quarterly reviews
 
 ## Prerequisites
 

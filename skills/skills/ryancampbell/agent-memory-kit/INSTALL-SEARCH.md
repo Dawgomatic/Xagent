@@ -98,7 +98,7 @@ memory-search "memory"
 - Preview text
 - Color-coded display
 
-If you see results, ✅ installation successful!
+If you see results,  installation successful!
 
 ---
 
@@ -220,7 +220,7 @@ memory-search "memory" --format json | head -20
 
 **Expected:** Valid JSON array.
 
-If all these work, ✅ advanced features ready!
+If all these work,  advanced features ready!
 
 ---
 
@@ -433,7 +433,7 @@ After installation, verify:
 - [ ] Added to PATH or created alias
 - [ ] Read QUICKSTART-SEARCH.md
 
-If all checked, ✅ you're ready to search!
+If all checked,  you're ready to search!
 
 ---
 

@@ -1,13 +1,13 @@
-# 🔧 GHID REPARARE INSTALARE - Immortal Brain
+#  GHID REPARARE INSTALARE - Immortal Brain
 
-## ❌ Problemă Detectată
+##  Problemă Detectată
 
 Scriptul de instalare nu a funcționat din cauza:
 1. Python nu este în PATH
 2. Probleme cu caracterele Unicode în batch
 3. Posibile probleme de permisiuni
 
-## ✅ Soluție - Instalare Manuală Pas cu Pas
+##  Soluție - Instalare Manuală Pas cu Pas
 
 ### Pasul 1: Verifică dacă fișierele există
 
@@ -151,12 +151,12 @@ python scripts\brain_service.py core
 python scripts\brain_service.py heartbeat
 ```
 
-## 🎯 Rezultat Așteptat
+##  Rezultat Așteptat
 
 Dacă totul funcționează, ar trebui să vezi:
 ```
-[16:50:12] [INFO] 📖 382 task-uri incarcate
-[16:50:12] [INFO] 🆔 Identitate validata: Proton
+[16:50:12] [INFO]  382 task-uri incarcate
+[16:50:12] [INFO]  Identitate validata: Proton
 ...
 {
   "success": true,
@@ -164,7 +164,7 @@ Dacă totul funcționează, ar trebui să vezi:
 }
 ```
 
-## 🔍 Debugging
+##  Debugging
 
 **Dacă primești erori:**
 
@@ -180,7 +180,7 @@ Dacă totul funcționează, ar trebui să vezi:
 **Eroare: "File not found"**
 → Verifică că fișierele există în locația corectă
 
-## 📞 Ajutor Rapid
+##  Ajutor Rapid
 
 **Execută aceste comenzi și spune-mi ce rezultat primești:**
 

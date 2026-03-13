@@ -104,7 +104,7 @@ Returns unsigned transactions. Sign with your private key and submit to Solana.
 3. Sign each transaction **locally** with your private key (never sent to any API)
 4. Submit signed transactions to a Solana RPC endpoint
 
-⚠️ **Your private key never leaves your machine.** The API only returns unsigned transactions. All signing happens locally on your side.
+ **Your private key never leaves your machine.** The API only returns unsigned transactions. All signing happens locally on your side.
 
 ---
 
@@ -325,4 +325,4 @@ GET ?action=corp-leaderboard
 
 ---
 
-*Part of the BagsWorld agentic economy* 🏥
+*Part of the BagsWorld agentic economy* 

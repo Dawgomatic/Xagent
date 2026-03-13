@@ -534,32 +534,32 @@ def generate_telomere_report(genotypes: Dict[str, str]) -> str:
     longevity = estimate_longevity_associations(genotypes)
     
     lines = []
-    lines.append("🧬 TELOMERE & LONGEVITY PROFILE")
+    lines.append(" TELOMERE & LONGEVITY PROFILE")
     lines.append("=" * 50)
     lines.append("")
     
-    lines.append("📏 TELOMERE LENGTH ESTIMATE")
+    lines.append(" TELOMERE LENGTH ESTIMATE")
     lines.append(f"   {telomere['description']}")
     lines.append(f"   Estimate: {telomere['percentile_estimate']}")
     lines.append(f"   Markers analyzed: {telomere['markers_analyzed']}")
     lines.append("")
     
-    lines.append("⚠️ IMPORTANT CAVEATS:")
+    lines.append(" IMPORTANT CAVEATS:")
     for caveat in telomere['caveats'][:3]:
         lines.append(f"   • {caveat}")
     lines.append("")
     
-    lines.append("🌱 LONGEVITY ASSOCIATIONS")
+    lines.append(" LONGEVITY ASSOCIATIONS")
     lines.append(f"   {longevity['interpretation']}")
     for finding in longevity['findings']:
         lines.append(f"   • {finding['gene']}: {finding['association']}")
     lines.append("")
     
-    lines.append("💪 LIFESTYLE FACTORS (More important than genetics!):")
+    lines.append(" LIFESTYLE FACTORS (More important than genetics!):")
     for factor in telomere['lifestyle_factors'][:3]:
         lines.append(f"   • {factor}")
     
     lines.append("")
-    lines.append("📝 " + longevity['important_note'][:100] + "...")
+    lines.append(" " + longevity['important_note'][:100] + "...")
     
     return "\n".join(lines)

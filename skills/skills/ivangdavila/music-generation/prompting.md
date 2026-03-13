@@ -55,10 +55,10 @@ arpeggiated leads, and punchy drums at 128 BPM
 ## Instrument Specification
 
 **Be specific:**
-- ❌ "with guitar"
-- ✅ "with clean electric guitar arpeggios"
-- ✅ "with distorted power chords"
-- ✅ "with fingerpicked acoustic guitar"
+-  "with guitar"
+-  "with clean electric guitar arpeggios"
+-  "with distorted power chords"
+-  "with fingerpicked acoustic guitar"
 
 **Common instruments:**
 - Piano: grand, upright, electric, Rhodes

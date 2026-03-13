@@ -83,10 +83,10 @@ Track which strategies work for which goals:
 
 ```
 ### [Task Type]: [Strategy] → [Outcome]
-code/api: Sequential → ✅ consistently works
-code/refactor: Parallel → ⚠️ merge conflicts, try Sequential
-writing/docs: Iterative → ✅ 2 cycles usually enough
-migration/schema: Checkpoint → ✅ essential, never skip
+code/api: Sequential →  consistently works
+code/refactor: Parallel →  merge conflicts, try Sequential
+writing/docs: Iterative →  2 cycles usually enough
+migration/schema: Checkpoint →  essential, never skip
 ```
 
 When a strategy fails for a task type, record why and try alternative next time.

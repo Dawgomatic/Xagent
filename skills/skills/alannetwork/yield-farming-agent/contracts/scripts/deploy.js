@@ -40,7 +40,7 @@ const VAULT_CONFIGS = {
 };
 
 async function deployVault(vaultId, config) {
-  console.log(`\n📝 Deploying ${vaultId}...`);
+  console.log(`\n Deploying ${vaultId}...`);
   console.log(`   Name: ${config.name}`);
   console.log(`   Token: ${config.token}`);
 
@@ -51,7 +51,7 @@ async function deployVault(vaultId, config) {
     await vault.waitForDeployment();
     const address = await vault.getAddress();
 
-    console.log(`   ✅ Deployed to: ${address}`);
+    console.log(`    Deployed to: ${address}`);
 
     return {
       vaultId,
@@ -64,13 +64,13 @@ async function deployVault(vaultId, config) {
       timestamp: new Date().toISOString(),
     };
   } catch (error) {
-    console.error(`   ❌ Deployment failed:`, error.message);
+    console.error(`    Deployment failed:`, error.message);
     return null;
   }
 }
 
 async function main() {
-  console.log("🚀 YieldVault Multi-Vault Deployment");
+  console.log(" YieldVault Multi-Vault Deployment");
   console.log("====================================");
   console.log(`Network: BNB Testnet (chainId: 97)`);
   console.log(
@@ -82,10 +82,10 @@ async function main() {
 
   // Check balance
   const balance = await hre.ethers.provider.getBalance(deployer.address);
-  console.log(`💰 Deployer Balance: ${hre.ethers.formatEther(balance)} BNB\n`);
+  console.log(` Deployer Balance: ${hre.ethers.formatEther(balance)} BNB\n`);
 
   if (balance === 0n) {
-    console.error("❌ Insufficient balance! Get BNB from testnet faucet:");
+    console.error(" Insufficient balance! Get BNB from testnet faucet:");
     console.error("   https://testnet.binance.org/faucet-smart-chain");
     process.exit(1);
   }
@@ -104,20 +104,20 @@ async function main() {
   const deploymentsFile = path.join(__dirname, "../deployments.json");
   fs.writeFileSync(deploymentsFile, JSON.stringify(deployments, null, 2));
 
-  console.log("\n📊 Deployment Summary");
+  console.log("\n Deployment Summary");
   console.log("====================");
   console.log(`Total Contracts Deployed: ${deployments.length}`);
   console.log(
     `Results saved to: ${deploymentsFile}\n`
   );
 
-  console.log("📋 Deployed Contracts:");
+  console.log(" Deployed Contracts:");
   deployments.forEach((d) => {
     console.log(`   • ${d.vaultId}`);
     console.log(`     Address: ${d.address}`);
   });
 
-  console.log("\n✨ Next Steps:");
+  console.log("\n Next Steps:");
   console.log("1. Verify contracts on BscScan:");
   console.log('   npm run verify <ADDRESS>');
   console.log("2. Test contract interactions:");

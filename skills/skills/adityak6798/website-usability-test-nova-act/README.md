@@ -2,7 +2,7 @@
 
 AI-orchestrated usability testing for websites using Amazon Nova Act browser automation.
 
-## ⚠️ Prerequisites & Credentials
+##  Prerequisites & Credentials
 
 **This skill requires an Amazon Nova Act API key.**
 
@@ -12,7 +12,7 @@ AI-orchestrated usability testing for websites using Amazon Nova Act browser aut
 | **Config Location** | `~/.openclaw/config/nova-act.json` |
 | **Format** | `{"apiKey": "your-nova-act-api-key-here"}` |
 
-## 🔒 Data & Privacy Notice
+##  Data & Privacy Notice
 
 **What this skill accesses:**
 - **Reads:** `~/.openclaw/config/nova-act.json` (your API key)
@@ -24,9 +24,9 @@ AI-orchestrated usability testing for websites using Amazon Nova Act browser aut
 
 ## Features
 
-🎯 **Agent-Driven Interpretation**: The script collects raw data, the AI agent (you) interprets responses and generates reports. No hardcoded regex, no extra API calls.
+ **Agent-Driven Interpretation**: The script collects raw data, the AI agent (you) interprets responses and generates reports. No hardcoded regex, no extra API calls.
 
-📊 **Three-Phase Flow**:
+ **Three-Phase Flow**:
 1. **Collect** - Script runs Nova Act, captures raw responses
 2. **Interpret** - Agent reads JSON, determines goal achievement
 3. **Report** - Agent generates HTML with accurate pass/fail status
@@ -43,16 +43,16 @@ AI-orchestrated usability testing for websites using Amazon Nova Act browser aut
 
 ## Features
 
-✅ **Workflow Testing** - Tests complete user journeys end-to-end (booking, checkout, posting, signup)  
-✅ **Safety Guardrails** - Automatically stops before payment, posting, or account creation  
-✅ **Real Browser Automation** - Actual Playwright browser control via Nova Act  
-✅ **Cookbook Integration** - Loads best practices and workflow patterns automatically  
-✅ **Fully Dynamic Testing** - Exploration strategies generated per website/persona (no hardcoded logic!)  
-✅ **Smart Persona Generation** - Analyzes page content to create relevant user types  
-✅ **Adaptive Testing** - AI tries multiple variations when element text doesn't match exactly  
-✅ **Robust Error Handling** - Handles scroll loops, timeouts, and Nova Act failures gracefully  
-✅ **Detailed Reporting** - Professional HTML reports with step-by-step observations  
-✅ **Trace File Integration** - Links to Nova Act's HTML session recordings for replay
+ **Workflow Testing** - Tests complete user journeys end-to-end (booking, checkout, posting, signup)  
+ **Safety Guardrails** - Automatically stops before payment, posting, or account creation  
+ **Real Browser Automation** - Actual Playwright browser control via Nova Act  
+ **Cookbook Integration** - Loads best practices and workflow patterns automatically  
+ **Fully Dynamic Testing** - Exploration strategies generated per website/persona (no hardcoded logic!)  
+ **Smart Persona Generation** - Analyzes page content to create relevant user types  
+ **Adaptive Testing** - AI tries multiple variations when element text doesn't match exactly  
+ **Robust Error Handling** - Handles scroll loops, timeouts, and Nova Act failures gracefully  
+ **Detailed Reporting** - Professional HTML reports with step-by-step observations  
+ **Trace File Integration** - Links to Nova Act's HTML session recordings for replay
 
 ### Supported Workflows
 
@@ -74,16 +74,16 @@ AI-orchestrated usability testing for websites using Amazon Nova Act browser aut
 ### Safety Guarantees
 
 The skill will **NEVER:**
-- ❌ Complete actual purchases
-- ❌ Create real accounts
-- ❌ Post publicly
-- ❌ Send emails/messages
-- ❌ Subscribe to newsletters
+-  Complete actual purchases
+-  Create real accounts
+-  Post publicly
+-  Send emails/messages
+-  Subscribe to newsletters
 
 The skill will **ALWAYS:**
-- ✅ Test up to (but not including) final action
-- ✅ Verify final button exists and is accessible
-- ✅ Document safety stop in observations  
+-  Test up to (but not including) final action
+-  Verify final button exists and is accessible
+-  Document safety stop in observations  
 
 ## Installation
 
@@ -144,9 +144,9 @@ The agent will:
 ## Example Output
 
 **Test Results:**
-- **Tech-savvy developer**: 3/3 tasks ✅ - Found docs, playground, value proposition
-- **Business decision-maker**: 1/3 tasks - Found value prop, ❌ no pricing page, ❌ getting started not implemented
-- **Beginner user**: 1/3 tasks - Found value prop, ❌ no tutorials, ❌ no help/support
+- **Tech-savvy developer**: 3/3 tasks  - Found docs, playground, value proposition
+- **Business decision-maker**: 1/3 tasks - Found value prop,  no pricing page,  getting started not implemented
+- **Beginner user**: 1/3 tasks - Found value prop,  no tutorials,  no help/support
 
 **Report includes:**
 - Executive summary with success rates
@@ -171,15 +171,15 @@ The agent will:
 
 ### Phase 3: Report Generation (Agent)
 10. **Call Report Generator**: Pass interpreted results to `generate_enhanced_report()`
-11. **View Report**: HTML shows ✅ PASSED / ❌ FAILED / ⏳ PENDING
+11. **View Report**: HTML shows  PASSED /  FAILED /  PENDING
 
 ### Report Status Indicators
 
 | Status | Meaning |
 |--------|---------|
-| ✅ PASSED | Agent interpreted, goals achieved |
-| ❌ FAILED | Agent interpreted, goals not achieved |
-| ⏳ PENDING | Awaiting agent interpretation |
+|  PASSED | Agent interpreted, goals achieved |
+|  FAILED | Agent interpreted, goals not achieved |
+|  PENDING | Awaiting agent interpretation |
 
 ### Why "Dynamic"?
 

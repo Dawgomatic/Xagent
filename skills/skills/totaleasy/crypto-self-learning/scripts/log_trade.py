@@ -59,7 +59,7 @@ def log_trade(args):
     data["trades"].append(trade)
     save_trades(data)
     
-    emoji = "✅" if trade["result"] == "WIN" else "❌"
+    emoji = "" if trade["result"] == "WIN" else ""
     print(f"{emoji} Trade logged: {trade['symbol']} {trade['direction']} | PnL: {trade['pnl_percent']:+.2f}% | ID: {trade['id']}")
     return trade
 
@@ -77,13 +77,13 @@ def list_trades(args):
     n = args.last if args.last else len(trades)
     recent = trades[-n:]
     
-    print(f"\n📊 Last {len(recent)} trades:\n")
+    print(f"\n Last {len(recent)} trades:\n")
     print(f"{'ID':<10} {'Date':<12} {'Symbol':<10} {'Dir':<6} {'PnL %':<8} {'Result':<6}")
     print("-" * 60)
     
     for t in recent:
         dt = datetime.fromisoformat(t["timestamp"]).strftime("%m/%d %H:%M")
-        emoji = "✅" if t["result"] == "WIN" else "❌"
+        emoji = "" if t["result"] == "WIN" else ""
         print(f"{t['id']:<10} {dt:<12} {t['symbol']:<10} {t['direction']:<6} {t['pnl_percent']:+.2f}%   {emoji}")
 
 
@@ -106,7 +106,7 @@ def show_stats(args):
     win_rate = len(wins) / len(trades) * 100 if trades else 0
     
     print(f"""
-📈 TRADING STATISTICS
+ TRADING STATISTICS
 {'='*40}
 
 Total Trades:    {len(trades)}
@@ -162,7 +162,7 @@ def main():
         log_trade(args)
     else:
         parser.print_help()
-        print("\n⚠️  To log a trade, provide: --symbol, --direction, --entry, --exit, --pnl_percent, --result")
+        print("\n  To log a trade, provide: --symbol, --direction, --entry, --exit, --pnl_percent, --result")
 
 
 if __name__ == "__main__":

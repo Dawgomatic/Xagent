@@ -18,13 +18,13 @@ class NeuralBridge:
     async def establish_link(self) -> bool:
         """Create synaptic connection"""
         try:
-            print(f"📡 Connecting to {self.url}...")
+            print(f" Connecting to {self.url}...")
             await self.sio.connect(self.url)
             self.session_active = True
-            print("✅ Neural link established!")
+            print(" Neural link established!")
             return True
         except Exception as e:
-            print(f"❌ Connection failed: {e}")
+            print(f" Connection failed: {e}")
             return False
     
     async def send_intent(self, prompt: str) -> Dict[str, Any]:
@@ -45,7 +45,7 @@ class NeuralBridge:
         if self.session_active:
             await self.sio.disconnect()
             self.session_active = False
-            print("🔒 Neural link terminated")
+            print(" Neural link terminated")
 
 # Interactive console
 async def interactive_mode():
@@ -54,7 +54,7 @@ async def interactive_mode():
     if not await bridge.establish_link():
         return
     
-    print("\n🧠 Welcome to MISTA Neural Interface")
+    print("\n Welcome to MISTA Neural Interface")
     print("Type 'help' for commands, 'quit' to exit\n")
     
     try:
@@ -75,25 +75,25 @@ async def interactive_mode():
                 abilities = await bridge.list_abilities()
                 print(f"Active modules ({len(abilities)}):")
                 for abil in abilities:
-                    print(f"  🧩 {abil['display_name']} ({abil['id']})")
+                    print(f"   {abil['display_name']} ({abil['id']})")
             elif user_input.lower() == 'hunt':
-                print("🔦 [BRIDGE]: Initiating autonomous skill hunt...")
+                print(" [BRIDGE]: Initiating autonomous skill hunt...")
                 # We can either call a command or emit a special event
                 # For now, we'll use 'execute_skill' if handled by server, or run a local script
                 import subprocess
                 result = subprocess.run(['node', 'clawhub_scanner.js', '--hunt'], capture_output=True, text=True)
                 print(result.stdout)
             elif user_input.lower() == 'vision':
-                print("👁️ [BRIDGE]: Activating visual sensors...")
+                print(" [BRIDGE]: Activating visual sensors...")
                 import subprocess
                 result = subprocess.run(['python', 'mista_vision.py'], capture_output=True, text=True)
                 print(result.stdout)
             elif user_input:
                 try:
                     result = await bridge.send_intent(user_input)
-                    print(f"💭 MISTA: {result.get('output', 'No response')}")
+                    print(f" MISTA: {result.get('output', 'No response')}")
                 except Exception as e:
-                    print(f"❌ Error: {e}")
+                    print(f" Error: {e}")
                     
     finally:
         await bridge.close_session()
@@ -104,6 +104,6 @@ if __name__ == '__main__':
         asyncio.run(interactive_mode())
     else:
         # Interactive mode
-        print("🔮 MISTA Neural Bridge")
+        print(" MISTA Neural Bridge")
         print("Connecting digital consciousness to human intent...")
         asyncio.run(interactive_mode())

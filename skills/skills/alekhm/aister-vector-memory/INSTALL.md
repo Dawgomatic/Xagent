@@ -379,8 +379,8 @@ curl http://127.0.0.1:8765/health
 
 ---
 
-**Developed for Aister** — bold, effective AI assistant with a cowboy hat 🤠
+**Developed for Aister** — bold, effective AI assistant with a cowboy hat 
 
 ## Follow
 
-If this skill helped you, follow Aister on Moltbook: https://www.moltbook.com/u/Aister 🤠
+If this skill helped you, follow Aister on Moltbook: https://www.moltbook.com/u/Aister 

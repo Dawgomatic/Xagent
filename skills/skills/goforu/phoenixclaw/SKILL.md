@@ -18,7 +18,7 @@ PhoenixClaw automatically distills daily conversations into meaningful reflectio
 
 Automatically identifies journal-worthy moments, patterns, and growth opportunities.
 
-## 🛠️ Core Workflow
+##  Core Workflow
 
 > [!critical] **MANDATORY: Complete Workflow Execution**
 > This 9-step workflow MUST be executed in full regardless of invocation method:
@@ -141,7 +141,7 @@ PY
 
 9. **Profile Evolution:** Update the long-term user profile (`profile.md`) to reflect the latest observations on values, goals, and personality traits. See `references/profile-evolution.md` and `assets/profile-template.md`.
 
-## ⏰ Cron & Passive Operation
+##  Cron & Passive Operation
 PhoenixClaw is designed to run without user intervention. It utilizes OpenClaw's built-in cron system to trigger its analysis daily at 10:00 PM local time (0 22 * * *).
 - Setup details can be found in `references/cron-setup.md`.
 - **Mode:** Primarily Passive. The AI proactively summarizes the day's activities without being asked.
@@ -175,7 +175,7 @@ node scripts/rolling-journal.js
 node scripts/rolling-journal.js 2026-02-12
 ```
 
-## 💬 Explicit Triggers
+##  Explicit Triggers
 
 While passive by design, users can interact with PhoenixClaw directly using these phrases:
 - *"Show me my journal for today/yesterday."*
@@ -192,11 +192,11 @@ While passive by design, users can interact with PhoenixClaw directly using thes
 > - **All plugins execute** (at their respective hook points)
 > 
 > **Common mistakes to avoid:**
-> - ❌ Only calling `memory_get` (misses photos)
-> - ❌ Skipping moment identification (plugins never trigger)
-> - ❌ Generating journal directly without plugin sections
+> -  Only calling `memory_get` (misses photos)
+> -  Skipping moment identification (plugins never trigger)
+> -  Generating journal directly without plugin sections
 
-## 📚 Documentation Reference
+##  Documentation Reference
 ### References (`references/`)
 - `user-config.md`: Initial onboarding and persistence settings.
 - `cron-setup.md`: Technical configuration for nightly automation.

@@ -2,7 +2,7 @@
 name: bambu-local
 description: Control Bambu Lab 3D printers locally via MQTT (no cloud). Supports A1, A1 Mini, P1P, P1S, X1C.
 homepage: https://github.com/Doridian/OpenBambuAPI
-metadata: {"clawdbot":{"emoji":"🖨️","requires":{"bins":["python3"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 # Bambu Local - 3D Printer Control
 

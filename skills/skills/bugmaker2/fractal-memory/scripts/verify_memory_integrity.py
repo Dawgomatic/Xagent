@@ -163,7 +163,7 @@ def detect_anomalies(changes):
 
 def main():
     """Main integrity verification"""
-    print("🔒 Memory Integrity Verification - Fractal Memory System")
+    print(" Memory Integrity Verification - Fractal Memory System")
     print("=" * 60)
     
     # Load previous state
@@ -171,53 +171,53 @@ def main():
     last_check = old_state.get("last_check")
     
     if last_check:
-        print(f"📅 Last check: {last_check}")
+        print(f" Last check: {last_check}")
     else:
-        print("📅 First integrity check")
+        print(" First integrity check")
     
     print()
     
     # Scan current files
-    print("🔍 Scanning memory files...")
+    print(" Scanning memory files...")
     new_files = scan_memory_files()
     print(f"   Found {len(new_files)} files")
     print()
     
     # Detect changes
     if old_state.get("files"):
-        print("🔍 Detecting changes...")
+        print(" Detecting changes...")
         changes = detect_changes(old_state, new_files)
         
         if changes["added"]:
             print(f"   ✓ {len(changes['added'])} files added")
         
         if changes["modified"]:
-            print(f"   ⚠️  {len(changes['modified'])} files modified")
+            print(f"     {len(changes['modified'])} files modified")
             for mod in changes["modified"][:5]:  # Show first 5
                 print(f"      - {mod['file']}")
             if len(changes["modified"]) > 5:
                 print(f"      ... and {len(changes['modified']) - 5} more")
         
         if changes["deleted"]:
-            print(f"   🚨 {len(changes['deleted'])} files deleted!")
+            print(f"    {len(changes['deleted'])} files deleted!")
             for deleted in changes["deleted"]:
                 print(f"      - {deleted}")
         
         print()
         
         # Detect anomalies
-        print("🔍 Detecting anomalies...")
+        print(" Detecting anomalies...")
         anomalies = detect_anomalies(changes)
         
         if anomalies:
-            print(f"   🚨 Found {len(anomalies)} anomalies:")
+            print(f"    Found {len(anomalies)} anomalies:")
             for anomaly in anomalies:
-                severity_icon = "🚨" if anomaly["severity"] == "high" else "⚠️"
+                severity_icon = "" if anomaly["severity"] == "high" else ""
                 print(f"   {severity_icon} [{anomaly['type']}] {anomaly['description']}")
         else:
             print("   ✓ No anomalies detected")
     else:
-        print("ℹ️  No previous state to compare (first run)")
+        print("  No previous state to compare (first run)")
     
     print()
     
@@ -230,7 +230,7 @@ def main():
     
     print("=" * 60)
     print("✓ Integrity verification complete!")
-    print(f"📁 State saved to: {INTEGRITY_FILE}")
+    print(f" State saved to: {INTEGRITY_FILE}")
 
 if __name__ == "__main__":
     main()

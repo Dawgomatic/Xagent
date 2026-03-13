@@ -88,7 +88,7 @@ Adapt prompt style to your image gen provider — the key principles (same subje
 ## Caption Template
 
 ```
-[hook matching slide 1] 😭 [2-3 sentences of relatable struggle].
+[hook matching slide 1]  [2-3 sentences of relatable struggle].
 So I found this app called [APP NAME] that [what it does in one sentence] -
 you just [simple action] and it [result]. I tried [style 1] and [style 2]
 and honestly?? [emotional reaction]. [funny/relatable closer] 

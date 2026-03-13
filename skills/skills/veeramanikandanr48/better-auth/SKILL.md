@@ -21,7 +21,7 @@ allowed-tools:
 
 ---
 
-## ⚠️ CRITICAL: D1 Adapter Requirement
+##  CRITICAL: D1 Adapter Requirement
 
 better-auth **DOES NOT** have `d1Adapter()`. You **MUST** use:
 - **Drizzle ORM** (recommended): `drizzleAdapter(db, { provider: "sqlite" })`
@@ -43,7 +43,7 @@ See Issue #1 below for details.
 - **Stripe enhancements** - Flexible subscription lifecycle, `disableRedirect` option
 
 **Admin Plugin Updates:**
-- ⚠️ **Breaking**: Impersonation of admins disabled by default (v1.4.6)
+-  **Breaking**: Impersonation of admins disabled by default (v1.4.6)
 - Support role with permission-based user updates
 - Role type inference improvements
 
@@ -54,7 +54,7 @@ See Issue #1 below for details.
 - Deprecated algorithm rejection
 - Line nonce enforcement
 
-📚 **Docs**: https://www.better-auth.com/changelogs
+ **Docs**: https://www.better-auth.com/changelogs
 
 ---
 
@@ -62,7 +62,7 @@ See Issue #1 below for details.
 
 **Major Features:**
 - **Stateless session management** - Sessions without database storage
-- **ESM-only package** ⚠️ Breaking: CommonJS no longer supported
+- **ESM-only package**  Breaking: CommonJS no longer supported
 - **JWT key rotation** - Automatic key rotation for enhanced security
 - **SCIM provisioning** - Enterprise user provisioning protocol
 - **@standard-schema/spec** - Replaces ZodType for validation
@@ -72,7 +72,7 @@ See Issue #1 below for details.
 - Multiple passkey origins support
 - RP-Initiated Logout endpoint (OIDC)
 
-📚 **Docs**: https://www.better-auth.com/changelogs
+ **Docs**: https://www.better-auth.com/changelogs
 
 ---
 
@@ -80,11 +80,11 @@ See Issue #1 below for details.
 
 **Major Features:**
 - **SSO with SAML 2.0** - Enterprise single sign-on (moved to separate `@better-auth/sso` package)
-- **Multi-team support** ⚠️ Breaking: `teamId` removed from member table, new `teamMembers` table required
+- **Multi-team support**  Breaking: `teamId` removed from member table, new `teamMembers` table required
 - **Additional fields** - Custom fields for organization/member/invitation models
 - Performance improvements and bug fixes
 
-📚 **Docs**: https://www.better-auth.com/blog/1-3
+ **Docs**: https://www.better-auth.com/blog/1-3
 
 ---
 
@@ -136,14 +136,14 @@ export function createAuth(env: Env) {
 
 If your Drizzle schema uses `snake_case` column names (e.g., `email_verified`), but better-auth expects `camelCase` (e.g., `emailVerified`), the `CamelCasePlugin` automatically converts between the two.
 
-**⚠️ Cloudflare Workers Note**: D1 database bindings are only available inside the request handler (the `fetch()` function). You cannot initialize better-auth outside the request context. Use a factory function pattern:
+** Cloudflare Workers Note**: D1 database bindings are only available inside the request handler (the `fetch()` function). You cannot initialize better-auth outside the request context. Use a factory function pattern:
 
 ```typescript
-// ❌ WRONG - DB binding not available outside request
+//  WRONG - DB binding not available outside request
 const db = drizzle(env.DB, { schema }) // env.DB doesn't exist here
 export const auth = betterAuth({ database: drizzleAdapter(db, { provider: "sqlite" }) })
 
-// ✅ CORRECT - Create auth instance per-request
+//  CORRECT - Create auth instance per-request
 export default {
   fetch(request, env, ctx) {
     const db = drizzle(env.DB, { schema })
@@ -161,7 +161,7 @@ export default {
 
 ### TanStack Start
 
-**⚠️ CRITICAL**: TanStack Start requires the `reactStartCookies` plugin to handle cookie setting properly.
+** CRITICAL**: TanStack Start requires the `reactStartCookies` plugin to handle cookie setting properly.
 
 ```typescript
 import { betterAuth } from "better-auth";
@@ -173,7 +173,7 @@ export const auth = betterAuth({
   plugins: [
     twoFactor(),
     organization(),
-    reactStartCookies(), // ⚠️ MUST be LAST plugin
+    reactStartCookies(), //  MUST be LAST plugin
   ],
 });
 ```
@@ -214,7 +214,7 @@ export const Route = createFileRoute('/api/auth/$')({
 })
 ```
 
-📚 **Official Docs**: https://www.better-auth.com/docs/integrations/tanstack
+ **Official Docs**: https://www.better-auth.com/docs/integrations/tanstack
 
 ---
 
@@ -224,11 +224,11 @@ Better Auth provides plugins for advanced authentication features:
 
 | Plugin | Import | Description | Docs |
 |--------|--------|-------------|------|
-| **OAuth 2.1 Provider** | `better-auth/plugins` | Build OAuth 2.1 provider with PKCE, JWT tokens, consent flows (replaces MCP & OIDC plugins) | [📚](https://www.better-auth.com/docs/plugins/oauth-provider) |
-| **SSO** | `better-auth/plugins` | Enterprise Single Sign-On with OIDC, OAuth2, and SAML 2.0 support | [📚](https://www.better-auth.com/docs/plugins/sso) |
-| **Stripe** | `better-auth/plugins` | Payment and subscription management with flexible lifecycle handling | [📚](https://www.better-auth.com/docs/plugins/stripe) |
-| **MCP** | `better-auth/plugins` | ⚠️ **Deprecated** - Use OAuth 2.1 Provider instead | [📚](https://www.better-auth.com/docs/plugins/mcp) |
-| **Expo** | `better-auth/expo` | React Native/Expo with `webBrowserOptions` and last-login-method tracking | [📚](https://www.better-auth.com/docs/integrations/expo) |
+| **OAuth 2.1 Provider** | `better-auth/plugins` | Build OAuth 2.1 provider with PKCE, JWT tokens, consent flows (replaces MCP & OIDC plugins) | [](https://www.better-auth.com/docs/plugins/oauth-provider) |
+| **SSO** | `better-auth/plugins` | Enterprise Single Sign-On with OIDC, OAuth2, and SAML 2.0 support | [](https://www.better-auth.com/docs/plugins/sso) |
+| **Stripe** | `better-auth/plugins` | Payment and subscription management with flexible lifecycle handling | [](https://www.better-auth.com/docs/plugins/stripe) |
+| **MCP** | `better-auth/plugins` |  **Deprecated** - Use OAuth 2.1 Provider instead | [](https://www.better-auth.com/docs/plugins/mcp) |
+| **Expo** | `better-auth/expo` | React Native/Expo with `webBrowserOptions` and last-login-method tracking | [](https://www.better-auth.com/docs/integrations/expo) |
 
 ### OAuth 2.1 Provider Plugin (New in v1.4.9)
 
@@ -287,9 +287,9 @@ const client = await auth.api.createOAuthClient({
 // Returns: { clientId, clientSecret (if confidential) }
 ```
 
-📚 **Full Docs**: https://www.better-auth.com/docs/plugins/oauth-provider
+ **Full Docs**: https://www.better-auth.com/docs/plugins/oauth-provider
 
-⚠️ **Note**: This plugin is in active development and may not be suitable for production use yet.
+ **Note**: This plugin is in active development and may not be suitable for production use yet.
 
 ---
 
@@ -297,14 +297,14 @@ const client = await auth.api.createOAuthClient({
 
 | Plugin | Description | Docs |
 |--------|-------------|------|
-| **Bearer** | API token auth (alternative to cookies for APIs) | [📚](https://www.better-auth.com/docs/plugins/bearer) |
-| **One Tap** | Google One Tap frictionless sign-in | [📚](https://www.better-auth.com/docs/plugins/one-tap) |
-| **SCIM** | Enterprise user provisioning (SCIM 2.0) | [📚](https://www.better-auth.com/docs/plugins/scim) |
-| **Anonymous** | Guest user access without PII | [📚](https://www.better-auth.com/docs/plugins/anonymous) |
-| **Username** | Username-based sign-in (alternative to email) | [📚](https://www.better-auth.com/docs/plugins/username) |
-| **Generic OAuth** | Custom OAuth providers with PKCE | [📚](https://www.better-auth.com/docs/plugins/generic-oauth) |
-| **Multi-Session** | Multiple accounts in same browser | [📚](https://www.better-auth.com/docs/plugins/multi-session) |
-| **API Key** | Token-based auth with rate limits | [📚](https://www.better-auth.com/docs/plugins/api-key) |
+| **Bearer** | API token auth (alternative to cookies for APIs) | [](https://www.better-auth.com/docs/plugins/bearer) |
+| **One Tap** | Google One Tap frictionless sign-in | [](https://www.better-auth.com/docs/plugins/one-tap) |
+| **SCIM** | Enterprise user provisioning (SCIM 2.0) | [](https://www.better-auth.com/docs/plugins/scim) |
+| **Anonymous** | Guest user access without PII | [](https://www.better-auth.com/docs/plugins/anonymous) |
+| **Username** | Username-based sign-in (alternative to email) | [](https://www.better-auth.com/docs/plugins/username) |
+| **Generic OAuth** | Custom OAuth providers with PKCE | [](https://www.better-auth.com/docs/plugins/generic-oauth) |
+| **Multi-Session** | Multiple accounts in same browser | [](https://www.better-auth.com/docs/plugins/multi-session) |
+| **API Key** | Token-based auth with rate limits | [](https://www.better-auth.com/docs/plugins/api-key) |
 
 #### Bearer Token Plugin
 
@@ -621,7 +621,7 @@ socialProviders: {
 
 ## Cloudflare Workers Requirements
 
-**⚠️ CRITICAL**: Cloudflare Workers require AsyncLocalStorage support:
+** CRITICAL**: Cloudflare Workers require AsyncLocalStorage support:
 
 ```toml
 # wrangler.toml
@@ -813,7 +813,7 @@ import { twoFactor } from "better-auth/plugins";
 | `/two-factor/verify-backup-code` | POST | Use backup code for login |
 | `/two-factor/view-backup-codes` | GET | View current backup codes |
 
-📚 **Docs**: https://www.better-auth.com/docs/plugins/2fa
+ **Docs**: https://www.better-auth.com/docs/plugins/2fa
 
 ##### Organization Plugin (Multi-Tenant SaaS)
 
@@ -880,7 +880,7 @@ import { organization } from "better-auth/plugins";
 | `/organization/get-role` | GET | Get role details |
 | `/organization/update-role` | PUT | Modify role permissions |
 
-📚 **Docs**: https://www.better-auth.com/docs/plugins/organization
+ **Docs**: https://www.better-auth.com/docs/plugins/organization
 
 ##### Admin Plugin
 
@@ -893,7 +893,7 @@ admin({
   adminRoles: ["admin"],
   adminUserIds: ["user_abc123"], // Always grant admin to specific users
   impersonationSessionDuration: 3600, // 1 hour (seconds)
-  allowImpersonatingAdmins: false, // ⚠️ Default changed in v1.4.6
+  allowImpersonatingAdmins: false, //  Default changed in v1.4.6
   defaultBanReason: "Violation of Terms of Service",
   bannedUserMessage: "Your account has been suspended",
 })
@@ -915,7 +915,7 @@ admin({
 | `/admin/impersonate-user` | POST | Start impersonating user |
 | `/admin/stop-impersonating` | POST | End impersonation session |
 
-**⚠️ Breaking Change (v1.4.6)**: `allowImpersonatingAdmins` now defaults to `false`. Set to `true` explicitly if you need admin-on-admin impersonation.
+** Breaking Change (v1.4.6)**: `allowImpersonatingAdmins` now defaults to `false`. Set to `true` explicitly if you need admin-on-admin impersonation.
 
 **Custom Roles with Permissions (v1.4.10):**
 
@@ -949,7 +949,7 @@ admin({
 })
 ```
 
-📚 **Docs**: https://www.better-auth.com/docs/plugins/admin
+ **Docs**: https://www.better-auth.com/docs/plugins/admin
 
 ##### Other Plugin Endpoints
 
@@ -1132,13 +1132,13 @@ const impersonationSession = await auth.api.impersonateUser({
 
 | Use Case | Use HTTP Endpoints | Use `auth.api.*` Methods |
 |----------|-------------------|--------------------------|
-| **Client-side auth** | ✅ Yes | ❌ No |
-| **Server middleware** | ❌ No | ✅ Yes |
-| **Background jobs** | ❌ No | ✅ Yes |
-| **Admin dashboards** | ✅ Yes (from client) | ✅ Yes (from server) |
-| **Custom auth flows** | ❌ No | ✅ Yes |
-| **Mobile apps** | ✅ Yes | ❌ No |
-| **API routes** | ✅ Yes (proxy to handler) | ✅ Yes (direct calls) |
+| **Client-side auth** |  Yes |  No |
+| **Server middleware** |  No |  Yes |
+| **Background jobs** |  No |  Yes |
+| **Admin dashboards** |  Yes (from client) |  Yes (from server) |
+| **Custom auth flows** |  No |  Yes |
+| **Mobile apps** |  Yes |  No |
+| **API routes** |  Yes (proxy to handler) |  Yes (direct calls) |
 
 **Example: Protected Route Middleware**
 
@@ -1198,11 +1198,11 @@ export const auth = betterAuth({
 **Interactive documentation**: Visit `http://localhost:8787/api/auth/reference`
 
 This shows a **Scalar UI** with:
-- ✅ All available endpoints grouped by feature
-- ✅ Request/response schemas with types
-- ✅ Try-it-out functionality (test endpoints in browser)
-- ✅ Authentication requirements
-- ✅ Code examples in multiple languages
+-  All available endpoints grouped by feature
+-  Request/response schemas with types
+-  Try-it-out functionality (test endpoints in browser)
+-  Authentication requirements
+-  Code examples in multiple languages
 
 **Programmatic access**:
 ```typescript
@@ -1239,12 +1239,12 @@ console.log(JSON.stringify(schema, null, 2));
 ### Key Takeaway
 
 better-auth provides **80+ production-ready endpoints** covering:
-- ✅ Core authentication (20 endpoints)
-- ✅ 2FA & passwordless (15 endpoints)
-- ✅ Organizations & teams (35 endpoints)
-- ✅ Admin & user management (15 endpoints)
-- ✅ Social OAuth (auto-configured callbacks)
-- ✅ OpenAPI documentation (interactive UI)
+-  Core authentication (20 endpoints)
+-  2FA & passwordless (15 endpoints)
+-  Organizations & teams (35 endpoints)
+-  Admin & user management (15 endpoints)
+-  Social OAuth (auto-configured callbacks)
+-  OpenAPI documentation (interactive UI)
 
 **You write zero endpoint code.** Just configure features and call `auth.handler()`.
 
@@ -1261,17 +1261,17 @@ better-auth provides **80+ production-ready endpoints** covering:
 **Solution**: Use Drizzle or Kysely instead:
 
 ```typescript
-// ❌ WRONG - This doesn't exist
+//  WRONG - This doesn't exist
 import { d1Adapter } from 'better-auth/adapters/d1'
 database: d1Adapter(env.DB)
 
-// ✅ CORRECT - Use Drizzle
+//  CORRECT - Use Drizzle
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
 import { drizzle } from 'drizzle-orm/d1'
 const db = drizzle(env.DB, { schema })
 database: drizzleAdapter(db, { provider: "sqlite" })
 
-// ✅ CORRECT - Use Kysely
+//  CORRECT - Use Kysely
 import { Kysely } from 'kysely'
 import { D1Dialect } from 'kysely-d1'
 database: {
@@ -1310,7 +1310,7 @@ wrangler d1 migrations apply my-app-db --remote
 
 **Symptoms**: Session reads fail, user data missing fields.
 
-**⚠️ CRITICAL (v1.4.10+)**: Using Kysely's `CamelCasePlugin` **breaks join parsing** in better-auth adapter. The plugin converts join keys like `_joined_user_user_id` to `_joinedUserUserId`, causing user data to be null in session queries.
+** CRITICAL (v1.4.10+)**: Using Kysely's `CamelCasePlugin` **breaks join parsing** in better-auth adapter. The plugin converts join keys like `_joined_user_user_id` to `_joinedUserUserId`, causing user data to be null in session queries.
 
 **Solution for Drizzle**: Define schema with camelCase from the start (as shown in examples).
 
@@ -1429,8 +1429,8 @@ export const auth = betterAuth({
 Provider setting: https://yourdomain.com/api/auth/callback/google
 better-auth URL:  https://yourdomain.com/api/auth/callback/google
 
-❌ Wrong: http vs https, trailing slash, subdomain mismatch
-✅ Right: Exact character-for-character match
+ Wrong: http vs https, trailing slash, subdomain mismatch
+ Right: Exact character-for-character match
 ```
 
 **Check better-auth callback URL**:
@@ -1765,12 +1765,12 @@ CREATE TABLE organization (
 **Solution**: Extract the array from better-auth response:
 
 ```typescript
-// ❌ WRONG - Double nesting
+//  WRONG - Double nesting
 const result = await auth.api.listMembers({ ... });
 return c.json({ members: result });
 // Returns: { members: { members: [...], total: N } }
 
-// ✅ CORRECT - Extract array
+//  CORRECT - Extract array
 const result = await auth.api.listMembers({ ... });
 const members = result?.members || [];
 return c.json({ members });
@@ -1896,7 +1896,7 @@ additionalFields: {
 session: {
   expiresIn: 60 * 60 * 24 * 7,    // 7 days
   freshAge: 60 * 60 * 24,          // 24 hours
-  updateAge: 60 * 60 * 24 * 3,     // 3 days (> freshAge!) ⚠️ PROBLEM
+  updateAge: 60 * 60 * 24 * 3,     // 3 days (> freshAge!)  PROBLEM
 
   // CORRECT - updateAge <= freshAge
   updateAge: 60 * 60 * 12,         // 12 hours (< freshAge)
@@ -2077,7 +2077,7 @@ session: {
 
 ### Community & Support
 
-- **GitHub**: https://github.com/better-auth/better-auth (22.4k ⭐)
+- **GitHub**: https://github.com/better-auth/better-auth (22.4k )
 - **Examples**: https://github.com/better-auth/better-auth/tree/main/examples
 - **Discord**: https://discord.gg/better-auth
 - **Changelog**: https://github.com/better-auth/better-auth/releases

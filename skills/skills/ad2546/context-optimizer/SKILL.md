@@ -4,7 +4,7 @@ description: Advanced context management with auto-compaction and dynamic contex
 homepage: https://github.com/clawdbot/clawdbot
 metadata:
   clawdbot:
-    emoji: "🧠"
+    emoji: ""
     requires:
       bins: []
       npm: ["tiktoken", "@xenova/transformers"]
@@ -126,7 +126,7 @@ The context archive provides a RAM vs Storage approach:
   // Chat logging
   logToChat: true, // Log optimization events to chat
   chatLogLevel: 'brief', // 'brief', 'detailed', or 'none'
-  chatLogFormat: '📊 {action}: {details}', // Format for chat messages
+  chatLogFormat: ' {action}: {details}', // Format for chat messages
   
   // Performance
   batchSize: 5, // Messages to process in batch
@@ -140,21 +140,21 @@ The context optimizer can log events directly to chat:
 
 ```javascript
 // Example chat log messages:
-// 📊 Context optimized: Compacted 15 messages → 8 (47% reduction)
-// 📊 Archive search: Found 3 relevant snippets (42% similarity)
-// 📊 Dynamic context: Filtered 12 low-relevance messages
+//  Context optimized: Compacted 15 messages → 8 (47% reduction)
+//  Archive search: Found 3 relevant snippets (42% similarity)
+//  Dynamic context: Filtered 12 low-relevance messages
 
 // Configure logging:
 const pruner = createContextPruner({
   logToChat: true,
   chatLogLevel: 'brief', // Options: 'brief', 'detailed', 'none'
-  chatLogFormat: '📊 {action}: {details}',
+  chatLogFormat: ' {action}: {details}',
   
   // Custom log handler (optional)
   onLog: (level, message, data) => {
     if (level === 'info' && data.action === 'compaction') {
       // Send to chat
-      console.log(`🧠 Context optimized: ${message}`);
+      console.log(` Context optimized: ${message}`);
     }
   }
 });

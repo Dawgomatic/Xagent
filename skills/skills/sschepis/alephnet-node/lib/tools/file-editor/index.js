@@ -163,12 +163,12 @@ async function main() {
     });
     
     if (result.success) {
-        console.log(`\n✅ ${result.message}`);
+        console.log(`\n ${result.message}`);
         if (result.thoughtProcess) {
             console.log(`\nAI Thought Process: ${result.thoughtProcess}`);
         }
     } else {
-        console.error(`\n❌ Error: ${result.error}`);
+        console.error(`\n Error: ${result.error}`);
         if (result.thoughtProcess) {
             console.log(`\nAI Thought Process: ${result.thoughtProcess}`);
         }

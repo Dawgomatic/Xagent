@@ -8,9 +8,9 @@ WORKSPACE="/Users/cadem/.openclaw/workspace"
 TODAY=$(date +%Y-%m-%d)
 MEMORY_DIR="$WORKSPACE/memory"
 
-log() { echo "✨ $@"; }
-warn() { echo "⚠️  $@"; }
-success() { echo "✅ $@"; }
+log() { echo " $@"; }
+warn() { echo "  $@"; }
+success() { echo " $@"; }
 
 main() {
     log "Running workspace autopilot..."

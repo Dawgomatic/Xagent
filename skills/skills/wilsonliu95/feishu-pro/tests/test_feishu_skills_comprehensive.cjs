@@ -21,7 +21,7 @@ async function loadFeishu() {
 }
 
 if (!FEISHU_APP_ID || !FEISHU_APP_SECRET) {
-  console.warn('⚠️  未检测到 FEISHU_APP_ID/FEISHU_APP_SECRET，部分测试可能失败');
+  console.warn('  未检测到 FEISHU_APP_ID/FEISHU_APP_SECRET，部分测试可能失败');
 }
 
 // 测试结果汇总
@@ -52,20 +52,20 @@ function recordTest(caseId, status, message, category = 'happyPath') {
   if (status === 'passed') {
     testResults.passed.push(testCase);
     testResults.coverage[category]++;
-    console.log(`    ✅ ${caseId}: ${message}`);
+    console.log(`     ${caseId}: ${message}`);
   } else if (status === 'failed') {
     testResults.failed.push(testCase);
-    console.log(`    ❌ ${caseId}: ${message}`);
+    console.log(`     ${caseId}: ${message}`);
   } else {
     testResults.skipped.push(testCase);
-    console.log(`    ⏭️  ${caseId}: ${message}`);
+    console.log(`      ${caseId}: ${message}`);
   }
 }
 
 // ==================== feishu/im (threads) 测试 (5个用例) ====================
 
 async function testFeishuThreads() {
-  log('📦 测试模块: feishu/im (话题操作)');
+  log(' 测试模块: feishu/im (话题操作)');
   
   try {
     const { replyInThread, listThreadMessages } = await loadFeishu();
@@ -75,7 +75,7 @@ async function testFeishuThreads() {
     try {
       const result = await replyInThread(
         'om_x100b576b02de30a4c12251694065fa0',
-        '🧪 自动化测试消息\n🦐 虾宝宝 feishu (im/threads) 测试'
+        ' 自动化测试消息\n 虾宝宝 feishu (im/threads) 测试'
       );
       
       if (result.ok) {
@@ -127,7 +127,7 @@ async function testFeishuThreads() {
     recordTest('TC-THREADS-005', 'skipped', '需要构造非群成员场景', 'permissionValidation');
     
   } catch (err) {
-    console.error('❌ feishu 模块加载失败:', err.message);
+    console.error(' feishu 模块加载失败:', err.message);
     recordTest('TC-THREADS-INIT', 'failed', `模块加载失败: ${err.message}`, 'errorHandling');
   }
 }
@@ -135,7 +135,7 @@ async function testFeishuThreads() {
 // ==================== feishu/im (messages) 测试 (8个用例) ====================
 
 async function testFeishuMessages() {
-  log('📦 测试模块: feishu/im (消息操作)');
+  log(' 测试模块: feishu/im (消息操作)');
   
   try {
     const { 
@@ -163,7 +163,7 @@ async function testFeishuMessages() {
     } catch (err) {
       if (err.response?.data?.msg?.includes('scope')) {
         recordTest('TC-MSG-001', 'failed', `权限不足: 需要 scope: im:message.group_msg`, 'happyPath');
-        console.log('     💡 解决方案: 在飞书开放平台申请 im:message.group_msg 权限');
+        console.log('      解决方案: 在飞书开放平台申请 im:message.group_msg 权限');
       } else {
         recordTest('TC-MSG-001', 'failed', `获取消息列表失败: ${err.message}`, 'happyPath');
       }
@@ -334,7 +334,7 @@ async function testFeishuMessages() {
     }
     
   } catch (err) {
-    console.error('❌ feishu 模块加载失败:', err.message);
+    console.error(' feishu 模块加载失败:', err.message);
     recordTest('TC-MSG-INIT', 'failed', `模块加载失败: ${err.message}`, 'errorHandling');
   }
 }
@@ -342,7 +342,7 @@ async function testFeishuMessages() {
 // ==================== feishu/im (react) 测试 (6个用例) ====================
 
 async function testFeishuReact() {
-  log('📦 测试模块: feishu/im (表情反应)');
+  log(' 测试模块: feishu/im (表情反应)');
   
   // TC-REACT-001: 正常添加表情反应
   console.log('\n  [TC-REACT-001] 正常添加表情反应');
@@ -351,7 +351,7 @@ async function testFeishuReact() {
       ok: true,
       data: {
         reaction_id: 'react_test_001',
-        emoji: '👍',
+        emoji: '',
         message_id: 'om_test_001',
         created_at: Date.now().toString()
       }
@@ -409,7 +409,7 @@ async function testFeishuReact() {
       ok: true,
       data: {
         reaction_id: 'react_dup_001',
-        emoji: '👍',
+        emoji: '',
         status: 'already_exists',
         message: '该表情已添加'
       }
@@ -450,7 +450,7 @@ async function testFeishuReact() {
 // ==================== feishu/im (attachment) 测试 (4个用例) ====================
 
 async function testFeishuAttachment() {
-  log('📦 测试模块: feishu/im (附件操作)');
+  log(' 测试模块: feishu/im (附件操作)');
   
   // TC-ATT-001: 正常上传附件
   console.log('\n  [TC-ATT-001] 正常上传附件');
@@ -520,7 +520,7 @@ async function testFeishuAttachment() {
 
 async function runAllTests() {
   console.log('\n');
-  console.log('🦐 飞书 Skill 全面测试 - 增强版');
+  console.log(' 飞书 Skill 全面测试 - 增强版');
   console.log('时间:', new Date().toLocaleString());
   console.log('目标: 37个测试用例');
   console.log('');
@@ -532,25 +532,25 @@ async function runAllTests() {
   await testFeishuAttachment();
   
   // 输出测试报告
-  log('📊 测试报告汇总');
+  log(' 测试报告汇总');
   
-  console.log('\n✅ 通过:', testResults.passed.length);
+  console.log('\n 通过:', testResults.passed.length);
   testResults.passed.forEach(item => console.log('   ✓', item));
   
-  console.log('\n❌ 失败:', testResults.failed.length);
+  console.log('\n 失败:', testResults.failed.length);
   testResults.failed.forEach(item => console.log('   ✗', item));
   
-  console.log('\n⏭️  跳过:', testResults.skipped.length);
+  console.log('\n  跳过:', testResults.skipped.length);
   testResults.skipped.forEach(item => console.log('   -', item));
   
-  console.log('\n📈 覆盖度统计:');
+  console.log('\n 覆盖度统计:');
   console.log(`   - 正常流程 (Happy Path): ${testResults.coverage.happyPath}`);
   console.log(`   - 错误处理 (Error Handling): ${testResults.coverage.errorHandling}`);
   console.log(`   - 边界条件 (Boundary): ${testResults.coverage.boundaryConditions}`);
   console.log(`   - 权限验证 (Permission): ${testResults.coverage.permissionValidation}`);
   
   console.log('\n');
-  console.log(`测试完成! 总计: ${testResults.total} 个用例 🦐`);
+  console.log(`测试完成! 总计: ${testResults.total} 个用例 `);
   console.log(`进度: ${testResults.passed.length + testResults.failed.length}/${testResults.total} 已执行, ${testResults.skipped.length} 跳过`);
 }
 

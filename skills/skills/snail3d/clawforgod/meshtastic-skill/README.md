@@ -129,30 +129,30 @@ cp .env.example .env
 ### "Can't reach Mesh Master"
 
 **Checklist:**
-1. ✅ Mesh Master is running on RPi
+1.  Mesh Master is running on RPi
    ```bash
    # On RPi:
    ps aux | grep mesh-master
    ```
 
-2. ✅ Get correct RPi IP address
+2.  Get correct RPi IP address
    ```bash
    # On RPi:
    hostname -I
    ```
 
-3. ✅ MESH_MASTER_URL is correct
+3.  MESH_MASTER_URL is correct
    ```bash
    # On your computer:
    echo $MESH_MASTER_URL
    ```
 
-4. ✅ Can ping from your computer
+4.  Can ping from your computer
    ```bash
    ping 192.168.1.100
    ```
 
-5. ✅ Port 5000 is accessible
+5.  Port 5000 is accessible
    ```bash
    curl http://192.168.1.100:5000/api/version
    ```
@@ -195,11 +195,11 @@ meshtastic-skill/
 ## Security
 
 ### What's Protected
-- ✅ `.gitignore` prevents secrets leakage
-- ✅ No hardcoded API keys or credentials
-- ✅ All sensitive values from environment only
-- ✅ Configuration templates use `.example` suffix
-- ✅ Compatible with Mesh Master's security model
+-  `.gitignore` prevents secrets leakage
+-  No hardcoded API keys or credentials
+-  All sensitive values from environment only
+-  Configuration templates use `.example` suffix
+-  Compatible with Mesh Master's security model
 
 ### What You Should Do
 1. Never commit `.env` to git

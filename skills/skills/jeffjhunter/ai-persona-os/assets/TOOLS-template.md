@@ -31,8 +31,8 @@ When you learn something about a tool that isn't obvious:
 | `command` | Description |
 
 **Gotchas:**
-- ⚠️ [Thing that's not obvious]
-- ⚠️ [Common mistake to avoid]
+-  [Thing that's not obvious]
+-  [Common mistake to avoid]
 
 **Examples:**
 \`\`\`bash
@@ -61,10 +61,10 @@ command --flag value
 | `message action=send channel=discord channelId=ID content="text"` | Send message |
 
 **Gotchas:**
-- ⚠️ Use channel IDs, not names (names can change)
-- ⚠️ Bot must have permissions in the channel
-- ⚠️ "Missing Access" usually means permission issue, not bot offline
-- ⚠️ Rate limits: Don't spam reads/sends
+-  Use channel IDs, not names (names can change)
+-  Bot must have permissions in the channel
+-  "Missing Access" usually means permission issue, not bot offline
+-  Rate limits: Don't spam reads/sends
 
 **Troubleshooting:**
 | Error | Cause | Fix |
@@ -87,9 +87,9 @@ command --flag value
 | `gog calendar create --account email --title "Meeting"` | Create event |
 
 **Gotchas:**
-- ⚠️ Always specify `--account` flag
-- ⚠️ Times are in account's timezone unless specified
-- ⚠️ OAuth token expires — may need to re-auth
+-  Always specify `--account` flag
+-  Times are in account's timezone unless specified
+-  OAuth token expires — may need to re-auth
 
 ---
 

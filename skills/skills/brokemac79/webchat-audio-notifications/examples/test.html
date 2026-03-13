@@ -243,12 +243,12 @@
 <body>
   <div class="container">
     <header>
-      <h1>🔔 Webchat Audio Notifications</h1>
+      <h1> Webchat Audio Notifications</h1>
       <div class="subtitle">Test Page - POC v1.0.0</div>
     </header>
 
     <div class="section">
-      <h2>📊 System Status</h2>
+      <h2> System Status</h2>
       <div class="status-grid">
         <div class="status-item">
           <strong>Initialized</strong>
@@ -282,7 +282,7 @@
     </div>
 
     <div class="section">
-      <h2>🧪 Test Controls</h2>
+      <h2> Test Controls</h2>
       
       <div class="instructions">
         <h3>How to Test:</h3>
@@ -297,13 +297,13 @@
       </div>
 
       <div id="browser-warning" class="alert alert-warning" style="display: none;">
-        ⚠️ Your browser may have blocked audio autoplay. Click "Test Sound" to enable.
+         Your browser may have blocked audio autoplay. Click "Test Sound" to enable.
       </div>
 
       <div class="controls">
-        <button class="btn-primary" onclick="testNotification()">🔔 Trigger Notification</button>
-        <button class="btn-success" onclick="testSound()">🔊 Test Sound (Ignore Tab State)</button>
-        <button class="btn-warning" onclick="simulateMessages()">📨 Simulate 5 Messages</button>
+        <button class="btn-primary" onclick="testNotification()"> Trigger Notification</button>
+        <button class="btn-success" onclick="testSound()"> Test Sound (Ignore Tab State)</button>
+        <button class="btn-warning" onclick="simulateMessages()"> Simulate 5 Messages</button>
       </div>
 
       <div class="slider-group">
@@ -331,23 +331,23 @@
           border: 1px solid #ddd;
           font-size: 14px;
         ">
-          <option value="level1">🔕 Level 1 - Whisper (Most subtle, 9KB)</option>
-          <option value="level2">🔔 Level 2 - Soft (Gentle chime, 12KB)</option>
-          <option value="level3" selected>🔔 Level 3 - Medium (Balanced, 13KB)</option>
-          <option value="level4">🔊 Level 4 - Loud (Attention-getting, 43KB)</option>
-          <option value="level5">📢 Level 5 - Very Loud (Impossible to miss, 63KB)</option>
+          <option value="level1"> Level 1 - Whisper (Most subtle, 9KB)</option>
+          <option value="level2"> Level 2 - Soft (Gentle chime, 12KB)</option>
+          <option value="level3" selected> Level 3 - Medium (Balanced, 13KB)</option>
+          <option value="level4"> Level 4 - Loud (Attention-getting, 43KB)</option>
+          <option value="level5"> Level 5 - Very Loud (Impossible to miss, 63KB)</option>
         </select>
       </div>
 
       <div class="controls">
-        <button class="btn-success" onclick="enableNotifications()">✅ Enable Notifications</button>
-        <button class="btn-danger" onclick="disableNotifications()">🔇 Disable Notifications</button>
-        <button class="btn-secondary" onclick="clearConsole()">🗑️ Clear Console</button>
+        <button class="btn-success" onclick="enableNotifications()"> Enable Notifications</button>
+        <button class="btn-danger" onclick="disableNotifications()"> Disable Notifications</button>
+        <button class="btn-secondary" onclick="clearConsole()"> Clear Console</button>
       </div>
     </div>
 
     <div class="section">
-      <h2>📝 Console Log</h2>
+      <h2> Console Log</h2>
       <div class="console" id="console"></div>
     </div>
   </div>
@@ -382,10 +382,10 @@
       // Check for autoplay blocking
       if (Howler.ctx && Howler.ctx.state === 'suspended') {
         document.getElementById('browser-warning').style.display = 'block';
-        log('⚠️ Autoplay is blocked - user interaction required');
+        log(' Autoplay is blocked - user interaction required');
       }
 
-      log('✅ Initialization complete');
+      log(' Initialization complete');
     });
 
     // Update status display
@@ -393,28 +393,28 @@
       const settings = notifier.getSettings();
       
       document.getElementById('status-initialized').textContent = 
-        settings.initialized ? '✅ Yes' : '❌ No';
+        settings.initialized ? ' Yes' : ' No';
       document.getElementById('status-initialized').className = 
         settings.initialized ? 'status-value enabled' : 'status-value disabled';
       
       document.getElementById('status-enabled').textContent = 
-        settings.enabled ? '✅ Enabled' : '❌ Disabled';
+        settings.enabled ? ' Enabled' : ' Disabled';
       document.getElementById('status-enabled').className = 
         settings.enabled ? 'status-value enabled' : 'status-value disabled';
       
       document.getElementById('status-mobile').textContent = 
-        settings.isMobile ? '📱 Yes' : '🖥️ No';
+        settings.isMobile ? ' Yes' : ' No';
       
       document.getElementById('status-volume').textContent = 
         Math.round(settings.volume * 100) + '%';
       
       // Display sound level
       const soundLabels = {
-        'level1': '🔕 Level 1',
-        'level2': '🔔 Level 2',
-        'level3': '🔔 Level 3',
-        'level4': '🔊 Level 4',
-        'level5': '📢 Level 5'
+        'level1': ' Level 1',
+        'level2': ' Level 2',
+        'level3': ' Level 3',
+        'level4': ' Level 4',
+        'level5': ' Level 5'
       };
       document.getElementById('status-sound').textContent = 
         soundLabels[settings.soundName] || settings.soundName;
@@ -426,7 +426,7 @@
       if (Howler.ctx) {
         const state = Howler.ctx.state;
         document.getElementById('status-autoplay').textContent = 
-          state === 'running' ? '✅ Allowed' : '⚠️ Blocked';
+          state === 'running' ? ' Allowed' : ' Blocked';
         document.getElementById('status-autoplay').className = 
           state === 'running' ? 'status-value enabled' : 'status-value disabled';
       }
@@ -436,7 +436,7 @@
     document.addEventListener('visibilitychange', () => {
       const hidden = document.hidden;
       document.getElementById('status-tab').textContent = 
-        hidden ? '🙈 Hidden' : '👁️ Visible';
+        hidden ? ' Hidden' : ' Visible';
       document.getElementById('status-tab').className = 
         hidden ? 'status-value enabled' : 'status-value disabled';
       log(hidden ? 'Tab is now HIDDEN' : 'Tab is now VISIBLE');
@@ -444,19 +444,19 @@
 
     // Test functions
     function testNotification() {
-      log('🔔 Triggering notification...');
+      log(' Triggering notification...');
       notifier.notify('message');
       updateStatus();
     }
 
     function testSound() {
-      log('🔊 Testing sound (ignoring tab state)...');
+      log(' Testing sound (ignoring tab state)...');
       notifier.test();
       updateStatus();
     }
 
     function simulateMessages() {
-      log('📨 Simulating 5 messages (3s apart)...');
+      log(' Simulating 5 messages (3s apart)...');
       let count = 0;
       const interval = setInterval(() => {
         count++;
@@ -464,7 +464,7 @@
         notifier.notify('message');
         if (count >= 5) {
           clearInterval(interval);
-          log('✅ Simulation complete');
+          log(' Simulation complete');
         }
       }, 3000);
       updateStatus();
@@ -474,26 +474,26 @@
       const volume = parseInt(value) / 100;
       notifier.setVolume(volume);
       document.getElementById('volume-display').textContent = value + '%';
-      log(`🎚️ Volume set to ${value}%`);
+      log(` Volume set to ${value}%`);
       updateStatus();
     }
 
     function changeSound(soundName) {
-      log(`🔊 Changing sound to: ${soundName}`);
+      log(` Changing sound to: ${soundName}`);
       notifier.setSound(soundName);
-      log(`✅ Sound changed to ${soundName}`);
+      log(` Sound changed to ${soundName}`);
       updateStatus();
     }
 
     function enableNotifications() {
       notifier.setEnabled(true);
-      log('✅ Notifications ENABLED');
+      log(' Notifications ENABLED');
       updateStatus();
     }
 
     function disableNotifications() {
       notifier.setEnabled(false);
-      log('🔇 Notifications DISABLED');
+      log(' Notifications DISABLED');
       updateStatus();
     }
 

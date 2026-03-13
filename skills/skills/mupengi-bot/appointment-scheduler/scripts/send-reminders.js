@@ -18,7 +18,7 @@ const REMINDER_LOG = path.join(process.env.HOME, '.openclaw', 'workspace', 'data
 // Load config
 const CONFIG_FILE = path.join(process.env.HOME, '.openclaw', 'workspace', 'config', 'appointment-scheduler.json');
 if (!fs.existsSync(CONFIG_FILE)) {
-  console.error('❌ Config not found. Run init-config.js first.');
+  console.error(' Config not found. Run init-config.js first.');
   process.exit(1);
 }
 const config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
@@ -66,9 +66,9 @@ function formatMessage(booking, type) {
   const businessName = config.business_name || '저희';
   
   if (type === 'day-before') {
-    return `안녕하세요 ${booking.customer.name}님, ${businessName}입니다.\n\n내일(${booking.date}) ${booking.time}에 ${booking.service} 예약이 있습니다.\n\n변경이 필요하시면 미리 연락 부탁드립니다. 감사합니다! 🙏`;
+    return `안녕하세요 ${booking.customer.name}님, ${businessName}입니다.\n\n내일(${booking.date}) ${booking.time}에 ${booking.service} 예약이 있습니다.\n\n변경이 필요하시면 미리 연락 부탁드립니다. 감사합니다! `;
   } else if (type === 'hour-before') {
-    return `${booking.customer.name}님, 2시간 후(${booking.time})에 ${booking.service} 예약이 있습니다.\n\n곧 뵙겠습니다! 😊`;
+    return `${booking.customer.name}님, 2시간 후(${booking.time})에 ${booking.service} 예약이 있습니다.\n\n곧 뵙겠습니다! `;
   }
   return '';
 }
@@ -76,13 +76,13 @@ function formatMessage(booking, type) {
 // Main logic
 const targetDate = getTargetDate();
 if (!targetDate) {
-  console.error('❌ Invalid type. Use day-before or hour-before');
+  console.error(' Invalid type. Use day-before or hour-before');
   process.exit(1);
 }
 
 const filePath = path.join(DATA_DIR, `${targetDate}.json`);
 if (!fs.existsSync(filePath)) {
-  console.log(`ℹ️  No bookings found for ${targetDate}`);
+  console.log(`  No bookings found for ${targetDate}`);
   process.exit(0);
 }
 
@@ -95,12 +95,12 @@ bookings.forEach(booking => {
     const contact = booking.customer.phone || booking.customer.email;
     
     if (!contact) {
-      console.log(`⚠️  No contact info for ${booking.customer.name} (booking ${booking.id})`);
+      console.log(`  No contact info for ${booking.customer.name} (booking ${booking.id})`);
       return;
     }
     
     // Output reminder message for agent to send via message tool
-    console.log('\n📤 SEND_REMINDER');
+    console.log('\n SEND_REMINDER');
     console.log(JSON.stringify({
       booking_id: booking.id,
       customer: booking.customer.name,
@@ -131,4 +131,4 @@ fs.writeFileSync(filePath, JSON.stringify(bookings, null, 2));
 // Save reminder log
 fs.writeFileSync(REMINDER_LOG, JSON.stringify(reminderLog, null, 2));
 
-console.log(`\n✅ Sent ${sent} reminders (type: ${type})`);
+console.log(`\n Sent ${sent} reminders (type: ${type})`);

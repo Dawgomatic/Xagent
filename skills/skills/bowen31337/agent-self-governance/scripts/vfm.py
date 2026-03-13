@@ -136,7 +136,7 @@ def suggest_optimizations(gov_dir: str, agent_id: str) -> list[str]:
     for e in entries[-20:]:
         if e["cost_usd"] > 0.10 and e["outcome_score"] < 0.5:
             suggestions.append(
-                f"⚠️ '{e['task']}' cost ${e['cost_usd']:.3f} but scored {e['outcome_score']}/1.0 — consider cheaper model"
+                f" '{e['task']}' cost ${e['cost_usd']:.3f} but scored {e['outcome_score']}/1.0 — consider cheaper model"
             )
 
     # Find tasks using premium models that could use budget
@@ -147,7 +147,7 @@ def suggest_optimizations(gov_dir: str, agent_id: str) -> list[str]:
                 task_tier = TASK_TIER_MAP.get(e["task"], "standard")
                 if task_tier in ("budget", "standard"):
                     suggestions.append(
-                        f"💡 '{e['task']}' used {e['model']} (premium) but task type suggests {task_tier} tier is enough"
+                        f" '{e['task']}' used {e['model']} (premium) but task type suggests {task_tier} tier is enough"
                     )
 
     # Overall cost trend
@@ -157,10 +157,10 @@ def suggest_optimizations(gov_dir: str, agent_id: str) -> list[str]:
         recent_avg = sum(e["cost_usd"] for e in recent) / 5
         older_avg = sum(e["cost_usd"] for e in older) / 5
         if recent_avg > older_avg * 1.5:
-            suggestions.append(f"📈 Cost trending up: recent avg ${recent_avg:.3f}/task vs ${older_avg:.3f}/task before")
+            suggestions.append(f" Cost trending up: recent avg ${recent_avg:.3f}/task vs ${older_avg:.3f}/task before")
 
     if not suggestions:
-        suggestions.append("✅ Costs look reasonable. No optimization suggestions.")
+        suggestions.append(" Costs look reasonable. No optimization suggestions.")
 
     return suggestions
 

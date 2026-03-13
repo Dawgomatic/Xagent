@@ -133,7 +133,7 @@ Config file: `~/.openclaw/imap-idle.json`
 
 ## Secure Password Storage (Keyring)
 
-**🔐 Recommended:** Store passwords in system keychain instead of config file.
+** Recommended:** Store passwords in system keychain instead of config file.
 
 ### Setup with Keyring
 
@@ -171,10 +171,10 @@ The listener automatically tries keyring first, then falls back to config:
 
 ### Security Benefits
 
-- ✅ No plain text passwords in config files
-- ✅ OS-level encryption (macOS Keychain, GNOME Keyring, Windows Credential Manager)
-- ✅ Reduces VirusTotal false positives
-- ✅ Better security audit trail
+-  No plain text passwords in config files
+-  OS-level encryption (macOS Keychain, GNOME Keyring, Windows Credential Manager)
+-  Reduces VirusTotal false positives
+-  Better security audit trail
 
 ## How It Works
 

@@ -1,8 +1,8 @@
 # Context Restore 健壮性改进建议总结
 
-## 📋 任务完成摘要
+##  任务完成摘要
 
-### ✅ 已完成工作
+###  已完成工作
 
 1. **错误处理分析** - 分析了 `restore_context.py` 中的错误处理机制
 2. **边界情况识别** - 识别了 20+ 个边界情况和异常场景
@@ -12,18 +12,18 @@
 
 ---
 
-## 🔍 关键发现
+##  关键发现
 
 ### 当前状态评估
 
 | 方面 | 状态 | 说明 |
 |------|------|------|
-| 文件 I/O 错误处理 | ✅ 良好 | FileNotFoundError, PermissionError, OSError 都有处理 |
-| JSON 解析错误 | ✅ 良好 | 无效 JSON 会降级为纯文本处理 |
-| 空内容处理 | ⚠️ 部分 | 返回空字符串，但可能引起下游问题 |
-| 输入验证 | ❌ 缺失 | `None` 和类型错误会导致异常 |
-| 错误码体系 | ❌ 缺失 | 难以追踪问题来源 |
-| 日志记录 | ❌ 缺失 | 仅打印到 stdout |
+| 文件 I/O 错误处理 |  良好 | FileNotFoundError, PermissionError, OSError 都有处理 |
+| JSON 解析错误 |  良好 | 无效 JSON 会降级为纯文本处理 |
+| 空内容处理 |  部分 | 返回空字符串，但可能引起下游问题 |
+| 输入验证 |  缺失 | `None` 和类型错误会导致异常 |
+| 错误码体系 |  缺失 | 难以追踪问题来源 |
+| 日志记录 |  缺失 | 仅打印到 stdout |
 
 ### 关键问题
 
@@ -34,7 +34,7 @@
 
 ---
 
-## 📊 测试结果
+##  测试结果
 
 运行 `test_error_handling.py` 结果：
 
@@ -58,7 +58,7 @@
 
 ---
 
-## 🚀 改进建议
+##  改进建议
 
 ### P0 - 立即执行
 
@@ -98,7 +98,7 @@ def validate_message_count(value: Any) -> Optional[int]:
 ```python
 # 性能提升约 30-50%
 _ORIGINAL_PATTERN = re.compile(r'原始消息数:\s*(\d+)')
-_CHECKMARK_PATTERN = re.compile(r'✅\s*(.+?)(?:\n|$)', re.MULTILINE)
+_CHECKMARK_PATTERN = re.compile(r'\s*(.+?)(?:\n|$)', re.MULTILINE)
 ```
 
 ### P1 - 短期执行
@@ -139,18 +139,18 @@ class ContextRestoreResult:
 
 ---
 
-## 📁 交付物清单
+##  交付物清单
 
 | 文件 | 描述 | 状态 |
 |------|------|------|
-| `docs/error_handling_report.md` | 详细错误处理分析报告 | ✅ 完成 |
-| `tests/test_error_handling.py` | 边界情况测试用例 | ✅ 完成 |
-| `scripts/robustness_improvements.py` | 健壮性改进实现示例 | ✅ 完成 |
-| `IMPROVEMENTS.md` | 本总结文档 | ✅ 完成 |
+| `docs/error_handling_report.md` | 详细错误处理分析报告 |  完成 |
+| `tests/test_error_handling.py` | 边界情况测试用例 |  完成 |
+| `scripts/robustness_improvements.py` | 健壮性改进实现示例 |  完成 |
+| `IMPROVEMENTS.md` | 本总结文档 |  完成 |
 
 ---
 
-## 🔧 快速集成建议
+##  快速集成建议
 
 ### 方式 1: 直接替换函数
 
@@ -183,18 +183,18 @@ def extract_recent_operations(content: str) -> list[str]:
 
 ---
 
-## 📈 预期效果
+##  预期效果
 
 | 指标 | 当前 | 改进后 | 提升 |
 |------|------|--------|------|
 | 错误覆盖率 | ~60% | ~95% | +58% |
-| 类型安全 | ❌ | ✅ | N/A |
+| 类型安全 |  |  | N/A |
 | 性能 (正则) | 基准 | -30% | 提升 |
-| API 一致性 | ❌ | ✅ | N/A |
+| API 一致性 |  |  | N/A |
 
 ---
 
-## ✅ 结论
+##  结论
 
 1. **核心问题已识别**: 输入验证缺失是主要问题
 2. **改进方案已提供**: 包含完整的代码实现

@@ -15,7 +15,7 @@ Parse:
 }
 
 Output:
-✅ Symptom recorded
+ Symptom recorded
 Main Symptom: Headache (Mild)
 Recommendation: Rest adequately, seek medical attention if symptoms persist for more than 24 hours
 ```
@@ -37,7 +37,7 @@ Parse:
 }
 
 Output:
-✅ Symptom recorded
+ Symptom recorded
 Main Symptom: Fever (Moderate)
 Associated Symptoms: Cough, Sore throat
 Recommendation: Monitor temperature, drink plenty of water, seek medical attention if fever persists for more than 3 days
@@ -56,7 +56,7 @@ Parse:
 }
 
 Output:
-⚠️ Possible critical symptom detected
+ Possible critical symptom detected
 Recommendation: Seek immediate medical attention rather than just recording symptoms
 Please call 120 or go to the nearest hospital emergency room
 ```
@@ -67,7 +67,7 @@ Please call 120 or go to the nearest hospital emergency room
 User: View symptom history
 
 Output:
-📋 Symptom History Records
+ Symptom History Records
 December 2025 (3 records)
 12-31  Headache (Mild)     Nervous System
 12-30  Abdominal pain (Moderate)     Digestive System
@@ -80,7 +80,7 @@ December 2025 (3 records)
 User: Symptom statistics
 
 Output:
-📊 Symptom Statistics Analysis
+ Symptom Statistics Analysis
 Monthly Overview:
 Records: 5 times
 Most Common: Headache (2 times)

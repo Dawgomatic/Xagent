@@ -102,7 +102,7 @@ export async function buildCommand(opts: BuildOptions): Promise<void> {
   console.log(chalk.bold('\n╔══════════════════════════════════════════════════╗'));
   console.log(chalk.bold('║') + chalk.cyan.bold('   Voice.ai Creator Voiceover Pipeline             ') + chalk.bold('║'));
   console.log(chalk.bold('╚══════════════════════════════════════════════════╝'));
-  if (isMock) console.log(chalk.yellow.bold('   ⚡ Mock mode — no API calls will be made\n'));
+  if (isMock) console.log(chalk.yellow.bold('    Mock mode — no API calls will be made\n'));
 
   console.log(chalk.gray(`   Script:   ${inputPath}`));
   console.log(chalk.gray(`   Voice:    ${voiceId}`));
@@ -115,7 +115,7 @@ export async function buildCommand(opts: BuildOptions): Promise<void> {
   const client = new VoiceAIClient({ apiKey: apiKey ?? undefined, mock: isMock });
 
   // ── Read & chunk script ───────────────────────────────────────────
-  console.log(chalk.cyan('\n📄 Reading script…'));
+  console.log(chalk.cyan('\n Reading script…'));
   const scriptContent = await readTextFile(inputPath);
 
   const segments = await chunkScript(scriptContent, {
@@ -127,7 +127,7 @@ export async function buildCommand(opts: BuildOptions): Promise<void> {
     voiceId,
   });
 
-  console.log(chalk.green(`   ✅ ${segments.length} segments extracted`));
+  console.log(chalk.green(`    ${segments.length} segments extracted`));
   for (const seg of segments) {
     const tag = seg.source === 'template' ? chalk.yellow(' [template]') : '';
     console.log(chalk.gray(`      ${String(seg.index).padStart(2)}. ${seg.title}${tag}`));
@@ -148,30 +148,30 @@ export async function buildCommand(opts: BuildOptions): Promise<void> {
 
   // ── Stitch master ─────────────────────────────────────────────────
   if (ffAvail.ffmpeg) {
-    console.log(chalk.cyan('\n🎶 Stitching master audio…'));
+    console.log(chalk.cyan('\n Stitching master audio…'));
     const segPaths = results.map((r) => r.filePath);
     const masterWav = join(outputDir, 'master.wav');
 
     const stitched = await stitchSegments(segPaths, masterWav);
     if (stitched) {
       hasMaster = true;
-      console.log(chalk.green(`   ✅ master.wav`));
+      console.log(chalk.green(`    master.wav`));
 
       // Try mp3 encode
       const masterMp3 = join(outputDir, 'master.mp3');
       const mp3Ok = await encodeToMp3(masterWav, masterMp3);
-      if (mp3Ok) console.log(chalk.green(`   ✅ master.mp3`));
+      if (mp3Ok) console.log(chalk.green(`    master.mp3`));
 
       // Try loudness normalization
       const normalizedWav = join(outputDir, 'master_normalized.wav');
       const normOk = await normalizeLoudness(masterWav, normalizedWav);
-      if (normOk) console.log(chalk.green(`   ✅ master_normalized.wav (loudnorm -16 LUFS)`));
+      if (normOk) console.log(chalk.green(`    master_normalized.wav (loudnorm -16 LUFS)`));
     } else {
-      console.log(chalk.yellow('   ⚠ Stitching failed — segments are still available individually.'));
+      console.log(chalk.yellow('    Stitching failed — segments are still available individually.'));
     }
   } else {
     console.log(
-      chalk.yellow('\n⚠ ffmpeg not found — skipping master stitch.') +
+      chalk.yellow('\n ffmpeg not found — skipping master stitch.') +
         chalk.gray('\n   Segments are available individually in segments/.') +
         chalk.gray('\n   Install ffmpeg for stitching: https://ffmpeg.org/download.html'),
     );
@@ -186,7 +186,7 @@ export async function buildCommand(opts: BuildOptions): Promise<void> {
     if (!videoPath || !(await fileExists(videoPath))) {
       console.error(chalk.red(`\n✗ Video file not found: ${videoPath ?? '(not specified)'}`));
     } else if (!hasMaster) {
-      console.log(chalk.yellow('\n⚠ No master audio to mux. Skipping video muxing.'));
+      console.log(chalk.yellow('\n No master audio to mux. Skipping video muxing.'));
     } else if (ffAvail.ffmpeg) {
       const muxedPath = join(outputDir, 'muxed.mp4');
       muxResult = await muxAudioVideo({
@@ -196,16 +196,16 @@ export async function buildCommand(opts: BuildOptions): Promise<void> {
         syncPolicy,
       });
     } else {
-      console.log(chalk.yellow('\n⚠ ffmpeg required for muxing. Generating helper scripts…'));
+      console.log(chalk.yellow('\n ffmpeg required for muxing. Generating helper scripts…'));
       const masterPath = join(outputDir, 'master.wav');
       const muxedPath = join(outputDir, 'muxed.mp4');
       await generateMuxScripts(videoPath, masterPath, muxedPath, syncPolicy, outputDir);
-      console.log(chalk.green('   ✅ Helper scripts generated in ffmpeg/'));
+      console.log(chalk.green('    Helper scripts generated in ffmpeg/'));
     }
   }
 
   // ── Generate all output files ─────────────────────────────────────
-  console.log(chalk.cyan('\n📦 Generating output files…'));
+  console.log(chalk.cyan('\n Generating output files…'));
 
   await writeAllOutputs({
     outputDir,
@@ -220,13 +220,13 @@ export async function buildCommand(opts: BuildOptions): Promise<void> {
     muxResult,
   });
 
-  console.log(chalk.green('   ✅ manifest.json'));
-  console.log(chalk.green('   ✅ timeline.json'));
-  console.log(chalk.green('   ✅ review.html'));
-  console.log(chalk.green('   ✅ description.txt'));
+  console.log(chalk.green('    manifest.json'));
+  console.log(chalk.green('    timeline.json'));
+  console.log(chalk.green('    review.html'));
+  console.log(chalk.green('    description.txt'));
   if (results.some((r) => r.duration > 0)) {
-    console.log(chalk.green('   ✅ chapters.txt'));
-    console.log(chalk.green('   ✅ captions.srt'));
+    console.log(chalk.green('    chapters.txt'));
+    console.log(chalk.green('    captions.srt'));
   }
 
   // ── Summary ───────────────────────────────────────────────────────
@@ -234,7 +234,7 @@ export async function buildCommand(opts: BuildOptions): Promise<void> {
   const totalDur = results.reduce((s, r) => s + r.duration, 0).toFixed(1);
 
   console.log(chalk.bold('\n╔══════════════════════════════════════════════════╗'));
-  console.log(chalk.bold('║') + chalk.green.bold('   ✅ Build complete!                              ') + chalk.bold('║'));
+  console.log(chalk.bold('║') + chalk.green.bold('    Build complete!                              ') + chalk.bold('║'));
   console.log(chalk.bold('╚══════════════════════════════════════════════════╝'));
   console.log(chalk.gray(`   Output:    ${outputDir}`));
   console.log(chalk.gray(`   Segments:  ${results.length}`));

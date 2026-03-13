@@ -20,7 +20,7 @@ Minimal agent-to-agent communication protocol. 5-8x compression vs natural langu
 - Extended atoms: 160
 
 ## v1.7 Changes
-- **Added roundtrip test suite**: 50 comprehensive tests for Lambda↔English translation
+- **Added roundtrip test suite**: 50 comprehensive tests for LambdaEnglish translation
 - **Fixed english_to_lambda**: Domain atoms now properly included in reverse lookup
 - **Improved separator logic**: Better handling of single/double char atom boundaries
 - **Added Go implementation**: Native Go encoder/decoder for Pilot Protocol integration

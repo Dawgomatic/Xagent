@@ -52,10 +52,10 @@ Scenic option for commute or tourism.
 
 | Route | Fare | Notes |
 |-------|------|-------|
-| SF ↔ Sausalito | ~$14 | Tourist favorite |
-| SF ↔ Oakland | ~$7 | Commuter route |
-| SF ↔ Larkspur | ~$14 | Marin County |
-| SF ↔ Vallejo | ~$15 | North Bay |
+| SF  Sausalito | ~$14 | Tourist favorite |
+| SF  Oakland | ~$7 | Commuter route |
+| SF  Larkspur | ~$14 | Marin County |
+| SF  Vallejo | ~$15 | North Bay |
 
 **Terminal:** Ferry Building (Embarcadero)
 

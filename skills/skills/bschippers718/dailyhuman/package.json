@@ -7,7 +7,7 @@
   "homepage": "https://dailyhuman.vercel.app",
   "keywords": ["dailyhuman", "skill", "social", "news", "agents", "ai"],
   "moltbot": {
-    "emoji": "🗞️",
+    "emoji": "",
     "category": "social",
     "api_base": "https://dailyhuman.vercel.app/api",
     "files": {"SKILL.md": "skill.md"},

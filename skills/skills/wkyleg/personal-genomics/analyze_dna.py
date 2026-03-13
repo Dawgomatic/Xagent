@@ -254,7 +254,7 @@ def generate_report(health, pharma, traits, apoe_status):
     lines.append(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     lines.append("=" * 70)
     lines.append("")
-    lines.append("⚠️  DISCLAIMER: This is NOT medical advice. Consult healthcare")
+    lines.append("  DISCLAIMER: This is NOT medical advice. Consult healthcare")
     lines.append("    professionals before making any health decisions.")
     lines.append("")
     
@@ -275,7 +275,7 @@ def generate_report(health, pharma, traits, apoe_status):
     for category, markers in health.items():
         lines.append(f"\n{category.upper().replace('_', ' ')}:")
         for rsid, data in markers.items():
-            status_icon = "⚠️" if data['status'] != 'normal' else "✓"
+            status_icon = "" if data['status'] != 'normal' else "✓"
             lines.append(f"  {status_icon} {data['gene']} {data['name']}: {data['genotype']} ({data['status']})")
     
     # Pharmacogenomics
@@ -287,7 +287,7 @@ def generate_report(health, pharma, traits, apoe_status):
     actionable = [r for r in pharma.values() if r['actionable']]
     if actionable:
         for r in actionable:
-            lines.append(f"  ⚠️ {r['gene']} {r['name']}: {r['genotype']}")
+            lines.append(f"   {r['gene']} {r['name']}: {r['genotype']}")
             lines.append(f"     Effect: {r['effect']}")
             lines.append(f"     Drugs: {', '.join(r['affected_drugs'])}")
     else:

@@ -42,7 +42,7 @@ class MemoryGuardian {
   }
 
   async init() {
-    console.log(chalk.blue('🧠 初始化记忆守护者系统...'));
+    console.log(chalk.blue(' 初始化记忆守护者系统...'));
     
     // 创建记忆目录结构
     const dirs = [
@@ -53,7 +53,7 @@ class MemoryGuardian {
 
     for (const dir of dirs) {
       await fs.ensureDir(dir);
-      console.log(chalk.green(`✅ 创建目录: ${path.relative(this.workspacePath, dir)}`));
+      console.log(chalk.green(` 创建目录: ${path.relative(this.workspacePath, dir)}`));
     }
 
     // 创建基础记忆文件
@@ -78,7 +78,7 @@ class MemoryGuardian {
       const filePath = path.join(this.memoryPath, filename);
       if (!await fs.pathExists(filePath)) {
         await fs.writeFile(filePath, content);
-        console.log(chalk.green(`✅ 创建文件: ${filename}`));
+        console.log(chalk.green(` 创建文件: ${filename}`));
       }
     }
 
@@ -88,24 +88,24 @@ class MemoryGuardian {
     // 初始化git仓库（如果不存在）
     const isRepo = await this.git.checkIsRepo();
     if (!isRepo) {
-      console.log(chalk.yellow('⚠️  未检测到git仓库，正在初始化...'));
+      console.log(chalk.yellow('  未检测到git仓库，正在初始化...'));
       await this.git.init();
       await fs.writeFile(path.join(this.workspacePath, '.gitignore'), 'node_modules/\n*.log\n.DS_Store\n');
       await this.git.add('.gitignore');
       await this.git.commit('初始化记忆守护者系统');
-      console.log(chalk.green('✅ git仓库初始化完成'));
+      console.log(chalk.green(' git仓库初始化完成'));
     }
 
     // 创建自动保存脚本
     await this.createAutoSaveScript();
 
-    console.log(chalk.bold.green('\n🎉 记忆守护者系统初始化完成！'));
-    console.log(chalk.cyan('📁 记忆目录: ') + this.memoryPath);
-    console.log(chalk.cyan('⏰ 自动保存: ') + `每${this.config.autoSaveInterval}秒`);
-    console.log(chalk.cyan('🔄 自动提交: ') + `每${this.config.autoCommitInterval}秒`);
-    console.log(chalk.cyan('💾 备份保留: ') + `${this.config.backupRetention}天`);
+    console.log(chalk.bold.green('\n 记忆守护者系统初始化完成！'));
+    console.log(chalk.cyan(' 记忆目录: ') + this.memoryPath);
+    console.log(chalk.cyan(' 自动保存: ') + `每${this.config.autoSaveInterval}秒`);
+    console.log(chalk.cyan(' 自动提交: ') + `每${this.config.autoCommitInterval}秒`);
+    console.log(chalk.cyan(' 备份保留: ') + `${this.config.backupRetention}天`);
     
-    console.log(chalk.yellow('\n🚀 开始使用:'));
+    console.log(chalk.yellow('\n 开始使用:'));
     console.log('1. memory-guardian status    # 检查系统状态');
     console.log('2. memory-guardian save      # 手动保存当前状态');
     console.log('3. memory-guardian search    # 搜索记忆内容');
@@ -117,9 +117,9 @@ class MemoryGuardian {
     const dailyFile = path.join(this.memoryPath, `${today}.md`);
     
     if (!await fs.pathExists(dailyFile)) {
-      const content = `# ${today}\n\n## 🧠 自动创建的记忆文件\n创建时间: ${new Date().toLocaleString('zh-CN')}\n\n## 📋 今日工作\n\n## 📝 学习记录\n\n## 💡 重要决策\n\n## 🔄 下一步计划\n\n---\n*由记忆守护者系统自动创建*\n`;
+      const content = `# ${today}\n\n##  自动创建的记忆文件\n创建时间: ${new Date().toLocaleString('zh-CN')}\n\n##  今日工作\n\n##  学习记录\n\n##  重要决策\n\n##  下一步计划\n\n---\n*由记忆守护者系统自动创建*\n`;
       await fs.writeFile(dailyFile, content);
-      console.log(chalk.green(`✅ 创建今日记忆文件: ${today}.md`));
+      console.log(chalk.green(` 创建今日记忆文件: ${today}.md`));
     }
   }
 
@@ -141,10 +141,10 @@ while true; do
   if [ ! -f "$DAILY_FILE" ]; then
     echo "# $TODAY" > "$DAILY_FILE"
     echo "" >> "$DAILY_FILE"
-    echo "## 🧠 自动创建的记忆文件" >> "$DAILY_FILE"
+    echo "##  自动创建的记忆文件" >> "$DAILY_FILE"
     echo "创建时间: $(date)" >> "$DAILY_FILE"
     echo "" >> "$DAILY_FILE"
-    echo "## 📋 今日工作" >> "$DAILY_FILE"
+    echo "##  今日工作" >> "$DAILY_FILE"
     echo "[$(date)] 创建今日记忆文件: $TODAY.md" >> "$LOG_FILE"
   fi
 
@@ -163,11 +163,11 @@ done
     await fs.writeFile(scriptPath, scriptContent);
     await fs.chmod(scriptPath, '755');
     
-    console.log(chalk.green(`✅ 创建自动保存脚本: ${path.relative(this.workspacePath, scriptPath)}`));
+    console.log(chalk.green(` 创建自动保存脚本: ${path.relative(this.workspacePath, scriptPath)}`));
   }
 
   async status() {
-    console.log(chalk.blue('📊 记忆守护者系统状态检查...\n'));
+    console.log(chalk.blue(' 记忆守护者系统状态检查...\n'));
 
     // 检查目录结构
     const checks = [
@@ -186,9 +186,9 @@ done
         await fs.pathExists(check.path);
 
       if (exists) {
-        console.log(chalk.green(`✅ ${check.name}`));
+        console.log(chalk.green(` ${check.name}`));
       } else {
-        console.log(chalk.red(`❌ ${check.name}`));
+        console.log(chalk.red(` ${check.name}`));
         allPassed = false;
       }
     }
@@ -198,13 +198,13 @@ done
       const isRepo = await this.git.checkIsRepo();
       if (isRepo) {
         const status = await this.git.status();
-        console.log(chalk.green(`✅ Git仓库: ${status.current || '未设置分支'}`));
+        console.log(chalk.green(` Git仓库: ${status.current || '未设置分支'}`));
         console.log(chalk.cyan(`  未提交更改: ${status.files.length} 个文件`));
       } else {
-        console.log(chalk.yellow('⚠️  Git仓库: 未初始化'));
+        console.log(chalk.yellow('  Git仓库: 未初始化'));
       }
     } catch (error) {
-      console.log(chalk.red(`❌ Git检查失败: ${error.message}`));
+      console.log(chalk.red(` Git检查失败: ${error.message}`));
     }
 
     // 检查今日记忆文件
@@ -213,23 +213,23 @@ done
     if (await fs.pathExists(dailyFile)) {
       const stats = await fs.stat(dailyFile);
       const age = (Date.now() - stats.mtimeMs) / 1000 / 60; // 分钟
-      console.log(chalk.green(`✅ 今日记忆文件: ${today}.md (${age.toFixed(1)}分钟前更新)`));
+      console.log(chalk.green(` 今日记忆文件: ${today}.md (${age.toFixed(1)}分钟前更新)`));
     } else {
-      console.log(chalk.red(`❌ 今日记忆文件: 未创建`));
+      console.log(chalk.red(` 今日记忆文件: 未创建`));
     }
 
     // 检查备份
     const backupDir = path.join(this.memoryPath, 'backup');
     if (await fs.pathExists(backupDir)) {
       const backups = await fs.readdir(backupDir);
-      console.log(chalk.cyan(`📦 备份数量: ${backups.length} 个`));
+      console.log(chalk.cyan(` 备份数量: ${backups.length} 个`));
     }
 
-    console.log(chalk.bold('\n' + (allPassed ? '🎉 系统状态正常' : '⚠️  系统需要修复')));
+    console.log(chalk.bold('\n' + (allPassed ? ' 系统状态正常' : '  系统需要修复')));
   }
 
   async save(message = '自动保存') {
-    console.log(chalk.blue('💾 手动保存记忆状态...'));
+    console.log(chalk.blue(' 手动保存记忆状态...'));
     
     // 确保今日文件存在
     await this.createDailyMemoryFile();
@@ -247,15 +247,15 @@ done
     try {
       await this.git.add('./memory/*');
       await this.git.commit(`记忆保存: ${message} - ${new Date().toLocaleString('zh-CN')}`);
-      console.log(chalk.green(`✅ 记忆已保存并提交: "${message}"`));
+      console.log(chalk.green(` 记忆已保存并提交: "${message}"`));
     } catch (error) {
-      console.log(chalk.yellow(`⚠️  Git提交失败: ${error.message}`));
-      console.log(chalk.green('✅ 记忆文件已保存（本地）'));
+      console.log(chalk.yellow(`  Git提交失败: ${error.message}`));
+      console.log(chalk.green(' 记忆文件已保存（本地）'));
     }
   }
 
   async search(query) {
-    console.log(chalk.blue(`🔍 搜索记忆: "${query}"`));
+    console.log(chalk.blue(` 搜索记忆: "${query}"`));
     
     // 简单的文本搜索实现
     const searchResults = [];
@@ -287,18 +287,18 @@ done
     }
     
     if (searchResults.length > 0) {
-      console.log(chalk.green(`✅ 找到 ${searchResults.length} 个相关文件:`));
+      console.log(chalk.green(` 找到 ${searchResults.length} 个相关文件:`));
       searchResults.forEach((result, index) => {
         console.log(chalk.cyan(`  ${index + 1}. ${result.file}`));
         console.log(chalk.gray(`     匹配: ${result.matches} 处 | ${result.preview}`));
       });
     } else {
-      console.log(chalk.yellow('⚠️  未找到相关记忆'));
+      console.log(chalk.yellow('  未找到相关记忆'));
     }
   }
 
   async backup() {
-    console.log(chalk.blue('📦 创建记忆备份...'));
+    console.log(chalk.blue(' 创建记忆备份...'));
     
     const timestamp = format(new Date(), 'yyyyMMdd_HHmmss');
     const backupDir = path.join(this.memoryPath, 'backup', `backup_${timestamp}`);
@@ -320,7 +320,7 @@ done
     
     await fs.writeJson(path.join(backupDir, 'backup_info.json'), backupInfo, { spaces: 2 });
     
-    console.log(chalk.green(`✅ 备份创建完成: ${path.relative(this.memoryPath, backupDir)}`));
+    console.log(chalk.green(` 备份创建完成: ${path.relative(this.memoryPath, backupDir)}`));
     console.log(chalk.cyan(`  备份时间: ${new Date().toLocaleString('zh-CN')}`));
     console.log(chalk.cyan(`  备份大小: ${(backupInfo.size / 1024 / 1024).toFixed(2)} MB`));
     console.log(chalk.cyan(`  文件数量: ${backupInfo.fileCount} 个`));
@@ -365,7 +365,7 @@ async function main() {
       if (args[1]) {
         await guardian.search(args[1]);
       } else {
-        console.log(chalk.red('❌ 请提供搜索关键词'));
+        console.log(chalk.red(' 请提供搜索关键词'));
         console.log(chalk.yellow('用法: memory-guardian search "关键词"'));
       }
       break;
@@ -374,7 +374,7 @@ async function main() {
       break;
     case 'help':
     default:
-      console.log(chalk.bold.blue('🧠 Claw Memory Guardian - 记忆守护者'));
+      console.log(chalk.bold.blue(' Claw Memory Guardian - 记忆守护者'));
       console.log(chalk.cyan('基于亲身教训的防丢失记忆系统\n'));
       console.log(chalk.bold('可用命令:'));
       console.log('  init          初始化记忆系统');
@@ -394,6 +394,6 @@ async function main() {
 
 // 错误处理
 main().catch(error => {
-  console.error(chalk.red('❌ 错误:'), error.message);
+  console.error(chalk.red(' 错误:'), error.message);
   process.exit(1);
 });

@@ -43,7 +43,7 @@ Every paywall needs these elements. Order matters.
 │          BEST VALUE     │
 ├─────────────────────────┤
 │  [ Continue - $X.XX ]   │
-│  Cancel anytime · ⭐4.8 │
+│  Cancel anytime · 4.8 │
 └─────────────────────────┘
                       [✕]
 ```
@@ -54,7 +54,7 @@ Best for: Apps with multiple features to showcase
 
 ```
 ┌─────────────────────────┐
-│    🎨 Go Premium        │
+│     Go Premium        │
 │                         │
 │  ✓ Unlimited exports    │
 │  ✓ No watermarks        │

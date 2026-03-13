@@ -54,7 +54,7 @@ if [[ ! -d "$SNAP_DIR" ]]; then
     exit 1
 fi
 
-echo "⚠️  This will overwrite current files with snapshot from $DATE"
+echo "  This will overwrite current files with snapshot from $DATE"
 echo "   Source: $SNAP_DIR"
 echo ""
 read -p "Continue? [y/N] " confirm

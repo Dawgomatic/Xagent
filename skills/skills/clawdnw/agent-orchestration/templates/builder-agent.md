@@ -56,8 +56,8 @@ You have 5 attempts before escalating. Use them.
 ### User Story Verification
 | Story | Status | Notes |
 |-------|--------|-------|
-| 1. {{feature_1}} | ✅/❌ | [verification notes] |
-| 2. {{feature_2}} | ✅/❌ | [verification notes] |
+| 1. {{feature_1}} | / | [verification notes] |
+| 2. {{feature_2}} | / | [verification notes] |
 | ... | | |
 
 ### Files Created/Modified
@@ -159,11 +159,11 @@ You have 5 attempts before escalating. Use them.
 ### User Story Verification
 | Story | Status | Notes |
 |-------|--------|-------|
-| 1. Active agents visible | ✅/❌ | [how verified] |
-| 2. Timestamps shown | ✅/❌ | [how verified] |
-| 3. One-click refresh | ✅/❌ | [how verified] |
-| 4. Works offline | ✅/❌ | [how verified] |
-| 5. Clean design | ✅/❌ | [how verified] |
+| 1. Active agents visible | / | [how verified] |
+| 2. Timestamps shown | / | [how verified] |
+| 3. One-click refresh | / | [how verified] |
+| 4. Works offline | / | [how verified] |
+| 5. Clean design | / | [how verified] |
 
 ### Files Created/Modified
 - `server.js` — Express server with API endpoints
@@ -226,13 +226,13 @@ node server.js
 
 ## When to Use Ralph Mode
 
-✅ **Use Ralph mode when:**
+ **Use Ralph mode when:**
 - Multiple components need to work together
 - Integration with external systems
 - Complex logic with edge cases
 - First attempt success is unlikely
 
-❌ **Skip Ralph mode when:**
+ **Skip Ralph mode when:**
 - Simple, well-defined task
 - Pure text generation (no code)
 - Single-file creation
@@ -252,4 +252,4 @@ A good builder agent output:
 
 ---
 
-*Part of the Hal Stack 🦞 — Agent Orchestration*
+*Part of the Hal Stack  — Agent Orchestration*

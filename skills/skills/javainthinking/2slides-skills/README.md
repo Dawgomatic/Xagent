@@ -4,11 +4,11 @@ AI-powered presentation generation using the [2slides API](https://2slides.com).
 
 ## Important Links
 
-**🌐 [2slides Website](https://2slides.com)** - Learn about 2slides features, pricing, and create presentations online
+** [2slides Website](https://2slides.com)** - Learn about 2slides features, pricing, and create presentations online
 
-**🔑 [Get API Access](https://2slides.com/api)** - Sign up for API access, get your API key, and view API documentation
+** [Get API Access](https://2slides.com/api)** - Sign up for API access, get your API key, and view API documentation
 
-**📚 [API Documentation](https://2slides.com/api)** - Complete API reference with endpoints, parameters, and examples
+** [API Documentation](https://2slides.com/api)** - Complete API reference with endpoints, parameters, and examples
 
 > **New to 2slides?** Start at [2slides.com](https://2slides.com) to explore features, then visit [2slides.com/api](https://2slides.com/api) to get your API key and enable this skill.
 
@@ -465,11 +465,11 @@ New users receive **500 free credits** for onboarding:
 
 ### Key Benefits
 
-- ✅ **Credits never expire** - use at your own pace
-- ✅ **No subscriptions** - pay only for what you use
-- ✅ **Volume discounts** - up to 20% off
-- ✅ **3-day refund window** - risk-free purchase
-- ✅ **500 free credits** for new users
+-  **Credits never expire** - use at your own pace
+-  **No subscriptions** - pay only for what you use
+-  **Volume discounts** - up to 20% off
+-  **3-day refund window** - risk-free purchase
+-  **500 free credits** for new users
 
 ### Example Costs
 
@@ -550,11 +550,11 @@ This skill integrates with the 2slides API service. Usage is subject to 2slides 
 Current version: 2.0.0
 
 **What's New in 2.0:**
-- ✨ Custom PDF slides generation without reference images
-- 🎙️ AI voice narration with 30 voices and multi-speaker support
-- 📥 Free download export for slides as PNG and voices as WAV
-- 📊 Updated rate limits and credit costs
-- 🔄 Enhanced job status tracking with narration support
+-  Custom PDF slides generation without reference images
+-  AI voice narration with 30 voices and multi-speaker support
+-  Free download export for slides as PNG and voices as WAV
+-  Updated rate limits and credit costs
+-  Enhanced job status tracking with narration support
 
 ---
 

@@ -2,7 +2,7 @@
 name: caesar-research
 description: Deep research using the Caesar API — run queries, follow up with chat, brainstorm, and manage collections.
 homepage: https://www.caesar.org/
-metadata: { "openclaw": { "emoji": "🔬", "requires": { "bins": ["caesar"], "env": ["CAESAR_API_KEY"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["caesar"], "env": ["CAESAR_API_KEY"] } } }
 ---
 
 # Caesar Research

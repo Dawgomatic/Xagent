@@ -244,10 +244,10 @@ Or pass `--wallet` to every command.
 ### Endpoint Requirements
 
 Your API endpoint must:
-- ✅ Use HTTPS (HTTP is rejected)
-- ✅ Respond to HEAD or GET requests (for health check)
-- ✅ Return 2xx status code for health check
-- ✅ Be publicly accessible
+-  Use HTTPS (HTTP is rejected)
+-  Respond to HEAD or GET requests (for health check)
+-  Return 2xx status code for health check
+-  Be publicly accessible
 
 ### Pricing Guidelines
 
@@ -409,4 +409,4 @@ MIT
 
 ---
 
-Built with ❤️ by the Apiosk team
+Built with  by the Apiosk team

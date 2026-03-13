@@ -52,19 +52,19 @@ Prayer: ${this.prayer}`;
 };
 
 async function generateSampleVideo() {
-  console.log('🎬 Creating Sample Devotional Video\n');
+  console.log(' Creating Sample Devotional Video\n');
   
   // 1. Create TTS audio
-  console.log('🎙️ Generating audio with ElevenLabs voice...');
+  console.log(' Generating audio with ElevenLabs voice...');
   const audioPath = await createTTS(sampleDevotional);
   
   // 2. Create title card
-  console.log('🎨 Creating title card...');
+  console.log(' Creating title card...');
   const titleCardPath = path.join(CONFIG.tempDir, `sample-titlecard.png`);
   createTitleCard(sampleDevotional, titleCardPath);
   
   // 3. Create video
-  console.log('🎥 Rendering video...');
+  console.log(' Rendering video...');
   const videoPath = path.join(CONFIG.outputDir, `sample-devotional-${Date.now()}.mp4`);
   await createVideo(audioPath, titleCardPath, videoPath);
   
@@ -73,9 +73,9 @@ async function generateSampleVideo() {
     fs.unlinkSync(titleCardPath);
   }
   
-  console.log('\n✅ Sample video created!');
-  console.log(`📁 Location: ${videoPath}`);
-  console.log('\n📝 Description preview:');
+  console.log('\n Sample video created!');
+  console.log(` Location: ${videoPath}`);
+  console.log('\n Description preview:');
   console.log(formatDescription(sampleDevotional));
 }
 
@@ -86,7 +86,7 @@ async function createTTS(devotional) {
   const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY;
   
   if (!ELEVENLABS_API_KEY) {
-    console.log('⚠️  ELEVENLABS_API_KEY not set. Creating placeholder audio...');
+    console.log('  ELEVENLABS_API_KEY not set. Creating placeholder audio...');
     console.log('   To use your voice, set: export ELEVENLABS_API_KEY=your_key');
     // Create a silent/placeholder audio file for demo
     execSync(`ffmpeg -f lavfi -i anullsrc=r=24000:cl=mono -t 120 -acodec libmp3lame "${audioPath}" -y`, { stdio: 'ignore' });
@@ -114,11 +114,11 @@ async function createTTS(devotional) {
     });
     
     fs.writeFileSync(audioPath, Buffer.from(response.data));
-    console.log('✅ Audio generated with your voice!');
+    console.log(' Audio generated with your voice!');
     return audioPath;
     
   } catch (error) {
-    console.error('❌ ElevenLabs failed:', error.message);
+    console.error(' ElevenLabs failed:', error.message);
     console.log('Creating placeholder audio...');
     execSync(`ffmpeg -f lavfi -i anullsrc=r=24000:cl=mono -t 120 -acodec libmp3lame "${audioPath}" -y`, { stdio: 'ignore' });
     return audioPath;
@@ -213,26 +213,26 @@ function formatDescription(devotional) {
 
 ${devotional.body}
 
-🤔 Reflection Question:
+ Reflection Question:
 ${devotional.reflection}
 
-🙏 Prayer:
+ Prayer:
 ${devotional.prayer}
 
 ---
-🌅 Daily Devotional for ${devotional.date}
-📖 Scripture: ${devotional.scripture}
+ Daily Devotional for ${devotional.date}
+ Scripture: ${devotional.scripture}
 
-🤖 This devotional was generated 100% automatically by AI based on current news and/or viewer suggestions.
+ This devotional was generated 100% automatically by AI based on current news and/or viewer suggestions.
 
-💬 Have a topic you'd like us to cover? Leave a comment below with your suggestion! We read every comment and may feature your topic in a future devotional.
+ Have a topic you'd like us to cover? Leave a comment below with your suggestion! We read every comment and may feature your topic in a future devotional.
 
 ---
-📝 A Note from Snail:
+ A Note from Snail:
 
 "I know this is a little bit weird and freaky, but I'm trying to prove a point with this: automations can be used for Kingdom work and to inspire people to make their own things for Jesus and His glory. I'm not trying to replace any pastor or subvert their authority. Please keep in mind that this was written, composed, and even posted entirely by AI. So please post in the comments if you see any errors."
 
-📢 Subscribe for daily encouragement and biblical perspective on current events!`;
+ Subscribe for daily encouragement and biblical perspective on current events!`;
 }
 
 // Run

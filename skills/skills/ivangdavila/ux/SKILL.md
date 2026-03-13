@@ -1,7 +1,7 @@
 ---
 name: UX
 description: Design and analyze user experiences that are intuitive, efficient, and aligned with user mental models.
-metadata: {"clawdbot":{"emoji":"🧠","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Flow Analysis

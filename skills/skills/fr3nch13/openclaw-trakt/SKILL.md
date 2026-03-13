@@ -7,7 +7,7 @@ description: Track and recommend TV shows and movies using Trakt.tv. Use when th
 
 Integrate with Trakt.tv to track watch history and provide personalized show/movie recommendations.
 
-**📚 Trakt API Documentation:** <https://trakt.docs.apiary.io/>
+** Trakt API Documentation:** <https://trakt.docs.apiary.io/>
 
 ## First-Time Setup Required
 

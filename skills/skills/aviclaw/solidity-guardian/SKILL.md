@@ -13,7 +13,7 @@ tags:
   - scanner
 ---
 
-# Solidity Guardian 🛡️
+# Solidity Guardian 
 
 Security analysis for Solidity smart contracts. Find vulnerabilities, get fix suggestions, follow best practices.
 
@@ -193,4 +193,4 @@ node skills/solidity-guardian/analyze.js ./src/
 
 ---
 
-Built by Avi 🔐 | Security-first, ship always.
+Built by Avi  | Security-first, ship always.

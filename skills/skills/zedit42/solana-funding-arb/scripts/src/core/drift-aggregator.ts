@@ -57,8 +57,8 @@ export class DriftAggregator {
         openInterest,
         volume24h,
         strategy: fundingRate > 0 
-          ? '🔴 SHORT to receive funding' 
-          : '🟢 LONG to receive funding',
+          ? ' SHORT to receive funding' 
+          : ' LONG to receive funding',
       };
     });
     
@@ -97,12 +97,12 @@ export class DriftAggregator {
   
   async printSummary(): Promise<void> {
     console.log('\n' + '═'.repeat(80));
-    console.log('⚡ DRIFT FUNDING RATE SCANNER');
+    console.log(' DRIFT FUNDING RATE SCANNER');
     console.log('═'.repeat(80));
     
     const opps = await this.getTopFundingOpportunities(100);
     
-    console.log('\n🔥 TOP FUNDING OPPORTUNITIES (>100% APY):\n');
+    console.log('\n TOP FUNDING OPPORTUNITIES (>100% APY):\n');
     console.log('Symbol                | Price      | Hourly %   | APY        | Strategy');
     console.log('─'.repeat(80));
     
@@ -120,19 +120,19 @@ export class DriftAggregator {
       );
     }
     
-    console.log('\n🎯 DELTA-NEUTRAL PAIR STRATEGIES:\n');
+    console.log('\n DELTA-NEUTRAL PAIR STRATEGIES:\n');
     
     const pairs = await this.findDeltaNeutralPairs();
     
     for (const pair of pairs.slice(0, 5)) {
-      console.log(`📊 ${pair.strategy}`);
+      console.log(` ${pair.strategy}`);
       console.log(`   Long APY: ${pair.longApy.toFixed(0)}% | Short APY: ${pair.shortApy.toFixed(0)}%`);
       console.log(`   Net APY: ${pair.netApy.toFixed(0)}%\n`);
     }
     
     console.log('═'.repeat(80));
     console.log(`Last updated: ${new Date().toISOString()}`);
-    console.log('⚠️  High APY = High risk. Check liquidity before trading.');
+    console.log('  High APY = High risk. Check liquidity before trading.');
   }
 }
 

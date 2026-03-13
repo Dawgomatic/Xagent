@@ -3,7 +3,7 @@ name: lobster-jobs
 description: Transform OpenClaw cron jobs into Lobster workflows. Analyze, inspect, and validate job migrations. Use when converting automations to deterministic, approval-gated workflows with resume capabilities.
 metadata:
   openclaw:
-    emoji: 🦞
+    emoji: 
     requires:
       bins: ["openclaw", "python3"]
 ---
@@ -34,9 +34,9 @@ This skill helps analyze existing cron jobs and transform them into Lobster work
 List all cron jobs with their Lobster readiness score.
 
 Output categories:
-- ✅ **Fully Migratable**: Simple shell commands (systemEvent)
-- 🟡 **Partial Migration**: Mixed deterministic + LLM steps (agentTurn)
-- ❌ **Not Migratable**: Heavy LLM reasoning required
+-  **Fully Migratable**: Simple shell commands (systemEvent)
+-  **Partial Migration**: Mixed deterministic + LLM steps (agentTurn)
+-  **Not Migratable**: Heavy LLM reasoning required
 
 #### `lobster-jobs inspect <job-id>`
 Inspect a specific cron job with detailed migration assessment.

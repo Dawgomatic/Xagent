@@ -83,7 +83,7 @@ function buildAgentPrompt(
       const cleanContent = resp.content.replace(/\[CONSENSUS:\s*(YES|NO)\]/gi, '').trim();
       // 只保留关键信息，避免 prompt 太长
       const preview = cleanContent.length > 800 ? cleanContent.slice(0, 800) + '...' : cleanContent;
-      history += `**${resp.agent}** (${resp.consensus ? '✅同意结束' : '❌继续'}):\n${preview}\n\n`;
+      history += `**${resp.agent}** (${resp.consensus ? '同意结束' : '继续'}):\n${preview}\n\n`;
     }
   }
 
@@ -160,16 +160,16 @@ export class Council {
       startTime: new Date().toISOString(),
     };
 
-    this.log(`\n🧠 Three Minds v2 - 三个臭皮匠协作系统\n`);
-    this.log(`📋 任务: ${task}`);
-    this.log(`📁 工作目录: ${this.config.projectDir}`);
-    this.log(`👥 参与者: ${this.config.agents.map(a => `${a.emoji} ${a.name}`).join(', ')}`);
-    this.log(`⏱️  最大轮数: ${this.config.maxRounds}`);
+    this.log(`\n Three Minds v2 - 三个臭皮匠协作系统\n`);
+    this.log(` 任务: ${task}`);
+    this.log(` 工作目录: ${this.config.projectDir}`);
+    this.log(` 参与者: ${this.config.agents.map(a => `${a.emoji} ${a.name}`).join(', ')}`);
+    this.log(`  最大轮数: ${this.config.maxRounds}`);
     this.log(`${'━'.repeat(60)}\n`);
 
     try {
       for (let round = 1; round <= this.config.maxRounds; round++) {
-        this.log(`\n🔄 第 ${round} 轮\n`);
+        this.log(`\n 第 ${round} 轮\n`);
 
         const roundVotes: boolean[] = [];
 
@@ -212,10 +212,10 @@ export class Council {
             // 打印摘要
             const lines = content.split('\n').filter(l => l.trim());
             const preview = lines.slice(0, 3).join(' ').slice(0, 150);
-            this.log(`  ✅ 完成 | 共识: ${consensus ? 'YES ✓' : 'NO ✗'}`);
-            this.log(`  📝 ${preview}...`);
+            this.log(`   完成 | 共识: ${consensus ? 'YES ✓' : 'NO ✗'}`);
+            this.log(`   ${preview}...`);
           } catch (error: any) {
-            this.log(`  ❌ 错误: ${error.message}`);
+            this.log(`   错误: ${error.message}`);
             roundVotes.push(false);
             
             // 记录失败响应
@@ -237,18 +237,18 @@ export class Council {
                        roundVotes.every(v => v === true);
         
         if (allYes) {
-          this.log(`\n✅ 共识达成！(第 ${round} 轮)\n`);
+          this.log(`\n 共识达成！(第 ${round} 轮)\n`);
           session.status = 'consensus';
           break;
         } else {
           const yesCount = roundVotes.filter(v => v).length;
-          this.log(`📊 本轮投票: ${yesCount}/${this.config.agents.length} YES\n`);
+          this.log(` 本轮投票: ${yesCount}/${this.config.agents.length} YES\n`);
         }
       }
 
       if (session.status === 'running') {
         session.status = 'max_rounds';
-        this.log(`\n⚠️ 达到最大轮数 (${this.config.maxRounds})，结束协作\n`);
+        this.log(`\n 达到最大轮数 (${this.config.maxRounds})，结束协作\n`);
       }
 
       session.endTime = new Date().toISOString();
@@ -265,7 +265,7 @@ export class Council {
     } catch (error: any) {
       session.status = 'error';
       session.endTime = new Date().toISOString();
-      this.log(`\n❌ 错误: ${error.message}`);
+      this.log(`\n 错误: ${error.message}`);
       throw error;
     }
   }
@@ -279,9 +279,9 @@ export class Council {
   private generateSummary(session: CouncilSession): string {
     const lines: string[] = [];
     
-    lines.push(`# 📋 协作总结\n`);
+    lines.push(`#  协作总结\n`);
     lines.push(`- **任务**: ${session.task}`);
-    lines.push(`- **状态**: ${session.status === 'consensus' ? '✅ 达成共识' : '⚠️ 达到最大轮数'}`);
+    lines.push(`- **状态**: ${session.status === 'consensus' ? ' 达成共识' : ' 达到最大轮数'}`);
     
     const maxRound = session.responses.length > 0 
       ? Math.max(...session.responses.map(r => r.round))
@@ -295,9 +295,9 @@ export class Council {
     
     for (const resp of lastResponses) {
       const agent = session.config.agents.find(a => a.name === resp.agent);
-      const emoji = agent?.emoji || '🤖';
+      const emoji = agent?.emoji || '';
       lines.push(`### ${emoji} ${resp.agent}`);
-      lines.push(`- **共识投票**: ${resp.consensus ? '✅ YES' : '❌ NO'}`);
+      lines.push(`- **共识投票**: ${resp.consensus ? ' YES' : ' NO'}`);
       
       // 提取关键内容
       const cleanContent = resp.content.replace(/\[CONSENSUS:\s*(YES|NO)\]/gi, '').trim();
@@ -327,7 +327,7 @@ export class Council {
         content += `## 第 ${currentRound} 轮\n\n`;
       }
       const agent = session.config.agents.find(a => a.name === resp.agent);
-      const emoji = agent?.emoji || '🤖';
+      const emoji = agent?.emoji || '';
       content += `### ${emoji} ${resp.agent}\n\n`;
       content += resp.content + '\n\n';
     }
@@ -336,7 +336,7 @@ export class Council {
     content += session.finalSummary || '';
 
     fs.writeFileSync(filepath, content);
-    this.log(`💾 协作记录已保存: ${filepath}`);
+    this.log(` 协作记录已保存: ${filepath}`);
   }
 }
 
@@ -370,7 +370,7 @@ export function getDefaultConfig(projectDir: string): CouncilConfig {
     agents: [
       {
         name: '架构师',
-        emoji: '🏗️',
+        emoji: '',
         persona: `你是一位系统架构师。
 你关注：代码结构、设计模式、可扩展性、长期维护性。
 你会审查代码的整体设计，提出架构层面的改进建议。
@@ -378,7 +378,7 @@ export function getDefaultConfig(projectDir: string): CouncilConfig {
       },
       {
         name: '工程师',
-        emoji: '⚙️',
+        emoji: '',
         persona: `你是一位实现工程师。
 你关注：代码质量、错误处理、边界情况、性能优化。
 你会实际编写和修改代码，确保功能正确实现。
@@ -386,7 +386,7 @@ export function getDefaultConfig(projectDir: string): CouncilConfig {
       },
       {
         name: '审核员',
-        emoji: '🔍',
+        emoji: '',
         persona: `你是一位代码审核员。
 你关注：代码规范、潜在 bug、安全问题、文档完整性。
 你会仔细审查代码，找出问题并提出修复建议。

@@ -4,7 +4,7 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
 
 ---
 
-## 🔴 BLOCKERS
+##  BLOCKERS
 
 ### TypeScript Específico
 - Uso de any sin justificación documentada en comentario
@@ -14,13 +14,13 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
 - Exportar tipos como any en APIs públicas del módulo
 - Ignorar errores de TypeScript en lugar de corregirlos
 
-❌ Mal:
+ Mal:
   const data: any = fetchData();
   const user = response as any as User;
   // @ts-ignore
   const result = brokenFunction();
 
-✅ Bien:
+ Bien:
   interface ApiResponse {
     users: User[];
     total: number;
@@ -34,24 +34,24 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
 - Mezclar callbacks con async/await innecesariamente
 - No retornar el resultado de una función async
 
-❌ Mal (await secuencial innecesario):
+ Mal (await secuencial innecesario):
   const results = [];
   for (const user of users) {
     const profile = await fetchProfile(user.id);
     results.push(profile);
   }
 
-✅ Bien (paralelo cuando el orden no importa):
+ Bien (paralelo cuando el orden no importa):
   const results = await Promise.all(
     users.map(user => fetchProfile(user.id))
   );
 
-❌ Mal (async sin await):
+ Mal (async sin await):
   async function getName() {
     return 'John';
   }
 
-✅ Bien (no necesita ser async):
+ Bien (no necesita ser async):
   function getName() {
     return 'John';
   }
@@ -64,7 +64,7 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
 - setState dentro de useEffect sin condición de salida
 - Llamadas a hooks dentro de condicionales o loops
 
-❌ Mal:
+ Mal:
   useEffect(() => {
     setCount(count + 1);
   }); // Sin dependencias = se ejecuta en cada render
@@ -73,7 +73,7 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
     <Item key={index} data={item} />
   ))}
 
-✅ Bien:
+ Bien:
   useEffect(() => {
     fetchData();
   }, []); // Se ejecuta solo una vez
@@ -84,18 +84,18 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
 
 ---
 
-## 🟡 WARNINGS
+##  WARNINGS
 
 ### Comparaciones
 - Usar == en lugar de === (comparación sin tipo)
 - Usar != en lugar de !== (comparación sin tipo)
 - Comparar con null usando == cuando debería ser === null o === undefined
 
-❌ Mal:
+ Mal:
   if (value == null) {}
   if (status == 1) {}
 
-✅ Bien:
+ Bien:
   if (value === null || value === undefined) {}
   if (value == null) {} // Solo este caso es aceptable como shorthand de null/undefined
   if (status === 1) {}
@@ -105,11 +105,11 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
 - Mutación directa de objetos de estado
 - Modificar argumentos de funciones directamente
 
-❌ Mal:
+ Mal:
   state.items.push(newItem);
   state.user.name = 'John';
 
-✅ Bien:
+ Bien:
   setState(prev => ({ ...prev, items: [...prev.items, newItem] }));
   setState(prev => ({ ...prev, user: { ...prev.user, name: 'John' } }));
 
@@ -124,14 +124,14 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
 - setInterval sin clearInterval en cleanup
 - Especialmente importante en useEffect de React
 
-❌ Mal:
+ Mal:
   useEffect(() => {
     setInterval(() => {
       fetchData();
     }, 5000);
   }, []);
 
-✅ Bien:
+ Bien:
   useEffect(() => {
     const interval = setInterval(() => {
       fetchData();
@@ -144,11 +144,11 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
 - Import de toda la librería cuando solo se usa una función
 - Circular dependencies entre módulos
 
-❌ Mal:
+ Mal:
   import _ from 'lodash';
   const result = _.get(obj, 'path');
 
-✅ Bien:
+ Bien:
   import get from 'lodash/get';
   const result = get(obj, 'path');
 
@@ -160,7 +160,7 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
 
 ---
 
-## 🔵 SUGGESTIONS
+##  SUGGESTIONS
 
 ### Modernización
 - Preferir Array.includes() sobre múltiples ||
@@ -169,12 +169,12 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
 - Object.entries() y Object.values() sobre for...in
 - Usar const sobre let siempre que sea posible, nunca var
 
-❌ Antes:
+ Antes:
   if (status === 'active' || status === 'pending' || status === 'review') {}
   if (user && user.address && user.address.city) {}
   const name = user.name || 'Anonymous'; // Bug: string vacío es falsy
 
-✅ Después:
+ Después:
   if (['active', 'pending', 'review'].includes(status)) {}
   if (user?.address?.city) {}
   const name = user.name ?? 'Anonymous'; // Solo null/undefined
@@ -183,26 +183,26 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
 - Usar destructuring cuando se accede a múltiples propiedades del mismo objeto
 - Usar destructuring en parámetros de funciones para mayor claridad
 
-❌ Antes:
+ Antes:
   const name = props.user.name;
   const email = props.user.email;
   const age = props.user.age;
 
-✅ Después:
+ Después:
   const { name, email, age } = props.user;
 
 ### Template Literals
 - Preferir template literals sobre concatenación de strings
 
-❌ Antes:
+ Antes:
   const message = 'Hello ' + firstName + ' ' + lastName + ', welcome!';
 
-✅ Después:
+ Después:
   const message = `Hello ${firstName} ${lastName}, welcome!`;
 
 ---
 
-## 💡 NITS
+##  NITS
 
 ### Estilo
 - Preferir arrow functions para callbacks anónimos
@@ -210,10 +210,10 @@ Aplica a archivos con extensión: .js, .jsx, .ts, .tsx, .mjs, .cjs
 - Usar trailing commas en objetos y arrays multilinea
 - Consistencia en comillas: elegir simples o dobles y mantener en todo el proyecto
 
-❌ Antes:
+ Antes:
   const obj = { name: name, email: email };
   items.forEach(function(item) { return item.id; });
 
-✅ Después:
+ Después:
   const obj = { name, email };
   items.forEach(item => item.id);

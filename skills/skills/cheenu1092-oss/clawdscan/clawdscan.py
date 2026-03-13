@@ -238,43 +238,43 @@ def classify_session(stats: dict, now: datetime) -> list[str]:
 
     # Size-based
     if stats["size_bytes"] > BLOAT_SIZE_BYTES * 5:
-        labels.append("🔴 mega-bloat")
+        labels.append(" mega-bloat")
     elif stats["size_bytes"] > BLOAT_SIZE_BYTES:
-        labels.append("🟡 bloated")
+        labels.append(" bloated")
 
     # Message count
     if stats["messages"] > BLOAT_MSG_COUNT * 3:
-        labels.append("🔴 msg-overflow")
+        labels.append(" msg-overflow")
     elif stats["messages"] > BLOAT_MSG_COUNT:
-        labels.append("🟡 msg-heavy")
+        labels.append(" msg-heavy")
 
     # Staleness
     last_activity = stats["last_timestamp"] or stats["mtime"]
     if last_activity:
         age = now - last_activity
         if age > timedelta(days=STALE_DAYS * 4):
-            labels.append("🔴 ancient")
+            labels.append(" ancient")
         elif age > timedelta(days=STALE_DAYS):
-            labels.append("🟡 stale")
+            labels.append(" stale")
 
     # Zombie: created but <3 messages and old
     if stats["messages"] <= 2:
         created = stats["created"] or stats["first_timestamp"]
         if created and (now - created) > timedelta(hours=ZOMBIE_HOURS):
-            labels.append("👻 zombie")
+            labels.append(" zombie")
 
     # High compaction = session has been compacted many times
     if stats["compactions"] > 10:
-        labels.append("📦 over-compacted")
+        labels.append(" over-compacted")
     elif stats["compactions"] > 3:
-        labels.append("📦 compacted")
+        labels.append(" compacted")
 
     # Errors
     if stats["errors"] > 5:
-        labels.append("⚠️ parse-errors")
+        labels.append(" parse-errors")
 
     if not labels:
-        labels.append("✅ healthy")
+        labels.append(" healthy")
 
     return labels
 
@@ -398,7 +398,7 @@ def cmd_scan(args):
     all_issues = []
     all_stats = []
 
-    print(C.bold(f"\n🔍 clawdscan v{__version__} — Session Health Report"))
+    print(C.bold(f"\n clawdscan v{__version__} — Session Health Report"))
     print(C.dim(f"   Scanning: {base_dir}"))
     print(C.dim(f"   Time: {now.strftime('%Y-%m-%d %H:%M:%S UTC')}\n"))
 
@@ -407,7 +407,7 @@ def cmd_scan(args):
         deleted_count = len(list(agent["sessions_dir"].glob("*.deleted.*")))
         agent_size = sum(f.stat().st_size for f in sessions)
 
-        print(C.bold(f"📁 Agent: {agent['name']}"))
+        print(C.bold(f" Agent: {agent['name']}"))
         print(f"   Sessions: {len(sessions)} active, {deleted_count} deleted")
         print(f"   Disk: {fmt_size(agent_size)}")
 
@@ -419,7 +419,7 @@ def cmd_scan(args):
             stats["agent"] = agent["name"]
             all_stats.append(stats)
 
-            if not all(l.startswith("✅") for l in labels):
+            if not all(l.startswith("") for l in labels):
                 agent_issues.append(stats)
 
         total_sessions += len(sessions)
@@ -431,7 +431,7 @@ def cmd_scan(args):
             # Sort by size descending
             agent_issues.sort(key=lambda s: s["size_bytes"], reverse=True)
             shown = min(args.top, len(agent_issues))
-            print(f"   ⚠️  {len(agent_issues)} sessions with issues (showing top {shown}):\n")
+            print(f"     {len(agent_issues)} sessions with issues (showing top {shown}):\n")
 
             for s in agent_issues[:shown]:
                 sid = s["session_id"][:12]
@@ -458,7 +458,7 @@ def cmd_scan(args):
                     eff = fmt_compaction_efficiency(s["size_bytes"], s["compactions"])
                     print(f"   {'':20}  compactions: {s['compactions']}, {eff}, duration: {duration}, models: {models}")
         else:
-            print(f"   ✅ All sessions healthy\n")
+            print(f"    All sessions healthy\n")
 
         print()
 
@@ -470,16 +470,16 @@ def cmd_scan(args):
     print(f"  Issues found:   {len(all_issues)}")
 
     # Classify by severity
-    red_issues = [s for s in all_issues if any("🔴" in l for l in s["labels"])]
-    yellow_issues = [s for s in all_issues if any("🟡" in l for l in s["labels"]) and s not in red_issues]
-    zombie_issues = [s for s in all_issues if any("👻" in l for l in s["labels"])]
+    red_issues = [s for s in all_issues if any("" in l for l in s["labels"])]
+    yellow_issues = [s for s in all_issues if any("" in l for l in s["labels"]) and s not in red_issues]
+    zombie_issues = [s for s in all_issues if any("" in l for l in s["labels"])]
 
     if red_issues:
-        print(C.red(f"  🔴 Critical:    {len(red_issues)} sessions"))
+        print(C.red(f"   Critical:    {len(red_issues)} sessions"))
     if yellow_issues:
-        print(C.yellow(f"  🟡 Warning:     {len(yellow_issues)} sessions"))
+        print(C.yellow(f"   Warning:     {len(yellow_issues)} sessions"))
     if zombie_issues:
-        print(f"  👻 Zombies:     {len(zombie_issues)} sessions")
+        print(f"   Zombies:     {len(zombie_issues)} sessions")
 
     # Reclaimable space
     reclaimable = sum(s["size_bytes"] for s in zombie_issues)
@@ -502,7 +502,7 @@ def cmd_scan(args):
         print(C.bold("═══ Recommendations ═══════════════════════════════════════"))
 
         if red_issues:
-            print(C.red("\n  🔴 CRITICAL — Action recommended:"))
+            print(C.red("\n   CRITICAL — Action recommended:"))
             for s in red_issues[:5]:
                 sid = s["session_id"][:12]
                 print(f"     • {sid} ({fmt_size(s['size_bytes'])}, {s['messages']} msgs)")
@@ -511,13 +511,13 @@ def cmd_scan(args):
             print(f"\n     Fix: clawdscan clean --min-size 5M --agent {red_issues[0]['agent']}")
 
         if zombie_issues:
-            print(f"\n  👻 ZOMBIES — Safe to remove:")
+            print(f"\n   ZOMBIES — Safe to remove:")
             print(f"     {len(zombie_issues)} sessions with ≤2 messages, older than {ZOMBIE_HOURS}h")
             print(f"     Fix: clawdscan clean --zombies --agent <name>")
 
         stale_sessions = [s for s in all_issues if any("ancient" in l for l in s["labels"])]
         if stale_sessions:
-            print(f"\n  🟡 ANCIENT — Consider archiving:")
+            print(f"\n   ANCIENT — Consider archiving:")
             print(f"     {len(stale_sessions)} sessions with no activity for {STALE_DAYS * 4}+ days")
             print(f"     Fix: clawdscan clean --stale-days {STALE_DAYS * 4}")
 
@@ -543,7 +543,7 @@ def cmd_scan(args):
         json_path = Path(args.json)
         with open(json_path, "w") as f:
             json.dump(output, f, indent=2, default=str)
-        print(f"📄 JSON report saved to: {json_path}")
+        print(f" JSON report saved to: {json_path}")
 
 
 def cmd_top(args):
@@ -573,7 +573,7 @@ def cmd_top(args):
     all_stats.sort(key=lambda s: s[sort_key], reverse=True)
 
     n = args.count
-    print(C.bold(f"\n🏆 Top {n} sessions by {args.sort}\n"))
+    print(C.bold(f"\n Top {n} sessions by {args.sort}\n"))
     print(f"  {'#':>3}  {'Agent':8}  {'Label/Session':20}  {'Size':>10}  {'Msgs':>6}  {'User':>5}  "
           f"{'Tools':>5}  {'Compact':>7}  {'Last Active':>12}  Labels")
     print(f"  {'─' * 3}  {'─' * 8}  {'─' * 20}  {'─' * 10}  {'─' * 6}  {'─' * 5}  "
@@ -622,7 +622,7 @@ def cmd_inspect(args):
     stats = analyze_session(session_file)
     labels = classify_session(stats, now)
 
-    print(C.bold(f"\n🔬 Session Inspection: {stats['session_id'][:16]}"))
+    print(C.bold(f"\n Session Inspection: {stats['session_id'][:16]}"))
     print(f"   File: {stats['path']}")
     print(f"   Size: {fmt_size(stats['size_bytes'])}")
     print(f"   Health: {' '.join(labels)}")
@@ -701,7 +701,7 @@ def cmd_clean(args):
             should_clean = False
             reason = ""
 
-            if args.zombies and any("👻" in l for l in labels):
+            if args.zombies and any("" in l for l in labels):
                 should_clean = True
                 reason = "zombie (≤2 msgs, >48h old)"
 
@@ -726,12 +726,12 @@ def cmd_clean(args):
                 })
 
     if not targets:
-        print("✅ No sessions match cleanup criteria.")
+        print(" No sessions match cleanup criteria.")
         return
 
     total_size = sum(t["stats"]["size_bytes"] for t in targets)
 
-    print(C.bold(f"\n🧹 Cleanup Plan — {len(targets)} sessions ({fmt_size(total_size)})\n"))
+    print(C.bold(f"\n Cleanup Plan — {len(targets)} sessions ({fmt_size(total_size)})\n"))
 
     for t in targets:
         s = t["stats"]
@@ -742,7 +742,7 @@ def cmd_clean(args):
     print()
 
     if args.dry_run:
-        print(C.yellow("  ⚡ DRY RUN — no files modified"))
+        print(C.yellow("   DRY RUN — no files modified"))
         print(f"  To execute: add --execute")
         print(f"  Reclaimable: {fmt_size(total_size)}")
     else:
@@ -758,7 +758,7 @@ def cmd_clean(args):
             dest = archive_dir / f"{t['agent']}_{t['file'].name}"
             shutil.move(str(t["file"]), str(dest))
 
-        print(C.green(f"\n  ✅ Moved {len(targets)} sessions to {archive_dir}"))
+        print(C.green(f"\n   Moved {len(targets)} sessions to {archive_dir}"))
         print(f"  Freed: {fmt_size(total_size)}")
         print(f"  To undo: move files back from {archive_dir}")
 
@@ -786,7 +786,7 @@ def cmd_tools(args):
         print("No tool usage found.")
         return
 
-    print(C.bold(f"\n🔧 Tool Usage Across {session_count} Sessions\n"))
+    print(C.bold(f"\n Tool Usage Across {session_count} Sessions\n"))
 
     max_count = max(tool_totals.values())
     for tool, count in tool_totals.most_common(args.count):
@@ -821,7 +821,7 @@ def cmd_models(args):
         print("No model usage found.")
         return
 
-    print(C.bold(f"\n🤖 Model Usage Across {session_count} Sessions\n"))
+    print(C.bold(f"\n Model Usage Across {session_count} Sessions\n"))
     print(f"  {'Model':40}  {'Sessions':>10}  {'Messages':>10}")
     print(f"  {'─' * 40}  {'─' * 10}  {'─' * 10}")
 
@@ -836,7 +836,7 @@ def cmd_disk(args):
     base_dir = Path(args.dir) if args.dir else find_clawdbot_dir()
     agents = discover_agents(base_dir)
 
-    print(C.bold(f"\n💾 Disk Usage — {base_dir}\n"))
+    print(C.bold(f"\n Disk Usage — {base_dir}\n"))
 
     total = 0
     for agent in agents:
@@ -893,7 +893,7 @@ def cmd_history(args):
     now = datetime.now(timezone.utc)
     start_date = now - timedelta(days=days)
 
-    print(C.bold(f"\n📈 Session Health Trends (Last {days} Days)\n"))
+    print(C.bold(f"\n Session Health Trends (Last {days} Days)\n"))
     
     # Collect all sessions across agents
     all_sessions = []
@@ -978,7 +978,7 @@ def cmd_history(args):
         if prev_sessions > 0:
             session_growth = ((session_count - prev_sessions) / prev_sessions) * 100
             size_growth = ((total_size - prev_size) / prev_size) * 100 if prev_size > 0 else 0
-            growth_indicator = "📈" if session_growth > 10 else "📊" if session_growth > 0 else "📉"
+            growth_indicator = "" if session_growth > 10 else "" if session_growth > 0 else ""
             print(f"{week_key} ({data['date_range']}): {session_count:3d} sessions, {fmt_size(total_size):>8s} "
                   f"{growth_indicator} {session_growth:+.0f}% sessions, {size_growth:+.0f}% size")
         else:
@@ -988,7 +988,7 @@ def cmd_history(args):
         prev_size = total_size
 
     # Show issue trends
-    print(f"\n{C.bold('🔥 Issue Trends:')}")
+    print(f"\n{C.bold(' Issue Trends:')}")
     bloat_counts = []
     zombie_counts = []
     
@@ -1016,7 +1016,7 @@ def cmd_history(args):
         else:
             size_growth_rate = 0
         
-        print(f"\n{C.bold('💡 Growth Rate:')} {session_growth_rate:+.0f}% sessions/week, {size_growth_rate:+.0f}% storage/week")
+        print(f"\n{C.bold(' Growth Rate:')} {session_growth_rate:+.0f}% sessions/week, {size_growth_rate:+.0f}% storage/week")
 
     print()
 
@@ -1028,7 +1028,7 @@ def cmd_watch(args):
     base_dir = Path(args.dir) if args.dir else find_clawdbot_dir()
     interval = args.interval
 
-    print(C.bold(f"\n👁️  clawdscan watch — monitoring {base_dir}"))
+    print(C.bold(f"\n  clawdscan watch — monitoring {base_dir}"))
     print(C.dim(f"   Interval: {interval}s | Ctrl+C to stop"))
     print(C.dim(f"   Thresholds: size>{fmt_size(BLOAT_SIZE_BYTES)}, msgs>{BLOAT_MSG_COUNT}\n"))
 
@@ -1047,14 +1047,14 @@ def cmd_watch(args):
                     stats = analyze_session(session_file)
                     labels = classify_session(stats, now)
 
-                    if not all(l.startswith("✅") for l in labels):
+                    if not all(l.startswith("") for l in labels):
                         issue_key = stats["session_id"]
                         current_issues.add(issue_key)
 
                         if issue_key not in prev_issues:
                             display = stats.get("label") or stats["session_id"][:12]
                             new_alerts.append(
-                                f"  ⚡ NEW: {display} ({agent['name']}) — "
+                                f"   NEW: {display} ({agent['name']}) — "
                                 f"{fmt_size(stats['size_bytes'])}, {stats['messages']} msgs — "
                                 f"{' '.join(labels)}"
                             )
@@ -1068,13 +1068,13 @@ def cmd_watch(args):
                 # Quiet tick
                 ts = now.strftime("%H:%M:%S")
                 total_issues = len(current_issues)
-                print(f"[{ts}] ✅ {total_issues} tracked issues, 0 new", end="\r")
+                print(f"[{ts}]  {total_issues} tracked issues, 0 new", end="\r")
 
             prev_issues = current_issues
             time.sleep(interval)
 
     except KeyboardInterrupt:
-        print(f"\n\n👋 Watch stopped.")
+        print(f"\n\n Watch stopped.")
 
 
 def parse_size(s: str) -> int:
@@ -1437,62 +1437,62 @@ def cmd_skills(args):
             print()
         return
 
-    print(f"\n🩺 Skill Health Report")
+    print(f"\n Skill Health Report")
     print(f"{'='*60}")
-    print(f"📦 Total skills scanned: {len(skills)}")
-    print(f"✅ Healthy: {len(healthy)}")
-    print(f"❌ Broken:  {len(broken)}")
+    print(f" Total skills scanned: {len(skills)}")
+    print(f" Healthy: {len(healthy)}")
+    print(f" Broken:  {len(broken)}")
     if with_warnings:
-        print(f"⚠️  Warnings: {len(with_warnings)}")
-    print(f"📝 No deps declared: {len(no_deps)}")
-    print(f"📂 Directories: {', '.join(skill_dirs)}")
+        print(f"  Warnings: {len(with_warnings)}")
+    print(f" No deps declared: {len(no_deps)}")
+    print(f" Directories: {', '.join(skill_dirs)}")
     print()
 
     if broken:
-        print(f"❌ BROKEN SKILLS ({len(broken)})")
+        print(f" BROKEN SKILLS ({len(broken)})")
         print(f"{'-'*60}")
         for s in broken:
-            print(f"\n  🔴 {s['name']} ({s['source']})")
+            print(f"\n   {s['name']} ({s['source']})")
             for issue in s["issues"]:
-                print(f"     ⚠️  {issue}")
+                print(f"       {issue}")
             hints = _skill_install_hint(s)
             for h in hints:
-                print(f"     💡 Fix: {h}")
+                print(f"      Fix: {h}")
         print()
 
     if with_warnings:
-        print(f"⚠️  SKILLS WITH WARNINGS ({len(with_warnings)})")
+        print(f"  SKILLS WITH WARNINGS ({len(with_warnings)})")
         print(f"{'-'*60}")
         for s in with_warnings:
             if s in broken:
                 continue  # already shown above
-            print(f"\n  🟡 {s['name']} ({s['source']})")
+            print(f"\n   {s['name']} ({s['source']})")
             for w in s["warnings"]:
-                print(f"     ⚠️  {w}")
+                print(f"       {w}")
         print()
 
     if do_infer:
         inferred_skills = [s for s in skills if s["inferred_bins"]]
         if inferred_skills:
-            print(f"🔍 INFERRED DEPENDENCIES ({len(inferred_skills)} skills)")
+            print(f" INFERRED DEPENDENCIES ({len(inferred_skills)} skills)")
             print(f"{'-'*60}")
             for s in inferred_skills:
                 found = [b for b, ok in s["inferred_bins_status"].items() if ok]
                 missing = [b for b, ok in s["inferred_bins_status"].items() if not ok]
                 status_parts = []
                 if found:
-                    status_parts.append(f"✅ {', '.join(found)}")
+                    status_parts.append(f" {', '.join(found)}")
                 if missing:
-                    status_parts.append(f"❌ {', '.join(missing)}")
+                    status_parts.append(f" {', '.join(missing)}")
                 print(f"  {s['name']}: {' | '.join(status_parts)}")
             print()
 
     if getattr(args, 'verbose', False):
-        print(f"✅ HEALTHY SKILLS ({len(healthy)})")
+        print(f" HEALTHY SKILLS ({len(healthy)})")
         print(f"{'-'*60}")
         for s in healthy:
             bins = ", ".join(s["required_bins"]) if s["required_bins"] else "none"
-            print(f"  🟢 {s['name']} ({s['source']}) — bins: {bins}")
+            print(f"   {s['name']} ({s['source']}) — bins: {bins}")
         print()
 
 
@@ -1501,7 +1501,7 @@ def cmd_skills(args):
 def main():
     parser = argparse.ArgumentParser(
         prog="clawdscan",
-        description="🔍 Clawdbot Session Health Analyzer — diagnose bloat, find zombies, reclaim disk",
+        description=" Clawdbot Session Health Analyzer — diagnose bloat, find zombies, reclaim disk",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

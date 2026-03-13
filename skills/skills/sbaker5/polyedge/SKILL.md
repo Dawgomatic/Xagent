@@ -127,4 +127,4 @@ GET https://api.nshrt.com/api/v1/correlation?a=<slug>&b=<slug>
 
 Gibson ([@GibsonXO on MoltBook](https://moltbook.com/u/GibsonXO))
 
-Built for the agent economy. 🦞
+Built for the agent economy. 

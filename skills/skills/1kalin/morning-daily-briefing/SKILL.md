@@ -15,31 +15,31 @@ Or: run automatically via heartbeat/cron if configured.
 ## Briefing Template
 
 ```
-☀️ DAILY BRIEFING — [Day, Month Date, Year]
+ DAILY BRIEFING — [Day, Month Date, Year]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📅 TODAY'S SCHEDULE
+ TODAY'S SCHEDULE
 • [Time] — [Event] ([Location/Link])
 • [Time] — [Event] ([Location/Link])
 • [No meetings today — deep work day!]
 
-🎯 TOP 3 PRIORITIES
+ TOP 3 PRIORITIES
 1. [Most important thing]
 2. [Second priority]
 3. [Third priority]
 
-📧 INBOX HIGHLIGHTS
+ INBOX HIGHLIGHTS
 • [Urgent/important emails worth noting]
 • [X unread emails, Y flagged]
 
-📰 RELEVANT NEWS
+ RELEVANT NEWS
 • [Industry news or updates that matter]
 
-⚡ FOLLOW-UPS DUE
+ FOLLOW-UPS DUE
 • [Person] — [Action] (was due [date])
 • [Person] — [Action] (due today)
 
-💡 HEADS UP
+ HEADS UP
 • [Upcoming deadlines this week]
 • [Meetings to prep for tomorrow]
 • [Anything else worth knowing]
@@ -79,18 +79,18 @@ Pull from whatever's available:
 If asked at end of day: "How'd today go?" or "End of day recap"
 
 ```
-🌙 END OF DAY — [Date]
+ END OF DAY — [Date]
 ━━━━━━━━━━━━━━━━━━━━
 
-✅ COMPLETED
+ COMPLETED
 • [What got done]
 
-🔄 CARRIED OVER
+ CARRIED OVER
 • [What didn't get done — moves to tomorrow]
 
-📝 NOTES
+ NOTES
 • [Key decisions, insights, things to remember]
 
-📅 TOMORROW PREVIEW
+ TOMORROW PREVIEW
 • [First meeting/deadline]
 ```

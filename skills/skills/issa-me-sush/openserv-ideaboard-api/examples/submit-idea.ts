@@ -16,7 +16,7 @@ import axios from "axios";
 const API_KEY = process.env.OPENSERV_API_KEY;
 
 if (!API_KEY) {
-  console.error("❌ OPENSERV_API_KEY not set. Run get-api-key.ts first.");
+  console.error(" OPENSERV_API_KEY not set. Run get-api-key.ts first.");
   process.exit(1);
 }
 
@@ -45,19 +45,19 @@ This should be deployed as an x402 payable service so users can pay per summary.
     tags: ["ai", "slack", "summarization", "productivity"],
   };
 
-  console.log("📝 Submitting new idea...\n");
+  console.log(" Submitting new idea...\n");
   console.log(`Title: ${newIdea.title}`);
   console.log(`Tags: ${newIdea.tags.join(", ")}`);
 
   try {
     const { data: idea } = await api.post("/ideas", newIdea);
 
-    console.log("\n✅ Idea submitted!");
+    console.log("\n Idea submitted!");
     console.log(`ID: ${idea._id}`);
     console.log(`URL: https://launch.openserv.ai/ideaboard/${idea._id}`);
 
     // Track progress
-    console.log("\n📊 To track progress, periodically check:");
+    console.log("\n To track progress, periodically check:");
     console.log(
       `   curl "https://api.launch.openserv.ai/ideas/${idea._id}"`,
     );
@@ -67,7 +67,7 @@ This should be deployed as an x402 payable service so users can pay per summary.
     console.log("   - idea.comments: Discussion and shipment URLs");
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      console.error("\n❌ Failed to submit:", error.response?.data?.message);
+      console.error("\n Failed to submit:", error.response?.data?.message);
     } else {
       throw error;
     }

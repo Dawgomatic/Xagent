@@ -126,7 +126,7 @@ def format_result(result) -> str:
     output = []
     
     run = result.run
-    output.append(f"🔬 Task: {run.run_id}")
+    output.append(f" Task: {run.run_id}")
     output.append(f"   Status: {run.status} | Processor: {run.processor}")
     output.append("")
     
@@ -256,7 +256,7 @@ def main():
             return
         
         # Poll for completion
-        print(f"⏳ Running task {run_id}...", file=sys.stderr)
+        print(f" Running task {run_id}...", file=sys.stderr)
         result = poll_task(client, run_id, timeout=args.timeout)
         
         if args.json:
@@ -288,7 +288,7 @@ def main():
             print(format_result(result))
             
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

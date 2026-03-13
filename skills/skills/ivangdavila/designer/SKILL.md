@@ -1,7 +1,7 @@
 ---
 name: Designer
 description: Create logos, interfaces, and visual systems with principles of hierarchy, branding, and usability.
-metadata: {"clawdbot":{"emoji":"🎨","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Design Rules

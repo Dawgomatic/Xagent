@@ -4,7 +4,7 @@
 
 set -e
 
-echo "🎬 Remotion Server Setup"
+echo " Remotion Server Setup"
 echo "========================"
 
 # Detect OS
@@ -13,15 +13,15 @@ if [ -f /etc/os-release ]; then
     OS=$ID
     VERSION=$VERSION_ID
 else
-    echo "❌ Cannot detect OS"
+    echo " Cannot detect OS"
     exit 1
 fi
 
-echo "📦 Detected: $OS $VERSION"
+echo " Detected: $OS $VERSION"
 
 # Install dependencies based on OS
 if [[ "$OS" == "ubuntu" ]] || [[ "$OS" == "debian" ]]; then
-    echo "📦 Installing browser dependencies..."
+    echo " Installing browser dependencies..."
     
     # Check for sudo
     if command -v sudo &> /dev/null; then
@@ -68,11 +68,11 @@ if [[ "$OS" == "ubuntu" ]] || [[ "$OS" == "debian" ]]; then
             libatk-bridge2.0-0
     fi
     
-    echo "✅ Dependencies installed!"
+    echo " Dependencies installed!"
     
 elif [[ "$OS" == "amzn" ]]; then
     # Amazon Linux
-    echo "📦 Installing browser dependencies for Amazon Linux..."
+    echo " Installing browser dependencies for Amazon Linux..."
     $SUDO yum install -y \
         mesa-libgbm \
         libX11 \
@@ -91,9 +91,9 @@ elif [[ "$OS" == "amzn" ]]; then
         at-spi2-core \
         atk \
         at-spi2-atk
-    echo "✅ Dependencies installed!"
+    echo " Dependencies installed!"
 else
-    echo "❌ Unsupported OS: $OS"
+    echo " Unsupported OS: $OS"
     echo "Please install browser dependencies manually."
     echo "See: https://www.remotion.dev/docs/miscellaneous/linux-dependencies"
     exit 1
@@ -101,18 +101,18 @@ fi
 
 # Check Node.js
 if ! command -v node &> /dev/null; then
-    echo "⚠️ Node.js not found. Please install Node.js 18+ first."
+    echo " Node.js not found. Please install Node.js 18+ first."
     exit 1
 fi
 
 NODE_VERSION=$(node -v | cut -d'v' -f2 | cut -d'.' -f1)
 if [ "$NODE_VERSION" -lt 18 ]; then
-    echo "⚠️ Node.js 18+ required. Found: $(node -v)"
+    echo " Node.js 18+ required. Found: $(node -v)"
     exit 1
 fi
 
 echo ""
-echo "✅ Remotion Server setup complete!"
+echo " Remotion Server setup complete!"
 echo ""
 echo "Create a new project:"
 echo "  bash scripts/create.sh my-video"

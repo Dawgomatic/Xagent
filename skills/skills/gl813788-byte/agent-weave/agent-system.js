@@ -288,7 +288,7 @@ class AgentManager extends EventEmitter {
       
       activeAgents.slice(0, 10).forEach(agent => {
         const shortId = agent.id.slice(0, 8);
-        const statusIcon = agent.status === 'running' ? '▶' : '⏸';
+        const statusIcon = agent.status === 'running' ? '' : '';
         const progress = '█'.repeat(Math.floor(agent.progress / 10)) + '░'.repeat(10 - Math.floor(agent.progress / 10));
         
         console.log(`║  ${statusIcon} ${shortId} │ ${agent.status.padEnd(8)} │ ${progress} ${agent.progress.toString().padStart(3)}% ║`);

@@ -136,7 +136,7 @@ Launch the appropriate specialist for in-depth analysis based on the user's spec
 ### 专科代码无效
 
 ```
-❌ 未找到专科 "xyz"
+ 未找到专科 "xyz"
 
 可用的专科列表:
 
@@ -166,7 +166,7 @@ Launch the appropriate specialist for in-depth analysis based on the user's spec
 ### 没有医疗数据
 
 ```
-⚠️ 当前系统中没有医疗数据
+ 当前系统中没有医疗数据
 
 请先使用 /save-report 保存医疗检查单，然后再进行专科咨询。
 ```
@@ -187,7 +187,7 @@ Launch the appropriate specialist for in-depth analysis based on the user's spec
 ### 示例 1: 心内科分析
 ```
 用户: /specialist cardio recent 5
-AI: 🏥 心内科专家分析中...
+AI:  心内科专家分析中...
 
     读取高血压管理数据...
     读取最近5条检查记录...
@@ -198,7 +198,7 @@ AI: 🏥 心内科专家分析中...
 ### 示例 2: 内分泌科分析
 ```
 用户: /specialist endo all
-AI: 🏥 内分泌科专家分析中...
+AI:  内分泌科专家分析中...
 
     读取糖尿病管理数据...
     读取所有检查记录...
@@ -209,7 +209,7 @@ AI: 🏥 内分泌科专家分析中...
 ### 示例 3: 列出所有专科
 ```
 用户: /specialist list
-AI: 📋 可用专科列表
+AI:  可用专科列表
 
     **内科系统**
     - cardio: 心内科
@@ -222,10 +222,10 @@ AI: 📋 可用专科列表
 
 ## 安全红线
 
-- ❌ 不给出具体用药剂量
-- ❌ 不直接开具处方药名
-- ❌ 不判断生死预后
-- ❌ 不替代医生诊断
+-  不给出具体用药剂量
+-  不直接开具处方药名
+-  不判断生死预后
+-  不替代医生诊断
 
 ## 重要提示
 

@@ -1,6 +1,6 @@
 # Aoineco Ledger — AI Agent Financial Tracking Engine
 
-<!-- 🌌 Aoineco-Verified | S-DNA: AOI-2026-0213-SDNA-AL01 -->
+<!--  Aoineco-Verified | S-DNA: AOI-2026-0213-SDNA-AL01 -->
 
 **Version:** 1.0.0  
 **Author:** Aoineco & Co.  
@@ -63,16 +63,16 @@ metrics = ledger.get_bootstrap_metrics()
 ## Bootstrap Metrics Output
 
 ```
-💰 Seed Amount: $7.00
-📈 Total Revenue: $0.0150
-📉 Total Expenses: $0.0233
-🤖 API/LLM Cost: $0.0230
-💵 Net Profit: $-0.0083
-📊 ROI: -0.1%
-💎 Remaining Balance: $6.9917
-🔥 Daily Burn Rate: $0.0233/day
-⏱️ Runway: 300 days
-🧠 IPD: 257.5 ops/$
+ Seed Amount: $7.00
+ Total Revenue: $0.0150
+ Total Expenses: $0.0233
+ API/LLM Cost: $0.0230
+ Net Profit: $-0.0083
+ ROI: -0.1%
+ Remaining Balance: $6.9917
+ Daily Burn Rate: $0.0233/day
+ Runway: 300 days
+ IPD: 257.5 ops/$
 ```
 
 ## Pre-Configured Categories

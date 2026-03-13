@@ -39,9 +39,9 @@ After Vision identifies the species, use this to classify rarity:
 
 | Signal words | Tier |
 |---|---|
-| "abundant", "widespread", "year-round", "common resident", >50% of checklists | Common 🟢 |
-| "uncommon", "seasonal", "migratory", "occasional", 5–50% of checklists | Rare 🟡 |
-| "rare", "vagrant", "accidental", "endangered", "rarely seen", <5% of checklists | Super Rare 🔴 |
+| "abundant", "widespread", "year-round", "common resident", >50% of checklists | Common  |
+| "uncommon", "seasonal", "migratory", "occasional", 5–50% of checklists | Rare  |
+| "rare", "vagrant", "accidental", "endangered", "rarely seen", <5% of checklists | Super Rare  |
 
 When ambiguous → default to **Rare**.
 

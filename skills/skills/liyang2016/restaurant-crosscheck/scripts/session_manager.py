@@ -67,7 +67,7 @@ class BrowserSessionManager:
 
             if not state.get("dianping", {}).get("logged_in", False):
                 print("\n" + "="*60)
-                print("🔐 首次设置：请在浏览器中登录大众点评")
+                print(" 首次设置：请在浏览器中登录大众点评")
                 print("="*60)
                 print("1. 浏览器将自动打开大众点评网站")
                 print("2. 请使用手机号或微信扫码登录")
@@ -79,21 +79,21 @@ class BrowserSessionManager:
                 await page.goto('https://www.dianping.com')
 
                 # Wait for user to login (wait until browser closes)
-                print("⏳ 等待登录...")
-                print("💡 登录完成后，请按 Ctrl+C 继续\n")
+                print(" 等待登录...")
+                print(" 登录完成后，请按 Ctrl+C 继续\n")
 
                 try:
                     # Keep browser open until user closes it
                     await browser.wait_for_event('close', timeout=0)
                 except KeyboardInterrupt:
-                    print("\n✅ 检测到登录完成")
+                    print("\n 检测到登录完成")
 
                 # Mark as logged in
                 state["dianping"]["logged_in"] = True
                 state["dianping"]["last_login"] = str(asyncio.get_event_loop().time())
                 self.save_session_state(state)
 
-                print("✅ 大众点评登录状态已保存\n")
+                print(" 大众点评登录状态已保存\n")
 
             await browser.close()
 
@@ -127,7 +127,7 @@ class BrowserSessionManager:
 
             if not state.get("xiaohongshu", {}).get("logged_in", False):
                 print("\n" + "="*60)
-                print("🔐 首次设置：请在浏览器中登录小红书")
+                print(" 首次设置：请在浏览器中登录小红书")
                 print("="*60)
                 print("1. 浏览器将自动打开小红书网站")
                 print("2. 请使用手机号或微信扫码登录")
@@ -139,20 +139,20 @@ class BrowserSessionManager:
                 await page.goto('https://www.xiaohongshu.com')
 
                 # Wait for user to login
-                print("⏳ 等待登录...")
-                print("💡 登录完成后，请按 Ctrl+C 继续\n")
+                print(" 等待登录...")
+                print(" 登录完成后，请按 Ctrl+C 继续\n")
 
                 try:
                     await browser.wait_for_event('close', timeout=0)
                 except KeyboardInterrupt:
-                    print("\n✅ 检测到登录完成")
+                    print("\n 检测到登录完成")
 
                 # Mark as logged in
                 state["xiaohongshu"]["logged_in"] = True
                 state["xiaohongshu"]["last_login"] = str(asyncio.get_event_loop().time())
                 self.save_session_state(state)
 
-                print("✅ 小红书登录状态已保存\n")
+                print(" 小红书登录状态已保存\n")
 
             await browser.close()
 
@@ -184,7 +184,7 @@ class BrowserSessionManager:
             platform: 'dianping' or 'xiaohongshu'
         """
         if not await self.check_session_valid(platform):
-            print(f"\n⚠️ {platform} 会话已过期，需要重新登录")
+            print(f"\n {platform} 会话已过期，需要重新登录")
             if platform == "dianping":
                 await self.setup_dianping_session(headless=False)
             else:
@@ -196,7 +196,7 @@ def main():
     import sys
 
     print("="*60)
-    print("🚀 浏览器会话管理器")
+    print(" 浏览器会话管理器")
     print("="*60)
     print()
 
@@ -212,13 +212,13 @@ def main():
         needs_setup.append("小红书")
 
     if not needs_setup:
-        print("✅ 所有平台已配置完成！")
+        print(" 所有平台已配置完成！")
         print()
-        print("📊 当前状态：")
-        print(f"  大众点评: ✅ 已登录")
-        print(f"  小红书: ✅ 已登录")
+        print(" 当前状态：")
+        print(f"  大众点评:  已登录")
+        print(f"  小红书:  已登录")
         print()
-        print("💡 如果遇到登录问题，运行：")
+        print(" 如果遇到登录问题，运行：")
         print("   python3 scripts/session_manager.py --reset")
         return
 
@@ -235,7 +235,7 @@ def main():
         if "--xiaohongshu" in sys.argv or "小红书" in needs_setup:
             asyncio.run(manager.setup_xiaohongshu_session(headless=False))
 
-        print("\n✅ 配置完成！现在可以使用自动抓取功能了。")
+        print("\n 配置完成！现在可以使用自动抓取功能了。")
     else:
         print("稍后可以运行此脚本进行配置：")
         print("  python3 scripts/session_manager.py")
@@ -247,7 +247,7 @@ if __name__ == "__main__":
     if "--reset" in sys.argv:
         import shutil
         manager = BrowserSessionManager()
-        print("🔄 重置所有会话...")
+        print(" 重置所有会话...")
         if manager.dianping_session_dir.exists():
             shutil.rmtree(manager.dianping_session_dir)
             manager.dianping_session_dir.mkdir()
@@ -256,6 +256,6 @@ if __name__ == "__main__":
             manager.xhs_session_dir.mkdir()
         if manager.state_file.exists():
             manager.state_file.unlink()
-        print("✅ 会话已重置，请重新登录")
+        print(" 会话已重置，请重新登录")
     else:
         main()

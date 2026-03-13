@@ -3,7 +3,7 @@ name: withings-health
 description: Fetches health data from the Withings API including weight, body composition (fat, muscle, bone, water), activity, and sleep. Use this skill when the user asks about their Withings data, weight history, body metrics, daily steps, sleep quality, or any health measurement from Withings devices.
 version: 1.1.0
 homepage: https://developer.withings.com/
-metadata: {"clawdbot":{"emoji":"⚖️","requires":{"bins":["node"],"env":["WITHINGS_CLIENT_ID","WITHINGS_CLIENT_SECRET"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"],"env":["WITHINGS_CLIENT_ID","WITHINGS_CLIENT_SECRET"]}}}
 ---
 
 This skill allows you to interact with the user's Withings account to retrieve comprehensive health metrics from Withings devices (smart scales, sleep analyzers, activity trackers, etc.).

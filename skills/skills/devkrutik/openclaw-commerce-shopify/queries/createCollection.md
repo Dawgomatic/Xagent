@@ -84,7 +84,7 @@ When a user requests to create collections or manage collection data, follow the
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Creates collection with excessive product data
+   #  HIGH COST - Creates collection with excessive product data
    mutation collectionCreate($input: CollectionInput!) {
      collectionCreate(input: $input) {
        collection { id title products { edges { node { ... } } } rules { ... } }
@@ -92,7 +92,7 @@ When a user requests to create collections or manage collection data, follow the
      }
    }
    
-   # ✅ LOW COST - Creates collection with essential fields only
+   #  LOW COST - Creates collection with essential fields only
    mutation collectionCreate($input: CollectionInput!) {
      collectionCreate(input: $input) {
        collection {

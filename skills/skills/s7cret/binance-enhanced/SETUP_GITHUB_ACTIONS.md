@@ -1,11 +1,11 @@
 # Настройка GitHub Actions для Binance Enhanced
 
-## ✅ **Репозиторий создан:**
+##  **Репозиторий создан:**
 - **URL:** https://github.com/s7cret/binance-enhanced
 - **Описание:** Enhanced Binance trading skill for OpenClaw
 - **Статус:** Код загружен, push protection разрешён
 
-## 🔐 **Настройка Secrets (ОБЯЗАТЕЛЬНО):**
+##  **Настройка Secrets (ОБЯЗАТЕЛЬНО):**
 
 ### **1. Перейдите в настройки репозитория:**
 ```
@@ -38,7 +38,7 @@ openclaw api-key create --name github-actions --expires 90d
 ```
 **Нужно только если планируете публикацию на ClawHub.**
 
-## 🚀 **Workflow файлы:**
+##  **Workflow файлы:**
 
 ### **1. sync-to-openclaw.yml**
 **Что делает:** Автоматически загружает навык в OpenClaw при каждом push в main.
@@ -64,7 +64,7 @@ openclaw api-key create --name github-actions --expires 90d
 - Собирает документацию
 - Публикует на GitHub Pages
 
-## 🧪 **Тестирование интеграции:**
+##  **Тестирование интеграции:**
 
 ### **Вариант 1: Ручной запуск workflow**
 1. Перейдите: https://github.com/s7cret/binance-enhanced/actions
@@ -87,7 +87,7 @@ git push origin main
 - **Workflow runs:** Просмотр логов выполнения
 - **Уведомления:** Настройте в GitHub Settings → Notifications
 
-## 🔧 **Настройка OpenClaw для приёма webhook:**
+##  **Настройка OpenClaw для приёма webhook:**
 
 ### **1. Получите webhook URL:**
 ```bash
@@ -110,12 +110,12 @@ cd /home/moltbot1/.openclaw/workspace/binance-enhanced
 python3 webhook-handler.py
 ```
 
-## 📊 **Мониторинг:**
+##  **Мониторинг:**
 
 ### **GitHub Actions статус:**
-- ✅ **Success:** Зелёная галочка
-- ❌ **Failure:** Красный крестик
-- ⏳ **Running:** Жёлтый кружок
+-  **Success:** Зелёная галочка
+-  **Failure:** Красный крестик
+-  **Running:** Жёлтый кружок
 
 ### **Логи:**
 - Нажмите на workflow run
@@ -127,33 +127,33 @@ python3 webhook-handler.py
 - Slack/Discord интеграция (опционально)
 - Telegram бот (через OpenClaw)
 
-## 🐛 **Устранение неполадок:**
+##  **Устранение неполадок:**
 
 ### **Ошибка: Authentication failed**
 ```
-❌ Authentication failed: Invalid API key
+ Authentication failed: Invalid API key
 ```
 **Решение:** Проверьте `OPENCLAW_API_KEY` в Secrets.
 
 ### **Ошибка: Permission denied**
 ```
-❌ Permission denied: cannot write to skills directory
+ Permission denied: cannot write to skills directory
 ```
 **Решение:** Убедитесь что OpenClaw имеет права на запись.
 
 ### **Ошибка: Workflow not triggered**
 ```
-ℹ️ Workflow не запускается при push
+ Workflow не запускается при push
 ```
 **Решение:** Проверьте триггеры в `.github/workflows/*.yml`.
 
 ### **Ошибка: Rate limit exceeded**
 ```
-❌ API rate limit exceeded
+ API rate limit exceeded
 ```
 **Решение:** Добавьте паузы между запросами, используйте кэширование.
 
-## 🎯 **Следующие шаги:**
+##  **Следующие шаги:**
 
 ### **1. Настройте Secrets** (СЕЙЧАС)
 ### **2. Запустите тестовый workflow**
@@ -161,7 +161,7 @@ python3 webhook-handler.py
 ### **4. Настройте уведомления**
 ### **5. Создайте релиз для публикации на ClawHub**
 
-## 🔗 **Полезные ссылки:**
+##  **Полезные ссылки:**
 - **Репозиторий:** https://github.com/s7cret/binance-enhanced
 - **Actions:** https://github.com/s7cret/binance-enhanced/actions
 - **Settings:** https://github.com/s7cret/binance-enhanced/settings
@@ -170,4 +170,4 @@ python3 webhook-handler.py
 
 ---
 
-**🚀 Готово к автоматизации! Настройте Secrets и тестируйте workflow.**
+** Готово к автоматизации! Настройте Secrets и тестируйте workflow.**

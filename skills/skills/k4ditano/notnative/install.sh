@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "🧠 Installing NotNative skill..."
+echo " Installing NotNative skill..."
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
@@ -13,7 +13,7 @@ fi
 
 # Detect if local or remote
 echo ""
-echo "🔍 Detecting connection type..."
+echo " Detecting connection type..."
 
 # Try localhost first
 if curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8788/health 2>/dev/null | grep -q "200"; then
@@ -41,7 +41,7 @@ fi
 
 # Install dependencies
 echo ""
-echo "📦 Installing dependencies..."
+echo " Installing dependencies..."
 cd "$SCRIPT_DIR"
 npm install
 
@@ -64,7 +64,7 @@ if ! grep -q "NOTNATIVE_WS_URL" "$HOME/.bashrc" 2>/dev/null; then
 fi
 
 echo ""
-echo "✅ NotNative skill installed!"
+echo " NotNative skill installed!"
 echo ""
 echo "Usage:"
 echo "  node scripts/mcp-client.js search <query>    # Search notes"

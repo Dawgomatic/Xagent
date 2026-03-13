@@ -205,7 +205,7 @@ class Analytics {
 
       let report = '';
 
-      report += `📊 Token Savings (All time)\n`;
+      report += ` Token Savings (All time)\n`;
       report += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
       report += `\n`;
       report += `Total commands:  ${stats.total}\n`;
@@ -213,7 +213,7 @@ class Analytics {
       report += `Cache hits:      ${stats.cacheHits}\n`;
       report += `Raw (no filter): ${stats.raw}\n`;
       report += `\n`;
-      report += `💰 Tokens Saved:  ${stats.totalSaved.toLocaleString()} (${totalSavingsPercent}%)\n`;
+      report += ` Tokens Saved:  ${stats.totalSaved.toLocaleString()} (${totalSavingsPercent}%)\n`;
       report += `  - Original:    ${stats.totalOriginal.toLocaleString()}\n`;
       report += `  - Filtered:    ${stats.totalFiltered.toLocaleString()}\n`;
       report += `\n`;
@@ -222,14 +222,14 @@ class Analytics {
       // Assuming ~4 chars per token
       const tokensSaved = Math.round(stats.totalSaved / 4);
       const costSavings = this.calculateCostSavings(tokensSaved);
-      report += `💵 Estimated Cost Savings:\n`;
+      report += ` Estimated Cost Savings:\n`;
       report += `  - GPT-4o:      $${costSavings.gpt4o.toFixed(4)}\n`;
       report += `  - Claude 3.5:  $${costSavings.claude35.toFixed(4)}\n`;
       report += `  - GPT-4:       $${costSavings.gpt4.toFixed(4)}\n`;
       report += `\n`;
 
       // Breakdown by filter
-      report += `📊 By Filter:\n`;
+      report += ` By Filter:\n`;
       const sortedFilters = Object.entries(stats.filters)
         .sort((a, b) => b[1].saved - a[1].saved);
 
@@ -244,13 +244,13 @@ class Analytics {
       report += `\n`;
 
       // Error rate
-      report += `❌ Errors:         ${errorRate}%\n`;
+      report += ` Errors:         ${errorRate}%\n`;
 
       return report;
 
     } catch (error) {
       if (error.code === 'ENOENT') {
-        return '📊 No analytics data yet. Run some commands first!';
+        return ' No analytics data yet. Run some commands first!';
       }
       return `Error loading analytics: ${error.message}`;
     }

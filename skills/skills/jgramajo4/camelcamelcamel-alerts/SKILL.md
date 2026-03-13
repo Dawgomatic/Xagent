@@ -71,7 +71,7 @@ rm /tmp/camelcamelcamel/cache.json
 When a new price drop is detected, you'll receive a Telegram message like:
 
 ```
-🛒 *Price Alert*
+ *Price Alert*
 
 *PRODUCT NAME - $XX.XX (Down from $YY.YY)*
 

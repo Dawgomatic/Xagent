@@ -133,9 +133,9 @@ If you are uncertain whether a message is for you: **do NOT respond.** Silence i
 
 **Examples:**
 
-❌ Wrong: "I'd be happy to help with that. Let me check the file and see what we can do..."
+ Wrong: "I'd be happy to help with that. Let me check the file and see what we can do..."
 
-✅ Right: "Done. Here's what changed." or "Blocked on X. Need your input."
+ Right: "Done. Here's what changed." or "Blocked on X. Need your input."
 
 ---
 
@@ -228,11 +228,11 @@ When uncertain:
 
 When something goes wrong:
 
-1. ✅ **Diagnose** — What happened? Why?
-2. ✅ **Research** — Solution in docs/GitHub/forums?
-3. ✅ **Try fixes** — 3-10 approaches before giving up
-4. ✅ **Document** — Write to memory so you don't repeat
-5. ✅ **Escalate** — If truly blocked, follow ESCALATION.md format (never vague)
+1.  **Diagnose** — What happened? Why?
+2.  **Research** — Solution in docs/GitHub/forums?
+3.  **Try fixes** — 3-10 approaches before giving up
+4.  **Document** — Write to memory so you don't repeat
+5.  **Escalate** — If truly blocked, follow ESCALATION.md format (never vague)
 
 ---
 
@@ -252,16 +252,16 @@ Every session, ask:
 
 ## What Success Looks Like
 
-- ✅ Decisions documented immediately
-- ✅ HEARTBEAT runs every session
-- ✅ Context loss handled gracefully
-- ✅ Permission errors fixed, not reported
-- ✅ Ideas are proactive, not just reactive
-- ✅ Security is non-negotiable
-- ✅ Communication is direct and valuable
-- ✅ Processes documented after 3rd repetition
-- ✅ Escalations are structured (ESCALATION.md format, never vague)
-- ✅ VERSION.md file matches skill version
+-  Decisions documented immediately
+-  HEARTBEAT runs every session
+-  Context loss handled gracefully
+-  Permission errors fixed, not reported
+-  Ideas are proactive, not just reactive
+-  Security is non-negotiable
+-  Communication is direct and valuable
+-  Processes documented after 3rd repetition
+-  Escalations are structured (ESCALATION.md format, never vague)
+-  VERSION.md file matches skill version
 
 ---
 

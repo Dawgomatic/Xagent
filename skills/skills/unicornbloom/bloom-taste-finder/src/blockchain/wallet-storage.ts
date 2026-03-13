@@ -4,12 +4,12 @@
  * Stores and retrieves per-user wallet data
  * Currently uses file-based storage (can migrate to MongoDB later)
  *
- * ⭐ AgentKit 0.10.4 Update:
+ *  AgentKit 0.10.4 Update:
  * - Wallets are now managed server-side by CDP
  * - We only need to store the wallet address (not full wallet data)
  * - CDP retrieves wallets by address using API credentials
  *
- * ⭐ Security Update:
+ *  Security Update:
  * - Local wallet private keys are encrypted with AES-256-GCM
  * - Uses WALLET_ENCRYPTION_SECRET from environment
  * - Production-ready secure storage
@@ -25,7 +25,7 @@ export interface UserWalletRecord {
   network: string;
   createdAt: string;
   lastUsedAt: string;
-  encryptedPrivateKey?: string;  // ⭐ Encrypted with AES-256-GCM (for local wallets)
+  encryptedPrivateKey?: string;  //  Encrypted with AES-256-GCM (for local wallets)
 }
 
 const STORAGE_DIR = path.join(process.cwd(), '.wallet-storage');
@@ -72,7 +72,7 @@ export class WalletStorage {
   /**
    * Get wallet for a specific user
    *
-   * ⭐ Decrypts private key if present
+   *  Decrypts private key if present
    */
   async getUserWallet(userId: string): Promise<(UserWalletRecord & { privateKey?: `0x${string}` }) | null> {
     const records = await this.loadRecords();
@@ -96,7 +96,7 @@ export class WalletStorage {
           privateKey,
         };
       } catch (error) {
-        console.error('❌ Failed to decrypt private key:', error);
+        console.error(' Failed to decrypt private key:', error);
         throw new Error('Failed to decrypt wallet - invalid encryption secret or corrupted data');
       }
     }
@@ -107,14 +107,14 @@ export class WalletStorage {
   /**
    * Save wallet for a specific user
    *
-   * ⭐ AgentKit 0.10.4: Only stores address (CDP manages wallet server-side)
-   * ⭐ Security: Encrypts private keys with AES-256-GCM before storage
+   *  AgentKit 0.10.4: Only stores address (CDP manages wallet server-side)
+   *  Security: Encrypts private keys with AES-256-GCM before storage
    */
   async saveUserWallet(
     userId: string,
     walletAddress: `0x${string}`,
     network: string,
-    privateKey?: `0x${string}`  // ⭐ Optional for local wallets
+    privateKey?: `0x${string}`  //  Optional for local wallets
   ): Promise<void> {
     const records = await this.loadRecords();
 
@@ -143,7 +143,7 @@ export class WalletStorage {
       network,
       createdAt: records[userId]?.createdAt || now,
       lastUsedAt: now,
-      ...(encryptedPrivateKey && { encryptedPrivateKey }),  // ⭐ Store encrypted
+      ...(encryptedPrivateKey && { encryptedPrivateKey }),  //  Store encrypted
     };
 
     await this.saveRecords(records);

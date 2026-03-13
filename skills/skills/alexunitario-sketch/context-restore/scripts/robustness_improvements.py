@@ -53,8 +53,8 @@ _METADATA_PATTERNS = {
     'original': re.compile(r'原始消息数:\s*(\d+)'),
     'compressed': re.compile(r'压缩后消息数:\s*(\d+)'),
     'timestamp': re.compile(r'上下文压缩于\s*([\d\-T:.]+)'),
-    'checkmark': re.compile(r'✅\s*(.+?)(?:\n|$)'),
-    'checkmark_all': re.compile(r'✅\s*(.+?)(?:\n|$)', re.MULTILINE),
+    'checkmark': re.compile(r'\s*(.+?)(?:\n|$)'),
+    'checkmark_all': re.compile(r'\s*(.+?)(?:\n|$)', re.MULTILINE),
     'cron': re.compile(r'(\d+)个?cron任务.*?已转为'),
     'cron_alt': re.compile(r'(\d+)\s*(?:isolated sessions?)|(\d+)\s*(?:isolated mode)', re.IGNORECASE),
     'session': re.compile(r'(\d+)个活跃'),
@@ -141,7 +141,7 @@ def extract_recent_operations_safe(content: str, max_count: int = 5) -> list[str
     operations = []
     
     # 使用预编译的正则
-    if '✅' in content:
+    if '' in content:
         matches = _METADATA_PATTERNS['checkmark_all'].findall(content)
         for match in matches:
             cleaned = match.strip()

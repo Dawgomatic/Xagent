@@ -221,10 +221,10 @@ end
 ### Reversible (use `change`)
 
 These are auto-reversible:
-- `create table` ↔ `drop table`
-- `add column` ↔ `remove column`
-- `create index` ↔ `drop index`
-- `rename` ↔ `rename`
+- `create table`  `drop table`
+- `add column`  `remove column`
+- `create index`  `drop index`
+- `rename`  `rename`
 
 ### Irreversible (use `up`/`down`)
 

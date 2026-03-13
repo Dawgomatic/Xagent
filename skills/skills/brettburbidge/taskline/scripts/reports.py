@@ -76,7 +76,7 @@ def format_summary_report(summary: Dict) -> str:
     """Format task summary for display."""
     total = summary.get('total', 0)
     if total == 0:
-        return "📋 No tasks found"
+        return " No tasks found"
     
     # Calculate percentages
     not_started = summary.get('not_started', 0)
@@ -89,26 +89,26 @@ def format_summary_report(summary: Dict) -> str:
     active = not_started + in_progress + waiting
     
     lines = [
-        f"📊 Task Summary",
+        f" Task Summary",
         f"═══════════════",
         f"Total Tasks: {total}",
         f"Active: {active} | Completed: {completed}",
         "",
-        f"⚪ Not Started: {not_started:>3} ({not_started/total*100:4.1f}%)",
-        f"🔵 In Progress: {in_progress:>3} ({in_progress/total*100:4.1f}%)",
-        f"🟡 Waiting:     {waiting:>3} ({waiting/total*100:4.1f}%)",
-        f"✅ Completed:   {completed:>3} ({completed/total*100:4.1f}%)"
+        f" Not Started: {not_started:>3} ({not_started/total*100:4.1f}%)",
+        f" In Progress: {in_progress:>3} ({in_progress/total*100:4.1f}%)",
+        f" Waiting:     {waiting:>3} ({waiting/total*100:4.1f}%)",
+        f" Completed:   {completed:>3} ({completed/total*100:4.1f}%)"
     ]
     
     if cancelled > 0:
-        lines.append(f"❌ Cancelled:   {cancelled:>3} ({cancelled/total*100:4.1f}%)")
+        lines.append(f" Cancelled:   {cancelled:>3} ({cancelled/total*100:4.1f}%)")
     
     # Completion rate
     if total > 0:
         completion_rate = completed / total * 100
         lines.extend([
             "",
-            f"📈 Completion Rate: {completion_rate:.1f}%"
+            f" Completion Rate: {completion_rate:.1f}%"
         ])
     
     return "\n".join(lines)
@@ -116,10 +116,10 @@ def format_summary_report(summary: Dict) -> str:
 def format_overdue_report(overdue_tasks: List[Dict]) -> str:
     """Format overdue tasks report."""
     if not overdue_tasks:
-        return "🎉 No overdue tasks!"
+        return " No overdue tasks!"
     
     lines = [
-        f"⚠️  Overdue Tasks ({len(overdue_tasks)})",
+        f"  Overdue Tasks ({len(overdue_tasks)})",
         f"════════════════════════"
     ]
     
@@ -130,8 +130,8 @@ def format_overdue_report(overdue_tasks: List[Dict]) -> str:
         priority_str = ""
         if task.get('priority'):
             priority_indicators = {
-                'urgent': '🔥', 'high': '🔺',
-                'medium': '🔸', 'low': '🔹'
+                'urgent': '', 'high': '',
+                'medium': '', 'low': ''
             }
             indicator = priority_indicators.get(task['priority'].lower(), '')
             priority_str = f" {indicator}" if indicator else f" [{task['priority']}]"
@@ -152,10 +152,10 @@ def format_project_report(project_data: Dict) -> str:
     unassigned = project_data.get('unassigned', {})
     
     if not projects and not unassigned.get('taskCounts', {}).get('total', 0):
-        return "📋 No projects or tasks found"
+        return " No projects or tasks found"
     
     lines = [
-        f"📁 Tasks by Project",
+        f" Tasks by Project",
         f"═══════════════════"
     ]
     
@@ -167,17 +167,17 @@ def format_project_report(project_data: Dict) -> str:
         
         lines.extend([
             f"",
-            f"📂 {project['name']} ({total} task{'s' if total != 1 else ''})",
+            f" {project['name']} ({total} task{'s' if total != 1 else ''})",
             f"   Active: {active} | Completed: {counts['completed']}"
         ])
         
         if total > 0:
             if counts['not_started'] > 0:
-                lines.append(f"   ⚪ Not Started: {counts['not_started']}")
+                lines.append(f"    Not Started: {counts['not_started']}")
             if counts['in_progress'] > 0:
-                lines.append(f"   🔵 In Progress: {counts['in_progress']}")
+                lines.append(f"    In Progress: {counts['in_progress']}")
             if counts['waiting'] > 0:
-                lines.append(f"   🟡 Waiting: {counts['waiting']}")
+                lines.append(f"    Waiting: {counts['waiting']}")
     
     # Show unassigned tasks
     if unassigned.get('taskCounts', {}).get('total', 0) > 0:
@@ -187,7 +187,7 @@ def format_project_report(project_data: Dict) -> str:
         
         lines.extend([
             f"",
-            f"📝 Unassigned Tasks ({total} task{'s' if total != 1 else ''})",
+            f" Unassigned Tasks ({total} task{'s' if total != 1 else ''})",
             f"   Active: {active} | Completed: {counts['completed']}"
         ])
     
@@ -200,7 +200,7 @@ def format_completion_report(completion_data: Dict) -> str:
     group_by = completion_data.get('groupBy', 'day')
     
     if not periods:
-        return f"📈 No completed tasks in the last {'30 days' if group_by == 'day' else '12 weeks' if group_by == 'week' else '12 months'}"
+        return f" No completed tasks in the last {'30 days' if group_by == 'day' else '12 weeks' if group_by == 'week' else '12 months'}"
     
     time_desc = {
         'day': 'Daily Completion Trend (Last 30 Days)',
@@ -209,7 +209,7 @@ def format_completion_report(completion_data: Dict) -> str:
     }
     
     lines = [
-        f"📈 {time_desc[group_by]}",
+        f" {time_desc[group_by]}",
         f"{'═' * len(time_desc[group_by]) + 2}",
         f"Total Completed: {total}"
     ]

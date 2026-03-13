@@ -77,10 +77,10 @@ def send_callback(url, text):
     })
     try:
         with urllib.request.urlopen(req) as resp:
-            print(f"✅ 발송 성공: {text[:20]}...")
+            print(f" 발송 성공: {text[:20]}...")
             return True
     except Exception as e:
-        print(f"❌ 발송 실패: {e}")
+        print(f" 발송 실패: {e}")
         return False
 
 # ─── 지능 (Local Brain) ───────────────────────────────────────────────────────
@@ -133,11 +133,11 @@ def _call_gemini_direct(system, user_msg):
 # ─── 메인 루프 ────────────────────────────────────────────────────────────────
 
 def main():
-    print("👀 카카오톡 왓처 시작 (Supabase 감시 중...)")
+    print(" 카카오톡 왓처 시작 (Supabase 감시 중...)")
     while True:
         messages = get_pending_messages()
         for msg in messages:
-            print(f"📩 수신: {msg['utterance']}")
+            print(f" 수신: {msg['utterance']}")
             
             # 처리 중 표시
             update_status(msg['id'], 'processing', None)

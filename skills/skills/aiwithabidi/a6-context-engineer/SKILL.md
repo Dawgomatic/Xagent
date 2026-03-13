@@ -4,10 +4,10 @@ description: "Master context engineering and prompt engineering for AI agents an
 homepage: https://www.agxntsix.ai
 license: MIT
 compatibility: Python 3.10+ (stdlib only — no dependencies)
-metadata: {"openclaw": {"emoji": "🧠", "requires": {"env": []}, "primaryEnv": "", "homepage": "https://www.agxntsix.ai"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": []}, "primaryEnv": "", "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# 🧠 Context Engineer
+#  Context Engineer
 
 Master skill for context engineering and prompt engineering — the art of crafting optimal inputs to LLMs.
 

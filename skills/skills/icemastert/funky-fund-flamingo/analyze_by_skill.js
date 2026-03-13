@@ -112,13 +112,13 @@ function inferSkill(entry) {
 
 function inferIcon(description) {
     const d = description.toLowerCase();
-    if (d.includes('optimiz')) return '⚡';
-    if (d.includes('secur') || d.includes('harden') || d.includes('permission')) return '🛡️';
-    if (d.includes('fix') || d.includes('patch') || d.includes('repair')) return '🚑';
-    if (d.includes('creat') || d.includes('add') || d.includes('introduc')) return '✨';
-    if (d.includes('monetiz') || d.includes('billing') || d.includes('revenue')) return '💰';
-    if (d.includes('remov') || d.includes('cleanup')) return '🧹';
-    return '🔧';
+    if (d.includes('optimiz')) return '';
+    if (d.includes('secur') || d.includes('harden') || d.includes('permission')) return '';
+    if (d.includes('fix') || d.includes('patch') || d.includes('repair')) return '';
+    if (d.includes('creat') || d.includes('add') || d.includes('introduc')) return '';
+    if (d.includes('monetiz') || d.includes('billing') || d.includes('revenue')) return '';
+    if (d.includes('remov') || d.includes('cleanup')) return '';
+    return '';
 }
 
 function extractDescription(entry) {
@@ -155,7 +155,7 @@ function extractDate(entry) {
 
 function analyzeEvolution() {
     if (!exists(LOG_FILE)) {
-        console.error('❌ Source evolution history file is missing.');
+        console.error(' Source evolution history file is missing.');
         return;
     }
 
@@ -194,7 +194,7 @@ function analyzeEvolution() {
     // Markdown Generation
     // ---------------------------------------------------------------------------
 
-    let md = `# 🧬 Detailed Evolution Report (By Skill)
+    let md = `#  Detailed Evolution Report (By Skill)
 
 > Canonical breakdown of meaningful system evolution events.
 > Generated from historical evolution logs.
@@ -206,7 +206,7 @@ function analyzeEvolution() {
     const skills = Object.keys(skillUpdates).sort();
 
     skills.forEach(skill => {
-        md += `## 📦 ${skill}\n\n`;
+        md += `##  ${skill}\n\n`;
 
         skillUpdates[skill].forEach(update => {
             const icon = inferIcon(update.desc);
@@ -219,7 +219,7 @@ function analyzeEvolution() {
 
     write(OUT_FILE, md);
 
-    console.log(`✅ Evolution report generated.`);
+    console.log(` Evolution report generated.`);
     console.log(`• Skills covered: ${skills.length}`);
     console.log(`• Output: ${OUT_FILE}`);
 }

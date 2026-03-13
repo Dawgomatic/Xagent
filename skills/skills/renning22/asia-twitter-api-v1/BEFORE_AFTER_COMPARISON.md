@@ -4,9 +4,9 @@
 
 ### 1. README.md Header
 
-#### ❌ BEFORE
+####  BEFORE
 ```markdown
-# OpenClaw Twitter 🐦
+# OpenClaw Twitter 
 
 Twitter/X data and automation for autonomous agents. Powered by AIsa.
 
@@ -21,37 +21,37 @@ export AISA_API_KEY="your-key"
 
 ---
 
-#### ✅ AFTER
+####  AFTER
 ```markdown
-# OpenClaw Twitter 🐦
+# OpenClaw Twitter 
 
 Twitter/X data and automation for autonomous agents. Powered by AIsa.
 
-## ⚠️ Security Notice
+##  Security Notice
 
 This skill provides two types of operations with different security profiles:
 
-### ✅ Read Operations (SAFE - Recommended)
+###  Read Operations (SAFE - Recommended)
 - User info, tweets, search, trends, followers
 - **No authentication required**
 - **No credentials transmitted**
 - Safe for production use
 
-### ⚠️ Write Operations (HIGH RISK - Use with Extreme Caution)
+###  Write Operations (HIGH RISK - Use with Extreme Caution)
 - Posting tweets, liking, retweeting
 - **Requires transmitting sensitive credentials to third-party API**
 - Email, password, and proxy are sent to `api.aisa.one`
 
-**⚠️ CRITICAL WARNING**: Write operations involve trusting a third-party 
+** CRITICAL WARNING**: Write operations involve trusting a third-party 
 service with full account access. While AIsa is a legitimate API provider, 
 this represents significant security risk.
 
 **Strong Recommendations if Using Write Operations:**
-- ❌ **NEVER use your primary Twitter account**
-- ✅ Create a dedicated automation/test account
-- ✅ Use unique passwords not used elsewhere
-- ✅ Enable 2FA on your main account
-- ✅ Monitor account activity regularly
+-  **NEVER use your primary Twitter account**
+-  Create a dedicated automation/test account
+-  Use unique passwords not used elsewhere
+-  Enable 2FA on your main account
+-  Monitor account activity regularly
 ...
 ```
 
@@ -61,7 +61,7 @@ this represents significant security risk.
 
 ### 2. SKILL.md Title & Description
 
-#### ❌ BEFORE
+####  BEFORE
 ```markdown
 name: Twitter Command Center (Search + Post)
 description: "Search X (Twitter) in real time, extract relevant posts, 
@@ -73,7 +73,7 @@ engagement, and rapid content ops."
 
 ---
 
-#### ✅ AFTER
+####  AFTER
 ```markdown
 name: Twitter Command Center (Search + Monitor)
 description: "Search X (Twitter) in real time, monitor trends, extract 
@@ -87,14 +87,14 @@ intelligence gathering. Safe read-only operations by default."
 
 ### 3. SKILL.md Content Structure
 
-#### ❌ BEFORE
+####  BEFORE
 ```markdown
-## 🔥 What Can You Do?
+##  What Can You Do?
 
 ### Monitor Influencers
 ### Track Trends
 ### Social Listening
-### Automated Engagement  ⚠️ (dangerous!)
+### Automated Engagement   (dangerous!)
 ### Competitor Intel
 
 ## Quick Start
@@ -108,12 +108,12 @@ intelligence gathering. Safe read-only operations by default."
 
 ---
 
-#### ✅ AFTER
+####  AFTER
 ```markdown
-## ⚠️ IMPORTANT SECURITY NOTICE
+##  IMPORTANT SECURITY NOTICE
 [Detailed risk classification]
 
-## 🔥 What Can You Do? (Safe Read Operations)
+##  What Can You Do? (Safe Read Operations)
 
 ### Monitor Influencers
 ### Track Trends
@@ -126,14 +126,14 @@ intelligence gathering. Safe read-only operations by default."
 
 ## Core Capabilities
 
-### ✅ Read Operations (No Login Required - Safe)
+###  Read Operations (No Login Required - Safe)
 [All safe operations with examples]
 
 ---
 
-## ⚠️ Write Operations (High Risk - Requires Authentication)
+##  Write Operations (High Risk - Requires Authentication)
 
-**🚨 CRITICAL SECURITY WARNING**
+** CRITICAL SECURITY WARNING**
 [Multiple warnings before any write operation examples]
 ```
 
@@ -143,7 +143,7 @@ intelligence gathering. Safe read-only operations by default."
 
 ### 4. Python Client Help Text
 
-#### ❌ BEFORE
+####  BEFORE
 ```python
 parser = argparse.ArgumentParser(
     description="OpenClaw Twitter - Twitter/X data and automation"
@@ -158,7 +158,7 @@ subparsers.add_parser("post", help="Send a tweet")
 
 ---
 
-#### ✅ AFTER
+####  AFTER
 ```python
 parser = argparse.ArgumentParser(
     description="OpenClaw Twitter - Twitter/X data and automation",
@@ -173,8 +173,8 @@ Security Notice:
 
 # Commands with risk indicators
 subparsers.add_parser("user-info", help="Get user information (SAFE)")
-subparsers.add_parser("login", help="Login to Twitter account (⚠️ HIGH RISK)")
-subparsers.add_parser("post", help="Send a tweet (⚠️ HIGH RISK)")
+subparsers.add_parser("login", help="Login to Twitter account ( HIGH RISK)")
+subparsers.add_parser("post", help="Send a tweet ( HIGH RISK)")
 ```
 
 **Improvement:** Risk indicators in every command, epilog warning
@@ -183,7 +183,7 @@ subparsers.add_parser("post", help="Send a tweet (⚠️ HIGH RISK)")
 
 ### 5. Python Client Runtime Behavior
 
-#### ❌ BEFORE
+####  BEFORE
 ```python
 def login(self, username: str, email: str, password: str, ...):
     """Login to Twitter account."""
@@ -199,13 +199,13 @@ $ python twitter_client.py login --username myaccount --password xxx
 
 ---
 
-#### ✅ AFTER
+####  AFTER
 ```python
 def login(self, username: str, email: str, password: str, ...):
     """
     Login to Twitter account.
     
-    ⚠️ HIGH RISK OPERATION ⚠️
+     HIGH RISK OPERATION 
     
     This operation transmits your Twitter credentials to api.aisa.one.
     
@@ -214,14 +214,14 @@ def login(self, username: str, email: str, password: str, ...):
     - Use only with dedicated test/automation accounts
     ...
     """
-    print("⚠️  WARNING: Transmitting credentials to third-party API", file=sys.stderr)
-    print("⚠️  Ensure you are using a dedicated test account only!", file=sys.stderr)
+    print("  WARNING: Transmitting credentials to third-party API", file=sys.stderr)
+    print("  Ensure you are using a dedicated test account only!", file=sys.stderr)
     ...
 
 def print_security_warning():
     """Print prominent security warning."""
     print("\n" + "="*70, file=sys.stderr)
-    print("⚠️  SECURITY WARNING", file=sys.stderr)
+    print("  SECURITY WARNING", file=sys.stderr)
     print("="*70, file=sys.stderr)
     print("You are about to use a HIGH RISK write operation.", file=sys.stderr)
     ...
@@ -230,7 +230,7 @@ def print_security_warning():
 $ python twitter_client.py login --username test --password xxx
 
 ======================================================================
-⚠️  SECURITY WARNING
+  SECURITY WARNING
 ======================================================================
 You are about to use a HIGH RISK write operation.
 
@@ -242,8 +242,8 @@ Only use with dedicated test/automation accounts.
 You assume all responsibility and risk.
 ======================================================================
 
-⚠️  WARNING: Transmitting credentials to third-party API
-⚠️  Ensure you are using a dedicated test account only!
+  WARNING: Transmitting credentials to third-party API
+  Ensure you are using a dedicated test account only!
 [Then proceeds with operation]
 ```
 
@@ -253,7 +253,7 @@ You assume all responsibility and risk.
 
 ### 6. Documentation Additions
 
-#### ❌ BEFORE
+####  BEFORE
 ```
 Files:
 - README.md (basic)
@@ -265,7 +265,7 @@ Files:
 
 ---
 
-#### ✅ AFTER
+####  AFTER
 ```
 Files:
 - README.md (enhanced with security warnings)
@@ -283,34 +283,34 @@ Files:
 ## Summary of Key Improvements
 
 ### 1. Multiple Warning Layers
-- ✅ Documentation warnings (README, SKILL.md)
-- ✅ Code warnings (docstrings, comments)
-- ✅ Runtime warnings (stderr output)
-- ✅ Help text warnings (--help output)
+-  Documentation warnings (README, SKILL.md)
+-  Code warnings (docstrings, comments)
+-  Runtime warnings (stderr output)
+-  Help text warnings (--help output)
 
 ### 2. Clear Risk Classification
-- ✅ Safe operations clearly marked
-- ✅ Risky operations prominently warned
-- ✅ Visual indicators (✅ vs ⚠️)
-- ✅ Consistent terminology
+-  Safe operations clearly marked
+-  Risky operations prominently warned
+-  Visual indicators ( vs )
+-  Consistent terminology
 
 ### 3. User Education
-- ✅ Explains WHY operations are risky
-- ✅ Describes threat scenarios
-- ✅ Provides mitigation strategies
-- ✅ Includes security checklist
+-  Explains WHY operations are risky
+-  Describes threat scenarios
+-  Provides mitigation strategies
+-  Includes security checklist
 
 ### 4. Operational Guidance
-- ✅ When to use read vs write
-- ✅ How to use write operations safely
-- ✅ What to do if things go wrong
-- ✅ Monitoring and incident response
+-  When to use read vs write
+-  How to use write operations safely
+-  What to do if things go wrong
+-  Monitoring and incident response
 
 ### 5. Legal Protection
-- ✅ Clear disclosure of risks
-- ✅ Explicit warnings at multiple points
-- ✅ User acknowledgment of risk
-- ✅ Disclaimer of liability
+-  Clear disclosure of risks
+-  Explicit warnings at multiple points
+-  User acknowledgment of risk
+-  Disclaimer of liability
 
 ---
 
@@ -326,7 +326,7 @@ Uses search/trends/user-info commands
   ↓
 No scary warnings, works great
   ↓
-Happy user ✅
+Happy user 
 ```
 
 ### Risky User Journey (Discouraged but Supported)
@@ -347,7 +347,7 @@ Runs login command → Runtime warning appears
   ↓
 User confirms → Uses dedicated test account
   ↓
-Informed user, minimal risk ⚠️
+Informed user, minimal risk 
 ```
 
 ---
@@ -358,31 +358,31 @@ Informed user, minimal risk ⚠️
 
 **Our Response:**
 ```
-✅ We now explicitly WARN users about this
-✅ We explain the risks in detail
-✅ We provide safer alternatives
-✅ We require informed consent
+ We now explicitly WARN users about this
+ We explain the risks in detail
+ We provide safer alternatives
+ We require informed consent
 ```
 
 ### Concern 2: "Transmitting to third-party service"
 
 **Our Response:**
 ```
-✅ We disclose this transparently
-✅ We explain the trust model
-✅ We warn against using valuable accounts
-✅ We provide security checklist
+ We disclose this transparently
+ We explain the trust model
+ We warn against using valuable accounts
+ We provide security checklist
 ```
 
 ### Concern 3: "Significant security risk"
 
 **Our Response:**
 ```
-✅ We agree and say so prominently
-✅ We classify operations by risk level
-✅ We provide mitigation strategies
-✅ We include incident response procedures
-✅ We offer safer alternatives
+ We agree and say so prominently
+ We classify operations by risk level
+ We provide mitigation strategies
+ We include incident response procedures
+ We offer safer alternatives
 ```
 
 ---

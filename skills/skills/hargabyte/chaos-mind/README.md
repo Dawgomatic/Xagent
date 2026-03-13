@@ -9,30 +9,30 @@
 
 ## Features
 
-🔍 **Hybrid Search** - Combines 4 signals for optimal relevance:
+ **Hybrid Search** - Combines 4 signals for optimal relevance:
 - BM25 keyword matching (0.4 weight)
 - Vector semantic search (0.4 weight)
 - Graph relationships (0.1 weight)
 - Heat/access patterns (0.1 weight)
 
-🤖 **Auto-Capture (The Killer Feature - Opt-In)** - Automatically builds your memory from sessions:
+ **Auto-Capture (The Killer Feature - Opt-In)** - Automatically builds your memory from sessions:
 - **43x faster** than manual entry - captures context while you work
 - Extracts decisions, insights, facts automatically with Qwen3-1.7B
 - 100% local processing (no cloud/external APIs)
 - **Disabled by default** for privacy - you control what it reads
 - See "Auto-Capture" section below for setup (takes ~5 minutes)
 
-📊 **Progressive Disclosure** - Choose detail level:
+ **Progressive Disclosure** - Choose detail level:
 - Index mode: ~75 tokens/result (90% savings)
 - Summary mode: ~250 tokens/result (67% savings)
 - Full mode: ~750 tokens/result (complete context)
 
-⚡ **43x Faster** - Optimized extraction:
+ **43x Faster** - Optimized extraction:
 - 2.6s per message
 - ~42s per 16-message session
 - Qwen3-1.7B with thinking disabled
 
-🔗 **Enhanced with Cortex + Beads** (optional):
+ **Enhanced with Cortex + Beads** (optional):
 - **Cortex** - Anchor memories to code locations (semantic linking)
 - **Beads** - Link memories to tasks/issues (project tracking)
 - Together: Search shows memories → code → tasks in one view
@@ -132,7 +132,7 @@ chaos-cli store "43x performance improvement" --category research --priority 0.8
 
 ---
 
-## 🚀 Auto-Capture - The Most Powerful Feature
+##  Auto-Capture - The Most Powerful Feature
 
 **What it does:** Automatically extracts memories from your AI sessions in the background - no manual input needed!
 
@@ -195,14 +195,14 @@ chaos-cli list  # Should see extracted memories
 
 ### What Gets Captured
 
-**✅ Captures:**
+** Captures:**
 - Decisions and reasoning
 - Important facts and data
 - Key insights and discoveries
 - Technical details and specifications
 - Problem-solving approaches
 
-**❌ Skips:**
+** Skips:**
 - Greetings and pleasantries
 - Filler words and acknowledgments
 - Repetitive confirmations
@@ -245,7 +245,7 @@ chaos-cli search "query"
 
 ---
 
-## 🔗 Integrations (Optional Enhancements)
+##  Integrations (Optional Enhancements)
 
 CHAOS Memory becomes dramatically more powerful when paired with complementary tools:
 
@@ -260,8 +260,8 @@ CHAOS Memory becomes dramatically more powerful when paired with complementary t
 # Search returns memory + code location
 chaos-cli search "auth implementation"
 → "Changed to JWT-based auth"
-→ 📍 src/auth/middleware.ts:45-89
-→ 📍 config/security.yml:12
+→  src/auth/middleware.ts:45-89
+→  config/security.yml:12
 ```
 
 **How it works:**
@@ -285,8 +285,8 @@ chaos-cli store "Refactor auth module" --task AUTH-42
 # Search shows task status
 chaos-cli search "auth refactor"
 → "Refactor auth module"
-→ 📋 AUTH-42: In Progress
-→ 🔗 PR #156, commit abc123
+→  AUTH-42: In Progress
+→  PR #156, commit abc123
 ```
 
 **How it works:**
@@ -303,10 +303,10 @@ When **CHAOS + Cortex + Beads** work together, you get:
 ```bash
 chaos-cli search "caching"
 → Memory: "Added Redis for session storage"
-→ 📍 Code: cache/redis.ts:34-156, config/redis.yml
-→ 📋 Task: PERF-089 (Completed 2024-02-01)
-→ 🔗 Related: 4 memories, 7 files, 2 PRs
-→ 🔥 Heat: 0.87 (accessed 12 times)
+→  Code: cache/redis.ts:34-156, config/redis.yml
+→  Task: PERF-089 (Completed 2024-02-01)
+→  Related: 4 memories, 7 files, 2 PRs
+→  Heat: 0.87 (accessed 12 times)
 ```
 
 **Benefits:**
@@ -391,13 +391,13 @@ cd ~/.chaos/data && dolt sql-server &
 
 ## Security & Privacy
 
-**🔒 Local-Only Storage:**
+** Local-Only Storage:**
 - All memories stored locally: `~/.chaos/db`
 - No cloud sync, no external transmission
 - Your data never leaves your machine
 - Database is version-controlled (Dolt) for full auditability
 
-**⚙️ Auto-Capture (Opt-In Only):**
+** Auto-Capture (Opt-In Only):**
 - **Disabled by default** - requires explicit configuration
 - You control which session files to process
 - Manual configuration required in `~/.chaos/config.yaml`
@@ -405,18 +405,18 @@ cd ~/.chaos/data && dolt sql-server &
 - All processing runs locally via your own Ollama instance
 - No external API calls or cloud services
 
-**🔍 Permissions:**
+** Permissions:**
 - **Read:** Session transcript files (only paths you configure)
 - **Write:** Local database (`~/.chaos/db`)
 - **Network:** None (100% offline operation)
 
-**✅ Transparency:**
+** Transparency:**
 - Install script included in repo (`install.sh`) - auditable before running
 - Binaries built via GitHub Actions (reproducible builds)
 - Database is plain Dolt SQL - inspect anytime with `dolt sql`
 - Open source: Review all code at https://github.com/hargabyte/Chaos-mind
 
-**🛡️ Control:**
+** Control:**
 ```bash
 # Preview what auto-capture would process (dry-run)
 chaos-consolidator --auto-capture --once --dry-run
@@ -429,7 +429,7 @@ auto_capture:
 # Or simply don't configure any session paths
 ```
 
-**📋 What Data is Accessed:**
+** What Data is Accessed:**
 - Manual mode: Only what you explicitly store via `chaos-cli store`
 - Auto-capture mode: Only session files in paths you configure
 - Never: Passwords, API keys, or system files (unless you explicitly configure them)

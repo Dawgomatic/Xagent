@@ -44,7 +44,7 @@ curl "$IPFS_GATEWAY/ipfs/QmHash"
 curl "https://ipfs.io/ipfs/QmYwAPJzv5CZsnAzt8auVZcgSDUbkXz2x4k2k5xmj8W1gR"
 ```
 
-**⚠️ Gateway Limits:** Public gateways have rate limits and may be slower. For production use, run a local node or use dedicated gateway services.
+** Gateway Limits:** Public gateways have rate limits and may be slower. For production use, run a local node or use dedicated gateway services.
 
 ## Detecting Available Tools
 

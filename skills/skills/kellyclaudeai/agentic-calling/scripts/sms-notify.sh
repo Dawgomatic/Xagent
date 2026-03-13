@@ -83,11 +83,11 @@ STATUS=$(echo "$RESPONSE" | jq -r '.status // empty')
 ERROR_MESSAGE=$(echo "$RESPONSE" | jq -r '.message // empty')
 
 if [[ -n "$MESSAGE_SID" ]]; then
-  echo "✅ SMS sent successfully!"
+  echo " SMS sent successfully!"
   echo "Message SID: $MESSAGE_SID"
   echo "Status: $STATUS"
 else
-  echo "❌ SMS failed:"
+  echo " SMS failed:"
   echo "$ERROR_MESSAGE"
   exit 1
 fi

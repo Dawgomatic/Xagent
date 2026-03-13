@@ -159,7 +159,7 @@ src/
 
 | Boundary | Communication | Notes |
 |----------|---------------|-------|
-| [module A ↔ module B] | [API/events/direct] | [considerations] |
+| [module A  module B] | [API/events/direct] | [considerations] |
 
 ## Sources
 

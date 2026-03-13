@@ -38,7 +38,7 @@ if [ "$FROM_SIGNALS" = true ]; then
 fi
 
 if [ -z "$SIGNAL_ID" ]; then
-  echo "⚠️  No signal ID to update watermark"
+  echo "  No signal ID to update watermark"
   echo "Usage: $0 --from-signals  OR  $0 --id <signal_id>"
   exit 0
 fi
@@ -51,4 +51,4 @@ jq --arg id "$SIGNAL_ID" --arg now "$NOW" \
    "$STATE_FILE" > "$STATE_FILE.tmp"
 mv "$STATE_FILE.tmp" "$STATE_FILE"
 
-echo "✅ Watermark updated: $SIGNAL_ID"
+echo " Watermark updated: $SIGNAL_ID"

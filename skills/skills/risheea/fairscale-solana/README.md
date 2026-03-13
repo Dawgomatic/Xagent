@@ -70,31 +70,31 @@ Ask your agent:
 
 **Quick check:**
 ```
-📊 FairScore: 90/100 | Tier: platinum
+ FairScore: 90/100 | Tier: platinum
 
-✅ TRUSTED
+ TRUSTED
 
-🏅 Badges: LST Staker, Diamond Hands, Veteran
+ Badges: LST Staker, Diamond Hands, Veteran
 ```
 
 **"Is this a whale?"**
 ```
-🐋 Whale Check: GFTVQd...P32Tn
+ Whale Check: GFTVQd...P32Tn
 
-💰 LST Holdings: 97.7% — Top 3% 
-💵 Stablecoins: 27.5% — Low
+ LST Holdings: 97.7% — Top 3% 
+ Stablecoins: 27.5% — Low
 
-Verdict: 🟡 PARTIAL WHALE — Heavy DeFi, not cash-rich.
+Verdict:  PARTIAL WHALE — Heavy DeFi, not cash-rich.
 ```
 
 **"Is this a bot?"**
 ```
-🤖 Bot Check: GFTVQd...P32Tn
+ Bot Check: GFTVQd...P32Tn
 
-⚡ Burst Ratio: 16.8% — Organic ✅
-🌐 Platforms: 96.6% — Diverse ✅
+ Burst Ratio: 16.8% — Organic 
+ Platforms: 96.6% — Diverse 
 
-Verdict: ✅ HUMAN — Not a bot.
+Verdict:  HUMAN — Not a bot.
 ```
 
 ## Links

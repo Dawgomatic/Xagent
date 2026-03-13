@@ -16,7 +16,7 @@ if ($text_content | length) > 0 and ($text_content | startswith("System:") | not
          gsub("\n\n"; "<br><br>") |  # Paragraph breaks
          gsub("\n"; "\n> ")) as $formatted |  # Line breaks
         # User message in blue callout
-        "> [!quote] 🐉 User · " + $time + "\n> " + $formatted + "\n"
+        "> [!quote]  User · " + $time + "\n> " + $formatted + "\n"
         
     elif .message.role == "assistant" then
         # Get text content, replace paragraph breaks with <br><br>, then add > to all lines
@@ -24,7 +24,7 @@ if ($text_content | length) > 0 and ($text_content | startswith("System:") | not
          gsub("\n\n"; "<br><br>") |  # Paragraph breaks
          gsub("\n"; "\n> ")) as $formatted |  # Line breaks
         # Zoidbot message in green callout
-        "> [!check] 🦞 Zoidbot · " + $time + "\n> " + $formatted + "\n"
+        "> [!check]  Zoidbot · " + $time + "\n> " + $formatted + "\n"
     else
         empty
     end

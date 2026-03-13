@@ -73,7 +73,7 @@ Remove a linked workplace.
 Show current workplace details.
 
 ```
-📁 my-app (a1b2c3d4-...)
+ my-app (a1b2c3d4-...)
    Path: /Users/dev/projects/my-app
    Host: macbook-pro
    Parent: parent-project (if any)
@@ -172,7 +172,7 @@ scripts/loaded_workplaces.sh load <path|name|uuid>
 **Example:**
 ```
 > workplace load /Users/dev/opensource/log-stream
-✅ Loaded: log-stream
+ Loaded: log-stream
    UUID: 74cdd6fd-...
    Path: /Users/dev/opensource/log-stream
 ```

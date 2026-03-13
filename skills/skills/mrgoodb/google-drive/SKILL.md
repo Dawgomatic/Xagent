@@ -1,7 +1,7 @@
 ---
 name: google-drive
 description: Manage Google Drive files and folders. Upload, download, share, and organize files via Drive API.
-metadata: {"clawdbot":{"emoji":"📁","requires":{"env":["GOOGLE_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["GOOGLE_ACCESS_TOKEN"]}}}
 ---
 
 # Google Drive

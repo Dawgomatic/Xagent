@@ -14,7 +14,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_FILE="$SCRIPT_DIR/skill-config.json"
 
 echo ""
-echo "📞 ClawdTalk Uninstall"
+echo " ClawdTalk Uninstall"
 echo "======================"
 echo ""
 
@@ -41,22 +41,22 @@ if [ -z "$CLI_NAME" ]; then
 fi
 
 # 1. Stop WebSocket connection
-echo "🔌 Stopping WebSocket connection..."
+echo " Stopping WebSocket connection..."
 if [ -f "$SCRIPT_DIR/scripts/connect.sh" ]; then
     bash "$SCRIPT_DIR/scripts/connect.sh" stop 2>/dev/null || true
     echo "   ✓ Connection stopped"
 else
-    echo "   ⚠️  connect.sh not found, skipping"
+    echo "     connect.sh not found, skipping"
 fi
 echo ""
 
 # 2. Remove voice agent from gateway config
-echo "🔧 Removing voice agent from gateway config..."
+echo " Removing voice agent from gateway config..."
 gateway_changed=false
 
 if [ -n "$GATEWAY_CONFIG" ] && [ -f "$GATEWAY_CONFIG" ]; then
     if ! command -v jq &> /dev/null; then
-        echo "   ⚠️  jq not found — please remove the voice agent manually from $GATEWAY_CONFIG"
+        echo "     jq not found — please remove the voice agent manually from $GATEWAY_CONFIG"
     else
         has_voice=$(jq -r '[.agents.list[]? | select(.id == "voice")] | length > 0' "$GATEWAY_CONFIG" 2>/dev/null || echo "false")
 
@@ -68,14 +68,14 @@ if [ -n "$GATEWAY_CONFIG" ] && [ -f "$GATEWAY_CONFIG" ]; then
                 gateway_changed=true
             else
                 rm -f "$tmp_config"
-                echo "   ⚠️  Could not update gateway config — remove voice agent manually"
+                echo "     Could not update gateway config — remove voice agent manually"
             fi
         else
             echo "   ✓ No voice agent found (already clean)"
         fi
     fi
 else
-    echo "   ⚠️  Gateway config not found"
+    echo "     Gateway config not found"
 fi
 echo ""
 
@@ -83,15 +83,15 @@ echo ""
 if [ "$gateway_changed" = true ]; then
     echo "↻ Restarting gateway to apply changes..."
     if command -v "$CLI_NAME" &> /dev/null; then
-        $CLI_NAME gateway restart 2>/dev/null && echo "   ✓ Gateway restarted" || echo "   ⚠️  Restart failed — run '$CLI_NAME gateway restart' manually"
+        $CLI_NAME gateway restart 2>/dev/null && echo "   ✓ Gateway restarted" || echo "     Restart failed — run '$CLI_NAME gateway restart' manually"
     else
-        echo "   ⚠️  Run '$CLI_NAME gateway restart' to apply changes"
+        echo "     Run '$CLI_NAME gateway restart' to apply changes"
     fi
     echo ""
 fi
 
 # 4. Clean up local files
-echo "🗑️  Cleaning up..."
+echo "  Cleaning up..."
 rm -f "$SCRIPT_DIR/.connect.pid"
 rm -f "$SCRIPT_DIR/.connect.log"
 echo "   ✓ Removed PID and log files"
@@ -105,7 +105,7 @@ else
 fi
 echo ""
 
-echo "✅ ClawdTalk uninstalled."
+echo " ClawdTalk uninstalled."
 echo ""
 echo "To reinstall later, run: ./setup.sh"
 echo ""

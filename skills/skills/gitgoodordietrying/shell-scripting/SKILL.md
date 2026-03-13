@@ -1,7 +1,7 @@
 ---
 name: shell-scripting
 description: Write robust, portable shell scripts. Use when parsing arguments, handling errors properly, writing POSIX-compatible scripts, managing temp files, running commands in parallel, managing background processes, or adding --help to scripts.
-metadata: {"clawdbot":{"emoji":"🐚","requires":{"bins":["bash"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["bash"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Shell Scripting

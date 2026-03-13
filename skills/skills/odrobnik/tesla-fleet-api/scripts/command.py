@@ -181,9 +181,9 @@ def format_result(result: Dict[str, Any], action: str, vehicle_name: str) -> str
     reason = response.get("reason", "")
     
     if success:
-        return f"✅ {action} — {vehicle_name}"
+        return f" {action} — {vehicle_name}"
     else:
-        return f"❌ {action} failed — {reason or 'unknown error'}"
+        return f" {action} failed — {reason or 'unknown error'}"
 
 
 def parse_time(time_str: str) -> int:
@@ -315,7 +315,7 @@ def cmd_places_set(args, dir_path: str, base_url: str, token: Optional[str], vin
 
     places[args.name] = {"lat": float(lat), "lon": float(lon)}
     save_places(dir_path, places)
-    print(f"✅ Saved place '{args.name}': {float(lat)}, {float(lon)}")
+    print(f" Saved place '{args.name}': {float(lat)}, {float(lon)}")
     return 0
 
 
@@ -326,7 +326,7 @@ def cmd_places_remove(args, dir_path: str) -> int:
         return 1
     places.pop(args.name, None)
     save_places(dir_path, places)
-    print(f"✅ Removed place '{args.name}'")
+    print(f" Removed place '{args.name}'")
     return 0
 
 
@@ -422,7 +422,7 @@ def cmd_precondition_list(args, base_url: str, token: str, vin: str, name: str, 
         print(json.dumps(sched_data, indent=2))
         return 0
     
-    print(f"🚗 {name} — Precondition Schedules")
+    print(f" {name} — Precondition Schedules")
     print("─" * 40)
     
     if not schedules:
@@ -586,7 +586,7 @@ def cmd_simple(args, base_url: str, token: str, vin: str, name: str, ca_cert: Op
         url = api_url(base_url, vin, "wake_up")
         result = http_json("POST", url, token, json_body={}, ca_cert=ca_cert)
         state = result.get("response", {}).get("state", "unknown")
-        print(f"✅ Wake — {name} ({state})")
+        print(f" Wake — {name} ({state})")
         return 0
     
     if cmd in endpoints:

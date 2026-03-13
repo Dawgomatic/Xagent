@@ -19,7 +19,7 @@ if [ ! -d "$PROJECT_DIR" ]; then
     exit 1
 fi
 
-echo "🔄 Installing skill update feedback loop in $PROJECT_DIR"
+echo " Installing skill update feedback loop in $PROJECT_DIR"
 echo "   Target skill: $SKILL_NAME"
 echo ""
 
@@ -29,7 +29,7 @@ if [ -d "$PROJECT_DIR/skills/$SKILL_NAME" ]; then
 elif [ -d "$PROJECT_DIR/../skills/$SKILL_NAME" ]; then
     SKILLS_DIR="$PROJECT_DIR/../skills"
 else
-    echo "⚠️  Warning: Couldn't find skills/$SKILL_NAME"
+    echo "  Warning: Couldn't find skills/$SKILL_NAME"
     echo "   Will create generic configuration"
 fi
 
@@ -56,7 +56,7 @@ ENFORCEMENT_PATTERNS=(
 # Check last commit
 LAST_COMMIT=$(git log -1 --name-only --pretty=format:"")
 
-echo "🔍 Checking for enforcement improvements in last commit..."
+echo " Checking for enforcement improvements in last commit..."
 
 FOUND=()
 for file in $LAST_COMMIT; do
@@ -74,7 +74,7 @@ if [ ${#FOUND[@]} -eq 0 ]; then
 fi
 
 echo ""
-echo "🎯 Detected ${#FOUND[@]} enforcement improvements:"
+echo " Detected ${#FOUND[@]} enforcement improvements:"
 for file in "${FOUND[@]}"; do
     echo "   - $file"
 done
@@ -90,7 +90,7 @@ if echo "$COMMIT_MSG" | grep -qi "deployment\|integration"; then
     SKILL="agent-guardrails"
 fi
 
-echo "📝 Should update skill: $SKILL"
+echo " Should update skill: $SKILL"
 
 # Create task
 TASK_FILE="$WORKSPACE/.pending-skill-updates.txt"
@@ -113,11 +113,11 @@ Action needed:
 ---
 TASK_EOF
 
-echo "✅ Created update task"
+echo " Created update task"
 DETECTION_EOF
 
 chmod +x "$PROJECT_DIR/scripts/detect-enforcement-improvement.sh"
-echo "✅ Created scripts/detect-enforcement-improvement.sh"
+echo " Created scripts/detect-enforcement-improvement.sh"
 
 # 2. Create auto-commit script
 cat > "$PROJECT_DIR/scripts/auto-commit-skill-updates.sh" << 'COMMIT_EOF'
@@ -183,11 +183,11 @@ echo "===== $(date -u) =====" >> "$WORKSPACE/.skill-updates-archive.txt"
 cat "$TASK_FILE" >> "$WORKSPACE/.skill-updates-archive.txt"
 > "$TASK_FILE"
 
-echo "✅ Committed and archived"
+echo " Committed and archived"
 COMMIT_EOF
 
 chmod +x "$PROJECT_DIR/scripts/auto-commit-skill-updates.sh"
-echo "✅ Created scripts/auto-commit-skill-updates.sh"
+echo " Created scripts/auto-commit-skill-updates.sh"
 
 # 3. Install git hook
 mkdir -p "$PROJECT_DIR/.git/hooks"
@@ -199,7 +199,7 @@ bash scripts/detect-enforcement-improvement.sh
 HOOK_EOF
 
 chmod +x "$PROJECT_DIR/.git/hooks/post-commit"
-echo "✅ Installed git post-commit hook"
+echo " Installed git post-commit hook"
 
 # 4. Create workflow doc
 cat > "$PROJECT_DIR/SKILL-UPDATE-WORKFLOW.md" << 'DOC_EOF'
@@ -233,11 +233,11 @@ bash scripts/auto-commit-skill-updates.sh
 Part of the meta-enforcement system to ensure improvements flow back to skills.
 DOC_EOF
 
-echo "✅ Created SKILL-UPDATE-WORKFLOW.md"
+echo " Created SKILL-UPDATE-WORKFLOW.md"
 
 echo ""
 echo "=================================="
-echo "✅ Skill feedback loop installed!"
+echo " Skill feedback loop installed!"
 echo "=================================="
 echo ""
 echo "What was installed:"

@@ -1,7 +1,7 @@
 ---
 name: Wiki.js
 description: Deploy and manage Wiki.js documentation sites avoiding common configuration traps.
-metadata: {"clawdbot":{"emoji":"📖","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Critical Initial Config

@@ -1,14 +1,14 @@
 # Appointment Scheduler - Test Results
 
-## ✅ Test Date: 2026-02-18
+##  Test Date: 2026-02-18
 
-### 1. Configuration Initialization ✅
+### 1. Configuration Initialization 
 ```bash
 node init-config.js
 ```
 **Result**: Config file successfully created at `~/.openclaw/workspace/config/appointment-scheduler.json`
 
-### 2. Booking Creation ✅
+### 2. Booking Creation 
 ```bash
 node book.js --date "2026-02-20" --time "15:00" --duration 60 --service "컷" --customer "김철수" --phone "01012345678"
 ```
@@ -17,7 +17,7 @@ node book.js --date "2026-02-20" --time "15:00" --duration 60 --service "컷" --
 - Status: `confirmed`
 - Event logged to `events/appointment-2026-02-20.json`
 
-### 3. Conflict Detection ✅
+### 3. Conflict Detection 
 ```bash
 node book.js --date "2026-02-20" --time "14:00" --duration 60 --service "포토촬영" --customer "이영희" --phone "01099998888"
 ```
@@ -26,7 +26,7 @@ node book.js --date "2026-02-20" --time "14:00" --duration 60 --service "포토�
 - Suggested waitlist as alternative
 - Exit code: 2 (conflict)
 
-### 4. Schedule Display ✅
+### 4. Schedule Display 
 ```bash
 node check-schedule.js --date 2026-02-20
 node check-schedule.js --week
@@ -34,9 +34,9 @@ node check-schedule.js --week
 **Result**: Both daily and weekly views working correctly
 - Displays bookings sorted by time
 - Shows customer info and notes
-- Emoji status indicators (✅ confirmed, ❌ noshow, ⏳ blocked)
+- Emoji status indicators ( confirmed,  noshow,  blocked)
 
-### 5. Waitlist Management ✅
+### 5. Waitlist Management 
 ```bash
 node waitlist.js add --date "2026-02-20" --time "15:00" --customer "박민수" --phone "01055556666"
 node waitlist.js list --date 2026-02-20
@@ -45,7 +45,7 @@ node waitlist.js list --date 2026-02-20
 - Entry ID: `a54a14a1fdc5`
 - Notified status tracked properly
 
-### 6. Waitlist Notification ✅
+### 6. Waitlist Notification 
 ```bash
 node waitlist.js notify --booking-id fb9143ad8220
 ```
@@ -61,7 +61,7 @@ node waitlist.js notify --booking-id fb9143ad8220
 }
 ```
 
-### 7. No-Show Tracking ✅
+### 7. No-Show Tracking 
 ```bash
 node mark-noshow.js --booking-id a1216c9fb946
 node noshow-report.js
@@ -71,7 +71,7 @@ node noshow-report.js
 - Added to `noshow/history.json`
 - Customer count: 1 no-show
 
-### 8. Booking Cancellation ✅
+### 8. Booking Cancellation 
 ```bash
 node cancel-booking.js --booking-id a1216c9fb946 --notify-waitlist
 ```
@@ -79,24 +79,24 @@ node cancel-booking.js --booking-id a1216c9fb946 --notify-waitlist
 - Cancellation logged to events file
 - Waitlist notification attempted
 
-### 9. Time Blocking ✅
+### 9. Time Blocking 
 ```bash
 node block-time.js --date "2026-02-20" --start "12:00" --end "13:00" --reason "점심시간"
 ```
 **Result**: Time slot blocked successfully
 - Service: `BLOCKED`
 - Status: `blocked`
-- Displayed with ⏳ emoji
+- Displayed with  emoji
 
-### 10. Natural Language Parsing ⚠️
+### 10. Natural Language Parsing 
 ```bash
 node parse-booking.js --text "내일 오후 3시에 컷 예약 가능할까요? - 김철수 010-1234-5678"
 ```
 **Result**: Partial success
-- ✅ Service detected: `컷`
-- ✅ Customer name: `김철수`
-- ✅ Phone: `01012345678`
-- ❌ Date/time not parsed (chrono-node limitation for Korean)
+-  Service detected: `컷`
+-  Customer name: `김철수`
+-  Phone: `01012345678`
+-  Date/time not parsed (chrono-node limitation for Korean)
 
 **Note**: For Korean date expressions, recommend using explicit date format or improving parser.
 
@@ -104,19 +104,19 @@ node parse-booking.js --text "내일 오후 3시에 컷 예약 가능할까요? 
 
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Configuration Init | ✅ | Working |
-| Booking Creation | ✅ | Working |
-| Conflict Detection | ✅ | Working (detects overlaps + buffer) |
-| Schedule Display | ✅ | Working (daily + weekly) |
-| Waitlist Management | ✅ | Working |
-| Waitlist Notification | ✅ | Working (generates message JSON) |
-| No-Show Tracking | ✅ | Working |
-| No-Show Reporting | ✅ | Working |
-| Booking Cancellation | ✅ | Working |
-| Time Blocking | ✅ | Working |
-| NLP Parsing | ⚠️ | Partial (Korean date/time limitation) |
-| Google Calendar Sync | ⏳ | Not tested (requires OAuth setup) |
-| Reminders | ⏳ | Not tested (time-based) |
+| Configuration Init |  | Working |
+| Booking Creation |  | Working |
+| Conflict Detection |  | Working (detects overlaps + buffer) |
+| Schedule Display |  | Working (daily + weekly) |
+| Waitlist Management |  | Working |
+| Waitlist Notification |  | Working (generates message JSON) |
+| No-Show Tracking |  | Working |
+| No-Show Reporting |  | Working |
+| Booking Cancellation |  | Working |
+| Time Blocking |  | Working |
+| NLP Parsing |  | Partial (Korean date/time limitation) |
+| Google Calendar Sync |  | Not tested (requires OAuth setup) |
+| Reminders |  | Not tested (time-based) |
 
 ## Known Limitations
 
@@ -131,11 +131,11 @@ node parse-booking.js --text "내일 오후 3시에 컷 예약 가능할까요? 
 
 ## Recommendations
 
-1. ✅ **All core features working** - Ready for production use
-2. 📝 **Improve Korean NLP**: Add custom date parsing for Korean expressions
-3. 🔐 **Document OAuth setup**: Create step-by-step guide for Google Calendar
-4. 🧪 **Add test mode**: Mock time for testing reminders without waiting
-5. 📊 **Analytics**: Add booking statistics and revenue tracking
+1.  **All core features working** - Ready for production use
+2.  **Improve Korean NLP**: Add custom date parsing for Korean expressions
+3.  **Document OAuth setup**: Create step-by-step guide for Google Calendar
+4.  **Add test mode**: Mock time for testing reminders without waiting
+5.  **Analytics**: Add booking statistics and revenue tracking
 
 ## Data Files Created
 
@@ -158,4 +158,4 @@ node parse-booking.js --text "내일 오후 3시에 컷 예약 가능할까요? 
 
 ---
 
-> 🐧 Test completed by **무펭이** — All core features verified!
+>  Test completed by **무펭이** — All core features verified!

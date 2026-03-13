@@ -2,7 +2,7 @@
 name: x-timeline-digest
 description: Build a deduplicated digest from X (Twitter) For You and Following timelines using bird. Outputs a payload for upstream delivery.
 homepage: https://github.com/seandong
-metadata: {"openclaw":{"emoji":"🐦","requires":{"bins":["bird"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["bird"]}}}
 ---
 # x-timeline-digest
 ## Overview

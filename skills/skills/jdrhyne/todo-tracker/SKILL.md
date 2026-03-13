@@ -39,7 +39,7 @@ When user says: "mark X done", "completed X", "finished X"
 ```bash
 bash skills/todo-tracker/scripts/todo.sh done "<item-pattern>"
 ```
-Matches partial text. Moves item to ✅ Done section with date.
+Matches partial text. Moves item to  Done section with date.
 
 ### Remove Item
 When user says: "remove X from TODO", "delete X from TODO"
@@ -73,17 +73,17 @@ bash skills/todo-tracker/scripts/todo.sh summary
 
 *Last updated: 2026-01-17*
 
-## 🔴 High Priority
+##  High Priority
 - [ ] Item one (added: 2026-01-17)
-- [ ] Item two (added: 2026-01-15) ⚠️ STALE
+- [ ] Item two (added: 2026-01-15)  STALE
 
-## 🟡 Medium Priority
+##  Medium Priority
 - [ ] Item three (added: 2026-01-17)
 
-## 🟢 Nice to Have
+##  Nice to Have
 - [ ] Item four (added: 2026-01-17)
 
-## ✅ Done
+##  Done
 - [x] Completed item (done: 2026-01-17)
 ```
 
@@ -91,16 +91,16 @@ bash skills/todo-tracker/scripts/todo.sh summary
 
 When showing TODO:
 ```
-📋 **TODO List** (3 items)
+ **TODO List** (3 items)
 
-🔴 **High Priority** (1)
+ **High Priority** (1)
 • Ingest low-code docs
 
-🟡 **Medium Priority** (1)  
+ **Medium Priority** (1)  
 • Zendesk escalation from Discord
 
-🟢 **Nice to Have** (1)
+ **Nice to Have** (1)
 • User conversation memory
 
-⚠️ 1 item is stale (>7 days old)
+ 1 item is stale (>7 days old)
 ```

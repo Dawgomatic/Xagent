@@ -5,7 +5,7 @@ description: "CLI for AI agents to find recipes for their humans. Uses TheMealDB
 homepage: https://www.themealdb.com
 metadata:
   openclaw:
-    emoji: "🍳"
+    emoji: ""
     requires:
       bins: ["bash", "curl", "jq"]
     tags: ["recipes", "food", "cooking", "meals", "themealdb", "cli"]
@@ -56,21 +56,21 @@ recipes area Mexican              # Mexican dishes
 
 **Info/random output:**
 ```
-🍽️  Spaghetti Bolognese
+  Spaghetti Bolognese
    ID: 52772 | Category: Beef | Area: Italian
    Tags: Pasta,Meat
 
-📝 Ingredients:
+ Ingredients:
    • 500g Beef Mince
    • 2 Onions
    • 400g Tomato Puree
    ...
 
-📖 Instructions:
+ Instructions:
 [Full cooking instructions]
 
-🎥 Video: [YouTube URL if available]
-📎 Source: [Recipe source if available]
+ Video: [YouTube URL if available]
+ Source: [Recipe source if available]
 ```
 
 ## Areas (Cuisines)

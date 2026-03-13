@@ -31,16 +31,16 @@ Universal browser wallet automation for AI agents. Control any browser-based cry
 
 | Wallet | EVM | Solana | Users |
 |--------|-----|--------|-------|
-| MetaMask | ✅ | - | 100M+ |
-| Rabby | ✅ | - | 1M+ |
-| Coinbase Wallet | ✅ | - | 1M+ |
-| Rainbow | ✅ | - | 500K+ |
-| Phantom | ✅ | ✅ | 3M+ |
-| Trust Wallet | ✅ | ✅ | 1M+ |
-| Zerion | ✅ | ✅ | 100K+ |
-| Exodus | ✅ | ✅ | 100K+ |
-| OKX Wallet | ✅ | ✅ | 1M+ |
-| Backpack | ✅ | ✅ | 500K+ |
+| MetaMask |  | - | 100M+ |
+| Rabby |  | - | 1M+ |
+| Coinbase Wallet |  | - | 1M+ |
+| Rainbow |  | - | 500K+ |
+| Phantom |  |  | 3M+ |
+| Trust Wallet |  |  | 1M+ |
+| Zerion |  |  | 100K+ |
+| Exodus |  |  | 100K+ |
+| OKX Wallet |  |  | 1M+ |
+| Backpack |  |  | 500K+ |
 
 ## Overview
 

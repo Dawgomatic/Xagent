@@ -16,7 +16,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-log() { echo -e "${GREEN}[🚀]${NC} $1"; }
+log() { echo -e "${GREEN}[]${NC} $1"; }
 warn() { echo -e "${YELLOW}[!]${NC} $1"; }
 error() { echo -e "${RED}[✗]${NC} $1"; }
 info() { echo -e "${BLUE}[i]${NC} $1"; }
@@ -99,7 +99,7 @@ check_nextjs_d1() {
         warn "Next.js $next_version may have compatibility issues"
         info "Recommended: next@15.5.2"
     else
-        info "Next.js version: $next_version ✅"
+        info "Next.js version: $next_version "
     fi
     
     # Check 2: @cloudflare/next-on-pages
@@ -107,7 +107,7 @@ check_nextjs_d1() {
         warn "@cloudflare/next-on-pages not installed"
         info "Fix: npm install -D @cloudflare/next-on-pages"
     else
-        info "Cloudflare adapter installed ✅"
+        info "Cloudflare adapter installed "
     fi
     
     # Check 3: wrangler in devDependencies
@@ -115,7 +115,7 @@ check_nextjs_d1() {
         warn "wrangler not in devDependencies"
         info "Fix: npm install -D wrangler"
     else
-        info "wrangler installed ✅"
+        info "wrangler installed "
     fi
     
     # Check 4: package-lock.json sync
@@ -123,7 +123,7 @@ check_nextjs_d1() {
         warn "package-lock.json missing"
         info "Fix: npm install && git add package-lock.json"
     else
-        info "package-lock.json exists ✅"
+        info "package-lock.json exists "
     fi
     
     # Check 5: wrangler.toml
@@ -131,11 +131,11 @@ check_nextjs_d1() {
         warn "wrangler.toml not found"
         info "Create wrangler.toml with D1 database binding"
     else
-        info "wrangler.toml exists ✅"
+        info "wrangler.toml exists "
         
         # Check for D1 database
         if grep -q "d1_databases" wrangler.toml; then
-            info "D1 database configured ✅"
+            info "D1 database configured "
         else
             warn "No D1 database in wrangler.toml"
             info "Add D1 binding for database access"
@@ -143,7 +143,7 @@ check_nextjs_d1() {
         
         # Check for compatibility_flags
         if grep -q "compatibility_flags" wrangler.toml; then
-            info "Compatibility flags set ✅"
+            info "Compatibility flags set "
         else
             warn "compatibility_flags not set"
             info "Add: compatibility_flags = [\"nodejs_compat\"]"
@@ -155,7 +155,7 @@ check_nextjs_d1() {
     if [ -d "$api_dir" ]; then
         local edge_count=$(grep -r "runtime = 'edge'" "$api_dir" 2>/dev/null | wc -l)
         if [ "$edge_count" -gt 0 ]; then
-            info "$api_dir routes have edge runtime ✅"
+            info "$api_dir routes have edge runtime "
         else
             warn "API routes missing 'export const runtime = \"edge\"'"
             info "Add to each API route file"
@@ -225,16 +225,16 @@ cmd_status() {
     
     echo "$state" | jq -r '
     "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🚀 Deployment: \(.name)
+ Deployment: \(.name)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📍 Step: \(.step)
-📊 Status: \(.status)
-📅 Created: \(.created_at)
+ Step: \(.step)
+ Status: \(.status)
+ Created: \(.created_at)
 
-🔗 Repo: \(if .repo_url then .repo_url else "Not created yet" end)
-🌐 Domain: \(if .domain then .domain else "Not deployed yet" end)
+ Repo: \(if .repo_url then .repo_url else "Not created yet" end)
+ Domain: \(if .domain then .domain else "Not deployed yet" end)
 
-✅ Approvals: 
+ Approvals: 
    - Step 1: \(if .approvals.step1 then "Approved" else "Pending" end)
    - Step 2: \(if .approvals.step2 then "Approved" else "Pending" end)
    - Step 3: \(if .approvals.step3 then "Approved" else "Pending" end)
@@ -427,7 +427,7 @@ cmd_deploy() {
     # Update state
     echo "$state" | jq ".step = 4 | .status = 'deployed' | .domain = \"$domain_name\"" > "$(get_state_file "$name")"
     
-    log "🎉 Deployment complete!"
+    log " Deployment complete!"
     info "App live at: https://$domain_name"
 }
 
@@ -469,7 +469,7 @@ cmd_list() {
 
 show_help() {
     cat <<EOF
-🚀 C.R.A.B Deploy Agent
+ C.R.A.B Deploy Agent
 
 Usage: deploy-agent <command> [args]
 

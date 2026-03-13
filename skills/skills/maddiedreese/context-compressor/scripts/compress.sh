@@ -185,7 +185,7 @@ EOF
 
 # Main compression function
 compress_session() {
-    echo -e "${YELLOW}🧠 Starting context compression...${NC}"
+    echo -e "${YELLOW} Starting context compression...${NC}"
     
     local session_id=$(date +%Y%m%d-%H%M%S)
     local transcript_file="$COMPRESSED_DIR/$session_id.transcript.md"
@@ -213,7 +213,7 @@ EOF
     # Generate summary
     generate_summary "$transcript_file" "$session_id" "$summary_file"
     
-    echo -e "${GREEN}✅ Compression complete!${NC}"
+    echo -e "${GREEN} Compression complete!${NC}"
     echo "  - Transcript: $transcript_file"
     echo "  - Summary: $summary_file"
     
@@ -227,7 +227,7 @@ EOF
 cmd_status() {
     load_config
     
-    echo "📊 Context Compressor Status"
+    echo " Context Compressor Status"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  Threshold: ${THRESHOLD}%"
     echo "  Depth: ${DEPTH}"
@@ -242,7 +242,7 @@ cmd_status() {
     fi
     
     if [[ "$usage" -ge "$THRESHOLD" ]]; then
-        echo -e "\n${YELLOW}⚠️  Context usage above threshold!${NC}"
+        echo -e "\n${YELLOW}  Context usage above threshold!${NC}"
         echo "  Run 'context-compressor compress' to compress and reset."
     else
         echo -e "\n${GREEN}✓ Context usage normal${NC}"
@@ -260,7 +260,7 @@ cmd_set_threshold() {
     
     THRESHOLD=$new_threshold
     save_config
-    echo -e "${GREEN}✅ Threshold set to ${THRESHOLD}%${NC}"
+    echo -e "${GREEN} Threshold set to ${THRESHOLD}%${NC}"
 }
 
 # Set depth
@@ -274,7 +274,7 @@ cmd_set_depth() {
     
     DEPTH=$new_depth
     save_config
-    echo -e "${GREEN}✅ Depth set to ${DEPTH}${NC}"
+    echo -e "${GREEN} Depth set to ${DEPTH}${NC}"
 }
 
 # Set quiet hours
@@ -283,7 +283,7 @@ cmd_set_quiet_hours() {
     
     if [[ -z "$range" ]]; then
         QUIET_HOURS=""
-        echo -e "${GREEN}✅ Quiet hours disabled${NC}"
+        echo -e "${GREEN} Quiet hours disabled${NC}"
     else
         # Validate format HH:00-HH:00
         if ! [[ "$range" =~ ^[0-2][0-9]:00-[0-2][0-9]:00$ ]]; then
@@ -291,7 +291,7 @@ cmd_set_quiet_hours() {
             exit 1
         fi
         QUIET_HOURS=$range
-        echo -e "${GREEN}✅ Quiet hours set to ${QUIET_HOURS}${NC}"
+        echo -e "${GREEN} Quiet hours set to ${QUIET_HOURS}${NC}"
     fi
     
     save_config
@@ -302,7 +302,7 @@ cmd_compress() {
     load_config
     
     if in_quiet_hours; then
-        echo -e "${YELLOW}⏸️  In quiet hours (${QUIET_HOURS}). Compression skipped.${NC}"
+        echo -e "${YELLOW}  In quiet hours (${QUIET_HOURS}). Compression skipped.${NC}"
         exit 0
     fi
     
@@ -323,7 +323,7 @@ cmd_check() {
     fi
     
     if [[ "$usage" -ge "$THRESHOLD" ]]; then
-        echo -e "${YELLOW}⚠️  Context above threshold. Compressing...${NC}"
+        echo -e "${YELLOW}  Context above threshold. Compressing...${NC}"
         compress_session
     else
         echo -e "${GREEN}✓ Context within limits${NC}"

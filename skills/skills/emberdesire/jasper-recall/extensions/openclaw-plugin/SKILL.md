@@ -11,7 +11,7 @@ Semantic search over indexed memory using ChromaDB. Automatically injects releva
 
 ---
 
-## Auto-Recall (The Magic ✨)
+## Auto-Recall (The Magic )
 
 When `autoRecall` is enabled, jasper-recall hooks into the agent lifecycle and automatically searches your memory before every message is processed.
 
@@ -165,13 +165,13 @@ This sets up:
 
 ## When Auto-Recall Helps
 
-✅ **Great for:**
+ **Great for:**
 - Questions about past decisions ("what did we decide about X?")
 - Following up on previous work ("where were we with the worker setup?")
 - Context about people, preferences, projects
 - Finding SOPs and procedures
 
-⚠️ **Less useful for:**
+ **Less useful for:**
 - Brand new topics with no memory
 - Simple commands ("list files")
 - Real-time data (weather, time)

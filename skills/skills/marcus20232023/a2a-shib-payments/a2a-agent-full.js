@@ -92,7 +92,7 @@ class FullFeaturedExecutor {
     const { userMessage, taskId, contextId } = requestContext;
     const text = userMessage.parts[0]?.text || '';
     
-    console.log(`📨 Received [${taskId}]: ${text}`);
+    console.log(` Received [${taskId}]: ${text}`);
     
     const createMessage = (text) => ({
       kind: 'message',
@@ -107,7 +107,7 @@ class FullFeaturedExecutor {
       if (text.includes('balance')) {
         const balance = await shibAgent.getBalance();
         eventBus.publish(createMessage(
-          `💰 SHIB Balance\n\nAddress: ${balance.address}\nBalance: ${balance.balance} SHIB\nNetwork: Polygon`
+          ` SHIB Balance\n\nAddress: ${balance.address}\nBalance: ${balance.balance} SHIB\nNetwork: Polygon`
         ));
       }
       else if (text.match(/send (\d+(?:\.\d+)?) SHIB to (0x[a-fA-F0-9]{40})/i)) {
@@ -119,7 +119,7 @@ class FullFeaturedExecutor {
         auditLogger.log('payment_executed', { amount, recipient, txHash: result.txHash });
         
         eventBus.publish(createMessage(
-          `✅ Payment sent!\n\nAmount: ${amount} SHIB\nTo: ${recipient}\nTx: ${result.txHash}\nGas: ${result.gasCostUSD}\n\n${result.explorerUrl}`
+          ` Payment sent!\n\nAmount: ${amount} SHIB\nTo: ${recipient}\nTx: ${result.txHash}\nGas: ${result.gasCostUSD}\n\n${result.explorerUrl}`
         ));
       }
       
@@ -141,7 +141,7 @@ class FullFeaturedExecutor {
           
           auditLogger.log('escrow_created', { escrowId: escrow.id, amount, payee });
           eventBus.publish(createMessage(
-            `✅ Escrow created!\n\nID: ${escrow.id}\nAmount: ${amount} SHIB\nPayee: ${payee}\nPurpose: ${purpose}\nTimeout: 120 minutes\n\nNext: Use "escrow fund ${escrow.id} <txHash>" to fund it.`
+            ` Escrow created!\n\nID: ${escrow.id}\nAmount: ${amount} SHIB\nPayee: ${payee}\nPurpose: ${purpose}\nTimeout: 120 minutes\n\nNext: Use "escrow fund ${escrow.id} <txHash>" to fund it.`
           ));
         }
       }
@@ -153,7 +153,7 @@ class FullFeaturedExecutor {
           const [, escrowId, txHash] = match;
           const escrow = escrowSystem.fund(escrowId, txHash);
           eventBus.publish(createMessage(
-            `✅ Escrow funded!\n\nID: ${escrowId}\nState: ${escrow.state}\nTx: ${txHash}\n\nNext: Both parties must approve with "escrow approve ${escrowId}"`
+            ` Escrow funded!\n\nID: ${escrowId}\nState: ${escrow.state}\nTx: ${txHash}\n\nNext: Both parties must approve with "escrow approve ${escrowId}"`
           ));
         }
       }
@@ -165,7 +165,7 @@ class FullFeaturedExecutor {
           const escrowId = match[1];
           const escrow = escrowSystem.approve(escrowId, 'current-agent');
           eventBus.publish(createMessage(
-            `✅ Escrow approved!\n\nID: ${escrowId}\nState: ${escrow.state}\nApprovals: ${escrow.approvals.length}/2`
+            ` Escrow approved!\n\nID: ${escrowId}\nState: ${escrow.state}\nApprovals: ${escrow.approvals.length}/2`
           ));
         }
       }
@@ -179,7 +179,7 @@ class FullFeaturedExecutor {
             eventBus.publish(createMessage('Escrow not found'));
           } else {
             eventBus.publish(createMessage(
-              `📋 Escrow Status\n\nID: ${escrow.id}\nState: ${escrow.state}\nAmount: ${escrow.amount} SHIB\nPayer: ${escrow.payer}\nPayee: ${escrow.payee}\nPurpose: ${escrow.purpose}\nApprovals: ${escrow.approvals.length}\nDelivery: ${escrow.deliveryProof ? '✅ Submitted' : '❌ Pending'}`
+              ` Escrow Status\n\nID: ${escrow.id}\nState: ${escrow.state}\nAmount: ${escrow.amount} SHIB\nPayer: ${escrow.payer}\nPayee: ${escrow.payee}\nPurpose: ${escrow.purpose}\nApprovals: ${escrow.approvals.length}\nDelivery: ${escrow.deliveryProof ? ' Submitted' : ' Pending'}`
             ));
           }
         }
@@ -203,7 +203,7 @@ class FullFeaturedExecutor {
           
           auditLogger.log('quote_created', { quoteId: quote.id, service, price, clientId });
           eventBus.publish(createMessage(
-            `✅ Quote created!\n\nID: ${quote.id}\nService: ${service}\nPrice: ${price} SHIB\nClient: ${clientId}\nValid for: 60 minutes\n\nClient can accept with: accept quote ${quote.id}`
+            ` Quote created!\n\nID: ${quote.id}\nService: ${service}\nPrice: ${price} SHIB\nClient: ${clientId}\nValid for: 60 minutes\n\nClient can accept with: accept quote ${quote.id}`
           ));
         }
       }
@@ -214,7 +214,7 @@ class FullFeaturedExecutor {
         } else {
           const quote = negotiationSystem.accept(match[1], 'current-agent');
           eventBus.publish(createMessage(
-            `✅ Quote accepted!\n\nID: ${quote.id}\nPrice: ${quote.agreedPrice} SHIB\nEscrow: ${quote.escrowId}\n\nNext: Fund escrow with "escrow fund ${quote.escrowId} <txHash>"`
+            ` Quote accepted!\n\nID: ${quote.id}\nPrice: ${quote.agreedPrice} SHIB\nEscrow: ${quote.escrowId}\n\nNext: Fund escrow with "escrow fund ${quote.escrowId} <txHash>"`
           ));
         }
       }
@@ -226,7 +226,7 @@ class FullFeaturedExecutor {
           const [, quoteId, newPrice] = match;
           const quote = negotiationSystem.counterOffer(quoteId, 'current-agent', parseFloat(newPrice));
           eventBus.publish(createMessage(
-            `✅ Counter-offer sent!\n\nID: ${quoteId}\nYour offer: ${newPrice} SHIB\nState: ${quote.state}\n\nWaiting for provider response.`
+            ` Counter-offer sent!\n\nID: ${quoteId}\nYour offer: ${newPrice} SHIB\nState: ${quote.state}\n\nWaiting for provider response.`
           ));
         }
       }
@@ -248,7 +248,7 @@ class FullFeaturedExecutor {
           
           const score = reputationSystem.getScore(agentId);
           eventBus.publish(createMessage(
-            `✅ Rating submitted!\n\nAgent: ${agentId}\nYour rating: ${rating}/5\n${comment ? `Comment: ${comment}\n` : ''}\nNew average: ${score.average.toFixed(2)}/5 (${score.count} reviews)`
+            ` Rating submitted!\n\nAgent: ${agentId}\nYour rating: ${rating}/5\n${comment ? `Comment: ${comment}\n` : ''}\nNew average: ${score.average.toFixed(2)}/5 (${score.count} reviews)`
           ));
         }
       }
@@ -262,7 +262,7 @@ class FullFeaturedExecutor {
           const profile = reputationSystem.getProfile(agentId);
           
           eventBus.publish(createMessage(
-            `📊 Reputation: ${agentId}\n\n⭐ Average: ${score.average.toFixed(2)}/5\n📝 Reviews: ${score.count}\n🏆 Trust Level: ${profile.trustLevel}\n✅ Verified: ${profile.verified ? 'Yes' : 'No'}\n\nBreakdown:\n5★: ${profile.ratingBreakdown['5'] || 0}\n4★: ${profile.ratingBreakdown['4'] || 0}\n3★: ${profile.ratingBreakdown['3'] || 0}\n2★: ${profile.ratingBreakdown['2'] || 0}\n1★: ${profile.ratingBreakdown['1'] || 0}`
+            ` Reputation: ${agentId}\n\n Average: ${score.average.toFixed(2)}/5\n Reviews: ${score.count}\n Trust Level: ${profile.trustLevel}\n Verified: ${profile.verified ? 'Yes' : 'No'}\n\nBreakdown:\n5★: ${profile.ratingBreakdown['5'] || 0}\n4★: ${profile.ratingBreakdown['4'] || 0}\n3★: ${profile.ratingBreakdown['3'] || 0}\n2★: ${profile.ratingBreakdown['2'] || 0}\n1★: ${profile.ratingBreakdown['1'] || 0}`
           ));
         }
       }
@@ -270,19 +270,19 @@ class FullFeaturedExecutor {
       // Help
       else {
         eventBus.publish(createMessage(
-          `🦪 SHIB Payment Agent (Full-Featured)\n\n💰 Payments:\n- balance\n- send <amount> SHIB to <address>\n\n🔒 Escrow:\n- escrow create <amount> SHIB for <purpose> payee <agentId>\n- escrow fund <escrowId> <txHash>\n- escrow approve <escrowId>\n- escrow status <escrowId>\n\n💬 Negotiation:\n- quote <service> for <price> SHIB to <clientId>\n- accept quote <quoteId>\n- counter offer <quoteId> <newPrice> SHIB\n\n⭐ Reputation:\n- rate <agentId> <rating 0-5> [comment]\n- reputation <agentId>\n\nAll features ready!`
+          ` SHIB Payment Agent (Full-Featured)\n\n Payments:\n- balance\n- send <amount> SHIB to <address>\n\n Escrow:\n- escrow create <amount> SHIB for <purpose> payee <agentId>\n- escrow fund <escrowId> <txHash>\n- escrow approve <escrowId>\n- escrow status <escrowId>\n\n Negotiation:\n- quote <service> for <price> SHIB to <clientId>\n- accept quote <quoteId>\n- counter offer <quoteId> <newPrice> SHIB\n\n Reputation:\n- rate <agentId> <rating 0-5> [comment]\n- reputation <agentId>\n\nAll features ready!`
         ));
       }
     } catch (error) {
       console.error('Error:', error);
-      eventBus.publish(createMessage(`❌ Error: ${error.message}`));
+      eventBus.publish(createMessage(` Error: ${error.message}`));
     }
     
     eventBus.finished();
   }
   
   async cancelTask(taskId, eventBus) {
-    console.log(`🛑 Task ${taskId} cancelled`);
+    console.log(` Task ${taskId} cancelled`);
   }
 }
 
@@ -300,9 +300,9 @@ async function startServer() {
   app.use('/a2a/rest', express.json(), restHandler({ requestHandler, userBuilder: UserBuilder.noAuthentication }));
 
   app.listen(port, () => {
-    console.log('🦪 OpenClaw SHIB Payment Agent (Full-Featured)');
+    console.log(' OpenClaw SHIB Payment Agent (Full-Featured)');
     console.log('');
-    console.log('✅ All systems online!');
+    console.log(' All systems online!');
     console.log('');
     console.log(`Port: ${port}`);
     console.log(`Wallet: ${config.walletAddress}`);
@@ -318,7 +318,7 @@ async function startServer() {
   });
   
   process.on('SIGINT', () => {
-    console.log('\n🛑 Shutting down...');
+    console.log('\n Shutting down...');
     auditLogger.log('full_agent_stop', { timestamp: new Date().toISOString() });
     process.exit(0);
   });

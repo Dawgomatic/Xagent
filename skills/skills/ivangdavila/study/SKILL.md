@@ -4,7 +4,7 @@ slug: study
 version: 1.0.1
 description: Structure study sessions, manage materials, and prepare for exams with active recall techniques.
 changelog: Simplified structure, removed broken script references, explicit data storage
-metadata: {"clawdbot":{"emoji":"📚","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Data Storage
@@ -27,12 +27,12 @@ Create on first use: `mkdir -p ~/study/{subjects,calendar}`
 ## Scope
 
 This skill:
-- ✅ Creates study plans in ~/study/
-- ✅ Manages materials and flashcards
-- ✅ Tracks deadlines and exam dates
-- ✅ Guides study sessions with active recall
-- ❌ NEVER generates content student should create themselves
-- ❌ NEVER stores data outside ~/study/
+-  Creates study plans in ~/study/
+-  Manages materials and flashcards
+-  Tracks deadlines and exam dates
+-  Guides study sessions with active recall
+-  NEVER generates content student should create themselves
+-  NEVER stores data outside ~/study/
 
 ## Quick Reference
 

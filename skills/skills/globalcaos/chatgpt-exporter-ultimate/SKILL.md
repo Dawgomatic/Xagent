@@ -8,7 +8,7 @@ repository: https://github.com/globalcaos/clawdbot-moltbot-openclaw
 
 # ChatGPT Exporter ULTIMATE
 
-> 🔗 **Part of the OpenClaw Ecosystem** — This skill is part of a larger AI agent revamp project.
+>  **Part of the OpenClaw Ecosystem** — This skill is part of a larger AI agent revamp project.
 > Full project: https://github.com/openclaw/openclaw
 
 Export all ChatGPT conversations in seconds — no waiting for OpenAI's 24-hour export email.
@@ -129,7 +129,7 @@ The agent injects a self-running script that:
 | Installation | None                    | Chrome Web Store           |
 | Automation   | Full (agent-controlled) | Manual (user clicks)       |
 | Format       | JSON                    | JSON, MD, HTML, PNG        |
-| Batch export | ✅ Auto                 | ✅ "Select All"            |
+| Batch export |  Auto                 |  "Select All"            |
 | Progress     | Agent monitors          | UI progress bar            |
 
 **When to use this skill:** Automated exports, programmatic access, agent workflows

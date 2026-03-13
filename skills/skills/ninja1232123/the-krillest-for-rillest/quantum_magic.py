@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-✨ QUANTUM MAGIC ✨
+ QUANTUM MAGIC 
 A visual journey into the weird world of quantum mechanics.
 No PhD required - just run it and be amazed!
 """
@@ -296,7 +296,7 @@ def main():
 {Colors.BOLD}{Colors.PURPLE}
     ╔═══════════════════════════════════════════════════════╗
     ║                                                       ║
-    ║   ✨  Q U A N T U M    M A G I C  ✨                  ║
+    ║     Q U A N T U M    M A G I C                    ║
     ║                                                       ║
     ║   A journey into the strangest corners of reality    ║
     ║                                                       ║

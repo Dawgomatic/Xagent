@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔬",
+        "emoji": "",
         "requires": { "bins": ["curl"] },
         "primaryEnv": "AIRESEARCHOS_API_KEY",
         "homepage": "https://airesearchos.com",

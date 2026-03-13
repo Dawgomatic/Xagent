@@ -102,7 +102,7 @@ async function main() {
     console.log(`Order Type:    ALO (post-only)`);
 
     if (dryRun) {
-      console.log('\n🔍 Dry run - chase not started');
+      console.log('\n Dry run - chase not started');
       return;
     }
 
@@ -123,11 +123,11 @@ async function main() {
 
       // Check max chase limit
       if (isBuy && currentMid > maxChasePrice) {
-        console.log(`\n⚠️ Price ${formatUsd(currentMid)} exceeded max chase ${formatUsd(maxChasePrice)}`);
+        console.log(`\n Price ${formatUsd(currentMid)} exceeded max chase ${formatUsd(maxChasePrice)}`);
         break;
       }
       if (!isBuy && currentMid < maxChasePrice) {
-        console.log(`\n⚠️ Price ${formatUsd(currentMid)} exceeded max chase ${formatUsd(maxChasePrice)}`);
+        console.log(`\n Price ${formatUsd(currentMid)} exceeded max chase ${formatUsd(maxChasePrice)}`);
         break;
       }
 
@@ -160,7 +160,7 @@ async function main() {
           const pos = state.assetPositions.find(p => p.position.coin === coin);
           if (pos && Math.abs(parseFloat(pos.position.szi)) >= size * 0.99) {
             filled = true;
-            console.log(`\n✅ Order filled!`);
+            console.log(`\n Order filled!`);
             break;
           }
         }
@@ -178,14 +178,14 @@ async function main() {
             console.log(`OID: ${currentOid}`);
           } else if (status?.filled) {
             filled = true;
-            console.log(`✅ Filled @ ${formatUsd(parseFloat(status.filled.avgPx))}`);
+            console.log(` Filled @ ${formatUsd(parseFloat(status.filled.avgPx))}`);
             break;
           } else if (status?.error) {
-            console.log(`❌ ${status.error}`);
+            console.log(` ${status.error}`);
             // If ALO rejected (would be taker), try again next iteration
           }
         } else {
-          console.log(`❌ Failed`);
+          console.log(` Failed`);
         }
       } else {
         // Price stable, check if filled
@@ -194,7 +194,7 @@ async function main() {
           const ourOrder = orders.find(o => o.oid === currentOid);
           if (!ourOrder) {
             filled = true;
-            console.log(`\n✅ Order filled!`);
+            console.log(`\n Order filled!`);
             break;
           }
         }
@@ -209,9 +209,9 @@ async function main() {
       console.log(`\nCancelling unfilled order...`);
       try {
         await client.cancel(coin, currentOid);
-        console.log(`✅ Cancelled`);
+        console.log(` Cancelled`);
       } catch {
-        console.log(`⚠️ Could not cancel (may have filled)`);
+        console.log(` Could not cancel (may have filled)`);
       }
     }
 
@@ -225,7 +225,7 @@ async function main() {
     console.log(`Iterations:   ${iteration}`);
     console.log(`Start Mid:    ${formatUsd(startMid)}`);
     console.log(`End Mid:      ${formatUsd(endMid)} (${priceMove >= 0 ? '+' : ''}${priceMove.toFixed(1)} bps)`);
-    console.log(`Result:       ${filled ? '✅ Filled' : '❌ Not filled'}`);
+    console.log(`Result:       ${filled ? ' Filled' : ' Not filled'}`);
 
   } catch (error) {
     console.error('Error:', error);

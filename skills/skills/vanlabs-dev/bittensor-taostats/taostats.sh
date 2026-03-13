@@ -8,7 +8,7 @@ if [ -z "$TAOSTATS_API_KEY" ] && [ -f ~/.openclaw/workspace/.taostats ]; then
 fi
 
 if [ -z "$TAOSTATS_API_KEY" ]; then
-    echo "⚠️  TAOSTATS_API_KEY not set. Export it: export TAOSTATS_API_KEY=your-key" >&2
+    echo "  TAOSTATS_API_KEY not set. Export it: export TAOSTATS_API_KEY=your-key" >&2
 fi
 
 # Base URL
@@ -278,11 +278,11 @@ taostats_dereg_risk() {
     taostats_pruning | jq -r --arg netuid "$netuid" \
         '.data[] | select(.netuid == ($netuid | tonumber)) | 
         if .is_immune then
-            "✅ SAFE - Immune (expires: \(.immunity_period_end))"
+            " SAFE - Immune (expires: \(.immunity_period_end))"
         elif .pruning_rank < 20 then
-            "🚨 HIGH RISK - Rank \(.pruning_rank)/\(.total_validators) (non-immune)"
+            " HIGH RISK - Rank \(.pruning_rank)/\(.total_validators) (non-immune)"
         else
-            "⚠️  MEDIUM RISK - Rank \(.pruning_rank)/\(.total_validators) (non-immune)"
+            "  MEDIUM RISK - Rank \(.pruning_rank)/\(.total_validators) (non-immune)"
         end'
 }
 
@@ -340,10 +340,10 @@ taostats_entry_check() {
     local fear_greed=$(echo "$pool" | jq -r '.data[0].fear_and_greed_sentiment')
     
     if (( $(echo "$root_prop < $threshold" | bc -l) )); then
-        echo "✅ SN${netuid}: GOOD entry | price: $price | root_prop: $root_prop | sentiment: $fear_greed"
+        echo " SN${netuid}: GOOD entry | price: $price | root_prop: $root_prop | sentiment: $fear_greed"
         return 0
     else
-        echo "⚠️  SN${netuid}: AVOID | price: $price | root_prop: $root_prop (artificial pump) | sentiment: $fear_greed"
+        echo "  SN${netuid}: AVOID | price: $price | root_prop: $root_prop (artificial pump) | sentiment: $fear_greed"
         return 1
     fi
 }
@@ -442,4 +442,4 @@ export -f rao_to_tao
 export -f tao_to_rao
 export -f taostats_batch_apy
 
-echo "✅ TaoStats skill loaded. Type 'taostats_' and press TAB to see available functions."
+echo " TaoStats skill loaded. Type 'taostats_' and press TAB to see available functions."

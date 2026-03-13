@@ -8,6 +8,6 @@
 # It will check the status of a decision file (pending/completed).
 #
 
-echo "🚧 arbiter status - Not yet implemented"
+echo " arbiter status - Not yet implemented"
 echo "This will check decision file status in ~/.arbiter/queue/"
 exit 1

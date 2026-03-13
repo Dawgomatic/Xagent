@@ -63,10 +63,10 @@ const UseServiceSchema = {
 ### Testing
 
 Verified working:
-- ✅ `exploreServices()` - Browse marketplace
-- ✅ `useService()` - Execute services with payment
-- ✅ PDF conversion ($0.02) - Success
-- ✅ Screenshot (free testnet) - Success
+-  `exploreServices()` - Browse marketplace
+-  `useService()` - Execute services with payment
+-  PDF conversion ($0.02) - Success
+-  Screenshot (free testnet) - Success
 
 ### Installation
 

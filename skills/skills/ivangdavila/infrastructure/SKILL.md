@@ -4,15 +4,15 @@ slug: infrastructure
 version: 1.0.1
 description: Design, provision, and connect cloud resources across servers, networks, and services.
 changelog: User-driven credential model, explicit tool requirements
-metadata: {"clawdbot":{"emoji":"🏗️","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Scope
 
 This skill:
-- ✅ Guides architecture decisions
-- ✅ Provides provisioning commands for user to run
-- ✅ Documents infrastructure patterns
+-  Guides architecture decisions
+-  Provides provisioning commands for user to run
+-  Documents infrastructure patterns
 
 **User-driven model:**
 - User provides cloud credentials when needed
@@ -20,9 +20,9 @@ This skill:
 - Skill guides decisions and generates commands
 
 This skill does NOT:
-- ❌ Store or access cloud credentials directly
-- ❌ Run provisioning commands automatically
-- ❌ Modify infrastructure without user confirmation
+-  Store or access cloud credentials directly
+-  Run provisioning commands automatically
+-  Modify infrastructure without user confirmation
 
 **For implementation:** User runs commands skill provides, or uses `server` skill for execution.
 
@@ -70,8 +70,8 @@ User: [runs command]
 ### 5. Decision Framework
 | Question | Answer |
 |----------|--------|
-| How to structure infra? | ✅ This skill |
-| Should I add another server? | ✅ This skill |
+| How to structure infra? |  This skill |
+| Should I add another server? |  This skill |
 | How to configure nginx? | Use `server` skill |
 | How to write Dockerfile? | Use `docker` skill |
 

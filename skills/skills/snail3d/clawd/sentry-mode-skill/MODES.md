@@ -16,10 +16,10 @@ node scripts/sentry-watch-v2.js report-all
 
 **Example:**
 ```
-🎬 MOTION DETECTED (15.2%)
-🚨 MOTION ALERT (report-all mode)
-⏰ Time: 1/27/2026, 12:35:00 PM
-📸 Frame: frame-1706369700000.jpg
+ MOTION DETECTED (15.2%)
+ MOTION ALERT (report-all mode)
+ Time: 1/27/2026, 12:35:00 PM
+ Frame: frame-1706369700000.jpg
 ```
 
 ---
@@ -38,10 +38,10 @@ node scripts/sentry-watch-v2.js report-suspicious
 
 **Example:**
 ```
-⚠️ SUSPICIOUS ACTIVITY DETECTED
-⏰ Time: 1/27/2026, 12:36:15 PM
-📸 Frame: frame-1706369775000.jpg
-🔍 Analysis: {"detected": "person with weapon"}
+ SUSPICIOUS ACTIVITY DETECTED
+ Time: 1/27/2026, 12:36:15 PM
+ Frame: frame-1706369775000.jpg
+ Analysis: {"detected": "person with weapon"}
 ```
 
 **Suspicious keywords:**
@@ -73,14 +73,14 @@ Required Features:
 ```
 
 **TRIGGERS:**
-- ✅ "blonde girl wearing glasses"
-- ✅ "a blonde girl with glasses on"
-- ✅ "young blonde girl in glasses"
+-  "blonde girl wearing glasses"
+-  "a blonde girl with glasses on"
+-  "young blonde girl in glasses"
 
 **DOES NOT TRIGGER:**
-- ❌ "blonde girl" (no glasses)
-- ❌ "blonde woman with glasses" (not a girl)
-- ❌ "girl with glasses" (not blonde)
+-  "blonde girl" (no glasses)
+-  "blonde woman with glasses" (not a girl)
+-  "girl with glasses" (not blonde)
 
 #### Example 2: "guy with black hat and red jacket"
 ```
@@ -93,13 +93,13 @@ Required Features:
 ```
 
 **TRIGGERS:**
-- ✅ "black-hatted guy in red jacket"
-- ✅ "man wearing black hat and red jacket"
+-  "black-hatted guy in red jacket"
+-  "man wearing black hat and red jacket"
 
 **DOES NOT TRIGGER:**
-- ❌ "guy with black hat" (no red jacket)
-- ❌ "guy in red jacket" (no black hat)
-- ❌ "guy with blue hat and red jacket" (hat not black)
+-  "guy with black hat" (no red jacket)
+-  "guy in red jacket" (no black hat)
+-  "guy with blue hat and red jacket" (hat not black)
 
 #### Example 3: "blonde girl with a mole on her left cheek"
 ```
@@ -110,12 +110,12 @@ Required Features:
 ```
 
 **TRIGGERS:**
-- ✅ "blonde girl with mole on left cheek"
+-  "blonde girl with mole on left cheek"
 
 **DOES NOT TRIGGER:**
-- ❌ "blonde girl without mole"
-- ❌ "blonde girl with mole on right cheek"
-- ❌ "blonde girl with freckles" (not a mole)
+-  "blonde girl without mole"
+-  "blonde girl with mole on right cheek"
+-  "blonde girl with freckles" (not a mole)
 
 #### Example 4: "license plate ABC123"
 ```
@@ -125,12 +125,12 @@ Required Features:
 ```
 
 **TRIGGERS:**
-- ✅ "car with license plate ABC123"
-- ✅ "vehicle: ABC123"
+-  "car with license plate ABC123"
+-  "vehicle: ABC123"
 
 **DOES NOT TRIGGER:**
-- ❌ "car with license plate ABC124"
-- ❌ "car with license plate ABC12" (incomplete)
+-  "car with license plate ABC124"
+-  "car with license plate ABC12" (incomplete)
 
 ---
 
@@ -261,41 +261,41 @@ node scripts/sentry-watch-v2.js report-all --cooldown 30
 
 ### Report-All
 ```
-🎬 MOTION DETECTED (15.2%)
-🚨 MOTION ALERT
-⏰ Time: timestamp
-📸 Frame: filename
+ MOTION DETECTED (15.2%)
+ MOTION ALERT
+ Time: timestamp
+ Frame: filename
 ```
 
 ### Report-Suspicious
 ```
-⚠️ SUSPICIOUS ACTIVITY DETECTED
-⏰ Time: timestamp
-📸 Frame: filename
-🔍 Analysis: what was detected
+ SUSPICIOUS ACTIVITY DETECTED
+ Time: timestamp
+ Frame: filename
+ Analysis: what was detected
 ```
 
 ### Report-Match (Successful)
 ```
 !!!!!!!!!!!!!!!!!!!!!!!!!
-🚨 BOLO MATCH!
+ BOLO MATCH!
 !!!!!!!!!!!!!!!!!!!!!!!!!
 
-📌 BOLO: blonde girl with glasses
-🔍 Type: person
-⏰ Time: timestamp
-📸 Frame: filename
+ BOLO: blonde girl with glasses
+ Type: person
+ Time: timestamp
+ Frame: filename
 
 ✓ Match Result: 3/3 features matched
 ✓ Confidence: 85%
 ✓ Required all: blonde, girl, glasses
 
-👤 Detected: {analysis details}
+ Detected: {analysis details}
 ```
 
 ### Report-Match (Partial - No Alert)
 ```
-⚠️ Partial match for "blonde girl with glasses": Missing: accessory:glasses
+ Partial match for "blonde girl with glasses": Missing: accessory:glasses
 ```
 
 ---
@@ -303,20 +303,20 @@ node scripts/sentry-watch-v2.js report-all --cooldown 30
 ## Best Practices
 
 ### Be Specific
-- ✅ "blonde girl with glasses" (triggers only with glasses)
-- ❌ "girl" (too general)
+-  "blonde girl with glasses" (triggers only with glasses)
+-  "girl" (too general)
 
 ### Include Color
-- ✅ "blue sedan with license plate ABC123"
-- ❌ "car with license plate ABC123" (could be any color)
+-  "blue sedan with license plate ABC123"
+-  "car with license plate ABC123" (could be any color)
 
 ### List All Required Features
-- ✅ "tall man with black hat, red jacket, and backpack"
-- ❌ "man in jacket" (ambiguous)
+-  "tall man with black hat, red jacket, and backpack"
+-  "man in jacket" (ambiguous)
 
 ### Use Exact Descriptions
-- ✅ "blonde girl with mole on left cheek"
-- ❌ "girl with facial mark" (too vague)
+-  "blonde girl with mole on left cheek"
+-  "girl with facial mark" (too vague)
 
 ### Test Your BOLOs
 - Create BOLOs and run in report-all first

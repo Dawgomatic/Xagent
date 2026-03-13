@@ -8,7 +8,7 @@ Demonstrates the correct way to spawn multiple research agents in parallel.
 
 ### Usage
 
-⚠️ **Must be run from within an OpenClaw agent session** (not as standalone script)
+ **Must be run from within an OpenClaw agent session** (not as standalone script)
 
 ```python
 # From within OpenClaw agent (like Scout)
@@ -29,10 +29,10 @@ simple_parallel_research.run_example()
 
 ### Key Concepts Demonstrated
 
-- ✅ Parallel spawning using `sessions_spawn()`
-- ✅ Proper task formatting for agents
-- ✅ Result collection via `sessions_history()`
-- ✅ Running from agent code context
+-  Parallel spawning using `sessions_spawn()`
+-  Proper task formatting for agents
+-  Result collection via `sessions_history()`
+-  Running from agent code context
 
 ## Why No Other Examples?
 
@@ -54,13 +54,13 @@ For production use with auto-retry, see `../helpers.py` and `../USAGE-GUIDE.md`.
 
 ## Common Mistake
 
-❌ **Don't do this:**
+ **Don't do this:**
 ```bash
 python3 simple_parallel_research.py
 # Error: ImportError: No module named 'tools'
 ```
 
-✅ **Do this:**
+ **Do this:**
 ```python
 # Inside OpenClaw agent session
 import simple_parallel_research

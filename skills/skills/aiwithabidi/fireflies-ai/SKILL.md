@@ -4,10 +4,10 @@ description: "Fireflies.ai meeting intelligence — search meetings, get transcr
 homepage: https://www.agxntsix.ai
 license: MIT
 compatibility: Python 3.10+ (stdlib only — no dependencies)
-metadata: {"openclaw": {"emoji": "🔥", "requires": {"env": ["FIREFLIES_API_KEY"]}, "primaryEnv": "FIREFLIES_API_KEY", "homepage": "https://www.agxntsix.ai"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": ["FIREFLIES_API_KEY"]}, "primaryEnv": "FIREFLIES_API_KEY", "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# 🔥 Fireflies AI
+#  Fireflies AI
 
 Query your Fireflies.ai meeting data directly — transcripts, summaries, action items, contacts, and analytics. Zero storage: all data stays on Fireflies servers.
 
@@ -24,7 +24,7 @@ Query your Fireflies.ai meeting data directly — transcripts, summaries, action
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `FIREFLIES_API_KEY` | ✅ | API key from [app.fireflies.ai/integrations](https://app.fireflies.ai/integrations/custom/fireflies) |
+| `FIREFLIES_API_KEY` |  | API key from [app.fireflies.ai/integrations](https://app.fireflies.ai/integrations/custom/fireflies) |
 
 ## Quick Start
 
@@ -96,4 +96,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

@@ -63,7 +63,7 @@ Values are in wei (18 decimal places). Divide by 10^18 for human-readable amount
 
 Approve the Diamond contract to transfer MOR tokens on your behalf.
 
-⚠️ **Uses query parameters, not JSON body.**
+ **Uses query parameters, not JSON body.**
 
 ```bash
 curl -s -u "admin:$COOKIE_PASS" -X POST \
@@ -130,7 +130,7 @@ curl -s -u "admin:$COOKIE_PASS" \
 
 Open a new inference session for a model.
 
-⚠️ **Use the model ID, not a bid ID.** Using a bid ID causes `"dial tcp: missing address"`.
+ **Use the model ID, not a bid ID.** Using a bid ID causes `"dial tcp: missing address"`.
 
 ```bash
 curl -s -u "admin:$COOKIE_PASS" -X POST \
@@ -198,7 +198,7 @@ curl -s -u "admin:$COOKIE_PASS" -X POST \
 
 Send a chat completion request through an active session. **OpenAI-compatible format.**
 
-⚠️ **CRITICAL: `session_id` and `model_id` must be HTTP headers, not JSON body fields.**
+ **CRITICAL: `session_id` and `model_id` must be HTTP headers, not JSON body fields.**
 
 ```bash
 curl -s -u "admin:$COOKIE_PASS" "http://localhost:8082/v1/chat/completions" \

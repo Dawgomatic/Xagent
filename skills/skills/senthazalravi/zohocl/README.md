@@ -1,4 +1,4 @@
-# 📘 Zoho Skill for OpenClaw
+#  Zoho Skill for OpenClaw
 
 [![Zoho Integration](https://img.shields.io/badge/Zoho-CRM-blue)](https://www.zoho.com)
 [![Version](https://img.shields.io/badge/Version-1.0.0-green)]()
@@ -6,19 +6,19 @@
 
 **Automate Zoho CRM, Books, Desk, Creator, and 50+ Zoho apps** - Complete OAuth2 authentication and API integration skill for OpenClaw.
 
-## ✨ Features
+##  Features
 
-- 🔐 **Secure OAuth2 Authentication** - Complete token management
-- 📊 **Zoho CRM API** - Leads, Contacts, Deals, Accounts
-- 💰 **Zoho Books API** - Invoicing, Expenses, Reports
-- 🎫 **Zoho Desk API** - Ticketing and Support
-- 📝 **Zoho Creator API** - Form submissions and data
-- 📧 **Zoho Campaigns API** - Email marketing
-- 🔄 **Auto Token Refresh** - Never worry about expired tokens
-- 📡 **Webhook Support** - Real-time updates
-- 🌐 **Multi-DC Support** - US, EU, AU, IN, CN, JP
+-  **Secure OAuth2 Authentication** - Complete token management
+-  **Zoho CRM API** - Leads, Contacts, Deals, Accounts
+-  **Zoho Books API** - Invoicing, Expenses, Reports
+-  **Zoho Desk API** - Ticketing and Support
+-  **Zoho Creator API** - Form submissions and data
+-  **Zoho Campaigns API** - Email marketing
+-  **Auto Token Refresh** - Never worry about expired tokens
+-  **Webhook Support** - Real-time updates
+-  **Multi-DC Support** - US, EU, AU, IN, CN, JP
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -29,7 +29,7 @@
 ### Setup Steps
 
 **Step 1:** Create Zoho API Client
-🔗 https://api-console.zoho.com/
+ https://api-console.zoho.com/
 
 **Step 2:** Generate Refresh Token
 ```bash
@@ -59,7 +59,7 @@ filters:
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 - **[SKILL.md](SKILL.md)** - Complete technical documentation
 - **[EXAMPLES.md](EXAMPLES.md)** - Use case examples
@@ -67,39 +67,39 @@ filters:
 
 ---
 
-## 🎯 Use Cases
+##  Use Cases
 
-### 🍽️ Restaurant Business
+###  Restaurant Business
 - Table bookings → CRM contact → Invoice
 - Customer support tickets
 - Marketing campaigns
 
-### 🛒 SaaS Company
+###  SaaS Company
 - Lead management pipeline
 - Subscription billing
 - Customer support
 
-### 🏢 Any Business
+###  Any Business
 - Contact database management
 - Invoice automation
 - Help desk integration
 
 ---
 
-## 📦 What's Included
+##  What's Included
 
 ```
 zoho/
-├── 📄 SKILL.md          ← Full documentation
-├── 📄 README.md          ← This file
-├── 📄 SETUP.md          ← Installation guide
-├── 📄 EXAMPLES.md       ← Use cases
-└── 📄 package.json      ← Package metadata
+├──  SKILL.md          ← Full documentation
+├──  README.md          ← This file
+├──  SETUP.md          ← Installation guide
+├──  EXAMPLES.md       ← Use cases
+└──  package.json      ← Package metadata
 ```
 
 ---
 
-## 🔧 Commands
+##  Commands
 
 ### CRM Operations
 ```markdown
@@ -133,30 +133,30 @@ description: "Customer reported a problem..."
 
 ---
 
-## 📊 Supported Zoho Products
+##  Supported Zoho Products
 
 | Product | Status | API |
 |---------|--------|-----|
-| Zoho CRM | ✅ Ready | Full Support |
-| Zoho Books | ✅ Ready | Full Support |
-| Zoho Desk | ✅ Ready | Full Support |
-| Zoho Creator | ✅ Ready | Full Support |
-| Zoho Campaigns | ✅ Ready | Full Support |
-| Zoho Inventory | 🔜 Coming Soon | - |
-| Zoho Projects | 🔜 Coming Soon | - |
+| Zoho CRM |  Ready | Full Support |
+| Zoho Books |  Ready | Full Support |
+| Zoho Desk |  Ready | Full Support |
+| Zoho Creator |  Ready | Full Support |
+| Zoho Campaigns |  Ready | Full Support |
+| Zoho Inventory |  Coming Soon | - |
+| Zoho Projects |  Coming Soon | - |
 
 ---
 
-## 🔐 Security
+##  Security
 
-- ✅ OAuth2 authentication
-- ✅ Token refresh automation
-- ✅ HTTPS required
-- ✅ Environment variable storage
+-  OAuth2 authentication
+-  Token refresh automation
+-  HTTPS required
+-  Environment variable storage
 
 ---
 
-## 📈 Performance
+##  Performance
 
 - Token caching
 - Request rate limiting
@@ -165,7 +165,7 @@ description: "Customer reported a problem..."
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! See [SKILL.md](SKILL.md) for details.
 
@@ -175,13 +175,13 @@ Contributions welcome! See [SKILL.md](SKILL.md) for details.
 
 ---
 
-## 📝 License
+##  License
 
 MIT License - See LICENSE file
 
 ---
 
-## 🆘 Support
+##  Support
 
 - **Documentation:** See [SKILL.md](SKILL.md)
 - **Zoho Docs:** https://www.zoho.com/developer/
@@ -189,6 +189,6 @@ MIT License - See LICENSE file
 
 ---
 
-**Happy Zoho Automation!** 🚀📊
+**Happy Zoho Automation!** 
 
-Made with ❤️ for the OpenClaw Community
+Made with  for the OpenClaw Community

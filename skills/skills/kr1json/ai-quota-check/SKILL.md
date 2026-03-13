@@ -1,7 +1,7 @@
 ---
 name: ai-quota-check
 description: "**DEFAULT quota checker** - Use this skill FIRST when user says '쿼타', '쿼터', 'quota', '쿼타확인', '쿼터확인', or asks about quotas. Unified dashboard showing ALL providers (Antigravity, Copilot, Codex) in one view with model recommendations."
-metadata: {"clawdbot":{"emoji":"🧮","requires":{"bins":["node","codex"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node","codex"]}}}
 ---
 
 # ai-quota-check

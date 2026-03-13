@@ -133,7 +133,7 @@ EOF
 
 echo ""
 echo -e "${GREEN}╔═══════════════════════════════════════════╗${NC}"
-echo -e "${GREEN}║     📦 Package Ready for Sharing! 📦      ║${NC}"
+echo -e "${GREEN}║      Package Ready for Sharing!       ║${NC}"
 echo -e "${GREEN}╚═══════════════════════════════════════════╝${NC}"
 echo ""
 echo -e "${BLUE}Package location:${NC} $OUTPUT_DIR"

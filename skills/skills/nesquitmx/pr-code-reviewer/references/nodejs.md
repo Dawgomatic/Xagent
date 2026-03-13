@@ -5,7 +5,7 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 
 ---
 
-## 🔴 BLOCKERS
+##  BLOCKERS
 
 ### Process y Event Loop
 - Uso de funciones síncronas de fs en código de servidor: readFileSync, writeFileSync, etc.
@@ -14,13 +14,13 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 - process.exit() sin manejar cleanup de conexiones abiertas
 - No manejar señales de terminación: SIGTERM, SIGINT
 
-❌ Mal (en un endpoint de API):
+ Mal (en un endpoint de API):
   app.get('/file', (req, res) => {
     const content = fs.readFileSync('/path/to/file', 'utf8');
     res.send(content);
   });
 
-✅ Bien:
+ Bien:
   app.get('/file', async (req, res) => {
     try {
       const content = await fs.promises.readFile('/path/to/file', 'utf8');
@@ -36,7 +36,7 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 - Streams que no se cierran o destruyen correctamente
 - Caché en memoria sin límite de tamaño ni expiración
 
-❌ Mal:
+ Mal:
   const cache = {};
   app.get('/data/:id', async (req, res) => {
     if (!cache[req.params.id]) {
@@ -46,7 +46,7 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
   });
   // El cache crece infinitamente sin límite
 
-✅ Bien:
+ Bien:
   const NodeCache = require('node-cache');
   const cache = new NodeCache({ stdTTL: 600, maxKeys: 1000 });
 
@@ -64,7 +64,7 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 - No tener handler para uncaughtException
 - Promesas sin catch que pueden crashear el proceso
 
-✅ Siempre incluir en el entry point:
+ Siempre incluir en el entry point:
   process.on('unhandledRejection', (reason, promise) => {
     logger.error('Unhandled Rejection:', reason);
     // Decidir si hacer graceful shutdown
@@ -82,12 +82,12 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 - Deserializar datos no confiables sin validación: JSON.parse de input sin try/catch
 - Servir archivos estáticos sin validar el path (path traversal)
 
-❌ Mal (path traversal):
+ Mal (path traversal):
   app.get('/files/:name', (req, res) => {
     res.sendFile('/uploads/' + req.params.name);
   });
 
-✅ Bien:
+ Bien:
   const path = require('path');
   app.get('/files/:name', (req, res) => {
     const safePath = path.join(__dirname, 'uploads', path.basename(req.params.name));
@@ -96,7 +96,7 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 
 ---
 
-## 🟡 WARNINGS
+##  WARNINGS
 
 ### Express / Framework HTTP
 - Endpoints sin validación de input: body, params, query
@@ -106,13 +106,13 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 - Rutas sin autenticación que deberían tenerla
 - No limitar el tamaño del body en requests
 
-❌ Mal:
+ Mal:
   app.post('/users', async (req, res) => {
     const user = await User.create(req.body);
     res.json(user);
   });
 
-✅ Bien:
+ Bien:
   app.post('/users',
     authenticate,
     validateBody(createUserSchema),
@@ -133,7 +133,7 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 - Queries dentro de loops: N+1 problem
 - No indexar campos que se usan frecuentemente en WHERE o JOIN
 
-❌ Mal (N+1 problem):
+ Mal (N+1 problem):
   app.get('/users-with-posts', async (req, res) => {
     const users = await User.findAll();
     for (const user of users) {
@@ -142,7 +142,7 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
     res.json(users);
   });
 
-✅ Bien:
+ Bien:
   app.get('/users-with-posts', async (req, res) => {
     const users = await User.findAll({
       include: [{ model: Post }]
@@ -156,14 +156,14 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 - Usar valores por defecto inseguros para variables de entorno
 - Mezclar configuración de diferentes environments en el mismo archivo
 
-❌ Mal:
+ Mal:
   const db = new Database({
     host: 'localhost',
     port: 5432,
     password: 'mypassword123'
   });
 
-✅ Bien:
+ Bien:
   const requiredEnvVars = ['DB_HOST', 'DB_PORT', 'DB_PASSWORD'];
   for (const envVar of requiredEnvVars) {
     if (!process.env[envVar]) {
@@ -188,7 +188,7 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 - Enviar stack traces al cliente en producción
 - No diferenciar entre errores operacionales y errores de programación
 
-✅ Middleware de errores recomendado:
+ Middleware de errores recomendado:
   app.use((err, req, res, next) => {
     logger.error({
       message: err.message,
@@ -213,7 +213,7 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 
 ---
 
-## 🔵 SUGGESTIONS
+##  SUGGESTIONS
 
 ### Estructura de Proyecto
 - Separar rutas, controladores, servicios y modelos en carpetas distintas
@@ -228,7 +228,7 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 
 ### Graceful Shutdown
 
-✅ Implementar siempre:
+ Implementar siempre:
   const server = app.listen(port);
 
   async function gracefulShutdown(signal) {
@@ -266,14 +266,14 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 - Usar cursor o paginación para queries que retornan muchos registros
 - Pipe de streams para transformaciones de datos
 
-❌ Mal:
+ Mal:
   app.get('/export', async (req, res) => {
     const allRecords = await Record.findAll(); // Puede ser millones
     const csv = convertToCSV(allRecords); // Todo en memoria
     res.send(csv);
   });
 
-✅ Bien:
+ Bien:
   app.get('/export', async (req, res) => {
     res.setHeader('Content-Type', 'text/csv');
     res.setHeader('Content-Disposition', 'attachment; filename=export.csv');
@@ -300,7 +300,7 @@ que corran en entorno servidor (APIs, servicios, scripts, workers).
 
 ---
 
-## 💡 NITS
+##  NITS
 
 ### Estilo Node.js
 - Preferir import/export (ESM) sobre require/module.exports (CJS) en proyectos nuevos

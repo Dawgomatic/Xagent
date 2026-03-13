@@ -7,20 +7,20 @@
 A TypeScript-based MCP skill for ClawdBot that makes file sharing easy. Upload files to cloud storage and get secure, temporary download links in seconds. Built with the AWS SDK v3, it supports Cloudflare R2 (recommended), AWS S3, MinIO, and any S3-compatible storage.
 
 **Key Features:**
-- 🚀 Fast uploads with automatic content-type detection
-- ⏱️ Secure presigned URLs (default: 5-minute expiration)
-- 🔧 Interactive TypeScript onboarding
-- 🗂️ Multi-bucket support
-- 🎨 Clean, typed API with 4 tools
+-  Fast uploads with automatic content-type detection
+-  Secure presigned URLs (default: 5-minute expiration)
+-  Interactive TypeScript onboarding
+-  Multi-bucket support
+-  Clean, typed API with 4 tools
 
 ## Features
 
-- 📤 Upload files to R2/S3 with presigned URLs
-- ⏰ Configurable expiration (default: 5 minutes)
-- 🔗 Support for multiple buckets
-- 🌐 Custom domain support for public URLs
-- 🔐 Secure presigned URL generation
-- ✅ Works with Cloudflare R2, AWS S3, MinIO, or any S3-compatible storage
+-  Upload files to R2/S3 with presigned URLs
+-  Configurable expiration (default: 5 minutes)
+-  Support for multiple buckets
+-  Custom domain support for public URLs
+-  Secure presigned URL generation
+-  Works with Cloudflare R2, AWS S3, MinIO, or any S3-compatible storage
 
 ## Quick Start
 

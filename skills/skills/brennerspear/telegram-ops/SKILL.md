@@ -77,16 +77,16 @@ Each session has independent conversation history, context window, and compactio
 
 | Emoji | ID | Use Case |
 |-------|-----|----------|
-| ⚡ | `5312016608254762256` | Ops, speed, alerts |
-| 💡 | `5312536423851630001` | Ideas, suggestions |
-| 📰 | `5434144690511290129` | News, announcements |
-| 🔥 | `5312241539987020022` | Hot topics, urgent |
-| ❤️ | `5312138559556164615` | Community, love |
-| 📝 | `5373251851074415873` | Notes, documentation |
-| 🤖 | `5309832892262654231` | Bots, automation |
-| 💬 | `5417915203100613993` | Chat, discussion |
-| 📊 | `5350305691942788490` | Stats, analytics |
-| 🎯 | `5418085807791545980` | Goals, targets |
+|  | `5312016608254762256` | Ops, speed, alerts |
+|  | `5312536423851630001` | Ideas, suggestions |
+|  | `5434144690511290129` | News, announcements |
+|  | `5312241539987020022` | Hot topics, urgent |
+|  | `5312138559556164615` | Community, love |
+|  | `5373251851074415873` | Notes, documentation |
+|  | `5309832892262654231` | Bots, automation |
+|  | `5417915203100613993` | Chat, discussion |
+|  | `5350305691942788490` | Stats, analytics |
+|  | `5418085807791545980` | Goals, targets |
 
 See `references/emoji-ids.md` for complete list.
 
@@ -108,7 +108,7 @@ scripts/archive_topic.sh <TOKEN> <GROUP_ID> <TOPIC_ID> "Current Topic Name"
 
 This will:
 - Rename to `[ARCHIVED] Current Topic Name`
-- Set the 📁 folder icon (`5357315181649076022`)
+- Set the  folder icon (`5357315181649076022`)
 - Close the topic (locks it from new messages)
 
 ### Step 2: Export and Delete OpenClaw Session

@@ -510,25 +510,25 @@ function divide(a: number, b: number): number {
 
 ### Pattern 1: Async/Await Mistakes
 ```typescript
-// ❌ Wrong: Not awaiting properly
+//  Wrong: Not awaiting properly
 async function wrong() {
   const result = fetch('/api'); // Missing await
   return result.data; // Will fail
 }
 
-// ✅ Correct
+//  Correct
 async function correct() {
   const result = await fetch('/api');
   return result.data;
 }
 
-// ❌ Wrong: Not handling errors
+//  Wrong: Not handling errors
 async function noErrorHandling() {
   const data = await fetch('/api'); // Throws on error
   return data;
 }
 
-// ✅ Correct
+//  Correct
 async function withErrorHandling() {
   try {
     const data = await fetch('/api');
@@ -542,7 +542,7 @@ async function withErrorHandling() {
 
 ### Pattern 2: Closure Issues
 ```typescript
-// ❌ Wrong: Stale closure
+//  Wrong: Stale closure
 function createHandlers() {
   let count = 0;
   const handlers = [];
@@ -554,7 +554,7 @@ function createHandlers() {
   return handlers;
 }
 
-// ✅ Correct
+//  Correct
 function createHandlersFixed() {
   const handlers = [];
 
@@ -568,12 +568,12 @@ function createHandlersFixed() {
 
 ### Pattern 3: Mutation Issues
 ```typescript
-// ❌ Wrong: Mutating input
+//  Wrong: Mutating input
 function sortItems(items: Item[]) {
   return items.sort((a, b) => a.value - b.value); // Mutates original
 }
 
-// ✅ Correct
+//  Correct
 function sortItemsFixed(items: Item[]) {
   return [...items].sort((a, b) => a.value - b.value);
 }
@@ -581,12 +581,12 @@ function sortItemsFixed(items: Item[]) {
 
 ### Pattern 4: Floating Point Precision
 ```typescript
-// ❌ Wrong: Direct float comparison
+//  Wrong: Direct float comparison
 test('adds decimals', () => {
   expect(0.1 + 0.2).toBe(0.3); // Fails!
 });
 
-// ✅ Correct
+//  Correct
 test('adds decimals', () => {
   expect(0.1 + 0.2).toBeCloseTo(0.3);
 });

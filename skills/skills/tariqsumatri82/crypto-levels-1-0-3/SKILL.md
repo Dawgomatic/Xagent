@@ -88,22 +88,22 @@ The skill uses multiple data sources to calculate support and resistance levels:
 
 **Response**:
 ```
-📊 BTC-USDT 技术分析
+ BTC-USDT 技术分析
 
-💰 当前价格: $67,500
-📈 24h变化: +2.5%
+ 当前价格: $67,500
+ 24h变化: +2.5%
 
-🔴 压力位 (Resistance):
+ 压力位 (Resistance):
 • R1: $68,200 (近期高点)
 • R2: $69,500 (心理关口)
 • R3: $71,000 (历史阻力)
 
-🟢 支撑位 (Support):
+ 支撑位 (Support):
 • S1: $66,800 (日内低点)
 • S2: $65,500 (MA50)
 • S3: $64,000 (强支撑)
 
-💡 交易建议: 短期看涨，关注$68,200突破
+ 交易建议: 短期看涨，关注$68,200突破
 ```
 
 ### Example 2: Detailed Analysis
@@ -111,29 +111,29 @@ The skill uses multiple data sources to calculate support and resistance levels:
 
 **Response**:
 ```
-📊 ETH-USDT 详细技术分析
+ ETH-USDT 详细技术分析
 
-💰 当前价格: $3,450
-📈 24h变化: +3.2%
-📉 7d变化: -1.5%
+ 当前价格: $3,450
+ 24h变化: +3.2%
+ 7d变化: -1.5%
 
-🔴 压力位 (Resistance):
+ 压力位 (Resistance):
 • R1: $3,500 (心理关口)
 • R2: $3,600 (近期高点)
 • R3: $3,750 (斐波那契扩展)
 
-🟢 支撑位 (Support):
+ 支撑位 (Support):
 • S1: $3,400 (日内支撑)
 • S2: $3,300 (MA100)
 • S3: $3,200 (强支撑区)
 
-📊 技术指标:
+ 技术指标:
 • RSI: 62 (中性偏强)
 • MACD: 金叉向上
 • MA50: $3,350 (支撑)
 
-💡 市场情绪: 看涨
-💡 交易建议: 回调买入，突破追涨
+ 市场情绪: 看涨
+ 交易建议: 回调买入，突破追涨
 ```
 
 ### Example 3: Multiple Pairs
@@ -141,7 +141,7 @@ The skill uses multiple data sources to calculate support and resistance levels:
 
 **Response**:
 ```
-📊 多币种支撑位分析
+ 多币种支撑位分析
 
 BTC-USDT ($67,500)
 • 支撑: $66,800, $65,500, $64,000

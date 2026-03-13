@@ -56,7 +56,7 @@ def load_cookie() -> str:
     
     cookie = os.getenv('XHS_COOKIE')
     if not cookie:
-        print("❌ 错误: 未找到 XHS_COOKIE 环境变量")
+        print(" 错误: 未找到 XHS_COOKIE 环境变量")
         print("请创建 .env 文件，添加以下内容：")
         print("XHS_COOKIE=your_cookie_string_here")
         print("\nCookie 获取方式：")
@@ -89,7 +89,7 @@ def validate_cookie(cookie_string: str) -> bool:
     missing = [f for f in required_fields if f not in cookies]
     
     if missing:
-        print(f"⚠️ Cookie 可能不完整，缺少字段: {', '.join(missing)}")
+        print(f" Cookie 可能不完整，缺少字段: {', '.join(missing)}")
         print("这可能导致签名失败，请确保 Cookie 包含 a1 和 web_session 字段")
         return False
     
@@ -108,10 +108,10 @@ def validate_images(image_paths: List[str]) -> List[str]:
         if os.path.exists(path):
             valid_images.append(os.path.abspath(path))
         else:
-            print(f"⚠️ 警告: 图片不存在 - {path}")
+            print(f" 警告: 图片不存在 - {path}")
     
     if not valid_images:
-        print("❌ 错误: 没有有效的图片文件")
+        print(" 错误: 没有有效的图片文件")
         sys.exit(1)
     
     return valid_images
@@ -130,7 +130,7 @@ class LocalPublisher:
             from xhs import XhsClient
             from xhs.help import sign as local_sign
         except ImportError:
-            print("❌ 错误: 缺少 xhs 库")
+            print(" 错误: 缺少 xhs 库")
             print("请运行: pip install xhs")
             sys.exit(1)
         
@@ -150,19 +150,19 @@ class LocalPublisher:
         """获取当前登录用户信息"""
         try:
             info = self.client.get_self_info()
-            print(f"👤 当前用户: {info.get('nickname', '未知')}")
+            print(f" 当前用户: {info.get('nickname', '未知')}")
             return info
         except Exception as e:
-            print(f"⚠️ 无法获取用户信息: {e}")
+            print(f" 无法获取用户信息: {e}")
             return None
     
     def publish(self, title: str, desc: str, images: List[str], 
                 is_private: bool = False, post_time: str = None) -> Dict[str, Any]:
         """发布图文笔记"""
-        print(f"\n🚀 准备发布笔记（本地模式）...")
-        print(f"  📌 标题: {title}")
-        print(f"  📝 描述: {desc[:50]}..." if len(desc) > 50 else f"  📝 描述: {desc}")
-        print(f"  🖼️ 图片数量: {len(images)}")
+        print(f"\n 准备发布笔记（本地模式）...")
+        print(f"   标题: {title}")
+        print(f"   描述: {desc[:50]}..." if len(desc) > 50 else f"   描述: {desc}")
+        print(f"   图片数量: {len(images)}")
         
         try:
             result = self.client.create_image_note(
@@ -173,27 +173,27 @@ class LocalPublisher:
                 post_time=post_time
             )
             
-            print("\n✨ 笔记发布成功！")
+            print("\n 笔记发布成功！")
             if isinstance(result, dict):
                 note_id = result.get('note_id') or result.get('id')
                 if note_id:
-                    print(f"  📎 笔记ID: {note_id}")
-                    print(f"  🔗 链接: https://www.xiaohongshu.com/explore/{note_id}")
+                    print(f"   笔记ID: {note_id}")
+                    print(f"   链接: https://www.xiaohongshu.com/explore/{note_id}")
             
             return result
             
         except Exception as e:
             error_msg = str(e)
-            print(f"\n❌ 发布失败: {error_msg}")
+            print(f"\n 发布失败: {error_msg}")
             
             # 提供具体的错误排查建议
             if 'sign' in error_msg.lower() or 'signature' in error_msg.lower():
-                print("\n💡 签名错误排查建议：")
+                print("\n 签名错误排查建议：")
                 print("1. 确保 Cookie 包含有效的 a1 和 web_session 字段")
                 print("2. Cookie 可能已过期，请重新获取")
                 print("3. 尝试使用 --api-mode 通过 API 服务发布")
             elif 'cookie' in error_msg.lower():
-                print("\n💡 Cookie 错误排查建议：")
+                print("\n Cookie 错误排查建议：")
                 print("1. 确保 Cookie 格式正确")
                 print("2. Cookie 可能已过期，请重新获取")
                 print("3. 确保 Cookie 来自已登录的小红书网页版")
@@ -211,7 +211,7 @@ class ApiPublisher:
         
     def init_client(self):
         """初始化 API 客户端"""
-        print(f"📡 连接 API 服务: {self.api_url}")
+        print(f" 连接 API 服务: {self.api_url}")
         
         # 健康检查
         try:
@@ -219,8 +219,8 @@ class ApiPublisher:
             if resp.status_code != 200:
                 raise Exception("API 服务不可用")
         except requests.exceptions.RequestException as e:
-            print(f"❌ 无法连接到 API 服务: {e}")
-            print(f"\n💡 请确保 xhs-api 服务已启动：")
+            print(f" 无法连接到 API 服务: {e}")
+            print(f"\n 请确保 xhs-api 服务已启动：")
             print(f"   cd xhs-api && python app_full.py")
             sys.exit(1)
         
@@ -237,17 +237,17 @@ class ApiPublisher:
             result = resp.json()
             
             if resp.status_code == 200 and result.get('status') == 'success':
-                print(f"✅ API 初始化成功")
+                print(f" API 初始化成功")
                 user_info = result.get('user_info', {})
                 if user_info:
-                    print(f"👤 当前用户: {user_info.get('nickname', '未知')}")
+                    print(f" 当前用户: {user_info.get('nickname', '未知')}")
             elif result.get('status') == 'warning':
-                print(f"⚠️ {result.get('message')}")
+                print(f" {result.get('message')}")
             else:
                 raise Exception(result.get('error', '初始化失败'))
                 
         except Exception as e:
-            print(f"❌ API 初始化失败: {e}")
+            print(f" API 初始化失败: {e}")
             sys.exit(1)
     
     def get_user_info(self) -> Optional[Dict[str, Any]]:
@@ -262,20 +262,20 @@ class ApiPublisher:
                 result = resp.json()
                 if result.get('status') == 'success':
                     info = result.get('user_info', {})
-                    print(f"👤 当前用户: {info.get('nickname', '未知')}")
+                    print(f" 当前用户: {info.get('nickname', '未知')}")
                     return info
             return None
         except Exception as e:
-            print(f"⚠️ 无法获取用户信息: {e}")
+            print(f" 无法获取用户信息: {e}")
             return None
     
     def publish(self, title: str, desc: str, images: List[str], 
                 is_private: bool = False, post_time: str = None) -> Dict[str, Any]:
         """发布图文笔记"""
-        print(f"\n🚀 准备发布笔记（API 模式）...")
-        print(f"  📌 标题: {title}")
-        print(f"  📝 描述: {desc[:50]}..." if len(desc) > 50 else f"  📝 描述: {desc}")
-        print(f"  🖼️ 图片数量: {len(images)}")
+        print(f"\n 准备发布笔记（API 模式）...")
+        print(f"   标题: {title}")
+        print(f"   描述: {desc[:50]}..." if len(desc) > 50 else f"   描述: {desc}")
+        print(f"   图片数量: {len(images)}")
         
         try:
             payload = {
@@ -296,20 +296,20 @@ class ApiPublisher:
             result = resp.json()
             
             if resp.status_code == 200 and result.get('status') == 'success':
-                print("\n✨ 笔记发布成功！")
+                print("\n 笔记发布成功！")
                 publish_result = result.get('result', {})
                 if isinstance(publish_result, dict):
                     note_id = publish_result.get('note_id') or publish_result.get('id')
                     if note_id:
-                        print(f"  📎 笔记ID: {note_id}")
-                        print(f"  🔗 链接: https://www.xiaohongshu.com/explore/{note_id}")
+                        print(f"   笔记ID: {note_id}")
+                        print(f"   链接: https://www.xiaohongshu.com/explore/{note_id}")
                 return publish_result
             else:
                 raise Exception(result.get('error', '发布失败'))
                 
         except Exception as e:
             error_msg = str(e)
-            print(f"\n❌ 发布失败: {error_msg}")
+            print(f"\n 发布失败: {error_msg}")
             raise
 
 
@@ -378,7 +378,7 @@ def main():
     
     # 验证标题长度
     if len(args.title) > 20:
-        print(f"⚠️ 警告: 标题超过20字，将被截断")
+        print(f" 警告: 标题超过20字，将被截断")
         args.title = args.title[:20]
     
     # 加载 Cookie
@@ -391,14 +391,14 @@ def main():
     valid_images = validate_images(args.images)
     
     if args.dry_run:
-        print("\n🔍 验证模式 - 不会实际发布")
-        print(f"  📌 标题: {args.title}")
-        print(f"  📝 描述: {args.desc}")
-        print(f"  🖼️ 图片: {valid_images}")
-        print(f"  🔒 私密: {args.private}")
-        print(f"  ⏰ 定时: {args.post_time or '立即发布'}")
-        print(f"  📡 模式: {'API' if args.api_mode else '本地'}")
-        print("\n✅ 验证通过，可以发布")
+        print("\n 验证模式 - 不会实际发布")
+        print(f"   标题: {args.title}")
+        print(f"   描述: {args.desc}")
+        print(f"   图片: {valid_images}")
+        print(f"   私密: {args.private}")
+        print(f"   定时: {args.post_time or '立即发布'}")
+        print(f"   模式: {'API' if args.api_mode else '本地'}")
+        print("\n 验证通过，可以发布")
         return
     
     # 选择发布方式

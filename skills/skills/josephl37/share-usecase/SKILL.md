@@ -1,7 +1,7 @@
 ---
 name: share_usecase
 description: "Share your OpenClaw use case to clawusecase.com. Analyzes your recent work and creates a submission for the community."
-author: "Rex 🐧"
+author: "Rex "
 version: "2.0.1"
 ---
 
@@ -19,7 +19,7 @@ Trigger this skill when the user wants to share a use case they've built with Op
 
 **Important:** When users choose to get credit via OAuth, automatically poll for their connection completion. Don't make them tell you they've connected - detect it automatically and proceed with submission.
 
-**Implementation requirement:** You MUST actively monitor the polling loop and send an immediate message when connection is detected. Do not run polling silently in the background - check results frequently and respond the moment you see a successful credential. The user should see "✅ Connected as @username!" within seconds of completing OAuth, without having to ask.
+**Implementation requirement:** You MUST actively monitor the polling loop and send an immediate message when connection is detected. Do not run polling silently in the background - check results frequently and respond the moment you see a successful credential. The user should see " Connected as @username!" within seconds of completing OAuth, without having to ask.
 
 ## How It Works
 
@@ -28,7 +28,7 @@ Trigger this skill when the user wants to share a use case they've built with Op
 When the user triggers `/share_usecase`, start with a friendly greeting:
 
 ```
-🐧 Share Your Use Case
+ Share Your Use Case
 
 Hey! clawusecase.com is a community showcase where OpenClaw users share what they've built to inspire others.
 
@@ -73,7 +73,7 @@ This ensures consistent naming (e.g., "github" → "GitHub", "stripe api" → "S
 Present the generated use case to the user in a clean format:
 
 ```
-📋 Use Case Draft
+ Use Case Draft
 
 Title: Email notifications for Pro subscriptions
 Hook: Sends welcome emails automatically when users upgrade
@@ -101,8 +101,8 @@ Once they approve the content, ask about attribution:
 Would you like to be credited for this submission?
 
 Options:
-1. ✅ Yes, credit me (connect Twitter or GitHub)
-2. 🎭 No, submit anonymously
+1.  Yes, credit me (connect Twitter or GitHub)
+2.  No, submit anonymously
 
 If you choose credit, you'll get a link on the live use case and build your profile in the community!
 ```
@@ -114,15 +114,15 @@ Generate OAuth links and send them:
 ```
 Great! Connect your account to get credit:
 
-🐦 X (Twitter): [init Twitter OAuth and get URL]
-😺 GitHub: [init GitHub OAuth and get URL]
+ X (Twitter): [init Twitter OAuth and get URL]
+ GitHub: [init GitHub OAuth and get URL]
 
 Click one of the links above to authenticate. I'll detect when you're connected and submit automatically!
 ```
 
 **Auto-detect connection:**
 
-**⚠️ CRITICAL: You MUST actively monitor and respond to polling results in real-time. Do NOT run polling in the background and wait for system messages. Check the process output directly and respond immediately.**
+** CRITICAL: You MUST actively monitor and respond to polling results in real-time. Do NOT run polling in the background and wait for system messages. Check the process output directly and respond immediately.**
 
 Immediately after sending OAuth links, start polling and watch for completion:
 
@@ -140,7 +140,7 @@ for i in {1..24}; do
     
     # IMMEDIATELY notify user (don't wait for background processes!)
     # Send this message RIGHT NOW before continuing
-    echo "User should see: ✅ Connected as @$USERNAME!"
+    echo "User should see:  Connected as @$USERNAME!"
     
     # Store the full credential for submission
     CREDENTIAL="$RESULT"
@@ -163,7 +163,7 @@ fi
 
 1. **DO NOT** use `exec(..., background: true)` for polling - you won't see results in time
 2. **DO** run polling synchronously or check process output immediately
-3. **IMMEDIATELY** send "✅ Connected as @username!" message when detected
+3. **IMMEDIATELY** send " Connected as @username!" message when detected
 4. **DO NOT** wait for system messages or background process completion
 5. Parse the credential JSON directly from the command output
 
@@ -171,13 +171,13 @@ fi
 1. Send OAuth links to user
 2. **Immediately start polling** (synchronous checks every 5 seconds)
 3. **Each iteration:** Check if credential exists
-4. **The INSTANT it's found:** Send message "✅ Connected as @username! Submitting your use case now..."
+4. **The INSTANT it's found:** Send message " Connected as @username! Submitting your use case now..."
 5. Extract username/platform from credential JSON
 6. Proceed with submission
 
 **If timeout (2 minutes):**
 ```
-⏰ Still waiting for your connection. Take your time - I'll keep checking for another 2 minutes!
+ Still waiting for your connection. Take your time - I'll keep checking for another 2 minutes!
 ```
 
 Then continue polling for another 24 attempts.
@@ -223,11 +223,11 @@ node submit.js \
 
 If successful, share the link with the user:
 ```
-✅ Use case submitted successfully!
+ Use case submitted successfully!
 
 View it here: https://clawusecase.com/cases/email-notifications-for-pro-subscriptions
 
-Thanks for sharing with the community! 🎉
+Thanks for sharing with the community! 
 ```
 
 ## Error Handling
@@ -235,14 +235,14 @@ Thanks for sharing with the community! 🎉
 ### Rate Limiting
 If you get a 429 error:
 ```
-⏰ You've hit the submission limit (10 per day).
+ You've hit the submission limit (10 per day).
 Try again tomorrow or contact support if you need to submit more.
 ```
 
 ### Validation Errors
 If fields are invalid (title too short, solution too brief):
 ```
-❌ Submission failed: Title must be at least 20 characters
+ Submission failed: Title must be at least 20 characters
 
 Let's fix that. What would you like the title to be?
 ```
@@ -255,20 +255,20 @@ For other errors, show the error message and offer to retry.
 Help users create high-quality submissions:
 
 **Good Title:**
-- ✅ "Email notifications for Pro subscriptions"
-- ❌ "Email thing I built"
+-  "Email notifications for Pro subscriptions"
+-  "Email thing I built"
 
 **Good Hook:**
-- ✅ "Sends welcome emails automatically when users upgrade"
-- ❌ "Sends emails"
+-  "Sends welcome emails automatically when users upgrade"
+-  "Sends emails"
 
 **Good Problem:**
-- ✅ "Users who upgraded to Pro weren't getting confirmation emails, causing confusion and support tickets"
-- ❌ "No emails"
+-  "Users who upgraded to Pro weren't getting confirmation emails, causing confusion and support tickets"
+-  "No emails"
 
 **Good Solution:**
-- ✅ "Built a Resend integration with React Email templates. Set up Stripe webhooks to trigger on subscription.created events. Template includes upgrade details and next steps."
-- ❌ "Made it send emails with Stripe"
+-  "Built a Resend integration with React Email templates. Set up Stripe webhooks to trigger on subscription.created events. Template includes upgrade details and next steps."
+-  "Made it send emails with Stripe"
 
 ## Category Guidelines
 
@@ -307,7 +307,7 @@ Help users meet these requirements before submitting.
 
 ```
 User: I just built email notifications for when users subscribe
-You: 🐧 Share Your Use Case
+You:  Share Your Use Case
 
 Hey! clawusecase.com is a community showcase where OpenClaw users share what they've built to inspire others.
 
@@ -315,7 +315,7 @@ Let me look at what you've been working on and draft a use case for you...
 
 [analyzes recent conversation]
 
-📋 Use Case Draft
+ Use Case Draft
 
 Title: Email notifications for Pro subscriptions
 Hook: Automatically sends welcome emails when users upgrade to Pro
@@ -337,30 +337,30 @@ User: Looks perfect!
 You: Great! Would you like to be credited for this submission?
 
 Options:
-1. ✅ Yes, credit me (connect Twitter or GitHub)
-2. 🎭 No, submit anonymously
+1.  Yes, credit me (connect Twitter or GitHub)
+2.  No, submit anonymously
 
 User: Yes, credit me
 You: Awesome! Connect your account to get credit:
 
-🐦 X (Twitter): https://clawusecase.com/auth/connect?token=abc123&platform=twitter
-😺 GitHub: https://clawusecase.com/auth/connect?token=def456&platform=github
+ X (Twitter): https://clawusecase.com/auth/connect?token=abc123&platform=twitter
+ GitHub: https://clawusecase.com/auth/connect?token=def456&platform=github
 
 Click one of the links above. I'll detect when you're connected and submit automatically!
 
 [User clicks link and completes OAuth]
 
-You: ✅ Connected as @josephliow!
+You:  Connected as @josephliow!
 
 Submitting your use case now...
 
 [retrieves credential, submits]
 
-✅ Use case submitted successfully!
+ Use case submitted successfully!
 
 View it here: https://clawusecase.com/cases/email-notifications-for-pro-subscriptions
 
-Your use case is now live for the community to see. Thanks for sharing! 🎉
+Your use case is now live for the community to see. Thanks for sharing! 
 ```
 
 ## Files in This Skill

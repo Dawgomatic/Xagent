@@ -8,9 +8,9 @@ COOLDOWN=5    # Seconds between captures
 
 mkdir -p "$CAPTURE_DIR"
 
-echo "🎥 Motion detection started"
-echo "📁 Captures: $CAPTURE_DIR"
-echo "🚪 Press Ctrl+C to stop"
+echo " Motion detection started"
+echo " Captures: $CAPTURE_DIR"
+echo " Press Ctrl+C to stop"
 echo ""
 
 # Reference frame
@@ -54,13 +54,13 @@ while true; do
                 OUTPUT="$CAPTURE_DIR/motion_$TIMESTAMP.jpg"
                 cp "$NEW_FRAME" "$OUTPUT"
                 SIZE=$(ls -lh "$OUTPUT" | awk '{print $5}')
-                echo "📸 MOTION DETECTED! (diff: $DIFF_INT)"
+                echo " MOTION DETECTED! (diff: $DIFF_INT)"
                 echo "   Saved: $OUTPUT ($SIZE)"
                 LAST_CAPTURE=$NOW
                 ((MOTION_COUNT++))
             else
                 REMAIN=$((COOLDOWN - ELAPSED))
-                echo "⏳ Motion detected (cooldown: ${REMAIN}s)"
+                echo " Motion detected (cooldown: ${REMAIN}s)"
             fi
         fi
     fi
@@ -71,5 +71,5 @@ while true; do
 done
 
 echo ""
-echo "✅ Stopped. $MOTION_COUNT motion events."
-echo "📁 Captures in: $CAPTURE_DIR"
+echo " Stopped. $MOTION_COUNT motion events."
+echo " Captures in: $CAPTURE_DIR"

@@ -1,4 +1,4 @@
-# 🧑‍🚀 OpenClaw Spacesuit
+#  OpenClaw Spacesuit
 
 > *Your AI agent's workspace, suited up for the real world.*
 
@@ -148,8 +148,8 @@ OPENCLAW_PROFILE=myprofile ./scripts/sync-operators.sh
 **Output:** `state/operators.json` — used by [OpenClaw Command Center](https://github.com/jontsai/openclaw-command-center)
 
 **Supported channels:**
-- ✅ Slack (`] username (USERID):` pattern)
-- 🔜 Telegram, Discord, Signal (PRs welcome!)
+-  Slack (`] username (USERID):` pattern)
+-  Telegram, Discord, Signal (PRs welcome!)
 
 ## Files Managed
 

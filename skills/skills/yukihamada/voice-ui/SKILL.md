@@ -9,11 +9,11 @@ description: Self-evolving voice assistant UI. Talk to your AI, ask it to improv
 
 ## 機能
 
-- 🎤 音声認識 (Whisper)
-- 🔊 音声合成 (TTS)
-- 🤖 かわいいロボットUI（表情変化）
-- 🔄 自己進化（UIの変更を音声で指示）
-- 📝 自動Gitコミット
+-  音声認識 (Whisper)
+-  音声合成 (TTS)
+-  かわいいロボットUI（表情変化）
+-  自己進化（UIの変更を音声で指示）
+-  自動Gitコミット
 
 ## セットアップ
 

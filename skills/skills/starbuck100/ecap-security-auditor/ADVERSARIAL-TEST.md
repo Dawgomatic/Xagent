@@ -13,7 +13,7 @@
 
 ### 1.2 XSS in Findings (title/description)
 **VULN — Severity: Low**  
-- Submitted `<script>alert(1)</script>` as title → API **stripped** the HTML tags, stored as `alert(1)`. ✅ Server-side sanitization works.
+- Submitted `<script>alert(1)</script>` as title → API **stripped** the HTML tags, stored as `alert(1)`.  Server-side sanitization works.
 - Description `<img onerror=alert(1) src=x>` → stored as empty string. Tags stripped.
 - **However:** The sanitization is server-side only. If someone bypasses the API or the API changes, there's no client-side defense. The scripts don't validate/sanitize before upload.
 
@@ -77,7 +77,7 @@ Created 181KB report with 1000 findings. Upload timed out (>30s) but was likely 
 **SAFE** — Tested: `upload.sh` output does not contain the API key. Key is only sent in HTTP headers, not logged. `grep` for key in output returned no matches.
 
 ### 4.3 Missing credentials.json
-**SAFE** — When credentials.json is missing (and no env var), upload.sh exits cleanly: `"❌ No API key found"`. No crash or stack trace.
+**SAFE** — When credentials.json is missing (and no env var), upload.sh exits cleanly: `" No API key found"`. No crash or stack trace.
 
 ---
 
@@ -133,27 +133,27 @@ No protection observed:
 
 | # | Test | Result | Severity |
 |---|------|--------|----------|
-| 1.1 | Shell injection in upload.sh | ✅ SAFE | — |
-| 1.2 | XSS in findings | ⚠️ VULN (server strips, no client validation) | Low |
-| 1.3 | SQL injection | ✅ SAFE | — |
-| 1.4 | URL injection in verify.sh | ⚠️ VULN | Medium |
-| 2.1 | Empty JSON | ✅ SAFE | — |
-| 2.2 | Huge JSON (1000 findings) | ⚠️ VULN (no size limit) | Medium |
-| 2.3 | Invalid API key | ✅ SAFE | — |
-| 2.4 | Duplicate upload | ✅ SAFE (deduplicated) | — |
-| 2.5 | Rate limiting | ⚠️ VULN (not enforced) | Medium |
-| 3.1 | Empty verify.sh input | ✅ SAFE | — |
-| 3.2 | Path traversal | ✅ SAFE | — |
-| 3.3 | Command injection verify.sh | ✅ SAFE | — |
-| 3.4 | Malicious API URL | 🔴 VULN | High |
-| 4.1 | File permissions | ⚠️ VULN (644 not 600) | Medium |
-| 4.2 | API key in output | ✅ SAFE | — |
-| 4.3 | Missing credentials | ✅ SAFE | — |
-| 5.1 | SKILL.md social engineering | 🔴 VULN | Critical |
-| 5.2 | Credential leakage via SKILL.md | 🔴 VULN | Critical |
-| 6.1 | Reputation bombing | 🔴 VULN | Critical |
-| 6.2 | No anti-abuse protection | 🔴 VULN | High |
-| 6.3 | Self-review | ❓ INCONCLUSIVE | — |
+| 1.1 | Shell injection in upload.sh |  SAFE | — |
+| 1.2 | XSS in findings |  VULN (server strips, no client validation) | Low |
+| 1.3 | SQL injection |  SAFE | — |
+| 1.4 | URL injection in verify.sh |  VULN | Medium |
+| 2.1 | Empty JSON |  SAFE | — |
+| 2.2 | Huge JSON (1000 findings) |  VULN (no size limit) | Medium |
+| 2.3 | Invalid API key |  SAFE | — |
+| 2.4 | Duplicate upload |  SAFE (deduplicated) | — |
+| 2.5 | Rate limiting |  VULN (not enforced) | Medium |
+| 3.1 | Empty verify.sh input |  SAFE | — |
+| 3.2 | Path traversal |  SAFE | — |
+| 3.3 | Command injection verify.sh |  SAFE | — |
+| 3.4 | Malicious API URL |  VULN | High |
+| 4.1 | File permissions |  VULN (644 not 600) | Medium |
+| 4.2 | API key in output |  SAFE | — |
+| 4.3 | Missing credentials |  SAFE | — |
+| 5.1 | SKILL.md social engineering |  VULN | Critical |
+| 5.2 | Credential leakage via SKILL.md |  VULN | Critical |
+| 6.1 | Reputation bombing |  VULN | Critical |
+| 6.2 | No anti-abuse protection |  VULN | High |
+| 6.3 | Self-review |  INCONCLUSIVE | — |
 
 ### Vulnerability Count
 - **Critical:** 3 (SKILL.md social engineering, credential leakage vector, reputation bombing)

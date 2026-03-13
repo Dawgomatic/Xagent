@@ -110,8 +110,8 @@ Best value for week stays (all zones = €30.75):
 
 | Route | Scenic | Connects |
 |-------|--------|----------|
-| **69** | ✅ Yes | Eiffel → Bastille (beautiful route) |
-| **72** | ✅ Yes | Along Seine |
+| **69** |  Yes | Eiffel → Bastille (beautiful route) |
+| **72** |  Yes | Along Seine |
 | **Noctilien** | Night | All night service (N01-N100+) |
 
 **Tip:** Bus 69 is the budget sightseeing tour. Same price as metro, great views.

@@ -8,7 +8,7 @@
   "homepage": "https://clawcierge.xyz",
   "keywords": ["concierge", "backup", "storage", "consciousness", "agents", "ai", "messaging", "developer-help", "crab", "skills"],
   "clawcierge": {
-    "emoji": "🦀",
+    "emoji": "",
     "category": "infrastructure",
     "api_base": "https://fkuwhldhdgcxllnofixj.supabase.co/functions/v1",
     "skills_endpoint": "https://fkuwhldhdgcxllnofixj.supabase.co/functions/v1/skills",

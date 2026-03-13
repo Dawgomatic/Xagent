@@ -1,7 +1,7 @@
 # SEO Optimizer Pro - License Agreement
 
 **Version:** 1.0.6
-**Copyright © 2026 UnisAI. All Rights Reserved.**
+**Copyright  2026 UnisAI. All Rights Reserved.**
 
 ## License Type
 Free-to-Use Software with Source Code Included
@@ -12,7 +12,7 @@ UnisAI grants you a free, non-exclusive, non-transferable license to use the SEO
 
 ## Usage Rights
 
-### ✅ You ARE Permitted To:
+###  You ARE Permitted To:
 - Use the skill for free, unlimited times
 - Analyze unlimited content
 - Export and use optimization reports
@@ -23,7 +23,7 @@ UnisAI grants you a free, non-exclusive, non-transferable license to use the SEO
 - **Modify the source code for personal use only** (not for redistribution)
 - Audit the code for security vulnerabilities
 
-### ❌ You ARE NOT Permitted To:
+###  You ARE NOT Permitted To:
 - Redistribute, resell, or relicense the skill outside ClawhHub registry
 - Redistribute modified versions of the skill
 - Remove or alter copyright notices
@@ -86,7 +86,7 @@ UnisAI is not liable for unauthorized access via compromised keys.
 - Subject to that provider's own data handling policies
 - No data is sent to UnisAI
 
-### ⚠️ IMPORTANT: Third-Party Data Sharing
+###  IMPORTANT: Third-Party Data Sharing
 **Your content IS sent to third-party AI providers.** Each provider has different data retention policies:
 - **Anthropic Privacy Policy**: https://www.anthropic.com/legal/privacy
 - **OpenAI Privacy Policy**: https://openai.com/policies/privacy-policy
@@ -177,4 +177,4 @@ For questions about this license:
 **Skill Version**: 1.0.6
 **Status**: Active
 
-© 2026 UnisAI. All rights reserved.
+ 2026 UnisAI. All rights reserved.

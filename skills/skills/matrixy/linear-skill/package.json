@@ -5,7 +5,7 @@
   "main": "scripts/linear-cli.js",
   "scripts": {
     "install": "cd scripts && npm install",
-    "postinstall": "echo '\n✅ Linear skill installed successfully!\n\n📝 Next steps:\n1. Get your Linear API key from: https://linear.app/settings/api\n2. Set LINEAR_API_KEY environment variable\n3. Start using Linear with Claude Code or Clawdbot\n'"
+    "postinstall": "echo '\n Linear skill installed successfully!\n\n Next steps:\n1. Get your Linear API key from: https://linear.app/settings/api\n2. Set LINEAR_API_KEY environment variable\n3. Start using Linear with Claude Code or Clawdbot\n'"
   },
   "repository": {
     "type": "git",

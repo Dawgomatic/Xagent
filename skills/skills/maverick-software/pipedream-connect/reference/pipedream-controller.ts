@@ -581,24 +581,24 @@ function appSlugToName(slug: string): string {
 
 function appSlugToIcon(slug: string): string {
   const icons: Record<string, string> = {
-    gmail: "📧",
-    "google-calendar": "📅",
-    "google-sheets": "📊",
-    "google-drive": "📁",
-    slack: "💬",
-    notion: "📝",
-    github: "🐙",
-    linear: "📋",
-    discord: "🎮",
-    twitter: "🐦",
-    airtable: "📑",
-    hubspot: "🧲",
-    asana: "✅",
-    trello: "📌",
-    dropbox: "📦",
-    openai: "🤖",
+    gmail: "",
+    "google-calendar": "",
+    "google-sheets": "",
+    "google-drive": "",
+    slack: "",
+    notion: "",
+    github: "",
+    linear: "",
+    discord: "",
+    twitter: "",
+    airtable: "",
+    hubspot: "",
+    asana: "",
+    trello: "",
+    dropbox: "",
+    openai: "",
   };
-  return icons[slug] || "🔌";
+  return icons[slug] || "";
 }
 
 // App Browser functions

@@ -10,7 +10,7 @@ license: CC-BY-NC-4.0
 repository: https://github.com/swancho/mac-memo-agent
 metadata:
   openclaw:
-    emoji: "📝"
+    emoji: ""
 ---
 
 # Mac Notes Agent

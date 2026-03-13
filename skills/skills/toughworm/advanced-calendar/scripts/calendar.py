@@ -206,7 +206,7 @@ def daily_summary():
             "weekday": weekday,
             "count": 0,
             "events": [],
-            "message": f"📅 {formatted_date} {weekday}\n\n今天没有安排任何日程，祝您有愉快的一天！"
+            "message": f" {formatted_date} {weekday}\n\n今天没有安排任何日程，祝您有愉快的一天！"
         }
     
     event_list = []
@@ -220,7 +220,7 @@ def daily_summary():
         event_list.append(event_info)
     
     # Build message
-    message = f"📅 {formatted_date} {weekday}\n"
+    message = f" {formatted_date} {weekday}\n"
     message += f"\n今日共有 {len(today_events)} 个日程：\n"
     
     for i, event in enumerate(today_events, 1):
@@ -230,12 +230,12 @@ def daily_summary():
         description = event.get('description', '')
         
         message += f"\n{i}. {title}"
-        message += f"\n   ⏰ {time}"
+        message += f"\n    {time}"
         if location:
-            message += f"\n   📍 {location}"
+            message += f"\n    {location}"
         if description and description != title:
             desc = description[:50] + '...' if len(description) > 50 else description
-            message += f"\n   📝 {desc}"
+            message += f"\n    {desc}"
     
     message += "\n\n祝您今天顺利！"
     

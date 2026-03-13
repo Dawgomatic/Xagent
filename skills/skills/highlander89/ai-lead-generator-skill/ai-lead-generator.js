@@ -19,7 +19,7 @@ class LeadGenerator {
   }
 
   async generateLeads() {
-    console.log(`🎯 Generating ${this.count} leads for ${this.industry} industry...`);
+    console.log(` Generating ${this.count} leads for ${this.industry} industry...`);
     
     const leads = [];
     
@@ -80,7 +80,7 @@ class LeadGenerator {
     });
 
     await csvWriter.writeRecords(leads);
-    console.log(`✅ Exported ${leads.length} leads to ${filename}`);
+    console.log(` Exported ${leads.length} leads to ${filename}`);
     return filename;
   }
 
@@ -90,7 +90,7 @@ class LeadGenerator {
       const filename = `leads_${this.industry}_${Date.now()}.csv`;
       await this.exportToCSV(leads, filename);
       
-      console.log(`\n📊 Lead Generation Complete:`);
+      console.log(`\n Lead Generation Complete:`);
       console.log(`- Industry: ${this.industry}`);
       console.log(`- Total leads: ${leads.length}`);
       console.log(`- File: ${filename}`);
@@ -102,7 +102,7 @@ class LeadGenerator {
         data: leads.slice(0, 5) // Return first 5 for preview
       };
     } catch (error) {
-      console.error('❌ Error generating leads:', error.message);
+      console.error(' Error generating leads:', error.message);
       return { success: false, error: error.message };
     }
   }

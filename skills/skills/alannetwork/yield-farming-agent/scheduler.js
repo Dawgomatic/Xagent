@@ -39,7 +39,7 @@ class AutonomousScheduler {
    * @param {Array} vaults - Vault configuration array
    */
   async initialize(contracts, vaults) {
-    console.log('\n🔧 Initializing Autonomous Scheduler...');
+    console.log('\n Initializing Autonomous Scheduler...');
     
     try {
       await this.reader.initializeContracts(contracts);
@@ -67,11 +67,11 @@ class AutonomousScheduler {
    */
   start() {
     if (this.isRunning) {
-      console.warn('⚠ Scheduler is already running');
+      console.warn(' Scheduler is already running');
       return;
     }
 
-    console.log('\n▶️  STARTING AUTONOMOUS SCHEDULER');
+    console.log('\n  STARTING AUTONOMOUS SCHEDULER');
     console.log(`   Interval: ${this.config.execution_interval_seconds} seconds (${(this.config.execution_interval_seconds / 60).toFixed(1)} min)`);
     console.log(`   Timezone: ${this.config.timezone}`);
     console.log(`   Status: ENABLED\n`);
@@ -94,11 +94,11 @@ class AutonomousScheduler {
    */
   stop() {
     if (!this.isRunning) {
-      console.warn('⚠ Scheduler is not running');
+      console.warn(' Scheduler is not running');
       return;
     }
 
-    console.log('\n⏹️  STOPPING AUTONOMOUS SCHEDULER');
+    console.log('\n  STOPPING AUTONOMOUS SCHEDULER');
     this.isRunning = false;
 
     if (this.schedulerIntervalId) {
@@ -123,7 +123,7 @@ class AutonomousScheduler {
     const cycleTimestamp = cycleStartTime.toISOString();
 
     console.log(`\n${'='.repeat(70)}`);
-    console.log(`📊 DECISION CYCLE #${this.cycleNumber}`);
+    console.log(` DECISION CYCLE #${this.cycleNumber}`);
     console.log(`   ID: ${cycleId}`);
     console.log(`   Time: ${cycleTimestamp}`);
     console.log(`${'='.repeat(70)}`);
@@ -143,7 +143,7 @@ class AutonomousScheduler {
 
     try {
       // STEP 1: Read blockchain data
-      console.log('\n[1/4] 📡 Reading blockchain data...');
+      console.log('\n[1/4]  Reading blockchain data...');
       const vaultDataStep = await this.executeStep('READ_BLOCKCHAIN', async () => {
         const vaultData = {};
         
@@ -179,7 +179,7 @@ class AutonomousScheduler {
       const vaultData = vaultDataStep.result;
 
       // STEP 2: Calculate agent decision
-      console.log('\n[2/4] 🤖 Calculating agent decision...');
+      console.log('\n[2/4]  Calculating agent decision...');
       const decisionStep = await this.executeStep('CALCULATE_DECISION', async () => {
         // Get current allocation from vault data
         const currentAllocation = {};
@@ -213,7 +213,7 @@ class AutonomousScheduler {
       cycleRecord.decision = decision;
 
       // STEP 3: Execute transactions (if recommended)
-      console.log('\n[3/4] 💾 Executing transactions...');
+      console.log('\n[3/4]  Executing transactions...');
       const executionStep = await this.executeStep('EXECUTE_TRANSACTIONS', async () => {
         const executions = [];
 
@@ -221,7 +221,7 @@ class AutonomousScheduler {
         const actions = this.buildExecutionActions(decision, vaultData);
 
         if (actions.length === 0) {
-          console.log('  ℹ️  No actions recommended - holding position');
+          console.log('    No actions recommended - holding position');
           return [];
         }
 
@@ -274,7 +274,7 @@ class AutonomousScheduler {
       cycleRecord.executions = executionStep.result || [];
 
       // STEP 4: Log and report
-      console.log('\n[4/4] 📝 Logging cycle results...');
+      console.log('\n[4/4]  Logging cycle results...');
       const loggingStep = await this.executeStep('LOG_RESULTS', async () => {
         this.logCycle(cycleRecord);
         console.log('  ✓ Cycle logged successfully');
@@ -288,13 +288,13 @@ class AutonomousScheduler {
       cycleRecord.end_time = new Date().toISOString();
       cycleRecord.duration_ms = new Date(cycleRecord.end_time).getTime() - cycleStartTime.getTime();
 
-      console.log(`\n✅ CYCLE COMPLETE`);
+      console.log(`\n CYCLE COMPLETE`);
       console.log(`   Duration: ${cycleRecord.duration_ms}ms`);
       console.log(`   Executions: ${cycleRecord.executions.length}`);
       console.log(`   Status: ${cycleRecord.status}\n`);
 
     } catch (error) {
-      console.error(`\n❌ CYCLE FAILED: ${error.message}\n`);
+      console.error(`\n CYCLE FAILED: ${error.message}\n`);
       
       cycleRecord.status = 'FAILED';
       cycleRecord.end_time = new Date().toISOString();
@@ -310,7 +310,7 @@ class AutonomousScheduler {
 
       // Trigger retry if configured
       if (this.config.retry_failed_cycles) {
-        console.log(`⏳ Will retry failed cycle in ${this.config.retry_delay_seconds} seconds...\n`);
+        console.log(` Will retry failed cycle in ${this.config.retry_delay_seconds} seconds...\n`);
         setTimeout(() => this.executeCycle(), this.config.retry_delay_seconds * 1000);
       }
     }
@@ -362,13 +362,13 @@ class AutonomousScheduler {
 
     // If confidence is too low, don't execute
     if (decision.confidence_score < 0.6) {
-      console.log('  ℹ️  Confidence too low - skipping execution');
+      console.log('    Confidence too low - skipping execution');
       return actions;
     }
 
     // If risk is too high, don't execute
     if (decision.rebalance_risk > 0.3) {
-      console.log('  ℹ️  Risk too high - skipping execution');
+      console.log('    Risk too high - skipping execution');
       return actions;
     }
 

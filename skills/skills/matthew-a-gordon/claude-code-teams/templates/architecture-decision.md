@@ -2,14 +2,14 @@
 
 ## When to Use This Pattern
 
-✅ **Use when:**
+ **Use when:**
 - Making a significant architectural choice with multiple viable options
 - Decision has long-term implications (hard to reverse)
 - Trade-offs are complex (no obvious "right" answer)
 - Want to avoid groupthink or confirmation bias
 - Creating Architecture Decision Record (ADR)
 
-❌ **Don't use when:**
+ **Don't use when:**
 - Decision is trivial or easily reversible
 - Only one option is viable
 - Time-sensitive decision (need answer in <1 hour)
@@ -121,7 +121,7 @@ PostgreSQL is the recommended choice due to:
 ## Decision Criteria Analysis
 
 ### 1. Performance (Read latency <10ms p99)
-**PostgreSQL:** ✅ **Meets requirement**
+**PostgreSQL:**  **Meets requirement**
 - Indexed reads: 1-3ms typical
 - With proper indexing (email, user_id), easily achieves <10ms p99
 - Read replicas for read-heavy workload
@@ -130,19 +130,19 @@ PostgreSQL is the recommended choice due to:
 **Evidence:** Benchmarks show PostgreSQL with proper indexes handles 10K reads/s with p99 <5ms
 
 ### 2. Team Familiarity
-**PostgreSQL:** ✅ **Strong advantage**
+**PostgreSQL:**  **Strong advantage**
 - Team has 5 years SQL experience
 - Existing PostgreSQL infrastructure (monitoring, backups, DR)
 - No learning curve for queries or schema design
 - Faster implementation (no ramp-up time)
 
-**MongoDB:** ❌ **Significant learning curve**
+**MongoDB:**  **Significant learning curve**
 - Team has zero MongoDB experience
 - Would need to learn aggregation pipeline, indexing strategies
 - Est. 2-4 weeks ramp-up time
 
 ### 3. Scalability (Support 10x growth)
-**PostgreSQL:** ✅ **Proven at scale**
+**PostgreSQL:**  **Proven at scale**
 - Supports 1M+ users with read replicas
 - Vertical scaling (larger instances) + horizontal (read replicas)
 - Partitioning available for >10M users
@@ -151,13 +151,13 @@ PostgreSQL is the recommended choice due to:
 **Evidence:** Instagram scaled to 1B users on PostgreSQL
 
 ### 4. Operational Complexity
-**PostgreSQL:** ✅ **Lower complexity**
+**PostgreSQL:**  **Lower complexity**
 - Existing monitoring (Datadog integration)
 - Existing backup/restore procedures
 - Battle-tested DR playbooks
 - Team knows how to troubleshoot
 
-**MongoDB:** ❌ **Higher complexity**
+**MongoDB:**  **Higher complexity**
 - Need new monitoring setup
 - New backup/restore procedures
 - Team unfamiliar with troubleshooting
@@ -208,36 +208,36 @@ MongoDB is the recommended choice due to:
 ## Decision Criteria Analysis
 
 ### 1. Performance (Read latency <10ms p99)
-**MongoDB:** ✅ **Exceeds requirement**
+**MongoDB:**  **Exceeds requirement**
 - Indexed reads: 1-2ms typical (faster than PostgreSQL)
 - Document model eliminates JOINs (profile = single document)
 - Built-in caching (WiredTiger)
 - Horizontally scalable from day one
 
-**PostgreSQL:** ⚠️ **Meets requirement, but**
+**PostgreSQL:**  **Meets requirement, but**
 - Requires JOINs if profile data is normalized
 - Read replicas add operational complexity
 
 ### 2. Team Familiarity
-**MongoDB:** ❌ **Learning curve exists**
+**MongoDB:**  **Learning curve exists**
 - Team has no MongoDB experience (2-4 week ramp-up)
 - However:
   * MongoDB syntax is intuitive (JavaScript-like)
   * Excellent documentation and tutorials
   * Atlas (managed service) eliminates ops learning curve
 
-**PostgreSQL:** ✅ **Team is familiar**
+**PostgreSQL:**  **Team is familiar**
 - 5 years SQL experience is a valid advantage
 - But: Profile service is greenfield (good time to learn new tech)
 
 ### 3. Scalability (Support 10x growth)
-**MongoDB:** ✅ **Superior scaling path**
+**MongoDB:**  **Superior scaling path**
 - Native horizontal sharding (built-in, no extra tools)
 - Automatic balancing across shards
 - Scales to billions of documents
 - No single point of failure
 
-**PostgreSQL:** ⚠️ **Vertical scaling, then partitioning**
+**PostgreSQL:**  **Vertical scaling, then partitioning**
 - Initial scaling via read replicas (works up to 1M users)
 - Partitioning complex (requires careful planning)
 - Sharding not native (need Citus or manual sharding)
@@ -245,7 +245,7 @@ MongoDB is the recommended choice due to:
 **Evidence:** MongoDB powers systems with >100M users routinely
 
 ### 4. Operational Complexity
-**MongoDB:** ✅ **Atlas reduces complexity**
+**MongoDB:**  **Atlas reduces complexity**
 - MongoDB Atlas (managed service) handles:
   * Monitoring
   * Backups
@@ -253,7 +253,7 @@ MongoDB is the recommended choice due to:
   * High availability
 - Team doesn't need deep MongoDB ops knowledge
 
-**PostgreSQL:** ✅ **Existing infrastructure**
+**PostgreSQL:**  **Existing infrastructure**
 - Existing monitoring/backups is an advantage
 - But: Adds another database to maintain
 
@@ -353,16 +353,16 @@ We are building a new user profile service to replace the monolithic profile mod
 ## Consequences
 
 ### Positive
-- ✅ Fast implementation (2 weeks to production)
-- ✅ Leverages team expertise (no learning curve)
-- ✅ Uses existing infrastructure (lower ops overhead)
-- ✅ Meets all technical requirements
-- ✅ JSONB provides schema flexibility when needed
+-  Fast implementation (2 weeks to production)
+-  Leverages team expertise (no learning curve)
+-  Uses existing infrastructure (lower ops overhead)
+-  Meets all technical requirements
+-  JSONB provides schema flexibility when needed
 
 ### Negative
-- ⚠️ Vertical scaling required initially (horizontal scaling is harder)
-- ⚠️ May need to revisit at 10M+ users (partitioning or migration)
-- ⚠️ Missed opportunity to learn MongoDB (team stays SQL-focused)
+-  Vertical scaling required initially (horizontal scaling is harder)
+-  May need to revisit at 10M+ users (partitioning or migration)
+-  Missed opportunity to learn MongoDB (team stays SQL-focused)
 
 ## Alternatives Considered
 
@@ -408,14 +408,14 @@ We are building a new user profile service to replace the monolithic profile mod
 
 ## Success Metrics
 
-✅ **Successful if:**
+ **Successful if:**
 - Both advocates present strong, honest arguments
 - Rebuttals address actual weaknesses (not straw men)
 - Final ADR acknowledges trade-offs (not just benefits)
 - Decision is based on evidence, not gut feel
 - Review date set for reassessing decision
 
-❌ **Red flags:**
+ **Red flags:**
 - One advocate presents weak argument (debate is rigged)
 - ADR ignores trade-offs or negative consequences
 - Decision based on personal preference, not criteria

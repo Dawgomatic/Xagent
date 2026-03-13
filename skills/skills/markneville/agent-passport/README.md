@@ -40,12 +40,12 @@ Not just for purchases — for **all sensitive actions**:
 
 | Category | What it covers |
 |----------|----------------|
-| 💳 **Financial** | Purchases, transfers, subscriptions |
-| 📧 **Communication** | Emails, messages, tweets, posts |
-| 🗑️ **Data** | Delete files, edit documents, database writes |
-| ⚙️ **System** | Shell commands, package installs, configs |
-| 🔌 **External API** | Third-party API calls with side effects |
-| 👤 **Identity** | Public actions "as" the user |
+|  **Financial** | Purchases, transfers, subscriptions |
+|  **Communication** | Emails, messages, tweets, posts |
+|  **Data** | Delete files, edit documents, database writes |
+|  **System** | Shell commands, package installs, configs |
+|  **External API** | Third-party API calls with side effects |
+|  **Identity** | Public actions "as" the user |
 
 Each mandate includes:
 - **Scope constraints** — what targets are allowed
@@ -85,8 +85,8 @@ Each mandate includes:
 ### Granting Permission
 ```
 Agent: I'd like to help organize your inbox. This requires:
-       📧 Send emails to your team (max 20/day)
-       📄 Read your calendar
+        Send emails to your team (max 20/day)
+        Read your calendar
        
        [Approve for 7 days] [Customize] [Deny]
 ```
@@ -103,7 +103,7 @@ Agent: Sent meeting reminder to sarah@company.com
 ```
 $ ./mandate-ledger.sh audit
 
-📋 Recent actions:
+ Recent actions:
   09:14 - Email sent to team@company.com (meeting notes)
   11:30 - Email sent to sarah@company.com (reminder)
   14:22 - Email BLOCKED to external@gmail.com (not in allowlist)

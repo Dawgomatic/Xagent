@@ -14,7 +14,7 @@ This skill connects you to 5 search providers (Serper, Tavily, Exa, You.com, Sea
 
 ---
 
-## ✨ What Makes This Different?
+##  What Makes This Different?
 
 - **Just search** — No need to think about which provider to use
 - **Smart routing** — Analyzes your query and picks the best provider automatically
@@ -24,7 +24,7 @@ This skill connects you to 5 search providers (Serper, Tavily, Exa, You.com, Sea
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Interactive setup (recommended for first run)
@@ -38,7 +38,7 @@ The wizard explains each provider, collects API keys, and configures defaults.
 
 ---
 
-## 🔑 API Keys
+##  API Keys
 
 You only need **ONE** key to get started. Add more providers later for better coverage.
 
@@ -48,7 +48,7 @@ You only need **ONE** key to get started. Add more providers later for better co
 | **Tavily** | 1,000/mo | Research, explanations, academic | [tavily.com](https://tavily.com) |
 | **Exa** | 1,000/mo | "Similar to X", startups, papers | [exa.ai](https://exa.ai) |
 | **You.com** | Limited | Real-time info, AI/RAG context | [api.you.com](https://api.you.com) |
-| **SearXNG** | **FREE** ✅ | Privacy, multi-source, $0 cost | Self-hosted |
+| **SearXNG** | **FREE**  | Privacy, multi-source, $0 cost | Self-hosted |
 
 **Setting your keys:**
 
@@ -63,7 +63,7 @@ export TAVILY_API_KEY="your-key"
 
 ---
 
-## 🎯 When to Use Which Provider
+##  When to Use Which Provider
 
 | I want to... | Provider | Example Query |
 |--------------|----------|---------------|
@@ -80,7 +80,7 @@ export TAVILY_API_KEY="your-key"
 
 ---
 
-## 🧠 How Auto-Routing Works
+##  How Auto-Routing Works
 
 The skill looks at your query and picks the best provider:
 
@@ -98,7 +98,7 @@ The skill looks at your query and picks the best provider:
 
 ---
 
-## 📖 Usage Examples
+##  Usage Examples
 
 ### Let Auto-Routing Choose (Recommended)
 
@@ -120,7 +120,7 @@ python3 scripts/search.py -p searxng -q "linux distros" --engines "google,bing"
 
 ---
 
-## ⚙ Configuration
+##  Configuration
 
 ```json
 {
@@ -140,13 +140,13 @@ python3 scripts/search.py -p searxng -q "linux distros" --engines "google,bing"
 
 ---
 
-## 📊 Provider Comparison
+##  Provider Comparison
 
 | Feature | Serper | Tavily | Exa | You.com | SearXNG |
 |---------|:------:|:------:|:---:|:-------:|:-------:|
-| Speed | ⚡⚡⚡ | ⚡⚡ | ⚡⚡ | ⚡⚡⚡ | ⚡⚡ |
-| Factual Accuracy | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
-| Semantic Understanding | ⭐ | ⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐ |
+| Speed |  |  |  |  |  |
+| Factual Accuracy |  |  |  |  |  |
+| Semantic Understanding |  |  |  |  |  |
 | Full Page Content | ✗ | ✓ | ✓ | ✓ | ✗ |
 | Shopping/Local | ✓ | ✗ | ✗ | ✗ | ✓ |
 | Find Similar Pages | ✗ | ✗ | ✓ | ✗ | ✗ |
@@ -156,7 +156,7 @@ python3 scripts/search.py -p searxng -q "linux distros" --engines "google,bing"
 
 ---
 
-## ❓ Common Questions
+##  Common Questions
 
 ### Do I need API keys for all providers?
 **No.** You only need keys for providers you want to use. Start with one (Serper recommended), add more later.
@@ -187,13 +187,13 @@ Sometimes queries are ambiguous. Use `--explain-routing` to see why, then overri
 
 ---
 
-## 🔄 Automatic Fallback
+##  Automatic Fallback
 
 If one provider fails (rate limit, timeout, error), the skill automatically tries the next provider. You'll see `routing.fallback_used: true` in the response when this happens.
 
 ---
 
-## 📤 Output Format
+##  Output Format
 
 ```json
 {
@@ -211,16 +211,16 @@ If one provider fails (rate limit, timeout, error), the skill automatically trie
 
 ---
 
-## ⚠ Important Note
+##  Important Note
 
 **Tavily, Serper, and Exa are NOT core OpenClaw providers.**
 
-❌ Don't modify `~/.openclaw/openclaw.json` for these  
-✅ Use this skill's scripts — keys auto-load from `.env`
+ Don't modify `~/.openclaw/openclaw.json` for these  
+ Use this skill's scripts — keys auto-load from `.env`
 
 ---
 
-## 🔒 Security
+##  Security
 
 **SearXNG SSRF Protection:** The SearXNG instance URL is validated with defense-in-depth:
 - Enforces `http`/`https` schemes only
@@ -228,7 +228,7 @@ If one provider fails (rate limit, timeout, error), the skill automatically trie
 - Resolves hostnames and blocks private/internal IPs (loopback, RFC1918, link-local, reserved)
 - Operators who intentionally self-host on private networks can set `SEARXNG_ALLOW_PRIVATE=1`
 
-## 📚 More Documentation
+##  More Documentation
 
 - **[FAQ.md](FAQ.md)** — Detailed answers to more questions
 - **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** — Fix common errors
@@ -236,7 +236,7 @@ If one provider fails (rate limit, timeout, error), the skill automatically trie
 
 ---
 
-## 🔗 Quick Links
+##  Quick Links
 
 - [Serper](https://serper.dev) — Google Search API
 - [Tavily](https://tavily.com) — AI Research Search

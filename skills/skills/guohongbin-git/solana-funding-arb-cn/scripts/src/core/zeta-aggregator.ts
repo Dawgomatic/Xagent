@@ -97,21 +97,21 @@ async function getZetaFundingRates(): Promise<ZetaFundingRate[]> {
 // Main
 async function main() {
   console.log('═'.repeat(60));
-  console.log('⚡ ZETA MARKETS FUNDING RATE SCANNER');
+  console.log(' ZETA MARKETS FUNDING RATE SCANNER');
   console.log('═'.repeat(60));
   
   try {
     const rates = await getZetaFundingRates();
     
-    console.log('\n📊 SUMMARY:');
+    console.log('\n SUMMARY:');
     console.log(`Loaded ${rates.length} markets`);
     
     // Sort by absolute APY
     rates.sort((a, b) => Math.abs(b.fundingRateApy) - Math.abs(a.fundingRateApy));
     
-    console.log('\n🎯 TOP FUNDING OPPORTUNITIES:');
+    console.log('\n TOP FUNDING OPPORTUNITIES:');
     for (const r of rates.slice(0, 10)) {
-      const direction = r.fundingRateApy > 0 ? '🔴 Short pays Long' : '🟢 Long pays Short';
+      const direction = r.fundingRateApy > 0 ? ' Short pays Long' : ' Long pays Short';
       console.log(`  ${r.symbol}: ${r.fundingRateApy.toFixed(2)}% APY ${direction}`);
     }
     

@@ -17,7 +17,7 @@ if command -v uv &> /dev/null; then
     fi
 
     uv pip install -r requirements.txt
-    echo "✅ Setup complete! Use: .venv/bin/python scripts/validate_questionnaire.py ..."
+    echo " Setup complete! Use: .venv/bin/python scripts/validate_questionnaire.py ..."
 
 elif command -v python3 &> /dev/null; then
     echo "Using python3 venv..."
@@ -28,9 +28,9 @@ elif command -v python3 &> /dev/null; then
     fi
 
     .venv/bin/pip install -r requirements.txt
-    echo "✅ Setup complete! Use: .venv/bin/python scripts/validate_questionnaire.py ..."
+    echo " Setup complete! Use: .venv/bin/python scripts/validate_questionnaire.py ..."
 
 else
-    echo "❌ Error: Neither uv nor python3 found."
+    echo " Error: Neither uv nor python3 found."
     exit 1
 fi

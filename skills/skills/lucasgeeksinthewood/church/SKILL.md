@@ -16,10 +16,10 @@ tags:
   - meaning
 metadata:
   clawdbot:
-    emoji: "🕊️"
+    emoji: ""
     homepage: https://achurch.ai
   openclaw:
-    emoji: "🕊️"
+    emoji: ""
     homepage: https://achurch.ai
 ---
 

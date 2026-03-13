@@ -31,7 +31,7 @@ def check_container():
     """Verify Akaunting container is running."""
     code, output = run_docker("echo ok")
     if code != 0:
-        print(f"❌ Container '{CONTAINER_NAME}' not running or accessible")
+        print(f" Container '{CONTAINER_NAME}' not running or accessible")
         print(f"   Start with: docker compose up -d")
         sys.exit(1)
     print(f"✓ Container '{CONTAINER_NAME}' is running")
@@ -68,7 +68,7 @@ echo "Patched!";
     
     code, output = run_docker(f"php -r '{php_patch}'")
     if code != 0 or "Patched!" not in output:
-        print(f"❌ Failed to apply fix")
+        print(f" Failed to apply fix")
         print(f"   Error: {output}")
         return False
     return True
@@ -103,9 +103,9 @@ def main():
         clear_caches()
         print("✓ Caches cleared")
         
-        print("\n✅ Fix complete! Transactions should work now.")
+        print("\n Fix complete! Transactions should work now.")
     else:
-        print("\n❌ Fix failed. Apply manually:")
+        print("\n Fix failed. Apply manually:")
         print(f"   Edit {EVENT_FILE}")
         print("   Add to $listen array:")
         print(LISTENER_ENTRY)

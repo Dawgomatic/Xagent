@@ -3,7 +3,7 @@ name: lead-enrichment
 description: Turn a name into a full dossier in seconds. Feed in a name + company (or email, or LinkedIn URL) and get back a rich profile with social links, bio, company intel, recent activity, and personalized talking points. Aggregates data from multiple public sources — LinkedIn, Twitter, GitHub, company websites, news — so you can skip the manual research and jump straight to personalized outreach. Your agent does the detective work while you close deals. Supports single enrichment, batch processing, and multiple output formats (JSON, Markdown, CRM-ready). Use when researching prospects, preparing for sales calls, personalizing cold outreach, or building lead lists. Pairs perfectly with trawl for autonomous lead gen → enrichment → outreach pipelines.
 metadata:
   clawdbot:
-    emoji: "🔍"
+    emoji: ""
     requires:
       skills:
         - browser

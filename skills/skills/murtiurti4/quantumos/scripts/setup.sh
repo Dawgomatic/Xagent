@@ -18,48 +18,48 @@ echo ""
 
 # Check Node.js
 if ! command -v node &> /dev/null; then
-    echo "❌ Node.js not found. Install Node.js 20+ from https://nodejs.org"
+    echo " Node.js not found. Install Node.js 20+ from https://nodejs.org"
     exit 1
 fi
 
 NODE_VER=$(node -v | sed 's/v//' | cut -d. -f1)
 if [ "$NODE_VER" -lt 20 ]; then
-    echo "❌ Node.js 20+ required (found v$(node -v)). Update from https://nodejs.org"
+    echo " Node.js 20+ required (found v$(node -v)). Update from https://nodejs.org"
     exit 1
 fi
-echo "✅ Node.js $(node -v)"
+echo " Node.js $(node -v)"
 
 # Check git
 if ! command -v git &> /dev/null; then
-    echo "❌ Git not found. Install git first."
+    echo " Git not found. Install git first."
     exit 1
 fi
-echo "✅ Git found"
+echo " Git found"
 
 # Clone or update repo
 if [ -d "$INSTALL_DIR" ]; then
-    echo "📁 QuantumOS already exists at $INSTALL_DIR"
+    echo " QuantumOS already exists at $INSTALL_DIR"
     cd "$INSTALL_DIR"
     echo "   Pulling latest..."
     git pull --ff-only 2>/dev/null || echo "   (skipped pull - may have local changes)"
 else
-    echo "📥 Cloning QuantumOS..."
+    echo " Cloning QuantumOS..."
     mkdir -p "$(dirname "$INSTALL_DIR")"
     git clone "$REPO" "$INSTALL_DIR"
     cd "$INSTALL_DIR"
 fi
 
 # Install dependencies
-echo "📦 Installing dependencies..."
+echo " Installing dependencies..."
 npm install --no-audit --no-fund 2>&1 | tail -1
 
 # Create data directories
 mkdir -p "$MC_DIR" "$DASH_DIR"
-echo "📁 Data directories ready"
+echo " Data directories ready"
 
 # Create .env.local if missing
 if [ ! -f .env.local ]; then
-    echo "⚙️  Setting up environment..."
+    echo "  Setting up environment..."
 
     # Try to auto-detect gateway token
     GW_TOKEN=""
@@ -79,16 +79,16 @@ if [ ! -f .env.local ]; then
         echo ""
         read -p "   Enter your OpenClaw gateway token: " GW_TOKEN
     else
-        echo "   ✅ Auto-detected gateway token"
+        echo "    Auto-detected gateway token"
     fi
 
     cat > .env.local << EOF
 OPENCLAW_GATEWAY_PORT=$GW_PORT
 OPENCLAW_GATEWAY_TOKEN=$GW_TOKEN
 EOF
-    echo "   ✅ Created .env.local"
+    echo "    Created .env.local"
 else
-    echo "⚙️  .env.local already exists (keeping existing)"
+    echo "  .env.local already exists (keeping existing)"
 fi
 
 # Initialize empty data files if needed
@@ -106,7 +106,7 @@ if [ ! -f "$MC_DIR/notifications.json" ]; then
 fi
 
 echo ""
-echo "  ✅ QuantumOS is ready!"
+echo "   QuantumOS is ready!"
 echo ""
 echo "  To start:"
 echo "    cd $INSTALL_DIR"

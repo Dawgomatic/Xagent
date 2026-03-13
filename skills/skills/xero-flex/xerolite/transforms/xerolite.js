@@ -8,7 +8,7 @@ module.exports = async function xeroliteTransform(context) {
   const data = context.payload || context;
   
   // Format the payload as a readable block
-  const lines = ['📥 **Xerolite Notification**', ''];
+  const lines = [' **Xerolite Notification**', ''];
   
   if (data.event) {
     lines.push(`**Event:** ${data.event}`);

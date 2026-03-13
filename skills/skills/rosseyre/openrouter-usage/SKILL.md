@@ -64,7 +64,7 @@ Credentials can be provided via:
 
 ---
 ## Output format
-💰 OpenRouter Usage
+ OpenRouter Usage
 Today: $X.XX* | Week: $X.XX | Month: $X.XX
 Balance: $X.XX / $X.XX
 

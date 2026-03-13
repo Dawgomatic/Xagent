@@ -1,7 +1,7 @@
 # Dubai Culture & Islamic Customs Guide for Expats
 
 > **Last Updated:** February 2026  
-> **⚠️ Important:** Laws in the UAE can change and be applied differently. Always verify current regulations.
+> ** Important:** Laws in the UAE can change and be applied differently. Always verify current regulations.
 
 ## Overview
 
@@ -9,7 +9,7 @@ Dubai is part of the United Arab Emirates (UAE), a Muslim-majority country where
 
 ---
 
-## 🕌 Islamic Culture Basics
+##  Islamic Culture Basics
 
 ### The Call to Prayer (Adhan)
 - Sounds from mosques **5 times daily** (beginning at sunrise)
@@ -28,21 +28,21 @@ Dubai is part of the United Arab Emirates (UAE), a Muslim-majority country where
 
 ---
 
-## ☪️ Ramadan Guide (Critical for Expats)
+##  Ramadan Guide (Critical for Expats)
 
 ### What is Ramadan?
 The holy month of fasting for Muslims - a time of spiritual reflection, self-discipline, and community. **2024-2025 dates:** approximately early March to early April (varies by moon sighting).
 
 ### Rules During Ramadan
 
-#### ❌ Prohibited in Public (for everyone, Muslim or not):
+####  Prohibited in Public (for everyone, Muslim or not):
 - **Eating** during daylight hours
 - **Drinking** (including water)
 - **Smoking**
 - **Chewing gum**
 - **Playing loud music**
 
-#### ✅ What's Allowed:
+####  What's Allowed:
 - Eating/drinking in **private** (home, designated restaurant areas)
 - Some restaurants set up screens/partitions for non-fasting guests
 - Hotels often maintain private dining areas
@@ -66,7 +66,7 @@ The holy month of fasting for Muslims - a time of spiritual reflection, self-dis
 
 ---
 
-## 👔 Dress Code
+##  Dress Code
 
 ### General Guidelines
 
@@ -92,7 +92,7 @@ The holy month of fasting for Muslims - a time of spiritual reflection, self-dis
 
 ---
 
-## ✅ Do's and Don'ts
+##  Do's and Don'ts
 
 ### DO's ✓
 - **Greet with "As-salamu alaykum"** (Peace be upon you) - appreciated even from non-Muslims
@@ -116,7 +116,7 @@ The holy month of fasting for Muslims - a time of spiritual reflection, self-dis
 
 ---
 
-## 🏳️‍🌈 LGBTQ+ Considerations (CRITICAL)
+##  LGBTQ+ Considerations (CRITICAL)
 
 ### Legal Reality
 **Same-sex relationships are ILLEGAL in the UAE** under both federal law and Sharia law.
@@ -142,11 +142,11 @@ The holy month of fasting for Muslims - a time of spiritual reflection, self-dis
 - Book hotel rooms with two beds if traveling with same-sex partner
 - Consider very carefully before moving - laws can be applied arbitrarily
 
-**⚠️ Honest assessment:** LGBTQ+ individuals should carefully evaluate whether Dubai is the right choice. While many live there without incident, this requires complete suppression of identity in public, and there is zero legal protection if issues arise.
+** Honest assessment:** LGBTQ+ individuals should carefully evaluate whether Dubai is the right choice. While many live there without incident, this requires complete suppression of identity in public, and there is zero legal protection if issues arise.
 
 ---
 
-## 🍺 Alcohol Laws
+##  Alcohol Laws
 
 ### Legal Framework
 - Alcohol is **legal for non-Muslims aged 21+**
@@ -174,7 +174,7 @@ The holy month of fasting for Muslims - a time of spiritual reflection, self-dis
 
 ---
 
-## 💑 Cohabitation Laws (Unmarried Couples)
+##  Cohabitation Laws (Unmarried Couples)
 
 ### Current Status (2024-2025)
 **Good news:** As of 2021 legal reforms, **unmarried opposite-sex couples CAN legally live together** in Dubai.
@@ -195,7 +195,7 @@ The holy month of fasting for Muslims - a time of spiritual reflection, self-dis
 
 ---
 
-## 🤝 Social Etiquette
+##  Social Etiquette
 
 ### Greetings
 - **Men to men:** Handshake common, may include touches on shoulder
@@ -218,7 +218,7 @@ The holy month of fasting for Muslims - a time of spiritual reflection, self-dis
 
 ---
 
-## 📅 Public Holidays & Religious Observances
+##  Public Holidays & Religious Observances
 
 | Holiday | Type | Notes |
 |---------|------|-------|

@@ -2,11 +2,11 @@
 
 Generate automated trading signals and send alerts to Discord/Telegram.
 
-## 📋 Overview
+##  Overview
 
 This skill generates trading signals based on technical indicators and automatically sends alerts to your configured channels (Discord, Telegram, etc.).
 
-## 🚀 Features
+##  Features
 
 - **Multiple Strategies:**
   - **BB Breakout** - Bollinger Bands squeeze + breakout with volume spike
@@ -18,7 +18,7 @@ This skill generates trading signals based on technical indicators and automatic
 
 - **Easy Configuration** - Simple JSON config, no coding required
 
-## 📦 Installation
+##  Installation
 
 1. Copy the skill directory to your OpenClaw workspace:
 ```bash
@@ -33,7 +33,7 @@ cd ~/.openclaw/workspace/skills/signal-generator
 python3 signal_generator.py
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 Copy `config.json.example` to `config.json` and edit:
 
@@ -64,7 +64,7 @@ Copy `config.json.example` to `config.json` and edit:
 | `filters.volume_spike` | Require volume spike for signals | true |
 | `filters.trend_filter` | Apply trend filter (coming soon) | false |
 
-## 🎯 Strategies
+##  Strategies
 
 ### BB Breakout (Default)
 
@@ -85,7 +85,7 @@ Copy `config.json.example` to `config.json` and edit:
 - **Long Signal:** RSI crosses below 30 then rises
 - **Short Signal:** RSI crosses above 70 then falls
 
-## 📊 Example Usage
+##  Example Usage
 
 ### Manual Run
 
@@ -96,18 +96,18 @@ python3 signal_generator.py
 
 Output:
 ```
-📊 **BB Breakout** - BTC/USDT
-⏱️ Interval: 15m
-💰 Price: $77,564.10
+ **BB Breakout** - BTC/USDT
+ Interval: 15m
+ Price: $77,564.10
 
-🟢 LONG: False
-🔴 SHORT: False
+ LONG: False
+ SHORT: False
 
-📈 BB Upper: $78,234.50
-📉 BB Lower: $76,890.20
-🔢 RSI: 52.34
+ BB Upper: $78,234.50
+ BB Lower: $76,890.20
+ RSI: 52.34
 
-🕐 2026-02-02T11:00:00
+ 2026-02-02T11:00:00
 ```
 
 ### Cron/Schedule
@@ -117,7 +117,7 @@ Run every 5 minutes:
 */5 * * * * cd ~/.openclaw/workspace/skills/signal-generator && python3 signal_generator.py
 ```
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 **No signals generated?**
 - Check if `config.json` exists and is valid JSON
@@ -130,11 +130,11 @@ Run every 5 minutes:
 ls /root/quant-trading-bot/src/exchange_api.py
 ```
 
-## 📝 License
+##  License
 
 This skill is provided as-is. Use at your own risk. Trading signals are not financial advice.
 
-## 🤝 Contributing
+##  Contributing
 
 Have ideas for new strategies? Contributions welcome!
 

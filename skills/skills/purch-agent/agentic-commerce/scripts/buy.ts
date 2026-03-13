@@ -142,11 +142,11 @@ Examples:
   const options = parseArgs(args);
 
   if (!options.asin && !options.url) {
-    console.error("❌ Error: Either --asin or --url is required");
+    console.error(" Error: Either --asin or --url is required");
     process.exit(1);
   }
   if (!options.email || !options.wallet || !options.address) {
-    console.error("❌ Error: --email, --wallet, and --address are required");
+    console.error(" Error: --email, --wallet, and --address are required");
     process.exit(1);
   }
 
@@ -154,7 +154,7 @@ Examples:
   try {
     shippingAddress = parseAddress(options.address);
   } catch (e) {
-    console.error(`❌ Error: ${e}`);
+    console.error(` Error: ${e}`);
     process.exit(1);
   }
 
@@ -173,21 +173,21 @@ Examples:
       return;
     }
 
-    console.log("✅ Order created successfully!");
+    console.log(" Order created successfully!");
     console.log(`   Order ID: ${result.orderId}`);
     console.log(`   Status: ${result.status}`);
     console.log(`   Product: ${result.product?.title ?? "N/A"}`);
     console.log(`   Total: ${result.totalPrice?.amount ?? "N/A"} ${(result.totalPrice?.currency ?? "USDC").toUpperCase()}`);
     console.log();
-    console.log("📝 Next step: Sign the serialized transaction to complete payment");
+    console.log(" Next step: Sign the serialized transaction to complete payment");
     console.log(`   Transaction: ${result.serializedTransaction.slice(0, 50)}...`);
 
     if (result.checkoutUrl) {
       console.log();
-      console.log(`🌐 Or pay via browser: ${result.checkoutUrl}`);
+      console.log(` Or pay via browser: ${result.checkoutUrl}`);
     }
   } catch (error) {
-    console.error(`❌ Error: ${error}`);
+    console.error(` Error: ${error}`);
     process.exit(1);
   }
 }

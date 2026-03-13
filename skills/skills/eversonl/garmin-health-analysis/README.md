@@ -4,15 +4,15 @@
 
 Access 20+ metrics from your Garmin device: sleep stages, Body Battery, HRV, VO2 max, training readiness, body composition, SPO2, and more. Download FIT/GPX files, query elevation/pace at any point, and generate interactive health dashboards.
 
-## 🔵 Looking for Claude Desktop? 
+##  Looking for Claude Desktop? 
 
 **This is the Clawdbot skill repo.** For standard Claude Desktop, use the dedicated MCP server:
 
-👉 **[garmin-health-mcp-server](https://github.com/eversonl/garmin-health-mcp-server)** - Node.js MCP server for Claude Desktop
+ **[garmin-health-mcp-server](https://github.com/eversonl/garmin-health-mcp-server)** - Node.js MCP server for Claude Desktop
 
 ---
 
-## 🚀 Clawdbot Installation
+##  Clawdbot Installation
 
 **Best for**: Automated health monitoring, scheduled reports, proactive check-ins
 
@@ -31,9 +31,9 @@ pip3 install garminconnect fitparse gpxpy
 python3 scripts/garmin_auth.py login
 ```
 
-**[📖 Full Setup Guide](SKILL.md)**
+**[ Full Setup Guide](SKILL.md)**
 
-## ⚡ Features
+##  Features
 
 - **Natural language queries**: "How's my recovery this week?" → instant Body Battery analysis
 - **Sleep analysis**: Hours, stages (light/deep/REM), quality scores, trends
@@ -44,7 +44,7 @@ python3 scripts/garmin_auth.py login
 - **Interactive charts**: Beautiful HTML dashboards with Chart.js visualizations
 - **Science-backed insights**: Interpret trends with expert analysis framework
 
-## 📊 Example Queries
+##  Example Queries
 
 **Clawdbot or Claude Desktop:**
 
@@ -60,7 +60,7 @@ python3 scripts/garmin_auth.py login
 > 
 > "Download the GPX file for my Sunday run"
 
-## 🛠️ Key Metrics
+##  Key Metrics
 
 | Metric | Range | What It Means |
 |--------|-------|---------------|
@@ -70,7 +70,7 @@ python3 scripts/garmin_auth.py login
 | **Resting HR** | 40-80 bpm | Lower is generally better (athletes: 40-60) |
 | **Stress** | Low/Med/High | Based on HRV throughout the day |
 
-## 📦 What's Included
+##  What's Included
 
 ```
 garmin-health-analysis/
@@ -91,7 +91,7 @@ garmin-health-analysis/
 └── config.example.json           # Credentials template
 ```
 
-## 🔒 Privacy & Security
+##  Privacy & Security
 
 - Credentials stored locally (never sent to third parties)
 - Session tokens auto-refresh (no repeated logins)
@@ -99,7 +99,7 @@ garmin-health-analysis/
 - No cloud storage or external data sharing
 - Open source - audit the code yourself
 
-## 📚 Documentation
+##  Documentation
 
 - **[SKILL.md](SKILL.md)** - Complete Clawdbot setup, commands, troubleshooting
 - **[references/health_analysis.md](references/health_analysis.md)** - Science-backed metric interpretation
@@ -109,7 +109,7 @@ garmin-health-analysis/
 ### Looking for Claude Desktop?
 See **[garmin-health-mcp-server](https://github.com/eversonl/garmin-health-mcp-server)** for the dedicated MCP server (you can use both!)
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 **Authentication issues?**
 - Run `python3 scripts/garmin_auth.py login` to refresh tokens
@@ -125,14 +125,14 @@ See **[garmin-health-mcp-server](https://github.com/eversonl/garmin-health-mcp-s
 - Garmin limits API requests - wait a few minutes and try again
 - Batch queries when possible (use `summary` instead of individual calls)
 
-## 🙏 Credits
+##  Credits
 
 - **Author**: EversonL & Claude
 - **Version**: 1.2.0
 - **License**: MIT
 - **Dependencies**: [python-garminconnect](https://github.com/cyberjunky/python-garminconnect), fitparse, gpxpy
 
-## 🔗 Links
+##  Links
 
 - **Clawdbot**: [clawdbot.com](https://clawdbot.com)
 - **ClawdHub**: [clawdhub.com](https://clawdhub.com)

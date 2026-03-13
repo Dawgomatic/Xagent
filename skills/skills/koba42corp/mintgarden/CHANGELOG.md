@@ -30,15 +30,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MIT License
 
 ### Features
-- 🔍 Search: Universal, NFT-specific, and collection-specific search
-- 📊 Stats: Floor prices, volumes, sales, global statistics
-- 🖼️ NFTs: Details, attributes, rarity, ownership, trade history
-- 📚 Collections: Browse, filter, sort, view activity
-- 👤 Profiles: User portfolios, holdings, activity
-- 📈 Events: Real-time marketplace activity monitoring
-- 💰 Offers: Active bids and listings
-- 🔥 Trending: 24-hour trending collections
-- ⚡ Shortcuts: Direct ID/DID lookups
+-  Search: Universal, NFT-specific, and collection-specific search
+-  Stats: Floor prices, volumes, sales, global statistics
+-  NFTs: Details, attributes, rarity, ownership, trade history
+-  Collections: Browse, filter, sort, view activity
+-  Profiles: User portfolios, holdings, activity
+-  Events: Real-time marketplace activity monitoring
+-  Offers: Active bids and listings
+-  Trending: 24-hour trending collections
+-  Shortcuts: Direct ID/DID lookups
 
 ### Technical
 - Node.js 18+ compatibility

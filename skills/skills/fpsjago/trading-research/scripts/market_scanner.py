@@ -218,19 +218,19 @@ def main():
             show_all = not any([args.gainers, args.losers, args.volume, args.volatile, args.breakout])
             
             if show_all or args.gainers:
-                format_ticker_table(results['top_gainers'], f"🚀 Top {args.limit} Gainers (24h)")
+                format_ticker_table(results['top_gainers'], f" Top {args.limit} Gainers (24h)")
             
             if show_all or args.losers:
-                format_ticker_table(results['top_losers'], f"📉 Top {args.limit} Losers (24h)")
+                format_ticker_table(results['top_losers'], f" Top {args.limit} Losers (24h)")
             
             if show_all or args.volume:
-                format_ticker_table(results['top_volume'], f"💰 Highest Volume (24h)")
+                format_ticker_table(results['top_volume'], f" Highest Volume (24h)")
             
             if show_all or args.volatile:
-                format_volatile_table(results['volatile_pairs'], f"📊 Most Volatile Pairs (24h)")
+                format_volatile_table(results['volatile_pairs'], f" Most Volatile Pairs (24h)")
             
             if show_all or args.breakout:
-                format_breakout_table(results['breakout_candidates'], f"🎯 Potential Breakouts (Near 24h High)")
+                format_breakout_table(results['breakout_candidates'], f" Potential Breakouts (Near 24h High)")
             
             print(f"{'='*90}")
             print(f"Market Scan Summary")

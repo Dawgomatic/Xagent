@@ -359,7 +359,7 @@ export class Detector {
                 matches: [],
                 confidence: 0,
                 duration_ms: duration,
-                message: '✅ No threats detected'
+                message: ' No threats detected'
             };
             
             // Log audit
@@ -420,20 +420,20 @@ export class Detector {
             result = RESULT.BLOCK;
             exitCode = EXIT_CODE.BLOCK;
             message = primaryThreat?.response?.user_message || 
-                `⛔ BLOCKED: ${primaryThreat?.name || 'Threat detected'}`;
+                ` BLOCKED: ${primaryThreat?.name || 'Threat detected'}`;
         } else if (maxConfidence >= this.thresholds.warn) {
             result = RESULT.WARN;
             exitCode = EXIT_CODE.WARN;
             message = primaryThreat?.response?.user_message || 
-                `⚠️ WARNING: ${primaryThreat?.name || 'Potential threat'}`;
+                ` WARNING: ${primaryThreat?.name || 'Potential threat'}`;
         } else if (maxConfidence >= this.thresholds.educate) {
             result = RESULT.EDUCATE;
             exitCode = EXIT_CODE.SAFE; // Don't block, just inform
-            message = `ℹ️ INFO: ${primaryThreat?.name || 'Review recommended'}`;
+            message = ` INFO: ${primaryThreat?.name || 'Review recommended'}`;
         } else {
             result = RESULT.SAFE;
             exitCode = EXIT_CODE.SAFE;
-            message = '✅ Low confidence matches (likely safe)';
+            message = ' Low confidence matches (likely safe)';
         }
 
         const finalResult = {

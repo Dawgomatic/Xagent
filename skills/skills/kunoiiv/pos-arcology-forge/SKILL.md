@@ -10,7 +10,7 @@ BTC PoW for antifragile orbital blueprints. Full edge-coverage: tamper-evident, 
 ## Quick Start
 ```bash
 node scripts/pos-share.js '{\"radius_km\":3,\"pop_m\":500000}'  # E2E → share.pos.json
-node scripts/pos-grind.js share.pos.json --verify              # ✅ VALID
+node scripts/pos-grind.js share.pos.json --verify              #  VALID
 node scripts/hub-cli.js import share.pos.json
 node scripts/hub-cli.js list                                   # Valid only
 node scripts/test.js                                           # Full suite

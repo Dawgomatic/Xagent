@@ -7,7 +7,7 @@ source "$SCRIPT_DIR/_lib.sh"
 TOKEN=$(get_token)
 
 if [ -z "$TOKEN" ]; then
-    echo "❌ No API token found!"
+    echo " No API token found!"
     echo ""
     echo "Setup instructions:"
     echo "  1. Get your API token from https://dash.cloudflare.com/profile/api-tokens"
@@ -20,23 +20,23 @@ if [ -z "$TOKEN" ]; then
     exit 1
 fi
 
-echo "🔑 API token found"
-echo "🔗 Testing connection..."
+echo " API token found"
+echo " Testing connection..."
 
 # Verify token
 RESPONSE=$(cf_get "/user/tokens/verify")
 
 if echo "$RESPONSE" | jq -e '.success == true' >/dev/null 2>&1; then
-    echo "✅ Token valid!"
+    echo " Token valid!"
 elif echo "$RESPONSE" | jq -e '.result.id' >/dev/null 2>&1; then
-    echo "✅ Token valid!"
+    echo " Token valid!"
 else
     # Try listing accounts as fallback verification
     ACCOUNTS=$(cf_get "/accounts")
     if echo "$ACCOUNTS" | jq -e '.success == true' >/dev/null 2>&1; then
-        echo "✅ Token valid!"
+        echo " Token valid!"
     else
-        echo "❌ Token invalid or expired"
+        echo " Token invalid or expired"
         echo "Get a new token at https://dash.cloudflare.com/profile/api-tokens"
         exit 1
     fi
@@ -45,12 +45,12 @@ fi
 # Show account info
 ACCOUNTS=$(cf_get "/accounts")
 ACCOUNT_NAME=$(echo "$ACCOUNTS" | jq -r '.result[0].name // "Unknown"')
-echo "📧 Account: $ACCOUNT_NAME"
+echo " Account: $ACCOUNT_NAME"
 
 # Show zones
 ZONES=$(cf_get "/zones?per_page=5")
 ZONE_COUNT=$(echo "$ZONES" | jq -r '.result_info.total_count // 0')
-echo "🌐 Zones: $ZONE_COUNT domain(s)"
+echo " Zones: $ZONE_COUNT domain(s)"
 
 if [ "$ZONE_COUNT" -gt 0 ]; then
     echo ""

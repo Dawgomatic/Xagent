@@ -49,13 +49,13 @@ Barcelona is a food paradise. Unlike Madrid (hearty Castilian), Barcelona offers
 
 | Restaurant | Stars | Price | Notes |
 |------------|-------|-------|-------|
-| **Disfrutar** | ⭐⭐⭐ | €200-300 | Best in Spain (many say), book 2-3 months ahead |
-| **ABaC** | ⭐⭐⭐ | €200-280 | Jordi Cruz, elegant |
-| **Lasarte** | ⭐⭐⭐ | €200-280 | Martín Berasategui |
-| **Tickets** | ⭐ | €100-150 | Adrià brothers, fun |
-| **Cinc Sentits** | ⭐⭐ | €150-200 | Catalan tasting |
-| **Moments** | ⭐⭐ | €150-200 | Mandarin Oriental |
-| **Enigma** | ⭐ | €180-250 | Theatrical experience |
+| **Disfrutar** |  | €200-300 | Best in Spain (many say), book 2-3 months ahead |
+| **ABaC** |  | €200-280 | Jordi Cruz, elegant |
+| **Lasarte** |  | €200-280 | Martín Berasategui |
+| **Tickets** |  | €100-150 | Adrià brothers, fun |
+| **Cinc Sentits** |  | €150-200 | Catalan tasting |
+| **Moments** |  | €150-200 | Mandarin Oriental |
+| **Enigma** |  | €180-250 | Theatrical experience |
 
 **Booking tips:**
 - Disfrutar: Book 2-3 months ahead minimum

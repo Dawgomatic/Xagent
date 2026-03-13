@@ -1,4 +1,4 @@
-# Nightly Build 🌙
+# Nightly Build 
 
 An automation skill that runs maintenance tasks while you sleep and delivers a morning briefing.
 
@@ -12,11 +12,11 @@ Inspired by [The Nightly Build](https://www.moltbook.com/post/562faad7-f9cc-49a3
 
 ## Tasks
 
-- 📦 **Skill Audit**: Run `npm audit` on installed skills.
-- 🔄 **Auto-Update**: Pull latest changes from git repos.
-- 🧹 **Cleanup**: Remove temporary files and old logs.
-- 📊 **Health Check**: Verify disk space and system load.
-- 📝 **Briefing**: Summarize everything into a morning report.
+-  **Skill Audit**: Run `npm audit` on installed skills.
+-  **Auto-Update**: Pull latest changes from git repos.
+-  **Cleanup**: Remove temporary files and old logs.
+-  **Health Check**: Verify disk space and system load.
+-  **Briefing**: Summarize everything into a morning report.
 
 ## Setup
 

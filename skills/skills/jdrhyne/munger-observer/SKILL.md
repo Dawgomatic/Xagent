@@ -53,7 +53,7 @@ Automated daily review applying Charlie Munger's mental models to surface blind 
 
 ## Output Format
 ```
-🧠 **Munger Observer** — [Date]
+ **Munger Observer** — [Date]
 
 [Insight 1: Model applied + observation + implication]
 
@@ -64,7 +64,7 @@ Automated daily review applying Charlie Munger's mental models to surface blind 
 
 ## Example
 ```
-🧠 **Munger Observer** — January 19, 2026
+ **Munger Observer** — January 19, 2026
 
 **Opportunity Cost Alert:** Heavy focus on infrastructure today. The content queue is aging — are drafts decaying in value while we polish tools?
 

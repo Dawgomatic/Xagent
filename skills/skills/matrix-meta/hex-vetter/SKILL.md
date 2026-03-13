@@ -10,7 +10,7 @@ tags:
   - binary-analysis
 ---
 
-# hex-vetter 🔬
+# hex-vetter 
 
 Physical-layer hex auditing skill forects hidden binary data AI agents. Det, control characters, and encoding-based attacks.
 
@@ -100,13 +100,13 @@ const result = await verifyIntegrity('./starfragment.js');
 
 ## Risk Levels
 
-- **🟢 LOW**: Normal file, no suspicious content detected
-- **🟡 MEDIUM**: Some flags detected, manual review recommended
-- **🔴 HIGH**: Significant suspicious content, MUST be manually reviewed
+- ** LOW**: Normal file, no suspicious content detected
+- ** MEDIUM**: Some flags detected, manual review recommended
+- ** HIGH**: Significant suspicious content, MUST be manually reviewed
 
 ## Security Policy
 
-1. **Mandatory Review**: Any file flagged as 🔴 **HIGH RISK** MUST be manually inspected by a human or a trusted agent before the skill is used.
+1. **Mandatory Review**: Any file flagged as  **HIGH RISK** MUST be manually inspected by a human or a trusted agent before the skill is used.
 
 2. **False Positives**: Risk ratings are heuristic. Common false positives include:
    - `.env` mentions in `.npmignore`

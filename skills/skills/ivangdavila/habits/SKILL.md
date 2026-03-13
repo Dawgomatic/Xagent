@@ -1,7 +1,7 @@
 ---
 name: Habits
 description: Build a personal habit tracking system with streaks, reviews, and progression.
-metadata: {"clawdbot":{"emoji":"✅","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

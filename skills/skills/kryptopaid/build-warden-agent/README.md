@@ -153,9 +153,9 @@ Agents MUST meet these requirements to be eligible for the incentive programme:
 The Warden repository contains **example agents to study**, not templates to recreate:
 
 1. **LangGraph Quick Start** - Minimal chatbot for learning basics
-2. **Weather Agent** ⚠️ - Study for simple data fetching patterns (don't rebuild)
-3. **CoinGecko Agent** ⚠️ - Study for intermediate SGR patterns (don't rebuild)
-4. **Portfolio Analysis Agent** ⚠️ - Study for advanced architecture (don't rebuild)
+2. **Weather Agent**  - Study for simple data fetching patterns (don't rebuild)
+3. **CoinGecko Agent**  - Study for intermediate SGR patterns (don't rebuild)
+4. **Portfolio Analysis Agent**  - Study for advanced architecture (don't rebuild)
 
 **These exist to teach patterns. Build something NEW for the incentive programme!**
 

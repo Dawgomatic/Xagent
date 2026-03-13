@@ -16,7 +16,7 @@ Run a 25-minute focus block followed by a 5-minute break. After 4 blocks, take a
 ## Start a session
 
 ```bash
-echo "🍅 Focus started at $(date +%H:%M)" && sleep 1500 && osascript -e 'display notification "Time for a break!" with title "Pomodoro"' && echo "Break time at $(date +%H:%M)"
+echo " Focus started at $(date +%H:%M)" && sleep 1500 && osascript -e 'display notification "Time for a break!" with title "Pomodoro"' && echo "Break time at $(date +%H:%M)"
 ```
 
 ## Custom duration (minutes)

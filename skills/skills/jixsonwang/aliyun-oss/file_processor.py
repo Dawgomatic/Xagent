@@ -129,20 +129,20 @@ def main():
     try:
         test_file = "/etc/hosts"  # 使用系统小文件测试
         processor.validate_file(test_file)
-        print(f"✅ 文件验证通过: {test_file}")
+        print(f" 文件验证通过: {test_file}")
         
         # 测试文件名生成
         original_name = "test.txt"
         new_name = processor.generate_unique_filename(original_name)
-        print(f"✅ 原始文件名: {original_name}")
-        print(f"✅ 新文件名: {new_name}")
+        print(f" 原始文件名: {original_name}")
+        print(f" 新文件名: {new_name}")
         
         # 测试文件信息
         info = processor.get_file_info(test_file)
-        print(f"✅ 文件信息: {info}")
+        print(f" 文件信息: {info}")
         
     except Exception as e:
-        print(f"❌ 文件处理错误: {e}")
+        print(f" 文件处理错误: {e}")
 
 if __name__ == "__main__":
     main()

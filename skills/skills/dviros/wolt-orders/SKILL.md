@@ -1,16 +1,16 @@
 ---
 name: wolt-orders
 slug: wolt-orders
-display_name: Wolt Orders 🍔
+display_name: Wolt Orders 
 description: Discover restaurants with advanced filters (cuisine, price, distance, rating, promotions), place single or group orders on Wolt.com, reorder past favorites, track status in real-time, automatically detect delays and contact support, and push rich updates to Slack or other channels.
-metadata: {"clawdbot":{"emoji":"🍔","requires":{"config":["browser.enabled"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"config":["browser.enabled"]}}}
 user-invocable: true
 ---
 
 
-# Wolt Orders 🍔
+# Wolt Orders 
 
-**Display Name:** Wolt Orders 🍔  
+**Display Name:** Wolt Orders   
 **Slug:** wolt-orders  
 
 This skill provides a full-featured assistant for Wolt.com: smart restaurant discovery with rich filtering, menu browsing, single and group ordering, reordering past orders, real-time tracking, automatic delay detection + support contact, and proactive notifications to Slack or other connected channels.

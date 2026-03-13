@@ -1,4 +1,4 @@
-# 📊 mog — Microsoft Ops Gadget
+#  mog — Microsoft Ops Gadget
 
 > **CLI for Microsoft 365** — Mail, Calendar, Drive, Contacts, Tasks, Word, PowerPoint, Excel, OneNote
 
@@ -9,28 +9,28 @@ The **Microsoft** counterpart to [gog](https://github.com/visionik/gog) (Google 
 
 ---
 
-## ✨ Features
+##  Features
 
 | Module | Description |
 |--------|-------------|
-| 📧 **Mail** | Search, send, drafts, attachments, folders |
-| 📅 **Calendar** | Events, create, respond, freebusy, ACL |
-| 📁 **Drive** | OneDrive files — list, upload, download, move |
-| 👥 **Contacts** | Personal contacts + org directory lookup |
-| ✅ **Tasks** | Microsoft To-Do — lists, add, complete, clear |
-| 📝 **Word** | Documents — list, export, copy |
-| 📊 **PowerPoint** | Presentations — list, export, copy |
-| 📈 **Excel** | Spreadsheets — read, write, tables, export |
-| 📓 **OneNote** | Notebooks, sections, pages, search |
+|  **Mail** | Search, send, drafts, attachments, folders |
+|  **Calendar** | Events, create, respond, freebusy, ACL |
+|  **Drive** | OneDrive files — list, upload, download, move |
+|  **Contacts** | Personal contacts + org directory lookup |
+|  **Tasks** | Microsoft To-Do — lists, add, complete, clear |
+|  **Word** | Documents — list, export, copy |
+|  **PowerPoint** | Presentations — list, export, copy |
+|  **Excel** | Spreadsheets — read, write, tables, export |
+|  **OneNote** | Notebooks, sections, pages, search |
 
 **Extras:**
-- 🔗 **Slug system** — 8-char shorthand for Microsoft's long GUIDs
-- 🤖 **AI-friendly** — `--ai-help` outputs comprehensive docs for LLMs
-- 🔄 **gog-compatible** — Same flags and patterns for muscle memory
+-  **Slug system** — 8-char shorthand for Microsoft's long GUIDs
+-  **AI-friendly** — `--ai-help` outputs comprehensive docs for LLMs
+-  **gog-compatible** — Same flags and patterns for muscle memory
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Install
@@ -68,7 +68,7 @@ mog onenote search "meeting notes"
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 # Go install (recommended)
@@ -82,7 +82,7 @@ go build -o mog ./cmd/mog
 
 ---
 
-## ⚙️ Setup — Azure AD App
+##  Setup — Azure AD App
 
 ### 1. Create App Registration
 
@@ -125,7 +125,7 @@ mog auth status
 
 ---
 
-## 📖 Command Reference
+##  Command Reference
 
 ### Global Options
 
@@ -140,7 +140,7 @@ mog auth status
 
 ---
 
-### 📧 Mail
+###  Mail
 
 ```bash
 mog mail search <query>              # Search messages
@@ -161,7 +161,7 @@ mog mail attachment download <messageId> <attachmentId> --out ./file.pdf
 
 ---
 
-### 📅 Calendar
+###  Calendar
 
 ```bash
 mog calendar list                    # Upcoming events
@@ -192,7 +192,7 @@ mog calendar acl
 
 ---
 
-### 📁 Drive (OneDrive)
+###  Drive (OneDrive)
 
 ```bash
 mog drive ls                         # Root folder
@@ -212,7 +212,7 @@ mog drive rm <id>
 
 ---
 
-### ✅ Tasks (Microsoft To-Do)
+###  Tasks (Microsoft To-Do)
 
 ```bash
 mog tasks lists                      # List task lists
@@ -235,7 +235,7 @@ mog tasks clear <listId>             # Clear from specific list
 
 ---
 
-### 👥 Contacts
+###  Contacts
 
 ```bash
 mog contacts list
@@ -251,7 +251,7 @@ mog contacts directory "john"        # Org directory lookup
 
 ---
 
-### 📈 Excel
+###  Excel
 
 ```bash
 mog excel list                       # List workbooks
@@ -281,7 +281,7 @@ mog excel export <id> --format csv --out ./data.csv
 
 ---
 
-### 📓 OneNote
+###  OneNote
 
 ```bash
 mog onenote notebooks                # List notebooks
@@ -300,7 +300,7 @@ mog onenote search "meeting"
 
 ---
 
-### 📝 Word
+###  Word
 
 ```bash
 mog word list                        # List documents
@@ -311,7 +311,7 @@ mog word copy <id> "Copy of Report"
 
 ---
 
-### 📊 PowerPoint
+###  PowerPoint
 
 ```bash
 mog ppt list                         # List presentations
@@ -322,7 +322,7 @@ mog ppt copy <id> "Copy of Deck"
 
 ---
 
-## 🔗 Slug System
+##  Slug System
 
 Microsoft Graph uses very long GUIDs (100+ characters). mog generates 8-character slugs:
 
@@ -331,15 +331,15 @@ Full:  AQMkADAwATMzAGZmAS04MDViLTRiNzgtMDA...
 Slug:  a3f2c891
 ```
 
-- ✅ All commands output slugs by default
-- ✅ All commands accept slugs or full IDs
-- ✅ Use `--verbose` to also see full IDs
-- ✅ Slugs cached in `~/.config/mog/slugs.json`
-- ✅ `mog auth logout` clears the cache
+-  All commands output slugs by default
+-  All commands accept slugs or full IDs
+-  Use `--verbose` to also see full IDs
+-  Slugs cached in `~/.config/mog/slugs.json`
+-  `mog auth logout` clears the cache
 
 ---
 
-## 🤖 AI-Friendly
+##  AI-Friendly
 
 Run `mog --ai-help` for comprehensive documentation including:
 
@@ -353,7 +353,7 @@ Follows the [dashdash](https://github.com/visionik/dashdash) specification.
 
 ---
 
-## 🔄 gog Compatibility
+##  gog Compatibility
 
 mog follows [gog](https://github.com/visionik/gog) patterns for muscle memory across clouds:
 
@@ -368,7 +368,7 @@ mog follows [gog](https://github.com/visionik/gog) patterns for muscle memory ac
 
 ---
 
-## 🗂️ Configuration
+##  Configuration
 
 | File | Purpose |
 |------|---------|
@@ -384,7 +384,7 @@ mog follows [gog](https://github.com/visionik/gog) patterns for muscle memory ac
 
 ---
 
-## 🛠️ Development
+##  Development
 
 ```bash
 # Using Taskfile (recommended)
@@ -401,12 +401,12 @@ go build ./cmd/mog
 
 ---
 
-## 📄 License
+##  License
 
 MIT
 
 ---
 
-## 👨‍💻 Developed By
+##  Developed By
 
-**[visionik](mailto:visionik@pobox.com)** and **Vinston 🐺** ([Clawdbot](https://github.com/clawdbot/clawdbot)) using the visionik.md framework.
+**[visionik](mailto:visionik@pobox.com)** and **Vinston ** ([Clawdbot](https://github.com/clawdbot/clawdbot)) using the visionik.md framework.

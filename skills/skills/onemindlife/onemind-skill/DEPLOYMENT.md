@@ -123,8 +123,8 @@ Check all validations work:
 ### Phase 6: Clean Up
 
 **Update SKILL.md referencing:**
-- ✅ Already updated with new endpoint
-- ✅ Old endpoint marked as deprecated
+-  Already updated with new endpoint
+-  Old endpoint marked as deprecated
 
 **Files in this repo:**
 - `SKILL.md` — Updated API documentation

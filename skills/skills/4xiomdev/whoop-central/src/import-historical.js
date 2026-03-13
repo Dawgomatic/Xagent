@@ -88,7 +88,7 @@ function logEntry(category, data, timestamp, whoopId) {
 
 // Fetch and import recovery data
 async function importRecovery() {
-  console.log('📊 Fetching recovery data...');
+  console.log(' Fetching recovery data...');
   let imported = 0;
   let nextToken = null;
   
@@ -116,13 +116,13 @@ async function importRecovery() {
     nextToken = data.next_token || data.nextToken;
   } while (nextToken);
   
-  console.log(`  ✅ Imported ${imported} recovery records`);
+  console.log(`   Imported ${imported} recovery records`);
   return imported;
 }
 
 // Fetch and import sleep data
 async function importSleep() {
-  console.log('😴 Fetching sleep data...');
+  console.log(' Fetching sleep data...');
   let imported = 0;
   let nextToken = null;
   
@@ -159,13 +159,13 @@ async function importSleep() {
     nextToken = data.next_token || data.nextToken;
   } while (nextToken);
   
-  console.log(`  ✅ Imported ${imported} sleep records`);
+  console.log(`   Imported ${imported} sleep records`);
   return imported;
 }
 
 // Fetch and import cycle (strain) data
 async function importStrain() {
-  console.log('💪 Fetching strain/cycle data...');
+  console.log(' Fetching strain/cycle data...');
   let imported = 0;
   let nextToken = null;
   
@@ -193,13 +193,13 @@ async function importStrain() {
     nextToken = data.next_token || data.nextToken;
   } while (nextToken);
   
-  console.log(`  ✅ Imported ${imported} strain records`);
+  console.log(`   Imported ${imported} strain records`);
   return imported;
 }
 
 // Fetch and import workout data
 async function importWorkouts() {
-  console.log('🏋️ Fetching workout data...');
+  console.log(' Fetching workout data...');
   let imported = 0;
   let nextToken = null;
   
@@ -235,13 +235,13 @@ async function importWorkouts() {
     nextToken = data.next_token || data.nextToken;
   } while (nextToken);
   
-  console.log(`  ✅ Imported ${imported} workout records`);
+  console.log(`   Imported ${imported} workout records`);
   return imported;
 }
 
 // Main import
 async function main() {
-  console.log('🔄 Starting WHOOP historical import...\n');
+  console.log(' Starting WHOOP historical import...\n');
   
   try {
     const stats = {
@@ -251,16 +251,16 @@ async function main() {
       workouts: await importWorkouts()
     };
     
-    console.log('\n📈 Import complete!');
+    console.log('\n Import complete!');
     console.log('─'.repeat(40));
     console.log(`  Recovery: ${stats.recovery} records`);
     console.log(`  Sleep: ${stats.sleep} records`);
     console.log(`  Strain: ${stats.strain} records`);
     console.log(`  Workouts: ${stats.workouts} records`);
     console.log(`  Total: ${Object.values(stats).reduce((a, b) => a + b, 0)} records`);
-    console.log(`\n💾 Data saved to: ${HEALTH_DIR}`);
+    console.log(`\n Data saved to: ${HEALTH_DIR}`);
   } catch (error) {
-    console.error('❌ Import failed:', error.message);
+    console.error(' Import failed:', error.message);
     process.exit(1);
   }
 }

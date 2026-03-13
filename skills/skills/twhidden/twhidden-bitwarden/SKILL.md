@@ -4,7 +4,7 @@ description: Bitwarden & Vaultwarden password manager integration. Use when stor
 homepage: https://github.com/TWhidden/openclaw-skill-bitwarden
 metadata:
   clawdbot:
-    emoji: "🔐"
+    emoji: ""
     requires:
       env: ["BW_SERVER", "BW_EMAIL", "BW_MASTER_PASSWORD"]
       primaryEnv: "BW_SERVER"

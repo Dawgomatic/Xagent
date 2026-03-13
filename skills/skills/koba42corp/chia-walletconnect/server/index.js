@@ -48,13 +48,13 @@ app.post('/api/verify', async (req, res) => {
       });
     }
     
-    console.log(`🔐 Verifying signature for ${address}...`);
+    console.log(` Verifying signature for ${address}...`);
     
     // Verify signature with MintGarden API
     const result = await verifySignature(address, message, signature, publicKey);
     
     if (result.verified) {
-      console.log(`✅ Signature verified for ${address}`);
+      console.log(` Signature verified for ${address}`);
       
       // Store verification result
       pendingVerifications.set(userId, {
@@ -72,7 +72,7 @@ app.post('/api/verify', async (req, res) => {
         message: 'Wallet ownership verified successfully!'
       });
     } else {
-      console.log(`❌ Signature verification failed for ${address}`);
+      console.log(` Signature verification failed for ${address}`);
       
       return res.status(400).json({
         success: false,
@@ -82,7 +82,7 @@ app.post('/api/verify', async (req, res) => {
     }
     
   } catch (error) {
-    console.error('❌ Verification endpoint error:', error);
+    console.error(' Verification endpoint error:', error);
     res.status(500).json({
       success: false,
       error: error.message || 'Internal server error'
@@ -127,10 +127,10 @@ app.get('/health', (req, res) => {
  * Start server
  */
 app.listen(PORT, () => {
-  console.log(`🚀 Chia WalletConnect server running on port ${PORT}`);
-  console.log(`📱 Web App: http://localhost:${PORT}`);
-  console.log(`🔗 Webhook: http://localhost:${PORT}/api/verify`);
-  console.log(`💚 Health: http://localhost:${PORT}/health`);
+  console.log(` Chia WalletConnect server running on port ${PORT}`);
+  console.log(` Web App: http://localhost:${PORT}`);
+  console.log(` Webhook: http://localhost:${PORT}/api/verify`);
+  console.log(` Health: http://localhost:${PORT}/health`);
 });
 
 module.exports = app;

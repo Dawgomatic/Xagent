@@ -4,7 +4,7 @@ description: Fetch current weather and forecast data from a free weather API (Op
 user-invocable: true
 metadata:
   moltbot:
-    emoji: "🌦️"
+    emoji: ""
     requires:
       bins: ["node"]
     homepage: https://open-meteo.com/en/docs

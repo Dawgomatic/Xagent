@@ -1,7 +1,7 @@
 ---
 name: Sysadmin
 description: Manage Linux servers with user administration, process control, storage, and system maintenance.
-metadata: {"clawdbot":{"emoji":"🖥️","os":["linux","darwin"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin"]}}
 ---
 
 # System Administration Rules

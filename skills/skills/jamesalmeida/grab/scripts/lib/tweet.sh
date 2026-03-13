@@ -190,7 +190,7 @@ for p in photos:
     echo ""
     log "Done! Saved to: $out_dir/"
     echo ""
-    echo "📁 Contents:"
+    echo " Contents:"
     ls -1 "$out_dir" | while read -r f; do
         local size
         size=$(du -h "$out_dir/$f" | cut -f1 | tr -d ' ')

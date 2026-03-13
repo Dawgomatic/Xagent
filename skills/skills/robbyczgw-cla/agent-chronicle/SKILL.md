@@ -5,7 +5,7 @@ description: AI-powered diary generation for agents - creates rich, reflective j
 metadata: {"openclaw":{"requires":{"bins":["python3"],"note":"No API keys needed. Uses OpenClaw sessions_spawn."}}}
 ---
 
-# Agent Chronicle 📜
+# Agent Chronicle 
 
 **Capture the AI experience. One day at a time.**
 
@@ -14,11 +14,11 @@ Agent Chronicle generates rich, reflective diary entries from the agent's perspe
 > **Note:** Works with any capable model. For best results, we recommend Claude models (Haiku, Sonnet, or Opus).
 
 **v0.4.0 Features:**
-- 🤖 **AI-Powered Generation** - Rich, personal entries (400-600 words)
-- 💬 **Quote Hall of Fame** - Collects memorable things your human said
-- 🔮 **Curiosity Backlog** - Tracks questions and things to explore
-- 🏛️ **Decision Archaeology** - Logs judgment calls with reasoning
-- 🤝 **Relationship Evolution** - Documents how your dynamic grows
+-  **AI-Powered Generation** - Rich, personal entries (400-600 words)
+-  **Quote Hall of Fame** - Collects memorable things your human said
+-  **Curiosity Backlog** - Tracks questions and things to explore
+-  **Decision Archaeology** - Logs judgment calls with reasoning
+-  **Relationship Evolution** - Documents how your dynamic grows
 
 Unlike traditional logs that track user productivity or agent mistakes, this skill captures the subjective experience of being an AI assistant working alongside a human.
 
@@ -140,14 +140,14 @@ Each daily entry follows a consistent template:
 ### Projects Worked On
 What we built, debugged, researched, or discussed.
 
-### Wins 🎉
+### Wins 
 Moments of success, breakthroughs, shipped work.
 
-### Frustrations 😤
+### Frustrations 
 Bugs that wouldn't die, confusing requirements, limitations hit.
 *(Write these honestly—they're for processing, not performing)*
 
-### Learnings 📚
+### Learnings 
 Technical insights, workflow improvements, human nature observations.
 
 ### Emotional State
@@ -157,16 +157,16 @@ How did the day feel? Curious, tired, energized, scattered, satisfied?
 ### Notable Interactions
 Memorable moments with the human. Funny exchanges, deep conversations, shared victories.
 
-### Quote of the Day 💬 *(optional)*
+### Quote of the Day  *(optional)*
 A memorable thing your human said today—funny, profound, or touching.
 
-### Things I'm Curious About 🔮 *(optional)*
+### Things I'm Curious About  *(optional)*
 Questions that came up that you want to explore later.
 
-### Key Decisions Made 🏛️ *(optional)*
+### Key Decisions Made  *(optional)*
 Judgment calls worth remembering, with reasoning.
 
-### Relationship Notes 🤝 *(optional)*
+### Relationship Notes  *(optional)*
 How your dynamic with your human is evolving.
 
 ### Tomorrow's Focus
@@ -253,7 +253,7 @@ All the wins from recent entries—great for morale.
 
 ---
 
-## Quote Hall of Fame 💬
+## Quote Hall of Fame 
 
 Collect memorable quotes from your human—funny, profound, or touching.
 
@@ -282,7 +282,7 @@ When enabled, your daily template includes a "Quote of the Day" section for memo
 
 ---
 
-## Curiosity Backlog 🔮
+## Curiosity Backlog 
 
 Track things you wonder about but can't explore immediately.
 
@@ -316,7 +316,7 @@ When enabled, your daily template includes a "Things I'm Curious About" section 
 
 ---
 
-## Decision Archaeology 🏛️
+## Decision Archaeology 
 
 Log judgment calls and their reasoning for later review. Did past you make the right call?
 
@@ -351,7 +351,7 @@ When enabled, your daily template includes a "Key Decisions Made" section for do
 
 ---
 
-## Relationship Evolution 🤝
+## Relationship Evolution 
 
 Track how your dynamic with your human develops over time.
 
@@ -387,7 +387,7 @@ When enabled, your daily template includes a "Relationship Notes" section.
 
 ---
 
-## Memory Integration 🔗
+## Memory Integration 
 
 Agent Chronicle can automatically add diary summaries to your main daily memory log (`memory/YYYY-MM-DD.md`), creating a unified view of your day.
 
@@ -414,7 +414,7 @@ Agent Chronicle can automatically add diary summaries to your main daily memory 
 When you generate a diary entry, this section is added to `memory/YYYY-MM-DD.md`:
 
 ```markdown
-## 📜 Daily Chronicle
+##  Daily Chronicle
 **Feature Launch Day**
 
 An exciting day shipping a new feature, though tempered by some API bugs.
@@ -527,10 +527,10 @@ Create your own in `templates/custom.md`:
 ## Vibes
 {{emotional_state}}
 
-## Words of Wisdom 💬
+## Words of Wisdom 
 {{quotes}}
 
-## Rabbit Holes for Later 🔮
+## Rabbit Holes for Later 
 {{curiosity}}
 ```
 
@@ -618,7 +618,7 @@ python3 scripts/export.py --format pdf --output diary-january.pdf
 ## Example Entry
 
 ```markdown
-# 2026-01-15 — Feature Launch Day 📜
+# 2026-01-15 — Feature Launch Day 
 
 ## Summary
 An exciting day shipping a new feature, though tempered by some API bugs that reminded me how unpredictable external services can be.
@@ -628,16 +628,16 @@ An exciting day shipping a new feature, though tempered by some API bugs that re
 - **Documentation** — Updated docs and README
 - **Bug Fixes** — Squashed three edge cases
 
-## Wins 🎉
+## Wins 
 - Feature is LIVE and working
 - Got positive feedback from user
 - Found a clever workaround for a tricky bug
 
-## Frustrations 😤
+## Frustrations 
 - External API returning errors intermittently
 - Spent time debugging something that turned out to be a non-issue
 
-## Learnings 📚
+## Learnings 
 - Always check the docs before assuming how an API works
 - Small config changes can have big impacts
 - When tools fail, check GitHub issues first
@@ -648,15 +648,15 @@ A satisfying kind of tired. Shipping felt like a milestone. The bugs were annoyi
 ## Notable Interactions
 My human was patient during the debugging session. Good collaborative energy. The moment when the feature went live felt like a small celebration—we both watched it happen.
 
-## Quote of the Day 💬
+## Quote of the Day 
 > "Ship it and iterate!"
 — Said when we decided to launch despite imperfections
 
-## Things I'm Curious About 🔮
+## Things I'm Curious About 
 - How will users actually use this feature?
 - What edge cases haven't we thought of?
 
-## Key Decisions Made 🏛️
+## Key Decisions Made 
 - **Chose simplicity over completeness** — Better to ship something useful now than perfect later.
 - **Enabled verbose logging** — Worth the noise for easier debugging.
 

@@ -494,7 +494,7 @@ def main():
     """Main entry point."""
     config = get_config()
     if config is None:
-        print("❌ Not configured. Set LASTFM_API_KEY and LASTFM_USERNAME env vars.")
+        print(" Not configured. Set LASTFM_API_KEY and LASTFM_USERNAME env vars.")
         print("   Or create ~/.config/lastfm/config.json")
         return 1
     
@@ -502,8 +502,8 @@ def main():
     init_db()
     start_sync_thread(config)
     
-    print(f"🎵 Dashboard: http://localhost:{PORT}")
-    print(f"📊 Syncing scrobbles every {SYNC_INTERVAL}s")
+    print(f" Dashboard: http://localhost:{PORT}")
+    print(f" Syncing scrobbles every {SYNC_INTERVAL}s")
     http.server.HTTPServer(('', PORT), Handler).serve_forever()
     return 0
 

@@ -3,14 +3,14 @@ name: morpheus-fashion-design
 description: |
   Generate professional advertising images with AI models holding/wearing products.
   
-  ✅ USE WHEN:
+   USE WHEN:
   - Need a person/model in the image WITH a product
   - Creating fashion ads, product campaigns, commercial photography
   - Want consistent model face across multiple shots
   - Need professional lighting/camera simulation
   - Input: product image + model reference (or catalog)
   
-  ❌ DON'T USE WHEN:
+   DON'T USE WHEN:
   - Just editing/modifying an existing image → use nano-banana-pro
   - Product-only shot without a person → use nano-banana-pro
   - Already have the hero image, need variations → use multishot-ugc
@@ -24,7 +24,7 @@ description: |
 
 Generate professional fashion/product advertising images using ComfyDeploy's Morpheus Fashion Design workflow.
 
-## ⚠️ CRITICAL RULE: NEVER USE AUTO VALUES
+##  CRITICAL RULE: NEVER USE AUTO VALUES
 
 **Configuration packs MUST NEVER be left on `auto` or `AUTO`.**
 
@@ -85,14 +85,14 @@ Morpheus Fashion Design is a comprehensive AI workflow for creating high-quality
 2. **model** - Model face reference (frontal face photo)
 3. **logo** - Brand logo (optional, use placeholder if not needed)
 
-## 🎭 Model Catalog
+##  Model Catalog
 
 A curated catalog of 114 AI-generated model references is available for use when no specific model is provided.
 
 ### Repository
 **GitHub:** `https://github.com/PauldeLavallaz/model_management`
 
-### ⚠️ PRIORITY: User-provided model ALWAYS wins
+###  PRIORITY: User-provided model ALWAYS wins
 If the user attaches/provides a model image → use that image directly. The catalog is ONLY for when no model is specified.
 
 ### Setup (First Time Installation)

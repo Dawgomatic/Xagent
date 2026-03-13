@@ -99,7 +99,7 @@ Worth stopping to appreciate.
 ### Modern Trams
 
 **Tram 15E**
-- Route: Praça da Figueira ↔ Algés (via Belém)
+- Route: Praça da Figueira  Algés (via Belém)
 - Modern, air-conditioned articulated trams
 - Best way to reach Belém from center
 - Every 10-15 minutes
@@ -113,10 +113,10 @@ Historic engineering solutions to Lisbon's hills:
 
 | Name | Route | Hours | Price |
 |------|-------|-------|-------|
-| **Elevador da Glória** | Restauradores ↔ Bairro Alto | 7:00-24:00 | €4 or Zapping |
-| **Elevador da Bica** | Rua de São Paulo ↔ Largo Calhariz | 7:00-21:00 | €4 or Zapping |
-| **Elevador do Lavra** | Largo Annunciada ↔ Rua Câmara Pestana | 7:00-20:00 | €4 or Zapping |
-| **Elevador de Santa Justa** | Baixa ↔ Carmo (up to Chiado) | 7:00-23:00 | €5.30 |
+| **Elevador da Glória** | Restauradores  Bairro Alto | 7:00-24:00 | €4 or Zapping |
+| **Elevador da Bica** | Rua de São Paulo  Largo Calhariz | 7:00-21:00 | €4 or Zapping |
+| **Elevador do Lavra** | Largo Annunciada  Rua Câmara Pestana | 7:00-20:00 | €4 or Zapping |
+| **Elevador de Santa Justa** | Baixa  Carmo (up to Chiado) | 7:00-23:00 | €5.30 |
 
 **Tip**: Santa Justa has huge queues. Walk up via Baixa streets or enter from Carmo church level (free).
 

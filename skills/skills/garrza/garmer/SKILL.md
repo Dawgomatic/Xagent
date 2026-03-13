@@ -7,7 +7,7 @@ metadata:
   author: MoltBot Team
   version: "0.1.0"
   moltbot:
-    emoji: "⌚"
+    emoji: ""
     primaryEnv: "GARMER_TOKEN_DIR"
     requires:
       bins:

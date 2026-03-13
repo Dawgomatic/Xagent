@@ -203,7 +203,7 @@ Common in data lakehouses (Databricks, Delta Lake).
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Bronze    │────▶│   Silver    │────▶│    Gold     │
+│   Bronze    │────│   Silver    │────│    Gold     │
 │  (Raw Data) │     │ (Cleansed)  │     │ (Analytics) │
 └─────────────┘     └─────────────┘     └─────────────┘
      │                    │                    │
@@ -571,7 +571,7 @@ query = windowed_counts.writeStream \
 **Watermark Behavior:**
 
 ```
-Timeline: ─────────────────────────────────────────▶
+Timeline: ─────────────────────────────────────────
 Events:   E1   E2   E3        E4(late)    E5
           │    │    │         │           │
 Time:     10:00 10:02 10:05   10:03       10:15

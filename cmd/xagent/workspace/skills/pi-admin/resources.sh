@@ -1,7 +1,7 @@
 #!/bin/bash
 # System resources (CPU, memory, temperature)
 
-echo "💻 System Resources"
+echo " System Resources"
 echo "===================="
 echo ""
 

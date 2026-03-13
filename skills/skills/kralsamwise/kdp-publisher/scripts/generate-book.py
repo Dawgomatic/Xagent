@@ -44,7 +44,7 @@ def check_deps():
     except ImportError:
         missing.append("google-genai")
     if missing:
-        print(f"❌ Missing dependencies: {', '.join(missing)}")
+        print(f" Missing dependencies: {', '.join(missing)}")
         print(f"   Run: pip install {' '.join(missing)}")
         sys.exit(1)
 
@@ -132,7 +132,7 @@ def load_api_key(api_key_arg: Optional[str]) -> str:
     if creds_path.exists():
         with open(creds_path) as f:
             return json.load(f).get("api_key", "")
-    print("❌ No API key found.")
+    print(" No API key found.")
     print("   Provide --api-key, set GOOGLE_AI_API_KEY env var, or create")
     print("   ~/.clawdbot/credentials/google_ai.json with {\"api_key\": \"...\"}")
     sys.exit(1)
@@ -307,7 +307,7 @@ Respond ONLY with valid JSON:
             print(f"✓ Content generated: '{data.get('title', 'Untitled')}'")
             return data
         except Exception as e:
-            print(f"⚠ Content generation failed ({e}), using fallback structure")
+            print(f" Content generation failed ({e}), using fallback structure")
             return self._fallback(fallback_context)
 
     def _fallback(self, context: str) -> Dict:
@@ -359,14 +359,14 @@ class ImageGenerator:
                 err = str(e).lower()
                 if "quota" in err or "rate" in err:
                     wait = (attempt + 1) * 10
-                    print(f"     ⚠ Rate limit, waiting {wait}s...")
+                    print(f"      Rate limit, waiting {wait}s...")
                     time.sleep(wait)
                 else:
-                    print(f"     ⚠ Error: {e}")
+                    print(f"      Error: {e}")
                     if attempt < retries - 1:
                         time.sleep(3)
 
-        print("     ⚠ Using placeholder image")
+        print("      Using placeholder image")
         return self._placeholder(scene)
 
     def _placeholder(self, text: str) -> Image.Image:
@@ -670,7 +670,7 @@ class PDFAssembler:
         c.setFont("Helvetica", 10)
         lines = [
             content.get("title", ""),
-            f"Copyright © {datetime.now().year} {self.author}",
+            f"Copyright  {datetime.now().year} {self.author}",
             "All rights reserved.",
             "Printed in the United States of America",
         ]
@@ -716,7 +716,7 @@ class BookGenerator:
             print(f"Grade  : {grade}")
 
         # 1. Generate content structure
-        print("\n📖 Generating content structure...")
+        print("\n Generating content structure...")
         content = self.story_gen.generate(prompt, self.book_type, age_group, num_spreads, grade)
 
         # 2. Set up output directory
@@ -725,7 +725,7 @@ class BookGenerator:
         book_dir.mkdir(parents=True, exist_ok=True)
         images_dir = book_dir / "images"
         images_dir.mkdir(exist_ok=True)
-        print(f"\n📁 Output: {book_dir}")
+        print(f"\n Output: {book_dir}")
 
         # 3. Generate illustrations
         images = []
@@ -736,7 +736,7 @@ class BookGenerator:
             style_key = "line-art" if self.book_type == "coloring-book" else style
 
             if not skip_images and total > 0:
-                print(f"\n🎨 Generating {total} illustrations...")
+                print(f"\n Generating {total} illustrations...")
                 char_ref = f"consistent character style for: {prompt}" if self.book_type == "picture-book" else ""
 
                 for idx, page in enumerate(pages_to_illustrate):
@@ -757,7 +757,7 @@ class BookGenerator:
                 if cover_img:
                     cover_img.save(images_dir / "cover.png", "PNG")
             else:
-                print("\n⚠ Skipping image generation (--skip-images)")
+                print("\n Skipping image generation (--skip-images)")
                 for idx, page in enumerate(pages_to_illustrate):
                     scene = page.get("scene", f"Scene {idx + 1}")
                     img = self.image_gen._placeholder(scene)
@@ -766,7 +766,7 @@ class BookGenerator:
                     images.append(img)
 
         # 4. Assemble interior PDF
-        print("\n📄 Assembling interior PDF...")
+        print("\n Assembling interior PDF...")
         interior_path = book_dir / "interior.pdf"
         page_count = self.pdf.assemble(content, images, interior_path)
 
@@ -808,7 +808,7 @@ class BookGenerator:
             json.dump(story_json, f, indent=2)
 
         print(f"\n{'='*60}")
-        print("✅ BOOK GENERATION COMPLETE")
+        print(" BOOK GENERATION COMPLETE")
         print(f"{'='*60}")
         print(f"  Title      : {content.get('title')}")
         print(f"  Pages      : {page_count}")

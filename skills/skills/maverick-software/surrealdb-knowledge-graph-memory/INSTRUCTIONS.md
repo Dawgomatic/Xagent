@@ -205,7 +205,7 @@ em.store_episode(episode_data)
 
 4. **Register the tab** in nav.ts:
    ```typescript
-   { id: "memory", label: "Memory", icon: "🧠", section: "System" }
+   { id: "memory", label: "Memory", icon: "", section: "System" }
    ```
 
 5. **Rebuild:**

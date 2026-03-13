@@ -15,9 +15,9 @@
 `I will [specific deliverable] for [target audience]`
 
 Examples:
-- ❌ "I will do graphic design" (too vague)
-- ✅ "I will design a modern logo for your startup"
-- ✅ "I will write SEO blog posts for SaaS companies"
+-  "I will do graphic design" (too vague)
+-  "I will design a modern logo for your startup"
+-  "I will write SEO blog posts for SaaS companies"
 
 ### Pricing for Zero Reviews
 | Your Market Rate | Starter Price | When to Raise |
@@ -57,11 +57,11 @@ Template:
 > "Hi [name if visible]! I read that you need [specific thing]. I've done similar work for [type of client]—you can see an example [here/in my portfolio]. My approach would be [1-2 sentences]. A quick question: [relevant question about their project]?"
 
 ### What NOT to Do
-- ❌ Copy-paste generic proposals
-- ❌ Lowball so much you can't deliver quality
-- ❌ Promise unrealistic timelines
-- ❌ Buy fake reviews
-- ❌ Ask friends to create accounts and order
+-  Copy-paste generic proposals
+-  Lowball so much you can't deliver quality
+-  Promise unrealistic timelines
+-  Buy fake reviews
+-  Ask friends to create accounts and order
 
 ## First 30 Days Roadmap
 

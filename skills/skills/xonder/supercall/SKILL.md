@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📞",
+        "emoji": "",
         "requires": { 
           "plugins": ["supercall"],
           "env": ["OPENAI_API_KEY", "TWILIO_ACCOUNT_SID", "TWILIO_AUTH_TOKEN"],
@@ -74,7 +74,7 @@ Credentials can be set via environment variables or in the plugin config (config
 
 Generate a secure token with: `openssl rand -hex 24`
 
-> ⚠️ **Security**: The `hooks.token` is sensitive — it authenticates internal callbacks. Keep it secret and rotate if compromised.
+>  **Security**: The `hooks.token` is sensitive — it authenticates internal callbacks. Keep it secret and rotate if compromised.
 
 3. Configure the plugin in your openclaw config:
 

@@ -1,7 +1,7 @@
 ---
 name: daily-briefing
 description: Generates a warm, compact daily briefing with weather, calendar, reminders, birthdays, and important emails for cron or chat delivery.
-metadata: {"openclaw":{"emoji":"🌅","requires":{"os":["darwin"],"bins":["curl","bash"]},"optional_bins":["icalpal","gog","himalaya"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"os":["darwin"],"bins":["curl","bash"]},"optional_bins":["icalpal","gog","himalaya"]}}
 user-invocable: true
 ---
 
@@ -46,7 +46,7 @@ Good {time_of_day} - Today is {Weekday}, {Month} {D}, {YYYY}. {Skies sentence}.
 - Use **full month name** (e.g., "February", not "Feb").
 - If today is the user's birthday (matched by name in contacts): replace greeting with:
   ```
-  🎉 Happy Birthday! Today is {Weekday}, {Month} {D}, {YYYY}. {Skies sentence}.
+   Happy Birthday! Today is {Weekday}, {Month} {D}, {YYYY}. {Skies sentence}.
   ```
 
 ### Greeting Selection (Local Time)
@@ -279,7 +279,7 @@ Using all gathered and processed data, compose the briefing text following the O
 
 **Birthdays:**
 ```
-🎂 **Birthdays:**
+ **Birthdays:**
 • Today: Name
 • Feb 5: Name
 ```
@@ -289,7 +289,7 @@ Using all gathered and processed data, compose the briefing text following the O
 
 **Calendar Events:**
 ```
-📅 **Today's schedule:**
+ **Today's schedule:**
 • All-day: Event title
 • 9:00 AM: Event title
 ```
@@ -300,7 +300,7 @@ Using all gathered and processed data, compose the briefing text following the O
 
 **Reminders:**
 ```
-✅ **Reminders:**
+ **Reminders:**
 • Pick up prescription
 ```
 - Due-today reminders only
@@ -308,7 +308,7 @@ Using all gathered and processed data, compose the briefing text following the O
 
 **Important Emails:**
 ```
-📧 **Emails needing attention:**
+ **Emails needing attention:**
 • Amazon: Your order has shipped
 • Chase: Payment received
 ```
@@ -436,18 +436,18 @@ daily-briefing/
 ```
 Good morning - Today is Saturday, February 3, 2024. Partly cloudy skies, around 45°F this afternoon, with a low around 32°F.
 
-🎂 **Birthdays:**
+ **Birthdays:**
 • Today: Jane Doe
 • Feb 5: John Smith
 
-📅 **Today's schedule:**
+ **Today's schedule:**
 • All-day: Doctor appointment
 • 9:00 AM: Team standup
 
-✅ **Reminders:**
+ **Reminders:**
 • Pick up prescription
 
-📧 **Emails needing attention:**
+ **Emails needing attention:**
 • Amazon: Your order has shipped
 • Chase: Payment received
 

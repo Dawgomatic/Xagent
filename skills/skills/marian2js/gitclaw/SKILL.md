@@ -2,7 +2,7 @@
 name: gitclaw
 description: Back up the OpenClaw agent workspace to a GitHub repo and keep it synced via a cron-driven commit/push script.
 homepage: https://gitclaw.ai
-metadata: { "openclaw": { "emoji": "🐙", "homepage": "https://gitclaw.ai" } }
+metadata: { "openclaw": { "emoji": "", "homepage": "https://gitclaw.ai" } }
 ---
 
 # GitClaw: Agent self-backup to GitHub

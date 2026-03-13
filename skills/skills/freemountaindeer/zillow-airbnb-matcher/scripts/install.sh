@@ -25,7 +25,7 @@ NC='\033[0m' # No Color
 
 echo ""
 echo -e "${BLUE}=====================================================${NC}"
-echo -e "${BLUE}   🏠 Zillow × Airbnb Matcher — Skill Installer      ${NC}"
+echo -e "${BLUE}    Zillow × Airbnb Matcher — Skill Installer      ${NC}"
 echo -e "${BLUE}=====================================================${NC}"
 echo ""
 
@@ -34,7 +34,7 @@ echo ""
 echo -e "${YELLOW}Step 1: Checking Node.js...${NC}"
 
 if ! command -v node &> /dev/null; then
-    echo -e "${RED}❌ Node.js is not installed.${NC}"
+    echo -e "${RED} Node.js is not installed.${NC}"
     echo "   Install it from: https://nodejs.org (choose 'LTS' version)"
     echo "   Or on Linux: curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt-get install -y nodejs"
     exit 1
@@ -42,12 +42,12 @@ fi
 
 NODE_VERSION=$(node -e "process.stdout.write(process.version.slice(1).split('.')[0])")
 if [ "$NODE_VERSION" -lt 16 ]; then
-    echo -e "${RED}❌ Node.js v$NODE_VERSION found, but v16+ is required.${NC}"
+    echo -e "${RED} Node.js v$NODE_VERSION found, but v16+ is required.${NC}"
     echo "   Update from: https://nodejs.org"
     exit 1
 fi
 
-echo -e "${GREEN}✅ Node.js $(node --version) found${NC}"
+echo -e "${GREEN} Node.js $(node --version) found${NC}"
 
 # ─── Step 2: Install dependencies ────────────────────────────────────────────
 
@@ -57,13 +57,13 @@ echo -e "${YELLOW}Step 2: Installing dependencies...${NC}"
 cd "$SKILL_DIR"
 
 if [ ! -f "package.json" ]; then
-    echo -e "${RED}❌ package.json not found. Are you running this from the skill directory?${NC}"
+    echo -e "${RED} package.json not found. Are you running this from the skill directory?${NC}"
     exit 1
 fi
 
 npm install --silent 2>&1 | tail -5
 
-echo -e "${GREEN}✅ Dependencies installed${NC}"
+echo -e "${GREEN} Dependencies installed${NC}"
 
 # ─── Step 3: API Token setup ──────────────────────────────────────────────────
 
@@ -101,11 +101,11 @@ if [ -n "$RAPIDAPI_KEY" ]; then
     else
         echo "RAPIDAPI_KEY=$RAPIDAPI_KEY" > "$ENV_FILE"
     fi
-    echo -e "${GREEN}✅ RapidAPI key saved to .env${NC}"
+    echo -e "${GREEN} RapidAPI key saved to .env${NC}"
 elif [ -n "$EXISTING_TOKEN" ]; then
-    echo -e "${GREEN}✅ RapidAPI key found in existing .env${NC}"
+    echo -e "${GREEN} RapidAPI key found in existing .env${NC}"
 else
-    echo -e "${YELLOW}ℹ️  No RapidAPI key provided.${NC}"
+    echo -e "${YELLOW}  No RapidAPI key provided.${NC}"
     echo "   The demo mode will still work without a token."
     echo "   For live searches, get a free token at: https://rapidapi.com"
     echo "   Then run: echo 'RAPIDAPI_KEY=your_token' >> $ENV_FILE"
@@ -121,7 +121,7 @@ node "$SKILL_DIR/scripts/search.js" --demo
 
 echo ""
 echo -e "${GREEN}=====================================================${NC}"
-echo -e "${GREEN}  ✅ Installation complete! ${NC}"
+echo -e "${GREEN}   Installation complete! ${NC}"
 echo -e "${GREEN}=====================================================${NC}"
 echo ""
 echo "Commands:"

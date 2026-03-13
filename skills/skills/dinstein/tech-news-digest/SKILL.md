@@ -110,7 +110,7 @@ Automated tech news digest system with unified data source model, quality scorin
   "topics": [
     {
       "id": "llm",
-      "emoji": "🧠",
+      "emoji": "",
       "label": "LLM / Large Models",
       "description": "Large Language Models, foundation models, breakthroughs",
       "search": {
@@ -342,7 +342,7 @@ Replace placeholders with:
 - RSS_HOURS = 168
 - ITEMS_PER_SECTION = 5-8
 - BLOG_PICKS_COUNT = 3-5
-- EXTRA_SECTIONS = 📊 Weekly Trend Summary (2-3 sentences summarizing macro trends)
+- EXTRA_SECTIONS =  Weekly Trend Summary (2-3 sentences summarizing macro trends)
 - SUBJECT = Weekly Tech Digest - YYYY-MM-DD
 - WORKSPACE = <your workspace path>
 - SKILL_DIR = <your skill install path>

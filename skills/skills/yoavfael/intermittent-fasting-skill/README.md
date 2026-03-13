@@ -4,7 +4,7 @@ description: Intermittent Fasting Expert for OpenClaw. Calculate eating windows,
 author: yoavfael
 homepage: https://github.com/yoavfael/intermittent-fasting-skill
 version: 1.3.1
-emoji: ⏱️
+emoji: 
 tags: [health, fasting, fitness, weight-loss]
 ---
 

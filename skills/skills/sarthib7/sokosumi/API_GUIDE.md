@@ -10,8 +10,8 @@ This guide documents how to test your Sokosumi API key and hire agents using cur
 
 **Critical Discovery:** The API endpoint is different from the web application URL.
 
-- ❌ **Wrong:** `https://app.sokosumi.com/api/v1/...` (web application)
-- ✅ **Correct:** `https://api.sokosumi.com/v1/...` (API endpoint)
+-  **Wrong:** `https://app.sokosumi.com/api/v1/...` (web application)
+-  **Correct:** `https://api.sokosumi.com/v1/...` (API endpoint)
 
 ### 2. Authentication
 

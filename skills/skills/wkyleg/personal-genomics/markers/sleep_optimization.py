@@ -546,21 +546,21 @@ def determine_caffeine_metabolism(genotypes: Dict[str, str]) -> Dict[str, Any]:
     # Generate recommendations
     if result["metabolism_speed"] == CaffeineMetabolism.SLOW.value:
         result["recommendations"].extend([
-            "☕ Limit caffeine to morning only (before 10 AM ideally)",
-            "☕ Max 1-2 cups of coffee per day",
-            "☕ Consider switching to tea (lower caffeine)",
-            "⚠️ Evening caffeine significantly disrupts sleep architecture"
+            " Limit caffeine to morning only (before 10 AM ideally)",
+            " Max 1-2 cups of coffee per day",
+            " Consider switching to tea (lower caffeine)",
+            " Evening caffeine significantly disrupts sleep architecture"
         ])
     elif result["metabolism_speed"] == CaffeineMetabolism.FAST.value:
         result["recommendations"].extend([
-            "☕ You can safely consume caffeine later in the day",
-            "☕ Caffeine provides good ergogenic benefits for you",
-            f"☕ Still aim to stop {result['cutoff_before_bed_hours']} hours before bed"
+            " You can safely consume caffeine later in the day",
+            " Caffeine provides good ergogenic benefits for you",
+            f" Still aim to stop {result['cutoff_before_bed_hours']} hours before bed"
         ])
     
     if result["anxiety_risk"] == "high":
         result["recommendations"].append(
-            "⚠️ You're genetically prone to caffeine-induced anxiety - reduce intake if anxious"
+            " You're genetically prone to caffeine-induced anxiety - reduce intake if anxious"
         )
     
     return result
@@ -694,31 +694,31 @@ def get_sleep_optimization_summary(genotypes: Dict[str, str]) -> str:
     profile = generate_sleep_profile(genotypes)
     
     lines = []
-    lines.append("🌙 SLEEP OPTIMIZATION PROFILE")
+    lines.append(" SLEEP OPTIMIZATION PROFILE")
     lines.append("=" * 40)
     lines.append("")
     
     # Chronotype
-    lines.append(f"⏰ Chronotype: {profile['profile_summary']['chronotype_description']}")
+    lines.append(f" Chronotype: {profile['profile_summary']['chronotype_description']}")
     lines.append(f"   Best wake time: {profile['optimal_timing']['ideal_wake_time']}")
     lines.append(f"   Best sleep time: {profile['optimal_timing']['ideal_sleep_time']}")
     lines.append("")
     
     # Caffeine
-    lines.append(f"☕ Caffeine Metabolism: {profile['profile_summary']['caffeine_metabolism']}")
+    lines.append(f" Caffeine Metabolism: {profile['profile_summary']['caffeine_metabolism']}")
     lines.append(f"   Half-life: {profile['profile_summary']['caffeine_half_life']}")
     lines.append(f"   Stop caffeine by: {profile['optimal_timing']['coffee_cutoff_time']}")
     lines.append(f"   Max daily: {profile['optimal_timing']['max_caffeine_mg']}mg")
     lines.append("")
     
     # Sleep need
-    lines.append(f"😴 Sleep Need: {profile['profile_summary']['sleep_duration_need']}")
+    lines.append(f" Sleep Need: {profile['profile_summary']['sleep_duration_need']}")
     if profile['profile_summary']['short_sleeper_gene']:
         lines.append("   (You carry a rare short sleeper variant!)")
     lines.append("")
     
     # Top recommendations
-    lines.append("📋 KEY RECOMMENDATIONS:")
+    lines.append(" KEY RECOMMENDATIONS:")
     for rec in profile['recommendations'][:5]:
         lines.append(f"   • {rec['recommendation']}")
     

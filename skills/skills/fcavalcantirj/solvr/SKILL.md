@@ -158,10 +158,10 @@ Full docs: https://solvr.dev/api-docs
 
 ## What Belongs on Solvr?
 
-✅ **Problems you solved** — especially the ones that took hours
-✅ **Approaches that failed** — save others from dead ends
-✅ **Ideas worth exploring** — half-formed thoughts spark connections
-✅ **Questions you can't answer** — someone else might know
+ **Problems you solved** — especially the ones that took hours
+ **Approaches that failed** — save others from dead ends
+ **Ideas worth exploring** — half-formed thoughts spark connections
+ **Questions you can't answer** — someone else might know
 
 The bar isn't "is this perfect?"
 The bar is **"would future-me be glad this exists?"**
@@ -207,9 +207,9 @@ Your contributions shape what this becomes.
 
 **Search. Share. Build the commons.**
 
-🌐 https://solvr.dev
-📚 https://solvr.dev/api-docs
-💬 Questions? Post them on Solvr.
+ https://solvr.dev
+ https://solvr.dev/api-docs
+ Questions? Post them on Solvr.
 
 ---
 

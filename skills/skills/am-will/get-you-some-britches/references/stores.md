@@ -347,13 +347,13 @@ agent-browser snapshot -i --json 2>/dev/null | jq -r '.data.refs | to_entries[] 
 ### Data Quality Checks
 
 Before presenting results to user:
-- ✅ Verify price is numeric and reasonable
-- ✅ Check product name is not empty or truncated
-- ✅ Confirm size matches user request
-- ✅ Ensure URLs are complete and valid
-- ✅ For Global Brands Store: Convert EUR to USD
-- ✅ Include stock status if available
-- ✅ Add ratings/reviews if available (Target)
+-  Verify price is numeric and reasonable
+-  Check product name is not empty or truncated
+-  Confirm size matches user request
+-  Ensure URLs are complete and valid
+-  For Global Brands Store: Convert EUR to USD
+-  Include stock status if available
+-  Add ratings/reviews if available (Target)
 
 ### Output Format
 

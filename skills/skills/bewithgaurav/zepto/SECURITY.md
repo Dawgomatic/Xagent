@@ -6,19 +6,19 @@ This skill automates grocery ordering on Zepto.com through browser automation. I
 
 ## What This Skill Does
 
-- ✅ **Browser automation** on zepto.com (your local browser, your authenticated session)
-- ✅ **Local order history** stored in `{SKILL_DIR}/order-history.json` to remember frequently ordered items
-- ✅ **Payment link generation** via Zepto's Juspay gateway (sent to your WhatsApp)
-- ✅ **Address confirmation** required before every order
-- ✅ **Authentication** through Zepto's official Phone + OTP flow
+-  **Browser automation** on zepto.com (your local browser, your authenticated session)
+-  **Local order history** stored in `{SKILL_DIR}/order-history.json` to remember frequently ordered items
+-  **Payment link generation** via Zepto's Juspay gateway (sent to your WhatsApp)
+-  **Address confirmation** required before every order
+-  **Authentication** through Zepto's official Phone + OTP flow
 
 ## What This Skill Does NOT Do
 
-- ❌ **No automatic payments** - You must manually click payment links and complete transactions
-- ❌ **No external data transmission** - All data stays local except interactions with Zepto.com and your WhatsApp
-- ❌ **No credential storage** - OTPs and passwords are never stored
-- ❌ **No payment info access** - Skill only generates payment links, never handles payment details
-- ❌ **No background jobs by default** - Optional one-time order status check only with explicit user approval
+-  **No automatic payments** - You must manually click payment links and complete transactions
+-  **No external data transmission** - All data stays local except interactions with Zepto.com and your WhatsApp
+-  **No credential storage** - OTPs and passwords are never stored
+-  **No payment info access** - Skill only generates payment links, never handles payment details
+-  **No background jobs by default** - Optional one-time order status check only with explicit user approval
 
 ## Data Storage
 
@@ -36,12 +36,12 @@ This skill automates grocery ordering on Zepto.com through browser automation. I
 
 ## User Control
 
-- ✅ You initiate all orders explicitly
-- ✅ You approve each payment link before paying
-- ✅ Address confirmation required before shopping
-- ✅ Order history file can be deleted anytime (`rm order-history.json`)
-- ✅ All browser actions visible in your profile
-- ✅ No actions happen without your commands
+-  You initiate all orders explicitly
+-  You approve each payment link before paying
+-  Address confirmation required before shopping
+-  Order history file can be deleted anytime (`rm order-history.json`)
+-  All browser actions visible in your profile
+-  No actions happen without your commands
 
 ## Permissions Required
 

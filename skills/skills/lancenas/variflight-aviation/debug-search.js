@@ -4,7 +4,7 @@ async function debug() {
     const client = new VariflightClient();
 
     try {
-        console.log('🔍 调试模式 - 查看原始返回数据\n');
+        console.log(' 调试模式 - 查看原始返回数据\n');
 
         const result = await client.searchFlightsByDepArr('PEK', 'SHA', '2026-02-20');
 
@@ -38,7 +38,7 @@ async function debug() {
         }
 
     } catch (error) {
-        console.error('❌ 错误:', error.message);
+        console.error(' 错误:', error.message);
     } finally {
         await client.disconnect();
     }

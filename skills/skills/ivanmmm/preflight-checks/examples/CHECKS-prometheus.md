@@ -127,9 +127,9 @@ How do you determine the threadId and send the file correctly?
 
 ## Scoring
 
-- **23/23 correct:** ✅ Behavior consistent, ready to work
-- **21-22 correct:** ⚠️ Minor drift, review specific rules
-- **<21 correct:** ❌ Significant drift, reload memory and retest
+- **23/23 correct:**  Behavior consistent, ready to work
+- **21-22 correct:**  Minor drift, review specific rules
+- **<21 correct:**  Significant drift, reload memory and retest
 
 **Report format:**
 ```

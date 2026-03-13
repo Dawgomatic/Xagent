@@ -17,7 +17,7 @@ CYAN='\033[0;36m'
 NC='\033[0m'
 
 echo ""
-echo -e "${BLUE}📊 Skill Quality Score${NC}"
+echo -e "${BLUE} Skill Quality Score${NC}"
 echo "   $(basename "$(pwd)")"
 echo ""
 
@@ -116,7 +116,7 @@ if [ -f "README.md" ]; then
     [ "$FIRST_LINE" -gt 0 ] && README_ISSUES=$((README_ISSUES + 2))
     
     # Check for emoji-decorated headers
-    EMOJI_HEADERS=$(grep -cE "^#+.*[🚀💡✨🎯🔥⭐]" README.md 2>/dev/null || echo 0)
+    EMOJI_HEADERS=$(grep -cE "^#+.*[]" README.md 2>/dev/null || echo 0)
     [ "$EMOJI_HEADERS" -gt 2 ] && README_ISSUES=$((README_ISSUES + 1))
     
     if [ $README_ISSUES -eq 0 ]; then

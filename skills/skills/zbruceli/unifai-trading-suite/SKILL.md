@@ -4,14 +4,14 @@ description: "AI-powered trading insights suite: prediction markets (Polymarket/
 version: 1.0.0
 homepage: https://github.com/zbruceli/trading
 user-invocable: true
-metadata: {"moltbot":{"emoji":"📈","requires":{"env":["UNIFAI_API_KEY","GOOGLE_API_KEY"]},"primaryEnv":"UNIFAI_API_KEY"}}
+metadata: {"moltbot":{"emoji":"","requires":{"env":["UNIFAI_API_KEY","GOOGLE_API_KEY"]},"primaryEnv":"UNIFAI_API_KEY"}}
 ---
 
 # UnifAI Trading Suite
 
 A comprehensive suite for AI-driven trading analysis, aggregating prediction markets and social signals.
 
-## 🛠️ Included Tools
+##  Included Tools
 
 ### 1. Prediction Trader
 Compare probabilities across Polymarket and Kalshi.
@@ -31,10 +31,10 @@ Analyze KOL mentions and sentiment via UnifAI.
 python3 {baseDir}/skills/social-signals/scripts/signals.py trending
 ```
 
-## 🔐 Setup
+##  Setup
 Requires `UNIFAI_API_KEY` (from unifAI) and `GOOGLE_API_KEY` (for analysis).
 
-## 🚀 Installation
+##  Installation
 ```bash
 clawdhub install unifai-trading-suite
 ```

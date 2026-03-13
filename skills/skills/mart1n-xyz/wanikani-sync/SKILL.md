@@ -10,7 +10,7 @@ metadata:
       bins:
         - python3
     primaryEnv: WANIKANI_API_TOKEN
-    emoji: 🈴
+    emoji: 
     homepage: https://www.wanikani.com
 ---
 

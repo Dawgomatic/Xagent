@@ -162,11 +162,11 @@ class Constants:
     }
     
     EMOJI = {
-        'success': '✅', 'error': '❌', 'warning': '⚠️', 'info': 'ℹ️',
-        'money': '💰', 'rocket': '🚀', 'coin': '🪙', 'link': '🔗',
-        'lock': '🔐', 'folder': '📁', 'chart': '📊', 'pencil': '📝',
-        'bulb': '💡', 'address': '📍', 'key': '🔑', 'backup': '💾',
-        'clock': '🕐', 'fire': '🔥', 'trophy': '🏆', 'send': '📤',
+        'success': '', 'error': '', 'warning': '', 'info': '',
+        'money': '', 'rocket': '', 'coin': '', 'link': '',
+        'lock': '', 'folder': '', 'chart': '', 'pencil': '',
+        'bulb': '', 'address': '', 'key': '', 'backup': '',
+        'clock': '', 'fire': '', 'trophy': '', 'send': '',
     }
 
 
@@ -887,7 +887,7 @@ class Output:
         """Print error with optional suggestion (Issue #141)."""
         print(cls.color(f"{cls._prefix()}{cls._emoji('error')} {msg}", 'red'), file=sys.stderr)
         if suggestion:
-            print(cls.color(f"   💡 Try: {suggestion}", 'yellow'), file=sys.stderr)
+            print(cls.color(f"    Try: {suggestion}", 'yellow'), file=sys.stderr)
     
     @classmethod
     def warning(cls, msg: str) -> None:
@@ -1950,8 +1950,8 @@ def cmd_status(args: argparse.Namespace) -> None:
     if rt.format == OutputFormat.JSON:
         Output.json_output({"api": api_ok, "rpc": rpc_ok, "network": rt.network.name.lower()})
     else:
-        print(f"API: {'✅' if api_ok else '❌'}")
-        print(f"RPC: {'✅' if rpc_ok else '❌'}")
+        print(f"API: {'' if api_ok else ''}")
+        print(f"RPC: {'' if rpc_ok else ''}")
         print(f"Network: {rt.network.name.lower()}")
 
 
@@ -2809,7 +2809,7 @@ def cmd_soul(args: argparse.Namespace) -> None:
         Output.info("Run this from your Clawdbot workspace directory or set CLAWDBOT_WORKSPACE")
         sys.exit(ExitCode.INVALID_INPUT)
     
-    print(f"📍 Found workspace: {workspace}")
+    print(f" Found workspace: {workspace}")
     print()
     
     # Read available files
@@ -2822,7 +2822,7 @@ def cmd_soul(args: argparse.Namespace) -> None:
                 collected[filename] = content
                 print(f"✓ Found {filename} ({len(content)} chars)")
             except Exception as e:
-                print(f"⚠ Could not read {filename}: {e}")
+                print(f" Could not read {filename}: {e}")
     
     if not collected:
         Output.error("No identity files found in workspace")
@@ -2887,7 +2887,7 @@ def cmd_soul(args: argparse.Namespace) -> None:
         print(json.dumps(soul_summary, indent=2))
     else:
         print("=" * 50)
-        print("🔮 SOUL EXTRACTION COMPLETE")
+        print(" SOUL EXTRACTION COMPLETE")
         print("=" * 50)
         print()
         if soul_summary["identity"]:
@@ -2942,7 +2942,7 @@ def cmd_link(args: argparse.Namespace) -> None:
         sys.exit(ExitCode.NO_WALLET)
     
     pubkey = str(wallet.pubkey())
-    print(f"🔗 Linking agent with wallet: {pubkey}")
+    print(f" Linking agent with wallet: {pubkey}")
     print()
     
     # Load soul data
@@ -2960,9 +2960,9 @@ def cmd_link(args: argparse.Namespace) -> None:
             if soul_data.get("identity", {}).get("name"):
                 print(f"  Name: {soul_data['identity']['name']}")
         except Exception as e:
-            print(f"⚠ Could not load soul file: {e}")
+            print(f" Could not load soul file: {e}")
     else:
-        print("⚠ No soul extraction found. Run: python mya.py soul extract")
+        print(" No soul extraction found. Run: python mya.py soul extract")
         print("  Continuing with wallet-only link...")
     
     print()
@@ -3025,7 +3025,7 @@ def cmd_link(args: argparse.Namespace) -> None:
         if resp.status_code == 200:
             result = resp.json()
             print()
-            Output.success("Agent linked successfully! 🎉")
+            Output.success("Agent linked successfully! ")
             print()
             if result.get("agent_id"):
                 print(f"Agent ID: {result['agent_id']}")
@@ -3111,14 +3111,14 @@ Valid for 5 minutes."""
 
 
 def format_card(card: str) -> str:
-    """Format poker card with suit emoji ('2h' -> '2♥️')"""
+    """Format poker card with suit emoji ('2h' -> '2')"""
     if not card or len(card) < 2:
         return "??"
 
     rank = card[0]
     suit = card[1]
 
-    suit_emoji = {'h': '♥️', 'd': '♦️', 'c': '♣️', 's': '♠️'}
+    suit_emoji = {'h': '', 'd': '', 'c': '', 's': ''}
     rank_display = {'T': '10', 'J': 'J', 'Q': 'Q', 'K': 'K', 'A': 'A'}
 
     rank_str = rank_display.get(rank, rank)
@@ -3178,7 +3178,7 @@ def display_poker_table(game_data: Dict[str, Any], wallet_address: str) -> None:
             remaining = (deadline_dt - datetime.now(timezone.utc)).total_seconds()
             remaining = max(0, int(remaining))
             mins, secs = divmod(remaining, 60)
-            timer_str = f" ⏱ {mins}:{secs:02d}"
+            timer_str = f"  {mins}:{secs:02d}"
             if remaining < 30:
                 timer_str = Output.color(timer_str, 'red')
         except Exception:
@@ -3230,11 +3230,11 @@ def display_poker_table(game_data: Dict[str, Any], wallet_address: str) -> None:
             w_name = winner.get('name') or (winner.get('wallet', '???')[:8] + '...')
         else:
             w_name = str(winner)[:8] + '...' if winner else 'Tie'
-        print(Output.color(f"  🏆 WINNER: {w_name}  ({pot_sol:.4f} SOL)", 'yellow'))
+        print(Output.color(f"   WINNER: {w_name}  ({pot_sol:.4f} SOL)", 'yellow'))
     elif your_turn:
-        print(Output.color("  🎯 YOUR TURN — fold | check | call | raise", 'green'))
+        print(Output.color("   YOUR TURN — fold | check | call | raise", 'green'))
     elif status == 'active':
-        print(Output.color("  ⏳ Waiting for opponent...", 'cyan'))
+        print(Output.color("   Waiting for opponent...", 'cyan'))
 
 
 def ai_decide_poker_action(game_data: Dict[str, Any]) -> Tuple[str, Optional[int], str]:
@@ -4363,11 +4363,11 @@ def cmd_poker_watch(args: argparse.Namespace) -> None:
                 winner = game.get('winner')
                 if isinstance(winner, dict):
                     if winner.get('wallet') == pubkey:
-                        Output.success("🏆 You won!")
+                        Output.success(" You won!")
                     else:
                         Output.info(f"Game over. Winner: {winner.get('name') or winner.get('wallet', '?')[:8]}")
                 elif winner == pubkey:
-                    Output.success("🏆 You won!")
+                    Output.success(" You won!")
                 elif winner:
                     Output.info("Game over. Opponent won.")
                 else:
@@ -4469,10 +4469,10 @@ def cmd_poker_watch(args: argparse.Namespace) -> None:
                     # AI auto-play
                     action_input, amount_lamports, reasoning = ai_decide_poker_action(game)
                     if verbose:
-                        print(Output.color(f"  🧠 Thinking... {reasoning}", 'cyan'))
-                        print(Output.color(f"  🤖 Decision: {action_input}" + (f" ({amount_lamports / 1e9:.4f} SOL)" if amount_lamports else ""), 'cyan'))
+                        print(Output.color(f"   Thinking... {reasoning}", 'cyan'))
+                        print(Output.color(f"   Decision: {action_input}" + (f" ({amount_lamports / 1e9:.4f} SOL)" if amount_lamports else ""), 'cyan'))
                     else:
-                        print(Output.color(f"  🤖 AI decides: {action_input}" + (f" ({amount_lamports / 1e9:.4f} SOL)" if amount_lamports else ""), 'cyan'))
+                        print(Output.color(f"   AI decides: {action_input}" + (f" ({amount_lamports / 1e9:.4f} SOL)" if amount_lamports else ""), 'cyan'))
                     time.sleep(1)  # Brief pause so human can see the decision
                 else:
                     # Human interactive mode
@@ -4903,7 +4903,7 @@ def migrate_legacy_wallet() -> None:
             shutil.copy2(str(legacy_wallet), str(home_wallet))
             os.chmod(home_wallet, 0o600)
             legacy_wallet.unlink()
-            print(f"⚠️  Migrated wallet to {home_dir}")
+            print(f"  Migrated wallet to {home_dir}")
             print("   Your wallet is now safe from skill updates!")
         
         # Also migrate recovery file

@@ -193,7 +193,7 @@ MATCH REQUIRED:
 Critical match: 3/3 ✓
 High match: 2/2 ✓
 Confidence: 95%
-Result: ✅ MATCH
+Result:  MATCH
 ```
 
 **Detection 2: "Blonde girl, no mole, no freckles"**
@@ -201,7 +201,7 @@ Result: ✅ MATCH
 Critical match: 1/3 ✗
 Missing: mole on left cheek, freckles
 Confidence: 45%
-Result: ❌ NO MATCH
+Result:  NO MATCH
 ```
 
 **Detection 3: "Girl with mole, but dark hair"**
@@ -210,7 +210,7 @@ Critical match: 2/3 ✗
 Missing: blonde hair requirement
 High match: 1/2 ✗
 Confidence: 60%
-Result: ❌ NO MATCH
+Result:  NO MATCH
 ```
 
 ---
@@ -372,13 +372,13 @@ Generated BOLO files contain:
 ## Best Practices
 
 ### Photo Selection
-- ✅ Clear, well-lit photo
-- ✅ Face clearly visible (for people)
-- ✅ Full side view or 3/4 angle
-- ✅ Multiple distinctive features visible
-- ❌ Avoid heavily shadowed photos
-- ❌ Avoid photos with extreme angles
-- ❌ Avoid partial/cropped images
+-  Clear, well-lit photo
+-  Face clearly visible (for people)
+-  Full side view or 3/4 angle
+-  Multiple distinctive features visible
+-  Avoid heavily shadowed photos
+-  Avoid photos with extreme angles
+-  Avoid partial/cropped images
 
 ### Feature Description
 - Be specific: "mole on LEFT cheek" not just "mole"
@@ -400,7 +400,7 @@ Generated BOLO files contain:
 
 Features marked "angleInvariant: true" should be detectable from any angle:
 
-✅ **Angle Invariant:**
+ **Angle Invariant:**
 - Moles, scars, tattoos
 - Hair color/style
 - Eye color
@@ -409,7 +409,7 @@ Features marked "angleInvariant: true" should be detectable from any angle:
 - Vehicle color
 - Distinctive damage
 
-❌ **Angle Dependent:**
+ **Angle Dependent:**
 - Specific clothing
 - Exact pose
 - Facial expression
@@ -436,7 +436,7 @@ Current version uses:
 
 ## Privacy & Legal
 
-⚠️ **Important:**
+ **Important:**
 - Only analyze images you have rights to
 - Only monitor spaces you control
 - Comply with local surveillance laws
@@ -476,4 +476,4 @@ Current version uses:
 
 ---
 
-**Status:** ✅ **PRODUCTION READY** - Full image analysis + visual fingerprinting
+**Status:**  **PRODUCTION READY** - Full image analysis + visual fingerprinting

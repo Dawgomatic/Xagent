@@ -76,21 +76,21 @@ if not projects:
     if query:
         where.append(f"query={query}")
     suffix = f" ({', '.join(where)})" if where else ""
-    print(f"📂 No matching projects{suffix}.")
+    print(f" No matching projects{suffix}.")
     raise SystemExit(0)
 
 if query and resolved_query != query:
-    print(f"ℹ️ alias resolved: {query} -> {resolved_query}")
+    print(f" alias resolved: {query} -> {resolved_query}")
     print()
 
 if loaded.migrated:
     notes = "; ".join(loaded.migration_notes)
-    print(f"ℹ️ Registry migrated: {notes}")
+    print(f" Registry migrated: {notes}")
     if loaded.backup_path:
-        print(f"ℹ️ Migration backup: {loaded.backup_path}")
+        print(f" Migration backup: {loaded.backup_path}")
     print()
 
-headline = f"🧬 Project fingerprints ({len(projects)})"
+headline = f" Project fingerprints ({len(projects)})"
 if root_filter:
     headline += f" [root={root_filter}]"
 print(f"{headline}\n")

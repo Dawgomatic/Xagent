@@ -2,7 +2,7 @@
 name: finclaw
 description: AI finance assistant — real-time quotes, charts, technical analysis, portfolio tracking, price alerts, watchlists, daily briefings, macro economics, and sentiment analysis for US stocks, BIST, crypto, and forex.
 metadata:
-  { "openclaw": { "emoji": "📈", "requires": { "bins": ["python3"] }, "install": [{ "id": "setup", "kind": "uv", "package": "yfinance", "bins": ["python3"], "label": "Python 3 required" }] } }
+  { "openclaw": { "emoji": "", "requires": { "bins": ["python3"] }, "install": [{ "id": "setup", "kind": "uv", "package": "yfinance", "bins": ["python3"], "label": "Python 3 required" }] } }
 ---
 
 # FinClaw — AI Finance Assistant

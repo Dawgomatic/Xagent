@@ -79,9 +79,9 @@ def fetch_news(section="top", limit=10, format="text"):
                 import re
                 desc = re.sub(r'<[^>]+>', '', entry.description)
                 print(f"   {desc}")
-            print(f"   🔗 {entry.link}")
+            print(f"    {entry.link}")
             if hasattr(entry, "published"):
-                print(f"   📅 {entry.published}")
+                print(f"    {entry.published}")
             print()
 
     return 0

@@ -73,11 +73,11 @@ White background with soft gradient shadows."
 
 ### 成功のコツ
 ```
-✅ 必須パターン:
+ 必須パターン:
 "The Japanese text 「テキスト」appears at the bottom
  in white bold Gothic font with dark semi-transparent banner."
 
-❌ 失敗パターン:
+ 失敗パターン:
 "Display the text '成功者の朝習慣' in bold font."
 "clean typography space" (テキストなし)
 ```

@@ -1,4 +1,4 @@
-# ClawdBites 🦞🍴
+# ClawdBites 
 
 Extract recipes from Instagram reels using a multi-layered approach — no login required.
 

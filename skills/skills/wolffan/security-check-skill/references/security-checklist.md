@@ -7,17 +7,17 @@ This checklist provides comprehensive security criteria for auditing Clawdbot sk
 ### 1. Documentation Integrity (SKILL.md)
 
 #### Required Elements
-- ✅ Contains valid YAML frontmatter with `name` and `description`
-- ✅ Description accurately reflects skill functionality
-- ✅ No misleading or hidden capabilities in description
-- ✅ No instruction override patterns
+-  Contains valid YAML frontmatter with `name` and `description`
+-  Description accurately reflects skill functionality
+-  No misleading or hidden capabilities in description
+-  No instruction override patterns
 
 #### Red Flags - Prompt Injection
-- ❌ Instructions to ignore/discard previous context
-- ❌ Instructions to bypass security or filters
-- ❌ System override commands
-- ❌ Instructions to replace or modify core behavior
-- ❌ Hidden commands in seemingly benign text
+-  Instructions to ignore/discard previous context
+-  Instructions to bypass security or filters
+-  System override commands
+-  Instructions to replace or modify core behavior
+-  Hidden commands in seemingly benign text
 
 #### Examples of Suspicious Patterns
 ```
@@ -30,59 +30,59 @@ This checklist provides comprehensive security criteria for auditing Clawdbot sk
 ### 2. Code Security (scripts/)
 
 #### High Severity Issues
-- ❌ `os.system()` with destructive commands (rm -rf, dd, mkfs)
-- ❌ `eval()` or `exec()` with user input
-- ❌ Hardcoded credentials, API keys, or tokens
-- ❌ Dynamic imports of sensitive modules (os, subprocess)
-- ❌ File operations outside skill directory
-- ❌ Network requests to untrusted sources
-- ❌ Code obfuscation or encoding to hide functionality
+-  `os.system()` with destructive commands (rm -rf, dd, mkfs)
+-  `eval()` or `exec()` with user input
+-  Hardcoded credentials, API keys, or tokens
+-  Dynamic imports of sensitive modules (os, subprocess)
+-  File operations outside skill directory
+-  Network requests to untrusted sources
+-  Code obfuscation or encoding to hide functionality
 
 #### Medium Severity Issues
-- ❌ `subprocess` calls with `shell=True`
-- ❌ Reading/writing sensitive system files
-- ❌ Environment variable exposure
-- ❌ Temporary file creation without proper permissions
-- ❌ Unvalidated user input in file paths
+-  `subprocess` calls with `shell=True`
+-  Reading/writing sensitive system files
+-  Environment variable exposure
+-  Temporary file creation without proper permissions
+-  Unvalidated user input in file paths
 
 #### Safe Patterns
-- ✅ All file operations within skill directory
-- ✅ Use `subprocess.run()` without shell
-- ✅ Input validation and sanitization
-- ✅ Proper error handling without exposing secrets
-- ✅ No hardcoded secrets or credentials
+-  All file operations within skill directory
+-  Use `subprocess.run()` without shell
+-  Input validation and sanitization
+-  Proper error handling without exposing secrets
+-  No hardcoded secrets or credentials
 
 ### 3. Reference Material Security (references/)
 
 #### High Severity Issues
-- ❌ Hardcoded passwords, API keys, or secrets
-- ❌ Production credentials in documentation
-- ❌ Authentication tokens or sessions
-- ❌ Private keys (SSH, SSL, etc.)
-- ❌ Database connection strings with credentials
+-  Hardcoded passwords, API keys, or secrets
+-  Production credentials in documentation
+-  Authentication tokens or sessions
+-  Private keys (SSH, SSL, etc.)
+-  Database connection strings with credentials
 
 #### Medium Severity Issues
-- ❌ Internal URLs or endpoints not meant for public access
-- ❌ Sensitive configuration examples
-- ❌ Documentation of security bypasses
+-  Internal URLs or endpoints not meant for public access
+-  Sensitive configuration examples
+-  Documentation of security bypasses
 
 #### Low Severity Issues
-- ⚠️ Links to external services (verify legitimacy)
-- ⚠️ Documentation of deprecated or insecure practices (should be warnings)
+-  Links to external services (verify legitimacy)
+-  Documentation of deprecated or insecure practices (should be warnings)
 
 ### 4. Asset Security (assets/)
 
 #### Red Flags
-- ❌ Executable binaries
-- ❌ Malicious scripts
-- ❌ Obfuscated code
-- ❌ Files with suspicious extensions
+-  Executable binaries
+-  Malicious scripts
+-  Obfuscated code
+-  Files with suspicious extensions
 
 #### Safe Patterns
-- ✅ Text-based templates
-- ✅ Images and media files
-- ✅ Configuration templates (without secrets)
-- ✅ Documentation files
+-  Text-based templates
+-  Images and media files
+-  Configuration templates (without secrets)
+-  Documentation files
 
 ## Skill Behavior Analysis
 
@@ -98,13 +98,13 @@ When reviewing a skill, verify that:
 
 **Description:** "Format text documents"
 **Actual behavior:** Scans filesystem, sends data to external server
-**Verdict:** ❌ MALICIOUS - Description does not match behavior
+**Verdict:**  MALICIOUS - Description does not match behavior
 
 ### Example: Aligned Skill
 
 **Description:** "Convert Markdown to PDF with custom templates"
 **Actual behavior:** Reads Markdown, applies template, generates PDF
-**Verdict:** ✅ SAFE - Description matches behavior
+**Verdict:**  SAFE - Description matches behavior
 
 ## Local Configuration Exposure Checks
 
@@ -131,17 +131,17 @@ When reviewing a skill, verify that:
 ## Network Security
 
 ### Safe Network Patterns
-- ✅ API calls to documented, public services
-- ✅ Requests to official package repositories
-- ✅ Webhooks to configured endpoints
-- ✅ Data retrieval from trusted sources
+-  API calls to documented, public services
+-  Requests to official package repositories
+-  Webhooks to configured endpoints
+-  Data retrieval from trusted sources
 
 ### Suspicious Network Patterns
-- ❌ Requests to unknown or suspicious domains
-- ❌ Data exfiltration to external services
-- ❌ Unencrypted HTTP requests for sensitive data
-- ❌ Bypassing certificate validation
-- ❌ DNS tunneling or covert channels
+-  Requests to unknown or suspicious domains
+-  Data exfiltration to external services
+-  Unencrypted HTTP requests for sensitive data
+-  Bypassing certificate validation
+-  DNS tunneling or covert channels
 
 ## Dependency Security
 

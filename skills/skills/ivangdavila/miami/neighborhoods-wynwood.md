@@ -24,18 +24,18 @@ Former warehouse district transformed into Miami's art epicenter. Wynwood Walls 
 - Demo: Creatives, entrepreneurs, tech workers
 
 ### Pros
-✅ **Art everywhere** — Street art, galleries, Wynwood Walls
-✅ **Restaurant scene** — KYU, Coyo Taco, Zak the Baker
-✅ **Breweries** — J Wakefield, Veza Sur, Boxelder
-✅ **Creative community** — Networking events, startups
-✅ **Instagram-ready** — Everything is photogenic
+ **Art everywhere** — Street art, galleries, Wynwood Walls
+ **Restaurant scene** — KYU, Coyo Taco, Zak the Baker
+ **Breweries** — J Wakefield, Veza Sur, Boxelder
+ **Creative community** — Networking events, startups
+ **Instagram-ready** — Everything is photogenic
 
 ### Cons
-❌ **No beach** — 20+ min Uber
-❌ **Industrial feel** — Still warehouses, not all developed
-❌ **Weekend chaos** — Tourists flood area
-❌ **Parking** — Terrible, expensive ($20-40)
-❌ **Empty at night** — Can feel deserted on weeknights
+ **No beach** — 20+ min Uber
+ **Industrial feel** — Still warehouses, not all developed
+ **Weekend chaos** — Tourists flood area
+ **Parking** — Terrible, expensive ($20-40)
+ **Empty at night** — Can feel deserted on weeknights
 
 ### Best For
 - Artists, designers, creatives
@@ -65,16 +65,16 @@ Luxury shopping and dining district north of Wynwood. Palm Court, high-end bouti
 - Empty early morning, peaks afternoon-evening
 
 ### Pros
-✅ **Walkable luxury** — All high-end brands
-✅ **Free public art** — Rotating installations
-✅ **Excellent restaurants** — Swan, Michael's Genuine, MC Kitchen
-✅ **Clean, safe** — Heavy security
+ **Walkable luxury** — All high-end brands
+ **Free public art** — Rotating installations
+ **Excellent restaurants** — Swan, Michael's Genuine, MC Kitchen
+ **Clean, safe** — Heavy security
 
 ### Cons
-❌ **Expensive everything** — Even coffee is $8
-❌ **No beach** — 25 min away
-❌ **Limited residential** — Mostly commercial
-❌ **Can feel sterile** — Very curated, lacks grit
+ **Expensive everything** — Even coffee is $8
+ **No beach** — 25 min away
+ **Limited residential** — Mostly commercial
+ **Can feel sterile** — Very curated, lacks grit
 
 ### Best For
 - Fashion industry workers
@@ -102,16 +102,16 @@ Walkable urban pocket between Wynwood and Edgewater. Anchored by Target, with mi
 - Young professionals and families
 
 ### Pros
-✅ **Walkable errands** — Target, grocery, gym
-✅ **Reasonable rent** — Mid-range pricing
-✅ **Near Wynwood/Design District**
-✅ **Safe neighborhood**
+ **Walkable errands** — Target, grocery, gym
+ **Reasonable rent** — Mid-range pricing
+ **Near Wynwood/Design District**
+ **Safe neighborhood**
 
 ### Cons
-❌ **Generic feel** — Could be anywhere
-❌ **No beach** — 20+ min Uber
-❌ **Limited nightlife**
-❌ **Not as character-rich** as other areas
+ **Generic feel** — Could be anywhere
+ **No beach** — 20+ min Uber
+ **Limited nightlife**
+ **Not as character-rich** as other areas
 
 ### Best For
 - Practical people who want walkable errands
@@ -139,15 +139,15 @@ Small residential neighborhood adjacent to Design District. Mix of historic home
 - Mix of longtime residents and new arrivals
 
 ### Pros
-✅ **Character homes** — Historic architecture
-✅ **Walk to Design District**
-✅ **Quieter than Wynwood**
-✅ **Community feel**
+ **Character homes** — Historic architecture
+ **Walk to Design District**
+ **Quieter than Wynwood**
+ **Community feel**
 
 ### Cons
-❌ **Limited rental inventory**
-❌ **Some blocks still rough**
-❌ **Need car for most things**
+ **Limited rental inventory**
+ **Some blocks still rough**
+ **Need car for most things**
 
 ### Best For
 - Those wanting Design District access with neighborhood feel

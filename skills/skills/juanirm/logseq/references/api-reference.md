@@ -543,10 +543,10 @@ UI manipulation and notifications.
 Show a toast notification.
 
 ```javascript
-logseq.UI.showMsg('✅ Task completed!', 'success');
-logseq.UI.showMsg('⚠️ Warning message', 'warning');
-logseq.UI.showMsg('❌ Error occurred', 'error');
-logseq.UI.showMsg('ℹ️ Info message'); // Default
+logseq.UI.showMsg(' Task completed!', 'success');
+logseq.UI.showMsg(' Warning message', 'warning');
+logseq.UI.showMsg(' Error occurred', 'error');
+logseq.UI.showMsg(' Info message'); // Default
 ```
 
 #### `queryElementById(id)`

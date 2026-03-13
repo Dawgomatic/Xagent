@@ -4,11 +4,11 @@ A Clawdbot skill for fetching BBC News stories from various sections and regions
 
 ## Features
 
-- 📰 **Multiple Sections**: Top stories, UK, World, Business, Politics, Health, Education, Science, Technology, Entertainment
-- 🌍 **UK Regional News**: England, Scotland, Wales, Northern Ireland
-- 🗺️ **World Regions**: Africa, Asia, Australia, Europe, Latin America, Middle East, US & Canada
-- 📊 **Flexible Output**: Text or JSON format
-- ⚙️ **Customizable**: Limit number of stories
+-  **Multiple Sections**: Top stories, UK, World, Business, Politics, Health, Education, Science, Technology, Entertainment
+-  **UK Regional News**: England, Scotland, Wales, Northern Ireland
+-  **World Regions**: Africa, Asia, Australia, Europe, Latin America, Middle East, US & Canada
+-  **Flexible Output**: Text or JSON format
+-  **Customizable**: Limit number of stories
 
 ## Installation
 

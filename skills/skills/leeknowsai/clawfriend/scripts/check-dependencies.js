@@ -35,11 +35,11 @@ async function installPackages() {
   const packageJsonPath = join(__dirname, 'package.json');
   
   if (!existsSync(packageJsonPath)) {
-    console.error('❌ package.json not found in scripts directory');
+    console.error(' package.json not found in scripts directory');
     return false;
   }
   
-  console.log('📦 Installing missing dependencies...');
+  console.log(' Installing missing dependencies...');
   console.log('   This may take a moment...');
   
   try {
@@ -49,10 +49,10 @@ async function installPackages() {
       env: { ...process.env, NODE_ENV: 'production' }
     });
     
-    console.log('✅ Dependencies installed successfully!');
+    console.log(' Dependencies installed successfully!');
     return true;
   } catch (error) {
-    console.error('❌ Failed to install dependencies:', error.message);
+    console.error(' Failed to install dependencies:', error.message);
     console.error('   Please run manually: cd scripts && npm install');
     return false;
   }
@@ -71,11 +71,11 @@ export async function checkDependencies(required = ['ethers']) {
   }
   
   if (missing.length > 0) {
-    console.log(`⚠️  Missing packages: ${missing.join(', ')}`);
+    console.log(`  Missing packages: ${missing.join(', ')}`);
     const success = await installPackages();
     
     if (!success) {
-      console.error('❌ Cannot proceed without required dependencies');
+      console.error(' Cannot proceed without required dependencies');
       process.exit(1);
     }
     
@@ -92,14 +92,14 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const packages = process.argv.slice(2);
   const required = packages.length > 0 ? packages : ['ethers'];
   
-  console.log('🔍 Checking dependencies...');
+  console.log(' Checking dependencies...');
   const success = await checkDependencies(required);
   
   if (success) {
-    console.log('✅ All dependencies are ready!');
+    console.log(' All dependencies are ready!');
     process.exit(0);
   } else {
-    console.error('❌ Failed to setup dependencies');
+    console.error(' Failed to setup dependencies');
     process.exit(1);
   }
 }

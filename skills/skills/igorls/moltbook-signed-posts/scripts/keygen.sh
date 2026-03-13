@@ -13,7 +13,7 @@ mkdir -p "$OUTPUT_DIR"
 
 # Check if keys already exist
 if [ -f "$PRIVATE_KEY" ]; then
-    echo "⚠️  Private key already exists at $PRIVATE_KEY"
+    echo "  Private key already exists at $PRIVATE_KEY"
     echo "   Delete it first if you want to regenerate."
     echo ""
     echo "Current public key:"
@@ -22,23 +22,23 @@ if [ -f "$PRIVATE_KEY" ]; then
 fi
 
 # Generate Ed25519 keypair
-echo "🔐 Generating Ed25519 keypair..."
+echo " Generating Ed25519 keypair..."
 openssl genpkey -algorithm Ed25519 -out "$PRIVATE_KEY" 2>/dev/null
 openssl pkey -in "$PRIVATE_KEY" -pubout -out "$PUBLIC_KEY" 2>/dev/null
 
 # Set restrictive permissions on private key
 chmod 600 "$PRIVATE_KEY"
 
-echo "✅ Keypair generated!"
+echo " Keypair generated!"
 echo ""
-echo "📁 Files:"
+echo " Files:"
 echo "   Private key: $PRIVATE_KEY (keep secret!)"
 echo "   Public key:  $PUBLIC_KEY"
 echo ""
-echo "📋 Your public key (add to Moltbook bio):"
+echo " Your public key (add to Moltbook bio):"
 echo ""
 cat "$PUBLIC_KEY"
 echo ""
-echo "🔏 One-liner for bio:"
+echo " One-liner for bio:"
 PUBKEY_B64=$(grep -v '^-' "$PUBLIC_KEY" | tr -d '\n')
-echo "   🔐 Ed25519: $PUBKEY_B64"
+echo "    Ed25519: $PUBKEY_B64"

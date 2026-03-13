@@ -191,9 +191,9 @@ seasonal_planting.py add "heirloom-tomato" --planting "april,may" --zone "6b,7a"
 
 ### Path Validation
 The `export` function validates output paths to prevent malicious writes:
-- ✅ Allowed: `~/.openclaw/workspace/`, `/tmp/`, and home directory
-- ❌ Blocked: System paths (`/etc/`, `/usr/`, `/var/`, etc.)
-- ❌ Blocked: Sensitive dotfiles (`~/.bashrc`, `~/.ssh`, etc.)
+-  Allowed: `~/.openclaw/workspace/`, `/tmp/`, and home directory
+-  Blocked: System paths (`/etc/`, `/usr/`, `/var/`, etc.)
+-  Blocked: Sensitive dotfiles (`~/.bashrc`, `~/.ssh`, etc.)
 
 ## Data Storage
 

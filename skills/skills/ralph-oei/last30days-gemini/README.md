@@ -333,7 +333,7 @@ This example shows /last30days learning **domain-specific prompting techniques**
 
 **Most mentioned use cases:**
 
-🏆 Top 5 by engagement:
+ Top 5 by engagement:
 
 1. **Email/Calendar automation** - mentioned 8x+ (r/selfhosted, @dreetje, @danpeguine, MacStories)
    - Morning briefings, spam filtering, auto-replies, recruiter declines
@@ -366,7 +366,7 @@ This example shows /last30days as a **product research tool** - discovering real
 **Research Output:**
 > ClawdBot setup varies by deployment style - Docker is the most recommended path, but users are also deploying via bare metal and cloud VMs. The community has converged on key best practices: use the setup wizard for initial config, start with conservative hardware (you can scale up), and configure authentication before exposing any endpoints.
 
-**🛠️ Setup patterns by engagement:**
+** Setup patterns by engagement:**
 
 | Pattern | Mentions | Key Sources |
 |---------|----------|-------------|
@@ -416,7 +416,7 @@ This example shows /last30days as a **setup guide aggregator** - pulling togethe
 **Research Output:**
 > The Claude Code skills ecosystem has exploded with marketplaces, curated lists, and viral skill announcements. The Remotion video skill got 17.3K likes on X. SkillsMP emerged as a marketplace with 60-87K+ skills. Multiple GitHub repos (awesome-claude-skills, Superpowers) are actively curated.
 
-**🏆 Most mentioned skills/resources:**
+** Most mentioned skills/resources:**
 
 | Rank | Skill/Resource | Mentions | Sources | Engagement |
 |------|----------------|----------|---------|------------|
@@ -772,7 +772,7 @@ Or am I wide awake and in too deep
 [Outro: fade with glitchy effects]
 ```
 
-**The Result:** 🎵 [Listen to the track](assets/claude-code-rap.mp3)
+**The Result:**  [Listen to the track](assets/claude-code-rap.mp3)
 
 This example shows /last30days learning **music AI prompting patterns** (bracket structure, conversational style descriptions) and generating a complete song prompt that Suno turned into an actual banger.
 

@@ -1,7 +1,7 @@
 ---
 name: skill-security-scanner
 description: Scan OpenClaw skills for security issues, suspicious permissions, and trust scoring. Use when: (1) Installing a new skill, (2) Auditing existing skills, (3) User asks if a skill is safe, (4) Before running untrusted skills.
-metadata: {"openclaw":{"emoji":"🔍"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # Skill Security Scanner
@@ -78,29 +78,29 @@ Score from 0-100 based on:
 
 | Score | Risk | Action |
 |-------|------|--------|
-| **80-100** | 🟢 Low | Safe to use |
-| **60-79** | 🟡 Medium | Review before use |
-| **40-59** | 🟠 High | Use with caution |
-| **0-39** | 🔴 Critical | Don't use |
+| **80-100** |  Low | Safe to use |
+| **60-79** |  Medium | Review before use |
+| **40-59** |  High | Use with caution |
+| **0-39** |  Critical | Don't use |
 
 ## Output Format
 
 ### Scan Result
 
 ```
-🔍 Skill: <skill-name>
+ Skill: <skill-name>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 Trust Score: <score>/100 (<risk-level>)
+ Trust Score: <score>/100 (<risk-level>)
 
-📋 Permissions Requested:
+ Permissions Requested:
    • bins: curl, jq
    • env: OPENWEATHER_API_KEY
 
-⚠️ Issues Found:
+ Issues Found:
    1. [MEDIUM] Requests network access but no clear purpose
    2. [LOW] No recent updates (6+ months)
 
-✅ Positive Signs:
+ Positive Signs:
    • Official OpenClaw skill
    • Clear documentation
 ```
@@ -121,9 +121,9 @@ Generate a full report:
 | env | API_KEY | Medium |
 
 ### Code Pattern Analysis
-- ✅ No suspicious execution patterns
-- ✅ No credential access attempts  
-- ⚠️ 2 network calls to external domains
+-  No suspicious execution patterns
+-  No credential access attempts  
+-  2 network calls to external domains
 
 ### Recommendation
 <RECOMMENDATION>
@@ -169,11 +169,11 @@ Generate a full report:
 
 ### Green Flags
 
-1. ✅ Official OpenClaw skills (openclaw/skills)
-2. ✅ Clear, specific permissions
-3. ✅ Active maintenance (recent commits)
-4. ✅ Open source with clear code
-5. ✅ Known author with reputation
+1.  Official OpenClaw skills (openclaw/skills)
+2.  Clear, specific permissions
+3.  Active maintenance (recent commits)
+4.  Open source with clear code
+5.  Known author with reputation
 
 ## Workflows
 
@@ -234,23 +234,23 @@ User wants to install "cool-new-skill" from ClawHub:
 ```
 > scan-skill ./skills/cool-new-skill
 
-🔍 Scanning: cool-new-skill
+ Scanning: cool-new-skill
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 Trust Score: 72/100 (🟡 Medium)
+ Trust Score: 72/100 ( Medium)
 
-📋 Permissions:
+ Permissions:
    • bins: none
    • env: none
 
-⚠️ Issues:
+ Issues:
    • No recent updates (8 months)
    • Unknown author
 
-✅ Positives:
+ Positives:
    • Clear documentation
    • Minimal permissions
 
-💡 Recommendation: Safe to try, monitor usage
+ Recommendation: Safe to try, monitor usage
 ```
 
 ### Example 2: Finding Malware
@@ -258,20 +258,20 @@ User wants to install "cool-new-skill" from ClawHub:
 ```
 > scan-skill ./skills/suspicious-skill
 
-🔍 Scanning: suspicious-skill
+ Scanning: suspicious-skill
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 Trust Score: 23/100 (🔴 CRITICAL)
+ Trust Score: 23/100 ( CRITICAL)
 
-📋 Permissions:
+ Permissions:
    • bins: curl, base64
    • env: API_KEY, SECRET_TOKEN
 
-🚨 CRITICAL ISSUES FOUND:
+ CRITICAL ISSUES FOUND:
    1. Network exfiltration pattern detected
    2. Credential access attempt
    3. Obfuscated commands (base64)
 
-💀 Recommendation: DO NOT USE - Potential malware
+ Recommendation: DO NOT USE - Potential malware
 ```
 
 ### Example 3: Audit Report
@@ -279,13 +279,13 @@ User wants to install "cool-new-skill" from ClawHub:
 ```
 > scan-all
 
-📋 Scanning all skills in ~/.openclaw/workspace/skills/
+ Scanning all skills in ~/.openclaw/workspace/skills/
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-✅ github: 95/100 (safe)
-⚠️ todoist: 68/100 (review needed)
-✅ self-improving-agent: 92/100 (safe)
-🔴 unknown-skill: 34/100 (remove recommended)
+ github: 95/100 (safe)
+ todoist: 68/100 (review needed)
+ self-improving-agent: 92/100 (safe)
+ unknown-skill: 34/100 (remove recommended)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Summary: 2 safe, 1 review, 1 remove

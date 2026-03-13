@@ -41,10 +41,10 @@ EXIT_CODE=$?
 
 if [ $EXIT_CODE -eq 0 ]; then
     echo ""
-    echo "✅ Successfully published Security Dashboard v$VERSION"
+    echo " Successfully published Security Dashboard v$VERSION"
     echo "View at: https://clawhub.ai/vegasbrianc/security-dashboard"
 else
     echo ""
-    echo "❌ Publish failed with exit code $EXIT_CODE"
+    echo " Publish failed with exit code $EXIT_CODE"
     exit $EXIT_CODE
 fi

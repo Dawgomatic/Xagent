@@ -7,7 +7,7 @@
 
 import { listDomains } from './gandi-api.js';
 
-console.log('🌐 Listing your Gandi domains...\n');
+console.log(' Listing your Gandi domains...\n');
 
 try {
   const domains = await listDomains();
@@ -41,7 +41,7 @@ try {
       console.log(`   Expires: ${expiresAt.toDateString()} (${daysUntilExpiry} days)`);
       
       if (daysUntilExpiry < 30) {
-        console.log(`   ⚠️  Expires soon!`);
+        console.log(`     Expires soon!`);
       }
     }
     
@@ -50,7 +50,7 @@ try {
       const enabled = typeof domain.autorenew === 'boolean' 
         ? domain.autorenew 
         : domain.autorenew.enabled;
-      const status = enabled ? '✅ Enabled' : '❌ Disabled';
+      const status = enabled ? ' Enabled' : ' Disabled';
       console.log(`   Auto-renew: ${status}`);
     }
     
@@ -84,7 +84,7 @@ try {
   });
   
   if (expiringSoon.length > 0) {
-    console.log(`⚠️  ${expiringSoon.length} domain${expiringSoon.length === 1 ? '' : 's'} expiring within 30 days!`);
+    console.log(`  ${expiringSoon.length} domain${expiringSoon.length === 1 ? '' : 's'} expiring within 30 days!`);
   }
   
   const withoutAutorenew = domains.filter(d => {
@@ -95,14 +95,14 @@ try {
     return !enabled;
   });
   if (withoutAutorenew.length > 0) {
-    console.log(`💡 ${withoutAutorenew.length} domain${withoutAutorenew.length === 1 ? '' : 's'} without auto-renewal`);
+    console.log(` ${withoutAutorenew.length} domain${withoutAutorenew.length === 1 ? '' : 's'} without auto-renewal`);
   }
   
 } catch (error) {
-  console.log('❌ Error:', error.message);
+  console.log(' Error:', error.message);
   
   if (error.statusCode === 401 || error.statusCode === 403) {
-    console.log('\n💡 Authentication error. Run: node test-auth.js');
+    console.log('\n Authentication error. Run: node test-auth.js');
   }
   
   process.exit(1);

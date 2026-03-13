@@ -10,17 +10,17 @@ const { suggestReaction } = require('./index.js');
 
 const text = "This is awesome! Great job.";
 const suggestion = suggestReaction(text);
-// Returns: { category: "positive", emoji: "👍", confidence: 0.9 }
+// Returns: { category: "positive", emoji: "", confidence: 0.9 }
 ```
 
 ## Supported Categories
 
-- **Positive:** 👍, ❤️, 🙌, ✅
-- **Negative:** 👎, 💔, ❌, ⚠️
-- **Funny:** 😂, 🤣, 💀
-- **Curious:** 🤔, 🧐, ❓
-- **Excited:** 🎉, 🚀, 🔥
-- **Neutral:** 👀, 🆗
+- **Positive:** , , , 
+- **Negative:** , , , 
+- **Funny:** , , 
+- **Curious:** , , 
+- **Excited:** , , 
+- **Neutral:** , 
 
 ## Notes
 

@@ -2,7 +2,7 @@
 
 The Gumroad Pro skill uses interactive buttons to provide a streamlined merchant experience on supported channels (Telegram, Slack, Discord, WebChat).
 
-### 🛡️ Reducing Chat Spam
+###  Reducing Chat Spam
 To provide a premium experience, the skill prioritizes **Inline Editing**.
 
 | Action | Behavior | Usage |
@@ -16,7 +16,7 @@ To provide a premium experience, the skill prioritizes **Inline Editing**.
 
 **AI Rule**: Always set `action: 'edit'` unless you are explicitly starting a new interaction thread. This keeps the user's chat history clean and focused.
 
-## 🏗️ Button Schema
+##  Button Schema
 Buttons are structured as a 2D array (rows and columns) of objects:
 
 ```json
@@ -31,7 +31,7 @@ Buttons are structured as a 2D array (rows and columns) of objects:
 ]
 ```
 
-## 🛠️ Implementation Protocol
+##  Implementation Protocol
 All UI rendering must pass through the `renderResponse(ctx, data)` helper in `handler.js`.
 
 ### 1. Metadata Fields
@@ -45,16 +45,16 @@ Always use the `gp:` prefix followed by colon-separated identifiers:
 *Example*: `gp:products:details:p123`
 
 ### 3. Progressive Disclosure & Navigation
-- **Back Buttons**: Every sub-menu MUST include a `[{ text: '🔙 Back', callback_data: '...' }]` button.
+- **Back Buttons**: Every sub-menu MUST include a `[{ text: ' Back', callback_data: '...' }]` button.
 - **Fallback**: For non-button channels, the skill automatically appends a numbered list (e.g., `[1] Label`) to the text.
 
-## 📝 Example Response Structure
+##  Example Response Structure
 ```javascript
 return renderResponse(ctx, {
-  text: "📦 **Product: Art Pack**\nPrice: $25.00",
+  text: " **Product: Art Pack**\nPrice: $25.00",
   buttons: [
-    [{ text: "📝 Edit", callback_data: "gp:prod_edit:p123" }, { text: "🗑️ Delete", callback_data: "gp:prod_del:p123" }],
-    [{ text: "🔙 Back to List", callback_data: "gp:products" }]
+    [{ text: " Edit", callback_data: "gp:prod_edit:p123" }, { text: " Delete", callback_data: "gp:prod_del:p123" }],
+    [{ text: " Back to List", callback_data: "gp:products" }]
   ],
   action: "edit"
 });

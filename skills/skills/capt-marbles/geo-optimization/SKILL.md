@@ -424,24 +424,24 @@ Regularly search these prompts on each platform:
 ## GEO Content Principles
 
 ### DO:
-- ✅ Use specific numbers ("0.5 seconds" not "fast")
-- ✅ Make claims quotable and standalone
-- ✅ Structure content with clear hierarchy
-- ✅ Include FAQ sections
-- ✅ Update content regularly with dates
-- ✅ Create comparison content
-- ✅ Use tables for data
-- ✅ Be factual and neutral in tone
-- ✅ Name real customers and results
+-  Use specific numbers ("0.5 seconds" not "fast")
+-  Make claims quotable and standalone
+-  Structure content with clear hierarchy
+-  Include FAQ sections
+-  Update content regularly with dates
+-  Create comparison content
+-  Use tables for data
+-  Be factual and neutral in tone
+-  Name real customers and results
 
 ### DON'T:
-- ❌ Use vague superlatives ("best", "leading", "top")
-- ❌ Keyword stuff (LLMs see through it)
-- ❌ Write walls of text without structure
-- ❌ Hide information (be comprehensive)
-- ❌ Use outdated statistics
-- ❌ Ignore competitors (address them directly)
-- ❌ Be obviously promotional (neutral wins)
+-  Use vague superlatives ("best", "leading", "top")
+-  Keyword stuff (LLMs see through it)
+-  Write walls of text without structure
+-  Hide information (be comprehensive)
+-  Use outdated statistics
+-  Ignore competitors (address them directly)
+-  Be obviously promotional (neutral wins)
 
 ---
 

@@ -206,7 +206,7 @@ async function main() {
       
       console.log(`✓ Reputation check passed: ${reputationResult.score}/100`);
     } else {
-      console.log(`⚠️  Reputation confirmation override enabled for ${args.skill}`);
+      console.log(`  Reputation confirmation override enabled for ${args.skill}`);
     }
 
     // Step 2: Run original guarded installer (handles advisory checks)

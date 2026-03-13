@@ -19,22 +19,22 @@ Trails enables seamless cross-chain token transfers, swaps, and smart contract e
 
 ### Core Capabilities
 
-**🔗 Cross-Chain Operations**
+** Cross-Chain Operations**
 - Bridge tokens between 10+ EVM chains (Ethereum, Base, Arbitrum, Optimism, Polygon, etc.)
 - Automatic routing through the best liquidity paths
 - Single-transaction UX even for complex multi-hop operations
 
-**💱 Token Swaps & Payments**
+** Token Swaps & Payments**
 - Accept payments in any token, receive in your preferred token
 - User chooses input, you specify output (or vice versa)
 - Real-time pricing with slippage protection
 
-**🎯 Smart Contract Execution**
+** Smart Contract Execution**
 - Execute contract calls on the destination chain after bridging
 - Perfect for DeFi deposits, NFT mints, vault staking, and more
 - Automatic placeholder amounts for dynamic calldata
 
-**⚡ Developer Experience**
+** Developer Experience**
 - Drop-in Widget for instant integration (< 10 lines of code)
 - Headless hooks for custom UX with full control
 - REST API for server-side automation and backends
@@ -46,7 +46,7 @@ Trails enables seamless cross-chain token transfers, swaps, and smart contract e
 
 Trails provides three integration approaches:
 
-### 🎨 Widget (Drop-in UI)
+###  Widget (Drop-in UI)
 **Best for:** React/Next.js apps wanting instant cross-chain functionality
 
 Pre-built, themeable UI components:
@@ -64,7 +64,7 @@ Pre-built, themeable UI components:
 />
 ```
 
-### 🎛️ Headless SDK (Custom UX)
+###  Headless SDK (Custom UX)
 **Best for:** React apps with existing UI/UX needing programmatic control
 
 React hooks for custom implementations:
@@ -77,7 +77,7 @@ const { useQuote } = useQuote();
 const { data: tokens } = useSupportedTokens();
 ```
 
-### 🔌 Direct API (Server-Side)
+###  Direct API (Server-Side)
 **Best for:** Backend services, automation, non-React apps, AI agents
 
 REST API for server-side integrations:
@@ -106,11 +106,11 @@ const quote = await fetch('https://api.trails.build/quote', {
 
 When installed, the Trails skill becomes your AI integration assistant. It:
 
-✅ **Detects your stack** — Scans for React, Next.js, wagmi, viem  
-✅ **Recommends the best approach** — Widget, Headless SDK, or Direct API  
-✅ **Generates working code** — Provider setup, integration snippets, environment config  
-✅ **Guides advanced features** — Calldata encoding, token discovery, error handling  
-✅ **Troubleshoots issues** — Provider hierarchy, modal rendering, transaction debugging  
+ **Detects your stack** — Scans for React, Next.js, wagmi, viem  
+ **Recommends the best approach** — Widget, Headless SDK, or Direct API  
+ **Generates working code** — Provider setup, integration snippets, environment config  
+ **Guides advanced features** — Calldata encoding, token discovery, error handling  
+ **Troubleshoots issues** — Provider hierarchy, modal rendering, transaction debugging  
 
 ### Activation Triggers
 
@@ -326,7 +326,7 @@ Built by [0xtrails](https://twitter.com/0xtrails) to eliminate the complexity of
 
 ## License
 
-MIT © 0xtrails
+MIT  0xtrails
 
 ---
 

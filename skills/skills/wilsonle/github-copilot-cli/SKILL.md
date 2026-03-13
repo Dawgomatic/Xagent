@@ -79,12 +79,12 @@ Then iterate toward the fix yourself.
 
 ## Prompting Patterns That Work
 
-### ✅ Good prompts (role-aware)
+###  Good prompts (role-aware)
 - "As a backend engineer, draft a minimal fix for X"
 - "As a tester, add guards so Y never happens"
 - "As infra, refactor this to be safer, not faster"
 
-### ❌ Bad prompts
+###  Bad prompts
 - "Implement feature X end-to-end"
 - "Refactor the whole service"
 - "Make this production-ready"

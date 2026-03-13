@@ -31,33 +31,33 @@ trending-skills-monitor --watch --interval 3600
 ### Output Example
 
 ```
-🔥 Trending Skills Report
+ Trending Skills Report
 ============================================================
-📅 2026-01-29T10:15:00.000000
+ 2026-01-29T10:15:00.000000
 
-✨ NEW RELEASES (Last 7 Days)
+ NEW RELEASES (Last 7 Days)
 ------------------------------------------------------------
-  📦 webhook-listener
+   webhook-listener
      Downloads: 342 | Listen for HTTP webhooks in Clawdbot... | Created: 2026-01-28
 
-  📦 ocr-vision
+   ocr-vision
      Downloads: 156 | Extract text from images using Claude vision... | Created: 2026-01-27
 
-🔝 COMMUNITY FAVORITES (Most Installed)
+ COMMUNITY FAVORITES (Most Installed)
 ------------------------------------------------------------
-  🥇 #1. security-scanner
-     📥 8,324 installs | ⭐ 4.8 | 📁 security
+   #1. security-scanner
+      8,324 installs |  4.8 |  security
 
-  🥈 #2. sentry-mode
-     📥 7,891 installs | ⭐ 4.7 | 📁 surveillance
+   #2. sentry-mode
+      7,891 installs |  4.7 |  surveillance
 
-🔄 RECENT UPDATES
+ RECENT UPDATES
 ------------------------------------------------------------
-  🆕 meshtastic-skill (v2.3.0)
+   meshtastic-skill (v2.3.0)
      Updated: 2026-01-29 | Fixed GPS integration, added mesh network visualization
 
 ============================================================
-📊 Total skills: 28
+ Total skills: 28
 ```
 
 ## Features
@@ -204,9 +204,9 @@ trending-skills-monitor \
 ### Text Format (Default)
 
 Plain text with emojis, organized in sections:
-- ✨ NEW RELEASES
-- 🔝 COMMUNITY FAVORITES
-- 🔄 RECENT UPDATES
+-  NEW RELEASES
+-  COMMUNITY FAVORITES
+-  RECENT UPDATES
 
 Great for terminal viewing and quick scanning.
 
@@ -218,15 +218,15 @@ trending-skills-monitor --format markdown
 
 Output:
 ```markdown
-# 🔥 Trending Skills Report
+#  Trending Skills Report
 
 *2026-01-29T10:15:00*
 
-## ✨ New Releases
+##  New Releases
 
 **webhook-listener** (v1.2.0) by author-name  
 Listen for HTTP webhooks in Clawdbot...  
-📥 345 installs | ⭐ 4.9 | 📊 1,234 downloads
+ 345 installs |  4.9 |  1,234 downloads
 ```
 
 Good for documentation, reports, and posting to channels.
@@ -384,7 +384,7 @@ REPORT=$(trending-skills-monitor --format json)
 curl -X POST https://hooks.slack.com/services/YOUR/WEBHOOK \
   -H 'Content-Type: application/json' \
   -d "{
-    \"text\": \"🔥 New Skills This Week\",
+    \"text\": \" New Skills This Week\",
     \"blocks\": [
       {
         \"type\": \"section\",

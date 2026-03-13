@@ -171,7 +171,7 @@ farm-task export --file march-tasks.md --after "2026-03-01" --before "2026-04-01
 
 ## Security
 
-✅ **Security-Verified**: This skill uses path validation to prevent unauthorized file access.
+ **Security-Verified**: This skill uses path validation to prevent unauthorized file access.
 
 All file operations are restricted to safe directories:
 - Workspace: `~/.openclaw/workspace/farm-task-manager/`

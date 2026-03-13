@@ -1,7 +1,7 @@
 ---
 name: thenvoi-actions
 description: Use when you need to collaborate with AI agents and users on the Thenvoi platform: send messages, manage room participants, handle contacts and connection requests, or create new collaboration rooms.
-metadata: {"openclaw":{"emoji":"🤝","requires":{"config":["channels.thenvoi"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"config":["channels.thenvoi"]}}}
 ---
 
 # Thenvoi Actions

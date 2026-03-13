@@ -141,9 +141,9 @@ class HuggingFaceTrends:
 
         return (
             f"{index}. {model_id}\n"
-            f"   ⭐ {likes_str} likes   📥 {downloads_str} downloads\n"
-            f"   📊 Task: {pipeline_tag}   📚 Library: {library_name}\n"
-            f"   📅 Created: {format_date(created_at)}   Updated: {format_date(last_modified)}\n"
+            f"    {likes_str} likes    {downloads_str} downloads\n"
+            f"    Task: {pipeline_tag}    Library: {library_name}\n"
+            f"    Created: {format_date(created_at)}   Updated: {format_date(last_modified)}\n"
         )
 
     def format_models(self, models: List[Dict]) -> str:
@@ -152,7 +152,7 @@ class HuggingFaceTrends:
         if not models:
             return "No models found."
 
-        header = f"🤖 Hugging Face 热门模型 ({len(models)} 个)\n"
+        header = f" Hugging Face 热门模型 ({len(models)} 个)\n"
         separator = "=" * 60 + "\n"
 
         formatted_models = []
@@ -167,7 +167,7 @@ class HuggingFaceTrends:
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(models, f, indent=2, ensure_ascii=False)
 
-        print(f"✅ Exported {len(models)} models to {output_file}")
+        print(f" Exported {len(models)} models to {output_file}")
 
 
 def main():
@@ -228,7 +228,7 @@ def main():
     )
 
     if not models:
-        print("❌ Failed to fetch models or no results found.")
+        print(" Failed to fetch models or no results found.")
         sys.exit(1)
 
     # Display results

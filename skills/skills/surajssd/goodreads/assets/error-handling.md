@@ -188,7 +188,7 @@ The agent called a browser action without all required parameters. Common cases:
 - Page content seems different from what was expected
 - Actions produce unexpected results
 
-**⚠️ CRITICAL: Wrapped error messages.** Stale ref errors are sometimes wrapped inside a misleading outer error. For example:
+** CRITICAL: Wrapped error messages.** Stale ref errors are sometimes wrapped inside a misleading outer error. For example:
 
 ```json
 {
@@ -289,7 +289,7 @@ Refs from `snapshot` are tied to a specific page state. Any navigation, page rel
 - Navigation timeout
 - Snapshot returns empty or error content
 
-**⚠️ FIRST: Check for wrapped errors.** Before treating this as a true browser failure, read the FULL error message. If the error text contains `"not found or not visible. Run a new snapshot"` or `"Unknown ref"`, this is actually a stale ref error wrapped in a misleading outer message — see the "Stale Refs" section above. Re-snapshot and retry instead of giving up.
+** FIRST: Check for wrapped errors.** Before treating this as a true browser failure, read the FULL error message. If the error text contains `"not found or not visible. Run a new snapshot"` or `"Unknown ref"`, this is actually a stale ref error wrapped in a misleading outer message — see the "Stale Refs" section above. Re-snapshot and retry instead of giving up.
 
 **Recovery (for genuine browser failures only):**
 

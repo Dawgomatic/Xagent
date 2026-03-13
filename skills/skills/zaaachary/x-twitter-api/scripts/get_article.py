@@ -43,7 +43,7 @@ class XTwitterAPI:
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
-            print(f"❌ API request failed: {e}")
+            print(f" API request failed: {e}")
             if 'response' in locals():
                 print(f"Status: {response.status_code}")
                 print(f"Response: {response.text}")
@@ -77,7 +77,7 @@ def extract_id_from_url(url):
 def format_tweet_data(data):
     """Format tweet data for display"""
     if not data or "data" not in data:
-        return "❌ No tweet data found"
+        return " No tweet data found"
 
     tweet = data["data"]
     tweet_id = tweet.get("id", "N/A")
@@ -111,20 +111,20 @@ def format_tweet_data(data):
 
     output = f"""
 {'=' * 60}
-📱 Tweet ID: {tweet_id}
+ Tweet ID: {tweet_id}
 {'=' * 60}
 
-👤 {author_info}
-🕒 {time_str}
+ {author_info}
+ {time_str}
 
 {text}
 
 {'─' * 60}
-📊 Metrics:
-   ❤️ Likes: {likes}
-   🔄 Retweets: {retweets}
-   💬 Replies: {replies}
-   📎 Quotes: {quotes}
+ Metrics:
+    Likes: {likes}
+    Retweets: {retweets}
+    Replies: {replies}
+    Quotes: {quotes}
 """
 
     return output
@@ -140,7 +140,7 @@ def main():
     args = parser.parse_args()
 
     if not os.environ.get('X_BEARER_TOKEN'):
-        print("❌ Error: X_BEARER_TOKEN not set")
+        print(" Error: X_BEARER_TOKEN not set")
         print("\nGet API token:")
         print("1. Visit https://developer.x.com")
         print("2. Create project and app")
@@ -155,29 +155,29 @@ def main():
     elif args.url:
         tweet_id = extract_id_from_url(args.url)
         if not tweet_id:
-            print(f"❌ Could not extract tweet ID from URL: {args.url}")
+            print(f" Could not extract tweet ID from URL: {args.url}")
             sys.exit(1)
     else:
-        print("❌ Error: Please provide --url or --id")
+        print(" Error: Please provide --url or --id")
         sys.exit(1)
 
-    print(f"🔍 Fetching tweet ID: {tweet_id}\n")
+    print(f" Fetching tweet ID: {tweet_id}\n")
 
     # Get tweet data
     try:
         api = XTwitterAPI()
         data = api.get_tweet_by_id(tweet_id)
     except ValueError as e:
-        print(f"❌ {e}")
+        print(f" {e}")
         sys.exit(1)
 
     if not data:
-        print("❌ Failed to fetch tweet")
+        print(" Failed to fetch tweet")
         sys.exit(1)
 
     # Check for errors
     if "errors" in data:
-        print(f"❌ API returned errors:")
+        print(f" API returned errors:")
         for error in data["errors"]:
             print(f"   - {error.get('message', 'Unknown error')}")
         sys.exit(1)
@@ -194,7 +194,7 @@ def main():
     if args.save:
         with open(args.save, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
-        print(f"\n💾 Saved to: {args.save}")
+        print(f"\n Saved to: {args.save}")
 
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@
 | `☆` | If-energy (nice to have) |
 | `!` | Urgent/time-sensitive |
 | `?` | Waiting (blocked) |
-| `💀` | Dread task (needs support) |
+| `` | Dread task (needs support) |
 
 ## Signifiers (Left Margin)
 
@@ -40,7 +40,7 @@ Daily Log:
   • Review proposal
   ! Respond to urgent email
   ? Waiting on John's feedback
-  💀 Prepare taxes
+   Prepare taxes
   × Completed task
   > Migrated to tomorrow
   < Scheduled for 2026-02-15

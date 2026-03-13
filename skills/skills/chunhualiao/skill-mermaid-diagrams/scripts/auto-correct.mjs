@@ -180,7 +180,7 @@ async function iterativeCorrection(content, maxIterations = 3) {
   let iteration = 0;
   let currentContent = JSON.parse(JSON.stringify(content)); // Deep copy
   
-  console.log(`\n🔄 Starting iterative correction cycle (max ${maxIterations} iterations)\n`);
+  console.log(`\n Starting iterative correction cycle (max ${maxIterations} iterations)\n`);
   
   while (iteration < maxIterations) {
     iteration++;
@@ -195,10 +195,10 @@ async function iterativeCorrection(content, maxIterations = 3) {
     for (const [index, diagram] of currentContent.diagrams.entries()) {
       const validation = validateSemantics(diagram.template, diagram.placeholders);
       
-      console.log(`📊 Diagram ${index + 1}: ${diagram.template}`);
+      console.log(` Diagram ${index + 1}: ${diagram.template}`);
       
       if (validation.passed && validation.warnings.length === 0) {
-        console.log(`   ✅ PASS\n`);
+        console.log(`    PASS\n`);
         continue;
       }
       
@@ -206,14 +206,14 @@ async function iterativeCorrection(content, maxIterations = 3) {
       
       // Print issues
       if (validation.errors.length > 0) {
-        console.log(`   ❌ Errors: ${validation.errors.length}`);
+        console.log(`    Errors: ${validation.errors.length}`);
         for (const error of validation.errors) {
           console.log(`      - ${error.message}`);
         }
       }
       
       if (validation.warnings.length > 0) {
-        console.log(`   ⚠️  Warnings: ${validation.warnings.length}`);
+        console.log(`     Warnings: ${validation.warnings.length}`);
         for (const warning of validation.warnings) {
           console.log(`      - ${warning.message}`);
         }
@@ -224,7 +224,7 @@ async function iterativeCorrection(content, maxIterations = 3) {
       
       if (suggestedCorrections.length > 0) {
         const best = suggestedCorrections[0];
-        console.log(`\n   💡 Auto-correction available:`);
+        console.log(`\n    Auto-correction available:`);
         console.log(`      ${diagram.template} → ${best.suggestedTemplate} (${(best.confidence * 100).toFixed(0)}% confidence)`);
         console.log(`      Reason: ${best.reason}`);
         
@@ -236,7 +236,7 @@ async function iterativeCorrection(content, maxIterations = 3) {
         );
         
         if (convertedPlaceholders) {
-          console.log(`      ✅ Placeholder conversion available\n`);
+          console.log(`       Placeholder conversion available\n`);
           corrections.push({
             index,
             from: diagram.template,
@@ -246,16 +246,16 @@ async function iterativeCorrection(content, maxIterations = 3) {
             reason: best.reason
           });
         } else {
-          console.log(`      ⚠️  Manual placeholder mapping required\n`);
+          console.log(`        Manual placeholder mapping required\n`);
         }
       } else {
-        console.log(`\n   ℹ️  No auto-corrections available\n`);
+        console.log(`\n     No auto-corrections available\n`);
       }
     }
     
     // Apply corrections
     if (corrections.length > 0) {
-      console.log(`\n🔧 Applying ${corrections.length} corrections...\n`);
+      console.log(`\n Applying ${corrections.length} corrections...\n`);
       
       for (const correction of corrections) {
         console.log(`   ${correction.index + 1}. ${correction.from} → ${correction.to}`);
@@ -277,13 +277,13 @@ async function iterativeCorrection(content, maxIterations = 3) {
         details: corrections
       });
     } else if (!allPassed) {
-      console.log(`\n⚠️  Issues detected but no auto-corrections available. Stopping.\n`);
+      console.log(`\n  Issues detected but no auto-corrections available. Stopping.\n`);
       break;
     }
     
     // Check if all passed
     if (allPassed) {
-      console.log(`\n✅ All diagrams passed validation!\n`);
+      console.log(`\n All diagrams passed validation!\n`);
       break;
     }
   }
@@ -340,7 +340,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   
   if (args.out) {
     fs.writeFileSync(args.out, JSON.stringify(result.correctedContent, null, 2));
-    console.log(`\n💾 Corrected content saved to: ${args.out}\n`);
+    console.log(`\n Corrected content saved to: ${args.out}\n`);
     
     // Also save correction report
     const reportPath = args.out.replace('.json', '-report.json');
@@ -352,7 +352,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         converged: result.iterations < maxIterations
       }
     }, null, 2));
-    console.log(`📊 Correction report saved to: ${reportPath}\n`);
+    console.log(` Correction report saved to: ${reportPath}\n`);
   }
 }
 

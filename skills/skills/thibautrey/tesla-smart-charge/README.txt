@@ -51,15 +51,15 @@ clawdbot cron add \
 
 ## Key Features
 
-✅ **Automatic charge limit management** (during & after sessions)
-✅ Default limits: 100% during session, 80% after (battery health)
-✅ Dynamic battery calculation (fetches real current battery)
-✅ Schedule-based charging (only charge on planned days)
-✅ Customizable charger power (13A, 16A, 32A, etc.)
-✅ Automatic start time calculation
-✅ Next charge shown after each run
-✅ JSON plan output for integration
-✅ Multi-vehicle support
+ **Automatic charge limit management** (during & after sessions)
+ Default limits: 100% during session, 80% after (battery health)
+ Dynamic battery calculation (fetches real current battery)
+ Schedule-based charging (only charge on planned days)
+ Customizable charger power (13A, 16A, 32A, etc.)
+ Automatic start time calculation
+ Next charge shown after each run
+ JSON plan output for integration
+ Multi-vehicle support
 
 ## Usage Commands
 

@@ -6,7 +6,7 @@ This guide provides detailed instructions for AI agents on how to execute aria2-
 
 **NEVER manually construct JSON-RPC requests. ALWAYS use the provided Python scripts.**
 
-**⚠️ CRITICAL: Use `python3` command, NOT `python`**
+** CRITICAL: Use `python3` command, NOT `python`**
 - On macOS, the `python` symlink doesn't exist by default
 - Always use `python3` for cross-platform compatibility
 - All examples in this guide use `python3`
@@ -182,7 +182,7 @@ Stopped (3):
 
 ## Common Mistakes to Avoid
 
-### ❌ WRONG: Manually construct JSON-RPC
+###  WRONG: Manually construct JSON-RPC
 
 ```bash
 # DON'T do this!
@@ -193,21 +193,21 @@ curl -X POST http://localhost:6800/jsonrpc \
 echo '{"jsonrpc": "2.0", "method": "aria2.addUri", ...}'
 ```
 
-### ✅ CORRECT: Use Python scripts
+###  CORRECT: Use Python scripts
 
 ```bash
 # DO this!
 python3 scripts/rpc_client.py aria2.addUri '["http://example.com/file.zip"]'
 ```
 
-### ❌ WRONG: Try to import aria2
+###  WRONG: Try to import aria2
 
 ```python
 # DON'T do this!
 import aria2  # aria2 is not a Python library!
 ```
 
-### ✅ CORRECT: Call scripts via subprocess
+###  CORRECT: Call scripts via subprocess
 
 ```python
 # DO this if needed!

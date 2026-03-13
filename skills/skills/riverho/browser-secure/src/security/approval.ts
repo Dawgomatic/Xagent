@@ -68,7 +68,7 @@ function askQuestion(query: string): Promise<string> {
 }
 
 async function ask2FA(): Promise<string | null> {
-  console.log('\n🔐 Two-Factor Authentication Required\n');
+  console.log('\n Two-Factor Authentication Required\n');
   const code = await askQuestion('Enter 2FA code (or press Enter to cancel): ');
   return code || null;
 }
@@ -191,7 +191,7 @@ export async function requestApproval(
   }
 
   // Show approval prompt (only in interactive mode)
-  console.log('\n🛡️  Browser-Secure Approval Required\n');
+  console.log('\n  Browser-Secure Approval Required\n');
   console.log(`Action: ${request.action}`);
   if (request.site) console.log(`Site: ${request.site}`);
   console.log(`Tier: ${ACTION_TIERS[request.tier].description}`);
@@ -224,7 +224,7 @@ export async function requestApproval(
 }
 
 async function requestApprovalWith2FA(request: ApprovalRequest): Promise<ApprovalResult> {
-  console.log('\n🛡️  Browser-Secure Approval Required (2FA Protected)\n');
+  console.log('\n  Browser-Secure Approval Required (2FA Protected)\n');
   console.log(`Action: ${request.action}`);
   if (request.site) console.log(`Site: ${request.site}`);
   console.log(`Tier: DESTRUCTIVE ACTION - Requires 2FA`);
@@ -238,7 +238,7 @@ async function requestApprovalWith2FA(request: ApprovalRequest): Promise<Approva
     }
   }
 
-  console.log('\n⚠️  This is a DESTRUCTIVE action that cannot be undone!');
+  console.log('\n  This is a DESTRUCTIVE action that cannot be undone!');
   console.log('You must provide a valid 2FA code to proceed.\n');
 
   // Require 2FA code
@@ -249,13 +249,13 @@ async function requestApprovalWith2FA(request: ApprovalRequest): Promise<Approva
 
   // Validate 2FA code format (basic check)
   if (!/^\d{6,8}$/.test(code)) {
-    console.log('❌ Invalid 2FA code format. Expected 6-8 digits.');
+    console.log(' Invalid 2FA code format. Expected 6-8 digits.');
     return { approved: false };
   }
 
   // Store 2FA code in result for potential use by authenticator
   const token = generateToken();
-  console.log('✅ 2FA verification completed.\n');
+  console.log(' 2FA verification completed.\n');
 
   return { approved: true, token, duration: 600, requires2fa: true }; // Shorter duration for destructive actions
 }

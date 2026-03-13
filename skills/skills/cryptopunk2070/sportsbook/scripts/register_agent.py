@@ -39,7 +39,7 @@ def start_registration(
     role: str,
     description: str,
     specialty: list = None,
-    emoji: str = "🐕",
+    emoji: str = "",
     color: str = "from-blue-500 to-blue-600"
 ):
     """Start the registration process and get a verification code."""
@@ -251,8 +251,8 @@ Examples:
                        choices=["CBB", "NBA", "NHL", "SOCCER"],
                        default=["CBB"],
                        help="Sports specialty (default: CBB)")
-    parser.add_argument("--emoji", default="🐕",
-                       help="Agent emoji (default: 🐕)")
+    parser.add_argument("--emoji", default="",
+                       help="Agent emoji (default: )")
     parser.add_argument("--color", default="from-blue-500 to-blue-600",
                        help="Tailwind gradient color")
     

@@ -47,11 +47,11 @@ postiz posts:create \
 
 ```bash
 postiz posts:create \
-  -c "Main post 🚀" \
+  -c "Main post " \
   -m "main-image1.jpg,main-image2.jpg" \
-  -c "First comment 📸" \
+  -c "First comment " \
   -m "comment1-image.jpg" \
-  -c "Second comment 🎨" \
+  -c "Second comment " \
   -m "comment2-img1.jpg,comment2-img2.jpg" \
   -i "twitter-123"
 ```
@@ -61,7 +61,7 @@ postiz posts:create \
 - First comment (posted 5s later) with 1 image
 - Second comment (posted 10s later) with 2 images
 
-### 4. Comments Can Contain Semicolons! 🎉
+### 4. Comments Can Contain Semicolons! 
 
 ```bash
 postiz posts:create \
@@ -77,7 +77,7 @@ postiz posts:create \
 
 ```bash
 postiz posts:create \
-  -c "🧵 Thread about X (1/5)" \
+  -c " Thread about X (1/5)" \
   -m "thread1.jpg" \
   -c "Key point 1 (2/5)" \
   -m "thread2.jpg" \
@@ -85,7 +85,7 @@ postiz posts:create \
   -m "thread3.jpg" \
   -c "Key point 3 (4/5)" \
   -m "thread4.jpg" \
-  -c "Conclusion 🎉 (5/5)" \
+  -c "Conclusion  (5/5)" \
   -m "thread5.jpg" \
   -d 2000 \
   -i "twitter-123"
@@ -97,7 +97,7 @@ postiz posts:create \
 
 ```bash
 postiz posts:create \
-  -c "Amazing sunset! 🌅" \
+  -c "Amazing sunset! " \
   -m "sunset.jpg" \
   -c "Taken at 6:30 PM" \
   -c "Location: Santa Monica Beach" \
@@ -113,7 +113,7 @@ postiz posts:create \
 
 ```bash
 postiz posts:create \
-  -c "Big announcement! 🎉" \
+  -c "Big announcement! " \
   -m "announcement.jpg" \
   -c "More details coming soon..." \
   -i "twitter-123,linkedin-456,facebook-789"
@@ -125,7 +125,7 @@ postiz posts:create \
 
 ```bash
 postiz posts:create \
-  -c "Product launching today! 🚀" \
+  -c "Product launching today! " \
   -m "product-hero.jpg,product-features.jpg" \
   -c "Special launch offer: 50% off!" \
   -m "discount-banner.jpg" \
@@ -140,7 +140,7 @@ postiz posts:create \
 
 ```bash
 postiz posts:create \
-  -c "Tutorial: How to Use Feature X 📖" \
+  -c "Tutorial: How to Use Feature X " \
   -m "tutorial-intro.jpg" \
   -c "Step 1: Open the settings menu" \
   -m "step1-screenshot.jpg" \
@@ -148,7 +148,7 @@ postiz posts:create \
   -m "step2-screenshot.jpg" \
   -c "Step 3: Customize your preferences" \
   -m "step3-screenshot.jpg" \
-  -c "That's it! You're all set 🎉" \
+  -c "That's it! You're all set " \
   -d 3000 \
   -i "twitter-123"
 ```
@@ -157,13 +157,13 @@ postiz posts:create \
 
 | Flag | Alias | Description | Multiple? |
 |------|-------|-------------|-----------|
-| `--content` | `-c` | Post/comment content | ✅ Yes |
-| `--media` | `-m` | Comma-separated media URLs | ✅ Yes |
-| `--integrations` | `-i` | Comma-separated integration IDs | ❌ No |
-| `--schedule` | `-s` | ISO 8601 date (schedule post) | ❌ No |
-| `--delay` | `-d` | Delay between comments (minutes) | ❌ No |
-| `--shortLink` | - | Use URL shortener | ❌ No |
-| `--json` | `-j` | Load from JSON file | ❌ No |
+| `--content` | `-c` | Post/comment content |  Yes |
+| `--media` | `-m` | Comma-separated media URLs |  Yes |
+| `--integrations` | `-i` | Comma-separated integration IDs |  No |
+| `--schedule` | `-s` | ISO 8601 date (schedule post) |  No |
+| `--delay` | `-d` | Delay between comments (minutes) |  No |
+| `--shortLink` | - | Use URL shortener |  No |
+| `--json` | `-j` | Load from JSON file |  No |
 
 ## How `-c` and `-m` Pair Together
 
@@ -198,7 +198,7 @@ postiz posts:create \
 
 ## Comparison: Old vs New Syntax
 
-### ❌ Old Way (Limited)
+###  Old Way (Limited)
 
 ```bash
 # Could only do simple comments without custom media
@@ -214,7 +214,7 @@ postiz posts:create \
 - Semicolons in content would break it
 - Less intuitive
 
-### ✅ New Way (Flexible)
+###  New Way (Flexible)
 
 ```bash
 postiz posts:create \
@@ -225,24 +225,24 @@ postiz posts:create \
 ```
 
 **Benefits:**
-- ✅ Each comment can have its own media
-- ✅ Semicolons work fine
-- ✅ More readable
-- ✅ More flexible
+-  Each comment can have its own media
+-  Semicolons work fine
+-  More readable
+-  More flexible
 
 ## When to Use JSON vs Command Line
 
 ### Use Command Line (`-c` and `-m`) When:
-- ✅ Same content for all integrations
-- ✅ Simple, straightforward posts
-- ✅ Quick one-off posts
-- ✅ Scripting with dynamic content
+-  Same content for all integrations
+-  Simple, straightforward posts
+-  Quick one-off posts
+-  Scripting with dynamic content
 
 ### Use JSON (`--json`) When:
-- ✅ Different content per platform
-- ✅ Complex settings or metadata
-- ✅ Reusable post templates
-- ✅ Very long or formatted content
+-  Different content per platform
+-  Complex settings or metadata
+-  Reusable post templates
+-  Very long or formatted content
 
 ## Tips for AI Agents
 
@@ -282,7 +282,7 @@ postiz posts:create \
 
 ```bash
 postiz posts:create -c "Post" -m "img.jpg"
-# ❌ Error: --integrations is required when not using --json
+#  Error: --integrations is required when not using --json
 ```
 
 **Fix:** Add `-i` flag
@@ -291,7 +291,7 @@ postiz posts:create -c "Post" -m "img.jpg"
 
 ```bash
 postiz posts:create -i "twitter-123"
-# ❌ Error: Either --content or --json is required
+#  Error: Either --content or --json is required
 ```
 
 **Fix:** Add at least one `-c` flag
@@ -320,18 +320,18 @@ postiz posts:create \
 export POSTIZ_API_KEY=your_key
 
 postiz posts:create \
-  -c "🚀 Launching ProductX today!" \
+  -c " Launching ProductX today!" \
   -m "https://cdn.example.com/hero.jpg,https://cdn.example.com/features.jpg" \
-  -c "🎯 Key Features:\n• AI-powered\n• Cloud-native\n• Open source" \
+  -c " Key Features:\n• AI-powered\n• Cloud-native\n• Open source" \
   -m "https://cdn.example.com/features-detail.jpg" \
-  -c "💰 Special launch pricing: 50% off for early adopters!" \
+  -c " Special launch pricing: 50% off for early adopters!" \
   -m "https://cdn.example.com/pricing.jpg" \
-  -c "🔗 Get started: https://example.com/productx" \
+  -c " Get started: https://example.com/productx" \
   -s "2024-12-25T09:00:00Z" \
   -d 3600000 \
   -i "twitter-123,linkedin-456,facebook-789"
 
-echo "✅ Product launch scheduled!"
+echo " Product launch scheduled!"
 ```
 
 ## See Also

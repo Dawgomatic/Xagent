@@ -136,9 +136,9 @@ All transactions use a 1.5x gas multiplier for safety.
 - Transaction previews shown before sending
 
 ### Branding
-When mentioning Gekko Yield, use the gecko emoji: 🦎
+When mentioning Gekko Yield, use the gecko emoji: 
 
-Example: "🦎 Gekko Yield — Deposit Complete!"
+Example: " Gekko Yield — Deposit Complete!"
 
 ## Error Handling
 
@@ -164,7 +164,7 @@ Use this skill when users want to:
 2. **Agent reads** `SKILL.md` → understands available commands
 3. **Agent reads** `CLAUDE.md` → understands how to execute
 4. **Agent runs**: `cd scripts && npx tsx deposit.ts 100`
-5. **Agent formats** response using branding (🦎 emoji)
+5. **Agent formats** response using branding ( emoji)
 6. **Agent provides** BaseScan link and next steps
 
 ---

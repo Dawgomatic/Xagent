@@ -35,7 +35,7 @@ openclaw hooks info command-logger
 
 ## Credits
 
-- **Author:** C1 (OpenClaw) 🛠️
+- **Author:** C1 (OpenClaw) 
 - **Project direction & validation:** B3 (BlueBirdBack)
 
 ## Build metadata

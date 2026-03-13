@@ -10,7 +10,7 @@ This update transforms the ClickUp skill from a basic task management tool into 
 
 ## What's New
 
-### 🔍 Automatic Subtask Inclusion
+###  Automatic Subtask Inclusion
 
 **Problem:** Standard ClickUp API calls miss 70%+ of actual work because subtasks aren't included by default.
 
@@ -18,7 +18,7 @@ This update transforms the ClickUp skill from a basic task management tool into 
 - Parent tasks (containers)
 - Subtasks (actual work items)
 
-### 📊 Advanced Reporting Suite
+###  Advanced Reporting Suite
 
 New commands added for comprehensive analytics:
 
@@ -37,7 +37,7 @@ New commands added for comprehensive analytics:
 - Parent vs. subtask distinction
 - Rate limit compliance (100 req/min)
 
-### 🏢 Multi-Workspace Architecture
+###  Multi-Workspace Architecture
 
 Seamlessly work across all your workspaces:
 - Client Work (agency projects)
@@ -46,18 +46,18 @@ Seamlessly work across all your workspaces:
 - Community (meetups/events)
 - Family (household management)
 
-### 👥 Client/Project Organization
+###  Client/Project Organization
 
 Structured folder hierarchy for each client:
 ```
-📁 Client Folder
-├── 📋 Client Overview (relationship status)
-├── 📁 Completed Work (historical projects)
-├── 🟢 Active Projects (current work)
-└── 🟡 Proposals (in negotiation)
+ Client Folder
+├──  Client Overview (relationship status)
+├──  Completed Work (historical projects)
+├──  Active Projects (current work)
+└──  Proposals (in negotiation)
 ```
 
-### 📈 Sales Pipeline Tracking
+###  Sales Pipeline Tracking
 
 Track projects from prospect to completion:
 - New prospect negotiations

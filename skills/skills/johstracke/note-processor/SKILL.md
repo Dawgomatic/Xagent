@@ -80,19 +80,19 @@ Shows:
 
 **Output example:**
 ```
-📊 Summary: income-experiments
+ Summary: income-experiments
 ------------------------------------------------------------
 Notes: 4
 Words: 63
 Created: 2026-02-07
 Last update: 2026-02-07
 
-🏷️  Top Tags:
+  Top Tags:
    content: 2
    automation: 2
    experiment: 2
 
-💡 Key Points:
+ Key Points:
    1. First experiment: create and publish skills...
    2. Second experiment: content automation pipeline...
 ```
@@ -105,7 +105,7 @@ Shows:
 
 **Output example:**
 ```
-🔤 Keywords: income-experiments
+ Keywords: income-experiments
 ------------------------------------------------------------
 Total unique keywords: 38
 
@@ -125,7 +125,7 @@ Shows:
 
 **Output example:**
 ```
-🔍 Search Results: 'skill' in income-experiments
+ Search Results: 'skill' in income-experiments
 ------------------------------------------------------------
 Found 4 match(es)
 
@@ -143,7 +143,7 @@ Shows:
 
 **Output example:**
 ```
-📚 Research Topics (5)
+ Research Topics (5)
 ------------------------------------------------------------
 
 income-experiments
@@ -387,10 +387,10 @@ note_processor.py summarize research-topic > ~/shared/summary.txt
 ## Zero-Cost Advantage
 
 This skill requires:
-- ✅ Python 3 (included)
-- ✅ No API keys
-- ✅ No external dependencies
-- ✅ No paid services
-- ✅ Works with research-assistant (free)
+-  Python 3 (included)
+-  No API keys
+-  No external dependencies
+-  No paid services
+-  Works with research-assistant (free)
 
 Perfect for autonomous research workflows with no additional costs.

@@ -1,10 +1,10 @@
 ---
-emoji: "🎨"
+emoji: ""
 title: "8种超美排版风格"
 subtitle: "小红书笔记创作神器"
 ---
 
-# 活泼几何风格 💜
+# 活泼几何风格 
 
 这是 **Playful Geometric** 风格的示例，灵感来自 Memphis 设计。
 
@@ -18,7 +18,7 @@ subtitle: "小红书笔记创作神器"
 
 ---
 
-# 新粗野主义风格 ⚡
+# 新粗野主义风格 
 
 **Neo-Brutalism** 风格：RAW. LOUD. UNAPOLOGETIC.
 
@@ -32,7 +32,7 @@ subtitle: "小红书笔记创作神器"
 
 ---
 
-# 植物园风格 🌿
+# 植物园风格 
 
 **Botanical** 风格带来自然清新的感觉。
 

@@ -31,10 +31,10 @@ const api = axios.create({
 
 const handleErr = (context, err) => {
     if (err.response) {
-        console.error(`❌ [${context}] Error ${err.response.status}: ${err.response.statusText}`);
+        console.error(` [${context}] Error ${err.response.status}: ${err.response.statusText}`);
         if (err.response.data) console.error('Details:', JSON.stringify(err.response.data));
     } else {
-        console.error(`❌ [${context}] Error: ${err.message}`);
+        console.error(` [${context}] Error: ${err.message}`);
     }
     process.exit(1);
 };
@@ -54,10 +54,10 @@ async function login() {
         sessionToken = res.data.AccessToken;
         CONFIG.userId = res.data.User.Id;
         api.defaults.headers['X-Emby-Token'] = sessionToken; // Upgrade headers
-        // console.log('🔑 Logged in via User/Pass');
+        // console.log(' Logged in via User/Pass');
         return sessionToken;
     } catch (e) {
-        // console.warn('⚠️ Login failed, staying with API Key.');
+        // console.warn(' Login failed, staying with API Key.');
         return CONFIG.apiKey;
     }
 }
@@ -73,10 +73,10 @@ async function getUserId(targetUsername) {
             const res = await api.get('/Users');
             const u = res.data.find(u => u.Name.toLowerCase() === targetUsername.toLowerCase());
             if (u) return u.Id;
-            console.error(`❌ User '${targetUsername}' not found. Note: listing users requires admin privileges.`);
+            console.error(` User '${targetUsername}' not found. Note: listing users requires admin privileges.`);
             process.exit(1);
         } catch (e) {
-            console.error('❌ Cannot list users — this requires admin privileges (admin API key or JF_PASS for an admin user).');
+            console.error(' Cannot list users — this requires admin privileges (admin API key or JF_PASS for an admin user).');
             process.exit(1);
         }
     }
@@ -105,7 +105,7 @@ async function getUserId(targetUsername) {
         } catch (e) {}
     }
 
-    console.error('❌ Could not determine User ID. Set JF_USER_ID in your openclaw.json to avoid this.');
+    console.error(' Could not determine User ID. Set JF_USER_ID in your openclaw.json to avoid this.');
     process.exit(1);
 }
 
@@ -211,7 +211,7 @@ async function playItem(sessionId, itemId, startTicks = 0) {
             await api.post(`/Sessions/${sessionId}/Playing/Seek`, null, {
                 params: { SeekPositionTicks: startTicks }
             });
-            console.log(`⏱️ Enforced seek to ${Math.floor(startTicks/10000000)}s`);
+            console.log(` Enforced seek to ${Math.floor(startTicks/10000000)}s`);
         }
         return true;
     } catch (e) { handleErr('playItem', e); }
@@ -252,7 +252,7 @@ async function controlSession(sessionId, action, value) {
     } catch (e) { handleErr('controlSession', e); }
 }
 
-// 7. Get User History (⚠️ REQUIRES ADMIN PRIVILEGES)
+// 7. Get User History ( REQUIRES ADMIN PRIVILEGES)
 // This endpoint accesses /System/ActivityLog/Entries which is admin-only.
 // If using a non-admin API key, this will fail with HTTP 403.
 async function getUserHistory(username, days = 7) {
@@ -284,7 +284,7 @@ async function getUserHistory(username, days = 7) {
 
     } catch (e) {
         if (e.response && e.response.status === 403) {
-            console.error('❌ Access denied: the `history` command requires admin privileges.');
+            console.error(' Access denied: the `history` command requires admin privileges.');
             console.error('   Use an admin-level API key or set JF_PASS for an admin user.');
             return [];
         }
@@ -306,7 +306,7 @@ async function getStats() {
     } catch (e) { handleErr('getStats', e); }
 }
 
-// 9. Refresh Library (⚠️ REQUIRES ADMIN PRIVILEGES)
+// 9. Refresh Library ( REQUIRES ADMIN PRIVILEGES)
 async function refreshLibrary() {
     await login();
     try {
@@ -314,7 +314,7 @@ async function refreshLibrary() {
         return true;
     } catch (e) {
         if (e.response && e.response.status === 403) {
-            console.error('❌ Access denied: the `scan` command requires admin privileges.');
+            console.error(' Access denied: the `scan` command requires admin privileges.');
             console.error('   Use an admin-level API key or set JF_PASS for an admin user.');
             return false;
         }

@@ -3,12 +3,12 @@ name: bazi
 description: 八字排盘工具，根据出生年月日时排出八字、大运及详细信息
 metadata:
   clawdbot:
-    emoji: 🔮
+    emoji: 
     requires:
       bins: ["curl", "python3"]
 ---
 
-# 八字排盘 🔮
+# 八字排盘 
 
 根据出生时间排出八字（年柱、月柱、日柱、时柱）及大运信息。
 

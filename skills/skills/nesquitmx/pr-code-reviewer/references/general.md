@@ -4,7 +4,7 @@ Estas reglas aplican a TODOS los lenguajes y archivos sin excepción.
 
 ---
 
-## 🔴 BLOCKERS (Siempre rechazar)
+##  BLOCKERS (Siempre rechazar)
 
 ### Dead Code
 - Código comentado que se dejó "por si acaso"
@@ -37,7 +37,7 @@ Estas reglas aplican a TODOS los lenguajes y archivos sin excepción.
 
 ---
 
-## 🟡 WARNINGS (Debería corregirse)
+##  WARNINGS (Debería corregirse)
 
 ### Complejidad Excesiva
 - Funciones de más de 40 líneas: dividir en funciones más pequeñas
@@ -72,7 +72,7 @@ Estas reglas aplican a TODOS los lenguajes y archivos sin excepción.
 
 ---
 
-## 🔵 SUGGESTIONS (Mejoras opcionales)
+##  SUGGESTIONS (Mejoras opcionales)
 
 ### Legibilidad
 - Usar early returns para reducir anidamiento
@@ -94,7 +94,7 @@ Estas reglas aplican a TODOS los lenguajes y archivos sin excepción.
 
 ---
 
-## 💡 NITS (Detalles menores)
+##  NITS (Detalles menores)
 
 ### Formato
 - Inconsistencia en uso de comillas simples vs dobles

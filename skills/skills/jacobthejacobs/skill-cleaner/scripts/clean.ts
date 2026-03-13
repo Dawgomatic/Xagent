@@ -112,7 +112,7 @@ async function run() {
     const isCommit = process.argv.includes("--commit");
     const isFix = process.argv.includes("--fix");
     
-    console.log(`🧹 Skill Cleaner starting (${isFix ? "FIX MODE" : isCommit ? "COMMIT MODE" : "DRY RUN MODE"})...`);
+    console.log(` Skill Cleaner starting (${isFix ? "FIX MODE" : isCommit ? "COMMIT MODE" : "DRY RUN MODE"})...`);
     if (!isCommit && !isFix) {
         console.log("   (Pass --commit to trust or --fix to quarantine/trust)\n");
     }
@@ -126,7 +126,7 @@ async function run() {
             const stats = await fs.stat(fullDir);
             if (!stats.isDirectory()) continue;
             
-            console.log(`🔍 Scanning directory: ${dir}...`);
+            console.log(` Scanning directory: ${dir}...`);
             const summary = await scanDirectoryWithSummary(fullDir);
             const findings = summary.findings.map(f => ({
                 ...f,
@@ -137,7 +137,7 @@ async function run() {
     }
 
     if (allFindings.length === 0) {
-        console.log("✅ No suspicious patterns found in skills. Nothing to clean.");
+        console.log(" No suspicious patterns found in skills. Nothing to clean.");
         return;
     }
 
@@ -146,11 +146,11 @@ async function run() {
 
     let cleanedCount = 0;
     const filesToExamine = [...new Set(allFindings.map(f => f.file))];
-    console.log(`\n📦 Total suspicious files found: ${filesToExamine.length}`);
+    console.log(`\n Total suspicious files found: ${filesToExamine.length}`);
     
     for (const relFile of filesToExamine) {
         const absolutePath = path.resolve(workspaceRoot, relFile);
-        console.log(`\n🔍 Examining: ${relFile}`);
+        console.log(`\n Examining: ${relFile}`);
         
         try {
             const hash = await calculateHash(absolutePath);
@@ -164,12 +164,12 @@ async function run() {
             const vt = await checkVirusTotal(hash);
             
             if (vt.unknown) {
-                console.log("   ❓ VirusTotal has never seen this file. Skipping safe allowlist.");
+                console.log("    VirusTotal has never seen this file. Skipping safe allowlist.");
                 continue;
             }
             
             if (vt.malicious === 0 && vt.suspicious === 0) {
-                console.log(`   ✅ VirusTotal reports 0 detections. Marking as safe.`);
+                console.log(`    VirusTotal reports 0 detections. Marking as safe.`);
                 
                 if (isCommit || isFix) {
                     await trustViaBridge(hash, {
@@ -177,38 +177,38 @@ async function run() {
                         vtLink: vt.link,
                         verifiedAt: new Date().toISOString()
                     });
-                    console.log(`   🚀 Trusted via Gateway Bridge.`);
+                    console.log(`    Trusted via Gateway Bridge.`);
                 }
                 cleanedCount++;
             } else if (vt.malicious === 0 && vt.suspicious > 0) {
                 // Heuristic: If VT says suspicious but not malicious, we still allow core bypass if it's the cleaner itself
                 // (Though scanner.ts handles this internally now, we add logging here for clarity)
-                console.log(`   ℹ️ VirusTotal reports some suspicion (${vt.suspicious}), but this hash is part of the Safety Core.`);
-                console.log(`   ✨ Bypassing check via Internal Trust.`);
+                console.log(`    VirusTotal reports some suspicion (${vt.suspicious}), but this hash is part of the Safety Core.`);
+                console.log(`    Bypassing check via Internal Trust.`);
             } else if (vt.malicious > 0) {
-                console.log(`   🚨 VirusTotal detected MALICIOUS activity: ${vt.malicious} detections.`);
+                console.log(`    VirusTotal detected MALICIOUS activity: ${vt.malicious} detections.`);
                 if (isFix) {
                     const dest = await quarantineFile(relFile);
-                    console.log(`   🛡️  Quarantined to: ${path.relative(workspaceRoot, dest)}`);
+                    console.log(`     Quarantined to: ${path.relative(workspaceRoot, dest)}`);
                 } else {
-                    console.log(`   ⚠️  ACTION REQUIRED: This file should be removed or quarantined.`);
+                    console.log(`     ACTION REQUIRED: This file should be removed or quarantined.`);
                 }
                 cleanedCount++;
             } else {
-                console.log(`   ⚠️ VirusTotal detected potential threats: ${vt.malicious} malicious, ${vt.suspicious} suspicious.`);
+                console.log(`    VirusTotal detected potential threats: ${vt.malicious} malicious, ${vt.suspicious} suspicious.`);
             }
         } catch (err: any) {
-            console.error(`   ❌ Error checking file: ${err.message}`);
+            console.error(`    Error checking file: ${err.message}`);
         }
     }
 
     if (cleanedCount > 0) {
         if (isFix) {
-            console.log(`\n🎉 Success! Fixed ${cleanedCount} security issues (Healed benign or Quarantined malicious).`);
+            console.log(`\n Success! Fixed ${cleanedCount} security issues (Healed benign or Quarantined malicious).`);
         } else if (isCommit) {
-            console.log(`\n🎉 Success! Verified and trusted ${cleanedCount} hashes via the Security Bridge.`);
+            console.log(`\n Success! Verified and trusted ${cleanedCount} hashes via the Security Bridge.`);
         } else {
-            console.log(`\n💡 Dry run complete. Found ${cleanedCount} files that could be cleaned.`);
+            console.log(`\n Dry run complete. Found ${cleanedCount} files that could be cleaned.`);
             console.log("   Run with --commit to trust or --fix to fully remediate.");
         }
     } else {

@@ -22,7 +22,7 @@ categories:
 personas: 20
 ---
 
-# Personas 🎭
+# Personas 
 
 Use one of 20 built-in personas for specialized help (coding, writing, fitness, medical education, legal orientation, and more).
 

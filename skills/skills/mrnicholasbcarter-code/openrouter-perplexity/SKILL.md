@@ -2,7 +2,7 @@
 name: perplexity
 description: Search the web with AI-powered answers via Perplexity API. Returns grounded responses with citations. Supports batch queries.
 homepage: https://openrouter.ai/
-metadata: {"clawdbot":{"emoji":"🔮","requires":{"bins":["node"],"env":["OPENROUTER_API_KEY"]},"primaryEnv":"OPENROUTER_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"],"env":["OPENROUTER_API_KEY"]},"primaryEnv":"OPENROUTER_API_KEY"}}
 ---
 
 # Perplexity Search

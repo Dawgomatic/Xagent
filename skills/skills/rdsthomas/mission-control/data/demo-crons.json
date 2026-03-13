@@ -3,7 +3,7 @@
     {
       "id": "cron_test_sync_001",
       "name": "Cron Sync Test",
-      "emoji": "🧪",
+      "emoji": "",
       "prompt": "Dies ist ein Test-Cron vom Dashboard. Bitte antworte mit: Cron Sync funktioniert!",
       "schedule": "0 9 * * 1-5",
       "enabled": true,

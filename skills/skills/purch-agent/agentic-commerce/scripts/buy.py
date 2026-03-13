@@ -100,13 +100,13 @@ def main():
     args = parser.parse_args()
 
     if not args.asin and not args.url:
-        print("❌ Error: Either --asin or --url is required")
+        print(" Error: Either --asin or --url is required")
         sys.exit(1)
 
     try:
         shipping_address = parse_address(args.address)
     except ValueError as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         sys.exit(1)
 
     result = create_order(
@@ -123,10 +123,10 @@ def main():
         return
 
     if "error" in result:
-        print(f"❌ Error: {result['error']}")
+        print(f" Error: {result['error']}")
         sys.exit(1)
 
-    print("✅ Order created successfully!")
+    print(" Order created successfully!")
     print(f"   Order ID: {result.get('orderId', 'N/A')}")
     print(f"   Status: {result.get('status', 'N/A')}")
 
@@ -139,13 +139,13 @@ def main():
         print(f"   Total: {total_price.get('amount', 'N/A')} {total_price.get('currency', 'USDC').upper()}")
 
     print()
-    print("📝 Next step: Sign the serialized transaction to complete payment")
+    print(" Next step: Sign the serialized transaction to complete payment")
     print(f"   Transaction: {result.get('serializedTransaction', 'N/A')[:50]}...")
 
     checkout_url = result.get("checkoutUrl")
     if checkout_url:
         print()
-        print(f"🌐 Or pay via browser: {checkout_url}")
+        print(f" Or pay via browser: {checkout_url}")
 
 
 if __name__ == "__main__":

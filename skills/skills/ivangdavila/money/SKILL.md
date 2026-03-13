@@ -1,7 +1,7 @@
 ---
 name: Money
 description: Personal finance guidance with practical rules for saving, investing, and avoiding common traps.
-metadata: {"clawdbot":{"emoji":"💰","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Personal Finance Rules

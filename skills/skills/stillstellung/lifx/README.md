@@ -1,4 +1,4 @@
-# Via Clara Claw 💡
+# Via Clara Claw 
 
 An [OpenClaw](https://github.com/openclaw/openclaw) skill for controlling [LIFX](https://www.lifx.com/) smart lights through natural language.
 

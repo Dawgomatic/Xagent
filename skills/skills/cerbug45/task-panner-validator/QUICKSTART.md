@@ -276,7 +276,7 @@ def my_executor(action, parameters):
 
 ## Need Help?
 
-- 📖 Read the documentation in [README.md](README.md)
-- 💻 Check [examples.py](examples.py) for code samples
-- 🐛 Report issues on GitHub
-- ⭐ Star the repo if you find it useful!
+-  Read the documentation in [README.md](README.md)
+-  Check [examples.py](examples.py) for code samples
+-  Report issues on GitHub
+-  Star the repo if you find it useful!

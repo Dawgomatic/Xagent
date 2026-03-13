@@ -37,10 +37,10 @@ Examples:
   openclaw skill bomb-dog-sniff batch skills-to-check.txt
 
 Risk Thresholds:
-  0-19   SAFE         ✅ Auto-install allowed
-  20-39  LOW          ⚠️  Manual review recommended
-  40-69  SUSPICIOUS   🚫 Blocked by default
-  70-100 MALICIOUS    ☠️  Never install
+  0-19   SAFE          Auto-install allowed
+  20-39  LOW            Manual review recommended
+  40-69  SUSPICIOUS    Blocked by default
+  70-100 MALICIOUS      Never install
 
 Exit Codes:
   0      Success / Safe (below threshold)
@@ -104,7 +104,7 @@ case "$cmd" in
         SKILLS_DIR="${OPENCLAW_SKILLS_DIR:-$HOME/.openclaw/workspace/skills}"
         OVERALL_RISKY=0
         
-        echo "🔍 Batch scanning skills from: $LIST_FILE"
+        echo " Batch scanning skills from: $LIST_FILE"
         echo ""
         
         while IFS= read -r skill || [ -n "$skill" ]; do
@@ -117,7 +117,7 @@ case "$cmd" in
             [ -z "$skill" ] && continue
             
             echo "═══════════════════════════════════════════════════"
-            echo "📦 Scanning: $skill"
+            echo " Scanning: $skill"
             echo "═══════════════════════════════════════════════════"
             
             # Determine path
@@ -128,7 +128,7 @@ case "$cmd" in
                 # Installed skill
                 SKILL_PATH="$SKILLS_DIR/$skill"
             else
-                echo "⚠️  Warning: Skill not found: $skill"
+                echo "  Warning: Skill not found: $skill"
                 echo ""
                 continue
             fi
@@ -149,15 +149,15 @@ case "$cmd" in
             
             # Risk indicator
             if [ "$RISK_SCORE" -ge 70 ]; then
-                echo "   ☠️  MALICIOUS - Do not use!"
+                echo "     MALICIOUS - Do not use!"
                 OVERALL_RISKY=1
             elif [ "$RISK_SCORE" -ge 40 ]; then
-                echo "   🚫 SUSPICIOUS - Review required"
+                echo "    SUSPICIOUS - Review required"
                 OVERALL_RISKY=1
             elif [ "$RISK_SCORE" -ge 20 ]; then
-                echo "   ⚠️  LOW RISK - Review recommended"
+                echo "     LOW RISK - Review recommended"
             else
-                echo "   ✅ SAFE"
+                echo "    SAFE"
             fi
             
             echo ""

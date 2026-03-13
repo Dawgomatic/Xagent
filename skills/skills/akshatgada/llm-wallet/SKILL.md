@@ -2,7 +2,7 @@
 name: llm_wallet
 description: Manage crypto wallets and make x402 micropayments with USDC stablecoins on Polygon
 homepage: https://github.com/x402/llm-wallet-mcp
-metadata: {"openclaw": {"emoji": "💰", "requires": {"bins": ["node"]}, "install": [{"id": "node", "kind": "node", "package": "llm-wallet-mcp", "bins": ["llm-wallet-mcp"], "label": "Install LLM Wallet MCP (node)"}]}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["node"]}, "install": [{"id": "node", "kind": "node", "package": "llm-wallet-mcp", "bins": ["llm-wallet-mcp"], "label": "Install LLM Wallet MCP (node)"}]}}
 ---
 
 # LLM Wallet - Crypto Wallet & x402 Micropayments
@@ -86,7 +86,7 @@ llm-wallet pay <url> [--method GET|POST] [--body <json>]
 ```
 Make x402 micropayment to a paid API endpoint.
 
-**⚠️ IMPORTANT: Always ask user for approval before making payments!**
+** IMPORTANT: Always ask user for approval before making payments!**
 
 **Example:**
 ```bash

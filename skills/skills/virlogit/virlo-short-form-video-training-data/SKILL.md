@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "☄️",
+        "emoji": "",
         "requires": { "bins": ["curl"], "env": ["VIRLO_API_KEY"] },
         "primaryEnv": "VIRLO_API_KEY",
         "homepage": "https://dev.virlo.ai",

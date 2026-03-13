@@ -20,12 +20,12 @@ description: Professional UI/UX design resource library with searchable design p
 
 | 资源类型 | 文件 | 内容 |
 |---------|------|------|
-| 🎨 **UI 风格库** | [references/ui-styles.md](references/ui-styles.md) | 50+ 种界面设计风格 |
-| 🌈 **配色方案** | [references/color-palettes.md](references/color-palettes.md) | 100+ 专业调色板 |
-| 🔤 **字体配对** | [references/typography.md](references/typography.md) | 精选字体组合 |
-| 📊 **图表类型** | [references/charts.md](references/charts.md) | 数据可视化指南 |
-| 📘 **UX 模式** | [references/ux-patterns.md](references/ux-patterns.md) | 用户体验最佳实践 |
-| 🎯 **组件库** | [references/components.md](references/components.md) | 常用组件设计规范 |
+|  **UI 风格库** | [references/ui-styles.md](references/ui-styles.md) | 50+ 种界面设计风格 |
+|  **配色方案** | [references/color-palettes.md](references/color-palettes.md) | 100+ 专业调色板 |
+|  **字体配对** | [references/typography.md](references/typography.md) | 精选字体组合 |
+|  **图表类型** | [references/charts.md](references/charts.md) | 数据可视化指南 |
+|  **UX 模式** | [references/ux-patterns.md](references/ux-patterns.md) | 用户体验最佳实践 |
+|  **组件库** | [references/components.md](references/components.md) | 常用组件设计规范 |
 
 ## 快速开始
 

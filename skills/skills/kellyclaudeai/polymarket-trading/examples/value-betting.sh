@@ -48,7 +48,7 @@ for CATEGORY in "${CATEGORY_ARRAY[@]}"; do
       EDGE_PERCENT=$(echo "scale=2; $EDGE * 100" | bc)
       
       echo ""
-      echo "📊 VALUE FOUND!"
+      echo " VALUE FOUND!"
       echo "Market: $QUESTION"
       echo "Market Price: $IMPLIED_YES ($(echo "$IMPLIED_YES * 100" | bc)%)"
       echo "Model Probability: $MODEL_PROB ($(echo "$MODEL_PROB * 100" | bc)%)"
@@ -84,9 +84,9 @@ for CATEGORY in "${CATEGORY_ARRAY[@]}"; do
           --amount "$POSITION_SIZE" \
           --price "$YES_PRICE"
         
-        echo "✅ Order placed!"
+        echo " Order placed!"
       else
-        echo "⏭️  Skipped"
+        echo "  Skipped"
       fi
       
       echo ""

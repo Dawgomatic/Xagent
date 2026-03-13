@@ -24,7 +24,7 @@ done
 
 TOKEN=$(get_token)
 if [ -z "$TOKEN" ]; then
-    echo "❌ No API token. Run ./scripts/setup.sh first." >&2
+    echo " No API token. Run ./scripts/setup.sh first." >&2
     exit 1
 fi
 

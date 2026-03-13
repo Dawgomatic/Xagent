@@ -4,10 +4,10 @@
 
 ## 功能特性
 
-- 🔍 **双重监控** - 同时监控 GitHub issues 和 OpenClaw comments
-- 📱 **飞书通知** - 新 issue 和 comment 实时推送到个人飞书
-- 📝 **智能追踪** - 避免重复通知已知的 items
-- ⚙️ **易于管理** - 简单的状态查看和手动控制
+-  **双重监控** - 同时监控 GitHub issues 和 OpenClaw comments
+-  **飞书通知** - 新 issue 和 comment 实时推送到个人飞书
+-  **智能追踪** - 避免重复通知已知的 items
+-  **易于管理** - 简单的状态查看和手动控制
 
 ## 文件说明
 
@@ -76,13 +76,13 @@ rm ~/.openclaw/safe-exec-known-*.txt
 ### GitHub Issue 通知
 
 ```
-🔔 **New GitHub Issue Detected**
+ **New GitHub Issue Detected**
 
-📦 **Repository:** OTTTTTO/safe-exec
-🔢 **Issue:** #123
-📝 **Title:** Issue title here
-🕐 **Created:** 2026-02-01T10:00:00Z
-🔗 **URL:** https://github.com/OTTTTTO/safe-exec/issues/123
+ **Repository:** OTTTTTO/safe-exec
+ **Issue:** #123
+ **Title:** Issue title here
+ **Created:** 2026-02-01T10:00:00Z
+ **URL:** https://github.com/OTTTTTO/safe-exec/issues/123
 
 ---
 This is an automated notification from SafeExec GitHub Issue Monitor.
@@ -91,11 +91,11 @@ This is an automated notification from SafeExec GitHub Issue Monitor.
 ### OpenClaw Comment 通知
 
 ```
-💬 **New OpenClaw Comment Detected**
+ **New OpenClaw Comment Detected**
 
-📱 **Session:** feishu:g-oc_xxx (feishu)
-📝 **Content:** User comment preview...
-🔑 **Session Key:** agent:main:feishu:group:oc_xxx
+ **Session:** feishu:g-oc_xxx (feishu)
+ **Content:** User comment preview...
+ **Session Key:** agent:main:feishu:group:oc_xxx
 
 ---
 This is an automated notification from OpenClaw Comment Monitor.

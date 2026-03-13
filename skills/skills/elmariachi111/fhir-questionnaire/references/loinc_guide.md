@@ -403,7 +403,7 @@ Or reference a ValueSet instead of inline options:
 
 ## LOINC Copyright Notice
 
-LOINC is copyright © 1995-2024, Regenstrief Institute, Inc. and the LOINC Committee.
+LOINC is copyright  1995-2024, Regenstrief Institute, Inc. and the LOINC Committee.
 
 Terms of use: https://loinc.org/license/
 

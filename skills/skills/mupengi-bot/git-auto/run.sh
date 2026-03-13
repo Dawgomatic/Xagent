@@ -11,7 +11,7 @@ ACTION="${1:-status}"
 
 case "$ACTION" in
   status)
-    echo "📊 Git 상태"
+    echo " Git 상태"
     git status --short
     echo ""
     MODIFIED=$(git status --short | grep -c "^ M" || true)
@@ -23,7 +23,7 @@ case "$ACTION" in
   commit)
     # 변경사항 확인
     if [ -z "$(git status --porcelain)" ]; then
-      echo "❌ 커밋할 변경사항이 없습니다."
+      echo " 커밋할 변경사항이 없습니다."
       exit 0
     fi
 
@@ -32,16 +32,16 @@ case "$ACTION" in
     
     # 파일 종류별 분류
     if echo "$FILES" | grep -q "skills/"; then
-      PREFIX="✨ feat:"
+      PREFIX=" feat:"
       MSG="스킬 업데이트"
     elif echo "$FILES" | grep -q "memory/"; then
-      PREFIX="🗃️ memory:"
+      PREFIX=" memory:"
       MSG="메모리 파일 업데이트"
     elif echo "$FILES" | grep -q "\.md$"; then
-      PREFIX="📝 docs:"
+      PREFIX=" docs:"
       MSG="문서 업데이트"
     else
-      PREFIX="🔧 chore:"
+      PREFIX=" chore:"
       MSG="작업 파일 업데이트"
     fi
 
@@ -49,13 +49,13 @@ case "$ACTION" in
     
     git add -A
     git commit -m "$COMMIT_MSG"
-    echo "✅ 커밋 완료: $COMMIT_MSG"
+    echo " 커밋 완료: $COMMIT_MSG"
     ;;
 
   push)
     BRANCH=$(git branch --show-current)
     git push origin "$BRANCH"
-    echo "✅ 푸시 완료: origin/$BRANCH"
+    echo " 푸시 완료: origin/$BRANCH"
     ;;
 
   log)
@@ -64,14 +64,14 @@ case "$ACTION" in
     ;;
 
   diff)
-    echo "📊 변경사항 요약"
+    echo " 변경사항 요약"
     git diff --stat
     echo ""
     git diff --shortstat
     ;;
 
   *)
-    echo "❌ 알 수 없는 액션: $ACTION"
+    echo " 알 수 없는 액션: $ACTION"
     echo "사용법: run.sh [status|commit|push|log|diff]"
     exit 1
     ;;

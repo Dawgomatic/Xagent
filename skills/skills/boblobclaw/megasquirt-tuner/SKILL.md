@@ -291,8 +291,8 @@ If the file is large, paste specific sections you're concerned about:
 ### What Gets Analyzed
 
 **Safety Checks:**
-- 🚨 **Critical**: AFR targets that could cause engine damage, excessive ignition timing
-- ⚠️ **Warnings**: Rev limiter not configured, suspicious VE values, high injector duty
+-  **Critical**: AFR targets that could cause engine damage, excessive ignition timing
+-  **Warnings**: Rev limiter not configured, suspicious VE values, high injector duty
 
 **Configuration Review:**
 - Required fuel calculation sanity check
@@ -312,23 +312,23 @@ If the file is large, paste specific sections you're concerned about:
 
 **Example Analysis Output:**
 ```
-📋 VE Table
+ VE Table
 ----------------------------------------
-  ⚠️ VE table has very low values (15.0) - check for empty/untuned cells
-  📊 12 cells have >30% jumps from neighbors - consider smoothing
+   VE table has very low values (15.0) - check for empty/untuned cells
+   12 cells have >30% jumps from neighbors - consider smoothing
   ✓ VE table range: 15.0 - 105.0 (avg: 62.3)
 
-📋 Ignition Timing
+ Ignition Timing
 ----------------------------------------
-  ⚠️ High ignition advance (48°) - verify on dyno with knock detection
+   High ignition advance (48°) - verify on dyno with knock detection
   ✓ Spark advance range: 8° - 48° BTDC
 
 SUMMARY
 ============================================================
-🚨 CRITICAL ISSUES: 0
-⚠️  WARNINGS: 2
+ CRITICAL ISSUES: 0
+  WARNINGS: 2
 ✓ Suggestions: 4
-ℹ️  Notes: 1
+  Notes: 1
 ```
 
 ### Common Issues Detected

@@ -10,7 +10,7 @@ const BrowserManager = require('./browser-manager.v2');
 const urls = process.argv.slice(2);
 
 if (urls.length === 0) {
-  console.error('❌ 请提供至少一个URL');
+  console.error(' 请提供至少一个URL');
   console.log('用法: node multi-pages.js "https://a.com" "https://b.com"');
   process.exit(1);
 }
@@ -19,7 +19,7 @@ async function main() {
   const browser = new BrowserManager();
   
   try {
-    console.log(`🌐 批量处理 ${urls.length} 个页面`);
+    console.log(` 批量处理 ${urls.length} 个页面`);
     await browser.start();
     
     for (let i = 0; i < urls.length; i++) {
@@ -31,7 +31,7 @@ async function main() {
       
       // 截图
       const screenshotPath = await browser.screenshot();
-      console.log('   📸 截图:', screenshotPath);
+      console.log('    截图:', screenshotPath);
       
       // 提取标题
       try {
@@ -39,7 +39,7 @@ async function main() {
           `openclaw browser --browser-profile ${browser.profile} evaluate --fn "document.title"`
         );
         if (titleRes && titleRes.stdout) {
-          console.log('   📄 标题:', titleRes.stdout.trim());
+          console.log('    标题:', titleRes.stdout.trim());
         }
       } catch (e) {
         browser.logger.warn('无法获取标题', { url, error: e.message });
@@ -50,7 +50,7 @@ async function main() {
     }
     
     await browser.cleanup();
-    console.log('\n✅ 全部完成！');
+    console.log('\n 全部完成！');
     
   } catch (e) {
     browser.logger.error('批量处理失败', { error: e.message });

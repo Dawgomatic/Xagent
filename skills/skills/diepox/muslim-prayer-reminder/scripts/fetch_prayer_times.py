@@ -64,10 +64,10 @@ def fetch_prayer_times_aladhan(city=None, country=None, latitude=None, longitude
             }
             location = f"{city}, {country}"
         else:
-            print("❌ Must provide either city/country or coordinates")
+            print(" Must provide either city/country or coordinates")
             return None
         
-        print(f"🔄 Calling: {url}")
+        print(f" Calling: {url}")
         print(f"   Location: {location}")
         print(f"   Method: {method}")
         
@@ -97,17 +97,17 @@ def fetch_prayer_times_aladhan(city=None, country=None, latitude=None, longitude
                 }
             }
         else:
-            print(f"❌ API returned code: {data.get('code')}")
+            print(f" API returned code: {data.get('code')}")
             return None
             
     except requests.exceptions.Timeout:
-        print("❌ AlAdhan API timeout (10s)")
+        print(" AlAdhan API timeout (10s)")
         return None
     except requests.exceptions.ConnectionError as e:
-        print(f"❌ AlAdhan API connection error: {e}")
+        print(f" AlAdhan API connection error: {e}")
         return None
     except Exception as e:
-        print(f"❌ AlAdhan API error: {e}")
+        print(f" AlAdhan API error: {e}")
         return None
 
 def get_today_prayer_times(city="Rabat", country="Morocco", latitude=None, longitude=None):
@@ -132,16 +132,16 @@ def get_today_prayer_times(city="Rabat", country="Morocco", latitude=None, longi
     print()
     
     # Try AlAdhan API
-    print("🔄 Fetching from AlAdhan API...")
+    print(" Fetching from AlAdhan API...")
     result = fetch_prayer_times_aladhan(city, country, latitude, longitude)
     
     if result:
-        print(f"✅ Success with {result['source']}")
+        print(f" Success with {result['source']}")
         return result
     
     print()
-    print("❌ Failed to fetch prayer times - check network connectivity")
-    print("💡 Tip: You may need Cloudflare WARP VPN if running on a VPS")
+    print(" Failed to fetch prayer times - check network connectivity")
+    print(" Tip: You may need Cloudflare WARP VPN if running on a VPS")
     return None
 
 if __name__ == "__main__":
@@ -158,7 +158,7 @@ if __name__ == "__main__":
     
     # Validate input
     if not (args.city and args.country) and not (args.lat and args.lon):
-        print("❌ Error: Must provide either --city and --country, or --lat and --lon")
+        print(" Error: Must provide either --city and --country, or --lat and --lon")
         print("\nExamples:")
         print("  python3 fetch_prayer_times.py --city Rabat --country Morocco")
         print("  python3 fetch_prayer_times.py --lat 34.0209 --lon -6.8416")
@@ -175,19 +175,19 @@ if __name__ == "__main__":
     if times:
         print()
         print("=" * 60)
-        print("📅 TODAY'S PRAYER TIMES")
+        print(" TODAY'S PRAYER TIMES")
         print("=" * 60)
-        print(f"📍 Location: {times.get('location', 'N/A')}")
-        print(f"📡 Source: {times['source']}")
-        print(f"📆 Date: {times.get('date', 'N/A')}")
+        print(f" Location: {times.get('location', 'N/A')}")
+        print(f" Source: {times['source']}")
+        print(f" Date: {times.get('date', 'N/A')}")
         if 'hijri' in times:
-            print(f"🌙 Hijri: {times['hijri']}")
+            print(f" Hijri: {times['hijri']}")
         if 'method' in times:
-            print(f"🔢 Method: {times['method']}")
+            print(f" Method: {times['method']}")
         print()
         
         for prayer, time in times['prayers'].items():
-            emoji = "🌅" if prayer == "Sunrise" else "🕌"
+            emoji = "" if prayer == "Sunrise" else ""
             print(f"{emoji} {prayer:8s} {time}")
         
         print("=" * 60)
@@ -196,7 +196,7 @@ if __name__ == "__main__":
         with open(args.output, 'w', encoding='utf-8') as f:
             json.dump(times, f, ensure_ascii=False, indent=2)
         
-        print(f"✅ Saved to {args.output}")
+        print(f" Saved to {args.output}")
     
     else:
         exit(1)

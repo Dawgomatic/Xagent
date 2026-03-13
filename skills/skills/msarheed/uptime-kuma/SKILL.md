@@ -73,7 +73,7 @@ python scripts/kuma.py notifications
 **Check what's down:**
 ```bash
 python scripts/kuma.py status
-python scripts/kuma.py list  # Look for 🔴
+python scripts/kuma.py list  # Look for 
 ```
 
 **Add HTTP monitor with 30s interval:**

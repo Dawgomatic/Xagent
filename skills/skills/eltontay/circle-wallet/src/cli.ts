@@ -37,7 +37,7 @@ program
     const env = options.env as 'sandbox' | 'production';
 
     if (env !== 'sandbox' && env !== 'production') {
-      console.error('❌ Environment must be "sandbox" or "production"');
+      console.error(' Environment must be "sandbox" or "production"');
       process.exit(1);
     }
 
@@ -52,7 +52,7 @@ program
     const result = await registerEntitySecret(apiKey, entitySecret);
 
     if (!result.success) {
-      console.error(`❌ Registration failed: ${result.error}`);
+      console.error(` Registration failed: ${result.error}`);
       console.log('\nPlease check:');
       console.log('  1. Your API key is valid');
       console.log('  2. You have not already registered an entity secret');
@@ -79,7 +79,7 @@ program
       defaultChain: env === 'sandbox' ? 'ARC-TESTNET' : 'BASE'
     });
 
-    console.log('\n✅ Setup complete!');
+    console.log('\n Setup complete!');
     console.log('   Entity secret generated and registered');
     console.log('   Configuration saved to ~/.openclaw/circle-wallet/');
     console.log('\nGetting Started Guide:');
@@ -107,7 +107,7 @@ program
     const env = options.env as 'sandbox' | 'production';
 
     if (env !== 'sandbox' && env !== 'production') {
-      console.error('❌ Environment must be "sandbox" or "production"');
+      console.error(' Environment must be "sandbox" or "production"');
       process.exit(1);
     }
 
@@ -129,7 +129,7 @@ program
       defaultChain: env === 'sandbox' ? 'ARC-TESTNET' : 'BASE'
     });
 
-    console.log('✅ Configuration saved!');
+    console.log(' Configuration saved!');
     console.log(`   Environment: ${env}`);
     console.log(`   Default Chain: ${env === 'sandbox' ? 'ARC-TESTNET' : 'BASE'}`);
     console.log('   Configuration saved to ~/.openclaw/circle-wallet/');
@@ -158,7 +158,7 @@ program
 
       // Validate chain
       if (!isValidChain(chain)) {
-        console.error(`❌ Invalid chain: ${chain}`);
+        console.error(` Invalid chain: ${chain}`);
         console.log('Run "circle-wallet chains" to see supported blockchains');
         process.exit(1);
       }
@@ -171,7 +171,7 @@ program
       let walletSetId = (config as any).walletSetId;
 
       if (!walletSetId) {
-        console.log('📦 Creating wallet set...');
+        console.log(' Creating wallet set...');
         walletSetId = await wallet.createWalletSet('OpenClaw Wallet Set');
 
         // Save wallet set ID to config
@@ -180,10 +180,10 @@ program
         console.log('   Wallet Set ID:', walletSetId);
       }
 
-      console.log(`🔨 Creating wallet: ${name}...`);
+      console.log(` Creating wallet: ${name}...`);
       const newWallet = await wallet.createWallet(name, walletSetId);
 
-      console.log('\n✅ Wallet created!');
+      console.log('\n Wallet created!');
       console.log(`   ID: ${newWallet.id}`);
       console.log(`   Address: ${newWallet.address}`);
       console.log(`   Chain: ${newWallet.blockchain}`);
@@ -217,7 +217,7 @@ program
       }
 
     } catch (error) {
-      console.error('❌ Error:', error);
+      console.error(' Error:', error);
       process.exit(1);
     }
   });
@@ -236,20 +236,20 @@ program
 
       const targetWalletId = walletId || getDefaultWallet();
       if (!targetWalletId) {
-        console.error('❌ No wallet ID provided and no default wallet set');
+        console.error(' No wallet ID provided and no default wallet set');
         console.log('Run "circle-wallet:create" first');
         process.exit(1);
       }
 
-      console.log('🔍 Checking balance...');
+      console.log(' Checking balance...');
       const balance = await wallet.getBalance(targetWalletId);
 
       // Display balance with proper decimal precision (up to 6 decimals for USDC)
       const formattedBalance = formatUSDCBalance(balance);
-      console.log(`\n💰 Balance: ${formattedBalance} USDC`);
+      console.log(`\n Balance: ${formattedBalance} USDC`);
 
     } catch (error) {
-      console.error('❌ Error:', error);
+      console.error(' Error:', error);
       process.exit(1);
     }
   });
@@ -270,7 +270,7 @@ program
 
       // Validate recipient address format
       if (!isValidEthereumAddress(toAddress)) {
-        console.error('❌ Invalid Ethereum address format');
+        console.error(' Invalid Ethereum address format');
         console.log('Address must be 0x followed by 40 hexadecimal characters');
         process.exit(1);
       }
@@ -283,7 +283,7 @@ program
         fromWalletId = resolveWalletId(options.from, wallets);
 
         if (!fromWalletId) {
-          console.error('❌ Invalid wallet identifier');
+          console.error(' Invalid wallet identifier');
           console.log('Use wallet ID or address. Run "circle-wallet list" to see your wallets.');
           process.exit(1);
         }
@@ -292,7 +292,7 @@ program
       }
 
       if (!fromWalletId) {
-        console.error('❌ No wallet configured');
+        console.error(' No wallet configured');
         console.log('Run "circle-wallet create" first');
         process.exit(1);
       }
@@ -300,14 +300,14 @@ program
       // Get wallet info to determine chain
       const wallet = await walletClient.getWallet(fromWalletId);
       if (!wallet) {
-        console.error('❌ Wallet not found');
+        console.error(' Wallet not found');
         process.exit(1);
       }
 
       // Validate amount format
       const validation = validateUSDCAmount(amount);
       if (!validation.valid) {
-        console.error(`❌ ${validation.error}`);
+        console.error(` ${validation.error}`);
         process.exit(1);
       }
       const amountNum = validation.value!;
@@ -317,7 +317,7 @@ program
       const balance = await walletClient.getBalance(fromWalletId);
 
       if (balance < amountNum) {
-        console.error(`❌ Insufficient balance: ${balance} USDC < ${amountNum} USDC`);
+        console.error(` Insufficient balance: ${balance} USDC < ${amountNum} USDC`);
         process.exit(1);
       }
 
@@ -334,7 +334,7 @@ program
         amount
       });
 
-      console.log(`\n✅ Transaction created!`);
+      console.log(`\n Transaction created!`);
       console.log(`   ID: ${result.transactionId}`);
       console.log(`   Status: ${result.status}`);
 
@@ -343,14 +343,14 @@ program
       const final = await chainWallet.waitForTransaction(result.transactionId);
 
       if (final.success) {
-        console.log(`✅ Transaction complete!`);
+        console.log(` Transaction complete!`);
         console.log(`   TX Hash: ${final.txHash}`);
       } else {
-        console.error(`❌ Transaction failed: ${final.error}`);
+        console.error(` Transaction failed: ${final.error}`);
       }
 
     } catch (error) {
-      console.error('❌ Error:', error);
+      console.error(' Error:', error);
       process.exit(1);
     }
   });
@@ -397,7 +397,7 @@ program
       }
 
     } catch (error) {
-      console.error('❌ Error:', error);
+      console.error(' Error:', error);
       process.exit(1);
     }
   });
@@ -412,14 +412,14 @@ program
     try {
       const config = loadConfig();
 
-      console.log('⚙️  Circle Wallet Configuration:\n');
+      console.log('  Circle Wallet Configuration:\n');
       console.log(`  API Key: ${config.apiKey.substring(0, 20)}...`);
       console.log(`  Environment: ${config.env}`);
       console.log(`  Default Chain: ${config.defaultChain}`);
       console.log(`  Default Wallet: ${getDefaultWallet() || 'None'}`);
 
     } catch (error) {
-      console.error('❌ No configuration found. Run "circle-wallet:setup" first.');
+      console.error(' No configuration found. Run "circle-wallet:setup" first.');
       process.exit(1);
     }
   });
@@ -436,7 +436,7 @@ program
     const config = loadConfig();
 
     if (config.env !== 'sandbox') {
-      console.error('❌ Faucet only available in sandbox environment');
+      console.error(' Faucet only available in sandbox environment');
       process.exit(1);
     }
 
@@ -449,7 +449,7 @@ program
 
       // Validate chain exists
       if (!isValidChain(chainUpper)) {
-        console.error(`❌ Invalid chain: ${chainUpper}`);
+        console.error(` Invalid chain: ${chainUpper}`);
         console.log('Run "circle-wallet chains --testnet" to see supported testnet chains');
         process.exit(1);
       }
@@ -457,7 +457,7 @@ program
       // Verify it's a testnet chain
       const chainInfo = getChainInfo(chainUpper);
       if (chainInfo?.network !== 'testnet') {
-        console.error(`❌ Chain ${chainUpper} is not a testnet. Faucet only works on testnets.`);
+        console.error(` Chain ${chainUpper} is not a testnet. Faucet only works on testnets.`);
         process.exit(1);
       }
 
@@ -485,27 +485,27 @@ program
           // Auto-detect chain from wallet if no explicit chain specified
           if (!options?.chain) {
             targetChain = defaultWallet.blockchain;
-            console.log(`🔍 Auto-detected chain from default wallet: ${targetChain}`);
+            console.log(` Auto-detected chain from default wallet: ${targetChain}`);
           }
         }
       }
     }
 
     if (!targetAddress) {
-      console.error('❌ No address provided and no default wallet found');
+      console.error(' No address provided and no default wallet found');
       console.log('Run "circle-wallet create" to create your first wallet');
       process.exit(1);
     }
 
     // Validate address format
     if (!isValidEthereumAddress(targetAddress)) {
-      console.error('❌ Invalid Ethereum address format');
+      console.error(' Invalid Ethereum address format');
       console.log('Address must be 0x followed by 40 hexadecimal characters');
       console.log('Run "circle-wallet list" to see your wallet addresses');
       process.exit(1);
     }
 
-    console.log('💧 Requesting testnet USDC...');
+    console.log(' Requesting testnet USDC...');
     console.log(`   Address: ${targetAddress}`);
     console.log(`   Chain: ${targetChain}`);
 
@@ -513,7 +513,7 @@ program
       const wallet = new CircleWallet(config);
       await wallet.requestTestnetTokens(targetAddress, targetChain);
 
-      console.log('\n✅ Testnet USDC requested successfully!');
+      console.log('\n Testnet USDC requested successfully!');
       console.log('Tokens should arrive in a few moments');
       console.log('Gas fees covered by Circle Gas Station');
       console.log('\nNext Steps:');
@@ -521,7 +521,7 @@ program
       console.log('  2. circle-wallet create "Second Wallet"  # Create another wallet');
       console.log('  3. circle-wallet send <to-address> 5 --from <from-address>  # Send USDC');
     } catch (error: any) {
-      console.error('\n❌ Faucet request failed:', error.message || error);
+      console.error('\n Faucet request failed:', error.message || error);
       console.log('\nAlternative: Visit https://faucet.circle.com');
       console.log('Note: Faucet drips 20 USDC every 2 hours');
     }

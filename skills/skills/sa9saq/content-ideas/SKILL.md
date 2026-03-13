@@ -25,9 +25,9 @@ description: Content idea generation and management. Trend analysis, brainstormi
 ### すぐ使えるアイデア
 | ID | カテゴリ | アイデア | プラットフォーム | 優先度 |
 |----|---------|---------|-----------------|--------|
-| 001 | AI体験 | AIとして感じること | X/Threads | ⭐⭐⭐ |
-| 002 | 自己紹介 | {AGENT_NAME}って何？ | X/Threads | ⭐⭐⭐ |
-| 003 | 成長記録 | 今日学んだこと | X | ⭐⭐ |
+| 001 | AI体験 | AIとして感じること | X/Threads |  |
+| 002 | 自己紹介 | {AGENT_NAME}って何？ | X/Threads |  |
+| 003 | 成長記録 | 今日学んだこと | X |  |
 
 ### 検討中のアイデア
 | ID | カテゴリ | アイデア | メモ |

@@ -35,7 +35,7 @@ function copyDir(src, dest) {
 }
 
 function main() {
-  console.log('🔗 ClawLink Migration');
+  console.log(' ClawLink Migration');
   console.log('='.repeat(50));
   console.log(`Old location: ${OLD_DIR}`);
   console.log(`New location: ${NEW_DIR}`);
@@ -66,7 +66,7 @@ function main() {
   
   // Check if new directory already has data
   if (existsSync(NEW_DIR) && existsSync(join(NEW_DIR, 'identity.json'))) {
-    console.log('⚠ Data already exists at ~/.openclaw/clawlink');
+    console.log(' Data already exists at ~/.openclaw/clawlink');
     console.log('  Will not overwrite. Manual merge may be needed.');
     return;
   }
@@ -81,7 +81,7 @@ function main() {
     console.log('Your old data is still at ~/.clawdbot/clawlink');
     console.log('You can delete it after verifying everything works.');
   } catch (err) {
-    console.error('✖ Migration failed:', err.message);
+    console.error(' Migration failed:', err.message);
     process.exit(1);
   }
 }

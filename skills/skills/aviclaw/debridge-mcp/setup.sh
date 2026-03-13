@@ -3,7 +3,7 @@
 
 set -e
 
-echo "🦞 Installing deBridge MCP for OpenClaw..."
+echo " Installing deBridge MCP for OpenClaw..."
 
 # Check if already installed
 if [ -d "$HOME/debridge-mcp" ]; then
@@ -26,13 +26,13 @@ if ! grep -q "mcp-adapter" ~/.openclaw/openclaw.json 2>/dev/null; then
     cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak.$(date +%Y%m%d)
     
     # Add MCP config (simplified - user may need to manually merge)
-    echo "⚠️ Manual step needed: Add MCP adapter config to openclaw.json"
+    echo " Manual step needed: Add MCP adapter config to openclaw.json"
     echo "See: ~/.openclaw/workspace/skills/debridge-mcp/SKILL.md"
 else
     echo "MCP adapter already configured"
 fi
 
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Next steps:"
 echo "1. Restart OpenClaw: openclaw gateway restart"

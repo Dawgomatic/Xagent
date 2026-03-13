@@ -215,7 +215,7 @@ class FAISSIndex:
         with open(meta_path, 'w') as f:
             json.dump(meta, f)
         
-        print(f"✅ Saved FAISS index ({len(self.id_map)} vectors) to {index_path}")
+        print(f" Saved FAISS index ({len(self.id_map)} vectors) to {index_path}")
     
     @classmethod
     def load(cls, index_path: str = str(FAISS_INDEX_PATH),
@@ -398,7 +398,7 @@ def main():
         index = build_faiss_index(index_type=args.index_type, 
                                   time_window_days=args.days)
         if index:
-            print(f"\n✅ Built FAISS index: {len(index.id_map)} vectors")
+            print(f"\n Built FAISS index: {len(index.id_map)} vectors")
     
     elif args.command == 'search':
         if not args.query:
@@ -421,7 +421,7 @@ def main():
     elif args.command == 'stats':
         index = get_faiss_index()
         if index:
-            print(f"📊 FAISS Index Stats:")
+            print(f" FAISS Index Stats:")
             print(f"   Vectors: {len(index.id_map)}")
             print(f"   Dimension: {index.dim}")
             print(f"   Type: {index.index_type}")

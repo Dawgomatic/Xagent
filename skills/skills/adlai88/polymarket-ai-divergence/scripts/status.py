@@ -21,10 +21,10 @@ SIMMER_API_URL = os.environ.get("SIMMER_API_URL", "https://api.simmer.markets")
 def main():
     api_key = os.environ.get("SIMMER_API_KEY")
     if not api_key:
-        print("❌ SIMMER_API_KEY not set")
+        print(" SIMMER_API_KEY not set")
         sys.exit(1)
     
-    print("📊 Checking AI Divergence status...\n")
+    print(" Checking AI Divergence status...\n")
     
     try:
         req = Request(
@@ -41,7 +41,7 @@ def main():
         bearish = len([m for m in markets if (m.get("divergence") or 0) < -0.05])
         
         print("=" * 40)
-        print("🔮 AI DIVERGENCE STATUS")
+        print(" AI DIVERGENCE STATUS")
         print("=" * 40)
         print(f"  Total markets:     {len(markets)}")
         print(f"  High divergence:   {len(high_div)} (>10%)")
@@ -51,7 +51,7 @@ def main():
         print("=" * 40)
         
         if high_div:
-            print("\n💡 Top opportunity:")
+            print("\n Top opportunity:")
             top = max(high_div, key=lambda m: abs(m.get("divergence") or 0))
             q = top.get("question", "")[:50]
             div = top.get("divergence") or 0
@@ -61,10 +61,10 @@ def main():
         print()
         
     except HTTPError as e:
-        print(f"❌ API Error: {e.code}")
+        print(f" API Error: {e.code}")
         sys.exit(1)
     except URLError as e:
-        print(f"❌ Connection error: {e.reason}")
+        print(f" Connection error: {e.reason}")
         sys.exit(1)
 
 

@@ -7,5 +7,5 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
-| #3816 | 3:33 AM | 🔵 | Issue Prioritizer Skill Documentation Review | ~368 |
+| #3816 | 3:33 AM |  | Issue Prioritizer Skill Documentation Review | ~368 |
 </claude-mem-context>

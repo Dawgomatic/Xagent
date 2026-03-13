@@ -62,8 +62,8 @@ async function processMessage(message) {
                        (message.from?.first_name && message.from.first_name.toLowerCase().includes('snail'));
 
     // Check for photo captions
-    const isSentryCapture = caption.includes('🔴') && caption.includes('Sentry');
-    const isButtonCapture = caption.includes('📸') && caption.includes('Button');
+    const isSentryCapture = caption.includes('') && caption.includes('Sentry');
+    const isButtonCapture = caption.includes('') && caption.includes('Button');
 
     if (isFromSnail) {
       console.log(`[SNAIL MSG] ${text || caption}`);
@@ -73,20 +73,20 @@ async function processMessage(message) {
         if (text.toLowerCase().includes('hello') || text.toLowerCase().includes('hi')) {
           await telegramRequest('sendMessage', {
             chat_id: GROUP_ID,
-            text: `👋 Hey Snail! I'm monitoring the group. How can I help?`,
+            text: ` Hey Snail! I'm monitoring the group. How can I help?`,
             reply_to_message_id: message.message_id
           });
         } else if (text.toLowerCase().includes('status')) {
           await telegramRequest('sendMessage', {
             chat_id: GROUP_ID,
-            text: `✅ Monitor active and listening for messages every 30 seconds.`,
+            text: ` Monitor active and listening for messages every 30 seconds.`,
             reply_to_message_id: message.message_id
           });
         } else {
           // Generic acknowledgment
           await telegramRequest('sendMessage', {
             chat_id: GROUP_ID,
-            text: `📝 Got it. Processing...`,
+            text: ` Got it. Processing...`,
             reply_to_message_id: message.message_id
           });
         }
@@ -107,10 +107,10 @@ async function processMessage(message) {
         console.log(`[IMAGE] Downloaded: ${imagePath}`);
         
         // Send acknowledgment
-        const typeLabel = isSentryCapture ? '🔴 Sentry Capture' : '📸 Button Capture';
+        const typeLabel = isSentryCapture ? ' Sentry Capture' : ' Button Capture';
         await telegramRequest('sendMessage', {
           chat_id: GROUP_ID,
-          text: `${typeLabel}\n✅ Image received and queued for analysis.`,
+          text: `${typeLabel}\n Image received and queued for analysis.`,
           reply_to_message_id: message.message_id
         });
       }
@@ -145,11 +145,11 @@ async function poll() {
 }
 
 // Start monitoring
-console.log(`🚀 MOLT3D Monitor started`);
+console.log(` MOLT3D Monitor started`);
 console.log(`   Group: ${GROUP_ID}`);
 console.log(`   Bot Token: ${BOT_TOKEN.substring(0, 20)}...`);
 console.log(`   Poll Interval: ${POLL_INTERVAL}ms`);
-console.log(`⏳ Waiting for messages...\n`);
+console.log(` Waiting for messages...\n`);
 
 setInterval(poll, POLL_INTERVAL);
 poll(); // Initial poll immediately

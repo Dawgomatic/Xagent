@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🐾 OEE's Second Brain — RAG Knowledge Base
+ OEE's Second Brain — RAG Knowledge Base
 Personal knowledge base with semantic retrieval.
 """
 
@@ -18,7 +18,7 @@ import urllib.request
 from pathlib import Path
 from typing import Optional
 
-# 🐾
+# 
 DB_PATH = Path(__file__).parent / "kb.db"
 EMBED_MODEL = os.environ.get("KB_EMBED_MODEL", "text-embedding-3-small")
 EMBED_DIM = 1536
@@ -72,7 +72,7 @@ def get_db() -> sqlite3.Connection:
 # ── URL Normalization & Dedup ─────────────────────────────────────────
 
 def normalize_url(url: str) -> str:
-    """Strip tracking params, normalize twitter domains."""  # 🐾
+    """Strip tracking params, normalize twitter domains."""  # 
     url = url.strip()
     url = re.sub(r'^https?://(www\.)?twitter\.com/', 'https://x.com/', url)
     url = re.sub(r'^https?://(www\.)?x\.com/', 'https://x.com/', url)
@@ -120,7 +120,7 @@ def _retry(fn, retries=1, delay=2):
 
 
 def extract_tweet(url: str) -> tuple[str, str]:
-    """Extract tweet via FxTwitter API → web fetch fallback."""  # 🐾
+    """Extract tweet via FxTwitter API → web fetch fallback."""  # 
     norm = normalize_url(url)
     match = re.search(r'x\.com/(\w+)/status/(\d+)', norm)
     if not match:
@@ -140,7 +140,7 @@ def extract_tweet(url: str) -> tuple[str, str]:
 
 
 def extract_youtube(url: str) -> tuple[str, str]:
-    """Extract YouTube transcript via yt-dlp."""  # 🐾
+    """Extract YouTube transcript via yt-dlp."""  # 
     try:
         title_out = subprocess.run(
             ["yt-dlp", "--get-title", url],
@@ -190,7 +190,7 @@ def extract_youtube(url: str) -> tuple[str, str]:
 
 
 def extract_pdf(url_or_path: str) -> tuple[str, str]:
-    """Extract text from PDF."""  # 🐾
+    """Extract text from PDF."""  # 
     import tempfile
     path = url_or_path
     if url_or_path.startswith("http"):
@@ -226,7 +226,7 @@ except ImportError:
 
 
 def extract_article(url: str) -> tuple[str, str]:
-    """Extract article content with readability → raw fallback."""  # 🐾
+    """Extract article content with readability → raw fallback."""  # 
     raw = _retry(lambda: _api_get(url))
     if _is_error_page(raw):
         raise RuntimeError(f"Error page detected for {url}")
@@ -249,7 +249,7 @@ def _is_error_page(html_text: str) -> bool:
 
 
 def extract_content(url: str) -> tuple[str, str, str]:
-    """Returns (title, content, source_type)."""  # 🐾
+    """Returns (title, content, source_type)."""  # 
     source_type = classify_url(url)
     extractors = {
         "tweet": extract_tweet,
@@ -273,7 +273,7 @@ def validate_content(content: str, source_type: str) -> str:
 # ── Chunking ──────────────────────────────────────────────────────────
 
 def chunk_text(text: str) -> list[str]:
-    """Split text into overlapping chunks at sentence boundaries."""  # 🐾
+    """Split text into overlapping chunks at sentence boundaries."""  # 
     sentences = re.split(r'(?<=[.!?])\s+', text)
     chunks = []
     current = ""
@@ -324,7 +324,7 @@ def _openai_embed(texts: list[str]) -> list[list[float]]:
 
 
 def embed_texts(texts: list[str]) -> list[list[float]]:
-    """Embed texts in batches."""  # 🐾
+    """Embed texts in batches."""  # 
     all_embeddings = []
     for i in range(0, len(texts), BATCH_SIZE):
         batch = texts[i:i + BATCH_SIZE]
@@ -360,27 +360,27 @@ def cosine_similarity(a: list[float], b: list[float]) -> float:
 # ── Ingestion ─────────────────────────────────────────────────────────
 
 def ingest(url: str, tags: Optional[list[str]] = None) -> dict:
-    """Ingest a URL into the knowledge base. Returns source info."""  # 🐾
+    """Ingest a URL into the knowledge base. Returns source info."""  # 
     db = get_db()
     norm_url = normalize_url(url)
 
-    print(f"🔍 Extracting content from: {norm_url}")
+    print(f" Extracting content from: {norm_url}")
     title, content, source_type = extract_content(norm_url)
     content = validate_content(content, source_type)
 
     chash = content_hash(content)
     if is_duplicate(db, chash):
-        print("⚡ Content already exists (duplicate hash)")
+        print(" Content already exists (duplicate hash)")
         row = db.execute("SELECT id, title FROM sources WHERE content_hash=?", (chash,)).fetchone()
         return {"status": "duplicate", "source_id": row["id"], "title": row["title"]}
 
-    print(f"📝 Title: {title}")
-    print(f"📄 Type: {source_type} | Length: {len(content)} chars")
+    print(f" Title: {title}")
+    print(f" Type: {source_type} | Length: {len(content)} chars")
 
     chunks = chunk_text(content)
-    print(f"🧩 Chunks: {len(chunks)}")
+    print(f" Chunks: {len(chunks)}")
 
-    print("🧠 Generating embeddings...")
+    print(" Generating embeddings...")
     embeddings = embed_texts(chunks)
 
     # Generate summary (first 500 chars)
@@ -400,14 +400,14 @@ def ingest(url: str, tags: Optional[list[str]] = None) -> dict:
 
     db.commit()
     db.close()
-    print(f"✅ Ingested: {title} (id={source_id}, {len(chunks)} chunks)")
+    print(f" Ingested: {title} (id={source_id}, {len(chunks)} chunks)")
     return {"status": "ok", "source_id": source_id, "title": title, "chunks": len(chunks)}
 
 
 # ── Retrieval ─────────────────────────────────────────────────────────
 
 def retrieve(query: str, top_k: int = 10) -> list[dict]:
-    """Find most relevant chunks for a query."""  # 🐾
+    """Find most relevant chunks for a query."""  # 
     db = get_db()
     q_emb = embed_query(query)
 
@@ -447,7 +447,7 @@ def retrieve(query: str, top_k: int = 10) -> list[dict]:
 
 
 def ask(query: str, top_k: int = 10) -> str:
-    """Retrieve context and ask LLM to answer."""  # 🐾
+    """Retrieve context and ask LLM to answer."""  # 
     results = retrieve(query, top_k)
     if not results:
         return "No relevant content found in the knowledge base."
@@ -501,7 +501,7 @@ def ask(query: str, top_k: int = 10) -> str:
 # ── Ingest plain text ────────────────────────────────────────────────
 
 def ingest_text(text: str, title: str = "Plain Text", tags: Optional[list[str]] = None) -> dict:
-    """Ingest plain text directly."""  # 🐾
+    """Ingest plain text directly."""  # 
     db = get_db()
     content = validate_content(text, "text")
     chash = content_hash(content)
@@ -532,7 +532,7 @@ def ingest_text(text: str, title: str = "Plain Text", tags: Optional[list[str]] 
 
 
 if __name__ == "__main__":
-    print("🐾 OEE's Second Brain — Knowledge Base Library")
+    print(" OEE's Second Brain — Knowledge Base Library")
     print(f"   DB: {DB_PATH}")
     db = get_db()
     src_count = db.execute("SELECT COUNT(*) FROM sources").fetchone()[0]

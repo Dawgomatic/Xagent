@@ -14,7 +14,7 @@ if (!jobId) {
 
 const url = `https://sideload.gg/api/agent/generate/${jobId}/status`;
 
-console.log(`🔍 Checking job: ${jobId}\n`);
+console.log(` Checking job: ${jobId}\n`);
 
 try {
   const response = await fetch(url);
@@ -30,7 +30,7 @@ try {
 
   if (data.status === 'completed' && data.result) {
     console.log('');
-    console.log('📦 Results:');
+    console.log(' Results:');
     if (data.result.glbUrl) console.log(`   GLB:   ${data.result.glbUrl}`);
     if (data.result.vrmUrl) console.log(`   VRM:   ${data.result.vrmUrl}`);
     if (data.result.mmlUrl) console.log(`   MML:   ${data.result.mmlUrl}`);
@@ -45,6 +45,6 @@ try {
   console.log(JSON.stringify(data, null, 2));
 
 } catch (error) {
-  console.error(`❌ Error: ${error.message}`);
+  console.error(` Error: ${error.message}`);
   process.exit(1);
 }

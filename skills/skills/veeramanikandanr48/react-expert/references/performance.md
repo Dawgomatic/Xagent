@@ -28,7 +28,7 @@ const UserCard = memo(
 ```tsx
 // Problem: New object/function on each render
 function Parent() {
-  // ❌ Creates new object every render
+  //  Creates new object every render
   return <Child style={{ color: 'red' }} onClick={() => doSomething()} />;
 }
 

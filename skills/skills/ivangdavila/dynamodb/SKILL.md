@@ -1,7 +1,7 @@
 ---
 name: DynamoDB
 description: Design DynamoDB tables and write efficient queries avoiding common NoSQL pitfalls.
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"anyBins":["aws"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["aws"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Key Design

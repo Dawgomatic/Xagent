@@ -328,7 +328,7 @@ class TechDebtAnalyzer:
         
         # Overall strategy based on debt level
         if results['debt_level'] == 'Critical':
-            recommendations.append('🚨 URGENT: Dedicate 40% of engineering capacity to debt reduction')
+            recommendations.append(' URGENT: Dedicate 40% of engineering capacity to debt reduction')
             recommendations.append('Create dedicated debt reduction team')
             recommendations.append('Implement weekly debt reduction reviews')
             recommendations.append('Consider temporary feature freeze')

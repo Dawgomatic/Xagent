@@ -16,7 +16,7 @@ async function main() {
   const limit = li >= 0 ? parseInt(args[li + 1]) : 10;
   const rerank = !args.includes('--no-rerank');
 
-  console.log(`🔍 "${query}" (rerank: ${rerank ? 'on' : 'off'})\n`);
+  console.log(` "${query}" (rerank: ${rerank ? 'on' : 'off'})\n`);
 
   const results = await search(query, { limit, rerank });
 

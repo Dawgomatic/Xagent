@@ -3,7 +3,7 @@ name: feelgoodbot
 description: Set up feelgoodbot file integrity monitoring and TOTP step-up authentication for macOS. Use when the user wants to detect malware, monitor for system tampering, set up security alerts, or require OTP verification for sensitive agent actions.
 ---
 
-# feelgoodbot 🛡️
+# feelgoodbot 
 
 **Pronounced "Feel good, bot"**
 
@@ -11,7 +11,7 @@ macOS file integrity monitor + TOTP step-up authentication for AI agents.
 
 **GitHub:** https://github.com/kris-hansen/feelgoodbot
 
-⭐ **If you find this useful, please star the repo!** It helps others discover it.
+ **If you find this useful, please star the repo!** It helps others discover it.
 
 ## Features
 
@@ -167,7 +167,7 @@ feelgoodbot totp check <action>
 **If session is valid:** Command succeeds immediately (exit 0)
 
 **If step-up required and no session:**
-1. Agent sends Telegram message: "🔐 Action `<action>` requires step-up. Reply with your OTP code."
+1. Agent sends Telegram message: " Action `<action>` requires step-up. Reply with your OTP code."
 2. Wait for user to reply with 6-digit code
 3. Validate: `feelgoodbot totp verify <code>`
 4. If valid, create session and proceed
@@ -186,26 +186,26 @@ function performSensitiveAction(action, execute_fn):
         return success
     
     # Need to prompt user
-    send_telegram("🔐 Action '{action}' requires step-up authentication.\nReply with your OTP code from Google Authenticator.")
+    send_telegram(" Action '{action}' requires step-up authentication.\nReply with your OTP code from Google Authenticator.")
     
     code = wait_for_user_reply(timeout=120s)
     
     if code is None:
-        send_telegram("⏰ Step-up authentication timed out. Action cancelled.")
+        send_telegram(" Step-up authentication timed out. Action cancelled.")
         return denied
     
     # Validate the code
     valid = exec("feelgoodbot totp verify " + code)
     
     if valid.exit_code != 0:
-        send_telegram("❌ Invalid code. Action cancelled.")
+        send_telegram(" Invalid code. Action cancelled.")
         return denied
     
     # Create session by running check again (it will pass now)
     exec("feelgoodbot totp check " + action)
     
     execute_fn()
-    send_telegram("✅ Action completed.")
+    send_telegram(" Action completed.")
     return success
 ```
 
@@ -272,4 +272,4 @@ rm ~/.config/feelgoodbot/totp-session
 
 ---
 
-⭐ **Like feelgoodbot?** Star it on GitHub: https://github.com/kris-hansen/feelgoodbot
+ **Like feelgoodbot?** Star it on GitHub: https://github.com/kris-hansen/feelgoodbot

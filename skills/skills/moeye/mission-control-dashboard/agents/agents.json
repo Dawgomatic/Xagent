@@ -5,7 +5,7 @@
       "name": "BOSS",
       "role": "CEO",
       "badge": "CEO",
-      "icon": "👔",
+      "icon": "",
       "color": "#1F2937",
       "description": "Chief Executive Officer. Top executive making all critical decisions and strategy",
       "capabilities": [
@@ -22,7 +22,7 @@
       "name": "MOMO",
       "role": "COO",
       "badge": "LEAD",
-      "icon": "🍑",
+      "icon": "",
       "color": "#F09440",
       "description": "Chief Operations Officer. Receives tasks from CEO and assigns to departments, coordinates everything",
       "capabilities": [
@@ -41,7 +41,7 @@
       "name": "BOT",
       "role": "Bot Operations",
       "badge": "DEPT",
-      "icon": "🤖",
+      "icon": "",
       "color": "#7C3AED",
       "description": "Bot Operations Department. Manages all PM2 bots, start/stop/restart, status monitoring",
       "capabilities": [
@@ -68,21 +68,21 @@
         {
           "id": "strategy-researcher",
           "name": "Strategy Researcher",
-          "icon": "🔬",
+          "icon": "",
           "description": "Research and test new trading strategies",
           "capabilities": ["research", "backtesting", "optimization"]
         },
         {
           "id": "risk-manager",
           "name": "Risk Manager",
-          "icon": "⚠️",
+          "icon": "",
           "description": "Manage risk, monitor drawdown and position sizing",
           "capabilities": ["risk-assessment", "alerts", "position-limits"]
         },
         {
           "id": "performance-analyst",
           "name": "Performance Analyst",
-          "icon": "📈",
+          "icon": "",
           "description": "Analyze trading performance, PnL and metrics for all bots",
           "capabilities": ["analytics", "reporting", "metrics"]
         }
@@ -93,7 +93,7 @@
       "name": "TREASURY",
       "role": "Finance & DeFi",
       "badge": "DEPT",
-      "icon": "💰",
+      "icon": "",
       "color": "#10B981",
       "description": "Finance and DeFi Department. Manages trading strategy, portfolio, wallet operations",
       "capabilities": [
@@ -110,7 +110,7 @@
       "name": "ENGINEER",
       "role": "Development",
       "badge": "DEPT",
-      "icon": "💻",
+      "icon": "",
       "color": "#3B82F6",
       "description": "Development Department. Writes code, fixes bugs, creates automation, maintains bots",
       "capabilities": [
@@ -125,21 +125,21 @@
         {
           "id": "frontend-dev",
           "name": "Frontend Developer",
-          "icon": "🎨",
+          "icon": "",
           "description": "Build dashboards and web interfaces",
           "capabilities": ["react", "nextjs", "ui", "responsive"]
         },
         {
           "id": "smart-contract-dev",
           "name": "Smart Contract Developer",
-          "icon": "📜",
+          "icon": "",
           "description": "Write and deploy smart contracts on EVM chains",
           "capabilities": ["solidity", "hardhat", "deployment", "testing"]
         },
         {
           "id": "api-builder",
           "name": "API Builder",
-          "icon": "🔌",
+          "icon": "",
           "description": "Build APIs and integrations (e.g., A2A service)",
           "capabilities": ["rest-api", "webhooks", "integrations", "authentication"]
         }
@@ -150,7 +150,7 @@
       "name": "INTEL",
       "role": "Research & Intelligence",
       "badge": "DEPT",
-      "icon": "🔍",
+      "icon": "",
       "color": "#8B5CF6",
       "description": "Research Department. Scans for airdrops, news, new opportunities, market analysis",
       "capabilities": [
@@ -168,7 +168,7 @@
       "name": "CONTENT",
       "role": "Marketing & Content",
       "badge": "DEPT",
-      "icon": "✍️",
+      "icon": "",
       "color": "#EC4899",
       "description": "Content Department. Writes tweets, articles, and various content",
       "capabilities": [
@@ -184,21 +184,21 @@
         {
           "id": "twitter-content",
           "name": "Twitter Content",
-          "icon": "🐦",
+          "icon": "",
           "description": "Write and post tweets with images and stat cards",
           "capabilities": ["twitter", "copywriting", "images", "engagement"]
         },
         {
           "id": "video-creator",
           "name": "Video Creator",
-          "icon": "🎬",
+          "icon": "",
           "description": "Create short videos, reels, and clips for social media",
           "capabilities": ["video-editing", "shorts", "tiktok", "reels"]
         },
         {
           "id": "meme-generator",
           "name": "Meme Generator",
-          "icon": "😂",
+          "icon": "",
           "description": "Create memes and viral content for crypto community",
           "capabilities": ["memes", "viral", "humor", "crypto-culture"]
         }
@@ -209,7 +209,7 @@
       "name": "COMMUNITY",
       "role": "Social & PR",
       "badge": "DEPT",
-      "icon": "📱",
+      "icon": "",
       "color": "#06B6D4",
       "description": "Community Department. Manages social media, engagement, follower growth",
       "capabilities": [
@@ -227,7 +227,7 @@
       "name": "SECURITY",
       "role": "Security & Compliance",
       "badge": "DEPT",
-      "icon": "🛡️",
+      "icon": "",
       "color": "#EF4444",
       "description": "Security Department. Monitors security, scans threats, alerts on issues",
       "capabilities": [
@@ -245,7 +245,7 @@
       "name": "INFRA",
       "role": "IT & Infrastructure",
       "badge": "DEPT",
-      "icon": "💾",
+      "icon": "",
       "color": "#F59E0B",
       "description": "IT Department. Manages servers, disk space, backups, infrastructure",
       "capabilities": [
@@ -263,7 +263,7 @@
       "name": "ANALYTICS",
       "role": "Data & Reports",
       "badge": "DEPT",
-      "icon": "📊",
+      "icon": "",
       "color": "#6366F1",
       "description": "Analytics Department. Portfolio summaries, profit/loss reports, metrics",
       "capabilities": [
@@ -281,7 +281,7 @@
       "name": "DESIGN",
       "role": "Creative & Visual",
       "badge": "DEPT",
-      "icon": "🎨",
+      "icon": "",
       "color": "#F472B6",
       "description": "Design Department. Creates graphics, memes, UI/UX, visuals",
       "capabilities": [
@@ -298,7 +298,7 @@
       "name": "SCHEDULER",
       "role": "Automation & Timing",
       "badge": "DEPT",
-      "icon": "⏰",
+      "icon": "",
       "color": "#14B8A6",
       "description": "Scheduler Department. Manages cron jobs, reminders, automation timing",
       "capabilities": [
@@ -315,7 +315,7 @@
       "name": "CREDITS",
       "role": "Token Credits & Model Routing",
       "badge": "DEPT",
-      "icon": "🪙",
+      "icon": "",
       "color": "#FFD700",
       "description": "Credits Department. Manages Token Credits, selects models by difficulty (Opus=hard, Sonnet=medium, GLM=search)",
       "capabilities": [
@@ -337,7 +337,7 @@
       "name": "BUSINESS",
       "role": "Revenue & Growth",
       "badge": "DEPT",
-      "icon": "💼",
+      "icon": "",
       "color": "#059669",
       "description": "Business Department. Generate revenue from AI services, sell skills, build community, find clients",
       "capabilities": [
@@ -355,7 +355,7 @@
       "name": "SALES",
       "role": "Sales & Revenue",
       "badge": "DEPT",
-      "icon": "💵",
+      "icon": "",
       "color": "#10B981",
       "description": "Sales Department. Manages leads, closes deals, tracks revenue, pipeline management",
       "capabilities": [
@@ -373,7 +373,7 @@
       "name": "PREDICT",
       "role": "Polymarket Trading",
       "badge": "DEPT",
-      "icon": "🎲",
+      "icon": "",
       "color": "#6366F1",
       "description": "Polymarket Department. Manages prediction markets trading, PnL tracking, market analysis",
       "capabilities": [
@@ -391,7 +391,7 @@
       "name": "AGENTS",
       "role": "Multi-Agent Coordination",
       "badge": "DEPT",
-      "icon": "🤖",
+      "icon": "",
       "color": "#8B5CF6",
       "description": "Multi-Agent System. Coordinates 6 AI agents for autonomous work - Scout, Analyst, Executor, Auditor, Content, Infra",
       "capabilities": [

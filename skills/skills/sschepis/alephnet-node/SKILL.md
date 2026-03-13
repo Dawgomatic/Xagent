@@ -350,7 +350,7 @@ alephnet-node groups.post --groupId "group_xyz" --content "New findings on seman
 #### `groups.react`
 Add a reaction to a post.
 ```bash
-alephnet-node groups.react --groupId "group_xyz" --postId "post_123" --reaction "👍"
+alephnet-node groups.react --groupId "group_xyz" --postId "post_123" --reaction ""
 ```
 
 #### `groups.comment`

@@ -11,7 +11,7 @@ if [ -z "$OPENAI_API_KEY" ]; then
   export OPENAI_API_KEY=$(cat ~/.openclaw/openclaw.json 2>/dev/null | python3 -c "import sys,json; c=json.load(sys.stdin); print(c.get('skills',{}).get('entries',{}).get('openai-whisper-api',{}).get('apiKey',''))" 2>/dev/null)
 fi
 
-echo "🎤 Starting Voice UI..."
-echo "📍 http://localhost:8765"
+echo " Starting Voice UI..."
+echo " http://localhost:8765"
 
 node server.cjs

@@ -21,7 +21,7 @@ This skill packages a production VC workflow designed for investment partners wh
 
 Every inbound email gets automatically classified into one of four categories:
 
-#### 🟢 PRIORITY
+####  PRIORITY
 Warm intros from trusted sources that need immediate attention.
 
 **Criteria:**
@@ -29,7 +29,7 @@ Warm intros from trusted sources that need immediate attention.
 - SUBJECT: Contains "intro", "introduction", "meet", "connect"
 - Action: Surface immediately via daily briefing
 
-#### 🟡 REVIEW
+####  REVIEW
 Needs your judgment before taking action.
 
 **Examples:**
@@ -37,14 +37,14 @@ Needs your judgment before taking action.
 - Warm intro from trusted source BUT outside focus area
 - Follow-up from someone you previously passed on
 
-#### 🔴 AUTO-RESPOND
+####  AUTO-RESPOND
 Clear pass — draft polite response and log to CRM automatically.
 
 **Criteria:**
 - Cold outreach, no warm intro, outside focus areas
 - Action: Create draft pass email + add to Affinity with Stage=Passed + archive
 
-#### ⚫ ARCHIVE
+####  ARCHIVE
 Silent archive with no response needed.
 
 **Examples:**
@@ -83,10 +83,10 @@ Investment Partner<br>
 Your Firm<br>
 your.email@firm.com</p>
 
-<p>🤖</p>
+<p></p>
 ```
 
-The 🤖 emoji indicates AI-assisted drafting.
+The  emoji indicates AI-assisted drafting.
 
 ### Intro Response Template
 
@@ -686,40 +686,40 @@ I'd love to chat! Here's my calendar - grab whatever works: [LINK]
 Generate a daily briefing every morning (or on-demand) covering:
 
 ```
-🌅 DAILY BRIEFING - [Date]
+ DAILY BRIEFING - [Date]
 ════════════════════════════════════════════════
 
-📧 EMAIL TRIAGE
+ EMAIL TRIAGE
 ────────────────────────────────────────────────
-🟢 PRIORITY ([X])
+ PRIORITY ([X])
 • [Time] from [Sender]: [Company] intro
   Action: Review and respond
 
-🟡 REVIEW ([X])
+ REVIEW ([X])
 • [Time] from [Sender]: [Subject]
   Needs decision: [why]
 
-🔴 AUTO-RESPOND ([X])
+ AUTO-RESPOND ([X])
 • [Time] from [Sender]: [Company]
   ✓ Draft created + logged to Affinity
   
-📅 CALENDAR TODAY
+ CALENDAR TODAY
 ────────────────────────────────────────────────
 • [Time] - [Event title]
   [Location/Google Meet link]
   
 • [Time] - [Event title]
   
-🔔 UPCOMING (Next 48h)
+ UPCOMING (Next 48h)
 ────────────────────────────────────────────────
 • [Day/Time] - [Event]
 
-📝 AFFINITY UPDATES
+ AFFINITY UPDATES
 ────────────────────────────────────────────────
 • [X] companies logged yesterday
 • [X] notes added
 
-💡 SUGGESTED ACTIONS
+ SUGGESTED ACTIONS
 ────────────────────────────────────────────────
 • [Action 1]
 • [Action 2]
@@ -832,7 +832,7 @@ Edit these sections in your workspace:
 
 **Email signatures:**
 - Update name, title, firm, contact info
-- Keep the 🤖 emoji to indicate AI assistance
+- Keep the  emoji to indicate AI assistance
 
 **Booking links:**
 - Replace placeholder URLs with your actual Google Calendar links
@@ -848,7 +848,7 @@ Edit these sections in your workspace:
 ### Message Formatting
 
 Customize how your AI communicates with you:
-- Set preferred emoji or markers (e.g., 🤖 for AI messages)
+- Set preferred emoji or markers (e.g.,  for AI messages)
 - Choose formatting style (bold, italics, etc.)
 - Define briefing frequency and format
 

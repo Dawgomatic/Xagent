@@ -5,7 +5,7 @@ description: "CLI for AI agents to search and lookup books for their humans. Use
 homepage: https://openlibrary.org
 metadata:
   openclaw:
-    emoji: "📚"
+    emoji: ""
     requires:
       bins: ["bash", "curl", "jq"]
     tags: ["books", "reading", "open-library", "literature", "cli"]
@@ -47,29 +47,29 @@ books author OL23919A                   # Get author bio and works
 
 **Search output:**
 ```
-[OL27448W] The Name of the Wind — Patrick Rothfuss, 2007, ⭐ 4.5
+[OL27448W] The Name of the Wind — Patrick Rothfuss, 2007,  4.5
 ```
 
 **Info output:**
 ```
-📚 The Name of the Wind
+ The Name of the Wind
    Work ID: OL27448W
    First Published: March 27, 2007
    Subjects: Fantasy, Magic, Coming of Age
 
-📖 Description:
+ Description:
 [Full description text]
 
-🖼️ Cover: https://covers.openlibrary.org/b/id/12345-L.jpg
+ Cover: https://covers.openlibrary.org/b/id/12345-L.jpg
 ```
 
 **Author output:**
 ```
-👤 Patrick Rothfuss
+ Patrick Rothfuss
    Born: June 6, 1973
    Author ID: OL23919A
 
-📖 Bio:
+ Bio:
 [Author biography]
 
 === Works ===

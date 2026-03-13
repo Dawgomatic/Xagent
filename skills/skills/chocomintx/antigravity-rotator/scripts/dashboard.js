@@ -130,7 +130,7 @@ class Dashboard {
                 modelsHtml += `
                 <div class="model-row ${isModelCurrentlyActive ? 'active-model-row' : ''}">
                     <div class="model-info">
-                        <span class="model-name">${displayName} ${isModelCurrentlyActive ? '🔥' : ''}</span>
+                        <span class="model-name">${displayName} ${isModelCurrentlyActive ? '' : ''}</span>
                         <span class="model-quota">${quota}%</span>
                     </div>
                     <div class="progress-bg"><div class="progress-bar ${barClass}" style="width: ${quota}%"></div></div>
@@ -142,7 +142,7 @@ class Dashboard {
             accountCards += `
             <div class="card ${isActive ? 'active-card' : ''}">
                 <div class="card-header">
-                    <div class="account-name">${isActive ? '🟢' : '⚫'} ${shortName}</div>
+                    <div class="account-name">${isActive ? '' : ''} ${shortName}</div>
                     ${isActive ? '<span class="badge">正在使用</span>' : ''}
                     <button class="delete-btn" onclick="confirmRemoveAccount('${acc}')" title="移除监控">×</button>
                 </div>
@@ -274,7 +274,7 @@ class Dashboard {
         </div>
     </div>
 
-    <button class="btn-rotate-fixed" onclick="triggerRotate()" title="强制执行轮换">🚀</button>
+    <button class="btn-rotate-fixed" onclick="triggerRotate()" title="强制执行轮换"></button>
 
     <div id="modal-overlay"><div id="modal-box"><div class="modal-header"><div class="modal-title" id="modal-title"></div><button onclick="closeModal()" style="background:none;border:none;color:#555;font-size:1.5rem;cursor:pointer;">×</button></div><div class="modal-body" id="modal-body"></div><div class="modal-footer" id="modal-footer"></div></div></div>
 
@@ -304,14 +304,14 @@ class Dashboard {
                 const buttons = item.querySelectorAll('button'); buttons[0].disabled = (i === 0); buttons[1].disabled = (i === items.length - 1);
             });
         }
-        function markChanged() { priorityChanged = true; document.getElementById('priority-status').textContent = '⚠️ 有未保存的更改'; document.getElementById('priority-status').style.color = 'var(--warn)'; }
+        function markChanged() { priorityChanged = true; document.getElementById('priority-status').textContent = ' 有未保存的更改'; document.getElementById('priority-status').style.color = 'var(--warn)'; }
         async function savePriority() {
             if (!priorityChanged) return;
             const items = document.querySelectorAll('#priority-list .priority-item');
             const newOrder = Array.from(items).map(item => item.dataset.model);
             try {
                 await apiCall('setPriority', { order: newOrder });
-                priorityChanged = false; document.getElementById('priority-status').textContent = '✅ 已保存'; document.getElementById('priority-status').style.color = 'var(--high)';
+                priorityChanged = false; document.getElementById('priority-status').textContent = ' 已保存'; document.getElementById('priority-status').style.color = 'var(--high)';
             } catch (e) { showModal('错误', e.message); }
         }
         async function apiCall(action, data) {
@@ -371,7 +371,7 @@ class Dashboard {
                 res.end('Not Found');
             }
         });
-        server.listen(port, '0.0.0.0', () => { console.log(`\n🔮 Antigravity Dashboard started on http://0.0.0.0:${port}`); });
+        server.listen(port, '0.0.0.0', () => { console.log(`\n Antigravity Dashboard started on http://0.0.0.0:${port}`); });
     }
 
     async handleApi(data) {

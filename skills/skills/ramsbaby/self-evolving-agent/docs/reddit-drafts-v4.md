@@ -8,7 +8,7 @@
 
 ---
 
-## 📌 Post 1: r/AI_Agents
+##  Post 1: r/AI_Agents
 
 **Title:** I built an AI that watches itself fail, then proposes its own fixes — with a closed feedback loop that measures if the fixes actually worked
 
@@ -41,7 +41,7 @@ I automated that loop. Imperfectly. But here's what the numbers looked like.
 When I ran the v3 analysis on a week of real logs, it found:
 
 ```
-📊 exec retry analysis (7-day window):
+ exec retry analysis (7-day window):
    Sessions with 3+ consecutive exec retries: 221
    Maximum consecutive retries in one session: 119
    Total retry events: 405
@@ -51,7 +51,7 @@ When I ran the v3 analysis on a week of real logs, it found:
 119 consecutive retries. Same command. Same failure. The agent was stuck in a loop and just... kept going. I had no idea — I wasn't watching every session. The tool found it automatically and proposed this:
 
 ```diff
-+ ## ⚡ exec Consecutive Retry Limit
++ ##  exec Consecutive Retry Limit
 +
 + If the same exec command fails 3+ times in a row:
 + 1. Report the error immediately — don't retry silently
@@ -172,7 +172,7 @@ Questions welcome, especially about tuning keyword patterns for non-Korean setup
 
 ---
 
-## 📝 Post 2: r/ClaudeAI
+##  Post 2: r/ClaudeAI
 
 **Title:** Automated AGENTS.md improvement loop — my AI reviews its own chat logs weekly and suggests rule changes
 
@@ -231,20 +231,20 @@ No other tool in this space does this. They find problems. They suggest fixes. T
 Every week you get a Discord message like this:
 
 ```
-📋 AGENTS.md Weekly Review — 2026-02-16
+ AGENTS.md Weekly Review — 2026-02-16
 
-🔴 NEW PROPOSALS (2):
+ NEW PROPOSALS (2):
    1. exec retry limit [evidence: 405 events, max 119 consecutive]
    2. heartbeat error suppression [evidence: 18× same error repeated]
 
-📊 ACTIVE RULE EFFECTIVENESS:
-   ✅ exec retry limit (applied 2026-02-09)
+ ACTIVE RULE EFFECTIVENESS:
+    exec retry limit (applied 2026-02-09)
       Before: 405 events/week → After: 12 events/week (-97%)
-   ⚠️  memory compaction rule (applied 2026-01-26)
+     memory compaction rule (applied 2026-01-26)
       Pattern still present (3 sessions with 20+ compactions)
       → Consider revision
 
-✅ Approve all / ❌ Reject all / Review individually
+ Approve all /  Reject all / Review individually
 ```
 
 AGENTS.md is **never** modified without you clicking approve. The proposals come with evidence (real numbers from real logs). You make the call.
@@ -296,7 +296,7 @@ If you're building similar feedback loops for your CLAUDE.md setups, curious wha
 
 ---
 
-## 📌 Posting Strategy
+##  Posting Strategy
 
 - **Platform priority:** r/AI_Agents first (technical audience, more upside), r/ClaudeAI same day
 - **Timing:** Tuesday–Thursday, 9–11 AM EST
@@ -342,7 +342,7 @@ If you install today, come back next week.
 
 ---
 
-## ❌ Things NOT to say
+##  Things NOT to say
 
 - "Revolutionary" / "game-changing" — it's a useful cron, not a breakthrough
 - "Full feedback loop" — Stage 3 is new and needs real-world validation
@@ -353,7 +353,7 @@ If you install today, come back next week.
 
 ---
 
-## 📊 Key Numbers to Lead With (v4.0)
+##  Key Numbers to Lead With (v4.0)
 
 | Metric | Value |
 |--------|-------|

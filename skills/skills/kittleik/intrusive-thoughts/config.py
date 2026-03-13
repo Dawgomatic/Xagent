@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""🧠 Configuration loader for Intrusive Thoughts."""
+""" Configuration loader for Intrusive Thoughts."""
 
 import json
 import os
@@ -26,16 +26,16 @@ def load_config():
         try:
             with open(example_config_file) as f:
                 config = json.load(f)
-                print("⚠️  Using config.example.json - copy to config.json and customize!")
+                print("  Using config.example.json - copy to config.json and customize!")
                 return config
         except Exception as e:
             print(f"Error loading config.example.json: {e}")
     
     # Last resort - minimal config
-    print("⚠️  No config found! Using minimal defaults.")
+    print("  No config found! Using minimal defaults.")
     return {
         "human": {"name": "Human", "timezone": "UTC"},
-        "agent": {"name": "Agent", "emoji": "🤖"},
+        "agent": {"name": "Agent", "emoji": ""},
         "system": {"data_dir": str(BASE_DIR), "dashboard_port": 3117},
         "integrations": {"moltbook": {"enabled": False}, "telegram": {"enabled": False}}
     }
@@ -74,7 +74,7 @@ def get_agent_name():
 
 def get_agent_emoji():
     """Get the agent's emoji."""
-    return get('agent.emoji', '🤖')
+    return get('agent.emoji', '')
 
 def get_telegram_target():
     """Get Telegram target username."""
@@ -94,7 +94,7 @@ def get_timezone():
 
 if __name__ == "__main__":
     # Test config loading
-    print("🧠 Intrusive Thoughts Configuration Test")
+    print(" Intrusive Thoughts Configuration Test")
     print("=" * 40)
     print(f"Human: {get_human_name()}")
     print(f"Agent: {get_agent_name()} {get_agent_emoji()}")

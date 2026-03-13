@@ -31,9 +31,9 @@ node scripts/meshtastic-persistent.js "broadcast: hello mesh"
 
 Expected output:
 ```
-🔌 Connecting to Meshtastic device...
-✅ Connected!
-✅ Broadcast sent: "hello mesh"
+ Connecting to Meshtastic device...
+ Connected!
+ Broadcast sent: "hello mesh"
 ```
 
 **With debug logging:**
@@ -48,9 +48,9 @@ Expected output (with debug info):
 [Persistent] Device info retrieved successfully
 [Persistent] Setting up persistent listener...
 [Persistent] Persistent listener ready
-🔌 Connecting to Meshtastic device...
-✅ Connected!
-✅ Broadcast sent: "hello mesh"
+ Connecting to Meshtastic device...
+ Connected!
+ Broadcast sent: "hello mesh"
 ```
 
 **Interactive mode:**
@@ -61,14 +61,14 @@ node scripts/meshtastic-persistent.js
 Then type commands:
 ```
 > broadcast: hello mesh
-✅ Broadcast sent: "hello mesh"
+ Broadcast sent: "hello mesh"
 
 > nodes
-📡 Mesh Nodes:
+ Mesh Nodes:
 (shows all nodes)
 
 > info
-ℹ️ Device Info:
+ Device Info:
 (shows device info)
 
 > exit
@@ -139,11 +139,11 @@ Process might be stuck. Press Ctrl+C to kill it:
 
 ## What Success Looks Like
 
-✅ Message sent without ETIMEDOUT
-✅ Response within 1-2 seconds
-✅ Device stays connected
-✅ Can send multiple messages in succession
-✅ No process spawning overhead
+ Message sent without ETIMEDOUT
+ Response within 1-2 seconds
+ Device stays connected
+ Can send multiple messages in succession
+ No process spawning overhead
 
 ## Performance Benchmark
 

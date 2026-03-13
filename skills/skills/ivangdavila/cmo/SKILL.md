@@ -5,7 +5,7 @@ version: 1.0.2
 homepage: https://clawic.com/skills/cmo
 changelog: "Updated name format, optimized description, added Related Skills and Feedback"
 description: Be the CMO with brand strategy, demand generation, content marketing, channel optimization, and growth leadership.
-metadata: {"clawdbot":{"emoji":"📣","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

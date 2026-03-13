@@ -22,7 +22,7 @@ if [ -z "$ACCESS_TOKEN" ]; then
 fi
 
 # Fetch task lists
-echo "📋 Your Google Tasks:"
+echo " Your Google Tasks:"
 echo
 
 LISTS=$(curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
@@ -42,7 +42,7 @@ echo "$LISTS" | jq -c '.items[]' | while read -r list_json; do
     LIST_TITLE=$(echo "$list_json" | jq -r '.title // "(unnamed)"')
     
     echo
-    echo "📌 $LIST_TITLE"
+    echo " $LIST_TITLE"
     echo "──────────────────────────────────────────────────"
     
     # Fetch tasks for this list
@@ -62,7 +62,7 @@ echo "$LISTS" | jq -c '.items[]' | while read -r list_json; do
             DUE=$(echo "$task_json" | jq -r '.due // empty' | cut -d'T' -f1)
             NOTES=$(echo "$task_json" | jq -r '.notes // empty')
             
-            LINE="  $INDEX. ⬜ $TITLE"
+            LINE="  $INDEX.  $TITLE"
             [ -n "$DUE" ] && LINE="$LINE (due: $DUE)"
             echo "$LINE"
             

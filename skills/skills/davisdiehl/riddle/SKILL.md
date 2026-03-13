@@ -12,7 +12,7 @@ tags:
 homepage: https://riddledc.com
 metadata:
   openclaw:
-    emoji: "🔍"
+    emoji: ""
     install:
       - id: riddle-plugin
         kind: node

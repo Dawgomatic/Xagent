@@ -3,7 +3,7 @@
 ### Single Photo (The Moment)
 Highlight a specific moment with a focused layout.
 ```markdown
-> [!NOTE] 📸 The View
+> [!NOTE]  The View
 > ![Sunset over the mountains](assets/sunset.jpg)
 > *The sky turned purple and gold as we reached the peak.*
 ```
@@ -33,20 +33,20 @@ We had to stop every few minutes to catch our breath, but the view was worth it.
 Use emojis as visual anchors, not decoration. Maintain a consistent "voice".
 
 **Time-based Markers:**
-- 🌅 Morning / Start
-- ☀️ Afternoon / Active
-- 🌇 Evening / Wind-down
-- 🌙 Night / Sleep
+-  Morning / Start
+-  Afternoon / Active
+-  Evening / Wind-down
+-  Night / Sleep
 
 **Theme Markers:**
-- ✨ Highlights / Wins
-- 🖼️ Visuals / Moments
-- 💭 Reflections / Thoughts
-- 🌱 Growth / Learning
-- 🎯 Focus / Goals
+-  Highlights / Wins
+-  Visuals / Moments
+-  Reflections / Thoughts
+-  Growth / Learning
+-  Focus / Goals
 
-**Don't:** ❌ Sprinkle random emojis in every sentence.
-**Do:** ✅ Use them to header sections or bullet points for scanability.
+**Don't:**  Sprinkle random emojis in every sentence.
+**Do:**  Use them to header sections or bullet points for scanability.
 
 ---
 
@@ -56,13 +56,13 @@ Use emojis as visual anchors, not decoration. Maintain a consistent "voice".
 Chronological storytelling for daily logs.
 
 ```markdown
-### 🌅 Morning Routine
+###  Morning Routine
 Slow start. Coffee on the balcony.
 
-### ☀️ Mid-Day Push
+###  Mid-Day Push
 Deep work session. Completed the core feature.
 
-### 🌇 Evening Unwind
+###  Evening Unwind
 Dinner with friends.
 ```
 
@@ -70,14 +70,14 @@ Dinner with friends.
 Categorical grouping for weekly reviews or specific events.
 
 ```markdown
-### ✨ Highlights
+###  Highlights
 - Shipped the new release
 - Found a great new cafe
 
-### 💭 Headspace
+###  Headspace
 Feeling productive but needing more rest.
 
-### 🌱 Growth
+###  Growth
 Learned about CSS Grid subgrid today.
 ```
 
@@ -106,15 +106,15 @@ Use blockquotes for insights, overheard dialogue, or key takeaways.
 Designed to look good in a screenshot or when shared.
 
 ```markdown
-# 📅 Sunday Reset
+#  Sunday Reset
 
-> "Recharging is productive." 💭
+> "Recharging is productive." 
 
-**✨ Top 3 Wins:**
+** Top 3 Wins:**
 1. Read 50 pages
 2. Meal prepped for the week
 3. Zero screen time after 8 PM
 
-**📸 Mood:**
+** Mood:**
 ![Cozy reading nook](assets/nook.jpg)
 ```

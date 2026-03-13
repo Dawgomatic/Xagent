@@ -24,7 +24,7 @@ FAILED_TESTS = []
 
 def log(msg, level="INFO"):
     """Print formatted log message."""
-    icons = {"INFO": "ℹ️ ", "PASS": "✅", "FAIL": "❌", "WARN": "⚠️ ", "TEST": "🧪"}
+    icons = {"INFO": " ", "PASS": "", "FAIL": "", "WARN": " ", "TEST": ""}
     print(f"{icons.get(level, '')} {msg}")
 
 

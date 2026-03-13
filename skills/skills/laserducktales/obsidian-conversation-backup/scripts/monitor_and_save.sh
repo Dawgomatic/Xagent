@@ -118,7 +118,7 @@ if [[ $TOKENS -gt 900000 ]]; then
         if [[ -n "$BOT_TOKEN" && -n "$CHAT_ID" ]]; then
             curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
                 -d "chat_id=${CHAT_ID}" \
-                -d "text=🚨 URGENT: Context at ${TOKENS}k/1M (90%+) - Run /new NOW" > /dev/null
+                -d "text= URGENT: Context at ${TOKENS}k/1M (90%+) - Run /new NOW" > /dev/null
         fi
         echo "900k" > "$WARNING_SENT_FILE"
     fi
@@ -128,7 +128,7 @@ elif [[ $TOKENS -gt 800000 ]]; then
         if [[ -n "$BOT_TOKEN" && -n "$CHAT_ID" ]]; then
             curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
                 -d "chat_id=${CHAT_ID}" \
-                -d "text=⚠️ TOKEN WARNING: Context at ${TOKENS}k/1M (80%+) - Consider /new soon" > /dev/null
+                -d "text= TOKEN WARNING: Context at ${TOKENS}k/1M (80%+) - Consider /new soon" > /dev/null
         fi
         echo "800k" > "$WARNING_SENT_FILE"
     fi

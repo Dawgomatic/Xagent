@@ -3,10 +3,10 @@ name: mcdonald
 description: 麦当劳助手 - 查询/领取优惠券、活动日历、餐品营养信息、门店查询
 version: 1.0.0
 author: hi-yu
-metadata: {"openclaw": {"emoji": "🍔", "category": "lifestyle", "tags": ["麦当劳", "优惠券", "美食", "快餐"]}}
+metadata: {"openclaw": {"emoji": "", "category": "lifestyle", "tags": ["麦当劳", "优惠券", "美食", "快餐"]}}
 ---
 
-# 🍔 麦当劳助手
+#  麦当劳助手
 
 当用户询问麦当劳相关问题时，使用此 skill 调用麦当劳 MCP 服务获取实时数据。
 
@@ -183,8 +183,8 @@ curl -s -X POST "https://mcp.mcd.cn" -H "Authorization: Bearer $MCD_TOKEN" -H "C
 
 **AI 回复**: 
 > 当前可领取的优惠券：
-> 1. 🍟 麦辣鸡腿堡套餐立减5元 (有效期至2月10日)
-> 2. 🥤 任意饮品第二杯半价 (有效期至2月15日)
+> 1.  麦辣鸡腿堡套餐立减5元 (有效期至2月10日)
+> 2.  任意饮品第二杯半价 (有效期至2月15日)
 > ...
 > 
 > 需要帮你一键领取吗？

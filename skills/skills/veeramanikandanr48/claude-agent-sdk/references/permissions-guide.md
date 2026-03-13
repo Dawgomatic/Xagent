@@ -63,7 +63,7 @@ options: {
 
 ## Bypass Permissions Mode
 
-⚠️ **DANGER**: Skips ALL permission checks.
+ **DANGER**: Skips ALL permission checks.
 
 ```typescript
 options: {
@@ -190,7 +190,7 @@ canUseTool: async (toolName, input) => {
       if (input.file_path?.includes(path)) {
         return {
           behavior: "ask",
-          message: `⚠️  Modify sensitive file: ${input.file_path}?`
+          message: `  Modify sensitive file: ${input.file_path}?`
         };
       }
     }
@@ -250,7 +250,7 @@ canUseTool: async (toolName, input) => {
       if (input.command.includes(pattern)) {
         return {
           behavior: "ask",
-          message: `🚀 DEPLOYMENT: ${input.command}\n\nProceed?`
+          message: ` DEPLOYMENT: ${input.command}\n\nProceed?`
         };
       }
     }
@@ -314,7 +314,7 @@ options: {
 
 ## Security Best Practices
 
-### ✅ Do
+###  Do
 
 - Start with `"default"` mode
 - Use `canUseTool` for fine-grained control
@@ -325,7 +325,7 @@ options: {
 - Use environment-based rules
 - Implement rate limiting if needed
 
-### ❌ Don't
+###  Don't
 
 - Use `"bypassPermissions"` in production
 - Skip permission checks for "trusted" inputs

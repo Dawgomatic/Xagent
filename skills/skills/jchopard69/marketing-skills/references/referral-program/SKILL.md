@@ -84,7 +84,7 @@ Many successful programs combine both:
 ┌─────────────────────────────────────────────────────┐
 │                                                     │
 │  ┌──────────┐    ┌──────────┐    ┌──────────┐     │
-│  │ Trigger  │───▶│  Share   │───▶│ Convert  │     │
+│  │ Trigger  │───│  Share   │───│ Convert  │     │
 │  │ Moment   │    │  Action  │    │ Referred │     │
 │  └──────────┘    └──────────┘    └──────────┘     │
 │       ▲                               │            │

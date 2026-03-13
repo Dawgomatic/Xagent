@@ -60,13 +60,13 @@ Clawdbot will fetch the events, save them to memory, and help you find what you'
 ## Output
 
 Events are shown with:
-- 🎯 Event name
-- 📍 Venue and city
-- 📅 Date and time
-- 👥 Hosts (if listed)
-- 👤 Guest count
-- 🎫 Ticket status (Free/Paid/Sold Out/Available)
-- 🔗 Direct link to lu.ma
+-  Event name
+-  Venue and city
+-  Date and time
+-  Hosts (if listed)
+-  Guest count
+-  Ticket status (Free/Paid/Sold Out/Available)
+-  Direct link to lu.ma
 
 ## Event Memory
 

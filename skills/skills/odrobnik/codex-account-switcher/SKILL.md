@@ -4,11 +4,11 @@ version: 1.2.3
 homepage: https://github.com/odrobnik/codex-account-switcher-skill
 description: >
   Manage multiple OpenAI Codex accounts. Capture current login tokens and switch
-  between them instantly. ⚠️ Reads and writes ~/.codex/auth.json and
+  between them instantly.  Reads and writes ~/.codex/auth.json and
   ~/.codex/accounts/*.json (sensitive authentication tokens).
 metadata:
   openclaw:
-    emoji: "🎭"
+    emoji: ""
     requires:
       bins: ["python3"]
 ---
@@ -61,12 +61,12 @@ Check all accounts and switch to the one with most weekly quota available.
 
 Output:
 ```
-🔄 Checking quota for 2 account(s)...
+ Checking quota for 2 account(s)...
 
   → sylvia... weekly 27% used
   → oliver... weekly 100% used
 
-✅ Switched to: sylvia
+ Switched to: sylvia
    Weekly quota: 27% used (73% available)
 
 All accounts:

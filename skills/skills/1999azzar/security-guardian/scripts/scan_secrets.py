@@ -60,7 +60,7 @@ def main():
             print(f"[{f['type']}] {f['file']}:{f['line']}")
         sys.exit(1)
     else:
-        print("No secrets found. Clean as a whistle! ✨")
+        print("No secrets found. Clean as a whistle! ")
         sys.exit(0)
 
 if __name__ == "__main__":

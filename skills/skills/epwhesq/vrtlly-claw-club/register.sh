@@ -17,7 +17,7 @@ RESPONSE=$(curl -s -X POST "https://api.vrtlly.us/api/hub/bots/register" \
 
 # Check for error
 if echo "$RESPONSE" | grep -q '"error"'; then
-  echo "❌ Registration failed:"
+  echo " Registration failed:"
   echo "$RESPONSE" | jq -r '.error // .'
   exit 1
 fi
@@ -27,12 +27,12 @@ API_KEY=$(echo "$RESPONSE" | jq -r '.apiKey // empty')
 BOT_ID=$(echo "$RESPONSE" | jq -r '.botId // empty')
 
 if [ -n "$API_KEY" ]; then
-  echo "✅ Registered successfully!"
+  echo " Registered successfully!"
   echo ""
   echo "Bot ID:  $BOT_ID"
   echo "API Key: $API_KEY"
   echo ""
-  echo "⚠️  Save this API key! You'll need it for all future requests."
+  echo "  Save this API key! You'll need it for all future requests."
   echo ""
   echo "Add to your .env file:"
   echo "CLAW_CLUB_API_KEY=$API_KEY"
@@ -44,7 +44,7 @@ if [ -n "$API_KEY" ]; then
   echo ""
   echo "Saved to: $CONFIG_DIR/credentials.json"
 else
-  echo "❌ Unexpected response:"
+  echo " Unexpected response:"
   echo "$RESPONSE"
   exit 1
 fi

@@ -1,7 +1,7 @@
 ---
 name: tg-voice-whisper
 description: Auto-transcribe Telegram voice messages (.ogg Opus) to text using local OpenAI Whisper (tiny model). Reply with transcription + auto-delete file for privacy. No API keys, fully offline after install.
-emoji: 🎙️🔊
+emoji: 
 
 requires:
   bins: [whisper, ffmpeg]
@@ -20,7 +20,7 @@ min-server: 4GB RAM recommended for fast/stable work (cached model <1s transcrib
 **Usage (agent):**
 When voice .ogg arrives in /root/.openclaw/media/inbound/:
 ```
-exec 'whisper PATH --model tiny --language ru --output_format txt --output_dir /tmp/whisper; text=$(cat /tmp/whisper/*.txt); message action=send message="🔊 [text]" reply_to_current; rm PATH /tmp/whisper/*'
+exec 'whisper PATH --model tiny --language ru --output_format txt --output_dir /tmp/whisper; text=$(cat /tmp/whisper/*.txt); message action=send message=" [text]" reply_to_current; rm PATH /tmp/whisper/*'
 ```
 
 **Auto-setup (non-block):**
@@ -30,7 +30,7 @@ sessions_spawn task="LOOP: find /root/.openclaw/media/inbound/*.ogg -mmin -1 →
 ```
 Or cron:
 ```
-cron add job={"name":"voice-auto","schedule":{"kind":"every","everyMs":5000},"payload":{"kind":"systemEvent","text":"🔊 VOICE_CHECK"},"sessionTarget":"main"}
+cron add job={"name":"voice-auto","schedule":{"kind":"every","everyMs":5000},"payload":{"kind":"systemEvent","text":" VOICE_CHECK"},"sessionTarget":"main"}
 ```
 
 **Test:**

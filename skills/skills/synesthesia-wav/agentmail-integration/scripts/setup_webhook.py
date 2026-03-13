@@ -55,9 +55,9 @@ def main():
     if args.delete:
         try:
             client.webhooks.delete(webhook_id=args.delete)
-            print(f"✅ Deleted webhook: {args.delete}")
+            print(f" Deleted webhook: {args.delete}")
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f" Error: {e}")
         return
     
     # Create webhook
@@ -67,18 +67,18 @@ def main():
             client_id=args.client_id,
             events=args.events
         )
-        print(f"✅ Webhook created:")
+        print(f" Webhook created:")
         print(f"   ID: {webhook.id}")
         print(f"   URL: {webhook.url}")
         print(f"   Events: {', '.join(webhook.events)}")
         print()
-        print("⚠️  SECURITY WARNING:")
+        print("  SECURITY WARNING:")
         print("   Your webhook endpoint should validate sender allowlists")
         print("   to prevent prompt injection attacks via email.")
         print()
         print("   See references/WEBHOOKS.md for security guidelines.")
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         sys.exit(1)
 
 

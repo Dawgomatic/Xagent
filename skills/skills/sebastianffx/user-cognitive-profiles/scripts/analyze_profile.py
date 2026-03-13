@@ -728,7 +728,7 @@ Examples:
     args = parser.parse_args()
     
     print("=" * 60)
-    print("🤖🤝🧠 User Cognitive Profile Analyzer")
+    print(" User Cognitive Profile Analyzer")
     print("=" * 60)
     
     # Load custom archetypes if provided
@@ -761,7 +761,7 @@ Examples:
         print(f"Profile saved to: {args.output}")
         
         # Print summary
-        print("\n📊 Profile Summary:")
+        print("\n Profile Summary:")
         print(f"  Primary Archetype: {profile['insights']['primary_mode']}")
         print(f"  Confidence: {profile['insights']['primary_confidence']}")
         print(f"  Context Switching: {profile['insights']['context_switching']}")
@@ -769,7 +769,7 @@ Examples:
         for archetype in profile['archetypes']:
             print(f"    • {archetype['name']}: {archetype['metrics']['conversation_count']} conversations")
         
-        print(f"\n💡 Communication Preferences:")
+        print(f"\n Communication Preferences:")
         for pref in profile['insights']['communication_preferences']:
             print(f"    • {pref}")
             

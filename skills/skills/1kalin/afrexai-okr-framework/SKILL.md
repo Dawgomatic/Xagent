@@ -32,14 +32,14 @@ Say: "Help me set OKRs for Q2" or "Create OKRs for my engineering team" or "Revi
 
 ### Bad vs Good Examples
 
-❌ "Improve customer satisfaction"
-✅ "Increase NPS from 32 to 50 by end of Q2"
+ "Improve customer satisfaction"
+ "Increase NPS from 32 to 50 by end of Q2"
 
-❌ "Grow revenue"
-✅ "Close $450K in new ARR from enterprise segment (>$50K ACV)"
+ "Grow revenue"
+ "Close $450K in new ARR from enterprise segment (>$50K ACV)"
 
-❌ "Ship faster"
-✅ "Reduce average cycle time from 14 days to 7 days for P1 features"
+ "Ship faster"
+ "Reduce average cycle time from 14 days to 7 days for P1 features"
 
 ## Scoring Guide
 
@@ -65,7 +65,7 @@ For every team OKR, answer:
 ### Company Objectives
 | # | Objective | Score | Status |
 |---|-----------|-------|--------|
-| 1 | [objective] | [0.0-1.0] | 🟢/🟡/🔴 |
+| 1 | [objective] | [0.0-1.0] | // |
 
 ### What Worked
 - [specific wins]
@@ -121,7 +121,7 @@ OKRs work best with ongoing CFRs — not annual reviews:
 ---
 
 **Need industry-specific context for your OKRs?** Get deep frameworks for your vertical:
-- 🛒 [AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/) — $47/pack, 10 industries covered
-- 📊 [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — Find where AI saves you money
-- 🚀 [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Deploy your first AI agent in minutes
-- 💰 Bundles: Pick 3 for $97 | All 10 for $197 | Everything for $247
+-  [AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/) — $47/pack, 10 industries covered
+-  [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — Find where AI saves you money
+-  [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Deploy your first AI agent in minutes
+-  Bundles: Pick 3 for $97 | All 10 for $197 | Everything for $247

@@ -91,7 +91,7 @@ class TestFormatMarketData:
         assert "S&P 500" in result
         assert "5200.5" in result  # Price (may not have trailing zero)
         assert "+1.25%" in result
-        assert "📈" in result  # Positive change
+        assert "" in result  # Positive change
 
     def test_shows_negative_change_emoji(self, sample_market_data):
         """Negative changes show down emoji."""
@@ -99,7 +99,7 @@ class TestFormatMarketData:
         
         assert "Nasdaq 100" in result
         assert "-0.50%" in result
-        assert "📉" in result  # Negative change
+        assert "" in result  # Negative change
 
     def test_handles_empty_data(self):
         """Handle empty market data."""
@@ -264,7 +264,7 @@ class TestResearchWithGemini:
         with patch("subprocess.run", return_value=mock_result):
             result = research_with_gemini("content")
             
-            assert "⚠️ Gemini research error" in result
+            assert " Gemini research error" in result
             assert "API error" in result
 
     def test_handles_timeout(self):
@@ -272,14 +272,14 @@ class TestResearchWithGemini:
         with patch("subprocess.run", side_effect=subprocess.TimeoutExpired(cmd="gemini", timeout=120)):
             result = research_with_gemini("content")
             
-            assert "⚠️ Gemini research timeout" in result
+            assert " Gemini research timeout" in result
 
     def test_handles_missing_gemini(self):
         """Handle missing gemini CLI."""
         with patch("subprocess.run", side_effect=FileNotFoundError()):
             result = research_with_gemini("content")
             
-            assert "⚠️ Gemini CLI not found" in result
+            assert " Gemini CLI not found" in result
 
 
 class TestFormatRawDataReport:

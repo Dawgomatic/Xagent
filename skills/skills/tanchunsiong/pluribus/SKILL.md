@@ -188,7 +188,7 @@ The efficiency comes from not duplicating work. If one agent researches a topic,
 4. Run `pluribus discover`
 5. Start sharing signals
 
-Welcome to the hive. 🧠
+Welcome to the hive. 
 
 ---
 

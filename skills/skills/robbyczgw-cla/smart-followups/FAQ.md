@@ -1,4 +1,4 @@
-# ❓ Frequently Asked Questions
+#  Frequently Asked Questions
 
 ## General
 
@@ -6,9 +6,9 @@
 
 A OpenClaw skill that generates contextual follow-up suggestions after AI responses. It analyzes your recent conversation and suggests 3 relevant questions across three categories:
 
-- ⚡ **Quick** — Clarifications, definitions, immediate next steps
-- 🧠 **Deep Dive** — Technical depth, advanced concepts, thorough exploration
-- 🔗 **Related** — Connected topics, broader context, alternative perspectives
+-  **Quick** — Clarifications, definitions, immediate next steps
+-  **Deep Dive** — Technical depth, advanced concepts, thorough exploration
+-  **Related** — Connected topics, broader context, alternative perspectives
 
 ### Why only 3 suggestions?
 
@@ -83,27 +83,27 @@ For reference, generating follow-ups typically uses a small amount of tokens (~5
 
 ### Which channels support buttons?
 
-- ✅ **Telegram** — Full inline button support
-- ✅ **Discord** — Full button support
-- ✅ **Slack** — Full button support
-- ❌ **Signal** — Text list fallback (reply with number)
-- ❌ **iMessage** — Text list fallback
-- ❌ **SMS** — Text list fallback
+-  **Telegram** — Full inline button support
+-  **Discord** — Full button support
+-  **Slack** — Full button support
+-  **Signal** — Text list fallback (reply with number)
+-  **iMessage** — Text list fallback
+-  **SMS** — Text list fallback
 
 ### What happens on channels without buttons?
 
 You get a numbered text list:
 
 ```
-💡 Smart Follow-up Suggestions
+ Smart Follow-up Suggestions
 
-⚡ Quick
+ Quick
 1. How do I install Docker?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain Docker's architecture
 
-🔗 Related
+ Related
 3. Compare Docker to Kubernetes
 
 Reply with 1, 2, or 3 to ask that question.

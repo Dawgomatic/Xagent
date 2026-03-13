@@ -420,10 +420,10 @@ function formatTimestamp(ts) {
 function showAuditDashboard() {
   const global = getGlobalStats();
   
-  console.log('\n📊 Colony Audit Dashboard\n');
+  console.log('\n Colony Audit Dashboard\n');
   console.log('─'.repeat(50));
   
-  console.log('\n📈 Global Statistics:');
+  console.log('\n Global Statistics:');
   console.log(`   Total Tasks:     ${global.totalTasks}`);
   console.log(`   Total Processes: ${global.totalProcesses}`);
   console.log(`   Success Rate:    ${(global.successRate * 100).toFixed(0)}%`);
@@ -431,7 +431,7 @@ function showAuditDashboard() {
   console.log(`   Tokens In:       ${global.tokenUsage.totalIn.toLocaleString()}`);
   console.log(`   Tokens Out:      ${global.tokenUsage.totalOut.toLocaleString()}`);
   
-  console.log('\n👥 Agent Summary:');
+  console.log('\n Agent Summary:');
   const agents = Object.entries(global.byAgent)
     .sort((a, b) => b[1].totalTasks - a[1].totalTasks);
   
@@ -450,12 +450,12 @@ function showAuditDashboard() {
   // Recent events
   const recent = getRecentEvents(5);
   if (recent.length > 0) {
-    console.log('\n📝 Recent Events:');
+    console.log('\n Recent Events:');
     for (const event of recent) {
       const icon = event.event.includes('completed') ? '✓' :
                    event.event.includes('failed') ? '✗' :
-                   event.event.includes('started') ? '▶' :
-                   event.event.includes('waiting') ? '⏸' :
+                   event.event.includes('started') ? '' :
+                   event.event.includes('waiting') ? '' :
                    event.event.includes('approved') ? '✓' : '•';
       console.log(`   ${icon} ${event.event} ${event.taskId || event.runId || ''} (${formatTimestamp(event.ts)})`);
     }
@@ -468,10 +468,10 @@ function showAgentAudit(agentName) {
   const stats = getAgentStats(agentName);
   const s = stats.stats;
   
-  console.log(`\n📊 Agent Audit: ${agentName}\n`);
+  console.log(`\n Agent Audit: ${agentName}\n`);
   console.log('─'.repeat(40));
   
-  console.log('\n📈 Statistics:');
+  console.log('\n Statistics:');
   console.log(`   Total Tasks:   ${s.totalTasks}`);
   console.log(`   Successful:    ${s.successful}`);
   console.log(`   Failed:        ${s.failed}`);
@@ -482,7 +482,7 @@ function showAgentAudit(agentName) {
   console.log(`   Last Active:   ${formatTimestamp(s.lastActive)}`);
   
   if (stats.recentFailures.length > 0) {
-    console.log('\n❌ Recent Failures:');
+    console.log('\n Recent Failures:');
     for (const failure of stats.recentFailures.slice(-5)) {
       console.log(`   • ${formatTimestamp(failure.ts)}: ${failure.error.substring(0, 60)}`);
     }
@@ -494,7 +494,7 @@ function showAgentAudit(agentName) {
 function showAuditLog(limit = 20) {
   const events = getRecentEvents(limit);
   
-  console.log(`\n📜 Recent Events (last ${events.length})\n`);
+  console.log(`\n Recent Events (last ${events.length})\n`);
   
   if (events.length === 0) {
     console.log('   (no events yet)');
@@ -504,8 +504,8 @@ function showAuditLog(limit = 20) {
   for (const event of events) {
     const icon = event.event.includes('completed') ? '✓' :
                  event.event.includes('failed') ? '✗' :
-                 event.event.includes('started') ? '▶' :
-                 event.event.includes('waiting') ? '⏸' :
+                 event.event.includes('started') ? '' :
+                 event.event.includes('waiting') ? '' :
                  event.event.includes('approved') ? '✓' :
                  event.event.includes('rejected') ? '✗' : '•';
     
@@ -524,7 +524,7 @@ function showAuditLog(limit = 20) {
 function showSlowestTasks(limit = 10) {
   const tasks = getSlowestTasks(limit);
   
-  console.log(`\n🐢 Slowest Tasks (top ${tasks.length})\n`);
+  console.log(`\n Slowest Tasks (top ${tasks.length})\n`);
   
   if (tasks.length === 0) {
     console.log('   (no completed tasks yet)');
@@ -540,7 +540,7 @@ function showSlowestTasks(limit = 10) {
 function showRecentFailures(limit = 10) {
   const failures = getRecentFailures(limit);
   
-  console.log(`\n❌ Recent Failures (last ${failures.length})\n`);
+  console.log(`\n Recent Failures (last ${failures.length})\n`);
   
   if (failures.length === 0) {
     console.log('   (no failures - nice!)');

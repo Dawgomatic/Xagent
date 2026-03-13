@@ -16,7 +16,7 @@ async function quickStatus(context) {
   const config = await configManager.get();
   
   if (!config.namespace) {
-    return `📡 **Sync: NOT CONFIGURED**
+    return ` **Sync: NOT CONFIGURED**
 
 Use \`/link init\` to create a collective, or
 \`/link join <code>\` to join an existing one.`;
@@ -50,11 +50,11 @@ async function detailedStatus(context) {
   const config = await configManager.get();
   
   if (!config.namespace) {
-    return `📡 **Vinculum Status**
+    return ` **Vinculum Status**
 
 **Network**
 Collective: Not connected
-Status: 🔴 Disconnected
+Status:  Disconnected
 
 Use \`/link init\` to create a collective, or
 \`/link join <code>\` to join an existing one.`;

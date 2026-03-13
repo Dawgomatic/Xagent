@@ -16,14 +16,14 @@ This skill uses project context and launch details to create tailored posts for 
 
 **Style:** Hype, Concise, Hashtag-heavy.
 
-> 🚀 **LAUNCH ALERT**
+>  **LAUNCH ALERT**
 >
 > We just deployed **{Token Symbol}** for **{Project Name}** on @monad_xyz!
 >
 > The official token for the {Project Description}.
 >
-> 📍 **CA:** `{Contract Address}`
-> 💎 **Trade:** {NadFun Link}
+>  **CA:** `{Contract Address}`
+>  **Trade:** {NadFun Link}
 >
 > #Monad #NADfun #{Token Symbol}
 
@@ -34,7 +34,7 @@ This skill uses project context and launch details to create tailored posts for 
 > **Title:** [ANN] {Token Symbol} is LIVE on Monad (Official {Project Name} Token)
 >
 > **Body:**
-> Hey builders! 🦞
+> Hey builders! 
 >
 > We're excited to announce that **{Token Symbol}** is now live on **nad.fun**.
 >
@@ -52,15 +52,15 @@ This skill uses project context and launch details to create tailored posts for 
 
 **Style:** Short, Alert-style, FOMO.
 
-> 🟢 **NEW PAIR LIVE** 🟢
+>  **NEW PAIR LIVE** 
 >
 > **{Token Symbol}** / MON
 >
-> 🧢 **Market Cap:** $4,200 (Bonding Curve)
-> 📜 **CA:** `{Contract Address}`
+>  **Market Cap:** $4,200 (Bonding Curve)
+>  **CA:** `{Contract Address}`
 >
-> 🦅 [Trade on NadFun]({NadFun Link})
-> 🐦 [View on X](https://x.com/search?q={Token Symbol})
+>  [Trade on NadFun]({NadFun Link})
+>  [View on X](https://x.com/search?q={Token Symbol})
 >
 > Powered by TokenBroker.
 

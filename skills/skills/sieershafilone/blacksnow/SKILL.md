@@ -21,11 +21,11 @@ Outputs are structured for automated consumption by financial, insurance, logist
 
 ## Non-Capabilities
 
-- ❌ Insider information
-- ❌ Sentiment analysis
-- ❌ News aggregation
-- ❌ Price prediction
-- ❌ Decision execution
+-  Insider information
+-  Sentiment analysis
+-  News aggregation
+-  Price prediction
+-  Decision execution
 
 ## What BlackSnow Detects
 

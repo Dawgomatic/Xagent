@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright © 2026 UnisAI Community
+Copyright  2026 UnisAI Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,11 @@ SOFTWARE.
 
 ## You are free to:
 
-✅ **Use** — Use for any purpose, commercial or personal
-✅ **Modify** — Change the code and create derivatives
-✅ **Distribute** — Share with others
-✅ **Sublicense** — Include in your own projects with your own license
-✅ **Review** — Read, audit, and reverse-engineer the source code
+ **Use** — Use for any purpose, commercial or personal
+ **Modify** — Change the code and create derivatives
+ **Distribute** — Share with others
+ **Sublicense** — Include in your own projects with your own license
+ **Review** — Read, audit, and reverse-engineer the source code
 
 ## The only requirements are:
 

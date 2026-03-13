@@ -2,7 +2,7 @@
 
 ## Current Status
 
-✅ **voice-devotional skill is COMPLETE and ready to push to GitHub**
+ **voice-devotional skill is COMPLETE and ready to push to GitHub**
 
 - **Location:** `~/clawd/skills/voice-devotional`
 - **Files:** 20 files created
@@ -13,16 +13,16 @@
 ## What's Ready to Push
 
 ```
-✅ 4 JavaScript files (main code)
-✅ 4 JSON configuration files
-✅ 2 Example scripts
-✅ 1 Test file with 25+ unit tests
-✅ 5 Documentation files
-✅ Package.json with dependencies
-✅ .env.example for configuration
-✅ .gitignore for git
-✅ Git repository initialized locally
-✅ 2 commits with full history
+ 4 JavaScript files (main code)
+ 4 JSON configuration files
+ 2 Example scripts
+ 1 Test file with 25+ unit tests
+ 5 Documentation files
+ Package.json with dependencies
+ .env.example for configuration
+ .gitignore for git
+ Git repository initialized locally
+ 2 commits with full history
 ```
 
 ## Steps to Push to GitHub
@@ -225,7 +225,7 @@ cd ~/clawd/skills/voice-devotional && git push -u origin main
 ---
 
 **Skill:** voice-devotional v1.0.0  
-**Status:** ✅ READY FOR GITHUB  
+**Status:**  READY FOR GITHUB  
 **Date:** 2024-01-15  
 **Files:** 20  
 **Tests:** 25+  

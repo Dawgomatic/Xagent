@@ -28,10 +28,10 @@ def print_banner():
     banner = """
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
-║   ⚖️  LegalDoc AI                                              ║
+║     LegalDoc AI                                              ║
 ║   Legal Document Automation for Modern Law Firms              ║
 ║                                                               ║
-║   Version 1.0.0 | © 2026 Manas AI                             ║
+║   Version 1.0.0 |  2026 Manas AI                             ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 """
@@ -103,13 +103,13 @@ For help on a specific command:
     
     if args.version:
         print("LegalDoc AI v1.0.0")
-        print("© 2026 Manas AI")
+        print(" 2026 Manas AI")
         return 0
     
     if not args.command or args.command == "help":
         print_banner()
         parser.print_help()
-        print("\n📚 Quick Start:")
+        print("\n Quick Start:")
         print("  1. Extract clauses:  legaldoc extract clauses <file>")
         print("  2. Summarize doc:    legaldoc summarize <file>")
         print("  3. Research topic:   legaldoc research \"<query>\"")

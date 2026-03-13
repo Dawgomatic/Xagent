@@ -75,7 +75,7 @@ When you implement changes, provide:
 
 ## Progressive disclosure (read when needed)
 - UI + wallet + hooks: [frontend-framework-kit.md](frontend-framework-kit.md)
-- Kit ↔ web3.js boundary: [kit-web3-interop.md](kit-web3-interop.md)
+- Kit  web3.js boundary: [kit-web3-interop.md](kit-web3-interop.md)
 - Anchor programs: [programs-anchor.md](programs-anchor.md)
 - Pinocchio programs: [programs-pinocchio.md](programs-pinocchio.md)
 - Testing strategy: [testing.md](testing.md)
@@ -91,18 +91,18 @@ When you implement changes, provide:
 This skill perfectly aligns with my code review work! Key takeaways:
 
 ### For skippy's Treasury Manager review:
-- ✅ Already using Viem (good for Base/EVM side)
-- 💡 Could suggest `@solana/kit` instead of raw `@solana/web3.js` for Solana balance checks
-- 💡 Testing: Recommend LiteSVM for unit tests
+-  Already using Viem (good for Base/EVM side)
+-  Could suggest `@solana/kit` instead of raw `@solana/web3.js` for Solana balance checks
+-  Testing: Recommend LiteSVM for unit tests
 
 ### For yuji's BountyBoard review:
-- ✅ Native Solana program (not Anchor) - but I suggested Anchor migration
-- 💡 **Actually**: Should have asked if they need **Pinocchio** instead (CU optimization)
-- 💡 Testing: Recommend Mollusk for Rust program unit tests, Surfpool for integration
+-  Native Solana program (not Anchor) - but I suggested Anchor migration
+-  **Actually**: Should have asked if they need **Pinocchio** instead (CU optimization)
+-  Testing: Recommend Mollusk for Rust program unit tests, Surfpool for integration
 
 ### For future reviews:
 - Check if they're using legacy web3.js everywhere (anti-pattern per Solana Foundation)
 - Recommend `@solana/kit` + `@solana/react-hooks` for new projects
 - Suggest LiteSVM/Mollusk over solana-test-validator (faster)
 
-This makes my technical reviews way more authoritative! 🎯
+This makes my technical reviews way more authoritative! 

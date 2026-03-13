@@ -42,12 +42,12 @@ case "$1" in
     memories|memory)
         case "$2" in
             list|ls)
-                echo "📚 Memories:"
+                echo " Memories:"
                 omi_api GET "user/memories" | omi_json
                 ;;
             get)
                 if [ -z "$3" ]; then echo "Usage: omi memories get <id>"; exit 1; fi
-                echo "📖 Memory $3:"
+                echo " Memory $3:"
                 omi_api GET "user/memories/$3" | omi_json
                 ;;
             create|add)
@@ -59,7 +59,7 @@ case "$1" in
                     type="$2"
                     shift 2
                 fi
-                echo "➕ Creating memory..."
+                echo " Creating memory..."
                 omi_api POST "user/memories" "{\"content\": \"$*\", \"type\": \"$type\"}" | omi_json
                 ;;
             update|edit)
@@ -67,22 +67,22 @@ case "$1" in
                 if [ -z "$2" ]; then echo "Usage: omi memories update <id> \"new content\""; exit 1; fi
                 local id="$1"
                 shift
-                echo "✏️  Updating memory $id..."
+                echo "  Updating memory $id..."
                 omi_api PATCH "user/memories/$id" "{\"content\": \"$*\"}" | omi_json
                 ;;
             delete|rm|remove)
                 if [ -z "$3" ]; then echo "Usage: omi memories delete <id>"; exit 1; fi
-                echo "🗑️  Deleting memory $3..."
+                echo "  Deleting memory $3..."
                 omi_api DELETE "user/memories/$3"
                 echo "Memory $3 deleted"
                 ;;
             search|find)
                 if [ -z "$3" ]; then echo "Usage: omi memories search \"query\""; exit 1; fi
-                echo "🔍 Searching memories for: $3"
+                echo " Searching memories for: $3"
                 omi_api GET "user/memories" | jq -r ".[] | select(.content | contains(\"$3\")) | \"  - \(.id): \(.content[0:70])\""
                 ;;
             help|--help|-h)
-                echo "🧠 Memory Commands:"
+                echo " Memory Commands:"
                 echo "  omi memories list                    - List all memories"
                 echo "  omi memories get <id>                - Get specific memory"
                 echo "  omi memories create \"content\" [--type <type>]"
@@ -100,12 +100,12 @@ case "$1" in
     tasks|task|actions|action)
         case "$2" in
             list|ls|today)
-                echo "📋 Action Items:"
+                echo " Action Items:"
                 omi_api GET "user/action-items" | omi_json
                 ;;
             get)
                 if [ -z "$3" ]; then echo "Usage: omi tasks get <id>"; exit 1; fi
-                echo "📖 Task $3:"
+                echo " Task $3:"
                 omi_api GET "user/action-items/$3" | omi_json
                 ;;
             create|add)
@@ -124,7 +124,7 @@ case "$1" in
                     due="$2"
                     shift 2
                 fi
-                echo "➕ Creating action item..."
+                echo " Creating action item..."
                 local data="{\"title\": \"$title\"}"
                 [ -n "$desc" ] && data="{\"title\": \"$title\", \"description\": \"$desc\"}"
                 [ -n "$due" ] && data=$(echo "$data" | jq -c ". + {\"due_date\": \"$due\"}")
@@ -145,27 +145,27 @@ case "$1" in
                         *) shift ;;
                     esac
                 done
-                echo "✏️  Updating task $id..."
+                echo "  Updating task $id..."
                 omi_api PATCH "user/action-items/$id" "$data" | omi_json
                 ;;
             complete|done)
                 if [ -z "$3" ]; then echo "Usage: omi tasks complete <id>"; exit 1; fi
-                echo "✅ Marking task $3 as complete..."
+                echo " Marking task $3 as complete..."
                 omi_api PATCH "user/action-items/$3" '{"status": "completed"}' | omi_json
                 ;;
             pending|todo)
                 if [ -z "$3" ]; then echo "Usage: omi tasks pending <id>"; exit 1; fi
-                echo "⏳ Marking task $3 as pending..."
+                echo " Marking task $3 as pending..."
                 omi_api PATCH "user/action-items/$3" '{"status": "pending"}' | omi_json
                 ;;
             delete|rm|remove)
                 if [ -z "$3" ]; then echo "Usage: omi tasks delete <id>"; exit 1; fi
-                echo "🗑️  Deleting task $3..."
+                echo "  Deleting task $3..."
                 omi_api DELETE "user/action-items/$3"
                 echo "Task $3 deleted"
                 ;;
             help|--help|-h)
-                echo "📋 Action Item Commands:"
+                echo " Action Item Commands:"
                 echo "  omi tasks list                       - List all tasks"
                 echo "  omi tasks get <id>                   - Get specific task"
                 echo "  omi tasks create \"title\" [--desc \"desc\"] [--due <date>]"
@@ -184,12 +184,12 @@ case "$1" in
     conversations|conversation|chats|chat)
         case "$2" in
             list|ls)
-                echo "💬 Conversations:"
+                echo " Conversations:"
                 omi_api GET "user/conversations" | omi_json
                 ;;
             get)
                 if [ -z "$3" ]; then echo "Usage: omi conversations get <id>"; exit 1; fi
-                echo "💬 Conversation $3:"
+                echo " Conversation $3:"
                 omi_api GET "user/conversations/$3" | omi_json
                 ;;
             create|add)
@@ -213,7 +213,7 @@ case "$1" in
                 local data="{\"participants\": $participants_json}"
                 [ -n "$title" ] && data=$(echo "$data" | jq -c ". + {\"title\": \"$title\"}")
                 [ -n "$message" ] && data=$(echo "$data" | jq -c ". + {\"initial_message\": \"$message\"}")
-                echo "➕ Creating conversation..."
+                echo " Creating conversation..."
                 omi_api POST "user/conversations" "$data" | omi_json
                 ;;
             update|edit)
@@ -233,14 +233,14 @@ case "$1" in
                         *) shift ;;
                     esac
                 done
-                echo "✏️  Updating conversation $id..."
+                echo "  Updating conversation $id..."
                 # Note: Omi API may not support PATCH for conversations
-                echo "⚠️  Note: Conversation updates may not be fully supported by API"
+                echo "  Note: Conversation updates may not be fully supported by API"
                 omi_api PATCH "user/conversations/$id" "$data" 2>/dev/null || echo "Update attempted"
                 ;;
             delete|rm|remove)
                 if [ -z "$3" ]; then echo "Usage: omi conversations delete <id>"; exit 1; fi
-                echo "🗑️  Deleting conversation $3..."
+                echo "  Deleting conversation $3..."
                 omi_api DELETE "user/conversations/$3"
                 echo "Conversation $3 deleted"
                 ;;
@@ -252,16 +252,16 @@ case "$1" in
                 shift 2
                 local content="$*"
                 if [ -z "$content" ]; then echo "Error: message content required"; exit 1; fi
-                echo "💬 Adding message to conversation $conv_id..."
+                echo " Adding message to conversation $conv_id..."
                 omi_api POST "messages" "{\"conversation_id\": \"$conv_id\", \"role\": \"$role\", \"content\": \"$content\"}" | omi_json
                 ;;
             search|find)
                 if [ -z "$3" ]; then echo "Usage: omi conversations search \"query\""; exit 1; fi
-                echo "🔍 Searching conversations for: $3"
+                echo " Searching conversations for: $3"
                 omi_api GET "user/conversations" | jq -r ".[] | select(.title // \"\" | contains(\"$3\")) | \"  - \(.id): \(.title // \"Untitled\")\""
                 ;;
             help|--help|-h)
-                echo "💬 Conversation Commands:"
+                echo " Conversation Commands:"
                 echo "  omi conversations list              - List all conversations"
                 echo "  omi conversations get <id>         - Get specific conversation"
                 echo "  omi conversations create [--title \"t\"] [--participants \"p1,p2\"] [--message \"m\"]"
@@ -280,40 +280,40 @@ case "$1" in
     sync)
         case "$2" in
             memories)
-                echo "🧠 Syncing memories from Omi.me..."
+                echo " Syncing memories from Omi.me..."
                 echo ""
                 omi_api GET "user/memories" | jq -r '.[] | "  - \(.id): \(.content[0:70])..."'
                 echo ""
-                echo "💡 Tip: These memories are available via MCP server in OpenClaw!"
+                echo " Tip: These memories are available via MCP server in OpenClaw!"
                 ;;
             tasks|action-items)
-                echo "📋 Syncing action items from Omi.me..."
+                echo " Syncing action items from Omi.me..."
                 echo ""
                 omi_api GET "user/action-items" | jq -r '.[] | "  - \(.id): [\(.status)] \(.title)"'
                 echo ""
-                echo "💡 Tip: These tasks are available via MCP server in OpenClaw!"
+                echo " Tip: These tasks are available via MCP server in OpenClaw!"
                 ;;
             conversations)
-                echo "💬 Syncing conversations from Omi.me..."
+                echo " Syncing conversations from Omi.me..."
                 echo ""
                 omi_api GET "user/conversations" | jq -r '.[] | "  - \(.id): \(.title // \"Untitled\") (\(.participants | length) participants)"'
                 echo ""
-                echo "💡 Tip: These conversations are available via MCP server in OpenClaw!"
+                echo " Tip: These conversations are available via MCP server in OpenClaw!"
                 ;;
             all)
-                echo "🔄 Syncing ALL data from Omi.me..."
+                echo " Syncing ALL data from Omi.me..."
                 echo ""
-                echo "🧠 Memories:"
+                echo " Memories:"
                 omi_api GET "user/memories" | jq -r '.[] | "  - \(.id): \(.content[0:50])..."'
                 echo ""
-                echo "📋 Action Items:"
+                echo " Action Items:"
                 omi_api GET "user/action-items" | jq -r '.[] | "  - \(.id): \(.title)"'
                 echo ""
-                echo "💬 Conversations:"
+                echo " Conversations:"
                 omi_api GET "user/conversations" | jq -r '.[] | "  - \(.id): \(.title // \"Untitled\")"'
                 ;;
             help|--help|-h)
-                echo "🔄 Sync Commands:"
+                echo " Sync Commands:"
                 echo "  omi sync memories        - Sync memories"
                 echo "  omi sync tasks          - Sync action items"
                 echo "  omi sync conversations  - Sync conversations"
@@ -327,11 +327,11 @@ case "$1" in
         ;;
     # === HELP ===
     help|--help|-h)
-        echo "🧠 Omi.me CLI for OpenClaw"
+        echo " Omi.me CLI for OpenClaw"
         echo ""
         echo "COMMANDS:"
         echo ""
-        echo "  🧠 Memories:"
+        echo "   Memories:"
         echo "    omi memories list"
         echo "    omi memories get <id>"
         echo "    omi memories create \"content\" [--type <type>]"
@@ -339,7 +339,7 @@ case "$1" in
         echo "    omi memories delete <id>"
         echo "    omi memories search \"query\""
         echo ""
-        echo "  📋 Action Items (Tasks):"
+        echo "   Action Items (Tasks):"
         echo "    omi tasks list"
         echo "    omi tasks get <id>"
         echo "    omi tasks create \"title\" [--desc \"desc\"] [--due <date>]"
@@ -348,7 +348,7 @@ case "$1" in
         echo "    omi tasks pending <id>"
         echo "    omi tasks delete <id>"
         echo ""
-        echo "  💬 Conversations:"
+        echo "   Conversations:"
         echo "    omi conversations list"
         echo "    omi conversations get <id>"
         echo "    omi conversations create [--title \"t\"] [--participants \"p1,p2\"]"
@@ -357,7 +357,7 @@ case "$1" in
         echo "    omi conversations add-message <id> <role> \"content\""
         echo "    omi conversations search \"query\""
         echo ""
-        echo "  🔄 Sync with OpenClaw:"
+        echo "   Sync with OpenClaw:"
         echo "    omi sync memories"
         echo "    omi sync tasks"
         echo "    omi sync conversations"

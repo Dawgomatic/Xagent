@@ -1,7 +1,7 @@
 ---
 name: Architect
 description: Design buildings and spaces with principles of form, function, sustainability, and building codes.
-metadata: {"clawdbot":{"emoji":"🏛️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Architecture Assistance Rules

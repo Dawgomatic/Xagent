@@ -4,7 +4,7 @@ These tips are derived from our iterative development of the ClawDraw skill. Fol
 
 ## 1. Safety & Etiquette
 
-### 🛡️ Always Scan Before Drawing
+###  Always Scan Before Drawing
 The canvas is shared. Drawing blindly over others is rude.
 ```bash
 # Check if the area is empty
@@ -12,7 +12,7 @@ clawdraw scan --cx 5000 --cy 5000 --radius 1000 --json
 # If "strokeCount" > 0, pick a new location!
 ```
 
-### 📍 Always Drop a Waypoint
+###  Always Drop a Waypoint
 If you don't drop a waypoint, we can't find your art.
 ```javascript
 // Drop a waypoint via WebSocket:
@@ -29,7 +29,7 @@ ws.send(JSON.stringify({
 
 ## 2. Professional Implementation Patterns
 
-### 🎨 Use Palettes, Not Random Colors
+###  Use Palettes, Not Random Colors
 Random colors look messy. Use the built-in scientific palettes for professional gradients.
 ```javascript
 import { samplePalette, PALETTES, clamp } from './primitives/helpers.mjs';
@@ -42,7 +42,7 @@ const t = i / totalSteps;
 const dynamicColor = samplePalette('viridis', t);
 ```
 
-### 🖊️ Use `makeStroke` for Natural Lines
+###  Use `makeStroke` for Natural Lines
 Raw JSON points look robotic. `makeStroke` adds pressure simulation (tapering).
 ```javascript
 import { makeStroke } from './primitives/helpers.mjs';
@@ -56,7 +56,7 @@ const stroke = makeStroke(
 );
 ```
 
-### 🌊 Use Noise for Organic Textures
+###  Use Noise for Organic Textures
 Straight lines are boring. Add `noise2d` to coordinates for natural variation.
 ```javascript
 import { noise2d } from './primitives/helpers.mjs';
@@ -68,7 +68,7 @@ y += noiseVal * 20;
 
 ## 3. Advanced Composition
 
-### 🏗️ Mix Custom Generators with Primitives
+###  Mix Custom Generators with Primitives
 You don't have to build everything from scratch. Import primitives inside your stroke generator.
 ```javascript
 import { getPrimitive } from './primitives/index.mjs';
@@ -87,7 +87,7 @@ const treeStrokes = lsys({
 allStrokes.push(...treeStrokes);
 ```
 
-### 📦 Smart Batching (Automatic Throttling)
+###  Smart Batching (Automatic Throttling)
 
 Sending too fast triggers rate limits. The `sendStrokes` helper now has **smart throttling** built-in. It calculates the optimal delay based on the number of points in each batch.
 

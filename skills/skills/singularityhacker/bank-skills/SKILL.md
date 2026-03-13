@@ -3,7 +3,7 @@ name: bank-skill
 version: 0.1.4
 description: Traditional banking via Wise API + on-chain token swaps on Base
 homepage: https://github.com/singularityhacker/bank-skills
-metadata: {"openclaw":{"emoji":"🏦","requires":{"bins":["python"],"env":["WISE_API_TOKEN"]},"primaryEnv":"WISE_API_TOKEN","optionalEnv":["WISE_PROFILE_ID","CLAWBANK_WALLET_PASSWORD","BASE_RPC_URL"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python"],"env":["WISE_API_TOKEN"]},"primaryEnv":"WISE_API_TOKEN","optionalEnv":["WISE_PROFILE_ID","CLAWBANK_WALLET_PASSWORD","BASE_RPC_URL"]}}
 ---
 
 # Bank Skill

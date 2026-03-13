@@ -1,7 +1,7 @@
 ---
 name: Wiki
 description: "Build wikis people actually read — structure pages, cross-link, and keep content fresh."
-emoji: 📚
+emoji: 
 os: all
 tags: [documentation, knowledge-base, content-management]
 author: ClawHub

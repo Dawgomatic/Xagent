@@ -2,7 +2,7 @@
 name: openclaw-action
 description: "GitHub Action for automated security scanning of agent workspaces. Detects exposed secrets, prompt/shell injection, and data exfiltration patterns in PRs and commits."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"🛡️","requires":{"bins":["python3"]},"os":["darwin","linux","win32"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"]},"os":["darwin","linux","win32"]}}
 ---
 
 # OpenClaw Security Action

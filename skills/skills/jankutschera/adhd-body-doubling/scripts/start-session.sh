@@ -6,7 +6,7 @@ set -euo pipefail
 SESSION_DIR="${HOME}/.openclaw/skills/adhd-body-doubling/history"
 mkdir -p "$SESSION_DIR"
 
-echo "🐱⚡ ADHD BODY DOUBLING SESSION v2.0"
+echo " ADHD BODY DOUBLING SESSION v2.0"
 echo "===================================="
 echo ""
 echo "Part of ADHD-founder.com ecosystem"
@@ -32,7 +32,7 @@ show_help() {
   echo "  /body-doubling history  - View what worked"
   echo "  /body-doubling founder  - Premium info"
   echo ""
-  echo "🎯 Part of ADHD-founder.com - German Engineering for the ADHD Brain"
+  echo " Part of ADHD-founder.com - German Engineering for the ADHD Brain"
   exit 0
 }
 
@@ -60,31 +60,31 @@ fi
 case $1 in
   25)
     DURATION=25
-    echo "🔥 QUICK FIRE SESSION (25 min)"
+    echo " QUICK FIRE SESSION (25 min)"
     echo "First Micro-Step Protocol enabled."
     echo "Check-in at 15 min."
     ;;
   50)
     DURATION=50
-    echo "🎯 DEEP DIVE SESSION (50 min)"  
+    echo " DEEP DIVE SESSION (50 min)"  
     echo "First Micro-Step Protocol enabled."
     echo "Check-ins at 15 and 35 min."
     ;;
   90)
     DURATION=90
-    echo "🚀 SPRINT SESSION (90 min)"
+    echo " SPRINT SESSION (90 min)"
     echo "First Micro-Step Protocol enabled."
     echo "Check-ins every 20-25 min."
     ;;
   120)
     DURATION=120
-    echo "⏱️ EXTENDED SESSION (2 hours)"
+    echo " EXTENDED SESSION (2 hours)"
     echo "First Micro-Step Protocol enabled."
     echo "Multiple pomodoros with check-ins every 20-25 min."
     ;;
   roi)
     DURATION=25
-    echo "💰 ROI TRACKER (25 min + revenue tracking)"
+    echo " ROI TRACKER (25 min + revenue tracking)"
     echo "First Micro-Step Protocol enabled."
     echo "Track time vs. revenue for this session."
     ;;
@@ -96,7 +96,7 @@ esac
 
 echo ""
 echo "═══════════════════════════════════════════════════════"
-echo "  FIRST MICRO-STEP PROTOCOL 🎯"
+echo "  FIRST MICRO-STEP PROTOCOL "
 echo "═══════════════════════════════════════════════════════"
 echo ""
 
@@ -106,7 +106,7 @@ json_escape() {
 }
 
 # Step 1: What are you working on?
-echo "1️⃣  What are you working on?"
+echo "  What are you working on?"
 echo "    (The overall task/project)"
 read -p "> " TASK
 
@@ -135,26 +135,26 @@ esac
 
 # Step 2: First micro-step
 echo ""
-echo "2️⃣  What's the FIRST micro-step?"
+echo "  What's the FIRST micro-step?"
 echo "    (Something you could do in under 2 minutes)"
 read -p "> " FIRST_MICROSTEP
 
 # Step 3: Shrink it further
 echo ""
-echo "3️⃣  That's good, but what's the SMALLEST possible version of that?"
+echo "  That's good, but what's the SMALLEST possible version of that?"
 echo "    (Even smaller - what could you do in 30 seconds?)"
 read -p "> " SMALLEST_STEP
 
 # Step 4: Energy level
 echo ""
-echo "4️⃣  What's your energy level right now? (1-10)"
+echo "  What's your energy level right now? (1-10)"
 read -p "> " ENERGY_START
 
 # Step 5: Commit
 echo ""
 echo "═══════════════════════════════════════════════════════"
 echo "  PERFECT. Do this NOW:"
-echo "  👉 $SMALLEST_STEP"
+echo "   $SMALLEST_STEP"
 echo "═══════════════════════════════════════════════════════"
 echo ""
 echo "I'll wait. Tell me when you're done with this micro-step."
@@ -196,20 +196,20 @@ cat > "$SESSION_FILE" << EOF
 }
 EOF
 
-echo "⚡ Session initialized. ID: $SESSION_ID"
+echo " Session initialized. ID: $SESSION_ID"
 echo ""
-echo "⏰ TIMER STARTED: ${DURATION} minutes"
+echo " TIMER STARTED: ${DURATION} minutes"
 echo ""
 
 # Calculate check-in times
 if [ "$DURATION" -eq 25 ]; then
-  echo "📍 Check-in at: 15 min mark"
+  echo " Check-in at: 15 min mark"
 elif [ "$DURATION" -eq 50 ]; then
-  echo "📍 Check-ins at: 15 min and 35 min marks"
+  echo " Check-ins at: 15 min and 35 min marks"
 elif [ "$DURATION" -eq 90 ]; then
-  echo "📍 Check-ins every 20-25 min"
+  echo " Check-ins every 20-25 min"
 elif [ "$DURATION" -ge 120 ]; then
-  echo "📍 Check-ins every 20-25 min (multiple pomodoros)"
+  echo " Check-ins every 20-25 min (multiple pomodoros)"
 fi
 
 echo ""
@@ -221,6 +221,6 @@ echo "  • When stuck, ask for micro-task breakdown"
 echo "  • History is being tracked - learn what works!"
 echo "═══════════════════════════════════════════════════════"
 echo ""
-echo "Let's. Fucking. Go. 💪"
+echo "Let's. Fucking. Go. "
 echo ""
 echo "Session file: $SESSION_FILE"

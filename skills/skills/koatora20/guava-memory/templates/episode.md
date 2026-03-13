@@ -10,16 +10,16 @@ What you were trying to accomplish
 
 ## Experience
 
-### ✅ Success Pattern
+###  Success Pattern
 1. First step
 2. Second step
 3. Third step
 
-### ❌ Failure Pattern
+###  Failure Pattern
 - What you tried that didn't work
 - Why it failed
 
-### 💡 Key Insight
+###  Key Insight
 - The most important thing you learned
 
 ## Utility

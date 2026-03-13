@@ -3,7 +3,7 @@ name: unitree-robot
 description: "Control mobile robots (quadruped, bipedal, wheeled, aerial) via IM platforms. Supports Unitree robots and Insight9 AI stereo camera."
 metadata: {
   "openclaw": {
-    "emoji": "🤖",
+    "emoji": "",
     "requires": {
       "python": ">=3.8",
       "pip": ["numpy"]

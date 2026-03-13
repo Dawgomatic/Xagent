@@ -2,13 +2,13 @@
 
 Fast, accurate, and incredibly inexpensive automatic speech-to-text transcription service.
 
-## 🚀 Why use this skill?
+##  Why use this skill?
 - **Disruptive Pricing:** $0.06 - $0.12 per hour (2-15x cheaper than Deepgram or OpenAI).
 - **Extreme Speed:** 100 minutes of audio transcribes in ~1 minute.
 - **Multilingual:** Supports 100 languages with auto-detection.
 - **Agent-Ready:** Designed for high-volume, automated pipelines.
 
-## 🛠 Setup
+##  Setup
 
 ### 1. Get an API Key
 Sign up at [speechischeap.com](https://speechischeap.com). Use code `CH5` for $5 off.
@@ -21,8 +21,8 @@ Add this to your `.env` or agent config:
 SIC_API_KEY=your_key_here
 ```
 
-## 📖 Usage
-### 🤖 TL;DR for Agents
+##  Usage
+###  TL;DR for Agents
 When this skill is installed, you can transcribe any URL from an OpenClaw session and get the JSON results immediately by running:
 `./skills/asr/scripts/asr.sh transcribe --url "https://example.com/audio.mp3"`
 
@@ -69,7 +69,7 @@ Perfect for processing audio already on your disk. This handles the upload autom
 ./skills/asr/scripts/asr.sh status "job-id-here"
 ```
 
-## 🤖 For Agents
+##  For Agents
 The `asr.sh` command-line tool returns JSON by default when successful, making it easy to pipe into other tools or parse directly.
 
 If the `SIC_API_KEY` is missing, the tool will provide a clear error message and a direct link to the signup page.

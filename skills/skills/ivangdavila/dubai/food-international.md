@@ -8,14 +8,14 @@ Dubai has become a playground for celebrity chefs. Most are based in luxury hote
 
 | Restaurant | Chef | Cuisine | Location | Price (2 pax) | Stars |
 |------------|------|---------|----------|---------------|-------|
-| **FZN** | Björn Frantzén | Scandinavian-Asian | Atlantis, The Palm | AED 2,500-4,000 | ⭐⭐⭐ |
-| **Trèsind Studio** | Himanshu Saini | Modern Indian | St. Regis Gardens | AED 1,500-2,000 | ⭐⭐⭐ |
-| **STAY** | Yannick Alléno | French | One&Only The Palm | AED 1,500-2,500 | ⭐⭐ |
-| **Il Ristorante** | Niko Romito | Italian | Bulgari Resort | AED 1,200-2,000 | ⭐⭐ |
-| **Dinner by Heston** | Heston Blumenthal | British | Atlantis The Royal | AED 1,000-1,500 | ⭐ |
-| **La Dame de Pic** | Anne-Sophie Pic | French | One&Only One Za'abeel | AED 1,200-1,800 | ⭐ |
-| **Nobu** | Nobu Matsuhisa | Japanese-Peruvian | Atlantis, The Palm | AED 700-1,200 | ⭐ |
-| **Ossiano** | Grégoire Berger | Seafood | Atlantis, The Palm | AED 1,000-1,500 | ⭐ |
+| **FZN** | Björn Frantzén | Scandinavian-Asian | Atlantis, The Palm | AED 2,500-4,000 |  |
+| **Trèsind Studio** | Himanshu Saini | Modern Indian | St. Regis Gardens | AED 1,500-2,000 |  |
+| **STAY** | Yannick Alléno | French | One&Only The Palm | AED 1,500-2,500 |  |
+| **Il Ristorante** | Niko Romito | Italian | Bulgari Resort | AED 1,200-2,000 |  |
+| **Dinner by Heston** | Heston Blumenthal | British | Atlantis The Royal | AED 1,000-1,500 |  |
+| **La Dame de Pic** | Anne-Sophie Pic | French | One&Only One Za'abeel | AED 1,200-1,800 |  |
+| **Nobu** | Nobu Matsuhisa | Japanese-Peruvian | Atlantis, The Palm | AED 700-1,200 |  |
+| **Ossiano** | Grégoire Berger | Seafood | Atlantis, The Palm | AED 1,000-1,500 |  |
 
 ### More Celebrity Outposts
 
@@ -64,7 +64,7 @@ Dubai has become a playground for celebrity chefs. Most are based in luxury hote
 
 | Restaurant | Style | Location | Price (2 pax) | Notes |
 |------------|-------|----------|---------------|-------|
-| **Nobu** ⭐ | Japanese-Peruvian | Atlantis, The Palm | AED 700-1,200 | Classic, black cod miso |
+| **Nobu**  | Japanese-Peruvian | Atlantis, The Palm | AED 700-1,200 | Classic, black cod miso |
 | **Zuma** | Contemporary Japanese | DIFC | AED 700-1,000 | Dubai institution, reservations essential |
 | **Tezukuri** | Temaki counter | Downtown | AED 400-600 | From Kinoya founders, handroll focus |
 | **3Fils** | Japanese izakaya | Jumeirah Fishing Harbour | AED 300-500 | Hottest unlicensed spot, book way ahead |
@@ -80,8 +80,8 @@ Dubai has become a playground for celebrity chefs. Most are based in luxury hote
 
 | Restaurant | Location | Price (2 pax) | Notes |
 |------------|----------|---------------|-------|
-| **STAY by Yannick Alléno** ⭐⭐ | One&Only The Palm | AED 1,500-2,500 | 2 stars, French excellence |
-| **La Dame de Pic** ⭐ | One&Only One Za'abeel | AED 1,200-1,800 | Anne-Sophie Pic |
+| **STAY by Yannick Alléno**  | One&Only The Palm | AED 1,500-2,500 | 2 stars, French excellence |
+| **La Dame de Pic**  | One&Only One Za'abeel | AED 1,200-1,800 | Anne-Sophie Pic |
 | **L'Atelier de Joël Robuchon** | DIFC | AED 800-1,200 | Counter dining |
 | **Josette** | DIFC | AED 500-800 | Tableside crêpes, house champagne |
 | **Bistro des Arts** | Dubai Marina | AED 350-500 | Authentic Parisian |
@@ -95,7 +95,7 @@ Dubai has become a playground for celebrity chefs. Most are based in luxury hote
 
 | Restaurant | Location | Price (2 pax) | Notes |
 |------------|----------|---------------|-------|
-| **Il Ristorante – Niko Romito** ⭐⭐ | Bulgari Resort | AED 1,200-2,000 | 2 stars |
+| **Il Ristorante – Niko Romito**  | Bulgari Resort | AED 1,200-2,000 | 2 stars |
 | **Torno Subito** | W Dubai | AED 500-800 | Massimo Bottura, fun vibes |
 | **Alici** | Bluewaters Island | AED 400-600 | Amalfi coast seafood |
 | **Roberto's** | DIFC | AED 400-600 | Classic Italian |
@@ -148,7 +148,7 @@ Dubai has become a playground for celebrity chefs. Most are based in luxury hote
 
 | Restaurant | Location | Price (2 pax) | Notes |
 |------------|----------|---------------|-------|
-| **Ossiano** ⭐ | Atlantis, The Palm | AED 1,000-1,500 | Underwater views |
+| **Ossiano**  | Atlantis, The Palm | AED 1,000-1,500 | Underwater views |
 | **Pierchic** | Al Qasr | AED 800-1,200 | Over-water setting |
 | **Estiatorio Milos** | Atlantis The Royal | AED 600-900 | Greek seafood |
 | **Ibn Al Bahr** | Palm Jumeirah | AED 400-600 | Lebanese seafood |

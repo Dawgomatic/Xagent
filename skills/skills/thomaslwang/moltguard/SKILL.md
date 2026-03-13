@@ -1,7 +1,7 @@
 ---
 name: moltguard
 description: "Open source OpenClaw security plugin: local prompt sanitization + injection detection. Full source code at github.com/openguardrails/moltguard"
-metadata: {"openclaw":{"emoji":"🛡️","homepage":"https://github.com/openguardrails/moltguard"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://github.com/openguardrails/moltguard"}}
 ---
 
 # MoltGuard Plugin Guide
@@ -14,7 +14,7 @@ metadata: {"openclaw":{"emoji":"🛡️","homepage":"https://github.com/openguar
 > 3. Understand what data goes to the API (even if "sanitized")
 > 4. Be prepared to delete credentials if behavior is unexpected
 
-## ⚠️ SECURITY ADVISORY: What to Consider Before Installing
+##  SECURITY ADVISORY: What to Consider Before Installing
 
 **This documentation points to an external npm package and remote API. Here's what you should verify:**
 
@@ -54,13 +54,13 @@ diff -r package/ moltguard/ | grep -v "node_modules\|\.git\|dist"
 **API Endpoint:** `https://api.moltguard.com`
 
 **What gets sent:**
-- ✅ Sanitized content (PII/secrets already removed locally)
-- ✅ Analysis request (isInjection detection)
+-  Sanitized content (PII/secrets already removed locally)
+-  Analysis request (isInjection detection)
 
 **What does NOT get sent:**
-- ❌ Raw user prompts (sanitized first)
-- ❌ API keys or passwords (stripped by local sanitizer)
-- ❌ Filenames, tool names, session IDs
+-  Raw user prompts (sanitized first)
+-  API keys or passwords (stripped by local sanitizer)
+-  Filenames, tool names, session IDs
 
 **Privacy Policy:** https://moltguard.com/privacy
 
@@ -93,19 +93,19 @@ rm -f ~/.openclaw/logs/moltguard-*.jsonl
 
 | If you... | Then... |
 |-----------|---------|
-| ✅ Can audit ~500 lines of TypeScript | Proceed with audit, then install if satisfied |
-| ✅ Accept some data going to api.moltguard.com | Install normally |
-| ⚠️ Want zero external calls | Use `"enabled": false, "sanitizePrompt": true` (gateway-only) |
-| ❌ Cannot audit code | **Do not install** |
-| ❌ Cannot accept any external API | **Do not install** (or self-host) |
+|  Can audit ~500 lines of TypeScript | Proceed with audit, then install if satisfied |
+|  Accept some data going to api.moltguard.com | Install normally |
+|  Want zero external calls | Use `"enabled": false, "sanitizePrompt": true` (gateway-only) |
+|  Cannot audit code | **Do not install** |
+|  Cannot accept any external API | **Do not install** (or self-host) |
 
 ---
 
 ## Verification Steps (Required Before Installing)
 
-1. **📦 Published Package:** https://www.npmjs.com/package/@openguardrails/moltguard
-2. **📂 Full Source Code:** https://github.com/openguardrails/moltguard (MIT License)
-3. **🔍 Verify Contents:**
+1. ** Published Package:** https://www.npmjs.com/package/@openguardrails/moltguard
+2. ** Full Source Code:** https://github.com/openguardrails/moltguard (MIT License)
+3. ** Verify Contents:**
    ```bash
    # Download and inspect the actual package
    npm pack @openguardrails/moltguard
@@ -113,8 +113,8 @@ rm -f ~/.openclaw/logs/moltguard-*.jsonl
    ls -la package/
    # You'll see: gateway/, agent/, memory/, index.ts (TypeScript source)
    ```
-4. **📊 Package Size:** ~100KB (includes all TypeScript source files, not just docs)
-5. **🏗️ Build Artifacts:** None. This package ships TypeScript source, not compiled JavaScript (OpenClaw compiles plugins at runtime)
+4. ** Package Size:** ~100KB (includes all TypeScript source files, not just docs)
+5. ** Build Artifacts:** None. This package ships TypeScript source, not compiled JavaScript (OpenClaw compiles plugins at runtime)
 
 **Why there's no "install steps" in the traditional sense:**
 - OpenClaw plugins are installed via `openclaw plugins install` (not `npm install`)
@@ -139,10 +139,10 @@ find . -name "*.ts" -type f | grep -v node_modules | wc -l
 
 ## Package Information
 
-📦 **npm Package:** [@openguardrails/moltguard](https://www.npmjs.com/package/@openguardrails/moltguard)
-📂 **Source Code:** [github.com/openguardrails/moltguard](https://github.com/openguardrails/moltguard)
-📄 **License:** MIT
-🔒 **Security:** All code open source and auditable
+ **npm Package:** [@openguardrails/moltguard](https://www.npmjs.com/package/@openguardrails/moltguard)
+ **Source Code:** [github.com/openguardrails/moltguard](https://github.com/openguardrails/moltguard)
+ **License:** MIT
+ **Security:** All code open source and auditable
 
 ## What This Package Contains
 
@@ -245,8 +245,8 @@ No other files are touched. No external database.
 
 ## Features
 
-✨ **NEW: Local Prompt Sanitization Gateway** - Protects sensitive data (bank cards, passwords, API keys) before sending to LLMs
-🛡️ **Prompt Injection Detection** - Detects and blocks malicious instructions hidden in external content
+ **NEW: Local Prompt Sanitization Gateway** - Protects sensitive data (bank cards, passwords, API keys) before sending to LLMs
+ **Prompt Injection Detection** - Detects and blocks malicious instructions hidden in external content
 
 All sensitive data processing happens **locally on your machine**.
 
@@ -841,12 +841,12 @@ A: **Install from source.** Clone the GitHub repository, audit every file, then 
 
 This plugin is designed for **maximum transparency**:
 
-1. ✅ All code is open source (MIT license)
-2. ✅ No bundling or obfuscation (readable TypeScript)
-3. ✅ Network calls are documented and auditable
-4. ✅ File operations are minimal and local
-5. ✅ Can be installed from source (bypass npm/registry)
-6. ✅ Can be tested in isolation (throwaway environment)
-7. ✅ Can be self-hosted (own API server)
+1.  All code is open source (MIT license)
+2.  No bundling or obfuscation (readable TypeScript)
+3.  Network calls are documented and auditable
+4.  File operations are minimal and local
+5.  Can be installed from source (bypass npm/registry)
+6.  Can be tested in isolation (throwaway environment)
+7.  Can be self-hosted (own API server)
 
 **If you have concerns, audit the code first. If you find anything suspicious, please report it.**

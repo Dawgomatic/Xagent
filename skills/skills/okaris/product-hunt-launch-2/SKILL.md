@@ -108,13 +108,13 @@ infsh app run falai/flux-dev-lora --input '{
 ### Examples
 
 ```
-❌ "The best project management tool ever created" (superlative, 52 chars)
-❌ "We help you manage projects better." (vague, has period, 37 chars)
-❌ "AI-powered machine learning project management SaaS" (buzzword soup)
+ "The best project management tool ever created" (superlative, 52 chars)
+ "We help you manage projects better." (vague, has period, 37 chars)
+ "AI-powered machine learning project management SaaS" (buzzword soup)
 
-✅ "Ship docs in minutes, not days" (31 chars)
-✅ "AI turns your data into stories" (32 chars)
-✅ "The open-source Calendly alternative" (37 chars)
+ "Ship docs in minutes, not days" (31 chars)
+ "AI turns your data into stories" (32 chars)
+ "The open-source Calendly alternative" (37 chars)
 ```
 
 ## Timing
@@ -142,7 +142,7 @@ Post within **5 minutes** of going live. This is your pitch.
 ### Structure
 
 ```
-Hey Product Hunt! 👋
+Hey Product Hunt! 
 
 [1 sentence: what it is]
 

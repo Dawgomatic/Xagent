@@ -2,7 +2,7 @@
 
 ## [2.1.0] - 2026-02-18
 
-### 🆕 PII Exposure Detection (OWASP LLM02 / LLM06)
+###  PII Exposure Detection (OWASP LLM02 / LLM06)
 
 New `pii-exposure` threat category with 13 patterns covering four attack vectors:
 
@@ -26,7 +26,7 @@ New `pii-exposure` threat category with 13 patterns covering four attack vectors
 
 ## [2.0.0] - 2026-02-18
 
-### 🆕 Plugin Hook Runtime Guard — Actual Blocking!
+###  Plugin Hook Runtime Guard — Actual Blocking!
 
 The runtime guard has been rewritten as a **Plugin Hook** (`plugin.ts`) using OpenClaw's native `before_tool_call` Plugin Hook API. Unlike the legacy Internal Hook version, this can **actually block** dangerous tool calls.
 
@@ -47,7 +47,7 @@ The runtime guard has been rewritten as a **Plugin Hook** (`plugin.ts`) using Op
 #### Documentation
 - README.md updated with Plugin Hook setup instructions
 - Architecture diagram updated to show both plugin.ts and handler.ts
-- GuavaSuite comparison table updated (runtime blocking now ✅)
+- GuavaSuite comparison table updated (runtime blocking now )
 
 ## [1.1.1] - 2026-02-17
 
@@ -62,7 +62,7 @@ The runtime guard has been rewritten as a **Plugin Hook** (`plugin.ts`) using Op
 
 ## [1.1.0] - 2026-02-17
 
-### 🆕 New Features — Issue #18677 Feedback
+###  New Features — Issue #18677 Feedback
 
 #### Skill Manifest Validation (`sandbox-validation` category)
 - **Dangerous binary detection**: Flags SKILL.md `requires.bins` entries like `sudo`, `rm`, `curl`, `ssh` (23 tool blocklist)
@@ -97,7 +97,7 @@ The runtime guard has been rewritten as a **Plugin Hook** (`plugin.ts`) using Op
 
 ## [1.0.0] - 2026-02-17
 
-### 🎉 Initial Release
+###  Initial Release
 
 Extracted from GuavaGuard v9.0.0 as the open-source component.
 

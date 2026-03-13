@@ -254,7 +254,7 @@ whatsapp.sh settings --group "group_jid" --description "Group description"
 ```bash
 whatsapp.sh delete --chat "chat_jid" --message "message_id"
 whatsapp.sh pin --chat "chat_jid" --message "message_id"
-whatsapp.sh react --chat "chat_jid" --message "message_id" --emoji "👍"
+whatsapp.sh react --chat "chat_jid" --message "message_id" --emoji ""
 ```
 
 ### Archive

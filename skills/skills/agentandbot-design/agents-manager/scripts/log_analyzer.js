@@ -73,7 +73,7 @@ function analyzeLogs(agentFilter = null, failedOnly = false) {
 
 function printReport(analysis, agentFilter = null) {
     console.log('\n' + '═'.repeat(60));
-    console.log('📊 AGENT PERFORMANCE REPORT');
+    console.log(' AGENT PERFORMANCE REPORT');
     console.log('═'.repeat(60));
 
     if (agentFilter) {
@@ -82,8 +82,8 @@ function printReport(analysis, agentFilter = null) {
 
     console.log('\nSummary:');
     console.log(`  Total Tasks:      ${analysis.total}`);
-    console.log(`  Completed:        ${analysis.completed} ✅`);
-    console.log(`  Failed:           ${analysis.failed} ❌`);
+    console.log(`  Completed:        ${analysis.completed} `);
+    console.log(`  Failed:           ${analysis.failed} `);
     console.log(`  Success Rate:      ${analysis.successRate}`);
     console.log(`  Avg Duration:      ${analysis.avgDuration}`);
 
@@ -101,7 +101,7 @@ function printReport(analysis, agentFilter = null) {
         analysis.logs
             .filter(l => l.status === 'failed')
             .forEach(l => {
-                console.log(`  ❌ ${l.task} (${l.assigned_to}) - ${l.date}`);
+                console.log(`   ${l.task} (${l.assigned_to}) - ${l.date}`);
             });
     }
 

@@ -83,28 +83,28 @@ function getStatusChipClass(status: string): string {
 
 function getAppEmoji(app: string): string {
   const emojiMap: Record<string, string> = {
-    gmail: "📧",
-    "google-calendar": "📅",
-    "google-docs": "📄",
-    "google-sheets": "📊",
-    "google-drive": "💾",
-    "google-slides": "🎨",
-    "google-ads": "📢",
-    "google-analytics-admin": "📈",
-    "google-analytics-data": "📈",
-    "google-search-console": "🔍",
-    slack: "💬",
-    notion: "📝",
-    airtable: "🗂️",
-    hubspot: "🎯",
-    jira: "🎫",
-    youtube: "▶️",
-    calendly: "📆",
-    outlook: "📬",
-    apollo: "🚀",
-    chargebee: "💳",
+    gmail: "",
+    "google-calendar": "",
+    "google-docs": "",
+    "google-sheets": "",
+    "google-drive": "",
+    "google-slides": "",
+    "google-ads": "",
+    "google-analytics-admin": "",
+    "google-analytics-data": "",
+    "google-search-console": "",
+    slack: "",
+    notion: "",
+    airtable: "",
+    hubspot: "",
+    jira: "",
+    youtube: "",
+    calendly: "",
+    outlook: "",
+    apollo: "",
+    chargebee: "",
   };
-  return emojiMap[app] ?? "🔗";
+  return emojiMap[app] ?? "";
 }
 
 function renderConnectionCard(
@@ -280,7 +280,7 @@ export function renderMaton(props: MatonProps) {
       <div class="row" style="justify-content: space-between; align-items: flex-start;">
         <div>
           <div class="card-title">
-            🔗 Connection Status
+             Connection Status
             <span class="chip ${statusClass}" style="margin-left: 8px;">${statusLabel}</span>
           </div>
           <div class="card-sub">
@@ -299,7 +299,7 @@ export function renderMaton(props: MatonProps) {
 
     <section class="card" style="margin-top: 16px;">
       <div class="row" style="justify-content: space-between; align-items: center;">
-        <div class="card-title">🔑 API Key</div>
+        <div class="card-title"> API Key</div>
         ${!props.showForm
           ? html`
               <button class="btn" @click=${props.onConfigure}>
@@ -364,7 +364,7 @@ export function renderMaton(props: MatonProps) {
       ? html`
           <section class="card" style="margin-top: 16px;">
             <div class="row" style="justify-content: space-between; align-items: center;">
-              <div class="card-title">📱 Connected Apps</div>
+              <div class="card-title"> Connected Apps</div>
               <div class="row" style="gap: 8px;">
                 <button class="btn small" @click=${props.onLoadConnections}>
                   Refresh
@@ -391,7 +391,7 @@ export function renderMaton(props: MatonProps) {
       : nothing}
 
     <section class="card" style="margin-top: 16px;">
-      <div class="card-title">📚 Setup Guide</div>
+      <div class="card-title"> Setup Guide</div>
       <div class="card-sub" style="margin-top: 8px;">
         <ol style="margin: 12px 0; padding-left: 20px; line-height: 1.8;">
           <li>
@@ -411,7 +411,7 @@ export function renderMaton(props: MatonProps) {
     </section>
 
     <section class="card" style="margin-top: 16px;">
-      <div class="card-title">🔧 Supported Apps</div>
+      <div class="card-title"> Supported Apps</div>
       <div class="card-sub" style="margin-top: 8px;">
         <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
           ${["gmail", "google-calendar", "slack", "notion", "hubspot", "jira", "airtable", "youtube"].map(

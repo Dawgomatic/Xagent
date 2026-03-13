@@ -148,9 +148,9 @@ def format_position_output(result, take_profit_levels, is_long):
     print(f"Recommended: Risk 1-2% per trade for conservative approach")
     
     if result['position_percent'] > 50:
-        print(f"\n⚠ WARNING: Position is {result['position_percent']:.1f}% of account - consider reducing")
+        print(f"\n WARNING: Position is {result['position_percent']:.1f}% of account - consider reducing")
     elif result['position_percent'] > 25:
-        print(f"\n⚠ CAUTION: Position is {result['position_percent']:.1f}% of account - monitor closely")
+        print(f"\n CAUTION: Position is {result['position_percent']:.1f}% of account - monitor closely")
     else:
         print(f"\n✓ Position size is {result['position_percent']:.1f}% of account - reasonable allocation")
     

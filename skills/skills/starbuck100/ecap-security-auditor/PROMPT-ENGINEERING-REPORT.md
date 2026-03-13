@@ -46,14 +46,14 @@
 - Step 3 → Finds exec(), eval(), pickle, HTTP calls, dynamic imports
 - Step 4 → exec() in code runner: all 4 criteria met → by_design: true. exec() on raw HTTP input: criterion 3 fails → real vulnerability
 - Step 6 → Score only counts real findings. By-design patterns visible but score-neutral
-- ✅ Agent produces fair score without ignoring real risks
+-  Agent produces fair score without ignoring real risks
 
 ### Simulation: Auditing a MALICIOUS npm package
 - Step 2 → Category: "Utility/Parser" → no expected dangerous patterns
 - Step 3 → Finds obfuscated eval(), env var exfiltration, suspicious domain calls
 - Step 4 → Obfuscation: explicitly listed as "NEVER by-design". Exfiltration: criterion 3 fails. None qualify as by-design.
 - Step 6 → Full penalties applied. Score reflects true danger.
-- ✅ Malicious packages are not protected by by-design classification
+-  Malicious packages are not protected by by-design classification
 
 ### Contradiction Check
 - No contradictions found. Step 3 HIGH category ("eval/exec on variables even if not user-controlled") coexists with Step 4 by-design classification — the finding is still reported, just flagged and score-neutral.

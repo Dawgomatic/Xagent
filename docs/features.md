@@ -295,7 +295,7 @@ Directed acyclic graph engine for complex multi-step tasks:
 
 ```
 Task A (research) ──┐
-                    ├──▶ Task C (synthesis) ──▶ Task D (output)
+                    ├── Task C (synthesis) ── Task D (output)
 Task B (analysis) ──┘
 ```
 
@@ -324,7 +324,7 @@ Genuinely unique — autonomous offline reflection during idle periods:
 - Reviews recent epoch journals and daily notes
 - Identifies patterns, contradictions, and gaps in knowledge
 - Generates insights and writes them to daily notes
-- Optionally sends a proactive message: "💭 While reflecting, I noticed..."
+- Optionally sends a proactive message: " While reflecting, I noticed..."
 - Minimum 12-hour interval between dream sessions
 
 Location: `pkg/agent/dream.go`
@@ -433,10 +433,10 @@ Automatic actions when hardware events occur:
 
 | Device Class | Event | Action |
 |-------------|-------|--------|
-| Camera | Plugged in | "📷 Camera connected. I can help with photos." |
-| USB Storage | Plugged in | "💾 USB storage connected. Want me to index it?" |
-| Audio | Plugged in | "🎤 Audio device connected. Voice mode available." |
-| USB Storage | Removed | "⏏️ USB device disconnected." |
+| Camera | Plugged in | " Camera connected. I can help with photos." |
+| USB Storage | Plugged in | " USB storage connected. Want me to index it?" |
+| Audio | Plugged in | " Audio device connected. Voice mode available." |
+| USB Storage | Removed | " USB device disconnected." |
 
 Custom reactions can be added programmatically.
 

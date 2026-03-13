@@ -2,7 +2,7 @@
 name: gekko-yield
 description: Earn yield on USDC by supplying to the Moonwell Flagship USDC vault on Base. Use when depositing USDC, withdrawing from the vault, checking position/APY, or generating yield reports.
 version: 1.0.0
-metadata: {"clawdbot":{"emoji":"🦎","category":"defi","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","category":"defi","requires":{"bins":["node"]}}}
 ---
 
 # Gekko Yield — Earn safe yield on USDC
@@ -124,7 +124,7 @@ Config location: `~/.config/gekko-yield/config.json`
 
 ## Security
 
-⚠️ **This skill manages real funds. Review carefully:**
+ **This skill manages real funds. Review carefully:**
 
 - Private keys loaded at runtime from environment variable
 - Keys never logged or written to disk by scripts

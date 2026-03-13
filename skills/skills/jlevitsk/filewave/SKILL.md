@@ -2,7 +2,7 @@
 
 Query and manage FileWave UEM device inventory via REST API.
 
-> **⚠️ Disclaimer:** This skill is a **technology demonstration** of Agentic Endpoint Management (AEM) — the concept of AI agents interacting directly with UEM platforms to assist IT administrators. It is provided as-is for educational purposes to explore what's possible when AI meets endpoint management. Neither the author nor FileWave accepts any liability for the use, misuse, or consequences of running this skill against production or any other environment. **Use at your own risk.** Always test in a lab environment first and review any actions before applying them to production systems.
+> ** Disclaimer:** This skill is a **technology demonstration** of Agentic Endpoint Management (AEM) — the concept of AI agents interacting directly with UEM platforms to assist IT administrators. It is provided as-is for educational purposes to explore what's possible when AI meets endpoint management. Neither the author nor FileWave accepts any liability for the use, misuse, or consequences of running this skill against production or any other environment. **Use at your own risk.** Always test in a lab environment first and review any actions before applying them to production systems.
 
 ## Overview
 
@@ -187,15 +187,15 @@ The CLI converts this to device objects automatically.
 
 ## Current Features
 
-- ✅ Multi-server profile support
-- ✅ Inventory Query integration
-- ✅ Natural language filtering (last_seen > 30 days)
-- ✅ Device hierarchy analysis (original vs. clones)
-- ✅ Bulk device updates (school deployment workflow)
-- ✅ Fleet analytics: platform breakdown, stale device reports, field summaries
-- ✅ Session tracking and server comparison
-- ✅ JSON export for scripting
-- ✅ 7-day device cache for performance
+-  Multi-server profile support
+-  Inventory Query integration
+-  Natural language filtering (last_seen > 30 days)
+-  Device hierarchy analysis (original vs. clones)
+-  Bulk device updates (school deployment workflow)
+-  Fleet analytics: platform breakdown, stale device reports, field summaries
+-  Session tracking and server comparison
+-  JSON export for scripting
+-  7-day device cache for performance
 
 ## Documentation
 

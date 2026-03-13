@@ -116,7 +116,7 @@ async function main() {
           console.error(`Error: ${result.error}`);
           process.exit(1);
         }
-        console.log('✅ Request submitted!');
+        console.log(' Request submitted!');
         console.log(`Transaction hash: ${result.tx_hash || 'N/A'}`);
         console.log('Please wait 1-5 minutes for the tokens to arrive.');
         break;

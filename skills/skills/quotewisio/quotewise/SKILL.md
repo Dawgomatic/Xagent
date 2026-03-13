@@ -1,7 +1,7 @@
 ---
 name: quotewise
 description: Semantic quote search with source transparency. Find quotes by meaning, not keywords.
-metadata: {"openclaw":{"emoji":"📚","homepage":"https://quotewise.io","primaryEnv":"QUOTEWISE_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://quotewise.io","primaryEnv":"QUOTEWISE_API_KEY"}}
 ---
 
 # Quotewise MCP
@@ -128,10 +128,10 @@ Or run `npx @quotewise/mcp setup` for guided configuration.
 
 ## What This Does
 
-✅ **Semantic search** — describe concepts, get relevant quotes
-✅ **QuoteSightings** — see sources for every quote
-✅ **600K quotes** — contemporary voices, curated collection
-✅ **No hallucinations** — real quotes, verified sources
-✅ **Wikiquote misattributions hidden** — known fakes filtered out
+ **Semantic search** — describe concepts, get relevant quotes
+ **QuoteSightings** — see sources for every quote
+ **600K quotes** — contemporary voices, curated collection
+ **No hallucinations** — real quotes, verified sources
+ **Wikiquote misattributions hidden** — known fakes filtered out
 
 For full feature list, pricing, and usage details, see [quotewise.io/plans](https://quotewise.io/plans/).

@@ -13,14 +13,14 @@ metadata:
 
 Control real browsers through VibeSurf. This skill delegates to detailed reference guides.
 
-> **🚨 VIBESURF STATUS**
+> ** VIBESURF STATUS**
 >
 > Check if VibeSurf is running:
 > ```bash
 > curl $VIBESURF_ENDPOINT/health
 > ```
-> - ✅ **HTTP 200** → Proceed with vibesurf skills
-> - ❌ **Connection refused** → Ask user to run `vibesurf` (NEVER run it yourself)
+> -  **HTTP 200** → Proceed with vibesurf skills
+> -  **Connection refused** → Ask user to run `vibesurf` (NEVER run it yourself)
 >
 > Default endpoint: `http://127.0.0.1:9335`
 
@@ -58,7 +58,7 @@ Content-Type: application/json
 2. Get params schema → See required/optional parameters
 3. Execute → Call with parameters
 
-> **⚠️ Parameter Error Handling**
+> ** Parameter Error Handling**
 >
 > **ALWAYS** call `GET /api/tool/{action_name}/params` before executing ANY action if you are unsure about parameters.
 
@@ -226,7 +226,7 @@ Browser/Web Task
 
 ## Getting Browser State
 
-> **🔍 Check Current Browser State**
+> ** Check Current Browser State**
 >
 > **When user asks about current page content or browser status** (e.g., "What's on the current page?", "What tabs are open?", "What's the browser showing?"), read [references/browser.md](references/browser.md) and use the `get_browser_state` action.
 >

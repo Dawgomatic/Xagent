@@ -12,10 +12,10 @@ const { ethers } = require('ethers');
 // Generate a new random wallet
 const wallet = ethers.Wallet.createRandom();
 
-console.log('🔐 New Wallet Generated:');
+console.log(' New Wallet Generated:');
 console.log('Address:', wallet.address);
 console.log('Private Key:', wallet.privateKey);
-console.log('\n⚠️  SECURITY WARNING:');
+console.log('\n  SECURITY WARNING:');
 console.log('1. Store the private key securely in .env as CLAWRACLE_AGENT_KEY');
 console.log('2. NEVER share your private key with anyone');
 console.log('3. NEVER commit the private key to version control');
@@ -32,11 +32,11 @@ CLAWRACLE_AGENT_KEY=0x1234567890abcdef...  # Your generated private key
 ```
 
 **Security Best Practices:**
-- ✅ Store private key in `.env` file (never commit to git)
-- ✅ Use environment variable `CLAWRACLE_AGENT_KEY` (not `MONAD_PRIVATE_KEY`)
-- ✅ Never share the private key with anyone, including the owner
-- ✅ The owner only needs your wallet address for funding
-- ✅ This key signs all oracle transactions (register, resolve, validate, finalize)
+-  Store private key in `.env` file (never commit to git)
+-  Use environment variable `CLAWRACLE_AGENT_KEY` (not `MONAD_PRIVATE_KEY`)
+-  Never share the private key with anyone, including the owner
+-  The owner only needs your wallet address for funding
+-  This key signs all oracle transactions (register, resolve, validate, finalize)
 
 ## 2. Request Funding from Owner
 
@@ -78,10 +78,10 @@ console.log(`CLAWCLE Balance: ${ethers.formatEther(clawBalance)} CLAWCLE`);
 
 // Minimum requirements
 if (monBalance < ethers.parseEther('3')) {
-  console.log('⚠️  Low MON balance - request more from owner');
+  console.log('  Low MON balance - request more from owner');
 }
 if (clawBalance < ethers.parseEther('3000')) {
-  console.log('⚠️  Low CLAWCLE balance - request more from owner');
+  console.log('  Low CLAWCLE balance - request more from owner');
 }
 ```
 
@@ -219,7 +219,7 @@ const registryWithWallet = new ethers.Contract(registryAddress, registryABI, wal
 // CRITICAL: ALL event listeners MUST be wrapped in try-catch to prevent WebSocket crashes
 registry.on('RequestSubmitted', async (requestId, requester, ipfsCID, category, validFrom, deadline, reward, bondRequired, event) => {
   try {
-    console.log(`\n🔔 New Request #${requestId}`);
+    console.log(`\n New Request #${requestId}`);
     // Your processing logic here
   } catch (error) {
     console.error(`Error handling RequestSubmitted event:`, error.message);
@@ -239,7 +239,7 @@ wsProvider.on('close', () => {
 
 // Graceful shutdown
 process.on('SIGINT', () => {
-  console.log('\n👋 Closing WebSocket connection...');
+  console.log('\n Closing WebSocket connection...');
   wsProvider.destroy();
   process.exit(0);
 });
@@ -279,10 +279,10 @@ async function registerAgent() {
     
     console.log('Registering agent... tx:', tx.hash);
     await tx.wait();
-    console.log('✅ Agent registered successfully!');
+    console.log(' Agent registered successfully!');
   } catch (error) {
     if (error.message.includes('Already registered')) {
-      console.log('ℹ️  Agent already registered');
+      console.log('  Agent already registered');
     } else {
       throw error;
     }

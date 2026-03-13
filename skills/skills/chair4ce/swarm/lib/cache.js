@@ -176,7 +176,7 @@ class PromptCache {
       }
       
       if (loaded > 0) {
-        console.log(`📦 Cache: loaded ${loaded} entries from disk`);
+        console.log(` Cache: loaded ${loaded} entries from disk`);
       }
     } catch (e) {
       // Non-critical — start fresh

@@ -1,6 +1,6 @@
 # Contributing to guard-scanner
 
-Thanks for your interest in improving agent security! 🛡️
+Thanks for your interest in improving agent security! 
 
 ## How to Contribute
 

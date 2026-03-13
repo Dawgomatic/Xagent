@@ -3,7 +3,7 @@ name: lifi
 description: Cross-chain token swaps and bridges via the LI.FI protocol. Get quotes, execute transfers, track progress, and compose DeFi operations across 35+ blockchains.
 user-invocable: true
 argument-hint: "[swap|bridge|track|routes|zap] <details>"
-metadata: {"openclaw":{"emoji":"🔗","requires":{"bins":["curl"]},"primaryEnv":"LIFI_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl"]},"primaryEnv":"LIFI_API_KEY"}}
 ---
 
 # /lifi — Cross-Chain Swaps & Bridges

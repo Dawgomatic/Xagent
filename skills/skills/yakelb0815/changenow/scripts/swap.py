@@ -54,7 +54,7 @@ def main():
         data = create_transaction(args.from_coin, args.to_coin, args.amount, args.address, api_key)
         print(json.dumps(data, indent=2))
         if "payinAddress" in data:
-            print(f"\n✅ TRANSACTION CREATED")
+            print(f"\n TRANSACTION CREATED")
             print(f"Please send {args.amount} {args.from_coin.upper()} to: {data['payinAddress']}")
     else:
         print("ERROR: Provide either --estimate or --address")

@@ -23,23 +23,23 @@
 - CI/CD: check last pipeline status if accessible.
 
 ## Report format (STRICT)
-FIRST LINE must be: 🫀 [current date/time] | [your model name] | AI Persona OS v[VERSION]
+FIRST LINE must be:  [current date/time] | [your model name] | AI Persona OS v[VERSION]
 
 Then each indicator MUST be on its own line with a blank line between them:
 
-🟢 Context: [%] — [status]
+ Context: [%] — [status]
 
-🟢 Memory: [sync state + size]
+ Memory: [sync state + size]
 
-🟢 Workspace: [status]
+ Workspace: [status]
 
-🟢 Tasks: [status]
+ Tasks: [status]
 
-🟢 CI/CD: [status]
+ CI/CD: [status]
 
-Replace 🟢 with 🟡 (attention) or 🔴 (action required) as needed.
+Replace  with  (attention) or  (action required) as needed.
 If action was taken: add a line starting with → describing what was done.
 If anything needs user attention: add a line starting with → and specifics.
 If VERSION mismatch detected: add → Upgrade available: workspace v[old] → skill v[new]
-If ALL indicators are 🟢, no action was taken, and no upgrade available: reply only HEARTBEAT_OK
+If ALL indicators are , no action was taken, and no upgrade available: reply only HEARTBEAT_OK
 Do NOT use markdown tables. Do NOT use Step 0/1/2/3/4 format. Do NOT use headers.

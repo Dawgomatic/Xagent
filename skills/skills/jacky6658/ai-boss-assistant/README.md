@@ -8,35 +8,35 @@
 
 ---
 
-## 🎯 What is this?
+##  What is this?
 
 This is a battle-tested **AI Agent persona and workflow template** designed for:
 
-- ✅ **Solo entrepreneurs** - Need AI to manage schedules, emails, and documents
-- ✅ **Small team founders** - Need AI for project management and client communication
-- ✅ **Busy professionals** - Want to reduce admin work and boost productivity
-- ✅ **AI enthusiasts** - Want to build a personalized AI assistant
+-  **Solo entrepreneurs** - Need AI to manage schedules, emails, and documents
+-  **Small team founders** - Need AI for project management and client communication
+-  **Busy professionals** - Want to reduce admin work and boost productivity
+-  **AI enthusiasts** - Want to build a personalized AI assistant
 
 Built for **[OpenClaw](https://openclaw.ai)** framework, with Google Workspace integration (Gmail, Calendar, Drive).
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
 ### 1. Complete Persona Definition
 Not just a chatbot, but a real "AI Employee":
-- 🧠 **Has opinions and judgment** - Not a yes-man
-- ⚡ **Proactive execution, results-driven** - Do first, report later
-- 📊 **Milestone delivery system** - Deliver in stages, review anytime
-- 💬 **Natural communication style** - Concise, direct, to the point
+-  **Has opinions and judgment** - Not a yes-man
+-  **Proactive execution, results-driven** - Do first, report later
+-  **Milestone delivery system** - Deliver in stages, review anytime
+-  **Natural communication style** - Concise, direct, to the point
 
 ### 2. Ready-to-use Workflows
 Complete operational guidelines defined:
-- 📅 Schedule management (Google Calendar)
-- 📧 Email handling (Gmail)
-- 📁 Document management (Google Drive / Docs)
-- ✅ Task tracking and reminders
-- 📊 Daily work reports
+-  Schedule management (Google Calendar)
+-  Email handling (Gmail)
+-  Document management (Google Drive / Docs)
+-  Task tracking and reminders
+-  Daily work reports
 
 ### 3. Modular Design
 Choose features based on your needs:
@@ -46,14 +46,14 @@ Choose features based on your needs:
 
 ### 4. Security & Privacy
 Built-in security mechanisms:
-- 🔐 OAuth authorization, no passwords required
-- 🔒 Principle of least privilege
-- 📝 Transparent and traceable operations
-- 🚫 Clear behavioral boundaries
+-  OAuth authorization, no passwords required
+-  Principle of least privilege
+-  Transparent and traceable operations
+-  Clear behavioral boundaries
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 templates/
@@ -61,49 +61,49 @@ templates/
 ├── LICENSE                      # License
 ├── CHECKLIST.md                 # Completeness checklist
 │
-├── agent-persona/               # 🎭 Core persona framework
+├── agent-persona/               #  Core persona framework
 │   ├── README.md               # Usage guide
 │   ├── PERSONA.md              # Core persona definition
 │   ├── COMMUNICATION.md        # Communication style
 │   ├── WORKFLOW.md             # Milestone delivery system
 │   └── RULES.md                # Behavioral rules
 │
-├── boss-assistant/              # 💼 Professional positioning
+├── boss-assistant/              #  Professional positioning
 │   ├── WHITEPAPER.md           # Product whitepaper
 │   └── MVP_FEATURES.md         # MVP feature list
 │
-├── setup/                       # 🚀 Installation
+├── setup/                       #  Installation
 │   ├── FULL_GUIDE.md           # Complete installation guide
 │   ├── QUICK_START.md          # Quick start guide
 │   └── INTERVIEW.md            # Pre-setup questionnaire
 │
-├── meta/                        # 📚 General rules
+├── meta/                        #  General rules
 │   ├── GENERAL_RULES.md        # AI assistant general rules
 │   └── SKILLS_OVERVIEW.md      # Skills and tools overview
 │
-├── gog/                         # 🔧 Google Workspace
+├── gog/                         #  Google Workspace
 │   └── GOG_SETUP.md            # gog installation guide
 │
-├── tasks/                       # ✅ Task templates
+├── tasks/                       #  Task templates
 │   ├── DAILY_TODO.md           # Daily todo template
 │   └── TASK_SYNC.md            # Task sync template
 │
-├── security/                    # 🔐 Security
+├── security/                    #  Security
 │   └── SECURITY.md             # Security guidelines
 │
-├── examples/                    # 📖 Examples
+├── examples/                    #  Examples
 │   ├── CONVERSATIONS.md        # Conversation examples
 │   ├── USER_EXAMPLE.md         # USER.md example
 │   ├── TOOLS_EXAMPLE.md        # TOOLS.md example
 │   └── HEARTBEAT_EXAMPLE.md    # HEARTBEAT.md example
 │
-└── skills/                      # 🛠️ Skills
+└── skills/                      #  Skills
     └── README.md
 ```
 
 ---
 
-## 🚀 Quick Start (5 minutes)
+##  Quick Start (5 minutes)
 
 ### Prerequisites
 - Node.js 18+ 
@@ -138,7 +138,7 @@ Please read the following files in order to become my AI Boss Assistant:
 
 ---
 
-## 💡 Core Design Philosophy
+##  Core Design Philosophy
 
 ### AI Employee, Not Chatbot
 
@@ -172,16 +172,16 @@ All important information is written to files, not relying on "mental notes":
 
 ---
 
-## 🎯 Use Cases
+##  Use Cases
 
-### ✅ Good Fit
+###  Good Fit
 - Solo businesses or small teams (1-10 people)
 - Need to reduce administrative work time
 - Already using Google Workspace
 - Want a customizable AI assistant
 - Value data privacy and control
 
-### ⚠️ May Not Fit
+###  May Not Fit
 - Large enterprises (need more complex permission management)
 - Don't use Google services at all
 - Only want simple chat functionality
@@ -189,7 +189,7 @@ All important information is written to files, not relying on "mental notes":
 
 ---
 
-## 🛠️ Technical Architecture
+##  Technical Architecture
 
 ### Core Framework
 - **[OpenClaw](https://openclaw.ai)** - AI Agent runtime environment
@@ -207,24 +207,24 @@ All important information is written to files, not relying on "mental notes":
 
 ---
 
-## 📊 Feature Comparison
+##  Feature Comparison
 
 | Feature | Basic | Advanced | Complete |
 |---------|-------|----------|----------|
-| Schedule Management | ✅ | ✅ | ✅ |
-| Email Handling | ✅ | ✅ | ✅ |
-| Document Management | ✅ | ✅ | ✅ |
-| Daily Reminders | ✅ | ✅ | ✅ |
-| Task Tracking | - | ✅ | ✅ |
-| Client Management | - | ✅ | ✅ |
-| Project Progress | - | ✅ | ✅ |
-| Financial Reports | - | - | ✅ |
-| Web Automation | - | - | ✅ |
-| Custom Integration | - | - | ✅ |
+| Schedule Management |  |  |  |
+| Email Handling |  |  |  |
+| Document Management |  |  |  |
+| Daily Reminders |  |  |  |
+| Task Tracking | - |  |  |
+| Client Management | - |  |  |
+| Project Progress | - |  |  |
+| Financial Reports | - | - |  |
+| Web Automation | - | - |  |
+| Custom Integration | - | - |  |
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md)
 
@@ -237,13 +237,13 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 💬 Community & Support
+##  Community & Support
 
 - **Documentation Issues**: [Open an Issue](https://github.com/jacky6658/ai-boss-assistant/issues)
 - **Feature Suggestions**: [Start a Discussion](https://github.com/jacky6658/ai-boss-assistant/discussions)
@@ -251,7 +251,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 This project is built on real-world experience, thanks to:
 - [OpenClaw](https://openclaw.ai) for the powerful AI Agent framework
@@ -260,7 +260,7 @@ This project is built on real-world experience, thanks to:
 
 ---
 
-## 📈 Changelog
+##  Changelog
 
 - **v1.0.0** (2026-02) - Initial release
   - Complete persona framework
@@ -270,9 +270,9 @@ This project is built on real-world experience, thanks to:
 
 ---
 
-## ⭐ Star History
+##  Star History
 
-If this project helps you, please give it a Star ⭐
+If this project helps you, please give it a Star 
 
 ---
 

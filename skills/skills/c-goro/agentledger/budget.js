@@ -94,7 +94,7 @@ class BudgetManager {
           type: 'OVER_BUDGET',
           severity: 'HIGH',
           category: category,
-          message: `🔴 OVER BUDGET: ${category} - $${status.spent.toFixed(2)} / $${status.budgetAmount} (${status.percentUsed.toFixed(1)}%)`,
+          message: ` OVER BUDGET: ${category} - $${status.spent.toFixed(2)} / $${status.budgetAmount} (${status.percentUsed.toFixed(1)}%)`,
           details: status
         });
       } else if (status.isNearLimit) {
@@ -102,7 +102,7 @@ class BudgetManager {
           type: 'NEAR_LIMIT',
           severity: 'MEDIUM',
           category: category,
-          message: `🟡 NEAR LIMIT: ${category} - $${status.spent.toFixed(2)} / $${status.budgetAmount} (${status.percentUsed.toFixed(1)}%)`,
+          message: ` NEAR LIMIT: ${category} - $${status.spent.toFixed(2)} / $${status.budgetAmount} (${status.percentUsed.toFixed(1)}%)`,
           details: status
         });
       }
@@ -115,28 +115,28 @@ class BudgetManager {
     const budgetStatuses = await this.checkAllBudgets();
     const alerts = await this.getAlerts();
     
-    let report = `💰 Budget Report\n`;
+    let report = ` Budget Report\n`;
     report += `Generated: ${new Date().toLocaleDateString()}\n`;
     report += `═══════════════════════════════════════════\n\n`;
     
     // Alerts section
     if (alerts.length > 0) {
-      report += `🚨 ALERTS (${alerts.length}):\n`;
+      report += ` ALERTS (${alerts.length}):\n`;
       for (const alert of alerts) {
         report += `   ${alert.message}\n`;
       }
       report += '\n';
     } else {
-      report += `✅ No budget alerts - all spending within limits!\n\n`;
+      report += ` No budget alerts - all spending within limits!\n\n`;
     }
     
     // Detailed budget status
-    report += `📊 Budget Status:\n`;
+    report += ` Budget Status:\n`;
     
     for (const [category, status] of Object.entries(budgetStatuses)) {
       if (!status.hasBudget) continue;
       
-      const emoji = status.isOverBudget ? '🔴' : status.isNearLimit ? '🟡' : '🟢';
+      const emoji = status.isOverBudget ? '' : status.isNearLimit ? '' : '';
       const progressBar = this.createProgressBar(status.percentUsed);
       
       report += `   ${emoji} ${category} (${status.period})\n`;
@@ -259,14 +259,14 @@ class BudgetManager {
     
     let bar = '';
     if (percentage <= 50) {
-      bar = '🟢'.repeat(filled);
+      bar = ''.repeat(filled);
     } else if (percentage <= 80) {
-      bar = '🟡'.repeat(filled);
+      bar = ''.repeat(filled);
     } else {
-      bar = '🔴'.repeat(filled);
+      bar = ''.repeat(filled);
     }
     
-    bar += '⚪'.repeat(empty);
+    bar += ''.repeat(empty);
     return bar;
   }
 

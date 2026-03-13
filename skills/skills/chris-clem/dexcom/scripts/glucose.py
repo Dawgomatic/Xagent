@@ -34,31 +34,31 @@ def report():
     """Print formatted glucose report."""
     r = get_reading()
     trend_emoji = {
-        "rising quickly": "⬆️⬆️",
-        "rising": "⬆️",
-        "rising slightly": "↗️",
-        "steady": "➡️",
-        "falling slightly": "↘️",
-        "falling": "⬇️",
-        "falling quickly": "⬇️⬇️",
-    }.get(r["trend"].lower(), "❓")
+        "rising quickly": "",
+        "rising": "",
+        "rising slightly": "",
+        "steady": "",
+        "falling slightly": "",
+        "falling": "",
+        "falling quickly": "",
+    }.get(r["trend"].lower(), "")
 
     mg = r["mg_dl"]
     if mg < 70:
-        status = "🔴 LOW"
+        status = " LOW"
     elif mg < 80:
-        status = "🟡 Low"
+        status = " Low"
     elif mg <= 140:
-        status = "🟢 In range"
+        status = " In range"
     elif mg <= 180:
-        status = "🟡 High"
+        status = " High"
     else:
-        status = "🔴 HIGH"
+        status = " HIGH"
 
-    print(f"🩸 Glucose: {mg} mg/dL ({r['mmol_l']:.1f} mmol/L)")
-    print(f"📈 Trend: {r['trend']} {trend_emoji}")
-    print(f"🎯 Status: {status}")
-    print(f"⏰ {r['time']}")
+    print(f" Glucose: {mg} mg/dL ({r['mmol_l']:.1f} mmol/L)")
+    print(f" Trend: {r['trend']} {trend_emoji}")
+    print(f" Status: {status}")
+    print(f" {r['time']}")
 
 
 def json_output():

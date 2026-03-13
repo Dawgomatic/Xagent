@@ -854,7 +854,7 @@ export default function MyVideo({ tw, title, subtitle }) {
 
       {/* Continuous floating animation: repeats every 1s (1000ms) */}
       <div style={tw('mt-8 text-4xl loop-float/1000')}>
-        ⬇️
+        
       </div>
     </div>
   );
@@ -1645,7 +1645,7 @@ export default function PathFollowing({ tw, progress, path }) {
           fontSize: '48px'
         }}
       >
-        🚀
+        
       </div>
     </div>
   );
@@ -2469,7 +2469,7 @@ The following prop names are **reserved** and cannot be used in your template's 
 
 **Example:**
 ```tsx
-// ❌ BAD - 'image' is reserved
+//  BAD - 'image' is reserved
 export const meta = {
   props: {
     title: "string",
@@ -2477,7 +2477,7 @@ export const meta = {
   }
 };
 
-// ✅ GOOD - Use descriptive alternatives
+//  GOOD - Use descriptive alternatives
 export const meta = {
   props: {
     title: "string",
@@ -3054,10 +3054,10 @@ your-project/
 - `font-mono` - Uses `fonts.mono` from loopwind.json
 
 **Supported formats:**
-- ✅ **WOFF** (`.woff`) - Recommended for best compatibility
-- ✅ **TTF** (`.ttf`) - Also supported
-- ✅ **OTF** (`.otf`) - Also supported
-- ❌ **WOFF2** (`.woff2`) - Not supported by renderer
+-  **WOFF** (`.woff`) - Recommended for best compatibility
+-  **TTF** (`.ttf`) - Also supported
+-  **OTF** (`.otf`) - Also supported
+-  **WOFF2** (`.woff2`) - Not supported by renderer
 
 ## Font Loading Priority
 
@@ -3074,11 +3074,11 @@ If no fonts are configured, loopwind uses **Inter** (Regular 400, Bold 700) whic
 
 ## Best Practices
 
-1. ✅ **Use loopwind.json for project-wide fonts** - Configure once, use everywhere
-2. ✅ **Use font classes** - `tw('font-sans')` instead of `fontFamily: 'Inter'`
-3. ✅ **Include fallbacks** - Always add system fonts: `["Inter", "system-ui", "sans-serif"]`
-4. ✅ **Match names** - First font in `family` array is used as the loaded font name
-5. ✅ **Relative paths** - Font paths are relative to `loopwind.json` location
+1.  **Use loopwind.json for project-wide fonts** - Configure once, use everywhere
+2.  **Use font classes** - `tw('font-sans')` instead of `fontFamily: 'Inter'`
+3.  **Include fallbacks** - Always add system fonts: `["Inter", "system-ui", "sans-serif"]`
+4.  **Match names** - First font in `family` array is used as the loaded font name
+5.  **Relative paths** - Font paths are relative to `loopwind.json` location
 
 ## Examples
 
@@ -3182,9 +3182,9 @@ You can also mix local and external fonts:
 
 ## Performance
 
-- ✅ **Font caching** - Fonts load once and are cached for all renders
-- ✅ **Video optimization** - 90-frame video loads fonts once, not 90 times
-- ✅ **No CDN delays** - Local fonts load instantly
+-  **Font caching** - Fonts load once and are cached for all renders
+-  **Video optimization** - 90-frame video loads fonts once, not 90 times
+-  **No CDN delays** - Local fonts load instantly
 
 ## Next Steps
 
@@ -3313,10 +3313,10 @@ tw('border-warning')  // #f59e0b
 Paths are relative to `loopwind.json`.
 
 **Supported formats:**
-- ✅ WOFF (`.woff`)
-- ✅ TTF (`.ttf`)
-- ✅ OTF (`.otf`)
-- ❌ WOFF2 (`.woff2`)
+-  WOFF (`.woff`)
+-  TTF (`.ttf`)
+-  OTF (`.otf`)
+-  WOFF2 (`.woff2`)
 
 ### External URLs
 

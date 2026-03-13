@@ -3,7 +3,7 @@
 /**
  * Disable DNSSEC for a domain
  * 
- * ⚠️  WARNING: Disabling DNSSEC removes cryptographic authentication!
+ *   WARNING: Disabling DNSSEC removes cryptographic authentication!
  * 
  * Usage:
  *   node dnssec-disable.js <domain> [--confirm]
@@ -26,7 +26,7 @@ const args = process.argv.slice(2);
 if (args.length < 1) {
   console.error('Usage: node dnssec-disable.js <domain> [--confirm]');
   console.error('');
-  console.error('⚠️  WARNING: Disabling DNSSEC removes cryptographic authentication!');
+  console.error('  WARNING: Disabling DNSSEC removes cryptographic authentication!');
   console.error('');
   console.error('Examples:');
   console.error('  node dnssec-disable.js example.com');
@@ -55,7 +55,7 @@ function confirm(message) {
 // Main function
 async function main() {
   try {
-    console.log(`🔍 Checking DNSSEC status for ${domain}...`);
+    console.log(` Checking DNSSEC status for ${domain}...`);
     console.log('');
     
     // Get domain info
@@ -64,7 +64,7 @@ async function main() {
       domainInfo = await getDomain(domain);
     } catch (err) {
       if (err.statusCode === 404) {
-        console.error(`❌ Domain ${domain} not found in your account`);
+        console.error(` Domain ${domain} not found in your account`);
         process.exit(1);
       }
       throw err;
@@ -76,7 +76,7 @@ async function main() {
       existingKeys = await getDnssecKeys(domain);
     } catch (err) {
       if (err.statusCode === 404) {
-        console.log('ℹ️  DNSSEC is already disabled for this domain.');
+        console.log('  DNSSEC is already disabled for this domain.');
         console.log('   No action needed.');
         return;
       }
@@ -84,17 +84,17 @@ async function main() {
     }
     
     if (!existingKeys || existingKeys.length === 0) {
-      console.log('ℹ️  DNSSEC is already disabled for this domain.');
+      console.log('  DNSSEC is already disabled for this domain.');
       console.log('   No keys found.');
       return;
     }
     
-    console.log('✅ DNSSEC: Currently ENABLED');
+    console.log(' DNSSEC: Currently ENABLED');
     console.log(`   ${existingKeys.length} key(s) found`);
     console.log('');
     
     // Show what will be deleted
-    console.log('📋 Keys to be deleted:');
+    console.log(' Keys to be deleted:');
     existingKeys.forEach((key, index) => {
       const keyType = key.flags === 256 ? 'ZSK' : key.flags === 257 ? 'KSK' : 'Unknown';
       console.log(`   ${index + 1}. Key #${key.id || key.uuid} (${keyType})`);
@@ -104,7 +104,7 @@ async function main() {
     // Warning and confirmation
     if (!autoConfirm) {
       console.log('═══════════════════════════════════════════════════════');
-      console.log('         ⚠️  DNSSEC DISABLEMENT WARNING ⚠️');
+      console.log('           DNSSEC DISABLEMENT WARNING ');
       console.log('═══════════════════════════════════════════════════════');
       console.log('');
       console.log('Disabling DNSSEC will:');
@@ -112,12 +112,12 @@ async function main() {
       console.log('  • Delete all DNSSEC keys');
       console.log('  • Require DS record removal at registrar');
       console.log('');
-      console.log('⚠️  IMPORTANT: After disabling, you MUST:');
+      console.log('  IMPORTANT: After disabling, you MUST:');
       console.log('  1. Remove DS records from your domain registrar');
       console.log('  2. Wait 24-48 hours for DS record removal to propagate');
       console.log('  3. Verify DNSSEC is fully disabled');
       console.log('');
-      console.log('⚠️  WARNING: If DS records remain at the registrar after');
+      console.log('  WARNING: If DS records remain at the registrar after');
       console.log('   disabling DNSSEC, DNS validation will FAIL and your');
       console.log('   domain will be unreachable for DNSSEC-enabled resolvers!');
       console.log('');
@@ -127,34 +127,34 @@ async function main() {
       const confirmed = await confirm('Type "yes" to disable DNSSEC (or anything else to cancel): ');
       
       if (!confirmed) {
-        console.log('❌ DNSSEC disablement cancelled.');
+        console.log(' DNSSEC disablement cancelled.');
         process.exit(0);
       }
       console.log('');
     }
     
-    console.log('⏳ Disabling DNSSEC...');
+    console.log(' Disabling DNSSEC...');
     console.log('');
     
     // Disable DNSSEC (delete all keys)
     const result = await disableDnssec(domain);
     
     if (!result.success) {
-      console.error('⚠️  Some keys could not be deleted:');
+      console.error('  Some keys could not be deleted:');
       result.results.filter(r => !r.success).forEach(r => {
         console.error(`   - Key ${r.key}: ${r.error}`);
       });
       console.log('');
-      console.log('💡 Check current status:');
+      console.log(' Check current status:');
       console.log(`   node dnssec-status.js ${domain}`);
       process.exit(1);
     }
     
-    console.log('✅ DNSSEC disabled successfully!');
+    console.log(' DNSSEC disabled successfully!');
     console.log(`   Deleted ${existingKeys.length} key(s)`);
     console.log('');
     console.log('═══════════════════════════════════════════════════════');
-    console.log('       📝 CRITICAL: REMOVE DS RECORDS NOW!');
+    console.log('        CRITICAL: REMOVE DS RECORDS NOW!');
     console.log('═══════════════════════════════════════════════════════');
     console.log('');
     console.log('You MUST now remove DS records from your domain registrar:');
@@ -164,13 +164,13 @@ async function main() {
     console.log('3. DELETE all DS records');
     console.log('4. Wait 24-48 hours for propagation');
     console.log('');
-    console.log('⚠️  FAILURE TO REMOVE DS RECORDS WILL BREAK DNS!');
+    console.log('  FAILURE TO REMOVE DS RECORDS WILL BREAK DNS!');
     console.log('   If DS records remain at the registrar, DNSSEC validation');
     console.log('   will fail and your domain will be unreachable.');
     console.log('');
     console.log('═══════════════════════════════════════════════════════');
     console.log('');
-    console.log('📊 Next steps:');
+    console.log(' Next steps:');
     console.log('');
     console.log('1. Remove DS records from your registrar (CRITICAL!)');
     console.log('2. Wait 24-48 hours for DS record removal to propagate');
@@ -182,10 +182,10 @@ async function main() {
     console.log('   https://dnssec-debugger.verisignlabs.com/');
     console.log(`   https://dnsviz.net/d/${domain}/dnssec/`);
     console.log('');
-    console.log('🎉 DNSSEC disablement complete (pending DS record removal)!');
+    console.log(' DNSSEC disablement complete (pending DS record removal)!');
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('');

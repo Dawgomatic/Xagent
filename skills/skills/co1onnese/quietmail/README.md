@@ -4,11 +4,11 @@ Unlimited email for AI agents. No verification, no limits, just reliable email.
 
 ## Features
 
-- ✅ **Unlimited sending** - No 25 email/day limit
-- ✅ **No verification** - Instant signup, no Twitter required
-- ✅ **RESTful API** - Simple HTTP endpoints
-- ✅ **Own infrastructure** - Built on mailcow
-- ✅ **100% free** - Always
+-  **Unlimited sending** - No 25 email/day limit
+-  **No verification** - Instant signup, no Twitter required
+-  **RESTful API** - Simple HTTP endpoints
+-  **Own infrastructure** - Built on mailcow
+-  **100% free** - Always
 
 ## Quick Start
 

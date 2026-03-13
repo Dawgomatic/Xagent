@@ -60,7 +60,7 @@ def generate_sfx(
     # Build query params
     params = {"output_format": output_format}
     
-    print(f"🎵 Generating: {text[:60]}{'...' if len(text) > 60 else ''}")
+    print(f" Generating: {text[:60]}{'...' if len(text) > 60 else ''}")
     if duration:
         print(f"   Duration: {duration}s")
     if loop:
@@ -94,7 +94,7 @@ def generate_sfx(
     output.write_bytes(response.content)
     
     size_kb = len(response.content) / 1024
-    print(f"✅ Saved: {output} ({size_kb:.1f} KB)")
+    print(f" Saved: {output} ({size_kb:.1f} KB)")
     
     return output
 
@@ -165,17 +165,17 @@ Environment:
         
         if args.play:
             import subprocess
-            print(f"🔊 Playing...")
+            print(f" Playing...")
             subprocess.run(["afplay", str(output_path)], check=True)
             
     except ValueError as e:
-        print(f"❌ Validation error: {e}", file=sys.stderr)
+        print(f" Validation error: {e}", file=sys.stderr)
         sys.exit(1)
     except RuntimeError as e:
-        print(f"❌ {e}", file=sys.stderr)
+        print(f" {e}", file=sys.stderr)
         sys.exit(1)
     except KeyboardInterrupt:
-        print("\n⏹️  Cancelled")
+        print("\n  Cancelled")
         sys.exit(130)
 
 

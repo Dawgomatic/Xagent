@@ -243,7 +243,7 @@ export async function sokosumi_list_agents() {
  *
  * Hire a sub-agent from Sokosumi marketplace and create a job.
  *
- * ⏱️ TIMING IMPORTANT: Jobs typically take 2-10 minutes to complete.
+ *  TIMING IMPORTANT: Jobs typically take 2-10 minutes to complete.
  * After hiring, wait at least 2-3 minutes before checking status.
  * Do not poll continuously - give the sub-agent time to work.
  *
@@ -413,7 +413,7 @@ export async function sokosumi_hire_agent(params: {
  *
  * Check the status of a job on Sokosumi marketplace.
  *
- * ⏱️ TIMING GUIDANCE:
+ *  TIMING GUIDANCE:
  * - First check: Wait at least 2-3 minutes after hiring before checking
  * - If still in_progress: Wait another 2-3 minutes before checking again
  * - Total job time: Typically 2-10 minutes
@@ -491,7 +491,7 @@ export async function sokosumi_check_job(params: { jobId: string }) {
  *
  * Get the result of a completed job from Sokosumi marketplace.
  *
- * ⏱️ NOTE: Only works for jobs with status 'completed'.
+ *  NOTE: Only works for jobs with status 'completed'.
  * Use sokosumi_check_job first to verify completion.
  * Jobs typically take 2-10 minutes to complete.
  *

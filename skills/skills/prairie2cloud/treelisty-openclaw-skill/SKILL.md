@@ -40,29 +40,29 @@ node scripts/treelisty-cli.js export --input tree.json --format mermaid
 
 | Pattern | Icon | Best For |
 |---------|------|----------|
-| `generic` | 📋 | General projects, default structure |
-| `sales` | 💼 | Sales pipelines, quarterly deals |
-| `thesis` | 🎓 | Academic papers, dissertations |
-| `roadmap` | 🚀 | Product roadmaps, feature planning |
-| `book` | 📚 | Books, novels, screenplay structure |
-| `event` | 🎉 | Event planning, conferences |
-| `fitness` | 💪 | Training programs, workout plans |
-| `strategy` | 📊 | Business strategy, OKRs |
-| `course` | 📖 | Curricula, lesson plans |
-| `film` | 🎬 | AI video production (Sora, Veo) |
-| `veo3` | 🎥 | Google Veo 3 workflows |
-| `sora2` | 🎬 | OpenAI Sora 2 workflows |
-| `philosophy` | 🤔 | Philosophical arguments, dialogues |
-| `prompting` | 🧠 | Prompt engineering libraries |
-| `familytree` | 👨‍👩‍👧‍👦 | Genealogy, family history |
-| `dialogue` | 💬 | Debate analysis, rhetoric |
-| `filesystem` | 💾 | File/folder organization |
-| `gmail` | 📧 | Email workflows |
-| `knowledge-base` | 📚 | Document corpora, RAG prep |
-| `capex` | 💰 | Capital expenditure, investor pitches |
-| `freespeech` | 🎙️ | Voice capture pattern analysis |
-| `lifetree` | 🌳 | Biographical timelines |
-| `custom` | ✏️ | Define your own level names |
+| `generic` |  | General projects, default structure |
+| `sales` |  | Sales pipelines, quarterly deals |
+| `thesis` |  | Academic papers, dissertations |
+| `roadmap` |  | Product roadmaps, feature planning |
+| `book` |  | Books, novels, screenplay structure |
+| `event` |  | Event planning, conferences |
+| `fitness` |  | Training programs, workout plans |
+| `strategy` |  | Business strategy, OKRs |
+| `course` |  | Curricula, lesson plans |
+| `film` |  | AI video production (Sora, Veo) |
+| `veo3` |  | Google Veo 3 workflows |
+| `sora2` |  | OpenAI Sora 2 workflows |
+| `philosophy` |  | Philosophical arguments, dialogues |
+| `prompting` |  | Prompt engineering libraries |
+| `familytree` |  | Genealogy, family history |
+| `dialogue` |  | Debate analysis, rhetoric |
+| `filesystem` |  | File/folder organization |
+| `gmail` |  | Email workflows |
+| `knowledge-base` |  | Document corpora, RAG prep |
+| `capex` |  | Capital expenditure, investor pitches |
+| `freespeech` |  | Voice capture pattern analysis |
+| `lifetree` |  | Biographical timelines |
+| `custom` |  | Define your own level names |
 
 ## Commands
 
@@ -170,7 +170,7 @@ Trees follow this structure:
   "name": "Project Name",
   "type": "root",
   "pattern": "roadmap",
-  "icon": "🚀",
+  "icon": "",
   "description": "Optional description",
   "expanded": true,
   "children": [

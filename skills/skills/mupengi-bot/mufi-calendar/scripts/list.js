@@ -57,7 +57,7 @@ async function listEvents() {
 
   // 텍스트 출력
   if (events.length === 0) {
-    console.log('📅 일정 없음');
+    console.log(' 일정 없음');
     return;
   }
 
@@ -71,7 +71,7 @@ async function listEvents() {
 
   Object.keys(grouped).sort().forEach(dateKey => {
     const dayOfWeek = ['일', '월', '화', '수', '목', '금', '토'][new Date(dateKey).getDay()];
-    console.log(`\n📅 ${dateKey} (${dayOfWeek})`);
+    console.log(`\n ${dateKey} (${dayOfWeek})`);
     
     grouped[dateKey].forEach(event => {
       const start = event.start.dateTime || event.start.date;
@@ -86,7 +86,7 @@ async function listEvents() {
       }
       
       if (event.location) {
-        console.log(`    📍 ${event.location}`);
+        console.log(`     ${event.location}`);
       }
     });
   });

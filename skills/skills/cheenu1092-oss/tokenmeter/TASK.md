@@ -45,13 +45,13 @@ def fetch(
 **Example output:**
 ```
 $ tokenmeter fetch
-🔍 Scanning environment...
-  ✅ ANTHROPIC_API_KEY found
-  ✅ OPENAI_API_KEY found  
-  ❌ GOOGLE_API_KEY not set
+ Scanning environment...
+   ANTHROPIC_API_KEY found
+   OPENAI_API_KEY found  
+   GOOGLE_API_KEY not set
 
 Fetching from OpenAI...
-  ✅ 47 usage records imported ($12.34)
+   47 usage records imported ($12.34)
 
 Note: Anthropic doesn't expose a usage API. Use 'tokenmeter import --auto' for local session data.
 

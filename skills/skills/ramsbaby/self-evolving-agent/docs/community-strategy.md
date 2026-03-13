@@ -1,4 +1,4 @@
-# 🏰 The Community Moat — Why This Is Defensible
+#  The Community Moat — Why This Is Defensible
 
 > **Self-evolving-agent's ultimate competitive advantage isn't the code.  
 > It's the community flywheel.**
@@ -144,16 +144,16 @@ The best proposals are ones the contributor *needed* and *wrote for themselves*.
 
 ## Anti-Patterns to Avoid
 
-### ❌ Theoretical Proposals
+###  Theoretical Proposals
 Proposals not backed by real incidents dilute trust. Every proposal needs a real story.
 
-### ❌ Vendor Lock-In Proposals
+###  Vendor Lock-In Proposals
 Proposals that only work with a specific platform (e.g., "only works with OpenAI") fragment the community. Prefer platform-agnostic rules.
 
-### ❌ Over-Curation
+###  Over-Curation
 If the submission bar is too high, contributors give up. Better to accept good-enough proposals and improve them iteratively.
 
-### ❌ Gamification Traps
+###  Gamification Traps
 Upvotes should signal quality, not engagement. Don't let popular-but-wrong proposals win over niche-but-correct ones.
 
 ---

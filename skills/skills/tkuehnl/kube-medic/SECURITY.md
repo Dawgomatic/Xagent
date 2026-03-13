@@ -135,6 +135,6 @@ If you discover a security issue, please email security@cacheforge.dev with deta
 
 | Version | Supported |
 |---------|-----------|
-| 1.0.x   | ✅ |
+| 1.0.x   |  |
 
-*Powered by CacheForge 🏥*
+*Powered by CacheForge *

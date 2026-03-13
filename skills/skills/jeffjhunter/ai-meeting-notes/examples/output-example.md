@@ -66,7 +66,7 @@ Product sync covering website redesign timeline (pushed 2 weeks), Q1 marketing b
 ---
 
 <details>
-<summary>📝 Raw Notes (click to expand)</summary>
+<summary> Raw Notes (click to expand)</summary>
 
 product sync 1/27 monday
 
@@ -109,7 +109,7 @@ john out next week - vacation
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 PRODUCT SYNC — Jan 27, 2025
+ PRODUCT SYNC — Jan 27, 2025
 Duration: ~45 min | Attendees: Sarah, Mike, John, Lisa
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -117,7 +117,7 @@ SUMMARY
 Product sync covering website redesign (delayed 2 weeks), Q1 budget 
 approval ($50k), Acme Corp customer issue, and senior dev hiring.
 
-⚡ CRITICAL ACTION ITEMS (5 of 9)
+ CRITICAL ACTION ITEMS (5 of 9)
 1. [ ] @Lisa: Coordinate with agency — Today
 2. [ ] @Mike: Call Acme Corp — Tomorrow
 3. [ ] @Sarah: Share mockups — Friday
@@ -126,11 +126,11 @@ approval ($50k), Acme Corp customer issue, and senior dev hiring.
 
 (+4 more in attached file)
 
-✅ KEY DECISIONS
+ KEY DECISIONS
 • Website launch delayed 2 weeks
 • Budget approved at $50k
 
-📎 Full notes attached: 2025-01-27_product-sync.md
+ Full notes attached: 2025-01-27_product-sync.md
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Add to your to-do list?
@@ -150,29 +150,29 @@ Add to your to-do list?
 ## Slack-Ready Output
 
 ```
-📋 Product Sync Recap (1/27)
+ Product Sync Recap (1/27)
 
 Quick summary: Pushed website launch 2 weeks, got $50k marketing budget approved, dealing with unhappy enterprise customer, still hiring senior dev.
 
-✅ Action Items:
+ Action Items:
 • @Sarah — Mockups Friday, update timeline, post job EOW
 • @John — Lead social campaigns, intro dev candidate
 • @Lisa — Coordinate with agency today
 • @Mike — Call Acme Corp tomorrow, check on discount option
 • @Team — Feedback on mockups by Monday
 
-📌 Decisions:
+ Decisions:
 • Launch delayed 2 weeks (quality > speed)
 • Budget approved: $50k for Q1
 
-❓ Open:
+ Open:
 • Acme Corp resolution pending
 • Server costs need review
 
-📅 Next sync: Thursday 2pm
+ Next sync: Thursday 2pm
 Note: John OOO next week
 
-💾 Full notes: meeting-notes/2025-01-27_product-sync.md
+ Full notes: meeting-notes/2025-01-27_product-sync.md
 ```
 
 ---
@@ -231,7 +231,7 @@ All searchable. All referenced. Nothing lost.
 ### After Meeting Notes Saved
 
 ```
-✅ Saved: meeting-notes/2025-01-27_product-sync.md
+ Saved: meeting-notes/2025-01-27_product-sync.md
 
 ACTION ITEMS EXTRACTED (9 items):
 
@@ -256,7 +256,7 @@ Add to your to-do list?
 ### User: "1,2,5,6"
 
 ```
-✅ Added 4 items to todo.md (#1-#4)
+ Added 4 items to todo.md (#1-#4)
 
 #1 @Sarah: Share mockups — Friday
 #2 @Team: Feedback on mockups — Monday
@@ -269,16 +269,16 @@ View full list: "show todos"
 ### User: "show todos"
 
 ```
-📋 TO-DO LIST — Jan 27, 2025
+ TO-DO LIST — Jan 27, 2025
 
-⚠️ OVERDUE (0 items)
-All caught up! 🎉
+ OVERDUE (0 items)
+All caught up! 
 
-📅 DUE TODAY (1 item)
+ DUE TODAY (1 item)
 #3 @Lisa: Coordinate with agency
    Source: product-sync.md
 
-📆 THIS WEEK (3 items)
+ THIS WEEK (3 items)
 #1 @Sarah: Share mockups — Fri
    Source: product-sync.md
 #2 @Team: Feedback on mockups — Mon
@@ -286,17 +286,17 @@ All caught up! 🎉
 #4 @Mike: Call Acme Corp — Tomorrow
    Source: product-sync.md
 
-📋 NO DEADLINE (0 items)
-All items have deadlines! 👍
+ NO DEADLINE (0 items)
+All items have deadlines! 
 
-✅ COMPLETED (0 items)
+ COMPLETED (0 items)
 Nothing completed yet.
 ```
 
 ### User: "done 3"
 
 ```
-✅ Marked #3 complete
+ Marked #3 complete
 
 #3 @Lisa: Coordinate with agency — Done Jan 27
 
@@ -306,15 +306,15 @@ Nothing completed yet.
 ### User: "todo check" (Next Day)
 
 ```
-📋 TO-DO CHECK — Jan 28, 2025
+ TO-DO CHECK — Jan 28, 2025
 
-⚠️ OVERDUE (0 items)
-All caught up! 🎉
+ OVERDUE (0 items)
+All caught up! 
 
-📅 DUE TODAY (1 item)
+ DUE TODAY (1 item)
 #4 @Mike: Call Acme Corp
 
-📆 COMING UP (2 items)
+ COMING UP (2 items)
 #1 @Sarah: Share mockups — Fri (2 days)
 #2 @Team: Feedback on mockups — Mon (4 days)
 
@@ -329,7 +329,7 @@ Any updates?
 ### User: "what's overdue?" (After Missing Deadline)
 
 ```
-⚠️ OVERDUE ITEMS — Jan 30, 2025
+ OVERDUE ITEMS — Jan 30, 2025
 
 #1 @Sarah: Share mockups — was due Fri (2 days ago)
    Source: product-sync.md
@@ -343,7 +343,7 @@ Any updates?
 ### User: "Sarah's tasks"
 
 ```
-📋 @SARAH'S TO-DOS
+ @SARAH'S TO-DOS
 
 OVERDUE
 #1 Share mockups — was due Fri

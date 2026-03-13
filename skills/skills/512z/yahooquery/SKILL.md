@@ -48,21 +48,21 @@ trades = r.trades(trend='Bullish', term='Short term')
 
 The `Ticker` class exposes dozens of data endpoints via properties and methods.
 
-### 📊 **Financial Statements**
+###  **Financial Statements**
 - `.income_statement(frequency='a', trailing=True)` - Income statement (annual/quarterly)
 - `.balance_sheet(frequency='a', trailing=True)` - Balance sheet
 - `.cash_flow(frequency='a', trailing=True)` - Cash flow statement
 - `.all_financial_data(frequency='a')` - Combined financials + valuation measures
 - `.valuation_measures` - EV/EBITDA, P/E, P/B, P/S across periods
 
-### 📈 **Pricing & Market Data**
+###  **Pricing & Market Data**
 - `.price` - Current pricing, market cap, 52-week range
 - `.history(period='1y', interval='1d', start=None, end=None)` - Historical OHLC
   - **period**: `1d`, `5d`, `1mo`, `3mo`, `6mo`, `1y`, `2y`, `5y`, `10y`, `ytd`, `max`
   - **interval**: `1m`, `2m`, `5m`, `15m`, `30m`, `60m`, `90m`, `1h`, `1d`, `5d`, `1wk`, `1mo`, `3mo`
 - `.option_chain` - Full options chain (all expirations)
 
-### 🔍 **Analysis & Estimates**
+###  **Analysis & Estimates**
 - `.calendar_events` - Next earnings date, EPS/revenue estimates
 - `.earning_history` - Actual vs. estimated EPS (last 4 quarters)
 - `.earnings` - Historical quarterly/annual earnings and revenue
@@ -70,35 +70,35 @@ The `Ticker` class exposes dozens of data endpoints via properties and methods.
 - `.recommendation_trend` - Buy/Sell/Hold rating changes over time
 - `.gradings` - Recent analyst upgrades/downgrades
 
-### 🏢 **Company Fundamentals**
+###  **Company Fundamentals**
 - `.asset_profile` - Address, industry, sector, business summary, officers
 - `.company_officers` - Executives with compensation details
 - `.summary_profile` - Condensed company information
 - `.key_stats` - Forward P/E, profit margin, beta, shares outstanding
 - `.financial_data` - Financial KPIs (ROE, ROA, debt-to-equity, margins)
 
-### 👥 **Ownership & Governance**
+###  **Ownership & Governance**
 - `.insider_holders` - List of insider holders and positions
 - `.insider_transactions` - Recent buy/sell transactions by insiders
 - `.institution_ownership` - Top institutional holders
 - `.fund_ownership` - Top mutual fund holders
 - `.major_holders` - Ownership summary (institutional %, insider %, float)
 
-### 🌍 **ESG & Ratings**
+###  **ESG & Ratings**
 - `.esg_scores` - Environmental, Social, Governance scores and controversies
 - `.recommendation_rating` - Analyst consensus (Strong Buy → Strong Sell)
 
-### 📰 **News & Insights**
+###  **News & Insights**
 - `.news()` - Recent news articles
 - `.technical_insights` - Bullish/bearish technical patterns
 
-### 💰 **Funds & ETFs Only**
+###  **Funds & ETFs Only**
 - `.fund_holding_info` - Top holdings, bond/equity breakdown
 - `.fund_performance` - Historical performance and returns
 - `.fund_bond_holdings` / `.fund_bond_ratings` - Bond maturity and credit ratings
 - `.fund_equity_holdings` - P/E, P/B, P/S for equity holdings
 
-### 📊 **Other Modules**
+###  **Other Modules**
 - `.summary_detail` - Trading stats (day high/low, volume, avg volume)
 - `.default_key_statistics` - Enterprise value, trailing P/E, forward P/E
 - `.index_trend` - Performance relative to a benchmark index

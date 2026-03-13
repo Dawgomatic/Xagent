@@ -74,22 +74,22 @@ Save:
 User: /diet history today
 
 Output:
-📋 Today's Diet Records
+ Today's Diet Records
 
 December 31, 2025
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🌅 Breakfast (08:30)
+ Breakfast (08:30)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 Foods: Milk, Whole wheat bread, Eggs
 Calories: 420 kcal | Protein: 18g | Fat: 15g
 
-🌞 Lunch (12:30)
+ Lunch (12:30)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 Foods: Rice, Stir-fried vegetables, Braised pork
 Calories: 785 kcal | Protein: 22g | Fat: 35g
 
-🌙 Dinner (18:45)
+ Dinner (18:45)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 Foods: Multigrain rice, Steamed fish, Garlic broccoli
 Calories: 520 kcal | Protein: 28g | Fat: 12g
@@ -122,7 +122,7 @@ Average calories: 1850 kcal/day
 User: /diet status
 
 Output:
-📊 Nutrition Intake Statistics
+ Nutrition Intake Statistics
 
 Statistics Period: Today
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -132,14 +132,14 @@ Calorie Analysis:
 Today's Intake: 1725 kcal
 Basal Metabolism: 1450 kcal
 Recommended Intake: 2000 kcal
-Completion: 86.3% ✅
+Completion: 86.3% 
 
 Macronutrients:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
-Protein: 68g / 60g  (113.3%) ✅
-Fat: 62g / 65g  (95.4%) ✅
-Carbohydrates: 195g / 250g (78%) ⚠️
-Dietary Fiber: 18g / 25g (72%) ⚠️
+Protein: 68g / 60g  (113.3%) 
+Fat: 62g / 65g  (95.4%) 
+Carbohydrates: 195g / 250g (78%) 
+Dietary Fiber: 18g / 25g (72%) 
 ```
 
 ### Example 7: View Weekly Statistics
@@ -162,15 +162,15 @@ Fruit and vegetable intake: Low
 User: /diet summary today
 
 Output:
-📈 Today's Nutrition Summary Report
+ Today's Nutrition Summary Report
 
 Nutrition Achievement:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Calories: 86%
-✅ Protein: 113%
-✅ Fat: 95%
-⚠️ Carbohydrates: 78%
-⚠️ Dietary Fiber: 72%
+ Calories: 86%
+ Protein: 113%
+ Fat: 95%
+ Carbohydrates: 78%
+ Dietary Fiber: 72%
 
 Nutrition Gaps:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━

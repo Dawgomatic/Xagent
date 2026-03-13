@@ -62,7 +62,7 @@ export default function Command() {
       markdown="Press `⌘ + .` and share some love."
       actions={
         <ActionPanel>
-          <Action.CopyToClipboard content="I ❤️ Raycast" shortcut={{ modifiers: ["cmd"], key: "." }} />
+          <Action.CopyToClipboard content="I  Raycast" shortcut={{ modifiers: ["cmd"], key: "." }} />
         </ActionPanel>
       }
     />

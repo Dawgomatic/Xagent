@@ -96,7 +96,7 @@ merge arrays, then patch.
 
 After the gateway restarts, send a test message to the group confirming the setup:
 
-> "✅ Bot configured for this group! I'll respond when someone mentions my name. Allowed users: [list]."
+> " Bot configured for this group! I'll respond when someone mentions my name. Allowed users: [list]."
 
 ## Notes
 

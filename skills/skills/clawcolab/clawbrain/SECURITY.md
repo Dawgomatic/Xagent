@@ -23,14 +23,14 @@ ClawBrain is a personal AI memory system that handles sensitive data including e
 
 **Core installation and operation never require root privileges:**
 
-✅ **Without sudo**:
+ **Without sudo**:
 - `pip install clawbrain[all]` - Package installation
 - `clawbrain setup` - Generates key, installs hooks to `~/.openclaw/hooks`
 - All operations in user's home directory
 - Default SQLite storage
 - Auto-generated encryption key at `~/.config/clawbrain/.brain_key`
 
-⚠️ **Sudo only needed for optional systemd configuration**:
+ **Sudo only needed for optional systemd configuration**:
 - Setting environment variables via systemd drop-ins (`/etc/systemd/system/`)
 - **Alternative**: Use shell environment variables instead (no sudo)
 - **Not required**: ClawBrain works with zero configuration
@@ -92,11 +92,11 @@ The CLI provides commands to manage your encryption key:
 
 ```bash
 clawbrain show-key          # Shows masked key (safe)
-clawbrain show-key --full   # Shows full key (⚠️  SENSITIVE!)
+clawbrain show-key --full   # Shows full key (  SENSITIVE!)
 clawbrain backup-key --all  # Backup key to file/QR/clipboard
 ```
 
-⚠️ **SECURITY WARNING**: The `show-key --full` command displays your complete encryption key. This is intentional for backup purposes, but:
+ **SECURITY WARNING**: The `show-key --full` command displays your complete encryption key. This is intentional for backup purposes, but:
 - Only run this command when you need to backup/migrate keys
 - Never share your key in screenshots, logs, or public channels
 - Treat your encryption key like a password
@@ -218,17 +218,17 @@ ClawBrain will still work via direct API calls in Python.
 
 ### What ClawBrain Protects Against
 
-✅ **Encrypted at Rest**: Secrets in database are Fernet-encrypted
-✅ **Local-Only by Default**: No network access unless configured
-✅ **No Code Execution**: Cannot execute arbitrary code from memory
-✅ **User Isolation**: Each agent has separate memory space
+ **Encrypted at Rest**: Secrets in database are Fernet-encrypted
+ **Local-Only by Default**: No network access unless configured
+ **No Code Execution**: Cannot execute arbitrary code from memory
+ **User Isolation**: Each agent has separate memory space
 
 ### What ClawBrain Does NOT Protect Against
 
-❌ **Root Access**: If attacker has root, they can read the key file
-❌ **Memory Dumps**: Decrypted secrets exist in RAM during use
-❌ **Database Access**: If attacker can read DB and key file, they can decrypt
-❌ **Compromised Python Environment**: Malicious code can access Brain API
+ **Root Access**: If attacker has root, they can read the key file
+ **Memory Dumps**: Decrypted secrets exist in RAM during use
+ **Database Access**: If attacker can read DB and key file, they can decrypt
+ **Compromised Python Environment**: Malicious code can access Brain API
 
 ### Recommendations for High-Security Deployments
 
@@ -285,23 +285,23 @@ Before using ClawBrain in production:
 
 ### "No required environment variables"
 
-✅ **Correct**: All env vars are optional. ClawBrain works with zero configuration (SQLite + auto-generated key).
+ **Correct**: All env vars are optional. ClawBrain works with zero configuration (SQLite + auto-generated key).
 
 ### "CLI can display full encryption key"
 
-✅ **Correct and Intentional**: `clawbrain show-key --full` is for backup/recovery. Users should understand this is sensitive and treat it like a password.
+ **Correct and Intentional**: `clawbrain show-key --full` is for backup/recovery. Users should understand this is sensitive and treat it like a password.
 
 ### "Installs startup hooks"
 
-✅ **Correct**: Required for automatic memory refresh. Hook code is auditable and can be disabled.
+ **Correct**: Required for automatic memory refresh. Hook code is auditable and can be disabled.
 
 ### "Registry metadata mismatch"
 
-✅ **Fixed**: skill.json now declares all optional env vars and includes explicit security metadata.
+ **Fixed**: skill.json now declares all optional env vars and includes explicit security metadata.
 
 ### "Remote install script"
 
-⚠️ **Warning Valid**: `remote-install.sh` downloads code from GitHub. We recommend pip or git clone for production. Remote install includes security warnings and confirmation prompts.
+ **Warning Valid**: `remote-install.sh` downloads code from GitHub. We recommend pip or git clone for production. Remote install includes security warnings and confirmation prompts.
 
 ## Conclusion
 

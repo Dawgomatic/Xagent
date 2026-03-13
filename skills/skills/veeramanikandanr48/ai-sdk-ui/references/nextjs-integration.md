@@ -218,8 +218,8 @@ Check response headers:
 
 **Fix**:
 ```tsx
-import { useChat } from 'ai/react';  // ✅ Correct
-import { useChat } from 'ai';  // ❌ Wrong
+import { useChat } from 'ai/react';  //  Correct
+import { useChat } from 'ai';  //  Wrong
 ```
 
 ### Issue: "Cannot use 'use client' directive"

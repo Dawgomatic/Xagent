@@ -24,7 +24,7 @@ in_epic && /^### / {
   # Extract epic title (everything after "### ")
   name = substr($0, 5)
   # Default status (backlog)
-  status = "📋"
+  status = ""
   print version "|" status "|" name
   in_epic = 0
   next

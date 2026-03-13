@@ -59,10 +59,10 @@ DESCRIPTION=$(echo "$RESPONSE" | jq -r '.description')
 COMPLETE=$(echo "$RESPONSE" | jq -r '.complete')
 
 if [ "$DESCRIPTION" != "null" ]; then
-  STATUS=$([ "$COMPLETE" = "true" ] && echo "✅" || echo "☐")
+  STATUS=$([ "$COMPLETE" = "true" ] && echo "" || echo "☐")
   echo "$STATUS Updated task #$TASK_ID: $DESCRIPTION"
 else
-  echo "❌ Failed to update task"
+  echo " Failed to update task"
   echo "$RESPONSE" | jq .
   exit 1
 fi

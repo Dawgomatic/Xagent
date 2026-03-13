@@ -88,9 +88,9 @@ project-root/
 ├── src/
 │   ├── components/
 │   │   ├── Button.tsx      ← Modified for v2.0
-│   │   └── Modal.tsx       ✨ New in v2.0
+│   │   └── Modal.tsx        New in v2.0
 │   └── services/
-│       └── legacy.ts       ⚠️ Deprecated, use auth.ts instead
+│       └── legacy.ts        Deprecated, use auth.ts instead
 └── README.md               ← Updated installation steps
 ```
 

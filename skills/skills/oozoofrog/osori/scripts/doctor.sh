@@ -444,13 +444,13 @@ if out_json:
     raise SystemExit(0)
 
 # Human-readable output
-print("🩺 Osori Doctor")
+print(" Osori Doctor")
 print(f"Registry: {reg_path}")
 print(f"Counts: ERROR={counts.get('error', 0)} WARN={counts.get('warn', 0)} INFO={counts.get('info', 0)}")
 print()
 
 if not findings and not plan:
-    print("✅ No issues found.")
+    print(" No issues found.")
     raise SystemExit(0)
 
 # Findings
@@ -467,10 +467,10 @@ if findings:
 # Plan preview
 if plan:
     print()
-    print("📋 Fix Plan:")
-    risk_icons = {"low": "🟢", "medium": "🟡", "high": "🔴"}
+    print(" Fix Plan:")
+    risk_icons = {"low": "", "medium": "", "high": ""}
     for i, p in enumerate(plan, 1):
-        icon = risk_icons.get(p["risk"], "⚪")
+        icon = risk_icons.get(p["risk"], "")
         print(f"  {i}. {icon} [{p['risk'].upper()}] {p['description']}")
         if p.get("detail"):
             print(f"     → {p['detail']}")
@@ -479,23 +479,23 @@ if plan:
     lo = risk_summary.get("low", 0)
     med = risk_summary.get("medium", 0)
     hi = risk_summary.get("high", 0)
-    print(f"Risk summary: 🟢 low={lo}  🟡 medium={med}  🔴 high={hi}")
+    print(f"Risk summary:  low={lo}   medium={med}   high={hi}")
 
 if plan and not do_fix and not dry_run:
     print()
-    print("ℹ️  Preview only — no changes applied.")
+    print("  Preview only — no changes applied.")
     print("   Run with --fix to apply, or --dry-run to confirm preview.")
 
 if dry_run:
     print()
-    print("ℹ️  Dry-run mode — no changes applied.")
+    print("  Dry-run mode — no changes applied.")
 
 if do_fix:
     print()
     if actions_blocked:
-        print(f"⚠️  {len(actions_blocked)} high-risk action(s) blocked (use --yes to auto-approve):")
+        print(f"  {len(actions_blocked)} high-risk action(s) blocked (use --yes to auto-approve):")
         for b in actions_blocked:
-            print(f"   🔴 {b['description']}")
+            print(f"    {b['description']}")
     if fix_applied:
-        print("🔧 Fix applied.")
+        print(" Fix applied.")
 PYEOF

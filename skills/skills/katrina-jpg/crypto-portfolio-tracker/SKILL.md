@@ -17,17 +17,17 @@ tags:
 
 ## 支援網絡
 
-- 🌐 TRON (TRC20)
-- 🔷 Ethereum (ERC20)
-- 🔶 BSC (BEP20)
+-  TRON (TRC20)
+-  Ethereum (ERC20)
+-  BSC (BEP20)
 
 ## 功能
 
-- 💰 餘額查詢
-- 📊 持倉分析
-- 📈 收益計算
-- ⛽ Gas費用追蹤
-- 🔔 價格alert (optional)
+-  餘額查詢
+-  持倉分析
+-  收益計算
+-  Gas費用追蹤
+-  價格alert (optional)
 
 ## 使用
 

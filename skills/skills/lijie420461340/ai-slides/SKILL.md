@@ -237,10 +237,10 @@ CMD ["npm", "start"]
 
 # Summary
 
-✅ Docker simplifies deployment
-✅ Containers are lightweight & fast
-✅ Easy to get started
-✅ Industry standard
+ Docker simplifies deployment
+ Containers are lightweight & fast
+ Easy to get started
+ Industry standard
 
 ---
 

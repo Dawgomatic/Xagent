@@ -13,7 +13,7 @@ Architecture
    prompt from the soul template + memory context, and returns
    ``conversation_initiation_client_data`` so ElevenLabs can personalize the
    conversation on the fly.
-4. No audio proxying is needed — ElevenLabs ↔ Twilio handle media directly.
+4. No audio proxying is needed — ElevenLabs  Twilio handle media directly.
 """
 
 from __future__ import annotations

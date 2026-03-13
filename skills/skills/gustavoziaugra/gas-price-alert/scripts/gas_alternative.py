@@ -166,39 +166,39 @@ def generate_summary(stations, fuel_type='87'):
     stations_with_prices = [s for s in stations if s.get('price', 0) > 0]
     by_price = sorted(stations_with_prices, key=lambda x: x.get('price', float('inf')))
 
-    summary = f"⛽ Gas Prices ({fuel_type} Octane) - Columbus, OH"
+    summary = f" Gas Prices ({fuel_type} Octane) - Columbus, OH"
 
     # Show cheapest available prices (Costco + others with prices)
     if by_price:
-        summary += f"\n\n💰 **Best Prices Available** ({len(by_price)} with prices)\n"
+        summary += f"\n\n **Best Prices Available** ({len(by_price)} with prices)\n"
         for station in by_price[:5]:
             summary += f"• {station['name']} ({station.get('brand', 'N/A')})\n"
-            summary += f"  💰 {station.get('price_text', 'Check site')}\n"
-            summary += f"  📍 {station['address']} ({station.get('distance', 0):.1f} miles)\n"
+            summary += f"   {station.get('price_text', 'Check site')}\n"
+            summary += f"   {station['address']} ({station.get('distance', 0):.1f} miles)\n"
             if station.get('is_costco'):
-                summary += f"  ⭐ Costco!\n"
+                summary += f"   Costco!\n"
             summary += "\n"
     elif costco_stations:
         # No prices except Costco estimates
-        summary += f"\n\n💰 **Estimated Prices**\n"
+        summary += f"\n\n **Estimated Prices**\n"
         for station in costco_stations[:3]:
             summary += f"• {station['name']}\n"
-            summary += f"  💰 {station.get('price_text', 'Check site')}\n"
-            summary += f"  📍 {station['address']} ({station.get('distance', 0):.1f} miles)\n\n"
+            summary += f"   {station.get('price_text', 'Check site')}\n"
+            summary += f"   {station['address']} ({station.get('distance', 0):.1f} miles)\n\n"
 
     # Show nearest stations
-    summary += f"\n📍 **Nearest Stations** (Top 10 by distance)\n"
+    summary += f"\n **Nearest Stations** (Top 10 by distance)\n"
     for i, station in enumerate(by_distance[:10], 1):
         summary += f"{i}. {station['name']} ({station.get('brand', 'N/A')})\n"
-        summary += f"   📍 {station['address'] or 'Address unknown'} ({station.get('distance', 0):.1f} miles)\n"
-        summary += f"   💰 {station.get('price_text', 'Check for price')}\n"
+        summary += f"    {station['address'] or 'Address unknown'} ({station.get('distance', 0):.1f} miles)\n"
+        summary += f"    {station.get('price_text', 'Check for price')}\n"
         if station.get('is_costco'):
-            summary += f"   ⭐ Costco!\n"
+            summary += f"    Costco!\n"
         summary += "\n"
 
     summary += f"... and {len(by_distance) - 10} more stations within 20 miles\n"
 
-    summary += "\n💡 **Tips:**\n"
+    summary += "\n **Tips:**\n"
     summary += "• Costco typically has gas $0.15-0.25 below market average\n"
     summary += "• For exact prices, check GasBuddy.com or station's app\n"
     summary += f"• Total stations found: {len(by_distance)}"

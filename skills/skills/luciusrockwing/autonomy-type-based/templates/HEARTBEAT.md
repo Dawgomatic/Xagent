@@ -68,19 +68,19 @@ Read current state:
 **Filter by task types:**
 ```markdown
 ONLY work on these types:
-- ✅ @type:research
-- ✅ @type:writing
-- ✅ @type:analysis
+-  @type:research
+-  @type:writing
+-  @type:analysis
 
 SKIP these types (cron handles):
-- ❌ @type:maintenance
-- ❌ @type:backup
-- ❌ @type:security
+-  @type:maintenance
+-  @type:backup
+-  @type:security
 ```
 
 **Selection logic:**
 ```
-1. Read all tasks in "🔴 Ready" section
+1. Read all tasks in " Ready" section
 2. Filter for allowed types: research, writing, analysis
 3. Sort by priority: urgent → high → medium → low
 4. Pick the first task you can work on
@@ -91,9 +91,9 @@ SKIP these types (cron handles):
 
 ## Step 4: Do the Work
 
-**Move task to "🟡 In Progress":**
+**Move task to " In Progress":**
 ```markdown
-## 🟡 In Progress
+##  In Progress
 - [ ] @agent: @type:research @priority:high [Task description]
   - Started: 2026-02-16 HH:MM UTC
   - Progress: Working on it
@@ -107,26 +107,26 @@ SKIP these types (cron handles):
 
 ### 4a: Task Complete
 
-**Move to "✅ Done Today":**
+**Move to " Done Today":**
 ```markdown
-## ✅ Done Today
+##  Done Today
 - [x] @agent: @type:research @priority:high [Task description]
   - Completed: 2026-02-16 HH:MM UTC
   - Tokens used: ~XK
   - Output: [path to output file]
 ```
 
-**If work spawns follow-up tasks, add to "💡 Ideas":**
+**If work spawns follow-up tasks, add to " Ideas":**
 ```markdown
-## 💡 Ideas
+##  Ideas
 - [Idea: @type:analysis @priority:medium Analyze research findings for X]
 ```
 
 ### 4b: Task Blocked
 
-**Keep in "🟡 In Progress" with blocker notes:**
+**Keep in " In Progress" with blocker notes:**
 ```markdown
-## 🟡 In Progress
+##  In Progress
 - [ ] @agent: @type:writing @priority:high [Task]
   - Started: 2026-02-16 HH:MM UTC
   - BLOCKED: [What's blocking]
@@ -135,9 +135,9 @@ SKIP these types (cron handles):
 
 ### 4c: Time/Token Limited
 
-**Keep in "🟡 In Progress" with progress notes:**
+**Keep in " In Progress" with progress notes:**
 ```markdown
-## 🟡 In Progress
+##  In Progress
 - [ ] @agent: @type:research @priority:high [Task]
   - Started: 2026-02-16 14:00 UTC
   - Progress: [What completed]

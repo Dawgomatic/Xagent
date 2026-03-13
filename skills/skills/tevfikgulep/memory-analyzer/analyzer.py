@@ -17,22 +17,22 @@ def update_memory():
 
 ## Öğrenilen Dersler
 
-### 📝 Kullanıcı Tercihleri
+###  Kullanıcı Tercihleri
 - Basit format tercih ediliyor
 - Emoji kullanımı beğeniliyor
 - Karmaşık yapılar yerine temiz organizasyon
 
-### 🛠️ Teknik Tercihler
+###  Teknik Tercihler
 - Model sıralaması önemli (MiniMax → Ollama → Qwen → Google)
 - Cron job'lar için ayrı klasör yapısı
 - API key'ler için ayrı güvenli dosya (.api_keys.json)
 
-### 💡 Geri Bildirimler
+###  Geri Bildirimler
 - "Konforuna düşkün ama pahalı olmayan" → Pratik çözümler
 - İngilizce instructions AI'lar için daha iyi çalışıyor
 - Fiyat/performans dengesi önemli
 
-### 🎯 Yapılacaklar
+###  Yapılacaklar
 - Model fallback sıralamasını koru
 - Cron job organizasyonunu sürdür
 - Memory dosyalarını düzenli güncelle

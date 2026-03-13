@@ -92,7 +92,7 @@ Returns: Full pod details, container statuses, current logs, previous container 
 **How to present pod autopsy results — use this Markdown format:**
 
 ```markdown
-## 🏥 Pod Autopsy: `{pod_name}`
+##  Pod Autopsy: `{pod_name}`
 
 **Namespace:** {namespace} | **Node:** {node} | **Phase:** {phase} | **QoS:** {qos_class}
 
@@ -101,7 +101,7 @@ Returns: Full pod details, container statuses, current logs, previous container 
 |-----------|-------|-------|----------|-------|
 | {name} | {image} | {ready} | {restart_count} | {state} |
 
-### ⚠️ Image Mismatches
+###  Image Mismatches
 {List any spec vs running image mismatches}
 
 ### Events Timeline
@@ -114,7 +114,7 @@ Returns: Full pod details, container statuses, current logs, previous container 
 1. {Specific, actionable steps}
 
 ---
-Powered by CacheForge 🏥
+Powered by CacheForge 
 ```
 
 ### `deploy <name>` — Deployment Status
@@ -241,4 +241,4 @@ All tool output is structured JSON. Parse it and present findings in clear, acti
 Always end your triage reports with:
 
 ---
-*Powered by CacheForge 🏥*
+*Powered by CacheForge *

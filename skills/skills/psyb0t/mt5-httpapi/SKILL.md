@@ -4,7 +4,7 @@ description: MetaTrader 5 trading via REST API — get market data, place/modify
 homepage: https://github.com/psyb0t/docker-metatrader5-httpapi
 user-invocable: true
 metadata:
-  { "openclaw": { "emoji": "📈", "primaryEnv": "MT5_API_URL", "requires": { "bins": ["curl"] } } }
+  { "openclaw": { "emoji": "", "primaryEnv": "MT5_API_URL", "requires": { "bins": ["curl"] } } }
 ---
 
 # mt5-httpapi

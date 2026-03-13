@@ -101,13 +101,13 @@ export function applyFeishuDefaults() {
 }
 
 export function logSuiteStart(name) {
-  console.log(`\n📦 ${name}`);
+  console.log(`\n ${name}`);
   console.log('----------------------------------------');
 }
 
 export function logSuiteEnd(name, stats) {
   console.log('');
-  console.log(`✅ ${name} 完成`);
+  console.log(` ${name} 完成`);
   console.log(`  - 总数: ${stats.total}`);
   console.log(`  - 通过: ${stats.passed}`);
   console.log(`  - 失败: ${stats.failed}`);

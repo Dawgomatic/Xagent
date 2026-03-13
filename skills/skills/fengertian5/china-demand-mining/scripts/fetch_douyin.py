@@ -80,7 +80,7 @@ class DouyinFetcher:
                 "data": comments
             }, f, ensure_ascii=False, indent=2)
         
-        print(f"✅ 已保存 {len(comments)} 条抖音评论到 {output_path}")
+        print(f" 已保存 {len(comments)} 条抖音评论到 {output_path}")
 
 def main():
     parser = argparse.ArgumentParser(description='抓取抖音评论数据')

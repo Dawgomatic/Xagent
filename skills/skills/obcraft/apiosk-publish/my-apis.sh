@@ -74,19 +74,19 @@ if [[ "$API_COUNT" -eq 0 ]]; then
   exit 0
 fi
 
-echo "📊 Your APIs ($API_COUNT total)"
-echo "💰 Total Earnings: \$$TOTAL_EARNINGS USD"
+echo " Your APIs ($API_COUNT total)"
+echo " Total Earnings: \$$TOTAL_EARNINGS USD"
 echo ""
 
 # Display each API
 echo "$RESPONSE" | jq -r '.apis[] | 
   "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-  "🔹 \(.name) (\(.slug))\n" +
+  " \(.name) (\(.slug))\n" +
   "   Gateway: https://gateway.apiosk.com/\(.slug)\n" +
   "   Endpoint: \(.endpoint_url)\n" +
   "   Price: $\(.price_usd)/request\n" +
-  "   Status: " + (if .active then "✅ Active" else "⏸  Inactive" end) + 
-  " | " + (if .verified then "✓ Verified" else "⚠ Unverified" end) + "\n" +
+  "   Status: " + (if .active then " Active" else "  Inactive" end) + 
+  " | " + (if .verified then "✓ Verified" else " Unverified" end) + "\n" +
   "   Requests: \(.total_requests)\n" +
   "   Earned: $\(.total_earned_usd) USD\n" +
   "   Pending: $\(.pending_withdrawal_usd) USD\n"'

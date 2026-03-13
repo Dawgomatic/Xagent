@@ -55,8 +55,8 @@ Letters represent mutually exclusive solution approaches.
 ### Shape Titles
 
 Give shapes short descriptive titles:
-- ✅ "E: Modify CUR in place to follow S-CUR"
-- ❌ "E: The solution" (too vague)
+-  "E: Modify CUR in place to follow S-CUR"
+-  "E: The solution" (too vague)
 
 ### Notation Persistence
 
@@ -71,8 +71,8 @@ THE single table comparing all shapes against all requirements.
 ```markdown
 | Req | Requirement | Status | A | B | C |
 |-----|-------------|--------|---|---|---|
-| R0 | Make items searchable | Core goal | ✅ | ✅ | ✅ |
-| R1 | State survives refresh | Must-have | ✅ | ❌ | ✅ |
+| R0 | Make items searchable | Core goal |  |  |  |
+| R1 | State survives refresh | Must-have |  |  |  |
 
 **Notes:**
 - B fails R1: [brief explanation]
@@ -81,8 +81,8 @@ THE single table comparing all shapes against all requirements.
 ### Rules
 
 - **Always show full requirement text** — never abbreviate
-- **Binary only**: ✅ or ❌. No ⚠️, no other symbols
-- **Shape columns contain only ✅ or ❌** — explanations in Notes
+- **Binary only**:  or . No , no other symbols
+- **Shape columns contain only  or ** — explanations in Notes
 - If a shape passes all checks but feels wrong → missing requirement. Add new R.
 
 ## Shape Parts
@@ -95,12 +95,12 @@ Parts describe what we BUILD or CHANGE — mechanisms, not intentions.
 | Part | Mechanism | Flag |
 |------|-----------|:----:|
 | F1 | Create widget (component, def, register) | |
-| F2 | Magic authentication handler | ⚠️ |
+| F2 | Magic authentication handler |  |
 ```
 
 - Empty flag = mechanism understood
-- ⚠️ = flagged unknown — WHAT described but HOW unknown
-- Flagged unknowns FAIL fit checks (⚠️ → ❌)
+-  = flagged unknown — WHAT described but HOW unknown
+- Flagged unknowns FAIL fit checks ( → )
 
 ### Rules
 
@@ -193,7 +193,7 @@ One-page summary: Frame + Shape (fit check, parts, breadboard) + Slices (sliced 
 ```markdown
 |  |  |  |
 |:--|:--|:--|
-| **[V1: NAME](./v1-plan.md)**<br>⏳ PENDING<br><br>• Item 1<br>• Item 2<br><br>*Demo: description* | ... | ... |
+| **[V1: NAME](./v1-plan.md)**<br> PENDING<br><br>• Item 1<br>• Item 2<br><br>*Demo: description* | ... | ... |
 ```
 
 Slice colors: V1 green, V2 blue, V3 orange, V4 purple, V5 yellow, V6 pink.

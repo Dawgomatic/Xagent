@@ -1,4 +1,4 @@
-# 🧠 Self-Evolving Agent v4.0 — Sample Pipeline Output
+#  Self-Evolving Agent v4.0 — Sample Pipeline Output
 
 > **Real output captured from a live run.**  
 > `DRY_RUN=true VERBOSE=true bash scripts/v4/orchestrator.sh`
@@ -9,7 +9,7 @@
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║      🧠  Self-Evolving Agent v4.0  —  Live Pipeline         ║
+║        Self-Evolving Agent v4.0  —  Live Pipeline         ║
 ╚══════════════════════════════════════════════════════════════╝
 
 Run ID: sea-v4-20260218-005553
@@ -20,33 +20,33 @@ Config: DRY_RUN=true  |  SESSIONS=30  |  DAYS=7  |  Model: claude-sonnet-4-5
 │  세션 파일 스캔: ~/.openclaw/sessions/
 │  → 세션 30개 발견  |  크론 로그 스캔  |  이전 제안 로드
 │  ✓ 저장: /tmp/sea-v4/logs.json  (2.1 KB)
-└──────────────────────────────────────────── ✅ ok (1s) ─┘
+└────────────────────────────────────────────  ok (1s) ─┘
 
 ┌─ Stage 2/5 · semantic-analyze  ─────────────────────────────┐
 │  세션 파일 30개 분석 완료
 │  품질 점수: 7.7 / 10.0
 │
-│  🔴 발견 #1: Exec 루프  ── 'cd ~/trendhunter-digest' 12회 반복
+│   발견 #1: Exec 루프  ── 'cd ~/trendhunter-digest' 12회 반복
 │       └ context_window 분석: 실패 후 자동 중단 로직 없음
-│  🔴 발견 #2: 단편화 위반  ── 12건  (짧은 assistant 메시지 연속)
-│       └ AGENTS.md 규칙 '🚫 메시지 단편화 금지' 위반
-│  🟡 발견 #3: git 직접 사용  ── 9건  (git-sync.sh 우회)
-│  🟠 발견 #4: 고착 루프  ── 3개 세션에서 같은 주제 반복
-│  🟡 발견 #5: 컨텍스트 팽창  ── 2개 세션, 평균 8.5회 컴팩션
-└──────────────────────────────────────────── ✅ ok (1s) ─┘
+│   발견 #2: 단편화 위반  ── 12건  (짧은 assistant 메시지 연속)
+│       └ AGENTS.md 규칙 ' 메시지 단편화 금지' 위반
+│   발견 #3: git 직접 사용  ── 9건  (git-sync.sh 우회)
+│   발견 #4: 고착 루프  ── 3개 세션에서 같은 주제 반복
+│   발견 #5: 컨텍스트 팽창  ── 2개 세션, 평균 8.5회 컴팩션
+└────────────────────────────────────────────  ok (1s) ─┘
 
 ┌─ Stage 3/5 · benchmark  ────────────────────────────────────┐
 │  [1/3] GitHub 릴리스 확인...  API 응답 없음 (skip)
 │  [2/3] ClawHub trending skills 확인...  ✓ 수신 완료
 │  [3/3] AGENTS.md 구조 분석...
 │         줄 수: 661줄  |  H2 섹션: 19개  |  구조 점수: 64/100 (보통)
-└──────────────────────────────────────────── ✅ ok (0s) ─┘
+└────────────────────────────────────────────  ok (0s) ─┘
 
 ┌─ Stage 4/5 · measure-effects  ──────────────────────────────┐
 │  효과 측정 기준: 최근 7일
 │  적용된 이전 제안: 0개  (첫 실행 — Cold Start)
 │  → 다음 주기부터 자동 추적 시작
-└──────────────────────────────────────────── ✅ ok (0s) ─┘
+└────────────────────────────────────────────  ok (0s) ─┘
 
 ┌─ Stage 5/5 · synthesize-proposal  ──────────────────────────┐
 │  분석 데이터 종합 중...
@@ -54,10 +54,10 @@ Config: DRY_RUN=true  |  SESSIONS=30  |  DAYS=7  |  Model: claude-sonnet-4-5
 │  제안 #2 (HIGH): 메시지 단편화 방지 — 연속 ≤2 응답 규칙
 │  제안 #3 (MEDIUM): 세션 컴팩션 임계값 — 5회↑ 서브에이전트 위임
 │  ✓ 출력: /tmp/sea-v4/proposal.md  (109줄)
-└──────────────────────────────────────────── ✅ ok (0s) ─┘
+└────────────────────────────────────────────  ok (0s) ─┘
 
 ════════════════════════════════════════════════════════════════
-  ✅  Pipeline Complete  |  Elapsed: 4s  |  Errors: 0
+    Pipeline Complete  |  Elapsed: 4s  |  Errors: 0
 ════════════════════════════════════════════════════════════════
 
   Stages: collect:1s  analyze:1s  benchmark:0s  effects:0s  synth:0s
@@ -68,17 +68,17 @@ Config: DRY_RUN=true  |  SESSIONS=30  |  DAYS=7  |  Model: claude-sonnet-4-5
 ## Generated Proposal (Discord Output)
 
 ```markdown
-## 🧠 Self-Evolving Agent v4.0 — 주간 분석 리포트
+##  Self-Evolving Agent v4.0 — 주간 분석 리포트
 
-📅 분석 기간 : 2026-02-10 ~ 2026-02-17
-📊 분석 세션 : 30개
-⚡ 발견 패턴 : 5건  (exec루프·단편화·git직접·고착루프·팽창)
-📝 총 제안   : 3개  (HIGH×2 / MEDIUM×1)
-📈 이전 효과 : 첫 실행 (Cold Start — 다음 주부터 측정)
+ 분석 기간 : 2026-02-10 ~ 2026-02-17
+ 분석 세션 : 30개
+ 발견 패턴 : 5건  (exec루프·단편화·git직접·고착루프·팽창)
+ 총 제안   : 3개  (HIGH×2 / MEDIUM×1)
+ 이전 효과 : 첫 실행 (Cold Start — 다음 주부터 측정)
 
 ---
 
-### 제안 #1 (🔴 HIGH): exec 루프 자동 중단
+### 제안 #1 ( HIGH): exec 루프 자동 중단
 
 **근거:** 7일간 'cd ~/trendhunter-digest' 명령 12회 연속 재시도 탐지
 **역할 필터:** user 메시지 기준 분석 (assistant 발화 제외)
@@ -97,7 +97,7 @@ Config: DRY_RUN=true  |  SESSIONS=30  |  DAYS=7  |  Model: claude-sonnet-4-5
 
 ---
 
-### 제안 #2 (🔴 HIGH): 메시지 단편화 방지 강화
+### 제안 #2 ( HIGH): 메시지 단편화 방지 강화
 
 **근거:** 12건의 짧은 assistant 메시지 연속 전송 탐지 (3,000자 미만 분할)
 **현재 규칙:** AGENTS.md에 금지 규칙 존재하나 준수율 낮음
@@ -113,16 +113,16 @@ Config: DRY_RUN=true  |  SESSIONS=30  |  DAYS=7  |  Model: claude-sonnet-4-5
 
 ---
 
-### 제안 #3 (🟡 MEDIUM): 세션 컴팩션 임계값 경고
+### 제안 #3 ( MEDIUM): 세션 컴팩션 임계값 경고
 
 **근거:** 2개 세션에서 평균 8.5회 컴팩션 발생 (세션 과부하 신호)
 **권고:** 컴팩션 5회↑ = 서브에이전트로 분리 위임
 
 ---
 
-✅ 적용: "제안 #1 적용해줘"
-❌ 거부: "거부: [이유]"
-🔄 수정: "제안 #2 수정: [내용]"
+ 적용: "제안 #1 적용해줘"
+ 거부: "거부: [이유]"
+ 수정: "제안 #2 수정: [내용]"
 ```
 
 ---
@@ -145,11 +145,11 @@ Config: DRY_RUN=true  |  SESSIONS=30  |  DAYS=7  |  Model: claude-sonnet-4-5
 
 | Stage | Status | Time |
 |-------|--------|------|
-| `collect_logs` | ✅ ok | 1s |
-| `semantic_analyze` | ✅ ok | 1s |
-| `benchmark` | ✅ ok | 0s |
-| `measure_effects` | ✅ ok | 1s |
-| `synthesize` | ✅ ok | 0s |
+| `collect_logs` |  ok | 1s |
+| `semantic_analyze` |  ok | 1s |
+| `benchmark` |  ok | 0s |
+| `measure_effects` |  ok | 1s |
+| `synthesize` |  ok | 0s |
 
 ---
 

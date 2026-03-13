@@ -4,7 +4,7 @@ description: Get Portland transit information including arrivals, trip planning,
 homepage: https://trimet.org
 metadata:
   clawdbot:
-    emoji: "🚃"
+    emoji: ""
     requires:
       bins: ["trimet"]
       env: ["TRIMET_APP_ID"]

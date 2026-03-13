@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎙️",
+        "emoji": "",
         "requires": { 
           "bins": ["ffmpeg", "python3"], 
           "pip": ["openai-whisper", "gTTS", "librosa", "pydub", "soundfile", "numpy", "webrtcvad-wheels"] 

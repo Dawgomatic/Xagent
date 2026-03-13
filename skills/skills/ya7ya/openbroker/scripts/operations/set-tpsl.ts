@@ -162,20 +162,20 @@ async function main() {
     // Validate TP/SL make sense for position direction
     if (isLong) {
       if (tpPrice && tpPrice <= currentPrice) {
-        console.warn(`⚠️  Warning: TP (${formatUsd(tpPrice)}) is at or below current price (${formatUsd(currentPrice)})`);
+        console.warn(`  Warning: TP (${formatUsd(tpPrice)}) is at or below current price (${formatUsd(currentPrice)})`);
         console.warn('   For LONG positions, TP should be above current price');
       }
       if (slPrice && slPrice >= currentPrice) {
-        console.warn(`⚠️  Warning: SL (${formatUsd(slPrice)}) is at or above current price (${formatUsd(currentPrice)})`);
+        console.warn(`  Warning: SL (${formatUsd(slPrice)}) is at or above current price (${formatUsd(currentPrice)})`);
         console.warn('   For LONG positions, SL should be below current price');
       }
     } else {
       if (tpPrice && tpPrice >= currentPrice) {
-        console.warn(`⚠️  Warning: TP (${formatUsd(tpPrice)}) is at or above current price (${formatUsd(currentPrice)})`);
+        console.warn(`  Warning: TP (${formatUsd(tpPrice)}) is at or above current price (${formatUsd(currentPrice)})`);
         console.warn('   For SHORT positions, TP should be below current price');
       }
       if (slPrice && slPrice <= currentPrice) {
-        console.warn(`⚠️  Warning: SL (${formatUsd(slPrice)}) is at or below current price (${formatUsd(currentPrice)})`);
+        console.warn(`  Warning: SL (${formatUsd(slPrice)}) is at or below current price (${formatUsd(currentPrice)})`);
         console.warn('   For SHORT positions, SL should be above current price');
       }
     }
@@ -231,7 +231,7 @@ async function main() {
     if (slPrice) console.log(`If SL hits:    -${formatUsd(potentialLoss)}`);
 
     if (dryRun) {
-      console.log('\n🔍 Dry run - orders not placed');
+      console.log('\n Dry run - orders not placed');
       return;
     }
 
@@ -247,14 +247,14 @@ async function main() {
         const status = response.response.data.statuses[0];
         if (status?.resting) {
           tpOid = status.resting.oid;
-          console.log(`✅ Take Profit placed @ ${formatUsd(tpPrice)} (OID: ${tpOid})`);
+          console.log(` Take Profit placed @ ${formatUsd(tpPrice)} (OID: ${tpOid})`);
         } else if (status?.error) {
-          console.log(`❌ TP failed: ${status.error}`);
+          console.log(` TP failed: ${status.error}`);
         } else {
-          console.log(`⚠️  TP status:`, JSON.stringify(status));
+          console.log(`  TP status:`, JSON.stringify(status));
         }
       } else {
-        console.log(`❌ TP failed: ${typeof response.response === 'string' ? response.response : 'Unknown error'}`);
+        console.log(` TP failed: ${typeof response.response === 'string' ? response.response : 'Unknown error'}`);
       }
 
       await sleep(200);
@@ -270,14 +270,14 @@ async function main() {
         const status = response.response.data.statuses[0];
         if (status?.resting) {
           slOid = status.resting.oid;
-          console.log(`✅ Stop Loss placed @ ${formatUsd(slPrice)} (OID: ${slOid})`);
+          console.log(` Stop Loss placed @ ${formatUsd(slPrice)} (OID: ${slOid})`);
         } else if (status?.error) {
-          console.log(`❌ SL failed: ${status.error}`);
+          console.log(` SL failed: ${status.error}`);
         } else {
-          console.log(`⚠️  SL status:`, JSON.stringify(status));
+          console.log(`  SL status:`, JSON.stringify(status));
         }
       } else {
-        console.log(`❌ SL failed: ${typeof response.response === 'string' ? response.response : 'Unknown error'}`);
+        console.log(` SL failed: ${typeof response.response === 'string' ? response.response : 'Unknown error'}`);
       }
     }
 
@@ -289,7 +289,7 @@ async function main() {
     if (slOid) console.log(`Stop Loss:   ${formatUsd(slPrice!)} (OID: ${slOid})`);
 
     if (tpOid && slOid) {
-      console.log(`\n💡 Tip: When one order fills, cancel the other manually:`);
+      console.log(`\n Tip: When one order fills, cancel the other manually:`);
       console.log(`   npx tsx scripts/operations/cancel.ts --coin ${coin} --oid <OID>`);
     }
 

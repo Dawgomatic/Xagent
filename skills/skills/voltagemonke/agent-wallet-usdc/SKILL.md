@@ -60,10 +60,10 @@ Run: `node scripts/wallet.js create`
 Output format:
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔐 NEW WALLET GENERATED
+ NEW WALLET GENERATED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-⚠️  CRITICAL: Save this seed phrase securely!
+  CRITICAL: Save this seed phrase securely!
     It will NOT be shown again.
     Anyone with this phrase can access your funds.
 

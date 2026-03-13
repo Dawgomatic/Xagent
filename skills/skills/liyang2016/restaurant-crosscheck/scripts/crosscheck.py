@@ -41,23 +41,23 @@ class RestaurantCrossChecker:
         Returns:
             List of recommendation results sorted by score
         """
-        print(f"\n🔍 开始搜索: {location} - {cuisine}\n")
+        print(f"\n 开始搜索: {location} - {cuisine}\n")
 
         # Fetch data from both platforms
         dp_restaurants = fetch_dianping(location, cuisine, self.config)
         xhs_posts = fetch_xiaohongshu(location, cuisine, self.config)
 
-        print(f"✅ 大众点评: 找到 {len(dp_restaurants)} 家餐厅")
-        print(f"✅ 小红书: 找到 {len(xhs_posts)} 家餐厅\n")
+        print(f" 大众点评: 找到 {len(dp_restaurants)} 家餐厅")
+        print(f" 小红书: 找到 {len(xhs_posts)} 家餐厅\n")
 
         if not dp_restaurants or not xhs_posts:
-            print("⚠️ 数据不足，无法进行交叉验证")
+            print(" 数据不足，无法进行交叉验证")
             return []
 
         # Match restaurants across platforms
         matches = match_and_score(dp_restaurants, xhs_posts, self.config)
 
-        print(f"🔗 匹配成功: {len(matches)} 家餐厅\n")
+        print(f" 匹配成功: {len(matches)} 家餐厅\n")
 
         # Calculate recommendation scores
         results = []
@@ -107,10 +107,10 @@ class RestaurantCrossChecker:
     def format_output(self, results: List[RecommendationResult], location: str, cuisine: str) -> str:
         """Format results for display."""
         if not results:
-            return f"❌ 未找到符合条件的餐厅: {location} - {cuisine}"
+            return f" 未找到符合条件的餐厅: {location} - {cuisine}"
 
         output = []
-        output.append(f"📍 {location} {cuisine} 餐厅推荐\n")
+        output.append(f" {location} {cuisine} 餐厅推荐\n")
         output.append("=" * 60 + "\n")
 
         for i, result in enumerate(results[:OUTPUT_CONFIG['max_restaurants']], 1):
@@ -119,22 +119,22 @@ class RestaurantCrossChecker:
             xhs = r.xhs_data
 
             output.append(f"{i}. {dp.name}")
-            output.append(f"   🏆 推荐指数: {result.recommendation_score}/10")
-            output.append(f"   ⭐ 大众点评: {dp.rating}⭐ ({dp.review_count}评价)")
-            output.append(f"   💬 小红书: {normalize_engagement(xhs):.1f}⭐ ({xhs.likes}赞/{xhs.saves}收藏)")
-            output.append(f"   📍 地址: {dp.address}")
-            output.append(f"   💰 人均: {dp.price_range}")
-            output.append(f"   ✅ 一致性: {result.consistency_level} ({r.consistency_score:.2f})")
+            output.append(f"    推荐指数: {result.recommendation_score}/10")
+            output.append(f"    大众点评: {dp.rating} ({dp.review_count}评价)")
+            output.append(f"    小红书: {normalize_engagement(xhs):.1f} ({xhs.likes}赞/{xhs.saves}收藏)")
+            output.append(f"    地址: {dp.address}")
+            output.append(f"    人均: {dp.price_range}")
+            output.append(f"    一致性: {result.consistency_level} ({r.consistency_score:.2f})")
 
             # Platform comparison
             if OUTPUT_CONFIG['show_details']:
-                output.append(f"\n   📊 平台对比:")
+                output.append(f"\n    平台对比:")
                 output.append(f"   - 大众点评标签: {', '.join(dp.tags)}")
                 output.append(f"   - 小红书热词: {', '.join(xhs.keywords)}")
 
                 # Warnings for low consistency
                 if result.consistency_level == "低":
-                    output.append(f"\n   ⚠️ 注意: 两平台评价差异较大，建议进一步了解")
+                    output.append(f"\n    注意: 两平台评价差异较大，建议进一步了解")
 
             output.append("")
 

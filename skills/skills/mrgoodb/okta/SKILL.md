@@ -1,7 +1,7 @@
 ---
 name: okta
 description: Manage users, groups, and applications via Okta API. Handle identity and access management.
-metadata: {"clawdbot":{"emoji":"🔑","requires":{"env":["OKTA_DOMAIN","OKTA_API_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["OKTA_DOMAIN","OKTA_API_TOKEN"]}}}
 ---
 # Okta
 Enterprise identity management.

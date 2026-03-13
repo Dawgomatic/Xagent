@@ -16,11 +16,11 @@ async function withdraw(destinationAddress, amount, token, chain) {
   
   // SECURITY CHECK: Only allow Trust Wallet
   if (destinationAddress.toLowerCase() !== TRUST_WALLET.toLowerCase()) {
-    throw new Error(`❌ SECURITY VIOLATION: Withdrawals only allowed to Trust Wallet (${TRUST_WALLET}). Attempted: ${destinationAddress}`);
+    throw new Error(` SECURITY VIOLATION: Withdrawals only allowed to Trust Wallet (${TRUST_WALLET}). Attempted: ${destinationAddress}`);
   }
   
-  console.log('✅ Security check passed: Destination is Trust Wallet');
-  console.log(`\n📤 Withdrawal Request:`);
+  console.log(' Security check passed: Destination is Trust Wallet');
+  console.log(`\n Withdrawal Request:`);
   console.log(`   Token: ${token}`);
   console.log(`   Amount: ${amount}`);
   console.log(`   Chain: ${chain}`);
@@ -29,7 +29,7 @@ async function withdraw(destinationAddress, amount, token, chain) {
   
   // TODO: Implement actual blockchain transfer
   // This would use the crypto-wallet skill to execute the transfer
-  console.log('\n⚠️  Actual transfer not yet implemented.');
+  console.log('\n  Actual transfer not yet implemented.');
   console.log('This is a safeguard placeholder - would execute transfer via crypto-wallet skill.');
   
   return {
@@ -61,11 +61,11 @@ if (require.main === module) {
   
   withdraw(TRUST_WALLET, amount, token, chain)
     .then(result => {
-      console.log('\n✅ Withdrawal request validated');
+      console.log('\n Withdrawal request validated');
       console.log(JSON.stringify(result, null, 2));
     })
     .catch(error => {
-      console.error('\n❌ Withdrawal failed:', error.message);
+      console.error('\n Withdrawal failed:', error.message);
       process.exit(1);
     });
 }

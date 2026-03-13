@@ -78,30 +78,30 @@ def cmd_add(args):
         "added_at": datetime.now().isoformat(),
     }
     append_jsonl(GROUND_TRUTH, entry)
-    print(f"✅ Ground truth 등록: {args.file} → {args.result}" +
+    print(f" Ground truth 등록: {args.file} → {args.result}" +
           (f" ({args.score}점)" if args.score else ""))
 
 def cmd_run(args):
     """Run LLM evaluation and store result."""
     if not os.path.exists(args.file):
-        print(f"❌ 파일 없음: {args.file}")
+        print(f" 파일 없음: {args.file}")
         sys.exit(1)
 
     model = args.model or "qwen3:8b"
     cmd = [sys.executable, str(EVALUATE_PY), "--mode", "evaluate",
            "--model", model, "--json", args.file]
 
-    print(f"🔍 평가 중: {args.file} (model={model})")
+    print(f" 평가 중: {args.file} (model={model})")
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
 
     if result.returncode != 0:
-        print(f"❌ 평가 실패: {result.stderr[:200]}")
+        print(f" 평가 실패: {result.stderr[:200]}")
         sys.exit(1)
 
     try:
         output = json.loads(result.stdout)
     except json.JSONDecodeError:
-        print(f"❌ JSON 파싱 실패: {result.stdout[:200]}")
+        print(f" JSON 파싱 실패: {result.stdout[:200]}")
         sys.exit(1)
 
     score = output.get("score")
@@ -113,7 +113,7 @@ def cmd_run(args):
         "mode": "evaluate",
     }
     append_jsonl(EVAL_RESULTS, entry)
-    print(f"📊 LLM 점수: {score}/100 → eval_results.jsonl 저장")
+    print(f" LLM 점수: {score}/100 → eval_results.jsonl 저장")
 
     # Auto-compare if ground truth exists
     gt = find_ground_truth(os.path.basename(args.file))
@@ -125,13 +125,13 @@ def cmd_compare(args):
     filename = os.path.basename(args.file)
     gt = find_ground_truth(filename)
     if not gt:
-        print(f"⚠️ Ground truth 없음: {filename}")
+        print(f" Ground truth 없음: {filename}")
         print(f"   → eval_pipeline.py add --file {filename} --result pass/fail --score XX")
         return
 
     evals = find_eval_scores(filename)
     if not evals:
-        print(f"⚠️ 평가 기록 없음: {filename}")
+        print(f" 평가 기록 없음: {filename}")
         return
 
     _print_comparison(filename, evals, gt)
@@ -143,7 +143,7 @@ def _print_comparison(filename: str, evals: list[dict], gt: dict):
     program = gt.get("program", "?")
 
     print(f"\n{'='*50}")
-    print(f"📋 {filename} ({program})")
+    print(f" {filename} ({program})")
     print(f"   실제: {actual_result.upper()}" +
           (f" ({actual}점)" if actual else ""))
     print(f"{'─'*50}")
@@ -154,12 +154,12 @@ def _print_comparison(filename: str, evals: list[dict], gt: dict):
         if llm_score is not None and actual is not None:
             diff = llm_score - actual
             sign = "+" if diff > 0 else ""
-            accuracy_icon = "✅" if abs(diff) <= 10 else "⚠️" if abs(diff) <= 20 else "❌"
+            accuracy_icon = "" if abs(diff) <= 10 else "" if abs(diff) <= 20 else ""
             print(f"   {accuracy_icon} LLM({model}): {llm_score}점 (차이: {sign}{diff})")
         elif llm_score is not None:
             # No actual score, check pass/fail prediction
             predicted = "pass" if llm_score >= 70 else "fail"
-            match = "✅" if predicted == actual_result else "❌"
+            match = "" if predicted == actual_result else ""
             print(f"   {match} LLM({model}): {llm_score}점 → 예측={predicted}, 실제={actual_result}")
 
     print(f"{'='*50}\n")
@@ -234,7 +234,7 @@ def cmd_report(args):
     """Generate accuracy report across all files with ground truth."""
     gt_entries = load_jsonl(GROUND_TRUTH)
     if not gt_entries:
-        print("⚠️ Ground truth 데이터 없음. 먼저 실제 심사 결과를 등록하세요:")
+        print(" Ground truth 데이터 없음. 먼저 실제 심사 결과를 등록하세요:")
         print("   python3 eval_pipeline.py add --file plan.pdf --result pass --score 82")
         return
 
@@ -243,7 +243,7 @@ def cmd_report(args):
     program_counts = Counter(gt.get("program", "기타") for gt in gt_entries)
 
     print(f"\n{'='*60}")
-    print(f"📊 Eval Pipeline 정확도 리포트")
+    print(f" Eval Pipeline 정확도 리포트")
     print(f"   Ground Truth: {len(gt_entries)}건")
     for prog, cnt in sorted(program_counts.items()):
         pass_cnt = sum(1 for g in gt_entries if g.get("program") == prog and g.get("actual_result") == "pass")
@@ -257,7 +257,7 @@ def cmd_report(args):
 
     if not has_evals:
         # No eval results yet — show ground truth summary only
-        print("\n⏳ LLM 평가 결과 없음 — ground truth만 표시합니다.")
+        print("\n LLM 평가 결과 없음 — ground truth만 표시합니다.")
         print("   평가 실행: python3 eval_pipeline.py run --file <plan.pdf>")
 
         # Show score distribution per program
@@ -297,7 +297,7 @@ def cmd_report(args):
     all_s = stats.get("__all__", {})
     diffs = all_s.get("score_diffs", [])
     if diffs and sum(diffs) / len(diffs) > 15:
-        print("\n💡 평균 차이 15점 초과 → 프롬프트 튜닝 권장")
+        print("\n 평균 차이 15점 초과 → 프롬프트 튜닝 권장")
         print("   참고: references/ 디렉토리에 심사기준서 추가 시 정확도 향상 기대")
 
     f1 = 0
@@ -307,7 +307,7 @@ def cmd_report(args):
         rec = tp / (tp + fn)
         f1 = 2 * prec * rec / (prec + rec) if (prec + rec) else 0
     if f1 and f1 < 0.7:
-        print(f"\n⚠️ F1 = {f1:.3f} < 0.7 — 모델/프롬프트 개선 필요")
+        print(f"\n F1 = {f1:.3f} < 0.7 — 모델/프롬프트 개선 필요")
 
     print(f"\n{'='*60}\n")
 

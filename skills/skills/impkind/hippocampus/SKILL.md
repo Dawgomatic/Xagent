@@ -4,7 +4,7 @@ title: "Hippocampus - Memory System"
 description: "Persistent memory system for AI agents. Automatic encoding, decay, and semantic reinforcement — just like the hippocampus in your brain. Based on Stanford Generative Agents (Park et al., 2023)."
 metadata:
   openclaw:
-    emoji: "🧠"
+    emoji: ""
     version: "3.9.0"
     author: "Community"
     repo: "https://github.com/ImpKind/hippocampus-skill"
@@ -110,7 +110,7 @@ open ~/.openclaw/workspace/brain-dashboard.html
 
 When you install this skill, **notify the user** about the dashboard:
 
-> 🧠 **Hippocampus installed!** 
+>  **Hippocampus installed!** 
 > 
 > View your agent's memories in the Brain Dashboard:
 > `~/.openclaw/workspace/brain-dashboard.html`
@@ -283,12 +283,12 @@ This skill is part of the **AI Brain** project — giving AI agents human-like c
 
 | Part | Function | Status |
 |------|----------|--------|
-| **hippocampus** | Memory formation, decay, reinforcement | ✅ Live |
-| [amygdala-memory](https://www.clawhub.ai/skills/amygdala-memory) | Emotional processing | ✅ Live |
-| [vta-memory](https://www.clawhub.ai/skills/vta-memory) | Reward and motivation | ✅ Live |
-| basal-ganglia-memory | Habit formation | 🚧 Development |
-| anterior-cingulate-memory | Conflict detection | 🚧 Development |
-| insula-memory | Internal state awareness | 🚧 Development |
+| **hippocampus** | Memory formation, decay, reinforcement |  Live |
+| [amygdala-memory](https://www.clawhub.ai/skills/amygdala-memory) | Emotional processing |  Live |
+| [vta-memory](https://www.clawhub.ai/skills/vta-memory) | Reward and motivation |  Live |
+| basal-ganglia-memory | Habit formation |  Development |
+| anterior-cingulate-memory | Conflict detection |  Development |
+| insula-memory | Internal state awareness |  Development |
 
 ## References
 

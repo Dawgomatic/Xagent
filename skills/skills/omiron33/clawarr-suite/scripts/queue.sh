@@ -20,11 +20,11 @@ if [[ -z "$HOST" ]]; then
 fi
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required but not installed"
+  echo " Error: jq is required but not installed"
   exit 1
 fi
 
-echo "📥 Download Queues"
+echo " Download Queues"
 echo ""
 
 if [[ -n "$RADARR_KEY" ]]; then

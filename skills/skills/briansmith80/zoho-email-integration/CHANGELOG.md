@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.2.5] - 2026-02-14
 
-### 🔒 CRITICAL SECURITY FIX
+###  CRITICAL SECURITY FIX
 
 **Vulnerable JavaScript handler removed from distribution.**
 
@@ -29,7 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.2.1] - 2026-02-12
 
-### 🔒 CRITICAL SECURITY FIXES
+###  CRITICAL SECURITY FIXES
 
 **Three additional security vulnerabilities discovered and fixed:**
 
@@ -83,7 +83,7 @@ clawdhub install zoho-email-integration@2.2.1
 
 ## [2.2.0] - 2026-02-12
 
-### 🔒 SECURITY FIXES
+###  SECURITY FIXES
 
 **Critical security vulnerabilities addressed based on ClawHub security audit:**
 
@@ -134,7 +134,7 @@ chmod 600 ~/.clawdbot/zoho-mail-tokens.json
 
 ## [2.1.0] - 2026-02-06
 
-### ✨ NEW - Clawdbot Extension & Commands
+###  NEW - Clawdbot Extension & Commands
 
 **First-class Clawdbot integration with `/email` commands:**
 
@@ -170,12 +170,12 @@ chmod 600 ~/.clawdbot/zoho-mail-tokens.json
 - Examples for morning briefings, monitoring, bulk actions
 
 #### Use Cases
-- ✅ `/email unread` in Telegram chat
-- ✅ Discord bot commands
-- ✅ Slack integration
-- ✅ Morning briefing summaries
-- ✅ Alert on important emails
-- ✅ Scheduled cleanups
+-  `/email unread` in Telegram chat
+-  Discord bot commands
+-  Slack integration
+-  Morning briefing summaries
+-  Alert on important emails
+-  Scheduled cleanups
 
 ### Impact
 **User Experience: 8.5/10 → 9.5/10**
@@ -186,7 +186,7 @@ chmod 600 ~/.clawdbot/zoho-mail-tokens.json
 
 ## [2.0.3] - 2026-01-31
 
-### ✅ UX / Quality of Life
+###  UX / Quality of Life
 - **ClawdHub-friendly naming**: aligned docs + skill metadata to `clawdhub install zoho-email`
 - **`--help` without configuration**: help no longer requires credentials/tokens
 - **`doctor` command**: first-run diagnostics (env vars, token file, REST reachability, IMAP/SMTP reachability)
@@ -199,7 +199,7 @@ chmod 600 ~/.clawdbot/zoho-mail-tokens.json
 
 ## [2.0.2] - 2026-01-29
 
-### 📝 Documentation - Updated SKILL.md Introduction
+###  Documentation - Updated SKILL.md Introduction
 
 **Updated skill description to accurately reflect v2.0 capabilities:**
 
@@ -214,7 +214,7 @@ This ensures users immediately see the modern features (OAuth2, REST API, HTML, 
 
 ## [2.0.1] - 2026-01-29
 
-### 🐛 Fixed - REST API Batch Operations
+###  Fixed - REST API Batch Operations
 
 **Critical bug fixes for REST API mode + updated documentation:**
 
@@ -245,7 +245,7 @@ See [FIXES_COMPLETE.md](FIXES_COMPLETE.md) for detailed technical documentation.
 
 ## [2.0.0] - 2026-01-29
 
-### 🚀 Added - REST API Backend Implementation
+###  Added - REST API Backend Implementation
 
 **Major performance upgrade: 5-10x faster operations with REST API support!**
 
@@ -315,7 +315,7 @@ See [FIXES_COMPLETE.md](FIXES_COMPLETE.md) for detailed technical documentation.
 
 ## [1.2.0] - 2026-01-29
 
-### 🔐 Added - OAuth2 Authentication Support
+###  Added - OAuth2 Authentication Support
 
 **Secure OAuth2 authentication with automatic token management!**
 
@@ -374,11 +374,11 @@ See [FIXES_COMPLETE.md](FIXES_COMPLETE.md) for detailed technical documentation.
 - Error messages now mention both auth methods
 
 ### Backward Compatibility
-- ✅ App passwords still fully supported
-- ✅ All existing commands work unchanged
-- ✅ No breaking changes to CLI or Python API
-- ✅ Auto-detection fallsback to app password if no OAuth2 tokens
-- ✅ Existing scripts require no modifications
+-  App passwords still fully supported
+-  All existing commands work unchanged
+-  No breaking changes to CLI or Python API
+-  Auto-detection fallsback to app password if no OAuth2 tokens
+-  Existing scripts require no modifications
 
 ### Migration Path
 1. Run `python3 scripts/oauth-setup.py` to configure OAuth2
@@ -467,19 +467,19 @@ See [FIXES_COMPLETE.md](FIXES_COMPLETE.md) for detailed technical documentation.
 ## [Unreleased]
 
 ### Planned Features (v2.1.0+)
-- ✅ Attachment upload via REST API
-- ✅ Webhook support for real-time notifications
-- ✅ Advanced search syntax (by attachment, size, date)
-- ✅ Label and tag management
-- ✅ Bulk batch API for multiple operations
-- ✅ Email templates and scheduled sends
-- ✅ Zoho Calendar integration
-- ✅ Zoho CRM integration
+-  Attachment upload via REST API
+-  Webhook support for real-time notifications
+-  Advanced search syntax (by attachment, size, date)
+-  Label and tag management
+-  Bulk batch API for multiple operations
+-  Email templates and scheduled sends
+-  Zoho Calendar integration
+-  Zoho CRM integration
 
 ---
 
 **Legend:**
-- 🚀 Major feature
-- ✅ Completed
-- 🔧 In progress
-- 📋 Planned
+-  Major feature
+-  Completed
+-  In progress
+-  Planned

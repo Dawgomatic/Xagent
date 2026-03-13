@@ -190,7 +190,7 @@ async function main() {
     }
 
     if (dryRun) {
-      console.log('\n🔍 Dry run - orders not placed');
+      console.log('\n Dry run - orders not placed');
       return;
     }
 
@@ -214,26 +214,26 @@ async function main() {
         if (response.status === 'ok' && response.response && typeof response.response === 'object') {
           const status = response.response.data.statuses[0];
           if (status?.resting) {
-            console.log(`✅ OID: ${status.resting.oid}`);
+            console.log(` OID: ${status.resting.oid}`);
             results.push({ level: level.level, oid: status.resting.oid });
           } else if (status?.filled) {
-            console.log(`✅ Filled immediately @ ${formatUsd(parseFloat(status.filled.avgPx))}`);
+            console.log(` Filled immediately @ ${formatUsd(parseFloat(status.filled.avgPx))}`);
             results.push({ level: level.level, oid: status.filled.oid });
           } else if (status?.error) {
-            console.log(`❌ ${status.error}`);
+            console.log(` ${status.error}`);
             results.push({ level: level.level, error: status.error });
           } else {
-            console.log(`⚠️ Unknown status`);
+            console.log(` Unknown status`);
             results.push({ level: level.level, error: 'Unknown status' });
           }
         } else {
           const error = typeof response.response === 'string' ? response.response : 'Failed';
-          console.log(`❌ ${error}`);
+          console.log(` ${error}`);
           results.push({ level: level.level, error });
         }
       } catch (err) {
         const error = err instanceof Error ? err.message : String(err);
-        console.log(`❌ ${error}`);
+        console.log(` ${error}`);
         results.push({ level: level.level, error });
       }
 

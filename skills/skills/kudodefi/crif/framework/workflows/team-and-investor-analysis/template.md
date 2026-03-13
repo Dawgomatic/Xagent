@@ -17,7 +17,7 @@ SCALES (use consistently):
 - Execution Implications: POSITIVE / NEUTRAL / NEGATIVE (investment implication from execution perspective)
 - Confidence: HIGH / MEDIUM / LOW
 - Identity Status: Fully doxxed / Partially doxxed / Pseudonymous / Anonymous
-- Role Coverage: ✅ Covered / ⚠️ Thin / ❌ Unfilled
+- Role Coverage:  Covered /  Thin /  Unfilled
 - Pattern Assessment: Proven track record / Emerging / First major project / Vaporware pattern
 - Velocity: Strong / Moderate / Weak / Concerning
 - Investor Tier: Tier-1 VC / Tier-2 VC / Angel / Strategic / Corporate VC

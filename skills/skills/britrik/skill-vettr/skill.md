@@ -4,7 +4,7 @@ version: "2.0.3"
 author: britrik
 description: Static analysis security scanner for third-party OpenClaw skills. Detects eval/spawn risks, malicious dependencies, typosquatting, and prompt injection patterns before installation. Use when vetting skills from ClawHub or untrusted sources.
 tags: ["security", "scanner", "vetting", "analysis", "static-analysis"]
-emoji: "🛡️"
+emoji: ""
 metadata:
   openclaw:
     requires:
@@ -40,7 +40,7 @@ npm install
 
 This installs all Node.js dependencies, including tree-sitter `.wasm` grammar files required at runtime for AST-based analysis. The `.wasm` files are located in `node_modules` and must be present for the skill to function.
 
-> ⚠️ **Install safety:** `npm install` runs dependency lifecycle scripts, which can execute arbitrary code. For stronger isolation, run `npm ci --ignore-scripts` — but note that tree-sitter native/WASM artifacts may not build, breaking AST analysis. Prefer installing inside a container or VM when possible.
+>  **Install safety:** `npm install` runs dependency lifecycle scripts, which can execute arbitrary code. For stronger isolation, run `npm ci --ignore-scripts` — but note that tree-sitter native/WASM artifacts may not build, breaking AST analysis. Prefer installing inside a container or VM when possible.
 
 ## External Binaries
 
@@ -80,7 +80,7 @@ The `/skill:vet` command (local path vetting) requires only `node` and no extern
 
 ## Limitations
 
-> ⚠️ **This is a heuristic scanner with inherent limitations. It cannot guarantee safety.**
+>  **This is a heuristic scanner with inherent limitations. It cannot guarantee safety.**
 
 - **Static analysis only** — Cannot detect runtime behaviour (e.g., code that fetches malware after install)
 - **Evasion possible** — Sophisticated obfuscation or multi-stage string construction can evade detection
@@ -111,7 +111,7 @@ To allow vetting paths under the current working directory, set `allowCwd: true`
 }
 ```
 
-> ⚠️ **Security implication:** Enabling `allowCwd` means the scanner will accept any path under the directory you launched it from. If you run from `/` or `$HOME`, this effectively grants access to your entire filesystem. Only enable this when running from a scoped project directory or inside a container.
+>  **Security implication:** Enabling `allowCwd` means the scanner will accept any path under the directory you launched it from. If you run from `/` or `$HOME`, this effectively grants access to your entire filesystem. Only enable this when running from a scoped project directory or inside a container.
 
 ## `.vettrignore`
 

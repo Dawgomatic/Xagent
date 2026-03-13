@@ -57,7 +57,7 @@ python3 scripts/discord_api.py "TOKEN" validate
 
 Before each digest run, the token is validated via `GET /users/@me`. If it returns 401:
 
-1. Notify user: "⚠️ Discord token expired, send new token"
+1. Notify user: " Discord token expired, send new token"
 2. Wait for new token
 3. Update config: `python3 scripts/config_manager.py set-token "NEW_TOKEN"`
 4. Retry digest
@@ -67,7 +67,7 @@ Before each digest run, the token is validated via `GET /users/@me`. If it retur
 ```
 **#SERVER_NAME DD.MM.YY**
 
-[→post](message_url) | 📝 channel-name
+[→post](message_url) |  channel-name
 **Post Title**
 Details: Brief 1-sentence summary of the post content
 Links: [source 1](url) | [source 2](url)

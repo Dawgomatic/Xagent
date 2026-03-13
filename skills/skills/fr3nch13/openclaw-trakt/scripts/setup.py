@@ -41,7 +41,7 @@ def print_error(message):
 
 def print_info(message):
     """Print info message"""
-    print(f"{YELLOW}ℹ {message}{RESET}")
+    print(f"{YELLOW} {message}{RESET}")
 
 
 def check_dependencies():
@@ -292,7 +292,7 @@ def main():
     
     # Success!
     print(f"\n{GREEN}{'='*60}{RESET}")
-    print(f"{GREEN}  🎬 Setup Complete! 🎉{RESET}")
+    print(f"{GREEN}   Setup Complete! {RESET}")
     print(f"{GREEN}{'='*60}{RESET}\n")
     
     print("You can now ask your OpenClaw assistant:")

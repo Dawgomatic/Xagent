@@ -10,8 +10,8 @@ No parameters. **Returns:** `{ available: boolean, message: string }`
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `path` | string | ❌ | Test file path |
-| `debug` | boolean | ❌ | Run in debug mode |
+| `path` | string |  | Test file path |
+| `debug` | boolean |  | Run in debug mode |
 
 **Returns:** `{ ok: true, message: string }`
 
@@ -25,8 +25,8 @@ No parameters. **Returns:** `{ hasResults: boolean, summary: string }`
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `name` | string | ❌ | Named config from launch.json |
-| `config` | object | ❌ | Inline debug configuration |
+| `name` | string |  | Named config from launch.json |
+| `config` | object |  | Inline debug configuration |
 
 Provide either `name` or `config`, not both.
 
@@ -38,17 +38,17 @@ No parameters.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `action` | string | ✅ | `add`, `remove`, `list`, or `clear` |
-| `path` | string | ❌ | File path (for add/remove) |
-| `line` | number | ❌ | Line number (for add/remove) |
-| `condition` | string | ❌ | Conditional expression (for add) |
+| `action` | string |  | `add`, `remove`, `list`, or `clear` |
+| `path` | string |  | File path (for add/remove) |
+| `line` | number |  | Line number (for add/remove) |
+| `condition` | string |  | Conditional expression (for add) |
 
 ### `vscode.debug.evaluate` — Evaluate expression
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `expression` | string | ✅ | Expression to evaluate |
-| `context` | string | ❌ | `repl`, `watch`, or `hover` |
+| `expression` | string |  | Expression to evaluate |
+| `context` | string |  | `repl`, `watch`, or `hover` |
 
 **Returns:** `{ result: string, type: string }`
 
@@ -58,7 +58,7 @@ Only works when stopped at a breakpoint.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `levels` | number | ❌ | Max frames (default: 20) |
+| `levels` | number |  | Max frames (default: 20) |
 
 **Returns:** `{ frames: [{ id, name, path, line }] }`
 
@@ -66,7 +66,7 @@ Only works when stopped at a breakpoint.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `scope` | string | ❌ | `locals`, `globals`, or `closure` |
+| `scope` | string |  | `locals`, `globals`, or `closure` |
 
 **Returns:** `{ variables: [{ name, value, type, variablesReference }] }`
 

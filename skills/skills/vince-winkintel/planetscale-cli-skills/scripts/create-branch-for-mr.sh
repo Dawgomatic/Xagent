@@ -63,7 +63,7 @@ while [[ $# -gt 0 ]]; do
       exit 0
       ;;
     *)
-      echo "❌ Unknown option: $1"
+      echo " Unknown option: $1"
       echo "Run with --help for usage"
       exit 1
       ;;
@@ -72,7 +72,7 @@ done
 
 # Validate required arguments
 if [[ -z "$DATABASE" ]] || [[ -z "$BRANCH" ]]; then
-  echo "❌ Error: --database and --branch are required"
+  echo " Error: --database and --branch are required"
   echo "Run with --help for usage"
   exit 1
 fi
@@ -81,7 +81,7 @@ fi
 CMD="pscale branch create \"$DATABASE\" \"$BRANCH\" --from \"$FROM\""
 [[ -n "$ORG" ]] && CMD="$CMD --org \"$ORG\""
 
-echo "📦 Creating PlanetScale branch..."
+echo " Creating PlanetScale branch..."
 echo "  Database: $DATABASE"
 echo "  Branch: $BRANCH"
 echo "  From: $FROM"
@@ -92,7 +92,7 @@ echo ""
 eval $CMD
 
 echo ""
-echo "✅ Branch created successfully!"
+echo " Branch created successfully!"
 echo ""
 echo "Next steps:"
 echo "  1. Make schema changes:"

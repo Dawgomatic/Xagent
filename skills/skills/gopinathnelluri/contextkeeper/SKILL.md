@@ -8,7 +8,7 @@ metadata:
     install: []
 ---
 
-# ContextKeeper 🔮 v0.1.2
+# ContextKeeper  v0.1.2
 
 > **Context Preservation & Intent Resolution System for AI Agents**
 

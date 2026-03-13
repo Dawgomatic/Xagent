@@ -60,13 +60,13 @@ The agent stores entries in `kpi-data.json`:
 Say: "KPI report" and the agent generates a formatted status board:
 
 ```
-📊 KPI Report — Week of Feb 10, 2026
+ KPI Report — Week of Feb 10, 2026
 
-🟢 Monthly Recurring Revenue: $48,200 (target: $50,000) — 96.4%
-🔴 Customer Churn Rate: 8.1% (target: 3%) — needs attention
-🟡 Lead Conversion Rate: 11% (target: 15%) — trending up from 9%
+ Monthly Recurring Revenue: $48,200 (target: $50,000) — 96.4%
+ Customer Churn Rate: 8.1% (target: 3%) — needs attention
+ Lead Conversion Rate: 11% (target: 15%) — trending up from 9%
 
-⚠️ Action needed on 1 red, 1 yellow KPI
+ Action needed on 1 red, 1 yellow KPI
 ```
 
 ### Trend Analysis

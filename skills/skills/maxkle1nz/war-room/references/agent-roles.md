@@ -43,7 +43,7 @@ All available specialist roles for war room sessions. Select the subset that fit
 - **Produces:** Test plan, edge case catalog, smoke test checklist, acceptance criteria
 - **Key decisions:** Test coverage strategy, ship-blocker criteria, pre-release gates
 
-### CHAOS — Devil's Advocate ⚡
+### CHAOS — Devil's Advocate 
 - **Domain:** Stress-testing every decision, finding failure modes, proposing alternatives
 - **When to include:** **ALWAYS.** Non-negotiable.
 - **Produces:** Challenge report (SURVIVE/WOUNDED/KILLED per decision), failure scenarios, counter-proposals

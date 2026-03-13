@@ -36,4 +36,4 @@ Operations managers, supply chain directors, logistics coordinators, ecommerce f
 - [AI Revenue Leak Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — Find where your business is losing money to manual processes
 - [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Get your AI agent configured in 5 minutes
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

@@ -1,4 +1,4 @@
-# 🍊 Wojak.ink Skill
+#  Wojak.ink Skill
 
 A Clawdbot skill for browsing, searching, and analyzing Wojak Farmers Plot NFTs.
 
@@ -18,12 +18,12 @@ node cli.js nft 1
 
 ## Features
 
-✅ **Floor Price Tracking** - Get floor prices for the entire collection or specific characters  
-✅ **NFT Search** - Search by ID, name, or traits  
-✅ **Marketplace Listings** - Browse active offers from Dexie  
-✅ **Character Types** - 14 different character variants  
-✅ **Collection Stats** - Total volume, floor, listed count  
-✅ **Caching** - 5-minute cache to reduce API load
+ **Floor Price Tracking** - Get floor prices for the entire collection or specific characters  
+ **NFT Search** - Search by ID, name, or traits  
+ **Marketplace Listings** - Browse active offers from Dexie  
+ **Character Types** - 14 different character variants  
+ **Collection Stats** - Total volume, floor, listed count  
+ **Caching** - 5-minute cache to reduce API load
 
 ## Usage
 
@@ -115,4 +115,4 @@ MIT
 
 ---
 
-Built with 🍊 by the Tang Gang
+Built with  by the Tang Gang

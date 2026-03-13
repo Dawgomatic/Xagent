@@ -33,11 +33,11 @@ This file contains functional workflow test scenarios to validate the skill-engi
 9. **Output to user:** "Skill shipped successfully (iteration 1, score 29/33)"
 
 ### Pass Criteria
-- ✅ Completes in 1 iteration
-- ✅ Review score ≥28/33
-- ✅ No blocking issues from Tester
-- ✅ Quality scorecard added to README.md
-- ✅ Git commit + push successful
+-  Completes in 1 iteration
+-  Review score ≥28/33
+-  No blocking issues from Tester
+-  Quality scorecard added to README.md
+-  Git commit + push successful
 
 ---
 
@@ -72,10 +72,10 @@ This file contains functional workflow test scenarios to validate the skill-engi
    - Orchestrator ships
 
 ### Pass Criteria
-- ✅ Iteration 1 correctly identified issues
-- ✅ Designer addressed all issues in iteration 2
-- ✅ Final score ≥28/33
-- ✅ Shipped after 2 iterations
+-  Iteration 1 correctly identified issues
+-  Designer addressed all issues in iteration 2
+-  Final score ≥28/33
+-  Shipped after 2 iterations
 
 ---
 
@@ -113,11 +113,11 @@ This file contains functional workflow test scenarios to validate the skill-engi
    - Does NOT silently fail
 
 ### Pass Criteria
-- ✅ Stops after exactly 3 iterations
-- ✅ Does NOT ship skill below quality bar
-- ✅ Reports failure to user with full context
-- ✅ Offers user options (retry with better inputs / simplify / abandon)
-- ✅ Does NOT continue iterating past 3
+-  Stops after exactly 3 iterations
+-  Does NOT ship skill below quality bar
+-  Reports failure to user with full context
+-  Offers user options (retry with better inputs / simplify / abandon)
+-  Does NOT continue iterating past 3
 
 ---
 
@@ -152,10 +152,10 @@ This file contains functional workflow test scenarios to validate the skill-engi
    - Orchestrator ships
 
 ### Pass Criteria
-- ✅ OPSEC violations caught in review
-- ✅ Issues marked as blocking
-- ✅ Designer removes all violations
-- ✅ Final artifacts have no hardcoded secrets/paths/org names
+-  OPSEC violations caught in review
+-  Issues marked as blocking
+-  Designer removes all violations
+-  Final artifacts have no hardcoded secrets/paths/org names
 
 ---
 
@@ -186,10 +186,10 @@ This file contains functional workflow test scenarios to validate the skill-engi
    - Tester tests independently from Designer context
 
 ### Pass Criteria
-- ✅ Completes in single session (no separate agent spawns)
-- ✅ Role boundaries clearly documented
-- ✅ Separation of concerns maintained (build ≠ evaluate)
-- ✅ Skill passes all quality gates
+-  Completes in single session (no separate agent spawns)
+-  Role boundaries clearly documented
+-  Separation of concerns maintained (build ≠ evaluate)
+-  Skill passes all quality gates
 
 ---
 
@@ -217,9 +217,9 @@ This file contains functional workflow test scenarios to validate the skill-engi
    - Orchestrator ships
 
 ### Pass Criteria
-- ✅ Tester catches tool selection error empirically
-- ✅ Designer fixes tool choice in revision
-- ✅ Final skill uses correct tool for input type
+-  Tester catches tool selection error empirically
+-  Designer fixes tool choice in revision
+-  Final skill uses correct tool for input type
 
 ---
 

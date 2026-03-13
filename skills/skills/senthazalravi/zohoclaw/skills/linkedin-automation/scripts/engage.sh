@@ -6,7 +6,7 @@ LIMIT="${1:-10}"
 TOPIC="${2:-}"
 
 cat << EOF
-🤝 LINKEDIN ENGAGEMENT WORKFLOW
+ LINKEDIN ENGAGEMENT WORKFLOW
 ═══════════════════════════════════════
 
 Engage with $LIMIT posts in your feed.
@@ -24,7 +24,7 @@ Engage with $LIMIT posts in your feed.
 
    a) **Like the post** (always do this)
       - Click the Like button (thumbs up)
-      - Or use reactions: Celebrate 🎉, Love ❤️, Insightful 💡
+      - Or use reactions: Celebrate , Love , Insightful 
    
    b) **Leave a thoughtful comment** (on best posts)
       - Add value, not just "Great post!"
@@ -53,16 +53,16 @@ Engage with $LIMIT posts in your feed.
 
 ## Best Practices:
 
-✅ Engage with posts 1-3 hours old (algorithm boost)
-✅ Mix reactions (don't just Like everything)
-✅ Comment on posts from people slightly ahead of you
-✅ Reply to comments on your own posts within 1 hour
-✅ Engage before AND after posting your own content
+ Engage with posts 1-3 hours old (algorithm boost)
+ Mix reactions (don't just Like everything)
+ Comment on posts from people slightly ahead of you
+ Reply to comments on your own posts within 1 hour
+ Engage before AND after posting your own content
 
-❌ Don't comment "Great post!" (looks like a bot)
-❌ Don't mass-like 50 posts in 2 minutes
-❌ Don't only engage with huge accounts
-❌ Don't copy-paste the same comment
+ Don't comment "Great post!" (looks like a bot)
+ Don't mass-like 50 posts in 2 minutes
+ Don't only engage with huge accounts
+ Don't copy-paste the same comment
 
 ## Rate Limits:
 - Comments: 20-30/day max

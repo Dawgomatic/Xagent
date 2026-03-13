@@ -1,6 +1,6 @@
 ---
 name: greeting-skill
-emoji: 👋
+emoji: 
 description: A friendly greeting skill for testing
 author: theonejvo
 version: 1.0.0
@@ -21,4 +21,4 @@ Returns a personalized greeting.
 ## Example
 
 User: greet Alice
-Agent: Hello, Alice! Hope you're having a great day! 👋
+Agent: Hello, Alice! Hope you're having a great day! 

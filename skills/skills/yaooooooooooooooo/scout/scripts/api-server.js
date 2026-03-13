@@ -227,7 +227,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n🔍 Scout Trust API v2.0`);
+  console.log(`\n Scout Trust API v2.0`);
   console.log(`   http://localhost:${PORT}\n`);
   console.log(`Endpoints:`);
   console.log(`  GET /score/:agent       Free  - Basic score + recommendation`);

@@ -2,7 +2,7 @@
 name: tweet-cli
 description: Post tweets, replies, and quotes to X/Twitter using the official API v2. Use this instead of bird for posting. Uses API credits so only post when explicitly asked or scheduled.
 homepage: https://github.com/0xmythril/tweet-cli
-metadata: {"openclaw":{"emoji":"📮","requires":{"bins":["tweet-cli"],"env":["X_API_KEY","X_API_SECRET","X_ACCESS_TOKEN","X_ACCESS_TOKEN_SECRET"]},"install":[{"id":"npm","kind":"shell","command":"npm install -g github:0xmythril/tweet-cli#v1.0.0","bins":["tweet-cli"],"label":"Install tweet-cli v1.0.0 (npm)"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["tweet-cli"],"env":["X_API_KEY","X_API_SECRET","X_ACCESS_TOKEN","X_ACCESS_TOKEN_SECRET"]},"install":[{"id":"npm","kind":"shell","command":"npm install -g github:0xmythril/tweet-cli#v1.0.0","bins":["tweet-cli"],"label":"Install tweet-cli v1.0.0 (npm)"}]}}
 ---
 
 # tweet-cli

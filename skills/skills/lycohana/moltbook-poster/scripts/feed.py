@@ -155,9 +155,9 @@ def print_posts(result, max_count=10):
     
     for i, p in enumerate(result.get('posts', [])[:max_count], 1):
         print(f"{i}. [{p['id']}] {p['title']}")
-        print(f"   @{p['author']} | 👍 {p['upvotes']} | 💬 {p['comments']}")
-        print(f"   📍 {p.get('submolt', 'unknown')}")
-        print(f"   🔗 {p['url']}\n")
+        print(f"   @{p['author']} |  {p['upvotes']} |  {p['comments']}")
+        print(f"    {p.get('submolt', 'unknown')}")
+        print(f"    {p['url']}\n")
 
 def main():
     parser = argparse.ArgumentParser(description='Moltbook Feed Tool')

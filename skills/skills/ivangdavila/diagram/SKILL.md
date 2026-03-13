@@ -92,8 +92,8 @@ erDiagram
 
 ## Anti-Patterns
 
-- ❌ Too many nodes (split into multiple diagrams)
-- ❌ Decorative icons without meaning
-- ❌ Mixing abstraction levels (database tables next to business concepts)
-- ❌ Arrows in all directions (confuses flow)
-- ❌ Labels too long (use short names, add legend if needed)
+-  Too many nodes (split into multiple diagrams)
+-  Decorative icons without meaning
+-  Mixing abstraction levels (database tables next to business concepts)
+-  Arrows in all directions (confuses flow)
+-  Labels too long (use short names, add legend if needed)

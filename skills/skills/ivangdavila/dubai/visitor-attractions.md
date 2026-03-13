@@ -2,7 +2,7 @@
 
 ## Must-See Attractions
 
-### Truly Worth It ✅
+### Truly Worth It 
 
 | Attraction | Why It's Worth It | Price (AED) | Time Needed | Best Time |
 |------------|-------------------|-------------|-------------|-----------|
@@ -16,7 +16,7 @@
 | **Museum of the Future** | Stunning architecture, thought-provoking exhibits | ~150-180 | 2-3h | Book 2-3 weeks ahead |
 | **Sky Views Observatory** | Better value than Burj Khalifa, glass slide included | ~80-120 | 1-2h | Sunset |
 
-### Worth It With Caveats ⚠️
+### Worth It With Caveats 
 
 | Attraction | Caveat | Recommendation |
 |------------|--------|----------------|
@@ -27,7 +27,7 @@
 
 ---
 
-## Tourist Traps to AVOID ❌
+## Tourist Traps to AVOID 
 
 ### 1. **Overpriced Burj Khalifa Peak Hours**
 - **Problem**: Sunset tickets cost 229+ AED vs 159 AED non-peak

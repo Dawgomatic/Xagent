@@ -48,10 +48,10 @@ python generate_video.py \
 
 ## What Happens
 
-1. 🎨 Generates image from your prompt (DALL-E 3)
-2. 🎬 Converts image to 5-second video (LumaAI)
-3. 🎤 Creates voiceover if requested (OpenAI TTS)
-4. ✅ Combines everything into final MP4
+1.  Generates image from your prompt (DALL-E 3)
+2.  Converts image to 5-second video (LumaAI)
+3.  Creates voiceover if requested (OpenAI TTS)
+4.  Combines everything into final MP4
 
 **Time:** 30-60 seconds per video
 **Cost:** $0.05-0.15 per video

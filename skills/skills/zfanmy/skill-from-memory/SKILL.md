@@ -161,14 +161,14 @@ User: "帮我设置每天自动备份OpenClaw配置"
 
 ### What Makes a Good Skill
 
-✅ **Do**:
+ **Do**:
 - Single, well-defined purpose
 - Reusable across contexts
 - Includes working scripts
 - Clear usage examples
 - Progressive disclosure design
 
-❌ **Don't**:
+ **Don't**:
 - Too broad or vague
 - Hardcoded personal paths
 - Missing error handling

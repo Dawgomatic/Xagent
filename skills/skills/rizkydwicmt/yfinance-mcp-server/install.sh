@@ -28,10 +28,10 @@ CYAN='\033[0;36m'
 BOLD='\033[1m'
 NC='\033[0m'
 
-info()    { echo -e "${BLUE}ℹ${NC}  $*"; }
-success() { echo -e "${GREEN}✅${NC} $*"; }
-warn()    { echo -e "${YELLOW}⚠${NC}  $*"; }
-error()   { echo -e "${RED}❌${NC} $*" >&2; }
+info()    { echo -e "${BLUE}${NC}  $*"; }
+success() { echo -e "${GREEN}${NC} $*"; }
+warn()    { echo -e "${YELLOW}${NC}  $*"; }
+error()   { echo -e "${RED}${NC} $*" >&2; }
 step()    { echo -e "\n${CYAN}${BOLD}── $* ──${NC}"; }
 
 # ── Banner ───────────────────────────────────────────────────────
@@ -260,14 +260,14 @@ echo -e "${BOLD}╔════════════════════�
 echo -e "${BOLD}║                  Installation Complete                   ║${NC}"
 echo -e "${BOLD}╚══════════════════════════════════════════════════════════╝${NC}"
 echo ""
-echo "  📦 Package:     yfinance-mcp-server v1.0.0"
-echo "  🐍 Python:      $("$VENV_DIR/bin/python" --version 2>&1)"
-echo "  🔧 Entry point: $VENV_DIR/bin/yfin-mcp"
-echo "  🧰 Tools:       $TOOL_COUNT loaded"
+echo "   Package:     yfinance-mcp-server v1.0.0"
+echo "   Python:      $("$VENV_DIR/bin/python" --version 2>&1)"
+echo "   Entry point: $VENV_DIR/bin/yfin-mcp"
+echo "   Tools:       $TOOL_COUNT loaded"
 [ -n "$MCPORTER_CONFIG" ] && [ -f "$MCPORTER_CONFIG" ] && \
-echo "  ⚙️  mcporter:    $MCPORTER_CONFIG"
+echo "    mcporter:    $MCPORTER_CONFIG"
 [ -d "$SKILLS_DIR" ] && [ -f "$SKILLS_DIR/SKILL.md" ] && \
-echo "  🎯 Skill:       $SKILLS_DIR/"
+echo "   Skill:       $SKILLS_DIR/"
 echo ""
 echo -e "${BOLD}Quick Test:${NC}"
 if [ -n "$MCPORTER_CONFIG" ] && [ -f "$MCPORTER_CONFIG" ]; then

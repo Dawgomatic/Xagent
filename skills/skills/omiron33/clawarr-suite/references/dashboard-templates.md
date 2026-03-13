@@ -461,7 +461,7 @@ HTML/CSS templates and components for dashboard generation.
 <body>
   <div class="container">
     <header>
-      <h1>📊 ClawARR Dashboard</h1>
+      <h1> ClawARR Dashboard</h1>
       <p>Media Stack Monitoring</p>
     </header>
     

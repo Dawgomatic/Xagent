@@ -2,10 +2,10 @@
 name: openclaw-media-gen
 description: "Generate images & videos with AIsa. Gemini 3 Pro Image (image) + Qwen Wan 2.6 (video) via one API key."
 homepage: https://openclaw.ai
-metadata: {"openclaw":{"emoji":"🎬","requires":{"bins":["python3","curl"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3","curl"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
 ---
 
-# OpenClaw Media Gen 🎬
+# OpenClaw Media Gen 
 
 Generate **images** and **videos** with one AIsa API key:
 
@@ -14,15 +14,15 @@ Generate **images** and **videos** with one AIsa API key:
 
 API Reference: [AIsa API Reference](https://aisa.mintlify.app/api-reference/introduction) (all pages available at `https://aisa.mintlify.app/llms.txt`)
 
-## 🎯 Pricing Advantage
+##  Pricing Advantage
 
 ### Video Generation (WAN) - Cost Comparison
 
 | Resolution | AIsa (Contract) | AIsa (Official) | Bailian (Official) | OpenRouter |
 |------------|-----------------|-----------------|-------------------|------------|
-| 720P | **$0.06/sec** | ~$0.08 | ~$0.10 | ❌ |
-| 1080P | **$0.09/sec** | ~$0.12 | ~$0.15 | ❌ |
-| Pro/Animate | **$0.108–0.156** | ~$0.18 | ~$0.25 | ❌ |
+| 720P | **$0.06/sec** | ~$0.08 | ~$0.10 |  |
+| 1080P | **$0.09/sec** | ~$0.12 | ~$0.15 |  |
+| Pro/Animate | **$0.108–0.156** | ~$0.18 | ~$0.25 |  |
 
 **Key Benefits**:
 - **25-40% cheaper** than Bailian official pricing
@@ -30,7 +30,7 @@ API Reference: [AIsa API Reference](https://aisa.mintlify.app/api-reference/intr
 - Contract pricing available for production workloads
 - Single API key for both image and video generation
 
-## 🔥 What You Can Do
+##  What You Can Do
 
 ### Image Generation (Gemini)
 ```
@@ -50,7 +50,7 @@ export AISA_API_KEY="your-key"
 
 ---
 
-## 🖼️ Image Generation (Gemini)
+##  Image Generation (Gemini)
 
 ### Endpoint
 
@@ -76,7 +76,7 @@ curl -X POST "https://api.aisa.one/v1/models/gemini-3-pro-image-preview:generate
 
 ---
 
-## 🎞️ Video Generation (Qwen Wan 2.6 / Tongyi Wanxiang)
+##  Video Generation (Qwen Wan 2.6 / Tongyi Wanxiang)
 
 ### Create Task
 
@@ -143,14 +143,14 @@ python3 {baseDir}/scripts/media_gen_client.py video-wait --task-id YOUR_TASK_ID 
 python3 {baseDir}/scripts/media_gen_client.py video-wait --task-id YOUR_TASK_ID --download --out out.mp4
 ```
 
-## 💡 Use Cases
+##  Use Cases
 
 - **AI Agents**: Automate visual content generation for social media, marketing materials
 - **Content Creators**: Generate custom images and videos programmatically
 - **Developers**: Build apps with multimodal generation capabilities
 - **Businesses**: Cost-effective alternative to Bailian with better pricing
 
-## 🚀 Why AIsa for Media Generation?
+##  Why AIsa for Media Generation?
 
 1. **Unified API**: Single key for both images (Gemini) and videos (WAN)
 2. **Best Pricing**: 25-40% cheaper than alternatives

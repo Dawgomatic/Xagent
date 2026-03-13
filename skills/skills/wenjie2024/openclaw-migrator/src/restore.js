@@ -96,7 +96,7 @@ async function restoreArchive(archivePath, targetDir, password) {
       decipher.on('error', () => reject(new Error('Decryption failed (Wrong password or corrupted archive)')));
       extractor.on('error', reject);
       extractor.on('end', () => {
-        console.log('🔓 Decryption & Extraction complete.');
+        console.log(' Decryption & Extraction complete.');
         resolve();
       });
 
@@ -111,7 +111,7 @@ async function fixPaths(targetDir) {
   const configPath = path.join(targetDir, '.openclaw/openclaw.json');
   const manifestPath = path.join(targetDir, 'manifest.json');
   if (fs.existsSync(configPath)) {
-    console.log('🔧 Fixing paths in openclaw.json...');
+    console.log(' Fixing paths in openclaw.json...');
     const json = await fs.readJson(configPath);
     const manifest = fs.existsSync(manifestPath) ? await fs.readJson(manifestPath) : {};
     const oldWorkspace = manifest?.workspace || json?.agents?.defaults?.workspace;
@@ -120,7 +120,7 @@ async function fixPaths(targetDir) {
     if (oldWorkspace && json?.agents?.defaults) {
       json.agents.defaults.workspace = newWorkspace;
       await fs.writeJson(configPath, json, { spaces: 2 });
-      console.log('✅ Paths updated.');
+      console.log(' Paths updated.');
     }
   }
 }
@@ -140,8 +140,8 @@ if (require.main === module) {
 
     restoreArchive(archive, dest, pass)
         .then(() => fixPaths(dest))
-        .then(() => console.log("✅ Restore Done."))
-        .catch(err => console.error("❌ Failed:", err));
+        .then(() => console.log(" Restore Done."))
+        .catch(err => console.error(" Failed:", err));
 }
 
 module.exports = { restoreArchive, fixPaths };

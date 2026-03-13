@@ -4,16 +4,16 @@
 WORKSPACE="/root/clawd"
 QUERY="$1"
 
-echo "🔍 搜索记忆: '$QUERY'"
+echo " 搜索记忆: '$QUERY'"
 
 # 尝试Git Notes搜索
 echo ""
-echo "📁 Git Notes搜索结果:"
+echo " Git Notes搜索结果:"
 python3 /root/clawd/skills/git-notes-memory/memory.py -p "$WORKSPACE" search "$QUERY" 2>/dev/null || echo "未找到Git Notes匹配项"
 
 # 提示用户还可以使用百度Embedding搜索
 echo ""
-echo "🌐 百度Embedding语义搜索:"
+echo " 百度Embedding语义搜索:"
 echo "提示: 您可以使用百度Embedding进行语义搜索"
 python3 -c "
 import sys

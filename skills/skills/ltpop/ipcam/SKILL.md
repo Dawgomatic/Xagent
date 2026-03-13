@@ -4,7 +4,7 @@ title: "IP Camera - RTSP & ONVIF Control"
 description: "ONVIF PTZ control + RTSP capture + camera discovery. Works with any ONVIF Profile S/T camera. Tested with TP-Link, Hikvision, Dahua, Reolink, Amcrest, Axis."
 metadata:
   openclaw:
-    emoji: "📹"
+    emoji: ""
     version: "1.0.0"
     author: "tao"
     requires:

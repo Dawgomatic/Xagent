@@ -258,7 +258,7 @@ function printDiagram(code: string) {
 |---------|------------------|------|
 | Dependencies | Zero DOM | Puppeteer |
 | Speed | <500ms for 100+ diagrams | Slower |
-| ASCII output | ✅ Native | ❌ No |
+| ASCII output |  Native |  No |
 | Themes | 15 built-in + Shiki | CSS |
 | Size | Lightweight | Heavy |
 

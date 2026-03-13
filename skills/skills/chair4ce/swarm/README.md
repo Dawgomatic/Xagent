@@ -1,4 +1,4 @@
-# 🐝 Swarm — Parallel Task Execution for OpenClaw
+#  Swarm — Parallel Task Execution for OpenClaw
 
 [![Version](https://img.shields.io/badge/version-1.2.0-blue.svg)](./CHANGELOG.md)
 
@@ -20,19 +20,19 @@ Swarm adds parallel processing to [OpenClaw](https://github.com/openclaw/opencla
 │Search │        │ Fetch │        │Analyze│
 │Workers│        │Workers│        │Workers│
 │(Flash)│        │(Flash)│        │(Flash)│
-│  🔍   │        │  📄   │        │  🧠   │
+│     │        │     │        │     │
 └───────┘        └───────┘        └───────┘
       Optional: Google Search grounding
 ```
 
 ### What's New in v1.2.0
 
-- 💰 **Cost tracking & savings reports** — See exactly how much you're saving vs Opus in real-time
-- 🔄 **Auto-retry** — Failed tasks retry automatically with backoff (skips non-transient errors)
-- ⏱️ **Task timeouts** — 30s default prevents hung workers from blocking the pool
-- 🧹 **Dead code cleanup** — Removed 1,300+ lines of unused code
-- 🔍 **Web Search Grounding** — Workers search the live web via Google Search (Gemini only, no extra cost)
-- 🔒 **Security policy** — Workers answer research questions while blocking credential exfiltration
+-  **Cost tracking & savings reports** — See exactly how much you're saving vs Opus in real-time
+-  **Auto-retry** — Failed tasks retry automatically with backoff (skips non-transient errors)
+-  **Task timeouts** — 30s default prevents hung workers from blocking the pool
+-  **Dead code cleanup** — Removed 1,300+ lines of unused code
+-  **Web Search Grounding** — Workers search the live web via Google Search (Gemini only, no extra cost)
+-  **Security policy** — Workers answer research questions while blocking credential exfiltration
 
 ### Performance
 
@@ -73,7 +73,7 @@ Run `npm run setup` for interactive configuration:
 ```
 $ npm run setup
 
-🚀 Node Scaling Setup for Clawdbot
+ Node Scaling Setup for Clawdbot
 ══════════════════════════════════════════════
 
 Step 1: Choose your LLM provider for worker nodes
@@ -129,7 +129,7 @@ Swarm tracks every token and shows you exactly how much you're saving compared t
 ```bash
 # Real-time session costs
 $ swarm status
-   💰 Cost (this session)
+    Cost (this session)
    Tokens:     12,340
    Swarm cost: $0.001234
    Opus equiv: $0.2851
@@ -137,14 +137,14 @@ $ swarm status
 
 # Monthly savings report
 $ swarm savings
-🐝 Swarm Savings Report — 2026-02
+ Swarm Savings Report — 2026-02
 ─────────────────────────────────────────────
    Days active: 14
    Tasks run:   1,247
    Tokens used: 2,340,000
    Swarm cost:  $0.23
    Opus equiv:  $52.41
-   💰 Saved:    $52.18 (227x cheaper)
+    Saved:    $52.18 (227x cheaper)
 ```
 
 Cost data persists across daemon restarts in `~/.config/clawdbot/swarm-metrics/daily-summary.json`.
@@ -203,7 +203,7 @@ Multi-phase research (Search → Fetch → Analyze). Returns NDJSON stream.
 ### Response Format (NDJSON)
 
 ```jsonl
-{"event":"start","timestamp":1234567890,"message":"🐝 Swarm processing..."}
+{"event":"start","timestamp":1234567890,"message":" Swarm processing..."}
 {"event":"progress","taskId":1,"workerId":"analyze-abc","durationMs":530}
 {"event":"complete","duration":1555,"results":["Answer 1","Answer 2"],"stats":{"successful":2,"failed":0}}
 ```
@@ -228,10 +228,10 @@ const report = await research(
 
 | Provider | Model | Cost/1M tokens | Web Search | Notes |
 |----------|-------|----------------|------------|-------|
-| **Google Gemini** | gemini-2.0-flash | $0.075 | ✅ Yes | Recommended |
-| **Groq** | llama-3.1-70b | Free tier | ❌ No | Fastest |
-| **OpenAI** | gpt-4o-mini | $0.15 | ❌ No | Reliable |
-| **Anthropic** | claude-3-haiku | $0.25 | ❌ No | Quality |
+| **Google Gemini** | gemini-2.0-flash | $0.075 |  Yes | Recommended |
+| **Groq** | llama-3.1-70b | Free tier |  No | Fastest |
+| **OpenAI** | gpt-4o-mini | $0.15 |  No | Reliable |
+| **Anthropic** | claude-3-haiku | $0.25 |  No | Quality |
 
 > Web search grounding is currently only available with Google Gemini. It uses the same API key at no additional cost.
 

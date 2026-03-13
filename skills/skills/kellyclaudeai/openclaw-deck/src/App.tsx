@@ -27,7 +27,7 @@ const DEFAULT_AGENTS: AgentConfig[] = [
   {
     id: "main",
     name: "Molty",
-    icon: "🦞",
+    icon: "",
     accent: "#22d3ee",
     context: "Primary assistant",
     model: "claude-sonnet-4-5",

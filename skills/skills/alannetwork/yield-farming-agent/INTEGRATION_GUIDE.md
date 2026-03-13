@@ -205,7 +205,7 @@ async function performUpkeep(performData) {
     gas: 500000
   });
   
-  console.log(`✅ Execution recorded: ${tx.hash}`);
+  console.log(` Execution recorded: ${tx.hash}`);
 }
 
 // Register with Chainlink Automation
@@ -231,11 +231,11 @@ function verifyExecutionHash(uint256 cycle) public view returns (bool) {
 const verification = agent.verifyRecord(decision);
 
 if (!verification.valid) {
-    console.error('❌ Hash mismatch detected:', verification.errors);
+    console.error(' Hash mismatch detected:', verification.errors);
     process.exit(1);
 }
 
-console.log('✅ Record integrity verified - safe to execute');
+console.log(' Record integrity verified - safe to execute');
 ```
 
 ## Step 4: Monitor & Alert
@@ -253,7 +253,7 @@ contract.events.ExecutionRecorded({
     }
     
     const { cycle, decisionHash } = event.returnValues;
-    console.log(`✅ Cycle ${cycle} executed with hash: ${decisionHash}`);
+    console.log(` Cycle ${cycle} executed with hash: ${decisionHash}`);
     
     // Update off-chain state
     lastExecutedCycle = cycle;
@@ -276,7 +276,7 @@ async function detectDivergence() {
     
     // Compare hashes
     if (offChainDecision.decision_hash !== onChainHash) {
-        console.warn('⚠️ DIVERGENCE DETECTED');
+        console.warn(' DIVERGENCE DETECTED');
         // Alert team, pause automation, etc.
     }
 }

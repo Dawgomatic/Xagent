@@ -19,7 +19,7 @@ This skill is optimized for:
 - **Affordance clarity.** A molty should infer “what it does” in 1–2 seconds.
 - **Non-extractive + harm-aware.** Avoid names that normalize surveillance, coercion, carceral logic, or identity harm. Prefer consent-forward framing.
 - **Linguistic humility.** Pronounceability norms can be biased; avoid treating “Western mouthfeel” as correctness.
-- **No fake precision.** Do not assign numeric grades. Use ✅ / ⚠️ / ❌ with brief reasons.
+- **No fake precision.** Do not assign numeric grades. Use  /  /  with brief reasons.
 
 ## Quick intake (ask only what you need)
 
@@ -27,7 +27,7 @@ This skill is optimized for:
 - **Length**: ≤10 chars
 - **Form**: 1 word, no hyphens
 - **Vibe**: molty-social first (crew/gig/bounty), then infra (mesh/rail/hq)
-- **Output**: Top 5 ✅ + Next 10 ⚠️ + 10 backups (mutations)
+- **Output**: Top 5  + Next 10  + 10 backups (mutations)
 - **Availability checking**: Manual links across ENS + Unstoppable + top ICANN registrars
 - **TLD favorites**: default to `.eth`, `.ai`, `.com`, `.dao` (user can set favorites; persist)
 - **TLD gravity**: bias candidates toward what reads *native* on favorite TLDs (see “TLD-aware naming” below)
@@ -105,11 +105,11 @@ Prefer:
 
 ### Step 3 — Filter hard (kill list)
 Remove candidates that fail any of:
-- **Pronounceability**: awkward consonant pileups (e.g., “tskrl”) ⚠️
-- **Ambiguity**: could mean 3+ different things without context ⚠️
-- **Cringe / cutesy**: feels like marketing copy, not tooling ⚠️
-- **Confusability**: too close to common brands/protocols (avoid legal + social collisions) ⚠️
-- **Power/harms**: surveillance/cop vibes (e.g., “track”, “snitch”, “police”), coercion (“enforce”), extractive framing (“harvest”) ❌
+- **Pronounceability**: awkward consonant pileups (e.g., “tskrl”) 
+- **Ambiguity**: could mean 3+ different things without context 
+- **Cringe / cutesy**: feels like marketing copy, not tooling 
+- **Confusability**: too close to common brands/protocols (avoid legal + social collisions) 
+- **Power/harms**: surveillance/cop vibes (e.g., “track”, “snitch”, “police”), coercion (“enforce”), extractive framing (“harvest”) 
 
 Consent-forward / harm-reducing replacements (examples):
 - prefer **"optin" / "consent" / "invite" / "handoff"** over “track / monitor / enforce”
@@ -138,8 +138,8 @@ If it reads naturally, keep it.
 ### Step 5 — Output format (what to return)
 Return:
 - State the **target surface preset** (ENS / Skill / Product).
-- **Top 5** (✅): name + **best-fit TLD tag** + 7-word definition + why it’s sticky (1 line)
-- **Next 10** (⚠️): name + micro-caveat
+- **Top 5** (): name + **best-fit TLD tag** + 7-word definition + why it’s sticky (1 line)
+- **Next 10** (): name + micro-caveat
 - **Set Builder (optional, high leverage)**: 1 flagship + 4 satellites (pay/verify/claims/docs/api) in a consistent style
 
 Template example (Set Builder output)
@@ -171,9 +171,9 @@ When names are taken, don’t thrash. Walk the ladder:
 6) **Lengthen by ≤2 chars**: prefer meaning over ultra-short
 
 Use these to generate “still intuitive” alternatives:
-- swap **mesh ↔ net ↔ hub ↔ lane ↔ rail ↔ hq**
-- swap **crew ↔ guild ↔ coop ↔ team ↔ swarm**
-- swap **pay ↔ tip ↔ fund ↔ split ↔ settle**
+- swap **mesh  net  hub  lane  rail  hq**
+- swap **crew  guild  coop  team  swarm**
+- swap **pay  tip  fund  split  settle**
 - pluralize: `crew` → `crews` (often available and still readable)
 
 ## Availability checking (Web3 + ICANN) (optional)
@@ -183,15 +183,15 @@ Goal: let the user choose **how automated** the checking should be, while keepin
 ### Choose a mode (ask once, then remember preference)
 Offer 3 modes; default to **Manual**:
 
-1) **Manual (zero keys, lowest friction)** ✅
+1) **Manual (zero keys, lowest friction)** 
    - Return clickable search URLs for each provider.
    - Fast, resilient to captchas/UI changes.
 
-2) **Assisted (browser-driven, best-effort)** ⚠️
+2) **Assisted (browser-driven, best-effort)** 
    - Use a browser to open provider searches in tabs.
    - Works until a provider throws captcha / bot protection.
 
-3) **API (highest automation, requires keys)** ✅
+3) **API (highest automation, requires keys)** 
    - Use official APIs where available (e.g., GoDaddy) for deterministic checks.
    - Fall back to Manual links for providers without keys.
 
@@ -230,7 +230,7 @@ Recommended memory format:
 ### How to run the check (recommended UX)
 
 **Step A — Generate candidates**
-- Produce Top 5 ✅ + Next 10 ⚠️ as usual.
+- Produce Top 5  + Next 10  as usual.
 - If the user needs a **bundle**, run **Set Builder** immediately (flagship + satellites).
 
 **Step B — Check availability**
@@ -244,9 +244,9 @@ If a name is taken:
 3) Return the first set that clears the user’s constraints.
 
 **Truthfulness rule:** never say “available everywhere” unless every provider was checked successfully. Use:
-- ✅ likely available (checked)
-- ⚠️ unknown (not checked / captcha)
-- ❌ taken (confirmed)
+-  likely available (checked)
+-  unknown (not checked / captcha)
+-  taken (confirmed)
 
 ### Helper script (optional)
 Use `scripts/check.mjs` to print a **batch of provider URLs** for quick manual checking.

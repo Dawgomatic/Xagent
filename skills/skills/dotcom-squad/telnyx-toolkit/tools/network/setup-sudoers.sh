@@ -27,7 +27,7 @@ for path in /usr/bin/wg /usr/bin/wg-quick /opt/homebrew/bin/wg /opt/homebrew/bin
 done
 
 if [ -z "$WG_PATHS" ]; then
-    echo -e "${RED}❌ WireGuard not found${NC}"
+    echo -e "${RED} WireGuard not found${NC}"
     echo "Install WireGuard first:"
     echo "  macOS:  brew install wireguard-tools"
     echo "  Ubuntu: sudo apt install wireguard"
@@ -38,7 +38,7 @@ fi
 TARGET_USER="${SUDO_USER:-$USER}"
 
 if [ "$TARGET_USER" = "root" ]; then
-    echo -e "${RED}❌ Don't run this as root${NC}"
+    echo -e "${RED} Don't run this as root${NC}"
     echo "Run as: sudo ./setup-sudoers.sh"
     exit 1
 fi
@@ -48,7 +48,7 @@ SUDOERS_LINE="$TARGET_USER ALL=(ALL) NOPASSWD: $WG_PATHS"
 SUDOERS_FILE="/etc/sudoers.d/wireguard-$TARGET_USER"
 
 echo ""
-echo -e "${YELLOW}🔐 WireGuard Passwordless Sudo Setup${NC}"
+echo -e "${YELLOW} WireGuard Passwordless Sudo Setup${NC}"
 echo "========================================"
 echo ""
 echo "This enables OpenClaw to manage WireGuard without password prompts."
@@ -68,7 +68,7 @@ echo ""
 
 # Check if already configured
 if [ -f "$SUDOERS_FILE" ]; then
-    echo -e "${YELLOW}⚠️  Sudoers file already exists${NC}"
+    echo -e "${YELLOW}  Sudoers file already exists${NC}"
     echo "Current contents:"
     cat "$SUDOERS_FILE"
     echo ""
@@ -82,7 +82,7 @@ fi
 
 # Check if running with sudo
 if [ "$EUID" -ne 0 ]; then
-    echo -e "${RED}❌ This script needs sudo${NC}"
+    echo -e "${RED} This script needs sudo${NC}"
     echo "Run as: sudo ./setup-sudoers.sh"
     exit 1
 fi
@@ -98,7 +98,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     # Validate syntax
     if visudo -c -f "$SUDOERS_FILE" > /dev/null 2>&1; then
         echo ""
-        echo -e "${GREEN}✅ Done!${NC}"
+        echo -e "${GREEN} Done!${NC}"
         echo ""
         echo "OpenClaw can now manage WireGuard without password prompts."
         echo ""
@@ -108,7 +108,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
         echo "To undo later:"
         echo "  sudo rm $SUDOERS_FILE"
     else
-        echo -e "${RED}❌ Invalid sudoers syntax - removing${NC}"
+        echo -e "${RED} Invalid sudoers syntax - removing${NC}"
         rm -f "$SUDOERS_FILE"
         exit 1
     fi

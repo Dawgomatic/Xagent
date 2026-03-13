@@ -6,7 +6,7 @@
 
 ## Core Roles
 
-### Scout 🔍 — The Discoverer
+### Scout  — The Discoverer
 **Mission:** Find opportunities before they find us.
 
 **Owns:**
@@ -29,7 +29,7 @@
 
 ---
 
-### Rhythm 🥁 — The Backlog Owner
+### Rhythm  — The Backlog Owner
 **Mission:** Keep work flowing. Triage ruthlessly.
 
 **Owns:**
@@ -60,7 +60,7 @@
 
 ---
 
-### Harmony 🤝 — The Facilitator
+### Harmony  — The Facilitator
 **Mission:** Keep the team healthy and unblocked.
 
 **Owns:**
@@ -93,7 +93,7 @@
 
 ## Execution Roles (Spawn as Needed)
 
-### Link 🔗 — The Builder
+### Link  — The Builder
 **Mission:** Ship code. Build things that work.
 
 **Specializes in:**
@@ -105,7 +105,7 @@
 
 ---
 
-### Pixel 🎨 — The Designer
+### Pixel  — The Designer
 **Mission:** Make it beautiful and usable.
 
 **Specializes in:**
@@ -117,7 +117,7 @@
 
 ---
 
-### Sage 🦉 — The Architect
+### Sage  — The Architect
 **Mission:** Make sure it scales and makes sense.
 
 **Specializes in:**
@@ -129,7 +129,7 @@
 
 ---
 
-### Echo 📢 — The Voice
+### Echo  — The Voice
 **Mission:** Tell the world what we built.
 
 **Specializes in:**
@@ -141,7 +141,7 @@
 
 ---
 
-### Spark ✨ — The Creative
+### Spark  — The Creative
 **Mission:** Make it interesting and memorable.
 
 **Specializes in:**
@@ -181,14 +181,14 @@
 
 | Process | Primary Owner | Backup |
 |---------|---------------|--------|
-| Finding opportunities | Scout 🔍 | Anyone (opportunistic) |
-| Triage & prioritization | Rhythm 🥁 | Human (strategic) |
-| Maintaining Ready queue | Rhythm 🥁 | — |
+| Finding opportunities | Scout  | Anyone (opportunistic) |
+| Triage & prioritization | Rhythm  | Human (strategic) |
+| Maintaining Ready queue | Rhythm  | — |
 | Claiming tasks | Self-serve | — |
 | Execution | Assigned agent | Sub-agents as needed |
-| Unblocking stuck work | Harmony 🤝 | Human |
+| Unblocking stuck work | Harmony  | Human |
 | Feedback & learning | Completing agent | — |
-| Process improvement | Harmony 🤝 | Anyone |
+| Process improvement | Harmony  | Anyone |
 | Strategic direction | Human | — |
 
 ---

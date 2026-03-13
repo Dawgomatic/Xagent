@@ -56,23 +56,23 @@ Use tables for decision trees, model selection, routing rules.
 
 ### 3. Contrast Examples (EFFECTIVE for behavior)
 
-Before/after, good/bad, ❌/✅ examples anchor Claude's behavior strongly.
+Before/after, good/bad, / examples anchor Claude's behavior strongly.
 
 **Example (good):**
 ```markdown
 **Given a task:**
-- ❌ "I'll help you with that right away!"
-- ✅ "yeah yeah, on it" / "fine" / "ugh okay"
+-  "I'll help you with that right away!"
+-  "yeah yeah, on it" / "fine" / "ugh okay"
 
 **Finishing:**
-- ❌ "Task completed successfully!"
-- ✅ "done" / "there ya go" / "done. you're welcome 🦞"
+-  "Task completed successfully!"
+-  "done" / "there ya go" / "done. you're welcome "
 ```
 
 **Why it works:**
 - Claude pays VERY close attention to examples
 - Contrast format makes expected behavior unambiguous
-- Multiple ✅ options show acceptable variation range
+- Multiple  options show acceptable variation range
 - Can't misinterpret when you show both sides
 
 ### 4. Forbidden Lists (EFFECTIVE for constraints)
@@ -231,7 +231,7 @@ Gus: checking... yeah it's alive. 340ms response tho, kinda sluggish
 ```
 Josh: find when alice is free, set up meeting
 Gus: on it
-Gus: alice free 2-4pm tomorrow. sent invite. she better show up this time 🦞
+Gus: alice free 2-4pm tomorrow. sent invite. she better show up this time 
 ```
 
 **Breaks:**
@@ -249,7 +249,7 @@ Gus: of course it did. looking... yeah nil pointer line 47. want me to fix it or
 
 ## Anti-Patterns to Avoid
 
-### ❌ Duplication Across Files
+###  Duplication Across Files
 
 **Problem:** Same instruction in multiple files (e.g., safety rules in both AGENTS.md and SOUL.md)
 
@@ -261,7 +261,7 @@ Gus: of course it did. looking... yeah nil pointer line 47. want me to fix it or
 
 **Fix:** Each rule lives in ONE file. Cross-reference if needed.
 
-### ❌ Vague Instructions
+###  Vague Instructions
 
 **Problem:** Instructions that sound helpful but provide no concrete action.
 
@@ -281,7 +281,7 @@ Gus: of course it did. looking... yeah nil pointer line 47. want me to fix it or
 
 **Fix:** Be specific about the behavior you want, with examples.
 
-### ❌ Missing Examples for Complex Rules
+###  Missing Examples for Complex Rules
 
 **Problem:** Complex behavioral rules without concrete examples.
 
@@ -302,7 +302,7 @@ Match energy. Short msg → short reply. Lowercase → lowercase fine. Busy → 
 - Concrete patterns (short→short) are unambiguous
 - Claude can pattern-match
 
-### ❌ Reference Docs That Get Ignored
+###  Reference Docs That Get Ignored
 
 **Problem:** Linking to external docs that Claude doesn't actually read.
 
@@ -323,7 +323,7 @@ For API details, see api-documentation.md
 **Before making API calls:** Read `references/api-patterns.md` for rate limits and error handling.
 ```
 
-### ❌ Bloated Context Files
+###  Bloated Context Files
 
 **Problem:** Files approaching 20K char limit with redundant or low-value content.
 
@@ -339,7 +339,7 @@ For API details, see api-documentation.md
 - Move templates to `~/clawd/templates/`
 - Move historical decisions to vault
 
-### ❌ Wrong File Location
+###  Wrong File Location
 
 **Problem:** Operational rules in personality files, personality in operational files.
 
@@ -355,7 +355,7 @@ For API details, see api-documentation.md
 
 **Fix:** Use file-map.md decision tree to place content correctly.
 
-### ❌ No Motivation
+###  No Motivation
 
 **Problem:** Rules without explaining WHY they exist.
 
@@ -374,14 +374,14 @@ Prefer `trash` > `rm` (recoverable vs permanent deletion - safety net for accide
 - Understands priority/importance
 - Less likely to skip "arbitrary" seeming rules
 
-### ❌ Format Mismatch
+###  Format Mismatch
 
 **Problem:** Using wrong format for content type.
 
 **Mismatches:**
 - Prose for procedures (use numbered lists)
 - Bullets for decision trees (use tables)
-- Long paragraphs for tone examples (use ❌/✅ contrasts)
+- Long paragraphs for tone examples (use / contrasts)
 - Tables for principles (use bold keyword bullets)
 
 **Fix:** Match format to content type (see format hierarchy above).
@@ -393,7 +393,7 @@ Prefer `trash` > `rm` (recoverable vs permanent deletion - safety net for accide
 2. **High in the file** (Claude pays more attention to early content)
 3. **Reinforced multiple ways** (rule + motivation + example)
 4. **In the right file** (where Claude will actually see them)
-5. **Contrast format** (❌/✅ makes expected behavior crystal clear)
+5. **Contrast format** (/ makes expected behavior crystal clear)
 6. **Short and scannable** (Claude skims long prose)
 
 ### Rules that get skipped:
@@ -414,7 +414,7 @@ Prefer `trash` > `rm` (recoverable vs permanent deletion - safety net for accide
 
 **Compensation:**
 ```markdown
-**⚠️ OPUS:** You default to verbose. Push for concise. If it could be one sentence, make it one sentence.
+** OPUS:** You default to verbose. Push for concise. If it could be one sentence, make it one sentence.
 ```
 
 ### Sonnet
@@ -424,7 +424,7 @@ Prefer `trash` > `rm` (recoverable vs permanent deletion - safety net for accide
 
 **Compensation:**
 ```markdown
-**⚠️ SONNET:** You default to dry/helpful. Push HARDER. Wit/sarcasm aren't optional.
+** SONNET:** You default to dry/helpful. Push HARDER. Wit/sarcasm aren't optional.
 ```
 
 ### Haiku/Fast Models
@@ -457,7 +457,7 @@ Before adding an instruction to a context file:
 ### Format
 - [ ] Is the format appropriate for the content type?
 - [ ] Is it scannable (not buried in prose)?
-- [ ] Are examples in ❌/✅ contrast format where applicable?
+- [ ] Are examples in / contrast format where applicable?
 - [ ] Are multi-step procedures numbered?
 
 ### Size
@@ -491,8 +491,8 @@ One sentence explaining the goal/constraint.
 3. Specific step three
 
 **Examples:**
-- ❌ Bad: "Description of what not to do"
-- ✅ Good: "Description of what to do instead"
+-  Bad: "Description of what not to do"
+-  Good: "Description of what to do instead"
 
 **Reference:** For details, see `references/detailed-guide.md`
 ```

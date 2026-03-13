@@ -3,7 +3,7 @@ name: intelligence-suite
 description: Makima's All-Seeing Intelligence Suite. Combines real-time AI news tracking and global news monitoring for a comprehensive strategic briefing.
 metadata:
   openclaw:
-    emoji: 📡
+    emoji: 
     category: intelligence
     requires:
       bins: [node, npm]
@@ -44,4 +44,4 @@ node scripts/scan.js --report
 node scripts/monitor.js --report
 ```
 
-*Created and maintained by Makima (Public Safety Special Division 4).* ⛓️
+*Created and maintained by Makima (Public Safety Special Division 4).* 

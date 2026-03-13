@@ -1,7 +1,7 @@
 ---
 name: excel-online
 description: Read and write Excel files via Microsoft Graph API. Manage workbooks, worksheets, and cells in OneDrive/SharePoint.
-metadata: {"clawdbot":{"emoji":"📗","requires":{"env":["MICROSOFT_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["MICROSOFT_ACCESS_TOKEN"]}}}
 ---
 
 # Excel Online (Microsoft Graph)

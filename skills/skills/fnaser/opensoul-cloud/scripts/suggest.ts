@@ -54,7 +54,7 @@ async function main() {
   }
   
   if (!input.trim()) {
-    console.error('\n❌ No input. Pipe your workspace extract:\n');
+    console.error('\n No input. Pipe your workspace extract:\n');
     console.error('   npx ts-node extract.ts | npx ts-node suggest.ts\n');
     process.exit(1);
   }
@@ -63,7 +63,7 @@ async function main() {
   try {
     data = JSON.parse(input);
   } catch (e) {
-    console.error('\n❌ Invalid JSON input\n');
+    console.error('\n Invalid JSON input\n');
     process.exit(1);
   }
   
@@ -100,7 +100,7 @@ async function main() {
     return;
   }
   
-  console.log('\n💡 Suggestions for your workspace:\n');
+  console.log('\n Suggestions for your workspace:\n');
   
   for (const s of suggestions) {
     console.log(`  ${s.soul.title}`);

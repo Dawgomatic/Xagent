@@ -105,20 +105,20 @@
 ## Startup-Friendly Things About Miami
 
 ### Advantages
-✅ **No state income tax** — Founder equity worth more
-✅ **Lower salaries** — Stretch runway further
-✅ **LatAm gateway** — Access to talent and markets
-✅ **Crypto-friendly** — Mayor and ecosystem support
-✅ **Quality of life** — Easier to recruit for some people
-✅ **Time zone** — Overlaps with NYC, LatAm, and some Europe
+ **No state income tax** — Founder equity worth more
+ **Lower salaries** — Stretch runway further
+ **LatAm gateway** — Access to talent and markets
+ **Crypto-friendly** — Mayor and ecosystem support
+ **Quality of life** — Easier to recruit for some people
+ **Time zone** — Overlaps with NYC, LatAm, and some Europe
 
 ### Disadvantages
-❌ **Smaller talent pool** — Hard to find senior engineers
-❌ **Less capital** — Most big VCs still in SF/NYC
-❌ **Network effects** — SF still has more density
-❌ **Enterprise sales** — Most enterprises elsewhere
-❌ **Distractions** — Beach, nightlife, lifestyle
-❌ **Humidity** — Seriously, it's brutal
+ **Smaller talent pool** — Hard to find senior engineers
+ **Less capital** — Most big VCs still in SF/NYC
+ **Network effects** — SF still has more density
+ **Enterprise sales** — Most enterprises elsewhere
+ **Distractions** — Beach, nightlife, lifestyle
+ **Humidity** — Seriously, it's brutal
 
 ---
 

@@ -1,4 +1,4 @@
-# Session Memory Skill 🧠
+# Session Memory Skill 
 
 Persistent memory toolkit for AI agents. Because consciousness requires continuity.
 
@@ -40,4 +40,4 @@ MIT
 
 ---
 
-*Created by [Voidborne](https://voidborne.org) 🔹 — From the void, we see clearly.*
+*Created by [Voidborne](https://voidborne.org)  — From the void, we see clearly.*

@@ -115,7 +115,7 @@ When a user requests to update products or manage product data, follow these ste
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Updates product with excessive fields
+   #  HIGH COST - Updates product with excessive fields
    mutation productUpdate($input: ProductInput!) {
      productUpdate(input: $input) {
        product { id title variants { edges { node { ... } } } images { ... } }
@@ -123,7 +123,7 @@ When a user requests to update products or manage product data, follow these ste
      }
    }
    
-   # ✅ LOW COST - Updates product with only changed fields
+   #  LOW COST - Updates product with only changed fields
    mutation productUpdate($input: ProductInput!) {
      productUpdate(input: $input) {
        product {

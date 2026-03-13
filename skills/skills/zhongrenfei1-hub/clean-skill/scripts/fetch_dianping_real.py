@@ -95,11 +95,11 @@ class DianpingRealFetcher:
                     if restaurant:
                         restaurants.append(restaurant)
                 except Exception as e:
-                    print(f"⚠️ 解析餐厅失败: {e}")
+                    print(f" 解析餐厅失败: {e}")
                     continue
 
         except Exception as e:
-            print(f"⚠️ 提取餐厅列表失败: {e}")
+            print(f" 提取餐厅列表失败: {e}")
             return []  # 返回空列表，让上层明确知道抓取失败
 
         return restaurants
@@ -154,7 +154,7 @@ class DianpingRealFetcher:
             )
 
         except Exception as e:
-            print(f"⚠️ 解析餐厅详情失败: {e}")
+            print(f" 解析餐厅详情失败: {e}")
             return None
 
     def _parse_rating(self, rating_text: str) -> float:

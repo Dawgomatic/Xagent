@@ -124,9 +124,9 @@ plant_tracker.py search "Backyard"
 
 ### Path Validation
 The `export` function validates output paths to prevent malicious writes:
-- ✅ Allowed: `~/.openclaw/workspace/`, `/tmp/`, and home directory
-- ❌ Blocked: System paths (`/etc/`, `/usr/`, `/var/`, etc.)
-- ❌ Blocked: Sensitive dotfiles (`~/.bashrc`, `~/.ssh`, etc.)
+-  Allowed: `~/.openclaw/workspace/`, `/tmp/`, and home directory
+-  Blocked: System paths (`/etc/`, `/usr/`, `/var/`, etc.)
+-  Blocked: Sensitive dotfiles (`~/.bashrc`, `~/.ssh`, etc.)
 
 ## Data Storage
 

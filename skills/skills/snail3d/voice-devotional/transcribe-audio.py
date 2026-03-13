@@ -74,12 +74,12 @@ def main():
         sys.exit(1)
     
     # Transcribe
-    print(f"📝 Transcribing {Path(audio_path).name}...", file=sys.stderr)
+    print(f" Transcribing {Path(audio_path).name}...", file=sys.stderr)
     text = transcribe_audio(audio_path, api_key)
     
     if text:
         print(text)
-        print(f"\n✅ Transcription complete", file=sys.stderr)
+        print(f"\n Transcription complete", file=sys.stderr)
     else:
         print("Error: No transcription returned", file=sys.stderr)
         sys.exit(1)

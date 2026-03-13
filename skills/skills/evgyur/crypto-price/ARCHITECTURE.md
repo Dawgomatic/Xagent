@@ -2,7 +2,7 @@
 
 **Version:** 1.0  
 **Date:** 2026-01-27  
-**Author:** Research & audit by Clawd 🦊
+**Author:** Research & audit by Clawd 
 
 ---
 
@@ -45,7 +45,7 @@ This document explains why `crypto-price` does **not** use template generation f
 ---
 name: BTC
 description: Slash command for Bitcoin token price + chart.
-metadata: {"clawdbot":{"emoji":"📈","requires":{"bins":["python3"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
 # Bitcoin Price
@@ -191,23 +191,23 @@ User sees: Text + Chart
 **Test 1: HYPE (Hyperliquid)**
 ```bash
 $ python3 get_price_chart.py HYPE
-{"symbol": "HYPE", "price": 27.31, "text_plain": "HYPE: $27.31 USD ⬆️ +22.60% over 24h"}
+{"symbol": "HYPE", "price": 27.31, "text_plain": "HYPE: $27.31 USD  +22.60% over 24h"}
 ```
-✅ Works
+ Works
 
 **Test 2: BTC 12h**
 ```bash
 $ python3 get_price_chart.py BTC 12h
-{"symbol": "BTC", "price": 88263.00, "text_plain": "BTC: $88263.00 USD ⬆️ +0.53% over 12h"}
+{"symbol": "BTC", "price": 88263.00, "text_plain": "BTC: $88263.00 USD  +0.53% over 12h"}
 ```
-✅ Works
+ Works
 
 **Test 3: Rate Limit**
 ```bash
 $ python3 get_price_chart.py PEPE
 {"error": "price lookup failed", "details": "HTTP Error 429: Too Many Requests"}
 ```
-✅ Graceful error
+ Graceful error
 
 **Test 4: Wrapper Consistency**
 ```bash
@@ -219,7 +219,7 @@ $ diff -u btc/SKILL.md eth/SKILL.md
 -get_price_chart.py BTC
 +get_price_chart.py ETH
 ```
-✅ Identical structure (only symbol differs)
+ Identical structure (only symbol differs)
 
 ---
 
@@ -394,18 +394,18 @@ Simpler than maintaining template + generator.
 
 **System is optimal as-is:**
 
-✅ 1 core script (all logic)  
-✅ 30 minimal wrappers (metadata only)  
-✅ Zero duplication  
-✅ Easy maintenance (bug fix in 1 place)  
-✅ Easy to extend (copy + edit 3 lines)
+ 1 core script (all logic)  
+ 30 minimal wrappers (metadata only)  
+ Zero duplication  
+ Easy maintenance (bug fix in 1 place)  
+ Easy to extend (copy + edit 3 lines)
 
 **Template generation would:**
 
-❌ Add complexity (more files to maintain)  
-❌ Slow down token addition (scripting overhead)  
-❌ Not reduce wrapper size (still 35 lines)  
-❌ Not improve maintenance (already 1 bug fix location)
+ Add complexity (more files to maintain)  
+ Slow down token addition (scripting overhead)  
+ Not reduce wrapper size (still 35 lines)  
+ Not improve maintenance (already 1 bug fix location)
 
 ### Recommendation
 

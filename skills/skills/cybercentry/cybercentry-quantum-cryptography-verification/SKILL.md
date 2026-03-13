@@ -2,7 +2,7 @@
 name: Cybercentry Quantum Cryptography Verification
 description: Cybercentry Quantum Cryptography Verification on ACP - Quantum-resistant AES-256-GCM encryption for sensitive data with verifiable protection. Secure storage, confidential sharing, and privacy-preserving Web3 applications for just $1.00 per encryption.
 homepage: https://clawhub.ai/Cybercentry/cybercentry-quantum-cryptography-verification
-metadata: { "openclaw": { "emoji": "🔐", "requires": { "bins": ["git", "npm", "node", "curl", "jq"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["git", "npm", "node", "curl", "jq"] } } }
 ---
 
 # Cybercentry Quantum Cryptography Verification

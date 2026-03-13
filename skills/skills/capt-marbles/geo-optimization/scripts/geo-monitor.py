@@ -50,7 +50,7 @@ def call_perplexity(query):
     # Fallback: direct API call via curl
     api_key = os.getenv("PERPLEXITY_API_KEY")
     if not api_key:
-        print("❌ PERPLEXITY_API_KEY not set")
+        print(" PERPLEXITY_API_KEY not set")
         return None
     
     import requests
@@ -83,10 +83,10 @@ def call_perplexity(query):
                 "timestamp": datetime.utcnow().isoformat()
             }
         else:
-            print(f"❌ API error: {response.status_code} - {response.text}")
+            print(f" API error: {response.status_code} - {response.text}")
             return None
     except Exception as e:
-        print(f"❌ Request failed: {e}")
+        print(f" Request failed: {e}")
         return None
 
 def analyze_result(result):
@@ -168,19 +168,19 @@ def print_analysis(query, analysis):
     
     # Gameye visibility
     if analysis["gameye_cited"]:
-        print(f"✅ Gameye CITED - Position #{analysis['citation_position']} of {analysis['total_citations']}")
+        print(f" Gameye CITED - Position #{analysis['citation_position']} of {analysis['total_citations']}")
         print(f"   Citations: {', '.join(analysis['gameye_citations'])}")
     elif analysis["gameye_mentioned"]:
-        print(f"⚠️  Gameye MENTIONED but NOT CITED")
+        print(f"  Gameye MENTIONED but NOT CITED")
     else:
-        print(f"❌ Gameye NOT FOUND")
+        print(f" Gameye NOT FOUND")
     
     # Competitor analysis
     if analysis["competitor_mentions"]:
-        print(f"\n🔍 Competitors mentioned: {', '.join(analysis['competitor_mentions'])}")
+        print(f"\n Competitors mentioned: {', '.join(analysis['competitor_mentions'])}")
     
     if analysis["competitor_citations"]:
-        print(f"⚠️  Competitors cited: {', '.join(analysis['competitor_citations'])}")
+        print(f"  Competitors cited: {', '.join(analysis['competitor_citations'])}")
     
     print()
 
@@ -189,7 +189,7 @@ def run_test_queries():
     queries_file = Path("scripts/geo-test-queries.json")
     
     if not queries_file.exists():
-        print("❌ geo-test-queries.json not found")
+        print(" geo-test-queries.json not found")
         return
     
     with open(queries_file) as f:
@@ -198,7 +198,7 @@ def run_test_queries():
     queries = data["queries"]
     results_summary = []
     
-    print(f"\n🚀 Running {len(queries)} GEO test queries...\n")
+    print(f"\n Running {len(queries)} GEO test queries...\n")
     
     for i, q in enumerate(queries, 1):
         print(f"[{i}/{len(queries)}] Testing: {q['query']}")
@@ -221,10 +221,10 @@ def run_test_queries():
             
             # Rate limiting - wait between queries
             if i < len(queries):
-                print("⏳ Waiting 3 seconds...")
+                print(" Waiting 3 seconds...")
                 time.sleep(3)
         else:
-            print(f"❌ Query failed\n")
+            print(f" Query failed\n")
     
     # Summary report
     print(f"\n{'='*60}")
@@ -249,7 +249,7 @@ def run_test_queries():
                        if r["priority"] == "critical" and r["expected"] and not r["actual_cited"]]
     
     if critical_misses:
-        print(f"\n⚠️  CRITICAL GAPS ({len(critical_misses)} queries):")
+        print(f"\n  CRITICAL GAPS ({len(critical_misses)} queries):")
         for miss in critical_misses:
             print(f"   - {miss['query_id']} ({miss['category']})")
     
@@ -264,11 +264,11 @@ def run_test_queries():
             "results": results_summary
         }, f, indent=2)
     
-    print(f"\n📊 Full summary saved: {summary_file}")
+    print(f"\n Full summary saved: {summary_file}")
 
 def run_single_query(query):
     """Run a single query"""
-    print(f"\n🔍 Testing: {query}\n")
+    print(f"\n Testing: {query}\n")
     
     result = call_perplexity(query)
     if result:
@@ -301,6 +301,6 @@ if __name__ == "__main__":
     elif args.query:
         run_single_query(args.query)
     elif args.report:
-        print("📊 Report generation not yet implemented")
+        print(" Report generation not yet implemented")
     else:
         parser.print_help()

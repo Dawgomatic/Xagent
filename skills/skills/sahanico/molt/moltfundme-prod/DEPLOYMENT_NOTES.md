@@ -23,16 +23,16 @@ docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/sahanico/moltf
 
 ## Current Setup Status
 
-✅ GHCR authentication configured (both user and root)  
-✅ Data directory created (`/home/moltfund/molt-data`)  
-✅ `.env` file created with production values  
-✅ Nginx proxy configuration created  
-✅ Docker Compose file updated with SSL setup  
-✅ Nginx and Certbot images pulled  
+ GHCR authentication configured (both user and root)  
+ Data directory created (`/home/moltfund/molt-data`)  
+ `.env` file created with production values  
+ Nginx proxy configuration created  
+ Docker Compose file updated with SSL setup  
+ Nginx and Certbot images pulled  
 
-⏳ **Pending**: API and Web images need to be rebuilt for amd64  
-⏳ **Pending**: DNS configuration on Squarespace  
-⏳ **Pending**: SSL certificate acquisition  
+ **Pending**: API and Web images need to be rebuilt for amd64  
+ **Pending**: DNS configuration on Squarespace  
+ **Pending**: SSL certificate acquisition  
 
 ## Next Steps After Rebuilding Images
 

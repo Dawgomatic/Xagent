@@ -414,7 +414,7 @@ class SemanticDrift:
             DriftType.METAPHOR: "⟹",
             DriftType.SOUND: "♪",
             DriftType.BLEND: "⊕",
-            DriftType.CORRUPTION: "⚡",
+            DriftType.CORRUPTION: "",
         }
         icon = icons.get(step.drift_type, "→")
 

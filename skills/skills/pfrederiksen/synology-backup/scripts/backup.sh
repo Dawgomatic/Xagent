@@ -38,7 +38,7 @@ for path_raw in $(jq -r '.backupPaths[]' "$CONFIG"); do
     path=$(echo "$path_raw" | sed "s|^~|$HOME|")
     
     if [[ ! -e "$path" ]]; then
-        echo "⚠️  Skipping (not found): $path"
+        echo "  Skipping (not found): $path"
         continue
     fi
     

@@ -354,13 +354,13 @@ const getTierCost = (tier) => {
  * Gets status emoji for budget percent - PURE
  * @param {number} percent
  * @returns {string}
- * @post returns in ['✅', '🟡', '🔴', '🚨']
+ * @post returns in ['', '', '', '']
  */
 const getStatusEmoji = (percent) => {
-    if (percent >= 1.0) return '🚨';
-    if (percent >= 0.95) return '🔴';
-    if (percent >= 0.80) return '🟡';
-    return '✅';
+    if (percent >= 1.0) return '';
+    if (percent >= 0.95) return '';
+    if (percent >= 0.80) return '';
+    return '';
 };
 
 /**

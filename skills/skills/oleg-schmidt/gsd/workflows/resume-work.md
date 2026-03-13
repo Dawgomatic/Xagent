@@ -104,7 +104,7 @@ done
 **If checkpoint exists:**
 
 ```
-**▶ Resume from Checkpoint**
+** Resume from Checkpoint**
 
 {Next action from .continue-here.md}
 
@@ -120,7 +120,7 @@ Ready to continue? (yes to proceed)
 **If no checkpoint but incomplete work:**
 
 ```
-**▶ Continue Work**
+** Continue Work**
 
 Incomplete plans found in Phase {N}.
 
@@ -132,7 +132,7 @@ Incomplete plans found in Phase {N}.
 **If nothing pending:**
 
 ```
-**▶ What's Next**
+** What's Next**
 
 All current work complete.
 

@@ -171,18 +171,18 @@ Output assessment results and improvement recommendations for all rooms
 User: /fall risk
 
 Output:
-📊 Fall Risk Assessment
+ Fall Risk Assessment
 
 Overall Risk Level: Moderate Risk (8 points)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Risk Factor Analysis:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Age: Not over 75
-⚠️ Previous Falls: 1 fall in the past year
-⚠️ Balance: TUG test 22 seconds, mobility limited
-✅ Gait: Basically normal
-⚠️ Home Environment: Bathroom lacks grab bars
+ Age: Not over 75
+ Previous Falls: 1 fall in the past year
+ Balance: TUG test 22 seconds, mobility limited
+ Gait: Basically normal
+ Home Environment: Bathroom lacks grab bars
 
 Main Risk Factors:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -206,11 +206,11 @@ User: /fall risk-factors
 Output:
 Fall Risk Factor Checklist
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Controlled:
+ Controlled:
   - Age risk
   - Vision problems
 
-⚠️ Uncontrolled:
+ Uncontrolled:
   - Previous falls
   - Balance problems
   - Home environmental hazards

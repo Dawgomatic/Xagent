@@ -504,13 +504,13 @@ This skill provides financial education and frameworks — not personalized fina
 
 ---
 
-⚡ **Built by AfrexAI** — Transform your business with AI
+ **Built by AfrexAI** — Transform your business with AI
 
-🔗 **More free skills by AfrexAI:**
+ **More free skills by AfrexAI:**
 - [Lead Hunter](https://clawhub.com/skills/afrexai-lead-hunter) — AI-powered lead generation
 - [Budget Tracker](https://clawhub.com/skills/afrexai-budget-tracker) — Business expense management
 - [Negotiation Mastery](https://clawhub.com/skills/afrexai-negotiation-mastery) — Win every deal
 - [Sales Playbook](https://clawhub.com/skills/afrexai-sales-playbook) — Complete B2B sales system
 - [Pricing Strategy](https://clawhub.com/skills/afrexai-pricing-strategy) — Maximize revenue per customer
 
-💰 **Level up:** [AfrexAI Fintech Context Pack ($47)](https://afrexai-cto.github.io/context-packs/) — Complete AI agent context for financial services automation
+ **Level up:** [AfrexAI Fintech Context Pack ($47)](https://afrexai-cto.github.io/context-packs/) — Complete AI agent context for financial services automation

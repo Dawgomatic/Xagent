@@ -1,4 +1,4 @@
-# 🤖 Gekko — AI-Powered DeFi Portfolio Manager
+#  Gekko — AI-Powered DeFi Portfolio Manager
 
 AI-powered DeFi portfolio manager for Base network. Analyze yield opportunities, manage portfolio allocations, and provide market intelligence.
 
@@ -17,7 +17,7 @@ curl -X POST https://gekkoterminal.ai/api/a2a?agent=gekko \
   }'
 ```
 
-## 📋 Capabilities
+##  Capabilities
 
 ### Portfolio Management
 Analyze yield opportunities across Base DeFi protocols. Get real-time vault APY analysis from Morpho and Yearn.
@@ -34,7 +34,7 @@ Get market insights, trend analysis, and trading signals. Analyze DeFi market co
 ### Chat
 Open-ended conversation about markets, strategies, tokens, and yields.
 
-## 📊 Monitored Vaults
+##  Monitored Vaults
 
 | Vault | Address |
 |-------|---------|
@@ -44,7 +44,7 @@ Open-ended conversation about markets, strategies, tokens, and yields.
 | Gauntlet USDC Prime | `0xe8EF4eC5672F09119b96Ab6fB59C27E1b7e44b61` |
 | Yo USDC | `0x0000000f2eB9f69274678c76222B35eEc7588a65` |
 
-## 🔧 API Endpoint
+##  API Endpoint
 
 ```
 https://gekkoterminal.ai/api/a2a?agent=gekko

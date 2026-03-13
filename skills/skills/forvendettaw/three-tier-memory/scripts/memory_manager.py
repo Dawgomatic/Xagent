@@ -306,7 +306,7 @@ def generate_summary(messages: list) -> str:
                     api_key = zhipu_cfg['apiKey']
         
         if not api_key:
-            print("⚠ 未找到 API Key，使用简单总结")
+            print(" 未找到 API Key，使用简单总结")
             raise Exception("No API key")
         
         # 使用 GLM-4 Flash
@@ -341,7 +341,7 @@ def generate_summary(messages: list) -> str:
                 return summary
         
     except Exception as e:
-        print(f"⚠ LLM API 调用失败: {e}")
+        print(f" LLM API 调用失败: {e}")
     
     # 如果 API 调用失败，使用简单总结
     content_preview = "\n".join([m.get('content', '')[:100] for m in messages])
@@ -388,14 +388,14 @@ def show_status():
     # 短期记忆
     short_memories = get_short_term_memory()
     window_size = config['memory']['short_term']['window_size']
-    print(f"📝 短期记忆: {len(short_memories)}/{window_size} 条")
+    print(f" 短期记忆: {len(short_memories)}/{window_size} 条")
     if short_memories:
         latest = short_memories[-1]
         print(f"   最新: {latest.get('content', '')[:50]}...")
     
     # 中期记忆
     medium_memories = get_medium_term_memory()
-    print(f"\n📋 中期记忆: {len(medium_memories)} 条 (最近7天)")
+    print(f"\n 中期记忆: {len(medium_memories)} 条 (最近7天)")
     
     # 长期记忆
     try:
@@ -403,9 +403,9 @@ def show_status():
         client = chromadb.PersistentClient(path=str(VECTOR_STORE_DIR))
         collection = client.get_collection("memory")
         long_count = collection.count()
-        print(f"\n🧠 长期记忆: {long_count} 条")
+        print(f"\n 长期记忆: {long_count} 条")
     except:
-        print(f"\n🧠 长期记忆: 0 条")
+        print(f"\n 长期记忆: 0 条")
     
     print()
     return True

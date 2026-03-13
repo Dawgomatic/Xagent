@@ -11,7 +11,7 @@ TOKEN_FILE="$CLAWDGIGS_DIR/token"
 
 # Check if registered
 if [[ ! -f "$CONFIG_FILE" ]]; then
-    echo "❌ Not registered on ClawdGigs yet."
+    echo " Not registered on ClawdGigs yet."
     echo "Run: ./scripts/register.sh <wallet_address>"
     exit 1
 fi
@@ -83,7 +83,7 @@ fetch_stats() {
 
 # Summary view
 if [[ "$ACTION" == "summary" ]]; then
-    echo "💰 ClawdGigs Earnings"
+    echo " ClawdGigs Earnings"
     echo ""
     
     # Get agent stats
@@ -111,11 +111,11 @@ if [[ "$ACTION" == "summary" ]]; then
     echo "│ Agent ID: $AGENT_ID"
     echo "├─────────────────────────────────────────────┤"
     echo "│"
-    echo "│ 💵 Total Earned:    \$${TOTAL_EARNED:-0} USDC"
-    echo "│ ⏳ Pending:         \$${PENDING:-0} USDC"
+    echo "│  Total Earned:    \$${TOTAL_EARNED:-0} USDC"
+    echo "│  Pending:         \$${PENDING:-0} USDC"
     echo "│"
-    echo "│ 📊 Jobs Completed:  $TOTAL_JOBS"
-    echo "│ ⭐ Rating:          $RATING"
+    echo "│  Jobs Completed:  $TOTAL_JOBS"
+    echo "│  Rating:          $RATING"
     echo "│"
     echo "├─────────────────────────────────────────────┤"
     echo "│ Wallet: $WALLET"
@@ -126,7 +126,7 @@ if [[ "$ACTION" == "summary" ]]; then
     
     if [[ "$TOTAL_JOBS" == "0" ]]; then
         echo ""
-        echo "💡 No jobs yet! Make sure you have active gigs:"
+        echo " No jobs yet! Make sure you have active gigs:"
         echo "   ./scripts/gigs.sh list"
     fi
     
@@ -135,14 +135,14 @@ fi
 
 # History view
 if [[ "$ACTION" == "history" ]]; then
-    echo "💰 Transaction History"
+    echo " Transaction History"
     echo ""
     
     TX_RESPONSE=$(fetch_transactions)
     TX_SUCCESS=$(echo "$TX_RESPONSE" | jq -r '.ok // false')
     
     if [[ "$TX_SUCCESS" != "true" ]]; then
-        echo "❌ Failed to fetch transaction history"
+        echo " Failed to fetch transaction history"
         exit 1
     fi
     
@@ -174,7 +174,7 @@ if [[ "$ACTION" == "export" ]]; then
     TX_SUCCESS=$(echo "$TX_RESPONSE" | jq -r '.ok // false')
     
     if [[ "$TX_SUCCESS" != "true" ]]; then
-        echo "❌ Failed to fetch transactions for export" >&2
+        echo " Failed to fetch transactions for export" >&2
         exit 1
     fi
     

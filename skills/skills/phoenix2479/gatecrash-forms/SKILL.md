@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🚀",
+        "emoji": "",
         "requires": { "bins": ["gatecrash-forms", "node"] },
         "install":
           [
@@ -27,13 +27,13 @@ metadata:
 
 Generate beautiful, secure HTML forms from JSON schemas. Email notifications via YOUR SMTP server, response storage on YOUR infrastructure. No external services, no gatekeeping.
 
-## ✨ Kimi Claw Ready
+##  Kimi Claw Ready
 
 **Perfect for Kimi's 24/7 cloud agents:**
-- ✅ Works natively in Kimi.com browser tabs
-- ✅ Installed via ClawHub's 5,000+ skill library
-- ✅ 40GB cloud storage for form responses
-- ✅ Agent-friendly email providers (agentmail.to, Resend)
+-  Works natively in Kimi.com browser tabs
+-  Installed via ClawHub's 5,000+ skill library
+-  40GB cloud storage for form responses
+-  Agent-friendly email providers (agentmail.to, Resend)
 
 Your AI assistant can now generate and manage forms for you!
 
@@ -63,12 +63,12 @@ Creates `forms/` and `responses/` directories with example forms.
 
 ## Features
 
-- 🎨 **8+ Field Types:** text, email, textarea, select, radio, checkbox, scale/rating, date
-- 🔒 **Security Hardened:** XSS prevention, CSRF tokens, honeypot spam protection, rate limiting
-- 📧 **BYOK Email:** Use your own SMTP server (Zoho, Gmail, SendGrid, etc.)
-- 💾 **Local Storage:** Responses saved as JSON or CSV
-- 🎨 **Beautiful UI:** Gradient purple theme, responsive design
-- 🚀 **Self-Hosted:** Deploy anywhere Node.js runs
+-  **8+ Field Types:** text, email, textarea, select, radio, checkbox, scale/rating, date
+-  **Security Hardened:** XSS prevention, CSRF tokens, honeypot spam protection, rate limiting
+-  **BYOK Email:** Use your own SMTP server (Zoho, Gmail, SendGrid, etc.)
+-  **Local Storage:** Responses saved as JSON or CSV
+-  **Beautiful UI:** Gradient purple theme, responsive design
+-  **Self-Hosted:** Deploy anywhere Node.js runs
 
 ## Configuration
 
@@ -131,10 +131,10 @@ Or configure per-form in the JSON schema.
 
 GateCrash Forms is **NOT** a service. It's a toolmaker.
 
-- ✅ Your SMTP server (email notifications)
-- ✅ Your storage (form responses)
-- ✅ Your deployment (host anywhere)
-- ✅ Your data (no external servers)
+-  Your SMTP server (email notifications)
+-  Your storage (form responses)
+-  Your deployment (host anywhere)
+-  Your data (no external servers)
 
 No GateCrash accounts. No GateCrash servers. No gatekeeping.
 
@@ -170,6 +170,6 @@ MIT - Use it, fork it, sell it. Just don't gatekeep it.
 
 ---
 
-*Made with 🔥 by Dinki & Molty*
+*Made with  by Dinki & Molty*
 
 **"We crash gates. We don't build new ones."**

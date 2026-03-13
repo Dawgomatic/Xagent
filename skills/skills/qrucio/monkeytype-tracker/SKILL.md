@@ -34,20 +34,20 @@ if not ape_key:
 Send this message:
 
 ```
-Hey! 👋 I see you want to track your Monkeytype stats. I'll need your API key to get started.
+Hey!  I see you want to track your Monkeytype stats. I'll need your API key to get started.
 
-**🔑 How to get it:**
+** How to get it:**
 1. Go to monkeytype.com → **Account Settings** (click your profile icon)
 2. Select **"Ape Keys"** from the left sidebar
 3. Click **"Generate new key"**
-4. ⚠️ **Activate it:** Check the checkbox next to your new key (keys are inactive by default!)
+4.  **Activate it:** Check the checkbox next to your new key (keys are inactive by default!)
 5. Copy the key and send it to me
 
-Once you share the key, I'll ask about automation preferences 🤖
+Once you share the key, I'll ask about automation preferences 
 
 ---
 
-🔒 **Prefer to add it manually?** No problem!
+ **Prefer to add it manually?** No problem!
 
 **Option 1: Environment Variable (Recommended - Most Secure)**
 Set in your system:
@@ -85,22 +85,22 @@ After receiving key:
 After key verification succeeds, send:
 
 ```
-Got it! Key saved and verified ✅
+Got it! Key saved and verified 
 
-**📊 Quick Overview:**
+** Quick Overview:**
 • {tests} tests completed ({hours} hrs)
-• 🏆 PB: {pb_15}WPM (15s) | {pb_30}WPM (30s) | {pb_60}WPM (60s)
-• 🔥 Current streak: {streak} days
+•  PB: {pb_15}WPM (15s) | {pb_30}WPM (30s) | {pb_60}WPM (60s)
+•  Current streak: {streak} days
 
 Now, would you like automated reports?
 
 **Options:**
-1️⃣ **Daily report** — Summary of the day's practice
-2️⃣ **Weekly report** — Week-over-week comparison + tips
-3️⃣ **Both**
-4️⃣ **None** — On-demand only
+ **Daily report** — Summary of the day's practice
+ **Weekly report** — Week-over-week comparison + tips
+ **Both**
+ **None** — On-demand only
 
-⏰ What time should I send reports? (default: 8pm)
+ What time should I send reports? (default: 8pm)
 ```
 
 ### Step 3: Finalize Setup
@@ -113,30 +113,30 @@ After user chooses options:
 3. Send completion message:
 
 ```
-🎉 **You're all set!**
+ **You're all set!**
 
-**✅ Config saved:**
+** Config saved:**
 • Weekly report: {status}
 • Daily report: {status}
 
-**💡 Try these anytime:**
+** Try these anytime:**
 • "show my typing stats"
 • "how's my typing progress"
 • "compare my typing this week"
 • "monkeytype leaderboard"
 
-Happy typing! May your WPM be ever higher 🚀⌨️
+Happy typing! May your WPM be ever higher 
 ```
 
 ## Error Handling
 
 | Error | User Message |
 |-------|--------------|
-| No config file | "Looks like Monkeytype isn't set up yet. Let me help you get started! 🔑" → Start Setup Flow |
+| No config file | "Looks like Monkeytype isn't set up yet. Let me help you get started! " → Start Setup Flow |
 | No apeKey in config | Same as above |
-| API 471 "inactive" | "Your API key is inactive. Go to Monkeytype → Account Settings → Ape Keys and check the checkbox next to your key to activate it ✅" |
+| API 471 "inactive" | "Your API key is inactive. Go to Monkeytype → Account Settings → Ape Keys and check the checkbox next to your key to activate it " |
 | API 401 "unauthorized" | "Your API key seems invalid. Let's set up a new one." → Start Setup Flow |
-| API rate limit | "Hit the API rate limit. Try again in a minute ⏳" |
+| API rate limit | "Hit the API rate limit. Try again in a minute " |
 | Network error | "Couldn't reach Monkeytype servers. Check your connection and try again." |
 
 ## Commands

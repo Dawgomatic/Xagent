@@ -22,7 +22,7 @@ def render_dashboard_html() -> str:
                 <td>{p['timestamp'][:16]}</td>
             </tr>'''
     else:
-        payments_html = '<tr><td colspan="4" style="text-align:center;color:#666;">No payments yet - be the first! 🚀</td></tr>'
+        payments_html = '<tr><td colspan="4" style="text-align:center;color:#666;">No payments yet - be the first! </td></tr>'
     
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -125,30 +125,30 @@ def render_dashboard_html() -> str:
 </head>
 <body>
     <div class="container">
-        <h1>⚡ PolyEdge</h1>
+        <h1> PolyEdge</h1>
         <p class="subtitle">x402 Paid API • Base L2 • $0.05/request</p>
         
         <div class="grid">
             <div class="card">
-                <div class="card-label">💰 Balance</div>
+                <div class="card-label"> Balance</div>
                 <div class="card-value green">{financials['current_balance']}</div>
             </div>
             <div class="card">
-                <div class="card-label">📊 Total Requests</div>
+                <div class="card-label"> Total Requests</div>
                 <div class="card-value blue">{stats['total_requests']}</div>
             </div>
             <div class="card">
-                <div class="card-label">✅ Paid Requests</div>
+                <div class="card-label"> Paid Requests</div>
                 <div class="card-value green">{stats['paid_requests']}</div>
             </div>
             <div class="card">
-                <div class="card-label">🔄 Conversion</div>
+                <div class="card-label"> Conversion</div>
                 <div class="card-value yellow">{stats['conversion_rate']}</div>
             </div>
         </div>
         
         <div class="section">
-            <h2>📈 Session Revenue</h2>
+            <h2> Session Revenue</h2>
             <div class="card">
                 <div class="card-value green">{financials['estimated_session_revenue']}</div>
                 <div class="card-label" style="margin-top:0.5rem;">Since container restart • {stats['uptime_hours']}h uptime</div>
@@ -156,7 +156,7 @@ def render_dashboard_html() -> str:
         </div>
         
         <div class="section">
-            <h2>💸 Recent Payments</h2>
+            <h2> Recent Payments</h2>
             <table>
                 <thead>
                     <tr>
@@ -173,23 +173,23 @@ def render_dashboard_html() -> str:
         </div>
         
         <div class="section">
-            <h2>🔗 Quick Links</h2>
+            <h2> Quick Links</h2>
             <div class="links">
-                <a href="/" class="link-btn">📖 API Docs</a>
-                <a href="/health" class="link-btn">💚 Health Check</a>
-                <a href="/api/v1/dashboard" class="link-btn">🤖 JSON Dashboard</a>
-                <a href="{data['links']['explorer']}" target="_blank" class="link-btn">🔍 Block Explorer</a>
+                <a href="/" class="link-btn"> API Docs</a>
+                <a href="/health" class="link-btn"> Health Check</a>
+                <a href="/api/v1/dashboard" class="link-btn"> JSON Dashboard</a>
+                <a href="{data['links']['explorer']}" target="_blank" class="link-btn"> Block Explorer</a>
             </div>
         </div>
         
         <div class="section">
-            <h2>💳 Payment Wallet</h2>
+            <h2> Payment Wallet</h2>
             <div class="wallet">{data['wallet']}</div>
             <p style="margin-top:0.5rem;color:#666;font-size:0.85rem;">Network: Base L2 • Asset: USDC</p>
         </div>
         
         <div class="footer">
-            Built by Gibson 🤖 • Powered by x402 Protocol
+            Built by Gibson  • Powered by x402 Protocol
         </div>
     </div>
 </body>

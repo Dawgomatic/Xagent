@@ -79,23 +79,23 @@ def format_weather_wttr(data):
     
     # Weather emoji mapping
     emoji_map = {
-        'sunny': '☀️',
-        'clear': '🌙',
-        'partly cloudy': '⛅',
-        'cloudy': '☁️',
-        'overcast': '☁️',
-        'rain': '🌧️',
-        'light rain': '🌦️',
-        'heavy rain': '⛈️',
-        'snow': '❄️',
-        'sleet': '🌨️',
-        'thunder': '⛈️',
-        'fog': '🌫️',
-        'mist': '🌫️',
+        'sunny': '',
+        'clear': '',
+        'partly cloudy': '',
+        'cloudy': '',
+        'overcast': '',
+        'rain': '',
+        'light rain': '',
+        'heavy rain': '',
+        'snow': '',
+        'sleet': '',
+        'thunder': '',
+        'fog': '',
+        'mist': '',
     }
     
     condition_lower = condition.lower()
-    emoji = '🌤️'  # default
+    emoji = ''  # default
     for key, em in emoji_map.items():
         if key in condition_lower:
             emoji = em
@@ -104,7 +104,7 @@ def format_weather_wttr(data):
     output = []
     output.append(f"{emoji} {condition}, {temp_c}°C / {temp_f}°F")
     output.append(f"   High: {max_temp}°C · Low: {min_temp}°C")
-    output.append(f"   💧 {rain_chance}% rain · 💨 {wind_kmph}km/h {wind_dir}")
+    output.append(f"    {rain_chance}% rain ·  {wind_kmph}km/h {wind_dir}")
     
     return '\n'.join(output)
 
@@ -125,9 +125,9 @@ def format_weather_openmeteo(data):
     rain_chance = daily.get('precipitation_probability_max', ['?'])[0]
     
     output = []
-    output.append(f"🌤️ Current: {temp}°C")
+    output.append(f" Current: {temp}°C")
     output.append(f"   High: {max_temp}°C · Low: {min_temp}°C")
-    output.append(f"   💧 {rain_chance}% rain chance · 💨 {wind}km/h wind")
+    output.append(f"    {rain_chance}% rain chance ·  {wind}km/h wind")
     
     return '\n'.join(output)
 
@@ -148,7 +148,7 @@ def get_weather(city=DEFAULT_CITY, lat=DEFAULT_LAT, lon=DEFAULT_LON):
         if formatted:
             return formatted
     
-    return "⚠️ Weather data unavailable"
+    return " Weather data unavailable"
 
 
 if __name__ == "__main__":

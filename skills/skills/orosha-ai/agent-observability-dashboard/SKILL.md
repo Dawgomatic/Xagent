@@ -1,4 +1,4 @@
-# Agent Observability Dashboard 📊
+# Agent Observability Dashboard 
 
 Unified observability for OpenClaw agents — metrics, traces, and performance insights.
 

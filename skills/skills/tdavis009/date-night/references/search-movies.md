@@ -50,10 +50,10 @@ playwright-cli -s=movies snapshot
 
 | Rating | Suitability | Notes |
 |--------|-------------|-------|
-| G / PG | ✅ Great | Often high quality |
-| PG-13 | ✅ Great | Sweet spot for most date nights |
-| R | ⚠️ Depends | Violence/language usually fine; check content reason |
-| NC-17 | ❌ Skip | |
+| G / PG |  Great | Often high quality |
+| PG-13 |  Great | Sweet spot for most date nights |
+| R |  Depends | Violence/language usually fine; check content reason |
+| NC-17 |  Skip | |
 
 **Apply dietary config:** No specific filter for movies, but if `dietary` reflects strong values (e.g., lifestyle preferences), consider noting if a film has heavy drug/alcohol themes.
 
@@ -128,14 +128,14 @@ web_search "upcoming movies {month} {year} release dates"
 Present 2–4 options max:
 
 ```
-🎬 **Movies Playing — {Date}**
-📍 {Theater Name} (your preferred theater)
+ **Movies Playing — {Date}**
+ {Theater Name} (your preferred theater)
 
 1. **{Title}** — {Genre}
-   ⏱️ {Runtime} | {Rating} | {Format}
-   🍅 RT: {%} Critics · {%} Audience
-   🎯 Date night fit: {brief reason}
-   📅 Showtimes: {time1}, {time2}, {time3}
+    {Runtime} | {Rating} | {Format}
+    RT: {%} Critics · {%} Audience
+    Date night fit: {brief reason}
+    Showtimes: {time1}, {time2}, {time3}
 
 2. **{Title}** ...
 ```

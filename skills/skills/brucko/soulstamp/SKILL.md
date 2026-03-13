@@ -128,7 +128,7 @@ When users invoke this skill:
 ### soulstamp help
 
 ```
-🔮 SOULSTAMP COMMANDS
+ SOULSTAMP COMMANDS
 
   soulstamp           Start the forging process
   soulstamp help      Show this help

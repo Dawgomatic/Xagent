@@ -1,4 +1,4 @@
-# 🏪 Proposal Marketplace
+#  Proposal Marketplace
 
 > **Community-curated AGENTS.md improvement proposals — battle-tested, peer-reviewed, ready to install.**
 
@@ -6,25 +6,25 @@ The Proposal Marketplace is a collection of improvement rules discovered by real
 
 ---
 
-## 📦 Browsing Proposals
+##  Browsing Proposals
 
 ```
 community/proposals/
-├── exec-retry-limit.json        ⭐ HIGH severity — prevents 119× retry loops
-├── context-preservation.json    ⭐ HIGH severity — WAL protocol, zero state loss
-├── git-safety.json              ⭐ HIGH severity — never raw git commands
-├── error-suppression.json       ⭐ HIGH severity — exec never exposes errors
-├── heartbeat-efficiency.json    📊 MEDIUM severity — batch checks, 72% cost reduction
-├── memory-hygiene.json          📊 MEDIUM severity — weekly MEMORY.md cleanup
-├── group-chat-etiquette.json    📊 MEDIUM severity — when to speak vs stay silent
-├── tool-before-asking.json      📊 MEDIUM severity — check before asking
-├── cron-isolation.json          ⭐ HIGH severity — no message tool in isolated crons
-└── approval-protocol.json       ⭐ HIGH severity — record proposals before presenting
+├── exec-retry-limit.json         HIGH severity — prevents 119× retry loops
+├── context-preservation.json     HIGH severity — WAL protocol, zero state loss
+├── git-safety.json               HIGH severity — never raw git commands
+├── error-suppression.json        HIGH severity — exec never exposes errors
+├── heartbeat-efficiency.json     MEDIUM severity — batch checks, 72% cost reduction
+├── memory-hygiene.json           MEDIUM severity — weekly MEMORY.md cleanup
+├── group-chat-etiquette.json     MEDIUM severity — when to speak vs stay silent
+├── tool-before-asking.json       MEDIUM severity — check before asking
+├── cron-isolation.json           HIGH severity — no message tool in isolated crons
+└── approval-protocol.json        HIGH severity — record proposals before presenting
 ```
 
 ---
 
-## 🚀 Future: `sea community` Subcommand
+##  Future: `sea community` Subcommand
 
 > **Coming soon** — CLI interface for browsing and installing community proposals.
 
@@ -59,7 +59,7 @@ The `install` command automatically appends the proposal's `after` content into 
 
 ---
 
-## 📋 Proposal Schema
+##  Proposal Schema
 
 Every proposal must conform to this schema:
 
@@ -84,7 +84,7 @@ Every proposal must conform to this schema:
 
 ---
 
-## ✅ How to Contribute
+##  How to Contribute
 
 ### 1. Discover a Pattern
 
@@ -123,7 +123,7 @@ sea community submit ./my-proposal.json
 
 ---
 
-## 🗳️ Voting System
+##  Voting System
 
 Each proposal has an `upvotes` field. The community votes by:
 - **Upvoting** proposals they've adopted and verified effective
@@ -141,7 +141,7 @@ effectiveness_score: % improvement / 100 (e.g., 0.97 for "97% reduction")
 
 ---
 
-## 🏷️ Categories
+##  Categories
 
 | Category | Description |
 |----------|-------------|
@@ -153,7 +153,7 @@ effectiveness_score: % improvement / 100 (e.g., 0.97 for "97% reduction")
 
 ---
 
-## ⚖️ Governance
+##  Governance
 
 - Proposals are community-contributed but **curated by maintainers**
 - Any proposal that involves sending external messages, credentials, or destructive actions requires elevated review

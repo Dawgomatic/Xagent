@@ -19,7 +19,7 @@ Strategy: [sequential/parallel/iterative/spike/checkpoint]
 - [How execution differed from plan]
 
 ### Outcome
-[✅ Success | ⚠️ Partial | ❌ Failed]
+[ Success |  Partial |  Failed]
 
 ### Lessons
 - [What worked well]
@@ -35,10 +35,10 @@ Periodically review outcomes to find patterns:
 
 ### By Task Type
 ```
-code/feature:    ✅✅✅⚠️✅ (80% success)
-code/refactor:   ✅✅✅✅✅ (100% success)  
-migration/data:  ✅⚠️❌✅⚠️ (40% success) ← needs attention
-deploy/prod:     ✅✅✅✅✅ (100% success)
+code/feature:     (80% success)
+code/refactor:    (100% success)  
+migration/data:   (40% success) ← needs attention
+deploy/prod:      (100% success)
 ```
 
 ### By Plan Level

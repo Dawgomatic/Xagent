@@ -178,18 +178,18 @@ Be conservative — when in doubt, mark as QUESTIONABLE.`;
       switch (assessment) {
         case 'LEGITIMATE':
           newSeverity = this.downgradeSeverity(originalSeverity, 2); // Significant downgrade
-          explanation += ` 🤖 LLM Analysis: Legitimate behavior matching skill purpose (${confidence.toLowerCase()} confidence)`;
+          explanation += `  LLM Analysis: Legitimate behavior matching skill purpose (${confidence.toLowerCase()} confidence)`;
           break;
         
         case 'QUESTIONABLE':
           newSeverity = this.downgradeSeverity(originalSeverity, 1); // Minor downgrade
-          explanation += ` 🤖 LLM Analysis: Questionable behavior - review recommended (${confidence.toLowerCase()} confidence)`;
+          explanation += `  LLM Analysis: Questionable behavior - review recommended (${confidence.toLowerCase()} confidence)`;
           break;
         
         case 'SUSPICIOUS':
           // Keep original severity or upgrade if low
           if (originalSeverity === 'low') newSeverity = 'medium';
-          explanation += ` 🤖 LLM Analysis: Suspicious behavior not matching stated purpose (${confidence.toLowerCase()} confidence)`;
+          explanation += `  LLM Analysis: Suspicious behavior not matching stated purpose (${confidence.toLowerCase()} confidence)`;
           break;
       }
 

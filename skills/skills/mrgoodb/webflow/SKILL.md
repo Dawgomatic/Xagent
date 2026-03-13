@@ -1,7 +1,7 @@
 ---
 name: webflow
 description: Manage Webflow sites, CMS collections, and forms via API. Publish sites and manage content programmatically.
-metadata: {"clawdbot":{"emoji":"🎨","requires":{"env":["WEBFLOW_API_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["WEBFLOW_API_TOKEN"]}}}
 ---
 
 # Webflow

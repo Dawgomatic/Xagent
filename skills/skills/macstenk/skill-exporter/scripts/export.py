@@ -415,7 +415,7 @@ def export_skill(
     port: int
 ):
     """Main export function."""
-    print(f"📦 Exporting skill: {skill_path}")
+    print(f" Exporting skill: {skill_path}")
     
     # Parse skill
     skill_info = parse_skill_md(skill_path)
@@ -503,7 +503,7 @@ def export_skill(
         (output_path / "fly.toml").write_text(fly_toml)
         print(f"   ✓ Generated fly.toml")
     
-    print(f"\n✅ Export complete: {output_path}")
+    print(f"\n Export complete: {output_path}")
     print(f"\nNext steps:")
     print(f"  1. cd {output_path}")
     print(f"  2. cp .env.example .env && edit .env")
@@ -550,7 +550,7 @@ def main():
     
     skill_path = Path(args.skill).expanduser().resolve()
     if not skill_path.exists():
-        print(f"❌ Skill not found: {skill_path}")
+        print(f" Skill not found: {skill_path}")
         sys.exit(1)
     
     if args.output:

@@ -2,7 +2,7 @@
 name: linkedin
 description: LinkedIn automation via browser relay or cookies for messaging, profile viewing, and network actions.
 homepage: https://linkedin.com
-metadata: {"clawdbot":{"emoji":"💼"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # LinkedIn

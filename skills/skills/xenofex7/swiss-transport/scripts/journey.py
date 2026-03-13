@@ -68,7 +68,7 @@ def print_connections(data):
     from_station = data['from']['name']
     to_station = data['to']['name']
     
-    print(f"\n🚂 {from_station} → {to_station}\n")
+    print(f"\n {from_station} → {to_station}\n")
     print("=" * 80)
     
     for i, conn in enumerate(connections, 1):
@@ -98,7 +98,7 @@ def print_connections(data):
                 elif section.get('walk'):
                     walk_duration = section['walk'].get('duration')
                     if walk_duration:
-                        print(f"   {j}. 🚶 Walk ({walk_duration} min)")
+                        print(f"   {j}.  Walk ({walk_duration} min)")
         
         print()
 

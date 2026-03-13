@@ -328,7 +328,7 @@ Recent conversation continues below:
     handler: async () => {
       // Clear cache to force fresh summary
       summaryCache.clear();
-      return { text: '🧹 Context compaction cache cleared. Next message will trigger fresh compaction if needed.' };
+      return { text: ' Context compaction cache cleared. Next message will trigger fresh compaction if needed.' };
     },
   });
 
@@ -344,7 +344,7 @@ Recent conversation continues below:
     handler: async (ctx: { sessionFile?: string }) => {
       try {
         if (!ctx.sessionFile) {
-          return { text: '⚠️ Session file not available' };
+          return { text: ' Session file not available' };
         }
 
         const entries = readTranscript(ctx.sessionFile);
@@ -360,7 +360,7 @@ Recent conversation continues below:
         const systemMsgs = messages.filter(m => m.role === 'system').length;
 
         return {
-          text: `📊 **Context Stats**
+          text: ` **Context Stats**
 
 **Messages:** ${messages.length} total
 - User: ${userMsgs}
@@ -371,10 +371,10 @@ Recent conversation continues below:
 **Limit:** ${maxTokens.toLocaleString()}
 **Usage:** ${((totalTokens / maxTokens) * 100).toFixed(1)}%
 
-${totalTokens > maxTokens ? '⚠️ **Over limit - compaction will trigger**' : '✅ Within limits'}`,
+${totalTokens > maxTokens ? ' **Over limit - compaction will trigger**' : ' Within limits'}`,
         };
       } catch (err: any) {
-        return { text: `❌ Error: ${err.message}` };
+        return { text: ` Error: ${err.message}` };
       }
     },
   });

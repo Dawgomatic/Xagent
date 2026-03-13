@@ -38,4 +38,4 @@ This skill encodes the frameworks that professional grant writers use — funder
 - [Context Packs](https://afrexai-cto.github.io/context-packs/) — Industry-specific agent configurations ($47/pack)
 - [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Get your AI agent production-ready in minutes
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

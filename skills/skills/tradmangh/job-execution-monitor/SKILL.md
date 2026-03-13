@@ -143,7 +143,7 @@ Check cron jobs for missed schedules. Only alert if problem found.
 
 **Scenario 1: Job missed**
 ```
-🔴 Job Execution Monitor: "daily-wrap-up" missed schedule
+ Job Execution Monitor: "daily-wrap-up" missed schedule
 Expected: 22:00 ±10min
 Last run: 5h 32m ago
 Checking logs...
@@ -151,7 +151,7 @@ Checking logs...
 
 **Scenario 2: Job recovered**
 ```
-✅ Job Execution Monitor: "daily-wrap-up" recovered
+ Job Execution Monitor: "daily-wrap-up" recovered
 Last run: 22:02 (2min ago)
 ```
 
@@ -170,12 +170,12 @@ Last run: 22:02 (2min ago)
 
 **Daily (~48 checks):**
 - 48 × 2k = **~100k tokens/day**
-- Using Gemini Flash: **~$0.01/day** ✅
+- Using Gemini Flash: **~$0.01/day** 
 
 **Compared to alternatives:**
 - Bash script every 10min: 0 tokens, but complex + fragile
 - Cron job every 10min: 144 × 2k = ~300k tokens/day
-- Heartbeat every 60min: **~100k tokens/day** ← chosen ✅
+- Heartbeat every 60min: **~100k tokens/day** ← chosen 
 
 ## Files
 
@@ -198,6 +198,6 @@ Last run: 22:02 (2min ago)
 
 ---
 
-**Phase 1 complete.** ✅  
+**Phase 1 complete.**   
 **Phase 2 (pattern matching):** Coming soon.  
 **Phase 3 (structured validation):** Future.

@@ -27,7 +27,7 @@ async function main() {
   // 获取 Swagger URL
   swaggerUrl = await prompt('请输入 Swagger API 文档 URL (如: http://localhost:8090/v2/api-docs): ');
   if (!swaggerUrl.trim()) {
-    console.error('❌ URL 不能为空');
+    console.error(' URL 不能为空');
     rl.close();
     return;
   }
@@ -48,14 +48,14 @@ async function main() {
       const parsed = JSON.parse(cookieInput);
       const cookieResult = skill.setAuthCookies(parsed);
       if (!cookieResult.success) {
-        console.error(`❌ Cookie 设置失败: ${cookieResult.message}`);
+        console.error(` Cookie 设置失败: ${cookieResult.message}`);
         rl.close();
         return;
       }
       cookies = parsed;
       console.log('✓ Cookie 已设置\n');
     } catch (e) {
-      console.error('❌ Cookie JSON 格式错误');
+      console.error(' Cookie JSON 格式错误');
       rl.close();
       return;
     }
@@ -79,7 +79,7 @@ async function main() {
   const specResult = await skill.fetchSwaggerSpec(swaggerUrl, fetchOptions);
 
   if (!specResult.success) {
-    console.error('❌ 加载失败:', specResult.error);
+    console.error(' 加载失败:', specResult.error);
     rl.close();
     return;
   }
@@ -123,20 +123,20 @@ async function showMenu() {
         await refreshSession();
         break;
       case '6':
-        console.log('\n👋 再见！');
+        console.log('\n 再见！');
         return;
       default:
-        console.log('❌ 无效的选项');
+        console.log(' 无效的选项');
     }
   }
 }
 
 async function listAllAPIs() {
-  console.log('\n📋 所有接口列表:\n');
+  console.log('\n 所有接口列表:\n');
   const allAPIs = skill.getAllAPIs();
   allAPIs.apis.forEach((api, index) => {
     console.log(`${index + 1}. [${api.method.toUpperCase()}] ${api.path}`);
-    if (api.summary) console.log(`   📝 ${api.summary}`);
+    if (api.summary) console.log(`    ${api.summary}`);
   });
   console.log(`\n共 ${allAPIs.total} 个接口`);
 }
@@ -144,20 +144,20 @@ async function listAllAPIs() {
 async function searchAPIs() {
   const query = await prompt('\n请输入搜索关键词: ');
   if (!query.trim()) {
-    console.log('❌ 关键词不能为空');
+    console.log(' 关键词不能为空');
     return;
   }
 
   const results = skill.searchAPI(query);
   if (results.matchCount === 0) {
-    console.log(`\n❌ 未找到匹配 "${query}" 的接口`);
+    console.log(`\n 未找到匹配 "${query}" 的接口`);
     return;
   }
 
-  console.log(`\n🔍 搜索结果 (共 ${results.matchCount} 个):\n`);
+  console.log(`\n 搜索结果 (共 ${results.matchCount} 个):\n`);
   results.results.forEach((result, index) => {
     console.log(`${index + 1}. [${result.method.toUpperCase()}] ${result.path}`);
-    console.log(`   📝 ${result.summary || result.description || '无描述'}`);
+    console.log(`    ${result.summary || result.description || '无描述'}`);
     console.log(`   匹配度: ${(result.score * 100).toFixed(2)}%\n`);
   });
 }
@@ -167,17 +167,17 @@ async function getAPIDetail() {
   const method = await prompt('请输入 HTTP 方法 (GET/POST/PUT/DELETE 等): ');
 
   if (!path.trim() || !method.trim()) {
-    console.log('❌ 路径和方法不能为空');
+    console.log(' 路径和方法不能为空');
     return;
   }
 
   const detail = skill.getAPIDetail(path.trim(), method.trim().toUpperCase());
   if (!detail.success) {
-    console.log(`❌ ${detail.error}`);
+    console.log(` ${detail.error}`);
     return;
   }
 
-  console.log('\n📄 接口详情:\n');
+  console.log('\n 接口详情:\n');
   console.log(JSON.stringify(detail.detail, null, 2));
 }
 
@@ -186,7 +186,7 @@ async function callAPI() {
   const method = await prompt('请输入 HTTP 方法: ');
 
   if (!path.trim() || !method.trim()) {
-    console.log('❌ 路径和方法不能为空');
+    console.log(' 路径和方法不能为空');
     return;
   }
 
@@ -198,7 +198,7 @@ async function callAPI() {
     try {
       params.query = JSON.parse(queryStr);
     } catch (e) {
-      console.log('❌ 查询参数 JSON 格式错误');
+      console.log(' 查询参数 JSON 格式错误');
       return;
     }
   }
@@ -206,7 +206,7 @@ async function callAPI() {
     try {
       params.body = JSON.parse(bodyStr);
     } catch (e) {
-      console.log('❌ 请求体 JSON 格式错误');
+      console.log(' 请求体 JSON 格式错误');
       return;
     }
   }
@@ -219,7 +219,7 @@ async function callAPI() {
     console.log('响应数据:');
     console.log(JSON.stringify(result.data, null, 2));
   } else {
-    console.log(`\n❌ 调用失败: ${result.error}`);
+    console.log(`\n 调用失败: ${result.error}`);
   }
 }
 
@@ -246,7 +246,7 @@ async function refreshSession() {
   if (specResult.success) {
     console.log(`✓ 重新加载成功，共 ${specResult.apiCount} 个接口`);
   } else {
-    console.log(`❌ 重新加载失败: ${specResult.error}`);
+    console.log(` 重新加载失败: ${specResult.error}`);
   }
 }
 

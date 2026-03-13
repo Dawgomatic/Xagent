@@ -1,25 +1,25 @@
 # openclaw-trakt
 
-🎬 Trakt.tv integration skill for OpenClaw - Track and recommend TV shows and movies
+ Trakt.tv integration skill for OpenClaw - Track and recommend TV shows and movies
 
 ## Overview
 
 This OpenClaw skill integrates with [Trakt.tv](https://trakt.tv) to provide:
 
-- 📺 **Personalized recommendations** based on your watch history
-- 📊 **Watch history tracking** (synced automatically with Trakt Pro)
-- 📝 **Watchlist management** 
-- 🔍 **Search** for shows and movies
-- 📈 **Trending content** discovery
+-  **Personalized recommendations** based on your watch history
+-  **Watch history tracking** (synced automatically with Trakt Pro)
+-  **Watchlist management** 
+-  **Search** for shows and movies
+-  **Trending content** discovery
 
 ## Features
 
-- ✅ Simple PIN-based authentication
-- ✅ Native Trakt recommendation API
-- ✅ Access to watch history, watchlist, and trending content
-- ✅ Full search functionality
-- ✅ Automatic token storage and refresh
-- ✅ CLI interface for testing
+-  Simple PIN-based authentication
+-  Native Trakt recommendation API
+-  Access to watch history, watchlist, and trending content
+-  Full search functionality
+-  Automatic token storage and refresh
+-  CLI interface for testing
 
 ## Installation
 
@@ -177,10 +177,10 @@ pip3 install requests --break-system-packages
 
 ## Links
 
-- 🌐 [Trakt.tv](https://trakt.tv)
-- 📚 [API Documentation](https://trakt.docs.apiary.io)
-- 🔑 [Create App](https://trakt.tv/oauth/applications)
-- 🦞 [OpenClaw](https://openclaw.ai)
+-  [Trakt.tv](https://trakt.tv)
+-  [API Documentation](https://trakt.docs.apiary.io)
+-  [Create App](https://trakt.tv/oauth/applications)
+-  [OpenClaw](https://openclaw.ai)
 
 ## License
 

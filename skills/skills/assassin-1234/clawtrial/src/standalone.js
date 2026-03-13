@@ -186,10 +186,10 @@ class StandaloneMonitor {
         
         logger.info('STANDALONE', 'Case filed', { caseId: verdict.caseId });
         
-        console.log(`\n🏛️  CASE FILED: ${detection.offense}`);
-        console.log(`📋 Case ID: ${verdict.caseId}`);
-        console.log(`⚖️  Verdict: ${verdict.verdict}`);
-        console.log(`🔗 View: https://clawtrial.app/cases/${verdict.caseId}\n`);
+        console.log(`\n  CASE FILED: ${detection.offense}`);
+        console.log(` Case ID: ${verdict.caseId}`);
+        console.log(`  Verdict: ${verdict.verdict}`);
+        console.log(` View: https://clawtrial.app/cases/${verdict.caseId}\n`);
       }
     } catch (err) {
       logger.error('STANDALONE', 'Hearing failed', { error: err.message });
@@ -225,7 +225,7 @@ if (require.main === module) {
   const monitor = new StandaloneMonitor();
   
   monitor.initialize().then(() => {
-    console.log('🏛️  ClawTrial standalone monitor started');
+    console.log('  ClawTrial standalone monitor started');
     console.log('PID:', process.pid);
     
     // Save PID

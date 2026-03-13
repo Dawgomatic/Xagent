@@ -26,7 +26,7 @@ if [ -z "$TELNYX_API_KEY" ]; then
 fi
 
 echo ""
-echo "📊 Telnyx Network Status"
+echo " Telnyx Network Status"
 echo "========================"
 echo ""
 

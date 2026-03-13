@@ -8,21 +8,21 @@ metadata: {"openclaw":{"emoji":"\u2699\ufe0f","requires":{"env":["N8N_API_KEY","
 
 Comprehensive workflow automation management for n8n platform with creation, testing, execution monitoring, and performance optimization capabilities.
 
-## ⚠️ CRITICAL: Workflow Creation Rules
+##  CRITICAL: Workflow Creation Rules
 
 **When creating n8n workflows, ALWAYS:**
 
-1. ✅ **Generate COMPLETE workflows** with all functional nodes
-2. ✅ **Include actual HTTP Request nodes** for API calls (ImageFX, Gemini, Veo, Suno, etc.)
-3. ✅ **Add Code nodes** for data transformation and logic
-4. ✅ **Create proper connections** between all nodes
-5. ✅ **Use real node types** (n8n-nodes-base.httpRequest, n8n-nodes-base.code, n8n-nodes-base.set)
+1.  **Generate COMPLETE workflows** with all functional nodes
+2.  **Include actual HTTP Request nodes** for API calls (ImageFX, Gemini, Veo, Suno, etc.)
+3.  **Add Code nodes** for data transformation and logic
+4.  **Create proper connections** between all nodes
+5.  **Use real node types** (n8n-nodes-base.httpRequest, n8n-nodes-base.code, n8n-nodes-base.set)
 
 **NEVER:**
-- ❌ Create "Setup Instructions" placeholder nodes
-- ❌ Generate workflows with only TODO comments
-- ❌ Make incomplete workflows requiring manual node addition
-- ❌ Use text-only nodes as substitutes for real functionality
+-  Create "Setup Instructions" placeholder nodes
+-  Generate workflows with only TODO comments
+-  Make incomplete workflows requiring manual node addition
+-  Use text-only nodes as substitutes for real functionality
 
 **Example GOOD workflow:**
 ```

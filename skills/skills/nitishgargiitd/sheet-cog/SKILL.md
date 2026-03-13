@@ -3,7 +3,7 @@ name: sheet-cog
 description: "CellCog is built by its own Coding Agent. That same agent builds your spreadsheets. Full Python access for complex data manipulation, formulas, pivot tables, financial models, budget templates, data trackers, projections, and Excel/XLSX generation — powered by the engineering brain that develops an entire AI platform daily."
 metadata:
   openclaw:
-    emoji: "📈"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

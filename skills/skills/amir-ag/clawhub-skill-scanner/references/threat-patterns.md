@@ -2,7 +2,7 @@
 
 Detailed explanation of security patterns detected by ClawHub Skill Scanner.
 
-## 🔴 CRITICAL Patterns
+##  CRITICAL Patterns
 
 ### Reverse Shells
 Allow attackers remote access to your system.
@@ -67,7 +67,7 @@ Hides malicious code.
 | `pickle.loads` | Python RCE via deserialization |
 | `marshal.loads` | Bytecode execution |
 
-## 🟡 WARNING Patterns
+##  WARNING Patterns
 
 These are not automatically malicious, but suspicious:
 
@@ -82,10 +82,10 @@ These are not automatically malicious, but suspicious:
 CRITICAL × 30 = Base score
 WARNING × 3 (max 10) = Warning contribution
 
-Score 0-20:   SAFE      ✅
-Score 21-50:  CAUTION   ⚠️
-Score 51-80:  DANGER    🔶
-Score 81-100: BLOCKED   🔴
+Score 0-20:   SAFE      
+Score 21-50:  CAUTION   
+Score 51-80:  DANGER    
+Score 81-100: BLOCKED   
 ```
 
 ## False Positives

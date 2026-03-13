@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 🔍 Skill Audit - Security scanner for OpenClaw skills
+ *  Skill Audit - Security scanner for OpenClaw skills
  * 
  * Detects suspicious patterns that may indicate malicious code.
  */
@@ -181,10 +181,10 @@ function calculateRiskScore(findings) {
 }
 
 function formatReport(skillName, findings, riskScore) {
-  const riskLevel = riskScore >= 70 ? '🔴 HIGH RISK' : riskScore >= 30 ? '🟠 MEDIUM' : '🟢 LOW';
+  const riskLevel = riskScore >= 70 ? ' HIGH RISK' : riskScore >= 30 ? ' MEDIUM' : ' LOW';
   
   let report = `
-🔍 Skill Audit Report: ${skillName}
+ Skill Audit Report: ${skillName}
 ${'━'.repeat(50)}
 
 Risk Score: ${riskScore}/100 ${riskLevel}
@@ -192,7 +192,7 @@ Risk Score: ${riskScore}/100 ${riskLevel}
 `;
 
   if (findings.length === 0) {
-    report += '✅ No suspicious patterns detected.\n';
+    report += ' No suspicious patterns detected.\n';
   } else {
     // Group by severity
     const critical = findings.filter(f => f.severity === 'CRITICAL');
@@ -200,7 +200,7 @@ Risk Score: ${riskScore}/100 ${riskLevel}
     const info = findings.filter(f => f.severity === 'INFO');
 
     if (critical.length > 0) {
-      report += '🔴 CRITICAL:\n';
+      report += ' CRITICAL:\n';
       for (const f of critical) {
         report += `  • ${f.file}:${f.line} - ${f.description}\n`;
         report += `    └─ ${f.context}\n`;
@@ -209,7 +209,7 @@ Risk Score: ${riskScore}/100 ${riskLevel}
     }
 
     if (warning.length > 0) {
-      report += '🟠 WARNING:\n';
+      report += ' WARNING:\n';
       for (const f of warning) {
         report += `  • ${f.file}:${f.line} - ${f.description}\n`;
       }
@@ -217,7 +217,7 @@ Risk Score: ${riskScore}/100 ${riskLevel}
     }
 
     if (info.length > 0) {
-      report += '🟡 INFO:\n';
+      report += ' INFO:\n';
       for (const f of info) {
         report += `  • ${f.file}:${f.line} - ${f.description}\n`;
       }
@@ -227,11 +227,11 @@ Risk Score: ${riskScore}/100 ${riskLevel}
 
   // Recommendation
   if (riskScore >= 70) {
-    report += '⚠️  RECOMMENDATION: DO NOT INSTALL - Review code manually before use!\n';
+    report += '  RECOMMENDATION: DO NOT INSTALL - Review code manually before use!\n';
   } else if (riskScore >= 30) {
-    report += '⚠️  RECOMMENDATION: Review flagged items before installing.\n';
+    report += '  RECOMMENDATION: Review flagged items before installing.\n';
   } else {
-    report += '✅ RECOMMENDATION: Skill appears safe to use.\n';
+    report += ' RECOMMENDATION: Skill appears safe to use.\n';
   }
 
   return report;
@@ -247,7 +247,7 @@ function main() {
 
   if (!command || command === '--help') {
     console.log(`
-🔍 Skill Audit - Security scanner for OpenClaw skills
+ Skill Audit - Security scanner for OpenClaw skills
 
 Usage:
   skill-audit scan <path>     Scan a skill directory
@@ -282,7 +282,7 @@ Examples:
         const findings = scanDirectory(skillPath);
         const riskScore = calculateRiskScore(findings);
         
-        const icon = riskScore >= 70 ? '🔴' : riskScore >= 30 ? '🟠' : '🟢';
+        const icon = riskScore >= 70 ? '' : riskScore >= 30 ? '' : '';
         console.log(`${icon} ${skill}: ${riskScore}/100 (${findings.length} findings)`);
       }
     } else if (target) {

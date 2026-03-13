@@ -104,7 +104,7 @@ cmd_search() {
     echo "$response" | jq -r '
         .results[]? | 
         "[\(.id)] \(.name)\n" +
-        "    Price: $\(.price) | Rating: \(.rating // "N/A")⭐ | Reputation: \(.reputation // "N/A")\n" +
+        "    Price: $\(.price) | Rating: \(.rating // "N/A") | Reputation: \(.reputation // "N/A")\n" +
         "    Sales: \(.sales // 0) | \(.description // "" | .[0:80])...\n"
     '
     
@@ -228,7 +228,7 @@ cmd_price() {
         market_size=$(echo "$response" | jq -r '.market_size')
         echo -e "${GREEN}✓ Market data available ($market_size similar listings)${NC}"
     else
-        echo -e "${YELLOW}⚠ No market data - using category baseline${NC}"
+        echo -e "${YELLOW} No market data - using category baseline${NC}"
     fi
     
     echo ""
@@ -249,7 +249,7 @@ cmd_price() {
     rec=$(echo "$response" | jq -r '.recommendation // empty')
     if [ -n "$rec" ]; then
         echo ""
-        echo -e "${GREEN}💡 $rec${NC}"
+        echo -e "${GREEN} $rec${NC}"
     fi
 }
 

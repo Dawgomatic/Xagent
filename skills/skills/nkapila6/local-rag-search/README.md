@@ -72,11 +72,11 @@ Claude will automatically apply the skill's best practices to use the appropriat
 
 ## Features
 
-- ✅ **Smart tool selection** - Automatically chooses DuckDuckGo, Google, or deep research based on query
-- ✅ **Privacy-first** - Defaults to DuckDuckGo for general searches
-- ✅ **Multi-engine research** - Supports 9+ search backends for comprehensive coverage
-- ✅ **Semantic ranking** - Uses RAG-like similarity scoring for most relevant results
-- ✅ **No external APIs** - All processing runs locally with embedded models
+-  **Smart tool selection** - Automatically chooses DuckDuckGo, Google, or deep research based on query
+-  **Privacy-first** - Defaults to DuckDuckGo for general searches
+-  **Multi-engine research** - Supports 9+ search backends for comprehensive coverage
+-  **Semantic ranking** - Uses RAG-like similarity scoring for most relevant results
+-  **No external APIs** - All processing runs locally with embedded models
 
 ## Supported Search Backends
 

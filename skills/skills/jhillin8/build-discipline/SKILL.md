@@ -34,7 +34,7 @@ Define your non-negotiables for the day. Examples: "Sleep by 11pm", "1 hour deep
 Quick status update each morning: How did yesterday go? Clawd marks the streak as intact or broken, logs the data, and adjusts your difficulty curve.
 
 ### Streak status
-See your current streaks at a glance. Visual feedback (🔥 for hot streaks) amplifies momentum. Long streaks become identity.
+See your current streaks at a glance. Visual feedback ( for hot streaks) amplifies momentum. Long streaks become identity.
 
 ### Stack habits
 Pair new habits with existing ones. "After brush teeth → take 3 deep breaths." Piggyback behavior change on automatic routines.

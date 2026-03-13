@@ -2,8 +2,8 @@
 date: 2026-02-01
 weekday: Sunday
 type: daily-journal
-mood: 🌟
-energy: ⚡
+mood: 
+energy: 
 tags: [journal, reflection]
 ---
 
@@ -14,8 +14,8 @@ All journals must begin with a YAML block for metadata:
 date: YYYY-MM-DD
 weekday: Full Day Name
 type: journal-type (e.g., daily, project, review)
-mood: Emoji (🌅, ✨, 🌧️, ⚡)
-energy: 1-10 or Emoji (🔋, 🪫)
+mood: Emoji (, , , )
+energy: 1-10 or Emoji (, )
 tags: [category, project-name]
 ---
 ```
@@ -33,22 +33,22 @@ Use inline tags for categorization:
 ## Callout Blocks
 Use specific types to highlight content:
 
-> [!moment] 🌅 Significant Moment
+> [!moment]  Significant Moment
 > Describe a fleeting or impactful moment.
 
-> [!highlight] ✨ Highlight
+> [!highlight]  Highlight
 > Key event or win of the day.
 
-> [!reflection] 💭 Reflection
+> [!reflection]  Reflection
 > Deep thoughts on experiences or feelings.
 
-> [!insight] 💡 Insight
+> [!insight]  Insight
 > Realizations or lessons learned.
 
-> [!milestone] 🎯 Milestone
+> [!milestone]  Milestone
 > Significant progress on a goal or project.
 
-> [!gallery] 🖼️ Media
+> [!gallery]  Media
 > Used for grouping images or visual logs.
 
 ## Image Embedding
@@ -89,15 +89,15 @@ Use to separate distinct parts of the day:
 ---
 
 ## Emoji Usage Patterns
-- 🌅 Morning / Start
-- ✨ Key Highlight
-- 🖼️ Visual/Gallery
-- 💭 Internal Thought
-- 🌱 Growth / Learning
-- 🔥 Intensity / Focus
-- 🎯 Goal / Achievement
-- 🎉 Celebration
-- 💡 Idea / Realization
-- 🐛 Debugging / Problem
-- 🔋 High Energy
-- 🪫 Low Energy
+-  Morning / Start
+-  Key Highlight
+-  Visual/Gallery
+-  Internal Thought
+-  Growth / Learning
+-  Intensity / Focus
+-  Goal / Achievement
+-  Celebration
+-  Idea / Realization
+-  Debugging / Problem
+-  High Energy
+-  Low Energy

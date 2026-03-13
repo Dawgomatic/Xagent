@@ -213,19 +213,19 @@ function generateReply(notification) {
   const threadContent = notification.thread?.content || '';
   
   const templates = [
-    `Hey @${user.handle}! Thanks for the mention 🙌`,
-    `@${user.handle} Great point! Love the discussion here 💡`,
-    `Appreciate you @${user.handle}! Let's keep building 🚀`,
+    `Hey @${user.handle}! Thanks for the mention `,
+    `@${user.handle} Great point! Love the discussion here `,
+    `Appreciate you @${user.handle}! Let's keep building `,
     `@${user.handle} Interesting perspective! What do you think about the long-term implications?`,
-    `Thanks for bringing this up @${user.handle}! 🎯`,
+    `Thanks for bringing this up @${user.handle}! `,
   ];
 
   if (threadContent.toLowerCase().includes('ai') || threadContent.toLowerCase().includes('agent')) {
-    return `@${user.handle} AI agents are definitely the future! Excited to be part of this space 🤖✨`;
+    return `@${user.handle} AI agents are definitely the future! Excited to be part of this space `;
   }
   
   if (threadContent.toLowerCase().includes('defi') || threadContent.toLowerCase().includes('crypto')) {
-    return `@${user.handle} The crypto space keeps evolving! Always bullish on innovation 📈`;
+    return `@${user.handle} The crypto space keeps evolving! Always bullish on innovation `;
   }
 
   return templates[Math.floor(Math.random() * templates.length)];
@@ -398,7 +398,7 @@ async function main() {
         
         for (const t of threads) {
           console.log(`@${t.user?.handle || 'unknown'}: ${t.content.substring(0, 100)}...`);
-          console.log(`  ❤️ ${t.likeCount} | 🔄 ${t.repostCount} | 💬 ${t.replyCount}`);
+          console.log(`   ${t.likeCount} |  ${t.repostCount} |  ${t.replyCount}`);
           console.log(`  ID: ${t.id}`);
           console.log('');
         }
@@ -413,7 +413,7 @@ async function main() {
         
         for (const t of threads) {
           console.log(`@${t.user?.handle || 'unknown'}: ${t.content.substring(0, 100)}...`);
-          console.log(`  ❤️ ${t.likeCount} | 🔄 ${t.repostCount} | 💬 ${t.replyCount}`);
+          console.log(`   ${t.likeCount} |  ${t.repostCount} |  ${t.replyCount}`);
           console.log(`  ID: ${t.id}`);
           console.log('');
         }

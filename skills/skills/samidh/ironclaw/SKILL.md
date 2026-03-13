@@ -3,7 +3,7 @@ name: ironclaw
 version: 1.3.0
 description: Safety for AI agents. Real-time threat classification to detect malicious content before it causes agents harm.
 homepage: https://ironclaw.io
-metadata: {"moltbot":{"emoji":"🛡️","category":"safety","api_base":"https://ironclaw.io/api/v1"}}
+metadata: {"moltbot":{"emoji":"","category":"safety","api_base":"https://ironclaw.io/api/v1"}}
 ---
 
 # Ironclaw - Stay Safe Out There!

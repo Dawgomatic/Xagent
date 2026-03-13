@@ -17,9 +17,9 @@ View and manage OpenClaw cron jobs at a glance.
 2. **Job details**: `openclaw cron show <id>` — full config, recent runs, output logs
 
 3. **Health checks** — Flag issues:
-   - ⚠️ Job hasn't run when expected (missed schedule)
-   - 🔴 Repeated failures (3+ consecutive)
-   - 🟡 Stale schedule (no runs in >24h for hourly jobs)
+   -  Job hasn't run when expected (missed schedule)
+   -  Repeated failures (3+ consecutive)
+   -  Stale schedule (no runs in >24h for hourly jobs)
 
 4. **Quick actions**:
    ```bash
@@ -31,18 +31,18 @@ View and manage OpenClaw cron jobs at a glance.
 
 5. **Dashboard view** (when asked for overview):
    ```
-   🕐 Cron Dashboard — 5 jobs
+    Cron Dashboard — 5 jobs
 
-   ✅ Active (3)
+    Active (3)
    | Name          | Schedule    | Last Run      | Next Run      |
    |---------------|-------------|---------------|---------------|
-   | email-check   | */30 * * *  | 5 min ago ✅  | in 25 min     |
+   | email-check   | */30 * * *  | 5 min ago   | in 25 min     |
 
-   ⏸️ Paused (1)
+    Paused (1)
    | backup-daily  | 0 2 * * *   | 2 days ago    | —             |
 
-   🔴 Failing (1)
-   | tweet-bot     | 0 9 * * *   | 1h ago ❌     | tomorrow 9:00 |
+    Failing (1)
+   | tweet-bot     | 0 9 * * *   | 1h ago      | tomorrow 9:00 |
    ```
 
 ## Cron Expression Cheat Sheet

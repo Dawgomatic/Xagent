@@ -4,9 +4,9 @@
 Integrates with local ComfyUI instance at http://192.168.31.7:8000 to generate images from text (txt2img) and edit images using uploaded references (img2img). Uses the workflow: `~/clawd/skills/comfy-ai/image_flux2_klein_image_edit_4b_distilled.json`.
 
 ## Capabilities
-- ✅ Text-to-image: Generate images from text prompts only
-- ✅ Image-to-image: Edit uploaded image using a text prompt and reference image
-- ✅ Returns generated image as media attachment directly to chat
+-  Text-to-image: Generate images from text prompts only
+-  Image-to-image: Edit uploaded image using a text prompt and reference image
+-  Returns generated image as media attachment directly to chat
 
 ## Requirements
 - ComfyUI running at `http://192.168.31.7:8000`

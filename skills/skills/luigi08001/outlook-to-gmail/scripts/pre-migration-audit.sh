@@ -39,18 +39,18 @@ echo ""
 echo "--- Assessment ---"
 MX=$(dig MX "$DOMAIN" +short 2>/dev/null)
 if echo "$MX" | grep -qi "google\|gmail\|aspmx"; then
-  echo "✅ MX already points to Google"
+  echo " MX already points to Google"
 elif echo "$MX" | grep -qi "outlook\|microsoft\|protection.outlook"; then
-  echo "⚠️  MX points to Microsoft — needs cutover"
+  echo "  MX points to Microsoft — needs cutover"
 else
-  echo "ℹ️  MX points to: $(echo "$MX" | head -1)"
+  echo "  MX points to: $(echo "$MX" | head -1)"
 fi
 
 SPF=$(dig TXT "$DOMAIN" +short 2>/dev/null | grep -i "spf" || true)
 if echo "$SPF" | grep -qi "google"; then
-  echo "✅ SPF includes Google"
+  echo " SPF includes Google"
 else
-  echo "⚠️  SPF does not include Google — needs update"
+  echo "  SPF does not include Google — needs update"
 fi
 
 echo ""

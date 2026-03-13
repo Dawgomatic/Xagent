@@ -1,4 +1,4 @@
-# pincer 🛡️
+# pincer 
 
 Security-first wrapper for installing agent skills. Scans for malware, prompt injection, and suspicious patterns before installation.
 

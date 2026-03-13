@@ -8,7 +8,7 @@ files: ["scripts/*"]
 homepage: https://github.com/Rogue-Iteration/TheBigClaw
 metadata:
   clawdbot:
-    emoji: "📚"
+    emoji: ""
     primaryEnv: DO_API_TOKEN
     requires:
       env:
@@ -26,9 +26,9 @@ metadata:
   tags: ["digitalocean", "gradient-ai", "knowledge-base", "rag", "semantic-search", "do-spaces"]
 ---
 
-# 🦞 Gradient AI — Knowledge Bases & RAG
+#  Gradient AI — Knowledge Bases & RAG
 
-> ⚠️ **This is an unofficial community skill**, not maintained by DigitalOcean. Use at your own risk.
+>  **This is an unofficial community skill**, not maintained by DigitalOcean. Use at your own risk.
 
 > *"A lobster never forgets. Neither should your agent." — the KB lobster*
 
@@ -39,7 +39,7 @@ Build a [Retrieval-Augmented Generation](https://docs.digitalocean.com/products/
 ```
 Your Agent                   DigitalOcean
 ┌─────────────┐     upload    ┌──────────────┐
-│  Documents  │ ──────────▶  │  DO Spaces   │
+│  Documents  │ ──────────  │  DO Spaces   │
 └─────────────┘              │  (S3-compat) │
                               └──────┬───────┘
                                      │ auto-index
@@ -52,12 +52,12 @@ Your Agent                   DigitalOcean
                               └──────┬───────┘
                                      │ retrieve
 ┌─────────────┐     answer    ┌──────▼───────┐
-│  Your Agent │ ◀──────────  │  RAG Results │
+│  Your Agent │ ──────────  │  RAG Results │
 │  + LLM      │              │  + Citations │
 └─────────────┘              └──────────────┘
 ```
 
-📖 *[Knowledge Base docs](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/create-manage-knowledge-bases/)*
+ *[Knowledge Base docs](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/create-manage-knowledge-bases/)*
 
 ## API Endpoints
 
@@ -95,7 +95,7 @@ export DO_SPACES_ENDPOINT="https://nyc3.digitaloceanspaces.com"
 
 ## Tools
 
-### 📦 Store Documents in Spaces
+###  Store Documents in Spaces
 
 Upload files to DO Spaces for Knowledge Base indexing. This is the storage layer — documents land here before being indexed.
 
@@ -116,11 +116,11 @@ python3 gradient_spaces.py --list --bucket my-kb-data --prefix "research/"
 python3 gradient_spaces.py --delete "research/old_report.md" --bucket my-kb-data
 ```
 
-📖 *[DO Spaces docs](https://docs.digitalocean.com/products/spaces/)*
+ *[DO Spaces docs](https://docs.digitalocean.com/products/spaces/)*
 
 ---
 
-### 🏗️ Create and Manage Knowledge Bases
+###  Create and Manage Knowledge Bases
 
 Full CRUD for Knowledge Bases. Create them programmatically instead of clicking through the console like a land-dweller.
 
@@ -134,15 +134,15 @@ python3 gradient_kb_manage.py --create --name "My Research KB" --region nyc3
 # Show details for a specific KB
 python3 gradient_kb_manage.py --show --kb-uuid "your-kb-uuid"
 
-# Delete a KB (⚠️ permanent!)
+# Delete a KB ( permanent!)
 python3 gradient_kb_manage.py --delete --kb-uuid "your-kb-uuid"
 ```
 
-📖 *[Create KBs via API](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/create-manage-knowledge-bases/)*
+ *[Create KBs via API](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/create-manage-knowledge-bases/)*
 
 ---
 
-### 📁 Manage Data Sources
+###  Manage Data Sources
 
 Connect your Spaces bucket (or web URLs) to a Knowledge Base. This is what tells the KB "index these documents."
 
@@ -163,11 +163,11 @@ python3 gradient_kb_manage.py --reindex --kb-uuid "your-kb-uuid"
 python3 gradient_kb_manage.py --reindex --kb-uuid "your-kb-uuid" --source-uuid "ds-uuid"
 ```
 
-> **🦞 Pro tip: Auto-indexing.** If your KB has auto-indexing enabled, you can skip manual re-index triggers. The KB will detect changes in your Spaces bucket automatically. Configure it in the [DigitalOcean Console](https://cloud.digitalocean.com) → Knowledge Base → Settings.
+> ** Pro tip: Auto-indexing.** If your KB has auto-indexing enabled, you can skip manual re-index triggers. The KB will detect changes in your Spaces bucket automatically. Configure it in the [DigitalOcean Console](https://cloud.digitalocean.com) → Knowledge Base → Settings.
 
 ---
 
-### 🔍 Query the Knowledge Base
+###  Query the Knowledge Base
 
 Search your indexed documents with semantic or hybrid queries. This is where the magic happens — your documents become answers.
 
@@ -197,11 +197,11 @@ curl -s https://kbaas.do-ai.run/v1/{kb-uuid}/retrieve \
   }'
 ```
 
-📖 *[KB retrieval API](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/create-manage-knowledge-bases/#query-a-knowledge-base)*
+ *[KB retrieval API](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/create-manage-knowledge-bases/#query-a-knowledge-base)*
 
 ---
 
-### 🎛️ The `alpha` Parameter — Hybrid Search Tuning
+###  The `alpha` Parameter — Hybrid Search Tuning
 
 This is the secret sauce. The `alpha` parameter controls the balance between **lexical** (keyword) and **semantic** (meaning) search:
 
@@ -211,11 +211,11 @@ This is the secret sauce. The `alpha` parameter controls the balance between **l
 | `0.5` | Balanced hybrid | General research queries |
 | `1.0` | Pure semantic (meaning-based) | Open-ended: "what happened with...", "summarize..." |
 
-> **🦞 Rule of claw:** Start at `0.5`. Go lower when searching for specific things (`$CAKE`, `10-K`, `2026-02-15`). Go higher when exploring ideas ("What's the market sentiment?").
+> ** Rule of claw:** Start at `0.5`. Go lower when searching for specific things (`$CAKE`, `10-K`, `2026-02-15`). Go higher when exploring ideas ("What's the market sentiment?").
 
 ---
 
-### 🧠 RAG-Enhanced Queries
+###  RAG-Enhanced Queries
 
 The full pipeline: query the KB → build a context prompt → call an LLM to synthesize. One command, complete answers with citations.
 
@@ -227,9 +227,9 @@ python3 gradient_kb_query.py \
 ```
 
 This automatically:
-1. 🔍 Queries the Knowledge Base for relevant documents
-2. 📝 Builds a prompt with the retrieved context
-3. 🤖 Calls the LLM to synthesize an answer
+1.  Queries the Knowledge Base for relevant documents
+2.  Builds a prompt with the retrieved context
+3.  Calls the LLM to synthesize an answer
 
 > **Note:** RAG queries call the [Gradient Inference API](https://docs.digitalocean.com/products/gradient-ai-platform/how-to/use-serverless-inference/) under the hood, so you'll need `GRADIENT_API_KEY` set. If you have the `gradient-inference` skill loaded too, you're all set.
 
@@ -250,7 +250,7 @@ When creating a Knowledge Base, you can choose how documents are split into sear
 
 Configure these in the [DigitalOcean Console](https://cloud.digitalocean.com) when creating the KB, or via the API's `embedding_model` and chunking parameters.
 
-📖 *[KB configuration options](https://docs.digitalocean.com/products/gradient-ai-platform/details/features/#retrieval-augmented-generation-rag)*
+ *[KB configuration options](https://docs.digitalocean.com/products/gradient-ai-platform/details/features/#retrieval-augmented-generation-rag)*
 
 ---
 
@@ -276,9 +276,9 @@ gradient_kb_query.py    --query TEXT [--kb-uuid UUID] [--num-results N]
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `DO_API_TOKEN` | ✅ | DO API token (scopes: GenAI + Spaces) |
-| `DO_SPACES_ACCESS_KEY` | ✅ | Spaces access key |
-| `DO_SPACES_SECRET_KEY` | ✅ | Spaces secret key |
+| `DO_API_TOKEN` |  | DO API token (scopes: GenAI + Spaces) |
+| `DO_SPACES_ACCESS_KEY` |  | Spaces access key |
+| `DO_SPACES_SECRET_KEY` |  | Spaces secret key |
 | `DO_SPACES_ENDPOINT` | Optional | Spaces endpoint (default: `https://nyc3.digitaloceanspaces.com`) |
 | `DO_SPACES_BUCKET` | Optional | Default bucket name |
 | `GRADIENT_KB_UUID` | Optional | Default KB UUID (saves typing `--kb-uuid` every time) |

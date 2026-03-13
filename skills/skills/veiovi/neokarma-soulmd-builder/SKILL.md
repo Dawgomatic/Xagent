@@ -5,7 +5,7 @@ description: Persistent personality for AI agents — define, evolve, and share 
 homepage: https://neokarma.com
 metadata:
   openclaw:
-    emoji: "🧬"
+    emoji: ""
     category: identity
     bins: []
     install: {}

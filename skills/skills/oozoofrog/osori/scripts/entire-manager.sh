@@ -38,7 +38,7 @@ EOF
 
 ensure_entire() {
   if ! command -v entire >/dev/null 2>&1; then
-    echo "❌ 'entire' CLI not found. Install first: brew tap entireio/tap && brew install entireio/tap/entire"
+    echo " 'entire' CLI not found. Install first: brew tap entireio/tap && brew install entireio/tap/entire"
     exit 1
   fi
 }
@@ -53,14 +53,14 @@ parse_target_and_extra() {
       --root)
         ROOT_FILTER="${2:-}"
         if [[ -z "$ROOT_FILTER" ]]; then
-          echo "❌ --root requires a value"
+          echo " --root requires a value"
           exit 1
         fi
         shift 2
         ;;
       --agent|--strategy|--telemetry|--to)
         if [[ $# -lt 2 ]]; then
-          echo "❌ $1 requires a value"
+          echo " $1 requires a value"
           exit 1
         fi
         EXTRA_ARGS+=("$1" "$2")
@@ -88,7 +88,7 @@ parse_target_and_extra() {
   done
 
   if [[ -z "$PROJECT_QUERY" ]]; then
-    echo "❌ project query is required"
+    echo " project query is required"
     exit 1
   fi
 }
@@ -110,9 +110,9 @@ projects = filter_projects(registry_projects(res.registry), root_key=root_filter
 
 if not projects:
     if root_filter:
-        print(f"❌ no projects found in root '{root_filter}'")
+        print(f" no projects found in root '{root_filter}'")
     else:
-        print("❌ no projects registered")
+        print(" no projects registered")
     raise SystemExit(1)
 
 exact = [p for p in projects if str(p.get("name", "")).lower() == query]
@@ -120,11 +120,11 @@ candidates = exact if exact else [p for p in projects if query in str(p.get("nam
 
 if not candidates:
     suffix = f" in root '{root_filter}'" if root_filter else ""
-    print(f"❌ project '{os.environ['OSORI_QUERY']}' not found{suffix}")
+    print(f" project '{os.environ['OSORI_QUERY']}' not found{suffix}")
     raise SystemExit(1)
 
 if len(candidates) > 1:
-    print(f"❌ ambiguous project query '{os.environ['OSORI_QUERY']}'. matches:")
+    print(f" ambiguous project query '{os.environ['OSORI_QUERY']}'. matches:")
     for i, p in enumerate(candidates[:10], start=1):
         print(f"  {i}. {p.get('name', '-')} [{p.get('root', 'default')}] | {p.get('path', '-')}")
     raise SystemExit(1)
@@ -135,7 +135,7 @@ path = str(target.get("path", "")).strip()
 root = str(target.get("root", "default") or "default")
 
 if not name or not path:
-    print("❌ invalid project entry (missing name/path)")
+    print(" invalid project entry (missing name/path)")
     raise SystemExit(1)
 
 print(f"{name}\t{path}\t{root}")
@@ -145,15 +145,15 @@ PYEOF
   IFS=$'\t' read -r PROJECT_NAME PROJECT_PATH PROJECT_ROOT <<< "$resolved"
 
   if [[ -z "$PROJECT_PATH" || ! -d "$PROJECT_PATH" ]]; then
-    echo "❌ project path does not exist: $PROJECT_PATH"
+    echo " project path does not exist: $PROJECT_PATH"
     exit 1
   fi
 }
 
 run_for_project() {
-  echo "📁 *$PROJECT_NAME*"
-  echo "📍 $PROJECT_PATH"
-  echo "🧭 root: $PROJECT_ROOT"
+  echo " *$PROJECT_NAME*"
+  echo " $PROJECT_PATH"
+  echo " root: $PROJECT_ROOT"
   echo
 
   local cwd
@@ -198,7 +198,7 @@ run_for_project() {
       ;;
     *)
       cd "$cwd"
-      echo "❌ unsupported command: $COMMAND"
+      echo " unsupported command: $COMMAND"
       exit 1
       ;;
   esac

@@ -21,7 +21,7 @@ export async function checkStatus(depositAddress: string) {
 }
 
 export async function pollStatusUntilSuccess(depositAddress: string) {
-  console.log('🔄 Starting status polling...');
+  console.log(' Starting status polling...');
 
   while (true) {
     try {
@@ -33,20 +33,20 @@ export async function pollStatusUntilSuccess(depositAddress: string) {
       console.log(`   Current status: ${status}`);
 
       if (status === 'SUCCESS') {
-        console.log('🎉 Intent Fulfilled!');
+        console.log(' Intent Fulfilled!');
         return statusResponse;
       }
 
       // If status is an error state, stop polling
       if (status === 'REFUNDED') {
-        console.log(`❌ Swap failed with status: ${status}`);
+        console.log(` Swap failed with status: ${status}`);
         return statusResponse;
       }
 
       await new Promise((resolve) => setTimeout(resolve, 5000));
     } catch (error) {
       console.error('Error checking status:', error);
-      console.log('⏳ Waiting 5 seconds before retry...');
+      console.log(' Waiting 5 seconds before retry...');
       await new Promise((resolve) => setTimeout(resolve, 5000));
     }
   }

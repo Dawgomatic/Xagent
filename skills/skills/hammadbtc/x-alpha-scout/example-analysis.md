@@ -6,69 +6,69 @@
 
 ## Analysis: $PEPEAI
 
-📊 **CT Sentiments:**
+ **CT Sentiments:**
 $PEPEAI has been gaining significant traction over the past 48 hours. Multiple threads highlighting the AI narrative and strong community engagement. Several degens mentioning they've aped in with size. Some concerns about contract being relatively new, but overall excitement is high. Whale wallets spotted accumulating.
 
-📈 **Overall:** Bullish
+ **Overall:** Bullish
 
-🐋 **Takes of High-Rep Accounts:**
+ **Takes of High-Rep Accounts:**
 @DegenKing: "50% of my portfolio into $PEPEAI, this is the one. AI meta is here." — Bullish
 @AlphaKing: "Watching $PEPEAI closely, chart looks primed." — Bullish
 @CryptoGem: "Not in $PEPEAI yet, waiting for a dip." — Neutral
 
-⚠️ **Red Flags:** None detected
+ **Red Flags:** None detected
 
-📊 **Score:** 87/100
+ **Score:** 87/100
 
-✅ **Verdict:** High confidence — Bullish
+ **Verdict:** High confidence — Bullish
 
-⚡ **NFA / DYOR**
+ **NFA / DYOR**
 
 ---
 
 ## Analysis: Pudgy Penguins
 
-📊 **CT Sentiments:**
+ **CT Sentiments:**
 Pudgy Penguins has been dominating CT conversations with major catalysts. The Visa/KAST credit card teaser just dropped today, driving significant hype. Team continues executing on brand expansion with NYC Valentine's pop-up and Abstract Chain integration. Some bearish voices note floor price is down 82% from ATHs despite brand wins, questioning value accrual. Overall sentiment is hype-driven on recent news with underlying concerns about NFT market conditions.
 
-📈 **Overall:** Bullish
+ **Overall:** Bullish
 
-🐋 **Takes of High-Rep Accounts:**
+ **Takes of High-Rep Accounts:**
 @shivst3r (Pudgy team): "$100K daily revenue, billion views on GIPHY, Valentine's product sold out. This is the year of the Penguin." — Bullish
 @chillymcfrost: "Pudgy increasingly looks like a leveraged ETH bet. Volatility persists near term. Longer term, highly bullish." — Bullish
 @somanyfigs: "Floor price -82% and PENGU -73%. Value accrual completely broken as brand success means nothing for bag holders." — Bearish
 
-⚠️ **Red Flags:**
+ **Red Flags:**
 - Floor price down significantly from ATH (~4 ETH vs $145K ATH)
 - Some CT questioning if brand success = holder value
 - General NFT market in bearish conditions
 
-📊 **Score:** 72/100
+ **Score:** 72/100
 
-✅ **Verdict:** Medium confidence — Bullish
+ **Verdict:** Medium confidence — Bullish
 
-⚡ **NFA / DYOR**
+ **NFA / DYOR**
 
 ---
 
 ## Analysis: NerdsOnEth
 
-📊 **CT Sentiments:**
+ **CT Sentiments:**
 NerdsOnEth just completed their reveal today after a free mint that pumped to ~0.0075 ETH before settling around 0.0036-0.004 ETH. Reveal process had technical issues (metadata mismatches, upload chaos) which caused frustration. Mixed reactions to the art — some holders flexing clean pulls, others disappointed. One account calling it a "scam" on reveal day. Volume was strong initially (10+ ETH) but sentiment is split between "sweep before it runs" and "rug vibes."
 
-📈 **Overall:** Neutral
+ **Overall:** Neutral
 
-🐋 **Takes of High-Rep Accounts:**
+ **Takes of High-Rep Accounts:**
 No noticeable activity detected from high-rep accounts — Bearish
 
-⚠️ **Red Flags:**
+ **Red Flags:**
 - Reveal had technical issues (metadata mismatches, upload chaos)
 - One account calling it "Scam" on official reveal tweet
 - Floor dropped ~50% from initial pump (0.0075 → 0.004 ETH)
 - Some holders reporting disappointment with pulls
 
-📊 **Score:** 35/100
+ **Score:** 35/100
 
-✅ **Verdict:** Low confidence — Bearish
+ **Verdict:** Low confidence — Bearish
 
-⚡ **NFA / DYOR**
+ **NFA / DYOR**

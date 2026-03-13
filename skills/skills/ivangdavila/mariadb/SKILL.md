@@ -1,7 +1,7 @@
 ---
 name: MariaDB
 description: Write efficient MariaDB queries with proper indexing, temporal tables, and clustering.
-metadata: {"clawdbot":{"emoji":"🦭","requires":{"bins":["mariadb"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mariadb"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Character Set

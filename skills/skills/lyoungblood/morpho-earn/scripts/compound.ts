@@ -176,7 +176,7 @@ async function getOdosQuote(
   });
   
   if (!response.ok) {
-    console.log(`  ⚠️ Odos quote failed: ${response.status}`);
+    console.log(`   Odos quote failed: ${response.status}`);
     return null;
   }
   
@@ -184,7 +184,7 @@ async function getOdosQuote(
   
   // Basic validation
   if (!data.pathId || !Array.isArray(data.outAmounts)) {
-    console.log(`  ⚠️ Invalid Odos quote response`);
+    console.log(`   Invalid Odos quote response`);
     return null;
   }
   
@@ -206,7 +206,7 @@ async function assembleOdosTransaction(
   });
   
   if (!response.ok) {
-    console.log(`  ⚠️ Odos assemble failed: ${response.status}`);
+    console.log(`   Odos assemble failed: ${response.status}`);
     return null;
   }
   
@@ -214,7 +214,7 @@ async function assembleOdosTransaction(
   
   // Validate response
   if (!data.transaction?.to || !data.transaction?.data) {
-    console.log(`  ⚠️ Invalid Odos assemble response`);
+    console.log(`   Invalid Odos assemble response`);
     return null;
   }
   
@@ -238,15 +238,15 @@ async function main() {
   const config = loadConfig();
   const { publicClient, walletClient, account } = getClients(config);
   
-  console.log('🌜🌛 Moonwell Vault — Auto-Compound (via Odos)\n');
+  console.log(' Moonwell Vault — Auto-Compound (via Odos)\n');
   console.log(`Wallet: ${account.address}`);
   console.log(`Vault:  ${VAULT_ADDRESS}\n`);
   
   // Verify contracts before proceeding
-  console.log('🔐 Verifying contracts...');
+  console.log(' Verifying contracts...');
   try {
     await verifyContracts(publicClient);
-    console.log('   ✅ Contracts verified\n');
+    console.log('    Contracts verified\n');
   } catch (err) {
     handleError(err, 'Contract verification failed');
   }
@@ -254,7 +254,7 @@ async function main() {
   // Check ETH for gas
   const ethBalance = await publicClient.getBalance({ address: account.address });
   if (ethBalance < BigInt(5e14)) { // 0.0005 ETH minimum for multiple txs
-    console.error(`❌ Insufficient ETH for gas`);
+    console.error(` Insufficient ETH for gas`);
     console.error(`   Available: ${(Number(ethBalance) / 1e18).toFixed(6)} ETH`);
     console.error(`   Recommended: at least 0.0005 ETH for compound operations`);
     process.exit(1);
@@ -262,14 +262,14 @@ async function main() {
   
   // Step 1: Check and claim rewards
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('📋 Step 1: Check & Claim Rewards');
+  console.log(' Step 1: Check & Claim Rewards');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
   
   let rewards: TokenReward[] = [];
   try {
     rewards = await fetchRewards(account.address);
   } catch (err) {
-    console.warn(`⚠️ Could not fetch Merkl rewards: ${err instanceof Error ? err.message : String(err)}`);
+    console.warn(` Could not fetch Merkl rewards: ${err instanceof Error ? err.message : String(err)}`);
     console.log('   Continuing with wallet token balances...\n');
   }
   
@@ -309,9 +309,9 @@ async function main() {
         amounts: rewards.map(r => formatUnits(r.claimable, r.decimals)),
       });
       
-      console.log('✅ Rewards claimed!\n');
+      console.log(' Rewards claimed!\n');
     } catch (err) {
-      console.warn(`⚠️ Claim failed: ${err instanceof Error ? err.message : String(err)}`);
+      console.warn(` Claim failed: ${err instanceof Error ? err.message : String(err)}`);
       console.log('   Continuing with existing wallet balances...\n');
     }
   } else {
@@ -320,7 +320,7 @@ async function main() {
   
   // Step 2: Check token balances and swap to USDC via Odos
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('📋 Step 2: Swap Rewards to USDC (via Odos)');
+  console.log(' Step 2: Swap Rewards to USDC (via Odos)');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
   
   // Common reward tokens to check
@@ -340,7 +340,7 @@ async function main() {
       const quote = await getOdosQuote(token.address, balance, USDC_ADDRESS, account.address);
       
       if (!quote) {
-        console.log(`  ⚠️ Could not get quote, skipping ${token.symbol}\n`);
+        console.log(`   Could not get quote, skipping ${token.symbol}\n`);
         continue;
       }
       
@@ -349,7 +349,7 @@ async function main() {
       
       // Skip if output is dust (< $0.01)
       if (expectedOut < 10000n) { // 0.01 USDC
-        console.log(`  ⚠️ Output too small (<$0.01), skipping swap\n`);
+        console.log(`   Output too small (<$0.01), skipping swap\n`);
         continue;
       }
       
@@ -373,9 +373,9 @@ async function main() {
             balance,
             token.symbol
           );
-          console.log(`  ✅ Approved and verified`);
+          console.log(`   Approved and verified`);
         } catch (err) {
-          console.log(`  ❌ Approve failed: ${err instanceof Error ? err.message : String(err)}\n`);
+          console.log(`   Approve failed: ${err instanceof Error ? err.message : String(err)}\n`);
           continue;
         }
       }
@@ -385,7 +385,7 @@ async function main() {
       const assembled = await assembleOdosTransaction(quote.pathId, account.address);
       
       if (!assembled) {
-        console.log(`  ⚠️ Could not assemble transaction, skipping ${token.symbol}\n`);
+        console.log(`   Could not assemble transaction, skipping ${token.symbol}\n`);
         continue;
       }
       
@@ -416,26 +416,26 @@ async function main() {
             expectedOut: formatUSDC(expectedOut),
           });
           
-          console.log(`  ✅ Swapped! Tx: ${swapHash}\n`);
+          console.log(`   Swapped! Tx: ${swapHash}\n`);
         } else {
-          console.log(`  ❌ Swap reverted\n`);
+          console.log(`   Swap reverted\n`);
         }
       } catch (err) {
-        console.log(`  ❌ Swap failed: ${err instanceof Error ? err.message : String(err)}\n`);
+        console.log(`   Swap failed: ${err instanceof Error ? err.message : String(err)}\n`);
       }
     }
   }
   
   // Step 3: Deposit all USDC into vault
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('📋 Step 3: Deposit USDC into Vault');
+  console.log(' Step 3: Deposit USDC into Vault');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
   
   const usdcBalance = await getTokenBalance(publicClient, USDC_ADDRESS, account.address);
   
   if (usdcBalance === 0n) {
     console.log('No USDC available to deposit.');
-    console.log('\n✅ Compound complete (no USDC to deposit)');
+    console.log('\n Compound complete (no USDC to deposit)');
     return;
   }
   
@@ -461,7 +461,7 @@ async function main() {
         usdcBalance,
         'USDC'
       );
-      console.log('✅ Approved and verified!\n');
+      console.log(' Approved and verified!\n');
     } catch (err) {
       handleError(err, 'USDC approve failed');
     }
@@ -504,7 +504,7 @@ async function main() {
       });
       
       console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-      console.log('🎉 Auto-Compound Complete!');
+      console.log(' Auto-Compound Complete!');
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
       console.log(`Deposited:         ${formatUSDC(usdcBalance)} USDC`);
       console.log(`Total position:    ${formatUSDC(positionValue)} USDC`);

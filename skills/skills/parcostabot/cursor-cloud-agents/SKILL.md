@@ -27,7 +27,7 @@ security:
 
 # Cursor Cloud Agents Skill
 
-## ⚡ Quick Reference
+##  Quick Reference
 
 Most common commands and patterns:
 

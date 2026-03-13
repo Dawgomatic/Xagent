@@ -86,14 +86,14 @@ result = publisher.publish(title="My Post", content=content)
 ```
 You: "Write and publish a blog about remote work tips"
 AI: [Generates content with OpenAI/Kimi, publishes]
-     ✅ Published: https://bearblog.dev/yourname/remote-work-tips/
+      Published: https://bearblog.dev/yourname/remote-work-tips/
 ```
 
 ### User-Provided Content
 ```
 You: "Publish this as a blog: [paste your markdown]"
 AI: [Publishes your exact content]
-     ✅ Published: https://bearblog.dev/yourname/your-post/
+      Published: https://bearblog.dev/yourname/your-post/
 ```
 
 ## Security Notes

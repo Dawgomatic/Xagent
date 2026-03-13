@@ -20,7 +20,7 @@ async def scan_for_sphero():
             print(f"  Address: {device.address}\n")
     
     if not sphero_devices:
-        print("❌ No Sphero Mini devices found.")
+        print(" No Sphero Mini devices found.")
         print("\nTroubleshooting:")
         print("1. Make sure Sphero Mini is turned on (shake it to wake)")
         print("2. Ensure it's not connected to the Sphero Edu app")

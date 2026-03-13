@@ -1,4 +1,4 @@
-# AIsaFinancialData (Stocks + Crypto Data) 📊
+# AIsaFinancialData (Stocks + Crypto Data) 
 
 Query real-time and historical financial data across equities and crypto—prices, market moves, metrics, and trends for analysis, alerts, and reporting.
 

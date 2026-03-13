@@ -91,7 +91,7 @@ async function getBalance(address) {
 // --- Main Execution ---
 
 async function main() {
-    console.log(`\n🐳 Crypto Whale Monitor`);
+    console.log(`\n Crypto Whale Monitor`);
     console.log(`=========================`);
     
     const wallets = getTargetWallets();
@@ -114,7 +114,7 @@ async function main() {
             const balanceEth = Number(balanceWei) / 1e18;
             
             const isWhale = balanceEth >= WHALE_THRESHOLD_ETH;
-            const icon = isWhale ? "🚨 WHALE" : "Checked";
+            const icon = isWhale ? " WHALE" : "Checked";
             
             // Output format: [ICON] Address: Balance
             console.log(`${icon} | ${address} | ${balanceEth.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ETH`);
@@ -126,7 +126,7 @@ async function main() {
         await new Promise(r => setTimeout(r, 200)); 
     }
 
-    console.log(`\n✅ Scan complete. Found ${whaleCount} whale(s) above threshold.`);
+    console.log(`\n Scan complete. Found ${whaleCount} whale(s) above threshold.`);
 }
 
 main().catch(err => {

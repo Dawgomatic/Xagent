@@ -119,7 +119,7 @@ function extractContent(response) {
 async function searchX(options) {
   const apiKey = getApiKey();
   if (!apiKey) {
-    console.error('❌ No API key found.');
+    console.error(' No API key found.');
     console.error('   Set XAI_API_KEY or run: clawdbot config set skills.entries.search-x.apiKey "xai-YOUR-KEY"');
     console.error('   Get your key at: https://console.x.ai');
     process.exit(1);
@@ -179,7 +179,7 @@ Only include REAL posts. If none found, say so clearly.`,
       
       res.on('end', () => {
         if (res.statusCode !== 200) {
-          console.error(`❌ API Error (${res.statusCode}):`, data.slice(0, 500));
+          console.error(` API Error (${res.statusCode}):`, data.slice(0, 500));
           process.exit(1);
         }
         
@@ -214,7 +214,7 @@ Only include REAL posts. If none found, say so clearly.`,
           }
           
           if (!options.compact && citations.length > 0) {
-            console.log('\n📎 Citations (' + citations.length + '):');
+            console.log('\n Citations (' + citations.length + '):');
             citations.slice(0, 10).forEach(url => console.log('   ' + url));
             if (citations.length > 10) {
               console.log(`   ... and ${citations.length - 10} more`);
@@ -223,14 +223,14 @@ Only include REAL posts. If none found, say so clearly.`,
           
           resolve({ text, citations });
         } catch (e) {
-          console.error('❌ Failed to parse response:', e.message);
+          console.error(' Failed to parse response:', e.message);
           process.exit(1);
         }
       });
     });
     
     req.on('error', (e) => {
-      console.error('❌ Request failed:', e.message);
+      console.error(' Request failed:', e.message);
       process.exit(1);
     });
     
@@ -244,7 +244,7 @@ const args = process.argv.slice(2);
 
 if (args.length === 0 || args.includes('--help')) {
   console.log(`
-🔍 Search X — Real-time Twitter/X search via Grok
+ Search X — Real-time Twitter/X search via Grok
 
 Usage:
   search-x [options] "your search query"
@@ -272,13 +272,13 @@ Examples:
 const options = parseArgs(args);
 
 if (!options.query) {
-  console.error('❌ Please provide a search query');
+  console.error(' Please provide a search query');
   process.exit(1);
 }
 
 // Show search params
 if (!options.json && !options.linksOnly) {
-  console.error(`🔍 Searching X: "${options.query}" (last ${options.days} days)...\n`);
+  console.error(` Searching X: "${options.query}" (last ${options.days} days)...\n`);
 }
 
 searchX(options);

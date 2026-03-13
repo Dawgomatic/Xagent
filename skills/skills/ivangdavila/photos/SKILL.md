@@ -1,7 +1,7 @@
 ---
 name: Photos
 description: Organize, index, and search local photo libraries with AI-powered metadata and safe file handling.
-metadata: {"clawdbot":{"emoji":"🖼️","requires":{"bins":["exiftool"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["exiftool"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Safety First

@@ -15,7 +15,7 @@
 | ClawHub 총 스킬 | 3,286개 (악성 제거 후) | claw-hub.net |
 | 총 다운로드 | 1.5M+ | claw-hub.net |
 | 1위 Capability Evolver | 35,581 다운로드 | claw-hub.net |
-| self-improving-agent | 15,962 다운로드 / 132 ⭐ | claw-hub.net |
+| self-improving-agent | 15,962 다운로드 / 132  | claw-hub.net |
 | 운영 인스턴스 | 18,000+ 공개 노출 | Reddit 조사 |
 
 ### 2월 보안 사태 — 우리에게 기회
@@ -53,30 +53,30 @@
 
 ### 1-2. 어디에 올릴까 — 채널별 전략
 
-#### 🏆 1순위: ClawHub (핵심)
+####  1순위: ClawHub (핵심)
 - 즉시 등록. 메타데이터 최적화가 전부.
 - `tags`: `[self-improvement, automation, cron, analytics, agents, meta, safety]`
 - 첫 버전은 **v2.0.0** (v1이 아닌 이유: 이미 v2.0 코드가 완성됨. 처음부터 성숙한 이미지)
 - README에 "ClawHavoc 대응 설계" 언급 → 보안 의식 있는 스킬임을 어필
 
-#### 🐙 2순위: GitHub (openclaw/skills PR)
+####  2순위: GitHub (openclaw/skills PR)
 - `openclaw/skills` 레포에 PR 제출
 - 좋은 PR = 좋은 첫인상. 커밋 메시지 공들이기.
 - `awesome-openclaw-skills` 레포에도 따로 PR
 
-#### 🟠 3순위: Reddit
+####  3순위: Reddit
 - **r/OpenClaw** (가장 직접적)
 - **r/LocalLLaMA** (오픈소스 AI 커뮤니티, 자기진화 = 흥미 포인트)
 - **타이밍**: ClawHub 등록 후 24시간 내
 - **제목 예시**: `"I built a skill that analyzes your OpenClaw chat logs and auto-improves AGENTS.md — with approval loop"`
 - 한국어 커뮤니티: r/Korea AI 그룹, OpenClaw 카톡/디스코드
 
-#### 🟡 4순위: HackerNews
+####  4순위: HackerNews
 - Show HN 형식: `Show HN: Self-Evolving Agent – cron-based chat log analyzer that proposes AGENTS.md edits`
 - HN은 타이밍과 초기 댓글 품질이 전부. 처음 2시간이 결정.
 - 설명에 "단순 크론+프롬프트가 아닌 이유" 선제적으로 언급 (비판 차단)
 
-#### 🐦 5순위: Twitter/X
+####  5순위: Twitter/X
 - OpenClaw 커뮤니티 계정 태그
 - 스크린샷: 실제 제안이 올라온 Discord 화면 (비포/애프터)
 - 개발자 감성: "내 AI가 스스로 학습하게 만들었는데, 보안 사태 이후 설계를 완전히 바꿨다"
@@ -104,7 +104,7 @@ D+7  (다) ─ 1주 성과 리뷰 + Reddit r/LocalLLaMA 2차 포스트
 | 지표 | 최소 목표 | 현실적 목표 | 대박 시나리오 |
 |---|---|---|---|
 | ClawHub 다운로드 | 50+ | 200+ | 500+ |
-| ClawHub ⭐ | 10+ | 40+ | 100+ |
+| ClawHub  | 10+ | 40+ | 100+ |
 | GitHub PR 병합 | 1개 | 1개 | 1개 |
 | Reddit 업보트 | 20+ | 80+ | 200+ |
 | HN 포인트 | 10+ | 40+ | 100+ |
@@ -122,11 +122,11 @@ D+7  (다) ─ 1주 성과 리뷰 + Reddit r/LocalLLaMA 2차 포스트
 
 | 스킬 | 핵심 방식 | 자동화 수준 | 투명성 | 상태 |
 |---|---|---|---|---|
-| **self-improving-agent** | 에러/수정 이벤트 훅 | 반자동 (트리거 기반) | 낮음 (파일 저장) | ✅ 활성 |
-| **Capability Evolver** | 런타임 히스토리 분석, 코드 자동 생성 | 완전 자동 | 없음 | 🚫 계정 정지 |
-| **self-evolving-skill** (whtoo) | 예측 코딩 + 가치 기반 메커니즘 | 자동 | 불명 | ⚠️ 소규모 |
-| **self-reflection** (hopyky) | 구조화된 회고 + 메모리 | 수동 반성 | 낮음 | ⚠️ 소규모 |
-| **🎯 self-evolving-agent** | 크론 분석 + 외부 벤치마킹 + 승인 루프 | 자동 분석 / 수동 승인 | **높음 (핵심)** | ✅ 신규 |
+| **self-improving-agent** | 에러/수정 이벤트 훅 | 반자동 (트리거 기반) | 낮음 (파일 저장) |  활성 |
+| **Capability Evolver** | 런타임 히스토리 분석, 코드 자동 생성 | 완전 자동 | 없음 |  계정 정지 |
+| **self-evolving-skill** (whtoo) | 예측 코딩 + 가치 기반 메커니즘 | 자동 | 불명 |  소규모 |
+| **self-reflection** (hopyky) | 구조화된 회고 + 메모리 | 수동 반성 | 낮음 |  소규모 |
+| ** self-evolving-agent** | 크론 분석 + 외부 벤치마킹 + 승인 루프 | 자동 분석 / 수동 승인 | **높음 (핵심)** |  신규 |
 
 ### 2-2. 포지셔닝 한 줄 (각 경쟁자 대비)
 
@@ -140,12 +140,12 @@ D+7  (다) ─ 1주 성과 리뷰 + Reddit r/LocalLLaMA 2차 포스트
 ```
 3개월 후 목표:
 - ClawHub 다운로드: 2,000~5,000
-- ClawHub ⭐: 80~150
-- GitHub 레포 ⭐: 100~300
+- ClawHub : 80~150
+- GitHub 레포 : 100~300
 
 6개월 후 목표:
 - ClawHub 다운로드: 8,000~15,000 (self-improving-agent 수준 도달)
-- ClawHub ⭐: 200~400
+- ClawHub : 200~400
 - 기여자: 3~10명
 ```
 
@@ -243,11 +243,11 @@ self-improving-agent의 `.learnings/` 데이터를 self-evolving-agent가 분석
 
 | 카테고리 | 목적 | 첫 포스트 |
 |---|---|---|
-| 📋 Proposals Showcase | 실제 생성된 제안 공유 | "이번 주 내 에이전트가 만든 제안들" |
-| 🐛 Bug Reports | 품질 낮은 제안 신고 | 템플릿 제공 |
-| 💡 Feature Requests | 기능 요청 | 로드맵 투표 |
-| 🏆 Community Wins | 자기진화 성공 사례 | "이 스킬 덕에 반복 수정이 줄었어요" |
-| ❓ Q&A | 설치/사용 질문 | FAQ 선작성 |
+|  Proposals Showcase | 실제 생성된 제안 공유 | "이번 주 내 에이전트가 만든 제안들" |
+|  Bug Reports | 품질 낮은 제안 신고 | 템플릿 제공 |
+|  Feature Requests | 기능 요청 | 로드맵 투표 |
+|  Community Wins | 자기진화 성공 사례 | "이 스킬 덕에 반복 수정이 줄었어요" |
+|  Q&A | 설치/사용 질문 | FAQ 선작성 |
 
 **Discussions 활성화 전략**:
 - 출시 1주 내에 제작자(나)가 **직접 모든 댓글에 답변**
@@ -311,7 +311,7 @@ self-improving-agent의 pskoett도 수익화하지 않고 있다.
 | 수익 경로 | 가능성 | 선제 조건 |
 |---|---|---|
 | 컨설팅/강의 | 중간 | OpenClaw 전문가 포지션 확립 |
-| 스폰서십 | 낮음 | GitHub ⭐ 1,000+ 이상 필요 |
+| 스폰서십 | 낮음 | GitHub  1,000+ 이상 필요 |
 | SaaS 파생 | 낮음~중간 | "Hosted self-evolving" 서비스화 |
 | 취업/이직 레버리지 | **높음** | 바로 활용 가능 |
 
@@ -327,7 +327,7 @@ self-improving-agent의 pskoett도 수익화하지 않고 있다.
 ```
 시나리오 분석:
 
-"self-evolving-agent, ClawHub ⭐100, 5K 다운로드"
+"self-evolving-agent, ClawHub 100, 5K 다운로드"
         ↓
 LinkedIn 프로필: "OpenClaw 생태계 기여자, 자기진화 AI 시스템 설계"
         ↓
@@ -344,7 +344,7 @@ AI 에이전트 관련 포지션 인터뷰에서 즉시 화제
 ### 5-3. 현실적 기대값 요약
 
 ```
-☑ 확실한 것:
+ 확실한 것:
   - 포트폴리오 가치 ← 바로 시작됨
   - 기술 학습 (배포, 커뮤니티 관리, GTM)
   - ClawHub 생태계 평판

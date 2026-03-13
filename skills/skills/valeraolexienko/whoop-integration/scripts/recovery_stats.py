@@ -70,10 +70,10 @@ def analyze_recovery_trends(records):
     # Trend analysis
     if len(recovery_scores) >= 2:
         recent_trend = recovery_scores[0] - recovery_scores[-1]
-        trend_emoji = "📈" if recent_trend > 0 else "📉" if recent_trend < 0 else "➡️"
+        trend_emoji = "" if recent_trend > 0 else "" if recent_trend < 0 else ""
         trend_text = "improving" if recent_trend > 0 else "declining" if recent_trend < 0 else "stable"
     else:
-        trend_emoji = "➡️"
+        trend_emoji = ""
         trend_text = "stable"
     
     return {
@@ -93,32 +93,32 @@ def analyze_recovery_trends(records):
 def format_recovery_report(analysis):
     """Format recovery analysis into a readable report"""
     if isinstance(analysis, str):
-        return f"❌ {analysis}"
+        return f" {analysis}"
     
     report = []
-    report.append("🏃‍♀️ **WHOOP Recovery Stats — Last 5 Days**")
+    report.append(" **WHOOP Recovery Stats — Last 5 Days**")
     report.append("=" * 45)
     report.append("")
     
     # Daily breakdown
-    report.append("📊 **Daily Breakdown:**")
+    report.append(" **Daily Breakdown:**")
     for date, recovery, hrv, rhr in analysis['records']:
-        recovery_emoji = "🟢" if recovery >= 70 else "🟡" if recovery >= 50 else "🔴"
+        recovery_emoji = "" if recovery >= 70 else "" if recovery >= 50 else ""
         report.append(f"{recovery_emoji} **{date}** — Recovery: {recovery:.0f}% | HRV: {hrv:.1f}ms | RHR: {rhr:.0f} bpm")
     
     report.append("")
     
     # Averages
     avg = analysis['averages']
-    report.append("📈 **5-Day Averages:**")
-    report.append(f"🎯 **Recovery:** {avg['recovery']:.1f}%")
-    report.append(f"💓 **HRV:** {avg['hrv']:.1f}ms")  
-    report.append(f"🫀 **Resting HR:** {avg['rhr']:.0f} bpm")
+    report.append(" **5-Day Averages:**")
+    report.append(f" **Recovery:** {avg['recovery']:.1f}%")
+    report.append(f" **HRV:** {avg['hrv']:.1f}ms")  
+    report.append(f" **Resting HR:** {avg['rhr']:.0f} bpm")
     report.append("")
     
     # Trend analysis
     trend = analysis['trend']
-    report.append("📊 **Trend Analysis:**")
+    report.append(" **Trend Analysis:**")
     report.append(f"{trend['emoji']} Recovery trend: **{trend['text']}**")
     if abs(trend['change']) > 1:
         report.append(f"Change: {trend['change']:+.1f}% over period")
@@ -128,23 +128,23 @@ def format_recovery_report(analysis):
     # Health insights
     avg_recovery = avg['recovery']
     if avg_recovery >= 70:
-        report.append("✅ **Great recovery performance!** Keep up the good work")
+        report.append(" **Great recovery performance!** Keep up the good work")
     elif avg_recovery >= 50:
-        report.append("🟡 **Moderate recovery.** Focus on sleep quality and stress management")
+        report.append(" **Moderate recovery.** Focus on sleep quality and stress management")
     else:
-        report.append("🔴 **Low recovery detected.** Consider rest, better sleep, or reviewing training load")
+        report.append(" **Low recovery detected.** Consider rest, better sleep, or reviewing training load")
     
     return "\n".join(report)
 
 def main():
     """CLI interface for recovery statistics"""
-    print("🏃‍♀️ Fetching WHOOP recovery statistics...")
+    print(" Fetching WHOOP recovery statistics...")
     
     # Get recovery data
     records = get_recovery_history(days=5)
     
     if not records:
-        print("❌ No recovery data found for the last 5 days")
+        print(" No recovery data found for the last 5 days")
         return
     
     # Analyze data

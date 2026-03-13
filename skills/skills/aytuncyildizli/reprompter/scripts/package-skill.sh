@@ -28,6 +28,6 @@ zip -r "$OUT" . \
   -x "scripts/package-skill.sh" \
   -x "reprompter-skill.zip"
 
-echo "✅ Packaged to: $OUT"
+echo " Packaged to: $OUT"
 echo "Contents:"
 unzip -l "$OUT" | tail -n +4 | head -n -2

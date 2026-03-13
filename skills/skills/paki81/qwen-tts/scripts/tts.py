@@ -49,13 +49,13 @@ if REMOTE_URL or "--remote" in sys.argv:
     try:
         import requests
     except ImportError:
-        print("❌ Error: requests module required for remote mode", file=sys.stderr)
+        print(" Error: requests module required for remote mode", file=sys.stderr)
         print("   Run: venv/bin/pip install requests", file=sys.stderr)
         sys.exit(1)
 else:
     # Local mode: need full TTS stack
     if not VENV_PYTHON.parent.parent.exists():
-        print("❌ Error: Virtual environment not found!", file=sys.stderr)
+        print(" Error: Virtual environment not found!", file=sys.stderr)
         print(f"   Expected at: {VENV_PYTHON.parent.parent}", file=sys.stderr)
         print("", file=sys.stderr)
         print("Run setup first:", file=sys.stderr)
@@ -68,7 +68,7 @@ else:
         import soundfile as sf
         from qwen_tts import Qwen3TTSModel
     except ImportError as e:
-        print(f"❌ Error: Missing dependency: {e}", file=sys.stderr)
+        print(f" Error: Missing dependency: {e}", file=sys.stderr)
         print("", file=sys.stderr)
         print("Run setup to install dependencies:", file=sys.stderr)
         print("   bash scripts/setup.sh", file=sys.stderr)
@@ -101,7 +101,7 @@ def list_speakers():
 
 def synthesize_remote(remote_url, text, speaker, language, instruct, model, output_path):
     """Synthesize speech using remote server."""
-    print(f"🌐 Using remote server: {remote_url}", file=sys.stderr)
+    print(f" Using remote server: {remote_url}", file=sys.stderr)
     
     try:
         response = requests.post(
@@ -117,7 +117,7 @@ def synthesize_remote(remote_url, text, speaker, language, instruct, model, outp
         )
         
         if response.status_code != 200:
-            print(f"❌ Server error: {response.status_code}", file=sys.stderr)
+            print(f" Server error: {response.status_code}", file=sys.stderr)
             print(response.text, file=sys.stderr)
             sys.exit(1)
         
@@ -128,11 +128,11 @@ def synthesize_remote(remote_url, text, speaker, language, instruct, model, outp
         with open(output_path, 'wb') as f:
             f.write(response.content)
         
-        print(f"✅ Audio saved: {output_path}", file=sys.stderr)
+        print(f" Audio saved: {output_path}", file=sys.stderr)
         print(str(output_path))
         
     except requests.exceptions.RequestException as e:
-        print(f"❌ Connection error: {e}", file=sys.stderr)
+        print(f" Connection error: {e}", file=sys.stderr)
         print(f"   Is server running at {remote_url}?", file=sys.stderr)
         sys.exit(1)
 
@@ -176,7 +176,7 @@ def main():
     
     # Validate speaker
     if args.speaker not in SPEAKERS:
-        print(f"❌ Error: Unknown speaker '{args.speaker}'", file=sys.stderr)
+        print(f" Error: Unknown speaker '{args.speaker}'", file=sys.stderr)
         print(f"   Available: {', '.join(SPEAKERS.keys())}", file=sys.stderr)
         print("   Use --list-speakers for details", file=sys.stderr)
         sys.exit(1)
@@ -195,7 +195,7 @@ def main():
         return
     
     # Local mode - Load model
-    print(f"🔄 Loading {args.model}...", file=sys.stderr)
+    print(f" Loading {args.model}...", file=sys.stderr)
     print(f"   (First run downloads ~1.7GB)", file=sys.stderr)
     
     try:
@@ -214,11 +214,11 @@ def main():
         )
         print(f"✓ Model loaded on {device}", file=sys.stderr)
     except Exception as e:
-        print(f"❌ Error loading model: {e}", file=sys.stderr)
+        print(f" Error loading model: {e}", file=sys.stderr)
         sys.exit(1)
     
     # Generate speech
-    print(f"🎙️  Generating speech...", file=sys.stderr)
+    print(f"  Generating speech...", file=sys.stderr)
     print(f"   Text: {args.text[:60]}{'...' if len(args.text) > 60 else ''}", file=sys.stderr)
     print(f"   Speaker: {args.speaker} ({SPEAKERS[args.speaker]['lang']})", file=sys.stderr)
     if args.instruct:
@@ -237,13 +237,13 @@ def main():
         output_path.parent.mkdir(parents=True, exist_ok=True)
         
         sf.write(str(output_path), wavs[0], sr)
-        print(f"✅ Audio saved: {output_path}", file=sys.stderr)
+        print(f" Audio saved: {output_path}", file=sys.stderr)
         
         # Print path to stdout (for OpenClaw integration)
         print(str(output_path))
         
     except Exception as e:
-        print(f"❌ Error during synthesis: {e}", file=sys.stderr)
+        print(f" Error during synthesis: {e}", file=sys.stderr)
         import traceback
         traceback.print_exc(file=sys.stderr)
         sys.exit(1)

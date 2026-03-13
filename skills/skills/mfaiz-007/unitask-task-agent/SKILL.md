@@ -5,7 +5,7 @@ homepage: https://unitask.app
 read_when:
   - User wants to manage Unitask tasks from an AI agent
   - User wants to time-block today using Unitask scheduled_start + duration_minutes
-metadata: {"clawdbot":{"emoji":"✅"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Unitask Task Agent

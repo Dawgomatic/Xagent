@@ -4,7 +4,7 @@ slug: cloud-storage
 version: 1.0.1
 description: Manage files across cloud providers with authentication, cost awareness, and multi-provider operations.
 changelog: Added When to Use section for consistency
-metadata: {"clawdbot":{"emoji":"☁️","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

@@ -3,7 +3,7 @@ name: insta-cog
 description: "Full video production from a single prompt. Script, shoot, stitch, score — automatically. 30s to 4-minute Instagram Reels, TikToks, Stories, and carousels with consistent characters and agentic editing. The most advanced AI video suite for social media content, powered by #1 on DeepResearch Bench (Feb 2026)."
 metadata:
   openclaw:
-    emoji: "📸"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

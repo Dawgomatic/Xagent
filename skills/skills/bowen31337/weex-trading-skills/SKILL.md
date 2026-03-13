@@ -2,7 +2,7 @@
 name: weex-trading
 description: WEEX Futures exchange integration. Trade USDT-M perpetual futures with up to 125x leverage on WEEX.
 metadata:
-  emoji: "🔵"
+  emoji: ""
   category: "trading"
   tags: ["crypto", "futures", "trading", "weex", "derivatives"]
   requires:
@@ -16,7 +16,7 @@ metadata:
     - any-agent
 ---
 
-# WEEX Futures Trading 🔵
+# WEEX Futures Trading 
 
 Open AI Agent Skill for USDT-margined perpetual futures trading on WEEX exchange. Up to 125x leverage.
 
@@ -24,12 +24,12 @@ Open AI Agent Skill for USDT-margined perpetual futures trading on WEEX exchange
 
 ## Features
 
-- 📊 **Futures Trading** - USDT-M perpetual contracts up to 125x leverage
-- 💰 **Account Management** - Balance, positions, margin settings
-- 📈 **Market Data** - Tickers, order book, candlesticks, funding rates
-- 🎯 **Advanced Orders** - Trigger orders, TP/SL, conditional orders
-- 🤖 **AI Integration** - Log AI trading decisions
-- 🔌 **Universal Compatibility** - Works with any AI agent supporting shell commands
+-  **Futures Trading** - USDT-M perpetual contracts up to 125x leverage
+-  **Account Management** - Balance, positions, margin settings
+-  **Market Data** - Tickers, order book, candlesticks, funding rates
+-  **Advanced Orders** - Trigger orders, TP/SL, conditional orders
+-  **AI Integration** - Log AI trading decisions
+-  **Universal Compatibility** - Works with any AI agent supporting shell commands
 
 ## Environment Variables
 

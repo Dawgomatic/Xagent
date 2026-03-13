@@ -58,7 +58,7 @@ marp slide1.md slide2.md slide3.md
 marp ./slides/
 ```
 
-### Convert to PDF 🌐
+### Convert to PDF 
 
 **Requires:** Chrome, Edge, or Firefox installed.
 
@@ -79,7 +79,7 @@ marp --pdf --pdf-outlines presentation.md
 marp --pdf --pdf-outlines.headings=false presentation.md
 ```
 
-### Convert to PowerPoint 🌐
+### Convert to PowerPoint 
 
 ```bash
 # Convert to PPTX
@@ -100,7 +100,7 @@ marp --pptx --pptx-editable presentation.md
 # Note: Lower reproducibility, no presenter notes
 ```
 
-### Convert to Images 🌐
+### Convert to Images 
 
 ```bash
 # Multiple PNG images

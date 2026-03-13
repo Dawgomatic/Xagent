@@ -1,7 +1,7 @@
 ---
 name: xero
 description: Manage Xero accounting - invoices, contacts, bank transactions, and reports via Xero API.
-metadata: {"clawdbot":{"emoji":"💵","requires":{"env":["XERO_ACCESS_TOKEN","XERO_TENANT_ID"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["XERO_ACCESS_TOKEN","XERO_TENANT_ID"]}}}
 ---
 
 # Xero

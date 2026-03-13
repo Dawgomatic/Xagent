@@ -112,7 +112,7 @@ message action=channel-delete channel=discord channelId="1234567890"
 message action=channel-delete channel=discord channelId="1234567890" reason="No longer needed"
 ```
 
-⚠️ **Warning**: Deletion is permanent. Cannot be undone.
+ **Warning**: Deletion is permanent. Cannot be undone.
 
 ## Categories
 

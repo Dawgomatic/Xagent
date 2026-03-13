@@ -4,10 +4,10 @@ Send and receive SMS/RCS messages via Google Messages web interface using browse
 
 ## Features
 
-- 📤 **Send SMS** — Compose and send text messages
-- 📥 **Receive notifications** — Real-time alerts when new messages arrive
-- 🔍 **Read conversations** — Query recent messages and conversation history
-- 🔗 **OpenClaw integration** — Forward incoming SMS to Telegram, WhatsApp, or other channels
+-  **Send SMS** — Compose and send text messages
+-  **Receive notifications** — Real-time alerts when new messages arrive
+-  **Read conversations** — Query recent messages and conversation history
+-  **OpenClaw integration** — Forward incoming SMS to Telegram, WhatsApp, or other channels
 
 ## Requirements
 

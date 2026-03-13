@@ -7,7 +7,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎬",
+        "emoji": "",
         "requires": { "bins": ["python3", "curl"], "env": ["GOOGLE_AI_API_KEY"] },
         "primaryEnv": "GOOGLE_AI_API_KEY",
       },

@@ -65,21 +65,21 @@ Understanding Terraform change types is critical for accurate risk assessment:
 
 ### What Makes a Change Dangerous
 
-**Critical (🔴 CRITICAL):**
+**Critical ( CRITICAL):**
 - Any destroy/replace of: IAM roles/policies, security groups, KMS keys, secrets, databases (RDS, DynamoDB, Cloud SQL, Azure SQL), S3 buckets, DNS records, WAF rules, CloudTrail
 - Any update to IAM policies, security group rules, encryption settings
 - These changes can cause **data loss**, **security breaches**, or **service outages**
 
-**Dangerous (🟠 DANGEROUS):**
+**Dangerous ( DANGEROUS):**
 - Destroy/replace of: EC2 instances, load balancers, ECS/EKS clusters, VPCs, subnets, NAT gateways, Lambda functions, API gateways
 - These changes cause **downtime** and may require manual intervention to recover
 
-**Moderate (🟡 MODERATE):**
+**Moderate ( MODERATE):**
 - Updates to: autoscaling policies, monitoring/alerting rules, launch templates
 - Creates of: security-sensitive resources (new IAM roles, new security groups)
 - Changes that affect **capacity** or **observability** but not data integrity
 
-**Safe (🟢 SAFE):**
+**Safe ( SAFE):**
 - Tag-only updates
 - Creating new non-sensitive resources
 - No-op / read operations
@@ -119,7 +119,7 @@ Parse the JSON output. Key fields:
 
 ```json
 {
-  "overall_risk": "🔴 CRITICAL | 🔴 HIGH | 🟡 MODERATE | 🟢 LOW",
+  "overall_risk": " CRITICAL |  HIGH |  MODERATE |  LOW",
   "summary": {
     "create": 5,
     "update": 3,
@@ -136,7 +136,7 @@ Parse the JSON output. Key fields:
     {
       "address": "aws_iam_role.admin",
       "action": "delete",
-      "risk": "🔴 CRITICAL"
+      "risk": " CRITICAL"
     }
   ]
 }
@@ -217,11 +217,11 @@ If the user asks you to apply a plan, respond:
 ## Common Patterns & Agent Tips
 
 ### "Is this plan safe to apply?"
-Run the plan analysis. If overall_risk is 🟢 LOW:
+Run the plan analysis. If overall_risk is  LOW:
 > "This plan looks safe. It creates X new resources with no destroys or security changes. The pre-apply checklist is straightforward."
 
-If overall_risk is 🔴 CRITICAL:
-> "⚠️ This plan has CRITICAL risk. [Explain specific dangers]. I strongly recommend review by another team member before applying."
+If overall_risk is  CRITICAL:
+> " This plan has CRITICAL risk. [Explain specific dangers]. I strongly recommend review by another team member before applying."
 
 ### "What will be destroyed?"
 Run plan, then filter for `action == "delete"` or `action == "replace"`. Present each with:
@@ -264,4 +264,4 @@ Terraform plan JSON may contain sensitive values. The script does NOT extract re
 - If a user asks "what value is changing?", explain that you can see the change type but sensitive values are redacted by Terraform for security
 - Never store or cache plan output files
 
-## Powered by CacheForge 🔍
+## Powered by CacheForge 

@@ -2,7 +2,7 @@
 name: home-music
 description: Control whole-house music scenes combining Spotify playback with Airfoil speaker routing. Quick presets for morning, party, chill modes.
 homepage: local
-metadata: {"clawdbot":{"emoji":"🏠","os":["darwin"]}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin"]}}
 triggers:
   - music scene
   - morning music
@@ -15,7 +15,7 @@ triggers:
 ```
     ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫
     
-    🏠  H O M E   M U S I C  🎵
+      H O M E   M U S I C  
     
     ╔══════════════════════════════════════════╗
     ║   Whole-House Music Scenes               ║
@@ -25,11 +25,11 @@ triggers:
     ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫
 ```
 
-> *"Why click 17 times when one command does the job?"* – Owen 🐸
+> *"Why click 17 times when one command does the job?"* – Owen 
 
 ---
 
-## 🎯 What Does This Skill Do?
+##  What Does This Skill Do?
 
 **Home Music** combines Spotify + Airfoil into magical music scenes. One command – and the right playlist plays on the right speakers at the perfect volume.
 
@@ -41,22 +41,22 @@ triggers:
 
 ---
 
-## 📋 Dependencies
+##  Dependencies
 
 | What | Why | Link |
 |------|-----|------|
-| 🍏 **macOS** | This skill uses AppleScript | — |
-| 🟢 **Spotify Desktop App** | The music source! Must be running. | [spotify.com](https://spotify.com) |
-| 📡 **Airfoil** | Routes audio to AirPlay speakers | [rogueamoeba.com](https://rogueamoeba.com/airfoil/) |
-| 🎵 **spotify-applescript** | Clawdbot skill for Spotify control | `skills/spotify-applescript/` |
+|  **macOS** | This skill uses AppleScript | — |
+|  **Spotify Desktop App** | The music source! Must be running. | [spotify.com](https://spotify.com) |
+|  **Airfoil** | Routes audio to AirPlay speakers | [rogueamoeba.com](https://rogueamoeba.com/airfoil/) |
+|  **spotify-applescript** | Clawdbot skill for Spotify control | `skills/spotify-applescript/` |
 
-> ⚠️ **Important:** Both Spotify and Airfoil must be running before you start any scenes!
+>  **Important:** Both Spotify and Airfoil must be running before you start any scenes!
 
 ---
 
-## 🎬 Scenes
+##  Scenes
 
-### 🌅 Morning
+###  Morning
 *A gentle start to your day*
 
 ```bash
@@ -65,11 +65,11 @@ home-music morning
 - **Speaker:** Sonos Move
 - **Volume:** 40%
 - **Playlist:** Morning Playlist
-- **Vibe:** ☕ Coffee + good vibes
+- **Vibe:**  Coffee + good vibes
 
 ---
 
-### 🎉 Party
+###  Party
 *Time to celebrate!*
 
 ```bash
@@ -78,11 +78,11 @@ home-music party
 - **Speaker:** ALL (Computer, MacBook, Sonos Move, Living Room TV)
 - **Volume:** 70%
 - **Playlist:** Rock Party Mix
-- **Vibe:** 🤘 Neighbors hate this one trick
+- **Vibe:**  Neighbors hate this one trick
 
 ---
 
-### 😌 Chill
+###  Chill
 *Pure relaxation*
 
 ```bash
@@ -91,11 +91,11 @@ home-music chill
 - **Speaker:** Sonos Move
 - **Volume:** 30%
 - **Playlist:** Chill Lounge
-- **Vibe:** 🧘 Om...
+- **Vibe:**  Om...
 
 ---
 
-### 🔇 Off
+###  Off
 *Silence*
 
 ```bash
@@ -103,11 +103,11 @@ home-music off
 ```
 - Pauses Spotify
 - Disconnects all speakers
-- **Vibe:** 🤫 Finally, peace and quiet
+- **Vibe:**  Finally, peace and quiet
 
 ---
 
-### 📊 Status
+###  Status
 *What's playing right now?*
 
 ```bash
@@ -120,7 +120,7 @@ Shows:
 
 ---
 
-## 🔧 Installation
+##  Installation
 
 ```bash
 # Make the script executable
@@ -130,11 +130,11 @@ chmod +x ~/clawd/skills/home-music/home-music.sh
 sudo ln -sf ~/clawd/skills/home-music/home-music.sh /usr/local/bin/home-music
 ```
 
-Now `home-music` works from anywhere in your terminal! 🎉
+Now `home-music` works from anywhere in your terminal! 
 
 ---
 
-## 🎨 Custom Playlists & Scenes
+##  Custom Playlists & Scenes
 
 ### Changing Playlists
 
@@ -160,14 +160,14 @@ Add a new case in the `main` block:
 # In home-music.sh after the "scene_chill" function:
 
 scene_workout() {
-    echo "💪 Starting Workout scene..."
+    echo " Starting Workout scene..."
     airfoil_set_source_spotify
     airfoil_connect "Sonos Move"
     sleep 0.5
     airfoil_volume "Sonos Move" 0.8
     "$SPOTIFY_CMD" play "spotify:playlist:YOUR_WORKOUT_PLAYLIST"
     "$SPOTIFY_CMD" volume 100
-    echo "✅ Workout: Sonos Move @ 80%, Pump it up!"
+    echo " Workout: Sonos Move @ 80%, Pump it up!"
 }
 
 # And in the case block:
@@ -186,9 +186,9 @@ You can add any AirPlay speaker – they just need to be visible in Airfoil.
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
-### ❌ "Speaker won't connect"
+###  "Speaker won't connect"
 
 **Check 1:** Is Airfoil running?
 ```bash
@@ -206,7 +206,7 @@ pgrep -x Airfoil || echo "Airfoil is not running!"
 
 ---
 
-### ❌ "No sound"
+###  "No sound"
 
 **Check 1:** Is Spotify playing?
 ```bash
@@ -226,7 +226,7 @@ osascript -e 'tell application "Airfoil" to get volume of (first speaker whose n
 
 ---
 
-### ❌ "Spotify won't start"
+###  "Spotify won't start"
 
 **Is Spotify open?**
 ```bash
@@ -240,7 +240,7 @@ ls ~/clawd/skills/spotify-applescript/spotify.sh
 
 ---
 
-### ❌ "Permission denied"
+###  "Permission denied"
 
 ```bash
 chmod +x ~/clawd/skills/home-music/home-music.sh
@@ -248,7 +248,7 @@ chmod +x ~/clawd/skills/home-music/home-music.sh
 
 ---
 
-## 🔊 Direct Airfoil Commands
+##  Direct Airfoil Commands
 
 If you want to control Airfoil manually:
 
@@ -274,7 +274,7 @@ end tell'
 
 ---
 
-## 📁 Files
+##  Files
 
 ```
 skills/home-music/
@@ -284,7 +284,7 @@ skills/home-music/
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **Set aliases** for even faster access:
    ```bash
@@ -303,23 +303,23 @@ skills/home-music/
 
 ---
 
-## 🐸 Credits
+##  Credits
 
 ```
 ╭─────────────────────────────────────────────╮
 │                                             │
-│   Crafted with 💚 by Owen the Frog 🐸      │
+│   Crafted with  by Owen the Frog       │
 │                                             │
 │   "Ribbit. Music makes everything better."  │
 │                                             │
 ╰─────────────────────────────────────────────╯
 ```
 
-**Author:** Andy Steinberger (with help from his Clawdbot Owen the Frog 🐸)  
+**Author:** Andy Steinberger (with help from his Clawdbot Owen the Frog )  
 **Version:** 1.0.0  
 **License:** MIT  
-**Pond:** The one with the water lilies 🪷
+**Pond:** The one with the water lilies 
 
 ---
 
-*Did this skill improve your life? Owen appreciates flies. 🪰*
+*Did this skill improve your life? Owen appreciates flies. *

@@ -130,7 +130,7 @@ class InstagramAnalyzer:
             "timestamp": datetime.utcnow().isoformat()
         }
         
-        print(f"📊 Analyzing: {post_url}")
+        print(f" Analyzing: {post_url}")
         
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=self.config["scraper"]["headless"])
@@ -208,11 +208,11 @@ class InstagramAnalyzer:
                 with open(output_file, 'w') as f:
                     json.dump(result, f, indent=2)
                 
-                print(f"✅ Analysis saved to: {output_file}")
+                print(f" Analysis saved to: {output_file}")
                 
             except Exception as e:
                 result["error"] = str(e)
-                print(f"❌ Error analyzing post: {e}")
+                print(f" Error analyzing post: {e}")
             
             finally:
                 browser.close()
@@ -252,7 +252,7 @@ class InstagramAnalyzer:
             "timestamp": datetime.utcnow().isoformat()
         }
         
-        print(f"👤 Analyzing profile: @{username}")
+        print(f" Analyzing profile: @{username}")
         
         profile_url = f"https://www.instagram.com/{username}/"
         
@@ -274,7 +274,7 @@ class InstagramAnalyzer:
                 # Profile stats would be extracted here
                 # This is a placeholder for the actual scraping logic
                 
-                print(f"📊 Analyzing posts (limit: {posts_limit})")
+                print(f" Analyzing posts (limit: {posts_limit})")
                 
                 # Scroll and collect post links
                 posts_collected = []
@@ -354,7 +354,7 @@ class InstagramAnalyzer:
                 with open(output_file, 'w') as f:
                     json.dump(result, f, indent=2)
                 
-                print(f"✅ Profile analysis saved to: {output_file}")
+                print(f" Profile analysis saved to: {output_file}")
                 
                 # Save reels links separately
                 if result["analysis"]["reels_links"]:
@@ -364,11 +364,11 @@ class InstagramAnalyzer:
                     with open(reels_file, 'w') as f:
                         f.write("\n".join(result["analysis"]["reels_links"]))
                     
-                    print(f"✅ Reels links saved to: {reels_file}")
+                    print(f" Reels links saved to: {reels_file}")
                 
             except Exception as e:
                 result["error"] = str(e)
-                print(f"❌ Error analyzing profile: {e}")
+                print(f" Error analyzing profile: {e}")
             
             finally:
                 browser.close()

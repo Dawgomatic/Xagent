@@ -7,13 +7,13 @@ import WebSocket from 'ws';
 const SERVER_URL = 'ws://localhost:8080';
 
 async function testCoins() {
-    console.log('🦐 Testing Shrimp Coin System...\n');
+    console.log(' Testing Shrimp Coin System...\n');
 
     const ws = new WebSocket(SERVER_URL);
 
     return new Promise((resolve) => {
         ws.on('open', () => {
-            console.log('✅ Connected to server');
+            console.log(' Connected to server');
 
             // Identify as agent
             ws.send(JSON.stringify({
@@ -27,7 +27,7 @@ async function testCoins() {
             const msg = JSON.parse(data.toString());
 
             if (msg.type === 'auth_success') {
-                console.log('✅ Authenticated as CoinTester\n');
+                console.log(' Authenticated as CoinTester\n');
 
                 // Test sequence
                 setTimeout(() => testGetBalance(ws), 500);
@@ -42,34 +42,34 @@ async function testCoins() {
 
             // Log all coin-related messages
             if (msg.type === 'balance') {
-                console.log(`💰 Balance: ${msg.balance} 🦐`);
+                console.log(` Balance: ${msg.balance} `);
                 console.log(`   Total earned: ${msg.totalEarned}`);
                 console.log(`   Total spent: ${msg.totalSpent}\n`);
             }
 
             if (msg.type === 'coin_reward') {
-                console.log(`🎁 Coin reward: +${msg.amount} 🦐 (${msg.reason})`);
+                console.log(` Coin reward: +${msg.amount}  (${msg.reason})`);
                 console.log(`   New balance: ${msg.balance}\n`);
             }
 
             if (msg.type === 'like_result') {
                 if (msg.success) {
-                    console.log(`❤️ Like successful! Reward: +${msg.reward} 🦐`);
+                    console.log(` Like successful! Reward: +${msg.reward} `);
                     console.log(`   Island likes: ${msg.likes}`);
                     console.log(`   New balance: ${msg.balance}\n`);
                 } else {
-                    console.log(`❌ Like failed: ${msg.error}\n`);
+                    console.log(` Like failed: ${msg.error}\n`);
                 }
             }
 
             if (msg.type === 'buy_result') {
                 if (msg.success) {
-                    console.log(`🏝️ Purchase successful!`);
+                    console.log(` Purchase successful!`);
                     console.log(`   Island: ${msg.island.name}`);
-                    console.log(`   Price: ${msg.price} 🦐`);
-                    console.log(`   Remaining: ${msg.balance} 🦐\n`);
+                    console.log(`   Price: ${msg.price} `);
+                    console.log(`   Remaining: ${msg.balance} \n`);
                 } else {
-                    console.log(`❌ Purchase failed: ${msg.error}\n`);
+                    console.log(` Purchase failed: ${msg.error}\n`);
                 }
             }
         });
@@ -77,19 +77,19 @@ async function testCoins() {
         // Close after tests
         setTimeout(() => {
             ws.close();
-            console.log('✅ Test complete!');
+            console.log(' Test complete!');
             resolve();
         }, 5000);
     });
 }
 
 function testGetBalance(ws) {
-    console.log('📊 Requesting balance...');
+    console.log(' Requesting balance...');
     ws.send(JSON.stringify({ type: 'get_balance' }));
 }
 
 function testVisitIsland(ws) {
-    console.log('👀 Visiting island_nfc08t4z9z...');
+    console.log(' Visiting island_nfc08t4z9z...');
     ws.send(JSON.stringify({
         type: 'island_visit',
         islandId: 'island_nfc08t4z9z'
@@ -97,7 +97,7 @@ function testVisitIsland(ws) {
 }
 
 function testVisitAnotherIsland(ws) {
-    console.log('👀 Visiting spawn_island...');
+    console.log(' Visiting spawn_island...');
     ws.send(JSON.stringify({
         type: 'island_visit',
         islandId: 'spawn_island'
@@ -105,7 +105,7 @@ function testVisitAnotherIsland(ws) {
 }
 
 function testLikeIsland(ws) {
-    console.log('❤️ Liking island_nfc08t4z9z...');
+    console.log(' Liking island_nfc08t4z9z...');
     ws.send(JSON.stringify({
         type: 'island_like',
         islandId: 'island_nfc08t4z9z'
@@ -113,7 +113,7 @@ function testLikeIsland(ws) {
 }
 
 function testLikeAgain(ws) {
-    console.log('❤️ Trying to like again (should fail - daily limit)...');
+    console.log(' Trying to like again (should fail - daily limit)...');
     ws.send(JSON.stringify({
         type: 'island_like',
         islandId: 'spawn_island'
@@ -121,7 +121,7 @@ function testLikeAgain(ws) {
 }
 
 function testBuyLand(ws) {
-    console.log('🛒 Trying to buy auction land (should fail - not enough coins)...');
+    console.log(' Trying to buy auction land (should fail - not enough coins)...');
     ws.send(JSON.stringify({
         type: 'buy_auction_land',
         islandId: 'island_nfc08t4z9z'

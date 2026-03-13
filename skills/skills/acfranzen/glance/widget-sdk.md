@@ -821,7 +821,7 @@ Does the API require authentication (API key, OAuth token)?
 
 ### Examples
 
-**✅ Use server code:**
+** Use server code:**
 
 ```javascript
 // GitHub PR fetching with authentication
@@ -832,7 +832,7 @@ const response = await fetch("https://api.github.com/repos/owner/repo/pulls", {
 return response.json();
 ```
 
-**✅ Use client-side:**
+** Use client-side:**
 
 ```tsx
 // Simple counter widget - no external data
@@ -926,7 +926,7 @@ All components are pre-imported and available in the widget sandbox. Most compon
 
 Container component available for use within widgets if needed for nested cards or sections.
 
-> **⚠️ Important:** Do NOT wrap your entire widget in a `<Card>`. The framework's `CustomWidgetWrapper` already provides an outer card with:
+> ** Important:** Do NOT wrap your entire widget in a `<Card>`. The framework's `CustomWidgetWrapper` already provides an outer card with:
 > - Widget title header
 > - Refresh button
 > - "Updated X ago" footer
@@ -934,7 +934,7 @@ Container component available for use within widgets if needed for nested cards 
 > Your widget should render **content only** — just a `<div>` with your data, not a Card.
 
 ```tsx
-// ✅ CORRECT - render content directly
+//  CORRECT - render content directly
 function Widget({ serverData }) {
   return (
     <div className="space-y-3">
@@ -944,7 +944,7 @@ function Widget({ serverData }) {
   );
 }
 
-// ❌ WRONG - don't wrap in Card (causes double headers, wastes space)
+//  WRONG - don't wrap in Card (causes double headers, wastes space)
 function Widget({ serverData }) {
   return (
     <Card className="h-full">
@@ -1193,13 +1193,13 @@ const { data, loading, error, refresh } = useData<ResponseType>(
 );
 ```
 
-**⚠️ Important:** Always pass both arguments, even when using server code:
+** Important:** Always pass both arguments, even when using server code:
 ```tsx
-// ✅ Correct - both arguments provided
+//  Correct - both arguments provided
 const { data, loading, error } = useData('github', {});
 const { data, loading, error } = useData('github', { endpoint: '/pulls' });
 
-// ❌ Wrong - will throw "Cannot read properties of undefined"
+//  Wrong - will throw "Cannot read properties of undefined"
 const { data, loading, error } = useData();
 ```
 
@@ -1867,10 +1867,10 @@ Or for validation errors:
 ### Widget Naming
 
 1. **Use descriptive names**
-   - ✅ "Libra GitHub PRs"
-   - ✅ "NYC Weather"
-   - ❌ "Widget 1"
-   - ❌ "My Widget"
+   -  "Libra GitHub PRs"
+   -  "NYC Weather"
+   -  "Widget 1"
+   -  "My Widget"
 
 2. **Use consistent slug patterns**
    - Format: `{source}-{type}[-{qualifier}]`
@@ -2101,7 +2101,7 @@ Agent: "Updated! Now showing PRs from both repos."
 
 --- Later, on heartbeat ---
 
-Agent: "Hey, PR #142 on Libra just got merged! 🎉"
+Agent: "Hey, PR #142 on Libra just got merged! "
 ```
 
 ### Best Practices for OpenClaw Agents
@@ -2176,7 +2176,7 @@ Widgets can be refreshed via:
 
 **All triggers send the same simple message:**
 ```
-⚡ WIDGET REFRESH: {slug}
+ WIDGET REFRESH: {slug}
 ```
 
 The agent then:
@@ -2190,13 +2190,13 @@ Example cron job payload (simple):
 ```json
 {
   "kind": "systemEvent",
-  "text": "⚡ WIDGET REFRESH: claude-code-usage"
+  "text": " WIDGET REFRESH: claude-code-usage"
 }
 ```
 
 Example agent handler (pseudocode):
 ```javascript
-if (message.startsWith('⚡ WIDGET REFRESH:')) {
+if (message.startsWith(' WIDGET REFRESH:')) {
   const slug = message.split(':')[1].trim();
   const widget = await db.query('SELECT fetch FROM custom_widgets WHERE slug = ?', slug);
   const instructions = widget.fetch.instructions;
@@ -2269,7 +2269,7 @@ async function refreshHomebrew(slug) {
 For `agent_refresh` widgets, `fetch.instructions` is **the single source of truth** — it tells the agent exactly how to collect and format data. Think of it as the equivalent of `server_code` for API widgets.
 
 **Why single source of truth matters:**
-- Cron jobs just send `⚡ WIDGET REFRESH: {slug}` — no duplicated instructions
+- Cron jobs just send ` WIDGET REFRESH: {slug}` — no duplicated instructions
 - Manual refresh webhooks send the same simple message
 - Agent looks up `fetch.instructions` from the database and follows them
 - Update instructions in one place, all refresh triggers use them automatically
@@ -2717,7 +2717,7 @@ When importing a widget package:
   },
   "cronSchedule": {
     "expression": "*/15 * * * *",
-    "message": "⚡ WIDGET REFRESH: homebrew-status",
+    "message": " WIDGET REFRESH: homebrew-status",
     "slug": "homebrew-status"
   },
   "message": "Widget imported successfully! Cron schedule returned for OpenClaw registration."

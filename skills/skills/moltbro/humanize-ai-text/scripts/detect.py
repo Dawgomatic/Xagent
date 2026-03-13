@@ -95,23 +95,23 @@ def print_section(title: str, items: list, replacements: dict = None):
     print()
 
 def print_report(r: DetectionResult):
-    icons = {"very high": "🔴", "high": "🟠", "medium": "🟡", "low": "🟢"}
+    icons = {"very high": "", "high": "", "medium": "", "low": ""}
     print(f"\n{'='*60}")
     print(f"AI DETECTION SCAN - {r.total_issues} issues ({r.word_count} words)")
     print(f"AI Probability: {icons.get(r.ai_probability, '')} {r.ai_probability.upper()}")
     print(f"{'='*60}\n")
     
     if r.citation_bugs:
-        print("⚠️  CRITICAL: CHATGPT CITATION BUGS")
+        print("  CRITICAL: CHATGPT CITATION BUGS")
         print_section("Citation Artifacts", r.citation_bugs)
     if r.knowledge_cutoff:
-        print("⚠️  CRITICAL: KNOWLEDGE CUTOFF PHRASES")
+        print("  CRITICAL: KNOWLEDGE CUTOFF PHRASES")
         print_section("Cutoff Phrases", r.knowledge_cutoff)
     if r.chatbot_artifacts:
-        print("⚠️  HIGH: CHATBOT ARTIFACTS")
+        print("  HIGH: CHATBOT ARTIFACTS")
         print_section("Artifacts", r.chatbot_artifacts)
     if r.markdown_artifacts:
-        print("⚠️  MARKDOWN DETECTED")
+        print("  MARKDOWN DETECTED")
         print_section("Markdown", r.markdown_artifacts)
     
     print_section("SIGNIFICANCE INFLATION", r.significance_inflation)

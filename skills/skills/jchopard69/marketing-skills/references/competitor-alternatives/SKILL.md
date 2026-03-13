@@ -614,8 +614,8 @@ Group features into meaningful categories:
 
 | Category | You | Competitor | Notes |
 |----------|-----|-----------|-------|
-| Ease of use | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | [Brief note] |
-| Feature depth | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | [Brief note] |
+| Ease of use |  |  | [Brief note] |
+| Feature depth |  |  | [Brief note] |
 
 ---
 

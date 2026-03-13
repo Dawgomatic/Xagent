@@ -87,7 +87,7 @@ const hash = await wallet.sendTransaction({
 });
 
 const receipt = await pub.waitForTransactionReceipt({ hash });
-console.log(receipt.status === 'success' ? '✅ NFT purchased!' : '❌ Failed');
+console.log(receipt.status === 'success' ? ' NFT purchased!' : ' Failed');
 ```
 
 ### Complete Working Example

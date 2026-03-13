@@ -1,7 +1,7 @@
 ---
 name: flights
 description: CLI tool to control Tuya v3.3 light bulbs in your local network.
-metadata: {"clawdbot":{"emoji":"💡","requires":{"bins":["flights"]},"install":[{"id":"brew","kind":"brew","formula":"BrewTheFox/flights/flights","bins":["flights"], "args": ["--with-binary"], "label":"Install flights (brew)"}]}, "additional": {"formula_repo":"https://github.com/BrewTheFox/homebrew-flights", "source_repo":"https://github.com/BrewTheFox/flights", "architecture":"for other architectures that are not Linux X86_64 remove all args to build from source"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["flights"]},"install":[{"id":"brew","kind":"brew","formula":"BrewTheFox/flights/flights","bins":["flights"], "args": ["--with-binary"], "label":"Install flights (brew)"}]}, "additional": {"formula_repo":"https://github.com/BrewTheFox/homebrew-flights", "source_repo":"https://github.com/BrewTheFox/flights", "architecture":"for other architectures that are not Linux X86_64 remove all args to build from source"}}
 ---
 **flights (fox-lights cli)**
 

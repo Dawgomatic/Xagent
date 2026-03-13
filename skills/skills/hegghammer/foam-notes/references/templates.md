@@ -160,13 +160,13 @@ return {
 
 ### Security
 
-- ✅ Can only run from trusted VS Code workspaces
-- ✅ Can access Foam workspace and utilities
-- ✅ Can use standard JavaScript features
-- ✅ Have a 30-second execution timeout
-- ❌ Cannot access file system directly
-- ❌ Cannot make network requests
-- ❌ Cannot access Node.js modules
+-  Can only run from trusted VS Code workspaces
+-  Can access Foam workspace and utilities
+-  Can use standard JavaScript features
+-  Have a 30-second execution timeout
+-  Cannot access file system directly
+-  Cannot make network requests
+-  Cannot access Node.js modules
 
 ### Example: Smart Meeting Notes
 

@@ -105,7 +105,7 @@ module.exports = {
       }
       
       // Text format
-      let message = `📊 HSK Mastery Statistics\n`;
+      let message = ` HSK Mastery Statistics\n`;
       message += `Total HSK words: ${stats.total}\n`;
       message += `• Unknown: ${stats.unknown} (${Math.round(stats.unknown/stats.total*100)}%)\n`;
       message += `• Learning: ${stats.learning} (${Math.round(stats.learning/stats.total*100)}%)\n`;
@@ -159,7 +159,7 @@ module.exports = {
         byLevel[item.level].push(item);
       });
       
-      let message = `📝 Words Due for Review: ${result.length} total\n`;
+      let message = ` Words Due for Review: ${result.length} total\n`;
       for (const [lvl, items] of Object.entries(byLevel).sort()) {
         message += `\nHSK ${lvl} (${items.length}):\n`;
         items.forEach((item, i) => {
@@ -238,7 +238,7 @@ module.exports = {
       return {
         success: true,
         quiz,
-        message: `📝 HSK Quiz (${difficulty}, ${format})\n\nPassage: ${quiz.passage}\n\nQuestion: ${quiz.question}\n\nInstructions: ${quiz.instructions}`
+        message: ` HSK Quiz (${difficulty}, ${format})\n\nPassage: ${quiz.passage}\n\nQuestion: ${quiz.question}\n\nInstructions: ${quiz.instructions}`
       };
     } catch (error) {
       return {

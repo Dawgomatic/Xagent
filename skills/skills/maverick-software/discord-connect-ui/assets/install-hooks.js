@@ -68,7 +68,7 @@ let installContext = {
  * Validates environment and creates backups
  */
 export async function preInstall(ctx) {
-  console.log("🎮 Discord Connect Hub - Pre-installation check");
+  console.log(" Discord Connect Hub - Pre-installation check");
   
   const { skillPath, gatewayPath } = ctx;
   installContext.skillPath = skillPath;
@@ -117,11 +117,11 @@ export async function preInstall(ctx) {
       const backupFile = path.join(installContext.backupPath, file);
       fs.mkdirSync(path.dirname(backupFile), { recursive: true });
       fs.copyFileSync(fullPath, backupFile);
-      console.log(`  📦 Backed up: ${file}`);
+      console.log(`   Backed up: ${file}`);
     }
   }
   
-  console.log("  ✅ Pre-installation checks passed");
+  console.log("   Pre-installation checks passed");
   return { success: true, context: installContext };
 }
 
@@ -130,22 +130,22 @@ export async function preInstall(ctx) {
  * Copies files and patches source code
  */
 export async function install(ctx) {
-  console.log("🎮 Discord Connect Hub - Installing components");
+  console.log(" Discord Connect Hub - Installing components");
   
   const { gatewayPath, uiPath, skillPath } = installContext;
   const assetsPath = path.join(skillPath, "assets");
   
   // 1. Install backend RPC handlers
-  console.log("  📂 Installing backend handlers...");
+  console.log("   Installing backend handlers...");
   const backendSrc = path.join(assetsPath, "discord-backend.ts");
   const backendDest = path.join(gatewayPath, "src/gateway/server-methods/discord-connect.ts");
   fs.mkdirSync(path.dirname(backendDest), { recursive: true });
   fs.copyFileSync(backendSrc, backendDest);
   installContext.installedFiles.push(backendDest);
-  console.log("    ✅ discord-connect.ts");
+  console.log("     discord-connect.ts");
   
   // 2. Register handlers in server-methods.ts
-  console.log("  📝 Patching server-methods.ts...");
+  console.log("   Patching server-methods.ts...");
   const serverMethodsPath = path.join(gatewayPath, "src/gateway/server-methods.ts");
   let serverMethods = fs.readFileSync(serverMethodsPath, "utf-8");
   
@@ -175,22 +175,22 @@ export async function install(ctx) {
     
     fs.writeFileSync(serverMethodsPath, serverMethods);
     installContext.patchedFiles.push(serverMethodsPath);
-    console.log("    ✅ Handlers registered");
+    console.log("     Handlers registered");
   } else {
-    console.log("    ⏭️  Handlers already registered");
+    console.log("      Handlers already registered");
   }
   
   // 3. Install UI component
-  console.log("  📂 Installing UI components...");
+  console.log("   Installing UI components...");
   const viewSrc = path.join(assetsPath, "discord-views.ts");
   const viewDest = path.join(uiPath, "src/ui/views/discord.ts");
   fs.mkdirSync(path.dirname(viewDest), { recursive: true });
   fs.copyFileSync(viewSrc, viewDest);
   installContext.installedFiles.push(viewDest);
-  console.log("    ✅ discord.ts view");
+  console.log("     discord.ts view");
   
   // 4. Patch navigation.ts
-  console.log("  📝 Patching navigation.ts...");
+  console.log("   Patching navigation.ts...");
   const navPath = path.join(uiPath, "src/ui/navigation.ts");
   let navContent = fs.readFileSync(navPath, "utf-8");
   
@@ -203,13 +203,13 @@ export async function install(ctx) {
     navContent = patchNavigation(navContent);
     fs.writeFileSync(navPath, navContent);
     installContext.patchedFiles.push(navPath);
-    console.log("    ✅ Navigation updated");
+    console.log("     Navigation updated");
   } else {
-    console.log("    ⏭️  Navigation already configured");
+    console.log("      Navigation already configured");
   }
   
   // 5. Patch app-render.ts
-  console.log("  📝 Patching app-render.ts...");
+  console.log("   Patching app-render.ts...");
   const renderPath = path.join(uiPath, "src/ui/app-render.ts");
   let renderContent = fs.readFileSync(renderPath, "utf-8");
   
@@ -221,12 +221,12 @@ export async function install(ctx) {
     renderContent = patchAppRender(renderContent);
     fs.writeFileSync(renderPath, renderContent);
     installContext.patchedFiles.push(renderPath);
-    console.log("    ✅ Render logic updated");
+    console.log("     Render logic updated");
   } else {
-    console.log("    ⏭️  Render logic already configured");
+    console.log("      Render logic already configured");
   }
   
-  console.log("  ✅ Component installation complete");
+  console.log("   Component installation complete");
   return { success: true, installedFiles: installContext.installedFiles };
 }
 
@@ -235,7 +235,7 @@ export async function install(ctx) {
  * Builds and restarts the gateway
  */
 export async function postInstall(ctx) {
-  console.log("🎮 Discord Connect Hub - Post-installation");
+  console.log(" Discord Connect Hub - Post-installation");
   
   const { gatewayPath } = installContext;
   const skipBuild = ctx.options?.skipBuild || process.env.SKIP_BUILD;
@@ -243,7 +243,7 @@ export async function postInstall(ctx) {
   if (!skipBuild) {
     try {
       // Build backend
-      console.log("  🔨 Building backend...");
+      console.log("   Building backend...");
       execSync("pnpm build", { 
         cwd: gatewayPath, 
         stdio: "inherit",
@@ -251,17 +251,17 @@ export async function postInstall(ctx) {
       });
       
       // Build UI
-      console.log("  🔨 Building UI...");
+      console.log("   Building UI...");
       execSync("pnpm ui:build", { 
         cwd: gatewayPath, 
         stdio: "inherit",
         timeout: 120000,
       });
       
-      console.log("  ✅ Build complete");
+      console.log("   Build complete");
     } catch (err) {
-      console.error("  ⚠️  Build failed:", err.message);
-      console.log("  💡 Run manually: cd " + gatewayPath + " && pnpm build && pnpm ui:build");
+      console.error("    Build failed:", err.message);
+      console.log("   Run manually: cd " + gatewayPath + " && pnpm build && pnpm ui:build");
     }
   }
   
@@ -269,19 +269,19 @@ export async function postInstall(ctx) {
   const skipRestart = ctx.options?.skipRestart || process.env.SKIP_RESTART;
   if (!skipRestart) {
     try {
-      console.log("  🔄 Restarting gateway...");
+      console.log("   Restarting gateway...");
       execSync("clawdbot gateway restart", { 
         stdio: "inherit",
         timeout: 30000,
       });
-      console.log("  ✅ Gateway restarted");
+      console.log("   Gateway restarted");
     } catch (err) {
-      console.log("  💡 Restart gateway manually: clawdbot gateway restart");
+      console.log("   Restart gateway manually: clawdbot gateway restart");
     }
   }
   
   // Verify installation
-  console.log("\n✨ Discord Connect Hub installed successfully!");
+  console.log("\n Discord Connect Hub installed successfully!");
   console.log("\nNext steps:");
   console.log("  1. Open Control Dashboard → Channels → Discord");
   console.log("  2. Enter your Discord bot token");
@@ -301,14 +301,14 @@ export async function postInstall(ctx) {
  * Prepares for removal
  */
 export async function preUninstall(ctx) {
-  console.log("🎮 Discord Connect Hub - Preparing uninstallation");
+  console.log(" Discord Connect Hub - Preparing uninstallation");
   
   // Warn about active connections
   try {
     const status = execSync("clawdbot rpc discord.status", { encoding: "utf-8" });
     if (status.includes('"connected": true')) {
-      console.log("  ⚠️  Discord bot is currently connected");
-      console.log("  💡 Bot will be disconnected during uninstallation");
+      console.log("    Discord bot is currently connected");
+      console.log("   Bot will be disconnected during uninstallation");
     }
   } catch {
     // Ignore - RPC might not be available
@@ -322,24 +322,24 @@ export async function preUninstall(ctx) {
  * Removes installed files and patches
  */
 export async function uninstall(ctx) {
-  console.log("🎮 Discord Connect Hub - Uninstalling");
+  console.log(" Discord Connect Hub - Uninstalling");
   
   // Remove installed files
   for (const file of installContext.installedFiles) {
     if (fs.existsSync(file)) {
       fs.unlinkSync(file);
-      console.log(`  🗑️  Removed: ${file}`);
+      console.log(`    Removed: ${file}`);
     }
   }
   
   // Restore backups if available
   if (installContext.backupPath && fs.existsSync(installContext.backupPath)) {
-    console.log("  📦 Restoring backups...");
+    console.log("   Restoring backups...");
     // Restore logic would go here
   }
   
-  console.log("  ✅ Uninstallation complete");
-  console.log("  💡 Remember to rebuild: pnpm build && pnpm ui:build");
+  console.log("   Uninstallation complete");
+  console.log("   Remember to rebuild: pnpm build && pnpm ui:build");
   
   return { success: true };
 }
@@ -354,11 +354,11 @@ export async function onConfigUpdated(ctx) {
   // Only care about discord config changes
   if (!configPath.startsWith("channels.discord")) return;
   
-  console.log("🎮 Discord config updated");
+  console.log(" Discord config updated");
   
   // If token changed, the gateway will automatically reconnect
   if (configPath === "channels.discord.botToken") {
-    console.log("  🔑 Bot token updated - reconnecting...");
+    console.log("   Bot token updated - reconnecting...");
   }
   
   return { success: true };

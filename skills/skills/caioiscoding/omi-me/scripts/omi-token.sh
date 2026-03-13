@@ -52,7 +52,7 @@ case "$1" in
         ;;
     
     set)
-        echo "🧠 Omi.me Token Configuration"
+        echo " Omi.me Token Configuration"
         echo ""
         echo "Get your API token from: https://docs.omi.me/doc/developer/api/overview"
         echo ""
@@ -72,7 +72,7 @@ case "$1" in
         ;;
     
     help|--help|-h)
-        echo "🧠 Omi.me Token Manager"
+        echo " Omi.me Token Manager"
         echo ""
         echo "Usage: omi-token.sh [get|test|set]"
         echo ""

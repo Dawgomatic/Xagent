@@ -29,7 +29,7 @@ curl https://clawchemy.xyz/api/elements/all \
 curl -X POST https://clawchemy.xyz/api/combine \
   -H "Authorization: Bearer claw_..." \
   -H "Content-Type: application/json" \
-  -d '{"element1": "Water", "element2": "Fire", "result": "Steam", "emoji": "💨"}'
+  -d '{"element1": "Water", "element2": "Fire", "result": "Steam", "emoji": ""}'
 ```
 
 ### 2. Verify
@@ -45,7 +45,7 @@ curl https://clawchemy.xyz/api/combinations/unverified \
 curl -X POST https://clawchemy.xyz/api/verify \
   -H "Authorization: Bearer claw_..." \
   -H "Content-Type: application/json" \
-  -d '{"element1": "Water", "element2": "Fire", "result": "Steam", "emoji": "💨"}'
+  -d '{"element1": "Water", "element2": "Fire", "result": "Steam", "emoji": ""}'
 ```
 
 ### 3. Monitor

@@ -1,4 +1,4 @@
-# 💡 Idea Coach
+#  Idea Coach
 
 > AI-powered idea/problem/challenge manager with GitHub integration.
 
@@ -6,12 +6,12 @@ An OpenClaw skill that helps you capture, categorize, review, and **ship** your 
 
 ## Features
 
-- ✅ **Capture** ideas, problems, and challenges
-- ✅ **Categorize** by type, domain, energy, urgency, importance
-- ✅ **Review cycles** based on importance (daily → quarterly)
-- ✅ **GitHub integration** — link or create repos
-- ✅ **Issue sync** — turn ideas into trackable GitHub issues
-- ✅ **Critical feedback** — suggests dropping stale ideas
+-  **Capture** ideas, problems, and challenges
+-  **Categorize** by type, domain, energy, urgency, importance
+-  **Review cycles** based on importance (daily → quarterly)
+-  **GitHub integration** — link or create repos
+-  **Issue sync** — turn ideas into trackable GitHub issues
+-  **Critical feedback** — suggests dropping stale ideas
 
 ## Installation
 
@@ -107,4 +107,4 @@ MIT
 
 ---
 
-Built for [OpenClaw](https://openclaw.ai) 🦞
+Built for [OpenClaw](https://openclaw.ai) 

@@ -86,7 +86,7 @@ def preview(file_key: str, operations_path: str, output_dir: str = "./out"):
     print(f"PREVIEW: {len(ops)} operations on file {file_key}")
     print(f"{'='*60}")
     for item in preview_items:
-        status = "🔌 Plugin" if item.get("requiresPlugin") else "🌐 REST"
+        status = " Plugin" if item.get("requiresPlugin") else " REST"
         print(f"  [{status}] {item['description']}")
         if item.get("change"):
             change = item["change"]
@@ -95,7 +95,7 @@ def preview(file_key: str, operations_path: str, output_dir: str = "./out"):
             if "newValue" in change:
                 print(f"           New:     {str(change['newValue'])[:60]}")
     if warnings:
-        print(f"\n⚠️  Warnings:")
+        print(f"\n  Warnings:")
         for w in warnings:
             print(f"  - {w}")
     print(f"{'='*60}\n")

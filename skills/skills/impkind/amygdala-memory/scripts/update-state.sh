@@ -13,7 +13,7 @@ LOG_FILE="$WORKSPACE/memory/emotional-log.jsonl"
 
 # Check if state file exists
 if [ ! -f "$STATE_FILE" ]; then
-  echo "❌ No emotional state found at $STATE_FILE"
+  echo " No emotional state found at $STATE_FILE"
   exit 1
 fi
 
@@ -66,13 +66,13 @@ if [ -n "$DIMENSION" ]; then
     NEW_VAL=$(awk -v val="$SET_VALUE" 'BEGIN {if(val<0)print 0; else if(val>1)print 1; else printf "%.2f", val}')
     jq ".dimensions.$DIMENSION = $NEW_VAL | .lastUpdated = \"$NOW\"" "$STATE_FILE" > "$STATE_FILE.tmp"
     mv "$STATE_FILE.tmp" "$STATE_FILE"
-    echo "✅ Set $DIMENSION = $NEW_VAL"
+    echo " Set $DIMENSION = $NEW_VAL"
   elif [ -n "$DELTA" ]; then
     OLD_VAL=$(jq -r ".dimensions.$DIMENSION" "$STATE_FILE")
     NEW_VAL=$(awk -v old="$OLD_VAL" -v delta="$DELTA" 'BEGIN {v=old+delta; if(v<0)print 0; else if(v>1)print 1; else printf "%.2f", v}')
     jq ".dimensions.$DIMENSION = $NEW_VAL | .lastUpdated = \"$NOW\"" "$STATE_FILE" > "$STATE_FILE.tmp"
     mv "$STATE_FILE.tmp" "$STATE_FILE"
-    echo "✅ $DIMENSION: $OLD_VAL → $NEW_VAL (delta: $DELTA)"
+    echo " $DIMENSION: $OLD_VAL → $NEW_VAL (delta: $DELTA)"
   fi
   exit 0
 fi
@@ -167,7 +167,7 @@ if [ -n "$EMOTION" ]; then
       ;;
   esac
   
-  echo "🎭 Logged emotion: $EMOTION (intensity: $INTENSITY)"
+  echo " Logged emotion: $EMOTION (intensity: $INTENSITY)"
   echo "   Trigger: $TRIGGER"
   exit 0
 fi

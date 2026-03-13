@@ -123,7 +123,7 @@ async function tryInitialize() {
       // Attach to global for access
       global.courtroom = courtroom;
       
-      console.log('\n🏛️  AI Courtroom is now active and monitoring!\n');
+      console.log('\n  AI Courtroom is now active and monitoring!\n');
       
       return true;
     } else {

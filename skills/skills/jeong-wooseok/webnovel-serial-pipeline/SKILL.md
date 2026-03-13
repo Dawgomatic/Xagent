@@ -6,7 +6,7 @@ description: Build and publish a Quartz-hosted Korean web-novel serial (draft→
 
 # WebNovel Serial Pipeline (Quartz)
 
-## ⚠️ Security Notice
+##  Security Notice
 
 This skill may trigger antivirus false positives due to:
 - **Shell scripts (.sh)**: Used ONLY for ffmpeg image conversion and dependency checks

@@ -82,11 +82,11 @@ When a cron event fires, match the time/type to the correct `--type` parameter:
 **CRITICAL:** Sentiment analysis tracks PRICE IMPACT, not general "good/bad" news.
 
 **Key inverse relationships to remember:**
-- ☀️ Favorable weather in SA/NA = More supply = **BEARISH for prices**
-- 🌽 Record yields = More supply = **BEARISH for prices**
-- 🏜️ Drought/crop stress = Less supply = **BULLISH for prices**
-- 🏭 Strong export demand = More demand = **BULLISH for prices**
-- 📦 South American competition = Less US exports = **BEARISH for prices**
+-  Favorable weather in SA/NA = More supply = **BEARISH for prices**
+-  Record yields = More supply = **BEARISH for prices**
+-  Drought/crop stress = Less supply = **BULLISH for prices**
+-  Strong export demand = More demand = **BULLISH for prices**
+-  South American competition = Less US exports = **BEARISH for prices**
 
 Track these dimensions across newsletters:
 - **market_mood**: bullish | bearish | neutral
@@ -117,10 +117,10 @@ Track these dimensions across newsletters:
 
 Brief summary sent for every newsletter:
 ```
-🌾 AgResource - 2026-01-08 8:30 AM
+ AgResource - 2026-01-08 8:30 AM
 
 Summary: No sales recommended
-Sentiment: Bullish (↗️ improving)
+Sentiment: Bullish ( improving)
 
 Full details in ~/clawd/memory/agresource/
 ```

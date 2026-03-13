@@ -406,28 +406,28 @@ class ThinkingMemory:
         index = self._load_index()
         
         lines = [
-            "🧠 思维模型记忆系统摘要",
+            " 思维模型记忆系统摘要",
             "=" * 50,
             f"",
-            f"📊 快照总数: {index['total_snapshots']}",
-            f"📈 成功率: {index['by_success']['success']}/{index['by_success']['success'] + index['by_success']['failed']}",
+            f" 快照总数: {index['total_snapshots']}",
+            f" 成功率: {index['by_success']['success']}/{index['by_success']['success'] + index['by_success']['failed']}",
         ]
         
         if index["by_type"]:
             lines.append(f"")
-            lines.append(f"📂 按模型类型:")
+            lines.append(f" 按模型类型:")
             for model_type, count in sorted(index["by_type"].items(), key=lambda x: x[1], reverse=True):
                 lines.append(f"   • {model_type}: {count}次")
         
         if index.get("avg_rating", 0) > 0:
             lines.extend([
                 f"",
-                f"⭐ 平均评分: {index['avg_rating']:.1f}/5"
+                f" 平均评分: {index['avg_rating']:.1f}/5"
             ])
         
         lines.extend([
             f"",
-            f"🕐 最后更新: {index['last_updated'][:19] if index['last_updated'] else '未知'}",
+            f" 最后更新: {index['last_updated'][:19] if index['last_updated'] else '未知'}",
         ])
         
         return "\n".join(lines)

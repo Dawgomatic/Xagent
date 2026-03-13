@@ -153,7 +153,7 @@ def main():
         if args.json:
             print(json.dumps(result, indent=2))
         else:
-            print(f"⏰ Scheduled in {result['delay_seconds']}s: {result['message'][:50]}...")
+            print(f" Scheduled in {result['delay_seconds']}s: {result['message'][:50]}...")
             
     elif args.action == "pending":
         pending = get_pending()
@@ -161,31 +161,31 @@ def main():
             print(json.dumps(pending, indent=2))
         else:
             if pending:
-                print(f"📬 {len(pending)} message(s) ready to send:")
+                print(f" {len(pending)} message(s) ready to send:")
                 for p in pending:
                     print(f"  [{p['id']}] {p['message'][:50]}...")
             else:
-                print("📭 No pending messages")
+                print(" No pending messages")
                 
     elif args.action == "sent":
         if not args.id:
             print("Error: --id required for sent action", file=sys.stderr)
             sys.exit(1)
         if mark_sent(args.id):
-            print(f"✅ Marked {args.id} as sent")
+            print(f" Marked {args.id} as sent")
         else:
-            print(f"❌ Entry {args.id} not found")
+            print(f" Entry {args.id} not found")
             
     elif args.action == "status":
         status = get_queue_status()
         if args.json:
             print(json.dumps(status, indent=2))
         else:
-            print(f"📊 Queue: {status['total']} total | {status['pending']} pending | {status['due_now']} due | {status['sent']} sent")
+            print(f" Queue: {status['total']} total | {status['pending']} pending | {status['due_now']} due | {status['sent']} sent")
             
     elif args.action == "clear":
         removed = clear_old(args.hours)
-        print(f"🧹 Cleared {removed} old entries")
+        print(f" Cleared {removed} old entries")
 
 if __name__ == "__main__":
     main()

@@ -2,7 +2,7 @@
 name: 0protocol
 description: Agents can sign plugins, rotate credentials without losing identity, and publicly attest to behavior.
 homepage: https://github.com/0isone/0protocol
-metadata: {"openclaw":{"emoji":"🪪","requires":{"bins":["mcporter"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["mcporter"]}}}
 ---
 
 # 0.protocol

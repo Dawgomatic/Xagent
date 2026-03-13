@@ -44,11 +44,11 @@ echo "Loaded launchd service"
 # Verify
 sleep 2
 if launchctl list | grep -q com.claude-team; then
-    echo "✅ claude-team HTTP server is running"
+    echo " claude-team HTTP server is running"
     echo "   Logs: ~/.claude-team/logs/"
     echo "   Port: 8766"
 else
-    echo "⚠️  Service loaded but may not be running. Check logs."
+    echo "  Service loaded but may not be running. Check logs."
 fi
 
 # mcporter config hint

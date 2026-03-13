@@ -1,7 +1,7 @@
 ---
 name: loom
 description: Manage Loom video recordings - list, share, and get analytics via Loom API.
-metadata: {"clawdbot":{"emoji":"🎥","requires":{"env":["LOOM_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["LOOM_API_KEY"]}}}
 ---
 
 # Loom

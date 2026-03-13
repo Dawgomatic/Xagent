@@ -37,11 +37,11 @@ token = (test-token-here)
 
 ### Security Properties
 
-✅ **Not in skill code** — All credentials in external config file  
-✅ **Not in environment** — Avoids shell history exposure  
-✅ **File permissions** — Can `chmod 600 ~/.filewave/config` (read-only by user)  
-✅ **Per-machine** — Different tokens on dev vs prod machines  
-✅ **Still supportable by env vars** — For CI/CD pipelines (override)  
+ **Not in skill code** — All credentials in external config file  
+ **Not in environment** — Avoids shell history exposure  
+ **File permissions** — Can `chmod 600 ~/.filewave/config` (read-only by user)  
+ **Per-machine** — Different tokens on dev vs prod machines  
+ **Still supportable by env vars** — For CI/CD pipelines (override)  
 
 ### CLI Usage
 
@@ -217,12 +217,12 @@ chmod 600 ~/.filewave/config
 
 | Aspect | Config File | Env Vars | Keychain |
 |--------|-------------|----------|----------|
-| **Persistent** | ✅ Yes | ❌ No | ✅ Yes |
-| **Secure** | ✅ (chmod 600) | ⚠️ Shell history | ✅✅ Best |
-| **Multi-server** | ✅ Profiles | ⚠️ Complex | ✅ Possible |
-| **CI/CD compatible** | ✅ + env override | ✅ Yes | ❌ Not ideal |
-| **UX familiar** | ✅ (AWS CLI style) | ✅ Simple | ❌ Less common |
-| **Complexity** | 🟡 Medium | ✅ Low | 🔴 High |
+| **Persistent** |  Yes |  No |  Yes |
+| **Secure** |  (chmod 600) |  Shell history |  Best |
+| **Multi-server** |  Profiles |  Complex |  Possible |
+| **CI/CD compatible** |  + env override |  Yes |  Not ideal |
+| **UX familiar** |  (AWS CLI style) |  Simple |  Less common |
+| **Complexity** |  Medium |  Low |  High |
 
 **Recommendation:** Config file (INI format with profiles) + env var override for CI/CD
 
@@ -253,19 +253,19 @@ Output:
 
 ## What Doesn't Go in the Skill
 
-❌ Hardcoded server/token  
-❌ Server/token in README examples  
-❌ Default tokens in config files (must be set by user)  
-❌ Storing tokens in script/query history  
+ Hardcoded server/token  
+ Server/token in README examples  
+ Default tokens in config files (must be set by user)  
+ Storing tokens in script/query history  
 
 ## What Goes in the Skill
 
-✅ Config file path logic (`~/.filewave/config`)  
-✅ Profile management code  
-✅ Credential loading from file  
-✅ Env var override logic  
-✅ Server context in responses  
-✅ Documentation on setup  
+ Config file path logic (`~/.filewave/config`)  
+ Profile management code  
+ Credential loading from file  
+ Env var override logic  
+ Server context in responses  
+ Documentation on setup  
 
 ## Migration Path
 
@@ -302,11 +302,11 @@ export FILEWAVE_API_TOKEN="token"
 
 This architecture provides:
 
-1. ✅ **Security** — Credentials outside skill, file-permission protected
-2. ✅ **Multi-server** — Profiles for managing multiple servers
-3. ✅ **Clarity** — Response includes server name/context
-4. ✅ **Flexibility** — Config file + env var override + CLI args
-5. ✅ **Familiarity** — Profile-based pattern like AWS CLI
-6. ✅ **Backwards compatible** — Env var support for existing scripts
+1.  **Security** — Credentials outside skill, file-permission protected
+2.  **Multi-server** — Profiles for managing multiple servers
+3.  **Clarity** — Response includes server name/context
+4.  **Flexibility** — Config file + env var override + CLI args
+5.  **Familiarity** — Profile-based pattern like AWS CLI
+6.  **Backwards compatible** — Env var support for existing scripts
 
 Ready to implement in Phase 1.

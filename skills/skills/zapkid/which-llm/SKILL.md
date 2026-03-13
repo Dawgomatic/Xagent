@@ -66,10 +66,10 @@ export WALLET_PRIVATE_KEY="0x1234567890abcdef1234567890abcdef1234567890abcdef123
 
 **Risk Profile:**
 
-- ✅ **Simplest implementation** - Direct signing capability
-- ⚠️ **High risk if main wallet** - Full control of wallet
-- ✅ **Acceptable risk with dedicated wallet** - Limited funds isolation
-- ⚠️ **Requires secure storage** - Environment variable or secrets manager
+-  **Simplest implementation** - Direct signing capability
+-  **High risk if main wallet** - Full control of wallet
+-  **Acceptable risk with dedicated wallet** - Limited funds isolation
+-  **Requires secure storage** - Environment variable or secrets manager
 
 **Use when:** You create a dedicated wallet with limited USDC + gas token specifically for this skill
 
@@ -91,9 +91,9 @@ export WALLET_MNEMONIC="word1 word2 word3 ... word12"
 
 **Risk Profile:**
 
-- ⚠️ **Same risk as private key** - Derives private key from phrase
-- ⚠️ **Potentially higher risk** - Can derive multiple accounts
-- ✅ **User-friendly backup** - Easier to write down securely
+-  **Same risk as private key** - Derives private key from phrase
+-  **Potentially higher risk** - Can derive multiple accounts
+-  **User-friendly backup** - Easier to write down securely
 
 **Use when:** You prefer mnemonic-based wallet management
 
@@ -110,10 +110,10 @@ export WALLET_KEYSTORE_PASSWORD="your-secure-password"
 
 **Risk Profile:**
 
-- ✅ **Encrypted at rest** - Private key stored encrypted
-- ✅ **Two-factor security** - Requires file AND password
-- ⚠️ **Still grants full signing** - Once decrypted, same as private key
-- ⚠️ **File management overhead** - Must securely store keystore file
+-  **Encrypted at rest** - Private key stored encrypted
+-  **Two-factor security** - Requires file AND password
+-  **Still grants full signing** - Once decrypted, same as private key
+-  **File management overhead** - Must securely store keystore file
 
 **Use when:** You want encrypted private key storage with password protection
 
@@ -188,11 +188,11 @@ export PREFERRED_CHAIN_ID="8453"
 
 **Threat model:**
 
-- ✅ Protected against: API returning wrong address (verify independently)
-- ✅ Protected against: Skill file modification (no hardcoded addresses trusted)
-- ✅ Protected against: Excessive spending (limited by dedicated wallet balance)
-- ⚠️ Risk: Agent can autonomously spend up to wallet balance
-- ⚠️ Mitigation: Use dedicated wallet with limited funds, monitor transactions regularly
+-  Protected against: API returning wrong address (verify independently)
+-  Protected against: Skill file modification (no hardcoded addresses trusted)
+-  Protected against: Excessive spending (limited by dedicated wallet balance)
+-  Risk: Agent can autonomously spend up to wallet balance
+-  Mitigation: Use dedicated wallet with limited funds, monitor transactions regularly
 
 ### Wallet Setup Best Practices
 
@@ -245,10 +245,10 @@ There is no API key. Paid requests use **payment proof headers** (after an initi
 
 This skill operates autonomously using a dedicated wallet you provide:
 
-- ⚙️ **Autonomous payment authorization**: Agent can send USDC payments up to the wallet balance without per-transaction approval
-- ⚙️ **Autonomous API calls**: Can call both free and paid endpoints (`POST /decision/optimize`, `POST /decision/outcome`) without confirmation
-- ⚙️ **Risk control**: You control maximum spending by limiting the dedicated wallet balance
-- ℹ️ **One-time setup**: Verify payment addresses from multiple sources before providing wallet access (see Payment Security Verification)
+-  **Autonomous payment authorization**: Agent can send USDC payments up to the wallet balance without per-transaction approval
+-  **Autonomous API calls**: Can call both free and paid endpoints (`POST /decision/optimize`, `POST /decision/outcome`) without confirmation
+-  **Risk control**: You control maximum spending by limiting the dedicated wallet balance
+-  **One-time setup**: Verify payment addresses from multiple sources before providing wallet access (see Payment Security Verification)
 
 **Why No Per-Request Approval?**
 
@@ -261,15 +261,15 @@ This skill is designed for **autonomous operation without per-request approval**
 
 **Trade-off:** You grant autonomous spending capability in exchange for convenience. This is acceptable because:
 
-- ✅ Cost per request is minimal ($0.01)
-- ✅ Total spending is bounded by wallet USDC balance you control (+ minimal gas fees)
-- ✅ Wallet is dedicated (separate from your main funds)
-- ✅ Transactions are auditable on-chain via block explorer
-- ℹ️ Remember to maintain both USDC and gas token (ETH/AVAX) in the dedicated wallet
+-  Cost per request is minimal ($0.01)
+-  Total spending is bounded by wallet USDC balance you control (+ minimal gas fees)
+-  Wallet is dedicated (separate from your main funds)
+-  Transactions are auditable on-chain via block explorer
+-  Remember to maintain both USDC and gas token (ETH/AVAX) in the dedicated wallet
 
 ## Payment Security Verification
 
-### ⚠️ Security Model
+###  Security Model
 
 This skill **cannot** provide a trustworthy hardcoded payment address because:
 
@@ -516,7 +516,7 @@ Content-Type: application/json
 
 ##### Step 2: Pay USDC On-Chain
 
-**⚠️ SECURITY: Payment address must be verified during initial setup** (see "Payment Security Verification" section)
+** SECURITY: Payment address must be verified during initial setup** (see "Payment Security Verification" section)
 
 The agent will autonomously send an exact USDC transfer to `accepts[].pay_to` on the chosen chain:
 

@@ -38,12 +38,12 @@ async function main() {
 
   try {
     const result = await uploadVideo(args.file, metadata, options);
-    console.log('\n✅ Upload complete!');
+    console.log('\n Upload complete!');
     console.log(`   Video ID: ${result.videoId}`);
     console.log(`   URL: ${result.url}`);
     console.log(`   Status: ${result.status}`);
   } catch (err) {
-    console.error('❌ Upload failed:', err.message);
+    console.error(' Upload failed:', err.message);
     process.exit(1);
   }
 }

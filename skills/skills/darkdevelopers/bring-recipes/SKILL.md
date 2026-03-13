@@ -80,10 +80,10 @@ node index.js filters
 
 ## API Limitations
 
-⚠️ **Critical:** The Bring! `getInspirations()` API returns only metadata:
-- ✅ Recipe names, authors, types
-- ✅ Images, links, tags, like counts
-- ❌ **Ingredient lists** (not provided)
+ **Critical:** The Bring! `getInspirations()` API returns only metadata:
+-  Recipe names, authors, types
+-  Images, links, tags, like counts
+-  **Ingredient lists** (not provided)
 
 This is a Bring! API limitation, not a CLI bug. The CLI is designed for **browsing and discovering** recipes only.
 

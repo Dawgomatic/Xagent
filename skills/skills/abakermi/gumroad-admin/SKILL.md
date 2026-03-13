@@ -5,7 +5,7 @@ description: Gumroad Admin CLI. Check sales, products, and manage discounts.
 author: abakermi
 metadata:
   openclaw:
-    emoji: "💸"
+    emoji: ""
     requires:
       env: ["GUMROAD_ACCESS_TOKEN"]
 ---

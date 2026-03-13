@@ -12,7 +12,7 @@
 4. 保存到 reports/health-report-2025-12-31.html
 
 输出:
-✅ 健康报告已生成
+ 健康报告已生成
 文件路径: reports/health-report-2025-12-31.html
 ```
 
@@ -22,7 +22,7 @@
 用户: /report comprehensive last_quarter
 
 输出:
-✅ 健康报告已生成
+ 健康报告已生成
 数据范围: 2025-10-01 至 2025-12-31
 ```
 
@@ -32,7 +32,7 @@
 用户: /report custom 2024-01-01,2024-12-31 biochemical,medication
 
 输出:
-✅ 健康报告已生成
+ 健康报告已生成
 包含章节: 生化检查、用药分析
 ```
 
@@ -42,7 +42,7 @@
 用户: /report comprehensive all all my-report.html
 
 输出:
-✅ 健康报告已生成
+ 健康报告已生成
 文件路径: reports/my-report.html
 ```
 

@@ -10,7 +10,7 @@
 
 receipts-guard v0.6.0 introduces Ed25519-based cryptographic signatures and DID (Decentralized Identifier) identity. This audit found **1 security issue (FIXED)** and verified the cryptographic implementation is sound.
 
-### Overall Assessment: **PASS** ✅
+### Overall Assessment: **PASS** 
 
 ---
 
@@ -20,44 +20,44 @@ receipts-guard v0.6.0 introduces Ed25519-based cryptographic signatures and DID 
 
 | Test | Status |
 |------|--------|
-| Identity Show | ✅ Pass |
-| Identity Show --full | ✅ Pass |
-| Identity Init (duplicate prevention) | ✅ Pass |
-| DID Verification (valid) | ✅ Pass |
-| DID Verification (invalid format) | ✅ Pass |
-| DID Verification (non-existent) | ✅ Pass |
-| Proposal validation (empty terms) | ✅ Pass |
-| Proposal validation (missing counterparty) | ✅ Pass |
-| Accept (non-existent proposal) | ✅ Pass |
-| Fulfill (non-existent agreement) | ✅ Pass |
-| List with filters | ✅ Pass |
-| Legacy backward compatibility | ✅ Pass |
+| Identity Show |  Pass |
+| Identity Show --full |  Pass |
+| Identity Init (duplicate prevention) |  Pass |
+| DID Verification (valid) |  Pass |
+| DID Verification (invalid format) |  Pass |
+| DID Verification (non-existent) |  Pass |
+| Proposal validation (empty terms) |  Pass |
+| Proposal validation (missing counterparty) |  Pass |
+| Accept (non-existent proposal) |  Pass |
+| Fulfill (non-existent agreement) |  Pass |
+| List with filters |  Pass |
+| Legacy backward compatibility |  Pass |
 
 ### Cryptographic Tests (6/6 Passed)
 
 | Test | Status |
 |------|--------|
-| Ed25519 signature creation | ✅ Pass |
-| Ed25519 signature verification (valid) | ✅ Pass |
-| Signature verification (wrong terms hash) | ✅ Correctly rejected |
-| Signature verification (modified timestamp) | ✅ Correctly rejected |
-| Signature verification (tampered signature) | ✅ Correctly rejected |
-| Signature verification (truncated) | ✅ Correctly rejected |
+| Ed25519 signature creation |  Pass |
+| Ed25519 signature verification (valid) |  Pass |
+| Signature verification (wrong terms hash) |  Correctly rejected |
+| Signature verification (modified timestamp) |  Correctly rejected |
+| Signature verification (tampered signature) |  Correctly rejected |
+| Signature verification (truncated) |  Correctly rejected |
 
 ### Security Tests (10/10 Passed)
 
 | Test | Status |
 |------|--------|
-| Private key permissions (600) | ✅ Pass |
-| Private directory permissions (700) | ✅ Pass (after fix) |
-| Archived key permissions (600) | ✅ Pass (after fix) |
-| Path traversal in terms | ✅ Contained (treated as data) |
-| JSON injection in terms | ✅ Contained (escaped properly) |
-| Command injection in counterparty | ✅ Contained (not executed) |
-| Key rotation chain integrity | ✅ Valid |
-| DID document structure | ✅ Valid |
-| Key-history consistency | ✅ Valid |
-| Signature replay prevention | ✅ Pass (timestamp binding) |
+| Private key permissions (600) |  Pass |
+| Private directory permissions (700) |  Pass (after fix) |
+| Archived key permissions (600) |  Pass (after fix) |
+| Path traversal in terms |  Contained (treated as data) |
+| JSON injection in terms |  Contained (escaped properly) |
+| Command injection in counterparty |  Contained (not executed) |
+| Key rotation chain integrity |  Valid |
+| DID document structure |  Valid |
+| Key-history consistency |  Valid |
+| Signature replay prevention |  Pass (timestamp binding) |
 
 ---
 
@@ -120,11 +120,11 @@ function ensureDir(dirPath, restrictedMode = false) {
 
 | Property | Implementation | Status |
 |----------|---------------|--------|
-| Algorithm | Ed25519 (EdDSA) | ✅ Industry standard |
-| Key size | 256-bit | ✅ Secure |
-| Message binding | `hash|timestamp` | ✅ Prevents replay |
-| Encoding | Base64url (signatures), Base58btc (keys) | ✅ Standard |
-| Key rotation | Old key signs new key | ✅ Verifiable chain |
+| Algorithm | Ed25519 (EdDSA) |  Industry standard |
+| Key size | 256-bit |  Secure |
+| Message binding | `hash|timestamp` |  Prevents replay |
+| Encoding | Base64url (signatures), Base58btc (keys) |  Standard |
+| Key rotation | Old key signs new key |  Verifiable chain |
 
 ### Signature Format
 
@@ -149,10 +149,10 @@ The timestamp is included in the signed message, preventing:
 ## Recommendations
 
 ### Implemented in v0.6.0
-1. ✅ Ed25519 signatures (replacing HMAC)
-2. ✅ DID-based identity
-3. ✅ Key rotation with proof chain
-4. ✅ Restricted file permissions
+1.  Ed25519 signatures (replacing HMAC)
+2.  DID-based identity
+3.  Key rotation with proof chain
+4.  Restricted file permissions
 
 ### Recommended for Future Versions
 

@@ -144,7 +144,7 @@ node scripts/wallet-info.js
 # Check USDC balance (mainnet + testnet)
 node scripts/wallet-balance.js
 
-# Export private key (⚠️ DANGEROUS)
+# Export private key ( DANGEROUS)
 node scripts/wallet-info.js --export-key
 ```
 

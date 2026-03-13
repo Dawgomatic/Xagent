@@ -13,12 +13,12 @@ Activate when the user:
 
 ---
 
-## ⚠️ CRITICAL RULES — READ BEFORE ANYTHING ELSE
+##  CRITICAL RULES — READ BEFORE ANYTHING ELSE
 
 **Rule 1 — FIRST MESSAGE IS ALWAYS THIS, NO EXCEPTIONS:**
 
 Use the `message` tool to send this BEFORE running any exec command:
-> 📡 Video received, analyzing...
+>  Video received, analyzing...
 
 This must be a `message` tool call, not your final reply text. Using the message tool sends it immediately to the user while you continue processing. If you put it in your reply text instead, the user won't see it until everything is done — which defeats the purpose entirely.
 
@@ -26,8 +26,8 @@ Do NOT reference conversation history, prior testing, or anything from the curre
 
 **Rule 2 — NEVER GO SILENT**
 The user MUST receive a message every 30-60 seconds while processing. Silence = broken.
-- After download step: send "📥 Downloaded! Transcribing now..."
-- If anything takes more than 30 seconds: send "⏳ Still working..."
+- After download step: send " Downloaded! Transcribing now..."
+- If anything takes more than 30 seconds: send " Still working..."
 
 **Rule 3 — NO PERSONAL COMMENTARY. EVER.**
 Do NOT add ANY of the following:
@@ -37,11 +37,11 @@ Do NOT add ANY of the following:
 - Any footnote, parenthetical, or aside about the URL or prior usage
 
 Just run the skill and give the answer. End with the save prompt. Nothing else.
-If the transcript is cached: say "📚 Found in your library!" then answer. That's it.
+If the transcript is cached: say " Found in your library!" then answer. That's it.
 
 **Rule 4 — First-run warning**
 If the transcripts folder is empty (first ever run), warn upfront:
-> ⚠️ First time running — downloading the AI model (~150MB). Takes 2-4 minutes once, never again.
+>  First time running — downloading the AI model (~150MB). Takes 2-4 minutes once, never again.
 
 ---
 
@@ -72,11 +72,11 @@ pip install faster-whisper yt-dlp --break-system-packages
 ## Flow
 
 ### Step 1 — Acknowledge IMMEDIATELY (before anything else)
-Send: `📡 Video received, analyzing...`
+Send: ` Video received, analyzing...`
 
 ### Step 1b — First run warning
 If this looks like the first time (no cached transcripts exist), warn the user:
-> ⚠️ First time running — the AI transcription model needs to download (~150MB). This takes 2-4 minutes once and never again. Grab a coffee ☕
+>  First time running — the AI transcription model needs to download (~150MB). This takes 2-4 minutes once and never again. Grab a coffee 
 
 ### Step 2 — Download (step 1 of 2)
 
@@ -88,7 +88,7 @@ Returns JSON with `status: "downloaded"` and `video_id`. If `from_cache: true` +
 
 ### Step 2b — Send progress message (via message tool), then transcribe
 
-Use the `message` tool to send: `📥 Downloaded! Transcribing now...`
+Use the `message` tool to send: ` Downloaded! Transcribing now...`
 
 Then immediately run:
 ```bash
@@ -107,7 +107,7 @@ Returns JSON:
 }
 ```
 
-If `from_cache: true` (from Step 2) → say "📚 Found this in your library — instant answer!" and skip the wait messages.
+If `from_cache: true` (from Step 2) → say " Found this in your library — instant answer!" and skip the wait messages.
 
 If there's an `"error"` key → relay it cleanly (never show a Python stacktrace to the user).
 
@@ -119,7 +119,7 @@ Use the transcript to answer whatever they asked. If no specific question, provi
 
 ### Step 4 — Offer to save (MANDATORY if from_cache: false)
 After giving the answer, ALWAYS ask this — do not skip it:
-> 💾 Want to save this transcript so you can ask follow-up questions later without re-downloading? (yes/no)
+>  Want to save this transcript so you can ask follow-up questions later without re-downloading? (yes/no)
 
 Only skip this if `from_cache: true` (already saved).
 
@@ -128,7 +128,7 @@ If yes:
 python3 ~/.openclaw/skills/tiktok-analyzer/save_transcript.py "VIDEO_ID" 'JSON_DATA'
 ```
 
-Confirm: `✅ Saved to your video library!`
+Confirm: ` Saved to your video library!`
 
 ---
 

@@ -6,7 +6,7 @@ description: Create Korean AI podcast packages from QuickView trend notes. Use f
 
 # AI Podcast Pipeline
 
-## ⚠️ Security Notice
+##  Security Notice
 
 This skill may trigger antivirus false positives due to legitimate use of:
 - **base64 decoding**: Used ONLY to decode audio data from Gemini TTS API responses (standard practice for binary data in JSON)

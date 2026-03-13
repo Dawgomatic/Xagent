@@ -4,18 +4,18 @@ Aplica a archivos con extensión: .py
 
 ---
 
-## 🔴 BLOCKERS
+##  BLOCKERS
 
 ### Inyección SQL
 - NUNCA concatenar o interpolar variables en queries SQL
 - NUNCA usar f-strings o .format() para construir queries
 
-❌ Mal:
+ Mal:
   cursor.execute(f"SELECT * FROM users WHERE id = {user_id}")
   cursor.execute("SELECT * FROM users WHERE name = '%s'" % name)
   cursor.execute("SELECT * FROM users WHERE email = '" + email + "'")
 
-✅ Bien:
+ Bien:
   cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))
   cursor.execute("SELECT * FROM users WHERE id = :id", {"id": user_id})
 
@@ -26,12 +26,12 @@ Aplica a archivos con extensión: .py
 - NUNCA usar os.system() con input del usuario
 - NUNCA usar shell=True en subprocess con input del usuario
 
-❌ Mal:
+ Mal:
   os.system(f"ping {host}")
   subprocess.run(f"ls {directory}", shell=True)
   subprocess.call("cat " + filename, shell=True)
 
-✅ Bien:
+ Bien:
   subprocess.run(["ping", "-c", "4", host], shell=False)
   subprocess.run(["ls", directory], shell=False)
   # Mejor aún: usar funciones nativas de Python
@@ -42,13 +42,13 @@ Aplica a archivos con extensión: .py
 - NUNCA usar yaml.load() sin Loader seguro
 - NUNCA usar eval() o exec() con input del usuario
 
-❌ Mal:
+ Mal:
   data = pickle.loads(request.data)
   config = yaml.load(file_content)
   result = eval(user_input)
   exec(user_code)
 
-✅ Bien:
+ Bien:
   data = json.loads(request.data)
   config = yaml.safe_load(file_content)
   # Para eval: usar ast.literal_eval solo para literales simples
@@ -58,12 +58,12 @@ Aplica a archivos con extensión: .py
 - Path traversal: no validar rutas de archivos del usuario
 - No cerrar archivos abiertos (no usar context managers)
 
-❌ Mal:
+ Mal:
   filepath = "/uploads/" + request.args.get("file")
   f = open(filepath, "r")
   content = f.read()
 
-✅ Bien:
+ Bien:
   from pathlib import Path
 
   base_dir = Path("/uploads").resolve()
@@ -79,12 +79,12 @@ Aplica a archivos con extensión: .py
 - Contraseñas, API keys, tokens en el código fuente
 - Strings de conexión a base de datos con credenciales embebidas
 
-❌ Mal:
+ Mal:
   DB_PASSWORD = "super_secret_123"
   API_KEY = "sk-abc123def456ghi789"
   conn = psycopg2.connect("postgresql://admin:password@localhost/mydb")
 
-✅ Bien:
+ Bien:
   import os
   from dotenv import load_dotenv
 
@@ -96,14 +96,14 @@ Aplica a archivos con extensión: .py
 
 ---
 
-## 🟡 WARNINGS
+##  WARNINGS
 
 ### Excepciones
 - NUNCA usar bare except o except Exception sin re-raise
 - NUNCA silenciar excepciones con pass
 - Capturar excepciones demasiado amplias cuando se conoce el error específico
 
-❌ Mal:
+ Mal:
   try:
       do_something()
   except:
@@ -114,7 +114,7 @@ Aplica a archivos con extensión: .py
   except Exception:
       value = 0
 
-✅ Bien:
+ Bien:
   try:
       do_something()
   except SpecificError as e:
@@ -130,7 +130,7 @@ Aplica a archivos con extensión: .py
 ### Mutable Default Arguments
 - NUNCA usar objetos mutables como argumentos por defecto
 
-❌ Mal:
+ Mal:
   def add_item(item, items=[]):
       items.append(item)
       return items
@@ -140,7 +140,7 @@ Aplica a archivos con extensión: .py
       options["timestamp"] = time.time()
       return options
 
-✅ Bien:
+ Bien:
   def add_item(item, items=None):
       if items is None:
           items = []
@@ -158,14 +158,14 @@ Aplica a archivos con extensión: .py
 - Usar Any cuando se puede ser más específico
 - No usar Optional[X] o X | None para valores que pueden ser None
 
-❌ Mal:
+ Mal:
   def get_user(id):
       ...
 
   def process_data(data):
       ...
 
-✅ Bien:
+ Bien:
   def get_user(user_id: int) -> User | None:
       ...
 
@@ -176,7 +176,7 @@ Aplica a archivos con extensión: .py
 - No usar with para archivos, conexiones, locks, transacciones
 - Recursos que se abren pero pueden no cerrarse si hay excepción
 
-❌ Mal:
+ Mal:
   f = open("data.txt", "r")
   content = f.read()
   f.close()  # No se ejecuta si hay excepción antes
@@ -186,7 +186,7 @@ Aplica a archivos con extensión: .py
   cursor.execute(query)
   conn.close()
 
-✅ Bien:
+ Bien:
   with open("data.txt", "r") as f:
       content = f.read()
 
@@ -199,14 +199,14 @@ Aplica a archivos con extensión: .py
 - Modificar estado global desde funciones sin que sea obvio
 - Usar global keyword dentro de funciones
 
-❌ Mal:
+ Mal:
   counter = 0
 
   def increment():
       global counter
       counter += 1
 
-✅ Bien:
+ Bien:
   class Counter:
       def __init__(self):
           self._count = 0
@@ -221,17 +221,17 @@ Aplica a archivos con extensión: .py
 - Logear datos sensibles
 - Usar string formatting en lugar de lazy formatting en logging
 
-❌ Mal:
+ Mal:
   print(f"User {user_id} logged in")
   logger.info(f"Processing request for {user_id}")  # f-string se evalúa siempre
 
-✅ Bien:
+ Bien:
   logger.info("User %s logged in", user_id)  # Lazy: solo se formatea si el nivel está activo
   logger.error("Failed to process request", extra={"user_id": user_id})
 
 ---
 
-## 🔵 SUGGESTIONS
+##  SUGGESTIONS
 
 ### Pythonic Code
 - Usar list/dict/set comprehensions en lugar de loops para transformaciones simples
@@ -240,7 +240,7 @@ Aplica a archivos con extensión: .py
 - Usar any() y all() para verificaciones en colecciones
 - Usar unpacking en lugar de acceso por índice
 
-❌ Antes:
+ Antes:
   result = []
   for item in items:
       if item.active:
@@ -255,7 +255,7 @@ Aplica a archivos con extensión: .py
           found = True
           break
 
-✅ Después:
+ Después:
   result = [item.name for item in items if item.active]
 
   for i, user in enumerate(users):
@@ -266,7 +266,7 @@ Aplica a archivos con extensión: .py
 ### Pathlib sobre os.path
 - Preferir pathlib.Path sobre os.path para manipulación de rutas
 
-❌ Antes:
+ Antes:
   import os
   filepath = os.path.join(base_dir, "data", filename)
   if os.path.exists(filepath):
@@ -274,7 +274,7 @@ Aplica a archivos con extensión: .py
           content = f.read()
   name, ext = os.path.splitext(filename)
 
-✅ Después:
+ Después:
   from pathlib import Path
   filepath = Path(base_dir) / "data" / filename
   if filepath.exists():
@@ -286,7 +286,7 @@ Aplica a archivos con extensión: .py
 - Usar dataclasses o Pydantic models en lugar de dicts para datos estructurados
 - Usar frozen=True para objetos inmutables
 
-❌ Antes:
+ Antes:
   user = {
       "name": "John",
       "email": "john@example.com",
@@ -294,7 +294,7 @@ Aplica a archivos con extensión: .py
   }
   # No hay validación, no hay autocompletado, fácil de escribir mal una key
 
-✅ Después (dataclass):
+ Después (dataclass):
   from dataclasses import dataclass
 
   @dataclass(frozen=True)
@@ -305,7 +305,7 @@ Aplica a archivos con extensión: .py
 
   user = User(name="John", email="john@example.com", age=30)
 
-✅ Después (Pydantic para validación):
+ Después (Pydantic para validación):
   from pydantic import BaseModel, EmailStr
 
   class User(BaseModel):
@@ -320,13 +320,13 @@ Aplica a archivos con extensión: .py
 - No mezclar código sync y async sin usar run_in_executor
 - Usar asyncio.gather() para operaciones concurrentes
 
-❌ Mal (bloquea el event loop):
+ Mal (bloquea el event loop):
   @app.get("/users/{user_id}")
   async def get_user(user_id: int):
       user = requests.get(f"http://api/users/{user_id}")  # Bloquea!
       return user.json()
 
-✅ Bien:
+ Bien:
   @app.get("/users/{user_id}")
   async def get_user(user_id: int):
       async with httpx.AsyncClient() as client:
@@ -340,7 +340,7 @@ Aplica a archivos con extensión: .py
 - Mockear dependencias externas con unittest.mock o pytest-mock
 - Organizar tests siguiendo la estructura del proyecto
 
-✅ Ejemplo de buen test:
+ Ejemplo de buen test:
   import pytest
   from unittest.mock import AsyncMock
 
@@ -362,7 +362,7 @@ Aplica a archivos con extensión: .py
 
 ---
 
-## 💡 NITS
+##  NITS
 
 ### Estilo (PEP 8)
 - Usar snake_case para funciones, métodos y variables
@@ -379,7 +379,7 @@ Aplica a archivos con extensión: .py
 - Usar formato consistente: Google style, NumPy style o reStructuredText
 - Documentar parámetros, return y excepciones que se pueden lanzar
 
-✅ Ejemplo (Google style):
+ Ejemplo (Google style):
   def calculate_discount(price: float, percentage: float) -> float:
       """Calcula el precio con descuento aplicado.
 
@@ -401,21 +401,21 @@ Aplica a archivos con extensión: .py
 - Preferir f-strings sobre .format() y % para string formatting (excepto en logging)
 - Mantener f-strings simples: si la expresión es compleja, extraer a variable
 
-❌ Mal:
+ Mal:
   message = "Hello %s, you have %d messages" % (name, count)
   message = "Hello {}, you have {} messages".format(name, count)
 
-✅ Bien:
+ Bien:
   message = f"Hello {name}, you have {count} messages"
 
 ### Walrus Operator (Python 3.8+)
 - Usar := cuando simplifica el código evitando duplicar una expresión
 
-❌ Antes:
+ Antes:
   match = pattern.search(text)
   if match:
       process(match)
 
-✅ Después:
+ Después:
   if match := pattern.search(text):
       process(match)

@@ -42,7 +42,7 @@ def check_deps():
     except ImportError:
         missing.append("Pillow")
     if missing:
-        print(f"❌ Missing dependencies: {', '.join(missing)}")
+        print(f" Missing dependencies: {', '.join(missing)}")
         print(f"   Run: pip install {' '.join(missing)}")
         sys.exit(1)
 
@@ -94,11 +94,11 @@ class ValidationResult:
 
     def error(self, msg: str):
         self.errors.append(msg)
-        print(f"  ❌ {msg}")
+        print(f"   {msg}")
 
     def warn(self, msg: str):
         self.warnings.append(msg)
-        print(f"  ⚠  {msg}")
+        print(f"    {msg}")
 
     def ok(self, msg: str):
         self.passed.append(msg)
@@ -112,7 +112,7 @@ class ValidationResult:
 def validate_interior_pdf(pdf_path: Path, book_type: str, trim_key: str,
                            result: ValidationResult) -> int:
     """Validate interior PDF. Returns page count."""
-    print(f"\n📄 Interior PDF: {pdf_path.name}")
+    print(f"\n Interior PDF: {pdf_path.name}")
 
     if not pdf_path.exists():
         result.error(f"File not found: {pdf_path}")
@@ -168,7 +168,7 @@ def validate_interior_pdf(pdf_path: Path, book_type: str, trim_key: str,
 def validate_cover_pdf(cover_path: Path, page_count: int, trim_key: str,
                         paper: str, result: ValidationResult):
     """Validate cover PDF dimensions."""
-    print(f"\n📕 Cover PDF: {cover_path.name}")
+    print(f"\n Cover PDF: {cover_path.name}")
 
     if not cover_path.exists():
         result.error(f"File not found: {cover_path}")
@@ -218,7 +218,7 @@ def validate_cover_pdf(cover_path: Path, page_count: int, trim_key: str,
 
 def validate_metadata(meta_path: Path, result: ValidationResult) -> Dict:
     """Validate metadata.json fields."""
-    print(f"\n📋 Metadata: {meta_path.name}")
+    print(f"\n Metadata: {meta_path.name}")
 
     if not meta_path.exists():
         result.warn("No metadata.json found — skipping metadata checks")
@@ -276,7 +276,7 @@ def validate_metadata(meta_path: Path, result: ValidationResult) -> Dict:
 
 def validate_images(images_dir: Path, result: ValidationResult) -> List[Path]:
     """Validate image files for resolution."""
-    print(f"\n🎨 Images: {images_dir}")
+    print(f"\n Images: {images_dir}")
 
     if not images_dir.exists():
         result.warn(f"Images directory not found: {images_dir}")
@@ -324,7 +324,7 @@ def validate_images(images_dir: Path, result: ValidationResult) -> List[Path]:
 def check_text_in_images(image_files: List[Path], api_key: str,
                           result: ValidationResult):
     """Use Gemini Vision to detect text artifacts in AI illustrations."""
-    print(f"\n🔍 Checking for text in images (Gemini Vision)...")
+    print(f"\n Checking for text in images (Gemini Vision)...")
 
     try:
         import google.genai as genai
@@ -388,7 +388,7 @@ def check_text_in_images(image_files: List[Path], api_key: str,
 def check_description_consistency(meta: Dict, story_path: Path,
                                    result: ValidationResult):
     """Check that description mentions names/themes from the actual story."""
-    print(f"\n📝 Description vs. Story Consistency")
+    print(f"\n Description vs. Story Consistency")
 
     description = meta.get("description", "")
     if not description:
@@ -442,7 +442,7 @@ def check_description_consistency(meta: Dict, story_path: Path,
 
 def check_blank_pages(pdf_path: Path, result: ValidationResult):
     """Render pages and detect all-white (blank) pages that shouldn't be blank."""
-    print(f"\n🔲 Blank page detection...")
+    print(f"\n Blank page detection...")
     # Note: This requires pdf2image / poppler. If not available, skip gracefully.
     try:
         from pdf2image import convert_from_path
@@ -564,7 +564,7 @@ Examples:
 
     if not interior_path and not cover_path and not metadata_path:
         parser.print_help()
-        print("\n❌ Provide at least --interior, --cover, or --book-dir")
+        print("\n Provide at least --interior, --cover, or --book-dir")
         sys.exit(1)
 
     # Load API key for image text check
@@ -623,7 +623,7 @@ Examples:
     if args.check_text_in_images and image_files:
         check_text_in_images(image_files, api_key, result)
     elif image_files and not args.check_text_in_images:
-        print(f"\n  ℹ  Run with --check-text-in-images to scan illustrations for AI text artifacts")
+        print(f"\n    Run with --check-text-in-images to scan illustrations for AI text artifacts")
 
     if meta and story_path:
         check_description_consistency(meta, story_path, result)
@@ -632,25 +632,25 @@ Examples:
     print(f"\n{'='*60}")
     print("VALIDATION SUMMARY")
     print(f"{'='*60}")
-    print(f"  ✅ Passed  : {len(result.passed)}")
-    print(f"  ⚠  Warnings: {len(result.warnings)}")
-    print(f"  ❌ Errors  : {len(result.errors)}")
+    print(f"   Passed  : {len(result.passed)}")
+    print(f"    Warnings: {len(result.warnings)}")
+    print(f"   Errors  : {len(result.errors)}")
 
     if result.errors:
-        print(f"\n🚫 ERRORS (must fix before upload):")
+        print(f"\n ERRORS (must fix before upload):")
         for e in result.errors:
             print(f"   • {e}")
 
     if result.warnings:
-        print(f"\n⚠  WARNINGS (review before upload):")
+        print(f"\n  WARNINGS (review before upload):")
         for w in result.warnings:
             print(f"   • {w}")
 
     if result.is_valid:
-        print(f"\n✅ Book passed validation — ready to upload to KDP!")
+        print(f"\n Book passed validation — ready to upload to KDP!")
         sys.exit(0)
     else:
-        print(f"\n❌ Fix {len(result.errors)} error(s) before uploading to KDP.")
+        print(f"\n Fix {len(result.errors)} error(s) before uploading to KDP.")
         sys.exit(1)
 
 

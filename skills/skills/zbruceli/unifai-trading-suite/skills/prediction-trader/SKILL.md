@@ -3,7 +3,7 @@ name: prediction-trader
 description: AI-powered prediction market analysis across Polymarket and Kalshi with social signals
 homepage: https://github.com/your-repo/trading
 user-invocable: true
-metadata: {"moltbot":{"emoji":"📈","requires":{"env":["UNIFAI_AGENT_API_KEY","GOOGLE_API_KEY"]},"primaryEnv":"UNIFAI_AGENT_API_KEY"}}
+metadata: {"moltbot":{"emoji":"","requires":{"env":["UNIFAI_AGENT_API_KEY","GOOGLE_API_KEY"]},"primaryEnv":"UNIFAI_AGENT_API_KEY"}}
 ---
 
 # Prediction Trader

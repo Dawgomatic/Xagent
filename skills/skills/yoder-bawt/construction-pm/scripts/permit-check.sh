@@ -52,13 +52,13 @@ if pending:
     pending.sort(key=lambda x: -x[1])  # Oldest first
     print(f"## Pending ({len(pending)})")
     for j, days in pending:
-        flag = " ⚠️ OVERDUE" if days > threshold else ""
+        flag = "  OVERDUE" if days > threshold else ""
         print(f"  #{j['number']:>6} | {j.get('customer', '?'):20} | {j.get('permit_status', '?'):10} | {days}d{flag}")
     print()
 
 overdue = [p for p in pending if p[1] > threshold]
 if overdue:
-    print(f"## ⚠️ Overdue ({len(overdue)} permits pending > {threshold} days)")
+    print(f"##  Overdue ({len(overdue)} permits pending > {threshold} days)")
     for j, days in overdue:
         print(f"  - **#{j['number']}** {j.get('customer', '?')} - {days} days pending")
     print()

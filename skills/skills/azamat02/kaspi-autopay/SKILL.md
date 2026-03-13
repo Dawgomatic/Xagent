@@ -24,12 +24,12 @@ Automate payment acceptance in Telegram bots for the Kazakhstan market. No manua
 
 ## Key Features
 
-- ✅ Automatic receipt verification (Kaspi Pay)
-- ✅ Fraud protection (fake receipt detection)
-- ✅ Instant product/access delivery
-- ✅ 24/7 operation without managers
-- ✅ Telegram-native (Web App support)
-- ✅ Conversion boost: typical 40% → 75%+
+-  Automatic receipt verification (Kaspi Pay)
+-  Fraud protection (fake receipt detection)
+-  Instant product/access delivery
+-  24/7 operation without managers
+-  Telegram-native (Web App support)
+-  Conversion boost: typical 40% → 75%+
 
 ## Best For
 
@@ -51,6 +51,6 @@ This is a managed integration — not a self-hosted script.
 
 **For setup and pricing, contact the developer directly:**
 
-👉 **Telegram:** [t.me/saidulyyy](https://t.me/saidulyyy)
+ **Telegram:** [t.me/saidulyyy](https://t.me/saidulyyy)
 
 Built by **Azamat Saiduly** — full-stack developer & fintech builder specializing in payment automation for the Kazakhstan market.

@@ -188,7 +188,7 @@ SELECT
         ELSE CAST(ROUND(julianday(passed_at) - julianday(started_at)) AS INTEGER) || ' days'
     END as time_to_pass,
     CASE 
-        WHEN abandoned_at IS NOT NULL THEN '⚠️ RESET'
+        WHEN abandoned_at IS NOT NULL THEN ' RESET'
         WHEN completed_at IS NOT NULL THEN '✓ Complete'
         WHEN passed_at IS NOT NULL THEN '✓ Passed'
         WHEN started_at IS NOT NULL THEN '⋯ In Progress'

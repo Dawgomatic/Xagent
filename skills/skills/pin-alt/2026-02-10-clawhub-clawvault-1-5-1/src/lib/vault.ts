@@ -751,7 +751,7 @@ export class ClawVault {
   }
 
   private generateReadme(): string {
-    return `# ${this.config.name} 🐘
+    return `# ${this.config.name} 
 
 An elephant never forgets.
 

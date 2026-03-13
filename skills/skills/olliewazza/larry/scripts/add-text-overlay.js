@@ -134,7 +134,7 @@ async function addTextOverlay(imgPath, text, outPath) {
   fs.writeFileSync(outPath, canvas.toBuffer('image/png'));
 
   // Log the actual text layout for debugging
-  console.log(`  ✅ ${path.basename(outPath)} — ${lines.length} lines:`);
+  console.log(`   ${path.basename(outPath)} — ${lines.length} lines:`);
   lines.forEach(l => console.log(`     "${l}"`));
 }
 
@@ -167,7 +167,7 @@ function outputName(dir, num, inputName) {
 }
 
 (async () => {
-  console.log('📝 Adding text overlays...\n');
+  console.log(' Adding text overlays...\n');
   console.log('Settings:');
   console.log('  Font size: 6.5% of image width');
   console.log('  Position: centered at ~30% from top');
@@ -179,7 +179,7 @@ function outputName(dir, num, inputName) {
     const num = i + 1;
     const inputFile = findSlideFile(inputDir, num);
     if (!inputFile) {
-      console.error(`  ❌ Slide ${num}: no input file found in ${inputDir}`);
+      console.error(`   Slide ${num}: no input file found in ${inputDir}`);
       continue;
     }
     const outPath = outputName(inputDir, num, path.basename(inputFile));
@@ -187,6 +187,6 @@ function outputName(dir, num, inputName) {
     success++;
   }
 
-  console.log(`\n✨ ${success}/6 overlays complete!`);
+  console.log(`\n ${success}/6 overlays complete!`);
   if (success < 6) process.exit(1);
 })();

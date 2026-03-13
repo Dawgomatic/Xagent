@@ -2,7 +2,7 @@
 
 > Turn scripts into publishable voiceovers with Voice.ai — segments, chapters, captions, review page, and video muxing.
 
-**📖 Skill documentation: [SKILL.md](SKILL.md)**
+** Skill documentation: [SKILL.md](SKILL.md)**
 
 ---
 

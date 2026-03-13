@@ -12,7 +12,7 @@ def generate_video(topic, images, video, use_keyframes, progress=gr.Progress()):
     from pipeline import generate_video_pipeline
 
     if not topic and not video:
-        return None, "❌ Please enter a topic or upload a reference video."
+        return None, " Please enter a topic or upload a reference video."
 
     # Collect image paths
     ref_images = []
@@ -42,10 +42,10 @@ def generate_video(topic, images, video, use_keyframes, progress=gr.Progress()):
             use_keyframes=use_keyframes,
             progress_callback=progress_cb,
         )
-        status_log.append(f"✅ Done! Video: {result}")
+        status_log.append(f" Done! Video: {result}")
         return result, "\n".join(status_log)
     except Exception as e:
-        status_log.append(f"❌ Error: {str(e)}")
+        status_log.append(f" Error: {str(e)}")
         logger.exception("Pipeline failed")
         return None, "\n".join(status_log)
 
@@ -59,35 +59,35 @@ def test_connection():
             model="gemini-3-pro-preview",
             contents="Say 'ClawCut connected!' in one line.",
         )
-        return f"✅ Connected!\nResponse: {response.text.strip()}"
+        return f" Connected!\nResponse: {response.text.strip()}"
     except Exception as e:
-        return f"❌ Connection failed: {str(e)}"
+        return f" Connection failed: {str(e)}"
 
 
 def build_ui():
     with gr.Blocks(title="ClawCut - AI Video Generator", theme=gr.themes.Soft()) as app:
-        gr.Markdown("# 🎬 ClawCut\nAI-powered short video generator")
+        gr.Markdown("#  ClawCut\nAI-powered short video generator")
 
         with gr.Row():
             with gr.Column(scale=1):
                 topic = gr.Textbox(
-                    label="📝 Topic / Theme",
+                    label=" Topic / Theme",
                     placeholder="Enter your video topic (Chinese or English)...",
                     lines=3,
                 )
                 images = gr.File(
-                    label="🖼️ Reference Images (up to 14)",
+                    label=" Reference Images (up to 14)",
                     file_count="multiple",
                     file_types=["image"],
                 )
-                video = gr.Video(label="🎥 Reference Video (for style imitation)")
+                video = gr.Video(label=" Reference Video (for style imitation)")
                 use_keyframes = gr.Checkbox(
                     label="Use grid cells as first frames",
                     value=False,
                 )
                 with gr.Row():
-                    generate_btn = gr.Button("🚀 Generate Video", variant="primary", scale=2)
-                    test_btn = gr.Button("🔌 Test Connection", scale=1)
+                    generate_btn = gr.Button(" Generate Video", variant="primary", scale=2)
+                    test_btn = gr.Button(" Test Connection", scale=1)
 
             with gr.Column(scale=1):
                 output_video = gr.Video(label="Generated Video")

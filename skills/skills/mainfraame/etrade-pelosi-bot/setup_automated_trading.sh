@@ -152,7 +152,7 @@ cat > monitor_trading.sh << 'EOF'
 
 # Trading System Monitoring Dashboard
 
-echo "📊 CONGRESSIONAL TRADING SYSTEM DASHBOARD"
+echo " CONGRESSIONAL TRADING SYSTEM DASHBOARD"
 echo "=========================================="
 echo ""
 
@@ -162,17 +162,17 @@ cd "$SCRIPT_DIR"
 
 # Check if system is running
 if pgrep -f "run_automated_trading.py" > /dev/null; then
-    echo "✅ System Status: RUNNING"
+    echo " System Status: RUNNING"
     PROCESS_INFO=$(ps aux | grep "run_automated_trading.py" | grep -v grep)
     echo "   Process: $(echo "$PROCESS_INFO" | awk '{print $2, $11, $12}')"
 else
-    echo "❌ System Status: STOPPED"
+    echo " System Status: STOPPED"
 fi
 
 echo ""
 
 # Check logs
-echo "📋 RECENT LOGS:"
+echo " RECENT LOGS:"
 if [ -f "logs/trading.log" ]; then
     tail -20 logs/trading.log | while read line; do
         echo "   $line"
@@ -184,7 +184,7 @@ fi
 echo ""
 
 # Check trade history
-echo "💰 TRADE HISTORY:"
+echo " TRADE HISTORY:"
 if [ -f "data/trade_history.json" ]; then
     TRADE_COUNT=$(jq '.trades | length' data/trade_history.json 2>/dev/null || echo "0")
     echo "   Total Trades Recorded: $TRADE_COUNT"
@@ -199,7 +199,7 @@ fi
 echo ""
 
 # Check congressional data
-echo "🏛️ CONGRESSIONAL DATA:"
+echo " CONGRESSIONAL DATA:"
 if [ -d "data/congress_trades" ]; then
     DATA_FILES=$(find data/congress_trades -name "*.json" -o -name "*.csv" | wc -l)
     echo "   Data Files: $DATA_FILES"
@@ -215,12 +215,12 @@ fi
 echo ""
 
 # Check cron jobs
-echo "⏰ SCHEDULED JOBS:"
+echo " SCHEDULED JOBS:"
 if crontab -l 2>/dev/null | grep -q "congressional_trading"; then
-    echo "✅ Cron job is scheduled"
+    echo " Cron job is scheduled"
     crontab -l 2>/dev/null | grep "congressional_trading"
 else
-    echo "❌ No cron job found"
+    echo " No cron job found"
 fi
 
 echo ""
@@ -240,7 +240,7 @@ echo -e "\n${BLUE}STEP 10: Creating quick start guide...${NC}"
 cat > QUICK_START_AUTOMATED.md << 'EOF'
 # Quick Start - Automated Congressional Trading System
 
-## 🚀 System Overview
+##  System Overview
 Automated system that:
 1. Pulls congressional trading data daily (Pelosi + Senate)
 2. Generates trade recommendations
@@ -248,12 +248,12 @@ Automated system that:
 4. Sends Telegram notifications
 5. Maintains PDT compliance for $50K account
 
-## 📋 Prerequisites
+##  Prerequisites
 1. E*TRADE account with API access
 2. Telegram bot (from @BotFather)
 3. Python 3.8+ and virtual environment
 
-## ⚡ Quick Start
+##  Quick Start
 
 ### 1. Initial Setup
 ```bash
@@ -293,7 +293,7 @@ Automated system that:
 tail -f logs/trading.log
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Main Config (`config/config.json`)
 - `accountBalance`: $50,000 (adjust as needed)
@@ -306,21 +306,21 @@ tail -f logs/trading.log
 - Position limits: 5% of account per symbol
 - Trade limits: $2,500 max per trade
 
-## 📱 Telegram Notifications
+##  Telegram Notifications
 The system sends:
-- ✅ Trade execution alerts
-- 📊 Congressional trade alerts
-- ⚠️ Error notifications
-- 📋 Daily trading summaries
+-  Trade execution alerts
+-  Congressional trade alerts
+-  Error notifications
+-  Daily trading summaries
 
-## 🛡️ Safety Features
+##  Safety Features
 1. **Dry-run mode**: Test without real trades
 2. **PDT compliance**: Avoids day-trader classification
 3. **Position limits**: Prevents over-concentration
 4. **Stop-loss protection**: 10% automatic stop loss
 5. **Market hours only**: Only trades during market hours
 
-## 🔄 Daily Workflow
+##  Daily Workflow
 1. **9:00 AM**: Cron job triggers data collection
 2. **9:05 AM**: Process congressional trades
 3. **9:10 AM**: Generate trade recommendations
@@ -328,7 +328,7 @@ The system sends:
 5. **9:20 AM**: Send Telegram notifications
 6. **4:00 PM**: Send daily summary
 
-## 🚨 Emergency Stop
+##  Emergency Stop
 ```bash
 # Find and kill the process
 pkill -f "run_automated_trading.py"
@@ -337,26 +337,26 @@ pkill -f "run_automated_trading.py"
 # Send Ctrl+C to the running process
 ```
 
-## 📊 Monitoring
+##  Monitoring
 - **Logs**: `logs/trading.log`
 - **Trade History**: `data/trade_history.json`
 - **Congressional Data**: `data/congress_trades/`
 - **Dashboard**: `./monitor_trading.sh`
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 1. **Telegram not working**: Check bot token and chat ID
 2. **E*TRADE auth failed**: Verify API keys and OAuth setup
 3. **No trades executing**: Check PDT compliance and market hours
 4. **Cron job not running**: Verify cron setup and permissions
 
-## 📈 Going Live
+##  Going Live
 1. Test thoroughly in sandbox mode
 2. Start with small position sizes
 3. Monitor for 1-2 weeks
 4. Gradually increase trade scale
 5. Enable real trading by setting `environment: "production"` in config
 
-## 🆘 Support
+##  Support
 - Check logs: `tail -f logs/trading.log`
 - Run tests: `./run_automated_trading.py --mode test`
 - View status: `./run_automated_trading.py --mode status`
@@ -371,7 +371,7 @@ echo -e "\n${BLUE}STEP 11: Final setup and testing...${NC}"
 chmod +x setup_automated_trading.sh
 chmod +x monitor_trading.sh
 
-echo -e "\n${GREEN}✅ SETUP COMPLETE!${NC}"
+echo -e "\n${GREEN} SETUP COMPLETE!${NC}"
 echo -e "\n${YELLOW}=== NEXT STEPS ===${NC}"
 echo "1. Review configuration files:"
 echo "   - config/config.json (trading settings)"
@@ -389,6 +389,6 @@ echo ""
 echo "5. Monitor the system:"
 echo "   ./monitor_trading.sh"
 echo ""
-echo "📖 Detailed instructions: QUICK_START_AUTOMATED.md"
+echo " Detailed instructions: QUICK_START_AUTOMATED.md"
 echo ""
 echo "${GREEN}Your automated congressional trading system is ready!${NC}"

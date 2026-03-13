@@ -30,7 +30,7 @@ Base: `https://services.leadconnectorhq.com/social-media-posting/`
 ```json
 {
   "accountIds": ["social_account_id"],
-  "post": "Check out our latest offer! 🎉",
+  "post": "Check out our latest offer! ",
   "mediaUrls": ["https://example.com/image.jpg"],
   "scheduleDate": "2026-03-15T14:00:00Z",
   "status": "scheduled",

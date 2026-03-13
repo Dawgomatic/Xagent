@@ -10,7 +10,7 @@ Track agent session costs, file changes, and git commits. Enforces budget limits
 
 **Latest: v2.0.0** - Alerts dashboard, start fresh, insights page, alarm mode.
 
-📦 [npm](https://www.npmjs.com/package/codesession-cli) • ⭐ [GitHub](https://github.com/brian-mwirigi/codesession-cli) • 📝 [Changelog](https://github.com/brian-mwirigi/codesession-cli/blob/main/CHANGELOG.md)
+ [npm](https://www.npmjs.com/package/codesession-cli) •  [GitHub](https://github.com/brian-mwirigi/codesession-cli) •  [Changelog](https://github.com/brian-mwirigi/codesession-cli/blob/main/CHANGELOG.md)
 
 ## Installation
 

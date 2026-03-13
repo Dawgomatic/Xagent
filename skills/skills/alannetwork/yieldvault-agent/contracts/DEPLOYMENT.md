@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 1. [Prerequisites](#prerequisites)
 2. [Setup](#setup)
@@ -120,10 +120,10 @@ npm run verify-env
 
 Expected output:
 ```
-✅ DEPLOYER_ADDRESS is set
-✅ PRIVATE_KEY is set
-✅ RPC_URL is accessible
-✅ Wallet has sufficient balance
+ DEPLOYER_ADDRESS is set
+ PRIVATE_KEY is set
+ RPC_URL is accessible
+ Wallet has sufficient balance
 ```
 
 ---
@@ -181,7 +181,7 @@ Compiled artifacts are saved to: `artifacts/contracts/`
 const hre = require("hardhat");
 
 async function main() {
-  console.log("🚀 Deploying YieldVault...");
+  console.log(" Deploying YieldVault...");
 
   const YieldVault = await hre.ethers.getContractFactory("YieldVault");
 
@@ -191,7 +191,7 @@ async function main() {
   const vault = await YieldVault.deploy(vaultId, underlyingToken);
   await vault.deployed();
 
-  console.log("✅ YieldVault deployed to:", vault.address);
+  console.log(" YieldVault deployed to:", vault.address);
   console.log("   Vault ID:", vaultId);
   console.log("   Underlying Token:", underlyingToken);
 
@@ -214,8 +214,8 @@ npx hardhat run scripts/deploy.js --network bnbTestnet
 
 **Expected Output:**
 ```
-🚀 Deploying YieldVault...
-✅ YieldVault deployed to: 0x1234...
+ Deploying YieldVault...
+ YieldVault deployed to: 0x1234...
    Vault ID: vault_bnb_lp_001
    Underlying Token: 0xB4FB...
 ```
@@ -248,7 +248,7 @@ async function deploy() {
     gasPrice: web3.utils.toWei('10', 'gwei')
   });
 
-  console.log('✅ Deployed to:', receipt.contractAddress);
+  console.log(' Deployed to:', receipt.contractAddress);
   return receipt.contractAddress;
 }
 
@@ -276,7 +276,7 @@ npx hardhat verify --network bnbTestnet <CONTRACT_ADDRESS> "vault_bnb_lp_001" "0
 
 **Expected Output:**
 ```
-✅ Contract verified successfully
+ Contract verified successfully
 View at: https://testnet.bscscan.com/address/<CONTRACT_ADDRESS>
 ```
 
@@ -286,7 +286,7 @@ View at: https://testnet.bscscan.com/address/<CONTRACT_ADDRESS>
 2. Search for your contract address
 3. Click "Contract" tab
 4. Upload `YieldVault.sol` and constructor arguments
-5. Mark as verified ✅
+5. Mark as verified 
 
 ---
 
@@ -465,7 +465,7 @@ npm run compile
 
 ## Security Notes
 
-⚠️ **IMPORTANT**
+ **IMPORTANT**
 
 1. **Never commit `.env` to version control** - Add to `.gitignore`:
    ```
@@ -490,11 +490,11 @@ npm run compile
 
 After successful deployment:
 
-1. ✅ Save contract address and ABI
-2. ✅ Verify on BscScan
-3. ✅ Update agent skill configuration
-4. ✅ Test basic functions (deposit, withdraw, harvest)
-5. ✅ Monitor contract activity on BscScan
+1.  Save contract address and ABI
+2.  Verify on BscScan
+3.  Update agent skill configuration
+4.  Test basic functions (deposit, withdraw, harvest)
+5.  Monitor contract activity on BscScan
 
 ---
 

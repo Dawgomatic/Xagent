@@ -188,15 +188,15 @@ How the agent should position itself:
 ## Limitations
 
 ### What This Tool Captures
-- ✅ Macro-level communication patterns
-- ✅ Distinct conversation styles
-- ✅ Context-switching tendencies
+-  Macro-level communication patterns
+-  Distinct conversation styles
+-  Context-switching tendencies
 
 ### What It Doesn't Capture
-- ❌ Emotional state or sentiment
-- ❌ Domain expertise depth
-- ❌ Real-time adaptation (post-analysis)
-- ❌ Non-text communication patterns
+-  Emotional state or sentiment
+-  Domain expertise depth
+-  Real-time adaptation (post-analysis)
+-  Non-text communication patterns
 
 ### Known Biases
 

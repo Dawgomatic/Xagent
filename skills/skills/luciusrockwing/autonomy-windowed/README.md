@@ -8,8 +8,8 @@
 
 The agent works autonomously **only during defined time windows**:
 
-- ☀️ **Daytime** (8 AM - 8 PM UTC): Autonomy ON, work from queue
-- 🌙 **Overnight** (8 PM - 8 AM UTC): Autonomy OFF, HEARTBEAT_OK only
+-  **Daytime** (8 AM - 8 PM UTC): Autonomy ON, work from queue
+-  **Overnight** (8 PM - 8 AM UTC): Autonomy OFF, HEARTBEAT_OK only
 
 **Clear separation:** Day = work, Night = cron maintenance
 

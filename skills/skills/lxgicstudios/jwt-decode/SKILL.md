@@ -115,4 +115,4 @@ fi
 
 **Built by [LXGIC Studios](https://lxgicstudios.com)**
 
-🔗 [GitHub](https://github.com/lxgicstudios/jwt-decode) · [Twitter](https://x.com/lxgicstudios)
+ [GitHub](https://github.com/lxgicstudios/jwt-decode) · [Twitter](https://x.com/lxgicstudios)

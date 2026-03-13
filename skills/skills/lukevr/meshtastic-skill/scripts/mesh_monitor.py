@@ -144,7 +144,7 @@ def check_messages():
     
     return alerts
 
-def format_alert(msg, emoji="📡"):
+def format_alert(msg, emoji=""):
     """Format a message for alerting"""
     dist = msg["distance"] if msg["distance"] != "?" else "unknown"
     return f"{emoji} [{msg['channel']}] {msg['sender']} ({dist}): {msg['text']}"
@@ -157,9 +157,9 @@ def main():
     all_interesting = alerts["high"] + alerts["medium"] + alerts["low"]
     
     output = {
-        "high_priority": [format_alert(m, "🚨") for m in alerts["high"]],
-        "interesting": [format_alert(m, "📡") for m in alerts["medium"]],
-        "normal": [format_alert(m, "💬") for m in alerts["low"][:10]],  # Max 10 normal
+        "high_priority": [format_alert(m, "") for m in alerts["high"]],
+        "interesting": [format_alert(m, "") for m in alerts["medium"]],
+        "normal": [format_alert(m, "") for m in alerts["low"][:10]],  # Max 10 normal
         "all_messages": [format_alert(m) for m in all_interesting[:15]],  # Combined list
         "counts": {
             "high": len(alerts["high"]),

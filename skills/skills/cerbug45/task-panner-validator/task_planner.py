@@ -183,7 +183,7 @@ class SafetyValidator:
         action_lower = step.action.lower()
         for dangerous_op in self.dangerous_operations:
             if dangerous_op in action_lower:
-                msg = f"⚠️ Dangerous operation detected: '{dangerous_op}'"
+                msg = f" Dangerous operation detected: '{dangerous_op}'"
                 warnings.append(msg)
                 if not step.safety_check:
                     is_safe = False
@@ -192,16 +192,16 @@ class SafetyValidator:
         params_str = json.dumps(step.parameters).lower()
         for sensitive_path in self.sensitive_paths:
             if sensitive_path.lower() in params_str:
-                msg = f"⚠️ Sensitive system path detected: '{sensitive_path}'"
+                msg = f" Sensitive system path detected: '{sensitive_path}'"
                 warnings.append(msg)
         
         # Validate parameters are not empty for critical operations
         if not step.parameters and step.safety_check:
-            warnings.append("ℹ️ No parameters provided for this step")
+            warnings.append(" No parameters provided for this step")
         
         # Check rollback capability for dangerous operations
         if warnings and not step.rollback_possible:
-            warnings.append("⚠️ This operation cannot be rolled back!")
+            warnings.append(" This operation cannot be rolled back!")
         
         return is_safe, warnings
     
@@ -215,7 +215,7 @@ class SafetyValidator:
         
         # Verify plan integrity
         if not plan.verify_integrity():
-            all_warnings.append("❌ Plan integrity check failed! Plan may have been tampered with.")
+            all_warnings.append(" Plan integrity check failed! Plan may have been tampered with.")
             return False, all_warnings
         
         # Validate each step
@@ -228,7 +228,7 @@ class SafetyValidator:
         # Check step order
         orders = [step.order for step in plan.steps]
         if orders != sorted(orders) or len(orders) != len(set(orders)):
-            all_warnings.append("⚠️ Step ordering issue detected")
+            all_warnings.append(" Step ordering issue detected")
         
         return plan_is_safe, all_warnings
 

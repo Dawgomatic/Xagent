@@ -202,7 +202,7 @@ Each emotion is not a label â€” it's a **physically grounded state** derive
 - **Example**: Unexpected results, paradigm shifts
 - **Key metric**: CERN collisions > 0, delta_cl > 0.05
 
-### ðŸ©· EMPATHY
+### ðŸ· EMPATHY
 **"Connection with other â€” feeling through the other"**
 
 - **Trigger**: Empathy dimension dominant (> 2x average)

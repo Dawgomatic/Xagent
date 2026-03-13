@@ -199,16 +199,16 @@ async function main() {
         console.log(JSON.stringify({ success: true, balances: results }, null, 2));
       } else {
         const address = getAddress();
-        console.log(`\n💰 Wallet Balances`);
+        console.log(`\n Wallet Balances`);
         console.log(`Address: ${address}\n`);
         
         for (const result of results) {
           if (result.success) {
             const hasBalance = parseFloat(result.balance) > 0;
-            const icon = hasBalance ? '💰' : '🕳️ ';
+            const icon = hasBalance ? '' : ' ';
             console.log(`${icon} ${result.chain.toUpperCase().padEnd(10)} ${result.balance} ${result.symbol}`);
           } else {
-            console.log(`❌ ${result.chain.toUpperCase().padEnd(10)} Error: ${result.error}`);
+            console.log(` ${result.chain.toUpperCase().padEnd(10)} Error: ${result.error}`);
           }
         }
         console.log();
@@ -230,7 +230,7 @@ async function main() {
       } else {
         if (result.success) {
           const hasBalance = parseFloat(result.balance) > 0;
-          const icon = hasBalance ? '💰' : '🕳️';
+          const icon = hasBalance ? '' : '';
           
           console.log(`\n${icon} Balance on ${result.chain.toUpperCase()}`);
           console.log(`Address: ${result.address}`);
@@ -243,7 +243,7 @@ async function main() {
           console.log(`Explorer: ${result.explorerUrl}\n`);
           
           if (!hasBalance) {
-            console.log('💡 Tip: Fund your wallet to start using it!');
+            console.log(' Tip: Fund your wallet to start using it!');
             if (result.chain === 'base') {
               console.log('   Base has the lowest fees for testing.');
             }

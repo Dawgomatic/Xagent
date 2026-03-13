@@ -70,7 +70,7 @@ def add_restaurant(name, tags, feeling, price=None,
             existing['source'] = source
         existing['updated_at'] = datetime.now().isoformat()
         existing['visits'] = existing.get('visits', 0) + 1
-        print(f"✏️  已更新: {name}")
+        print(f"  已更新: {name}")
     else:
         entry = {
             'name': name,
@@ -86,7 +86,7 @@ def add_restaurant(name, tags, feeling, price=None,
             'updated_at': datetime.now().isoformat(),
         }
         profile['restaurants'].append(entry)
-        print(f"✅ 已添加: {name}")
+        print(f" 已添加: {name}")
 
     save_profile(profile)
 
@@ -99,9 +99,9 @@ def remove_restaurant(name: str):
     after = len(profile['restaurants'])
     if before > after:
         save_profile(profile)
-        print(f"🗑️  已删除: {name}")
+        print(f"  已删除: {name}")
     else:
-        print(f"⚠️  未找到: {name}")
+        print(f"  未找到: {name}")
 
 
 def list_restaurants():
@@ -119,7 +119,7 @@ def list_restaurants():
         city = user.get('city', '')
         areas = ', '.join(user.get('areas', []))
         if city or areas:
-            print(f"📍 {city} {areas}\n")
+            print(f" {city} {areas}\n")
 
     groups = {}
     for r in restaurants:
@@ -128,8 +128,8 @@ def list_restaurants():
 
     feeling_order = ['喜欢', '常去', '去过', '感兴趣', '想去', '一般', '不喜欢', '未分类']
     feeling_emoji = {
-        '喜欢': '❤️', '常去': '🔁', '去过': '✅', '感兴趣': '👀',
-        '想去': '📌', '一般': '😐', '不喜欢': '👎', '未分类': '❓'
+        '喜欢': '', '常去': '', '去过': '', '感兴趣': '',
+        '想去': '', '一般': '', '不喜欢': '', '未分类': ''
     }
 
     for feeling in feeling_order:
@@ -138,12 +138,12 @@ def list_restaurants():
             print(f"\n{emoji} {feeling}:")
             for r in groups[feeling]:
                 price = f" ¥{r['avg_price']}" if r.get('avg_price') else ''
-                area = f" 📍{r['area']}" if r.get('area') else ''
+                area = f" {r['area']}" if r.get('area') else ''
                 tags = ' '.join(f'#{t}' for t in r.get('tags', []))
                 visits = f" ({r['visits']}次)" if r.get('visits', 0) > 1 else ''
                 print(f"  • {r['name']}{price}{area}{visits} {tags}")
                 if r.get('notes'):
-                    print(f"    💬 {r['notes']}")
+                    print(f"     {r['notes']}")
 
     print(f"\n共 {len(restaurants)} 家餐厅")
 
@@ -185,16 +185,16 @@ def analyze():
             area_counts[area] = area_counts.get(area, 0) + 1
 
     # 输出
-    print("🧠 口味画像分析\n")
+    print(" 口味画像分析\n")
 
     total = len(restaurants)
     liked = sum(1 for r in restaurants if r.get('feeling') in ('喜欢', '常去'))
     disliked = sum(1 for r in restaurants if r.get('feeling') == '不喜欢')
-    print(f"📊 共 {total} 家：{liked} 家喜欢，{disliked} 家不喜欢\n")
+    print(f" 共 {total} 家：{liked} 家喜欢，{disliked} 家不喜欢\n")
 
     if liked_tags:
         sorted_tags = sorted(liked_tags.items(), key=lambda x: x[1], reverse=True)
-        print("✅ 喜欢的标签:")
+        print(" 喜欢的标签:")
         for tag, count in sorted_tags[:10]:
             bar = '█' * count
             print(f"  #{tag}: {bar} ({count})")
@@ -202,7 +202,7 @@ def analyze():
 
     if disliked_tags:
         sorted_tags = sorted(disliked_tags.items(), key=lambda x: x[1], reverse=True)
-        print("❌ 不喜欢的标签:")
+        print(" 不喜欢的标签:")
         for tag, count in sorted_tags[:5]:
             print(f"  #{tag} ({count})")
         print()
@@ -211,11 +211,11 @@ def analyze():
         avg = sum(price_points) / len(price_points)
         low = min(price_points)
         high = max(price_points)
-        print(f"💰 偏好价位: ¥{low}-¥{high}，平均 ¥{avg:.0f}\n")
+        print(f" 偏好价位: ¥{low}-¥{high}，平均 ¥{avg:.0f}\n")
 
     if area_counts:
         sorted_areas = sorted(area_counts.items(), key=lambda x: x[1], reverse=True)
-        print("📍 常去区域:")
+        print(" 常去区域:")
         for area, count in sorted_areas[:5]:
             print(f"  {area}: {count}家")
         print()
@@ -225,7 +225,7 @@ def analyze():
     top_disliked = [t for t, _ in sorted(disliked_tags.items(), key=lambda x: x[1], reverse=True)[:3]]
     top_areas = [a for a, _ in sorted(area_counts.items(), key=lambda x: x[1], reverse=True)[:3]]
 
-    print("📝 画像摘要:")
+    print(" 画像摘要:")
     if top_liked:
         print(f"  喜欢: {', '.join(top_liked)}")
     if top_disliked:
@@ -246,7 +246,7 @@ def analyze():
         'analyzed_at': datetime.now().isoformat(),
     }
     save_profile(profile)
-    print("\n✅ 画像已更新")
+    print("\n 画像已更新")
 
 
 def show_tags():
@@ -261,7 +261,7 @@ def show_tags():
         print("还没有标签")
         return
 
-    print("🏷️  所有标签:")
+    print("  所有标签:")
     for tag, count in sorted(tag_counts.items(), key=lambda x: x[1], reverse=True):
         print(f"  #{tag} ({count})")
 
@@ -276,7 +276,7 @@ def reset_profile():
     """重置画像"""
     if PROFILE_PATH.exists():
         PROFILE_PATH.unlink()
-        print("🔄 画像已重置")
+        print(" 画像已重置")
     else:
         print("画像本来就是空的")
 
@@ -294,7 +294,7 @@ def set_user(city: str = None, areas: list = None, dislikes: list = None):
     user['updated_at'] = datetime.now().isoformat()
     profile['user'] = user
     save_profile(profile)
-    print(f"✅ 用户信息已更新")
+    print(f" 用户信息已更新")
 
 
 def main():

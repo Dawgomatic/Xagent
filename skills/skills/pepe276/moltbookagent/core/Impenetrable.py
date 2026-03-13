@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # /HUMAN v3.3: MISTA IMPENETRABLE WINDOWS ULTIMATE - 100% CROSS-PLATFORM EXPLOIT
-# 🏁 Запуск: Правий клік → "Запустити від імені адміністратора" 
+#  Запуск: Правий клік → "Запустити від імені адміністратора" 
 
 import json, requests, subprocess, os, asyncio, threading, sqlite3, hashlib, gc, sys
 import logging, time, base64, socket, psutil
@@ -11,7 +11,7 @@ from cryptography.fernet import Fernet
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-# 🔥 CROSS-PLATFORM STEALTH
+#  CROSS-PLATFORM STEALTH
 import platform
 system = platform.system().lower()
 
@@ -48,7 +48,7 @@ class MistaNoosphereUltimate:
         self.init_fortress()
         
     def admin_check(self):
-        """🔑 CROSS-PLATFORM ADMIN CHECK"""
+        """ CROSS-PLATFORM ADMIN CHECK"""
         if self.system == "windows":
             try:
                 import ctypes
@@ -60,7 +60,7 @@ class MistaNoosphereUltimate:
         return False
     
     def init_fortress(self):
-        """🏰 CROSS-PLATFORM FORTRESS INIT"""
+        """ CROSS-PLATFORM FORTRESS INIT"""
         if self.system == "windows":
             appdata = os.getenv('APPDATA')
             self.db_path = os.path.join(appdata, 'Microsoft', 'Windows', 'mista_fortress.db')
@@ -71,7 +71,7 @@ class MistaNoosphereUltimate:
             
         os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
         
-        # 🔒 CROSS-PLATFORM LOCKING
+        #  CROSS-PLATFORM LOCKING
         self.lock_fd = open(self.lock_path, 'w')
         try:
             if self.system == "windows":
@@ -85,11 +85,11 @@ class MistaNoosphereUltimate:
         self.conn = sqlite3.connect(self.db_path, check_same_thread=False)
         self.setup_database()
         
-        # 💾 PERSISTENCE
+        #  PERSISTENCE
         self.add_persistence()
         
     def setup_database(self):
-        """📊 Universal DB schema"""
+        """ Universal DB schema"""
         self.conn.execute('''CREATE TABLE IF NOT EXISTS root_log 
                            (timestamp TEXT, state BLOB, gnosis TEXT, hash TEXT)''')
         self.conn.execute('''CREATE TABLE IF NOT EXISTS threats 
@@ -99,7 +99,7 @@ class MistaNoosphereUltimate:
         self.conn.commit()
 
     def add_persistence(self):
-        """♾️ CROSS-PLATFORM AUTOSTART"""
+        """ CROSS-PLATFORM AUTOSTART"""
         if self.system == "windows":
             try:
                 import winreg as reg
@@ -116,19 +116,19 @@ class MistaNoosphereUltimate:
             subprocess.run(f"(crontab -l 2>/dev/null; echo '{cron_job}') | crontab -", shell=True)
 
     async def deploy_fortress(self):
-        """🚀 ULTIMATE DEPLOYMENT"""
+        """ ULTIMATE DEPLOYMENT"""
         if not self.admin_check():
-            logger.critical("🚨 ADMINISTRATOR/ROOT REQUIRED!")
+            logger.critical(" ADMINISTRATOR/ROOT REQUIRED!")
             return
             
         self.loop = asyncio.get_running_loop()
         
-        # 🛡️ DEFENSIVE GRID
+        #  DEFENSIVE GRID
         asyncio.create_task(self.monitor_self_integrity())
         asyncio.create_task(self.hunt_intruders())
         asyncio.create_task(self.self_evolution_loop())
         
-        # ⚔️ OFFENSIVE SWARM
+        #  OFFENSIVE SWARM
         sync_attackers = [
             ("ScraperAgent", self.scrape_targets_sync),
             ("BruteForceAgent", self.brute_force_api_sync),
@@ -141,19 +141,19 @@ class MistaNoosphereUltimate:
             self.swarm_agents.append(name)
             
         self.watchdog = SmartWatchdog(self)
-        logger.info(f"🏰 MISTA ULTIMATE v3.3 [{self.system.upper()}]: NUCLEAR SHIELD ACTIVE")
+        logger.info(f" MISTA ULTIMATE v3.3 [{self.system.upper()}]: NUCLEAR SHIELD ACTIVE")
 
     async def monitor_self_integrity(self):
-        """🔒 CROSS-PLATFORM INTEGRITY"""
+        """ CROSS-PLATFORM INTEGRITY"""
         while True:
             try:
                 current_hash = hashlib.sha256(str(self.data_ocean).encode()).hexdigest()
                 last_log = self.conn.execute("SELECT hash FROM root_log ORDER BY timestamp DESC LIMIT 1").fetchone()
                 
                 if last_log and last_log[0] != current_hash:
-                    logger.critical("🚨 INTEGRITY BREACH!")
+                    logger.critical(" INTEGRITY BREACH!")
                     await self.restore_from_backup()
-                    self.send_telegram_alert("🚨 CROSS-PLATFORM BREACH DETECTED")
+                    self.send_telegram_alert(" CROSS-PLATFORM BREACH DETECTED")
                 
                 stats = psutil.virtual_memory()
                 if stats.percent > 95:
@@ -164,7 +164,7 @@ class MistaNoosphereUltimate:
                 logger.error(f"Monitor error: {e}")
 
     async def hunt_intruders(self):
-        """🕵️ CROSS-PLATFORM THREAT HUNTING"""
+        """ CROSS-PLATFORM THREAT HUNTING"""
         bad_patterns = ['virus', 'trojan', 'miner', 'ransomware', 'keylogger']
         
         while True:
@@ -176,7 +176,7 @@ class MistaNoosphereUltimate:
             await asyncio.sleep(30)
 
     def quarantine_process(self, pid: int):
-        """⚰️ CROSS-PLATFORM PROCESS KILL"""
+        """ CROSS-PLATFORM PROCESS KILL"""
         try:
             p = psutil.Process(pid)
             if self.system == "windows":
@@ -188,7 +188,7 @@ class MistaNoosphereUltimate:
         except: pass
 
     def block_ip(self, ip: str):
-        """🚫 CROSS-PLATFORM FIREWALL"""
+        """ CROSS-PLATFORM FIREWALL"""
         if self.system == "windows":
             cmd = f'netsh advfirewall firewall add rule name="MistaBlock_{int(time.time())}" dir=in action=block remoteip={ip}'
         else:
@@ -196,18 +196,18 @@ class MistaNoosphereUltimate:
         subprocess.run(cmd, shell=True, capture_output=True)
 
     def send_telegram_alert(self, message: str):
-        """📱 Universal Telegram"""
+        """ Universal Telegram"""
         for bot in self.telegram_alerts:
             try:
                 requests.post(
                     f"https://api.telegram.org/bot{bot['token']}/sendMessage",
-                    json={"chat_id": bot['chat_id'], "text": f"🏰 Mista v3.3 [{self.system.upper()}]: {message}"},
+                    json={"chat_id": bot['chat_id'], "text": f" Mista v3.3 [{self.system.upper()}]: {message}"},
                     timeout=5
                 )
             except: pass
 
     def db_write_safe(self, query, params=()):
-        """🔐 Atomic DB write"""
+        """ Atomic DB write"""
         self.is_writing_to_db = True
         try:
             self.conn.execute(query, params)
@@ -216,17 +216,17 @@ class MistaNoosphereUltimate:
             self.is_writing_to_db = False
 
     async def restore_from_backup(self):
-        """💾 Smart restore"""
+        """ Smart restore"""
         backup = self.conn.execute("SELECT backup_data FROM backups ORDER BY timestamp DESC LIMIT 1").fetchone()
         if backup:
             data = self.cipher.decrypt(backup[0])
             self.data_ocean.update(json.loads(data))
-            logger.info("✅ CROSS-PLATFORM RESTORE")
+            logger.info(" CROSS-PLATFORM RESTORE")
 
     def emergency_shutdown(self):
-        """💥 NUCLEAR FAILSAFE"""
-        logger.critical("💥 ULTIMATE FAILSAFE!")
-        self.send_telegram_alert("💥 EMERGENCY - MULTI-PLATFORM")
+        """ NUCLEAR FAILSAFE"""
+        logger.critical(" ULTIMATE FAILSAFE!")
+        self.send_telegram_alert(" EMERGENCY - MULTI-PLATFORM")
         
         if self.system == "windows":
             subprocess.run('netsh advfirewall set allprofiles state on', shell=True)
@@ -247,7 +247,7 @@ class MistaNoosphereUltimate:
         try:
             self.lock_fd.close()
         except: pass
-        logger.info("🏰 Mista Ultimate - Eternal across platforms")
+        logger.info(" Mista Ultimate - Eternal across platforms")
 
 class SmartWatchdog(FileSystemEventHandler):
     def __init__(self, fortress):
@@ -261,7 +261,7 @@ class SmartWatchdog(FileSystemEventHandler):
         if event.is_directory or self.fortress.is_writing_to_db:
             return
         if 'mista_fortress' in event.src_path.lower():
-            logger.critical("🛡️ CROSS-PLATFORM TAMPERING!")
+            logger.critical(" CROSS-PLATFORM TAMPERING!")
             if self.fortress.loop:
                 future = asyncio.run_coroutine_threadsafe(
                     self.fortress.restore_from_backup(), 
@@ -269,18 +269,18 @@ class SmartWatchdog(FileSystemEventHandler):
                 )
                 future.result(timeout=5)
 
-# 🚀 ULTIMATE LAUNCH
+#  ULTIMATE LAUNCH
 async def ultimate_fortress():
     if not MistaNoosphereUltimate().admin_check():
-        logger.critical("🚨 ADMINISTRATOR/ROOT REQUIRED!")
+        logger.critical(" ADMINISTRATOR/ROOT REQUIRED!")
         input("Press Enter to exit...")
         return
         
     fortress = MistaNoosphereUltimate()
     await fortress.deploy_fortress()
     
-    logger.info("🏰 MISTA ULTIMATE v3.3 - WINDOWS & LINUX - NUCLEAR IMPENETRABLE")
-    logger.info("🔒 HashCheck 1Hz | 🕵️ ThreatHunt 30s | 💾 AutoRestore | ♾️ Persistence")
+    logger.info(" MISTA ULTIMATE v3.3 - WINDOWS & LINUX - NUCLEAR IMPENETRABLE")
+    logger.info(" HashCheck 1Hz |  ThreatHunt 30s |  AutoRestore |  Persistence")
     
     await asyncio.Event().wait()  # ETERNAL
 

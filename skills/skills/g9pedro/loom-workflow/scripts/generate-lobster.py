@@ -124,7 +124,7 @@ def generate_summary_markdown(analysis: dict, workflow: dict) -> str:
 |---|--------|------|-------------|------------|
 """
     for step in analysis.get('steps', []):
-        needs_input = "✅" if step.get('requires_input') else ""
+        needs_input = "" if step.get('requires_input') else ""
         confidence = f"{step.get('confidence', 0) * 100:.0f}%"
         md += f"| {step['id']} | {step.get('action', 'N/A')[:40]} | {step.get('tool', 'N/A')} | {needs_input} | {confidence} |\n"
     
@@ -136,7 +136,7 @@ def generate_summary_markdown(analysis: dict, workflow: dict) -> str:
                 md += f"  - {opt}\n"
     
     if analysis.get('overall_ambiguities'):
-        md += "\n## ⚠️ Ambiguities (Need Clarification)\n"
+        md += "\n##  Ambiguities (Need Clarification)\n"
         for amb in analysis['overall_ambiguities']:
             md += f"- {amb}\n"
     

@@ -34,13 +34,13 @@ fi
 count=$(echo "$matches" | jq 'length')
 
 if [[ "$count" -eq 0 ]]; then
-    echo "📅 No upcoming matches found"
+    echo " No upcoming matches found"
     [[ -n "$TEAM_FILTER" ]] && echo "   (filtered for: $TEAM_FILTER)"
     exit 0
 fi
 
-echo "📅 *UPCOMING MATCHES*"
-[[ -n "$TEAM_FILTER" ]] && echo "   🔍 Filtered: $TEAM_FILTER"
+echo " *UPCOMING MATCHES*"
+[[ -n "$TEAM_FILTER" ]] && echo "    Filtered: $TEAM_FILTER"
 echo "━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -56,10 +56,10 @@ echo "$matches" | jq -c '.[]' | head -20 | while read -r match; do
     e1=$(team_emoji "$t1")
     e2=$(team_emoji "$t2")
     
-    echo "🏏 *${name}*"
-    [[ -n "$match_type" ]] && echo "   📋 $match_type"
-    echo "   📅 $(to_ist "$date_str")"
-    [[ -n "$venue" ]] && echo "   📍 $venue"
+    echo " *${name}*"
+    [[ -n "$match_type" ]] && echo "    $match_type"
+    echo "    $(to_ist "$date_str")"
+    [[ -n "$venue" ]] && echo "    $venue"
     echo ""
 done
 

@@ -75,7 +75,7 @@ fi
 for PORT in "${PORTS[@]}"; do
     for DPORT in "${DANGEROUS_PORTS[@]}"; do
         if [ "$PORT" -eq "$DPORT" ] && [ "$FORCE" = false ]; then
-            echo -e "${RED}🚫 Port $PORT blocked by default.${NC}"
+            echo -e "${RED} Port $PORT blocked by default.${NC}"
             echo ""
             case $PORT in
                 22) echo "SSH exposure is dangerous - consider using mesh-only access." ;;
@@ -130,7 +130,7 @@ EOF
 PUBLIC_IP=$(python3 -c "import json; c=json.load(open('$CONFIG_FILE')); print(c.get('internet_gateway',{}).get('public_ip','(mesh only)'))" 2>/dev/null)
 
 echo ""
-echo -e "${GREEN}✅ Ports exposed!${NC}"
+echo -e "${GREEN} Ports exposed!${NC}"
 echo ""
 echo "Access via: $PUBLIC_IP"
 for PORT in "${PORTS[@]}"; do

@@ -47,7 +47,7 @@ GARE_ALIASES = {
 def get_api_key():
     key = os.environ.get("SNCF_API_KEY")
     if not key:
-        print("❌ Variable d'environnement SNCF_API_KEY non définie.", file=sys.stderr)
+        print(" Variable d'environnement SNCF_API_KEY non définie.", file=sys.stderr)
         print("   Obtiens un token gratuit sur https://navitia.io", file=sys.stderr)
         print("   Puis : export SNCF_API_KEY=ton-token", file=sys.stderr)
         sys.exit(1)
@@ -74,14 +74,14 @@ def api_call(endpoint, params=None):
     except urllib.error.HTTPError as e:
         body = e.read().decode() if e.fp else ""
         if e.code == 401:
-            print("❌ Clé API invalide. Vérifie SNCF_API_KEY.", file=sys.stderr)
+            print(" Clé API invalide. Vérifie SNCF_API_KEY.", file=sys.stderr)
         elif e.code == 404:
-            print(f"❌ Ressource non trouvée : {endpoint}", file=sys.stderr)
+            print(f" Ressource non trouvée : {endpoint}", file=sys.stderr)
         else:
-            print(f"❌ Erreur API ({e.code}): {body[:200]}", file=sys.stderr)
+            print(f" Erreur API ({e.code}): {body[:200]}", file=sys.stderr)
         sys.exit(1)
     except urllib.error.URLError as e:
-        print(f"❌ Erreur réseau : {e}", file=sys.stderr)
+        print(f" Erreur réseau : {e}", file=sys.stderr)
         sys.exit(1)
 
 
@@ -91,7 +91,7 @@ def resolve_place(name):
     data = api_call("/places", {"q": alias, "type[]": "stop_area", "count": 1})
     places = data.get("places", [])
     if not places:
-        print(f"❌ Lieu introuvable : {name}", file=sys.stderr)
+        print(f" Lieu introuvable : {name}", file=sys.stderr)
         sys.exit(1)
     return places[0]
 
@@ -113,7 +113,7 @@ def parse_datetime(date_str, time_str=None):
             try:
                 dt = datetime.strptime(date_str, "%d/%m/%Y")
             except ValueError:
-                print(f"❌ Format de date invalide : {date_str}", file=sys.stderr)
+                print(f" Format de date invalide : {date_str}", file=sys.stderr)
                 print("   Formats acceptés : YYYY-MM-DD, DD/MM/YYYY, demain, après-demain", file=sys.stderr)
                 sys.exit(1)
 
@@ -122,7 +122,7 @@ def parse_datetime(date_str, time_str=None):
             t = datetime.strptime(time_str, "%H:%M")
             dt = dt.replace(hour=t.hour, minute=t.minute, second=0)
         except ValueError:
-            print(f"❌ Format d'heure invalide : {time_str} (attendu HH:MM)", file=sys.stderr)
+            print(f" Format d'heure invalide : {time_str} (attendu HH:MM)", file=sys.stderr)
             sys.exit(1)
     else:
         if date_str not in ("aujourd'hui", "aujourdhui") and dt.date() != now.date():
@@ -171,12 +171,12 @@ def cmd_search(args):
 
     journeys = data.get("journeys", [])
     if not journeys:
-        print("❌ Aucun trajet trouvé.")
+        print(" Aucun trajet trouvé.")
         return
 
     from_name = from_place.get("name", args.origin)
     to_name = to_place.get("name", args.destination)
-    print(f"🚄 Trajets {from_name} → {to_name}")
+    print(f" Trajets {from_name} → {to_name}")
     print("=" * 50)
 
     for i, j in enumerate(journeys, 1):
@@ -199,17 +199,17 @@ def cmd_search(args):
                         label += f" ({headsign})"
                     modes.append(label)
 
-        print(f"\n  🕐 {dep} → {arr}  ({format_duration(dur)})")
+        print(f"\n   {dep} → {arr}  ({format_duration(dur)})")
         if modes:
             print(f"     {' → '.join(modes)}")
         if nb_transfers > 0:
-            print(f"     🔄 {nb_transfers} correspondance{'s' if nb_transfers > 1 else ''}")
+            print(f"      {nb_transfers} correspondance{'s' if nb_transfers > 1 else ''}")
 
         # Prix si disponible
         fare = j.get("fare", {})
         total = fare.get("total", {}).get("value")
         if total and total != "0":
-            print(f"     💰 {total} €")
+            print(f"      {total} €")
 
 
 def cmd_departures(args):
@@ -237,10 +237,10 @@ def cmd_departures(args):
         return
 
     if not departures:
-        print(f"❌ Aucun départ trouvé depuis {place.get('name', args.station)}.")
+        print(f" Aucun départ trouvé depuis {place.get('name', args.station)}.")
         return
 
-    print(f"🚄 Prochains départs — {place.get('name', args.station)}")
+    print(f" Prochains départs — {place.get('name', args.station)}")
     print("=" * 50)
 
     for dep in departures:
@@ -257,7 +257,7 @@ def cmd_departures(args):
         label = f"{mode} {code}".strip()
         delay = ""
         if base_time and dep_time and base_time != dep_time:
-            delay = f" ⚠️ (prévu {base_time})"
+            delay = f"  (prévu {base_time})"
 
         dest = direction.split(" (")[0] if direction else headsign
         print(f"  {dep_time}{delay}  {label:15s} → {dest}")
@@ -274,10 +274,10 @@ def cmd_disruptions(args):
 
     disruptions = data.get("disruptions", [])
     if not disruptions:
-        print("✅ Aucune perturbation en cours.")
+        print(" Aucune perturbation en cours.")
         return
 
-    print("⚠️ Perturbations SNCF en cours")
+    print(" Perturbations SNCF en cours")
     print("=" * 50)
 
     for d in disruptions:
@@ -300,7 +300,7 @@ def cmd_disruptions(args):
             if pt.get("embedded_type") == "line":
                 lines.append(pt.get("name", ""))
 
-        print(f"\n  ⚠️ {severity}: {cause}")
+        print(f"\n   {severity}: {cause}")
         if text:
             # Nettoyer le HTML basique
             import re

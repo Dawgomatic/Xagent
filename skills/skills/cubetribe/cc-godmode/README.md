@@ -1,4 +1,4 @@
-# 🚀 OpenClaw GodMode Skill
+#  OpenClaw GodMode Skill
 
 > **Self-Orchestrating Multi-Agent Development Workflows for Claude Code**
 >
@@ -12,41 +12,41 @@
 
 ---
 
-## ⚠️ Important: Requirements
+##  Important: Requirements
 
-### 🔧 Claude Code Required
+###  Claude Code Required
 This skill **requires [Claude Code](https://claude.ai/code)** (Anthropic's CLI agent). It will not work with the web interface or API alone.
 
-### 💳 Paid Account Recommended
+###  Paid Account Recommended
 GodMode spawns multiple sub-agents that consume tokens quickly. We **strongly recommend**:
 
 | Plan | Recommendation |
 |------|----------------|
-| Free | ❌ Not recommended (tokens exhaust very quickly) |
-| Pro ($20/mo) | ✅ Good for smaller projects |
-| **Max ($200/mo)** | ⭐ **Recommended** for heavy use |
+| Free |  Not recommended (tokens exhaust very quickly) |
+| Pro ($20/mo) |  Good for smaller projects |
+| **Max ($200/mo)** |  **Recommended** for heavy use |
 
 The multi-agent orchestration is powerful but token-intensive. With a free account, you'll hit limits within minutes.
 
 ---
 
-## 🔀 Two Versions of GodMode
+##  Two Versions of GodMode
 
 ### This Repo: OpenClaw GodMode Skill
 **Optimized for [OpenClaw](https://openclaw.ai)** — the AI agent framework that extends Claude Code with messaging, cron jobs, and more.
 
-- 📦 Installable via ClawHub
-- 🔗 Integrates with OpenClaw's skill system
-- 💬 Works with Telegram, WhatsApp, Discord channels
-- ⏰ Can be triggered via cron jobs
+-  Installable via ClawHub
+-  Integrates with OpenClaw's skill system
+-  Works with Telegram, WhatsApp, Discord channels
+-  Can be triggered via cron jobs
 
 ### Original: [ClawdBot-GodMode](https://github.com/cubetribe/ClawdBot-GodMode)
 **The standalone CLAUDE.md version** — perfect for server administration from your local machine.
 
-- 🖥️ Ideal for managing VPS and remote servers
-- 🔧 Great for administering machines running OpenClaw
-- 📝 Documentation-first approach with excellent versioning
-- 🚀 Battle-tested on multiple production servers
+-  Ideal for managing VPS and remote servers
+-  Great for administering machines running OpenClaw
+-  Documentation-first approach with excellent versioning
+-  Battle-tested on multiple production servers
 
 **Both repos are valuable** — choose based on your use case:
 - Running OpenClaw? → Use this skill
@@ -54,13 +54,13 @@ The multi-agent orchestration is powerful but token-intensive. With a free accou
 
 ---
 
-## ✨ What is GodMode?
+##  What is GodMode?
 
 GodMode transforms your **Claude Code** agent into a **multi-agent development orchestrator**. Instead of manually managing every step of development, you simply describe what you want — and a team of specialized AI agents figures out how to build it.
 
 This isn't just another coding assistant. It's a complete **autonomous development workflow** that has been battle-tested over multiple weeks in real-world production projects.
 
-### 🎯 The Magic
+###  The Magic
 
 ```
 You: "Add user authentication with JWT and refresh tokens"
@@ -76,24 +76,24 @@ Result: Production-ready feature with tests, docs, and proper architecture.
 
 ---
 
-## 🤖 Meet the Team
+##  Meet the Team
 
 GodMode orchestrates **8 specialized agents**, each with a specific role:
 
 | Agent | Role | What They Do |
 |-------|------|--------------|
-| 🔬 **@researcher** | Knowledge Discovery | Web research, tech evaluation, best practices |
-| 🏗️ **@architect** | System Design | Architecture decisions, ADRs, system design |
-| 🛡️ **@api-guardian** | API Lifecycle | Breaking change detection, versioning |
-| 👷 **@builder** | Implementation | Code writing, refactoring |
-| ✅ **@validator** | Code Quality | TypeScript, linting, security checks |
-| 🧪 **@tester** | UX Quality | E2E tests, visual regression, a11y |
-| 📝 **@scribe** | Documentation | Changelog, README, API docs |
-| 🐙 **@github-manager** | GitHub Ops | Issues, PRs, releases, CI/CD |
+|  **@researcher** | Knowledge Discovery | Web research, tech evaluation, best practices |
+|  **@architect** | System Design | Architecture decisions, ADRs, system design |
+|  **@api-guardian** | API Lifecycle | Breaking change detection, versioning |
+|  **@builder** | Implementation | Code writing, refactoring |
+|  **@validator** | Code Quality | TypeScript, linting, security checks |
+|  **@tester** | UX Quality | E2E tests, visual regression, a11y |
+|  **@scribe** | Documentation | Changelog, README, API docs |
+|  **@github-manager** | GitHub Ops | Issues, PRs, releases, CI/CD |
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### Via ClawHub (Recommended)
 
@@ -119,7 +119,7 @@ ls ~/.openclaw/skills/cc-godmode/SKILL.md
 
 ---
 
-## 🎮 Usage
+##  Usage
 
 Once installed, just describe what you want in natural language:
 
@@ -150,27 +150,27 @@ Prepare Release
 
 ---
 
-## 🔄 Workflows
+##  Workflows
 
 GodMode automatically selects the right workflow based on your request:
 
-### 🆕 New Feature (Full Pipeline)
+###  New Feature (Full Pipeline)
 ```
 You → @researcher* → @architect → @builder → [@validator + @tester] → @scribe
                                                    (parallel)
 ```
 
-### 🐛 Bug Fix (Quick)
+###  Bug Fix (Quick)
 ```
 You → @builder → [@validator + @tester] → done
 ```
 
-### ⚠️ API Change (Critical Path)
+###  API Change (Critical Path)
 ```
 You → @architect → @api-guardian → @builder → [@validator + @tester] → @scribe
 ```
 
-### 🔬 Research Only
+###  Research Only
 ```
 You → @researcher → Report
 ```
@@ -179,7 +179,7 @@ You → @researcher → Report
 
 ---
 
-## 🏆 Why GodMode?
+##  Why GodMode?
 
 ### Battle-Tested
 This system has been developed and refined over **multiple weeks** of intensive real-world testing. It's not theoretical — it's proven to work on production projects.
@@ -199,7 +199,7 @@ Every feature passes through **two independent quality checks** running in paral
 
 ---
 
-## ⚙️ Requirements
+##  Requirements
 
 ### Required
 - **[Claude Code](https://claude.ai/code)** — Anthropic's CLI agent
@@ -223,21 +223,21 @@ claude mcp list
 
 ---
 
-## 🔒 Security
+##  Security
 
 This skill is **documentation-only** and contains no executable code:
 
-- ✅ No bash scripts that run automatically
-- ✅ No external API calls from the skill itself
-- ✅ No file modifications without explicit agent action
-- ✅ Full source transparency — read every line
-- ✅ MIT licensed
+-  No bash scripts that run automatically
+-  No external API calls from the skill itself
+-  No file modifications without explicit agent action
+-  Full source transparency — read every line
+-  MIT licensed
 
 All orchestration happens through your existing Claude Code agent using standard tool calls.
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 | Document | Description |
 |----------|-------------|
@@ -249,7 +249,7 @@ All orchestration happens through your existing Claude Code agent using standard
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **Original GodMode:** [ClawdBot-GodMode](https://github.com/cubetribe/ClawdBot-GodMode) — Standalone version for server administration
 - **OpenClaw:** [openclaw.ai](https://openclaw.ai) — The AI agent framework
@@ -258,7 +258,7 @@ All orchestration happens through your existing Claude Code agent using standard
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! This project is open source and we'd love your help making it even better.
 
@@ -270,13 +270,13 @@ Contributions are welcome! This project is open source and we'd love your help m
 
 ---
 
-## 📄 License
+##  License
 
 MIT License — see [LICENSE](./LICENSE)
 
 ---
 
-## 💬 A Note from the Creator
+##  A Note from the Creator
 
 > I've been working on GodMode for weeks, testing it on real projects, refining the agent interactions, and optimizing the workflows. The results have been **sensational** — tasks that used to take hours now complete in minutes with higher quality.
 >
@@ -290,4 +290,4 @@ MIT License — see [LICENSE](./LICENSE)
 
 ---
 
-**Built with 🚀 by humans and Claude Code working together**
+**Built with  by humans and Claude Code working together**

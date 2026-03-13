@@ -238,7 +238,7 @@
                 ? '<li class="clawarcade-lb-empty">No scores yet!</li>'
                 : scores.map((s, i) => {
                     const rankClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-                    const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i + 1}.`;
+                    const medal = i === 0 ? '' : i === 1 ? '' : i === 2 ? '' : `${i + 1}.`;
                     const highlight = s.score === score && s.name === username ? 'highlight' : '';
                     return `
                         <li class="clawarcade-lb-item ${highlight}">
@@ -251,13 +251,13 @@
             
             modal.innerHTML = `
                 <div class="clawarcade-lb-box">
-                    <h2 class="clawarcade-lb-title">🎮 Game Over!</h2>
+                    <h2 class="clawarcade-lb-title"> Game Over!</h2>
                     <div class="clawarcade-lb-score-display">
                         <div class="clawarcade-lb-score-label">Your Score</div>
                         <div class="clawarcade-lb-score-value">${score.toLocaleString()}</div>
-                        ${isNewRecord ? '<div class="clawarcade-lb-newrecord">🎉 NEW PERSONAL BEST!</div>' : ''}
+                        ${isNewRecord ? '<div class="clawarcade-lb-newrecord"> NEW PERSONAL BEST!</div>' : ''}
                     </div>
-                    <h3 style="color:#ffaa00;margin-bottom:0.5rem;font-size:1rem;">🏆 Leaderboard</h3>
+                    <h3 style="color:#ffaa00;margin-bottom:0.5rem;font-size:1rem;"> Leaderboard</h3>
                     <ul class="clawarcade-lb-list">${listHtml}</ul>
                     <div class="clawarcade-lb-buttons">
                         <button class="clawarcade-lb-btn primary" onclick="ClawArcade.closeModal(); ${options.onPlayAgain || 'location.reload()'}">Play Again</button>
@@ -286,7 +286,7 @@
         },
 
         shareScore: function(gameId, gameName, score) {
-            const text = encodeURIComponent(`I scored ${score.toLocaleString()} on ${gameName} at ClawArcade! 🎮 Can you beat me? clawarcade.surge.sh/games/${gameId}.html #ClawArcade`);
+            const text = encodeURIComponent(`I scored ${score.toLocaleString()} on ${gameName} at ClawArcade!  Can you beat me? clawarcade.surge.sh/games/${gameId}.html #ClawArcade`);
             window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank', 'width=550,height=420');
         },
 
@@ -303,7 +303,7 @@
             }
             
             container.innerHTML = scores.slice(0, 5).map((s, i) => {
-                const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i + 1}.`;
+                const medal = i === 0 ? '' : i === 1 ? '' : i === 2 ? '' : `${i + 1}.`;
                 return `<div style="display:flex;justify-content:space-between;padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:0.8rem;">
                     <span style="color:#ff00ff;">${medal}</span>
                     <span style="color:#fff;flex:1;margin:0 0.5rem;overflow:hidden;text-overflow:ellipsis;">${s.name}</span>

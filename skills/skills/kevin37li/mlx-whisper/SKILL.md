@@ -3,7 +3,7 @@ name: mlx-whisper
 version: 1.0.0
 description: Local speech-to-text with MLX Whisper (Apple Silicon optimized, no API key).
 homepage: https://github.com/ml-explore/mlx-examples/tree/main/whisper
-metadata: {"clawdbot":{"emoji":"🍎","requires":{"bins":["mlx_whisper"]},"install":[{"id":"pip","kind":"pip","package":"mlx-whisper","bins":["mlx_whisper"],"label":"Install mlx-whisper (pip)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mlx_whisper"]},"install":[{"id":"pip","kind":"pip","package":"mlx-whisper","bins":["mlx_whisper"],"label":"Install mlx-whisper (pip)"}]}}
 ---
 
 # MLX Whisper

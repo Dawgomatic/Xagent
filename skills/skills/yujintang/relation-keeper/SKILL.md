@@ -7,7 +7,7 @@ description: |
 metadata:
   openclaw:
     slug: relation-keeper
-    emoji: "👥"
+    emoji: ""
     requires: {}
     install:
       - id: "setup-cron"

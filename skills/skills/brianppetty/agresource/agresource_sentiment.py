@@ -371,7 +371,7 @@ def format_telegram_alert(sentiment: Dict, trend: Dict, newsletter: Dict) -> str
     Returns:
         str: Formatted alert message
     """
-    emoji = "🌾"
+    emoji = ""
     timestamp = newsletter.get("timestamp", datetime.now().strftime("%Y-%m-%d %I:%M %p"))
     summary = sentiment.get("sales_advice", "No data")
 
@@ -380,10 +380,10 @@ def format_telegram_alert(sentiment: Dict, trend: Dict, newsletter: Dict) -> str
 
     # Trend emoji
     trend_emoji = {
-        "improving": "↗️",
-        "declining": "↘️",
-        "stable": "➡️"
-    }.get(direction, "➡️")
+        "improving": "",
+        "declining": "",
+        "stable": ""
+    }.get(direction, "")
 
     alert = f"{emoji} AgResource - {timestamp}\n\n"
     alert += f"Summary: {summary}\n"

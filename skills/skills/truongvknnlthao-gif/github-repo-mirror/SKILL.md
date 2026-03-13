@@ -73,7 +73,7 @@ rm -rf repo.git
 
 ## 实战经验总结
 
-### ✅ 成功经验
+###  成功经验
 
 | 步骤 | 经验 |
 |------|------|
@@ -82,7 +82,7 @@ rm -rf repo.git
 | **Token 权限** | 包含 workflow 权限才能推送 GitHub Actions |
 | **URL 格式** | 直接用 HTTPS URL 最简单 |
 
-### ❌ 失败教训
+###  失败教训
 
 | 错误 | 原因 | 解决方案 |
 |------|------|----------|
@@ -90,7 +90,7 @@ rm -rf repo.git
 | "refusing to allow an OAuth App to create or update workflow" | Token 缺少 workflow 权限 | 使用带 workflow 权限的 Token |
 | "Permission denied" | SSH key 未配置 | 使用 HTTPS + Token 方式 |
 
-### ⚠️ 关键注意事项
+###  关键注意事项
 
 | 事项 | 说明 |
 |------|------|

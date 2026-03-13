@@ -142,7 +142,7 @@ class TestFormatting:
         result = suggest_ideas("개발자", "AI")
         text = format_suggest(result)
         assert "라온" in text
-        assert "🥇" in text
+        assert "" in text
 
     def test_format_list_shows_source(self):
         cats = list_categories()

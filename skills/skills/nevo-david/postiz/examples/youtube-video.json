@@ -11,7 +11,7 @@
       "id": "your-youtube-integration-id"
     },
     "value": [{
-      "content": "In this video, I'll show you how to build a powerful CLI tool for social media automation.\n\n⏱️ Timestamps:\n0:00 - Introduction\n2:15 - Setting up the project\n5:30 - Building the API client\n10:45 - Creating commands\n15:20 - Testing and deployment\n\n📚 Resources:\n- GitHub: https://github.com/yourrepo\n- Documentation: https://docs.example.com\n\n🔔 Subscribe for more TypeScript tutorials!",
+      "content": "In this video, I'll show you how to build a powerful CLI tool for social media automation.\n\n Timestamps:\n0:00 - Introduction\n2:15 - Setting up the project\n5:30 - Building the API client\n10:45 - Creating commands\n15:20 - Testing and deployment\n\n Resources:\n- GitHub: https://github.com/yourrepo\n- Documentation: https://docs.example.com\n\n Subscribe for more TypeScript tutorials!",
       "image": [{
         "id": "thumbnail1",
         "path": "https://cdn.example.com/thumbnail.jpg"

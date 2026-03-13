@@ -62,7 +62,7 @@ function commandExists(command) {
 
 // Check dependencies
 async function checkDependencies() {
-  printHeader('🔍 Checking Dependencies');
+  printHeader(' Checking Dependencies');
   
   const deps = [
     { name: 'bird', command: 'bird', installCmd: 'npm install -g bird', required: true },
@@ -75,9 +75,9 @@ async function checkDependencies() {
   for (const dep of deps) {
     const exists = commandExists(dep.command);
     if (exists) {
-      print(`✅ ${dep.name} is installed`, green);
+      print(` ${dep.name} is installed`, green);
     } else {
-      print(`❌ ${dep.name} is NOT installed`, red);
+      print(` ${dep.name} is NOT installed`, red);
       if (dep.required) {
         missing.push(dep);
       } else {
@@ -105,7 +105,7 @@ async function checkDependencies() {
 
 // Show cookie extraction guide
 function showCookieGuide() {
-  printHeader('🍪 How to Get Your X (Twitter) Cookies');
+  printHeader(' How to Get Your X (Twitter) Cookies');
   
   print(`
 You need two cookies from X.com to use this skill:
@@ -137,7 +137,7 @@ ${yellow}Safari:${reset}
   4. Storage tab → Cookies → x.com
   5. Copy ${bright}auth_token${reset} and ${bright}ct0${reset}
 
-${red}⚠️  IMPORTANT:${reset}
+${red}  IMPORTANT:${reset}
   • These cookies are like your password - keep them secret!
   • Don't share them with anyone
   • They expire periodically - you'll need to update them
@@ -150,7 +150,7 @@ ${red}⚠️  IMPORTANT:${reset}
 
 // Get credentials from user
 async function getCredentials() {
-  printHeader('🔐 X (Twitter) Credentials');
+  printHeader(' X (Twitter) Credentials');
   
   showCookieGuide();
   
@@ -160,12 +160,12 @@ async function getCredentials() {
   const ct0 = await ask(`${bright}ct0:${reset} `);
   
   if (!authToken || authToken.length < 20) {
-    print('\n❌ Invalid auth_token (too short)', red);
+    print('\n Invalid auth_token (too short)', red);
     return null;
   }
   
   if (!ct0 || ct0.length < 20) {
-    print('\n❌ Invalid ct0 (too short)', red);
+    print('\n Invalid ct0 (too short)', red);
     return null;
   }
   
@@ -174,7 +174,7 @@ async function getCredentials() {
 
 // Test credentials
 async function testCredentials(authToken, ct0) {
-  printHeader('🧪 Testing Credentials');
+  printHeader(' Testing Credentials');
   
   print('Verifying your credentials with X...', yellow);
   
@@ -188,21 +188,21 @@ async function testCredentials(authToken, ct0) {
       const data = JSON.parse(result);
       if (data.screen_name || data.username) {
         const username = data.screen_name || data.username;
-        print(`\n✅ Success! Logged in as @${username}`, green);
+        print(`\n Success! Logged in as @${username}`, green);
         return { success: true, username };
       }
     } catch {
       // bird might output differently, check for error patterns
       if (result.includes('error') || result.includes('unauthorized') || result.includes('invalid')) {
-        print(`\n❌ Authentication failed. Please check your cookies.`, red);
+        print(`\n Authentication failed. Please check your cookies.`, red);
         return { success: false };
       }
       // If we got here, assume success (bird might have different output format)
-      print(`\n✅ Credentials appear valid`, green);
+      print(`\n Credentials appear valid`, green);
       return { success: true };
     }
   } catch (error) {
-    print(`\n❌ Error testing credentials: ${error.message}`, red);
+    print(`\n Error testing credentials: ${error.message}`, red);
     print('This might be a network issue or invalid cookies.', yellow);
     return { success: false };
   }
@@ -212,7 +212,7 @@ async function testCredentials(authToken, ct0) {
 
 // Get user's projects and interests
 async function getProjectContext() {
-  printHeader('🎯 Your Projects & Interests');
+  printHeader(' Your Projects & Interests');
   
   print(`
 This skill analyzes bookmarks and relates them to YOUR interests.
@@ -244,13 +244,13 @@ ${yellow}Examples:${reset}
     return ['automation', 'productivity', 'learning'];
   }
   
-  print(`\n✅ Tracking ${projects.length} project(s)`, green);
+  print(`\n Tracking ${projects.length} project(s)`, green);
   return projects;
 }
 
 // Configure monitoring settings
 async function configureSettings() {
-  printHeader('⚙️  Monitoring Settings');
+  printHeader('  Monitoring Settings');
   
   print('\nHow many recent bookmarks should we check each time?', cyan);
   const bookmarkCount = await ask(`Bookmark count (default: 50): `) || '50';
@@ -282,7 +282,7 @@ CT0=${ct0}
   writeFileSync(envPath, content);
   chmodSync(envPath, 0o600); // Read/write for owner only
   
-  print(`\n✅ Created .env file (permissions: 600)`, green);
+  print(`\n Created .env file (permissions: 600)`, green);
   print(`   ${envPath}`, cyan);
 }
 
@@ -301,13 +301,13 @@ function createConfigFile(projects, settings) {
   
   writeFileSync(configPath, JSON.stringify(config, null, 2));
   
-  print(`\n✅ Created config.json`, green);
+  print(`\n Created config.json`, green);
   print(`   ${configPath}`, cyan);
 }
 
 // Show next steps
 function showNextSteps(haspm2) {
-  printHeader('🚀 Setup Complete!');
+  printHeader(' Setup Complete!');
   
   print(`
 ${green}Your Bookmark Intelligence skill is ready!${reset}
@@ -358,7 +358,7 @@ ${yellow}Need help?${reset} Check ${cyan}SKILL.md${reset} for troubleshooting.
 // Main setup flow
 async function main() {
   try {
-    printHeader('🔖 Bookmark Intelligence - Setup Wizard');
+    printHeader(' Bookmark Intelligence - Setup Wizard');
     
     print('Welcome! This wizard will help you set up Bookmark Intelligence.\n', cyan);
     
@@ -400,7 +400,7 @@ async function main() {
     const settings = await configureSettings();
     
     // 6. Create files
-    printHeader('📝 Creating Configuration Files');
+    printHeader(' Creating Configuration Files');
     createEnvFile(credentials.authToken, credentials.ct0);
     createConfigFile(projects, settings);
     
@@ -408,7 +408,7 @@ async function main() {
     const storageDir = join(SKILL_DIR, '../../life/resources/bookmarks');
     if (!existsSync(storageDir)) {
       mkdirSync(storageDir, { recursive: true });
-      print(`\n✅ Created storage directory: ${storageDir}`, green);
+      print(`\n Created storage directory: ${storageDir}`, green);
     }
     
     // 8. Show next steps
@@ -417,7 +417,7 @@ async function main() {
     rl.close();
     
   } catch (error) {
-    print(`\n\n❌ Setup failed: ${error.message}`, red);
+    print(`\n\n Setup failed: ${error.message}`, red);
     console.error(error.stack);
     rl.close();
     process.exit(1);

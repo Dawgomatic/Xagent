@@ -20,11 +20,11 @@ metadata:
 - **최신 API 버전 + SDK** 사용
 
 ### 절대 금지
-- ❌ Charges API (레거시, PaymentIntents로 마이그레이션)
-- ❌ Card Element / Payment Element card 모드 (레거시)
-- ❌ Sources API (deprecated)
-- ❌ Tokens API (SetupIntents 사용)
-- ❌ payment_method_types 하드코딩 (동적 결제 수단 사용)
+-  Charges API (레거시, PaymentIntents로 마이그레이션)
+-  Card Element / Payment Element card 모드 (레거시)
+-  Sources API (deprecated)
+-  Tokens API (SetupIntents 사용)
+-  payment_method_types 하드코딩 (동적 결제 수단 사용)
 
 ## 우리 게임/앱에 적용
 

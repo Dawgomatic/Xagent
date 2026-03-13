@@ -41,12 +41,12 @@
 **解决方案**：
 
 ```bash
-# ❌ 错误示例
+#  错误示例
 curl -X POST "https://open.feishu.cn/open-apis/..." \
   -H "Content-Type: application/json" \
   -d '{"..."}'
 
-# ✅ 正确示例
+#  正确示例
 curl -X POST "https://open.feishu.cn/open-apis/..." \
   -H "Authorization: Bearer {tenant_access_token}" \
   -H "Content-Type: application/json" \
@@ -553,12 +553,12 @@ TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.tenant_access_token')
 CODE=$(echo "$TOKEN_RESPONSE" | jq -r '.code')
 
 if [ "$CODE" != "0" ]; then
-  echo "❌ 获取 token 失败"
+  echo " 获取 token 失败"
   echo "$TOKEN_RESPONSE" | jq .
   exit 1
 fi
 
-echo "✅ Token: ${TOKEN:0:20}..."
+echo " Token: ${TOKEN:0:20}..."
 
 # 2. 测试读取文档
 echo "测试读取文档..."
@@ -568,10 +568,10 @@ READ_RESPONSE=$(curl -s -X GET "https://open.feishu.cn/open-apis/docx/v1/documen
 CODE=$(echo "$READ_RESPONSE" | jq -r '.code')
 
 if [ "$CODE" = "0" ]; then
-  echo "✅ 读取成功"
+  echo " 读取成功"
   echo "$READ_RESPONSE" | jq -r '.data.content' | head -20
 else
-  echo "❌ 读取失败"
+  echo " 读取失败"
   echo "$READ_RESPONSE" | jq .
 fi
 ```

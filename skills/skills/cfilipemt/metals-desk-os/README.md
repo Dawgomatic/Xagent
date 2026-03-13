@@ -1,4 +1,4 @@
-# 🏛 Metals Desk OS v1.0.0
+#  Metals Desk OS v1.0.0
 
 **Institutional Desk-Level Fully Automated Trading OS for XAU/USD and XAG/USD**
 
@@ -6,7 +6,7 @@ Architecture: Event-Driven, Risk-First, Multi-Engine AI Trading Desk
 
 ---
 
-## 📁 File Structure
+##  File Structure
 
 ```
 metals-desk-os/
@@ -63,7 +63,7 @@ metals-desk-os/
 
 ---
 
-## 🚀 Step-by-Step Installation
+##  Step-by-Step Installation
 
 ### Step 1: Copy to OpenClaw
 
@@ -153,7 +153,7 @@ pm2 save
 
 ---
 
-## ⚙️ Pipeline Flow
+##  Pipeline Flow
 
 ```
 PRICE FEED → SESSION ENGINE → STRUCTURE ENGINE → LIQUIDITY ENGINE →
@@ -165,7 +165,7 @@ Every component communicates through the **Event Bus**. All events are logged an
 
 ---
 
-## 🛡 Safety Rules (Non-Negotiable)
+##  Safety Rules (Non-Negotiable)
 
 | Rule | Value |
 |------|-------|
@@ -182,7 +182,7 @@ Every component communicates through the **Event Bus**. All events are logged an
 
 ---
 
-## 📊 Dashboard
+##  Dashboard
 
 Connect any WebSocket client to `ws://localhost:3078` to receive real-time data.
 
@@ -198,11 +198,11 @@ Data includes:
 
 ---
 
-## 🔔 Alert Format
+##  Alert Format
 
 ### Trade Opened:
 ```
-🔔 TRADE OPENED
+ TRADE OPENED
 Pair: XAUUSD
 Direction: Long
 Entry: 5024.50
@@ -215,14 +215,14 @@ Conviction: 82/100
 
 ### Risk Halt:
 ```
-🛑 RISK HALT ACTIVATED
+ RISK HALT ACTIVATED
 Reason: 3 consecutive losses
 Trading paused for session
 ```
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 Start in **Mode 1 (Advisory)** first. The system will run the full analysis pipeline with simulated prices and emit signals without executing trades. Monitor the console output and WebSocket feed to verify:
 
@@ -237,7 +237,7 @@ Once confident, move to **Mode 2 (Semi-Auto)** to test TP/SL management, then **
 
 ---
 
-## 🔧 PM2 Production Setup
+##  PM2 Production Setup
 
 ```bash
 # Install PM2 if not already

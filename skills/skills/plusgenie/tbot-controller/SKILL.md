@@ -4,7 +4,7 @@ version: 1.0.0
 author: PlusGenie
 tags: [openclaw, tbot, tradingboat, trading, docker, ibkr]
 description: Operate TradingBoat/TBOT (TBOT runtime stack) via a controlled automation interface (DB-first queries; lifecycle control on explicit request).
-metadata: {"openclaw":{"emoji":"🛥️","requires":{"bins":["uv"]},"install":[{"id":"uv-brew","kind":"brew","formula":"uv","bins":["uv"],"label":"Install uv (brew)"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["uv"]},"install":[{"id":"uv-brew","kind":"brew","formula":"uv","bins":["uv"],"label":"Install uv (brew)"}]}}
 ---
 
 ## What this skill does

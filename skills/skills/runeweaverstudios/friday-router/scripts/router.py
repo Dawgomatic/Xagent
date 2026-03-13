@@ -355,9 +355,9 @@ def main():
     if command == 'default':
         m = router.get_default_model()
         if not m:
-            print("❌ No default model configured (missing default_model or QUALITY primary in config)")
+            print(" No default model configured (missing default_model or QUALITY primary in config)")
             sys.exit(1)
-        print("🎯 Session default model (capable by default):\n")
+        print(" Session default model (capable by default):\n")
         print(f"   {m['alias']} ({m['id']})")
         print(f"   Cost: ${m['input_cost_per_m']}/${m['output_cost_per_m']} per M")
         print(f"   Use for: {', '.join(m.get('use_for', []))}")
@@ -367,32 +367,32 @@ def main():
         task = ' '.join(sys.argv[2:])
         result = router.recommend_model(task)
         
-        print(f"📋 Task: {task}")
-        print(f"\n🎯 Classification: {result['tier']}")
+        print(f" Task: {task}")
+        print(f"\n Classification: {result['tier']}")
         print(f"   Confidence: {result['classification']['confidence']:.1%}")
         print(f"   Reasoning: {result['reasoning']}")
         
         if result['model']:
             m = result['model']
-            print(f"\n🤖 Recommended Model:")
+            print(f"\n Recommended Model:")
             print(f"   {m['alias']} ({m['id']})")
             print(f"   Cost: ${m['input_cost_per_m']}/${m['output_cost_per_m']} per M")
             print(f"   Use for: {', '.join(m.get('use_for', []))}")
         
         if result['fallback']:
             fb = result['fallback']
-            print(f"\n🔄 Fallback: {fb['alias']} ({fb['id']})")
+            print(f"\n Fallback: {fb['alias']} ({fb['id']})")
     
     elif command == 'score':
         task = ' '.join(sys.argv[2:])
         result = router.classify_task(task, return_details=True)
         
-        print(f"📋 Task: {task}")
-        print(f"\n🎯 Tier: {result['tier']}")
+        print(f" Task: {task}")
+        print(f"\n Tier: {result['tier']}")
         print(f"   Confidence: {result['confidence']:.1%}")
         print(f"   Agentic: {'Yes' if result['is_agentic'] else 'No'}")
         
-        print(f"\n📊 Tier Scores:")
+        print(f"\n Tier Scores:")
         for tier, score in sorted(result['tier_scores'].items(), key=lambda x: x[1], reverse=True):
             bar = '█' * score
             print(f"   {tier:10} {bar} ({score})")
@@ -402,16 +402,16 @@ def main():
         result = router.estimate_cost(task)
         
         if 'error' in result:
-            print(f"❌ Error: {result['error']}")
+            print(f" Error: {result['error']}")
         else:
-            print(f"📋 Task: {task}")
-            print(f"\n💰 Cost Estimate:")
+            print(f" Task: {task}")
+            print(f"\n Cost Estimate:")
             print(f"   Tier: {result['tier']}")
             print(f"   Model: {result['model']}")
             print(f"   Est. Cost: ${result['cost']} {result['currency']}")
     
     elif command == 'models':
-        print("📦 Configured Models:\n")
+        print(" Configured Models:\n")
         for model in router.config.get('models', []):
             print(f"  {model['alias']:20} [{model['tier']:8}] {model['id']}")
             print(f"                         ${model['input_cost_per_m']}/${model['output_cost_per_m']}/M")
@@ -419,7 +419,7 @@ def main():
     elif command == 'spawn':
         task = ' '.join(sys.argv[2:])
         if not task:
-            print("❌ Error: spawn requires a task string", file=sys.stderr)
+            print(" Error: spawn requires a task string", file=sys.stderr)
             sys.exit(1)
         result = router.spawn_agent(task)
         
@@ -429,11 +429,11 @@ def main():
             out = {k: v for k, v in result['params'].items()}
             print(json.dumps(out))
         else:
-            print(f"📋 Task: {task}")
-            print(f"\n🚀 OpenClaw Spawn Params:")
+            print(f" Task: {task}")
+            print(f"\n OpenClaw Spawn Params:")
             print(f"   model: {result['params']['model']}")
             print(f"   sessionTarget: {result['params']['sessionTarget']}")
-            print(f"\n📦 Full recommendation:")
+            print(f"\n Full recommendation:")
             print(f"   Tier: {result['recommendation']['tier']}")
             print(f"   Model: {result['recommendation']['model']['alias']}")
     

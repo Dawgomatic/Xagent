@@ -60,17 +60,17 @@ Parse each commit subject and group into categories:
 
 | Prefix | Category | Emoji |
 |--------|----------|-------|
-| `feat` | ✨ Features | New functionality |
-| `fix` | 🐛 Bug Fixes | Corrections |
-| `docs` | 📚 Documentation | Docs changes |
-| `style` | 💄 Styling | Formatting, no logic change |
-| `refactor` | ♻️ Refactoring | Code restructuring |
-| `perf` | ⚡ Performance | Speed improvements |
-| `test` | ✅ Tests | Adding/fixing tests |
-| `build` | 📦 Build | Build system, deps |
-| `ci` | 👷 CI/CD | Pipeline changes |
-| `chore` | 🔧 Chores | Maintenance |
-| *(other)* | 📝 Other | Uncategorized |
+| `feat` |  Features | New functionality |
+| `fix` |  Bug Fixes | Corrections |
+| `docs` |  Documentation | Docs changes |
+| `style` |  Styling | Formatting, no logic change |
+| `refactor` |  Refactoring | Code restructuring |
+| `perf` |  Performance | Speed improvements |
+| `test` |  Tests | Adding/fixing tests |
+| `build` |  Build | Build system, deps |
+| `ci` |  CI/CD | Pipeline changes |
+| `chore` |  Chores | Maintenance |
+| *(other)* |  Other | Uncategorized |
 
 Parse pattern: `type(scope): description` or `type: description`
 
@@ -83,14 +83,14 @@ Output format:
 
 ## [v1.2.0] — 2025-02-15
 
-### ✨ Features
+###  Features
 - **auth**: Add OAuth2 support ([abc1234])
 - **api**: New rate limiting middleware ([def5678])
 
-### 🐛 Bug Fixes
+###  Bug Fixes
 - **db**: Fix connection pool leak ([ghi9012])
 
-### 📚 Documentation
+###  Documentation
 - Update API reference ([jkl3456])
 ```
 
@@ -99,7 +99,7 @@ Rules:
 - Include short hash as reference: `([abc1234])`
 - Sort categories: Features → Fixes → everything else
 - Omit empty categories
-- If commits include `BREAKING CHANGE` in body/footer, add a `### 💥 Breaking Changes` section at the top
+- If commits include `BREAKING CHANGE` in body/footer, add a `###  Breaking Changes` section at the top
 
 ### 6. Detect Breaking Changes
 

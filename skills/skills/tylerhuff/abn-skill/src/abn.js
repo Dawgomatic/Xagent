@@ -259,7 +259,7 @@ class ABN {
    * @param {object} deal - Deal configuration
    */
   async executeDeal(deal) {
-    console.log('🤝 Executing ABN deal...');
+    console.log(' Executing ABN deal...');
     
     const steps = [];
     
@@ -367,7 +367,7 @@ For programmatic use, import the ABN class:
   // Verify links
   const result = await abn.verifyLink(pageUrl, 'mydomain.com');
 
-Protocol: Nostr | Payment: Lightning | Author: Ripper ⚡🦈
+Protocol: Nostr | Payment: Lightning | Author: Ripper 
 `);
   }
 }

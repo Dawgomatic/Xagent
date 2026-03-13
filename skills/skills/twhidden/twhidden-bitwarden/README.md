@@ -6,16 +6,16 @@ An [OpenClaw](https://openclaw.dev) skill for [Bitwarden](https://bitwarden.com/
 
 **Works with both official Bitwarden and [Vaultwarden](https://github.com/dani-garcia/vaultwarden) (self-hosted).**
 
-**📦 Install from ClawHub:** [`clawhub install twhidden-bitwarden`](https://clawhub.ai/skills/twhidden-bitwarden)
+** Install from ClawHub:** [`clawhub install twhidden-bitwarden`](https://clawhub.ai/skills/twhidden-bitwarden)
 
 ## Features
 
-- 🔐 Automatic login & session caching
-- 🔑 Store, retrieve, and manage credentials
-- 🎲 Secure password generation
-- 🔍 Search across your vault
-- ⚡ Simple single-command interface
-- 🏠 Compatible with official Bitwarden AND self-hosted Vaultwarden
+-  Automatic login & session caching
+-  Store, retrieve, and manage credentials
+-  Secure password generation
+-  Search across your vault
+-  Simple single-command interface
+-  Compatible with official Bitwarden AND self-hosted Vaultwarden
 
 ## Prerequisites
 

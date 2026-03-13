@@ -94,8 +94,8 @@ currency = uint32(uint160(tokenAddress))
 ### JBPrices
 
 JBPrices manages exchange rates between:
-- Real-world currencies (ETH ↔ USD)
-- Token currencies (USDC ↔ USD, ETH token ↔ ETH concept)
+- Real-world currencies (ETH  USD)
+- Token currencies (USDC  USD, ETH token  ETH concept)
 - Cross-currency conversions for payments and cash outs
 
 ## Verification

@@ -71,7 +71,7 @@ WG_PUBKEY=$(python3 -c "import json; c=json.load(open('$CONFIG_FILE')); print(c[
 WG_SUBNET=$(python3 -c "import json; c=json.load(open('$CONFIG_FILE')); print(c['wireguard_gateway']['subnet'].split('/')[0].rsplit('.', 1)[0])")
 
 echo ""
-echo -e "${GREEN}🔗 Joining Telnyx Network${NC}"
+echo -e "${GREEN} Joining Telnyx Network${NC}"
 echo "=========================="
 echo ""
 echo "Peer name: $NAME"
@@ -125,7 +125,7 @@ with open('$CONFIG_FILE', 'w') as f:
 EOF
 
 echo ""
-echo -e "${GREEN}✅ Peer created!${NC}"
+echo -e "${GREEN} Peer created!${NC}"
 echo ""
 echo "Your IP: $PEER_IP"
 echo "Config:  $CONF_FILE"
@@ -135,7 +135,7 @@ if [ "$APPLY" = true ]; then
     echo "Applying WireGuard config..."
     if command -v wg-quick &> /dev/null; then
         sudo wg-quick up "$CONF_FILE"
-        echo -e "${GREEN}✅ Connected!${NC}"
+        echo -e "${GREEN} Connected!${NC}"
     else
         echo -e "${RED}Error: wg-quick not found. Install WireGuard first.${NC}"
         exit 1
@@ -149,5 +149,5 @@ else
 fi
 
 echo ""
-echo -e "${YELLOW}⚠️  Save your private key! It's only shown once.${NC}"
+echo -e "${YELLOW}  Save your private key! It's only shown once.${NC}"
 echo "   Config file: $CONF_FILE"

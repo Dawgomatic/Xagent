@@ -69,7 +69,7 @@ async function main() {
     console.log('Swap TX:', swapTx.hash);
     const receipt = await swapTx.wait();
     console.log('Confirmed in block:', receipt.blockNumber);
-    console.log('\n✅ Swap complete! Check balance.');
+    console.log('\n Swap complete! Check balance.');
     console.log('Explorer: https://abscan.org/tx/' + swapTx.hash);
     
   } catch (e) {

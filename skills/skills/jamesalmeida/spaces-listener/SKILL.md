@@ -14,7 +14,7 @@ metadata:
   openclaw:
     requires:
       bins: ["yt-dlp", "ffmpeg"]
-    emoji: "🎧"
+    emoji: ""
 ---
 
 # spaces-listener
@@ -108,8 +108,8 @@ avoids Dropbox file-locking issues during long downloads.
 
 | Model | Speed | Accuracy |
 |-------|-------|----------|
-| tiny | ⚡⚡⚡⚡ | ⭐ |
-| base | ⚡⚡⚡ | ⭐⭐ |
-| small | ⚡⚡ | ⭐⭐⭐ |
-| medium | ⚡ | ⭐⭐⭐⭐ |
-| large | 🐢 | ⭐⭐⭐⭐⭐ |
+| tiny |  |  |
+| base |  |  |
+| small |  |  |
+| medium |  |  |
+| large |  |  |

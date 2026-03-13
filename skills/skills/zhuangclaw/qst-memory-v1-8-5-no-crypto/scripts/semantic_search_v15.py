@@ -432,15 +432,15 @@ if __name__ == "__main__":
         min_relevance=args.min_relevance
     )
     
-    print(f"\n🎯 Primary: {result['primary']}")
-    print(f"📁 Path: {' → '.join(result['path'])}")
-    print(f"🔗 Related: {', '.join(result['related'][:5])}")
+    print(f"\n Primary: {result['primary']}")
+    print(f" Path: {' → '.join(result['path'])}")
+    print(f" Related: {', '.join(result['related'][:5])}")
     
     if result['added_terms']:
-        print(f"➕ Added terms: {', '.join(result['added_terms'])}")
+        print(f" Added terms: {', '.join(result['added_terms'])}")
     
-    print(f"📊 Found: {result['count']} memories")
-    print(f"📈 Stats: {result['stats']}")
+    print(f" Found: {result['count']} memories")
+    print(f" Stats: {result['stats']}")
     
     if args.verbose:
         print("\n--- Results ---")

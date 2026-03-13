@@ -195,7 +195,7 @@ Brad Gerstner (Altimeter Capital) is calling this the **AI infrastructure superc
 - Leads captured: 50+ email signups
 - Partnership conversations started: 3+
 - Analyst briefings scheduled: 1+
-- KubeCon talk submitted: ✅
+- KubeCon talk submitted: 
 - HN front page: attempt (success = bonus)
 
 ---

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""🧬 Self-Evolving Learning System - The agent learns from its own behavior patterns."""
+""" Self-Evolving Learning System - The agent learns from its own behavior patterns."""
 
 import json
 import uuid
@@ -459,7 +459,7 @@ class SelfEvolutionSystem:
     
     def evolve(self) -> Dict:
         """Run full evolution cycle."""
-        print("🧬 Starting evolution cycle...")
+        print(" Starting evolution cycle...")
         
         # Discover new patterns
         new_patterns = self._discover_patterns()
@@ -502,7 +502,7 @@ class SelfEvolutionSystem:
         self._save_learnings()
         self._save_learned_weights()
         
-        print(f"✅ Evolution complete: {len(truly_new_patterns)} new patterns discovered")
+        print(f" Evolution complete: {len(truly_new_patterns)} new patterns discovered")
         
         return {
             "new_patterns": truly_new_patterns,
@@ -518,7 +518,7 @@ class SelfEvolutionSystem:
         recent_patterns = [p for p in self.learnings["patterns"] 
                           if datetime.fromisoformat(p["discovered"]) > datetime.now() - timedelta(days=30)]
         
-        reflection = ["🤔 SELF-REFLECTION", "=" * 40]
+        reflection = [" SELF-REFLECTION", "=" * 40]
         
         # Performance summary
         if mood_effectiveness:
@@ -527,7 +527,7 @@ class SelfEvolutionSystem:
             
             reflection.extend([
                 "",
-                "📊 Recent Performance:",
+                " Recent Performance:",
                 f"  • Best mood: {best_mood[0]} (avg score: {best_mood[1]['average_score']:.1f})",
                 f"  • Challenging mood: {worst_mood[0]} (avg score: {worst_mood[1]['average_score']:.1f})",
                 f"  • Total moods analyzed: {len(mood_effectiveness)}"
@@ -537,7 +537,7 @@ class SelfEvolutionSystem:
         if recent_patterns:
             reflection.extend([
                 "",
-                f"🧠 Recent Insights ({len(recent_patterns)} patterns discovered):"
+                f" Recent Insights ({len(recent_patterns)} patterns discovered):"
             ])
             for pattern in recent_patterns[:5]:  # Top 5 recent patterns
                 reflection.append(f"  • {pattern['description']} (confidence: {pattern['confidence']:.0%})")
@@ -546,7 +546,7 @@ class SelfEvolutionSystem:
         if ruts:
             reflection.extend([
                 "",
-                f"⚠️ Current Challenges ({len(ruts)} detected):"
+                f" Current Challenges ({len(ruts)} detected):"
             ])
             for rut in ruts:
                 reflection.append(f"  • {rut['description']}")
@@ -557,7 +557,7 @@ class SelfEvolutionSystem:
             latest = evolution_history[-1]
             reflection.extend([
                 "",
-                "🔄 Evolution Status:",
+                " Evolution Status:",
                 f"  • Last evolution: {latest['timestamp'][:10]}",
                 f"  • Total patterns learned: {latest['total_patterns']}",
                 f"  • Active weight adjustments: {latest['weight_adjustments_made']}"
@@ -623,11 +623,11 @@ class SelfEvolutionSystem:
         
         for issue in issues:
             if issue["severity"] == "high":
-                recommendations.append(f"🔴 {issue['recommendation']}")
+                recommendations.append(f" {issue['recommendation']}")
             elif issue["severity"] == "medium":
-                recommendations.append(f"🟡 {issue['recommendation']}")
+                recommendations.append(f" {issue['recommendation']}")
             else:
-                recommendations.append(f"🟢 {issue['recommendation']}")
+                recommendations.append(f" {issue['recommendation']}")
         
         # Add positive suggestions
         mood_effectiveness = self.analyze_mood_effectiveness()
@@ -635,7 +635,7 @@ class SelfEvolutionSystem:
             best_moods = [mood for mood, data in mood_effectiveness.items() 
                          if data["average_score"] >= 7]
             if best_moods:
-                recommendations.append(f"✅ Focus on high-performing moods: {', '.join(best_moods)}")
+                recommendations.append(f" Focus on high-performing moods: {', '.join(best_moods)}")
         
         return recommendations
     
@@ -680,13 +680,13 @@ def main():
     
     if command == "evolve":
         result = system.evolve()
-        print(f"\n🧬 EVOLUTION COMPLETE")
+        print(f"\n EVOLUTION COMPLETE")
         print(f"New patterns: {len(result['new_patterns'])}")
         print(f"Weight adjustments: {len(result['weight_adjustments']['moods'])} moods, {len(result['weight_adjustments']['thoughts'])} thoughts")
         print(f"Ruts detected: {len(result['ruts'])}")
         
         if result['new_patterns']:
-            print(f"\n📈 NEW PATTERNS DISCOVERED:")
+            print(f"\n NEW PATTERNS DISCOVERED:")
             for pattern in result['new_patterns'][:3]:  # Show top 3
                 print(f"  • {pattern['description']} (confidence: {pattern['confidence']:.0%})")
     
@@ -695,42 +695,42 @@ def main():
     
     elif command == "diagnose":
         issues = system.diagnose()
-        print("🔍 DIAGNOSIS REPORT")
+        print(" DIAGNOSIS REPORT")
         print("=" * 30)
         
         if not issues:
-            print("✅ No significant issues detected")
+            print(" No significant issues detected")
         else:
             for issue in issues:
-                severity_emoji = {"high": "🔴", "medium": "🟡", "low": "🟢"}
-                print(f"{severity_emoji.get(issue['severity'], '⚪')} {issue['description']}")
+                severity_emoji = {"high": "", "medium": "", "low": ""}
+                print(f"{severity_emoji.get(issue['severity'], '')} {issue['description']}")
     
     elif command in ["prescribe", "recommendations"]:
         recommendations = system.prescribe()
-        print("💊 RECOMMENDATIONS")
+        print(" RECOMMENDATIONS")
         print("=" * 25)
         
         if not recommendations:
-            print("✅ No specific recommendations at this time")
+            print(" No specific recommendations at this time")
         else:
             for rec in recommendations:
                 print(f"  {rec}")
     
     elif command == "weights":
         weights = system.get_learned_weights()
-        print("⚖️ LEARNED WEIGHT ADJUSTMENTS")
+        print(" LEARNED WEIGHT ADJUSTMENTS")
         print("=" * 35)
         
         if weights.get("moods"):
-            print("\n🧠 Mood Adjustments:")
+            print("\n Mood Adjustments:")
             for mood, weight in sorted(weights["moods"].items(), key=lambda x: x[1], reverse=True):
-                emoji = "📈" if weight > 1.0 else "📉" if weight < 1.0 else "➖"
+                emoji = "" if weight > 1.0 else "" if weight < 1.0 else ""
                 print(f"  {emoji} {mood}: {weight:.2f}x")
         
         if weights.get("thoughts"):
-            print("\n💭 Thought Adjustments:")
+            print("\n Thought Adjustments:")
             for thought, weight in sorted(weights["thoughts"].items(), key=lambda x: x[1], reverse=True):
-                emoji = "📈" if weight > 1.0 else "📉" if weight < 1.0 else "➖"
+                emoji = "" if weight > 1.0 else "" if weight < 1.0 else ""
                 print(f"  {emoji} {thought}: {weight:.2f}x")
         
         if not weights.get("moods") and not weights.get("thoughts"):
@@ -738,7 +738,7 @@ def main():
     
     elif command == "stats":
         stats = system.get_stats()
-        print("📊 EVOLUTION STATISTICS")
+        print(" EVOLUTION STATISTICS")
         print("=" * 30)
         print(f"Patterns discovered: {stats['total_patterns']}")
         print(f"Evolution cycles run: {stats['evolution_cycles']}")

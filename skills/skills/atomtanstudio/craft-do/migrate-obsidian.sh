@@ -25,7 +25,7 @@ if [ ! -d "$OBSIDIAN_VAULT" ]; then
   exit 1
 fi
 
-echo "🚀 Starting Obsidian → Craft migration"
+echo " Starting Obsidian → Craft migration"
 echo "Vault: $OBSIDIAN_VAULT"
 echo ""
 
@@ -77,7 +77,7 @@ create_folder() {
     return
   fi
   
-  echo "📁 Creating folder: $folder_name" >&2
+  echo " Creating folder: $folder_name" >&2
   
   local result=$(craft_api POST "folders" "{\"folders\": [{\"name\": \"$folder_name\"}]}")
   local folder_id=$(echo "$result" | jq -r '.items[0].id // empty')
@@ -98,7 +98,7 @@ create_document() {
   local folder_id="$2"
   local file_path="$3"
   
-  echo "   📄 Creating: $title"
+  echo "    Creating: $title"
   
   # Properly escape title for JSON using jq (strip trailing newline)
   local title_json=$(echo -n "$title" | jq -Rs .)
@@ -119,7 +119,7 @@ create_document() {
   local content=$(cat "$file_path" | jq -Rs .)
   
   # Add content using /blocks endpoint
-  echo "      📝 Adding content..."
+  echo "       Adding content..."
   local blocks_result=$(craft_api POST "blocks" "{\"blocks\": [{\"type\": \"text\", \"markdown\": $content}], \"position\": {\"pageId\": \"$doc_id\", \"position\": \"end\"}}")
   
   local block_id=$(echo "$blocks_result" | jq -r '.items[0].id // empty')
@@ -132,7 +132,7 @@ create_document() {
 }
 
 # Process vault
-echo "🔍 Scanning vault structure..."
+echo " Scanning vault structure..."
 echo ""
 
 folder_count=0
@@ -178,10 +178,10 @@ while IFS= read -r dir; do
 done < <(find "$OBSIDIAN_VAULT" -mindepth 1 -maxdepth 1 -type d ! -path "*/.obsidian*" | sort)
 
 echo ""
-echo "✅ Migration complete!"
+echo " Migration complete!"
 echo ""
-echo "📊 Summary:"
+echo " Summary:"
 echo "   Folders created: $folder_count"
 echo "   Documents created with full content: (check Craft)"
 echo ""
-echo "🎉 All markdown files migrated with their original content!"
+echo " All markdown files migrated with their original content!"

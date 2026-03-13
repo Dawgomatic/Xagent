@@ -3,7 +3,7 @@ name: managing-apple-notes
 description: "Manage Apple Notes from the terminal using the inotes CLI. Use when asked to list, read, create, edit, delete, or search notes in Notes.app on macOS."
 homepage: https://github.com/wangwalk/inotes
 url: https://github.com/wangwalk/inotes
-emoji: 📝
+emoji: 
 metadata:
   clawdbot:
     os: ["darwin"]
@@ -20,15 +20,15 @@ metadata:
 
 `inotes` is a macOS CLI for Apple Notes. It communicates with Notes.app via AppleScript and supports all CRUD operations plus search. Output defaults to a human-readable table; use `--json` for machine-readable output.
 
-## 🔒 Privacy & Security
+##  Privacy & Security
 
-- ✅ **Open source**: Full source code at https://github.com/wangwalk/inotes
-- ✅ **Local-only**: All operations run locally via AppleScript; no data leaves your machine
-- ✅ **No network calls**: `inotes` does not connect to any remote servers
-- ✅ **Auditable install**: Binary installed via Homebrew from signed release or GitHub Releases
-- ✅ **MIT Licensed**: Free and open for inspection and contributions
-- ⚠️ **Requires macOS Automation permission** for Notes.app (user grants via System Settings)
-- 📦 **Universal binary**: Supports both Apple Silicon (arm64) and Intel (x86_64)
+-  **Open source**: Full source code at https://github.com/wangwalk/inotes
+-  **Local-only**: All operations run locally via AppleScript; no data leaves your machine
+-  **No network calls**: `inotes` does not connect to any remote servers
+-  **Auditable install**: Binary installed via Homebrew from signed release or GitHub Releases
+-  **MIT Licensed**: Free and open for inspection and contributions
+-  **Requires macOS Automation permission** for Notes.app (user grants via System Settings)
+-  **Universal binary**: Supports both Apple Silicon (arm64) and Intel (x86_64)
 
 ## Prerequisites
 

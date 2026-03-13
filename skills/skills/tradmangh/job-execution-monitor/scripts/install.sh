@@ -25,9 +25,9 @@ done
 
 # Copy example config if not exists
 if [[ ! -f "$CONFIG_FILE" ]]; then
-  echo "📝 Creating default config: $CONFIG_FILE"
+  echo " Creating default config: $CONFIG_FILE"
   cp "${SCRIPT_DIR}/../config/job-execution-monitor.example.json" "$CONFIG_FILE"
-  echo "⚠️  Edit config before enabling monitoring!"
+  echo "  Edit config before enabling monitoring!"
   echo "   nano $CONFIG_FILE"
 fi
 
@@ -36,7 +36,7 @@ CHECK_INTERVAL=$(jq -r '.checkIntervalMin // 10' "$CONFIG_FILE")
 
 # Prefer systemd user timers
 if command -v systemctl &>/dev/null && systemctl --user status &>/dev/null; then
-  echo "✅ Using systemd user timer"
+  echo " Using systemd user timer"
   
   # Create service file
   SERVICE_FILE="$HOME/.config/systemd/user/openclaw-job-execution-monitor.service"
@@ -79,7 +79,7 @@ EOF
   systemctl --user enable openclaw-job-execution-monitor.timer
   systemctl --user start openclaw-job-execution-monitor.timer
   
-  echo "✅ Systemd timer installed and started"
+  echo " Systemd timer installed and started"
   echo ""
   echo "Commands:"
   echo "  systemctl --user status openclaw-job-execution-monitor.timer"
@@ -88,16 +88,16 @@ EOF
   
 else
   # Fallback to cron
-  echo "✅ Using cron"
+  echo " Using cron"
   
   CRON_LINE="*/${CHECK_INTERVAL} * * * * OPENCLAW_WORKSPACE=${WORKSPACE} ${HEALTHCHECK_SCRIPT} >> ${WORKSPACE}/job-execution-monitor.log 2>&1"
   
   # Check if already in crontab
   if crontab -l 2>/dev/null | grep -qF "$HEALTHCHECK_SCRIPT"; then
-    echo "⚠️  Cron entry already exists"
+    echo "  Cron entry already exists"
   else
     (crontab -l 2>/dev/null; echo "$CRON_LINE") | crontab -
-    echo "✅ Cron job added"
+    echo " Cron job added"
   fi
   
   echo ""
@@ -108,7 +108,7 @@ else
 fi
 
 echo ""
-echo "🎯 Job Execution Monitor installed!"
+echo " Job Execution Monitor installed!"
 echo "   Config: $CONFIG_FILE"
 echo "   Check interval: ${CHECK_INTERVAL} minutes"
 echo ""

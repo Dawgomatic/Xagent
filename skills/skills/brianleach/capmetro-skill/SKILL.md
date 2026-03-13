@@ -5,7 +5,7 @@ homepage: "https://github.com/brianleach/capmetro-skill"
 license: MIT
 metadata:
   clawdbot:
-    emoji: "🚌"
+    emoji: ""
     tags: [transit, austin, capmetro, transportation, bus, train, schedule]
     requires:
       bins: ["node", "unzip"]
@@ -102,9 +102,9 @@ On first use, run `node scripts/capmetro.mjs refresh-gtfs` to download and extra
 
 | Route | Name | Type |
 |-------|------|------|
-| 550 | MetroRail Red Line | Rail (Leander ↔ Downtown) |
-| 801 | MetroRapid North/South | Rapid Bus (Tech Ridge ↔ Southpark Meadows) |
-| 803 | MetroRapid Burnet/South Lamar | Rapid Bus (Domain ↔ Westgate) |
+| 550 | MetroRail Red Line | Rail (Leander  Downtown) |
+| 801 | MetroRapid North/South | Rapid Bus (Tech Ridge  Southpark Meadows) |
+| 803 | MetroRapid Burnet/South Lamar | Rapid Bus (Domain  Westgate) |
 | 1 | N Lamar/S Congress | Local Bus |
 | 7 | Duval/Dove Springs | Local Bus |
 | 10 | S 1st/Red River | Local Bus |

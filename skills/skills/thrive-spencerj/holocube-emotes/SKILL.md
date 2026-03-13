@@ -103,15 +103,15 @@ Use these during normal agent operations:
 
 | Context | Command | Emote |
 |---|---|---|
-| Idle, waiting for input | `neutral` | 🤖 |
-| Processing, running tools | `thinking` or `working` | 🔧 |
-| Task completed | `happy` or `complete` | 😊 |
-| Error occurred | `error` (→ surprised) | 😮 |
-| Funny moment | `laughing` or `funny` | 😂 |
-| Unexpected input | `surprised` or `unexpected` | 😮 |
-| Night/inactive | `sleeping` or `night` | 😴 |
-| Spawning sub-agent | `spawning` (→ thinking) | 🔧 |
-| On-demand custom | `custom` | ✨ |
+| Idle, waiting for input | `neutral` |  |
+| Processing, running tools | `thinking` or `working` |  |
+| Task completed | `happy` or `complete` |  |
+| Error occurred | `error` (→ surprised) |  |
+| Funny moment | `laughing` or `funny` |  |
+| Unexpected input | `surprised` or `unexpected` |  |
+| Night/inactive | `sleeping` or `night` |  |
+| Spawning sub-agent | `spawning` (→ thinking) |  |
+| On-demand custom | `custom` |  |
 
 ## Custom Slot
 
@@ -123,7 +123,7 @@ A reserved file `adam-custom.gif` on the device can be overwritten at any time f
 - **Format:** GIF (animated) or JFIF JPEG. Use Pillow for JPEG (ffmpeg lacks JFIF headers).
 - **Storage:** ~3MB total. 6 animated GIFs use ~1.5MB, leaving ~500KB for custom slot.
 - **Art style:** Dark/black backgrounds make glass disappear. Use glowing, holographic, neon elements.
-- **⚠️ NEVER send `/set?reset=1`** — that's factory reset, wipes WiFi config.
+- ** NEVER send `/set?reset=1`** — that's factory reset, wipes WiFi config.
 
 ## Requirements
 

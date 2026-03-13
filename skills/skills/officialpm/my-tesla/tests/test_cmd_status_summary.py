@@ -63,8 +63,8 @@ class CmdStatusSummaryTests(unittest.TestCase):
 
         out = buf.getvalue()
         # Summary line
-        self.assertIn("🚗 Test Car", out)
-        self.assertIn("🔋 55%", out)
+        self.assertIn(" Test Car", out)
+        self.assertIn(" 55%", out)
         # Detailed section should still appear
         self.assertIn("Battery: 55% (123 mi)", out)
 

@@ -67,4 +67,4 @@ echo "Installing transcribe CLI..."
 sudo cp "$SCRIPT_DIR/transcribe" /usr/local/bin/transcribe
 sudo chmod +x /usr/local/bin/transcribe
 
-echo "✅ Done! Use: transcribe <audio_file> [language]"
+echo " Done! Use: transcribe <audio_file> [language]"

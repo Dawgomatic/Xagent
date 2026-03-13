@@ -1,4 +1,4 @@
-# Argos Product Research Skill 🛒
+# Argos Product Research Skill 
 
 An OpenClaw skill for searching, comparing, and researching products from Argos.co.uk with natural language queries.
 

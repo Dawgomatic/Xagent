@@ -5,34 +5,34 @@ description: Bilibili Creator Assistant - Tag recommendations, posting times, ti
 license: MIT
 ---
 
-# Bilibili Creator Assistant 📺
+# Bilibili Creator Assistant 
 
 AI-powered assistant for Bilibili (B站) content creators.
 
 ## Features
 
-### 1. Tag & Zone Recommendations 🏷️
+### 1. Tag & Zone Recommendations 
 Get tag and zone suggestions for your videos.
 
 ```bash
 ./scripts/tags.sh "游戏"
 ```
 
-### 2. Best Posting Time ⏰
+### 2. Best Posting Time 
 Learn when to post for maximum views.
 
 ```bash
 ./scripts/time.sh "游戏区"
 ```
 
-### 3. Title Optimization ✍️
+### 3. Title Optimization 
 Improve your video titles (B站 style).
 
 ```bash
 ./scripts/title.sh "今天打了一把游戏"
 ```
 
-### 4. UP Analysis 📊
+### 4. UP Analysis 
 Study successful UP主 (creators).
 
 ```bash

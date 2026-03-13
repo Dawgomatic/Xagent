@@ -24,7 +24,7 @@ parameters:
 
 metadata:
   openclaw:
-    emoji: "🎨"
+    emoji: ""
     os: ["linux"]
     requires:
       bins: ["python3"]

@@ -103,7 +103,7 @@ show_status() {
     local json="$1"
     
     if [ -z "$json" ]; then
-        echo "❌ Keine Verbindung zum Drucker möglich"
+        echo " Keine Verbindung zum Drucker möglich"
         echo "   Prüfe: Ist der Drucker im LAN-Mode?"
         return 1
     fi
@@ -122,11 +122,11 @@ show_status() {
     # Status übersetzen
     local status_text="$state"
     case "$state" in
-        IDLE) status_text="🟡 Bereit" ;;
-        RUNNING) status_text="🟢 Druckt" ;;
-        PAUSE) status_text="⏸️  Pausiert" ;;
-        FINISH) status_text="✅ Fertig" ;;
-        FAILED) status_text="❌ Fehlgeschlagen" ;;
+        IDLE) status_text=" Bereit" ;;
+        RUNNING) status_text=" Druckt" ;;
+        PAUSE) status_text="  Pausiert" ;;
+        FINISH) status_text=" Fertig" ;;
+        FAILED) status_text=" Fehlgeschlagen" ;;
     esac
     
     # Restzeit formatieren
@@ -135,7 +135,7 @@ show_status() {
     local time_str="${hours}h ${mins}min"
     
     echo "═══════════════════════════════════════"
-    echo "    🖨️  Bambu Lab $MODEL Status"
+    echo "      Bambu Lab $MODEL Status"
     echo "═══════════════════════════════════════"
     echo "Status:    $status_text"
     echo "Datei:     $filename"
@@ -143,13 +143,13 @@ show_status() {
     echo "Layer:     $layer / $total_layer"
     echo "Restzeit:  $time_str"
     echo "───────────────────────────────────────"
-    echo "🌡️  Temperaturen:"
+    echo "  Temperaturen:"
     echo "   Nozzle: ${nozzle}°C"
     echo "   Bett:   ${bed}°C"
     
     if [ "$error" != "0" ] && [ -n "$error" ]; then
         echo "───────────────────────────────────────"
-        echo "⚠️  Fehler-Code: $error"
+        echo "  Fehler-Code: $error"
     fi
     echo "═══════════════════════════════════════"
 }
@@ -174,7 +174,7 @@ cmd_temps() {
     local nozzle_target=$(echo "$json" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('print',{}).get('nozzle_target_temper',0))" 2>/dev/null)
     local chamber=$(echo "$json" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('print',{}).get('chamber_temper','-'))" 2>/dev/null)
     
-    echo "🌡️  Temperaturen:"
+    echo "  Temperaturen:"
     echo "   Nozzle: ${nozzle}°C / ${nozzle_target}°C (Ziel)"
     echo "   Bett:   ${bed}°C / ${bed_target}°C (Ziel)"
     [ "$chamber" != "-" ] && echo "   Kammer: ${chamber}°C"
@@ -191,7 +191,7 @@ cmd_status() {
 # Live-Überwachung
 cmd_watch() {
     check_mqtt
-    echo "🔴 Live-Überwachung gestartet (Strg+C zum Beenden)..."
+    echo " Live-Überwachung gestartet (Strg+C zum Beenden)..."
     echo ""
     
     while true; do
@@ -207,29 +207,29 @@ cmd_watch() {
 # Druck pausieren
 cmd_pause() {
     check_mqtt
-    echo "⏸️  Pausiere Druck..."
+    echo "  Pausiere Druck..."
     send_mqtt '{"print": {"command": "pause"}}'
     sleep 1
-    echo "✅ Pausiert"
+    echo " Pausiert"
 }
 
 # Druck fortsetzen
 cmd_resume() {
     check_mqtt
-    echo "▶️  Setze Druck fort..."
+    echo "  Setze Druck fort..."
     send_mqtt '{"print": {"command": "resume"}}'
     sleep 1
-    echo "✅ Fortgesetzt"
+    echo " Fortgesetzt"
 }
 
 # Druck stoppen
 cmd_stop() {
     check_mqtt
-    read -p "❌ Druck wirklich abbrechen? (j/N) " confirm
+    read -p " Druck wirklich abbrechen? (j/N) " confirm
     if [ "$confirm" = "j" ] || [ "$confirm" = "J" ]; then
         echo "Breche Druck ab..."
         send_mqtt '{"print": {"command": "stop"}}'
-        echo "✅ Abgebrochen"
+        echo " Abgebrochen"
     else
         echo "Abbruch verworfen"
     fi
@@ -247,11 +247,11 @@ cmd_light() {
     
     case "$mode" in
         on|1)
-            echo "💡 Schalte Licht an..."
+            echo " Schalte Licht an..."
             send_mqtt '{"print": {"command": "ledctrl", "led_node": "chamber_light", "led_mode": "on"}}'
             ;;
         off|0)
-            echo "🌑 Schalte Licht aus..."
+            echo " Schalte Licht aus..."
             send_mqtt '{"print": {"command": "ledctrl", "led_node": "chamber_light", "led_mode": "off"}}'
             ;;
         *)
@@ -259,7 +259,7 @@ cmd_light() {
             exit 1
             ;;
     esac
-    echo "✅ Fertig"
+    echo " Fertig"
 }
 
 # Lüfter steuern
@@ -276,15 +276,15 @@ cmd_fans() {
     local pwm=$((speed * 17))
     [ $pwm -gt 255 ] && pwm=255
     
-    echo "🌪️  Setze Lüfter auf $speed (PWM: $pwm)..."
+    echo "  Setze Lüfter auf $speed (PWM: $pwm)..."
     send_mqtt "{\"print\": {\"command\": \"gcode_line\", \"param\": \"M106 S$pwm\"}}"
-    echo "✅ Fertig"
+    echo " Fertig"
 }
 
 # Rohe MQTT-Nachrichten
 cmd_raw() {
     check_mqtt
-    echo "🔴 Zeige rohe MQTT-Nachrichten (Strg+C zum Beenden)..."
+    echo " Zeige rohe MQTT-Nachrichten (Strg+C zum Beenden)..."
     mosquitto_sub \
         -h "$HOST" \
         -p "$PORT" \
@@ -299,7 +299,7 @@ cmd_raw() {
 # Benachrichtigungs-Modus
 cmd_notify() {
     check_mqtt
-    echo "🔔 Starte Überwachung mit Benachrichtigungen..."
+    echo " Starte Überwachung mit Benachrichtigungen..."
     
     local last_state=""
     
@@ -314,17 +314,17 @@ cmd_notify() {
         if [ "$state" != "$last_state" ]; then
             case "$state" in
                 FINISH)
-                    echo "✅ DRUCK FERTIG: $filename"
+                    echo " DRUCK FERTIG: $filename"
                     # Hier könnte Telegram-Integration kommen
                     ;;
                 FAILED)
-                    echo "❌ DRUCK FEHLGESCHLAGEN: $filename"
+                    echo " DRUCK FEHLGESCHLAGEN: $filename"
                     ;;
                 PAUSE)
-                    echo "⏸️  Druck pausiert: $filename"
+                    echo "  Druck pausiert: $filename"
                     ;;
                 RUNNING)
-                    echo "🟢 Druck gestartet/läuft: $filename ($percent%)"
+                    echo " Druck gestartet/läuft: $filename ($percent%)"
                     ;;
             esac
             last_state="$state"
@@ -332,12 +332,12 @@ cmd_notify() {
         
         # Bei Fehler sofort benachrichtigen
         if [ "$error" != "0" ] && [ -n "$error" ]; then
-            echo "⚠️  FEHLER Code $error beim Drucken!"
+            echo "  FEHLER Code $error beim Drucken!"
         fi
         
         # Alle 10% Fortschritt melden
         if [ $((percent % 10)) -eq 0 ] && [ "$percent" != "0" ] && [ "$state" = "RUNNING" ]; then
-            echo "📊 Fortschritt: $percent%"
+            echo " Fortschritt: $percent%"
         fi
         
         sleep 30

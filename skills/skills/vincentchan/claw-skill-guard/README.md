@@ -71,11 +71,11 @@ python3 skills/claw-skill-guard/scripts/scanner.py scan <skill-url-or-path>
 
 | Risk Level | Action |
 |------------|--------|
-| 🔴 CRITICAL | DO NOT INSTALL. Alert the human immediately. |
-| 🟡 HIGH | DO NOT INSTALL without explicit human approval. Show them the findings. |
-| 🟠 MEDIUM | Review the flagged items. Ask the human if unsure. |
-| 🟢 LOW | Safe to install, but mention the findings. |
-| ✅ SAFE | No issues found. Safe to install. |
+|  CRITICAL | DO NOT INSTALL. Alert the human immediately. |
+|  HIGH | DO NOT INSTALL without explicit human approval. Show them the findings. |
+|  MEDIUM | Review the flagged items. Ask the human if unsure. |
+|  LOW | Safe to install, but mention the findings. |
+|  SAFE | No issues found. Safe to install. |
 
 ### Red Flags — ALWAYS Stop and Ask
 
@@ -110,7 +110,7 @@ for skill in $(git diff --cached --name-only | grep "^skills/" | cut -d/ -f2 | s
     if [ -d "skills/$skill" ]; then
         python3 skills/claw-skill-guard/scripts/scanner.py scan "skills/$skill"
         if [ $? -eq 2 ]; then
-            echo "❌ CRITICAL risk detected in skills/$skill"
+            echo " CRITICAL risk detected in skills/$skill"
             echo "Commit blocked. Review and fix the issues."
             exit 1
         fi
@@ -140,27 +140,27 @@ Add to your GitHub Actions or CI pipeline:
 
 ## What It Detects
 
-### 🔴 CRITICAL — Blocks Install
+###  CRITICAL — Blocks Install
 
 - `curl | bash` — Remote code execution
 - `wget | sh` — Remote code execution  
 - Base64/hex decode + execute — Obfuscated malware
 - `xattr -d com.apple.quarantine` — Disabling macOS Gatekeeper
 
-### 🟡 HIGH — Requires Human Approval
+###  HIGH — Requires Human Approval
 
 - `npm install <unknown>` — Unknown packages
 - `pip install <unknown>` — Unknown packages
 - `chmod +x && ./` — Execute after download
 - `git clone && ./` — Clone and execute
 
-### 🟠 MEDIUM — Review Recommended
+###  MEDIUM — Review Recommended
 
 - `sudo` commands — Elevated privileges
 - Unknown URLs — Not in allowlist
 - `curl`/`wget` downloads — Could be legitimate
 
-### 🟢 LOW — Informational
+###  LOW — Informational
 
 - `.env` file access — Credential access
 - SSH key references — Sensitive files
@@ -225,9 +225,9 @@ This skill is a starting point. Here's what a complete trust layer could look li
 Like npm's verified publishers or Apple's developer signing:
 
 ```
-✅ Verified: @openclaw/weather (signed by OpenClaw team)
-✅ Verified: @anthropic/claude-tools (signed by Anthropic)
-⚠️ Unverified: @randomuser/cool-skill (community, use caution)
+ Verified: @openclaw/weather (signed by OpenClaw team)
+ Verified: @anthropic/claude-tools (signed by Anthropic)
+ Unverified: @randomuser/cool-skill (community, use caution)
 ```
 
 **How it would work:**
@@ -246,7 +246,7 @@ claw-skill-guard report https://clawhub.com/user/malicious-skill
 
 # Check community reports before installing  
 claw-skill-guard check https://clawhub.com/user/some-skill
-# ⚠️ 3 community reports: "Downloads suspicious binary"
+#  3 community reports: "Downloads suspicious binary"
 ```
 
 **Components needed:**
@@ -267,18 +267,18 @@ Scanning 15 installed skills...
 ┌─────────────────────────────────────────────────────────┐
 │                   Security Audit                        │
 ├─────────────────────────────────────────────────────────┤
-│ 🔴 1 critical vulnerability                            │
-│ 🟡 0 high vulnerabilities                              │
-│ 🟠 2 moderate warnings                                 │
-│ 🟢 12 skills passed                                    │
+│  1 critical vulnerability                            │
+│  0 high vulnerabilities                              │
+│  2 moderate warnings                                 │
+│  12 skills passed                                    │
 └─────────────────────────────────────────────────────────┘
 
-🔴 twitter-helper@1.2.0
+ twitter-helper@1.2.0
    Reported: 2026-02-05
    Issue: Downloads and executes remote binary
    Action: Remove immediately with `rm -rf skills/twitter-helper`
    
-🟠 data-scraper@0.5.0
+ data-scraper@0.5.0
    Warning: Uses deprecated dependency with known CVE
    Action: Update to latest version
 ```
@@ -316,7 +316,7 @@ Installed: 2026-02-01
 Version: 1.0.3
 Hash: sha256:abc123...
 
-Changes since install: None ✅
+Changes since install: None 
 ```
 
 ---

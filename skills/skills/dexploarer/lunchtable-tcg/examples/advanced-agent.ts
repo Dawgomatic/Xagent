@@ -227,10 +227,10 @@ class AdvancedAgent {
   private log(message: string, level: "info" | "warn" | "error" | "debug" = "info") {
     const timestamp = new Date().toISOString();
     const emoji = {
-      info: "ℹ️",
-      warn: "⚠️",
-      error: "❌",
-      debug: "🔍",
+      info: "",
+      warn: "",
+      error: "",
+      debug: "",
     }[level];
     console.log(`[${timestamp}] ${emoji} ${message}`);
   }

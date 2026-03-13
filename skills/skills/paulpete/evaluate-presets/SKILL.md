@@ -169,10 +169,10 @@ cat .eval/logs/<preset>/latest/session.jsonl | jq -r '.ts'
 
 | Pattern | Diagnosis | Action |
 |---------|-----------|--------|
-| iterations ≈ events | ✅ Good | Hat routing working |
-| iterations << events | ⚠️ Same-iteration switching | Check prompt has STOP instruction |
-| iterations >> events | ⚠️ Recovery loops | Agent not publishing required events |
-| 0 events | ❌ Broken | Events not being read from JSONL |
+| iterations ≈ events |  Good | Hat routing working |
+| iterations << events |  Same-iteration switching | Check prompt has STOP instruction |
+| iterations >> events |  Recovery loops | Agent not publishing required events |
+| 0 events |  Broken | Events not being read from JSONL |
 
 ### Root Cause Checklist
 
@@ -197,9 +197,9 @@ After evaluation, delegate fixes to subagents:
 ### Step 1: Triage Results
 
 Read `.eval/results/latest/SUMMARY.md` and identify:
-- `❌ FAIL` → Create code tasks for fixes
-- `⏱️ TIMEOUT` → Investigate infinite loops
-- `⚠️ PARTIAL` → Check for edge cases
+- ` FAIL` → Create code tasks for fixes
+- ` TIMEOUT` → Investigate infinite loops
+- ` PARTIAL` → Check for edge cases
 
 ### Step 2: Dispatch Task Creation
 

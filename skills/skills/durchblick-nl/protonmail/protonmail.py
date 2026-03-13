@@ -94,7 +94,7 @@ def cmd_mailboxes(args):
     """List all mailboxes."""
     imap = connect()
     status, mailboxes = imap.list()
-    print("📁 Mailboxes:\n")
+    print(" Mailboxes:\n")
     for mb in mailboxes:
         print(f"  {mb.decode()}")
     imap.logout()
@@ -111,7 +111,7 @@ def cmd_inbox(args):
     limit = args.limit or 10
     recent_ids = msg_ids[-limit:]
     
-    print(f"📬 INBOX ({len(msg_ids)} total, showing last {len(recent_ids)}):\n")
+    print(f" INBOX ({len(msg_ids)} total, showing last {len(recent_ids)}):\n")
     
     for msg_id in reversed(recent_ids):
         status, data = imap.fetch(msg_id, '(BODY[HEADER.FIELDS (FROM SUBJECT DATE)])')
@@ -150,7 +150,7 @@ def cmd_search(args):
     limit = args.limit or 20
     recent_ids = msg_ids[-limit:]
     
-    print(f"🔍 Search results for '{args.query}' ({len(msg_ids)} found, showing {len(recent_ids)}):\n")
+    print(f" Search results for '{args.query}' ({len(msg_ids)} found, showing {len(recent_ids)}):\n")
     
     for msg_id in reversed(recent_ids):
         status, data = imap.fetch(msg_id, '(BODY[HEADER.FIELDS (FROM SUBJECT DATE)])')
@@ -185,14 +185,14 @@ def cmd_read(args):
     
     status, data = imap.fetch(str(args.message_id), '(RFC822)')
     if status != 'OK':
-        print(f"❌ Message {args.message_id} not found")
+        print(f" Message {args.message_id} not found")
         imap.logout()
         return
     
     raw_email = data[0][1]
     msg = email.message_from_bytes(raw_email)
     
-    print(f"📧 Message {args.message_id}")
+    print(f" Message {args.message_id}")
     print(f"{'='*60}")
     print(f"From: {decode_mime_header(msg['From'])}")
     print(f"To: {decode_mime_header(msg['To'])}")
@@ -227,7 +227,7 @@ def cmd_unread(args):
     limit = args.limit or 20
     recent_ids = msg_ids[-limit:]
     
-    print(f"📭 Unread emails ({len(msg_ids)} total, showing {len(recent_ids)}):\n")
+    print(f" Unread emails ({len(msg_ids)} total, showing {len(recent_ids)}):\n")
     
     for msg_id in reversed(recent_ids):
         status, data = imap.fetch(msg_id, '(BODY.PEEK[HEADER.FIELDS (FROM SUBJECT DATE)])')
@@ -294,7 +294,7 @@ def main():
     try:
         commands[args.command](args)
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

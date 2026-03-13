@@ -141,14 +141,14 @@ Extract:
 
 ## Quality Indicators
 
-### High Quality ✅
+### High Quality 
 - Active community member
 - Consistent posting history
 - Positive engagement/karma
 - Clear identity (real name or consistent handle)
 - Recent activity (< 14 days)
 
-### Warning Signs ⚠️
+### Warning Signs 
 - Brand new account
 - Low engagement/karma
 - Only promotional posts

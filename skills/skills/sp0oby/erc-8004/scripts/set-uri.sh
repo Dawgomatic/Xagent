@@ -48,7 +48,7 @@ done
 
 load_network "$NETWORK"
 
-echo "🔄 Updating agent URI"
+echo " Updating agent URI"
 echo "   Agent ID: $AGENT_ID"
 echo "   New URI: $URI"
 echo "   Network: $NETWORK"

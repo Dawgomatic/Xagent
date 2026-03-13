@@ -4,7 +4,7 @@
 
 Peer Reviewer is an OpenClaw skill that simulates a multi-agent academic peer review process. It employs a "Council of Agents" to deconstruct arguments, find contradictions in established literature, and render a final judgment on the merit of a scientific paper or claim.
 
-## 🧠 How It Works
+##  How It Works
 
 The system uses three specialized AI agents:
 
@@ -12,13 +12,13 @@ The system uses three specialized AI agents:
 2.  **The Devil's Advocate:** Takes the claims and actively searches for contradictions (using Google Serper & ArXiv). It looks for theoretical conflicts, empirical contradictions, and prior art.
 3.  **The Judge:** Evaluates the Logic Graph against the Devil's Advocate's objections. It scores the paper on logical coherence, foundational integrity, and empirical falsifiability.
 
-## 🚀 Installation
+##  Installation
 
 ```bash
 npm install @sschepis/peer-reviewer
 ```
 
-## 🛠️ Usage
+##  Usage
 
 ### As a Library (Dependency Injection)
 
@@ -46,7 +46,7 @@ You can run the reviewer directly. It will automatically detect available provid
 node dist/index.js "/path/to/paper.txt"
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 The tool adapts to your environment:
 

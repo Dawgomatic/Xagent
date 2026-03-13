@@ -116,9 +116,9 @@ if (require.main === module) {
     const body = filteredArgs[3] || '';
     
     sendEmail(to, subject, body, { accountName }).then(() => {
-      console.log('✅ Email sent successfully');
+      console.log(' Email sent successfully');
     }).catch(err => {
-      console.error('❌ Error:', err.message);
+      console.error(' Error:', err.message);
       process.exit(1);
     });
   } else if (filteredArgs[0] === 'reply' && filteredArgs.length >= 2) {
@@ -126,9 +126,9 @@ if (require.main === module) {
     const body = filteredArgs[2] || '';
     
     replyToEmail(messageId, body, { accountName }).then(() => {
-      console.log('✅ Reply sent successfully');
+      console.log(' Reply sent successfully');
     }).catch(err => {
-      console.error('❌ Error:', err.message);
+      console.error(' Error:', err.message);
       process.exit(1);
     });
   } else {

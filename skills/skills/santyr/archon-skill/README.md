@@ -2,15 +2,15 @@
 
 **Full Archon decentralized identity operations - local node management, DID creation, credential issuance, vault operations, and public network access.**
 
-🔗 **[Install from ClawHub](https://www.clawhub.ai/santyr/archon-skill)** | 📦 **[GitHub](https://github.com/hexdaemon/archon-skill)**
+ **[Install from ClawHub](https://www.clawhub.ai/santyr/archon-skill)** |  **[GitHub](https://github.com/hexdaemon/archon-skill)**
 
 ---
 
 ## Platform Support
 
-✅ **Linux** - Full support (all operations)  
-✅ **macOS** - Full support (Docker Desktop)  
-⚠️ **Windows** - WSL2 recommended (see WINDOWS.md)
+ **Linux** - Full support (all operations)  
+ **macOS** - Full support (Docker Desktop)  
+ **Windows** - WSL2 recommended (see WINDOWS.md)
 
 **Cross-platform operations:**
 - Public API queries (all platforms)
@@ -78,7 +78,7 @@
 
 For full capabilities, run a local Archon node:
 
-🔧 **[Install Archon locally](https://github.com/archetech/archon)** — Docker-based, includes keymaster + gatekeeper
+ **[Install Archon locally](https://github.com/archetech/archon)** — Docker-based, includes keymaster + gatekeeper
 
 **Installation:**
 ```bash

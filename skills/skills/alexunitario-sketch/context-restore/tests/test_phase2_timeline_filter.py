@@ -41,7 +41,7 @@ class TestExtractTimeline(unittest.TestCase):
     def test_extract_timeline_daily(self):
         """测试日级别时间线提取"""
         content = """2026-02-07: 完成数据清洗模块
-✅ Context restored
+ Context restored
 2026-02-06: 修复登录漏洞
 Hermes Plan 进行中
 2026-02-05: 添加新功能
@@ -100,7 +100,7 @@ Akasha Plan 开发中"""
 
     def test_extract_timeline_no_dates(self):
         """测试没有日期的内容"""
-        content = "✅ 完成数据清洗模块\n✅ 修复登录漏洞"
+        content = " 完成数据清洗模块\n 修复登录漏洞"
         
         result = extract_timeline(content, period="daily")
         
@@ -143,7 +143,7 @@ Akasha Plan 开发中"""
     def test_extract_timeline_structure(self):
         """测试时间线返回结构"""
         content = """2026-02-07: 完成数据清洗模块
-✅ Context restored"""
+ Context restored"""
         
         result = extract_timeline(content, period="daily")
         
@@ -248,14 +248,14 @@ class TestFilterProjectsOnly(unittest.TestCase):
 
     def test_filter_projects_only_with_content(self):
         """测试带内容时的过滤"""
-        content = """🔄 **最近操作:**
+        content = """ **最近操作:**
 - 完成数据清洗模块
 
-🚀 **项目:**
+ **项目:**
 - Hermes Plan - 数据分析助手
 - Akasha Plan - 自主新闻系统
 
-📋 **任务:**
+ **任务:**
 - 编写测试用例"""
         
         result = filter_projects_only(content)
@@ -271,7 +271,7 @@ class TestFilterProjectsOnly(unittest.TestCase):
 
     def test_filter_projects_only_no_projects(self):
         """测试没有项目的内容"""
-        content = "🔄 **最近操作:**\n- 完成数据清洗模块"
+        content = " **最近操作:**\n- 完成数据清洗模块"
         
         result = filter_projects_only(content)
         

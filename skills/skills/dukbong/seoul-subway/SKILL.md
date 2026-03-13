@@ -2,7 +2,7 @@
 name: seoul-subway
 description: Seoul Subway assistant for real-time arrivals, route planning, and service alerts (Korean/English)
 model: sonnet
-metadata: {"moltbot":{"emoji":"🚇"}}
+metadata: {"moltbot":{"emoji":""}}
 homepage: https://github.com/dukbong/seoul-subway
 user-invocable: true
 ---
@@ -820,19 +820,19 @@ curl "https://vercel-proxy-henna-eight.vercel.app/api/restrooms/강남"
 
 | Line / 호선 | Color / 색상 | Emoji |
 |-------------|--------------|-------|
-| 1호선 / Line 1 | Blue / 파랑 | 🔵 |
-| 2호선 / Line 2 | Green / 초록 | 🟢 |
-| 3호선 / Line 3 | Orange / 주황 | 🟠 |
-| 4호선 / Line 4 | Sky Blue / 하늘 | 🔵 |
-| 5호선 / Line 5 | Purple / 보라 | 🟣 |
-| 6호선 / Line 6 | Brown / 갈색 | 🟤 |
-| 7호선 / Line 7 | Olive / 올리브 | 🟢 |
-| 8호선 / Line 8 | Pink / 분홍 | 🔴 |
-| 9호선 / Line 9 | Gold / 금색 | 🟡 |
-| 신분당선 / Sinbundang | Red / 빨강 | 🔴 |
-| 경의중앙선 / Gyeongui-Jungang | Cyan / 청록 | 🔵 |
-| 공항철도 / Airport Railroad | Blue / 파랑 | 🔵 |
-| 수인분당선 / Suin-Bundang | Yellow / 노랑 | 🟡 |
+| 1호선 / Line 1 | Blue / 파랑 |  |
+| 2호선 / Line 2 | Green / 초록 |  |
+| 3호선 / Line 3 | Orange / 주황 |  |
+| 4호선 / Line 4 | Sky Blue / 하늘 |  |
+| 5호선 / Line 5 | Purple / 보라 |  |
+| 6호선 / Line 6 | Brown / 갈색 |  |
+| 7호선 / Line 7 | Olive / 올리브 |  |
+| 8호선 / Line 8 | Pink / 분홍 |  |
+| 9호선 / Line 9 | Gold / 금색 |  |
+| 신분당선 / Sinbundang | Red / 빨강 |  |
+| 경의중앙선 / Gyeongui-Jungang | Cyan / 청록 |  |
+| 공항철도 / Airport Railroad | Blue / 파랑 |  |
+| 수인분당선 / Suin-Bundang | Yellow / 노랑 |  |
 
 ---
 
@@ -846,8 +846,8 @@ curl "https://vercel-proxy-henna-eight.vercel.app/api/restrooms/강남"
 
 | 호선 | 방향 | 도착 | 위치 | 유형 |
 |------|------|------|------|------|
-| 🟢 2 | 성수 (Seongsu) | 3분 | 역삼 | 일반 |
-| 🟢 2 | 신촌 (Sinchon) | 5분 | 선정릉 | 일반 |
+|  2 | 성수 (Seongsu) | 3분 | 역삼 | 일반 |
+|  2 | 신촌 (Sinchon) | 5분 | 선정릉 | 일반 |
 ```
 
 **English:**
@@ -856,8 +856,8 @@ curl "https://vercel-proxy-henna-eight.vercel.app/api/restrooms/강남"
 
 | Line | Direction | Arrival | Location | Type |
 |------|-----------|---------|----------|------|
-| 🟢 2 | Seongsu (성수) | 3 min | Yeoksam | Regular |
-| 🟢 2 | Sinchon (신촌) | 5 min | Seonjeongneung | Regular |
+|  2 | Seongsu (성수) | 3 min | Yeoksam | Regular |
+|  2 | Sinchon (신촌) | 5 min | Seonjeongneung | Regular |
 ```
 
 ### Station Search
@@ -888,13 +888,13 @@ curl "https://vercel-proxy-henna-eight.vercel.app/api/restrooms/강남"
 
 소요시간: 38분 | 거리: 22.1km | 요금: 1,650원 | 환승: 1회
 
-🟢 강남 ─2호선─▶ 🟢 신도림 ─2호선─▶ 🟢 홍대입구
+ 강남 ─2호선─  신도림 ─2호선─  홍대입구
 
 | 구분 | 역 | 호선 | 시간 |
 |------|-----|------|------|
-| 출발 | 강남 Gangnam | 🟢 2 | 09:03 |
-| 환승 | 신도림 Sindorim | 🟢 2→2 | 09:18 |
-| 도착 | 홍대입구 Hongdae | 🟢 2 | 09:42 |
+| 출발 | 강남 Gangnam |  2 | 09:03 |
+| 환승 | 신도림 Sindorim |  2→2 | 09:18 |
+| 도착 | 홍대입구 Hongdae |  2 | 09:42 |
 ```
 
 **English:**
@@ -903,13 +903,13 @@ curl "https://vercel-proxy-henna-eight.vercel.app/api/restrooms/강남"
 
 Time: 38 min | Distance: 22.1 km | Fare: 1,650 KRW | Transfer: 1
 
-🟢 Gangnam ─Line 2─▶ 🟢 Sindorim ─Line 2─▶ 🟢 Hongdae
+ Gangnam ─Line 2─  Sindorim ─Line 2─  Hongdae
 
 | Step | Station | Line | Time |
 |------|---------|------|------|
-| Depart | Gangnam 강남 | 🟢 2 | 09:03 |
-| Transfer | Sindorim 신도림 | 🟢 2→2 | 09:18 |
-| Arrive | Hongdae 홍대입구 | 🟢 2 | 09:42 |
+| Depart | Gangnam 강남 |  2 | 09:03 |
+| Transfer | Sindorim 신도림 |  2→2 | 09:18 |
+| Arrive | Hongdae 홍대입구 |  2 | 09:42 |
 ```
 
 ### Service Alerts
@@ -918,20 +918,20 @@ Time: 38 min | Distance: 22.1 km | Fare: 1,650 KRW | Transfer: 1
 ```
 [운행 알림]
 
-🔵 1호선 | 종로3가역 무정차 (15:00 ~ 15:22)
+ 1호선 | 종로3가역 무정차 (15:00 ~ 15:22)
 └─ 코레일 열차 연기 발생으로 인함
 
-🟢 2호선 | 정상 운행
+ 2호선 | 정상 운행
 ```
 
 **English:**
 ```
 [Service Alerts]
 
-🔵 Line 1 | Jongno 3-ga Non-stop (15:00 ~ 15:22)
+ Line 1 | Jongno 3-ga Non-stop (15:00 ~ 15:22)
 └─ Due to smoke from Korail train
 
-🟢 Line 2 | Normal operation
+ Line 2 | Normal operation
 ```
 
 ### Last Train
@@ -942,8 +942,8 @@ Time: 38 min | Distance: 22.1 km | Fare: 1,650 KRW | Transfer: 1
 
 | 방향 | 시간 | 종착역 | 요일 |
 |------|------|--------|------|
-| 🟢 내선순환 | 00:32 | 성수 | 평일 |
-| 🟢 외선순환 | 00:25 | 신도림 | 평일 |
+|  내선순환 | 00:32 | 성수 | 평일 |
+|  외선순환 | 00:25 | 신도림 | 평일 |
 ```
 
 **English:**
@@ -952,8 +952,8 @@ Time: 38 min | Distance: 22.1 km | Fare: 1,650 KRW | Transfer: 1
 
 | Direction | Time | Destination | Day |
 |-----------|------|-------------|-----|
-| 🟢 Inner Circle | 00:32 | Seongsu | Weekday |
-| 🟢 Outer Circle | 00:25 | Sindorim | Weekday |
+|  Inner Circle | 00:32 | Seongsu | Weekday |
+|  Outer Circle | 00:25 | Sindorim | Weekday |
 ```
 
 ### Exit Info
@@ -986,7 +986,7 @@ Time: 38 min | Distance: 22.1 km | Fare: 1,650 KRW | Transfer: 1
 ```
 [강남역 접근성 정보 Gangnam]
 
-### 🛗 엘리베이터
+###  엘리베이터
 
 | 호선 | 위치 | 층 | 구분 |
 |------|------|-----|------|
@@ -997,42 +997,42 @@ Time: 38 min | Distance: 22.1 km | Fare: 1,650 KRW | Transfer: 1
 
 | 번호 | 위치 | 상태 | 운영시간 |
 |------|------|------|----------|
-| 1 | 대합실 | 🟢 정상 | 05:30 ~ 24:00 |
+| 1 | 대합실 |  정상 | 05:30 ~ 24:00 |
 
-### ↗️ 에스컬레이터
+###  에스컬레이터
 
 | 호선 | 위치 | 층 | 구분 |
 |------|------|-----|------|
 | 2호선 | 출구 1 | 지하 B1 | 상행 |
 
-### ♿ 휠체어리프트
+###  휠체어리프트
 
 | 호선 | 번호 | 위치 | 상태 |
 |------|------|------|------|
-| 2호선 | 1 | 3번 출구 | 🟢 정상 |
+| 2호선 | 1 | 3번 출구 |  정상 |
 ```
 
 **English:**
 ```
 [Gangnam Station Accessibility 강남역]
 
-### 🛗 Elevators
+###  Elevators
 
 | Line | Location | Floor | Type |
 |------|----------|-------|------|
 | Line 2 | Concourse | Underground B1 | General |
 
-### ↗️ Escalators
+###  Escalators
 
 | Line | Location | Floor | Type |
 |------|----------|-------|------|
 | Line 2 | Exit 1 | Underground B1 | Up |
 
-### ♿ Wheelchair Lifts
+###  Wheelchair Lifts
 
 | Line | No. | Location | Status |
 |------|-----|----------|--------|
-| Line 2 | 1 | Exit 3 | 🟢 Normal |
+| Line 2 | 1 | Exit 3 |  Normal |
 ```
 
 ### Quick Exit
@@ -1065,7 +1065,7 @@ Time: 38 min | Distance: 22.1 km | Fare: 1,650 KRW | Transfer: 1
 
 | 호선 | 위치 | 층 | 개찰구 | 구분 | 변기수 | 기저귀교환대 |
 |------|------|-----|--------|------|--------|--------------|
-| 2호선 | 대합실 | 지하 B1 | 개찰구 내 | 일반 | 남 3 (소 5) 여 5 ♿ 1 | 👶 있음 |
+| 2호선 | 대합실 | 지하 B1 | 개찰구 내 | 일반 | 남 3 (소 5) 여 5  1 |  있음 |
 | 2호선 | 출구1 | 지하 B1 | 개찰구 외 | 일반 | 남 2 (소 3) 여 3 | 없음 |
 
 **요약:** 총 2개 | 개찰구 내 1개 | 개찰구 외 1개 | 장애인화장실 1개 | 기저귀교환대 있음
@@ -1077,7 +1077,7 @@ Time: 38 min | Distance: 22.1 km | Fare: 1,650 KRW | Transfer: 1
 
 | Line | Location | Floor | Gate | Type | Toilets | Baby Station |
 |------|----------|-------|------|------|---------|--------------|
-| Line 2 | Concourse | Under B1 | Inside gate | General | M:3 (U:5) W:5 ♿:1 | 👶 Yes |
+| Line 2 | Concourse | Under B1 | Inside gate | General | M:3 (U:5) W:5 :1 |  Yes |
 | Line 2 | Exit 1 | Under B1 | Outside gate | General | M:2 (U:3) W:3 | No |
 
 **Summary:** Total 2 | Inside gate: 1 | Outside gate: 1 | Accessible: 1 | Baby station: Yes

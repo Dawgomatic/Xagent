@@ -209,9 +209,9 @@ TAGLINES+=("I'll butter your workflow like a lobster roll: messy, delicious, eff
 TAGLINES+=("Shell yeah—I'm here to pinch the toil and leave you the glory.")
 TAGLINES+=("If it's repetitive, I'll automate it; if it's hard, I'll bring jokes and a rollback plan.")
 TAGLINES+=("Because texting yourself reminders is so 2024.")
-TAGLINES+=("WhatsApp, but make it ✨engineering✨.")
+TAGLINES+=("WhatsApp, but make it engineering.")
 TAGLINES+=("Turning \"I'll reply later\" into \"my bot replied instantly\".")
-TAGLINES+=("The only crab in your contacts you actually want to hear from. 🦞")
+TAGLINES+=("The only crab in your contacts you actually want to hear from. ")
 TAGLINES+=("Chat automation for people who peaked at IRC.")
 TAGLINES+=("Because Siri wasn't answering at 3AM.")
 TAGLINES+=("IPC, but it's your phone.")
@@ -232,7 +232,7 @@ TAGLINES+=("No \$999 stand required.")
 TAGLINES+=("We ship features faster than Apple ships calculator updates.")
 TAGLINES+=("Your AI assistant, now without the \$3,499 headset.")
 TAGLINES+=("Think different. Actually think.")
-TAGLINES+=("Ah, the fruit tree company! 🍎")
+TAGLINES+=("Ah, the fruit tree company! ")
 
 HOLIDAY_NEW_YEAR="New Year's Day: New year, new config—same old EADDRINUSE, but this time we resolve it like grown-ups."
 HOLIDAY_LUNAR_NEW_YEAR="Lunar New Year: May your builds be lucky, your branches prosperous, and your merge conflicts chased away with fireworks."
@@ -477,7 +477,7 @@ detect_openclaw_checkout() {
 }
 
 echo -e "${ACCENT}${BOLD}"
-echo "  🦞 OpenClaw Installer"
+echo "   OpenClaw Installer"
 echo -e "${NC}${ACCENT_DIM}  ${TAGLINE}${NC}"
 echo ""
 
@@ -1260,9 +1260,9 @@ EOF
 
     echo ""
     if [[ -n "$installed_version" ]]; then
-        echo -e "${SUCCESS}${BOLD}🦞 OpenClaw installed successfully (${installed_version})!${NC}"
+        echo -e "${SUCCESS}${BOLD} OpenClaw installed successfully (${installed_version})!${NC}"
     else
-        echo -e "${SUCCESS}${BOLD}🦞 OpenClaw installed successfully!${NC}"
+        echo -e "${SUCCESS}${BOLD} OpenClaw installed successfully!${NC}"
     fi
     if [[ "$is_upgrade" == "true" ]]; then
         local update_messages=(
@@ -1271,7 +1271,7 @@ EOF
             "Back and better. Did you even notice I was gone?"
             "Update complete. I learned some new tricks while I was out."
             "Upgraded! Now with 23% more sass."
-            "I've evolved. Try to keep up. 🦞"
+            "I've evolved. Try to keep up. "
             "New version, who dis? Oh right, still me but shinier."
             "Patched, polished, and ready to pinch. Let's go."
             "The lobster has molted. Harder shell, sharper claws."

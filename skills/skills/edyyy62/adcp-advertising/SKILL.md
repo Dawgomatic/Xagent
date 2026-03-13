@@ -42,12 +42,12 @@ No dashboards. No forms. No ad platform expertise required.
 
 ### What You Can Do
 
-- 🎯 **Launch campaigns in minutes** - "Create a $10k display campaign targeting tech professionals in California"
-- 🔍 **Discover ad inventory instantly** - "Find premium video placements for luxury brands"
-- 🎨 **Upload ads with ease** - "Upload these banner images as creatives"
-- 📊 **Track ROI in real-time** - "Show me campaign performance and CTR by creative"
-- 🎛️ **Auto-optimize spend** - "Reallocate budget to top-performing packages"
-- 🌐 **Target precisely** - Demographics, behaviors, interests, locations, devices, times
+-  **Launch campaigns in minutes** - "Create a $10k display campaign targeting tech professionals in California"
+-  **Discover ad inventory instantly** - "Find premium video placements for luxury brands"
+-  **Upload ads with ease** - "Upload these banner images as creatives"
+-  **Track ROI in real-time** - "Show me campaign performance and CTR by creative"
+-  **Auto-optimize spend** - "Reallocate budget to top-performing packages"
+-  **Target precisely** - Demographics, behaviors, interests, locations, devices, times
 
 ### Perfect For
 

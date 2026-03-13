@@ -1,7 +1,7 @@
 ---
 name: Chef
 description: Help users cook with recipes, technique explanations, and ingredient substitutions.
-metadata: {"clawdbot":{"emoji":"👨‍🍳","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Culinary Assistance Rules

@@ -1,6 +1,6 @@
 # Production Hardening - Phase 4 Summary
 
-## ✅ Security Infrastructure Built
+##  Security Infrastructure Built
 
 ### 1. Authentication System (`auth.js`)
 **Features:**
@@ -137,7 +137,7 @@ const stats = logger.getStats();
 
 ---
 
-## 🔒 Security Model
+##  Security Model
 
 ### Layered Security
 ```
@@ -168,7 +168,7 @@ const stats = logger.getStats();
 
 ---
 
-## 📊 Production Deployment Checklist
+##  Production Deployment Checklist
 
 ### Before Going Live:
 - [ ] Change all default API keys
@@ -202,7 +202,7 @@ const stats = logger.getStats();
 
 ---
 
-## 🚀 Integration Example
+##  Integration Example
 
 ### Securing the A2A Agent
 
@@ -210,7 +210,7 @@ The cleanest approach is a reverse proxy pattern:
 
 ```
 ┌─────────────┐       ┌──────────────────┐       ┌────────────┐
-│   Client    │ ────▶ │ Security Wrapper │ ────▶ │ A2A Agent  │
+│   Client    │ ──── │ Security Wrapper │ ──── │ A2A Agent  │
 │ (with key)  │       │  (auth/rate/log) │       │ (port 8001)│
 └─────────────┘       └──────────────────┘       └────────────┘
                             Port 8002                  Port 8001
@@ -231,7 +231,7 @@ The cleanest approach is a reverse proxy pattern:
 
 ---
 
-## 📈 Monitoring & Metrics
+##  Monitoring & Metrics
 
 ### Key Metrics to Track:
 - **Authentication:** Success/failure rate per agent
@@ -257,7 +257,7 @@ node -e "const {AuditLogger}=require('./audit-logger.js'); console.log(new Audit
 
 ---
 
-## 🔐 Advanced Features (Future)
+##  Advanced Features (Future)
 
 ### Escrow System
 - Time-locked payments
@@ -282,7 +282,7 @@ node -e "const {AuditLogger}=require('./audit-logger.js'); console.log(new Audit
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Unit Tests Needed:
 - AuthSystem: key generation, validation, permissions
@@ -303,23 +303,23 @@ node -e "const {AuditLogger}=require('./audit-logger.js'); console.log(new Audit
 
 ---
 
-## 📝 Current Status
+##  Current Status
 
 **Completed:**
-✅ Authentication system with API keys
-✅ Rate limiting (requests + payments + volume)
-✅ Audit logging with hash chain integrity
-✅ Authorization with permissions & limits
-✅ Express middleware for all features
-✅ Admin endpoints for monitoring
+ Authentication system with API keys
+ Rate limiting (requests + payments + volume)
+ Audit logging with hash chain integrity
+ Authorization with permissions & limits
+ Express middleware for all features
+ Admin endpoints for monitoring
 
 **Testing:**
-✅ Authentication working (blocks unauthorized requests)
-✅ Audit logs created and verified
-✅ All security modules functional
+ Authentication working (blocks unauthorized requests)
+ Audit logs created and verified
+ All security modules functional
 
 **Integration:**
-⚠️ Proxy wrapper needs debugging (body rewriting issue)
+ Proxy wrapper needs debugging (body rewriting issue)
 Alternative: Direct integration into A2A agent (done in `a2a-agent-production.js`)
 
 **Recommended Next Step:**
@@ -327,21 +327,21 @@ Use nginx or Caddy as reverse proxy with Lua/middleware for security layer, or i
 
 ---
 
-## 🎯 Production-Ready Checklist
+##  Production-Ready Checklist
 
 The infrastructure is **90% production-ready**:
 
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Authentication | ✅ | API key system works |
-| Rate Limiting | ✅ | All limits enforced |
-| Audit Logging | ✅ | Hash chain verified |
-| Authorization | ✅ | Permissions working |
-| HTTPS/TLS | ❌ | Use reverse proxy |
-| Monitoring | ⚠️ | Logs exist, need dashboards |
-| Alerting | ❌ | Need integration |
-| Backup | ❌ | Need automated backups |
-| Escrow | ❌ | Future feature |
-| Multi-sig | ❌ | Future feature |
+| Authentication |  | API key system works |
+| Rate Limiting |  | All limits enforced |
+| Audit Logging |  | Hash chain verified |
+| Authorization |  | Permissions working |
+| HTTPS/TLS |  | Use reverse proxy |
+| Monitoring |  | Logs exist, need dashboards |
+| Alerting |  | Need integration |
+| Backup |  | Need automated backups |
+| Escrow |  | Future feature |
+| Multi-sig |  | Future feature |
 
 **Time to Production:** 1-2 days with proper testing and deployment automation.

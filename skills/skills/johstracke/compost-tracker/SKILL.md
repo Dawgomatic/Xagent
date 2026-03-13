@@ -125,4 +125,4 @@ compost_tracker.py export ~/compost-backup.md
 
 ---
 
-*Part of IOU's Gardening Suite* 🌱
+*Part of IOU's Gardening Suite* 

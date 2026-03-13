@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.9.0-beta] - 2026-01-26
 
-### 🚧 Beta Release - Testing Phase
+###  Beta Release - Testing Phase
 
 **Multi-Provider Token Tracking**
 - Anthropic (Claude) provider with session_status integration
@@ -34,12 +34,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Smooth gradient animations
 
 **6-Level Alert System**
-- 🟢 0-24%: OK
-- 🟡 25-49%: Low Warning
-- 🟠 50-74%: Medium Warning
-- 🔶 75-89%: High Warning
-- 🔴 90-94%: Critical
-- 🚨 95-100%: Emergency
+-  0-24%: OK
+-  25-49%: Low Warning
+-  50-74%: Medium Warning
+-  75-89%: High Warning
+-  90-94%: Critical
+-  95-100%: Emergency
 
 **Progress Bar Colors** (Dark Mode optimized)
 - Green: #4CAF50 → #66BB6A

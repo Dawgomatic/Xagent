@@ -43,7 +43,7 @@ function formatDate(dateString) {
 // Main function
 async function main() {
   try {
-    console.log(`🔍 Checking DNSSEC status for ${domain}...`);
+    console.log(` Checking DNSSEC status for ${domain}...`);
     console.log('');
     
     // Get domain info
@@ -52,7 +52,7 @@ async function main() {
       domainInfo = await getDomain(domain);
     } catch (err) {
       if (err.statusCode === 404) {
-        console.error(`❌ Domain ${domain} not found in your account`);
+        console.error(` Domain ${domain} not found in your account`);
         process.exit(1);
       }
       throw err;
@@ -62,7 +62,7 @@ async function main() {
     const usesLiveDns = domainInfo.nameservers?.some(ns => ns.includes('gandi.net'));
     
     if (!usesLiveDns) {
-      console.log('⚠️  Warning: Domain does not appear to use Gandi LiveDNS');
+      console.log('  Warning: Domain does not appear to use Gandi LiveDNS');
       console.log('   DNSSEC management requires Gandi LiveDNS');
       console.log('');
       console.log('Current nameservers:');
@@ -76,14 +76,14 @@ async function main() {
       keys = await getDnssecKeys(domain);
     } catch (err) {
       if (err.statusCode === 404) {
-        console.log('❌ DNSSEC: DISABLED');
+        console.log(' DNSSEC: DISABLED');
         console.log('');
         console.log('DNSSEC is not enabled for this domain.');
         console.log('');
-        console.log('💡 To enable DNSSEC:');
+        console.log(' To enable DNSSEC:');
         console.log(`   node dnssec-enable.js ${domain}`);
         console.log('');
-        console.log('⚠️  IMPORTANT: DNSSEC is complex and can break DNS if misconfigured!');
+        console.log('  IMPORTANT: DNSSEC is complex and can break DNS if misconfigured!');
         console.log('   Read the documentation before enabling.');
         return;
       }
@@ -92,19 +92,19 @@ async function main() {
     
     // Check if DNSSEC is enabled
     if (!keys || keys.length === 0) {
-      console.log('❌ DNSSEC: DISABLED');
+      console.log(' DNSSEC: DISABLED');
       console.log('');
       console.log('No DNSSEC keys found for this domain.');
       console.log('');
-      console.log('💡 To enable DNSSEC:');
+      console.log(' To enable DNSSEC:');
       console.log(`   node dnssec-enable.js ${domain}`);
       return;
     }
     
     // DNSSEC is enabled
-    console.log('✅ DNSSEC: ENABLED');
+    console.log(' DNSSEC: ENABLED');
     console.log('');
-    console.log(`📋 DNSSEC Keys (${keys.length} total):`);
+    console.log(` DNSSEC Keys (${keys.length} total):`);
     console.log('');
     
     keys.forEach((key, index) => {
@@ -150,7 +150,7 @@ async function main() {
     // Show DS records if available
     const dsRecords = keys.filter(k => k.ds).map(k => k.ds);
     if (dsRecords.length > 0) {
-      console.log('📝 DS Records for Registry:');
+      console.log(' DS Records for Registry:');
       console.log('');
       console.log('These DS records should be submitted to your domain registrar:');
       console.log('');
@@ -158,12 +158,12 @@ async function main() {
         console.log(`${index + 1}. ${ds}`);
       });
       console.log('');
-      console.log('⚠️  IMPORTANT: DS records must be added at your registrar for DNSSEC to work!');
+      console.log('  IMPORTANT: DS records must be added at your registrar for DNSSEC to work!');
       console.log('   Without DS records at the registry, DNSSEC validation will fail.');
       console.log('');
     }
     
-    console.log('🔍 DNSSEC Validation:');
+    console.log(' DNSSEC Validation:');
     console.log('');
     console.log('To verify DNSSEC is working correctly:');
     console.log(`   dig ${domain} +dnssec`);
@@ -173,11 +173,11 @@ async function main() {
     console.log('   https://dnssec-debugger.verisignlabs.com/');
     console.log(`   https://dnsviz.net/d/${domain}/dnssec/`);
     console.log('');
-    console.log('💡 To disable DNSSEC:');
+    console.log(' To disable DNSSEC:');
     console.log(`   node dnssec-disable.js ${domain} --confirm`);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('');

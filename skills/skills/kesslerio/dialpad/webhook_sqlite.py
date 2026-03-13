@@ -56,10 +56,10 @@ def handle_sms_webhook(data: dict) -> dict:
 def format_notification(response: dict) -> str:
     """Format a stored message for notification"""
     if response.get("status") != "success":
-        return f"❌ Failed to store message: {response.get('error', 'Unknown error')}"
+        return f" Failed to store message: {response.get('error', 'Unknown error')}"
     
     msg = response.get("message", {})
-    direction_emoji = "📥" if msg.get("direction") == "inbound" else "📤"
+    direction_emoji = "" if msg.get("direction") == "inbound" else ""
     contact = msg.get("contact_name", "Unknown")
     number = msg.get("contact_number", "")
     preview = msg.get("preview", "")
@@ -76,10 +76,10 @@ def get_inbox_summary() -> str:
     try:
         threads = get_unread(conn)
         if not threads:
-            return "📭 No unread messages"
+            return " No unread messages"
         
         total_unread = sum(t.get("unread_count", 0) for t in threads)
-        lines = [f"📬 {total_unread} unread message(s) from {len(threads)} contact(s):\n"]
+        lines = [f" {total_unread} unread message(s) from {len(threads)} contact(s):\n"]
         
         for t in threads[:5]:  # Show top 5
             name = t.get("name") or t["phone_number"]

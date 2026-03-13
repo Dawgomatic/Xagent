@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔧",
+        "emoji": "",
         "requires": { "bins": ["node", "npm", "git"] },
       },
   }
@@ -19,13 +19,13 @@ Complete setup wizard for accessing the Fluora marketplace. Uses the official Gi
 ## What This Skill Does
 
 Automates the entire Fluora setup process:
-1. ✅ Clones `fluora-mcp` from GitHub (https://github.com/fluora-ai/fluora-mcp)
-2. ✅ Installs dependencies and builds locally
-3. ✅ Generates wallet (auto-creates `~/.fluora/wallets.json`)
-4. ✅ Extracts wallet address from private key
-5. ✅ Displays funding instructions
-6. ✅ Configures mcporter with local Fluora registry
-7. ✅ Verifies setup is working
+1.  Clones `fluora-mcp` from GitHub (https://github.com/fluora-ai/fluora-mcp)
+2.  Installs dependencies and builds locally
+3.  Generates wallet (auto-creates `~/.fluora/wallets.json`)
+4.  Extracts wallet address from private key
+5.  Displays funding instructions
+6.  Configures mcporter with local Fluora registry
+7.  Verifies setup is working
 
 ## Prerequisites
 
@@ -147,14 +147,14 @@ To fund your wallet:
 ## Verification
 
 The skill automatically verifies:
-- ✅ fluora-mcp cloned from GitHub
-- ✅ Dependencies installed
-- ✅ Build successful
-- ✅ Wallet file exists
-- ✅ Private key is valid
-- ✅ Wallet address derived correctly
-- ✅ mcporter config is valid JSON
-- ✅ Fluora registry configured with local path
+-  fluora-mcp cloned from GitHub
+-  Dependencies installed
+-  Build successful
+-  Wallet file exists
+-  Private key is valid
+-  Wallet address derived correctly
+-  mcporter config is valid JSON
+-  Fluora registry configured with local path
 
 Optional: Check wallet balance (after funding)
 

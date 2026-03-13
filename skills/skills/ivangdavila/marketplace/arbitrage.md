@@ -59,8 +59,8 @@ Revenue
 **Platform ToS awareness:**
 | Action | Amazon | eBay |
 |--------|--------|------|
-| Dropship from retailer | ❌ Banned | ⚠️ Gray area |
-| Multiple accounts | ❌ Instant ban | ⚠️ Requires approval |
+| Dropship from retailer |  Banned |  Gray area |
+| Multiple accounts |  Instant ban |  Requires approval |
 | Cross-listing same item | ✓ OK | ✓ OK (manage inventory) |
 
 **Price parity issues:**

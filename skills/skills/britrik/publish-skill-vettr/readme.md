@@ -11,7 +11,7 @@ npm run build
 npm test
 ```
 
-> ⚠️ `npm install` runs dependency lifecycle scripts (tree-sitter includes native builds). For stronger isolation, install inside a container or use `npm ci --ignore-scripts` (note: AST analysis may break without tree-sitter WASM artifacts).
+>  `npm install` runs dependency lifecycle scripts (tree-sitter includes native builds). For stronger isolation, install inside a container or use `npm ci --ignore-scripts` (note: AST analysis may break without tree-sitter WASM artifacts).
 
 ## What It Does
 

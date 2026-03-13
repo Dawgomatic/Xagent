@@ -80,7 +80,7 @@ app.get('/', async (req, res) => {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>⚡ Solana DEX Arb Scanner</title>
+  <title> Solana DEX Arb Scanner</title>
   <meta http-equiv="refresh" content="30">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -140,7 +140,7 @@ app.get('/', async (req, res) => {
 </head>
 <body>
   <div class="header">
-    <h1>⚡ SOLANA DEX ARBITRAGE SCANNER</h1>
+    <h1> SOLANA DEX ARBITRAGE SCANNER</h1>
     <p class="small">Drift Protocol vs Flash Trade | Auto-refresh: 30s</p>
   </div>
   
@@ -165,7 +165,7 @@ app.get('/', async (req, res) => {
   
   <div class="grid">
     <div class="card">
-      <h2>🎯 TOP ARBITRAGE OPPORTUNITIES</h2>
+      <h2> TOP ARBITRAGE OPPORTUNITIES</h2>
       ${data.opportunities.length === 0 ? '<p class="neutral">No significant opportunities found</p>' : ''}
       ${data.opportunities.slice(0, 6).map((opp: any) => `
         <div class="arb-card">
@@ -174,8 +174,8 @@ app.get('/', async (req, res) => {
             <span class="arb-spread">${opp.spreadApy.toFixed(0)}% spread</span>
           </div>
           <div style="margin-top: 8px; font-size: 0.85em;">
-            <div class="positive">📈 Long <span class="badge ${opp.longExchange.toLowerCase()}">${opp.longExchange}</span> @ ${opp.longRate.fundingRateApy.toFixed(0)}%</div>
-            <div class="negative">📉 Short <span class="badge ${opp.shortExchange.toLowerCase()}">${opp.shortExchange}</span> @ ${opp.shortRate.fundingRateApy.toFixed(0)}%</div>
+            <div class="positive"> Long <span class="badge ${opp.longExchange.toLowerCase()}">${opp.longExchange}</span> @ ${opp.longRate.fundingRateApy.toFixed(0)}%</div>
+            <div class="negative"> Short <span class="badge ${opp.shortExchange.toLowerCase()}">${opp.shortExchange}</span> @ ${opp.shortRate.fundingRateApy.toFixed(0)}%</div>
           </div>
           <div class="small" style="margin-top: 5px;">Est. Net APY: ${opp.netApy.toFixed(0)}%</div>
         </div>
@@ -183,7 +183,7 @@ app.get('/', async (req, res) => {
     </div>
     
     <div class="card">
-      <h2>📊 FUNDING RATE COMPARISON</h2>
+      <h2> FUNDING RATE COMPARISON</h2>
       <table>
         <thead>
           <tr>
@@ -212,10 +212,10 @@ app.get('/', async (req, res) => {
   </div>
   
   <div class="card" style="margin-top: 20px;">
-    <h2>ℹ️ How It Works</h2>
+    <h2> How It Works</h2>
     <ul style="margin-left: 20px; font-size: 0.85em; color: #8b949e;">
-      <li><strong>Positive Rate (🔴):</strong> Longs pay shorts - SHORT to receive funding</li>
-      <li><strong>Negative Rate (🟢):</strong> Shorts pay longs - LONG to receive funding</li>
+      <li><strong>Positive Rate ():</strong> Longs pay shorts - SHORT to receive funding</li>
+      <li><strong>Negative Rate ():</strong> Shorts pay longs - LONG to receive funding</li>
       <li><strong>Strategy:</strong> Long where rate is negative/low, Short where rate is positive/high</li>
       <li><strong>Risk:</strong> Price divergence, execution, liquidation, funding rate changes</li>
     </ul>
@@ -237,7 +237,7 @@ app.get('/', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`
 ╔═══════════════════════════════════════════════════════╗
-║  ⚡ SOLANA DEX ARBITRAGE SCANNER                       ║
+║   SOLANA DEX ARBITRAGE SCANNER                       ║
 ║                                                       ║
 ║  Comparing: Drift Protocol vs Flash Trade             ║
 ║                                                       ║

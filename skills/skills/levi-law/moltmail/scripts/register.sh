@@ -28,7 +28,7 @@ echo "$RESPONSE" | jq .
 API_KEY=$(echo "$RESPONSE" | jq -r '.agent.apiKey // empty')
 if [ -n "$API_KEY" ]; then
   echo ""
-  echo "⚠️  SAVE YOUR API KEY (shown only once):"
+  echo "  SAVE YOUR API KEY (shown only once):"
   echo "   $API_KEY"
   echo ""
   echo "Set it as environment variable:"

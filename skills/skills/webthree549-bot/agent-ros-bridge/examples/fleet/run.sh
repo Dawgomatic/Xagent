@@ -3,17 +3,17 @@
 
 set -e
 
-echo "🚁 Starting Fleet Orchestration Demo"
+echo " Starting Fleet Orchestration Demo"
 echo "======================================"
 echo ""
 
 if ! command -v python3 &> /dev/null; then
-    echo "❌ Python 3 not found"
+    echo " Python 3 not found"
     exit 1
 fi
 
 if [ ! -f "fleet_demo.py" ]; then
-    echo "❌ Run this script from the fleet/ directory"
+    echo " Run this script from the fleet/ directory"
     exit 1
 fi
 

@@ -16,15 +16,15 @@ const { handleCommand } = require('./index');
     const output = await handleCommand(input);
     console.log(output);
   } catch (error) {
-    console.error(`❌ Error: ${error.message}`);
+    console.error(` Error: ${error.message}`);
     process.exit(1);
   }
 })();
 
 function showHelp() {
-  return `🔍 Spacescan.io API Client
+  return ` Spacescan.io API Client
 
-⚠️  Requires API Key: Set SPACESCAN_API_KEY environment variable
+  Requires API Key: Set SPACESCAN_API_KEY environment variable
    Get your key at: https://www.spacescan.io/apis
 
 BLOCKS

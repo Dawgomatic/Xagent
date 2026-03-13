@@ -224,12 +224,12 @@ EXPLANATION_TEMPLATES = {
         "source": "Source: Published research (replication ongoing)"
     },
     "emerging": {
-        "confidence": "⚡ RESEARCH NOTE: This is an active area of scientific investigation.",
+        "confidence": " RESEARCH NOTE: This is an active area of scientific investigation.",
         "action": "These findings are preliminary. Do not make major decisions based solely on this.",
         "source": "Source: Early-stage research"
     },
     "experimental": {
-        "confidence": "🔬 EXPERIMENTAL: Very early research. Findings may change.",
+        "confidence": " EXPERIMENTAL: Very early research. Findings may change.",
         "action": "For educational interest only. Not clinically validated.",
         "source": "Source: Preliminary studies"
     }

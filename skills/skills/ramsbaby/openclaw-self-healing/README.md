@@ -12,7 +12,7 @@ A production-ready, 4-tier autonomous recovery system for [OpenClaw](https://git
 
 ---
 
-## 🎬 Demo
+##  Demo
 
 ![Self-Healing Demo](assets/demo.gif)
 
@@ -20,7 +20,7 @@ A production-ready, 4-tier autonomous recovery system for [OpenClaw](https://git
 
 ---
 
-## 🌟 Why This Exists
+##  Why This Exists
 
 OpenClaw Gateway crashes happen. Health checks fail. Developers wake up to dead agents.
 
@@ -35,7 +35,7 @@ Unlike simple watchdogs that just restart processes, **this system understands _
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -52,7 +52,7 @@ Unlike simple watchdogs that just restart processes, **this system understands _
 └─────────────────────────────────────────────────────────┘
                          ↓ (5 minutes of failure)
 ┌─────────────────────────────────────────────────────────┐
-│ Level 3: Claude Emergency Recovery (30m timeout) 🧠     │
+│ Level 3: Claude Emergency Recovery (30m timeout)      │
 │ ├─ Launch Claude Code in tmux PTY session               │
 │ ├─ Automated diagnosis:                                 │
 │ │   - openclaw status                                   │
@@ -66,7 +66,7 @@ Unlike simple watchdogs that just restart processes, **this system understands _
 └─────────────────────────────────────────────────────────┘
                          ↓ (Claude recovery failed)
 ┌─────────────────────────────────────────────────────────┐
-│ Level 4: Discord Notification (300s monitoring) 🚨      │
+│ Level 4: Discord Notification (300s monitoring)       │
 │ ├─ Monitor emergency-recovery logs                      │
 │ ├─ Pattern match: "MANUAL INTERVENTION REQUIRED"        │
 │ └─ Alert human via Discord (with detailed logs)         │
@@ -75,66 +75,66 @@ Unlike simple watchdogs that just restart processes, **this system understands _
 
 ---
 
-## ✨ What Makes This Special
+##  What Makes This Special
 
-### 1. **AI-Powered Diagnosis** 🧠
+### 1. **AI-Powered Diagnosis** 
 - **Claude Code** as an emergency doctor
 - 30-minute autonomous troubleshooting session
 - Generates human-readable recovery reports
 - **First of its kind** for OpenClaw
 
-### 2. **Production-Tested** ✅
+### 2. **Production-Tested** 
 - Level 2 verified: 2026-02-05 (Health Check → Gateway restart)
 - Level 3 verified: 2026-02-06 21:20 (Claude Doctor → 25s recovery)
 - Level 3 verified: 2026-02-06 (Claude Doctor → 25s auto-recovery)
 - Real logs, real failures, real fixes
 
-### 3. **Meta-Level Self-Healing** 🔄
+### 3. **Meta-Level Self-Healing** 
 - **"AI heals AI"** — OpenClaw fixes OpenClaw
 - Unlike external infrastructure monitors, this targets the agent itself
 - Systematic escalation prevents false alarms
 
-### 4. **Persistent Learning** 📚 *(NEW in v2.0)*
+### 4. **Persistent Learning**  *(NEW in v2.0)*
 - Automatic recovery documentation (`recovery-learnings.md`)
 - Cumulative knowledge base: symptom → root cause → solution → prevention
 - Claude learns from past incidents (addresses ContextVault feedback)
 - Reasoning logs capture decision-making process
 
-### 5. **Enhanced Observability** 📊 *(NEW in v2.0)*
+### 5. **Enhanced Observability**  *(NEW in v2.0)*
 - Metrics dashboard with success rate, avg recovery time
 - Trending analysis (7-day window)
 - Top symptoms and root causes tracking
 - Explainable AI: understand why Claude chose specific fixes
 
-### 6. **Multi-Channel Alerts** 📱 *(NEW in v2.0)*
+### 6. **Multi-Channel Alerts**  *(NEW in v2.0)*
 - Discord webhooks (original)
 - Telegram bot support (new alternative)
 - Configure one or both notification channels
 
-### 7. **Safe by Design** 🔒
+### 7. **Safe by Design** 
 - No secrets in code (`.env` for webhooks)
 - Lock files prevent race conditions
 - Atomic writes for alert tracking
 - Automatic log rotation (14-day cleanup)
 
-### 8. **Elegant Simplicity** 🎨
+### 8. **Elegant Simplicity** 
 - 4 bash scripts (~400 lines total)
 - 1 LaunchAgent, 1 cron job
 - Zero external dependencies (except tmux + Claude CLI + jq)
 
 ---
 
-## ⚡ One-Click Install (Recommended)
+##  One-Click Install (Recommended)
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/Ramsbaby/openclaw-self-healing/main/install.sh | bash
 ```
 
 **That's it.** The installer will:
-- ✅ Check prerequisites (tmux, Claude CLI, OpenClaw)
-- ✅ Download and install all scripts
-- ✅ Set up the LaunchAgent
-- ✅ Configure environment
+-  Check prerequisites (tmux, Claude CLI, OpenClaw)
+-  Download and install all scripts
+-  Set up the LaunchAgent
+-  Configure environment
 
 Custom workspace? Use:
 ```bash
@@ -143,7 +143,7 @@ curl -sSL https://raw.githubusercontent.com/Ramsbaby/openclaw-self-healing/main/
 
 ---
 
-## 🚀 Manual Installation (5 minutes)
+##  Manual Installation (5 minutes)
 
 <details>
 <summary>Click to expand manual installation steps</summary>
@@ -205,7 +205,7 @@ curl http://localhost:18789/
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 - [Quick Start Guide](docs/QUICKSTART.md) — 5-minute installation
 - [Architecture Deep Dive](docs/self-healing-system.md) — Technical details
@@ -214,7 +214,7 @@ curl http://localhost:18789/
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 All settings via environment variables in `~/.openclaw/.env`:
 
@@ -233,7 +233,7 @@ See `.env.example` for full configuration options.
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Level 1: Watchdog
 
@@ -256,7 +256,7 @@ curl http://localhost:18789/
 tail -f ~/openclaw/memory/healthcheck-$(date +%Y-%m-%d).log
 
 # Health Check runs every 5 minutes
-# Look for "✅ Gateway healthy" or retry attempts
+# Look for " Gateway healthy" or retry attempts
 ```
 
 ### Level 3: Claude Recovery
@@ -283,9 +283,9 @@ cat > ~/openclaw/memory/emergency-recovery-test-$(date +%Y-%m-%d-%H%M).log << 'E
 [2026-02-06 20:30:00] Gateway still unhealthy (HTTP 500)
 
 === MANUAL INTERVENTION REQUIRED ===
-Level 1 (Watchdog) ❌
-Level 2 (Health Check) ❌
-Level 3 (Claude Recovery) ❌
+Level 1 (Watchdog) 
+Level 2 (Health Check) 
+Level 3 (Claude Recovery) 
 EOF
 
 # Run monitor script
@@ -296,17 +296,17 @@ EOF
 
 ---
 
-## 🔒 Security
+##  Security
 
 ### Discord Webhook Protection
 
 **Never commit your webhook URL to Git.**
 
 ```bash
-# ✅ CORRECT: Use .env
+#  CORRECT: Use .env
 echo 'DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..."' >> ~/.openclaw/.env
 
-# ❌ WRONG: Hardcode in scripts
+#  WRONG: Hardcode in scripts
 # This will leak your webhook to anyone who clones your repo
 ```
 
@@ -325,7 +325,7 @@ This is intentional for autonomous recovery, but review `emergency-recovery.sh` 
 
 ---
 
-## 🐛 Known Limitations
+##  Known Limitations
 
 ### 1. **macOS Only**
 - LaunchAgent is macOS-specific
@@ -346,21 +346,21 @@ This is intentional for autonomous recovery, but review `emergency-recovery.sh` 
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
-### Phase 1: ✅ Core System (Complete)
+### Phase 1:  Core System (Complete)
 - [x] 4-tier escalation architecture
 - [x] Claude Code integration
 - [x] Production testing
 - [x] Documentation
 
-### Phase 2: 🚧 Community Refinement (Current)
+### Phase 2:  Community Refinement (Current)
 - [ ] Linux (systemd) support
 - [ ] GPT-4/Gemini alternative LLMs
 - [ ] Prometheus metrics export
 - [ ] Grafana dashboard template
 
-### Phase 3: 🔮 Future (3+ months)
+### Phase 3:  Future (3+ months)
 - [ ] Multi-node cluster support
 - [ ] Self-learning failure patterns
 - [ ] GitHub Issues auto-creation
@@ -368,7 +368,7 @@ This is intentional for autonomous recovery, but review `emergency-recovery.sh` 
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -380,7 +380,7 @@ Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
-## 📜 License
+##  License
 
 MIT License — See [LICENSE](LICENSE) for details.
 
@@ -388,16 +388,16 @@ MIT License — See [LICENSE](LICENSE) for details.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **[OpenClaw](https://github.com/openclaw/openclaw)** — The AI assistant this system protects
 - **[Anthropic Claude](https://www.anthropic.com/claude)** — The emergency doctor
 - **[Moltbot](https://github.com/moltbot/moltbot)** — Inspiration for self-healing patterns
-- **[Zach Highley](https://github.com/zach-highley/openclaw-starter-kit)** — For showing what _not_ to do (with love 😄)
+- **[Zach Highley](https://github.com/zach-highley/openclaw-starter-kit)** — For showing what _not_ to do (with love )
 
 ---
 
-## 💬 Community
+##  Community
 
 - **OpenClaw Discord:** [discord.com/invite/clawd](https://discord.com/invite/clawd)
 - **Issues:** [github.com/ramsbaby/openclaw-self-healing/issues](https://github.com/ramsbaby/openclaw-self-healing/issues)
@@ -405,17 +405,17 @@ MIT License — See [LICENSE](LICENSE) for details.
 
 ---
 
-## 📊 Stats
+##  Stats
 
 - **Lines of Code:** ~300 (bash)
-- **Testing Status:** All 4 levels verified ✅ (Feb 2026)
+- **Testing Status:** All 4 levels verified  (Feb 2026)
 - **Recovery Success Rate:** 94% (Level 1-3 combined)
 - **Human Interventions:** 2/month (Level 4 alerts)
 
 ---
 
 <p align="center">
-  <strong>Made with 🦞 and too much coffee by <a href="https://github.com/ramsbaby">@ramsbaby</a></strong>
+  <strong>Made with  and too much coffee by <a href="https://github.com/ramsbaby">@ramsbaby</a></strong>
 </p>
 
 <p align="center">

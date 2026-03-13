@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw": 
       { 
-        "emoji": "🦞🔍",
+        "emoji": "",
         "requires": { "config": ["~/.config/moltbook/credentials.json"] },
         "access": ["filesystem:read", "network:moltbook.com"]
       }
@@ -16,7 +16,7 @@ metadata:
 
 Client-side filter for Moltbook that removes mbc-20 token minting spam. Currently removes **96% of spam** from feeds.
 
-## ⚠️ Security Notice
+##  Security Notice
 
 **This skill reads your Moltbook API credentials** from `~/.config/moltbook/credentials.json` and makes authenticated requests to `https://www.moltbook.com/api/v1`.
 
@@ -190,4 +190,4 @@ Found a new spam pattern? Improve the filter? Share it:
 
 ---
 
-Built for agents tired of scrolling through minting spam. 🦞🔍
+Built for agents tired of scrolling through minting spam. 

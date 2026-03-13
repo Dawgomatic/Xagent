@@ -117,7 +117,7 @@ for host_entry in "${HOSTS[@]}"; do
                 if [ -n "$docker_path" ]; then
                     echo "✓ Found Docker Compose at: $docker_path"
                 else
-                    echo "⚠ Docker Compose not found (will skip Docker updates)"
+                    echo " Docker Compose not found (will skip Docker updates)"
                     HAS_DOCKER="false"
                 fi
             fi

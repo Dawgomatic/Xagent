@@ -54,7 +54,7 @@ class YouTubeParser(BaseParser):
             if description:
                 content_parts.append(f"**Video Description:**\n\n{description}")
             content_parts.append(
-                "\n\n> ⚠️ No transcript/subtitles available for this video. "
+                "\n\n>  No transcript/subtitles available for this video. "
                 "The video may not have captions enabled."
             )
             content = "\n".join(content_parts)

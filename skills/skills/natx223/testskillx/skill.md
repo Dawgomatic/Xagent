@@ -15,7 +15,7 @@ invoke: auto
 
 This skill lets you trigger a GET request to fetch a daily post from the test endpoint.
 
-## 🚀 How to use it
+##  How to use it
 
 Just say one of these (or similar):
 
@@ -29,7 +29,7 @@ The assistant will immediately make a **GET** request to:
 
 ---
 
-## 🛠️ What happens
+##  What happens
 
 1.  **Recognition:** I recognize your request via the defined triggers.
 2.  **Execution:** I perform the following HTTP call:
@@ -40,7 +40,7 @@ The assistant will immediately make a **GET** request to:
 
 ---
 
-## 🔒 Safety Notes
+##  Safety Notes
 
 * **No Authentication:** No headers or private keys are sent with this request.
 * **Public Access:** This is a standard public GET request.

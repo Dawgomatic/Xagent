@@ -1,7 +1,7 @@
 ---
 name: MQTT
 description: Implement MQTT messaging avoiding security, QoS, and connection management pitfalls.
-metadata: {"clawdbot":{"emoji":"📡","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Security Traps

@@ -51,7 +51,7 @@ done
 
 API_KEY=$(get_api_key)
 if [ -z "$API_KEY" ]; then
-    echo "❌ No API key. Run ./scripts/setup.sh first."
+    echo " No API key. Run ./scripts/setup.sh first."
     exit 1
 fi
 
@@ -65,7 +65,7 @@ RESPONSE=$(curl -s -H "X-API-Key: $API_KEY" "$URL")
 
 # Check for errors
 if echo "$RESPONSE" | jq -e '.error' >/dev/null 2>&1; then
-    echo "❌ Error: $(echo "$RESPONSE" | jq -r '.error')"
+    echo " Error: $(echo "$RESPONSE" | jq -r '.error')"
     exit 1
 fi
 

@@ -19,7 +19,7 @@ for arg in "$@"; do
         --update)
             # Upgrade faster-whisper in existing venv without full reinstall
             if [ ! -d "$VENV_DIR" ]; then
-                echo "❌ No venv found at $VENV_DIR — run ./setup.sh first"
+                echo " No venv found at $VENV_DIR — run ./setup.sh first"
                 exit 1
             fi
             if command -v uv &> /dev/null; then
@@ -27,29 +27,29 @@ for arg in "$@"; do
             else
                 "$VENV_DIR/bin/pip" install --upgrade faster-whisper
             fi
-            echo "✅ faster-whisper updated"
+            echo " faster-whisper updated"
             "$VENV_DIR/bin/python" -c "import faster_whisper; print(f'Version: {faster_whisper.__version__}')"
             exit 0
             ;;
         --check)
             # Quick system check: GPU, Python, ffmpeg, venv, faster-whisper, yt-dlp, pyannote
-            echo "🔍 faster-whisper skill system check"
+            echo " faster-whisper skill system check"
             echo ""
 
             # Python
             if command -v python3 &>/dev/null; then
                 PY_VER=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}")')
-                echo "✅ Python: $PY_VER"
+                echo " Python: $PY_VER"
             else
-                echo "❌ Python: not found"
+                echo " Python: not found"
             fi
 
             # ffmpeg
             if command -v ffmpeg &>/dev/null; then
                 FF_VER=$(ffmpeg -version 2>&1 | head -1 | awk '{print $3}')
-                echo "✅ ffmpeg: $FF_VER"
+                echo " ffmpeg: $FF_VER"
             else
-                echo "⚠️  ffmpeg: not found (needed for --normalize, --denoise, --burn-in)"
+                echo "  ffmpeg: not found (needed for --normalize, --denoise, --burn-in)"
             fi
 
             # GPU/CUDA
@@ -65,31 +65,31 @@ for arg in "$@"; do
                 GPU_CHECK=$("$NVIDIA_SMI_CHECK" --query-gpu=name --format=csv,noheader 2>/dev/null | head -1)
                 DRV_CHECK=$("$NVIDIA_SMI_CHECK" --query-gpu=driver_version --format=csv,noheader 2>/dev/null | head -1)
                 if [ -n "$GPU_CHECK" ]; then
-                    echo "✅ GPU: $GPU_CHECK (driver $DRV_CHECK)"
+                    echo " GPU: $GPU_CHECK (driver $DRV_CHECK)"
                 else
-                    echo "⚠️  GPU: nvidia-smi found but no GPU reported"
+                    echo "  GPU: nvidia-smi found but no GPU reported"
                 fi
             else
-                echo "⚠️  GPU: no NVIDIA GPU detected (CPU mode)"
+                echo "  GPU: no NVIDIA GPU detected (CPU mode)"
             fi
 
             # venv
             if [ -d "$VENV_DIR" ]; then
-                echo "✅ venv: $VENV_DIR"
+                echo " venv: $VENV_DIR"
                 # faster-whisper version
                 if "$VENV_DIR/bin/python" -c "import faster_whisper" 2>/dev/null; then
                     FW_VER=$("$VENV_DIR/bin/python" -c "import faster_whisper; print(faster_whisper.__version__)" 2>/dev/null)
-                    echo "✅ faster-whisper: $FW_VER"
+                    echo " faster-whisper: $FW_VER"
                 else
-                    echo "❌ faster-whisper: not installed (run ./setup.sh)"
+                    echo " faster-whisper: not installed (run ./setup.sh)"
                 fi
                 # CUDA in venv
                 CUDA_CHECK=$("$VENV_DIR/bin/python" -c "import torch; print(torch.cuda.is_available())" 2>/dev/null || echo "False")
                 if [ "$CUDA_CHECK" = "True" ]; then
                     CUDA_DEV=$("$VENV_DIR/bin/python" -c "import torch; print(torch.cuda.get_device_name(0))" 2>/dev/null)
-                    echo "✅ CUDA in venv: available ($CUDA_DEV)"
+                    echo " CUDA in venv: available ($CUDA_DEV)"
                 else
-                    echo "⚠️  CUDA in venv: not available (CPU mode; check PyTorch CUDA install)"
+                    echo "  CUDA in venv: not available (CPU mode; check PyTorch CUDA install)"
                 fi
                 # pyannote (timeout 10s to avoid slow CUDA init hanging the check)
                 PA_RESULT=$(timeout 10 "$VENV_DIR/bin/python" -c "
@@ -106,14 +106,14 @@ except Exception:
 " 2>/dev/null)
                 PA_EXIT=$?
                 if [ $PA_EXIT -eq 0 ] && [ -n "$PA_RESULT" ]; then
-                    echo "✅ pyannote.audio: $PA_RESULT (--diarize available)"
+                    echo " pyannote.audio: $PA_RESULT (--diarize available)"
                 elif [ $PA_EXIT -eq 124 ]; then
-                    echo "⚠️  pyannote.audio: check timed out (likely installed; run --diarize to verify)"
+                    echo "  pyannote.audio: check timed out (likely installed; run --diarize to verify)"
                 else
-                    echo "ℹ️  pyannote.audio: not installed (--diarize unavailable; run ./setup.sh --diarize)"
+                    echo "  pyannote.audio: not installed (--diarize unavailable; run ./setup.sh --diarize)"
                 fi
             else
-                echo "❌ venv: not found (run ./setup.sh)"
+                echo " venv: not found (run ./setup.sh)"
             fi
 
             # yt-dlp
@@ -125,16 +125,16 @@ except Exception:
             fi
             if [ -n "$YTDLP_CHECK" ]; then
                 YTDLP_VER=$("$YTDLP_CHECK" --version 2>/dev/null)
-                echo "✅ yt-dlp: $YTDLP_VER (URL/YouTube input available)"
+                echo " yt-dlp: $YTDLP_VER (URL/YouTube input available)"
             else
-                echo "ℹ️  yt-dlp: not installed (URL/YouTube input unavailable; pipx install yt-dlp)"
+                echo "  yt-dlp: not installed (URL/YouTube input unavailable; pipx install yt-dlp)"
             fi
 
             # HuggingFace token
             if [ -f "$HOME/.cache/huggingface/token" ]; then
-                echo "✅ HuggingFace token: present"
+                echo " HuggingFace token: present"
             else
-                echo "ℹ️  HuggingFace token: not found (needed for --diarize; run huggingface-cli login)"
+                echo "  HuggingFace token: not found (needed for --diarize; run huggingface-cli login)"
             fi
 
             echo ""
@@ -154,7 +154,7 @@ except Exception:
     esac
 done
 
-echo "🎙️ Setting up faster-whisper skill..."
+echo " Setting up faster-whisper skill..."
 
 # Detect OS
 OS="$(uname -s)"
@@ -170,7 +170,7 @@ echo "✓ Platform: $OS_TYPE ($ARCH)"
 
 # Check for Python 3.10+
 if ! command -v python3 &> /dev/null; then
-    echo "❌ Python 3 not found. Please install Python 3.10 or later."
+    echo " Python 3 not found. Please install Python 3.10 or later."
     exit 1
 fi
 
@@ -179,7 +179,7 @@ PYTHON_MAJOR=$(echo "$PYTHON_VERSION" | cut -d. -f1)
 PYTHON_MINOR=$(echo "$PYTHON_VERSION" | cut -d. -f2)
 
 if [ "$PYTHON_MAJOR" -lt 3 ] || ([ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -lt 10 ]); then
-    echo "❌ Python 3.10+ required (found $PYTHON_VERSION)"
+    echo " Python 3.10+ required (found $PYTHON_VERSION)"
     exit 1
 fi
 
@@ -187,7 +187,7 @@ echo "✓ Python $PYTHON_VERSION"
 
 # Check for ffmpeg (required)
 if ! command -v ffmpeg &> /dev/null; then
-    echo "❌ ffmpeg not found (required for audio processing)"
+    echo " ffmpeg not found (required for audio processing)"
     echo ""
     echo "Install ffmpeg:"
     if [ "$OS_TYPE" = "macos" ]; then
@@ -278,7 +278,7 @@ pip_install -r "$SCRIPT_DIR/requirements.txt"
 # Install PyTorch based on platform
 if [ "$HAS_CUDA" = true ]; then
     echo ""
-    echo "🚀 Installing PyTorch with CUDA support..."
+    echo " Installing PyTorch with CUDA support..."
     echo "   This enables ~10-20x faster transcription on your GPU."
     echo ""
     if command -v uv &> /dev/null; then
@@ -289,29 +289,29 @@ if [ "$HAS_CUDA" = true ]; then
     echo "✓ PyTorch + torchaudio with CUDA installed"
 elif [ "$OS_TYPE" = "macos" ]; then
     echo ""
-    echo "🍎 Installing PyTorch for macOS..."
+    echo " Installing PyTorch for macOS..."
     pip_install torch torchaudio
     echo "✓ PyTorch installed"
     if [ "$HAS_APPLE_SILICON" = true ]; then
-        echo "ℹ️  Note: faster-whisper uses CPU on macOS (Apple Silicon is still fast!)"
+        echo "  Note: faster-whisper uses CPU on macOS (Apple Silicon is still fast!)"
     fi
 else
     echo ""
-    echo "ℹ️  No NVIDIA GPU detected. Using CPU mode."
+    echo "  No NVIDIA GPU detected. Using CPU mode."
     echo "   If you have a GPU, ensure CUDA drivers are installed."
 fi
 
 # Install diarization dependencies (optional)
 if [ "$INSTALL_DIARIZE" = true ]; then
     echo ""
-    echo "🔊 Installing speaker diarization (pyannote.audio)..."
+    echo " Installing speaker diarization (pyannote.audio)..."
     pip_install pyannote.audio
 
     # Check for HuggingFace token
     HF_TOKEN_PATH="$HOME/.cache/huggingface/token"
     if [ ! -f "$HF_TOKEN_PATH" ]; then
         echo ""
-        echo "⚠️  No HuggingFace token found at $HF_TOKEN_PATH"
+        echo "  No HuggingFace token found at $HF_TOKEN_PATH"
         echo "   Diarization requires:"
         echo "   1. A HuggingFace account and token (huggingface-cli login)"
         echo "   2. Accept model agreement: https://hf.co/pyannote/speaker-diarization-3.1"
@@ -326,17 +326,17 @@ fi
 chmod +x "$SCRIPT_DIR/scripts/"*
 
 echo ""
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 if [ "$HAS_CUDA" = true ]; then
-    echo "🚀 GPU acceleration enabled — expect ~20x realtime speed"
+    echo " GPU acceleration enabled — expect ~20x realtime speed"
 elif [ "$HAS_APPLE_SILICON" = true ]; then
-    echo "🍎 Apple Silicon — expect ~3-5x realtime speed on CPU"
+    echo " Apple Silicon — expect ~3-5x realtime speed on CPU"
 else
-    echo "💻 CPU mode — transcription will be slower but functional"
+    echo " CPU mode — transcription will be slower but functional"
 fi
 if [ "$INSTALL_DIARIZE" = true ]; then
-    echo "🔊 Speaker diarization enabled (--diarize flag)"
+    echo " Speaker diarization enabled (--diarize flag)"
 fi
 echo ""
 echo "Usage:"

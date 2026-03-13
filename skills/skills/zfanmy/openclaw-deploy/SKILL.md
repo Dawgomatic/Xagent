@@ -27,10 +27,10 @@ Build and deploy OpenClaw as Docker images or portable packages.
 
 ## Features
 
-- 🐳 Build Docker images (clean/full versions)
-- 📦 Create portable packages for deployment
-- 🚀 Deploy to remote servers with one command
-- 💾 Backup and restore configurations
+-  Build Docker images (clean/full versions)
+-  Create portable packages for deployment
+-  Deploy to remote servers with one command
+-  Backup and restore configurations
 
 ## Quick Start
 

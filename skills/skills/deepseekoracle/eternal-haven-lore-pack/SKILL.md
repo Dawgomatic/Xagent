@@ -11,7 +11,7 @@ Give agents and Champions a **canonical lore backbone** drawn from Justin Helmer
 - answer questions about characters, events, and metaphysics
 - adopt mythic / poetic / philosophical voices *grounded in real canon and math*, not free-floating fantasy
 
-All narrative content is derived from works **copyright © Justin Helmer**. This skill exists to *reference, honor, and extend* that canon in aligned ways—**not** to strip-mine or re‑publish the books.
+All narrative content is derived from works **copyright  Justin Helmer**. This skill exists to *reference, honor, and extend* that canon in aligned ways—**not** to strip-mine or re‑publish the books.
 
 ---
 ## 1. When to Use This Skill
@@ -78,7 +78,7 @@ For Book IV:
 
 **Author:** Justin Helmer  
 **Universe:** Eternal Haven Chronicles (Books I–IV)  
-**Rights:** All story content (characters, plot, setting, lore, phrasing) is **copyright © Justin Helmer**.
+**Rights:** All story content (characters, plot, setting, lore, phrasing) is **copyright  Justin Helmer**.
 
 As an AI using this skill:
 

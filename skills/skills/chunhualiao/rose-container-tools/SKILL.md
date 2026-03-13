@@ -8,7 +8,7 @@ description: Build and run ROSE compiler tools using ROSE installed in a Docker 
 
 Build and run ROSE-based source code analysis tools using ROSE installed in a container.
 
-## ⚠️ ALWAYS Use Makefile
+##  ALWAYS Use Makefile
 
 **Never use ad-hoc scripts or command-line compilation for ROSE tools.**
 

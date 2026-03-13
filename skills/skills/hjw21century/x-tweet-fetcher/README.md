@@ -8,11 +8,11 @@ An [OpenClaw](https://github.com/openclaw/openclaw) skill. Zero dependencies, ze
 
 | Content | Support |
 |---------|---------|
-| Regular tweets | ✅ Full text + stats |
-| Long tweets | ✅ Full text |
-| X Articles (long-form) | ✅ Complete article |
-| Quoted tweets | ✅ Included |
-| Stats (likes/RT/views) | ✅ Included |
+| Regular tweets |  Full text + stats |
+| Long tweets |  Full text |
+| X Articles (long-form) |  Complete article |
+| Quoted tweets |  Included |
+| Stats (likes/RT/views) |  Included |
 
 ## Quick Start
 

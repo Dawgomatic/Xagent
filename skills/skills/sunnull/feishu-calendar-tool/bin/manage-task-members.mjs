@@ -72,7 +72,7 @@ async function main() {
       
       console.log(`Adding members: ${resolved.map(id => getDisplayNameSync(id)).join(', ')}`);
       await addTaskMembers(taskId, resolved);
-      console.log('✅ Members added successfully!');
+      console.log(' Members added successfully!');
     }
     
     if (values.remove) {
@@ -90,11 +90,11 @@ async function main() {
       
       console.log(`Removing members: ${resolved.map(id => getDisplayNameSync(id)).join(', ')}`);
       await removeTaskMembers(taskId, resolved);
-      console.log('✅ Members removed successfully!');
+      console.log(' Members removed successfully!');
     }
     
   } catch (error) {
-    console.error('❌ Failed:', error.message);
+    console.error(' Failed:', error.message);
     if (error.larkResponse) {
       console.error('Lark response:', JSON.stringify(error.larkResponse, null, 2));
     }

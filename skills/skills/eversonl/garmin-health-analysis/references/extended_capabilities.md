@@ -2,7 +2,7 @@
 
 This skill now supports **comprehensive health tracking, time-based queries, and activity file analysis**.
 
-## 🎯 Time-Based Queries
+##  Time-Based Queries
 
 Ask questions like:
 - "What was my heart rate at 3pm yesterday?"
@@ -30,7 +30,7 @@ python3 scripts/garmin_query.py steps "17:00"
 - `15:00`, `15:30:45` (24-hour)
 - `2026-01-24 15:30` (full datetime)
 
-## 📊 Extended Metrics
+##  Extended Metrics
 
 ### Training & Performance
 
@@ -92,7 +92,7 @@ python3 scripts/garmin_data_extended.py stress_detailed
 python3 scripts/garmin_data_extended.py hr_intraday
 ```
 
-## 🗺️ Activity File Analysis (FIT/GPX)
+##  Activity File Analysis (FIT/GPX)
 
 Download and analyze activity files to answer questions like:
 - "What was my elevation at mile 2?"
@@ -158,7 +158,7 @@ python3 scripts/garmin_activity_files.py analyze --file /tmp/activity_12345678.f
 - Total distance
 - Duration
 
-## 🔍 Use Cases
+##  Use Cases
 
 ### Health Monitoring
 - "How has my VO2 max changed over the past month?"
@@ -182,7 +182,7 @@ python3 scripts/garmin_activity_files.py analyze --file /tmp/activity_12345678.f
 - "Show me stress levels throughout the workday"
 - "When was my Body Battery fully charged?"
 
-## 📦 Dependencies
+##  Dependencies
 
 ```bash
 pip3 install garminconnect fitparse gpxpy
@@ -192,7 +192,7 @@ pip3 install garminconnect fitparse gpxpy
 - **fitparse**: Parse FIT files (Garmin's binary format)
 - **gpxpy**: Parse GPX files (GPS track format)
 
-## 🛠️ Advanced Tips
+##  Advanced Tips
 
 ### Get Activity ID
 
@@ -228,7 +228,7 @@ done
 4. **Pace Heatmap**: Show where you were fastest/slowest
 5. **Power/Cadence Correlation**: Cycling efficiency analysis
 
-## 🚀 Future Enhancements
+##  Future Enhancements
 
 Potential additions:
 - [ ] Automated route visualization

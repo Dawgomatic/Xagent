@@ -36,4 +36,4 @@ World-class targets for every metric so you know exactly where you stand and wha
 - [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — Quantify your operational waste
 - [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Deploy your ops agent in minutes
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

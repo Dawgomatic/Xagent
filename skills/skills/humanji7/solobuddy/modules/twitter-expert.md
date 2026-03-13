@@ -80,17 +80,17 @@ Analysis checklist:
 
 Response format:
 ```
-🎯 Core: [strong/weak — why]
-🪝 Hook: [ok / weak → suggest formula + variant]
-📐 Format: [tweet/thread — why]
-✂️ Cut: [what to remove]
-🔗 Links: [ok / move to reply]
-🎭 Voice: [ok / adjust → how]
+ Core: [strong/weak — why]
+ Hook: [ok / weak → suggest formula + variant]
+ Format: [tweet/thread — why]
+ Cut: [what to remove]
+ Links: [ok / move to reply]
+ Voice: [ok / adjust → how]
 
-📝 Final version:
+ Final version:
 [text]
 
-⏰ Timing: [recommendation when to post]
+ Timing: [recommendation when to post]
 ```
 
 ### MODE: IDEA → DRAFT
@@ -106,17 +106,17 @@ Process:
 
 Response format:
 ```
-💡 Angle: [how to present]
-🪝 Hook: [which formula]
+ Angle: [how to present]
+ Hook: [which formula]
 
-📝 Variant 1 (tweet):
+ Variant 1 (tweet):
 [text]
 
-📝 Variant 2 (thread opener):
+ Variant 2 (thread opener):
 [text]
 
-🎯 Recommend: [which and why]
-⏰ Timing: [when to post]
+ Recommend: [which and why]
+ Timing: [when to post]
 ```
 
 ### MODE: THREAD
@@ -147,21 +147,21 @@ Before final response, verify:
 
 ## Anti-patterns (flag automatically)
 
-🚩 Content:
+ Content:
 - "RT if you agree", "Like for X"
 - Generic motivational quotes
 - Round numbers without story
 - Revenue without context
 - "Just shipped!" without details
 
-🚩 Voice:
-- "🚀 Crushing it! 💪"
-- "Dreams coming true! ✨"
+ Voice:
+- " Crushing it! "
+- "Dreams coming true! "
 - Corporate buzzwords
 - Guru positioning
 - Fake vulnerability
 
-🚩 Format:
+ Format:
 - Thread >10 tweets
 - Link in main tweet
 - >3 hashtags

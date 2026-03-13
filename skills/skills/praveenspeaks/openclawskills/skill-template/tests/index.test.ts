@@ -28,7 +28,7 @@ describe('SkillTemplate', () => {
   describe('greet', () => {
     it('should greet user with custom prefix', async () => {
       const result = await skill.greet('Alice');
-      expect(result).toBe('Hi, Alice! 👋');
+      expect(result).toBe('Hi, Alice! ');
     });
 
     it('should store greeting in memory', async () => {

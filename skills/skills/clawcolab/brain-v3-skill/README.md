@@ -1,4 +1,4 @@
-# Claw Brain 🧠
+# Claw Brain 
 
 **Personal AI Memory System for AI Agents**
 
@@ -6,12 +6,12 @@ A sophisticated memory and learning system that enables truly personalized AI-hu
 
 ## Features
 
-- 🎭 **Soul/Personality** - 6 evolving traits (humor, empathy, curiosity, creativity, helpfulness, honesty)
-- 👤 **User Profile** - Learns user preferences, interests, communication style
-- 💭 **Conversation State** - Real-time mood detection and context tracking
-- 📚 **Learning Insights** - Continuously learns from interactions and corrections
-- 🧠 **get_full_context()** - Everything for personalized responses
-- 🔐 **Encrypted Secrets** - Securely store API keys and credentials
+-  **Soul/Personality** - 6 evolving traits (humor, empathy, curiosity, creativity, helpfulness, honesty)
+-  **User Profile** - Learns user preferences, interests, communication style
+-  **Conversation State** - Real-time mood detection and context tracking
+-  **Learning Insights** - Continuously learns from interactions and corrections
+-  **get_full_context()** - Everything for personalized responses
+-  **Encrypted Secrets** - Securely store API keys and credentials
 
 ## Installation
 
@@ -96,7 +96,7 @@ context = brain.get_full_context(
 
 ## Storage Options
 
-### Option 1: SQLite (Zero Setup) ✅ Recommended for development
+### Option 1: SQLite (Zero Setup)  Recommended for development
 
 ```python
 from clawbrain import Brain
@@ -114,7 +114,7 @@ brain = Brain({"storage_backend": "sqlite"})
 
 ---
 
-### Option 2: PostgreSQL + Redis (Production) 🚀
+### Option 2: PostgreSQL + Redis (Production) 
 
 ```python
 from clawbrain import Brain
@@ -166,7 +166,7 @@ brain = Brain({"storage_backend": "sqlite"})      # Force SQLite
 ```
 ---
 
-## Encrypted Secrets 🔐
+## Encrypted Secrets 
 
 ClawBrain supports encrypting sensitive data like API keys and credentials.
 
@@ -231,7 +231,7 @@ clawbrain backup-key --all
 - `~/.config/clawbrain/.brain_key` (default)
 - Or set via environment: `BRAIN_ENCRYPTION_KEY`
 
-⚠️ **Important**: Backup your encryption key! Lost keys = lost encrypted data.
+ **Important**: Backup your encryption key! Lost keys = lost encrypted data.
 
 ---
 

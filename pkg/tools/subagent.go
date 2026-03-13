@@ -210,6 +210,43 @@ func (sm *SubagentManager) GetTask(taskID string) (*SubagentTask, bool) {
 	return task, ok
 }
 
+// ExecuteSync runs a subagent task synchronously and returns the textual result
+func (sm *SubagentManager) ExecuteSync(ctx context.Context, label, task string) (string, error) {
+	// Build messages for subagent
+	messages := []providers.Message{
+		{
+			Role:    "system",
+			Content: "You are a subagent. Complete the given task independently and provide a clear, concise result.",
+		},
+		{
+			Role:    "user",
+			Content: task,
+		},
+	}
+
+	sm.mu.RLock()
+	tools := sm.tools
+	maxIter := sm.maxIterations
+	sm.mu.RUnlock()
+
+	loopResult, err := RunToolLoop(ctx, ToolLoopConfig{
+		Provider:      sm.provider,
+		Model:         sm.defaultModel,
+		Tools:         tools,
+		MaxIterations: maxIter,
+		LLMOptions: map[string]any{
+			"max_tokens":  4096,
+			"temperature": 0.7,
+		},
+	}, messages, "cli", "direct")
+
+	if err != nil {
+		return "", err
+	}
+
+	return loopResult.Content, nil
+}
+
 func (sm *SubagentManager) ListTasks() []*SubagentTask {
 	sm.mu.RLock()
 	defer sm.mu.RUnlock()

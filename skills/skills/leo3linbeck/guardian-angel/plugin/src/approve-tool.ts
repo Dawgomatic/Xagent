@@ -45,7 +45,7 @@ export function createApprovalTool(store: Store, logger: PluginLogger) {
           content: [
             {
               type: "text",
-              text: `❌ Approval failed: ${result.error}`,
+              text: ` Approval failed: ${result.error}`,
             },
           ],
         };

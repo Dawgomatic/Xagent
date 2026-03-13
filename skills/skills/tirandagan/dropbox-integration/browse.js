@@ -8,7 +8,7 @@ const { getDropboxClient } = require('./dropbox-helper');
 
 async function main() {
   const folderPath = process.argv[2] || '';
-  console.log(`\n📁 Listing: ${folderPath || '(root)'}\n`);
+  console.log(`\n Listing: ${folderPath || '(root)'}\n`);
   
   try {
     // Get auto-refreshing client
@@ -24,7 +24,7 @@ async function main() {
     const entries = response.result.entries;
     
     entries.forEach(entry => {
-      const icon = entry['.tag'] === 'folder' ? '📁' : '📄';
+      const icon = entry['.tag'] === 'folder' ? '' : '';
       const size = entry.size ? ` (${formatBytes(entry.size)})` : '';
       const modified = entry.server_modified ? ` - ${entry.server_modified.split('T')[0]}` : '';
       console.log(`${icon} ${entry.name}${size}${modified}`);

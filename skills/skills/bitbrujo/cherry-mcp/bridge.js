@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Cherry MCP 🍒 - HTTP bridge for MCP servers
+ * Cherry MCP  - HTTP bridge for MCP servers
  */
 
 const http = require('http');
@@ -200,7 +200,7 @@ async function handler(req, res) {
 }
 
 async function main() {
-  console.log(`\n🍒 Cherry MCP starting on ${HOST}:${PORT}\n`);
+  console.log(`\n Cherry MCP starting on ${HOST}:${PORT}\n`);
   
   const cfgs = Object.entries(config.servers || {});
   if (!cfgs.length) console.log('No servers configured. Use: node cli.js add-server <name> <cmd>\n');

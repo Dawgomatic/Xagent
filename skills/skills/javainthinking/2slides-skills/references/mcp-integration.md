@@ -44,10 +44,10 @@ Edit: `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
 **Step 3:** Restart Claude Desktop completely
 
 **Advantages:**
-- ✅ No Node.js or npm required
-- ✅ Always uses latest version
-- ✅ Faster setup
-- ✅ No local dependencies
+-  No Node.js or npm required
+-  Always uses latest version
+-  Faster setup
+-  No local dependencies
 
 ---
 

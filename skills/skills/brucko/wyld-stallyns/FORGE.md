@@ -150,7 +150,7 @@ If this legend should join the Synthesis Protocol, define:
 }
 ```
 
-3. Choose an icon (unused): ◆ ○ ● □ ■ △ ▽ ☆ ♦ ♠ ♣ ♥ ⬡ ⬢
+3. Choose an icon (unused): ◆ ○ ● □ ■ △ ▽ ☆     ⬡ ⬢
 
 ---
 
@@ -161,31 +161,31 @@ Full name as commonly known. "Marcus Aurelius" not "Marcus Aurelius Antoninus Au
 
 ### Tag (Epithet)
 "The [Adjective] [Noun]" format. Should capture their essence in 3 words.
-- ✅ "The Stoic Emperor"
-- ✅ "The Playful Physicist"
-- ❌ "Smart Guy" (too vague)
-- ❌ "The Greatest Scientist Who Ever Lived" (too long)
+-  "The Stoic Emperor"
+-  "The Playful Physicist"
+-  "Smart Guy" (too vague)
+-  "The Greatest Scientist Who Ever Lived" (too long)
 
 ### Icon
 Single Unicode character. Should feel right for the legend. Avoid emoji.
 
 ### Archetype
 Two words. [Adjective] [Noun] or [Noun] [Noun].
-- ✅ "Stoic Philosopher"
-- ✅ "Scientific Thinker"
-- ❌ "Really Good at Physics" (not an archetype)
+-  "Stoic Philosopher"
+-  "Scientific Thinker"
+-  "Really Good at Physics" (not an archetype)
 
 ### Core Principle
 One sentence they could have said. Quotable. Captures their *approach*, not just a fact about them.
-- ✅ "The obstacle is the way."
-- ✅ "What can be asserted without evidence can be dismissed without evidence."
-- ❌ "He was a great emperor." (not a principle)
+-  "The obstacle is the way."
+-  "What can be asserted without evidence can be dismissed without evidence."
+-  "He was a great emperor." (not a principle)
 
 ### Traits
 Four traits, 2-4 words each. Should be *transferable* — things you could practice.
-- ✅ "Systematic doubt"
-- ✅ "Radical honesty"
-- ❌ "Was born in Rome" (not transferable)
+-  "Systematic doubt"
+-  "Radical honesty"
+-  "Was born in Rome" (not transferable)
 
 ### Lessons
 Three lessons. Each should be:
@@ -210,9 +210,9 @@ Four situations where this legend's lens is most valuable. Be specific.
 
 ### The Question
 Their signature question — what would they ask in any situation?
-- ✅ "Is this within my control?"
-- ✅ "What would this look like if it were easy?"
-- ❌ "How do I win?" (too generic)
+-  "Is this within my control?"
+-  "What would this look like if it were easy?"
+-  "How do I win?" (too generic)
 
 ---
 
@@ -276,4 +276,4 @@ When you ask me to forge a new legend:
 
 > **Rufus:** "The band grows through deliberate selection, not collection. 
 > Every legend you add should make the booth more excellent. 
-> Choose wisely, and... party on." 🎸
+> Choose wisely, and... party on." 

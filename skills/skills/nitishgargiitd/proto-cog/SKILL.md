@@ -3,7 +3,7 @@ name: proto-cog
 description: "Build prototypes you can click. UI/UX wireframes, app mockups, and fully interactive HTML prototypes — from napkin sketch to clickable experience in one prompt. Landing pages, mobile app screens, SaaS dashboards, design systems, and user flows — prototyped and playable, not just pretty."
 metadata:
   openclaw:
-    emoji: "✏️"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

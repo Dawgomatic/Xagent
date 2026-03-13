@@ -317,7 +317,7 @@ class WorkflowTester:
         if validation['warnings']:
             report.append(f"\nWarnings ({len(validation['warnings'])}):")
             for warning in validation['warnings']:
-                report.append(f"  ⚠ {warning}")
+                report.append(f"   {warning}")
         
         if not validation['errors'] and not validation['warnings']:
             report.append("\n✓ No issues found")

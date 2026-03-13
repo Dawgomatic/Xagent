@@ -28,7 +28,7 @@ This phone number will be used as a fallback if no habit-specific recipient is s
 
 ## Supported Channels
 
-- `last` - Last channel used (automatic, no config needed) ✅ Default
+- `last` - Last channel used (automatic, no config needed)  Default
 - `whatsapp` - WhatsApp (requires phone in E.164 format)
 - `telegram` - Telegram (requires chatId)
 - `discord` - Discord (requires channel/user id)

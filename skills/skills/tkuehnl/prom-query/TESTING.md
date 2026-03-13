@@ -7,7 +7,7 @@
 All scripts must pass bash syntax validation:
 
 ```bash
-bash -n scripts/prom-query.sh && echo "✅ Syntax OK"
+bash -n scripts/prom-query.sh && echo " Syntax OK"
 ```
 
 ### Help Output
@@ -112,23 +112,23 @@ This gives you real node metrics (CPU, memory, disk, network) to query.
 ```bash
 # Missing PROMETHEUS_URL
 unset PROMETHEUS_URL
-bash scripts/prom-query.sh query 'up' 2>&1 | grep -q "PROMETHEUS_URL is not set" && echo "✅ Missing URL handled"
+bash scripts/prom-query.sh query 'up' 2>&1 | grep -q "PROMETHEUS_URL is not set" && echo " Missing URL handled"
 
 # Invalid URL scheme
-PROMETHEUS_URL=ftp://bad bash scripts/prom-query.sh query 'up' 2>&1 | grep -q "must start with http" && echo "✅ Bad scheme handled"
+PROMETHEUS_URL=ftp://bad bash scripts/prom-query.sh query 'up' 2>&1 | grep -q "must start with http" && echo " Bad scheme handled"
 
 # Invalid PromQL
 export PROMETHEUS_URL=https://demo.promlabs.com
-bash scripts/prom-query.sh query 'invalid{{{' 2>&1 | grep -qi "error" && echo "✅ Bad PromQL handled"
+bash scripts/prom-query.sh query 'invalid{{{' 2>&1 | grep -qi "error" && echo " Bad PromQL handled"
 
 # Unreachable server
-PROMETHEUS_URL=http://192.0.2.1:9090 bash scripts/prom-query.sh query 'up' 2>&1 | grep -qi "cannot reach" && echo "✅ Unreachable handled"
+PROMETHEUS_URL=http://192.0.2.1:9090 bash scripts/prom-query.sh query 'up' 2>&1 | grep -qi "cannot reach" && echo " Unreachable handled"
 
 # Missing command
-bash scripts/prom-query.sh 2>&1 | grep -q "USAGE" && echo "✅ No-args shows help"
+bash scripts/prom-query.sh 2>&1 | grep -q "USAGE" && echo " No-args shows help"
 
 # Unknown command
-bash scripts/prom-query.sh foobar 2>&1 | grep -q "Unknown command" && echo "✅ Unknown command handled"
+bash scripts/prom-query.sh foobar 2>&1 | grep -q "Unknown command" && echo " Unknown command handled"
 ```
 
 ## Downsampling Test
@@ -154,10 +154,10 @@ check() {
   local name="$1"
   shift
   if "$@" >/dev/null 2>&1; then
-    echo "✅ ${name}"
+    echo " ${name}"
     ((PASS++))
   else
-    echo "❌ ${name}"
+    echo " ${name}"
     ((FAIL++))
   fi
 }
@@ -186,4 +186,4 @@ echo "Results: ${PASS} passed, ${FAIL} failed"
 [[ $FAIL -eq 0 ]] && exit 0 || exit 1
 ```
 
-Powered by CacheForge 📊
+Powered by CacheForge 

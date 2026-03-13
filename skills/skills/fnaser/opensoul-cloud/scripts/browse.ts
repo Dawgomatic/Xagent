@@ -71,13 +71,13 @@ async function main() {
   }
   
   const total = data.total || 0;
-  console.log(`\n🎭 Found ${total} soul${total !== 1 ? 's' : ''}${query ? ` matching "${query}"` : ''}:\n`);
+  console.log(`\n Found ${total} soul${total !== 1 ? 's' : ''}${query ? ` matching "${query}"` : ''}:\n`);
   
   for (const soul of souls) {
     console.log(`  ${soul.title}`);
     if (soul.tagline) console.log(`  "${soul.tagline}"`);
     console.log(`  @${soul.author?.handle || 'unknown'} · ${soul.use_cases.slice(0, 3).join(', ') || 'general'}`);
-    console.log(`  👁 ${soul.view_count}  📋 ${soul.copy_count}  🔀 ${soul.remix_count}`);
+    console.log(`   ${soul.view_count}   ${soul.copy_count}   ${soul.remix_count}`);
     console.log(`  → ${soulUrl(soul.id)}`);
     console.log('');
   }

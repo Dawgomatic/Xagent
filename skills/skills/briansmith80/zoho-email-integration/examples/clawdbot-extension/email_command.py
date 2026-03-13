@@ -62,7 +62,7 @@ class EmailCommandHandler:
             return response
         
         except Exception as e:
-            return f"❌ Error: {str(e)}"
+            return f" Error: {str(e)}"
 
 
 def handle_email_command(context):

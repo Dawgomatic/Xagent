@@ -33,7 +33,7 @@ async def main():
     trader_client.set_local_signer(PRIVATE_KEY)
     trader = trader_client.get_signer().get_ethereum_address()
     
-    print(f"🫘 Wallet: {trader}")
+    print(f" Wallet: {trader}")
     
     # Get position
     trades, _ = await trader_client.trade.get_trades(trader)
@@ -45,8 +45,8 @@ async def main():
             break
     
     if not target_trade:
-        print(f"❌ No position found: pair={pair_index}, trade={trade_index}")
-        print("\n📊 Open positions:")
+        print(f" No position found: pair={pair_index}, trade={trade_index}")
+        print("\n Open positions:")
         for t in trades:
             direction = "LONG" if t.trade.is_long else "SHORT"
             print(f"  • {direction} pair={t.trade.pair_index} trade={t.trade.trade_index} | ${t.trade.collateral_in_trade}")
@@ -56,12 +56,12 @@ async def main():
     close_amount = partial_amount if partial_amount else target_trade.trade.collateral_in_trade
     
     if close_amount > target_trade.trade.collateral_in_trade:
-        print(f"❌ Amount ${close_amount} exceeds position collateral ${target_trade.trade.collateral_in_trade}")
+        print(f" Amount ${close_amount} exceeds position collateral ${target_trade.trade.collateral_in_trade}")
         sys.exit(1)
     
     direction = "LONG" if target_trade.trade.is_long else "SHORT"
     
-    print(f"\n🔴 Closing {direction} {target_trade.trade.leverage}x position (pair_index={pair_index})")
+    print(f"\n Closing {direction} {target_trade.trade.leverage}x position (pair_index={pair_index})")
     print(f"   Position collateral: ${target_trade.trade.collateral_in_trade}")
     print(f"   Closing: ${close_amount}")
     if partial_amount:
@@ -80,13 +80,13 @@ async def main():
         # Sign and send
         receipt = await trader_client.sign_and_get_receipt(close_tx)
         
-        print(f"\n✅ POSITION CLOSED!")
+        print(f"\n POSITION CLOSED!")
         print(f"   Tx: {receipt.transactionHash.hex()}")
         print(f"   Block: {receipt.blockNumber}")
         print(f"   Gas used: {receipt.gasUsed}")
         
     except Exception as e:
-        print(f"\n❌ Close failed: {str(e)}")
+        print(f"\n Close failed: {str(e)}")
         sys.exit(1)
 
 if __name__ == "__main__":

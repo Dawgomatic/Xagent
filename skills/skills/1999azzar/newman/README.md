@@ -1,4 +1,4 @@
-# Newman Skill 🧪
+# Newman Skill 
 
 > Production-ready Newman (Postman CLI) skill for automated API testing with gold-standard security practices
 
@@ -6,32 +6,32 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/1999AZZAR/newman-skill/releases)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-orange.svg)](https://openclaw.ai)
 
-## 🎯 What is This?
+##  What is This?
 
 A comprehensive OpenClaw skill for running automated API tests using [Newman](https://github.com/postmanlabs/newman), the command-line Collection Runner for Postman. This skill includes production-ready scripts, security scanning, and CI/CD integration templates.
 
-## ✨ Features
+##  Features
 
-### 🔒 Security-First Design
+###  Security-First Design
 - **Hardcoded secret detection** - Prevents API key leaks
 - **SSL/TLS enforcement** - No insecure connections in production
 - **Environment variable validation** - Ensures proper variable usage
 - **PII exposure scanner** - Detects SSN, credit cards, etc.
 - **Comprehensive security audit** - 8 critical security checks
 
-### 🚀 Production-Ready Scripts
+###  Production-Ready Scripts
 1. **`install-newman.sh`** - Automated Newman installation (global/local)
 2. **`run-tests.sh`** - Test runner with security checks & multi-reporter support
 3. **`security-audit.sh`** - Collection security scanner with detailed reports
 
-### 📊 Multi-Reporter Support
+###  Multi-Reporter Support
 - CLI (console output)
 - HTML (beautiful reports via htmlextra)
 - JSON (machine-readable)
 - JUnit (CI/CD integration)
 - Custom (build your own)
 
-### 🔄 CI/CD Integration
+###  CI/CD Integration
 Ready-to-use templates for:
 - GitHub Actions
 - GitLab CI
@@ -40,7 +40,7 @@ Ready-to-use templates for:
 - Bitbucket Pipelines
 - Docker / Docker Compose
 
-## 📦 Installation
+##  Installation
 
 ### Install the Skill
 
@@ -62,7 +62,7 @@ curl -L https://github.com/1999AZZAR/newman-skill/archive/main.tar.gz | tar -xz 
 npm install -g newman newman-reporter-htmlextra
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Export from Postman
 
@@ -103,7 +103,7 @@ newman run api-tests.json -e staging.json
 
 **Example output:**
 ```
-🔒 Newman Security Audit
+ Newman Security Audit
 =======================
 
 [1/8] Checking for hardcoded secrets...
@@ -117,32 +117,32 @@ newman run api-tests.json -e staging.json
 
 ...
 
-✅ Security audit passed!
+ Security audit passed!
 ```
 
-## 📚 Documentation
+##  Documentation
 
 - **[SKILL.md](SKILL.md)** - Main guide (quick start, workflows, best practices)
 - **[INSTALLATION.md](INSTALLATION.md)** - Detailed setup instructions
 - **[CI/CD Examples](references/ci-cd-examples.md)** - Integration templates
 - **[Advanced Patterns](references/advanced-patterns.md)** - Custom reporters, validation, performance testing
 
-## 🔐 Security Best Practices
+##  Security Best Practices
 
-### ❌ NEVER Do This
+###  NEVER Do This
 ```json
 {
   "key": "API_KEY",
-  "value": "sk_live_abc123xyz",  ❌ Hardcoded!
+  "value": "sk_live_abc123xyz",   Hardcoded!
   "enabled": true
 }
 ```
 
-### ✅ ALWAYS Do This
+###  ALWAYS Do This
 ```json
 {
   "key": "API_KEY",
-  "value": "{{$processEnvironment.API_KEY}}",  ✅ Environment variable!
+  "value": "{{$processEnvironment.API_KEY}}",   Environment variable!
   "enabled": true
 }
 ```
@@ -152,7 +152,7 @@ export API_KEY="sk_live_abc123xyz"
 newman run collection.json -e environment.json
 ```
 
-## 🎓 Use Cases
+##  Use Cases
 
 - **Regression Testing** - Automated API tests on every commit
 - **Load Testing** - Performance validation with high iteration counts
@@ -161,7 +161,7 @@ newman run collection.json -e environment.json
 - **Multi-Environment** - Test dev/staging/prod with different configs
 - **Security Compliance** - Validate API security before deployment
 
-## 🛠️ Scripts Reference
+##  Scripts Reference
 
 ### install-newman.sh
 ```bash
@@ -200,7 +200,7 @@ Options:
 - Timeout configurations
 - Authentication patterns
 
-## 🔄 CI/CD Example (GitHub Actions)
+##  CI/CD Example (GitHub Actions)
 
 ```yaml
 name: API Tests
@@ -240,7 +240,7 @@ jobs:
           path: reports/
 ```
 
-## 📊 Package Contents
+##  Package Contents
 
 ```
 newman/
@@ -258,7 +258,7 @@ newman/
 Total: ~46KB uncompressed
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please:
 1. Fork the repository
@@ -267,18 +267,18 @@ Contributions are welcome! Please:
 4. Test thoroughly
 5. Submit a pull request
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) for details
 
-## 🔗 Links
+##  Links
 
 - **Newman Documentation**: https://learning.postman.com/docs/running-collections/using-newman-cli/
 - **Postman Documentation**: https://learning.postman.com/
 - **OpenClaw**: https://openclaw.ai
 - **Issues**: https://github.com/1999AZZAR/newman-skill/issues
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [Postman Labs](https://www.postman.com/) for Newman
 - [OpenClaw](https://openclaw.ai) for the skill framework
@@ -289,4 +289,4 @@ MIT License - see [LICENSE](LICENSE) for details
 **Version**: 1.0.0  
 **Created**: 2026-02-10  
 **Maintainer**: [@1999AZZAR](https://github.com/1999AZZAR)  
-**Status**: Production-Ready ✅
+**Status**: Production-Ready 

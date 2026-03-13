@@ -67,12 +67,12 @@ What you were trying to do
 
 ## Experience
 
-### ✅ Success Pattern
+###  Success Pattern
 1. Step one
 2. Step two
 3. Step three
 
-### ❌ Failure Pattern
+###  Failure Pattern
 - What didn't work and why
 
 ## Utility
@@ -109,7 +109,7 @@ Copy `scripts/ep-search.sh` to your workspace:
 #!/bin/bash
 EPISODES_DIR="${HOME}/.openclaw/workspace/memory/episodes"
 INDEX="${EPISODES_DIR}/index.json"
-echo "🔍 Searching episodes for: $1"
+echo " Searching episodes for: $1"
 cat "$INDEX" | jq -r '.episodes | sort_by(-.q_value) | .[] | select(.status == "active") | "Q:\(.q_value) | \(.feel) | \(.intent) → \(.file)"'
 ```
 

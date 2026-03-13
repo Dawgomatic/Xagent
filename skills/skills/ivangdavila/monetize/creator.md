@@ -107,7 +107,7 @@ Don't sell content. Sell **access**.
 
 Don't build a 10-hour course without validating.
 
-1. Post: "Thinking of creating [thing]. 🙋 if interested"
+1. Post: "Thinking of creating [thing].  if interested"
 2. <20 responses = no traction, pivot
 3. >50 responses = DM 10: "Would you pay $X?"
 4. 3+ yes = open pre-sale with 50% early bird

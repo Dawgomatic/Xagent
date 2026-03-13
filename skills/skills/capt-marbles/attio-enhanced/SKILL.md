@@ -2,7 +2,7 @@
 
 Enhanced Attio CRM API skill with batch operations.
 
-## ⚠️ Required Setup
+##  Required Setup
 
 This skill requires Attio credentials. You must set these environment variables before use:
 

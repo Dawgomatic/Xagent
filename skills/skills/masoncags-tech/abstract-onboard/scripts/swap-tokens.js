@@ -70,7 +70,7 @@ async function main() {
   const provider = new ethers.JsonRpcProvider(ABSTRACT_RPC);
   const wallet = new ethers.Wallet(privateKey, provider);
   
-  console.log(`\n🔄 Swap on Abstract`);
+  console.log(`\n Swap on Abstract`);
   console.log(`From: ${amount} ${fromToken}`);
   console.log(`To: ${toToken}`);
   console.log(`Wallet: ${wallet.address}`);
@@ -112,7 +112,7 @@ async function main() {
       
       console.log(`TX: ${tx.hash}`);
       const receipt = await tx.wait();
-      console.log(`✅ Swap complete! Block: ${receipt.blockNumber}`);
+      console.log(` Swap complete! Block: ${receipt.blockNumber}`);
       
     } else if (toToken === "ETH") {
       // Token -> ETH
@@ -143,7 +143,7 @@ async function main() {
       
       console.log(`TX: ${tx.hash}`);
       const receipt = await tx.wait();
-      console.log(`✅ Swap complete! Block: ${receipt.blockNumber}`);
+      console.log(` Swap complete! Block: ${receipt.blockNumber}`);
       
     } else {
       // Token -> Token
@@ -171,7 +171,7 @@ async function main() {
       
       console.log(`TX: ${tx.hash}`);
       const receipt = await tx.wait();
-      console.log(`✅ Swap complete! Block: ${receipt.blockNumber}`);
+      console.log(` Swap complete! Block: ${receipt.blockNumber}`);
     }
   } catch (e) {
     console.error(`Swap failed: ${e.message}`);

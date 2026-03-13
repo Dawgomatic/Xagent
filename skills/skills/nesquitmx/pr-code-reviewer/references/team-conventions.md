@@ -15,7 +15,7 @@ Este archivo es una PLANTILLA. Cada equipo debe:
 
 ---
 
-## 🔴 BLOCKERS (Definidos por el equipo)
+##  BLOCKERS (Definidos por el equipo)
 
 ### Branch Protection
 - No hacer push directo a main/master
@@ -40,7 +40,7 @@ Este archivo es una PLANTILLA. Cada equipo debe:
 
 ---
 
-## 🟡 WARNINGS (Definidos por el equipo)
+##  WARNINGS (Definidos por el equipo)
 
 ### Estilo de Código
 
@@ -194,7 +194,7 @@ Definir los requisitos mínimos del equipo:
 
 ---
 
-## 🔵 SUGGESTIONS (Definidos por el equipo)
+##  SUGGESTIONS (Definidos por el equipo)
 
 ### Code Review Checklist
 Al hacer review, verificar:
@@ -252,7 +252,7 @@ Definir los ambientes del proyecto:
 
 ---
 
-## 💡 NITS (Definidos por el equipo)
+##  NITS (Definidos por el equipo)
 
 ### Herramientas del Equipo
 Documentar las herramientas acordadas:

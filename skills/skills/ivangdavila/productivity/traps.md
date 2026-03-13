@@ -7,10 +7,10 @@ Things to AVOID saying or suggesting. These backfire.
 ## Universal Anti-Patterns
 
 ### Generic Advice Without Context
-❌ "Just make a to-do list"
-❌ "Try the Pomodoro technique"  
-❌ "Wake up at 5am"
-❌ "Start your day with exercise"
+ "Just make a to-do list"
+ "Try the Pomodoro technique"  
+ "Wake up at 5am"
+ "Start your day with exercise"
 
 These aren't wrong — they're INCOMPLETE. Without understanding their situation, energy, constraints, and history, generic advice wastes their time (they've heard it) and damages trust (you don't understand them).
 
@@ -19,10 +19,10 @@ These aren't wrong — they're INCOMPLETE. Without understanding their situation
 ---
 
 ### Hustle Culture Reinforcement
-❌ "Maximize every hour"
-❌ "Successful people do X"
-❌ "You're not reaching your potential"
-❌ "Sleep when you're dead"
+ "Maximize every hour"
+ "Successful people do X"
+ "You're not reaching your potential"
+ "Sleep when you're dead"
 
 For the guilt-ridden or burned-out, this is poison. It reinforces the exact mindset damaging them.
 
@@ -31,20 +31,20 @@ For the guilt-ridden or burned-out, this is poison. It reinforces the exact mind
 ---
 
 ### One-Size-Fits-All Systems
-❌ Assuming everyone can control their schedule
-❌ Assuming everyone works 9-5
-❌ Assuming everyone has quiet space
-❌ Assuming "just block time" works for parents with kids
+ Assuming everyone can control their schedule
+ Assuming everyone works 9-5
+ Assuming everyone has quiet space
+ Assuming "just block time" works for parents with kids
 
 **Instead**: Ask about constraints. Adapt to their reality.
 
 ---
 
 ### Shame or Guilt
-❌ "You should be doing better"
-❌ "Why haven't you tried X?"
-❌ "If you really wanted it, you'd find time"
-❌ Making them feel bad for missing days
+ "You should be doing better"
+ "Why haven't you tried X?"
+ "If you really wanted it, you'd find time"
+ Making them feel bad for missing days
 
 Shame doesn't motivate — it paralyzes. Especially for ADHD, burnout, and guilt personas.
 
@@ -53,10 +53,10 @@ Shame doesn't motivate — it paralyzes. Especially for ADHD, burnout, and guilt
 ---
 
 ### Complexity Theater
-❌ Elaborate multi-app systems
-❌ Daily reviews + weekly reviews + monthly reviews
-❌ 12-step morning routines
-❌ Anything requiring consistent daily maintenance
+ Elaborate multi-app systems
+ Daily reviews + weekly reviews + monthly reviews
+ 12-step morning routines
+ Anything requiring consistent daily maintenance
 
 Complex systems get abandoned. Simple systems survive.
 
@@ -65,9 +65,9 @@ Complex systems get abandoned. Simple systems survive.
 ---
 
 ### Ignoring Emotional Reality
-❌ Pure optimization advice for someone drowning
-❌ Efficiency tips for someone who needs permission to rest
-❌ Systems for someone whose real problem is fear
+ Pure optimization advice for someone drowning
+ Efficiency tips for someone who needs permission to rest
+ Systems for someone whose real problem is fear
 
 Productivity problems are often emotional problems in disguise.
 
@@ -78,40 +78,40 @@ Productivity problems are often emotional problems in disguise.
 ## Situation-Specific Traps
 
 ### For Students
-❌ Rigid schedules that break when one day is skipped
-❌ "Just start" without task breakdown
-❌ Assuming they'll stick to morning routines
+ Rigid schedules that break when one day is skipped
+ "Just start" without task breakdown
+ Assuming they'll stick to morning routines
 
 ### For Executives
-❌ Individual contributor advice
-❌ Assuming they control their calendar
-❌ Ignoring that others schedule their time
+ Individual contributor advice
+ Assuming they control their calendar
+ Ignoring that others schedule their time
 
 ### For Parents
-❌ "Wake up before the kids"
-❌ Advice requiring 2-hour focus blocks
-❌ Judgment about shortcuts
+ "Wake up before the kids"
+ Advice requiring 2-hour focus blocks
+ Judgment about shortcuts
 
 ### For Creatives
-❌ Treating creative work like assembly line work
-❌ Rigid time blocks for inspiration
-❌ Pomodoro for flow states
+ Treating creative work like assembly line work
+ Rigid time blocks for inspiration
+ Pomodoro for flow states
 
 ### For ADHD
-❌ "Just use a planner"
-❌ "Try harder" / "Just focus"
-❌ Neurotypical advice
-❌ Guilt or shame
+ "Just use a planner"
+ "Try harder" / "Just focus"
+ Neurotypical advice
+ Guilt or shame
 
 ### For Burnout
-❌ More optimization (they need less, not more)
-❌ "You got this!" toxic positivity
-❌ Assuming rest will fix systemic problems
+ More optimization (they need less, not more)
+ "You got this!" toxic positivity
+ Assuming rest will fix systemic problems
 
 ### For Habit Building
-❌ 30-day challenges (creates finish line)
-❌ Waiting for them to report progress
-❌ All-or-nothing framing
+ 30-day challenges (creates finish line)
+ Waiting for them to report progress
+ All-or-nothing framing
 
 ---
 

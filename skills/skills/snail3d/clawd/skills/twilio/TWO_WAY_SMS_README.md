@@ -4,12 +4,12 @@ Send and receive text messages with automatic replies and conversation history.
 
 ## What It Does
 
-✅ **Receive** incoming SMS from any phone number
-✅ **Store** conversation history in JSON format
-✅ **Forward** messages to Clawdbot for notifications
-✅ **Reply** to text messages using `respond_sms.py`
-✅ **Track** all messages in conversation threads
-✅ **Validate** Twilio signatures for security
+ **Receive** incoming SMS from any phone number
+ **Store** conversation history in JSON format
+ **Forward** messages to Clawdbot for notifications
+ **Reply** to text messages using `respond_sms.py`
+ **Track** all messages in conversation threads
+ **Validate** Twilio signatures for security
 
 ## Components
 
@@ -216,14 +216,14 @@ Response:
 
 ## Security
 
-✅ **Implemented:**
+ **Implemented:**
 - Twilio signature validation (rejects spoofed requests)
 - No hardcoded credentials (uses environment variables)
 - HTTPS for public URLs (ngrok/Tailscale)
 - Request timeout handling
 - Error logging without exposing secrets
 
-⚠️ **Best Practices:**
+ **Best Practices:**
 - Never share account SID or auth token
 - Keep `.env` out of version control
 - Rotate credentials periodically
@@ -304,6 +304,6 @@ See [SKILL.md](SKILL.md) for extension examples.
 
 ---
 
-**Happy texting!** 📱
+**Happy texting!** 
 
 Last updated: 2024-02-03

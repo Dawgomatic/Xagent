@@ -1,7 +1,7 @@
 ---
 name: Prayers
 description: Build a personal prayer system for any faith tradition with scheduling, logging, and spiritual tracking.
-metadata: {"clawdbot":{"emoji":"🙏","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

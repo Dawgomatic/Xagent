@@ -1,8 +1,8 @@
-# 飞书日历管理器 📅
+# 飞书日历管理器 
 
 简单高效的飞书日历事件管理工具 - **零配置启动！**
 
-## ✨ 核心特性
+##  核心特性
 
 - **零配置** - 自动从 `~/.openclaw/openclaw.json` 读取飞书凭证
 - **自动发现** - 自动获取 user_id 和 calendar_id
@@ -13,7 +13,7 @@
 
 ## 快速开始
 
-### 零配置使用（推荐）⭐
+### 零配置使用（推荐）
 
 **已配置飞书通道？无需任何配置，直接使用！**
 
@@ -44,10 +44,10 @@ node bin/delete-event.mjs --event-id "事件ID"
 #### 2. 添加权限
 
 在应用管理页添加以下权限：
-- ✅ `calendar:calendar` - 读写日历
-- ✅ `calendar:calendar:readonly` - 读取日历
-- ✅ `contact:user.base:readonly` - 自动获取 user_id
-- ✅ `contact:user.employee_id:readonly` - 读取员工目录
+-  `calendar:calendar` - 读写日历
+-  `calendar:calendar:readonly` - 读取日历
+-  `contact:user.base:readonly` - 自动获取 user_id
+-  `contact:user.employee_id:readonly` - 读取员工目录
 
 #### 3. 配置到 openclaw.json
 
@@ -116,7 +116,7 @@ node bin/delete-event.mjs --event-id "事件ID"
 ### 自动查找顺序
 
 1. **环境变量** - 如果已设置
-2. **~/.openclaw/openclaw.json** - 推荐 ⭐
+2. **~/.openclaw/openclaw.json** - 推荐 
 3. **~/openclaw/.secrets.env**
 4. **~/.secrets.env**
 
@@ -132,7 +132,7 @@ node bin/get-user-info.mjs
 
 成功输出：
 ```
-✅ Credentials loaded successfully!
+ Credentials loaded successfully!
 Source: /home/user/.openclaw/openclaw.json
 App ID: cli_xxxxxxxxxxxxx
 ```

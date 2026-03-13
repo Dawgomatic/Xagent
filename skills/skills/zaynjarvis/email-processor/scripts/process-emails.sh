@@ -9,7 +9,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-echo "📧 Email Processor"
+echo " Email Processor"
 echo "=================="
 
 # Check dependencies
@@ -75,7 +75,7 @@ IMPORTANT=$(echo "$UNREAD_JSON" | jq -r '.threads[] | select(.labels | contains(
 
 if [ -n "$IMPORTANT" ]; then
     echo ""
-    echo "📋 Emails Requiring Attention:"
+    echo " Emails Requiring Attention:"
     echo "=============================="
     echo "$UNREAD_JSON" | jq -r '.threads[] | select(.labels | contains(["IMPORTANT"])) | "[IMPORTANT] \(.from) - \(.subject) [\(.date)]"'
     echo "$UNREAD_JSON" | jq -r '.threads[] | select(.labels | contains(["CATEGORY_UPDATES"])) | select(.labels | contains(["[Superhuman]/AI/News","[Superhuman]/AI/Marketing","[Superhuman]/AI/Pitch","[Superhuman]/AI/AutoArchived","CATEGORY_PROMOTIONS"]) | not) | "[UPDATE] \(.from) - \(.subject) [\(.date)]"' | head -20

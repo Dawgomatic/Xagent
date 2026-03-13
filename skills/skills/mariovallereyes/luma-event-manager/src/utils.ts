@@ -255,8 +255,8 @@ export function formatEventForDisplay(event: {
 }): string {
   const date = formatDate(event.start_time);
   const location = event.location.type === 'virtual' 
-    ? '🌐 Virtual' 
-    : `📍 ${event.location.address || 'See map'}`;
+    ? ' Virtual' 
+    : ` ${event.location.address || 'See map'}`;
   
   return `**${event.title}**\n${date}\n${location}`;
 }

@@ -877,7 +877,7 @@ func TestPrintMessage(t *testing.T) {
 
 	assert.Contains(t, output, "Test Subject")
 	assert.Contains(t, output, "Sender")
-	assert.Contains(t, output, "📎")
+	assert.Contains(t, output, "")
 	assert.Contains(t, output, "●")
 }
 

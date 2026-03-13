@@ -53,20 +53,20 @@
   document.head.appendChild(style);
 
   container.innerHTML = `
-    <button id="raon-chat-toggle">🌅</button>
+    <button id="raon-chat-toggle"></button>
     <div id="raon-chat-panel">
       <div class="raon-header"><span>${TITLE}</span><button id="raon-close">✕</button></div>
       <div class="raon-mode-selector">
-        <button class="raon-mode-btn active" data-mode="evaluate">📊 평가</button>
-        <button class="raon-mode-btn" data-mode="improve">💡 개선</button>
-        <button class="raon-mode-btn" data-mode="match">🎯 매칭</button>
-        <button class="raon-mode-btn" data-mode="checklist">✅ 체크리스트</button>
+        <button class="raon-mode-btn active" data-mode="evaluate"> 평가</button>
+        <button class="raon-mode-btn" data-mode="improve"> 개선</button>
+        <button class="raon-mode-btn" data-mode="match"> 매칭</button>
+        <button class="raon-mode-btn" data-mode="checklist"> 체크리스트</button>
       </div>
-      <div class="raon-messages" id="raon-messages"><div class="raon-msg bot">안녕하세요! 라온입니다 🌅<br>사업계획서를 붙여넣거나 PDF를 첨부해주세요.</div></div>
+      <div class="raon-messages" id="raon-messages"><div class="raon-msg bot">안녕하세요! 라온입니다 <br>사업계획서를 붙여넣거나 PDF를 첨부해주세요.</div></div>
       <div class="raon-file-badge" id="raon-file-badge"><span id="raon-file-name"></span><button id="raon-file-clear">✕</button></div>
       <div class="raon-input-area">
         <input type="file" id="raon-file-input" accept=".pdf" style="display:none"/>
-        <button class="raon-pdf-btn" id="raon-pdf-btn" title="PDF 업로드">📎</button>
+        <button class="raon-pdf-btn" id="raon-pdf-btn" title="PDF 업로드"></button>
         <input type="text" id="raon-input" placeholder="사업 아이디어를 입력하세요..."/>
         <button id="raon-send">전송</button>
       </div>
@@ -96,7 +96,7 @@
     const file = fileInput.files[0];
     if (!file) return;
     if (file.size > 10 * 1024 * 1024) {
-      addMsg('⚠️ 파일이 너무 큽니다 (최대 10MB)', 'bot');
+      addMsg(' 파일이 너무 큽니다 (최대 10MB)', 'bot');
       fileInput.value = ''; return;
     }
     const reader = new FileReader();
@@ -124,7 +124,7 @@
     if (!t && !pendingPdfBase64) return;
 
     const displayText = pendingPdfBase64
-      ? '📄 ' + fileNameEl.textContent + (t ? ' — ' + t : '')
+      ? ' ' + fileNameEl.textContent + (t ? ' — ' + t : '')
       : t;
     addMsg(displayText, 'user'); inp.value = ''; sendBtn.disabled = true;
     const ld = addMsg('분석 중...', 'bot loading');
@@ -148,9 +148,9 @@
       const d = await r.json(); ld.remove();
       if (d.status === 'ok') {
         const res = (d.result||d.response||'').replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
-        addMsg((d.score ? '<div style="font-size:20px;margin-bottom:8px">📊 '+d.score+'점</div>' : '') + res, 'bot');
-      } else addMsg('⚠️ ' + (d.error||'오류'), 'bot');
-    } catch(e) { ld.remove(); addMsg('⚠️ 서버 연결 실패', 'bot'); }
+        addMsg((d.score ? '<div style="font-size:20px;margin-bottom:8px"> '+d.score+'점</div>' : '') + res, 'bot');
+      } else addMsg(' ' + (d.error||'오류'), 'bot');
+    } catch(e) { ld.remove(); addMsg(' 서버 연결 실패', 'bot'); }
     sendBtn.disabled = false; inp.focus();
   }
 

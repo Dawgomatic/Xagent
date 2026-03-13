@@ -29,10 +29,10 @@ Secrets are sensitive credentials that should NEVER be committed to version cont
 ### Why This Matters
 
 A single leaked secret can:
-- 🔓 Compromise your infrastructure
-- 💸 Incur massive cloud bills (attackers abuse your AWS account)
-- 📊 Expose customer data (GDPR/CCPA violation)
-- 🚨 Trigger security incidents and audits
+-  Compromise your infrastructure
+-  Incur massive cloud bills (attackers abuse your AWS account)
+-  Expose customer data (GDPR/CCPA violation)
+-  Trigger security incidents and audits
 
 ggshield catches these **before** they reach your repository.
 
@@ -49,13 +49,13 @@ Scans an entire git repository for secrets (including history).
 
 **Output**:
 ```
-🔍 Scanning repository...
-✅ Repository clean: 1,234 files scanned, 0 secrets found
+ Scanning repository...
+ Repository clean: 1,234 files scanned, 0 secrets found
 ```
 
 **Output on detection**:
 ```
-❌ Found 2 secrets:
+ Found 2 secrets:
 
 - AWS Access Key ID in config/prod.py:42
 - Slack API token in .env.backup:8
@@ -89,8 +89,8 @@ Installs ggshield as a git pre-commit hook.
 After this, every commit is automatically scanned:
 ```
 $ git commit -m "Add config"
-🔍 Running ggshield pre-commit hook...
-❌ Secrets detected! Commit blocked.
+ Running ggshield pre-commit hook...
+ Secrets detected! Commit blocked.
 Remove the secrets and try again.
 ```
 
@@ -144,7 +144,7 @@ moltbot start
 
 ```
 Dev: @clawd scan-repo .
-Moltbot: ✅ Repository clean. All good to push!
+Moltbot:  Repository clean. All good to push!
 
 Dev: git push
 ```
@@ -153,7 +153,7 @@ Dev: git push
 
 ```
 Dev: @clawd scan-repo ~/my-old-project
-Moltbot: ❌ Found 5 secrets in history!
+Moltbot:  Found 5 secrets in history!
          - AWS keys in config/secrets.json
          - Database password in docker-compose.yml
          - Slack webhook in .env.example
@@ -165,12 +165,12 @@ Moltbot: Recommendation: Rotate these credentials immediately.
 
 ```
 Dev: @clawd install-hooks
-Moltbot: ✅ Installed pre-commit hook
+Moltbot:  Installed pre-commit hook
 
 Dev: echo "SECRET_TOKEN=xyz" > config.py
 Dev: git add config.py
 Dev: git commit -m "Add config"
-Moltbot: ❌ Pre-commit hook detected secret!
+Moltbot:  Pre-commit hook detected secret!
 Dev: rm config.py && git reset
 Dev: (add config to .gitignore and to environment variables instead)
 Dev: git commit -m "Add config" # Now works!
@@ -180,7 +180,7 @@ Dev: git commit -m "Add config" # Now works!
 
 ```
 Dev: @clawd scan-docker my-api:v1.2.3
-Moltbot: ✅ Docker image clean
+Moltbot:  Docker image clean
 ```
 
 ## Configuration
@@ -210,13 +210,13 @@ For details: https://docs.gitguardian.com/ggshield-docs/
 
 ### What Data is Sent to GitGuardian?
 
-✅ **ONLY metadata is sent**:
+ **ONLY metadata is sent**:
 
 - Hash of the secret pattern (not the actual secret)
 - File path (relative path only)
 - Line number
 
-❌ **NEVER sent**:
+ **NEVER sent**:
 
 - Your actual secrets or credentials
 - File contents

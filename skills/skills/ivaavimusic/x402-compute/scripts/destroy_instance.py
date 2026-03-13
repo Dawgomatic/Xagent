@@ -32,7 +32,7 @@ def destroy_instance(instance_id: str) -> dict:
 
     if response.status_code == 200:
         data = response.json()
-        print("✅ Instance destroyed successfully")
+        print(" Instance destroyed successfully")
         return data
 
     return {"error": f"HTTP {response.status_code}", "response": response.text[:500]}

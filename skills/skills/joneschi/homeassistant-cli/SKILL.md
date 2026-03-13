@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🏡",
+        "emoji": "",
         "requires": { "bins": ["hass-cli"] },
         "install":
           [
@@ -36,18 +36,18 @@ Control your Home Assistant smart home devices using the **official hass-cli too
 ## Why This Skill vs. `homeassistant` (curl-based)?
 
 **Choose `homeassistant-cli` if you want:**
-- ✅ **Auto-completion** for entity IDs and services (bash/zsh/fish)
-- ✅ **Event monitoring** in real-time (`hass-cli event watch`)
-- ✅ **History queries** (`hass-cli state history`)
-- ✅ **Better output formatting** (table/YAML/JSON with one flag)
-- ✅ **Interactive exploration** (easier to discover entities and services)
-- ✅ **Comprehensive documentation** with examples and troubleshooting
+-  **Auto-completion** for entity IDs and services (bash/zsh/fish)
+-  **Event monitoring** in real-time (`hass-cli event watch`)
+-  **History queries** (`hass-cli state history`)
+-  **Better output formatting** (table/YAML/JSON with one flag)
+-  **Interactive exploration** (easier to discover entities and services)
+-  **Comprehensive documentation** with examples and troubleshooting
 
 **Choose `homeassistant` (curl) if you want:**
-- ✅ Zero dependencies (curl + jq are pre-installed)
-- ✅ Lightweight and fast
-- ✅ Better for scripting and automation
-- ✅ No Python requirements
+-  Zero dependencies (curl + jq are pre-installed)
+-  Lightweight and fast
+-  Better for scripting and automation
+-  No Python requirements
 
 Both work great — this skill is for users who interact frequently with Home Assistant and want a richer CLI experience.
 

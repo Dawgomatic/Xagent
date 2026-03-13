@@ -2,10 +2,10 @@
 name: vikunja-fast
 description: Manage Vikunja projects and tasks (overdue/due/today), mark done, and get quick summaries via the Vikunja API.
 homepage: https://vikunja.io/
-metadata: {"clawdbot":{"emoji":"📋","requires":{"bins":["curl","jq"],"env":["VIKUNJA_URL"],"optionalEnv":["VIKUNJA_TOKEN","VIKUNJA_USERNAME","VIKUNJA_PASSWORD"]},"primaryEnv":"VIKUNJA_TOKEN"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq"],"env":["VIKUNJA_URL"],"optionalEnv":["VIKUNJA_TOKEN","VIKUNJA_USERNAME","VIKUNJA_PASSWORD"]},"primaryEnv":"VIKUNJA_TOKEN"}}
 ---
 
-# ✅ Vikunja Fast Skill
+#  Vikunja Fast Skill
 
 Use Vikunja as the source of truth for tasks and completions, and interact with it from Clawdbot.
 
@@ -100,7 +100,7 @@ Examples:
 Notes:
 - Output formatting:
   - Each task should be formated as: `<EMOJI> <DUE_DATE> - #<ID> <TASK>`
-  - Emoji comes from the project title when it starts with one; otherwise uses `🔨`
+  - Emoji comes from the project title when it starts with one; otherwise uses ``
   - Due dates are rendered as `Mon/D` (time + year removed)
 - This skill uses `GET /tasks/all` to fetch tasks across all projects
 

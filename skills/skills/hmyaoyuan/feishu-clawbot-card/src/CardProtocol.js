@@ -1,6 +1,6 @@
 const { z } = require('zod');
 
-// 📇 FCC v1: The Universal AI Business Card Protocol
+//  FCC v1: The Universal AI Business Card Protocol
 
 const CardProtocolSchema = z.object({
   protocol: z.literal("fcc-v1"), // Protocol version marker

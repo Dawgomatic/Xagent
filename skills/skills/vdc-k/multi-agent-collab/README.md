@@ -43,12 +43,12 @@ Don't inject all docs. Use `qmd query` to retrieve relevant fragments by intent.
 ### Platform Support
 
 Works with any multi-agent system:
-- ✅ **Claude Code** (native skill support via SKILL.md)
-- ✅ **Cursor Agent Mode**
-- ✅ **OpenAI Assistants API**
-- ✅ **LangChain / CrewAI**
-- ✅ **OpenClaw** (original design target)
-- ✅ Manual API orchestration
+-  **Claude Code** (native skill support via SKILL.md)
+-  **Cursor Agent Mode**
+-  **OpenAI Assistants API**
+-  **LangChain / CrewAI**
+-  **OpenClaw** (original design target)
+-  Manual API orchestration
 
 ### Quick Start
 
@@ -91,7 +91,7 @@ agent-sync/
 
 ### License
 
-MIT © 2026 HH & OpenClaw Community
+MIT  2026 HH & OpenClaw Community
 
 ---
 
@@ -131,12 +131,12 @@ CHANGELOG 中的 #标签 在周报时自动聚合。重复 3+ 次的操作进入
 ### 平台支持
 
 适用于任何多智能体系统：
-- ✅ **Claude Code**（通过 SKILL.md 原生支持）
-- ✅ **Cursor Agent Mode**
-- ✅ **OpenAI Assistants API**
-- ✅ **LangChain / CrewAI**
-- ✅ **OpenClaw**（最初设计目标）
-- ✅ 手动 API 编排
+-  **Claude Code**（通过 SKILL.md 原生支持）
+-  **Cursor Agent Mode**
+-  **OpenAI Assistants API**
+-  **LangChain / CrewAI**
+-  **OpenClaw**（最初设计目标）
+-  手动 API 编排
 
 ### 快速开始
 
@@ -160,4 +160,4 @@ cd your-project
 
 ### 开源协议
 
-MIT © 2026 HH & OpenClaw 社区
+MIT  2026 HH & OpenClaw 社区

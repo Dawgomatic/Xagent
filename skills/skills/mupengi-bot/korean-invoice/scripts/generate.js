@@ -132,13 +132,13 @@ async function generateQuote(options) {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   fs.writeFileSync(htmlPath, html, 'utf-8');
 
-  console.log(`✅ 견적서 HTML 생성: ${htmlPath}`);
+  console.log(` 견적서 HTML 생성: ${htmlPath}`);
 
   // PDF 변환
   if (options.pdf !== false) {
     const pdfPath = path.join(OUTPUT_DIR, `${filename}.pdf`);
     await convertToPDF(htmlPath, pdfPath);
-    console.log(`✅ PDF 생성: ${pdfPath}`);
+    console.log(` PDF 생성: ${pdfPath}`);
     return pdfPath;
   }
 
@@ -227,12 +227,12 @@ async function generateTaxInvoice(options) {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   fs.writeFileSync(htmlPath, html, 'utf-8');
 
-  console.log(`✅ 세금계산서 HTML 생성: ${htmlPath}`);
+  console.log(` 세금계산서 HTML 생성: ${htmlPath}`);
 
   if (options.pdf !== false) {
     const pdfPath = path.join(OUTPUT_DIR, `${filename}.pdf`);
     await convertToPDF(htmlPath, pdfPath);
-    console.log(`✅ PDF 생성: ${pdfPath}`);
+    console.log(` PDF 생성: ${pdfPath}`);
     return pdfPath;
   }
 
@@ -308,6 +308,6 @@ async function main() {
 }
 
 main().catch(err => {
-  console.error('❌ 오류:', err.message);
+  console.error(' 오류:', err.message);
   process.exit(1);
 });

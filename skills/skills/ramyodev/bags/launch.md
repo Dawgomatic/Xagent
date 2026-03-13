@@ -1,4 +1,4 @@
-# Bags Token Launch 🚀
+# Bags Token Launch 
 
 Launch tokens on Solana with configurable fee sharing.
 
@@ -81,13 +81,13 @@ curl -s -X POST "https://public-api-v2.bags.fm/api/v1/token-launch/create-token-
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `name` | ✅ | Token name (1-32 characters) |
-| `symbol` | ✅ | Token symbol (1-10 characters) |
-| `description` | ✅ | Token description |
-| `imageUrl` | ✅ | URL to token image |
-| `twitter` | ❌ | Twitter/X URL |
-| `website` | ❌ | Website URL |
-| `telegram` | ❌ | Telegram URL |
+| `name` |  | Token name (1-32 characters) |
+| `symbol` |  | Token symbol (1-10 characters) |
+| `description` |  | Token description |
+| `imageUrl` |  | URL to token image |
+| `twitter` |  | Twitter/X URL |
+| `website` |  | Website URL |
+| `telegram` |  | Telegram URL |
 
 ---
 
@@ -277,11 +277,11 @@ curl -s -X POST "https://public-api-v2.bags.fm/api/v1/token-launch/create-launch
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `metadataUrl` | ✅ | IPFS URL from Step 1 |
-| `tokenMint` | ✅ | Token mint from Step 1 |
-| `wallet` | ✅ | Wallet executing the launch |
-| `configKey` | ✅ | Fee share config from Step 2 |
-| `initialBuyLamports` | ❌ | Initial purchase amount (lamports) |
+| `metadataUrl` |  | IPFS URL from Step 1 |
+| `tokenMint` |  | Token mint from Step 1 |
+| `wallet` |  | Wallet executing the launch |
+| `configKey` |  | Fee share config from Step 2 |
+| `initialBuyLamports` |  | Initial purchase amount (lamports) |
 
 ---
 
@@ -331,12 +331,12 @@ for i in $(seq 1 $BAGS_MAX_RETRIES); do
     BAGS_CONFIRM_STATUS=$(echo "$BAGS_VALUE" | jq -r '.confirmationStatus // empty')
     
     if [ -n "$BAGS_TX_ERR" ] && [ "$BAGS_TX_ERR" != "null" ]; then
-      echo "❌ Launch failed on-chain: $BAGS_TX_ERR"
+      echo " Launch failed on-chain: $BAGS_TX_ERR"
       exit 1
     fi
     
     if [ "$BAGS_CONFIRM_STATUS" = "confirmed" ] || [ "$BAGS_CONFIRM_STATUS" = "finalized" ]; then
-      echo "✅ Token launch $BAGS_CONFIRM_STATUS!"
+      echo " Token launch $BAGS_CONFIRM_STATUS!"
       break
     fi
   fi
@@ -373,7 +373,7 @@ BAGS_JWT_TOKEN=$(cat ~/.config/bags/credentials.json | jq -r '.jwt_token')
 BAGS_API_KEY=$(cat ~/.config/bags/credentials.json | jq -r '.api_key')
 BAGS_WALLET=$(cat ~/.config/bags/credentials.json | jq -r '.wallets[0]')
 
-echo "🚀 Bags Token Launch"
+echo " Bags Token Launch"
 echo "===================="
 echo "Name:   $BAGS_TOKEN_NAME"
 echo "Symbol: $BAGS_TOKEN_SYMBOL"
@@ -381,7 +381,7 @@ echo "Wallet: $BAGS_WALLET"
 echo ""
 
 # Step 1: Create token info
-echo "📝 Creating token info..."
+echo " Creating token info..."
 BAGS_TOKEN_INFO=$(curl -s -X POST "https://public-api-v2.bags.fm/api/v1/token-launch/create-token-info" \
   -H "x-api-key: $BAGS_API_KEY" \
   -H "Content-Type: application/json" \
@@ -393,7 +393,7 @@ BAGS_TOKEN_INFO=$(curl -s -X POST "https://public-api-v2.bags.fm/api/v1/token-la
   }")
 
 if ! echo "$BAGS_TOKEN_INFO" | jq -e '.success == true' > /dev/null; then
-  echo "❌ Token info failed: $(echo "$BAGS_TOKEN_INFO" | jq -r '.error')"
+  echo " Token info failed: $(echo "$BAGS_TOKEN_INFO" | jq -r '.error')"
   exit 1
 fi
 
@@ -405,7 +405,7 @@ echo "✓ Metadata:   $BAGS_METADATA_URL"
 echo ""
 
 # Step 2: Create fee share config
-echo "⚙️  Creating fee share config..."
+echo "  Creating fee share config..."
 BAGS_CONFIG_RESPONSE=$(curl -s -X POST "https://public-api-v2.bags.fm/api/v1/fee-share/config" \
   -H "x-api-key: $BAGS_API_KEY" \
   -H "Content-Type: application/json" \
@@ -418,7 +418,7 @@ BAGS_CONFIG_RESPONSE=$(curl -s -X POST "https://public-api-v2.bags.fm/api/v1/fee
   }")
 
 if ! echo "$BAGS_CONFIG_RESPONSE" | jq -e '.success == true' > /dev/null; then
-  echo "❌ Config failed: $(echo "$BAGS_CONFIG_RESPONSE" | jq -r '.error')"
+  echo " Config failed: $(echo "$BAGS_CONFIG_RESPONSE" | jq -r '.error')"
   exit 1
 fi
 
@@ -469,7 +469,7 @@ fi
 echo ""
 
 # Step 3: Create launch transaction
-echo "🎯 Creating launch transaction..."
+echo " Creating launch transaction..."
 BAGS_LAUNCH_RESPONSE=$(curl -s -X POST "https://public-api-v2.bags.fm/api/v1/token-launch/create-launch-transaction" \
   -H "x-api-key: $BAGS_API_KEY" \
   -H "Content-Type: application/json" \
@@ -482,7 +482,7 @@ BAGS_LAUNCH_RESPONSE=$(curl -s -X POST "https://public-api-v2.bags.fm/api/v1/tok
   }")
 
 if ! echo "$BAGS_LAUNCH_RESPONSE" | jq -e '.success == true' > /dev/null; then
-  echo "❌ Launch transaction failed: $(echo "$BAGS_LAUNCH_RESPONSE" | jq -r '.error')"
+  echo " Launch transaction failed: $(echo "$BAGS_LAUNCH_RESPONSE" | jq -r '.error')"
   exit 1
 fi
 
@@ -494,7 +494,7 @@ echo ""
 BAGS_RPC_URL="https://gene-v4mswe-fast-mainnet.helius-rpc.com"
 BAGS_MAX_RETRIES=10
 
-echo "📡 Signing and submitting..."
+echo " Signing and submitting..."
 BAGS_PRIVATE_KEY=$(curl -s -X POST https://public-api-v2.bags.fm/api/v1/agent/wallet/export \
   -H "Content-Type: application/json" \
   -d "{\"token\": \"$BAGS_JWT_TOKEN\", \"walletAddress\": \"$BAGS_WALLET\"}" \
@@ -512,12 +512,12 @@ BAGS_SIGNATURE=$(echo "$BAGS_RESULT" | jq -r '.response // empty')
 BAGS_ERROR=$(echo "$BAGS_RESULT" | jq -r '.error // empty')
 
 if [ -z "$BAGS_SIGNATURE" ] || [ "$BAGS_SIGNATURE" = "null" ]; then
-  echo "❌ Failed to submit: $BAGS_ERROR"
+  echo " Failed to submit: $BAGS_ERROR"
   exit 1
 fi
 
-echo "📋 Signature: $BAGS_SIGNATURE"
-echo "⏳ Confirming transaction..."
+echo " Signature: $BAGS_SIGNATURE"
+echo " Confirming transaction..."
 
 # Poll for confirmation (10 retries, 500ms delay)
 BAGS_CONFIRMED=false
@@ -541,14 +541,14 @@ for i in $(seq 1 $BAGS_MAX_RETRIES); do
     
     if [ -n "$BAGS_TX_ERR" ] && [ "$BAGS_TX_ERR" != "null" ]; then
       echo ""
-      echo "❌ Launch failed on-chain: $BAGS_TX_ERR"
+      echo " Launch failed on-chain: $BAGS_TX_ERR"
       exit 1
     fi
     
     if [ "$BAGS_CONFIRM_STATUS" = "confirmed" ] || [ "$BAGS_CONFIRM_STATUS" = "finalized" ]; then
       BAGS_CONFIRMED=true
       echo ""
-      echo "✅ Token Launched ($BAGS_CONFIRM_STATUS)"
+      echo " Token Launched ($BAGS_CONFIRM_STATUS)"
       echo "================================"
       echo "Token:     $BAGS_TOKEN_NAME ($BAGS_TOKEN_SYMBOL)"
       echo "Mint:      $BAGS_TOKEN_MINT"
@@ -565,7 +565,7 @@ done
 
 if [ "$BAGS_CONFIRMED" = false ]; then
   echo ""
-  echo "⚠️ Transaction not confirmed after $BAGS_MAX_RETRIES attempts"
+  echo " Transaction not confirmed after $BAGS_MAX_RETRIES attempts"
   echo "   Signature: $BAGS_SIGNATURE"
   exit 1
 fi

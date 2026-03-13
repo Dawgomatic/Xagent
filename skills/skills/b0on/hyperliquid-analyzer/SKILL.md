@@ -4,7 +4,7 @@ version: 1.0.0
 description: Analyze Hyperliquid market data and provide trading insights. Real-time price monitoring, trend analysis, and risk assessment.
 metadata:
   openclaw:
-    emoji: "📊"
+    emoji: ""
     requires:
       bins: ["curl", "jq"]
     primaryEnv: HYPERLIQUID_WALLET_ADDRESS
@@ -50,7 +50,7 @@ curl -s https://api.hyperliquid.xyz/info -X POST \
 ## Example Output
 
 ```
-📊 Hyperliquid Market Analysis
+ Hyperliquid Market Analysis
 
 Current Prices:
   BTC: $67,743 (+2.1% 24h)

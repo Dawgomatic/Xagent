@@ -9,7 +9,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-echo -e "${GREEN}📱 10DLC Status${NC}"
+echo -e "${GREEN} 10DLC Status${NC}"
 echo "======================================"
 
 if ! command -v telnyx &>/dev/null; then

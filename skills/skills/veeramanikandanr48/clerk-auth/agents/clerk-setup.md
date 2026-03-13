@@ -206,27 +206,27 @@ curl -H "Authorization: Bearer [TOKEN]" https://your-api/protected
 ### Report
 
 ```markdown
-## Clerk Setup Complete ✅
+## Clerk Setup Complete 
 
 **Project**: [name]
 **Framework**: [React/Next.js/Cloudflare Workers]
 
 ### Frontend
-- ClerkProvider: ✅ Configured
-- Sign In: ✅ [route]
-- Sign Up: ✅ [route]
-- Protected routes: ✅
+- ClerkProvider:  Configured
+- Sign In:  [route]
+- Sign Up:  [route]
+- Protected routes: 
 
 ### Backend
-- Token verification: ✅ Configured
-- Webhook endpoint: ✅ [url]
+- Token verification:  Configured
+- Webhook endpoint:  [url]
 
 ### Environment Variables
 | Variable | Location | Status |
 |----------|----------|--------|
-| CLERK_PUBLISHABLE_KEY | .env.local | ✅ |
-| CLERK_SECRET_KEY | Cloudflare secrets | ✅ |
-| CLERK_WEBHOOK_SECRET | Cloudflare secrets | ✅ |
+| CLERK_PUBLISHABLE_KEY | .env.local |  |
+| CLERK_SECRET_KEY | Cloudflare secrets |  |
+| CLERK_WEBHOOK_SECRET | Cloudflare secrets |  |
 
 ### Webhook Events
 - [x] user.created

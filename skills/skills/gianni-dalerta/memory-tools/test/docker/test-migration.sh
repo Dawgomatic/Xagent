@@ -143,7 +143,7 @@ fi
 if [ -f "$V1_DB_PATH/.migrated-to-v2" ]; then
     echo -e "${GREEN}✓ Migration marker created${NC}"
 else
-    echo -e "${YELLOW}⚠ Migration marker not found (non-critical)${NC}"
+    echo -e "${YELLOW} Migration marker not found (non-critical)${NC}"
 fi
 echo ""
 

@@ -1,11 +1,11 @@
 ---
 name: agent-orchestration
 version: 2.0.0
-description: "Master the art of spawning and managing sub-agents. Write prompts that actually work, track running agents, and learn from every outcome. Part of the Hal Stack 🦞"
+description: "Master the art of spawning and managing sub-agents. Write prompts that actually work, track running agents, and learn from every outcome. Part of the Hal Stack "
 author: halthelobster
 ---
 
-# Agent Orchestration 🦞
+# Agent Orchestration 
 
 **By Hal Labs** — Part of the Hal Stack
 
@@ -20,7 +20,7 @@ You're not prompting. **You're praying.**
 Most prompts are wishes tossed into the void:
 
 ```
-❌ "Research the best vector databases and write a report"
+ "Research the best vector databases and write a report"
 ```
 
 You type something reasonable. The output is mid. You rephrase. Still mid. You add keywords. Somehow worse. You blame the model.
@@ -113,18 +113,18 @@ Produce a 500-word product description that:
 
 The more precisely you define the task, the more precisely the model executes.
 
-### Layer 4: Process ⚡
+### Layer 4: Process 
 
 **This is where most prompts fail.**
 
 You're asking for output. You should be asking for **how the output is formed.**
 
-❌ Bad:
+ Bad:
 ```
 Write me a marketing page.
 ```
 
-✅ Good:
+ Good:
 ```markdown
 ## Process
 1. First, analyze the target audience and identify their primary pain points
@@ -320,13 +320,13 @@ Maintain `notes/areas/active-agents.md`:
 
 | Label | Task | Spawned | Expected | Status |
 |-------|------|---------|----------|--------|
-| research-x | Competitor analysis | 9:00 AM | 15m | 🏃 Running |
+| research-x | Competitor analysis | 9:00 AM | 15m |  Running |
 
 ## Completed Today
 
 | Label | Task | Runtime | Result |
 |-------|------|---------|--------|
-| builder-v2 | Dashboard update | 8m | ✅ Complete |
+| builder-v2 | Dashboard update | 8m |  Complete |
 ```
 
 **Heartbeat check:**
@@ -438,7 +438,7 @@ You don't need to be smarter. You need to be clearer.
 
 ---
 
-*Part of the Hal Stack 🦞*
+*Part of the Hal Stack *
 
 ---
 

@@ -14,13 +14,13 @@
 ## The Solution
 
 **openclaw-defender** implements 7 layers of defense:
-- ✅ Pre-installation skill auditing (threat patterns, blocklist, GitHub age)
-- ✅ File integrity monitoring (detects memory poisoning)
-- ✅ Runtime protection (network/file/command/RAG blocking)
-- ✅ Output sanitization (credential redaction, exfiltration prevention)
-- ✅ Kill switch (emergency shutdown on attack detection)
-- ✅ Security analytics (structured logging, pattern detection, daily reports)
-- ✅ Collusion detection (multi-skill coordination monitoring)
+-  Pre-installation skill auditing (threat patterns, blocklist, GitHub age)
+-  File integrity monitoring (detects memory poisoning)
+-  Runtime protection (network/file/command/RAG blocking)
+-  Output sanitization (credential redaction, exfiltration prevention)
+-  Kill switch (emergency shutdown on attack detection)
+-  Security analytics (structured logging, pattern detection, daily reports)
+-  Collusion detection (multi-skill coordination monitoring)
 
 ## Quick Start
 
@@ -44,7 +44,7 @@ crontab -e
 ```bash
 ~/.openclaw/workspace/bin/check-integrity.sh
 ```
-Expected: "✅ All files integrity verified"
+Expected: " All files integrity verified"
 
 ### 3. Audit a Skill (Before Installation)
 ```bash
@@ -53,7 +53,7 @@ Expected: "✅ All files integrity verified"
 
 ## Features
 
-### 🛡️ Real-Time Protection
+###  Real-Time Protection
 - Monitors 13 critical files (SOUL.md, MEMORY.md, all SKILL.md files)
 - SHA256 baseline verification every 10 minutes
 - Network request monitoring (whitelist + malicious URL blocking)
@@ -63,7 +63,7 @@ Expected: "✅ All files integrity verified"
 - Automatic incident logging (JSON Lines format)
 - Tampering detection with kill switch activation
 
-### 🔍 Pre-Installation Auditing
+###  Pre-Installation Auditing
 - Base64/hex obfuscation detection
 - Prompt injection pattern matching
 - Credential theft scanning
@@ -72,7 +72,7 @@ Expected: "✅ All files integrity verified"
 - Known malicious infrastructure blocking (blocklist.conf)
 - Automated violation scoring
 
-### 🚨 Incident Response & Analytics
+###  Incident Response & Analytics
 - One-command skill quarantine
 - Emergency kill switch (auto-activation on critical threats)
 - Memory poisoning analysis
@@ -81,7 +81,7 @@ Expected: "✅ All files integrity verified"
 - Attack pattern detection (credential theft, network exfiltration, collusion)
 - Recovery playbooks
 
-### 📋 Policy Enforcement
+###  Policy Enforcement
 - NEVER install from ClawHub
 - Whitelist-only external sources
 - Mandatory human approval for Tier 3+ operations
@@ -212,14 +212,14 @@ Backups are stored under `references/.backup/`. If the repo provides `references
 ### Installation Rules
 
 **NEVER install skills from:**
-- ❌ ClawHub (13.4% malicious rate)
-- ❌ Unknown sources
-- ❌ Authors with GitHub age <90 days
+-  ClawHub (13.4% malicious rate)
+-  Unknown sources
+-  Authors with GitHub age <90 days
 
 **ONLY install skills:**
-- ✅ You created yourself
-- ✅ From verified npm (>10k downloads, audited)
-- ✅ From known trusted contributors (verified identity)
+-  You created yourself
+-  From verified npm (>10k downloads, audited)
+-  From known trusted contributors (verified identity)
 
 ### Known Malicious Actors (Blocklist)
 
@@ -417,4 +417,4 @@ MIT License - Use freely, improve openly, stay secure.
 
 ---
 
-**Stay safe. Stay vigilant. 🦞**
+**Stay safe. Stay vigilant. **

@@ -11,7 +11,7 @@ echo "════════════════════════�
 echo ""
 
 # fail2ban stats
-echo "📊 fail2ban ($JAIL jail):"
+echo " fail2ban ($JAIL jail):"
 STATUS=$(sudo fail2ban-client status "$JAIL" 2>/dev/null)
 if [ $? -eq 0 ]; then
   CURRENTLY_BANNED=$(echo "$STATUS" | grep "Currently banned" | awk '{print $NF}')
@@ -26,13 +26,13 @@ if [ $? -eq 0 ]; then
   echo ""
   echo "  Banned IPs: $BANNED_LIST"
 else
-  echo "  ⚠️ fail2ban not running or jail not found"
+  echo "   fail2ban not running or jail not found"
 fi
 
 echo ""
 
 # AbuseIPDB reporting stats
-echo "📡 AbuseIPDB Reports:"
+echo " AbuseIPDB Reports:"
 if [ -f "$LOG" ]; then
   REPORTED=$(grep -c "REPORTED" "$LOG" 2>/dev/null || echo 0)
   FAILED=$(grep -c "FAILED" "$LOG" 2>/dev/null || echo 0)

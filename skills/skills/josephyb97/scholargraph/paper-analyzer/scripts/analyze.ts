@@ -543,7 +543,7 @@ ${options.focusAreas ? `重点关注: ${options.focusAreas.join(', ')}` : ''}
   toMarkdown(analysis: PaperAnalysis): string {
     return `# ${analysis.metadata.title}
 
-## 📋 基本信息
+##  基本信息
 
 - **作者**: ${analysis.metadata.authors.join(', ') || '未知'}
 - **年份**: ${analysis.metadata.year}
@@ -551,11 +551,11 @@ ${options.focusAreas ? `重点关注: ${options.focusAreas.join(', ')}` : ''}
 - **关键词**: ${analysis.metadata.keywords.join(', ') || '无'}
 - **链接**: ${analysis.metadata.url}
 
-## 📖 摘要
+##  摘要
 
 ${analysis.abstract || analysis.summary}
 
-## 🎯 关键要点
+##  关键要点
 
 ${analysis.keyPoints.map(k => `
 ### ${k.point}
@@ -563,7 +563,7 @@ ${analysis.keyPoints.map(k => `
 - **说明**: ${k.explanation}
 `).join('\n')}
 
-## 🔬 方法分析
+##  方法分析
 
 ### 概述
 ${analysis.methodology.overview}
@@ -577,7 +577,7 @@ ${analysis.methodology.strengths.map(s => `- ${s}`).join('\n')}
 ### 缺点
 ${analysis.methodology.weaknesses.map(w => `- ${w}`).join('\n')}
 
-## 📊 实验结果
+##  实验结果
 
 - **数据集**: ${analysis.experiments.datasets.join(', ') || '未指定'}
 - **评估指标**: ${analysis.experiments.metrics.join(', ') || '未指定'}
@@ -586,31 +586,31 @@ ${analysis.methodology.weaknesses.map(w => `- ${w}`).join('\n')}
 ### 主要结果
 ${analysis.experiments.mainResults}
 
-## 🏆 贡献
+##  贡献
 
 ${analysis.contributions.map(c => `
 - **${c.description}** (${c.significance} - ${c.type})
 `).join('\n')}
 
-## ⚠️ 局限性
+##  局限性
 
 ${analysis.limitations.map(l => `
 - **${l.description}** (影响程度: ${l.impact})
 ${l.potentialSolution ? `  - 可能的解决方案: ${l.potentialSolution}` : ''}
 `).join('\n')}
 
-## 🔮 未来工作
+##  未来工作
 
 ${analysis.futureWork.map(f => `- ${f}`).join('\n')}
 
-## 🔄 可复现性
+##  可复现性
 
 - **评分**: ${analysis.reproducibility.score}/100
 - **代码可用**: ${analysis.reproducibility.codeAvailable ? '是' : '否'}
 - **数据可用**: ${analysis.reproducibility.datasetAvailable ? '是' : '否'}
 - **备注**: ${analysis.reproducibility.notes}
 
-## 💡 建议
+##  建议
 
 ### 对研究者
 ${analysis.recommendations.forResearchers.map(r => `- ${r}`).join('\n') || '暂无'}

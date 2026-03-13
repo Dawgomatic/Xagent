@@ -409,7 +409,7 @@ class TeamScalingCalculator:
                 recommendations.append('Establish clear team charters and boundaries')
             
             if growth_rate > 1.0:
-                recommendations.append('⚠️ High growth risk - consider slowing timeline')
+                recommendations.append(' High growth risk - consider slowing timeline')
                 recommendations.append('Focus on senior hires first to establish culture')
                 recommendations.append('Implement continuous integration practices early')
         

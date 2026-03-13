@@ -1,7 +1,7 @@
 ---
 name: say
 description: Text-to-Speech via macOS say command with Siri Natural Voices. Use for generating speech audio, TTS clips, or speaking text aloud on macOS.
-metadata: {"openclaw":{"emoji":"🔊","os":["darwin"],"requires":{"bins":["say","ffmpeg"]}}}
+metadata: {"openclaw":{"emoji":"","os":["darwin"],"requires":{"bins":["say","ffmpeg"]}}}
 ---
 
 # say

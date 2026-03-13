@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🦞 Gradient AI — Image Generation
+ Gradient AI — Image Generation
 
 Generate images from text prompts using DigitalOcean's Gradient
 Serverless Inference API.
@@ -77,7 +77,7 @@ def generate_image(
         return {
             "success": True,
             "images": images,
-            "message": f"Generated {len(images)} image(s). 🦞",
+            "message": f"Generated {len(images)} image(s). ",
         }
     except requests.RequestException as e:
         return {"success": False, "images": [], "message": f"API request failed: {str(e)}"}
@@ -134,7 +134,7 @@ def save_image(image_data: dict, output_path: str) -> dict:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🦞 Generate images with Gradient AI"
+        description=" Generate images with Gradient AI"
     )
     parser.add_argument("--prompt", required=True, help="Text prompt for image generation")
     parser.add_argument("--model", default=DEFAULT_IMAGE_MODEL, help="Image model ID")
@@ -159,7 +159,7 @@ def main():
     elif args.output and result["images"]:
         save_result = save_image(result["images"][0], args.output)
         if save_result["success"]:
-            print(f"🖼️  {save_result['message']}")
+            print(f"  {save_result['message']}")
         else:
             print(f"Error: {save_result['message']}", file=sys.stderr)
             sys.exit(1)

@@ -201,7 +201,7 @@ async function main() {
     if (result.funded) {
       console.log("✓ Wallet is funded and ready for x402 payments");
     } else {
-      console.log("⚠ Wallet needs funding:");
+      console.log(" Wallet needs funding:");
       if (parseFloat(result.balances.eth) < 0.001) {
         console.log("  - Add ETH for gas fees (minimum 0.001 ETH recommended)");
       }

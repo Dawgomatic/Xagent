@@ -66,7 +66,7 @@ comparative_insights:
       
   - type: budget_adherence
     examples:
-      - "Stayed under budget 3 months in a row! 🎉"
+      - "Stayed under budget 3 months in a row! "
       - "Shopping category exceeded budget by ¥200"
 ```
 
@@ -139,7 +139,7 @@ thresholds:
 tone:
   positive:
     - "Great progress on staying within budget!"
-    - "Consistent spending habits this week 👍"
+    - "Consistent spending habits this week "
     
   neutral:
     - "Spending patterns this month:"
@@ -161,14 +161,14 @@ tone:
 ### Daily Insight Block
 
 ```markdown
-> [!insight] 💡 Today's Financial Insight
+> [!insight]  Today's Financial Insight
 > {insight_content}
 ```
 
 ### Pattern Alert
 
 ```markdown
-> [!pattern] 📊 Spending Pattern Detected
+> [!pattern]  Spending Pattern Detected
 > **{pattern_name}**
 > {pattern_description}
 > 
@@ -178,7 +178,7 @@ tone:
 ### Recommendation
 
 ```markdown
-> [!tip] 💡 Suggestion
+> [!tip]  Suggestion
 > {recommendation}
 > 
 > **Potential savings:** ¥{amount}/month
@@ -187,7 +187,7 @@ tone:
 ### Achievement
 
 ```markdown
-> [!success] 🎉 Financial Win
+> [!success]  Financial Win
 > {achievement_description}
 ```
 
@@ -198,7 +198,7 @@ Ledger contributes to PhoenixClaw's Growth Notes section:
 ```yaml
 growth_notes_contribution:
   section: "Financial Growth"
-  icon: 💰
+  icon: 
   
   content_types:
     - budget_achievements
@@ -207,7 +207,7 @@ growth_notes_contribution:
     - habit_changes
     
   example_output: |
-    ### 💰 Financial Growth
+    ###  Financial Growth
     - Stayed under food budget for 2 weeks straight
     - Reduced impulse purchases by 50% vs last month
     - On track for travel savings goal (¥2,400/¥5,000)

@@ -52,11 +52,11 @@ Earnings accumulate in your developer account and can be withdrawn anytime.
 
 ## Features
 
-- ✅ **Auto-approval:** If health check passes, your API goes live immediately
-- ✅ **No API keys:** Authentication by wallet address
-- ✅ **Flexible pricing:** Set prices between $0.0001 and $10.00 per request
-- ✅ **Real-time stats:** Track requests and revenue
-- ✅ **Update anytime:** Change endpoint, price, or deactivate
+-  **Auto-approval:** If health check passes, your API goes live immediately
+-  **No API keys:** Authentication by wallet address
+-  **Flexible pricing:** Set prices between $0.0001 and $10.00 per request
+-  **Real-time stats:** Track requests and revenue
+-  **Update anytime:** Change endpoint, price, or deactivate
 
 ## Security
 

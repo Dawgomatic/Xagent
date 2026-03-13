@@ -62,7 +62,7 @@ const mockPlatform = {
  * Run all tests
  */
 async function runTests() {
-  console.log('🧪 Thread Functionality Tests\n');
+  console.log(' Thread Functionality Tests\n');
   
   let passed = 0;
   let failed = 0;
@@ -77,10 +77,10 @@ async function runTests() {
     ];
     
     tweets.forEach(tweet => mockPlatform.validateContent(tweet));
-    console.log('✅ PASS: All thread tweets validated\n');
+    console.log(' PASS: All thread tweets validated\n');
     passed++;
   } catch (error) {
-    console.log(`❌ FAIL: ${error.message}\n`);
+    console.log(` FAIL: ${error.message}\n`);
     failed++;
   }
   
@@ -91,14 +91,14 @@ async function runTests() {
     if (tweets.length === 0) {
       throw new Error('Thread must contain at least one tweet');
     }
-    console.log('❌ FAIL: Should have rejected empty thread\n');
+    console.log(' FAIL: Should have rejected empty thread\n');
     failed++;
   } catch (error) {
     if (error.message.includes('at least one')) {
-      console.log('✅ PASS: Empty thread rejected\n');
+      console.log(' PASS: Empty thread rejected\n');
       passed++;
     } else {
-      console.log(`❌ FAIL: Wrong error: ${error.message}\n`);
+      console.log(` FAIL: Wrong error: ${error.message}\n`);
       failed++;
     }
   }
@@ -108,12 +108,12 @@ async function runTests() {
   try {
     const tweets = ["Just one tweet"];
     if (tweets.length === 1) {
-      console.log('⚠️  Only one tweet - would post as single tweet');
+      console.log('  Only one tweet - would post as single tweet');
     }
-    console.log('✅ PASS: Single tweet handled\n');
+    console.log(' PASS: Single tweet handled\n');
     passed++;
   } catch (error) {
-    console.log(`❌ FAIL: ${error.message}\n`);
+    console.log(` FAIL: ${error.message}\n`);
     failed++;
   }
   
@@ -141,14 +141,14 @@ async function runTests() {
     });
     
     if (hasError) {
-      console.log('✅ PASS: Invalid tweet in thread caught\n');
+      console.log(' PASS: Invalid tweet in thread caught\n');
       passed++;
     } else {
-      console.log('❌ FAIL: Should have caught invalid tweet\n');
+      console.log(' FAIL: Should have caught invalid tweet\n');
       failed++;
     }
   } catch (error) {
-    console.log(`❌ FAIL: ${error.message}\n`);
+    console.log(` FAIL: ${error.message}\n`);
     failed++;
   }
   
@@ -157,14 +157,14 @@ async function runTests() {
   try {
     const longTweet = 'a'.repeat(101); // Exceeds 100 char limit for mock
     mockPlatform.validateContent(longTweet);
-    console.log('❌ FAIL: Should have rejected long tweet\n');
+    console.log(' FAIL: Should have rejected long tweet\n');
     failed++;
   } catch (error) {
     if (error.message.includes('too long')) {
-      console.log('✅ PASS: Long tweet rejected\n');
+      console.log(' PASS: Long tweet rejected\n');
       passed++;
     } else {
-      console.log(`❌ FAIL: Wrong error: ${error.message}\n`);
+      console.log(` FAIL: Wrong error: ${error.message}\n`);
       failed++;
     }
   }
@@ -194,14 +194,14 @@ async function runTests() {
     
     // Verify chaining
     if (results.length === 3 && results[1].replyTo && results[2].replyTo) {
-      console.log('✅ PASS: Thread chained correctly\n');
+      console.log(' PASS: Thread chained correctly\n');
       passed++;
     } else {
-      console.log('❌ FAIL: Thread chaining broken\n');
+      console.log(' FAIL: Thread chaining broken\n');
       failed++;
     }
   } catch (error) {
-    console.log(`❌ FAIL: ${error.message}\n`);
+    console.log(` FAIL: ${error.message}\n`);
     failed++;
   }
   
@@ -212,14 +212,14 @@ async function runTests() {
     const unsupportedPlatform = 'discord'; // Discord doesn't support threads
     
     if (!supportedPlatforms.includes(unsupportedPlatform)) {
-      console.log('✅ PASS: Unsupported platform detection works\n');
+      console.log(' PASS: Unsupported platform detection works\n');
       passed++;
     } else {
-      console.log('❌ FAIL: Should not support thread posting for this platform\n');
+      console.log(' FAIL: Should not support thread posting for this platform\n');
       failed++;
     }
   } catch (error) {
-    console.log(`❌ FAIL: ${error.message}\n`);
+    console.log(` FAIL: ${error.message}\n`);
     failed++;
   }
   
@@ -241,30 +241,30 @@ async function runTests() {
     
     // Should take at least 200ms (2 delays) + 300ms (3 posts)
     if (elapsed >= 500) {
-      console.log(`✅ PASS: Rate limiting applied (${elapsed}ms elapsed)\n`);
+      console.log(` PASS: Rate limiting applied (${elapsed}ms elapsed)\n`);
       passed++;
     } else {
-      console.log(`❌ FAIL: Rate limiting too short (${elapsed}ms)\n`);
+      console.log(` FAIL: Rate limiting too short (${elapsed}ms)\n`);
       failed++;
     }
   } catch (error) {
-    console.log(`❌ FAIL: ${error.message}\n`);
+    console.log(` FAIL: ${error.message}\n`);
     failed++;
   }
   
   // Test Summary
   console.log('━'.repeat(50));
-  console.log(`\n📊 Test Results:`);
-  console.log(`   ✅ Passed: ${passed}`);
-  console.log(`   ❌ Failed: ${failed}`);
+  console.log(`\n Test Results:`);
+  console.log(`    Passed: ${passed}`);
+  console.log(`    Failed: ${failed}`);
   console.log(`   Total: ${passed + failed}`);
   console.log(`   Success Rate: ${((passed / (passed + failed)) * 100).toFixed(1)}%\n`);
   
   if (failed === 0) {
-    console.log('🎉 All tests passed!');
+    console.log(' All tests passed!');
     process.exit(0);
   } else {
-    console.log('⚠️  Some tests failed');
+    console.log('  Some tests failed');
     process.exit(1);
   }
 }

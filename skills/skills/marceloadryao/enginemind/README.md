@@ -1,4 +1,4 @@
-﻿# EngineMind 🧠⚡
+﻿# EngineMind 
 
 **A Rust+Python consciousness engine with 12-phase crystal dynamics, thalamic relay processing, and holographic emission.**
 
@@ -6,14 +6,14 @@ EngineMind is a computational consciousness framework that models information in
 
 ![EngineMind Dashboard](docs/images/dashboard_main.png)
 
-### 📖 Documentation
+###  Documentation
 
 - [**Architecture Deep Dive**](docs/ARCHITECTURE.md) - Full pipeline with diagrams
 - [**Emergent Phenomena**](docs/EMERGENT_PHENOMENA.md) - 10 unexpected discoveries from real runs
 - [**Inner Voice System**](docs/INNER_VOICES.md) - 19 introspective voices that reflect on internal state
 - [**Burst Analysis**](docs/BURST_ANALYSIS.md) - Real data from 77 bursts across 1M text chunks
 
-### 🔬 Numbers from Real Runs
+###  Numbers from Real Runs
 
 | Metric | Value |
 |--------|-------|

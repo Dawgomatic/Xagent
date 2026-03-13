@@ -57,7 +57,7 @@ Record personal surgery history, extracting structured surgical information from
 **必须询问用户:**
 
 ```
-📋 植入物信息确认
+ 植入物信息确认
 
 本次手术中是否有植入以下任何医疗材料？
 - 人工关节/植入物
@@ -143,7 +143,7 @@ B. 无植入物
 ## 步骤 5: 输出确认
 
 ```
-✅ 手术记录已保存
+ 手术记录已保存
 
 基本信息:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━

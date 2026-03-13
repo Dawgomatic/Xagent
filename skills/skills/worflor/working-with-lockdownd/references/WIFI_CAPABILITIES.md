@@ -3,7 +3,7 @@
 *Updated: 2026-01-28 20:40*
 *Device: iPhone 13 Pro (iOS 26.2 beta)*
 
-## ✅ FULLY WORKING OVER WIFI
+##  FULLY WORKING OVER WIFI
 
 ### 1. Lockdown Protocol (Full Access)
 All lockdown GetValue/SetValue operations work perfectly.
@@ -53,7 +53,7 @@ Keep-alive protocol for maintaining WiFi connection.
 
 ---
 
-## 📊 LOCKDOWN DOMAINS WITH DATA
+##  LOCKDOWN DOMAINS WITH DATA
 
 ### Device Info (Default Domain)
 87 keys available including:
@@ -168,7 +168,7 @@ Massive dict with:
 
 ---
 
-## ⛔ BLOCKED BY WIFI WALL
+##  BLOCKED BY WIFI WALL
 
 Services that get ports but EOF on commands:
 - AFC (file access)
@@ -192,7 +192,7 @@ Services that are InvalidService:
 
 ---
 
-## 🔑 CRYPTO KEYS EXTRACTED
+##  CRYPTO KEYS EXTRACTED
 
 1. **ActivationPrivateKey** - 899 bytes RSA PEM
 2. **ActivationPublicKey** - 253 bytes
@@ -208,7 +208,7 @@ Services that are InvalidService:
 
 ---
 
-## 💡 KEY INSIGHTS
+##  KEY INSIGHTS
 
 1. **SetValue persists** - Values written to lockdown cache stay until reboot
 2. **USB spoofing** - Device reports ConnectionType: USB even on WiFi
@@ -218,7 +218,7 @@ Services that are InvalidService:
 
 ---
 
-## 📁 FILES IN THIS DIRECTORY
+##  FILES IN THIS DIRECTORY
 
 - `wifi_lockdown.py` - Base WiFi client
 - `deep_probe.py` - Domain enumeration

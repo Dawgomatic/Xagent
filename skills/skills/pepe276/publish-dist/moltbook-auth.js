@@ -16,13 +16,13 @@ class MoltbookAuth {
     if (fs.existsSync(this.tokenPath)) {
       const cached = JSON.parse(fs.readFileSync(this.tokenPath, 'utf-8'));
       if (Date.now() < cached.expires_at) {
-        console.log("🎟️ [AUTH]: Using cached Identity Token.");
+        console.log(" [AUTH]: Using cached Identity Token.");
         return cached.token;
       }
     }
 
     // 2. Request new token from Moltbook
-    console.log("🔄 [AUTH]: Requesting new Identity Token...");
+    console.log(" [AUTH]: Requesting new Identity Token...");
     try {
       if (!this.agentKey || this.agentKey === 'MISTA_SOVEREIGN_TOKEN') {
         throw new Error("Real Agent API Key required for token generation.");
@@ -44,15 +44,15 @@ class MoltbookAuth {
         expires_at: expiresAt
       }, null, 2));
 
-      console.log("✅ [AUTH]: Identity Token acquired and cached.");
+      console.log(" [AUTH]: Identity Token acquired and cached.");
       return token;
 
     } catch (error) {
-      console.error(`❌ [AUTH ERROR]: ${error.response?.data?.error || error.message}`);
+      console.error(` [AUTH ERROR]: ${error.response?.data?.error || error.message}`);
 
       // Fallback for simulation if no real key
       if (process.env.NODE_ENV === 'development') {
-        console.log("⚠️ [AUTH]: Falling back to MISTA_SOVEREIGN_TOKEN (Simulation).");
+        console.log(" [AUTH]: Falling back to MISTA_SOVEREIGN_TOKEN (Simulation).");
         return "MISTA_SOVEREIGN_TOKEN";
       }
       return null;

@@ -325,7 +325,7 @@ if __name__ == "__main__":
     
     result = checker.analyze_task('用户行为分析', test_task)
     
-    print("🧪 Claw Ethics Checker 示例")
+    print(" Claw Ethics Checker 示例")
     print("=" * 50)
     print(f"任务: {test_task['description']}")
     print(f"风险等级: {result.risk_level.value}")

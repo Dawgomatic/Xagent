@@ -1,6 +1,6 @@
 # Provider-Specific Settings - Quick Reference
 
-## ✅ What's Supported
+##  What's Supported
 
 The CLI now supports **platform-specific settings** for all 28+ integrations!
 
@@ -191,7 +191,7 @@ Look at the `provider` field - this is your provider type!
 
 ## Documentation
 
-📖 **[PROVIDER_SETTINGS.md](./PROVIDER_SETTINGS.md)** - Complete documentation with all platform settings
+ **[PROVIDER_SETTINGS.md](./PROVIDER_SETTINGS.md)** - Complete documentation with all platform settings
 
 Includes:
 - All available settings for each platform
@@ -210,11 +210,11 @@ Includes:
 
 ## Summary
 
-✅ **28+ platforms supported**
-✅ **Platform-specific settings for Reddit, YouTube, TikTok, X, LinkedIn, Instagram, and more**
-✅ **Easy command-line interface**
-✅ **JSON file support for complex configs**
-✅ **Full type validation**
-✅ **Comprehensive examples included**
+ **28+ platforms supported**
+ **Platform-specific settings for Reddit, YouTube, TikTok, X, LinkedIn, Instagram, and more**
+ **Easy command-line interface**
+ **JSON file support for complex configs**
+ **Full type validation**
+ **Comprehensive examples included**
 
-**The CLI now supports the full power of each platform!** 🚀
+**The CLI now supports the full power of each platform!** 

@@ -1,14 +1,14 @@
-# 🎬 Fliz AI Video Generator — Agent Skill
+#  Fliz AI Video Generator — Agent Skill
 
 Generate AI-powered videos from text using the [Fliz](https://fliz.ai) API. Works with **Claude Code**, **Clawdbot**, and any AI agent that supports SKILL.md.
 
 ## What is Fliz?
 
 Fliz transforms text content into professional videos with AI-generated voiceovers, images, and subtitles. Perfect for:
-- 📰 Turning articles into video content
-- 🛒 Creating product showcase videos
-- 📱 Generating social media shorts (TikTok, Reels, YouTube Shorts)
-- 🌍 Translating videos into 15+ languages
+-  Turning articles into video content
+-  Creating product showcase videos
+-  Generating social media shorts (TikTok, Reels, YouTube Shorts)
+-  Translating videos into 15+ languages
 
 ## Quick Start
 
@@ -41,14 +41,14 @@ python scripts/create_video.py --name "My Video" --description "Your content her
 
 | Feature | Description |
 |---------|-------------|
-| 🎥 Video Creation | Text → AI video with voiceover, images & subtitles |
-| 🌍 Translation | Translate videos into 15+ languages |
-| 🎨 68 Image Styles | From hyperrealistic to anime, pixel art, watercolor... |
-| 📝 16 Script Styles | News, tutorial, podcast, e-commerce, children's story... |
-| 🎵 Custom Music | Choose from library or use your own |
-| 🔊 Custom Voices | Male/female, multiple languages |
-| 📐 3 Formats | 16:9 (YouTube), 9:16 (TikTok/Reels), 1:1 (Instagram) |
-| 🔗 Webhooks | Get notified when your video is ready |
+|  Video Creation | Text → AI video with voiceover, images & subtitles |
+|  Translation | Translate videos into 15+ languages |
+|  68 Image Styles | From hyperrealistic to anime, pixel art, watercolor... |
+|  16 Script Styles | News, tutorial, podcast, e-commerce, children's story... |
+|  Custom Music | Choose from library or use your own |
+|  Custom Voices | Male/female, multiple languages |
+|  3 Formats | 16:9 (YouTube), 9:16 (TikTok/Reels), 1:1 (Instagram) |
+|  Webhooks | Get notified when your video is ready |
 
 ## File Structure
 
@@ -94,10 +94,10 @@ GET /api/rest/musics
 
 ## Links
 
-- 🌐 [Fliz Website](https://fliz.ai)
-- 📖 [API Documentation](https://app.fliz.ai/api-docs)
-- 🔑 [Get API Key](https://app.fliz.ai/api-keys)
-- 📦 [ClawdHub](https://clawdhub.com/skills/fliz-ai-video-generator)
+-  [Fliz Website](https://fliz.ai)
+-  [API Documentation](https://app.fliz.ai/api-docs)
+-  [Get API Key](https://app.fliz.ai/api-keys)
+-  [ClawdHub](https://clawdhub.com/skills/fliz-ai-video-generator)
 
 ## License
 

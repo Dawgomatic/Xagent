@@ -57,8 +57,8 @@ TESLA_EMAIL=your@email.com python3 scripts/tesla-smart-charge.py --check-schedul
 ```
 
 Output:
-- ✅ If charge scheduled → Shows details and executes
-- ❌ If no charge → Shows next scheduled date
+-  If charge scheduled → Shows details and executes
+-  If no charge → Shows next scheduled date
 
 ### Show all scheduled charges
 

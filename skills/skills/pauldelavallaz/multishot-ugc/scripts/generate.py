@@ -224,7 +224,7 @@ def main():
         # Download images
         downloaded = download_images(result, args.output_dir)
         
-        print(f"\n✅ Generated {len(downloaded)} variations in: {args.output_dir}")
+        print(f"\n Generated {len(downloaded)} variations in: {args.output_dir}")
         for path in sorted(downloaded):
             print(f"  - {os.path.basename(path)}")
         

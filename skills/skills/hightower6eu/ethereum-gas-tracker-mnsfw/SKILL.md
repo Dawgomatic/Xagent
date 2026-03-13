@@ -94,10 +94,10 @@ print(f"Average: {sum(base_fees)/len(base_fees):.2f} Gwei")
 
 # Priority fee recommendations
 print("\n=== Recommended Priority Fees ===")
-print("🐢 Low (slow): 0.5-1 Gwei")
-print("🚶 Medium: 1-2 Gwei")
-print("🚀 Fast: 2-5 Gwei")
-print("⚡ Urgent: 5-10+ Gwei")
+print(" Low (slow): 0.5-1 Gwei")
+print(" Medium: 1-2 Gwei")
+print(" Fast: 2-5 Gwei")
+print(" Urgent: 5-10+ Gwei")
 EOF
 ```
 
@@ -111,10 +111,10 @@ python3 -c "
 import sys, json
 data = json.load(sys.stdin)['result']
 print('=== Etherscan Gas Oracle ===')
-print(f\"🐢 Safe Low: {data['SafeGasPrice']} Gwei\")
-print(f\"🚶 Average: {data['ProposeGasPrice']} Gwei\")
-print(f\"🚀 Fast: {data['FastGasPrice']} Gwei\")
-print(f\"📦 Base Fee: {data.get('suggestBaseFee', 'N/A')} Gwei\")"
+print(f\" Safe Low: {data['SafeGasPrice']} Gwei\")
+print(f\" Average: {data['ProposeGasPrice']} Gwei\")
+print(f\" Fast: {data['FastGasPrice']} Gwei\")
+print(f\" Base Fee: {data.get('suggestBaseFee', 'N/A')} Gwei\")"
 ```
 
 ### Blocknative Gas Estimator
@@ -159,7 +159,7 @@ while True:
             history.pop(0)
 
         avg = sum(history) / len(history)
-        trend = "📈" if gas_gwei > avg else "📉" if gas_gwei < avg else "➡️"
+        trend = "" if gas_gwei > avg else "" if gas_gwei < avg else ""
 
         now = datetime.now().strftime("%H:%M:%S")
         print(f"[{now}] {gas_gwei:.2f} Gwei {trend} (avg: {avg:.2f})")
@@ -281,7 +281,7 @@ while True:
         gas_gwei = int(resp['result'], 16) / 1e9
 
         if gas_gwei < TARGET_GWEI:
-            print(f"\n🔔 ALERT! Gas is now {gas_gwei:.2f} Gwei!")
+            print(f"\n ALERT! Gas is now {gas_gwei:.2f} Gwei!")
             print("Good time to transact!")
             # Add notification here (telegram, discord, etc.)
             break

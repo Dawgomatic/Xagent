@@ -2,7 +2,7 @@
 name: fosmvvm-fields-generator
 description: Generate FOSMVVM Fields protocols with validation rules, FormField definitions, and localized messages. Define form contracts once, validate everywhere.
 homepage: https://github.com/foscomputerservices/FOSUtilities
-metadata: {"clawdbot": {"emoji": "📋", "os": ["darwin", "linux"]}}
+metadata: {"clawdbot": {"emoji": "", "os": ["darwin", "linux"]}}
 ---
 
 # FOSMVVM Fields Generator

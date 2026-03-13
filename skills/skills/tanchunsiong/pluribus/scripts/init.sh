@@ -3,7 +3,7 @@
 
 PLURIBUS_DIR="${PLURIBUS_DIR:-$HOME/clawd/pluribus}"
 
-echo "🧠 Initializing Pluribus node..."
+echo " Initializing Pluribus node..."
 
 # Create directory structure
 mkdir -p "$PLURIBUS_DIR"
@@ -77,8 +77,8 @@ cat > "$PLURIBUS_DIR/sync-log.md" << EOF
 |-----------|------|-----------|---------|
 EOF
 
-echo "✅ Node initialized: $NODE_ID"
-echo "📁 Storage: $PLURIBUS_DIR"
+echo " Node initialized: $NODE_ID"
+echo " Storage: $PLURIBUS_DIR"
 echo ""
 echo "Next steps:"
 echo "  pluribus announce  # Tell Moltbook you're online"

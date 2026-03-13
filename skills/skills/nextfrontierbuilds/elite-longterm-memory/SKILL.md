@@ -6,7 +6,7 @@ author: NextFrontierBuilds
 keywords: [memory, ai-agent, ai-coding, long-term-memory, vector-search, lancedb, git-notes, wal, persistent-context, claude, claude-code, gpt, chatgpt, cursor, copilot, github-copilot, openclaw, moltbot, vibe-coding, agentic, ai-tools, developer-tools, devtools, typescript, llm, automation]
 metadata:
   openclaw:
-    emoji: "🧠"
+    emoji: ""
     requires:
       env:
         - OPENAI_API_KEY
@@ -14,7 +14,7 @@ metadata:
         - memory-lancedb
 ---
 
-# Elite Longterm Memory 🧠
+# Elite Longterm Memory 
 
 **The ultimate memory system for AI agents.** Combines 6 proven approaches into one bulletproof architecture.
 

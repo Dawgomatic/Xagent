@@ -23,45 +23,45 @@ Real output examples showing what good personas look like.
 PERSONA: Alex the Power User
 ============================================================
 
-📝 A daily user who primarily uses the product for work purposes
+ A daily user who primarily uses the product for work purposes
 
 Archetype: Power User
 Quote: "I need tools that can keep up with my workflow"
 
-👤 Demographics:
+ Demographics:
   • Age Range: 25-34
   • Location Type: Urban
   • Occupation Category: Software Engineer
   • Education Level: Bachelor's degree
   • Tech Proficiency: Advanced
 
-🧠 Psychographics:
+ Psychographics:
   Motivations: Efficiency, Control, Mastery
   Values: Time-saving, Flexibility, Reliability
   Lifestyle: Fast-paced, optimization-focused
 
-🎯 Goals & Needs:
+ Goals & Needs:
   • Complete tasks efficiently without repetitive work
   • Automate recurring workflows
   • Access advanced features and shortcuts
 
-😤 Frustrations:
+ Frustrations:
   • Slow loading times (mentioned by 14/20 users)
   • No keyboard shortcuts for common actions
   • Limited API access for automation
 
-📊 Behaviors:
+ Behaviors:
   • Frequently uses: Dashboard, Reports, Export, API
   • Usage pattern: 5+ sessions per day
   • Interaction style: Exploratory - uses many features
 
-💡 Design Implications:
+ Design Implications:
   → Optimize for speed and efficiency
   → Provide keyboard shortcuts and power features
   → Expose API and automation capabilities
   → Allow UI customization
 
-📈 Data: Based on 45 users
+ Data: Based on 45 users
     Confidence: High
     Method: Quantitative analysis + 12 qualitative interviews
 ```
@@ -95,45 +95,45 @@ Quote: "I need tools that can keep up with my workflow"
 PERSONA: Taylor the Business Professional
 ============================================================
 
-📝 A weekly user who primarily uses the product for team collaboration
+ A weekly user who primarily uses the product for team collaboration
 
 Archetype: Business User
 Quote: "I need to show clear value to my stakeholders"
 
-👤 Demographics:
+ Demographics:
   • Age Range: 35-44
   • Location Type: Urban/Suburban
   • Occupation Category: Product Manager
   • Education Level: MBA
   • Tech Proficiency: Intermediate
 
-🧠 Psychographics:
+ Psychographics:
   Motivations: Team success, Visibility, Recognition
   Values: Collaboration, Measurable outcomes, Professional growth
   Lifestyle: Meeting-heavy, cross-functional work
 
-🎯 Goals & Needs:
+ Goals & Needs:
   • Improve team efficiency and coordination
   • Generate reports for stakeholders
   • Integrate with existing work tools (Slack, Jira)
 
-😤 Frustrations:
+ Frustrations:
   • No way to share views with team (11/18 users)
   • Can't generate executive summaries
   • No SSO - team has to manage passwords
 
-📊 Behaviors:
+ Behaviors:
   • Frequently uses: Sharing, Reports, Team Dashboard
   • Usage pattern: 3-4 sessions per week
   • Interaction style: Goal-oriented, feature-specific
 
-💡 Design Implications:
+ Design Implications:
   → Add collaboration and sharing features
   → Build executive reporting and dashboards
   → Integrate with enterprise tools (SSO, Slack)
   → Provide permission and access controls
 
-📈 Data: Based on 38 users
+ Data: Based on 38 users
     Confidence: High
     Method: Survey (n=200) + 18 interviews
 ```
@@ -188,45 +188,45 @@ Opportunity:
 PERSONA: Casey the Casual User
 ============================================================
 
-📝 A monthly user who uses the product for occasional personal tasks
+ A monthly user who uses the product for occasional personal tasks
 
 Archetype: Casual User
 Quote: "I just want it to work without having to think about it"
 
-👤 Demographics:
+ Demographics:
   • Age Range: 25-44
   • Location Type: Mixed
   • Occupation Category: Various
   • Education Level: Bachelor's degree
   • Tech Proficiency: Beginner-Intermediate
 
-🧠 Psychographics:
+ Psychographics:
   Motivations: Task completion, Simplicity
   Values: Ease of use, Quick results
   Lifestyle: Busy, product is means to end
 
-🎯 Goals & Needs:
+ Goals & Needs:
   • Complete specific task quickly
   • Minimal learning curve
   • Don't have to remember how it works between uses
 
-😤 Frustrations:
+ Frustrations:
   • Too many options, don't know where to start (18/25)
   • Forgot how to do X since last time (15/25)
   • Feels like it's designed for experts (12/25)
 
-📊 Behaviors:
+ Behaviors:
   • Frequently uses: 2-3 core features only
   • Usage pattern: 1-2 sessions per month
   • Interaction style: Focused - uses minimal features
 
-💡 Design Implications:
+ Design Implications:
   → Simplify onboarding and main navigation
   → Provide contextual help and reminders
   → Don't require memorization between sessions
   → Progressive disclosure - hide advanced features
 
-📈 Data: Based on 52 users
+ Data: Based on 52 users
     Confidence: High
     Method: Analytics analysis + 25 intercept interviews
 ```
@@ -253,22 +253,22 @@ Quote: "I just want it to work without having to think about it"
 ```
 Stage 1: Return After Absence
   Action: Opens app, doesn't recognize interface
-  Emotion: 😕 Confused
+  Emotion:  Confused
   Thought: "This looks different, where do I start?"
 
 Stage 2: Feature Hunt
   Action: Clicks around looking for needed feature
-  Emotion: 😕 Frustrated
+  Emotion:  Frustrated
   Thought: "I know I did this before..."
 
 Stage 3: Discovery
   Action: Finds feature (or gives up)
-  Emotion: 😐 Relief or 😠 Abandonment
+  Emotion:  Relief or  Abandonment
   Thought: "Finally!" or "I'll try something else"
 
 Stage 4: Task Completion
   Action: Uses feature, accomplishes goal
-  Emotion: 🙂 Satisfied
+  Emotion:  Satisfied
   Thought: "That worked, hope I remember next time"
 ```
 

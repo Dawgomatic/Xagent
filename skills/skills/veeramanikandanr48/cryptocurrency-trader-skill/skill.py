@@ -87,7 +87,7 @@ def analyze_symbol(symbol: str, balance: float, timeframes: Optional[list] = Non
         return analysis
 
     except Exception as e:
-        print(f"\n❌ Error during analysis: {e}")
+        print(f"\n Error during analysis: {e}")
         import traceback
         traceback.print_exc()
         return {'error': str(e)}
@@ -119,7 +119,7 @@ def scan_market(balance: float, top_n: int = 5, categories: Optional[list] = Non
 
         # Check if agent has market scanner
         if not hasattr(agent, 'market_scanner'):
-            print("\n⚠️  Market scanner not available in this agent version")
+            print("\n  Market scanner not available in this agent version")
             print("Falling back to individual symbol analysis...")
             # Analyze a few popular pairs
             symbols = ['BTC/USDT', 'ETH/USDT', 'SOL/USDT']
@@ -142,7 +142,7 @@ def scan_market(balance: float, top_n: int = 5, categories: Optional[list] = Non
 
         # Display results
         if opportunities:
-            print(f"\n✅ Found {len(opportunities)} opportunities:")
+            print(f"\n Found {len(opportunities)} opportunities:")
             for i, opp in enumerate(opportunities, 1):
                 rec = opp.get('final_recommendation', {})
                 print(f"\n{i}. {opp.get('symbol', 'Unknown')}")
@@ -150,12 +150,12 @@ def scan_market(balance: float, top_n: int = 5, categories: Optional[list] = Non
                 print(f"   Confidence: {rec.get('confidence', 0)}%")
                 print(f"   EV Score: {opp.get('ev_score', 'N/A')}")
         else:
-            print("\n⚠️  No execution-ready opportunities found")
+            print("\n  No execution-ready opportunities found")
 
         return opportunities
 
     except Exception as e:
-        print(f"\n❌ Error during market scan: {e}")
+        print(f"\n Error during market scan: {e}")
         import traceback
         traceback.print_exc()
         return []
@@ -201,7 +201,7 @@ def interactive_mode(balance: float):
 
             elif cmd == 'analyze':
                 if len(parts) < 2:
-                    print("❌ Please specify a symbol (e.g., analyze BTC/USDT)")
+                    print(" Please specify a symbol (e.g., analyze BTC/USDT)")
                     continue
                 symbol = parts[1]
                 analyze_symbol(symbol, balance)
@@ -213,14 +213,14 @@ def interactive_mode(balance: float):
                 scan_market(balance, top_n)
 
             else:
-                print(f"❌ Unknown command: {cmd}")
+                print(f" Unknown command: {cmd}")
                 print("Type 'help' for available commands")
 
         except KeyboardInterrupt:
             print("\n\nExiting interactive mode...")
             break
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f" Error: {e}")
 
 
 def main():
@@ -288,7 +288,7 @@ Examples:
     else:
         # No command specified - show help
         parser.print_help()
-        print("\n💡 Tip: Start with 'python skill.py analyze BTC/USDT --balance 10000'")
+        print("\n Tip: Start with 'python skill.py analyze BTC/USDT --balance 10000'")
 
 
 if __name__ == '__main__':

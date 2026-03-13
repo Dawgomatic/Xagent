@@ -16,13 +16,13 @@ const INDEX_PATH = path.join(INDEX_DIR, 'openclaw-docs.sqlite');
 const META_PATH = path.join(INDEX_DIR, 'index-meta.json');
 
 async function rebuild() {
-  console.log('🔨 Building OpenClaw docs index...');
-  console.log(`📁 Docs path: ${DOCS_PATH}`);
-  console.log(`💾 Index path: ${INDEX_PATH}`);
+  console.log(' Building OpenClaw docs index...');
+  console.log(` Docs path: ${DOCS_PATH}`);
+  console.log(` Index path: ${INDEX_PATH}`);
   console.log('');
   
   if (!fs.existsSync(DOCS_PATH)) {
-    console.error(`❌ Docs path not found: ${DOCS_PATH}`);
+    console.error(` Docs path not found: ${DOCS_PATH}`);
     process.exit(1);
   }
   
@@ -30,7 +30,7 @@ async function rebuild() {
   
   const result = await buildIndex(DOCS_PATH, INDEX_PATH, {
     onProgress: ({ current, total, indexed, errors }) => {
-      console.log(`  📊 Progress: ${current}/${total} files (${indexed} indexed, ${errors} errors)`);
+      console.log(`   Progress: ${current}/${total} files (${indexed} indexed, ${errors} errors)`);
     }
   });
   
@@ -52,7 +52,7 @@ async function rebuild() {
   fs.writeFileSync(META_PATH, JSON.stringify(meta, null, 2));
   
   console.log('');
-  console.log('✅ Index built successfully!');
+  console.log(' Index built successfully!');
   console.log(`   Files indexed: ${result.indexed}`);
   console.log(`   Errors: ${result.errors}`);
   console.log(`   Build time: ${elapsed}s`);
@@ -65,7 +65,7 @@ async function rebuild() {
   // Post-install guidance
   console.log('');
   console.log('─'.repeat(50));
-  console.log('📋 SETUP TIPS:');
+  console.log(' SETUP TIPS:');
   console.log('');
   console.log('1. Add to your AGENTS.md (recommended):');
   console.log('   "When asked about OpenClaw, search docs first:');
@@ -88,7 +88,7 @@ const command = process.argv[2];
 switch (command) {
   case 'rebuild':
     rebuild().catch(err => {
-      console.error('❌ Error:', err.message);
+      console.error(' Error:', err.message);
       process.exit(1);
     });
     break;

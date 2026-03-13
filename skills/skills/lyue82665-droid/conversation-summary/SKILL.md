@@ -1,7 +1,7 @@
 ---
 name: conversation-summary
 description: 会话小结 - 输入对话内容，调用API返回会话摘要，支持增量更新历史摘要。
-emoji: 📝
+emoji: 
 author: openclaw
 version: 1.0.0
 license: MIT

@@ -8,7 +8,7 @@ set -e
 PLATFORM=$(uname -s)
 
 if [ "$PLATFORM" = "Darwin" ]; then
-  echo "🍎 Installing for macOS (launchd)..."
+  echo " Installing for macOS (launchd)..."
   
   # Get paths
   NODE_PATH=$(which node)
@@ -44,13 +44,13 @@ if [ "$PLATFORM" = "Darwin" ]; then
 </plist>
 EOF
   
-  echo "✅ Installed: $PLIST_PATH"
+  echo " Installed: $PLIST_PATH"
   
   # Load service
   launchctl unload "$PLIST_PATH" 2>/dev/null || true
   launchctl load "$PLIST_PATH"
   
-  echo "✅ Service loaded and running"
+  echo " Service loaded and running"
   echo ""
   echo "Commands:"
   echo "  launchctl stop com.dual-brain    # Stop service"
@@ -58,7 +58,7 @@ EOF
   echo "  launchctl unload $PLIST_PATH  # Disable service"
   
 elif [ "$PLATFORM" = "Linux" ]; then
-  echo "🐧 Installing for Linux (systemd)..."
+  echo " Installing for Linux (systemd)..."
   
   NODE_PATH=$(which node)
   CLI_PATH=$(which dual-brain)
@@ -83,7 +83,7 @@ StandardError=journal
 WantedBy=multi-user.target
 EOF
   
-  echo "✅ Service file created"
+  echo " Service file created"
   echo ""
   echo "To install (requires sudo):"
   echo "  sudo mv /tmp/dual-brain.service $SERVICE_PATH"
@@ -95,6 +95,6 @@ EOF
   echo "  sudo systemctl status dual-brain"
   
 else
-  echo "❌ Unsupported platform: $PLATFORM"
+  echo " Unsupported platform: $PLATFORM"
   exit 1
 fi

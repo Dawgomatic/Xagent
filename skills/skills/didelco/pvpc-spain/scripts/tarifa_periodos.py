@@ -40,7 +40,7 @@ def get_period_info(hour=None, weekday=None):
     if weekday in [5, 6]:
         return {
             'period': 'VALLE',
-            'emoji': '🌙',
+            'emoji': '',
             'description': 'Fin de semana (todo el día valle)'
         }
     
@@ -48,19 +48,19 @@ def get_period_info(hour=None, weekday=None):
     if 0 <= hour < 8:
         return {
             'period': 'VALLE',
-            'emoji': '🌙',
+            'emoji': '',
             'description': 'Periodo valle (00:00-08:00)'
         }
     elif 8 <= hour < 10 or 14 <= hour < 18 or 22 <= hour < 24:
         return {
             'period': 'LLANO',
-            'emoji': '⚡',
+            'emoji': '',
             'description': 'Periodo llano'
         }
     else:  # 10-14 o 18-22
         return {
             'period': 'PUNTA',
-            'emoji': '🔴',
+            'emoji': '',
             'description': 'Periodo punta'
         }
 
@@ -115,16 +115,16 @@ def main():
     args = parser.parse_args()
     
     summer = is_summer_time()
-    season = "verano ☀️" if summer else "invierno ❄️"
+    season = "verano " if summer else "invierno "
     
     if args.all:
-        print(f"📅 Periodos tarifarios 2.0TD (horario de {season})\n")
+        print(f" Periodos tarifarios 2.0TD (horario de {season})\n")
         print("Lunes a Viernes:")
-        print("  🌙 VALLE: 00:00-08:00")
-        print("  ⚡ LLANO: 08:00-10:00, 14:00-18:00, 22:00-00:00")
-        print("  🔴 PUNTA: 10:00-14:00, 18:00-22:00")
+        print("   VALLE: 00:00-08:00")
+        print("   LLANO: 08:00-10:00, 14:00-18:00, 22:00-00:00")
+        print("   PUNTA: 10:00-14:00, 18:00-22:00")
         print("\nSábados, Domingos y Festivos:")
-        print("  🌙 VALLE: Todo el día (00:00-24:00)")
+        print("   VALLE: Todo el día (00:00-24:00)")
         print("\nNota: Los periodos son iguales en verano e invierno para 2.0TD")
     elif args.now or args.hour is not None:
         hour = args.hour if args.hour is not None else None
@@ -134,15 +134,15 @@ def main():
         next_valle = get_next_valle()
         
         now = datetime.now()
-        print(f"📅 {now.strftime('%d/%m/%Y %H:%M')} (horario de {season})\n")
+        print(f" {now.strftime('%d/%m/%Y %H:%M')} (horario de {season})\n")
         print(f"{period['emoji']} Periodo actual: {period['period']}")
         print(f"   {period['description']}\n")
         
         if next_valle['starts_in_hours'] > 0:
-            print(f"🌙 Próximo valle: en {next_valle['starts_in_hours']}h")
+            print(f" Próximo valle: en {next_valle['starts_in_hours']}h")
             print(f"   {next_valle['description']}")
         else:
-            print("🌙 Estás en periodo valle ahora")
+            print(" Estás en periodo valle ahora")
     else:
         # Muestra info general
         print(f"Tarifa 2.0TD - Horario de {season}")

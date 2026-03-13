@@ -1,4 +1,4 @@
-# 📱 Channel Support Guide
+#  Channel Support Guide
 
 > Complete documentation for Smart Follow-ups across all OpenClaw channels
 
@@ -29,11 +29,11 @@ Smart Follow-ups works on **every OpenClaw channel**, with adaptive formatting:
 **Best experience** — full inline button support with callbacks.
 
 ```
-💡 What would you like to explore next?
+ What would you like to explore next?
 
-[⚡ How do I install Docker?        ] ← tap
-[🧠 Explain Docker's architecture   ] ← tap
-[🔗 Compare Docker to Kubernetes    ] ← tap
+[ How do I install Docker?        ] ← tap
+[ Explain Docker's architecture   ] ← tap
+[ Compare Docker to Kubernetes    ] ← tap
 ```
 
 **Requirements:**
@@ -50,11 +50,11 @@ When user taps a button, the question is sent as a new message automatically.
 Full button component support.
 
 ```
-💡 What would you like to explore next?
+ What would you like to explore next?
 
-[⚡ How do I install Docker?]
-[🧠 Explain Docker's architecture]
-[🔗 Compare Docker to Kubernetes]
+[ How do I install Docker?]
+[ Explain Docker's architecture]
+[ Compare Docker to Kubernetes]
 ```
 
 **Requirements:**
@@ -68,11 +68,11 @@ Full button component support.
 Block Kit button support.
 
 ```
-💡 What would you like to explore next?
+ What would you like to explore next?
 
-[⚡ How do I install Docker?]
-[🧠 Explain Docker's architecture]  
-[🔗 Compare Docker to Kubernetes]
+[ How do I install Docker?]
+[ Explain Docker's architecture]  
+[ Compare Docker to Kubernetes]
 ```
 
 **Requirements:**
@@ -88,15 +88,15 @@ For channels without button support, a numbered list is displayed:
 ### Signal
 
 ```
-💡 Smart Follow-up Suggestions
+ Smart Follow-up Suggestions
 
-⚡ Quick
+ Quick
 1. How do I install Docker?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain Docker's architecture
 
-🔗 Related
+ Related
 3. Compare Docker to Kubernetes
 
 Reply with 1, 2, or 3 to ask that question.
@@ -109,15 +109,15 @@ Reply with 1, 2, or 3 to ask that question.
 ### WhatsApp
 
 ```
-💡 Smart Follow-up Suggestions
+ Smart Follow-up Suggestions
 
-⚡ Quick
+ Quick
 1. How do I install Docker?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain Docker's architecture
 
-🔗 Related
+ Related
 3. Compare Docker to Kubernetes
 
 Reply 1, 2, or 3
@@ -132,15 +132,15 @@ Reply 1, 2, or 3
 ### iMessage
 
 ```
-💡 Smart Follow-up Suggestions
+ Smart Follow-up Suggestions
 
-⚡ Quick
+ Quick
 1. How do I install Docker?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain Docker's architecture
 
-🔗 Related
+ Related
 3. Compare Docker to Kubernetes
 
 Reply with 1, 2, or 3
@@ -169,15 +169,15 @@ Reply 1, 2, or 3
 ### Matrix
 
 ```
-💡 Smart Follow-up Suggestions
+ Smart Follow-up Suggestions
 
-⚡ Quick
+ Quick
 1. How do I install Docker?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain Docker's architecture
 
-🔗 Related
+ Related
 3. Compare Docker to Kubernetes
 
 Reply with 1, 2, or 3
@@ -190,15 +190,15 @@ Reply with 1, 2, or 3
 ```
 Subject: Re: Your conversation
 
-💡 Smart Follow-up Suggestions
+ Smart Follow-up Suggestions
 
-⚡ Quick
+ Quick
 1. How do I install Docker?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain Docker's architecture
 
-🔗 Related
+ Related
 3. Compare Docker to Kubernetes
 
 Reply with the number of your choice (1, 2, or 3).
@@ -260,7 +260,7 @@ You can override settings per channel in `openclaw.json`:
 |--------|---------|-------------|
 | `mode` | auto | `buttons`, `text`, or `auto` |
 | `compact` | false | Use compact formatting |
-| `showCategory` | true | Show category labels (⚡🧠🔗) |
+| `showCategory` | true | Show category labels () |
 | `stripEmoji` | false | Remove emojis (for SMS) |
 
 ---
@@ -342,13 +342,13 @@ Pull requests welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 | Feature | Telegram | Discord | Slack | Signal | WhatsApp | iMessage | SMS |
 |---------|:--------:|:-------:|:-----:|:------:|:--------:|:--------:|:---:|
-| Inline buttons | ✅ | ✅ | ✅ | ❌ | ⚠ | ❌ | ❌ |
-| Emoji support | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠ |
-| Markdown | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Number replies | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Rich formatting | ✅ | ✅ | ✅ | ⚠ | ⚠ | ⚠ | ❌ |
+| Inline buttons |  |  |  |  |  |  |  |
+| Emoji support |  |  |  |  |  |  |  |
+| Markdown |  |  |  |  |  |  |  |
+| Number replies |  |  |  |  |  |  |  |
+| Rich formatting |  |  |  |  |  |  |  |
 
-**Legend:** ✅ Full support | ⚠ Partial/limited | ❌ Not supported
+**Legend:**  Full support |  Partial/limited |  Not supported
 
 ---
 

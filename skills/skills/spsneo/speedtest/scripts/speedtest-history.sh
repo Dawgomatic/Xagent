@@ -41,7 +41,7 @@ case "$ACTION" in
         TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
         echo "{\"timestamp\":\"$TIMESTAMP\",\"download\":$DOWNLOAD,\"upload\":$UPLOAD,\"latency\":$LATENCY,\"packet_loss\":$PACKET_LOSS,\"server\":\"$SERVER_NAME\",\"location\":\"$SERVER_LOCATION\"}" >> "$HISTORY_FILE"
         
-        echo "✅ Saved: Download ${DOWNLOAD} Mbps, Upload ${UPLOAD} Mbps, Latency ${LATENCY}ms"
+        echo " Saved: Download ${DOWNLOAD} Mbps, Upload ${UPLOAD} Mbps, Latency ${LATENCY}ms"
         ;;
         
     stats)
@@ -50,7 +50,7 @@ case "$ACTION" in
             exit 0
         fi
         
-        echo "📊 SpeedTest Statistics"
+        echo " SpeedTest Statistics"
         echo ""
         
         if command -v jq &> /dev/null; then
@@ -63,15 +63,15 @@ case "$ACTION" in
             
             echo "Total tests: $COUNT"
             echo ""
-            echo "⬇️ Download:"
+            echo " Download:"
             echo "   Average: ${AVG_DOWN} Mbps"
             echo "   Max: ${MAX_DOWN} Mbps"
             echo "   Min: ${MIN_DOWN} Mbps"
             echo ""
-            echo "⬆️ Upload:"
+            echo " Upload:"
             echo "   Average: ${AVG_UP} Mbps"
             echo ""
-            echo "⏱️ Latency:"
+            echo " Latency:"
             echo "   Average: ${AVG_LAT}ms"
         else
             echo "Install jq for detailed statistics: brew install jq"
@@ -85,11 +85,11 @@ case "$ACTION" in
             exit 0
         fi
         
-        echo "📈 Recent Speed Trend (last 10 tests)"
+        echo " Recent Speed Trend (last 10 tests)"
         echo ""
         
         if command -v jq &> /dev/null; then
-            tail -10 "$HISTORY_FILE" | jq -r '"⬇️ " + (.download|tostring) + " Mbps | ⬆️ " + (.upload|tostring) + " Mbps | ⏱️ " + (.latency|tostring) + "ms | " + .timestamp'
+            tail -10 "$HISTORY_FILE" | jq -r '" " + (.download|tostring) + " Mbps |  " + (.upload|tostring) + " Mbps |  " + (.latency|tostring) + "ms | " + .timestamp'
         else
             echo "Install jq for formatted output: brew install jq"
             tail -10 "$HISTORY_FILE"

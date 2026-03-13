@@ -4,13 +4,13 @@ This is an example of what the email summary skill produces:
 
 ---
 
-📧 **Email Summary Report**
+ **Email Summary Report**
 *Generated: 2026-02-02 14:30:00*
 *Unread emails: 5*
 
 ---
 
-### 1. 📩 Important: Team Meeting Tomorrow
+### 1.  Important: Team Meeting Tomorrow
 
 **From:** Sarah Johnson <sarah.j@company.com>
 **Date:** Feb 2, 2026 9:15 AM
@@ -24,11 +24,11 @@ Sarah is reminding the team about tomorrow's quarterly planning meeting at 10 AM
 - Preparation: Review Q1 metrics document
 - Agenda: Q2 planning
 
-**Suggested Action:** ✅ **Reply to confirm attendance** and block calendar
+**Suggested Action:**  **Reply to confirm attendance** and block calendar
 
 ---
 
-### 2. 📧 Your package has been delivered
+### 2.  Your package has been delivered
 
 **From:** Shipping Notifications <noreply@logistics.com>
 **Date:** Feb 2, 2026 8:42 AM
@@ -41,11 +41,11 @@ Package #TRK-8834729 has been successfully delivered to your address at 8:35 AM.
 - Time: 8:35 AM
 - Location: Front door
 
-**Suggested Action:** 📦 **Archive** (informational only)
+**Suggested Action:**  **Archive** (informational only)
 
 ---
 
-### 3. 🎯 Action Required: Approve expense report
+### 3.  Action Required: Approve expense report
 
 **From:** Finance Team <finance@company.com>
 **Date:** Feb 1, 2026 4:20 PM
@@ -59,11 +59,11 @@ Your approval is needed for Alex Chen's expense report ($1,247.50) from the rece
 - Purpose: Client conference expenses
 - Deadline: Friday EOD
 
-**Suggested Action:** ⚡ **URGENT - Review and approve** by Friday
+**Suggested Action:**  **URGENT - Review and approve** by Friday
 
 ---
 
-### 4. 📰 Weekly Newsletter: AI Developments
+### 4.  Weekly Newsletter: AI Developments
 
 **From:** TechInsights Weekly <newsletter@techinsights.com>
 **Date:** Feb 1, 2026 6:00 AM
@@ -76,11 +76,11 @@ This week's newsletter covers major AI announcements including OpenAI's latest m
 - EU AI regulations update
 - Research paper highlights
 
-**Suggested Action:** 📚 **Read later** or archive
+**Suggested Action:**  **Read later** or archive
 
 ---
 
-### 5. 🔔 Reminder: Password expiring soon
+### 5.  Reminder: Password expiring soon
 
 **From:** IT Security <security@company.com>
 **Date:** Jan 31, 2026 3:15 PM
@@ -93,7 +93,7 @@ Your company account password will expire in 7 days. You're required to change i
 - Action: Change password via portal
 - Link: Included in email
 
-**Suggested Action:** 🔐 **Take action soon** - change password this week
+**Suggested Action:**  **Take action soon** - change password this week
 
 ---
 

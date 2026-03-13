@@ -61,7 +61,7 @@ func (t *FeedbackTool) Parameters() map[string]interface{} {
 		"properties": map[string]interface{}{
 			"rating": map[string]interface{}{
 				"type":        "string",
-				"description": "User's rating: 'good' (👍), 'bad' (👎), or 'neutral'",
+				"description": "User's rating: 'good' (), 'bad' (), or 'neutral'",
 				"enum":        []string{"good", "bad", "neutral"},
 			},
 			"comment": map[string]interface{}{
@@ -102,9 +102,9 @@ func (t *FeedbackTool) Execute(ctx context.Context, args map[string]interface{})
 	// Parse rating
 	var rating int
 	switch strings.ToLower(ratingStr) {
-	case "good", "thumbs_up", "👍", "positive", "+1":
+	case "good", "thumbs_up", "", "positive", "+1":
 		rating = 1
-	case "bad", "thumbs_down", "👎", "negative", "-1":
+	case "bad", "thumbs_down", "", "negative", "-1":
 		rating = -1
 	default:
 		rating = 0
@@ -136,11 +136,11 @@ func (t *FeedbackTool) Execute(ctx context.Context, args map[string]interface{})
 		}
 	}
 
-	ratingEmoji := "😐"
+	ratingEmoji := ""
 	if rating == 1 {
-		ratingEmoji = "👍"
+		ratingEmoji = ""
 	} else if rating == -1 {
-		ratingEmoji = "👎"
+		ratingEmoji = ""
 	}
 
 	response := fmt.Sprintf("Feedback recorded: %s", ratingEmoji)

@@ -6,7 +6,7 @@ Transform your daily routine with automated morning briefs, evening wind-down pr
 
 Daily Rhythm creates a structured daily planning system that runs automatically:
 
-**☀️ Morning Brief (8:30am)**
+** Morning Brief (8:30am)**
 - Daily intention (prayer, affirmation, or centering thought)
 - Calendar events
 - Today's priority with actionable steps
@@ -14,17 +14,17 @@ Daily Rhythm creates a structured daily planning system that runs automatically:
 - Weather
 - Progress tracking (optional Stripe ARR)
 
-**🌙 Wind-Down Prompt (10:30pm)**
+** Wind-Down Prompt (10:30pm)**
 - Plan tomorrow's priority
 - Get actionable suggestions
 - Break goals into steps
 - Auto-saves to tomorrow's brief
 
-**😴 Sleep Nudge (11:00pm)**
+** Sleep Nudge (11:00pm)**
 - Gentle reminder to rest
 - Encouraging words for tomorrow
 
-**📅 Weekly Review (Sunday 8pm)**
+** Weekly Review (Sunday 8pm)**
 - Reflect on the week
 - Celebrate wins
 - Identify blockers

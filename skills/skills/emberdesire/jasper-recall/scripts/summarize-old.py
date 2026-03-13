@@ -224,7 +224,7 @@ def main():
     parser.add_argument("-v", "--verbose", action="store_true", help="Show detailed output")
     args = parser.parse_args()
     
-    print("🦊 Jasper Recall — Memory Summarizer")
+    print(" Jasper Recall — Memory Summarizer")
     print("=" * 40)
     print(f"Summarizing files older than {args.days} days")
     if args.dry_run:

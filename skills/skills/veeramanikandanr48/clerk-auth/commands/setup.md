@@ -171,14 +171,14 @@ function Header() {
 ### 10. Provide Next Steps
 
 ```
-✅ Clerk authentication configured!
+ Clerk authentication configured!
 
-📁 Added:
+ Added:
    - ClerkProvider in app entry
    - Middleware for protected routes (Next.js)
    - Environment variables
 
-🔐 Auth Components:
+ Auth Components:
    <SignIn />        - Full sign-in page
    <SignUp />        - Full sign-up page
    <UserButton />    - User avatar + menu
@@ -186,12 +186,12 @@ function Header() {
    <SignedIn />      - Render when authenticated
    <SignedOut />     - Render when not authenticated
 
-🪝 Hooks:
+ Hooks:
    useUser()         - Get current user
    useAuth()         - Get auth state
    useClerk()        - Full Clerk instance
 
-📚 Skill loaded: clerk-auth
+ Skill loaded: clerk-auth
    - API version 2025-04-10 (v2 tokens)
    - JWT template configuration
    - Custom claims support

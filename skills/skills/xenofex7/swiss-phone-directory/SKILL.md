@@ -71,11 +71,11 @@ Results include (when available):
 - **Website** - Website URL
 - **Categories** - Business categories
 
-### Clickable Phone Numbers 📞
+### Clickable Phone Numbers 
 
 Phone numbers are automatically formatted as Markdown links with `tel:` protocol:
 ```
-📞 [044 123 45 67](tel:+41441234567)
+ [044 123 45 67](tel:+41441234567)
 ```
 
 This enables **one-tap calling** on mobile devices (Telegram, Signal, WhatsApp, etc.).

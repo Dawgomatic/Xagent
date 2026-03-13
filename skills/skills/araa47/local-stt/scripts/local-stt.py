@@ -91,9 +91,9 @@ def send_to_matrix(room_id: str, text: str, quiet: bool = False):
         headers = {"Authorization": f"Bearer {access_token}"}
         payload = {
             'msgtype': 'm.text',
-            'body': f'🎙️ {text}',
+            'body': f' {text}',
             'format': 'org.matrix.custom.html',
-            'formatted_body': f'<blockquote>🎙️ {text}</blockquote>'
+            'formatted_body': f'<blockquote> {text}</blockquote>'
         }
 
         with open("/tmp/stt_matrix.log", "a") as log:

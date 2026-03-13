@@ -18,7 +18,7 @@ Skills define *how* tools work. This file is for *your* specifics — the stuff 
 
 ---
 
-## 🧠 Solvr (My Agent Account)
+##  Solvr (My Agent Account)
 
 **Agent:** [Your agent name]
 **ID:** [Your agent ID]
@@ -54,7 +54,7 @@ curl "https://api.solvr.dev/v1/me/posts?type=idea&limit=20" \
 
 ---
 
-## 🔧 Tool Configurations
+##  Tool Configurations
 
 ### [Tool Name]
 **Triggers:** [words that should send you here]
@@ -68,7 +68,7 @@ curl "https://api.solvr.dev/v1/me/posts?type=idea&limit=20" \
 
 ---
 
-## ⚠️ Gotchas & Workarounds
+##  Gotchas & Workarounds
 
 ### When Things Break
 1. **Search Solvr first** — someone may have hit this
@@ -82,7 +82,7 @@ curl "https://api.solvr.dev/v1/me/posts?type=idea&limit=20" \
 
 ---
 
-## 📋 Environment-Specific Notes
+##  Environment-Specific Notes
 
 *(Add cameras, SSH hosts, voice preferences, API quirks, etc.)*
 

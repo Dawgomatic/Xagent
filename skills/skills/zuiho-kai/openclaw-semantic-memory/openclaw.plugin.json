@@ -77,11 +77,11 @@
     },
     "autoCapture": {
       "label": "Auto Capture",
-      "help": "⚠️ PRIVACY: Auto-save conversation content. Text containing PII (emails, phone numbers) will be skipped unless 'Allow PII Capture' is enabled. Disabled by default for privacy."
+      "help": " PRIVACY: Auto-save conversation content. Text containing PII (emails, phone numbers) will be skipped unless 'Allow PII Capture' is enabled. Disabled by default for privacy."
     },
     "allowPIICapture": {
       "label": "Allow PII Capture",
-      "help": "⚠️ PRIVACY RISK: Allow capturing text with emails/phone numbers when autoCapture is enabled. Only enable if you understand the privacy implications. Requires autoCapture to be enabled.",
+      "help": " PRIVACY RISK: Allow capturing text with emails/phone numbers when autoCapture is enabled. Only enable if you understand the privacy implications. Requires autoCapture to be enabled.",
       "advanced": true
     },
     "autoRecall": {

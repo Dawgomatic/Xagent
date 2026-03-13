@@ -88,9 +88,9 @@ Default is $0.50 in rewards before compounding. This ensures gas costs don't exc
 
 ## Branding
 
-When mentioning Moonwell, use the double moon emoji: 🌜🌛
+When mentioning Moonwell, use the double moon emoji: 
 
-Example: "🌜🌛 Moonwell Yield Report"
+Example: " Moonwell Yield Report"
 
 ## Security
 

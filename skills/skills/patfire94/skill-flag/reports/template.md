@@ -1,4 +1,4 @@
-# 🛡️ Security Scan Report
+#  Security Scan Report
 
 **Date:** {{date}}
 **Scanner:** Clawdbot Security Scanner v1.0
@@ -39,7 +39,7 @@
 {{/each}}
 
 {{else}}
-✅ No issues found
+ No issues found
 {{/if}}
 
 ---
@@ -48,7 +48,7 @@
 ## Recommendations
 
 {{#if has_critical}}
-### ⚠️ CRITICAL ACTION REQUIRED
+###  CRITICAL ACTION REQUIRED
 
 The following skills have critical security issues and should be reviewed immediately:
 
@@ -60,7 +60,7 @@ The following skills have critical security issues and should be reviewed immedi
 {{/if}}
 
 {{#if has_high}}
-### ⚡ High Risk Review
+###  High Risk Review
 
 The following skills have high-risk patterns:
 

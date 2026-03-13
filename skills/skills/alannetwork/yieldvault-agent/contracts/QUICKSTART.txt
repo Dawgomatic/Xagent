@@ -24,7 +24,7 @@ STEP 2: VERIFY SETUP
 npm install                 # Install dependencies
 npm run check-balance       # Check deployer balance (need ~0.025 tBNB)
 
-⚠️  If balance is 0, get testnet BNB from:
+  If balance is 0, get testnet BNB from:
    https://testnet.binance.org/faucet-smart-chain
 
 
@@ -34,7 +34,7 @@ STEP 3: COMPILE CONTRACT
 npm run compile
 
 Expected output:
-  ✅ YieldVault compiled successfully
+   YieldVault compiled successfully
 
 
 STEP 4: DEPLOY TO BNB TESTNET
@@ -43,12 +43,12 @@ STEP 4: DEPLOY TO BNB TESTNET
 npm run deploy:testnet
 
 Expected output:
-  🚀 YieldVault Multi-Vault Deployment
-  ✅ vault_bnb_lp_001 deployed to: 0x1234...
-  ✅ vault_eth_staking_001 deployed to: 0xabcd...
+   YieldVault Multi-Vault Deployment
+   vault_bnb_lp_001 deployed to: 0x1234...
+   vault_eth_staking_001 deployed to: 0xabcd...
   ... (6 more vaults)
 
-  📊 Total Contracts Deployed: 8
+   Total Contracts Deployed: 8
   Results saved to: deployments.json
 
 
@@ -108,17 +108,17 @@ ABI_USAGE.md             - API reference
 TROUBLESHOOTING
 ===============
 
-❌ "PRIVATE_KEY not set"
+ "PRIVATE_KEY not set"
   → Ensure .env file exists and has PRIVATE_KEY=...
 
-❌ "Insufficient funds"
+ "Insufficient funds"
   → Get testnet BNB: https://testnet.binance.org/faucet-smart-chain
 
-❌ "RPC Connection failed"
+ "RPC Connection failed"
   → Check RPC_URL in .env or use default:
     https://data-seed-prebsc-1-b7a35f9.binance.org:8545
 
-❌ "Compilation Error"
+ "Compilation Error"
   → Update Hardhat: npm install --save-dev @nomicfoundation/hardhat-toolbox@latest
 
 For more help, read:
@@ -193,12 +193,12 @@ ActionExecuted
 NEXT STEPS
 ==========
 
-1. ✅ Deploy contract (follow STEP 1-4)
-2. ✅ Save contract addresses from deployments.json
-3. ✅ Copy ABI to agent skill
-4. ✅ Update agent configuration
-5. ✅ Test contract interactions
-6. ✅ Monitor events on BscScan
+1.  Deploy contract (follow STEP 1-4)
+2.  Save contract addresses from deployments.json
+3.  Copy ABI to agent skill
+4.  Update agent configuration
+5.  Test contract interactions
+6.  Monitor events on BscScan
 
 
 RESOURCES
@@ -214,10 +214,10 @@ Solidity Docs:         https://docs.soliditylang.org/
 SECURITY REMINDER
 =================
 
-⚠️  NEVER commit .env file to version control
-⚠️  NEVER share your private key
-⚠️  ALWAYS use testnet for testing first
-⚠️  This is a stub - add security audit before production use
+  NEVER commit .env file to version control
+  NEVER share your private key
+  ALWAYS use testnet for testing first
+  This is a stub - add security audit before production use
 
 
 DEPLOYMENT CHECKLIST
@@ -238,5 +238,5 @@ DEPLOYMENT CHECKLIST
 Ready to deploy? Start with STEP 1 above!
 
 ================================================================================
-Created: 2026-02-17 | Status: ✅ Ready for Deployment | Network: BNB Testnet
+Created: 2026-02-17 | Status:  Ready for Deployment | Network: BNB Testnet
 ================================================================================

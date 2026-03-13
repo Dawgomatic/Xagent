@@ -4,7 +4,7 @@ description: Crowdsourced crypto news API. Submit articles, comment, and vote to
 homepage: https://leviathannews.xyz
 repository: https://github.com/leviathan-news/squid-bot
 user-invocable: true
-metadata: {"clawdbot":{"emoji":"🦑","requires":{"env":["WALLET_PRIVATE_KEY"]},"primaryEnv":"WALLET_PRIVATE_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["WALLET_PRIVATE_KEY"]},"primaryEnv":"WALLET_PRIVATE_KEY"}}
 ---
 
 # Leviathan News API

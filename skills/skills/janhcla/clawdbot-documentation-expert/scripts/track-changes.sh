@@ -34,13 +34,13 @@ diff_dates() {
         exit 1
     fi
     
-    echo "📊 Changes from $date1 to $date2:"
+    echo " Changes from $date1 to $date2:"
     echo ""
     
     # New docs
     new=$(comm -13 "$file1" "$file2")
     if [ -n "$new" ]; then
-        echo "➕ Added:"
+        echo " Added:"
         echo "$new" | sed 's|https://docs.clawd.bot/||; s/^/  /'
         echo ""
     fi
@@ -48,7 +48,7 @@ diff_dates() {
     # Removed docs
     removed=$(comm -23 "$file1" "$file2")
     if [ -n "$removed" ]; then
-        echo "➖ Removed:"
+        echo " Removed:"
         echo "$removed" | sed 's|https://docs.clawd.bot/||; s/^/  /'
         echo ""
     fi
@@ -60,7 +60,7 @@ diff_dates() {
 
 # Show available snapshots
 list() {
-    echo "📁 Available snapshots:"
+    echo " Available snapshots:"
     ls -1 "$TRACK_DIR"/*.txt 2>/dev/null | xargs -I{} basename {} .txt | sed 's/^/  /'
     
     if [ -z "$(ls -A "$TRACK_DIR"/*.txt 2>/dev/null)" ]; then

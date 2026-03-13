@@ -4,11 +4,11 @@ This OpenClaw skill allows you to query AI-generated trading signals from VibeTr
 
 ## Features
 
-- 📡 Query latest signals for multiple symbols
-- 🎯 Get signals by specific symbol
-- 🔍 Filter by signal type (WHALE_ACTIVITY, NEWS_ANALYSIS, etc.)
-- ⏰ Time-based filtering
-- 📊 Beautiful console output with sentiment analysis
+-  Query latest signals for multiple symbols
+-  Get signals by specific symbol
+-  Filter by signal type (WHALE_ACTIVITY, NEWS_ANALYSIS, etc.)
+-  Time-based filtering
+-  Beautiful console output with sentiment analysis
 
 ## Installation
 

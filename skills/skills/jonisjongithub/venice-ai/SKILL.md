@@ -6,7 +6,7 @@ metadata:
   {
     "clawdbot":
       {
-        "emoji": "🏛️",
+        "emoji": "",
         "requires": { "bins": ["python3"], "env": ["VENICE_API_KEY"] },
         "primaryEnv": "VENICE_API_KEY",
         "notes": "Full Venice AI platform — text, images, video, audio, embeddings. One skill for everything.",
@@ -42,7 +42,7 @@ Venice is also **uncensored**: no content filters, no refusals, no "I can't help
 
 This skill gives you the **complete Venice platform**: text generation, web search, embeddings, TTS, speech-to-text, image generation, video creation, upscaling, and AI editing.
 
-> **⚠️ API changes:** If something doesn't work as expected, check [docs.venice.ai](https://docs.venice.ai) — the API specs may have been updated since this skill was written.
+> ** API changes:** If something doesn't work as expected, check [docs.venice.ai](https://docs.venice.ai) — the API specs may have been updated since this skill was written.
 
 ## Prerequisites
 
@@ -395,19 +395,19 @@ python3 {baseDir}/scripts/venice-video.py --list-models
 
 # Tips & Ideas
 
-### 🔍 Web Search + LLM = Research Assistant
+###  Web Search + LLM = Research Assistant
 Use `--web-search on --web-citations` to build a research workflow. Venice searches the web, synthesizes results, and cites sources — all in one API call.
 
-### 🔓 Uncensored Creative Content
+###  Uncensored Creative Content
 Venice's uncensored models work for both text AND images. No guardrails blocking legitimate creative use cases.
 
-### 🎯 Prompt Caching for Agents
+###  Prompt Caching for Agents
 If you're running an agent loop that sends the same system prompt repeatedly, use `--cache-key` to get up to 90% cost savings.
 
-### 🎤 Audio Pipeline
+###  Audio Pipeline
 Combine TTS and transcription: generate spoken content with `tts`, process audio with `transcribe`. Both are private inference.
 
-### 🎬 Video Workflow
+###  Video Workflow
 1. Generate or find a base image
 2. Use `--quote` to estimate video cost
 3. Generate with appropriate duration/model

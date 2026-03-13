@@ -75,7 +75,7 @@ if isinstance(data, dict) and 'error_code' in data:
     sys.exit(1)
 contacts = data if isinstance(data, list) else [data]
 for c in contacts:
-    ctype = '🏢' if c.get('contact_type_id') == 1 else '👤'
+    ctype = '' if c.get('contact_type_id') == 1 else ''
     name = c.get('name_1', '') or ''
     name2 = c.get('name_2', '')
     if name2: name = f'{name} {name2}'
@@ -93,9 +93,9 @@ if isinstance(data, dict) and 'error_code' in data:
     print(f\"Error: {data.get('message', 'Unknown error')}\")
     sys.exit(1)
 quotes = data if isinstance(data, list) else [data]
-status_map = {1: '📝 Draft', 2: '📤 Pending', 3: '✅ Accepted', 4: '❌ Declined'}
+status_map = {1: ' Draft', 2: ' Pending', 3: ' Accepted', 4: ' Declined'}
 for q in quotes:
-    status = status_map.get(q.get('kb_item_status_id', 1), '❓')
+    status = status_map.get(q.get('kb_item_status_id', 1), '')
     title = q.get('title', '')[:35]
     total = q.get('total_gross', q.get('total', '0'))
     print(f\"{q.get('id')}\t{q.get('document_nr', '-')}\t{status}\t{total}\t{title}\")
@@ -111,9 +111,9 @@ if isinstance(data, dict) and 'error_code' in data:
     print(f\"Error: {data.get('message', 'Unknown error')}\")
     sys.exit(1)
 invoices = data if isinstance(data, list) else [data]
-status_map = {7: '📝 Draft', 8: '📤 Pending', 9: '💰 Paid', 16: '⚠️ Partial', 19: '❌ Canceled'}
+status_map = {7: ' Draft', 8: ' Pending', 9: ' Paid', 16: ' Partial', 19: ' Canceled'}
 for i in invoices:
-    status = status_map.get(i.get('kb_item_status_id', 7), '❓')
+    status = status_map.get(i.get('kb_item_status_id', 7), '')
     title = i.get('title', '')[:35]
     total = i.get('total_gross', i.get('total', '0'))
     print(f\"{i.get('id')}\t{i.get('document_nr', '-')}\t{status}\t{total}\t{title}\")
@@ -129,9 +129,9 @@ if isinstance(data, dict) and 'error_code' in data:
     print(f\"Error: {data.get('message', 'Unknown error')}\")
     sys.exit(1)
 orders = data if isinstance(data, list) else [data]
-status_map = {5: '📝 Draft', 6: '📤 Pending', 10: '✅ Done'}
+status_map = {5: ' Draft', 6: ' Pending', 10: ' Done'}
 for o in orders:
-    status = status_map.get(o.get('kb_item_status_id', 5), '❓')
+    status = status_map.get(o.get('kb_item_status_id', 5), '')
     title = o.get('title', '')[:35]
     total = o.get('total_gross', o.get('total', '0'))
     print(f\"{o.get('id')}\t{o.get('document_nr', '-')}\t{status}\t{total}\t{title}\")
@@ -164,7 +164,7 @@ if isinstance(data, dict) and 'error_code' in data:
     print(f\"Error: {data.get('message', 'Unknown error')}\")
     sys.exit(1)
 c = data
-ctype = '🏢 Company' if c.get('contact_type_id') == 1 else '👤 Person'
+ctype = ' Company' if c.get('contact_type_id') == 1 else ' Person'
 print(f\"{ctype}: {c.get('name_1', '')} {c.get('name_2', '')}\")
 print(f\"ID: {c.get('id')}\")
 if c.get('mail'): print(f\"Email: {c.get('mail')}\")
@@ -194,7 +194,7 @@ status_map = {
     5: 'Draft', 6: 'Pending', 7: 'Draft', 8: 'Pending',
     9: 'Paid', 10: 'Done', 16: 'Partial', 19: 'Canceled'
 }
-print(f\"📄 {doctype.title()}: {d.get('document_nr', 'N/A')}\")
+print(f\" {doctype.title()}: {d.get('document_nr', 'N/A')}\")
 print(f\"ID: {d.get('id')}\")
 print(f\"Title: {d.get('title', 'N/A')}\")
 print(f\"Status: {status_map.get(d.get('kb_item_status_id', 0), 'Unknown')}\")
@@ -230,7 +230,7 @@ case "$RESOURCE" in
             *) shift ;;
           esac
         done
-        echo "📇 Listing contacts..."
+        echo " Listing contacts..."
         bexio_api GET "/2.0/contact?limit=$LIMIT&offset=$OFFSET" | format_contacts
         ;;
       
@@ -240,7 +240,7 @@ case "$RESOURCE" in
           echo "Usage: bexio.sh contacts search \"query\""
           exit 1
         fi
-        echo "🔍 Searching contacts for: $QUERY"
+        echo " Searching contacts for: $QUERY"
         bexio_api POST "/2.0/contact/search" "[{\"field\": \"name_1\", \"value\": \"$QUERY\", \"criteria\": \"like\"}]" | format_contacts
         ;;
       
@@ -287,7 +287,7 @@ case "$RESOURCE" in
           exit 1
         fi
         
-        echo "📝 Creating contact: $NAME"
+        echo " Creating contact: $NAME"
         DATA=$(python3 -c "
 import json
 data = {
@@ -307,9 +307,9 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if 'error_code' in data:
-    print(f\"❌ Error: {data.get('message', 'Unknown')}\")
+    print(f\" Error: {data.get('message', 'Unknown')}\")
 else:
-    print(f\"✅ Created contact ID: {data.get('id')}\")
+    print(f\" Created contact ID: {data.get('id')}\")
 "
         ;;
       
@@ -335,7 +335,7 @@ else:
           esac
         done
         
-        echo "✏️ Editing contact $ID..."
+        echo " Editing contact $ID..."
         DATA=$(python3 -c "
 import json
 data = {}
@@ -349,9 +349,9 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if 'error_code' in data:
-    print(f\"❌ Error: {data.get('message', 'Unknown')}\")
+    print(f\" Error: {data.get('message', 'Unknown')}\")
 else:
-    print(f\"✅ Updated contact ID: {data.get('id')}\")
+    print(f\" Updated contact ID: {data.get('id')}\")
 "
         ;;
       
@@ -373,7 +373,7 @@ else:
             *) shift ;;
           esac
         done
-        echo "📋 Listing quotes..."
+        echo " Listing quotes..."
         bexio_api GET "/2.0/kb_offer?limit=$LIMIT&offset=$OFFSET" | format_quotes
         ;;
       
@@ -383,7 +383,7 @@ else:
           echo "Usage: bexio.sh quotes search \"query\""
           exit 1
         fi
-        echo "🔍 Searching quotes for: $QUERY"
+        echo " Searching quotes for: $QUERY"
         bexio_api POST "/2.0/kb_offer/search" "[{\"field\": \"title\", \"value\": \"$QUERY\", \"criteria\": \"like\"}]" | format_quotes
         ;;
       
@@ -414,7 +414,7 @@ else:
           exit 1
         fi
         
-        echo "📝 Creating quote: $TITLE"
+        echo " Creating quote: $TITLE"
         DATE=$(date +%Y-%m-%d)
         DATA=$(python3 -c "
 import json
@@ -433,9 +433,9 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if 'error_code' in data:
-    print(f\"❌ Error: {data.get('message', 'Unknown')}\")
+    print(f\" Error: {data.get('message', 'Unknown')}\")
 else:
-    print(f\"✅ Created quote ID: {data.get('id')} - {data.get('document_nr', '')}\")
+    print(f\" Created quote ID: {data.get('id')} - {data.get('document_nr', '')}\")
 "
         ;;
       
@@ -445,14 +445,14 @@ else:
           echo "Usage: bexio.sh quotes clone <id>"
           exit 1
         fi
-        echo "📋 Cloning quote $ID..."
+        echo " Cloning quote $ID..."
         bexio_api POST "/2.0/kb_offer/$ID/copy" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 if 'error_code' in data:
-    print(f\"❌ Error: {data.get('message', 'Unknown')}\")
+    print(f\" Error: {data.get('message', 'Unknown')}\")
 else:
-    print(f\"✅ Cloned to quote ID: {data.get('id')} - {data.get('document_nr', '')}\")
+    print(f\" Cloned to quote ID: {data.get('id')} - {data.get('document_nr', '')}\")
 "
         ;;
       
@@ -476,7 +476,7 @@ else:
           exit 1
         fi
         
-        echo "📤 Sending quote $ID to $EMAIL..."
+        echo " Sending quote $ID to $EMAIL..."
         DATA=$(python3 -c "
 import json
 data = {
@@ -491,9 +491,9 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if 'error_code' in data:
-    print(f\"❌ Error: {data.get('message', 'Unknown')}\")
+    print(f\" Error: {data.get('message', 'Unknown')}\")
 else:
-    print(f\"✅ Quote sent successfully!\")
+    print(f\" Quote sent successfully!\")
 "
         ;;
       
@@ -515,7 +515,7 @@ else:
             *) shift ;;
           esac
         done
-        echo "🧾 Listing invoices..."
+        echo " Listing invoices..."
         bexio_api GET "/2.0/kb_invoice?limit=$LIMIT&offset=$OFFSET" | format_invoices
         ;;
       
@@ -525,7 +525,7 @@ else:
           echo "Usage: bexio.sh invoices search \"query\""
           exit 1
         fi
-        echo "🔍 Searching invoices for: $QUERY"
+        echo " Searching invoices for: $QUERY"
         bexio_api POST "/2.0/kb_invoice/search" "[{\"field\": \"title\", \"value\": \"$QUERY\", \"criteria\": \"like\"}]" | format_invoices
         ;;
       
@@ -556,7 +556,7 @@ else:
           exit 1
         fi
         
-        echo "📝 Creating invoice: $TITLE"
+        echo " Creating invoice: $TITLE"
         DATE=$(date +%Y-%m-%d)
         DATA=$(python3 -c "
 import json
@@ -575,9 +575,9 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if 'error_code' in data:
-    print(f\"❌ Error: {data.get('message', 'Unknown')}\")
+    print(f\" Error: {data.get('message', 'Unknown')}\")
 else:
-    print(f\"✅ Created invoice ID: {data.get('id')} - {data.get('document_nr', '')}\")
+    print(f\" Created invoice ID: {data.get('id')} - {data.get('document_nr', '')}\")
 "
         ;;
       
@@ -587,14 +587,14 @@ else:
           echo "Usage: bexio.sh invoices issue <id>"
           exit 1
         fi
-        echo "📤 Issuing invoice $ID..."
+        echo " Issuing invoice $ID..."
         bexio_api POST "/2.0/kb_invoice/$ID/issue" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 if 'error_code' in data:
-    print(f\"❌ Error: {data.get('message', 'Unknown')}\")
+    print(f\" Error: {data.get('message', 'Unknown')}\")
 else:
-    print(f\"✅ Invoice issued! Status: Pending\")
+    print(f\" Invoice issued! Status: Pending\")
 "
         ;;
       
@@ -620,7 +620,7 @@ else:
           exit 1
         fi
         
-        echo "📤 Sending invoice $ID to $EMAIL..."
+        echo " Sending invoice $ID to $EMAIL..."
         DATA=$(python3 -c "
 import json
 data = {
@@ -636,9 +636,9 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if 'error_code' in data:
-    print(f\"❌ Error: {data.get('message', 'Unknown')}\")
+    print(f\" Error: {data.get('message', 'Unknown')}\")
 else:
-    print(f\"✅ Invoice sent successfully!\")
+    print(f\" Invoice sent successfully!\")
 "
         ;;
       
@@ -648,14 +648,14 @@ else:
           echo "Usage: bexio.sh invoices cancel <id>"
           exit 1
         fi
-        echo "❌ Canceling invoice $ID..."
+        echo " Canceling invoice $ID..."
         bexio_api POST "/2.0/kb_invoice/$ID/cancel" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 if 'error_code' in data:
-    print(f\"❌ Error: {data.get('message', 'Unknown')}\")
+    print(f\" Error: {data.get('message', 'Unknown')}\")
 else:
-    print(f\"✅ Invoice canceled!\")
+    print(f\" Invoice canceled!\")
 "
         ;;
       
@@ -677,7 +677,7 @@ else:
             *) shift ;;
           esac
         done
-        echo "📦 Listing orders..."
+        echo " Listing orders..."
         bexio_api GET "/2.0/kb_order?limit=$LIMIT&offset=$OFFSET" | format_orders
         ;;
       
@@ -687,7 +687,7 @@ else:
           echo "Usage: bexio.sh orders search \"query\""
           exit 1
         fi
-        echo "🔍 Searching orders for: $QUERY"
+        echo " Searching orders for: $QUERY"
         bexio_api POST "/2.0/kb_order/search" "[{\"field\": \"title\", \"value\": \"$QUERY\", \"criteria\": \"like\"}]" | format_orders
         ;;
       
@@ -718,7 +718,7 @@ else:
           exit 1
         fi
         
-        echo "📝 Creating order: $TITLE"
+        echo " Creating order: $TITLE"
         DATE=$(date +%Y-%m-%d)
         DATA=$(python3 -c "
 import json
@@ -736,9 +736,9 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if 'error_code' in data:
-    print(f\"❌ Error: {data.get('message', 'Unknown')}\")
+    print(f\" Error: {data.get('message', 'Unknown')}\")
 else:
-    print(f\"✅ Created order ID: {data.get('id')} - {data.get('document_nr', '')}\")
+    print(f\" Created order ID: {data.get('id')} - {data.get('document_nr', '')}\")
 "
         ;;
       
@@ -760,7 +760,7 @@ else:
             *) shift ;;
           esac
         done
-        echo "📦 Listing items..."
+        echo " Listing items..."
         bexio_api GET "/2.0/article?limit=$LIMIT&offset=$OFFSET" | format_items
         ;;
       
@@ -770,7 +770,7 @@ else:
           echo "Usage: bexio.sh items search \"query\""
           exit 1
         fi
-        echo "🔍 Searching items for: $QUERY"
+        echo " Searching items for: $QUERY"
         bexio_api POST "/2.0/article/search" "[{\"field\": \"intern_name\", \"value\": \"$QUERY\", \"criteria\": \"like\"}]" | format_items
         ;;
       
@@ -787,7 +787,7 @@ if 'error_code' in data:
     print(f\"Error: {data.get('message', 'Unknown')}\")
     sys.exit(1)
 i = data
-print(f\"📦 Item: {i.get('intern_name', 'N/A')}\")
+print(f\" Item: {i.get('intern_name', 'N/A')}\")
 print(f\"ID: {i.get('id')}\")
 print(f\"Code: {i.get('intern_code', 'N/A')}\")
 print(f\"Sale Price: {i.get('sale_price', 'N/A')}\")

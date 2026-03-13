@@ -203,7 +203,7 @@ func (m *Manager) StartAll(ctx context.Context) error {
 		logger.InfoCF("channels", "Starting channel", map[string]interface{}{
 			"channel": name,
 		})
-		if err := channel.Start(ctx); err != nil {
+		if err := channel.Start(dispatchCtx); err != nil {
 			logger.ErrorCF("channels", "Failed to start channel", map[string]interface{}{
 				"channel": name,
 				"error":   err.Error(),

@@ -317,7 +317,7 @@ async function transferFile(sourceNode, destNode, sourcePath, destPath) {
     
     const result = JSON.parse(receiveResult.output);
     
-    console.log('\n✅ Transfer complete!');
+    console.log('\n Transfer complete!');
     console.log(`   File: ${fileName}`);
     console.log(`   Size: ${(result.bytesReceived / 1024 / 1024).toFixed(2)} MB`);
     console.log(`   Time: ${result.duration.toFixed(2)} seconds`);

@@ -606,8 +606,8 @@ case "$1" in
     # SWE100821: Health check command for quick liveness verification
     health)
         echo "=== Health Check ==="
-        curl -sf http://127.0.0.1:18791/healthz && echo "" || echo "❌ Gateway health check FAILED"
-        curl -sf http://127.0.0.1:18791/readyz  && echo "" || echo "⚠ Gateway readiness check FAILED"
+        curl -sf http://127.0.0.1:18791/healthz && echo "" || echo " Gateway health check FAILED"
+        curl -sf http://127.0.0.1:18791/readyz  && echo "" || echo " Gateway readiness check FAILED"
         ;;
     upgrade)
         shift

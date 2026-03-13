@@ -18,7 +18,7 @@ def main():
     """Get and analyze WHOOP recovery data for last 5 unique days"""
     client = WhoopClient()
     
-    print("🏃‍♀️ **WHOOP Recovery Statistics — Last 5 Days**")
+    print(" **WHOOP Recovery Statistics — Last 5 Days**")
     print("=" * 50)
     print()
     
@@ -26,7 +26,7 @@ def main():
     response = client._make_request('/v2/recovery')
     
     if not response or not response.get('records'):
-        print("❌ No recovery data available")
+        print(" No recovery data available")
         return
     
     records = response['records']
@@ -61,16 +61,16 @@ def main():
     sorted_days = sorted(daily_best.keys(), reverse=True)[:5]
     
     if not sorted_days:
-        print("❌ No recovery data found")
+        print(" No recovery data found")
         return
     
-    print("📊 **Daily Recovery Breakdown (Best Score Per Day):**")
+    print(" **Daily Recovery Breakdown (Best Score Per Day):**")
     daily_data = []
     
     for date_str in sorted_days:
         data = daily_best[date_str]
         recovery = data['recovery']
-        recovery_emoji = "🟢" if recovery >= 70 else "🟡" if recovery >= 50 else "🔴"
+        recovery_emoji = "" if recovery >= 70 else "" if recovery >= 50 else ""
         
         print(f"{recovery_emoji} **{date_str}**")
         print(f"   Recovery: **{recovery:.0f}%** | HRV: {data['hrv']:.1f}ms | RHR: {data['rhr']:.0f} bpm")
@@ -85,10 +85,10 @@ def main():
         avg_hrv = sum(d['hrv'] for d in daily_data) / len(daily_data)
         avg_rhr = sum(d['rhr'] for d in daily_data) / len(daily_data)
         
-        print("📈 **5-Day Averages:**")
-        print(f"🎯 **Average Recovery:** {avg_recovery:.1f}%")
-        print(f"💓 **Average HRV:** {avg_hrv:.1f}ms")
-        print(f"🫀 **Average RHR:** {avg_rhr:.0f} bpm")
+        print(" **5-Day Averages:**")
+        print(f" **Average Recovery:** {avg_recovery:.1f}%")
+        print(f" **Average HRV:** {avg_hrv:.1f}ms")
+        print(f" **Average RHR:** {avg_rhr:.0f} bpm")
         print()
         
         # Trend analysis (newest vs oldest in our 5-day window)
@@ -98,34 +98,34 @@ def main():
             trend_change = recent_recovery - older_recovery
             
             if trend_change > 5:
-                trend_emoji = "📈"
+                trend_emoji = ""
                 trend_text = "**improving**"
             elif trend_change < -5:
-                trend_emoji = "📉" 
+                trend_emoji = "" 
                 trend_text = "**declining**"
             else:
-                trend_emoji = "➡️"
+                trend_emoji = ""
                 trend_text = "**stable**"
             
-            print("📊 **Trend Analysis:**")
+            print(" **Trend Analysis:**")
             print(f"{trend_emoji} Recovery trend: {trend_text}")
             print(f"Change: {trend_change:+.0f}% ({sorted_days[-1]} → {sorted_days[0]})")
             print()
         
         # Health insights
-        print("💡 **Insights:**")
+        print(" **Insights:**")
         if avg_recovery >= 70:
-            print("✅ **Excellent recovery!** Your body is adapting well")
+            print(" **Excellent recovery!** Your body is adapting well")
         elif avg_recovery >= 50:
-            print("🟡 **Moderate recovery.** Focus on sleep optimization and stress management")
+            print(" **Moderate recovery.** Focus on sleep optimization and stress management")
         else:
-            print("🔴 **Low recovery detected.** Prioritize rest and reduce training intensity")
+            print(" **Low recovery detected.** Prioritize rest and reduce training intensity")
         
         # HRV insights
         if avg_hrv > 50:
-            print("💚 **Strong HRV baseline** — excellent autonomic nervous system health")
+            print(" **Strong HRV baseline** — excellent autonomic nervous system health")
         elif avg_hrv < 35:
-            print("🟡 **Lower HRV** — may indicate stress or overtraining")
+            print(" **Lower HRV** — may indicate stress or overtraining")
         
         print()
         
@@ -134,7 +134,7 @@ def main():
         for date_str in sorted_days:
             records_per_day[date_str] = len(daily_records[date_str])
         
-        print("📱 **Records per day:**")
+        print(" **Records per day:**")
         for date_str in sorted_days:
             count = records_per_day[date_str]
             print(f"   {date_str}: {count} recovery record{'s' if count > 1 else ''}")

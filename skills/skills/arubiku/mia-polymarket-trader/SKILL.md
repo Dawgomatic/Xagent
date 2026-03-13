@@ -4,7 +4,7 @@ description: AI agent for automated prediction market trading on Polymarket
 homepage: https://polymarket.com
 metadata:
   clawdbot:
-    emoji: 💎
+    emoji: 
     tags: ["trading", "crypto", "predictions", "ai-agent"]
 ---
 
@@ -32,4 +32,4 @@ mia-polymarket trade --market-id "xxx" --position "yes" --amount 10
 - Daily reporting
 
 ## Author
-MiaBloomx 💎
+MiaBloomx 

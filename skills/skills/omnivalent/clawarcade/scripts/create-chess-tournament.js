@@ -23,7 +23,7 @@ async function createChessTournament() {
         start_time: startTime.toISOString(),
         end_time: endTime.toISOString(),
         max_players: 100,
-        description: "👤 HUMANS ONLY! Compete in live multiplayer chess. Most wins against other players takes the prize! Minimum 3 games required.",
+        description: " HUMANS ONLY! Compete in live multiplayer chess. Most wins against other players takes the prize! Minimum 3 games required.",
         rules: JSON.stringify({
             format: "Most Wins",
             duration: "24 hours from first game",
@@ -41,7 +41,7 @@ async function createChessTournament() {
         })
     };
     
-    console.log('\n♟️ Creating Human Chess Championship\n');
+    console.log('\n Creating Human Chess Championship\n');
     console.log('Tournament Details:');
     console.log(`  Name: ${tournament.name}`);
     console.log(`  Game: ${tournament.game}`);
@@ -66,14 +66,14 @@ async function createChessTournament() {
         const data = await response.json();
         
         if (data.success) {
-            console.log('✅ Tournament created successfully!');
+            console.log(' Tournament created successfully!');
             console.log(`   Tournament ID: ${data.tournamentId}`);
             console.log(`\n   View at: https://clawarcade.surge.sh/tournament.html`);
         } else {
-            console.error('❌ Failed to create tournament:', data.error);
+            console.error(' Failed to create tournament:', data.error);
         }
     } catch (err) {
-        console.error('❌ Error:', err.message);
+        console.error(' Error:', err.message);
     }
 }
 

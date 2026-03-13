@@ -550,7 +550,7 @@ High Institutional Outflow Sectors:
 
 Before making investment decision based on institutional flow:
 
-**✅ Verification Checklist:**
+** Verification Checklist:**
 - [ ] Signal level determined (Strong/Moderate/Neutral Buy or Sell)
 - [ ] Multi-quarter trend confirmed (2+ quarters same direction)
 - [ ] Institution quality assessed (Tier 1/2 involvement?)

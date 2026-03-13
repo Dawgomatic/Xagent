@@ -3,7 +3,7 @@ name: aubrai-longevity
 description: Answer questions about longevity, aging, lifespan extension, and anti-aging research using Aubrai's research engine with cited sources.
 user-invocable: true
 disable-model-invocation: true
-metadata: {"homepage":"https://api.aubr.ai/docs","openclaw":{"emoji":"🧬"}}
+metadata: {"homepage":"https://api.aubr.ai/docs","openclaw":{"emoji":""}}
 ---
 
 # Aubrai Longevity Research

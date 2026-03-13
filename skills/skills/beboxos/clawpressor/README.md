@@ -33,8 +33,8 @@ python3 scripts/compress.py --stats
 
 ## Credits
 
-- **Coding:** JARVIS 🤖
-- **Management:** BeBoX 👤
+- **Coding:** JARVIS 
+- **Management:** BeBoX 
 
 ## License
 

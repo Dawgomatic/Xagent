@@ -1,7 +1,7 @@
 ---
 name: byterover-headless
 description: "Query and curate knowledge-base using ByteRover CLI. Use `brv query` for knowledge retrieval, `brv curate` for adding context, and `brv push/pull` for syncing."
-metadata: {"moltbot":{"emoji":"🧠","requires":{"bins":["brv"]},"install":[{"id":"npm","kind":"node","package":"@byterover/cli","bins":["brv"],"label":"Install ByteRover CLI (npm)"}]}}
+metadata: {"moltbot":{"emoji":"","requires":{"bins":["brv"]},"install":[{"id":"npm","kind":"node","package":"@byterover/cli","bins":["brv"],"label":"Install ByteRover CLI (npm)"}]}}
 ---
 
 # ByteRover Knowledge Management

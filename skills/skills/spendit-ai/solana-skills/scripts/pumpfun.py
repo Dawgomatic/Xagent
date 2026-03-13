@@ -400,7 +400,7 @@ def cmd_launch(args):
             args.description or ""
         ))
     except Exception as e:
-        print(f"\n❌ IPFS upload failed: {e}")
+        print(f"\n IPFS upload failed: {e}")
         sys.exit(1)
     
     # Use provided mint key or generate random
@@ -409,7 +409,7 @@ def cmd_launch(args):
             mint_keypair = Keypair.from_base58_string(args.mint_key)
             print(f"\n◎ Using custom mint: {mint_keypair.pubkey()}")
         except Exception as e:
-            print(f"\n❌ Invalid mint key: {e}")
+            print(f"\n Invalid mint key: {e}")
             sys.exit(1)
     else:
         mint_keypair = Keypair()
@@ -476,14 +476,14 @@ def cmd_launch(args):
         result = client.send_transaction(tx, opts=opts)
         signature = result.value
         
-        print(f"\n✅ Token launched!")
+        print(f"\n Token launched!")
         print(f"◎ Mint: {mint}")
         print(f"◎ Signature: {signature}")
         print(f"◎ Pump.fun: https://pump.fun/coin/{mint}")
         print(f"◎ Explorer: https://solscan.io/tx/{signature}")
         
     except Exception as e:
-        print(f"\n❌ Transaction failed: {e}")
+        print(f"\n Transaction failed: {e}")
         sys.exit(1)
 
 

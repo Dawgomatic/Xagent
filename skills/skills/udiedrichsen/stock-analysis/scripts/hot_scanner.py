@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🔥 HOT SCANNER v2 - Find viral stocks & crypto trends
+ HOT SCANNER v2 - Find viral stocks & crypto trends
 Now with Twitter/X, Reddit, and improved Yahoo Finance
 """
 
@@ -71,7 +71,7 @@ class HotScanner:
     
     def scan_all(self):
         """Run all scans in parallel."""
-        print("🔍 Scanning for hot trends...\n")
+        print(" Scanning for hot trends...\n")
         
         tasks = [
             ("CoinGecko Trending", self.scan_coingecko_trending),
@@ -95,13 +95,13 @@ class HotScanner:
                 try:
                     future.result()
                 except Exception as e:
-                    print(f"    ❌ {name}: {str(e)[:50]}")
+                    print(f"     {name}: {str(e)[:50]}")
         
         return self.results
     
     def scan_coingecko_trending(self):
         """Get trending crypto from CoinGecko."""
-        print("  📊 CoinGecko Trending...")
+        print("   CoinGecko Trending...")
         try:
             url = "https://api.coingecko.com/api/v3/search/trending"
             data = self._fetch_json(url)
@@ -124,16 +124,16 @@ class HotScanner:
                 self.mentions[sym]["count"] += 2  # Trending gets extra weight
                 self.mentions[sym]["sources"].append("CoinGecko Trending")
                 if price_change:
-                    direction = "🚀 bullish" if price_change > 0 else "📉 bearish"
+                    direction = " bullish" if price_change > 0 else " bearish"
                     self.mentions[sym]["sentiment_hints"].append(f"{direction} ({price_change:+.1f}%)")
             
-            print(f"    ✅ {len(data.get('coins', []))} trending coins")
+            print(f"     {len(data.get('coins', []))} trending coins")
         except Exception as e:
-            print(f"    ❌ CoinGecko trending: {e}")
+            print(f"     CoinGecko trending: {e}")
     
     def scan_coingecko_gainers_losers(self):
         """Get top gainers/losers."""
-        print("  📈 CoinGecko Movers...")
+        print("   CoinGecko Movers...")
         try:
             url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&price_change_percentage=24h"
             data = self._fetch_json(url)
@@ -158,16 +158,16 @@ class HotScanner:
                     sym = entry["symbol"]
                     self.mentions[sym]["count"] += 1
                     self.mentions[sym]["sources"].append("CoinGecko Movers")
-                    direction = "🚀 pumping" if change > 0 else "📉 dumping"
+                    direction = " pumping" if change > 0 else " dumping"
                     self.mentions[sym]["sentiment_hints"].append(f"{direction} ({change:+.1f}%)")
             
-            print(f"    ✅ {count} significant movers")
+            print(f"     {count} significant movers")
         except Exception as e:
-            print(f"    ❌ CoinGecko movers: {e}")
+            print(f"     CoinGecko movers: {e}")
     
     def scan_google_news_finance(self):
         """Get finance news from Google News RSS."""
-        print("  📰 Google News Finance...")
+        print("   Google News Finance...")
         try:
             # Business news topic
             url = "https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx6TVdZU0FtVnVHZ0pWVXlnQVAB?hl=en-US&gl=US&ceid=US:en"
@@ -190,15 +190,15 @@ class HotScanner:
                 for ticker in tickers:
                     self.mentions[ticker]["count"] += 1
                     self.mentions[ticker]["sources"].append("Google News")
-                    self.mentions[ticker]["sentiment_hints"].append(f"📰 {title[:40]}...")
+                    self.mentions[ticker]["sentiment_hints"].append(f" {title[:40]}...")
             
-            print(f"    ✅ {len(items)} news items")
+            print(f"     {len(items)} news items")
         except Exception as e:
-            print(f"    ❌ Google News Finance: {e}")
+            print(f"     Google News Finance: {e}")
     
     def scan_google_news_crypto(self):
         """Search for crypto news."""
-        print("  📰 Google News Crypto...")
+        print("   Google News Crypto...")
         try:
             url = "https://news.google.com/rss/search?q=bitcoin+OR+ethereum+OR+crypto+crash+OR+crypto+pump&hl=en-US&gl=US&ceid=US:en"
             text = self._fetch(url)
@@ -233,13 +233,13 @@ class HotScanner:
                         self.mentions[ticker]["count"] += 1
                         self.mentions[ticker]["sources"].append("Google News Crypto")
             
-            print(f"    ✅ Processed crypto news")
+            print(f"     Processed crypto news")
         except Exception as e:
-            print(f"    ❌ Google News Crypto: {e}")
+            print(f"     Google News Crypto: {e}")
     
     def scan_yahoo_movers(self):
         """Scrape Yahoo Finance movers with gzip support."""
-        print("  📈 Yahoo Finance Movers...")
+        print("   Yahoo Finance Movers...")
         categories = [
             ("gainers", "https://finance.yahoo.com/gainers/"),
             ("losers", "https://finance.yahoo.com/losers/"),
@@ -274,13 +274,13 @@ class HotScanner:
                     self.mentions[ticker]["sources"].append(f"Yahoo {category.replace('_', ' ').title()}")
                 
                 if unique_tickers:
-                    print(f"    ✅ Yahoo {category}: {len(unique_tickers)} tickers")
+                    print(f"     Yahoo {category}: {len(unique_tickers)} tickers")
             except Exception as e:
-                print(f"    ⚠️ Yahoo {category}: {str(e)[:30]}")
+                print(f"     Yahoo {category}: {str(e)[:30]}")
     
     def scan_reddit_wsb(self):
         """Scrape r/wallstreetbets for hot stocks."""
-        print("  🦍 Reddit r/wallstreetbets...")
+        print("   Reddit r/wallstreetbets...")
         try:
             # Use old.reddit.com (more scrape-friendly)
             url = "https://old.reddit.com/r/wallstreetbets/hot/.json"
@@ -305,7 +305,7 @@ class HotScanner:
                         weight = 2 if score > 1000 else 1
                         self.mentions[ticker]["count"] += weight
                         self.mentions[ticker]["sources"].append("Reddit WSB")
-                        self.mentions[ticker]["sentiment_hints"].append(f"🦍 WSB: {title[:35]}...")
+                        self.mentions[ticker]["sentiment_hints"].append(f" WSB: {title[:35]}...")
                         tickers_found.append(ticker)
                         
                         self.results["social"].append({
@@ -315,13 +315,13 @@ class HotScanner:
                             "tickers": tickers
                         })
             
-            print(f"    ✅ WSB: {len(set(tickers_found))} tickers mentioned")
+            print(f"     WSB: {len(set(tickers_found))} tickers mentioned")
         except Exception as e:
-            print(f"    ❌ Reddit WSB: {str(e)[:40]}")
+            print(f"     Reddit WSB: {str(e)[:40]}")
     
     def scan_reddit_crypto(self):
         """Scrape r/cryptocurrency for hot coins."""
-        print("  💎 Reddit r/cryptocurrency...")
+        print("   Reddit r/cryptocurrency...")
         try:
             url = "https://old.reddit.com/r/cryptocurrency/hot/.json"
             headers = {**self.headers, "Accept": "application/json"}
@@ -352,13 +352,13 @@ class HotScanner:
                         self.mentions[ticker]["sources"].append("Reddit Crypto")
                         tickers_found.append(ticker)
             
-            print(f"    ✅ r/crypto: {len(set(tickers_found))} coins mentioned")
+            print(f"     r/crypto: {len(set(tickers_found))} coins mentioned")
         except Exception as e:
-            print(f"    ❌ Reddit Crypto: {str(e)[:40]}")
+            print(f"     Reddit Crypto: {str(e)[:40]}")
     
     def scan_twitter(self):
         """Use bird CLI to get trending finance/crypto tweets."""
-        print("  🐦 Twitter/X...")
+        print("   Twitter/X...")
         try:
             # Find bird binary
             bird_paths = [
@@ -373,7 +373,7 @@ class HotScanner:
                     break
             
             if not bird_bin:
-                print("    ⚠️ Twitter: bird not found")
+                print("     Twitter: bird not found")
                 return
             
             # Search for finance tweets
@@ -405,7 +405,7 @@ class HotScanner:
                             for ticker in set(tickers):
                                 self.mentions[ticker]["count"] += 1
                                 self.mentions[ticker]["sources"].append("Twitter/X")
-                                self.mentions[ticker]["sentiment_hints"].append(f"🐦 {text[:35]}...")
+                                self.mentions[ticker]["sentiment_hints"].append(f" {text[:35]}...")
                                 
                                 self.results["social"].append({
                                     "platform": "twitter",
@@ -413,15 +413,15 @@ class HotScanner:
                                     "tickers": list(set(tickers))
                                 })
                         
-                        print(f"    ✅ Twitter {category}: processed")
+                        print(f"     Twitter {category}: processed")
                 except subprocess.TimeoutExpired:
-                    print(f"    ⚠️ Twitter {category}: timeout")
+                    print(f"     Twitter {category}: timeout")
                 except json.JSONDecodeError:
-                    print(f"    ⚠️ Twitter {category}: no auth?")
+                    print(f"     Twitter {category}: no auth?")
         except FileNotFoundError:
-            print("    ⚠️ Twitter: bird CLI not found")
+            print("     Twitter: bird CLI not found")
         except Exception as e:
-            print(f"    ❌ Twitter: {str(e)[:40]}")
+            print(f"     Twitter: {str(e)[:40]}")
     
     def _extract_tickers(self, text):
         """Extract stock/crypto tickers from text."""
@@ -511,7 +511,7 @@ class HotScanner:
 
 def main():
     import argparse
-    parser = argparse.ArgumentParser(description="🔥 Hot Scanner - Find trending stocks & crypto")
+    parser = argparse.ArgumentParser(description=" Hot Scanner - Find trending stocks & crypto")
     parser.add_argument("--no-social", action="store_true", help="Skip social media scans")
     parser.add_argument("--json", action="store_true", help="Output only JSON")
     args = parser.parse_args()
@@ -520,8 +520,8 @@ def main():
     
     if not args.json:
         print("=" * 60)
-        print("🔥 HOT SCANNER v2 - What's Trending Right Now?")
-        print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC")
+        print(" HOT SCANNER v2 - What's Trending Right Now?")
+        print(f" {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC")
         print("=" * 60)
         print()
     
@@ -539,43 +539,43 @@ def main():
     
     print()
     print("=" * 60)
-    print("🔥 RESULTS")
+    print(" RESULTS")
     print("=" * 60)
     
-    print("\n📊 TOP TRENDING (by buzz):\n")
+    print("\n TOP TRENDING (by buzz):\n")
     for i, item in enumerate(summary["top_trending"][:12], 1):
         sources = ", ".join(item["sources"][:2])
         signal = item["signals"][0][:30] if item["signals"] else ""
         print(f"  {i:2}. {item['symbol']:8} ({item['mentions']:2} pts) [{sources}] {signal}")
     
-    print("\n🪙 CRYPTO:\n")
+    print("\n CRYPTO:\n")
     for coin in summary["crypto_highlights"][:8]:
         change = coin.get("change_24h") or coin.get("price_change_24h")
-        change_str = f"{change:+.1f}%" if change else "🔥"
-        emoji = "🚀" if (change or 0) > 0 else "📉" if (change or 0) < 0 else "🔥"
+        change_str = f"{change:+.1f}%" if change else ""
+        emoji = "" if (change or 0) > 0 else "" if (change or 0) < 0 else ""
         print(f"  {emoji} {coin.get('symbol', '?'):8} {coin.get('name', '')[:16]:16} {change_str:>8}")
     
-    print("\n📈 STOCKS:\n")
-    cat_emoji = {"gainers": "🟢", "losers": "🔴", "most_active": "📊"}
+    print("\n STOCKS:\n")
+    cat_emoji = {"gainers": "", "losers": "", "most_active": ""}
     for stock in summary["stock_highlights"][:10]:
         emoji = cat_emoji.get(stock.get("category"), "•")
         print(f"  {emoji} {stock['symbol']:6} ({stock.get('category', 'N/A').replace('_', ' ')})")
     
     if summary["social_buzz"]:
-        print("\n🐦 SOCIAL BUZZ:\n")
+        print("\n SOCIAL BUZZ:\n")
         for item in summary["social_buzz"][:5]:
             platform = item.get("platform", "?")
             text = item.get("title") or item.get("text", "")
             text = text[:55] + "..." if len(text) > 55 else text
             print(f"  [{platform}] {text}")
     
-    print("\n📰 NEWS:\n")
+    print("\n NEWS:\n")
     for news in summary["breaking_news"][:5]:
         tickers = ", ".join(news["tickers"][:3])
         title = news["title"][:55] + "..." if len(news["title"]) > 55 else news["title"]
         print(f"  [{tickers}] {title}")
     
-    print(f"\n💾 Saved: {output_file}\n")
+    print(f"\n Saved: {output_file}\n")
 
 
 if __name__ == "__main__":

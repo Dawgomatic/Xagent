@@ -14,7 +14,7 @@ from aiohttp import ClientSession
 try:
     from thinqconnect.thinq_api import ThinQApi
 except ImportError:
-    print("❌ thinqconnect not installed. Run: pip install thinqconnect")
+    print(" thinqconnect not installed. Run: pip install thinqconnect")
     sys.exit(1)
 
 CONFIG_DIR = Path.home() / ".config" / "lg-thinq"
@@ -25,7 +25,7 @@ DEVICES_CACHE = CONFIG_DIR / "devices.json"
 def get_config():
     """Load token and country from config files."""
     if not TOKEN_FILE.exists():
-        print(f"❌ Token not found. Save it to: {TOKEN_FILE}")
+        print(f" Token not found. Save it to: {TOKEN_FILE}")
         sys.exit(1)
     
     token = TOKEN_FILE.read_text().strip()
@@ -100,10 +100,10 @@ async def control_device(token, country, device_id, payload):
 
 def print_devices(devices):
     """Pretty print device list."""
-    print(f"\n🏠 Found {len(devices)} device(s):\n")
+    print(f"\n Found {len(devices)} device(s):\n")
     for d in devices:
         info = d.get('deviceInfo', {})
-        print(f"  📦 {info.get('alias', 'Unknown')}")
+        print(f"   {info.get('alias', 'Unknown')}")
         print(f"     Type: {info.get('deviceType', 'Unknown')}")
         print(f"     Model: {info.get('modelName', 'Unknown')}")
         print(f"     ID: {d['deviceId'][:16]}...")
@@ -111,7 +111,7 @@ def print_devices(devices):
 
 def print_fridge_status(status):
     """Pretty print refrigerator status."""
-    print("\n🧊 Refrigerator Status:\n")
+    print("\n Refrigerator Status:\n")
     
     # Temperature
     temps = status.get('temperature', [])
@@ -119,14 +119,14 @@ def print_fridge_status(status):
         loc = t.get('locationName', 'Unknown')
         temp = t.get('targetTemperature', '?')
         unit = t.get('unit', 'C')
-        emoji = "❄️" if loc == "FREEZER" else "🌡️"
+        emoji = "" if loc == "FREEZER" else ""
         print(f"  {emoji} {loc}: {temp}°{unit}")
     
     # Door
     doors = status.get('doorStatus', [])
     for d in doors:
         state = d.get('doorState', 'Unknown')
-        emoji = "🚪" if state == "CLOSE" else "⚠️"
+        emoji = "" if state == "CLOSE" else ""
         print(f"  {emoji} Door: {state}")
     
     # Modes
@@ -137,29 +137,29 @@ def print_fridge_status(status):
     express_mode = "ON" if refrig.get('expressMode') else "OFF"
     eco_mode = "ON" if eco.get('ecoFriendlyMode') else "OFF"
     
-    print(f"\n  ⚡ Express Fridge: {express_fridge}")
-    print(f"  ⚡ Express Freeze: {express_mode}")
-    print(f"  🌿 Eco Mode: {eco_mode}")
+    print(f"\n   Express Fridge: {express_fridge}")
+    print(f"   Express Freeze: {express_mode}")
+    print(f"   Eco Mode: {eco_mode}")
     print()
 
 def print_washer_status(status):
     """Pretty print washer/dryer status."""
-    print("\n🧺 Washer/Dryer Status:\n")
+    print("\n Washer/Dryer Status:\n")
     
     run_state = status.get('runState', {})
     state = run_state.get('currentState', 'Unknown')
-    print(f"  📍 State: {state}")
+    print(f"   State: {state}")
     
     timer = status.get('timer', {})
     remain_h = timer.get('remainHour', 0)
     remain_m = timer.get('remainMinute', 0)
     if remain_h or remain_m:
-        print(f"  ⏱️ Remaining: {remain_h}h {remain_m}m")
+        print(f"   Remaining: {remain_h}h {remain_m}m")
     
     remote = status.get('remoteControlEnable', {})
     if remote:
         enabled = "Yes" if remote.get('remoteControlEnabled') else "No"
-        print(f"  📱 Remote Control: {enabled}")
+        print(f"   Remote Control: {enabled}")
     print()
 
 def main():
@@ -208,7 +208,7 @@ def main():
             else:
                 print(json.dumps(status, indent=2))
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f" Error: {e}")
             sys.exit(1)
         return
     
@@ -220,7 +220,7 @@ def main():
             break
     
     if not fridge_id and cmd in ['fridge-temp', 'freezer-temp', 'express-fridge', 'express-freeze', 'eco']:
-        print("❌ No refrigerator found")
+        print(" No refrigerator found")
         sys.exit(1)
     
     # Fridge temperature
@@ -230,11 +230,11 @@ def main():
             sys.exit(1)
         temp = int(sys.argv[2])
         if not 0 <= temp <= 6:
-            print("❌ Fridge temp must be 0-6°C")
+            print(" Fridge temp must be 0-6°C")
             sys.exit(1)
         payload = {"temperature": {"targetTemperature": temp, "locationName": "FRIDGE", "unit": "C"}}
         asyncio.run(control_device(token, country, fridge_id, payload))
-        print(f"✅ Fridge set to {temp}°C")
+        print(f" Fridge set to {temp}°C")
         return
     
     # Freezer temperature
@@ -245,7 +245,7 @@ def main():
         temp = int(sys.argv[2])
         payload = {"temperature": {"targetTemperature": temp, "locationName": "FREEZER", "unit": "C"}}
         asyncio.run(control_device(token, country, fridge_id, payload))
-        print(f"✅ Freezer set to {temp}°C")
+        print(f" Freezer set to {temp}°C")
         return
     
     # Express fridge
@@ -256,7 +256,7 @@ def main():
         value = sys.argv[2].lower() == "on"
         payload = {"refrigeration": {"expressFridge": value}}
         asyncio.run(control_device(token, country, fridge_id, payload))
-        print(f"✅ Express Fridge: {'ON' if value else 'OFF'}")
+        print(f" Express Fridge: {'ON' if value else 'OFF'}")
         return
     
     # Express freeze
@@ -267,7 +267,7 @@ def main():
         value = sys.argv[2].lower() == "on"
         payload = {"refrigeration": {"expressMode": value}}
         asyncio.run(control_device(token, country, fridge_id, payload))
-        print(f"✅ Express Freeze: {'ON' if value else 'OFF'}")
+        print(f" Express Freeze: {'ON' if value else 'OFF'}")
         return
     
     # Eco mode
@@ -278,7 +278,7 @@ def main():
         value = sys.argv[2].lower() == "on"
         payload = {"ecoFriendly": {"ecoFriendlyMode": value}}
         asyncio.run(control_device(token, country, fridge_id, payload))
-        print(f"✅ Eco Mode: {'ON' if value else 'OFF'}")
+        print(f" Eco Mode: {'ON' if value else 'OFF'}")
         return
     
     # Raw command
@@ -289,10 +289,10 @@ def main():
         device_id = find_device_id(sys.argv[2], devices)
         payload = json.loads(sys.argv[3])
         result = asyncio.run(control_device(token, country, device_id, payload))
-        print(f"✅ Done: {result}")
+        print(f" Done: {result}")
         return
     
-    print(f"❌ Unknown command: {cmd}")
+    print(f" Unknown command: {cmd}")
     sys.exit(1)
 
 if __name__ == "__main__":

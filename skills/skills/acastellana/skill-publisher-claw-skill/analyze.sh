@@ -17,7 +17,7 @@ CYAN='\033[0;36m'
 NC='\033[0m'
 
 echo ""
-echo -e "${BLUE}📊 Analyzing skill:${NC} $(basename "$(pwd)")"
+echo -e "${BLUE} Analyzing skill:${NC} $(basename "$(pwd)")"
 echo "   Path: $(pwd)"
 echo ""
 
@@ -86,10 +86,10 @@ if [ $TOKENS_MID -lt 2000 ]; then
 elif [ $TOKENS_MID -lt 5000 ]; then
     echo -e "${GREEN}✓${NC} Good size - reasonable for most use cases"
 elif [ $TOKENS_MID -lt 10000 ]; then
-    echo -e "${YELLOW}⚠${NC} Moderate size - consider splitting into multiple files"
+    echo -e "${YELLOW}${NC} Moderate size - consider splitting into multiple files"
     echo "  Tip: Load only relevant sections instead of entire skill"
 elif [ $TOKENS_MID -lt 20000 ]; then
-    echo -e "${YELLOW}⚠${NC} Large skill - may impact context significantly"
+    echo -e "${YELLOW}${NC} Large skill - may impact context significantly"
     echo "  Recommendations:"
     echo "  • Split into focused sub-files"
     echo "  • Create a lightweight SKILL.md with references"
@@ -115,7 +115,7 @@ if [ -f "SKILL.md" ]; then
     echo "SKILL.md sections: $SECTIONS"
     
     if [ $SECTIONS -gt 10 ]; then
-        echo -e "${YELLOW}⚠${NC} Many sections - consider restructuring or splitting"
+        echo -e "${YELLOW}${NC} Many sections - consider restructuring or splitting"
     fi
 fi
 

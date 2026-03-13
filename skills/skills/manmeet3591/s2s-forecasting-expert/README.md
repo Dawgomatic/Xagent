@@ -1,4 +1,4 @@
-# 🌎 S2S Model Builder
+#  S2S Model Builder
 
 An end-to-end builder skill for AI-based Subseasonal-to-Seasonal (S2S) forecasting systems.
 

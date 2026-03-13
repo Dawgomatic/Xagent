@@ -220,7 +220,7 @@ Examples:
 
         if results.missing_module_docstring:
             for m in results.missing_module_docstring[:10]:  # Limit output
-                logger.info(f"    ⚠️  {m}")
+                logger.info(f"      {m}")
             if len(results.missing_module_docstring) > 10:
                 remaining = len(results.missing_module_docstring) - 10
                 logger.info(f"    ... and {remaining} more")
@@ -230,7 +230,7 @@ Examples:
                 f"  Missing class docstring: {len(results.missing_class_docstring)}"
             )
             for c in results.missing_class_docstring[:10]:
-                logger.info(f"    ⚠️  {c}")
+                logger.info(f"      {c}")
             if len(results.missing_class_docstring) > 10:
                 remaining = len(results.missing_class_docstring) - 10
                 logger.info(f"    ... and {remaining} more")
@@ -240,7 +240,7 @@ Examples:
                 f"  Missing function docstring: {len(results.missing_function_docstring)}"
             )
             for f in results.missing_function_docstring[:10]:
-                logger.info(f"    ⚠️  {f}")
+                logger.info(f"      {f}")
             if len(results.missing_function_docstring) > 10:
                 remaining = len(results.missing_function_docstring) - 10
                 logger.info(f"    ... and {remaining} more")

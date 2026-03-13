@@ -8,30 +8,30 @@ metadata: {"openclaw": {"requires": {"bins": ["node", "openclaw"], "env": ["WEBH
 
 This skill provides a secure endpoint to receive emails as standardized JSON webhooks and automatically wakes the agent.
 
-## 🤖 Agent Setup (Post-Install)
+##  Agent Setup (Post-Install)
 
 After installing and starting this skill, add the following logic to your `HEARTBEAT.md`:
 
 ```markdown
-### 📧 Inbound Email Check
+###  Inbound Email Check
 - Read `<path-to-inbox.jsonl>` (configured via INBOX_FILE or default: inbox.jsonl in cwd)
 - Compare the latest `receivedAt` timestamp with your last-checked timestamp
 - If there are NEW emails since last check:
   - Notify the user via their last active communication channel (Discord, WhatsApp, etc.)
-  - Format: "📧 New email from [from]: [subject] — [text preview]"
+  - Format: " New email from [from]: [subject] — [text preview]"
   - Update your last-checked timestamp
 - If no new emails: continue silently
 ```
 
-> 💡 You don't need to know the user's channel in advance — use the most recently active channel from your session history. If you're unsure how to reach the user, ask them directly.
+>  You don't need to know the user's channel in advance — use the most recently active channel from your session history. If you're unsure how to reach the user, ask them directly.
 
 The skill fires `openclaw system event` on each incoming email to wake you immediately. Your HEARTBEAT.md logic will then run and handle the notification.
 
-## ⚡️ Wake Mechanism
+##  Wake Mechanism
 
 When an email is received, the server invokes `openclaw system event --mode now`. This ensures the agent is notified immediately and can process the incoming communication without waiting for the next heartbeat cycle.
 
-## 🚨 Security & Privacy
+##  Security & Privacy
 
 ### Command Injection Protection
 The server uses secure process spawning (`child_process.spawn`) with argument arrays instead of shell execution. User-controlled input (email headers) cannot be used to execute arbitrary system commands.
@@ -78,8 +78,8 @@ https://webhook.yourdomain.com:2083/api/email
 
 Port **2083** is a Cloudflare-supported port. Works with **Flexible SSL** — the server uses a self-signed certificate (auto-generated on first run) which Cloudflare accepts on this port.
 
-> ⚠️ If you use a different port, set the `PORT` env var when starting the server.
-> ⚠️ If you omit the port in the Worker URL, Cloudflare defaults to port 80 → 404.
+>  If you use a different port, set the `PORT` env var when starting the server.
+>  If you omit the port in the Worker URL, Cloudflare defaults to port 80 → 404.
 
 DNS setup: create an A record for `webhook.yourdomain.com` pointing to your server IP with the orange cloud (proxy) enabled.
 

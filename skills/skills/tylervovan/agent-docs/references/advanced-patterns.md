@@ -19,19 +19,19 @@ The Vercel benchmark found 8KB compressed > 40KB full docs.
 ### What to Include
 
 ```markdown
-## 📁 Project Structure
+##  Project Structure
 src/
 ├── app/          # Next.js App Router
 ├── components/   # React components
 ├── lib/          # Utilities
 └── server/       # Server actions
 
-## 🔧 Key Functions
+##  Key Functions
 - `createUser(data: UserInput): Promise<User>`
 - `validateSession(token: string): Session | null`
 - `processPayment(intent: PaymentIntent): Result`
 
-## ⛔ Constraints
+##  Constraints
 - NO direct database queries in components
 - NO secrets in client code
 - NO `pages/` directory (App Router only)

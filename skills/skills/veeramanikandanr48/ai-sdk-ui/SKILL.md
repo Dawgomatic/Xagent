@@ -29,12 +29,12 @@ Frontend React hooks for AI-powered user interfaces with Vercel AI SDK v6.
 In v6, message content is now accessed via `.parts` array instead of `.content`:
 
 ```tsx
-// ❌ v5 (OLD)
+//  v5 (OLD)
 {messages.map(m => (
   <div key={m.id}>{m.content}</div>
 ))}
 
-// ✅ v6 (NEW)
+//  v6 (NEW)
 {messages.map(m => (
   <div key={m.id}>
     {m.parts.map((part, i) => {
@@ -193,7 +193,7 @@ See `references/use-chat-migration.md` for complete migration guide.
 
 ## useAssistant Hook (Deprecated)
 
-> **⚠️ Deprecation Notice**: `useAssistant` is deprecated as of AI SDK v5. OpenAI Assistants API v2
+> ** Deprecation Notice**: `useAssistant` is deprecated as of AI SDK v5. OpenAI Assistants API v2
 > will sunset on August 26, 2026. For new projects, use `useChat` with custom backend logic instead.
 > See the **openai-assistants** skill for migration guidance.
 
@@ -264,10 +264,10 @@ See `references/top-ui-errors.md` for complete documentation. Quick reference:
 
 **Solution**:
 ```typescript
-// ✅ CORRECT
+//  CORRECT
 return result.toDataStreamResponse();
 
-// ❌ WRONG
+//  WRONG
 return new Response(result.textStream);
 ```
 
@@ -280,13 +280,13 @@ return new Response(result.textStream);
 // App Router - use toDataStreamResponse()
 export async function POST(req: Request) {
   const result = streamText({ /* ... */ });
-  return result.toDataStreamResponse(); // ✅
+  return result.toDataStreamResponse(); // 
 }
 
 // Pages Router - use pipeDataStreamToResponse()
 export default async function handler(req, res) {
   const result = streamText({ /* ... */ });
-  return result.pipeDataStreamToResponse(res); // ✅
+  return result.pipeDataStreamToResponse(res); // 
 }
 ```
 
@@ -302,13 +302,13 @@ export default async function handler(req, res) {
 
 **Solution**:
 ```typescript
-// ❌ WRONG - body captured once
+//  WRONG - body captured once
 const { userId } = useUser();
 const { messages } = useChat({
   body: { userId },  // Stale!
 });
 
-// ✅ CORRECT - use controlled mode
+//  CORRECT - use controlled mode
 const { userId } = useUser();
 const { messages, sendMessage } = useChat();
 
@@ -324,12 +324,12 @@ sendMessage({
 
 **Solution**:
 ```typescript
-// ❌ WRONG
+//  WRONG
 useEffect(() => {
   saveMessages(messages);
 }, [messages, saveMessages]); // saveMessages triggers re-render!
 
-// ✅ CORRECT
+//  CORRECT
 useEffect(() => {
   saveMessages(messages);
 }, [messages]); // Only depend on messages
@@ -345,10 +345,10 @@ See `references/top-ui-errors.md` for 13 more common errors (18 total documented
 
 **Always use streaming for better UX:**
 ```tsx
-// ✅ GOOD - Streaming (shows tokens as they arrive)
+//  GOOD - Streaming (shows tokens as they arrive)
 const { messages } = useChat({ api: '/api/chat' });
 
-// ❌ BAD - Non-streaming (user waits for full response)
+//  BAD - Non-streaming (user waits for full response)
 const response = await fetch('/api/chat', { method: 'POST' });
 ```
 
@@ -397,7 +397,7 @@ export default function Chat() {
   });
 
   useEffect(() => {
-    // ❌ Triggers twice in strict mode → two concurrent streams
+    //  Triggers twice in strict mode → two concurrent streams
     sendMessage({ content: 'Hello' });
     // or
     resumeStream();
@@ -407,7 +407,7 @@ export default function Chat() {
 
 **Solution:**
 ```tsx
-// ✅ Use ref to track execution
+//  Use ref to track execution
 import { useRef } from 'react';
 
 const hasSentRef = useRef(false);

@@ -33,7 +33,7 @@ case "$COMMAND" in
 
         ENTITY_ID=$(resolve_entity_id "$DISCORD_ID")
         if [ -z "$ENTITY_ID" ]; then
-            echo "❌ Entity not found for discord:$DISCORD_ID"
+            echo " Entity not found for discord:$DISCORD_ID"
             exit 1
         fi
 
@@ -53,7 +53,7 @@ case "$COMMAND" in
         SCOPE="${CHANNEL:-all channels}"
         PERM="read/write"
         [ "$READ_ONLY" = "1" ] && PERM="read-only"
-        echo "✅ Granted $NAME $PERM access to $SERVER ($SCOPE)"
+        echo " Granted $NAME $PERM access to $SERVER ($SCOPE)"
         ;;
 
     revoke)
@@ -76,7 +76,7 @@ case "$COMMAND" in
 
         ENTITY_ID=$(resolve_entity_id "$DISCORD_ID")
         if [ -z "$ENTITY_ID" ]; then
-            echo "❌ Entity not found for discord:$DISCORD_ID"
+            echo " Entity not found for discord:$DISCORD_ID"
             exit 1
         fi
 
@@ -91,7 +91,7 @@ case "$COMMAND" in
         db_query "INSERT INTO audit_log (entity_id, action, old_value, changed_by)
             VALUES ($ENTITY_ID, 'revoke-access', 'server=$SERVER channel=${CHANNEL:-all}', 'tribe-cli');"
 
-        echo "✅ Revoked $NAME access from $SERVER (${CHANNEL:-all channels})"
+        echo " Revoked $NAME access from $SERVER (${CHANNEL:-all channels})"
         ;;
 
     data-add)
@@ -116,7 +116,7 @@ case "$COMMAND" in
         DA_DESC="$(sql_escape "$DA_DESC")"
 
         db_query "INSERT INTO data_access (min_tier, resource_pattern, allowed, description) VALUES ($DA_TIER, '$DA_PATTERN', 1, '$DA_DESC');"
-        echo "✅ Data access rule added: tier $DA_TIER+ can access '$DA_PATTERN'"
+        echo " Data access rule added: tier $DA_TIER+ can access '$DA_PATTERN'"
         ;;
 
     data-remove)
@@ -135,7 +135,7 @@ case "$COMMAND" in
 
         DA_PATTERN="$(sql_escape "$DA_PATTERN")"
         db_query "DELETE FROM data_access WHERE resource_pattern='$DA_PATTERN';"
-        echo "✅ Data access rule removed: '$DA_PATTERN'"
+        echo " Data access rule removed: '$DA_PATTERN'"
         ;;
 
     data-list)
@@ -143,7 +143,7 @@ case "$COMMAND" in
         if [ -z "$RULES" ]; then
             echo "No data access rules configured."
         else
-            echo "📋 Data access rules:"
+            echo " Data access rules:"
             echo "$RULES"
         fi
         ;;

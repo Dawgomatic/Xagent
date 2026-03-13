@@ -13,7 +13,7 @@ No additional Python packages required. The skill uses only Python standard libr
 
 ### File Permissions
 
-⚠️ **Sensitive:** This skill reads and writes authentication tokens:
+ **Sensitive:** This skill reads and writes authentication tokens:
 - `~/.codex/auth.json` — Active Codex session
 - `~/.codex/accounts/*.json` — Saved account tokens
 

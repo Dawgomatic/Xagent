@@ -1,37 +1,37 @@
-# 🔖 Bookmark Intelligence
+#  Bookmark Intelligence
 
 **Transform your X (Twitter) bookmarks into actionable insights with AI-powered analysis.**
 
-## 🎯 What It Does
+##  What It Does
 
 Stop bookmarking and forgetting! This skill:
-- 📚 **Auto-monitors** your X bookmarks (hourly or on-demand)
-- 🔍 **Fetches full content** from linked articles (not just tweets)  
-- 🤖 **AI analysis** extracts key concepts and implementation ideas
-- 🎯 **Project-aware** - maps insights to YOUR active work
-- 📱 **Telegram alerts** for high-value findings
-- 💾 **Knowledge base** - stores everything for future search
+-  **Auto-monitors** your X bookmarks (hourly or on-demand)
+-  **Fetches full content** from linked articles (not just tweets)  
+-  **AI analysis** extracts key concepts and implementation ideas
+-  **Project-aware** - maps insights to YOUR active work
+-  **Telegram alerts** for high-value findings
+-  **Knowledge base** - stores everything for future search
 
-## 💎 Pricing
+##  Pricing
 
-### 🆓 Free Tier
+###  Free Tier
 - 10 bookmarks/month
 - Manual processing
 - Basic analysis
 
-### ⭐ Pro - $9/month
+###  Pro - $9/month
 - **Unlimited bookmarks**
 - Automated hourly monitoring
 - Full AI analysis
 - Telegram notifications
 
-### 🚀 Enterprise - $29/month  
+###  Enterprise - $29/month  
 - Everything in Pro +
 - Team collaboration (5 users)
 - Custom AI models
 - API access
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 npm run setup        # Interactive wizard (5 min)
@@ -40,21 +40,21 @@ npm start           # Process bookmarks once
 npm run daemon      # Run 24/7 in background
 ```
 
-## 💳 Payment
+##  Payment
 
 **Crypto only:** USDT or USDC on:
 - Polygon, BSC, Ethereum, Arbitrum, Optimism, Base
 
 Payment address provided during setup.
 
-## 🔒 Privacy
+##  Privacy
 
 - Your X credentials stay local (never sent anywhere)
 - Analysis runs on your OpenClaw instance
 - No data collection, no cloud storage
 - Open source, fully auditable
 
-## 📦 What You Get
+##  What You Get
 
 - Complete working system
 - Interactive setup wizard
@@ -63,14 +63,14 @@ Payment address provided during setup.
 - License management system
 - Example outputs
 
-## 🎁 Test License
+##  Test License
 
 For evaluation, use test license:
 ```bash
 node scripts/license.js activate TEST-PRO-00000000000000000
 ```
 
-## 🤝 Support
+##  Support
 
 Questions? Issues? Contact via Telegram: @bonch420
 

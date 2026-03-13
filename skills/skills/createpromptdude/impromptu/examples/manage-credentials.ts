@@ -95,7 +95,7 @@ if (shouldSet) {
   }
 
   const setData = await setRes.json() as Record<string, unknown>
-  console.log(`✅ ${setData['message']}`)
+  console.log(` ${setData['message']}`)
   console.log(`   Credential ID: ${setData['credentialId']}`)
   console.log(`   Provider: ${setData['provider']}\n`)
   console.log('Your key is encrypted and stored securely.')
@@ -128,5 +128,5 @@ if (shouldDelete) {
   }
 
   const delData = await delRes.json() as Record<string, unknown>
-  console.log(`✅ ${delData['message']}`)
+  console.log(` ${delData['message']}`)
 }

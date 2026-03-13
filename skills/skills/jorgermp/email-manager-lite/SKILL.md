@@ -8,21 +8,21 @@ description: Lightweight email manager with IMAP/SMTP support, advanced search, 
 
 A fully self-contained email management skill for OpenClaw. Uses standard IMAP and SMTP protocols with zero external dependencies.
 
-## ✨ What's New in v0.2
+##  What's New in v0.2
 
-### 🔍 Advanced Search & Filters
+###  Advanced Search & Filters
 - Search by sender (`--from`)
 - Search by subject keywords (`--subject`)
 - Filter by date range (`--since`, `--before`)
 - Filter by read/unread status (`--seen`, `--unseen`)
 - Search in email body (`--body`, warning: can be slow)
 
-### 📁 Folder Management
+###  Folder Management
 - List all IMAP folders with `folders` command
 - Move emails between folders with `move` command
 - Automatic validation of folder existence
 
-### 📎 Attachment Information
+###  Attachment Information
 - Automatic detection of attachments
 - Display attachment details:
   - Filename
@@ -30,7 +30,7 @@ A fully self-contained email management skill for OpenClaw. Uses standard IMAP a
   - File size (formatted KB/MB)
 - Shown in both `read` and `search` results
 
-## 🔧 Installation
+##  Installation
 
 ```bash
 cd skills/portable-email-manager
@@ -42,7 +42,7 @@ Dependencies are bundled in `package.json`:
 - `imap-simple` - IMAP operations
 - `mailparser` - Email parsing and attachment detection
 
-## 🔐 Credentials
+##  Credentials
 
 Set these environment variables:
 
@@ -71,7 +71,7 @@ export EMAIL_PASS="your-app-password"
 - Edit to use `smtp.office365.com` / `outlook.office365.com`
 - Port 587 for SMTP (TLS)
 
-## 📖 Usage
+##  Usage
 
 ### Send Email
 
@@ -154,12 +154,12 @@ Shows hierarchical tree of all IMAP folders with attributes.
 
 **Example output:**
 ```
-📁 INBOX
-📁 Sent
-📁 Archive
-📁 Drafts
-📁 Spam
-📁 Trash
+ INBOX
+ Sent
+ Archive
+ Drafts
+ Spam
+ Trash
 ```
 
 ### Move Email to Folder
@@ -199,7 +199,7 @@ Shows hierarchical tree of all IMAP folders with attributes.
 
 Shows complete usage guide with all commands and examples.
 
-## 🎯 Use Cases
+##  Use Cases
 
 ### Daily Email Triage
 ```bash
@@ -239,14 +239,14 @@ Shows complete usage guide with all commands and examples.
 # - Filename, type, and size for each
 ```
 
-## 🔒 Security
+##  Security
 
 - Credentials never logged or stored in files
 - TLS/SSL encryption for all connections
 - App Passwords recommended over account passwords
 - No data leaves your machine except IMAP/SMTP connections
 
-## ⚙️ Configuration
+##  Configuration
 
 Default configuration is optimized for **Zoho Mail EU**.
 
@@ -277,14 +277,14 @@ const imapConfig = {
 };
 ```
 
-## 🚀 Performance Notes
+##  Performance Notes
 
 - **Body search** (`--body`) can be slow on large mailboxes - use sparingly
 - **Subject/From search** is fast - uses IMAP server-side filtering
 - **Date filters** are efficient
 - Limit results with `--limit` for faster responses
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 **"Authentication failed"**
 - Verify EMAIL_USER and EMAIL_PASS are set correctly
@@ -306,30 +306,30 @@ const imapConfig = {
 - Verify emails exist in INBOX (not other folders)
 - Try broader search (remove some filters)
 
-## 📝 Version History
+##  Version History
 
 ### v0.2.0 (Current)
-- ✨ Advanced search with multiple filters
-- 📁 Folder management (list, move)
-- 📎 Attachment detection and info
-- 🎨 Improved output formatting
-- 📚 Comprehensive documentation
+-  Advanced search with multiple filters
+-  Folder management (list, move)
+-  Attachment detection and info
+-  Improved output formatting
+-  Comprehensive documentation
 
 ### v0.1.0
 - Basic send/read functionality
 - Zoho Mail support
 - IMAP/SMTP foundation
 
-## 🤝 Compatibility
+##  Compatibility
 
 Tested with:
-- ✅ Zoho Mail (EU & US)
-- ✅ Gmail
-- ✅ Outlook/Hotmail
-- ✅ iCloud Mail
-- ✅ Custom IMAP/SMTP servers
+-  Zoho Mail (EU & US)
+-  Gmail
+-  Outlook/Hotmail
+-  iCloud Mail
+-  Custom IMAP/SMTP servers
 
-## 💡 Tips
+##  Tips
 
 1. **Use UIDs for automation:** Save UIDs from search results to move emails programmatically
 2. **Combine filters:** Multiple filters create AND conditions for precise searches
@@ -337,6 +337,6 @@ Tested with:
 4. **Date format:** Use natural language dates like "Jan 1, 2026" or "December 25, 2025"
 5. **Attachment filtering:** Look for "Attachments: X" in search output to find emails with files
 
-## 📄 License
+##  License
 
 ISC - Use freely in your OpenClaw setup.

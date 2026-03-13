@@ -227,7 +227,7 @@ This is arguably by design (operators shouldn't sign on behalf of the account), 
 
 ## Overall Recommendation
 
-### 🟡 DEPLOY WITH FIXES
+###  DEPLOY WITH FIXES
 
 **Must fix before mainnet (Critical/High):**
 1. **C-1/H-1:** Restrict `agentExecute` calldata for operators — this is the most dangerous finding. An operator can drain all ERC20s.

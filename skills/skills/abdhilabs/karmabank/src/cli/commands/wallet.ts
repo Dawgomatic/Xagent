@@ -39,13 +39,13 @@ export const walletCommand = new Command()
             walletId: wallet.id 
           });
           
-          console.log(`✅ Wallet created successfully!`);
+          console.log(` Wallet created successfully!`);
           console.log(`  Wallet ID: ${wallet.id}`);
           console.log(`  Address: ${wallet.address}`);
           console.log(`  Chain: ${wallet.chain}`);
           console.log(`  Balance: ${wallet.usdcBalance} USDC\n`);
         } catch (error: any) {
-          console.error(`\n❌ Error: ${error.message}\n`);
+          console.error(`\n Error: ${error.message}\n`);
         }
       })
   )
@@ -72,7 +72,7 @@ export const walletCommand = new Command()
             console.log(`Run: credit wallet:create ${name}\n`);
           }
         } catch (error: any) {
-          console.error(`\n❌ Error: ${error.message}\n`);
+          console.error(`\n Error: ${error.message}\n`);
         }
       })
   );

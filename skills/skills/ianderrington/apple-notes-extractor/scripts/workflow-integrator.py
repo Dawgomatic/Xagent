@@ -77,23 +77,23 @@ class WorkflowIntegrator:
         output_dir = self.root_dir / "output" / "json"
         
         if not output_dir.exists():
-            print("❌ No extraction data found. Run extract-notes.py first.")
+            print(" No extraction data found. Run extract-notes.py first.")
             return None
         
         # Find the most recent JSON file
         json_files = list(output_dir.glob("notes_*.json"))
         if not json_files:
-            print("❌ No extraction JSON files found.")
+            print(" No extraction JSON files found.")
             return None
         
         latest_file = max(json_files, key=lambda x: x.stat().st_mtime)
-        print(f"📖 Loading extraction data from: {latest_file}")
+        print(f" Loading extraction data from: {latest_file}")
         
         try:
             with open(latest_file) as f:
                 return json.load(f)
         except Exception as e:
-            print(f"❌ Error loading extraction data: {e}")
+            print(f" Error loading extraction data: {e}")
             return None
     
     def filter_notes(self, notes):
@@ -123,7 +123,7 @@ class WorkflowIntegrator:
             
             filtered_notes.append(note)
         
-        print(f"🔍 Filtered {len(notes)} → {len(filtered_notes)} notes")
+        print(f" Filtered {len(notes)} → {len(filtered_notes)} notes")
         return filtered_notes
     
     def export_to_obsidian(self, notes):
@@ -131,19 +131,19 @@ class WorkflowIntegrator:
         obsidian_config = self.config["workflows"]["obsidian"]
         
         if not obsidian_config.get("enabled", False):
-            print("⚠️ Obsidian export is disabled")
+            print(" Obsidian export is disabled")
             return False
         
         vault_path = obsidian_config.get("vault_path", "")
         if not vault_path or not Path(vault_path).exists():
-            print("❌ Obsidian vault path not configured or doesn't exist")
+            print(" Obsidian vault path not configured or doesn't exist")
             return False
         
         vault_path = Path(vault_path)
         notes_dir = vault_path / obsidian_config.get("subfolder", "Apple Notes")
         notes_dir.mkdir(exist_ok=True)
         
-        print(f"📁 Exporting to Obsidian vault: {vault_path}")
+        print(f" Exporting to Obsidian vault: {vault_path}")
         
         exported_count = 0
         for note in notes:
@@ -180,9 +180,9 @@ class WorkflowIntegrator:
                 exported_count += 1
                 
             except Exception as e:
-                print(f"⚠️ Error exporting note '{note.get('title', 'Unknown')}': {e}")
+                print(f" Error exporting note '{note.get('title', 'Unknown')}': {e}")
         
-        print(f"✅ Exported {exported_count} notes to Obsidian")
+        print(f" Exported {exported_count} notes to Obsidian")
         return True
     
     def export_to_markdown(self, notes):
@@ -190,13 +190,13 @@ class WorkflowIntegrator:
         markdown_config = self.config["workflows"]["markdown_export"]
         
         if not markdown_config.get("enabled", True):
-            print("⚠️ Markdown export is disabled")
+            print(" Markdown export is disabled")
             return False
         
         output_dir = self.root_dir / markdown_config.get("output_dir", "export/markdown")
         output_dir.mkdir(parents=True, exist_ok=True)
         
-        print(f"📝 Exporting markdown files to: {output_dir}")
+        print(f" Exporting markdown files to: {output_dir}")
         
         if markdown_config.get("single_file", False):
             # Export all notes to a single file
@@ -224,7 +224,7 @@ class WorkflowIntegrator:
                     f.write(note.get('body', ''))
                     f.write("\n\n---\n\n")
             
-            print(f"✅ Exported to single file: {output_file}")
+            print(f" Exported to single file: {output_file}")
         
         else:
             # Export each note to its own file
@@ -246,9 +246,9 @@ class WorkflowIntegrator:
                     exported_count += 1
                     
                 except Exception as e:
-                    print(f"⚠️ Error exporting note '{note.get('title', 'Unknown')}': {e}")
+                    print(f" Error exporting note '{note.get('title', 'Unknown')}': {e}")
             
-            print(f"✅ Exported {exported_count} individual markdown files")
+            print(f" Exported {exported_count} individual markdown files")
         
         return True
     
@@ -257,13 +257,13 @@ class WorkflowIntegrator:
         search_config = self.config["workflows"]["search_index"]
         
         if not search_config.get("enabled", False):
-            print("⚠️ Search index creation is disabled")
+            print(" Search index creation is disabled")
             return False
         
         index_path = self.root_dir / search_config.get("index_path", "export/search_index.json")
         index_path.parent.mkdir(parents=True, exist_ok=True)
         
-        print(f"🔍 Creating search index...")
+        print(f" Creating search index...")
         
         search_index = {
             "metadata": {
@@ -296,12 +296,12 @@ class WorkflowIntegrator:
         with open(index_path, 'w') as f:
             json.dump(search_index, f, indent=2, ensure_ascii=False)
         
-        print(f"✅ Created search index: {index_path}")
+        print(f" Created search index: {index_path}")
         return True
     
     def run_workflows(self, notes):
         """Run all enabled workflows"""
-        print(f"🔄 Running workflows on {len(notes)} notes...")
+        print(f" Running workflows on {len(notes)} notes...")
         
         # Apply filters first
         filtered_notes = self.filter_notes(notes)
@@ -322,7 +322,7 @@ class WorkflowIntegrator:
         
         # Summary
         successful = sum(1 for success in results.values() if success)
-        print(f"\n✅ Completed {successful}/{len(results)} workflows successfully")
+        print(f"\n Completed {successful}/{len(results)} workflows successfully")
         
         return results
 
@@ -351,7 +351,7 @@ def main():
     
     args = parser.parse_args()
     
-    print("🔄 Apple Notes Workflow Integrator")
+    print(" Apple Notes Workflow Integrator")
     print("=================================")
     
     integrator = WorkflowIntegrator(args.config)
@@ -361,23 +361,23 @@ def main():
         try:
             with open(args.input) as f:
                 notes = json.load(f)
-            print(f"📖 Loaded {len(notes)} notes from: {args.input}")
+            print(f" Loaded {len(notes)} notes from: {args.input}")
         except Exception as e:
-            print(f"❌ Error loading input file: {e}")
+            print(f" Error loading input file: {e}")
             sys.exit(1)
     else:
         notes = integrator.load_latest_extraction()
         if not notes:
-            print("❌ No notes data available")
+            print(" No notes data available")
             sys.exit(1)
     
     if args.dry_run:
-        print("🔍 DRY RUN MODE - No changes will be made")
+        print(" DRY RUN MODE - No changes will be made")
         filtered_notes = integrator.filter_notes(notes)
         print(f"   Would process {len(filtered_notes)} filtered notes")
         print("   Configured workflows:")
         for workflow, config in integrator.config["workflows"].items():
-            status = "✅" if config.get("enabled", False) else "⭕"
+            status = "" if config.get("enabled", False) else ""
             print(f"     {status} {workflow}")
         return
     
@@ -385,11 +385,11 @@ def main():
     results = integrator.run_workflows(notes)
     
     if all(results.values()):
-        print("\n🎉 All workflows completed successfully!")
+        print("\n All workflows completed successfully!")
     else:
-        print("\n⚠️ Some workflows encountered issues")
+        print("\n Some workflows encountered issues")
         for workflow, success in results.items():
-            status = "✅" if success else "❌"
+            status = "" if success else ""
             print(f"   {status} {workflow}")
 
 if __name__ == "__main__":

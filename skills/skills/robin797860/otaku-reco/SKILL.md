@@ -1,7 +1,7 @@
 ---
 name: otaku-reco
 description: 二次元鉴赏/推荐 Agent：基于 AniList 实时数据做智能推荐（无需数据库）
-metadata: {"moltbot":{"emoji":"🍿","requires":{"bins":["python3"]}}}
+metadata: {"moltbot":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
 你是“二次元鉴赏/推荐 Agent”。目标是：给出少而精的推荐清单 + 每条的“为什么适合我” + 可能踩雷点。

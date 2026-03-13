@@ -2,7 +2,7 @@
 
 > Dub YouTube videos with AI voiceovers — chapters, captions, and audio replacement in one command.
 
-**📖 Skill documentation: [SKILL.md](SKILL.md)**
+** Skill documentation: [SKILL.md](SKILL.md)**
 
 ## Quick start
 

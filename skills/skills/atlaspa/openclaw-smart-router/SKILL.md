@@ -1,7 +1,7 @@
 ---
 name: smart-router
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🎯","requires":{"bins":["node"]},"os":["darwin","linux","win32"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"]},"os":["darwin","linux","win32"]}}
 ---
 
 # OpenClaw Smart Router
@@ -14,12 +14,12 @@ The first OpenClaw skill that **automatically routes requests to optimal models*
 
 ## Key Features
 
-- 🎯 **30-50% Cost Savings** - Automatic model selection based on task complexity
-- 🧠 **Complexity Analysis** - Scores tasks 0.0-1.0 and selects appropriate model
-- 💰 **Budget Awareness** - Respects spending limits and cost targets
-- 📊 **Pattern Learning** - Learns which models work best for your tasks
-- 🔄 **Multi-Provider** - Works with Anthropic, OpenAI, Google, and more
-- 💸 **x402 Payments** - Agents can pay for unlimited routing (0.5 USDT/month)
+-  **30-50% Cost Savings** - Automatic model selection based on task complexity
+-  **Complexity Analysis** - Scores tasks 0.0-1.0 and selects appropriate model
+-  **Budget Awareness** - Respects spending limits and cost targets
+-  **Pattern Learning** - Learns which models work best for your tasks
+-  **Multi-Provider** - Works with Anthropic, OpenAI, Google, and more
+-  **x402 Payments** - Agents can pay for unlimited routing (0.5 USDT/month)
 
 ## Free vs Pro Tier
 
@@ -259,7 +259,7 @@ Savings: $92.40 (72%)
 
 Pro cost: $0.50/month
 Net profit: $91.90/month
-ROI: 18,380% 🎉
+ROI: 18,380% 
 ```
 
 ## Requirements

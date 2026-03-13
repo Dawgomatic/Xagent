@@ -145,7 +145,7 @@ analyze_email() {
   if [ $is_phishing -eq 1 ]; then
     ((PHISHING_COUNT++))
     log ""
-    log "🚨 PHISHING EMAIL DETECTED:"
+    log " PHISHING EMAIL DETECTED:"
     log "  From: $from_address"
     log "  Subject: $subject"
     log "  Action: $action_taken"
@@ -161,7 +161,7 @@ analyze_email() {
   elif [ $is_spam -eq 1 ]; then
     ((SPAM_COUNT++))
     log ""
-    log "📧 PROMOTIONAL EMAIL DETECTED:"
+    log " PROMOTIONAL EMAIL DETECTED:"
     log "  From: $from_address"
     log "  Subject: $subject"
     if [ -n "$action_taken" ]; then

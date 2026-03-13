@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🛡️ Clawdbot Skill Flag
+ Clawdbot Skill Flag
 Scan installed skills for malicious patterns, backdoors, and security risks.
 
 Author: DarkM00n (Bug Bounty Hunter & Security Researcher)
@@ -56,15 +56,15 @@ class SkillReport:
     
     def risk_level(self):
         if self.risk_score <= 20:
-            return "✅ CLEAN", Colors.GREEN
+            return " CLEAN", Colors.GREEN
         elif self.risk_score <= 40:
-            return "🟢 LOW", Colors.GREEN
+            return " LOW", Colors.GREEN
         elif self.risk_score <= 60:
-            return "🟡 MEDIUM", Colors.YELLOW
+            return " MEDIUM", Colors.YELLOW
         elif self.risk_score <= 80:
-            return "🟠 HIGH", Colors.ORANGE
+            return " HIGH", Colors.ORANGE
         else:
-            return "🔴 CRITICAL", Colors.RED
+            return " CRITICAL", Colors.RED
 
 
 class SecurityScanner:
@@ -196,10 +196,10 @@ class SecurityScanner:
     def print_report(self, reports: list):
         """Print formatted scan report"""
         print(f"\n{Colors.BOLD}{'='*60}{Colors.END}")
-        print(f"{Colors.BOLD}🛡️  CLAWDBOT SECURITY SCAN REPORT{Colors.END}")
+        print(f"{Colors.BOLD}  CLAWDBOT SECURITY SCAN REPORT{Colors.END}")
         print(f"{Colors.BOLD}{'='*60}{Colors.END}")
-        print(f"📅 Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        print(f"📁 Skills scanned: {len(reports)}")
+        print(f" Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f" Skills scanned: {len(reports)}")
         
         # Summary
         clean = sum(1 for r in reports if r.risk_score <= 20)
@@ -208,18 +208,18 @@ class SecurityScanner:
         high = sum(1 for r in reports if 60 < r.risk_score <= 80)
         critical = sum(1 for r in reports if r.risk_score > 80)
         
-        print(f"\n{Colors.BOLD}📊 SUMMARY{Colors.END}")
-        print(f"  ✅ Clean:    {clean}")
-        print(f"  🟢 Low:      {low}")
-        print(f"  🟡 Medium:   {medium}")
-        print(f"  🟠 High:     {high}")
-        print(f"  🔴 Critical: {critical}")
+        print(f"\n{Colors.BOLD} SUMMARY{Colors.END}")
+        print(f"   Clean:    {clean}")
+        print(f"   Low:      {low}")
+        print(f"   Medium:   {medium}")
+        print(f"   High:     {high}")
+        print(f"   Critical: {critical}")
         
         # Sort by risk score
         reports.sort(key=lambda r: r.risk_score, reverse=True)
         
         # Details
-        print(f"\n{Colors.BOLD}📋 DETAILS{Colors.END}")
+        print(f"\n{Colors.BOLD} DETAILS{Colors.END}")
         print("-" * 60)
         
         for report in reports:
@@ -235,7 +235,7 @@ class SecurityScanner:
                     risk_color = Colors.RED if f.risk >= 80 else Colors.ORANGE if f.risk >= 60 else Colors.YELLOW
                     print(f"    {risk_color}• [{f.category}] {f.pattern_name}{Colors.END}")
                     print(f"      {f.description}")
-                    print(f"      📄 {f.file}:{f.line_number}")
+                    print(f"       {f.file}:{f.line_number}")
                     if f.line_content:
                         print(f"      └─ {Colors.CYAN}{f.line_content[:80]}...{Colors.END}" if len(f.line_content) > 80 else f"      └─ {Colors.CYAN}{f.line_content}{Colors.END}")
                 
@@ -246,15 +246,15 @@ class SecurityScanner:
         
         # Recommendations
         if critical > 0:
-            print(f"\n{Colors.RED}{Colors.BOLD}⚠️  ACTION REQUIRED:{Colors.END}")
+            print(f"\n{Colors.RED}{Colors.BOLD}  ACTION REQUIRED:{Colors.END}")
             print(f"{Colors.RED}   {critical} skill(s) have CRITICAL security issues.{Colors.END}")
             print(f"{Colors.RED}   Review immediately and consider removing them.{Colors.END}")
         elif high > 0:
-            print(f"\n{Colors.ORANGE}{Colors.BOLD}⚠️  REVIEW RECOMMENDED:{Colors.END}")
+            print(f"\n{Colors.ORANGE}{Colors.BOLD}  REVIEW RECOMMENDED:{Colors.END}")
             print(f"{Colors.ORANGE}   {high} skill(s) have HIGH risk findings.{Colors.END}")
             print(f"{Colors.ORANGE}   Manual review recommended before continued use.{Colors.END}")
         else:
-            print(f"\n{Colors.GREEN}✅ All skills appear safe. Regular scans recommended.{Colors.END}")
+            print(f"\n{Colors.GREEN} All skills appear safe. Regular scans recommended.{Colors.END}")
     
     def export_json(self, reports: list, output_file: str):
         """Export report as JSON"""
@@ -288,12 +288,12 @@ class SecurityScanner:
         with open(output_file, 'w') as f:
             json.dump(data, f, indent=2)
         
-        print(f"\n📄 Report exported to: {output_file}")
+        print(f"\n Report exported to: {output_file}")
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🛡️ Clawdbot Skill Flag - Scan skills for security issues"
+        description=" Clawdbot Skill Flag - Scan skills for security issues"
     )
     parser.add_argument('--skill', '-s', help='Scan specific skill by name')
     parser.add_argument('--all', '-a', action='store_true', help='Scan all installed skills')
@@ -306,10 +306,10 @@ def main():
     scanner = SecurityScanner(verbose=args.verbose)
     
     if args.skill:
-        print(f"🔍 Scanning skill: {args.skill}")
+        print(f" Scanning skill: {args.skill}")
         reports = scanner.scan_all(specific_skill=args.skill)
     else:
-        print("🔍 Scanning all installed skills...")
+        print(" Scanning all installed skills...")
         reports = scanner.scan_all()
     
     if not reports:

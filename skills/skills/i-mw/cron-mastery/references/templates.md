@@ -16,7 +16,7 @@
     },
     "payload": {
       "kind": "agentTurn",
-      "message": "DELIVER THIS EXACT MESSAGE TO THE USER WITHOUT MODIFICATION OR COMMENTARY:\n\n🔥 OVEN CHECK! It's been 15 minutes."
+      "message": "DELIVER THIS EXACT MESSAGE TO THE USER WITHOUT MODIFICATION OR COMMENTARY:\n\n OVEN CHECK! It's been 15 minutes."
     },
     "sessionTarget": "isolated",
     "delivery": {

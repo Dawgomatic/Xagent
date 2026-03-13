@@ -10,7 +10,7 @@ In this guide, we’ll walk through how to migrate a project from WorkOS to Bett
 Before getting started, let’s review which WorkOS authentication features are fully or partially supported in Better Auth. If a feature you use in WorkOS is available via a plugin, you’ll need to configure it in the next step.
 
 <Accordions type="multiple">
-<Accordion title="🟢 Supported">
+<Accordion title=" Supported">
 <>
 | from WorkOS | to Better Auth |
 |---------|-------------|
@@ -34,7 +34,7 @@ Before getting started, let’s review which WorkOS authentication features are 
 </>
 </Accordion>
 
-<Accordion title="🟡 Partially supported">
+<Accordion title=" Partially supported">
 <>
 | from WorkOS | to Better Auth |
 |---------|-------------|
@@ -245,7 +245,7 @@ const createRateLimiter = (maxRequests: number, windowMs: number) => {
       const waitTime = windowMs - (now - oldestTimestamp) + 1000; // 1 sec buffer
 
       console.log(
-        `⏳ Throttling (${requestTimestamps.length}/${maxRequests} calls used). Waiting ${Math.ceil(waitTime / 1000)}s...`,
+        ` Throttling (${requestTimestamps.length}/${maxRequests} calls used). Waiting ${Math.ceil(waitTime / 1000)}s...`,
       );
       await new Promise((resolve) => setTimeout(resolve, waitTime));
 
@@ -344,7 +344,7 @@ async function migrateFromWorkOS() {
 
   console.log("");
   console.log("=".repeat(40));
-  console.log("🚀 Starting migration");
+  console.log(" Starting migration");
   console.log("");
   console.log(`Settings:`);
   console.log(
@@ -365,7 +365,7 @@ async function migrateFromWorkOS() {
 
       batchCount++;
       console.log(
-        `📦 Batch ${batchCount}: Fetched ${workosUserList.data.length} users from WorkOS`,
+        ` Batch ${batchCount}: Fetched ${workosUserList.data.length} users from WorkOS`,
       );
 
       after = workosUserList.listMetadata.after || undefined;
@@ -392,7 +392,7 @@ async function migrateFromWorkOS() {
 
           if (existingUser) {
             console.log(
-              `🟡 User already exists, skipping: ${workosUser.email}`,
+              ` User already exists, skipping: ${workosUser.email}`,
             );
             skippedUsers++;
             continue;
@@ -418,11 +418,11 @@ async function migrateFromWorkOS() {
             },
           });
 
-          console.log(`🟢 Migrated user ${workosUser.email}`);
+          console.log(` Migrated user ${workosUser.email}`);
           migratedUsers++;
         } catch (error) {
           console.error(
-            `🔴 Failed to migrate user ${workosUser.email}\n`,
+            ` Failed to migrate user ${workosUser.email}\n`,
             error,
           );
           failedUsers++;
@@ -431,19 +431,19 @@ async function migrateFromWorkOS() {
 
       console.log("");
     } catch (error) {
-      console.error("🚨 Error fetching batch:", error);
+      console.error(" Error fetching batch:", error);
       throw error;
     }
   }
 
   console.log("");
   console.log("=".repeat(40));
-  console.log("📝 Migration Summary");
+  console.log(" Migration Summary");
   console.log(`Total users processed: ${totalUsers}`);
   console.log("");
-  console.log(`🔴 Failed: ${failedUsers}`);
-  console.log(`🟡 Skipped: ${skippedUsers}`);
-  console.log(`🟢 Successfully migrated: ${migratedUsers}`);
+  console.log(` Failed: ${failedUsers}`);
+  console.log(` Skipped: ${skippedUsers}`);
+  console.log(` Successfully migrated: ${migratedUsers}`);
   console.log("=".repeat(40));
 }
 
@@ -473,7 +473,7 @@ main();
 bun scripts/migration.ts # or use node, ts-node, etc.
 ```
 
-🎉 Now that you’ve migrated your user data into your database, let’s look at how to update your application logic.
+ Now that you’ve migrated your user data into your database, let’s look at how to update your application logic.
 </Step>
 <Step>
 ## Create Client Instance

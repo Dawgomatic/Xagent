@@ -7,7 +7,7 @@ Use for beginner users or when user requests brief overview.
 ## Format
 
 ```markdown
-# 🔒 보안 점검 결과
+#  보안 점검 결과
 
 ## 한눈에 보기
 
@@ -29,23 +29,23 @@ Use for beginner users or when user requests brief overview.
 ## Example: All Clear
 
 ```markdown
-# 🔒 보안 점검 결과
+#  보안 점검 결과
 
 ## 한눈에 보기
 
-🟢 **안전합니다**
+ **안전합니다**
 
-🟢🟢🟢🟢🟢
+
 
 ## 가장 중요한 것
 
-✅ 접근 제어가 잘 설정되어 있어요
-✅ 위험한 도구들이 적절히 제한되어 있어요
-✅ 네트워크 보안이 양호해요
+ 접근 제어가 잘 설정되어 있어요
+ 위험한 도구들이 적절히 제한되어 있어요
+ 네트워크 보안이 양호해요
 
 ## 다음 단계
 
-특별히 조치할 사항이 없습니다! 👍
+특별히 조치할 사항이 없습니다! 
 정기 점검을 원하시면 말씀해주세요.
 ```
 
@@ -54,18 +54,18 @@ Use for beginner users or when user requests brief overview.
 ## Example: Issues Found
 
 ```markdown
-# 🔒 보안 점검 결과
+#  보안 점검 결과
 
 ## 한눈에 보기
 
-🟡 **주의 필요**
+ **주의 필요**
 
-🔴 1개 | 🟡 2개 | 🟢 3개
+ 1개 |  2개 |  3개
 
 ## 가장 중요한 것
 
-🔴 **지금 고쳐야 해요**: 공개 채널에서 위험한 기능이 켜져 있어요
-🟡 **확인해주세요**: 세션이 분리되어 있지 않아요
+ **지금 고쳐야 해요**: 공개 채널에서 위험한 기능이 켜져 있어요
+ **확인해주세요**: 세션이 분리되어 있지 않아요
 
 ## 다음 단계
 
@@ -81,17 +81,17 @@ Use for beginner users or when user requests brief overview.
 ## Example: Critical Issues
 
 ```markdown
-# 🔒 보안 점검 결과
+#  보안 점검 결과
 
 ## 한눈에 보기
 
-🔴 **위험해요!**
+ **위험해요!**
 
-🔴🔴🔴⚪⚪
+
 
 ## 가장 중요한 것
 
-🚨 **지금 바로 조치 필요**:
+ **지금 바로 조치 필요**:
 
 1. 아무나 AI에게 말할 수 있어요
 2. AI가 컴퓨터를 마음대로 조작할 수 있어요
@@ -102,7 +102,7 @@ Use for beginner users or when user requests brief overview.
 이 문제들을 지금 고치는 게 좋겠어요.
 "고쳐줘"라고 하시면 하나씩 안전하게 수정해드릴게요.
 
-⚠️ 수정하면 일부 기능이 제한될 수 있어요. 
+ 수정하면 일부 기능이 제한될 수 있어요. 
 각 항목마다 미리 알려드릴게요.
 ```
 
@@ -112,11 +112,11 @@ Use for beginner users or when user requests brief overview.
 
 Show visual representation of security posture:
 
-- All green: 🟢🟢🟢🟢🟢
-- Mostly good: 🟢🟢🟢🟡⚪
-- Some issues: 🟢🟡🟡🟠⚪
-- Concerning: 🟡🟠🟠🔴⚪
-- Critical: 🔴🔴🔴⚪⚪
+- All green: 
+- Mostly good: 
+- Some issues: 
+- Concerning: 
+- Critical: 
 
 ---
 

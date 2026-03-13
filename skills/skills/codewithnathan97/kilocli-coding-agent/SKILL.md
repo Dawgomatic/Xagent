@@ -53,7 +53,7 @@ process action:write sessionId:XXX data:"y"
 process action:kill sessionId:XXX
 ```
 
-**Why workdir matters:** Agent wakes up in a focused directory, doesn't wander off reading unrelated files (like your soul.md 😅).
+**Why workdir matters:** Agent wakes up in a focused directory, doesn't wander off reading unrelated files (like your soul.md ).
 
 ---
 
@@ -67,7 +67,7 @@ bash workdir:~/project background:true command:"kilo run --auto \"Build a snake 
 
 ### Reviewing PRs (vanilla, no flags)
 
-**⚠️ CRITICAL: Never review PRs in OpenClaw's own project folder!**
+** CRITICAL: Never review PRs in OpenClaw's own project folder!**
 - Either use the project where the PR is submitted (if it's NOT ~/Projects/openclaw)
 - Or clone to a temp folder first
 
@@ -167,7 +167,7 @@ git worktree remove /tmp/issue-99
 
 ---
 
-## ⚠️ Rules
+##  Rules
 
 1. **Respect tool choice** — if user asks for Kilo CLI, use Kilo CLI. NEVER offer to build it yourself!
 2. **Be patient** — don't kill sessions because they're "slow"

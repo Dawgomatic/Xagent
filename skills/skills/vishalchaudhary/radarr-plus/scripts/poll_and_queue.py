@@ -125,18 +125,18 @@ def main() -> int:
             # Compose notification text
             label = f"{title} ({year})" if title and year else (title or f"movieId {movie_id}")
             if state == "pending":
-                text = f"⏳ Radarr: queued request for {label}."
+                text = f" Radarr: queued request for {label}."
             elif state == "downloading" or state == "queued":
                 pct = f" ({int(progress*100)}%)" if isinstance(progress, (int, float)) else ""
-                text = f"⬇️ Radarr: downloading {label}{pct}."
+                text = f" Radarr: downloading {label}{pct}."
             elif state == "imported":
                 plex = _plex_link(title, year)
                 if plex:
-                    text = f"✅ Radarr: downloaded & imported {label}.\n▶️ Plex: {plex}"
+                    text = f" Radarr: downloaded & imported {label}.\n Plex: {plex}"
                 else:
-                    text = f"✅ Radarr: downloaded & imported {label}."
+                    text = f" Radarr: downloaded & imported {label}."
             else:
-                text = f"ℹ️ Radarr: {label} state: {state}."
+                text = f" Radarr: {label} state: {state}."
 
             _queue_message(channel, target, text)
 

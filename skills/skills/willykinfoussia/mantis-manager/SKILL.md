@@ -2,12 +2,12 @@
 name: mantis-manager
 description: Manage Mantis Bug Tracker (issues, projects, users, filters, configs) via the official Mantis REST API. Supports full CRUD operations on issues, projects, users, attachments, notes, tags, relationships, and configuration management. Features dynamic instance switching with context-aware base URL and token resolution.
 homepage: https://www.mantisbt.org/
-metadata: {"openclaw":{"emoji":"🐞","requires":{"env":["MANTIS_BASE_URL","MANTIS_API_TOKEN"]},"primaryEnv":"MANTIS_API_TOKEN"}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["MANTIS_BASE_URL","MANTIS_API_TOKEN"]},"primaryEnv":"MANTIS_API_TOKEN"}}
 ---
 
 # Mantis Manager Skill (Enhanced)
 
-## 🔐 Base URL & Token Resolution
+##  Base URL & Token Resolution
 
 ### Base URL Resolution
 Base URL precedence (highest to lowest):
@@ -54,7 +54,7 @@ Content-Type: application/json
 
 ---
 
-## 📌 Notation Used in Examples
+##  Notation Used in Examples
 
 Throughout this documentation:
 - `{{MANTIS_BASE_URL}}` refers to the **resolved base URL** (could be temporary_base_url, user_base_url, or env MANTIS_BASE_URL)
@@ -65,7 +65,7 @@ Throughout this documentation:
 
 ---
 
-## 🔄 Context Management
+##  Context Management
 
 > The `temporary_*` and `user_*` names here are **runtime context variables used by the skill logic**, not OpenClaw metadata fields. OpenClaw does **not** define an `optional.context` metadata key; context is resolved dynamically at runtime as described below.
 
@@ -179,7 +179,7 @@ Clear temporary header
 
 ---
 
-## 🐞 ISSUES Operations
+##  ISSUES Operations
 
 ### List Issues
 **User queries:**
@@ -442,7 +442,7 @@ DELETE {{MANTIS_BASE_URL}}/issues/{{issue_id}}/notes/{{note_id}}
 
 ---
 
-## 📁 PROJECTS Operations
+##  PROJECTS Operations
 
 ### List All Projects
 **User queries:**
@@ -630,7 +630,7 @@ DELETE {{MANTIS_BASE_URL}}/projects/{{project_id}}/versions/{{version_id}}
 
 ---
 
-## 👥 USERS Operations
+##  USERS Operations
 
 ### Get My User Info
 **User queries:**
@@ -743,7 +743,7 @@ DELETE {{MANTIS_BASE_URL}}/users/{{id}}
 
 ---
 
-## 🔍 FILTERS Operations
+##  FILTERS Operations
 
 ### Get All Filters
 **User queries:**
@@ -777,7 +777,7 @@ DELETE {{MANTIS_BASE_URL}}/filters/{{id}}
 
 ---
 
-## 🔐 TOKEN MANAGEMENT
+##  TOKEN MANAGEMENT
 
 ### Create Token for Self
 **User queries:**
@@ -834,7 +834,7 @@ DELETE {{MANTIS_BASE_URL}}/users/{{user_id}}/tokens/{{token_id}}
 
 ---
 
-## ⚙️ CONFIG Operations
+##  CONFIG Operations
 
 ### Get Single Configuration Option
 **User queries:**
@@ -885,7 +885,7 @@ PATCH {{MANTIS_BASE_URL}}/config
 
 ---
 
-## 🌍 LOCALIZATION Operations
+##  LOCALIZATION Operations
 
 ### Get Localized String
 **User queries:**
@@ -916,7 +916,7 @@ GET {{MANTIS_BASE_URL}}/lang
 
 ---
 
-## 🔒 IMPERSONATION
+##  IMPERSONATION
 
 ### Get User Info with Impersonation
 **User queries:**
@@ -935,7 +935,7 @@ X-Impersonate-User: {{username_or_id}}
 
 ---
 
-## ⚠️ Error Handling
+##  Error Handling
 
 Handle HTTP errors gracefully:
 
@@ -970,7 +970,7 @@ Handle HTTP errors gracefully:
 
 ---
 
-## 📋 Best Practices
+##  Best Practices
 
 ### Pagination
 - Always support `page_size` and `page` parameters for list operations
@@ -1010,7 +1010,7 @@ Handle HTTP errors gracefully:
 
 ---
 
-## 🚀 Quick Examples
+##  Quick Examples
 
 ### Create and Monitor Issue
 ```
@@ -1039,7 +1039,7 @@ Handle HTTP errors gracefully:
 
 ---
 
-## 🎯 Advanced Use Cases
+##  Advanced Use Cases
 
 ### Bulk Issue Updates
 When updating multiple issues:
@@ -1132,7 +1132,7 @@ Generate consolidated report
 
 ---
 
-## 📚 Resources
+##  Resources
 
 - **Mantis API Documentation**: Check your Mantis instance at `{{MANTIS_BASE_URL}}/api/rest/swagger.yaml`
 - **Issue Statuses**: new, feedback, acknowledged, confirmed, assigned, resolved, closed
@@ -1142,29 +1142,29 @@ Generate consolidated report
 
 ---
 
-## ✅ Skill Capabilities Summary
+##  Skill Capabilities Summary
 
 This skill enables you to:
 
 ### Core Operations
-- ✅ Full CRUD operations on issues
-- ✅ Manage issue relationships, tags, monitors
-- ✅ Add notes with time tracking and attachments
-- ✅ Full project management (create, update, delete)
-- ✅ Manage sub-projects, versions, and project users
-- ✅ User management (CRUD, password reset)
-- ✅ API token management (create, delete for self and others)
-- ✅ Filter management and filtered queries
-- ✅ Configuration management
-- ✅ Localization support
-- ✅ Impersonation capabilities
+-  Full CRUD operations on issues
+-  Manage issue relationships, tags, monitors
+-  Add notes with time tracking and attachments
+-  Full project management (create, update, delete)
+-  Manage sub-projects, versions, and project users
+-  User management (CRUD, password reset)
+-  API token management (create, delete for self and others)
+-  Filter management and filtered queries
+-  Configuration management
+-  Localization support
+-  Impersonation capabilities
 
 ### Advanced Features
-- ✅ **Dynamic instance switching** — Switch between multiple Mantis instances on-the-fly
-- ✅ **Context-aware URL resolution** — temporary_base_url → user_base_url → MANTIS_BASE_URL
-- ✅ **Context-aware token resolution** — temporary_token → user_token → MANTIS_API_TOKEN
-- ✅ **Multi-instance management** — Manage multiple clients/environments simultaneously
-- ✅ **Cross-instance operations** — Compare, sync, and migrate data between instances
-- ✅ Comprehensive error handling
-- ✅ Pagination and field selection
-- ✅ Advanced workflows and bulk operations
+-  **Dynamic instance switching** — Switch between multiple Mantis instances on-the-fly
+-  **Context-aware URL resolution** — temporary_base_url → user_base_url → MANTIS_BASE_URL
+-  **Context-aware token resolution** — temporary_token → user_token → MANTIS_API_TOKEN
+-  **Multi-instance management** — Manage multiple clients/environments simultaneously
+-  **Cross-instance operations** — Compare, sync, and migrate data between instances
+-  Comprehensive error handling
+-  Pagination and field selection
+-  Advanced workflows and bulk operations

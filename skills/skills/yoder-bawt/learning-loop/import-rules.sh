@@ -245,7 +245,7 @@ trust_score = calculate_trust_score(metadata, imported_rules)
 print(f"Trust score: {trust_score:.2f} (threshold: {trust_threshold})")
 
 if trust_score < trust_threshold:
-    print(f"\n⚠️  WARNING: Trust score {trust_score:.2f} is below threshold {trust_threshold}")
+    print(f"\n  WARNING: Trust score {trust_score:.2f} is below threshold {trust_threshold}")
     print("Import will proceed in review mode (all rules need manual approval)")
     review_mode = True
 else:

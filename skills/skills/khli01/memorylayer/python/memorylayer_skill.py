@@ -189,20 +189,20 @@ def stats() -> Dict[str, Any]:
 
 # Example usage
 if __name__ == '__main__':
-    print('🧠 MemoryLayer Python Wrapper Test\n')
+    print(' MemoryLayer Python Wrapper Test\n')
     
     try:
         # Store a memory
-        print('📝 Storing memory...')
+        print(' Storing memory...')
         result = remember(
             'User prefers dark mode UI',
             memory_type='semantic',
             importance=0.8
         )
-        print(f"✅ Stored memory with ID: {result.get('id', 'N/A')}\n")
+        print(f" Stored memory with ID: {result.get('id', 'N/A')}\n")
         
         # Search
-        print('🔍 Searching for "UI preferences"...')
+        print(' Searching for "UI preferences"...')
         results = search('UI preferences', limit=5)
         print(f'Found {len(results)} results:\n')
         
@@ -210,21 +210,21 @@ if __name__ == '__main__':
             print(f"{i}. [{r['relevance_score']:.2f}] {r['memory']['content']}")
         
         # Get context
-        print('\n📋 Getting formatted context...')
+        print('\n Getting formatted context...')
         context = get_context('user interface', limit=3)
         print(context)
         
         # Stats
-        print('\n📊 Usage statistics...')
+        print('\n Usage statistics...')
         user_stats = stats()
         print(f"Email: {user_stats.get('email', 'N/A')}")
         print(f"Total memories: {user_stats.get('total_memories', 'N/A')}")
         
-        print('\n✅ Test complete!')
+        print('\n Test complete!')
         
     except Exception as e:
-        print(f'❌ Error: {e}')
-        print('\n💡 Set credentials first:')
+        print(f' Error: {e}')
+        print('\n Set credentials first:')
         print('export MEMORYLAYER_EMAIL=your@email.com')
         print('export MEMORYLAYER_PASSWORD=your_password')
         print('\nOr visit: https://memorylayer.clawbot.hk to sign up')

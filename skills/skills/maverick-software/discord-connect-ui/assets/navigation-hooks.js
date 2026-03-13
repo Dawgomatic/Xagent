@@ -13,7 +13,7 @@
 export const DISCORD_TAB_CONFIG = {
   id: "discord",
   path: "/discord",
-  icon: "🎮",
+  icon: "",
   title: "Discord",
   subtitle: "Bot connection & servers",
   group: "channels",
@@ -48,7 +48,7 @@ export const NAVIGATION_PATCHES = {
   tabIcons: {
     target: "TAB_ICONS",
     key: "discord",
-    value: '"🎮"',
+    value: '""',
   },
 
   // Add to TAB_TITLES record
@@ -130,10 +130,10 @@ export function patchNavigation(originalContent) {
   }
 
   // Add TAB_ICONS entry
-  if (!content.includes('discord: "🎮"')) {
+  if (!content.includes('discord: ""')) {
     content = content.replace(
       /(TAB_ICONS[^}]+)(};)/,
-      '$1  discord: "🎮",\n$2'
+      '$1  discord: "",\n$2'
     );
   }
 

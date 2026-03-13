@@ -45,9 +45,9 @@ Test Type: Complete Blood Count
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Test Item          | Value | Unit    | Reference Range | Status
 ────────────────────────────────────────
-White Blood Cell   | 6.5   | ×10^9/L | 3.5-9.5         | ✅ Normal
-Hemoglobin         | 145   | g/L     | 130-175         | ✅ Normal
-Platelet Count     | 189   | ×10^9/L | 125-350         | ✅ Normal
+White Blood Cell   | 6.5   | ×10^9/L | 3.5-9.5         |  Normal
+Hemoglobin         | 145   | g/L     | 130-175         |  Normal
+Platelet Count     | 189   | ×10^9/L | 125-350         |  Normal
 ```
 
 ### Imaging Study Output Format
@@ -92,7 +92,7 @@ Add statistical information after query results:
 User: Query all records
 
 Output:
-📋 Medical Records Query Results
+ Medical Records Query Results
 Total: 17 records
 Biochemical tests: 12 records
 Imaging studies: 5 records
@@ -103,7 +103,7 @@ Imaging studies: 5 records
 User: Query abnormal indicators
 
 Output:
-📋 Abnormal Indicators Summary
+ Abnormal Indicators Summary
 Found 5 abnormal indicators
 - Elevated uric acid (486 μmol/L)
 - Elevated total cholesterol (6.2 mmol/L)
@@ -115,7 +115,7 @@ Found 5 abnormal indicators
 User: Query records for 2025-12
 
 Output:
-📋 December 2025 Records
+ December 2025 Records
 Total: 3 test records
 ...
 ```

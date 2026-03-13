@@ -162,7 +162,7 @@ class SoulShepherd extends EventEmitter {
     }
 
     this.running = true;
-    this.log('info', '🚀 Soul Shepherd started');
+    this.log('info', ' Soul Shepherd started');
 
     // Start component loops
     this.components.restGuardian.start();
@@ -176,7 +176,7 @@ class SoulShepherd extends EventEmitter {
   }
 
   async shutdown() {
-    this.log('info', '⏹️  Shutting down Soul Shepherd...');
+    this.log('info', '  Shutting down Soul Shepherd...');
     this.running = false;
 
     // Stop all components
@@ -229,13 +229,13 @@ class SoulShepherd extends EventEmitter {
     let message = '';
     switch (data.type) {
       case 'late-night-commits':
-        message = `📊 I noticed you've been pushing code after midnight (${data.count} times this week). That's not sustainable.`;
+        message = ` I noticed you've been pushing code after midnight (${data.count} times this week). That's not sustainable.`;
         break;
       case 'weekend-work':
-        message = `📊 Weekend work detected. I know deadlines push, but your rhythm matters too.`;
+        message = ` Weekend work detected. I know deadlines push, but your rhythm matters too.`;
         break;
       case 'sabbath-work':
-        message = `📊 I noticed work during Sabbath time. I know there's always more to do, but you're allowed to stop.`;
+        message = ` I noticed work during Sabbath time. I know there's always more to do, but you're allowed to stop.`;
         break;
     }
 
@@ -253,7 +253,7 @@ class SoulShepherd extends EventEmitter {
     this.log('warn', `Burnout warning: ${data.reason}`);
     this.emit('message', {
       type: 'burnout-warning',
-      message: '⚠️ I\'m seeing patterns that suggest burnout is approaching.',
+      message: ' I\'m seeing patterns that suggest burnout is approaching.',
       detail: data.reason,
       timestamp: new Date(),
     });
@@ -270,7 +270,7 @@ class SoulShepherd extends EventEmitter {
     if (verse) {
       this.emit('message', {
         type: 'stress-detected',
-        message: `📊 I notice you're stressed. Here's something for this moment:`,
+        message: ` I notice you're stressed. Here's something for this moment:`,
         verse: {
           reference: verse.reference,
           text: verse.text,
@@ -285,7 +285,7 @@ class SoulShepherd extends EventEmitter {
     this.log('info', 'Morning check-in time');
     this.emit('message', {
       type: 'morning-check-in',
-      message: `☀️ Good morning, ${this.config.userName}. How are you heading into today?`,
+      message: ` Good morning, ${this.config.userName}. How are you heading into today?`,
       detail: 'Any prayers or intentions for the day?',
       timestamp: new Date(),
     });
@@ -298,7 +298,7 @@ class SoulShepherd extends EventEmitter {
       occasions: ['evening_reflection'],
     });
 
-    let message = `🌙 Looking back on today, what did God do in your work?\n\nWhat's one thing you're grateful for?`;
+    let message = ` Looking back on today, what did God do in your work?\n\nWhat's one thing you're grateful for?`;
 
     if (verse) {
       message += `\n\n*${verse.reference}* — "${verse.text}"`;

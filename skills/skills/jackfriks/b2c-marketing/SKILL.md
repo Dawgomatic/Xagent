@@ -269,8 +269,8 @@ Set `scheduled_at` (ISO 8601) to schedule future posts. Omit for instant posting
 
 ### Couples App Format (Lovelee-style)
 - Two phones side by side, one person doodles → appears on partner's screen
-- "POV: reminding your bf who he belongs to 💖"
-- "May this type of love & care find you 💕"
+- "POV: reminding your bf who he belongs to "
+- "May this type of love & care find you "
 - 10 second clips, trending audio
 - LDR (long-distance relationship) angle is massively underserved and drives millions of views
 

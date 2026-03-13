@@ -132,16 +132,16 @@ Output:
 PROJECT PROGRESS REPORT
 ============================================================
 
-📊 Overall Statistics:
+ Overall Statistics:
    Total Projects: 3
    Active: 3
    Completed: 0
    Average Progress: 81.7%
 
-📁 Project Details:
+ Project Details:
 ------------------------------------------------------------
 
-🟢 Akasha Plan
+ Akasha Plan
    Status: active
    Progress: 80%
    Milestones: 5 items

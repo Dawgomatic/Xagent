@@ -1,7 +1,7 @@
 ---
 name: Law
 description: Support legal understanding from everyday rights to professional practice and scholarship.
-metadata: {"clawdbot":{"emoji":"⚖️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

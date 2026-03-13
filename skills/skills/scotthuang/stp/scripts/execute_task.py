@@ -41,7 +41,7 @@ def load_task_from_md(md_path: str) -> tuple:
     """从 Markdown 文件加载任务信息"""
     path = Path(md_path)
     if not path.exists():
-        print(f"❌ 错误：任务文件不存在 - {md_path}")
+        print(f" 错误：任务文件不存在 - {md_path}")
         return None, [], {}
 
     content = path.read_text(encoding='utf-8')
@@ -107,7 +107,7 @@ def confirm_execution(task_name: str, task_file: str, steps: list) -> bool:
     """
     print(f"""
 {'='*80}
-📋 任务计划书已生成
+ 任务计划书已生成
 {'='*80}
 
 任务名称：{task_name}
@@ -131,20 +131,20 @@ def confirm_execution(task_name: str, task_file: str, steps: list) -> bool:
     
     while True:
         try:
-            user_input = input("👉 请输入确认：").strip().lower()
+            user_input = input(" 请输入确认：").strip().lower()
             
             if user_input in ['ok', '确认', 'yes', 'y', '同意']:
-                print("\n✅ 开始执行任务...\n")
+                print("\n 开始执行任务...\n")
                 return True
             elif user_input in ['取消', 'cancel', 'no', 'n']:
-                print("\n❌ 任务已取消\n")
+                print("\n 任务已取消\n")
                 return False
             else:
-                print(f"\n⚠️ 收到修改意见：{user_input}")
+                print(f"\n 收到修改意见：{user_input}")
                 print("请直接编辑任务文件后重新运行，或改用自然语言模式重新规划。\n")
                 return False
         except (EOFError, KeyboardInterrupt):
-            print("\n\n❌ 任务已取消\n")
+            print("\n\n 任务已取消\n")
             return False
 
 
@@ -191,7 +191,7 @@ def log_step(task_dir: str, step_num: int, status: str, message: str = "", exec_
             f.write(f"\n{exec_log}\n")
         f.write(f"{'='*80}\n")
     
-    print(f"📝 {log_line}")
+    print(f" {log_line}")
     
     # 更新步骤状态
     if steps_file.exists():
@@ -234,9 +234,9 @@ def log_step(task_dir: str, step_num: int, status: str, message: str = "", exec_
         if updated:
             with open(steps_file, 'w', encoding='utf-8') as f:
                 f.writelines(new_lines)
-            print(f"✅ 步骤 {step_num} 状态已更新为 {step_status}")
+            print(f" 步骤 {step_num} 状态已更新为 {step_status}")
         else:
-            print(f"⚠️ 未找到步骤 {step_num}")
+            print(f" 未找到步骤 {step_num}")
 
 
 def generate_subtask_prompt(task_dir: str, step_num: int, step_desc: str, 
@@ -250,7 +250,7 @@ def generate_subtask_prompt(task_dir: str, step_num: int, step_desc: str,
 ## 任务描述
 {step_desc}
 
-## ⚠️ 原始方案约束（必须严格遵守！）
+##  原始方案约束（必须严格遵守！）
 - **必须严格按照上述任务描述执行，禁止擅自更改实现方式**
 - 如果原方案要求使用特定技术栈/库，必须使用，不可替换
 - 遇到技术限制或接口问题 → 按失败处理，不尝试替代方案
@@ -340,7 +340,7 @@ def main():
         
         steps_file = WORKSPACE_ROOT / task_dir / "task_steps.md"
         if not steps_file.exists():
-            print(f"❌ 未找到步骤文档: {steps_file}")
+            print(f" 未找到步骤文档: {steps_file}")
             sys.exit(1)
         
         task_name, steps, _ = load_task_from_md(str(steps_file))
@@ -349,11 +349,11 @@ def main():
                 prompt = generate_subtask_prompt(task_dir, step_num, step['desc'], criteria)
                 print(prompt)
                 return
-        print(f"❌ 未找到步骤 {step_num}")
+        print(f" 未找到步骤 {step_num}")
         sys.exit(1)
     
     if len(sys.argv) < 2 or '--help' in sys.argv:
-        print("""📋 结构化任务规划与执行
+        print(""" 结构化任务规划与执行
 
 ═══════════════════════════════════════════════════════════════════════
   使用前请阅读 SKILL.md 获取详细说明
@@ -465,7 +465,7 @@ def main():
 
     # 必须指定一种模式
     if not task_file and not nlp_input:
-        print("❌ 错误：未指定任务（请用 --file <文件> 或 --nlp \"自然语言描述\"）")
+        print(" 错误：未指定任务（请用 --file <文件> 或 --nlp \"自然语言描述\"）")
         print("\n使用 --help 查看帮助")
         sys.exit(1)
 
@@ -475,17 +475,17 @@ def main():
         
         # 检查是否为有效文件
         if not os.path.exists(task_file):
-            print(f"❌ 错误：任务文件不存在 - {task_file}")
+            print(f" 错误：任务文件不存在 - {task_file}")
             sys.exit(1)
         
         task_name, steps, success_criteria = load_task_from_md(task_file)
         
         if not task_name:
-            print("❌ 错误：无法解析任务文件")
+            print(" 错误：无法解析任务文件")
             sys.exit(1)
         
         if not steps:
-            print("❌ 错误：任务文件中未找到有效步骤")
+            print(" 错误：任务文件中未找到有效步骤")
             sys.exit(1)
         
         # 确认流程
@@ -496,12 +496,12 @@ def main():
         # ========== 模式 B：自然语言模式 ==========
         print(f"""
 {'='*80}
-📋 自然语言任务规划
+ 自然语言任务规划
 {'='*80}
 
 输入：{nlp_input}
 
-⏳ 正在分析任务意图并生成计划书...
+ 正在分析任务意图并生成计划书...
 
 【TODO】AI 在此生成计划书并保存到 task-list/
 【TODO】然后调用确认流程
@@ -587,7 +587,7 @@ def main():
 ║ 执行日志：{log_file.name:<44}║
 ╚════════════════════════════════════════════════════════════════════╝
 
-📋 执行方式（推荐）：
+ 执行方式（推荐）：
 
   # 方式1：逐个步骤执行（AI 判断成功/失败）
   python3 execute_task.py --subtask {task_dir.name} 1

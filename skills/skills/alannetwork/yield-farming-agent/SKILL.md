@@ -116,12 +116,12 @@ Edit `config.scheduler.json`:
 
 ## Security
 
-- ✅ Deterministic execution (reproducible, auditable)
-- ✅ SHA256 audit trail for every decision
-- ✅ Risk filtering (conservative)
-- ✅ Constraint enforcement (max 35% per vault)
-- ✅ Retry logic with exponential backoff
-- ✅ No hardcoded private keys (use environment variables)
+-  Deterministic execution (reproducible, auditable)
+-  SHA256 audit trail for every decision
+-  Risk filtering (conservative)
+-  Constraint enforcement (max 35% per vault)
+-  Retry logic with exponential backoff
+-  No hardcoded private keys (use environment variables)
 
 ## Production Readiness
 

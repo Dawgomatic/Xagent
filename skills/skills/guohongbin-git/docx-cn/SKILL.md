@@ -3,7 +3,7 @@ name: docx-cn
 description: "Word 文档处理 | Word Document Processing. 创建、读取、编辑 Word 文档 | Create, read, edit Word documents. 支持 .docx 格式、格式化、表格、图片 | Supports .docx format, formatting, tables, images. 触发词：Word、文档、docx."
 metadata:
   openclaw:
-    emoji: 📄
+    emoji: 
     fork-of: "https://github.com/anthropics/skills"
 ---
 
@@ -142,11 +142,11 @@ const doc = new Document({
 ### Lists (NEVER use unicode bullets)
 
 ```javascript
-// ❌ WRONG - never manually insert bullet characters
+//  WRONG - never manually insert bullet characters
 new Paragraph({ children: [new TextRun("• Item")] })  // BAD
 new Paragraph({ children: [new TextRun("\u2022 Item")] })  // BAD
 
-// ✅ CORRECT - use numbering config with LevelFormat.BULLET
+//  CORRECT - use numbering config with LevelFormat.BULLET
 const doc = new Document({
   numbering: {
     config: [
@@ -168,7 +168,7 @@ const doc = new Document({
   }]
 });
 
-// ⚠️ Each reference creates INDEPENDENT numbering
+//  Each reference creates INDEPENDENT numbering
 // Same reference = continues (1,2,3 then 4,5,6)
 // Different reference = restarts (1,2,3 then 1,2,3)
 ```

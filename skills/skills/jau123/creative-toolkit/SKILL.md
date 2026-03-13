@@ -3,7 +3,7 @@ name: creative-toolkit
 description: Generate images from text with multi-provider routing — supports FLUX, SDXL, GPT Image, Seedream, and local ComfyUI workflows. Includes 1,300+ curated prompts and style-aware prompt enhancement. Use when users want to create images, design assets, enhance prompts, or manage AI art workflows.
 version: 1.0.2
 homepage: https://github.com/jau123/MeiGen-AI-Design-MCP
-metadata: {"clawdbot":{"emoji":"🎨","requires":{"bins":["mcporter"],"env":["MEIGEN_API_TOKEN"]},"primaryEnv":"MEIGEN_API_TOKEN"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mcporter"],"env":["MEIGEN_API_TOKEN"]},"primaryEnv":"MEIGEN_API_TOKEN"}}
 ---
 
 # Creative Toolkit

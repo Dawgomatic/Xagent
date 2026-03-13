@@ -3,7 +3,7 @@ name: Voice Notes
 slug: voice-notes
 version: 1.0.0
 description: Transform chaotic voice memos into a searchable knowledge base with automatic organization, linking, and tag-based retrieval.
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

@@ -213,7 +213,7 @@ When a user requests rank tracking or analysis:
    | Keywords in Top 3 | [X] | [Y] | [+/-Z] |
    | Keywords #1 | [X] | [Y] | [+/-Z] |
    
-   ### Biggest Improvements 📈
+   ### Biggest Improvements 
    
    | Keyword | Old Rank | New Rank | Change | Est. Traffic Impact |
    |---------|----------|----------|--------|---------------------|
@@ -225,7 +225,7 @@ When a user requests rank tracking or analysis:
    - [kw 1]: [hypothesis - e.g., content refresh may have improved relevance]
    - [kw 2]: [hypothesis]
 
-   ### Biggest Declines 📉
+   ### Biggest Declines 
 
    | Keyword | Old Rank | New Rank | Change | Est. Traffic Impact |
    |---------|----------|----------|--------|---------------------|
@@ -278,16 +278,16 @@ When a user requests rank tracking or analysis:
    
    | Keyword | You Own? | Current Owner | Winnable? |
    |---------|----------|---------------|-----------|
-   | [kw 1] | ✅ Yes | You | Maintain |
-   | [kw 2] | ❌ No | [Competitor] | High |
-   | [kw 3] | ❌ No | [Competitor] | Medium |
+   | [kw 1] |  Yes | You | Maintain |
+   | [kw 2] |  No | [Competitor] | High |
+   | [kw 3] |  No | [Competitor] | Medium |
    
    ### PAA Appearances
    
    | Question | Your Answer? | Position | Action |
    |----------|--------------|----------|--------|
-   | [Question 1] | ✅/❌ | [pos] | [action] |
-   | [Question 2] | ✅/❌ | [pos] | [action] |
+   | [Question 1] | / | [pos] | [action] |
+   | [Question 2] | / | [pos] | [action] |
    ```
 
 5. **Track GEO/AI Visibility**
@@ -299,9 +299,9 @@ When a user requests rank tracking or analysis:
    
    | Keyword | AI Overview | You Cited? | Citation Position |
    |---------|-------------|------------|-------------------|
-   | [kw 1] | Yes | ✅ | 1st source |
-   | [kw 2] | Yes | ✅ | 3rd source |
-   | [kw 3] | Yes | ❌ | Not cited |
+   | [kw 1] | Yes |  | 1st source |
+   | [kw 2] | Yes |  | 3rd source |
+   | [kw 3] | Yes |  | Not cited |
    | [kw 4] | No | N/A | N/A |
    
    ### AI Citation Rate
@@ -348,9 +348,9 @@ When a user requests rank tracking or analysis:
    
    | Keyword | Your Rank | Their Rank | Winner |
    |---------|-----------|------------|--------|
-   | [kw 1] | 3 | 7 | You ✅ |
-   | [kw 2] | 12 | 5 | Them ❌ |
-   | [kw 3] | 1 | 4 | You ✅ |
+   | [kw 1] | 3 | 7 | You  |
+   | [kw 2] | 12 | 5 | Them  |
+   | [kw 3] | 1 | 4 | You  |
    
    **Summary**: You win [X]/[Y] keywords vs [Competitor 1]
    
@@ -358,8 +358,8 @@ When a user requests rank tracking or analysis:
    
    | Competitor | Keyword | Their Change | Threat Level |
    |------------|---------|--------------|--------------|
-   | [Comp 1] | [kw] | +15 positions | 🔴 High |
-   | [Comp 2] | [kw] | +8 positions | 🟡 Medium |
+   | [Comp 1] | [kw] | +15 positions |  High |
+   | [Comp 2] | [kw] | +8 positions |  Medium |
    ```
 
 7. **Generate Ranking Report**
@@ -395,16 +395,16 @@ When a user requests rank tracking or analysis:
    
    ## Key Highlights
    
-   ### Wins 🎉
+   ### Wins 
    - [Achievement 1]
    - [Achievement 2]
    - [Achievement 3]
    
-   ### Concerns ⚠️
+   ### Concerns 
    - [Issue 1]
    - [Issue 2]
    
-   ### Opportunities 💡
+   ### Opportunities 
    - [Opportunity 1]
    - [Opportunity 2]
    

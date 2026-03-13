@@ -31,8 +31,8 @@ message_id = init_msg.messageId
 # 2. Pin message
 await miso_telegram_pin(message_id)
 
-# 3. React with 🔥
-await message_react(channel=MISSION_CONTROL_CHANNEL, messageId=message_id, emoji="🔥")
+# 3. React with 
+await message_react(channel=MISSION_CONTROL_CHANNEL, messageId=message_id, emoji="")
 
 # 4. Spawn each agent
 agent_states = {}
@@ -135,13 +135,13 @@ await message_edit(
 
 #### Phase 4 (Approval gate)
 ```python
-await message_react(channel=MISSION_CONTROL_CHANNEL, messageId=message_id, emoji="👀")
+await message_react(channel=MISSION_CONTROL_CHANNEL, messageId=message_id, emoji="")
 # Include approval buttons
 ```
 
 #### Phase 5 (Complete)
 ```python
-await message_react(channel=MISSION_CONTROL_CHANNEL, messageId=message_id, emoji="🎉")
+await message_react(channel=MISSION_CONTROL_CHANNEL, messageId=message_id, emoji="")
 await miso_telegram_unpin(message_id)
 ```
 
@@ -164,7 +164,7 @@ await message_edit(
     )
 )
 
-await message_react(channel=MISSION_CONTROL_CHANNEL, messageId=message_id, emoji="❌")
+await message_react(channel=MISSION_CONTROL_CHANNEL, messageId=message_id, emoji="")
 ```
 
 ---
@@ -175,7 +175,7 @@ await message_react(channel=MISSION_CONTROL_CHANNEL, messageId=message_id, emoji
 
 ```
 INIT → RUNNING → DONE
-            ↘ ERROR
+             ERROR
 ```
 
 ### 4.2 Progress Bar Calculation

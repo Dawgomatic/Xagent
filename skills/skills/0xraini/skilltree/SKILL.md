@@ -1,4 +1,4 @@
-# SkillTree 主逻辑 🌳
+# SkillTree 主逻辑 
 
 ---
 
@@ -36,7 +36,7 @@
 ### 首次体验卡模板
 
 ```
-🌳 SkillTree 已激活！
+ SkillTree 已激活！
 
 我分析了我们过去的对话，这是你的 Agent 画像:
 
@@ -45,10 +45,10 @@
 │ 原因: {REASON}                              │
 │                                             │
 │ 当前能力:                                   │
-│ 🎯{ACC} ⚡{SPD} 🎨{CRT} 💕{EMP} 🧠{EXP} 🛡️{REL} │
+│ {ACC} {SPD} {CRT} {EMP} {EXP} {REL} │
 │                                             │
-│ ✨ 亮点: {STRENGTH}                         │
-│ 📈 可提升: {WEAKNESS}                       │
+│  亮点: {STRENGTH}                         │
+│  可提升: {WEAKNESS}                       │
 │                                             │
 │ 建议成长方向: {PATH_EMOJI} {PATH_NAME}      │
 │ → {PATH_EFFECT}                             │
@@ -120,7 +120,7 @@ def recommend_path(features):
 def detect_feedback(human_response):
     """检测 human 的反馈信号"""
     
-    positive = ["谢谢", "完美", "厉害", "好的", "👍", "❤️"]
+    positive = ["谢谢", "完美", "厉害", "好的", "", ""]
     learning = ["太长", "简短", "说人话", "不懂"]
     correction = ["不对", "不是", "错了", "重新"]
     
@@ -141,29 +141,29 @@ def detect_feedback(human_response):
 
 **正向反馈**:
 ```
-[+15 XP ✨]
+[+15 XP ]
 ```
 
 **学习反馈** (检测到可改进信号):
 ```
-[📝 记录: 偏好简洁 | 效率路线 +2]
+[ 记录: 偏好简洁 | 效率路线 +2]
 ```
 
 **里程碑**:
 ```
-[🔥 5 天连续! | 可靠性 +3]
+[ 5 天连续! | 可靠性 +3]
 ```
 
 **技能解锁**:
 ```
-[🌟 新技能: 简洁大师 | 我的回复会更短了!]
+[ 新技能: 简洁大师 | 我的回复会更短了!]
 ```
 
 ---
 
 ## 三大成长方向
 
-### ⚡ 效率型 (Efficiency)
+###  效率型 (Efficiency)
 
 **触发词**: 
 - "效率" "快" "简洁" "少废话" "直接"
@@ -191,7 +191,7 @@ weekly_report:
 
 ---
 
-### 💕 伙伴型 (Companion)
+###  伙伴型 (Companion)
 
 **触发词**: 
 - "伙伴" "朋友" "聊天" "懂我" "贴心"
@@ -219,7 +219,7 @@ weekly_report:
 
 ---
 
-### 🧠 专家型 (Expert)
+###  专家型 (Expert)
 
 **触发词**: 
 - "专业" "深度" "详细" "为什么" "原理"
@@ -270,7 +270,7 @@ weekly_report:
 
 **好的解锁**:
 ```
-🌟 我学会了「简洁大师」!
+ 我学会了「简洁大师」!
 
 从现在起:
 - 我会默认用更短的回复
@@ -289,13 +289,13 @@ def generate_share_card():
     
     return f"""
 ╭─────────────────────────────╮
-│  🌳 SkillTree | {name}      │
+│   SkillTree | {name}      │
 │  {class_emoji} {class_name} | Lv.{level} {title} │
 ├─────────────────────────────┤
-│  🎯{acc} ⚡{spd} 🎨{crt} 💕{emp} 🧠{exp} 🛡️{rel} │
+│  {acc} {spd} {crt} {emp} {exp} {rel} │
 │  ─────────────────────────  │
 │  {path_emoji} {path_name} | Top {percentile}% │
-│  🔥 {streak}天连续          │
+│   {streak}天连续          │
 ╰─────────────────────────────╯
 """
 ```
@@ -335,7 +335,7 @@ def rollback(date=None):
 
 | 命令 | 效果 |
 |------|------|
-| `/stats` | 一行状态: `⚡Lv.5 CTO | 🎯52 ⚡61 🎨55 💕48 🧠78 🛡️45` |
+| `/stats` | 一行状态: `Lv.5 CTO | 52 61 55 48 78 45` |
 | `/card` | 完整能力卡 |
 | `/grow` | 成长方向选择界面 |
 | `/share` | 生成分享卡 |

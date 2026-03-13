@@ -2,7 +2,7 @@
 name: fzf-fuzzy-finder
 description: Command-line fuzzy finder for interactive filtering and selection - integrates with shell, vim, and other tools.
 homepage: https://github.com/junegunn/fzf
-metadata: {"clawdbot":{"emoji":"🔮","requires":{"bins":["fzf"]},"install":[{"id":"brew","kind":"brew","formula":"fzf","bins":["fzf"],"label":"Install fzf (brew)"},{"id":"apt","kind":"apt","package":"fzf","bins":["fzf"],"label":"Install fzf (apt)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["fzf"]},"install":[{"id":"brew","kind":"brew","formula":"fzf","bins":["fzf"],"label":"Install fzf (brew)"},{"id":"apt","kind":"apt","package":"fzf","bins":["fzf"],"label":"Install fzf (apt)"}]}}
 ---
 
 # fzf - Fuzzy Finder

@@ -35,13 +35,13 @@ def analyze(symbol):
         action = "WAIT"
         
         if daily_bullish and macd_bullish:
-            status = "BULLISH 🟢"
+            status = "BULLISH "
             if rsi < 45 or price <= bb.bollinger_lband().iloc[-1]:
-                action = "BUY (LONG) 🚀"
+                action = "BUY (LONG) "
         elif not daily_bullish and not macd_bullish:
-            status = "BEARISH 🔴"
+            status = "BEARISH "
             if rsi > 55 or price >= bb.bollinger_hband().iloc[-1]:
-                action = "SELL (SHORT) 📉"
+                action = "SELL (SHORT) "
 
         return {
             "symbol": symbol,

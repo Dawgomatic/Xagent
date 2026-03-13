@@ -188,7 +188,7 @@ PYEOF
   if [ "$DRY_RUN" = "true" ]; then
     log "DRY_RUN=true — writing stub proposal"
     cat > "$synth_out" << 'MDEOF'
-## 🧠 Self-Evolving Agent v5.0 — DRY RUN
+##  Self-Evolving Agent v5.0 — DRY RUN
 
 This is a dry-run output. No actual analysis was performed.
 The pipeline structure was validated successfully.

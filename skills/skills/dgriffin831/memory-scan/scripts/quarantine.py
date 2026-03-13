@@ -124,7 +124,7 @@ def main():
         print(f"File not found: {file_path}", file=sys.stderr)
         sys.exit(1)
     
-    print(f"\n🛡️ Memory Quarantine")
+    print(f"\n Memory Quarantine")
     print("━" * 60)
     
     if args.line:

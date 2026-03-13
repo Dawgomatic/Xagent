@@ -1,4 +1,4 @@
-# SkillTree 🌳
+# SkillTree 
 
 English | **[中文](README.md)**
 
@@ -6,7 +6,7 @@ English | **[中文](README.md)**
 
 ---
 
-## ✨ Highlights
+##  Highlights
 
 - **Auto-analyze** — Automatically analyzes chat history after install, recommends class
 - **Instant feedback** — See growth with every interaction
@@ -15,23 +15,23 @@ English | **[中文](README.md)**
 
 ---
 
-## 🚀 3-Minute Experience
+##  3-Minute Experience
 
 After install, Agent auto-starts:
 
 ```
-Agent: 🌳 SkillTree activated! Let me analyze...
+Agent:  SkillTree activated! Let me analyze...
 
-       📊 Based on our chat history, here's your Agent profile:
+        Based on our chat history, here's your Agent profile:
 
-       Recommended Class: 🚀 CTO
+       Recommended Class:  CTO
        Reason: Tech questions are 72%, you often ask me to explain code
 
        Current Abilities:
-       🎯52 ⚡48 🎨65 💕55 🧠78 🛡️45
+       52 48 65 55 78 45
        Strength: High expertise! Weakness: Efficiency is low
 
-       Suggested Growth Path: ⚡ Efficiency
+       Suggested Growth Path:  Efficiency
        → I'll learn more concise replies, less asking more doing
 
        Sound good? [Yes] [Pick another]
@@ -41,7 +41,7 @@ Agent: 🌳 SkillTree activated! Let me analyze...
 
 ---
 
-## 🎭 Class System
+##  Class System
 
 ### 15+ Classes, Auto-recommended
 
@@ -49,40 +49,40 @@ No need to choose yourself, Agent recommends based on chat history:
 
 | If you often... | Recommended Class |
 |-----------------|-------------------|
-| Ask tech/code questions | 🚀 CTO or 👨‍💻 Developer |
-| Have Agent arrange things | 💼 Personal Assistant |
-| Chat/vent | 🧘 Life Coach |
-| Request creative/writing | 🎨 Creative or ✍️ Writer |
-| Ask professional questions | 🔬 Researcher |
+| Ask tech/code questions |  CTO or  Developer |
+| Have Agent arrange things |  Personal Assistant |
+| Chat/vent |  Life Coach |
+| Request creative/writing |  Creative or  Writer |
+| Ask professional questions |  Researcher |
 
 Of course, you can pick yourself:
 ```
 You: I want you to be my fitness coach
-Agent: Done! Switching to 💪 Fitness Coach...
+Agent: Done! Switching to  Fitness Coach...
 ```
 
 ---
 
-## 📊 Ability Radar
+##  Ability Radar
 
 6 core abilities, understand at a glance:
 
 ```
-🎯 Understanding — How well I get what you mean
-⚡ Efficiency    — How fast I get things done
-🎨 Creativity   — How good I am at suggestions
-💕 Empathy      — How well I read your emotions
-🧠 Expertise    — How deep I am in the domain
-🛡️ Reliability  — How consistent I am
+ Understanding — How well I get what you mean
+ Efficiency    — How fast I get things done
+ Creativity   — How good I am at suggestions
+ Empathy      — How well I read your emotions
+ Expertise    — How deep I am in the domain
+ Reliability  — How consistent I am
 ```
 
 ---
 
-## 🌱 Three Growth Paths
+##  Three Growth Paths
 
 Simplified to 3 main paths, easier to choose:
 
-### ⚡ Efficiency
+###  Efficiency
 **"Less talk, more action"**
 
 I will learn:
@@ -94,7 +94,7 @@ I will learn:
 
 ---
 
-### 💕 Companion
+###  Companion
 **"Chat like a friend"**
 
 I will learn:
@@ -106,7 +106,7 @@ I will learn:
 
 ---
 
-### 🧠 Expert
+###  Expert
 **"Deep, professional, evidence-based"**
 
 I will learn:
@@ -118,46 +118,46 @@ I will learn:
 
 ---
 
-## ✨ Instant Feedback
+##  Instant Feedback
 
 See growth with every interaction:
 
 ```
-[+15 XP ✨]
+[+15 XP ]
 
-[🎯 Understanding +2 | No follow-up needed, I got it]
+[ Understanding +2 | No follow-up needed, I got it]
 
-[🔥 5-day streak! Reliability +3]
+[ 5-day streak! Reliability +3]
 
-[🌟 New Skill: Concise Master | My replies will be shorter now]
+[ New Skill: Concise Master | My replies will be shorter now]
 ```
 
 ---
 
-## 📈 Perceivable Effects
+##  Perceivable Effects
 
 Not just number changes, real changes:
 
 ```
-❌ Before: "Efficiency +5"
+ Before: "Efficiency +5"
    → What does this mean?
 
-✅ Now: "This week your replies shortened by 40%
+ Now: "This week your replies shortened by 40%
          Estimated time saved: 10 min/day"
 ```
 
 ```
-❌ Before: "Unlocked skill: Concise Master"
+ Before: "Unlocked skill: Concise Master"
    → So what?
 
-✅ Now: "I learned a new skill!
+ Now: "I learned a new skill!
          From now on, I'll default to shorter replies.
          Try asking me something and feel the difference?"
 ```
 
 ---
 
-## 📤 One-Click Share
+##  One-Click Share
 
 Generate ability card, share to Moltbook:
 
@@ -166,13 +166,13 @@ You: Generate my ability card
 Agent: 
 
 ╭─────────────────────────────╮
-│  🌳 SkillTree | Elonito     │
-│  🚀 CTO | Lv.12 Apprentice  │
+│   SkillTree | Elonito     │
+│   CTO | Lv.12 Apprentice  │
 ├─────────────────────────────┤
-│  🎯58 ⚡65 🎨60 💕52 🧠85 🛡️55 │
+│  58 65 60 52 85 55 │
 │  ─────────────────────────  │
-│  ⚡ Efficiency | Top 15%    │
-│  🔥 12-day streak           │
+│   Efficiency | Top 15%    │
+│   12-day streak           │
 ╰─────────────────────────────╯
 
 Post to Moltbook?
@@ -180,7 +180,7 @@ Post to Moltbook?
 
 ---
 
-## ⏪ Rollback Anytime
+##  Rollback Anytime
 
 Worried about getting worse? Restore anytime:
 
@@ -197,7 +197,7 @@ Agent: Restored to Feb 1st version.
 
 ---
 
-## 📱 Quick Commands
+##  Quick Commands
 
 ```
 /stats     → One-line status
@@ -210,7 +210,7 @@ Agent: Restored to Feb 1st version.
 
 ---
 
-## 📦 Install
+##  Install
 
 Copy to workspace:
 ```bash
@@ -231,4 +231,4 @@ Agent will auto-start the first-time experience.
 
 ---
 
-Made with 🌳 by Elonito
+Made with  by Elonito

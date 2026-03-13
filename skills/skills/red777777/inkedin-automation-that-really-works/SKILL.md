@@ -7,7 +7,7 @@ description: LinkedIn automation — post (with image upload), comment (with @me
 
 > **Author:** Community Contributors
 >
-> ⚠️ **DISCLAIMER — PERSONAL USE ONLY**
+>  **DISCLAIMER — PERSONAL USE ONLY**
 > This skill is provided for **personal, non-commercial use only**. It automates your own LinkedIn account for personal productivity and engagement. Do NOT use this skill for spam, mass outreach, scraping other users' data, or any commercial automation service. Use responsibly and in accordance with [LinkedIn's User Agreement](https://www.linkedin.com/legal/user-agreement). The author assumes no liability for misuse or account restrictions.
 
 Automate LinkedIn interactions via headless Playwright browser with a persistent session.
@@ -81,7 +81,7 @@ The `scan-likes` command checks your recent likes/reactions activity and returns
 python3 $CLI scan-likes → if new likes found → suggest comment for each
 ```
 
-## ⚠️ Golden Rule
+##  Golden Rule
 
 **NEVER post, comment, repost, edit, or delete anything without EXPLICIT user approval.**
 
@@ -146,7 +146,7 @@ The agent should ALWAYS read this profile (`get-style`) before drafting any comm
 
 **CRITICAL:** Before suggesting a comment on any post, check how old the post is:
 - **< 2 weeks:** Safe to comment
-- **> 2 weeks:** Warn the user explicitly ("⚠️ This post is X weeks old — commenting on old posts can look like bot behavior. Still want to?")
+- **> 2 weeks:** Warn the user explicitly (" This post is X weeks old — commenting on old posts can look like bot behavior. Still want to?")
 - **> 1 month:** Strongly discourage unless there's a specific reason
 
 Commenting on old posts makes it look like you're mining someone's history with a bot. Always flag post age.

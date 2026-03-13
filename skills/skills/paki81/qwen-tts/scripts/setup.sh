@@ -8,7 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 VENV_DIR="$SKILL_DIR/venv"
 
-echo "🔧 Qwen3-TTS Setup"
+echo " Qwen3-TTS Setup"
 echo "=================="
 echo
 
@@ -29,14 +29,14 @@ for cmd in python3.12 python3.11 python3.10 python3; do
 done
 
 if [ -z "$PYTHON_CMD" ]; then
-    echo "❌ Error: Python 3.10-3.12 required (onnxruntime compatibility)"
+    echo " Error: Python 3.10-3.12 required (onnxruntime compatibility)"
     echo "   Current python3: $(python3 --version 2>&1)"
     exit 1
 fi
 
 # Create virtual environment
 if [ -d "$VENV_DIR" ]; then
-    echo "⚠️  Virtual environment already exists at: $VENV_DIR"
+    echo "  Virtual environment already exists at: $VENV_DIR"
     read -p "Remove and recreate? (y/N): " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -47,11 +47,11 @@ if [ -d "$VENV_DIR" ]; then
     fi
 fi
 
-echo "📦 Creating virtual environment..."
+echo " Creating virtual environment..."
 $PYTHON_CMD -m venv "$VENV_DIR"
 
 # Activate and install
-echo "📥 Installing dependencies..."
+echo " Installing dependencies..."
 source "$VENV_DIR/bin/activate"
 
 # Upgrade pip first
@@ -62,7 +62,7 @@ echo "   Installing qwen-tts (this may take several minutes)..."
 pip install qwen-tts soundfile
 
 echo
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo
 echo "Virtual environment created at:"
 echo "  $VENV_DIR"

@@ -13,7 +13,7 @@ metadata:
         label: "Install catime (pip install catime)"
 ---
 
-# catime — AI-Generated Hourly Cat Images 🐱
+# catime — AI-Generated Hourly Cat Images 
 
 > **One-liner:** Fetch the latest (or any) AI-generated cat image and send it to the user with a caption and story.
 
@@ -66,7 +66,7 @@ action: send_message
 media:
   type: image
   url: "https://github.com/yazelin/catime/releases/download/cats/cat_2026-02-11_0457_UTC.webp"
-caption: "🐱 Cat #241 — AI-generated cat of the hour!"
+caption: " Cat #241 — AI-generated cat of the hour!"
 text: |
   Here's your cat! Cat #241, created at 2026-02-11 04:57 UTC.
   Story: 在一個宛如織品藝術品的微縮香室裡，環形燈的光線均勻地灑落...
@@ -86,7 +86,7 @@ metadata:
     "type": "image",
     "url": "https://github.com/yazelin/catime/releases/download/cats/cat_2026-02-11_0457_UTC.webp"
   },
-  "caption": "🐱 Cat #241 — AI-generated cat of the hour!",
+  "caption": " Cat #241 — AI-generated cat of the hour!",
   "text": "Here's your cat! Cat #241, created at 2026-02-11 04:57 UTC.\nStory: 在一個宛如織品藝術品的微縮香室裡…",
   "metadata": {
     "source": "catime",
@@ -267,7 +267,7 @@ action: send_message
 media:
   type: image
   url: "<extracted image_url>"
-caption: "🐱 Cat #<cat_number> — AI-generated cat of the hour!"
+caption: " Cat #<cat_number> — AI-generated cat of the hour!"
 text: |
   Here's your cat! Cat #<cat_number>, created at <datetime>.
   Story: <story text>
@@ -303,10 +303,10 @@ Cat # <NUMBER>  <YYYY-MM-DD> <HH:MM> UTC  model: <MODEL_NAME>
 
 | Field | Line prefix | Always present? | Description |
 |---|---|---|---|
-| Number | `Cat # ` (header) | ✅ Yes | Sequential cat ID (1, 2, 3, …) |
-| Date/Time | header | ✅ Yes | UTC timestamp of generation |
-| Model | `model: ` (header) | ✅ Yes | AI model used (e.g. `gemini-3-pro-image-preview`) |
-| URL | `  URL: ` | ✅ Yes | Direct link to the image file (.webp or .png) |
+| Number | `Cat # ` (header) |  Yes | Sequential cat ID (1, 2, 3, …) |
+| Date/Time | header |  Yes | UTC timestamp of generation |
+| Model | `model: ` (header) |  Yes | AI model used (e.g. `gemini-3-pro-image-preview`) |
+| URL | `  URL: ` |  Yes | Direct link to the image file (.webp or .png) |
 | Idea | `  Idea: ` | Sometimes | Short concept (usually Chinese) |
 | Prompt | `  Prompt: ` | Sometimes | Full English prompt used for image generation |
 | Story | `  Story: ` | Sometimes | Narrative story for the cat (usually Chinese) |
@@ -336,12 +336,12 @@ Cat # <NUMBER>  <YYYY-MM-DD> <HH:MM> UTC  model: <MODEL_NAME>
 
 ## About catime
 
-- 🎨 AI-generated cat images every hour using Google Gemini
-- 📚 103+ art styles in the style library
-- 🐱 Each cat has a unique story and personality
-- 🌐 Gallery: [yazelin.github.io/catime](https://yazelin.github.io/catime/)
-- 📦 PyPI: `pip install catime`
-- ⭐ GitHub: [github.com/yazelin/catime](https://github.com/yazelin/catime)
+-  AI-generated cat images every hour using Google Gemini
+-  103+ art styles in the style library
+-  Each cat has a unique story and personality
+-  Gallery: [yazelin.github.io/catime](https://yazelin.github.io/catime/)
+-  PyPI: `pip install catime`
+-  GitHub: [github.com/yazelin/catime](https://github.com/yazelin/catime)
 
 ---
 

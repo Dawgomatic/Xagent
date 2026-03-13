@@ -7,7 +7,7 @@ description: 审计 skill 的安全风险。扫描凭据泄露、危险命令、
 
 审计 skills 目录中的安全风险，生成报告。
 
-## 🚀 快速使用
+##  快速使用
 
 ### 安全安装（推荐）
 
@@ -47,37 +47,37 @@ bash skills/skill-security-audit/scripts/audit.sh skills/ --include-docs
 bash skills/skill-security-audit/scripts/audit.sh skills/ --json
 ```
 
-## 🛡️ 检测项目
+##  检测项目
 
 | 类别 | 严重程度 | 检测内容 |
 |------|----------|----------|
-| 凭据泄露 | 🔴 CRITICAL | OpenAI/Anthropic/AWS/GitHub 等 API key |
-| 危险命令 | 🟠 HIGH | `rm -rf`、`sudo`、`eval()`、`curl \| bash` |
-| 敏感目录 | 🟠 HIGH | `~/.ssh`、`~/.aws`、`/etc/passwd` |
-| 网络请求 | 🟡 MEDIUM | HTTP 到非白名单域名 |
-| 权限问题 | 🟡 MEDIUM | `chmod 777` |
-| 依赖风险 | 🟢 LOW | 未锁定版本的依赖 |
+| 凭据泄露 |  CRITICAL | OpenAI/Anthropic/AWS/GitHub 等 API key |
+| 危险命令 |  HIGH | `rm -rf`、`sudo`、`eval()`、`curl \| bash` |
+| 敏感目录 |  HIGH | `~/.ssh`、`~/.aws`、`/etc/passwd` |
+| 网络请求 |  MEDIUM | HTTP 到非白名单域名 |
+| 权限问题 |  MEDIUM | `chmod 777` |
+| 依赖风险 |  LOW | 未锁定版本的依赖 |
 
-## 📋 安装/发布行为
+##  安装/发布行为
 
 ### safe-install.sh
 
 | 问题级别 | 默认行为 | 可覆盖 |
 |----------|----------|--------|
-| CRITICAL | ❌ 阻止安装 | `--allow-critical`（危险！） |
-| HIGH/MEDIUM | ⚠️ 询问确认 | `--force` |
-| LOW | ✅ 允许 | - |
+| CRITICAL |  阻止安装 | `--allow-critical`（危险！） |
+| HIGH/MEDIUM |  询问确认 | `--force` |
+| LOW |  允许 | - |
 
 ### safe-publish.sh
 
 | 问题级别 | 默认行为 | 可覆盖 |
 |----------|----------|--------|
-| CRITICAL | ❌ 阻止发布 | **不可覆盖** |
-| HIGH | ⚠️ 询问确认 | `--force` |
-| MEDIUM | ⚠️ 询问确认 | `--force` |
-| LOW | ✅ 允许 | - |
+| CRITICAL |  阻止发布 | **不可覆盖** |
+| HIGH |  询问确认 | `--force` |
+| MEDIUM |  询问确认 | `--force` |
+| LOW |  允许 | - |
 
-## 🔇 忽略误报
+##  忽略误报
 
 ### 行内忽略
 
@@ -95,7 +95,7 @@ references/examples/*
 assets/*
 ```
 
-## 📁 文件结构
+##  文件结构
 
 ```
 skill-security-audit/
@@ -108,7 +108,7 @@ skill-security-audit/
     └── detection-rules.md  # 检测规则详情
 ```
 
-## ⚙️ 设置别名（可选）
+##  设置别名（可选）
 
 ```bash
 # 添加到 ~/.bashrc 或 ~/.zshrc

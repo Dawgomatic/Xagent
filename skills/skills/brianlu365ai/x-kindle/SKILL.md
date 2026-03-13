@@ -57,4 +57,4 @@ User sends: `https://x.com/elonmusk/status/1234567890`
 1. Fetch `https://api.fxtwitter.com/status/1234567890`
 2. Extract author, text, timestamp
 3. Send HTML email to Kindle address
-4. Confirm: "Sent to Kindle 📚"
+4. Confirm: "Sent to Kindle "

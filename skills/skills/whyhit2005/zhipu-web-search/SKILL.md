@@ -67,8 +67,8 @@ System will automatically select appropriate parameters based on needs.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| search_query | string | ✅ | - | Search content, recommended ≤70 chars |
-| search_engine | enum | ✅ | - | search_std/search_pro/search_pro_sogou/search_pro_quark |
+| search_query | string |  | - | Search content, recommended ≤70 chars |
+| search_engine | enum |  | - | search_std/search_pro/search_pro_sogou/search_pro_quark |
 | search_intent | boolean | - | false | Enable search intent recognition |
 | count | integer | - | 10 | Result count, 1-50 |
 | search_domain_filter | string | - | - | Whitelist domain filter |

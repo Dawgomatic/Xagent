@@ -5,7 +5,7 @@
 
 ---
 
-## 🎯 Quick Decision Framework
+##  Quick Decision Framework
 
 Answer these 5 questions to narrow your options:
 
@@ -55,7 +55,7 @@ Answer these 5 questions to narrow your options:
 
 ---
 
-## 📊 Decision Matrix by Profile
+##  Decision Matrix by Profile
 
 ### Profile A: Young Professional (25-32, Single/Couple, No Kids)
 
@@ -142,7 +142,7 @@ Answer these 5 questions to narrow your options:
 
 ---
 
-## ⚠️ Common Mistakes to Avoid
+##  Common Mistakes to Avoid
 
 ### 1. Choosing Based on Instagram
 **Mistake:** "I want to live in Palm because it looks amazing"  
@@ -170,7 +170,7 @@ Answer these 5 questions to narrow your options:
 
 ---
 
-## 💰 Total Cost of Living Calculator
+##  Total Cost of Living Calculator
 
 ### Beyond Rent — Hidden Costs by Area
 
@@ -192,7 +192,7 @@ Answer these 5 questions to narrow your options:
 
 ---
 
-## 📅 Timeline for Relocating to Dubai
+##  Timeline for Relocating to Dubai
 
 ### If You're Moving in 6+ Months (Ideal)
 1. **Month 1:** Research neighborhoods online, shortlist 3-4
@@ -209,7 +209,7 @@ Answer these 5 questions to narrow your options:
 
 ---
 
-## 🏠 Rental Process — What to Know
+##  Rental Process — What to Know
 
 ### Payment Structure
 | Cheques | Typical Discount | Who Offers |
@@ -236,7 +236,7 @@ Answer these 5 questions to narrow your options:
 
 ---
 
-## 🔑 Final Decision Checklist
+##  Final Decision Checklist
 
 Before signing, confirm:
 
@@ -253,7 +253,7 @@ Before signing, confirm:
 
 ---
 
-## 📞 Quick Contacts
+##  Quick Contacts
 
 ### Finding Properties
 - **Bayut.com** — Largest listings portal
@@ -271,7 +271,7 @@ Before signing, confirm:
 
 ---
 
-## 💡 Pro Tips From Long-Term Residents
+##  Pro Tips From Long-Term Residents
 
 1. **"Test drive" your commute** before signing — preferably at 8 AM on a weekday
 2. **Talk to current residents** — Facebook groups are goldmines for real experiences

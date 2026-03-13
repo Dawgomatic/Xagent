@@ -12,10 +12,10 @@ Framework pengembangan perangkat lunak lengkap untuk pengguna ClawGator.
 ## Deskripsi / Description
 
 Skill ini menyediakan **workflow pengembangan perangkat lunak lengkap** yang memastikan tim ClawGator selalu:
-- 💡 Think before they code
-- 📋 Plan before they build
-- ✅ Verify before they ship
-- 🧪 Test before production
+-  Think before they code
+-  Plan before they build
+-  Verify before they ship
+-  Test before production
 
 Complete software development framework for ClawGator team. Ensures the team always thinks before coding, plans before building, verifies before shipping, and tests before production.
 
@@ -32,7 +32,7 @@ Complete software development framework for ClawGator team. Ensures the team alw
 
 ---
 
-## 🌏 Bilingual Support / Dukungan Bahasa Ganda
+##  Bilingual Support / Dukungan Bahasa Ganda
 
 Skill ini mendukung dua bahasa / This skill supports two languages:
 
@@ -50,46 +50,46 @@ Skill ini mendukung dua bahasa / This skill supports two languages:
 
 ## Fitur Utama / Key Features
 
-### 💡 Brainstorming & Design
+###  Brainstorming & Design
 - Memahami requirement dan konteks proyek
 - Menjelaskan ide-ide sebelum implementasi
 - Validasi desain melalui dialog interaktif
 - Menghasilkan dokumen desain yang terstruktur
 
-### 📋 Planning
+###  Planning
 - Memecah pekerjaan menjadi tasks kecil (2-5 menit)
 - Mendefinisikan acceptance criteria
 - Membuat rencana implementasi terperinci
 
-### 🌳 Git Worktrees
+###  Git Worktrees
 - Setup workspace terisolasi di branch baru
 - Protect branch utama (main/master)
 - Enable development paralel tanpa conflict
 
-### 🚀 Eksekusi Sistematis
+###  Eksekusi Sistematis
 - Mengerjakan tasks sesuai rencana
 - Tracking progress
 - Verifikasi hasil antar batch
 
-### 🧪 Test-Driven Development (TDD)
+###  Test-Driven Development (TDD)
 - RED: Tulis test → Lihat fail
 - GREEN: Implement minimal code → Lihat pass
 - REFACTOR: Clean up → Stay green
 - **Iron Law: NO PRODUCTION CODE WITHOUT A FAILING TEST FIRST**
 
-### 🔍 Systematic Debugging
+###  Systematic Debugging
 - Phase 1: Investigasi Root Cause
 - Phase 2: Analisis Pola
 - Phase 3: Hipotesis & Testing
 - Phase 4: Fix & Verify
 - **Iron Law: NO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST**
 
-### 📊 Code Review
+###  Code Review
 - Request code review antar tasks
 - Apply feedback dari review
 - Ensure code quality dan consistency
 
-### ✅ Verification & Completion
+###  Verification & Completion
 - Verify tests sebelum mark selesai
 - Wrap up development branch dengan options:
   * Merge ke main
@@ -120,7 +120,7 @@ Skill ini mendukung dua bahasa / This skill supports two languages:
 
 ---
 
-## 📦 Installation / Cara Install
+##  Installation / Cara Install
 
 ### Prerequisites / Prasyarat
 
@@ -194,7 +194,7 @@ npx clawhub install clawgator-superpowers
 
 ---
 
-## 📚 Usage / Cara Menggunakan
+##  Usage / Cara Menggunakan
 
 ### Starting New Projects / Memulai Proyek Baru
 
@@ -249,7 +249,7 @@ Skill akan otomatis / Skill will automatically:
 
 ---
 
-## 🔧 Available Tools / Tools Tersedia
+##  Available Tools / Tools Tersedia
 
 | Tool | Deskripsi / Description | Input / Input Required |
 |------|-------------------------|------------------------|
@@ -265,7 +265,7 @@ Skill akan otomatis / Skill will automatically:
 
 ---
 
-## 🔧 Configuration / Konfigurasi
+##  Configuration / Konfigurasi
 
 | Parameter | Type / Tipe | Default | Deskripsi / Description |
 |-----------|-------------|---------|-------------------------|
@@ -279,7 +279,7 @@ Skill akan otomatis / Skill will automatically:
 
 ---
 
-## 🔄 Workflow / Alur Kerja
+##  Workflow / Alur Kerja
 
 ```
 Permintaan / Request → Using Superpowers → Brainstorming → Git Worktree
@@ -291,7 +291,7 @@ Permintaan / Request → Using Superpowers → Brainstorming → Git Worktree
 
 ---
 
-## ⚠️ Iron Laws
+##  Iron Laws
 
 1. **NO PRODUCTION CODE WITHOUT A FAILING TEST FIRST** (TDD)
 2. **NO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST** (Debugging)
@@ -299,7 +299,7 @@ Permintaan / Request → Using Superpowers → Brainstorming → Git Worktree
 
 ---
 
-## 📋 TDD Cycle
+##  TDD Cycle
 
 ```
 RED → Write failing test → Verify fails
@@ -310,7 +310,7 @@ REPEAT → Next test
 
 ---
 
-## 🔍 Debugging Cycle
+##  Debugging Cycle
 
 ```
 Phase 1: Root Cause Investigation
@@ -337,7 +337,7 @@ Phase 4: Fix & Verify
 
 ---
 
-## 📂 Folder Structure / Struktur Folder
+##  Folder Structure / Struktur Folder
 
 ```
 /home/clawgator-superpowers/
@@ -365,7 +365,7 @@ Phase 4: Fix & Verify
 
 ---
 
-## 📌 Notes for ClawGator Users / Catatan untuk Pengguna ClawGator
+##  Notes for ClawGator Users / Catatan untuk Pengguna ClawGator
 
 - Skill ini **WAJIB digunakan** sebelum memulai pengembangan fitur baru / **MUST use** this skill before starting new feature development
 - Setiap brainstorming session akan menghasilkan desain yang divalidasi / Each brainstorming session produces validated designs
@@ -377,7 +377,7 @@ Phase 4: Fix & Verify
 
 ---
 
-## 🔗 Links & References
+##  Links & References
 
 - **Original Repository:** https://github.com/obra/superpowers
 - **This Fork:** Adapted for ClawGator Users
@@ -387,7 +387,7 @@ Phase 4: Fix & Verify
 
 ---
 
-## 📋 Version & Info / Versi & Info
+##  Version & Info / Versi & Info
 
 | Item | Value / Nilai |
 |------|---------------|
@@ -395,12 +395,12 @@ Phase 4: Fix & Verify
 | **Based on / Berdasarkan** | obra/superpowers (100% workflow, 14 sub-skills) |
 | **License / Lisensi** | MIT (same as obra/superpowers) |
 | **Team / Tim** | ClawGator Team |
-| **Language Support / Dukungan Bahasa** | 🌏 Bahasa Indonesia & English |
+| **Language Support / Dukungan Bahasa** |  Bahasa Indonesia & English |
 | **OpenClaw Engine** | >= 2026.2.0 |
 
 ---
 
-## 👥 Contributing / Berkontribusi
+##  Contributing / Berkontribusi
 
 Skill ini adalah fork dari obra/superpowers yang disesuaikan untuk ekosistem ClawGator. Untuk kontribusi ke workflow asli, silakan kunjungi repository obra/superpowers.
 
@@ -408,7 +408,7 @@ This skill is a fork of obra/superpowers adapted for the ClawGator ecosystem. Fo
 
 ---
 
-## 📜 License
+##  License
 
 ```
 MIT License
@@ -436,7 +436,7 @@ SOFTWARE.
 
 ---
 
-**Made with ❤️ for ClawGator Users**
+**Made with  for ClawGator Users**
 
 **Original by:** [Obra](https://github.com/obra) - obra/superpowers
 

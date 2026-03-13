@@ -3,7 +3,7 @@ name: assemblyai-transcribe
 description: Transcribe audio/video with AssemblyAI (local upload or URL), plus subtitles + paragraph/sentence exports.
 homepage: https://www.assemblyai.com/docs
 user-invocable: true
-metadata: {"clawdbot":{"skillKey":"assemblyai","emoji":"🎙️","requires":{"bins":["node"],"env":["ASSEMBLYAI_API_KEY"]},"primaryEnv":"ASSEMBLYAI_API_KEY"}}
+metadata: {"clawdbot":{"skillKey":"assemblyai","emoji":"","requires":{"bins":["node"],"env":["ASSEMBLYAI_API_KEY"]},"primaryEnv":"ASSEMBLYAI_API_KEY"}}
 ---
 
 # AssemblyAI transcription + exports

@@ -1,7 +1,7 @@
 ---
 name: Architecture
 description: Support architectural understanding from home projects to professional practice and theory.
-metadata: {"clawdbot":{"emoji":"🏛️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

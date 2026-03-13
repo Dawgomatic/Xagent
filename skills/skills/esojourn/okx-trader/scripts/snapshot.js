@@ -143,20 +143,20 @@ async function run() {
         fs.writeFileSync(path.join(SNAPSHOT_DIR, `${dateStr}.json`), JSON.stringify(snapshot, null, 2));
 
         // 8. Print summary
-        console.log(`📸 账户快照 ${dateStr}`);
-        console.log(`💰 总权益: $${totalEquityUsd.toFixed(2)}`);
+        console.log(` 账户快照 ${dateStr}`);
+        console.log(` 总权益: $${totalEquityUsd.toFixed(2)}`);
         for (const [ccy, a] of Object.entries(assets)) {
             console.log(`  ${ccy}: ${a.equity} ($${a.usd.toFixed(2)}) 浮盈: $${a.spotUpl.toFixed(2)}`);
         }
-        console.log(`\n📊 24h 交易汇总:`);
+        console.log(`\n 24h 交易汇总:`);
         for (const [instId, s] of Object.entries(tradingSummary)) {
             console.log(`  ${instId}: ${s.fills}笔 (买${s.buyCount}/卖${s.sellCount}) 净USDT: ${s.netUsdt > 0 ? '+' : ''}${s.netUsdt} 手续费返佣: ${s.fees}`);
         }
         if (delta) {
-            console.log(`\n📈 vs ${delta.prevDate}:`);
+            console.log(`\n vs ${delta.prevDate}:`);
             console.log(`  权益变化: ${delta.equityChange > 0 ? '+' : ''}$${delta.equityChange} (${delta.equityChangePct > 0 ? '+' : ''}${delta.equityChangePct}%)`);
         }
-        console.log(`\n✅ 已保存到 ${SNAPSHOT_DIR}/${dateStr}.json`);
+        console.log(`\n 已保存到 ${SNAPSHOT_DIR}/${dateStr}.json`);
 
     } catch (e) {
         console.error('Error:', e.message);

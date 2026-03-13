@@ -125,7 +125,7 @@ class TelegramNotifier:
         reason = details.get('reason', '')
 
         message = f"""
-🚀 *TRADE EXECUTED* 🚀
+ *TRADE EXECUTED* 
 
 *Action:* {action} {symbol}
 *Quantity:* {quantity} shares
@@ -145,7 +145,7 @@ class TelegramNotifier:
         date = trade.get('transaction_date', '')
 
         message = f"""
-📊 *CONGRESSIONAL TRADE ALERT* 📊
+ *CONGRESSIONAL TRADE ALERT* 
 
 *Politician:* {politician}
 *Action:* {action} {symbol}
@@ -161,7 +161,7 @@ class TelegramNotifier:
             return False
 
         message = f"""
-⚠️ *SYSTEM ERROR* ⚠️
+ *SYSTEM ERROR* 
 
 *Type:* {error_type}
 *Error:* {error_message}
@@ -185,14 +185,14 @@ class TelegramNotifier:
         broker_display = broker_name.replace('*', '\\*') if broker_name else "Unknown"
 
         message = f"""
-🚨 *BROKER API ERROR* 🚨
+ *BROKER API ERROR* 
 
 *Operation:* {operation}
 *Error:* `{error_message}`
 {f"*Details:*{chr(10)}{details_text}" if details_text else ""}
 *Broker:* {broker_display}
 
-⚡ _Action may be required_ ⚡
+ _Action may be required_ 
 """
 
         return self.send_message(message.strip())
@@ -202,7 +202,7 @@ class TelegramNotifier:
         if not self.config.get('sendErrorAlerts', True):
             return False
 
-        source_emoji = "🏛️" if source.lower() == "house" else "🏛️" if source.lower() == "senate" else "📊"
+        source_emoji = "" if source.lower() == "house" else "" if source.lower() == "senate" else ""
 
         details_text = ""
         if details:
@@ -217,7 +217,7 @@ class TelegramNotifier:
 *Source:* {source}
 *Error:* `{error_message}`
 {f"*Details:*{chr(10)}{details_text}" if details_text else ""}
-📋 _Will retry at next scheduled check_
+ _Will retry at next scheduled check_
 """
 
         return self.send_message(message.strip())
@@ -226,14 +226,14 @@ class TelegramNotifier:
         """Send market status notification"""
         if status == "closed":
             message = f"""
-🌙 *MARKET CLOSED*
+ *MARKET CLOSED*
 
 *Pending Trades:* {pending_trades}
 *Next Action:* Execute at market open (9:35 AM ET)
 """
         else:
             message = f"""
-☀️ *MARKET OPEN*
+ *MARKET OPEN*
 
 *Status:* Trading enabled
 *Pending Trades:* {pending_trades}
@@ -252,10 +252,10 @@ class TelegramNotifier:
         pnl = summary_data.get('pnl', 0)
         account_balance = summary_data.get('account_balance', 0)
 
-        pnl_emoji = "📈" if pnl >= 0 else "📉"
+        pnl_emoji = "" if pnl >= 0 else ""
 
         message = f"""
-📋 *DAILY TRADING SUMMARY* 📋
+ *DAILY TRADING SUMMARY* 
 
 *Date:* {date}
 *Trades Made:* {trades_made}
@@ -281,14 +281,14 @@ class TelegramNotifier:
         auth_status = "Authenticated ✓" if is_authenticated else "Not authenticated"
 
         message = f"""
-✅ *CLAWBACK SYSTEM TEST* ✅
+ *CLAWBACK SYSTEM TEST* 
 
 *System:* ClawBack Congressional Trading Bot
 *Broker:* {broker_display}
 *Auth Status:* {auth_status}
 *Account Balance:* {balance_display}
 
-{"System ready to trade!" if is_authenticated else "⚠️ Please authenticate before trading."}
+{"System ready to trade!" if is_authenticated else " Please authenticate before trading."}
 """
 
         success = self.send_message(message.strip())

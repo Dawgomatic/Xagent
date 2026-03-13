@@ -17,16 +17,16 @@ Real-time monitoring of Bitcoin, Ethereum, Gold, and Silver prices with domestic
 - Ξ **以太坊 / Ethereum** - 实时价格 (USD/CNY)、24h涨跌
   - Real-time price (USD/CNY), 24h change
 
-- 🥇 **黄金 / Gold** - 国内金价 + 国际金价
+-  **黄金 / Gold** - 国内金价 + 国际金价
   - Domestic Gold (CNY/gram) + International Gold (USD/oz)
 
-- 🥈 **白银 / Silver** - 国内银价 + 国际银价
+-  **白银 / Silver** - 国内银价 + 国际银价
   - Domestic Silver (CNY/gram) + International Silver (USD/oz)
 
-- 💱 **汇率显示 / Exchange Rate** - 实时USD/CNY汇率
+-  **汇率显示 / Exchange Rate** - 实时USD/CNY汇率
   - Real-time USD/CNY exchange rate
 
-- 🔄 **自动缓存 / Auto Cache** - 5分钟缓存，避免频繁请求
+-  **自动缓存 / Auto Cache** - 5分钟缓存，避免频繁请求
   - 5-minute cache to avoid excessive requests
 
 ## 使用方法 / Usage
@@ -69,8 +69,8 @@ crypto-monitor help
 | 黄金 | 元/克 (约 ¥1,115/克) | 美元/盎司 (约 $5,020/oz) |
 | 白银 | 元/克 (约 ¥19.7/克) | 美元/盎司 (约 $79/oz) |
 
-⚠️ 投资有风险，数据仅供参考
-⚠️ Investment involves risk, data for reference only
+ 投资有风险，数据仅供参考
+ Investment involves risk, data for reference only
 
 ## 常见问题 / FAQ
 

@@ -8,12 +8,12 @@ Instead of relying on the main agent to manually execute courtroom tasks, the **
 
 ```
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│   User Message  │────▶│  Skill (onHook)  │────▶│  Queue to File  │
+│   User Message  │────│  Skill (onHook)  │────│  Queue to File  │
 └─────────────────┘     └──────────────────┘     └─────────────────┘
                               │
                               ▼
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│  Sub-Agent      │◀────│  Skill Spawns    │     │ pending_eval.json│
+│  Sub-Agent      │────│  Skill Spawns    │     │ pending_eval.json│
 │  (Has LLM)      │     │  Sub-Agent       │     │                 │
 │  - Reads file   │     │  via sessions_spawn│   │                 │
 │  - Uses LLM     │     │                  │     │                 │
@@ -22,7 +22,7 @@ Instead of relying on the main agent to manually execute courtroom tasks, the **
         │
         ▼
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│ Write Result    │────▶│ Skill Detects    │────▶│ Hearing & Case  │
+│ Write Result    │────│ Skill Detects    │────│ Hearing & Case  │
 │ eval_results.jsonl    │ Result File      │     │ Filed if Guilty │
 └─────────────────┘     └──────────────────┘     └─────────────────┘
 ```
@@ -81,13 +81,13 @@ Add to `clawdbot.json`:
 
 ## Pros & Cons
 
-### ✅ Pros
+###  Pros
 - **Truly autonomous** - No manual intervention needed
 - **Reliable** - Sub-agents follow instructions precisely (85-95% success)
 - **Scalable** - Can spawn multiple sub-agents for parallel processing
 - **Clean** - No cron jobs, no systemEvents, no agent configuration
 
-### ❌ Cons
+###  Cons
 - **More resource intensive** - Spawns new agent sessions
 - **Slightly slower** - ~5-10 seconds to spawn and execute
 - **Requires sub-agent support** - ClawDBot must support sessions_spawn

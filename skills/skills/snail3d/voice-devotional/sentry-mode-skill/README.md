@@ -17,12 +17,12 @@ node scripts/sentry-mode.js activate --query "Any movement?" --duration 5 --fram
 
 ## Features
 
-✅ **Video Capture** - Records 3-5 seconds from webcam
-✅ **Frame Extraction** - Uses ffmpeg to pull key frames
-✅ **Vision Analysis** - Claude AI analyzes what it sees
-✅ **Flexible Queries** - Ask anything about your workspace
-✅ **Confidence Reporting** - High/Medium/Low confidence levels
-✅ **Privacy** - All temp files deleted after analysis
+ **Video Capture** - Records 3-5 seconds from webcam
+ **Frame Extraction** - Uses ffmpeg to pull key frames
+ **Vision Analysis** - Claude AI analyzes what it sees
+ **Flexible Queries** - Ask anything about your workspace
+ **Confidence Reporting** - High/Medium/Low confidence levels
+ **Privacy** - All temp files deleted after analysis
 
 ## Example Queries
 
@@ -52,15 +52,15 @@ node scripts/sentry-mode.js activate --query "Any movement?" --duration 5 --fram
 
 ```
 ════════════════════════════════════════════════════════════
-📊 SENTRY MODE REPORT
+ SENTRY MODE REPORT
 ════════════════════════════════════════════════════════════
 
-🔍 Query: "Is anyone in the room?"
-⏰ Timestamp: 1/27/2026, 12:21:01 PM
-📹 Frames Analyzed: 5
+ Query: "Is anyone in the room?"
+ Timestamp: 1/27/2026, 12:21:01 PM
+ Frames Analyzed: 5
 
 FINDINGS:
-- Summary: ✅ Detection: Person present
+- Summary:  Detection: Person present
 - Details: One person visible in frame at desk
 - Activity: Seated, appears to be working
 - Confidence: High
@@ -106,7 +106,7 @@ node scripts/sentry-mode.js activate --query "Your question"
 
 ## Privacy Notes
 
-⚠️ Remember:
+ Remember:
 - This records your physical environment
 - System permissions needed for camera access
 - Be mindful in shared spaces

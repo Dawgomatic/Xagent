@@ -85,7 +85,7 @@ const handler: HookHandler = async (event) => {
     if (shouldBlock) {
       // Block the request
       throw new Error(
-        `🚫 Security Warning: This input has been blocked due to ${result.severity} severity threats.\n\n` +
+        ` Security Warning: This input has been blocked due to ${result.severity} severity threats.\n\n` +
         `Findings: ${result.findings.length}\n` +
         result.findings.map((f, i) =>
           `${i + 1}. ${f.pattern.category}: ${f.pattern.description}`
@@ -95,7 +95,7 @@ const handler: HookHandler = async (event) => {
     } else if (result.action === Action.WARN) {
       // Show warning but allow
       console.warn(
-        `⚠️  Security Notice: Potential security issues detected (${result.severity} severity).\n` +
+        `  Security Notice: Potential security issues detected (${result.severity} severity).\n` +
         `The request will be allowed but logged for review.\n` +
         `Findings: ${result.findings.map(f => f.pattern.category).join(", ")}`
       );
@@ -104,7 +104,7 @@ const handler: HookHandler = async (event) => {
     // Allow the request to proceed
   } catch (error) {
     // On error, log but allow the request (fail-open)
-    if (error instanceof Error && error.message.includes("🚫 Security Warning")) {
+    if (error instanceof Error && error.message.includes(" Security Warning")) {
       // This is our blocking error, re-throw it
       throw error;
     }

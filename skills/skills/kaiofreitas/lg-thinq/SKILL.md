@@ -1,7 +1,7 @@
 ---
 name: lg-thinq
 description: "Control LG smart appliances via ThinQ API. Use when user asks about their fridge, washer, dryer, AC, or other LG appliances. Supports checking status, changing temperature, toggling modes (express, eco), and monitoring door status."
-metadata: {"version":"1.0.0","clawdbot":{"emoji":"🧊","os":["darwin","linux"]}}
+metadata: {"version":"1.0.0","clawdbot":{"emoji":"","os":["darwin","linux"]}}
 ---
 
 # LG ThinQ Skill
@@ -60,10 +60,10 @@ python3 skills/lg-thinq/scripts/thinq.py status dryer
 
 | Device | Status | Control |
 |--------|--------|---------|
-| Refrigerator | ✅ temp, door, modes | ✅ temp, express, eco |
-| WashTower Washer | ✅ state, time | ⚠️ limited |
-| WashTower Dryer | ✅ state, time | ⚠️ limited |
-| Air Conditioner | ✅ temp, mode | ✅ temp, mode, fan |
+| Refrigerator |  temp, door, modes |  temp, express, eco |
+| WashTower Washer |  state, time |  limited |
+| WashTower Dryer |  state, time |  limited |
+| Air Conditioner |  temp, mode |  temp, mode, fan |
 
 ## Temperature Ranges
 

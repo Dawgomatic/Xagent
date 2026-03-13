@@ -176,7 +176,7 @@ def format_timezone_header() -> str:
     berlin_time = now_utc.astimezone(ZoneInfo("Europe/Berlin")).strftime("%H:%M")
     tokyo_time = now_utc.astimezone(ZoneInfo("Asia/Tokyo")).strftime("%H:%M")
     
-    return f"🌍 New York {ny_time} | Berlin {berlin_time} | Tokyo {tokyo_time}"
+    return f" New York {ny_time} | Berlin {berlin_time} | Tokyo {tokyo_time}"
 
 
 def format_disclaimer(language: str = "en") -> str:
@@ -184,7 +184,7 @@ def format_disclaimer(language: str = "en") -> str:
     if language == "de":
         return """
 ---
-⚠️ **Haftungsausschluss:** Dieses Briefing dient ausschließlich Informationszwecken und stellt keine 
+ **Haftungsausschluss:** Dieses Briefing dient ausschließlich Informationszwecken und stellt keine 
 Anlageberatung dar. Treffen Sie Ihre eigenen Anlageentscheidungen und führen Sie eigene Recherchen durch.
 """
     return """
@@ -244,7 +244,7 @@ def load_config():
             return json.load(f)
     legacy_path = CONFIG_DIR / "sources.json"
     if legacy_path.exists():
-        print("⚠️ config/config.json missing; falling back to config/sources.json", file=sys.stderr)
+        print(" config/config.json missing; falling back to config/sources.json", file=sys.stderr)
         with open(legacy_path, 'r') as f:
             return json.load(f)
     raise FileNotFoundError("Missing config/config.json")
@@ -257,7 +257,7 @@ def load_translations(config: dict) -> dict:
         return translations
     path = CONFIG_DIR / "translations.json"
     if path.exists():
-        print("⚠️ translations missing from config.json; falling back to config/translations.json", file=sys.stderr)
+        print(" translations missing from config.json; falling back to config/translations.json", file=sys.stderr)
         with open(path, 'r') as f:
             return json.load(f)
     return {}
@@ -341,19 +341,19 @@ def run_agent_prompt(prompt: str, deadline: float | None = None, session_id: str
             timeout=proc_timeout
         )
     except subprocess.TimeoutExpired:
-        return "⚠️ LLM error: timeout"
+        return " LLM error: timeout"
     except TimeoutError:
-        return "⚠️ LLM error: deadline exceeded"
+        return " LLM error: deadline exceeded"
     except FileNotFoundError:
-        return "⚠️ LLM error: openclaw CLI not found"
+        return " LLM error: openclaw CLI not found"
     except OSError as exc:
-        return f"⚠️ LLM error: {exc}"
+        return f" LLM error: {exc}"
 
     if result.returncode == 0:
         return extract_agent_reply(result.stdout)
 
     stderr = result.stderr.strip() or "unknown error"
-    return f"⚠️ LLM error: {stderr}"
+    return f" LLM error: {stderr}"
 
 
 def normalize_title(title: str) -> str:
@@ -605,7 +605,7 @@ def format_watchpoints(
 
     # 1. Format sector clusters first (most insightful)
     for cluster in data.sector_clusters:
-        emoji = "📈" if cluster.direction == "up" else "📉"
+        emoji = "" if cluster.direction == "up" else ""
         vs_index_str = f" (vs Index: {cluster.vs_index:+.1f}%)" if abs(cluster.vs_index) > 0.5 else ""
 
         lines.append(f"{emoji} **{cluster.category}** ({cluster.avg_change:+.1f}%){vs_index_str}")
@@ -623,7 +623,7 @@ def format_watchpoints(
     unclustered = [m for m in data.movers if m.symbol.upper() not in clustered_symbols]
 
     for mover in unclustered[:5]:
-        emoji = "📈" if mover.change_pct > 0 else "📉"
+        emoji = "" if mover.change_pct > 0 else ""
 
         # Build context string
         context = ""
@@ -647,10 +647,10 @@ def format_watchpoints(
     if data.market_wide:
         if language == "de":
             direction = "fiel" if data.index_change < 0 else "stieg"
-            lines.append(f"\n⚠️ Breite Marktbewegung: S&P 500 {direction} {abs(data.index_change):.1f}%")
+            lines.append(f"\n Breite Marktbewegung: S&P 500 {direction} {abs(data.index_change):.1f}%")
         else:
             direction = "fell" if data.index_change < 0 else "rose"
-            lines.append(f"\n⚠️ Market-wide move: S&P 500 {direction} {abs(data.index_change):.1f}%")
+            lines.append(f"\n Market-wide move: S&P 500 {direction} {abs(data.index_change):.1f}%")
 
     return "\n".join(lines) if lines else labels.get("no_movers", "No significant moves")
 
@@ -791,7 +791,7 @@ def select_top_headline_ids(shortlist: list[dict], deadline: float | None) -> li
     prompt = "\n".join(prompt_lines)
 
     reply = run_agent_prompt(prompt, deadline=deadline, session_id="finance-news-headlines")
-    if reply.startswith("⚠️"):
+    if reply.startswith(""):
         return []
     try:
         data = json.loads(reply)
@@ -833,10 +833,10 @@ def translate_headlines(
         prompt_lines.append(f"{idx}. {title}")
     prompt = "\n".join(prompt_lines)
 
-    print(f"🔤 Translating {len(titles)} headlines...", file=sys.stderr)
+    print(f" Translating {len(titles)} headlines...", file=sys.stderr)
     reply = run_agent_prompt(prompt, deadline=deadline, session_id="finance-news-translate", timeout=60)
 
-    if reply.startswith("⚠️"):
+    if reply.startswith(""):
         print(f"  ↳ Translation failed: {reply}", file=sys.stderr)
         return titles, False
 
@@ -857,7 +857,7 @@ def translate_headlines(
 
     if isinstance(data, list) and all(isinstance(item, str) for item in data):
         if len(data) == len(titles):
-            print(f"  ↳ ✅ Translation successful", file=sys.stderr)
+            print(f"  ↳  Translation successful", file=sys.stderr)
             return data, True
         else:
             print(f"  ↳ Returned {len(data)} items, expected {len(titles)}", file=sys.stderr)
@@ -899,13 +899,13 @@ Use only the following information for the briefing:
             timeout=proc_timeout
         )
     except subprocess.TimeoutExpired:
-        return "⚠️ Claude briefing error: timeout"
+        return " Claude briefing error: timeout"
     except TimeoutError:
-        return "⚠️ Claude briefing error: deadline exceeded"
+        return " Claude briefing error: deadline exceeded"
     except FileNotFoundError:
-        return "⚠️ Claude briefing error: openclaw CLI not found"
+        return " Claude briefing error: openclaw CLI not found"
     except OSError as exc:
-        return f"⚠️ Claude briefing error: {exc}"
+        return f" Claude briefing error: {exc}"
 
     if result.returncode == 0:
         reply = extract_agent_reply(result.stdout)
@@ -914,7 +914,7 @@ Use only the following information for the briefing:
         return reply
 
     stderr = result.stderr.strip() or "unknown error"
-    return f"⚠️ Claude briefing error: {stderr}"
+    return f" Claude briefing error: {stderr}"
 
 
 def summarize_with_minimax(
@@ -950,13 +950,13 @@ Use only the following information for the briefing:
             timeout=proc_timeout
         )
     except subprocess.TimeoutExpired:
-        return "⚠️ MiniMax briefing error: timeout"
+        return " MiniMax briefing error: timeout"
     except TimeoutError:
-        return "⚠️ MiniMax briefing error: deadline exceeded"
+        return " MiniMax briefing error: deadline exceeded"
     except FileNotFoundError:
-        return "⚠️ MiniMax briefing error: openclaw CLI not found"
+        return " MiniMax briefing error: openclaw CLI not found"
     except OSError as exc:
-        return f"⚠️ MiniMax briefing error: {exc}"
+        return f" MiniMax briefing error: {exc}"
 
     if result.returncode == 0:
         reply = extract_agent_reply(result.stdout)
@@ -965,7 +965,7 @@ Use only the following information for the briefing:
         return reply
 
     stderr = result.stderr.strip() or "unknown error"
-    return f"⚠️ MiniMax briefing error: {stderr}"
+    return f" MiniMax briefing error: {stderr}"
 
 
 def summarize_with_gemini(
@@ -1000,14 +1000,14 @@ Here are the current market items:
             reply += format_disclaimer(language)
             return reply
         else:
-            return f"⚠️ Gemini error: {result.stderr}"
+            return f" Gemini error: {result.stderr}"
     
     except subprocess.TimeoutExpired:
-        return "⚠️ Gemini timeout"
+        return " Gemini timeout"
     except TimeoutError:
-        return "⚠️ Gemini timeout: deadline exceeded"
+        return " Gemini timeout: deadline exceeded"
     except FileNotFoundError:
-        return "⚠️ Gemini CLI not found. Install: brew install gemini-cli"
+        return " Gemini CLI not found. Install: brew install gemini-cli"
 
 
 def format_market_data(market_data: dict) -> str:
@@ -1266,7 +1266,7 @@ def build_briefing_summary(
                 change = idx_data.get("change_percent")
                 name = idx.get("name", symbol)
                 if price is not None and change is not None:
-                    emoji = "📈" if change >= 0 else "📉"
+                    emoji = "" if change >= 0 else ""
                     region_indices.append(f"{name}: {price:,.0f} ({change:+.2f}%)")
             if region_indices:
                 lines.append(f"• {' | '.join(region_indices)}")
@@ -1344,7 +1344,7 @@ def generate_briefing(args):
     try:
         default_deadline = int(env_deadline) if env_deadline else 300
     except ValueError:
-        print("⚠️ Invalid FINANCE_NEWS_DEADLINE_SEC; using default 600s", file=sys.stderr)
+        print(" Invalid FINANCE_NEWS_DEADLINE_SEC; using default 600s", file=sys.stderr)
         default_deadline = 600
     deadline_sec = args.deadline if args.deadline is not None else default_deadline
     deadline = compute_deadline(deadline_sec)
@@ -1356,7 +1356,7 @@ def generate_briefing(args):
         subprocess_timeout = int(os.environ.get("FINANCE_NEWS_SUBPROCESS_TIMEOUT_FAST_SEC", "15"))
     
     # Fetch fresh data
-    print("📡 Fetching market data...", file=sys.stderr)
+    print(" Fetching market data...", file=sys.stderr)
     
     # Get market overview
     headline_limit = 10 if fast_mode else 15
@@ -1403,7 +1403,7 @@ def generate_briefing(args):
             subprocess_timeout=subprocess_timeout,
         )
     except PortfolioError as exc:
-        print(f"⚠️ Skipping portfolio: {exc}", file=sys.stderr)
+        print(f" Skipping portfolio: {exc}", file=sys.stderr)
         portfolio_data = None
 
     movers = []
@@ -1416,7 +1416,7 @@ def generate_briefing(args):
         )
         movers = movers_result.get("movers", [])
     except Exception as exc:
-        print(f"⚠️ Skipping portfolio movers: {exc}", file=sys.stderr)
+        print(f" Skipping portfolio movers: {exc}", file=sys.stderr)
         movers = []
     
     # Build raw content for summarization
@@ -1456,18 +1456,18 @@ def generate_briefing(args):
 
     if not raw_content.strip():
         write_debug_once()
-        print("⚠️ No data available for briefing", file=sys.stderr)
+        print(" No data available for briefing", file=sys.stderr)
         return
 
     if not top_headlines:
         write_debug_once()
-        print("⚠️ No headlines available; skipping summary generation", file=sys.stderr)
+        print(" No headlines available; skipping summary generation", file=sys.stderr)
         return
 
     remaining = time_left(deadline)
     if remaining is not None and remaining <= 0 and not top_headlines:
         write_debug_once()
-        print("⚠️ Deadline exceeded; skipping summary generation", file=sys.stderr)
+        print(" Deadline exceeded; skipping summary generation", file=sys.stderr)
         return
 
     research_report = ''
@@ -1505,7 +1505,7 @@ def generate_briefing(args):
         summary_list = [model] + [m for m in summary_list if m != model]
 
     if args.llm and remaining is not None and remaining <= 0:
-        print("⚠️ Deadline exceeded; using deterministic summary", file=sys.stderr)
+        print(" Deadline exceeded; using deterministic summary", file=sys.stderr)
         summary = build_briefing_summary(market_data, portfolio_data, movers, top_headlines, labels, language)
         if args.debug:
             debug_payload.update({
@@ -1520,7 +1520,7 @@ def generate_briefing(args):
                 "summary_model_attempts": summary_list,
             })
     else:
-        print(f"🤖 Generating AI summary with fallback order: {', '.join(summary_list)}", file=sys.stderr)
+        print(f" Generating AI summary with fallback order: {', '.join(summary_list)}", file=sys.stderr)
         summary = ""
         summary_used = None
         for candidate in summary_list:
@@ -1531,7 +1531,7 @@ def generate_briefing(args):
             else:
                 summary = summarize_with_claude(content, language, args.style, deadline=deadline)
 
-            if not summary.startswith("⚠️"):
+            if not summary.startswith(""):
                 summary_used = candidate
                 break
             print(summary, file=sys.stderr)
@@ -1556,14 +1556,14 @@ def generate_briefing(args):
             date_str = date_str.replace(en, de)
 
     if args.time == "morning":
-        emoji = "🌅"
+        emoji = ""
         title = labels.get("title_morning", "Morning Briefing")
     elif args.time == "evening":
-        emoji = "🌆"
+        emoji = ""
         title = labels.get("title_evening", "Evening Briefing")
     else:
         hour = now.hour
-        emoji = "🌅" if hour < 12 else "🌆"
+        emoji = "" if hour < 12 else ""
         title = labels.get("title_morning", "Morning Briefing") if hour < 12 else labels.get("title_evening", "Evening Briefing")
 
     prefix = labels.get("title_prefix", "Market")
@@ -1604,7 +1604,7 @@ def generate_briefing(args):
 
             # Format top movers for Message 2
             portfolio_header = labels.get("heading_portfolio_movers", "Portfolio Movers")
-            lines = [f"📊 **{portfolio_header}** (Top {len(portfolio_data['stocks'])} of {total_stocks})"]
+            lines = [f" **{portfolio_header}** (Top {len(portfolio_data['stocks'])} of {total_stocks})"]
 
             # Sort stocks by magnitude of move for display
             stocks = []
@@ -1638,7 +1638,7 @@ def generate_briefing(args):
             portfolio_sources = []
 
             for s in stocks:
-                emoji_p = '📈' if s['change'] >= 0 else '📉'
+                emoji_p = '' if s['change'] >= 0 else ''
                 price_str = f"${s['price']:.2f}" if s['price'] else 'N/A'
                 # Show company name with ticker for non-US stocks, or if name differs from symbol
                 display_name = s['symbol']

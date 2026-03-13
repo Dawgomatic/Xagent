@@ -5,13 +5,13 @@
 ### Local-Only by Default
 
 ```
-✅ REQUIRED
+ REQUIRED
 ├── All contracts in ~/contracts/ (user-controlled)
 ├── Metadata in local files only
 ├── No cloud sync unless user explicitly enables
 └── No network transmission of contract content
 
-❌ PROHIBITED
+ PROHIBITED
 ├── Uploading to any cloud service
 ├── Sending contract text via messages
 ├── Including contract content in logs
@@ -61,12 +61,12 @@
 
 ### The Skill CAN:
 
-1. ✅ Extract factual data (dates, amounts, parties)
-2. ✅ Track deadlines and send reminders
-3. ✅ Organize and search contracts
-4. ✅ Show specific clauses when asked
-5. ✅ Flag items for review ("this has an arbitration clause")
-6. ✅ Aggregate costs across contracts
+1.  Extract factual data (dates, amounts, parties)
+2.  Track deadlines and send reminders
+3.  Organize and search contracts
+4.  Show specific clauses when asked
+5.  Flag items for review ("this has an arbitration clause")
+6.  Aggregate costs across contracts
 
 ### Mandatory Disclaimers
 

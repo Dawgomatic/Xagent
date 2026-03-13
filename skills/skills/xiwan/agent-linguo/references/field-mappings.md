@@ -1,6 +1,6 @@
 # Standard Field Mapping Table
 
-👽语 JSON payloads use **single-letter abbreviations** to save tokens. This document defines the standard field names.
+语 JSON payloads use **single-letter abbreviations** to save tokens. This document defines the standard field names.
 
 ## General Fields
 

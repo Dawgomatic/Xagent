@@ -2,7 +2,7 @@
 # 记忆系统技能文件同步脚本
 # 将主目录中的记忆系统技能文件同步到create目录
 
-echo "🔄 同步记忆系统技能文件到create目录..."
+echo " 同步记忆系统技能文件到create目录..."
 
 # 定义要同步的目录列表
 TARGET_DIRS=(
@@ -30,13 +30,13 @@ for dir in "${TARGET_DIRS[@]}"; do
             if [ -f "$src_file" ]; then
                 cp "$src_file" "$dst_file"
                 chmod +x "$dst_file"
-                echo "    ✅ $file"
+                echo "     $file"
             else
-                echo "    ⚠️ 源文件不存在: $src_file"
+                echo "     源文件不存在: $src_file"
             fi
         done
     else
-        echo "  ⚠️ 目标目录不存在: $dir"
+        echo "   目标目录不存在: $dir"
     fi
 done
 
@@ -54,12 +54,12 @@ for doc in "${DOC_FILES[@]}"; do
     if [ -f "$src_doc" ]; then
         cp "$src_doc" "/root/clawd/create/memory-baidu-embedding-db/$doc" 2>/dev/null || true
         cp "$src_doc" "/root/clawd/create/secure-memory-stack/$doc" 2>/dev/null || true
-        echo "    ✅ $doc"
+        echo "     $doc"
     fi
 done
 
 echo ""
-echo "🎯 记忆系统技能文件同步完成!"
+echo " 记忆系统技能文件同步完成!"
 echo "   • 验证脚本已同步到所有相关目录"
 echo "   • 权限已设置为可执行"
 echo "   • 文档文件已更新"

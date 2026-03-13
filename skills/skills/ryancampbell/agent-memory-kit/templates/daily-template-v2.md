@@ -76,8 +76,8 @@ blockers: []
 
 ## Wins & Milestones #win
 
-- ✅ [Achievement 1] #win #domain
-- ✅ [Achievement 2] #win #domain
+-  [Achievement 1] #win #domain
+-  [Achievement 2] #win #domain
 
 ---
 

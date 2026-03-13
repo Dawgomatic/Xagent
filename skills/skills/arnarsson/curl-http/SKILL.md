@@ -2,7 +2,7 @@
 name: curl-http
 description: Essential curl commands for HTTP requests, API testing, and file transfers.
 homepage: https://curl.se/
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"bins":["curl"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
 # curl - HTTP Client

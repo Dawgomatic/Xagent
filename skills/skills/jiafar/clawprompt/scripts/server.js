@@ -117,7 +117,7 @@ wss.on('connection', (ws) => {
 });
 
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`\n🎬 ClawPrompt Server`);
+  console.log(`\n ClawPrompt Server`);
   console.log(`   电脑提词器: http://localhost:${PORT}`);
   console.log(`   手机遥控:   http://${lanIP}:${PORT}/remote`);
   console.log(`   (确保手机和电脑在同一 WiFi)\n`);

@@ -79,7 +79,7 @@ Examples:
 When escalating, reduce friction:
 
 ```
-🟡 [Context] Quick decision needed
+ [Context] Quick decision needed
 
 A) [option]
 B) [option]  

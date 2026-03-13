@@ -2,7 +2,7 @@
 
 ## Image Providers
 
-### BytePlus Seedream 4.5 ⭐ Recommended
+### BytePlus Seedream 4.5  Recommended
 - Model: `seedream-4-5-251128`
 - Endpoint: `POST https://ark.ap-southeast.bytepluses.com/api/v3/images/generations`
 - Auth: `Authorization: Bearer $BYTEPLUS_API_KEY`

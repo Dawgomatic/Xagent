@@ -457,12 +457,12 @@ Explain the relationships.
 
 ## Anti-Patterns to Avoid
 
-### ❌ Vague Chaining
+###  Vague Chaining
 ```
 "Analyze this, then summarize it, then give me insights."
 ```
 
-### ✅ Clear Chaining
+###  Clear Chaining
 ```
 "Step 1: Extract key metrics from the data
 Step 2: Compare to industry benchmarks
@@ -470,23 +470,23 @@ Step 3: Identify top 3 opportunities
 Step 4: Recommend prioritized actions"
 ```
 
-### ❌ Unclear Role
+###  Unclear Role
 ```
 "Act like an expert and help me."
 ```
 
-### ✅ Clear Role
+###  Clear Role
 ```
 "You are a senior product manager with 10 years of experience 
 in SaaS companies. Your task is to..."
 ```
 
-### ❌ Ambiguous Format
+###  Ambiguous Format
 ```
 "Give me the results in a nice format."
 ```
 
-### ✅ Clear Format
+###  Clear Format
 ```
 "Format as a table with columns: Metric, Current, Target, Gap"
 ```

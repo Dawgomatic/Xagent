@@ -1,4 +1,4 @@
-# Agent Audit Trail 🔐
+# Agent Audit Trail 
 
 **Tamper-evident, hash-chained audit logging for AI agents.**
 
@@ -94,11 +94,11 @@ See [SKILL.md](SKILL.md) for full OpenClaw skill documentation.
 Entry N-1                    Entry N
 ┌─────────────────┐         ┌─────────────────┐
 │ ts, kind, ...   │         │ ts, kind, ...   │
-│ chain.hash: H1  │───┬────▶│ chain.prev: H1  │
+│ chain.hash: H1  │───┬────│ chain.prev: H1  │
 └─────────────────┘   │     │ chain.hash: H2  │
                       │     └─────────────────┘
                       │            │
-                      └────────────┴──▶ H2 = sha256(H1 + "\n" + canonical(entry))
+                      └────────────┴── H2 = sha256(H1 + "\n" + canonical(entry))
 ```
 
 Tampering with any entry changes its hash, which breaks the chain for all subsequent entries.
@@ -135,4 +135,4 @@ MIT — Use freely, contribute back if you improve it.
 
 ---
 
-Built with 🔐 by [Roosch](https://github.com/roosch) and [Atlas](https://github.com/roosch/agent-audit-trail)
+Built with  by [Roosch](https://github.com/roosch) and [Atlas](https://github.com/roosch/agent-audit-trail)

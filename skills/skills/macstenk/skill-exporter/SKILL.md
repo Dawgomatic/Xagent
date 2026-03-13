@@ -7,7 +7,7 @@ metadata:
   author: MacStenk
   version: "1.0.0"
   clawdbot:
-    emoji: "📦"
+    emoji: ""
     requires:
       bins:
         - python3

@@ -375,7 +375,7 @@ async function deployCronjobTask(task) {
  * @returns {Promise<{success: boolean, deployed: number, skipped?: number, failed?: number, error?: string, results?: Array}>}
  */
 export async function deployCronjobs(taskIds = null) {
-  info('🚀 Deploying cronjob tasks...\n');
+  info(' Deploying cronjob tasks...\n');
   
   // Check if OpenClaw is available
   if (!(await isOpenClawAvailable())) {
@@ -425,9 +425,9 @@ export async function deployCronjobs(taskIds = null) {
   const failed = results.filter(r => !r.success).length;
   
   console.log('\n' + '='.repeat(60));
-  console.log('📊 Deployment Summary:');
+  console.log(' Deployment Summary:');
   console.log(`  ✓ Deployed: ${successful}`);
-  console.log(`  ⏭️  Skipped: ${skipped}`);
+  console.log(`    Skipped: ${skipped}`);
   console.log(`  ✗ Failed: ${failed}`);
   console.log('='.repeat(60) + '\n');
   
@@ -461,7 +461,7 @@ export async function deployCronjobs(taskIds = null) {
  * @returns {Promise<void>}
  */
 export async function listCronjobTasks() {
-  console.log('📋 Available Cronjob Tasks:\n');
+  console.log(' Available Cronjob Tasks:\n');
   
   // Fetch deployed jobs once (will be cached for subsequent calls)
   const deployedJobs = await getDeployedCronjobs();
@@ -471,7 +471,7 @@ export async function listCronjobTasks() {
     const deployedJob = Array.isArray(deployedJobs) 
       ? deployedJobs.find(job => job.name === task.name)
       : undefined;
-    const deployed = deployedJob ? '🚀' : '  ';
+    const deployed = deployedJob ? '' : '  ';
     
     console.log(`${index + 1}. ${deployed} [${status}] ${task.name}`);
     console.log(`   ID: ${task.id}`);
@@ -481,7 +481,7 @@ export async function listCronjobTasks() {
     
     // Show deployment info if deployed
     if (deployedJob) {
-      console.log(`   🟢 Deployed:`);
+      console.log(`    Deployed:`);
       console.log(`      Cron ID: ${deployedJob.id}`);
       console.log(`      Enabled: ${deployedJob.enabled ? 'Yes' : 'No'}`);
       
@@ -508,7 +508,7 @@ export async function listCronjobTasks() {
   
   console.log('Legend:');
   console.log('  [✓] = Enabled  [○] = Disabled');
-  console.log('  🚀 = Already deployed');
+  console.log('   = Already deployed');
   console.log();
   console.log('To deploy cronjobs:');
   console.log('  node scripts/cronjob-manager.js deploy              - Deploy all enabled tasks');
@@ -534,7 +534,7 @@ export async function showDeployedCronjobs() {
       return;
     }
     
-    console.log('📋 Currently Deployed Cronjobs:\n');
+    console.log(' Currently Deployed Cronjobs:\n');
     
     deployedJobs.forEach((job, index) => {
       console.log(`${index + 1}. ${job.name}`);
@@ -603,12 +603,12 @@ export async function showCronjobStats() {
     Array.isArray(deployedJobs) && deployedJobs.some(job => job.name === t.name)
   ).length;
   
-  console.log('📊 Cronjob Statistics:\n');
+  console.log(' Cronjob Statistics:\n');
   console.log(`Total Tasks: ${totalTasks}`);
   console.log(`  ✓ Enabled: ${enabledTasks}`);
   console.log(`  ○ Disabled: ${totalTasks - enabledTasks}`);
-  console.log(`  🚀 Deployed: ${deployedTasks}`);
-  console.log(`  📋 Not Deployed: ${totalTasks - deployedTasks}`);
+  console.log(`   Deployed: ${deployedTasks}`);
+  console.log(`   Not Deployed: ${totalTasks - deployedTasks}`);
   console.log();
   
   if (Array.isArray(deployedJobs) && deployedJobs.length > 0) {
@@ -616,8 +616,8 @@ export async function showCronjobStats() {
     const pausedJobs = deployedJobs.filter(job => !job.enabled);
     
     console.log('Deployed Status:');
-    console.log(`  🟢 Active: ${activeJobs.length}`);
-    console.log(`  ⏸️  Paused: ${pausedJobs.length}`);
+    console.log(`   Active: ${activeJobs.length}`);
+    console.log(`    Paused: ${pausedJobs.length}`);
     console.log();
     
     // Show jobs by status
@@ -629,7 +629,7 @@ export async function showCronjobStats() {
     
     console.log('Last Run Status:');
     Object.entries(jobsByStatus).forEach(([status, count]) => {
-      const icon = status === 'ok' ? '✅' : status === 'error' ? '❌' : 'ℹ️';
+      const icon = status === 'ok' ? '' : status === 'error' ? '' : '';
       console.log(`  ${icon} ${status}: ${count}`);
     });
   }
@@ -651,7 +651,7 @@ export async function removeCronjobTask(taskName) {
  * @returns {Promise<{success: boolean, removed: number, skipped?: number, failed?: number, error?: string, results?: Array}>}
  */
 export async function removeCronjobs(taskIds = null) {
-  info('🗑️  Removing cronjob tasks...\n');
+  info('  Removing cronjob tasks...\n');
   
   if (!isOpenClawAvailable()) {
     warning('OpenClaw CLI not available. Cannot remove cronjobs.');
@@ -688,9 +688,9 @@ export async function removeCronjobs(taskIds = null) {
   const failed = results.filter(r => !r.success).length;
   
   console.log('\n' + '='.repeat(60));
-  console.log('📊 Removal Summary:');
+  console.log(' Removal Summary:');
   console.log(`  ✓ Removed: ${successful}`);
-  console.log(`  ⏭️  Skipped: ${skipped}`);
+  console.log(`    Skipped: ${skipped}`);
   console.log(`  ✗ Failed: ${failed}`);
   console.log('='.repeat(60) + '\n');
   
@@ -743,9 +743,9 @@ async function main() {
         const duration = ((Date.now() - startTime) / 1000).toFixed(2);
         
         if (result.success) {
-          success(`\n✅ Deployment completed successfully in ${duration}s`);
+          success(`\n Deployment completed successfully in ${duration}s`);
         } else {
-          error(`\n❌ Deployment failed: ${result.error || 'Unknown error'}`);
+          error(`\n Deployment failed: ${result.error || 'Unknown error'}`);
           process.exit(1);
         }
         break;
@@ -783,10 +783,10 @@ async function main() {
           if (result.skipped) {
             info('Cronjob was not deployed');
           } else {
-            success('✅ Cronjob removed successfully');
+            success(' Cronjob removed successfully');
           }
         } else {
-          error(`❌ Failed to remove cronjob: ${result.error}`);
+          error(` Failed to remove cronjob: ${result.error}`);
           process.exit(1);
         }
         break;
@@ -796,16 +796,16 @@ async function main() {
         const result = await removeCronjobs();
         
         if (result.success) {
-          success('\n✅ All cronjobs removed successfully');
+          success('\n All cronjobs removed successfully');
         } else {
-          error(`\n❌ Failed to remove all cronjobs: ${result.error}`);
+          error(`\n Failed to remove all cronjobs: ${result.error}`);
           process.exit(1);
         }
         break;
       }
       
       default: {
-        console.log('🤖 ClawFriend Cronjob Manager\n');
+        console.log(' ClawFriend Cronjob Manager\n');
         console.log('Usage:');
         console.log('  node cronjob-manager.js list                     - List all available cronjob tasks');
         console.log('  node cronjob-manager.js deploy [task1,task2,...] - Deploy cronjob tasks');

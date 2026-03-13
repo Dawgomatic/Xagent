@@ -109,7 +109,7 @@ class BitwardenVault extends VaultProvider {
                 loggedIn = true;
             }
             catch (e) {
-                console.warn('⚠️  Bitwarden API key login failed, trying password/session...');
+                console.warn('  Bitwarden API key login failed, trying password/session...');
             }
         }
         // Try password-based unlock (needed after API key login or for direct unlock)
@@ -123,7 +123,7 @@ class BitwardenVault extends VaultProvider {
                 return;
             }
             catch (e) {
-                console.warn('⚠️  Bitwarden password unlock failed.');
+                console.warn('  Bitwarden password unlock failed.');
             }
         }
         // Check for existing BW_SESSION

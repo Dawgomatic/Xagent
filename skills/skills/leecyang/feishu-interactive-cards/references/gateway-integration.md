@@ -198,7 +198,7 @@ async function sendFollowUpMessage(chatId, message) {
 ```json
 {
   "tag": "button",
-  "text": { "content": "✅ 确认删除", "tag": "plain_text" },
+  "text": { "content": " 确认删除", "tag": "plain_text" },
   "type": "danger",
   "value": {
     "action": "confirm_delete",
@@ -212,11 +212,11 @@ async function sendFollowUpMessage(chatId, message) {
 if (action.value.action === 'confirm_delete') {
   const filePath = action.value.file_path;
   
-  // ⚠️ 安全警告：永远不要直接将用户输入传递给 shell 命令！
-  // ❌ 错误示例：await exec({ command: `rm "${filePath}"` });
+  //  安全警告：永远不要直接将用户输入传递给 shell 命令！
+  //  错误示例：await exec({ command: `rm "${filePath}"` });
   // 攻击者可以注入："; rm -rf / #" 来执行任意命令
   
-  // ✅ 正确做法：使用 Node.js fs API
+  //  正确做法：使用 Node.js fs API
   const fs = require('fs').promises;
   const path = require('path');
   
@@ -237,7 +237,7 @@ if (action.value.action === 'confirm_delete') {
     
     // 4. 更新卡片
     await updateCard(messageId, {
-      header: { title: "✅ 删除成功", template: "green" },
+      header: { title: " 删除成功", template: "green" },
       elements: [
         { tag: "div", text: { content: `文件 ${path.basename(safePath)} 已删除`, tag: "lark_md" } }
       ]
@@ -245,7 +245,7 @@ if (action.value.action === 'confirm_delete') {
   } catch (error) {
     // 5. 错误处理
     await updateCard(messageId, {
-      header: { title: "❌ 删除失败", template: "red" },
+      header: { title: " 删除失败", template: "red" },
       elements: [
         { tag: "div", text: { content: `错误：${error.message}`, tag: "lark_md" } }
       ]
@@ -260,7 +260,7 @@ if (action.value.action === 'confirm_delete') {
 ```json
 {
   "tag": "button",
-  "text": { "content": "⬜ 完成项目报告", "tag": "plain_text" },
+  "text": { "content": " 完成项目报告", "tag": "plain_text" },
   "type": "primary",
   "value": {
     "action": "toggle_todo",
@@ -280,7 +280,7 @@ if (action.value.action === 'toggle_todo') {
   await updateTodoState(todoId, newState);
   
   // 更新卡片（切换按钮状态）
-  const buttonText = newState ? "✅ 完成项目报告" : "⬜ 完成项目报告";
+  const buttonText = newState ? " 完成项目报告" : " 完成项目报告";
   await updateCard(messageId, {
     /* 更新后的卡片 */
   });
@@ -318,7 +318,7 @@ if (action.value.action === 'submit_form') {
   
   // 更新卡片
   await updateCard(messageId, {
-    header: { title: "✅ 提交成功", template: "green" },
+    header: { title: " 提交成功", template: "green" },
     elements: [
       { tag: "div", text: { content: "感谢您的提交！", tag: "lark_md" } }
     ]
@@ -332,7 +332,7 @@ if (action.value.action === 'submit_form') {
 ```json
 {
   "tag": "button",
-  "text": { "content": "🎳 保龄球", "tag": "plain_text" },
+  "text": { "content": " 保龄球", "tag": "plain_text" },
   "type": "default",
   "value": {
     "action": "vote",
@@ -369,7 +369,7 @@ if (action.value.action === 'vote') {
 回调服务器会静默跳过，不影响卡片功能：
 
 ```
-⚠️ Gateway 未运行，跳过发送
+ Gateway 未运行，跳过发送
 ```
 
 ### 2. Token 验证失败
@@ -391,9 +391,9 @@ type %USERPROFILE%\.openclaw\openclaw.json
 回调服务器会打印详细日志：
 
 ```
-📨 收到卡片回调 | 操作者: ou_xxx | 操作: toggle_todo
-✅ 已发送到 Gateway
-✅ 响应成功
+ 收到卡片回调 | 操作者: ou_xxx | 操作: toggle_todo
+ 已发送到 Gateway
+ 响应成功
 ```
 
 ### 2. 测试回调
@@ -415,11 +415,11 @@ node scripts/test.js
 回调处理应该快速响应，耗时操作放到后台：
 
 ```javascript
-// ❌ 错误：同步等待
+//  错误：同步等待
 await longRunningTask();
 await updateCard(messageId, result);
 
-// ✅ 正确：异步处理
+//  正确：异步处理
 updateCard(messageId, { content: "处理中..." });
 longRunningTask().then(result => {
   updateCard(messageId, result);
@@ -450,7 +450,7 @@ longRunningTask().then(result => {
 ```javascript
 if (!hasPermission(callback.data.operator.user_id, action)) {
   await updateCard(messageId, {
-    header: { title: "❌ 权限不足", template: "red" },
+    header: { title: " 权限不足", template: "red" },
     elements: [
       { tag: "div", text: { content: "您没有权限执行此操作", tag: "lark_md" } }
     ]

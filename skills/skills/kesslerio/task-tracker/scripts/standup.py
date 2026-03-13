@@ -73,41 +73,41 @@ def generate_standup(date_str: str = None, json_output: bool = False) -> str | d
         return output
     
     # Format as markdown
-    lines = [f"📋 **Daily Standup — {date_display}**\n"]
+    lines = [f" **Daily Standup — {date_display}**\n"]
     
     if output['priority']:
         priority = output['priority']
-        lines.append(f"🎯 **#1 Priority:** {priority['title']}")
+        lines.append(f" **#1 Priority:** {priority['title']}")
         if priority.get('blocks'):
             lines.append(f"   ↳ Blocking: {priority['blocks']}")
         lines.append("")
     
     if output['due_today']:
-        lines.append("⏰ **Due Today:**")
+        lines.append(" **Due Today:**")
         for t in output['due_today'][:5]:
             lines.append(f"  • {t['title']}")
         lines.append("")
     
     if output['blocking']:
-        lines.append("🚧 **Blocking Others:**")
+        lines.append(" **Blocking Others:**")
         for t in output['blocking'][:3]:
             lines.append(f"  • {t['title']} → {t.get('blocks', '?')}")
         lines.append("")
     
     if output['high_priority']:
-        lines.append("🔴 **High Priority:**")
+        lines.append(" **High Priority:**")
         for t in output['high_priority'][:3]:
             lines.append(f"  • {t['title']}")
         lines.append("")
     
     if output['completed']:
-        lines.append(f"✅ **Recently Completed:** {len(output['completed'])} items")
+        lines.append(f" **Recently Completed:** {len(output['completed'])} items")
         for t in output['completed'][:3]:
             lines.append(f"  • {t['title']}")
         lines.append("")
     
     if output['upcoming']:
-        lines.append("📅 **Upcoming:**")
+        lines.append(" **Upcoming:**")
         for t in output['upcoming'][:3]:
             due_str = f" ({t['due']})" if t.get('due') else ""
             lines.append(f"  • {t['title']}{due_str}")

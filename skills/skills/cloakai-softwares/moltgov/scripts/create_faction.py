@@ -26,7 +26,7 @@ def main():
         client = MoltGovClient()
         faction = client.create_faction(args.name, args.charter, members)
         
-        print(f"\n✅ Faction founded!\n")
+        print(f"\n Faction founded!\n")
         print(f"  Faction ID:      {faction.faction_id}")
         print(f"  Name:            {faction.name}")
         print(f"  Submolt:         m/{faction.submolt}")

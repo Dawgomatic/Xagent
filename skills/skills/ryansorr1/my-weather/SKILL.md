@@ -6,7 +6,7 @@ Get current weather using wttr.in (no API key required).
 
 ```bash
 curl -s "wttr.in/78023?format=3"
-# Output: San Antonio: ⛅️ +28°C
+# Output: San Antonio:  +28°C
 ```
 
 ## Location

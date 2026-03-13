@@ -4,13 +4,13 @@
 
 ### 1. Natural Language Description
 Use clear, flowing natural language: **Subject + Action + Environment**
-- ✅ "A girl in elegant clothes walking down a tree-lined avenue with a parasol, Monet oil painting style"
-- ❌ "girl, umbrella, tree-lined street, oil painting brushstrokes"
+-  "A girl in elegant clothes walking down a tree-lined avenue with a parasol, Monet oil painting style"
+-  "girl, umbrella, tree-lined street, oil painting brushstrokes"
 
 ### 2. Specify Use Case
 State the image purpose and type when relevant.
-- ✅ "Design a game company logo featuring a dog playing with a controller, text 'PITBULL'"
-- ❌ "abstract image, dog with controller, PITBULL text"
+-  "Design a game company logo featuring a dog playing with a controller, text 'PITBULL'"
+-  "abstract image, dog with controller, PITBULL text"
 
 ### 3. Style Precision
 Use precise style keywords or provide reference images.
@@ -18,13 +18,13 @@ Use precise style keywords or provide reference images.
 
 ### 4. Text Rendering
 Put text content in **double quotes** for accurate rendering.
-- ✅ `生成一张海报，标题为 "Seedream 4.5"`
-- ❌ `生成一张海报，标题为 Seedream 4.5`
+-  `生成一张海报，标题为 "Seedream 4.5"`
+-  `生成一张海报，标题为 Seedream 4.5`
 
 ### 5. Image Editing Clarity
 Be explicit about what to edit AND what to preserve.
-- ✅ "让图中最高的那只熊猫穿上粉色的京剧服饰，保持动作不变"
-- ❌ "让它穿上粉色衣服"
+-  "让图中最高的那只熊猫穿上粉色的京剧服饰，保持动作不变"
+-  "让它穿上粉色衣服"
 
 ---
 

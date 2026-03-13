@@ -13,7 +13,7 @@ cd "$(dirname "$0")/.."
 HABIT_ID=$(npx tsx scripts/view_habits.ts --active --format json 2>/dev/null | grep -o '"id"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | cut -d'"' -f4)
 
 if [ -z "$HABIT_ID" ]; then
-  echo "❌ No active habits found"
+  echo " No active habits found"
   exit 1
 fi
 
@@ -27,7 +27,7 @@ OUTPUT=$(npx tsx scripts/proactive_coaching.ts --habit-id "$HABIT_ID" --weekly-c
 
 # Check if output is valid JSON
 if echo "$OUTPUT" | jq . > /dev/null 2>&1; then
-  echo "✅ Valid JSON output"
+  echo " Valid JSON output"
 
   # Extract message count
   MESSAGE_COUNT=$(echo "$OUTPUT" | jq -r '.messageCount')
@@ -40,16 +40,16 @@ if echo "$OUTPUT" | jq . > /dev/null 2>&1; then
     echo "$ATTACHMENTS" | while read -r path; do
       if [ -f "$path" ]; then
         SIZE=$(du -h "$path" | cut -f1)
-        echo "     ✅ $path ($SIZE)"
+        echo "      $path ($SIZE)"
       else
-        echo "     ❌ $path (not found)"
+        echo "      $path (not found)"
       fi
     done
   else
     echo "   No attachments in output"
   fi
 else
-  echo "❌ Invalid JSON output"
+  echo " Invalid JSON output"
   exit 1
 fi
 echo
@@ -66,9 +66,9 @@ if [ -n "$ATTACHMENTS" ]; then
       # In a real agent session, this would use the Read tool
       # For testing, we just verify the file exists and is a valid PNG
       if file "$path" | grep -q "PNG image"; then
-        echo "   ✅ Valid PNG image"
+        echo "    Valid PNG image"
       else
-        echo "   ⚠️  File exists but may not be a valid PNG"
+        echo "     File exists but may not be a valid PNG"
       fi
     fi
   done
@@ -95,7 +95,7 @@ done
 echo
 
 echo "================================================="
-echo "✅ Image attachment tests complete!"
+echo " Image attachment tests complete!"
 echo
 echo "To test in a real cron session:"
 echo "  1. Sync coaching jobs: npx tsx scripts/sync_reminders.ts sync-coaching"

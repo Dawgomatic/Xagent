@@ -386,17 +386,17 @@ Compare the output against skill.yml:
 
 | Field | Expected (from skill.yml) | Actual (from clawhub inspect) | Match? |
 |-------|--------------------------|-------------------------------|--------|
-| Display name | `display_name` value | First line of inspect output | ✅ / ❌ |
-| Version | `version` value | `Latest:` field | ✅ / ❌ |
-| Description | First sentence of `description` | `Summary:` field (truncated) | ✅ / ❌ |
-| Owner | your ClawhHub username | `Owner:` field | ✅ / ❌ |
+| Display name | `display_name` value | First line of inspect output |  /  |
+| Version | `version` value | `Latest:` field |  /  |
+| Description | First sentence of `description` | `Summary:` field (truncated) |  /  |
+| Owner | your ClawhHub username | `Owner:` field |  /  |
 
 **If any field does not match:**
 1. Do NOT proceed to Step 12
 2. Identify the mismatch (wrong `--name`, wrong `--slug`, stale `skill.yml`)
 3. Fix the source (skill.yml or publish command), bump patch version, republish
 4. Re-run Step 11.5 until all fields match
-5. Only proceed to Step 12 when the table shows ✅ on all rows
+5. Only proceed to Step 12 when the table shows  on all rows
 
 **Common mismatches and fixes:**
 

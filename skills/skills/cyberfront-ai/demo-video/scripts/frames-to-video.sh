@@ -22,17 +22,17 @@ FORMAT="${3:-mp4}"
 
 # Validate input
 if [ ! -d "$INPUT_DIR" ]; then
-    echo "❌ Error: Input directory not found: $INPUT_DIR"
+    echo " Error: Input directory not found: $INPUT_DIR"
     exit 1
 fi
 
 FRAME_COUNT=$(ls -1 "$INPUT_DIR"/frame_*.jpg 2>/dev/null | wc -l)
 if [ "$FRAME_COUNT" -eq 0 ]; then
-    echo "❌ Error: No frame_*.jpg files found in $INPUT_DIR"
+    echo " Error: No frame_*.jpg files found in $INPUT_DIR"
     exit 1
 fi
 
-echo "🎬 Converting $FRAME_COUNT frames to $FORMAT..."
+echo " Converting $FRAME_COUNT frames to $FORMAT..."
 echo "   Input:  $INPUT_DIR"
 echo "   Output: ${OUTPUT_NAME}.${FORMAT}"
 echo ""
@@ -48,7 +48,7 @@ case "$FORMAT" in
             -pix_fmt yuv420p \
             -movflags +faststart \
             "${OUTPUT_NAME}.mp4"
-        echo "✅ Created ${OUTPUT_NAME}.mp4"
+        echo " Created ${OUTPUT_NAME}.mp4"
         ;;
         
     gif)
@@ -58,7 +58,7 @@ case "$FORMAT" in
             -pattern_type glob -i "$INPUT_DIR/frame_*.jpg" \
             -vf "fps=15,scale=800:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=256:stats_mode=diff[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5" \
             "${OUTPUT_NAME}.gif"
-        echo "✅ Created ${OUTPUT_NAME}.gif"
+        echo " Created ${OUTPUT_NAME}.gif"
         ;;
         
     webm)
@@ -70,11 +70,11 @@ case "$FORMAT" in
             -b:v 0 \
             -pix_fmt yuv420p \
             "${OUTPUT_NAME}.webm"
-        echo "✅ Created ${OUTPUT_NAME}.webm"
+        echo " Created ${OUTPUT_NAME}.webm"
         ;;
         
     *)
-        echo "❌ Error: Unknown format '$FORMAT'. Use: mp4, gif, or webm"
+        echo " Error: Unknown format '$FORMAT'. Use: mp4, gif, or webm"
         exit 1
         ;;
 esac

@@ -2,7 +2,7 @@
 name: elevenlabs-transcribe
 description: Transcribe audio to text using ElevenLabs Scribe. Supports batch transcription, realtime streaming from URLs, microphone input, and local files.
 homepage: https://elevenlabs.io/speech-to-text
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"bins":["ffmpeg","python3"],"env":["ELEVENLABS_API_KEY"]},"primaryEnv":"ELEVENLABS_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["ffmpeg","python3"],"env":["ELEVENLABS_API_KEY"]},"primaryEnv":"ELEVENLABS_API_KEY"}}
 ---
 
 # ElevenLabs Speech-to-Text

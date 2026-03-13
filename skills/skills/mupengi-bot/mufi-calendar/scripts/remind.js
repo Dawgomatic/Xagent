@@ -41,23 +41,23 @@ async function remind() {
   const events = res.data.items || [];
 
   if (events.length === 0) {
-    console.log('📅 오늘 일정 없음');
+    console.log(' 오늘 일정 없음');
     return;
   }
 
   // 메시지 생성
   const dayOfWeek = ['일', '월', '화', '수', '목', '금', '토'][today.getDay()];
   const dateStr = today.toISOString().split('T')[0];
-  let message = `📅 오늘 일정 (${dateStr} ${dayOfWeek})\n\n`;
+  let message = ` 오늘 일정 (${dateStr} ${dayOfWeek})\n\n`;
 
   events.forEach(event => {
     const start = event.start.dateTime || event.start.date;
     if (event.start.dateTime) {
       const time = new Date(start).toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', hour12: false });
-      message += `⏰ ${time} - ${event.summary}\n`;
-      if (event.location) message += `   📍 ${event.location}\n`;
+      message += ` ${time} - ${event.summary}\n`;
+      if (event.location) message += `    ${event.location}\n`;
     } else {
-      message += `📌 종일 - ${event.summary}\n`;
+      message += ` 종일 - ${event.summary}\n`;
     }
   });
 
@@ -69,9 +69,9 @@ async function remind() {
       execSync(`openclaw message send --target "${argv.channel}" --message "${message.replace(/"/g, '\\"')}"`, {
         stdio: 'inherit',
       });
-      console.log('\n✅ Discord 전송 완료');
+      console.log('\n Discord 전송 완료');
     } catch (err) {
-      console.error('❌ Discord 전송 실패:', err.message);
+      console.error(' Discord 전송 실패:', err.message);
     }
   }
 }

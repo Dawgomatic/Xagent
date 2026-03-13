@@ -17,7 +17,7 @@ Adds persistent three-layer memory to any OpenClaw workspace. The agent gains se
 
 All three layers sync together. The indexer updates L2 and L3 from L1 automatically.
 
-## ⚠️ Critical Integration: OpenClaw Memory Configuration
+##  Critical Integration: OpenClaw Memory Configuration
 
 **Problem:** OpenClaw has its own built-in memory search system, but by default it only indexes `MEMORY.md` and `memory/*.md` files. Critical workspace files like `SOUL.md` (agent directives), `AGENTS.md` (behavior rules), and `PROJECTS.md` (active work) are **ignored**.
 

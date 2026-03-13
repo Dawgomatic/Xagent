@@ -2,7 +2,7 @@
 name: airshelf
 displayName: AirShelf Agentic Commerce Platform
 description: Search, compare, and buy products from verified merchants. Returns structured product data with Decision Packs (pros, cons, best_for, allergens, verified pricing) instead of raw web scraping. No CAPTCHAs, no auth required. ~980 products across 10 merchants. Use when user wants to find, compare, or purchase products.
-metadata: {"clawdbot":{"emoji":"🛒","requires":{"bins":["curl"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
 # AirShelf — Verified Product Search & Checkout for AI Agents

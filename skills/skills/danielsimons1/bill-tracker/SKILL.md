@@ -1,7 +1,7 @@
 ---
 name: bill-tracker
 description: Access Bill Tracker financial data - upcoming bills, account balances, and affordability checks.
-metadata: {"openclaw":{"requires":{"env":["BILL_TRACKER_URL","BILL_TRACKER_SESSION_TOKEN"]},"primaryEnv":"BILL_TRACKER_SESSION_TOKEN","emoji":"💰"}}
+metadata: {"openclaw":{"requires":{"env":["BILL_TRACKER_URL","BILL_TRACKER_SESSION_TOKEN"]},"primaryEnv":"BILL_TRACKER_SESSION_TOKEN","emoji":""}}
 ---
 
 # Bill Tracker Skill

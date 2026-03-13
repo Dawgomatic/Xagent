@@ -14,13 +14,13 @@ This document explains the high-level architecture of [Project Name], including 
 [Create a simple ASCII diagram or describe components]
 
 ┌─────────────┐      ┌─────────────┐      ┌─────────────┐
-│   Frontend  │─────▶│   Backend   │─────▶│  Database   │
-│  (React)    │◀─────│   (Node.js) │◀─────│ (Postgres)  │
+│   Frontend  │─────│   Backend   │─────│  Database   │
+│  (React)    │─────│   (Node.js) │─────│ (Postgres)  │
 └─────────────┘      └─────────────┘      └─────────────┘
        │                    │
        │                    ▼
        │             ┌─────────────┐
-       └────────────▶│  API Layer  │
+       └────────────│  API Layer  │
                      └─────────────┘
 ```
 
@@ -208,9 +208,9 @@ Global State
 - **Reason 3:** [Explain benefit]
 
 **Trade-offs:**
-- ✅ **Pros:** [What we gained]
-- ❌ **Cons:** [What we sacrificed]
-- 🤔 **When to reconsider:** [Conditions that might make this decision obsolete]
+-  **Pros:** [What we gained]
+-  **Cons:** [What we sacrificed]
+-  **When to reconsider:** [Conditions that might make this decision obsolete]
 
 **Alternatives considered:**
 - [Alternative 1]: Rejected because [reason]
@@ -227,8 +227,8 @@ Global State
 - [Reason 2]
 
 **Trade-offs:**
-- ✅ **Pros:** [What we gained]
-- ❌ **Cons:** [What we sacrificed]
+-  **Pros:** [What we gained]
+-  **Cons:** [What we sacrificed]
 
 **Alternatives considered:**
 - [Alternative 1]: Rejected because [reason]
@@ -252,12 +252,12 @@ store/
 
 **Dependency rules:**
 1. **Lower layers can't depend on higher layers**
-   - ❌ `services/` can't import from `components/`
-   - ✅ `components/` can import from `services/`
+   -  `services/` can't import from `components/`
+   -  `components/` can import from `services/`
 
 2. **Same-level imports require careful consideration**
-   - 🤔 Components importing other components: Usually OK
-   - ⚠️ Services importing other services: Consider refactoring
+   -  Components importing other components: Usually OK
+   -  Services importing other services: Consider refactoring
 
 3. **Avoid circular dependencies**
    - Use dependency injection or event systems when needed

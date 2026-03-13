@@ -172,4 +172,4 @@ curl -X POST http://localhost:3000/api/moltbook/share/{lifeId} \
 
 MIT - Sehil Systems Studio
 
-Vive la Guerre Éternuelle. 🎭🦞
+Vive la Guerre Éternuelle. 

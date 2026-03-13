@@ -12,7 +12,7 @@ Value objects represent descriptive, immutable concepts with no identity. Two va
 
 Value objects are created with validation and cannot be modified. Operations return new instances.
 
-❌ **Bad: Mutable plain object used as currency amount**
+ **Bad: Mutable plain object used as currency amount**
 
 ```typescript
 // No validation, mutable, no behavior
@@ -27,7 +27,7 @@ function createPayment(money: Money) {
 }
 ```
 
-✅ **Good: Immutable value object with validation**
+ **Good: Immutable value object with validation**
 
 ```typescript
 class Money {
@@ -150,7 +150,7 @@ class DateRange {
 
 Replace primitive types with value objects when the primitive has validation rules, formatting, or risk of being confused with other values of the same type.
 
-❌ **Bad: Primitive types everywhere — easy to mix up**
+ **Bad: Primitive types everywhere — easy to mix up**
 
 ```typescript
 class OrderService {
@@ -168,7 +168,7 @@ class OrderService {
 orderService.createOrder(productId, userId, price, quantity);
 ```
 
-✅ **Good: Value objects prevent mix-ups at compile time**
+ **Good: Value objects prevent mix-ups at compile time**
 
 ```typescript
 class UserId {
@@ -225,7 +225,7 @@ Entities are objects defined by their identity, not their attributes. An entity 
 
 Entities are compared by ID. Two entities with the same ID are the same entity, regardless of their other attributes.
 
-❌ **Bad: No clear identity, compared by attributes**
+ **Bad: No clear identity, compared by attributes**
 
 ```typescript
 class Customer {
@@ -239,7 +239,7 @@ class Customer {
 }
 ```
 
-✅ **Good: Identity-based equality**
+ **Good: Identity-based equality**
 
 ```typescript
 class Customer {
@@ -275,7 +275,7 @@ class Customer {
 
 Entities encapsulate their behavior. Business rules that govern an entity's state live inside the entity, not in external services.
 
-❌ **Bad: Anemic entity — all logic in services**
+ **Bad: Anemic entity — all logic in services**
 
 ```typescript
 class Order {
@@ -305,7 +305,7 @@ class OrderService {
 }
 ```
 
-✅ **Good: Entity with encapsulated behavior**
+ **Good: Entity with encapsulated behavior**
 
 ```typescript
 class Order {
@@ -377,7 +377,7 @@ class Order {
 
 Model valid state transitions explicitly. The entity enforces which transitions are allowed.
 
-❌ **Bad: Status set directly from outside**
+ **Bad: Status set directly from outside**
 
 ```typescript
 class Task {
@@ -389,7 +389,7 @@ class Task {
 }
 ```
 
-✅ **Good: Explicit state machine**
+ **Good: Explicit state machine**
 
 ```typescript
 class TaskStatus {
@@ -456,7 +456,7 @@ Aggregates are clusters of entities and value objects treated as a single unit f
 
 All modifications to an aggregate's internals go through the aggregate root. External code never reaches into child entities directly.
 
-❌ **Bad: External code reaching into aggregate internals**
+ **Bad: External code reaching into aggregate internals**
 
 ```typescript
 // External code modifying an order's item directly
@@ -467,7 +467,7 @@ item.price = newPrice;     // Bypasses aggregate invariant checks
 await orderRepo.save(order);
 ```
 
-✅ **Good: All changes through the aggregate root**
+ **Good: All changes through the aggregate root**
 
 ```typescript
 class Order {
@@ -503,7 +503,7 @@ class Order {
 
 Aggregates reference other aggregates by ID, not by direct object reference. Keep aggregates small and focused.
 
-❌ **Bad: Giant aggregate containing everything**
+ **Bad: Giant aggregate containing everything**
 
 ```typescript
 class Customer {
@@ -518,7 +518,7 @@ class Customer {
 }
 ```
 
-✅ **Good: Small aggregates with ID references**
+ **Good: Small aggregates with ID references**
 
 ```typescript
 class Customer {
@@ -610,7 +610,7 @@ class ShoppingCart {
 
 Start with small aggregates. Split when you see performance issues, concurrency conflicts, or unrelated concerns bundled together.
 
-❌ **Bad: One aggregate for everything product-related**
+ **Bad: One aggregate for everything product-related**
 
 ```typescript
 class Product {
@@ -628,7 +628,7 @@ class Product {
 }
 ```
 
-✅ **Good: Separate aggregates for separate concerns**
+ **Good: Separate aggregates for separate concerns**
 
 ```typescript
 // Product aggregate — catalog information
@@ -707,7 +707,7 @@ interface OrderRepository {
 
 Repositories exist for aggregate roots only. Child entities and value objects are saved through their parent aggregate.
 
-❌ **Bad: Repository for every entity**
+ **Bad: Repository for every entity**
 
 ```typescript
 // Separate repositories for aggregate root and its children
@@ -719,7 +719,7 @@ interface ShippingInfoRepository { save(info: ShippingInfo): Promise<void>; }
 await orderItemRepo.save(newItem);  // No aggregate validation
 ```
 
-✅ **Good: Repository for aggregate root only**
+ **Good: Repository for aggregate root only**
 
 ```typescript
 interface OrderRepository {
@@ -804,7 +804,7 @@ Domain events capture something that happened in the domain. They enable loose c
 
 Aggregates collect events during their operations. Events are published after the aggregate is persisted, not during mutation.
 
-❌ **Bad: Publishing events during entity mutation**
+ **Bad: Publishing events during entity mutation**
 
 ```typescript
 class Order {
@@ -818,7 +818,7 @@ class Order {
 }
 ```
 
-✅ **Good: Collecting events, publishing after persistence**
+ **Good: Collecting events, publishing after persistence**
 
 ```typescript
 class Order {
@@ -871,7 +871,7 @@ class OrderRepositoryImpl implements OrderRepository {
 
 Domain events are named in past tense — they describe something that already happened. They carry enough data for handlers to react without querying back.
 
-❌ **Bad: Vague event with minimal data**
+ **Bad: Vague event with minimal data**
 
 ```typescript
 class OrderEvent {
@@ -882,7 +882,7 @@ class OrderEvent {
 }
 ```
 
-✅ **Good: Specific, self-describing event**
+ **Good: Specific, self-describing event**
 
 ```typescript
 abstract class DomainEvent {
@@ -937,7 +937,7 @@ class PaymentReceivedEvent extends DomainEvent {
 
 Event handlers react to domain events. They run after the originating transaction completes, enabling eventual consistency between aggregates.
 
-❌ **Bad: Synchronous handler doing writes in same transaction**
+ **Bad: Synchronous handler doing writes in same transaction**
 
 ```typescript
 class OrderSubmittedHandler {
@@ -951,7 +951,7 @@ class OrderSubmittedHandler {
 }
 ```
 
-✅ **Good: Asynchronous handlers with eventual consistency**
+ **Good: Asynchronous handlers with eventual consistency**
 
 ```typescript
 class SendOrderConfirmationHandler {
@@ -1014,7 +1014,7 @@ Domain services contain business logic that doesn't belong to a single entity or
 
 Use a domain service when business logic spans multiple aggregates and cannot be placed in either one.
 
-❌ **Bad: Forcing cross-aggregate logic into one entity**
+ **Bad: Forcing cross-aggregate logic into one entity**
 
 ```typescript
 class Order {
@@ -1033,7 +1033,7 @@ class Order {
 }
 ```
 
-✅ **Good: Domain service coordinating multiple aggregates**
+ **Good: Domain service coordinating multiple aggregates**
 
 ```typescript
 class OrderSubmissionService {
@@ -1071,7 +1071,7 @@ class OrderSubmissionService {
 
 Domain services contain business rules. Application services orchestrate use cases — they handle transactions, authorization, and coordination.
 
-❌ **Bad: Mixing orchestration with business rules**
+ **Bad: Mixing orchestration with business rules**
 
 ```typescript
 class OrderApplicationService {
@@ -1103,7 +1103,7 @@ class OrderApplicationService {
 }
 ```
 
-✅ **Good: Clear separation**
+ **Good: Clear separation**
 
 ```typescript
 // Domain service — pure business logic
@@ -1151,7 +1151,7 @@ class SubmitOrderUseCase {
 
 ### Anemic Domain Model
 
-❌ **Bad: Entities are just data bags, all logic in services**
+ **Bad: Entities are just data bags, all logic in services**
 
 ```typescript
 class Account {
@@ -1169,7 +1169,7 @@ class AccountService {
 }
 ```
 
-✅ **Good: Entity encapsulates its own rules**
+ **Good: Entity encapsulates its own rules**
 
 ```typescript
 class Account {

@@ -25,7 +25,7 @@ async function getSignalsByType(symbol, signalType, limit = '', hours = '') {
 
     const url = `${API_BASE_URL}/signals/${symbol}/${signalType}?${params.toString()}`;
     
-    console.log(`📡 Fetching ${signalType} signals for ${symbol}`);
+    console.log(` Fetching ${signalType} signals for ${symbol}`);
     if (limit) console.log(`   Limit: ${limit}`);
     if (hours) console.log(`   Time window: ${hours} hours`);
     console.log('');
@@ -41,18 +41,18 @@ async function getSignalsByType(symbol, signalType, limit = '', hours = '') {
   } catch (error) {
     if (error.response) {
       if (error.response.status === 404) {
-        console.error(`❌ No ${signalType} signals found for ${symbol}`);
+        console.error(` No ${signalType} signals found for ${symbol}`);
         console.error('   Try a different signal type or time window.');
       } else {
-        console.error(`❌ API Error: ${error.response.status} ${error.response.statusText}`);
+        console.error(` API Error: ${error.response.status} ${error.response.statusText}`);
         if (error.response.data) {
           console.error(`   Details: ${JSON.stringify(error.response.data)}`);
         }
       }
     } else if (error.request) {
-      console.error('❌ Network Error: No response received from API');
+      console.error(' Network Error: No response received from API');
     } else {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
     }
     process.exit(1);
   }
@@ -61,10 +61,10 @@ async function getSignalsByType(symbol, signalType, limit = '', hours = '') {
 function formatSignalDetail(signal) {
   const payload = signal.signal_payload;
   const emoji = {
-    'BULLISH': '📈',
-    'BEARISH': '📉',
-    'NEUTRAL': '➡️'
-  }[payload.sentiment] || '❓';
+    'BULLISH': '',
+    'BEARISH': '',
+    'NEUTRAL': ''
+  }[payload.sentiment] || '';
   
   const timeAgo = getTimeAgo(new Date(signal.created_at));
   
@@ -121,7 +121,7 @@ function displayTypeInfo(signalType) {
 
   const info = typeInfo[signalType] || { description: 'Unknown signal type' };
   
-  console.log(`📋 ${signalType}: ${info.description}`);
+  console.log(` ${signalType}: ${info.description}`);
   if (info.keyMetrics) {
     console.log(`   Key Metrics: ${info.keyMetrics.join(', ')}`);
   }
@@ -130,7 +130,7 @@ function displayTypeInfo(signalType) {
 
 function displayResults(signals, symbol, signalType) {
   console.log('='.repeat(60));
-  console.log(`📊 ${symbol} - ${signalType} SIGNALS`);
+  console.log(` ${symbol} - ${signalType} SIGNALS`);
   console.log('='.repeat(60));
   
   displayTypeInfo(signalType);
@@ -145,7 +145,7 @@ function displayResults(signals, symbol, signalType) {
 
   // Display each signal
   signals.forEach((signal, index) => {
-    console.log(`🎯 Signal ${index + 1}/${signals.length}`);
+    console.log(` Signal ${index + 1}/${signals.length}`);
     console.log('-'.repeat(40));
     console.log(formatSignalDetail(signal));
     
@@ -165,10 +165,10 @@ function displayResults(signals, symbol, signalType) {
   });
 
   console.log('\n' + '='.repeat(60));
-  console.log('📈 Signal Statistics:');
-  console.log(`   📈 Bullish: ${sentimentCount.BULLISH}`);
-  console.log(`   📉 Bearish: ${sentimentCount.BEARISH}`);
-  console.log(`   ➡️  Neutral: ${sentimentCount.NEUTRAL}`);
+  console.log(' Signal Statistics:');
+  console.log(`    Bullish: ${sentimentCount.BULLISH}`);
+  console.log(`    Bearish: ${sentimentCount.BEARISH}`);
+  console.log(`     Neutral: ${sentimentCount.NEUTRAL}`);
   
   // Time distribution
   const now = new Date();
@@ -194,7 +194,7 @@ function displayResults(signals, symbol, signalType) {
     }
   });
 
-  console.log('\n⏰ Time Distribution:');
+  console.log('\n Time Distribution:');
   for (const [period, count] of Object.entries(signalsByRecency)) {
     if (count > 0) {
       console.log(`   ${period}: ${count}`);
@@ -228,7 +228,7 @@ const hours = args[3] || '';
 // Validate signal type
 const validTypes = ['whale_activity', 'news_analysis', 'funding_rate', 'technical_indicator'];
 if (!validTypes.includes(signalType)) {
-  console.error(`❌ Invalid signal type: ${signalType}`);
+  console.error(` Invalid signal type: ${signalType}`);
   console.error(`   Valid types: ${validTypes.join(', ')}`);
   process.exit(1);
 }

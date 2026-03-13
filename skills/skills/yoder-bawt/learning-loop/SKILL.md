@@ -32,16 +32,16 @@ This isn't a toy. This is infrastructure for agents that want to get measurably 
 │  INPUT LAYER          PROCESSING LAYER        OUTPUT LAYER  │
 │  ───────────          ────────────────        ────────────  │
 │                                                              │
-│  Events ──────────▶  Pattern Detection  ────▶  Reports      │
+│  Events ──────────  Pattern Detection  ────  Reports      │
 │    │                     │                         │        │
 │    ▼                     ▼                         ▼        │
 │  lessons.json       Confidence Decay          Rules         │
 │    │                     │                         │        │
 │    ▼                     ▼                         ▼        │
-│  Promotion ◀────── Anomaly Detection ◀────── Enforcement    │
+│  Promotion ────── Anomaly Detection ────── Enforcement    │
 │                                                              │
 │  CROSS-AGENT LAYER:                                          │
-│  Export ─────▶  Portable Format  ─────▶  Import             │
+│  Export ─────  Portable Format  ─────  Import             │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```

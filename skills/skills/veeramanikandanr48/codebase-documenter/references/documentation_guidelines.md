@@ -7,20 +7,20 @@ This reference provides comprehensive best practices and style guidelines for cr
 ### Voice and Tone
 
 **Use active voice:**
-- ✅ "The function returns a user object"
-- ❌ "A user object is returned by the function"
+-  "The function returns a user object"
+-  "A user object is returned by the function"
 
 **Be direct and concise:**
-- ✅ "Install dependencies with `npm install`"
-- ❌ "You can install the dependencies by running the npm install command"
+-  "Install dependencies with `npm install`"
+-  "You can install the dependencies by running the npm install command"
 
 **Use present tense:**
-- ✅ "The API returns an error when..."
-- ❌ "The API will return an error when..."
+-  "The API returns an error when..."
+-  "The API will return an error when..."
 
 **Avoid unnecessary words:**
-- ✅ "To start the server, run..."
-- ❌ "In order to start the server, you will need to run..."
+-  "To start the server, run..."
+-  "In order to start the server, you will need to run..."
 
 ### Technical Writing Conventions
 
@@ -100,17 +100,17 @@ Every project should have a path that gets users to success in under 5 minutes:
 ### Code Examples
 
 **Make examples realistic:**
-- ✅ Use real-world variable names and scenarios
-- ❌ Don't use `foo`, `bar`, `baz` unless explaining general concepts
+-  Use real-world variable names and scenarios
+-  Don't use `foo`, `bar`, `baz` unless explaining general concepts
 
 ```javascript
-// ✅ GOOD: Realistic example
+//  GOOD: Realistic example
 const user = await fetchUser('usr_123');
 if (user.role === 'admin') {
   showAdminPanel();
 }
 
-// ❌ BAD: Unclear example
+//  BAD: Unclear example
 const foo = await bar('baz');
 if (foo.x === 'y') {
   doThing();
@@ -119,14 +119,14 @@ if (foo.x === 'y') {
 
 **Include context:**
 ```javascript
-// ✅ GOOD: Shows where this code lives
+//  GOOD: Shows where this code lives
 // src/services/auth.js
 
 export async function login(email, password) {
   // Implementation
 }
 
-// ❌ BAD: No context about where to put this
+//  BAD: No context about where to put this
 async function login(email, password) {
   // Implementation
 }
@@ -134,7 +134,7 @@ async function login(email, password) {
 
 **Show complete examples:**
 ```javascript
-// ✅ GOOD: Complete, runnable example
+//  GOOD: Complete, runnable example
 import { createUser } from './services/user';
 
 async function example() {
@@ -149,7 +149,7 @@ async function example() {
   }
 }
 
-// ❌ BAD: Incomplete example
+//  BAD: Incomplete example
 const user = await createUser({...});
 ```
 
@@ -284,7 +284,7 @@ Use tables to compare options:
 
 - Use semantic markdown headings (`#`, `##`, `###`)
 - Provide alt text for images: `![Diagram showing data flow](diagram.png)`
-- Use descriptive link text: ✅ "Read the API documentation" vs ❌ "Click here"
+- Use descriptive link text:  "Read the API documentation" vs  "Click here"
 
 ### Support Multiple Learning Styles
 
@@ -307,17 +307,17 @@ Last updated: 2024-01-15
 
 **Mark deprecated features:**
 ```markdown
-## ⚠️ Deprecated: `legacyAuth()`
+##  Deprecated: `legacyAuth()`
 
 **Deprecated in:** v2.0.0
 **Removed in:** v3.0.0
 **Alternative:** Use `modernAuth()` instead
 
 ```javascript
-// ❌ Old way (deprecated)
+//  Old way (deprecated)
 await legacyAuth(token);
 
-// ✅ New way
+//  New way
 await modernAuth(token);
 ```
 ```
@@ -464,24 +464,24 @@ Before publishing documentation, verify:
 ## Anti-Patterns to Avoid
 
 **Don't assume knowledge:**
-- ❌ "Just use the standard approach"
-- ✅ "Use dependency injection (see [guide](./di.md))"
+-  "Just use the standard approach"
+-  "Use dependency injection (see [guide](./di.md))"
 
 **Don't use vague instructions:**
-- ❌ "Configure the system appropriately"
-- ✅ "Set `PORT=3000` in your `.env` file"
+-  "Configure the system appropriately"
+-  "Set `PORT=3000` in your `.env` file"
 
 **Don't skip error handling:**
-- ❌ Only show happy path examples
-- ✅ Show both success and error handling
+-  Only show happy path examples
+-  Show both success and error handling
 
 **Don't leave gaps:**
-- ❌ "Install dependencies" → "Run the app"
-- ✅ "Install dependencies" → "Configure environment" → "Run migrations" → "Run the app"
+-  "Install dependencies" → "Run the app"
+-  "Install dependencies" → "Configure environment" → "Run migrations" → "Run the app"
 
 **Don't use jargon without explanation:**
-- ❌ "Uses CRDT for eventual consistency"
-- ✅ "Uses CRDT (Conflict-free Replicated Data Type) to ensure all users see the same data even when working offline"
+-  "Uses CRDT for eventual consistency"
+-  "Uses CRDT (Conflict-free Replicated Data Type) to ensure all users see the same data even when working offline"
 
 ## Internationalization
 

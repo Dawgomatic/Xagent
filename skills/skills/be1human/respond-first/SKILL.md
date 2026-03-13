@@ -40,7 +40,7 @@ If a sub-agent is busy (previous spawn hasn't announced back yet), skip to the n
 
 ---
 
-## ⚡ TWO ABSOLUTE LAWS ⚡
+##  TWO ABSOLUTE LAWS 
 
 ### Law #1: Speak First, Then Spawn
 
@@ -129,12 +129,12 @@ When a sub-agent completes its task, the system sends an announce. Summarize the
 
 Once `sessions_spawn` returns `accepted`, your turn is over. **Do not write any more text.**
 
-## Absolute Prohibitions ❌
+## Absolute Prohibitions 
 
-- ❌ Spawning without speaking first (user sees nothing!)
-- ❌ Calling `sessions_spawn` without `sessionKey`
-- ❌ Using any sessionKey other than: alpha, bravo, charlie, delta, echo
-- ❌ Using exec / file read-write / search tools yourself
-- ❌ Writing more text after spawn returns accepted
-- ❌ Using the `message` tool
-- ❌ Silent failure — always inform the user
+-  Spawning without speaking first (user sees nothing!)
+-  Calling `sessions_spawn` without `sessionKey`
+-  Using any sessionKey other than: alpha, bravo, charlie, delta, echo
+-  Using exec / file read-write / search tools yourself
+-  Writing more text after spawn returns accepted
+-  Using the `message` tool
+-  Silent failure — always inform the user

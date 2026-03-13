@@ -7,13 +7,13 @@ homepage: https://clawhub.ai/Samoppakiks/fearbot
 tags: [therapy, cbt, mental-health, anxiety, depression, ptsd, wellness, psychology]
 ---
 
-# FearBot 🧠
+# FearBot 
 
 > **CBT-based therapy for anxiety, depression, stress & trauma**
 
 A comprehensive Cognitive Behavioral Therapy skill that turns your OpenClaw agent into a structured therapy companion. Handles the full spectrum of common mental health concerns using evidence-based techniques.
 
-## ⚠️ Important Disclaimers
+##  Important Disclaimers
 
 **THIS IS NOT A REPLACEMENT FOR PROFESSIONAL MENTAL HEALTH CARE.**
 
@@ -140,4 +140,4 @@ MIT — Use freely, modify freely, help people freely.
 
 ---
 
-*Built by someone with anxiety, for people with anxiety.* 🧠
+*Built by someone with anxiety, for people with anxiety.* 

@@ -2,34 +2,34 @@
 name: filesystem
 description: Advanced filesystem operations - listing, searching, batch processing, and directory analysis for Clawdbot
 homepage: https://github.com/gtrusler/clawdbot-filesystem
-metadata: {"clawdbot":{"emoji":"📁","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
-# 📁 Filesystem Management
+#  Filesystem Management
 
 Advanced filesystem operations for AI agents. Comprehensive file and directory operations with intelligent filtering, searching, and batch processing capabilities.
 
 ## Features
 
-### 📋 **Smart File Listing**
+###  **Smart File Listing**
 - **Advanced Filtering** - Filter by file types, patterns, size, and date
 - **Recursive Traversal** - Deep directory scanning with depth control
 - **Rich Formatting** - Table, tree, and JSON output formats
 - **Sort Options** - By name, size, date, or type
 
-### 🔍 **Powerful Search**
+###  **Powerful Search**
 - **Pattern Matching** - Glob patterns and regex support
 - **Content Search** - Full-text search within files
 - **Multi-criteria** - Combine filename and content searches
 - **Context Display** - Show matching lines with context
 
-### 🔄 **Batch Operations**
+###  **Batch Operations**
 - **Safe Copying** - Pattern-based file copying with validation
 - **Dry Run Mode** - Preview operations before execution
 - **Progress Tracking** - Real-time operation progress
 - **Error Handling** - Graceful failure recovery
 
-### 🌳 **Directory Analysis**
+###  **Directory Analysis**
 - **Tree Visualization** - ASCII tree structure display
 - **Statistics** - File counts, size distribution, type analysis
 - **Space Analysis** - Identify large files and directories
@@ -188,10 +188,10 @@ Works seamlessly with other Clawdbot tools:
 
 **Stay informed about the latest Clawdbot skills and filesystem tools:**
 
-- 🐦 **Follow [@LexpertAI](https://x.com/LexpertAI)** on X for skill updates and releases
-- 🛠️ **New filesystem features** and enhancements
-- 📋 **Best practices** for file management automation
-- 💡 **Tips and tricks** for productivity workflows
+-  **Follow [@LexpertAI](https://x.com/LexpertAI)** on X for skill updates and releases
+-  **New filesystem features** and enhancements
+-  **Best practices** for file management automation
+-  **Tips and tricks** for productivity workflows
 
 Get early access to new skills and improvements by following @LexpertAI for:
 - **Skill announcements** and new releases

@@ -1,10 +1,10 @@
 ---
 name: morning-manifesto
 description: Daily morning reflection workflow with task sync to Obsidian, Apple Reminders, and Linear
-metadata: {"clawdbot":{"emoji":"🌅","trigger":"/morning_manifesto"}}
+metadata: {"clawdbot":{"emoji":"","trigger":"/morning_manifesto"}}
 ---
 
-# Morning Manifesto 🌅
+# Morning Manifesto 
 
 Trigger: `/morning_manifesto`
 
@@ -13,7 +13,7 @@ Trigger: `/morning_manifesto`
 ### 1. Send the prompts
 When `/morning-manifesto` is triggered, immediately send:
 ```
-Good morning! 🚀 Please tell me about:
+Good morning!  Please tell me about:
 - What you did yesterday?
 - One small thing you are grateful for
 - Today's adventure
@@ -25,7 +25,7 @@ Good morning! 🚀 Please tell me about:
 Wait for user reply (text or audio). Audio is automatically transcribed via whisper.cpp.
 
 ### 3. Parse and append to Obsidian daily note
-Parse the response and append to today's note in the Obsidian vault (🔥 Fires). Structure:
+Parse the response and append to today's note in the Obsidian vault ( Fires). Structure:
 ```markdown
 ## Morning Manifesto - [YYYY-MM-DD]
 
@@ -55,7 +55,7 @@ For each task/commitment mentioned:
 ### 5. Query Linear for urgent issues
 Query all teams for issues with priority = urgent (1). Format:
 ```
-🔴 Urgent Linear Issues:
+ Urgent Linear Issues:
 - [Team] [Issue ID]: [Title]
 ```
 

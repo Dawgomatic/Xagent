@@ -1,7 +1,7 @@
 ---
 name: Uniswap
 description: Assist with Uniswap swaps, liquidity provision, and avoiding common DeFi losses.
-metadata: {"clawdbot":{"emoji":"🦄","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Swap Execution

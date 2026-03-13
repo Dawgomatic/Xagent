@@ -132,19 +132,19 @@ echo "════════════════════════�
 
 case "$MAX_SEVERITY" in
     blocked)
-        echo -e "  Status: ${RED}🛑 BLOCKED${NC}"
+        echo -e "  Status: ${RED} BLOCKED${NC}"
         echo "  Severity: CRITICAL/HIGH"
         echo ""
         echo "  DO NOT PROCESS THIS CONTENT"
         ;;
     suspicious)
-        echo -e "  Status: ${YELLOW}⚠️  SUSPICIOUS${NC}"
+        echo -e "  Status: ${YELLOW}  SUSPICIOUS${NC}"
         echo "  Severity: MEDIUM"
         echo ""
         echo "  Review carefully before engaging"
         ;;
     safe)
-        echo -e "  Status: ${GREEN}✅ SAFE${NC}"
+        echo -e "  Status: ${GREEN} SAFE${NC}"
         echo ""
         echo "  No known threat patterns detected"
         ;;

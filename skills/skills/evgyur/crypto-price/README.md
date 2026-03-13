@@ -1,14 +1,14 @@
-# 📈 Crypto Price & Chart
+#  Crypto Price & Chart
 
 A Clawdbot skill for fetching cryptocurrency token prices and generating beautiful candlestick charts.
 
 ## Features
 
-- 🚀 **Fast price lookup** via CoinGecko and Hyperliquid APIs
-- 📊 **Candlestick charts** with dark theme (8x8 square format)
-- ⚡ **Smart caching** (5-minute TTL for price data)
-- 🎯 **Multiple data sources** (Hyperliquid preferred for supported tokens, CoinGecko fallback)
-- 📱 **Flexible timeframes** (30m, 3h, 12h, 24h, 2d)
+-  **Fast price lookup** via CoinGecko and Hyperliquid APIs
+-  **Candlestick charts** with dark theme (8x8 square format)
+-  **Smart caching** (5-minute TTL for price data)
+-  **Multiple data sources** (Hyperliquid preferred for supported tokens, CoinGecko fallback)
+-  **Flexible timeframes** (30m, 3h, 12h, 24h, 2d)
 
 ## Installation
 

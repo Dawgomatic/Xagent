@@ -12,10 +12,10 @@ let testsFailed = 0;
 
 function assert(condition, message) {
   if (condition) {
-    console.log(`  ✅ ${message}`);
+    console.log(`   ${message}`);
     testsPassed++;
   } else {
-    console.error(`  ❌ ${message}`);
+    console.error(`   ${message}`);
     testsFailed++;
   }
 }
@@ -30,7 +30,7 @@ async function cleanup() {
 
 // Tests
 async function testLogPost() {
-  console.log('\n📝 Testing logPost()...');
+  console.log('\n Testing logPost()...');
   
   await cleanup();
   
@@ -77,7 +77,7 @@ async function testLogPost() {
 }
 
 async function testAnalyticsSummary() {
-  console.log('\n📊 Testing analytics summary...');
+  console.log('\n Testing analytics summary...');
   
   const analytics = await loadAnalytics();
   
@@ -96,7 +96,7 @@ async function testAnalyticsSummary() {
 }
 
 async function testGetReport() {
-  console.log('\n📈 Testing getReport()...');
+  console.log('\n Testing getReport()...');
   
   const report = await getReport({ days: 7 });
   
@@ -116,13 +116,13 @@ async function testGetReport() {
 }
 
 async function testFormatReport() {
-  console.log('\n🎨 Testing formatReport()...');
+  console.log('\n Testing formatReport()...');
   
   const report = await getReport({ days: 7 });
   const formatted = formatReport(report);
   
   assert(typeof formatted === 'string', 'Report formatted as string');
-  assert(formatted.includes('📊'), 'Report has emoji header');
+  assert(formatted.includes(''), 'Report has emoji header');
   assert(formatted.includes('Total Posts: 3'), 'Report shows total posts');
   assert(formatted.includes('Success Rate: 67%'), 'Report shows success rate');
   assert(formatted.includes('twitter'), 'Report shows platform breakdown');
@@ -131,7 +131,7 @@ async function testFormatReport() {
 }
 
 async function testPlatformFilter() {
-  console.log('\n🔍 Testing platform filtering...');
+  console.log('\n Testing platform filtering...');
   
   const twitterReport = await getReport({ days: 7, platform: 'twitter' });
   assert(twitterReport.totalPosts === 2, 'Twitter filter works');
@@ -143,7 +143,7 @@ async function testPlatformFilter() {
 }
 
 async function testDateRangeFilter() {
-  console.log('\n📅 Testing date range filtering...');
+  console.log('\n Testing date range filtering...');
   
   // All posts are recent (within last hour), so days=1 should include all
   const report1Day = await getReport({ days: 1 });
@@ -155,7 +155,7 @@ async function testDateRangeFilter() {
 }
 
 async function testMultipleDaysData() {
-  console.log('\n🗓️ Testing multi-day analytics...');
+  console.log('\n Testing multi-day analytics...');
   
   // Add a post from "yesterday" (simulate with older timestamp)
   const yesterday = new Date();
@@ -174,7 +174,7 @@ async function testMultipleDaysData() {
 }
 
 async function testEmptyAnalytics() {
-  console.log('\n🔄 Testing empty analytics...');
+  console.log('\n Testing empty analytics...');
   
   await cleanup();
   
@@ -186,7 +186,7 @@ async function testEmptyAnalytics() {
 
 // Run all tests
 async function runTests() {
-  console.log('🧪 Social Scheduler Analytics Tests\n');
+  console.log(' Social Scheduler Analytics Tests\n');
   console.log('═'.repeat(50));
   
   try {
@@ -203,19 +203,19 @@ async function runTests() {
     await cleanup();
     
     console.log('\n' + '═'.repeat(50));
-    console.log(`\n✅ Tests passed: ${testsPassed}`);
-    console.log(`❌ Tests failed: ${testsFailed}`);
+    console.log(`\n Tests passed: ${testsPassed}`);
+    console.log(` Tests failed: ${testsFailed}`);
     
     if (testsFailed === 0) {
-      console.log('\n🎉 All tests passed!\n');
+      console.log('\n All tests passed!\n');
       process.exit(0);
     } else {
-      console.log('\n❌ Some tests failed.\n');
+      console.log('\n Some tests failed.\n');
       process.exit(1);
     }
     
   } catch (error) {
-    console.error('\n💥 Test suite crashed:', error.message);
+    console.error('\n Test suite crashed:', error.message);
     console.error(error.stack);
     process.exit(1);
   }

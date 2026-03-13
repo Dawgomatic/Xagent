@@ -1,4 +1,4 @@
-# 📊 chart-image
+#  chart-image
 
 **Publication-quality chart images from data. No browser, no Puppeteer, no native compilation.**
 
@@ -17,7 +17,7 @@ Most chart libraries need a browser (Puppeteer, Playwright) or native dependenci
 | **Install size** | ~15MB | ~400MB+ | 0 (API) |
 | **Native deps** | None | Chromium | N/A |
 | **Cold start** | <500ms | 2-5s | Network latency |
-| **Offline** | ✅ | ✅ | ❌ |
+| **Offline** |  |  |  |
 | **Fly.io/Docker** | Just works | Pain | Depends on uptime |
 
 ## Install
@@ -50,7 +50,7 @@ That's it. One command, one PNG.
 
 ## Chart Types
 
-### 📈 Line Chart
+###  Line Chart
 
 Track trends over time. The default chart type.
 
@@ -63,7 +63,7 @@ node scripts/chart.mjs --type line \
 
 ![Line chart](readme-assets/framed-line.png)
 
-### 📊 Bar Chart
+###  Bar Chart
 
 Compare categories side by side.
 
@@ -75,7 +75,7 @@ node scripts/chart.mjs --type bar \
 
 ![Bar chart](readme-assets/framed-bar.png)
 
-### 🌊 Area Chart
+###  Area Chart
 
 Like line charts, but with filled regions to emphasize volume.
 
@@ -87,7 +87,7 @@ node scripts/chart.mjs --type area \
 
 ![Area chart](readme-assets/framed-area.png)
 
-### 🍩 Donut / Pie Chart
+###  Donut / Pie Chart
 
 Show proportions at a glance. Use `--type pie` for a solid circle or `--type donut` for the ring style.
 
@@ -99,7 +99,7 @@ node scripts/chart.mjs --type donut \
 
 ![Donut chart](readme-assets/framed-donut.png)
 
-### 📉 Multi-Series Line
+###  Multi-Series Line
 
 Compare multiple trends on one chart using `--series-field`.
 
@@ -112,7 +112,7 @@ node scripts/chart.mjs --type line \
 
 ![Multi-series chart](readme-assets/framed-multi.png)
 
-### 📏 Horizontal Reference Lines
+###  Horizontal Reference Lines
 
 Add thresholds, targets, or buy prices with `--hline`.
 

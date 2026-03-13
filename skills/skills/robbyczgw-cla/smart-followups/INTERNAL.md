@@ -1,4 +1,4 @@
-# 🔧 Internal Development Notes
+#  Internal Development Notes
 
 > This document captures the development history, design decisions, and architecture of the Smart Follow-ups skill.
 
@@ -8,7 +8,7 @@
 
 ---
 
-## 📜 Development History
+##  Development History
 
 ### Origin
 
@@ -76,7 +76,7 @@ Chameleon's original implementation:
 
 ---
 
-## 🏗 Architecture
+##  Architecture
 
 ### Handler-Based Integration
 
@@ -121,13 +121,13 @@ Formats output (json/telegram/text/compact)
 
 ---
 
-## 🔧 Technical Notes
+##  Technical Notes
 
 ### OpenRouter Model IDs
 
 OpenRouter uses different model ID format:
-- ✅ `anthropic/claude-sonnet-4.5` (dot)
-- ❌ `anthropic/claude-sonnet-4-5` (dash)
+-  `anthropic/claude-sonnet-4.5` (dot)
+-  `anthropic/claude-sonnet-4-5` (dash)
 
 Discovered during testing when `claude-sonnet-4-5` returned "not a valid model ID" error.
 
@@ -151,7 +151,7 @@ readme.md → 302 redirect → dealsbe.com (spam)
 
 ---
 
-## 📁 File Structure
+##  File Structure
 
 | File | Purpose | Audience |
 |------|---------|----------|
@@ -167,7 +167,7 @@ readme.md → 302 redirect → dealsbe.com (spam)
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 ### Short-term
 - [ ] Add auto-trigger mode (configurable)
@@ -187,7 +187,7 @@ readme.md → 302 redirect → dealsbe.com (spam)
 
 ---
 
-## 🧪 Testing Checklist
+##  Testing Checklist
 
 - [x] CLI help command works
 - [x] CLI generates valid JSON output
@@ -202,7 +202,7 @@ readme.md → 302 redirect → dealsbe.com (spam)
 
 ---
 
-## 📊 Cost Analysis
+##  Cost Analysis
 
 | Model | Cost per Generation | Notes |
 |-------|---------------------|-------|
@@ -214,7 +214,7 @@ readme.md → 302 redirect → dealsbe.com (spam)
 
 ---
 
-## 🗣 Key Quotes from Development
+##  Key Quotes from Development
 
 **On button count:**
 > "Make 3 instead of 6 for here makes more sense 6 is too much"
@@ -227,7 +227,7 @@ readme.md → 302 redirect → dealsbe.com (spam)
 
 ---
 
-## 📝 Changelog Summary
+##  Changelog Summary
 
 ### v1.0.0 (2026-01-20)
 - Initial release

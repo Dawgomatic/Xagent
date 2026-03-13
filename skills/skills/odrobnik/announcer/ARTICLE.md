@@ -50,4 +50,4 @@ Both skills are available on [ClawHub](https://clawhub.com) and GitHub:
 
 You'll need [Airfoil](https://rogueamoeba.com/airfoil/) for the speaker routing, an [ElevenLabs](https://elevenlabs.io) API key for the voice generation, and [OpenClaw](https://openclaw.ai) to tie it all together.
 
-Now if you'll excuse me, I need to announce that dinner is ready. In style. 📢
+Now if you'll excuse me, I need to announce that dinner is ready. In style. 

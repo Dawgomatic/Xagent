@@ -155,13 +155,13 @@ Combinations that strongly predict rejection:
 
 | Signal Combination | Risk Level |
 |---|---|
-| Failed CI + no response to comments | 🔴 Very high |
-| >1000 LOC + scattered files + no description | 🔴 Very high |
-| Changes requested + no updates in >1 week | 🔴 High |
-| First-time author + large PR + no linked issue | 🔴 High |
-| Draft status + WIP label | 🟡 Not ready (expected) |
-| All CI green + approvals + <400 LOC | 🟢 Very likely to merge |
-| Core team author + small change + CI green | 🟢 Almost certain merge |
+| Failed CI + no response to comments |  Very high |
+| >1000 LOC + scattered files + no description |  Very high |
+| Changes requested + no updates in >1 week |  High |
+| First-time author + large PR + no linked issue |  High |
+| Draft status + WIP label |  Not ready (expected) |
+| All CI green + approvals + <400 LOC |  Very likely to merge |
+| Core team author + small change + CI green |  Almost certain merge |
 
 ## 7. Positive Merge Indicators
 

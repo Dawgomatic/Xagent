@@ -169,7 +169,7 @@ export function fingerprint(key1: Uint8Array, key2: Uint8Array): string {
   const sorted = Buffer.compare(Buffer.from(key1), Buffer.from(key2)) < 0
     ? new Uint8Array([...key1, ...key2]) : new Uint8Array([...key2, ...key1]);
   const hash = sodium.crypto_generichash(8, sorted);
-  const emojis = ['🔑','🛡','🔒','🌟','⚡','🎯','🚀','🔥','💎','🌈','🎪','🎭','🦊','🐉','🌙','☀️','🌊','🏔','🎸','🎹','🎲','🏆','🌸','🍀','🔔','🎨','🧭','🦋','🐝','🌻','🍎','🎵'];
+  const emojis = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
   return Array.from(hash).map(b => emojis[b % emojis.length]).join('');
 }
 

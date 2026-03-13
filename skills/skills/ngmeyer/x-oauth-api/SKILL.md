@@ -34,14 +34,14 @@ X_USER_ID              # Optional: Your numeric user ID (speeds up mentions)
 ### Free Tier vs Paid Tier
 
 **Free tier supports:**
-- ✅ Posting tweets and threads
-- ✅ Deleting tweets
-- ✅ Account info lookup (`x me`)
+-  Posting tweets and threads
+-  Deleting tweets
+-  Account info lookup (`x me`)
 
 **Requires Basic+ tier:**
-- 🔒 Search tweets
-- 🔒 Fetch mentions
-- 🔒 Media uploads
+-  Search tweets
+-  Fetch mentions
+-  Media uploads
 
 ### 2. Basic Usage
 

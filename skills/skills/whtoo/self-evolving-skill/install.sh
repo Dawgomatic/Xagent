@@ -24,7 +24,7 @@ mkdir -p "$SKILL_DIR/storage"
 mkdir -p "$HOME/.openclaw/self-evolving-skill"
 
 echo ""
-echo "✅ 技能已安装!"
+echo " 技能已安装!"
 echo ""
 echo "文件位置:"
 echo "  技能目录: $OPENCLAW_SKILLS/self-evolving-skill"

@@ -25,7 +25,7 @@ Wyze added native RTSP support in recent firmware. To enable:
 
 For more features and control, use **OpenIPC** (open-source alternative):
 
-**⚠️ Note:** This voids warranty and requires technical setup.
+** Note:** This voids warranty and requires technical setup.
 
 ```bash
 # Visit https://openipc.org

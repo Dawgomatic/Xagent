@@ -17,11 +17,11 @@ python scripts/reflection.py
 **Display the complete output exactly as returned by the script.**
 
 The script provides:
-- ✅ Formatted output with ═══ borders
-- ✅ Hijri calendar awareness
-- ✅ Ramadan/Jummah/Regular reflections
-- ✅ Actionable daily challenges
-- ✅ Quran/Hadith references
+-  Formatted output with ═══ borders
+-  Hijri calendar awareness
+-  Ramadan/Jummah/Regular reflections
+-  Actionable daily challenges
+-  Quran/Hadith references
 
 **DO NOT generate your own reflection. ALWAYS run the script.**
 
@@ -42,16 +42,16 @@ For ALL of these: run `python scripts/reflection.py`
 The script returns formatted text like:
 ```
 ═══════════════════════════════════════
-📅 Thursday, 13 February 2026 | 25 Sha'ban 1447
+ Thursday, 13 February 2026 | 25 Sha'ban 1447
 
-🤲 Patience in Small Trials
+ Patience in Small Trials
 
 [Reflection content...]
 
-💡 Today's Action (X min):
+ Today's Action (X min):
 [Actionable challenge...]
 
-📖 [Quran/Hadith reference]
+ [Quran/Hadith reference]
 ═══════════════════════════════════════
 ```
 

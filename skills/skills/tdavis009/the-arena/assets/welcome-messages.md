@@ -9,38 +9,38 @@ the channel names if you changed the defaults.
 ## #rules
 
 ```
-📜 **WELCOME TO THE DEBATE HALL**
+ **WELCOME TO THE DEBATE HALL**
 
 This server is a space for structured, moderated debates with an AI judge. Whether you're here for serious intellectual discourse or a fun argument about whether cereal is soup, we've got a format for you.
 
 **HOW IT WORKS**
 
-1️⃣ **Propose a topic** in #propose-a-topic
-2️⃣ **Find an opponent** (or several) who wants to debate
-3️⃣ **Move to the arena** when you're ready — the moderator will set up the debate
-4️⃣ **Debate!** The moderator tracks arguments, flags fallacies, and keeps things moving
-5️⃣ **Get a verdict** — scored by the AI judge based on evidence, engagement, honesty, and persuasiveness
-6️⃣ **Check the scoreboard** in #hall-of-records to see where you stand
+ **Propose a topic** in #propose-a-topic
+ **Find an opponent** (or several) who wants to debate
+ **Move to the arena** when you're ready — the moderator will set up the debate
+ **Debate!** The moderator tracks arguments, flags fallacies, and keeps things moving
+ **Get a verdict** — scored by the AI judge based on evidence, engagement, honesty, and persuasiveness
+ **Check the scoreboard** in #hall-of-records to see where you stand
 
 **DEBATE FORMATS**
 
-🏕️ **Campfire** — Free-form exchange. Casual, flexible, good for any topic.
-📜 **Oxford** — Formal rounds with audience voting. For serious propositions.
-⚔️ **Lincoln-Douglas** — 1v1 value debate with strict structure.
-🔥 **Hot Takes** — One message each. Best single argument wins. Fast and fun.
-😈 **Devil's Advocate** — Argue the opposite of what you believe.
-🔮 **Roundtable** — Collaborative exploration. No winner, just insight.
+ **Campfire** — Free-form exchange. Casual, flexible, good for any topic.
+ **Oxford** — Formal rounds with audience voting. For serious propositions.
+ **Lincoln-Douglas** — 1v1 value debate with strict structure.
+ **Hot Takes** — One message each. Best single argument wins. Fast and fun.
+ **Devil's Advocate** — Argue the opposite of what you believe.
+ **Roundtable** — Collaborative exploration. No winner, just insight.
 
 **RULES**
 
-✅ **DO:**
+ **DO:**
 • Attack arguments, not people
 • Cite evidence when you can
 • Acknowledge good points from your opponent
 • Stay on topic
 • Have fun
 
-❌ **DON'T:**
+ **DON'T:**
 • Use personal attacks or insults
 • Harass or target other participants
 • Spam or derail active debates
@@ -67,7 +67,7 @@ Penalties for: ad hominem, strawmanning, goalpost moving, ignoring questions
 • `formats` — List debate formats
 • `help` — All commands
 
-Let the debates begin! 🎙️
+Let the debates begin! 
 ```
 
 ---
@@ -75,7 +75,7 @@ Let the debates begin! 🎙️
 ## #propose-a-topic
 
 ```
-💡 **TOPIC PROPOSALS**
+ **TOPIC PROPOSALS**
 
 This is where great debates are born. Here's how it works:
 
@@ -98,7 +98,7 @@ Post it like this:
 > **Format:** Roundtable
 
 **SHOW INTEREST:**
-React with 👍 to topics you'd debate. When 2+ people are ready, say "let's debate" and move to the arena.
+React with  to topics you'd debate. When 2+ people are ready, say "let's debate" and move to the arena.
 
 **TIPS FOR GOOD TOPICS:**
 • Debatable — reasonable people can disagree
@@ -108,7 +108,7 @@ React with 👍 to topics you'd debate. When 2+ people are ready, say "let's deb
 
 The moderator will help you pick the best format for your topic and refine the framing if needed.
 
-Start proposing! 🎯
+Start proposing! 
 ```
 
 ---
@@ -116,7 +116,7 @@ Start proposing! 🎯
 ## #the-arena
 
 ```
-⚔️ **THE ARENA**
+ **THE ARENA**
 
 This is where debates happen. The moderator runs the show here.
 
@@ -140,7 +140,7 @@ After proposing a topic and finding an opponent, @mention the moderator:
 **MULTIPLE DEBATES:**
 Up to 3 debates can run at the same time. The moderator tracks each separately.
 
-Good luck. May the best argument win. ⚖️
+Good luck. May the best argument win. 
 ```
 
 ---
@@ -148,14 +148,14 @@ Good luck. May the best argument win. ⚖️
 ## #hall-of-records
 
 ```
-🏛️ **HALL OF RECORDS**
+ **HALL OF RECORDS**
 
 This is the archive. Every verdict, every score, every debate — recorded here.
 
 **WHAT GOES HERE:**
-• 📋 Verdicts from completed debates
-• 🏆 Scoreboard and leaderboard updates
-• 📊 Stats and records
+•  Verdicts from completed debates
+•  Scoreboard and leaderboard updates
+•  Stats and records
 
 **COMMANDS (in any channel, @mention the moderator):**
 • `scoreboard` — Current standings
@@ -170,7 +170,7 @@ The scoreboard tracks:
 
 This channel is read-only for participants. The moderator posts records here automatically.
 
-Your legacy is written here. Make it a good one. 📜
+Your legacy is written here. Make it a good one. 
 ```
 
 ---
@@ -178,7 +178,7 @@ Your legacy is written here. Make it a good one. 📜
 ## #the-bar
 
 ```
-🍺 **THE BAR**
+ **THE BAR**
 
 Pull up a stool. The debate is over (or hasn't started yet).
 
@@ -195,5 +195,5 @@ The moderator hangs out here too — in a more relaxed mode. No judging, no scor
 • No rehashing settled verdicts (the judge's ruling is final)
 • Buy the next round
 
-Welcome to the bar. 🥂
+Welcome to the bar. 
 ```

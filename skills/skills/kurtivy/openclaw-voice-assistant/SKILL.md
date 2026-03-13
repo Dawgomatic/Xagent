@@ -12,7 +12,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎙️",
+        "emoji": "",
         "os": ["win32"],
         "requires":
           {

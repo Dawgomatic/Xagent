@@ -4,11 +4,11 @@ Search the web using Perplexity's Search API. Returns ranked, real-time web resu
 
 ## Features
 
-- 🔍 Real-time web search
-- 📊 Ranked results by relevance
-- ⏰ Recency filtering (day/week/month/year)
-- 🛡️ Secure API key handling
-- 🚀 Simple Python script, no dependencies
+-  Real-time web search
+-  Ranked results by relevance
+-  Recency filtering (day/week/month/year)
+-  Secure API key handling
+-  Simple Python script, no dependencies
 
 ## Installation
 
@@ -76,11 +76,11 @@ Get your Perplexity API key at: https://perplexity.ai/account/api
 
 ## Security
 
-- ✅ API key stored in config, never in code
-- ✅ Output sanitization prevents injection attacks
-- ✅ Error messages don't expose sensitive info
-- ✅ 30-second timeout on requests
-- ✅ Input validation on all parameters
+-  API key stored in config, never in code
+-  Output sanitization prevents injection attacks
+-  Error messages don't expose sensitive info
+-  30-second timeout on requests
+-  Input validation on all parameters
 
 ## Requirements
 

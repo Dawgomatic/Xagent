@@ -67,7 +67,7 @@ def analytics_week():
     goal_hits = stats["goal_hits"]
     
     # Build message
-    message = f"📊 **Weekly Water Report**\n\n"
+    message = f" **Weekly Water Report**\n\n"
     message += f"**This Week:**\n"
     message += f"- Total: {stats['total_ml']}ml\n"
     message += f"- Average: {avg_daily}ml/day\n"
@@ -77,7 +77,7 @@ def analytics_week():
     for day in stats.get("days", []):
         pct = day.get("percentage", 0)
         ml = day.get("ml", 0)
-        emoji = "✅" if pct >= 100 else "⚠️" if pct >= 50 else "❌"
+        emoji = "" if pct >= 100 else "" if pct >= 50 else ""
         message += f"{emoji} {day['date']}: {ml}ml ({pct}%)\n"
     
     return {"message": message, "stats": stats}
@@ -100,9 +100,9 @@ def analytics_month():
     last_week_avg = sum(d["ml"] for d in last_week) // max(1, len(last_week))
     prev_week_avg = sum(d["ml"] for d in prev_week) // max(1, len(prev_week))
     
-    trend = "📈 Improving" if last_week_avg > prev_week_avg else "📉 Declining" if last_week_avg < prev_week_avg else "➡️ Stable"
+    trend = " Improving" if last_week_avg > prev_week_avg else " Declining" if last_week_avg < prev_week_avg else " Stable"
     
-    message = f"📊 **Monthly Water Report**\n\n"
+    message = f" **Monthly Water Report**\n\n"
     message += f"**This Month:**\n"
     message += f"- Total: {stats['total_ml']}ml\n"
     message += f"- Average: {avg_daily}ml/day\n"
@@ -113,7 +113,7 @@ def analytics_month():
     for day in stats["days"][:7]:
         pct = day.get("percentage", 0)
         ml = day.get("ml", 0)
-        emoji = "✅" if pct >= 100 else "⚠️" if pct >= 50 else "❌"
+        emoji = "" if pct >= 100 else "" if pct >= 50 else ""
         message += f"{emoji} {day['date']}: {ml}ml ({pct}%)\n"
     
     return {"message": message, "stats": stats}

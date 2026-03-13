@@ -2,16 +2,16 @@
 name: openclaw-youtube
 description: "YouTube SERP Scout for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking."
 homepage: https://openclaw.ai
-metadata: {"openclaw":{"emoji":"📺","requires":{"bins":["curl","python3"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","python3"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
 ---
 
-# OpenClaw YouTube 📺
+# OpenClaw YouTube 
 
 **YouTube SERP Scout for autonomous agents. Powered by AIsa.**
 
 One API key. Rank discovery. Content research. Competitor tracking.
 
-## 🔥 What Can You Do?
+##  What Can You Do?
 
 ### Content Research
 ```

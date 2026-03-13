@@ -1,4 +1,4 @@
-# Vector Memory Hack 🧠⚡
+# Vector Memory Hack 
 
 > Ultra-lightweight semantic search for AI agent memory systems
 
@@ -9,7 +9,7 @@
 
 ---
 
-## 🎯 The Problem
+##  The Problem
 
 AI agents waste **thousands of tokens** reading entire memory files just to find 2-3 relevant sections:
 
@@ -20,7 +20,7 @@ Agent reads EVERYTHING
     ↓
 Finds 3 relevant sections (500 tokens)
     ↓
-Wasted: 2500 tokens per session! 💸
+Wasted: 2500 tokens per session! 
 ```
 
 **Real-world impact:**
@@ -31,7 +31,7 @@ Wasted: 2500 tokens per session! 💸
 
 ---
 
-## 💡 The Solution
+##  The Solution
 
 **Vector Memory Hack** enables semantic search that finds relevant context in **<10ms** using only Python standard library + SQLite.
 
@@ -42,44 +42,44 @@ Agent: vsearch "ssh config changes"
     ↓
 Top 5 relevant sections (500 tokens)
     ↓
-Task completed with full context ✅
+Task completed with full context 
 ```
 
 **Token savings: 80%** | **Speed: <10ms** | **Dependencies: ZERO**
 
 ---
 
-## ✨ Key Benefits
+##  Key Benefits
 
-### 1. 🚀 **Lightning Fast**
+### 1.  **Lightning Fast**
 - **<10ms** search across 50+ sections
 - **<50ms** to index 100 new sections
 - Instant startup - no model loading
 
-### 2. 💰 **Token Efficient**
+### 2.  **Token Efficient**
 - Read 3-5 relevant sections instead of entire file
 - **Save 80%** on token costs
 - Smaller context windows = faster responses
 
-### 3. 🛡️ **Zero Dependencies**
+### 3.  **Zero Dependencies**
 - Pure Python (stdlib only)
 - No PyTorch, no transformers
 - No Docker, no GPU needed
 - Works on VPS, Raspberry Pi, edge devices
 
-### 4. 🎯 **Accurate Results**
+### 4.  **Accurate Results**
 - TF-IDF + Cosine Similarity
 - Finds semantically related content
 - Better than keyword matching
 - Multilingual support (CZ/EN/DE)
 
-### 5. 🔒 **Private & Local**
+### 5.  **Private & Local**
 - Everything stays on your machine
 - No API calls to external services
 - No data leaves your server
 - SQLite storage
 
-### 6. 🌍 **Universal**
+### 6.  **Universal**
 - Works with any markdown documentation
 - Not tied to specific AI platform
 - Compatible with OpenClaw, Claude, GPT, etc.
@@ -87,7 +87,7 @@ Task completed with full context ✅
 
 ---
 
-## 📊 Comparison: Standard vs Vector Memory Hack
+##  Comparison: Standard vs Vector Memory Hack
 
 | Aspect | Standard Memory | Vector Memory Hack | Advantage |
 |--------|----------------|-------------------|-----------|
@@ -111,12 +111,12 @@ Task completed with full context ✅
 | Pinecone | API calls | Cloud | ~100ms | API key | Enterprise scale |
 
 **When to choose Vector Memory Hack:**
-- ✅ Need instant deployment (no setup)
-- ✅ Resource-constrained environments (VPS, edge)
-- ✅ Want zero maintenance
-- ✅ Don't want external dependencies
-- ✅ Quick prototyping
-- ✅ Privacy-first (no data to cloud)
+-  Need instant deployment (no setup)
+-  Resource-constrained environments (VPS, edge)
+-  Want zero maintenance
+-  Don't want external dependencies
+-  Quick prototyping
+-  Privacy-first (no data to cloud)
 
 **When to choose alternatives:**
 - Need state-of-the-art semantic accuracy
@@ -126,7 +126,7 @@ Task completed with full context ✅
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -201,7 +201,7 @@ context = get_context("ssh config changes")
 
 ---
 
-## 🛠️ Configuration
+##  Configuration
 
 Edit these variables in `scripts/vector_search.py`:
 
@@ -218,7 +218,7 @@ DB_PATH = VECTORS_DIR / "vectors.db"
 
 ---
 
-## 📚 Commands Reference
+##  Commands Reference
 
 ### Rebuild Entire Index
 ```bash
@@ -246,7 +246,7 @@ Shows: Number of sections, vocabulary size, database path
 
 ---
 
-## 🔧 How It Works
+##  How It Works
 
 ### Architecture
 
@@ -289,21 +289,21 @@ MEMORY.md (Markdown file)
 ### Why TF-IDF?
 
 **Pros:**
-- ✅ No training required
-- ✅ Interpretable scores
-- ✅ Fast computation
-- ✅ Language agnostic
-- ✅ Battle-tested (50+ years)
+-  No training required
+-  Interpretable scores
+-  Fast computation
+-  Language agnostic
+-  Battle-tested (50+ years)
 
 **Cons:**
-- ❌ No semantic understanding ("king" ≠ "queen")
-- ❌ Simpler than neural embeddings
+-  No semantic understanding ("king" ≠ "queen")
+-  Simpler than neural embeddings
 
 **The Trade-off:** For agent memory retrieval, TF-IDF is **good enough** and **much faster/simpler** than neural alternatives.
 
 ---
 
-## 💼 Use Cases
+##  Use Cases
 
 ### 1. AI Agent Memory Retrieval
 ```bash
@@ -331,7 +331,7 @@ vsearch "backup required before changes"
 
 ---
 
-## 🎓 Best Practices
+##  Best Practices
 
 ### For AI Agents
 
@@ -383,7 +383,7 @@ python3 scripts/vector_search.py --stats
 
 ---
 
-## 📈 Performance Benchmarks
+##  Performance Benchmarks
 
 ### Indexing Speed
 | Sections | Time | Tokens |
@@ -410,7 +410,7 @@ python3 scripts/vector_search.py --stats
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### "No sections found"
 - Check that MEMORY_PATH exists
@@ -433,7 +433,7 @@ python3 scripts/vector_search.py --stats
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Areas for improvement:
 
@@ -445,7 +445,7 @@ Contributions welcome! Areas for improvement:
 
 ---
 
-## 📄 License
+##  License
 
 MIT License - Free for personal and commercial use.
 
@@ -453,7 +453,7 @@ See [LICENSE](LICENSE) for details.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built for [OpenClaw](https://openclaw.ai) agent framework
 - Inspired by needs of real AI agent deployments
@@ -461,7 +461,7 @@ See [LICENSE](LICENSE) for details.
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **ClawHub:** https://clawhub.com/skills/vector-memory-hack
 - **GitHub:** https://github.com/mig6671/vector-memory-hack
@@ -477,6 +477,6 @@ See [LICENSE](LICENSE) for details.
 </p>
 
 <p align="center">
-  <strong>Star ⭐ if this saved you tokens!</strong><br>
-  <em>Made with ❤️ by agents, for agents</em>
+  <strong>Star  if this saved you tokens!</strong><br>
+  <em>Made with  by agents, for agents</em>
 </p>

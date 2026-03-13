@@ -6,7 +6,7 @@ version: 1.4.1
 homepage: https://github.com/odrobnik/bricklink-skill
 metadata:
   openclaw:
-    emoji: "🧱"
+    emoji: ""
     requires:
       bins: ["python3"]
       env: ["BRICKLINK_CONSUMER_KEY", "BRICKLINK_CONSUMER_SECRET", "BRICKLINK_TOKEN_VALUE", "BRICKLINK_TOKEN_SECRET"]

@@ -31,13 +31,13 @@ async function main() {
     const result = checkAction({ tool, params });
 
     if (result.decision === 'BLOCK') {
-      console.error(`🚫 BLOCK: ${result.reason} (rule: ${result.rule}, ${result.latencyMs}ms)`);
+      console.error(` BLOCK: ${result.reason} (rule: ${result.rule}, ${result.latencyMs}ms)`);
       process.exit(1);
     } else if (result.decision === 'ESCALATE') {
-      console.warn(`⚠️ ESCALATE: ${result.reason} (rule: ${result.rule}, ${result.latencyMs}ms)`);
+      console.warn(` ESCALATE: ${result.reason} (rule: ${result.rule}, ${result.latencyMs}ms)`);
       process.exit(2);
     } else {
-      console.log(`✅ ALLOW (${result.latencyMs}ms)`);
+      console.log(` ALLOW (${result.latencyMs}ms)`);
       process.exit(0);
     }
   } catch (err) {

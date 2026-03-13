@@ -11,7 +11,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CURRENT=$("$SCRIPT_DIR/claude-usage.sh" --json --fresh 2>/dev/null)
 
 if [ -z "$CURRENT" ]; then
-  echo "❌ Failed to fetch usage" >&2
+  echo " Failed to fetch usage" >&2
   exit 1
 fi
 
@@ -34,7 +34,7 @@ if [ ! -f "$STATE_FILE" ]; then
   "last_check": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 }
 EOF
-  echo "📊 Initial state saved. Monitoring started."
+  echo " Initial state saved. Monitoring started."
   exit 0
 fi
 
@@ -68,30 +68,30 @@ if [ "$SESSION_RESET" -eq 1 ] || [ "$WEEKLY_RESET" -eq 1 ]; then
   MESSAGE=""
   
   if [ "$SESSION_RESET" -eq 1 ]; then
-    MESSAGE="🎉 *Claude Code Session Reset!*\n\n"
-    MESSAGE+="⏱️  Your 5-hour quota has reset\n"
-    MESSAGE+="📊 Usage: *${SESSION_NOW}%*\n"
-    MESSAGE+="⏰ Next reset: ${SESSION_RESETS}\n"
+    MESSAGE=" *Claude Code Session Reset!*\n\n"
+    MESSAGE+="  Your 5-hour quota has reset\n"
+    MESSAGE+=" Usage: *${SESSION_NOW}%*\n"
+    MESSAGE+=" Next reset: ${SESSION_RESETS}\n"
   fi
   
   if [ "$WEEKLY_RESET" -eq 1 ]; then
     if [ -n "$MESSAGE" ]; then
       MESSAGE+="\n---\n\n"
     fi
-    MESSAGE+="🎊 *Claude Code Weekly Reset!*\n\n"
-    MESSAGE+="📅 Your 7-day quota has reset\n"
-    MESSAGE+="📊 Usage: *${WEEKLY_NOW}%*\n"
-    MESSAGE+="⏰ Next reset: ${WEEKLY_RESETS}\n"
+    MESSAGE+=" *Claude Code Weekly Reset!*\n\n"
+    MESSAGE+=" Your 7-day quota has reset\n"
+    MESSAGE+=" Usage: *${WEEKLY_NOW}%*\n"
+    MESSAGE+=" Next reset: ${WEEKLY_RESETS}\n"
   fi
   
-  MESSAGE+="\nFresh usage available! 🦞"
+  MESSAGE+="\nFresh usage available! "
   
   # Send via clawdbot message tool
   # Note: This script is typically run by Clawdbot cron, which will capture output
   # and send it as a notification automatically. For manual testing, print to stdout.
   echo -e "$MESSAGE"
   
-  echo "✅ Reset notification sent"
+  echo " Reset notification sent"
 fi
 
 # Update state file
@@ -105,13 +105,13 @@ EOF
 
 # Log current status
 if [ "$SESSION_RESET" -eq 1 ]; then
-  echo "📊 Session: ${SESSION_PREV}% → ${SESSION_NOW}% (RESET)"
+  echo " Session: ${SESSION_PREV}% → ${SESSION_NOW}% (RESET)"
 else
-  echo "📊 Session: ${SESSION_PREV}% → ${SESSION_NOW}%"
+  echo " Session: ${SESSION_PREV}% → ${SESSION_NOW}%"
 fi
 
 if [ "$WEEKLY_RESET" -eq 1 ]; then
-  echo "📊 Weekly: ${WEEKLY_PREV}% → ${WEEKLY_NOW}% (RESET)"
+  echo " Weekly: ${WEEKLY_PREV}% → ${WEEKLY_NOW}% (RESET)"
 else
-  echo "📊 Weekly: ${WEEKLY_PREV}% → ${WEEKLY_NOW}%"
+  echo " Weekly: ${WEEKLY_PREV}% → ${WEEKLY_NOW}%"
 fi

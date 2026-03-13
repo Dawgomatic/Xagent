@@ -1,7 +1,7 @@
 ---
 name: Inventory & Supply Chain Manager
 description: Complete inventory management, demand forecasting, supplier evaluation, and supply chain optimization for businesses of any size. From stockroom to strategy.
-metadata: {"clawdbot":{"emoji":"📦","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Inventory & Supply Chain Manager
@@ -399,9 +399,9 @@ notes: "Include QC certificates. Ship via sea freight."
 Monitor daily:
 - **Days of Stock** = Current Stock / Avg Daily Demand
 - Alert thresholds:
-  - 🔴 < 7 days: URGENT — expedite or find alternative
-  - 🟡 < 14 days: WARNING — confirm PO status, consider backup supplier
-  - 🟢 > 14 days: OK
+  -  < 7 days: URGENT — expedite or find alternative
+  -  < 14 days: WARNING — confirm PO status, consider backup supplier
+  -  > 14 days: OK
 
 ### Stockout Response Playbook
 

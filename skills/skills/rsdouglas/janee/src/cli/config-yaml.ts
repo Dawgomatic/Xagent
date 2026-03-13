@@ -272,7 +272,7 @@ export function migrateToYAML(): void {
 
   fs.writeFileSync(CONFIG_FILE_YAML, yamlContent, { mode: 0o600 });
 
-  console.log('✅ Migrated to YAML config');
+  console.log(' Migrated to YAML config');
   console.log(`Old config backed up at: ${CONFIG_FILE_JSON}.bak`);
   
   // Backup old config

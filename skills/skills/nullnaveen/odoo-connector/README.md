@@ -16,16 +16,16 @@ Full-featured Odoo 19 ERP integration for OpenClaw. Control your entire business
 
 ### Supported Modules
 
-- 📊 Sales & CRM (quotations, orders, leads, opportunities)
-- 🛒 Purchasing (POs, vendors, receipts)
-- 📦 Inventory (products, stock levels, alerts)
-- 💰 Invoicing (customer invoices, payments)
-- 📋 Projects & Tasks (management, timesheets)
-- 👥 HR (employees, departments, expenses, leave)
-- 🚗 Fleet (vehicles, odometer, maintenance)
-- 🏭 Manufacturing (BOMs, production orders)
-- 📅 Calendar (events, meetings)
-- 🛍️ eCommerce (website orders, product publishing)
+-  Sales & CRM (quotations, orders, leads, opportunities)
+-  Purchasing (POs, vendors, receipts)
+-  Inventory (products, stock levels, alerts)
+-  Invoicing (customer invoices, payments)
+-  Projects & Tasks (management, timesheets)
+-  HR (employees, departments, expenses, leave)
+-  Fleet (vehicles, odometer, maintenance)
+-  Manufacturing (BOMs, production orders)
+-  Calendar (events, meetings)
+-  eCommerce (website orders, product publishing)
 
 ## Quick Install
 
@@ -125,7 +125,7 @@ The connector automatically handles missing dependencies with fuzzy matching:
 3. Searches for product "Snake Skin"
 4. If not found → creates product with $10 price
 5. Creates quotation linking both
-6. Reports: "✅ Created quotation S00059 for Rocky with 100 × Snake Skin at $1,150"
+6. Reports: " Created quotation S00059 for Rocky with 100 × Snake Skin at $1,150"
 
 ## Technical Details
 
@@ -199,10 +199,10 @@ openclaw-odoo-skill/
 
 The security scan on ClawHub correctly identifies this skill as having powerful capabilities:
 
-- ✅ Full CRUD operations across Odoo modules (required for ERP management)
-- ✅ Webhook server for real-time updates (optional feature)
-- ✅ Background polling for change detection (optional feature)
-- ✅ XML-RPC network access (required for Odoo communication)
+-  Full CRUD operations across Odoo modules (required for ERP management)
+-  Webhook server for real-time updates (optional feature)
+-  Background polling for change detection (optional feature)
+-  XML-RPC network access (required for Odoo communication)
 
 **These are legitimate features for an ERP connector.** The skill contains no malicious code — review the source if you have concerns.
 
@@ -251,4 +251,4 @@ MIT License - see LICENSE file for details
 
 **Version:** 1.0.1  
 **Last Updated:** 2026-02-09  
-**Status:** Production Ready ✅
+**Status:** Production Ready 

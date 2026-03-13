@@ -8,7 +8,7 @@ license: Proprietary
 
 Generate customizable QR codes for URLs, text, WiFi credentials, contact cards, and more. Supports batch generation, custom styling, logo embedding, and multiple export formats.
 
-⚠️ **Prerequisite:** Install [OpenClawCLI](https://clawhub.ai/) (Windows, MacOS)
+ **Prerequisite:** Install [OpenClawCLI](https://clawhub.ai/) (Windows, MacOS)
 
 **Installation:**
 ```bash

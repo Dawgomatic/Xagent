@@ -83,14 +83,14 @@ Both scripts auto-detect paths:
 
 ## Handling Results
 
-### ✅ Clean (`verdict: "clean"`)
+###  Clean (`verdict: "clean"`)
 - No action needed — skill is safe
 
-### ⚠️ Suspicious (`verdict: "suspicious"`)
+###  Suspicious (`verdict: "suspicious"`)
 - Warn the user with a summary of findings
 - Show the category and severity of each finding
 
-### 🚨 Dangerous (`verdict: "dangerous"`)
+###  Dangerous (`verdict: "dangerous"`)
 - Block the skill — do not proceed with installation or use
 - Show the full detailed findings to the user
 - Require explicit user override to proceed

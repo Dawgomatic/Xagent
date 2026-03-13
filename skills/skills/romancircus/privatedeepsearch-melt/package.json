@@ -7,14 +7,14 @@
       "searxng": {
         "bin": "curl",
         "script": "search.sh",
-        "emoji": "🔍",
+        "emoji": "",
         "category": "search",
         "description": "Privacy-first web search via SearXNG (DuckDuckGo, Brave, Startpage)"
       },
       "deep-research": {
         "bin": "python3",
         "script": "deep_research.py",
-        "emoji": "🔬",
+        "emoji": "",
         "category": "research",
         "description": "Multi-iteration research with content scraping and citations"
       }

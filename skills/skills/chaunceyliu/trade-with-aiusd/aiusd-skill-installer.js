@@ -30,26 +30,26 @@ function log(message, color = 'reset') {
 
 async function install() {
   try {
-    log('🚀 AIUSD Skill Installer', 'magenta');
+    log(' AIUSD Skill Installer', 'magenta');
     log('========================', 'magenta');
-    log(`📦 Version: 1.0.0`, 'blue');
+    log(` Version: 1.0.0`, 'blue');
     log('', 'reset');
 
     // Extract to current directory
     const installDir = process.cwd();
     const skillDir = path.join(installDir, 'aiusd-skill');
 
-    log(`📁 Installing to: ${skillDir}`, 'blue');
+    log(` Installing to: ${skillDir}`, 'blue');
 
     // Create skill directory
     if (fs.existsSync(skillDir)) {
-      log('🗑️  Removing existing installation...', 'yellow');
+      log('  Removing existing installation...', 'yellow');
       fs.rmSync(skillDir, { recursive: true });
     }
     fs.mkdirSync(skillDir, { recursive: true });
 
     // Decode and extract package data
-    log('📦 Extracting skill package...', 'blue');
+    log(' Extracting skill package...', 'blue');
     const packageData = Buffer.from(PACKAGE_DATA, 'base64');
     const tarballPath = path.join(skillDir, 'package.tar.gz');
     fs.writeFileSync(tarballPath, packageData);
@@ -59,30 +59,30 @@ async function install() {
     fs.unlinkSync(tarballPath);
 
     // Install dependencies
-    log('📥 Installing dependencies...', 'blue');
+    log(' Installing dependencies...', 'blue');
     try {
       execSync('npm install', { cwd: skillDir, stdio: 'inherit' });
-      log('✅ Dependencies installed successfully', 'green');
+      log(' Dependencies installed successfully', 'green');
     } catch (error) {
-      log('⚠️  Warning: Failed to install dependencies automatically', 'yellow');
+      log('  Warning: Failed to install dependencies automatically', 'yellow');
       log('   Please run: cd aiusd-skill && npm install', 'cyan');
     }
 
     log('', 'reset');
-    log('🎉 AIUSD Skill installed successfully!', 'green');
+    log(' AIUSD Skill installed successfully!', 'green');
     log('', 'reset');
-    log('🚀 Next Steps:', 'yellow');
+    log(' Next Steps:', 'yellow');
     log('1. cd aiusd-skill', 'blue');
     log('2. npm run setup', 'blue');
     log('', 'reset');
-    log('💡 Usage Examples:', 'cyan');
+    log(' Usage Examples:', 'cyan');
     log('• Check balance: npm start -- balances', 'blue');
     log('• List tools: npm start -- tools', 'blue');
     log('• Get help: npm start -- --help', 'blue');
     log('', 'reset');
 
   } catch (error) {
-    log(`❌ Installation failed: ${error.message}`, 'red');
+    log(` Installation failed: ${error.message}`, 'red');
     process.exit(1);
   }
 }

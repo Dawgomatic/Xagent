@@ -80,7 +80,7 @@ export class ClaudeCodeClient {
   async getRecommendations(options: ClaudeCodeSearchOptions): Promise<ClaudeCodeSkill[]> {
     const { mainCategories, subCategories, limit = 10 } = options;
 
-    console.log(`🔍 Searching Claude Code skills for categories: ${mainCategories.join(', ')}`);
+    console.log(` Searching Claude Code skills for categories: ${mainCategories.join(', ')}`);
 
     try {
       // Fetch all skills from repos
@@ -92,10 +92,10 @@ export class ClaudeCodeClient {
       // Limit results
       const limitedSkills = matchedSkills.slice(0, limit);
 
-      console.log(`✅ Found ${limitedSkills.length} Claude Code skills`);
+      console.log(` Found ${limitedSkills.length} Claude Code skills`);
       return limitedSkills;
     } catch (error) {
-      console.error('❌ Claude Code search failed:', error);
+      console.error(' Claude Code search failed:', error);
       return [];
     }
   }
@@ -108,11 +108,11 @@ export class ClaudeCodeClient {
     const cached = this.cache.get(cacheKey);
 
     if (cached) {
-      console.log('📦 Using cached Claude Code skills');
+      console.log(' Using cached Claude Code skills');
       return cached;
     }
 
-    console.log('🌐 Fetching Claude Code skills from GitHub...');
+    console.log(' Fetching Claude Code skills from GitHub...');
 
     // Fetch from all repos in parallel
     const skillsPromises = SKILL_REPOS.map(repo => this.fetchRepoSkills(repo));
@@ -126,7 +126,7 @@ export class ClaudeCodeClient {
     this.cache.set(cacheKey, uniqueSkills);
     setTimeout(() => this.cache.delete(cacheKey), this.cacheExpiry);
 
-    console.log(`✅ Fetched ${uniqueSkills.length} unique skills from ${SKILL_REPOS.length} repos`);
+    console.log(` Fetched ${uniqueSkills.length} unique skills from ${SKILL_REPOS.length} repos`);
     return uniqueSkills;
   }
 
@@ -145,7 +145,7 @@ export class ClaudeCodeClient {
       });
 
       if (!response.ok) {
-        console.warn(`⚠️  Failed to fetch ${repo.owner}/${repo.repo}: ${response.status}`);
+        console.warn(`  Failed to fetch ${repo.owner}/${repo.repo}: ${response.status}`);
         return [];
       }
 
@@ -154,10 +154,10 @@ export class ClaudeCodeClient {
       // Parse markdown to extract skills
       const skills = this.parseMarkdown(markdown, repo);
 
-      console.log(`✅ Parsed ${skills.length} skills from ${repo.owner}/${repo.repo}`);
+      console.log(` Parsed ${skills.length} skills from ${repo.owner}/${repo.repo}`);
       return skills;
     } catch (error) {
-      console.error(`❌ Error fetching ${repo.owner}/${repo.repo}:`, error);
+      console.error(` Error fetching ${repo.owner}/${repo.repo}:`, error);
       return [];
     }
   }

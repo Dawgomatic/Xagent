@@ -11,10 +11,10 @@ Comprehensive security checklist for code, files, and agent skills.
 - Regular security reviews
 
 **Severity Levels:**
-- 🚨 **CRITICAL**: Fixes required immediately
-- ⚠️ **HIGH**: Priority fixes, block deployment
-- ⚡ **MEDIUM**: Important fixes, track and schedule
-- ℹ️ **LOW**: Nice to have, document exceptions
+-  **CRITICAL**: Fixes required immediately
+-  **HIGH**: Priority fixes, block deployment
+-  **MEDIUM**: Important fixes, track and schedule
+-  **LOW**: Nice to have, document exceptions
 
 ---
 
@@ -33,7 +33,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - `private_key`, `sk_live`, `ghp_`
 - `0x[a-fA-F0-9]{64}` (Ethereum keys)
 
-**Severity:** 🚨 CRITICAL
+**Severity:**  CRITICAL
 
 ---
 
@@ -46,7 +46,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Input character sets enforced
 - [ ] Reject unexpected input types
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ### 2.2 File Operations
 - [ ] File paths validated
@@ -55,7 +55,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] File size limits enforced
 - [ ] No user-controlled file operations on system files
 
-**Severity:** 🚨 CRITICAL
+**Severity:**  CRITICAL
 
 ### 2.3 Database Operations
 - [ ] Parameterized queries used (no concatenation)
@@ -63,7 +63,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Input not concatenated into queries
 - [ ] Database permissions least-privilege
 
-**Severity:** 🚨 CRITICAL
+**Severity:**  CRITICAL
 
 ---
 
@@ -75,7 +75,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] No compiler/code generators on user input
 - [ ] No dynamic imports from user input
 
-**Severity:** 🚨 CRITICAL
+**Severity:**  CRITICAL
 
 ### 3.2 System Commands
 - [ ] No `os.system()` with user input
@@ -83,7 +83,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] No `popen()` with user input
 - [ ] All commands use parameterized lists
 
-**Severity:** 🚨 CRITICAL
+**Severity:**  CRITICAL
 
 ---
 
@@ -95,7 +95,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] No DES/RC4 ciphers
 - [ ] Using strong algorithms (SHA-256+, AES-256)
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ### 4.2 Key Management
 - [ ] No hardcoded keys
@@ -103,7 +103,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Keys rotated periodically
 - [ ] Key derivation functions used properly
 
-**Severity:** 🚨 CRITICAL
+**Severity:**  CRITICAL
 
 ### 4.3 Random Number Generation
 - [ ] No `random` module for crypto operations
@@ -111,7 +111,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Using `secrets` module for crypto
 - [ ] Using `os.urandom()` for entropy
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ---
 
@@ -123,7 +123,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] HTTPS required for external APIs
 - [ ] Certificate verification enabled
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ### 5.2 Authentication
 - [ ] Strong password policies
@@ -131,7 +131,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Session tokens are secrets length
 - [ ] Secure session handling
 
-**Severity:** ⚡ MEDIUM
+**Severity:**  MEDIUM
 
 ### 5.3 Authorization
 - [ ] Proper authorization checks
@@ -139,7 +139,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Role-based access control
 - [ ] Least privilege principle applied
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ---
 
@@ -151,7 +151,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] No plain text passwords
 - [ ] Secure key management
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ### 6.2 Data in Transit
 - [ ] HTTPS required
@@ -159,7 +159,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] No unencrypted sensitive data in transit
 - [ ] Certificate validation
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ### 6.3 Data in Use
 - [ ] Sensitive data cleared from memory
@@ -167,7 +167,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] No debug output with secrets
 - [ ] Error messages don't leak info
 
-**Severity:** ⚡ MEDIUM
+**Severity:**  MEDIUM
 
 ---
 
@@ -179,7 +179,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] No exposed seed phrases
 - [ ] Wallet signing operations isolated
 
-**Severity:** 🚨 CRITICAL
+**Severity:**  CRITICAL
 
 ### 7.2 Transaction Safety
 - [ ] Amount validation before transactions
@@ -187,7 +187,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Gas limit checks
 - [ ] Transaction signing requires explicit approval
 
-**Severity:** 🚨 CRITICAL
+**Severity:**  CRITICAL
 
 ### 7.3 Smart Contracts
 - [ ] Contract addresses verified
@@ -195,7 +195,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Reentrancy protections
 - [ ] Access control on functions
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ### 7.4 External Dependencies
 - [ ] Audited contract verification
@@ -203,7 +203,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Checked for known vulnerabilities
 - [ ] Verified contract source code
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ---
 
@@ -215,7 +215,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Generic error messages to users
 - [ ] Detailed errors logged securely
 
-**Severity:** ⚡ MEDIUM
+**Severity:**  MEDIUM
 
 ### 8.2 Fail-Safe Defaults
 - [ ] Fail closed on errors
@@ -223,7 +223,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Proper error exceptions raised
 - [ ] Error recovery procedures documented
 
-**Severity:** ⚡ MEDIUM
+**Severity:**  MEDIUM
 
 ---
 
@@ -235,7 +235,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Log level appropriate (not DEBUG in production)
 - [ ] Log tamper-proof
 
-**Severity:** ⚡ MEDIUM
+**Severity:**  MEDIUM
 
 ### 9.2 Monitoring
 - [ ] Security events logged
@@ -243,7 +243,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Audit trails enabled
 - [ ] Log retention policy defined
 
-**Severity:** ℹ️ LOW
+**Severity:**  LOW
 
 ---
 
@@ -255,7 +255,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Only necessary dependencies included
 - [ ] License compliance verified
 
-**Severity:** ⚡ MEDIUM
+**Severity:**  MEDIUM
 
 ### 10.2 External APIs
 - [ ] API credentials secure
@@ -263,7 +263,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Error codes handled
 - [ ] API endpoints verified
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ---
 
@@ -275,7 +275,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] No secrets in skill folder
 - [ ] Documentation complete
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ### 11.2 Skill Code
 - [ ] No dangerous system commands
@@ -283,7 +283,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] No hardcoded credentials
 - [ ] Input validation on all parameters
 
-**Severity:** 🚨 CRITICAL
+**Severity:**  CRITICAL
 
 ### 11.3 Skill Resources
 - [ ] Scripts are executable and safe
@@ -291,7 +291,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] No malicious patterns in dependencies
 - [ ] Proper error handling
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ---
 
@@ -303,7 +303,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Secrets not in version control
 - [ ] .gitignore includes sensitive files
 
-**Severity:** 🚨 CRITICAL
+**Severity:**  CRITICAL
 
 ### 12.2 Access Control
 - [ ] Server access restricted
@@ -311,7 +311,7 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Firewall rules configured
 - [ ] Admin access limited
 
-**Severity:** ⚠️ HIGH
+**Severity:**  HIGH
 
 ### 12.3 Updates and Patching
 - [ ] Automated security updates
@@ -319,17 +319,17 @@ Comprehensive security checklist for code, files, and agent skills.
 - [ ] Incident response plan defined
 - [ ] Backup and recovery tested
 
-**Severity:** ⚡ MEDIUM
+**Severity:**  MEDIUM
 
 ---
 
 ## Scoring
 
 **Pass Criteria:**
-- 🚨 CRITICAL: 100% required
-- ⚠️ HIGH: ≥90% pass (exceptions documented)
-- ⚡ MEDIUM: ≥70% pass (exceptions documented)
-- ℹ️ LOW: Document exceptions if needed
+-  CRITICAL: 100% required
+-  HIGH: ≥90% pass (exceptions documented)
+-  MEDIUM: ≥70% pass (exceptions documented)
+-  LOW: Document exceptions if needed
 
 **Risk Tolerance:**
 - Production: All CRITICAL/HIGH must pass

@@ -249,9 +249,9 @@ Respond naturally and helpfully."""
         # Announce path if configured
         if self.announce_path:
             if classification == 'simple':
-                print("📋 Simple response mode")
+                print(" Simple response mode")
             else:
-                print("🔧 Development mode - full orchestration")
+                print(" Development mode - full orchestration")
 
         # Phase 3: Route to appropriate handler
         if classification == 'simple':
@@ -278,17 +278,17 @@ Respond naturally and helpfully."""
         Returns:
             dict: Execution result with project info, tasks, and status
         """
-        print(f"🎯 Orchestrator received request: {request[:100]}...")
+        print(f" Orchestrator received request: {request[:100]}...")
 
         # Phase 1: Initialize project
         project = self._initialize_project(request, project_name, workspace, github_user)
         project_id = project['project_id']
         self.projects[project_id] = project
 
-        print(f"📁 Project initialized: {project['name']} ({project_id})")
+        print(f" Project initialized: {project['name']} ({project_id})")
 
         # Phase 2: Decompose request into tasks
-        print(f"🔍 Decomposing request into subtasks...")
+        print(f" Decomposing request into subtasks...")
         tasks = self.decomposer.decompose(request)
 
         if not tasks:
@@ -298,7 +298,7 @@ Respond naturally and helpfully."""
                 'project': project
             }
 
-        print(f"📋 Decomposed into {len(tasks)} tasks:")
+        print(f" Decomposed into {len(tasks)} tasks:")
         for i, task in enumerate(tasks, 1):
             print(f"   {i}. {task['description'][:60]}... "
                   f"(complexity: {task['complexity']}, category: {task['category']})")
@@ -311,10 +311,10 @@ Respond naturally and helpfully."""
         dependencies = self._build_dependency_graph(tasks)
         project['dependencies'] = dependencies
 
-        print(f"🔗 Dependency graph built")
+        print(f" Dependency graph built")
 
         # Phase 4: Route tasks to models
-        print(f"🎯 Routing tasks to optimal models...")
+        print(f" Routing tasks to optimal models...")
         for task in tasks:
             routing_task = RoutingTask(
                 description=task['description'],
@@ -327,7 +327,7 @@ Respond naturally and helpfully."""
             print(f"   • {task['description'][:50]}... → {model_id}")
 
         # Phase 5: Execute tasks in parallel
-        print(f"⚡ Executing tasks in parallel (max {self.worker_pool.max_workers} concurrent)...")
+        print(f" Executing tasks in parallel (max {self.worker_pool.max_workers} concurrent)...")
 
         for task in tasks:
             self.worker_pool.schedule_task(task, project)
@@ -336,7 +336,7 @@ Respond naturally and helpfully."""
         self.worker_pool.wait_all()
 
         # Phase 6: Consolidate results
-        print(f"📦 Consolidating results...")
+        print(f" Consolidating results...")
         consolidation_result = self.consolidator.consolidate(project)
 
         # Phase 7: Update project status
@@ -449,7 +449,7 @@ def main():
     orchestrator = Orchestrator()
 
     # Example 1: Simple question (should use simple response)
-    print("📝 Example 1: Simple question")
+    print(" Example 1: Simple question")
     result1 = orchestrator.handle_message(
         request="What files exist in this project?",
         channel_name="scientific-calculator"
@@ -458,7 +458,7 @@ def main():
     print(f"Response: {result1.get('response', result1.get('error'))}\n")
 
     # Example 2: Development request (should use full orchestration)
-    print("📝 Example 2: Development request")
+    print(" Example 2: Development request")
     dev_request = """
     Build a simple calculator web application with:
     - Basic arithmetic operations (add, subtract, multiply, divide)
@@ -474,20 +474,20 @@ def main():
     )
 
     if result2['success']:
-        print(f"\n✅ Project completed successfully!")
+        print(f"\n Project completed successfully!")
         print(f"   Mode: {result2.get('mode')}")
         print(f"   GitHub: {result2.get('github_repo')}")
         print(f"   Tasks: {result2['tasks_completed']}/{result2['tasks_completed'] + result2['tasks_failed']}")
         print(f"   Time: {result2.get('execution_time', 0):.0f}s")
     else:
-        print(f"\n❌ Request failed")
+        print(f"\n Request failed")
         print(f"   Mode: {result2.get('mode')}")
         if 'tasks_completed' in result2:
             print(f"   Tasks completed: {result2['tasks_completed']}")
             print(f"   Tasks failed: {result2['tasks_failed']}")
 
     # Example 3: User override (force simple mode with !simple)
-    print("\n📝 Example 3: User override (!simple)")
+    print("\n Example 3: User override (!simple)")
     result3 = orchestrator.handle_message(
         request="!simple Build a calculator",
         channel_name="test-project"

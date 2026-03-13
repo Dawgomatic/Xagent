@@ -39,16 +39,16 @@ def capture_camera(name, rtsp_url, output_dir="/tmp/wyze-captures"):
         result = subprocess.run(cmd, capture_output=True, timeout=10)
         if result.returncode == 0 and os.path.exists(output_file):
             size = os.path.getsize(output_file)
-            print(f"✅ {name}: Captured {size} bytes -> {output_file}")
+            print(f" {name}: Captured {size} bytes -> {output_file}")
             return output_file
         else:
-            print(f"❌ {name}: Failed to capture")
+            print(f" {name}: Failed to capture")
             return None
     except subprocess.TimeoutExpired:
-        print(f"⏱️ {name}: Timeout")
+        print(f" {name}: Timeout")
         return None
     except Exception as e:
-        print(f"❌ {name}: Error - {e}")
+        print(f" {name}: Error - {e}")
         return None
 
 def capture_all():
@@ -58,7 +58,7 @@ def capture_all():
         if url and url.startswith("rtsp://"):
             results[name] = capture_camera(name, url)
         else:
-            print(f"⚠️ {name}: No RTSP URL configured")
+            print(f" {name}: No RTSP URL configured")
             print(f"   Set: export WYZE_{name.upper()}_URL=\"rtsp://user:pass@ip/live\"")
     return results
 

@@ -15,13 +15,13 @@ Portfolio Manager analyzes your investment portfolio across multiple dimensions:
 
 ## Features
 
-✅ **Alpaca Integration** - Automatically fetches positions via Alpaca MCP Server
-✅ **Multi-Dimensional Analysis** - Asset class, sector, geography, market cap, style
-✅ **Risk Metrics** - Beta, volatility, drawdown, concentration, HHI
-✅ **Position Evaluation** - Thesis validation, valuation, sizing, relative opportunity
-✅ **Rebalancing Recommendations** - Prioritized actions (TRIM/ADD/HOLD/SELL)
-✅ **Comprehensive Reports** - Markdown reports saved to repository
-✅ **Model Portfolios** - Compare to Conservative/Moderate/Growth/Aggressive benchmarks
+ **Alpaca Integration** - Automatically fetches positions via Alpaca MCP Server
+ **Multi-Dimensional Analysis** - Asset class, sector, geography, market cap, style
+ **Risk Metrics** - Beta, volatility, drawdown, concentration, HHI
+ **Position Evaluation** - Thesis validation, valuation, sizing, relative opportunity
+ **Rebalancing Recommendations** - Prioritized actions (TRIM/ADD/HOLD/SELL)
+ **Comprehensive Reports** - Markdown reports saved to repository
+ **Model Portfolios** - Compare to Conservative/Moderate/Growth/Aggressive benchmarks
 
 ## Prerequisites
 

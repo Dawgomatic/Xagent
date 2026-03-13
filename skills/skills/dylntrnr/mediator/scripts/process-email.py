@@ -150,7 +150,7 @@ def send_summary(contact: dict, email_data: dict, summary: dict, notify_channel:
     subject = email_data.get("subject", "(no subject)")
     
     message_parts = [
-        f"📨 **Mediated Email from {contact_name}**",
+        f" **Mediated Email from {contact_name}**",
         f"Subject: {subject}",
         "",
         "**Summary:**",
@@ -159,7 +159,7 @@ def send_summary(contact: dict, email_data: dict, summary: dict, notify_channel:
     
     if summary.get("action_required"):
         message_parts.append("")
-        message_parts.append("⚡ **Action Required:** Yes")
+        message_parts.append(" **Action Required:** Yes")
     
     if summary.get("suggested_response"):
         message_parts.append("")

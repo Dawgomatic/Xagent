@@ -149,10 +149,10 @@ download, tutorial, course, certification, example, template
 
 | Scenario | Meta | LinkedIn |
 |----------|------|----------|
-| ACV <$10k | ✅ | ❌ |
-| Visual product | ✅ | ❌ |
-| SMB audience | ✅ | ❌ |
-| Enterprise | ❌ | ✅ |
+| ACV <$10k |  |  |
+| Visual product |  |  |
+| SMB audience |  |  |
+| Enterprise |  |  |
 
 ### Campaign Template
 

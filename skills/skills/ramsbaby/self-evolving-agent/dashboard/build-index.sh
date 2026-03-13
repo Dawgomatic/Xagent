@@ -21,12 +21,12 @@ SKILL_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 PROPOSALS_DIR="$SKILL_DIR/data/proposals"
 OUTPUT_FILE="$SCRIPT_DIR/data-index.json"
 
-echo "🔍 Scanning proposals..."
+echo " Scanning proposals..."
 echo "   Source: $PROPOSALS_DIR"
 echo "   Output: $OUTPUT_FILE"
 
 if [ ! -d "$PROPOSALS_DIR" ]; then
-  echo "⚠️  Proposals directory not found: $PROPOSALS_DIR"
+  echo "  Proposals directory not found: $PROPOSALS_DIR"
   echo '{"proposals":[],"generated_at":"'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'","error":"proposals directory not found"}' > "$OUTPUT_FILE"
   exit 0
 fi
@@ -70,4 +70,4 @@ cat > "$OUTPUT_FILE" <<EOF
 }
 EOF
 
-echo "✅ Index written: $TOTAL file(s) → $OUTPUT_FILE"
+echo " Index written: $TOTAL file(s) → $OUTPUT_FILE"

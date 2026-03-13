@@ -216,17 +216,17 @@ Required packages:
   const options = parseArgs(args);
 
   if (!options.asin && !options.url) {
-    console.error("❌ Error: Either --asin or --url is required");
+    console.error(" Error: Either --asin or --url is required");
     process.exit(1);
   }
   if (!options.email || !options.wallet || !options.privateKey || !options.address) {
-    console.error("❌ Error: --email, --wallet, --private-key, and --address are required");
+    console.error(" Error: --email, --wallet, --private-key, and --address are required");
     process.exit(1);
   }
 
   // Validate wallet is EVM format
   if (!/^0x[a-fA-F0-9]{40}$/.test(options.wallet)) {
-    console.error("❌ Error: --wallet must be a valid EVM address (0x...)");
+    console.error(" Error: --wallet must be a valid EVM address (0x...)");
     process.exit(1);
   }
 
@@ -234,13 +234,13 @@ Required packages:
   try {
     shippingAddress = parseAddress(options.address);
   } catch (e) {
-    console.error(`❌ Error: ${e}`);
+    console.error(` Error: ${e}`);
     process.exit(1);
   }
 
   try {
     // Step 1: Create order
-    console.log("📦 Creating order on Base...");
+    console.log(" Creating order on Base...");
     const orderResult = await createOrder({
       email: options.email,
       walletAddress: options.wallet,
@@ -250,13 +250,13 @@ Required packages:
       variantId: options.variant,
     });
 
-    console.log(`✅ Order created: ${orderResult.orderId}`);
+    console.log(` Order created: ${orderResult.orderId}`);
     console.log(`   Product: ${orderResult.product?.title ?? "N/A"}`);
     console.log(`   Total: ${orderResult.totalPrice?.amount ?? "N/A"} ${(orderResult.totalPrice?.currency ?? "USDC").toUpperCase()}`);
     console.log();
 
     // Step 2: Sign and submit transaction
-    console.log("🔐 Signing and submitting Base transaction...");
+    console.log(" Signing and submitting Base transaction...");
     const txResult = await signAndSendTransaction(
       orderResult.serializedTransaction,
       options.privateKey,
@@ -269,17 +269,17 @@ Required packages:
     }
 
     if (!txResult.success) {
-      console.error(`❌ Transaction failed: ${txResult.error}`);
+      console.error(` Transaction failed: ${txResult.error}`);
       console.log();
-      console.log(`🌐 You can complete payment via browser: ${orderResult.checkoutUrl}`);
+      console.log(` You can complete payment via browser: ${orderResult.checkoutUrl}`);
       process.exit(1);
     }
 
-    console.log("✅ Payment complete!");
+    console.log(" Payment complete!");
     console.log(`   Hash:     ${txResult.hash}`);
     console.log(`   Explorer: ${txResult.explorerUrl}`);
   } catch (error) {
-    console.error(`❌ Error: ${error}`);
+    console.error(` Error: ${error}`);
     process.exit(1);
   }
 }

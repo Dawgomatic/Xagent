@@ -20,16 +20,16 @@ Common issues and edge cases when using AgentAudit.
 ### Skill not loading
 
 **Checklist:**
-- ✅ Did you restart your editor completely? (not just reload)
-- ✅ Check frontmatter has `---` delimiters
-- ✅ Verify directory name matches `name:` field in frontmatter
+-  Did you restart your editor completely? (not just reload)
+-  Check frontmatter has `---` delimiters
+-  Verify directory name matches `name:` field in frontmatter
 
 ### "bash: scripts/gate.sh: No such file or directory"
 
 **Solutions:**
-- ✅ Use absolute paths: `bash ~/.claude/skills/agentaudit/scripts/gate.sh npm express`
-- ✅ Or change to skill directory first: `cd ~/.claude/skills/agentaudit && bash scripts/gate.sh npm express`
-- ✅ Verify you cloned the full repo, not just SKILL.md
+-  Use absolute paths: `bash ~/.claude/skills/agentaudit/scripts/gate.sh npm express`
+-  Or change to skill directory first: `cd ~/.claude/skills/agentaudit && bash scripts/gate.sh npm express`
+-  Verify you cloned the full repo, not just SKILL.md
 
 ### "jq: command not found" or "curl: command not found"
 

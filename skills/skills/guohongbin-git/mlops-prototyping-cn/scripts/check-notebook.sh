@@ -3,11 +3,11 @@
 
 NOTEBOOK="${1:-*.ipynb}"
 
-echo "🔍 Checking notebook: $NOTEBOOK"
+echo " Checking notebook: $NOTEBOOK"
 
 # Check if notebook exists
 if [ ! -f "$NOTEBOOK" ]; then
-    echo "❌ Notebook not found"
+    echo " Notebook not found"
     exit 1
 fi
 
@@ -47,9 +47,9 @@ for cell in code_cells:
     if any(kw in text for kw in ['read_csv', 'read_parquet', 'load']):
         checks['Data Loading'] = True
 
-print("\n📊 Structure Check:")
+print("\n Structure Check:")
 for check, passed in checks.items():
-    status = "✅" if passed else "❌"
+    status = "" if passed else ""
     print(f"  {status} {check}")
 
 # Check for anti-patterns
@@ -64,13 +64,13 @@ for cell in code_cells[1:]:  # Skip first cell (usually imports)
     if any(char.isdigit() for char in text) and 'RANDOM_STATE' not in text:
         anti_patterns['Magic numbers in code'] = True
 
-print("\n⚠️  Anti-patterns:")
+print("\n  Anti-patterns:")
 for pattern, found in anti_patterns.items():
-    status = "❌" if found else "✅"
+    status = "" if found else ""
     print(f"  {status} {pattern}")
 
 sys.exit(0 if all(checks.values()) else 1)
 EOF
 
 echo ""
-echo "✅ Notebook check complete"
+echo " Notebook check complete"

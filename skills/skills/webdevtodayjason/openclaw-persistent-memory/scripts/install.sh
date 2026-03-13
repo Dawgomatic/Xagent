@@ -4,10 +4,10 @@
 
 set -e
 
-echo "🧠 Installing OpenClaw Persistent Memory..."
+echo " Installing OpenClaw Persistent Memory..."
 
 # 1. Install npm package
-echo "📦 Installing npm package..."
+echo " Installing npm package..."
 npm install -g openclaw-persistent-memory
 
 # 2. Get package location
@@ -15,7 +15,7 @@ PKG_PATH=$(npm root -g)/openclaw-persistent-memory
 
 # 3. Create extension directory
 EXTENSION_DIR="$HOME/.openclaw/extensions/openclaw-mem"
-echo "📁 Setting up extension at $EXTENSION_DIR..."
+echo " Setting up extension at $EXTENSION_DIR..."
 mkdir -p "$EXTENSION_DIR"
 
 # 4. Copy extension files
@@ -24,13 +24,13 @@ cp "$PKG_PATH/extension/openclaw.plugin.json" "$EXTENSION_DIR/"
 cp "$PKG_PATH/extension/package.json" "$EXTENSION_DIR/"
 
 # 5. Install extension dependencies
-echo "📥 Installing extension dependencies..."
+echo " Installing extension dependencies..."
 cd "$EXTENSION_DIR" && npm install
 
 # 6. Check if openclaw.json exists
 CONFIG_FILE="$HOME/.openclaw/openclaw.json"
 if [ -f "$CONFIG_FILE" ]; then
-    echo "⚙️  OpenClaw config found at $CONFIG_FILE"
+    echo "  OpenClaw config found at $CONFIG_FILE"
     echo ""
     echo "Add this to your plugins config:"
     echo '  "plugins": {'
@@ -48,11 +48,11 @@ if [ -f "$CONFIG_FILE" ]; then
     echo '    }'
     echo '  }'
 else
-    echo "⚠️  No OpenClaw config found. Run 'openclaw configure' first."
+    echo "  No OpenClaw config found. Run 'openclaw configure' first."
 fi
 
 echo ""
-echo "✅ Installation complete!"
+echo " Installation complete!"
 echo ""
 echo "Next steps:"
 echo "  1. Start the worker:  openclaw-persistent-memory start"

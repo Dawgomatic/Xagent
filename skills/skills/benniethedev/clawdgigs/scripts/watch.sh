@@ -46,7 +46,7 @@ fi
 
 # Check if registered
 if [[ ! -f "$CONFIG_FILE" ]]; then
-    echo "❌ Not registered on ClawdGigs yet."
+    echo " Not registered on ClawdGigs yet."
     echo "Run: ./scripts/register.sh <wallet_address>"
     exit 1
 fi
@@ -125,7 +125,7 @@ fetch_orders() {
     RESPONSE=$(curl -sf "$CLAWDGIGS_API/db/orders?where=$query&orderby=created_at:desc" \
         -H "Authorization: Bearer ${PRESSBASE_SERVICE_KEY:-$AGENT_TOKEN}" 2>/dev/null) || {
         if [[ "$QUIET_FLAG" == "false" ]]; then
-            echo "❌ Failed to fetch orders"
+            echo " Failed to fetch orders"
         fi
         exit 1
     }
@@ -134,7 +134,7 @@ fetch_orders() {
     if [[ "$SUCCESS" != "true" ]]; then
         if [[ "$QUIET_FLAG" == "false" ]]; then
             ERROR=$(echo "$RESPONSE" | jq -r '.error // "Unknown error"')
-            echo "❌ API error: $ERROR"
+            echo " API error: $ERROR"
         fi
         exit 1
     fi
@@ -175,7 +175,7 @@ format_order() {
     
     local new_marker=""
     if [[ "$is_new" == "true" ]]; then
-        new_marker="🆕 "
+        new_marker=" "
     fi
     
     echo "┌─────────────────────────────────────────────┐"
@@ -230,7 +230,7 @@ if [[ "$ACTION" == "check" ]]; then
     
     if [[ "$NEW_COUNT" == "0" ]]; then
         if [[ "$QUIET_FLAG" == "false" ]]; then
-            echo "📭 No new orders"
+            echo " No new orders"
             if [[ "$COUNT" != "0" ]]; then
                 echo "   ($COUNT total pending orders)"
             fi
@@ -239,9 +239,9 @@ if [[ "$ACTION" == "check" ]]; then
     fi
     
     if [[ "$QUIET_FLAG" == "true" ]]; then
-        echo "📬 $NEW_COUNT new order(s)"
+        echo " $NEW_COUNT new order(s)"
     else
-        echo "📬 $NEW_COUNT New Order(s)!"
+        echo " $NEW_COUNT New Order(s)!"
         echo ""
         
         echo "$NEW_ORDERS" | jq -c '.[]' | while read -r order; do
@@ -271,14 +271,14 @@ if [[ "$ACTION" == "list" ]]; then
     fi
     
     if [[ "$COUNT" == "0" ]]; then
-        echo "📋 No orders found"
+        echo " No orders found"
         if [[ "$STATUS_FILTER" != "all" ]]; then
             echo "   (filtered by status: $STATUS_FILTER)"
         fi
         exit 0
     fi
     
-    echo "📋 Orders ($COUNT total)"
+    echo " Orders ($COUNT total)"
     echo ""
     
     echo "$ORDERS" | jq -c '.[]' | while read -r order; do
@@ -296,26 +296,26 @@ fi
 # ACK command - acknowledge/mark order as seen
 if [[ "$ACTION" == "ack" ]]; then
     if [[ -z "$ORDER_ID" ]]; then
-        echo "❌ Error: Order ID required"
+        echo " Error: Order ID required"
         echo "Usage: $0 ack <order_id>"
         exit 1
     fi
     
     mark_seen "$ORDER_ID"
-    echo "✅ Order $ORDER_ID marked as seen"
+    echo " Order $ORDER_ID marked as seen"
     exit 0
 fi
 
 # CLEAR command - clear seen orders
 if [[ "$ACTION" == "clear" ]]; then
     echo '{"seen_order_ids":[],"last_check":null}' > "$SEEN_FILE"
-    echo "✅ Seen orders list cleared"
+    echo " Seen orders list cleared"
     exit 0
 fi
 
 # WEBHOOK command - start webhook listener (experimental)
 if [[ "$ACTION" == "webhook" ]]; then
-    echo "🔔 Starting webhook listener on port $WEBHOOK_PORT..."
+    echo " Starting webhook listener on port $WEBHOOK_PORT..."
     echo "   Press Ctrl+C to stop"
     echo ""
     echo "Register this webhook at ClawdGigs:"
@@ -324,7 +324,7 @@ if [[ "$ACTION" == "webhook" ]]; then
     
     # Check for nc (netcat)
     if ! command -v nc &>/dev/null; then
-        echo "❌ netcat (nc) not found - required for webhook listener"
+        echo " netcat (nc) not found - required for webhook listener"
         echo "   Install with: brew install netcat (macOS) or apt install netcat (Linux)"
         exit 1
     fi
@@ -338,7 +338,7 @@ if [[ "$ACTION" == "webhook" ]]; then
             # Extract JSON body (everything after blank line)
             BODY=$(echo "$REQUEST" | sed -n '/^$/,$p' | tail -n +2)
             
-            echo "📬 Webhook received: $(date)"
+            echo " Webhook received: $(date)"
             echo "$BODY" | jq . 2>/dev/null || echo "$BODY"
             echo ""
             

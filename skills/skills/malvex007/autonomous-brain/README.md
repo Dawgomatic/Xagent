@@ -2,26 +2,26 @@
 
 **Transform OpenClaw into a self-thinking, autonomous AI that monitors, heals, and optimizes your system automatically.**
 
-🧠 **Version:** 1.0.0  
-👤 **Author:** baby007  
-📄 **License:** MIT  
-🏷️ **Tags:** autonomous, agi, monitoring, optimization
+ **Version:** 1.0.0  
+ **Author:** baby007  
+ **License:** MIT  
+ **Tags:** autonomous, agi, monitoring, optimization
 
 ---
 
-## 🎯 What It Does
+##  What It Does
 
 The **Autonomous Brain** skill turns your OpenClaw from a passive assistant into an **active intelligence** that:
 
-- ✅ **Thinks proactively** - Anticipates your needs
-- ✅ **Monitors 24/7** - Watches system continuously  
-- ✅ **Self-heals** - Fixes issues automatically
-- ✅ **Saves money** - 60-80% reduction in API costs
-- ✅ **Works silently** - No constant interruptions
+-  **Thinks proactively** - Anticipates your needs
+-  **Monitors 24/7** - Watches system continuously  
+-  **Self-heals** - Fixes issues automatically
+-  **Saves money** - 60-80% reduction in API costs
+-  **Works silently** - No constant interruptions
 
 ---
 
-## ⚡ Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -48,7 +48,7 @@ pkill -f "openclaw gateway" && openclaw gateway &
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
 ### 1. Proactive Intelligence
 - Understands intent instantly
@@ -76,7 +76,7 @@ pkill -f "openclaw gateway" && openclaw gateway &
 
 ---
 
-## 💡 Usage Examples
+##  Usage Examples
 
 ### System Status Checks
 
@@ -88,7 +88,7 @@ You: "details"
 AI: [Full system report]
 
 You: "issues"
-AI: "✓ No issues" or "⚠ Fixed: cleared 2GB temp"
+AI: "✓ No issues" or " Fixed: cleared 2GB temp"
 ```
 
 ### Auto-Fix Examples
@@ -97,7 +97,7 @@ AI: "✓ No issues" or "⚠ Fixed: cleared 2GB temp"
 ```
 [Disk reaches 90%]
 Brain: [Auto-deletes temp files]
-You see: "⚠ Fixed: cleared 3GB space"
+You see: " Fixed: cleared 3GB space"
 ```
 
 **Scenario 2 - Memory Full:**
@@ -111,12 +111,12 @@ Result: Memory optimized automatically
 ```
 [nginx crashes]
 Brain: [Restarts service]
-You see: "⚠ Restarted nginx"
+You see: " Restarted nginx"
 ```
 
 ---
 
-## 📊 Cost Savings
+##  Cost Savings
 
 | Without Brain | With Brain | Savings |
 |--------------|------------|---------|
@@ -127,7 +127,7 @@ You see: "⚠ Restarted nginx"
 
 ---
 
-## 🎓 Command Reference
+##  Command Reference
 
 | Command | Description |
 |---------|-------------|
@@ -143,7 +143,7 @@ You see: "⚠ Restarted nginx"
 
 ---
 
-## 🔧 Requirements
+##  Requirements
 
 - OpenClaw >= 2026.2.3
 - Linux-based system
@@ -151,17 +151,17 @@ You see: "⚠ Restarted nginx"
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 - **USER-GUIDE.md** - Complete user manual
 - **SKILL.md** - Technical specification
 
 ---
 
-## 🚀 Get Started
+##  Get Started
 
 1. Install the skill
 2. Type "status"
 3. Watch your AI think!
 
-**Your OpenClaw just got a brain. 🧠**
+**Your OpenClaw just got a brain. **

@@ -46,7 +46,7 @@ For EACH attendee, research and compile:
 
 **Output format:**
 ```
-👤 [Name] — [Role] at [Company]
+ [Name] — [Role] at [Company]
    Background: [2-3 key facts]
    Recent news: [anything relevant from last 30 days]
    History: [previous interactions, if any]
@@ -113,9 +113,9 @@ Compile everything into a single scannable brief:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 MEETING BRIEF: [Title]
-🕐 [Date] [Time] ([Duration])
-📍 [Location/Link]
+ MEETING BRIEF: [Title]
+ [Date] [Time] ([Duration])
+ [Location/Link]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 OBJECTIVE: [1-sentence goal for this meeting]
@@ -166,7 +166,7 @@ When asked to take notes during or right after a meeting:
 ## Action Items
 | # | Action | Owner | Deadline | Priority |
 |---|--------|-------|----------|----------|
-| 1 | [task] | [name] | [date] | 🔴/🟡/🟢 |
+| 1 | [task] | [name] | [date] | // |
 
 ## Open Questions / Parking Lot
 - [question or deferred topic]
@@ -322,15 +322,15 @@ Criteria:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━
-📊 WEEKLY MEETING AUDIT
+ WEEKLY MEETING AUDIT
 ━━━━━━━━━━━━━━━━━━━━━
 Total meetings: [X]
 Total hours: [X]
 Average ROI score: [X]/10
 
-🟢 High-value (8+): [list]
-🟡 Medium (5-7): [list — consider shortening]
-🔴 Low-value (<5): [list — consider eliminating or making async]
+ High-value (8+): [list]
+ Medium (5-7): [list — consider shortening]
+ Low-value (<5): [list — consider eliminating or making async]
 
 Recommendation: [specific meetings to cut, combine, or restructure]
 Time recoverable: [X hours/week]

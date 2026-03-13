@@ -362,20 +362,20 @@ Score < 25 = Weak/no clustering
 ## Summary: Using 13F Data Effectively
 
 **Best Practices:**
-1. ✅ Track multi-quarter trends, not single quarters
-2. ✅ Focus on share count changes, not just ownership %
-3. ✅ Weight quality institutions more heavily
-4. ✅ Combine with fundamental analysis
-5. ✅ Use as confirming indicator, not standalone signal
-6. ✅ Update quarterly after filing deadlines
+1.  Track multi-quarter trends, not single quarters
+2.  Focus on share count changes, not just ownership %
+3.  Weight quality institutions more heavily
+4.  Combine with fundamental analysis
+5.  Use as confirming indicator, not standalone signal
+6.  Update quarterly after filing deadlines
 
 **What to Avoid:**
-1. ❌ Don't assume 13F = real-time positions
-2. ❌ Don't ignore passive fund flows
-3. ❌ Don't overweight single institution moves
-4. ❌ Don't use for short-term trading
-5. ❌ Don't ignore price changes when calculating ownership
-6. ❌ Don't forget about confidential treatment requests
+1.  Don't assume 13F = real-time positions
+2.  Don't ignore passive fund flows
+3.  Don't overweight single institution moves
+4.  Don't use for short-term trading
+5.  Don't ignore price changes when calculating ownership
+6.  Don't forget about confidential treatment requests
 
 **Expected Returns:**
 - Academic studies show 13F-based strategies can generate 2-4% annual alpha

@@ -1,7 +1,7 @@
 ---
 name: telegram-usage
 description: Display session usage statistics (quota, session time, tokens, context)
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Telegram Usage Stats
@@ -35,10 +35,10 @@ The response is formatted as a clean Telegram message with:
 ## Example Output
 
 ```
-📊 API Usage
+ API Usage
 
-🔋 Quota: 🟢 47%
-⏱️ Resets in: 53m
+ Quota:  47%
+ Resets in: 53m
 ```
 
 ## Notes

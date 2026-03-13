@@ -108,7 +108,7 @@ class CLI {
     };
 
     const result = await this.ledger.logTransaction(transaction);
-    console.log(`✅ Transaction logged: ${result.id}`);
+    console.log(` Transaction logged: ${result.id}`);
     
     // Format currency display
     const displayAmount = result.currency === 'USD' ? `$${result.amount}` : `${result.amount} ${result.currency}`;
@@ -122,7 +122,7 @@ class CLI {
     
     const summary = await this.ledger.getSummary(period);
     
-    console.log(`📊 Spending Summary (${period})`);
+    console.log(` Spending Summary (${period})`);
     console.log(`═══════════════════════════════════`);
     
     // Display totals by currency
@@ -181,7 +181,7 @@ class CLI {
       return;
     }
 
-    console.log(`🔍 Found ${transactions.length} transaction(s):`);
+    console.log(` Found ${transactions.length} transaction(s):`);
     console.log('');
     
     for (const t of transactions.slice(0, 10)) { // Show max 10 results
@@ -246,7 +246,7 @@ class CLI {
         }
         
         await this.budgetManager.setBudget(category, amount, period);
-        console.log(`✅ Budget set: ${category} - $${amount}/${period}`);
+        console.log(` Budget set: ${category} - $${amount}/${period}`);
         break;
         
       case 'status':
@@ -279,7 +279,7 @@ class CLI {
       period: options.period
     });
     
-    console.log(`📁 Exported ${result.count} transactions to ${result.path}`);
+    console.log(` Exported ${result.count} transactions to ${result.path}`);
   }
 
   async handleQuery(args) {
@@ -336,12 +336,12 @@ class CLI {
           type: args[3] || 'credit_card'
         });
         
-        console.log(`✅ Account added: ${account.name} (${account.id})`);
+        console.log(` Account added: ${account.name} (${account.id})`);
         break;
         
       case 'list':
         const accounts = await this.ledger.loadAccounts();
-        console.log('💳 Accounts:');
+        console.log(' Accounts:');
         accounts.forEach(acc => {
           console.log(`  ${acc.id}: ${acc.name} (${acc.type})`);
         });
@@ -358,7 +358,7 @@ class CLI {
     
     if (source === 'privacy' && file) {
       const result = await this.ledger.importPrivacyTransactions(file);
-      console.log(`✅ Imported ${result.imported} transactions from Privacy.com`);
+      console.log(` Imported ${result.imported} transactions from Privacy.com`);
     } else {
       console.error('Usage: agentledger import privacy <file.json>');
       process.exit(1);
@@ -367,9 +367,9 @@ class CLI {
 
   async handleInit() {
     await this.ledger.init();
-    console.log('✅ AgentLedger initialized successfully!');
-    console.log('📁 Data will be stored in workspace/ledger/');
-    console.log('📖 Run "agentledger help" for usage information.');
+    console.log(' AgentLedger initialized successfully!');
+    console.log(' Data will be stored in workspace/ledger/');
+    console.log(' Run "agentledger help" for usage information.');
   }
 
   parseOptions(args) {
@@ -402,7 +402,7 @@ class CLI {
 
   showHelp() {
     console.log(`
-🧾 AgentLedger - AI Agent Expense Tracking
+ AgentLedger - AI Agent Expense Tracking
 
 Usage: agentledger <command> [options]
 

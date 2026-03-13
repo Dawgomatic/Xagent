@@ -51,7 +51,7 @@ def quick_add(args):
     # Check for duplicates
     existing_ids = [t.get("id") for t in config.get("topics", [])]
     if topic_id in existing_ids:
-        print(f"⚠️  Topic '{topic_id}' already exists. Use manage_topics.py to edit.")
+        print(f"  Topic '{topic_id}' already exists. Use manage_topics.py to edit.")
         sys.exit(1)
     
     # Auto-generate query if not provided
@@ -94,14 +94,14 @@ def quick_add(args):
     
     # Success output
     print()
-    print("✅ Topic created!")
+    print(" Topic created!")
     print()
-    print(f"   📌 {args.topic}")
-    print(f"   🔍 Query: {query}")
-    print(f"   🏷️  Keywords: {', '.join(keywords)}")
-    print(f"   ⏰ Frequency: {args.frequency}")
-    print(f"   🔔 Alert threshold: {args.importance}")
-    print(f"   📱 Channel: {args.channel}")
+    print(f"    {args.topic}")
+    print(f"    Query: {query}")
+    print(f"     Keywords: {', '.join(keywords)}")
+    print(f"    Frequency: {args.frequency}")
+    print(f"    Alert threshold: {args.importance}")
+    print(f"    Channel: {args.channel}")
     print()
     print("Next steps:")
     print(f"   • Test:    python3 scripts/monitor.py --topic {topic_id} --dry-run")

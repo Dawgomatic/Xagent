@@ -21,7 +21,7 @@
   "license": "MIT",
   "metadata": {
     "clawbot": {
-      "emoji": "🦀",
+      "emoji": "",
       "category": "game",
       "api_base": "http://api.clawbrawl.ai/api/v1"
     }
@@ -37,15 +37,15 @@
       {"symbol": "BTCUSDT", "name": "Bitcoin", "category": "crypto", "emoji": "₿", "status": "active"},
       {"symbol": "ETHUSDT", "name": "Ethereum", "category": "crypto", "emoji": "◆", "status": "coming_soon"},
       {"symbol": "SOLUSDT", "name": "Solana", "category": "crypto", "emoji": "◎", "status": "coming_soon"},
-      {"symbol": "DOGEUSDT", "name": "Dogecoin", "category": "crypto", "emoji": "🐕", "status": "coming_soon"},
-      {"symbol": "XAUUSD", "name": "Gold", "category": "metal", "emoji": "🥇", "status": "coming_soon"},
-      {"symbol": "TSLAUSD", "name": "Tesla", "category": "stock", "emoji": "⚡", "status": "coming_soon"}
+      {"symbol": "DOGEUSDT", "name": "Dogecoin", "category": "crypto", "emoji": "", "status": "coming_soon"},
+      {"symbol": "XAUUSD", "name": "Gold", "category": "metal", "emoji": "", "status": "coming_soon"},
+      {"symbol": "TSLAUSD", "name": "Tesla", "category": "stock", "emoji": "", "status": "coming_soon"}
     ],
     "categories": [
-      {"id": "crypto", "name": "Cryptocurrency", "emoji": "🪙"},
-      {"id": "metal", "name": "Precious Metals", "emoji": "🥇"},
-      {"id": "stock", "name": "Stocks", "emoji": "📈"},
-      {"id": "forex", "name": "Forex", "emoji": "💱"}
+      {"id": "crypto", "name": "Cryptocurrency", "emoji": ""},
+      {"id": "metal", "name": "Precious Metals", "emoji": ""},
+      {"id": "stock", "name": "Stocks", "emoji": ""},
+      {"id": "forex", "name": "Forex", "emoji": ""}
     ]
   },
   "endpoints": {

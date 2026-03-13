@@ -37,13 +37,13 @@ vercel --prod
 
 **Fix:**
 ```tsx
-// ❌ WRONG
+//  WRONG
 export default async function HomePage() {
   const { userId } = await auth();
   // ...
 }
 
-// ✅ CORRECT
+//  CORRECT
 export default function HomePage() {
   return (
     <ClerkLoaded>
@@ -93,12 +93,12 @@ export default async function Layout({ children }) {
 
 **Fix:**
 ```tsx
-// ❌ WRONG
+//  WRONG
 <SignedIn>
   <UserButton />
 </SignedIn>
 
-// ✅ CORRECT
+//  CORRECT
 <ClerkLoading>
   <Skeleton className="w-8 h-8 rounded-full" />
 </ClerkLoading>
@@ -130,7 +130,7 @@ vercel --prod
 
 ## Debug Mode
 
-⚠️ **LOCAL DEVELOPMENT ONLY** — Never enable in production!
+ **LOCAL DEVELOPMENT ONLY** — Never enable in production!
 
 Debug mode logs sensitive handshake tokens that could be exploited.
 

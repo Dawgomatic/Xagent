@@ -3,7 +3,7 @@ name: Food Delivery
 slug: food-delivery
 version: 1.0.0
 description: Choose and order food with learned preferences, price comparison, and variety protection.
-metadata: {"clawdbot":{"emoji":"🍕","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

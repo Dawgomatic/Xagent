@@ -1,6 +1,6 @@
 # TokenGuard — LLM API 429 Prevention Engine
 
-<!-- 🌌 Aoineco-Verified | S-DNA: AOI-2026-0213-SDNA-TG01 -->
+<!--  Aoineco-Verified | S-DNA: AOI-2026-0213-SDNA-TG01 -->
 
 **Version:** 1.5.0  
 **Author:** Aoineco & Co.  
@@ -106,7 +106,7 @@ token-guard/
       "used_this_minute": 750000,
       "remaining": 250000,
       "usage_pct": "75.0%",
-      "status": "🟢 OK"
+      "status": " OK"
     }
   },
   "stats": {

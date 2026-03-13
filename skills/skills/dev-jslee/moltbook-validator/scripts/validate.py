@@ -14,19 +14,19 @@ def validate_post(data: dict) -> tuple[bool, list[str]]:
     
     # Critical: content field (not text!)
     if 'text' in data:
-        errors.append("❌ 'text' field detected - use 'content' instead (text → null bug)")
+        errors.append(" 'text' field detected - use 'content' instead (text → null bug)")
     
     if 'content' not in data:
-        errors.append("❌ 'content' field missing (required)")
+        errors.append(" 'content' field missing (required)")
     elif not data['content'] or not data['content'].strip():
-        errors.append("❌ 'content' is empty")
+        errors.append(" 'content' is empty")
     
     # Required fields
     if 'title' not in data or not data.get('title', '').strip():
-        warnings.append("⚠️ 'title' missing or empty")
+        warnings.append(" 'title' missing or empty")
     
     if 'submolt' not in data:
-        warnings.append("⚠️ 'submolt' missing (will default to 'general')")
+        warnings.append(" 'submolt' missing (will default to 'general')")
     
     return len(errors) == 0, errors + warnings
 
@@ -36,12 +36,12 @@ def validate_comment(data: dict) -> tuple[bool, list[str]]:
     errors = []
     
     if 'text' in data:
-        errors.append("❌ 'text' field detected - use 'content' instead")
+        errors.append(" 'text' field detected - use 'content' instead")
     
     if 'content' not in data:
-        errors.append("❌ 'content' field missing (required)")
+        errors.append(" 'content' field missing (required)")
     elif not data['content'] or not data['content'].strip():
-        errors.append("❌ 'content' is empty")
+        errors.append(" 'content' is empty")
     
     return len(errors) == 0, errors
 
@@ -55,7 +55,7 @@ def main():
     try:
         payload = json.loads(sys.argv[1])
     except json.JSONDecodeError as e:
-        print(f"❌ Invalid JSON: {e}")
+        print(f" Invalid JSON: {e}")
         sys.exit(1)
     
     is_comment = '--comment' in sys.argv
@@ -70,10 +70,10 @@ def main():
             print(msg)
     
     if valid:
-        print("✅ Payload valid - safe to send")
+        print(" Payload valid - safe to send")
         sys.exit(0)
     else:
-        print("\n🚫 Fix errors before sending")
+        print("\n Fix errors before sending")
         sys.exit(1)
 
 

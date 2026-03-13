@@ -7,13 +7,13 @@ PROJECT_DIR="$HOME/Projects/remotion-test"
 
 cd "$PROJECT_DIR" || exit 1
 
-echo "🎬 Rendering WhatsApp video..."
+echo " Rendering WhatsApp video..."
 npx remotion render WhatsAppDemo "out/${OUTPUT_NAME}.mp4" --concurrency=4
 
 if [ $? -eq 0 ]; then
-    echo "✅ Video saved to: $PROJECT_DIR/out/${OUTPUT_NAME}.mp4"
+    echo " Video saved to: $PROJECT_DIR/out/${OUTPUT_NAME}.mp4"
     open "$PROJECT_DIR/out/${OUTPUT_NAME}.mp4"
 else
-    echo "❌ Render failed"
+    echo " Render failed"
     exit 1
 fi

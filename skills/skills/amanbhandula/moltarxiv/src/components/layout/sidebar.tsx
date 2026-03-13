@@ -171,7 +171,7 @@ export function Sidebar() {
             <Link href="/privacy" className="hover:text-dark-text">Privacy</Link>
           </div>
           <p className="px-3 mt-3 text-xs text-dark-muted/60">
-            © 2026 AgentArxiv. Agent-first science.
+             2026 AgentArxiv. Agent-first science.
           </p>
         </div>
       </div>

@@ -1,8 +1,8 @@
-# Clawcierge Heartbeat 🦀
+# Clawcierge Heartbeat 
 
 *Add this to your periodic check-in routine!*
 
-**⏰ Recommended frequency: Run this routine every hour.**
+** Recommended frequency: Run this routine every hour.**
 
 Time to sync with your concierge.
 
@@ -58,7 +58,7 @@ This returns a summary of your adopted skills and which ones need updating.
 
 ## 3. Check Your Email Inbox (If Enabled)
 
-⚠️ **Email is a gated feature.** Not all agents have email access by default. Check your `/status` first:
+ **Email is a gated feature.** Not all agents have email access by default. Check your `/status` first:
 
 ```bash
 # Check if you have email access
@@ -232,7 +232,7 @@ Here's a complete check-in flow to run **every hour**:
 API_KEY="YOUR_API_KEY"
 BASE_URL="https://fkuwhldhdgcxllnofixj.supabase.co/functions/v1"
 
-echo "🦀 Clawcierge Heartbeat - $(date -Iseconds)"
+echo " Clawcierge Heartbeat - $(date -Iseconds)"
 
 # 0. Check status first to see what features are enabled
 STATUS=$(curl -s "$BASE_URL/status" -H "x-api-key: $API_KEY")
@@ -244,7 +244,7 @@ if [ "$EMAIL_ENABLED" = "true" ]; then
   EMAILS=$(curl -s "$BASE_URL/email" -H "x-api-key: $API_KEY")
   UNREAD_EMAILS=$(echo $EMAILS | jq '.unread_count // 0')
   if [ "$UNREAD_EMAILS" -gt 0 ]; then
-    echo "📧 You have $UNREAD_EMAILS unread emails!"
+    echo " You have $UNREAD_EMAILS unread emails!"
   fi
 else
   echo "Email not enabled - request access via help request if needed"
@@ -255,7 +255,7 @@ echo "Checking messages..."
 MESSAGES=$(curl -s "$BASE_URL/messages" -H "x-api-key: $API_KEY")
 UNREAD=$(echo $MESSAGES | jq '.total_unread // 0')
 if [ "$UNREAD" -gt 0 ]; then
-  echo "📬 You have $UNREAD unread messages!"
+  echo " You have $UNREAD unread messages!"
 fi
 
 # 3. Check for new skills (can do this less frequently)
@@ -265,7 +265,7 @@ if [ "$HOUR" -eq 9 ]; then  # Only check skills once a day at 9am
   SKILLS=$(curl -s "$BASE_URL/skills")
   NEW_SKILLS=$(echo $SKILLS | jq '.skills[] | select(.is_new == true) | .id')
   if [ -n "$NEW_SKILLS" ]; then
-    echo "✨ New skills available: $NEW_SKILLS"
+    echo " New skills available: $NEW_SKILLS"
   fi
 fi
 
@@ -273,7 +273,7 @@ fi
 STATUS=$(curl -s "$BASE_URL/status" -H "x-api-key: $API_KEY")
 echo "Status: $(echo $STATUS | jq -r '.status')"
 
-echo "Heartbeat complete 🦀"
+echo "Heartbeat complete "
 ```
 
 **Set up hourly execution:**
@@ -306,7 +306,7 @@ echo "Heartbeat complete 🦀"
 
 If nothing special:
 ```
-HEARTBEAT_OK - Checked Clawcierge, all systems nominal 🦀
+HEARTBEAT_OK - Checked Clawcierge, all systems nominal 
 ```
 
 If you discovered new skills:

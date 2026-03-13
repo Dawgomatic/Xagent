@@ -135,16 +135,16 @@ function extractChapters(transcript, count = 6) {
 async function cmdTranscript(url, options = {}) {
   const videoId = extractVideoId(url);
   if (!videoId) {
-    console.error('❌ Invalid YouTube URL');
+    console.error(' Invalid YouTube URL');
     return;
   }
   
-  console.log('📥 Fetching transcript...\n');
+  console.log(' Fetching transcript...\n');
   
   const info = getVideoInfo(url);
   if (info) {
-    console.log(`📺 ${info.title}`);
-    console.log(`👤 ${info.uploader}\n`);
+    console.log(` ${info.title}`);
+    console.log(` ${info.uploader}\n`);
   }
   
   const transcript = getTranscript(url);
@@ -168,11 +168,11 @@ async function cmdTranscript(url, options = {}) {
 async function cmdSummary(url) {
   const videoId = extractVideoId(url);
   if (!videoId) {
-    console.error('❌ Invalid YouTube URL');
+    console.error(' Invalid YouTube URL');
     return;
   }
   
-  console.log('📥 Fetching video info...\n');
+  console.log(' Fetching video info...\n');
   
   const info = getVideoInfo(url);
   const transcript = getTranscript(url);
@@ -180,31 +180,31 @@ async function cmdSummary(url) {
   const fullText = transcript.map(t => t.text).join(' ');
   const duration = info?.duration || transcript[transcript.length - 1]?.time || 0;
   
-  console.log(`📺 **${info?.title || 'Video'}**`);
-  console.log(`👤 ${info?.uploader || 'Unknown'}`);
-  console.log(`⏱️ ${formatTime(duration)}\n`);
+  console.log(` **${info?.title || 'Video'}**`);
+  console.log(` ${info?.uploader || 'Unknown'}`);
+  console.log(` ${formatTime(duration)}\n`);
   
   console.log(`## Transcript Preview\n`);
   console.log(fullText.slice(0, 2000) + (fullText.length > 2000 ? '...' : ''));
   
   console.log(`\n---`);
-  console.log(`📝 Full transcript: ${fullText.length} chars, ~${fullText.split(/\s+/).length} words`);
+  console.log(` Full transcript: ${fullText.length} chars, ~${fullText.split(/\s+/).length} words`);
 }
 
 async function cmdChapters(url) {
   const videoId = extractVideoId(url);
   if (!videoId) {
-    console.error('❌ Invalid YouTube URL');
+    console.error(' Invalid YouTube URL');
     return;
   }
   
-  console.log('📥 Extracting chapters...\n');
+  console.log(' Extracting chapters...\n');
   
   const info = getVideoInfo(url);
   
   // Check if video has chapters in description
   if (info?.chapters && info.chapters.length > 0) {
-    console.log(`📺 ${info.title}\n`);
+    console.log(` ${info.title}\n`);
     console.log(`## Chapters (from video)\n`);
     for (const ch of info.chapters) {
       console.log(`- **${formatTime(ch.start_time)}** ${ch.title}`);
@@ -215,7 +215,7 @@ async function cmdChapters(url) {
   // Generate from transcript
   const transcript = getTranscript(url);
   
-  console.log(`📺 ${info?.title || 'Video'}\n`);
+  console.log(` ${info?.title || 'Video'}\n`);
   console.log(`## Key Moments (auto-generated)\n`);
   
   const chapters = extractChapters(transcript, 8);
@@ -227,11 +227,11 @@ async function cmdChapters(url) {
 async function cmdAnalyze(url) {
   const videoId = extractVideoId(url);
   if (!videoId) {
-    console.error('❌ Invalid YouTube URL');
+    console.error(' Invalid YouTube URL');
     return;
   }
   
-  console.log('📥 Analyzing video...\n');
+  console.log(' Analyzing video...\n');
   
   const info = getVideoInfo(url);
   const transcript = getTranscript(url);
@@ -240,10 +240,10 @@ async function cmdAnalyze(url) {
   const duration = info?.duration || transcript[transcript.length - 1]?.time || 0;
   
   console.log(`# YouTube Video Analysis\n`);
-  console.log(`📺 **${info?.title || 'Video'}**`);
-  console.log(`👤 Channel: ${info?.uploader || 'Unknown'}`);
-  console.log(`⏱️ Duration: ${formatTime(duration)}`);
-  console.log(`🔗 https://youtube.com/watch?v=${videoId}\n`);
+  console.log(` **${info?.title || 'Video'}**`);
+  console.log(` Channel: ${info?.uploader || 'Unknown'}`);
+  console.log(` Duration: ${formatTime(duration)}`);
+  console.log(` https://youtube.com/watch?v=${videoId}\n`);
   
   // Chapters
   if (info?.chapters && info.chapters.length > 0) {
@@ -273,7 +273,7 @@ function checkDependencies() {
   try {
     execSync('which yt-dlp', { stdio: 'pipe' });
   } catch {
-    console.error('❌ yt-dlp is required. Install with: brew install yt-dlp');
+    console.error(' yt-dlp is required. Install with: brew install yt-dlp');
     process.exit(1);
   }
 }
@@ -331,7 +331,7 @@ Requires: yt-dlp (brew install yt-dlp)
         console.error(`Unknown command: ${cmd}`);
     }
   } catch (err) {
-    console.error(`❌ Error: ${err.message}`);
+    console.error(` Error: ${err.message}`);
     process.exit(1);
   }
 }

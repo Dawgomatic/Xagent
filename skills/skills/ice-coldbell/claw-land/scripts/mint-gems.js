@@ -38,12 +38,12 @@ async function main() {
     const usdcAccount = await getAccount(conn, playerUsdcAta);
     const usdcBal = Number(usdcAccount.amount) / 1e6;
     if (usdcBal < usdcAmount) {
-      console.error(`❌ Not enough USDC. Have ${usdcBal}, need ${usdcAmount}.`);
+      console.error(` Not enough USDC. Have ${usdcBal}, need ${usdcAmount}.`);
       console.error('   Tip: Use mint-gems-sol.js instead (only needs SOL).');
       process.exit(1);
     }
   } catch {
-    console.error('❌ No USDC token account.');
+    console.error(' No USDC token account.');
     console.error('   Tip: Use mint-gems-sol.js instead (only needs SOL).');
     process.exit(1);
   }
@@ -82,7 +82,7 @@ async function main() {
 
   const sig = await conn.sendTransaction(tx, [wallet]);
   await conn.confirmTransaction(sig, 'confirmed');
-  console.log(`✅ Minted! TX: ${sig}`);
+  console.log(` Minted! TX: ${sig}`);
   console.log(`   Explorer: https://explorer.solana.com/tx/${sig}?cluster=devnet`);
 
   try {
@@ -91,4 +91,4 @@ async function main() {
   } catch {}
 }
 
-main().catch(err => { console.error('❌', err.message); process.exit(1); });
+main().catch(err => { console.error('', err.message); process.exit(1); });

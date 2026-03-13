@@ -1,4 +1,4 @@
-# 🥚 OpenPet
+#  OpenPet
 
 A Tamagotchi-style virtual pet skill for [OpenClaw](https://github.com/openclaw/openclaw).
 
@@ -23,14 +23,14 @@ openclaw skills install github:mdealiaga/openpet
 
 ## Evolution
 
-🥚 Egg → 🫧 Blob → 🐱 Cat → 🐲 Dragon
+ Egg →  Blob →  Cat →  Dragon
 
 Evolve by taking good care of your pet over time!
 
 ## How It Works
 
 - Stats decay every 2 hours (hunger ↑, happiness ↓)
-- If hunger hits 100% or happiness hits 0%... 💀
+- If hunger hits 100% or happiness hits 0%... 
 - Good care = evolution to cooler forms
 
 ## License

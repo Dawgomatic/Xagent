@@ -3,7 +3,7 @@ name: aioz-stream-video-upload
 description: Quick upload video to AIOZ Stream API. Create video objects with default or custom encoding configurations, upload the file, complete the upload, then return the video link to the user.
 metadata:
   openclaw:
-    emoji: "🎬"
+    emoji: ""
     requires:
       bins: 
         - curl

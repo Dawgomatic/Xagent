@@ -2,7 +2,7 @@
 
 Advanced Home Assistant control using the official `hass-cli` tool.
 
-## 🌟 Features
+##  Features
 
 - **Auto-completion** for entity IDs and services (bash/zsh/fish)
 - **Event monitoring** in real-time
@@ -11,14 +11,14 @@ Advanced Home Assistant control using the official `hass-cli` tool.
 - **Interactive exploration** of entities and services
 - **Comprehensive documentation** with examples and troubleshooting
 
-## 🆚 Comparison with `homeassistant` (curl-based)
+##  Comparison with `homeassistant` (curl-based)
 
 | Feature | homeassistant-cli (this) | homeassistant (curl) |
 |---------|-------------------------|----------------------|
 | Dependencies | hass-cli (Python) | curl + jq (built-in) |
-| Auto-completion | ✅ Yes | ❌ No |
-| Event monitoring | ✅ Yes | ❌ No |
-| History queries | ✅ Yes | ❌ No |
+| Auto-completion |  Yes |  No |
+| Event monitoring |  Yes |  No |
+| History queries |  Yes |  No |
 | Output formats | Table/YAML/JSON | JSON only |
 | Setup complexity | Medium | Simple |
 | Best for | Interactive use | Scripting/automation |
@@ -27,7 +27,7 @@ Advanced Home Assistant control using the official `hass-cli` tool.
 - **Interactive control** → `homeassistant-cli`
 - **Lightweight scripting** → `homeassistant` (curl)
 
-## 📦 Installation
+##  Installation
 
 ### 1. Install hass-cli
 
@@ -63,7 +63,7 @@ export HASS_TOKEN=<your-long-lived-token>
 hass-cli state list
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### List Devices
 
@@ -111,7 +111,7 @@ hass-cli state history --since 1h light.living_room
 hass-cli state history --since 30m switch.fan
 ```
 
-## 📚 Documentation
+##  Documentation
 
 Inside the skill package:
 
@@ -120,17 +120,17 @@ Inside the skill package:
 - **references/autocomplete.md** — Shell auto-completion setup
 - **references/troubleshooting.md** — Common issues and solutions
 
-## 🛠️ Requirements
+##  Requirements
 
 - **Home Assistant** (any version with REST API)
 - **Python 3.8+**
 - **Long-lived access token**
 
-## 📄 License
+##  License
 
 MIT
 
-## 🙏 Credits
+##  Credits
 
 - Built on [home-assistant-cli](https://github.com/home-assistant-ecosystem/home-assistant-cli)
 - Created for the [OpenClaw](https://openclaw.ai) agent framework

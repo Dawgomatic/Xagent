@@ -1,7 +1,7 @@
 ---
 name: mixpanel
 description: Track events and analyze user behavior via Mixpanel API. Query analytics, manage user profiles, and export data.
-metadata: {"clawdbot":{"emoji":"📊","requires":{"env":["MIXPANEL_TOKEN","MIXPANEL_API_SECRET"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["MIXPANEL_TOKEN","MIXPANEL_API_SECRET"]}}}
 ---
 
 # Mixpanel

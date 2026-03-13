@@ -243,7 +243,7 @@ class BadgeGenerator:
         header_y = 30
         
         # Logo 和标题
-        draw.text((30, header_y), "⚡", fill=self.COLORS['primary'], font=self.fonts['title'])
+        draw.text((30, header_y), "", fill=self.COLORS['primary'], font=self.fonts['title'])
         draw.text((60, header_y), f"OPENCLAW {self.openclaw_version}", 
                  fill=self.COLORS['border'], font=self.fonts['header'])
         draw.text((60, header_y + 18), "FEDERAL INTELLIGENCE SYSTEM", 
@@ -837,7 +837,7 @@ def generate_multi_badge(cards_data, output_name=None):
     
     output_path = output_dir / output_name
     collage.save(output_path, 'PNG', quality=95)
-    print(f"✅ Multi-badge collage: {output_path}")
+    print(f" Multi-badge collage: {output_path}")
     
     return str(output_path)
 
@@ -859,4 +859,4 @@ if __name__ == "__main__":
         ]
     )
     
-    print(f"✅ Badge generated: {badge_path}")
+    print(f" Badge generated: {badge_path}")

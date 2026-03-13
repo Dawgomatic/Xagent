@@ -71,7 +71,7 @@ oauth_commands = '''
             print(json.dumps(status, indent=2))
             
             if status['status'] == 'expired':
-                print("\\n⚠️  Token has expired. Run 'python3 zoho-email.py oauth-login' to refresh.", file=sys.stderr)
+                print("\\n  Token has expired. Run 'python3 zoho-email.py oauth-login' to refresh.", file=sys.stderr)
                 sys.exit(1)
             elif status['status'] == 'valid':
                 print(f"\\n✓ Token is valid (expires in {status['expires_in_seconds']}s)", file=sys.stderr)
@@ -118,7 +118,7 @@ else:
     if marker2 in content:
         content = content.replace(marker2, '        sys.exit(0)\n    ' + oauth_commands + '# For all other commands, initialize ZohoEmail')
     else:
-        print("⚠️  Warning: Could not find insertion point for OAuth2 commands")
+        print("  Warning: Could not find insertion point for OAuth2 commands")
 
 # 4. Update ZohoEmail initialization to pass auth_method and token_file
 content = content.replace(

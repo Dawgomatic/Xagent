@@ -25,9 +25,9 @@ CATEGORY_KEYWORDS = {
 }
 
 CATEGORY_ICONS = {
-    "strategy": "🎯", "research": "🔍", "finance": "💹",
-    "tech": "⚙️", "sales": "📈", "marketing": "📣",
-    "ops": "🔧", "other": "📦"
+    "strategy": "", "research": "", "finance": "",
+    "tech": "", "sales": "", "marketing": "",
+    "ops": "", "other": ""
 }
 
 def load_config():
@@ -89,7 +89,7 @@ def log_task(args, config):
     category = args.category
     if category == "auto":
         category = detect_category(args.description)
-        print(f"📌 Auto-detected category: {category}")
+        print(f" Auto-detected category: {category}")
     
     rate = get_rate(category, config)
     value = args.hours * rate
@@ -111,8 +111,8 @@ def log_task(args, config):
     save_data(data)
     
     currency = config.get("currency", "$")
-    print(f"✅ Logged: {args.description}")
-    print(f"   {CATEGORY_ICONS.get(category, '📦')} {category} | {args.hours}h | {currency}{value:.0f}")
+    print(f" Logged: {args.description}")
+    print(f"   {CATEGORY_ICONS.get(category, '')} {category} | {args.hours}h | {currency}{value:.0f}")
 
 def get_date_range(period):
     """Get date range for period."""
@@ -150,7 +150,7 @@ def summary(args, config):
     entries = filter_entries(data.get("entries", []), args.period)
     
     if not entries:
-        print(f"📊 No entries for {args.period}")
+        print(f" No entries for {args.period}")
         return
     
     currency = config.get("currency", "$")
@@ -178,7 +178,7 @@ def summary(args, config):
     # Print summary
     period_label = {"today": "Today", "week": "This Week", "month": "This Month", "all": "All Time"}
     
-    print(f"\n📊 Value Summary ({period_label.get(args.period, args.period)})")
+    print(f"\n Value Summary ({period_label.get(args.period, args.period)})")
     print("━" * 40)
     print(f"\nTotal Hours:  {total_hours:.1f}h")
     print(f"Total Value:  {currency}{total_value:,.0f}")
@@ -186,7 +186,7 @@ def summary(args, config):
     
     print(f"\nBy Category:")
     for cat, data in sorted_cats:
-        icon = CATEGORY_ICONS.get(cat, "📦")
+        icon = CATEGORY_ICONS.get(cat, "")
         print(f"  {icon} {cat:<12} {data['hours']:>5.1f}h    {currency}{data['value']:>6,.0f}")
     
     if sorted_entries:
@@ -227,7 +227,7 @@ def report(args, config):
     
     period_label = {"today": "Today", "week": "This Week", "month": "This Month", "all": "All Time"}
     
-    print(f"# 💰 Value Report — {period_label.get(args.period, args.period)}")
+    print(f"#  Value Report — {period_label.get(args.period, args.period)}")
     print(f"\n*Generated {datetime.now().strftime('%Y-%m-%d %H:%M')}*\n")
     
     print("## Summary\n")
@@ -242,13 +242,13 @@ def report(args, config):
     print("| Category | Hours | Value | % |")
     print("|----------|-------|-------|---|")
     for cat, cdata in sorted_cats:
-        icon = CATEGORY_ICONS.get(cat, "📦")
+        icon = CATEGORY_ICONS.get(cat, "")
         pct = (cdata["value"] / total_value * 100) if total_value > 0 else 0
         print(f"| {icon} {cat.title()} | {cdata['hours']:.1f}h | {currency}{cdata['value']:,.0f} | {pct:.0f}% |")
     
     print("\n## Task Log\n")
     for e in sorted(entries, key=lambda x: x.get("timestamp", ""), reverse=True)[:20]:
-        icon = CATEGORY_ICONS.get(e.get("category", "other"), "📦")
+        icon = CATEGORY_ICONS.get(e.get("category", "other"), "")
         desc = e.get("description", e.get("notes", ""))
         print(f"- {icon} **{desc}** — {e.get('hours', 0):.1f}h ({currency}{e.get('value', 0):.0f})")
     

@@ -3,13 +3,13 @@ name: agent-sleep
 description: Agent 睡眠系统 - 记忆整合、日志归档、工作区清理（支持 CortexGraph）
 metadata:
   openclaw:
-    emoji: "🛌"
+    emoji: ""
     category: "system"
     tags: ["memory", "sleep", "consolidation", "cortexgraph"]
     schedulable: true
 ---
 
-# Agent Sleep System 🛌
+# Agent Sleep System 
 
 像人类一样，Agent 需要"睡眠"（离线维护）来防止记忆碎片化和上下文污染。
 

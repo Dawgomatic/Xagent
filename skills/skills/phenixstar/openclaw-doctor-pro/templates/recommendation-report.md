@@ -104,37 +104,37 @@
 {AI_SKILLS_RECOMMENDATION}
 
 **Top Picks:**
-- **image-generator-pro** (⭐ 4.8) - Multi-provider image generation
-- **text-embeddings** (⭐ 4.6) - Text embedding generation
-- **sentiment-analyzer** (⭐ 4.5) - Real-time sentiment analysis
-- **translation-ai** (⭐ 4.7) - Neural machine translation
+- **image-generator-pro** ( 4.8) - Multi-provider image generation
+- **text-embeddings** ( 4.6) - Text embedding generation
+- **sentiment-analyzer** ( 4.5) - Real-time sentiment analysis
+- **translation-ai** ( 4.7) - Neural machine translation
 
 ### Automation
 {AUTOMATION_SKILLS_RECOMMENDATION}
 
 **Top Picks:**
-- **workflow-builder** (⭐ 4.7) - Visual workflow automation
-- **scheduler-pro** (⭐ 4.6) - Advanced task scheduling
-- **batch-processor** (⭐ 4.4) - Batch operations
-- **trigger-manager** (⭐ 4.5) - Event-based triggers
+- **workflow-builder** ( 4.7) - Visual workflow automation
+- **scheduler-pro** ( 4.6) - Advanced task scheduling
+- **batch-processor** ( 4.4) - Batch operations
+- **trigger-manager** ( 4.5) - Event-based triggers
 
 ### Utilities
 {UTILITIES_SKILLS_RECOMMENDATION}
 
 **Top Picks:**
-- **pdf-toolkit** (⭐ 4.9) - Complete PDF manipulation
-- **image-optimizer** (⭐ 4.7) - Image compression
-- **file-converter** (⭐ 4.6) - Multi-format conversion
-- **qr-code-tools** (⭐ 4.5) - QR generation/scanning
+- **pdf-toolkit** ( 4.9) - Complete PDF manipulation
+- **image-optimizer** ( 4.7) - Image compression
+- **file-converter** ( 4.6) - Multi-format conversion
+- **qr-code-tools** ( 4.5) - QR generation/scanning
 
 ### Integrations
 {INTEGRATIONS_SKILLS_RECOMMENDATION}
 
 **Top Picks:**
-- **google-workspace** (⭐ 4.6) - Google Workspace integration
-- **github-integration** (⭐ 4.8) - GitHub automation
-- **zapier-bridge** (⭐ 4.4) - Zapier compatibility
-- **webhook-manager** (⭐ 4.5) - Webhook handling
+- **google-workspace** ( 4.6) - Google Workspace integration
+- **github-integration** ( 4.8) - GitHub automation
+- **zapier-bridge** ( 4.4) - Zapier compatibility
+- **webhook-manager** ( 4.5) - Webhook handling
 
 ---
 
@@ -259,7 +259,7 @@ openclaw skills install \
 ```
 
 **Estimated Setup Time:** 15 minutes
-**Combined Rating:** ⭐ 4.6/5.0
+**Combined Rating:**  4.6/5.0
 
 ### Content Creation Bundle
 For content generation and management:
@@ -273,7 +273,7 @@ openclaw skills install \
 ```
 
 **Estimated Setup Time:** 10 minutes
-**Combined Rating:** ⭐ 4.7/5.0
+**Combined Rating:**  4.7/5.0
 
 ### Automation Bundle
 Complete workflow automation:
@@ -287,7 +287,7 @@ openclaw skills install \
 ```
 
 **Estimated Setup Time:** 20 minutes
-**Combined Rating:** ⭐ 4.5/5.0
+**Combined Rating:**  4.5/5.0
 
 ### Integration Bundle
 Connect with external services:
@@ -301,7 +301,7 @@ openclaw skills install \
 ```
 
 **Estimated Setup Time:** 25 minutes
-**Combined Rating:** ⭐ 4.6/5.0
+**Combined Rating:**  4.6/5.0
 
 ---
 

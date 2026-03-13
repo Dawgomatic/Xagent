@@ -1,7 +1,7 @@
 ---
 name: docusign
 description: Send documents for electronic signature via DocuSign API. Create envelopes, track signing status, and download signed documents.
-metadata: {"clawdbot":{"emoji":"✍️","requires":{"env":["DOCUSIGN_ACCESS_TOKEN","DOCUSIGN_ACCOUNT_ID"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["DOCUSIGN_ACCESS_TOKEN","DOCUSIGN_ACCOUNT_ID"]}}}
 ---
 
 # DocuSign

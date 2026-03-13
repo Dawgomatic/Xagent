@@ -90,15 +90,15 @@ class ScanResult:
     def action(self) -> str:
         sev = self.max_severity
         if sev == Severity.SAFE:
-            return "✅ SAFE - OK to install"
+            return " SAFE - OK to install"
         elif sev == Severity.LOW:
-            return "📝 LOW - Review recommended"
+            return " LOW - Review recommended"
         elif sev == Severity.MEDIUM:
-            return "⚠️ MEDIUM - Manual review required"
+            return " MEDIUM - Manual review required"
         elif sev == Severity.HIGH:
-            return "🔴 HIGH - Do NOT install without audit"
+            return " HIGH - Do NOT install without audit"
         else:
-            return "🚨 CRITICAL - BLOCKED - Likely malicious"
+            return " CRITICAL - BLOCKED - Likely malicious"
 
 
 # =============================================================================
@@ -366,7 +366,7 @@ def scan_skill(skill_path: str, strict: bool = False) -> ScanResult:
     path = Path(skill_path).expanduser().resolve()
     
     if not path.exists():
-        print(f"❌ Path does not exist: {path}", file=sys.stderr)
+        print(f" Path does not exist: {path}", file=sys.stderr)
         sys.exit(1)
     
     result = ScanResult(path=str(path), files_scanned=0)
@@ -436,11 +436,11 @@ SKILL CONTENT (truncated):
 Write a security analysis report in this EXACT format:
 
 ============================================================
-🔍 HEIMDALL SECURITY ANALYSIS
+ HEIMDALL SECURITY ANALYSIS
 ============================================================
 
-📁 Skill: [skill name]
-⚡ Verdict: [emoji + verdict based on severity]
+ Skill: [skill name]
+ Verdict: [emoji + verdict based on severity]
 
 ## Summary
 [2-3 sentence overview of what this skill does and the main security concerns]
@@ -459,8 +459,8 @@ Write a security analysis report in this EXACT format:
 [Numbered list of what the user accepts by installing this skill]
 
 ## Recommendation
-🔴/🟡/🟢 [Clear actionable recommendation]
-✅ Safe conditions (if any)
+// [Clear actionable recommendation]
+ Safe conditions (if any)
 
 ## References
 - [Relevant security sources if applicable]
@@ -536,11 +536,11 @@ def generate_basic_report(result: ScanResult) -> str:
     
     report = f"""
 ============================================================
-🔍 HEIMDALL SECURITY ANALYSIS (Basic Mode)
+ HEIMDALL SECURITY ANALYSIS (Basic Mode)
 ============================================================
 
-📁 Skill: {skill_name}
-⚡ Verdict: {result.action}
+ Skill: {skill_name}
+ Verdict: {result.action}
 
 ## Summary
 Automated scan detected {len(result.active_findings)} potential security issues.
@@ -570,15 +570,15 @@ Run with --analyze and ensure OPENROUTER_API_KEY is set for full AI analysis.
 def print_report(result: ScanResult, verbose: bool = False, show_suppressed: bool = False):
     """Print scan report."""
     print("\n" + "="*60)
-    print("🔍 SKILL SECURITY SCAN REPORT v4.0")
+    print(" SKILL SECURITY SCAN REPORT v4.0")
     print("="*60)
-    print(f"📁 Path: {result.path}")
-    print(f"📄 Files scanned: {result.files_scanned}")
-    print(f"🔢 Active issues: {len(result.active_findings)}")
+    print(f" Path: {result.path}")
+    print(f" Files scanned: {result.files_scanned}")
+    print(f" Active issues: {len(result.active_findings)}")
     if result.suppressed_count > 0:
-        print(f"🔇 Suppressed (context-aware): {result.suppressed_count}")
-    print(f"⚡ Max severity: {result.max_severity.name}")
-    print(f"📋 Action: {result.action}")
+        print(f" Suppressed (context-aware): {result.suppressed_count}")
+    print(f" Max severity: {result.max_severity.name}")
+    print(f" Action: {result.action}")
     print("="*60)
     
     active = result.active_findings
@@ -589,7 +589,7 @@ def print_report(result: ScanResult, verbose: bool = False, show_suppressed: boo
         
         for sev in sorted(by_severity.keys(), reverse=True):
             findings = by_severity[sev]
-            print(f"\n{'🚨' if sev >= Severity.HIGH else '⚠️'} {sev.name} ({len(findings)} issues):")
+            print(f"\n{'' if sev >= Severity.HIGH else ''} {sev.name} ({len(findings)} issues):")
             
             by_cat: Dict[str, List[Finding]] = {}
             for f in findings:
@@ -609,7 +609,7 @@ def print_report(result: ScanResult, verbose: bool = False, show_suppressed: boo
                     print(f"    ... and {len(cat_findings) - 3} more")
     
     if show_suppressed and result.suppressed_count > 0:
-        print(f"\n🔇 SUPPRESSED FINDINGS ({result.suppressed_count}):")
+        print(f"\n SUPPRESSED FINDINGS ({result.suppressed_count}):")
         suppressed = [f for f in result.findings if f.suppressed]
         for f in suppressed[:10]:
             rel_path = f.file.replace(result.path + '/', '')
@@ -621,13 +621,13 @@ def print_report(result: ScanResult, verbose: bool = False, show_suppressed: boo
     print("\n" + "="*60)
     
     if result.max_severity >= Severity.HIGH:
-        print("❌ RECOMMENDATION: Do NOT install this skill without thorough review")
+        print(" RECOMMENDATION: Do NOT install this skill without thorough review")
         return 1
     elif result.max_severity >= Severity.MEDIUM:
-        print("⚠️ RECOMMENDATION: Review flagged items before installing")
+        print(" RECOMMENDATION: Review flagged items before installing")
         return 0
     else:
-        print("✅ RECOMMENDATION: Skill appears safe to install")
+        print(" RECOMMENDATION: Skill appears safe to install")
         return 0
 
 
@@ -651,7 +651,7 @@ def main():
     result = scan_skill(args.path, strict=args.strict)
     
     if args.analyze:
-        print("\n🔍 Running AI-powered security analysis...\n")
+        print("\n Running AI-powered security analysis...\n")
         skill_content = get_skill_content(args.path)
         analysis = generate_ai_analysis(result, skill_content)
         print(analysis)

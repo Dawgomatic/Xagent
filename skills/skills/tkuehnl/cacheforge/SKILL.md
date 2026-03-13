@@ -17,7 +17,7 @@ tags:
   - gateway
   - discord
   - discord-v2
-metadata: {"openclaw":{"emoji":"🧠","homepage":"https://app.anvil-ai.io"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://app.anvil-ai.io"}}
 ---
 
 ## Purpose

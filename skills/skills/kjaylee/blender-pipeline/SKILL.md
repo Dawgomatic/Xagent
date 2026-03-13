@@ -62,10 +62,10 @@ blender -b --addons "rigify,io_scene_gltf2" --python script.py
 
 ### 인자 순서 중요!
 ```bash
-# ✅ 올바름: blend 로드 → 출력 설정 → 렌더
+#  올바름: blend 로드 → 출력 설정 → 렌더
 blender -b scene.blend -o /tmp/output -F PNG -f 1
 
-# ❌ 잘못됨: 출력 설정이 blend 로드 전
+#  잘못됨: 출력 설정이 blend 로드 전
 blender -b -o /tmp/output scene.blend -f 1
 ```
 
@@ -247,9 +247,9 @@ curl -O http://<MINIPC_IP>:9877/output_file.glb
 ### 렌더링 엔진
 | 엔진 | Headless 지원 | GPU 필요 | 비고 |
 |------|:---:|:---:|------|
-| **Cycles** | ✅ 완전 지원 | 선택 | CPU/GPU 모두 가능. 기본 선택. |
-| **EEVEE** | ⚠️ Linux만 | 필수 | Linux 3.4+ GPU 필수. macOS/Windows headless 불가. |
-| **Workbench** | ⚠️ Linux만 | 필수 | EEVEE와 같은 제한. |
+| **Cycles** |  완전 지원 | 선택 | CPU/GPU 모두 가능. 기본 선택. |
+| **EEVEE** |  Linux만 | 필수 | Linux 3.4+ GPU 필수. macOS/Windows headless 불가. |
+| **Workbench** |  Linux만 | 필수 | EEVEE와 같은 제한. |
 
 ### 알려진 제한
 - **EEVEE headless**: Linux + GPU + display 환경 필요. `Xvfb`로 가상 디스플레이 생성 가능:

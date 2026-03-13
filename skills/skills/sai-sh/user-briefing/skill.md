@@ -29,31 +29,31 @@ python3 {baseDir}/main.py
 
 Output:
 ```
-✨ Good morning! Here's your day at a glance:
+ Good morning! Here's your day at a glance:
 
-🌤️ Weather
+ Weather
    Sunny, 62°F
    High: 68°F, Low: 58°F
    Humidity: 65%, Wind: 10 mph
    Feels like: 60°F
 
-📅 Calendar (3 events)
+ Calendar (3 events)
    09:00 AM [15min] - Team Standup (Google Meet)
    11:30 AM [60min] - Client Call with Sarah (Zoom)
    03:00 PM - Dentist Appointment
 
-📧 Email (4 priority)
+ Email (4 priority)
    From: Stripe
    Subject: Payment declined for customer #4821
    From: GitHub
    Subject: CI failed on main branch
 
-✅ Tasks (5 today)
-   🔴 High Review Q1 proposal
-   🟡 Medium Update API documentation
-   🟢 Normal Prepare 1:1 with team lead
+ Tasks (5 today)
+    High Review Q1 proposal
+    Medium Update API documentation
+    Normal Prepare 1:1 with team lead
 
-Have a productive day! 🚀
+Have a productive day! 
 ```
 
 ## One Time Setup

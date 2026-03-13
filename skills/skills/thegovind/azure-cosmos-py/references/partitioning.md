@@ -209,7 +209,7 @@ def check_partition_metrics(container):
             pct = (p['count'] / total) * 100
             print(f"  {p['pk']}: {p['count']} items ({pct:.1f}%)")
             if pct > 20:
-                print(f"    ⚠️  Hot partition detected!")
+                print(f"      Hot partition detected!")
 ```
 
 ### Identifying Hot Partitions via Azure Portal

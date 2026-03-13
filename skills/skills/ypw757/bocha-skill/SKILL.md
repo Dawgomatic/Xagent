@@ -1,21 +1,21 @@
 ---
 name: bocha-search
 description: Search the web using Bocha AI Search API (博查AI搜索) - a Chinese search engine optimized for Chinese content. Requires BOCHA_API_KEY. Supports web pages, images, and news with high-quality summaries.
-metadata: {"openclaw":{"emoji":"🔍","requires":{"bins":["node"]},"primaryEnv":"BOCHA_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"]},"primaryEnv":"BOCHA_API_KEY"}}
 ---
 
 # Bocha Search Skill for OpenClaw
 
-🔍 **博查AI搜索** - 专为中文内容优化的智能搜索工具
+ **博查AI搜索** - 专为中文内容优化的智能搜索工具
 
 ## Overview
 
 This skill provides web search capabilities through the Bocha AI Search API (博查AI搜索). It's particularly effective for:
-- ✅ Chinese language searches (中文搜索)
-- ✅ Domestic Chinese content (国内内容)
-- ✅ News and current events (新闻资讯)
-- ✅ Encyclopedia and knowledge queries (百科知识)
-- ✅ High-quality AI-generated summaries (AI智能摘要)
+-  Chinese language searches (中文搜索)
+-  Domestic Chinese content (国内内容)
+-  News and current events (新闻资讯)
+-  Encyclopedia and knowledge queries (百科知识)
+-  High-quality AI-generated summaries (AI智能摘要)
 
 ## Requirements
 
@@ -87,7 +87,7 @@ When calling the underlying tool directly:
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `query` | string | ✅ Yes | - | Search query (supports Chinese and English) |
+| `query` | string |  Yes | - | Search query (supports Chinese and English) |
 | `count` | number | No | 10 | Number of results (1-50) |
 | `freshness` | string | No | "noLimit" | Time filter: "oneDay", "oneWeek", "oneMonth", "oneYear", "noLimit" |
 | `summary` | boolean | No | true | Whether to include AI-generated summaries |
@@ -180,18 +180,18 @@ skills/bocha-search/
 └── scripts/
     ├── package.json      # Node.js config
     ├── tool.json         # OpenClaw tool definition
-    └── bocha_search.js   # Main search script ⬅️ Entry point
+    └── bocha_search.js   # Main search script  Entry point
 ```
 
 ## Comparison with Other Search Tools
 
 | Feature | Bocha Search | Brave Search | Perplexity |
 |---------|--------------|--------------|------------|
-| Chinese Content | ⭐⭐⭐ Excellent | ⭐⭐ Good | ⭐⭐ Good |
-| Speed | ⭐⭐⭐ Fast | ⭐⭐⭐ Fast | ⭐⭐ Moderate |
-| Summaries | ⭐⭐⭐ AI-powered | ❌ No | ⭐⭐⭐ AI-powered |
-| Images | ⭐⭐⭐ Included | ⭐⭐ Separate | ⭐ Limited |
-| Pricing | 💰 Affordable | 🆓 Free tier | 💰 Moderate |
+| Chinese Content |  Excellent |  Good |  Good |
+| Speed |  Fast |  Fast |  Moderate |
+| Summaries |  AI-powered |  No |  AI-powered |
+| Images |  Included |  Separate |  Limited |
+| Pricing |  Affordable |  Free tier |  Moderate |
 
 ## Best Practices
 
@@ -223,10 +223,10 @@ skills/bocha-search/
 
 ## Links
 
-- 🔗 [博查AI开放平台](https://open.bocha.cn/)
-- 🔗 [API Documentation](https://bocha-ai.feishu.cn/wiki/RXEOw02rFiwzGSkd9mUcqoeAnNK)
-- 🔗 [OpenClaw Docs](https://docs.openclaw.ai)
-- 🔗 [ClawdHub](https://clawdhub.com)
+-  [博查AI开放平台](https://open.bocha.cn/)
+-  [API Documentation](https://bocha-ai.feishu.cn/wiki/RXEOw02rFiwzGSkd9mUcqoeAnNK)
+-  [OpenClaw Docs](https://docs.openclaw.ai)
+-  [ClawdHub](https://clawdhub.com)
 
 ## License
 

@@ -279,7 +279,7 @@ tools: Read, Write, Edit, Glob, Grep
 - Bug fixes
 
 ### Breaking Changes
-- ⚠️ Breaking change
+-  Breaking change
 ```
 
 ### Output Report

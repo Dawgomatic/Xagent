@@ -298,7 +298,7 @@ Not ready yet? That's okay—stay on the list and keep learning.
 
 ### Email 4: Launch Announcement (Send: Day 0, 10 AM Tuesday)
 
-**Subject:** "🚀 It's here! [Product] is now available"
+**Subject:** " It's here! [Product] is now available"
 
 **Content Structure:**
 ```
@@ -533,13 +533,13 @@ You're still on my list, which means you haven't unsubscribed yet.
 [Value Recap]
 Here's what you've missed over the last [timeframe]:
 
-📧 **[Email 1 Topic]**: [One-line description]
+ **[Email 1 Topic]**: [One-line description]
 [Link]
 
-📧 **[Email 2 Topic]**: [One-line description]
+ **[Email 2 Topic]**: [One-line description]
 [Link]
 
-📧 **[Email 3 Topic]**: [One-line description]
+ **[Email 3 Topic]**: [One-line description]
 [Link]
 
 [Special Offer]

@@ -26,12 +26,12 @@ metadata:
 
 OpenClaw Security Suite protects AI agent systems from security threats through:
 
-- ✅ **6 Parallel Detection Modules** - Comprehensive threat coverage
-- ⚡ **Sub-50ms Validation** - Real-time with async database writes
-- 🎯 **Smart Severity Scoring** - Context-aware risk assessment
-- 🔧 **Automated Actions** - Block, warn, or log based on severity
-- 📊 **Analytics & Reputation** - Track patterns and user behavior
-- 🪝 **Auto-Hooks** - Transparent protection via hooks
+-  **6 Parallel Detection Modules** - Comprehensive threat coverage
+-  **Sub-50ms Validation** - Real-time with async database writes
+-  **Smart Severity Scoring** - Context-aware risk assessment
+-  **Automated Actions** - Block, warn, or log based on severity
+-  **Analytics & Reputation** - Track patterns and user behavior
+-  **Auto-Hooks** - Transparent protection via hooks
 
 ## Architecture
 
@@ -211,13 +211,13 @@ openclaw-sec check-all "Your input text here"
 Running comprehensive security scan...
 ──────────────────────────────────────
 
-📊 Scan Results
+ Scan Results
 Severity: MEDIUM
 Action: warn
 Fingerprint: a1b2c3d4e5f6g7h8
 Total Findings: 3
 
-🔍 Detections by Module:
+ Detections by Module:
 
   prompt_injection (2 findings)
     1. instruction_override
@@ -252,7 +252,7 @@ openclaw-sec events --severity HIGH
 
 **Output:**
 ```
-📋 Security Events
+ Security Events
 
 Timestamp            Severity   Action       User ID          Module
 ────────────────────────────────────────────────────────────────────
@@ -273,7 +273,7 @@ openclaw-sec stats
 
 **Output:**
 ```
-📊 Security Statistics
+ Security Statistics
 
 Database Tables:
   • security_events
@@ -299,7 +299,7 @@ openclaw-sec analyze --user-id "alice@example.com"
 
 **Output:**
 ```
-🔬 Security Analysis
+ Security Analysis
 
 User Reputation:
   Trust Score: 87.5
@@ -321,7 +321,7 @@ openclaw-sec reputation "alice@example.com"
 
 **Output:**
 ```
-👤 User Reputation
+ User Reputation
 
 User ID: alice@example.com
 Trust Score: 92.3
@@ -355,7 +355,7 @@ openclaw-sec config
 
 **Output:**
 ```
-⚙️  Configuration
+  Configuration
 
 Config File: .openclaw-sec.yaml
 
@@ -403,7 +403,7 @@ openclaw-sec test
 
 **Output:**
 ```
-🧪 Testing Security Configuration
+ Testing Security Configuration
 
 ✓ PASS Safe input
   Expected: SAFE
@@ -415,7 +415,7 @@ openclaw-sec test
   Got: MEDIUM
   Action: warn
 
-📊 Test Results:
+ Test Results:
   Passed: 3
   Failed: 1
 ```

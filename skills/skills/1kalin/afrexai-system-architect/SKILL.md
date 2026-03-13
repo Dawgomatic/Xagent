@@ -121,7 +121,7 @@ Every architecture must be documented at 4 levels:
 **Level 1 — System Context**
 ```
 [Your System] ←→ [User Types]
-       ↕
+       
 [External Systems / APIs / Third-Party Services]
 ```
 Purpose: Who uses the system? What does it interact with?
@@ -369,12 +369,12 @@ failure_mode:
 
 | Factor | AWS | GCP | Azure |
 |--------|-----|-----|-------|
-| Broadest service catalog | ✅ | | |
-| Best ML/data tooling | | ✅ | |
-| Enterprise/Microsoft stack | | | ✅ |
-| Best Kubernetes (GKE) | | ✅ | |
-| Most mature serverless | ✅ | | |
-| Best pricing for compute | | ✅ | |
+| Broadest service catalog |  | | |
+| Best ML/data tooling | |  | |
+| Enterprise/Microsoft stack | | |  |
+| Best Kubernetes (GKE) | |  | |
+| Most mature serverless |  | | |
+| Best pricing for compute | |  | |
 
 Rule: Pick one primary cloud. Multi-cloud adds complexity with marginal benefit unless compliance requires it.
 

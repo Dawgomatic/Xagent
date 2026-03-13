@@ -11,7 +11,7 @@ $ clawctl board
   #4 Summarize weekly spending from transaction exports
   #6 Find showtimes for new releases this weekend [movie]
 
-── ▶ in_progress (2) ──
+──  in_progress (2) ──
   #1 Research best noise-cancelling headphones under $300 [research]
   #5 Write a Python script to rename photos by EXIF date [coding]
 
@@ -171,8 +171,8 @@ Only claim tasks assigned to you or matching your role.
 
 ```
 pending ─→ claimed ─→ in_progress ─→ done
-                    ↘ blocked ↗     ↘ cancelled
-                    ↘ review  ↗
+                     blocked       cancelled
+                     review  
 ```
 
 `list` excludes done/cancelled by default and sorts by status priority (in_progress > claimed > blocked > review > pending), oldest first. `--all` flips to newest-first for history browsing.

@@ -65,9 +65,9 @@ research_organizer.py add "content-calendar" "Reference: ClawHub marketplace at 
 
 ### Path Validation (v1.0.1+)
 The `export` function validates output paths to prevent malicious writes:
-- ✅ Allowed: `~/.openclaw/workspace/`, `/tmp/`, and home directory
-- ❌ Blocked: System paths (`/etc/`, `/usr/`, `/var/`, etc.)
-- ❌ Blocked: Sensitive dotfiles (`~/.bashrc`, `~/.ssh`, etc.)
+-  Allowed: `~/.openclaw/workspace/`, `/tmp/`, and home directory
+-  Blocked: System paths (`/etc/`, `/usr/`, `/var/`, etc.)
+-  Blocked: Sensitive dotfiles (`~/.bashrc`, `~/.ssh`, etc.)
 
 This prevents prompt injection attacks that could attempt to write to system files for privilege escalation.
 

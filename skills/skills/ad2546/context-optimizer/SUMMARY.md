@@ -11,28 +11,28 @@ You're running into context window issues with DeepSeek's 64k limit. The Context
 
 ## Key Features
 
-### 🚀 **Lightweight & Dependency-free**
+###  **Lightweight & Dependency-free**
 - No external dependencies required
 - Works immediately after copying
 - Fast and efficient
 
-### 🎯 **DeepSeek-optimized**
+###  **DeepSeek-optimized**
 - Specifically configured for 64k context window
 - Configurable thresholds (70%/80%/95% usage)
 - Model-aware token estimation
 
-### 🔧 **Multiple Pruning Strategies**
+###  **Multiple Pruning Strategies**
 1. **Temporal** - Removes older messages first
 2. **Priority** - Preserves high-priority messages (1-10 scale)
 3. **Length-based** - Removes longest messages when needed
 4. **Semantic** - Optional: removes semantically similar messages (requires dependencies)
 
-### ⚡ **Automatic & Manual Control**
+###  **Automatic & Manual Control**
 - Auto-pruning based on context usage
 - Manual pruning to specific token targets
 - Emergency pruning for critical situations
 
-### 📊 **Real-time Monitoring**
+###  **Real-time Monitoring**
 - Health status (HEALTHY/WARNING/PRUNE/EMERGENCY)
 - Token usage tracking
 - Performance statistics

@@ -632,9 +632,9 @@ function assembleProject(workspace, manifest) {
     const manifest = await runPlanner(workspace);
     await executeManifest(workspace, manifest);
     assembleProject(workspace, manifest);
-    log(`✅ Done! Project at: ${workspace.projectDir}`);
+    log(` Done! Project at: ${workspace.projectDir}`);
   } catch (err) {
-    log(`❌ Fatal: ${err.message}`);
+    log(` Fatal: ${err.message}`);
     console.error(err);
     process.exit(1);
   }

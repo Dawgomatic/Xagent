@@ -1,10 +1,10 @@
 ---
 name: xfetch
 description: Fast X/Twitter CLI scraper. Use when you need to fetch tweets, user profiles, search results, timelines, followers, or any X/Twitter data. No API keys required - uses cookie-based auth.
-metadata: {"clawdbot":{"emoji":"🐦","requires":{"bins":["xfetch"]},"install":[{"id":"npm","kind":"node","package":"xfetch-cli","bins":["xfetch"],"label":"Install xfetch (npm)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["xfetch"]},"install":[{"id":"npm","kind":"node","package":"xfetch-cli","bins":["xfetch"],"label":"Install xfetch (npm)"}]}}
 ---
 
-# xfetch 🐦
+# xfetch 
 
 Fast X/Twitter CLI scraper. No API keys. Just cookies and go.
 

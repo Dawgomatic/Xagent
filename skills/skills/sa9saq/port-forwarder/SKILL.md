@@ -85,11 +85,11 @@ autossh -M 0 -fNL 8080:localhost:80 user@remote-host \
 ## Output Format
 When reporting tunnel status:
 ```
-## 🔌 Active SSH Tunnels
+##  Active SSH Tunnels
 | PID | Type | Local | Remote | Host | Status |
 |-----|------|-------|--------|------|--------|
-| 1234 | Local | :8080 | :80 | server1 | 🟢 Active |
-| 5678 | SOCKS | :1080 | — | proxy1 | 🟢 Active |
+| 1234 | Local | :8080 | :80 | server1 |  Active |
+| 5678 | SOCKS | :1080 | — | proxy1 |  Active |
 ```
 
 ## Edge Cases

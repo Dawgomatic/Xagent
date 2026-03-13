@@ -3,7 +3,7 @@ name: Deno
 slug: deno
 version: 1.0.0
 description: "Build with Deno runtime avoiding permission gotchas, URL import traps, and Node.js migration pitfalls."
-metadata: {"clawdbot":{"emoji":"🦕","requires":{"bins":["deno"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["deno"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

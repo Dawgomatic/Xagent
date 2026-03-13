@@ -73,7 +73,7 @@ async function getQWeatherJwt({ debug = false } = {}) {
     ? CONFIG.PRIVATE_KEY_PATH
     : path.join(__dirname, CONFIG.PRIVATE_KEY_PATH);
 
-  // ✅ 只做一件事：调用你“已经验证正确”的生成函数
+  //  只做一件事：调用你“已经验证正确”的生成函数
   const token  = generateJwtEd25519(
     CONFIG.PROJECT_ID,
     CONFIG.CREDENTIALS_ID,

@@ -16,15 +16,15 @@ async function showLogs(context) {
   const logs = syncState?.logs || [];
   
   if (logs.length === 0) {
-    return `📋 **Sync Logs**\n\nNo recent logs.`;
+    return ` **Sync Logs**\n\nNo recent logs.`;
   }
   
-  const lines = ['📋 **Sync Logs**', ''];
+  const lines = [' **Sync Logs**', ''];
   
   logs.slice(-20).forEach(log => {
     const time = new Date(log.timestamp).toLocaleTimeString();
-    const level = log.level === 'error' ? '❌' : 
-                  log.level === 'warn' ? '⚠️' : 'ℹ️';
+    const level = log.level === 'error' ? '' : 
+                  log.level === 'warn' ? '' : '';
     lines.push(`${time} ${level} ${log.message}`);
   });
   
@@ -106,7 +106,7 @@ async function destroy(context) {
     syncState.logs = [];
   }
   
-  return `🗑️ **Namespace Destroyed**
+  return ` **Namespace Destroyed**
 
 Removed namespace: \`${oldNamespace}\`
 
@@ -128,7 +128,7 @@ async function debug(context) {
   
   const config = await configManager.get();
   
-  const lines = ['🔧 **Debug Info**', ''];
+  const lines = [' **Debug Info**', ''];
   
   // Config
   lines.push('**Configuration**');

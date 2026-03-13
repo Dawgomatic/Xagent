@@ -73,11 +73,11 @@ Settings → Marketing → Lead Scoring
 
 ```
 Required (all must be true):
-✅ Job title: Director+ (or Budget Authority confirmed)
-✅ Company size: 50-5000 employees
-✅ Budget: $10k+ annual
-✅ Timeline: Buying within 90 days
-✅ Engagement: Demo requested OR High intent action
+ Job title: Director+ (or Budget Authority confirmed)
+ Company size: 50-5000 employees
+ Budget: $10k+ annual
+ Timeline: Buying within 90 days
+ Engagement: Demo requested OR High intent action
 ```
 
 ### Workflow Configuration

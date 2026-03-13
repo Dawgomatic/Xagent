@@ -84,7 +84,7 @@ async function main() {
   const provider = new ethers.JsonRpcProvider(ABSTRACT_RPC);
   const [, , action, ...args] = process.argv;
   
-  console.log("⛽ Gas Estimation for Abstract\n");
+  console.log(" Gas Estimation for Abstract\n");
   
   // Get current gas prices
   const fees = await getGasPrice(provider);

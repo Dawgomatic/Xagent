@@ -2,7 +2,7 @@
 
 Long-term memory via ChromaDB with local Ollama embeddings. Auto-recall injects relevant context every turn. No cloud APIs required — fully self-hosted.
 
-## ⚠️ Important: Upgrade to v1.1.1
+##  Important: Upgrade to v1.1.1
 
 **v1.0.0 had a critical silent failure bug.** If your indexer/reindexer deletes and recreates the ChromaDB collection (which most do), the collection UUID changes — and v1.0.0 used a hardcoded UUID in the config. This meant **auto-recall silently stopped working** after the first reindex, with no error message. You'd have no idea your long-term memory was gone.
 
@@ -81,4 +81,4 @@ Long-term memory via ChromaDB with local Ollama embeddings. Auto-recall injects 
 
 ### v1.0.0
 - Initial release
-- ⚠️ Hardcoded `collectionId` breaks silently after reindexing
+-  Hardcoded `collectionId` breaks silently after reindexing

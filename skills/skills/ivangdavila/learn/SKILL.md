@@ -4,7 +4,7 @@ slug: learn
 version: 1.0.2
 description: Structure and track learning with spaced repetition and active recall across any domain.
 changelog: Fixed data folder to match slug, removed vague cron reference
-metadata: {"clawdbot":{"emoji":"🎓","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Data Storage
@@ -26,12 +26,12 @@ Create on first use: `mkdir -p ~/learn/{topics,reviews}`
 ## Scope
 
 This skill:
-- ✅ Creates learning plans in ~/learn/
-- ✅ Tracks concepts with spaced repetition
-- ✅ Generates quizzes for active recall
-- ✅ Reminds user when reviews are due (stores schedule in ~/learn/reviews/)
-- ❌ NEVER accesses external learning platforms without permission
-- ❌ NEVER stores data outside ~/learn/
+-  Creates learning plans in ~/learn/
+-  Tracks concepts with spaced repetition
+-  Generates quizzes for active recall
+-  Reminds user when reviews are due (stores schedule in ~/learn/reviews/)
+-  NEVER accesses external learning platforms without permission
+-  NEVER stores data outside ~/learn/
 
 ## Quick Reference
 

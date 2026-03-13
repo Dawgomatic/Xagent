@@ -5,7 +5,7 @@ version: 1.0.0
 homepage: https://the-vynn.com
 metadata:
   clawdbot:
-    emoji: "📈"
+    emoji: ""
     requires:
       env: ["VYNN_API_KEY"]
     primaryEnv: "VYNN_API_KEY"

@@ -33,7 +33,7 @@ class Reports {
     const filtered = this.ledger.filterTransactionsByPeriod(transactions, period);
     
     if (filtered.length === 0) {
-      return `📊 Monthly Report - ${monthName} ${year}\n\nNo transactions found for this period.`;
+      return ` Monthly Report - ${monthName} ${year}\n\nNo transactions found for this period.`;
     }
 
     const summary = this.calculateSummary(filtered);
@@ -41,11 +41,11 @@ class Reports {
     const topVendors = this.getTopVendors(filtered, 5);
     const dailySpending = this.calculateDailySpending(filtered);
 
-    let report = `📊 Monthly Report - ${monthName} ${year}\n`;
+    let report = ` Monthly Report - ${monthName} ${year}\n`;
     report += `═══════════════════════════════════════════\n\n`;
     
     // Summary
-    report += `💰 Summary:\n`;
+    report += ` Summary:\n`;
     report += `   Total Spent: $${summary.total.toFixed(2)}\n`;
     report += `   Transactions: ${summary.count}\n`;
     report += `   Average: $${summary.average.toFixed(2)}\n`;
@@ -53,7 +53,7 @@ class Reports {
     report += `   Smallest: $${summary.smallest.toFixed(2)}\n\n`;
 
     // Category breakdown
-    report += `📂 Spending by Category:\n`;
+    report += ` Spending by Category:\n`;
     for (const [category, data] of Object.entries(categoryBreakdown)) {
       const percentage = ((data.amount / summary.total) * 100).toFixed(1);
       report += `   ${category}: $${data.amount.toFixed(2)} (${percentage}%) - ${data.count} transactions\n`;
@@ -61,7 +61,7 @@ class Reports {
     report += '\n';
 
     // Top vendors
-    report += `🏪 Top Vendors:\n`;
+    report += ` Top Vendors:\n`;
     for (let i = 0; i < topVendors.length; i++) {
       const vendor = topVendors[i];
       report += `   ${i + 1}. ${vendor.name}: $${vendor.amount.toFixed(2)} (${vendor.count} transactions)\n`;
@@ -69,7 +69,7 @@ class Reports {
     report += '\n';
 
     // Daily spending trend
-    report += `📈 Daily Spending Pattern:\n`;
+    report += ` Daily Spending Pattern:\n`;
     const maxDaily = Math.max(...Object.values(dailySpending));
     for (const [day, amount] of Object.entries(dailySpending)) {
       const barLength = Math.round((amount / maxDaily) * 20);
@@ -80,11 +80,11 @@ class Reports {
     // Budget comparison if budgets exist
     const budgets = await this.ledger.loadBudgets();
     if (Object.keys(budgets).length > 0) {
-      report += '\n💰 Budget Comparison:\n';
+      report += '\n Budget Comparison:\n';
       for (const [category, budget] of Object.entries(budgets)) {
         const spent = categoryBreakdown[category]?.amount || 0;
         const percentage = (spent / budget.amount) * 100;
-        const status = percentage > 100 ? '🔴 OVER' : percentage > 80 ? '🟡 NEAR' : '🟢 OK';
+        const status = percentage > 100 ? ' OVER' : percentage > 80 ? ' NEAR' : ' OK';
         report += `   ${category}: ${status} $${spent.toFixed(2)} / $${budget.amount} (${percentage.toFixed(1)}%)\n`;
       }
     }
@@ -112,11 +112,11 @@ class Reports {
       categoryData[t.category].count++;
     });
 
-    let report = `📂 Category Report (${period})\n`;
+    let report = ` Category Report (${period})\n`;
     report += `═══════════════════════════════════\n\n`;
 
     for (const [category, data] of Object.entries(categoryData).sort((a, b) => b[1].total - a[1].total)) {
-      report += `📁 ${category}\n`;
+      report += ` ${category}\n`;
       report += `   Total: $${data.total.toFixed(2)} (${data.count} transactions)\n`;
       report += `   Average: $${(data.total / data.count).toFixed(2)} per transaction\n`;
       
@@ -164,7 +164,7 @@ class Reports {
       vendorData[t.vendor].categories[t.category] = (vendorData[t.vendor].categories[t.category] || 0) + t.amount;
     });
 
-    let report = `🏪 Vendor Report (${period})\n`;
+    let report = ` Vendor Report (${period})\n`;
     report += `═══════════════════════════════════\n\n`;
 
     const sortedVendors = Object.entries(vendorData)
@@ -172,7 +172,7 @@ class Reports {
       .slice(0, 10); // Top 10 vendors
 
     for (const [vendor, data] of sortedVendors) {
-      report += `🏪 ${vendor}\n`;
+      report += ` ${vendor}\n`;
       report += `   Total: $${data.total.toFixed(2)} (${data.count} transactions)\n`;
       report += `   Average: $${(data.total / data.count).toFixed(2)} per transaction\n`;
       
@@ -235,11 +235,11 @@ class Reports {
       }
     });
 
-    let report = `📈 Trend Report (Last ${months} Months)\n`;
+    let report = ` Trend Report (Last ${months} Months)\n`;
     report += `══════════════════════════════════════════\n\n`;
 
     // Monthly totals
-    report += `💰 Monthly Spending:\n`;
+    report += ` Monthly Spending:\n`;
     const maxMonthly = Math.max(...Object.values(monthlyData).map(m => m.total));
     
     for (const [month, data] of Object.entries(monthlyData)) {
@@ -250,7 +250,7 @@ class Reports {
     }
 
     // Category trends
-    report += '\n📂 Category Trends:\n';
+    report += '\n Category Trends:\n';
     const allCategories = [...new Set(
       Object.values(monthlyData)
         .flatMap(m => Object.keys(m.categories))
@@ -263,7 +263,7 @@ class Reports {
       
       if (total > 0) {
         const trend = this.calculateTrend(categoryTotals);
-        const trendIndicator = trend > 5 ? '📈' : trend < -5 ? '📉' : '➡️';
+        const trendIndicator = trend > 5 ? '' : trend < -5 ? '' : '';
         report += `   ${category}: ${trendIndicator} $${total.toFixed(2)} total, ${trend.toFixed(1)}% trend\n`;
       }
     }
@@ -284,18 +284,18 @@ class Reports {
 
     const summary = this.calculateSummary(filtered);
     
-    let report = `📊 Custom Report\n`;
+    let report = ` Custom Report\n`;
     report += `Period: ${options.startDate} to ${options.endDate}\n`;
     report += `═══════════════════════════════════════════\n\n`;
     
-    report += `💰 Summary:\n`;
+    report += ` Summary:\n`;
     report += `   Total: $${summary.total.toFixed(2)}\n`;
     report += `   Transactions: ${summary.count}\n`;
     report += `   Daily Average: $${(summary.total / this.getDaysBetween(options.startDate, options.endDate)).toFixed(2)}\n\n`;
 
     // Add category breakdown
     const categoryBreakdown = this.calculateCategoryBreakdown(filtered);
-    report += `📂 By Category:\n`;
+    report += ` By Category:\n`;
     for (const [category, data] of Object.entries(categoryBreakdown)) {
       const percentage = ((data.amount / summary.total) * 100).toFixed(1);
       report += `   ${category}: $${data.amount.toFixed(2)} (${percentage}%)\n`;

@@ -177,7 +177,7 @@ async function sendSol(privateKey, toAddress, amount, options = {}) {
   // SECURITY: Check testnet (warn if mainnet)
   const connection = getConnection(DEFAULT_RPC);
   if (!isTestNet(DEFAULT_RPC) && dryRun === false && !skipConfirmation) {
-    console.warn('⚠️  WARNING: Running on MAINNET with real transactions!');
+    console.warn('  WARNING: Running on MAINNET with real transactions!');
   }
   
   // SECURITY: Require human confirmation for large amounts

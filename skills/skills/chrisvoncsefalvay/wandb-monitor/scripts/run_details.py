@@ -57,7 +57,7 @@ def main():
     if args.json:
         print(json.dumps(result, indent=2, default=str))
     else:
-        status_icon = {"running": "🔄", "finished": "✅", "failed": "❌", "crashed": "💥", "canceled": "⏹️"}.get(run.state, "❓")
+        status_icon = {"running": "", "finished": "", "failed": "", "crashed": "", "canceled": ""}.get(run.state, "")
         print(f"{status_icon} {run.name}")
         print(f"   State: {run.state}")
         print(f"   ID: {run.id}")

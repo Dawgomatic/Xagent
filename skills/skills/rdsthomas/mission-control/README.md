@@ -1,4 +1,4 @@
-# Mission Control 🎛️
+# Mission Control 
 
 **The visual layer your AI assistant is missing.**
 
@@ -33,28 +33,28 @@ Where was that API refactor task? Did the dark mode feature get completed? What'
 
 ## Who Is This For?
 
-### 🛠️ Solo Developers & Indie Hackers
+###  Solo Developers & Indie Hackers
 You're building products while juggling a dozen parallel workstreams. Clawdbot helps you code, but you need to **see** the big picture. Mission Control turns your AI conversations into a project board.
 
-### ⚡ Productivity Enthusiasts
+###  Productivity Enthusiasts
 You've optimized everything — but your AI assistant's output is still trapped in linear chat. Mission Control extracts actionable tasks from conversations and tracks them visually.
 
-### 🔒 Self-Hosters & Privacy-Conscious Users
+###  Self-Hosters & Privacy-Conscious Users
 Your data stays yours. Mission Control runs on GitHub Pages from your own repo. No external services, no tracking, no cloud lock-in.
 
 ---
 
 ## Features
 
-- 📋 **Kanban Board** — Permanent, Backlog, In Progress, Review, Done
-- 🤖 **AI-Native** — Clawdbot can create, update, and complete tasks via chat
-- 👤 **Human-Friendly** — You can drag & drop in the dashboard
-- 🔄 **GitHub Sync** — Auto-save to your repo, hosted on GitHub Pages
-- 🔔 **Webhooks** — Clawdbot gets notified instantly when you move tasks
-- 🎨 **Projects & Tags** — Organize by project, filter by context
-- 🧩 **Dynamic Config** — Environment variable fallbacks for flexible deployment
-- 🧠 **Brain Tab** — Long-term memory with daily notes, tags, and changelogs
-- 🔌 **Skills Management** — View and configure your AI assistant's capabilities
+-  **Kanban Board** — Permanent, Backlog, In Progress, Review, Done
+-  **AI-Native** — Clawdbot can create, update, and complete tasks via chat
+-  **Human-Friendly** — You can drag & drop in the dashboard
+-  **GitHub Sync** — Auto-save to your repo, hosted on GitHub Pages
+-  **Webhooks** — Clawdbot gets notified instantly when you move tasks
+-  **Projects & Tags** — Organize by project, filter by context
+-  **Dynamic Config** — Environment variable fallbacks for flexible deployment
+-  **Brain Tab** — Long-term memory with daily notes, tags, and changelogs
+-  **Skills Management** — View and configure your AI assistant's capabilities
 
 ![Task Editor](docs/images/task-edit.png)
 
@@ -109,18 +109,18 @@ cd mission-control
 │                        YOUR WORKFLOW                            │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│  💬 CHAT                           📊 DASHBOARD                 │
+│   CHAT                            DASHBOARD                 │
 │  ─────                             ─────────                    │
 │                                                                 │
-│  "Plan the Q1 roadmap"      ──►    📋 Backlog: Q1 Roadmap      │
+│  "Plan the Q1 roadmap"      ──►     Backlog: Q1 Roadmap      │
 │                                         ├── Feature A           │
 │                                         └── Feature B           │
 │                                                                 │
-│  "Start Feature A"          ──►    🚀 In Progress: Feature A   │
+│  "Start Feature A"          ──►     In Progress: Feature A   │
 │                                                                 │
 │  [Clawdbot works...]        ◄──    Updates subtasks & comments │
 │                                                                 │
-│  [You review in dashboard]  ──►    ✅ Done: Feature A          │
+│  [You review in dashboard]  ──►     Done: Feature A          │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -135,7 +135,7 @@ cd mission-control
 
 ### Two Ways to Work
 
-| Action | 👤 You (Dashboard) | 🤖 Clawdbot (Chat/CLI) |
+| Action |  You (Dashboard) |  Clawdbot (Chat/CLI) |
 |--------|-------------------|----------------------|
 | Create task | Click "+" button | Natural language or CLI |
 | Edit task | Click card → Edit | `mc-update.sh` or JSON |
@@ -150,7 +150,7 @@ cd mission-control
 **Clawdbot:** *"I'll create an implementation plan:"*
 
 ```
-📋 Task: Implement Dark Mode
+ Task: Implement Dark Mode
 ├── Define color variables (CSS custom properties)
 ├── Create theme toggle component  
 ├── Persist preference in localStorage
@@ -210,11 +210,11 @@ mc-update.sh push "Commit message"
 
 ## What's New in v2.0.0
 
-- 🔧 **Dynamic Config Loading** — `loadConfig()` with environment variable fallbacks
-- 📖 **Agent-Guided Setup** — Just say "set up Mission Control" and the AI handles it
-- 📚 **Comprehensive Docs** — Prerequisites, architecture, troubleshooting (10 issues covered)
-- 🎯 **EPIC Support** — Handle parent tasks with multiple child tickets
-- ⚙️ **Example Configs** — Ready-to-use templates in `assets/examples/`
+-  **Dynamic Config Loading** — `loadConfig()` with environment variable fallbacks
+-  **Agent-Guided Setup** — Just say "set up Mission Control" and the AI handles it
+-  **Comprehensive Docs** — Prerequisites, architecture, troubleshooting (10 issues covered)
+-  **EPIC Support** — Handle parent tasks with multiple child tickets
+-  **Example Configs** — Ready-to-use templates in `assets/examples/`
 
 See [CHANGELOG.md](CHANGELOG.md) for full details.
 
@@ -248,10 +248,10 @@ For more issues, see [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 
 ## Community & Support
 
-- 💬 **Discord:** [discord.gg/clawd](https://discord.gg/clawd) — Clawdbot community (8.9K+ members)
-- 📖 **Docs:** [ARCHITECTURE.md](ARCHITECTURE.md) — How it all works
-- 🐛 **Issues:** [GitHub Issues](https://github.com/rdsthomas/mission-control/issues)
-- 🌟 **Star this repo** if Mission Control helps you stay organized!
+-  **Discord:** [discord.gg/clawd](https://discord.gg/clawd) — Clawdbot community (8.9K+ members)
+-  **Docs:** [ARCHITECTURE.md](ARCHITECTURE.md) — How it all works
+-  **Issues:** [GitHub Issues](https://github.com/rdsthomas/mission-control/issues)
+-  **Star this repo** if Mission Control helps you stay organized!
 
 ---
 
@@ -275,11 +275,11 @@ See [SKILL.md](SKILL.md#security) for full details.
 
 MIT License — see [LICENSE](LICENSE).
 
-Built for [Clawdbot](https://github.com/clawdbot/clawdbot) 🦞
+Built for [Clawdbot](https://github.com/clawdbot/clawdbot) 
 
 ---
 
 <p align="center">
   <b>Stop losing tasks in chat. Start shipping.</b><br>
-  <a href="https://rdsthomas.github.io/mission-control/">Try the Demo</a> · <a href="https://discord.gg/clawd">Join Discord</a> · <a href="https://github.com/rdsthomas/mission-control">⭐ Star on GitHub</a>
+  <a href="https://rdsthomas.github.io/mission-control/">Try the Demo</a> · <a href="https://discord.gg/clawd">Join Discord</a> · <a href="https://github.com/rdsthomas/mission-control"> Star on GitHub</a>
 </p>

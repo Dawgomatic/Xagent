@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-/* 🌌 Aoineco-Verified | Multi-Agent Collective Proprietary Skill */
+/*  Aoineco-Verified | Multi-Agent Collective Proprietary Skill */
 S-DNA: AOI-2026-0213-SDNA-VC01
 
 VaultCrypto — Credential Encryption for PublishGuard
@@ -194,7 +194,7 @@ class EncryptedVault:
             self._data = json.loads(decrypted.decode("utf-8"))
             
         except (ValueError, json.JSONDecodeError) as e:
-            print(f"⚠️ Vault decrypt failed: {e}")
+            print(f" Vault decrypt failed: {e}")
             self._data = {}
     
     def _save(self):
@@ -285,7 +285,7 @@ if __name__ == "__main__":
     import sys
     
     print("=" * 60)
-    print("🔐 VaultCrypto v1.0 — Credential Encryption Engine")
+    print(" VaultCrypto v1.0 — Credential Encryption Engine")
     print("   Aoineco & Co. | Machine-Bound Encryption")
     print("=" * 60)
     
@@ -295,14 +295,14 @@ if __name__ == "__main__":
             sys.exit(1)
         
         json_path = sys.argv[2]
-        print(f"\n📄 Migrating: {json_path}")
+        print(f"\n Migrating: {json_path}")
         vault_path = migrate_plaintext_to_vault(json_path)
-        print(f"🔐 Encrypted vault: {vault_path}")
-        print(f"🗑️  Plaintext file securely deleted!")
+        print(f" Encrypted vault: {vault_path}")
+        print(f"  Plaintext file securely deleted!")
         
     else:
         # Self-test
-        print("\n🧪 Running self-test...")
+        print("\n Running self-test...")
         
         test_vault = EncryptedVault(vault_path="/tmp/test_vault.vault")
         
@@ -318,21 +318,21 @@ if __name__ == "__main__":
         assert b"sk-super-secret-key" not in raw, "FAIL: Key visible in encrypted file!"
         assert b"bearer-token" not in raw, "FAIL: Token visible in encrypted file!"
         assert b"my-password" not in raw, "FAIL: Password visible in encrypted file!"
-        print("  ✅ Encrypted file does NOT contain plaintext secrets")
+        print("   Encrypted file does NOT contain plaintext secrets")
         
         # Verify we can read it back
         test_vault2 = EncryptedVault(vault_path="/tmp/test_vault.vault")
         assert test_vault2.get("test_platform", "api_key") == "sk-super-secret-key-12345"
         assert test_vault2.get("test_platform", "token") == "bearer-token-67890"
         assert test_vault2.get("another", "secret") == "my-password"
-        print("  ✅ Decryption successful — all credentials recovered")
+        print("   Decryption successful — all credentials recovered")
         
         # Verify permissions
         import stat
         mode = os.stat("/tmp/test_vault.vault").st_mode
         assert not (mode & stat.S_IROTH), "FAIL: File is world-readable!"
         assert not (mode & stat.S_IRGRP), "FAIL: File is group-readable!"
-        print("  ✅ File permissions: owner-only (0600)")
+        print("   File permissions: owner-only (0600)")
         
         # Verify wrong key fails
         try:
@@ -340,10 +340,10 @@ if __name__ == "__main__":
                 raw = f.read()
             wrong_key = b"wrong-key-00000000000000000000000"
             decrypt_bytes(raw[len(EncryptedVault.MAGIC):], wrong_key)
-            print("  ❌ FAIL: Wrong key should have raised error!")
+            print("   FAIL: Wrong key should have raised error!")
         except ValueError as e:
-            print(f"  ✅ Wrong key correctly rejected: {e}")
+            print(f"   Wrong key correctly rejected: {e}")
         
         # Cleanup
         os.remove("/tmp/test_vault.vault")
-        print("\n✅ All tests passed! VaultCrypto is secure.")
+        print("\n All tests passed! VaultCrypto is secure.")

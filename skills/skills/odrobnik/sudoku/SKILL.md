@@ -5,7 +5,7 @@ version: 2.2.0
 homepage: https://github.com/odrobnik/sudoku-skill
 metadata:
   openclaw:
-    emoji: "🧩"
+    emoji: ""
     requires:
       bins: ["python3"]
       python: ["requests", "Pillow", "lzstring"]

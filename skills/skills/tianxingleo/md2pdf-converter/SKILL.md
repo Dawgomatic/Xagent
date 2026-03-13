@@ -27,13 +27,13 @@ bash scripts/md2pdf-local.sh report.md report.pdf
 
 ## Features
 
-- ✅ **Full Unicode support** (Chinese, Japanese, Korean)
-- ✅ **Complete emoji support** (Twemoji 14.0.0, 3660 colorful PNGs)
-- ✅ **All emoji variants** (skin tones, hair styles, regional flags, etc.)
-- ✅ **Offline operation** after initial setup
-- ✅ **Professional PDF layout** with page numbers
-- ✅ **Code highlighting**, tables, blockquotes
-- ✅ **Accurate emoji mapping** via Python pre-generated lookup table
+-  **Full Unicode support** (Chinese, Japanese, Korean)
+-  **Complete emoji support** (Twemoji 14.0.0, 3660 colorful PNGs)
+-  **All emoji variants** (skin tones, hair styles, regional flags, etc.)
+-  **Offline operation** after initial setup
+-  **Professional PDF layout** with page numbers
+-  **Code highlighting**, tables, blockquotes
+-  **Accurate emoji mapping** via Python pre-generated lookup table
 
 ## Technical Details
 
@@ -64,8 +64,8 @@ bash scripts/md2pdf-local.sh report.md report.pdf
 │   └── ...
 └── emoji_mapping.json         # Emoji to filename mapping
     {
-      "🙀": "1f600.png",
-      "⌛": "0023-fe0f-20e3.png",
+      "": "1f600.png",
+      "": "0023-fe0f-20e3.png",
       ...
     }
 ```
@@ -85,11 +85,11 @@ The Python script `generate_emoji_mapping.py` scans all Twemoji files and create
 ## Version History
 
 ### v2.0 (Current)
-- ✅ Switched to **Twemoji 14.0.0** (complete version)
-- ✅ **3660 colorful emojis** (including all variants)
-- ✅ **Python pre-generated mapping** for accurate emoji replacement
-- ✅ Fixed black-and-white emoji display issue
-- ✅ Proper support for emoji variants (skin tones, hair styles, etc.)
+-  Switched to **Twemoji 14.0.0** (complete version)
+-  **3660 colorful emojis** (including all variants)
+-  **Python pre-generated mapping** for accurate emoji replacement
+-  Fixed black-and-white emoji display issue
+-  Proper support for emoji variants (skin tones, hair styles, etc.)
 
 ### v1.0 (Previous)
 - Used emoji-datasource-google (~2000-3000 emojis)
@@ -185,10 +185,10 @@ bash /path/to/skills/md2pdf-converter/scripts/md2pdf-local.sh input.md output.pd
 |---------|----------------|---------------|
 | Emoji Source | emoji-datasource-google | Twemoji 14.0.0 |
 | Emoji Count | ~2000-3000 | 3660 |
-| Color Display | ❌ Unstable | ✅ Stable |
-| Variants Support | ❌ Incomplete | ✅ Complete |
-| Mapping Accuracy | ⚠️ Low | ✅ High |
-| Offline Support | ✅ After first run | ✅ After first run |
+| Color Display |  Unstable |  Stable |
+| Variants Support |  Incomplete |  Complete |
+| Mapping Accuracy |  Low |  High |
+| Offline Support |  After first run |  After first run |
 | First Run Size | ~68MB | ~150MB |
 
 ## Performance

@@ -4,10 +4,10 @@ A skill for integrating with [Cubox](https://cubox.pro) - a powerful read-it-lat
 
 ## Features
 
-- 📎 **Save URLs** - Bookmark web pages with metadata (title, description, tags, folder)
-- 📝 **Save Memos** - Quick notes and text snippets
-- 🏷️ **Tagging Support** - Organize content with tags
-- 📁 **Folder Management** - Save to specific folders
+-  **Save URLs** - Bookmark web pages with metadata (title, description, tags, folder)
+-  **Save Memos** - Quick notes and text snippets
+-  **Tagging Support** - Organize content with tags
+-  **Folder Management** - Save to specific folders
 
 ## Quick Start
 

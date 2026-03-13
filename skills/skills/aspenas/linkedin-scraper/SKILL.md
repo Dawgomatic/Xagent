@@ -1,7 +1,7 @@
 ---
 name: linkedin-scraper
 description: Scrape LinkedIn profiles using the user's Chrome profile. Use when asked to find leads, scrape LinkedIn profiles, extract contact data from LinkedIn, or build prospect lists. Triggers include "find founders on LinkedIn", "scrape this LinkedIn profile", "get LinkedIn data for these people", "build a lead list from LinkedIn".
-metadata: { "openclaw": { "emoji": "🔍" } }
+metadata: { "openclaw": { "emoji": "" } }
 ---
 
 # LinkedIn Scraper — Chrome Profile Web Scraping

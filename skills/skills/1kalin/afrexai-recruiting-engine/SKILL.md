@@ -1,7 +1,7 @@
 ---
 name: AI Recruiting Engine
 description: Full-cycle recruiting agent — source, screen, score, and hire top talent with structured frameworks, scorecards, and pipeline automation. Zero dependencies.
-metadata: {"clawdbot":{"emoji":"🎯","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # AI Recruiting Engine

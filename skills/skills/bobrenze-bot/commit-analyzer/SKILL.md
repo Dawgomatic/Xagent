@@ -78,14 +78,14 @@ The script can output JSON for integration with other tools:
 ```
 $ ./skills/commit-analyzer/analyzer.sh health
 
-📊 Git Health Report (last 24h)
+ Git Health Report (last 24h)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Total commits: 42
 Commits/hour: 1.75
-Status: ⚠️ WARNING (below 3/hr threshold)
+Status:  WARNING (below 3/hr threshold)
 
 Largest gap: 4h 23m (sleeping?)
-Learning commits: 18 (43%) ✅
+Learning commits: 18 (43%) 
 
 Recommendation: Check for blockers or waiting mode
 ```
@@ -94,7 +94,7 @@ Recommendation: Check for blockers or waiting mode
 ```
 $ ./skills/commit-analyzer/analyzer.sh categories 3
 
-📊 Commit Categories (last 3 days)
+ Commit Categories (last 3 days)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Queue:     23 (35%)
 Learning:  18 (27%)

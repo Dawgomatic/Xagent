@@ -6,7 +6,7 @@ A comprehensive Instagram profile and post analysis tool with engagement metrics
 ---
 name: instagram-analyzer
 description: Analyze Instagram profiles and posts with engagement metrics, view counts, follower ratios, and Reels analytics.
-emoji: 📊
+emoji: 
 version: 1.0.0
 author: Sencer
 tags:
@@ -36,35 +36,35 @@ metadata:
 ---
 ```
 
-## 🎯 Features
+##  Features
 
-### 📊 Single Post Analysis
-- ✅ Like count
-- ✅ Comment count  
-- ✅ Save count
-- ✅ View count (Reels)
-- ✅ Follower count
-- ✅ **View-to-Follower ratio (%)**
-- ✅ Time posted (hours/days ago)
+###  Single Post Analysis
+-  Like count
+-  Comment count  
+-  Save count
+-  View count (Reels)
+-  Follower count
+-  **View-to-Follower ratio (%)**
+-  Time posted (hours/days ago)
 
-### 👤 Profile Analysis
-- ✅ Minimum **60 posts** analyzed
-- ✅ **Reels-focused** analytics
-- ✅ All Reels links extraction
-- ✅ Engagement rate calculations
-- ✅ JSON/CSV export
+###  Profile Analysis
+-  Minimum **60 posts** analyzed
+-  **Reels-focused** analytics
+-  All Reels links extraction
+-  Engagement rate calculations
+-  JSON/CSV export
 
-### 🔧 Technical
-- 🌐 Browser simulation with Playwright
-- 🛡️ Stealth mode (human behavior)
-- 📁 Structured JSON/CSV output
-- ⚡ Batch processing support
+###  Technical
+-  Browser simulation with Playwright
+-  Stealth mode (human behavior)
+-  Structured JSON/CSV output
+-  Batch processing support
 
 ---
 
-## 🚀 Usage
+##  Usage
 
-### Profile Analysis (Default: Reels Only! 🎯)
+### Profile Analysis (Default: Reels Only! )
 ```bash
 # Full profile analysis - REELS FOCUS (default behavior)
 analyze-profile "username"
@@ -87,7 +87,7 @@ analyze-post "https://www.instagram.com/reel/ABC123xyz/" --output json
 
 ---
 
-## 📊 Output Examples
+##  Output Examples
 
 ### Single Post Response
 ```json
@@ -153,7 +153,7 @@ analyze-post "https://www.instagram.com/reel/ABC123xyz/" --output json
 
 ---
 
-## 📈 Engagement Metrics Explained
+##  Engagement Metrics Explained
 
 | Metric | Formula | Interpretation |
 |--------|---------|----------------|
@@ -164,7 +164,7 @@ analyze-post "https://www.instagram.com/reel/ABC123xyz/" --output json
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 Edit `config/analyzer_config.json`:
 
@@ -192,7 +192,7 @@ Edit `config/analyzer_config.json`:
 
 ---
 
-## 📁 File Outputs
+##  File Outputs
 
 - **Profile data**: `data/profiles/{username}.json`
 - **Post analysis**: `data/posts/{post_id}.json`
@@ -201,7 +201,7 @@ Edit `config/analyzer_config.json`:
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Login Required
 - Some metrics require login (view count, saves)
@@ -219,7 +219,7 @@ Edit `config/analyzer_config.json`:
 
 ---
 
-## 📝 Requirements
+##  Requirements
 
 - Python 3.8+
 - Playwright

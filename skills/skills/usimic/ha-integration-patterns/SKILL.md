@@ -76,12 +76,12 @@ hass.http.register_view(OpenClawConfigView())
 
 **Never use underscore-prefixed APIs** — they're private and change between versions.
 
-❌ **Wrong:**
+ **Wrong:**
 ```python
 storage_collection = hass.data["_storage_collection"]
 ```
 
-✅ **Right:**
+ **Right:**
 ```python
 # Use public APIs only
 from homeassistant.helpers.storage import Store

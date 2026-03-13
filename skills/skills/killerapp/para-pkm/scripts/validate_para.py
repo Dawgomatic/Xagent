@@ -80,14 +80,14 @@ def main():
     kb_path = args.path
 
     if not kb_path.exists():
-        print(f"❌ Path does not exist: {kb_path}")
+        print(f" Path does not exist: {kb_path}")
         sys.exit(1)
 
     if not kb_path.is_dir():
-        print(f"❌ Path is not a directory: {kb_path}")
+        print(f" Path is not a directory: {kb_path}")
         sys.exit(1)
 
-    print(f"🔍 Validating PARA structure: {kb_path}\n")
+    print(f" Validating PARA structure: {kb_path}\n")
 
     issues = validate_structure(kb_path)
 
@@ -97,26 +97,26 @@ def main():
     oks = [msg for level, msg in issues if level == "OK"]
 
     if oks:
-        print("✅ Valid:")
+        print(" Valid:")
         for msg in oks:
             print(f"   {msg}")
         print()
 
     if warnings:
-        print("⚠️  Warnings:")
+        print("  Warnings:")
         for msg in warnings:
             print(f"   {msg}")
         print()
 
     if errors:
-        print("❌ Errors:")
+        print(" Errors:")
         for msg in errors:
             print(f"   {msg}")
         print()
         sys.exit(1)
 
     if not errors:
-        print("✅ PARA structure is valid!")
+        print(" PARA structure is valid!")
         if warnings:
             print("   (with warnings noted above)")
 

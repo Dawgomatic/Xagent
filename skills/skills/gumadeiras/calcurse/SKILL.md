@@ -1,7 +1,7 @@
 ---
 name: calcurse
 description: A text-based calendar and scheduling application. Use strictly for CLI-based calendar management.
-metadata: {"clawdbot":{"emoji":"📅","requires":{"bins":["calcurse"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["calcurse"]}}}
 ---
 
 # calcurse

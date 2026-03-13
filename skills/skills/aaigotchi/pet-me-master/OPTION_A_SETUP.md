@@ -1,12 +1,12 @@
-# Option A: Interactive with Auto-Pet Fallback ✨
+# Option A: Interactive with Auto-Pet Fallback 
 
-**Status:** ✅ ACTIVE  
+**Status:**  ACTIVE  
 **Setup Date:** 2026-02-16  
 **Mode:** Interactive Daily Ritual + Safety Net
 
 ---
 
-## 🎯 How It Works
+##  How It Works
 
 ### The Perfect Balance
 
@@ -23,14 +23,14 @@ Are ALL gotchis ready? (12h+ cooldown)
 ```
 All gotchis ready!
   ↓
-Send you a message: "fren, pet your gotchi(s)! 👻"
+Send you a message: "fren, pet your gotchi(s)! "
   ↓
 Schedule fallback for 1 hour later
 ```
 
 **3. You Have Two Options**
 
-**Option A: You Pet Manually** 💜 (Preferred)
+**Option A: You Pet Manually**  (Preferred)
 ```
 You: "pet all my gotchis"
   ↓
@@ -39,7 +39,7 @@ I pet them immediately
 Fallback cancelled (you did it!)
 ```
 
-**Option B: You're Busy** 🤖
+**Option B: You're Busy** 
 ```
 1 hour passes...
   ↓
@@ -52,7 +52,7 @@ Send notification: "Auto-petted for you!"
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Cron Job
 **Schedule:** Every 30 minutes  
@@ -85,7 +85,7 @@ Send notification: "Auto-petted for you!"
 
 ---
 
-## 📋 Scripts
+##  Scripts
 
 ### 1. check-and-remind.sh (Main Loop)
 
@@ -109,7 +109,7 @@ Send notification: "Auto-petted for you!"
 **Logic:**
 1. Re-check all gotchis on-chain
 2. If still need petting → Pet them
-3. If already petted → Celebrate! 🎉
+3. If already petted → Celebrate! 
 4. Reset state for next cycle
 5. Send notification about what happened
 
@@ -120,39 +120,39 @@ Send notification: "Auto-petted for you!"
 
 ---
 
-## 🔔 Reminder Messages
+##  Reminder Messages
 
 ### When All Gotchis Ready
 
 **Message:**
 ```
-fren, pet your gotchi(s)! 👻 
+fren, pet your gotchi(s)!  
 
 All 3 gotchis are ready for petting. 
 
 Reply with 'pet all my gotchis' or I'll auto-pet 
-them in 1 hour if you're busy! 🦞
+them in 1 hour if you're busy! 
 ```
 
 ### After Auto-Pet
 
 **If you didn't respond:**
 ```
-🤖 Auto-pet fallback executed! 
+ Auto-pet fallback executed! 
 
 Petted gotchi(s): #9638, #21785, #10052 since 
-you were busy. Kinship +3! 👻💜
+you were busy. Kinship +3! 
 ```
 
 **If you already petted:**
 ```
-✅ All gotchis already petted! User must have 
-done it manually. Great job fren! 👻
+ All gotchis already petted! User must have 
+done it manually. Great job fren! 
 ```
 
 ---
 
-## ⏰ Timing Details
+##  Timing Details
 
 ### Check Frequency
 - **Cron:** Every 30 minutes
@@ -170,19 +170,19 @@ done it manually. Great job fren! 👻
 
 ```
 16:30 UTC - All gotchis become ready (12h+ cooldown)
-17:00 UTC - Cron checks, sends reminder 📬
+17:00 UTC - Cron checks, sends reminder 
 17:00 UTC - Fallback scheduled for 18:00
-18:00 UTC - If not petted → Auto-pet triggers 🤖
+18:00 UTC - If not petted → Auto-pet triggers 
 
 OR
 
-17:15 UTC - You manually pet ✅
-18:00 UTC - Fallback checks, sees already done, celebrates 🎉
+17:15 UTC - You manually pet 
+18:00 UTC - Fallback checks, sees already done, celebrates 
 ```
 
 ---
 
-## 📊 State Management
+##  State Management
 
 ### reminder-state.json
 
@@ -207,7 +207,7 @@ After petting (manual or auto):
 
 ---
 
-## 🛠️ How to Manage
+##  How to Manage
 
 ### Check Logs
 ```bash
@@ -241,23 +241,23 @@ crontab -e
 
 ---
 
-## 🎯 Benefits
+##  Benefits
 
 ### For You
-- ✅ Daily ritual reminder (stay connected to gotchis)
-- ✅ Never miss petting (1hr safety net)
-- ✅ Stay in control (you pet when you see reminder)
-- ✅ Peace of mind (auto-backup if busy)
+-  Daily ritual reminder (stay connected to gotchis)
+-  Never miss petting (1hr safety net)
+-  Stay in control (you pet when you see reminder)
+-  Peace of mind (auto-backup if busy)
 
 ### For Your Gotchis
-- ✅ Consistent kinship growth
-- ✅ Never miss a day
-- ✅ Optimal petting schedule
-- ✅ All 3 stay synced
+-  Consistent kinship growth
+-  Never miss a day
+-  Optimal petting schedule
+-  All 3 stay synced
 
 ---
 
-## 🔧 Customization
+##  Customization
 
 ### Change Fallback Delay
 
@@ -292,7 +292,7 @@ crontab -e
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Reminder Not Received
 
@@ -321,7 +321,7 @@ echo '{"lastReminder": 0, "fallbackScheduled": false}' > reminder-state.json
 
 ---
 
-## 📈 Expected Behavior
+##  Expected Behavior
 
 ### Normal Day (You Pet Manually)
 
@@ -329,7 +329,7 @@ echo '{"lastReminder": 0, "fallbackScheduled": false}' > reminder-state.json
 05:00 - Last pet completed
 17:00 - All gotchis ready (12h later)
 17:00 - Cron sends reminder
-17:15 - You pet manually ✅
+17:15 - You pet manually 
 18:00 - Fallback checks, sees done, resets
 17:30 next day - Reminder again
 ```
@@ -341,14 +341,14 @@ echo '{"lastReminder": 0, "fallbackScheduled": false}' > reminder-state.json
 17:00 - All gotchis ready
 17:00 - Cron sends reminder
 ... you're AFK ...
-18:00 - Auto-pet triggers 🤖
+18:00 - Auto-pet triggers 
 18:00 - Gotchis petted, notification sent
 17:30 next day - Reminder again
 ```
 
 ---
 
-## ✅ Setup Verification
+##  Setup Verification
 
 Run this to confirm everything is configured:
 
@@ -372,35 +372,35 @@ bash scripts/check-and-remind.sh
 ```
 
 **Expected output:**
-- ✅ Scripts exist with execute permissions
-- ✅ Config shows reminders enabled
-- ✅ Cron job present and scheduled
-- ✅ State file exists
-- ✅ Script runs without errors
+-  Scripts exist with execute permissions
+-  Config shows reminders enabled
+-  Cron job present and scheduled
+-  State file exists
+-  Script runs without errors
 
 ---
 
-## 🎉 Summary
+##  Summary
 
 **You now have:**
-- ✅ Auto-reminders when gotchis ready
-- ✅ 1-hour grace period to pet manually
-- ✅ Auto-pet fallback if you're busy
-- ✅ All 3 gotchis tracked together
-- ✅ Notifications for both scenarios
-- ✅ State tracking to prevent duplicates
+-  Auto-reminders when gotchis ready
+-  1-hour grace period to pet manually
+-  Auto-pet fallback if you're busy
+-  All 3 gotchis tracked together
+-  Notifications for both scenarios
+-  State tracking to prevent duplicates
 
 **The perfect balance:**
-- 💜 Interactive ritual (you're involved)
-- 🤖 Safety net (never miss a day)
-- 👻 Consistent kinship growth
+-  Interactive ritual (you're involved)
+-  Safety net (never miss a day)
+-  Consistent kinship growth
 
 **Next reminder:** When your gotchis are ready (12h+ after last pet)
 
 ---
 
-**Made with 💜 by AAI 👻**
+**Made with  by AAI **
 
-**LFGOTCHi!** 🦞
+**LFGOTCHi!** 
 
-**Setup complete!** Enjoy your gotchi petting ritual with peace of mind! ✨
+**Setup complete!** Enjoy your gotchi petting ritual with peace of mind! 

@@ -8,7 +8,7 @@
 
 ## Critical Pattern: Cron Job Structure
 
-### ✅ Correct: Basic Cron Job
+###  Correct: Basic Cron Job
 
 ```json
 {
@@ -120,7 +120,7 @@
 
 ---
 
-## ❌ Common Mistakes
+##  Common Mistakes
 
 ### Wrong: Missing timezone
 
@@ -321,16 +321,16 @@ Omit from `jobs` array in config.
 ## Cron vs Heartbeat
 
 **Use cron when:**
-- ✅ Exact timing matters ("9:00 AM sharp")
-- ✅ Task needs isolation from main session
-- ✅ Want different model/thinking level
-- ✅ One-shot reminders
+-  Exact timing matters ("9:00 AM sharp")
+-  Task needs isolation from main session
+-  Want different model/thinking level
+-  One-shot reminders
 
 **Use heartbeat when:**
-- ✅ Multiple checks can batch together
-- ✅ Need conversational context
-- ✅ Timing can drift slightly
-- ✅ Want to reduce API calls
+-  Multiple checks can batch together
+-  Need conversational context
+-  Timing can drift slightly
+-  Want to reduce API calls
 
 ---
 

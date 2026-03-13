@@ -27,23 +27,23 @@ print_header() {
 
 # Print section
 print_section() {
-    echo -e "${GREEN}▶ $1${NC}"
+    echo -e "${GREEN} $1${NC}"
     echo ""
 }
 
 # Print success
 print_success() {
-    echo -e "${GREEN}✅ $1${NC}"
+    echo -e "${GREEN} $1${NC}"
 }
 
 # Print warning
 print_warning() {
-    echo -e "${YELLOW}⚠️  $1${NC}"
+    echo -e "${YELLOW}  $1${NC}"
 }
 
 # Print error
 print_error() {
-    echo -e "${RED}❌ $1${NC}"
+    echo -e "${RED} $1${NC}"
 }
 
 # Check prerequisites

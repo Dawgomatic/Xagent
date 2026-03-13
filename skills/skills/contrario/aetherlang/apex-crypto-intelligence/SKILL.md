@@ -16,9 +16,9 @@ APEX Crypto Intelligence is a multi-exchange cryptocurrency analysis tool that f
 
 ## Privacy & Data Handling
 
-⚠️ **BYOK (Bring Your Own Keys)**: Exchange API keys are used **locally** to fetch data from exchanges. Keys are **never transmitted** to NeuroAether.
+ **BYOK (Bring Your Own Keys)**: Exchange API keys are used **locally** to fetch data from exchanges. Keys are **never transmitted** to NeuroAether.
 
-⚠️ **External API Notice**: Only market data (prices, volumes) and query text are sent to `api.neurodoc.app` for AI analysis.
+ **External API Notice**: Only market data (prices, volumes) and query text are sent to `api.neurodoc.app` for AI analysis.
 
 **Auditable Code**: See [`client.py`](https://github.com/contrario/aetherlang/blob/main/skills/apex-crypto-intelligence/client.py) — the `build_api_request()` function on line 109 shows the **exact payload** sent to the API. Run `python client.py` to inspect the payload before sending.
 
@@ -41,10 +41,10 @@ User's Machine (local)              NeuroAether API
 │         │            │            │  Receives ONLY:  │
 │         ▼            │            │  - prices        │
 │  Fetch from          │  prices +  │  - volumes       │
-│  Binance/Bybit/etc   │──query──▶ │  - query text    │
+│  Binance/Bybit/etc   │──query── │  - query text    │
 │  (locally)           │            │                  │
 │         │            │            │  Returns:        │
-│         ▼            │  ◀──────── │  - AI analysis   │
+│         ▼            │  ──────── │  - AI analysis   │
 │  Aggregate prices    │  analysis  │  - verdicts      │
 │  (no keys in payload)│            │  - PDF data      │
 │                      │            │                  │
@@ -158,10 +158,10 @@ Content-Type: application/json
 - **Rate limiting**: 100 req/hour free tier
 
 ### What This Skill Does NOT Do
-- ❌ Execute trades or place orders
-- ❌ Transfer funds or make withdrawals
-- ❌ Store or log API keys
-- ❌ Provide financial advice (analysis only)
+-  Execute trades or place orders
+-  Transfer funds or make withdrawals
+-  Store or log API keys
+-  Provide financial advice (analysis only)
 
 ---
 
@@ -182,7 +182,7 @@ Content-Type: application/json
 
 ## Disclaimer
 
-⚠️ This skill provides AI-generated market analysis for educational and informational purposes only. It is NOT financial advice. Cryptocurrency trading involves significant risk. Always conduct your own research and consult a qualified financial advisor before making investment decisions.
+ This skill provides AI-generated market analysis for educational and informational purposes only. It is NOT financial advice. Cryptocurrency trading involves significant risk. Always conduct your own research and consult a qualified financial advisor before making investment decisions.
 
 ---
-*Built by NeuroAether — Institutional Intelligence for Everyone* 🧠📊
+*Built by NeuroAether — Institutional Intelligence for Everyone* 

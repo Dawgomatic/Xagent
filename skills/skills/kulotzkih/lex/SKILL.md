@@ -7,7 +7,7 @@ description: "Build original LangGraph agents for Warden Protocol and prepare th
 
 Build and deploy LangGraph agents for Warden Protocol's Agentic Wallet ecosystem.
 
-## ⚠️ IMPORTANT: About Example Agents
+##  IMPORTANT: About Example Agents
 
 The Warden community repository contains **example agents for learning**, not templates to recreate:
 
@@ -70,7 +70,7 @@ cd community-agents/agents/langgraph-quick-start
 - How to fetch data from external APIs (WeatherAPI)
 - Processing and formatting results
 - Clear scope and structure
-**⚠️ DO NOT BUILD**: This already exists. Study it, then build something NEW.
+** DO NOT BUILD**: This already exists. Study it, then build something NEW.
 
 ### Example Agent 3: CoinGecko Agent (Study for SGR Pattern)
 **Location**: `agents/coingecko-agent`
@@ -79,7 +79,7 @@ cd community-agents/agents/langgraph-quick-start
 - 5-step SGR workflow: Validate → Extract → Fetch → Validate → Analyze
 - Comparative analysis patterns
 - Error handling and data validation
-**⚠️ DO NOT BUILD**: This already exists. Study the pattern, apply to new use cases.
+** DO NOT BUILD**: This already exists. Study the pattern, apply to new use cases.
 
 ### Example Agent 4: Portfolio Analysis Agent (Study for Advanced Patterns)
 **Location**: `agents/portfolio-agent`
@@ -89,7 +89,7 @@ cd community-agents/agents/langgraph-quick-start
 - Multi-chain support (EVM and Solana)
 - Complex SGR workflows
 - Comprehensive reporting
-**⚠️ DO NOT BUILD**: This already exists. Study the architecture for your own complex agent.
+** DO NOT BUILD**: This already exists. Study the architecture for your own complex agent.
 
 ## IMPORTANT: Build Something NEW
 

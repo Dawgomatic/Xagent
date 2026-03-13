@@ -3,7 +3,7 @@ name: office-cam
 description: Multi-camera system for office/home monitoring. Supports USB webcams (Logitech), WiFi Wyze cameras (RTSP), and ESP32 cameras. Use to check rooms, capture photos on demand, or monitor multiple spaces.
 metadata:
   clawdbot:
-    emoji: 🎥
+    emoji: 
 ---
 
 # Office Cam - Multi-Camera System
@@ -14,9 +14,9 @@ Whole-house camera network supporting multiple camera types.
 
 | Type | Reliability | Setup | Best For |
 |------|-------------|-------|----------|
-| 🖥️ **USB Webcam** | ⭐⭐⭐⭐⭐ Instant | Plug & play | Desk, office |
-| 📹 **Wyze PTZ/v3** | ⭐⭐⭐⭐⭐ Reliable | RTSP stream | Rooms, garage, shed |
-| 📡 **ESP32-CAM** | ⭐⭐⭐ Experimental | ESP-NOW wireless | DIY, battery-powered |
+|  **USB Webcam** |  Instant | Plug & play | Desk, office |
+|  **Wyze PTZ/v3** |  Reliable | RTSP stream | Rooms, garage, shed |
+|  **ESP32-CAM** |  Experimental | ESP-NOW wireless | DIY, battery-powered |
 
 ## Quick Start
 
@@ -34,7 +34,7 @@ Whole-house camera network supporting multiple camera types.
 
 ---
 
-## 🖥️ USB Webcam (Logitech)
+##  USB Webcam (Logitech)
 
 **Most reliable - works instantly.**
 
@@ -44,7 +44,7 @@ cd ~/clawd/skills/office-cam
 ./scripts/capture.sh /tmp/office.jpg
 ```
 
-### Motion Detection ⭐ NEW
+### Motion Detection  NEW
 ```bash
 # Start motion detection (runs continuously)
 ./scripts/motion-detect.sh
@@ -54,7 +54,7 @@ cd ~/clawd/skills/office-cam
 # 5-second cooldown between captures
 ```
 
-### 🔥 OVERWATCH Mode (AI Monitoring) ⭐⭐⭐
+###  OVERWATCH Mode (AI Monitoring) 
 ```bash
 # Start AI-powered continuous monitoring
 ./scripts/overwatch start
@@ -67,14 +67,14 @@ cd ~/clawd/skills/office-cam
 ```
 
 **What Overwatch does:**
-- 👀 Monitors webcam 24/7 in background
-- 🚨 Detects motion and saves alert
-- 🔔 Can trigger notifications (integrate with OpenClaw)
-- 💾 Saves motion captures to `~/.clawdbot/overwatch/`
+-  Monitors webcam 24/7 in background
+-  Detects motion and saves alert
+-  Can trigger notifications (integrate with OpenClaw)
+-  Saves motion captures to `~/.clawdbot/overwatch/`
 
 **Or say:** *"Start overwatch"* or *"Keep overwatch"*
 
-### 🤖 SMART OVERWATCH (AI-Escalated) ⭐⭐⭐⭐⭐
+###  SMART OVERWATCH (AI-Escalated) 
 ```bash
 # Start smart monitoring (zero cost until trigger)
 ./scripts/smart-overwatch start
@@ -83,11 +83,11 @@ cd ~/clawd/skills/office-cam
 ```
 
 **How it works:**
-1. **👀 Local motion detection** (file size comparison, zero API cost, runs always)
-2. **🚨 Motion detected** → creates trigger file in `~/.clawdbot/overwatch/triggers/`
-3. **🤖 I detect the trigger** → analyze image with vision model (only when motion happens)
-4. **👤 Person found?** → Send alert & optionally continue watching
-5. **📊 No person?** → Delete trigger, back to local monitoring
+1. ** Local motion detection** (file size comparison, zero API cost, runs always)
+2. ** Motion detected** → creates trigger file in `~/.clawdbot/overwatch/triggers/`
+3. ** I detect the trigger** → analyze image with vision model (only when motion happens)
+4. ** Person found?** → Send alert & optionally continue watching
+5. ** No person?** → Delete trigger, back to local monitoring
 
 **What you can say:**
 - *"Start smart overwatch"*
@@ -97,7 +97,7 @@ cd ~/clawd/skills/office-cam
 
 **Cost:** Zero until motion detected, then only when I analyze the image
 
-### 📸 Instant Telegram Photo ⭐⭐⭐⭐⭐
+###  Instant Telegram Photo 
 **Quick capture and send - the simplest way to check your camera**
 
 **Just say:**
@@ -112,7 +112,7 @@ cd ~/clawd/skills/office-cam
 
 **No stream needed - just instant photos when you want them.**
 
-### 🔥 OVERWATCH PRO (Full Control System) ⭐⭐⭐⭐⭐⭐
+###  OVERWATCH PRO (Full Control System) 
 **The complete solution - Telegram alerts, live stream, remote control**
 
 ```bash
@@ -139,12 +139,12 @@ cd ~/clawd/skills/office-cam
 ```
 
 **Features:**
-- 🚨 **Instant Telegram alerts** when motion detected
-- 🌐 **Live MJPEG stream** at http://localhost:8080
-- 📱 **Auto-refreshes** every 2 seconds
-- 📸 **Saves all captures** to ~/.clawdbot/overwatch/
-- 🤖 **Telegram bot replies** - respond to alerts with commands
-- 🌅 **Morning report** (8 AM daily via cron)
+-  **Instant Telegram alerts** when motion detected
+-  **Live MJPEG stream** at http://localhost:8080
+-  **Auto-refreshes** every 2 seconds
+-  **Saves all captures** to ~/.clawdbot/overwatch/
+-  **Telegram bot replies** - respond to alerts with commands
+-  **Morning report** (8 AM daily via cron)
 
 **Telegram Commands (reply to motion alert):**
 - `analyze` - I'll check the image and tell you what I see
@@ -174,7 +174,7 @@ brew install imagemagick  # For image comparison
 
 ---
 
-## 📹 Wyze Cameras
+##  Wyze Cameras
 
 ### One-Time Setup:
 
@@ -204,7 +204,7 @@ brew install imagemagick  # For image comparison
 
 ---
 
-## 📡 ESP32-CAM (ESP-NOW Wireless)
+##  ESP32-CAM (ESP-NOW Wireless)
 
 **No WiFi router needed!** Direct wireless between ESP32s.
 

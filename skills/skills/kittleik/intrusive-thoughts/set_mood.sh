@@ -1,5 +1,5 @@
 #!/bin/bash
-# 🧠 Mood setter — called by the morning cron, outputs today's mood context
+#  Mood setter — called by the morning cron, outputs today's mood context
 # Gathers weather + news signals and picks a weighted random mood
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"

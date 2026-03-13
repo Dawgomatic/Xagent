@@ -6,7 +6,7 @@ This skill adds a **1Password** tab to the OpenClaw Control dashboard under **To
 
 ## Prerequisites
 
-✅ **OpenClaw v2026.1.0+** with source access at `~/clawdbot`
+ **OpenClaw v2026.1.0+** with source access at `~/clawdbot`
 
 The plugin-architecture skill is **not required** — this skill adds 1Password as a core tab.
 

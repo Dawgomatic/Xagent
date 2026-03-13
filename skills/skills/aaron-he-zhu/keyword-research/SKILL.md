@@ -218,10 +218,10 @@ When a user requests keyword research:
    
    | Scenario | Volume | Difficulty | Intent | Priority |
    |----------|--------|------------|--------|----------|
-   | Quick Win | Low-Med | Low | High | ⭐⭐⭐⭐⭐ |
-   | Growth | High | Medium | High | ⭐⭐⭐⭐ |
-   | Long-term | High | High | High | ⭐⭐⭐ |
-   | Research | Low | Low | Low | ⭐⭐ |
+   | Quick Win | Low-Med | Low | High |  |
+   | Growth | High | Medium | High |  |
+   | Long-term | High | High | High |  |
+   | Research | Low | Low | Low |  |
    ```
 
 7. **Identify GEO Opportunities**
@@ -391,11 +391,11 @@ When a user requests keyword research:
 
 | Keyword | Type | AI Potential | Recommended Format |
 |---------|------|--------------|-------------------|
-| what is project management | Definition | ⭐⭐⭐⭐⭐ | Clear definition + methodology |
-| agile vs waterfall | Comparison | ⭐⭐⭐⭐⭐ | Side-by-side comparison table |
-| project management methodologies | List | ⭐⭐⭐⭐ | Comprehensive list with pros/cons |
-| how to create a project plan | How-to | ⭐⭐⭐⭐ | Step-by-step guide |
-| project management best practices | List | ⭐⭐⭐⭐ | Numbered best practices |
+| what is project management | Definition |  | Clear definition + methodology |
+| agile vs waterfall | Comparison |  | Side-by-side comparison table |
+| project management methodologies | List |  | Comprehensive list with pros/cons |
+| how to create a project plan | How-to |  | Step-by-step guide |
+| project management best practices | List |  | Numbered best practices |
 
 ## Topic Clusters
 

@@ -615,9 +615,9 @@ def on_collection_complete(data):
 6. **Message expiry** - automatically delete old unread messages
 
 ### Threat Model
-- ✅ **Protected against**: eavesdropping, man-in-the-middle, message tampering, impersonation
-- ⚠️ **Limited protection**: denial of service, agent compromise (private key theft)
-- ❌ **Not protected**: coercion (agent forced to decrypt), quantum computing attacks
+-  **Protected against**: eavesdropping, man-in-the-middle, message tampering, impersonation
+-  **Limited protection**: denial of service, agent compromise (private key theft)
+-  **Not protected**: coercion (agent forced to decrypt), quantum computing attacks
 
 ## Advanced Features
 

@@ -50,9 +50,9 @@ class RestaurantCrossCheckerReal:
         Returns:
             List of recommendation results sorted by score
         """
-        print(f"\n🔍 开始搜索: {location} - {cuisine}\n")
-        print("⏳ 正在从大众点评获取数据...")
-        print("⏳ 正在从小红书获取数据...")
+        print(f"\n 开始搜索: {location} - {cuisine}\n")
+        print(" 正在从大众点评获取数据...")
+        print(" 正在从小红书获取数据...")
         print("（使用已保存的登录会话，如未登录将自动提示）\n")
 
         # Fetch data from both platforms concurrently
@@ -67,18 +67,18 @@ class RestaurantCrossCheckerReal:
 
         # Handle exceptions
         if isinstance(dp_restaurants, Exception):
-            print(f"⚠️ 大众点评抓取失败: {dp_restaurants}")
+            print(f" 大众点评抓取失败: {dp_restaurants}")
             dp_restaurants = []
         if isinstance(xhs_posts, Exception):
-            print(f"⚠️ 小红书抓取失败: {xhs_posts}")
+            print(f" 小红书抓取失败: {xhs_posts}")
             xhs_posts = []
 
-        print(f"✅ 大众点评: 找到 {len(dp_restaurants)} 家餐厅")
-        print(f"✅ 小红书: 找到 {len(xhs_posts)} 家餐厅\n")
+        print(f" 大众点评: 找到 {len(dp_restaurants)} 家餐厅")
+        print(f" 小红书: 找到 {len(xhs_posts)} 家餐厅\n")
 
         if not dp_restaurants or not xhs_posts:
-            print("⚠️ 数据不足，无法进行交叉验证")
-            print("💡 提示：")
+            print(" 数据不足，无法进行交叉验证")
+            print(" 提示：")
             print("  - 如果是首次使用，请先运行: python3 scripts/session_manager.py")
             print("  - 检查网络连接")
             print("  - 尝试更换搜索关键词")
@@ -87,7 +87,7 @@ class RestaurantCrossCheckerReal:
         # Match restaurants across platforms
         matches = match_and_score(dp_restaurants, xhs_posts, self.config)
 
-        print(f"🔗 匹配成功: {len(matches)} 家餐厅\n")
+        print(f" 匹配成功: {len(matches)} 家餐厅\n")
 
         # Calculate recommendation scores
         results = []
@@ -141,10 +141,10 @@ class RestaurantCrossCheckerReal:
     def format_output(self, results: List[RecommendationResult], location: str, cuisine: str) -> str:
         """Format results for display."""
         if not results:
-            return f"❌ 未找到符合条件的餐厅: {location} - {cuisine}"
+            return f" 未找到符合条件的餐厅: {location} - {cuisine}"
 
         output = []
-        output.append(f"📍 {location} {cuisine} 餐厅推荐\n")
+        output.append(f" {location} {cuisine} 餐厅推荐\n")
         output.append("=" * 60 + "\n")
 
         for i, result in enumerate(results[:OUTPUT_CONFIG['max_restaurants']], 1):
@@ -153,22 +153,22 @@ class RestaurantCrossCheckerReal:
             xhs = r.xhs_data
 
             output.append(f"{i}. {dp.name}")
-            output.append(f"   🏆 推荐指数: {result.recommendation_score}/10")
-            output.append(f"   ⭐ 大众点评: {dp.rating}⭐ ({dp.review_count}评价)")
-            output.append(f"   💬 小红书: {normalize_engagement(xhs):.1f}⭐ ({xhs.likes}赞/{xhs.saves}收藏)")
-            output.append(f"   📍 地址: {dp.address}")
-            output.append(f"   💰 人均: {dp.price_range}")
-            output.append(f"   ✅ 一致性: {result.consistency_level} ({r.consistency_score:.2f})")
+            output.append(f"    推荐指数: {result.recommendation_score}/10")
+            output.append(f"    大众点评: {dp.rating} ({dp.review_count}评价)")
+            output.append(f"    小红书: {normalize_engagement(xhs):.1f} ({xhs.likes}赞/{xhs.saves}收藏)")
+            output.append(f"    地址: {dp.address}")
+            output.append(f"    人均: {dp.price_range}")
+            output.append(f"    一致性: {result.consistency_level} ({r.consistency_score:.2f})")
 
             # Platform comparison
             if OUTPUT_CONFIG['show_details']:
-                output.append(f"\n   📊 平台对比:")
+                output.append(f"\n    平台对比:")
                 output.append(f"   - 大众点评标签: {', '.join(dp.tags)}")
                 output.append(f"   - 小红书热词: {', '.join(xhs.keywords)}")
 
                 # Warnings for low consistency
                 if result.consistency_level == "低":
-                    output.append(f"\n   ⚠️ 注意: 两平台评价差异较大，建议进一步了解")
+                    output.append(f"\n    注意: 两平台评价差异较大，建议进一步了解")
 
             output.append("")
 
@@ -181,7 +181,7 @@ def main():
         print("Usage: python3 crosscheck_real.py <location> <cuisine>")
         print("Example: python3 crosscheck_real.py '上海静安区' '日式料理'")
         print()
-        print("⚠️ 首次使用前，请先配置登录会话：")
+        print(" 首次使用前，请先配置登录会话：")
         print("   python3 scripts/session_manager.py")
         sys.exit(1)
 

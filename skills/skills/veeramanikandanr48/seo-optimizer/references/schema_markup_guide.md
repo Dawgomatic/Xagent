@@ -442,22 +442,22 @@ Different schema types require different properties. Here are the most common:
 
 ## Implementation Checklist
 
-1. ✅ Identify appropriate schema types for your pages
-2. ✅ Add schema markup to HTML (preferably JSON-LD in `<head>`)
-3. ✅ Include all required properties
-4. ✅ Validate using Google's Rich Results Test
-5. ✅ Test on Search Console after deploying
-6. ✅ Monitor performance in Search Console > Enhancements
+1.  Identify appropriate schema types for your pages
+2.  Add schema markup to HTML (preferably JSON-LD in `<head>`)
+3.  Include all required properties
+4.  Validate using Google's Rich Results Test
+5.  Test on Search Console after deploying
+6.  Monitor performance in Search Console > Enhancements
 
 ## Common Mistakes to Avoid
 
-1. ❌ Marking up content not visible to users
-2. ❌ Using wrong schema type for content
-3. ❌ Missing required properties
-4. ❌ Invalid date formats (use ISO 8601: YYYY-MM-DD)
-5. ❌ Invalid URLs (must be absolute, not relative)
-6. ❌ Incorrect image dimensions for Article schema
-7. ❌ Fake or misleading ratings/reviews
+1.  Marking up content not visible to users
+2.  Using wrong schema type for content
+3.  Missing required properties
+4.  Invalid date formats (use ISO 8601: YYYY-MM-DD)
+5.  Invalid URLs (must be absolute, not relative)
+6.  Incorrect image dimensions for Article schema
+7.  Fake or misleading ratings/reviews
 
 ## Resources
 

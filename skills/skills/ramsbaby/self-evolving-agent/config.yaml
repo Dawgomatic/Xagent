@@ -8,11 +8,11 @@
 # synthesize-proposal.sh의 제안 합성 단계에서 사용할 LLM을 선택합니다.
 # provider: "anthropic" | "openai" | "ollama" | "none"
 #
-# 💡 Ollama = 완전 무료! 로컬 LLM (API 키 불필요, 인터넷 불필요)
+#  Ollama = 완전 무료! 로컬 LLM (API 키 불필요, 인터넷 불필요)
 #    설치: brew install ollama && ollama pull llama3.1:8b
 #    이후 ollama serve 실행 후 provider: "ollama" 설정
 #
-# 💡 none = 순수 휴리스틱 모드 (LLM 호출 없음, API 비용 $0)
+#  none = 순수 휴리스틱 모드 (LLM 호출 없음, API 비용 $0)
 #    분석+합성 모두 로컬 쉘 스크립트로만 처리됩니다.
 llm:
   provider: "anthropic"   # anthropic | openai | ollama | none

@@ -61,7 +61,7 @@ Executes: false
 }
 ```
 
-## ⚠️ Security Notice
+##  Security Notice
 
 **This skill requires sensitive API credentials. Read this section carefully before installing.**
 
@@ -88,8 +88,8 @@ Executes: false
 ### Trusted Network Endpoints
 
 This skill makes HTTPS requests to:
-- ✅ `https://platty.boltathread.com` - Bolta API server
-- ✅ `https://bolta.ai` - Main application and agent registration portal
+-  `https://platty.boltathread.com` - Bolta API server
+-  `https://bolta.ai` - Main application and agent registration portal
 
 **No other domains are contacted.** All requests are authenticated with your API key.
 
@@ -166,16 +166,16 @@ This skill serves as the single source of truth for skill discovery, installatio
 
 **Data Access:**
 This skill accesses:
-- ✅ Workspace configuration (policy, quotas, autonomy mode)
-- ✅ Voice profile metadata (names, IDs, not full content)
-- ✅ Post counts and quota usage
-- ✅ Agent principal permissions
+-  Workspace configuration (policy, quotas, autonomy mode)
+-  Voice profile metadata (names, IDs, not full content)
+-  Post counts and quota usage
+-  Agent principal permissions
 
 This skill does NOT access:
-- ❌ Post content or scheduled posts
-- ❌ Social media credentials
-- ❌ User passwords or authentication tokens
-- ❌ Files or media uploads
+-  Post content or scheduled posts
+-  Social media credentials
+-  User passwords or authentication tokens
+-  Files or media uploads
 
 ## Source & Verification
 
@@ -239,9 +239,9 @@ Agent ID: 660e8400-e29b-41d4-a716-446655440001
 ```
 
 **IMPORTANT:**
-- ⚠️ Store API key securely (never commit to git)
-- ⚠️ Keys cannot be recovered (only regenerated via `bolta.team.rotate_key`)
-- ⚠️ Each key is scoped to ONE workspace
+-  Store API key securely (never commit to git)
+-  Keys cannot be recovered (only regenerated via `bolta.team.rotate_key`)
+-  Each key is scoped to ONE workspace
 
 ### Step 4: Configure Your Environment
 
@@ -305,10 +305,10 @@ if (!process.env.BOLTA_API_KEY || !process.env.BOLTA_WORKSPACE_ID) {
 ```
 
 **Security Reminder:**
-- ⚠️ Never hardcode API keys in your code
-- ⚠️ Use `.env` files locally (add `.env` to `.gitignore`)
-- ⚠️ Use secret managers in production (AWS Secrets Manager, Vercel Secrets, etc.)
-- ⚠️ Rotate keys every 90 days via `bolta.team.rotate_key`
+-  Never hardcode API keys in your code
+-  Use `.env` files locally (add `.env` to `.gitignore`)
+-  Use secret managers in production (AWS Secrets Manager, Vercel Secrets, etc.)
+-  Rotate keys every 90 days via `bolta.team.rotate_key`
 
 
 ### Step 5: Verify Setup
@@ -360,7 +360,7 @@ curl https://api.bolta.ai/v1/workspaces/{workspace_id} \
 
 ## Installation & First Run
 
-### 🎯 Complete Skill Pack Installation
+###  Complete Skill Pack Installation
 
 **You're currently viewing the registry skill only.** To access the full Bolta skills library, you should install the complete skill pack.
 
@@ -378,9 +378,9 @@ unzip bolta-skills.zip
 **What You Get:**
 ```
 bolta-skills/
-├── README.md                    # ⭐ START HERE - Complete getting started guide
+├── README.md                    #  START HERE - Complete getting started guide
 ├── skills/
-│   ├── bolta.skills.index/      # ✅ You're here (registry)
+│   ├── bolta.skills.index/      #  You're here (registry)
 │   ├── voice-plane/
 │   │   ├── bolta.voice.bootstrap/
 │   │   ├── bolta.voice.learn_from_samples/
@@ -439,7 +439,7 @@ curl -L https://raw.githubusercontent.com/boltaai/bolta-skills/main/skills/conte
 
 ---
 
-### 📖 First Run: Read the README
+###  First Run: Read the README
 
 **IMPORTANT: After installation, read the README for complete setup instructions.**
 
@@ -458,11 +458,11 @@ vim README.md   # Vim
 ```
 
 **What the README Covers:**
-3. ✅ Environment variable configuration
-4. ✅ First skill execution (test workflow)
-5. ✅ Troubleshooting common issues
-6. ✅ Recommended skill installation order
-7. ✅ Best practices for production use
+3.  Environment variable configuration
+4.  First skill execution (test workflow)
+5.  Troubleshooting common issues
+6.  Recommended skill installation order
+7.  Best practices for production use
 
 **Critical README Sections:**
 
@@ -507,7 +507,7 @@ vim README.md   # Vim
 
 ---
 
-### 🚀 Recommended First-Run Flow
+###  Recommended First-Run Flow
 
 **After installing the skill pack:**
 
@@ -557,54 +557,54 @@ curl https://platty.boltathread.com/v1/workspaces/${BOLTA_WORKSPACE_ID} \
 
 ---
 
-### ⚠️ Common First-Run Mistakes
+###  Common First-Run Mistakes
 
 **Mistake 1: Skipping the README**
 ```
-❌ Installing skills without reading README
-✅ Read README.md first → understand workflows → install skills
+ Installing skills without reading README
+ Read README.md first → understand workflows → install skills
 ```
 
 **Mistake 2: Missing Environment Variables**
 ```
-❌ Running skills without BOLTA_API_KEY set
-✅ Configure env vars BEFORE running any skill
+ Running skills without BOLTA_API_KEY set
+ Configure env vars BEFORE running any skill
 ```
 
 **Mistake 3: Installing Skills Out of Order**
 ```
-❌ Running bolta.draft.post before creating voice profile
-✅ Follow recommended order: voice.bootstrap → draft.post → review
+ Running bolta.draft.post before creating voice profile
+ Follow recommended order: voice.bootstrap → draft.post → review
 ```
 
 **Mistake 4: Not Understanding Autonomy Modes**
 ```
-❌ Using autopilot mode without understanding routing
-✅ Read docs/autonomy-modes.md → start with "assisted" → graduate to "managed"
+ Using autopilot mode without understanding routing
+ Read docs/autonomy-modes.md → start with "assisted" → graduate to "managed"
 ```
 
 **Mistake 5: Hardcoding API Keys**
 ```
-❌ Putting API keys directly in skill files
-✅ Use environment variables → .env file → add .env to .gitignore
+ Putting API keys directly in skill files
+ Use environment variables → .env file → add .env to .gitignore
 ```
 
 ---
 
-### 📥 Post-Installation Checklist
+###  Post-Installation Checklist
 
 After installing the skill pack, verify:
 
-- [ ] ✅ README.md has been read
-- [ ] ✅ Environment variables configured (BOLTA_API_KEY, BOLTA_WORKSPACE_ID)
-- [ ] ✅ All 21+ skills present in skills/ directory
-- [ ] ✅ docs/ directory contains markdown files
-- [ ] ✅ API connectivity verified (test curl command works)
-- [ ] ✅ MCP server installed (if using Claude Desktop)
-- [ ] ✅ Workspace policy reviewed (safe_mode, autonomy_mode)
-- [ ] ✅ First skill executed successfully (test run)
-- [ ] ✅ Autonomy mode documentation read (docs/autonomy-modes.md)
-- [ ] ✅ Safe Mode documentation read (docs/safe-mode.md)
+- [ ]  README.md has been read
+- [ ]  Environment variables configured (BOLTA_API_KEY, BOLTA_WORKSPACE_ID)
+- [ ]  All 21+ skills present in skills/ directory
+- [ ]  docs/ directory contains markdown files
+- [ ]  API connectivity verified (test curl command works)
+- [ ]  MCP server installed (if using Claude Desktop)
+- [ ]  Workspace policy reviewed (safe_mode, autonomy_mode)
+- [ ]  First skill executed successfully (test run)
+- [ ]  Autonomy mode documentation read (docs/autonomy-modes.md)
+- [ ]  Safe Mode documentation read (docs/safe-mode.md)
 
 **Once all items are checked, you're ready to use the full Bolta skill library!**
 

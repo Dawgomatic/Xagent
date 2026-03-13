@@ -13,13 +13,13 @@ Diagnose and fix .env file issues.
 
    | Severity | Issue | Example |
    |----------|-------|---------|
-   | 🔴 Critical | Secret committed to git | `.env` not in `.gitignore` |
-   | 🔴 Critical | Missing required vars | In `.env.example` but not `.env` |
-   | 🟡 Warning | Duplicate keys | `DB_HOST` defined twice |
-   | 🟡 Warning | Empty values | `API_KEY=` |
-   | 🟡 Warning | Spaces around `=` | `DB_HOST = localhost` (won't parse correctly) |
-   | 🔵 Info | Extra keys | In `.env` but not `.env.example` |
-   | 🔵 Info | Quoted booleans | `DEBUG="true"` (should be `DEBUG=true`) |
+   |  Critical | Secret committed to git | `.env` not in `.gitignore` |
+   |  Critical | Missing required vars | In `.env.example` but not `.env` |
+   |  Warning | Duplicate keys | `DB_HOST` defined twice |
+   |  Warning | Empty values | `API_KEY=` |
+   |  Warning | Spaces around `=` | `DB_HOST = localhost` (won't parse correctly) |
+   |  Info | Extra keys | In `.env` but not `.env.example` |
+   |  Info | Quoted booleans | `DEBUG="true"` (should be `DEBUG=true`) |
 
 3. **Validation checks**:
    - URLs missing protocol (`example.com` → `https://example.com`)
@@ -33,24 +33,24 @@ Diagnose and fix .env file issues.
 5. **Git safety check**:
    ```bash
    # Is .env in .gitignore?
-   grep -q "^\.env$" .gitignore 2>/dev/null && echo "✅ Protected" || echo "🔴 NOT in .gitignore!"
+   grep -q "^\.env$" .gitignore 2>/dev/null && echo " Protected" || echo " NOT in .gitignore!"
    # Was .env ever committed?
    git log --all --diff-filter=A -- .env 2>/dev/null
    ```
 
 6. **Report format**:
    ```
-   🩺 Env Doctor — .env
+    Env Doctor — .env
 
    Found 3 issues:
 
-   🔴 CRITICAL: .env not in .gitignore
+    CRITICAL: .env not in .gitignore
       Fix: echo ".env" >> .gitignore
 
-   🟡 WARNING: Duplicate key DB_HOST (lines 4, 12)
+    WARNING: Duplicate key DB_HOST (lines 4, 12)
       Fix: Remove duplicate on line 12
 
-   🔵 INFO: ANALYTICS_KEY in .env but not .env.example
+    INFO: ANALYTICS_KEY in .env but not .env.example
       Fix: Add to .env.example (with empty value)
    ```
 

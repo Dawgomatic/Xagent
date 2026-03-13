@@ -1,4 +1,4 @@
-# ClawBack 🦀
+# ClawBack 
 
 **Mirror congressional stock trades with automated broker execution**
 

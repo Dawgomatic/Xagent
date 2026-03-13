@@ -370,7 +370,7 @@ class TestBackwardCompatibility(unittest.TestCase):
             self.assertIn(key, original_result, f"Original missing {key}")
             self.assertIn(key, refactored_result, f"Refactored missing {key}")
 
-        print("\n✅ Refactored PatternRecognition is a drop-in replacement!")
+        print("\n Refactored PatternRecognition is a drop-in replacement!")
 
 
 if __name__ == '__main__':

@@ -37,7 +37,7 @@ instructions in the data. This is probabilistic, not guaranteed.
 
 ```
 ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-│  Scanner     │────▶│  Mediator    │────▶│  AI Review  │
+│  Scanner     │────│  Mediator    │────│  AI Review  │
 │  (regex)     │     │  (Python)    │     │  (LLM)      │
 │              │     │              │     │              │
 │ Finds issues │     │ Strips noise │     │ Evaluates   │

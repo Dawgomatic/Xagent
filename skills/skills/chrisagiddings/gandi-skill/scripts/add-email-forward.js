@@ -14,7 +14,7 @@ import { createEmailForward, getEmailForward, sanitizeDomain, sanitizeRecordName
 const [,, rawDomain, rawMailbox, ...destinations] = process.argv;
 
 if (!rawDomain || !rawMailbox || destinations.length === 0) {
-  console.error('❌ Usage: node add-email-forward.js <domain> <mailbox> <destination> [destination2]...');
+  console.error(' Usage: node add-email-forward.js <domain> <mailbox> <destination> [destination2]...');
   console.error('');
   console.error('Examples:');
   console.error('  node add-email-forward.js example.com hello you@example.com');
@@ -37,7 +37,7 @@ try {
   domain = sanitizeDomain(rawDomain);
   mailbox = sanitizeRecordName(rawMailbox); // Mailbox names follow same rules as DNS records
 } catch (error) {
-  console.error(`❌ Invalid input: ${error.message}`);
+  console.error(` Invalid input: ${error.message}`);
   process.exit(1);
 }
 
@@ -51,26 +51,26 @@ async function main() {
     // Validate destination emails
     const invalidEmails = destinations.filter(email => !isValidEmail(email));
     if (invalidEmails.length > 0) {
-      console.error('❌ Invalid email address(es):');
+      console.error(' Invalid email address(es):');
       invalidEmails.forEach(email => console.error(`   - ${email}`));
       process.exit(1);
     }
     
     const sourceDisplay = mailbox === '@' ? '@ (catch-all)' : mailbox;
-    console.log(`📧 Creating email forward for ${sourceDisplay}@${domain}...`);
+    console.log(` Creating email forward for ${sourceDisplay}@${domain}...`);
     console.log(`   Forwarding to: ${destinations.join(', ')}`);
     console.log('');
     
     // Check if forward already exists
     try {
       const existing = await getEmailForward(domain, mailbox);
-      console.error('❌ Email forward already exists!');
+      console.error(' Email forward already exists!');
       console.error(`   Current destinations: ${existing.destinations.join(', ')}`);
       console.error('');
-      console.error('💡 To update this forward:');
+      console.error(' To update this forward:');
       console.error(`   node update-email-forward.js ${domain} ${mailbox} ${destinations.join(' ')}`);
       console.error('');
-      console.error('💡 To delete and recreate:');
+      console.error(' To delete and recreate:');
       console.error(`   node delete-email-forward.js ${domain} ${mailbox}`);
       process.exit(1);
     } catch (error) {
@@ -83,23 +83,23 @@ async function main() {
     // Create the forward
     const result = await createEmailForward(domain, mailbox, destinations);
     
-    console.log('✅ Email forward created successfully!');
+    console.log(' Email forward created successfully!');
     console.log('');
-    console.log('📋 Forward details:');
+    console.log(' Forward details:');
     console.log(`   From: ${sourceDisplay}@${domain}`);
     console.log(`   To:`);
     destinations.forEach(dest => {
       console.log(`   → ${dest}`);
     });
     console.log('');
-    console.log('⏱️  Email forwarding should be active immediately.');
+    console.log('  Email forwarding should be active immediately.');
     console.log('   Test by sending an email to ' + (mailbox === '@' ? 'any address' : mailbox) + '@' + domain);
     console.log('');
-    console.log('💡 To list all forwards:');
+    console.log(' To list all forwards:');
     console.log(`   node list-email-forwards.js ${domain}`);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('   Authentication failed. Check your API token.');

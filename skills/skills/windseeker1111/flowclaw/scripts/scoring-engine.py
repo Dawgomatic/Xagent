@@ -186,9 +186,9 @@ def score_google(account: dict) -> list[ScoredAccount]:
     
     results = []
     models = [
-        ("claude", f"{provider_prefix}/claude-opus-4-6-thinking", "🤖"),
-        ("gemini_pro", f"{provider_prefix}/gemini-3-pro-high", "♊"),
-        ("gemini_flash", f"{provider_prefix}/gemini-3-flash", "⚡"),
+        ("claude", f"{provider_prefix}/claude-opus-4-6-thinking", ""),
+        ("gemini_pro", f"{provider_prefix}/gemini-3-pro-high", ""),
+        ("gemini_flash", f"{provider_prefix}/gemini-3-flash", ""),
     ]
 
     for key, model, emoji in models:
@@ -317,7 +317,7 @@ def run_tests():
         "extra": {"enabled": True, "utilization": 100}})
     assert not result[0].available
     assert result[0].score == 0.0
-    print("  ✅ Test 1: Anthropic 100% session → blocked")
+    print("   Test 1: Anthropic 100% session → blocked")
 
     # Test 2: High urgency (resets soon)
     result = score_anthropic({"account": "soon", "email": "t@t.com",
@@ -325,7 +325,7 @@ def run_tests():
         "weekly": {"utilization": 20, "resets_in": "5d"},
         "extra": {"enabled": False}})
     soon_score = result[0].score
-    print(f"  ✅ Test 2: 50% used, resets in 10m → score={soon_score:.4f}")
+    print(f"   Test 2: 50% used, resets in 10m → score={soon_score:.4f}")
 
     # Test 3: Low urgency (resets far)
     result = score_anthropic({"account": "late", "email": "t@t.com",
@@ -334,7 +334,7 @@ def run_tests():
         "extra": {"enabled": False}})
     late_score = result[0].score
     assert soon_score > late_score
-    print(f"  ✅ Test 3: 50% used, resets in 6d → score={late_score:.4f}")
+    print(f"   Test 3: 50% used, resets in 6d → score={late_score:.4f}")
 
     # Test 4: Google 0% → high score (free tier bonus)
     result = score_google({"email": "t@t.com",
@@ -343,7 +343,7 @@ def run_tests():
         "gemini_flash": {"used_pct": 0, "resets_in": "12h"}})
     assert all(r.available for r in result)
     assert all(r.score > 0 for r in result), "Google free tier should score positive"
-    print(f"  ✅ Test 4: Google 0% → scores={[r.score for r in result]}")
+    print(f"   Test 4: Google 0% → scores={[r.score for r in result]}")
 
     # Test 5: Google mixed usage
     result = score_google({"email": "t@t.com",
@@ -353,13 +353,13 @@ def run_tests():
     assert not result[0].available
     assert result[1].available
     assert "google-gemini-cli" in result[0].profile_id
-    print(f"  ✅ Test 5: Google mixed → Claude blocked, Gemini available")
+    print(f"   Test 5: Google mixed → Claude blocked, Gemini available")
 
     # Test 6: OpenAI always available
     result = score_openai({"source": "api", "today_tokens": 50000, "available": True})
     assert result[0].available
     assert result[0].score > 0
-    print(f"  ✅ Test 6: OpenAI API → score={result[0].score:.4f}")
+    print(f"   Test 6: OpenAI API → score={result[0].score:.4f}")
 
     # Test 7: Family classification
     assert model_family("anthropic/claude-opus-4-6") == "opus"
@@ -367,7 +367,7 @@ def run_tests():
     assert model_family("google-gemini-cli/gemini-3-pro-high") == "gemini-pro"
     assert model_family("openai/gpt-5.2") == "gpt5"
     assert model_family("openai/gpt-5-mini") == "gpt5-mini"
-    print(f"  ✅ Test 7: Model family classification correct")
+    print(f"   Test 7: Model family classification correct")
 
     # Test 8: Cross-provider family routing
     data = {"providers": [
@@ -384,9 +384,9 @@ def run_tests():
     families = best_per_family(scored)
     assert "opus" in families, "Should have opus family"
     assert "gemini-pro" in families, "Should have gemini-pro family"
-    print(f"  ✅ Test 8: Cross-provider family routing → {list(families.keys())}")
+    print(f"   Test 8: Cross-provider family routing → {list(families.keys())}")
 
-    print("\n✅ All tests passed!")
+    print("\n All tests passed!")
 
 
 def main():
@@ -426,9 +426,9 @@ def main():
         }
         print(json.dumps(result, indent=2))
     else:
-        print("🧠 FlowClaw Scoring\n")
+        print(" FlowClaw Scoring\n")
         for i, s in enumerate(scored):
-            status = "✅" if s.available else "🚫"
+            status = "" if s.available else ""
             print(f"  #{i+1}  {status} {s.account:15s}  [{s.family:12s}]  score={s.score:.4f}  {s.reason}")
             print(f"       model: {s.model}")
             print(f"       profile: {s.profile_id}  resets: {s.resets_in}")
@@ -436,9 +436,9 @@ def main():
 
         best = next((s for s in scored if s.available), None)
         if best:
-            print(f"  🎯 Recommended: {best.account} ({best.model})")
+            print(f"   Recommended: {best.account} ({best.model})")
         else:
-            print("  ⚠️  All accounts exhausted!")
+            print("    All accounts exhausted!")
 
 
 if __name__ == "__main__":

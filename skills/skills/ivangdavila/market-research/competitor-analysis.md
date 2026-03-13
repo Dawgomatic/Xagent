@@ -50,16 +50,16 @@ Find the white space — where are customers underserved?
 - **Product changes:** Changelog, Product Hunt launches, app updates
 
 ### Ethical Intelligence Gathering
-✅ Public filings and press releases
-✅ Published pricing pages
-✅ User reviews and forums
-✅ Conference presentations
-✅ Open source contributions
+ Public filings and press releases
+ Published pricing pages
+ User reviews and forums
+ Conference presentations
+ Open source contributions
 
-❌ Fake customer inquiries
-❌ Social engineering employees
-❌ Scraping behind paywalls
-❌ Accessing internal documents
+ Fake customer inquiries
+ Social engineering employees
+ Scraping behind paywalls
+ Accessing internal documents
 
 ## Feature Comparison Matrix
 
@@ -67,10 +67,10 @@ Find the white space — where are customers underserved?
 
 | Feature | Your Product | Competitor A | Competitor B | Priority |
 |---------|-------------|-------------|-------------|----------|
-| Core feature 1 | ✅ | ✅ | ❌ | Must-have |
-| Core feature 2 | 🔄 Building | ✅ | ✅ | Must-have |
-| Advanced feature | ❌ | ✅ | ❌ | Nice-to-have |
-| Unique differentiator | ✅ | ❌ | ❌ | Differentiator |
+| Core feature 1 |  |  |  | Must-have |
+| Core feature 2 |  Building |  |  | Must-have |
+| Advanced feature |  |  |  | Nice-to-have |
+| Unique differentiator |  |  |  | Differentiator |
 
 ### How to Prioritize
 1. **Must-have:** Without this, customers won't consider you

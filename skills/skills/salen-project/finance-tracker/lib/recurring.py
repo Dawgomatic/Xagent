@@ -238,14 +238,14 @@ class RecurringManager:
         items = self.get_recurring()
         
         if not items:
-            return "🔄 Recurring Expenses\n━━━━━━━━━━━━━━━━━━━━━\n\n📭 No recurring expenses set up.\n\nAdd one: finance recurring add 110k \"mobile\" monthly"
+            return " Recurring Expenses\n━━━━━━━━━━━━━━━━━━━━━\n\n No recurring expenses set up.\n\nAdd one: finance recurring add 110k \"mobile\" monthly"
         
         monthly_total = self.get_monthly_total()
         
         lines = [
-            "🔄 Recurring Expenses",
+            " Recurring Expenses",
             "━━━━━━━━━━━━━━━━━━━━━",
-            f"💰 Monthly Total: {monthly_total:,} UZS",
+            f" Monthly Total: {monthly_total:,} UZS",
             ""
         ]
         
@@ -263,7 +263,7 @@ class RecurringManager:
             if freq not in by_freq:
                 continue
             
-            lines.append(f"📅 {freq.capitalize()}:")
+            lines.append(f" {freq.capitalize()}:")
             for item in by_freq[freq]:
                 emoji = get_emoji(item["category"])
                 next_due = datetime.fromisoformat(item["next_due"]).strftime("%m/%d")
@@ -273,7 +273,7 @@ class RecurringManager:
         # Due today
         due = self.get_due_today()
         if due:
-            lines.append("⚠️ DUE TODAY:")
+            lines.append(" DUE TODAY:")
             for item in due:
                 emoji = get_emoji(item["category"])
                 lines.append(f"   {emoji} {item['amount']:,} — {item['description']}")

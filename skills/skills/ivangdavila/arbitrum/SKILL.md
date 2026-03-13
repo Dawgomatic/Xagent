@@ -1,7 +1,7 @@
 ---
 name: Arbitrum
 description: Assist with Arbitrum One transactions, bridging, gas optimization, and L2 ecosystem navigation.
-metadata: {"clawdbot":{"emoji":"🔵","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Network Basics

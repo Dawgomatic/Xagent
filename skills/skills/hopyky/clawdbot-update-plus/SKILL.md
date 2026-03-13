@@ -2,10 +2,10 @@
 name: clawdbot-update-plus
 description: Full backup, update, and restore for Clawdbot - config, workspace, and skills with auto-rollback
 version: 2.1.1
-metadata: {"clawdbot":{"emoji":"🔄","requires":{"bins":["git","jq","rsync"],"commands":["clawdbot"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["git","jq","rsync"],"commands":["clawdbot"]}}}
 ---
 
-# 🔄 Clawdbot Update Plus
+#  Clawdbot Update Plus
 
 A comprehensive backup, update, and restore tool for your entire Clawdbot environment. Protect your config, workspace, and skills with automatic rollback, encrypted backups, and cloud sync.
 

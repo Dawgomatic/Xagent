@@ -519,7 +519,7 @@ name: axon-api-bridge
 description: Bridge to Axon Platform REST API for ABM campaigns and workflow management
 metadata:
   openclaw:
-    emoji: 🔗
+    emoji: 
 ---
 
 # Axon Platform API Bridge
@@ -685,7 +685,7 @@ name: shared-memory
 description: Access the shared Axon memory system (Mem0) for cross-agent context
 metadata:
   openclaw:
-    emoji: 🧠
+    emoji: 
 ---
 
 # Shared Memory (Mem0)

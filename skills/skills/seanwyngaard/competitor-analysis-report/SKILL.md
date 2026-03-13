@@ -71,9 +71,9 @@ Key finding. Biggest opportunity. Primary threat.]
 
 | Feature | [Your Product] | [Comp 1] | [Comp 2] | [Comp 3] |
 |---------|---------------|----------|----------|----------|
-| [Feature 1] | ✅ | ✅ | ❌ | ✅ |
-| [Feature 2] | ✅ | ✅ | ✅ | ❌ |
-| [Feature 3] | ❌ | ✅ | ✅ | ✅ |
+| [Feature 1] |  |  |  |  |
+| [Feature 2] |  |  |  |  |
+| [Feature 3] |  |  |  |  |
 | ... | | | | |
 
 **Key Takeaway**: [1-2 sentences on where you lead and lag]

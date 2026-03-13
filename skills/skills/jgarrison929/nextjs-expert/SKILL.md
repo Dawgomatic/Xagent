@@ -756,11 +756,11 @@ export const maxDuration = 30             // seconds
 
 ## Anti-Patterns to Avoid
 
-1. ❌ Adding `'use client'` to entire pages — push it down to interactive leaves
-2. ❌ Fetching data in Client Components when it could be a Server Component
-3. ❌ Sequential `await` when fetches are independent — use `Promise.all()`
-4. ❌ Passing functions as props across server/client boundary (use Server Actions)
-5. ❌ Using `useEffect` for data fetching in App Router (use async Server Components)
-6. ❌ Forgetting `await params` in Next.js 15 (they're Promises now)
-7. ❌ Missing `loading.tsx` or `<Suspense>` boundaries for async pages
-8. ❌ Not validating Server Action inputs (always validate with zod)
+1.  Adding `'use client'` to entire pages — push it down to interactive leaves
+2.  Fetching data in Client Components when it could be a Server Component
+3.  Sequential `await` when fetches are independent — use `Promise.all()`
+4.  Passing functions as props across server/client boundary (use Server Actions)
+5.  Using `useEffect` for data fetching in App Router (use async Server Components)
+6.  Forgetting `await params` in Next.js 15 (they're Promises now)
+7.  Missing `loading.tsx` or `<Suspense>` boundaries for async pages
+8.  Not validating Server Action inputs (always validate with zod)

@@ -79,12 +79,12 @@ def main():
         cover_path = Path(args.cover)
         if not cover_path.exists():
             print(f"Warning: Cover not found at {cover_path}")
-            print("⚠️  Proceeding without cover - consider generating one!")
+            print("  Proceeding without cover - consider generating one!")
         else:
             cmd.append(f"--epub-cover-image={args.cover}")
             print(f"Using cover: {args.cover}")
     else:
-        print("⚠️  No cover specified! Use --cover to add one.")
+        print("  No cover specified! Use --cover to add one.")
     
     print(f"Running pandoc...")
     result = subprocess.run(cmd, capture_output=True, text=True)
@@ -95,7 +95,7 @@ def main():
     
     output_path = Path(args.output)
     size_mb = output_path.stat().st_size / (1024 * 1024)
-    print(f"\n✅ EPUB created: {args.output} ({size_mb:.2f} MB)")
+    print(f"\n EPUB created: {args.output} ({size_mb:.2f} MB)")
     print(f"   Title: {title}")
     print(f"   Author: {author}")
     print(f"   Essays: {len(essay_files)}")

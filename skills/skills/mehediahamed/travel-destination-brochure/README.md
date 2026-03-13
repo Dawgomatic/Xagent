@@ -2,7 +2,7 @@
 
 A Python-based tool that automatically generates travel brochures, videos, and one-day travel plans for any destination city. The tool combines street-level imagery from OpenStreetCam, landmark photos from Wikimedia Commons, and AI-powered video generation using VLM Run to create comprehensive travel content.
 
-## 🌟 Features
+##  Features
 
 - **Automatic City Geocoding**: Converts city names to coordinates using OpenStreetMap's Nominatim service
 - **Street-Level Imagery**: Fetches real street photos from OpenStreetCam API
@@ -12,7 +12,7 @@ A Python-based tool that automatically generates travel brochures, videos, and o
 - **All-in-One Script**: Simple command-line interface for quick brochure generation
 - **Modular Design**: Individual scripts for custom workflows and advanced usage
 
-## 📋 Prerequisites
+##  Prerequisites
 
 Before you begin, ensure you have:
 
@@ -25,7 +25,7 @@ Before you begin, ensure you have:
 - Wikimedia Commons (public access)
 - Nominatim geocoding (public access)
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -110,12 +110,12 @@ python scripts/simple_travel_brochure.py --city "Doha, Qatar"
 ```
 
 This script will:
-1. ✅ Geocode the city name to coordinates
-2. ✅ Fetch 3 street-level photos from OpenStreetCam
-3. ✅ Fetch 2 landmark images from Wikimedia Commons (total 5 images)
-4. ✅ Generate a 30-second travel video using vlmrun (if `VLMRUN_API_KEY` is set)
-5. ✅ Generate a one-day travel plan using vlmrun (if `VLMRUN_API_KEY` is set)
-6. ✅ Save all results to `./travel_brochure/` directory
+1.  Geocode the city name to coordinates
+2.  Fetch 3 street-level photos from OpenStreetCam
+3.  Fetch 2 landmark images from Wikimedia Commons (total 5 images)
+4.  Generate a 30-second travel video using vlmrun (if `VLMRUN_API_KEY` is set)
+5.  Generate a one-day travel plan using vlmrun (if `VLMRUN_API_KEY` is set)
+6.  Save all results to `./travel_brochure/` directory
 
 **Output Structure:**
 ```
@@ -131,7 +131,7 @@ travel_brochure/
 └── travel_plan.md         # One-day travel itinerary (if API key is set)
 ```
 
-## 📖 Detailed Usage
+##  Detailed Usage
 
 ### Script Options
 
@@ -213,7 +213,7 @@ vlmrun chat "Using these images and their locations, write a one-day travel plan
   -o ./travel_output
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 travel-destination-brochure/
@@ -231,7 +231,7 @@ travel-destination-brochure/
     └── simple_travel_brochure.py # All-in-one simplified script
 ```
 
-## 🔧 Scripts Reference
+##  Scripts Reference
 
 | Script | Purpose | Key Features |
 |--------|---------|--------------|
@@ -241,7 +241,7 @@ travel-destination-brochure/
 | `run_travel_pipeline.py` | Complete image collection pipeline | Combines geocoding, OSC, and Commons into one manifest |
 | `simple_travel_brochure.py` | All-in-one brochure generator | Handles everything: geocode → fetch → video → plan |
 
-## 🌐 API References
+##  API References
 
 ### OpenStreetCam API
 
@@ -271,7 +271,7 @@ See `references/commons_api.md` for detailed API documentation.
 - **Documentation**: See vlmrun-cli-skill for setup and usage
 - **Key Command**: `vlmrun chat <prompt> -i <image> ... -o <output>`
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Installation Issues
 
@@ -329,7 +329,7 @@ See `references/commons_api.md` for detailed API documentation.
 - Check that all dependencies are installed: `uv pip list`
 - Verify Python version: `python --version` (should be 3.10+)
 
-## 📝 Example Workflows
+##  Example Workflows
 
 ### Example 1: Quick Brochure Generation
 
@@ -396,14 +396,14 @@ vlmrun chat "Create a travel video of Dubai" \
   -o ./dubai/video
 ```
 
-## 📚 Additional Resources
+##  Additional Resources
 
 - **OpenStreetCam**: [Website](https://openstreetcam.org/) | [API Docs](https://api.openstreetcam.org/api/doc.html)
 - **Wikimedia Commons**: [Website](https://commons.wikimedia.org/) | [API Docs](https://commons.wikimedia.org/w/api.php)
 - **Nominatim Geocoding**: [Documentation](https://nominatim.org/release-docs/develop/api/Overview/)
 - **VLM Run**: See vlmrun-cli-skill documentation for detailed usage
 
-## ✅ Checklist for Complete Run
+##  Checklist for Complete Run
 
 - [ ] Python 3.10+ installed and verified
 - [ ] Dependencies installed (`vlmrun[cli]`, `requests`)
@@ -416,7 +416,7 @@ vlmrun chat "Create a travel video of Dubai" \
 - [ ] Ran vlmrun with collected images to generate travel video (if API key set)
 - [ ] Ran vlmrun with same images to generate travel plan (if API key set)
 
-## 🤝 Contributing
+##  Contributing
 
 This is a skill template for AI agents. To extend functionality:
 
@@ -425,7 +425,7 @@ This is a skill template for AI agents. To extend functionality:
 3. Follow the existing code patterns and structure
 4. Test with multiple cities and edge cases
 
-## 📄 License
+##  License
 
 This project uses public APIs and open-source tools. Please respect:
 - OpenStreetCam's [Terms of Service](https://openstreetcam.com/terms/)
@@ -434,4 +434,4 @@ This project uses public APIs and open-source tools. Please respect:
 
 ---
 
-**Happy Travel Planning! ✈️🌍**
+**Happy Travel Planning! **

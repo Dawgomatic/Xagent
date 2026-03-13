@@ -30,13 +30,13 @@ INVERTED: "How would I guarantee failure at [goal]?"
 
 FAILURE PATHS:
 
-🔴 FATAL:
+ FATAL:
 • [Path] → AVOID BY: [Strategy]
 
-🟡 DAMAGING:
+ DAMAGING:
 • [Path] → AVOID BY: [Strategy]
 
-🟢 ANNOYING:
+ ANNOYING:
 • [Path] → AVOID BY: [Strategy]
 
 ANTI-CHECKLIST:

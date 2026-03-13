@@ -26,4 +26,4 @@ done
 [ -z "$INPUT" ] || [ -z "$WATERMARK" ] || [ -z "$OUTPUT" ] && usage
 
 ffmpeg -i "$INPUT" -i "$WATERMARK" -filter_complex "[0:v][1:v] overlay=$POS" -c:a copy -y "$OUTPUT"
-echo "✅ Watermark added: $OUTPUT"
+echo " Watermark added: $OUTPUT"

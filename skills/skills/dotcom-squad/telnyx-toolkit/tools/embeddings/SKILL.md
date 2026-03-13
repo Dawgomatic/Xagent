@@ -1,7 +1,7 @@
 ---
 name: telnyx-embeddings
 description: Semantic search and text embeddings using Telnyx AI. Search any Telnyx Storage bucket with natural language — no OpenAI or Google API keys required.
-metadata: {"openclaw":{"emoji":"🔮","requires":{"bins":["python3"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
 ---
 
 # Telnyx Embeddings

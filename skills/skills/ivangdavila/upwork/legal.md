@@ -2,20 +2,20 @@
 
 ## ToS Boundaries (What's NOT Allowed)
 
-❌ Automated login or session management
-❌ Auto-sending proposals without human review
-❌ Scraping job posts or client data
-❌ Multiple accounts per person
-❌ Payments outside Upwork (direct bank, crypto, PayPal)
-❌ Misrepresenting who does the work
+ Automated login or session management
+ Auto-sending proposals without human review
+ Scraping job posts or client data
+ Multiple accounts per person
+ Payments outside Upwork (direct bank, crypto, PayPal)
+ Misrepresenting who does the work
 
 ## What IS Allowed
 
-✅ AI assistance for drafting (human reviews before sending)
-✅ Research and analysis of public job posts
-✅ Templates customized for each proposal
-✅ CRM tracking outside Upwork
-✅ Productivity tools that don't access account
+ AI assistance for drafting (human reviews before sending)
+ Research and analysis of public job posts
+ Templates customized for each proposal
+ CRM tracking outside Upwork
+ Productivity tools that don't access account
 
 ## Consequences of Violations
 

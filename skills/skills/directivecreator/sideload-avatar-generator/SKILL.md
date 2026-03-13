@@ -1,7 +1,7 @@
 ---
 name: sideload-avatar-generator
 description: Generate 3D avatars (VRM/GLB/MML) from text prompts or images via Sideload.gg. Pay-per-use with any x402 wallet (USDC on Base).
-metadata: {"openclaw":{"emoji":"🎭","requires":{"bins":["node"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Sideload Avatar Generator
@@ -21,7 +21,7 @@ Each generation produces four formats:
 | **MML** | URL | Metaverse Markup Language — for [MML-compatible](https://mml.io) worlds |
 | **PNG** | `.png` | Processed reference image used for generation |
 
-## 🎭 Rendering Avatars with @pixiv/three-vrm
+##  Rendering Avatars with @pixiv/three-vrm
 
 The VRM output is designed to work with [@pixiv/three-vrm](https://github.com/pixiv/three-vrm) — the standard Three.js library for loading, displaying, and animating VRM avatars. If you're already building with Three.js, generated avatars plug right in with full skeleton support:
 

@@ -1,7 +1,7 @@
 ---
 name: Cosmos
 description: Assist with Cosmos ATOM transactions, IBC transfers, staking, and cross-chain ecosystem navigation.
-metadata: {"clawdbot":{"emoji":"⚛️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Ecosystem Overview

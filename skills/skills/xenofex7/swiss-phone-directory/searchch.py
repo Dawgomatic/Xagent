@@ -25,7 +25,7 @@ def get_api_key() -> str:
     """Get API key from environment variable."""
     key = os.environ.get("SEARCHCH_API_KEY")
     if not key:
-        print("❌ Error: SEARCHCH_API_KEY environment variable not set", file=sys.stderr)
+        print(" Error: SEARCHCH_API_KEY environment variable not set", file=sys.stderr)
         print("   Set it with: export SEARCHCH_API_KEY='your-api-key'", file=sys.stderr)
         sys.exit(1)
     return key
@@ -72,12 +72,12 @@ def search(query: str, location: Optional[str] = None, entry_type: str = "all",
             xml_data = response.read().decode("utf-8")
     except urllib.error.HTTPError as e:
         if e.code == 403:
-            print("❌ Error: Invalid API key", file=sys.stderr)
+            print(" Error: Invalid API key", file=sys.stderr)
         else:
-            print(f"❌ HTTP Error: {e.code}", file=sys.stderr)
+            print(f" HTTP Error: {e.code}", file=sys.stderr)
         sys.exit(1)
     except urllib.error.URLError as e:
-        print(f"❌ Network Error: {e.reason}", file=sys.stderr)
+        print(f" Network Error: {e.reason}", file=sys.stderr)
         sys.exit(1)
     
     return parse_response(xml_data)
@@ -212,14 +212,14 @@ def format_phone(phone: str, clickable: bool = True) -> str:
 def print_results(results: list[dict], verbose: bool = False, clickable: bool = True):
     """Print search results in a readable format with clickable phone links."""
     if not results:
-        print("🔍 Keine Treffer gefunden.")
+        print(" Keine Treffer gefunden.")
         return
     
-    print(f"📋 {len(results)} Treffer:\n")
+    print(f" {len(results)} Treffer:\n")
     
     for i, r in enumerate(results, 1):
         # Name and type
-        type_icon = "🏢" if r.get("type") == "Organisation" else "👤"
+        type_icon = "" if r.get("type") == "Organisation" else ""
         print(f"{type_icon} **{r.get('name', 'Unbekannt')}**")
         
         # Occupation/subtitle
@@ -235,23 +235,23 @@ def print_results(results: list[dict], verbose: bool = False, clickable: bool = 
         if r.get("canton"):
             addr_parts[-1] = f"{addr_parts[-1]} {r['canton']}" if addr_parts else r["canton"]
         if addr_parts:
-            print(f"   📍 {', '.join(addr_parts)}")
+            print(f"    {', '.join(addr_parts)}")
         
         # Contact - phone numbers with clickable tel: links
         if r.get("phone"):
             phone_display = format_phone(r['phone'], clickable=clickable) if clickable else r['phone']
-            print(f"   📞 {phone_display}")
+            print(f"    {phone_display}")
         if r.get("fax"):
             fax_display = format_phone(r['fax'], clickable=clickable) if clickable else r['fax']
-            print(f"   📠 {fax_display}")
+            print(f"    {fax_display}")
         if r.get("email"):
-            print(f"   ✉️  {r['email']}")
+            print(f"     {r['email']}")
         if r.get("website"):
-            print(f"   🔗 {r['website']}")
+            print(f"    {r['website']}")
         
         # Categories
         if r.get("categories") and verbose:
-            print(f"   🏷️  {', '.join(r['categories'])}")
+            print(f"     {', '.join(r['categories'])}")
         
         print()
 

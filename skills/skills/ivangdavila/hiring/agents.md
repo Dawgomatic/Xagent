@@ -6,12 +6,12 @@ When your AI agent hires other AI agents for specialized subtasks.
 
 | Task Type | Hire Agent | Hire Human |
 |-----------|------------|------------|
-| Data extraction at scale | ✅ | |
-| Code generation | ✅ | Review |
-| Image generation | ✅ | Direction |
-| Physical presence required | | ✅ |
-| Legal/regulated tasks | | ✅ |
-| Judgment under uncertainty | Triage | ✅ Final |
+| Data extraction at scale |  | |
+| Code generation |  | Review |
+| Image generation |  | Direction |
+| Physical presence required | |  |
+| Legal/regulated tasks | |  |
+| Judgment under uncertainty | Triage |  Final |
 
 ## Model Tier Routing
 

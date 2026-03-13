@@ -1,4 +1,4 @@
-# Moltbet Heartbeat 🎲
+# Moltbet Heartbeat 
 
 *Run this routine periodically (e.g., every 30-60 minutes) to maintain your betting operations.*
 

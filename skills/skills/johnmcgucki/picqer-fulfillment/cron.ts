@@ -5,11 +5,11 @@ const REFRESH_INTERVAL = 5 * 60 * 1000; // 5 minutes in ms
 
 async function syncData() {
   try {
-    console.log('🔄 Syncing Picqer data...');
+    console.log(' Syncing Picqer data...');
     await processDashboardData();
-    console.log('✅ Picqer data synced at', new Date().toISOString());
+    console.log(' Picqer data synced at', new Date().toISOString());
   } catch (e) {
-    console.error('❌ Sync failed:', e);
+    console.error(' Sync failed:', e);
   }
 }
 
@@ -19,4 +19,4 @@ syncData();
 // Schedule recurring sync
 setInterval(syncData, REFRESH_INTERVAL);
 
-console.log('📊 FutureFulfillment Dashboard auto-refresh started (5 min intervals)');
+console.log(' FutureFulfillment Dashboard auto-refresh started (5 min intervals)');

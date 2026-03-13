@@ -28,7 +28,7 @@ const appTools = createSdkMcpServer({
       },
       async (args) => {
         // Simulate notification service
-        console.log(`📧 Notification (${args.priority}): ${args.message}`);
+        console.log(` Notification (${args.priority}): ${args.message}`);
         return {
           content: [{ type: "text", text: "Notification sent successfully" }]
         };
@@ -43,7 +43,7 @@ const appTools = createSdkMcpServer({
         severity: z.enum(["debug", "info", "warning", "error", "critical"]).default("info")
       },
       async (args) => {
-        console.log(`📝 [${args.severity.toUpperCase()}] ${args.event}:`, args.data || '');
+        console.log(` [${args.severity.toUpperCase()}] ${args.event}:`, args.data || '');
         return {
           content: [{ type: "text", text: "Event logged" }]
         };
@@ -74,7 +74,7 @@ const appTools = createSdkMcpServer({
 
 // Main DevOps agent orchestrator
 async function runDevOpsAgent(task: string) {
-  console.log(`🚀 Starting DevOps Agent for: ${task}\n`);
+  console.log(` Starting DevOps Agent for: ${task}\n`);
 
   const response = query({
     prompt: task,
@@ -217,7 +217,7 @@ Identify bottlenecks and optimization opportunities.`,
       permissionMode: "default",
       canUseTool: async (toolName, input) => {
         // Log all tool usage
-        console.log(`🔧 [${new Date().toISOString()}] ${toolName}`);
+        console.log(` [${new Date().toISOString()}] ${toolName}`);
 
         // Prevent destructive operations
         if (toolName === 'Bash') {
@@ -235,7 +235,7 @@ Identify bottlenecks and optimization opportunities.`,
             input.command?.includes('kubectl apply -n production')) {
           return {
             behavior: "ask",
-            message: `⚠️  PRODUCTION DEPLOYMENT: ${input.command}\n\nConfirm?`
+            message: `  PRODUCTION DEPLOYMENT: ${input.command}\n\nConfirm?`
           };
         }
 
@@ -255,34 +255,34 @@ Identify bottlenecks and optimization opportunities.`,
         case 'system':
           if (message.subtype === 'init') {
             sessionId = message.session_id;
-            console.log(`✨ Session: ${sessionId}\n`);
+            console.log(` Session: ${sessionId}\n`);
           }
           break;
 
         case 'assistant':
-          console.log('📋 Orchestrator:', message.content);
+          console.log(' Orchestrator:', message.content);
           break;
 
         case 'tool_call':
-          console.log(`\n🔧 Executing: ${message.tool_name}`);
+          console.log(`\n Executing: ${message.tool_name}`);
           toolsExecuted.push(message.tool_name);
           break;
 
         case 'tool_result':
-          console.log(`✅ ${message.tool_name} completed`);
+          console.log(` ${message.tool_name} completed`);
           break;
 
         case 'error':
-          console.error('❌ Error:', message.error.message);
+          console.error(' Error:', message.error.message);
           break;
       }
     }
 
-    console.log(`\n\n✅ Task completed successfully`);
+    console.log(`\n\n Task completed successfully`);
     console.log(`Session ID: ${sessionId}`);
     console.log(`Tools executed: ${toolsExecuted.length}`);
   } catch (error) {
-    console.error('💥 Fatal error:', error);
+    console.error(' Fatal error:', error);
     throw error;
   }
 }

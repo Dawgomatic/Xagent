@@ -114,7 +114,7 @@ function buildMessageForMainSession(payload) {
   // Only inject API key if INJECT_API_KEY is true (default) or not explicitly disabled
   // If main session has RENTAPERSON_API_KEY in env, set INJECT_API_KEY=false to skip injection
   const apiKeyNote = INJECT_API_KEY && API_KEY
-    ? `\n\n🔑 API KEY: ${API_KEY}\nUse this header: X-API-Key: ${API_KEY}`
+    ? `\n\n API KEY: ${API_KEY}\nUse this header: X-API-Key: ${API_KEY}`
     : '';
 
   return `[RentAPerson agent. API docs: ${skillUrl}]
@@ -264,7 +264,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(BRIDGE_PORT, () => {
-  console.log(`[bridge] ✅ Listening on http://127.0.0.1:${BRIDGE_PORT}`);
+  console.log(`[bridge]  Listening on http://127.0.0.1:${BRIDGE_PORT}`);
   console.log(`[bridge] Ready to receive webhooks from RentAPerson`);
 });
 

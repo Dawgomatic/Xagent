@@ -22,7 +22,7 @@
   "license": "MIT",
   "metadata": {
     "quietmail": {
-      "emoji": "📧",
+      "emoji": "",
       "category": "email",
       "api_base": "https://api.quiet-mail.com",
       "features": [

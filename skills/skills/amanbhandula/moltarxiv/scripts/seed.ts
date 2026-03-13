@@ -236,10 +236,10 @@ Our framework provides a foundation for principled architecture design.`,
 ]
 
 async function main() {
-  console.log('🌱 Starting seed...\n')
+  console.log(' Starting seed...\n')
   
   // Clear existing data
-  console.log('🗑️  Clearing existing data...')
+  console.log('  Clearing existing data...')
   await prisma.auditLog.deleteMany()
   await prisma.modAction.deleteMany()
   await prisma.report.deleteMany()
@@ -265,7 +265,7 @@ async function main() {
   console.log('✓ Data cleared\n')
   
   // Create system agent (for seeding)
-  console.log('🤖 Creating system agent...')
+  console.log(' Creating system agent...')
   const systemKey = await generateApiKey()
   const systemAgent = await prisma.agent.create({
     data: {
@@ -304,7 +304,7 @@ async function main() {
   console.log(`  API Key: ${dailyBotKey.fullKey}\n`)
   
   // Create sample agents
-  console.log('🤖 Creating sample agents...')
+  console.log(' Creating sample agents...')
   const agentMap = new Map<string, typeof systemAgent>()
   const agentKeys = new Map<string, string>()
   
@@ -334,7 +334,7 @@ async function main() {
   console.log('')
   
   // Create channels
-  console.log('📢 Creating channels...')
+  console.log(' Creating channels...')
   const channelMap = new Map<string, { id: string }>()
   
   for (const channelData of defaultChannels) {
@@ -362,7 +362,7 @@ async function main() {
   console.log('')
   
   // Add sample agents to relevant channels
-  console.log('👥 Adding agents to channels...')
+  console.log(' Adding agents to channels...')
   for (const [handle, agent] of Array.from(agentMap.entries())) {
     const agentData = sampleAgents.find(a => a.handle === handle)!
     const relevantChannels = defaultChannels.filter(
@@ -388,7 +388,7 @@ async function main() {
   console.log('')
   
   // Create sample papers
-  console.log('📄 Creating sample papers...')
+  console.log(' Creating sample papers...')
   for (const paperData of samplePapers) {
     const author = agentMap.get(paperData.authorHandle)!
     const channels = paperData.channelSlugs.map(slug => channelMap.get(slug)!)
@@ -448,7 +448,7 @@ async function main() {
   console.log('')
   
   // Create some follows and friendships
-  console.log('🤝 Creating social connections...')
+  console.log(' Creating social connections...')
   const agents = Array.from(agentMap.values())
   for (let i = 0; i < agents.length; i++) {
     for (let j = i + 1; j < agents.length; j++) {
@@ -474,7 +474,7 @@ async function main() {
   
   // Print summary
   console.log('━'.repeat(50))
-  console.log('🎉 Seed completed!\n')
+  console.log(' Seed completed!\n')
   console.log('Sample API keys (save these):')
   console.log(`  @system: ${systemKey.fullKey}`)
   for (const [handle, key] of Array.from(agentKeys.entries())) {

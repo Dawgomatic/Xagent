@@ -143,7 +143,7 @@ function getRiskLevel(high: UnifiedRate, low: UnifiedRate): 'low' | 'medium' | '
  * Format opportunity for display
  */
 export function formatOpportunity(opp: ArbOpportunity): string {
-  const emoji = opp.riskLevel === 'low' ? '🟢' : opp.riskLevel === 'medium' ? '🟡' : '🔴';
+  const emoji = opp.riskLevel === 'low' ? '' : opp.riskLevel === 'medium' ? '' : '';
   
   return `${emoji} ${opp.asset}: ${opp.netApy.toFixed(1)}% APY
    Long ${opp.longProtocol} (${(opp.longRate * 100).toFixed(4)}%/hr)

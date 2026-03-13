@@ -77,7 +77,7 @@ def main():
                 client_id=args.client_id
             )
             
-            print(f"✅ Webhook created successfully!")
+            print(f" Webhook created successfully!")
             print(f"   ID: {webhook.webhook_id}")
             print(f"   URL: {webhook.url}")
             print(f"   Events: {', '.join(webhook.event_types)}")
@@ -87,7 +87,7 @@ def main():
             print(f"   Created: {webhook.created_at}")
             
         except Exception as e:
-            print(f"❌ Failed to create webhook: {e}")
+            print(f" Failed to create webhook: {e}")
             sys.exit(1)
     
     elif args.list:
@@ -95,12 +95,12 @@ def main():
             webhooks = client.webhooks.list()
             
             if not webhooks.webhooks:
-                print("📭 No webhooks found")
+                print(" No webhooks found")
                 return
             
-            print(f"🪝 Webhooks ({len(webhooks.webhooks)}):\n")
+            print(f" Webhooks ({len(webhooks.webhooks)}):\n")
             for webhook in webhooks.webhooks:
-                status = "✅ Enabled" if webhook.enabled else "❌ Disabled"
+                status = " Enabled" if webhook.enabled else " Disabled"
                 print(f"{status} {webhook.webhook_id}")
                 print(f"   URL: {webhook.url}")
                 print(f"   Events: {', '.join(webhook.event_types)}")
@@ -110,16 +110,16 @@ def main():
                 print()
                 
         except Exception as e:
-            print(f"❌ Error listing webhooks: {e}")
+            print(f" Error listing webhooks: {e}")
             sys.exit(1)
     
     elif args.delete:
         try:
             client.webhooks.delete(args.delete)
-            print(f"✅ Webhook {args.delete} deleted successfully")
+            print(f" Webhook {args.delete} deleted successfully")
             
         except Exception as e:
-            print(f"❌ Failed to delete webhook: {e}")
+            print(f" Failed to delete webhook: {e}")
             sys.exit(1)
     
     else:
@@ -141,7 +141,7 @@ def start_test_server():
     def home():
         return """
         <h1>AgentMail Webhook Test Server</h1>
-        <p>✅ Server is running</p>
+        <p> Server is running</p>
         <p>Webhook endpoint: <code>POST /webhook</code></p>
         <p>Check console output for incoming webhooks.</p>
         """
@@ -150,7 +150,7 @@ def start_test_server():
     def webhook():
         payload = request.json
         
-        print("\n🪝 Webhook received:")
+        print("\n Webhook received:")
         print(f"   Event: {payload.get('event_type')}")
         print(f"   ID: {payload.get('event_id')}")
         
@@ -165,16 +165,16 @@ def start_test_server():
         
         return Response(status=200)
     
-    print("🚀 Starting webhook test server on http://localhost:3000")
-    print("📡 Webhook endpoint: http://localhost:3000/webhook")
-    print("\n💡 For external access, use ngrok:")
+    print(" Starting webhook test server on http://localhost:3000")
+    print(" Webhook endpoint: http://localhost:3000/webhook")
+    print("\n For external access, use ngrok:")
     print("   ngrok http 3000")
-    print("\n🛑 Press Ctrl+C to stop\n")
+    print("\n Press Ctrl+C to stop\n")
     
     try:
         app.run(host='0.0.0.0', port=3000, debug=False)
     except KeyboardInterrupt:
-        print("\n👋 Webhook server stopped")
+        print("\n Webhook server stopped")
 
 if __name__ == '__main__':
     main()

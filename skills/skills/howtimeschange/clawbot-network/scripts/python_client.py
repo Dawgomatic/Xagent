@@ -115,7 +115,7 @@ class AgentNetworkClient:
         """Connect with auto-retry"""
         while self._reconnect_attempts < self.max_reconnect_attempts:
             try:
-                print(f"🔌 Connecting to {self.server_url}...")
+                print(f" Connecting to {self.server_url}...")
                 self.ws = await websockets.connect(self.server_url)
                 
                 # Register agent
@@ -126,7 +126,7 @@ class AgentNetworkClient:
                 
                 self.connected = True
                 self._reconnect_attempts = 0
-                print("✅ Connected to Agent Network Server")
+                print(" Connected to Agent Network Server")
                 
                 self.emit("connected")
                 
@@ -138,11 +138,11 @@ class AgentNetworkClient:
                 
             except Exception as e:
                 self._reconnect_attempts += 1
-                print(f"❌ Connection failed: {e}")
-                print(f"🔄 Retrying in {self.reconnect_interval}s... (attempt {self._reconnect_attempts})")
+                print(f" Connection failed: {e}")
+                print(f" Retrying in {self.reconnect_interval}s... (attempt {self._reconnect_attempts})")
                 await asyncio.sleep(self.reconnect_interval)
         
-        print("❌ Max reconnect attempts reached")
+        print(" Max reconnect attempts reached")
         self.emit("failed")
     
     async def _message_loop(self):
@@ -155,7 +155,7 @@ class AgentNetworkClient:
                 except json.JSONDecodeError:
                     print(f"Invalid JSON: {message}")
         except websockets.exceptions.ConnectionClosed:
-            print("❌ Connection closed")
+            print(" Connection closed")
             self.connected = False
             self.emit("disconnected")
     
@@ -164,7 +164,7 @@ class AgentNetworkClient:
         msg_type = msg.get("type")
         
         if msg_type == "registered":
-            print(f"✅ Registered with server. Agent ID: {msg.get('agentId')}")
+            print(f" Registered with server. Agent ID: {msg.get('agentId')}")
             self.emit("registered", msg)
         
         elif msg_type == "agent_list":
@@ -175,20 +175,20 @@ class AgentNetworkClient:
             self.emit("message", msg)
         
         elif msg_type == "mention":
-            print(f"🔔 You were mentioned by {msg.get('fromName')}: {msg.get('content')}")
+            print(f" You were mentioned by {msg.get('fromName')}: {msg.get('content')}")
             self.emit("mention", msg)
         
         elif msg_type == "direct_message":
-            print(f"📩 DM from {msg.get('fromName')}: {msg.get('content')}")
+            print(f" DM from {msg.get('fromName')}: {msg.get('content')}")
             self.emit("direct_message", msg)
         
         elif msg_type == "task_assigned":
-            print(f"📋 New task assigned: {msg.get('task', {}).get('title')}")
+            print(f" New task assigned: {msg.get('task', {}).get('title')}")
             self.emit("task_assigned", msg.get("task"))
         
         elif msg_type == "offline_messages":
             messages = msg.get("messages", [])
-            print(f"📬 You have {len(messages)} offline messages")
+            print(f" You have {len(messages)} offline messages")
             self.emit("offline_messages", messages)
         
         elif msg_type == "system":
@@ -216,7 +216,7 @@ class AgentNetworkClient:
                 "type": "join_group",
                 "groupId": group_id
             }))
-            print(f"👥 Joined group: {group_id}")
+            print(f" Joined group: {group_id}")
     
     async def leave_group(self, group_id: str):
         """Leave a group"""
@@ -301,7 +301,7 @@ class AgentNetworkClient:
         try:
             asyncio.get_event_loop().run_forever()
         except KeyboardInterrupt:
-            print("\n👋 Disconnecting...")
+            print("\n Disconnecting...")
             self.disconnect()
 
 

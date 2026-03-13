@@ -135,4 +135,4 @@ fis-hub/
 
 ---
 
-*FIS 3.2.0-lite 🐱⚡*
+*FIS 3.2.0-lite *

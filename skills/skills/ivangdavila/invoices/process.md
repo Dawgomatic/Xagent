@@ -100,7 +100,7 @@ archive/
 
 **Show user:**
 ```
-📥 Invoice captured:
+ Invoice captured:
 • Provider: Hetzner
 • Invoice #: INV-12345
 • Date: 2026-02-13

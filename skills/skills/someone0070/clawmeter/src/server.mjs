@@ -9,21 +9,21 @@ import { checkBudgetAlerts } from './alerts.mjs';
 const db = await initDb(config.dbPath);
 const app = express();
 
-console.log('🔄 Ingesting existing session logs...');
+console.log(' Ingesting existing session logs...');
 const count = await ingestAll(config.agentsDir);
-console.log(`✅ Ingested ${count} new usage events`);
+console.log(` Ingested ${count} new usage events`);
 
 // Watch for changes
 const watcher = watch(join(config.agentsDir, '**', 'sessions', '*.jsonl'), { ignoreInitial: true, persistent: true });
 watcher.on('change', (fp) => {
   const parts = fp.split('/'); const ai = parts.indexOf('agents');
   const n = ingestFile(fp, ai >= 0 ? parts[ai + 1] : 'main');
-  if (n > 0) { rebuildDailyAggregates(); console.log(`📥 ${n} new events`); checkBudgetAlerts().catch(console.error); }
+  if (n > 0) { rebuildDailyAggregates(); console.log(` ${n} new events`); checkBudgetAlerts().catch(console.error); }
 });
 watcher.on('add', (fp) => {
   const parts = fp.split('/'); const ai = parts.indexOf('agents');
   const n = ingestFile(fp, ai >= 0 ? parts[ai + 1] : 'main');
-  if (n > 0) { rebuildDailyAggregates(); console.log(`📥 ${n} new events`); }
+  if (n > 0) { rebuildDailyAggregates(); console.log(` ${n} new events`); }
 });
 
 app.use(express.static(resolve(import.meta.dirname, '..', 'web')));
@@ -81,4 +81,4 @@ app.post('/api/ingest', async (req, res) => {
   res.json({ ingested: n });
 });
 
-app.listen(config.port, () => console.log(`🔥 ClawMeter running at http://localhost:${config.port}`));
+app.listen(config.port, () => console.log(` ClawMeter running at http://localhost:${config.port}`));

@@ -35,12 +35,12 @@ if ! command -v clawhub &> /dev/null; then
     if command -v openclaw &> /dev/null; then
         USE_OPENCLAW=1
     else
-        echo -e "${YELLOW}⚠️  ClawHub CLI not found. Using direct download...${NC}"
+        echo -e "${YELLOW}  ClawHub CLI not found. Using direct download...${NC}"
         USE_DIRECT=1
     fi
 fi
 
-echo -e "\n${GREEN}📦 Installing $SKILL_NAME${NC}"
+echo -e "\n${GREEN} Installing $SKILL_NAME${NC}"
 [[ "$SKILL_VERSION" != "latest" ]] && echo -e "   Version: $SKILL_VERSION"
 echo ""
 
@@ -95,11 +95,11 @@ resolve_deps() {
     done <<< "$deps"
 }
 
-echo -e "${BLUE}🔍 Resolving dependencies...${NC}"
+echo -e "${BLUE} Resolving dependencies...${NC}"
 resolve_deps "$SKILL_NAME" "$SKILL_VERSION"
 
 # Check for conflicts
-echo -e "\n${BLUE}🔍 Checking conflicts...${NC}"
+echo -e "\n${BLUE} Checking conflicts...${NC}"
 CONFLICTS_FOUND=0
 
 for skill in "${!TO_INSTALL[@]}"; do
@@ -108,7 +108,7 @@ for skill in "${!TO_INSTALL[@]}"; do
     
     while IFS= read -r conflict; do
         if [[ -n "$conflict" ]] && is_installed "$conflict"; then
-            echo -e "   ${RED}❌ $skill conflicts with $conflict (installed)${NC}"
+            echo -e "   ${RED} $skill conflicts with $conflict (installed)${NC}"
             CONFLICTS_FOUND=1
         fi
     done <<< "$conflicts"
@@ -118,27 +118,27 @@ if [[ $CONFLICTS_FOUND -eq 1 ]]; then
     echo -e "\n${RED}Cannot install due to conflicts. Remove conflicting skills first.${NC}\n"
     exit 1
 fi
-echo -e "   ${GREEN}└── No conflicts found ✅${NC}"
+echo -e "   ${GREEN}└── No conflicts found ${NC}"
 
 # Install skills
-echo -e "\n${BLUE}📥 Installing ${#TO_INSTALL[@]} skill(s)...${NC}"
+echo -e "\n${BLUE} Installing ${#TO_INSTALL[@]} skill(s)...${NC}"
 
 for skill in "${!TO_INSTALL[@]}"; do
     version="${TO_INSTALL[$skill]}"
     
     if [[ -n "$USE_OPENCLAW" ]]; then
         openclaw skill install "$skill" --yes 2>/dev/null && \
-            echo -e "   ${GREEN}✅ $skill${NC}" || \
-            echo -e "   ${YELLOW}⚠️  $skill (may need manual install)${NC}"
+            echo -e "   ${GREEN} $skill${NC}" || \
+            echo -e "   ${YELLOW}  $skill (may need manual install)${NC}"
     elif command -v clawhub &> /dev/null; then
         clawhub install "$skill" 2>/dev/null && \
-            echo -e "   ${GREEN}✅ $skill${NC}" || \
-            echo -e "   ${YELLOW}⚠️  $skill (may need manual install)${NC}"
+            echo -e "   ${GREEN} $skill${NC}" || \
+            echo -e "   ${YELLOW}  $skill (may need manual install)${NC}"
     else
         # Direct install attempt
-        echo -e "   ${YELLOW}⚠️  $skill (manual install required)${NC}"
+        echo -e "   ${YELLOW}  $skill (manual install required)${NC}"
         echo -e "      Run: openclaw skill install $skill"
     fi
 done
 
-echo -e "\n${GREEN}✅ Done!${NC}\n"
+echo -e "\n${GREEN} Done!${NC}\n"

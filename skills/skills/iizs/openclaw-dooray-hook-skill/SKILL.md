@@ -4,7 +4,7 @@ description: Send automated notifications to Dooray! messenger channels via webh
 homepage: https://dooray.com
 metadata:
   openclaw:
-    emoji: "📨"
+    emoji: ""
     requires:
       bins: ["python3"]
       config: ["skills.entries.dooray-hook.config"]
@@ -54,14 +54,14 @@ To use this skill, you must define your Dooray! webhook URLs in the OpenClaw glo
 
 ## Usage
 
-### 💬 Natural Language
+###  Natural Language
 
 You can ask OpenClaw to send messages directly:
 
 * *"Send 'Server deployment successful' to the Alerts room on Dooray."*
 * *"Tell the General channel that I'll be late for the meeting."*
 
-### 💻 CLI Execution
+###  CLI Execution
 
 ```bash
 python scripts/send_dooray.py "RoomName" "Your message content"

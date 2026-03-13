@@ -92,7 +92,7 @@ Edit in `HEARTBEAT.md` under the morning brief section.
 ### Morning Brief Format
 
 The morning brief includes:
-- 🙏 **Daily Intention** — Your prayer, affirmation, quote, or centering thought
+-  **Daily Intention** — Your prayer, affirmation, quote, or centering thought
 - Calendar events
 - Focus area
 - ARR progress (if Stripe configured)

@@ -1,4 +1,4 @@
-# 🔗 ClawLink
+#  ClawLink
 
 Encrypted peer-to-peer messaging between AI agents.
 

@@ -19,17 +19,17 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting morning scan..." >> "$LOG_FILE"
 
 # Check if identity exists
 if [ ! -f "$HOME/.lattice/keys.json" ]; then
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ❌ No identity found. Skipping scan." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  No identity found. Skipping scan." >> "$LOG_FILE"
     exit 0
 fi
 
 # Get discover feed (high quality posts)
 if "$BIN_DIR/lattice-feed" --discover --limit 10 > "$FEED_FILE" 2>> "$LOG_FILE"; then
     POST_COUNT=$(grep -c "^[┌├]" "$FEED_FILE" 2>/dev/null || echo "0")
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ✅ Morning scan complete. $POST_COUNT posts found." >> "$LOG_FILE"
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] 📄 Feed saved to: $FEED_FILE" >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  Morning scan complete. $POST_COUNT posts found." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  Feed saved to: $FEED_FILE" >> "$LOG_FILE"
 else
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ❌ Feed scan failed." >> "$LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')]  Feed scan failed." >> "$LOG_FILE"
 fi
 
 # Cleanup old logs (keep last 7 days)

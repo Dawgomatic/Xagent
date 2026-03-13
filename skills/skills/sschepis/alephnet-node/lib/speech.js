@@ -266,7 +266,7 @@ class SpeechInputManager {
         
         try {
             if (this.onStatus) {
-                this.onStatus('recording', '🎙️ Listening... (speak, then pause to stop)');
+                this.onStatus('recording', ' Listening... (speak, then pause to stop)');
             }
             
             // Start recording
@@ -283,7 +283,7 @@ class SpeechInputManager {
             }
             
             if (this.onStatus) {
-                this.onStatus('transcribing', '⚡ Transcribing...');
+                this.onStatus('transcribing', ' Transcribing...');
             }
             
             // Transcribe
@@ -349,7 +349,7 @@ class SpeechInputManager {
         if (audioPath) {
             try {
                 if (this.onStatus) {
-                    this.onStatus('transcribing', '⚡ Transcribing...');
+                    this.onStatus('transcribing', ' Transcribing...');
                 }
                 
                 const text = await this.transcriber.transcribe(audioPath);

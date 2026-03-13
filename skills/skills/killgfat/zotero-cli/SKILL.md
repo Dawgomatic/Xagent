@@ -7,7 +7,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📚",
+        "emoji": "",
         "requires": { "bins": ["python3"], "anyBins": ["zotcli", "zotero-cli"] },
         "install":
           [
@@ -48,7 +48,7 @@ zotcli add-note "\"deep learning\""
 zotcli read "\"attention mechanism\""
 ```
 
-📖 **Detailed guide:** [QUICKSTART.md](QUICKSTART.md)
+ **Detailed guide:** [QUICKSTART.md](QUICKSTART.md)
 
 ## Installation
 
@@ -70,7 +70,7 @@ source ~/.venvs/zotero-cli/bin/activate
 pip install zotero-cli
 ```
 
-📖 **Complete installation guide:** [INSTALL.md](INSTALL.md)
+ **Complete installation guide:** [INSTALL.md](INSTALL.md)
 
 ## Core Commands
 
@@ -122,7 +122,7 @@ python scripts/export_citations.py "topic" --format bib > refs.bib
 ./scripts/update_check.sh check
 ```
 
-📖 **Scripts documentation:** [scripts/README.md](scripts/README.md)
+ **Scripts documentation:** [scripts/README.md](scripts/README.md)
 
 ## Query Syntax
 
@@ -150,7 +150,7 @@ zotcli add-note "\"interesting paper\""
 ./scripts/backup_restore.sh backup
 ```
 
-📖 **More examples:** [EXAMPLES.md](EXAMPLES.md)
+ **More examples:** [EXAMPLES.md](EXAMPLES.md)
 
 ## Documentation
 
@@ -179,7 +179,7 @@ pipx install zotero-cli
 zotcli configure
 ```
 
-📖 **Detailed troubleshooting:** [INSTALL.md](INSTALL.md)
+ **Detailed troubleshooting:** [INSTALL.md](INSTALL.md)
 
 ## Quick Reference
 

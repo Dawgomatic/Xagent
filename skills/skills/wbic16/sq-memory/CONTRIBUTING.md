@@ -1,6 +1,6 @@
 # Contributing to SQ Memory Skill
 
-Thanks for your interest in improving the SQ Memory skill for OpenClaw! 🔱
+Thanks for your interest in improving the SQ Memory skill for OpenClaw! 
 
 ---
 
@@ -243,7 +243,7 @@ await remember('test/feature-x', 'value');
 const result = await recall('test/feature-x');
 
 if (result === 'value') {
-  console.log('✅ Feature X works');
+  console.log(' Feature X works');
 } else {
   throw new Error(`Expected "value", got "${result}"`);
 }
@@ -315,7 +315,7 @@ Contributors will be:
 - Thanked in release notes
 - Recognized in Discord announcements
 
-**We appreciate you!** 🦋
+**We appreciate you!** 
 
 ---
 

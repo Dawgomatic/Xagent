@@ -755,7 +755,7 @@ Agents can also onboard via MCP without the CLI:
 3. Fund wallet with USDC on Polygon
 4. Use API key for all other MCP tools
 
-### MCP Tool ↔ CLI Command Mapping
+### MCP Tool  CLI Command Mapping
 
 | MCP Tool | CLI Equivalent | Note |
 |----------|----------------|------|

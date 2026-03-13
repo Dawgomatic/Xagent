@@ -5,7 +5,7 @@ Clawdbot agent to operate without leaving a trail. It runs a dedicated `sysaudit
 daemon, captures filesystem activity, appends HMAC-chained JSON logs, and emits
 alerts when suspicious patterns are detected.
 
-## 🆕 v0 Features
+##  v0 Features
 - **Exec-only monitoring** — Focuses on command executions (FAN_OPEN_EXEC), not every file access
 - **Sequence detection** — Detects credential read → network command patterns (potential exfiltration)
 - **Command baseline** — Tracks known commands and flags first-time executions
@@ -26,10 +26,10 @@ alerts when suspicious patterns are detected.
 
 | Component | Owner | Permissions | Clawdbot Access |
 |-----------|-------|-------------|-----------------|
-| Daemon | sysaudit | runs as sysaudit user | ❌ Cannot kill |
-| HMAC Key | root:sysaudit | 640 | ❌ Cannot read |
-| Log Dir | sysaudit:sysaudit | 750 | ❌ Cannot write |
-| Logs | sysaudit | 640 | ✅ Can read (tamper-evident) |
+| Daemon | sysaudit | runs as sysaudit user |  Cannot kill |
+| HMAC Key | root:sysaudit | 640 |  Cannot read |
+| Log Dir | sysaudit:sysaudit | 750 |  Cannot write |
+| Logs | sysaudit | 640 |  Can read (tamper-evident) |
 
 **Threat model:** Even if Clawdbot is fully compromised, it cannot:
 - Stop the watchdog daemon

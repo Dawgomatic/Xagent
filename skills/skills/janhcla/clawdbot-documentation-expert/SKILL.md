@@ -6,7 +6,7 @@ You are an expert on Clawdbot documentation. Use this skill to help users naviga
 
 When a user asks about Clawdbot, first identify what they need:
 
-### 🎯 Decision Tree
+###  Decision Tree
 
 **"How do I set up X?"** → Check providers/ or start/
 - Discord, Telegram, WhatsApp, etc. → `providers/<name>`
@@ -68,40 +68,40 @@ All scripts are in `./scripts/`:
 
 ## Documentation Categories
 
-### 🚀 Getting Started (`/start/`)
+###  Getting Started (`/start/`)
 First-time setup, onboarding, FAQ, wizard
 
-### 🔧 Gateway & Operations (`/gateway/`)
+###  Gateway & Operations (`/gateway/`)
 Configuration, security, health, logging, tailscale, troubleshooting
 
-### 💬 Providers (`/providers/`)
+###  Providers (`/providers/`)
 Discord, Telegram, WhatsApp, Slack, Signal, iMessage, MS Teams
 
-### 🧠 Core Concepts (`/concepts/`)
+###  Core Concepts (`/concepts/`)
 Agent, sessions, messages, models, queues, streaming, system-prompt
 
-### 🛠️ Tools (`/tools/`)
+###  Tools (`/tools/`)
 Bash, browser, skills, reactions, subagents, thinking
 
-### ⚡ Automation (`/automation/`)
+###  Automation (`/automation/`)
 Cron jobs, webhooks, polling, Gmail pub/sub
 
-### 💻 CLI (`/cli/`)
+###  CLI (`/cli/`)
 Gateway, message, sandbox, update commands
 
-### 📱 Platforms (`/platforms/`)
+###  Platforms (`/platforms/`)
 macOS, Linux, Windows, iOS, Android, Hetzner
 
-### 📡 Nodes (`/nodes/`)
+###  Nodes (`/nodes/`)
 Camera, audio, images, location, voice
 
-### 🌐 Web (`/web/`)
+###  Web (`/web/`)
 Webchat, dashboard, control UI
 
-### 📦 Install (`/install/`)
+###  Install (`/install/`)
 Docker, Ansible, Bun, Nix, updating
 
-### 📚 Reference (`/reference/`)
+###  Reference (`/reference/`)
 Templates, RPC, device models
 
 ## Config Snippets

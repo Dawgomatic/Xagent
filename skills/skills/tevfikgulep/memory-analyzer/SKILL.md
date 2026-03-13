@@ -3,7 +3,7 @@ name: memory-analyzer
 version: 1.0.0
 description: Analyzes conversation history, extracts user preferences and feedback, updates memory files automatically.
 homepage: https://clawhub.com/skills/memory-analyzer
-metadata: {"openclaw":{"emoji":"🧠","category":"system","keywords":["memory","analysis","learning","automation"],"model":"google/gemini-3-flash-preview"}}
+metadata: {"openclaw":{"emoji":"","category":"system","keywords":["memory","analysis","learning","automation"],"model":"google/gemini-3-flash-preview"}}
 ---
 
 # Memory Analyzer Skill

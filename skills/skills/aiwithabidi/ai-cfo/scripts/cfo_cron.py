@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-📊 AI CFO Daily Cron — Generates daily financial brief for Telegram.
+ AI CFO Daily Cron — Generates daily financial brief for Telegram.
 
 Run daily at 8 AM:
   python3 cfo_cron.py
@@ -91,7 +91,7 @@ def main():
         elif "sav" in kind.lower() or "sav" in name.lower():
             savings += bal
 
-    lines.append(f"💵 Cash: {fmt_money(total_cash)}")
+    lines.append(f" Cash: {fmt_money(total_cash)}")
 
     # Yesterday's activity
     yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
@@ -112,7 +112,7 @@ def main():
                 day_out += abs(amt)
 
     if day_in or day_out:
-        lines.append(f"📈 Yesterday: +{fmt_money(day_in)} / -{fmt_money(day_out)}")
+        lines.append(f" Yesterday: +{fmt_money(day_in)} / -{fmt_money(day_out)}")
 
     # Stripe daily revenue
     stripe_rev = 0
@@ -123,7 +123,7 @@ def main():
         if charges and charges.get("data"):
             stripe_rev = sum(c.get("amount", 0) / 100 for c in charges["data"] if c.get("status") == "succeeded")
             if stripe_rev:
-                lines.append(f"💳 Stripe: {fmt_money(stripe_rev)}")
+                lines.append(f" Stripe: {fmt_money(stripe_rev)}")
 
     # MRR
     mrr = 0
@@ -164,9 +164,9 @@ def main():
     if net_burn > 0:
         runway = total_cash / net_burn
         if runway < 6:
-            alerts.append(f"🔴 Runway: {runway:.1f} months — critically low!")
+            alerts.append(f" Runway: {runway:.1f} months — critically low!")
         elif runway < 12:
-            alerts.append(f"🟡 Runway: {runway:.1f} months")
+            alerts.append(f" Runway: {runway:.1f} months")
 
     # Budget alerts
     db = get_db()
@@ -181,9 +181,9 @@ def main():
             if actual and actual["total"]:
                 pct = actual["total"] / b["monthly_limit"] * 100
                 if pct >= 100:
-                    alerts.append(f"🔴 {b['category']} budget exceeded: {fmt_money(actual['total'])} / {fmt_money(b['monthly_limit'])}")
+                    alerts.append(f" {b['category']} budget exceeded: {fmt_money(actual['total'])} / {fmt_money(b['monthly_limit'])}")
                 elif pct >= 80:
-                    alerts.append(f"🟡 {b['category']} budget at {pct:.0f}%: {fmt_money(actual['total'])} / {fmt_money(b['monthly_limit'])}")
+                    alerts.append(f" {b['category']} budget at {pct:.0f}%: {fmt_money(actual['total'])} / {fmt_money(b['monthly_limit'])}")
     except:
         pass
 
@@ -199,12 +199,12 @@ def main():
     db.close()
 
     # Build output
-    output = f"📊 Daily CFO Brief — {datetime.now().strftime('%b %d, %Y')}\n"
+    output = f" Daily CFO Brief — {datetime.now().strftime('%b %d, %Y')}\n"
     output += "\n".join(lines)
     if alerts:
-        output += "\n\n⚠️ Alerts:\n" + "\n".join(alerts)
+        output += "\n\n Alerts:\n" + "\n".join(alerts)
     else:
-        output += "\n✅ No alerts"
+        output += "\n No alerts"
 
     print(output)
 

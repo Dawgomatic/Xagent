@@ -16,10 +16,10 @@
 
 | Level | Trigger | Required Response |
 |-------|---------|-------------------|
-| 🟢 Normal | Within all limits | Continue trading |
-| 🟡 Caution | -3% daily OR 3 consecutive losses | Reduce size 50%, review |
-| 🟠 Warning | -5% daily OR -10% weekly | Pause new entries, full review |
-| 🔴 Critical | -10% daily OR -15% weekly | Close all, full stop, Rick approval to resume |
+|  Normal | Within all limits | Continue trading |
+|  Caution | -3% daily OR 3 consecutive losses | Reduce size 50%, review |
+|  Warning | -5% daily OR -10% weekly | Pause new entries, full review |
+|  Critical | -10% daily OR -15% weekly | Close all, full stop, Rick approval to resume |
 
 ---
 
@@ -43,7 +43,7 @@ TEMPLATE FOR EACH EVENT:
 ### RE-XXX: [Short Title]
 
 **Date**: [YYYY-MM-DD HH:MM]
-**Level**: 🟢/🟡/🟠/🔴
+**Level**: ///
 **Type**: [DRAWDOWN/CORRELATION/POSITION/EXECUTION/JUDGMENT/EXTERNAL/TECHNICAL]
 **Status**: Active / Resolved / Monitoring
 
@@ -136,7 +136,7 @@ Track risk levels over time:
 
 | Date | Portfolio Value | Max Drawdown | Largest Position | Correlation Exposure | Risk Level |
 |------|-----------------|--------------|------------------|---------------------|------------|
-| [DATE] | $30,000 | 0% | $0 | $0 | 🟢 |
+| [DATE] | $30,000 | 0% | $0 | $0 |  |
 
 ---
 
@@ -160,7 +160,7 @@ Track risk levels over time:
 
 ## Emergency Procedures
 
-### If 🔴 Critical Event Occurs:
+### If  Critical Event Occurs:
 
 1. **STOP** - Immediately halt all trading
 2. **CLOSE** - Close all open positions at market
@@ -184,7 +184,7 @@ Track risk levels over time:
 ## Rick Escalation Criteria
 
 **Always escalate to Rick immediately if:**
-- 🔴 Critical event triggered
+-  Critical event triggered
 - Any single trade loses >$500
 - Technical failure affects trading
 - Unusual market conditions
@@ -193,9 +193,9 @@ Track risk levels over time:
 
 **Escalation format:**
 ```
-🚨 RISK ALERT 🚨
+ RISK ALERT 
 
-Level: [🟡/🟠/🔴]
+Level: [//]
 Type: [Risk type]
 Impact: $XXX potential
 

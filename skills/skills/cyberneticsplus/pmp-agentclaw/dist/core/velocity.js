@@ -76,10 +76,10 @@ function calculateVelocity(input) {
  */
 function formatVelocityMarkdown(result) {
     const trendEmoji = {
-        'improving': '📈',
-        'stable': '➡️',
-        'declining': '📉',
-        'insufficient-data': '❓',
+        'improving': '',
+        'stable': '',
+        'declining': '',
+        'insufficient-data': '',
     }[result.trend];
     let md = `# Sprint Velocity Report\n\n`;
     md += `**Sprints analyzed:** ${result.sprints}\n\n`;

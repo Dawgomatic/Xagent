@@ -25,7 +25,7 @@ TIMER_FILE = Path.home() / ".milkee_timer"
 def api_call(method, endpoint, data=None):
     """Make API call to MILKEE"""
     if not API_TOKEN or not COMPANY_ID:
-        print("❌ Error: MILKEE_API_TOKEN and MILKEE_COMPANY_ID required!")
+        print(" Error: MILKEE_API_TOKEN and MILKEE_COMPANY_ID required!")
         sys.exit(1)
     
     url = f"{API_BASE}/companies/{COMPANY_ID}/{endpoint}"
@@ -52,12 +52,12 @@ def api_call(method, endpoint, data=None):
     except urllib.error.HTTPError as e:
         try:
             error_data = json.loads(e.read().decode())
-            print(f"❌ HTTP {e.code}: {error_data.get('message', 'Unknown error')}")
+            print(f" HTTP {e.code}: {error_data.get('message', 'Unknown error')}")
         except:
-            print(f"❌ HTTP {e.code}: {e.reason}")
+            print(f" HTTP {e.code}: {e.reason}")
         sys.exit(1)
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         sys.exit(1)
 
 def fuzzy_match(search_term, items, key='name'):
@@ -82,7 +82,7 @@ def list_projects(args):
     """List all projects"""
     result = api_call("GET", "projects")
     projects = result.get('data', [])
-    print(f"\n📋 {len(projects)} Projects:\n")
+    print(f"\n {len(projects)} Projects:\n")
     
     for p in projects:
         print(f"  • {p.get('name')} (ID: {p.get('id')})")
@@ -102,7 +102,7 @@ def create_project(args):
     
     result = api_call("POST", "projects", data)
     project = result.get('data', {})
-    print(f"✅ Project created: {project.get('name')} (ID: {project.get('id')})")
+    print(f" Project created: {project.get('name')} (ID: {project.get('id')})")
 
 def update_project(args):
     """Update project"""
@@ -113,7 +113,7 @@ def update_project(args):
     }
     
     result = api_call("PUT", f"projects/{args.id}", data)
-    print(f"✅ Project updated")
+    print(f" Project updated")
 
 # ============ CUSTOMERS ============
 
@@ -121,7 +121,7 @@ def list_customers(args):
     """List all customers"""
     result = api_call("GET", "customers")
     customers = result.get('data', [])
-    print(f"\n👥 {len(customers)} Customers:\n")
+    print(f"\n {len(customers)} Customers:\n")
     
     for c in customers:
         print(f"  • {c.get('name')} (ID: {c.get('id')})")
@@ -131,11 +131,11 @@ def list_customers(args):
         if c.get('zip') or c.get('city'):
             addr_parts.append(f"{c.get('zip', '')} {c.get('city', '')}".strip())
         if addr_parts:
-            print(f"    📍 {', '.join(addr_parts)}")
+            print(f"     {', '.join(addr_parts)}")
         if c.get('phone'):
-            print(f"    📞 {c['phone']}")
+            print(f"     {c['phone']}")
         if c.get('email'):
-            print(f"    ✉️  {c['email']}")
+            print(f"      {c['email']}")
 
 def create_customer(args):
     """Create new customer"""
@@ -152,7 +152,7 @@ def create_customer(args):
     
     result = api_call("POST", "customers", data)
     customer = result.get('data', {})
-    print(f"✅ Customer created: {customer.get('name')} (ID: {customer.get('id')})")
+    print(f" Customer created: {customer.get('name')} (ID: {customer.get('id')})")
 
 def update_customer(args):
     """Update customer"""
@@ -168,7 +168,7 @@ def update_customer(args):
     }
     
     result = api_call("PUT", f"customers/{args.id}", data)
-    print(f"✅ Customer updated")
+    print(f" Customer updated")
 
 # ============ TIME TRACKING ============
 
@@ -179,7 +179,7 @@ def start_timer(args):
     project = fuzzy_match(args.project, projects)
     
     if not project:
-        print(f"❌ No project found matching '{args.project}'")
+        print(f" No project found matching '{args.project}'")
         sys.exit(1)
     
     timer_data = {
@@ -192,14 +192,14 @@ def start_timer(args):
     with open(TIMER_FILE, 'w') as f:
         json.dump(timer_data, f)
     
-    print(f"✅ Timer started: {project['name']}")
+    print(f" Timer started: {project['name']}")
     if args.description:
         print(f"   Description: {args.description}")
 
 def stop_timer(args):
     """Stop timer and log to MILKEE"""
     if not TIMER_FILE.exists():
-        print("❌ No timer running")
+        print(" No timer running")
         sys.exit(1)
     
     with open(TIMER_FILE, 'r') as f:
@@ -222,7 +222,7 @@ def stop_timer(args):
     }
     
     result = api_call("POST", "times", data)
-    print(f"✅ Time logged: {hours}h {minutes}min on {timer_data['project_name']}")
+    print(f" Time logged: {hours}h {minutes}min on {timer_data['project_name']}")
     TIMER_FILE.unlink()
 
 def list_times_today(args):
@@ -231,7 +231,7 @@ def list_times_today(args):
     result = api_call("GET", f"times?filter[date]={today}")
     times = result.get('data', [])
     
-    print(f"\n⏱️  Time entries for {today}:\n")
+    print(f"\n  Time entries for {today}:\n")
     
     total_minutes = 0
     for t in times:
@@ -244,7 +244,7 @@ def list_times_today(args):
     
     total_hours = total_minutes // 60
     remaining_minutes = total_minutes % 60
-    print(f"\n📊 Total: {total_hours}h {remaining_minutes}min\n")
+    print(f"\n Total: {total_hours}h {remaining_minutes}min\n")
 
 # ============ TASKS ============
 
@@ -256,7 +256,7 @@ def list_tasks(args):
     
     result = api_call("GET", endpoint)
     tasks = result.get('data', [])
-    print(f"\n✅ {len(tasks)} Tasks:\n")
+    print(f"\n {len(tasks)} Tasks:\n")
     
     for t in tasks:
         print(f"  • {t.get('name')} (ID: {t.get('id')})")
@@ -273,7 +273,7 @@ def create_task(args):
     
     result = api_call("POST", "tasks", data)
     task = result.get('data', {})
-    print(f"✅ Task created: {task.get('name')} (ID: {task.get('id')})")
+    print(f" Task created: {task.get('name')} (ID: {task.get('id')})")
 
 def update_task(args):
     """Update task"""
@@ -283,7 +283,7 @@ def update_task(args):
     }
     
     result = api_call("PUT", f"tasks/{args.id}", data)
-    print(f"✅ Task updated")
+    print(f" Task updated")
 
 # ============ PRODUCTS ============
 
@@ -291,7 +291,7 @@ def list_products(args):
     """List products"""
     result = api_call("GET", "products")
     products = result.get('data', [])
-    print(f"\n📦 {len(products)} Products:\n")
+    print(f"\n {len(products)} Products:\n")
     
     for p in products:
         print(f"  • {p.get('name')} (ID: {p.get('id')})")
@@ -308,7 +308,7 @@ def create_product(args):
     
     result = api_call("POST", "products", data)
     product = result.get('data', {})
-    print(f"✅ Product created: {product.get('name')} (ID: {product.get('id')})")
+    print(f" Product created: {product.get('name')} (ID: {product.get('id')})")
 
 def update_product(args):
     """Update product"""
@@ -318,7 +318,7 @@ def update_product(args):
     }
     
     result = api_call("PUT", f"products/{args.id}", data)
-    print(f"✅ Product updated")
+    print(f" Product updated")
 
 # ============ CLI ============
 

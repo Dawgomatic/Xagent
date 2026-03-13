@@ -71,7 +71,7 @@ python scripts/monitor_budget.py budgets.json rd software
 
 **预期输出**：
 ```
-⚠️ 中风险预警：software 预算月度使用率75.23%，年度使用率68.45%，请注意支出节奏。
+ 中风险预警：software 预算月度使用率75.23%，年度使用率68.45%，请注意支出节奏。
 
 详细数据:
 {

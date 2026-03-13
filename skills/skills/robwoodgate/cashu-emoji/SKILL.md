@@ -3,7 +3,7 @@ name: cashu-emoji
 description: Encode and decode Cashu tokens that are hidden inside emojis using Unicode variation selectors.
 metadata:
   openclaw:
-    emoji: "🥜"
+    emoji: ""
     examples:
       - "Decode an emoji token from a full chat message"
       - "Encode a Cashu token into an emoji for sending"
@@ -38,10 +38,10 @@ node ./bin/cashu-emoji.js decode "<paste message>" --metadata
 node ./bin/cashu-emoji.js decode "<paste message>" --metadata --json
 
 # encode a hidden message
-node ./bin/cashu-emoji.js encode "🥜" "hello from inside an emoji"
+node ./bin/cashu-emoji.js encode "" "hello from inside an emoji"
 
 # encode a cashu token
-node ./bin/cashu-emoji.js encode "🥜" "cashuB..."
+node ./bin/cashu-emoji.js encode "" "cashuB..."
 ```
 
 ## What you can do
@@ -59,11 +59,11 @@ Decode semantics (important): the decoder ignores normal characters until it fin
 
 ### 2) Encode
 
-- Input: a carrier emoji (recommend `🥜`) and a token string
+- Input: a carrier emoji (recommend ``) and a token string
 - Output: an emoji string that visually looks like the emoji but contains the hidden token
 
 ```bash
-node ./bin/cashu-emoji.js encode "🥜" "cashuB..."
+node ./bin/cashu-emoji.js encode "" "cashuB..."
 ```
 
 Tip: some messengers are less likely to deliver a *truncated/corrupted* emoji-token if **any normal text follows it** (even a single character). It’s not required, just a delivery reliability trick.

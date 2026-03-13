@@ -84,34 +84,34 @@ If any are unclear, that's the first fix.
 ## Common Homepage Mistakes
 
 ### 1. Headline Fails
-❌ Company name as headline
-❌ Vague ("Welcome to our website")
-❌ Feature-focused ("AI-powered platform")
-✅ Benefit-focused ("Get more customers without more ads")
+ Company name as headline
+ Vague ("Welcome to our website")
+ Feature-focused ("AI-powered platform")
+ Benefit-focused ("Get more customers without more ads")
 
 ### 2. Weak CTA
-❌ "Submit"
-❌ "Learn More" (for primary CTA)
-❌ Hidden below fold
-✅ "Start Free Trial" / "Get Your Quote" / "See It In Action"
+ "Submit"
+ "Learn More" (for primary CTA)
+ Hidden below fold
+ "Start Free Trial" / "Get Your Quote" / "See It In Action"
 
 ### 3. No Social Proof
-❌ Zero testimonials
-❌ Generic stock photos
-✅ Real customer photos + quotes
-✅ Specific results ("Increased revenue 40%")
+ Zero testimonials
+ Generic stock photos
+ Real customer photos + quotes
+ Specific results ("Increased revenue 40%")
 
 ### 4. Wall of Text
-❌ Long paragraphs
-❌ No visual breaks
-✅ Short paragraphs (2-3 sentences)
-✅ Bullet points for benefits
+ Long paragraphs
+ No visual breaks
+ Short paragraphs (2-3 sentences)
+ Bullet points for benefits
 
 ### 5. Confusing Navigation
-❌ 15 menu items
-❌ Dropdown madness
-✅ 5-7 clear options
-✅ CTA in nav
+ 15 menu items
+ Dropdown madness
+ 5-7 clear options
+ CTA in nav
 
 ---
 

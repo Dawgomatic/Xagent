@@ -70,7 +70,7 @@ function addEvent(event) {
     processed: false
   });
   saveJSON(EVENTS_FILE, events);
-  log(`📢 이벤트 추가: ${event.type} - ${event.message}`);
+  log(` 이벤트 추가: ${event.type} - ${event.message}`);
 }
 
 // 포지션 체크
@@ -97,7 +97,7 @@ async function checkPositions() {
         entryPrice,
         currentPrice,
         pnlPercent,
-        message: `🎯 ${pos.market} 목표 도달! +${(pnlPercent * 100).toFixed(2)}%`
+        message: ` ${pos.market} 목표 도달! +${(pnlPercent * 100).toFixed(2)}%`
       });
     }
     // 손절 도달
@@ -108,7 +108,7 @@ async function checkPositions() {
         entryPrice,
         currentPrice,
         pnlPercent,
-        message: `🚨 ${pos.market} 손절 도달! ${(pnlPercent * 100).toFixed(2)}%`
+        message: ` ${pos.market} 손절 도달! ${(pnlPercent * 100).toFixed(2)}%`
       });
     }
   }
@@ -141,7 +141,7 @@ async function analyzeMarket() {
           addEvent({
             type: 'WATCH_SIGNAL',
             market,
-            message: `👀 GLM 추천 주목 코인: ${market}`
+            message: ` GLM 추천 주목 코인: ${market}`
           });
         }
       }
@@ -177,7 +177,7 @@ async function analyzeMarket() {
             market: pos.market,
             currentPrice,
             pnlPercent,
-            message: `⚠️ GLM 매도 권고: ${pos.market} (${(pnlPercent * 100).toFixed(2)}%)`
+            message: ` GLM 매도 권고: ${pos.market} (${(pnlPercent * 100).toFixed(2)}%)`
           });
         } else if (response.includes('ADJUST:')) {
           const adjustMatch = response.match(/ADJUST:([^,]+),(.+)/);
@@ -187,7 +187,7 @@ async function analyzeMarket() {
               market: pos.market,
               newTarget: parseFloat(adjustMatch[1]),
               newStopLoss: parseFloat(adjustMatch[2]),
-              message: `📊 GLM 조정 권고: ${pos.market} 목표 ${adjustMatch[1]}%, 손절 ${adjustMatch[2]}%`
+              message: ` GLM 조정 권고: ${pos.market} 목표 ${adjustMatch[1]}%, 손절 ${adjustMatch[2]}%`
             });
           }
         }
@@ -214,7 +214,7 @@ async function mainLoop() {
 }
 
 // 시작
-log('🤖 Upbit 실시간 봇 시작');
+log(' Upbit 실시간 봇 시작');
 log(`설정: 가격 체크 ${CONFIG.priceCheckInterval/1000}초, GLM 분석 ${CONFIG.analysisInterval/1000}초`);
 
 // 즉시 한 번 실행

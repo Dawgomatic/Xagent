@@ -35,7 +35,7 @@ Retrieves health and fitness data from the Oura Ring using the ouracli command-l
 
 ## Date Range Specification
 
-### ✅ SUPPORTED FORMATS (Use These!)
+###  SUPPORTED FORMATS (Use These!)
 
 ```bash
 # Single date (no quotes needed)
@@ -54,21 +54,21 @@ ouracli activity "2025-12-01 28 days"    # 28 days starting Dec 1
 ouracli sleep "2025-09-23 7 days"        # Week starting Sept 23
 ```
 
-**⚠️ CRITICAL: Use quotes when the date range contains spaces!**
+** CRITICAL: Use quotes when the date range contains spaces!**
 
-### ❌ UNSUPPORTED FORMATS (DO NOT USE)
+###  UNSUPPORTED FORMATS (DO NOT USE)
 
 ```bash
-# ❌ WRONG - Two separate dates
+#  WRONG - Two separate dates
 ouracli activity 2025-09-23 2025-09-30
 
-# ❌ WRONG - "to" syntax
+#  WRONG - "to" syntax
 ouracli activity "2025-09-23 to 2025-09-30"
 
-# ❌ WRONG - Range operators
+#  WRONG - Range operators
 ouracli activity "2025-09-23..2025-09-30"
 
-# ❌ WRONG - Relative past expressions
+#  WRONG - Relative past expressions
 ouracli activity "3 months ago"
 ```
 
@@ -84,7 +84,7 @@ Example: Sept 23 to Sept 30 = 7 days
 
 **Step 2**: Use the "date + duration" format
 ```bash
-# ✅ CORRECT
+#  CORRECT
 ouracli activity "2025-09-23 7 days"
 ouracli activity "2025-12-01 30 days"
 ```
@@ -94,7 +94,7 @@ ouracli activity "2025-12-01 30 days"
 **ALWAYS use `--json` for programmatic data analysis.** This is the most reliable format for parsing.
 
 ```bash
-# ✅ RECOMMENDED for AI analysis
+#  RECOMMENDED for AI analysis
 ouracli activity "7 days" --json
 
 # Other formats (human-readable)
@@ -142,7 +142,7 @@ ouracli all "7 days" --by-method --json
 ## Key Notes
 
 ### Readiness Contributors Warning
-⚠️ **IMPORTANT**: The `contributors.resting_heart_rate` field in readiness data is a **SCORE (0-100)**, NOT actual BPM:
+ **IMPORTANT**: The `contributors.resting_heart_rate` field in readiness data is a **SCORE (0-100)**, NOT actual BPM:
 - Low score (19, 47) = RHR elevated vs. baseline (negative impact)
 - High score (95, 100) = RHR optimal vs. baseline (positive impact)
 - Actual BPM values are in the `heartrate` command output
@@ -164,20 +164,20 @@ ouracli all "7 days" --by-method --json
 ### Error: "Got unexpected extra argument"
 **Cause**: Used two separate date arguments instead of one quoted range
 ```bash
-# ❌ WRONG
+#  WRONG
 ouracli activity 2025-09-23 2025-09-30
 
-# ✅ CORRECT
+#  CORRECT
 ouracli activity "2025-09-23 7 days"
 ```
 
 ### Error: "Invalid date specification"
 **Cause**: Used unsupported syntax like "to", "..", or relative expressions
 ```bash
-# ❌ WRONG
+#  WRONG
 ouracli activity "2025-09-23 to 2025-09-30"
 
-# ✅ CORRECT
+#  CORRECT
 ouracli activity "2025-09-23 7 days"
 ```
 

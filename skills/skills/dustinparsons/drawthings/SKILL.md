@@ -3,7 +3,7 @@ name: drawthings
 description: Generate images with DrawThings (Stable Diffusion) via API. Use when creating images from text prompts, running image generation workflows, or batch generating images. DrawThings runs locally on Mac with MLX/CoreML acceleration.
 metadata:
   openclaw:
-    emoji: "🎨"
+    emoji: ""
     requires:
       env: ["DRAWTHINGS_URL"]
 ---

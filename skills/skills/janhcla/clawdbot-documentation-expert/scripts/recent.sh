@@ -7,7 +7,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 days="${1:-7}"
 cutoff_date=$(date -v-${days}d +%Y-%m-%d 2>/dev/null || date -d "$days days ago" +%Y-%m-%d)
 
-echo "📅 Docs updated in the last $days days (since $cutoff_date):"
+echo " Docs updated in the last $days days (since $cutoff_date):"
 echo ""
 
 # Get URLs with dates and filter

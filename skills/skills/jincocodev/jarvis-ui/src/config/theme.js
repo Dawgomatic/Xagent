@@ -119,10 +119,10 @@ export function initTheme() {
 
 // 預設色板
 export const THEME_PRESETS = [
-  { name: '紅色', emoji: '🔴', hue: 5 },
-  { name: '橙色', emoji: '🟠', hue: 30 },
-  { name: '綠色', emoji: '🟢', hue: 140 },
-  { name: '青色', emoji: '🩵', hue: 180 },
-  { name: '藍色', emoji: '🔵', hue: 220 },
-  { name: '紫色', emoji: '🟣', hue: 270 }
+  { name: '紅色', emoji: '', hue: 5 },
+  { name: '橙色', emoji: '', hue: 30 },
+  { name: '綠色', emoji: '', hue: 140 },
+  { name: '青色', emoji: '', hue: 180 },
+  { name: '藍色', emoji: '', hue: 220 },
+  { name: '紫色', emoji: '', hue: 270 }
 ];

@@ -60,11 +60,11 @@ Headlines:
             timeout=90
         )
     except (subprocess.TimeoutExpired, FileNotFoundError, OSError) as e:
-        print(f"⚠️ Translation failed: {e}", file=sys.stderr)
+        print(f" Translation failed: {e}", file=sys.stderr)
         return headlines
 
     if result.returncode != 0:
-        print(f"⚠️ openclaw error: {result.stderr}", file=sys.stderr)
+        print(f" openclaw error: {result.stderr}", file=sys.stderr)
         return headlines
 
     # Extract reply from openclaw JSON output
@@ -95,12 +95,12 @@ Headlines:
     try:
         translated = json.loads(json_text)
         if isinstance(translated, list) and len(translated) == len(headlines):
-            print(f"✅ Translated {len(headlines)} portfolio headlines", file=sys.stderr)
+            print(f" Translated {len(headlines)} portfolio headlines", file=sys.stderr)
             return translated
     except json.JSONDecodeError as e:
-        print(f"⚠️ JSON parse error: {e}", file=sys.stderr)
+        print(f" JSON parse error: {e}", file=sys.stderr)
 
-    print(f"⚠️ Translation failed, using original headlines", file=sys.stderr)
+    print(f" Translation failed, using original headlines", file=sys.stderr)
     return headlines
 
 
@@ -125,7 +125,7 @@ def main():
         with open(args.json_file, 'r') as f:
             data = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"❌ Error reading {args.json_file}: {e}", file=sys.stderr)
+        print(f" Error reading {args.json_file}: {e}", file=sys.stderr)
         sys.exit(1)
 
     portfolio_message = data.get('portfolio_message', '')
@@ -141,7 +141,7 @@ def main():
         print(json.dumps(data, ensure_ascii=False, indent=2))
         return
 
-    print(f"📝 Found {len(headlines)} headlines to translate", file=sys.stderr)
+    print(f" Found {len(headlines)} headlines to translate", file=sys.stderr)
     translated = translate_headlines(headlines, args.lang)
 
     # Update portfolio message
@@ -151,7 +151,7 @@ def main():
     with open(args.json_file, 'w') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ Updated {args.json_file}", file=sys.stderr)
+    print(f" Updated {args.json_file}", file=sys.stderr)
 
 
 if __name__ == '__main__':

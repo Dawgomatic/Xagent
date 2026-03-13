@@ -3,7 +3,7 @@ name: spotify-connect
 description: Control Spotify playback on remote Spotify Connect devices (speakers, TVs, Echo, phone, desktop). Use when user wants to play music, pause, skip, adjust volume, list audio devices, or transfer playback to a specific device. Supports multiple Spotify accounts with named profiles. Requires Spotify Premium.
 metadata:
   openclaw:
-    emoji: "🎵"
+    emoji: ""
     requires:
       bins: ["uv"]
       env:

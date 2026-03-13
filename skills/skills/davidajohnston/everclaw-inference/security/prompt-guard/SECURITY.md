@@ -1,6 +1,6 @@
 # Security Policy
 
-## 🛡️ About Prompt Guard
+##  About Prompt Guard
 
 Prompt Guard is a security skill for AI agent platforms like [Clawdbot](https://github.com/clawdbot/clawdbot) and [Moltbot](https://github.com/moltbot/moltbot). It protects against:
 
@@ -8,7 +8,7 @@ Prompt Guard is a security skill for AI agent platforms like [Clawdbot](https://
 - **Secret Exfiltration** - Attempts to extract API keys, tokens, credentials
 - **Privilege Escalation** - Unauthorized command execution in group contexts
 
-## 🔐 Reporting a Vulnerability
+##  Reporting a Vulnerability
 
 If you discover a security vulnerability in Prompt Guard, please report it responsibly:
 
@@ -20,7 +20,7 @@ If you discover a security vulnerability in Prompt Guard, please report it respo
    - Potential impact
    - Suggested fix (if any)
 
-## ⏱️ Response Timeline
+##  Response Timeline
 
 - **Acknowledgment**: Within 48 hours
 - **Initial Assessment**: Within 7 days
@@ -29,7 +29,7 @@ If you discover a security vulnerability in Prompt Guard, please report it respo
   - High: 1-2 weeks
   - Medium/Low: Next release cycle
 
-## 🎯 Scope
+##  Scope
 
 ### In Scope
 - Bypass of detection patterns
@@ -42,18 +42,18 @@ If you discover a security vulnerability in Prompt Guard, please report it respo
 - Social engineering of human operators
 - Issues in Clawdbot/Moltbot core (report to those projects)
 
-## 🏆 Recognition
+##  Recognition
 
 We appreciate security researchers who help improve Prompt Guard. With your permission, we'll acknowledge your contribution in our changelog and README.
 
-## 📚 Security Resources
+##  Security Resources
 
 - [Clawdbot Security Docs](https://docs.clawd.bot/security)
 - [Moltbot Security Guide](https://docs.molt.bot/security)
 - [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 - [Prompt Injection Defense Patterns](https://github.com/topics/prompt-injection)
 
-## 🔗 Related Projects
+##  Related Projects
 
 | Project | Description |
 |---------|-------------|

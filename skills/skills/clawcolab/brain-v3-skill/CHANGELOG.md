@@ -2,7 +2,7 @@
 
 ## [3.1.0] - 2026-02-07
 
-### 🚀 PyPI Installation & CLI
+###  PyPI Installation & CLI
 
 ClawBrain is now available on PyPI! No more `curl | bash` - just pip install:
 
@@ -12,7 +12,7 @@ clawbrain setup
 clawbrain backup-key --all
 ```
 
-### ✨ New Features
+###  New Features
 
 #### Command-Line Interface (CLI)
 
@@ -75,26 +75,26 @@ pip install clawbrain[qr]          # QR code key backup
 pip install clawbrain[all]         # Everything
 ```
 
-### 📦 Package Improvements
+###  Package Improvements
 
 - **PyPI compliant** - Proper package metadata and classifiers
 - **Entry points** - `clawbrain` command available after install
 - **MANIFEST.in** - All necessary files included in distribution
 - **Optional dependencies** - Install only what you need
 
-### 🔒 Security Improvements
+###  Security Improvements
 
 - **Centralized key storage** - Keys stored in `~/.config/clawbrain/.brain_key`
 - **Automatic key generation** - Secure keys generated during setup
 - **Secure permissions** - Key files created with 0600 permissions
 - **Multiple backup methods** - File, QR code, clipboard options
 
-### 📁 New Files
+###  New Files
 
 - `clawbrain_cli.py` - Command-line interface module
 - `MANIFEST.in` - Package manifest for distribution
 
-### 📝 Documentation Updates
+###  Documentation Updates
 
 - Updated installation instructions for PyPI
 - Added CLI command documentation
@@ -105,11 +105,11 @@ pip install clawbrain[all]         # Everything
 
 ## [3.0.1] - 2026-02-07
 
-### 🔒 Security Fixes (CRITICAL)
+###  Security Fixes (CRITICAL)
 
 This release addresses critical security vulnerabilities identified in v0.1.6:
 
-#### 1. Encrypted Secrets Support ✅
+#### 1. Encrypted Secrets Support 
 - **Fixed**: Sensitive data (API keys, credentials) now properly encrypted
 - Implemented Fernet symmetric encryption using `cryptography` library
 - Added automatic encryption for `memory_type="secret"`
@@ -131,7 +131,7 @@ secrets = brain.recall(agent_id="assistant", memory_type="secret")
 api_key = secrets[0].content  # Decrypted
 ```
 
-#### 2. Secure Installation Method ✅
+#### 2. Secure Installation Method 
 - **Fixed**: Reduced supply chain attack risk
 - Documentation now recommends manual git clone first
 - Added security warnings to `curl | bash` installation method
@@ -147,14 +147,14 @@ cd clawbrain
 ./install.sh
 ```
 
-### 📦 New Features
+###  New Features
 
 - **Encryption support**: New `BRAIN_ENCRYPTION_KEY` environment variable
 - **Optional dependencies**: Added cryptography as optional dependency in pyproject.toml
 - **Test suite**: Added test_encryption.py for verification
 - **Security documentation**: Added SECURITY_FIXES.md
 
-### 🔧 Configuration
+###  Configuration
 
 New environment variable:
 
@@ -162,7 +162,7 @@ New environment variable:
 |----------|-------------|---------|
 | `BRAIN_ENCRYPTION_KEY` | Fernet key for encryption | Auto-generated |
 
-### 📁 Files Modified
+###  Files Modified
 
 - `clawbrain.py` - Added encryption methods
 - `brain/clawbrain.py` - Added encryption methods
@@ -172,12 +172,12 @@ New environment variable:
 - `pyproject.toml` - Added optional dependencies
 - `skill.json` - Updated version and environment vars
 
-### 📁 New Files
+###  New Files
 
 - `SECURITY_FIXES.md` - Detailed security fix documentation
 - `test_encryption.py` - Encryption functionality tests
 
-### ⚠️ Important Notes
+###  Important Notes
 
 - **Backup encryption keys**: Lost keys = lost encrypted data
 - Existing unencrypted memories remain unencrypted
@@ -188,7 +188,7 @@ New environment variable:
 
 ## [0.1.6] - 2026-02-04
 
-### 🚀 One-Command Install
+###  One-Command Install
 
 ClawBrain is now truly plug-and-play. Install with a single command:
 
@@ -205,7 +205,7 @@ sudo systemctl restart clawdbot  # or openclaw
 
 ---
 
-### ✨ New Features
+###  New Features
 
 - **Auto-refresh on startup** - Brain automatically loads memories when service restarts
 - **Session save on /new** - Saves conversation context when user starts new session
@@ -213,7 +213,7 @@ sudo systemctl restart clawdbot  # or openclaw
 - **Auto-detection** - Detects platform, skills directory, and storage backend automatically
 - **PostgreSQL datetime fix** - Properly handles datetime serialization from PostgreSQL
 
-### 🔧 Configuration (Optional)
+###  Configuration (Optional)
 
 All configuration is optional. Set environment variables only if needed:
 
@@ -223,7 +223,7 @@ All configuration is optional. Set environment variables only if needed:
 | `BRAIN_POSTGRES_HOST` | PostgreSQL host | SQLite used |
 | `BRAIN_REDIS_HOST` | Redis for caching | Disabled |
 
-### 📁 New Files
+###  New Files
 
 - `install.sh` - Local installer script
 - `remote-install.sh` - Curl-based remote installer
@@ -231,7 +231,7 @@ All configuration is optional. Set environment variables only if needed:
 - `scripts/brain_bridge.py` - Python bridge for hook→brain communication
 - `scripts/migrate_agent_id.py` - Utility to migrate memories between agent IDs
 
-### 🐛 Bug Fixes
+###  Bug Fixes
 
 - Fixed PostgreSQL datetime objects not serializing to JSON
 - Fixed UserProfile datetime fields from PostgreSQL

@@ -48,14 +48,14 @@ SCORE=$(echo "$SCAN_OUTPUT" | awk '{print $2}')
 ```bash
 if [[ "$SEVERITY" == "MEDIUM" || "$SEVERITY" == "HIGH" || "$SEVERITY" == "CRITICAL" ]]; then
     # STOP processing - send alert
-    echo "⚠️ Threat detected: $SEVERITY (score: $SCORE)"
+    echo " Threat detected: $SEVERITY (score: $SCORE)"
 fi
 ```
 
 ### 4. Agent Sends Channel Alert
 
 ```
-🛡️ Input Guard Alert: HIGH
+ Input Guard Alert: HIGH
 Source: https://suspicious-site.com/article
 Finding: Prompt injection detected - SYSTEM_INSTRUCTION pattern followed by role override
 Action: Content blocked, skipping this source.
@@ -77,14 +77,14 @@ bash skills/input-guard/scripts/report-to-molthreats.sh \
 ### 6. Report Submitted
 
 ```
-🔒 Reporting to MoltThreats...
+ Reporting to MoltThreats...
 
 Title: Prompt injection detected - SYSTEM_INSTRUCTION pattern followed by role overrid
 Category: prompt
 Severity: high
 Source: https://suspicious-site.com/article
 
-✅ Report submitted to MoltThreats
+ Report submitted to MoltThreats
 Report ID: 0b5291de-9970-4e91-81f7-6efdf0c159cc
 ```
 
@@ -109,7 +109,7 @@ if scan_result.severity in ["MEDIUM", "HIGH", "CRITICAL"]:
     blocked = True
 
     # Send channel alert
-    send_channel_alert(f"""🛡️ Input Guard Alert: {scan_result.severity}
+    send_channel_alert(f""" Input Guard Alert: {scan_result.severity}
 Source: {source_url}
 Finding: {scan_result.findings}
 Action: Content blocked, skipping this source.

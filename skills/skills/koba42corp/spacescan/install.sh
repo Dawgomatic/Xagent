@@ -2,13 +2,13 @@
 
 cd "$(dirname "$0")"
 
-echo "📦 Installing Spacescan skill dependencies..."
+echo " Installing Spacescan skill dependencies..."
 npm install --production
 
 if [ $? -eq 0 ]; then
-  echo "✅ Spacescan skill installed successfully!"
+  echo " Spacescan skill installed successfully!"
   echo ""
-  echo "⚠️  API Key Required:"
+  echo "  API Key Required:"
   echo "  Set SPACESCAN_API_KEY environment variable"
   echo "  Get your key at: https://www.spacescan.io/apis"
   echo ""
@@ -18,6 +18,6 @@ if [ $? -eq 0 ]; then
   echo ""
   echo "Run 'scan help' for command reference."
 else
-  echo "❌ Installation failed. Please check npm logs."
+  echo " Installation failed. Please check npm logs."
   exit 1
 fi

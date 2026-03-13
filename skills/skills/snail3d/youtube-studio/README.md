@@ -300,10 +300,10 @@ youtube-studio auth
 
 ## Next Steps
 
-1. ✅ Run `youtube-studio stats` to verify setup
-2. 📹 Upload your first video with `youtube-studio upload`
-3. 💬 Check comments and reply with `youtube-studio comments`
-4. 💡 Generate ideas for next week with `youtube-studio ideas`
-5. 📊 Set up a daily reminder to check stats
+1.  Run `youtube-studio stats` to verify setup
+2.  Upload your first video with `youtube-studio upload`
+3.  Check comments and reply with `youtube-studio comments`
+4.  Generate ideas for next week with `youtube-studio ideas`
+5.  Set up a daily reminder to check stats
 
-Enjoy managing your channel! 🎬
+Enjoy managing your channel! 

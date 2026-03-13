@@ -23,7 +23,7 @@ Organize the draft with clear, descriptive headlines for each major keypoint or 
 - **Clarity First**: Prioritize clear explanation of concepts over stylistic flourishes, but maintain a flow that is engaging to read.
 
 ## Append format
-Always append under `## 🧠 Brainstorming (YYYY-MM-DD)` with a provenance line.
+Always append under `##  Brainstorming (YYYY-MM-DD)` with a provenance line.
 
 ## References
 **Always** include a `## References` section at the end of the draft, listing all the notes that were referenced in the draft.

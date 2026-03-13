@@ -1,19 +1,19 @@
-# 🌙 农历生日提醒系统 v0.9.0 - GitHub安装完全指南
+#  农历生日提醒系统 v0.9.0 - GitHub安装完全指南
 ## 作者：夏暮辞青
 ## 助手：小妹 (DeepSeek AI助手)
 ## 版本：v0.9.0
 ## 发布日期：2026-02-13
 
-## 🎯 项目概述
+##  项目概述
 
 **农历生日提醒系统**是一个专业的农历计算系统，提供：
-- ✅ 公历↔农历双向精确转换
-- ✅ 专业农历计算库集成 (lunardate/cnlunar)
-- ✅ 已知日期100%验证通过
-- ✅ 完整的测试套件和文档
-- ✅ OpenClaw技能集成
+-  公历农历双向精确转换
+-  专业农历计算库集成 (lunardate/cnlunar)
+-  已知日期100%验证通过
+-  完整的测试套件和文档
+-  OpenClaw技能集成
 
-## 📦 安装方法
+##  安装方法
 
 ### 方法一：GitHub直接安装（推荐）
 
@@ -56,7 +56,7 @@ cd lunar-birthday-reminder
 openclaw skills install lunar-calendar
 ```
 
-## 🔧 系统要求
+##  系统要求
 
 ### 最低要求
 - **操作系统**: Linux, macOS, Windows (WSL)
@@ -69,7 +69,7 @@ openclaw skills install lunar-calendar
 - **内存**: 256MB+
 - **网络**: 用于安装依赖和更新
 
-## 📋 安装验证
+##  安装验证
 
 ### 验证步骤
 1. **检查Python版本**
@@ -79,8 +79,8 @@ openclaw skills install lunar-calendar
 
 2. **验证依赖安装**
    ```bash
-   python3 -c "import lunardate; print('✅ lunardate 已安装')"
-   python3 -c "import cnlunar; print('✅ cnlunar 已安装')"
+   python3 -c "import lunardate; print(' lunardate 已安装')"
+   python3 -c "import cnlunar; print(' cnlunar 已安装')"
    ```
 
 3. **运行演示程序**
@@ -97,16 +97,16 @@ openclaw skills install lunar-calendar
 ### 预期输出
 如果安装成功，你应该看到：
 ```
-🌙 农历生日提醒系统演示 - 夏暮辞青
+ 农历生日提醒系统演示 - 夏暮辞青
 ==================================================
-📅 公历转农历演示:
+ 公历转农历演示:
 ------------------------------
 2026-02-17 (2026年春节) → 正月初一
 ...
-🎉 演示完成！
+ 演示完成！
 ```
 
-## 🚀 快速开始
+##  快速开始
 
 ### 基本使用
 ```python
@@ -128,7 +128,7 @@ python scripts/simple_validator.py
 - "干支"、"生肖"、"节气"
 - "春节日期"、"闰月"等
 
-## 📁 项目结构
+##  项目结构
 
 ```
 lunar-birthday-reminder/
@@ -149,13 +149,13 @@ lunar-birthday-reminder/
 └── tests/                     # 测试目录
 ```
 
-## 🧪 测试验证
+##  测试验证
 
 ### 已通过测试
-1. ✅ 2022-2026年春节日期验证
-2. ✅ 2037年九月初五计算验证
-3. ✅ 公历转农历双向验证
-4. ✅ 专业库计算结果一致性
+1.  2022-2026年春节日期验证
+2.  2037年九月初五计算验证
+3.  公历转农历双向验证
+4.  专业库计算结果一致性
 
 ### 测试方法
 ```bash
@@ -169,7 +169,7 @@ python scripts/simple_validator.py
 cat validation_result.txt
 ```
 
-## 🔄 更新与升级
+##  更新与升级
 
 ### 检查更新
 ```bash
@@ -196,7 +196,7 @@ cd lunar-birthday-reminder
 ./install.sh
 ```
 
-## 🗑️ 卸载
+##  卸载
 
 ### 完全卸载
 ```bash
@@ -216,7 +216,7 @@ pip cache purge
 rm -rf /root/.openclaw/workspace/skills/lunar-calendar
 ```
 
-## 🐛 故障排除
+##  故障排除
 
 ### 常见问题
 
@@ -261,7 +261,7 @@ source venv/bin/activate
 pip install lunardate cnlunar
 ```
 
-## 📞 支持与帮助
+##  支持与帮助
 
 ### 官方支持
 - **GitHub Issues**: [问题报告](https://github.com/xiamuciqing/lunar-birthday-reminder/issues)
@@ -279,7 +279,7 @@ pip install lunardate cnlunar
 2. 项目文档中的联系方式
 3. 社区@作者
 
-## 📝 贡献指南
+##  贡献指南
 
 ### 如何贡献
 1. **测试验证**: 测试更多日期并报告结果
@@ -292,7 +292,7 @@ pip install lunardate cnlunar
 - **数据校正**: 报告计算差异
 - **功能请求**: 提出新功能建议
 
-## ⚠️ 重要声明
+##  重要声明
 
 ### 版本说明
 - **当前版本**: v0.9.0参考版本
@@ -306,7 +306,7 @@ pip install lunardate cnlunar
 - 未集成国家权威数据源
 - 部分高级功能待完善
 
-## 🎉 安装完成！
+##  安装完成！
 
 恭喜！农历生日提醒系统 v0.9.0 已成功安装。现在你可以：
 
@@ -315,11 +315,11 @@ pip install lunardate cnlunar
 3. **提供反馈**: 报告问题或提出建议
 4. **参与开发**: 贡献代码或数据
 
-**感谢安装农历生日提醒系统系统！** 🌙
+**感谢安装农历生日提醒系统系统！** 
 
 ---
 *最后更新: 2026-02-13*
 *版本: v0.9.0*
 *作者: 夏暮辞青*
 
-*如果觉得这个项目有用，请给GitHub仓库点个⭐️支持！*
+*如果觉得这个项目有用，请给GitHub仓库点个支持！*

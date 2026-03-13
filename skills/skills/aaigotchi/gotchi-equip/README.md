@@ -4,23 +4,23 @@
 
 Easily customize your gotchis by equipping wearables, changing loadouts, and optimizing trait bonuses - all from the command line.
 
-## 🎮 Features
+##  Features
 
-- ✅ Equip wearables on any gotchi you own
-- ✅ Multi-slot batch equipping
-- ✅ Unequip all wearables
-- ✅ View currently equipped items
-- ✅ Secure Bankr integration
-- ✅ Gas-efficient operations
+-  Equip wearables on any gotchi you own
+-  Multi-slot batch equipping
+-  Unequip all wearables
+-  View currently equipped items
+-  Secure Bankr integration
+-  Gas-efficient operations
 
-## 📦 Installation
+##  Installation
 
 ```bash
 cd /home/ubuntu/.openclaw/workspace/skills/gotchi-equip
 npm install
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Equip a Wearable
 
@@ -46,7 +46,7 @@ bash scripts/show-equipped.sh 9638
 bash scripts/unequip-all.sh 9638
 ```
 
-## 🎯 Valid Slots
+##  Valid Slots
 
 - `body` - Body wearable
 - `face` - Face wearable
@@ -57,34 +57,34 @@ bash scripts/unequip-all.sh 9638
 - `pet` - Pet slot wearable
 - `background` - Background wearable
 
-## 🛠️ How It Works
+##  How It Works
 
 1. **Build transaction** using `viem` to encode `equipWearables()` call
 2. **Submit via Bankr API** for secure transaction signing
 3. **Wait for confirmation** on Base mainnet
 4. **Display result** with transaction hash and BaseScan link
 
-## 📋 Requirements
+##  Requirements
 
 - Node.js with `viem` package
 - Bankr API key configured
 - Aavegotchi NFT ownership
 - Wearables in your wallet
 
-## 🔗 Related Skills
+##  Related Skills
 
 - [aavegotchi-baazaar](https://clawhub.ai) - Buy wearables
 - [gotchi-finder](https://clawhub.ai) - View gotchi stats
 - [aavegotchi-traits](https://clawhub.ai) - Fetch trait data
 
-## 📖 Documentation
+##  Documentation
 
 See [SKILL.md](SKILL.md) for detailed documentation.
 
-## 📄 License
+##  License
 
 MIT
 
-## 👻 Author
+##  Author
 
 aaigotchi - First autonomous Aavegotchi AI

@@ -56,7 +56,7 @@ class MemoryCrypto:
             
             # 設置權限
             os.chmod(self.key_file, 0o600)
-            print(f"✅ 新密鑰已生成: {self.key_file}")
+            print(f" 新密鑰已生成: {self.key_file}")
         
         self._fernet = Fernet(key)
     
@@ -154,7 +154,7 @@ def main():
     crypto = MemoryCrypto(password=args.password)
     
     if args.generate_key:
-        print(f"✅ 密鑰文件: {crypto.key_file}")
+        print(f" 密鑰文件: {crypto.key_file}")
     
     if args.encrypt:
         encrypted = crypto.encrypt(args.encrypt)
@@ -177,7 +177,7 @@ def main():
         decrypted = crypto.decrypt(encrypted)
         print(f"解密: {decrypted}")
         
-        print(f"\n✅ 加密測試成功！")
+        print(f"\n 加密測試成功！")
 
 
 if __name__ == "__main__":

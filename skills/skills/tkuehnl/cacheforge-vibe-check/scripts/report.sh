@@ -55,7 +55,7 @@ with open(results_file) as f:
             pass
 
 if not results:
-    print('❌ No valid analysis results found.')
+    print(' No valid analysis results found.')
     sys.exit(0)
 
 # ═══════════════════════════════════════════════════════════════════
@@ -85,14 +85,14 @@ category_labels = {
 }
 
 category_emoji = {
-    'error_handling': '🛡️',
-    'duplication': '📋',
-    'dead_code': '💀',
-    'input_validation': '🔍',
-    'magic_values': '🔮',
-    'test_coverage': '🧪',
-    'naming_quality': '📛',
-    'security': '🔒',
+    'error_handling': '',
+    'duplication': '',
+    'dead_code': '',
+    'input_validation': '',
+    'magic_values': '',
+    'test_coverage': '',
+    'naming_quality': '',
+    'security': '',
 }
 
 # Compute per-file weighted scores
@@ -135,11 +135,11 @@ grade_colors = {'A': 'brightgreen', 'B': 'green', 'C': 'yellow', 'D': 'orange', 
 badge_color = grade_colors.get(grade, 'lightgrey')
 
 # Verdict
-if overall_score >= 90: verdict = 'Pristine code. Minimal vibe coding detected. Ship it! 🚀'
+if overall_score >= 90: verdict = 'Pristine code. Minimal vibe coding detected. Ship it! '
 elif overall_score >= 80: verdict = 'Clean code with minor issues. A few human touches needed.'
 elif overall_score >= 70: verdict = 'Decent code but some lazy patterns crept in. Worth a review pass.'
 elif overall_score >= 60: verdict = 'Noticeable vibe coding. This code needs human attention.'
-else: verdict = 'Heavy vibe coding detected. This codebase needs serious human review. 🚨'
+else: verdict = 'Heavy vibe coding detected. This codebase needs serious human review. '
 
 # Aggregate category scores across all files (weighted by line count)
 agg_scores = {}
@@ -171,7 +171,7 @@ info_findings = [f for f in all_findings if f.get('severity') == 'info']
 # ═══════════════════════════════════════════════════════════════════
 
 print()
-print('# 🎭 Vibe Check Report')
+print('#  Vibe Check Report')
 print()
 print(f'**Project:** \`{target}\`')
 print(f'**Score:** {overall_score}/100 (Grade: {grade})')
@@ -191,7 +191,7 @@ print(f'\`\`\`')
 print()
 
 # ─── Score Breakdown Table ────────────────────────────────────────
-print('## 📊 Score Breakdown')
+print('##  Score Breakdown')
 print()
 print('| Category | Score | Weight | Issues |')
 print('|----------|:-----:|:------:|:------:|')
@@ -207,7 +207,7 @@ for cat in ['error_handling', 'duplication', 'dead_code', 'input_validation', 'm
 print()
 
 # ─── Category Bars ───────────────────────────────────────────────
-print('## 📈 Category Bars')
+print('##  Category Bars')
 print()
 print('\`\`\`')
 for cat in ['error_handling', 'duplication', 'dead_code', 'input_validation', 'magic_values', 'test_coverage', 'naming_quality', 'security']:
@@ -221,13 +221,13 @@ print('\`\`\`')
 print()
 
 # ─── Top Findings ────────────────────────────────────────────────
-print('## 🔍 Top Findings')
+print('##  Top Findings')
 print()
 
 finding_num = 0
 
 if critical_findings:
-    print('### 🔴 Critical')
+    print('###  Critical')
     print()
     for f in critical_findings[:10]:
         finding_num += 1
@@ -249,7 +249,7 @@ if critical_findings:
     print()
 
 if warning_findings:
-    print('### 🟡 Warning')
+    print('###  Warning')
     print()
     for f in warning_findings[:15]:
         finding_num += 1
@@ -271,7 +271,7 @@ if warning_findings:
     print()
 
 if info_findings and finding_num < 20:
-    print('### 🔵 Info')
+    print('###  Info')
     print()
     remaining = 20 - finding_num
     for f in info_findings[:remaining]:
@@ -287,12 +287,12 @@ if info_findings and finding_num < 20:
     print()
 
 if finding_num == 0:
-    print('✨ No significant findings! This code looks clean.')
+    print(' No significant findings! This code looks clean.')
     print()
 
 # ─── Per-File Breakdown ──────────────────────────────────────────
 if len(file_scores) > 1:
-    print('## 📁 Per-File Breakdown')
+    print('##  Per-File Breakdown')
     print()
     print('| File | Score | Grade | Lines | Top Issue |')
     print('|------|:-----:|:-----:|------:|-----------|')
@@ -320,7 +320,7 @@ if len(file_scores) > 1:
 if fix_mode:
     fixes = [f for f in all_findings if f.get('fix')]
     if fixes:
-        print('## 🔧 Suggested Fixes')
+        print('##  Suggested Fixes')
         print()
         for i, f in enumerate(fixes[:15], 1):
             file_ref = f.get('_file', '?')
@@ -338,7 +338,7 @@ if fix_mode:
             print('\`\`\`')
             print()
     else:
-        print('## 🔧 Suggested Fixes')
+        print('##  Suggested Fixes')
         print()
         print('No automated fixes were generated for this run.')
         print('Tip: this can happen in heuristic fallback mode or when the model returned findings without patch output.')
@@ -348,7 +348,7 @@ if fix_mode:
 total_findings = len(all_findings)
 print('---')
 print()
-print(f'*🎭 Vibe Check v{\"0.1.0\"} — {total_findings} findings across {len(results)} files*')
+print(f'* Vibe Check v{\"0.1.0\"} — {total_findings} findings across {len(results)} files*')
 print(f'*Badge for your README:* \`![Vibe Score]({badge_url})\`')
 print()
 " 2>/dev/null

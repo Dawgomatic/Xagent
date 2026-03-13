@@ -96,9 +96,9 @@ async function main() {
     output(result, true);
   } else {
     if (valid) {
-      console.log('✅ Signature is VALID');
+      console.log(' Signature is VALID');
     } else {
-      console.log('❌ Signature is INVALID');
+      console.log(' Signature is INVALID');
     }
     console.log('');
     console.log(`Message: ${opts.message}`);

@@ -66,7 +66,7 @@ export async function run(context) {
     profiles.push(newProfile);
     saveProfiles(profiles);
 
-    return success(`Welcome to ClawdDate, ${name}! 👋\n\nYour profile has been created successfully.\n\nNow fill in more details:\n• Tell me a bit about yourself (your bio)\n• What are you interested in?`);
+    return success(`Welcome to ClawdDate, ${name}! \n\nYour profile has been created successfully.\n\nNow fill in more details:\n• Tell me a bit about yourself (your bio)\n• What are you interested in?`);
   }
 
   // VIEW PROFILE command

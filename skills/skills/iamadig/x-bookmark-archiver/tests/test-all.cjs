@@ -19,7 +19,7 @@ console.log('══════════════════════�
 let failed = 0;
 
 for (const test of tests) {
-  console.log(`\n▶ Running: ${test.name}`);
+  console.log(`\n Running: ${test.name}`);
   console.log('─'.repeat(40));
   
   try {
@@ -34,9 +34,9 @@ for (const test of tests) {
 
 console.log('\n═══════════════════════════════════════════');
 if (failed === 0) {
-  console.log('   ✅ All test suites passed!');
+  console.log('    All test suites passed!');
 } else {
-  console.log(`   ❌ ${failed} test suite(s) failed`);
+  console.log(`    ${failed} test suite(s) failed`);
 }
 console.log('═══════════════════════════════════════════\n');
 

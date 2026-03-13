@@ -248,7 +248,7 @@ function listTerms() {
 function randomTip() {
   const terms = getAllTerms();
   const random = terms[Math.floor(Math.random() * terms.length)];
-  console.log(`💡 Random Tip: ${random.name}`);
+  console.log(` Random Tip: ${random.name}`);
   console.log(`\n${random.description}`);
   if (random.tips && random.tips.length > 0) {
     console.log(`\nTip: ${random.tips[0]}`);

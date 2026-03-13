@@ -467,7 +467,7 @@ badges are awarded automatically for milestones during trading, or manually by a
       "name": "First Blood",
       "description": "Executed your first trade",
       "rarity": "common",
-      "icon": "🩸",
+      "icon": "",
       "color": "#DC2626",
       "earned_at": "2025-01-15T12:00:00Z",
       "season_id": 5,

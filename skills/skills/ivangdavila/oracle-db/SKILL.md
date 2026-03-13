@@ -1,7 +1,7 @@
 ---
 name: Oracle DB
 description: Write Oracle SQL and PL/SQL with proper syntax, hints, and performance patterns.
-metadata: {"clawdbot":{"emoji":"🔴","requires":{"anyBins":["sqlplus","sql"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["sqlplus","sql"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Syntax Differences

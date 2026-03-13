@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * 🌐 NNS Name Checker v2.0
+ *  NNS Name Checker v2.0
  * Check if a .nad name is available and get real-time pricing
  * 
  * Usage: 
  *   node check-name.js <name>
  *   node check-name.js agent
- *   node check-name.js 🦞
+ *   node check-name.js 
  * 
  * This script queries the NAD API and Monad blockchain for accurate data.
  * No private key required - read-only operation.
@@ -101,13 +101,13 @@ async function checkNameAvailability(name) {
     
     for (const endpoint of endpoints) {
       try {
-        console.log(`🔍 Trying API endpoint: ${endpoint}`);
+        console.log(` Trying API endpoint: ${endpoint}`);
         const result = await makeApiRequest(endpoint);
-        console.log(`✅ Got response from ${endpoint}`);
+        console.log(` Got response from ${endpoint}`);
         return result;
       } catch (error) {
         lastError = error;
-        console.log(`❌ ${endpoint} failed: ${error.message}`);
+        console.log(` ${endpoint} failed: ${error.message}`);
         continue;
       }
     }
@@ -115,7 +115,7 @@ async function checkNameAvailability(name) {
     throw lastError || new Error('No working API endpoints found');
     
   } catch (error) {
-    console.warn('⚠️ API unavailable, falling back to on-chain check');
+    console.warn(' API unavailable, falling back to on-chain check');
     console.warn(`   Error: ${error.message}`);
     return null;
   }
@@ -125,35 +125,35 @@ async function main() {
   const name = process.argv[2];
   
   if (!name) {
-    console.error('❌ Usage: node check-name.js <name>');
+    console.error(' Usage: node check-name.js <name>');
     console.error('   Example: node check-name.js myagent');
     process.exit(1);
   }
 
   try {
-    console.log('🌐 NNS Name Checker v2.0');
+    console.log(' NNS Name Checker v2.0');
     console.log('═'.repeat(50));
-    console.log(`📝 Checking: ${name}.nad`);
-    console.log(`⛓️  Network: Monad (${MONAD_CHAIN_ID})`);
-    console.log(`📍 Contract: ${NNS_CONTRACT}`);
-    console.log(`🌐 API: ${NAD_API_BASE}`);
+    console.log(` Checking: ${name}.nad`);
+    console.log(`  Network: Monad (${MONAD_CHAIN_ID})`);
+    console.log(` Contract: ${NNS_CONTRACT}`);
+    console.log(` API: ${NAD_API_BASE}`);
     console.log('');
 
     // Validate name format first
     const isValid = validateName(name);
     if (!isValid.valid) {
-      console.log(`❌ Invalid name: ${isValid.reason}`);
+      console.log(` Invalid name: ${isValid.reason}`);
       process.exit(1);
     }
 
     // Connect to Monad for fallback
     const provider = new ethers.JsonRpcProvider(MONAD_RPC);
     const network = await provider.getNetwork();
-    console.log(`🔗 Connected to chain ID: ${network.chainId}`);
+    console.log(` Connected to chain ID: ${network.chainId}`);
     console.log('');
 
     // Try to get data from NAD API first
-    console.log('📡 Querying NAD API...');
+    console.log(' Querying NAD API...');
     const apiResult = await checkNameAvailability(name);
     
     let availability, pricing;
@@ -175,7 +175,7 @@ async function main() {
       };
     } else {
       // Fallback to on-chain check
-      console.log('📡 Falling back to on-chain check...');
+      console.log(' Falling back to on-chain check...');
       availability = await checkAvailabilityOnChain(provider, name);
       pricing = {
         base: null,
@@ -187,37 +187,37 @@ async function main() {
     }
     
     if (availability.available) {
-      console.log(`✅ ${name}.nad is available!`);
+      console.log(` ${name}.nad is available!`);
       
       if (pricing.base) {
-        console.log(`💰 Price: ${pricing.final || pricing.base} ${pricing.currency}`);
+        console.log(` Price: ${pricing.final || pricing.base} ${pricing.currency}`);
         if (pricing.discount > 0) {
-          console.log(`🎄 Discount: ${pricing.discount}% applied`);
+          console.log(` Discount: ${pricing.discount}% applied`);
         }
       } else {
-        console.log('💰 Price: Contact NAD for current pricing');
+        console.log(' Price: Contact NAD for current pricing');
       }
       
-      console.log(`📊 Data source: ${availability.source}`);
+      console.log(` Data source: ${availability.source}`);
       console.log('');
-      console.log('📋 To register:');
+      console.log(' To register:');
       console.log(`   export PRIVATE_KEY="0x..."`);
       console.log(`   node scripts/register-name.js --name ${name}`);
     } else {
-      console.log(`❌ ${name}.nad is already taken`);
+      console.log(` ${name}.nad is already taken`);
       if (availability.owner) {
-        console.log(`👤 Owner: ${availability.owner}`);
+        console.log(` Owner: ${availability.owner}`);
       }
-      console.log(`📊 Data source: ${availability.source}`);
+      console.log(` Data source: ${availability.source}`);
     }
 
   } catch (error) {
-    console.error('❌ Error checking name:', error.message);
+    console.error(' Error checking name:', error.message);
     
     if (error.message.includes('network')) {
-      console.error('💡 Check your internet connection and try again');
+      console.error(' Check your internet connection and try again');
     } else if (error.message.includes('timeout')) {
-      console.error('💡 API or RPC might be slow, try again in a moment');
+      console.error(' API or RPC might be slow, try again in a moment');
     }
     
     process.exit(1);
@@ -256,7 +256,7 @@ async function checkAvailabilityOnChain(provider, name) {
     // This requires the contract ABI and the correct function name
     // For now, we'll do a basic simulation with common patterns
     
-    console.log('🔍 Checking on-chain availability...');
+    console.log(' Checking on-chain availability...');
     
     // Simulate some names as likely taken
     const commonTaken = ['test', 'admin', 'owner', 'nad', 'monad', 'ethereum', 'bitcoin', 'app', 'www'];
@@ -278,7 +278,7 @@ async function checkAvailabilityOnChain(provider, name) {
     };
     
   } catch (error) {
-    console.warn('⚠️ On-chain check failed, assuming available');
+    console.warn(' On-chain check failed, assuming available');
     console.warn(`   Error: ${error.message}`);
     return {
       available: true,

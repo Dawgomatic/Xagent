@@ -233,7 +233,7 @@ CLOSE_MS=$(date -d "$CLOSES_AT" +%s)000
 curl -s "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&startTime=$CLOSE_MS&limit=1"
 # Response: [[openTime, open, high, low, CLOSE, volume, ...]]
 # Use index [0][4] for close price
-# ⚠️ Returns geo-restriction error from US servers
+#  Returns geo-restriction error from US servers
 
 For HN — use Algolia (current points, resolve ASAP after close):
 curl -s "https://hn.algolia.com/api/v1/items/{story_id}" | jq '.points'

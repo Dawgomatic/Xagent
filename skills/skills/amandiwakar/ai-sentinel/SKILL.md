@@ -17,7 +17,7 @@ writes-files:
 external-services:
   - url: https://api.zetro.ai
     description: "Pro tier only — scan results or message content sent for dashboard reporting and analytics. Not used in Community/local mode."
-metadata: {"openclaw":{"emoji":"🛡️","os":["darwin","linux","win32"],"install":{"node":"ai-sentinel"}}}
+metadata: {"openclaw":{"emoji":"","os":["darwin","linux","win32"],"install":{"node":"ai-sentinel"}}}
 ---
 
 # AI Sentinel - Prompt Injection Firewall

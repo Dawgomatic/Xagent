@@ -1,4 +1,4 @@
-# 🎬 ClawARR Suite
+#  ClawARR Suite
 
 **Unified deep-integration control for self-hosted media automation stacks.**
 
@@ -8,29 +8,29 @@ ClawARR Suite is an [OpenClaw](https://openclaw.ai) agent skill that gives your 
 
 ---
 
-## ✨ What Can It Do?
+##  What Can It Do?
 
 | Category | Capabilities |
 |----------|-------------|
-| 📊 **Library Analytics** | Stats, quality profiles, missing content, disk usage, genre/year distributions |
-| 👀 **Viewing Analytics** | Current streams, watch history, most watched, peak hours, user stats |
-| 🎬 **Content Management** | Add/remove movies & series, calendars, wanted lists, history |
-| 📝 **Request Handling** | Overseerr approval workflows, stats, bulk actions |
-| 💬 **Subtitles** | Bazarr wanted/search/history/languages |
-| 🔍 **Indexer Management** | Prowlarr indexer control, testing, cross-app sync |
-| ⬇️ **Downloads** | SABnzbd active/speed/queue/pause/resume |
-| 🎯 **Quality Profiles** | Recyclarr TRaSH Guides sync, diff preview |
-| 🧹 **Library Cleanup** | Maintainerr rules, collections, exclusions |
-| 🔔 **Notifications** | Notifiarr status, triggers, service health |
-| 🖼️ **Collections & Overlays** | Kometa/PMM automation for Plex |
-| 📦 **Archive Extraction** | Unpackerr monitoring and error tracking |
-| 📡 **Media Tracking** | Trakt.tv, Letterboxd, Simkl — sync, export, discovery |
-| 📈 **Dashboards** | Self-contained HTML dashboard generation |
-| 🔧 **Setup & Diagnostics** | Auto-discovery, guided setup, troubleshooting |
+|  **Library Analytics** | Stats, quality profiles, missing content, disk usage, genre/year distributions |
+|  **Viewing Analytics** | Current streams, watch history, most watched, peak hours, user stats |
+|  **Content Management** | Add/remove movies & series, calendars, wanted lists, history |
+|  **Request Handling** | Overseerr approval workflows, stats, bulk actions |
+|  **Subtitles** | Bazarr wanted/search/history/languages |
+|  **Indexer Management** | Prowlarr indexer control, testing, cross-app sync |
+|  **Downloads** | SABnzbd active/speed/queue/pause/resume |
+|  **Quality Profiles** | Recyclarr TRaSH Guides sync, diff preview |
+|  **Library Cleanup** | Maintainerr rules, collections, exclusions |
+|  **Notifications** | Notifiarr status, triggers, service health |
+|  **Collections & Overlays** | Kometa/PMM automation for Plex |
+|  **Archive Extraction** | Unpackerr monitoring and error tracking |
+|  **Media Tracking** | Trakt.tv, Letterboxd, Simkl — sync, export, discovery |
+|  **Dashboards** | Self-contained HTML dashboard generation |
+|  **Setup & Diagnostics** | Auto-discovery, guided setup, troubleshooting |
 
 ---
 
-## 📦 Install
+##  Install
 
 ### From ClawHub (recommended)
 
@@ -38,7 +38,7 @@ ClawARR Suite is an [OpenClaw](https://openclaw.ai) agent skill that gives your 
 clawhub install clawarr-suite
 ```
 
-> ⚠️ **Note:** This skill is currently [flagged for review](https://github.com/openclaw/clawhub/issues/256) by ClawHub's automated security scanner. The flag is a false positive — the scanner detected standard patterns (bash `eval` for env vars, WebRTC for LAN discovery, Docker commands, API key handling) that are inherent to media server management. We've submitted a review request and are waiting for the flag to be lifted.
+>  **Note:** This skill is currently [flagged for review](https://github.com/openclaw/clawhub/issues/256) by ClawHub's automated security scanner. The flag is a false positive — the scanner detected standard patterns (bash `eval` for env vars, WebRTC for LAN discovery, Docker commands, API key handling) that are inherent to media server management. We've submitted a review request and are waiting for the flag to be lifted.
 >
 > **[View on ClawHub](https://clawhub.ai/skills/clawarr-suite)** · **[Review request →](https://github.com/openclaw/clawhub/issues/256)**
 
@@ -85,7 +85,7 @@ Just talk to your agent naturally:
 
 ---
 
-## 🛠️ Supported Services
+##  Supported Services
 
 ### Core Stack
 | Service | Port | Script |
@@ -122,7 +122,7 @@ Just talk to your agent naturally:
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 Set environment variables or use `setup.sh` to generate them:
 
@@ -161,7 +161,7 @@ export SIMKL_CLIENT_SECRET=your_client_secret
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 | Document | Description |
 |----------|-------------|
@@ -179,7 +179,7 @@ export SIMKL_CLIENT_SECRET=your_client_secret
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 - **bash** 3.2+ (macOS default is fine)
 - **curl**, **jq**, **bc**, **sed** — standard on macOS and Linux
@@ -188,7 +188,7 @@ export SIMKL_CLIENT_SECRET=your_client_secret
 
 ---
 
-## 🏗️ Supported Platforms
+##  Supported Platforms
 
 - **Docker** — any host
 - **Synology NAS** — DSM 7+
@@ -198,7 +198,7 @@ export SIMKL_CLIENT_SECRET=your_client_secret
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
 - [ ] Torrent client support (qBittorrent, Transmission, Deluge)
 - [ ] Jellyfin / Emby analytics
@@ -207,7 +207,7 @@ export SIMKL_CLIENT_SECRET=your_client_secret
 
 ---
 
-## 📄 License
+##  License
 
 MIT — see [LICENSE](LICENSE) for details.
 

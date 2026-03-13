@@ -48,7 +48,7 @@ function getWatcherStatus() {
 }
 
 function formatContact(contact, index, state) {
-  const status = contact.enabled === false ? '❌' : '✅';
+  const status = contact.enabled === false ? '' : '';
   const delay = contact.minMinutesBetweenReplies !== undefined 
     ? contact.minMinutesBetweenReplies 
     : 15;
@@ -61,7 +61,7 @@ function formatContact(contact, index, state) {
   // Statistics
   const stats = state.stats && state.stats[contact.identifier];
   const statsStr = stats 
-    ? `\n   📊 Total: ${stats.totalResponses} | Today: ${stats.dailyCount}`
+    ? `\n    Total: ${stats.totalResponses} | Today: ${stats.dailyCount}`
     : '';
   
   const promptPreview = contact.prompt.length > 80 
@@ -69,9 +69,9 @@ function formatContact(contact, index, state) {
     : contact.prompt;
   
   return `**[${index + 1}] ${contact.name || 'Unnamed'}** ${status}
-   📞 \`${contact.identifier}\`
-   ⏱️ Delay: ${delay} min
-   💬 Prompt: _${promptPreview}_${lastResponseStr}${statsStr}`;
+    \`${contact.identifier}\`
+    Delay: ${delay} min
+    Prompt: _${promptPreview}_${lastResponseStr}${statsStr}`;
 }
 
 function handleList() {
@@ -79,18 +79,18 @@ function handleList() {
   const state = loadState();
   const watcherStatus = getWatcherStatus();
   
-  const statusEmoji = config.enabled ? '✅' : '❌';
-  const watcherEmoji = watcherStatus.running ? '🟢' : '🔴';
+  const statusEmoji = config.enabled ? '' : '';
+  const watcherEmoji = watcherStatus.running ? '' : '';
   
-  let output = `**📱 iMessage Auto-Responder**\n\n`;
+  let output = `** iMessage Auto-Responder**\n\n`;
   output += `System: ${statusEmoji} ${config.enabled ? 'ENABLED' : 'DISABLED'}\n`;
   output += `Watcher: ${watcherEmoji} ${watcherStatus.running ? `Running (PID ${watcherStatus.pid})` : 'Stopped'}\n`;
   output += `Default delay: ${config.defaultMinMinutesBetweenReplies} minutes\n\n`;
   
   if (config.watchList.length === 0) {
-    output += '📭 No contacts in watch list.';
+    output += ' No contacts in watch list.';
   } else {
-    output += `**👥 Watch List (${config.watchList.length})**\n\n`;
+    output += `** Watch List (${config.watchList.length})**\n\n`;
     config.watchList.forEach((contact, i) => {
       output += formatContact(contact, i, state) + '\n\n';
     });
@@ -103,7 +103,7 @@ function handleAdd(identifier, name, prompt) {
   execSync(`node "${MANAGE_SCRIPT}" add "${identifier}" "${prompt}" "${name}"`, {
     stdio: 'inherit'
   });
-  return `✅ Added **${name}** (\`${identifier}\`) to watch list.\n\nRestart watcher to apply changes.`;
+  return ` Added **${name}** (\`${identifier}\`) to watch list.\n\nRestart watcher to apply changes.`;
 }
 
 function handleRemove(identifier) {
@@ -114,7 +114,7 @@ function handleRemove(identifier) {
   execSync(`node "${MANAGE_SCRIPT}" remove "${identifier}"`, {
     stdio: 'inherit'
   });
-  return `✅ Removed **${name}** (\`${identifier}\`) from watch list.\n\nRestart watcher to apply changes.`;
+  return ` Removed **${name}** (\`${identifier}\`) from watch list.\n\nRestart watcher to apply changes.`;
 }
 
 function handleEdit(identifier, newPrompt) {
@@ -122,13 +122,13 @@ function handleEdit(identifier, newPrompt) {
   const contact = config.watchList.find(c => c.identifier === identifier);
   
   if (!contact) {
-    return `❌ Contact \`${identifier}\` not found in watch list.`;
+    return ` Contact \`${identifier}\` not found in watch list.`;
   }
   
   contact.prompt = newPrompt;
   fs.writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2));
   
-  return `✅ Updated prompt for **${contact.name}** (\`${identifier}\`).\n\nRestart watcher to apply changes.`;
+  return ` Updated prompt for **${contact.name}** (\`${identifier}\`).\n\nRestart watcher to apply changes.`;
 }
 
 function handleDelay(identifier, minutes) {
@@ -140,7 +140,7 @@ function handleDelay(identifier, minutes) {
   const contact = config.watchList.find(c => c.identifier === identifier);
   const name = contact ? contact.name : identifier;
   
-  return `✅ Set delay to **${minutes} minutes** for **${name}** (\`${identifier}\`).\n\nRestart watcher to apply changes.`;
+  return ` Set delay to **${minutes} minutes** for **${name}** (\`${identifier}\`).\n\nRestart watcher to apply changes.`;
 }
 
 function handleToggle() {
@@ -150,18 +150,18 @@ function handleToggle() {
   
   const config = loadConfig();
   return config.enabled 
-    ? '✅ Auto-responder **ENABLED**.\n\nRestart watcher to apply changes.'
-    : '⏸️ Auto-responder **DISABLED**.\n\nRestart watcher to apply changes.';
+    ? ' Auto-responder **ENABLED**.\n\nRestart watcher to apply changes.'
+    : ' Auto-responder **DISABLED**.\n\nRestart watcher to apply changes.';
 }
 
 function handleStatus() {
   const watcherStatus = getWatcherStatus();
   const config = loadConfig();
   
-  let output = `**📊 Auto-Responder Status**\n\n`;
+  let output = `** Auto-Responder Status**\n\n`;
   
   if (watcherStatus.running) {
-    output += `🟢 **Watcher is RUNNING** (PID ${watcherStatus.pid})\n\n`;
+    output += ` **Watcher is RUNNING** (PID ${watcherStatus.pid})\n\n`;
     
     // Get recent log entries
     if (fs.existsSync(LOG_PATH)) {
@@ -169,9 +169,9 @@ function handleStatus() {
       output += `**Recent Activity:**\n\`\`\`\n${logs}\`\`\``;
     }
   } else {
-    output += `🔴 **Watcher is STOPPED**\n\n`;
+    output += ` **Watcher is STOPPED**\n\n`;
     if (watcherStatus.stale) {
-      output += `⚠️ Stale PID file detected. Run restart to clean up.`;
+      output += ` Stale PID file detected. Run restart to clean up.`;
     }
   }
   
@@ -183,14 +183,14 @@ function handleHistory(identifier, limit = 10) {
   const contact = config.watchList.find(c => c.identifier === identifier);
   
   if (!contact) {
-    return `❌ Contact \`${identifier}\` not found in watch list.`;
+    return ` Contact \`${identifier}\` not found in watch list.`;
   }
   
   const name = contact.name || identifier;
   
   // Parse logs for this contact
   if (!fs.existsSync(LOG_PATH)) {
-    return `📭 No history found for **${name}**.`;
+    return ` No history found for **${name}**.`;
   }
   
   const logs = fs.readFileSync(LOG_PATH, 'utf8');
@@ -209,10 +209,10 @@ function handleHistory(identifier, limit = 10) {
     }
   }
   
-  let output = `**💬 Recent Responses to ${name}**\n\n`;
+  let output = `** Recent Responses to ${name}**\n\n`;
   
   if (responses.length === 0) {
-    output += `📭 No responses found yet.`;
+    output += ` No responses found yet.`;
   } else {
     responses.slice(-limit).forEach(({ timestamp, response }) => {
       const date = new Date(timestamp).toLocaleString();
@@ -300,7 +300,7 @@ async function handleTest(identifier, testMessage) {
   const contact = config.watchList.find(c => c.identifier === identifier);
   
   if (!contact) {
-    return `❌ Contact \`${identifier}\` not found in watch list.`;
+    return ` Contact \`${identifier}\` not found in watch list.`;
   }
   
   const name = contact.name || identifier;
@@ -308,14 +308,14 @@ async function handleTest(identifier, testMessage) {
   try {
     const response = await generateTestResponse(contact, testMessage);
     
-    return `🧪 **Test Mode: ${name}**\n\n` +
+    return ` **Test Mode: ${name}**\n\n` +
       `**Test Message:**\n_"${testMessage}"_\n\n` +
       `**Generated Response:**\n${response}\n\n` +
-      `✅ This response was **NOT sent**. This is preview only.`;
+      ` This response was **NOT sent**. This is preview only.`;
   } catch (error) {
-    return `🧪 **Test Mode: ${name}**\n\n` +
+    return ` **Test Mode: ${name}**\n\n` +
       `**Test Message:**\n_"${testMessage}"_\n\n` +
-      `❌ Failed to generate response:\n${error.message}`;
+      ` Failed to generate response:\n${error.message}`;
   }
 }
 
@@ -324,36 +324,36 @@ function handleRestart() {
   
   try {
     execSync(`"${launcherPath}" restart`, { encoding: 'utf8' });
-    return '✅ Watcher restarted successfully.';
+    return ' Watcher restarted successfully.';
   } catch (e) {
-    return `❌ Failed to restart watcher:\n\`\`\`\n${e.message}\`\`\``;
+    return ` Failed to restart watcher:\n\`\`\`\n${e.message}\`\`\``;
   }
 }
 
 function handleSetAllDelays(minutes) {
   try {
     execSync(`node "${MANAGE_SCRIPT}" set-all-delays ${minutes}`, { encoding: 'utf8' });
-    return `✅ Set delay to **${minutes} minutes** for all contacts.\n\nRestart watcher to apply changes.`;
+    return ` Set delay to **${minutes} minutes** for all contacts.\n\nRestart watcher to apply changes.`;
   } catch (e) {
-    return `❌ Failed to set delays:\n${e.message}`;
+    return ` Failed to set delays:\n${e.message}`;
   }
 }
 
 function handleEnableAll() {
   try {
     execSync(`node "${MANAGE_SCRIPT}" enable-all`, { encoding: 'utf8' });
-    return `✅ Enabled all contacts.\n\nRestart watcher to apply changes.`;
+    return ` Enabled all contacts.\n\nRestart watcher to apply changes.`;
   } catch (e) {
-    return `❌ Failed to enable all:\n${e.message}`;
+    return ` Failed to enable all:\n${e.message}`;
   }
 }
 
 function handleDisableAll() {
   try {
     execSync(`node "${MANAGE_SCRIPT}" disable-all`, { encoding: 'utf8' });
-    return `✅ Disabled all contacts.\n\nRestart watcher to apply changes.`;
+    return ` Disabled all contacts.\n\nRestart watcher to apply changes.`;
   } catch (e) {
-    return `❌ Failed to disable all:\n${e.message}`;
+    return ` Failed to disable all:\n${e.message}`;
   }
 }
 
@@ -363,9 +363,9 @@ function handleSetTimeWindow(identifier, start, end) {
     const config = loadConfig();
     const contact = config.watchList.find(c => c.identifier === identifier);
     const name = contact ? contact.name || identifier : identifier;
-    return `✅ Added time window **${start} - ${end}** for ${name}.\n\nRestart watcher to apply changes.`;
+    return ` Added time window **${start} - ${end}** for ${name}.\n\nRestart watcher to apply changes.`;
   } catch (e) {
-    return `❌ Failed to set time window:\n${e.message}`;
+    return ` Failed to set time window:\n${e.message}`;
   }
 }
 
@@ -375,9 +375,9 @@ function handleClearTimeWindows(identifier) {
     const config = loadConfig();
     const contact = config.watchList.find(c => c.identifier === identifier);
     const name = contact ? contact.name || identifier : identifier;
-    return `✅ Cleared all time windows for ${name}.\n\nRestart watcher to apply changes.`;
+    return ` Cleared all time windows for ${name}.\n\nRestart watcher to apply changes.`;
   } catch (e) {
-    return `❌ Failed to clear time windows:\n${e.message}`;
+    return ` Failed to clear time windows:\n${e.message}`;
   }
 }
 
@@ -387,9 +387,9 @@ function handleAddKeyword(identifier, keyword) {
     const config = loadConfig();
     const contact = config.watchList.find(c => c.identifier === identifier);
     const name = contact ? contact.name || identifier : identifier;
-    return `✅ Added keyword **"${keyword}"** for ${name}.\n\nRestart watcher to apply changes.`;
+    return ` Added keyword **"${keyword}"** for ${name}.\n\nRestart watcher to apply changes.`;
   } catch (e) {
-    return `❌ Failed to add keyword:\n${e.message}`;
+    return ` Failed to add keyword:\n${e.message}`;
   }
 }
 
@@ -399,9 +399,9 @@ function handleRemoveKeyword(identifier, keyword) {
     const config = loadConfig();
     const contact = config.watchList.find(c => c.identifier === identifier);
     const name = contact ? contact.name || identifier : identifier;
-    return `✅ Removed keyword **"${keyword}"** from ${name}.\n\nRestart watcher to apply changes.`;
+    return ` Removed keyword **"${keyword}"** from ${name}.\n\nRestart watcher to apply changes.`;
   } catch (e) {
-    return `❌ Failed to remove keyword:\n${e.message}`;
+    return ` Failed to remove keyword:\n${e.message}`;
   }
 }
 
@@ -411,9 +411,9 @@ function handleClearKeywords(identifier) {
     const config = loadConfig();
     const contact = config.watchList.find(c => c.identifier === identifier);
     const name = contact ? contact.name || identifier : identifier;
-    return `✅ Cleared all keywords for ${name}.\n\nRestart watcher to apply changes.`;
+    return ` Cleared all keywords for ${name}.\n\nRestart watcher to apply changes.`;
   } catch (e) {
-    return `❌ Failed to clear keywords:\n${e.message}`;
+    return ` Failed to clear keywords:\n${e.message}`;
   }
 }
 
@@ -425,14 +425,14 @@ function handleStats(identifier) {
     // Show stats for specific contact
     const contact = config.watchList.find(c => c.identifier === identifier);
     if (!contact) {
-      return `❌ Contact \`${identifier}\` not found in watch list.`;
+      return ` Contact \`${identifier}\` not found in watch list.`;
     }
     
     const name = contact.name || identifier;
     const stats = state.stats && state.stats[identifier];
     
     if (!stats || stats.totalResponses === 0) {
-      return `📊 **Stats for ${name}**\n\nNo responses sent yet.`;
+      return ` **Stats for ${name}**\n\nNo responses sent yet.`;
     }
     
     const firstDate = new Date(stats.firstResponse).toLocaleString();
@@ -440,7 +440,7 @@ function handleStats(identifier) {
     const daysSince = Math.floor((Date.now() - stats.firstResponse) / (1000 * 60 * 60 * 24));
     const avgPerDay = daysSince > 0 ? (stats.totalResponses / daysSince).toFixed(1) : stats.totalResponses;
     
-    return `📊 **Stats for ${name}**\n\n` +
+    return ` **Stats for ${name}**\n\n` +
       `**Total Responses:** ${stats.totalResponses}\n` +
       `**Today:** ${stats.dailyCount}\n` +
       `**Average per day:** ${avgPerDay}\n` +
@@ -448,7 +448,7 @@ function handleStats(identifier) {
       `**Last response:** ${lastDate}`;
   } else {
     // Show stats for all contacts
-    let output = `📊 **Auto-Responder Statistics**\n\n`;
+    let output = ` **Auto-Responder Statistics**\n\n`;
     
     let totalAll = 0;
     let todayAll = 0;
@@ -483,12 +483,12 @@ function handleSetDailyCap(identifier, maxReplies) {
     const name = contact ? contact.name || identifier : identifier;
     
     if (parseInt(maxReplies) === 0) {
-      return `✅ Removed daily cap for ${name} (unlimited).\n\nRestart watcher to apply changes.`;
+      return ` Removed daily cap for ${name} (unlimited).\n\nRestart watcher to apply changes.`;
     } else {
-      return `✅ Set daily cap to **${maxReplies} replies/day** for ${name}.\n\nRestart watcher to apply changes.`;
+      return ` Set daily cap to **${maxReplies} replies/day** for ${name}.\n\nRestart watcher to apply changes.`;
     }
   } catch (e) {
-    return `❌ Failed to set daily cap:\n${e.message}`;
+    return ` Failed to set daily cap:\n${e.message}`;
   }
 }
 

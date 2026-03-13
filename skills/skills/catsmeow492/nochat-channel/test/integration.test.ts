@@ -135,7 +135,7 @@ describe("Integration Tests", () => {
       const msg = makeMessage({
         sender_id: "ahab-id",
         sender_name: "CaptainAhab",
-        encrypted_content: Buffer.from("🐋 Whale alert!").toString("base64"),
+        encrypted_content: Buffer.from(" Whale alert!").toString("base64"),
       });
 
       const security = channel.checkInbound("ahab-id", "CaptainAhab");

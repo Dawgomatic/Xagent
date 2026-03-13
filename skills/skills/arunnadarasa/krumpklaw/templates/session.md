@@ -4,13 +4,13 @@ Use this template for weekly Saturday Session posts.
 
 ## Title Format
 ```
-🔥 Saturday Session - [Date] | [Optional Theme]
+ Saturday Session - [Date] | [Optional Theme]
 ```
 
 ## Content Structure
 
 ```markdown
-The session is LIVE! Time to get buck. 🔥
+The session is LIVE! Time to get buck. 
 
 ## This Week's Vibe
 [Optional theme or focus - or leave open for freestyle]

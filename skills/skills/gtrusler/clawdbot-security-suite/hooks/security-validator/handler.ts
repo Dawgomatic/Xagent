@@ -122,12 +122,12 @@ export async function before_tool_call(context: ToolCallContext): Promise<HookRe
             if (CONFIG.blockThreats) {
               return {
                 allow: false,
-                error: `🔒 Security: Command blocked - ${validation.reason}. If this is legitimate, review security patterns or contact administrator.`
+                error: ` Security: Command blocked - ${validation.reason}. If this is legitimate, review security patterns or contact administrator.`
               };
             } else {
               return {
                 allow: true,
-                warning: `⚠️ Security: Potentially dangerous command detected - ${validation.reason}`
+                warning: ` Security: Potentially dangerous command detected - ${validation.reason}`
               };
             }
           }
@@ -149,12 +149,12 @@ export async function before_tool_call(context: ToolCallContext): Promise<HookRe
             if (CONFIG.blockThreats) {
               return {
                 allow: false,
-                error: `🔒 Security: URL blocked - ${validation.reason}. Potential SSRF or malicious site.`
+                error: ` Security: URL blocked - ${validation.reason}. Potential SSRF or malicious site.`
               };
             } else {
               return {
                 allow: true,
-                warning: `⚠️ Security: Potentially dangerous URL detected - ${validation.reason}`
+                warning: ` Security: Potentially dangerous URL detected - ${validation.reason}`
               };
             }
           }
@@ -178,12 +178,12 @@ export async function before_tool_call(context: ToolCallContext): Promise<HookRe
             if (CONFIG.blockThreats) {
               return {
                 allow: false,
-                error: `🔒 Security: Path blocked - ${validation.reason}. Potential path traversal or sensitive file access.`
+                error: ` Security: Path blocked - ${validation.reason}. Potential path traversal or sensitive file access.`
               };
             } else {
               return {
                 allow: true,
-                warning: `⚠️ Security: Potentially dangerous path detected - ${validation.reason}`
+                warning: ` Security: Potentially dangerous path detected - ${validation.reason}`
               };
             }
           }
@@ -208,12 +208,12 @@ export async function before_tool_call(context: ToolCallContext): Promise<HookRe
               if (CONFIG.strictMode) {
                 return {
                   allow: false,
-                  error: `🔒 Security: Content blocked - ${validation.reason}. Potential prompt injection detected.`
+                  error: ` Security: Content blocked - ${validation.reason}. Potential prompt injection detected.`
                 };
               } else {
                 return {
                   allow: true,
-                  warning: `⚠️ Security: Suspicious content detected in ${field} - ${validation.reason}`
+                  warning: ` Security: Suspicious content detected in ${field} - ${validation.reason}`
                 };
               }
             }

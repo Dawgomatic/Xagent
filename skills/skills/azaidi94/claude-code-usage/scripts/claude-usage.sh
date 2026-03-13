@@ -99,7 +99,7 @@ if [ -z "$CREDS" ]; then
   if [ "$FORMAT" = "json" ]; then
     echo '{"error":"no_credentials","session":null,"weekly":null}'
   else
-    echo "❌ No Claude Code credentials found"
+    echo " No Claude Code credentials found"
   fi
   exit 1
 fi
@@ -112,7 +112,7 @@ if [ -z "$TOKEN" ]; then
   if [ "$FORMAT" = "json" ]; then
     echo '{"error":"no_token","session":null,"weekly":null}'
   else
-    echo "❌ Could not extract access token"
+    echo " Could not extract access token"
   fi
   exit 1
 fi
@@ -142,7 +142,7 @@ if [ -n "$EXPIRES_AT" ]; then
       if [ "$FORMAT" = "json" ]; then
         echo '{"error":"token_expired","session":null,"weekly":null}'
       else
-        echo "❌ OAuth token expired. Run 'claude' CLI to refresh."
+        echo " OAuth token expired. Run 'claude' CLI to refresh."
       fi
       exit 1
     fi
@@ -158,7 +158,7 @@ if [ -z "$RESP" ]; then
   if [ "$FORMAT" = "json" ]; then
     echo '{"error":"api_error","session":null,"weekly":null}'
   else
-    echo "❌ API request failed"
+    echo " API request failed"
   fi
   exit 1
 fi
@@ -236,28 +236,28 @@ else
   
   # Determine emoji based on usage level
   if [ "$SESSION" -gt 80 ]; then
-    SESSION_EMOJI="🔴"
+    SESSION_EMOJI=""
   elif [ "$SESSION" -gt 50 ]; then
-    SESSION_EMOJI="🟡"
+    SESSION_EMOJI=""
   else
-    SESSION_EMOJI="🟢"
+    SESSION_EMOJI=""
   fi
   
   if [ "$WEEKLY" -gt 80 ]; then
-    WEEKLY_EMOJI="🔴"
+    WEEKLY_EMOJI=""
   elif [ "$WEEKLY" -gt 50 ]; then
-    WEEKLY_EMOJI="🟡"
+    WEEKLY_EMOJI=""
   else
-    WEEKLY_EMOJI="🟢"
+    WEEKLY_EMOJI=""
   fi
   
   OUTPUT=$(cat <<EOF
-🦞 Claude Code Usage
+ Claude Code Usage
 
-⏱️  Session (5h): $SESSION_EMOJI $SESSION_BAR $SESSION%
+  Session (5h): $SESSION_EMOJI $SESSION_BAR $SESSION%
    Resets in: $SESSION_LEFT
 
-📅 Weekly (7d): $WEEKLY_EMOJI $WEEKLY_BAR $WEEKLY%
+ Weekly (7d): $WEEKLY_EMOJI $WEEKLY_BAR $WEEKLY%
    Resets in: $WEEKLY_LEFT
 EOF
 )

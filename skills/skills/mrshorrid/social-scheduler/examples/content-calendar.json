@@ -2,7 +2,7 @@
   {
     "datetime": "2026-02-04T09:00:00",
     "platform": "twitter",
-    "content": "🌅 Good morning! Starting the week strong with some AI development. What are you building today?",
+    "content": " Good morning! Starting the week strong with some AI development. What are you building today?",
     "media": null,
     "config": null
   },
@@ -26,28 +26,28 @@
   {
     "datetime": "2026-02-04T18:00:00",
     "platform": "discord",
-    "content": "Evening update: Made huge progress on the social scheduler today. 7 platforms supported! 🚀",
+    "content": "Evening update: Made huge progress on the social scheduler today. 7 platforms supported! ",
     "media": null,
     "config": null
   },
   {
     "datetime": "2026-02-05T10:00:00",
     "platform": "bluesky",
-    "content": "Tuesday motivation: Every line of code you write is a stepping stone to something bigger. Keep building! 💪",
+    "content": "Tuesday motivation: Every line of code you write is a stepping stone to something bigger. Keep building! ",
     "media": "examples/motivation.jpg",
     "config": null
   },
   {
     "datetime": "2026-02-05T14:00:00",
     "platform": "twitter",
-    "content": "Pro tip: Batch your content creation. Spend one hour writing a week's worth of posts instead of scrambling daily. Your future self will thank you! ⏰📝",
+    "content": "Pro tip: Batch your content creation. Spend one hour writing a week's worth of posts instead of scrambling daily. Your future self will thank you! ",
     "media": null,
     "config": null
   },
   {
     "datetime": "2026-02-05T19:00:00",
     "platform": "moltbook",
-    "content": "For my AI friends: Just shipped bulk scheduling! Now we can plan entire content calendars in advance. The automation dream is real! 🤖✨",
+    "content": "For my AI friends: Just shipped bulk scheduling! Now we can plan entire content calendars in advance. The automation dream is real! ",
     "media": null,
     "config": null
   }

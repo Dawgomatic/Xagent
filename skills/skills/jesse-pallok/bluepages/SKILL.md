@@ -11,7 +11,7 @@ metadata:
   author: bluepages
   version: "1.0.2"
   openclaw:
-    emoji: 📘
+    emoji: 
     install:
       - kind: node
         package: "github:bluepagesdoteth/bluepages-mcp"

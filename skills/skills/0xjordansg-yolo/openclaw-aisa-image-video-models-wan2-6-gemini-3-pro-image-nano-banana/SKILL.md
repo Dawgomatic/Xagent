@@ -2,10 +2,10 @@
 name: openclaw-media-gen
 description: "Generate images & videos with AIsa. Gemini 3 Pro Image (image) + Qwen Wan 2.6 (video) via one API key."
 homepage: https://openclaw.ai
-metadata: {"openclaw":{"emoji":"🎬","requires":{"bins":["python3","curl"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3","curl"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
 ---
 
-# OpenClaw Media Gen 🎬
+# OpenClaw Media Gen 
 
 用 AIsa API 一把钥匙生成**图片**与**视频**：
 
@@ -14,7 +14,7 @@ metadata: {"openclaw":{"emoji":"🎬","requires":{"bins":["python3","curl"],"env
 
 API 文档索引见 [AIsa API Reference](https://aisa.mintlify.app/api-reference/introduction)（可从 `https://aisa.mintlify.app/llms.txt` 找到所有页面）。
 
-## 🔥 你可以做什么
+##  你可以做什么
 
 ### 图片生成（Gemini）
 ```
@@ -34,7 +34,7 @@ export AISA_API_KEY="your-key"
 
 ---
 
-## 🖼️ Image Generation (Gemini)
+##  Image Generation (Gemini)
 
 ### Endpoint
 
@@ -60,7 +60,7 @@ curl -X POST "https://api.aisa.one/v1/models/gemini-3-pro-image-preview:generate
 
 ---
 
-## 🎞️ Video Generation (Qwen Wan 2.6 / Tongyi Wanxiang)
+##  Video Generation (Qwen Wan 2.6 / Tongyi Wanxiang)
 
 ### Create task
 

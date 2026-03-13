@@ -8,14 +8,14 @@ An [OpenClaw](https://openclaw.dev) skill that wraps the Cursor Cloud Agents HTT
 
 ## Features
 
-- 🚀 **Launch agents** on any GitHub repository
-- 📊 **Monitor progress** with real-time status updates
-- 💬 **Full conversation history** retrieval
-- 📝 **Follow-up instructions** for iterative refinement
-- 🚦 **Rate limiting** (1 req/sec) to respect API limits
-- 💾 **Response caching** (60s TTL) for better performance
-- 🔐 **Secure** input sanitization and safe temp file handling
-- ✅ **Comprehensive tests** with bats-core
+-  **Launch agents** on any GitHub repository
+-  **Monitor progress** with real-time status updates
+-  **Full conversation history** retrieval
+-  **Follow-up instructions** for iterative refinement
+-  **Rate limiting** (1 req/sec) to respect API limits
+-  **Response caching** (60s TTL) for better performance
+-  **Secure** input sanitization and safe temp file handling
+-  **Comprehensive tests** with bats-core
 
 ## Quick Start
 
@@ -261,6 +261,6 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Support
 
-- 📖 [Documentation](SKILL.md)
-- 🐛 [Issue Tracker](https://github.com/Parcosta/cursor-cloud-agents/issues)
-- 💬 [Discussions](https://github.com/Parcosta/cursor-cloud-agents/discussions)
+-  [Documentation](SKILL.md)
+-  [Issue Tracker](https://github.com/Parcosta/cursor-cloud-agents/issues)
+-  [Discussions](https://github.com/Parcosta/cursor-cloud-agents/discussions)

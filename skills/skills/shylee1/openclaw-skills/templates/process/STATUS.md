@@ -14,9 +14,9 @@
 
 ## Status Key
 
-- 🟡 In Progress — Working on it
-- 🔴 Blocked — Stuck, needs help
-- 🟢 Done — Ready to move to Backlog
+-  In Progress — Working on it
+-  Blocked — Stuck, needs help
+-  Done — Ready to move to Backlog
 
 ---
 

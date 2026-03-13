@@ -36,7 +36,7 @@ def print_header():
     """Print the setup wizard header."""
     print()
     print(color("╔════════════════════════════════════════════════════════════╗", Colors.CYAN))
-    print(color("║          🔍 Web Search Plus - Setup Wizard                 ║", Colors.CYAN))
+    print(color("║           Web Search Plus - Setup Wizard                 ║", Colors.CYAN))
     print(color("╚════════════════════════════════════════════════════════════╝", Colors.CYAN))
     print()
     print(color("This wizard will help you configure your search providers.", Colors.DIM))
@@ -45,13 +45,13 @@ def print_header():
 
 def print_provider_info():
     """Print information about each provider."""
-    print(color("📚 Available Providers:", Colors.BOLD))
+    print(color(" Available Providers:", Colors.BOLD))
     print()
     
     providers = [
         {
             "name": "Serper",
-            "emoji": "🔎",
+            "emoji": "",
             "best_for": "Google results, shopping, local businesses, news",
             "free_tier": "2,500 queries/month",
             "signup": "https://serper.dev",
@@ -59,7 +59,7 @@ def print_provider_info():
         },
         {
             "name": "Tavily", 
-            "emoji": "📖",
+            "emoji": "",
             "best_for": "Research, explanations, in-depth analysis",
             "free_tier": "1,000 queries/month",
             "signup": "https://tavily.com",
@@ -67,7 +67,7 @@ def print_provider_info():
         },
         {
             "name": "Exa",
-            "emoji": "🧠",
+            "emoji": "",
             "best_for": "Semantic search, finding similar content, discovery",
             "free_tier": "1,000 queries/month", 
             "signup": "https://exa.ai",
@@ -75,7 +75,7 @@ def print_provider_info():
         },
         {
             "name": "You.com",
-            "emoji": "🤖",
+            "emoji": "",
             "best_for": "RAG applications, real-time info, LLM-ready snippets",
             "free_tier": "Limited free tier",
             "signup": "https://api.you.com",
@@ -83,7 +83,7 @@ def print_provider_info():
         },
         {
             "name": "SearXNG",
-            "emoji": "🔒",
+            "emoji": "",
             "best_for": "Privacy-first search, multi-source aggregation, $0 API cost",
             "free_tier": "FREE (self-hosted)",
             "signup": "https://docs.searxng.org/admin/installation.html",
@@ -143,12 +143,12 @@ def ask_api_key(provider: str, signup_url: str) -> str:
         key = input(f"  Enter your {provider} API key: ").strip()
         
         if not key:
-            print(color("    ⚠️  No key entered. This provider will be disabled.", Colors.YELLOW))
+            print(color("      No key entered. This provider will be disabled.", Colors.YELLOW))
             return None
         
         # Basic validation
         if len(key) < 10:
-            print(color("    ⚠️  Key seems too short. Please check and try again.", Colors.YELLOW))
+            print(color("      Key seems too short. Please check and try again.", Colors.YELLOW))
             continue
         
         # Mask key for confirmation
@@ -172,12 +172,12 @@ def ask_searxng_instance(docs_url: str) -> str:
         url = input(f"  Enter your SearXNG instance URL: ").strip()
         
         if not url:
-            print(color("    ⚠️  No URL entered. SearXNG will be disabled.", Colors.YELLOW))
+            print(color("      No URL entered. SearXNG will be disabled.", Colors.YELLOW))
             return None
         
         # Basic URL validation
         if not url.startswith(("http://", "https://")):
-            print(color("    ⚠️  URL must start with http:// or https://", Colors.YELLOW))
+            print(color("      URL must start with http:// or https://", Colors.YELLOW))
             continue
         
         # Test connection
@@ -202,29 +202,29 @@ def ask_searxng_instance(docs_url: str) -> str:
                     print(color(f"    ✓ Connection successful! SearXNG instance is working.", Colors.GREEN))
                     return url.rstrip("/")
                 else:
-                    print(color(f"    ⚠️  Connected but response doesn't look like SearXNG JSON.", Colors.YELLOW))
+                    print(color(f"      Connected but response doesn't look like SearXNG JSON.", Colors.YELLOW))
                     if ask_yes_no("    Use this URL anyway?", default=False):
                         return url.rstrip("/")
                         
         except urllib.error.HTTPError as e:
             if e.code == 403:
-                print(color(f"    ⚠️  JSON API is disabled (403 Forbidden).", Colors.YELLOW))
+                print(color(f"      JSON API is disabled (403 Forbidden).", Colors.YELLOW))
                 print(color(f"       Enable JSON in settings.yml: search.formats: [html, json]", Colors.DIM))
             else:
-                print(color(f"    ⚠️  HTTP error: {e.code} {e.reason}", Colors.YELLOW))
+                print(color(f"      HTTP error: {e.code} {e.reason}", Colors.YELLOW))
             
             if ask_yes_no("    Try a different URL?", default=True):
                 continue
             return None
             
         except urllib.error.URLError as e:
-            print(color(f"    ⚠️  Cannot reach instance: {e.reason}", Colors.YELLOW))
+            print(color(f"      Cannot reach instance: {e.reason}", Colors.YELLOW))
             if ask_yes_no("    Try a different URL?", default=True):
                 continue
             return None
             
         except Exception as e:
-            print(color(f"    ⚠️  Error: {e}", Colors.YELLOW))
+            print(color(f"      Error: {e}", Colors.YELLOW))
             if ask_yes_no("    Try a different URL?", default=True):
                 continue
             return None
@@ -279,7 +279,7 @@ def run_setup(skill_dir: Path, force_reset: bool = False):
     
     # ===== Question 1: Which providers to enable =====
     print(color("─" * 60, Colors.DIM))
-    print(color("\n📋 Step 1: Choose Your Providers\n", Colors.BOLD))
+    print(color("\n Step 1: Choose Your Providers\n", Colors.BOLD))
     print("Select which search providers you want to enable.")
     print(color("(You need at least one API key to use this skill)", Colors.DIM))
     print()
@@ -324,14 +324,14 @@ def run_setup(skill_dir: Path, force_reset: bool = False):
     
     if not enabled_providers:
         print()
-        print(color("⚠️  No providers enabled!", Colors.RED))
+        print(color("  No providers enabled!", Colors.RED))
         print("You need at least one API key to use web-search-plus.")
         print("Run this setup again when you have an API key.")
         return False
     
     # ===== Question 3: Default provider =====
     print(color("─" * 60, Colors.DIM))
-    print(color("\n⚙️  Step 2: Default Settings\n", Colors.BOLD))
+    print(color("\n  Step 2: Default Settings\n", Colors.BOLD))
     
     if len(enabled_providers) > 1:
         default_provider = ask_choice(
@@ -373,7 +373,7 @@ def run_setup(skill_dir: Path, force_reset: bool = False):
     # ===== Save config =====
     print()
     print(color("─" * 60, Colors.DIM))
-    print(color("\n💾 Saving Configuration\n", Colors.BOLD))
+    print(color("\n Saving Configuration\n", Colors.BOLD))
     
     with open(config_path, 'w') as f:
         json.dump(config, f, indent=2)
@@ -382,7 +382,7 @@ def run_setup(skill_dir: Path, force_reset: bool = False):
     print()
     
     # ===== Summary =====
-    print(color("📋 Configuration Summary:", Colors.BOLD))
+    print(color(" Configuration Summary:", Colors.BOLD))
     print(f"   Enabled providers: {', '.join(enabled_providers)}")
     print(f"   Default provider: {default_provider}")
     print(f"   Auto-routing: {'enabled' if auto_routing else 'disabled'}")
@@ -390,7 +390,7 @@ def run_setup(skill_dir: Path, force_reset: bool = False):
     print()
     
     # ===== Test suggestion =====
-    print(color("🚀 Ready to search! Try:", Colors.BOLD))
+    print(color(" Ready to search! Try:", Colors.BOLD))
     print(color(f"   python3 scripts/search.py -q \"your query here\"", Colors.CYAN))
     print()
     

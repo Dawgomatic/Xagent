@@ -325,9 +325,9 @@ search_memory() {
             echo -e "\n${COLOR_HEADING}${count}. ${heading}${COLOR_RESET}"
             
             if [[ -n "$date_match" ]]; then
-                echo -e "   ${COLOR_DATE}📅 $date_match${COLOR_RESET} ${COLOR_FILE}| $file:$line_num${COLOR_RESET}"
+                echo -e "   ${COLOR_DATE} $date_match${COLOR_RESET} ${COLOR_FILE}| $file:$line_num${COLOR_RESET}"
             else
-                echo -e "   ${COLOR_FILE}📄 $file:$line_num${COLOR_RESET}"
+                echo -e "   ${COLOR_FILE} $file:$line_num${COLOR_RESET}"
             fi
             
             if [[ -n "$tags" ]]; then

@@ -121,7 +121,7 @@ class IncidentClassifier:
         """Load communication templates for each severity level."""
         return {
             "sev1": {
-                "subject": "🚨 [SEV1] {service} - {brief_description}",
+                "subject": " [SEV1] {service} - {brief_description}",
                 "body": """CRITICAL INCIDENT ALERT
 
 Incident Details:
@@ -151,7 +151,7 @@ This is a customer-impacting incident requiring immediate attention.
 {incident_commander_contact}"""
             },
             "sev2": {
-                "subject": "⚠️ [SEV2] {service} - {brief_description}",
+                "subject": " [SEV2] {service} - {brief_description}",
                 "body": """MAJOR INCIDENT NOTIFICATION
 
 Incident Details:
@@ -181,7 +181,7 @@ Status page: {status_page_link}
 {contact_information}"""
             },
             "sev3": {
-                "subject": "ℹ️ [SEV3] {service} - {brief_description}",
+                "subject": " [SEV3] {service} - {brief_description}",
                 "body": """MINOR INCIDENT NOTIFICATION
 
 Incident Details:
@@ -762,7 +762,7 @@ def interactive_mode():
     """Run in interactive mode, prompting user for input."""
     classifier = IncidentClassifier()
     
-    print("🚨 Incident Classifier - Interactive Mode")
+    print(" Incident Classifier - Interactive Mode")
     print("=" * 50)
     print("Enter incident details (or 'quit' to exit):")
     print()

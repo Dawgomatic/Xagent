@@ -111,7 +111,7 @@ def main():
         }
         print(json.dumps(output, indent=2, ensure_ascii=False))
     else:
-        print(f"🔋 Horas baratas hoy (≤{args.percentile}% del día, ≤{threshold:.4f} €/kWh)\n")
+        print(f" Horas baratas hoy (≤{args.percentile}% del día, ≤{threshold:.4f} €/kWh)\n")
         
         if not ranges:
             print("No hay rangos baratos consecutivos hoy")
@@ -126,11 +126,11 @@ def main():
             if info['crosses_midnight']:
                 end_str += " (día siguiente)"
             print(f"{i}. {info['start']:02d}:00 - {end_str} ({info['duration']}h)")
-            print(f"   💰 {info['min_price']:.4f} - {info['max_price']:.4f} €/kWh (media: {info['avg_price']:.4f})")
+            print(f"    {info['min_price']:.4f} - {info['max_price']:.4f} €/kWh (media: {info['avg_price']:.4f})")
             
             # Calcular ahorro vs media
             saving = ((stats['mean'] - info['avg_price']) / stats['mean']) * 100
-            print(f"   💚 Ahorro vs media: {saving:.1f}%\n")
+            print(f"    Ahorro vs media: {saving:.1f}%\n")
 
 if __name__ == '__main__':
     main()

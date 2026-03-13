@@ -93,7 +93,7 @@ python3 scripts/task_manager_phase1.py show-velocity <goal-id>
 Add to HEARTBEAT.md:
 
 ```markdown
-## Proactive Tasks (Every heartbeat) 🚀
+## Proactive Tasks (Every heartbeat) 
 
 - [ ] Run `python3 skills/proactive-tasks/scripts/task_manager.py next-task`
 - [ ] If task returned, work for 10-15 minutes
@@ -117,15 +117,15 @@ This transforms agents from reactive tools into proactive partners.
 
 | Feature | proactive-tasks | Excel | Notion | Jira |
 |---------|-----------------|-------|--------|------|
-| Goal/Task hierarchy | ✅ | ❌ | ✅ | ✅ |
-| Progress 0-100% | ✅ | ✅ | ✅ | ✅ |
-| Time tracking | ✅ | ✅ | ⚠️ | ✅ |
-| Velocity prediction | ✅ | ❌ | ❌ | ✅ |
-| Recurring tasks | ✅ | ❌ | ⚠️ | ✅ |
-| Blocking reasons | ✅ | ❌ | ⚠️ | ✅ |
-| **JSON (portable)** | ✅ | ❌ | ❌ | ❌ |
-| **CLI (automation)** | ✅ | ❌ | ❌ | ⚠️ |
-| **No dependencies** | ✅ | ❌ | ❌ | ❌ |
+| Goal/Task hierarchy |  |  |  |  |
+| Progress 0-100% |  |  |  |  |
+| Time tracking |  |  |  |  |
+| Velocity prediction |  |  |  |  |
+| Recurring tasks |  |  |  |  |
+| Blocking reasons |  |  |  |  |
+| **JSON (portable)** |  |  |  |  |
+| **CLI (automation)** |  |  |  |  |
+| **No dependencies** |  |  |  |  |
 
 ## Use Cases
 
@@ -204,19 +204,19 @@ python3 scripts/task_manager_phase1.py show-velocity <goal-id>
 ## Version History
 
 **v1.1.0** (2026-02-12)
-- ✨ Progress tracking (0-100%)
-- ✨ Time logging and variance
-- ✨ Recurring tasks (daily/weekly/monthly)
-- ✨ Blocking with reasons
-- ✨ Velocity prediction
-- 📝 Phase 1 documentation
+-  Progress tracking (0-100%)
+-  Time logging and variance
+-  Recurring tasks (daily/weekly/monthly)
+-  Blocking with reasons
+-  Velocity prediction
+-  Phase 1 documentation
 
 **v1.0.0** (2026-02-05)
-- ✨ Goal and task management
-- ✨ Task dependencies
-- ✨ Priority levels
-- ✨ Status tracking
-- ✨ Heartbeat integration
+-  Goal and task management
+-  Task dependencies
+-  Priority levels
+-  Status tracking
+-  Heartbeat integration
 
 ---
 

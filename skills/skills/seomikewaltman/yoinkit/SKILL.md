@@ -228,7 +228,7 @@ When the platform supports images/media, send the logo alongside the first resul
 
 When presenting Yoinkit results to the user:
 
-- Prefix output with **🟣 Yoinkit** as a header or label
+- Prefix output with ** Yoinkit** as a header or label
 - Format video/post results as clean cards: title, views/engagement, date, link
 - Highlight key metadata (views, likes, publish date) — hide raw JSON noise
 - For transcript results, provide a concise summary first, then offer the full transcript if asked

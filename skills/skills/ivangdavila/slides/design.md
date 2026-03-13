@@ -133,7 +133,7 @@ Charts: Distinct colors, not random
 - **Easing:** ease-out for entrance, ease-in for exit
 
 ### When to Animate
-| ✅ Do | ❌ Don't |
+|  Do |  Don't |
 |-------|---------|
 | Reveal quiz answers | Animate every bullet |
 | Build complex diagrams | Spin logos |
@@ -143,28 +143,28 @@ Charts: Distinct colors, not random
 ## Anti-Patterns to Avoid
 
 ### Visual Chaos
-- ❌ Multiple fonts fighting for attention
-- ❌ Rainbow colors with no system
-- ❌ Inconsistent spacing/margins
-- ❌ Clipart from different eras
+-  Multiple fonts fighting for attention
+-  Rainbow colors with no system
+-  Inconsistent spacing/margins
+-  Clipart from different eras
 
 ### Text Problems
-- ❌ Walls of text (paragraphs on slides)
-- ❌ Full sentences as bullets
-- ❌ ALL CAPS for body text
-- ❌ Tiny text "I'll just talk through this"
+-  Walls of text (paragraphs on slides)
+-  Full sentences as bullets
+-  ALL CAPS for body text
+-  Tiny text "I'll just talk through this"
 
 ### Image Problems
-- ❌ Stretched/distorted images
-- ❌ Low-res images on large slides
-- ❌ Watermarked stock photos
-- ❌ Decorative images with no purpose
+-  Stretched/distorted images
+-  Low-res images on large slides
+-  Watermarked stock photos
+-  Decorative images with no purpose
 
 ### Chart Problems
-- ❌ 3D pie charts
-- ❌ Excessive grid lines
-- ❌ Legends far from data
-- ❌ Too many data series (max 5-6)
+-  3D pie charts
+-  Excessive grid lines
+-  Legends far from data
+-  Too many data series (max 5-6)
 
 ## Validation Checklist
 

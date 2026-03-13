@@ -34,7 +34,7 @@ if [ -n "$DISCORD_ID" ]; then
     # Primary lookup by discord ID
     # Validate discord ID is numeric to prevent SQL injection
     if ! [[ "$DISCORD_ID" =~ ^[0-9]+$ ]]; then
-        echo "❌ Invalid Discord ID: must be numeric."
+        echo " Invalid Discord ID: must be numeric."
         exit 1
     fi
     RESULT=$(db_query "SELECT e.id, e.name, e.type, e.trust_tier, e.status, e.relationship, e.bio,
@@ -46,7 +46,7 @@ if [ -n "$DISCORD_ID" ]; then
         LIMIT 1;" 2>/dev/null || true)
 
     if [ -z "$RESULT" ]; then
-        echo "❌ Unknown entity (discord:$DISCORD_ID). Treat as Tier 1 (stranger)."
+        echo " Unknown entity (discord:$DISCORD_ID). Treat as Tier 1 (stranger)."
         echo "   $(tier_rules 1)"
         exit 0
     fi
@@ -63,7 +63,7 @@ if [ -n "$DISCORD_ID" ]; then
     TAGS=$(db_query "SELECT tag FROM entity_tags WHERE entity_id=$ID;" | tr '\n' ', ' | sed 's/,$//')
 
     # Format output
-    echo "🔍 $NAME_V | $TYPE_V | Tier $TIER_V ($(tier_label "$TIER_V")) | Status: $STATUS_V"
+    echo " $NAME_V | $TYPE_V | Tier $TIER_V ($(tier_label "$TIER_V")) | Status: $STATUS_V"
     if [ -n "$OWNER_V" ] && [ -n "$REL_V" ]; then
         echo "   Owner: $OWNER_V | Relationship: $REL_V"
     elif [ -n "$OWNER_V" ]; then
@@ -84,10 +84,10 @@ elif [ -n "$NAME" ]; then
     RESULTS=$(db_query "SELECT e.id, e.name, e.type, e.trust_tier, e.status
         FROM entities e WHERE e.name LIKE '%$SAFE_NAME%';" 2>/dev/null || true)
     if [ -z "$RESULTS" ]; then
-        echo "❌ No entities found matching name: $NAME"
+        echo " No entities found matching name: $NAME"
         exit 0
     fi
-    echo "🔍 Entities matching '$NAME':"
+    echo " Entities matching '$NAME':"
     while IFS='|' read -r ID NAME_V TYPE_V TIER_V STATUS_V; do
         echo "   $NAME_V | $TYPE_V | Tier $TIER_V ($(tier_label "$TIER_V")) | $STATUS_V"
     done <<< "$RESULTS"
@@ -98,10 +98,10 @@ elif [ -n "$TAG" ]; then
         FROM entities e JOIN entity_tags et ON e.id = et.entity_id
         WHERE et.tag='$SAFE_TAG';" 2>/dev/null || true)
     if [ -z "$RESULTS" ]; then
-        echo "❌ No entities found with tag: $TAG"
+        echo " No entities found with tag: $TAG"
         exit 0
     fi
-    echo "🏷️  Entities tagged '$TAG':"
+    echo "  Entities tagged '$TAG':"
     while IFS='|' read -r ID NAME_V TYPE_V TIER_V STATUS_V; do
         echo "   $NAME_V | $TYPE_V | Tier $TIER_V ($(tier_label "$TIER_V")) | $STATUS_V"
     done <<< "$RESULTS"
@@ -112,10 +112,10 @@ elif [ -n "$SERVER" ]; then
         FROM entities e JOIN server_roles sr ON e.id = sr.entity_id
         WHERE sr.server_slug='$SAFE_SERVER';" 2>/dev/null || true)
     if [ -z "$RESULTS" ]; then
-        echo "❌ No entities found on server: $SERVER"
+        echo " No entities found on server: $SERVER"
         exit 0
     fi
-    echo "🖥️  Entities on '$SERVER':"
+    echo "  Entities on '$SERVER':"
     while IFS='|' read -r NAME_V TYPE_V TIER_V ROLE_V; do
         echo "   $NAME_V | $TYPE_V | Tier $TIER_V ($(tier_label "$TIER_V")) | Role: $ROLE_V"
     done <<< "$RESULTS"
@@ -124,10 +124,10 @@ elif [ -n "$TIER" ]; then
     RESULTS=$(db_query "SELECT e.name, e.type, e.trust_tier, e.status
         FROM entities e WHERE e.trust_tier=$TIER;" 2>/dev/null || true)
     if [ -z "$RESULTS" ]; then
-        echo "❌ No entities at tier $TIER"
+        echo " No entities at tier $TIER"
         exit 0
     fi
-    echo "🔍 Tier $TIER ($(tier_label "$TIER")) entities:"
+    echo " Tier $TIER ($(tier_label "$TIER")) entities:"
     while IFS='|' read -r NAME_V TYPE_V TIER_V STATUS_V; do
         echo "   $NAME_V | $TYPE_V | $STATUS_V"
     done <<< "$RESULTS"
@@ -136,10 +136,10 @@ elif [ -n "$TYPE" ]; then
     RESULTS=$(db_query "SELECT e.name, e.type, e.trust_tier, e.status
         FROM entities e WHERE e.type='$TYPE';" 2>/dev/null || true)
     if [ -z "$RESULTS" ]; then
-        echo "❌ No ${TYPE}s found"
+        echo " No ${TYPE}s found"
         exit 0
     fi
-    echo "🔍 All ${TYPE}s:"
+    echo " All ${TYPE}s:"
     while IFS='|' read -r NAME_V TYPE_V TIER_V STATUS_V; do
         echo "   $NAME_V | Tier $TIER_V ($(tier_label "$TIER_V")) | $STATUS_V"
     done <<< "$RESULTS"

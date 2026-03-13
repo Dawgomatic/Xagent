@@ -11,7 +11,7 @@ metadata:
       bins:
         - python3
         - node
-    emoji: "💰"
+    emoji: ""
 ---
 
 # tokenQrusher Skill

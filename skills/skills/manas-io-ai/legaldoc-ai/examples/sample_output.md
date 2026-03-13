@@ -6,7 +6,7 @@
 
 ---
 
-## 🔴 Indemnification
+##  Indemnification
 **Section:** 8.1 Provider Indemnification
 **Page:** N/A
 **Risk Level:** MEDIUM
@@ -17,11 +17,11 @@
 
 **Analysis:** Contains standard terms: mutual
 
-**💡 Suggested Revisions:** Consider: (1) Verify insurance coverage aligns, (2) Add defense cost provisions
+** Suggested Revisions:** Consider: (1) Verify insurance coverage aligns, (2) Add defense cost provisions
 
 ---
 
-## 🟡 Limitation of Liability
+##  Limitation of Liability
 **Section:** 7.1 Exclusion of Consequential Damages
 **Page:** N/A
 **Risk Level:** MEDIUM
@@ -32,11 +32,11 @@
 
 **Analysis:** Contains standard terms: 12 months, mutual
 
-**💡 Suggested Revisions:** Consider: (1) Verify cap amount is sufficient, (2) Confirm mutual application
+** Suggested Revisions:** Consider: (1) Verify cap amount is sufficient, (2) Confirm mutual application
 
 ---
 
-## 🟢 Termination
+##  Termination
 **Section:** 2.2 Termination for Convenience
 **Page:** N/A
 **Risk Level:** LOW
@@ -49,7 +49,7 @@
 
 ---
 
-## 🟡 Confidentiality
+##  Confidentiality
 **Section:** 5.2 Obligations
 **Page:** N/A
 **Risk Level:** MEDIUM
@@ -62,7 +62,7 @@
 
 ---
 
-## 🟢 IP Assignment
+##  IP Assignment
 **Section:** 4.3 Assignment
 **Page:** N/A
 **Risk Level:** LOW
@@ -75,7 +75,7 @@
 
 ---
 
-## 🟢 Governing Law
+##  Governing Law
 **Section:** 12.1 Governing Law
 **Page:** N/A
 **Risk Level:** LOW
@@ -88,7 +88,7 @@
 
 ---
 
-## 🟡 Dispute Resolution
+##  Dispute Resolution
 **Section:** 11.3 Arbitration
 **Page:** N/A
 **Risk Level:** MEDIUM
@@ -101,7 +101,7 @@
 
 ---
 
-## 🟢 Force Majeure
+##  Force Majeure
 **Section:** 10.1
 **Page:** N/A
 **Risk Level:** LOW

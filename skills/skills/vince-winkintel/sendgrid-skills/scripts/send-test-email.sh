@@ -27,7 +27,7 @@ fi
 
 # Validate API key
 if [[ -z "$SENDGRID_API_KEY" ]]; then
-  echo "❌ Error: SENDGRID_API_KEY environment variable not set"
+  echo " Error: SENDGRID_API_KEY environment variable not set"
   echo ""
   echo "Get your API key at: https://app.sendgrid.com/settings/api_keys"
   echo "Then set it: export SENDGRID_API_KEY=SG.xxxxxxxxx"
@@ -36,7 +36,7 @@ fi
 
 # Validate recipient
 if [[ -z "$1" ]]; then
-  echo "❌ Error: Recipient email required"
+  echo " Error: Recipient email required"
   echo "Usage: $0 <recipient-email> [subject] [message]"
   exit 1
 fi
@@ -46,7 +46,7 @@ SUBJECT="${2:-SendGrid Test Email}"
 MESSAGE="${3:-This is a test email sent via SendGrid API to validate configuration.}"
 FROM="${SENDGRID_FROM:-test@example.com}"
 
-echo "📧 Sending test email..."
+echo " Sending test email..."
 echo "  From: $FROM"
 echo "  To: $RECIPIENT"
 echo "  Subject: $SUBJECT"
@@ -76,17 +76,17 @@ BODY=$(echo "$RESPONSE" | head -n-1)
 
 # Check response
 if [[ "$HTTP_CODE" == "202" ]]; then
-  echo "✅ Success! Email queued for delivery (HTTP $HTTP_CODE)"
+  echo " Success! Email queued for delivery (HTTP $HTTP_CODE)"
   echo ""
   echo "Note: Check recipient inbox/spam folder in ~1 minute"
 elif [[ "$HTTP_CODE" == "401" ]]; then
-  echo "❌ Error: Unauthorized (HTTP $HTTP_CODE)"
+  echo " Error: Unauthorized (HTTP $HTTP_CODE)"
   echo "API key is invalid or missing Mail Send permissions"
   echo ""
   echo "Response: $BODY"
   exit 1
 elif [[ "$HTTP_CODE" == "403" ]]; then
-  echo "❌ Error: Forbidden (HTTP $HTTP_CODE)"
+  echo " Error: Forbidden (HTTP $HTTP_CODE)"
   echo "Sender email '$FROM' may not be verified"
   echo ""
   echo "Verify sender at: https://app.sendgrid.com/settings/sender_auth"
@@ -94,7 +94,7 @@ elif [[ "$HTTP_CODE" == "403" ]]; then
   echo "Response: $BODY"
   exit 1
 else
-  echo "❌ Error: Unexpected response (HTTP $HTTP_CODE)"
+  echo " Error: Unexpected response (HTTP $HTTP_CODE)"
   echo ""
   echo "Response: $BODY"
   exit 1

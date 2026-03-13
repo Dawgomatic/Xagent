@@ -3,7 +3,7 @@ name: arya-reminders
 description: Recordatorios en lenguaje natural (Bogotá). Crea cron jobs seguros y registra en markdown (y opcionalmente Sheets).
 metadata:
   openclaw:
-    emoji: "⏰"
+    emoji: ""
     requires:
       bins: ["bash", "python3"]
 ---

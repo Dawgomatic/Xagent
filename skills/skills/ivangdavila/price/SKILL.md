@@ -3,7 +3,7 @@ name: Price
 slug: price
 version: 1.0.0
 description: Track prices, detect deals and manipulation, time purchases, and make informed buying decisions as a consumer or business buyer.
-metadata: {"clawdbot":{"emoji":"💰","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

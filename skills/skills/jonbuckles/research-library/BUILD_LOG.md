@@ -36,9 +36,9 @@ Test environment: 20 documents, mixed reference/research, 5 attachments, 6 links
 
 | Operation | Avg Latency | Max Latency | Target | Status |
 |-----------|-------------|-------------|--------|--------|
-| Basic FTS5 search ("servo") | **0.33ms** | 0.38ms | <100ms | ✅ |
-| Project-scoped search | **0.21ms** | - | <100ms | ✅ |
-| Link traversal | **0.05ms** | - | <100ms | ✅ |
+| Basic FTS5 search ("servo") | **0.33ms** | 0.38ms | <100ms |  |
+| Project-scoped search | **0.21ms** | - | <100ms |  |
+| Link traversal | **0.05ms** | - | <100ms |  |
 
 **All queries >100x faster than target.**
 
@@ -50,18 +50,18 @@ Test duration: 1.42s
 ```
 
 Test categories:
-- Ranking module: 8 tests ✅
-- ResearchRanking class: 3 tests ✅
-- Search utilities: 6 tests ✅
-- Basic search: 4 tests ✅
-- Material type weighting: 3 tests ✅
-- Project scoping: 5 tests ✅
-- Linked research: 5 tests ✅
-- Confidence filtering: 3 tests ✅
-- Attachment search: 3 tests ✅
-- File usage: 2 tests ✅
-- Performance: 3 tests ✅
-- Edge cases: 5 tests ✅
+- Ranking module: 8 tests 
+- ResearchRanking class: 3 tests 
+- Search utilities: 6 tests 
+- Basic search: 4 tests 
+- Material type weighting: 3 tests 
+- Project scoping: 5 tests 
+- Linked research: 5 tests 
+- Confidence filtering: 3 tests 
+- Attachment search: 3 tests 
+- File usage: 2 tests 
+- Performance: 3 tests 
+- Edge cases: 5 tests 
 
 ### Ranking Formula Verification
 
@@ -72,7 +72,7 @@ Test case: Reference vs Research at same FTS5 relevance
 | Datasheet | reference | 0.95 | **0.827** |
 | Blog Post | research | 0.95 | 0.652 |
 
-**Reference correctly ranks first ✅**
+**Reference correctly ranks first **
 
 ### Issues Found
 
@@ -103,4 +103,4 @@ Test case: Reference vs Research at same FTS5 relevance
 
 | Date | Phase | Status |
 |------|-------|--------|
-| 2026-02-07 | PHASE 1: Search & Ranking | ✅ Complete |
+| 2026-02-07 | PHASE 1: Search & Ranking |  Complete |

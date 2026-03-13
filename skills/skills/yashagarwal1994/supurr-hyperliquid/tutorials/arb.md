@@ -23,7 +23,7 @@ This is a **market-neutral** strategy — you're not betting on price direction,
 
 ---
 
-## 1️⃣ Setup Credentials
+##  Setup Credentials
 
 ```bash
 supurr init --address 0xYOUR_WALLET --api-wallet 0xYOUR_API_KEY
@@ -31,7 +31,7 @@ supurr init --address 0xYOUR_WALLET --api-wallet 0xYOUR_API_KEY
 
 ---
 
-## 2️⃣ Check Eligible Markets
+##  Check Eligible Markets
 
 Not all assets support arb. You need **both** a spot and perp market on Hyperliquid for the same asset.
 
@@ -61,24 +61,24 @@ Not all assets support arb. You need **both** a spot and perp market on Hyperliq
 | PURR  | PURR/USDC  | PURR  |
 | BERA  | BERA/USDC  | BERA  |
 
-> **⚠️ Don't pass the spot name directly.** Always use the **perp ticker** (e.g., `--asset BTC`, not `--asset UBTC`). The CLI resolves the spot counterpart automatically.
+> ** Don't pass the spot name directly.** Always use the **perp ticker** (e.g., `--asset BTC`, not `--asset UBTC`). The CLI resolves the spot counterpart automatically.
 
 ---
 
-## 3️⃣ Fund Both Wallets
+##  Fund Both Wallets
 
 Arb bots trade on **two sides simultaneously**, so you need USDC in both wallets:
 
 1. **Spot wallet** — for buying the spot token
 2. **Perps wallet** — for shorting the perpetual
 
-On Hyperliquid, transfer USDC between wallets via: Portfolio → Transfer → Spot ↔ Perps.
+On Hyperliquid, transfer USDC between wallets via: Portfolio → Transfer → Spot  Perps.
 
 > **Rule of thumb**: Split your allocation roughly 50/50 between spot and perps wallets.
 
 ---
 
-## 4️⃣ Generate Config
+##  Generate Config
 
 Understand the key parameters:
 
@@ -118,7 +118,7 @@ supurr new arb \
 
 ---
 
-## 5️⃣ Review Config
+##  Review Config
 
 Before deploying, review the generated config:
 
@@ -128,14 +128,14 @@ supurr config btc-arb
 
 Verify:
 
-- ✅ Two markets listed (spot + perp)
-- ✅ Spot token resolved correctly (e.g., `UBTC` for BTC)
-- ✅ Spread thresholds match your expectations
-- ✅ Environment is `mainnet` (not `testnet`)
+-  Two markets listed (spot + perp)
+-  Spot token resolved correctly (e.g., `UBTC` for BTC)
+-  Spread thresholds match your expectations
+-  Environment is `mainnet` (not `testnet`)
 
 ---
 
-## 6️⃣ Deploy
+##  Deploy
 
 ```bash
 supurr deploy -c btc-arb.json
@@ -145,7 +145,7 @@ The bot will start monitoring the spread between spot and perp, and execute trad
 
 ---
 
-## 7️⃣ Monitor
+##  Monitor
 
 ```bash
 supurr monitor --watch

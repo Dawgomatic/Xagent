@@ -90,7 +90,7 @@ const run = async () => {
 
     if (trends.length === 0) {
       if (options.json) console.log(JSON.stringify([], null, 2));
-      else console.log(chalk.yellow('⚠ No trends found.'));
+      else console.log(chalk.yellow(' No trends found.'));
       return;
     }
 
@@ -100,7 +100,7 @@ const run = async () => {
     if (options.json) {
       console.log(JSON.stringify(slicedTrends, null, 2));
     } else {
-      console.log(`\n${chalk.blue.bold('🔥 X Trends')} for ${chalk.green((countrySlug || 'Worldwide').toUpperCase())}`);
+      console.log(`\n${chalk.blue.bold(' X Trends')} for ${chalk.green((countrySlug || 'Worldwide').toUpperCase())}`);
       console.log(chalk.gray('--------------------------------------------------'));
       console.log(chalk.gray(`Rank  ${'Trend'.padEnd(30)} ${'Volume'.padStart(15)}`));
       console.log(chalk.gray('--------------------------------------------------'));

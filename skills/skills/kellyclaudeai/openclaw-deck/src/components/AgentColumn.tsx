@@ -71,7 +71,7 @@ function MessageBubble({
   if (message.toolUse) {
     return (
       <div className={styles.toolBubble}>
-        <span className={styles.toolIcon}>⚙</span>
+        <span className={styles.toolIcon}></span>
         <span>
           {message.toolUse.name}
           {message.toolUse.status === "running" && (
@@ -175,7 +175,7 @@ export function AgentColumn({ agentId, columnIndex }: { agentId: string; columnI
         </div>
         <div className={styles.headerActions}>
           <button className={styles.headerBtn} title="Settings">
-            ⚙
+            
           </button>
           <button className={styles.headerBtn} title="More">
             ⋯

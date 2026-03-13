@@ -9,7 +9,7 @@ All commands assume PATH is set: `export PATH="$HOME/.npm-global/bin:$PATH"`
 
 ---
 
-## ⚠️ Payment Warning
+##  Payment Warning
 
 Always:
 1. Show the **full all-in price** (tickets + booking fees + taxes) before proceeding
@@ -43,7 +43,7 @@ Fandango is the best aggregator for finding all theaters near a zip code.
 ### Megaplex Theatres (Utah / Nevada)
 - **Website:** megaplex.com
 - **Loyalty:** MegaClub (free, earns free tickets)
-- **Guest checkout:** ✅ Available; account recommended for points
+- **Guest checkout:**  Available; account recommended for points
 - **Theater URL pattern:** `megaplex.com/{theater-slug}` (e.g., `megaplex.com/legacycrossing`)
 - **Find locations:** `megaplex.com/theatres/locations`
 
@@ -73,7 +73,7 @@ AMC charges a per-ticket online booking fee (~$1.50–2.50/ticket). Always inclu
 ### Cinemark (National)
 - **Website:** cinemark.com
 - **Loyalty:** Movie Club ($8.99/mo, 1 ticket/month)
-- **Guest checkout:** ✅ Best guest checkout of major chains
+- **Guest checkout:**  Best guest checkout of major chains
 - **Showtimes:** Theater finder on homepage → select by zip
 
 ```bash
@@ -87,7 +87,7 @@ playwright-cli -s=cin click {guest-checkout-ref}
 ### Regal Cinemas (National)
 - **Website:** regmovies.com
 - **Loyalty:** Regal Crown Club (free) / Unlimited ($20+/mo)
-- **Guest checkout:** ✅ Available
+- **Guest checkout:**  Available
 - **Showtimes near zip:** `regmovies.com/movies/now-playing?distance=25&zip={zip}`
 
 ```bash
@@ -138,7 +138,7 @@ playwright-cli -s=movies click {continue-ref}
 - If map doesn't render: `playwright-cli screenshot` to diagnose
 - Query seat count: `playwright-cli eval "document.querySelectorAll('[data-seat-status=available]').length"`
 
-**Step 4: ⚠️ STOP — Confirm price before checkout**
+**Step 4:  STOP — Confirm price before checkout**
 
 ```bash
 playwright-cli -s=movies snapshot

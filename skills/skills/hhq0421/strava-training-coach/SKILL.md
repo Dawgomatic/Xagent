@@ -20,7 +20,7 @@ description: |
   - Secure file permissions on token storage
   - Webhook URL validation
 homepage: https://developers.strava.com/docs/reference/
-metadata: {"clawdbot":{"emoji":"🏃","tags":["fitness","strava","running","injury-prevention","training","alerts","discord","slack","security"],"requires":{"env":["STRAVA_CLIENT_ID","STRAVA_CLIENT_SECRET","DISCORD_WEBHOOK_URL or SLACK_WEBHOOK_URL"]}}}
+metadata: {"clawdbot":{"emoji":"","tags":["fitness","strava","running","injury-prevention","training","alerts","discord","slack","security"],"requires":{"env":["STRAVA_CLIENT_ID","STRAVA_CLIENT_SECRET","DISCORD_WEBHOOK_URL or SLACK_WEBHOOK_URL"]}}}
 ---
 
 # Strava Training Coach
@@ -70,7 +70,7 @@ export SLACK_WEBHOOK_URL=https://hooks.slack.com/...
 export NOTIFICATION_CHANNEL=slack
 ```
 
-⚠️ **Security:** Webhook URLs must be set via environment variables. No hardcoded URLs allowed.
+ **Security:** Webhook URLs must be set via environment variables. No hardcoded URLs allowed.
 
 ### 3. Optional: Enable Oura Integration
 
@@ -147,19 +147,19 @@ distVERBOse=false              # Enable debug logging
 
 ### Injury Risk
 
-> "⚠️ Training Load Alert: Weekly mileage up 45% (18→26 mi). Risk of injury increases significantly above 10% weekly gains. Consider an easy week."
+> " Training Load Alert: Weekly mileage up 45% (18→26 mi). Risk of injury increases significantly above 10% weekly gains. Consider an easy week."
 
-> "🫁 Easy Days Too Hard: 60% of this week's runs were moderate/high effort. Easy days should feel conversational (HR <145)."
+> " Easy Days Too Hard: 60% of this week's runs were moderate/high effort. Easy days should feel conversational (HR <145)."
 
-> "💤 Rest Day Streak: 5 days since last activity. A gentle 20-min walk or yoga can aid recovery."
+> " Rest Day Streak: 5 days since last activity. A gentle 20-min walk or yoga can aid recovery."
 
 ### Achievements
 
-> "🎉 New Best Effort: 5K in 22:30 — your fastest flat road run this year!"
+> " New Best Effort: 5K in 22:30 — your fastest flat road run this year!"
 
-> "🔥 30-Day Streak: 30 days of movement. Consistency beats intensity."
+> " 30-Day Streak: 30 days of movement. Consistency beats intensity."
 
-> "✅ Base Building Complete: 4 weeks of 80/80 easy running. Ready to add structured workouts."
+> " Base Building Complete: 4 weeks of 80/80 easy running. Ready to add structured workouts."
 
 ### Weekly Reports (Sunday)
 

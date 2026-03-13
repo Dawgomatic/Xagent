@@ -4,13 +4,13 @@ Quick chat access to OpenClaw from your macOS menu bar!
 
 ## Features
 
-✅ **Menu bar icon** - Always accessible  
-✅ **Quick chat** - Instant access to OpenClaw  
-✅ **Drag & drop** - Drop files directly  
-✅ **Model switching** - Sonnet/Opus toggle  
-✅ **Message history** - Persists across restarts  
-✅ **Keyboard shortcut** - Cmd+Shift+O to show/hide  
-✅ **Connection status** - Live gateway monitoring  
+ **Menu bar icon** - Always accessible  
+ **Quick chat** - Instant access to OpenClaw  
+ **Drag & drop** - Drop files directly  
+ **Model switching** - Sonnet/Opus toggle  
+ **Message history** - Persists across restarts  
+ **Keyboard shortcut** - Cmd+Shift+O to show/hide  
+ **Connection status** - Live gateway monitoring  
 
 ---
 
@@ -43,7 +43,7 @@ sips -z 44 44 icons/icon@2x.png
 ```
 
 **Option C: Manual (temporary)**
-Use any 🦞 emoji as icon temporarily - the app will still work!
+Use any  emoji as icon temporarily - the app will still work!
 
 ### 3. Configure Gateway
 
@@ -72,7 +72,7 @@ NODE_ENV=development npm start
 
 ### Basic Chat
 
-1. Click the 🦞 icon in menu bar
+1. Click the  icon in menu bar
 2. Type your message
 3. Press Enter or click Send
 
@@ -235,4 +235,4 @@ MIT
 
 ---
 
-**Enjoy your OpenClaw menu bar app!** 🦞🚀
+**Enjoy your OpenClaw menu bar app!** 

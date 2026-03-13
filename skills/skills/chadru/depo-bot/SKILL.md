@@ -4,7 +4,7 @@ description: >
   Produces structured trial preparation reports from deposition transcripts.
   Generates a strategic memo, witness analysis, legal research summary,
   and a Word document for the trial team.
-metadata: {"clawdbot":{"emoji":"📜"}}
+metadata: {"clawdbot":{"emoji":""}}
 homepage: https://github.com/chadru/depo_bot
 ---
 

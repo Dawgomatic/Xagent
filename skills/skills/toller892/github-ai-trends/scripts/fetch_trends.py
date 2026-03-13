@@ -11,7 +11,7 @@ from datetime import datetime, timedelta, timezone
 
 PERIOD_DAYS = {"daily": 1, "weekly": 7, "monthly": 30}
 PERIOD_LABELS = {"daily": "日榜", "weekly": "周榜", "monthly": "月榜"}
-PERIOD_EMOJI = {"daily": "📅", "weekly": "📊", "monthly": "📈"}
+PERIOD_EMOJI = {"daily": "", "weekly": "", "monthly": ""}
 
 
 def gh_search(query, sort="stars", order="desc", per_page=30, token=None):
@@ -66,7 +66,7 @@ def fmt_num(n):
 
 def format_output(repos, period):
     label = PERIOD_LABELS.get(period, period)
-    emoji = PERIOD_EMOJI.get(period, "📊")
+    emoji = PERIOD_EMOJI.get(period, "")
     now = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M")
 
     lines = [f"{emoji} **GitHub AI 趋势榜 — {label}**", f"生成时间：{now}", ""]
@@ -82,7 +82,7 @@ def format_output(repos, period):
         url = r["html_url"]
 
         lines.append(f"**#{i}** [{name}]({url})")
-        lines.append(f"⭐ {stars} · 🍴 {forks} · {lang}")
+        lines.append(f" {stars} ·  {forks} · {lang}")
         if desc:
             lines.append(f"_{desc}_")
         lines.append("")

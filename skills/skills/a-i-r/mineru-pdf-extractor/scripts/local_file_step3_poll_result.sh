@@ -9,13 +9,13 @@ MINERU_TOKEN="${MINERU_TOKEN:-${MINERU_API_KEY:-}}"
 MINERU_BASE_URL="${MINERU_BASE_URL:-https://mineru.net/api/v4}"
 
 if [ -z "$MINERU_TOKEN" ]; then
-    echo "❌ Error: Please set MINERU_TOKEN or MINERU_API_KEY environment variable"
+    echo " Error: Please set MINERU_TOKEN or MINERU_API_KEY environment variable"
     exit 1
 fi
 
 BATCH_ID="${1:-}"
 if [ -z "$BATCH_ID" ]; then
-    echo "❌ Error: Please provide batch_id"
+    echo " Error: Please provide batch_id"
     echo "Usage: $0 <batch_id> [max_retries] [retry_interval_seconds]"
     echo ""
     echo "Example:"
@@ -45,7 +45,7 @@ for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
     # Check code
     CODE=$(echo "$RESPONSE" | grep -o '"code":[0-9]*' | cut -d':' -f2)
     if [ "$CODE" != "0" ]; then
-        echo "⚠️ API Error: $RESPONSE"
+        echo " API Error: $RESPONSE"
         sleep $RETRY_INTERVAL
         continue
     fi
@@ -57,21 +57,21 @@ for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
     case "$STATE" in
         "done")
             echo ""
-            echo "✅ Extraction Complete!"
+            echo " Extraction Complete!"
             ZIP_URL=$(echo "$RESPONSE" | grep -o '"full_zip_url":"[^"]*"' | head -1 | cut -d'"' -f4)
             echo ""
             echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             echo "FULL_ZIP_URL=$ZIP_URL"
             echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             echo ""
-            echo "💡 Next Step: Execute Step 4 to download results"
+            echo " Next Step: Execute Step 4 to download results"
             echo "   ./local_file_step4_download.sh \"$ZIP_URL\" \"output.zip\" \"extracted_folder\""
             exit 0
             ;;
         "failed")
             ERR_MSG=$(echo "$RESPONSE" | grep -o '"err_msg":"[^"]*"' | head -1 | cut -d'"' -f4)
             echo ""
-            echo "❌ Extraction Failed: $ERR_MSG"
+            echo " Extraction Failed: $ERR_MSG"
             exit 1
             ;;
         "running"|"waiting-file"|"pending"|"converting")
@@ -87,5 +87,5 @@ for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
 done
 
 echo ""
-echo "❌ Polling timeout, waited $((MAX_RETRIES * RETRY_INTERVAL)) seconds"
+echo " Polling timeout, waited $((MAX_RETRIES * RETRY_INTERVAL)) seconds"
 exit 1

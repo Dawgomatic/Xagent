@@ -9,8 +9,8 @@ source ~/.clawdbot/zoho-credentials.sh
 UNREAD=$(python3 scripts/zoho-email.py unread | jq -r '.unread_count')
 
 # Generate briefing
-echo "☀️ Good morning!"
-echo "📧 You have $UNREAD unread emails"
+echo " Good morning!"
+echo " You have $UNREAD unread emails"
 
 # Show recent important emails
 if [ $UNREAD -gt 0 ]; then

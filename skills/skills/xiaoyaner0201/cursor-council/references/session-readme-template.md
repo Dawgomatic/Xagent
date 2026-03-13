@@ -84,8 +84,8 @@ Council 会议记录的 README 模板。
 
 | PR | Opus | Sonnet | GPT | 最终建议 |
 |----|------|--------|-----|----------|
-| #XXXX | ⚠️ | ❌ | ⚠️ | REQUEST CHANGES |
-| #YYYY | ✅ | ✅ | ⚠️ | APPROVE with comments |
+| #XXXX |  |  |  | REQUEST CHANGES |
+| #YYYY |  |  |  | APPROVE with comments |
 
 ## 关键发现
 

@@ -15,7 +15,7 @@ curl -fsSL https://cli.inference.sh | sh && infsh login
 
 # Post a tweet
 infsh app run x/post-create --input '{
-  "text": "I analyzed 1,000 landing pages.\n\n90% make the same 5 mistakes.\n\nHere are the fixes (with examples):\n\n🧵👇"
+  "text": "I analyzed 1,000 landing pages.\n\n90% make the same 5 mistakes.\n\nHere are the fixes (with examples):\n\n"
 }'
 ```
 
@@ -37,7 +37,7 @@ infsh app run x/post-create --input '{
 ### The Anatomy
 
 ```
-Tweet 1 (Hook):     Bold claim + "thread 🧵"
+Tweet 1 (Hook):     Bold claim + "thread "
 Tweet 2:            Context / why this matters
 Tweet 3-9:          One point per tweet (numbered)
 Tweet 10:           Summary or biggest takeaway
@@ -60,7 +60,7 @@ This tweet lives or dies alone in the timeline. It must work WITHOUT the thread.
 ```bash
 # Post hook tweet
 infsh app run x/post-create --input '{
-  "text": "I spent 3 years building SaaS products.\n\nHere are 10 things I wish someone told me on day 1:\n\n🧵"
+  "text": "I spent 3 years building SaaS products.\n\nHere are 10 things I wish someone told me on day 1:\n\n"
 }'
 ```
 
@@ -96,10 +96,10 @@ infsh app run x/post-create --input '{
 ### Tweet Formatting
 
 ```
-❌ Dense:
+ Dense:
 "If you want to grow on Twitter you need to post consistently and engage with your audience while also making sure your content provides value to your followers."
 
-✅ Formatted:
+ Formatted:
 "Want to grow on Twitter?
 
 3 non-negotiable rules:
@@ -118,8 +118,8 @@ No shortcuts."
 | → | Steps, actions, directions |
 | • | Bullet points, lists |
 | — | Asides, attributions |
-| ✅ | Do's, positives |
-| ❌ | Don'ts, negatives |
+|  | Do's, positives |
+|  | Don'ts, negatives |
 | 1/ 2/ 3/ | Numbered thread tweets |
 
 ### Line Break Strategy
@@ -147,7 +147,7 @@ Line breaks create **pacing**. Use them to control reading speed and emphasis.
 ```bash
 # Generate thread header image
 infsh app run infsh/html-to-image --input '{
-  "html": "<div style=\"width:1200px;height:675px;background:linear-gradient(135deg,#0f172a,#1e293b);display:flex;align-items:center;justify-content:center;padding:60px;font-family:system-ui;color:white;text-align:center\"><div><h1 style=\"font-size:48px;font-weight:900;line-height:1.2;margin:0\">10 SaaS Pricing Mistakes<br>That Cost You Revenue</h1><p style=\"font-size:22px;opacity:0.5;margin-top:20px\">A thread 🧵</p></div></div>"
+  "html": "<div style=\"width:1200px;height:675px;background:linear-gradient(135deg,#0f172a,#1e293b);display:flex;align-items:center;justify-content:center;padding:60px;font-family:system-ui;color:white;text-align:center\"><div><h1 style=\"font-size:48px;font-weight:900;line-height:1.2;margin:0\">10 SaaS Pricing Mistakes<br>That Cost You Revenue</h1><p style=\"font-size:22px;opacity:0.5;margin-top:20px\">A thread </p></div></div>"
 }'
 
 # Generate screenshots for evidence

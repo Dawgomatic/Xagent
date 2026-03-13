@@ -35,7 +35,7 @@ export async function getCalendarId() {
     cachedCalendarId = await discoverCalendarId();
     return cachedCalendarId;
   } catch (error) {
-    console.warn(`⚠️  Could not auto-discover calendar: ${error.message}`);
+    console.warn(`  Could not auto-discover calendar: ${error.message}`);
     console.warn(`   Using fallback calendar ID: ${FALLBACK_CALENDAR_ID}`);
     cachedCalendarId = FALLBACK_CALENDAR_ID;
     return cachedCalendarId;

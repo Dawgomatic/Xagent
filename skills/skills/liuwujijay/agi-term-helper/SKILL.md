@@ -6,7 +6,7 @@ disable-model-invocation: true
 command-dispatch: tool
 command-tool: exec
 command-arg-mode: raw
-metadata: { "openclaw": { "emoji": "🧰", "os": ["darwin","linux","win32"] } }
+metadata: { "openclaw": { "emoji": "", "os": ["darwin","linux","win32"] } }
 ---
 
 # /term — direct terminal execution (exec dispatch)

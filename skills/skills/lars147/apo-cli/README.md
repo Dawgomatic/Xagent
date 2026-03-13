@@ -1,4 +1,4 @@
-<h1 align="center">apo-cli 💊</h1>
+<h1 align="center">apo-cli </h1>
 
 <p align="center">
   <strong>Your pharmacy in the terminal — search products, manage cart, checkout in browser</strong>
@@ -12,7 +12,7 @@
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 uv tool install git+https://github.com/Lars147/apo-cli
@@ -21,20 +21,20 @@ apo search "Aspirin"
 
 ---
 
-## ✨ Features
+##  Features
 
 | Feature | Description |
 |---------|-------------|
-| 🔍 **Search** | Find products by name or PZN |
-| 📦 **Product Details** | Prices, availability, descriptions |
-| 🗂️ **Categories** | Browse product collections |
-| 🛒 **Cart** | Add, remove, view items |
-| 🌐 **Checkout** | Opens browser with your cart |
-| 🤖 **AI-Friendly** | Designed for Claude, Codex, OpenClaw |
+|  **Search** | Find products by name or PZN |
+|  **Product Details** | Prices, availability, descriptions |
+|  **Categories** | Browse product collections |
+|  **Cart** | Add, remove, view items |
+|  **Checkout** | Opens browser with your cart |
+|  **AI-Friendly** | Designed for Claude, Codex, OpenClaw |
 
 ---
 
-## 📖 Usage
+##  Usage
 
 ```bash
 # Search
@@ -57,12 +57,12 @@ apo cart checkout             # Open browser
 
 ---
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 Unofficial tool for [apohealth.de](https://www.apohealth.de). Not affiliated with apohealth.
 
 ---
 
-## 📄 License
+##  License
 
-MIT © [Lars Heinen](https://github.com/Lars147)
+MIT  [Lars Heinen](https://github.com/Lars147)

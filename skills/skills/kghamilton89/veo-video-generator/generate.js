@@ -5,7 +5,7 @@ import fs from "fs";
 const apiKey = process.env.GEMINI_API_KEY;
 
 if (!apiKey) {
-  console.error("❌ Error: GEMINI_API_KEY not found in environment.");
+  console.error(" Error: GEMINI_API_KEY not found in environment.");
   process.exit(1);
 }
 
@@ -17,13 +17,13 @@ const promptArgIndex = args.indexOf("--prompt");
 const userPrompt = promptArgIndex !== -1 ? args[promptArgIndex + 1] : null;
 
 if (!userPrompt) {
-  console.error("❌ Error: No prompt provided. Use --prompt \"your description\"");
+  console.error(" Error: No prompt provided. Use --prompt \"your description\"");
   process.exit(1);
 }
 
 async function generate() {
   try {
-    console.log(`🎬 Requesting Veo 3.1: "${userPrompt}"`);
+    console.log(` Requesting Veo 3.1: "${userPrompt}"`);
 
     let operation = await ai.models.generateVideos({
       model: "veo-3.1-fast-generate-preview",
@@ -35,7 +35,7 @@ async function generate() {
       },
     });
 
-    console.log("⏳ Rendering (this usually takes 45-90 seconds)...");
+    console.log(" Rendering (this usually takes 45-90 seconds)...");
     
     // Poll for completion
     while (!operation.done) {
@@ -50,9 +50,9 @@ async function generate() {
       downloadPath: fileName,
     });
 
-    console.log(`\n✅ Video saved as: ${fileName}`);
+    console.log(`\n Video saved as: ${fileName}`);
   } catch (error) {
-    console.error("\n❌ Generation failed:", error.message);
+    console.error("\n Generation failed:", error.message);
     process.exit(1);
   }
 }

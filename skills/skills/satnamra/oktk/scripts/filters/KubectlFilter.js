@@ -35,22 +35,22 @@ class KubectlFilter extends BaseFilter {
    */
   filterPods(output) {
     const lines = output.split('\n').filter(l => l.trim());
-    if (lines.length <= 1) return '☸️ No pods found';
+    if (lines.length <= 1) return ' No pods found';
 
     const pods = lines.slice(1).map(line => {
       const parts = line.split(/\s+/);
       const name = parts[0] || '?';
       const ready = parts[1] || '?';
       const status = parts[2] || '?';
-      const statusIcon = status === 'Running' ? '✅' : status === 'Pending' ? '⏳' : '❌';
+      const statusIcon = status === 'Running' ? '' : status === 'Pending' ? '' : '';
       return `${statusIcon} ${name} (${ready}) ${status}`;
     });
 
-    const running = pods.filter(p => p.includes('✅')).length;
-    const pending = pods.filter(p => p.includes('⏳')).length;
-    const failed = pods.filter(p => p.includes('❌')).length;
+    const running = pods.filter(p => p.includes('')).length;
+    const pending = pods.filter(p => p.includes('')).length;
+    const failed = pods.filter(p => p.includes('')).length;
 
-    const result = [`☸️ ${pods.length} pod(s): ✅${running} ⏳${pending} ❌${failed}`];
+    const result = [` ${pods.length} pod(s): ${running} ${pending} ${failed}`];
     result.push(...pods.slice(0, 10));
     if (pods.length > 10) result.push(`  ... +${pods.length - 10} more`);
 
@@ -62,7 +62,7 @@ class KubectlFilter extends BaseFilter {
    */
   filterServices(output) {
     const lines = output.split('\n').filter(l => l.trim());
-    if (lines.length <= 1) return '☸️ No services found';
+    if (lines.length <= 1) return ' No services found';
 
     const services = lines.slice(1).map(line => {
       const parts = line.split(/\s+/);
@@ -70,10 +70,10 @@ class KubectlFilter extends BaseFilter {
       const type = parts[1] || '?';
       const clusterIp = parts[2] || '?';
       const ports = parts[4] || '?';
-      return `  🔌 ${name} (${type}) ${ports}`;
+      return `   ${name} (${type}) ${ports}`;
     });
 
-    return `☸️ ${services.length} service(s):\n${services.join('\n')}`;
+    return ` ${services.length} service(s):\n${services.join('\n')}`;
   }
 
   /**
@@ -81,18 +81,18 @@ class KubectlFilter extends BaseFilter {
    */
   filterDeployments(output) {
     const lines = output.split('\n').filter(l => l.trim());
-    if (lines.length <= 1) return '☸️ No deployments found';
+    if (lines.length <= 1) return ' No deployments found';
 
     const deploys = lines.slice(1).map(line => {
       const parts = line.split(/\s+/);
       const name = parts[0] || '?';
       const ready = parts[1] || '?';
       const available = parts[3] || '0';
-      const icon = parseInt(available) > 0 ? '✅' : '❌';
+      const icon = parseInt(available) > 0 ? '' : '';
       return `${icon} ${name} (${ready})`;
     });
 
-    return `☸️ ${deploys.length} deployment(s):\n${deploys.join('\n')}`;
+    return ` ${deploys.length} deployment(s):\n${deploys.join('\n')}`;
   }
 
   /**
@@ -100,18 +100,18 @@ class KubectlFilter extends BaseFilter {
    */
   filterNodes(output) {
     const lines = output.split('\n').filter(l => l.trim());
-    if (lines.length <= 1) return '☸️ No nodes found';
+    if (lines.length <= 1) return ' No nodes found';
 
     const nodes = lines.slice(1).map(line => {
       const parts = line.split(/\s+/);
       const name = parts[0] || '?';
       const status = parts[1] || '?';
-      const icon = status === 'Ready' ? '✅' : '❌';
+      const icon = status === 'Ready' ? '' : '';
       const version = parts[4] || '?';
       return `${icon} ${name} (${version})`;
     });
 
-    return `☸️ ${nodes.length} node(s):\n${nodes.join('\n')}`;
+    return ` ${nodes.length} node(s):\n${nodes.join('\n')}`;
   }
 
   /**
@@ -119,15 +119,15 @@ class KubectlFilter extends BaseFilter {
    */
   filterLogs(output) {
     const lines = output.split('\n').filter(l => l.trim());
-    if (lines.length === 0) return '📜 No logs';
+    if (lines.length === 0) return ' No logs';
 
     const errors = lines.filter(l => /error|exception|fail|panic/i.test(l)).length;
     const warnings = lines.filter(l => /warn/i.test(l)).length;
     const lastLines = lines.slice(-10);
 
-    const result = [`📜 ${lines.length} log lines`];
-    if (errors > 0) result.push(`❌ ${errors} errors`);
-    if (warnings > 0) result.push(`⚠️  ${warnings} warnings`);
+    const result = [` ${lines.length} log lines`];
+    if (errors > 0) result.push(` ${errors} errors`);
+    if (warnings > 0) result.push(`  ${warnings} warnings`);
     result.push('');
     result.push('Last 10 lines:');
     result.push(...lastLines.map(l => l.substring(0, 100)));
@@ -147,7 +147,7 @@ class KubectlFilter extends BaseFilter {
     const status = lines.find(l => l.startsWith('Status:'))?.replace('Status:', '').trim();
     const events = lines.filter(l => /Warning|Normal/.test(l)).slice(-5);
 
-    const result = ['☸️ Resource Details'];
+    const result = [' Resource Details'];
     if (name) result.push(`  Name: ${name}`);
     if (namespace) result.push(`  Namespace: ${namespace}`);
     if (status) result.push(`  Status: ${status}`);

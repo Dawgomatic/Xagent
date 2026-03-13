@@ -1477,7 +1477,7 @@ class APIScoringEngine:
             f"Version: {self.scorecard.api_info.get('version', 'Unknown')}",
             f"Total Endpoints: {self.scorecard.total_endpoints}",
             "",
-            f"🏆 OVERALL GRADE: {self.scorecard.overall_grade} ({self.scorecard.overall_score:.1f}/100.0)",
+            f" OVERALL GRADE: {self.scorecard.overall_grade} ({self.scorecard.overall_score:.1f}/100.0)",
             "",
             "═══════════════════════════════════════════════════════════════",
             "DETAILED BREAKDOWN:",
@@ -1496,17 +1496,17 @@ class APIScoringEngine:
             
             lines.extend([
                 "",
-                f"📊 {category_name.upper()} - Grade: {score.letter_grade} ({score.score:.1f}/100)",
+                f" {category_name.upper()} - Grade: {score.letter_grade} ({score.score:.1f}/100)",
                 f"   Weight: {score.weight}% | Contribution: {score.weighted_score:.1f} points",
                 "   " + "─" * 50
             ])
             
             if score.recommendations:
-                lines.append("   💡 Recommendations:")
+                lines.append("    Recommendations:")
                 for rec in score.recommendations[:3]:  # Top 3 recommendations
                     lines.append(f"      • {rec}")
             else:
-                lines.append("   ✅ No specific recommendations - performing well!")
+                lines.append("    No specific recommendations - performing well!")
         
         # Overall assessment
         lines.extend([
@@ -1518,31 +1518,31 @@ class APIScoringEngine:
         
         if self.scorecard.overall_grade == "A":
             lines.extend([
-                "🏆 EXCELLENT! Your API demonstrates outstanding design quality.",
+                " EXCELLENT! Your API demonstrates outstanding design quality.",
                 "   Continue following these best practices and consider sharing",
                 "   your approach as a reference for other teams."
             ])
         elif self.scorecard.overall_grade == "B":
             lines.extend([
-                "✅ GOOD! Your API follows most best practices with room for",
+                " GOOD! Your API follows most best practices with room for",
                 "   minor improvements. Focus on the recommendations above",
                 "   to achieve excellence."
             ])
         elif self.scorecard.overall_grade == "C":
             lines.extend([
-                "⚠️  FAIR! Your API has a solid foundation but several areas",
+                "  FAIR! Your API has a solid foundation but several areas",
                 "   need improvement. Prioritize the high-weight categories",
                 "   for maximum impact."
             ])
         elif self.scorecard.overall_grade == "D":
             lines.extend([
-                "❌ NEEDS IMPROVEMENT! Your API has significant issues that",
+                " NEEDS IMPROVEMENT! Your API has significant issues that",
                 "   may impact developer experience and maintainability.",
                 "   Focus on consistency and documentation first."
             ])
         else:  # Grade F
             lines.extend([
-                "🚨 CRITICAL ISSUES! Your API requires major redesign to meet",
+                " CRITICAL ISSUES! Your API requires major redesign to meet",
                 "   basic quality standards. Consider comprehensive review",
                 "   of design principles and best practices."
             ])
@@ -1552,7 +1552,7 @@ class APIScoringEngine:
         if top_recs:
             lines.extend([
                 "",
-                "🎯 TOP PRIORITY RECOMMENDATIONS:",
+                " TOP PRIORITY RECOMMENDATIONS:",
                 ""
             ])
             for i, rec in enumerate(top_recs, 1):

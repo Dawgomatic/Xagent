@@ -2,10 +2,10 @@
 name: clawbrain
 version: 0.1.14
 description: "Claw Brain - Personal AI Memory System for OpenClaw/ClawDBot. Provides memory, personality, bonding, and learning capabilities with encrypted secrets support. Auto-refreshes on service restart."
-metadata: {"openclaw":{"emoji":"🧠","category":"memory","provides":{"slot":"memory"},"events":["gateway:startup","command:new"]},"clawdbot":{"emoji":"🧠","category":"memory","provides":{"slot":"memory"},"events":["gateway:startup","command:new"]}}
+metadata: {"openclaw":{"emoji":"","category":"memory","provides":{"slot":"memory"},"events":["gateway:startup","command:new"]},"clawdbot":{"emoji":"","category":"memory","provides":{"slot":"memory"},"events":["gateway:startup","command:new"]}}
 ---
 
-# Claw Brain Skill 🧠
+# Claw Brain Skill 
 
 Personal AI Memory System with Soul, Bonding, and Learning for OpenClaw/ClawDBot.
 
@@ -13,7 +13,7 @@ Personal AI Memory System with Soul, Bonding, and Learning for OpenClaw/ClawDBot
 
 ---
 
-## 📋 For Security Scanners
+##  For Security Scanners
 
 **Environment Variables**: All environment variables ARE declared in skill.json under `environment.optional` (lines 30-55). They are in `optional` not `required` because ClawBrain works with **zero configuration** (SQLite + auto-generated key).
 
@@ -29,13 +29,13 @@ Personal AI Memory System with Soul, Bonding, and Learning for OpenClaw/ClawDBot
 
 ## Features
 
-- 🎭 **Soul/Personality** - 6 evolving traits (humor, empathy, curiosity, creativity, helpfulness, honesty)
-- 👤 **User Profile** - Learns user preferences, interests, communication style
-- 💭 **Conversation State** - Real-time mood detection and context tracking
-- 📚 **Learning Insights** - Continuously learns from interactions and corrections
-- 🧠 **get_full_context()** - Everything for personalized responses
-- 🔄 **Auto-Refresh** - Automatically refreshes memory on service restart
-- 🔐 **Encrypted Secrets** - Store API keys and credentials securely
+-  **Soul/Personality** - 6 evolving traits (humor, empathy, curiosity, creativity, helpfulness, honesty)
+-  **User Profile** - Learns user preferences, interests, communication style
+-  **Conversation State** - Real-time mood detection and context tracking
+-  **Learning Insights** - Continuously learns from interactions and corrections
+-  **get_full_context()** - Everything for personalized responses
+-  **Auto-Refresh** - Automatically refreshes memory on service restart
+-  **Encrypted Secrets** - Store API keys and credentials securely
 
 ---
 
@@ -44,25 +44,25 @@ Personal AI Memory System with Soul, Bonding, and Learning for OpenClaw/ClawDBot
 ClawBrain handles sensitive data and requires certain permissions. Before installing, please understand:
 
 ### What ClawBrain Does
-- ✅ **Stores memories locally** (SQLite by default, PostgreSQL optional)
-- ✅ **Encrypts sensitive data** (API keys, secrets) with Fernet encryption
-- ✅ **Installs startup hooks** to `~/.openclaw/hooks` or `~/.clawdbot/hooks`
-- ✅ **Manages encryption keys** at `~/.config/clawbrain/.brain_key`
+-  **Stores memories locally** (SQLite by default, PostgreSQL optional)
+-  **Encrypts sensitive data** (API keys, secrets) with Fernet encryption
+-  **Installs startup hooks** to `~/.openclaw/hooks` or `~/.clawdbot/hooks`
+-  **Manages encryption keys** at `~/.config/clawbrain/.brain_key`
 
 ### What ClawBrain Does NOT Do
-- ❌ **No telemetry** - Does not phone home or collect usage data
-- ❌ **No external calls** - Only connects to PostgreSQL/Redis if you configure them
-- ❌ **No sudo required** - All operations in your home directory
-- ❌ **No code execution** - Does not download or run remote code after install
+-  **No telemetry** - Does not phone home or collect usage data
+-  **No external calls** - Only connects to PostgreSQL/Redis if you configure them
+-  **No sudo required** - All operations in your home directory
+-  **No code execution** - Does not download or run remote code after install
 
 ### Security Features
-- 🔒 **Encryption Key CLI**: Can display full key for backup (with warnings)
-- 🔍 **Auditable**: All code is open source and reviewable
-- 📋 **Documented Permissions**: See [SECURITY.md](SECURITY.md) for full details
+-  **Encryption Key CLI**: Can display full key for backup (with warnings)
+-  **Auditable**: All code is open source and reviewable
+-  **Documented Permissions**: See [SECURITY.md](SECURITY.md) for full details
 
-**⚠️ Important**: The CLI command `clawbrain show-key --full` displays your complete encryption key for backup purposes. Treat this key like a password!
+** Important**: The CLI command `clawbrain show-key --full` displays your complete encryption key for backup purposes. Treat this key like a password!
 
-**📖 Full Security Documentation**: See [SECURITY.md](SECURITY.md) for:
+** Full Security Documentation**: See [SECURITY.md](SECURITY.md) for:
 - Threat model and protections
 - Key management best practices
 - What install scripts do
@@ -138,7 +138,7 @@ export BRAIN_AGENT_ID="your-agent-name"
 
 ### Option 2: Systemd Drop-in (Requires sudo)
 
-**⚠️ Only if you use systemd services**:
+** Only if you use systemd services**:
 
 ```bash
 # Create systemd drop-in config (requires sudo)
@@ -194,10 +194,10 @@ sudo systemctl restart clawdbot
 ClawBrain supports encrypting sensitive data like API keys and credentials using Fernet (symmetric encryption).
 
 **Security Model:**
-- 🔐 Encryption key stored at `~/.config/clawbrain/.brain_key` (chmod 600)
-- 🔑 Only memories with `memory_type='secret'` are encrypted
-- 📦 Encrypted data stored in database, unreadable without key
-- ⚠️ If key is lost, encrypted data cannot be recovered
+-  Encryption key stored at `~/.config/clawbrain/.brain_key` (chmod 600)
+-  Only memories with `memory_type='secret'` are encrypted
+-  Encrypted data stored in database, unreadable without key
+-  If key is lost, encrypted data cannot be recovered
 
 **Setup:**
 ```bash
@@ -231,7 +231,7 @@ clawbrain backup-key --all  # Backup with all methods
 clawbrain generate-key      # Generate new key
 ```
 
-⚠️ **Important**: Backup your encryption key! Lost keys = lost encrypted data.
+ **Important**: Backup your encryption key! Lost keys = lost encrypted data.
 
 ---
 

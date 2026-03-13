@@ -2,7 +2,7 @@
 name: "specification-extractor"
 description: "Extract structured data from construction specifications. Parse CSI sections, requirements, submittals, and product data from spec documents."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "📑", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # Specification Extractor for Construction
 

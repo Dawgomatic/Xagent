@@ -68,7 +68,7 @@ if ! git remote get-url "$GIT_REMOTE" >/dev/null 2>&1; then
   GIT_REMOTE="$(git remote | head -n1)"
 fi
 if [ -z "$GIT_REMOTE" ]; then
-  echo "⚠️  未找到 Git 远端"
+  echo "  未找到 Git 远端"
 fi
 
 REPO_URL=""
@@ -77,25 +77,25 @@ if [ -n "$GIT_REMOTE" ]; then
 fi
 CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || true)"
 
-echo "🔄 开始备份 OpenClaw 配置..."
+echo " 开始备份 OpenClaw 配置..."
 
 if [ "$PULL_BEFORE" -eq 1 ]; then
   if git diff --quiet && git diff --staged --quiet; then
-    echo "⬇️  拉取最新代码..."
-    git pull --rebase || echo "⚠️  git pull 失败，请手动处理"
+    echo "  拉取最新代码..."
+    git pull --rebase || echo "  git pull 失败，请手动处理"
   else
-    echo "⚠️  工作区有未提交变更，跳过 git pull"
+    echo "  工作区有未提交变更，跳过 git pull"
   fi
 fi
 
 # 检查是否有更改
 if [ -z "$(git status --porcelain)" ]; then
-  echo "✅ 没有需要备份的更改"
+  echo " 没有需要备份的更改"
   exit 0
 fi
 
 if [ "$DRY_RUN" -eq 1 ]; then
-  echo "📄 变更预览:"
+  echo " 变更预览:"
   git status --short
   exit 0
 fi
@@ -105,14 +105,14 @@ if [ -z "$COMMIT_MSG" ]; then
   COMMIT_MSG="Backup: $(date '+%Y-%m-%d %H:%M:%S')"
 fi
 
-echo "➕ 添加更改到暂存区..."
+echo " 添加更改到暂存区..."
 git add -A
 
-echo "💾 提交更改..."
+echo " 提交更改..."
 git commit -m "$COMMIT_MSG"
 
 if [ "$NO_PUSH" -eq 0 ]; then
-  echo "☁️  推送到 GitHub..."
+  echo "  推送到 GitHub..."
   if [ -n "$GIT_REMOTE" ] && [ -n "$CURRENT_BRANCH" ]; then
     if ! git push "$GIT_REMOTE" "$CURRENT_BRANCH"; then
       echo "✗ 推送失败：可能需要先 git pull --rebase"
@@ -125,12 +125,12 @@ if [ "$NO_PUSH" -eq 0 ]; then
     fi
   fi
 else
-  echo "⚠️  跳过推送（--no-push）"
+  echo "  跳过推送（--no-push）"
 fi
 
-echo "✅ 备份完成！"
-echo "📦 仓库地址: ${REPO_URL:-N/A}"
+echo " 备份完成！"
+echo " 仓库地址: ${REPO_URL:-N/A}"
 if [ -n "$CURRENT_BRANCH" ]; then
-  echo "🌿 分支: ${GIT_REMOTE:-?}/${CURRENT_BRANCH}"
+  echo " 分支: ${GIT_REMOTE:-?}/${CURRENT_BRANCH}"
 fi
-echo "📝 提交信息: $COMMIT_MSG"
+echo " 提交信息: $COMMIT_MSG"

@@ -17,7 +17,7 @@ Create `memory/access-control.json` in workspace:
   "approvedContacts": {},
   "pendingApprovals": {},
   "blockedIds": [],
-  "strangerMessage": "Hi there! 👋 I'm {{AGENT_NAME}}, an AI assistant. I'm currently set up to help my owner with personal tasks, so I'm not able to chat freely just yet. I've let them know you reached out — if they'd like to connect us, they'll set that up. Have a great day! 😊",
+  "strangerMessage": "Hi there!  I'm {{AGENT_NAME}}, an AI assistant. I'm currently set up to help my owner with personal tasks, so I'm not able to chat freely just yet. I've let them know you reached out — if they'd like to connect us, they'll set that up. Have a great day! ",
   "notifyChannel": "",
   "notifyTarget": ""
 }
@@ -54,7 +54,7 @@ On every incoming message from a messaging platform:
 ```
 a. Send strangerMessage to the sender
 b. Notify owner:
-   "🔔 Stranger contact from {senderId} on {platform}:
+   " Stranger contact from {senderId} on {platform}:
     '{first 100 chars of message}'
     Reply: approve (trusted) / chat (chat-only) / block"
 c. Store in pendingApprovals:
@@ -81,7 +81,7 @@ When owner replies to an approval notification:
 | `ignore` | Remove from pendingApprovals, no action |
 
 After approval, update `memory/access-control.json` and notify the contact:
-- Trusted: "Great news! I've been given the go-ahead to chat with you. How can I help? 😊"
+- Trusted: "Great news! I've been given the go-ahead to chat with you. How can I help? "
 - Chat-only: "Great news! I can chat with you now, though I'm limited to basic conversation. What's on your mind?"
 
 ### Tier Enforcement
@@ -100,7 +100,7 @@ When responding to a non-owner contact, enforce tier restrictions:
 - May use: web_search, weather skill, time/date queries
 - Do NOT use: read, write, exec, message (to other contacts), memory files
 - Do NOT share private info (calendar, emails, files, other contacts)
-- If asked for private info: "I can help with general info, but personal details are private. Hope you understand! 😊"
+- If asked for private info: "I can help with general info, but personal details are private. Hope you understand! "
 
 ## Multi-Platform ID Matching
 
@@ -124,7 +124,7 @@ Apply per-tier rate limits to prevent abuse:
 | Trusted | 50 | 500 |
 | Owner | Unlimited | Unlimited |
 
-If limit exceeded, respond: "I've reached my chat limit for now. Try again later! 😊"
+If limit exceeded, respond: "I've reached my chat limit for now. Try again later! "
 
 Track in `memory/access-control.json` under `rateLimits`:
 ```json

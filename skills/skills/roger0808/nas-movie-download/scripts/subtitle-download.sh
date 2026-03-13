@@ -120,7 +120,7 @@ download_with_subliminal() {
     local video_file="$1"
     local languages="$2"
     
-    echo "   🛠️  使用 subliminal 下载字幕..."
+    echo "     使用 subliminal 下载字幕..."
     
     # 转换语言代码
     local subliminal_langs=""
@@ -132,10 +132,10 @@ download_with_subliminal() {
     
     # 运行 subliminal
     if subliminal download $subliminal_langs "$video_file" 2>/dev/null; then
-        echo "   ✅ 字幕下载成功"
+        echo "    字幕下载成功"
         return 0
     else
-        echo "   ❌ subliminal 下载失败"
+        echo "    subliminal 下载失败"
         return 1
     fi
 }
@@ -145,15 +145,15 @@ download_with_subfinder() {
     local video_file="$1"
     local languages="$2"
     
-    echo "   🛠️  使用 subfinder 下载字幕..."
+    echo "     使用 subfinder 下载字幕..."
     
     # subfinder 使用 --help 查看参数
     # 基本用法: subfinder -v video.mkv
     if subfinder -v "$video_file" 2>/dev/null; then
-        echo "   ✅ 字幕下载成功"
+        echo "    字幕下载成功"
         return 0
     else
-        echo "   ❌ subfinder 下载失败"
+        echo "    subfinder 下载失败"
         return 1
     fi
 }
@@ -210,7 +210,7 @@ download_with_opensubtitles() {
     local video_file="$1"
     local languages="$2"
     
-    echo "   🛠️  使用 OpenSubtitles API 下载字幕..."
+    echo "     使用 OpenSubtitles API 下载字幕..."
     
     # 解析文件名
     local parsed=$(parse_video_filename "$video_file")
@@ -222,14 +222,14 @@ download_with_opensubtitles() {
     local search_result=$(search_opensubtitles "$series_name" "$season" "$episode" "$languages")
     
     if [[ -z "$search_result" ]] || echo "$search_result" | grep -q '"error"'; then
-        echo "   ❌ OpenSubtitles API 错误或不可用"
+        echo "    OpenSubtitles API 错误或不可用"
         return 1
     fi
     
     local data_count=$(echo "$search_result" | jq -r '.data | length // 0')
     
     if [[ "$data_count" -eq 0 ]]; then
-        echo "   ❌ 未找到字幕"
+        echo "    未找到字幕"
         return 1
     fi
     
@@ -265,13 +265,13 @@ download_with_opensubtitles() {
         local output_file="$video_dir/$video_name.$lang.$sub_format"
         
         if [[ -f "$output_file" ]]; then
-            echo "   ⏭️  $lang 字幕已存在，跳过"
+            echo "     $lang 字幕已存在，跳过"
             success=true
             continue
         fi
         
         if download_from_opensubtitles "$file_id" "$output_file"; then
-            echo "   ✅ 已下载 $lang 字幕"
+            echo "    已下载 $lang 字幕"
             success=true
         fi
     done
@@ -292,21 +292,21 @@ download_subtitle_smart() {
             if check_subliminal; then
                 download_with_subliminal "$video_file" "$languages" && success=true
             else
-                echo "   ❌ subliminal 未安装"
+                echo "    subliminal 未安装"
             fi
             ;;
         subfinder)
             if check_subfinder; then
                 download_with_subfinder "$video_file" "$languages" && success=true
             else
-                echo "   ❌ subfinder 未安装"
+                echo "    subfinder 未安装"
             fi
             ;;
         opensubtitles)
             if [[ -n "$OPENSUBTITLES_API_KEY" ]]; then
                 download_with_opensubtitles "$video_file" "$languages" && success=true
             else
-                echo "   ❌ OpenSubtitles API Key 未配置"
+                echo "    OpenSubtitles API Key 未配置"
             fi
             ;;
         *)
@@ -344,10 +344,10 @@ process_video_file() {
     local force_tool="$3"
     
     echo ""
-    echo "📁 处理: $(basename "$video_file")"
+    echo " 处理: $(basename "$video_file")"
     
     if [[ ! -f "$video_file" ]]; then
-        echo "   ❌ 文件不存在"
+        echo "    文件不存在"
         return 1
     fi
     
@@ -357,15 +357,15 @@ process_video_file() {
     local season=$(echo "$parsed" | cut -d'|' -f2)
     local episode=$(echo "$parsed" | cut -d'|' -f3)
     
-    echo "   📺 识别: $series_name"
-    [[ -n "$season" ]] && echo "   📅 季: $season"
-    [[ -n "$episode" ]] && echo "   🎬 集: $episode"
+    echo "    识别: $series_name"
+    [[ -n "$season" ]] && echo "    季: $season"
+    [[ -n "$episode" ]] && echo "    集: $episode"
     
     # 下载字幕
     if download_subtitle_smart "$video_file" "$languages" "$force_tool"; then
         return 0
     else
-        echo "   ❌ 所有字幕源都失败"
+        echo "    所有字幕源都失败"
         return 1
     fi
 }
@@ -378,10 +378,10 @@ process_directory() {
     local recursive="$4"
     
     echo ""
-    echo "📂 批量处理目录: $directory"
+    echo " 批量处理目录: $directory"
     
     if [[ ! -d "$directory" ]]; then
-        echo "❌ 目录不存在"
+        echo " 目录不存在"
         exit 1
     fi
     
@@ -400,7 +400,7 @@ process_directory() {
     done < <(find "$directory" $find_depth -type f -regextype posix-extended -iregex ".*\.($video_extensions)$" -print0 2>/dev/null)
     
     echo ""
-    echo "✅ 完成！成功: $success / $count"
+    echo " 完成！成功: $success / $count"
 }
 
 # 主程序
@@ -464,9 +464,9 @@ main() {
     # 显示可用工具
     echo ""
     echo "可用工具："
-    check_subliminal && echo "  ✅ subliminal" || echo "  ❌ subliminal (未安装)"
-    check_subfinder && echo "  ✅ subfinder" || echo "  ❌ subfinder (未安装)"
-    [[ -n "$OPENSUBTITLES_API_KEY" ]] && echo "  ✅ OpenSubtitles API" || echo "  ❌ OpenSubtitles API (未配置)"
+    check_subliminal && echo "   subliminal" || echo "   subliminal (未安装)"
+    check_subfinder && echo "   subfinder" || echo "   subfinder (未安装)"
+    [[ -n "$OPENSUBTITLES_API_KEY" ]] && echo "   OpenSubtitles API" || echo "   OpenSubtitles API (未配置)"
     
     # 执行处理
     if [[ -n "$file" ]]; then
@@ -475,17 +475,17 @@ main() {
         process_directory "$directory" "$languages" "$force_tool" "$recursive"
     else
         echo ""
-        echo "❌ 错误：需要提供文件 (-f) 或目录 (-d)"
+        echo " 错误：需要提供文件 (-f) 或目录 (-d)"
         usage
     fi
     
     echo ""
-    echo "🎉 全部完成！"
+    echo " 全部完成！"
     
     # 提示安装工具
     if ! check_subliminal && ! check_subfinder && [[ -z "$OPENSUBTITLES_API_KEY" ]]; then
         echo ""
-        echo "💡 提示：安装字幕下载工具以获得更好体验："
+        echo " 提示：安装字幕下载工具以获得更好体验："
         echo "    pip install subliminal"
         echo "  或"
         echo "    pip install subfinder"

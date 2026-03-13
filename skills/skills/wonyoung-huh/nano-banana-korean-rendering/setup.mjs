@@ -55,15 +55,15 @@ function log(msg) {
 }
 
 function logOk(msg) {
-  console.log(`[setup] ✅ ${msg}`);
+  console.log(`[setup]  ${msg}`);
 }
 
 function logWarn(msg) {
-  console.log(`[setup] ⚠️  ${msg}`);
+  console.log(`[setup]   ${msg}`);
 }
 
 function logErr(msg) {
-  console.error(`[setup] ❌ ${msg}`);
+  console.error(`[setup]  ${msg}`);
 }
 
 // ── 1. npm 의존성 설치 ──

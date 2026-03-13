@@ -4,7 +4,7 @@ description: Search cheap flights via the MoltFlights API. Find deals, compare p
 homepage: https://moltflights.com
 metadata:
   openclaw:
-    emoji: "✈️"
+    emoji: ""
     keywords: [travel, flights, cheap-flights, search, booking, price-alerts, digital-nomad]
 tools:
   moltflights_search:

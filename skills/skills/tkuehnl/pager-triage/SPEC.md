@@ -225,7 +225,7 @@ curl -s -H "Authorization: Token token=$PAGERDUTY_API_KEY" \
 }
 ```
 
-### 3.4 `pd_incident_ack` — Acknowledge Incident ⚠️ WRITE OPERATION
+### 3.4 `pd_incident_ack` — Acknowledge Incident  WRITE OPERATION
 
 **Purpose:** Acknowledge a triggered incident. **Requires confirmation.**
 
@@ -235,7 +235,7 @@ curl -s -H "Authorization: Token token=$PAGERDUTY_API_KEY" \
 **Confirmation Gate (MANDATORY):**
 Before executing, the skill MUST display:
 ```
-⚠️ ACKNOWLEDGE INCIDENT
+ ACKNOWLEDGE INCIDENT
   ID: P123ABC (#4521)
   Title: High CPU on prod-web-03
   Service: Production Web
@@ -269,7 +269,7 @@ curl -s -X PUT \
 }
 ```
 
-### 3.5 `pd_incident_resolve` — Resolve Incident ⚠️ WRITE OPERATION
+### 3.5 `pd_incident_resolve` — Resolve Incident  WRITE OPERATION
 
 **Purpose:** Resolve an incident. **Requires confirmation.**
 
@@ -278,7 +278,7 @@ curl -s -X PUT \
 
 **Confirmation Gate (MANDATORY):**
 ```
-⚠️ RESOLVE INCIDENT
+ RESOLVE INCIDENT
   ID: P123ABC (#4521)
   Title: High CPU on prod-web-03
   Service: Production Web
@@ -298,7 +298,7 @@ curl -s -X PUT \
   -d '{"incident": {"type": "incident_reference", "status": "resolved"}}'
 ```
 
-### 3.6 `pd_incident_note` — Add Incident Note ⚠️ WRITE OPERATION
+### 3.6 `pd_incident_note` — Add Incident Note  WRITE OPERATION
 
 **Purpose:** Add a note/update to an incident. **Requires confirmation.**
 
@@ -308,7 +308,7 @@ curl -s -X PUT \
 
 **Confirmation Gate:**
 ```
-⚠️ ADD NOTE TO INCIDENT P123ABC
+ ADD NOTE TO INCIDENT P123ABC
   Note: "Identified root cause as memory leak in auth-service v2.14.3. Rolling back."
 
 Add this note? [y/N]
@@ -585,9 +585,9 @@ AI-powered incident triage for PagerDuty. Read-only by default. Write operations
 - "What happened in the last 24 hours?" → Recent incident history
 
 ### Write Operations (confirmation required)
-- "Acknowledge incident P123ABC" → ⚠️ Requires confirmation
-- "Resolve incident P123ABC" → ⚠️ Requires confirmation
-- "Add a note to incident P123ABC" → ⚠️ Requires confirmation
+- "Acknowledge incident P123ABC" →  Requires confirmation
+- "Resolve incident P123ABC" →  Requires confirmation
+- "Add a note to incident P123ABC" →  Requires confirmation
 
 ## Tools Reference
 
@@ -629,13 +629,13 @@ AI-powered incident triage for PagerDuty. Read-only by default. Write operations
 - Include params: Use `include[]=` query params to embed related objects (avoids extra API calls).
 
 ### What NOT to Build (MVP exclusions)
-- ❌ No incident creation (too dangerous for v1)
-- ❌ No escalation policy modification
-- ❌ No schedule management
-- ❌ No maintenance window creation
-- ❌ No webhook setup
-- ❌ No real-time streaming/polling (just point-in-time queries)
-- ❌ No multi-account support in v1
+-  No incident creation (too dangerous for v1)
+-  No escalation policy modification
+-  No schedule management
+-  No maintenance window creation
+-  No webhook setup
+-  No real-time streaming/polling (just point-in-time queries)
+-  No multi-account support in v1
 
 ### Agent Guidance in SKILL.md
 Include guidance for the LLM agent on HOW to use these tools effectively:

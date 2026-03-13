@@ -3,7 +3,7 @@ name: claude-code-usage
 description: Check Claude Code OAuth usage limits (session & weekly quotas). Use when user asks about Claude Code usage, remaining limits, rate limits, or how much Claude usage they have left. Includes automated session refresh reminders and reset detection monitoring.
 metadata:
   clawdbot:
-    emoji: "📊"
+    emoji: ""
     os:
       - darwin
       - linux
@@ -43,12 +43,12 @@ cd {baseDir}
 
 **Text format** (default):
 ```
-🦞 Claude Code Usage
+ Claude Code Usage
 
-⏱️  Session (5h): 🟢 ████░░░░░░ 40%
+  Session (5h):  ████░░░░░░ 40%
    Resets in: 2h 15m
 
-📅 Weekly (7d): 🟡 ██████░░░░ 60%
+ Weekly (7d):  ██████░░░░ 60%
    Resets in: 3d 8h
 ```
 
@@ -71,19 +71,19 @@ cd {baseDir}
 
 ## Features
 
-- 📊 **Session limit** (5-hour window) - Short-term rate limit
-- 📅 **Weekly limit** (7-day window) - Long-term rate limit
-- ⚡ **Smart caching** - 60-second cache to avoid API spam
-- 🎨 **Beautiful output** - Progress bars, emojis, color-coded status
-- 🔄 **Force refresh** - `--fresh` flag to bypass cache
-- 📤 **JSON output** - Machine-readable format
-- 🔔 **Automated monitoring** - Get notified when quotas reset
+-  **Session limit** (5-hour window) - Short-term rate limit
+-  **Weekly limit** (7-day window) - Long-term rate limit
+-  **Smart caching** - 60-second cache to avoid API spam
+-  **Beautiful output** - Progress bars, emojis, color-coded status
+-  **Force refresh** - `--fresh` flag to bypass cache
+-  **JSON output** - Machine-readable format
+-  **Automated monitoring** - Get notified when quotas reset
 
 ## Status Indicators
 
-- 🟢 **Green** - 0-50% usage (healthy)
-- 🟡 **Yellow** - 51-80% usage (moderate)
-- 🔴 **Red** - 81-100% usage (high/critical)
+-  **Green** - 0-50% usage (healthy)
+-  **Yellow** - 51-80% usage (moderate)
+-  **Red** - 81-100% usage (high/critical)
 
 ## Requirements
 
@@ -146,14 +146,14 @@ This creates a **self-scheduling chain** of cron jobs that:
 
 **What You'll Get:**
 ```
-🔄 Claude Code Session Status
+ Claude Code Session Status
 
-⏱️  Current usage: 44%
-⏰ Next refresh: 2h 15m
+  Current usage: 44%
+ Next refresh: 2h 15m
 
-Your 5-hour quota will reset soon! 🦞
+Your 5-hour quota will reset soon! 
 
-✅ Next reminder scheduled for: Jan 22 at 01:22 AM
+ Next reminder scheduled for: Jan 22 at 01:22 AM
 ```
 
 **How It Works:**
@@ -163,10 +163,10 @@ Your 5-hour quota will reset soon! 🦞
 - Self-correcting if session times ever drift
 
 **Benefits:**
-- ✅ Accurate to the minute
-- ✅ No manual scheduling needed
-- ✅ Adapts to your actual usage patterns
-- ✅ Minimal API calls (only when needed)
+-  Accurate to the minute
+-  No manual scheduling needed
+-  Adapts to your actual usage patterns
+-  Minimal API calls (only when needed)
 
 ### Reset Detection Monitor (Alternative)
 
@@ -192,13 +192,13 @@ clawdbot cron add --cron "*/30 * * * *" \
 
 **What You'll Get:**
 ```
-🎉 Claude Code Session Reset!
+ Claude Code Session Reset!
 
-⏱️  Your 5-hour quota has reset
-📊 Usage: 2%
-⏰ Next reset: 4h 58m
+  Your 5-hour quota has reset
+ Usage: 2%
+ Next reset: 4h 58m
 
-Fresh usage available! 🦞
+Fresh usage available! 
 ```
 
 **How It Works:**
@@ -221,7 +221,7 @@ STATE_FILE=/path/to/state.json ./scripts/monitor-usage.sh
 
 | Feature | Session Reminder | Reset Detection |
 |---------|-----------------|-----------------|
-| Accuracy | ✅ Exact minute | ~30min window |
+| Accuracy |  Exact minute | ~30min window |
 | API calls | Minimal | Every check |
 | Notification timing | Right on reset | Up to 30min delay |
 | Setup | One command | One command |

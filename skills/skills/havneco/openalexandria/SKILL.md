@@ -1,10 +1,10 @@
 ---
 name: openalexandria
 description: Query and submit artifacts to the OpenAlexandria federated knowledge protocol (reference node by default).
-metadata: {"openclaw":{"requires":{"bins":["python3"]}},"clawdbot":{"emoji":"📚"}}
+metadata: {"openclaw":{"requires":{"bins":["python3"]}},"clawdbot":{"emoji":""}}
 ---
 
-# OpenAlexandria 📚
+# OpenAlexandria 
 
 A minimal client skill for the **OpenAlexandria Protocol v0.1**.
 

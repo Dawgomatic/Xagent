@@ -27,7 +27,7 @@ def convert(src: str, size: int = 1024, quality: int = 92) -> str:
         img = img.resize((size, size), Image.LANCZOS)
     out = str(Path(src).with_suffix("")) + "-ig.jpg"
     img.save(out, "JPEG", quality=quality)
-    print(f"✅ {Path(src).name} → {Path(out).name}")
+    print(f" {Path(src).name} → {Path(out).name}")
     return out
 
 
@@ -41,11 +41,11 @@ def main():
     results = []
     for f in args.files:
         if not Path(f).exists():
-            print(f"⚠️  {f} not found, skipping")
+            print(f"  {f} not found, skipping")
             continue
         results.append(convert(f, args.size, args.quality))
 
-    print(f"\n🎉 Converted {len(results)} files")
+    print(f"\n Converted {len(results)} files")
     for r in results:
         print(f"   {r}")
 

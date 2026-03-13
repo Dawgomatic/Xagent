@@ -8,7 +8,7 @@ Usage:
     python send_dooray.py --list
 
 Examples:
-    python send_dooray.py "Dev Team" "Deployment complete ✅"
+    python send_dooray.py "Dev Team" "Deployment complete "
     python send_dooray.py --list  # List configured rooms
 """
 
@@ -138,15 +138,15 @@ def send_message(room_name, message_text, dooray_config):
             response_body = response.read().decode('utf-8')
             
             if status_code == 200:
-                print(f"✅ Message sent to Dooray room '{room_name}'")
+                print(f" Message sent to Dooray room '{room_name}'")
                 return True
             else:
-                print(f"⚠️  Unexpected response: {status_code}", file=sys.stderr)
+                print(f"  Unexpected response: {status_code}", file=sys.stderr)
                 print(f"Response: {response_body}", file=sys.stderr)
                 return False
     
     except urllib.error.HTTPError as e:
-        print(f"❌ HTTP Error {e.code}: {e.reason}", file=sys.stderr)
+        print(f" HTTP Error {e.code}: {e.reason}", file=sys.stderr)
         try:
             error_body = e.read().decode('utf-8')
             print(f"Response: {error_body}", file=sys.stderr)
@@ -155,13 +155,13 @@ def send_message(room_name, message_text, dooray_config):
         return False
     
     except urllib.error.URLError as e:
-        print(f"❌ Network error: {e.reason}", file=sys.stderr)
+        print(f" Network error: {e.reason}", file=sys.stderr)
         if "CERTIFICATE_VERIFY_FAILED" in str(e.reason):
-             print("\n💡 Hint: Try setting 'verify_ssl': false in your config if using a proxy or self-signed cert.", file=sys.stderr)
+             print("\n Hint: Try setting 'verify_ssl': false in your config if using a proxy or self-signed cert.", file=sys.stderr)
         return False
     
     except Exception as e:
-        print(f"❌ Unexpected error: {e}", file=sys.stderr)
+        print(f" Unexpected error: {e}", file=sys.stderr)
         return False
 
 

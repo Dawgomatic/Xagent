@@ -5,7 +5,7 @@ description: Build and run Python-based AI agents using the AWS Strands SDK. Use
 homepage: https://github.com/strands-agents/sdk-python
 metadata:
   openclaw:
-    emoji: 🧬
+    emoji: 
     requires:
       bins: [python3]
       packages: [strands-agents]

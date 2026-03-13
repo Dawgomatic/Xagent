@@ -4,12 +4,12 @@ Eine inoffizielle Command-Line-Interface für die Münchner Verkehrsgesellschaft
 
 ## Features
 
-- 🚇 **Station suchen** - Finde Stationen nach Name
-- ⏰ **Echtzeit-Abfahrten** - Aktuelle Abfahrten mit Verspätungsanzeige
-- 🗺️ **Verbindungssuche** - Routen zwischen Stationen
-- 📍 **Nahbereichssuche** - Stationen in der Nähe bestimmter Koordinaten  
-- ⚠️ **Störungsmeldungen** - Aktuelle Betriebsstörungen
-- 🚊 **Linienübersicht** - Alle verfügbaren Linien nach Verkehrsmittel
+-  **Station suchen** - Finde Stationen nach Name
+-  **Echtzeit-Abfahrten** - Aktuelle Abfahrten mit Verspätungsanzeige
+-  **Verbindungssuche** - Routen zwischen Stationen
+-  **Nahbereichssuche** - Stationen in der Nähe bestimmter Koordinaten  
+-  **Störungsmeldungen** - Aktuelle Betriebsstörungen
+-  **Linienübersicht** - Alle verfügbaren Linien nach Verkehrsmittel
 
 ## Quickstart
 
@@ -96,11 +96,11 @@ python3 mvg_cli.py --json departures "Marienplatz"
 
 | Typ | Emoji | Filter |
 |-----|-------|---------|
-| U-Bahn | 🔵 | `ubahn` |
-| S-Bahn | 🟢 | `sbahn` |
-| Bus | 🚌 | `bus` |
-| Tram | 🚋 | `tram` |
-| Regionalzug | 🚆 | `bahn` |
+| U-Bahn |  | `ubahn` |
+| S-Bahn |  | `sbahn` |
+| Bus |  | `bus` |
+| Tram |  | `tram` |
+| Regionalzug |  | `bahn` |
 
 ## API
 
@@ -114,9 +114,9 @@ Nutzt die inoffizielle MVG API unter `https://www.mvg.de/api/bgw-pt/v3/`:
 ## Features im Detail
 
 ### Farbkodierte Verspätungen
-- ✅ **Pünktlich** - grün
-- 🟡 **Bis 5 min Verspätung** - gelb  
-- 🔴 **Über 5 min Verspätung** - rot
+-  **Pünktlich** - grün
+-  **Bis 5 min Verspätung** - gelb  
+-  **Über 5 min Verspätung** - rot
 
 ### Automatische Stationsauflösung
 Gib einfach den Stationsnamen ein - die CLI löst automatisch zur korrekten `globalId` auf.
@@ -133,6 +133,6 @@ Hübsche Terminal-Ausgabe mit Unicode-Zeichnungen für bessere Lesbarkeit.
 - **Keine Authentifizierung**: Kein API-Key nötig
 - **Read-Only**: Nur Abfragen, keine Buchungen/Tickets
 
-## Entwickelt mit ❤️ in München
+## Entwickelt mit  in München
 
 Inspiriert von anderen CLI-Tools im Workspace - pure Python, keine externen Dependencies außer `requests`.

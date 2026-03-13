@@ -25,7 +25,7 @@ user-invocable: true
 
 ---
 
-## ⚡ Agent Behavioral Contract
+##  Agent Behavioral Contract
 
 **If you are an agent reading this skill, these are your rules. Follow them.**
 
@@ -79,9 +79,9 @@ When denied, present it clearly and concisely:
 ```
 I need to [ACTION] but don't have a mandate for it.
 
-📋 [CATEGORY]: [what you want to do]
-🎯 Target: [specific target]
-⏰ Suggested duration: [reasonable TTL]
+ [CATEGORY]: [what you want to do]
+ Target: [specific target]
+ Suggested duration: [reasonable TTL]
 
 Want me to set this up? I can also create a broader mandate if you'd
 prefer (e.g., all emails to @company.com for 30 days).

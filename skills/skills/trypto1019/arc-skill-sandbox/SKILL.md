@@ -2,7 +2,7 @@
 name: skill-sandbox
 description: Test untrusted skills in an isolated environment before installing. Monitors network access, filesystem writes, environment variable reads, and subprocess calls. Run any skill safely without risking your agent's data or credentials.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🏖️", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Skill Sandbox

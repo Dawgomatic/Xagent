@@ -1,7 +1,7 @@
 ---
 name: x402
 description: "Internet-native payments using the HTTP 402 Payment Required standard. Set up as a buyer to pay for API access, or as a seller to monetize your APIs."
-metadata: {"openclaw":{"emoji":"💸"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # x402 Payment Protocol

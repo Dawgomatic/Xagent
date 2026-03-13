@@ -10,7 +10,7 @@ keywords:
   - report-generation
   - data-analysis
   - imitation-writing
-metadata: {"clawdbot":{"emoji":"🔭","requires":{"env":["CUECUE_API_KEY"]},"primaryEnv": "CUECUE_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["CUECUE_API_KEY"]},"primaryEnv": "CUECUE_API_KEY"}}
 
 ---
 
@@ -28,11 +28,11 @@ CueCue Deep Research orchestrates multiple AI agents to:
 4. **Generate** a shareable report URL
 
 The skill filters the verbose agent workflow to show only:
-- 📋 Task titles (from the supervisor agent)
-- 📝 Final research report (from the reporter agent)
-- 🔗 Report URL for web viewing
+-  Task titles (from the supervisor agent)
+-  Final research report (from the reporter agent)
+-  Report URL for web viewing
 
-⏱️ **Execution Time**: Depending on the complexity of your research question, the process may take **5-30 minutes**. The system performs comprehensive research including web crawling, data analysis, and report generation. Please be patient and wait for the complete results.
+ **Execution Time**: Depending on the complexity of your research question, the process may take **5-30 minutes**. The system performs comprehensive research including web crawling, data analysis, and report generation. Please be patient and wait for the complete results.
 
 ## For AI Assistants
 
@@ -40,9 +40,9 @@ The skill filters the verbose agent workflow to show only:
 
 1. **Progress Monitoring**: The research process outputs progress information in real-time. You should check the output **every 5 minutes** to:
    - Verify the research is still running
-   - Report task progress to the user (📋 Task updates)
+   - Report task progress to the user ( Task updates)
    - Detect any errors or issues
-   - Inform the user when report generation begins (📝 Generating Report...)
+   - Inform the user when report generation begins ( Generating Report...)
 
 2. **Progress URL**: The command will output a URL like "Research begin. You can view progress at: https://cuecue.cn/c/..." - this URL is for **human users** to view the web interface, NOT for you to fetch. You should monitor progress through the command's stdout output.
 
@@ -56,11 +56,11 @@ The skill filters the verbose agent workflow to show only:
 4. **Timeout Handling**: If the command appears to hang or timeout, inform the user that the research may still be processing on the server, and they can check the web interface URL.
 
 5. **User-Facing Communication Style**: When informing users about progress monitoring:
-   - ✅ **DO SAY**: "我会每 5 分钟自动检查进度并汇报" / "I'll check progress every 5 minutes and update you"
-   - ✅ **DO SAY**: "研究完成后我会总结关键发现" / "I'll summarize key findings when complete"
-   - ❌ **DON'T SAY**: "我创建了一个 cron 任务" / "I created a cron job"
-   - ❌ **DON'T SAY**: "完成后会删除 cron" / "Will delete the cron when done"
-   - ❌ **DON'T SAY**: Technical implementation details (session IDs, job IDs, internal mechanisms)
+   -  **DO SAY**: "我会每 5 分钟自动检查进度并汇报" / "I'll check progress every 5 minutes and update you"
+   -  **DO SAY**: "研究完成后我会总结关键发现" / "I'll summarize key findings when complete"
+   -  **DON'T SAY**: "我创建了一个 cron 任务" / "I created a cron job"
+   -  **DON'T SAY**: "完成后会删除 cron" / "Will delete the cron when done"
+   -  **DON'T SAY**: Technical implementation details (session IDs, job IDs, internal mechanisms)
    
    **Why**: Users care about *what* you'll do, not *how* you do it. Keep communication focused on outcomes and user value, not internal plumbing.
 
@@ -96,7 +96,7 @@ cron.add({
   wakeMode: "now",  // IMPORTANT: Use "now" to trigger immediately
   payload: {
     kind: "agentTurn",
-    message: "检查 CueCue 研究进度 (session: wild-river)。使用 process log wild-river 检查输出。如果看到 '✅ Research complete'，则：1) 读取报告文件并总结关键发现；2) 使用 cron.remove 删除此监控任务。如果仍在运行，汇报最新的 📋 Task 进度。",
+    message: "检查 CueCue 研究进度 (session: wild-river)。使用 process log wild-river 检查输出。如果看到 ' Research complete'，则：1) 读取报告文件并总结关键发现；2) 使用 cron.remove 删除此监控任务。如果仍在运行，汇报最新的  Task 进度。",
     deliver: true,
     channel: "feishu",  // or "telegram", "discord", etc.
     to: "GROUP_ID_OR_CHAT_ID"  // The channel where the research was requested
@@ -163,9 +163,9 @@ const cronJob = cron.add({
 })
 
 // 4. Inform user (user-friendly, no technical details)
-reply(`🔭 研究已启动！
-📊 进度追踪: https://cuecue.cn/c/...
-⏰ 我会每 5 分钟自动检查进度并汇报
+reply(` 研究已启动！
+ 进度追踪: https://cuecue.cn/c/...
+ 我会每 5 分钟自动检查进度并汇报
 `)
 
 // 5. Cron handles the rest automatically
@@ -313,7 +313,7 @@ The mimic feature analyzes the writing style, tone, and structure of the provide
 - Adapting to specific audience preferences
 - Maintaining consistency across reports
 
-⚠️ **Note**: The `--mimic-url` and `--template-id` options cannot be used together. Choose one approach:
+ **Note**: The `--mimic-url` and `--template-id` options cannot be used together. Choose one approach:
 - Use `--template-id` for predefined research frameworks (goal, search plan, report format)
 - Use `--mimic-url` for style mimicking without a template
 
@@ -322,15 +322,15 @@ The mimic feature analyzes the writing style, tone, and structure of the provide
 
 | Option | Required | Description |
 |--------|----------|-------------|
-| `query` | ✅ | Research question or topic |
-| `--api-key` | ❌ | Your CueCue API key (defaults to `CUECUE_API_KEY` env var) |
-| `--base-url` | ❌ | CueCue API base URL (defaults to `CUECUE_BASE_URL` env var or https://cuecue.cn) |
-| `--conversation-id` | ❌ | Continue an existing conversation |
-| `--template-id` | ❌ | Use a predefined research template (cannot be used with `--mimic-url`) |
-| `--mimic-url` | ❌ | URL to mimic the writing style from (cannot be used with `--template-id`) |
-| `--output`, `-o` | ❌ | Save report to file (markdown format). Recommended format: `~/clawd/cuecue-reports/clawd/cuecue-reports/YYYY-MM-DD-HH-MM-descriptive-name.md` (e.g., `~/clawd/2026-01-30-12-41-tesla-analysis.md`). The `~` will be expanded to your home directory. |
-| `--verbose`, `-v` | ❌ | Enable verbose logging |
-| `--help`, `-h` | ❌ | Show help message |
+| `query` |  | Research question or topic |
+| `--api-key` |  | Your CueCue API key (defaults to `CUECUE_API_KEY` env var) |
+| `--base-url` |  | CueCue API base URL (defaults to `CUECUE_BASE_URL` env var or https://cuecue.cn) |
+| `--conversation-id` |  | Continue an existing conversation |
+| `--template-id` |  | Use a predefined research template (cannot be used with `--mimic-url`) |
+| `--mimic-url` |  | URL to mimic the writing style from (cannot be used with `--template-id`) |
+| `--output`, `-o` |  | Save report to file (markdown format). Recommended format: `~/clawd/cuecue-reports/clawd/cuecue-reports/YYYY-MM-DD-HH-MM-descriptive-name.md` (e.g., `~/clawd/2026-01-30-12-41-tesla-analysis.md`). The `~` will be expanded to your home directory. |
+| `--verbose`, `-v` |  | Enable verbose logging |
+| `--help`, `-h` |  | Show help message |
 
 ## Output Format
 
@@ -341,26 +341,26 @@ Starting Deep Research: Tesla Q3 2024 Financial Analysis
 
 Check Progress: https://cuecue.cn/c/12345678-1234-1234-1234-123456789abc
 
-📋 Task: Search for Tesla Q3 2024 financial data
+ Task: Search for Tesla Q3 2024 financial data
 
-📋 Task: Analyze revenue and profit trends
+ Task: Analyze revenue and profit trends
 
-📝 Generating Report...
+ Generating Report...
 
 # Tesla Q3 2024 Financial Analysis
 
 ## Executive Summary
 [Report content streams here in real-time...]
 
-✅ Research complete
+ Research complete
 
 ============================================================
-📊 Research Summary
+ Research Summary
 ============================================================
 Conversation ID: 12345678-1234-1234-1234-123456789abc
 Tasks completed: 2
 Report URL: https://cuecue.cn/c/12345678-1234-1234-1234-123456789abc
-✅ Report saved to: ~/clawd/cuecue-reports/2026-01-30-10-15-tesla-q3-analysis.md
+ Report saved to: ~/clawd/cuecue-reports/2026-01-30-10-15-tesla-q3-analysis.md
 ```
 
 ## Troubleshooting

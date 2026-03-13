@@ -102,7 +102,7 @@ case "$1" in
         if echo "$DELEGATE_INFO" | jq -e '.error' > /dev/null 2>&1; then
             echo "$DELEGATE_INFO" | jq '{error: .error.message, code: .error.code}'
             echo ""
-            echo "⚠️  Token may be expired. Run: outlook-token.sh refresh"
+            echo "  Token may be expired. Run: outlook-token.sh refresh"
         else
             echo "$DELEGATE_INFO" | jq '{authenticated_as: .userPrincipalName, display_name: .displayName}'
         fi
@@ -117,7 +117,7 @@ case "$1" in
         if echo "$OWNER_INBOX" | jq -e '.error' > /dev/null 2>&1; then
             echo "$OWNER_INBOX" | jq '{error: .error.message, code: .error.code}'
             echo ""
-            echo "⚠️  Cannot access owner's mailbox. Check delegate permissions."
+            echo "  Cannot access owner's mailbox. Check delegate permissions."
         else
             echo "$OWNER_INBOX" | jq '{status: "OK", folder: .displayName, unread: .unreadItemCount, total: .totalItemCount}'
         fi
@@ -132,7 +132,7 @@ case "$1" in
         if echo "$OWNER_CAL" | jq -e '.error' > /dev/null 2>&1; then
             echo "$OWNER_CAL" | jq '{error: .error.message, code: .error.code}'
             echo ""
-            echo "⚠️  Cannot access owner's calendar. Check delegate permissions."
+            echo "  Cannot access owner's calendar. Check delegate permissions."
         else
             echo "$OWNER_CAL" | jq '{status: "OK", calendar: .name, canEdit: .canEdit}'
         fi

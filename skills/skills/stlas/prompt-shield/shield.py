@@ -710,10 +710,10 @@ def sanitize_text(text: str, matches: List[Match]) -> str:
         start, end = match.position
         if match.score >= 30:
             # Ersetze mit Warnung
-            result = result[:start] + f"[⚠️ BLOCKED: {match.description}]" + result[end:]
+            result = result[:start] + f"[ BLOCKED: {match.description}]" + result[end:]
         elif match.score >= 20:
             # Markiere
-            result = result[:start] + f"[⚠️ {result[start:end]}]" + result[end:]
+            result = result[:start] + f"[ {result[start:end]}]" + result[end:]
 
     return result
 
@@ -943,12 +943,12 @@ def main():
             print(f"Duplikate gefunden: {result.duplicates_found}")
             print(f"Ohne Karma/Upvotes: {result.low_karma_count}")
             print()
-            print(f"  🟢 CLEAN:   {result.clean} ({100*result.clean//result.total}%)")
-            print(f"  🟡 WARNING: {result.warning} ({100*result.warning//result.total}%)")
-            print(f"  🔴 BLOCK:   {result.block} ({100*result.block//result.total}%)")
+            print(f"   CLEAN:   {result.clean} ({100*result.clean//result.total}%)")
+            print(f"   WARNING: {result.warning} ({100*result.warning//result.total}%)")
+            print(f"   BLOCK:   {result.block} ({100*result.block//result.total}%)")
             print()
             rate = 100*(result.warning+result.block)//result.total
-            print(f"📊 ERKENNUNGSRATE: {rate}%")
+            print(f" ERKENNUNGSRATE: {rate}%")
             print(f"{'='*60}\n")
 
         return 0 if result.block == 0 else 2

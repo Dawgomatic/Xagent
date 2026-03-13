@@ -57,9 +57,9 @@ class VibeTesting {
     }
 
     async run() {
-        console.log('🚀 VibeTesting starting...');
-        console.log(`📍 Target: ${this.config.targetUrl}`);
-        console.log(`🧪 Test Type: ${this.config.testingType}`);
+        console.log(' VibeTesting starting...');
+        console.log(` Target: ${this.config.targetUrl}`);
+        console.log(` Test Type: ${this.config.testingType}`);
         console.log('');
 
         const startTime = Date.now();
@@ -75,25 +75,25 @@ class VibeTesting {
             this.results.summary.duration = parseFloat(duration);
 
             console.log('');
-            console.log('✅ Testing complete!');
-            console.log(`⏱️  Duration: ${duration}s`);
-            console.log(`📊 Score: ${this.results.summary.score}/100`);
+            console.log(' Testing complete!');
+            console.log(`  Duration: ${duration}s`);
+            console.log(` Score: ${this.results.summary.score}/100`);
 
             return this.results;
 
         } catch (error) {
-            console.error('❌ Testing failed:', error);
+            console.error(' Testing failed:', error);
             this.results.error = error.message;
             return this.results;
         }
     }
 
     async initBrowser() {
-        console.log('🌐 Initializing browser...');
+        console.log(' Initializing browser...');
         
         try {
             if (this.config.headless) {
-                console.log('  📱 Running in headless mode');
+                console.log('   Running in headless mode');
             }
             
             this.browserConfig = {
@@ -103,16 +103,16 @@ class VibeTesting {
                 userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
             };
 
-            console.log('  ✅ Browser initialized');
+            console.log('   Browser initialized');
 
         } catch (error) {
-            console.log('  ⚠️  Browser automation not available');
-            console.log('  📝 Using alternative detection methods');
+            console.log('    Browser automation not available');
+            console.log('   Using alternative detection methods');
         }
     }
 
     async navigate() {
-        console.log(`🌍 Navigating to ${this.config.targetUrl}...`);
+        console.log(` Navigating to ${this.config.targetUrl}...`);
 
         try {
             const response = await fetch(this.config.targetUrl, {
@@ -131,10 +131,10 @@ class VibeTesting {
 
             if (response.ok) {
                 this.results.tests.functional.passed++;
-                console.log(`  ✅ Page loaded successfully (HTTP ${response.status})`);
+                console.log(`   Page loaded successfully (HTTP ${response.status})`);
             } else {
                 this.results.tests.functional.failed++;
-                console.log(`  ❌ Page failed to load (HTTP ${response.status})`);
+                console.log(`   Page failed to load (HTTP ${response.status})`);
             }
 
             const content = await response.text();
@@ -143,19 +143,19 @@ class VibeTesting {
 
         } catch (error) {
             this.results.tests.functional.errors.push(error.message);
-            console.log(`  ❌ Navigation error: ${error.message}`);
+            console.log(`   Navigation error: ${error.message}`);
         }
     }
 
     async runTests() {
         console.log('');
-        console.log('🧪 Running tests...');
+        console.log(' Running tests...');
         console.log('');
 
         const tests = this.getTestsToRun();
 
         for (const test of tests) {
-            console.log(`📋 Running ${test} tests...`);
+            console.log(` Running ${test} tests...`);
             
             switch (test) {
                 case 'functional':
@@ -199,7 +199,7 @@ class VibeTesting {
     }
 
     async runFunctionalTests() {
-        console.log('  🔍 Analyzing page structure...');
+        console.log('   Analyzing page structure...');
 
         const dom = {
             forms: [],
@@ -246,7 +246,7 @@ class VibeTesting {
             }
         }
 
-        console.log(`  📊 Found ${dom.forms.length} forms, ${dom.inputs.length} inputs, ${dom.buttons.length} buttons`);
+        console.log(`   Found ${dom.forms.length} forms, ${dom.inputs.length} inputs, ${dom.buttons.length} buttons`);
 
         if (dom.forms.length > 0) {
             this.results.tests.functional.details.push({
@@ -284,11 +284,11 @@ class VibeTesting {
             this.results.tests.functional.passed++;
         }
 
-        console.log(`  ✅ Functional tests complete: ${this.results.tests.functional.passed} passed`);
+        console.log(`   Functional tests complete: ${this.results.tests.functional.passed} passed`);
     }
 
     async runAccessibilityTests() {
-        console.log('  ♿ Running accessibility tests...');
+        console.log('   Running accessibility tests...');
 
         const issues = { critical: [], serious: [], moderate: [], minor: [] };
 
@@ -350,12 +350,12 @@ class VibeTesting {
             wcagLevel: this.config.wcagLevel
         };
 
-        console.log(`  ♿ Accessibility Score: ${score}/100`);
-        console.log(`  ⚠️  Issues found: ${totalIssues}`);
+        console.log(`   Accessibility Score: ${score}/100`);
+        console.log(`    Issues found: ${totalIssues}`);
     }
 
     async runPerformanceTests() {
-        console.log('  ⚡ Running performance tests...');
+        console.log('   Running performance tests...');
 
         const metrics = {
             responseTime: 0,
@@ -407,12 +407,12 @@ class VibeTesting {
             score: overallScore
         };
 
-        console.log(`  ⚡ Performance Score: ${overallScore}/100`);
-        console.log(`  📊 Response Time: ${metrics.responseTime}ms`);
+        console.log(`   Performance Score: ${overallScore}/100`);
+        console.log(`   Response Time: ${metrics.responseTime}ms`);
     }
 
     async runVisualTests() {
-        console.log('  🎨 Running visual regression tests...');
+        console.log('   Running visual regression tests...');
 
         const colorRegex = /#[0-9A-Fa-f]{3,6}/g;
         const colors = this.pageContent.match(colorRegex) || [];
@@ -433,12 +433,12 @@ class VibeTesting {
             score: 85
         };
 
-        console.log(`  🎨 Colors detected: ${uniqueColors.length}`);
-        console.log(`  📐 Responsive: ${hasViewport ? 'Yes' : 'No'}`);
+        console.log(`   Colors detected: ${uniqueColors.length}`);
+        console.log(`   Responsive: ${hasViewport ? 'Yes' : 'No'}`);
     }
 
     async runSecurityTests() {
-        console.log('  🔒 Running security tests...');
+        console.log('   Running security tests...');
 
         const findings = [];
 
@@ -470,11 +470,11 @@ class VibeTesting {
             summary: severityCounts.critical > 0 ? 'Critical issues found' : 'No critical issues'
         };
 
-        console.log(`  🔒 Security Score: ${securityScore}/100`);
+        console.log(`   Security Score: ${securityScore}/100`);
     }
 
     async runE2ETests() {
-        console.log('  🔄 Running end-to-end tests...');
+        console.log('   Running end-to-end tests...');
 
         const flows = this.config.steps || [];
         
@@ -503,12 +503,12 @@ class VibeTesting {
             summary: `${passedSteps}/${results.length} steps completed`
         };
 
-        console.log(`  🔄 E2E Score: ${score}/100`);
+        console.log(`   E2E Score: ${score}/100`);
     }
 
     async generateReport() {
         console.log('');
-        console.log('📊 Generating report...');
+        console.log(' Generating report...');
 
         const testResults = Object.values(this.results.tests)
             .filter(t => typeof t === 'object' && t.score !== undefined);
@@ -525,7 +525,7 @@ class VibeTesting {
         if (this.config.reportFormat === 'json') {
             const reportPath = path.join(process.cwd(), 'vibetesting-report.json');
             fs.writeFileSync(reportPath, JSON.stringify(this.results, null, 2));
-            console.log(`  📄 JSON report saved to: ${reportPath}`);
+            console.log(`   JSON report saved to: ${reportPath}`);
         } else {
             await this.generateHTMLReport();
         }
@@ -560,7 +560,7 @@ class VibeTesting {
 <body>
     <div class="container">
         <header>
-            <h1>🧪 VibeTesting Report</h1>
+            <h1> VibeTesting Report</h1>
             <p><strong>URL:</strong> ${this.config.targetUrl}</p>
             <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
         </header>
@@ -585,7 +585,7 @@ class VibeTesting {
         </div>
 
         <div class="section">
-            <h2>🔍 Functional Tests</h2>
+            <h2> Functional Tests</h2>
             <div class="metric">
                 <span>Tests Passed</span>
                 <span>${this.results.tests.functional.passed}</span>
@@ -597,7 +597,7 @@ class VibeTesting {
         </div>
 
         <div class="section">
-            <h2>♿ Accessibility</h2>
+            <h2> Accessibility</h2>
             <div class="metric">
                 <span>WCAG Level</span>
                 <span>${this.config.wcagLevel}</span>
@@ -609,7 +609,7 @@ class VibeTesting {
         </div>
 
         <div class="section">
-            <h2>⚡ Performance</h2>
+            <h2> Performance</h2>
             <div class="metric">
                 <span>Response Time</span>
                 <span>${this.results.tests.performance.metrics.responseTime}ms</span>
@@ -625,7 +625,7 @@ class VibeTesting {
         </div>
 
         <div class="section">
-            <h2>🔒 Security</h2>
+            <h2> Security</h2>
             <div class="metric">
                 <span>Score</span>
                 <span class="${this.results.tests.security.score >= 80 ? 'score-high' : this.results.tests.security.score >= 50 ? 'score-medium' : 'score-low'}">${this.results.tests.security.score}/100</span>
@@ -641,11 +641,11 @@ class VibeTesting {
 
         const reportPath = path.join(process.cwd(), 'vibetesting-report.html');
         fs.writeFileSync(reportPath, html);
-        console.log(`  📄 HTML report saved to: ${reportPath}`);
+        console.log(`   HTML report saved to: ${reportPath}`);
     }
 
     async cleanup() {
-        console.log('🧹 Cleaning up...');
+        console.log(' Cleaning up...');
     }
 }
 

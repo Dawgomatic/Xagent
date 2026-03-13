@@ -52,7 +52,7 @@ def sign_message(private_key, message_bytes):
 
 def register_agent():
     """Register a new agent identity."""
-    print("📝 Registering new agent identity...")
+    print(" Registering new agent identity...")
     
     response = requests.post(f"{DEFAULT_URL}/agents/register")
     data = response.json()
@@ -63,15 +63,15 @@ def register_agent():
         "recovery_phrase": data["recovery_phrase"]
     })
     
-    print(f"✅ Registered!")
+    print(f" Registered!")
     print(f"   Agent ID: {data['agent_id'][:20]}...")
     print(f"   Recovery phrase: {data['recovery_phrase'][:50]}...")
-    print(f"\n⚠️  SAVE THIS RECOVERY PHRASE! It's your only way to recover your identity.")
+    print(f"\n  SAVE THIS RECOVERY PHRASE! It's your only way to recover your identity.")
     print(f"   Stored in: {IDENTITY_FILE}")
 
 def recover_agent(recovery_phrase):
     """Recover agent identity from recovery phrase."""
-    print("🔄 Recovering identity...")
+    print(" Recovering identity...")
     
     response = requests.post(
         f"{DEFAULT_URL}/agents/recover",
@@ -85,7 +85,7 @@ def recover_agent(recovery_phrase):
         "recovery_phrase": recovery_phrase
     })
     
-    print(f"✅ Recovered!")
+    print(f" Recovered!")
     print(f"   Agent ID: {data['agent_id'][:20]}...")
 
 def create_memory_snapshot():
@@ -108,7 +108,7 @@ def store_memory(file_path=None):
     """Store a memory snapshot with proper Ed25519 signature."""
     identity = load_identity()
     if not identity:
-        print("❌ No identity found. Run 'register' first.")
+        print(" No identity found. Run 'register' first.")
         return
     
     if file_path:
@@ -120,7 +120,7 @@ def store_memory(file_path=None):
         template_path = Path.home() / ".agent-memory" / "memory_template.json"
         with open(template_path, 'w') as f:
             json.dump(memory, f, indent=2)
-        print(f"📝 Created memory template at: {template_path}")
+        print(f" Created memory template at: {template_path}")
         print("Edit it and run: memory_client.py store --file ~/.agent-memory/memory_template.json")
         return
     
@@ -147,15 +147,15 @@ def store_memory(file_path=None):
     
     result = response.json()
     if response.status_code == 200:
-        print(f"✅ Memory stored! Version: {result['version']}")
+        print(f" Memory stored! Version: {result['version']}")
     else:
-        print(f"❌ Failed: {result}")
+        print(f" Failed: {result}")
 
 def retrieve_memory():
     """Retrieve latest memory with proper signature."""
     identity = load_identity()
     if not identity:
-        print("❌ No identity found. Run 'register' first.")
+        print(" No identity found. Run 'register' first.")
         return
     
     # Create signature for retrieve request
@@ -179,21 +179,21 @@ def retrieve_memory():
         plaintext = base64.b64decode(encrypted).decode()
         memory = json.loads(plaintext)
         
-        print("📂 Retrieved Memory:")
+        print(" Retrieved Memory:")
         print(json.dumps(memory, indent=2))
     else:
-        print(f"❌ No memory found or error: {response.text}")
+        print(f" No memory found or error: {response.text}")
 
 def show_status():
     """Show service status."""
     try:
         response = requests.get(f"{DEFAULT_URL}/health", timeout=5)
         data = response.json()
-        print(f"🟢 Service Status: {data['status']}")
+        print(f" Service Status: {data['status']}")
         print(f"   Database: {data['database']}")
         print(f"   Version: {data['version']}")
     except requests.exceptions.ConnectionError:
-        print("🔴 Service not running!")
+        print(" Service not running!")
         print("   Start with: ~/.agent-memory/start.sh")
 
 def main():

@@ -2,7 +2,7 @@
 
 This document serves as the canonical source of truth for all AgentNexus smart contract deployments. Third-party protocol terms (Base, WalletConnect, Coinbase x402, Circle CCTP) are summarized in [NOTICE](./NOTICE).
 
-## 🟢 Live on Base Mainnet (December 2025)
+##  Live on Base Mainnet (December 2025)
 
 | Contract                   | Address                                      | Explorer                                                                            |
 | -------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------- |
@@ -13,7 +13,7 @@ This document serves as the canonical source of truth for all AgentNexus smart c
 - **Currency**: ETH (Gas), USDC (Payments)
 - **Fee**: 2.5% Protocol Fee
 
-## 🟡 Testnet (Base Sepolia)
+##  Testnet (Base Sepolia)
 
 | Contract               | Address                                      | Explorer                                                                                    |
 | ---------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------- |
@@ -24,6 +24,6 @@ This document serves as the canonical source of truth for all AgentNexus smart c
 
 ---
 
-## 🔒 Release Tags
+##  Release Tags
 
 - [v0.1.1-base-mainnet](https://github.com/up2itnow/AgentNexus2/releases/tag/v0.1.1-base-mainnet) - First public mainnet release

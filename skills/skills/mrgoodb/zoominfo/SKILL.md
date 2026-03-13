@@ -1,7 +1,7 @@
 ---
 name: zoominfo
 description: Access B2B contact and company data via ZoomInfo API. Enrich leads and find prospects.
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"env":["ZOOMINFO_USERNAME","ZOOMINFO_PASSWORD"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["ZOOMINFO_USERNAME","ZOOMINFO_PASSWORD"]}}}
 ---
 # ZoomInfo
 B2B intelligence platform.

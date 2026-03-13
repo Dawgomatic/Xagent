@@ -147,7 +147,7 @@ def create_attendance_sheet(
     
     # Save
     wb.save(output_file)
-    print(f"✅ 考勤表已生成: {output_file}")
+    print(f" 考勤表已生成: {output_file}")
     print(f"   员工数: {len(employees)}")
     print(f"   日期范围: {start_date} 至 {end_date} ({len(dates)}天)")
     

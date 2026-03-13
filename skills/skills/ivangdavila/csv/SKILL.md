@@ -1,7 +1,7 @@
 ---
 name: CSV
 description: Parse and generate RFC 4180 compliant CSV that works across tools.
-metadata: {"clawdbot":{"emoji":"📊","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Quoting Rules

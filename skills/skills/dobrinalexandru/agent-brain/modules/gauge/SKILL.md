@@ -1,6 +1,6 @@
-# Gauge Memory 📊
+# Gauge Memory 
 
-**Status:** 📋 Agent Guideline | **Module:** gauge | **Part of:** Agent Brain
+**Status:**  Agent Guideline | **Module:** gauge | **Part of:** Agent Brain
 
 Confidence classification and self-awareness. Honest about what is known vs. unknown.
 

@@ -366,13 +366,13 @@ Completed Tasks:
 ✓ [Task 2]
 
 In Progress:
-🔄 [Task 3] - [X% complete]
+ [Task 3] - [X% complete]
 
 Upcoming:
-⏳ [Task 4] - [Expected start time]
+ [Task 4] - [Expected start time]
 
 Issues:
-⚠️ [Issue description] - [Severity] - [ETA resolution]
+ [Issue description] - [Severity] - [ETA resolution]
 
 Metrics:
 - Migration Rate: [X records/minute]

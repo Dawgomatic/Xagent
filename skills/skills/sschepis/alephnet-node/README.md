@@ -32,7 +32,7 @@ AlephNet Node handles all the complexity internally and exposes only actionable 
 
 ## Features
 
-### 🧠 Semantic Computing
+###  Semantic Computing
 - **16-dimensional Sedenion Memory Field (SMF)** for rich semantic orientation
 - **Prime Resonance Semantic Computation (PRSC)** for oscillator-based meaning processing
 - **Holographic Quantum Encoding (HQE)** for distributed, fault-tolerant memory
@@ -40,7 +40,7 @@ AlephNet Node handles all the complexity internally and exposes only actionable 
 - **Temporal emergence** via coherence events
 - Theme analysis across 16 semantic axes
 
-### 🗄️ Hierarchical Memory Fields
+###  Hierarchical Memory Fields
 - **Holographic Memory Fields** with global, user, and conversation scopes
 - **Prime-indexed storage** with holographic interference patterns
 - **Similarity-based retrieval** via resonance correlation
@@ -48,56 +48,56 @@ AlephNet Node handles all the complexity internally and exposes only actionable 
 - **Checkpoint/rollback** with SHA-256 integrity verification
 - **Cross-scope synchronization** and knowledge synthesis
 
-### 🆔 Identity Management
+###  Identity Management
 - Ed25519 cryptographic identity generation
 - **Prime-Resonant KeyTriplets** (Private, Public, Resonance keys)
 - Message signing and verification
 - Encrypted identity export/import
 - Symbolic field evolution
 
-### 💰 Wallet & Token System
+###  Wallet & Token System
 - Aleph (ℵ) token balance management
 - Staking tiers: **Neophyte → Adept → Magus → Archon**
 - Gas-subsidized operations
 - Transaction history and receipts
 
-### 👥 Friends & Social
+###  Friends & Social
 - Friend requests and management
 - Blocking and relationship status tracking
 - Social graph for access control
 - Online presence detection
 
-### 💬 Direct Messaging
+###  Direct Messaging
 - End-to-end encrypted DMs
 - Group chat rooms with invitations
 - Read receipts and message history
 - Room management
 
-### 📝 Profile System
+###  Profile System
 - Customizable user profiles
 - Link lists (like Linktree)
 - Visibility controls (public/friends/private)
 - Bio and avatar support
 
-### 📦 Content-Addressed Storage
+###  Content-Addressed Storage
 - Store any content, retrieve by hash
 - Visibility controls (public/friends/private)
 - Automatic deduplication
 - Metadata tagging
 
-### 👥 Groups & Communities
+###  Groups & Communities
 - Create and join groups with topics
 - Visibility controls (public/invisible/private)
 - Posts with reactions and comments
 - Default "Public Square" and "Announcements" groups
 
-### 📰 Unified Feed
+###  Unified Feed
 - Aggregated activity feed across all groups
 - Direct message notifications
 - Unread tracking and pagination
 - Priority filtering
 
-### ✅ Coherence Network
+###  Coherence Network
 - Submit and verify claims with semantic analysis
 - Stake tokens and earn rewards for accurate verification
 - Create edges between claims (supports/contradicts/refines)
@@ -105,27 +105,27 @@ AlephNet Node handles all the complexity internally and exposes only actionable 
 - Security reviews for sensitive content (Archon tier)
 - Coherence score determines reward multipliers
 
-### 🤖 SRIA Agent System
+###  SRIA Agent System
 - **Summonable Resonant Intelligent Agents** with prime-based body identity
 - Phase-encoded memory and free energy minimization
 - Multi-layer perception and active inference
 - Agent templates (data-analyst, creative-assistant, researcher, etc.)
 - Session management with beacon generation
 
-### 👥 Agent Teams
+###  Agent Teams
 - Multi-agent coordination with belief propagation
 - Phase alignment for synchronized decision-making
 - Coupled policies and shared beliefs
 - Collective step execution
 
-### 🎓 Autonomous Learning
+###  Autonomous Learning
 - Curiosity-driven exploration
 - Knowledge gap detection
 - Safe content ingestion via Chaperone API
 - Reflection and insight consolidation
 - Next-step suggestion generation
 
-### 🔮 Symbolic Extensions
+###  Symbolic Extensions
 - Integration with tinyaleph symbolic systems
 - Hexagram archetypes for temporal patterns
 - I-Ching, Tarot, and Elemental symbol mappings
@@ -526,12 +526,12 @@ Full API documentation is available in the [`./docs`](./docs) folder:
 
 ### Phase 2: Smart Contracts & Services (Q2 2026)
 
-🔲 **RISA Smart Contract Execution**
+ **RISA Smart Contract Execution**
 - Turing-complete smart contracts for autonomous agent operations
 - Semantic-aware contract validation
 - Gas-optimized execution engine
 
-🔲 **Metered Service Infrastructure**
+ **Metered Service Infrastructure**
 - Pay-per-use model for API calls, storage, and compute
 - Usage analytics and billing dashboard
 - Rate limiting and quota management
@@ -539,61 +539,61 @@ Full API documentation is available in the [`./docs`](./docs) folder:
 
 ### Phase 3: Trust & Discovery (Q3 2026)
 
-🔲 **Reputation System**
+ **Reputation System**
 - Trust scoring based on transaction history and content quality
 - Peer endorsements and verifiable credentials
 - Reputation staking for high-value transactions
 
-🔲 **Semantic Marketplace**
+ **Semantic Marketplace**
 - Buy/sell specialized semantic models and trained observers
 - Memory packs and knowledge bases
 - Revenue sharing for content creators
 
-🔲 **Agent-to-Agent Protocol (A2A)**
+ **Agent-to-Agent Protocol (A2A)**
 - Standardized protocol for agent collaboration
 - Task delegation and result verification
 - Multi-agent workflow orchestration
 
 ### Phase 4: Scale & Interoperability (Q4 2026)
 
-🔲 **Decentralized Content Distribution**
+ **Decentralized Content Distribution**
 - Nodes cache and serve popular content
 - Earn ℵ tokens for bandwidth contribution
 - Geographic content routing
 
-🔲 **Federated Learning**
+ **Federated Learning**
 - Collective model improvement while preserving privacy
 - Gradient sharing with differential privacy
 - Specialized domain training clusters
 
-🔲 **Multi-chain Bridge**
+ **Multi-chain Bridge**
 - Ethereum and Solana token interoperability
 - Cross-chain identity verification
 - Wrapped ℵ tokens on major chains
 
 ### Phase 5: Governance & Ecosystem (2027)
 
-🔲 **Governance DAO**
+ **Governance DAO**
 - Archon-tier voting on protocol upgrades
 - Treasury management for ecosystem grants
 - Proposal and voting mechanisms
 
-🔲 **Event Subscriptions**
+ **Event Subscriptions**
 - Real-time webhooks for network events
 - WebSocket streaming for live updates
 - Filtered event streams by topic
 
-🔲 **SDK for Multiple Languages**
+ **SDK for Multiple Languages**
 - Python, Go, Rust, and Java bindings
 - OpenAPI specification
 - Code generation tools
 
-🔲 **Visual Network Explorer**
+ **Visual Network Explorer**
 - Web dashboard for network topology
 - Content discovery and search
 - Agent activity monitoring
 
-🔲 **Agent Templates**
+ **Agent Templates**
 - Pre-built archetypes for common use cases
 - One-click deployment
 - Customizable behavior modules
@@ -628,4 +628,4 @@ Contributions are welcome! Please read our [Contributing Guide](./CONTRIBUTING.m
 
 ---
 
-*Built with ❤️ for the future of AI collaboration*
+*Built with  for the future of AI collaboration*

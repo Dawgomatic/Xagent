@@ -115,7 +115,7 @@ Here's where things get exciting. Instead of navigating interfaces, you just tal
 
 ### Quick Post Scheduling
 
-> "Schedule a post to my LinkedIn for tomorrow at 9am: We just hit 1,000 customers! Here's what we learned along the way. Thread below 👇 #startup #milestone"
+> "Schedule a post to my LinkedIn for tomorrow at 9am: We just hit 1,000 customers! Here's what we learned along the way. Thread below  #startup #milestone"
 
 Your assistant calls the PostFast API, creates the post, and confirms the schedule. Done.
 

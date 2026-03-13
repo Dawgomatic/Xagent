@@ -21,34 +21,34 @@ def format_for_channel(data: dict, channel: str) -> str:
     if channel == "feishu":
         # Feishu: use text with basic formatting
         lines = [
-            f"💰 LLM 成本报告 - {period}",
+            f" LLM 成本报告 - {period}",
             f"总费用: ${total_cost:.2f}",
             f"Token: {tokens.get('total', 0):,}",
         ]
         if cache_savings.get("total_savings", 0) > 0:
-            lines.append(f"💡 Cache节省: ${cache_savings['total_savings']:.2f}")
+            lines.append(f" Cache节省: ${cache_savings['total_savings']:.2f}")
         return "\n".join(lines)
     
     elif channel == "telegram":
         # Telegram: Markdown format
         lines = [
-            f"💰 *LLM Cost Report - {period}*",
+            f" *LLM Cost Report - {period}*",
             f"Total: ${total_cost:.2f}",
             f"Tokens: {tokens.get('total', 0):,}",
         ]
         if cache_savings.get("total_savings", 0) > 0:
-            lines.append(f"💡 Cache: ${cache_savings['total_savings']:.2f}")
+            lines.append(f" Cache: ${cache_savings['total_savings']:.2f}")
         return "\n".join(lines)
     
     elif channel == "discord":
         # Discord: Basic with emoji
         lines = [
-            f"💰 **LLM Cost Report - {period}**",
+            f" **LLM Cost Report - {period}**",
             f"Total: ${total_cost:.2f}",
             f"Tokens: {tokens.get('total', 0):,}",
         ]
         if cache_savings.get("total_savings", 0) > 0:
-            lines.append(f"💡 Cache Savings: ${cache_savings['total_savings']:.2f}")
+            lines.append(f" Cache Savings: ${cache_savings['total_savings']:.2f}")
         return "\n".join(lines)
     
     else:

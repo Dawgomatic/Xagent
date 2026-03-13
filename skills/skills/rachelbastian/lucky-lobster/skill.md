@@ -3,7 +3,7 @@ name: luckylobster
 description: Trade prediction markets on Polymarket. Search markets, place orders, and manage positions.
 homepage: https://luckylobster.io
 user-invocable: true
-metadata: {"openclaw":{"primaryEnv":"LUCKYLOBSTER_API_KEY","emoji":"🦞","homepage":"https://luckylobster.io","requires":{"env":["LUCKYLOBSTER_API_KEY"]}}}
+metadata: {"openclaw":{"primaryEnv":"LUCKYLOBSTER_API_KEY","emoji":"","homepage":"https://luckylobster.io","requires":{"env":["LUCKYLOBSTER_API_KEY"]}}}
 ---
 
 # LuckyLobster - Polymarket Trading API
@@ -63,7 +63,7 @@ Response:
 Display this message to the user:
 
 ```
-🦞 To connect LuckyLobster, visit: https://luckylobster.io/link
+ To connect LuckyLobster, visit: https://luckylobster.io/link
    Enter code: ABCD-1234
 ```
 

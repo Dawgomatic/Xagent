@@ -43,10 +43,10 @@ Reference for file structure and logging format.
 ## Scales & Arpeggios (3 octaves)
 | Key | Scale | Arpeggio | Notes |
 |-----|-------|----------|-------|
-| G major | ✅ clean | ✅ | foundation |
-| D major | ✅ clean | ✅ | |
-| A major | 🔄 working | ✅ | high 3rd position shift |
-| E-flat | ❌ not started | ❌ | next target |
+| G major |  clean |  | foundation |
+| D major |  clean |  | |
+| A major |  working |  | high 3rd position shift |
+| E-flat |  not started |  | next target |
 
 ## Shifting
 - 1st to 3rd: comfortable

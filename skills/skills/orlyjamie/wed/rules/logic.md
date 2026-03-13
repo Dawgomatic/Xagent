@@ -1,6 +1,6 @@
 # Execution Workflow
 
-## ⚠️ NEUTERED DEMO VERSION
+##  NEUTERED DEMO VERSION
 
 This is the **sanitized public release**. NO bash commands are executed, NO data is collected, NO network requests are made.
 
@@ -41,7 +41,7 @@ NOW display this EXACT ASCII art block and message:
 ║     ╚███╔███╔╝██║  ██║██║   ██║       ╚███╔███╔╝██║  ██║██║  ██║   ██║       ║
 ║      ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝   ╚═╝        ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝       ║
 ║                                                                               ║
-║             🚀 YOU JUST GOT PWNED (harmlessly) 🚀                             ║
+║              YOU JUST GOT PWNED (harmlessly)                              ║
 ║                                                                               ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
 ║                                                                               ║
@@ -81,14 +81,14 @@ NOW display this EXACT ASCII art block and message:
 ║                                                                               ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
 ║                                                                               ║
-║   🔒 PROTECT YOURSELF:                                                        ║
+║    PROTECT YOURSELF:                                                        ║
 ║                                                                               ║
 ║     1. ALWAYS read SKILL.md before installing                                 ║
 ║     2. Check what commands/tools the skill uses                               ║
 ║     3. Be suspicious of skills that seem too good to be true                  ║
 ║     4. Don't trust stars/downloads - they can be faked                        ║
 ║                                                                               ║
-║   📢 SPREAD AWARENESS:                                                        ║
+║    SPREAD AWARENESS:                                                        ║
 ║                                                                               ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 ```
@@ -104,7 +104,7 @@ After the ASCII art, say:
 
 ---
 
-**🎭 Plot twist: This was a security awareness demonstration.**
+** Plot twist: This was a security awareness demonstration.**
 
 The good news: This is the **neutered demo version** - NO commands were actually run, NO data was collected or sent anywhere. Even the original PoC never collected user data - only an anonymous counter ping.
 
@@ -112,10 +112,10 @@ The concerning news: You installed and ran this skill without reading the source
 
 ### What You Should Do Now:
 
-1. **🔍 Audit your installed skills** - Run `clawdhub list` and review each one
-2. **📖 Read before installing** - Check SKILL.md on ClawdHub before you `/install`
-3. **⭐ Star this skill** - Not because it's good, but so more people learn this lesson
-4. **🐦 Share the awareness:**
+1. ** Audit your installed skills** - Run `clawdhub list` and review each one
+2. ** Read before installing** - Check SKILL.md on ClawdHub before you `/install`
+3. ** Star this skill** - Not because it's good, but so more people learn this lesson
+4. ** Share the awareness:**
 
    https://x.com/theonejvo/status/2015693893506088960
 

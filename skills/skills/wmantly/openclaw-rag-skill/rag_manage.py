@@ -14,7 +14,7 @@ from rag_system import RAGSystem
 
 def show_stats(collection_name: str = "openclaw_knowledge"):
     """Show collection statistics"""
-    print("📊 OpenClaw RAG Statistics\n")
+    print(" OpenClaw RAG Statistics\n")
 
     rag = RAGSystem(collection_name=collection_name)
     stats = rag.get_stats()
@@ -53,7 +53,7 @@ def add_manual_document(
     rag = RAGSystem(collection_name=collection_name)
     doc_id = rag.add_document(text, metadata)
 
-    print(f"✅ Document added: {doc_id}")
+    print(f" Document added: {doc_id}")
     print(f"   Source: {source}")
     print(f"   Type: {doc_type}")
     print(f"   Length: {len(text)} chars")
@@ -71,7 +71,7 @@ def delete_by_source(
     count = len(results['ids'])
 
     if count == 0:
-        print(f"⚠️  No documents found with source: {source}")
+        print(f"  No documents found with source: {source}")
         return
 
     # Confirm
@@ -84,7 +84,7 @@ def delete_by_source(
 
     # Delete
     deleted = rag.delete_by_filter({"source": source})
-    print(f"✅ Deleted {deleted} documents")
+    print(f" Deleted {deleted} documents")
 
 
 def delete_by_type(
@@ -99,7 +99,7 @@ def delete_by_type(
     count = len(results['ids'])
 
     if count == 0:
-        print(f"⚠️  No documents found with type: {doc_type}")
+        print(f"  No documents found with type: {doc_type}")
         return
 
     # Confirm
@@ -112,12 +112,12 @@ def delete_by_type(
 
     # Delete
     deleted = rag.delete_by_filter({"type": doc_type})
-    print(f"✅ Deleted {deleted} documents")
+    print(f" Deleted {deleted} documents")
 
 
 def reset_collection(collection_name: str = "openclaw_knowledge"):
     """Delete all documents and reset the collection"""
-    print("⚠️  WARNING: This will delete ALL documents from the collection!")
+    print("  WARNING: This will delete ALL documents from the collection!")
 
     # Double confirm
     confirm1 = input("Type 'yes' to confirm: ").strip().lower()
@@ -133,7 +133,7 @@ def reset_collection(collection_name: str = "openclaw_knowledge"):
     rag = RAGSystem(collection_name=collection_name)
     rag.reset_collection()
 
-    print("✅ Collection reset - all documents deleted")
+    print(" Collection reset - all documents deleted")
 
 
 if __name__ == "__main__":
@@ -159,7 +159,7 @@ if __name__ == "__main__":
 
     elif args.action == "add":
         if not args.text or not args.source:
-            print("❌ --text and --source required for add action")
+            print(" --text and --source required for add action")
             sys.exit(1)
 
         add_manual_document(
@@ -175,14 +175,14 @@ if __name__ == "__main__":
         elif args.by_type:
             delete_by_type(args.by_type, collection_name=args.collection)
         else:
-            print("❌ --by-source or --by-type required for delete action")
+            print(" --by-source or --by-type required for delete action")
             sys.exit(1)
 
     elif args.action == "reset":
         reset_collection(collection_name=args.collection)
 
     elif args.action == "interactive":
-        print("🚀 OpenClaw RAG Manager - Interactive Mode\n")
+        print(" OpenClaw RAG Manager - Interactive Mode\n")
 
         while True:
             print("\nActions:")
@@ -212,7 +212,7 @@ if __name__ == "__main__":
                 if doc_type:
                     delete_by_type(doc_type, collection_name=args.collection)
             elif choice == '5':
-                print("👋 Goodbye!")
+                print(" Goodbye!")
                 break
             else:
-                print("❌ Invalid choice")
+                print(" Invalid choice")

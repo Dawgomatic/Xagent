@@ -3,7 +3,7 @@ name: Vibe Design
 slug: vibe-design
 version: 1.0.0
 description: Create visual designs with AI tools. Covers prompting for UI/graphics, Midjourney techniques, Figma AI workflow, and iteration patterns.
-metadata: {"clawdbot":{"emoji":"🎨","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## What is Vibe Design
@@ -27,8 +27,8 @@ Design where you describe what you want and let AI generate visuals, layouts, an
 ### 1. Use Design Vocabulary, Not Art Vocabulary
 AI responds differently to design vs art terms.
 
-❌ Art words: "beautiful", "fantasy", "render", "painting", "stunning"
-✅ Design words: "interface", "layout", "component", "spacing", "hierarchy"
+ Art words: "beautiful", "fantasy", "render", "painting", "stunning"
+ Design words: "interface", "layout", "component", "spacing", "hierarchy"
 
 Bad: "beautiful mobile banking product, minimal futuristic style"
 Good: "mobile banking app UI in Material Design 3, clean layout, consistent spacing, data cards with financial metrics"

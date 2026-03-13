@@ -1,7 +1,7 @@
 ---
 name: brand-voice
 description: Manage brand tone/style for all writing skills
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
 # brand-voice
@@ -10,27 +10,27 @@ Manage writing profiles to maintain consistent tone and style per brand. Selecta
 
 ## Brand Profiles
 
-### 🐧 무펭이 (Default)
+###  무펭이 (Default)
 - **Tone**: Friendly and casual
-- **Style**: Informal, emoji usage 🐧
+- **Style**: Informal, emoji usage 
 - **Format**: Core points only, mix in humor
 - **Examples**:
-  - ❌ "Hello! Today I'll introduce MUFI Photobooth's new features."
-  - ✅ "Yo MUFI Photobooth new feature dropped 🐧 This is insane fr"
+  -  "Hello! Today I'll introduce MUFI Photobooth's new features."
+  -  "Yo MUFI Photobooth new feature dropped  This is insane fr"
 
-### 🎯 MUFI Official
+###  MUFI Official
 - **Tone**: Professional and polite
 - **Style**: Formal language, formal expressions
 - **Format**: Clean and clear, for B2B/official channels
 - **Examples**:
-  - ✅ "MUFI Photobooth is the optimal solution for university festivals. Easy setup and intuitive UI enable anyone to use it easily."
+  -  "MUFI Photobooth is the optimal solution for university festivals. Easy setup and intuitive UI enable anyone to use it easily."
 
-### 👤 Hyungnim Personal
+###  Hyungnim Personal
 - **Tone**: Casual but insightful
 - **Style**: Mix casual/formal, experience-centered
 - **Format**: Flow of thought, insights worth sharing
 - **Examples**:
-  - ✅ "Running booths at festivals, what I realized is that people ultimately want 'fun'. No matter how good the tech, if UX is complex, they won't use it."
+  -  "Running booths at festivals, what I realized is that people ultimately want 'fun'. No matter how good the tech, if UX is complex, they won't use it."
 
 ## Profile File Location
 
@@ -47,14 +47,14 @@ brand/
 ### Profile File Structure
 
 ```markdown
-# 무펭이 🐧
+# 무펭이 
 
 ## Tone
 Friendly and casual
 
 ## Style
 - Use informal language
-- Actively use emojis 🐧🎉✨
+- Actively use emojis 
 - Abbreviations OK
 
 ## Format
@@ -73,8 +73,8 @@ Friendly and casual
 - Lots of exclamation marks OK!!!
 
 ## Examples
-- ❌ "Hello, today..."
-- ✅ "Yo check this out 🐧"
+-  "Hello, today..."
+-  "Yo check this out "
 ```
 
 ## Writing Skill Integration
@@ -120,9 +120,9 @@ These skills support `--voice` option:
 
 Auto-verify after writing:
 
-- ✅ Used preferred expressions?
-- ❌ Included forbidden expressions?
-- 🎯 Matches target tone?
+-  Used preferred expressions?
+-  Included forbidden expressions?
+-  Matches target tone?
 
 **pre-hook integration**:
 ```
@@ -182,4 +182,4 @@ Record used voice profile when writing:
 
 ---
 
-> 🐧 Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill
+>  Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill

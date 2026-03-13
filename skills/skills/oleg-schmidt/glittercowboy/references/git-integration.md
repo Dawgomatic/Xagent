@@ -237,7 +237,7 @@ Each plan produces 2-4 commits (tasks + metadata). Clear, granular, bisectable.
 - Less reliance on parsing SUMMARY.md = more context for actual work
 
 **Failure recovery:**
-- Task 1 committed ✅, Task 2 failed ❌
+- Task 1 committed , Task 2 failed 
 - Claude in next session: sees task 1 complete, can retry task 2
 - Can `git reset --hard` to last successful task
 

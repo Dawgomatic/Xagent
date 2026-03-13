@@ -34,10 +34,10 @@ def generate_and_download(prompt, width=1024, height=1024, output_dir=None, file
     
     file_path = os.path.join(output_dir, filename)
     
-    print(f"🚀 Ultra-Fast Generation Started")
-    print(f"📝 Prompt: {prompt}")
-    print(f"📐 Size: {width}x{height}")
-    print(f"📁 Output: {file_path}")
+    print(f" Ultra-Fast Generation Started")
+    print(f" Prompt: {prompt}")
+    print(f" Size: {width}x{height}")
+    print(f" Output: {file_path}")
     print("-" * 60)
     
     # Step 1: Submit generation request
@@ -64,12 +64,12 @@ def generate_and_download(prompt, width=1024, height=1024, output_dir=None, file
             result = json.loads(resp.read().decode("utf-8"))
             prompt_id = result["prompt_id"]
             submit_time = time.time() - generation_start
-            print(f"✅ Submitted in {submit_time:.2f}s (ID: {prompt_id[:8]}...)")
+            print(f" Submitted in {submit_time:.2f}s (ID: {prompt_id[:8]}...)")
     except Exception as e:
         return False, 0, None, f"Failed to submit generation: {e}"
     
     # Step 2: Ultra-fast status polling (every 0.5s)
-    print("⚡ Ultra-fast polling started...")
+    print(" Ultra-fast polling started...")
     
     check_count = 0
     max_wait = 15
@@ -90,7 +90,7 @@ def generate_and_download(prompt, width=1024, height=1024, output_dir=None, file
                 elapsed = time.time() - generation_start
                 
                 if status_result.get("status") == "completed":
-                    print(f"🚀 Generation completed in {elapsed:.2f}s after {check_count} checks!")
+                    print(f" Generation completed in {elapsed:.2f}s after {check_count} checks!")
                     
                     # Step 3: Download image immediately
                     if status_result.get("images"):
@@ -117,11 +117,11 @@ def generate_and_download(prompt, width=1024, height=1024, output_dir=None, file
                             download_time = time.time() - download_start
                             total_time = time.time() - generation_start
                             
-                            print(f"📥 Downloaded in {download_time:.2f}s ({len(image_data):,} bytes)")
+                            print(f" Downloaded in {download_time:.2f}s ({len(image_data):,} bytes)")
                             print("-" * 60)
-                            print(f"🎉 SUCCESS! Total time: {total_time:.2f}s")
-                            print(f"📁 Image saved: {file_path}")
-                            print(f"🎯 Target: {'✅ ACHIEVED' if total_time <= 10 else '❌ MISSED'} (≤10s)")
+                            print(f" SUCCESS! Total time: {total_time:.2f}s")
+                            print(f" Image saved: {file_path}")
+                            print(f" Target: {' ACHIEVED' if total_time <= 10 else ' MISSED'} (≤10s)")
                             
                             return True, total_time, file_path, None
                         except Exception as e:
@@ -135,7 +135,7 @@ def generate_and_download(prompt, width=1024, height=1024, output_dir=None, file
                 else:
                     # Print status every 10th check to reduce noise
                     if check_count % 10 == 0:
-                        print(f"⏱️  Check #{check_count}: {status_result.get('status', 'unknown')} ({elapsed:.2f}s)")
+                        print(f"  Check #{check_count}: {status_result.get('status', 'unknown')} ({elapsed:.2f}s)")
                 
         except Exception:
             # Silently continue on status check errors
@@ -179,7 +179,7 @@ def main():
     # Use test prompt if requested, otherwise require --prompt
     if args.test:
         prompt = "A beautiful 25-year-old woman with long flowing hair, elegant dress, professional photography"
-        print("🧪 Using test prompt")
+        print(" Using test prompt")
     elif args.prompt:
         prompt = args.prompt
     else:
@@ -195,11 +195,11 @@ def main():
     )
     
     if success:
-        print(f"\n✅ Generation successful in {total_time:.2f}s")
-        print(f"📁 File: {file_path}")
+        print(f"\n Generation successful in {total_time:.2f}s")
+        print(f" File: {file_path}")
         return 0
     else:
-        print(f"\n❌ Generation failed: {error}")
+        print(f"\n Generation failed: {error}")
         return 1
 
 if __name__ == "__main__":

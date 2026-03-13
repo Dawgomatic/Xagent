@@ -12,7 +12,7 @@ if [ -z "$STRIPE_SECRET_KEY" ]; then
 fi
 
 if [ -z "$STRIPE_SECRET_KEY" ]; then
-    echo "❌ Error: STRIPE_SECRET_KEY not set. Run 'stripe login' or set the environment variable."
+    echo " Error: STRIPE_SECRET_KEY not set. Run 'stripe login' or set the environment variable."
     exit 1
 fi
 
@@ -27,9 +27,9 @@ format_output() {
     local status="$2"
     
     if [ "$status" = "success" ]; then
-        echo "✅ $output"
+        echo " $output"
     else
-        echo "❌ $output"
+        echo " $output"
     fi
 }
 
@@ -128,7 +128,7 @@ case "$COMMAND" in
             "listen")
                 DURATION="${1:-30}"
                 ENDPOINT="${STRIPE_WEBHOOK_ENDPOINT:-http://localhost:4242}"
-                echo "🔌 Listening for webhooks for ${DURATION}s, forwarding to $ENDPOINT..."
+                echo " Listening for webhooks for ${DURATION}s, forwarding to $ENDPOINT..."
                 stripe listen --forward-to "$ENDPOINT" --timeout "$DURATION" 2>&1
                 ;;
             "trigger")
@@ -138,7 +138,7 @@ case "$COMMAND" in
                     echo "Examples: payment_intent.succeeded, charge.refunded, customer.subscription.created"
                     exit 1
                 fi
-                echo "🎯 Triggering $EVENT event..."
+                echo " Triggering $EVENT event..."
                 stripe trigger "$EVENT" 2>&1
                 ;;
             "resend")

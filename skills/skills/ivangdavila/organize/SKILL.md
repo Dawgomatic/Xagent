@@ -55,7 +55,7 @@ Before placing anything, ask:
 ## Proposal Format
 
 ```
-📁 Organization suggestion
+ Organization suggestion
 
 I'm about to [create/move/rename] [item].
 
@@ -87,7 +87,7 @@ Track confirmations:
 When existing structure needs improvement:
 
 ```
-📁 Reorganization proposal
+ Reorganization proposal
 
 Problem: [what's inefficient now]
 Impact: [how it affects access/scale]

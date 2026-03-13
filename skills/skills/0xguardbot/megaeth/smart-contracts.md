@@ -25,7 +25,7 @@ After accessing block metadata, transaction is limited to 20M additional compute
 - `BLOCKHASH` / `blockhash(n)`
 
 ```solidity
-// ❌ Problematic pattern
+//  Problematic pattern
 function process() external {
     uint256 ts = block.timestamp;  // Triggers limit
     // Complex computation here will hit 20M gas ceiling
@@ -34,7 +34,7 @@ function process() external {
     }
 }
 
-// ✅ Better: access metadata late
+//  Better: access metadata late
 function process() external {
     // Do heavy computation first
     for (uint i = 0; i < 10000; i++) {
@@ -72,10 +72,10 @@ contract MyContract {
 ### Avoid Dynamic Mappings
 
 ```solidity
-// ❌ Expensive: each new key = new storage slot = 2M+ gas
+//  Expensive: each new key = new storage slot = 2M+ gas
 mapping(address => uint256) public balances;
 
-// ✅ Better: fixed-size or use RedBlackTreeLib
+//  Better: fixed-size or use RedBlackTreeLib
 uint256[100] public fixedBalances;
 ```
 
@@ -122,10 +122,10 @@ forge script Deploy.s.sol \
 LOG opcodes have quadratic cost above 4KB data:
 
 ```solidity
-// ❌ Expensive: large event data
+//  Expensive: large event data
 event LargeData(bytes data); // If data > 4KB, quadratic cost
 
-// ✅ Better: emit hash, store off-chain
+//  Better: emit hash, store off-chain
 event DataStored(bytes32 indexed hash);
 ```
 
@@ -313,10 +313,10 @@ For contracts managing multiple token types, prefer [EIP-6909](https://eips.ethe
 One EIP-6909 contract vs. N separate ERC-20 contracts:
 
 ```solidity
-// ❌ Deploying many ERC-20s = many new storage slots
+//  Deploying many ERC-20s = many new storage slots
 // Each contract: new code, new storage initialization
 
-// ✅ Single EIP-6909 = shared storage
+//  Single EIP-6909 = shared storage
 // Multiple token IDs in one contract, slot reuse
 ```
 

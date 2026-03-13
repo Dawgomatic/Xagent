@@ -40,16 +40,16 @@ await browser.close();
 ```
 
 ## Features
-✅ Playwright wrapper with stealth defaults
-✅ Anti-detection mechanisms (fingerprint randomization)
-✅ Header rotation (100+ user-agents)
-✅ Proxy support (SOCKS5, HTTP)
-✅ Cookie jar management
-✅ Captcha bypass (integration-ready)
-✅ Rate limiting aware
-✅ Screenshot/PDF generation
-✅ Form automation
-✅ Cookie/session persistence
+ Playwright wrapper with stealth defaults
+ Anti-detection mechanisms (fingerprint randomization)
+ Header rotation (100+ user-agents)
+ Proxy support (SOCKS5, HTTP)
+ Cookie jar management
+ Captcha bypass (integration-ready)
+ Rate limiting aware
+ Screenshot/PDF generation
+ Form automation
+ Cookie/session persistence
 
 ## Installation
 
@@ -208,8 +208,8 @@ Take screenshot without detection.
 → Enable `captchaBypass: true` and set API key
 
 ## Support
-📧 support@midas-skills.com
-🔗 Docs: https://docs.midas-skills.com/browser-automation-stealth
+ support@midas-skills.com
+ Docs: https://docs.midas-skills.com/browser-automation-stealth
 
 ---
 

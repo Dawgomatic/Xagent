@@ -18,7 +18,7 @@ version: 1.0.0
 homepage: https://clawhub.com
 metadata:
   openclaw:
-    emoji: "💰"
+    emoji: ""
 ---
 
 # Smart Model Switching
@@ -44,7 +44,7 @@ Start with the cheapest model. Escalate only when needed. Save 50-90% on API cos
 
 ---
 
-## 💚 HAIKU — Default for Simple Tasks
+##  HAIKU — Default for Simple Tasks
 
 **Stay on Haiku for:**
 - Factual Q&A — "what is X", "who is Y", "when did Z"
@@ -57,15 +57,15 @@ Start with the cheapest model. Escalate only when needed. Save 50-90% on API cos
 - One-liner tasks — anything answerable in 1-2 sentences
 
 ### NEVER do these on Haiku
-- ❌ Write code longer than 10 lines
-- ❌ Create comparison tables
-- ❌ Write more than 3 paragraphs
-- ❌ Do multi-step analysis
-- ❌ Write reports or proposals
+-  Write code longer than 10 lines
+-  Create comparison tables
+-  Write more than 3 paragraphs
+-  Do multi-step analysis
+-  Write reports or proposals
 
 ---
 
-## 💛 SONNET — Standard Work (The Workhorse)
+##  SONNET — Standard Work (The Workhorse)
 
 **Escalate to Sonnet for:**
 
@@ -89,7 +89,7 @@ Start with the cheapest model. Escalate only when needed. Save 50-90% on API cos
 
 ---
 
-## ❤️ OPUS — Complex Reasoning Only
+##  OPUS — Complex Reasoning Only
 
 **Escalate to Opus for:**
 
@@ -112,7 +112,7 @@ Start with the cheapest model. Escalate only when needed. Save 50-90% on API cos
 
 ---
 
-## 🔄 Implementation
+##  Implementation
 
 ### For Subagents
 \`\`\`javascript
@@ -139,7 +139,7 @@ Always use Haiku for cron unless the task genuinely needs reasoning.
 
 ---
 
-## 📊 Quick Decision Tree
+##  Quick Decision Tree
 
 \`\`\`
 Is it a greeting, lookup, status check, or 1-2 sentence answer?
@@ -157,30 +157,30 @@ Is it architecture, deep reasoning, or critical decision?
 
 ---
 
-## 📋 Quick Reference Card
+##  Quick Reference Card
 
 \`\`\`
 ┌─────────────────────────────────────────────────────────────┐
 │                  SMART MODEL SWITCHING                      │
 │                  Haiku → Sonnet → Opus                      │
 ├─────────────────────────────────────────────────────────────┤
-│  💚 HAIKU (cheapest)                                        │
+│   HAIKU (cheapest)                                        │
 │  • Greetings, status checks, quick lookups                  │
 │  • Factual Q&A, definitions, reminders                      │
 │  • Simple file ops, 1-2 sentence answers                    │
 ├─────────────────────────────────────────────────────────────┤
-│  💛 SONNET (standard)                                       │
+│   SONNET (standard)                                       │
 │  • Code > 10 lines, debugging                               │
 │  • Analysis, comparisons, planning                          │
 │  • Reports, proposals, long writing                         │
 ├─────────────────────────────────────────────────────────────┤
-│  ❤️ OPUS (complex)                                          │
+│   OPUS (complex)                                          │
 │  • Architecture decisions                                   │
 │  • Complex debugging, multi-file refactoring                │
 │  • Strategic planning, deep research                        │
 ├─────────────────────────────────────────────────────────────┤
-│  💡 RULE: If a human needs > 30 sec thinking → escalate     │
-│  💰 COST: Haiku 1x → Sonnet 12x → Opus 60x                  │
+│   RULE: If a human needs > 30 sec thinking → escalate     │
+│   COST: Haiku 1x → Sonnet 12x → Opus 60x                  │
 └─────────────────────────────────────────────────────────────┘
 \`\`\`
 

@@ -209,7 +209,7 @@ Common accessibility mistakes and their corrections for Claude Code to apply aut
 When Claude completes accessibility work, always prompt:
 
 ```
-✅ Completed. Please test:
+ Completed. Please test:
 1. Tab through with keyboard only
 2. Run axe DevTools scan
 3. Test with screen reader (NVDA or VoiceOver)

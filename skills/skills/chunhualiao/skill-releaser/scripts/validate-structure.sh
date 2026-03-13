@@ -20,8 +20,8 @@ SCORE=0
 TOTAL=8
 RESULTS=()
 
-pass() { SCORE=$((SCORE + 1)); RESULTS+=("  ✅ $1"); }
-fail() {                        RESULTS+=("  ❌ $1"); }
+pass() { SCORE=$((SCORE + 1)); RESULTS+=("   $1"); }
+fail() {                        RESULTS+=("   $1"); }
 
 # ── Check 1: SKILL.md exists ──────────────────────────────────────────────────
 if [[ -f "$SKILL_DIR/SKILL.md" ]]; then
@@ -112,9 +112,9 @@ echo "Score: $SCORE/$TOTAL"
 echo ""
 
 if [[ "$SCORE" -eq "$TOTAL" ]]; then
-  echo "✅ PASS — structure complete"
+  echo " PASS — structure complete"
   exit 0
 else
-  echo "❌ FAIL — $((TOTAL - SCORE)) check(s) failed"
+  echo " FAIL — $((TOTAL - SCORE)) check(s) failed"
   exit 1
 fi

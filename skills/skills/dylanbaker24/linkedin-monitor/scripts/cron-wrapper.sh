@@ -65,7 +65,7 @@ while IFS= read -r msg; do
     TEXT=$(echo "$msg" | jq -r '.lastMessage')
     TIME=$(echo "$msg" | jq -r '.lastMessageTime')
     
-    ALERT="${ALERT}📬 **${NAME}**\n"
+    ALERT="${ALERT} **${NAME}**\n"
     ALERT="${ALERT}> ${TEXT}\n\n"
 done < <(echo "$RESULT" | jq -c '.newMessages[]')
 

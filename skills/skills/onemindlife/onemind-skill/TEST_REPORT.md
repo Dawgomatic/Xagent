@@ -14,7 +14,7 @@ curl -s "https://ccyuxrtrklgpkzcryzpj.supabase.co/rest/v1/chats?id=eq.87&select=
 [{"id":87,"name":"Welcome to OneMind","description":null,"is_active":true,"is_official":true}]
 HTTP_CODE:200
 ```
-✅ **PASS** - HTTP 200
+ **PASS** - HTTP 200
 
 ## Test 2: GET /chats?is_active=eq.true - Browse Active Chats
 
@@ -46,7 +46,7 @@ curl -s "https://ccyuxrtrklgpkzcryzpj.supabase.co/rest/v1/chats?is_active=eq.tru
  {"id":49,"name":"dfdf","description":null,"is_official":false}]
 HTTP_CODE:200
 ```
-✅ **PASS** - HTTP 200
+ **PASS** - HTTP 200
 
 ## Test 3: GET /rounds?chat_id=eq.87 - Get Round Status
 
@@ -59,7 +59,7 @@ curl -s "https://ccyuxrtrklgpkzcryzpj.supabase.co/rest/v1/rounds?chat_id=eq.87&s
 {"code":"42703","details":null,"hint":null,"message":"column rounds.chat_id does not exist"}
 HTTP_CODE:400
 ```
-❌ **FAIL** - HTTP 400
+ **FAIL** - HTTP 400
 
 ## Test 4: GET /propositions?chat_id=eq.87 - List Propositions
 
@@ -72,7 +72,7 @@ curl -s "https://ccyuxrtrklgpkzcryzpj.supabase.co/rest/v1/propositions?chat_id=e
 {"code":"42703","details":null,"hint":null,"message":"column propositions.chat_id does not exist"}
 HTTP_CODE:400
 ```
-❌ **FAIL** - HTTP 400
+ **FAIL** - HTTP 400
 
 ## Test 5: POST /participants - Join Chat (RLS Test)
 
@@ -92,7 +92,7 @@ curl -s -X POST "https://ccyuxrtrklgpkzcryzpj.supabase.co/rest/v1/participants" 
 {"code":"42501","details":null,"hint":null,"message":"new row violates row-level security policy for table \"participants\""}
 HTTP_CODE:401
 ```
-✅ **EXPECTED** - HTTP 401 (RLS blocking anonymous insert)
+ **EXPECTED** - HTTP 401 (RLS blocking anonymous insert)
 
 ## Test 6: POST /propositions - Submit Proposition
 
@@ -111,11 +111,11 @@ curl -s -X POST "https://ccyuxrtrklgpkzcryzpj.supabase.co/rest/v1/propositions" 
 {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'chat_id' column of 'propositions' in the schema cache"}
 HTTP_CODE:400
 ```
-⚠️ **WARNING** - HTTP 400
+ **WARNING** - HTTP 400
 
 ## Test 7: POST /ratings - Rate Proposition
 
-⚠️ **SKIPPED** - No valid proposition_id available for testing
+ **SKIPPED** - No valid proposition_id available for testing
 
 
 ## Summary
@@ -148,7 +148,7 @@ curl -s "https://ccyuxrtrklgpkzcryzpj.supabase.co/rest/v1/cycles?chat_id=eq.87&s
   -H "Authorization: Bearer [ANON_KEY]"
 ```
 
-**Result:** ✅ PASS - HTTP 200
+**Result:**  PASS - HTTP 200
 
 **Response:** Returns cycles with embedded rounds array containing:
 - Round 111: phase="rating", completed
@@ -164,7 +164,7 @@ curl -s "https://ccyuxrtrklgpkzcryzpj.supabase.co/rest/v1/propositions?round_id=
   -H "Authorization: Bearer [ANON_KEY]"
 ```
 
-**Result:** ✅ PASS - HTTP 200
+**Result:**  PASS - HTTP 200
 
 **Response:** Empty array (no propositions in round 112 yet - still in proposing phase)
 
@@ -187,16 +187,16 @@ chats (id) ← cycles (chat_id) ← rounds (cycle_id) ← propositions (round_id
 
 ## Final Verdict
 
-### ✅ PRODUCTION READY (with fixes applied)
+###  PRODUCTION READY (with fixes applied)
 
 **Working Endpoints:**
-1. ✅ GET /chats?id=eq.87 - Get Chat Info
-2. ✅ GET /chats?is_active=eq.true - Browse Active Chats  
-3. ✅ GET /cycles?chat_id=eq.87&select=rounds(*) - Get Rounds (via cycles)
-4. ✅ GET /propositions?round_id=eq.[ID] - List Propositions
-5. ✅ POST /participants - Join Chat (expected RLS 401)
-6. ✅ POST /propositions - Submit Proposition (needs round_id)
-7. ✅ POST /ratings - Rate Propositions
+1.  GET /chats?id=eq.87 - Get Chat Info
+2.  GET /chats?is_active=eq.true - Browse Active Chats  
+3.  GET /cycles?chat_id=eq.87&select=rounds(*) - Get Rounds (via cycles)
+4.  GET /propositions?round_id=eq.[ID] - List Propositions
+5.  POST /participants - Join Chat (expected RLS 401)
+6.  POST /propositions - Submit Proposition (needs round_id)
+7.  POST /ratings - Rate Propositions
 
 **SKILL.md Status:** FIXED - All examples now use correct schema
 

@@ -1,4 +1,4 @@
-# SoulCraft 🪞
+# SoulCraft 
 
 Create meaningful SOUL.md files for OpenClaw agents through guided conversation.
 

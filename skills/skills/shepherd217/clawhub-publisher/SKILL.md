@@ -24,17 +24,17 @@ developer-tool
 - **Pro:** $59.99
 
 ## Key Features
-- ✅ One-command skill publishing
-- ✅ Automatic version bumping (major/minor/patch)
-- ✅ Git-powered changelog generation
-- ✅ Multi-file asset bundling
-- ✅ Metadata validation
-- ✅ README optimization
-- ✅ Gumroad link injection
-- ✅ Publishing history & rollback
-- ✅ Skill analytics
-- ✅ Team collaboration support
-- ✅ CI/CD integration (GitHub Actions, etc.)
+-  One-command skill publishing
+-  Automatic version bumping (major/minor/patch)
+-  Git-powered changelog generation
+-  Multi-file asset bundling
+-  Metadata validation
+-  README optimization
+-  Gumroad link injection
+-  Publishing history & rollback
+-  Skill analytics
+-  Team collaboration support
+-  CI/CD integration (GitHub Actions, etc.)
 
 ## Use Cases
 - Automatic skill versioning & deployment
@@ -76,5 +76,5 @@ console.log('Published to:', result.clawHubUrl);
 https://github.com/midas-skills/clawhub-publisher
 
 ## Support
-📧 support@midas-skills.com  
-🔗 Docs: https://docs.midas-skills.com/clawhub-publisher
+ support@midas-skills.com  
+ Docs: https://docs.midas-skills.com/clawhub-publisher

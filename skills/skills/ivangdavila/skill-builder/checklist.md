@@ -50,24 +50,24 @@ Imagine the agent reading this skill:
 
 **Too much context:**
 ```markdown
-❌ "Skills are modular packages that extend the agent's capabilities..."
-✅ (Just start with what to do)
+ "Skills are modular packages that extend the agent's capabilities..."
+ (Just start with what to do)
 ```
 
 **Explaining the obvious:**
 ```markdown
-❌ "YAML frontmatter is a way to add metadata..."
-✅ (the agent knows what YAML is)
+ "YAML frontmatter is a way to add metadata..."
+ (the agent knows what YAML is)
 ```
 
 **Passive/verbose:**
 ```markdown
-❌ "The user should be asked for their preferences"
-✅ "Ask user for preferences"
+ "The user should be asked for their preferences"
+ "Ask user for preferences"
 ```
 
 **Body duplicating description:**
 ```markdown
-❌ "Use this skill when creating new skills..."
-✅ (Already in description, don't repeat)
+ "Use this skill when creating new skills..."
+ (Already in description, don't repeat)
 ```

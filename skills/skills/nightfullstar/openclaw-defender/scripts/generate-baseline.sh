@@ -50,5 +50,5 @@ echo "$MANIFEST" > .integrity-manifest.sha256
 echo "  ✓ .integrity-manifest.sha256 (integrity-of-integrity)"
 
 echo ""
-echo "✅ Baseline generated in .integrity/"
+echo " Baseline generated in .integrity/"
 echo "Next: run check-integrity.sh (or add to cron) to monitor for changes."

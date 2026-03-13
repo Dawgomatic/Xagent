@@ -2,7 +2,7 @@
 name: jk-archivist-tiktok-skill
 description: Generate deterministic 6-slide portrait PNG slideshow assets plus caption text for TikTok-style posting workflows, including reusable templates and a strict validation pipeline.
 homepage: https://github.com/J-a-m-e-s-o-n/jk-archivist-tiktok-skill
-metadata: {"openclaw":{"emoji":"🎬","requires":{"bins":["node","python3"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node","python3"]}}}
 ---
 
 # JK Archivist TikTok Skill
@@ -196,13 +196,13 @@ Generate a deterministic 6-slide TikTok intro slideshow (PNG) + caption and (opt
 3. Collectors make real decisions on incomplete info.
 4. JK Index = market intelligence for TCGs.
 5. Truth first. No guessing. Built in public.
-6. Alpha today. Compounding weekly. Brick by brick. 👑🧱
+6. Alpha today. Compounding weekly. Brick by brick. 
 
 ### Caption Template (Exact)
 
 TCG prices look certain — until you zoom in.
 JK Index is building the truth layer: clean IDs, real comps, market signals.
-Follow if you want collector-first market intelligence. 👑🧱
+Follow if you want collector-first market intelligence. 
 
 #pokemon #tcg #cardcollecting #marketdata #startup
 

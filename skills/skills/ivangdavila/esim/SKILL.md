@@ -1,7 +1,7 @@
 ---
 name: eSIM
 description: Implement and troubleshoot eSIM across consumer activation, carrier integration, and RSP development.
-metadata: {"clawdbot":{"emoji":"📱","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Critical Distinction

@@ -93,13 +93,13 @@ If user wants ongoing visibility:
 ```markdown
 ## System Health Summary
 Last analysis: 2026-02-12 10:00
-Status: 🟢 HEALTHY
+Status:  HEALTHY
 
 | Category | Status | Last Issue |
 |----------|--------|------------|
-| Security | 🟢 | Never |
-| Operational | 🟡 | 2 days ago (zombie session) |
-| Hygiene | 🟢 | Resolved yesterday |
+| Security |  | Never |
+| Operational |  | 2 days ago (zombie session) |
+| Hygiene |  | Resolved yesterday |
 
 Trend: Improving (3 issues → 1 issue over last month)
 ```

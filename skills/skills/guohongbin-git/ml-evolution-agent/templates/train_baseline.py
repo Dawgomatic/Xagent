@@ -23,7 +23,7 @@ TARGET_COLUMN = "target"  # Change this
 RANDOM_STATE = 42
 
 # ===== LOAD DATA =====
-print(f"🚀 {COMPETITION} - Baseline Training")
+print(f" {COMPETITION} - Baseline Training")
 print("="*60)
 
 train = pd.read_csv(DATA_DIR / "train.csv")
@@ -39,7 +39,7 @@ test_id = test['id']
 print(f"Train: {X.shape}, Test: {X_test.shape}")
 
 # ===== TARGET STATISTICS (Proven Effective) =====
-print("\n📊 Adding Target Statistics...")
+print("\n Adding Target Statistics...")
 for col in features:
     stats = train.groupby(col)[TARGET_COLUMN].agg(['mean', 'count']).reset_index()
     stats.columns = [col, f'{col}_target_mean', f'{col}_count']
@@ -66,7 +66,7 @@ oof_cat, pred_cat = np.zeros(len(X)), np.zeros(len(X_test))
 oof_lgb, pred_lgb = np.zeros(len(X)), np.zeros(len(X_test))
 oof_xgb, pred_xgb = np.zeros(len(X)), np.zeros(len(X_test))
 
-print("\n📊 Training...")
+print("\n Training...")
 for fold, (tr_idx, val_idx) in enumerate(kfold.split(X, y)):
     print(f"Fold {fold+1}/5", end=' ')
     
@@ -118,7 +118,7 @@ timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
 output_file = OUTPUT_DIR / f'submission_{timestamp}.csv'
 
 pd.DataFrame({'id': test_id, TARGET_COLUMN: blend}).to_csv(output_file, index=False)
-print(f"\n✅ Saved: {output_file}")
+print(f"\n Saved: {output_file}")
 
 # ===== SUBMIT (Optional) =====
 # Uncomment to auto-submit

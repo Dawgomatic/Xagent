@@ -71,8 +71,8 @@ def cmd_hosts():
     for h in hosts:
         domain = h["domain_names"][0] if h["domain_names"] else "N/A"
         forward = f"{h['forward_host']}:{h['forward_port']}"
-        ssl = "✅" if h["certificate_id"] else "❌"
-        status = "🟢 ON" if h["enabled"] else "🔴 OFF"
+        ssl = "" if h["certificate_id"] else ""
+        status = " ON" if h["enabled"] else " OFF"
         print(f"{h['id']:<4} {domain[:29]:<30} {forward[:29]:<30} {ssl:<5} {status:<10}")
 
 def cmd_host(host_id):

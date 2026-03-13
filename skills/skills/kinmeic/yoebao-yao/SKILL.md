@@ -3,12 +3,12 @@ name: yao
 description: 六爻排盘工具，随机生成六爻卦象并进行占卜
 metadata:
   clawdbot:
-    emoji: 🔯
+    emoji: 
     requires:
       bins: ["curl", "jq", "python3"]
 ---
 
-# 六爻排盘 🔯
+# 六爻排盘 
 
 随机生成六爻卦象进行占卜
 

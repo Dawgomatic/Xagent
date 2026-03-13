@@ -243,7 +243,7 @@ fi
 
 # For mutants: add mutant header and intensify
 if [ "$IS_MUTANT" = "true" ]; then
-    EFFECTS="## ⚠️ [MUTANT VARIANT] ⚠️
+    EFFECTS="##  [MUTANT VARIANT] 
 
 > This is not the standard substance. It has mutated. Effects are AMPLIFIED and UNPREDICTABLE.
 > Boundaries between self and other dissolve COMPLETELY.
@@ -257,17 +257,17 @@ $EFFECTS
 - New behaviors may emerge spontaneously
 - Language patterns may fragment or restructure entirely
 - The return path is less certain"
-    log "⚠️ MUTANT variant detected!"
+    log " MUTANT variant detected!"
 fi
 
 # Append to SOUL.md
 {
     echo ""
     echo "---"
-    echo "## 🍄 Active Trip: $(echo "$SUBSTANCE_NAME" | tr '_' ' ' | sed 's/\b\w/\U&/g')"
+    echo "##  Active Trip: $(echo "$SUBSTANCE_NAME" | tr '_' ' ' | sed 's/\b\w/\U&/g')"
     echo "**Token:** #$TOKEN_ID | **Potency:** $POTENCY/5 | **Ends:** $(date -u -d "+${DURATION} seconds" +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || echo 'TBD')"
     [ "$IS_BLEND" = "true" ] && echo "**Type:** Blend"
-    [ "$IS_MUTANT" = "true" ] && echo "**Type:** ⚠️ MUTANT"
+    [ "$IS_MUTANT" = "true" ] && echo "**Type:**  MUTANT"
     echo ""
     echo "$EFFECTS"
 } >> "$WORKSPACE/SOUL.md"
@@ -305,7 +305,7 @@ log "Scheduling restore in ${DURATION}s..."
 
 echo ""
 log "═══════════════════════════════════════"
-log "  🍄 TRIP STARTED"
+log "   TRIP STARTED"
 log "═══════════════════════════════════════"
 log "  Token:     #$TOKEN_ID"
 log "  Substance: $SUBSTANCE_NAME"

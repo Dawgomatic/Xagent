@@ -1,12 +1,12 @@
 # ShadowStrike Security - Complete User Guide
 
-## ⚔️ Welcome to Elite Penetration Testing
+##  Welcome to Elite Penetration Testing
 
 ShadowStrike transforms your OpenClaw into a professional security operations center with 600+ Kali Linux tools and intelligent automation.
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 1. [Installation](#installation)
 2. [Quick Start](#quick-start)
@@ -69,10 +69,10 @@ openclaw skills list
 
 You should see:
 ```
-✓ ready   ⚔️ shadowstrike-security
+✓ ready    shadowstrike-security
 ```
 
-🎉 **ShadowStrike is now active!**
+ **ShadowStrike is now active!**
 
 ---
 
@@ -115,7 +115,7 @@ ShadowStrike:
 
 ## Core Features
 
-### 🎯 1. Intelligent Tool Orchestration
+###  1. Intelligent Tool Orchestration
 
 ShadowStrike automatically selects and chains the best tools:
 
@@ -134,7 +134,7 @@ ShadowStrike automatically runs:
 Result: Complete vulnerability report in minutes
 ```
 
-### 🔍 2. Comprehensive Reconnaissance
+###  2. Comprehensive Reconnaissance
 
 **Network Discovery:**
 - Port scanning (TCP/UDP)
@@ -154,7 +154,7 @@ Result: Complete vulnerability report in minutes
 - Technology stack identification
 - Social media reconnaissance
 
-### ⚔️ 3. Vulnerability Assessment
+###  3. Vulnerability Assessment
 
 **Web Vulnerabilities:**
 - SQL Injection (SQLi)
@@ -177,7 +177,7 @@ Result: Complete vulnerability report in minutes
 - Directory indexing
 - Backup files exposed
 
-### 📊 4. Professional Reporting
+###  4. Professional Reporting
 
 Every assessment generates:
 
@@ -306,18 +306,18 @@ You: "bugbounty example.com"
 
 **Results:**
 ```
-💰 Findings:
+ Findings:
    P1 (Critical): SQL Injection in search
    P2 (High): Stored XSS in comments
    P2 (High): IDOR in user profiles
    P3 (Medium): Information disclosure
 
-📄 Reports Generated:
+ Reports Generated:
    P1-SQLi-Report.md (Ready for submission)
    P2-XSS-Report.md (Ready for submission)
    P2-IDOR-Report.md (Ready for submission)
 
-💵 Potential Bounty: $3,000 - $7,000
+ Potential Bounty: $3,000 - $7,000
 ```
 
 ### Example 2: Network Security Audit
@@ -620,24 +620,24 @@ Phase 7: Reporting (2% of time)
 
 ## Security & Ethics
 
-### ⚠️ CRITICAL: Use Responsibly
+###  CRITICAL: Use Responsibly
 
 **You CAN Use ShadowStrike For:**
-- ✅ Systems you own
-- ✅ Systems with written authorization
-- ✅ Authorized penetration tests
-- ✅ Security audits of your infrastructure
-- ✅ Bug bounty programs (within scope)
-- ✅ Educational purposes (your own lab)
-- ✅ CTF competitions
+-  Systems you own
+-  Systems with written authorization
+-  Authorized penetration tests
+-  Security audits of your infrastructure
+-  Bug bounty programs (within scope)
+-  Educational purposes (your own lab)
+-  CTF competitions
 
 **You CANNOT Use ShadowStrike For:**
-- ❌ Systems without explicit permission
-- ❌ Illegal access attempts
-- ❌ Data theft or destruction
-- ❌ Unauthorized disruption
-- ❌ Privacy violations
-- ❌ Harassment or stalking
+-  Systems without explicit permission
+-  Illegal access attempts
+-  Data theft or destruction
+-  Unauthorized disruption
+-  Privacy violations
+-  Harassment or stalking
 
 ### Legal Framework
 
@@ -793,17 +793,17 @@ A: Yes! Use flags like `--deep`, `--quick`, `--safe` to customize behavior.
 ## Summary
 
 You now have:
-- ✅ ShadowStrike Security installed
-- ✅ 600+ professional security tools
-- ✅ Intelligent tool orchestration
-- ✅ Automated vulnerability assessment
-- ✅ Professional reporting capabilities
-- ✅ Complete PT lifecycle automation
+-  ShadowStrike Security installed
+-  600+ professional security tools
+-  Intelligent tool orchestration
+-  Automated vulnerability assessment
+-  Professional reporting capabilities
+-  Complete PT lifecycle automation
 
 **Remember:** With great power comes great responsibility. Always use ShadowStrike ethically and legally.
 
 ---
 
-**ShadowStrike Security: Elite Tools for Elite Professionals** ⚔️🛡️
+**ShadowStrike Security: Elite Tools for Elite Professionals** 
 
 *Professional security testing requires professional responsibility.*

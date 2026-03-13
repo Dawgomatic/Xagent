@@ -133,4 +133,4 @@ const result = await createCheckout({
 3. Add `MDK_ACCESS_TOKEN` and `MDK_MNEMONIC` to environment variables (all environments)
 4. Deploy
 
-⚠️ When setting env vars via CLI, use `printf` not `echo` — trailing newlines break auth silently.
+ When setting env vars via CLI, use `printf` not `echo` — trailing newlines break auth silently.

@@ -1,4 +1,4 @@
-# Calorie Visualizer 📊
+# Calorie Visualizer 
 
 Local calorie logging + visual nutrition reporting for OpenClaw.
 

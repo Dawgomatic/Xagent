@@ -173,10 +173,10 @@ Condensed overview with post counts and top content. Default for `trending`.
 
 | Network | Auth Required | Search | Trending | Notes |
 |---------|--------------|--------|----------|-------|
-| Farcaster | NEYNAR_API_KEY | ✅ | ✅ | Skipped entirely without key |
-| Lens | None | ✅ | ✅ | GraphQL API, always available |
-| Nostr | None | ✅ | ✅ | Can be slow/inconsistent |
-| Bluesky | None (trending) / BLUESKY_IDENTIFIER + BLUESKY_APP_PASSWORD (search) | Auth required | ✅ | Search needs app password |
+| Farcaster | NEYNAR_API_KEY |  |  | Skipped entirely without key |
+| Lens | None |  |  | GraphQL API, always available |
+| Nostr | None |  |  | Can be slow/inconsistent |
+| Bluesky | None (trending) / BLUESKY_IDENTIFIER + BLUESKY_APP_PASSWORD (search) | Auth required |  | Search needs app password |
 
 ---
 

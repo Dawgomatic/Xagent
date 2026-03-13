@@ -48,15 +48,15 @@ const mockTodolists = [
   {
     ...mockTodolist,
     id: 101,
-    name: 'Expérience client 🥰',
-    title: 'Expérience client 🥰',
+    name: 'Expérience client ',
+    title: 'Expérience client ',
     completed_ratio: '5/10',
   },
   {
     ...mockTodolist,
     id: 102,
-    name: 'Admin & Process ⚙️',
-    title: 'Admin & Process ⚙️',
+    name: 'Admin & Process ',
+    title: 'Admin & Process ',
     completed_ratio: '0/3',
   },
 ];
@@ -81,7 +81,7 @@ describe('Todolists API', () => {
 
       expect(todolists).toHaveLength(3);
       expect(todolists[0].name).toBe('Test Todolist');
-      expect(todolists[1].name).toBe('Expérience client 🥰');
+      expect(todolists[1].name).toBe('Expérience client ');
     });
 
     it('should handle project with no todolists', async () => {
@@ -211,7 +211,7 @@ describe('Todolists API', () => {
     });
 
     it('should handle emojis in todolist name', async () => {
-      const nameWithEmoji = 'Expérience client 🥰';
+      const nameWithEmoji = 'Expérience client ';
 
       server.use(
         http.post(

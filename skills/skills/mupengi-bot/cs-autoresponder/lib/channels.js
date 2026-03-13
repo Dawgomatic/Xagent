@@ -36,11 +36,11 @@ class ChannelAdapter {
     const channelConfig = this.config.channels[channelName];
     
     if (!channelConfig || !channelConfig.enabled) {
-      console.error(`❌ Channel ${channelName} is not enabled`);
+      console.error(` Channel ${channelName} is not enabled`);
       return false;
     }
 
-    console.log(`📤 [MOCK] Sending to ${channelName} (${recipient}): ${message}`);
+    console.log(` [MOCK] Sending to ${channelName} (${recipient}): ${message}`);
     
     // Production: 실제 API 호출
     // - Instagram: tools/insta-cli/v2.js

@@ -22,7 +22,7 @@ async function main() {
     await client.initialize();
     
     const markets = await client.getMarkets();
-    console.log('\n📊 Available Markets:');
+    console.log('\n Available Markets:');
     console.log('===================');
     
     markets.forEach((market, i) => {
@@ -34,7 +34,7 @@ async function main() {
     });
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

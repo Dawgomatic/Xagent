@@ -32,7 +32,7 @@ let payTo;
 try {
   payTo = getPayToAddress();
 } catch (e) {
-  console.error("❌ " + e.message);
+  console.error(" " + e.message);
   process.exit(1);
 }
 
@@ -63,7 +63,7 @@ app.get("/api/example",
   (req, res) => {
     // Your logic here — this only runs after payment
     res.json({
-      message: "🎉 Payment received! Here's your content.",
+      message: " Payment received! Here's your content.",
       timestamp: new Date().toISOString(),
     });
   }
@@ -90,7 +90,7 @@ app.post("/api/analyze",
 
 app.listen(port, () => {
   console.log(`
-🛡️  x402 Paid Service
+  x402 Paid Service
    Port:    ${port}
    Network: ${networkLabel}
    Pay to:  ${payTo}

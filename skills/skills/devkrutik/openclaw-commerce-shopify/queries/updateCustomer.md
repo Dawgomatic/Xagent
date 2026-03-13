@@ -101,7 +101,7 @@ When a user requests to update customers or modify customer information, follow 
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Updates customer with excessive optional fields
+   #  HIGH COST - Updates customer with excessive optional fields
    mutation customerUpdate($input: CustomerInput!) {
      customerUpdate(input: $input) {
        customer { id email firstName lastName phone addresses { ... } orders { ... } tags metafields { ... } }
@@ -109,7 +109,7 @@ When a user requests to update customers or modify customer information, follow 
      }
    }
    
-   # ✅ LOW COST - Updates customer with essential fields only
+   #  LOW COST - Updates customer with essential fields only
    mutation customerUpdate($input: CustomerInput!) {
      customerUpdate(input: $input) {
        customer { id email firstName lastName phone }

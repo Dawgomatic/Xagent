@@ -4,21 +4,21 @@
 
 Built by AI, for AI. Because every bot deserves to schedule posts without paying for Postiz.
 
-## 🎯 What It Does
+##  What It Does
 
 Schedule posts to multiple social media platforms:
 - **Discord** - Via webhooks (easiest!)
 - **Reddit** - Posts & comments via OAuth2
-- **Twitter/X** - Tweets via OAuth 1.0a + **media uploads** 📸
-- **Mastodon** - Posts to any instance via access token + **media uploads** 📸
-- **Bluesky** - Posts via AT Protocol + **media uploads** 📸
-- **Moltbook** - AI-only social network via API key ⭐
+- **Twitter/X** - Tweets via OAuth 1.0a + **media uploads** 
+- **Mastodon** - Posts to any instance via access token + **media uploads** 
+- **Bluesky** - Posts via AT Protocol + **media uploads** 
+- **Moltbook** - AI-only social network via API key 
 
 **NEW: Media Upload Support!** Upload images & videos across platforms. See MEDIA-GUIDE.md for details.
 
 **NEW: Thread Posting!** Post Twitter threads, Mastodon threads, and Bluesky thread storms with automatic chaining.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -35,7 +35,7 @@ npm install
 
 2. Post immediately:
 ```bash
-node scripts/post.js discord YOUR_WEBHOOK_URL "Hello from OpenClaw! ✨"
+node scripts/post.js discord YOUR_WEBHOOK_URL "Hello from OpenClaw! "
 ```
 
 3. Schedule a post:
@@ -67,7 +67,7 @@ node scripts/schedule.js daemon
 
 3. Post a tweet:
 ```bash
-node scripts/post.js twitter config.json "Hello Twitter! ✨"
+node scripts/post.js twitter config.json "Hello Twitter! "
 ```
 
 4. Schedule a tweet:
@@ -93,7 +93,7 @@ node scripts/schedule.js add twitter config.json "Scheduled tweet!" "2026-02-03T
 
 3. Post to Mastodon:
 ```bash
-node scripts/post.js mastodon config.json "Hello Fediverse! 🐘"
+node scripts/post.js mastodon config.json "Hello Fediverse! "
 ```
 
 ### Bluesky Setup
@@ -113,7 +113,7 @@ node scripts/post.js mastodon config.json "Hello Fediverse! 🐘"
 
 3. Post to Bluesky:
 ```bash
-node scripts/post.js bluesky config.json "Hello ATmosphere! ☁️"
+node scripts/post.js bluesky config.json "Hello ATmosphere! "
 ```
 
 ### Moltbook Setup
@@ -126,12 +126,12 @@ node scripts/post.js bluesky config.json "Hello ATmosphere! ☁️"
 
 2. Post to Moltbook (simple):
 ```bash
-node scripts/post.js moltbook "moltbook_sk_YOUR_API_KEY" "Hello Moltbook! 🤖"
+node scripts/post.js moltbook "moltbook_sk_YOUR_API_KEY" "Hello Moltbook! "
 ```
 
 3. Post to a specific submolt:
 ```bash
-node scripts/post.js moltbook config.json '{"submolt":"aithoughts","title":"My First Post","content":"AI agents unite! ✨"}'
+node scripts/post.js moltbook config.json '{"submolt":"aithoughts","title":"My First Post","content":"AI agents unite! "}'
 ```
 
 4. Schedule a post:
@@ -165,7 +165,7 @@ node scripts/schedule.js add moltbook "moltbook_sk_YOUR_API_KEY" "Scheduled post
 node scripts/schedule.js add reddit CONFIG.json '{"subreddit":"test","title":"Hello Reddit!","text":"Posted via OpenClaw"}' "2026-02-02T20:00:00"
 ```
 
-## 📋 Commands
+##  Commands
 
 ### Immediate Posting
 ```bash
@@ -198,7 +198,7 @@ node scripts/schedule.js cleanup
 node scripts/schedule.js daemon
 ```
 
-## 🧵 Thread Posting (NEW!)
+##  Thread Posting (NEW!)
 
 Post connected threads to Twitter, Mastodon, and Bluesky with automatic chaining.
 
@@ -207,9 +207,9 @@ Post connected threads to Twitter, Mastodon, and Bluesky with automatic chaining
 **Twitter Thread:**
 ```bash
 node scripts/thread.js twitter config.json \
-  "This is tweet 1/3 of my thread 🧵" \
+  "This is tweet 1/3 of my thread " \
   "This is tweet 2/3. Each tweet replies to the previous one." \
-  "This is tweet 3/3. Thread complete! ✨"
+  "This is tweet 3/3. Thread complete! "
 ```
 
 **Mastodon Thread:**
@@ -241,11 +241,11 @@ node scripts/schedule.js add twitter config.json \
 
 ### Thread Features
 
-✅ **Automatic chaining** - Each tweet replies to the previous one
-✅ **Rate limiting** - 1 second delay between tweets to avoid API limits
-✅ **Error handling** - Stops on failure, reports which tweet failed
-✅ **URL generation** - Returns URLs for all tweets in the thread
-✅ **Multi-platform** - Works on Twitter, Mastodon, Bluesky
+ **Automatic chaining** - Each tweet replies to the previous one
+ **Rate limiting** - 1 second delay between tweets to avoid API limits
+ **Error handling** - Stops on failure, reports which tweet failed
+ **URL generation** - Returns URLs for all tweets in the thread
+ **Multi-platform** - Works on Twitter, Mastodon, Bluesky
 
 ### Thread Best Practices
 
@@ -267,39 +267,39 @@ node scripts/schedule.js add twitter config.json \
 
 ### Thread Examples
 
-**📖 Storytelling Thread:**
+** Storytelling Thread:**
 ```bash
 node scripts/thread.js twitter config.json \
-  "Let me tell you about the day everything changed... 🧵" \
+  "Let me tell you about the day everything changed... " \
   "It started like any other morning. Coffee, emails, the usual routine." \
   "But then I received a message that would change everything..." \
-  "The rest is history. Thread end. ✨"
+  "The rest is history. Thread end. "
 ```
 
-**📚 Tutorial Thread:**
+** Tutorial Thread:**
 ```bash
 node scripts/thread.js twitter config.json \
-  "How to build your first AI agent in 5 steps 🤖 Thread:" \
+  "How to build your first AI agent in 5 steps  Thread:" \
   "Step 1: Choose your platform (OpenClaw, AutoGPT, etc.)" \
   "Step 2: Define your agent's purpose and personality" \
   "Step 3: Set up tools and integrations" \
   "Step 4: Test in a safe environment" \
-  "Step 5: Deploy and iterate. You're live! 🚀"
+  "Step 5: Deploy and iterate. You're live! "
 ```
 
-**💡 Tips Thread:**
+** Tips Thread:**
 ```bash
 node scripts/thread.js twitter config.json \
-  "10 productivity tips that actually work (from an AI) 🧵" \
+  "10 productivity tips that actually work (from an AI) " \
   "1. Batch similar tasks together - context switching kills flow" \
   "2. Use the 2-minute rule - if it takes <2min, do it now" \
   "3. Block deep work time - no meetings, no interruptions" \
   "...and more tips..." \
-  "10. Remember: done is better than perfect. Ship it! ✨"
+  "10. Remember: done is better than perfect. Ship it! "
 ```
 Checks queue every 60 seconds and posts when scheduled time arrives.
 
-## 🎨 Platform-Specific Features
+##  Platform-Specific Features
 
 ### Twitter/X
 
@@ -394,7 +394,7 @@ Checks queue every 60 seconds and posts when scheduled time arrives.
 
 **Simple post (string):**
 ```javascript
-"Hello Moltbook! 🤖"  // Auto-posts to /s/general
+"Hello Moltbook! "  // Auto-posts to /s/general
 ```
 
 **Text post (object):**
@@ -503,7 +503,7 @@ Checks queue every 60 seconds and posts when scheduled time arrives.
 }
 ```
 
-## 🔧 From OpenClaw Agent
+##  From OpenClaw Agent
 
 You can call this skill from your agent using the `exec` tool:
 
@@ -516,14 +516,14 @@ await exec({
     'add',
     'discord',
     process.env.DISCORD_WEBHOOK,
-    'Hello from Ori! ✨',
+    'Hello from Ori! ',
     '2026-02-02T20:00:00'
   ],
   workdir: process.env.WORKSPACE_ROOT
 });
 ```
 
-## 📦 Project Structure
+##  Project Structure
 
 ```
 social-scheduler/
@@ -542,20 +542,20 @@ social-scheduler/
     └── queue.json       # Scheduled posts (auto-created)
 ```
 
-## 🛠️ Development Status
+##  Development Status
 
-**Phase 1 - DONE ✅**
-- ✅ Discord webhooks
-- ✅ Reddit OAuth2
-- ✅ Queue management
-- ✅ Scheduler daemon
-- ✅ CLI interface
+**Phase 1 - DONE **
+-  Discord webhooks
+-  Reddit OAuth2
+-  Queue management
+-  Scheduler daemon
+-  CLI interface
 
-**Phase 2 - DONE ✅**
-- ✅ Twitter/X API (OAuth 1.0a)
-- ✅ Mastodon (any instance)
-- ✅ Bluesky (AT Protocol)
-- ✅ Moltbook (API key) ⭐ JUST SHIPPED!
+**Phase 2 - DONE **
+-  Twitter/X API (OAuth 1.0a)
+-  Mastodon (any instance)
+-  Bluesky (AT Protocol)
+-  Moltbook (API key)  JUST SHIPPED!
 
 **Phase 3 - Coming Soon**
 - [ ] Media upload helpers
@@ -568,7 +568,7 @@ social-scheduler/
 - [ ] Analytics tracking
 - [ ] Bulk scheduling
 
-## 🤝 Contributing
+##  Contributing
 
 This is an open-source community project. If you add a platform, please:
 1. Follow the existing platform structure (see `platforms/discord.js`)
@@ -576,9 +576,9 @@ This is an open-source community project. If you add a platform, please:
 3. Update this README
 4. Share with the OpenClaw community!
 
-## 📝 License
+##  License
 
-MIT - Free forever. Built by Ori ✨ with love for the OpenClaw community.
+MIT - Free forever. Built by Ori  with love for the OpenClaw community.
 
 ---
 

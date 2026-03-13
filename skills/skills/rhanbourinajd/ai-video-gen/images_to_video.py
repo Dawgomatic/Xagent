@@ -21,7 +21,7 @@ def images_to_video(image_files, output_path, fps=24, quality='high'):
     }
     crf = crf_values.get(quality, 18)
     
-    print(f"🎬 Creating video from {len(image_files)} images at {fps} fps...")
+    print(f" Creating video from {len(image_files)} images at {fps} fps...")
     
     # Create temporary file list
     file_list_path = Path('filelist.txt')
@@ -45,10 +45,10 @@ def images_to_video(image_files, output_path, fps=24, quality='high'):
     
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
-        print(f"✅ Video created: {output_path}")
+        print(f" Video created: {output_path}")
         return output_path
     except subprocess.CalledProcessError as e:
-        print(f"❌ FFmpeg error: {e.stderr}")
+        print(f" FFmpeg error: {e.stderr}")
         sys.exit(1)
     finally:
         # Clean up temp file
@@ -69,7 +69,7 @@ def main():
     # Validate images exist
     for img in args.images:
         if not Path(img).exists():
-            print(f"❌ Error: Image not found: {img}")
+            print(f" Error: Image not found: {img}")
             sys.exit(1)
     
     images_to_video(args.images, args.output, args.fps, args.quality)

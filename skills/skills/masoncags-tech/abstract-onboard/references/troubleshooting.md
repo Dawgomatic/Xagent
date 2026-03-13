@@ -1,6 +1,6 @@
 # Abstract/zkSync Troubleshooting Guide
 
-## ⚠️ Contract Deployment Issues
+##  Contract Deployment Issues
 
 ### Problem: Deploy transaction succeeds but no bytecode at address
 
@@ -18,7 +18,7 @@ Abstract uses zkSync's ZK Stack. Standard EVM deployment doesn't work because:
 
 **Solution:**
 ```javascript
-// ✅ CORRECT: Use zksync-ethers
+//  CORRECT: Use zksync-ethers
 const { Wallet, Provider, ContractFactory } = require("zksync-ethers");
 
 const provider = new Provider("https://api.mainnet.abs.xyz");
@@ -41,7 +41,7 @@ if (code === '0x' || code.length <= 2) {
 
 **What NOT to do:**
 ```javascript
-// ❌ WRONG: viem's deployContract doesn't work on zkSync
+//  WRONG: viem's deployContract doesn't work on zkSync
 const hash = await walletClient.deployContract({
   abi,
   bytecode,

@@ -5,12 +5,12 @@
 ## Overview
 
 Crypto traders suck at risk management. This tool:
-- 🔍 Scans wallets in real-time
-- 📊 Breaks down exposures (DeFi, memecoins, stablecoins, NFTs)
-- ⚠️ Runs stress tests & scenario analysis
-- 💡 Suggests rebalances & hedges
-- 🎙️ Voice-activated via phone calls
-- 💰 Pays for itself by buying back $BANKR with fees
+-  Scans wallets in real-time
+-  Breaks down exposures (DeFi, memecoins, stablecoins, NFTs)
+-  Runs stress tests & scenario analysis
+-  Suggests rebalances & hedges
+-  Voice-activated via phone calls
+-  Pays for itself by buying back $BANKR with fees
 
 ## Monetization Model
 
@@ -278,11 +278,11 @@ const riskScore =
 
 ### Risk Categories
 
-- **0-20**: 🟢 Low Risk (Conservative)
-- **21-40**: 🟡 Low-Moderate
-- **41-60**: 🟠 Moderate
-- **61-80**: 🔴 High Risk
-- **81-100**: ⚫ Extreme Risk (Degen)
+- **0-20**:  Low Risk (Conservative)
+- **21-40**:  Low-Moderate
+- **41-60**:  Moderate
+- **61-80**:  High Risk
+- **81-100**:  Extreme Risk (Degen)
 
 ## Optimization Engine
 
@@ -589,16 +589,16 @@ certbot --nginx -d analyzer.yourdomain.com
 ## Token Holder Benefits
 
 **Hold 1000+ $BANKR:**
-- ✅ Free portfolio scans (unlimited)
-- ✅ Priority voice bot access
-- ✅ Advanced analytics
-- ✅ API access
+-  Free portfolio scans (unlimited)
+-  Priority voice bot access
+-  Advanced analytics
+-  API access
 
 **Hold 10,000+ $BANKR:**
-- ✅ Everything above
-- ✅ Custom risk models
-- ✅ Whale portfolio insights
-- ✅ Revenue share (% of buyback fees)
+-  Everything above
+-  Custom risk models
+-  Whale portfolio insights
+-  Revenue share (% of buyback fees)
 
 ## Example Workflows
 
@@ -717,7 +717,7 @@ Track buyback performance:
 
 ### Viral Hooks
 
-- "AI agent buying back its own token with profits 🤖💰"
+- "AI agent buying back its own token with profits "
 - "Pay $5, get portfolio analysis + buy pressure on BANKR"
 - "Hold 1000 tokens, get lifetime free access"
 
@@ -730,10 +730,10 @@ Track buyback performance:
 ## Roadmap
 
 ### Phase 1: MVP (Week 1-2)
-- ✅ Basic wallet scanner
-- ✅ Risk scoring
-- ✅ Payment gateway
-- ✅ Auto-buyback
+-  Basic wallet scanner
+-  Risk scoring
+-  Payment gateway
+-  Auto-buyback
 
 ### Phase 2: Advanced (Week 3-4)
 - Voice bot integration
@@ -771,4 +771,4 @@ Published to ClawdHub
 clawdhub install portfolio-risk-analyzer
 ```
 
-Turn fees into buy pressure. Turn users into holders. 🚀
+Turn fees into buy pressure. Turn users into holders. 

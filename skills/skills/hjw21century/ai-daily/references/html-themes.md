@@ -37,7 +37,7 @@ Generate a clean, minimalist HTML page inspired by Apple's design language.
 
   <div class="container">
     <header>
-      <div class="logo-icon">🤖</div>
+      <div class="logo-icon"></div>
       <h1>AI Daily</h1>
       <div class="date-badge">2026年1月13日 星期一</div>
     </header>

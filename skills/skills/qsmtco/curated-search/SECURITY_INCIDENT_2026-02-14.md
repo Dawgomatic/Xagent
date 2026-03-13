@@ -30,23 +30,23 @@ If a user misconfigured their skill handler to use this server, it would expose 
 ## Actions Taken
 
 ### 1. Immediate Containment
-- ✅ Deleted `src/search-api.js` from repository
-- ✅ Removed legacy reference in README.md
-- ✅ Updated `.clawhubignore` to exclude:
+-  Deleted `src/search-api.js` from repository
+-  Removed legacy reference in README.md
+-  Updated `.clawhubignore` to exclude:
   - `*AUDIT*.md`, `*CRITICAL*.md`, `*GAP*.md`
   - `SYS_*`, `YACY_*` (internal audit/research docs)
   - `securityaudit/`
-- ✅ Prepared clean publish version 1.0.4
+-  Prepared clean publish version 1.0.4
 
 ### 2. Registry Cleanup
-- ✅ Deleted duplicate skill `curated-search-skill` (v1.0.0)
-- ⚠️ Published v1.0.3 (first attempt succeeded but later registry checks showed "not found")
-- ⏳ Rate limit prevented immediate republish; will retry with v1.0.4 after cooldown
+-  Deleted duplicate skill `curated-search-skill` (v1.0.0)
+-  Published v1.0.3 (first attempt succeeded but later registry checks showed "not found")
+-  Rate limit prevented immediate republish; will retry with v1.0.4 after cooldown
 
 ### 3. Documentation
-- ✅ Updated `CHANGELOG.md` with security fixes
-- ✅ Created `SECURITY_INCIDENT_2026-02-14.md` (this file)
-- ✅ Updated `IMPLEMENTATION_PLAN.md` to add security review step for future publishes
+-  Updated `CHANGELOG.md` with security fixes
+-  Created `SECURITY_INCIDENT_2026-02-14.md` (this file)
+-  Updated `IMPLEMENTATION_PLAN.md` to add security review step for future publishes
 
 ---
 

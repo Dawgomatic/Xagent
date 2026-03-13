@@ -23,10 +23,10 @@ class TrendWatcher {
     async watch(options = {}) {
         const { language = 'any', period = 'daily', categories = ['cli', 'ai', 'memory', 'automation'], limit = 10, report = 'standard' } = options;
 
-        console.log('🔍 Starting Trend Watch...\n');
-        console.log(`📊 Monitoring: ${categories.join(', ')}`);
-        console.log(`🗣️ Language: ${language}`);
-        console.log(`📅 Period: ${period}\n`);
+        console.log(' Starting Trend Watch...\n');
+        console.log(` Monitoring: ${categories.join(', ')}`);
+        console.log(` Language: ${language}`);
+        console.log(` Period: ${period}\n`);
 
         const trends = await this.fetchTrending(language, limit);
         const filtered = this.filterByCategories(trends, categories);
@@ -53,7 +53,7 @@ class TrendWatcher {
             ? 'https://github.com/trending?since=daily'
             : `https://github.com/trending/${language}?since=daily`;
 
-        console.log(`📡 Fetching: ${url}`);
+        console.log(` Fetching: ${url}`);
 
         try {
             const html = await this.httpRequest(url, 8000);
@@ -69,10 +69,10 @@ class TrendWatcher {
                 }));
             }
         } catch (error) {
-            console.log(`⚠️ Network unavailable: ${error.message}`);
+            console.log(` Network unavailable: ${error.message}`);
         }
 
-        console.log('📦 Using cached data');
+        console.log(' Using cached data');
         return this.getCachedData(limit);
     }
 
@@ -179,21 +179,21 @@ class TrendWatcher {
             return;
         }
 
-        console.log('📈 GitHub Trending Report');
+        console.log(' GitHub Trending Report');
         console.log('='.repeat(60));
-        console.log(`🕐 ${analysis.timestamp}\n`);
+        console.log(` ${analysis.timestamp}\n`);
 
-        console.log('🔥 Top Projects:');
+        console.log(' Top Projects:');
         analysis.stats.topProjects.forEach((p, i) => {
             console.log(`\n${i + 1}. ${p.name}`);
-            console.log(`   ⭐ ${p.stars.toLocaleString()} (${p.dailyStars}/day) | 🏷️ ${p.categories.join(', ')}`);
-            console.log(`   📝 ${p.description.substring(0, 80)}`);
+            console.log(`    ${p.stars.toLocaleString()} (${p.dailyStars}/day) |  ${p.categories.join(', ')}`);
+            console.log(`    ${p.description.substring(0, 80)}`);
         });
 
-        console.log('\n💡 Insights:');
+        console.log('\n Insights:');
         analysis.insights.forEach(i => console.log(`   • [${i.type.toUpperCase()}] ${i.message}`));
 
-        console.log('\n🎯 Recommendations:');
+        console.log('\n Recommendations:');
         analysis.recommendations.forEach(r => console.log(`   • [${r.priority}] ${r.recommendation}`));
 
         console.log('\n' + '='.repeat(60));
@@ -205,7 +205,7 @@ class TrendWatcher {
             : [];
         bookmarks.push({ ...project, date: new Date().toISOString() });
         fs.writeFileSync(this.bookmarksFile, JSON.stringify(bookmarks, null, 2));
-        console.log(`✅ Bookmarked: ${project.name}`);
+        console.log(` Bookmarked: ${project.name}`);
     }
 
     async listBookmarks() {
@@ -214,9 +214,9 @@ class TrendWatcher {
             return [];
         }
         const bookmarks = JSON.parse(fs.readFileSync(this.bookmarksFile, 'utf-8'));
-        console.log(`\n📚 Bookmarks (${bookmarks.length}):\n`);
+        console.log(`\n Bookmarks (${bookmarks.length}):\n`);
         bookmarks.forEach((b, i) => {
-            console.log(`${i + 1}. ${b.name} (⭐ ${b.stars})`);
+            console.log(`${i + 1}. ${b.name} ( ${b.stars})`);
         });
         return bookmarks;
     }

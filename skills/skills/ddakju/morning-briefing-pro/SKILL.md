@@ -1,7 +1,7 @@
 ---
 name: morning-briefing
 description: Generate a daily morning briefing (weather, calendar, news, reminders) using the local `briefing` CLI. No API tokens consumed for data gathering. Use when the user asks for a morning briefing, daily summary, schedule overview, or wants automated daily briefings.
-metadata: { "openclaw": { "emoji": "🌅", "os": ["darwin"], "requires": { "bins": ["briefing"] }, "install": [{ "id": "node", "kind": "node", "package": "@openclaw-tools/morning-briefing", "bins": ["briefing"], "label": "Install morning-briefing (npm)" }] } }
+metadata: { "openclaw": { "emoji": "", "os": ["darwin"], "requires": { "bins": ["briefing"] }, "install": [{ "id": "node", "kind": "node", "package": "@openclaw-tools/morning-briefing", "bins": ["briefing"], "label": "Install morning-briefing (npm)" }] } }
 ---
 
 # Morning Briefing

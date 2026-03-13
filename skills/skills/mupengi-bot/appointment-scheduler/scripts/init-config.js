@@ -53,12 +53,12 @@ if (!fs.existsSync(CONFIG_DIR)) {
 
 // Check if config already exists
 if (fs.existsSync(CONFIG_FILE)) {
-  console.log('⚠️  Config file already exists:', CONFIG_FILE);
+  console.log('  Config file already exists:', CONFIG_FILE);
   console.log('Delete it first if you want to reinitialize.');
   process.exit(0);
 }
 
 // Write default config
 fs.writeFileSync(CONFIG_FILE, JSON.stringify(defaultConfig, null, 2));
-console.log('✅ Config initialized:', CONFIG_FILE);
-console.log('📝 Edit the config file to customize for your business.');
+console.log(' Config initialized:', CONFIG_FILE);
+console.log(' Edit the config file to customize for your business.');

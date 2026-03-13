@@ -69,7 +69,7 @@ def cmd_start(args):
             result["client"] = args.client
         print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
-        print(f"▶ Timer démarré pour « {args.project} »{client_info} à {datetime.now().strftime('%H:%M')}")
+        print(f" Timer démarré pour « {args.project} »{client_info} à {datetime.now().strftime('%H:%M')}")
 
 
 def cmd_stop(args):
@@ -97,7 +97,7 @@ def cmd_stop(args):
     if args.json:
         print(json.dumps(entry, ensure_ascii=False, indent=2))
     else:
-        print(f"⏹ Timer arrêté pour « {entry['project']} »")
+        print(f" Timer arrêté pour « {entry['project']} »")
         print(f"  Durée : {format_duration(duration)}")
 
 
@@ -121,7 +121,7 @@ def cmd_status(args):
             "elapsed_seconds": round(elapsed),
         }, ensure_ascii=False, indent=2))
     else:
-        print(f"▶ Timer actif : « {data['current']['project']} »")
+        print(f" Timer actif : « {data['current']['project']} »")
         print(f"  Démarré à : {start.strftime('%H:%M')}")
         print(f"  Durée : {format_duration(elapsed)}")
 
@@ -223,7 +223,7 @@ def cmd_report(args):
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
 
-    print(f"📊 Rapport — {args.month}")
+    print(f" Rapport — {args.month}")
     print("─" * 65)
 
     if not projects:
@@ -242,8 +242,8 @@ def cmd_report(args):
 
     if default_rate:
         revenue = total_hours * default_rate
-        print(f"\n  💰 Taux horaire : {default_rate}€/h")
-        print(f"  💰 Revenu estimé : {revenue:.2f}€")
+        print(f"\n   Taux horaire : {default_rate}€/h")
+        print(f"   Revenu estimé : {revenue:.2f}€")
 
 
 def main():

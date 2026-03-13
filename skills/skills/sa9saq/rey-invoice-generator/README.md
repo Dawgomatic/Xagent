@@ -1,4 +1,4 @@
-# 💰 invoice-generator
+#  invoice-generator
 
 Generate professional invoice PDFs — template-based, multi-currency, freelancer-friendly.
 

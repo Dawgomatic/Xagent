@@ -52,14 +52,14 @@ EXIT_API_ERROR = 2
 
 # Transport type emojis
 TRANSPORT_EMOJIS = {
-    "UBAHN": "🔵",
-    "SBAHN": "🟢", 
-    "BUS": "🚌",
-    "TRAM": "🚋",
-    "BAHN": "🚆",
-    "REGIONAL_BUS": "🚍",
-    "RUFTAXI": "🚕",
-    "PEDESTRIAN": "🚶",
+    "UBAHN": "",
+    "SBAHN": "", 
+    "BUS": "",
+    "TRAM": "",
+    "BAHN": "",
+    "REGIONAL_BUS": "",
+    "RUFTAXI": "",
+    "PEDESTRIAN": "",
 }
 
 # All transport types for filtering
@@ -581,13 +581,13 @@ def handle_live(args) -> int:
         
         is_json = args.json or getattr(args, 'live_json', False)
         if not is_json:
-            print("🔄 Verbinde mit S-Bahn Live Map...", end="", flush=True)
+            print(" Verbinde mit S-Bahn Live Map...", end="", flush=True)
         trajectories = api.fetch_trajectories(timeout=12)
         if not is_json:
             print(f" {len(trajectories)} Züge empfangen.")
         
         if not trajectories:
-            print("❌ Keine S-Bahn-Daten empfangen")
+            print(" Keine S-Bahn-Daten empfangen")
             return EXIT_ERROR
 
         trains = api.parse_trajectories(trajectories)
@@ -599,7 +599,7 @@ def handle_live(args) -> int:
                 line_filter = "S" + line_filter
             trains = [t for t in trains if t["line"] == line_filter]
             if not trains:
-                print(f"❌ Keine Züge der Linie {line_filter} gefunden")
+                print(f" Keine Züge der Linie {line_filter} gefunden")
                 return EXIT_ERROR
 
         if args.json or getattr(args, 'live_json', False):
@@ -622,21 +622,21 @@ def handle_live(args) -> int:
             for t in line_trains:
                 # State emoji
                 state_map = {
-                    "DRIVING": "🚆",
-                    "BOARDING": "🚏",
-                    "STOPPED": "⏸️",
+                    "DRIVING": "",
+                    "BOARDING": "",
+                    "STOPPED": "",
                 }
-                state_emoji = state_map.get(t["state"], "❓")
+                state_emoji = state_map.get(t["state"], "")
 
                 # Delay
                 delay_str = ""
                 if t["delayMinutes"] is not None and t["delayMinutes"] > 0:
                     delay_str = f" \033[91m+{t['delayMinutes']}min{reset}"
                 elif t["delayMinutes"] is not None and t["delayMinutes"] == 0:
-                    delay_str = " ✅"
+                    delay_str = " "
 
                 number = f"#{t['trainNumber']}" if t["trainNumber"] else ""
-                rt = " 📡" if t.get("hasRealtime") else ""
+                rt = " " if t.get("hasRealtime") else ""
 
                 info = f"  {state_emoji} {color}{line_name}{reset}"
                 if number:
@@ -653,19 +653,19 @@ def handle_live(args) -> int:
         total = len(trains)
         delayed = sum(1 for t in trains if t["delayMinutes"] and t["delayMinutes"] > 0)
         driving = sum(1 for t in trains if t["state"] == "DRIVING")
-        print(f"  📊 {total} Züge aktiv | {driving} fahren | {delayed} verspätet")
+        print(f"   {total} Züge aktiv | {driving} fahren | {delayed} verspätet")
         print()
 
         return EXIT_OK
 
     except ConnectionError as e:
-        print(f"\n❌ Verbindungsfehler: {e}")
+        print(f"\n Verbindungsfehler: {e}")
         return EXIT_API_ERROR
     except Exception as e:
         if args.json:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
-            print(f"\n❌ Fehler: {e}")
+            print(f"\n Fehler: {e}")
         return EXIT_ERROR
 
 
@@ -712,17 +712,17 @@ def format_time_iso(iso_time: Optional[str]) -> str:
 def format_delay(delay_minutes: int) -> str:
     """Format delay with emoji indicators."""
     if delay_minutes == 0:
-        return "✅ pünktlich"
+        return " pünktlich"
     elif delay_minutes > 0:
-        indicator = "🔴" if delay_minutes > 5 else "🟡"
+        indicator = "" if delay_minutes > 5 else ""
         return f"{indicator} +{delay_minutes} min"
     else:
-        return f"⏩ {abs(delay_minutes)} min früh"
+        return f" {abs(delay_minutes)} min früh"
 
 
 def get_transport_emoji(transport_type: str) -> str:
     """Get emoji for transport type."""
-    return TRANSPORT_EMOJIS.get(transport_type, "🚇")
+    return TRANSPORT_EMOJIS.get(transport_type, "")
 
 
 def clean_html(text: str) -> str:
@@ -840,7 +840,7 @@ def handle_search(args) -> int:
             return EXIT_OK
         
         if not stations:
-            print(f"❌ Keine Stationen gefunden für '{args.query}'")
+            print(f" Keine Stationen gefunden für '{args.query}'")
             return EXIT_ERROR
         
         content = []
@@ -869,7 +869,7 @@ def handle_search(args) -> int:
         if args.json:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
-            print(f"❌ API-Fehler: {e}")
+            print(f" API-Fehler: {e}")
         return EXIT_API_ERROR
 
 
@@ -885,7 +885,7 @@ def handle_departures(args) -> int:
             if args.json:
                 print(json.dumps({"error": error}, indent=2))
             else:
-                print(f"❌ {error}")
+                print(f" {error}")
             return EXIT_ERROR
         
         # Parse transport types filter
@@ -905,7 +905,7 @@ def handle_departures(args) -> int:
             return EXIT_OK
         
         if not departures:
-            print(f"❌ Keine Abfahrten gefunden für '{args.station}'")
+            print(f" Keine Abfahrten gefunden für '{args.station}'")
             return EXIT_ERROR
         
         # Prepare table data
@@ -922,16 +922,16 @@ def handle_departures(args) -> int:
             
             platform = dep.get("platform", "")
             if dep.get("platformChanged"):
-                platform += " ⚠️"
+                platform += " "
             
             line_info = f"{emoji} {label}"
             if dep.get("cancelled"):
-                line_info += " ❌"
+                line_info += " "
             
             rows.append([line_info, destination, planned_time, delay, platform])
         
         print()
-        print(f"📍 Abfahrten für {args.station}")
+        print(f" Abfahrten für {args.station}")
         if args.offset > 0:
             print(f"   (mit {args.offset} min Fußweg)")
         print()
@@ -944,7 +944,7 @@ def handle_departures(args) -> int:
         if args.json:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
-            print(f"❌ API-Fehler: {e}")
+            print(f" API-Fehler: {e}")
         return EXIT_API_ERROR
 
 
@@ -960,7 +960,7 @@ def handle_route(args) -> int:
             if args.json:
                 print(json.dumps({"error": error}, indent=2))
             else:
-                print(f"❌ {error}")
+                print(f" {error}")
             return EXIT_ERROR
         
         destination_loc = api.resolve_location(args.destination)
@@ -969,7 +969,7 @@ def handle_route(args) -> int:
             if args.json:
                 print(json.dumps({"error": error}, indent=2))
             else:
-                print(f"❌ {error}")
+                print(f" {error}")
             return EXIT_ERROR
         
         # Resolve via stop if provided
@@ -981,7 +981,7 @@ def handle_route(args) -> int:
                 if args.json:
                     print(json.dumps({"error": error}, indent=2))
                 else:
-                    print(f"❌ {error}")
+                    print(f" {error}")
                 return EXIT_ERROR
         
         # Parse time if provided
@@ -1000,7 +1000,7 @@ def handle_route(args) -> int:
                 if args.json:
                     print(json.dumps({"error": error}, indent=2))
                 else:
-                    print(f"❌ {error}")
+                    print(f" {error}")
                 return EXIT_ERROR
         
         # Parse transport type filters
@@ -1033,12 +1033,12 @@ def handle_route(args) -> int:
             return EXIT_OK
         
         if not routes:
-            print(f"❌ Keine Verbindungen gefunden von '{args.origin}' nach '{args.destination}'")
+            print(f" Keine Verbindungen gefunden von '{args.origin}' nach '{args.destination}'")
             return EXIT_ERROR
         
         print()
         via_str = f" via {args.via}" if args.via else ""
-        print(f"🗺️  Verbindungen: {args.origin}{via_str} → {args.destination}")
+        print(f"  Verbindungen: {args.origin}{via_str} → {args.destination}")
         print()
         
         for i, route in enumerate(routes[:5], 1):  # Show max 5 routes
@@ -1080,7 +1080,7 @@ def handle_route(args) -> int:
                     # Pedestrian part
                     from_name = part.get("from", {}).get("name", "")
                     to_name = part.get("to", {}).get("name", "")
-                    content.append(f"🚶 Fußweg: {from_name} → {to_name}")
+                    content.append(f" Fußweg: {from_name} → {to_name}")
             
             print_box(f"Verbindung {i}", content)
             print()
@@ -1091,7 +1091,7 @@ def handle_route(args) -> int:
         if args.json:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
-            print(f"❌ API-Fehler: {e}")
+            print(f" API-Fehler: {e}")
         return EXIT_API_ERROR
 
 
@@ -1111,7 +1111,7 @@ def handle_nearby(args) -> int:
             return EXIT_OK
         
         if not stations:
-            print(f"❌ Keine Stationen in der Nähe von {lat}, {lon} gefunden")
+            print(f" Keine Stationen in der Nähe von {lat}, {lon} gefunden")
             return EXIT_ERROR
         
         content = []
@@ -1137,7 +1137,7 @@ def handle_nearby(args) -> int:
         if args.json:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
-            print(f"❌ API-Fehler: {e}")
+            print(f" API-Fehler: {e}")
         return EXIT_API_ERROR
 
 
@@ -1155,7 +1155,7 @@ def handle_alerts(args) -> int:
                 if args.json:
                     print(json.dumps({"error": error}, indent=2))
                 else:
-                    print(f"❌ {error}")
+                    print(f" {error}")
                 return EXIT_ERROR
         
         alerts = api.get_alerts(global_id)
@@ -1166,7 +1166,7 @@ def handle_alerts(args) -> int:
         
         if not alerts:
             location_str = f" für {args.station}" if args.station else ""
-            print(f"✅ Keine Störungen{location_str} gemeldet")
+            print(f" Keine Störungen{location_str} gemeldet")
             return EXIT_OK
         
         title = f"Störungsmeldungen"
@@ -1185,7 +1185,7 @@ def handle_alerts(args) -> int:
             affected_lines = alert.get("affectedLines", [])
             lines_str = ", ".join(affected_lines) if affected_lines else "Alle Linien"
             
-            severity_emoji = "🔴" if severity == "HIGH" else "🟡" if severity == "MEDIUM" else "🔵"
+            severity_emoji = "" if severity == "HIGH" else "" if severity == "MEDIUM" else ""
             
             content.append(f"{severity_emoji} {title_text}")
             if description:
@@ -1203,7 +1203,7 @@ def handle_alerts(args) -> int:
         if args.json:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
-            print(f"❌ API-Fehler: {e}")
+            print(f" API-Fehler: {e}")
         return EXIT_API_ERROR
 
 
@@ -1221,7 +1221,7 @@ def handle_lines(args) -> int:
                 if args.json:
                     print(json.dumps({"error": error}, indent=2))
                 else:
-                    print(f"❌ {error}")
+                    print(f" {error}")
                 return EXIT_ERROR
         
         lines = api.get_lines(transport_type)
@@ -1232,7 +1232,7 @@ def handle_lines(args) -> int:
         
         if not lines:
             type_str = f" ({args.type})" if args.type else ""
-            print(f"❌ Keine Linien{type_str} gefunden")
+            print(f" Keine Linien{type_str} gefunden")
             return EXIT_ERROR
         
         # Group by transport type
@@ -1270,7 +1270,7 @@ def handle_lines(args) -> int:
         if args.json:
             print(json.dumps({"error": str(e)}, indent=2))
         else:
-            print(f"❌ API-Fehler: {e}")
+            print(f" API-Fehler: {e}")
         return EXIT_API_ERROR
 
 
@@ -1366,19 +1366,19 @@ def main() -> int:
     
     handler = handlers.get(args.command)
     if not handler:
-        print(f"❌ Unbekannter Command: {args.command}")
+        print(f" Unbekannter Command: {args.command}")
         return EXIT_ERROR
     
     try:
         return handler(args)
     except KeyboardInterrupt:
-        print("\n❌ Abgebrochen")
+        print("\n Abgebrochen")
         return EXIT_ERROR
     except Exception as e:
         if args.json:
             print(json.dumps({"error": f"Unerwarteter Fehler: {e}"}, indent=2))
         else:
-            print(f"❌ Unerwarteter Fehler: {e}")
+            print(f" Unerwarteter Fehler: {e}")
         return EXIT_ERROR
 
 

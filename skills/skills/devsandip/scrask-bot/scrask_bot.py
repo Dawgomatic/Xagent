@@ -502,21 +502,21 @@ def format_telegram_reply(results: list[dict], parse_data: dict, provider: str) 
     for r in silent_items:
         item = r["item"]
         if r.get("error"):
-            lines.append(f"⚠️ Failed to save **{item['title']}**: {r['error']}")
+            lines.append(f" Failed to save **{item['title']}**: {r['error']}")
             continue
         if r["destination"] == "google_calendar":
             when = f"{item.get('date', '')} at {item['time']}" if item.get("time") else item.get("date", "")
-            lines.append(f"📅 Added to Calendar: **{item['title']}** — {when}")
+            lines.append(f" Added to Calendar: **{item['title']}** — {when}")
         else:
             due  = f" (due {item['date']})" if item.get("date") else ""
-            icon = "🔔" if item.get("date") else "✅"
+            icon = "" if item.get("date") else ""
             lines.append(f"{icon} Added to Tasks: **{item['title']}**{due}")
 
     for r in confirm_items:
         item = r["item"]
-        lines.append(f"\n🤔 Not sure about this one (confidence: {int(r['confidence']*100)}%)")
+        lines.append(f"\n Not sure about this one (confidence: {int(r['confidence']*100)}%)")
         if r["destination"] == "google_calendar":
-            lines.append(f"📅 **Event detected**")
+            lines.append(f" **Event detected**")
             lines.append(f"  Title: {item['title']}")
             lines.append(f"  Date:  {item.get('date') or '?'}")
             lines.append(f"  Time:  {item.get('time') or '?'}")
@@ -525,7 +525,7 @@ def format_telegram_reply(results: list[dict], parse_data: dict, provider: str) 
             if item.get("online_link"):
                 lines.append(f"  Link:  {item['online_link']}")
         else:
-            icon  = "🔔" if item.get("date") else "✅"
+            icon  = "" if item.get("date") else ""
             label = "Reminder" if item.get("date") else "Task"
             lines.append(f"{icon} **{label} detected**")
             lines.append(f"  Title: {item['title']}")
@@ -536,7 +536,7 @@ def format_telegram_reply(results: list[dict], parse_data: dict, provider: str) 
         lines.append("\nSave it? Reply **yes**, **edit**, or **skip**.")
 
     if parse_data.get("parse_notes"):
-        lines.append(f"\n_ℹ️ {parse_data['parse_notes']}_")
+        lines.append(f"\n_ {parse_data['parse_notes']}_")
 
     # Subtle provider attribution (useful for debugging)
     lines.append(f"\n_Parsed by Scrask using {provider.capitalize()}_")
@@ -610,7 +610,7 @@ def main() -> None:
         # Warn but continue — fallback just won't trigger
         import sys
         print(
-            "⚠️  ANTHROPIC_API_KEY not set. Auto mode will use Gemini only (no Claude fallback).",
+            "  ANTHROPIC_API_KEY not set. Auto mode will use Gemini only (no Claude fallback).",
             file=sys.stderr
         )
 
@@ -652,7 +652,7 @@ def main() -> None:
             "fallback_triggered": parse_data.get("_fallback_triggered", False),
             "screenshot_summary": parse_data.get("screenshot_summary", ""),
             "telegram_reply": (
-                "🤷 I couldn't find any event, reminder, or task info in that screenshot.\n"
+                " I couldn't find any event, reminder, or task info in that screenshot.\n"
                 "Could you describe what you'd like to add?"
             ),
         }, indent=2, ensure_ascii=False))
@@ -705,7 +705,7 @@ def exit_error(message: str) -> None:
             "error":          True,
             "message":        message,
             "success":        False,
-            "telegram_reply": f"⚠️ Something went wrong: {message}",
+            "telegram_reply": f" Something went wrong: {message}",
         }) + "\n"
     )
     sys.exit(1)

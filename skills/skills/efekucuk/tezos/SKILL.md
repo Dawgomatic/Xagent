@@ -92,14 +92,14 @@ Not recommended for production without thorough review.
 **ALWAYS update state before external calls:**
 
 ```ligo
-// ❌ VULNERABLE - state updated after external call
+//  VULNERABLE - state updated after external call
 [@entry]
 let withdraw (amount : tez) (storage : storage) : operation list * storage =
   let contract = Tezos.get_contract_opt(Tezos.get_sender()) in
   let op = Tezos.transaction () amount contract in
   [op], {storage with withdrawn = true}
 
-// ✅ SECURE - state updated first
+//  SECURE - state updated first
 [@entry]
 let withdraw (amount : tez) (storage : storage) : operation list * storage =
   let () = if storage.withdrawn then failwith "ALREADY_WITHDRAWN" else () in
@@ -321,12 +321,12 @@ let token_metadata (token_id : nat) (storage : storage) : token_metadata =
 ### 1. Use big_map for Large Collections
 
 ```ligo
-// ❌ Expensive - entire map in context
+//  Expensive - entire map in context
 type storage = {
   balances: (address, nat) map;
 }
 
-// ✅ Efficient - only accessed entries in context
+//  Efficient - only accessed entries in context
 type storage = {
   balances: (address, nat) big_map;
 }
@@ -347,12 +347,12 @@ let get_balance (owner : address) (storage : storage) : nat =
 ### 3. Batch Operations
 
 ```ligo
-// ❌ Expensive - multiple transactions
+//  Expensive - multiple transactions
 transfer(alice, 100n);
 transfer(bob, 200n);
 transfer(charlie, 300n);
 
-// ✅ Efficient - single batched operation
+//  Efficient - single batched operation
 type batch_transfer = {
   recipients: (address * nat) list;
 }
@@ -369,7 +369,7 @@ let batch_transfer (batch : batch_transfer) (storage : storage) : operation list
 ### 4. Cache Storage Reads
 
 ```ligo
-// ❌ Multiple reads of same value
+//  Multiple reads of same value
 [@entry]
 let process (storage : storage) : operation list * storage =
   if storage.config.enabled then
@@ -377,7 +377,7 @@ let process (storage : storage) : operation list * storage =
       let result = storage.config.rate * storage.config.multiplier in
       // ... storage.config read 4 times
 
-// ✅ Single read, cached locally
+//  Single read, cached locally
 [@entry]
 let process (storage : storage) : operation list * storage =
   let config = storage.config in

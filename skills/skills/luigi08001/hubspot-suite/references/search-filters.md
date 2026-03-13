@@ -555,15 +555,15 @@ These properties are optimized for searching:
 - Custom properties with high cardinality
 
 ### Search Efficiency Tips
-✅ Use specific filters rather than broad text searches  
-✅ Filter by indexed properties when possible  
-✅ Use BETWEEN for date ranges instead of multiple GT/LT  
-✅ Limit results to what you need  
-✅ Use batch operations after search  
+ Use specific filters rather than broad text searches  
+ Filter by indexed properties when possible  
+ Use BETWEEN for date ranges instead of multiple GT/LT  
+ Limit results to what you need  
+ Use batch operations after search  
 
-❌ Avoid complex text searches on large datasets  
-❌ Don't search without any filters  
-❌ Avoid OR logic with many filter groups  
+ Avoid complex text searches on large datasets  
+ Don't search without any filters  
+ Avoid OR logic with many filter groups  
 
 ## Error Handling
 

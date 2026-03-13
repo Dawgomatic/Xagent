@@ -1,4 +1,4 @@
-# ✨ Real Conversation Data Integration - Summary
+#  Real Conversation Data Integration - Summary
 
 ## What Changed?
 
@@ -6,12 +6,12 @@
 
 ## Key Improvements
 
-### 🎯 1. Real Conversation Analysis
-- ✅ 讀取 OpenClaw session files (`~/.openclaw/agents/main/sessions/`)
-- ✅ 從對話中提取 topics, interests, preferences
-- ✅ 分析語言模式來計算個性 metrics
+###  1. Real Conversation Analysis
+-  讀取 OpenClaw session files (`~/.openclaw/agents/main/sessions/`)
+-  從對話中提取 topics, interests, preferences
+-  分析語言模式來計算個性 metrics
 
-### 🤖 2. Interest-Driven Recommendations
+###  2. Interest-Driven Recommendations
 **Before**:
 ```
 Personality Type → Fixed Categories → Recommendations
@@ -20,7 +20,7 @@ Personality Type → Fixed Categories → Recommendations
 **After**:
 ```
 Conversation → Detected Interests → Recommendations
-              ↘              ↗
+                            
                 Personality Type
 ```
 
@@ -30,7 +30,7 @@ Conversation → Detected Interests → Recommendations
 - 15 points: Conversation alignment
 - 15 points: 2x2 dimension bonuses
 
-### 📊 3. 2x2 Metrics Enhanced
+###  3. 2x2 Metrics Enhanced
 個性分析現在使用對話數據:
 - **Conviction**: 從對話頻率和深度分析
 - **Intuition**: 從語言模式（願景 vs 數據驅動）
@@ -91,23 +91,23 @@ User starts conversation in OpenClaw
 ## Example Output
 
 ```
-📖 Reading OpenClaw session for user: test-user-123
-✅ Found session: abc123...
-📨 Read 45 messages
+ Reading OpenClaw session for user: test-user-123
+ Found session: abc123...
+ Read 45 messages
 
-✅ Session Analysis Complete:
+ Session Analysis Complete:
    Messages: 45
    Topics: AI Tools, Productivity, Crypto
    Interests: Machine Learning, Automation, DeFi
    Preferences: early stage, open source
 
-🤖 Analyzing Personality
-✅ Personality Type: The Innovator
+ Analyzing Personality
+ Personality Type: The Innovator
    Conviction: 42/100
    Intuition: 78/100
    Contribution: 35/100
 
-🎯 Recommendations based on:
+ Recommendations based on:
    1. Main Categories (from conversation): AI Tools, Productivity
    2. Personality Type: The Innovator
    3. Sub-interests: Machine Learning, Automation
@@ -116,15 +116,15 @@ User starts conversation in OpenClaw
 ## Error Handling
 
 系統會優雅處理:
-- ❌ Session file 不存在 → 返回空數據
-- ❌ 讀取錯誤 → Log error, 繼續運行
-- ❌ 無對話歷史 → Fallback to personality-based categories
+-  Session file 不存在 → 返回空數據
+-  讀取錯誤 → Log error, 繼續運行
+-  無對話歷史 → Fallback to personality-based categories
 
 ## Backwards Compatible
 
-- ✅ 如果無法讀取 session，系統會 fallback
-- ✅ Manual Q&A mode 仍然可用
-- ✅ 無需額外配置
+-  如果無法讀取 session，系統會 fallback
+-  Manual Q&A mode 仍然可用
+-  無需額外配置
 
 ## Quick Links
 
@@ -136,14 +136,14 @@ User starts conversation in OpenClaw
 ## Questions?
 
 查看 console logs 中的:
-- "📖 Reading OpenClaw session"
-- "✅ Session Analysis Complete"
-- "🎯 Recommendations based on"
+- " Reading OpenClaw session"
+- " Session Analysis Complete"
+- " Recommendations based on"
 
 這些會顯示系統是否成功讀取對話數據。
 
 ---
 
-**狀態**: ✅ Ready for testing
-**Breaking Changes**: ❌ None
-**New Dependencies**: ❌ None
+**狀態**:  Ready for testing
+**Breaking Changes**:  None
+**New Dependencies**:  None

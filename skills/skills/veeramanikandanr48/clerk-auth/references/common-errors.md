@@ -56,14 +56,14 @@ TypeError: Cannot read properties of undefined
 **Before (v1)**:
 \`\`\`typescript
 const clerk = createClerkClient({
-  apiKey: process.env.CLERK_API_KEY // ❌ Deprecated
+  apiKey: process.env.CLERK_API_KEY //  Deprecated
 })
 \`\`\`
 
 **After (v2)**:
 \`\`\`typescript
 const clerk = createClerkClient({
-  secretKey: process.env.CLERK_SECRET_KEY // ✅ Correct
+  secretKey: process.env.CLERK_SECRET_KEY //  Correct
 })
 \`\`\`
 
@@ -130,7 +130,7 @@ const { data, error } = await verifyToken(token, {
   authorizedParties: [
     'http://localhost:5173',    // Development
     'https://yourdomain.com',   // Production
-  ], // ✅ Required for security
+  ], //  Required for security
 })
 \`\`\`
 
@@ -300,12 +300,12 @@ TypeError: Cannot read properties of undefined
 
 **Before (v5)**:
 \`\`\`typescript
-const { userId } = auth() // ❌ Sync in v5
+const { userId } = auth() //  Sync in v5
 \`\`\`
 
 **After (v6)**:
 \`\`\`typescript
-const { userId } = await auth() // ✅ Async in v6
+const { userId } = await auth() //  Async in v6
 \`\`\`
 
 ### All Affected Code
@@ -417,7 +417,7 @@ This removes the problematic handshake token and forces Clerk to create a fresh 
 
 ### What DOESN'T Work
 
-❌ **This won't fix it**:
+ **This won't fix it**:
 ```typescript
 // vite.config.ts
 export default defineConfig({
@@ -527,7 +527,7 @@ Appears in:
 
 **Replace deprecated props:**
 
-❌ **Old (Deprecated)**:
+ **Old (Deprecated)**:
 ```tsx
 <SignIn
   afterSignInUrl="/"
@@ -540,7 +540,7 @@ Appears in:
 />
 ```
 
-✅ **New (Recommended)**:
+ **New (Recommended)**:
 ```tsx
 <SignIn
   fallbackRedirectUrl="/"
@@ -579,7 +579,7 @@ export function LoginPage() {
       routing="path"
       path="/login"
       signUpUrl="/signup"
-      fallbackRedirectUrl="/"  // ✅ Use this instead of afterSignInUrl
+      fallbackRedirectUrl="/"  //  Use this instead of afterSignInUrl
       appearance={{
         elements: {
           rootBox: 'mx-auto',
@@ -601,7 +601,7 @@ export function SignupPage() {
       routing="path"
       path="/signup"
       signInUrl="/login"
-      fallbackRedirectUrl="/"  // ✅ Use this instead of afterSignUpUrl
+      fallbackRedirectUrl="/"  //  Use this instead of afterSignUpUrl
       appearance={{
         elements: {
           rootBox: 'mx-auto',

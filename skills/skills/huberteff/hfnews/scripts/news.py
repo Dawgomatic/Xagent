@@ -100,7 +100,7 @@ def extract_rss_headlines(url, source_name):
 def display_category(category, sources):
     """Display news for a category."""
     print(f"\n{'='*50}")
-    print(f"  📰 {category.upper()} NEWS")
+    print(f"   {category.upper()} NEWS")
     print(f"{'='*50}\n")
     
     all_headlines = []

@@ -10,7 +10,7 @@ Writing stakeholder reports eats 2-4 hours per week for most project leads. This
 
 ## What You Get
 
-- **Executive Summary** with health indicator (🟢🟡🔴)
+- **Executive Summary** with health indicator ()
 - **Milestone Tracker** with status and dates
 - **Budget Snapshot** with variance and burn rate
 - **Risk Register** with likelihood, impact, and mitigations
@@ -51,4 +51,4 @@ This skill handles the reporting layer. For the full operational toolkit — fin
 
 ---
 
-Built by AfrexAI 🖤💛
+Built by AfrexAI 

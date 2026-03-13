@@ -169,7 +169,7 @@ Respond to natural queries like: "Show me notes about X"
 ## User Feedback
 
 Keep responses minimal:
-- ❌ Don't narrate every step unless debugging
+-  Don't narrate every step unless debugging
 
 ### Example Interaction
 

@@ -90,7 +90,7 @@ def generate_report(activities):
     if prev_week['miles'] > 0:
         change = ((current_week['miles'] - prev_week['miles']) / prev_week['miles']) * 100
         if change > 10:
-            trend = "increasing ⚠️"
+            trend = "increasing "
         elif change < -10:
             trend = "decreasing"
     
@@ -114,29 +114,29 @@ def send_discord_report(report, webhook_url):
     intensity = report['intensity']
     
     fields = [
-        {"name": "📊 This Week", "value": f"{report['week_miles']:.1f} mi | {report['week_runs']} runs", "inline": True},
-        {"name": "📈 Trend", "value": report['trend'], "inline": True},
-        {"name": "🗓️ 4-Week Total", "value": f"{report['four_week_total']:.1f} mi", "inline": True}
+        {"name": " This Week", "value": f"{report['week_miles']:.1f} mi | {report['week_runs']} runs", "inline": True},
+        {"name": " Trend", "value": report['trend'], "inline": True},
+        {"name": " 4-Week Total", "value": f"{report['four_week_total']:.1f} mi", "inline": True}
     ]
     
     if intensity:
         fields.append({
-            "name": "🎯 80/20 Check",
+            "name": " 80/20 Check",
             "value": f"Easy: {intensity['easy_pct']:.0f}% | Moderate: {intensity['moderate_pct']:.0f}% | Hard: {intensity['hard_pct']:.0f}%",
             "inline": False
         })
         
         if report['eight_twenty_ok']:
-            fields.append({"name": "✅", "value": "Great job keeping easy days easy!", "inline": False})
+            fields.append({"name": "", "value": "Great job keeping easy days easy!", "inline": False})
         else:
-            fields.append({"name": "💡", "value": "Aim for 80% easy runs to build aerobic base.", "inline": False})
+            fields.append({"name": "", "value": "Aim for 80% easy runs to build aerobic base.", "inline": False})
     
     # Build mini trend chart
     trend_text = " | ".join([f"{w['label']}: {w['miles']:.1f}mi" for w in report['weekly_data']])
-    fields.append({"name": "📉 4-Week Trend", "value": trend_text, "inline": False})
+    fields.append({"name": " 4-Week Trend", "value": trend_text, "inline": False})
     
     embed = {
-        "title": "🏃 Weekly Training Report",
+        "title": " Weekly Training Report",
         "color": 0xFC4C02 if report['eight_twenty_ok'] else 0xFFA500,
         "fields": fields,
         "footer": {"text": "Consistency > Intensity"},
@@ -154,10 +154,10 @@ def send_discord_report(report, webhook_url):
     
     try:
         with urllib.request.urlopen(req):
-            print("✅ Weekly report sent")
+            print(" Weekly report sent")
             return True
     except Exception as e:
-        print(f"❌ Failed to send report: {e}")
+        print(f" Failed to send report: {e}")
         return False
 
 def send_slack_report(report, webhook_url):
@@ -167,7 +167,7 @@ def send_slack_report(report, webhook_url):
     blocks = [
         {
             "type": "header",
-            "text": {"type": "plain_text", "text": "🏃 Weekly Training Report"}
+            "text": {"type": "plain_text", "text": " Weekly Training Report"}
         },
         {
             "type": "section",
@@ -180,7 +180,7 @@ def send_slack_report(report, webhook_url):
     ]
     
     if intensity:
-        eight_twenty_emoji = "✅" if report['eight_twenty_ok'] else "💡"
+        eight_twenty_emoji = "" if report['eight_twenty_ok'] else ""
         blocks.append({
             "type": "section",
             "text": {
@@ -192,7 +192,7 @@ def send_slack_report(report, webhook_url):
     trend_text = " | ".join([f"{w['label']}: {w['miles']:.1f}mi" for w in report['weekly_data']])
     blocks.append({
         "type": "context",
-        "elements": [{"type": "mrkdwn", "text": f"📉 4-Week Trend: {trend_text}"}]
+        "elements": [{"type": "mrkdwn", "text": f" 4-Week Trend: {trend_text}"}]
     })
     
     payload = {"blocks": blocks}
@@ -206,23 +206,23 @@ def send_slack_report(report, webhook_url):
     
     try:
         with urllib.request.urlopen(req):
-            print("✅ Weekly report sent")
+            print(" Weekly report sent")
             return True
     except Exception as e:
-        print(f"❌ Failed to send report: {e}")
+        print(f" Failed to send report: {e}")
         return False
 
 def main():
-    print(f"📊 Generating Weekly Report - {datetime.now().strftime('%Y-%m-%d')}\n")
+    print(f" Generating Weekly Report - {datetime.now().strftime('%Y-%m-%d')}\n")
     
     access_token = load_tokens()
     if not access_token:
-        print("❌ No Strava tokens. Run auth.py first.")
+        print(" No Strava tokens. Run auth.py first.")
         return 1
     
     webhook_url = get_webhook_url()
     if not webhook_url:
-        print(f"❌ No webhook URL for {NOTIFICATION_CHANNEL}")
+        print(f" No webhook URL for {NOTIFICATION_CHANNEL}")
         return 1
     
     activities = fetch_activities(access_token)

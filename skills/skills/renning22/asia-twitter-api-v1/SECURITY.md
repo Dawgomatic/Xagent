@@ -6,7 +6,7 @@ This document outlines critical security considerations when using OpenClaw Twit
 
 ## Risk Classification
 
-### ✅ Low Risk: Read Operations (Recommended)
+###  Low Risk: Read Operations (Recommended)
 
 **What they are:**
 - User information retrieval
@@ -29,7 +29,7 @@ This document outlines critical security considerations when using OpenClaw Twit
 - Trend analysis
 - Influencer tracking
 
-### ⚠️ High Risk: Write Operations (Use with Extreme Caution)
+###  High Risk: Write Operations (Use with Extreme Caution)
 
 **What they are:**
 - Account login
@@ -55,40 +55,40 @@ This document outlines critical security considerations when using OpenClaw Twit
 
 ## Critical Security Warnings
 
-### 🚨 Never Use Write Operations With:
+###  Never Use Write Operations With:
 
-❌ **Your primary Twitter account**
+ **Your primary Twitter account**
 - Risk: Complete account compromise
 - Impact: Loss of personal account, followers, history
 
-❌ **Verified accounts**
+ **Verified accounts**
 - Risk: Loss of verification status
 - Impact: Brand damage, loss of credibility
 
-❌ **High-value accounts**
+ **High-value accounts**
 - Risk: Financial or reputational damage
 - Impact: Business disruption
 
-❌ **Accounts with sensitive followers/DMs**
+ **Accounts with sensitive followers/DMs**
 - Risk: Privacy breach
 - Impact: Exposure of private communications
 
-❌ **Accounts you cannot afford to lose**
+ **Accounts you cannot afford to lose**
 - Risk: Permanent suspension
 - Impact: Unrecoverable loss
 
-### ✅ Only Use Write Operations With:
+###  Only Use Write Operations With:
 
-✅ **Dedicated automation accounts**
+ **Dedicated automation accounts**
 - Created specifically for testing/automation
 - No personal value attached
 - Separate from your identity
 
-✅ **Unique passwords**
+ **Unique passwords**
 - Never reuse passwords from other accounts
 - Use strong, randomly generated passwords
 
-✅ **Test data only**
+ **Test data only**
 - No real followers or connections
 - No sensitive information
 
@@ -169,12 +169,12 @@ This document outlines critical security considerations when using OpenClaw Twit
 ### 1. Account Isolation
 
 ```
-✅ DO:
+ DO:
 - Create separate accounts for automation
 - Use different emails for each automation account
 - Keep personal and automation accounts completely separate
 
-❌ DON'T:
+ DON'T:
 - Use your personal account for any automation
 - Connect automation accounts to your identity
 - Follow your personal account from automation accounts
@@ -183,13 +183,13 @@ This document outlines critical security considerations when using OpenClaw Twit
 ### 2. Credential Management
 
 ```
-✅ DO:
+ DO:
 - Use environment variables for all credentials
 - Generate unique passwords for each account
 - Use a password manager
 - Enable 2FA on your personal accounts
 
-❌ DON'T:
+ DON'T:
 - Hardcode credentials in scripts
 - Reuse passwords across accounts
 - Store credentials in plain text files
@@ -199,31 +199,31 @@ This document outlines critical security considerations when using OpenClaw Twit
 ### 3. API Key Security
 
 ```bash
-# ✅ GOOD: Use environment variables
+#  GOOD: Use environment variables
 export AISA_API_KEY="your-key-here"
 python twitter_client.py user-info --username example
 
-# ❌ BAD: Hardcoded in script
+#  BAD: Hardcoded in script
 api_key = "sk-abc123..."  # Never do this!
 
-# ✅ GOOD: Add to .gitignore
+#  GOOD: Add to .gitignore
 echo "AISA_API_KEY" >> .gitignore
 echo ".env" >> .gitignore
 
-# ✅ GOOD: Rotate regularly
+#  GOOD: Rotate regularly
 # Replace old key with new key every 30-90 days
 ```
 
 ### 4. Monitoring
 
 ```
-✅ DO:
+ DO:
 - Check AIsa dashboard daily for unusual usage
 - Monitor automation account activity
 - Set up alerts for unexpected charges
 - Review account login history
 
-❌ DON'T:
+ DON'T:
 - Ignore usage spikes
 - Disable notifications
 - Share API keys without monitoring
@@ -232,14 +232,14 @@ echo ".env" >> .gitignore
 ### 5. Rate Limiting
 
 ```python
-# ✅ GOOD: Respect rate limits
+#  GOOD: Respect rate limits
 import time
 
 for user in users:
     client.user_info(user)
     time.sleep(1)  # Rate limiting
 
-# ❌ BAD: Aggressive polling
+#  BAD: Aggressive polling
 while True:
     client.search("keyword")  # Will get rate limited
 ```
@@ -247,13 +247,13 @@ while True:
 ### 6. Proxy Usage
 
 ```
-✅ DO:
+ DO:
 - Use residential proxies for write operations
 - Rotate proxies for different accounts
 - Use HTTPS proxies
 - Verify proxy provider reputation
 
-❌ DON'T:
+ DON'T:
 - Use free public proxies
 - Share proxies across many accounts
 - Use proxies from untrusted providers
@@ -262,7 +262,7 @@ while True:
 ### 7. Error Handling
 
 ```python
-# ✅ GOOD: Handle errors gracefully
+#  GOOD: Handle errors gracefully
 try:
     result = client.send_tweet(username, text)
     if not result.get('success'):
@@ -270,7 +270,7 @@ try:
 except Exception as e:
     logger.error(f"API error: {e}")
 
-# ❌ BAD: Ignore errors
+#  BAD: Ignore errors
 result = client.send_tweet(username, text)
 # No error checking
 ```
@@ -379,7 +379,7 @@ Before using write operations, verify:
 │  Twitter    │
 └─────────────┘
 
-Risk Level: LOW ✅
+Risk Level: LOW 
 ```
 
 ### High-Risk Architecture (Write Operations)
@@ -393,7 +393,7 @@ Risk Level: LOW ✅
        │
        ▼
 ┌──────────────┐      ┌─────────────┐
-│  AIsa API    │─────▶│   Proxy     │
+│  AIsa API    │─────│   Proxy     │
 └──────────────┘      └──────┬──────┘
                              │
                              ▼
@@ -402,7 +402,7 @@ Risk Level: LOW ✅
                       │ (Test Acct) │
                       └─────────────┘
 
-Risk Level: HIGH ⚠️
+Risk Level: HIGH 
 ```
 
 ---

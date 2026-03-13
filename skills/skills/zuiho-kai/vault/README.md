@@ -1,17 +1,17 @@
 # Vault - Secure Password Storage
 
-🔒 **AES-256-GCM encryption** - Secure local password storage with industry-standard encryption.
+ **AES-256-GCM encryption** - Secure local password storage with industry-standard encryption.
 
 Secure local password storage tool with CLI interface and AES-256-GCM encryption.
 
 ## Features
 
-- 🔒 AES-256-GCM encryption for all stored passwords
-- 📝 Simple command-line interface
-- 🗂️ Key management and listing
-- 💾 JSON-based local storage (encrypted)
-- 🕐 Automatic timestamp tracking
-- 🔑 Master key protection
+-  AES-256-GCM encryption for all stored passwords
+-  Simple command-line interface
+-  Key management and listing
+-  JSON-based local storage (encrypted)
+-  Automatic timestamp tracking
+-  Master key protection
 
 ## 安装
 
@@ -44,7 +44,7 @@ export VAULT_MASTER_KEY="your-secure-master-key-here"
 }
 ```
 
-⚠️ **重要**: 请妥善保管主密钥！没有它将无法解密已存储的密码。
+ **重要**: 请妥善保管主密钥！没有它将无法解密已存储的密码。
 
 ## 使用方法
 
@@ -106,7 +106,7 @@ vault list
 
 ## 安全特性
 
-🔒 **加密详情**:
+ **加密详情**:
 
 - **算法**: AES-256-GCM (Galois/Counter Mode)
 - **密钥派生**: scrypt 使用随机盐（每个密码独立）

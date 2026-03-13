@@ -114,7 +114,7 @@ git commit -m "chore: remove phase ${TARGET} (${PHASE_NAME})"
 
 Commit: chore: remove phase {TARGET}
 
-**▶ Next:** `/gsd progress`
+** Next:** `/gsd progress`
 
 ---
 ```

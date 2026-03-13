@@ -225,7 +225,7 @@ def main():
                 # 获取最近的到期日
                 ticker = yf.Ticker(args.symbol)
                 args.expiry = ticker.options[0]
-                print(f"ℹ️ 使用最近到期日: {args.expiry}", file=sys.stderr)
+                print(f" 使用最近到期日: {args.expiry}", file=sys.stderr)
             
             greeks = get_from_symbol(args.symbol.upper(), args.strike, args.expiry, args.type, args.rate)
         else:
@@ -251,7 +251,7 @@ def main():
         print(format_output(greeks, args.format))
         
     except Exception as e:
-        print(f"❌ 错误: {e}", file=sys.stderr)
+        print(f" 错误: {e}", file=sys.stderr)
         sys.exit(1)
 
 

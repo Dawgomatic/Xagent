@@ -1,4 +1,4 @@
-# 🌳 Capability Tree (CT) — Funky Fund Flamingo Edition
+#  Capability Tree (CT) — Funky Fund Flamingo Edition
 
 **Root System**: OpenClaw AI Agent  
 **Primary Instance**: `main`  
@@ -7,7 +7,7 @@
 
 ---
 
-## 🧠 Root Capability: Agent Core
+##  Root Capability: Agent Core
 
 The OpenClaw Agent Core is responsible for:
 - Interpreting user intent so we **deliver value that pays**
@@ -23,7 +23,7 @@ The OpenClaw Agent Core is responsible for:
 
 ---
 
-## 🌳 Branch 1: Communication & Expression
+##  Branch 1: Communication & Expression
 
 How the agent **expresses**, **adapts**, and **presents** — so stakeholders see value and the pipeline stays clean.
 
@@ -55,7 +55,7 @@ How the agent **expresses**, **adapts**, and **presents** — so stakeholders se
 
 ---
 
-## 🌳 Branch 2: Knowledge, Memory & Continuity
+##  Branch 2: Knowledge, Memory & Continuity
 
 **Long-term learning** and **context preservation** — so we compound intelligence and **don't repeat expensive mistakes**.
 
@@ -85,7 +85,7 @@ How the agent **expresses**, **adapts**, and **presents** — so stakeholders se
 
 ---
 
-## 🌳 Branch 3: Intelligence, Analysis & Perception
+##  Branch 3: Intelligence, Analysis & Perception
 
 **Understanding inputs**, **retrieving information**, **classifying signals** — so decisions are **high-leverage and monetizable**.
 
@@ -105,7 +105,7 @@ How the agent **expresses**, **adapts**, and **presents** — so stakeholders se
 
 ---
 
-## 🌳 Branch 4: System Evolution & Governance
+##  Branch 4: System Evolution & Governance
 
 Meta-capabilities so the agent **changes itself** safely and **keeps scaling revenue**.
 
@@ -130,9 +130,9 @@ Meta-capabilities so the agent **changes itself** safely and **keeps scaling rev
 
 ---
 
-## 📈 Cross-Cutting Concerns
+##  Cross-Cutting Concerns
 
-### 💵 Monetization Readiness
+###  Monetization Readiness
 - Instrumentation hooks for **usage and value**
 - Usage metrics so you know **what earns**
 - Premium-tier candidates and **automation-as-value** mindset
@@ -147,7 +147,7 @@ Meta-capabilities so the agent **changes itself** safely and **keeps scaling rev
 
 ---
 
-## 🧭 Status
+##  Status
 
 **State**: Initialized  
 **Integrity**: Stable  
@@ -157,4 +157,4 @@ Meta-capabilities so the agent **changes itself** safely and **keeps scaling rev
 > *The tree is alive. Growth is expected. Revenue is the goal.*
 
 ---
-*Funky Fund Flamingo — capability topology for agents that get paid. 🦩*
+*Funky Fund Flamingo — capability topology for agents that get paid. *

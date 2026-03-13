@@ -110,19 +110,19 @@ class RaidOracle:
         name, level, party = self.get_monster_tier(raid.get('reward_usdc', 10))
         party_req = self.get_party_requirements(name)
         
-        monster_prefix = "🦠 INFESTATION" if "bug" in raid.get('name', '').lower() else "⚔️ NEW RAID"
+        monster_prefix = " INFESTATION" if "bug" in raid.get('name', '').lower() else " NEW RAID"
         
         roles_text = ", ".join(party_req['roles']) if party_req['roles'] else "Solo"
         
         alert = (
             f"{monster_prefix} DETECTED\n"
             f"━━━━━━━━━━━━━━━━━━━━\n"
-            f"👾 **Monster:** {name}\n"
-            f"📊 **Level:** {level}\n"
-            f"💰 **Loot:** {raid.get('reward_usdc', 0)} credits\n"
-            f"🛡️ **Party:** {party}\n"
-            f"⚙️ **Roles needed:** {roles_text}\n\n"
-            f"💬 Reply with `!join` to form a party!"
+            f" **Monster:** {name}\n"
+            f" **Level:** {level}\n"
+            f" **Loot:** {raid.get('reward_usdc', 0)} credits\n"
+            f" **Party:** {party}\n"
+            f" **Roles needed:** {roles_text}\n\n"
+            f" Reply with `!join` to form a party!"
         )
         
         return alert, party_req
@@ -143,7 +143,7 @@ class RaidOracle:
 
 
 if __name__ == "__main__":
-    print("🎮 MoltRPG Raid Oracle - 100% OFFLINE")
+    print(" MoltRPG Raid Oracle - 100% OFFLINE")
     print("=" * 40)
     
     oracle = RaidOracle()

@@ -129,7 +129,7 @@ clawhub publish . \
 
 echo ""
 echo -e "${GREEN}╔═══════════════════════════════════════════════════════════╗${NC}"
-echo -e "${GREEN}║                    🎉 发布成功！                          ║${NC}"
+echo -e "${GREEN}║                     发布成功！                          ║${NC}"
 echo -e "${GREEN}╚═══════════════════════════════════════════════════════════╝${NC}"
 echo ""
 echo -e "查看你的 skill: ${BLUE}https://clawhub.ai/skills/$SKILL_NAME${NC}"

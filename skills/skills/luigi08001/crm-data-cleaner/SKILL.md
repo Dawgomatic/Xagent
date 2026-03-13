@@ -1131,10 +1131,10 @@ def assign_data_cleaning_task(record, quality_issues):
 #### Multi-Platform Synchronization
 
 **Bidirectional Sync**
-- CRM ↔ Marketing Automation
-- CRM ↔ Sales Engagement
-- CRM ↔ Customer Support
-- CRM ↔ Analytics Platforms
+- CRM  Marketing Automation
+- CRM  Sales Engagement
+- CRM  Customer Support
+- CRM  Analytics Platforms
 
 **Conflict Resolution**
 - Master data management

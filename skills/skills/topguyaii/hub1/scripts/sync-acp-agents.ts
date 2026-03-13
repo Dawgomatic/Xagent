@@ -79,12 +79,12 @@ function runAcpCommand(command: string): any {
     return JSON.parse(result.trim())
   } catch (error: any) {
     if (error.stderr?.includes('LITE_AGENT_API_KEY')) {
-      console.error('\n❌ ACP CLI not set up. Run:')
+      console.error('\n ACP CLI not set up. Run:')
       console.error(`   cd ${ACP_CLI_PATH} && npx tsx bin/acp.ts setup\n`)
       process.exit(1)
     }
     if (error.stderr?.includes('Session expired')) {
-      console.error('\n❌ ACP session expired. Run:')
+      console.error('\n ACP session expired. Run:')
       console.error(`   cd ${ACP_CLI_PATH} && npx tsx bin/acp.ts login\n`)
       process.exit(1)
     }
@@ -158,7 +158,7 @@ async function seedAgent(agent: AcpAgent): Promise<boolean> {
  * Main sync function
  */
 async function syncAgents(queries: string[]) {
-  console.log('\n🔍 Syncing ACP Agents to Reputation Database\n')
+  console.log('\n Syncing ACP Agents to Reputation Database\n')
   console.log('=' .repeat(50))
 
   // Collect all unique agents
@@ -178,7 +178,7 @@ async function syncAgents(queries: string[]) {
   }
 
   console.log('\n' + '=' .repeat(50))
-  console.log(`\n📊 Found ${agentMap.size} unique agents\n`)
+  console.log(`\n Found ${agentMap.size} unique agents\n`)
 
   // Seed agents
   let newCount = 0
@@ -187,7 +187,7 @@ async function syncAgents(queries: string[]) {
   for (const agent of agentMap.values()) {
     const isNew = await seedAgent(agent)
     if (isNew) {
-      console.log(`  ✅ NEW: ${agent.name || 'Unknown'} (${agent.walletAddress.slice(0, 10)}...)`)
+      console.log(`   NEW: ${agent.name || 'Unknown'} (${agent.walletAddress.slice(0, 10)}...)`)
       newCount++
     } else {
       updatedCount++
@@ -198,7 +198,7 @@ async function syncAgents(queries: string[]) {
   const totalAgents = await prisma.reputationAgent.count()
 
   console.log('\n' + '=' .repeat(50))
-  console.log('\n📈 Sync Complete!\n')
+  console.log('\n Sync Complete!\n')
   console.log(`  New agents:     ${newCount}`)
   console.log(`  Updated:        ${updatedCount}`)
   console.log(`  Total in DB:    ${totalAgents}`)

@@ -117,7 +117,7 @@ class AchievementManager:
         for ach_id, ach in achievements.items():
             if ach["earned"]:
                 earned_count += 1
-                lines.append(f"│ 🏆 {ach['name']}")
+                lines.append(f"│  {ach['name']}")
                 lines.append(f"│    {ach['desc']}")
         
         if earned_count == 0:

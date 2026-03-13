@@ -12,7 +12,7 @@ description: >
   what's missing, uses what's available.
 metadata:
   openclaw:
-    emoji: "☀️"
+    emoji: ""
 ---
 
 # Daily Briefing Hub
@@ -79,28 +79,28 @@ Use web_search or RSS feeds to pull relevant headlines.
 ALWAYS structure the briefing like this. Adapt sections based on available data:
 
 ```
-☀️ Good [morning/afternoon], [Name]! Here's your briefing for [Day, Date].
+ Good [morning/afternoon], [Name]! Here's your briefing for [Day, Date].
 
-📅 TODAY'S SCHEDULE
+ TODAY'S SCHEDULE
 [Calendar events in chronological order]
 [Flag any conflicts or notable gaps]
 
-📧 EMAIL HIGHLIGHTS
+ EMAIL HIGHLIGHTS
 [Top priority emails with one-line summaries]
 [Total unread count]
 
-⚡ ACTION ITEMS
+ ACTION ITEMS
 [Overdue tasks — URGENT]
 [Tasks due today]
 [PRs needing your review]
 
-🌤️ WEATHER
+ WEATHER
 [Only if notable — rain, extreme temps, etc.]
 
-💻 DEV ACTIVITY
+ DEV ACTIVITY
 [CI failures, new issues, PR updates]
 
-📰 NEWS
+ NEWS
 [3-5 relevant headlines, one line each]
 
 ---

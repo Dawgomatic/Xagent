@@ -1,7 +1,7 @@
 ---
 name: Google Fonts
 description: Load Google Fonts with proper performance, subsetting, and proven font pairings.
-metadata: {"clawdbot":{"emoji":"🔤","requires":{},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{},"os":["linux","darwin","win32"]}}
 ---
 
 ## Loading Mistakes

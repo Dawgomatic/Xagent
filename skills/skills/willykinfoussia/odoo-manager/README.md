@@ -5,7 +5,7 @@ connexion, sélection d’instance/base, et opérations génériques sur n’imp
 
 ---
 
-## 🚀 Installation & Configuration
+##  Installation & Configuration
 
 ### 1. Variables d’Environnement Requises
 
@@ -47,7 +47,7 @@ Pour créer une clé API :
 
 ---
 
-## 🧠 Résolution du Contexte (URL, DB, Utilisateur)
+##  Résolution du Contexte (URL, DB, Utilisateur)
 
 Le skill applique une logique de **résolution hiérarchique** pour savoir quelle
 instance et quelle base utiliser.
@@ -85,7 +85,7 @@ En pratique, le skill travaille toujours avec :
 
 ---
 
-## 📖 Démarrage Rapide
+##  Démarrage Rapide
 
 Les exemples ci‑dessous montrent **l’intention utilisateur** (en français) et
 le type d’appels XML‑RPC qui seront effectués.
@@ -172,7 +172,7 @@ Le skill résume les champs (nom technique, label, type, aide).
 
 ---
 
-## 🔄 Multi‑Instances & Multi‑Bases
+##  Multi‑Instances & Multi‑Bases
 
 Comme pour le skill MantisBT Manager, Odoo Manager permet de gérer
 **plusieurs instances Odoo** et **plusieurs bases** en parallèle, via le contexte.
@@ -225,7 +225,7 @@ User: "Reviens à l’instance Odoo par défaut"
 
 ---
 
-## 🎯 Cas d’Usage Typiques
+##  Cas d’Usage Typiques
 
 ### 1. Gestion des Contacts (res.partner)
 
@@ -254,7 +254,7 @@ User: "Reviens à l’instance Odoo par défaut"
 
 ---
 
-## ⚠️ Gestion des Erreurs & Dépannage
+##  Gestion des Erreurs & Dépannage
 
 ### Problèmes Courants
 
@@ -273,7 +273,7 @@ User: "Reviens à l’instance Odoo par défaut"
 
 ---
 
-## 🔒 Sécurité & Bonnes Pratiques
+##  Sécurité & Bonnes Pratiques
 
 - **Ne jamais commiter** `ODOO_PASSWORD` ni `ODOO_API_KEY` dans un dépôt.
 - Utiliser exclusivement des **variables d’environnement** ou un coffre-fort
@@ -286,7 +286,7 @@ User: "Reviens à l’instance Odoo par défaut"
 
 ---
 
-## 📚 Référence Complète du Skill
+##  Référence Complète du Skill
 
 La spécification détaillée du skill (résolution de contexte, opérations génériques
 ORM, exemples `res.partner`, introspection, etc.) se trouve dans :

@@ -36,11 +36,11 @@ def analyze_klines(klines):
     
     last3 = closes[-3:]
     if last3[0] < last3[1] < last3[2]:
-        trend = "📈Bullish"
+        trend = "Bullish"
     elif last3[0] > last3[1] > last3[2]:
-        trend = "📉Bearish"
+        trend = "Bearish"
     else:
-        trend = "↔️Sideways"
+        trend = "Sideways"
     
     bulls = sum(1 for i in range(len(klines)) if closes[i] >= opens[i])
     bears = len(klines) - bulls
@@ -179,7 +179,7 @@ def main():
             usd = oi_val_usd[d]
             if v is not None:
                 vf = float(v)
-                icon = "🟢" if vf >= 0 else "🔴"
+                icon = "" if vf >= 0 else ""
                 pct_str = f"{icon}{vf:+.2f}%"
                 if usd is not None:
                     usd_signed = abs(float(usd)) if vf >= 0 else -abs(float(usd))
@@ -206,7 +206,7 @@ def main():
         
         s = f"""```
 ┌──────────────────────────────────────┐
-│ 🪙 {symbol:<8} Score:{score:.1f}  Peak:{max_score:.1f}
+│  {symbol:<8} Score:{score:.1f}  Peak:{max_score:.1f}
 │ Price:{price_str}  Entry:${start_price}
 │ Return:{increase:.1f}%  FR:{fr_str}
 ├─ OI Changes ──────────────────────────────┤
@@ -228,7 +228,7 @@ def main():
     for d in ["1h", "4h", "24h"]:
         lines = [f"╔═ OI Rank {d} ══════════════════════════╗"]
         
-        lines.append("║ 📈 Top 8 Increase:")
+        lines.append("║  Top 8 Increase:")
         top = oi_top[d]
         if top and top.get("success"):
             for item in top["data"].get("positions", [])[:8]:
@@ -238,7 +238,7 @@ def main():
                 usd_str = fmt_num(usd) if usd is not None else ""
                 lines.append(f"║  {item.get('rank','-')}. {sym:<10} {float(pct):+.2f}%  {usd_str}")
         
-        lines.append("║ 📉 Top 8 Decrease:")
+        lines.append("║  Top 8 Decrease:")
         low = oi_low[d]
         if low and low.get("success"):
             for item in low["data"].get("positions", [])[:8]:
@@ -255,7 +255,7 @@ def main():
     for d in ["1h", "4h", "24h"]:
         lines = [f"╔═ Inst. Flow {d} ════════════════════════╗"]
         
-        lines.append("║ 💰 Top 8 Inflow:")
+        lines.append("║  Top 8 Inflow:")
         top = nf_top[d]
         if top and top.get("success"):
             for item in top["data"].get("netflows", [])[:8]:
@@ -263,7 +263,7 @@ def main():
                 amt = item.get("amount", 0)
                 lines.append(f"║  {item.get('rank','-')}. {sym:<10} {fmt_num(amt)}")
         
-        lines.append("║ 💸 Top 8 Outflow:")
+        lines.append("║  Top 8 Outflow:")
         low = nf_low[d]
         if low and low.get("success"):
             for item in low["data"].get("netflows", [])[:8]:
@@ -276,7 +276,7 @@ def main():
     
     # 6. Summary
     summary_lines = ["╔══════════════════════════════════════╗",
-                      "║  📋 Summary & Signals                    ║",
+                      "║   Summary & Signals                    ║",
                       "╠══════════════════════════════════════╣"]
     for coin in coins:
         symbol = coin["pair"].replace("USDT", "")
@@ -290,11 +290,11 @@ def main():
                 oi_1h = found.get("oi_delta_percent", 0)
         
         if oi_1h and float(oi_1h) > 1:
-            signal = "📈 Strong OI increase, watch for long"
+            signal = " Strong OI increase, watch for long"
         elif oi_1h and float(oi_1h) < -1:
-            signal = "📉 OI declining, watch for risk"
+            signal = " OI declining, watch for risk"
         else:
-            signal = "↔️ OI stable, wait and see"
+            signal = " OI stable, wait and see"
         
         summary_lines.append(f"║ • {symbol}: Score:{score:.1f} Return:{increase:.1f}%")
         summary_lines.append(f"║   {signal}")

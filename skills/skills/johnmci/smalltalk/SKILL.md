@@ -2,7 +2,7 @@
 name: smalltalk
 version: 1.7.0
 description: Interact with live Smalltalk image (Cuis or Squeak). Use for evaluating Smalltalk code, browsing classes, viewing method source, defining classes/methods, querying hierarchy and categories.
-metadata: {"clawdbot":{"emoji":"💎","requires":{"bins":["python3","xvfb-run"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3","xvfb-run"]}}}
 ---
 
 # Smalltalk Skill

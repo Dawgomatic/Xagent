@@ -2,18 +2,18 @@
 
 > **This is a Clawdbot skill.** If you want to use Garmin data with standard Claude Desktop, use the dedicated MCP server instead.
 
-## 📦 Dedicated MCP Server Repository
+##  Dedicated MCP Server Repository
 
 We've created a separate, purpose-built MCP server for Claude Desktop users:
 
 ### **[garmin-health-mcp-server](https://github.com/eversonl/garmin-health-mcp-server)**
 
 This is a standalone Node.js-based MCP server optimized for Claude Desktop, with:
-- ✅ Easy `npm install` setup
-- ✅ Built-in authentication helper
-- ✅ Test suite for verification
-- ✅ Comprehensive documentation
-- ✅ Full troubleshooting guide
+-  Easy `npm install` setup
+-  Built-in authentication helper
+-  Test suite for verification
+-  Comprehensive documentation
+-  Full troubleshooting guide
 
 ## Quick Start (MCP Server)
 
@@ -35,7 +35,7 @@ npm run auth
 # Add to claude_desktop_config.json
 ```
 
-**[📖 Full Installation Guide →](https://github.com/eversonl/garmin-health-mcp-server#readme)**
+**[ Full Installation Guide →](https://github.com/eversonl/garmin-health-mcp-server#readme)**
 
 ---
 
@@ -47,7 +47,7 @@ If you're using **Clawdbot**, you're in the right place! This skill provides:
 - Proactive workout notifications
 - Integration with other Clawdbot skills
 
-**[📖 Clawdbot Skill Setup →](../SKILL.md)**
+**[ Clawdbot Skill Setup →](../SKILL.md)**
 
 ---
 

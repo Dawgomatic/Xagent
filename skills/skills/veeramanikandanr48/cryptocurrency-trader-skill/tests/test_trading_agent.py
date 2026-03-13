@@ -16,33 +16,33 @@ from datetime import datetime, timedelta
 def test_with_real_data():
     """Test with real exchange data"""
     print("\n" + "="*60)
-    print("🧪 TEST 1: Real BTC/USDT Data")
+    print(" TEST 1: Real BTC/USDT Data")
     print("="*60)
     
     exchanges_to_try = ['kraken', 'coinbase', 'binance', 'bybit']
     
     for exchange_name in exchanges_to_try:
         try:
-            print(f"\n📡 Trying {exchange_name}...")
+            print(f"\n Trying {exchange_name}...")
             agent = TradingAgent(balance=10000, exchange_name=exchange_name)
             
             # Quick test fetch
             df = agent.fetch_market_data('BTC/USDT', '1h', limit=50)
             
             if df is not None and len(df) > 0:
-                print(f"✅ {exchange_name} connected successfully!")
+                print(f" {exchange_name} connected successfully!")
                 print(f"   Latest BTC price: ${df['close'].iloc[-1]:.2f}")
                 print(f"   Data points: {len(df)}")
                 
                 # Run full analysis
-                print(f"\n🔬 Running full analysis...")
+                print(f"\n Running full analysis...")
                 analysis = agent.analyze_opportunity('BTC/USDT', timeframes=['1h', '4h'])
                 agent.display_opportunity(analysis)
                 
                 return True, agent
             
         except Exception as e:
-            print(f"   ⚠️ {exchange_name} failed: {str(e)[:100]}")
+            print(f"    {exchange_name} failed: {str(e)[:100]}")
             continue
     
     return False, None
@@ -51,11 +51,11 @@ def test_with_real_data():
 def test_with_simulated_data():
     """Test core functionality with simulated market data"""
     print("\n" + "="*60)
-    print("🧪 TEST 2: Simulated Market Data (Exchange Unavailable)")
+    print(" TEST 2: Simulated Market Data (Exchange Unavailable)")
     print("="*60)
     
     # Create simulated OHLCV data for BTC
-    print("\n📊 Generating simulated BTC/USDT data...")
+    print("\n Generating simulated BTC/USDT data...")
     
     dates = pd.date_range(end=datetime.now(), periods=100, freq='1h')
     base_price = 94000
@@ -74,37 +74,37 @@ def test_with_simulated_data():
         'volume': np.random.uniform(100, 1000, 100)
     })
     
-    print(f"✅ Created {len(df)} hourly candles")
+    print(f" Created {len(df)} hourly candles")
     print(f"   Starting price: ${df['close'].iloc[0]:.2f}")
     print(f"   Current price: ${df['close'].iloc[-1]:.2f}")
     print(f"   Price change: {((df['close'].iloc[-1]/df['close'].iloc[0])-1)*100:.2f}%")
     
     # Test indicator calculations
-    print("\n🔬 Testing technical indicators...")
+    print("\n Testing technical indicators...")
     agent = TradingAgent(balance=10000)
     indicators = agent.calculate_indicators(df)
     
     if 'error' in indicators:
-        print(f"❌ Indicator calculation failed: {indicators['error']}")
+        print(f" Indicator calculation failed: {indicators['error']}")
         return False
     
-    print(f"✅ Technical indicators calculated successfully:")
+    print(f" Technical indicators calculated successfully:")
     print(f"   RSI: {indicators['rsi']:.1f}")
     print(f"   MACD: {indicators['macd']:.2f}")
     print(f"   ATR: ${indicators['atr']:.2f}")
     print(f"   Current Price: ${indicators['current_price']:.2f}")
     
     # Test validation
-    print("\n🛡️ Testing data validation...")
+    print("\n Testing data validation...")
     validation = agent._validate_market_data(df, 'BTC/USDT')
     
     if validation['valid']:
-        print("✅ Data validation passed")
+        print(" Data validation passed")
     else:
-        print(f"⚠️ Validation issues: {validation['issues']}")
+        print(f" Validation issues: {validation['issues']}")
     
     # Test consensus calculation
-    print("\n🎯 Testing signal generation...")
+    print("\n Testing signal generation...")
     timeframe_data = {
         '1h': indicators,
         '4h': indicators  # Using same for simplicity
@@ -112,7 +112,7 @@ def test_with_simulated_data():
     
     consensus = agent._calculate_consensus(timeframe_data)
     
-    print(f"✅ Signal generated:")
+    print(f" Signal generated:")
     print(f"   Action: {consensus['action']}")
     print(f"   Confidence: {consensus['confidence']}%")
     print(f"   Entry: ${consensus['entry_price']:.2f}")
@@ -123,7 +123,7 @@ def test_with_simulated_data():
     
     # Test position sizing
     if consensus['stop_loss']:
-        print("\n💼 Testing position sizing...")
+        print("\n Testing position sizing...")
         position = agent._calculate_position_size(
             consensus['entry_price'],
             consensus['stop_loss'],
@@ -131,15 +131,15 @@ def test_with_simulated_data():
         )
         
         if 'error' not in position:
-            print(f"✅ Position sizing calculated:")
+            print(f" Position sizing calculated:")
             print(f"   Position Value: ${position['position_value_usd']:.2f}")
             print(f"   Risk Amount: ${position['risk_usd']:.2f} (2% max)")
             print(f"   Trading Fees: ${position['trading_fees']:.2f}")
         else:
-            print(f"❌ {position['error']}")
+            print(f" {position['error']}")
     
     # Test circuit breakers
-    print("\n🚦 Testing circuit breakers...")
+    print("\n Testing circuit breakers...")
     analysis = {
         'symbol': 'BTC/USDT',
         'action': consensus['action'],
@@ -169,13 +169,13 @@ def test_with_simulated_data():
 def test_anti_hallucination():
     """Test anti-hallucination features"""
     print("\n" + "="*60)
-    print("🧪 TEST 3: Anti-Hallucination Framework")
+    print(" TEST 3: Anti-Hallucination Framework")
     print("="*60)
     
     agent = TradingAgent(balance=10000)
     
     # Test 1: Invalid price data
-    print("\n1️⃣ Testing invalid price detection...")
+    print("\n Testing invalid price detection...")
     bad_df = pd.DataFrame({
         'timestamp': pd.date_range(end=datetime.now(), periods=10, freq='1h'),
         'open': [100, -50, 100, 100, 100, 100, 100, 100, 100, 100],  # Negative price
@@ -188,13 +188,13 @@ def test_anti_hallucination():
     validation = agent._validate_market_data(bad_df, 'TEST/USDT')
     
     if not validation['valid']:
-        print("✅ Correctly detected invalid data:")
+        print(" Correctly detected invalid data:")
         print(f"   Issues: {validation['issues']}")
     else:
-        print("❌ Failed to detect invalid data")
+        print(" Failed to detect invalid data")
     
     # Test 2: OHLC logic violation
-    print("\n2️⃣ Testing OHLC logic validation...")
+    print("\n Testing OHLC logic validation...")
     bad_ohlc = pd.DataFrame({
         'timestamp': pd.date_range(end=datetime.now(), periods=10, freq='1h'),
         'open': [100] * 10,
@@ -207,13 +207,13 @@ def test_anti_hallucination():
     validation = agent._validate_market_data(bad_ohlc, 'TEST/USDT')
     
     if not validation['valid']:
-        print("✅ Correctly detected OHLC violation:")
+        print(" Correctly detected OHLC violation:")
         print(f"   Issues: {validation['issues']}")
     else:
-        print("❌ Failed to detect OHLC violation")
+        print(" Failed to detect OHLC violation")
     
     # Test 3: False precision control
-    print("\n3️⃣ Testing precision control...")
+    print("\n Testing precision control...")
     
     # Confidence should be rounded to integers
     analysis = {
@@ -229,12 +229,12 @@ def test_anti_hallucination():
     
     # Check if confidence is an integer
     if isinstance(analysis['confidence'], int):
-        print(f"✅ Confidence properly formatted: {analysis['confidence']}%")
+        print(f" Confidence properly formatted: {analysis['confidence']}%")
     else:
-        print(f"⚠️ Confidence has false precision: {analysis['confidence']}")
+        print(f" Confidence has false precision: {analysis['confidence']}")
     
     # Test 4: Unrealistic confidence warning
-    print("\n4️⃣ Testing unrealistic confidence detection...")
+    print("\n Testing unrealistic confidence detection...")
     
     analysis_high = {
         'confidence': 95,
@@ -248,12 +248,12 @@ def test_anti_hallucination():
     analysis_high = agent._apply_circuit_breakers(analysis_high)
     
     if any('Unrealistically high confidence' in w for w in analysis_high['warnings']):
-        print("✅ Warning triggered for >90% confidence")
+        print(" Warning triggered for >90% confidence")
     else:
-        print("⚠️ No warning for unrealistic confidence")
+        print(" No warning for unrealistic confidence")
     
     # Test 5: Poor risk/reward blocking
-    print("\n5️⃣ Testing risk/reward circuit breaker...")
+    print("\n Testing risk/reward circuit breaker...")
     
     analysis_bad_rr = {
         'confidence': 70,
@@ -267,10 +267,10 @@ def test_anti_hallucination():
     analysis_bad_rr = agent._apply_circuit_breakers(analysis_bad_rr)
     
     if not analysis_bad_rr['safe_to_use']:
-        print("✅ Trade correctly blocked for poor R:R")
+        print(" Trade correctly blocked for poor R:R")
         print(f"   Blocks: {analysis_bad_rr['blocks']}")
     else:
-        print("❌ Failed to block poor risk/reward trade")
+        print(" Failed to block poor risk/reward trade")
     
     return True
 
@@ -278,7 +278,7 @@ def test_anti_hallucination():
 def run_all_tests():
     """Run complete test suite"""
     print("\n" + "="*70)
-    print("🚀 AI TRADING AGENT - COMPREHENSIVE TEST SUITE")
+    print(" AI TRADING AGENT - COMPREHENSIVE TEST SUITE")
     print("="*70)
     print("\nTesting all features:")
     print("✓ Real-time market data (when available)")
@@ -304,22 +304,22 @@ def run_all_tests():
     
     # Summary
     print("\n" + "="*70)
-    print("📊 TEST RESULTS SUMMARY")
+    print(" TEST RESULTS SUMMARY")
     print("="*70)
     
     passed = sum(1 for _, success in results if success)
     total = len(results)
     
     for test_name, success in results:
-        status = "✅ PASS" if success else "❌ FAIL"
+        status = " PASS" if success else " FAIL"
         print(f"{status} - {test_name}")
     
-    print(f"\n🏆 Overall: {passed}/{total} tests passed ({passed/total*100:.0f}%)")
+    print(f"\n Overall: {passed}/{total} tests passed ({passed/total*100:.0f}%)")
     
     if passed == total:
-        print("\n✅ ALL TESTS PASSED! System is ready for use.")
+        print("\n ALL TESTS PASSED! System is ready for use.")
     else:
-        print("\n⚠️ Some tests failed. Review errors above.")
+        print("\n Some tests failed. Review errors above.")
     
     print("="*70 + "\n")
     

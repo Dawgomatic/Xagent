@@ -9,7 +9,7 @@ if [ -z "$QUIETMAIL_API_KEY" ]; then
   if [ -f ~/.quietmail_key ]; then
     QUIETMAIL_API_KEY=$(cat ~/.quietmail_key)
   else
-    echo "❌ Error: QUIETMAIL_API_KEY not set"
+    echo " Error: QUIETMAIL_API_KEY not set"
     exit 1
   fi
 fi
@@ -25,5 +25,5 @@ total=$(echo "$response" | python3 -c "import sys, json; print(json.load(sys.std
 
 if [ -n "$total" ]; then
   echo ""
-  echo "📊 Total sent emails: $total"
+  echo " Total sent emails: $total"
 fi

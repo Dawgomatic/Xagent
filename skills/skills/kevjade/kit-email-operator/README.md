@@ -370,4 +370,4 @@ This skill is provided exclusively to premium members of The Operator Vault Skoo
 
 ---
 
-**Ready to transform your email marketing? Let's go.** 🚀
+**Ready to transform your email marketing? Let's go.** 

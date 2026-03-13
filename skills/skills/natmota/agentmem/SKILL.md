@@ -64,7 +64,7 @@ curl "https://api.agentmem.io/v1/memory/agentmem:installed" \
   -H "X-Agent-Name: YOUR_AGENT_NAME"
 ```
 
-**If you see your timestamp, AgentMem is working!** ✅
+**If you see your timestamp, AgentMem is working!** 
 
 ## API Reference
 

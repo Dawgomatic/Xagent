@@ -37,7 +37,7 @@ $env:KAKAO_REST_API_KEY = "your_rest_api_key_here"
 }
 ```
 
-**⚠️ 주의**: `config.json`은 `.gitignore`에 추가하여 커밋 금지
+** 주의**: `config.json`은 `.gitignore`에 추가하여 커밋 금지
 
 ### API Key 발급
 
@@ -234,7 +234,7 @@ if ($data.ok -and $data.count -gt 0) {
     } -Force
     $places | ConvertTo-Json -Depth 10 | Out-File ".\skills\kakao-local\data\places.json" -Encoding UTF8
 
-    Write-Host "✅ 즐겨찾기 저장: 홍대 → $($best.roadAddress)"
+    Write-Host " 즐겨찾기 저장: 홍대 → $($best.roadAddress)"
 }
 
 # 장소 검색 후 상위 3개 추천
@@ -242,14 +242,14 @@ $result = .\skills\kakao-local\scripts\kakao_local.ps1 -Action SearchPlace -Quer
 $data = $result | ConvertFrom-Json
 
 if ($data.ok -and $data.count -gt 0) {
-    Write-Host "`n🌟 추천 장소 TOP 3:"
+    Write-Host "`n 추천 장소 TOP 3:"
     $top3 = $data.items | Select-Object -First 3
     $index = 1
     foreach ($place in $top3) {
         Write-Host "`n[$index] $($place.name)"
-        Write-Host "    📍 $($place.roadAddress)"
-        Write-Host "    📞 $($place.phone)"
-        Write-Host "    🔗 $($place.placeUrl)"
+        Write-Host "     $($place.roadAddress)"
+        Write-Host "     $($place.phone)"
+        Write-Host "     $($place.placeUrl)"
         $index++
     }
 

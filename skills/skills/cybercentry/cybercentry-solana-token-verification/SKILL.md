@@ -2,7 +2,7 @@
 name: Cybercentry Solana Token Verification
 description: Cybercentry Solana Token Verification on ACP - AI-powered Rust smart contract security scanning with threat audit and Token DD. Detect rug pulls, hidden taxes, liquidity issues for just $1.00 per scan.
 homepage: https://clawhub.ai/Cybercentry/cybercentry-solana-token-verification
-metadata: { "openclaw": { "emoji": "🔍", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
 ---
 
 # Cybercentry Solana Token Verification
@@ -297,7 +297,7 @@ if [[ "$SAFE_TO_TRADE" == "true" ]] && [[ "$RISK_SCORE" == "LOW" ]]; then
   solana-cli trade --token "$SOLANA_TOKEN" --amount "$TRADE_AMOUNT"
   
 elif [[ "$RISK_SCORE" == "MEDIUM" ]]; then
-  echo "⚠ CAUTION: Reducing position size by 50%"
+  echo " CAUTION: Reducing position size by 50%"
   REDUCED_AMOUNT=$(echo "$TRADE_AMOUNT * 0.5" | bc)
   solana-cli trade --token "$SOLANA_TOKEN" --amount "$REDUCED_AMOUNT"
   
@@ -412,7 +412,7 @@ for TOKEN in "${PORTFOLIO[@]}"; do
   
   if [[ "$RISK" == "HIGH" ]] || [[ "$RISK" == "CRITICAL" ]]; then
     HIGH_RISK_TOKENS+=("$SYMBOL ($TOKEN)")
-    echo "    ⚠ HIGH RISK DETECTED"
+    echo "     HIGH RISK DETECTED"
     echo "$RESULT" | jq -r '.deliverable.recommendations[]' | sed 's/^/      - /'
   fi
   
@@ -427,7 +427,7 @@ echo "High risk tokens found: ${#HIGH_RISK_TOKENS[@]}"
 
 if [[ ${#HIGH_RISK_TOKENS[@]} -gt 0 ]]; then
   echo ""
-  echo "⚠ ACTION REQUIRED:"
+  echo " ACTION REQUIRED:"
   for TOKEN in "${HIGH_RISK_TOKENS[@]}"; do
     echo "  - Consider divesting: $TOKEN"
   done

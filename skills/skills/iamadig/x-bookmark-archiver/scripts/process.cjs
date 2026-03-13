@@ -228,7 +228,7 @@ function extractUrl(bookmark) {
  * Main processing function
  */
 async function main() {
-  console.log('📦 Processing bookmarks...\n');
+  console.log(' Processing bookmarks...\n');
   
   const pending = loadPending();
   if (pending.length === 0) {

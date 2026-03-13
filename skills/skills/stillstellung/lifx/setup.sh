@@ -17,22 +17,22 @@ usage() {
 [[ $# -lt 1 ]] && usage
 TOKEN="$1"
 
-echo "🔍 Discovering lights..."
+echo " Discovering lights..."
 LIGHTS=$(curl -sf -H "Authorization: Bearer $TOKEN" "$API/lights/all") || {
-  echo "❌ Failed to connect to LIFX API. Check your token." >&2
+  echo " Failed to connect to LIFX API. Check your token." >&2
   exit 1
 }
 
-echo "🔍 Discovering scenes..."
+echo " Discovering scenes..."
 SCENES=$(curl -sf -H "Authorization: Bearer $TOKEN" "$API/scenes") || {
-  echo "❌ Failed to fetch scenes." >&2
+  echo " Failed to fetch scenes." >&2
   exit 1
 }
 
 # Save token
 echo "$TOKEN" > "$SKILL_DIR/.lifx-token"
 chmod 600 "$SKILL_DIR/.lifx-token"
-echo "🔑 Token saved to .lifx-token"
+echo " Token saved to .lifx-token"
 
 # Generate device context
 CONTEXT=$(python3 -c "
@@ -76,7 +76,7 @@ lines.append('| Room | Group ID | Lights |')
 lines.append('|------|----------|--------|')
 for gid, g in sorted(groups.items(), key=lambda x: x[1]['name']):
     light_list = ', '.join(
-        f\"{l['label']}{'  ⚡multizone' if l['multizone'] else ''}\"
+        f\"{l['label']}{'  multizone' if l['multizone'] else ''}\"
         for l in g['lights']
     )
     lines.append(f\"| {g['name']} | \`{gid}\` | {light_list} |\")
@@ -108,11 +108,11 @@ NUM_LIGHTS=$(echo "$LIGHTS" | python3 -c "import json,sys; print(len(json.load(s
 NUM_SCENES=$(echo "$SCENES" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))")
 
 echo ""
-echo "✅ Setup complete!"
-echo "   📍 $(echo "$LIGHTS" | python3 -c "import json,sys; print(json.load(sys.stdin)[0]['location']['name'])")"
-echo "   💡 $NUM_LIGHTS lights discovered"
-echo "   🎨 $NUM_SCENES scenes found"
-echo "   📄 SKILL.md generated with your device context"
+echo " Setup complete!"
+echo "    $(echo "$LIGHTS" | python3 -c "import json,sys; print(json.load(sys.stdin)[0]['location']['name'])")"
+echo "    $NUM_LIGHTS lights discovered"
+echo "    $NUM_SCENES scenes found"
+echo "    SKILL.md generated with your device context"
 echo ""
 echo "Install the skill by copying this directory into your OpenClaw skills folder:"
 echo "   cp -r $SKILL_DIR /path/to/openclaw/workspace/skills/lifx"

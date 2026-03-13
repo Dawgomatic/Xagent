@@ -1,6 +1,6 @@
 # Agent ROS Bridge - Production Grade Checklist
 
-## ✅ Version 0.3.3
+##  Version 0.3.3
 
 ---
 
@@ -140,6 +140,6 @@
 
 ---
 
-## Status: ✅ PRODUCTION READY
+## Status:  PRODUCTION READY
 
 All critical items checked. Ready for ClawHub submission.

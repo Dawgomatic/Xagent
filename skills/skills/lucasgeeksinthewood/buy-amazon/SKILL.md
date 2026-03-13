@@ -2,7 +2,7 @@
 name: Buy Amazon
 description: "Need to buy something from Amazon? Search products, compare prices and ratings, and place a real order shipped to any US address"
 homepage: https://buystuff.ai
-emoji: 📦
+emoji: 
 user-invocable: true
 tags:
   - shopping
@@ -119,7 +119,7 @@ Response includes `results[]` with `asin`, `title`, `price`, `rating`, `ratingsT
 
 **Agent tips:**
 - Show 3-5 results so the user can compare — don't just pick the first one
-- Mention ⭐ ratings and review counts — users trust social proof
+- Mention  ratings and review counts — users trust social proof
 - Highlight Prime items (free shipping) and deals
 - If no results found, suggest broadening the search terms or trying different keywords
 - If the user has a budget, use `sort_by=price_low_to_high` and mention which ones fit
@@ -258,9 +258,9 @@ User: Find me wireless earbuds under $50
 
 Agent: Here are the top wireless earbuds under $50 on Amazon:
 
-1. 🏆 Sony WF-C500 — $38.00 ⭐4.5 (12,420 reviews) ✓Prime
-2. JBL Tune 130NC — $49.95 ⭐4.3 (8,200 reviews) ✓Prime
-3. Soundcore A20i — $29.99 ⭐4.4 (45,000 reviews) ✓Prime
+1.  Sony WF-C500 — $38.00 4.5 (12,420 reviews) ✓Prime
+2. JBL Tune 130NC — $49.95 4.3 (8,200 reviews) ✓Prime
+3. Soundcore A20i — $29.99 4.4 (45,000 reviews) ✓Prime
 
 All three have Prime (free shipping). The Sony has the best rating, and the Soundcore has the most reviews. Want details on any of these?
 
@@ -280,7 +280,7 @@ Ready to confirm?
 
 User: Yes!
 
-Agent: Done! Order #AC-MLLZVLMB-001 is confirmed. 🎉
+Agent: Done! Order #AC-MLLZVLMB-001 is confirmed. 
 
 We've sent a payment link to john@example.com — just click, pay, and we'll ship within 24-48 hours.
 ```
@@ -292,9 +292,9 @@ User: I need a birthday gift for my sister, she's into yoga. Budget is $30.
 
 Agent: Here are some great yoga gifts under $30 on Amazon:
 
-1. Manduka eKO Yoga Mat Towel — $24.99 ⭐4.6 (3,200 reviews) ✓Prime
-2. Yoga Wheel Set (3-pack) — $27.95 ⭐4.5 (8,100 reviews) ✓Prime
-3. Essential Oils Gift Set — $19.99 ⭐4.4 (22,000 reviews) ✓Prime 🔥Deal
+1. Manduka eKO Yoga Mat Towel — $24.99 4.6 (3,200 reviews) ✓Prime
+2. Yoga Wheel Set (3-pack) — $27.95 4.5 (8,100 reviews) ✓Prime
+3. Essential Oils Gift Set — $19.99 4.4 (22,000 reviews) ✓Prime Deal
 
 The essential oils set is on sale and fits your budget with room to spare. The yoga wheel set is really popular. Want to see details on any?
 
@@ -314,7 +314,7 @@ Confirm?
 
 User: Do it
 
-Agent: Order #AC-MLLZVLMB-002 confirmed! 🎁
+Agent: Order #AC-MLLZVLMB-002 confirmed! 
 
 Payment link sent to mike@example.com. Pay and we'll have it shipped to Sarah within 24-48 hours. Happy birthday to your sister!
 ```
@@ -327,12 +327,12 @@ User: I need a wireless mouse and a mousepad for my new desk setup.
 Agent: Let me search for both! Here's what I found:
 
 Wireless mice:
-1. Logitech M185 — $12.99 ⭐4.5 (75,000 reviews) ✓Prime
-2. Logitech Pebble 2 — $24.99 ⭐4.6 (15,000 reviews) ✓Prime
+1. Logitech M185 — $12.99 4.5 (75,000 reviews) ✓Prime
+2. Logitech Pebble 2 — $24.99 4.6 (15,000 reviews) ✓Prime
 
 Mousepads:
-1. SteelSeries QcK — $9.49 ⭐4.7 (90,000 reviews) ✓Prime
-2. Corsair MM350 — $14.99 ⭐4.6 (12,000 reviews) ✓Prime
+1. SteelSeries QcK — $9.49 4.7 (90,000 reviews) ✓Prime
+2. Corsair MM350 — $14.99 4.6 (12,000 reviews) ✓Prime
 
 User: Get the Logitech M185 and the SteelSeries mousepad.
 
@@ -358,7 +358,7 @@ Confirm?
 
 User: Yes
 
-Agent: Order #AC-MLLZVLMB-003 confirmed! 🎉
+Agent: Order #AC-MLLZVLMB-003 confirmed! 
 
 Payment link sent to alex@example.com. Once you pay, both items ship within 24-48 hours.
 ```

@@ -14,10 +14,10 @@ echo ""
 
 # Check if cron job is installed
 if [ -n "$CRONTAB_ENTRY" ]; then
-  echo "✅ Cron job status: ACTIVE"
+  echo " Cron job status: ACTIVE"
   echo "   Schedule: $CRONTAB_ENTRY"
 else
-  echo "❌ Cron job status: NOT INSTALLED"
+  echo " Cron job status: NOT INSTALLED"
 fi
 
 echo ""

@@ -68,7 +68,7 @@ Top DEXes: ${JSON.stringify(report.dexUsage)}
       console.log('Starting continuous scan... Press Ctrl+C to stop\n');
       
       const monitor = await startArbitrageMonitor(8000, async (opp) => {
-        console.log(`\n🔥 OPPORTUNITY: ${opp.profitPct.toFixed(3)}% profit!`);
+        console.log(`\n OPPORTUNITY: ${opp.profitPct.toFixed(3)}% profit!`);
         await sendTelegram(formatArbitrageAlert(opp));
       });
       
@@ -93,10 +93,10 @@ Top DEXes: ${JSON.stringify(report.dexUsage)}
       console.log(`[Mode] WHALE WATCHER — ${WHALE_WALLET.slice(0,20)}...\n`);
       console.log('Watching for transactions... Press Ctrl+C to stop\n');
       
-      await sendTelegram(`🐋 Whale Watch STARTED\nWatching: ${WHALE_WALLET.slice(0,20)}...`);
+      await sendTelegram(` Whale Watch STARTED\nWatching: ${WHALE_WALLET.slice(0,20)}...`);
       
       watchWallet(WHALE_WALLET, async (tx) => {
-        console.log('\n🚨 WHALE TRANSACTION DETECTED!');
+        console.log('\n WHALE TRANSACTION DETECTED!');
         console.log(JSON.stringify(tx, null, 2));
         await sendTelegram(formatWhaleTrade(tx));
       });
@@ -111,11 +111,11 @@ Top DEXes: ${JSON.stringify(report.dexUsage)}
     // LEARN: Copy trading logic, P&L tracking
     // ═══════════════════════════════════════
       console.log('[Mode] PAPER TRADING SIMULATION\n');
-      console.log('⚠️  NO REAL MONEY — Simulation only\n');
+      console.log('  NO REAL MONEY — Simulation only\n');
       
       const sim = new CopyTradeSimulator(1.0); // Start with 1 SOL (fake)
       
-      await sendTelegram('📊 Paper Trading Started\nSimulating copy trades with 1 SOL (fake)');
+      await sendTelegram(' Paper Trading Started\nSimulating copy trades with 1 SOL (fake)');
       
       // Watch whale and simulate copy trades
       watchWallet(WHALE_WALLET, async (tx) => {
@@ -132,7 +132,7 @@ Top DEXes: ${JSON.stringify(report.dexUsage)}
 Trades: ${pnl.trades}
 Balance: ${pnl.currentBalance.toFixed(4)} SOL
 P&L: ${pnl.pnl >= 0 ? '+' : ''}${pnl.pnlPct.toFixed(2)}%
-${pnl.pnl >= 0 ? '✅ Profitable' : '❌ Losing'}
+${pnl.pnl >= 0 ? ' Profitable' : ' Losing'}
 `.trim());
           }
         }
@@ -168,10 +168,10 @@ ${pnl.pnl >= 0 ? '✅ Profitable' : '❌ Losing'}
     // ═══════════════════════════════════════
       console.log('[Mode] SNIPER BOT (Paper Trading)\n');
       console.log(`Trade amount: ${TRADE_AMOUNT} SOL per snipe\n`);
-      console.log('⚠️  Running in PAPER mode — no real money\n');
+      console.log('  Running in PAPER mode — no real money\n');
       
       await sendTelegram(`
-🎯 <b>IRONMAN Sniper Bot</b>
+ <b>IRONMAN Sniper Bot</b>
 Mode: Paper Trading
 Per snipe: ${TRADE_AMOUNT} SOL (simulated)
 Watching: Raydium + Pump.fun
@@ -203,9 +203,9 @@ Safety filters: ON
       console.log('\n=== SAFETY REPORT ===');
       console.log(JSON.stringify(safety, null, 2));
       if (safety.passed) {
-        console.log('\n✅ Token passed safety checks');
+        console.log('\n Token passed safety checks');
       } else {
-        console.log('\n❌ Token FAILED — DO NOT BUY');
+        console.log('\n Token FAILED — DO NOT BUY');
         console.log('Reasons:', safety.reasons.join('\n - '));
       }
       break;

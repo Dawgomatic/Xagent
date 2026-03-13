@@ -106,7 +106,7 @@ async function main() {
     console.log(`Builder Fee:  ${client.builderInfo.f / 10} bps`);
 
     if (dryRun) {
-      console.log('\n🔍 Dry run - order not submitted');
+      console.log('\n Dry run - order not submitted');
       return;
     }
 
@@ -134,27 +134,27 @@ async function main() {
             ? (avgPx - midPrice) / midPrice
             : (midPrice - avgPx) / midPrice;
 
-          console.log(`✅ Filled`);
+          console.log(` Filled`);
           console.log(`   Order ID:  ${status.filled.oid}`);
           console.log(`   Size:      ${fillSz}`);
           console.log(`   Avg Price: ${formatUsd(avgPx)}`);
           console.log(`   Notional:  ${formatUsd(fillNotional)}`);
           console.log(`   Slippage:  ${(slippageActual * 10000).toFixed(1)} bps`);
         } else if (status.resting) {
-          console.log(`⏳ Resting (partial fill)`);
+          console.log(` Resting (partial fill)`);
           console.log(`   Order ID:  ${status.resting.oid}`);
         } else if (status.error) {
-          console.log(`❌ Error: ${status.error}`);
+          console.log(` Error: ${status.error}`);
         } else {
           // Unknown status - show the whole thing
-          console.log(`⚠️  Unknown status:`);
+          console.log(`  Unknown status:`);
           console.log(JSON.stringify(status, null, 2));
         }
       }
     } else if (response.status === 'err') {
-      console.log(`❌ API Error: ${response.response || JSON.stringify(response)}`);
+      console.log(` API Error: ${response.response || JSON.stringify(response)}`);
     } else {
-      console.log(`❌ Unexpected response:`);
+      console.log(` Unexpected response:`);
       console.log(JSON.stringify(response, null, 2));
     }
 

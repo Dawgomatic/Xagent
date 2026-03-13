@@ -22,7 +22,7 @@ export function storeMnemonic(mnemonic: string): boolean {
       `security add-generic-password -s "${SERVICE_NAME}" -a "${ACCOUNT_NAME}" -w "${mnemonic}"`,
       { stdio: 'pipe' }
     );
-    console.log('✅ Seed phrase stored in macOS Keychain');
+    console.log(' Seed phrase stored in macOS Keychain');
     return true;
   } catch (e: any) {
     console.error('Failed to store in Keychain:', e.message);

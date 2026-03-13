@@ -54,7 +54,7 @@ This sets:
 5. Request testnet USDC (free, no real value)
 
 #### Mainnet (polygon)
-1. **⚠️ Use real money carefully!**
+1. ** Use real money carefully!**
 2. Send USDC to your wallet address via:
    - Centralized exchange (Coinbase, Binance)
    - DEX (Uniswap)

@@ -7,7 +7,7 @@ compatibility: Docker, OpenClaw gateway, Linux
 metadata: {"openclaw": {"emoji": "\ud83d\udee1\ufe0f", "requires": {"bins": ["docker"]}, "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# Security Monitor 🛡️
+# Security Monitor 
 
 **Comprehensive security audit for OpenClaw deployments.**
 
@@ -70,10 +70,10 @@ bash {baseDir}/scripts/security_audit.sh --check network
 
 | Score | Rating | Meaning |
 |-------|--------|---------|
-| 90-100 | 🟢 Excellent | Production-ready |
-| 70-89 | 🟡 Good | Minor improvements needed |
-| 50-69 | 🟠 Fair | Several issues to address |
-| 0-49 | 🔴 Critical | Immediate action required |
+| 90-100 |  Excellent | Production-ready |
+| 70-89 |  Good | Minor improvements needed |
+| 50-69 |  Fair | Several issues to address |
+| 0-49 |  Critical | Immediate action required |
 
 ## Output Example
 
@@ -81,17 +81,17 @@ bash {baseDir}/scripts/security_audit.sh --check network
 ═══ Security Audit Report ═══
 Date: 2026-02-15 00:30:00
 
-[CONFIG] ✅ allowInsecureAuth: false
-[CONFIG] ✅ dmPolicy: allowlist
-[CONFIG] ✅ Ports bound to 127.0.0.1
-[DOCKER] ✅ All containers bind to 127.0.0.1
-[DOCKER] ⚠️  No resource limits on openclaw container
-[SSH]    ✅ Root login disabled
-[SSH]    ✅ Password auth disabled
-[NET]    ✅ UFW active
-[FILES]  ✅ Config file permissions OK
+[CONFIG]  allowInsecureAuth: false
+[CONFIG]  dmPolicy: allowlist
+[CONFIG]  Ports bound to 127.0.0.1
+[DOCKER]  All containers bind to 127.0.0.1
+[DOCKER]   No resource limits on openclaw container
+[SSH]     Root login disabled
+[SSH]     Password auth disabled
+[NET]     UFW active
+[FILES]   Config file permissions OK
 
-Score: 92/100 — 🟢 Excellent
+Score: 92/100 —  Excellent
 Issues: 1 warning
 
 Recommendations:
@@ -103,4 +103,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

@@ -1,6 +1,6 @@
 # Voice Note to MIDI - Quick Reference
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 cd ~/melody-pipeline
@@ -9,7 +9,7 @@ cd ~/melody-pipeline
 
 That's it! Creates `my_recording.mid` in the same directory.
 
-## 📝 Common Use Cases
+##  Common Use Cases
 
 ### Convert iPhone Voice Memo
 ```bash
@@ -35,7 +35,7 @@ That's it! Creates `my_recording.mid` in the same directory.
 ./hum2midi song_snippet.wav
 ```
 
-## ⚙️ Option Reference
+##  Option Reference
 
 | If you want... | Use this |
 |----------------|----------|
@@ -46,14 +46,14 @@ That's it! Creates `my_recording.mid` in the same directory.
 | Faster processing | `--no-analysis` |
 | Raw Basic Pitch output | `--no-quantize` |
 
-## 🔧 Tips
+##  Tips
 
 - **Best results:** Hum/sing clearly, close to mic, minimal background noise
 - **Tempo:** Output is always 120 BPM - adjust in your DAW
 - **Key-aware mode:** Helps with tonal music, may hurt atonal/experimental melodies
 - **Legato:** The pipeline merges staccato chunks automatically
 
-## 🐛 Quick Troubleshooting
+##  Quick Troubleshooting
 
 | Problem | Solution |
 |---------|----------|
@@ -62,7 +62,7 @@ That's it! Creates `my_recording.mid` in the same directory.
 | Timing off | Adjust quantization grid; DAW groove templates |
 | No output | Check audio isn't silent; increase `--min-note` |
 
-## 📂 File Locations
+##  File Locations
 
 - Pipeline: `~/melody-pipeline/hum2midi`
 - Virtual env: `~/melody-pipeline/venv-bp/`

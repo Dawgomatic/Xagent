@@ -2,7 +2,7 @@
 name: neondb
 description: Manage Neon serverless Postgres databases. Create projects, branches, databases, and execute queries. Perfect for agent workflows needing persistent storage with branching (like git for databases), scale-to-zero, and instant provisioning.
 homepage: https://neon.tech
-metadata: {"openclaw":{"emoji":"🐘","requires":{"bins":["neonctl"]},"install":[{"id":"brew","kind":"brew","package":"neonctl","bins":["neonctl"],"label":"Install neonctl (Homebrew)"},{"id":"npm","kind":"node","package":"neonctl","bins":["neonctl"],"label":"Install neonctl (npm)"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["neonctl"]},"install":[{"id":"brew","kind":"brew","package":"neonctl","bins":["neonctl"],"label":"Install neonctl (Homebrew)"},{"id":"npm","kind":"node","package":"neonctl","bins":["neonctl"],"label":"Install neonctl (npm)"}]}}
 ---
 
 # NeonDB

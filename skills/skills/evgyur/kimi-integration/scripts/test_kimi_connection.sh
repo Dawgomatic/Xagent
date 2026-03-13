@@ -14,7 +14,7 @@ echo
 
 # Check Moonshot API key
 if [ -z "$MOONSHOT_API_KEY" ]; then
-  echo -e "${YELLOW}⚠️  MOONSHOT_API_KEY not set${NC}"
+  echo -e "${YELLOW}  MOONSHOT_API_KEY not set${NC}"
   echo "   Set it with: export MOONSHOT_API_KEY='sk-...'"
 else
   echo -e "${GREEN}✓${NC} MOONSHOT_API_KEY is set"
@@ -42,7 +42,7 @@ echo
 
 # Check Kimi Code API key
 if [ -z "$KIMICODE_API_KEY" ]; then
-  echo -e "${YELLOW}⚠️  KIMICODE_API_KEY not set${NC}"
+  echo -e "${YELLOW}  KIMICODE_API_KEY not set${NC}"
   echo "   Set it with: export KIMICODE_API_KEY='sk-...'"
 else
   echo -e "${GREEN}✓${NC} KIMICODE_API_KEY is set"

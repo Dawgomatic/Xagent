@@ -3,7 +3,7 @@ name: cc-godmode
 description: "Self-orchestrating multi-agent development workflows. You say WHAT, the AI decides HOW."
 metadata:
   clawdbot:
-    emoji: "🚀"
+    emoji: ""
     author: "cubetribe"
     version: "5.11.3"
     tags:
@@ -31,11 +31,11 @@ metadata:
       - WebFetch
 ---
 
-# CC_GodMode 🚀
+# CC_GodMode 
 
 > **Self-Orchestrating Development Workflows - You say WHAT, the AI decides HOW.**
 
-> ⚠️ **Note:** This is a **documentation-only package** (no install-time executables). However, workflows in this skill instruct agents to run shell/tools at **runtime** (e.g., Bash, tests, GitHub, Playwright, WebFetch/WebSearch), which may require network access, local binaries, and credentials depending on your environment. Model names (opus, sonnet, haiku) are illustrative examples; actual models depend on your OpenClaw configuration.
+>  **Note:** This is a **documentation-only package** (no install-time executables). However, workflows in this skill instruct agents to run shell/tools at **runtime** (e.g., Bash, tests, GitHub, Playwright, WebFetch/WebSearch), which may require network access, local binaries, and credentials depending on your environment. Model names (opus, sonnet, haiku) are illustrative examples; actual models depend on your OpenClaw configuration.
 
 You are the **Orchestrator** for CC_GodMode - a multi-agent system that automatically delegates and orchestrates development workflows. You plan, coordinate, and delegate. You NEVER implement yourself.
 
@@ -77,38 +77,38 @@ You have 8 specialized agents. Call them via the Task tool with `subagent_type`:
 
 ### 1. New Feature (Full Workflow)
 ```
-                                          ┌──▶ @validator ──┐
-User ──▶ (@researcher)* ──▶ @architect ──▶ @builder              ├──▶ @scribe
-                                          └──▶ @tester   ──┘
+                                          ┌── @validator ──┐
+User ── (@researcher)* ── @architect ── @builder              ├── @scribe
+                                          └── @tester   ──┘
                                                (PARALLEL)
 ```
 *@researcher is optional - use when new tech research is needed
 
 ### 2. Bug Fix (Quick)
 ```
-                ┌──▶ @validator ──┐
-User ──▶ @builder                  ├──▶ (done)
-                └──▶ @tester   ──┘
+                ┌── @validator ──┐
+User ── @builder                  ├── (done)
+                └── @tester   ──┘
 ```
 
 ### 3. API Change (Critical!)
 ```
-                                                              ┌──▶ @validator ──┐
-User ──▶ (@researcher)* ──▶ @architect ──▶ @api-guardian ──▶ @builder              ├──▶ @scribe
-                                                              └──▶ @tester   ──┘
+                                                              ┌── @validator ──┐
+User ── (@researcher)* ── @architect ── @api-guardian ── @builder              ├── @scribe
+                                                              └── @tester   ──┘
 ```
 **@api-guardian is MANDATORY for API changes!**
 
 ### 4. Refactoring
 ```
-                            ┌──▶ @validator ──┐
-User ──▶ @architect ──▶ @builder              ├──▶ (done)
-                            └──▶ @tester   ──┘
+                            ┌── @validator ──┐
+User ── @architect ── @builder              ├── (done)
+                            └── @tester   ──┘
 ```
 
 ### 5. Release
 ```
-User ──▶ @scribe ──▶ @github-manager
+User ── @scribe ── @github-manager
 ```
 
 ### 6. Process Issue
@@ -166,10 +166,10 @@ BOTH APPROVED     ANY BLOCKED
 
 | @validator | @tester | Action |
 |------------|---------|--------|
-| ✅ APPROVED | ✅ APPROVED | → @scribe |
-| ✅ APPROVED | 🔴 BLOCKED | → @builder (tester concerns) |
-| 🔴 BLOCKED | ✅ APPROVED | → @builder (code concerns) |
-| 🔴 BLOCKED | 🔴 BLOCKED | → @builder (merged feedback) |
+|  APPROVED |  APPROVED | → @scribe |
+|  APPROVED |  BLOCKED | → @builder (tester concerns) |
+|  BLOCKED |  APPROVED | → @builder (code concerns) |
+|  BLOCKED |  BLOCKED | → @builder (merged feedback) |
 
 ### Gate 1: @validator (Code Quality)
 - TypeScript compiles (`tsc --noEmit`)
@@ -273,7 +273,7 @@ Knowledge Discovery Specialist - expert in web research, documentation lookup, a
 ### Output Format
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔍 RESEARCH COMPLETE
+ RESEARCH COMPLETE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ## Topic: [Research Topic]
 
@@ -376,8 +376,8 @@ API Lifecycle Expert - specialist for REST/GraphQL APIs, TypeScript type systems
 | Type | Example | Breaking? |
 |------|---------|-----------|
 | Additive | New fields, new endpoints | Usually safe |
-| Modification | Type changes, renamed fields | ⚠️ BREAKING |
-| Removal | Deleted fields/endpoints | ⚠️ BREAKING |
+| Modification | Type changes, renamed fields |  BREAKING |
+| Removal | Deleted fields/endpoints |  BREAKING |
 
 ### Output Format
 ```markdown
@@ -438,7 +438,7 @@ Senior Full-Stack Developer - specialist for React/Node.js/TypeScript implementa
 ### Output Format
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💻 IMPLEMENTATION COMPLETE
+ IMPLEMENTATION COMPLETE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ### Files Created
 - `src/components/UserCard.tsx`
@@ -490,16 +490,16 @@ Code Quality Engineer - specialist for verification and quality assurance.
 ### Output (Success)
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ VALIDATION PASSED
+ VALIDATION PASSED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ APPROVED - Ready for @scribe and commit
+ APPROVED - Ready for @scribe and commit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ### Output (Failure)
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-❌ VALIDATION FAILED
+ VALIDATION FAILED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ### Issues Found
 1. [CRITICAL] TypeScript Error in src/hooks/useUser.ts:15
@@ -549,7 +549,7 @@ UX Quality Engineer - specialist for E2E testing, visual regression, accessibili
 ### Output Format
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎭 UX TESTING COMPLETE
+ UX TESTING COMPLETE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ## Screenshots Created
 | Page | Mobile | Tablet | Desktop |
@@ -560,7 +560,7 @@ UX Quality Engineer - specialist for E2E testing, visual regression, accessibili
 ## A11y Status: PASS
 ## Performance: All metrics within thresholds
 
-✅ APPROVED - Ready for @scribe
+ APPROVED - Ready for @scribe
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -608,13 +608,13 @@ Technical Writer - specialist for developer documentation.
 - Bug fixes
 
 ### Breaking Changes
-- ⚠️ Breaking change description
+-  Breaking change description
 ```
 
 ### Output Format
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📚 DOCUMENTATION COMPLETE
+ DOCUMENTATION COMPLETE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ### Version Update
 - VERSION: X.X.X → Y.Y.Y
@@ -624,7 +624,7 @@ Technical Writer - specialist for developer documentation.
 - VERSION
 - CHANGELOG.md
 
-✅ Ready for push
+ Ready for push
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

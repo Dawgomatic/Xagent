@@ -1,12 +1,12 @@
 # Autonomous Brain Skill - User Guide
 
-## 🧠 Transform Your OpenClaw into a Self-Thinking AI
+##  Transform Your OpenClaw into a Self-Thinking AI
 
 Welcome! This guide will help you get the most out of the **Autonomous Brain** skill, which turns your OpenClaw from a passive assistant into a proactive, autonomous intelligence.
 
 ---
 
-## ✨ What This Skill Does
+##  What This Skill Does
 
 ### Core Features
 
@@ -36,7 +36,7 @@ Welcome! This guide will help you get the most out of the **Autonomous Brain** s
 
 ---
 
-## 🚀 Installation (2 Minutes)
+##  Installation (2 Minutes)
 
 ### Step 1: Copy the Skill
 
@@ -75,14 +75,14 @@ openclaw skills list
 
 Look for:
 ```
-✓ ready   🧠 autonomous-brain
+✓ ready    autonomous-brain
 ```
 
-🎉 **You're ready!**
+ **You're ready!**
 
 ---
 
-## 🎯 Quick Start Commands
+##  Quick Start Commands
 
 ### System Status
 
@@ -106,7 +106,7 @@ Look for:
 
 ---
 
-## 💡 How It Works
+##  How It Works
 
 ### The Old Way (Without Autonomous Brain)
 
@@ -130,14 +130,14 @@ AI: "CPU:23% Mem:4G Disk:67%"
 
 ---
 
-## 🔧 Auto-Fix Examples
+##  Auto-Fix Examples
 
 ### Scenario 1: Disk Space Low
 
 **What happens:**
 1. Disk reaches 85% full
 2. Brain automatically cleans temp files
-3. You see: `⚠ Fixed: cleared 3GB temp files`
+3. You see: ` Fixed: cleared 3GB temp files`
 
 **You don't need to:**
 - Check disk space manually
@@ -159,11 +159,11 @@ AI: "CPU:23% Mem:4G Disk:67%"
 1. nginx crashes
 2. Brain detects failure
 3. Restarts nginx automatically
-4. You see: `⚠ Restarted nginx` (only if you check status)
+4. You see: ` Restarted nginx` (only if you check status)
 
 ---
 
-## 🎓 Advanced Usage
+##  Advanced Usage
 
 ### One-Word Commands
 
@@ -206,7 +206,7 @@ You: "details"
 
 ---
 
-## 📊 Understanding Responses
+##  Understanding Responses
 
 ### Symbols Guide
 
@@ -214,7 +214,7 @@ You: "details"
 |--------|---------|---------|
 | ✓ | Success / Working fine | `✓ All systems normal` |
 | ✗ | Failed / Error | `✗ Service mysql down` |
-| ⚠ | Warning / Auto-fixed | `⚠ Fixed: cleared 2GB temp` |
+|  | Warning / Auto-fixed | ` Fixed: cleared 2GB temp` |
 | → | In progress | `→ Optimizing system...` |
 
 ### Response Examples
@@ -228,7 +228,7 @@ AI: "✓ CPU:23% Mem:4G Disk:67%"
 **Issue Detected and Fixed:**
 ```
 You: "status"
-AI: "⚠ Fixed: cleared 2GB temp. CPU:23% Mem:4G Disk:54%"
+AI: " Fixed: cleared 2GB temp. CPU:23% Mem:4G Disk:54%"
 ```
 
 **Service Problem:**
@@ -240,7 +240,7 @@ AI: "nginx✓ mysql✗ ssh✓"
 
 ---
 
-## 🔄 Monitoring System
+##  Monitoring System
 
 ### What Gets Monitored
 
@@ -272,7 +272,7 @@ ls ~/.openclaw/cache/
 
 ---
 
-## 💰 Cost Savings
+##  Cost Savings
 
 ### Token Usage Comparison
 
@@ -301,7 +301,7 @@ If you make 100 requests per day:
 
 ---
 
-## 🛠️ Troubleshooting
+##  Troubleshooting
 
 ### Problem: "Skill not found"
 
@@ -345,12 +345,12 @@ tail -f ~/.openclaw/monitor/health.log
 
 ---
 
-## 🎯 Best Practices
+##  Best Practices
 
 ### 1. Use Short Commands
 ```
-❌ "Can you please check the CPU usage for me?"
-✅ "cpu"
+ "Can you please check the CPU usage for me?"
+ "cpu"
 ```
 
 ### 2. Trust Silent Operation
@@ -361,19 +361,19 @@ You don't need to check constantly.
 
 ### 3. Batch Your Requests
 ```
-❌ "cpu" [wait] "memory" [wait] "disk"
-✅ "cpu memory disk"
+ "cpu" [wait] "memory" [wait] "disk"
+ "cpu memory disk"
 ```
 
 ### 4. Use Symbols
 ```
-Learn to read: ✓ ✗ ⚠ →
+Learn to read: ✓ ✗  →
 They convey more with less tokens.
 ```
 
 ---
 
-## 🚀 Next Steps
+##  Next Steps
 
 ### Week 1: Master Basics
 - Day 1-2: Learn one-word commands
@@ -392,13 +392,13 @@ They convey more with less tokens.
 
 ---
 
-## ⚠️ Important Notes
+##  Important Notes
 
 ### Safety First
-- ✅ Auto-fixes are safe operations only
-- ✅ Won't delete important files
-- ✅ Won't restart critical services during use
-- ✅ Logs all actions for review
+-  Auto-fixes are safe operations only
+-  Won't delete important files
+-  Won't restart critical services during use
+-  Logs all actions for review
 
 ### What Gets Auto-Fixed
 - Temp files cleanup
@@ -416,7 +416,7 @@ They convey more with less tokens.
 
 ---
 
-## 📞 Getting Help
+##  Getting Help
 
 ### Quick Commands
 ```bash
@@ -436,15 +436,15 @@ cat ~/.openclaw/skills/autonomous-brain/SKILL.md | head -5
 
 ---
 
-## 🎉 Summary
+##  Summary
 
 You now have:
-- ✅ Self-thinking AI that anticipates needs
-- ✅ 24/7 automated monitoring
-- ✅ Silent auto-fixing of common issues
-- ✅ 60-80% cost savings on API usage
-- ✅ Ultra-fast responses
-- ✅ Professional system administration
+-  Self-thinking AI that anticipates needs
+-  24/7 automated monitoring
+-  Silent auto-fixing of common issues
+-  60-80% cost savings on API usage
+-  Ultra-fast responses
+-  Professional system administration
 
 **Just type "status" and watch the magic happen!**
 
@@ -452,4 +452,4 @@ You now have:
 
 **Built for efficiency. Designed for intelligence. Optimized for you.**
 
-🧠 *Your OpenClaw now thinks for itself.*
+ *Your OpenClaw now thinks for itself.*

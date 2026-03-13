@@ -78,7 +78,7 @@ finance search "food"      # search by keyword
 
 ---
 
-## 🔄 Recurring Expenses
+##  Recurring Expenses
 
 Track subscriptions and bills that repeat automatically.
 
@@ -116,7 +116,7 @@ finance recurring remove <id>  # Deactivate
 
 ---
 
-## 🎯 Savings Goals
+##  Savings Goals
 
 Set targets and track progress towards financial goals.
 
@@ -156,7 +156,7 @@ finance goal list
 
 ---
 
-## 💱 Multi-Currency
+##  Multi-Currency
 
 Automatic currency conversion with live exchange rates.
 
@@ -195,7 +195,7 @@ finance currency USD     # Change default
 
 ---
 
-## 💡 Smart Insights
+##  Smart Insights
 
 AI-powered spending analysis and alerts.
 
@@ -217,27 +217,27 @@ finance digest      # Weekly digest
 ### Example Output
 
 ```
-💡 Smart Insights
+ Smart Insights
 ━━━━━━━━━━━━━━━━━━━━━
 
-📈 Spending Velocity
+ Spending Velocity
    Daily avg: 85,000 UZS
    This month so far: 1,200,000 UZS
    Projected month total: 2,550,000 UZS
 
-📊 This Week vs Last Week
-   📈 Spending UP 23%
+ This Week vs Last Week
+    Spending UP 23%
    This week: 595,000 UZS
    Last week: 484,000 UZS
 
-🏷️ Notable Category Changes
-   🍔 food: ↑ 45%
-   🚗 transport: ↓ 20%
+ Notable Category Changes
+    food: ↑ 45%
+    transport: ↓ 20%
 
-⚠️ Alerts
+ Alerts
    • Unusually large expense: 350,000 on electronics
 
-🎯 Savings Goals
+ Savings Goals
    Need to save: 50,000 UZS/day
    Next deadline: Laptop in 45 days
 ```
@@ -298,18 +298,18 @@ Auto-detected from description:
 
 | Category | Keywords |
 |----------|----------|
-| 🍔 Food | lunch, dinner, cafe, restaurant, grocery |
-| 🚗 Transport | taxi, uber, bus, metro, fuel |
-| 🛍️ Shopping | clothes, shoes, shopping |
-| 📱 Tech | phone, laptop, headphones |
-| 🎮 Entertainment | movie, game, netflix, spotify |
-| 📚 Education | book, course, school |
-| 💊 Health | medicine, pharmacy, doctor, gym |
-| 🏠 Home | rent, utility, furniture, internet |
-| 💇 Personal | haircut, barber, salon |
-| 🎁 Gifts | gift, present |
-| ✈️ Travel | travel, flight, hotel |
-| 🔄 Subscriptions | subscription, monthly, plan |
+|  Food | lunch, dinner, cafe, restaurant, grocery |
+|  Transport | taxi, uber, bus, metro, fuel |
+|  Shopping | clothes, shoes, shopping |
+|  Tech | phone, laptop, headphones |
+|  Entertainment | movie, game, netflix, spotify |
+|  Education | book, course, school |
+|  Health | medicine, pharmacy, doctor, gym |
+|  Home | rent, utility, furniture, internet |
+|  Personal | haircut, barber, salon |
+|  Gifts | gift, present |
+|  Travel | travel, flight, hotel |
+|  Subscriptions | subscription, monthly, plan |
 
 ---
 
@@ -422,4 +422,4 @@ OTHER:
 
 ---
 
-Made with 🦞 by Salen
+Made with  by Salen

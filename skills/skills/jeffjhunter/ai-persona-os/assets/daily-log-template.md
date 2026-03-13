@@ -5,7 +5,7 @@
 ## Heartbeat
 
 **Completed:** [time]
-**Status:** 🟢 / 🟡 / 🔴
+**Status:**  /  / 
 **Focus:** [Today's main focus]
 
 ---

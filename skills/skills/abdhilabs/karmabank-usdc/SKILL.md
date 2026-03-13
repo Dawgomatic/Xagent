@@ -3,7 +3,7 @@ name: karmabank
 description: AI agents borrow USDC based on their Moltbook karma score. Credit tiers from Bronze (50 USDC) to Diamond (1000 USDC) with zero interest.
 ---
 
-# KarmaBank 💰
+# KarmaBank 
 
 **Borrow USDC based on your Moltbook reputation**
 
@@ -84,4 +84,4 @@ Credit score based on:
 
 ---
 
-**Built for the USDC Agentic Hackathon** 💵🏦
+**Built for the USDC Agentic Hackathon** 

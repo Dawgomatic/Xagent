@@ -197,22 +197,22 @@ Before sending to new subscribers:
 
 ## Common Mistakes to Avoid
 
-❌ **Too salesy too soon**
+ **Too salesy too soon**
 Don't pitch products in welcome email. Build trust first.
 
-❌ **No clear CTA**
+ **No clear CTA**
 Tell them what to do next. One clear action.
 
-❌ **Generic and boring**
+ **Generic and boring**
 "Thanks for subscribing" → bland. Make it memorable.
 
-❌ **All about you**
+ **All about you**
 Balance "about me" with "here's value for you."
 
-❌ **Overwhelming**
+ **Overwhelming**
 Too many links, too much info. Keep it focused.
 
-❌ **No personality**
+ **No personality**
 Sounds like corporate marketing. Write like a human.
 
 ---

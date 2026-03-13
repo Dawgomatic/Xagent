@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Cherry MCP CLI 🍒
+ * Cherry MCP CLI 
  */
 
 const fs = require('fs');
@@ -124,7 +124,7 @@ const commands = {
 
   'help': () => {
     console.log(`
-Cherry MCP CLI 🍒
+Cherry MCP CLI 
 
 SERVERS:
   add-server <name> <cmd> [args]   Add MCP server

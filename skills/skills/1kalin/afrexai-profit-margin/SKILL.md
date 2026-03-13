@@ -111,7 +111,7 @@ Run quarterly:
 - **Agent Setup Wizard** — Configure AI agents for your business in minutes: https://afrexai-cto.github.io/agent-setup/
 
 ### Bundle Deals
-- 📘 AI Automation Playbook — $27
-- 🎯 Pick Any 3 Packs — $97 (save $44)
-- 📦 All 10 Industry Packs — $197 (save $273)
-- 🏆 Everything Bundle — $247 (all packs + playbook + setup wizard)
+-  AI Automation Playbook — $27
+-  Pick Any 3 Packs — $97 (save $44)
+-  All 10 Industry Packs — $197 (save $273)
+-  Everything Bundle — $247 (all packs + playbook + setup wizard)

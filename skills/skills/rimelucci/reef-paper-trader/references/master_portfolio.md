@@ -10,33 +10,33 @@
 
 | Strategy | Allocation | Starting | Current | P&L | P&L % | Status |
 |----------|------------|----------|---------|-----|-------|--------|
-| Memecoin Scanner | 33.3% | $10,000 | $10,000 | $0 | 0.0% | 🟢 Active |
-| Polymarket Arb | 33.3% | $10,000 | $10,000 | $0 | 0.0% | 🟢 Active |
-| Polymarket Research | 33.3% | $10,000 | $10,000 | $0 | 0.0% | 🟢 Active |
+| Memecoin Scanner | 33.3% | $10,000 | $10,000 | $0 | 0.0% |  Active |
+| Polymarket Arb | 33.3% | $10,000 | $10,000 | $0 | 0.0% |  Active |
+| Polymarket Research | 33.3% | $10,000 | $10,000 | $0 | 0.0% |  Active |
 | **TOTAL** | **100%** | **$30,000** | **$30,000** | **$0** | **0.0%** | |
 
 ---
 
 ## Risk Dashboard
 
-### Current Risk Level: 🟢 NORMAL
+### Current Risk Level:  NORMAL
 
 | Check | Value | Limit | Status |
 |-------|-------|-------|--------|
-| Total Exposure | $0 | $24,000 (80%) | ✅ |
-| Largest Position | $0 | $1,500 (5%) | ✅ |
-| Correlated Exposure | $0 | $6,000 (20%) | ✅ |
-| Daily P&L | $0 | -$1,500 (-5%) | ✅ |
-| Weekly P&L | $0 | -$3,000 (-10%) | ✅ |
-| Available Cash | $30,000 | Min $6,000 (20%) | ✅ |
+| Total Exposure | $0 | $24,000 (80%) |  |
+| Largest Position | $0 | $1,500 (5%) |  |
+| Correlated Exposure | $0 | $6,000 (20%) |  |
+| Daily P&L | $0 | -$1,500 (-5%) |  |
+| Weekly P&L | $0 | -$3,000 (-10%) |  |
+| Available Cash | $30,000 | Min $6,000 (20%) |  |
 
 ### Strategy-Level Risk
 
 | Strategy | Drawdown | Limit | Status |
 |----------|----------|-------|--------|
-| Memecoin | 0% | -20% | ✅ |
-| PM Arb | 0% | -20% | ✅ |
-| PM Research | 0% | -20% | ✅ |
+| Memecoin | 0% | -20% |  |
+| PM Arb | 0% | -20% |  |
+| PM Research | 0% | -20% |  |
 
 ---
 
@@ -71,9 +71,9 @@
 
 | Correlation Type | Positions | Total Exposure | Limit | Status |
 |------------------|-----------|----------------|-------|--------|
-| BTC/Crypto | 0 | $0 | $3,000 | ✅ |
-| Elections | 0 | $0 | $4,000 | ✅ |
-| Same-week resolution | 0 | $0 | $6,000 | ✅ |
+| BTC/Crypto | 0 | $0 | $3,000 |  |
+| Elections | 0 | $0 | $4,000 |  |
+| Same-week resolution | 0 | $0 | $6,000 |  |
 
 ---
 

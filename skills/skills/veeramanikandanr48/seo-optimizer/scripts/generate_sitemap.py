@@ -214,7 +214,7 @@ def main():
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(sitemap_xml)
 
-    print(f"✅ Sitemap generated successfully: {output_file}")
+    print(f" Sitemap generated successfully: {output_file}")
     print(f"\nURLs included:")
     for _, url, _ in html_files[:10]:  # Show first 10
         print(f"  - {url}")

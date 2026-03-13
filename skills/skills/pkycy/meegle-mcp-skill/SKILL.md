@@ -4,7 +4,7 @@ description: Interact with Meegle project management system via MCP protocol
 homepage: https://www.meegle.com/
 user-invocable: true
 disable-model-invocation: false
-metadata: {"openclaw": {"requires": {"env": ["MEEGLE_USER_KEY"]}, "primaryEnv": "MEEGLE_USER_KEY", "emoji": "📊", "os": ["darwin", "linux", "win32"]}}
+metadata: {"openclaw": {"requires": {"env": ["MEEGLE_USER_KEY"]}, "primaryEnv": "MEEGLE_USER_KEY", "emoji": "", "os": ["darwin", "linux", "win32"]}}
 ---
 
 # Meegle MCP Skill

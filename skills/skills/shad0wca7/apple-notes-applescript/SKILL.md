@@ -1,7 +1,7 @@
 ---
 name: apple-notes-custom
 description: Apple Notes.app integration for macOS. List folders, read, create, search, edit, and delete notes via AppleScript.
-metadata: {"clawdbot":{"emoji":"📝","os":["darwin"]}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin"]}}
 ---
 
 # Apple Notes
@@ -18,7 +18,7 @@ Interact with Notes.app via AppleScript. Run scripts from: `cd {baseDir}`
 | Create note | `scripts/notes-create.sh <folder> <title> [body]` |
 | Search notes | `scripts/notes-search.sh <query> [folder] [limit] [--title-only]` |
 | Edit note | `scripts/notes-edit.sh <name-or-id> <new-body> [folder]` |
-| Delete note | `scripts/notes-delete.sh <name> <folder>` ⚠️ folder required |
+| Delete note | `scripts/notes-delete.sh <name> <folder>`  folder required |
 
 ## Folder Paths
 
@@ -104,7 +104,7 @@ scripts/notes-delete.sh "Old Note" "Notes"                    # Folder required
 scripts/notes-delete.sh "receipt" "Scanned/Receipts"
 ```
 
-⚠️ Folder argument is **required** for safety — prevents accidental matches across 4000+ notes.
+ Folder argument is **required** for safety — prevents accidental matches across 4000+ notes.
 
 ## Performance Tips
 

@@ -3,7 +3,7 @@ name: Principle Synthesizer
 description: Synthesize invariant principles from 3+ sources — find the core that survives across all expressions.
 homepage: https://github.com/Obviously-Not/patent-skills/tree/main/principle-synthesizer
 user-invocable: true
-emoji: ⚗️
+emoji: 
 tags:
   - principle-distillation
   - multi-source-synthesis
@@ -216,7 +216,7 @@ The Golden Master preserves the user's voice while ensuring accurate pattern mat
 Included only when `golden_master_candidates.length >= 1`:
 
 ```json
-"share_text": "Golden Master identified: 3 principles survived across all 4 sources (N≥3 ✓) obviouslynot.ai/pbd/{source_hash} 💎"
+"share_text": "Golden Master identified: 3 principles survived across all 4 sources (N≥3 ✓) obviouslynot.ai/pbd/{source_hash} "
 ```
 
 Not triggered just because synthesis ran — requires genuine Golden Master candidates.

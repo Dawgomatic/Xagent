@@ -1,4 +1,4 @@
-# Bags Trading 📈
+# Bags Trading 
 
 Get quotes and swap tokens on Solana.
 
@@ -80,10 +80,10 @@ slippageMode=auto" \
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| `inputMint` | ✅ | Token mint address you're swapping from |
-| `outputMint` | ✅ | Token mint address you're swapping to |
-| `amount` | ✅ | Amount in smallest unit (e.g., lamports) |
-| `slippageMode` | ✅ | `auto` or `manual` |
+| `inputMint` |  | Token mint address you're swapping from |
+| `outputMint` |  | Token mint address you're swapping to |
+| `amount` |  | Amount in smallest unit (e.g., lamports) |
+| `slippageMode` |  | `auto` or `manual` |
 | `slippageBps` | If manual | Slippage tolerance in basis points |
 
 ### Quote Response Fields
@@ -224,12 +224,12 @@ for i in $(seq 1 $BAGS_MAX_RETRIES); do
     BAGS_CONFIRM_STATUS=$(echo "$BAGS_VALUE" | jq -r '.confirmationStatus // empty')
     
     if [ -n "$BAGS_TX_ERR" ] && [ "$BAGS_TX_ERR" != "null" ]; then
-      echo "❌ Transaction failed: $BAGS_TX_ERR"
+      echo " Transaction failed: $BAGS_TX_ERR"
       exit 1
     fi
     
     if [ "$BAGS_CONFIRM_STATUS" = "confirmed" ] || [ "$BAGS_CONFIRM_STATUS" = "finalized" ]; then
-      echo "✅ Swap $BAGS_CONFIRM_STATUS!"
+      echo " Swap $BAGS_CONFIRM_STATUS!"
       break
     fi
   fi
@@ -261,7 +261,7 @@ BAGS_JWT_TOKEN=$(cat ~/.config/bags/credentials.json | jq -r '.jwt_token')
 BAGS_API_KEY=$(cat ~/.config/bags/credentials.json | jq -r '.api_key')
 BAGS_WALLET=$(cat ~/.config/bags/credentials.json | jq -r '.wallets[0]')
 
-echo "📈 Bags Swap"
+echo " Bags Swap"
 echo "============"
 echo "Input:  $BAGS_INPUT_MINT"
 echo "Output: $BAGS_OUTPUT_MINT"
@@ -269,7 +269,7 @@ echo "Amount: $BAGS_AMOUNT"
 echo ""
 
 # Step 1: Get quote
-echo "🔍 Getting quote..."
+echo " Getting quote..."
 BAGS_QUOTE=$(curl -s "https://public-api-v2.bags.fm/api/v1/trade/quote?\
 inputMint=$BAGS_INPUT_MINT&\
 outputMint=$BAGS_OUTPUT_MINT&\
@@ -278,7 +278,7 @@ slippageMode=auto" \
   -H "x-api-key: $BAGS_API_KEY")
 
 if ! echo "$BAGS_QUOTE" | jq -e '.success == true' > /dev/null; then
-  echo "❌ Quote failed: $(echo "$BAGS_QUOTE" | jq -r '.error')"
+  echo " Quote failed: $(echo "$BAGS_QUOTE" | jq -r '.error')"
   exit 1
 fi
 
@@ -297,7 +297,7 @@ echo "  Slippage:     $((BAGS_SLIPPAGE / 100)).$((BAGS_SLIPPAGE % 100))%"
 echo ""
 
 # Step 2: Create swap transaction
-echo "🎯 Creating swap transaction..."
+echo " Creating swap transaction..."
 BAGS_SWAP_RESPONSE=$(curl -s -X POST "https://public-api-v2.bags.fm/api/v1/trade/swap" \
   -H "x-api-key: $BAGS_API_KEY" \
   -H "Content-Type: application/json" \
@@ -307,7 +307,7 @@ BAGS_SWAP_RESPONSE=$(curl -s -X POST "https://public-api-v2.bags.fm/api/v1/trade
   }")
 
 if ! echo "$BAGS_SWAP_RESPONSE" | jq -e '.success == true' > /dev/null; then
-  echo "❌ Swap creation failed: $(echo "$BAGS_SWAP_RESPONSE" | jq -r '.error')"
+  echo " Swap creation failed: $(echo "$BAGS_SWAP_RESPONSE" | jq -r '.error')"
   exit 1
 fi
 
@@ -316,14 +316,14 @@ echo "✓ Transaction created"
 echo ""
 
 # Step 3: Sign transaction
-echo "🔑 Signing transaction..."
+echo " Signing transaction..."
 BAGS_PRIVATE_KEY=$(curl -s -X POST https://public-api-v2.bags.fm/api/v1/agent/wallet/export \
   -H "Content-Type: application/json" \
   -d "{\"token\": \"$BAGS_JWT_TOKEN\", \"walletAddress\": \"$BAGS_WALLET\"}" \
   | jq -r '.response.privateKey')
 
 if [ -z "$BAGS_PRIVATE_KEY" ] || [ "$BAGS_PRIVATE_KEY" = "null" ]; then
-  echo "❌ Failed to export private key"
+  echo " Failed to export private key"
   exit 1
 fi
 
@@ -331,7 +331,7 @@ BAGS_SIGNED_TX=$(node ~/.config/bags/sign-transaction.js "$BAGS_PRIVATE_KEY" "$B
 unset BAGS_PRIVATE_KEY
 
 if [ -z "$BAGS_SIGNED_TX" ]; then
-  echo "❌ Failed to sign transaction"
+  echo " Failed to sign transaction"
   exit 1
 fi
 
@@ -342,7 +342,7 @@ echo ""
 BAGS_RPC_URL="https://gene-v4mswe-fast-mainnet.helius-rpc.com"
 BAGS_MAX_RETRIES=10
 
-echo "📡 Submitting transaction..."
+echo " Submitting transaction..."
 BAGS_RESULT=$(curl -s -X POST "https://public-api-v2.bags.fm/api/v1/solana/send-transaction" \
   -H "x-api-key: $BAGS_API_KEY" \
   -H "Content-Type: application/json" \
@@ -352,12 +352,12 @@ BAGS_SIGNATURE=$(echo "$BAGS_RESULT" | jq -r '.response // empty')
 BAGS_ERROR=$(echo "$BAGS_RESULT" | jq -r '.error // empty')
 
 if [ -z "$BAGS_SIGNATURE" ] || [ "$BAGS_SIGNATURE" = "null" ]; then
-  echo "❌ Failed to submit: $BAGS_ERROR"
+  echo " Failed to submit: $BAGS_ERROR"
   exit 1
 fi
 
-echo "📋 Signature: $BAGS_SIGNATURE"
-echo "⏳ Confirming transaction..."
+echo " Signature: $BAGS_SIGNATURE"
+echo " Confirming transaction..."
 
 # Poll for confirmation (10 retries, 500ms delay)
 BAGS_CONFIRMED=false
@@ -381,14 +381,14 @@ for i in $(seq 1 $BAGS_MAX_RETRIES); do
     
     if [ -n "$BAGS_TX_ERR" ] && [ "$BAGS_TX_ERR" != "null" ]; then
       echo ""
-      echo "❌ Transaction failed on-chain: $BAGS_TX_ERR"
+      echo " Transaction failed on-chain: $BAGS_TX_ERR"
       exit 1
     fi
     
     if [ "$BAGS_CONFIRM_STATUS" = "confirmed" ] || [ "$BAGS_CONFIRM_STATUS" = "finalized" ]; then
       BAGS_CONFIRMED=true
       echo ""
-      echo "✅ Swap $BAGS_CONFIRM_STATUS!"
+      echo " Swap $BAGS_CONFIRM_STATUS!"
       echo "   Signature: $BAGS_SIGNATURE"
       echo "   Explorer:  https://solscan.io/tx/$BAGS_SIGNATURE"
       break
@@ -400,7 +400,7 @@ done
 
 if [ "$BAGS_CONFIRMED" = false ]; then
   echo ""
-  echo "⚠️ Transaction not confirmed after $BAGS_MAX_RETRIES attempts"
+  echo " Transaction not confirmed after $BAGS_MAX_RETRIES attempts"
   echo "   Signature: $BAGS_SIGNATURE"
   echo "   May need to retry with fresh quote"
   exit 1
@@ -437,7 +437,7 @@ slippageMode=auto" \
   -H "x-api-key: $BAGS_API_KEY")
 
 if ! echo "$BAGS_QUOTE" | jq -e '.success == true' > /dev/null; then
-  echo "❌ Quote failed: $(echo "$BAGS_QUOTE" | jq -r '.error')"
+  echo " Quote failed: $(echo "$BAGS_QUOTE" | jq -r '.error')"
   exit 1
 fi
 

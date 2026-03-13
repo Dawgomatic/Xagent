@@ -513,13 +513,13 @@ All three lint jobs run simultaneously.
 ### Use Smaller Docker Images
 
 ```yaml
-# ❌ Slow - full image download every time
+#  Slow - full image download every time
 image: node:20
 
-# ✅ Fast - smaller alpine image
+#  Fast - smaller alpine image
 image: node:20-alpine
 
-# ✅ Even faster - cache locally built image
+#  Even faster - cache locally built image
 image: $CI_REGISTRY_IMAGE/node-build:latest
 ```
 

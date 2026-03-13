@@ -387,12 +387,12 @@ echo "Tests Failed: $TESTS_FAILED"
 echo ""
 
 if [[ $TESTS_FAILED -eq 0 ]]; then
-    log_info "🎉 All tests passed!"
+    log_info " All tests passed!"
     echo ""
     echo "You can view the webhook log at:"
     echo "  tail -10 $LOG_FILE | jq ."
     exit 0
 else
-    log_error "❌ Some tests failed. Check output above."
+    log_error " Some tests failed. Check output above."
     exit 1
 fi

@@ -59,7 +59,7 @@ in their MCP settings with:
 
 ## Execution Workflow
 
-⚠️ **IMPORTANT**: Always follow this exact sequence:
+ **IMPORTANT**: Always follow this exact sequence:
 1. Format with `format_flight_pricecheck_request` → resolve any missing info → search with `flight_pricecheck`
 2. **NEVER** call `flight_pricecheck` directly without calling `format_flight_pricecheck_request` first
 
@@ -67,7 +67,7 @@ in their MCP settings with:
 
 This is always the first action. Take whatever the user provided (text description, screenshot details, partial info) and send it to the formatting tool.
 
-⚠️ **CRITICAL**: You MUST call this tool before `flight_pricecheck`.
+ **CRITICAL**: You MUST call this tool before `flight_pricecheck`.
 
 ```
 Tool: mcp__navifare-mcp__format_flight_pricecheck_request
@@ -149,14 +149,14 @@ Once `format_flight_pricecheck_request` returns `readyForPriceCheck: true`, it p
 1. **Check for one-way flights** — Navifare only supports round-trip flights:
    ```
    if trip has only 1 leg:
-     ❌ Return error: "Sorry, Navifare currently only supports round-trip flights.
+      Return error: "Sorry, Navifare currently only supports round-trip flights.
         One-way flight price checking is not available yet."
      DO NOT proceed with the search.
    ```
 
 2. **Inform user FIRST** — Tell them it will take time:
    ```
-   "🔍 Searching for better prices across multiple booking sites...
+   " Searching for better prices across multiple booking sites...
    This typically takes 30-60 seconds as I check real-time availability."
    ```
 
@@ -259,11 +259,11 @@ Format results as a clear, actionable summary:
 
 **When better price found** (savings > 5%):
 ```
-✅ I found a better deal!
+ I found a better deal!
 
 Your reference: $450 on [original site]
 Best price found: $429 on Kiwi.com
-💰 You save: $21 (4.7%)
+ You save: $21 (4.7%)
 
 Top 3 Options:
 ┌────┬──────────────┬────────┬──────────────┬─────────────────────┐
@@ -279,11 +279,11 @@ All prices checked: 2025-02-11 16:30 UTC
 
 **When price is validated** (within 5%):
 ```
-✅ Price verified!
+ Price verified!
 
 Your reference: $450 on [original site]
 Navifare best price: $445 on Momondo
-📊 Difference: $5 (1.1%)
+ Difference: $5 (1.1%)
 
 Your price is competitive. The best available price is very close to what you found.
 
@@ -293,23 +293,23 @@ Top 3 Options:
 
 **When prices increased** (reference price lower):
 ```
-⚠️ Prices have changed
+ Prices have changed
 
 Your reference: $450 on [original site]
 Current best price: $489 on Kiwi.com
-📈 Increase: $39 (8.7%)
+ Increase: $39 (8.7%)
 
 This flight may be in high demand. Prices have increased since you last checked.
 
 Top 3 Options:
 [Same table format as above]
 
-💡 Tip: Consider booking soon if this route works for you, or check alternative dates.
+ Tip: Consider booking soon if this route works for you, or check alternative dates.
 ```
 
 **When no results found**:
 ```
-❌ No results found
+ No results found
 
 Navifare couldn't find current prices for this exact itinerary.
 
@@ -471,7 +471,7 @@ What the tool returns as `flightData`:
 ### API Timeout
 If search exceeds 90 seconds:
 ```
-⏱️ Search is taking longer than expected.
+ Search is taking longer than expected.
 
 Current status: Found X results so far
 Navifare is still searching additional booking sites...
@@ -482,7 +482,7 @@ Navifare is still searching additional booking sites...
 ### Invalid Airport Codes
 If user provides unclear airports:
 ```
-❓ I need to verify the airports.
+ I need to verify the airports.
 
 You mentioned: "New York" and "London"
 
@@ -496,13 +496,13 @@ See `references/AIRPORTS.md` for complete list.
 
 ### Missing Critical Information
 ```
-❓ I need more details to search accurately.
+ I need more details to search accurately.
 
 Current information:
-✅ Route: JFK → LHR
-✅ Date: 2025-06-15
-❌ Departure time: Not specified
-❌ Arrival time: Not specified
+ Route: JFK → LHR
+ Date: 2025-06-15
+ Departure time: Not specified
+ Arrival time: Not specified
 
 Please provide:
 - What time does the flight depart? (e.g., "6:00 PM")
@@ -512,7 +512,7 @@ Please provide:
 ### Currency Conversion
 If currency symbols are ambiguous:
 ```
-💱 Currency Clarification
+ Currency Clarification
 
 You mentioned "$450" - is this:
 1. USD (US Dollar) - Recommended
@@ -526,7 +526,7 @@ Please specify for accurate price comparison.
 ### Date Validation
 If dates are in the past:
 ```
-⚠️ Date Issue
+ Date Issue
 
 The date you provided (2024-12-20) is in the past.
 

@@ -2,7 +2,7 @@
 name: git-summary
 description: Get a quick summary of the current Git repository including status, recent commits, branches, and contributors.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "📊", "requires": {"bins": ["git"]}, "os": ["darwin", "linux", "win32"]}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["git"]}, "os": ["darwin", "linux", "win32"]}}
 ---
 
 # Git Summary Skill
@@ -34,7 +34,7 @@ When the user asks for a git summary, repository overview, or wants to understan
 Present the gathered information in a structured format:
 
 ```
-## 📊 Git Repository Summary
+##  Git Repository Summary
 
 ### Current Branch & Status
 - Branch: `<branch_name>`

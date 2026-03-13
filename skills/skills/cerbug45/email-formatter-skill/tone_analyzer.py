@@ -139,13 +139,13 @@ if __name__ == "__main__":
     
     result = analyze_tone(sys.argv[1])
     
-    print(f"📊 PRIMARY TONE: {result['primary_tone']}")
+    print(f" PRIMARY TONE: {result['primary_tone']}")
     print(f"   {get_tone_description(result['primary_tone'])}")
     
     if len(result['all_tones']) > 1:
-        print(f"\n🎯 OTHER TONES DETECTED: {', '.join(result['all_tones'][1:])}")
+        print(f"\n OTHER TONES DETECTED: {', '.join(result['all_tones'][1:])}")
     
-    print(f"\n📈 TONE METRICS:")
+    print(f"\n TONE METRICS:")
     print(f"   Formal: {result['formal_score']} | Casual: {result['casual_score']}")
     print(f"   Polite: {result['polite_score']} | Aggressive: {result['aggressive_score']}")
     print(f"   Urgent: {result['urgent_score']} | Friendly: {result['friendly_score']}")
@@ -153,14 +153,14 @@ if __name__ == "__main__":
     print(f"   Questions: {result['questions']}")
     
     if result['warnings']:
-        print(f"\n⚠️  WARNINGS:")
+        print(f"\n  WARNINGS:")
         for warning in result['warnings']:
             print(f"   • {warning}")
     
     if result['recommendations']:
-        print(f"\n💡 RECOMMENDATIONS:")
+        print(f"\n RECOMMENDATIONS:")
         for rec in result['recommendations']:
             print(f"   • {rec}")
     
     if not result['warnings'] and not result['recommendations']:
-        print(f"\n✅ Tone appears appropriate")
+        print(f"\n Tone appears appropriate")

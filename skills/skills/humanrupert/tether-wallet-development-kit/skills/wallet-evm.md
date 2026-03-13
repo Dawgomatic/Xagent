@@ -40,8 +40,8 @@ import WalletManagerEvmErc4337 from '@tetherto/wdk-wallet-evm-erc-4337'
 - **Fee model**: EIP-1559 (baseFee + priorityFee)
 - **Fee rates**: `normal` = base×1.1, `fast` = base×2.0
 - **Supports**: ERC20 via `transfer()`, arbitrary calldata via `sendTransaction({data})`
-- ⚠️ **Ethereum USDT** uses non-standard ERC20 (no bool return on `transfer()`). Use SafeERC20 in custom contracts.
-- ⚠️ `sendTransaction` accepts a `data` field (arbitrary hex calldata) — can execute **any** contract function. Extra scrutiny for non-empty `data`.
+-  **Ethereum USDT** uses non-standard ERC20 (no bool return on `transfer()`). Use SafeERC20 in custom contracts.
+-  `sendTransaction` accepts a `data` field (arbitrary hex calldata) — can execute **any** contract function. Extra scrutiny for non-empty `data`.
 
 ## Configuration — wallet-evm
 

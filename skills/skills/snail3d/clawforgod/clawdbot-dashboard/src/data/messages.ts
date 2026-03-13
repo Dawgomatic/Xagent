@@ -102,20 +102,20 @@ print(f"Fibonacci(10) = {result}")
 
 | Feature | Status | Progress | ETA |
 |---------|--------|----------|-----|
-| UI Components | ✅ Complete | 100% | Done |
-| Markdown Support | ✅ Complete | 100% | Done |
-| Real-time Updates | 🔄 In Progress | 75% | 2 days |
-| WebSocket Integration | ⏳ Planned | 0% | 1 week |
-| Mobile Responsive | ⏳ Planned | 0% | 2 weeks |
+| UI Components |  Complete | 100% | Done |
+| Markdown Support |  Complete | 100% | Done |
+| Real-time Updates |  In Progress | 75% | 2 days |
+| WebSocket Integration |  Planned | 0% | 1 week |
+| Mobile Responsive |  Planned | 0% | 2 weeks |
 
 ### Performance Metrics
 
 | Metric | Value | Status |
 |--------|-------|--------|
-| Load Time | 1.2s | 🟢 Good |
-| First Paint | 680ms | 🟢 Good |
-| Lighthouse Score | 94/100 | 🟢 Excellent |
-| Bundle Size | 245KB | 🟡 Good |`,
+| Load Time | 1.2s |  Good |
+| First Paint | 680ms |  Good |
+| Lighthouse Score | 94/100 |  Excellent |
+| Bundle Size | 245KB |  Good |`,
     timestamp: '10:06 AM',
   },
   {
@@ -165,10 +165,10 @@ print(f"Fibonacci(10) = {result}")
 ### Motion & Framer
 
 All components use Framer Motion for:
-- ✨ Smooth entrance animations
-- 🎯 Interactive hover effects
-- 🔄 Spring-based physics
-- ⚡ GPU-accelerated transforms`,
+-  Smooth entrance animations
+-  Interactive hover effects
+-  Spring-based physics
+-  GPU-accelerated transforms`,
     timestamp: '10:08 AM',
   },
   {
@@ -183,11 +183,11 @@ This dashboard brings together:
 > A premium interface built for power users who appreciate quality design.
 
 ### Quick Stats
-- 📊 Real-time metrics dashboard
-- 🎨 Premium dark mode (default) + light mode
-- ✨ Smooth animations throughout
-- 📱 Responsive layout
-- 🚀 Fast performance
+-  Real-time metrics dashboard
+-  Premium dark mode (default) + light mode
+-  Smooth animations throughout
+-  Responsive layout
+-  Fast performance
 
 ### Next Steps
 1. Connect to a WebSocket server
@@ -195,7 +195,7 @@ This dashboard brings together:
 3. Add file upload support
 4. Mobile optimization
 
-**Ready to start building amazing things?** 🚀`,
+**Ready to start building amazing things?** `,
     timestamp: '10:09 AM',
   },
 ]

@@ -1,4 +1,4 @@
-# 🎯 Go Mode — Autonomous Goal Execution
+#  Go Mode — Autonomous Goal Execution
 
 Give me a goal. I'll plan it, confirm with you, execute it, and report back. You steer — I drive.
 
@@ -20,7 +20,7 @@ When given a goal, break it down:
 Output a structured plan:
 
 ```
-## 🎯 Goal: [restated goal]
+##  Goal: [restated goal]
 
 ### Definition of Done
 [What success looks like]
@@ -67,7 +67,7 @@ Run each step sequentially:
 When all steps complete:
 
 ```
-## ✅ Goal Complete: [goal]
+##  Goal Complete: [goal]
 
 ### What Was Done
 - Step 1: [result]
@@ -93,19 +93,19 @@ When all steps complete:
 ## Guardrails
 
 ### Always Ask Before:
-- ✉️ Sending emails, DMs, or messages to anyone
-- 📢 Posting to social media (Twitter, LinkedIn, etc.)
-- 💰 Spending money or making API calls > $1 estimated
-- 🗑️ Deleting files or data
-- 🔒 Changing permissions, credentials, or configs
-- 🌐 Making any public-facing change
+-  Sending emails, DMs, or messages to anyone
+-  Posting to social media (Twitter, LinkedIn, etc.)
+-  Spending money or making API calls > $1 estimated
+-  Deleting files or data
+-  Changing permissions, credentials, or configs
+-  Making any public-facing change
 
 ### Auto-Proceed On:
-- ✅ Reading files, searching the web
-- ✅ Creating drafts (not publishing)
-- ✅ Organizing or summarizing information
-- ✅ Running analysis or calculations
-- ✅ Creating files in the workspace
+-  Reading files, searching the web
+-  Creating drafts (not publishing)
+-  Organizing or summarizing information
+-  Running analysis or calculations
+-  Creating files in the workspace
 
 ### Budget Caps
 - **Default per-goal budget:** $5 API spend max

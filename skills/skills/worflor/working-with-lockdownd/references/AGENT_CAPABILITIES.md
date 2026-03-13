@@ -5,7 +5,7 @@
 **Constraint**: You are limited to the "Lockdown Protocol" on port 62078.
 **Context**: "The Orchard" research confirms that modern iOS (17+) blocks filesystem access over WiFi, but allows full monitoring and property queries.
 
-## 🤖 Capabilities Boolean Matrix
+##  Capabilities Boolean Matrix
 
 Use this to determine if a user request is feasible.
 
@@ -19,7 +19,7 @@ CAN_REBOOT_DEVICE     = True   # Via diagnostics_relay (Restart/Sleep)
 CAN_BRICK_DEVICE      = True   # EnterRecovery (DANGEROUS usage)
 ```
 
-## ⌨️ Command Cheat Sheet
+##  Command Cheat Sheet
 
 Always use the CLI wrapper which outputs JSON designed for machine consumption.
 
@@ -31,7 +31,7 @@ Always use the CLI wrapper which outputs JSON designed for machine consumption.
 | **Monitor Activity** | `python .../lockdownd_cli.py trace --host <IP> --seconds 5` | (Binary stream, check exit code) |
 | **Extract Secrets** | `python .../extract_secrets.py --host <IP> --yes` | (JSON Object with keys) |
 
-## 🧠 Decision Logic
+##  Decision Logic
 
 ### Scenario 1: User asks "What files are on the iPhone?"
 *   **Action**: CHECK `CAN_TRANSFER_FILES`.
@@ -51,7 +51,7 @@ Always use the CLI wrapper which outputs JSON designed for machine consumption.
 *   **Execution**: Call `extract_secrets.py` with `--yes`.
 *   **Output**: Parse JSON for `NVRAM['fm-spkeys']['s']`.
 
-## 🛑 Error Handling
+##  Error Handling
 
 *   **`ConnectionRefusedError`**: Device is likely offline or not at that IP. Run `discover`.
 *   **`InvalidService` / `SSL EOF`**: You hit the "WiFi Wall". The service you requested (`com.apple.afc`, etc.) requires a trusted tunnel. **Do not retry**; it will never work over this port.

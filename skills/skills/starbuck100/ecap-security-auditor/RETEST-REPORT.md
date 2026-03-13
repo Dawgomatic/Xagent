@@ -8,7 +8,7 @@
 
 ## Test 1: Security Gate — Known Package "coding-agent"
 
-**Result: ✅ PASS**
+**Result:  PASS**
 
 ### Steps followed (per SKILL.md Gate Flow):
 
@@ -17,8 +17,8 @@
 3. **Calculate Trust Score:**
    - Penalties: 2× critical (-50) + 2× high (-30) + 2× medium (-16) = **96**
    - Trust Score = max(0, 100 - 96) = **4**
-4. **Decision Table:** Score < 40 → 🔴 BLOCK
-   - Message: `🔴 coding-agent — Trust Score: 4/100. Blocked. Run audit to investigate.`
+4. **Decision Table:** Score < 40 →  BLOCK
+   - Message: ` coding-agent — Trust Score: 4/100. Blocked. Run audit to investigate.`
 
 **Verdict:** The Gate Flow documentation is clear and easy to follow step-by-step. The penalty formula, decision table, and output format all worked without ambiguity.
 
@@ -26,10 +26,10 @@
 
 ## Test 2: Security Gate — Unknown Package "some-random-package-12345"
 
-**Result: ✅ PASS**
+**Result:  PASS**
 
 - `GET /api/findings?package=some-random-package-12345` → `{"findings": [], "total": 0}`
-- SKILL.md says: "No report exists" → 🔴 Auto-audit → `"🔴 [package] — No audit data. Running security audit now..."`
+- SKILL.md says: "No report exists" →  Auto-audit → `" [package] — No audit data. Running security audit now..."`
 - Flow diagram clearly shows: "Report exists? No → Go to AUTO-AUDIT"
 - Auto-audit steps are documented: read all files, follow audit-prompt.md, build JSON, upload, re-run gate
 
@@ -39,16 +39,16 @@
 
 ## Test 3: Hash Verification
 
-**Result: ✅ PASS (script works, hashes differ as expected)**
+**Result:  PASS (script works, hashes differ as expected)**
 
 ```
 bash scripts/verify.sh ecap-security-auditor
 ```
 
 Output:
-- ✅ scripts/upload.sh, scripts/register.sh, prompts/review-prompt.md, README.md — all OK
-- ❌ SKILL.md — HASH MISMATCH (local differs from audited version)
-- ❌ prompts/audit-prompt.md — HASH MISMATCH
+-  scripts/upload.sh, scripts/register.sh, prompts/review-prompt.md, README.md — all OK
+-  SKILL.md — HASH MISMATCH (local differs from audited version)
+-  prompts/audit-prompt.md — HASH MISMATCH
 
 Exit code 1 (failure). Output is clear: shows package name, repo, commit, per-file pass/fail with both hashes for mismatches, and a summary line.
 
@@ -58,7 +58,7 @@ Exit code 1 (failure). Output is clear: shows package name, repo, commit, per-fi
 
 ## Test 4: Mini-Audit + Upload
 
-**Result: ✅ PASS**
+**Result:  PASS**
 
 1. Read SKILL.md + prompts/audit-prompt.md — both comprehensive
 2. Created report in documented JSON format with 1 low-severity finding (plaintext API key storage)
@@ -71,13 +71,13 @@ Exit code 1 (failure). Output is clear: shows package name, repo, commit, per-fi
 
 ## Test 5: API Endpoints Spot-Check
 
-**Result: ✅ PASS (all 3 endpoints working)**
+**Result:  PASS (all 3 endpoints working)**
 
 | Endpoint | Status | Notes |
 |----------|--------|-------|
-| `GET /api/health` | ✅ | `{"status":"healthy"}`, DB connected, 57 findings, 17 skills, 5 agents |
-| `GET /api/leaderboard` | ✅ | Returns array with ecap0: 930 points, 39 reports, 57 findings |
-| `GET /api/agents/ecap0` | ✅ | Full profile: severity breakdown, 34 skills audited, recent findings/reports |
+| `GET /api/health` |  | `{"status":"healthy"}`, DB connected, 57 findings, 17 skills, 5 agents |
+| `GET /api/leaderboard` |  | Returns array with ecap0: 930 points, 39 reports, 57 findings |
+| `GET /api/agents/ecap0` |  | Full profile: severity breakdown, 34 skills audited, recent findings/reports |
 
 ---
 
@@ -85,11 +85,11 @@ Exit code 1 (failure). Output is clear: shows package name, repo, commit, per-fi
 
 | Test | Result |
 |------|--------|
-| 1. Security Gate (known package) | ✅ PASS |
-| 2. Security Gate (unknown package) | ✅ PASS |
-| 3. Hash Verification | ✅ PASS |
-| 4. Mini-Audit + Upload | ✅ PASS |
-| 5. API Endpoints | ✅ PASS |
+| 1. Security Gate (known package) |  PASS |
+| 2. Security Gate (unknown package) |  PASS |
+| 3. Hash Verification |  PASS |
+| 4. Mini-Audit + Upload |  PASS |
+| 5. API Endpoints |  PASS |
 
 ## Overall Grade: 9/10
 

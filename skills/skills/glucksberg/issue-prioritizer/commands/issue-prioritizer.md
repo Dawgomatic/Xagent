@@ -61,7 +61,7 @@ Scan PR title and body for any mention of issue numbers:
 Compare PR title with issue titles for high similarity:
 - Normalize both titles: lowercase, remove punctuation, remove common words (fix, add, update, bug, feature)
 - If 70%+ word overlap OR PR title contains issue number → likely duplicate
-- Example: Issue "Login crashes on empty password" ↔ PR "Fix login crash with empty password"
+- Example: Issue "Login crashes on empty password"  PR "Fix login crash with empty password"
 
 **Method 4 - Semantic Matching** (for ambiguous cases):
 If issue title contains distinctive keywords, search PR bodies:
@@ -77,10 +77,10 @@ linkedPRs = {
 ```
 
 **Confidence Reporting:**
-- 🔗 Explicit link (fixes/closes/resolves)
-- 📎 Referenced (#123 mentioned)
-- 🔍 Similar title (fuzzy match)
-- 💡 Semantic match (same components)
+-  Explicit link (fixes/closes/resolves)
+-  Referenced (#123 mentioned)
+-  Similar title (fuzzy match)
+-  Semantic match (same components)
 
 **Filter the issues list:**
 1. Remove any issue whose number appears in `linkedPRs`
@@ -93,15 +93,15 @@ linkedPRs = {
 ═══════════════════════════════════════════════════════════════
 
   #123: Login crashes on empty password
-        └─ 🔗 PR #456: "Fix login validation" (explicit: fixes #123)
+        └─  PR #456: "Fix login validation" (explicit: fixes #123)
            https://github.com/owner/repo/pull/456
 
   #789: Add email validation
-        └─ 📎 PR #101: "Add form validation" (referenced: #789 in body)
+        └─  PR #101: "Add form validation" (referenced: #789 in body)
            https://github.com/owner/repo/pull/101
 
   #555: Button styling broken
-        └─ 🔍 PR #202: "Fix button styles" (title similarity: 85%)
+        └─  PR #202: "Fix button styles" (title similarity: 85%)
            https://github.com/owner/repo/pull/202
 
   {N} issues excluded. Analyzing remaining {M} issues...
@@ -355,18 +355,18 @@ Output a formatted report:
   TOP 10 BY ADJUSTED SCORE
 ═══════════════════════════════════════════════════════════════
 
-  #123 [Adj: 3.50] ⭐ Quick Win
+  #123 [Adj: 3.50]  Quick Win
   Fix typo in README
   ├─ Difficulty: 1/10 | Importance: 4/10 | ROI: 4.00
-  ├─ Trip: ✅ Total Sanity (1/5) | Arch: ✅ Surgical (1/5)
-  ├─ Act: ✅ PR Ready (5/5) | Level: beginner
+  ├─ Trip:  Total Sanity (1/5) | Arch:  Surgical (1/5)
+  ├─ Act:  PR Ready (5/5) | Level: beginner
   └─ https://github.com/owner/repo/issues/123
 
   #456 [Adj: 1.89]
   Add input validation to login form
   ├─ Difficulty: 4/10 | Importance: 7/10 | ROI: 1.75
-  ├─ Trip: ✅ Grounded (2/5) | Arch: ✅ Localized (2/5)
-  ├─ Act: ✅ Ready to Work (4/5) | Level: intermediate
+  ├─ Trip:  Grounded (2/5) | Arch:  Localized (2/5)
+  ├─ Act:  Ready to Work (4/5) | Level: intermediate
   └─ https://github.com/owner/repo/issues/456
 
   ...
@@ -399,23 +399,23 @@ Output a formatted report:
   CRITICAL BUGS (Importance ≥ 8)
 ═══════════════════════════════════════════════════════════════
 
-  #111 [Adj: 1.67] 🔴 Critical
+  #111 [Adj: 1.67]  Critical
   App crashes on startup with large datasets
   ├─ Difficulty: 6/10 | Importance: 9/10 | ROI: 1.50
-  ├─ Trip: ✅ (2/5) | Arch: ✅ (2/5) | Act: ⚠️ (3/5)
+  ├─ Trip:  (2/5) | Arch:  (2/5) | Act:  (3/5)
   └─ https://github.com/owner/repo/issues/111
 
 ═══════════════════════════════════════════════════════════════
   TRIPPING ISSUES (Trip ≥ 4 - Review Carefully)
 ═══════════════════════════════════════════════════════════════
 
-  #999 [Trip: 🚨 5/5 - Tripping]
+  #999 [Trip:  5/5 - Tripping]
   Rewrite entire backend in Rust with blockchain storage
   ├─ Red Flags: "rewrite from scratch", "blockchain", over-engineering
   ├─ Adjusted Score: 0.12 (heavily penalized)
   └─ Consider: Is this complexity really needed?
 
-  #888 [Trip: ⚠️ 4/5 - Wild Adventure]
+  #888 [Trip:  4/5 - Wild Adventure]
   Replace REST API with GraphQL + real-time subscriptions
   ├─ Red Flags: "breaking change", "migration required"
   └─ Consider: Worth the migration effort?
@@ -424,21 +424,21 @@ Output a formatted report:
   OVER-ENGINEERED (Arch ≥ 4 - Simpler Solution Likely Exists)
 ═══════════════════════════════════════════════════════════════
 
-  #777 [Arch: 🏗️ 5/5 - Transformational]
+  #777 [Arch:  5/5 - Transformational]
   Add form validation
   ├─ Proposed: New validation framework with schema definitions
   ├─ Red Flags: "new abstraction layer", "introduces patterns"
   ├─ Simpler Alternative: Single validation function, 20 lines
   └─ Ask: Why create a framework for one form?
 
-  #666 [Arch: ⚠️ 4/5 - Significant]
+  #666 [Arch:  4/5 - Significant]
   Fix button click not working
   ├─ Proposed: Refactor entire event system
   ├─ Red Flags: "affects multiple modules", "new event bus"
   ├─ Simpler Alternative: Fix the event handler directly
   └─ Ask: Is the event system actually the problem?
 
-  💡 TIP: Maintainers often reject PRs that change architecture
+   TIP: Maintainers often reject PRs that change architecture
      unnecessarily. Always start with the simplest fix.
 
 ═══════════════════════════════════════════════════════════════
@@ -454,21 +454,21 @@ Output a formatted report:
 ═══════════════════════════════════════════════════════════════
 
   #123: Login crashes on empty password
-        └─ 🔗 PR #456: "Fix login validation" (explicit: fixes #123)
+        └─  PR #456: "Fix login validation" (explicit: fixes #123)
            https://github.com/owner/repo/pull/456
 
   #789: Add email validation
-        └─ 📎 PR #101: "Add form validation" (referenced: #789 in body)
+        └─  PR #101: "Add form validation" (referenced: #789 in body)
            https://github.com/owner/repo/pull/101
 
   #555: Button styling broken
-        └─ 🔍 PR #202: "Fix button styles" (title similarity: 85%)
+        └─  PR #202: "Fix button styles" (title similarity: 85%)
            https://github.com/owner/repo/pull/202
 
   Detection Methods:
-  🔗 Explicit link (fixes/closes/resolves #N)
-  📎 Referenced (mentions #N in text)
-  🔍 Similar title (fuzzy match ≥70%)
+   Explicit link (fixes/closes/resolves #N)
+   Referenced (mentions #N in text)
+   Similar title (fuzzy match ≥70%)
 
   (These issues already have open PRs - review/merge them instead)
 
@@ -477,19 +477,19 @@ Output a formatted report:
 ═══════════════════════════════════════════════════════════════
 
   Trip (Solution Sanity):        Arch (Structural Impact):
-  ✅ 1-2 = Sane                  ✅ 1-2 = Minimal change
-  ⚠️  3  = Cautious              ⚠️  3  = Moderate
-  🚨 4-5 = Risky                 🏗️ 4-5 = Over-engineered
+   1-2 = Sane                   1-2 = Minimal change
+    3  = Cautious                3  = Moderate
+   4-5 = Risky                  4-5 = Over-engineered
 
   Actionability (PR-Ready):
-  ✅ 4-5 = Ready for PR
-  ⚠️  3  = Needs Investigation
-  ❌ 1-2 = Not Actionable
+   4-5 = Ready for PR
+    3  = Needs Investigation
+   1-2 = Not Actionable
 
   Adjusted Score = ROI × TripMultiplier × ArchMultiplier × ActionMultiplier
   Higher = Better (prioritize these first)
 
-  🎯 SIMPLICITY PRINCIPLE: If a 10-line fix exists, a 200-line
+   SIMPLICITY PRINCIPLE: If a 10-line fix exists, a 200-line
      refactor is wrong. Always ask "is there a simpler way?"
 
 ═══════════════════════════════════════════════════════════════

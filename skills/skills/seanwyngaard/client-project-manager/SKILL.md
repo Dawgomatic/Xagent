@@ -134,10 +134,10 @@ Output format:
 ║                    FREELANCE DASHBOARD                       ║
 ╠══════════════════════════════════════════════════════════════╣
 
-📊 Active Projects: 3
-💰 Outstanding Invoices: $2,500
-⏰ Hours This Week: 22.5
-📅 Next Deadline: Website Redesign (Acme Corp) — Mar 15
+ Active Projects: 3
+ Outstanding Invoices: $2,500
+ Hours This Week: 22.5
+ Next Deadline: Website Redesign (Acme Corp) — Mar 15
 
 ──────────────────────────────────────────────────────────────
 PROJECT: Website Redesign
@@ -145,10 +145,10 @@ CLIENT: Acme Corp | DEADLINE: Mar 15, 2026
 PROGRESS: ████████████░░░░░░░░ 60%
 BUDGET: $3,000 / $5,000 billed
 DELIVERABLES:
-  ✅ Homepage mockup (Feb 20) — DONE
-  🔄 Inner pages (Mar 1) — IN PROGRESS
-  ⬜ Development (Mar 10) — PENDING
-  ⬜ Launch (Mar 15) — PENDING
+   Homepage mockup (Feb 20) — DONE
+   Inner pages (Mar 1) — IN PROGRESS
+   Development (Mar 10) — PENDING
+   Launch (Mar 15) — PENDING
 ──────────────────────────────────────────────────────────────
 ```
 
@@ -223,7 +223,7 @@ Here's your weekly update on [Project Name]:
 **Project Status:**
 - Progress: XX%
 - Budget used: $X,XXX / $X,XXX
-- On track for [deadline]: ✅ Yes / ⚠️ At risk / ❌ Behind
+- On track for [deadline]:  Yes /  At risk /  Behind
 
 [Any questions or items needing client input]
 
@@ -255,14 +255,14 @@ Show a comprehensive business overview:
 ║                  MONTHLY BUSINESS REPORT                     ║
 ╠══════════════════════════════════════════════════════════════╣
 
-💰 Revenue This Month:     $4,250
-💰 Revenue Last Month:     $3,800  (↑ 12%)
-📊 Active Projects:        3
-✅ Completed This Month:   1
-⏰ Hours Billed:           42.5
-💵 Effective Hourly Rate:  $100/hr
-📋 Outstanding Invoices:   $2,500 (2 invoices)
-⚠️  Overdue Invoices:      $0
+ Revenue This Month:     $4,250
+ Revenue Last Month:     $3,800  (↑ 12%)
+ Active Projects:        3
+ Completed This Month:   1
+ Hours Billed:           42.5
+ Effective Hourly Rate:  $100/hr
+ Outstanding Invoices:   $2,500 (2 invoices)
+  Overdue Invoices:      $0
 
 TOP CLIENTS (by revenue):
   1. Acme Corp        $2,500  (59%)

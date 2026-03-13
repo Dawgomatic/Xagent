@@ -194,7 +194,7 @@ export class MultiDexAggregator {
   
   async printComparison(): Promise<void> {
     console.log('\n' + '═'.repeat(100));
-    console.log('⚡ SOLANA DEX FUNDING RATE COMPARISON: DRIFT vs FLASH vs GMTRADE');
+    console.log(' SOLANA DEX FUNDING RATE COMPARISON: DRIFT vs FLASH vs GMTRADE');
     console.log('═'.repeat(100));
     
     const [driftRates, flashRates, gmRates] = await Promise.all([
@@ -209,7 +209,7 @@ export class MultiDexAggregator {
     const commonSymbols = [...driftSymbols].filter(s => flashSymbols.has(s));
     
     console.log(`\nCommon symbols: ${commonSymbols.length}`);
-    console.log('\n📊 SIDE-BY-SIDE COMPARISON:\n');
+    console.log('\n SIDE-BY-SIDE COMPARISON:\n');
     console.log('Symbol     | Drift APY      | Flash APY      | Spread     | Arbitrage');
     console.log('─'.repeat(90));
     
@@ -222,19 +222,19 @@ export class MultiDexAggregator {
         ? 'Long Flash, Short Drift'
         : 'Long Drift, Short Flash';
       
-      const driftClass = drift.fundingRateApy > 0 ? '🔴' : '🟢';
-      const flashClass = flash.fundingRateApy > 0 ? '🔴' : '🟢';
+      const driftClass = drift.fundingRateApy > 0 ? '' : '';
+      const flashClass = flash.fundingRateApy > 0 ? '' : '';
       
       console.log(
         `${symbol.padEnd(10)} | ` +
         `${driftClass} ${drift.fundingRateApy.toFixed(2).padStart(8)}% | ` +
         `${flashClass} ${flash.fundingRateApy.toFixed(2).padStart(8)}% | ` +
         `${spread.toFixed(2).padStart(8)}% | ` +
-        `${spread > 10 ? '✨ ' + arbDir : '-'}`
+        `${spread > 10 ? ' ' + arbDir : '-'}`
       );
     }
     
-    console.log('\n🎯 TOP CROSS-DEX ARBITRAGE OPPORTUNITIES:\n');
+    console.log('\n TOP CROSS-DEX ARBITRAGE OPPORTUNITIES:\n');
     
     const opps = await this.findCrossExchangeArbitrage(5);
     
@@ -243,9 +243,9 @@ export class MultiDexAggregator {
     } else {
       for (const opp of opps.slice(0, 5)) {
         console.log(`${opp.symbol}: ${opp.spreadApy.toFixed(2)}% spread`);
-        console.log(`  📈 Long ${opp.longExchange} @ ${opp.longRate.fundingRateApy.toFixed(2)}% APY`);
-        console.log(`  📉 Short ${opp.shortExchange} @ ${opp.shortRate.fundingRateApy.toFixed(2)}% APY`);
-        console.log(`  💰 Estimated Net APY: ${opp.netApy.toFixed(2)}%`);
+        console.log(`   Long ${opp.longExchange} @ ${opp.longRate.fundingRateApy.toFixed(2)}% APY`);
+        console.log(`   Short ${opp.shortExchange} @ ${opp.shortRate.fundingRateApy.toFixed(2)}% APY`);
+        console.log(`   Estimated Net APY: ${opp.netApy.toFixed(2)}%`);
         console.log();
       }
     }

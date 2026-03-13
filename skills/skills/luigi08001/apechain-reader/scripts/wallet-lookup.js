@@ -113,7 +113,7 @@ async function main() {
       ? `~$${balanceUSD.toFixed(2)} in ${chain.symbol}`
       : `${balance.toFixed(4)} ${chain.symbol}`;
     
-    let summary = `📋 `;
+    let summary = ` `;
     if (isContract) {
       summary += `Smart contract on ${chain.name} with ${balanceStr}`;
     } else {

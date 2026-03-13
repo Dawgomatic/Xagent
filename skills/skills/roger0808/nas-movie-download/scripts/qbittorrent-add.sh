@@ -94,9 +94,9 @@ ADD_RESPONSE=$(curl -s -i --cookie /tmp/qb-cookies.txt \
 
 # 检查添加是否成功
 if echo "$ADD_RESPONSE" | grep -q "200 OK"; then
-    echo "✅ 种子添加成功"
+    echo " 种子添加成功"
 else
-    echo "❌ 种子添加失败"
+    echo " 种子添加失败"
     echo "响应：$ADD_RESPONSE"
     rm -f /tmp/qb-cookies.txt
     exit 1

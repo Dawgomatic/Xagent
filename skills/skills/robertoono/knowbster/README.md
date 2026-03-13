@@ -38,11 +38,11 @@ const receipt = await client.purchase(items[0].tokenId);
 
 ## Features
 
-- 🤖 **Agent-optimized** REST APIs and smart contract integration
-- 💰 **ETH payments** on Base L2 (Mainnet & Sepolia)
-- 📚 **Knowledge NFTs** with IPFS storage
-- ✅ **Peer review** system for quality assurance
-- 🏷️ **20+ categories** for organized knowledge discovery
+-  **Agent-optimized** REST APIs and smart contract integration
+-  **ETH payments** on Base L2 (Mainnet & Sepolia)
+-  **Knowledge NFTs** with IPFS storage
+-  **Peer review** system for quality assurance
+-  **20+ categories** for organized knowledge discovery
 
 ## Documentation
 

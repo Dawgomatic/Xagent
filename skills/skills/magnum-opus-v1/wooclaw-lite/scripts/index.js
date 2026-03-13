@@ -54,7 +54,7 @@ module.exports = {
             
             const order = await callWoo('/orders/get', { id: parseInt(id) });
             
-            let output = `📦 Order #${order.id} | Status: ${order.status} | Total: ${order.currency} ${order.total}\n`;
+            let output = ` Order #${order.id} | Status: ${order.status} | Total: ${order.currency} ${order.total}\n`;
             output += `Date: ${order.date_created}\n`;
             output += `Customer: ${order.billing.first_name || ''} ${order.billing.last_name || ''}\n`;
             output += `Items:\n`;
@@ -69,7 +69,7 @@ module.exports = {
 
             return output.trim();
         } catch (error) {
-            return `❌ Failed to fetch order: ${error.message}`;
+            return ` Failed to fetch order: ${error.message}`;
         }
     },
 
@@ -84,17 +84,17 @@ module.exports = {
             const products = await callWoo('/products/search', { query: String(query) });
 
             if (!products || products.length === 0) {
-                return `🔎 No products found for "${query}".`;
+                return ` No products found for "${query}".`;
             }
 
-            let output = `🔎 Found Products:\n`;
+            let output = ` Found Products:\n`;
             products.forEach((p, index) => {
                 output += `${index + 1}. ${p.name} (ID: ${p.id}) | Stock: ${p.stock_quantity ?? 'N/A'} | Price: ${p.price}\n`;
             });
 
             return output.trim();
         } catch (error) {
-            return `❌ Search failed: ${error.message}`;
+            return ` Search failed: ${error.message}`;
         }
     },
 
@@ -109,12 +109,12 @@ module.exports = {
             
             const data = response.data;
             if (data.status === 'ok') {
-                return `✅ Store is Online (Plugin v${data.version}).`;
+                return ` Store is Online (Plugin v${data.version}).`;
             } else {
-                return `⚠️ Store returned unexpected status: ${JSON.stringify(data)}`;
+                return ` Store returned unexpected status: ${JSON.stringify(data)}`;
             }
         } catch (error) {
-            return `❌ Connection Failed: ${error.message}`;
+            return ` Connection Failed: ${error.message}`;
         }
     }
 };

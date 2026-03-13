@@ -3,13 +3,13 @@ name: ugc-campaign-pipeline
 description: |
   Complete UGC video campaign pipeline: product → hero image → variations → videos → edited final.
   
-  ✅ USE WHEN:
+   USE WHEN:
   - User says "crear campaña UGC" or "pipeline completo"
   - Need end-to-end UGC video production
   - Starting from product image/URL → final edited video
   - Want the full Doritos-style workflow
   
-  ❌ DON'T USE WHEN:
+   DON'T USE WHEN:
   - Just need one step (use individual skills)
   - Already have final videos, just editing → use Remotion
   - Only need images, no video → use Morpheus only
@@ -96,11 +96,11 @@ COMFY_DEPLOY_API_KEY="..." uv run ~/.clawdbot/skills/multishot-ugc/scripts/gener
 
 ### Step 3: Selection Criteria
 Analyze all 11 images for:
-- ✅ Face clearly visible (frontal or 3/4)
-- ✅ Mouth not obscured
-- ✅ No distorted hands/fingers
-- ✅ Product visible
-- ✅ Different from other selected images
+-  Face clearly visible (frontal or 3/4)
+-  Mouth not obscured
+-  No distorted hands/fingers
+-  Product visible
+-  Different from other selected images
 
 Select 4 images that are:
 1. Different angles/perspectives

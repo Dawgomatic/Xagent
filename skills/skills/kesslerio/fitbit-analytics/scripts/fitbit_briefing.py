@@ -46,15 +46,15 @@ def _format_brief_briefing(data, baseline=None):
     # Line 1: Steps and activity
     steps = data.get("steps_today", 0)
     calories = data.get("calories_today", 0)
-    lines.append(f"📊 {steps:,} steps • {calories:,} cal")
+    lines.append(f" {steps:,} steps • {calories:,} cal")
     
     # Line 2: Heart rate and sleep
     resting_hr = data.get("resting_hr", "N/A")
     sleep_hours = data.get("sleep_hours", "N/A")
     if sleep_hours and sleep_hours != "N/A":
-        lines.append(f"❤️ Resting HR: {resting_hr} • 💤 {sleep_hours}h sleep")
+        lines.append(f" Resting HR: {resting_hr} •  {sleep_hours}h sleep")
     else:
-        lines.append(f"❤️ Resting HR: {resting_hr} • 💤 Sleep: N/A")
+        lines.append(f" Resting HR: {resting_hr} •  Sleep: N/A")
     
     # Line 3: Activity level and trends
     activity_level = data.get("activity_level", "Unknown")
@@ -66,7 +66,7 @@ def _format_brief_briefing(data, baseline=None):
     else:
         trend = "→ flat"
     
-    lines.append(f"🏃 {activity_level} • {trend}")
+    lines.append(f" {activity_level} • {trend}")
     
     return "\n".join(lines)
 
@@ -75,7 +75,7 @@ def _format_text_briefing(data, yesterday_activities=None, yesterday_azm=None, b
     """Format detailed text briefing."""
     lines = []
     date = data.get("date", "Today")
-    lines.append(f"📅 *Fitbit Morning Briefing — {date}*")
+    lines.append(f" *Fitbit Morning Briefing — {date}*")
     lines.append("")
     
     # Yesterday's activities (if any)

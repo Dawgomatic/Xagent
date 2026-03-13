@@ -204,22 +204,22 @@ Maintainers will review and may request changes. Common feedback:
 
 ### High Priority
 
-✅ **Documentation improvements** - Clarity, examples, troubleshooting
-✅ **Bug fixes** - Broken workflows, incorrect examples
-✅ **Integration recipes** - How to connect with other tools (Slack, Notion, etc.)
-✅ **Real-world examples** - "Here's how I use this in production"
+ **Documentation improvements** - Clarity, examples, troubleshooting
+ **Bug fixes** - Broken workflows, incorrect examples
+ **Integration recipes** - How to connect with other tools (Slack, Notion, etc.)
+ **Real-world examples** - "Here's how I use this in production"
 
 ### Medium Priority
 
-🟡 **New workflows** - Additional VC-specific automation
-🟡 **Template variations** - Alternative email templates, memo formats
-🟡 **Tool support** - Alternative CRMs, email clients (if demand exists)
+ **New workflows** - Additional VC-specific automation
+ **Template variations** - Alternative email templates, memo formats
+ **Tool support** - Alternative CRMs, email clients (if demand exists)
 
 ### Low Priority (for now)
 
-🔴 **Non-VC use cases** - Keep focused on investment partner workflows
-🔴 **Firm-wide management** - This is individual workflow automation
-🔴 **Dramatic architecture changes** - Stability matters for production use
+ **Non-VC use cases** - Keep focused on investment partner workflows
+ **Firm-wide management** - This is individual workflow automation
+ **Dramatic architecture changes** - Stability matters for production use
 
 ---
 
@@ -284,4 +284,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ---
 
-**Thank you for helping make VC workflows more efficient!** 🚀
+**Thank you for helping make VC workflows more efficient!** 

@@ -59,7 +59,7 @@ if [[ "$CODE" != "0" ]]; then
     exit 1
 fi
 
-echo "✅ 预授权成功"
+echo " 预授权成功"
 
 # 对于小文件，可能不需要分块上传
 # 尝试直接使用简单上传API
@@ -89,7 +89,7 @@ if [[ "$SIMPLE_CODE" == "0" ]]; then
     FILE_URL=$(echo "$SIMPLE_RESPONSE" | grep -o '"url":"[^"]*"' | cut -d'"' -f4)
     
     if [[ -n "$FILE_TOKEN" && -n "$FILE_URL" ]]; then
-        echo -e "\n✅ 文件上传成功 (简单上传)!"
+        echo -e "\n 文件上传成功 (简单上传)!"
         echo "文件Token: $FILE_TOKEN"
         echo "文件URL: $FILE_URL"
         
@@ -146,7 +146,7 @@ FILE_TOKEN=$(echo "$FINISH_RESPONSE" | grep -o '"token":"[^"]*"' | cut -d'"' -f4
 FILE_URL=$(echo "$FINISH_RESPONSE" | grep -o '"url":"[^"]*"' | cut -d'"' -f4)
 
 if [[ -n "$FILE_TOKEN" && -n "$FILE_URL" ]]; then
-    echo -e "\n✅ 文件上传成功 (分块上传)!"
+    echo -e "\n 文件上传成功 (分块上传)!"
     echo "文件Token: $FILE_TOKEN"
     echo "文件URL: $FILE_URL"
     

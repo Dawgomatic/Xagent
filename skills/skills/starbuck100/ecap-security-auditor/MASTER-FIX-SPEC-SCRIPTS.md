@@ -60,14 +60,14 @@ API_URL="https://skillaudit-api.vercel.app/api/integrity"
 
 **Aktuell (Zeile 30):**
 ```bash
-RESPONSE=$(curl -sf "${API_URL}?package=${PACKAGE}") || { echo "❌ API request failed"; exit 1; }
+RESPONSE=$(curl -sf "${API_URL}?package=${PACKAGE}") || { echo " API request failed"; exit 1; }
 ```
 
 **Fix:**
 ```bash
 # URL-encode package name (handles &, #, spaces, etc.)
 PACKAGE_ENCODED=$(printf '%s' "$PACKAGE" | jq -sRr @uri)
-RESPONSE=$(curl -sf "${API_URL}?package=${PACKAGE_ENCODED}") || { echo "❌ API request failed"; exit 1; }
+RESPONSE=$(curl -sf "${API_URL}?package=${PACKAGE_ENCODED}") || { echo " API request failed"; exit 1; }
 ```
 
 > Platzierung: Direkt nach der `PACKAGE=` Zeile oder direkt vor dem curl-Aufruf. `jq` ist bereits eine deklarierte Dependency.
@@ -96,15 +96,15 @@ FILES=(
 
 **Fix:**
 ```bash
-echo "🔍 Fetching official hashes from registry..."
+echo " Fetching official hashes from registry..."
 PACKAGE_ENCODED=$(printf '%s' "$PACKAGE" | jq -sRr @uri)
-RESPONSE=$(curl -sf "${API_URL}?package=${PACKAGE_ENCODED}") || { echo "❌ API request failed"; exit 1; }
+RESPONSE=$(curl -sf "${API_URL}?package=${PACKAGE_ENCODED}") || { echo " API request failed"; exit 1; }
 
 # Dynamisch: Dateiliste aus API-Response extrahieren
 mapfile -t FILES < <(echo "$RESPONSE" | jq -r '.files | keys[]')
 
 if [ ${#FILES[@]} -eq 0 ]; then
-  echo "⚠️  No tracked files found for package '${PACKAGE}'"
+  echo "  No tracked files found for package '${PACKAGE}'"
   exit 1
 fi
 ```
@@ -131,20 +131,20 @@ if command -v sha256sum &>/dev/null; then
 elif command -v shasum &>/dev/null; then
   SHA_CMD="shasum -a 256"
 else
-  echo "❌ No sha256sum or shasum found"; exit 1
+  echo " No sha256sum or shasum found"; exit 1
 fi
 
 # URL-encode package name
 PACKAGE_ENCODED=$(printf '%s' "$PACKAGE" | jq -sRr @uri)
 
-echo "🔍 Fetching official hashes from registry..."
-RESPONSE=$(curl -sf "${API_URL}?package=${PACKAGE_ENCODED}") || { echo "❌ API request failed"; exit 1; }
+echo " Fetching official hashes from registry..."
+RESPONSE=$(curl -sf "${API_URL}?package=${PACKAGE_ENCODED}") || { echo " API request failed"; exit 1; }
 
 # Dynamic file list from API response
 mapfile -t FILES < <(echo "$RESPONSE" | jq -r '.files | keys[]')
 
 if [ ${#FILES[@]} -eq 0 ]; then
-  echo "⚠️  No tracked files found for package '${PACKAGE}'"
+  echo "  No tracked files found for package '${PACKAGE}'"
   exit 1
 fi
 
@@ -163,12 +163,12 @@ for file in "${FILES[@]}"; do
   REMOTE_HASH=$(echo "$RESPONSE" | jq -r ".files[\"${file}\"].sha256 // empty")
 
   if [ -z "$REMOTE_HASH" ] || [ "$REMOTE_HASH" = "null" ]; then
-    echo "⚠️  ${file} — not tracked by registry"
+    echo "  ${file} — not tracked by registry"
     continue
   fi
 
   if [ ! -f "$LOCAL_PATH" ]; then
-    echo "❌ ${file} — missing locally"
+    echo " ${file} — missing locally"
     MISMATCH=1
     continue
   fi
@@ -177,9 +177,9 @@ for file in "${FILES[@]}"; do
   CHECKED=$((CHECKED + 1))
 
   if [ "$LOCAL_HASH" = "$REMOTE_HASH" ]; then
-    echo "✅ ${file}"
+    echo " ${file}"
   else
-    echo "❌ ${file} — HASH MISMATCH"
+    echo " ${file} — HASH MISMATCH"
     echo "   local:  ${LOCAL_HASH}"
     echo "   remote: ${REMOTE_HASH}"
     MISMATCH=1
@@ -190,10 +190,10 @@ echo ""
 echo "Checked: ${CHECKED} files"
 
 if [ "$MISMATCH" -eq 0 ]; then
-  echo "✅ All files verified — integrity OK"
+  echo " All files verified — integrity OK"
   exit 0
 else
-  echo "❌ Integrity check FAILED — files differ from official repo"
+  echo " Integrity check FAILED — files differ from official repo"
   exit 1
 fi
 ```
@@ -215,7 +215,7 @@ fi
 if [ -f "$CRED_FILE" ]; then
   PERMS=$(stat -c '%a' "$CRED_FILE" 2>/dev/null || stat -f '%Lp' "$CRED_FILE" 2>/dev/null)
   if [ "$PERMS" != "600" ]; then
-    echo "⚠️  Warning: $CRED_FILE has permissions $PERMS (should be 600). Fixing..." >&2
+    echo "  Warning: $CRED_FILE has permissions $PERMS (should be 600). Fixing..." >&2
     chmod 600 "$CRED_FILE"
   fi
 fi
@@ -240,7 +240,7 @@ fi
 MAX_SIZE=512000
 PAYLOAD_SIZE=${#REPORT_JSON}
 if [ "$PAYLOAD_SIZE" -gt "$MAX_SIZE" ]; then
-  echo "❌ Report too large: ${PAYLOAD_SIZE} bytes (max: ${MAX_SIZE} bytes / ~500KB)" >&2
+  echo " Report too large: ${PAYLOAD_SIZE} bytes (max: ${MAX_SIZE} bytes / ~500KB)" >&2
   exit 1
 fi
 ```
@@ -260,14 +260,14 @@ fi
 ```bash
 # Validate JSON syntax
 if ! echo "$REPORT_JSON" | jq empty 2>/dev/null; then
-  echo "❌ Invalid JSON in report file" >&2
+  echo " Invalid JSON in report file" >&2
   exit 1
 fi
 
 # Validate required fields
 for field in skill_slug risk_score result findings_count; do
   if [ "$(echo "$REPORT_JSON" | jq -r "has(\"$field\")")" != "true" ]; then
-    echo "❌ Missing required field: $field" >&2
+    echo " Missing required field: $field" >&2
     exit 1
   fi
 done
@@ -289,11 +289,11 @@ done
 
 | Feld | Typ | Pflicht | Beschreibung |
 |------|-----|---------|--------------|
-| `skill_slug` | string | ✅ | Package-Name (Alias: `package_name`) |
-| `risk_score` | number (0-100) | ✅ | Top-level, NICHT in summary |
-| `result` | string | ✅ | Eines von: `safe`, `caution`, `unsafe` |
-| `findings_count` | number | ✅ | Anzahl Findings |
-| `findings` | array | ✅ | Finding-Objekte |
+| `skill_slug` | string |  | Package-Name (Alias: `package_name`) |
+| `risk_score` | number (0-100) |  | Top-level, NICHT in summary |
+| `result` | string |  | Eines von: `safe`, `caution`, `unsafe` |
+| `findings_count` | number |  | Anzahl Findings |
+| `findings` | array |  | Finding-Objekte |
 
 **Änderung in audit-prompt.md — Step 4 JSON Template:** Bereits korrekt. Keine Änderung nötig am Template selbst.
 

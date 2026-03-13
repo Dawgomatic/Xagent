@@ -1,7 +1,7 @@
 ---
 name: WiFi
 description: Troubleshoot and secure wireless networks with channel optimization and diagnostics.
-metadata: {"clawdbot":{"emoji":"📶","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Band Selection Traps

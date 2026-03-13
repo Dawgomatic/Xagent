@@ -1,4 +1,4 @@
-# 🏗️ AfrexAI System Architect
+#  AfrexAI System Architect
 
 **Complete software architecture design system** — from greenfield to legacy modernization. Principal-level methodology your AI agent can follow for every architecture decision.
 
@@ -32,13 +32,13 @@ Tell your agent:
 Or:
 > "Review our current architecture and score it"
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific architecture patterns with compliance frameworks, integration templates, and deployment playbooks?
 
 **[AfrexAI Context Packs — $47](https://afrexai-cto.github.io/context-packs/)** — Deep vertical expertise for SaaS, Fintech, Healthcare, and 7 more industries.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - `afrexai-api-architect` — API lifecycle from design to deprecation
 - `afrexai-devops-engine` — CI/CD, containers, monitoring, SRE

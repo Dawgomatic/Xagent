@@ -77,7 +77,7 @@ export NOTE_PASSWORD="your_password"
 
 ## Security Considerations
 
-- **⚠️ Prefer `NOTE_SESSION`** over email/password — session cookies are safer than plaintext passwords.
+- ** Prefer `NOTE_SESSION`** over email/password — session cookies are safer than plaintext passwords.
 - Store credentials in `~/.openclaw/secrets.env` with `chmod 600`.
 - **Never commit credentials to git** — add `.env` to `.gitignore`.
 - Playwright navigation **must stay on `https://note.com/*`** — reject external redirects.

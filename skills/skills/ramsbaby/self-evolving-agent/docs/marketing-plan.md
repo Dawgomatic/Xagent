@@ -4,7 +4,7 @@
 
 ---
 
-## 🎯 핵심 메시지
+##  핵심 메시지
 
 **한 줄 훅:**
 > "Your AI assistant reviews its own mistakes weekly and proposes rule improvements — automatically."
@@ -19,7 +19,7 @@
 
 ---
 
-## 📊 타겟 오디언스
+##  타겟 오디언스
 
 ### Primary (1차 타겟)
 | 세그먼트 | 특징 | 메시지 포인트 |
@@ -37,7 +37,7 @@
 
 ---
 
-## 🚀 배포 채널별 전략
+##  배포 채널별 전략
 
 ### 1. ClawHub (최우선)
 
@@ -46,14 +46,14 @@
 **액션 아이템:**
 - [ ] `_meta.json` 메타데이터 최적화 (태그, 설명, 카테고리)
 - [ ] 데모 GIF 제작: "weekly report가 Discord에 도착하는 장면"
-- [ ] Skill thumbnail 이미지 제작 (뇌 🧠 + 그래프 + 화살표)
+- [ ] Skill thumbnail 이미지 제작 (뇌  + 그래프 + 화살표)
 - [ ] ClawHub 소개 글 작성 (self-improving과 시너지 강조)
 
 **ClawHub 메타 최적화:**
 ```json
 {
   "name": "self-evolving-agent",
-  "displayName": "Self-Evolving Agent 🧠",
+  "displayName": "Self-Evolving Agent ",
   "tagline": "Your AI reviews its own mistakes weekly and evolves its own rules.",
   "tags": ["self-improvement", "automation", "agents", "meta", "AGENTS.md", "weekly-review"],
   "category": "AI Agents / Meta"
@@ -68,7 +68,7 @@
 
 **액션 아이템:**
 - [ ] 리포지토리 공개 (현재 private이면 public 전환)
-- [ ] README.md 영어 버전 완성 ✅ (이미 완료)
+- [ ] README.md 영어 버전 완성  (이미 완료)
 - [ ] GitHub Topics 추가: `claude`, `ai-agent`, `self-improvement`, `openclaw`, `automation`
 - [ ] GitHub Releases: v1.0.0 태그 + changelog
 - [ ] `CONTRIBUTING.md` 작성 (외부 기여자 온보딩)
@@ -102,7 +102,7 @@
 
 ---
 
-## 🎨 시각 자료 계획
+##  시각 자료 계획
 
 ### 필수 제작 (우선순위 순)
 
@@ -127,13 +127,13 @@
 
 ---
 
-## 📅 배포 타임라인
+##  배포 타임라인
 
 ```
 Week 1 (2026-02-17~21)
-  ✅ README.md 영어 버전 완성
-  ✅ 마케팅 문서 일체 작성
-  ✅ _meta.json 메타데이터 최적화
+   README.md 영어 버전 완성
+   마케팅 문서 일체 작성
+   _meta.json 메타데이터 최적화
   □ GitHub 리포 공개 + Topics 추가
   □ ClawHub 배포
 
@@ -150,7 +150,7 @@ Week 3 (2026-03-03~07)
 
 ---
 
-## 💡 바이럴 포인트 분석
+##  바이럴 포인트 분석
 
 ### 왜 바이럴될 수 있는가?
 
@@ -168,7 +168,7 @@ Week 3 (2026-03-03~07)
 
 ---
 
-## 🔧 v1.0 개선 우선순위 (사용자 피드백 예상)
+##  v1.0 개선 우선순위 (사용자 피드백 예상)
 
 | 예상 피드백 | 대응 계획 |
 |---------|---------|
@@ -180,7 +180,7 @@ Week 3 (2026-03-03~07)
 
 ---
 
-## 📈 성공 지표 (KPI)
+##  성공 지표 (KPI)
 
 | 지표 | 1개월 목표 | 3개월 목표 |
 |------|----------|----------|

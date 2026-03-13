@@ -24,7 +24,7 @@ console.log(`Account: ${walletAddress}`);
 console.log(`Deposit amount: ${DEPOSIT_DISPLAY} USDC per chain\n`);
 
 for (const chain of [ethereum, arc]) {
-  console.log(`\n🔗 ${chain.name} (Domain ${chain.domain})`);
+  console.log(`\n ${chain.name} (Domain ${chain.domain})`);
   console.log("─".repeat(40));
 
   // Check USDC balance (read-only via viem)
@@ -33,7 +33,7 @@ for (const chain of [ethereum, arc]) {
   console.log(`   Balance: ${Number(balance) / 1e6} USDC`);
 
   if (balance < BigInt(DEPOSIT_AMOUNT)) {
-    console.error(`   ❌ Insufficient USDC on ${chain.name}!`);
+    console.error(`    Insufficient USDC on ${chain.name}!`);
     console.error("   Please top up at https://faucet.circle.com");
     process.exit(1);
   }
@@ -46,7 +46,7 @@ for (const chain of [ethereum, arc]) {
       functionSignature: "approve(address,uint256)",
       params: [chain.gatewayWalletAddress, DEPOSIT_AMOUNT],
     });
-    console.log(`   ✅ Approved — tx: ${approveTx.txHash}`);
+    console.log(`    Approved — tx: ${approveTx.txHash}`);
 
     // Step 2: Deposit USDC into Gateway Wallet
     console.log("   Depositing USDC into Gateway Wallet...");
@@ -55,15 +55,15 @@ for (const chain of [ethereum, arc]) {
       functionSignature: "deposit(address,uint256)",
       params: [chain.usdcAddress, DEPOSIT_AMOUNT],
     });
-    console.log(`   ✅ Deposited — tx: ${depositTx.txHash}`);
+    console.log(`    Deposited — tx: ${depositTx.txHash}`);
   } catch (error) {
-    console.error("   ❌ Error:", error.message || error);
+    console.error("    Error:", error.message || error);
     process.exit(1);
   }
 }
 
 console.log("\n═══════════════════════════════════════════════");
-console.log("✅ Deposits complete!");
+console.log(" Deposits complete!");
 console.log("   Arc: finality is ~0.5 seconds (1 block)");
 console.log("   Ethereum: wait ~20 min for finality");
 console.log("   Then run: node check-balance.js");

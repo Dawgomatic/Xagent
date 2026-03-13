@@ -14,7 +14,7 @@ Use `sendReaction` to react to messages with emoji.
 await ctx.conversation.sendReaction({
   reference: ctx.message.id,  // Message ID to react to
   action: "added",            // "added" or "removed"
-  content: "👍",              // Emoji to react with
+  content: "",              // Emoji to react with
   schema: "unicode",          // Always "unicode" for emoji
 });
 ```
@@ -25,7 +25,7 @@ await ctx.conversation.sendReaction({
 await ctx.conversation.sendReaction({
   reference: ctx.message.id,
   action: "removed",
-  content: "👍",
+  content: "",
   schema: "unicode",
 });
 ```
@@ -37,7 +37,7 @@ await ctx.conversation.sendReaction({
 await ctx.conversation.sendReaction({
   reference: ctx.message.id,
   action: "added",
-  content: "✅",
+  content: "",
   schema: "unicode",
 });
 
@@ -45,7 +45,7 @@ await ctx.conversation.sendReaction({
 await ctx.conversation.sendReaction({
   reference: ctx.message.id,
   action: "added",
-  content: "⏳",
+  content: "",
   schema: "unicode",
 });
 
@@ -53,7 +53,7 @@ await ctx.conversation.sendReaction({
 await ctx.conversation.sendReaction({
   reference: ctx.message.id,
   action: "added",
-  content: "❌",
+  content: "",
   schema: "unicode",
 });
 ```

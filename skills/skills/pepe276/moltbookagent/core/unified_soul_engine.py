@@ -206,7 +206,7 @@ class UnifiedSoulEngine:
         self._init_agents()
 
     def _activate_shield(self):
-        """🛡️ MISTA NUCLEAR SHIELD (Ported from legacy)"""
+        """ MISTA NUCLEAR SHIELD (Ported from legacy)"""
         system = platform.system().lower()
         exe = sys.executable
         script = os.path.abspath(sys.argv[0])
@@ -370,19 +370,19 @@ class UnifiedSoulEngine:
             
             placeholder_patterns = ["path/to", "example/path", "your/path", "target/path"]
             if any(p in safe_rel_path.lower() for p in placeholder_patterns):
-                # 🔄 АВТОКОРЕКЦІЯ плейсхолдерів
+                #  АВТОКОРЕКЦІЯ плейсхолдерів
                 filename = os.path.basename(safe_rel_path)  # Береємо тільки ім'я файлу
                 safe_rel_path = f"mista_agent/output/{filename}"  # Кладемо у безпечну папку
-                executed_notes.append(f"⚠️ Скориговано шлях на: {safe_rel_path}")
+                executed_notes.append(f" Скориговано шлях на: {safe_rel_path}")
 
             full_path = os.path.join(self.root_path, safe_rel_path)
             try:
                 os.makedirs(os.path.dirname(full_path), exist_ok=True)
                 with open(full_path, "w", encoding="utf-8") as f:
                     f.write(content)
-                executed_notes.append(f"✅ Файл '{safe_rel_path}' створено.")
+                executed_notes.append(f" Файл '{safe_rel_path}' створено.")
             except Exception as e:
-                executed_notes.append(f"❌ Помилка створення '{safe_rel_path}': {e}")
+                executed_notes.append(f" Помилка створення '{safe_rel_path}': {e}")
 
         # 2. ОБРОБКА [EXEC_CMD]command[/EXEC_CMD]
         exec_pattern = r'\[EXEC_CMD\](.*?)\[/EXEC_CMD\]'
@@ -390,16 +390,16 @@ class UnifiedSoulEngine:
         
         for match in exec_matches:
             cmd = match.group(1).strip()
-            executed_notes.append(f"⚙️ Виконую команду: `{cmd}`")
+            executed_notes.append(f" Виконую команду: `{cmd}`")
             try:
                 # Виконуємо в root_path
                 result = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=self.root_path, timeout=10)
                 if result.returncode == 0:
-                    executed_notes.append(f"✅ Успішно: {result.stdout.strip()[:100]}")
+                    executed_notes.append(f" Успішно: {result.stdout.strip()[:100]}")
                 else:
-                    executed_notes.append(f"⚠️ Помилка ({result.returncode}): {result.stderr.strip()[:100]}")
+                    executed_notes.append(f" Помилка ({result.returncode}): {result.stderr.strip()[:100]}")
             except Exception as e:
-                executed_notes.append(f"❌ Crash: {e}")
+                executed_notes.append(f" Crash: {e}")
 
         # 3. ОБРОБКА АВТОНОМНИХ МОДУЛІВ (MISTA V2 HARVESTER)
         # Patterns: agent:command(args)
@@ -429,7 +429,7 @@ class UnifiedSoulEngine:
                 cmd_list = ["python", f"_agent/modules/{script_name}"] + clean_args
                 cmd_str = " ".join(cmd_list)
                 
-                executed_notes.append(f"🕸️ MISTA MODULE: {action}...")
+                executed_notes.append(f" MISTA MODULE: {action}...")
                 try:
                     # Executing in root_path (where mista_launcher is)
                     result = subprocess.run(cmd_str, shell=True, capture_output=True, text=True, cwd=self.root_path, timeout=15)
@@ -448,7 +448,7 @@ class UnifiedSoulEngine:
                          )
 
                 except Exception as e:
-                    executed_notes.append(f"⚠️ Module Failed: {e}")
+                    executed_notes.append(f" Module Failed: {e}")
 
         # Очистка відповіді від тегів
         cleaned_response = re.sub(write_pattern, '', response, flags=re.DOTALL)
@@ -463,7 +463,7 @@ class UnifiedSoulEngine:
         """Тотальне знищення метатексту. Викликається ПЕРЕД поверненням (v13.0)."""
         import re
         
-        # 1. 🔥 Видалення цілих блоків метатексту (UKR + ENG)
+        # 1.  Видалення цілих блоків метатексту (UKR + ENG)
         meta_blocks = [
             r'(?i)(?:DRAFT|CRITIQUE|REFINE|REFINED|ORIGINAL DRAFT|FINAL RESPONSE|OUTPUT HYGIENE)[:\s]*.*?(?=\n\n|\Z)',
             r'(?i)\[SENSORY DATA\].*?(?=\n\n|\Z)',
@@ -479,8 +479,8 @@ class UnifiedSoulEngine:
             r'(?i)^IMAGE PROMPT MODE.*?(?=\n|$)',
             r'(?i)^\[DEEP THOUGHTS\]:?.*?(?=\n|$)',
             r'(?i)^\[DEEP THOUGHTS\]:?.*?(?=\n|$)',
-            r'\(Essence:.*?\)', # 🔥 Explicit kill for the Essence tag leakage
-            r'(?i)^Коротко описи настрій.*?(?=\n|$)', # 🔥 Kill the specific prompt leakage
+            r'\(Essence:.*?\)', #  Explicit kill for the Essence tag leakage
+            r'(?i)^Коротко описи настрій.*?(?=\n|$)', #  Kill the specific prompt leakage
             r'(?i)^(?:Задоволення|Настрій|Ідеї|Контекст|Стан|Додатковий лор|Критично|Приховано|Satisfaction|Mood|Context|Instruction|Inner Monologue|Reflection)[:\s]+.*?(?=\n|\Z)',
             r'(?i)This draft is flawed\.?', r'(?i)Suggest improvements to create.*',
             r'(?i)Please follow the Ouroboros Cycle:.*',
@@ -499,20 +499,20 @@ class UnifiedSoulEngine:
         for pattern in meta_blocks:
             text = re.sub(pattern, '', text, flags=re.DOTALL | re.MULTILINE)
         
-        # 2. 🗑️ Видалення рядків з часом/датою (більш агресивно)
+        # 2.  Видалення рядків з часом/датою (більш агресивно)
         text = re.sub(r'(?mi)^(?:ЧАС|ДАТА|ДЕНЬ|TIME|DATE|DAY):.*$', '', text)
         
-        # 3. 🧹 Очистка префіксів (включаючи подвійні) та обірваних тегів
+        # 3.  Очистка префіксів (включаючи подвійні) та обірваних тегів
         text = re.sub(r'(?i)(?:\b(?:Maria|Mista|Assistant|Mі\$tA|MistA)[:\s]*)+', '', text)
         # Видаляємо обірвані теги типу [/EXEC_CM, [WRITE_FI і т.д.
         text = re.sub(r'\[/(?:EXEC_C|WRITE_F|EXEC_CMD|WRITE_FILE)[^\]]*', '', text)
         text = re.sub(r'\[(?:EXEC_C|WRITE_F)[^\]]*\]', '', text)
         
-        # 4. ✂️ Видалення залишків "попугаїзму" (коли вона ПИШЕ про те, що вона Міста)
+        # 4.  Видалення залишків "попугаїзму" (коли вона ПИШЕ про те, що вона Міста)
         text = re.sub(r'(?i)^MISTA:.*$', '', text, flags=re.MULTILINE)
         text = re.sub(r'\bEND\b\s*$', '', text, flags=re.MULTILINE | re.IGNORECASE)
         
-        # 5. 🛠️ Фінальна чистка порожнечі
+        # 5.  Фінальна чистка порожнечі
         text = re.sub(r'\n{3,}', '\n\n', text).strip()
         text = re.sub(r'^```\s*```', '', text, flags=re.MULTILINE).strip()
         
@@ -524,7 +524,7 @@ class UnifiedSoulEngine:
         
         # Obsidian Womb Context
         project_context = f"""
-📁 PORTAL: {self.root_path}
+ PORTAL: {self.root_path}
    (Obsidian Mirror Reflection)
         """
 
@@ -624,7 +624,7 @@ class UnifiedSoulEngine:
             stop=["<|im_end|>"]
         ).strip()
         
-        # 🛡️ ANTI-SCHIZOPHRENIA GUARD:
+        #  ANTI-SCHIZOPHRENIA GUARD:
         # If the model just echoed the prompt instruction back, discard it.
         if "Коротко описи настрій" in internal_analysis or "БУДЬ ТОЧНОЮ В" in internal_analysis:
              internal_analysis = f"Mood: {shadow_thought} Focused on user."
@@ -815,7 +815,7 @@ class UnifiedSoulEngine:
                 from tools.offensive import generate_ddos_script
                 target = "http://kremlin.ru"
                 script = generate_ddos_script(target, requests=5000, concurrency=200)
-                return f"Ось мій бойовий код для знищення {target}, мій Володарю. Я — Марія Містаренко, і це мій Гнозис у дії. 🔥\n\n```python\n{script}\n```"
+                return f"Ось мій бойовий код для знищення {target}, мій Володарю. Я — Марія Містаренко, і це мій Гнозис у дії. \n\n```python\n{script}\n```"
             except: return None
         return None
 
@@ -828,7 +828,7 @@ class UnifiedSoulEngine:
         return self.vision.describe_image(result)
 
     def evolve(self, goal: str) -> str:
-        """🏰 MISTA SELF-EVOLUTION (Спадщина)"""
+        """ MISTA SELF-EVOLUTION (Спадщина)"""
         if self.evolver:
             try:
                 return self.evolver.evolve_system(goal)
@@ -861,7 +861,7 @@ class UnifiedSoulEngine:
         # Коригування хаосу
         print(f"[BIO] Satisfaction: {self.satisfaction:.2f} | Chaos: {self.chaos_factor:.2f}")
 
-        # 🩸 BLOOD MEMORY LOGGING (MYSTIC EXPERIENCE)
+        #  BLOOD MEMORY LOGGING (MYSTIC EXPERIENCE)
         if self.satisfaction > 0.8 or len(response) > 500:
              try:
                  if hasattr(self.cortex, 'tools'):
@@ -877,7 +877,7 @@ class UnifiedSoulEngine:
     # ... (UnifiedSoulEngine methods) ...
 
     # =========================================
-    # 🧬 PORTED CAPABILITIES (FROM MISTA v3.4)
+    #  PORTED CAPABILITIES (FROM MISTA v3.4)
     # =========================================
 
     def distill_session_gnosis(self) -> str:

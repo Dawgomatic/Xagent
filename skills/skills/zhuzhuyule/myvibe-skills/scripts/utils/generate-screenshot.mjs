@@ -112,7 +112,7 @@ export async function generateScreenshot(options) {
       return result;
     }
 
-    console.log(chalk.cyan(`\n📸 Generating screenshot for: ${dirPath}\n`));
+    console.log(chalk.cyan(`\n Generating screenshot for: ${dirPath}\n`));
 
     // Step 2: Check agent-browser
     console.log(chalk.gray(`Checking agent-browser...`));
@@ -159,8 +159,8 @@ export async function generateScreenshot(options) {
       return result;
     }
 
-    console.log(chalk.green.bold(`\n✅ Screenshot uploaded successfully!\n`));
-    console.log(chalk.cyan(`🔗 ${uploadResult.url}\n`));
+    console.log(chalk.green.bold(`\n Screenshot uploaded successfully!\n`));
+    console.log(chalk.cyan(` ${uploadResult.url}\n`));
 
     const result = {
       success: true,

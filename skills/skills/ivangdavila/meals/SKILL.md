@@ -1,7 +1,7 @@
 ---
 name: Meals
 description: Build a personal meal planning system with weekly plans, shopping lists, and dietary tracking.
-metadata: {"clawdbot":{"emoji":"🍽️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

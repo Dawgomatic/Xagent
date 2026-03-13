@@ -122,7 +122,7 @@ try:
         with open(errors_file, "a") as ef:
             for err in parse_errors:
                 ef.write(json.dumps(err) + "\n")
-        print(f"  ⚠️  {len(parse_errors)} parse errors logged to parse-errors.jsonl", file=sys.stderr)
+        print(f"    {len(parse_errors)} parse errors logged to parse-errors.jsonl", file=sys.stderr)
     
     for cat, count in cats.most_common():
         print(f"  - {cat}: {count}")
@@ -393,12 +393,12 @@ for day, count in sorted(daily_counts.items()):
         })
 
 if anomalies:
-    print(f"⚠️  Detected {len(anomalies)} anomaly/anomalies:")
+    print(f"  Detected {len(anomalies)} anomaly/anomalies:")
     for a in anomalies:
-        emoji = "📈" if a["direction"] == "spike" else "📉"
+        emoji = "" if a["direction"] == "spike" else ""
         print(f"- {emoji} **{a['day']}**: {a['count']} events (z-score: {a['z_score']}, {a['severity']})")
 else:
-    print("✅ No anomalies detected. Event volume is within normal range.")
+    print(" No anomalies detected. Event volume is within normal range.")
     print(f"   Daily average: {avg:.1f}, std dev: {std:.1f}")
 PYANOMALY
 echo "" >> "$REPORT"
@@ -443,21 +443,21 @@ try:
                     ef.write(json.dumps(err) + "\n")
         
         if len(events) == 0:
-            checks.append("- ❌ No events captured. The loop is not running.")
+            checks.append("-  No events captured. The loop is not running.")
         elif len(events) < 3:
-            checks.append(f"- ⚠️ Only {len(events)} events. Capture rate is low.")
+            checks.append(f"-  Only {len(events)} events. Capture rate is low.")
         else:
-            checks.append(f"- ✅ {len(events)} events captured. Capture is active.")
+            checks.append(f"-  {len(events)} events captured. Capture is active.")
         
         # Check for event diversity
         types = set(e.get("type") for e in events)
         if len(types) < 2:
-            checks.append(f"- ⚠️ Only event type(s): {', '.join(types)}. Capture more event types.")
+            checks.append(f"-  Only event type(s): {', '.join(types)}. Capture more event types.")
         else:
-            checks.append(f"- ✅ Event type diversity: {', '.join(sorted(types))}")
+            checks.append(f"-  Event type diversity: {', '.join(sorted(types))}")
 
 except FileNotFoundError:
-    checks.append("- ❌ events.jsonl not found. System not initialized.")
+    checks.append("-  events.jsonl not found. System not initialized.")
 
 # Check 2: Are rules being loaded?
 rules_path = os.path.join(learning_dir, "rules.json")
@@ -466,9 +466,9 @@ try:
         fcntl.flock(f.fileno(), fcntl.LOCK_SH)
         rules = json.load(f).get("rules", [])
         fcntl.flock(f.fileno(), fcntl.LOCK_UN)
-    checks.append(f"- ✅ {len(rules)} rules in rules.json")
+    checks.append(f"-  {len(rules)} rules in rules.json")
 except (FileNotFoundError, json.JSONDecodeError):
-    checks.append("- ❌ rules.json not found or invalid")
+    checks.append("-  rules.json not found or invalid")
 
 # Check 3: Are lessons being created?
 lessons_path = os.path.join(learning_dir, "lessons.json")
@@ -477,11 +477,11 @@ try:
         fcntl.flock(f.fileno(), fcntl.LOCK_SH)
         lessons = json.load(f).get("lessons", [])
         fcntl.flock(f.fileno(), fcntl.LOCK_UN)
-    checks.append(f"- ✅ {len(lessons)} lessons in lessons.json")
+    checks.append(f"-  {len(lessons)} lessons in lessons.json")
     unpromoted = [l for l in lessons if not l.get("promoted_to_rule")]
-    checks.append(f"- ℹ️ {len(unpromoted)} lessons not yet promoted to rules")
+    checks.append(f"-  {len(unpromoted)} lessons not yet promoted to rules")
 except (FileNotFoundError, json.JSONDecodeError):
-    checks.append("- ⚠️ lessons.json not found - run init.sh to create it")
+    checks.append("-  lessons.json not found - run init.sh to create it")
 
 # Check 4: Metrics freshness
 metrics_path = os.path.join(learning_dir, "metrics.json")
@@ -490,9 +490,9 @@ try:
         fcntl.flock(f.fileno(), fcntl.LOCK_SH)
         metrics = json.load(f)
         fcntl.flock(f.fileno(), fcntl.LOCK_UN)
-    checks.append(f"- ✅ Metrics tracking since {metrics.get('started', 'unknown')}")
+    checks.append(f"-  Metrics tracking since {metrics.get('started', 'unknown')}")
 except (FileNotFoundError, json.JSONDecodeError):
-    checks.append("- ⚠️ metrics.json missing or invalid")
+    checks.append("-  metrics.json missing or invalid")
 
 for c in checks:
     print(c)

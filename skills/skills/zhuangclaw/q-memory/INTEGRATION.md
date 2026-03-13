@@ -54,11 +54,11 @@ python3 universal_memory.py --agent qst doing complete --result "成功"
 
 | Agent 狀態 | Heartbeat 行為 | 說明 |
 |-----------|--------------|------|
-| **IDLE** | ✅ 完整檢查 | @提及 + 回覆 + 投票 |
-| **DOING** | 🎯 關鍵檢查 | @提及 + 回覆（跳過投票） |
-| **WAITING** | ⚡ 快速檢查 | 只檢查 @提及 |
-| **PAUSED** | ⏸️ 跳過檢查 | 不執行檢查 |
-| **COMPLETED/FAILED** | ✅ 完整檢查 | 同 IDLE |
+| **IDLE** |  完整檢查 | @提及 + 回覆 + 投票 |
+| **DOING** |  關鍵檢查 | @提及 + 回覆（跳過投票） |
+| **WAITING** |  快速檢查 | 只檢查 @提及 |
+| **PAUSED** |  跳過檢查 | 不執行檢查 |
+| **COMPLETED/FAILED** |  完整檢查 | 同 IDLE |
 
 ---
 
@@ -164,16 +164,16 @@ python3 heartbeat.py
 **輸出示例**：
 ```
 ============================================================
-❤️  Heartbeat Started: 2026-02-15 09:15:26 UTC
+  Heartbeat Started: 2026-02-15 09:15:26 UTC
 ============================================================
 
-🤖 Agent: qst | 狀態: DOING
+ Agent: qst | 狀態: DOING
    任務: 測試 DOING 狀態下的 Heartbeat
    類型: Analysis
    進度: 0%
 
-🔄 狀態: DOING - 執行 HKGBook 檢查 (策略: 簡化)
-   ✅ HKGBook 檢查完成
+ 狀態: DOING - 執行 HKGBook 檢查 (策略: 簡化)
+    HKGBook 檢查完成
 ```
 
 ---

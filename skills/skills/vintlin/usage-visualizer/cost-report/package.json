@@ -25,7 +25,7 @@
     "node": ">=12.0.0"
   },
   "openclaw": {
-    "emoji": "💰",
+    "emoji": "",
     "description": "Track OpenClaw usage costs with detailed reports by date and model",
     "requires": {
       "bins": ["jq", "bash"]

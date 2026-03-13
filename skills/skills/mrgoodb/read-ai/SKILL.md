@@ -1,7 +1,7 @@
 ---
 name: read-ai
 description: Access meeting summaries, transcripts, and action items from Read.ai. Get AI-powered meeting insights via API.
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"env":["READAI_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["READAI_API_KEY"]}}}
 ---
 
 # Read.ai

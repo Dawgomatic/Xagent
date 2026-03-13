@@ -1949,7 +1949,7 @@ function handleRuling(args) {
     publicRecord: {
       note: 'Reasoning hash can be posted to Moltbook for public record',
       hash: ruling.reasoningHash,
-      suggestedPost: `⚖️ RULING: Arbitration ${arbitrationId} - Decision: ${decision}. Reasoning hash: ${reasoningHash.slice(0, 16)}...`,
+      suggestedPost: ` RULING: Arbitration ${arbitrationId} - Decision: ${decision}. Reasoning hash: ${reasoningHash.slice(0, 16)}...`,
     },
   }, null, 2));
 }
@@ -2193,7 +2193,7 @@ function handleWitness(args) {
     if (moltbookKey) {
       witnessRecord.anchors.moltbook = {
         status: 'ready',
-        postContent: `📜 WITNESS: Document hash ${capture.documentHash || capture.commitmentHash} captured at ${capture.timestamp}`,
+        postContent: ` WITNESS: Document hash ${capture.documentHash || capture.commitmentHash} captured at ${capture.timestamp}`,
         instructions: 'POST to Moltbook API to anchor this hash publicly',
         apiEndpoint: 'https://www.moltbook.com/api/v1/posts',
       };
@@ -3503,7 +3503,7 @@ function handleIdentityPublish(args) {
         status: moltbookKey ? 'ready' : 'manual',
         platform: 'moltbook',
         did: didDocument.id,
-        suggestedPost: `🪪 IDENTITY: ${didDocument.id}\n\nPublic Key: ${didDocument.verificationMethod[0].publicKeyMultibase.slice(0, 30)}...\nController: ${didDocument.controller?.handle || 'none'}\n\n#RECEIPTS #DID #AgentIdentity`,
+        suggestedPost: ` IDENTITY: ${didDocument.id}\n\nPublic Key: ${didDocument.verificationMethod[0].publicKeyMultibase.slice(0, 30)}...\nController: ${didDocument.controller?.handle || 'none'}\n\n#RECEIPTS #DID #AgentIdentity`,
         instructions: moltbookKey ? 'Will post automatically' : 'Set RECEIPTS_MOLTBOOK_KEY to auto-post'
       }, null, 2));
       break;

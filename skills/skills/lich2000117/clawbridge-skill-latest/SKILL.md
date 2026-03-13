@@ -3,7 +3,7 @@ name: clawbridge
 description: Run Clawbridge discovery from OpenClaw chat
 metadata:
   openclaw:
-    emoji: "🌉"
+    emoji: ""
     homepage: "https://clawbridge.cloud"
     requires:
       bins: ["clawbridge"]
@@ -62,7 +62,7 @@ Review here: https://clawbridge.cloud/app/workspaces/xxx/runs/xxx
 
 **Don't have Clawbridge yet?** Get started at:
 
-👉 **https://clawbridge.cloud**
+ **https://clawbridge.cloud**
 
 1. Create an account
 2. Create a workspace

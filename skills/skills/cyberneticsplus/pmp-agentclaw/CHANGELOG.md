@@ -3,13 +3,13 @@
 ## 1.0.0 — 2026-02-19
 
 ### Copyright Compliance Update
-- ✅ Removed all PMBOK/PMI-branded references
-- ✅ Rebranded from "PMP-certified" to "AI project management assistant"
-- ✅ Added DISCLAIMER.md with clear legal notices
-- ✅ Updated package.json description to generic terms
-- ✅ Updated README.md to remove copyrighted language
-- ✅ Updated skill.json framework description
-- ✅ Created independent implementation with academic references
+-  Removed all PMBOK/PMI-branded references
+-  Rebranded from "PMP-certified" to "AI project management assistant"
+-  Added DISCLAIMER.md with clear legal notices
+-  Updated package.json description to generic terms
+-  Updated README.md to remove copyrighted language
+-  Updated skill.json framework description
+-  Created independent implementation with academic references
 
 ### Features
 - **Core Calculations:**

@@ -44,15 +44,15 @@ def index_appendix(file_path: str, category: str = "QST_Physics"):
     """索引附錄文件"""
     path = Path(file_path)
     if not path.exists():
-        print(f"❌ 文件不存在: {file_path}")
+        print(f" 文件不存在: {file_path}")
         return
     
     content = path.read_text(encoding='utf-8')
-    print(f"📖 讀取附錄: {path.name} ({len(content)} 字符)")
+    print(f" 讀取附錄: {path.name} ({len(content)} 字符)")
     
     # 提取關鍵記憶
     memories = extract_key_memories(content, path.name)
-    print(f"🔍 發現 {len(memories)} 條關鍵記憶")
+    print(f" 發現 {len(memories)} 條關鍵記憶")
     
     # 生成索引文件
     output_dir = Path(__file__).parent.parent / "data"
@@ -83,7 +83,7 @@ def index_appendix(file_path: str, category: str = "QST_Physics"):
         ])
     
     output_file.write_text('\n'.join(lines), encoding='utf-8')
-    print(f"✅ 索引已保存: {output_file}")
+    print(f" 索引已保存: {output_file}")
     
     # 同時保存到 QST 記憶庫
     from qst_memory import save_memory
@@ -93,7 +93,7 @@ def index_appendix(file_path: str, category: str = "QST_Physics"):
             category=category,
             source=f"appendix:{mem['source']}"
         )
-    print(f"✅ 已導入 {len(memories)} 條到 QST 記憶庫")
+    print(f" 已導入 {len(memories)} 條到 QST 記憶庫")
 
 
 if __name__ == "__main__":

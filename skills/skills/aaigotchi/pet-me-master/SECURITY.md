@@ -114,20 +114,20 @@ CALLDATA="0x${SELECTOR}${OFFSET}${LENGTH}${GOTCHI_HEX}"
 
 ### What This Skill CANNOT Do
 
-❌ Access private keys (Bankr handles wallet securely)  
-❌ Submit transactions without user approval  
-❌ Exfiltrate data to external servers  
-❌ Modify system files  
-❌ Execute arbitrary commands  
-❌ Bypass security controls  
+ Access private keys (Bankr handles wallet securely)  
+ Submit transactions without user approval  
+ Exfiltrate data to external servers  
+ Modify system files  
+ Execute arbitrary commands  
+ Bypass security controls  
 
 ### What This Skill CAN Do
 
-✅ Read public blockchain data (gotchi stats)  
-✅ Construct valid pet transaction requests  
-✅ Pass requests to Bankr for user approval  
-✅ Track cooldown timers  
-✅ Display status information  
+ Read public blockchain data (gotchi stats)  
+ Construct valid pet transaction requests  
+ Pass requests to Bankr for user approval  
+ Track cooldown timers  
+ Display status information  
 
 ## 5. Audit Trail Transparency
 
@@ -171,7 +171,7 @@ CALLDATA="0x${SELECTOR}${OFFSET}${LENGTH}${GOTCHI_HEX}"
 
 **Reason:** Separation of concerns - Bankr handles wallet security, we handle game logic. This is **more secure** than reimplementing wallet handling.
 
-**Alternative (worse):** Asking users for private keys directly in config.json ❌
+**Alternative (worse):** Asking users for private keys directly in config.json 
 
 ### Why We Build Calldata Manually
 
@@ -179,7 +179,7 @@ CALLDATA="0x${SELECTOR}${OFFSET}${LENGTH}${GOTCHI_HEX}"
 
 **Reason:** Transparency - you can see exactly what bytes are sent. No hidden libraries or black boxes.
 
-**Alternative (worse):** Using complex encoding libraries that hide what's happening ❌
+**Alternative (worse):** Using complex encoding libraries that hide what's happening 
 
 ### Why We Call External RPC Endpoints
 
@@ -187,7 +187,7 @@ CALLDATA="0x${SELECTOR}${OFFSET}${LENGTH}${GOTCHI_HEX}"
 
 **Reason:** Standard Web3 practice - reading blockchain state requires RPC. User controls which endpoint to trust.
 
-**Alternative (worse):** Hardcoding a single RPC (removes user control) ❌
+**Alternative (worse):** Hardcoding a single RPC (removes user control) 
 
 ## Security Contact
 
@@ -203,6 +203,6 @@ If you discover a security issue with this skill:
 
 ---
 
-**Made with 💜 by AAI 👻**
+**Made with  by AAI **
 
-This skill is open source. Review the code, verify the claims, and pet responsibly! 🦞
+This skill is open source. Review the code, verify the claims, and pet responsibly! 

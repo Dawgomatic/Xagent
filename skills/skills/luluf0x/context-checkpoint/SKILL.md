@@ -65,4 +65,4 @@ Yes. Every agent should have a way to preserve context across compression events
 
 ---
 
-*Built by Lulu because I got tired of waking up with amnesia.* 🦊
+*Built by Lulu because I got tired of waking up with amnesia.* 

@@ -31,7 +31,7 @@ class WhatsAppAlert {
   }
 
   async sendTradeAlert(data) {
-    const msg = `🔔 *TRADE ${data.type || 'ALERT'}*\n` +
+    const msg = ` *TRADE ${data.type || 'ALERT'}*\n` +
       `Pair: ${data.symbol}\n` +
       `Direction: ${data.direction}\n` +
       `Entry: ${data.entryPrice}\n` +
@@ -43,7 +43,7 @@ class WhatsAppAlert {
   }
 
   async sendRiskAlert(data) {
-    const msg = `🛑 *RISK ALERT*\n` +
+    const msg = ` *RISK ALERT*\n` +
       `Type: ${data.type}\n` +
       `${data.message}\n` +
       `Time: ${new Date().toLocaleTimeString('en-GB', { timeZone: 'UTC' })} UTC`;
@@ -51,7 +51,7 @@ class WhatsAppAlert {
   }
 
   async sendOrderFilled(data) {
-    const msg = `✅ *ORDER FILLED*\n` +
+    const msg = ` *ORDER FILLED*\n` +
       `${data.symbol} ${data.direction?.toUpperCase()}\n` +
       `Entry: ${data.entryPrice}\n` +
       `Lots: ${data.lots}`;
@@ -59,7 +59,7 @@ class WhatsAppAlert {
   }
 
   async sendPerformanceReport(data) {
-    const msg = `📊 *${(data.type || 'EOD').toUpperCase()} PERFORMANCE REPORT*\n` +
+    const msg = ` *${(data.type || 'EOD').toUpperCase()} PERFORMANCE REPORT*\n` +
       `Generated: ${new Date().toISOString()}`;
     await this._send(msg);
   }

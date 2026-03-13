@@ -24,12 +24,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - JSON Schema validation for configuration
 
 ### Features
-- ✅ HTTP/SSE transport for MCP protocol
-- ✅ Multi-server support
-- ✅ Automatic tool registration
-- ✅ Error handling and logging
-- ✅ Configurable timeouts and retries
-- ✅ Session persistence across requests
+-  HTTP/SSE transport for MCP protocol
+-  Multi-server support
+-  Automatic tool registration
+-  Error handling and logging
+-  Configurable timeouts and retries
+-  Session persistence across requests
 
 ### Technical Details
 - Based on `@modelcontextprotocol/sdk` v0.5.0
@@ -86,5 +86,5 @@ For issues, questions, or feature requests:
 
 ---
 
-**Maintained by:** Lob 🦞  
+**Maintained by:** Lob   
 **License:** MIT

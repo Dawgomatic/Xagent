@@ -208,7 +208,7 @@ MATERIAL:
 	// Write insights to daily notes
 	if len(result.Insights) > 0 || len(result.Patterns) > 0 {
 		var dreamNote strings.Builder
-		dreamNote.WriteString("## 💭 Dream Mode Reflection\n\n")
+		dreamNote.WriteString("##  Dream Mode Reflection\n\n")
 
 		if len(result.Patterns) > 0 {
 			dreamNote.WriteString("### Patterns\n")
@@ -249,7 +249,7 @@ MATERIAL:
 	}
 
 	if cb != nil && len(result.Insights) > 0 {
-		cb(fmt.Sprintf("💭 While reflecting during idle time, I noticed: %s", result.Insights[0]))
+		cb(fmt.Sprintf(" While reflecting during idle time, I noticed: %s", result.Insights[0]))
 	}
 
 	logger.InfoCF("dream", "Dream mode complete",

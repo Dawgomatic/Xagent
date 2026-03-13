@@ -76,7 +76,7 @@ async function main() {
     output(result, true);
   } else {
     console.log('');
-    console.log('✅ Platform linked!');
+    console.log(' Platform linked!');
     console.log('');
     console.log(`Identity: ${keyData.identityHash}`);
     console.log('Linked platforms:');

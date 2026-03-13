@@ -1,7 +1,7 @@
 ---
 name: Traefik
 description: Avoid common Traefik mistakes — router priority, TLS configuration, Docker labels syntax, and middleware ordering.
-metadata: {"clawdbot":{"emoji":"🔀","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Router Basics

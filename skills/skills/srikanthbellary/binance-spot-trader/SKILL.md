@@ -95,7 +95,7 @@ tail -50 trades.jsonl
 tail -f trader.log
 ```
 
-## ⚠️ Security Considerations
+##  Security Considerations
 
 - **NEVER enable withdrawal on API keys** — trading only
 - **IP-restrict your API keys** on Binance

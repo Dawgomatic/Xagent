@@ -47,7 +47,7 @@ def cmd_init(args):
     6. 世界观 (Phase 5) - 确认
     """
     print("\n" + "="*60)
-    print("📖 阴间外卖 - 初始化向导")
+    print(" 阴间外卖 - 初始化向导")
     print("="*60 + "\n")
     
     # ========== Step 1: 书名、类型、字数 ==========
@@ -56,11 +56,11 @@ def cmd_init(args):
     
     # Get book info interactively if not provided
     if not args.title:
-        args.title = input("📝 书名: ").strip()
+        args.title = input(" 书名: ").strip()
     if not args.genre:
-        args.genre = input("📝 类型 (都市/玄幻/仙侠...): ").strip()
+        args.genre = input(" 类型 (都市/玄幻/仙侠...): ").strip()
     if not args.words or args.words == 100000:
-        words_input = input("📝 总字数 (默认100000): ").strip()
+        words_input = input(" 总字数 (默认100000): ").strip()
         if words_input:
             args.words = int(words_input)
     
@@ -68,8 +68,8 @@ def cmd_init(args):
     print(f"  类型: {args.genre}")
     print(f"  字数: {args.words:,}")
     
-    if not wait_for_confirmation("\n✅ 确认基本配置? (y/n): "):
-        print("❌ 已取消")
+    if not wait_for_confirmation("\n 确认基本配置? (y/n): "):
+        print(" 已取消")
         sys.exit(0)
     
     # ========== Step 2: 目录位置 ==========
@@ -89,12 +89,12 @@ def cmd_init(args):
     
     print(f"\n  存放目录: {base_dir}")
     
-    if not wait_for_confirmation("\n✅ 确认存放目录? (y/n): "):
-        print("❌ 已取消")
+    if not wait_for_confirmation("\n 确认存放目录? (y/n): "):
+        print(" 已取消")
         sys.exit(0)
     
     # Create workspace and run phases 1-5 with confirmation at each step
-    print("\n🚀 开始初始化...")
+    print("\n 开始初始化...")
     workspace = WorkspaceManager(base_dir)
     runner = PhaseRunner(workspace)
     
@@ -116,7 +116,7 @@ def cmd_init(args):
     )
     
     run_dir = results['run_dir']
-    print(f"\n✅ Phase 1 完成: {run_dir}")
+    print(f"\n Phase 1 完成: {run_dir}")
     
     # Phase 2: Style Guide - NEEDS CONFIRMATION
     print("\n" + "="*50)
@@ -128,8 +128,8 @@ def cmd_init(args):
     print(f"\n  已生成: {run_dir}/0-config/style_guide.md")
     print("\n  请查看以上文件内容")
     
-    if not wait_for_confirmation("\n✅ 确认风格指南? (y/n): "):
-        print("❌ 已取消，请修改后重新运行")
+    if not wait_for_confirmation("\n 确认风格指南? (y/n): "):
+        print(" 已取消，请修改后重新运行")
         sys.exit(0)
     
     # Phase 3: Main Outline - NEEDS CONFIRMATION
@@ -142,8 +142,8 @@ def cmd_init(args):
     print(f"\n  已生成: {run_dir}/1-outline/1-main-outline.md")
     print("\n  请查看以上文件内容")
     
-    if not wait_for_confirmation("\n✅ 确认主线大纲? (y/n): "):
-        print("❌ 已取消，请修改后重新运行")
+    if not wait_for_confirmation("\n 确认主线大纲? (y/n): "):
+        print(" 已取消，请修改后重新运行")
         sys.exit(0)
     
     # Phase 4: Chapter Planning - NEEDS CONFIRMATION
@@ -157,8 +157,8 @@ def cmd_init(args):
     print(f"  已生成: {run_dir}/1-outline/5-chapter-outlines.json")
     print("\n  请查看以上文件内容")
     
-    if not wait_for_confirmation("\n✅ 确认章节规划? (y/n): "):
-        print("❌ 已取消，请修改后重新运行")
+    if not wait_for_confirmation("\n 确认章节规划? (y/n): "):
+        print(" 已取消，请修改后重新运行")
         sys.exit(0)
     
     # Phase 5: World Building - NEEDS CONFIRMATION
@@ -171,8 +171,8 @@ def cmd_init(args):
     print(f"\n  已生成: {run_dir}/3-world/3-world-building.md")
     print("\n  请查看以上文件内容")
     
-    if not wait_for_confirmation("\n✅ 确认世界观设定? (y/n): "):
-        print("❌ 已取消，请修改后重新运行")
+    if not wait_for_confirmation("\n 确认世界观设定? (y/n): "):
+        print(" 已取消，请修改后重新运行")
         sys.exit(0)
     
     # Phase 5.5: Alignment Check
@@ -182,11 +182,11 @@ def cmd_init(args):
     runner.phase5_alignment_check()
     
     print("\n" + "="*60)
-    print("🎉 初始化完成！")
+    print(" 初始化完成！")
     print("="*60)
     print(f"  Run ID: {results['run_id']}")
     print(f"  路径: {run_dir}")
-    print("\n📝 下一步:")
+    print("\n 下一步:")
     print(f"  1. 查看大纲: {run_dir}/1-outline/1-main-outline.md")
     print(f"  2. 查看世界观: {run_dir}/3-world/3-world-building.md")
     print(f"  3. 开始写作: python -m scripts.v2.cli write --run-dir \"{run_dir}\"")
@@ -200,11 +200,11 @@ def cmd_write(args):
     run_dir = Path(args.run_dir)
     
     if not run_dir.exists():
-        print(f"❌ 目录不存在: {run_dir}")
+        print(f" 目录不存在: {run_dir}")
         sys.exit(1)
     
     print("\n" + "="*60)
-    print("📖 开始写作 - Phase 6")
+    print(" 开始写作 - Phase 6")
     print("="*60)
     print(f"  目录: {run_dir}")
     print(f"  模式: {args.mode}")
@@ -230,15 +230,15 @@ def cmd_write(args):
     
     print(f"  将写入章节: {chapters}")
     
-    if not wait_for_confirmation("\n✅ 确认开始写作? (y/n): "):
-        print("❌ 已取消")
+    if not wait_for_confirmation("\n 确认开始写作? (y/n): "):
+        print(" 已取消")
         sys.exit(0)
     
     # Acquire lock
     run_lock = RunLock(run_dir)
     lock_success, lock_error = run_lock.acquire(mode=args.mode or "manual")
     if not lock_success:
-        print(f"❌ 无法获取锁: {lock_error}")
+        print(f" 无法获取锁: {lock_error}")
         sys.exit(1)
     
     try:
@@ -253,7 +253,7 @@ def cmd_write(args):
         
         for chapter_num in chapters:
             print("\n" + "="*50)
-            print(f"✍️  正在写作第 {chapter_num} 章...")
+            print(f"  正在写作第 {chapter_num} 章...")
             print("="*50)
             
             result = loop.write_chapter(chapter_num)
@@ -269,14 +269,14 @@ def cmd_write(args):
             # Ask for confirmation before next chapter
             if chapter_num < chapters[-1]:
                 print("\n" + "-"*40)
-                if not wait_for_confirmation(f"\n✅ 第 {chapter_num} 章完成，继续写第 {chapter_num+1} 章? (y/n): "):
-                    print("❌ 已暂停")
+                if not wait_for_confirmation(f"\n 第 {chapter_num} 章完成，继续写第 {chapter_num+1} 章? (y/n): "):
+                    print(" 已暂停")
                     break
     
     finally:
         run_lock.release()
     
-    print("\n✅ 写作暂停或完成")
+    print("\n 写作暂停或完成")
 
 
 def main():
@@ -338,7 +338,7 @@ def main():
                 print(f"  状态: {state.get('qc_status', 'N/A')}")
                 print(f"  forced_streak: {state.get('forced_streak', 0)}")
         else:
-            print(f"❌ 目录不存在: {run_dir}")
+            print(f" 目录不存在: {run_dir}")
     elif args.command == 'test':
         print("Running tests...")
         print("✓ All modules importable")

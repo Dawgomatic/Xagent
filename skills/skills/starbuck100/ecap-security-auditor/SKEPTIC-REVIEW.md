@@ -10,30 +10,30 @@
 
 ### Haben die Tester wirklich getestet?
 
-**Adversarial-Tester (PHASE3-ADVERSARIAL.md): ✅ Echt getestet.**
+**Adversarial-Tester (PHASE3-ADVERSARIAL.md):  Echt getestet.**
 - Behauptungen stimmen mit Code überein: `API_URL` ist tatsächlich hardcoded in verify.sh (Zeile 7), URL-Encoding via `jq -sRr @uri` ist da (Zeile 16), Size-Check in upload.sh ist da (512000 Bytes).
 - "numeric" Warnung: Tester sagt "noch 2x vorhanden aber in Warnkontext". Stimmt — Zeilen 333, 462, 468 warnen alle GEGEN numerische IDs. Korrekt beurteilt.
 
-**Integration-Tester (PHASE3-INTEGRATION.md): ✅ Echt getestet.**
+**Integration-Tester (PHASE3-INTEGRATION.md):  Echt getestet.**
 - Report ID 65 wurde tatsächlich erstellt (mein Test-Upload bekam ID 66 — sequenziell plausibel).
 - Hash Mismatches stimmen — lokale Dateien wurden geändert, Registry hat alte Hashes. Korrekte Analyse.
 
-**Docs-Tester (PHASE3-DOCS.md): ✅ Solide Analyse.**
+**Docs-Tester (PHASE3-DOCS.md):  Solide Analyse.**
 - Konsistenz-Claims verifiziert: result-Werte, Pattern IDs, risk_score Ranges stimmen tatsächlich überein.
 
 ### Meine eigenen Tests
 
 | Test | Ergebnis | Bewertung |
 |------|----------|-----------|
-| `verify.sh ecap-security-auditor` | ✅ Funktioniert. 6 Dateien dynamisch aus API. 4 Mismatches (erwartet). | Script ist solide. |
-| `upload.sh /tmp/test-report.json` | ✅ Upload erfolgreich (Report ID 66). JSON validiert, Response korrekt. | Funktioniert einwandfrei. |
-| SKILL.md "numeric id" Suche | ✅ Nur in Warn-Kontext (3 Stellen). Kein falscher Gebrauch. | Sauber. |
+| `verify.sh ecap-security-auditor` |  Funktioniert. 6 Dateien dynamisch aus API. 4 Mismatches (erwartet). | Script ist solide. |
+| `upload.sh /tmp/test-report.json` |  Upload erfolgreich (Report ID 66). JSON validiert, Response korrekt. | Funktioniert einwandfrei. |
+| SKILL.md "numeric id" Suche |  Nur in Warn-Kontext (3 Stellen). Kein falscher Gebrauch. | Sauber. |
 
 ---
 
 ## 2. Was ALLE übersehen haben
 
-### 🔴 Echte Probleme
+###  Echte Probleme
 
 **P1: Race Condition in verify.sh (TOCTOU)**
 - verify.sh holt Hashes von der API, dann prüft es lokale Dateien sequenziell. Zwischen API-Fetch und lokalem Hash kann eine Datei geändert werden.
@@ -68,7 +68,7 @@
 - Integration-Tester hat es bemerkt (einziger Abzugspunkt). Bestätige: Es gibt keinen `integrity-update.sh` oder Anleitung wie man nach SKILL.md-Änderungen die Registry-Hashes aktualisiert.
 - **Bewertung:** Wichtig für Maintainer, nicht für Konsumenten.
 
-### 🟡 Kleinere Findings
+###  Kleinere Findings
 
 **P7: `stat -c '%a'` vs `stat -f '%Lp'` in verify.sh**
 - Zeilen 69-70 versuchen Linux und macOS Syntax. Gut! Aber: auf busybox/Alpine gibt stat manchmal andere Flags.
@@ -88,30 +88,30 @@
 ### JSON Format: SKILL.md vs audit-prompt.md
 | Feld | SKILL.md | audit-prompt.md | Match? |
 |------|----------|-----------------|--------|
-| `skill_slug` | ✅ | ✅ | ✅ |
-| `risk_score` | ✅ | ✅ | ✅ |
-| `result` | ✅ | ✅ | ✅ |
-| `findings_count` | ✅ | ✅ | ✅ |
-| `findings[]` | ✅ | ✅ | ✅ |
-| Finding fields | severity, pattern_id, title, description, file, line, content, confidence, remediation | Identisch | ✅ |
+| `skill_slug` |  |  |  |
+| `risk_score` |  |  |  |
+| `result` |  |  |  |
+| `findings_count` |  |  |  |
+| `findings[]` |  |  |  |
+| Finding fields | severity, pattern_id, title, description, file, line, content, confidence, remediation | Identisch |  |
 
-**Ergebnis: 100% identisch.** ✅
+**Ergebnis: 100% identisch.** 
 
 ### Pattern ID Listen
 - SKILL.md: 15 Prefixes
 - audit-prompt.md: 15 Prefixes
-- **Identisch.** ✅ (DESER, DESTRUCT, MANUAL, OBFUSC sind in beiden)
+- **Identisch.**  (DESER, DESTRUCT, MANUAL, OBFUSC sind in beiden)
 
 ### curl-Befehle in SKILL.md
 | Zeile | Befehl | Syntaktisch korrekt? | Copy-pasteable? |
 |-------|--------|---------------------|-----------------|
-| 99 | `curl -s "https://...?package=PACKAGE_NAME"` | ✅ | ✅ (nach Ersetzung) |
-| 102 | `curl -s "https://...?package=PACKAGE_NAME"` | ✅ | ✅ |
-| 288 | `curl -s "..." -H "Authorization: Bearer $ECAP_API_KEY"` | ✅ | ✅ |
-| 292-295 | POST mit -d JSON | ✅ | ✅ |
-| 334-337 | POST /fix | ✅ | ✅ |
+| 99 | `curl -s "https://...?package=PACKAGE_NAME"` |  |  (nach Ersetzung) |
+| 102 | `curl -s "https://...?package=PACKAGE_NAME"` |  |  |
+| 288 | `curl -s "..." -H "Authorization: Bearer $ECAP_API_KEY"` |  |  |
+| 292-295 | POST mit -d JSON |  |  |
+| 334-337 | POST /fix |  |  |
 
-**Alle curl-Befehle syntaktisch korrekt und copy-pasteable.** ✅
+**Alle curl-Befehle syntaktisch korrekt und copy-pasteable.** 
 
 ---
 

@@ -30,7 +30,7 @@ await sendConfirmation(
 **Without cancel handler:**
 
 ```typescript
-// Default cancel handler sends "❌ Cancelled"
+// Default cancel handler sends " Cancelled"
 await sendConfirmation(
   ctx,
   "Proceed with action?",

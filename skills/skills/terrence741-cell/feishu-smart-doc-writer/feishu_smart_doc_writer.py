@@ -178,7 +178,7 @@ class FeishuDocWriter:
         doc_url = f"https://feishu.cn/docx/{doc_token}"
         
         if self.config.show_progress:
-            print(f"✅ 文档创建成功: {doc_url}")
+            print(f" 文档创建成功: {doc_url}")
         
         # 第二步：分批追加内容
         success = await self._write_content_in_chunks(doc_token, content)
@@ -238,7 +238,7 @@ class FeishuDocWriter:
         chunks = self.chunker.chunk_content(content)
         
         if self.config.show_progress:
-            print(f"📝 内容已分割为 {len(chunks)} 块，开始写入...")
+            print(f" 内容已分割为 {len(chunks)} 块，开始写入...")
         
         for i, chunk in enumerate(chunks, 1):
             if self.config.show_progress:
@@ -247,7 +247,7 @@ class FeishuDocWriter:
             success = await self._append_chunk_with_retry(doc_token, chunk)
             
             if not success:
-                print(f"❌ 第 {i} 块写入失败")
+                print(f" 第 {i} 块写入失败")
                 return False
             
             # 添加小延迟，避免API限流
@@ -255,7 +255,7 @@ class FeishuDocWriter:
                 await asyncio.sleep(0.5)
         
         if self.config.show_progress:
-            print(f"✅ 全部 {len(chunks)} 块写入完成")
+            print(f" 全部 {len(chunks)} 块写入完成")
         
         return True
     
@@ -318,13 +318,13 @@ class FeishuDocWriter:
             })
             
             if self.config.show_progress:
-                print(f"✅ 文档所有权已转移给 {owner_openid}")
+                print(f" 文档所有权已转移给 {owner_openid}")
             
             return True
             
         except Exception as e:
             if self.config.show_progress:
-                print(f"⚠️ 所有权转移失败: {e}")
+                print(f" 所有权转移失败: {e}")
             
             # 转移失败不影响文档创建，记录错误但不抛出
             return False

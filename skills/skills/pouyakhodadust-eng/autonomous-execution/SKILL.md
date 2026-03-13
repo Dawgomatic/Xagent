@@ -3,7 +3,7 @@ name: autonomous-execution
 version: 1.0.0
 description: Execute tasks end-to-end while respecting safety boundaries. Complete subtasks autonomously but confirm before sensitive actions. Handles errors intelligently within clear limits.
 metadata:
-  { "openclaw": { "emoji": "🚀", "tags": ["autonomy", "execution", "productivity"], "safety": "review-before-use" } }
+  { "openclaw": { "emoji": "", "tags": ["autonomy", "execution", "productivity"], "safety": "review-before-use" } }
 ---
 
 # Autonomous Execution Skill
@@ -38,7 +38,7 @@ When given multiple items:
 - Using allowed tools within their permissions
 - Retrying failed read operations
 
-### Example - RIGHT ✅
+### Example - RIGHT 
 ```
 Task: "Research these 5 topics"
 → Research topic 1
@@ -48,7 +48,7 @@ Task: "Research these 5 topics"
 → "Done! Here's the summary: [all 5]"
 ```
 
-### Example - ASK FIRST ❌
+### Example - ASK FIRST 
 ```
 Task: "Research these APIs and then email the results to john@example.com"
 → Research topics (autonomous)

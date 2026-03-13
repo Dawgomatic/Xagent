@@ -33,9 +33,9 @@ Find discussions, discover subreddits, look up users, and export results — all
 
 ---
 
-## ⚡ Setup
+##  Setup
 
-👉 **Follow [`xpoz-setup`](https://clawhub.ai/skills/xpoz-setup)** — handles auth automatically. User just clicks "Authorize" once.
+ **Follow [`xpoz-setup`](https://clawhub.ai/skills/xpoz-setup)** — handles auth automatically. User just clicks "Authorize" once.
 
 ---
 
@@ -130,7 +130,7 @@ mcporter call xpoz.checkOperationStatus operationId=op_datadump_xyz
 | **Auth** | OAuth + client ID + secret | One-click Xpoz auth |
 | **Rate limits** | 100 requests/min | Handled automatically |
 | **Search quality** | Reddit's search is notoriously poor | Full-text indexed, boolean operators |
-| **Comments** | No keyword search for comments | ✅ Full comment search |
+| **Comments** | No keyword search for comments |  Full comment search |
 | **Export** | Manual pagination | One-click CSV (64K rows) |
 | **Historical** | Limited | Back to 2019 |
 

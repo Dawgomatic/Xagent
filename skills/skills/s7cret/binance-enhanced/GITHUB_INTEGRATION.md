@@ -1,9 +1,9 @@
 # Интеграция GitHub с OpenClaw
 
-## 🎯 Цель
+##  Цель
 Автоматическая синхронизация изменений из GitHub репозитория с навыками OpenClaw.
 
-## 🔗 Варианты интеграции
+##  Варианты интеграции
 
 ### Вариант 1: GitHub Actions (рекомендуется)
 
@@ -28,10 +28,10 @@ git push -u origin main
 3. **Workflow автоматически запустится** при каждом push в main или создании релиза.
 
 #### Что делает workflow:
-- ✅ Проверяет код
-- ✅ Создает архив навыка
-- ✅ Загружает в OpenClaw через API
-- ✅ Уведомляет об успехе/ошибке
+-  Проверяет код
+-  Создает архив навыка
+-  Загружает в OpenClaw через API
+-  Уведомляет об успехе/ошибке
 
 ### Вариант 2: Webhook Handler (авто-обновление)
 
@@ -57,10 +57,10 @@ python3 webhook-handler.py
 5. Events: `Push events` и `Release events`
 
 #### Что делает webhook handler:
-- ✅ Автоматически обновляет навык при push в репозиторий
-- ✅ Проверяет подпись GitHub
-- ✅ Запускает install.sh при обновлении
-- ✅ Перезагружает навык в OpenClaw
+-  Автоматически обновляет навык при push в репозиторий
+-  Проверяет подпись GitHub
+-  Запускает install.sh при обновлении
+-  Перезагружает навык в OpenClaw
 
 ### Вариант 3: Ручная синхронизация
 
@@ -76,11 +76,11 @@ SKILLS_DIR="$HOME/.openclaw/skills"
 cd "$SKILLS_DIR"
 
 if [ -d "$SKILL_NAME" ]; then
-    echo "📦 Updating existing skill..."
+    echo " Updating existing skill..."
     cd "$SKILL_NAME"
     git pull origin main
 else
-    echo "📦 Cloning new skill..."
+    echo " Cloning new skill..."
     git clone "$REPO_URL" "$SKILL_NAME"
     cd "$SKILL_NAME"
 fi
@@ -94,10 +94,10 @@ fi
 # Перезагрузите навык в OpenClaw
 openclaw skill reload "$SKILL_NAME"
 
-echo "✅ Skill '$SKILL_NAME' synchronized successfully!"
+echo " Skill '$SKILL_NAME' synchronized successfully!"
 ```
 
-## 🔧 Конфигурация OpenClaw
+##  Конфигурация OpenClaw
 
 ### Настройка API доступа:
 ```bash
@@ -122,7 +122,7 @@ openclaw api-key create --name github-actions --expires 365d
 }
 ```
 
-## 🚀 Быстрый старт
+##  Быстрый старт
 
 ### Шаг 1: Подготовка репозитория
 ```bash
@@ -161,7 +161,7 @@ git commit -m "Add GitHub integration"
 git push origin main
 ```
 
-## 📊 Мониторинг интеграции
+##  Мониторинг интеграции
 
 ### GitHub Actions статус:
 - Зайдите в Actions → Sync to OpenClaw
@@ -183,11 +183,11 @@ openclaw skill list
 openclaw skill status binance-enhanced
 ```
 
-## 🐛 Устранение неполадок
+##  Устранение неполадок
 
 ### Ошибка: Invalid API key
 ```
-❌ Authentication failed: Invalid API key
+ Authentication failed: Invalid API key
 ```
 **Решение:**
 1. Проверьте OPENCLAW_API_KEY в GitHub Secrets
@@ -196,7 +196,7 @@ openclaw skill status binance-enhanced
 
 ### Ошибка: Permission denied
 ```
-❌ Permission denied: cannot write to skills directory
+ Permission denied: cannot write to skills directory
 ```
 **Решение:**
 ```bash
@@ -207,7 +207,7 @@ chmod 755 ~/.openclaw/skills
 
 ### Ошибка: Webhook delivery failed
 ```
-❌ Webhook delivery failed: 401 Unauthorized
+ Webhook delivery failed: 401 Unauthorized
 ```
 **Решение:**
 1. Проверьте GITHUB_WEBHOOK_SECRET
@@ -216,7 +216,7 @@ chmod 755 ~/.openclaw/skills
 
 ### Ошибка: Skill not found
 ```
-❌ Skill 'binance-enhanced' not found
+ Skill 'binance-enhanced' not found
 ```
 **Решение:**
 ```bash
@@ -224,7 +224,7 @@ chmod 755 ~/.openclaw/skills
 openclaw skill create binance-enhanced --path /path/to/skill
 ```
 
-## 🔄 Автоматическое обновление зависимостей
+##  Автоматическое обновление зависимостей
 
 ### Обновление Python зависимостей:
 ```yaml
@@ -264,7 +264,7 @@ on:
       - 'package.json'
 ```
 
-## 🛡️ Безопасность
+##  Безопасность
 
 ### Best practices:
 1. **Используйте Secrets** для API ключей
@@ -282,7 +282,7 @@ openclaw api-key create \
   --expires 90d
 ```
 
-## 📈 Расширенные сценарии
+##  Расширенные сценарии
 
 ### Мульти-окружение:
 ```yaml
@@ -323,7 +323,7 @@ deploy-ab-test:
       run: openclaw skill upload --tags version-b --percentage 50
 ```
 
-## 🤝 Поддержка
+##  Поддержка
 
 ### Полезные ссылки:
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
@@ -337,4 +337,4 @@ deploy-ab-test:
 
 ---
 
-**🚀 Готово к интеграции!** Настройте один из вариантов и наслаждайтесь автоматической синхронизацией между GitHub и OpenClaw.
+** Готово к интеграции!** Настройте один из вариантов и наслаждайтесь автоматической синхронизацией между GitHub и OpenClaw.

@@ -71,7 +71,7 @@ If the configuration file doesn't exist or user requests setup:
 1. Read the OpenClaw config at `~/.openclaw/openclaw.json` to get current model
 2. Read `~/.openclaw/workspace/switch-modes.json` to get mode mappings
 3. Determine which mode is currently active by matching the current model
-4. Display: `✅ Currently in [MODE] mode using [MODEL_ID]`
+4. Display: ` Currently in [MODE] mode using [MODEL_ID]`
 
 ### 4. Handle Mode Switch Commands
 
@@ -94,7 +94,7 @@ When user requests a mode switch:
 
 4. **Confirm to user**:
    ```
-   ✅ [MODE] mode activated
+    [MODE] mode activated
    Now using: [MODEL_ID]
    ```
 
@@ -106,7 +106,7 @@ When user requests a mode switch:
 User: eco mode
 Agent: [reads switch-modes.json, gets model for "eco"]
 Agent: [updates openclaw.json with new model]
-Agent: ✅ ECO mode activated
+Agent:  ECO mode activated
       Now using: anthropic/claude-3.5-haiku
 ```
 
@@ -116,7 +116,7 @@ Agent: ✅ ECO mode activated
 User: /modes status
 Agent: [reads openclaw.json for current model]
 Agent: [reads switch-modes.json for mode mappings]
-Agent: ✅ Currently in BALANCED mode using anthropic/claude-sonnet-4-5
+Agent:  Currently in BALANCED mode using anthropic/claude-sonnet-4-5
 ```
 
 ### Example 3: First Time Setup
@@ -125,7 +125,7 @@ Agent: ✅ Currently in BALANCED mode using anthropic/claude-sonnet-4-5
 User: /modes setup
 Agent: [uses AskUserQuestion for each mode]
 Agent: [creates ~/.openclaw/workspace/switch-modes.json]
-Agent: ✅ Setup complete! You can now use:
+Agent:  Setup complete! You can now use:
       - eco mode
       - balanced mode
       - smart mode

@@ -8,7 +8,7 @@ license: MIT
 keywords: [adhd, body-doubling, focus-session, accountability, pomodoro, productivity, founders, neurodivergent, executive-function, task-initiation, procrastination, focus, micro-steps, dopamine]
 metadata:
   clawdbot:
-    emoji: "🐱⚡"
+    emoji: ""
     tags: ["adhd", "body-doubling", "accountability", "founders", "focus", "neurodivergent", "executive-function", "productivity", "pomodoro", "startup"]
     category: productivity
     requires: {}
@@ -27,7 +27,7 @@ metadata:
     related_skills: ["adhd-founder-planner"]
 ---
 
-# ADHD Body Doubling Skill v2.1 🐱⚡
+# ADHD Body Doubling Skill v2.1 
 
 **Part of the [ADHD-founder.com](https://adhd-founder.com) Ecosystem**
 *"German Engineering for the ADHD Brain"*
@@ -75,26 +75,26 @@ Provides punk-style body doubling sessions for ADHD founders that:
 
 **Response:**
 ```
-🐱⚡ BODY DOUBLING SESSION (50 min)
+ BODY DOUBLING SESSION (50 min)
 
-1️⃣ What are you working on?
+ What are you working on?
 > [User replies]
 
-2️⃣ What's the FIRST micro-step?
+ What's the FIRST micro-step?
    (Something under 2 minutes)
 > [User replies]
 
-3️⃣ That's good, but what's the SMALLEST possible version of that?
+ That's good, but what's the SMALLEST possible version of that?
 > [User replies]
 
-4️⃣ Perfect. Do that NOW. I'll wait.
+ Perfect. Do that NOW. I'll wait.
 
-   ⚡ Timer started. Check-ins at 15 and 35 min.
+    Timer started. Check-ins at 15 and 35 min.
 ```
 
 **At 15 min check-in:**
 ```
-⏰ CHECK-IN (15 min)
+ CHECK-IN (15 min)
 
 Where are you at? SPECIFICALLY:
 - What did you complete?
@@ -106,7 +106,7 @@ Be honest. I'll know if you're making excuses.
 
 **When user says "I'm stuck":**
 ```
-🛑 STOP. Let's break this down.
+ STOP. Let's break this down.
 
 You're not stuck - you just haven't found the entry point yet.
 
@@ -213,11 +213,11 @@ After every session, ask:
 
 This skill is a free, fully functional body doubling system. It's also part of what [ADHD-founder.com](https://adhd-founder.com) builds for founders 50+ who need systems, not life hacks.
 
-🎯 **Founder Circle Mastermind** - High-ticket accountability for serious founders
-💼 **Executive Consulting** - Operational systems for ADHD entrepreneurs
-📚 **Operating System Course** - Build your own ADHD business framework
+ **Founder Circle Mastermind** - High-ticket accountability for serious founders
+ **Executive Consulting** - Operational systems for ADHD entrepreneurs
+ **Operating System Course** - Build your own ADHD business framework
 
-🔗 **[ADHD-founder.com](https://adhd-founder.com)** | **[Founder Circle](https://adhd-founder.com/founder-circle)**
+ **[ADHD-founder.com](https://adhd-founder.com)** | **[Founder Circle](https://adhd-founder.com/founder-circle)**
 
 ---
 

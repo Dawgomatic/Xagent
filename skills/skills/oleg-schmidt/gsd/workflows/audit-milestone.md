@@ -102,25 +102,25 @@ tech_debt:
 
 All requirements met, integration verified.
 
-**▶ Next:** `/gsd complete-milestone {version}`
+** Next:** `/gsd complete-milestone {version}`
 ```
 
 **If gaps_found:**
 ```
-## ⚠ Gaps Found
+##  Gaps Found
 
 {N} critical issues need resolution.
 
-**▶ Next:** `/gsd plan-phase --gaps` for affected phases
+** Next:** `/gsd plan-phase --gaps` for affected phases
 ```
 
 **If tech_debt:**
 ```
-## ⚡ Tech Debt Found
+##  Tech Debt Found
 
 No blockers, but {N} items deferred.
 
-**▶ Options:**
+** Options:**
 - `/gsd complete-milestone` — accept debt
 - Address debt first
 ```

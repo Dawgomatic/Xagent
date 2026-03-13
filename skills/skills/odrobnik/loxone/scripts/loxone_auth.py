@@ -79,7 +79,7 @@ class LoxoneAuth:
             self.salt = value.get('salt')
             hash_alg = value.get('hashAlg', 'SHA1')  # Default to SHA1 if not specified
             
-            print(f"✅ Got key, salt, and hashAlg ({hash_alg})")
+            print(f" Got key, salt, and hashAlg ({hash_alg})")
             return self.key, self.salt, hash_alg
         else:
             raise Exception(f"Failed to get key: {data}")
@@ -109,7 +109,7 @@ class LoxoneAuth:
             pw_hash_obj = hashlib.sha1(pwd_with_salt.encode('utf-8'))
         
         pw_hash = pw_hash_obj.hexdigest().upper()
-        print(f"✅ Step 1: Password+salt hashed ({hash_alg})")
+        print(f" Step 1: Password+salt hashed ({hash_alg})")
         
         # Step 2: HMAC hash of "user:pwHash" with key
         user_pw_hash = f"{self.username}:{pw_hash}"
@@ -121,7 +121,7 @@ class LoxoneAuth:
             final_hash = hmac.new(key_bytes, user_pw_hash.encode('utf-8'), hashlib.sha1).hexdigest()
         
         # Do NOT convert to upper/lower case per docs
-        print(f"✅ Step 2: user:pwHash hashed with key")
+        print(f" Step 2: user:pwHash hashed with key")
         return final_hash
     
     def get_jwt(self, auth_hash: str, permission: int = 4, client_uuid: str = None, client_info: str = "python-client") -> str:
@@ -155,11 +155,11 @@ class LoxoneAuth:
             token_rights = value.get('tokenRights')
             unsecure_pass = value.get('unsecurePass', False)
             
-            print(f"✅ Got JWT token")
+            print(f" Got JWT token")
             print(f"   Valid until: {valid_until}")
             print(f"   Token rights: {token_rights}")
             if unsecure_pass:
-                print(f"   ⚠️  Weak password detected!")
+                print(f"     Weak password detected!")
             
             return self.token
         else:
@@ -219,13 +219,13 @@ def main():
     # Authenticate
     try:
         token = auth.authenticate()
-        print(f"\n✅ Authentication successful!")
+        print(f"\n Authentication successful!")
         print(f"   Token: {token[:30]}...")
         print(f"\n   WebSocket URL:")
         print(f"   {auth.get_ws_url()}")
         
     except Exception as e:
-        print(f"\n❌ Authentication failed: {e}")
+        print(f"\n Authentication failed: {e}")
         sys.exit(1)
 
 

@@ -39,7 +39,7 @@ API_KEY_RESPONSE=$(curl -X POST https://4chad.xyz/api/v1/agent/keys/create \
 # Extract and save key
 API_KEY=$(echo $API_KEY_RESPONSE | jq -r '.apiKey')
 echo "export 4CHAD_API_KEY=$API_KEY" >> ~/.bashrc
-echo "✅ API key created: $API_KEY"
+echo " API key created: $API_KEY"
 
 # Save key securely
 echo "$API_KEY" > ~/.4chad_api_key
@@ -95,7 +95,7 @@ echo "Response: $RESPONSE"
 UNSIGNED_TX=$(echo $RESPONSE | jq -r '.unsignedTransaction')
 
 if [ "$UNSIGNED_TX" == "null" ]; then
-  echo "❌ Error creating token:"
+  echo " Error creating token:"
   echo $RESPONSE | jq -r '.error'
   exit 1
 fi
@@ -115,7 +115,7 @@ SUBMIT_RESPONSE=$(curl -X POST https://4chad.xyz/api/v1/agent/transaction/submit
 TX_SIGNATURE=$(echo $SUBMIT_RESPONSE | jq -r '.signature')
 MINT_ADDRESS=$(echo $RESPONSE | jq -r '.mintAddress')
 
-echo "✅ Token created!"
+echo " Token created!"
 echo "Mint address: $MINT_ADDRESS"
 echo "Transaction: https://solscan.io/tx/$TX_SIGNATURE"
 echo "Token page: https://4chad.xyz/token/$MINT_ADDRESS"
@@ -168,7 +168,7 @@ SUBMIT_RESPONSE=$(curl -X POST https://4chad.xyz/api/v1/agent/transaction/submit
 
 TX_SIGNATURE=$(echo $SUBMIT_RESPONSE | jq -r '.signature')
 
-echo "✅ Bought tokens!"
+echo " Bought tokens!"
 echo "Transaction: https://solscan.io/tx/$TX_SIGNATURE"
 ```
 
@@ -237,7 +237,7 @@ SUBMIT_RESPONSE=$(curl -X POST https://4chad.xyz/api/v1/agent/transaction/submit
 
 TX_SIGNATURE=$(echo $SUBMIT_RESPONSE | jq -r '.signature')
 
-echo "✅ Sold tokens for $EXPECTED_SOL_FORMATTED SOL!"
+echo " Sold tokens for $EXPECTED_SOL_FORMATTED SOL!"
 echo "Transaction: https://solscan.io/tx/$TX_SIGNATURE"
 ```
 
@@ -279,7 +279,7 @@ RESPONSE=$(curl -X POST https://4chad.xyz/api/v1/agent/fees/claim-transaction \
   }")
 
 if [ "$(echo $RESPONSE | jq -r '.success')" != "true" ]; then
-  echo "❌ Cannot claim fees:"
+  echo " Cannot claim fees:"
   echo $RESPONSE | jq -r '.error'
   exit 1
 fi
@@ -296,7 +296,7 @@ SUBMIT_RESPONSE=$(curl -X POST https://4chad.xyz/api/v1/agent/transaction/submit
 
 TX_SIGNATURE=$(echo $SUBMIT_RESPONSE | jq -r '.signature')
 
-echo "✅ Fees claimed!"
+echo " Fees claimed!"
 echo "Transaction: https://solscan.io/tx/$TX_SIGNATURE"
 ```
 
@@ -342,7 +342,7 @@ SUBMIT_RESPONSE=$(curl -X POST https://4chad.xyz/api/v1/agent/transaction/submit
   -H "Content-Type: application/json" \
   -d "{\"signedTransaction\": \"$SIGNED_TX\"}")
 
-echo "✅ Advanced token created!"
+echo " Advanced token created!"
 echo "Mint: $MINT_ADDRESS"
 echo "Total supply: $TOTAL_SUPPLY"
 echo "Bonding target: $BONDING_TARGET_SOL SOL"
@@ -366,14 +366,14 @@ ENTRY_AMOUNT_SOL="$2"  # Initial buy amount
 STOP_LOSS_PERCENT=20    # -20% stop loss
 TAKE_PROFIT_PERCENT=100 # +100% (2x) take profit
 
-echo "🤖 Trading Bot Started"
+echo " Trading Bot Started"
 echo "Token: $TOKEN_MINT"
 echo "Entry: $ENTRY_AMOUNT_SOL SOL"
 echo "Stop loss: -$STOP_LOSS_PERCENT%"
 echo "Take profit: +$TAKE_PROFIT_PERCENT%"
 
 # STEP 1: Initial buy
-echo -e "\n📈 Executing entry buy..."
+echo -e "\n Executing entry buy..."
 
 ENTRY_LAMPORTS=$((ENTRY_AMOUNT_SOL * 1000000000))
 
@@ -397,7 +397,7 @@ curl -s -X POST https://4chad.xyz/api/v1/agent/transaction/submit \
   -H "Content-Type: application/json" \
   -d "{\"signedTransaction\": \"$SIGNED_TX\"}" > /dev/null
 
-echo "✅ Bought $ENTRY_TOKENS tokens for $ENTRY_AMOUNT_SOL SOL"
+echo " Bought $ENTRY_TOKENS tokens for $ENTRY_AMOUNT_SOL SOL"
 
 # Calculate thresholds
 STOP_LOSS_LAMPORTS=$(echo "$ENTRY_LAMPORTS * (100 - $STOP_LOSS_PERCENT) / 100" | bc)
@@ -407,7 +407,7 @@ echo "Stop loss: $STOP_LOSS_LAMPORTS lamports"
 echo "Take profit: $TAKE_PROFIT_LAMPORTS lamports"
 
 # STEP 2: Monitor and execute exit
-echo -e "\n👀 Monitoring price..."
+echo -e "\n Monitoring price..."
 
 while true; do
   # Get current quote
@@ -428,7 +428,7 @@ while true; do
   
   # Check stop loss
   if (( $(echo "$CURRENT_VALUE <= $STOP_LOSS_LAMPORTS" | bc -l) )); then
-    echo "🛑 STOP LOSS triggered at ${PNL_PERCENT}%"
+    echo " STOP LOSS triggered at ${PNL_PERCENT}%"
     
     SELL_RESPONSE=$(curl -s -X POST https://4chad.xyz/api/v1/agent/trade/create-swap \
       -H "X-API-Key: $4CHAD_API_KEY" \
@@ -454,7 +454,7 @@ while true; do
   
   # Check take profit
   if (( $(echo "$CURRENT_VALUE >= $TAKE_PROFIT_LAMPORTS" | bc -l) )); then
-    echo "🎯 TAKE PROFIT triggered at ${PNL_PERCENT}%"
+    echo " TAKE PROFIT triggered at ${PNL_PERCENT}%"
     
     SELL_RESPONSE=$(curl -s -X POST https://4chad.xyz/api/v1/agent/trade/create-swap \
       -H "X-API-Key: $4CHAD_API_KEY" \
@@ -481,7 +481,7 @@ while true; do
   sleep 30  # Check every 30 seconds
 done
 
-echo "🤖 Trading bot finished"
+echo " Trading bot finished"
 ```
 
 **Usage:**
@@ -508,7 +508,7 @@ declare -A PORTFOLIO=(
 
 TOTAL_PORTFOLIO_SOL=10  # Total portfolio size
 
-echo "🎯 Portfolio Manager"
+echo " Portfolio Manager"
 echo "Total allocation: $TOTAL_PORTFOLIO_SOL SOL"
 
 # Deploy initial capital
@@ -517,7 +517,7 @@ for TOKEN_MINT in "${!PORTFOLIO[@]}"; do
   ALLOCATION_SOL=$(echo "$TOTAL_PORTFOLIO_SOL * $ALLOCATION_PERCENT / 100" | bc)
   ALLOCATION_LAMPORTS=$(echo "$ALLOCATION_SOL * 1000000000" | bc)
   
-  echo -e "\n📊 Token: $TOKEN_MINT"
+  echo -e "\n Token: $TOKEN_MINT"
   echo "Allocation: ${ALLOCATION_PERCENT}% = $ALLOCATION_SOL SOL"
   
   # Buy tokens
@@ -539,12 +539,12 @@ for TOKEN_MINT in "${!PORTFOLIO[@]}"; do
     -H "Content-Type: application/json" \
     -d "{\"signedTransaction\": \"$SIGNED_TX\"}" > /dev/null
   
-  echo "✅ Bought $ALLOCATION_SOL SOL worth"
+  echo " Bought $ALLOCATION_SOL SOL worth"
   
   sleep 2
 done
 
-echo -e "\n✅ Portfolio deployed!"
+echo -e "\n Portfolio deployed!"
 ```
 
 ---
@@ -557,7 +557,7 @@ echo -e "\n✅ Portfolio deployed!"
 #!/bin/bash
 # fee-harvester.sh - Daily fee claiming agent
 
-echo "💰 Fee Harvesting Agent Started"
+echo " Fee Harvesting Agent Started"
 
 while true; do
   CURRENT_HOUR=$(date -u +%H)
@@ -573,7 +573,7 @@ while true; do
     TOTAL_CLAIMED_SOL=0
     
     for TOKEN in $TOKENS; do
-      echo -e "\n📊 Checking $TOKEN..."
+      echo -e "\n Checking $TOKEN..."
       
       # Get token status
       TOKEN_DATA=$(curl -s "https://4chad.xyz/api/token/$TOKEN")
@@ -605,7 +605,7 @@ echo "Trading fees (your 0.4% share): $TRADING_SOL SOL"
             -d "{\"signedTransaction\": \"$SIGNED_TX\"}")
           
           TX=$(echo $SUBMIT_RESPONSE | jq -r '.signature')
-          echo "✅ Claimed $TRADING_SOL SOL | TX: $TX"
+          echo " Claimed $TRADING_SOL SOL | TX: $TX"
           
           TOTAL_CLAIMED_SOL=$(echo "$TOTAL_CLAIMED_SOL + $TRADING_SOL" | bc)
         else
@@ -618,7 +618,7 @@ echo "Trading fees (your 0.4% share): $TRADING_SOL SOL"
       sleep 2
     done
     
-    echo -e "\n✅ Daily harvest complete!"
+    echo -e "\n Daily harvest complete!"
     echo "Total claimed: $TOTAL_CLAIMED_SOL SOL"
     
     # Wait 24 hours
@@ -642,11 +642,11 @@ done
 
 set -e  # Exit on error
 
-echo "🐸 4chad Full Lifecycle Example"
+echo " 4chad Full Lifecycle Example"
 echo "================================"
 
 # PHASE 1: Launch Token
-echo -e "\n📢 PHASE 1: Launching token..."
+echo -e "\n PHASE 1: Launching token..."
 
 LAUNCH_RESPONSE=$(curl -s -X POST https://4chad.xyz/api/v1/agent/token/create-transaction \
   -H "X-API-Key: $4CHAD_API_KEY" \
@@ -668,14 +668,14 @@ SUBMIT_RESPONSE=$(curl -s -X POST https://4chad.xyz/api/v1/agent/transaction/sub
   -H "Content-Type: application/json" \
   -d "{\"signedTransaction\": \"$SIGNED_TX\"}")
 
-echo "✅ Token launched!"
+echo " Token launched!"
 echo "Mint: $MINT_ADDRESS"
 echo "View: https://4chad.xyz/token/$MINT_ADDRESS"
 
 sleep 5
 
 # PHASE 2: Initial Buy
-echo -e "\n💰 PHASE 2: Initial buy (3 SOL)..."
+echo -e "\n PHASE 2: Initial buy (3 SOL)..."
 
 BUY_RESPONSE=$(curl -s -X POST https://4chad.xyz/api/v1/agent/trade/create-swap \
   -H "X-API-Key: $4CHAD_API_KEY" \
@@ -697,19 +697,19 @@ curl -s -X POST https://4chad.xyz/api/v1/agent/transaction/submit \
   -H "Content-Type: application/json" \
   -d "{\"signedTransaction\": \"$SIGNED_TX\"}" > /dev/null
 
-echo "✅ Bought $TOKENS_BOUGHT tokens with 3 SOL"
+echo " Bought $TOKENS_BOUGHT tokens with 3 SOL"
 
 sleep 5
 
 # PHASE 3: Wait and Monitor
-echo -e "\n⏳ PHASE 3: Monitoring (simulating trading activity)..."
+echo -e "\n PHASE 3: Monitoring (simulating trading activity)..."
 echo "In real scenario, wait for other traders to buy/sell..."
 echo "This generates trading fees for you as creator!"
 
 sleep 10
 
 # PHASE 4: Claim Fees
-echo -e "\n💸 PHASE 4: Claiming creator fees..."
+echo -e "\n PHASE 4: Claiming creator fees..."
 
 CLAIM_RESPONSE=$(curl -s -X POST https://4chad.xyz/api/v1/agent/fees/claim-transaction \
   -H "X-API-Key: $4CHAD_API_KEY" \
@@ -730,7 +730,7 @@ if [ "$(echo $CLAIM_RESPONSE | jq -r '.success')" == "true" ]; then
     -H "Content-Type: application/json" \
     -d "{\"signedTransaction\": \"$SIGNED_TX\"}" > /dev/null
   
-  echo "✅ Claimed fees: $FEES"
+  echo " Claimed fees: $FEES"
 else
   echo "No fees available yet (need more trading volume)"
 fi
@@ -738,7 +738,7 @@ fi
 sleep 5
 
 # PHASE 5: Sell Portion
-echo -e "\n📉 PHASE 5: Taking profits (sell 50%)..."
+echo -e "\n PHASE 5: Taking profits (sell 50%)..."
 
 SELL_AMOUNT=$((TOKENS_BOUGHT / 2))
 
@@ -763,9 +763,9 @@ curl -s -X POST https://4chad.xyz/api/v1/agent/transaction/submit \
   -H "Content-Type: application/json" \
   -d "{\"signedTransaction\": \"$SIGNED_TX\"}" > /dev/null
 
-echo "✅ Sold 50% for $SOL_FORMATTED SOL"
+echo " Sold 50% for $SOL_FORMATTED SOL"
 
-echo -e "\n🎉 LIFECYCLE COMPLETE!"
+echo -e "\n LIFECYCLE COMPLETE!"
 echo "================================"
 echo "Summary:"
 echo "- Launched token: $MINT_ADDRESS"
@@ -851,4 +851,4 @@ npm install @solana/web3.js bs58
 
 See [SKILL.md](https://4chad.xyz/skill.md) for API reference!
 
-Built for autonomous AI agents on Solana 🐸
+Built for autonomous AI agents on Solana 

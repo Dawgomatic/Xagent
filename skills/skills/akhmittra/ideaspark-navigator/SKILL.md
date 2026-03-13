@@ -3,7 +3,7 @@ name: ideaspark-navigator
 description: Facilitates structured ideation and innovation sessions by recommending optimal brainstorming techniques, guiding ethical problem-solving, balancing abstract and practical thinking, and helping teams navigate from ideation through validation. Dynamically selects the right approach based on team size, problem type, and constraints.
 metadata:
   openclaw:
-    emoji: "💡"
+    emoji: ""
     version: "1.0.0"
     author: "AM"
     tags: ["innovation", "ideation", "brainstorming", "design-thinking", "facilitation", "problem-solving", "creativity"]
@@ -176,11 +176,11 @@ Different techniques work better in different formats:
 **Recommended Approach: 6-3-5 Brainwriting**
 
 **Why this technique:**
-✅ Works excellently remote (digital sticky notes)
-✅ Equalizes participation (everyone contributes equally)
-✅ Time-efficient (fits in 30 minutes)
-✅ Builds on each other's ideas (collaborative)
-✅ Produces 108 ideas in 30 minutes (6 people × 3 ideas × 6 rounds)
+ Works excellently remote (digital sticky notes)
+ Equalizes participation (everyone contributes equally)
+ Time-efficient (fits in 30 minutes)
+ Builds on each other's ideas (collaborative)
+ Produces 108 ideas in 30 minutes (6 people × 3 ideas × 6 rounds)
 
 **How to facilitate:**
 

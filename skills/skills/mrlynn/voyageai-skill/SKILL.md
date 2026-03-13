@@ -10,7 +10,7 @@ description: >
   cosine similarity, bulk ingest, explain embeddings.
 metadata:
   openclaw:
-    emoji: "🧭"
+    emoji: ""
     author:
       name: Michael Lynn
       url: https://mlynn.org
@@ -38,7 +38,7 @@ metadata:
         global: true
 ---
 
-# 🧭 Voyage AI Skill
+#  Voyage AI Skill
 
 Uses the `vai` CLI ([voyageai-cli](https://github.com/mrlynn/voyageai-cli)) for Voyage AI embeddings, reranking, and MongoDB Atlas Vector Search. Pure Node.js — no Python required.
 

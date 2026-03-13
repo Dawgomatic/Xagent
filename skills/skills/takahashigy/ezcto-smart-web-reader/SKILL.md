@@ -398,7 +398,7 @@ contribute_status=$?
 if [ $contribute_status -eq 0 ]; then
   echo "✓ Contributed to EZCTO asset library" >&2
 else
-  echo "⚠ Failed to contribute (non-fatal)" >&2
+  echo " Failed to contribute (non-fatal)" >&2
 fi
 ```
 

@@ -1,6 +1,6 @@
 # Guide de configuration des API keys
 
-## 🌤️ Météo (Open-Meteo)
+##  Météo (Open-Meteo)
 
 **Aucune configuration nécessaire !** L'API Open-Meteo est gratuite et sans inscription.
 
@@ -10,7 +10,7 @@ python3 meteo.py Paris  # fonctionne directement
 
 ---
 
-## 🚄 SNCF (Navitia)
+##  SNCF (Navitia)
 
 ### Inscription
 1. Aller sur https://navitia.io
@@ -33,7 +33,7 @@ python3 sncf.py search Paris Lyon
 
 ---
 
-## 📦 La Poste (Suivi de colis)
+##  La Poste (Suivi de colis)
 
 ### Inscription
 1. Aller sur https://developer.laposte.fr
@@ -53,7 +53,7 @@ python3 laposte.py track 6A12345678901
 
 ---
 
-## 🚇 IDFM / RATP (Transports IDF)
+##  IDFM / RATP (Transports IDF)
 
 ### Inscription
 1. Aller sur https://prim.iledefrance-mobilites.fr

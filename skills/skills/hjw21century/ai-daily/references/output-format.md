@@ -120,12 +120,12 @@ Use these Chinese category names:
 
 | Category | Chinese Name | Icon |
 |----------|--------------|------|
-| Model Releases | 模型发布 | 🤖 |
-| Product Updates | 产品动态 | 💼 |
-| Research | 研究论文 | 📚 |
-| Tools & Frameworks | 工具框架 | 🛠️ |
-| Funding & M&A | 融资并购 | 💰 |
-| Industry Events | 行业事件 | 🏆 |
+| Model Releases | 模型发布 |  |
+| Product Updates | 产品动态 |  |
+| Research | 研究论文 |  |
+| Tools & Frameworks | 工具框架 |  |
+| Funding & M&A | 融资并购 |  |
+| Industry Events | 行业事件 |  |
 
 ---
 

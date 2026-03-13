@@ -63,9 +63,9 @@ print(f'Loading SVG: {svg}')
         out_stl = svg.replace('.svg', '.stl')
         export_freecad_json(prims, out_fc)
         export_stl_ascii(prims, out_stl)
-        print(f'✅ Exported: {out_fc}, {out_stl}')
+        print(f' Exported: {out_fc}, {out_stl}')
         print(f'Primitives parsed: {len(prims)}')
     except FileNotFoundError:
-        print(f'❌ SVG not found: {svg}. Run: python scripts/export-svg-to-3d.py assets/leg.svg')
+        print(f' SVG not found: {svg}. Run: python scripts/export-svg-to-3d.py assets/leg.svg')
     except Exception as e:
-        print(f'❌ Error: {e}')
+        print(f' Error: {e}')

@@ -296,9 +296,9 @@ mod tests {
         assert_eq!(truncated, "こんに...");
         
         // Should not panic
-        let emoji = "🔥🔥🔥🔥🔥";
+        let emoji = "";
         let truncated = super::truncate(emoji, 2);
-        assert_eq!(truncated, "🔥🔥...");
+        assert_eq!(truncated, "...");
     }
 
     #[test]
@@ -381,7 +381,7 @@ mod tests {
             pid: 1234,
             uid: 1000,
             comm: "echo".to_string(),
-            argv: vec!["echo".to_string(), "日本語テスト🔥".to_string()],
+            argv: vec!["echo".to_string(), "日本語テスト".to_string()],
             cwd: None,
         };
         // Should not panic, may or may not generate alerts

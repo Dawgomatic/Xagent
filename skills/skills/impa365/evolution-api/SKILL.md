@@ -61,7 +61,7 @@ curl -X POST "$EVO_API_URL/message/sendText/$EVO_INSTANCE" \
   -H "Content-Type: application/json" \
   -d '{
     "number": "5511999999999",
-    "text": "Hello from Evolution API v2! 🚀"
+    "text": "Hello from Evolution API v2! "
   }'
 ```
 
@@ -425,7 +425,7 @@ POST /message/sendReaction/{instance}
     "fromMe": true,
     "id": "BAE5A75CB0F39712"
   },
-  "reaction": "🚀"
+  "reaction": ""
 }
 ```
 

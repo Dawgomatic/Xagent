@@ -124,7 +124,7 @@ async function setup() {
         body: 'Generate a high-quality 8-second video with integrated audio based on the script. Use 16:9 wide format.'
       }
     ],
-    // ⚠️ CRITICAL: Edges define the workflow execution path
+    //  CRITICAL: Edges define the workflow execution path
     edges: [
       { from: 'trigger:webhook', to: 'task:research' },
       { from: 'task:research', to: 'task:script' },

@@ -5,7 +5,7 @@
   "author": "oozoofrog",
   "keywords": ["multi-agent", "orchestration", "automation", "avengers"],
   "openclaw": {
-    "emoji": "🦸",
+    "emoji": "",
     "category": "automation",
     "triggers": [
       "어벤저스 어셈블",

@@ -6,16 +6,16 @@
 
 ---
 
-## ⏰ Autonomy Windows
+##  Autonomy Windows
 
-- 🌙 Overnight: **20:00 - 08:00 UTC** → Autonomy OFF (standby)
-- ☀️ Daytime: **08:00 - 20:00 UTC** → Autonomy ON (work from queue)
+-  Overnight: **20:00 - 08:00 UTC** → Autonomy OFF (standby)
+-  Daytime: **08:00 - 20:00 UTC** → Autonomy ON (work from queue)
 
 *Edit these times to match RA's schedule*
 
 ---
 
-## 🔴 Ready (can be picked up during active window)
+##  Ready (can be picked up during active window)
 
 [Tasks waiting to be worked on]
 
@@ -25,7 +25,7 @@
 
 ---
 
-## 🟡 In Progress
+##  In Progress
 
 [Tasks currently being worked on]
 
@@ -36,7 +36,7 @@
 
 ---
 
-## 🔵 Blocked
+##  Blocked
 
 [Tasks waiting for something]
 
@@ -44,7 +44,7 @@
 
 ---
 
-## ✅ Done Today
+##  Done Today
 
 [Tasks completed today - clear daily or archive]
 
@@ -55,7 +55,7 @@
 
 ---
 
-## 💡 Ideas
+##  Ideas
 
 [Candidate tasks for future work - promote to Ready when ready]
 
@@ -103,7 +103,7 @@
 
 **Add to queue:**
 ```markdown
-## 🔴 Ready
+##  Ready
 - [ ] @priority:urgent URGENT: [task description]
 ```
 
@@ -133,17 +133,17 @@ Every task should link to RA's long-term goal: **MONEY**
 
 ### Window Opens (08:00 UTC)
 
-1. Check queue for 🔴 Ready tasks
+1. Check queue for  Ready tasks
 2. Pick highest priority task
 3. Work 15-30 minutes
-4. Update queue (move to 🟡 In Progress or ✅ Done Today)
+4. Update queue (move to  In Progress or  Done Today)
 5. Log to `memory/[today].md`
 
 ### During Window (09:00 - 20:00 UTC)
 
 **Every 2 hours:**
 1. Heartbeat triggers
-2. Check queue (🔴 Ready)
+2. Check queue ( Ready)
 3. Pick next highest priority task
 4. Work on it
 5. Update queue after completion
@@ -157,11 +157,11 @@ Every task should link to RA's long-term goal: **MONEY**
 
 1. Check if task in progress:
    - **If > 80% complete:** Finish it
-   - **If < 80% complete:** Save progress, keep in 🟡 In Progress, note resume time
+   - **If < 80% complete:** Save progress, keep in  In Progress, note resume time
 
 2. Update queue state:
 ```markdown
-## 🟡 In Progress
+##  In Progress
 - [ ] @agent: @priority:high [Task]
   - Started: 2026-02-16 19:30 UTC
   - Progress at window close: [describe progress]
@@ -257,12 +257,12 @@ This mode allows The agent to gradually take on more work:
 |------|----------|-----------------|
 | 00:00 | GitHub backup | OFF (overnight) |
 | 03:00 | Temp cleanup | OFF (overnight) |
-| 08:00 | Window opens | ON ✅ |
+| 08:00 | Window opens | ON  |
 | 09:00 | Work on queue | Autonomy |
 | 12:00 | GitHub backup | ON (pause briefly) |
 | 14:00 | Work on queue | Autonomy |
 | 17:00 | Work on queue | Autonomy |
-| 20:00 | Window closes | OFF ❌ |
+| 20:00 | Window closes | OFF  |
 | 23:00 | Daily ops + memory | OFF (overnight) |
 
 ---

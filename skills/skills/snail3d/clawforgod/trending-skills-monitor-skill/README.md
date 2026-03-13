@@ -1,6 +1,6 @@
 # Trending Skills Monitor
 
-🔥 **Track and discover what's hot in Clawdbot skills!**
+ **Track and discover what's hot in Clawdbot skills!**
 
 Automatically monitor ClawdHub for:
 - **New skill releases** - Stay updated with the latest drops
@@ -26,12 +26,12 @@ trending-skills-monitor --watch --interval 3600
 
 ## Features
 
-✨ **New Releases** - Discover fresh skills with metadata  
-🔝 **Trending Analysis** - Most installed and highest-rated  
-🔄 **Update Tracking** - Know when skills get improvements  
-🎯 **Smart Filtering** - Filter by interests and categories  
-👀 **Watch Mode** - Continuous monitoring with alerts  
-📊 **Multiple Formats** - Text, JSON, Markdown output  
+ **New Releases** - Discover fresh skills with metadata  
+ **Trending Analysis** - Most installed and highest-rated  
+ **Update Tracking** - Know when skills get improvements  
+ **Smart Filtering** - Filter by interests and categories  
+ **Watch Mode** - Continuous monitoring with alerts  
+ **Multiple Formats** - Text, JSON, Markdown output  
 
 ## Installation
 
@@ -71,26 +71,26 @@ trending-skills-monitor --format markdown
 ## Output Example
 
 ```
-🔥 Trending Skills Report
+ Trending Skills Report
 ============================================================
-📅 2026-01-29T10:15:00.000000
+ 2026-01-29T10:15:00.000000
 
-✨ NEW RELEASES (Last 7 Days)
+ NEW RELEASES (Last 7 Days)
 ------------------------------------------------------------
-  📦 webhook-listener
+   webhook-listener
      Downloads: 342 | Listen for HTTP webhooks... | Created: 2026-01-28
 
-🔝 COMMUNITY FAVORITES (Most Installed)
+ COMMUNITY FAVORITES (Most Installed)
 ------------------------------------------------------------
-  🥇 #1. security-scanner
-     📥 8,324 installs | ⭐ 4.8 | 📁 security
+   #1. security-scanner
+      8,324 installs |  4.8 |  security
 
-  🥈 #2. sentry-mode
-     📥 7,891 installs | ⭐ 4.7 | 📁 surveillance
+   #2. sentry-mode
+      7,891 installs |  4.7 |  surveillance
 
-🔄 RECENT UPDATES
+ RECENT UPDATES
 ------------------------------------------------------------
-  🆕 meshtastic-skill (v2.3.0)
+   meshtastic-skill (v2.3.0)
      Updated: 2026-01-29 | Fixed GPS integration...
 ```
 
@@ -207,4 +207,4 @@ For full documentation, see **SKILL.md** - includes:
 
 ---
 
-Made for the Clawdbot community. Happy skill hunting! 🚀
+Made for the Clawdbot community. Happy skill hunting! 

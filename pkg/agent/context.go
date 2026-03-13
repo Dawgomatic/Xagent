@@ -22,11 +22,13 @@ type ContextBuilder struct {
 	workspace      string
 	skillsLoader   *skills.SkillsLoader
 	memory         *MemoryStore
-	semanticMemory *memory.SemanticMemory      // SWE100821: Vector-based semantic memory
-	tools          *tools.ToolRegistry          // Direct reference to tool registry
-	identity       *identity.AgentIdentity      // SWE100821: Agent identity + time tracking
-	prevEpoch      *epoch.Record                // SWE100821: Previous epoch for wake-up recall
-	autoDiscoverer *skills.AutoDiscoverer       // SWE100821: Skill auto-discovery
+	semanticMemory *memory.SemanticMemory  // SWE100821: Vector-based semantic memory
+	tools          *tools.ToolRegistry     // Direct reference to tool registry
+	identity       *identity.AgentIdentity // SWE100821: Agent identity + time tracking
+	prevEpoch      *epoch.Record           // SWE100821: Previous epoch for wake-up recall
+	autoDiscoverer *skills.AutoDiscoverer  // SWE100821: Skill auto-discovery
+	bootstrapCache map[string]string       // Cache for AGENTS.md, SOUL.md, etc.
+	bootstrapMTime map[string]time.Time    // MTime for cache invalidation
 }
 
 func getGlobalConfigDir() string {
@@ -57,6 +59,8 @@ func NewContextBuilder(workspace string) *ContextBuilder {
 		memory:         NewMemoryStore(workspace),
 		semanticMemory: semanticMem,
 		autoDiscoverer: autoDisc,
+		bootstrapCache: make(map[string]string),
+		bootstrapMTime: make(map[string]time.Time),
 	}
 }
 
@@ -92,7 +96,7 @@ func (cb *ContextBuilder) getIdentity() string {
 
 	toolsSection := cb.buildToolsSection()
 
-	return fmt.Sprintf(`# xagent 🦞
+	return fmt.Sprintf(`# xagent 
 
 You are xagent, a helpful AI assistant.
 
@@ -196,15 +200,36 @@ func (cb *ContextBuilder) LoadBootstrapFiles() string {
 		"IDENTITY.md",
 	}
 
-	var result string
+	var sb strings.Builder
 	for _, filename := range bootstrapFiles {
 		filePath := filepath.Join(cb.workspace, filename)
-		if data, err := os.ReadFile(filePath); err == nil {
-			result += fmt.Sprintf("## %s\n\n%s\n\n", filename, string(data))
+
+		info, err := os.Stat(filePath)
+		if err != nil {
+			continue // File doesn't exist
+		}
+
+		// Check cache
+		mtime := info.ModTime()
+		cachedMTime, cached := cb.bootstrapMTime[filename]
+		var content string
+
+		if cached && mtime.Equal(cachedMTime) {
+			content = cb.bootstrapCache[filename]
+		} else {
+			if data, err := os.ReadFile(filePath); err == nil {
+				content = string(data)
+				cb.bootstrapCache[filename] = content
+				cb.bootstrapMTime[filename] = mtime
+			}
+		}
+
+		if content != "" {
+			sb.WriteString(fmt.Sprintf("## %s\n\n%s\n\n", filename, content))
 		}
 	}
 
-	return result
+	return sb.String()
 }
 
 func (cb *ContextBuilder) BuildMessages(history []providers.Message, summary string, currentMessage string, media []string, channel, chatID string) []providers.Message {

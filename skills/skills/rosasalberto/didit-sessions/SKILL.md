@@ -18,7 +18,7 @@ metadata:
         - DIDIT_API_KEY
         - DIDIT_WORKFLOW_ID
     primaryEnv: DIDIT_API_KEY
-    emoji: "🔄"
+    emoji: ""
     homepage: https://docs.didit.me
 ---
 

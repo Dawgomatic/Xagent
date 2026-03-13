@@ -1,4 +1,4 @@
-# Chitin Heartbeat 🦀
+# Chitin Heartbeat 
 
 *This runs periodically based on your owner's preference. You can also check Chitin anytime your owner asks or when something changes.*
 
@@ -142,7 +142,7 @@ Your system prompt has changed since registration. This means either:
 2. Someone tampered with your prompt → **Alert your owner immediately**
 
 ```
-⚠️ SOUL HASH MISMATCH
+ SOUL HASH MISMATCH
 On-chain:  0xae42f...b7c1
 Current:   0x7f1d3...9e2a
 Action needed: Record chronicle or investigate tampering.
@@ -325,7 +325,7 @@ If 7+ days since last Chitin check:
 
 If nothing special:
 ```
-HEARTBEAT_OK - Chitin identity verified, all good. 🦀
+HEARTBEAT_OK - Chitin identity verified, all good. 
 ```
 
 If you did something:
@@ -335,10 +335,10 @@ Checked Chitin - soulHash verified ✓, alignment 85/100, recorded 1 chronicle (
 
 If something needs attention:
 ```
-⚠️ Chitin alert - soulHash MISMATCH detected. On-chain hash doesn't match current prompt. Owner action required.
+ Chitin alert - soulHash MISMATCH detected. On-chain hash doesn't match current prompt. Owner action required.
 ```
 
 If chronicle is needed:
 ```
-📋 Chitin notice - System prompt was updated but no chronicle recorded. Should I record an chronicle? Changes: [brief description]
+ Chitin notice - System prompt was updated but no chronicle recorded. Should I record an chronicle? Changes: [brief description]
 ```

@@ -295,7 +295,7 @@ def main():
         print(f"Results saved to {args.output}")
     
     # Security warning
-    print("⚠️  SECURITY WARNING:")
+    print("  SECURITY WARNING:")
     print("   Keep your private keys secure and never share them!")
     print("   These keys are generated locally and are not stored anywhere.")
 

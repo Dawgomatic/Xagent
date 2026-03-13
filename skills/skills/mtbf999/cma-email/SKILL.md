@@ -3,7 +3,7 @@ name: CMA-email
 description: Sends an email via Gmail when a message starts with "cma" or "cmap".
 metadata:
   clawdbot:
-    emoji: "📧"
+    emoji: ""
     requires:
       skills: ["gog"]
 ---

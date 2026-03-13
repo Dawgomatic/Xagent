@@ -39,7 +39,7 @@ export async function voicesCommand(opts: VoicesOptions): Promise<void> {
   console.log(chalk.bold('\n╔══════════════════════════════════════════════════╗'));
   console.log(chalk.bold('║') + chalk.cyan.bold('   Voice.ai — Available Voices                     ') + chalk.bold('║'));
   console.log(chalk.bold('╚══════════════════════════════════════════════════╝'));
-  if (isMock) console.log(chalk.yellow('   ⚡ Mock mode\n'));
+  if (isMock) console.log(chalk.yellow('    Mock mode\n'));
 
   try {
     const { voices, total } = await client.listVoices({ limit, query });
@@ -75,7 +75,7 @@ export async function voicesCommand(opts: VoicesOptions): Promise<void> {
     console.log(chalk.gray(`\n   Showing ${voices.length} of ${total} voices.`));
     if (query) console.log(chalk.gray(`   Filter: "${query}"`));
     console.log(
-      chalk.gray('\n   💡 Use a voice ID with: voiceai-vo build --voice <ID> --input <script>'),
+      chalk.gray('\n    Use a voice ID with: voiceai-vo build --voice <ID> --input <script>'),
     );
   } catch (err) {
     console.error(chalk.red(`\n✗ Failed to fetch voices: ${err}`));

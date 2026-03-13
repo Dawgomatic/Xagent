@@ -7,7 +7,7 @@ WORKSPACE_DIR="$(dirname "$(dirname "$SKILL_DIR")")"
 CREDS_DIR="$WORKSPACE_DIR/credentials"
 CREDS_FILE="$CREDS_DIR/spotify.json"
 
-echo "🎵 Spotify History Skill Setup"
+echo " Spotify History Skill Setup"
 echo "================================"
 echo
 
@@ -44,7 +44,7 @@ echo
 
 # Validate input
 if [ -z "$CLIENT_ID" ] || [ -z "$CLIENT_SECRET" ]; then
-    echo "❌ Error: Client ID and Secret are required"
+    echo " Error: Client ID and Secret are required"
     exit 1
 fi
 
@@ -74,7 +74,7 @@ cd "$WORKSPACE_DIR"
 python3 scripts/spotify-auth.py
 
 echo
-echo "✅ Setup Complete!"
+echo " Setup Complete!"
 echo
 echo "Test it:"
 echo "  python3 scripts/spotify-api.py recent"

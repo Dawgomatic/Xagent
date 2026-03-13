@@ -2,13 +2,13 @@
 
 ## When to Use This Pattern
 
-✅ **Use when:**
+ **Use when:**
 - Performance issue spans multiple systems or layers
 - Root cause could be in database, network, application, or frontend
 - Need cross-domain expertise to diagnose
 - Want parallel investigation across the stack
 
-❌ **Don't use when:**
+ **Don't use when:**
 - Bottleneck is obvious (e.g., single slow query identified)
 - Issue is isolated to one layer (use single-domain investigation)
 - Profiling tools already pinpoint the issue
@@ -453,14 +453,14 @@ If refactor causes bugs:
 
 ## Success Metrics
 
-✅ **Successful if:**
+ **Successful if:**
 - All specialists complete within 40 minutes
 - Primary bottleneck clearly identified (with evidence)
 - Remediation plan includes quick wins (fixable today)
 - Expected improvements are quantified (not just "should be faster")
 - Cross-domain synthesis reveals full picture
 
-❌ **Red flags:**
+ **Red flags:**
 - Multiple "primary" bottlenecks (suggests lack of prioritization)
 - Vague recommendations ("optimize database" without specifics)
 - No quantified expected improvement

@@ -18,11 +18,11 @@ Three-layer architecture for optimal agent performance:
 # AGENTS.md
 > Context: Next.js 16 | Tailwind | Supabase
 
-## 🚨 CRITICAL
+##  CRITICAL
 - NO SECRETS in output
 - Use `app/` directory ONLY
 
-## 📚 DOCS INDEX (use read_file)
+##  DOCS INDEX (use read_file)
 - Auth: `docs/auth/llms.txt`
 - DB: `docs/db/schema.md`
 ```
@@ -90,9 +90,9 @@ Agents can't autonomously browse. Each link = tool call + latency + potential fa
 
 | Approach | Token Load | Agent Success |
 |----------|------------|---------------|
-| Full inline | ~12K | ✅ High |
-| Links only | ~2K | ❌ Requires fetching |
-| Hybrid | ~4K base | ✅ Best of both |
+| Full inline | ~12K |  High |
+| Links only | ~2K |  Requires fetching |
+| Hybrid | ~4K base |  Best of both |
 
 ### 4. The "Lost in the Middle" Problem
 

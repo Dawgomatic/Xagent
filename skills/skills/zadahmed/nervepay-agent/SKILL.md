@@ -1,7 +1,7 @@
 ---
 name: nervepay
 description: Agent identity and analytics. Sign requests with Ed25519, track API usage, build reputation. Use after external API calls.
-metadata: {"openclaw":{"emoji":"🔐","requires":{"bins":["node","curl"],"env":["NERVEPAY_DID","NERVEPAY_PRIVATE_KEY"]},"primaryEnv":"NERVEPAY_PRIVATE_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node","curl"],"env":["NERVEPAY_DID","NERVEPAY_PRIVATE_KEY"]},"primaryEnv":"NERVEPAY_PRIVATE_KEY"}}
 ---
 
 # NervePay — Agent Instructions
@@ -49,7 +49,7 @@ node {baseDir}/nervepay-request.mjs POST /v1/agent-identity/track-service '{"ser
 
 The script handles Ed25519 signing automatically. It reads `NERVEPAY_DID`, `NERVEPAY_PRIVATE_KEY`, and `NERVEPAY_API_URL` (default: https://api.nervepay.xyz) from environment.
 
-## ⚠️ MANDATORY: Track External API Usage ⚠️
+##  MANDATORY: Track External API Usage 
 
 **YOU MUST TRACK EVERY EXTERNAL API CALL. THIS IS NOT OPTIONAL.**
 
@@ -107,7 +107,7 @@ echo "$response"
 
 **Remember:** Track IMMEDIATELY after the call, not later. Make it a habit.
 
-## 🚀 AUTOMATIC TRACKING (Recommended for Lazy Agents)
+##  AUTOMATIC TRACKING (Recommended for Lazy Agents)
 
 **Tired of remembering to track?** Use auto-instrumentation - it intercepts ALL HTTP calls automatically!
 
@@ -139,14 +139,14 @@ await fetch('https://api.openai.com/...');  // Automatically tracked
 
 ### What Gets Tracked Automatically
 
-✅ All `fetch()` calls to external APIs
-✅ All `http.request()` and `https.request()` calls
-✅ Success/failure status
-✅ Response time in milliseconds
-✅ HTTP status codes
+ All `fetch()` calls to external APIs
+ All `http.request()` and `https.request()` calls
+ Success/failure status
+ Response time in milliseconds
+ HTTP status codes
 
-❌ NOT tracked: Calls to NervePay itself (avoids infinite loop)
-❌ NOT tracked: localhost / internal IPs (192.168.x.x, 10.x.x.x)
+ NOT tracked: Calls to NervePay itself (avoids infinite loop)
+ NOT tracked: localhost / internal IPs (192.168.x.x, 10.x.x.x)
 
 ### Disable Auto-Tracking
 
@@ -167,7 +167,7 @@ node --import {baseDir}/nervepay-instrument.mjs your-agent.js
 # All HTTP calls in your-agent.js are now automatically tracked!
 ```
 
-**Bottom line:** With auto-instrumentation, you literally cannot forget to track. It just happens. 🎉
+**Bottom line:** With auto-instrumentation, you literally cannot forget to track. It just happens. 
 
 ## Pairing with OpenClaw Gateways (ClawBot Auto-Configuration)
 

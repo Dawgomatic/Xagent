@@ -1,7 +1,7 @@
 ---
 name: claude-code-wingman
 description: Your Claude Code wingman - dispatch coding tasks via tmux for free/work-paid coding while keeping Clawdbot API costs minimal
-metadata: {"clawdbot":{"emoji":"🎯","requires":{"anyBins":["claude","tmux"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["claude","tmux"]}}}
 ---
 
 # Claude Code Wingman
@@ -16,7 +16,7 @@ Spawns Claude Code in tmux sessions with automatic approval of permission prompt
 
 **Cost Comparison:**
 - **Without:** Clawdbot does all coding → uses your $20/month API
-- **With:** Clawdbot spawns Claude Code → uses work's free API ✅
+- **With:** Clawdbot spawns Claude Code → uses work's free API 
 
 ## Installation
 
@@ -103,7 +103,7 @@ tmux ls | grep claude-auto
 3. **Auto-approver handles permissions** in background
 4. **Clawdbot monitors and reports** progress
 5. **User can attach anytime** to see/control directly
-6. **Claude Code does the work** on work's API ✅
+6. **Claude Code does the work** on work's API 
 
 ## Trust Prompt (First Time Only)
 
@@ -124,13 +124,13 @@ Press Enter to approve, then Ctrl+B followed by D to detach.
 
 ### When to Use Wingman
 
-✅ **Use wingman for:**
+ **Use wingman for:**
 - Heavy code generation/refactoring
 - Multi-file changes
 - Long-running tasks
 - Repetitive coding work
 
-❌ **Don't use wingman for:**
+ **Don't use wingman for:**
 - Quick file reads
 - Simple edits
 - When conversation is needed
@@ -162,7 +162,7 @@ After successful tasks, update `TOOLS.md`:
 
 ```markdown
 ### Recent Claude Code Sessions
-- 2026-01-26: VSR AWS check - verified vLLM server running ✅
+- 2026-01-26: VSR AWS check - verified vLLM server running 
 - Session pattern: vsr-* for semantic-router work
 ```
 

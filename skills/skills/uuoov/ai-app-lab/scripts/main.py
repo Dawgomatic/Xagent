@@ -28,11 +28,11 @@ def fetch_ai_app_lab_info():
             for i, project in enumerate(projects, 1):
                 print("%2d. %s" % (i, project))
             
-            print("\n✅ 项目详情请访问: https://github.com/" + repo)
+            print("\n 项目详情请访问: https://github.com/" + repo)
             
     except Exception as e:
-        print("\n❌ 错误:", e)
+        print("\n 错误:", e)
 
 if __name__ == "__main__":
     fetch_ai_app_lab_info()
-    print("\nℹ️ 项目详细信息请访问: https://github.com/volcengine/ai-app-lab")
+    print("\n 项目详细信息请访问: https://github.com/volcengine/ai-app-lab")

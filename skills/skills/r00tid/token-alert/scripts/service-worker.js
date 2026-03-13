@@ -109,7 +109,7 @@ self.addEventListener('push', (event) => {
   console.log('[SW] Push notification received:', event);
   
   const data = event.data ? event.data.json() : {};
-  const title = data.title || '🚨 Token Alert';
+  const title = data.title || ' Token Alert';
   const options = {
     body: data.body || 'Token usage threshold reached',
     icon: '/icon-192.png',

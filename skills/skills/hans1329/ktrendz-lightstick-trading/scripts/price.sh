@@ -39,7 +39,7 @@ fi
 
 # Parse and display
 echo ""
-echo "🎤 $ARTIST Token Price"
+echo " $ARTIST Token Price"
 echo "========================"
 echo ""
 
@@ -50,31 +50,31 @@ import sys
 
 data = json.loads('''$RESPONSE''')['data']
 
-print(f"💰 Current Price: \${data['current_price_usdc']:.2f} USDC")
-print(f"📈 Buy Cost:      \${data['buy_cost_usdc']:.2f} USDC")
-print(f"📉 Sell Refund:   \${data['sell_refund_usdc']:.2f} USDC")
+print(f" Current Price: \${data['current_price_usdc']:.2f} USDC")
+print(f" Buy Cost:      \${data['buy_cost_usdc']:.2f} USDC")
+print(f" Sell Refund:   \${data['sell_refund_usdc']:.2f} USDC")
 print(f"")
 
 change = data.get('price_change_24h', '0')
 if change and float(change) > 0:
-    print(f"📊 24h Change:    +{change}% ✅")
+    print(f" 24h Change:    +{change}% ")
 elif change and float(change) < 0:
-    print(f"📊 24h Change:    {change}% ⚠️")
+    print(f" 24h Change:    {change}% ")
 else:
-    print(f"📊 24h Change:    {change}%")
+    print(f" 24h Change:    {change}%")
 
 print(f"")
-print(f"📈 Total Supply:    {data['total_supply']} tokens")
-print(f"🔥 Trending Score:  {data['trending_score']}")
-print(f"👥 Followers:       {data['follower_count']}")
-print(f"👀 Views:           {data['view_count']}")
+print(f" Total Supply:    {data['total_supply']} tokens")
+print(f" Trending Score:  {data['trending_score']}")
+print(f" Followers:       {data['follower_count']}")
+print(f" Views:           {data['view_count']}")
 
 signals = data.get('external_signals', {})
 if signals:
     print(f"")
-    print(f"📰 News Signals:")
+    print(f" News Signals:")
     print(f"   Articles (24h): {signals.get('article_count_24h', 0)}")
-    print(f"   Has Recent News: {'✅ Yes' if signals.get('has_recent_news') else '❌ No'}")
+    print(f"   Has Recent News: {' Yes' if signals.get('has_recent_news') else ' No'}")
     
     headlines = signals.get('headlines', [])
     if headlines:

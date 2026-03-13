@@ -188,7 +188,18 @@ type ProvidersConfig struct {
 	Gemini        ProviderConfig `json:"gemini"`
 	Nvidia        ProviderConfig `json:"nvidia"`
 	GitHubCopilot ProviderConfig `json:"github_copilot"`
+	BitNet        BitNetConfig   `json:"bitnet"`
 	RL            RLConfig       `json:"rl"`
+}
+
+// BitNetConfig configures the 1.58-bit localized LLM runtime.
+type BitNetConfig struct {
+	Enabled     bool   `json:"enabled" env:"XAGENT_PROVIDERS_BITNET_ENABLED"`
+	Model       string `json:"model" env:"XAGENT_PROVIDERS_BITNET_MODEL"`
+	Runtime     string `json:"runtime" env:"XAGENT_PROVIDERS_BITNET_RUNTIME"`       // e.g., "llama.cpp", "python"
+	QuantType   string `json:"quant_type" env:"XAGENT_PROVIDERS_BITNET_QUANT_TYPE"` // e.g., "i2_s", "tl1"
+	ContextSize int    `json:"context_size" env:"XAGENT_PROVIDERS_BITNET_CONTEXT_SIZE"`
+	Threads     int    `json:"threads" env:"XAGENT_PROVIDERS_BITNET_THREADS"`
 }
 
 // RLConfig configures the OpenClaw-RL reinforcement learning server.
@@ -323,6 +334,14 @@ func DefaultConfig() *Config {
 			VLLM:       ProviderConfig{},
 			Gemini:     ProviderConfig{},
 			Nvidia:     ProviderConfig{},
+			BitNet: BitNetConfig{
+				Enabled:     false,
+				Model:       "bitnet_b1_58-3B",
+				Runtime:     "python",
+				QuantType:   "i2_s",
+				ContextSize: 2048,
+				Threads:     4,
+			},
 			RL: RLConfig{
 				Enabled:      false,
 				ServerURL:    "",
@@ -470,7 +489,8 @@ func (c *Config) Validate() (warnings []string, err error) {
 		c.Providers.VLLM.APIBase != "" ||
 		c.Providers.Nvidia.APIKey != "" ||
 		c.Providers.GitHubCopilot.APIBase != "" ||
-		(c.Providers.RL.Enabled && c.Providers.RL.ServerURL != "")
+		(c.Providers.RL.Enabled && c.Providers.RL.ServerURL != "") ||
+		c.Providers.BitNet.Enabled
 
 	if !hasProvider {
 		// For CLI providers that don't need keys

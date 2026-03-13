@@ -6,10 +6,10 @@ or heuristic fallback, tracks state to avoid re-processing, and surfaces
 important emails for consumption by agents or heartbeat checks.
 
 Categories:
-  🔴 urgent:         Needs immediate attention (outages, security, legal, time-sensitive)
-  🟡 needs-response: Requires a reply (business inquiries, questions, action items)
-  🔵 informational:  FYI only (billing, receipts, confirmations, newsletters)
-  ⚫ spam:           Junk, marketing, irrelevant
+   urgent:         Needs immediate attention (outages, security, legal, time-sensitive)
+   needs-response: Requires a reply (business inquiries, questions, action items)
+   informational:  FYI only (billing, receipts, confirmations, newsletters)
+   spam:           Junk, marketing, irrelevant
 
 Configuration (environment variables):
   IMAP_HOST           IMAP server host (required)
@@ -333,7 +333,7 @@ def scan_emails(dry_run: bool = False, verbose: bool = False) -> dict:
         }
 
         if verbose:
-            icon = {"urgent": "🔴", "needs-response": "🟡", "informational": "🔵", "spam": "⚫"}.get(category, "⚪")
+            icon = {"urgent": "", "needs-response": "", "informational": "", "spam": ""}.get(category, "")
             print(f"  {icon} [{category}] {subject[:60]}")
             print(f"     From: {sender}")
             print(f"     Reason: {reason}")
@@ -386,9 +386,9 @@ def report(as_json: bool = False) -> list[dict]:
         if not important:
             print("No important unsurfaced emails.")
         else:
-            print(f"📬 {len(important)} email(s) needing attention:\n")
+            print(f" {len(important)} email(s) needing attention:\n")
             for e in important:
-                icon = "🔴" if e["category"] == "urgent" else "🟡"
+                icon = "" if e["category"] == "urgent" else ""
                 print(f"  {icon} {e['subject']}")
                 print(f"     From: {e['from']}")
                 print(f"     Date: {e['date']}")
@@ -427,11 +427,11 @@ def stats():
     print(f"  Total triaged: {len(state['emails'])}")
     print("  Breakdown:")
     for cat, count in categories.items():
-        icon = {"urgent": "🔴", "needs-response": "🟡", "informational": "🔵", "spam": "⚫"}.get(cat, "⚪")
+        icon = {"urgent": "", "needs-response": "", "informational": "", "spam": ""}.get(cat, "")
         print(f"    {icon} {cat}: {count}")
     print("  Unsurfaced important:")
-    print(f"    🔴 urgent: {unsurfaced['urgent']}")
-    print(f"    🟡 needs-response: {unsurfaced['needs-response']}")
+    print(f"     urgent: {unsurfaced['urgent']}")
+    print(f"     needs-response: {unsurfaced['needs-response']}")
 
 
 # ---------------------------------------------------------------------------

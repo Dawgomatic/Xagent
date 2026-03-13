@@ -37,12 +37,12 @@ bunx fastmail --list
 
 ## When to Use This Skill
 
-- 📧 Check inbox or search emails
-- 📧 Send, reply, or move emails
-- 🏷️ Apply labels or organize mailbox
-- 📅 View calendar or events
-- 📅 Create, update, or delete events
-- 🔔 Set event reminders or alarms
+-  Check inbox or search emails
+-  Send, reply, or move emails
+-  Apply labels or organize mailbox
+-  View calendar or events
+-  Create, update, or delete events
+-  Set event reminders or alarms
 
 ## Email Tools (10 total)
 
@@ -173,7 +173,7 @@ export FASTMAIL_TIMEZONE="America/New_York"  # or "Asia/Bangkok", "Europe/London
 
 ## Timezone Support
 
-⏰ **Configurable calendar timezone**
+ **Configurable calendar timezone**
 - **Default:** Auto-detects your system's local timezone
 - **Override:** Set `FASTMAIL_TIMEZONE` environment variable
 - Uses IANA timezone identifiers (e.g., `America/New_York`, `Asia/Bangkok`, `Europe/London`)

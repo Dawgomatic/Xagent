@@ -26,7 +26,7 @@ async function testLocal() {
         console.log('Device object created. Connecting...');
         
         await device.connect(); 
-        console.log(`✅ Connected via: ${device.connectionType}`);
+        console.log(` Connected via: ${device.connectionType}`);
 
         // Try to get properties (using raw MIOT spec mapping)
         // siid 2 piid 1 = Power
@@ -36,14 +36,14 @@ async function testLocal() {
             { did: DEVICE_DID, siid: 3, piid: 4 }
         ]);
         
-        console.log('📊 Status:', JSON.stringify(props, null, 2));
+        console.log(' Status:', JSON.stringify(props, null, 2));
 
         // Cleanup
         await device.disconnect();
         miHome.destroy();
         
     } catch (error) {
-        console.error('❌ Error:', error);
+        console.error(' Error:', error);
         miHome.destroy();
     }
 }

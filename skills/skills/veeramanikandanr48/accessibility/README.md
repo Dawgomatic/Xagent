@@ -1,6 +1,6 @@
 # Web Accessibility (WCAG 2.1 AA)
 
-**Status**: Production Ready ✅
+**Status**: Production Ready 
 **Last Updated**: 2026-01-14
 **Production Tested**: Framework-agnostic patterns used across multiple production sites
 
@@ -56,14 +56,14 @@ Build fully accessible web interfaces that meet WCAG 2.1 Level AA standards with
 
 ### Core Capabilities
 
-✅ **Semantic HTML guidance** - Choose the right element for every purpose
-✅ **ARIA patterns** - When and how to use ARIA roles, states, properties
-✅ **Focus management** - Focus traps, restoration, skip links, visible indicators
-✅ **Color contrast** - 4.5:1 text, 3:1 UI component ratios with testing
-✅ **Form accessibility** - Labels, validation, error announcements
-✅ **Keyboard navigation** - Full keyboard support for all interactions
-✅ **Screen reader testing** - NVDA/VoiceOver testing workflows
-✅ **Automated auditing** - a11y-auditor agent for violation detection
+ **Semantic HTML guidance** - Choose the right element for every purpose
+ **ARIA patterns** - When and how to use ARIA roles, states, properties
+ **Focus management** - Focus traps, restoration, skip links, visible indicators
+ **Color contrast** - 4.5:1 text, 3:1 UI component ratios with testing
+ **Form accessibility** - Labels, validation, error announcements
+ **Keyboard navigation** - Full keyboard support for all interactions
+ **Screen reader testing** - NVDA/VoiceOver testing workflows
+ **Automated auditing** - a11y-auditor agent for violation detection
 
 ---
 
@@ -88,7 +88,7 @@ Build fully accessible web interfaces that meet WCAG 2.1 Level AA standards with
 
 ## When to Use This Skill
 
-### ✅ Use When:
+###  Use When:
 - Building any web interface (accessibility is not optional)
 - Implementing forms with validation
 - Creating dialogs, menus, tabs, accordions
@@ -100,7 +100,7 @@ Build fully accessible web interfaces that meet WCAG 2.1 Level AA standards with
 - Choosing between semantic elements
 - Implementing focus management
 
-### ❌ Don't Use When:
+###  Don't Use When:
 - Building native mobile apps (different standards)
 - Creating PDFs (different techniques)
 - User explicitly wants to learn by experimentation

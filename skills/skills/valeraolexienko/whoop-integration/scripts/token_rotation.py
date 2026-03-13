@@ -18,14 +18,14 @@ def rotate_whoop_tokens():
         with open(tokens_path, 'r') as f:
             tokens = json.load(f)
     except FileNotFoundError:
-        print("❌ No tokens file found")
+        print(" No tokens file found")
         return False
     
     access_token = tokens.get('access_token')
     refresh_token = tokens.get('refresh_token')
     
     if not refresh_token:
-        print("❌ No refresh token available - manual OAuth required")
+        print(" No refresh token available - manual OAuth required")
         return False
     
     # Check if token expires soon (within next hour)
@@ -36,15 +36,15 @@ def rotate_whoop_tokens():
     now = datetime.now().timestamp()
     
     if expires_at - now > 300:  # More than 5 minutes left
-        print(f"✅ Token still valid for {int((expires_at - now) / 60)} minutes")
+        print(f" Token still valid for {int((expires_at - now) / 60)} minutes")
         return True
     
-    print("🔄 Token expires soon, refreshing...")
+    print(" Token expires soon, refreshing...")
     
     # Get credentials
     client_id, client_secret = get_whoop_credentials()
     if not client_id or not client_secret:
-        print("❌ Missing credentials")
+        print(" Missing credentials")
         return False
     
     # Refresh token
@@ -67,11 +67,11 @@ def rotate_whoop_tokens():
         with open(tokens_path, 'w') as f:
             json.dump(new_tokens, f, indent=2)
         
-        print("✅ Token successfully refreshed!")
+        print(" Token successfully refreshed!")
         return True
         
     except requests.RequestException as e:
-        print(f"❌ Token refresh failed: {e}")
+        print(f" Token refresh failed: {e}")
         return False
 
 if __name__ == "__main__":

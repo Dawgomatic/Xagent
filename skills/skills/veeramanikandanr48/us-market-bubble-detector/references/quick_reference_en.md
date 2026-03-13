@@ -166,14 +166,14 @@ Stage 3 (Panic signals):
 
 ## Short-Selling Timing Decision (Critical)
 
-### ❌ Absolutely Avoid: Early Contrarian
+###  Absolutely Avoid: Early Contrarian
 
 ```
 Reason: Often 2-3x further rise after "obviously too high"
 Risk: "Markets can remain irrational longer than you can remain solvent"
 ```
 
-### ✅ Recommended: After Composite Conditions Met
+###  Recommended: After Composite Conditions Met
 
 **Need at least 3 of 7 conditions before considering:**
 

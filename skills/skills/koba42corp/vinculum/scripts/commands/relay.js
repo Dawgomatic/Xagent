@@ -167,15 +167,15 @@ async function relayStatus(context) {
   const status = getRelayStatus();
   
   if (!status.running) {
-    return `📡 **Relay Status**\n\n` +
-      `Status: 🔴 Not running\n\n` +
+    return ` **Relay Status**\n\n` +
+      `Status:  Not running\n\n` +
       `Start with \`/link relay start\``;
   }
 
   const health = await getRelayHealth(port);
   
-  let response = `📡 **Relay Status**\n\n` +
-    `Status: 🟢 Running\n` +
+  let response = ` **Relay Status**\n\n` +
+    `Status:  Running\n` +
     `PID: ${status.pid}\n` +
     `Port: ${port}\n`;
 
@@ -227,7 +227,7 @@ async function relayLogs(lines, context) {
     return formatting.formatWarning(`Relay log is empty.`);
   }
   
-  return `📋 **Relay Logs** (last ${logLines.length})\n\n` +
+  return ` **Relay Logs** (last ${logLines.length})\n\n` +
     '```\n' + logLines.join('\n') + '\n```';
 }
 
@@ -312,12 +312,12 @@ async function listPeers(context) {
   const peers = config.peers || [];
   
   if (peers.length === 0) {
-    return `📡 **Configured Peers**\n\n` +
+    return ` **Configured Peers**\n\n` +
       `No peers configured.\n\n` +
       `Add with \`/link relay peer <url>\``;
   }
 
-  return `📡 **Configured Peers**\n\n` +
+  return ` **Configured Peers**\n\n` +
     peers.map(p => `• ${p}`).join('\n');
 }
 

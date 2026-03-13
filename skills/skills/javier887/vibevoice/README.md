@@ -1,6 +1,6 @@
 # VibeVoice TTS Skill
 
-🎙️ Local Spanish text-to-speech for OpenClaw using Microsoft's VibeVoice model.
+ Local Spanish text-to-speech for OpenClaw using Microsoft's VibeVoice model.
 
 ## Features
 

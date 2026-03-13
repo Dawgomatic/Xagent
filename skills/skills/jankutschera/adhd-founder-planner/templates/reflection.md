@@ -1,10 +1,10 @@
-# Evening Reflection 🌙
+# Evening Reflection 
 
 ## Date: {DATE}
 
 ---
 
-### ✅ Today's Wins
+###  Today's Wins
 _No win is too small!_
 
 1. 
@@ -15,21 +15,21 @@ _No win is too small!_
 
 ---
 
-### 📊 What Worked?
+###  What Worked?
 _Techniques, conditions, or factors that helped:_
 
 - 
 
 ---
 
-### 📊 What Didn't?
+###  What Didn't?
 _Distractions, blockers, or things that hindered:_
 
 - 
 
 ---
 
-### 🔄 Migration Decisions
+###  Migration Decisions
 _Tasks that didn't get completed:_
 
 | Task | Decision | Notes |
@@ -41,7 +41,7 @@ _Tasks that didn't get completed:_
 
 ---
 
-### 🧠 Pattern Notes
+###  Pattern Notes
 
 **Energy Pattern Today:**
 - Started at: /10
@@ -54,14 +54,14 @@ _Tasks that didn't get completed:_
 
 ---
 
-### 🌟 One Thing for Tomorrow
+###  One Thing for Tomorrow
 _What will you do differently?_
 
 - 
 
 ---
 
-### 🎉 Celebration
+###  Celebration
 _How will you celebrate today's wins?_
 
 - 

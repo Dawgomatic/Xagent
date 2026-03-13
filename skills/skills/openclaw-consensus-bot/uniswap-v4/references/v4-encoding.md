@@ -41,7 +41,7 @@ Source: `@uniswap/v4-periphery/src/libraries/Actions.sol`
 | WRAP                 | 0x15 | Wrap ETH → WETH                     | (uint256) |
 | UNWRAP               | 0x16 | Unwrap WETH → ETH                   | (uint256) |
 
-> ⚠️ **SETTLE = 0x0b ≠ SETTLE_ALL = 0x0c.** Previous version of this doc had them swapped.
+>  **SETTLE = 0x0b ≠ SETTLE_ALL = 0x0c.** Previous version of this doc had them swapped.
 > SETTLE requires a `bool payerIsUser` param; SETTLE_ALL does not.
 
 ### Recommended Action Sequence for ExactInputSingle

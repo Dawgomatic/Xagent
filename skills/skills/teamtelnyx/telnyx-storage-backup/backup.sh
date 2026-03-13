@@ -37,19 +37,19 @@ FILES_TO_BACKUP=(
     "scripts"
 )
 
-echo "🔄 OpenClaw Backup → Telnyx Storage"
+echo " OpenClaw Backup → Telnyx Storage"
 echo "========================================"
 
 # Check CLI is available
 if ! command -v telnyx &> /dev/null; then
-    echo "❌ Telnyx CLI not found. Install: npm install -g telnyx-cli"
+    echo " Telnyx CLI not found. Install: npm install -g telnyx-cli"
     echo "   Then run: telnyx auth setup"
     exit 1
 fi
 
 # Check workspace exists
 if [ ! -d "$WORKSPACE" ]; then
-    echo "❌ Workspace not found: $WORKSPACE"
+    echo " Workspace not found: $WORKSPACE"
     exit 1
 fi
 
@@ -68,7 +68,7 @@ done
 
 # Create archive
 if [ ${#EXISTING_FILES[@]} -eq 0 ]; then
-    echo "❌ No files to backup!"
+    echo " No files to backup!"
     exit 1
 fi
 
@@ -84,7 +84,7 @@ if ! telnyx storage bucket list 2>/dev/null | grep -qw "$BUCKET"; then
         # Bucket might already exist (race condition or list didn't show it)
         # Verify we can access it
         if ! telnyx storage bucket list 2>/dev/null | grep -qw "$BUCKET"; then
-            echo "❌ Failed to create or access bucket: $BUCKET"
+            echo " Failed to create or access bucket: $BUCKET"
             exit 1
         fi
         echo "Bucket already exists, continuing..."
@@ -100,7 +100,7 @@ telnyx storage object put "$BUCKET" "$TEMP_ARCHIVE" --key "$ARCHIVE_NAME"
 # Cleanup temp file
 rm -f "$TEMP_ARCHIVE"
 
-echo "✅ Backup complete: telnyx://${BUCKET}/${ARCHIVE_NAME}"
+echo " Backup complete: telnyx://${BUCKET}/${ARCHIVE_NAME}"
 
 # Prune old backups (keep MAX_BACKUPS most recent)
 echo ""
@@ -117,7 +117,7 @@ if [ "$BACKUP_COUNT" -gt "$MAX_BACKUPS" ]; then
     
     for OLD_BACKUP in $TO_DELETE; do
         if telnyx storage object delete "$BUCKET" "$OLD_BACKUP" --force 2>/dev/null; then
-            echo "  🗑️  Deleted: $OLD_BACKUP"
+            echo "    Deleted: $OLD_BACKUP"
         fi
     done
     

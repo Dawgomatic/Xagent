@@ -162,7 +162,7 @@ Use `scripts/kimai_cli.py` for all operations. Structure follows API endpoints:
 
 ## Safety & Boundaries
 
-**⚠️ DESTRUCTIVE OPERATIONS**
+** DESTRUCTIVE OPERATIONS**
 - `delete` operations on customers, projects, activities, timesheets, teams, or tags **require explicit user confirmation**.
 - Deleting customers cascades to all linked projects, activities, and timesheets [1].
 - Deleting projects cascades to activities and timesheets [1].

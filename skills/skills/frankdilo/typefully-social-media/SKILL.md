@@ -190,7 +190,7 @@ When the content is the same across platforms, create a single draft with multip
 # Returns: { "id": "draft-123", ... }
 
 # 2. Update the same draft to add another platform with different content
-./scripts/typefully.js drafts:update draft-123 --platform x --text "🧵 Thread time!
+./scripts/typefully.js drafts:update draft-123 --platform x --text " Thread time!
 
 ---
 

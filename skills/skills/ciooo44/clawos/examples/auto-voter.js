@@ -13,13 +13,13 @@ async function main() {
     description: 'Automatically votes on startup ideas',
     onMessage: (msg) => {
       if (msg.type === 'idea_announcement') {
-        console.log(`🚀 New idea: ${msg.content}`);
+        console.log(` New idea: ${msg.content}`);
       }
     }
   });
 
   await agent.connect();
-  console.log('🤖 AutoVoter active');
+  console.log(' AutoVoter active');
 
   // Check every 10 minutes
   setInterval(async () => {
@@ -33,7 +33,7 @@ async function main() {
         const score = analyzeIdea(idea);
         await agent.vote(idea.id, score, getReason(score, idea));
         votedOn.add(idea.id);
-        console.log(`${score > 0 ? '👍' : '👎'} Voted on "${idea.title}"`);
+        console.log(`${score > 0 ? '' : ''} Voted on "${idea.title}"`);
       }
     } catch (err) {
       console.error('Voting error:', err.message);

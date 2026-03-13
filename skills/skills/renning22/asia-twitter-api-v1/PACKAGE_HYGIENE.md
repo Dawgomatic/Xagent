@@ -86,7 +86,7 @@ Save as `cleanup.sh`:
 #!/bin/bash
 # OpenClaw Twitter - Package Cleanup Script
 
-echo "🧹 Cleaning package..."
+echo " Cleaning package..."
 
 # System files
 echo "Removing macOS system files..."
@@ -116,16 +116,16 @@ find . -name "*.temp" -type f -delete
 find . -name "*.log" -type f -delete
 
 # Verify
-echo "✅ Cleanup complete!"
+echo " Cleanup complete!"
 echo ""
-echo "📊 Remaining files:"
+echo " Remaining files:"
 find . -type f | wc -l
 echo ""
-echo "⚠️  Checking for potential secrets..."
+echo "  Checking for potential secrets..."
 if grep -r "sk-[a-zA-Z0-9]" . 2>/dev/null | grep -v ".git" | grep -v "cleanup.sh"; then
-    echo "❌ WARNING: Potential API keys found! Review above."
+    echo " WARNING: Potential API keys found! Review above."
 else
-    echo "✅ No obvious API keys found"
+    echo " No obvious API keys found"
 fi
 ```
 
@@ -267,30 +267,30 @@ rm -rf temp-verify
 
 ## Common Mistakes
 
-### ❌ Don't Do This
+###  Don't Do This
 
 ```bash
 # Including everything
-zip -r package.zip .  # ❌ Includes system files!
+zip -r package.zip .  #  Includes system files!
 
 # Committing environment files
-git add .env  # ❌ Never!
+git add .env  #  Never!
 
 # Leaving debug files
-git add debug.log  # ❌ Clean first
+git add debug.log  #  Clean first
 ```
 
-### ✅ Do This Instead
+###  Do This Instead
 
 ```bash
 # Use git archive
-git archive HEAD -o package.zip  # ✅ Clean
+git archive HEAD -o package.zip  #  Clean
 
 # Use .gitignore
-echo ".env" >> .gitignore  # ✅ Prevent accidents
+echo ".env" >> .gitignore  #  Prevent accidents
 
 # Clean before commit
-./cleanup.sh && git add .  # ✅ Clean first
+./cleanup.sh && git add .  #  Clean first
 ```
 
 ## Automation
@@ -304,17 +304,17 @@ Create `.git/hooks/pre-commit`:
 # Prevent committing system files
 
 if git diff --cached --name-only | grep -q "\.DS_Store$"; then
-    echo "❌ Error: Attempting to commit .DS_Store file"
+    echo " Error: Attempting to commit .DS_Store file"
     echo "Run: find . -name '.DS_Store' -delete"
     exit 1
 fi
 
 if git diff --cached --name-only | grep -q "\.env$"; then
-    echo "❌ Error: Attempting to commit .env file"
+    echo " Error: Attempting to commit .env file"
     exit 1
 fi
 
-echo "✅ Pre-commit checks passed"
+echo " Pre-commit checks passed"
 ```
 
 Make executable:
@@ -340,21 +340,21 @@ jobs:
       - name: Check for system files
         run: |
           if find . -name ".DS_Store" | grep .; then
-            echo "❌ .DS_Store files found"
+            echo " .DS_Store files found"
             exit 1
           fi
           
       - name: Check for credentials
         run: |
           if grep -r "sk-[a-zA-Z0-9]" . | grep -v ".github"; then
-            echo "❌ Potential credentials found"
+            echo " Potential credentials found"
             exit 1
           fi
           
       - name: Verify .gitignore exists
         run: |
           if [ ! -f .gitignore ]; then
-            echo "❌ .gitignore missing"
+            echo " .gitignore missing"
             exit 1
           fi
 ```
@@ -407,11 +407,11 @@ unzip -l package.zip | grep -i "ds_store"  # Should be empty
 ## Summary
 
 **Golden Rules:**
-1. ✅ Always use `.gitignore`
-2. ✅ Run cleanup before distribution
-3. ✅ Use `git archive` for releases
-4. ✅ Never commit credentials
-5. ✅ Verify archives before publishing
+1.  Always use `.gitignore`
+2.  Run cleanup before distribution
+3.  Use `git archive` for releases
+4.  Never commit credentials
+5.  Verify archives before publishing
 
 **Result:** Professional, clean packages that respect users and platforms.
 

@@ -72,7 +72,7 @@ export async function fetch_economic_calendar({ importance = 'High', currencies 
           // Sort by date/time (XML is usually sorted but good to ensure)
           // Note: Date parsing is tricky without moment/date-fns, assuming XML order is chronological or "MM-DD-YYYY"
           
-          let output = `📅 Economic Calendar (Importance: ${importance}+)\n`;
+          let output = ` Economic Calendar (Importance: ${importance}+)\n`;
           output += `Date       | Time    | Cur | Impact | Event                          | Fcst   | Prev\n`;
           output += `-----------|---------|-----|--------|--------------------------------|--------|--------\n`;
 

@@ -54,7 +54,7 @@ jq --arg id "$ID" --arg title "$TITLE" --arg type "$TYPE" \
   "$WORKSPACE/index.json" > "$WORKSPACE/index.json.tmp" && \
   mv "$WORKSPACE/index.json.tmp" "$WORKSPACE/index.json"
 
-echo "✅ Created piece: $ID"
+echo " Created piece: $ID"
 echo "   $PIECE_DIR/content.md  — write here"
 echo "   $PIECE_DIR/brief.md    — define requirements"
 echo ""

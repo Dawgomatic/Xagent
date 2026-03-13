@@ -14,10 +14,10 @@ class Logger {
   constructor(prefix = 'BM') {
     this.prefix = prefix;
   }
-  info(...args) { console.log(`[${this.prefix}] ℹ️`, ...args); }
-  warn(...args) { console.warn(`[${this.prefix}] ⚠️`, ...args); }
-  error(...args) { console.error(`[${this.prefix}] ❌`, ...args); }
-  debug(...args) { if (process.env.DEBUG) console.debug(`[${this.prefix}] 🔍`, ...args); }
+  info(...args) { console.log(`[${this.prefix}] `, ...args); }
+  warn(...args) { console.warn(`[${this.prefix}] `, ...args); }
+  error(...args) { console.error(`[${this.prefix}] `, ...args); }
+  debug(...args) { if (process.env.DEBUG) console.debug(`[${this.prefix}] `, ...args); }
 }
 
 class LockManager {
@@ -268,7 +268,7 @@ if (require.main === module) {
         const snapshot = await manager.snapshot();
         console.log('Snapshot length:', snapshot.length);
         await manager.cleanup();
-        console.log('✅ Test completed');
+        console.log(' Test completed');
       } else if (command === 'bench') {
         await manager.start();
         const urls = args.slice(1);
@@ -279,7 +279,7 @@ if (require.main === module) {
           await manager.closeTab();
         }
         await manager.stop();
-        console.log('✅ Benchmark complete');
+        console.log(' Benchmark complete');
       } else {
         console.log('Usage: node browser-manager.v2.js [test|bench <url1> <url2>...]');
       }

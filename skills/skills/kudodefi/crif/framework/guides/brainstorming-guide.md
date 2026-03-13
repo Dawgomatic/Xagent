@@ -117,12 +117,12 @@ Surface and challenge hidden beliefs:
 
 #### Six Thinking Hats
 Examine from 6 perspectives sequentially:
-- 🎩 **White** - Facts only. What do we know? What data exists?
-- ❤️ **Red** - Emotions. How do we feel? Gut reactions?
-- ⚫ **Black** - Risks. What could go wrong? Weaknesses?
-- 💛 **Yellow** - Benefits. What's good? Opportunities?
-- 💚 **Green** - Creativity. New ideas? Alternatives?
-- 🔵 **Blue** - Process. What's next? How to decide?
+-  **White** - Facts only. What do we know? What data exists?
+-  **Red** - Emotions. How do we feel? Gut reactions?
+-  **Black** - Risks. What could go wrong? Weaknesses?
+-  **Yellow** - Benefits. What's good? Opportunities?
+-  **Green** - Creativity. New ideas? Alternatives?
+-  **Blue** - Process. What's next? How to decide?
 
 **Use when:** Balanced evaluation without argument
 
@@ -130,8 +130,8 @@ Examine from 6 perspectives sequentially:
 Structured evaluation:
 | Aspect | Pros | Cons | Risks |
 |--------|------|------|-------|
-| {Dimension 1} | + | - | ⚠️ |
-| {Dimension 2} | + | - | ⚠️ |
+| {Dimension 1} | + | - |  |
+| {Dimension 2} | + | - |  |
 
 **Use when:** Comparing options or evaluating single idea
 
@@ -220,7 +220,7 @@ Low Impact  │ Fill-ins      │ Thankless Tasks
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📝 MILESTONE
+ MILESTONE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Insights so far:
@@ -229,10 +229,10 @@ Insights so far:
 • {Insight 3}
 
 Options:
-1. 💾 Save & continue
-2. ➡️ Continue (no save)
-3. 🔄 Switch technique
-4. ✅ End session
+1.  Save & continue
+2.  Continue (no save)
+3.  Switch technique
+4.  End session
 
 Select: ___
 ```
@@ -339,7 +339,7 @@ Check: User wants to end?
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔄 TECHNIQUE SUGGESTION
+ TECHNIQUE SUGGESTION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Current: {current technique/mode}

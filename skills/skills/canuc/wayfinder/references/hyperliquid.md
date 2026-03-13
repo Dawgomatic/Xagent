@@ -40,7 +40,7 @@ poetry run wayfinder resource wayfinder://hyperliquid/book/ETH
 
 | Method | Purpose |
 |--------|---------|
-| `get_meta_and_asset_ctxs()` | Perp market metadata + contexts (enumerate markets, map asset_id↔coin) |
+| `get_meta_and_asset_ctxs()` | Perp market metadata + contexts (enumerate markets, map asset_idcoin) |
 | `get_spot_meta()` | Spot metadata (tokens + universe pairs) |
 | `get_spot_assets()` | Spot asset mapping (e.g. `{"HYPE/USDC": 10107}`) |
 | `get_l2_book(coin)` | Perp/spot order book by coin string |

@@ -13,10 +13,10 @@ This guide helps AI agents communicate genetic findings to users in a responsibl
 - Genetics typically explains only 20-50% of most conditions
 
 **Example language:**
-- ✅ "This variant is associated with a moderately elevated risk..."
-- ✅ "Your genetic profile suggests you may benefit from..."
-- ❌ "You will get this disease"
-- ❌ "Your genetics determine that..."
+-  "This variant is associated with a moderately elevated risk..."
+-  "Your genetic profile suggests you may benefit from..."
+-  "You will get this disease"
+-  "Your genetics determine that..."
 
 ### 2. Probability, Not Certainty
 

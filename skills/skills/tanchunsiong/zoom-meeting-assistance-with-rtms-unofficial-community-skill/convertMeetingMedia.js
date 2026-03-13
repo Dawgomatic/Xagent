@@ -11,7 +11,7 @@ export async function convertMeetingMedia(streamId) {
   const folderPath = getRecordingsPath(streamId);
 
   if (!fs.existsSync(folderPath)) {
-    console.error(`❌ Meeting folder does not exist: ${folderPath}`);
+    console.error(` Meeting folder does not exist: ${folderPath}`);
     return;
   }
 
@@ -25,11 +25,11 @@ export async function convertMeetingMedia(streamId) {
       const outputWav = fullPath.replace('.raw', '.wav');
       const command = `ffmpeg -f s16le -ar 16000 -ac 1 -i "${fullPath}" "${outputWav}"`;
 
-      console.log(`🎵 Converting audio: ${file} -> ${path.basename(outputWav)}`);
+      console.log(` Converting audio: ${file} -> ${path.basename(outputWav)}`);
       try {
         await runFFmpegCommand(command);
       } catch (error) {
-        console.error('❌ Error converting audio:', error.message);
+        console.error(' Error converting audio:', error.message);
       }
     }
 
@@ -38,14 +38,14 @@ export async function convertMeetingMedia(streamId) {
       const outputMp4 = fullPath.replace('.h264', '.mp4');
       const command = `ffmpeg -framerate 25 -i "${fullPath}" -c:v copy "${outputMp4}"`;
 
-      console.log(`🎥 Converting video: ${file} -> ${path.basename(outputMp4)}`);
+      console.log(` Converting video: ${file} -> ${path.basename(outputMp4)}`);
       try {
         await runFFmpegCommand(command);
       } catch (error) {
-        console.error('❌ Error converting video:', error.message);
+        console.error(' Error converting video:', error.message);
       }
     }
   }
 
-  console.log(`🎯 All media converted for stream ${streamId}`);
+  console.log(` All media converted for stream ${streamId}`);
 }

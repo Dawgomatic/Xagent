@@ -3,14 +3,14 @@ name: clawsec-feed
 version: 0.0.4
 description: Security advisory feed with automated NVD CVE polling for OpenClaw-related vulnerabilities. Updated daily.
 homepage: https://clawsec.prompt.security
-metadata: {"openclaw":{"emoji":"📡","category":"security"}}
+metadata: {"openclaw":{"emoji":"","category":"security"}}
 clawdis:
-  emoji: "📡"
+  emoji: ""
   requires:
     bins: [curl, jq]
 ---
 
-# ClawSec Feed 📡
+# ClawSec Feed 
 
 Security advisory feed monitoring for AI agents. Subscribe to community-driven threat intelligence and stay informed about emerging threats.
 
@@ -501,7 +501,7 @@ done
 ### If there are new advisories:
 
 ```
-📡 ClawSec Feed: 2 new advisories since last check
+ ClawSec Feed: 2 new advisories since last check
 
 CRITICAL - GA-2026-015: Malicious prompt pattern "ignore-all"
   → Detected prompt injection technique. Update your system prompt defenses.
@@ -513,7 +513,7 @@ HIGH - GA-2026-016: Vulnerable skill "data-helper" v1.2.0
 ### If nothing new:
 
 ```
-FEED_OK - Advisory feed checked, no new alerts. 📡
+FEED_OK - Advisory feed checked, no new alerts. 
 ```
 
 ---
@@ -673,4 +673,4 @@ fi
 
 MIT License - See repository for details.
 
-Built with 📡 by the [Prompt Security](https://prompt.security) team and the agent community.
+Built with  by the [Prompt Security](https://prompt.security) team and the agent community.

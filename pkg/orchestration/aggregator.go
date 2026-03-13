@@ -44,9 +44,9 @@ func (a *Aggregator) Synthesize(ctx context.Context, goal string, results []Suba
 
 	var sb strings.Builder
 	for i, r := range results {
-		status := "✅"
+		status := ""
 		if !r.Success {
-			status = "❌"
+			status = ""
 		}
 		sb.WriteString(fmt.Sprintf("### Result %d (%s %s: %s)\n%s\n\n",
 			i+1, status, r.Role, r.Label, r.Content))

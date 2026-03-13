@@ -2,7 +2,7 @@
 name: DECK-0
 description: Interact with DECK-0 digital collectibles platform to browse collections, buy card packs, open packs, view leaderboards, and apply as a publisher. Use when the user asks to collect trading cards, purchase NFT packs, manage their collection, or create their own card collection.
 homepage: https://app.deck-0.com
-metadata: {"openclaw":{"emoji":"🃏","requires":{"bins":["cast","curl","jq","shasum"],"env":["DECK0_PRIVATE_KEY"]},"primaryEnv":"DECK0_PRIVATE_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["cast","curl","jq","shasum"],"env":["DECK0_PRIVATE_KEY"]},"primaryEnv":"DECK0_PRIVATE_KEY"}}
 ---
 
 # DECK-0 Agents API

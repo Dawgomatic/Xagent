@@ -4,11 +4,11 @@ A OpenClaw skill that fetches top tech stories from TechMeme, summarizes linked 
 
 ## Features
 
-- 📰 Scrapes top stories from TechMeme.com
-- 📝 AI-generated summaries of article content
-- 💬 Hacker News integration (shows points and comments)
-- 🔥 Extracts notable quotes and "spicy" takes
-- ⚡ Parallel fetching for speed
+-  Scrapes top stories from TechMeme.com
+-  AI-generated summaries of article content
+-  Hacker News integration (shows points and comments)
+-  Extracts notable quotes and "spicy" takes
+-  Parallel fetching for speed
 
 ## Installation
 

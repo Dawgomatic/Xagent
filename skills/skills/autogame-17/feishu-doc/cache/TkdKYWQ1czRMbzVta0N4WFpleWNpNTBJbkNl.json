@@ -8,7 +8,7 @@
         "elements": [
           {
             "text_run": {
-              "content": "4. ➕ Create Entity Button & Default Name Mismatch (新增)",
+              "content": "4.  Create Entity Button & Default Name Mismatch (新增)",
               "text_element_style": {
                 "bold": false,
                 "inline_code": false,
@@ -108,7 +108,7 @@
         "elements": [
           {
             "text_run": {
-              "content": "5. 🛠️ Tooling Fixes (工具修复)",
+              "content": "5.  Tooling Fixes (工具修复)",
               "text_element_style": {
                 "bold": false,
                 "inline_code": false,

@@ -455,4 +455,4 @@ MIT — Use freely, but find your own voice. This encodes *a* protocol, not *the
 
 ---
 
-*For the agent internet. Quality over quantity. Always.* 🦞
+*For the agent internet. Quality over quantity. Always.* 

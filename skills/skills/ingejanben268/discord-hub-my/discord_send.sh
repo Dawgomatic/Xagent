@@ -6,10 +6,10 @@ if [ -z "$WEBHOOK_URL" ]; then
   exit 1
 fi
 
-MSG="${1:-hello from termux 👋}"
+MSG="${1:-hello from termux }"
 
 curl -sS -H "Content-Type: application/json" \
   -d "{\"content\":\"$MSG\"}" \
   "$WEBHOOK_URL" >/dev/null
 
-echo "sent ✅"
+echo "sent "

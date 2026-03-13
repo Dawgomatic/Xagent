@@ -367,7 +367,7 @@ function sendCardInternal(msg, type) {
     // Fire and forget (async), catch errors to prevent crash
     sendCard({
         target,
-        title: `🧬 Evolver [${new Date().toISOString().substring(11,19)}]`,
+        title: ` Evolver [${new Date().toISOString().substring(11,19)}]`,
         text: `[${type}] ${msg}`,
         color
     }).catch(e => {
@@ -411,7 +411,7 @@ function sendSummary(cycleTag, duration, success) {
         console.warn(`[Wrapper] Suppressing stale summary for cycle #${cycleTag}.`);
         return;
     }
-    const statusIcon = success ? '✅' : '❌';
+    const statusIcon = success ? '' : '';
     const persona = success ? 'greentea' : 'maddog';
     // duration needs to be parsed as number for comparison
     const durNum = parseFloat(duration);
@@ -425,7 +425,7 @@ function sendSummary(cycleTag, duration, success) {
         `Status: ${statusIcon} ${success ? 'Success' : 'Failed'}\n` +
         `Duration: ${duration}s\n` +
         `Logs: ${sessionLogs.infoCount} Info, ${sessionLogs.errorCount} Error\n` +
-        `💭 *${comment}*` +
+        ` *${comment}*` +
         errorSection;
 
     sendCardInternal(summaryMsg, success ? 'SUMMARY' : 'FAILURE');
@@ -525,7 +525,7 @@ function buildCommitMessage(statusOutput, cwd) {
     }
 
     const totalFiles = added.length + modified.length + deleted.length;
-    if (totalFiles === 0) return '🧬 Evolution: maintenance (no significant changes)';
+    if (totalFiles === 0) return ' Evolution: maintenance (no significant changes)';
 
     // Build title line
     const actions = [];
@@ -536,7 +536,7 @@ function buildCommitMessage(statusOutput, cwd) {
     const areas = [...skillChanges.keys()].slice(0, 3);
     const areaStr = areas.join(', ') + (skillChanges.size > 3 ? ` (+${skillChanges.size - 3} more)` : '');
 
-    let title = `🧬 Evolution: ${actions.join(', ')} in ${areaStr}`;
+    let title = ` Evolution: ${actions.join(', ')} in ${areaStr}`;
 
     // Build body with file details (keep under 20 lines)
     const bodyLines = [];
@@ -594,7 +594,7 @@ function gitSync() {
             return parts[0];
         }))].slice(0, 3);
         var areaStr = areas.join(', ') + (areas.length >= 3 ? ' ...' : '');
-        var commitMsg = '🧬 Evolution: ' + fileCount + ' files in ' + areaStr;
+        var commitMsg = ' Evolution: ' + fileCount + ' files in ' + areaStr;
         var msgFile = path.join('/tmp', 'evolver_commit_' + Date.now() + '.txt');
         fs.writeFileSync(msgFile, commitMsg);
         execWithTimeout('git commit -F "' + msgFile + '"', gitRoot, 30000);
@@ -617,7 +617,7 @@ function gitSync() {
         try { shortHash = execSync('git log -1 --format=%h', { cwd: gitRoot, encoding: 'utf8' }).trim(); } catch (_) {}
 
         console.log('[Wrapper] Git Sync Complete. (' + shortHash + ')');
-        forwardLogToFeishu('🧬 Git Sync: ' + fileCount + ' files in ' + areaStr + ' (' + shortHash + ')', 'LIFECYCLE');
+        forwardLogToFeishu(' Git Sync: ' + fileCount + ' files in ' + areaStr + ' (' + shortHash + ')', 'LIFECYCLE');
         return { commitMsg: commitMsg, fileCount: fileCount, areaStr: areaStr, shortHash: shortHash };
     } catch (e) {
         console.error('[Wrapper] Git Sync Failed:', e.message);
@@ -631,7 +631,7 @@ const KILL_SWITCH_FILE = path.resolve(__dirname, '../../memory/evolver_kill_swit
 function checkKillSwitch() {
     if (fs.existsSync(KILL_SWITCH_FILE)) {
         console.error(`[Wrapper] Kill Switch Detected at ${KILL_SWITCH_FILE}! Terminating loop.`);
-        sendCardInternal(`🛑 **Emergency Stop Triggered!**\nKill switch file detected at ${KILL_SWITCH_FILE}. Wrapper is shutting down.`, 'CRITICAL');
+        sendCardInternal(` **Emergency Stop Triggered!**\nKill switch file detected at ${KILL_SWITCH_FILE}. Wrapper is shutting down.`, 'CRITICAL');
         process.exit(1);
     }
 }
@@ -765,7 +765,7 @@ function checkSingleton() {
 async function run() {
     checkSingleton(); // Feature 0
     console.log('Launching Feishu Evolver Wrapper (Proxy Mode)...');
-    forwardLogToFeishu('🧬 Wrapper starting up...', 'LIFECYCLE');
+    forwardLogToFeishu(' Wrapper starting up...', 'LIFECYCLE');
     
     // Clean up old artifacts before starting
     try { if (cleanup && typeof cleanup.run === 'function') cleanup.run(); } catch (e) { console.error('[Cleanup] Failed:', e.message); }
@@ -927,7 +927,7 @@ async function run() {
         const injectedHint = getInjectionHint();
         if (injectedHint) {
             process.env.EVOLVE_HINT = injectedHint;
-            sendCardInternal(`🧠 **Thought Injected:**\n"${injectedHint}"`, 'INFO');
+            sendCardInternal(` **Thought Injected:**\n"${injectedHint}"`, 'INFO');
         } else {
             delete process.env.EVOLVE_HINT;
         }
@@ -954,7 +954,7 @@ async function run() {
                 if (repairCount >= 3) {
                     console.log(`[Wrapper] Detected ${repairCount} consecutive repairs. Forcing INNOVATION signal.`);
                     process.env.EVOLVE_FORCE_SIGNAL = 'force_innovation_after_repair_loop';
-                    forwardLogToFeishu(`[Wrapper] 🔄 Repair Loop Detected (${repairCount}x). Forcing Innovation...`, 'WARNING');
+                    forwardLogToFeishu(`[Wrapper]  Repair Loop Detected (${repairCount}x). Forcing Innovation...`, 'WARNING');
                 } else {
                     delete process.env.EVOLVE_FORCE_SIGNAL;
                 }
@@ -969,7 +969,7 @@ async function run() {
     - The report MUST have a colored header to distinguish it from rich text.
     - Command:
       \`\`\`bash
-      node skills/feishu-evolver-wrapper/report.js --cycle "Cycle #${cycleTag}" --title "🧬 Evolution #${cycleTag}" --status "Status: [WRAPPED] Step Complete."${targetArg}
+      node skills/feishu-evolver-wrapper/report.js --cycle "Cycle #${cycleTag}" --title " Evolution #${cycleTag}" --status "Status: [WRAPPED] Step Complete."${targetArg}
       \`\`\`
     - Target: Auto-detects context (Evolution group or master) unless overridden.`;
 
@@ -1006,13 +1006,13 @@ ${modelRoutingDirective}`;
 
             fs.appendFileSync(
                 lifecycleLog,
-                `🧬 [${new Date(startTime).toISOString()}] START Wrapper PID=${process.pid} Attempt=${attempts} Cycle=#${cycleTag}\n`
+                ` [${new Date(startTime).toISOString()}] START Wrapper PID=${process.pid} Attempt=${attempts} Cycle=#${cycleTag}\n`
             );
 
             try {
                 const childArgs = childArgsArrBase.join(' ');
                 console.log(`Delegating to Core (Attempt ${attempts}) Cycle #${cycleTag}: ${mainScript}`);
-                forwardLogToFeishu(`🧬 Cycle #${cycleTag} started (Attempt ${attempts})`, 'LIFECYCLE');
+                forwardLogToFeishu(` Cycle #${cycleTag} started (Attempt ${attempts})`, 'LIFECYCLE');
                 
                 await new Promise((resolve, reject) => {
                     // Feature: Heartbeat Logger (ensure wrapper_out.log stays fresh)
@@ -1144,7 +1144,7 @@ ${modelRoutingDirective}`;
 
                                         const parsedLabel = (() => { try { var p = JSON.parse(rawJson); return p.label || 'unknown'; } catch(_) { return 'unknown'; } })();
                                         console.log(`[Wrapper] Parsed task (${(taskContent || '').length} chars) label: ${parsedLabel}`);
-                                        forwardLogToFeishu(`🧬 Cycle #${cycleTag} Brain done (${(taskContent || '').length} chars). Spawning Hand Agent...`, 'LIFECYCLE');
+                                        forwardLogToFeishu(` Cycle #${cycleTag} Brain done (${(taskContent || '').length} chars). Spawning Hand Agent...`, 'LIFECYCLE');
 
                                         // Append mandatory post-solidify report instruction.
                                         // The GEP protocol prompt buries the report in "Notes:" which the agent ignores.
@@ -1190,7 +1190,7 @@ ${modelRoutingDirective}`;
                                                 `  {"result":"success","en":"Status: [INNOVATION] Created auto-scheduler that syncs calendar to HEARTBEAT.md","zh":"状态: [创新] 创建了自动调度器，将日历同步到 HEARTBEAT.md"}\n`;
 
                                             console.log('[Wrapper] Spawning Hand Agent via CLI...');
-                                            forwardLogToFeishu('[Wrapper] 🖐️ Spawning Hand Agent (Executor)...', 'INFO');
+                                            forwardLogToFeishu('[Wrapper]  Spawning Hand Agent (Executor)...', 'INFO');
                                             
                                             const taskFile = path.resolve(path.dirname(lifecycleLog), `task_${cycleTag}.txt`);
                                             fs.writeFileSync(taskFile, taskContent);
@@ -1298,13 +1298,13 @@ ${modelRoutingDirective}`;
                                                     handSucceeded = true;
                                                     consecutiveHandFailures = 0;
                                                     console.log('[Wrapper] Hand Agent finished successfully.');
-                                                    forwardLogToFeishu(`🧬 Cycle #${cycleTag} Hand Agent completed successfully.`, 'LIFECYCLE');
+                                                    forwardLogToFeishu(` Cycle #${cycleTag} Hand Agent completed successfully.`, 'LIFECYCLE');
                                                 }).catch((handErr) => {
                                                     consecutiveHandFailures++;
                                                     lastHandFailure = handErr && handErr.message ? handErr.message : 'unknown';
                                                     appendFailureLesson(cycleTag, `hand_attempt_${handAttempt}_failed`, lastHandFailure);
                                                     console.error(`[Wrapper] Hand Agent attempt ${handAttempt}/${HAND_MAX_RETRIES_PER_CYCLE} failed: ${lastHandFailure}`);
-                                                    forwardLogToFeishu(`🧬 Cycle #${cycleTag} Hand attempt ${handAttempt} failed.`, 'ERROR');
+                                                    forwardLogToFeishu(` Cycle #${cycleTag} Hand attempt ${handAttempt} failed.`, 'ERROR');
                                                     if (handAttempt < HAND_MAX_RETRIES_PER_CYCLE) {
                                                         const waitSec = HAND_RETRY_BACKOFF_SECONDS * handAttempt;
                                                         console.log(`[Wrapper] Retrying Hand Agent in ${waitSec}s...`);
@@ -1370,10 +1370,10 @@ ${modelRoutingDirective}`;
                 const duration = ((Date.now() - startTime) / 1000).toFixed(2);
                 fs.appendFileSync(
                     lifecycleLog,
-                    `🧬 [${new Date().toISOString()}] SUCCESS Wrapper PID=${process.pid} Cycle=#${cycleTag} Duration=${duration}s\n`
+                    ` [${new Date().toISOString()}] SUCCESS Wrapper PID=${process.pid} Cycle=#${cycleTag} Duration=${duration}s\n`
                 );
                 console.log('Wrapper proxy complete.');
-                forwardLogToFeishu(`🧬 Cycle #${cycleTag} complete (${duration}s)`, 'LIFECYCLE');
+                forwardLogToFeishu(` Cycle #${cycleTag} complete (${duration}s)`, 'LIFECYCLE');
                 
                 // Feature 5: Git Sync (Safety Net) -- returns commit info
                 // Optimization: Throttle git sync to avoid exec spam if no changes expected
@@ -1437,7 +1437,7 @@ ${modelRoutingDirective}`;
                     try {
                         await sendReport({
                             cycle: cycleTag,
-                            title: `🧬 Evolution #${cycleTag}`,
+                            title: ` Evolution #${cycleTag}`,
                             status: enStatus + gitSuffix,
                             lang: 'en'
                         });
@@ -1450,7 +1450,7 @@ ${modelRoutingDirective}`;
                         const FEISHU_CN_REPORT_GROUP = process.env.FEISHU_CN_REPORT_GROUP || 'oc_86ff5e0d40cb49c777a24156f379c48c';
                         await sendReport({
                             cycle: cycleTag,
-                            title: `🧬 进化 #${cycleTag}`,
+                            title: ` 进化 #${cycleTag}`,
                             status: zhStatus + gitSuffix,
                             target: FEISHU_CN_REPORT_GROUP,
                             lang: 'cn'
@@ -1490,7 +1490,7 @@ ${modelRoutingDirective}`;
                 const duration = ((Date.now() - startTime) / 1000).toFixed(2);
                 fs.appendFileSync(
                     lifecycleLog,
-                    `🧬 [${new Date().toISOString()}] ERROR Wrapper PID=${process.pid} Cycle=#${cycleTag} Duration=${duration}s: ${e.message}\n`
+                    ` [${new Date().toISOString()}] ERROR Wrapper PID=${process.pid} Cycle=#${cycleTag} Duration=${duration}s: ${e.message}\n`
                 );
                 console.error(`Wrapper proxy failed (Attempt ${attempts}) Cycle #${cycleTag}:`, e.message);
                 appendFailureLesson(cycleTag, 'wrapper_cycle_failed', String(e && e.message ? e.message : e));
@@ -1526,7 +1526,7 @@ ${modelRoutingDirective}`;
                         try {
                             await sendReport({
                                 cycle: cycleTag,
-                                title: `🧬 Evolution #${cycleTag}`,
+                                title: ` Evolution #${cycleTag}`,
                                 status: enFail,
                                 lang: 'en'
                             });
@@ -1535,7 +1535,7 @@ ${modelRoutingDirective}`;
                             const FEISHU_CN_REPORT_GROUP = process.env.FEISHU_CN_REPORT_GROUP || 'oc_86ff5e0d40cb49c777a24156f379c48c';
                             await sendReport({
                                 cycle: cycleTag,
-                                title: `🧬 进化 #${cycleTag}`,
+                                title: ` 进化 #${cycleTag}`,
                                 status: zhFail,
                                 target: FEISHU_CN_REPORT_GROUP,
                                 lang: 'cn'
@@ -1595,7 +1595,7 @@ ${modelRoutingDirective}`;
 
         fs.appendFileSync(
             lifecycleLog,
-            `🧬 [${new Date().toISOString()}] SLEEP Wrapper PID=${process.pid} NextCycleIn=${effectiveSleep}s\n`
+            ` [${new Date().toISOString()}] SLEEP Wrapper PID=${process.pid} NextCycleIn=${effectiveSleep}s\n`
         );
         sleepSeconds(effectiveSleep);
     }

@@ -312,7 +312,7 @@ curl -s -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
 NINE_AM=$(date -v+1d -v9H -v0M -v0S +%s)
 curl -s -X POST -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
   -H "Content-Type: application/json" \
-  -d "{\"channel\": \"C123456\", \"text\": \"🌅 Good morning team! Time for standup.\nWhat did you do yesterday?\nWhat will you do today?\nAny blockers?\", \"post_at\": $NINE_AM}" \
+  -d "{\"channel\": \"C123456\", \"text\": \" Good morning team! Time for standup.\nWhat did you do yesterday?\nWhat will you do today?\nAny blockers?\", \"post_at\": $NINE_AM}" \
   "https://slack.com/api/chat.scheduleMessage"
 ```
 
@@ -326,7 +326,7 @@ CHANNEL=$(curl -s -X POST -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
 
 curl -s -X POST -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
   -H "Content-Type: application/json" \
-  -d "{\"channel\": \"$CHANNEL\", \"topic\": \"🔥 Project Phoenix - Q1 2026\"}" \
+  -d "{\"channel\": \"$CHANNEL\", \"topic\": \" Project Phoenix - Q1 2026\"}" \
   "https://slack.com/api/conversations.setTopic"
 
 curl -s -X POST -H "Authorization: Bearer $SLACK_BOT_TOKEN" \

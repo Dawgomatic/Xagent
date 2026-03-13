@@ -150,7 +150,7 @@ module.exports = {
 if (require.main === module) {
   (async () => {
     try {
-      console.log('🦞 Apiosk Client Example\n');
+      console.log(' Apiosk Client Example\n');
       
       // List APIs
       console.log('Available APIs:');
@@ -166,14 +166,14 @@ if (require.main === module) {
       const weather = await callApiosk('weather', { city: 'Amsterdam' });
       console.log(`Temperature: ${weather.temperature}°C`);
       console.log(`Condition: ${weather.condition}`);
-      console.log('✅ Paid: $0.001 USDC\n');
+      console.log(' Paid: $0.001 USDC\n');
       
       // Check balance
       const balance = await checkBalance();
       console.log(`Remaining balance: $${balance.balance_usdc} USDC`);
       
     } catch (error) {
-      console.error('❌ Error:', error.message);
+      console.error(' Error:', error.message);
       process.exit(1);
     }
   })();

@@ -68,13 +68,13 @@
 
 ## Common Anti-Patterns
 
-❌ **Don't do:**
+ **Don't do:**
 - Use Opus for simple web searches
 - Use Haiku for creative writing
 - Assign Haiku to debug complex code
 - Use Opus without clear complexity justification
 
-✅ **Do:**
+ **Do:**
 - Start conservative, escalate as needed  
 - Use Sonnet as the default for development
 - Reserve Opus for high-stakes decisions

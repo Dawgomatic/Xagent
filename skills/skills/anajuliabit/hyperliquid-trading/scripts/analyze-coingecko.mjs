@@ -51,42 +51,42 @@ async function analyzeCoin(coinId, coinName) {
     const avgVolume = volumes.slice(0, -1).reduce((sum, v) => sum + v[1], 0) / (volumes.length - 1);
     const volumeRatio = currentVolume / avgVolume;
     
-    console.log('\n📊 Metrics:');
+    console.log('\n Metrics:');
     console.log(`  Current Price: $${currentPrice.toFixed(2)}`);
     console.log(`  Change (1h): ${change1h > 0 ? '+' : ''}${change1h.toFixed(2)}%`);
     console.log(`  Change (6h): ${change6h > 0 ? '+' : ''}${change6h.toFixed(2)}%`);
     console.log(`  Current Volume: $${(currentVolume / 1000000).toFixed(2)}M`);
     console.log(`  Avg Volume (9h): $${(avgVolume / 1000000).toFixed(2)}M`);
-    console.log(`  Volume Ratio: ${volumeRatio.toFixed(2)}x ${volumeRatio > 1.5 ? '🔥 HIGH' : volumeRatio < 0.7 ? '❄️  LOW' : '📊 NORMAL'}`);
+    console.log(`  Volume Ratio: ${volumeRatio.toFixed(2)}x ${volumeRatio > 1.5 ? ' HIGH' : volumeRatio < 0.7 ? '  LOW' : ' NORMAL'}`);
     
     // Momentum signal
-    console.log('\n🎯 Momentum Signal:');
+    console.log('\n Momentum Signal:');
     const strongUp = change1h > 0.5 && volumeRatio > 1.3;
     const weakUp = change1h > 0 && change1h < 0.5;
     const strongDown = change1h < -0.5 && volumeRatio > 1.3;
     
     if (strongUp) {
-      console.log('  ✅ STRONG BULLISH - Price surging with high volume');
+      console.log('   STRONG BULLISH - Price surging with high volume');
       console.log('  → Consider LONG entry');
     } else if (weakUp) {
-      console.log('  ⚠️  WEAK BULLISH - Price up but momentum unclear');
+      console.log('    WEAK BULLISH - Price up but momentum unclear');
       console.log('  → Wait for confirmation');
     } else if (strongDown) {
-      console.log('  🔴 STRONG BEARISH - Price dropping with high volume');
+      console.log('   STRONG BEARISH - Price dropping with high volume');
       console.log('  → Consider SHORT entry');
     } else {
-      console.log('  ⏸️  NEUTRAL - No clear momentum');
+      console.log('    NEUTRAL - No clear momentum');
       console.log('  → Wait for clearer signal');
     }
     
     // Trend
-    console.log('\n📈 Trend (6h):');
+    console.log('\n Trend (6h):');
     if (change6h > 1) {
-      console.log(`  🚀 Uptrend (+${change6h.toFixed(2)}%)`);
+      console.log(`   Uptrend (+${change6h.toFixed(2)}%)`);
     } else if (change6h < -1) {
-      console.log(`  📉 Downtrend (${change6h.toFixed(2)}%)`);
+      console.log(`   Downtrend (${change6h.toFixed(2)}%)`);
     } else {
-      console.log(`  ➡️  Sideways (${change6h.toFixed(2)}%)`);
+      console.log(`    Sideways (${change6h.toFixed(2)}%)`);
     }
     
     return {
@@ -105,25 +105,25 @@ async function analyzeCoin(coinId, coinName) {
 }
 
 // Main
-console.log('🔍 Fetching market data from CoinGecko...\n');
+console.log(' Fetching market data from CoinGecko...\n');
 
 const btc = await analyzeCoin('bitcoin', 'BTC');
 const eth = await analyzeCoin('ethereum', 'ETH');
 
 console.log('\n' + '='.repeat(80));
-console.log('\n📋 TRADING RECOMMENDATION:\n');
+console.log('\n TRADING RECOMMENDATION:\n');
 
 if (btc && eth) {
   if (btc.signal === 'strong_bull' || eth.signal === 'strong_bull') {
     const coin = btc.signal === 'strong_bull' ? 'BTC' : 'ETH';
-    console.log(`✅ TRADE SIGNAL: Enter ${coin} LONG`);
+    console.log(` TRADE SIGNAL: Enter ${coin} LONG`);
     console.log(`   Strong momentum confirmed with volume`);
   } else if (btc.signal === 'strong_bear' || eth.signal === 'strong_bear') {
     const coin = btc.signal === 'strong_bear' ? 'BTC' : 'ETH';
-    console.log(`✅ TRADE SIGNAL: Enter ${coin} SHORT`);
+    console.log(` TRADE SIGNAL: Enter ${coin} SHORT`);
     console.log(`   Strong selling pressure with volume`);
   } else {
-    console.log(`⏸️  NO TRADE: Wait for clearer momentum signal`);
+    console.log(`  NO TRADE: Wait for clearer momentum signal`);
     console.log(`   Current momentum is too weak to justify entry`);
   }
 }

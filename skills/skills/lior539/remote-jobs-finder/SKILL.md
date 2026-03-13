@@ -117,13 +117,13 @@ Rules:
 
 For each job, show as a bulleted list:
 **Role Title** — Company
-- 🕒 Posted: <date and time posted, formatted nicely e.g. today @ 5:15pm, or yesterday @ 2:10pm, or 2 days ago, or 1 week ago etc. Only show time if it was today or yesterday> 
+-  Posted: <date and time posted, formatted nicely e.g. today @ 5:15pm, or yesterday @ 2:10pm, or 2 days ago, or 1 week ago etc. Only show time if it was today or yesterday> 
 - <flag emoji> Location (remote scope)
-- 💰 Salary (or “Salary undisclosed”)
+-  Salary (or “Salary undisclosed”)
 - 1–2 line summary
-- 🔗 Link to apply
-- 🏢 Link to company homepage
-- 🌐 Link to company LinkedIn:
+-  Link to apply
+-  Link to company homepage
+-  Link to company LinkedIn:
 
 Keep it concise. After the list, ask what to do next:
 - “Want 20 more, or should I narrow by industry/seniority/salary?”

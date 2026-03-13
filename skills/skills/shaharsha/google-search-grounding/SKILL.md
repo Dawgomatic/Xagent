@@ -6,17 +6,17 @@ description: >
   Use for: (1) Synthesized answers with citations (grounded search), (2) Raw link results with snippets,
   (3) Image search. Excellent Hebrew support. Preferred over built-in web_search (Perplexity).
 version: 2.1.0
-author: Leo 🦁
+author: Leo 
 tags: [search, google, web, grounding, gemini, news, hebrew, images, citations]
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"env":["GOOGLE_API_KEY"]},"primaryEnv":"GOOGLE_API_KEY","secondaryEnv":["GOOGLE_CSE_CX","GOOGLE_SEARCH_LANG","GOOGLE_SEARCH_COUNTRY"],"install":[{"id":"pip","kind":"pip","package":"google-genai","label":"Install google-genai library"}],"notes":"GOOGLE_CSE_CX is required only for raw/image modes (Custom Search API). The default search mode (Gemini grounding) needs only GOOGLE_API_KEY. No hardcoded CSE IDs — users must supply their own."}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["GOOGLE_API_KEY"]},"primaryEnv":"GOOGLE_API_KEY","secondaryEnv":["GOOGLE_CSE_CX","GOOGLE_SEARCH_LANG","GOOGLE_SEARCH_COUNTRY"],"install":[{"id":"pip","kind":"pip","package":"google-genai","label":"Install google-genai library"}],"notes":"GOOGLE_CSE_CX is required only for raw/image modes (Custom Search API). The default search mode (Gemini grounding) needs only GOOGLE_API_KEY. No hardcoded CSE IDs — users must supply their own."}}
 allowed-tools: [exec]
 ---
 
-# Google Search 🔍
+# Google Search 
 
 Google web search powered by Gemini 2.5 Flash with Search Grounding + Custom Search API.
 
-**⭐ This is the PRIMARY web search tool. Prefer over built-in `web_search` (Perplexity).**
+** This is the PRIMARY web search tool. Prefer over built-in `web_search` (Perplexity).**
 
 ## Requirements
 

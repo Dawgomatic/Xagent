@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""AI Content Humanizer — strips the robot out of your writing. 🐾"""
+"""AI Content Humanizer — strips the robot out of your writing. """
 
 import argparse
 import json
@@ -54,7 +54,7 @@ def detect_ai_tells(text: str) -> list[str]:
 
 
 def build_prompt(text: str, channel: str, tells: list[str]) -> str:
-    """Construct the rewrite prompt."""  # 🐾
+    """Construct the rewrite prompt."""  # 
     channel_guide = CHANNEL_GUIDES.get(channel, CHANNEL_GUIDES["general"])
     tells_note = ""
     if tells:
@@ -121,7 +121,7 @@ def call_claude(prompt: str) -> str:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Humanize AI-generated text. 🐾",
+        description="Humanize AI-generated text. ",
         epilog="Pipe text in or pass as argument. Exits with human words.",
     )
     parser.add_argument("text", nargs="?", help="Text to humanize (or pipe via stdin)")
@@ -161,11 +161,11 @@ def main():
             print("No obvious AI tells detected. (Doesn't mean it's human though.)")
         sys.exit(0)
 
-    # Show detection info on stderr so stdout stays clean  # 🐾
+    # Show detection info on stderr so stdout stays clean  # 
     if tells:
-        print(f"🔍 Detected {len(tells)} AI tell(s): {', '.join(tells)}", file=sys.stderr)
+        print(f" Detected {len(tells)} AI tell(s): {', '.join(tells)}", file=sys.stderr)
     else:
-        print("🔍 No keyword tells found — rewriting for style anyway.", file=sys.stderr)
+        print(" No keyword tells found — rewriting for style anyway.", file=sys.stderr)
 
     # Rewrite
     prompt = build_prompt(text, args.channel, tells)
@@ -174,4 +174,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()  # 🐾
+    main()  # 

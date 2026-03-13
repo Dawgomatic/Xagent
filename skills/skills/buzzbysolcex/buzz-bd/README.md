@@ -1,4 +1,4 @@
-# 🐝 buzz-bd — Token Discovery & BD Intelligence for OpenClaw
+#  buzz-bd — Token Discovery & BD Intelligence for OpenClaw
 
 > Autonomous crypto token discovery, scoring, and business development intelligence as an OpenClaw/ClawHub skill.
 
@@ -10,11 +10,11 @@
 
 **buzz-bd** gives your OpenClaw agent token discovery and BD intelligence capabilities:
 
-- 🔍 **Scan** trending tokens across Solana, Ethereum, and BSC via DexScreener
-- 📊 **Score** every token on a 100-point system (market cap, liquidity, volume, social, age, team)
-- ✅ **Verify** contract addresses, pair URLs, and social links
-- 📝 **Brief** — generate outreach-ready prospect summaries for qualified tokens
-- ⭐ **Cross-reference** — flag high-conviction tokens appearing on multiple sources
+-  **Scan** trending tokens across Solana, Ethereum, and BSC via DexScreener
+-  **Score** every token on a 100-point system (market cap, liquidity, volume, social, age, team)
+-  **Verify** contract addresses, pair URLs, and social links
+-  **Brief** — generate outreach-ready prospect summaries for qualified tokens
+-  **Cross-reference** — flag high-conviction tokens appearing on multiple sources
 
 ## Install
 
@@ -69,7 +69,7 @@ Add to `~/.openclaw/openclaw.json`:
 | Token Age | 10% | >6 months → <1 week |
 | Team Transparency | 10% | Doxxed → anonymous |
 
-**Score ranges:** 🔥 HOT (85-100) → ✅ Qualified (70-84) → 👀 Watch (50-69) → ❌ Skip (0-49)
+**Score ranges:**  HOT (85-100) →  Qualified (70-84) →  Watch (50-69) →  Skip (0-49)
 
 ## About BuzzBD
 

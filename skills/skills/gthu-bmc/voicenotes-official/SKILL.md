@@ -5,7 +5,7 @@ description: This official skill from the Voicenotes team gives OpenClaw access 
 homepage: https://voicenotes.com
 metadata:
   openclaw:
-    emoji: "📝"
+    emoji: ""
     requires:
       env:
         - VOICENOTES_API_KEY

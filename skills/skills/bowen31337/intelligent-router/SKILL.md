@@ -38,13 +38,13 @@ python3 skills/intelligent-router/scripts/spawn_helper.py "task description"
 python3 skills/intelligent-router/scripts/spawn_helper.py --validate '{"kind":"agentTurn","message":"..."}'
 ```
 
-### ❌ VIOLATION (never do this):
+###  VIOLATION (never do this):
 ```python
 # Cron job without model = Sonnet default = expensive waste
 {"kind": "agentTurn", "message": "check server..."}  # ← WRONG
 ```
 
-### ✅ CORRECT:
+###  CORRECT:
 ```python
 # Always specify model from router recommendation
 {"kind": "agentTurn", "message": "check server...", "model": "ollama/glm-4.7-flash"}
@@ -56,11 +56,11 @@ python3 skills/intelligent-router/scripts/spawn_helper.py --validate '{"kind":"a
 
 | Tier | Use For | Primary Model | Cost |
 |------|---------|---------------|------|
-| 🟢 SIMPLE | Monitoring, checks, summaries | `ollama/glm-4.7-flash` | FREE |
-| 🟡 MEDIUM | Code fixes, patches, research | DeepSeek V3.2 | $0.40/M |
-| 🟠 COMPLEX | Features, architecture, debug | Sonnet 4.6 | $3/M |
-| 🔵 REASONING | Proofs, formal logic | DeepSeek R1 32B | $0.20/M |
-| 🔴 CRITICAL | Security, production | Opus 4.6 | $5/M |
+|  SIMPLE | Monitoring, checks, summaries | `ollama/glm-4.7-flash` | FREE |
+|  MEDIUM | Code fixes, patches, research | DeepSeek V3.2 | $0.40/M |
+|  COMPLEX | Features, architecture, debug | Sonnet 4.6 | $3/M |
+|  REASONING | Proofs, formal logic | DeepSeek R1 32B | $0.20/M |
+|  CRITICAL | Security, production | Opus 4.6 | $5/M |
 
 **SIMPLE fallback chain:** `ollama/glm-4.7-flash` → `anthropic-proxy-4/glm-4.7` → `anthropic-proxy-6/glm-4.5-air`
 
@@ -179,10 +179,10 @@ openclaw cron add --job '{
 
 ### Benefits
 
-✅ **Self-healing:** Automatically removes broken models (e.g., expired OAuth)
-✅ **Zero maintenance:** No manual model list updates
-✅ **New models:** Auto-adds newly released models
-✅ **Cost optimization:** Always uses cheapest working model per tier
+ **Self-healing:** Automatically removes broken models (e.g., expired OAuth)
+ **Zero maintenance:** No manual model list updates
+ **New models:** Auto-adds newly released models
+ **Cost optimization:** Always uses cheapest working model per tier
 
 ### Discovery Output
 

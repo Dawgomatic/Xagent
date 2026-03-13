@@ -19,7 +19,7 @@ A multi-language vehicle expense tracking tool that supports Google Sheets and l
 
 ---
 
-## 🚀 Initialization (First-Time Setup)
+##  Initialization (First-Time Setup)
 
 ### Step 1: Choose Your Locale
 

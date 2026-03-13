@@ -64,14 +64,14 @@ Before creating a request:
 - Inspect the selected result for availability/request status info returned by Overseerr (library/availability/request indicators).
 - If it indicates the media is already available in the library:
   - Do NOT request it
-  - Reply: "Already available ✅"
+  - Reply: "Already available "
 - If it indicates the media is already requested (pending/processing/approved/requested):
   - Do NOT request it again
-  - Reply: "Already requested ✅"
+  - Reply: "Already requested "
 
 If the API response does NOT clearly indicate status:
 - Proceed with creating the request
-- If the POST fails due to duplicate/existing request, reply "Already requested ✅"
+- If the POST fails due to duplicate/existing request, reply "Already requested "
 
 ### 6) Create the request
 POST:
@@ -128,10 +128,10 @@ curl -s -X POST \
 
 ## Output style
 Short confirmations:
-- "✅ Requested: Interstellar (2014)"
-- "✅ Requested: Reacher (Season 2)"
-- "Already requested ✅"
-- "Already available ✅"
+- " Requested: Interstellar (2014)"
+- " Requested: Reacher (Season 2)"
+- "Already requested "
+- "Already available "
 
 ## Error handling
 - If search returns 0 results:

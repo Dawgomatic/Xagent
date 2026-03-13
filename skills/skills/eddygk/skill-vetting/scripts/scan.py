@@ -160,7 +160,7 @@ class SkillScanner:
         
         # Text format (default)
         if not self.findings:
-            print("✅ No security issues detected")
+            print(" No security issues detected")
             return
         
         # ANSI color codes
@@ -179,7 +179,7 @@ class SkillScanner:
             sev = f['severity']
             severity_counts[sev] = severity_counts.get(sev, 0) + 1
         
-        print(f"⚠️  Found {len(self.findings)} potential security issues:\n")
+        print(f"  Found {len(self.findings)} potential security issues:\n")
         if severity_counts:
             counts_str = ', '.join([f"{sev}: {count}" for sev, count in sorted(severity_counts.items())])
             print(f"   {counts_str}\n")
@@ -204,7 +204,7 @@ class SkillScanner:
             reset = COLORS['RESET']
             
             for category, findings in sorted(by_severity[severity].items()):
-                print(f"{color}🔍 {severity}{reset} - {category.upper().replace('_', ' ')}")
+                print(f"{color} {severity}{reset} - {category.upper().replace('_', ' ')}")
                 for f in findings:
                     print(f"   {f['file']}:{f['line']} - {f['description']}")
                     print(f"      Match: {f['match']}")

@@ -111,7 +111,7 @@ PHASE 3: CLAIM (Destination Chain)
 | `JBSucker` | Abstract base with core bridging logic |
 | `JBOptimismSucker` | OP Stack bridges (Optimism, Base) |
 | `JBArbitrumSucker` | Arbitrum Inbox/Outbox messaging |
-| `JBCCIPSucker` | Chainlink CCIP for L2↔L2 |
+| `JBCCIPSucker` | Chainlink CCIP for L2L2 |
 | `JBSuckerRegistry` | Deploys and tracks sucker pairs |
 
 ### Querying Sucker Pairs
@@ -389,10 +389,10 @@ await ownerClient.writeContract({
 - Dynamic gas pricing
 - Requires calculating `maxSubmissionCost`
 
-**CCIP (L2↔L2):**
+**CCIP (L2L2):**
 - Highest fees but most flexible
 - Works between any CCIP-supported chains
-- Good for Optimism↔Arbitrum, Base↔Arbitrum
+- Good for OptimismArbitrum, BaseArbitrum
 
 ### Sucker Deprecation
 

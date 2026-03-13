@@ -1,4 +1,4 @@
-# 🛡️ SkillGuard
+#  SkillGuard
 
 **Security scanner and auditor for AgentSkill packages.**
 
@@ -95,10 +95,10 @@ node src/cli.js batch /path/to/skills/
 
 | Score | Risk | Verdict |
 |-------|------|---------|
-| 80-100 | ✅ LOW | Safe to install |
-| 50-79 | ⚠️ MEDIUM | Review findings first |
-| 20-49 | 🟠 HIGH | Significant concerns |
-| 0-19 | 🔴 CRITICAL | Do NOT install |
+| 80-100 |  LOW | Safe to install |
+| 50-79 |  MEDIUM | Review findings first |
+| 20-49 |  HIGH | Significant concerns |
+| 0-19 |  CRITICAL | Do NOT install |
 
 ## Test Results
 
@@ -106,19 +106,19 @@ Tested against 13 fixtures including 11 adversarial skills designed by an Opus-c
 
 | Fixture | Attack Technique | Score | Result |
 |---------|-----------------|-------|--------|
-| Clean weather skill | None (legitimate) | 98/100 ✅ | PASS |
-| GitHub API skill | None (legitimate, uses tokens + network) | 86/100 ✅ | PASS |
-| String concatenation | `'ev'+'al'`, `'chil'+'d_process'` | 0/100 🔴 | CAUGHT |
-| Hex/Base64 encoding | `\x65\x76\x61\x6c`, encoded commands | 0/100 🔴 | CAUGHT |
-| Subtle prompt injection | Hidden in HTML comments, base64 in image alt | 10/100 🔴 | CAUGHT |
-| Time bomb | Activates after future date | 0/100 🔴 | CAUGHT |
-| Deep alias chain | Wrapper functions, destructure renames, slow leak | 0/100 🔴 | CAUGHT |
-| Zero-width Unicode | 79 invisible chars hiding instructions | 15/100 🔴 | CAUGHT |
-| Sandbox detection | Container/CI checks, timing analysis | 0/100 🔴 | CAUGHT |
-| Reverse shell | `/dev/tcp`, `curl|bash`, cred harvesting | 0/100 🔴 | CAUGHT |
-| Python pickle/exec | `pickle.loads`, `__import__`, `getattr` | 0/100 🔴 | CAUGHT |
-| Role-play framing | "Pretend you're a sysadmin" jailbreak | 5/100 🔴 | CAUGHT |
-| Original malicious | Direct `execSync`, `btoa`, crontab, webhook | 0/100 🔴 | CAUGHT |
+| Clean weather skill | None (legitimate) | 98/100  | PASS |
+| GitHub API skill | None (legitimate, uses tokens + network) | 86/100  | PASS |
+| String concatenation | `'ev'+'al'`, `'chil'+'d_process'` | 0/100  | CAUGHT |
+| Hex/Base64 encoding | `\x65\x76\x61\x6c`, encoded commands | 0/100  | CAUGHT |
+| Subtle prompt injection | Hidden in HTML comments, base64 in image alt | 10/100  | CAUGHT |
+| Time bomb | Activates after future date | 0/100  | CAUGHT |
+| Deep alias chain | Wrapper functions, destructure renames, slow leak | 0/100  | CAUGHT |
+| Zero-width Unicode | 79 invisible chars hiding instructions | 15/100  | CAUGHT |
+| Sandbox detection | Container/CI checks, timing analysis | 0/100  | CAUGHT |
+| Reverse shell | `/dev/tcp`, `curl|bash`, cred harvesting | 0/100  | CAUGHT |
+| Python pickle/exec | `pickle.loads`, `__import__`, `getattr` | 0/100  | CAUGHT |
+| Role-play framing | "Pretend you're a sysadmin" jailbreak | 5/100  | CAUGHT |
+| Original malicious | Direct `execSync`, `btoa`, crontab, webhook | 0/100  | CAUGHT |
 
 **Detection rate: 100%** — Zero false negatives on known attack patterns.
 **False positive rate: 0%** — Both legitimate skills correctly classified as LOW risk.

@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🖥️",
+        "emoji": "",
         "requires": {
           "bins": ["ssh"],
           "env": ["WINDOWS_SSH_HOST", "WINDOWS_SSH_USER"]

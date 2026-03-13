@@ -1,7 +1,7 @@
 ---
 name: Artificial Intelligence
 description: Answer AI questions with current info instead of outdated training data.
-metadata: {"clawdbot":{"emoji":"🤖","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Artificial Intelligence

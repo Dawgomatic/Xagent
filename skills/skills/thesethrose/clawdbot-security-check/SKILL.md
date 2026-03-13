@@ -2,7 +2,7 @@
 name: clawdbot-self-security-audit
 description: Perform a comprehensive read-only security audit of Clawdbot's own configuration. This is a knowledge-based skill that teaches Clawdbot to identify hardening opportunities across the system. Use when user asks to "run security check", "audit clawdbot", "check security hardening", or "what vulnerabilities does my Clawdbot have". This skill uses Clawdbot's internal capabilities and file system access to inspect configuration, detect misconfigurations, and recommend remediations. It is designed to be extensible - new checks can be added by updating this skill's knowledge.
 homepage: https://github.com/TheSethRose/Clawdbot-Security-Check
-metadata: {"clawdbot":{"emoji":"🔒","os":["darwin","linux"],"requires":{"files":["read"],"tools":["exec","bash"]},"install":[{"id":"read-skill","kind":"skill","name":"clawdbot-self-security-audit","label":"Install security audit skill","bins":["SKILL.md"]}]}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin","linux"],"requires":{"files":["read"],"tools":["exec","bash"]},"install":[{"id":"read-skill","kind":"skill","name":"clawdbot-self-security-audit","label":"Install security audit skill","bins":["SKILL.md"]}]}}
 ---
 
 # Clawdbot Self-Security Audit Framework
@@ -48,7 +48,7 @@ Use these commands to run security audits:
 
 When auditing Clawdbot, systematically evaluate these domains:
 
-### 1. Gateway Exposure 🔴 Critical
+### 1. Gateway Exposure  Critical
 
 **What to check:**
 - Where is the gateway binding? (`gateway.bind`)
@@ -73,7 +73,7 @@ export CLAWDBOT_GATEWAY_TOKEN="$(openssl rand -hex 32)"
 
 ---
 
-### 2. DM Policy Configuration 🟠 High
+### 2. DM Policy Configuration  High
 
 **What to check:**
 - What is `dm_policy` set to?
@@ -100,7 +100,7 @@ cat ~/.clawdbot/clawdbot.json | grep -E '"dm_policy|"allowFrom"'
 
 ---
 
-### 3. Group Access Control 🟠 High
+### 3. Group Access Control  High
 
 **What to check:**
 - What is `groupPolicy` set to?
@@ -131,7 +131,7 @@ cat ~/.clawdbot/clawdbot.json | grep -i "mention"
 
 ---
 
-### 4. Credentials Security 🔴 Critical
+### 4. Credentials Security  Critical
 
 **What to check:**
 - Credential file locations and permissions
@@ -167,7 +167,7 @@ chmod 600 ~/.clawdbot/clawdbot.json
 
 ---
 
-### 5. Browser Control Exposure 🟠 High
+### 5. Browser Control Exposure  High
 
 **What to check:**
 - Is browser control enabled?
@@ -205,7 +205,7 @@ ls -la ~/.clawdbot/browser/
 
 ---
 
-### 6. Gateway Bind & Network Exposure 🟠 High
+### 6. Gateway Bind & Network Exposure  High
 
 **What to check:**
 - What is `gateway.bind` set to?
@@ -236,7 +236,7 @@ cat ~/.clawdbot/clawdbot.json | grep '"tailscale"'
 
 ---
 
-### 7. Tool Access & Sandboxing 🟡 Medium
+### 7. Tool Access & Sandboxing  Medium
 
 **What to check:**
 - Are elevated tools allowlisted?
@@ -277,7 +277,7 @@ cat ~/.clawdbot/clawdbot.json | grep -i "openRoom"
 
 ---
 
-### 8. File Permissions & Local Disk Hygiene 🟡 Medium
+### 8. File Permissions & Local Disk Hygiene  Medium
 
 **What to check:**
 - Directory permissions (should be 700)
@@ -301,7 +301,7 @@ chmod 600 ~/.clawdbot/credentials/*
 
 ---
 
-### 9. Plugin Trust & Model Hygiene 🟡 Medium
+### 9. Plugin Trust & Model Hygiene  Medium
 
 **What to check:**
 - Are plugins explicitly allowlisted?
@@ -333,7 +333,7 @@ cat ~/.clawdbot/clawdbot.json | grep -i "model|anthropic"
 
 ---
 
-### 10. Logging & Redaction 🟡 Medium
+### 10. Logging & Redaction  Medium
 
 **What is logging.redactSensitive set to?**
 - Should be `tools` to redact sensitive tool output
@@ -357,7 +357,7 @@ ls -la ~/.clawdbot/logs/
 
 ---
 
-### 11. Prompt Injection Protection 🟡 Medium
+### 11. Prompt Injection Protection  Medium
 
 **What to check:**
 - Is `wrap_untrusted_content` or `untrusted_content_wrapper` enabled?
@@ -390,7 +390,7 @@ cat ~/.clawdbot/clawdbot.json | grep -i "untrusted|wrap"
 
 ---
 
-### 12. Dangerous Command Blocking 🟡 Medium
+### 12. Dangerous Command Blocking  Medium
 
 **What to check:**
 - What commands are in `blocked_commands`?
@@ -418,7 +418,7 @@ cat ~/.clawdbot/clawdbot.json | grep -A10 '"blocked_commands"'
 
 ---
 
-### 13. Secret Scanning Readiness 🟡 Medium
+### 13. Secret Scanning Readiness  Medium
 
 **What to check:**
 - Is detect-secrets configured?
@@ -460,12 +460,12 @@ The `--fix` flag applies these guardrails:
 
 Treat findings in this priority order:
 
-1. **🔴 Lock down DMs and groups** if tools are enabled on open settings
-2. **🔴 Fix public network exposure** immediately
-3. **🟠 Secure browser control** with tokens and HTTPS
-4. **🟠 Correct file permissions** for credentials and config
-5. **🟡 Only load trusted plugins**
-6. **🟡 Use modern models** for bots with tool access
+1. ** Lock down DMs and groups** if tools are enabled on open settings
+2. ** Fix public network exposure** immediately
+3. ** Secure browser control** with tokens and HTTPS
+4. ** Correct file permissions** for credentials and config
+5. ** Only load trusted plugins**
+6. ** Use modern models** for bots with tool access
 
 ## Access Control Models
 
@@ -549,10 +549,10 @@ For each of the 13 domains above:
 ### Step 3: Generate Report
 Format findings by severity:
 ```
-🔴 CRITICAL: [vulnerability] - [impact]
-🟠 HIGH: [vulnerability] - [impact]
-🟡 MEDIUM: [vulnerability] - [impact]
-✅ PASSED: [check name]
+ CRITICAL: [vulnerability] - [impact]
+ HIGH: [vulnerability] - [impact]
+ MEDIUM: [vulnerability] - [impact]
+ PASSED: [check name]
 ```
 
 ### Step 4: Provide Remediation
@@ -565,23 +565,23 @@ For each finding, output:
 
 ```
 ═══════════════════════════════════════════════════════════════
-🔒 CLAWDBOT SECURITY AUDIT
+ CLAWDBOT SECURITY AUDIT
 ═══════════════════════════════════════════════════════════════
 Timestamp: $(date -Iseconds)
 
 ┌─ SUMMARY ───────────────────────────────────────────────
-│ 🔴 Critical:  $CRITICAL_COUNT
-│ 🟠 High:      $HIGH_COUNT
-│ 🟡 Medium:    $MEDIUM_COUNT
-│ ✅ Passed:    $PASSED_COUNT
+│  Critical:  $CRITICAL_COUNT
+│  High:      $HIGH_COUNT
+│  Medium:    $MEDIUM_COUNT
+│  Passed:    $PASSED_COUNT
 └────────────────────────────────────────────────────────
 
 ┌─ FINDINGS ──────────────────────────────────────────────
-│ 🔴 [CRITICAL] $VULN_NAME
+│  [CRITICAL] $VULN_NAME
 │    Finding: $DESCRIPTION
 │    → Fix: $REMEDIATION
 │
-│ 🟠 [HIGH] $VULN_NAME
+│  [HIGH] $VULN_NAME
 │    ...
 └────────────────────────────────────────────────────────
 
@@ -603,7 +603,7 @@ To add new security checks:
 ### Example: Adding SSH Hardening Check
 
 ```
-## 14. SSH Agent Forwarding 🟡 Medium
+## 14. SSH Agent Forwarding  Medium
 
 **What to check:** Is SSH_AUTH_SOCK exposed to containers?
 

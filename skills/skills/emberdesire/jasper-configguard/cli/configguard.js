@@ -21,7 +21,7 @@ const path = require('path');
 const VERSION = require('../package.json').version;
 
 const HELP = `
-🛡️  jasper-configguard v${VERSION}
+  jasper-configguard v${VERSION}
 Safe config changes for OpenClaw with automatic rollback.
 
 USAGE:
@@ -113,7 +113,7 @@ async function main() {
         }
     }
   } catch (err) {
-    console.error(`\n❌ ${err.message}`);
+    console.error(`\n ${err.message}`);
     if (flags.verbose) console.error(err.stack);
     process.exit(1);
   }
@@ -148,7 +148,7 @@ async function handlePatch(guard, args, flags) {
 
   if (flags.dryRun) {
     const result = await guard.dryRun(patch);
-    console.log('\n🔍 Dry run — changes that would be applied:\n');
+    console.log('\n Dry run — changes that would be applied:\n');
     console.log(result.diff);
     console.log('\nNo changes made. Remove --dry-run to apply.');
     return;
@@ -160,11 +160,11 @@ async function handlePatch(guard, args, flags) {
   });
   
   if (result.success) {
-    console.log(`\n✅ Config updated successfully`);
+    console.log(`\n Config updated successfully`);
     console.log(`   Backup: ${result.backupId}`);
     console.log(`   Rollback: jasper-configguard restore ${result.backupId}`);
   } else {
-    console.log(`\n⚠️  Config rolled back — gateway failed health check`);
+    console.log(`\n  Config rolled back — gateway failed health check`);
     console.log(`   Error: ${result.error}`);
     process.exit(1);
   }
@@ -173,10 +173,10 @@ async function handlePatch(guard, args, flags) {
 async function handleRestore(guard, backupId) {
   const result = await guard.restore(backupId);
   if (result.success) {
-    console.log(`\n✅ Restored from backup: ${result.backupId}`);
+    console.log(`\n Restored from backup: ${result.backupId}`);
     console.log(`   Gateway health: ${result.healthy ? 'healthy' : 'check manually'}`);
   } else {
-    console.error(`\n❌ Restore failed: ${result.error}`);
+    console.error(`\n Restore failed: ${result.error}`);
     process.exit(1);
   }
 }
@@ -187,7 +187,7 @@ async function handleList(guard) {
     console.log('\nNo backups found. Run a patch to create one.');
     return;
   }
-  console.log(`\n📦 Config backups (${backups.length}):\n`);
+  console.log(`\n Config backups (${backups.length}):\n`);
   for (const b of backups) {
     const age = timeSince(b.timestamp);
     console.log(`  ${b.id}  ${b.date}  (${age} ago)  ${b.size}`);
@@ -201,56 +201,56 @@ async function handleDiff(guard, backupId) {
     console.log('\nNo differences found (or no backup to compare).');
     return;
   }
-  console.log('\n📋 Config diff:\n');
+  console.log('\n Config diff:\n');
   console.log(diff);
 }
 
 async function handleValidate(guard, configPath) {
   const result = guard.validate(configPath);
   if (result.valid) {
-    console.log('\n✅ Config is valid JSON');
+    console.log('\n Config is valid JSON');
     if (result.warnings.length > 0) {
-      console.log('\n⚠️  Warnings:');
+      console.log('\n  Warnings:');
       result.warnings.forEach(w => console.log(`   - ${w}`));
     }
   } else {
-    console.error(`\n❌ Invalid config: ${result.error}`);
+    console.error(`\n Invalid config: ${result.error}`);
     process.exit(1);
   }
 }
 
 async function handleSetup(guard) {
   guard.setup();
-  console.log('\n✅ ConfigGuard initialized');
+  console.log('\n ConfigGuard initialized');
   console.log(`   Config: ${guard.configPath}`);
   console.log(`   Backups: ${guard.backupDir}`);
   console.log(`   Max backups: ${guard.maxBackups}`);
 }
 
 async function handleDoctor(guard) {
-  console.log('\n🏥 ConfigGuard Doctor\n');
+  console.log('\n ConfigGuard Doctor\n');
   
   // Check config exists
   const configExists = fs.existsSync(guard.configPath);
-  console.log(`  Config file: ${configExists ? '✅' : '❌'} ${guard.configPath}`);
+  console.log(`  Config file: ${configExists ? '' : ''} ${guard.configPath}`);
   
   // Validate JSON
   if (configExists) {
     const result = guard.validate();
-    console.log(`  Valid JSON: ${result.valid ? '✅' : '❌'}`);
+    console.log(`  Valid JSON: ${result.valid ? '' : ''}`);
   }
   
   // Check backups
   const backups = guard.listBackups();
-  console.log(`  Backups: ${backups.length > 0 ? '✅' : '⚠️ '} ${backups.length} available`);
+  console.log(`  Backups: ${backups.length > 0 ? '' : ' '} ${backups.length} available`);
   
   // Check gateway health
   const healthy = await guard.healthCheck();
-  console.log(`  Gateway: ${healthy ? '✅ healthy' : '❌ not responding'}`);
+  console.log(`  Gateway: ${healthy ? ' healthy' : ' not responding'}`);
   
   // Check gateway process
   const running = guard.isGatewayRunning();
-  console.log(`  Process: ${running ? '✅ running' : '❌ not found'}`);
+  console.log(`  Process: ${running ? ' running' : ' not found'}`);
 }
 
 function timeSince(timestamp) {

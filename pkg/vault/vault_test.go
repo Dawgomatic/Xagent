@@ -17,7 +17,7 @@ func TestVaultInit(t *testing.T) {
 	}
 
 	// Check all directories created
-	expectedDirs := []string{"Sessions", "Daily", "Tools", "Topics", "Dreams", "Personality", "Channels", "Models"}
+	expectedDirs := []string{"Sessions", "Daily", "Tools", "Topics", "Dreams", "Personality", "Channels", "Models", "World", "Experiences", "MentalModels"}
 	for _, d := range expectedDirs {
 		path := filepath.Join(dir, d)
 		info, err := os.Stat(path)
@@ -163,7 +163,7 @@ func TestWriteDreamNote(t *testing.T) {
 	if !strings.Contains(note, "tags: [dream, reflection]") {
 		t.Error("missing dream tags")
 	}
-	if !strings.Contains(note, "💭 Dream") {
+	if !strings.Contains(note, " Dream") {
 		t.Error("missing dream title")
 	}
 	if !strings.Contains(note, "docker") {

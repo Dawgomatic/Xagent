@@ -1,4 +1,4 @@
-# 🔐 EVM Wallet Skill
+#  EVM Wallet Skill
 
 Self-sovereign crypto wallet for AI agents with Venice AI integration. Your keys, your wallet, pay for AI with crypto.
 
@@ -6,7 +6,7 @@ Built for [Moltbot](https://github.com/BankrBot/moltbot-skills) / [Clawdbot](htt
 
 **New:** Pay for private AI inference via [Venice](https://venice.ai) using DIEM tokens on Base.
 
-## ⚠️ SECURITY WARNING
+##  SECURITY WARNING
 
 **NEVER expose your private key!**
 

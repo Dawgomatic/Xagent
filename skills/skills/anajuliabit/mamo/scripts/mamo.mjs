@@ -97,11 +97,11 @@ const C = {
 };
 
 function log(msg = '') { console.log(msg); }
-function info(msg) { console.log(`${C.cyan}ℹ${C.reset} ${msg}`); }
-function ok(msg) { console.log(`${C.green}✅${C.reset} ${msg}`); }
-function warn(msg) { console.log(`${C.yellow}⚠️${C.reset} ${msg}`); }
-function fail(msg) { console.error(`${C.red}❌${C.reset} ${msg}`); process.exit(1); }
-function header(msg) { log(`\n${C.bold}${C.magenta}🐮 ${msg}${C.reset}`); log('━'.repeat(50)); }
+function info(msg) { console.log(`${C.cyan}${C.reset} ${msg}`); }
+function ok(msg) { console.log(`${C.green}${C.reset} ${msg}`); }
+function warn(msg) { console.log(`${C.yellow}${C.reset} ${msg}`); }
+function fail(msg) { console.error(`${C.red}${C.reset} ${msg}`); process.exit(1); }
+function header(msg) { log(`\n${C.bold}${C.magenta} ${msg}${C.reset}`); log('━'.repeat(50)); }
 
 function getConfigDir() {
   const dir = join(homedir(), '.config', 'mamo');
@@ -352,7 +352,7 @@ async function cmdCreate(strategyType) {
     // Save locally (registry may not be updated due to access control)
     addLocalStrategy(address, strategyType, result, hash);
 
-    log(`\n${C.bold}${C.green}🎉 Strategy Created!${C.reset}`);
+    log(`\n${C.bold}${C.green} Strategy Created!${C.reset}`);
     log('━'.repeat(50));
     log(`Type:      ${strat.label}`);
     log(`Address:   ${result}`);
@@ -427,7 +427,7 @@ async function cmdDeposit(amountStr, tokenArg) {
     fail(`Insufficient ETH for gas (${formatUnits(ethBal, 18)} ETH). Need at least 0.0001 ETH.`);
   }
   
-  log(`\n${C.bold}📋 Transaction Preview${C.reset}`);
+  log(`\n${C.bold} Transaction Preview${C.reset}`);
   log('━'.repeat(40));
   log(`Depositing:      ${amountStr} ${token.symbol}`);
   log(`Strategy:        ${strategyAddress}`);
@@ -444,7 +444,7 @@ async function cmdDeposit(amountStr, tokenArg) {
   });
   
   if (allowance < amount) {
-    log(`\n${C.bold}📝 Step 1/2: Approving ${token.symbol}...${C.reset}`);
+    log(`\n${C.bold} Step 1/2: Approving ${token.symbol}...${C.reset}`);
     const { request: approveReq } = await publicClient.simulateContract({
       address: token.address,
       abi: ERC20_ABI,
@@ -456,11 +456,11 @@ async function cmdDeposit(amountStr, tokenArg) {
     await waitForTx(publicClient, approveTx);
     ok('Approved');
   } else {
-    log(`\n${C.bold}📝 Step 1/2:${C.reset} Already approved ✅`);
+    log(`\n${C.bold} Step 1/2:${C.reset} Already approved `);
   }
   
   // Step 2: Deposit
-  log(`\n${C.bold}📝 Step 2/2: Depositing into strategy...${C.reset}`);
+  log(`\n${C.bold} Step 2/2: Depositing into strategy...${C.reset}`);
   const { request: depositReq } = await publicClient.simulateContract({
     address: strategyAddress,
     abi: STRATEGY_ABI,
@@ -471,7 +471,7 @@ async function cmdDeposit(amountStr, tokenArg) {
   const depositTx = await walletClient.writeContract(depositReq);
   const receipt = await waitForTx(publicClient, depositTx);
   
-  log(`\n${C.bold}${C.green}🎉 Deposit Complete!${C.reset}`);
+  log(`\n${C.bold}${C.green} Deposit Complete!${C.reset}`);
   log('━'.repeat(40));
   log(`Amount:    ${amountStr} ${token.symbol}`);
   log(`BaseScan:  https://basescan.org/tx/${depositTx}`);
@@ -525,7 +525,7 @@ async function cmdWithdraw(amountStr, tokenArg) {
   }
   
   if (withdrawAll) {
-    log(`\n${C.bold}📝 Withdrawing all ${token.symbol}...${C.reset}`);
+    log(`\n${C.bold} Withdrawing all ${token.symbol}...${C.reset}`);
     const { request } = await publicClient.simulateContract({
       address: strategyAddress,
       abi: STRATEGY_ABI,
@@ -542,7 +542,7 @@ async function cmdWithdraw(amountStr, tokenArg) {
     const amount = parseUnits(amountStr, token.decimals);
     if (amount <= 0n) fail('Amount must be greater than 0');
     
-    log(`\n${C.bold}📝 Withdrawing ${amountStr} ${token.symbol}...${C.reset}`);
+    log(`\n${C.bold} Withdrawing ${amountStr} ${token.symbol}...${C.reset}`);
     const { request } = await publicClient.simulateContract({
       address: strategyAddress,
       abi: STRATEGY_ABI,
@@ -567,7 +567,7 @@ async function cmdStatus() {
   
   // Check ETH balance
   const ethBal = await publicClient.getBalance({ address });
-  log(`\n${C.bold}💰 Wallet Balances${C.reset}`);
+  log(`\n${C.bold} Wallet Balances${C.reset}`);
   log(`   ETH:   ${formatUnits(ethBal, 18)}`);
   
   // Check token balances
@@ -585,7 +585,7 @@ async function cmdStatus() {
   }
   
   // Get strategies from registry + local storage
-  log(`\n${C.bold}📊 Mamo Strategies${C.reset}`);
+  log(`\n${C.bold} Mamo Strategies${C.reset}`);
   
   const strategies = await getAllStrategies(publicClient, address);
   
@@ -637,7 +637,7 @@ async function cmdStatus() {
     const res = await fetch(`${API_INDEXER}/account/${address}`);
     if (res.ok) {
       const data = await res.json();
-      log(`\n${C.bold}📡 API Account Data${C.reset}`);
+      log(`\n${C.bold} API Account Data${C.reset}`);
       log(JSON.stringify(data, null, 2));
     }
   } catch { /* API not available, that's ok */ }
@@ -694,7 +694,7 @@ async function cmdApy(strategyType) {
 // ═══════════════════════════════════════════════════════════════
 
 const USAGE = `
-${C.bold}${C.magenta}🐮 Mamo CLI${C.reset} — DeFi Yield Aggregator (Moonwell on Base)
+${C.bold}${C.magenta} Mamo CLI${C.reset} — DeFi Yield Aggregator (Moonwell on Base)
 
 ${C.bold}Usage:${C.reset}
   node mamo.mjs <command> [args]

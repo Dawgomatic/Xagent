@@ -9,20 +9,20 @@
 
 This skill provides battle-tested workflows for managing OpenClaw agents via SSH/tmux, including provider configuration, security hardening, and troubleshooting. All procedures have been validated against real OpenClaw installations.
 
-## 🔒 Security Policy
+##  Security Policy
 
 **This skill uses SAFE operations only:**
-- ✅ Read-only verification commands (`openclaw health`, `openclaw models status`)
-- ✅ OpenClaw's built-in CLI commands (`openclaw models auth`, `openclaw doctor`)
-- ✅ File permission changes (`chmod`) on OpenClaw config directories only
-- ❌ NO SSH key generation or modification
-- ❌ NO shell startup file modifications (`~/.bashrc`, `~/.zshrc`)
-- ❌ NO automated cron job creation
-- ❌ NO arbitrary system-level persistence mechanisms
+-  Read-only verification commands (`openclaw health`, `openclaw models status`)
+-  OpenClaw's built-in CLI commands (`openclaw models auth`, `openclaw doctor`)
+-  File permission changes (`chmod`) on OpenClaw config directories only
+-  NO SSH key generation or modification
+-  NO shell startup file modifications (`~/.bashrc`, `~/.zshrc`)
+-  NO automated cron job creation
+-  NO arbitrary system-level persistence mechanisms
 
 **All high-risk operations must be performed manually by the user.**
 
-## 🎯 What This Skill Does
+##  What This Skill Does
 
 - **Remote Setup**: Connect to OpenClaw installations via existing SSH access
 - **Provider Config**: Configure AI model providers using OpenClaw's built-in commands
@@ -30,7 +30,7 @@ This skill provides battle-tested workflows for managing OpenClaw agents via SSH
 - **Troubleshooting**: Fix common issues with proven solutions
 - **Git Rollback**: Track OpenClaw config changes for easy rollback
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -61,7 +61,7 @@ Simply ask your AI assistant to help with OpenClaw tasks:
 "Harden my OpenClaw security"
 ```
 
-## 📋 Core Workflows
+##  Core Workflows
 
 ### Phase 1: Establish Remote Connection
 
@@ -110,7 +110,7 @@ openclaw models auth paste-token
 
 ### Phase 4: Security Hardening
 
-⚠️ **IMPORTANT**: OpenClaw already has strong security defaults. This phase is about **verification**, not configuration hacking.
+ **IMPORTANT**: OpenClaw already has strong security defaults. This phase is about **verification**, not configuration hacking.
 
 See [guides/hardening.md](guides/hardening.md) and [guides/LESSONS_LEARNED.md](guides/LESSONS_LEARNED.md) for details.
 
@@ -134,9 +134,9 @@ openclaw doctor --fix
 ```
 
 **What DOESN'T Work (skip these):**
-- ❌ `logging.redactSensitive` - Unsupported field
-- ❌ `agents.defaults.tools` - Unsupported field  
-- ❌ `agents.defaults.sandbox` - Unsupported field
+-  `logging.redactSensitive` - Unsupported field
+-  `agents.defaults.tools` - Unsupported field  
+-  `agents.defaults.sandbox` - Unsupported field
 
 These fields cause config validation errors. OpenClaw has built-in security controls.
 
@@ -157,22 +157,22 @@ git checkout <commit-hash> -- openclaw.json
 openclaw doctor --fix
 ```
 
-## 🛡️ Security Built-In
+##  Security Built-In
 
 OpenClaw comes with enterprise-grade security by default:
 
-✅ Secure authentication required  
-✅ Strong workspace isolation  
-✅ CSRF protections  
-✅ Secrets encrypted at rest  
-✅ Private-by-default networking (localhost binding)  
-✅ Secure OAuth flows (state/PKCE)  
-✅ WebSocket origin validation  
-✅ Rate limiting on sensitive endpoints  
+ Secure authentication required  
+ Strong workspace isolation  
+ CSRF protections  
+ Secrets encrypted at rest  
+ Private-by-default networking (localhost binding)  
+ Secure OAuth flows (state/PKCE)  
+ WebSocket origin validation  
+ Rate limiting on sensitive endpoints  
 
 **Your job:** Verify these are working, maintain good operational security practices.
 
-## 🖥️ Manage with Claw Desktop
+##  Manage with Claw Desktop
 
 Want a visual cockpit for managing your OpenClaw agents? **[Claw Desktop](https://claw.so)** provides:
 
@@ -195,7 +195,7 @@ Free forever for basic use. Available for macOS (Apple Silicon & Intel) and Wind
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 ### Guides
 
@@ -214,34 +214,34 @@ Free forever for basic use. Available for macOS (Apple Silicon & Intel) and Wind
 | Check health | `openclaw health` | "Discord: ok" |
 | Auth status | `openclaw models status` | Lists auth providers |
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 | Symptom | Fix |
 |---------|-----|
 | Command not found on host | Expected - OpenClaw must be on remote machine |
 | No tmux session | `tmux new -s openclaw` |
 | ENOENT uv_cwd | `cd ~` first (working directory deleted) |
-| Config validation failed: logging.redactSensitive | ❌ Unsupported - remove it |
-| Config validation failed: agents.defaults.tools | ❌ Unsupported - remove it |
+| Config validation failed: logging.redactSensitive |  Unsupported - remove it |
+| Config validation failed: agents.defaults.tools |  Unsupported - remove it |
 | Config invalid | `openclaw doctor --fix` |
 | Gateway WebSocket closure | Restart gateway or check Claw Desktop |
 | Agent reply timeout | Provider slow/down - add fallback model |
 
 Full troubleshooting guide in [skill.md](skill.md).
 
-## 🎓 Philosophy: Verification Over Configuration
+##  Philosophy: Verification Over Configuration
 
 **Key Insight:** OpenClaw is secure by design. The hardening process is about **verification and operational security**, not configuration hacking.
 
 Instead of adding manual security configs that may fail validation:
-1. ✅ Verify network is localhost-bound
-2. ✅ Lock down file permissions
-3. ✅ Run built-in security tools
-4. ✅ Maintain good operational practices
+1.  Verify network is localhost-bound
+2.  Lock down file permissions
+3.  Run built-in security tools
+4.  Maintain good operational practices
 
 See [guides/LESSONS_LEARNED.md](guides/LESSONS_LEARNED.md) for detailed explanations.
 
-## 📦 Repository Structure
+##  Repository Structure
 
 ```
 openclaw-remote/
@@ -254,7 +254,7 @@ openclaw-remote/
     └── remote-connect.md     # SSH/Tailscale setup
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Found an issue or have improvements? Contributions are welcome!
 
@@ -269,17 +269,17 @@ Found an issue or have improvements? Contributions are welcome!
 - Documentation clearly marks what works vs. what doesn't
 - Examples include expected output
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
-## 🔗 Related Projects
+##  Related Projects
 
 - **[OpenClaw](https://github.com/openclaw)** - The AI agent framework this skill manages
 - **[Claw Desktop](https://claw.so)** - Visual cockpit for managing OpenClaw agents
 - **[Ishi](https://ishi.so)** - The AI assistant that uses this skill
 
-## 💬 Support
+##  Support
 
 - **Discord**: [Join the Claw Discord](https://discord.gg/claw)
 - **GitHub Issues**: [Report issues here](https://github.com/ClawHQ/openclaw-remote/issues)
@@ -287,5 +287,5 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-**Built with 🦀 by the Claw community**  
+**Built with  by the Claw community**  
 *Based on real-world experience hardening production OpenClaw installations*

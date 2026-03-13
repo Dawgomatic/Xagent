@@ -1,4 +1,4 @@
-# Body Doubling Protocols v2.0 🐱⚡
+# Body Doubling Protocols v2.0 
 
 *Part of ADHD-founder.com ecosystem*
 
@@ -6,29 +6,29 @@
 
 ## Session Types (Free)
 
-### 🔥 Quick Fire (25 min)
+###  Quick Fire (25 min)
 - 25 min focused work
 - 1 check-in at 15 min (NOT end of session)
 - Hard stop at 25
 
-### 🎯 Deep Dive (50 min)
+###  Deep Dive (50 min)
 - 50 min focused work  
 - 2 check-ins (15 & 35 min)
 - 10 min break after
 
-### 🚀 Sprint (90 min)
+###  Sprint (90 min)
 - 3×25 min pomodoro
 - Check-ins every 20-25 min
 - Progress review at end
 
-### 💼 Extended (2+ hours)
+###  Extended (2+ hours)
 - Multiple pomodoros
 - Check-ins every 20-25 min
 - Mandatory breaks between blocks
 
 ---
 
-## NEW: First Micro-Step Protocol 🎯
+## NEW: First Micro-Step Protocol 
 
 **When starting ANY session:**
 
@@ -88,7 +88,7 @@ When responses are vague:
 
 ---
 
-## NEW: Auto Micro-Task Suggestion Protocol 🧠
+## NEW: Auto Micro-Task Suggestion Protocol 
 
 **When user says they're stuck, automatically offer:**
 
@@ -113,7 +113,7 @@ When responses are vague:
 
 ---
 
-## Dopamine Menu 🧠⚡ (Free)
+## Dopamine Menu  (Free)
 
 When you're stuck, try ONE of these (2-5 min):
 
@@ -129,7 +129,7 @@ When you're stuck, try ONE of these (2-5 min):
 
 ---
 
-## Emergency Reset Protocol 🚨 (Free)
+## Emergency Reset Protocol  (Free)
 
 When TOTALLY blocked (can't start, can't focus, want to quit):
 
@@ -144,7 +144,7 @@ When TOTALLY blocked (can't start, can't focus, want to quit):
 
 ---
 
-## Reality Check Mode 🎯 (Free)
+## Reality Check Mode  (Free)
 
 Honest questions when you're not making progress:
 
@@ -157,7 +157,7 @@ Honest questions when you're not making progress:
 
 ---
 
-## NEW: Session History Tracking 📊
+## NEW: Session History Tracking 
 
 Track every session in: `~/.openclaw/skills/adhd-body-doubling/history/`
 
@@ -189,7 +189,7 @@ Over time, identify:
 
 ---
 
-## Session Autopsy Template 🔍 (Free)
+## Session Autopsy Template  (Free)
 
 After every session, answer:
 
@@ -200,7 +200,7 @@ After every session, answer:
 
 **Example Output:**
 ```
-SESSION AUTOPSY 📊
+SESSION AUTOPSY 
 Work done: 
 - Wrote 500 words of landing page
 - Sent 3 outreach emails

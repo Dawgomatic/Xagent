@@ -206,4 +206,4 @@ A good research agent output:
 
 ---
 
-*Part of the Hal Stack 🦞 — Agent Orchestration*
+*Part of the Hal Stack  — Agent Orchestration*

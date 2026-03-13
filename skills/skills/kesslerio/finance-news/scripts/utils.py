@@ -14,7 +14,7 @@ def ensure_venv() -> None:
         return
     venv_python = Path(__file__).resolve().parent.parent / "venv" / "bin" / "python3"
     if not venv_python.exists():
-        print("⚠️ finance-news venv missing; run scripts from the repo venv to avoid dependency errors.", file=sys.stderr)
+        print(" finance-news venv missing; run scripts from the repo venv to avoid dependency errors.", file=sys.stderr)
         return
     env = os.environ.copy()
     env["FINANCE_NEWS_VENV_BOOTSTRAPPED"] = "1"

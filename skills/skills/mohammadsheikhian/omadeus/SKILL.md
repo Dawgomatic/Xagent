@@ -2,7 +2,7 @@
 name: omadeus
 description: Manage Omadeus entities via the Omadeus REST API.
 homepage: https://omadeus.com/
-metadata: {"clawdbot":{"emoji":"📋"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Omadeus Skill

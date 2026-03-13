@@ -1,8 +1,8 @@
 # Parallel Agents - Real AI Parallel Execution for OpenClaw
 
-🚀 **Execute tasks with ACTUAL AI-powered parallel agents using OpenClaw's sessions_spawn.**
+ **Execute tasks with ACTUAL AI-powered parallel agents using OpenClaw's sessions_spawn.**
 
-> ✅ **STATUS**: Production-ready with auto-retry (tested 2026-02-08)
+>  **STATUS**: Production-ready with auto-retry (tested 2026-02-08)
 
 ## What Is This?
 
@@ -72,12 +72,12 @@ print(f"Completed with: {result.get('model_used', 'default')}")
 
 ## Key Features
 
-- ✅ **True parallelism** - Multiple AI agents running simultaneously
-- ✅ **Smart model hierarchy** - Haiku → Kimi → Opus (cost optimization)
-- ✅ **Auto-retry** - Agents automatically escalate to better models on failure
-- ✅ **20+ agent types** - Content writers, developers, reviewers, meta-agents
-- ✅ **Production-ready** - Error handling, timeouts, cleanup
-- ✅ **Full AI capabilities** - Each agent has same tools/access as host
+-  **True parallelism** - Multiple AI agents running simultaneously
+-  **Smart model hierarchy** - Haiku → Kimi → Opus (cost optimization)
+-  **Auto-retry** - Agents automatically escalate to better models on failure
+-  **20+ agent types** - Content writers, developers, reviewers, meta-agents
+-  **Production-ready** - Error handling, timeouts, cleanup
+-  **Full AI capabilities** - Each agent has same tools/access as host
 
 ## Documentation
 
@@ -154,9 +154,9 @@ results = spawn_parallel_with_retry(tasks, max_retries=2)
 
 **Real example (2026-02-08):**
 - Spawned 3 research agents
-- Agent 1 (bars): ✅ Success
-- Agent 2 (restaurants): ❌ Failed (no output)
-- Agent 3 (photos): ✅ Success
+- Agent 1 (bars):  Success
+- Agent 2 (restaurants):  Failed (no output)
+- Agent 3 (photos):  Success
 
 **Without retry:** 33% failure rate, incomplete results  
 **With retry:** Auto-fixes failures → 100% success
@@ -175,4 +175,4 @@ Part of the OpenClaw skill ecosystem.
 
 ---
 
-**Built with real AI sessions, not simulation. 🚀**
+**Built with real AI sessions, not simulation. **

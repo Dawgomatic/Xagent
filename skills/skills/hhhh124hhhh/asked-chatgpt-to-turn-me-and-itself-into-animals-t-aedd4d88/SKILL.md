@@ -1,6 +1,6 @@
 ---
 name: asked-chatgpt-to-turn-me-and-itself-into-animals-t-aedd4d88
-description: cute 😇. 
+description: cute . 
 
 [PROMPT]
 
@@ -11,7 +11,7 @@ metadata: {"clawdbot": {"type": "image generation", "inferred_type": "Image Gene
 # Asked ChatGPT to turn me and itself into animals. This happened
 
 ## 描述
-cute 😇. 
+cute . 
 
 [PROMPT]
 
@@ -25,7 +25,7 @@ Based on our past conversations, pick a real animal that best represents me, and
 
 ## Prompt
 ```
-cute 😇. 
+cute . 
 
 [PROMPT]
 

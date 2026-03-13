@@ -1,7 +1,7 @@
 ---
 name: coding-agent
 description: Run Codex CLI, Claude Code, OpenCode, or Pi Coding Agent via background process for programmatic control.
-metadata: {"clawdbot":{"emoji":"🧩","requires":{"anyBins":["claude","codex","opencode","pi"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["claude","codex","opencode","pi"]}}}
 ---
 
 # Coding Agent (background-first)
@@ -33,7 +33,7 @@ process action:write sessionId:XXX data:"y"
 process action:kill sessionId:XXX
 ```
 
-**Why workdir matters:** Agent wakes up in a focused directory, doesn't wander off reading unrelated files (like your soul.md 😅).
+**Why workdir matters:** Agent wakes up in a focused directory, doesn't wander off reading unrelated files (like your soul.md ).
 
 ---
 
@@ -54,7 +54,7 @@ bash workdir:~/project background:true command:"codex --yolo \"Build a snake gam
 
 ### Reviewing PRs (vanilla, no flags)
 
-**⚠️ CRITICAL: Never review PRs in Clawdbot's own project folder!**
+** CRITICAL: Never review PRs in Clawdbot's own project folder!**
 - Either use the project where the PR is submitted (if it's NOT ~/Projects/clawdbot)
 - Or clone to a temp folder first
 
@@ -195,7 +195,7 @@ git worktree remove /tmp/issue-99
 
 ---
 
-## ⚠️ Rules
+##  Rules
 
 1. **Respect tool choice** — if user asks for Codex, use Codex. NEVER offer to build it yourself!
 2. **Be patient** — don't kill sessions because they're "slow"
@@ -262,7 +262,7 @@ command example
 - [Detail 2]
 
 ---
-*Submitted by Razor 🥷 - Mariano's AI agent*
+*Submitted by Razor  - Mariano's AI agent*
 ````
 
 **Key principles:**

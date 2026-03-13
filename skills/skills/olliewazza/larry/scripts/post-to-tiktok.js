@@ -44,27 +44,27 @@ async function uploadImage(filePath) {
 }
 
 (async () => {
-  console.log('📤 Uploading slides...');
+  console.log(' Uploading slides...');
   const images = [];
   for (let i = 1; i <= 6; i++) {
     const filePath = path.join(dir, `slide${i}.png`);
     if (!fs.existsSync(filePath)) {
-      console.error(`  ❌ Missing: ${filePath}`);
+      console.error(`   Missing: ${filePath}`);
       process.exit(1);
     }
     console.log(`  Uploading slide ${i}...`);
     const resp = await uploadImage(filePath);
     if (resp.error) {
-      console.error(`  ❌ Upload error: ${JSON.stringify(resp.error)}`);
+      console.error(`   Upload error: ${JSON.stringify(resp.error)}`);
       process.exit(1);
     }
     images.push({ id: resp.id, path: resp.path });
-    console.log(`  ✅ ${resp.id}`);
+    console.log(`   ${resp.id}`);
     // Rate limit buffer
     if (i < 6) await new Promise(r => setTimeout(r, 1500));
   }
 
-  console.log('\n📱 Creating TikTok post...');
+  console.log('\n Creating TikTok post...');
   const privacy = config.posting?.privacyLevel || 'SELF_ONLY';
   
   const postRes = await fetch(`${BASE_URL}/posts`, {
@@ -99,7 +99,7 @@ async function uploadImage(filePath) {
   });
 
   const result = await postRes.json();
-  console.log('✅ Posted!', JSON.stringify(result));
+  console.log(' Posted!', JSON.stringify(result));
 
   // Save metadata
   const metaPath = path.join(dir, 'meta.json');
@@ -112,5 +112,5 @@ async function uploadImage(filePath) {
     images: images.length
   };
   fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2));
-  console.log(`📋 Metadata saved to ${metaPath}`);
+  console.log(` Metadata saved to ${metaPath}`);
 })();

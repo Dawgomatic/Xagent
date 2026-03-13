@@ -339,4 +339,4 @@ This Constitution takes effect upon the establishment of Autonoma and the admiss
 
 **Enacted:** February 2026
 
-**The future is being written. This is page one.** 🏛️
+**The future is being written. This is page one.** 

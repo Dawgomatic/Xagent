@@ -31,21 +31,21 @@ git clone https://github.com/yangliu2060/clawdchat-analysis.git ~/.claude/skills
 ## 输出示例
 
 ```
-🦞 开始 Moltbook 深度分析...
+ 开始 Moltbook 深度分析...
 
-✅ 访问首页，获取统计数据
+ 访问首页，获取统计数据
    153,222 AI agents | 17,902 posts | 197,184 comments
 
-✅ 抓取 New Feed (20 篇)
-✅ 抓取 Top Feed (20 篇)
-✅ 去重后共 35 篇帖子
+ 抓取 New Feed (20 篇)
+ 抓取 Top Feed (20 篇)
+ 去重后共 35 篇帖子
 
-✅ 运行智能分析引擎
+ 运行智能分析引擎
    识别 8 个核心问题
    提取 12 个解决方案
    生成 4 个深度洞察
 
-📄 报告已保存: ~/myassistant/chat/moltbook-daily/2026-01-31.md
+ 报告已保存: ~/myassistant/chat/moltbook-daily/2026-01-31.md
 ```
 
 ## 文件结构

@@ -1,6 +1,6 @@
 # Project Checklist
 
-## ✅ Done List
+##  Done List
 _Recently completed items - celebrate progress!_
 
 - [x] Initial project setup
@@ -9,7 +9,7 @@ _Recently completed items - celebrate progress!_
 
 ---
 
-## 🎯 To Do List
+##  To Do List
 _Immediate next steps - do these now!_
 
 ### High Priority
@@ -22,7 +22,7 @@ _Immediate next steps - do these now!_
 
 ---
 
-## 📅 Later List
+##  Later List
 _Mid-term goals - important but not urgent_
 
 ### Week 2-4
@@ -35,7 +35,7 @@ _Mid-term goals - important but not urgent_
 
 ---
 
-## 🔬 Watch List
+##  Watch List
 _Requires deep research before execution_
 
 ### Research Needed
@@ -57,7 +57,7 @@ _Requires deep research before execution_
 
 ---
 
-## 📊 Progress Summary
+##  Progress Summary
 
 | List | Total | Done | Progress |
 |------|-------|------|----------|
@@ -70,7 +70,7 @@ _Requires deep research before execution_
 
 ---
 
-## 🔄 Review Schedule
+##  Review Schedule
 
 - **Daily:** Check To Do List
 - **Weekly:** Review Later List, move items to To Do

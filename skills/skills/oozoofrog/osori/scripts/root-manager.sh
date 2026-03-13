@@ -49,7 +49,7 @@ for p in projects:
     rk = str(p.get("root", "default") or "default")
     counts[rk] = counts.get(rk, 0) + 1
 
-print(f"🗂️ Roots ({len(roots)})")
+print(f" Roots ({len(roots)})")
 print()
 for r in roots:
     key = r.get("key", "default")
@@ -64,9 +64,9 @@ for r in roots:
 
 if res.migrated:
     notes = "; ".join(res.migration_notes)
-    print(f"ℹ️ Migrated registry: {notes}")
+    print(f" Migrated registry: {notes}")
     if res.backup_path:
-        print(f"ℹ️ Migration backup: {res.backup_path}")
+        print(f" Migration backup: {res.backup_path}")
 PYEOF
     ;;
 
@@ -87,11 +87,11 @@ key = os.environ["OSORI_ROOT_KEY"].strip()
 label = os.environ.get("OSORI_LABEL", "").strip()
 
 if not re.match(r"^[A-Za-z0-9_-]+$", key):
-    print("❌ root key must match [A-Za-z0-9_-]+")
+    print(" root key must match [A-Za-z0-9_-]+")
     raise SystemExit(1)
 
 if key in {"all", "*"}:
-    print("❌ root key cannot be 'all' or '*'")
+    print(" root key cannot be 'all' or '*'")
     raise SystemExit(1)
 
 res = load_registry(os.environ["OSORI_REG"], auto_migrate=True, make_backup_on_migrate=True)
@@ -113,9 +113,9 @@ registry["roots"] = roots
 backup_path = save_registry(os.environ["OSORI_REG"], registry, make_backup=True)
 
 if found:
-    print(f"✅ Updated root: {key}")
+    print(f" Updated root: {key}")
 else:
-    print(f"✅ Added root: {key}")
+    print(f" Added root: {key}")
 
 if backup_path:
     print(f"Backup: {backup_path}")
@@ -140,11 +140,11 @@ raw_path = os.environ["OSORI_ROOT_PATH"].strip()
 path = os.path.realpath(os.path.abspath(os.path.expanduser(raw_path)))
 
 if not re.match(r"^[A-Za-z0-9_-]+$", key):
-    print("❌ root key must match [A-Za-z0-9_-]+")
+    print(" root key must match [A-Za-z0-9_-]+")
     raise SystemExit(1)
 
 if not os.path.isdir(path):
-    print(f"❌ directory not found: {path}")
+    print(f" directory not found: {path}")
     raise SystemExit(1)
 
 res = load_registry(os.environ["OSORI_REG"], auto_migrate=True, make_backup_on_migrate=True)
@@ -169,7 +169,7 @@ target["paths"] = paths
 registry["roots"] = roots
 backup_path = save_registry(os.environ["OSORI_REG"], registry, make_backup=True)
 
-print(f"✅ Added path to root '{key}': {path}")
+print(f" Added path to root '{key}': {path}")
 if backup_path:
     print(f"Backup: {backup_path}")
 PYEOF
@@ -201,21 +201,21 @@ for r in roots:
         break
 
 if target is None:
-    print(f"❌ root not found: {key}")
+    print(f" root not found: {key}")
     raise SystemExit(1)
 
 paths = [os.path.realpath(os.path.abspath(os.path.expanduser(p))) for p in target.get("paths", []) if isinstance(p, str)]
 new_paths = [p for p in paths if p != path]
 
 if len(new_paths) == len(paths):
-    print(f"ℹ️ path not found in root '{key}': {path}")
+    print(f" path not found in root '{key}': {path}")
     raise SystemExit(0)
 
 target["paths"] = new_paths
 registry["roots"] = roots
 backup_path = save_registry(os.environ["OSORI_REG"], registry, make_backup=True)
 
-print(f"✅ Removed path from root '{key}': {path}")
+print(f" Removed path from root '{key}': {path}")
 if backup_path:
     print(f"Backup: {backup_path}")
 PYEOF
@@ -245,12 +245,12 @@ for r in roots:
         r["label"] = label
         registry["roots"] = roots
         backup_path = save_registry(os.environ["OSORI_REG"], registry, make_backup=True)
-        print(f"✅ Updated label for root '{key}': {label}")
+        print(f" Updated label for root '{key}': {label}")
         if backup_path:
             print(f"Backup: {backup_path}")
         raise SystemExit(0)
 
-print(f"❌ root not found: {key}")
+print(f" root not found: {key}")
 raise SystemExit(1)
 PYEOF
     ;;
@@ -297,15 +297,15 @@ reassign = os.environ.get("OSORI_REASSIGN_TARGET", "").strip()
 force = os.environ.get("OSORI_FORCE", "false").lower() == "true"
 
 if not re.match(r"^[A-Za-z0-9_-]+$", root_key):
-    print("❌ root key must match [A-Za-z0-9_-]+")
+    print(" root key must match [A-Za-z0-9_-]+")
     raise SystemExit(1)
 
 if root_key == "default":
-    print("❌ cannot remove protected root: default")
+    print(" cannot remove protected root: default")
     raise SystemExit(1)
 
 if reassign and reassign == root_key:
-    print("❌ --reassign target must be different from removed root")
+    print(" --reassign target must be different from removed root")
     raise SystemExit(1)
 
 res = load_registry(os.environ["OSORI_REG"], auto_migrate=True, make_backup_on_migrate=True)
@@ -315,14 +315,14 @@ projects = registry_projects(registry)
 
 root_keys = [r.get("key", "default") for r in roots]
 if root_key not in root_keys:
-    print(f"❌ root not found: {root_key}")
+    print(f" root not found: {root_key}")
     raise SystemExit(1)
 
 affected = [p for p in projects if str(p.get("root", "default") or "default") == root_key]
 affected_count = len(affected)
 
 if affected_count > 0 and not reassign and not force:
-    print(f"❌ root '{root_key}' has {affected_count} project(s); use --reassign <target-root> or --force")
+    print(f" root '{root_key}' has {affected_count} project(s); use --reassign <target-root> or --force")
     raise SystemExit(1)
 
 target_root = None
@@ -331,7 +331,7 @@ if reassign:
         target_root = "default"
     else:
         if reassign not in root_keys:
-            print(f"❌ reassign target root not found: {reassign}")
+            print(f" reassign target root not found: {reassign}")
             raise SystemExit(1)
         target_root = reassign
 elif force and affected_count > 0:
@@ -349,11 +349,11 @@ backup_path = save_registry(os.environ["OSORI_REG"], registry, make_backup=True)
 
 if target_root:
     if force and not reassign:
-        print(f"⚠️ force mode: reassigned {affected_count} project(s) to 'default' before removing '{root_key}'")
+        print(f" force mode: reassigned {affected_count} project(s) to 'default' before removing '{root_key}'")
     else:
-        print(f"✅ reassigned {affected_count} project(s) from '{root_key}' to '{target_root}'")
+        print(f" reassigned {affected_count} project(s) from '{root_key}' to '{target_root}'")
 
-print(f"✅ removed root: {root_key}")
+print(f" removed root: {root_key}")
 if backup_path:
     print(f"Backup: {backup_path}")
 PYEOF

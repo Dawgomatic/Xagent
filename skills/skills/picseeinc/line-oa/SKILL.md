@@ -5,15 +5,15 @@ description: Operate LINE Official Account Manager (chat.line.biz) via browser a
 
 # LINE Official Account Manager
 
-⚠️ **CRITICAL**: Always use `profile:"openclaw"` (isolated browser) for all browser actions. Never use Chrome relay. Keep the same `targetId` across operations to avoid losing the tab.
+ **CRITICAL**: Always use `profile:"openclaw"` (isolated browser) for all browser actions. Never use Chrome relay. Keep the same `targetId` across operations to avoid losing the tab.
 
-⚠️ **CONTEXT Management**:
+ **CONTEXT Management**:
 - Snapshot results are large. Do NOT repeat them in thinking.
 - Extract needed info and process immediately. Do not re-describe the entire snapshot.
 - **Preferred approach**: Use `snapshot refs:"aria" compact:true` to find element refs, then `act` + `click`/`type` with ref.
 - **Avoid**: Hard-coded `evaluate` with `textContent.includes()` — unreliable due to DOM timing and structure variations.
 
-⚠️ **AUTO-LOGIN SCRIPTS**:
+ **AUTO-LOGIN SCRIPTS**:
 - `auto-login.mjs` is a **reference implementation** (not directly executable by agents)
 - `login-flow.md` is the **agent-executable version** (use this for automation)
 - **Why separate?** Agents use browser tool calls, not Node module imports
@@ -25,7 +25,7 @@ Before first use, check if `config.json` exists:
 read file_path:"skills/line-oa/config.json"
 ```
 
-⚠️ **PATH RULE**: Always use workspace-relative paths starting from `skills/line-oa/`. Never use `../` or absolute paths starting with `/`.
+ **PATH RULE**: Always use workspace-relative paths starting from `skills/line-oa/`. Never use `../` or absolute paths starting with `/`.
 
 If missing, help the user run the following command to start the setup wizard:
 ```bash
@@ -242,7 +242,7 @@ Opens any chat (read or unread) and displays its messages. Works for viewing mes
 
 **Common issues:**
 - If messages don't load: increase wait time to 3000ms
-- If customer name has special characters: use partial match (e.g., "Ray" instead of "Ray👋fn.soci.vip")
+- If customer name has special characters: use partial match (e.g., "Ray" instead of "Rayfn.soci.vip")
 - If click fails: the chat might not be visible in the current scroll position of the left panel
 
 ### Handling Images
@@ -289,7 +289,7 @@ When you see images in the screenshot or `hasImage: true` in message data:
 
 ## Reply to a Message
 
-**⚡ Fast Path**: If you already have the chat URL from a previous "Check LINE Messages" operation, skip steps 1-2 and go directly to step 3:
+** Fast Path**: If you already have the chat URL from a previous "Check LINE Messages" operation, skip steps 1-2 and go directly to step 3:
 ```
 browser action:"navigate" profile:"openclaw" targetId:"<your_targetId>" targetUrl:"<chat_url>"
 ```

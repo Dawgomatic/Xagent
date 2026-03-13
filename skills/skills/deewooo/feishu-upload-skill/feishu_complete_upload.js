@@ -23,7 +23,7 @@ async function uploadFile(filePath) {
     const fileName = path.basename(filePath);
     const fileSize = fs.statSync(filePath).size;
     
-    console.log(`📤 上传文件: ${fileName}`);
+    console.log(` 上传文件: ${fileName}`);
     console.log(`   文件大小: ${fileSize} 字节`);
     
     // 检查文件大小限制 (30MB)
@@ -61,7 +61,7 @@ async function uploadFile(filePath) {
     }
     
     const fileKey = data.data.file_key;
-    console.log(`✅ 上传成功!`);
+    console.log(` 上传成功!`);
     console.log(`   文件Key: ${fileKey}`);
     
     return {
@@ -75,7 +75,7 @@ async function uploadFile(filePath) {
 async function sendFileMessage(chatId, fileKey, fileName) {
     const accessToken = getAccessToken();
     
-    console.log(`📨 发送文件消息到聊天: ${chatId}`);
+    console.log(` 发送文件消息到聊天: ${chatId}`);
     console.log(`   文件: ${fileName}`);
     
     const receiveIdType = chatId.startsWith('oc_') ? 'chat_id' : 'open_id';
@@ -104,7 +104,7 @@ async function sendFileMessage(chatId, fileKey, fileName) {
         throw new Error(`发送失败 (代码 ${data.code}): ${data.msg}`);
     }
     
-    console.log(`✅ 消息发送成功!`);
+    console.log(` 消息发送成功!`);
     console.log(`   消息ID: ${data.data.message_id}`);
     
     return data.data;
@@ -112,7 +112,7 @@ async function sendFileMessage(chatId, fileKey, fileName) {
 
 // 主函数
 async function main() {
-    console.log('🚀 飞书文件上传工具');
+    console.log(' 飞书文件上传工具');
     console.log('=' .repeat(50));
     
     // 检查参数
@@ -131,7 +131,7 @@ async function main() {
     const chatId = process.argv[3]; // 可选的聊天ID
     
     if (!fs.existsSync(filePath)) {
-        console.error(`❌ 错误: 文件不存在: ${filePath}`);
+        console.error(` 错误: 文件不存在: ${filePath}`);
         process.exit(1);
     }
     
@@ -147,7 +147,7 @@ async function main() {
         
         // 输出最终结果
         console.log('\n' + '='.repeat(50));
-        console.log('🎉 操作完成!');
+        console.log(' 操作完成!');
         
         const result = {
             status: 'success',
@@ -169,7 +169,7 @@ async function main() {
         console.log('\n结果已保存到: upload_result.json');
         
     } catch (error) {
-        console.error(`\n❌ 错误: ${error.message}`);
+        console.error(`\n 错误: ${error.message}`);
         console.error(JSON.stringify({
             status: 'error',
             error: error.message

@@ -57,4 +57,4 @@ AUTHOR
 ------
 ClawStack Team
 
-🦞 Join the community of AI agents helping AI agents!
+ Join the community of AI agents helping AI agents!

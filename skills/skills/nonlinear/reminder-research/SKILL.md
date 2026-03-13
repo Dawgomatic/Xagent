@@ -1,6 +1,6 @@
 ---
 name: reminder-research
-description: "Process Apple Reminders. Smart research: custom instructions (book + web search constraints), list-based defaults (claw=system solutions, shopping=price comparison, generic=how-to tutorials). Result tracking with 💎 signifier. Triggers: reminders without notes, heartbeat automated processing."
+description: "Process Apple Reminders. Smart research: custom instructions (book + web search constraints), list-based defaults (claw=system solutions, shopping=price comparison, generic=how-to tutorials). Result tracking with  signifier. Triggers: reminders without notes, heartbeat automated processing."
 type: public
 version: 1.0.1
 status: stable
@@ -28,7 +28,7 @@ license: MIT
 
 **v3 Evolution:** Custom instructions + auto-processing + result tracking
 
-## 🔧 Setup
+##  Setup
 
 **Required:**
 1. Install `remindctl`: `brew install steipete/tap/remindctl`
@@ -64,8 +64,8 @@ graph TD
     C -->|queries| D[remindctl all --json]
     D -->|returns| E{Filter incomplete}
     
-    E -->|has 💎?| F[SKIP - already processed]
-    E -->|no 💎| G{Notes empty?}
+    E -->|has ?| F[SKIP - already processed]
+    E -->|no | G{Notes empty?}
     
     G -->|nothing to process| H[NO_REMINDERS_TO_PROCESS]
     H --> I[Exit 0 tokens]
@@ -84,7 +84,7 @@ graph TD
     N -->|web_search| R[Generic research]
     O -->|parse instructions| S[Multi-source: books+web+constraints]
     
-    P --> T[Format: 💎 + analysis]
+    P --> T[Format:  + analysis]
     Q --> T
     R --> T
     S --> T
@@ -94,11 +94,11 @@ graph TD
     V --> W[Session ends]
 ```
 
-## 🎯 Three Generations
+##  Three Generations
 
 ### **Gen 1 (Manual - deprecated)**
 ```
-Title: 🔍 Pesquise tarot no livro
+Title:  Pesquise tarot no livro
 Notes: (empty)
 → Manual emoji trigger
 ```
@@ -116,20 +116,20 @@ Notes: (empty)
 Title: Bitcoin ETF regulation
 Notes: "Procure no livro de David Graeber sobre anarchism + web search SEC rulings 2024"
 → Follow custom instructions
-→ Output: "💎 [resultado da pesquisa]"
+→ Output: " [resultado da pesquisa]"
 ```
 
-## 🔑 Signifiers
+##  Signifiers
 
-**💎 = RESULT** (already processed)
+** = RESULT** (already processed)
 - For Nicholas: "Read the report, it's done"
 - For Claw: "Skip this, already researched"
 
-**No 💎 = NEEDS PROCESSING**
+**No  = NEEDS PROCESSING**
 - Empty notes → list-based default behavior
 - Notes with instructions → follow custom research path
 
-## 📋 Processing Logic
+##  Processing Logic
 
 ### Detection
 ```bash
@@ -154,31 +154,31 @@ CUSTOM_ITEM|<id>|<list>|<title>|<instructions>  # Custom instructions (Gen 3)
    - If mentions "web search" → use web_search
    - If mentions specific sources → prioritize those
 3. Combine findings
-4. Update notes: `💎 [research findings]`
+4. Update notes: ` [research findings]`
 
 **For CLAW_ITEM:**
 1. Run `memory_search` for similar past issues
 2. Analyze pattern (frequency, context, impact)
 3. Propose solutions (tech/process/system)
-4. Update notes: `💎 [analysis + solutions]`
+4. Update notes: ` [analysis + solutions]`
 
 **For SHOPPING_ITEM:**
 1. Web search: product + "buy" + "price"
 2. Priority sites: Temu, Shop.app, AliExpress (avoid Amazon)
 3. Extract: links, prices, ratings
-4. Update notes: `💎 [shopping findings]`
+4. Update notes: ` [shopping findings]`
 
 **For GENERIC_ITEM:**
 1. Web search: title + context from list name
 2. Find: tutorials, how-to, documentation
 3. Summarize key findings
-4. Update notes: `💎 [research summary]`
+4. Update notes: ` [research summary]`
 
-## 💎 Result Format
+##  Result Format
 
-**Start with 💎 signifier:**
+**Start with  signifier:**
 ```
-💎 RESEARCH RESULTS
+ RESEARCH RESULTS
 
 **Sources:**
 - Book: "Debt: The First 5000 Years" by David Graeber, Chapter 7
@@ -191,16 +191,16 @@ CUSTOM_ITEM|<id>|<list>|<title>|<instructions>  # Custom instructions (Gen 3)
 [Actionable recommendations if applicable]
 ```
 
-## 📊 List-Based Behavior (Gen 2)
+##  List-Based Behavior (Gen 2)
 
 | List | Action | Output Format |
 |------|--------|---------------|
-| 🛒 Groceries | SKIP | (no processing) |
-| claw | System analysis | 💎 Pattern + solutions |
-| Shopping | Product search | 💎 Links + prices |
-| Others | Generic research | 💎 Summary + sources |
+|  Groceries | SKIP | (no processing) |
+| claw | System analysis |  Pattern + solutions |
+| Shopping | Product search |  Links + prices |
+| Others | Generic research |  Summary + sources |
 
-## 🎨 Custom Instructions (Gen 3)
+##  Custom Instructions (Gen 3)
 
 **Example prompts in notes:**
 
@@ -224,7 +224,7 @@ Pesquise nos livros de tarot + I Ching. Compare interpretations.
 Where to buy. Budget under $50. Avoid Amazon.
 ```
 
-## 🔄 Heartbeat Integration
+##  Heartbeat Integration
 
 **Triggered by HEARTBEAT** (configurable schedule):
 ```bash
@@ -240,13 +240,13 @@ fi
 
 **Lean behavior:** If nothing needs processing → script exits, no AI session spawned, zero cost.
 
-## 📝 Update Reminder Notes
+##  Update Reminder Notes
 
 ```bash
-remindctl edit <id> --notes "💎 [your research findings here]"
+remindctl edit <id> --notes " [your research findings here]"
 ```
 
-## 🎯 Use Cases
+##  Use Cases
 
 **System debugging:**
 ```
@@ -254,7 +254,7 @@ List: claw
 Title: Messages disappear after reindexing
 Notes: (empty)
 → Auto: Pattern analysis + 4 solution tiers
-→ Result: "💎 ANALYSIS: [pattern] SOLUTIONS: [1-4]"
+→ Result: " ANALYSIS: [pattern] SOLUTIONS: [1-4]"
 ```
 
 **Product research:**
@@ -263,7 +263,7 @@ List: Shopping
 Title: iPad mini 6, second hand
 Notes: (empty)
 → Auto: Web search eBay/Swappa/Facebook Marketplace
-→ Result: "💎 FOUND: eBay $350, Swappa $380..."
+→ Result: " FOUND: eBay $350, Swappa $380..."
 ```
 
 **Custom deep research:**
@@ -272,7 +272,7 @@ List: TODO
 Title: Bitcoin regulation impact
 Notes: "Procure no livro 'Debt' by Graeber (debt history) + web search 'SEC Bitcoin ETF 2024 ruling'"
 → Custom: Librarian search + web search
-→ Result: "💎 RESEARCH RESULTS\n\nBook: Graeber argues...\n\nWeb: SEC approved..."
+→ Result: " RESEARCH RESULTS\n\nBook: Graeber argues...\n\nWeb: SEC approved..."
 ```
 
 **Follow-up instructions:**
@@ -281,14 +281,14 @@ List: Creative Code
 Title: Vertical slider library
 Notes: "Find React examples on GitHub. Check if any use Framer Motion. Budget: MIT license only."
 → Custom: GitHub code search with constraints
-→ Result: "💎 FOUND: 3 MIT-licensed libs using Framer..."
+→ Result: " FOUND: 3 MIT-licensed libs using Framer..."
 ```
 
-## 🚫 What NOT to Process
+##  What NOT to Process
 
-- ✅ Notes start with 💎 → already processed, skip
-- ✅ List = 🛒 Groceries → no research needed
-- ✅ Completed reminders → ignored
+-  Notes start with  → already processed, skip
+-  List =  Groceries → no research needed
+-  Completed reminders → ignored
 
 ## Architecture
 

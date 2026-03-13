@@ -55,7 +55,7 @@ async function main() {
     console.log('Valuation error:', err.message);
   }
 
-  console.log('\n✅ Demo complete');
+  console.log('\n Demo complete');
 }
 
 main().catch(console.error);

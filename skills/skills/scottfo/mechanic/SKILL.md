@@ -2,7 +2,7 @@
 name: mechanic
 description: "Vehicle maintenance tracker and mechanic advisor. Tracks mileage, service intervals, fuel economy, costs, warranties, and recalls. Researches manufacturer schedules, estimates costs, projects service dates, tracks providers, and proactively reminds about upcoming/overdue services. Supports VIN decode and auto-population of vehicle specs, NHTSA recall monitoring, MPG tracking with anomaly detection, warranty expiration alerts, pre-trip/seasonal checklists, mileage projection, service provider history, tax deduction integration, emergency info cards, and cost-per-mile analysis. Use when discussing vehicle maintenance, oil changes, service intervals, mileage tracking, fuel economy, warranties, recalls, RV maintenance, roof sealing, generator service, slide-outs, winterization, or anything mechanic-related. Supports any vehicle type including trucks, cars, motorcycles, dirt bikes, ATVs, RVs, and boats."
 homepage: https://github.com/ScotTFO/mechanic-skill
-metadata: {"clawdbot":{"emoji":"🔧"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Mechanic — Vehicle Maintenance Tracker
@@ -481,24 +481,24 @@ If a vehicle was added without a VIN and the user provides one later:
 
 When presenting decoded VIN data to the user:
 ```
-🔍 VIN Decoded — [VIN]
+ VIN Decoded — [VIN]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 Vehicle
+ Vehicle
 Year: [year] | Make: [make] | Model: [model]
 Trim: [trim] | Body: [body_class]
 Drive: [drive_type] | Doors: [doors]
 
-🔧 Powertrain
+ Powertrain
 Engine: [engine] ([displacement]L, [cylinders] cyl)
 Fuel: [fuel_type]
 Transmission: [transmission]
 
-📏 Specs
+ Specs
 GVWR: [gvwr_class]
 Wheel Base: [wheel_base]
 Bed Length: [bed_length] (if truck)
 
-🏭 Built in [plant_city], [plant_country]
+ Built in [plant_city], [plant_country]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -559,10 +559,10 @@ Per vehicle in state.json:
 ### Recall Report Format
 Include in service review output:
 ```
-⚠️ OPEN RECALLS
+ OPEN RECALLS
 - [NHTSA ID] — [Component]: [Summary]
   Remedy: [What the dealer will do]
-  ⚡ Contact your dealer to schedule this recall service (free)
+   Contact your dealer to schedule this recall service (free)
 ```
 
 When a user reports completing a recall, move it from `open_recalls` to `completed_recalls` with the completion date.
@@ -602,7 +602,7 @@ When user says "filled up", "got gas/diesel", or reports a fill-up:
 ### Anomaly Detection
 If a fill-up MPG is **more than 15% below the rolling average**, flag it:
 ```
-⚠️ MPG Alert — [Vehicle]
+ MPG Alert — [Vehicle]
 Last fill-up: 10.5 MPG (your average is 14.2 MPG)
 26% below your rolling average — this could indicate:
 - Tire pressure issues
@@ -617,7 +617,7 @@ Check tire pressures first, then review recent driving conditions.
 ### Fuel Report Format
 When asked "how's my fuel economy?" or "MPG report":
 ```
-⛽ Fuel Report — [Vehicle]
+ Fuel Report — [Vehicle]
 Last fill-up: [X] MPG on [date]
 Rolling average: [X] MPG (last 10 fills)
 Trend: [improving/stable/declining]
@@ -670,7 +670,7 @@ Track and report on request:
 ### Annual Summary
 When asked or at year-end:
 ```
-💰 [Year] Maintenance Summary — [Vehicle]
+ [Year] Maintenance Summary — [Vehicle]
 Total spent: $[X]
 Services performed: [count]
 Biggest expense: [service] — $[X]
@@ -719,12 +719,12 @@ Check warranties during every service review. Alert when:
 
 Alert format:
 ```
-⚠️ WARRANTY EXPIRING SOON
+ WARRANTY EXPIRING SOON
 [Vehicle] — [Warranty type] from [Provider]
 Expires: [date] or [miles] miles (whichever first)
 Remaining: ~[X] months / ~[X] miles
 Coverage: [details]
-💡 Schedule any warranty-covered concerns before expiration!
+ Schedule any warranty-covered concerns before expiration!
 ```
 
 ### Warranty Coverage Check
@@ -763,7 +763,7 @@ Build the checklist by combining:
 
 ### Towing Checklist (Truck + Trailer/RV)
 ```
-🚛 Pre-Tow Checklist — [Truck] + [Trailer/RV]
+ Pre-Tow Checklist — [Truck] + [Trailer/RV]
 
 TRUCK:
 □ Engine oil level
@@ -852,7 +852,7 @@ For each service:
 
 Include in service review:
 ```
-📅 Projected Service Dates
+ Projected Service Dates
 - Oil Change: ~[Month Year] (at ~[X] miles)
 - Fuel Filters: ~[Month Year] (at ~[X] miles)
 - Trans Fluid: ~[Month Year] (at ~[X] miles)
@@ -861,7 +861,7 @@ Include in service review:
 ### Budget Projection
 When asked or included in reviews:
 ```
-💰 Next 6-Month Budget Forecast — [Vehicle]
+ Next 6-Month Budget Forecast — [Vehicle]
 At [X] miles/month, expect:
 - Oil change (~[Month]): $[X]
 - Fuel filters (~[Month]): $[X]
@@ -950,7 +950,7 @@ When a service is completed with an `actual_cost` on a business-use vehicle:
 1. Calculate deductible portion: `actual_cost × (business_use_percent / 100)`
 2. Note it to the user:
    ```
-   💼 Tax Note: This $450 trans fluid service is 50% business use.
+    Tax Note: This $450 trans fluid service is 50% business use.
    Deductible amount: $225.00 (vehicle maintenance expense)
    ```
 3. Suggest logging to the tax-professional skill:
@@ -977,7 +977,7 @@ If the user confirms, reference `skills/tax-professional/SKILL.md` and log to `d
 ### Annual Tax Summary
 On request or at tax time:
 ```
-💼 [Year] Business Vehicle Deductions — [Vehicle]
+ [Year] Business Vehicle Deductions — [Vehicle]
 Total maintenance costs: $[X]
 Business use: [X]%
 Deductible amount: $[X]
@@ -1036,13 +1036,13 @@ Respond instantly to:
 ### Emergency Card Format
 When asked for "emergency info" or "vehicle card":
 ```
-🚨 Emergency Info — [Vehicle Label]
+ Emergency Info — [Vehicle Label]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 VIN: [vin]
 Insurance: [provider] — Policy #[number]
 Roadside: [phone]
 
-🔧 Specs
+ Specs
 Tires: F:[size] R:[size]
 Pressure: F:[X]psi R:[X]psi
 Oil: [type] ([capacity])
@@ -1050,7 +1050,7 @@ Coolant: [type]
 Fuel: [type] ([tank] gal)
 Key fob battery: [type]
 
-📏 Ratings
+ Ratings
 Tow: [X] lbs | GVWR: [X] lbs
 GCWR: [X] lbs | Payload: [X] lbs
 Lug torque: [X] ft-lbs
@@ -1080,14 +1080,14 @@ Total operating cost per mile = (total_actual_costs + total_fuel_cost) / total_m
 ### Report Format
 When asked "cost per mile" or "operating cost":
 ```
-📊 Cost Per Mile — [Vehicle]
+ Cost Per Mile — [Vehicle]
 Period: [earliest date] to [latest date] ([X] miles driven)
 
 Maintenance only: $[X.XX]/mile
 Fuel only: $[X.XX]/mile (if fuel tracking active)
 Total operating: $[X.XX]/mile
 
-💡 National averages (approximate):
+ National averages (approximate):
 Cars: ~$0.10/mi maintenance, ~$0.12/mi fuel
 Trucks: ~$0.14/mi maintenance, ~$0.20/mi fuel (diesel)
 Heavy-duty diesel (towing): ~$0.18/mi maintenance, ~$0.25/mi fuel
@@ -1096,7 +1096,7 @@ Heavy-duty diesel (towing): ~$0.18/mi maintenance, ~$0.25/mi fuel
 ### Fleet Overview
 If tracking multiple vehicles, show a comparison:
 ```
-📊 Fleet Cost Per Mile
+ Fleet Cost Per Mile
 [Vehicle 1]: $[X.XX]/mi (maintenance) | $[X.XX]/mi (total)
 [Vehicle 2]: $[X.XX]/mi (maintenance) | $[X.XX]/mi (total)
 Fleet average: $[X.XX]/mi
@@ -1174,56 +1174,56 @@ After any mileage/hours update, analyze all services from the vehicle's schedule
    - `months_since_service` vs `interval_months`
    - `hours_since_service` vs `interval_hours`
 4. Categorize:
-   - **🔴 OVERDUE**: Exceeded ANY interval
-   - **🟡 DUE SOON**: Within 15% of ANY interval
-   - **🟢 OK**: Not yet due
+   - ** OVERDUE**: Exceeded ANY interval
+   - ** DUE SOON**: Within 15% of ANY interval
+   - ** OK**: Not yet due
 
 ### Report Format
 
 **Full report (when issues found):**
 ```
-🔧 Vehicle Service Report
+ Vehicle Service Report
 
 ━━━ [Vehicle Label] @ [miles] mi ━━━
 
-⚠️ OPEN RECALLS
+ OPEN RECALLS
 - [NHTSA ID] — [Component]: [Summary]
   Remedy: [description] (FREE at dealer)
 
-⚠️ WARRANTY ALERTS
+ WARRANTY ALERTS
 - [Warranty type] from [Provider] — expires [date] or [miles] mi
   [X] months / [X] miles remaining
 
-🔴 OVERDUE
+ OVERDUE
 - [service] — [X] miles/months overdue
-  💰 DIY: $X | Shop: $X | Dealer: $X
-  [💼 [X]% deductible] (if business use)
+   DIY: $X | Shop: $X | Dealer: $X
+  [ [X]% deductible] (if business use)
 
-🟡 DUE SOON
+ DUE SOON
 - [service] — due in ~[X] miles/months
-  💰 DIY: $X | Shop: $X | Dealer: $X
+   DIY: $X | Shop: $X | Dealer: $X
 
-📅 PROJECTED SCHEDULE (next 6 months)
+ PROJECTED SCHEDULE (next 6 months)
 - [service] — ~[Month Year] at ~[X] mi ($[X] est.)
 - [service] — ~[Month Year] at ~[X] mi ($[X] est.)
 Total upcoming (6mo): ~$[X]
 
-⛽ FUEL ECONOMY
+ FUEL ECONOMY
 Current: [X] MPG | Average: [X] MPG | Trend: [stable/improving/declining]
-[⚠️ MPG Alert if applicable]
+[ MPG Alert if applicable]
 
-💰 SPENDING (YTD)
+ SPENDING (YTD)
 Maintenance: $[X] | Fuel: $[X] | Total: $[X]
 Cost per mile: $[X.XX]
 
 [Repeat for each vehicle]
 
-🟢 [count] services current across all vehicles
+ [count] services current across all vehicles
 ```
 
 **All clear (brief):**
 ```
-🔧 All vehicles current ✅
+ All vehicles current 
 [Vehicle] @ [mi] — next: [soonest service] at ~[miles] (~[Month])
 No open recalls | Warranties current
 ```

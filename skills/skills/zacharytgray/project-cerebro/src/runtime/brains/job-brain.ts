@@ -73,7 +73,7 @@ export class JobBrain extends BaseBrain {
       });
 
       await this.sendMessage(
-        `✅ Job added: **${title}** at **${company}**${url ? ` - ${url}` : ''}`
+        ` Job added: **${title}** at **${company}**${url ? ` - ${url}` : ''}`
       );
     } else if (subcommand === 'update') {
       // !job update <id> <status>
@@ -87,9 +87,9 @@ export class JobBrain extends BaseBrain {
 
       try {
         this.jobRepo.update({ id: jobId, status: newStatus });
-        await this.sendMessage(`✅ Job ${jobId} updated to ${newStatus}`);
+        await this.sendMessage(` Job ${jobId} updated to ${newStatus}`);
       } catch (error) {
-        await this.sendMessage(`❌ Failed to update job: ${error}`);
+        await this.sendMessage(` Failed to update job: ${error}`);
       }
     } else {
       await this.sendMessage(
@@ -105,11 +105,11 @@ export class JobBrain extends BaseBrain {
     const jobs = this.jobRepo.findAll().slice(0, 10); // Limit to 10
 
     if (jobs.length === 0) {
-      await this.sendMessage('📋 **No jobs tracked yet.**');
+      await this.sendMessage(' **No jobs tracked yet.**');
       return;
     }
 
-    const lines = ['📋 **Recent Jobs:**', ''];
+    const lines = [' **Recent Jobs:**', ''];
     for (const job of jobs) {
       lines.push(
         `**${job.title}** at **${job.company}** - ${job.status}${job.url ? ` - ${job.url}` : ''}`
@@ -130,6 +130,6 @@ export class JobBrain extends BaseBrain {
       title: taskTitle,
     });
 
-    await this.sendMessage(`✅ Task "${taskTitle}" created.`);
+    await this.sendMessage(` Task "${taskTitle}" created.`);
   }
 }

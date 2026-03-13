@@ -22,7 +22,7 @@ The skill **requires** the Figma token to be available in the environment:
 export FIGMA_TOKEN="your_figma_pat_here"
 ```
 
-**⚠️ Security Note:** The `FIGMA_TOKEN` is a sensitive API credential. The skill uses it to authenticate with the Figma API and download images from URLs returned by Figma. Ensure:
+** Security Note:** The `FIGMA_TOKEN` is a sensitive API credential. The skill uses it to authenticate with the Figma API and download images from URLs returned by Figma. Ensure:
 - Only install this skill from trusted sources
 - Do not share your `FIGMA_TOKEN` with untrusted users
 - The token should be treated like a password

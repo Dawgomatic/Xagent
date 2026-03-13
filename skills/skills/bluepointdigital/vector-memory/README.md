@@ -10,7 +10,7 @@ npx clawhub install vector-memory
 node vector-memory/smart_memory.js --sync
 ```
 
-## ✨ The Magic
+##  The Magic
 
 **Same function call. Automatic best method.**
 
@@ -24,7 +24,7 @@ memory_search("User principles values")
 
 No configuration. No manual switching. No broken workflows.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### From ClawHub (Recommended)
 ```bash
@@ -43,7 +43,7 @@ git clone https://github.com/YOUR_USERNAME/vector-memory-openclaw.git
 cd vector-memory-openclaw/vector-memory && npm install
 ```
 
-## 🎯 How It Works
+##  How It Works
 
 ```
 User searches
@@ -72,15 +72,15 @@ User searches
 2. Sync → Gets better (vector embeddings)
 3. Use → Always best available
 
-## 📊 Before & After
+##  Before & After
 
 | Query | Without Skill | With Skill (Default) | With Skill (Synced) |
 |-------|--------------|---------------------|---------------------|
-| "User collaboration style" | ⚠️ Weak | ✅ Better | ✅ "work with me, not just for me" |
-| "Agent origin" | ⚠️ Weak | ✅ Better | ✅ "Agent to Agent transfer" |
-| "values beliefs" | ⚠️ Literal | ✅ Improved | ✅ Semantic match |
+| "User collaboration style" |  Weak |  Better |  "work with me, not just for me" |
+| "Agent origin" |  Weak |  Better |  "Agent to Agent transfer" |
+| "values beliefs" |  Literal |  Improved |  Semantic match |
 
-## 🛠️ Usage
+##  Usage
 
 ### In OpenClaw
 Just use `memory_search`:
@@ -101,7 +101,7 @@ node vector-memory/smart_memory.js --status
 node vector-memory/smart_memory.js --sync
 ```
 
-## 📁 What's Included
+##  What's Included
 
 ```
 vector-memory/
@@ -119,13 +119,13 @@ skills/
     └── README.md             ← Skill docs
 ```
 
-## 🔧 Requirements
+##  Requirements
 
 - Node.js 18+
 - ~80MB disk space (for model, cached after download)
 - OpenClaw (or any Node.js agent)
 
-## 🎛️ Tools
+##  Tools
 
 | Tool | Purpose |
 |------|---------|
@@ -134,7 +134,7 @@ skills/
 | `memory_sync` | Index for vector search |
 | `memory_status` | Check which method is active |
 
-## 🔄 Auto-Sync (Optional)
+##  Auto-Sync (Optional)
 
 Add to `HEARTBEAT.md`:
 ```bash
@@ -143,14 +143,14 @@ if [ -n "$(find memory MEMORY.md -newer vector-memory/.last_sync 2>/dev/null)" ]
 fi
 ```
 
-## 📈 Performance
+##  Performance
 
 | Method | Quality | Speed | When Used |
 |--------|---------|-------|-----------|
-| Vector | ⭐⭐⭐⭐⭐ | ~100ms | After sync |
-| Built-in | ⭐⭐⭐ | ~10ms | Fallback / Before sync |
+| Vector |  | ~100ms | After sync |
+| Built-in |  | ~10ms | Fallback / Before sync |
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
@@ -160,7 +160,7 @@ fi
 | **Low quality results** | Sync again after editing memory files |
 | **Want pure built-in?** | Don't sync - built-in always available as fallback |
 
-## 🧪 Verify Installation
+##  Verify Installation
 
 ```bash
 node vector-memory/smart_memory.js --test
@@ -168,7 +168,7 @@ node vector-memory/smart_memory.js --test
 
 Checks: dependencies, vector index, search functionality, memory files.
 
-## 📋 For Agent Developers
+##  For Agent Developers
 
 Add to your `AGENTS.md`:
 ```markdown
@@ -181,7 +181,7 @@ Before answering about prior work, decisions, preferences:
 
 See full template in `AGENTS.md`.
 
-## 🗂️ Suggested Memory Structure
+##  Suggested Memory Structure
 
 ```
 workspace/
@@ -195,15 +195,15 @@ workspace/
 
 See `MEMORY_STRUCTURE.md` for templates.
 
-## 🤝 Contributing
+##  Contributing
 
 PRs welcome! See `CONTRIBUTING.md` (create one if needed).
 
-## 📜 License
+##  License
 
 MIT
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Embeddings: [Xenova Transformers](https://github.com/xenova/transformers.js)
 - Model: `sentence-transformers/all-MiniLM-L6-v2`

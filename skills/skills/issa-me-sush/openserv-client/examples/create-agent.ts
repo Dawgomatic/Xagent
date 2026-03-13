@@ -13,7 +13,7 @@ async function createAgent() {
 
   // Authenticate with wallet
   await client.authenticate(process.env.WALLET_PRIVATE_KEY)
-  console.log('✅ Authenticated')
+  console.log(' Authenticated')
 
   // Create agent (with optional model_parameters)
   const agent = await client.agents.create({
@@ -22,16 +22,16 @@ async function createAgent() {
     endpoint_url: 'https://my-agent.example.com',
     model_parameters: { model: 'gpt-4o', temperature: 0.5, parallel_tool_calls: false }
   })
-  console.log(`✅ Created agent: ${agent.id}`)
+  console.log(` Created agent: ${agent.id}`)
 
   // Get API key
   const apiKey = await client.agents.getApiKey({ id: agent.id })
-  console.log(`✅ API key: ${apiKey.slice(0, 8)}...`)
+  console.log(` API key: ${apiKey.slice(0, 8)}...`)
 
   // Generate auth token for security
   const { authToken, authTokenHash } = await client.agents.generateAuthToken()
   await client.agents.saveAuthToken({ id: agent.id, authTokenHash })
-  console.log(`✅ Auth token saved`)
+  console.log(` Auth token saved`)
 
   // Create workflow
   const workflow = await client.workflows.create({
@@ -39,7 +39,7 @@ async function createAgent() {
     goal: 'Receive incoming requests, analyze and process them with AI, and return structured responses',
     agentIds: [agent.id]
   })
-  console.log(`✅ Created workflow: ${workflow.id}`)
+  console.log(` Created workflow: ${workflow.id}`)
 
   // Create trigger
   const connId = await client.integrations.getOrCreateConnection('webhook-trigger')
@@ -58,7 +58,7 @@ async function createAgent() {
       }
     }
   })
-  console.log(`✅ Created trigger: ${trigger.id}`)
+  console.log(` Created trigger: ${trigger.id}`)
 
   // Create task
   await client.tasks.create({
@@ -67,12 +67,12 @@ async function createAgent() {
     description: 'Process the incoming request',
     body: 'Handle the request and return results'
   })
-  console.log(`✅ Created task`)
+  console.log(` Created task`)
 
   // Activate
   await client.triggers.activate({ workflowId: workflow.id, id: trigger.id })
   await workflow.setRunning()
-  console.log(`✅ Workflow running`)
+  console.log(` Workflow running`)
 
   console.log('\n' + '='.repeat(50))
   console.log('Setup complete!')

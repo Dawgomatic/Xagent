@@ -4,7 +4,7 @@ description: Track baby sleep, feeding, diapers, and growth via Huckleberry app 
 homepage: https://github.com/aaronn/openclaw-huckleberry-skill
 metadata:
   clawdbot:
-    emoji: "👶"
+    emoji: ""
     requires:
       bins: ["python3"]
       packages: ["huckleberry-api"]

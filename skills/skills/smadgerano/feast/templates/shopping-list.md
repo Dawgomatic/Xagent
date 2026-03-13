@@ -60,84 +60,84 @@ items:
 
 # Shopping List: Week of [DATE]
 
-**Status:** 🟡 Draft / 🟢 Approved / ✅ Purchased
+**Status:**  Draft /  Approved /  Purchased
 
 ---
 
-## 💰 Price Guidance
+##  Price Guidance
 
 **Prices checked:** [Date]  
 **Strategy:** [Single store at X / Split: proteins at X, rest at Y]  
 **Estimated total:** £XX  
 **Potential savings:** £X.XX (if following recommendations)
 
-### ⭐ Key Deals This Week
+###  Key Deals This Week
 
 - **[Item]** — [Deal] at [Store] (save £X.XX)
 - **[Item]** — [Deal] at [Store]
 
-### 🏪 Store Recommendation
+###  Store Recommendation
 
 [Brief explanation of the recommended shopping approach — why this store or this split makes sense for this week's shop.]
 
-> ⚠️ *Prices checked [date]. Verify in-store — prices and availability may vary.*
+>  *Prices checked [date]. Verify in-store — prices and availability may vary.*
 
 ---
 
-## 🥩 Proteins
+##  Proteins
 
 - [ ] Item — quantity — **~£X.XX**  
-  💰 *Best: [Store] (£X.XX) | Alt: [Store] (£X.XX)*
+   *Best: [Store] (£X.XX) | Alt: [Store] (£X.XX)*
   
 - [ ] Item — quantity — **~£X.XX**  
-  ⭐ *Deal: [Offer] at [Store]*
+   *Deal: [Offer] at [Store]*
 
-## 🥬 Vegetables
+##  Vegetables
 
 - [ ] Item — quantity
 - [ ] Item — quantity  
-  🌱 *In season*
+   *In season*
 
-## 🍎 Fruit
+##  Fruit
 
 - [ ] Item — quantity
 
-## 🥛 Dairy
+##  Dairy
 
 - [ ] Item — quantity — **~£X.XX**  
-  💰 *[Price note if applicable]*
+   *[Price note if applicable]*
 
-## 🍚 Carbs & Grains
-
-- [ ] Item — quantity
-- [ ] Item — quantity
-
-## 🥫 Tins & Jars
+##  Carbs & Grains
 
 - [ ] Item — quantity
 - [ ] Item — quantity
 
-## 🌿 Fresh Herbs
+##  Tins & Jars
+
+- [ ] Item — quantity
+- [ ] Item — quantity
+
+##  Fresh Herbs
 
 - [ ] Item — quantity
 
-## 🧂 Spices & Seasonings
+##  Spices & Seasonings
 
 - [ ] Item — quantity *(if needed)*
 
-## 🫒 Oils & Condiments
+##  Oils & Condiments
 
 - [ ] Item — quantity *(if needed)*
 
-## 🧊 Frozen
+##  Frozen
 
 - [ ] Item — quantity
 
-## 🥖 Bakery
+##  Bakery
 
 - [ ] Item — quantity
 
-## 📦 Other
+##  Other
 
 - [ ] Item — quantity
 
@@ -153,7 +153,7 @@ items:
 
 ---
 
-## 📝 Notes
+##  Notes
 
 - Any special instructions
 - Alternative stores for specific items
@@ -164,7 +164,7 @@ items:
 
 ## Legend
 
-- 💰 = Notable saving available at a different store
-- ⭐ = Deal/offer worth grabbing
-- 🌱 = In season (better quality, often cheaper)
-- ⚠️ = Stock warning (Lidl/Aldi offers may sell out)
+-  = Notable saving available at a different store
+-  = Deal/offer worth grabbing
+-  = In season (better quality, often cheaper)
+-  = Stock warning (Lidl/Aldi offers may sell out)

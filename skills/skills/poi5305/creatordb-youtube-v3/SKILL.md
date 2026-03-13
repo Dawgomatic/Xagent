@@ -2,7 +2,7 @@
 name: creatordb-youtube-v3
 description: Can search and get YouTuber information
 homepage: https://www.creatordb.app
-metadata: {"moltbot":{"emoji":"🐽","requires":{"bins":["curl"],"env":["CREATORDB_API_KEY"]},"primaryEnv":"CREATORDB_API_KEY","install":[]}}
+metadata: {"moltbot":{"emoji":"","requires":{"bins":["curl"],"env":["CREATORDB_API_KEY"]},"primaryEnv":"CREATORDB_API_KEY","install":[]}}
 ---
 
 # CreatorDB YouTube API

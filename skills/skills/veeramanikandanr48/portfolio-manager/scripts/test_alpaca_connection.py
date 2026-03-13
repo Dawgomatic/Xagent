@@ -81,7 +81,7 @@ def test_account_info(api_key, secret_key, base_url):
 
             # Check if account is restricted
             if account.get('account_blocked') or account.get('trading_blocked'):
-                print("\n⚠ WARNING: Account has restrictions")
+                print("\n WARNING: Account has restrictions")
                 if account.get('account_blocked'):
                     print("  - Account is blocked")
                 if account.get('trading_blocked'):
@@ -216,15 +216,15 @@ def test_market_data(api_key, secret_key):
             if quote:
                 print(f"Sample quote (AAPL): Bid ${quote.get('bp', 0):.2f}, Ask ${quote.get('ap', 0):.2f}")
         elif response.status_code == 402:
-            print("⚠ Market data requires paid subscription")
+            print(" Market data requires paid subscription")
             print("  Free tier provides delayed data only")
             print("  This is normal for free accounts")
         else:
-            print(f"⚠ Market data API returned HTTP {response.status_code}")
+            print(f" Market data API returned HTTP {response.status_code}")
             print("  This won't affect portfolio management functionality")
 
     except Exception as e:
-        print(f"⚠ Could not test market data API: {e}")
+        print(f" Could not test market data API: {e}")
         print("  This won't affect portfolio management functionality")
 
 

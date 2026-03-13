@@ -295,7 +295,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>🔮 Q Dashboard <span style="font-weight:normal;color:#888">— Ralph Loop Monitor</span></h1>
+      <h1> Q Dashboard <span style="font-weight:normal;color:#888">— Ralph Loop Monitor</span></h1>
       <div class="stats" id="stats">
         <div class="stat">
           <div class="stat-value" id="stat-running">-</div>
@@ -313,12 +313,12 @@
     </header>
     
     <section id="active-section">
-      <h2>🟢 Running Loops</h2>
+      <h2> Running Loops</h2>
       <div class="loop-grid" id="active-loops"></div>
     </section>
     
     <section id="archived-section">
-      <h2>📁 Recent Archived</h2>
+      <h2> Recent Archived</h2>
       <div class="loop-grid" id="archived-loops"></div>
     </section>
     
@@ -399,8 +399,8 @@
           </div>
           
           <div class="loop-actions">
-            ${isActive && status === 'running' ? `<button class="btn-kill" onclick="killLoop('${loop.id}')">⏹️ Kill</button>` : ''}
-            <button class="btn-view" onclick="viewHistory('${loop.id}')">📋 History</button>
+            ${isActive && status === 'running' ? `<button class="btn-kill" onclick="killLoop('${loop.id}')"> Kill</button>` : ''}
+            <button class="btn-view" onclick="viewHistory('${loop.id}')"> History</button>
           </div>
         </div>
       `;
@@ -429,7 +429,7 @@
         if (runningLoops.length === 0) {
           activeContainer.innerHTML = `
             <div class="empty-state">
-              <div class="icon">🔄</div>
+              <div class="icon"></div>
               <div>No Ralph loops running</div>
               <div style="margin-top:10px;font-size:13px">Start one with sessions_spawn or ralph-loop.mjs</div>
             </div>
@@ -448,7 +448,7 @@
         if (allArchived.length === 0) {
           archivedContainer.innerHTML = `
             <div class="empty-state">
-              <div class="icon">📭</div>
+              <div class="icon"></div>
               <div>No archived loops yet</div>
             </div>
           `;

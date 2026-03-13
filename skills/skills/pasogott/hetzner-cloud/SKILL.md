@@ -8,7 +8,7 @@ description: Hetzner Cloud CLI for managing servers, volumes, firewalls, network
 
 Command-line interface for Hetzner Cloud infrastructure management.
 
-## ⚠️ Safety Rules
+##  Safety Rules
 
 **NEVER execute delete commands.** All destructive operations are forbidden.
 

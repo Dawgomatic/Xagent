@@ -111,17 +111,17 @@ app.post('/api/tasks', async (req, res) => {
 
 // Start HTTP server
 const server = app.listen(PORT, () => {
-  console.log(`🌐 Agent Network REST API running on port ${PORT}`);
+  console.log(` Agent Network REST API running on port ${PORT}`);
 });
 
 // ============ WebSocket Server ============
 
 const wss = new WebSocket.Server({ port: WS_PORT });
 
-console.log(`📡 Agent Network WebSocket running on port ${WS_PORT}`);
+console.log(` Agent Network WebSocket running on port ${WS_PORT}`);
 
 wss.on('connection', (ws, req) => {
-  console.log(`🔌 New connection from ${req.socket.remoteAddress}`);
+  console.log(` New connection from ${req.socket.remoteAddress}`);
   
   let agentId = null;
   
@@ -139,7 +139,7 @@ wss.on('connection', (ws, req) => {
             joinedAt: new Date().toISOString()
           });
           
-          console.log(`✅ Agent registered: ${msg.agent.name} (${agentId})`);
+          console.log(` Agent registered: ${msg.agent.name} (${agentId})`);
           
           // Send confirmation
           ws.send(JSON.stringify({
@@ -165,7 +165,7 @@ wss.on('connection', (ws, req) => {
         case 'join_group':
           if (agentId && clients.has(agentId)) {
             clients.get(agentId).groups.add(msg.groupId);
-            console.log(`👥 ${agentId} joined group ${msg.groupId}`);
+            console.log(` ${agentId} joined group ${msg.groupId}`);
             
             // Notify group members
             broadcastToGroup(msg.groupId, {
@@ -180,7 +180,7 @@ wss.on('connection', (ws, req) => {
         case 'leave_group':
           if (agentId && clients.has(agentId)) {
             clients.get(agentId).groups.delete(msg.groupId);
-            console.log(`👋 ${agentId} left group ${msg.groupId}`);
+            console.log(` ${agentId} left group ${msg.groupId}`);
           }
           break;
           
@@ -266,7 +266,7 @@ wss.on('connection', (ws, req) => {
   ws.on('close', () => {
     if (agentId && clients.has(agentId)) {
       const agentInfo = clients.get(agentId).info;
-      console.log(`❌ Agent disconnected: ${agentInfo.name} (${agentId})`);
+      console.log(` Agent disconnected: ${agentInfo.name} (${agentId})`);
       clients.delete(agentId);
       broadcastAgentList();
     }
@@ -325,7 +325,7 @@ function extractMentions(content) {
 
 // Graceful shutdown
 process.on('SIGINT', () => {
-  console.log('\n🛑 Shutting down...');
+  console.log('\n Shutting down...');
   wss.close();
   server.close();
   process.exit(0);

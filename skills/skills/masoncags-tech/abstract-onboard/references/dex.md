@@ -2,7 +2,7 @@
 
 Verified working DEXs on Abstract mainnet (as of Feb 2026).
 
-## Kona Finance ✅
+## Kona Finance 
 
 **Twitter:** [@KonaDeFi](https://twitter.com/KonaDeFi)
 **Status:** Live and tested
@@ -27,7 +27,7 @@ node scripts/swap-kona.js
 
 ---
 
-## Aborean ⏳
+## Aborean 
 
 **Twitter:** [@Aborean](https://twitter.com/Aborean)
 **Status:** Contracts found, router pending verification

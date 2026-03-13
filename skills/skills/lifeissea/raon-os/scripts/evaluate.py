@@ -94,7 +94,7 @@ def extract_pdf_text(filepath):
     except ImportError:
         pass
 
-    print("❌ PDF 파싱 도구가 필요합니다: pdftotext, pypdf, PyPDF2, 또는 pdfplumber", file=sys.stderr)
+    print(" PDF 파싱 도구가 필요합니다: pdftotext, pypdf, PyPDF2, 또는 pdfplumber", file=sys.stderr)
     sys.exit(1)
 
 
@@ -118,12 +118,12 @@ def build_prompt(text, mode="evaluate", **kwargs):
 
 위 사업계획서를 실제 TIPS 심사 배점 기준으로 평가해줘.
 
-⚠️ 중요 규칙 (반드시 준수):
+ 중요 규칙 (반드시 준수):
 1. 종합 점수 = 기술성 + 시장성 + 사업성 + 팀역량의 합계 (직접 더해서 계산)
 2. 세부항목 점수는 절대 만점을 초과할 수 없음 (예: __/5 항목은 최대 5점, __/10 항목은 최대 10점)
 3. 영역 점수도 배점 상한을 초과할 수 없음 (기술성 최대 30, 시장성 최대 25, 사업성 최대 25, 팀역량 최대 20)
 
-### 🌅 라온의 사업계획서 평가
+###  라온의 사업계획서 평가
 
 **종합 점수: __/100** (= 기술성 + 시장성 + 사업성 + 팀역량의 합)
 
@@ -131,34 +131,34 @@ def build_prompt(text, mode="evaluate", **kwargs):
 - 기술 혁신성/차별성 (__/15):
 - 기술 완성도 및 개발 역량 (__/10):
 - 지식재산권 확보 가능성 (__/5):
-- 💡 제안:
+-  제안:
 
 #### 2. 시장성 (__/25)
 - 목표 시장 규모 및 성장성 (__/10):
 - 경쟁 현황 및 진입 전략 (__/10):
 - 고객 검증 (PoC/LOI/매출) (__/5):
-- 💡 제안:
+-  제안:
 
 #### 3. 사업성 (__/25)
 - 비즈니스 모델 타당성 (__/10):
 - 수익 구조 및 확장성 (__/10):
 - 재무 계획 합리성 (__/5):
-- 💡 제안:
+-  제안:
 
 #### 4. 대표자/팀 역량 (__/20)
 - 대표자 경력 및 도메인 전문성 (__/10):
 - 팀 구성 적합성 (__/5):
 - 실행 역량 (이전 창업/프로젝트 성과) (__/5):
-- 💡 제안:
+-  제안:
 
 ---
 
-### 📋 핵심 요약
+###  핵심 요약
 - **강점 TOP 3:**
 - **즉시 개선 필요 TOP 3:**
 - **TIPS 합격 가능성:** (높음/보통/낮음) + 이유 한줄
 
-### 🎯 다음 스텝
+###  다음 스텝
 1.
 2.
 3.
@@ -190,7 +190,7 @@ def build_prompt(text, mode="evaluate", **kwargs):
 
 각 섹션을 아래 형식으로 작성해:
 
-### [섹션명] [✏️ 수정됨] or [✅ 유지]
+### [섹션명] [ 수정됨] or [ 유지]
 
 > **변경 요약:** 원본에서 뭘 왜 바꿨는지 한줄 설명
 > **원본:** "원본의 핵심 문장/수치를 인용" (2-3줄)
@@ -202,11 +202,11 @@ def build_prompt(text, mode="evaluate", **kwargs):
 
 마지막에 변경 요약 테이블을 추가해:
 
-### 📊 변경 요약
+###  변경 요약
 
 | 섹션 | 변경 수준 | 핵심 변경 |
 |------|-----------|-----------|
-| 문제정의 | 🔴대폭/🟡일부/🟢유지 | 한줄 설명 |
+| 문제정의 | 대폭/일부/유지 | 한줄 설명 |
 | ... | ... | ... |
 
 톤은 비서 라온답게 — 직접적이고 실용적으로."""
@@ -240,27 +240,27 @@ def build_prompt(text, mode="evaluate", **kwargs):
 
 ## 지시사항
 
-### 🌅 라온의 정부 지원사업 매칭 결과
+###  라온의 정부 지원사업 매칭 결과
 
 아래 형식으로 추천해줘 (상위 3개):
 
-**🥇 1순위: [프로그램명]**
+** 1순위: [프로그램명]**
 - 최종 매칭도: __%
 - 세부 점수: 산업(__) | 단계(__) | 매출(__) | 기술(__) | 정책(__)
 - 이유: 
 - 예상 지원 금액:
 - 준비 사항:
 
-**🥈 2순위: [프로그램명]**
+** 2순위: [프로그램명]**
 - (동일 형식)
 
-**🥉 3순위: [프로그램명]**
+** 3순위: [프로그램명]**
 - (동일 형식)
 
-### ⚠️ 지원 전 체크리스트
+###  지원 전 체크리스트
 - 
 
-### 📅 추천 지원 타임라인
+###  추천 지원 타임라인
 -
 
 실제 심사위원 관점에서 솔직하게 매칭도를 평가해줘. 점수는 근거를 들어 정확히 산출하고, 80% 이상이면 강력 추천."""
@@ -285,44 +285,44 @@ def build_prompt(text, mode="evaluate", **kwargs):
 
 ## 지시사항
 
-### 🌅 라온의 {program} 지원 준비 체크리스트
+###  라온의 {program} 지원 준비 체크리스트
 
-사업계획서에서 확인 가능한 항목은 ✅, 누락/부족한 항목은 ❌, 부분적인 항목은 ⚠️로 표시해:
+사업계획서에서 확인 가능한 항목은 , 누락/부족한 항목은 , 부분적인 항목은 로 표시해:
 
-#### 📋 필수 서류
+####  필수 서류
 | 항목 | 상태 | 비고 |
 |------|------|------|
-| 사업계획서 | ✅/❌/⚠️ | |
-| 법인등기부등본 | ✅/❌/⚠️ | 사업계획서에서 확인 불가 시 "[확인 필요]" |
-| 재무제표 | ✅/❌/⚠️ | |
-| 대표자 이력서 | ✅/❌/⚠️ | |
-| 기술설명서/특허 | ✅/❌/⚠️ | |
+| 사업계획서 | // | |
+| 법인등기부등본 | // | 사업계획서에서 확인 불가 시 "[확인 필요]" |
+| 재무제표 | // | |
+| 대표자 이력서 | // | |
+| 기술설명서/특허 | // | |
 
-#### 📊 사업계획서 내용 점검
+####  사업계획서 내용 점검
 | 항목 | 상태 | 현재 수준 | 개선 방향 |
 |------|------|-----------|-----------|
-| 문제 정의 | ✅/❌/⚠️ | | |
-| TAM-SAM-SOM | ✅/❌/⚠️ | | |
-| 경쟁 분석 | ✅/❌/⚠️ | | |
-| 비즈니스 모델 | ✅/❌/⚠️ | | |
-| 수익 구조 | ✅/❌/⚠️ | | |
-| 고객 검증 (PoC/LOI/매출) | ✅/❌/⚠️ | | |
-| 팀 역량 | ✅/❌/⚠️ | | |
-| 재무 계획 | ✅/❌/⚠️ | | |
-| R&D 계획 | ✅/❌/⚠️ | | |
-| 마일스톤/일정 | ✅/❌/⚠️ | | |
-| 지식재산권 | ✅/❌/⚠️ | | |
+| 문제 정의 | // | | |
+| TAM-SAM-SOM | // | | |
+| 경쟁 분석 | // | | |
+| 비즈니스 모델 | // | | |
+| 수익 구조 | // | | |
+| 고객 검증 (PoC/LOI/매출) | // | | |
+| 팀 역량 | // | | |
+| 재무 계획 | // | | |
+| R&D 계획 | // | | |
+| 마일스톤/일정 | // | | |
+| 지식재산권 | // | | |
 
-#### 🎯 {program} 특화 요건
+####  {program} 특화 요건
 - (프로그램별 특수 요건을 체크)
 
-### 📊 준비도 요약
+###  준비도 요약
 - **준비 완료:** __개 / 전체 __개
-- **즉시 보완 필요 (❌):** 
-- **부분 보완 필요 (⚠️):**
+- **즉시 보완 필요 ():** 
+- **부분 보완 필요 ():**
 - **예상 준비 기간:** 
 
-### 🚀 우선 조치 사항 (중요도순)
+###  우선 조치 사항 (중요도순)
 1.
 2.
 3.
@@ -352,7 +352,7 @@ def build_prompt(text, mode="evaluate", **kwargs):
 
 '{program}' 지원서에 필요한 주요 섹션을 작성해줘:
 
-### 🌅 라온의 {program} 지원서 초안
+###  라온의 {program} 지원서 초안
 
 #### 1. 사업 개요
 - 기업명/대표자:
@@ -393,12 +393,12 @@ def build_prompt(text, mode="evaluate", **kwargs):
 
 ---
 
-### ⚠️ 작성 시 주의사항
+###  작성 시 주의사항
 - 원본에 없는 수치는 "[확인 필요]"로 표시
 - 과장하지 말고 근거 있는 서술만
 - 심사위원이 중요하게 보는 포인트를 강조
 
-### 📋 추가 준비 서류 체크리스트
+###  추가 준비 서류 체크리스트
 - 
 
 톤은 공식 지원서답게 격식체로. 단, 내용은 실질적이고 구체적으로."""
@@ -415,32 +415,32 @@ def build_prompt(text, mode="evaluate", **kwargs):
 
 투자자가 3분 안에 이 스타트업을 파악할 수 있도록 핵심 정보를 요약하고, 적합한 투자자 유형을 추천해줘.
 
-### 🌅 라온의 투자자 매칭 프로필
+###  라온의 투자자 매칭 프로필
 
-#### 1. 📋 Deal Summary (투자자용 1분 요약)
+#### 1.  Deal Summary (투자자용 1분 요약)
 - **Problem:** (한 문장)
 - **Solution:** (한 문장)
 - **Traction:** (핵심 지표: 매출, 유저, 특허 등)
 - **Ask:** (투자 유치 희망 금액 및 밸류에이션 추정 - 정보 없으면 '[정보 필요]')
 
-#### 2. 🎯 타겟 투자자 유형
+#### 2.  타겟 투자자 유형
 - **단계:** (Seed / Pre-A / Series A)
 - **섹터:** (SaaS / AI / Bio / Commerce 등)
 - **추천 투자자 유형:** (AC / Micro VC / CVC / 전략적 투자자)
 - **이유:** (왜 이 유형의 투자자가 관심을 가질지)
 
-#### 3. 💎 Investment Highlights (투자 포인트)
+#### 3.  Investment Highlights (투자 포인트)
 1.
 2.
 3.
 
-#### 4. 🚩 Red Flags (투자자가 우려할 점 & 방어 논리)
+#### 4.  Red Flags (투자자가 우려할 점 & 방어 논리)
 - **우려점:** 
   - **방어 논리:** 
 - **우려점:** 
   - **방어 논리:**
 
-#### 5. 🗣️ 피칭 팁
+#### 5.  피칭 팁
 - IR 미팅 시 강조할 점:
 - 보완이 필요한 자료:
 
@@ -713,7 +713,7 @@ def fix_score_text(text):
         score = int(m.group(1))
         max_s = int(m.group(2))
         if score > max_s:
-            print("⚠️ 세부항목 교정: %d/%d → %d/%d" % (score, max_s, max_s, max_s), file=sys.stderr)
+            print(" 세부항목 교정: %d/%d → %d/%d" % (score, max_s, max_s, max_s), file=sys.stderr)
             return "%d/%d" % (max_s, max_s)
         return m.group(0)
 
@@ -734,7 +734,7 @@ def fix_score_text(text):
             stated = int(m.group(2))
             if stated > section_max:
                 text = text[:m.start(2)] + str(section_max) + text[m.end(2):]
-                print("⚠️ 영역 교정: %s %d → %d" % (section_name, stated, section_max), file=sys.stderr)
+                print(" 영역 교정: %s %d → %d" % (section_name, stated, section_max), file=sys.stderr)
                 stated = section_max
             section_totals.append(min(stated, section_max))
         else:
@@ -759,7 +759,7 @@ def fix_score_text(text):
                 stated = int(m.group(2))
                 if stated != correct_total:
                     text = text[:m.start(2)] + str(correct_total) + text[m.end(2):]
-                    print("⚠️ 총점 교정: %d → %d (부분점수 합산 기준)" % (stated, correct_total), file=sys.stderr)
+                    print(" 총점 교정: %d → %d (부분점수 합산 기준)" % (stated, correct_total), file=sys.stderr)
                 break
 
     return text
@@ -801,7 +801,7 @@ def run_interactive(file_path=None, text=None, model=None):
     # 텍스트 추출
     if file_path:
         if file_path.lower().endswith(".pdf"):
-            print(f"📄 PDF 파싱 중: {os.path.basename(file_path)}", file=sys.stderr)
+            print(f" PDF 파싱 중: {os.path.basename(file_path)}", file=sys.stderr)
             original_text = extract_pdf_text(file_path)
         else:
             with open(file_path, "r", encoding="utf-8") as f:
@@ -809,16 +809,16 @@ def run_interactive(file_path=None, text=None, model=None):
     elif text:
         original_text = text
     else:
-        print("❌ --file 또는 --text를 입력하세요.", file=sys.stderr)
+        print(" --file 또는 --text를 입력하세요.", file=sys.stderr)
         sys.exit(1)
 
     if not original_text.strip():
-        print("❌ 빈 문서입니다.", file=sys.stderr)
+        print(" 빈 문서입니다.", file=sys.stderr)
         sys.exit(1)
 
     # 초기 평가
-    print(f"📊 초기 평가 시작 ({len(original_text)}자)...", file=sys.stderr)
-    print(f"🤖 AI 엔진 구동 중 ({model_name})...", file=sys.stderr)
+    print(f" 초기 평가 시작 ({len(original_text)}자)...", file=sys.stderr)
+    print(f" AI 엔진 구동 중 ({model_name})...", file=sys.stderr)
 
     prompt = build_prompt(original_text, mode="evaluate")
     initial_result = None
@@ -829,12 +829,12 @@ def run_interactive(file_path=None, text=None, model=None):
         initial_result = call_ollama(prompt, model_name)
 
     if not initial_result:
-        print("⚠️ LLM 연결 실패.", file=sys.stderr)
+        print(" LLM 연결 실패.", file=sys.stderr)
         sys.exit(1)
 
     print(initial_result)
     print("\n" + "=" * 60, file=sys.stderr)
-    print("💬 대화형 모드: 후속 질문을 입력하세요 (종료: quit/exit/q)", file=sys.stderr)
+    print(" 대화형 모드: 후속 질문을 입력하세요 (종료: quit/exit/q)", file=sys.stderr)
     print("=" * 60, file=sys.stderr)
 
     history = [
@@ -843,25 +843,25 @@ def run_interactive(file_path=None, text=None, model=None):
 
     while True:
         try:
-            question = input("\n🗣️  > ").strip()
+            question = input("\n  > ").strip()
         except (EOFError, KeyboardInterrupt):
-            print("\n👋 대화 종료", file=sys.stderr)
+            print("\n 대화 종료", file=sys.stderr)
             break
 
         if not question:
             continue
         if question.lower() in ("quit", "exit", "q", "종료"):
-            print("👋 대화 종료", file=sys.stderr)
+            print(" 대화 종료", file=sys.stderr)
             break
 
         history.append({"role": "user", "content": question})
 
         followup_prompt = build_followup_prompt(history, question, original_text)
-        print(f"🤖 답변 생성 중...", file=sys.stderr)
+        print(f" 답변 생성 중...", file=sys.stderr)
 
         answer = call_ollama(followup_prompt, model_name)
         if not answer:
-            print("⚠️ LLM 응답 실패. 다시 시도해주세요.", file=sys.stderr)
+            print(" LLM 응답 실패. 다시 시도해주세요.", file=sys.stderr)
             history.pop()  # remove failed user message
             continue
 
@@ -873,7 +873,7 @@ def run_interactive(file_path=None, text=None, model=None):
 
 def main():
     import argparse
-    parser = argparse.ArgumentParser(description="🌅 Raon OS — 사업계획서 평가")
+    parser = argparse.ArgumentParser(description=" Raon OS — 사업계획서 평가")
     parser.add_argument("--version", "-V", action="version", version="%(prog)s 0.3.7")
     parser.add_argument("mode", choices=["evaluate", "improve", "match", "draft", "checklist", "investor", "interactive"], help="실행 모드")
     parser.add_argument("--program", help="지원사업 프로그램명 (draft 모드용)")
@@ -894,7 +894,7 @@ def main():
         return
 
     if args.mode in ("draft", "checklist") and not args.program:
-        print(f"❌ {args.mode} 모드에는 --program 옵션이 필요합니다. (예: --program TIPS)", file=sys.stderr)
+        print(f" {args.mode} 모드에는 --program 옵션이 필요합니다. (예: --program TIPS)", file=sys.stderr)
         sys.exit(1)
 
     # 텍스트 추출 (다중 파일 지원)
@@ -902,12 +902,12 @@ def main():
     if args.file:
         for fpath in args.file:
             if not os.path.exists(fpath):
-                print(f"❌ 파일을 찾을 수 없습니다: {fpath}", file=sys.stderr)
+                print(f" 파일을 찾을 수 없습니다: {fpath}", file=sys.stderr)
                 sys.exit(1)
             
             content = ""
             if fpath.lower().endswith(".pdf"):
-                print(f"📄 PDF 파싱 중: {os.path.basename(fpath)}", file=sys.stderr)
+                print(f" PDF 파싱 중: {os.path.basename(fpath)}", file=sys.stderr)
                 content = extract_pdf_text(fpath)
             else:
                 with open(fpath, "r", encoding="utf-8") as f:
@@ -922,17 +922,17 @@ def main():
         if not sys.stdin.isatty():
             docs.append({"name": "STDIN", "text": sys.stdin.read()})
         else:
-            print("❌ --file 또는 --text를 입력하세요 (또는 파이프 입력).", file=sys.stderr)
+            print(" --file 또는 --text를 입력하세요 (또는 파이프 입력).", file=sys.stderr)
             sys.exit(1)
 
     # 빈 문서 체크
     valid_docs = [d for d in docs if d["text"].strip()]
     if not valid_docs:
-        print("❌ 빈 문서입니다.", file=sys.stderr)
+        print(" 빈 문서입니다.", file=sys.stderr)
         sys.exit(1)
     
     total_len = sum(len(d["text"]) for d in valid_docs)
-    print(f"📊 분석 시작 ({len(valid_docs)}개 문서, 총 {total_len}자)...", file=sys.stderr)
+    print(f" 분석 시작 ({len(valid_docs)}개 문서, 총 {total_len}자)...", file=sys.stderr)
 
     # 다중 문서 비교 모드 (문서가 2개 이상일 때)
     is_comparison = len(valid_docs) > 1
@@ -942,19 +942,19 @@ def main():
     # 1순위: K-Startup AI API
     if RAON_API_URL and RAON_API_KEY:
         if is_comparison:
-            print("⚠️ API 모드에서는 다중 문서 비교를 지원하지 않습니다. 첫 번째 문서만 분석합니다.", file=sys.stderr)
+            print(" API 모드에서는 다중 문서 비교를 지원하지 않습니다. 첫 번째 문서만 분석합니다.", file=sys.stderr)
         
-        print("🔗 K-Startup AI 엔진 연결 중...", file=sys.stderr)
+        print(" K-Startup AI 엔진 연결 중...", file=sys.stderr)
         result = call_raon_api(valid_docs[0]["text"], args.mode)
 
     # 2순위: Ollama (로컬 LLM) — API 실패 시 fallback
     if not result:
         if is_comparison:
             prompt = build_comparison_prompt(valid_docs, args.mode)
-            print(f"🤖 AI 엔진 구동 중 ({model_name}) — 비교 분석 모드...", file=sys.stderr)
+            print(f" AI 엔진 구동 중 ({model_name}) — 비교 분석 모드...", file=sys.stderr)
         else:
             prompt = build_prompt(valid_docs[0]["text"], args.mode, program=getattr(args, 'program', None) or 'TIPS')
-            print(f"🤖 AI 엔진 구동 중 ({model_name})...", file=sys.stderr)
+            print(f" AI 엔진 구동 중 ({model_name})...", file=sys.stderr)
         
         result = call_ollama(prompt, model_name)
 
@@ -1021,9 +1021,9 @@ def main():
                 content = json.dumps(json_payload, ensure_ascii=False, indent=2) if args.json else result
                 with open(args.output, "w", encoding="utf-8") as f:
                     f.write(content)
-                print(f"✅ 결과 저장 완료: {args.output}", file=sys.stderr)
+                print(f" 결과 저장 완료: {args.output}", file=sys.stderr)
             except Exception as e:
-                print(f"❌ 파일 저장 실패: {e}", file=sys.stderr)
+                print(f" 파일 저장 실패: {e}", file=sys.stderr)
                 sys.exit(1)
         else:
             if args.json:
@@ -1039,7 +1039,7 @@ def main():
                     ))
     else:
         prov = _detect_provider()
-        print("⚠️ LLM 연결 실패. 다음을 확인하세요:", file=sys.stderr)
+        print(" LLM 연결 실패. 다음을 확인하세요:", file=sys.stderr)
         print(f"   현재 감지된 프로바이더: {prov}", file=sys.stderr)
         print(f"   1. API 키 설정: ~/.openclaw/.env 에 OPENROUTER_API_KEY, GEMINI_API_KEY 등", file=sys.stderr)
         print(f"   2. 로컬 Ollama: ollama pull {model_name}", file=sys.stderr)

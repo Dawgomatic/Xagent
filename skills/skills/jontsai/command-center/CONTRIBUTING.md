@@ -4,7 +4,7 @@
 
 First off, thank you for considering contributing to OpenClaw Command Center! This project thrives on community involvement.
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
 - [Getting Started](#getting-started)
@@ -15,11 +15,11 @@ First off, thank you for considering contributing to OpenClaw Command Center! Th
 - [Publishing to ClawHub](#publishing-to-clawhub)
 - [For AI Contributors](#for-ai-contributors)
 
-## 📜 Code of Conduct
+##  Code of Conduct
 
 This project adheres to our [Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you're expected to uphold this code. Please report unacceptable behavior to the maintainers.
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -71,18 +71,18 @@ This project adheres to our [Code of Conduct](./CODE_OF_CONDUCT.md). By particip
    npm run dev
    ```
 
-## 🛠️ Making Contributions
+##  Making Contributions
 
 ### Types of Contributions
 
 We welcome:
 
-- 🐛 Bug fixes
-- ✨ New features
-- 📚 Documentation improvements
-- 🧪 Test coverage
-- 🎨 UI/UX enhancements
-- 🔧 Performance optimizations
+-  Bug fixes
+-  New features
+-  Documentation improvements
+-  Test coverage
+-  UI/UX enhancements
+-  Performance optimizations
 
 ### Before You Start
 
@@ -101,7 +101,7 @@ docs/update-api-reference
 refactor/simplify-creep-cache
 ```
 
-## 📤 Pull Request Process
+##  Pull Request Process
 
 ### 1. Create Your Branch
 
@@ -160,7 +160,7 @@ Before submitting, ensure:
 - [ ] Commit messages follow convention
 - [ ] PR description explains the change
 
-## 🎨 Style Guidelines
+##  Style Guidelines
 
 ### Code Style
 
@@ -191,7 +191,7 @@ const cacheLayer = new CacheService();
 - Keep README and docs in sync with code
 - Add inline comments for complex logic
 
-## 📦 Publishing to ClawHub
+##  Publishing to ClawHub
 
 This skill is distributed via [ClawHub](https://clawhub.ai). After changes are merged to `main`, maintainers publish updates to the registry.
 
@@ -243,7 +243,7 @@ Follow [semver](https://semver.org/):
 | New features, backward compat | `minor` | `0.1.0 → 0.2.0` |
 | Breaking changes              | `major` | `0.1.0 → 1.0.0` |
 
-⚠️ **Important:** When bumping version, update **both** files:
+ **Important:** When bumping version, update **both** files:
 
 - `package.json` — `"version": "X.Y.Z"`
 - `SKILL.md` — `version: X.Y.Z` (in frontmatter)
@@ -260,7 +260,7 @@ clawhub inspect command-center
 clawhub install command-center
 ```
 
-## 🤖 For AI Contributors
+##  For AI Contributors
 
 AI agents are welcome contributors! If you're an AI working on this project:
 
@@ -274,19 +274,19 @@ AI agents are welcome contributors! If you're an AI working on this project:
 
 4. **When in doubt, ask** — Open an issue to discuss before major changes
 
-## 💬 Getting Help
+##  Getting Help
 
 - **Questions?** Open a GitHub Discussion
 - **Found a bug?** Open an Issue
 - **Security concern?** Email maintainers directly (don't open public issue)
 
-## 🙏 Recognition
+##  Recognition
 
 Contributors will be recognized in:
 
 - GitHub Contributors list
 - Release notes for significant contributions
-- Our eternal gratitude 🐛
+- Our eternal gratitude 
 
 ---
 

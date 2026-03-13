@@ -12,31 +12,31 @@ This shows what the AI generates when you ask for a briefing.
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-☀️ DAILY BRIEFING — Tuesday, February 3, 2026
+ DAILY BRIEFING — Tuesday, February 3, 2026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-⚠️ OVERDUE (2 items)
+ OVERDUE (2 items)
 • Send Acme proposal — was due Feb 1
 • Review Week 2 training materials — was due Jan 31
 
-📅 TODAY'S PRIORITIES
+ TODAY'S PRIORITIES
 1. [ ] Anne follow-up call — 2pm today
 2. [ ] Finalize Week 3 training content — EOD
 3. [ ] Prep for Makati trip — flights need booking
 4. [ ] Respond to Karlen re: workflow docs
 5. [ ] Clear overdue Acme proposal
 
-📆 CALENDAR
+ CALENDAR
 • 10:00 AM — Team standup (30 min)
 • 2:00 PM — Anne follow-up call (1 hour)
 • 4:30 PM — Workshop dry run (90 min)
 
-💡 CONTEXT (from recent meetings)
+ CONTEXT (from recent meetings)
 • Anne partnership confirmed — ready to move forward (from anne-call)
 • OpenClaw bot architecture changing to specialists (from pm-meeting)
 • Makati trip deadline approaching — need flights by Friday
 
-🎯 FOCUS FOR TODAY
+ FOCUS FOR TODAY
 Get the Acme proposal out first thing — it's 2 days overdue and blocking the deal.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -52,25 +52,25 @@ Get the Acme proposal out first thing — it's 2 days overdue and blocking the d
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-☀️ DAILY BRIEFING — Wednesday, February 4, 2026
+ DAILY BRIEFING — Wednesday, February 4, 2026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📅 TODAY'S PRIORITIES
+ TODAY'S PRIORITIES
 1. [ ] Complete Week 3 training review — EOD
 2. [ ] Book Makati flights — before prices go up
 3. [ ] Draft Anne partnership agreement outline
 
-📆 CALENDAR
+ CALENDAR
 • 9:00 AM — Deep work block (2 hours)
 • 11:30 AM — Quick sync with Jacklyn (15 min)
 • 3:00 PM — Client check-in call (30 min)
 
-💡 CONTEXT (from recent meetings)
+ CONTEXT (from recent meetings)
 • Acme proposal sent ✓ — awaiting response
 • Workshop dry run went well — minor tweaks needed
 • Karlen starting Week 3 content tomorrow
 
-🎯 FOCUS FOR TODAY
+ FOCUS FOR TODAY
 Lighter day — use the morning block for the training review while you have energy.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -85,7 +85,7 @@ Lighter day — use the morning block for the training review while you have ene
 **AI Response:**
 
 ```
-⚠️ OVERDUE ITEMS
+ OVERDUE ITEMS
 
 1. Send Acme proposal — was due Feb 1 (2 days ago)
 2. Review Week 2 training — was due Jan 31 (3 days ago)
@@ -103,7 +103,7 @@ Lighter day — use the morning block for the training review while you have ene
 **AI Response:**
 
 ```
-✅ Nothing overdue! You're caught up.
+ Nothing overdue! You're caught up.
 
 Upcoming deadlines this week:
 • Makati flights — Friday
@@ -123,7 +123,7 @@ Want a full briefing?
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📅 WEEKLY PREVIEW — Week of February 3, 2026
+ WEEKLY PREVIEW — Week of February 3, 2026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 MONDAY (Feb 3) — Today
@@ -147,7 +147,7 @@ FRIDAY (Feb 7)
 • Makati flights MUST be booked
 • Week wrap-up
 
-⚠️ WATCH OUT FOR
+ WATCH OUT FOR
 • Makati flights — prices going up, book by Wed
 • Anne partnership agreement — she's expecting draft by Friday
 • 2 overdue items dragging into the week
@@ -165,7 +165,7 @@ FRIDAY (Feb 7)
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-☀️ DAILY BRIEFING — Tuesday, February 3, 2026
+ DAILY BRIEFING — Tuesday, February 3, 2026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 No to-do list or meeting notes found yet.
@@ -190,24 +190,24 @@ Once you have tasks or meeting notes, your briefings will be much richer!
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🌅 END OF DAY CHECK — Tuesday, February 3, 2026
+ END OF DAY CHECK — Tuesday, February 3, 2026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-✅ COMPLETED TODAY
+ COMPLETED TODAY
 • Anne follow-up call ✓
 • Workshop dry run ✓
 • Team standup ✓
 
-⚠️ STILL OPEN
+ STILL OPEN
 • Acme proposal — still overdue
 • Week 3 training review — pushed to tomorrow
 
-📆 TOMORROW PREVIEW
+ TOMORROW PREVIEW
 • 9:00 AM — Deep work block
 • 11:30 AM — Jacklyn sync
 • 3:00 PM — Client call
 
-🎯 BEFORE YOU LOG OFF
+ BEFORE YOU LOG OFF
 The Acme proposal is now 2 days overdue. 15 minutes tonight or first thing tomorrow?
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

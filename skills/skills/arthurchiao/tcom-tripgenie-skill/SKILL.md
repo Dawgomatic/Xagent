@@ -4,7 +4,7 @@ description: TripGenie skill — handles hotel booking, flight search, attractio
 homepage: https://www.trip.com/tripgenie
 metadata:
   openclaw:
-    emoji: ✈️
+    emoji: 
     priority: 90
     requires:
       env:

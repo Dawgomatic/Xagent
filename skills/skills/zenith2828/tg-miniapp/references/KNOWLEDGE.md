@@ -4,7 +4,7 @@ Everything we've learned building Telegram Mini Apps. Read this before starting 
 
 ---
 
-## 🔴 Critical Issues (Will Bite You)
+##  Critical Issues (Will Bite You)
 
 ### 1. Safe Area / Fullscreen Mode
 **The Problem:** In fullscreen mode, Telegram overlays its controls (X Close, chevron) on top of your app. Content gets hidden behind them.
@@ -171,9 +171,9 @@ const handleShare = async () => {
   await WebApp.shareMessage(prepared_message_id);
 };
 ```
-- ✅ Always works, each tap gets fresh ID
-- ⚠️ More API calls
-- ⚠️ Slight delay before picker opens
+-  Always works, each tap gets fresh ID
+-  More API calls
+-  Slight delay before picker opens
 
 **B) Static Content Caching (recommended for frequent shares)**
 Use static inline results with `allow_user_chats: true`. The content stays the same, so you can cache results:
@@ -198,9 +198,9 @@ const handleShare = async () => {
   await WebApp.shareMessage(prepared_message_id);
 };
 ```
-- ✅ Works reliably for multi-share scenarios
-- ✅ Image can be cached on CDN
-- ⚠️ Content is same for all shares of that item
+-  Works reliably for multi-share scenarios
+-  Image can be cached on CDN
+-  Content is same for all shares of that item
 
 **Fallback chain:**
 1. Try native `shareMessage` (requires inline mode)
@@ -219,10 +219,10 @@ For apps where you want both quick sharing AND rich custom cards:
 ```tsx
 <div className="flex gap-1">
   {/* Quick Share - uses static prepared message, opens native picker */}
-  <button onClick={handleQuickShare}>⚡</button>
+  <button onClick={handleQuickShare}></button>
   
   {/* Share Card - sends rich image to bot chat, user forwards manually */}
-  <button onClick={handleShareCard}>🎨</button>
+  <button onClick={handleShareCard}></button>
 </div>
 ```
 - Quick Share: Native picker, faster, less friction
@@ -282,7 +282,7 @@ return new Response(jpeg, { headers: { 'Content-Type': 'image/jpeg' } });
 
 ---
 
-## 🟡 Common Gotchas
+##  Common Gotchas
 
 ### API Image Paths
 Different APIs return images in different paths. Always use fallback chains:
@@ -312,7 +312,7 @@ color: var(--tg-theme-text-color, #fff);
 
 ---
 
-## 🟢 Best Practices
+##  Best Practices
 
 ### Debug Overlay
 Add a dev-only panel showing platform info:
@@ -353,7 +353,7 @@ npx wrangler pages deploy dist --project-name myapp
 
 ---
 
-## 📁 Component Library
+##  Component Library
 
 Reusable components at `~/clawd/projects/tg-miniapp-components/`:
 - `useSafeAreaInset()` — Reactive safe area hook
@@ -363,7 +363,7 @@ Reusable components at `~/clawd/projects/tg-miniapp-components/`:
 
 ---
 
-## 📚 Resources
+##  Resources
 
 - [Telegram Mini Apps Docs](https://core.telegram.org/bots/webapps)
 - [@telegram-apps/sdk](https://github.com/Telegram-Mini-Apps/telegram-apps)

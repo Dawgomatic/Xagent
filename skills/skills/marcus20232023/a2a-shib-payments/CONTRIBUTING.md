@@ -4,9 +4,9 @@ Thank you for your interest in contributing! This document provides guidelines f
 
 ---
 
-## 🎯 Ways to Contribute
+##  Ways to Contribute
 
-### 1. 🐛 Report Bugs
+### 1.  Report Bugs
 - Check [existing issues](https://github.com/marcus20232023/a2a-shib-payments/issues) first
 - Use the bug report template
 - Include:
@@ -16,7 +16,7 @@ Thank you for your interest in contributing! This document provides guidelines f
   - Environment (Node version, OS, network)
   - Error logs/stack traces
 
-### 2. 💡 Suggest Features
+### 2.  Suggest Features
 - Open an issue with the `enhancement` label
 - Describe:
   - Use case (why is this needed?)
@@ -24,13 +24,13 @@ Thank you for your interest in contributing! This document provides guidelines f
   - Alternative approaches considered
   - Impact on existing functionality
 
-### 3. 📝 Improve Documentation
+### 3.  Improve Documentation
 - Fix typos, clarify instructions
 - Add examples or use cases
 - Update outdated information
 - Translate to other languages
 
-### 4. 🔧 Submit Code
+### 4.  Submit Code
 - Bug fixes
 - New features
 - Performance improvements
@@ -39,7 +39,7 @@ Thank you for your interest in contributing! This document provides guidelines f
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Fork & Clone
 
@@ -84,7 +84,7 @@ npm start
 
 ---
 
-## 📋 Development Workflow
+##  Development Workflow
 
 ### 1. Create a Branch
 
@@ -159,7 +159,7 @@ Then open a pull request on GitHub.
 
 ---
 
-## 📝 Pull Request Guidelines
+##  Pull Request Guidelines
 
 ### PR Title Format
 ```
@@ -218,7 +218,7 @@ List any breaking changes (or "None")
 
 ---
 
-## 🧪 Testing Standards
+##  Testing Standards
 
 ### Required Tests
 
@@ -235,7 +235,7 @@ List any breaking changes (or "None")
 
 ```javascript
 // test-new-feature.js
-console.log('🧪 Testing New Feature...\n');
+console.log(' Testing New Feature...\n');
 
 async function testFeature() {
   try {
@@ -247,14 +247,14 @@ async function testFeature() {
     
     // Assert
     if (result === expected) {
-      console.log('✅ Test passed');
+      console.log(' Test passed');
       return true;
     } else {
-      console.log('❌ Test failed:', result);
+      console.log(' Test failed:', result);
       return false;
     }
   } catch (error) {
-    console.error('❌ Error:', error);
+    console.error(' Error:', error);
     return false;
   }
 }
@@ -269,7 +269,7 @@ testFeature();
 
 ---
 
-## 📐 Code Style
+##  Code Style
 
 ### JavaScript Style
 
@@ -316,7 +316,7 @@ async function createEscrow(payer, payee, amount, options) {
 
 ---
 
-## 🔐 Security Guidelines
+##  Security Guidelines
 
 ### Never Commit Secrets
 
@@ -347,7 +347,7 @@ We'll respond within 48 hours and work with you to fix it.
 
 ---
 
-## 📦 Release Process
+##  Release Process
 
 ### Versioning (SemVer)
 
@@ -368,7 +368,7 @@ We'll respond within 48 hours and work with you to fix it.
 
 ---
 
-## 🏷️ Issue Labels
+##  Issue Labels
 
 | Label | Purpose |
 |-------|---------|
@@ -385,7 +385,7 @@ We'll respond within 48 hours and work with you to fix it.
 
 ---
 
-## 🎓 Resources for Contributors
+##  Resources for Contributors
 
 ### Understanding the Codebase
 
@@ -409,7 +409,7 @@ We'll respond within 48 hours and work with you to fix it.
 
 ---
 
-## 🙏 Recognition
+##  Recognition
 
 Contributors are recognized in:
 - GitHub contributor list
@@ -418,7 +418,7 @@ Contributors are recognized in:
 
 ---
 
-## 📜 Code of Conduct
+##  Code of Conduct
 
 ### Our Pledge
 
@@ -449,7 +449,7 @@ Report issues to: (add moderation contact)
 
 ---
 
-## 🎯 Roadmap Priorities
+##  Roadmap Priorities
 
 Current focus (v2.1):
 - Multi-token support (USDC, POL, DAI)
@@ -465,11 +465,11 @@ See [README.md](README.md#-roadmap) for full roadmap.
 
 ---
 
-## ✅ Ready to Contribute?
+##  Ready to Contribute?
 
 1. **Pick an issue** from [good first issues](https://github.com/marcus20232023/a2a-shib-payments/labels/good%20first%20issue)
 2. **Comment** on the issue to claim it
 3. **Fork, code, test, PR**
-4. **Celebrate** your contribution! 🎉
+4. **Celebrate** your contribution! 
 
-Thank you for making agent-to-agent payments better! 🦪💰
+Thank you for making agent-to-agent payments better! 

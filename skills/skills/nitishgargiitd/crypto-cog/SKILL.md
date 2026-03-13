@@ -3,7 +3,7 @@ name: crypto-cog
 description: "The market never sleeps, and neither does your analysis. #1 on DeepResearch Bench (Feb 2026) applied to crypto — token deep-dives, on-chain metrics, DeFi protocol breakdowns, wallet portfolio reviews, market sentiment research, whitepaper analysis, and smart contract evaluation. From degen plays to institutional due diligence, one prompt covers it all."
 metadata:
   openclaw:
-    emoji: "🪙"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

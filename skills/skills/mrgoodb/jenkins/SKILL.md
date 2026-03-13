@@ -1,7 +1,7 @@
 ---
 name: jenkins
 description: Manage Jenkins jobs, builds, and pipelines via API. Trigger builds and monitor status.
-metadata: {"clawdbot":{"emoji":"🔧","requires":{"env":["JENKINS_URL","JENKINS_USER","JENKINS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["JENKINS_URL","JENKINS_USER","JENKINS_TOKEN"]}}}
 ---
 # Jenkins
 CI/CD automation server.

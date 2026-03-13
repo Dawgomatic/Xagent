@@ -2,7 +2,7 @@
 """
 SEO Optimizer Pro - AI-Powered SEO Content Optimization
 Version: 1.0.6
-Copyright © 2026 UnisAI. All Rights Reserved.
+Copyright  2026 UnisAI. All Rights Reserved.
 
 Multi-provider SEO analysis using Claude, GPT, Gemini, Llama, or Mistral.
 Each provider requires its own API key. Only the provider you select needs
@@ -484,9 +484,9 @@ Format as a simple numbered list."""
 ║              SEO ANALYSIS RESULTS - {result.test_id}              ║
 ╚══════════════════════════════════════════════════════════════════╝
 
-🤖 Model: {result.model_used} ({result.provider})
+ Model: {result.model_used} ({result.provider})
 
-📊 METRICS
+ METRICS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • Word Count: {result.metrics.word_count}
 • Content Length: {result.metrics.content_length} characters
@@ -494,7 +494,7 @@ Format as a simple numbered list."""
 • Flesch-Kincaid Grade: {result.metrics.flesch_kincaid_grade:.1f}
 • Avg Paragraph Length: {result.metrics.avg_paragraph_length} words
 
-🔑 KEYWORD DENSITY
+ KEYWORD DENSITY
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
         if result.metrics.keyword_density:
@@ -504,29 +504,29 @@ Format as a simple numbered list."""
             output += "• No keywords analyzed\n"
 
         output += f"""
-💡 TOP SUGGESTIONS ({len(result.suggestions)} found)
+ TOP SUGGESTIONS ({len(result.suggestions)} found)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
         for i, sugg in enumerate(result.suggestions[:5], 1):
-            priority_emoji = "🔴" if sugg.priority == "high" else "🟡" if sugg.priority == "medium" else "🟢"
+            priority_emoji = "" if sugg.priority == "high" else "" if sugg.priority == "medium" else ""
             output += f"\n{priority_emoji} [{sugg.category.upper()}] {sugg.suggestion}\n"
             if sugg.current_value:
                 output += f"   Current: {sugg.current_value} → Recommended: {sugg.recommended_value}\n"
             output += f"   Impact: {sugg.impact}\n"
 
         output += f"""
-🎯 ESTIMATED IMPACT
+ ESTIMATED IMPACT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 {result.estimated_impact}
 
-🤖 AI SEARCH OPTIMIZATION (AEO)
+ AI SEARCH OPTIMIZATION (AEO)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
         for i, rec in enumerate(result.aeo_recommendations, 1):
             output += f"{i}. {rec}\n"
 
-        output += f"\n⏱️  Analysis ID: {result.test_id}\n"
-        output += f"🕐 Timestamp: {result.timestamp}\n"
+        output += f"\n  Analysis ID: {result.test_id}\n"
+        output += f" Timestamp: {result.timestamp}\n"
 
         return output
 

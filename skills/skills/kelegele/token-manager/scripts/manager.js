@@ -3,7 +3,7 @@
  * Token Manager - 通用 LLM Token 管家
  * 支持多模型：Kimi/Moonshot, OpenAI, Anthropic, Google, 本地模型等
  * 
- * 🔒 安全说明 / Security Notice:
+ *  安全说明 / Security Notice:
  * - API Keys 只从环境变量读取，从不硬编码
  * - 所有数据存储在本地 .data/ 目录，不上传到第三方
  * - 网络请求仅访问官方 LLM API，无其他外联
@@ -318,15 +318,15 @@ function analyzeUsage(sessionData, history, provider) {
   if (contextRatio > 0.8) {
     warnings.push({
       level: 'critical',
-      message: '🚨 Context 80%+ full! Must compact immediately',
-      messageCn: '🚨 上下文即将满载 (80%+)，必须压缩或清理',
+      message: ' Context 80%+ full! Must compact immediately',
+      messageCn: ' 上下文即将满载 (80%+)，必须压缩或清理',
       action: 'compact'
     });
   } else if (contextRatio > 0.5) {
     suggestions.push({
       priority: 'medium',
-      message: `📚 Context ${(contextRatio * 100).toFixed(0)}% used, consider compacting`,
-      messageCn: `📚 上下文使用 ${(contextRatio * 100).toFixed(0)}%，建议适时压缩`,
+      message: ` Context ${(contextRatio * 100).toFixed(0)}% used, consider compacting`,
+      messageCn: ` 上下文使用 ${(contextRatio * 100).toFixed(0)}%，建议适时压缩`,
       action: 'compact'
     });
   }
@@ -336,15 +336,15 @@ function analyzeUsage(sessionData, history, provider) {
   if (totalTokens > 50000) {
     warnings.push({
       level: 'high',
-      message: '⚠️ Session 50k+ tokens! Split tasks now',
-      messageCn: '⚠️ 当前会话已用 50k+ tokens，建议立即压缩或拆分任务',
+      message: ' Session 50k+ tokens! Split tasks now',
+      messageCn: ' 当前会话已用 50k+ tokens，建议立即压缩或拆分任务',
       action: 'spawn'
     });
   } else if (totalTokens > 20000) {
     suggestions.push({
       priority: 'high',
-      message: '📊 Large session (20k+), use sub-agents',
-      messageCn: '📊 会话较大 (20k+ tokens)，建议拆分复杂任务到子代理',
+      message: ' Large session (20k+), use sub-agents',
+      messageCn: ' 会话较大 (20k+ tokens)，建议拆分复杂任务到子代理',
       action: 'spawn'
     });
   }
@@ -354,15 +354,15 @@ function analyzeUsage(sessionData, history, provider) {
     if (sessionData.tokensIn < 5000) {
       suggestions.push({
         priority: 'low',
-        message: '💡 Simple task? Disable reasoning to save 20-30%',
-        messageCn: '💡 简单任务可关闭 reasoning 节省 20-30% token',
+        message: ' Simple task? Disable reasoning to save 20-30%',
+        messageCn: ' 简单任务可关闭 reasoning 节省 20-30% token',
         action: 'thinking_off'
       });
     } else {
       suggestions.push({
         priority: 'info',
-        message: '✅ Reasoning enabled, good for complex tasks',
-        messageCn: '✅ Reasoning 开启中，适合复杂任务',
+        message: ' Reasoning enabled, good for complex tasks',
+        messageCn: ' Reasoning 开启中，适合复杂任务',
         action: 'keep'
       });
     }
@@ -372,8 +372,8 @@ function analyzeUsage(sessionData, history, provider) {
   if (sessionData.balance !== undefined && sessionData.balance < 5) {
     warnings.push({
       level: 'critical',
-      message: `🚨 Low balance ¥${sessionData.balance.toFixed(2)}! Enable save mode`,
-      messageCn: `🚨 余额仅剩 ¥${sessionData.balance.toFixed(2)}，建议充值或开启省钱模式`,
+      message: ` Low balance ¥${sessionData.balance.toFixed(2)}! Enable save mode`,
+      messageCn: ` 余额仅剩 ¥${sessionData.balance.toFixed(2)}，建议充值或开启省钱模式`,
       action: 'save_mode'
     });
   }
@@ -382,8 +382,8 @@ function analyzeUsage(sessionData, history, provider) {
   if (providerConfig && providerConfig.name === 'Ollama/本地模型') {
     suggestions.push({
       priority: 'info',
-      message: '🏠 Local model - no API costs!',
-      messageCn: '🏠 本地模型运行，无 API 费用！',
+      message: ' Local model - no API costs!',
+      messageCn: ' 本地模型运行，无 API 费用！',
       action: 'none'
     });
   }

@@ -324,7 +324,7 @@ curl "https://api.cope.capital/v1/activity?min_usd=1000" \
 
 ### Enabling x402
 
-⚠️ **NEVER enable x402 without your human's explicit permission.** This authorizes real USDC payments.
+ **NEVER enable x402 without your human's explicit permission.** This authorizes real USDC payments.
 
 ```bash
 curl -X PATCH https://api.cope.capital/v1/account \

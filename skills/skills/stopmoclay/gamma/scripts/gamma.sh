@@ -229,19 +229,19 @@ cmd_generate() {
                 credits_remaining=$(echo "$response" | jq -r '.credits.remaining // "unknown"')
                 
                 echo ""
-                echo "✅ Generation complete!"
+                echo " Generation complete!"
                 echo "URL: $url"
                 echo "Credits used: $credits_used"
                 echo "Credits remaining: $credits_remaining"
                 exit 0
             elif [[ "$status" == "failed" ]]; then
-                echo "❌ Generation failed" >&2
+                echo " Generation failed" >&2
                 echo "$response" >&2
                 exit 1
             fi
         done
         
-        echo "⏱️ Timeout waiting for generation (${max_wait}s)" >&2
+        echo " Timeout waiting for generation (${max_wait}s)" >&2
         echo "Check status manually: gamma.sh status $generation_id" >&2
         exit 1
     else

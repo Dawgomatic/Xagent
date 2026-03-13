@@ -347,11 +347,11 @@ def main():
     input_file = sys.argv[1]
     output_file = sys.argv[2] if len(sys.argv) > 2 else None
 
-    print(f"📄 Loading earnings data from: {input_file}", file=sys.stderr)
+    print(f" Loading earnings data from: {input_file}", file=sys.stderr)
     earnings = load_earnings_data(input_file)
     print(f"✓ Loaded {len(earnings)} companies", file=sys.stderr)
 
-    print("📝 Generating markdown report...", file=sys.stderr)
+    print(" Generating markdown report...", file=sys.stderr)
     report = generate_report(earnings)
 
     if output_file:

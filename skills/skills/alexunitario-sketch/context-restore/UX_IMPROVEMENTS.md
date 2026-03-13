@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 目录
+##  目录
 
 1. [概述](#概述)
 2. [优先级排序](#优先级排序)
@@ -145,11 +145,11 @@ def format_normal_report_v2(content: str) -> str:
     operations = extract_recent_operations(content)
     
     # 1. 确认消息
-    lines.append("✅ **上下文已恢复**")
+    lines.append(" **上下文已恢复**")
     lines.append("")
     
     # 2. 会话概览
-    lines.append("📊 **会话概览**")
+    lines.append(" **会话概览**")
     original = metadata.get('original_count', 'N/A')
     compressed = metadata.get('compressed_count', 'N/A')
     ratio = calculate_compression_ratio(
@@ -168,26 +168,26 @@ def format_normal_report_v2(content: str) -> str:
     
     # 3. 活跃项目
     if projects:
-        lines.append(f"🚀 **活跃项目** ({len(projects)})")
+        lines.append(f" **活跃项目** ({len(projects)})")
         for i, project in enumerate(projects, 1):
-            emoji = {'Hermes Plan': '🏛️', 'Akasha Plan': '🌐', 'Morning Brief': '📰'}.get(
-                project['name'], '📁'
+            emoji = {'Hermes Plan': '', 'Akasha Plan': '', 'Morning Brief': ''}.get(
+                project['name'], ''
             )
             lines.append(f"{i}. **{project['name']}** {emoji}")
             lines.append(f"   {project.get('description', '无描述')}")
             if project.get('status'):
-                status_emoji = {'Active': '🟢', 'Paused': '🟡', 'Completed': '✅'}.get(
-                    project['status'], '⚪'
+                status_emoji = {'Active': '', 'Paused': '', 'Completed': ''}.get(
+                    project['status'], ''
                 )
                 lines.append(f"   {status_emoji} 状态: {project['status']}")
         lines.append("")
     
     # 4. 待办任务
     if tasks:
-        lines.append(f"📋 **待办任务** ({len(tasks)})")
-        priority_map = {'Active': '🔴', 'Running': '🟡', 'Completed': '✅'}
+        lines.append(f" **待办任务** ({len(tasks)})")
+        priority_map = {'Active': '', 'Running': '', 'Completed': ''}
         for task in tasks:
-            status_emoji = priority_map.get(task.get('status'), '⚪')
+            status_emoji = priority_map.get(task.get('status'), '')
             lines.append(f"{status_emoji} {task['task']}")
             if task.get('detail'):
                 lines.append(f"   └ {task['detail']}")
@@ -195,13 +195,13 @@ def format_normal_report_v2(content: str) -> str:
     
     # 5. 最近操作
     if operations:
-        lines.append(f"🔄 **最近操作** ({len(operations)})")
+        lines.append(f" **最近操作** ({len(operations)})")
         for op in operations[:3]:  # 只显示前3个
             lines.append(f"• {op}")
         lines.append("")
     
     # 6. 操作建议
-    lines.append("💡 **建议操作**")
+    lines.append(" **建议操作**")
     lines.append("• 输入项目名称继续工作")
     lines.append("• 说 \"查看详情\" 获取更多信息")
     lines.append("• 说 \"新任务\" 开始新工作")
@@ -241,7 +241,7 @@ class ContextRestoreSession:
         # 生成报告
         report = restore_context(context_file, level)
         
-        if report.startswith("❌ Error"):
+        if report.startswith(" Error"):
             return {
                 'success': False,
                 'error_type': 'load_failed',
@@ -297,13 +297,13 @@ class ContextRestoreSession:
     def _format_file_not_found_error(self) -> str:
         """格式化文件未找到错误"""
         return """
-⚠️ **未找到历史上下文文件**
+ **未找到历史上下文文件**
 
 这可能是以下情况：
 • 首次使用 OpenClaw
 • 上下文文件已被清理
 
-💡 从新会话开始，我将记录新的上下文。
+ 从新会话开始，我将记录新的上下文。
         """.strip()
     
     def _extract_content(self, report: str) -> str:
@@ -372,7 +372,7 @@ class TelegramFormatter:
     def _split_into_sections(self, report: str) -> List[str]:
         """按章节分割报告"""
         # 使用分隔符识别章节
-        section_pattern = r'(📊|🚀|📋|🔄|💡|✅).*\n'
+        section_pattern = r'(|||||).*\n'
         sections = []
         current_section = ""
         
@@ -408,12 +408,12 @@ class TelegramFormatter:
         return {
             'inline_keyboard': [
                 [
-                    {'text': '📋 详细报告', 'callback_data': f'ctx_detail_{level}'},
-                    {'text': '📊 项目列表', 'callback_data': 'ctx_projects'}
+                    {'text': ' 详细报告', 'callback_data': f'ctx_detail_{level}'},
+                    {'text': ' 项目列表', 'callback_data': 'ctx_projects'}
                 ],
                 [
-                    {'text': '➡️ 继续工作', 'callback_data': 'ctx_continue'},
-                    {'text': '❓ 帮助', 'callback_data': 'ctx_help'}
+                    {'text': ' 继续工作', 'callback_data': 'ctx_continue'},
+                    {'text': ' 帮助', 'callback_data': 'ctx_help'}
                 ]
             ]
         }
@@ -446,20 +446,20 @@ class TelegramFormatter:
 
 ERROR_MESSAGES = {
     'file_not_found': """
-⚠️ **未找到上下文文件**
+ **未找到上下文文件**
 
 这可能是以下情况：
 • 首次使用 OpenClaw
 • 上下文文件已被清理
 
-💡 从新会话开始，我将记录新的上下文。
+ 从新会话开始，我将记录新的上下文。
 
 ---
 想开始新任务吗？说 "新任务" 开始工作。
     """.strip(),
     
     'permission_denied': """
-⚠️ **无法访问上下文文件**
+ **无法访问上下文文件**
 
 权限不足，无法读取上下文文件。
 
@@ -471,11 +471,11 @@ ERROR_MESSAGES = {
 • 检查文件权限: `ls -la /home/athur/.openclaw/workspace/compressed_context/`
 • 联系管理员获取帮助
 
-💡 我将使用默认设置继续。
+ 我将使用默认设置继续。
     """.strip(),
     
     'parse_error': """
-⚠️ **上下文文件异常**
+ **上下文文件异常**
 
 文件格式损坏或无法解析。
 
@@ -483,11 +483,11 @@ ERROR_MESSAGES = {
 • 正在尝试恢复...
 • 部分上下文信息可能丢失
 
-💡 如果需要完整上下文，请联系管理员检查日志。
+ 如果需要完整上下文，请联系管理员检查日志。
     """.strip(),
     
     'json_decode_error': """
-⚠️ **上下文格式错误**
+ **上下文格式错误**
 
 JSON 解析失败，文件可能损坏。
 
@@ -495,11 +495,11 @@ JSON 解析失败，文件可能损坏。
 • 文件不是有效的 JSON 格式
 • 可能是纯文本格式，请尝试其他方式
 
-💡 我将尝试使用原始内容继续。
+ 我将尝试使用原始内容继续。
     """.strip(),
     
     'empty_context': """
-⚠️ **上下文为空**
+ **上下文为空**
 
 未找到有效的上下文信息。
 
@@ -507,7 +507,7 @@ JSON 解析失败，文件可能损坏。
 • 会话刚刚开始
 • 上下文已被清除
 
-💡 从新会话开始，我将为您创建新的上下文。
+ 从新会话开始，我将为您创建新的上下文。
     """.strip()
 }
 
@@ -525,7 +525,7 @@ def format_user_friendly_error(error_type: str, details: str = "") -> str:
     """
     base_message = ERROR_MESSAGES.get(
         error_type,
-        f"❌ 发生错误：{details}"
+        f" 发生错误：{details}"
     )
     
     # 如果有额外详情，添加到末尾
@@ -582,7 +582,7 @@ def generate_suggestions(context: dict) -> List[str]:
 
 def format_suggestions_block(suggestions: List[str]) -> str:
     """格式化建议块"""
-    lines = ["💡 **建议操作**"]
+    lines = [" **建议操作**"]
     
     for suggestion in suggestions:
         lines.append(f"• {suggestion}")
@@ -604,17 +604,17 @@ SECTION_SEPARATOR = "─" * 40
 # 改进后的格式示例
 """
 ══════════════════════════════════════════
-✅ 上下文已恢复
+ 上下文已恢复
 ══════════════════════════════════════════
 
-📊 会话概览
+ 会话概览
 ────────────────────────────────────────
 • 原始消息: 45 → 12 (27%)
 • 最后活动: 2小时前
 
-🚀 活跃项目
+ 活跃项目
 ────────────────────────────────────────
-1. Hermes Plan 🏛️
+1. Hermes Plan 
    数据分析助手，进度 80%
 ...
 """

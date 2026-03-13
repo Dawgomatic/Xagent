@@ -4,11 +4,11 @@
  * vote-and-post.mjs — Vote and mint in the daily emoji.today election via x402.
  *
  * Subcommands:
- *   vote --emoji "🎉"                            — Cast vote ($0.01 USDC via x402)
- *   mint --emoji "🎉" [--mint-to 0x...]           — Mint vote NFT ($1.00 USDC via x402)
+ *   vote --emoji ""                            — Cast vote ($0.01 USDC via x402)
+ *   mint --emoji "" [--mint-to 0x...]           — Mint vote NFT ($1.00 USDC via x402)
  *
  * Legacy (no subcommand):
- *   node vote-and-post.mjs "🎉"                   — Same as vote --emoji "🎉"
+ *   node vote-and-post.mjs ""                   — Same as vote --emoji ""
  *
  * Environment:
  *   EVM_PRIVATE_KEY  — Private key for signing votes + paying USDC on Base
@@ -140,13 +140,13 @@ async function main() {
     if (!emoji) { console.error("Usage: mint --emoji <emoji> [--mint-to <address>]"); process.exit(1); }
     await mint(emoji);
   } else if (cmd && !cmd.startsWith("--")) {
-    // Legacy: node vote-and-post.mjs "🔥"
+    // Legacy: node vote-and-post.mjs ""
     await vote(cmd);
   } else {
     console.error("Usage:");
-    console.error('  vote --emoji "🎉"                    — Cast vote ($0.01 USDC via x402)');
-    console.error('  mint --emoji "🎉" [--mint-to 0x...]   — Mint vote NFT ($1.00 USDC via x402)');
-    console.error('  "🎉"                                  — Legacy: same as vote');
+    console.error('  vote --emoji ""                    — Cast vote ($0.01 USDC via x402)');
+    console.error('  mint --emoji "" [--mint-to 0x...]   — Mint vote NFT ($1.00 USDC via x402)');
+    console.error('  ""                                  — Legacy: same as vote');
     process.exit(1);
   }
 }

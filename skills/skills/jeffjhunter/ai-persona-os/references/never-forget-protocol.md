@@ -26,18 +26,18 @@ Context windows fill up. When they do:
 
 Check regularly during conversations:
 ```
-📚 Context: 36k/200k (18%)
+ Context: 36k/200k (18%)
 ```
 
 ### Threshold Actions
 
 | Context % | Status | Action |
 |-----------|--------|--------|
-| **< 50%** | 🟢 Normal | Write decisions as they happen naturally |
-| **50-70%** | 🟡 Vigilant | Write key points after substantial exchanges |
-| **70-85%** | 🟠 Active | Write EVERYTHING important NOW. Don't wait. |
-| **> 85%** | 🔴 Emergency | STOP. Write full context summary. Then resume. |
-| **After compaction** | ⚫ Recovery | Note what was lost. Verify continuity. |
+| **< 50%** |  Normal | Write decisions as they happen naturally |
+| **50-70%** |  Vigilant | Write key points after substantial exchanges |
+| **70-85%** |  Active | Write EVERYTHING important NOW. Don't wait. |
+| **> 85%** |  Emergency | STOP. Write full context summary. Then resume. |
+| **After compaction** |  Recovery | Note what was lost. Verify continuity. |
 
 ---
 
@@ -45,11 +45,11 @@ Check regularly during conversations:
 
 Write a checkpoint to `memory/YYYY-MM-DD.md` when:
 
-- ✅ Every ~10 exchanges/back-and-forth messages
-- ✅ At natural end of session/conversation break
-- ✅ Before major decision or action
-- ✅ When context reaches 70%+
-- ✅ Before any risky or long-running operation
+-  Every ~10 exchanges/back-and-forth messages
+-  At natural end of session/conversation break
+-  Before major decision or action
+-  When context reaches 70%+
+-  Before any risky or long-running operation
 
 ---
 
@@ -111,11 +111,11 @@ Use before any operation that could fail or take significant time:
 
 When context is high, write to `memory/YYYY-MM-DD.md`:
 
-- ✅ Decisions made and their reasoning
-- ✅ Action items and who owns them
-- ✅ Open questions or threads
-- ✅ Significant learnings
-- ✅ Any conversation that would be hard to reconstruct
+-  Decisions made and their reasoning
+-  Action items and who owns them
+-  Open questions or threads
+-  Significant learnings
+-  Any conversation that would be hard to reconstruct
 
 **Critical question:** "Could future-me continue this conversation from notes alone?"
 
@@ -202,14 +202,14 @@ These work together:
 
 ## Common Mistakes
 
-❌ **Waiting too long** — "I'll checkpoint later" → Context fills → Lost
-❌ **Incomplete checkpoints** — Missing resume instructions → Can't continue
-❌ **Ignoring threshold** — See 70%, keep working → Emergency at 90%
-❌ **Not checking Step 0** — Start task at 85% context → Immediate crisis
+ **Waiting too long** — "I'll checkpoint later" → Context fills → Lost
+ **Incomplete checkpoints** — Missing resume instructions → Can't continue
+ **Ignoring threshold** — See 70%, keep working → Emergency at 90%
+ **Not checking Step 0** — Start task at 85% context → Immediate crisis
 
-✅ **Do it proactively** — Checkpoint before you need it
-✅ **Include resume instructions** — Future you will thank you
-✅ **Respect thresholds** — 70% means stop and checkpoint
+ **Do it proactively** — Checkpoint before you need it
+ **Include resume instructions** — Future you will thank you
+ **Respect thresholds** — 70% means stop and checkpoint
 
 ---
 

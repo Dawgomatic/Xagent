@@ -96,7 +96,7 @@ Plans:
 After: Phase {N}
 Directory: .planning/phases/{PADDED}-{slug}/
 
-**▶ Next:** `/gsd plan-phase {N.M}`
+** Next:** `/gsd plan-phase {N.M}`
 
 ---
 ```

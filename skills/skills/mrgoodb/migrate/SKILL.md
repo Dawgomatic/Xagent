@@ -19,7 +19,7 @@ Options:
 - `--output, -o PATH` — Output directory (default: current)
 - `--workspace PATH` — Workspace path (default: ~/clawd)
 - `--include-sessions` — Include session transcripts
-- `--include-credentials` — Include credentials ⚠️ handle with care
+- `--include-credentials` — Include credentials  handle with care
 
 Example:
 ```bash

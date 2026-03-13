@@ -3,40 +3,40 @@ name: cEDH Advisor Skill
 description: Commander (cEDH) Live-Beratung - Banlist, Tutor-Targets, Mana-Rechnung, Combo-Lines
 ---
 
-# 🃏 cEDH Advisor Skill
+#  cEDH Advisor Skill
 
 **Aktivierung:** Wenn Ben nach MTG/cEDH Beratung fragt, Tutor-Targets, Board-Analyse, oder Spielentscheidungen.
 
 ---
 
-## 🚨 HARTE REGELN (VOR JEDER EMPFEHLUNG!)
+##  HARTE REGELN (VOR JEDER EMPFEHLUNG!)
 
 ### 1. BANLIST CHECK (PFLICHT!)
 
-> ⚠️ **VOR JEDER Kartenempfehlung → Ist die Karte LEGAL?**
+>  **VOR JEDER Kartenempfehlung → Ist die Karte LEGAL?**
 
 **Commander Banned List (Stand Sept 2024):**
 
 | Karte | Status | Warum relevant |
 |-------|--------|----------------|
-| **Mana Crypt** | 🚫 GEBANNT | War Staple, NICHT mehr empfehlen! |
-| **Dockside Extortionist** | 🚫 GEBANNT | War Top-Treasure-Engine |
-| **Jeweled Lotus** | 🚫 GEBANNT | War Commander-Ramp |
-| **Nadu, Winged Wisdom** | 🚫 GEBANNT | War Combo-Commander |
+| **Mana Crypt** |  GEBANNT | War Staple, NICHT mehr empfehlen! |
+| **Dockside Extortionist** |  GEBANNT | War Top-Treasure-Engine |
+| **Jeweled Lotus** |  GEBANNT | War Commander-Ramp |
+| **Nadu, Winged Wisdom** |  GEBANNT | War Combo-Commander |
 
 **WEITERHIN LEGAL:**
-- Sol Ring ✅
-- Mana Vault ✅
-- Grim Monolith ✅
-- Chrome Mox ✅
-- Mox Diamond ✅
-- Ad Nauseam ✅
-- Necropotence ✅
-- Thassa's Oracle ✅
-- Underworld Breach ✅
+- Sol Ring 
+- Mana Vault 
+- Grim Monolith 
+- Chrome Mox 
+- Mox Diamond 
+- Ad Nauseam 
+- Necropotence 
+- Thassa's Oracle 
+- Underworld Breach 
 
-> ⚠️ **Bei Unsicherheit → Web-Suche "MTG commander banned list [aktuelless Jahr]"**
-> ⚠️ **NIEMALS aus dem Gedächtnis empfehlen ohne Check!**
+>  **Bei Unsicherheit → Web-Suche "MTG commander banned list [aktuelless Jahr]"**
+>  **NIEMALS aus dem Gedächtnis empfehlen ohne Check!**
 
 ---
 
@@ -65,7 +65,7 @@ SCHRITT 3: KURZE ANTWORT
 
 ---
 
-## 🎯 TUTOR-TARGET DECISION TREE
+##  TUTOR-TARGET DECISION TREE
 
 ### Die goldene Regel:
 > **Tutor sucht das, was am WENIGSTEN REDUNDANT ist.**
@@ -100,13 +100,13 @@ AUSNAHMEN:
 ```
 
 ### NIEMALS mit Tutoren suchen:
-- ❌ Gebannte Karten (Mana Crypt, Dockside, Jeweled Lotus)
-- ❌ Karten die redundant sind (du hast 4+ Rocks im Deck)
-- ❌ Situative Antworten ohne konkreten Plan
+-  Gebannte Karten (Mana Crypt, Dockside, Jeweled Lotus)
+-  Karten die redundant sind (du hast 4+ Rocks im Deck)
+-  Situative Antworten ohne konkreten Plan
 
 ---
 
-## ⚡ MANA-RECHNUNG
+##  MANA-RECHNUNG
 
 ### Farbiges Mana ist NICHT fungibel!
 
@@ -136,7 +136,7 @@ Dann: Welche Spells sind CASTBAR?
 
 ---
 
-## 🏆 DECK-SPEZIFISCHE COMBO-LINES
+##  DECK-SPEZIFISCHE COMBO-LINES
 
 ### TIVIT (Esper)
 
@@ -169,7 +169,7 @@ Dann: Welche Spells sind CASTBAR?
 
 ---
 
-## 📋 VOR JEDER BERATUNG: CHECKLISTE
+##  VOR JEDER BERATUNG: CHECKLISTE
 
 ```
 [ ] Banlist geprüft? (Karte legal?)
@@ -181,7 +181,7 @@ Dann: Welche Spells sind CASTBAR?
 
 ---
 
-## 🧠 ANTI-MIST REGELN (aus Fehlern gelernt)
+##  ANTI-MIST REGELN (aus Fehlern gelernt)
 
 | Fehler | Regel | Datum |
 |--------|-------|-------|
@@ -192,7 +192,7 @@ Dann: Welche Spells sind CASTBAR?
 
 ---
 
-## 📚 REFERENZ-MATERIAL
+##  REFERENZ-MATERIAL
 
 - Piloting Guides: `E:\Base\Magic\` (PNG + PDF)
 - Guide-Generator: `E:\Base\mtg_cedh_pro\generate_piloting_guides.py`
@@ -202,7 +202,7 @@ Dann: Welche Spells sind CASTBAR?
 
 ---
 
-## 🔄 UPDATES
+##  UPDATES
 
 Bei neuen Bans/Unbans:
 1. Diese SKILL.md aktualisieren

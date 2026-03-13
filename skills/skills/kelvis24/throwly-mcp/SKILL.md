@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🛒",
+        "emoji": "",
         "homepage": "https://throwly.co",
         "requires": { "env": ["THROWLY_AUTH_TOKEN"] },
         "primaryEnv": "THROWLY_AUTH_TOKEN",

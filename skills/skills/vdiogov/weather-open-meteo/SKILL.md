@@ -4,7 +4,7 @@ description: "Get current weather and forecasts via open-meteo.com with optional
 homepage: https://open-meteo.com/
 metadata:
   openclaw:
-    emoji: 🌤️
+    emoji: 
     requires:
       bins:
         - curl
@@ -15,15 +15,15 @@ metadata:
 
 This skill provides current weather and simple forecasts by querying the open‑meteo.com public API.  If the geocoding lookup or weather request fails, the skill can fall back to **wttr.in** as a lightweight alternative.
 
-## 📌 Scope & Caveats
+##  Scope & Caveats
 * The skill **requires** `curl` **and** `jq`.
 * The user‑supplied location **must be URL‑encoded** (or use a helper that does it).  *E.g.*, “São Paulo” → `S%C3%A3o%20Paulo`.  Any unencoded value can break the request or lead to unexpected results.
 
-## ✅ When to Use
-✔ *The user asks* for weather, forecast, temperature, or rain probability for a location.
-✖ Not for historical data, severe alerts, or detailed climatology.
+##  When to Use
+ *The user asks* for weather, forecast, temperature, or rain probability for a location.
+ Not for historical data, severe alerts, or detailed climatology.
 
-## 📋 Commands
+##  Commands
 The skill accepts a single argument: a location name (city, region, or coordinates in `lat,lon`).
 
 ## Open‑Meteo (primary, JSON)
@@ -62,7 +62,7 @@ curl -s "https://api.open-meteo.com/v1/forecast?latitude=-23.55\u0026longitude=-
 }
 ```
 
-📖 [Open‑Meteo API docs](https://open-meteo.com/en/docs)
+ [Open‑Meteo API docs](https://open-meteo.com/en/docs)
 
 ## wttr.in (fallback)
 
@@ -84,10 +84,10 @@ curl -s "wttr.in/São+Paulo?format=1"
 curl -s -o sp.png "http://wttr.in/São+Paulo?format=1"
 ```
 
-## 📚 Example (User Query)
+##  Example (User Query)
 > **User:** *What's the weather in São Paulo?*
 > **Agent:**
-> `Current conditions in São Paulo: 🌤️ +10 °C, 20% chance of rain`
+> `Current conditions in São Paulo:  +10 °C, 20% chance of rain`
 
 ## Tips
 

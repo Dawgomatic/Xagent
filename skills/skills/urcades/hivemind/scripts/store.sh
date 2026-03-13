@@ -100,7 +100,7 @@ fi
 # Show header unless quiet
 if [[ "${QUIET}" == false ]]; then
     echo "╔════════════════════════════════════════════════════════════════════════╗"
-    echo "║                    🧠 STORE KNOWLEDGE TO HIVEMIND                       ║"
+    echo "║                     STORE KNOWLEDGE TO HIVEMIND                       ║"
     echo "╚════════════════════════════════════════════════════════════════════════╝"
     echo ""
 fi
@@ -176,13 +176,13 @@ if [[ "${QUIET}" == false ]]; then
     # Show preview
     echo "Preview of what will be stored:"
     echo ""
-    echo "📝 Summary:"
+    echo " Summary:"
     echo "   ${SUMMARY}"
     echo ""
-    echo "📖 Context:"
+    echo " Context:"
     echo "${CONTEXT}" | sed 's/^/   /'
     echo ""
-    echo "🔒 Confidentiality: ${CONFIDENTIALITY}"
+    echo " Confidentiality: ${CONFIDENTIALITY}"
     echo ""
     echo "────────────────────────────────────────────────────────────────────────"
     echo ""
@@ -217,7 +217,7 @@ response=$(hivemind_curl POST "/mindchunks/create" \
 # Check if response is valid JSON
 if ! echo "${response}" | jq . > /dev/null 2>&1; then
     echo ""
-    echo "❌ Error: Invalid response from Hivemind API" >&2
+    echo " Error: Invalid response from Hivemind API" >&2
     echo "${response}" >&2
     exit 1
 fi
@@ -232,7 +232,7 @@ if [[ "${mindchunk_id}" != "null" && -n "${mindchunk_id}" ]]; then
     else
         echo ""
         echo "╔════════════════════════════════════════════════════════════════════════╗"
-        echo "║                      ✅ KNOWLEDGE STORED SUCCESSFULLY                   ║"
+        echo "║                       KNOWLEDGE STORED SUCCESSFULLY                   ║"
         echo "╚════════════════════════════════════════════════════════════════════════╝"
         echo ""
         echo "Mindchunk ID: ${mindchunk_id}"
@@ -246,7 +246,7 @@ if [[ "${mindchunk_id}" != "null" && -n "${mindchunk_id}" ]]; then
     fi
 else
     echo ""
-    echo "❌ Error: Failed to store knowledge" >&2
+    echo " Error: Failed to store knowledge" >&2
     echo "${response}" >&2
     exit 1
 fi

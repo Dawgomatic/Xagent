@@ -63,7 +63,7 @@ function readSelfEOF() {
         const actualChecksum = crc32(dataBuf);
         
         if (expectedChecksum !== actualChecksum) {
-            console.warn('⚠️ Self-EOF Checksum mismatch!');
+            console.warn(' Self-EOF Checksum mismatch!');
             return null;
         }
         
@@ -99,7 +99,7 @@ function writeSelfEOF(data) {
         fs.writeFileSync(SELF_FILE, fileContent + eofBlock);
         return true;
     } catch (e) {
-        console.error('⚠️ Failed to write Self-EOF:', e.message);
+        console.error(' Failed to write Self-EOF:', e.message);
         return false;
     }
 }
@@ -136,7 +136,7 @@ function getHiddenConstants() {
     };
     
     writeSelfEOF(constants);
-    console.log('🌌 New constants generated and written to self');
+    console.log(' New constants generated and written to self');
     
     return {
         constA: BigInt(constants.A),

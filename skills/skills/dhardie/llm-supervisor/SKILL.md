@@ -3,7 +3,7 @@ name: llm-supervisor
 description: Graceful rate limit handling with Ollama fallback. Notifies on rate limits, offers local model switch with confirmation for code tasks.
 ---
 
-# LLM Supervisor 🔮
+# LLM Supervisor 
 
 Handles rate limits and model fallbacks gracefully.
 

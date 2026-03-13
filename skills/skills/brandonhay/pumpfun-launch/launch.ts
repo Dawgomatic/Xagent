@@ -134,11 +134,11 @@ async function checkStatus(mintAddress: string) {
   const bondingCurve = await sdk.getBondingCurveAccount(mint);
 
   if (!bondingCurve) {
-    console.log("❌ No bonding curve found — token may not exist on pump.fun");
+    console.log(" No bonding curve found — token may not exist on pump.fun");
     return;
   }
 
-  console.log("✅ Token found on pump.fun");
+  console.log(" Token found on pump.fun");
   console.log(`   Virtual SOL reserves: ${Number(bondingCurve.virtualSolReserves) / LAMPORTS_PER_SOL} SOL`);
   console.log(`   Virtual token reserves: ${Number(bondingCurve.virtualTokenReserves) / 1e6}`);
   console.log(`   Real SOL reserves: ${Number(bondingCurve.realSolReserves) / LAMPORTS_PER_SOL} SOL`);
@@ -161,7 +161,7 @@ async function launch(args: Record<string, string>) {
   const buyAmountSol = parseFloat(buy || "0");
   const slippageBps = BigInt(parseInt(slippage || "500"));
 
-  console.log("\n🚀 Pump.fun Token Launch");
+  console.log("\n Pump.fun Token Launch");
   console.log("========================");
   console.log(`  Name:        ${name}`);
   console.log(`  Symbol:      ${symbol}`);
@@ -170,11 +170,11 @@ async function launch(args: Record<string, string>) {
   console.log(`  Buy amount:  ${buyAmountSol} SOL`);
   console.log(`  Slippage:    ${slippageBps} bps`);
   console.log(`  Priority:    ${priorityFee} micro-lamports`);
-  console.log(`  Mode:        ${dryRun ? "🧪 DRY RUN" : "🔴 LIVE"}`);
+  console.log(`  Mode:        ${dryRun ? " DRY RUN" : " LIVE"}`);
   console.log();
 
   if (dryRun === "true") {
-    console.log("✅ Dry run complete — parameters validated.");
+    console.log(" Dry run complete — parameters validated.");
     console.log("   Remove --dry-run to launch for real.");
 
     // Still validate image loads
@@ -182,7 +182,7 @@ async function launch(args: Record<string, string>) {
       const blob = await loadImage(image);
       console.log(`   Image loaded: ${blob.size} bytes (${blob.type})`);
     } catch (e: any) {
-      console.error(`   ❌ Image error: ${e.message}`);
+      console.error(`    Image error: ${e.message}`);
     }
     return;
   }
@@ -198,7 +198,7 @@ async function launch(args: Record<string, string>) {
   console.log(`Balance: ${balance / LAMPORTS_PER_SOL} SOL`);
 
   if (balance < 0.02 * LAMPORTS_PER_SOL) {
-    console.error("❌ Insufficient balance. Need at least 0.02 SOL for fees.");
+    console.error(" Insufficient balance. Need at least 0.02 SOL for fees.");
     process.exit(1);
   }
 
@@ -229,16 +229,16 @@ async function launch(args: Record<string, string>) {
     );
 
     if (result.success) {
-      console.log("\n🎉 TOKEN LAUNCHED SUCCESSFULLY!");
+      console.log("\n TOKEN LAUNCHED SUCCESSFULLY!");
       console.log(`   Mint:      ${mintKeypair.publicKey.toBase58()}`);
       console.log(`   Signature: ${result.signature}`);
       console.log(`   Link:      https://pump.fun/${mintKeypair.publicKey.toBase58()}`);
       console.log(`   Solscan:   https://solscan.io/tx/${result.signature}`);
     } else {
-      console.error("\n❌ Launch failed:", result.error);
+      console.error("\n Launch failed:", result.error);
     }
   } catch (e: any) {
-    console.error("\n❌ Error:", e.message);
+    console.error("\n Error:", e.message);
     if (e.logs) console.error("Logs:", e.logs);
   }
 }
@@ -254,7 +254,7 @@ async function setupWallet() {
     try {
       const raw = fs.readFileSync(walletPath, "utf-8");
       const kp = Keypair.fromSecretKey(decryptKey(raw, password));
-      console.log(`\n✅ Wallet loaded`);
+      console.log(`\n Wallet loaded`);
       console.log(`   Address: ${kp.publicKey.toBase58()}`);
       
       // Check balance
@@ -270,25 +270,25 @@ async function setupWallet() {
     }
   }
 
-  console.log("🔑 Generating new Solana wallet...\n");
+  console.log(" Generating new Solana wallet...\n");
   const kp = Keypair.generate();
   const password = await prompt("Set a password to encrypt your wallet: ");
   if (!password) {
-    console.error("❌ Password required.");
+    console.error(" Password required.");
     process.exit(1);
   }
   const confirm = await prompt("Confirm password: ");
   if (password !== confirm) {
-    console.error("❌ Passwords don't match.");
+    console.error(" Passwords don't match.");
     process.exit(1);
   }
   
   fs.writeFileSync(walletPath, encryptKey(kp.secretKey, password));
   
-  console.log(`\n✅ Wallet created and encrypted`);
+  console.log(`\n Wallet created and encrypted`);
   console.log(`   Address: ${kp.publicKey.toBase58()}`);
   console.log(`   Saved to: .wallet.key (AES-256 encrypted)`);
-  console.log(`\n⚡ Send SOL to this address to start launching tokens.`);
+  console.log(`\n Send SOL to this address to start launching tokens.`);
   console.log(`   Minimum ~0.02 SOL for gas, plus whatever you want for initial buys.`);
 }
 

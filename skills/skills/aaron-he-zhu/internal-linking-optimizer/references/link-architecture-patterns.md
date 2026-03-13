@@ -44,8 +44,8 @@ The hub-and-spoke model organizes content around central "pillar" pages (hubs) t
 |-----------|-----------|---------------------|
 | Pillar → Cluster | Pillar links to each cluster | Descriptive: "learn about [subtopic]" |
 | Cluster → Pillar | Every cluster links back to pillar | Partial match: "our complete [topic] guide" |
-| Cluster ↔ Cluster | Between related clusters in same hub | Natural: "as we covered in [related article]" |
-| Hub ↔ Hub (bridge) | Between related pillar pages | Branded/natural: "see also our [topic] resource" |
+| Cluster  Cluster | Between related clusters in same hub | Natural: "as we covered in [related article]" |
+| Hub  Hub (bridge) | Between related pillar pages | Branded/natural: "see also our [topic] resource" |
 
 #### When to Use
 - Content marketing sites and blogs
@@ -111,7 +111,7 @@ The silo model creates strict vertical hierarchies where content is organized in
 |-----------|-----------|----------|
 | Parent → Child | Downward within silo | Always |
 | Child → Parent | Upward within silo | Always |
-| Sibling ↔ Sibling | Horizontal within same parent | Yes |
+| Sibling  Sibling | Horizontal within same parent | Yes |
 | Cross-silo | Between different silos | Strict: No. Modified: Sparingly |
 | All pages → Homepage | Upward to root | Yes (via navigation) |
 
@@ -229,9 +229,9 @@ The mesh model allows free-form linking between any related pages, regardless of
 
 ```
     P1 ←──→ P2 ←──→ P3
-    ↕  ╲    ↕    ╱  ↕
+      ╲        ╱  
     P4 ←──→ P5 ←──→ P6
-    ↕  ╱    ↕    ╲  ↕
+      ╱        ╲  
     P7 ←──→ P8 ←──→ P9
 ```
 
@@ -344,7 +344,7 @@ Homepage
   ├── Category Silo B
   │     ├── Hub B1 (pillar) ←→ Cluster articles
   │     └── Hub B2 (pillar) ←→ Cluster articles
-  └── Cross-category bridge links (A1 ↔ B2 where relevant)
+  └── Cross-category bridge links (A1  B2 where relevant)
 ```
 
 - **Silos** provide category organization for navigation and URL structure

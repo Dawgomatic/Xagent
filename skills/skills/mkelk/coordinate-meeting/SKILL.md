@@ -3,7 +3,7 @@ name: coordinate-meeting
 description: Schedule a meeting for humans and their agents. Creates a scheduling poll, distributes it, collects votes, and finds the best time. Use when someone needs to find a time that works for a group. A Doodle alternative built for the age of AI agents.
 homepage: https://meetlark.ai
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📅"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # Schedule a Meeting

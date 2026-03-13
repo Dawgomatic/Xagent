@@ -18,11 +18,11 @@ if [ ! -f package.json ]; then
 fi
 
 # Install dependencies
-echo "📦 Installing dependencies..."
+echo " Installing dependencies..."
 npm install viem dotenv @circle-fin/developer-controlled-wallets
 
 # Copy skill files into the project
-echo "📂 Copying skill files..."
+echo " Copying skill files..."
 SKILL_DIR="$(cd "$(dirname "$0")" && pwd)"
 for f in abis.js gateway-client.js circle-wallet-client.js typed-data.js setup-gateway.js check-balance.js deposit.js transfer.js; do
   cp "$SKILL_DIR/$f" ./ 2>/dev/null || true
@@ -30,7 +30,7 @@ done
 
 # Create .env template (if not already configured)
 if [ ! -f .env ]; then
-  echo "🔧 Creating .env template..."
+  echo " Creating .env template..."
   cat > .env << 'EOF'
 # Circle Programmable Wallets (from circle-wallet skill)
 # Get these from https://console.circle.com → Developer Services
@@ -38,8 +38,8 @@ CIRCLE_API_KEY=
 CIRCLE_ENTITY_SECRET=
 CIRCLE_WALLET_SET_ID=
 EOF
-  echo "   ⚠️  Fill in .env with your Circle Developer Console credentials"
-  echo "   💡 If you have the circle-wallet skill installed, these should"
+  echo "     Fill in .env with your Circle Developer Console credentials"
+  echo "    If you have the circle-wallet skill installed, these should"
   echo "      already be in your agent's environment."
 else
   echo "   .env already exists — keeping your existing configuration"
@@ -47,7 +47,7 @@ fi
 
 echo ""
 echo "═══════════════════════════════════════════════"
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Prerequisites:"
 echo "  1. Install the circle-wallet skill: clawhub install eltontay/circle-wallet"

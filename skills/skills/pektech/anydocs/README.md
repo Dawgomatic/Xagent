@@ -4,14 +4,14 @@ A powerful CLI tool and Python library for indexing and searching **any** docume
 
 ## Features
 
-✅ **Work with Any Docs Site** - Vue.js, Next.js, internal docs, etc.
-✅ **JavaScript Rendering** - Optional Playwright + OpenClaw gateway integration for SPA docs
-✅ **Multiple Search Methods** - Keyword, hybrid, and regex search
-✅ **Smart Caching** - Pages and indexes cached locally with configurable TTL
-✅ **Profile Management** - Support multiple doc sites simultaneously
-✅ **Fast Search** - Instant results from cached indexes
-✅ **Python API** - Importable for agents and scripts
-✅ **Rich CLI** - Beautiful command-line interface with progress bars
+ **Work with Any Docs Site** - Vue.js, Next.js, internal docs, etc.
+ **JavaScript Rendering** - Optional Playwright + OpenClaw gateway integration for SPA docs
+ **Multiple Search Methods** - Keyword, hybrid, and regex search
+ **Smart Caching** - Pages and indexes cached locally with configurable TTL
+ **Profile Management** - Support multiple doc sites simultaneously
+ **Fast Search** - Instant results from cached indexes
+ **Python API** - Importable for agents and scripts
+ **Rich CLI** - Beautiful command-line interface with progress bars
 
 ## Installation
 
@@ -309,11 +309,11 @@ anydocs index <profile> --use-browser --gateway-token $OPENCLAW_GATEWAY_TOKEN
 - Presents an attack surface if misused
 
 **Safety measures built-in:**
-- ✅ **HTTPS-only**: Browser rendering rejects HTTP URLs (enforced)
-- ✅ **Opt-in only**: Requires explicit `--use-browser` flag + token
-- ✅ **Gateway token required**: Your authentication controls access
-- ✅ **Profile validation**: URLs must match configured base_url
-- ✅ **No arbitrary URL injection**: Can't point at random sites
+-  **HTTPS-only**: Browser rendering rejects HTTP URLs (enforced)
+-  **Opt-in only**: Requires explicit `--use-browser` flag + token
+-  **Gateway token required**: Your authentication controls access
+-  **Profile validation**: URLs must match configured base_url
+-  **No arbitrary URL injection**: Can't point at random sites
 
 **Best practices:**
 1. **Only use with trusted documentation sites** (e.g., official framework docs)
@@ -331,11 +331,11 @@ anydocs index <profile> --use-browser --gateway-token $OPENCLAW_GATEWAY_TOKEN
 ### Installation & Package Permissions
 
 **Virtual environment (recommended):**
-- ✅ Isolated, safe, no system-wide changes
+-  Isolated, safe, no system-wide changes
 - Default in `setup.sh`
 
 **System-wide installation (`--break-system-packages`):**
-- ⚠️ Can conflict with your system package manager
+-  Can conflict with your system package manager
 - Only use if you understand the risks
 - Requires explicit `--system-packages` flag + user confirmation
 

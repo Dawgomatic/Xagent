@@ -39,10 +39,10 @@ claras y sugerencias de solución.
 
 Los hallazgos se clasifican en 4 niveles:
 
-  BLOCKER  🔴  Bugs, vulnerabilidades, pérdida de datos    → Debe fijarse antes del merge
-  WARNING  🟡  Code smells, complejidad, malas prácticas   → Debería fijarse
-  SUGGEST  🔵  Mejoras de legibilidad, estructura          → Considerar
-  NIT      💡  Estilo, preferencias, detalles menores      → Opcional
+  BLOCKER    Bugs, vulnerabilidades, pérdida de datos    → Debe fijarse antes del merge
+  WARNING    Code smells, complejidad, malas prácticas   → Debería fijarse
+  SUGGEST    Mejoras de legibilidad, estructura          → Considerar
+  NIT        Estilo, preferencias, detalles menores      → Opcional
 
 ---
 
@@ -184,7 +184,7 @@ Para revisión local antes de subir cambios:
 
 Cada hallazgo sigue el formato definido en assets/review-comment.md:
 
-  🔴 Seguridad: SQL Injection en búsqueda de usuarios
+   Seguridad: SQL Injection en búsqueda de usuarios
 
   Archivo: src/repositories/user.repository.ts líneas 45-48
 
@@ -204,7 +204,7 @@ Cada hallazgo sigue el formato definido en assets/review-comment.md:
 
 Al final se genera un resumen siguiendo assets/review-summary.md:
 
-  - Veredicto general (🔴 / 🟡 / 🟢)
+  - Veredicto general ( /  / )
   - Tabla de estadísticas por severidad
   - Lista de hallazgos críticos
   - Resumen de warnings, suggestions y nits
@@ -219,10 +219,10 @@ Al final se genera un resumen siguiendo assets/review-summary.md:
 
   1. Crear un nuevo archivo en rules/, por ejemplo rules/go.md
   2. Seguir la misma estructura de severidades:
-     - 🔴 BLOCKERS
-     - 🟡 WARNINGS
-     - 🔵 SUGGESTIONS
-     - 💡 NITS
+     -  BLOCKERS
+     -  WARNINGS
+     -  SUGGESTIONS
+     -  NITS
   3. Referenciar el archivo en SKILL.md
 
 ### Modificar Severidades

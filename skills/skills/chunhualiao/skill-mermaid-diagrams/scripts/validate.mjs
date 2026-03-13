@@ -34,12 +34,12 @@ if (!fs.existsSync(diagramDir)) {
   process.exit(1);
 }
 
-console.log(`\n🔍 Validating diagrams in: ${diagramDir}\n`);
+console.log(`\n Validating diagrams in: ${diagramDir}\n`);
 
 const mmdFiles = fs.readdirSync(diagramDir).filter(f => f.endsWith(".mmd"));
 
 if (mmdFiles.length === 0) {
-  console.error("❌ No .mmd files found in directory.");
+  console.error(" No .mmd files found in directory.");
   process.exit(1);
 }
 
@@ -51,7 +51,7 @@ for (const mmdFile of mmdFiles) {
   const svgPath = mmdPath.replace(".mmd", ".svg");
   const pngPath = mmdPath.replace(".mmd", ".png");
   
-  console.log(`📄 ${mmdFile}`);
+  console.log(` ${mmdFile}`);
   
   const checks = [];
   
@@ -93,23 +93,23 @@ for (const mmdFile of mmdFiles) {
   // Print results
   const allPass = checks.every(c => c.pass);
   for (const check of checks) {
-    const icon = check.pass ? "✅" : "❌";
+    const icon = check.pass ? "" : "";
     const msg = check.error ? ` (${check.error})` : "";
     console.log(`   ${icon} ${check.name}${msg}`);
   }
   
   if (allPass) {
     passCount++;
-    console.log(`   ✅ PASS\n`);
+    console.log(`    PASS\n`);
   } else {
     failCount++;
-    console.log(`   ❌ FAIL\n`);
+    console.log(`    FAIL\n`);
   }
 }
 
-console.log(`\n📊 Validation Results:`);
-console.log(`   ✅ Passed: ${passCount}/${mmdFiles.length}`);
-console.log(`   ❌ Failed: ${failCount}/${mmdFiles.length}\n`);
+console.log(`\n Validation Results:`);
+console.log(`    Passed: ${passCount}/${mmdFiles.length}`);
+console.log(`    Failed: ${failCount}/${mmdFiles.length}\n`);
 
 if (failCount > 0) {
   process.exit(1);

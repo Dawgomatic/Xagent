@@ -81,9 +81,9 @@ Deeper review:
 | Formatting | Consistent throughout | Minor inconsistencies | Inconsistent |
 
 **Scoring Bullets:**
-- ✅ "Increased revenue 45% by implementing targeted email campaigns reaching 50K subscribers"
-- ⚠️ "Helped increase revenue through marketing campaigns"
-- ❌ "Responsible for email marketing"
+-  "Increased revenue 45% by implementing targeted email campaigns reaching 50K subscribers"
+-  "Helped increase revenue through marketing campaigns"
+-  "Responsible for email marketing"
 
 **Issues to flag:**
 - More than 6 bullets per recent role

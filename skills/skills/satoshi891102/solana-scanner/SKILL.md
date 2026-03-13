@@ -41,10 +41,10 @@ Agent: Ask for the mint address, then run scan.
 
 | Score | Rating | Meaning |
 |-------|--------|---------|
-| 80-100 | 🟢 RELATIVELY_SAFE | Major token, good liquidity |
-| 60-79 | 🟡 CAUTION | Some concerns, trade carefully |
-| 40-59 | 🟠 HIGH_RISK | Multiple red flags |
-| 0-39 | 🔴 AVOID | Likely scam or dead token |
+| 80-100 |  RELATIVELY_SAFE | Major token, good liquidity |
+| 60-79 |  CAUTION | Some concerns, trade carefully |
+| 40-59 |  HIGH_RISK | Multiple red flags |
+| 0-39 |  AVOID | Likely scam or dead token |
 
 ## APIs Used (all free, no keys needed)
 - **DexScreener** — liquidity, volume, price, pair age

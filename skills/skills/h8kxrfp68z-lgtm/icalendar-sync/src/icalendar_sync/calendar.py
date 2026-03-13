@@ -33,7 +33,7 @@ try:
     import keyring
     from keyring.errors import KeyringError
 except ImportError as e:
-    print(f"❌ Required packages not installed: {e}")
+    print(f" Required packages not installed: {e}")
     print("Run: pip install -r requirements.txt")
     sys.exit(1)
 
@@ -219,7 +219,7 @@ def timed_input(prompt: str, timeout: int = INPUT_TIMEOUT) -> Optional[str]:
         return result
     
     except TimeoutError:
-        print("\n⏱️  Input timeout")
+        print("\n  Input timeout")
         return None
     except Exception:
         return input(prompt)  # Fallback for Windows
@@ -273,7 +273,7 @@ class CalendarManager:
             return True
         
         if not self.username or not self.password:
-            print("❌ iCloud credentials not configured")
+            print(" iCloud credentials not configured")
             logger.error("Missing iCloud credentials")
             return False
         
@@ -297,22 +297,22 @@ class CalendarManager:
                 return True
             
         except AuthorizationError:
-            print("❌ Authentication failed: Invalid credentials")
+            print(" Authentication failed: Invalid credentials")
             logger.error("Authentication failed")
             self._connected = False
             return False
         except (requests.exceptions.ConnectionError, requests.exceptions.Timeout):
-            print("❌ Network error")
+            print(" Network error")
             logger.error("Network error")
             self._connected = False
             raise  # Re-raise for retry decorator
         except DAVError:
-            print("❌ CalDAV error")
+            print(" CalDAV error")
             logger.error("CalDAV error")
             self._connected = False
             raise  # Re-raise for retry decorator
         except Exception as e:
-            print(f"❌ Unexpected error: {type(e).__name__}")
+            print(f" Unexpected error: {type(e).__name__}")
             logger.error(f"Unexpected connection error: {type(e).__name__}")
             self._connected = False
             return False
@@ -328,7 +328,7 @@ class CalendarManager:
             principal = self.client.principal()
             calendars = principal.calendars()
             
-            print(f"📅 Available Calendars ({len(calendars)}):\n")
+            print(f" Available Calendars ({len(calendars)}):\n")
             calendar_names = []
             
             for cal in calendars:
@@ -339,15 +339,15 @@ class CalendarManager:
             return calendar_names
             
         except NotFoundError:
-            print("❌ Calendars not found")
+            print(" Calendars not found")
             logger.error("Calendars not found")
             return []
         except DAVError:
-            print("❌ CalDAV error")
+            print(" CalDAV error")
             logger.error("Error listing calendars")
             return []
         except Exception as e:
-            print("❌ Error listing calendars")
+            print(" Error listing calendars")
             logger.error(f"Unexpected error listing calendars: {type(e).__name__}")
             return []
     
@@ -423,13 +423,13 @@ class CalendarManager:
         """Get calendar events"""
         # Validate calendar name
         if not validate_calendar_name(calendar_name):
-            print("❌ Invalid calendar name")
+            print(" Invalid calendar name")
             logger.error(f"Invalid calendar name provided")
             return []
         
         # Validate days_ahead
         if not (MIN_DAYS_AHEAD <= days_ahead <= MAX_DAYS_AHEAD):
-            print(f"❌ days_ahead must be between {MIN_DAYS_AHEAD} and {MAX_DAYS_AHEAD}")
+            print(f" days_ahead must be between {MIN_DAYS_AHEAD} and {MAX_DAYS_AHEAD}")
             return []
         
         if not self.connect():
@@ -451,7 +451,7 @@ class CalendarManager:
                 expand=True
             )
             
-            print(f"📋 Events in '{calendar_name}' ({len(events)} found):\n")
+            print(f" Events in '{calendar_name}' ({len(events)} found):\n")
             
             for event in events:
                 ical = iCal.from_ical(event.data)
@@ -462,7 +462,7 @@ class CalendarManager:
                         dtend = component.get('dtend')
                         uid = component.get('uid')
                         
-                        print(f"  🗓️  {summary}")
+                        print(f"    {summary}")
                         if dtstart:
                             print(f"     Start: {dtstart.dt}")
                         if dtend:
@@ -474,15 +474,15 @@ class CalendarManager:
             return events
             
         except NotFoundError:
-            print(f"❌ Calendar '{calendar_name}' not found")
+            print(f" Calendar '{calendar_name}' not found")
             logger.error("Calendar not found")
             return []
         except DAVError:
-            print("❌ CalDAV error")
+            print(" CalDAV error")
             logger.error("Error getting events")
             return []
         except Exception as e:
-            print("❌ Error getting events")
+            print(" Error getting events")
             logger.error(f"Unexpected error getting events: {type(e).__name__}")
             return []
     
@@ -496,7 +496,7 @@ class CalendarManager:
         """Create new event with validation and conflict detection"""
         # Validate calendar name
         if not validate_calendar_name(calendar_name):
-            print("❌ Invalid calendar name")
+            print(" Invalid calendar name")
             logger.error("Invalid calendar name provided")
             return False
         
@@ -507,16 +507,16 @@ class CalendarManager:
         required_fields = ['summary', 'dtstart', 'dtend']
         missing_fields = [f for f in required_fields if f not in event_data]
         if missing_fields:
-            print(f"❌ Missing required fields: {', '.join(missing_fields)}")
+            print(f" Missing required fields: {', '.join(missing_fields)}")
             logger.error(f"Missing required fields: {missing_fields}")
             return False
         
         # Validate datetime objects
         if not isinstance(event_data['dtstart'], datetime):
-            print("❌ dtstart must be a datetime object")
+            print(" dtstart must be a datetime object")
             return False
         if not isinstance(event_data['dtend'], datetime):
-            print("❌ dtend must be a datetime object")
+            print(" dtend must be a datetime object")
             return False
         
         # Ensure timezone awareness
@@ -532,7 +532,7 @@ class CalendarManager:
         
         # Validate time range
         if dtend <= dtstart:
-            print("❌ Event end time must be after start time")
+            print(" Event end time must be after start time")
             return False
         
         # Sanitize text fields
@@ -561,7 +561,7 @@ class CalendarManager:
             if check_conflicts:
                 conflicts = self._check_event_conflicts(calendar, dtstart, dtend)
                 if conflicts:
-                    print(f"⚠️  Warning: {len(conflicts)} conflicting event(s) found:")
+                    print(f"  Warning: {len(conflicts)} conflicting event(s) found:")
                     for conf in conflicts:
                         print(f"   - {conf['summary']} ({conf['start']} to {conf['end']})")
                     
@@ -626,20 +626,20 @@ class CalendarManager:
             # Save event
             calendar.save_event(cal.to_ical().decode('utf-8'))
             
-            print(f"✅ Event '{summary}' created successfully")
+            print(f" Event '{summary}' created successfully")
             logger.info(f"Created event in {calendar_name}")
             return True
             
         except NotFoundError:
-            print(f"❌ Calendar '{calendar_name}' not found")
+            print(f" Calendar '{calendar_name}' not found")
             logger.error("Calendar not found")
             return False
         except DAVError:
-            print("❌ CalDAV error")
+            print(" CalDAV error")
             logger.error("Error creating event")
             return False
         except Exception as e:
-            print("❌ Error creating event")
+            print(" Error creating event")
             logger.error(f"Unexpected error creating event: {type(e).__name__}")
             return False
     
@@ -647,18 +647,18 @@ class CalendarManager:
         """Delete event"""
         # Validate calendar name
         if not validate_calendar_name(calendar_name):
-            print("❌ Invalid calendar name")
+            print(" Invalid calendar name")
             logger.error("Invalid calendar name provided")
             return False
         
         if not event_uid or not isinstance(event_uid, str):
-            print("❌ Valid event UID required")
+            print(" Valid event UID required")
             return False
         
         # Sanitize UID
         event_uid = event_uid.strip()
         if len(event_uid) > 500:
-            print("❌ Invalid event UID (too long)")
+            print(" Invalid event UID (too long)")
             return False
         
         if not self.connect():
@@ -673,20 +673,20 @@ class CalendarManager:
             event = calendar.event_by_uid(event_uid)
             event.delete()
             
-            print("🗑️  Event deleted successfully")
+            print("  Event deleted successfully")
             logger.info(f"Deleted event from {calendar_name}")
             return True
             
         except NotFoundError:
-            print("❌ Event or calendar not found")
+            print(" Event or calendar not found")
             logger.error("Event/calendar not found")
             return False
         except DAVError:
-            print("❌ CalDAV error")
+            print(" CalDAV error")
             logger.error("Error deleting event")
             return False
         except Exception as e:
-            print("❌ Error deleting event")
+            print(" Error deleting event")
             logger.error(f"Unexpected error deleting event: {type(e).__name__}")
             return False
 
@@ -713,21 +713,21 @@ class CalendarManager:
         """
         # Validate inputs
         if not validate_calendar_name(calendar_name):
-            print("❌ Invalid calendar name")
+            print(" Invalid calendar name")
             logger.error("Invalid calendar name provided")
             return False
 
         if not event_uid or not isinstance(event_uid, str):
-            print("❌ Valid event UID required")
+            print(" Valid event UID required")
             return False
 
         event_uid = event_uid.strip()
         if len(event_uid) > 500:
-            print("❌ Invalid event UID (too long)")
+            print(" Invalid event UID (too long)")
             return False
 
         if mode not in ['single', 'all', 'future']:
-            print("❌ Invalid mode. Must be 'single', 'all', or 'future'")
+            print(" Invalid mode. Must be 'single', 'all', or 'future'")
             return False
 
         if not self.connect():
@@ -752,7 +752,7 @@ class CalendarManager:
                     break
 
             if event is None:
-                print("❌ Could not parse event data")
+                print(" Could not parse event data")
                 return False
 
             # Check if event has RRULE (is recurring)
@@ -761,42 +761,42 @@ class CalendarManager:
             # Handle recurrence based on mode
             if has_rrule and mode == 'single' and recurrence_id:
                 # Create exception for single instance
-                print(f"📅 Creating exception for instance: {recurrence_id}")
+                print(f" Creating exception for instance: {recurrence_id}")
                 return self._update_single_instance(
                     calendar, event_uid, recurrence_id, update_data, cal, event
                 )
 
             elif has_rrule and mode == 'future' and recurrence_id:
                 # Split series: update current and future
-                print(f"🔮 Updating this and future instances from: {recurrence_id}")
+                print(f" Updating this and future instances from: {recurrence_id}")
                 return self._update_future_instances(
                     calendar, event_uid, recurrence_id, update_data, cal, event
                 )
 
             elif has_rrule and mode == 'all':
                 # Update master recurrence rule
-                print("🔁 Updating entire recurrence series")
+                print(" Updating entire recurrence series")
                 return self._update_all_instances(
                     calendar, event_obj, update_data, cal, event
                 )
 
             else:
                 # Simple update (non-recurring or mode='all' on non-recurring)
-                print("✏️  Updating event")
+                print("  Updating event")
                 return self._update_simple(
                     calendar, event_obj, update_data, cal, event
                 )
 
         except NotFoundError:
-            print("❌ Event or calendar not found")
+            print(" Event or calendar not found")
             logger.error("Event/calendar not found")
             return False
         except DAVError:
-            print("❌ CalDAV error")
+            print(" CalDAV error")
             logger.error("Error updating event")
             return False
         except Exception as e:
-            print("❌ Error updating event")
+            print(" Error updating event")
             logger.error(f"Unexpected error updating event: {type(e).__name__}: {str(e)}")
             return False
 
@@ -809,7 +809,7 @@ class CalendarManager:
         event_obj.data = cal.to_ical()
         event_obj.save()
 
-        print("✅ Event updated successfully")
+        print(" Event updated successfully")
         logger.info("Event updated")
         return True
 
@@ -822,7 +822,7 @@ class CalendarManager:
         event_obj.data = cal.to_ical()
         event_obj.save()
 
-        print("✅ All instances updated successfully")
+        print(" All instances updated successfully")
         logger.info("All recurrence instances updated")
         return True
 
@@ -872,12 +872,12 @@ class CalendarManager:
             # Save exception event to server
             calendar.save_event(exception_cal.to_ical().decode('utf-8'))
 
-            print(f"✅ Exception created for instance: {recurrence_id}")
+            print(f" Exception created for instance: {recurrence_id}")
             logger.info(f"Created exception for recurrence instance")
             return True
 
         except ValueError as e:
-            print(f"❌ Invalid recurrence_id format: {e}")
+            print(f" Invalid recurrence_id format: {e}")
             return False
 
     def _update_future_instances(
@@ -933,12 +933,12 @@ class CalendarManager:
             new_cal.add_component(new_event)
             calendar.save_event(new_cal.to_ical().decode('utf-8'))
 
-            print(f"✅ Series split at {recurrence_id}. New series created with updates.")
+            print(f" Series split at {recurrence_id}. New series created with updates.")
             logger.info("Split recurrence series and created new series")
             return True
 
         except ValueError as e:
-            print(f"❌ Invalid recurrence_id format: {e}")
+            print(f" Invalid recurrence_id format: {e}")
             return False
 
     def _apply_updates_to_event(self, event, update_data: Dict):
@@ -982,7 +982,7 @@ class CalendarManager:
 
 def cmd_setup(args):
     """Interactive or headless setup of credentials"""
-    print("\n🔧 iCalendar Sync Setup\n")
+    print("\n iCalendar Sync Setup\n")
 
     # Headless mode: use provided arguments
     if hasattr(args, 'username') and args.username and hasattr(args, 'password') and args.password:
@@ -990,38 +990,38 @@ def cmd_setup(args):
         password = args.password.strip()
         if not email or not password:
             logger.error("Setup: CLI argument parsing error for username/password (invalid choice error)")
-            print("❌ CLI argument parsing error for username/password (invalid choice error)")
+            print(" CLI argument parsing error for username/password (invalid choice error)")
             return
         if not args.non_interactive:
-            print(f"📧 Using provided email: {email}")
-            print("🔑 Using provided password")
+            print(f" Using provided email: {email}")
+            print(" Using provided password")
     else:
         # Interactive mode
         print("To use iCalendar Sync, you need to configure your iCloud credentials.")
-        print("⚠️  Use an App-Specific Password, NOT your regular Apple ID password.\n")
+        print("  Use an App-Specific Password, NOT your regular Apple ID password.\n")
         print("Get it from: https://appleid.apple.com -> Sign-In & Security -> App-Specific Passwords\n")
 
-        email = input("📧 iCloud Email: ").strip()
+        email = input(" iCloud Email: ").strip()
         if not email:
-            print("❌ Email cannot be empty")
+            print(" Email cannot be empty")
             return
 
         # Validate email
         if not validate_email(email):
-            print("❌ Invalid email format")
+            print(" Invalid email format")
             response = timed_input("Continue anyway? (y/n): ")
             if response is None or response.lower() != 'y':
                 print("Setup cancelled")
                 return
 
-        password = getpass.getpass("🔑 App-Specific Password (xxxx-xxxx-xxxx-xxxx): ").strip()
+        password = getpass.getpass(" App-Specific Password (xxxx-xxxx-xxxx-xxxx): ").strip()
         if not password:
-            print("❌ Password cannot be empty")
+            print(" Password cannot be empty")
             return
 
         # Validate format
         if not all(c.isalnum() or c == '-' for c in password):
-            print("⚠️  Password format looks unusual")
+            print("  Password format looks unusual")
             response = timed_input("Are you sure this is correct? (y/n): ")
             if response is None or response.lower() != 'y':
                 print("Setup cancelled")
@@ -1030,17 +1030,17 @@ def cmd_setup(args):
     # Validate email format before proceeding
     if not validate_email(email):
         logger.error("Setup: Invalid email format")
-        print("❌ Invalid email format")
+        print(" Invalid email format")
         return
     
     # Try to store in keyring first
     try:
         keyring.set_password('openclaw-icalendar', email, password)
-        print("\n✅ Credentials saved securely to system keyring")
+        print("\n Credentials saved securely to system keyring")
         logger.info("Credentials stored in keyring")
     except KeyringError as e:
         logger.error("Setup: Could not access system keyring, falling back to .env")
-        print("⚠️  Could not access system keyring, falling back to .env file")
+        print("  Could not access system keyring, falling back to .env file")
         
         # Fallback to .env file with atomic write
         try:
@@ -1070,13 +1070,13 @@ def cmd_setup(args):
             os.chmod(env_path, 0o600)
             
             logger.info("Setup: Credentials saved to .env file")
-            print(f"✅ Configuration saved securely to {env_path}")
+            print(f" Configuration saved securely to {env_path}")
         except (OSError, IOError) as file_error:
             logger.error(f"Setup: Failed to write .env file: {str(file_error)}")
-            print(f"❌ Failed to save configuration: {str(file_error)}")
+            print(f" Failed to save configuration: {str(file_error)}")
             return
     
-    print("🚀 You can now use iCalendar Sync!\n")
+    print(" You can now use iCalendar Sync!\n")
 
 
 def cmd_list(args):
@@ -1088,7 +1088,7 @@ def cmd_list(args):
 def cmd_get_events(args):
     """Get events from calendar"""
     if not args.calendar:
-        print("❌ Calendar name required")
+        print(" Calendar name required")
         return
     
     manager = CalendarManager()
@@ -1098,7 +1098,7 @@ def cmd_get_events(args):
 def cmd_create_event(args):
     """Create event"""
     if not args.calendar or not args.json:
-        print("❌ Calendar and JSON data required")
+        print(" Calendar and JSON data required")
         return
     
     try:
@@ -1106,13 +1106,13 @@ def cmd_create_event(args):
         if os.path.isfile(args.json):
             content = safe_file_read(args.json, MAX_JSON_FILE_SIZE)
             if content is None:
-                print("❌ Could not read JSON file")
+                print(" Could not read JSON file")
                 return
             event_data = json.loads(content)
         else:
             # Limit inline JSON size too
             if len(args.json) > MAX_JSON_FILE_SIZE:
-                print("❌ JSON data too large")
+                print(" JSON data too large")
                 return
             event_data = json.loads(args.json)
         
@@ -1128,17 +1128,17 @@ def cmd_create_event(args):
         manager.create_event(args.calendar, event_data, check_conflicts=check_conflicts, auto_confirm=auto_confirm)
         
     except json.JSONDecodeError as e:
-        print(f"❌ Invalid JSON: {e}")
+        print(f" Invalid JSON: {e}")
         return
     except ValueError as e:
-        print(f"❌ Invalid datetime format: {e}")
+        print(f" Invalid datetime format: {e}")
         return
 
 
 def cmd_delete_event(args):
     """Delete event"""
     if not args.calendar or not args.uid:
-        print("❌ Calendar and event UID required")
+        print(" Calendar and event UID required")
         return
 
     manager = CalendarManager()
@@ -1148,7 +1148,7 @@ def cmd_delete_event(args):
 def cmd_update_event(args):
     """Update event with smart recurrence handling"""
     if not args.calendar or not args.uid or not args.json:
-        print("❌ Calendar, event UID, and JSON data required")
+        print(" Calendar, event UID, and JSON data required")
         return
 
     try:
@@ -1156,13 +1156,13 @@ def cmd_update_event(args):
         if os.path.isfile(args.json):
             content = safe_file_read(args.json, MAX_JSON_FILE_SIZE)
             if content is None:
-                print("❌ Could not read JSON file")
+                print(" Could not read JSON file")
                 return
             update_data = json.loads(content)
         else:
             # Limit inline JSON size
             if len(args.json) > MAX_JSON_FILE_SIZE:
-                print("❌ JSON data too large")
+                print(" JSON data too large")
                 return
             update_data = json.loads(args.json)
 
@@ -1186,10 +1186,10 @@ def cmd_update_event(args):
         )
 
     except json.JSONDecodeError as e:
-        print(f"❌ Invalid JSON: {e}")
+        print(f" Invalid JSON: {e}")
         return
     except ValueError as e:
-        print(f"❌ Invalid datetime format: {e}")
+        print(f" Invalid datetime format: {e}")
         return
 
 

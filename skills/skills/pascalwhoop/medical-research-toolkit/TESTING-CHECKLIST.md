@@ -2,31 +2,31 @@
 
 This document tracks what's been tested and works.
 
-## ✅ Endpoint Connectivity
+##  Endpoint Connectivity
 
 - [x] Production endpoint accessible: `https://mcp.cloud.curiloo.com/tools/unified/mcp`
 - [x] Responds to HTTP POST with JSON-RPC 2.0
 - [x] Requires: Content-Type: application/json + Accept: application/json headers
 - [x] No authentication required (production endpoint is public)
 
-## ✅ Database Tests
+##  Database Tests
 
-### ChEMBL ✅
+### ChEMBL 
 - [x] `chembl_search_molecules("aspirin")` — Returns 8 drugs with IDs, names, phases
 - [x] Response includes: molecule_chembl_id, pref_name, max_phase, molecule_type
 
-### OpenTargets ✅
+### OpenTargets 
 - [x] `opentargets_search("myasthenia gravis")` — Returns disease with EFO ID
 - [x] `opentargets_get_associations("EFO_0004991")` — Returns targets ranked by score
 - [x] Response includes: target ID, name, association score, data type scores
 
-## ⚠️ Known Issues
+##  Known Issues
 
 - OpenTargets uses **EFO IDs**, not MONDO IDs (update documentation)
 - Some examples in references need updating with correct ID format
 - PubMed parameters need clarification (query structure varies by field)
 
-## 📝 Documentation Updates Needed
+##  Documentation Updates Needed
 
 1. Update [opentargets.md](./references/opentargets.md):
    - Use EFO IDs instead of MONDO
@@ -41,7 +41,7 @@ This document tracks what's been tested and works.
    - Copy-paste ready curl commands
    - Expected output format
 
-## 🎯 Next Steps Before Release
+##  Next Steps Before Release
 
 1. [ ] Update all EFO/MONDO ID references
 2. [ ] Add 3-5 simple "copy-paste" examples
@@ -87,15 +87,15 @@ curl -s -X POST https://mcp.cloud.curiloo.com/tools/unified/mcp \
 ## Status
 
 **TESTED: ~60% of toolkit**
-- ✅ ChEMBL (search, molecules)
-- ✅ OpenTargets (search, associations)
-- ⏳ Pending full test: PubMed, ClinicalTrials, OpenFDA, OMIM, Reactome, UniProt
+-  ChEMBL (search, molecules)
+-  OpenTargets (search, associations)
+-  Pending full test: PubMed, ClinicalTrials, OpenFDA, OMIM, Reactome, UniProt
 
 **DOCUMENTATION: Ready for iteration**
-- ✅ SKILL.md (high-level overview, working)
-- ✅ Database references (structure good, IDs need updating)
-- ✅ Workflow example (complete, ready to test)
-- ⏳ Needs: simple examples, troubleshooting guide
+-  SKILL.md (high-level overview, working)
+-  Database references (structure good, IDs need updating)
+-  Workflow example (complete, ready to test)
+-  Needs: simple examples, troubleshooting guide
 
 ---
 

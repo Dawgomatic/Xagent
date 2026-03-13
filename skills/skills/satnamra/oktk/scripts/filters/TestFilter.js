@@ -82,7 +82,7 @@ class TestFilter extends BaseFilter {
       }
 
       // Failure extraction
-      if (line.includes('✗') || line.includes('✖') || line.includes('●')) {
+      if (line.includes('✗') || line.includes('') || line.includes('●')) {
         failures.push(line.trim());
       }
     }
@@ -97,32 +97,32 @@ class TestFilter extends BaseFilter {
 
     // Overall status
     if (failed > 0) {
-      result.push('❌ Tests failed');
+      result.push(' Tests failed');
     } else if (passed > 0) {
-      result.push('✅ All tests passed');
+      result.push(' All tests passed');
     } else {
-      result.push('⚠️  No tests run');
+      result.push('  No tests run');
     }
 
     // Statistics
     if (passed > 0 || failed > 0) {
       result.push(``);
-      result.push(`📊 ${passed + failed} total tests`);
-      if (passed > 0) result.push(`  ✅ Passed: ${passed}`);
-      if (failed > 0) result.push(`  ❌ Failed: ${failed}`);
-      if (skipped > 0) result.push(`  ⏭️  Skipped: ${skipped}`);
+      result.push(` ${passed + failed} total tests`);
+      if (passed > 0) result.push(`   Passed: ${passed}`);
+      if (failed > 0) result.push(`   Failed: ${failed}`);
+      if (skipped > 0) result.push(`    Skipped: ${skipped}`);
     }
 
     // Test suites
     if (suites.size > 0) {
       result.push(``);
-      result.push(`📦 ${suites.size} test suite(s)`);
+      result.push(` ${suites.size} test suite(s)`);
     }
 
     // Show failures (limited)
     if (failures.length > 0) {
       result.push(``);
-      result.push(`❌ Failures:`);
+      result.push(` Failures:`);
       failures.slice(0, 10).forEach(f => {
         result.push(`  ${f.substring(0, 80)}`);
       });
@@ -136,7 +136,7 @@ class TestFilter extends BaseFilter {
       const timeMatch = line.match(/(\d+(?:\.\d+)?)\s*s/);
       if (timeMatch) {
         result.push(``);
-        result.push(`⏱️  Duration: ${timeMatch[1]}s`);
+        result.push(`  Duration: ${timeMatch[1]}s`);
         break;
       }
     }
@@ -181,31 +181,31 @@ class TestFilter extends BaseFilter {
 
     // Overall status
     if (failed > 0) {
-      result.push('❌ Tests failed');
+      result.push(' Tests failed');
     } else if (passed > 0) {
-      result.push('✅ All tests passed');
+      result.push(' All tests passed');
     } else {
-      result.push('⚠️  No tests run');
+      result.push('  No tests run');
     }
 
     // Statistics
     if (totalTests > 0) {
       result.push(``);
-      result.push(`📊 ${totalTests} total tests`);
-      if (passed > 0) result.push(`  ✅ Passed: ${passed}`);
-      if (failed > 0) result.push(`  ❌ Failed: ${failed}`);
+      result.push(` ${totalTests} total tests`);
+      if (passed > 0) result.push(`   Passed: ${passed}`);
+      if (failed > 0) result.push(`   Failed: ${failed}`);
     }
 
     // Test suites
     if (suites.length > 0) {
       result.push(``);
-      result.push(`📦 ${suites.length} test suite(s)`);
+      result.push(` ${suites.length} test suite(s)`);
     }
 
     // Failures
     if (failures.length > 0) {
       result.push(``);
-      result.push(`❌ Failures:`);
+      result.push(` Failures:`);
       failures.slice(0, 10).forEach(f => {
         result.push(`  ${f.substring(0, 80)}`);
       });
@@ -219,7 +219,7 @@ class TestFilter extends BaseFilter {
       const timeMatch = line.match(/test result: ok\.\s+passed:\s+\d+;\s+failed:\s+\d+;\s+ignored:\s+\d+;\s+measured:\s+\d+;\s+filtered out:\s+\d+;\s+finished in\s+([0-9.]+)s/);
       if (timeMatch) {
         result.push(``);
-        result.push(`⏱️  Duration: ${timeMatch[1]}s`);
+        result.push(`  Duration: ${timeMatch[1]}s`);
         break;
       }
     }
@@ -261,26 +261,26 @@ class TestFilter extends BaseFilter {
 
     // Overall status
     if (failed > 0) {
-      result.push('❌ Tests failed');
+      result.push(' Tests failed');
     } else if (passed > 0) {
-      result.push('✅ All tests passed');
+      result.push(' All tests passed');
     } else {
-      result.push('⚠️  No tests run');
+      result.push('  No tests run');
     }
 
     // Statistics
     if (totalTests > 0) {
       result.push(``);
-      result.push(`📊 ${totalTests} total tests`);
-      if (passed > 0) result.push(`  ✅ Passed: ${passed}`);
-      if (failed > 0) result.push(`  ❌ Failed: ${failed}`);
-      if (skipped > 0) result.push(`  ⏭️  Skipped: ${skipped}`);
+      result.push(` ${totalTests} total tests`);
+      if (passed > 0) result.push(`   Passed: ${passed}`);
+      if (failed > 0) result.push(`   Failed: ${failed}`);
+      if (skipped > 0) result.push(`    Skipped: ${skipped}`);
     }
 
     // Failures
     if (failures.length > 0) {
       result.push(``);
-      result.push(`❌ Failures:`);
+      result.push(` Failures:`);
       failures.slice(0, 10).forEach(f => {
         result.push(`  ${f.substring(0, 80)}`);
       });
@@ -294,7 +294,7 @@ class TestFilter extends BaseFilter {
       const timeMatch = line.match(/finished in\s+([0-9.]+)s/);
       if (timeMatch) {
         result.push(``);
-        result.push(`⏱️  Duration: ${timeMatch[1]}s`);
+        result.push(`  Duration: ${timeMatch[1]}s`);
         break;
       }
     }
@@ -344,28 +344,28 @@ class TestFilter extends BaseFilter {
 
     // Overall status
     if (failed > 0) {
-      result.push('❌ Tests failed');
+      result.push(' Tests failed');
     } else if (passed > 0) {
-      result.push('✅ All tests passed');
+      result.push(' All tests passed');
     } else {
-      result.push('⚠️  No tests run');
+      result.push('  No tests run');
     }
 
     // Statistics
     if (totalTests > 0) {
       result.push(``);
-      result.push(`📊 ${totalTests} total tests`);
-      if (passed > 0) result.push(`  ✅ Passed: ${passed}`);
-      if (failed > 0) result.push(`  ❌ Failed: ${failed}`);
+      result.push(` ${totalTests} total tests`);
+      if (passed > 0) result.push(`   Passed: ${passed}`);
+      if (failed > 0) result.push(`   Failed: ${failed}`);
     }
 
     // Test suites
     if (suites.length > 0) {
       result.push(``);
-      result.push(`📦 ${suites.length} test suite(s)`);
+      result.push(` ${suites.length} test suite(s)`);
       const failedSuites = suites.filter(s => s.status === 'FAIL');
       if (failedSuites.length > 0) {
-        result.push(`  ❌ Failed: ${failedSuites.length}`);
+        result.push(`   Failed: ${failedSuites.length}`);
         failedSuites.slice(0, 5).forEach(s => {
           result.push(`    - ${s.name.substring(0, 60)}`);
         });
@@ -375,7 +375,7 @@ class TestFilter extends BaseFilter {
     // Failures
     if (failures.length > 0 && failures.length <= 20) {
       result.push(``);
-      result.push(`❌ Failures:`);
+      result.push(` Failures:`);
       failures.slice(0, 10).forEach(f => {
         result.push(`  ${f.substring(0, 80)}`);
       });
@@ -389,7 +389,7 @@ class TestFilter extends BaseFilter {
       const timeMatch = line.match(/Time:\s+([0-9.]+)s/);
       if (timeMatch) {
         result.push(``);
-        result.push(`⏱️  Duration: ${timeMatch[1]}s`);
+        result.push(`  Duration: ${timeMatch[1]}s`);
         break;
       }
     }
@@ -423,11 +423,11 @@ class TestFilter extends BaseFilter {
       if (total === 0) total = passed + failed;
 
       const result = [
-        failed > 0 ? '❌ Tests failed' : '✅ All tests passed',
+        failed > 0 ? ' Tests failed' : ' All tests passed',
         ``,
-        `📊 ${total} total tests`,
-        passed > 0 ? `  ✅ Passed: ${passed}` : '',
-        failed > 0 ? `  ❌ Failed: ${failed}` : ''
+        ` ${total} total tests`,
+        passed > 0 ? `   Passed: ${passed}` : '',
+        failed > 0 ? `   Failed: ${failed}` : ''
       ].filter(Boolean);
 
       return result.join('\n');

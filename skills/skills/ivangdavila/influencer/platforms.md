@@ -175,7 +175,7 @@ AI-generated content | #VirtualInfluencer
 
 ### Instagram
 ```
-✨ AI-generated content | Created with AI tools
+ AI-generated content | Created with AI tools
 #AIInfluencer #VirtualCreator
 ```
 
@@ -187,7 +187,7 @@ This video features AI-generated content.
 
 ### Twitter
 ```
-🤖 AI-generated persona
+ AI-generated persona
 ```
 
 ---

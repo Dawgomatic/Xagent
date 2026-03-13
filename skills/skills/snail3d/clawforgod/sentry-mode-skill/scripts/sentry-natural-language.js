@@ -34,17 +34,17 @@ class SentryNaturalLanguage {
    * @returns {Promise<{status, message, boloPath, features}>}
    */
   async handleBoloRequest(imagePath, userMessage = '') {
-    console.log(`\n📸 Processing BOLO request...`);
-    console.log(`📁 Image: ${path.basename(imagePath)}`);
-    console.log(`💬 Message: "${userMessage}"\n`);
+    console.log(`\n Processing BOLO request...`);
+    console.log(` Image: ${path.basename(imagePath)}`);
+    console.log(` Message: "${userMessage}"\n`);
 
     try {
       // Detect BOLO type from message or auto-detect
       const boloType = this.detectBoloType(userMessage);
       const boloName = this.generateBoloName(imagePath, userMessage);
 
-      console.log(`🏷️ BOLO Name: ${boloName}`);
-      console.log(`🔍 Type: ${boloType}\n`);
+      console.log(` BOLO Name: ${boloName}`);
+      console.log(` Type: ${boloType}\n`);
 
       // Step 1: Analyze image and create BOLO
       const analyzer = new ImageBoloAnalyzer(imagePath);
@@ -75,7 +75,7 @@ class SentryNaturalLanguage {
         features,
       };
     } catch (error) {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
       return {
         status: 'error',
         message: `Failed to set up BOLO: ${error.message}`,
@@ -135,7 +135,7 @@ class SentryNaturalLanguage {
     const filepath = path.join(this.bolosDir, filename);
 
     fs.writeFileSync(filepath, JSON.stringify(bolo, null, 2));
-    console.log(`✅ BOLO saved: ${filepath}`);
+    console.log(` BOLO saved: ${filepath}`);
 
     return filepath;
   }
@@ -160,23 +160,23 @@ class SentryNaturalLanguage {
   generateNaturalResponse(bolo, features) {
     const type = bolo.type.charAt(0).toUpperCase() + bolo.type.slice(1);
 
-    let response = `✅ Got it. I'm looking out for ${bolo.name || 'this ' + bolo.type}.\n\n`;
+    let response = ` Got it. I'm looking out for ${bolo.name || 'this ' + bolo.type}.\n\n`;
 
     if (features.critical.length > 0) {
-      response += `🔍 I'll focus on:\n`;
+      response += ` I'll focus on:\n`;
       features.critical.forEach((f) => {
         response += `  • ${f}\n`;
       });
     }
 
     if (features.high.length > 0) {
-      response += `\n📌 And I'll note:\n`;
+      response += `\n And I'll note:\n`;
       features.high.forEach((f) => {
         response += `  • ${f}\n`;
       });
     }
 
-    response += `\n👀 Monitoring active. I'll alert you if I see a match.`;
+    response += `\n Monitoring active. I'll alert you if I see a match.`;
 
     return response;
   }
@@ -185,7 +185,7 @@ class SentryNaturalLanguage {
    * Start background monitoring
    */
   startBackgroundMonitoring(boloPath) {
-    console.log(`\n🎬 Starting background monitoring...`);
+    console.log(`\n Starting background monitoring...`);
 
     // In production, spawn as daemon/background process
     // For now, just indicate it's active
@@ -209,7 +209,7 @@ class SentryNaturalLanguage {
     this.activeBolo = null;
     return {
       status: 'stopped',
-      message: `✋ Stopped looking out for ${boloName}`,
+      message: ` Stopped looking out for ${boloName}`,
     };
   }
 
@@ -224,7 +224,7 @@ class SentryNaturalLanguage {
       };
     }
 
-    const msg = `\n👀 Currently looking out for:\n\n📌 ${this.activeBolo.name}\n`;
+    const msg = `\n Currently looking out for:\n\n ${this.activeBolo.name}\n`;
     const details = this.activeBolo.features.critical
       .map((f) => `  • ${f}`)
       .join(';
@@ -242,7 +242,7 @@ class SentryNaturalLanguage {
    */
   getStatus() {
     if (!this.activeBolo) {
-      return `👀 Not actively looking for anyone.`;
+      return ` Not actively looking for anyone.`;
     }
 
     return `✓ Actively looking for: ${this.activeBolo.name}\n${this.activeBolo.features.critical

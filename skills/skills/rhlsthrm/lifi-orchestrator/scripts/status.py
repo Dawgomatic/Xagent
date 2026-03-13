@@ -31,38 +31,38 @@ def format_status(status: dict) -> str:
     s = status.get("status", "UNKNOWN")
     
     status_emoji = {
-        "NOT_FOUND": "❓",
-        "INVALID": "❌",
-        "PENDING": "⏳",
-        "DONE": "✅",
-        "FAILED": "❌",
+        "NOT_FOUND": "",
+        "INVALID": "",
+        "PENDING": "",
+        "DONE": "",
+        "FAILED": "",
     }
     
-    emoji = status_emoji.get(s, "❓")
+    emoji = status_emoji.get(s, "")
     
     lines = [f"{emoji} **Status**: {s}"]
     
     if status.get("sending"):
         sending = status["sending"]
-        lines.append(f"📤 **Sending**: {sending.get('amount')} {sending.get('token', {}).get('symbol')}")
+        lines.append(f" **Sending**: {sending.get('amount')} {sending.get('token', {}).get('symbol')}")
         lines.append(f"   Chain: {sending.get('chainId')}")
         lines.append(f"   Tx: {sending.get('txHash')}")
     
     if status.get("receiving"):
         receiving = status["receiving"]
-        lines.append(f"📥 **Receiving**: {receiving.get('amount')} {receiving.get('token', {}).get('symbol')}")
+        lines.append(f" **Receiving**: {receiving.get('amount')} {receiving.get('token', {}).get('symbol')}")
         lines.append(f"   Chain: {receiving.get('chainId')}")
         if receiving.get("txHash"):
             lines.append(f"   Tx: {receiving.get('txHash')}")
     
     if status.get("substatus"):
-        lines.append(f"ℹ️  Substatus: {status['substatus']}")
+        lines.append(f"  Substatus: {status['substatus']}")
     
     if status.get("substatusMessage"):
-        lines.append(f"💬 {status['substatusMessage']}")
+        lines.append(f" {status['substatusMessage']}")
     
     if status.get("tool"):
-        lines.append(f"🛠️  Bridge: {status['tool']}")
+        lines.append(f"  Bridge: {status['tool']}")
     
     return "\n".join(lines)
 
@@ -85,14 +85,14 @@ def main():
             print(json.dumps(status, indent=2))
         else:
             print(format_status(status))
-            print(f"\n🔗 https://scan.li.fi/tx/{args.tx_hash}")
+            print(f"\n https://scan.li.fi/tx/{args.tx_hash}")
         
         s = status.get("status", "UNKNOWN")
         
         if not args.watch or s in ["DONE", "FAILED", "INVALID"]:
             break
         
-        print(f"\n⏳ Checking again in {args.interval}s...\n")
+        print(f"\n Checking again in {args.interval}s...\n")
         time.sleep(args.interval)
     
     # Exit code based on status

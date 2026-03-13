@@ -2,7 +2,7 @@
 name: openclaw-watchdog
 description: Self-healing monitoring system for OpenClaw gateway. Auto-detects failures, fixes crashes, and sends Telegram alerts.
 homepage: https://github.com/Abdullah4AI/openclaw-watchdog
-metadata: {"openclaw":{"emoji":"🐕","disableModelInvocation":true,"requires":{"bins":["python3","openssl"],"env":["TELEGRAM_TOKEN","TELEGRAM_CHAT_ID"]},"install":[{"id":"setup","kind":"script","script":"scripts/setup.sh","label":"Install watchdog service (LaunchAgent/systemd user)","persistence":"user-level","service":true}]}}
+metadata: {"openclaw":{"emoji":"","disableModelInvocation":true,"requires":{"bins":["python3","openssl"],"env":["TELEGRAM_TOKEN","TELEGRAM_CHAT_ID"]},"install":[{"id":"setup","kind":"script","script":"scripts/setup.sh","label":"Install watchdog service (LaunchAgent/systemd user)","persistence":"user-level","service":true}]}}
 ---
 
 # openclaw-watchdog
@@ -24,7 +24,7 @@ Send the user ONE message with everything they need:
 
 ---
 
-🐕 **Watch Dog — Self-Healing Gateway Monitor**
+ **Watch Dog — Self-Healing Gateway Monitor**
 
 Watch Dog is a background service that pings your OpenClaw gateway every 15 seconds. If the gateway goes down, it automatically attempts to restart it and sends you Telegram alerts so you're always in the loop. All diagnostics run locally on your device.
 

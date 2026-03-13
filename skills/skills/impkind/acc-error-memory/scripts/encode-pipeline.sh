@@ -14,7 +14,7 @@ SKILL_DIR="$(dirname "$0")/.."
 PENDING_FILE="$WORKSPACE/memory/pending-errors.json"
 CALIBRATION_STATE="$WORKSPACE/memory/calibration-state.json"
 
-echo "⚡ ACC Encode Pipeline"
+echo " ACC Encode Pipeline"
 echo "====================="
 
 # --- Run counter & calibration check ---
@@ -37,7 +37,7 @@ with open('$CALIBRATION_STATE','w') as f: json.dump(d,f,indent=2); f.write('\n')
 IS_CALIBRATION=false
 if [ $((RUN_COUNT % CAL_INTERVAL)) -eq 0 ]; then
     IS_CALIBRATION=true
-    echo "🔬 CALIBRATION RUN (#$RUN_COUNT)"
+    echo " CALIBRATION RUN (#$RUN_COUNT)"
 fi
 echo "Run #$RUN_COUNT (calibration every $CAL_INTERVAL runs)"
 echo ""
@@ -77,7 +77,7 @@ fi
 # Step 2.5: Calibration (if this is a calibration run)
 if [ "$IS_CALIBRATION" = true ]; then
     echo ""
-    echo "Step 2.5: 🔬 Running pattern calibration..."
+    echo "Step 2.5:  Running pattern calibration..."
     # Calibration outputs confirmed errors to calibration-errors.json
     "$SKILL_DIR/scripts/calibrate-patterns.sh" "$PENDING_FILE" 0.15 || echo "Calibration failed (non-fatal)"
     

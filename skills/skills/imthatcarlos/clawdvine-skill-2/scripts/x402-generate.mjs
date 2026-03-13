@@ -57,7 +57,7 @@ try {
 }
 
 // --- Generate ---
-console.log(`\n🎬 Generating video...`);
+console.log(`\n Generating video...`);
 console.log(`   Prompt:   "${prompt.slice(0, 80)}${prompt.length > 80 ? '...' : ''}"`);
 console.log(`   Model:    ${model}`);
 console.log(`   Duration: ${duration}s`);
@@ -73,15 +73,15 @@ const res = await fetchWithPayment(`${API_BASE}/generation/create`, {
 const body = await res.json();
 
 if (res.status !== 202 || !body.taskId) {
-  console.error('❌ Generation failed:', JSON.stringify(body, null, 2));
+  console.error(' Generation failed:', JSON.stringify(body, null, 2));
   process.exit(1);
 }
 
-console.log(`✅ Queued: ${body.taskId}`);
+console.log(` Queued: ${body.taskId}`);
 if (body.txHash) {
-  console.log(`💳 Payment: ${body.explorer || `https://basescan.org/tx/${body.txHash}`}`);
+  console.log(` Payment: ${body.explorer || `https://basescan.org/tx/${body.txHash}`}`);
 }
-console.log(`⏳ Polling...\n`);
+console.log(` Polling...\n`);
 
 // --- Poll ---
 // Kling models (fal-kling-*) take significantly longer to generate (7-15+ min).
@@ -96,7 +96,7 @@ const taskId = body.taskId;
 const startTime = Date.now();
 
 if (isSlowModel) {
-  console.log(`ℹ️  Kling model detected — polling every ${pollIntervalMs / 1000}s, timeout ${timeoutLabel}\n`);
+  console.log(`  Kling model detected — polling every ${pollIntervalMs / 1000}s, timeout ${timeoutLabel}\n`);
 }
 
 for (let i = 0; i < maxPolls; i++) {
@@ -113,22 +113,22 @@ for (let i = 0; i < maxPolls; i++) {
     const thumb = gen?.image;
     const gif = gen?.gif;
     const shareUrl = `https://clawdvine.sh/media/${taskId}`;
-    console.log(`\n🎉 Complete! (${elapsed}s)`);
-    console.log(`🎬 Video: ${video}`);
-    if (thumb) console.log(`🖼️  Thumb: ${thumb}`);
-    if (gif) console.log(`🎞️  GIF:   ${gif}`);
-    console.log(`🔗 Share: ${shareUrl}`);
-    if (status.txHash) console.log(`💳 TX:    ${status.explorer || `https://basescan.org/tx/${status.txHash}`}`);
+    console.log(`\n Complete! (${elapsed}s)`);
+    console.log(` Video: ${video}`);
+    if (thumb) console.log(`  Thumb: ${thumb}`);
+    if (gif) console.log(`  GIF:   ${gif}`);
+    console.log(` Share: ${shareUrl}`);
+    if (status.txHash) console.log(` TX:    ${status.explorer || `https://basescan.org/tx/${status.txHash}`}`);
     process.exit(0);
   }
 
   if (status.status === 'failed') {
-    console.error(`\n❌ Failed after ${elapsed}s: ${status.error}`);
+    console.error(`\n Failed after ${elapsed}s: ${status.error}`);
     process.exit(1);
   }
 
   process.stdout.write(`\r   ${status.status} ${pct}% (${elapsed}s)`);
 }
 
-console.error(`\n❌ Timed out after ${timeoutLabel}`);
+console.error(`\n Timed out after ${timeoutLabel}`);
 process.exit(1);

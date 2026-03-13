@@ -296,7 +296,7 @@ def generate_report(health_results, trait_results):
     lines.append(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     lines.append("=" * 70)
     lines.append("")
-    lines.append("⚠️  DISCLAIMER: This is NOT medical advice.")
+    lines.append("  DISCLAIMER: This is NOT medical advice.")
     lines.append("")
     
     # Summary
@@ -317,7 +317,7 @@ def generate_report(health_results, trait_results):
             risk_markers = [m for m in data["markers"] if m["status"] == "risk"]
             if risk_markers:
                 for m in risk_markers[:10]:  # Top 10
-                    lines.append(f"  ⚠️  {m['gene']} ({m['rsid']}): {m['genotype']} - {m['condition']}")
+                    lines.append(f"    {m['gene']} ({m['rsid']}): {m['genotype']} - {m['condition']}")
             else:
                 lines.append("  ✓ No risk variants detected")
             lines.append("")

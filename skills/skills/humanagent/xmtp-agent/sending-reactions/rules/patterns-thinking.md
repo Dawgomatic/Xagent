@@ -16,7 +16,7 @@ agent.on("text", async (ctx) => {
   await ctx.conversation.sendReaction({
     reference: ctx.message.id,
     action: "added",
-    content: "⏳",
+    content: "",
     schema: "unicode",
   });
 
@@ -31,7 +31,7 @@ agent.on("text", async (ctx) => {
     await ctx.conversation.sendReaction({
       reference: ctx.message.id,
       action: "removed",
-      content: "⏳",
+      content: "",
       schema: "unicode",
     });
   }
@@ -47,7 +47,7 @@ async function withThinking<T>(
 ): Promise<T> {
   const reaction = {
     reference: ctx.message.id,
-    content: "⏳",
+    content: "",
     schema: "unicode" as const,
   };
 
@@ -72,7 +72,7 @@ agent.on("text", async (ctx) => {
 
 **Alternative thinking emojis:**
 
-- `⏳` - Hourglass (processing)
-- `🤔` - Thinking face
-- `💭` - Thought bubble
-- `⚙️` - Gear (working)
+- `` - Hourglass (processing)
+- `` - Thinking face
+- `` - Thought bubble
+- `` - Gear (working)

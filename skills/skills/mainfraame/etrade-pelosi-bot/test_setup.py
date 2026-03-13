@@ -13,7 +13,7 @@ def test_config():
     config_path = 'config/config.json'
 
     if not os.path.exists(config_path):
-        print(f"❌ Config file not found: {config_path}")
+        print(f" Config file not found: {config_path}")
         return False
 
     try:
@@ -24,33 +24,33 @@ def test_config():
         required = ['broker', 'trading', 'congress', 'logging']
         for field in required:
             if field not in config:
-                print(f"❌ Missing config section: {field}")
+                print(f" Missing config section: {field}")
                 return False
 
         # Check broker adapter
         broker = config.get('broker', {})
         adapter = broker.get('adapter', '')
         if adapter:
-            print(f"✅ Broker adapter: {adapter}")
+            print(f" Broker adapter: {adapter}")
         else:
-            print("❌ No broker adapter specified")
+            print(" No broker adapter specified")
             return False
 
         # Check credentials
         creds = broker.get('credentials', {})
         if creds.get('apiKey'):
-            print("✅ API key found")
+            print(" API key found")
         else:
-            print("⚠️  API key not set")
+            print("  API key not set")
 
-        print("✅ Configuration test passed")
+        print(" Configuration test passed")
         return True
 
     except json.JSONDecodeError as e:
-        print(f"❌ Invalid JSON in config: {e}")
+        print(f" Invalid JSON in config: {e}")
         return False
     except Exception as e:
-        print(f"❌ Error testing config: {e}")
+        print(f" Error testing config: {e}")
         return False
 
 def test_directories():
@@ -61,9 +61,9 @@ def test_directories():
     
     for dir_name in required_dirs:
         if os.path.exists(dir_name):
-            print(f"✅ Directory exists: {dir_name}")
+            print(f" Directory exists: {dir_name}")
         else:
-            print(f"❌ Directory missing: {dir_name}")
+            print(f" Directory missing: {dir_name}")
             return False
     
     return True
@@ -84,9 +84,9 @@ def test_python_modules():
     for module in modules:
         try:
             __import__(module)
-            print(f"✅ Module available: {module}")
+            print(f" Module available: {module}")
         except ImportError:
-            print(f"❌ Module missing: {module}")
+            print(f" Module missing: {module}")
             all_ok = False
     
     return all_ok
@@ -107,9 +107,9 @@ def test_source_files():
     all_ok = True
     for file_path in source_files:
         if os.path.exists(file_path):
-            print(f"✅ Source file exists: {file_path}")
+            print(f" Source file exists: {file_path}")
         else:
-            print(f"❌ Source file missing: {file_path}")
+            print(f" Source file missing: {file_path}")
             all_ok = False
 
     return all_ok
@@ -131,25 +131,25 @@ def test_broker_credentials():
         api_secret = creds.get('apiSecret', '')
 
         if api_key and not api_key.startswith('${'):
-            print("✅ API key configured")
+            print(" API key configured")
         elif api_key.startswith('${'):
-            print("⚠️  API key uses environment variable placeholder")
+            print("  API key uses environment variable placeholder")
         else:
-            print("❌ No API key configured")
+            print(" No API key configured")
             return False
 
         if api_secret and not api_secret.startswith('${'):
-            print("✅ API secret configured")
+            print(" API secret configured")
         elif api_secret.startswith('${'):
-            print("⚠️  API secret uses environment variable placeholder")
+            print("  API secret uses environment variable placeholder")
         else:
-            print("❌ No API secret configured")
+            print(" No API secret configured")
             return False
 
         return True
 
     except Exception as e:
-        print(f"❌ Error testing broker credentials: {e}")
+        print(f" Error testing broker credentials: {e}")
         return False
 
 def main():
@@ -174,7 +174,7 @@ def main():
             success = test_func()
             results.append((test_name, success))
         except Exception as e:
-            print(f"❌ Test failed with error: {e}")
+            print(f" Test failed with error: {e}")
             results.append((test_name, False))
     
     # Summary
@@ -186,19 +186,19 @@ def main():
     total = len(results)
     
     for test_name, success in results:
-        status = "✅ PASS" if success else "❌ FAIL"
+        status = " PASS" if success else " FAIL"
         print(f"{status}: {test_name}")
     
     print(f"\n{passed}/{total} tests passed")
     
     if passed == total:
-        print("\n🎉 All tests passed! Setup is complete.")
+        print("\n All tests passed! Setup is complete.")
         print("\nNext steps:")
         print("1. Run: python src/main.py auth")
         print("2. Follow authentication prompts")
         print("3. Test with: python src/main.py interactive")
     else:
-        print(f"\n⚠️  {total - passed} tests failed. Please fix issues before proceeding.")
+        print(f"\n  {total - passed} tests failed. Please fix issues before proceeding.")
     
     print("="*60)
 

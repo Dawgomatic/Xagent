@@ -173,7 +173,7 @@ After running the auth flow (next step), it will also contain:
 
 ## Security Notes
 
-⚠️ **NEVER commit these files to git:**
+ **NEVER commit these files to git:**
 - `client_secret.json` — Your app's credentials
 - `token.json` — User's access tokens
 

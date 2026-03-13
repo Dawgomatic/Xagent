@@ -6,7 +6,7 @@ Works with any ancestry/ethnic background.
 
 Privacy: All analysis runs locally. No network requests.
 
-⚠️  IMPORTANT DISCLAIMERS:
+  IMPORTANT DISCLAIMERS:
 - This is NOT medical advice
 - Consult a healthcare provider before starting any supplements
 - Supplements can interact with medications
@@ -260,7 +260,7 @@ def generate_report(results):
     lines.append("=" * 70)
     lines.append("")
     lines.append("╔══════════════════════════════════════════════════════════════════╗")
-    lines.append("║  ⚠️  IMPORTANT: This is NOT medical advice.                      ║")
+    lines.append("║    IMPORTANT: This is NOT medical advice.                      ║")
     lines.append("║  • Consult a healthcare provider before starting supplements     ║")
     lines.append("║  • Supplements can interact with medications                     ║")
     lines.append("║  • Get baseline lab tests (B12, folate, D, ferritin, etc.)      ║")
@@ -271,7 +271,7 @@ def generate_report(results):
     # Things to AVOID first
     if results["avoid"]:
         lines.append("-" * 70)
-        lines.append("🚫 SUPPLEMENTS TO AVOID")
+        lines.append(" SUPPLEMENTS TO AVOID")
         lines.append("-" * 70)
         for rec in results["avoid"]:
             supp = rec["supplement"]
@@ -280,7 +280,7 @@ def generate_report(results):
             lines.append(f"  Reason: {supp['rationale']}")
             if supp.get('cautions'):
                 for c in supp['cautions']:
-                    lines.append(f"    ⚠️  {c}")
+                    lines.append(f"      {c}")
         lines.append("")
     
     # Recommendations
@@ -292,7 +292,7 @@ def generate_report(results):
         for rec in results["take"]:
             supp = rec["supplement"]
             lines.append("")
-            lines.append(f"  📋 {supp['name']}")
+            lines.append(f"   {supp['name']}")
             lines.append(f"  ─────────────────────────────────────")
             lines.append(f"  Gene: {rec['gene']} {rec['variant']}")
             lines.append(f"  Your genotype: {rec['genotype']}")
@@ -312,7 +312,7 @@ def generate_report(results):
             if supp.get('cautions'):
                 lines.append("  Cautions:")
                 for c in supp['cautions']:
-                    lines.append(f"    ⚠️  {c}")
+                    lines.append(f"      {c}")
             
             if supp.get('synergistic'):
                 lines.append(f"  Works well with: {', '.join(supp['synergistic'])}")

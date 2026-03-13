@@ -1,4 +1,4 @@
-# 🚀 api-mock-server
+#  api-mock-server
 
 Spin up a mock API server from any OpenAPI/Swagger spec — instant test data included.
 

@@ -6,7 +6,7 @@ const CREDS_FILE = path.join(process.env.HOME, '.config/xmihome/credentials.json
 
 async function extract() {
     if (!fs.existsSync(CREDS_FILE)) {
-        console.error('❌ Credentials not found.');
+        console.error(' Credentials not found.');
         return;
     }
     const creds = JSON.parse(fs.readFileSync(CREDS_FILE, 'utf8'));

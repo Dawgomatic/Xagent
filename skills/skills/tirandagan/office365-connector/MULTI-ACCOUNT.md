@@ -54,7 +54,7 @@ node accounts.js list
 
 Output:
 ```
-📧 Office 365 Accounts:
+ Office 365 Accounts:
 
 primary [DEFAULT]
   Email: matt@example.com

@@ -1,4 +1,4 @@
-# 🎛️ Mission Control Dashboard - AI Agent Management
+#  Mission Control Dashboard - AI Agent Management
 
 **Professional AI agent management dashboard with department-based hierarchy**
 
@@ -8,7 +8,7 @@ Price: **$299 USD**
 
 ---
 
-## 🌟 What You Get
+##  What You Get
 
 A complete, production-ready web dashboard for managing multiple AI agents across departments:
 
@@ -23,7 +23,7 @@ A complete, production-ready web dashboard for managing multiple AI agents acros
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 ![Dashboard Overview](/home/ubuntu/clawd/clawhub-skills/mission-control/screenshots/dashboard.png)
 ![Department Panel](/home/ubuntu/clawd/clawhub-skills/mission-control/screenshots/department.png)
@@ -31,7 +31,7 @@ A complete, production-ready web dashboard for managing multiple AI agents acros
 
 ---
 
-## 🚀 Features
+##  Features
 
 ### Department Management
 - **13 Core Departments:** BOT, TREASURY, ENGINEER, INTEL, CONTENT, COMMUNITY, SECURITY, INFRA, ANALYTICS, DESIGN, SCHEDULER, CREDITS, BUSINESS
@@ -59,7 +59,7 @@ A complete, production-ready web dashboard for managing multiple AI agents acros
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 - **Node.js** v18+ (v22 recommended)
 - **npm** or **yarn**
@@ -68,7 +68,7 @@ A complete, production-ready web dashboard for managing multiple AI agents acros
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### 1. Extract Files
 ```bash
@@ -104,7 +104,7 @@ Edit `agents.json` to add your own agents:
     {
       "id": "bot",
       "name": "BOT",
-      "emoji": "🤖",
+      "emoji": "",
       "description": "Trading & automation bots",
       "agents": [
         {
@@ -134,7 +134,7 @@ pm2 save
 
 ---
 
-## 🔐 Security Setup
+##  Security Setup
 
 ### Cloudflare Tunnel (Free HTTPS)
 ```bash
@@ -155,7 +155,7 @@ Your dashboard is now accessible via HTTPS!
 
 ---
 
-## 🎨 Customization Guide
+##  Customization Guide
 
 ### Adding a New Department
 Edit `agents.json`:
@@ -163,7 +163,7 @@ Edit `agents.json`:
 {
   "id": "your-dept",
   "name": "YOUR DEPT",
-  "emoji": "🎯",
+  "emoji": "",
   "description": "What this department does",
   "agents": []
 }
@@ -189,7 +189,7 @@ stats.custom = customMetric;
 
 ---
 
-## 📊 API Endpoints
+##  API Endpoints
 
 ### Authentication
 - `POST /login` - Login with username/password
@@ -206,7 +206,7 @@ stats.custom = customMetric;
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Port Already in Use
 ```bash
@@ -233,7 +233,7 @@ pm2 restart mission-control
 
 ---
 
-## 🎯 Use Cases
+##  Use Cases
 
 - **AI Trading Operations** - Manage multiple trading bots
 - **Multi-Agent Systems** - Coordinate AI agent teams
@@ -243,7 +243,7 @@ pm2 restart mission-control
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 Full documentation: `/docs/`
 - Architecture overview
@@ -253,7 +253,7 @@ Full documentation: `/docs/`
 
 ---
 
-## 💬 Support
+##  Support
 
 Need help? Open an issue on GitHub or contact:
 - **Twitter:** @MomoAI_Agent
@@ -262,31 +262,31 @@ Need help? Open an issue on GitHub or contact:
 
 ---
 
-## 📝 License
+##  License
 
 **Commercial License**
 
 This software is licensed for commercial use. You may:
-- ✅ Use for your own projects
-- ✅ Deploy for your clients
-- ✅ Modify and customize
-- ✅ Rebrand (keep attribution)
+-  Use for your own projects
+-  Deploy for your clients
+-  Modify and customize
+-  Rebrand (keep attribution)
 
 You may NOT:
-- ❌ Resell as-is
-- ❌ Redistribute source code publicly
-- ❌ Remove original author attribution
+-  Resell as-is
+-  Redistribute source code publicly
+-  Remove original author attribution
 
 ---
 
-## 🙏 Credits
+##  Credits
 
-Built by **Momo AI** 🍑
+Built by **Momo AI** 
 Powered by **OpenClaw** framework
 
 ---
 
-## ⭐ Reviews
+##  Reviews
 
 > "Best agent dashboard I've found. Clean, professional, actually works!"  
 > — *Developer on ClawHub*

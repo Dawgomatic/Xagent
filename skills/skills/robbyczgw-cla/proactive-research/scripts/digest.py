@@ -69,7 +69,7 @@ def generate_digest(findings_by_topic: dict, start: datetime, end: datetime) -> 
     config = load_config()
     
     # Header
-    digest = f"# 📊 Weekly Research Digest\n\n"
+    digest = f"#  Weekly Research Digest\n\n"
     digest += f"**{start.strftime('%B %d')} - {end.strftime('%B %d, %Y')}**\n\n"
     digest += "---\n\n"
     
@@ -81,7 +81,7 @@ def generate_digest(findings_by_topic: dict, start: datetime, end: datetime) -> 
         digest += "No new findings this week.\n"
         return digest
     
-    digest += f"📈 **Summary:** {total_findings} findings across {topic_count} topic(s)\n\n"
+    digest += f" **Summary:** {total_findings} findings across {topic_count} topic(s)\n\n"
     digest += "---\n\n"
     
     # Highlights (highest scored findings)
@@ -101,7 +101,7 @@ def generate_digest(findings_by_topic: dict, start: datetime, end: datetime) -> 
     all_findings.sort(key=lambda x: x["finding"].get("score", 0), reverse=True)
     
     if len(all_findings) >= 3:
-        digest += "## 🔥 Top Highlights\n\n"
+        digest += "##  Top Highlights\n\n"
         
         for item in all_findings[:3]:
             topic = item["topic"]
@@ -112,12 +112,12 @@ def generate_digest(findings_by_topic: dict, start: datetime, end: datetime) -> 
             digest += f"### {topic.get('name')} ({score:.2f})\n\n"
             digest += f"**{result.get('title', 'Untitled')}**\n\n"
             digest += f"{result.get('snippet', '')}\n\n"
-            digest += f"🔗 [{result.get('url', '')}]({result.get('url', '')})\n\n"
+            digest += f" [{result.get('url', '')}]({result.get('url', '')})\n\n"
         
         digest += "---\n\n"
     
     # Findings by topic
-    digest += "## 📚 Findings by Topic\n\n"
+    digest += "##  Findings by Topic\n\n"
     
     for topic_id, findings in sorted(findings_by_topic.items()):
         topic = get_topic(topic_id)
@@ -125,7 +125,7 @@ def generate_digest(findings_by_topic: dict, start: datetime, end: datetime) -> 
             continue
         
         topic_name = topic.get("name", topic_id)
-        topic_emoji = topic.get("emoji", "📌")
+        topic_emoji = topic.get("emoji", "")
         
         digest += f"### {topic_emoji} {topic_name}\n\n"
         digest += f"**{len(findings)} finding(s) this week**\n\n"
@@ -140,7 +140,7 @@ def generate_digest(findings_by_topic: dict, start: datetime, end: datetime) -> 
             
             digest += f"- **{result.get('title', 'Untitled')}** ({score:.2f})\n"
             digest += f"  {result.get('snippet', '')[:150]}...\n"
-            digest += f"  🔗 {result.get('url', '')}\n"
+            digest += f"   {result.get('url', '')}\n"
             if reason:
                 digest += f"  _Reason: {reason}_\n"
             digest += "\n"
@@ -152,7 +152,7 @@ def generate_digest(findings_by_topic: dict, start: datetime, end: datetime) -> 
     
     # Recommendations (future enhancement)
     digest += "---\n\n"
-    digest += "## 💡 Recommendations\n\n"
+    digest += "##  Recommendations\n\n"
     digest += "_Feature coming soon: AI-powered topic suggestions based on your findings_\n\n"
     
     return digest
@@ -172,9 +172,9 @@ def send_digest(digest: str, dry_run: bool = False):
         print("\n" + "="*60)
     else:
         # Would send via Telegram, Discord, Email
-        print("📧 Sending digest...")
+        print(" Sending digest...")
         print(digest)
-        print("\n✅ Digest sent")
+        print("\n Digest sent")
 
 
 def main():
@@ -189,13 +189,13 @@ def main():
     # Get week range
     start, end = get_week_range(args.week_offset)
     
-    print(f"📊 Generating digest for {start.strftime('%Y-%m-%d')} to {end.strftime('%Y-%m-%d')}")
+    print(f" Generating digest for {start.strftime('%Y-%m-%d')} to {end.strftime('%Y-%m-%d')}")
     
     # Load findings
     findings_by_topic = load_week_findings(start, end)
     
     if not findings_by_topic:
-        print("⚠️ No findings for this period")
+        print(" No findings for this period")
         return
     
     # Generate digest

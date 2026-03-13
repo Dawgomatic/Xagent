@@ -119,14 +119,14 @@ Once configured, you can ask your OpenClaw agent to interact with Trakt:
 
 ## Features
 
-- ✅ **Watchlist Management**: Add, remove, and view watchlist items
-- ✅ **Search**: Find movies and shows by title
-- ✅ **History Tracking**: Mark items as watched and view history
-- ✅ **Collection Management**: Track your physical and digital media
-- ✅ **Ratings**: Rate content on a 1-10 scale
-- ✅ **Discovery**: Get trending, popular, and personalized recommendations
-- ✅ **OAuth Authentication**: Secure API access
-- ✅ **Rate Limiting**: Respects Trakt API limits
+-  **Watchlist Management**: Add, remove, and view watchlist items
+-  **Search**: Find movies and shows by title
+-  **History Tracking**: Mark items as watched and view history
+-  **Collection Management**: Track your physical and digital media
+-  **Ratings**: Rate content on a 1-10 scale
+-  **Discovery**: Get trending, popular, and personalized recommendations
+-  **OAuth Authentication**: Secure API access
+-  **Rate Limiting**: Respects Trakt API limits
 
 ## How It Works
 

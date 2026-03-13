@@ -39,7 +39,7 @@ async function exportEvolutionHistory() {
     cycles.reverse();
 
     // Format for Feishu Doc (Markdown)
-    let markdown = "# 🧬 Evolution History (Mad Dog) \n\n> Auto-generated report of self-improvement cycles.\n\n";
+    let markdown = "#  Evolution History (Mad Dog) \n\n> Auto-generated report of self-improvement cycles.\n\n";
     
     // Split into chunks if too big
     const chunks = [];

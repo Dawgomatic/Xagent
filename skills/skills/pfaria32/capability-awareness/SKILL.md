@@ -71,8 +71,8 @@ See repository for:
 
 ## Status
 
-✅ **Skills-First approach** — Deployed and working
-📋 **Full Injection design** — Documented, not yet implemented
+ **Skills-First approach** — Deployed and working
+ **Full Injection design** — Documented, not yet implemented
 
 ## Attribution
 

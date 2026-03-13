@@ -285,7 +285,7 @@ class MeshtasticPersistent extends EventEmitter {
    */
   async process(input) {
     if (!this.connected) {
-      return '❌ Not connected to meshtastic device';
+      return ' Not connected to meshtastic device';
     }
 
     const lower = input.toLowerCase().trim();
@@ -295,9 +295,9 @@ class MeshtasticPersistent extends EventEmitter {
       if (lower.includes('node') || lower.includes('show') || lower.includes('list')) {
         const result = await this.getNodes();
         if (result.success) {
-          return `📡 Mesh Nodes:\n${result.output}`;
+          return ` Mesh Nodes:\n${result.output}`;
         } else {
-          return `❌ Failed to fetch nodes: ${result.error}`;
+          return ` Failed to fetch nodes: ${result.error}`;
         }
       }
 
@@ -305,9 +305,9 @@ class MeshtasticPersistent extends EventEmitter {
       if (lower.includes('info') || lower.includes('status')) {
         const result = await this.getInfo();
         if (result.success) {
-          return `ℹ️ Device Info:\n${result.output}`;
+          return ` Device Info:\n${result.output}`;
         } else {
-          return `❌ Failed: ${result.error}`;
+          return ` Failed: ${result.error}`;
         }
       }
 
@@ -319,9 +319,9 @@ class MeshtasticPersistent extends EventEmitter {
           const text = match[1];
           const result = await this.sendMessage(text);
           if (result.success) {
-            return `✅ Broadcast sent: "${text}"`;
+            return ` Broadcast sent: "${text}"`;
           } else {
-            return `❌ Failed to send: ${result.error}`;
+            return ` Failed to send: ${result.error}`;
           }
         }
         
@@ -331,9 +331,9 @@ class MeshtasticPersistent extends EventEmitter {
           const text = match[1];
           const result = await this.sendMessage(text);
           if (result.success) {
-            return `✅ Broadcast sent: "${text}"`;
+            return ` Broadcast sent: "${text}"`;
           } else {
-            return `❌ Failed to send: ${result.error}`;
+            return ` Failed to send: ${result.error}`;
           }
         }
         
@@ -344,9 +344,9 @@ class MeshtasticPersistent extends EventEmitter {
           const text = match[2];
           const result = await this.sendToNode(nodeId, text);
           if (result.success) {
-            return `✅ Message sent to ${nodeId}: "${text}"`;
+            return ` Message sent to ${nodeId}: "${text}"`;
           } else {
-            return `❌ Failed to send: ${result.error}`;
+            return ` Failed to send: ${result.error}`;
           }
         }
         
@@ -356,9 +356,9 @@ class MeshtasticPersistent extends EventEmitter {
           const text = match[1];
           const result = await this.sendMessage(text);
           if (result.success) {
-            return `✅ Broadcast sent: "${text}"`;
+            return ` Broadcast sent: "${text}"`;
           } else {
-            return `❌ Failed to send: ${result.error}`;
+            return ` Failed to send: ${result.error}`;
           }
         }
         
@@ -368,7 +368,7 @@ class MeshtasticPersistent extends EventEmitter {
       return 'Unknown command. Try: nodes, info, broadcast, send';
     } catch (err) {
       this.log(`Error processing command: ${err.message}`);
-      return `❌ Error: ${err.message}`;
+      return ` Error: ${err.message}`;
     }
   }
 
@@ -422,9 +422,9 @@ async function main() {
 
   try {
     // Connect
-    console.log('🔌 Connecting to Meshtastic device...');
+    console.log(' Connecting to Meshtastic device...');
     await meshInstance.connect();
-    console.log('✅ Connected!');
+    console.log(' Connected!');
 
     if (command) {
       // Single command mode
@@ -438,7 +438,7 @@ async function main() {
       }, 1000);
     } else {
       // Interactive mode
-      console.log('\n🤖 Meshtastic Persistent CLI\n');
+      console.log('\n Meshtastic Persistent CLI\n');
       console.log(`Port: ${meshInstance.port}\n`);
       
       const rl = readline.createInterface({
@@ -473,7 +473,7 @@ async function main() {
       });
     }
   } catch (err) {
-    console.error(`❌ Error: ${err.message}`);
+    console.error(` Error: ${err.message}`);
     if (meshInstance) {
       meshInstance.disconnect();
     }

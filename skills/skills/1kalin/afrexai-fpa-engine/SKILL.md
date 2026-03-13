@@ -317,7 +317,7 @@ unit_economics:
 
 ### Unit Economics Health Check
 
-| Metric | 🔴 Danger | 🟡 OK | 🟢 Healthy | 🔵 Excellent |
+| Metric |  Danger |  OK |  Healthy |  Excellent |
 |--------|----------|-------|-----------|-------------|
 | LTV/CAC | < 1x | 1-3x | 3-5x | > 5x |
 | CAC Payback | > 24 mo | 12-24 mo | 6-12 mo | < 6 mo |

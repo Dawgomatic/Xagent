@@ -109,7 +109,7 @@ npx -y @satori-sh/cli add "User is building Satori, an AI memory infrastructure 
 
 If CLI fails or isn't installed:
 ```
-⚠️ Satori CLI error: [error message]
+ Satori CLI error: [error message]
 To install: npm install -g @satori-sh/cli
 Facts were not saved. Would you like me to show what I attempted to save?
 ```

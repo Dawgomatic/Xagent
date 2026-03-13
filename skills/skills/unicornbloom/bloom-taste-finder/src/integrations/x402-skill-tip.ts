@@ -56,7 +56,7 @@ export class X402SkillTip {
     userWalletAddress: string,
     tipRequests: TipRequest[]
   ): Promise<BatchTipResult> {
-    console.log(`💰 Processing ${tipRequests.length} skill tips for user ${userId}...`);
+    console.log(` Processing ${tipRequests.length} skill tips for user ${userId}...`);
 
     const results: TipResult[] = [];
     let totalAmount = 0;
@@ -81,9 +81,9 @@ export class X402SkillTip {
         });
 
         totalAmount += tip.amount;
-        console.log(`  ✅ Tip successful: ${result.transactionHash}`);
+        console.log(`   Tip successful: ${result.transactionHash}`);
       } catch (error) {
-        console.error(`  ❌ Tip failed for ${tip.skillName}:`, error);
+        console.error(`   Tip failed for ${tip.skillName}:`, error);
         results.push({
           skillId: tip.skillId,
           skillName: tip.skillName,
@@ -99,7 +99,7 @@ export class X402SkillTip {
     const successfulTips = results.filter(r => r.status === 'success');
     const failedTips = results.filter(r => r.status === 'failed');
 
-    console.log(`✅ Batch tip complete: ${successfulTips.length}/${tipRequests.length} successful`);
+    console.log(` Batch tip complete: ${successfulTips.length}/${tipRequests.length} successful`);
 
     return {
       success: successfulTips.length > 0,
@@ -148,7 +148,7 @@ export class X402SkillTip {
       .map(selection => {
         const skill = allSkills.find(s => s.skillId === selection.skillId);
         if (!skill || !skill.creatorWallet) {
-          console.warn(`⚠️  Skill ${selection.skillId} not found or missing wallet`);
+          console.warn(`  Skill ${selection.skillId} not found or missing wallet`);
           return null;
         }
 
@@ -224,9 +224,9 @@ export class X402SkillTip {
   static formatTipResults(result: BatchTipResult): string {
     const { successfulTips, failedTips, totalAmount, totalSkills } = result;
 
-    let message = `💰 Skill Tipping Complete!\n\n`;
-    message += `✅ ${successfulTips.length}/${totalSkills} tips successful\n`;
-    message += `💵 Total tipped: $${totalAmount}\n\n`;
+    let message = ` Skill Tipping Complete!\n\n`;
+    message += ` ${successfulTips.length}/${totalSkills} tips successful\n`;
+    message += ` Total tipped: $${totalAmount}\n\n`;
 
     if (successfulTips.length > 0) {
       message += `**Successful Tips:**\n`;

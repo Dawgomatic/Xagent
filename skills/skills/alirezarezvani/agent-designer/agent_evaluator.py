@@ -1209,9 +1209,9 @@ def main():
             print(f"  {i}. {rec.title}")
         
         if report.summary['critical_issues'] > 0:
-            print(f"\n⚠️  CRITICAL: {report.summary['critical_issues']} critical issues require immediate attention")
+            print(f"\n  CRITICAL: {report.summary['critical_issues']} critical issues require immediate attention")
         
-        print(f"\n📊 Detailed reports available in generated files")
+        print(f"\n Detailed reports available in generated files")
         print(f"{'='*60}")
         
     except Exception as e:

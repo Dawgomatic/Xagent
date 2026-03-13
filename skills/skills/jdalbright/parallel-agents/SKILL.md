@@ -1,24 +1,24 @@
 # Parallel Agents Skill - REAL AI Edition
 
-🚀 **Execute tasks with ACTUAL AI-powered parallel agents using OpenClaw's sessions_spawn.**
+ **Execute tasks with ACTUAL AI-powered parallel agents using OpenClaw's sessions_spawn.**
 
-> ⚠️ **HONEST STATUS**: This skill has been rewritten to use REAL AI via sessions_spawn.
+>  **HONEST STATUS**: This skill has been rewritten to use REAL AI via sessions_spawn.
 > Previously it simulated agents with templates. Now it ACTUALLY spawns AI sub-sessions.
 
-## 🚨 CRITICAL USAGE NOTE
+##  CRITICAL USAGE NOTE
 
 **The orchestrator MUST be called from within an OpenClaw agent session, NOT as a standalone script.**
 
 Why? The `tools` module (which provides `sessions_spawn`) is only available in the agent's runtime context, not in subprocess/exec calls.
 
-**✅ CORRECT**: Call sessions_spawn directly from agent code (see USAGE-GUIDE.md)
-**❌ INCORRECT**: Run orchestrator as standalone Python script via exec/subprocess
+** CORRECT**: Call sessions_spawn directly from agent code (see USAGE-GUIDE.md)
+** INCORRECT**: Run orchestrator as standalone Python script via exec/subprocess
 
-📖 **SEE:** `USAGE-GUIDE.md` for tested working examples and patterns
+ **SEE:** `USAGE-GUIDE.md` for tested working examples and patterns
 
 ---
 
-## 🎯 Capabilities
+##  Capabilities
 
 This skill provides **4 levels of agent automation**:
 
@@ -30,12 +30,12 @@ This skill provides **4 levels of agent automation**:
 | **4** | **Agent Orchestrator** | Fully autonomous workflow management - just ask and it handles everything |
 
 **Proven Capabilities:**
-- ✅ **20 concurrent agents** spawned simultaneously
-- ✅ **Smart model hierarchy** - Haiku → Kimi → Opus (cost optimization)
-- ✅ **Auto-escalation** - Agents automatically use better models if needed
-- ✅ **100% success rate** on mass creation tests with hierarchy
-- ✅ **3/3 agents** refined to 8.5+ quality in single iteration
-- ✅ **4-agent hierarchy** for complete autonomy
+-  **20 concurrent agents** spawned simultaneously
+-  **Smart model hierarchy** - Haiku → Kimi → Opus (cost optimization)
+-  **Auto-escalation** - Agents automatically use better models if needed
+-  **100% success rate** on mass creation tests with hierarchy
+-  **3/3 agents** refined to 8.5+ quality in single iteration
+-  **4-agent hierarchy** for complete autonomy
 
 ---
 
@@ -47,8 +47,8 @@ This skill creates **real AI sub-sessions** using OpenClaw's `sessions_spawn` to
 - Completely isolated from other agents
 - Able to use all the same tools as the host
 
-**Previous version**: Subprocess workers with templates ❌  
-**Current version**: Real spawned AI sessions ✅
+**Previous version**: Subprocess workers with templates   
+**Current version**: Real spawned AI sessions 
 
 ---
 
@@ -62,7 +62,7 @@ This skill creates **real AI sub-sessions** using OpenClaw's `sessions_spawn` to
 
 ## Quick Start
 
-### ✅ Correct Usage: Direct sessions_spawn Calls
+###  Correct Usage: Direct sessions_spawn Calls
 
 **From within an OpenClaw agent (like Scout):**
 
@@ -95,7 +95,7 @@ result3 = sessions_spawn(
 # Check results with sessions_list() and sessions_history()
 ```
 
-### ❌ Incorrect Usage: Standalone Script
+###  Incorrect Usage: Standalone Script
 
 ```bash
 # This WON'T work - tools module not available in subprocess
@@ -136,7 +136,7 @@ results = orch.run_parallel(tasks)
 ┌─────────────────────────────────────────────────────────┐
 │                    Main Session                         │
 │              (Your OpenClaw Instance)                   │
-│                      🧠 Host AI                         │
+│                       Host AI                         │
 └─────────────────────┬───────────────────────────────────┘
                       │ sessions_spawn (REAL)
                       │
@@ -144,7 +144,7 @@ results = orch.run_parallel(tasks)
         │             │             │             │
    ┌────▼────┐   ┌────▼────┐   ┌────▼────┐   ┌────▼────┐
    │ Agent 1 │   │ Agent 2 │   │ Agent 3 │   │ Agent N │
-   │   📝    │   │   💻    │   │   🔍    │   │   🎨    │
+   │       │   │       │   │       │   │       │
    │ REAL AI │   │ REAL AI │   │ REAL AI │   │ REAL AI │
    │ Session │   │ Session │   │ Session │   │ Session │
    └─────────┘   └─────────┘   └─────────┘   └─────────┘
@@ -206,7 +206,7 @@ result = sessions_spawn(
 |------------|---------|
 | `documentation_writer` | READMEs, API docs, guides |
 
-### Personalized Agents (Jake's Suite) 🐾
+### Personalized Agents (Jake's Suite) 
 
 Agents created specifically for Jake's needs via agent_orchestrator research:
 
@@ -223,10 +223,10 @@ Agents created specifically for Jake's needs via agent_orchestrator research:
 - 5 Development Agents  
 - 5 QA Agents
 - 1 Documentation Agent
-- **5 Personalized Agents** 🆕
+- **5 Personalized Agents** 
 - **4 Meta Agents**
 
-### Meta Agents 🔄 (Agent Creation System)
+### Meta Agents  (Agent Creation System)
 
 | Agent Type | Purpose | What It Does |
 |------------|---------|--------------|
@@ -254,7 +254,7 @@ Level 0: Actual Tasks
 - 5 Development Agents  
 - 5 QA Agents
 - 1 Documentation Agent
-- **4 Meta Agents** 🆕
+- **4 Meta Agents** 
 
 ---
 
@@ -290,7 +290,7 @@ agents_to_refine = [
 
 # This runs the full loop automatically
 results = orch.run_iterative_refinement(agents_to_refine)
-# Result: 7.4 → 8.5+ ✅
+# Result: 7.4 → 8.5+ 
 ```
 
 **Workflow 3: Orchestrated Mass Creation (autonomous)**
@@ -402,7 +402,7 @@ results = orch.run_parallel(tasks)
 # - Test coverage
 ```
 
-### Example 4: Meta-Agent System (Agents Creating Agents) 🔄
+### Example 4: Meta-Agent System (Agents Creating Agents) 
 
 ```python
 from ai_orchestrator import (
@@ -444,7 +444,7 @@ results = orch.run_parallel(tasks)
 
 **This is agent bootstrapping** - the system creates itself!
 
-### Example 5: Mass Agent Creation (10+ Agents at Once) 🔥
+### Example 5: Mass Agent Creation (10+ Agents at Once) 
 
 **Proven Capability**: The system has been tested with **20 concurrent agents** (10 creators + 10 reviewers) all spawned simultaneously.
 
@@ -487,11 +487,11 @@ results = orch.run_parallel(all_tasks)
 ```
 
 **Real-World Results** (2026-02-08 Test):
-- ✅ 10 Agent Creators spawned successfully
-- ✅ 10 Design Reviewers spawned successfully
-- ✅ All 20 completed without errors
-- ✅ Average quality score: 8.1/10
-- ✅ Production-ready agent definitions created
+-  10 Agent Creators spawned successfully
+-  10 Design Reviewers spawned successfully
+-  All 20 completed without errors
+-  Average quality score: 8.1/10
+-  Production-ready agent definitions created
 
 **Practical Limit**: ~20-50 concurrent agents (depends on system resources)
 
@@ -565,20 +565,20 @@ Previous implementations tried:
 ## Version History
 
 - **3.2.0** (2026-02-08): **SMART MODEL HIERARCHY**
-  - ✅ Added intelligent model escalation (Haiku → Kimi → Opus)
-  - ✅ Cost optimization: Try cheapest model first, escalate if needed
-  - ✅ Updated helpers.py with spawn_with_model_hierarchy()
-  - ✅ Auto-escalation in spawn_with_retry() and spawn_parallel_with_retry()
-  - ✅ Comprehensive docs on model selection and cost savings
-  - ✅ Tested: Haiku completes simple tasks successfully
+  -  Added intelligent model escalation (Haiku → Kimi → Opus)
+  -  Cost optimization: Try cheapest model first, escalate if needed
+  -  Updated helpers.py with spawn_with_model_hierarchy()
+  -  Auto-escalation in spawn_with_retry() and spawn_parallel_with_retry()
+  -  Comprehensive docs on model selection and cost savings
+  -  Tested: Haiku completes simple tasks successfully
 
 - **3.1.0** (2026-02-08): **PRODUCTION READY**
-  - ✅ Added auto-retry helpers (spawn_with_retry, spawn_parallel_with_retry)
-  - ✅ Cleaned up development artifacts (removed 18 outdated files)
-  - ✅ Added comprehensive documentation (README, USAGE-GUIDE)
-  - ✅ Simplified examples (one clear working example)
-  - ✅ Tested in production (Savannah trip research)
-  - ✅ Published to ClawHub
+  -  Added auto-retry helpers (spawn_with_retry, spawn_parallel_with_retry)
+  -  Cleaned up development artifacts (removed 18 outdated files)
+  -  Added comprehensive documentation (README, USAGE-GUIDE)
+  -  Simplified examples (one clear working example)
+  -  Tested in production (Savannah trip research)
+  -  Published to ClawHub
 
 - **3.0.0** (2026-02-08): **NUCLEAR OPTION - REAL AI AGENTS**
   - Complete rewrite to use sessions_spawn
@@ -618,7 +618,7 @@ No more simulation. No more templates. When you run this inside OpenClaw:
 
 The agents don't just execute code — they **think, create, and analyze** independently using genuine AI cognition.
 
-**Welcome to actual parallel AI.** 🚀
+**Welcome to actual parallel AI.** 
 
 ---
 

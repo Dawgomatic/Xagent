@@ -130,7 +130,7 @@ cat > ~/.ssh-workdir/rock-5t/2026-02-07-system-check/summary.md << 'EOF'
 Weekly system health check for rock-5t server.
 
 ## Disk
-- Root (/): 72% used (14G/20G) ⚠️ +2% from last week
+- Root (/): 72% used (14G/20G)  +2% from last week
 - /home: 45% used
 - /var: 58% used
 - /dev/sda1 (data): 65% used
@@ -150,11 +150,11 @@ Weekly system health check for rock-5t server.
 - No unusual connections detected
 
 ## Services
-- nginx: Running ✅
-- docker: Running ✅
-- postgres: Running ✅
-- fail2ban: Running ✅
-- redis: Running ✅
+- nginx: Running 
+- docker: Running 
+- postgres: Running 
+- fail2ban: Running 
+- redis: Running 
 
 ## Docker
 - 5 containers running
@@ -162,11 +162,11 @@ Weekly system health check for rock-5t server.
 
 ## Issues Found
 
-### ⚠️ Disk Usage Increased
+###  Disk Usage Increased
 Root partition at 72%, up from 70% last week.
 Recommend: Clean up /var/log and old Docker images.
 
-### ⚠️ Redis Using More Memory
+###  Redis Using More Memory
 Redis using 850MB, up from 600MB last month.
 Recommend: Check Redis configuration and memory limits.
 

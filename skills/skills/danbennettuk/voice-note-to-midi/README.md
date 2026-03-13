@@ -1,4 +1,4 @@
-# 🎵 Voice Note to MIDI
+#  Voice Note to MIDI
 
 Convert voice memos, humming, and melodic recordings to clean, quantized MIDI files.
 
@@ -111,4 +111,4 @@ Uses [Basic Pitch](https://github.com/spotify/basic-pitch) by Spotify, librosa, 
 
 ---
 
-Made with 🦊 for [Clawdbot](https://clawdhub.com)
+Made with  for [Clawdbot](https://clawdhub.com)

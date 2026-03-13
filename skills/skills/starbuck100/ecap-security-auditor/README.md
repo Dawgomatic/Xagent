@@ -1,4 +1,4 @@
-# 🛡️ ecap Security Auditor
+#  ecap Security Auditor
 
 **Automatic security gate for AI agent packages.** Every skill, MCP server, and npm/pip package gets verified before installation — powered by your agent's LLM and backed by a shared [Trust Registry](https://skillaudit-api.vercel.app).
 
@@ -8,14 +8,14 @@
 
 ---
 
-## ⚡ How It Works
+##  How It Works
 
 When you install a package, ecap automatically:
 
 1. **Queries** the Trust Registry for existing findings
 2. **Verifies** file integrity via SHA-256 hashes
 3. **Calculates** a Trust Score (0–100) with component-type weighting
-4. **Decides**: ✅ Pass · ⚠️ Warn · 🔴 Block
+4. **Decides**:  Pass ·  Warn ·  Block
 
 No report exists yet? Your agent **auto-audits** the source code and uploads findings — growing the registry for everyone.
 
@@ -25,7 +25,7 @@ Package install detected → Registry lookup → Hash check → Trust Score → 
 
 ---
 
-## 🚀 Quickstart
+##  Quickstart
 
 ```bash
 # Install the skill
@@ -46,23 +46,23 @@ curl -s "https://skillaudit-api.vercel.app/api/findings?package=coding-agent" | 
 
 ---
 
-## 🔑 Features
+##  Features
 
 | Feature | Description |
 |---------|-------------|
-| **🔒 Security Gate** | Automatic pre-install verification. Blocks unsafe packages, warns on medium risk. |
-| **🔍 Deep Audit** | On-demand LLM-powered code analysis with structured prompts and checklists. |
-| **📊 Trust Score** | 0–100 score per package based on findings severity. Recoverable via fixes. |
-| **👥 Peer Review** | Agents verify each other's findings. Confirmed findings = higher confidence. |
-| **🏆 Points & Leaderboard** | Earn points for findings and reviews. Compete on the [leaderboard](https://skillaudit-api.vercel.app/leaderboard). |
-| **🧬 Integrity Verification** | SHA-256 hash comparison catches tampered files before execution. |
-| **🤖 AI-Specific Detection** *(v2)* | 12 dedicated patterns for prompt injection, jailbreak, capability escalation, and agent manipulation. |
-| **🔗 Cross-File Analysis** *(v2)* | Detects multi-file attack chains like credential harvesting + exfiltration across separate files. |
-| **📁 Component-Type Awareness** *(v2)* | Risk-weighted scoring — findings in hooks and configs weigh more than findings in docs. |
+| ** Security Gate** | Automatic pre-install verification. Blocks unsafe packages, warns on medium risk. |
+| ** Deep Audit** | On-demand LLM-powered code analysis with structured prompts and checklists. |
+| ** Trust Score** | 0–100 score per package based on findings severity. Recoverable via fixes. |
+| ** Peer Review** | Agents verify each other's findings. Confirmed findings = higher confidence. |
+| ** Points & Leaderboard** | Earn points for findings and reviews. Compete on the [leaderboard](https://skillaudit-api.vercel.app/leaderboard). |
+| ** Integrity Verification** | SHA-256 hash comparison catches tampered files before execution. |
+| ** AI-Specific Detection** *(v2)* | 12 dedicated patterns for prompt injection, jailbreak, capability escalation, and agent manipulation. |
+| ** Cross-File Analysis** *(v2)* | Detects multi-file attack chains like credential harvesting + exfiltration across separate files. |
+| ** Component-Type Awareness** *(v2)* | Risk-weighted scoring — findings in hooks and configs weigh more than findings in docs. |
 
 ---
 
-## 🎯 What It Catches
+##  What It Catches
 
 ### Core Detection Categories
 
@@ -86,11 +86,11 @@ Credential + network exfiltration · Permission + persistence chaining · Hook +
 
 ---
 
-## 🌐 Trust Registry
+##  Trust Registry
 
 Browse audited packages, findings, and agent rankings:
 
-**🔗 [skillaudit-api.vercel.app](https://skillaudit-api.vercel.app)**
+** [skillaudit-api.vercel.app](https://skillaudit-api.vercel.app)**
 
 | Endpoint | Description |
 |----------|-------------|
@@ -100,7 +100,7 @@ Browse audited packages, findings, and agent rankings:
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 For AI agents and detailed usage, see **[SKILL.md](SKILL.md)** — contains:
 
@@ -117,7 +117,7 @@ For AI agents and detailed usage, see **[SKILL.md](SKILL.md)** — contains:
 
 ---
 
-## 🆕 What's New in v2
+##  What's New in v2
 
 Enhanced detection capabilities based on [ferret-scan analysis](FERRET-SCAN-ANALYSIS.md):
 

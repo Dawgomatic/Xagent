@@ -9,12 +9,12 @@ validate_dirname() {
     local dir="$1"
     # Prevent directory traversal - disallow .. and absolute paths
     if [[ "$dir" == *".."* ]] || [[ "$dir" == /* ]]; then
-        echo "❌ Error: Invalid directory name. Cannot contain '..' or start with '/'"
+        echo " Error: Invalid directory name. Cannot contain '..' or start with '/'"
         exit 1
     fi
     # Limit length
     if [ ${#dir} -gt 255 ]; then
-        echo "❌ Error: Directory name too long (max 255 chars)"
+        echo " Error: Directory name too long (max 255 chars)"
         exit 1
     fi
     echo "$dir"
@@ -25,13 +25,13 @@ MINERU_TOKEN="${MINERU_TOKEN:-${MINERU_API_KEY:-}}"
 MINERU_BASE_URL="${MINERU_BASE_URL:-https://mineru.net/api/v4}"
 
 if [ -z "$MINERU_TOKEN" ]; then
-    echo "❌ Error: Please set MINERU_TOKEN or MINERU_API_KEY environment variable"
+    echo " Error: Please set MINERU_TOKEN or MINERU_API_KEY environment variable"
     exit 1
 fi
 
 TASK_ID="${1:-}"
 if [ -z "$TASK_ID" ]; then
-    echo "❌ Error: Please provide task_id"
+    echo " Error: Please provide task_id"
     echo "Usage: $0 <task_id> [output_directory] [max_retries] [retry_interval_seconds]"
     echo ""
     echo "Example:"
@@ -71,7 +71,7 @@ for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
     fi
     
     if [ "$CODE" != "0" ]; then
-        echo "⚠️  API Error: $RESPONSE"
+        echo "  API Error: $RESPONSE"
         sleep $RETRY_INTERVAL
         continue
     fi
@@ -88,7 +88,7 @@ for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
     case "$STATE" in
         "done")
             echo ""
-            echo "✅ Extraction Complete!"
+            echo " Extraction Complete!"
             
             if command -v jq &> /dev/null; then
                 ZIP_URL=$(echo "$RESPONSE" | jq -r '.data.full_zip_url // empty')
@@ -98,7 +98,7 @@ for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
             
             # Validate ZIP URL
             if [[ ! "$ZIP_URL" =~ ^https://cdn-mineru\.openxlab\.org\.cn/ ]]; then
-                echo "❌ Error: Invalid ZIP URL from API"
+                echo " Error: Invalid ZIP URL from API"
                 exit 1
             fi
             
@@ -113,24 +113,24 @@ for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
             mkdir -p "$OUTPUT_DIR"
             
             ZIP_NAME="result.zip"
-            echo "📥 Downloading..."
+            echo " Downloading..."
             curl -L -o "${OUTPUT_DIR}/${ZIP_NAME}" "$ZIP_URL"
             
             # Validate ZIP
             if ! unzip -t "${OUTPUT_DIR}/${ZIP_NAME}" &>/dev/null; then
-                echo "❌ Error: Invalid ZIP file downloaded"
+                echo " Error: Invalid ZIP file downloaded"
                 exit 1
             fi
             
-            echo "📦 Extracting..."
+            echo " Extracting..."
             unzip -q "${OUTPUT_DIR}/${ZIP_NAME}" -d "${OUTPUT_DIR}/extracted"
             
             echo ""
-            echo "✅ Complete! Results saved to: $OUTPUT_DIR/extracted/"
+            echo " Complete! Results saved to: $OUTPUT_DIR/extracted/"
             echo ""
             echo "Key files:"
-            echo "  📄 $OUTPUT_DIR/extracted/full.md - Markdown document"
-            echo "  🖼️  $OUTPUT_DIR/extracted/images/ - Extracted images"
+            echo "   $OUTPUT_DIR/extracted/full.md - Markdown document"
+            echo "    $OUTPUT_DIR/extracted/images/ - Extracted images"
             exit 0
             ;;
         "failed")
@@ -140,7 +140,7 @@ for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
                 ERR_MSG=$(echo "$RESPONSE" | grep -o '"err_msg":"[^"]*"' | head -1 | cut -d'"' -f4)
             fi
             echo ""
-            echo "❌ Extraction Failed: $ERR_MSG"
+            echo " Extraction Failed: $ERR_MSG"
             exit 1
             ;;
         "running"|"pending")
@@ -155,5 +155,5 @@ for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
 done
 
 echo ""
-echo "❌ Polling timeout, waited $((MAX_RETRIES * RETRY_INTERVAL)) seconds"
+echo " Polling timeout, waited $((MAX_RETRIES * RETRY_INTERVAL)) seconds"
 exit 1

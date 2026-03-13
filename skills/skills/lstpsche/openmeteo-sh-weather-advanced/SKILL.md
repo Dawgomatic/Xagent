@@ -1,7 +1,7 @@
 ---
 name: openmeteo-sh-weather-advanced
 description: "Advanced weather from free OpenMeteo API: historical data, detailed variable selection, model choice, past-days, and in-depth forecasts. Use when the user asks about historical weather, specific weather models, niche variables (pressure, dew point, snow depth, etc.), or needs fine-grained control beyond simple current/forecast queries."
-metadata: {"openclaw":{"emoji":"🌦","requires":{"bins":["openmeteo"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["openmeteo"]}}}
 homepage: https://github.com/lstpsche/openmeteo-sh
 user-invocable: true
 ---

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""🐾 AI Usage & Cost Tracker — logging library.
+""" AI Usage & Cost Tracker — logging library.
 
 Usage:
     from tracker import log_usage
@@ -11,7 +11,7 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 
-# 🐾 paw print: every log entry is a little footprint in the snow
+#  paw print: every log entry is a little footprint in the snow
 _HERE = Path(__file__).resolve().parent
 _PRICING_PATH = _HERE / "pricing.json"
 _USAGE_PATH = _HERE / "usage.jsonl"
@@ -36,7 +36,7 @@ def _resolve_model(name: str, models: dict) -> str | None:
 
 
 def estimate_cost(model: str, input_tokens: int, output_tokens: int) -> float:
-    """Calculate cost in USD from token counts. 🐾"""
+    """Calculate cost in USD from token counts. """
     pricing = _load_pricing()
     models = pricing["models"]
     key = _resolve_model(model, models)
@@ -55,7 +55,7 @@ def log_usage(
     source: str = "manual",
     cost_override: float | None = None,
 ) -> dict:
-    """Append a usage entry to the JSONL log. Returns the entry. 🐾"""
+    """Append a usage entry to the JSONL log. Returns the entry. """
     total = input_tokens + output_tokens
     cost = cost_override if cost_override is not None else estimate_cost(model, input_tokens, output_tokens)
 
@@ -70,7 +70,7 @@ def log_usage(
     }
 
     with open(_USAGE_PATH, "a") as f:
-        f.write(json.dumps(entry) + "\n")  # 🐾 another paw in the log
+        f.write(json.dumps(entry) + "\n")  #  another paw in the log
 
     return entry
 
@@ -79,7 +79,7 @@ def log_usage(
 if __name__ == "__main__":
     import argparse
 
-    p = argparse.ArgumentParser(description="Log an AI usage entry 🐾")
+    p = argparse.ArgumentParser(description="Log an AI usage entry ")
     p.add_argument("model")
     p.add_argument("input_tokens", type=int)
     p.add_argument("output_tokens", type=int)

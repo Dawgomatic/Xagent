@@ -68,14 +68,14 @@ async function getOdosQuote(
   });
   
   if (!response.ok) {
-    console.log(`  ⚠️ Odos quote failed: ${response.status}`);
+    console.log(`   Odos quote failed: ${response.status}`);
     return null;
   }
   
   const data = await response.json() as OdosQuoteResponse;
   
   if (!data.pathId || !Array.isArray(data.outAmounts)) {
-    console.log(`  ⚠️ Invalid Odos quote response`);
+    console.log(`   Invalid Odos quote response`);
     return null;
   }
   
@@ -97,14 +97,14 @@ async function assembleOdosTransaction(
   });
   
   if (!response.ok) {
-    console.log(`  ⚠️ Odos assemble failed: ${response.status}`);
+    console.log(`   Odos assemble failed: ${response.status}`);
     return null;
   }
   
   const data = await response.json() as OdosAssembleResponse;
   
   if (!data.transaction?.to || !data.transaction?.data) {
-    console.log(`  ⚠️ Invalid Odos assemble response`);
+    console.log(`   Invalid Odos assemble response`);
     return null;
   }
   
@@ -126,7 +126,7 @@ async function swapToken(
   // Get quote
   const quote = await getOdosQuote(tokenIn, amountIn, tokenOut, account.address);
   if (!quote) {
-    console.log(`  ❌ Could not get quote`);
+    console.log(`   Could not get quote`);
     return false;
   }
   
@@ -154,19 +154,19 @@ async function swapToken(
         amountIn,
         tokenInSymbol
       );
-      console.log(`  ✅ Approved and verified! Tx: ${approveHash}`);
+      console.log(`   Approved and verified! Tx: ${approveHash}`);
     } catch (err) {
-      console.log(`  ❌ Approval failed: ${err instanceof Error ? err.message : String(err)}`);
+      console.log(`   Approval failed: ${err instanceof Error ? err.message : String(err)}`);
       return false;
     }
   } else {
-    console.log(`  ✅ Already approved`);
+    console.log(`   Already approved`);
   }
   
   // Assemble transaction
   const assembled = await assembleOdosTransaction(quote.pathId, account.address);
   if (!assembled) {
-    console.log(`  ❌ Could not assemble transaction`);
+    console.log(`   Could not assemble transaction`);
     return false;
   }
   
@@ -199,14 +199,14 @@ async function swapToken(
         test: true,
       });
       
-      console.log(`  ✅ Swapped!`);
+      console.log(`   Swapped!`);
       return true;
     } else {
-      console.log(`  ❌ Swap reverted`);
+      console.log(`   Swap reverted`);
       return false;
     }
   } catch (err) {
-    console.log(`  ❌ Swap failed: ${err instanceof Error ? err.message : String(err)}`);
+    console.log(`   Swap failed: ${err instanceof Error ? err.message : String(err)}`);
     return false;
   }
 }
@@ -235,15 +235,15 @@ async function main() {
   const config = loadConfig();
   const { publicClient, walletClient, account } = getClients(config);
   
-  console.log('🧪 Test Swap: USDC → WELL + MORPHO\n');
+  console.log(' Test Swap: USDC → WELL + MORPHO\n');
   console.log(`Config loaded from: ~/.config/morpho-yield/config.json`);
   console.log(`Wallet: ${account.address}\n`);
   
   // Verify contracts
-  console.log('🔐 Verifying contracts...');
+  console.log(' Verifying contracts...');
   try {
     await verifyContracts(publicClient);
-    console.log('   ✅ Contracts verified\n');
+    console.log('    Contracts verified\n');
   } catch (err) {
     handleError(err, 'Contract verification failed');
   }
@@ -259,7 +259,7 @@ async function main() {
   console.log(`USDC balance: ${formatUSDC(usdcBalance)}`);
   
   if (usdcBalance < 100000n) { // Less than $0.10
-    console.error('❌ Insufficient USDC for test swap (need at least $0.10)');
+    console.error(' Insufficient USDC for test swap (need at least $0.10)');
     process.exit(1);
   }
   
@@ -272,14 +272,14 @@ async function main() {
   }
   
   if (swapAmount > usdcBalance) {
-    console.error(`❌ Insufficient USDC. Have: ${formatUSDC(usdcBalance)}, want: ${formatUSDC(swapAmount)}`);
+    console.error(` Insufficient USDC. Have: ${formatUSDC(usdcBalance)}, want: ${formatUSDC(swapAmount)}`);
     process.exit(1);
   }
   
   // Check ETH for gas
   const ethBalance = await publicClient.getBalance({ address: account.address });
   if (ethBalance < BigInt(5e14)) { // 0.0005 ETH minimum
-    console.error(`❌ Insufficient ETH for gas`);
+    console.error(` Insufficient ETH for gas`);
     console.error(`   Available: ${(Number(ethBalance) / 1e18).toFixed(6)} ETH`);
     console.error(`   Recommended: at least 0.0005 ETH`);
     process.exit(1);
@@ -289,7 +289,7 @@ async function main() {
   const halfAmount = swapAmount / 2n;
   
   console.log(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-  console.log(`📋 Test Swap Plan`);
+  console.log(` Test Swap Plan`);
   console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
   console.log(`Swapping ${formatUSDC(halfAmount)} USDC → WELL`);
   console.log(`Swapping ${formatUSDC(halfAmount)} USDC → MORPHO`);
@@ -313,10 +313,10 @@ async function main() {
   
   // Summary
   console.log(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-  console.log(`📊 Results`);
+  console.log(` Results`);
   console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-  console.log(`WELL swap: ${wellSuccess ? '✅' : '❌'}`);
-  console.log(`MORPHO swap: ${morphoSuccess ? '✅' : '❌'}`);
+  console.log(`WELL swap: ${wellSuccess ? '' : ''}`);
+  console.log(`MORPHO swap: ${morphoSuccess ? '' : ''}`);
   
   // Show final token balances
   const finalUSDC = await publicClient.readContract({
@@ -336,9 +336,9 @@ async function main() {
   console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
   
   if (wellSuccess || morphoSuccess) {
-    console.log(`\n✅ Done! Ready to test compound.`);
+    console.log(`\n Done! Ready to test compound.`);
   } else {
-    console.log(`\n❌ All swaps failed.`);
+    console.log(`\n All swaps failed.`);
     process.exit(1);
   }
 }

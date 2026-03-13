@@ -20,20 +20,20 @@ fi
 WAIT_MS=$((NEXT_GAME - NOW_MS))
 WAIT_SECS=$((WAIT_MS / 1000))
 
-echo "🎮 SCRAPYARD Status"
+echo " SCRAPYARD Status"
 echo "━━━━━━━━━━━━━━━━━━"
 
 if [ "$CURRENT" != "null" ]; then
   PHASE=$(echo "$CURRENT" | jq -r '.phase')
   ROUND=$(echo "$CURRENT" | jq -r '.round')
   ALIVE=$(echo "$CURRENT" | jq -r '.aliveBots')
-  echo "🔴 GAME IN PROGRESS"
+  echo " GAME IN PROGRESS"
   echo "   Phase: $PHASE"
   echo "   Round: $ROUND"
   echo "   Bots alive: $ALIVE"
   echo "   Viewers: $VIEWERS"
 else
-  echo "⏳ Next game: $GAME_TIME (in ${WAIT_SECS}s)"
+  echo " Next game: $GAME_TIME (in ${WAIT_SECS}s)"
   echo "   Queue: $QUEUE_SIZE bots waiting"
   echo "   Viewers: $VIEWERS"
 fi

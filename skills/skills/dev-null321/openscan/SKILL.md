@@ -6,7 +6,7 @@ author: Marq Britt
 homepage: https://github.com/marqbritt/openscan
 metadata:
   openclaw:
-    emoji: "🛡️"
+    emoji: ""
     requires:
       node: ">=18"
     platforms:

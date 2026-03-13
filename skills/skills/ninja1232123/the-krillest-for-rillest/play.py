@@ -255,7 +255,7 @@ CREATURES = [
 def creature_parade(count: int = 10):
     """A parade of silly creatures. No reason."""
     print()
-    print(f"  {Colors.GOLD}✨ CREATURE PARADE ✨{Colors.RESET}")
+    print(f"  {Colors.GOLD} CREATURE PARADE {Colors.RESET}")
     print()
 
     for i in range(count):
@@ -267,12 +267,12 @@ def creature_parade(count: int = 10):
                 print(f"  {color}{line}{Colors.RESET}")
 
         # Movement
-        direction = random.choice(["→", "←", "↑", "↓", "↗", "↘", "↙", "↖", "~", "♪"])
+        direction = random.choice(["→", "←", "↑", "↓", "", "", "", "", "~", "♪"])
         print(f"  {Colors.SILVER}{direction * 5}{Colors.RESET}")
         print()
         time.sleep(0.3)
 
-    print(f"  {Colors.GOLD}✨ That's all of them! ✨{Colors.RESET}")
+    print(f"  {Colors.GOLD} That's all of them! {Colors.RESET}")
     print()
 
 
@@ -281,10 +281,10 @@ def creature_parade(count: int = 10):
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def confetti(duration: int = 5):
-    """CONFETTI! 🎊"""
+    """CONFETTI! """
     width = 70
     height = 15
-    confetti_chars = ["█", "▓", "▒", "░", "●", "○", "◆", "◇", "★", "☆", "♦", "♠", "♣", "♥"]
+    confetti_chars = ["█", "▓", "▒", "░", "●", "○", "◆", "◇", "★", "☆", "", "", "", ""]
 
     particles = []
 
@@ -392,7 +392,7 @@ def tell_joke():
 
     # Laugh track
     time.sleep(0.5)
-    laughs = ["ha", "Ha", "HA", "haha", "hehe", "lol", "😂", "🤣", "*snort*", "*wheeze*"]
+    laughs = ["ha", "Ha", "HA", "haha", "hehe", "lol", "", "", "*snort*", "*wheeze*"]
     laugh = " ".join(random.choices(laughs, k=random.randint(3, 6)))
     print(f"  {Colors.SILVER}{laugh}{Colors.RESET}")
     print()
@@ -429,7 +429,7 @@ def fortune_cookie():
 
     print()
     print(f"  {Colors.GOLD}┌─────────────────────────────────────────┐{Colors.RESET}")
-    print(f"  {Colors.GOLD}│{Colors.RESET}            🥠 FORTUNE COOKIE 🥠          {Colors.GOLD}│{Colors.RESET}")
+    print(f"  {Colors.GOLD}│{Colors.RESET}             FORTUNE COOKIE           {Colors.GOLD}│{Colors.RESET}")
     print(f"  {Colors.GOLD}├─────────────────────────────────────────┤{Colors.RESET}")
     print(f"  {Colors.GOLD}│{Colors.RESET}                                         {Colors.GOLD}│{Colors.RESET}")
 
@@ -505,7 +505,7 @@ GALLERY = [
        '-.______.-'
         |  |  |  |
         |__|  |__|
-    """, "Boo! 👻"),
+    """, "Boo! "),
 
     # Coffee
     ("""
@@ -530,14 +530,14 @@ GALLERY = [
           \\ | /
            \\|/
             ★
-    """, "You're a star! ⭐"),
+    """, "You're a star! "),
 ]
 
 def art_gallery():
     """Culture! Sophistication! ASCII!"""
     print()
     print(f"  {Colors.GOLD}╔══════════════════════════════════════════╗{Colors.RESET}")
-    print(f"  {Colors.GOLD}║{Colors.RESET}        🎨 ASCII ART GALLERY 🎨           {Colors.GOLD}║{Colors.RESET}")
+    print(f"  {Colors.GOLD}║{Colors.RESET}         ASCII ART GALLERY            {Colors.GOLD}║{Colors.RESET}")
     print(f"  {Colors.GOLD}╚══════════════════════════════════════════╝{Colors.RESET}")
 
     art, title = random.choice(GALLERY)
@@ -562,9 +562,9 @@ def fancy_spinner(duration: int = 5, message: str = "Doing absolutely nothing"):
         ['▖', '▘', '▝', '▗'],
         ['◢', '◣', '◤', '◥'],
         ['⬒', '⬔', '⬓', '⬕'],
-        ['🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘'],
-        ['🕛', '🕐', '🕑', '🕒', '🕓', '🕔', '🕕', '🕖', '🕗', '🕘', '🕙', '🕚'],
-        ['←', '↖', '↑', '↗', '→', '↘', '↓', '↙'],
+        ['', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', '', '', ''],
+        ['←', '', '↑', '', '→', '', '↓', ''],
     ]
 
     spinner = random.choice(spinners)
@@ -590,7 +590,7 @@ def display_menu():
     """The menu of fun things."""
     print()
     print(f"  {Colors.rainbow_text('═' * 50)}")
-    print(f"  {Colors.GOLD}         ✨ WELCOME TO PLAY.PY ✨{Colors.RESET}")
+    print(f"  {Colors.GOLD}          WELCOME TO PLAY.PY {Colors.RESET}")
     print(f"  {Colors.rainbow_text('═' * 50)}")
     print()
     print(f"  {Colors.RED}[1]{Colors.RESET} Bouncing Ball")

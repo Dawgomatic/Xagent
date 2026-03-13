@@ -21,7 +21,7 @@ module.exports = async function search(dep, arr, date) {
     const client = new VariflightClient();
 
     try {
-        console.log(`🔍 搜索 ${dep.toUpperCase()} → ${arr.toUpperCase()} 在 ${date} 的航班...\n`);
+        console.log(` 搜索 ${dep.toUpperCase()} → ${arr.toUpperCase()} 在 ${date} 的航班...\n`);
 
         const result = await client.searchFlightsByDepArr(
             dep.toUpperCase(),
@@ -31,18 +31,18 @@ module.exports = async function search(dep, arr, date) {
 
         // 解析标准响应格式 {code, message, data}
         if (!result || result.code !== 200) {
-            console.log('❌ 查询失败:', result?.message || '未知错误');
+            console.log(' 查询失败:', result?.message || '未知错误');
             return;
         }
 
         const flights = result.data || [];
 
         if (flights.length === 0) {
-            console.log('❌ 未找到航班');
+            console.log(' 未找到航班');
             return;
         }
 
-        console.log(`✈️ 找到 ${flights.length} 个航班：\n`);
+        console.log(` 找到 ${flights.length} 个航班：\n`);
 
         flights.forEach((flight, index) => {
             // 使用实际的字段名（首字母大写）
@@ -67,23 +67,23 @@ module.exports = async function search(dep, arr, date) {
             const ontimeRate = flight.OntimeRate || '';
 
             console.log(`${index + 1}. ${flightNo} | ${airline}`);
-            console.log(`   🛫 ${depTime} ${depAirport}${depTerminal ? ' T' + depTerminal : ''}`);
-            console.log(`   🛬 ${arrTime} ${arrAirport}${arrTerminal ? ' T' + arrTerminal : ''}`);
-            console.log(`   ✈️  ${aircraft} | 状态: ${status}${ontimeRate ? ' | 准点率: ' + ontimeRate : ''}`);
+            console.log(`    ${depTime} ${depAirport}${depTerminal ? ' T' + depTerminal : ''}`);
+            console.log(`    ${arrTime} ${arrAirport}${arrTerminal ? ' T' + arrTerminal : ''}`);
+            console.log(`     ${aircraft} | 状态: ${status}${ontimeRate ? ' | 准点率: ' + ontimeRate : ''}`);
 
             // 额外信息
             if (flight.CheckinTable) {
-                console.log(`   🎫 值机柜台: ${flight.CheckinTable}`);
+                console.log(`    值机柜台: ${flight.CheckinTable}`);
             }
             if (flight.distance) {
-                console.log(`   📏 距离: ${flight.distance}公里`);
+                console.log(`    距离: ${flight.distance}公里`);
             }
 
             console.log('');
         });
 
     } catch (error) {
-        console.error(`❌ 查询失败: ${error.message}`);
+        console.error(` 查询失败: ${error.message}`);
         process.exit(1);
     } finally {
         await client.disconnect();

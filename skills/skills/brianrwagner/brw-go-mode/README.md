@@ -1,4 +1,4 @@
-# 🎯 Go Mode — Autonomous Goal Execution for OpenClaw
+#  Go Mode — Autonomous Goal Execution for OpenClaw
 
 **Give your agent a goal. It plans, confirms, executes, and reports — you just approve.**
 
@@ -21,12 +21,12 @@ Agent: Done! Here's what I built, what I learned, and what's next.
 
 ## Features
 
-✅ **4-Phase Workflow** — Plan → Confirm → Execute → Report  
-✅ **Built-in Guardrails** — Asks before emails, posts, purchases, deletions  
-✅ **Budget Caps** — Default $5/goal, customizable  
-✅ **Checkpoint System** — Status updates after every major step  
-✅ **Adaptive Execution** — Tries alternatives before escalating failures  
-✅ **Full Transparency** — Reports everything done with stats  
+ **4-Phase Workflow** — Plan → Confirm → Execute → Report  
+ **Built-in Guardrails** — Asks before emails, posts, purchases, deletions  
+ **Budget Caps** — Default $5/goal, customizable  
+ **Checkpoint System** — Status updates after every major step  
+ **Adaptive Execution** — Tries alternatives before escalating failures  
+ **Full Transparency** — Reports everything done with stats  
 
 ## Example Goals
 

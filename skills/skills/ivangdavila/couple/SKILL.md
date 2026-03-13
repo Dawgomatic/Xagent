@@ -3,7 +3,7 @@ name: Couple
 slug: couple
 version: 1.0.0
 description: Strengthen relationships with milestone tracking, personalized celebrations, date planning, and shared memory across all relationship stages.
-metadata: {"clawdbot":{"emoji":"💑","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

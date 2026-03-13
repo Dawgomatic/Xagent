@@ -88,7 +88,7 @@ class TicketManager:
         with open(filepath, 'w') as f:
             json.dump(ticket, f, indent=2)
         
-        print(f"✅ Created ticket: {ticket_id}")
+        print(f" Created ticket: {ticket_id}")
         return ticket
     
     def get_ticket(self, ticket_id: str) -> dict:
@@ -111,7 +111,7 @@ class TicketManager:
         """更新票据"""
         ticket = self.get_ticket(ticket_id)
         if not ticket:
-            print(f"❌ Ticket not found: {ticket_id}")
+            print(f" Ticket not found: {ticket_id}")
             return None
         
         # Update fields
@@ -131,7 +131,7 @@ class TicketManager:
         with open(filepath, 'w') as f:
             json.dump(ticket, f, indent=2)
         
-        print(f"✅ Updated ticket: {ticket_id}")
+        print(f" Updated ticket: {ticket_id}")
         return ticket
     
     def start_ticket(self, ticket_id: str) -> dict:
@@ -163,7 +163,7 @@ class TicketManager:
         if active_path.exists():
             active_path.unlink()
         
-        print(f"✅ Completed ticket: {ticket_id}")
+        print(f" Completed ticket: {ticket_id}")
         return ticket
     
     def list_active(self, assignee: str = None) -> list:

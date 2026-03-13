@@ -168,8 +168,8 @@ Also me: Bought because chart looked like a cat
 
 **The Contrast:**
 ```
-❌ Reading the 10-K
-✅ Buying because someone on fintwit said "generational"
+ Reading the 10-K
+ Buying because someone on fintwit said "generational"
 ```
 
 **The Hot Take:**
@@ -289,7 +289,7 @@ Don't just follow formulas - use these actual phrases from each creator:
 ### Citrini7 (Wit + Punch)
 - "The numbers are kind of absurd"
 - "If you're looking at this now you probably missed the move"
-- Meme formats: "Me: / Also me:", "❌ / ✅", dialogue format
+- Meme formats: "Me: / Also me:", " / ", dialogue format
 
 ### Serenity (Data + Structure)
 - "TLDR:"

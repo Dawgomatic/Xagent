@@ -64,7 +64,7 @@ const testSites = [
 ];
 
 async function seedNetwork() {
-  console.log('🌱 Seeding ABN network with test sites...\n');
+  console.log(' Seeding ABN network with test sites...\n');
   
   for (const site of testSites) {
     try {
@@ -78,7 +78,7 @@ async function seedNetwork() {
     }
   }
   
-  console.log('\n🎉 Seeding complete! Run "npm run query" to see the sites.');
+  console.log('\n Seeding complete! Run "npm run query" to see the sites.');
 }
 
 seedNetwork();

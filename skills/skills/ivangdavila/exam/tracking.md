@@ -31,17 +31,17 @@ Monitor progress and identify weak areas.
 
 ### By Accuracy
 ```
-📊 Topic Performance
+ Topic Performance
 
-✅ Strong (>80%):
+ Strong (>80%):
    EC2: 92% (24/26)
    S3: 88% (29/33)
 
-⚠️ Needs work (60-80%):
+ Needs work (60-80%):
    VPC: 71% (17/24)
    IAM: 68% (15/22)
 
-❌ Weak (<60%):
+ Weak (<60%):
    Lambda: 52% (11/21)
    DynamoDB: 48% (10/21)
 ```
@@ -49,7 +49,7 @@ Monitor progress and identify weak areas.
 ### By Recency
 Topics not practiced recently:
 ```
-⏰ Stale Topics (no practice in 7+ days):
+ Stale Topics (no practice in 7+ days):
    - CloudFormation (12 days)
    - Route 53 (9 days)
    - ELB (8 days)
@@ -62,7 +62,7 @@ Topics not practiced recently:
 Before exam, generate report:
 
 ```
-📋 Readiness Report: AWS SAA
+ Readiness Report: AWS SAA
 
 Overall: 76% ready
 
@@ -71,7 +71,7 @@ By Domain:
 Design Resilient    ████████░░ 82%
 Design Performant   ███████░░░ 71%
 Design Secure       ████████░░ 78%
-Cost-Optimized      ██████░░░░ 64% ⚠️
+Cost-Optimized      ██████░░░░ 64% 
 
 Priority Focus:
 1. DynamoDB (48%) — 15 more questions recommended
@@ -103,19 +103,19 @@ Based on performance, agent adjusts:
 
 ### Daily
 ```
-📊 Today's Practice
+ Today's Practice
 
 Questions: 25
 Accuracy: 76%
 Time: 32 minutes
 Topics: VPC, IAM, Lambda
 
-Streak: 5 days 🔥
+Streak: 5 days 
 ```
 
 ### Weekly
 ```
-📊 Week Summary (Feb 5-11)
+ Week Summary (Feb 5-11)
 
 Total questions: 142
 Average accuracy: 74% (↑6%)
@@ -158,18 +158,18 @@ Next week focus: DynamoDB, Cost Optimization
 
 ### Streaks
 ```
-🔥 5 day streak! Keep it up!
+ 5 day streak! Keep it up!
 ```
 
 ### Milestones
 ```
-🎯 Achievement: 500 questions completed!
-📈 Personal best: 85% on simulation!
+ Achievement: 500 questions completed!
+ Personal best: 85% on simulation!
 ```
 
 ### Recommendations
 ```
-💡 You're ready for a simulation!
+ You're ready for a simulation!
    Last 3 days: 78% accuracy
    Target: 72% passing
 ```

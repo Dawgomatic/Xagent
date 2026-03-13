@@ -64,11 +64,11 @@ def main():
     for r in reminders:
         age_str = f" (wird {r['turning']})" if r['turning'] else ""
         if r["days_left"] == 0:
-            print(f"🎉 Geburtstagserinnerung: **{r['name']}** hat HEUTE Geburtstag{age_str}!")
+            print(f" Geburtstagserinnerung: **{r['name']}** hat HEUTE Geburtstag{age_str}!")
         elif r["days_left"] == 1:
-            print(f"🎈 Geburtstagserinnerung: **{r['name']}** hat morgen Geburtstag{age_str}!")
+            print(f" Geburtstagserinnerung: **{r['name']}** hat morgen Geburtstag{age_str}!")
         elif r["days_left"] == 7:
-            print(f"📅 Geburtstagserinnerung: **{r['name']}** hat in einer Woche Geburtstag{age_str} ({r['date']})!")
+            print(f" Geburtstagserinnerung: **{r['name']}** hat in einer Woche Geburtstag{age_str} ({r['date']})!")
 
 if __name__ == "__main__":
     main()

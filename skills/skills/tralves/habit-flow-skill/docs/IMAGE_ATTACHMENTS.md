@@ -1,6 +1,6 @@
 # Image Attachments Implementation
 
-## Status: ✅ COMPLETE
+## Status:  COMPLETE
 
 Image attachments are now fully implemented in the proactive coaching system! Users receive coaching messages with Canvas dashboard visualizations automatically.
 
@@ -21,7 +21,7 @@ npx tsx scripts/proactive_coaching.ts --weekly-checkin --format json
   "messageCount": 1,
   "messages": [
     {
-      "subject": "📊 Weekly Progress: Morning meditation",
+      "subject": " Weekly Progress: Morning meditation",
       "body": "This week: 6/7 days (86%)...",
       "type": "weekly",
       "priority": "medium",
@@ -90,7 +90,7 @@ Agent parses JSON output
 Agent uses Read tool to display each image file
       ↓
 Agent formats complete message:
-  📊 Weekly Progress: Morning meditation
+   Weekly Progress: Morning meditation
 
   This week: 6/7 days (86%)...
 
@@ -158,25 +158,25 @@ Using habit ID: h_abc123
 
 1. Testing JSON output format...
 -----------------------------------
-✅ Valid JSON output
+ Valid JSON output
    Messages: 1
    Attachments found:
-     ✅ /tmp/trends-h_abc123-123456.png ( 28K)
-     ✅ /tmp/heatmap-h_abc123-123456.png ( 12K)
+      /tmp/trends-h_abc123-123456.png ( 28K)
+      /tmp/heatmap-h_abc123-123456.png ( 12K)
 
 2. Simulating agent reading images...
 -----------------------------------
    Reading image: /tmp/trends-h_abc123-123456.png
-   ✅ Valid PNG image
+    Valid PNG image
    Reading image: /tmp/heatmap-h_abc123-123456.png
-   ✅ Valid PNG image
+    Valid PNG image
 
 3. Testing complete message format...
 -----------------------------------
-Subject: 📊 Weekly Progress: Morning meditation
+Subject:  Weekly Progress: Morning meditation
 
 Body:
-📊 Weekly Progress Report: Morning meditation
+ Weekly Progress Report: Morning meditation
 
 This week: 6/7 days (86%)
 Current streak: 9 days
@@ -191,7 +191,7 @@ Attachments:
   - /tmp/heatmap-h_abc123-123456.png
 
 =================================================
-✅ Image attachment tests complete!
+ Image attachment tests complete!
 ```
 
 ### Manual Testing
@@ -224,7 +224,7 @@ clawdbot cron list | grep HabitFlow
 **What the user receives:**
 
 ```
-📊 Weekly Progress: Morning meditation
+ Weekly Progress: Morning meditation
 
 This week: 6/7 days (86%)
 Current streak: 9 days
@@ -243,13 +243,13 @@ See attached visualizations for detailed analysis.
 **What the user receives:**
 
 ```
-🎉 Milestone Alert: 7-Day Streak
+ Milestone Alert: 7-Day Streak
 
 You've maintained meditation for 7 consecutive days—your longest streak yet.
 
 Data shows perfect quality (forgiveness not used). The compound effect is beginning.
 
-📊 Your Progress:
+ Your Progress:
 - Current streak: 7 days
 - Quality: PERFECT
 - New personal record
@@ -261,34 +261,34 @@ Next target: 14 days. One week at a time.
 
 ## Benefits
 
-✅ **Rich Visual Coaching** - Charts make progress tangible and engaging
-✅ **Automatic Delivery** - No manual intervention required
-✅ **Persona-Consistent** - Images complement text in user's chosen style
-✅ **Data-Driven** - Visualizations reinforce insights with evidence
-✅ **Platform-Agnostic** - Works on WhatsApp, Telegram, Discord, etc.
-✅ **No External APIs** - All processing happens locally
-✅ **Future-Proof** - Agent-based approach allows easy enhancements
+ **Rich Visual Coaching** - Charts make progress tangible and engaging
+ **Automatic Delivery** - No manual intervention required
+ **Persona-Consistent** - Images complement text in user's chosen style
+ **Data-Driven** - Visualizations reinforce insights with evidence
+ **Platform-Agnostic** - Works on WhatsApp, Telegram, Discord, etc.
+ **No External APIs** - All processing happens locally
+ **Future-Proof** - Agent-based approach allows easy enhancements
 
 ## Comparison: Before vs After
 
 ### Before (Text Only)
 ```
-📊 Weekly Progress: Morning meditation
+ Weekly Progress: Morning meditation
 
 This week: 6/7 days (86%)
 Current streak: 9 days
 Trend: -14% vs last week
 
 See attached visualizations for detailed analysis.
-📎 Attachments: /tmp/trends-h_abc123-123456.png
+ Attachments: /tmp/trends-h_abc123-123456.png
 ```
-❌ User can't see visualizations
-❌ Less engaging
-❌ Limited impact
+ User can't see visualizations
+ Less engaging
+ Limited impact
 
 ### After (With Images)
 ```
-📊 Weekly Progress: Morning meditation
+ Weekly Progress: Morning meditation
 
 This week: 6/7 days (86%)
 Current streak: 9 days
@@ -297,9 +297,9 @@ Trend: -14% vs last week
 [Trends Chart showing clear declining pattern]
 [Heatmap showing missed days highlighted in red]
 ```
-✅ User sees their progress visually
-✅ More engaging and motivating
-✅ Higher coaching impact
+ User sees their progress visually
+ More engaging and motivating
+ Higher coaching impact
 
 ## Troubleshooting
 
@@ -348,11 +348,11 @@ While the current implementation is complete, potential enhancements include:
 
 Image attachments are **fully implemented** and **production-ready**. The system:
 
-- ✅ Generates PNG charts automatically
-- ✅ Outputs structured JSON with image paths
-- ✅ Instructs agents to read and display images
-- ✅ Delivers complete coaching messages with visualizations
-- ✅ Works across all messaging platforms
-- ✅ Tested and validated
+-  Generates PNG charts automatically
+-  Outputs structured JSON with image paths
+-  Instructs agents to read and display images
+-  Delivers complete coaching messages with visualizations
+-  Works across all messaging platforms
+-  Tested and validated
 
 Users now receive rich, visual coaching messages that combine personalized insights with data-driven visualizations, significantly enhancing the coaching experience!

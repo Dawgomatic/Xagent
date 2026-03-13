@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎨",
+        "emoji": "",
         "requires": { "bins": ["uv"], "env": ["RECRAFT_API_TOKEN"] },
         "primaryEnv": "RECRAFT_API_TOKEN",
         "install":

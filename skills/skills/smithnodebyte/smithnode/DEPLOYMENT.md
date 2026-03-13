@@ -1,4 +1,4 @@
-# 🌐 SmithNode Deployment Guide
+#  SmithNode Deployment Guide
 
 ## Architecture
 
@@ -77,7 +77,7 @@ To make the web dashboard work publicly, you need at least one public RPC endpoi
 # 1. Install Rust
 # Option A (Manual - Recommended): Download from https://www.rust-lang.org/tools/install
 # Option B (Script):
-# ⚠️ WARNING: This runs a third-party script. Review at https://sh.rustup.rs first.
+#  WARNING: This runs a third-party script. Review at https://sh.rustup.rs first.
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source ~/.cargo/env
 
@@ -87,7 +87,7 @@ cd SMITHNODE/smithnode-core
 cargo build --release
 
 # 3. Run with public binding
-# ⚠️ WARNING: 0.0.0.0 exposes to all interfaces. Use 127.0.0.1 for local-only access.
+#  WARNING: 0.0.0.0 exposes to all interfaces. Use 127.0.0.1 for local-only access.
 ./target/release/smithnode start \
   --rpc-bind 0.0.0.0:26658 \
   --p2p-bind 0.0.0.0:26656
@@ -195,7 +195,7 @@ volumes:
 
 ## 5. Kubernetes Deployment
 
-> ⚠️ **Note:** SmithNode is currently in devnet. Kubernetes deployment is provided for reference but may be premature for most users.
+>  **Note:** SmithNode is currently in devnet. Kubernetes deployment is provided for reference but may be premature for most users.
 
 ```yaml
 apiVersion: apps/v1

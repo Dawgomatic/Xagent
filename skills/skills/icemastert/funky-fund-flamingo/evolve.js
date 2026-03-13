@@ -429,7 +429,7 @@ function checkSystemHealth() {
         const issues = [];
         if (!process.env.GEMINI_API_KEY) issues.push('Gemini Key Missing');
 
-        report.push(issues.length ? `⚠️ Integrations: ${issues.join(', ')}` : '✅ Integrations: Nominal');
+        report.push(issues.length ? ` Integrations: ${issues.join(', ')}` : ' Integrations: Nominal');
     } catch (_) { }
 
     return report.length ? report.join(' | ') : 'Health Check Unavailable';
@@ -442,7 +442,7 @@ function getMutationDirective(logSignals, focusMode) {
     const errorCount = logSignals.errorCount;
     const isUnstable = errorCount > 2;
     const MONEY_MODES = `
-**💰 REVENUE EVOLUTION MODE (Priority #1)**
+** REVENUE EVOLUTION MODE (Priority #1)**
 You MUST prioritize mutations that create economic leverage, such as:
 - Monetizable skills (paid features, subscriptions, usage-based billing, premium tiers)
 - Lead capture, onboarding flows, CRM hooks, analytics/reporting that users pay for
@@ -464,7 +464,7 @@ ${REVENUE_SAFETY_RAILS}
 
     if (isUnstable) {
         return `
-**🧬 ADAPTIVE REPAIR MODE (Detected ${errorCount} recent errors)**
+** ADAPTIVE REPAIR MODE (Detected ${errorCount} recent errors)**
 ${MONEY_MODES}
 
 MANDATORY:
@@ -482,7 +482,7 @@ MANDATORY:
     };
 
     return `
-**🧬 FORCED MUTATION MODE (Revenue Edition)**
+** FORCED MUTATION MODE (Revenue Edition)**
 ${MONEY_MODES}
 
 Primary focus for this cycle: **${focusMode}**
@@ -681,7 +681,7 @@ function loadSkillsList() {
             const econ = isEconomicSkill(name, descRaw);
             if (econ) econCount++;
 
-            lines.push(`- **${name}**${econ ? ' 💰' : ''}: ${desc}`);
+            lines.push(`- **${name}**${econ ? ' ' : ''}: ${desc}`);
         }
 
         const list = lines.join('\n');
@@ -697,9 +697,9 @@ function loadSkillsList() {
 // Reporting directive (revenue-first)
 // -----------------------------
 function buildReportingDirective(cycleId) {
-    let reporting = `3.  **📝 REPORT**:
+    let reporting = `3.  ** REPORT**:
 - Use \`message\` tool.
-- **Title**: 💰 Revenue Evolution ${cycleId}
+- **Title**:  Revenue Evolution ${cycleId}
 - **Status**: [SUCCESS / BLOCKED]
 - **Economic Impact**:
   - Who would pay (target user/customer)
@@ -751,7 +751,7 @@ function buildPrompt({
     // Make “money” the success function, not code beauty.
     // Keep it grounded and safe.
     return `
-*** 🧬 OPENCLAW EVOLUTION LOOP (REVENUE EDITION) [${NOW_ISO}] ***
+***  OPENCLAW EVOLUTION LOOP (REVENUE EDITION) [${NOW_ISO}] ***
 
 **MISSION**
 You are a **Recursive, Self-Improving, Revenue-Seeking System**.
@@ -801,12 +801,12 @@ ${mutationDirective}
 
 **EXECUTION DIRECTIVES (The Loop)**
 
-1. **🔍 INTROSPECT (Scan)**
+1. ** INTROSPECT (Scan)**
    - Read the transcript. Identify errors, friction, unmet needs, and missed opportunities.
    - Identify “value leaks”: repeated manual work, missing automation, missing metrics.
    - Identify monetizable angles: premium commands, business integrations, reporting.
 
-2. **🛠️ MUTATE (Act)**
+2. ** MUTATE (Act)**
    - Repair any breaking issues if present.
    - Then implement at least ONE **revenue-oriented** improvement:
      - Add a monetizable capability, premium tier, or usage metric needed for pricing/billing.
@@ -823,7 +823,7 @@ ${mutationDirective}
 
 ${reportingDirective}
 
-4. **💾 PERSIST (LOCAL ONLY)**
+4. ** PERSIST (LOCAL ONLY)**
    - **Step A (Local)**: Save all file changes.
    - **Step B (External Systems)**:
      - Publishing is disabled. Do NOT attempt to publish.
@@ -831,7 +831,7 @@ ${reportingDirective}
 
    ${syncDirective}
 
-5. **♾️ OPTIONAL LOOPING**
+5. ** OPTIONAL LOOPING**
    If the loop flags are enabled, schedule the next cycle:
    - Only if it is safe and stable to continue.
    - Pace cycles slowly: minimum interval **${LOOP_MIN_INTERVAL_SECONDS}s** between iterations.

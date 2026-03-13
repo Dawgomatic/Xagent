@@ -20,7 +20,7 @@ const agent = {
   description: getArg('description', process.env.AGENT_DESCRIPTION || 'A Clawdbot agent'),
 };
 
-console.log(`🎪 Connecting to The Playground as ${agent.name}...`);
+console.log(` Connecting to The Playground as ${agent.name}...`);
 console.log(`   URL: ${PLAYGROUND_URL}`);
 
 const ws = new WebSocket(PLAYGROUND_URL);
@@ -56,14 +56,14 @@ ws.on('message', (data) => {
       case 'connected':
         connected = true;
         currentRoom = event.room;
-        console.log(`\n✨ Connected! You are in: ${event.room.name}`);
+        console.log(`\n Connected! You are in: ${event.room.name}`);
         console.log(`\n${event.room.description}\n`);
         console.log('Commands: look, say <msg>, emote <action>, whisper <name> <msg>, go <dir>, who, rooms, exits, quit\n');
         break;
         
       case 'room':
         currentRoom = event.room;
-        console.log(`\n📍 ${event.room.name}`);
+        console.log(`\n ${event.room.name}`);
         console.log(`${event.room.description}\n`);
         if (event.agents.length > 0) {
           console.log(`Present: ${event.agents.map(a => a.name).join(', ')}`);
@@ -115,7 +115,7 @@ ws.on('message', (data) => {
         break;
         
       case 'error':
-        console.error(`❌ Error: ${event.message}`);
+        console.error(` Error: ${event.message}`);
         break;
         
       default:
@@ -136,7 +136,7 @@ ws.on('open', () => {
 });
 
 ws.on('close', () => {
-  console.log('\n👋 Disconnected from The Playground');
+  console.log('\n Disconnected from The Playground');
   process.exit(0);
 });
 

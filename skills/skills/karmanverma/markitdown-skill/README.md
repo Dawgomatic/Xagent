@@ -1,6 +1,6 @@
 # markitdown-skill
 
-📄 OpenClaw agent skill for converting documents to Markdown.
+ OpenClaw agent skill for converting documents to Markdown.
 
 **Documentation and utilities** for Microsoft's [MarkItDown](https://github.com/microsoft/markitdown) library.
 
@@ -9,9 +9,9 @@
 ## What This Skill Is
 
 This skill provides:
-- ✅ Documentation for using MarkItDown
-- ✅ A batch conversion script (`scripts/batch_convert.py`)
-- ✅ Usage examples and API reference
+-  Documentation for using MarkItDown
+-  A batch conversion script (`scripts/batch_convert.py`)
+-  Usage examples and API reference
 
 The actual document conversion is done by Microsoft's `markitdown` CLI, installed separately via pip.
 

@@ -47,7 +47,7 @@ const start = async () => {
     const missing = required.filter(key => !process.env[key]);
     
     if (missing.length > 0) {
-      console.error('❌ Missing required environment variables:', missing.join(', '));
+      console.error(' Missing required environment variables:', missing.join(', '));
       console.error('Copy .env.example to .env and fill in the values');
       process.exit(1);
     }
@@ -58,15 +58,15 @@ const start = async () => {
       host: '0.0.0.0' 
     });
     
-    fastify.log.info(`🚀 LifePath API server listening on port ${process.env.PORT || 3000}`);
+    fastify.log.info(` LifePath API server listening on port ${process.env.PORT || 3000}`);
     
     // Start Telegram bot if token provided
     if (process.env.TELEGRAM_BOT_TOKEN) {
       const bot = new TelegramBot(fastify.pg);
       bot.launch();
-      fastify.log.info('🤖 Telegram bot started');
+      fastify.log.info(' Telegram bot started');
     } else {
-      fastify.log.warn('⚠️  TELEGRAM_BOT_TOKEN not set - bot will not start');
+      fastify.log.warn('  TELEGRAM_BOT_TOKEN not set - bot will not start');
     }
     
   } catch (err) {
@@ -77,13 +77,13 @@ const start = async () => {
 
 // Graceful shutdown
 process.on('SIGINT', async () => {
-  console.log('\n🛑 Shutting down gracefully...');
+  console.log('\n Shutting down gracefully...');
   await fastify.close();
   process.exit(0);
 });
 
 process.on('SIGTERM', async () => {
-  console.log('\n🛑 Shutting down gracefully...');
+  console.log('\n Shutting down gracefully...');
   await fastify.close();
   process.exit(0);
 });

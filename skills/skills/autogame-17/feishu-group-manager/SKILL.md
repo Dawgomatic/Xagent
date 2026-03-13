@@ -5,7 +5,7 @@ Manage Feishu group chats (settings, names, metadata).
 ## Tools
 
 ### Toggle Busy Status
-Marks the group name with a prefix (e.g., `[⏳]`) to indicate the bot is busy processing a long task.
+Marks the group name with a prefix (e.g., `[]`) to indicate the bot is busy processing a long task.
 
 ```bash
 node skills/feishu-group-manager/toggle_busy.js --chat-id <chat_id> --mode <busy|idle>

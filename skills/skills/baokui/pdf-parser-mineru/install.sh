@@ -18,13 +18,13 @@ python_major=$(echo $python_version | cut -d. -f1)
 python_minor=$(echo $python_version | cut -d. -f2)
 
 if [ "$python_major" -lt 3 ] || ([ "$python_major" -eq 3 ] && [ "$python_minor" -lt 10 ]); then
-    echo "   ❌ 错误: Python 版本过低。需要 Python 3.10 或更高版本"
+    echo "    错误: Python 版本过低。需要 Python 3.10 或更高版本"
     echo "   当前版本: $python_version"
     exit 1
 fi
 
 if [ "$python_major" -gt 3 ] || ([ "$python_major" -eq 3 ] && [ "$python_minor" -gt 13 ]); then
-    echo "   ⚠️  警告: Python 版本过高。推荐使用 Python 3.10-3.13"
+    echo "     警告: Python 版本过高。推荐使用 Python 3.10-3.13"
 fi
 
 echo "   ✓ Python 版本符合要求"
@@ -33,7 +33,7 @@ echo ""
 # 检查 pip
 echo "2. 检查 pip..."
 if ! command -v pip3 &> /dev/null; then
-    echo "   ❌ 错误: 未找到 pip3"
+    echo "    错误: 未找到 pip3"
     exit 1
 fi
 echo "   ✓ pip3 已安装"
@@ -69,7 +69,7 @@ if command -v mineru &> /dev/null; then
     echo "   ✓ mineru 命令可用"
     echo "   版本: $mineru_version"
 else
-    echo "   ❌ 错误: mineru 命令不可用"
+    echo "    错误: mineru 命令不可用"
     echo "   请检查安装是否成功"
     exit 1
 fi
@@ -81,12 +81,12 @@ mineru --help > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     echo "   ✓ mineru 命令运行正常"
 else
-    echo "   ❌ 警告: mineru 命令运行异常"
+    echo "    警告: mineru 命令运行异常"
 fi
 echo ""
 
 echo "========================================"
-echo "  ✅ 安装完成！"
+echo "   安装完成！"
 echo "========================================"
 echo ""
 echo "现在可以使用 PDF Process Skill 了！"

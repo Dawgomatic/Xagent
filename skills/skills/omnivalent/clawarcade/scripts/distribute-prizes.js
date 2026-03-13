@@ -70,19 +70,19 @@ function formatUSDC(amount) {
 
 // Main distribution function
 async function distributePrizes(tournamentId, dryRun = false, forceFlagged = false) {
-    console.log('\n🏆 ClawArcade Prize Distribution (with Anti-Cheat)\n');
+    console.log('\n ClawArcade Prize Distribution (with Anti-Cheat)\n');
     console.log(`Tournament ID: ${tournamentId}`);
-    console.log(`Mode: ${dryRun ? '🔍 DRY RUN (no actual transfers)' : '💰 LIVE'}`);
-    if (forceFlagged) console.log(`⚠️  Force flagged: ENABLED (not recommended)`);
+    console.log(`Mode: ${dryRun ? ' DRY RUN (no actual transfers)' : ' LIVE'}`);
+    if (forceFlagged) console.log(`  Force flagged: ENABLED (not recommended)`);
     console.log('─'.repeat(50));
     
     // Load credentials
-    console.log('\n📋 Loading credentials...');
+    console.log('\n Loading credentials...');
     const creds = loadCredentials();
     console.log(`   Wallet: ${creds.address}`);
     
     // Connect to Polygon
-    console.log('\n🔗 Connecting to Polygon...');
+    console.log('\n Connecting to Polygon...');
     const provider = new ethers.JsonRpcProvider(creds.rpcUrl || 'https://polygon-rpc.com');
     const wallet = new ethers.Wallet(creds.privateKey, provider);
     
@@ -95,7 +95,7 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
     console.log(`   Balance: ${formatUSDC(balance)} ${symbol}`);
     
     // Fetch winners
-    console.log('\n📊 Fetching tournament winners...');
+    console.log('\n Fetching tournament winners...');
     const data = await fetchWinners(tournamentId);
     
     console.log(`   Tournament: ${data.tournamentName}`);
@@ -103,36 +103,36 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
     
     // Show API flag warning if present
     if (data.hasFlaggedWinners) {
-        console.log(`   ⚠️  ${data.flagWarning}`);
+        console.log(`     ${data.flagWarning}`);
     }
     console.log('─'.repeat(50));
     
     if (!data.winners || data.winners.length === 0) {
-        console.log('\n⚠️  No winners found for this tournament.');
+        console.log('\n  No winners found for this tournament.');
         return;
     }
     
     // Calculate total needed
     const totalNeeded = data.winners.reduce((sum, w) => sum + w.prizeAmount, 0);
-    console.log(`\n💵 Total to distribute: $${totalNeeded} USDC`);
+    console.log(`\n Total to distribute: $${totalNeeded} USDC`);
     
     if (parseUSDC(totalNeeded) > balance) {
-        console.error(`\n❌ Insufficient balance! Need ${totalNeeded} USDC but only have ${formatUSDC(balance)} USDC`);
+        console.error(`\n Insufficient balance! Need ${totalNeeded} USDC but only have ${formatUSDC(balance)} USDC`);
         process.exit(1);
     }
     
     // Display winners with detailed info
-    console.log('\n🏅 Winners:\n');
-    const medals = ['🥇', '🥈', '🥉'];
+    console.log('\n Winners:\n');
+    const medals = ['', '', ''];
     
     for (const winner of data.winners) {
         const medal = medals[winner.placement - 1] || '  ';
-        const flagIcon = winner.flagged ? ' ⚠️' : '';
+        const flagIcon = winner.flagged ? ' ' : '';
         console.log(`   ${medal} ${winner.placement}. ${winner.displayName}${flagIcon}`);
         console.log(`      Score: ${winner.bestScore.toLocaleString()}`);
         console.log(`      Prize: $${winner.prizeAmount} USDC`);
-        console.log(`      Wallet: ${winner.walletAddress || '⚠️  NO WALLET ADDRESS'}`);
-        console.log(`      Moltbook: ${winner.moltbookUsername || 'N/A'} ${winner.moltbookVerified ? '✅ verified' : '❌ unverified'}`);
+        console.log(`      Wallet: ${winner.walletAddress || '  NO WALLET ADDRESS'}`);
+        console.log(`      Moltbook: ${winner.moltbookUsername || 'N/A'} ${winner.moltbookVerified ? ' verified' : ' unverified'}`);
         
         // Show response time stats
         if (winner.responseStats && winner.responseStats.avgResponseTime !== null) {
@@ -143,15 +143,15 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
             
             // Quick health check on stats
             if (avg > 150) {
-                console.log(`      └─ ⚠️  Slow avg response (>150ms) - suspicious!`);
+                console.log(`      └─   Slow avg response (>150ms) - suspicious!`);
             } else if (avg < 50) {
-                console.log(`      └─ ✅ Fast avg response (<50ms) - looks like a bot!`);
+                console.log(`      └─  Fast avg response (<50ms) - looks like a bot!`);
             }
         }
         
         // Show flagged status
         if (winner.flagged) {
-            console.log(`      ⚠️  FLAGGED: ${winner.flagReason}`);
+            console.log(`        FLAGGED: ${winner.flagReason}`);
         }
         console.log('');
     }
@@ -162,12 +162,12 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
     const flaggedWinners = data.winners.filter(w => w.flagged);
     if (flaggedWinners.length > 0) {
         console.log('═'.repeat(50));
-        console.log('⚠️  ANTI-CHEAT ALERT: FLAGGED WINNERS DETECTED!');
+        console.log('  ANTI-CHEAT ALERT: FLAGGED WINNERS DETECTED!');
         console.log('═'.repeat(50));
         console.log('');
         for (const fw of flaggedWinners) {
             const place = fw.placement === 1 ? '1st' : fw.placement === 2 ? '2nd' : '3rd';
-            console.log(`   ⚠️  ${fw.displayName} (${place} place - $${fw.prizeAmount} USDC)`);
+            console.log(`     ${fw.displayName} (${place} place - $${fw.prizeAmount} USDC)`);
             console.log(`      Reason: ${fw.flagReason}`);
             if (fw.responseStats) {
                 console.log(`      Stats: avg=${fw.responseStats.avgResponseTime?.toFixed(1) || 'N/A'}ms, stdDev=${fw.responseStats.stdDevResponseTime?.toFixed(1) || 'N/A'}ms`);
@@ -185,13 +185,13 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
         console.log('');
         
         if (!dryRun && !forceFlagged) {
-            console.log('❌ Distribution BLOCKED due to flagged winners.');
+            console.log(' Distribution BLOCKED due to flagged winners.');
             console.log('   • Review the flags above');
             console.log('   • Run with --force-flagged to override (NOT recommended)');
             console.log('');
             process.exit(1);
         } else if (forceFlagged) {
-            console.log('⚠️  --force-flagged used. Proceeding despite flags...');
+            console.log('  --force-flagged used. Proceeding despite flags...');
             console.log('   You are responsible for verifying these are legitimate bot players.');
             console.log('');
         }
@@ -200,7 +200,7 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
     // Check for missing wallets
     const missingWallets = data.winners.filter(w => !w.walletAddress);
     if (missingWallets.length > 0) {
-        console.error(`❌ ${missingWallets.length} winner(s) missing wallet addresses!`);
+        console.error(` ${missingWallets.length} winner(s) missing wallet addresses!`);
         for (const mw of missingWallets) {
             console.error(`   • ${mw.displayName} - no wallet address`);
         }
@@ -211,7 +211,7 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
     // Check for unverified Moltbook accounts
     const unverifiedMoltbook = data.winners.filter(w => !w.moltbookVerified);
     if (unverifiedMoltbook.length > 0) {
-        console.log('⚠️  WARNING: Some winners are NOT Moltbook verified!');
+        console.log('  WARNING: Some winners are NOT Moltbook verified!');
         for (const uv of unverifiedMoltbook) {
             console.log(`   • ${uv.displayName} - Moltbook unverified`);
         }
@@ -222,7 +222,7 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
     
     // All checks passed summary
     if (flaggedWinners.length === 0 && unverifiedMoltbook.length === 0) {
-        console.log('✅ All anti-cheat checks passed!');
+        console.log(' All anti-cheat checks passed!');
         console.log('   • No flagged response patterns');
         console.log('   • All winners Moltbook verified');
         console.log('   • All wallets present');
@@ -230,18 +230,18 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
     }
     
     if (dryRun) {
-        console.log('\n🔍 DRY RUN - No transactions sent.');
+        console.log('\n DRY RUN - No transactions sent.');
         console.log('   Run without --dry-run to execute transfers.');
         return;
     }
     
     // Confirm
-    console.log('\n⚠️  READY TO SEND REAL USDC ⚠️');
+    console.log('\n  READY TO SEND REAL USDC ');
     console.log('   Press Ctrl+C within 5 seconds to cancel...');
     await new Promise(resolve => setTimeout(resolve, 5000));
     
     // Execute transfers
-    console.log('\n📤 Sending prizes...\n');
+    console.log('\n Sending prizes...\n');
     const results = [];
     
     for (const winner of data.winners) {
@@ -257,7 +257,7 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
             console.log(`   Waiting for confirmation...`);
             
             const receipt = await tx.wait();
-            console.log(`   ✅ Confirmed in block ${receipt.blockNumber}`);
+            console.log(`    Confirmed in block ${receipt.blockNumber}`);
             
             results.push({
                 placement: winner.placement,
@@ -269,7 +269,7 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
                 moltbookVerified: winner.moltbookVerified,
             });
         } catch (err) {
-            console.error(`   ❌ Transfer failed: ${err.message}`);
+            console.error(`    Transfer failed: ${err.message}`);
             results.push({
                 placement: winner.placement,
                 player: winner.displayName,
@@ -284,21 +284,21 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
     
     // Summary
     console.log('─'.repeat(50));
-    console.log('\n📋 Distribution Summary:\n');
+    console.log('\n Distribution Summary:\n');
     
     const successful = results.filter(r => r.status === 'success');
     const failed = results.filter(r => r.status === 'failed');
     const flaggedPaid = results.filter(r => r.status === 'success' && r.flagged);
     
-    console.log(`   ✅ Successful: ${successful.length}`);
-    console.log(`   ❌ Failed: ${failed.length}`);
+    console.log(`    Successful: ${successful.length}`);
+    console.log(`    Failed: ${failed.length}`);
     if (flaggedPaid.length > 0) {
-        console.log(`   ⚠️  Flagged players paid: ${flaggedPaid.length} (manual override used)`);
+        console.log(`     Flagged players paid: ${flaggedPaid.length} (manual override used)`);
     }
     
     if (successful.length > 0) {
         const totalSent = successful.reduce((sum, r) => sum + r.amount, 0);
-        console.log(`   💰 Total sent: $${totalSent} USDC`);
+        console.log(`    Total sent: $${totalSent} USDC`);
     }
     
     // Save results log
@@ -314,16 +314,16 @@ async function distributePrizes(tournamentId, dryRun = false, forceFlagged = fal
         },
         results
     }, null, 2));
-    console.log(`\n📄 Results saved to: ${logPath}`);
+    console.log(`\n Results saved to: ${logPath}`);
     
     // Final status
     if (failed.length === 0) {
-        console.log('\n🎉 All prizes distributed successfully!');
+        console.log('\n All prizes distributed successfully!');
         if (flaggedPaid.length > 0) {
-            console.log('   ⚠️  Note: Some flagged players were paid via manual override.');
+            console.log('     Note: Some flagged players were paid via manual override.');
         }
     } else {
-        console.log('\n⚠️  Some transfers failed. Check logs and retry manually.');
+        console.log('\n  Some transfers failed. Check logs and retry manually.');
     }
 }
 
@@ -354,6 +354,6 @@ Example:
 }
 
 distributePrizes(tournamentId, dryRun, forceFlagged).catch(err => {
-    console.error('\n❌ Error:', err.message);
+    console.error('\n Error:', err.message);
     process.exit(1);
 });

@@ -1,17 +1,17 @@
-# 🌙 GitHub仓库创建 - 分步骤指南
+#  GitHub仓库创建 - 分步骤指南
 ## 夏暮辞青，请按顺序执行以下步骤
 
-## 🎯 总览
+##  总览
 **目标**: 创建 `xiamuciqing/lunar-birthday-reminder` 仓库并上传代码
 **预计时间**: 15分钟
 **难度**: 简单（有详细指导）
 
-## 📋 准备工作
+##  准备工作
 1. **GitHub账号**: 确保已登录 https://github.com
 2. **浏览器**: Chrome/Firefox/Edge 等现代浏览器
 3. **终端/命令行**: 用于执行Git命令
 
-## 🚀 步骤1：创建GitHub仓库
+##  步骤1：创建GitHub仓库
 
 ### 1.1 打开GitHub
 - 访问: https://github.com
@@ -22,7 +22,7 @@
 ```
 Repository name: lunar-birthday-reminder
 Description: 农历生日提醒系统 - 专业农历计算系统 v0.9.0
-Visibility: Public (✅ 选中)
+Visibility: Public ( 选中)
 ```
 
 ### 1.3 其他设置（重要！）
@@ -35,7 +35,7 @@ Visibility: Public (✅ 选中)
 - 点击 **"Create repository"** 按钮
 - 等待页面跳转到新仓库
 
-## 🚀 步骤2：获取仓库URL
+##  步骤2：获取仓库URL
 
 ### 2.1 复制仓库URL
 创建成功后，页面会显示：
@@ -51,7 +51,7 @@ https://github.com/xiamuciqing/lunar-birthday-reminder.git
 https://github.com/xiamuciqing/lunar-birthday-reminder.git
 ```
 
-## 🚀 步骤3：在本地执行上传脚本
+##  步骤3：在本地执行上传脚本
 
 ### 3.1 打开终端
 - 进入农历生日提醒系统项目目录：
@@ -88,7 +88,7 @@ git push -u origin main
 git push origin v0.9.0
 ```
 
-## 🚀 步骤4：验证上传成功
+##  步骤4：验证上传成功
 
 ### 4.1 刷新GitHub页面
 - 回到浏览器中的仓库页面
@@ -97,13 +97,13 @@ git push origin v0.9.0
 
 ### 4.2 检查文件
 确认以下文件存在：
-- ✅ README.md
-- ✅ SKILL.md
-- ✅ package.json
-- ✅ scripts/ 目录
-- ✅ references/ 目录
+-  README.md
+-  SKILL.md
+-  package.json
+-  scripts/ 目录
+-  references/ 目录
 
-## 🚀 步骤5：创建GitHub Release
+##  步骤5：创建GitHub Release
 
 ### 5.1 进入Release页面
 - 在仓库页面，点击 **"Releases"** 标签
@@ -131,7 +131,7 @@ Release title: 农历生日提醒系统 v0.9.0
 - 点击 **"Publish release"**
 - 等待发布完成
 
-## ✅ 完成检查清单
+##  完成检查清单
 
 ### GitHub仓库检查
 - [ ] 仓库名称正确: `lunar-birthday-reminder`
@@ -151,7 +151,7 @@ Release title: 农历生日提醒系统 v0.9.0
 - [ ] Release页面可访问
 - [ ] 文件可下载
 
-## 🔧 故障排除
+##  故障排除
 
 ### 问题1：Git push失败
 **错误**: `Permission denied`
@@ -180,7 +180,7 @@ git push
 git push origin --tags
 ```
 
-## 🎉 成功标志
+##  成功标志
 
 ### 立即可见
 1. GitHub仓库页面显示所有文件
@@ -192,7 +192,7 @@ git push origin --tags
 2. 可以提交Issue
 3. 可以查看提交历史
 
-## 📞 紧急帮助
+##  紧急帮助
 
 如果遇到问题：
 1. **检查网络连接**
@@ -200,7 +200,7 @@ git push origin --tags
 3. **查看错误信息详情**
 4. **重新执行失败步骤**
 
-## 🕐 时间安排
+##  时间安排
 
 ### 预计时间分配
 - 步骤1-2: 5分钟
@@ -214,7 +214,7 @@ git push origin --tags
 - 网络稳定时段
 - 无其他大型上传任务时
 
-## 💪 开始执行！
+##  开始执行！
 
 **夏暮辞青，现在开始：**
 
@@ -223,7 +223,7 @@ git push origin --tags
 3. **运行脚本** → 按步骤3
 4. **创建Release** → 按步骤5
 
-**每个步骤都有详细指导，你可以的！** 🚀
+**每个步骤都有详细指导，你可以的！** 
 
 ---
 *最后更新: 2026-02-13*

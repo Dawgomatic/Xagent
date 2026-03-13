@@ -142,7 +142,7 @@ fi
 SUCCESS=$(echo "$RESPONSE" | jq -r '.success')
 
 if [[ "$SUCCESS" == "true" ]]; then
-  echo "✅ API registered successfully!"
+  echo " API registered successfully!"
   echo ""
   echo "Gateway URL: $(echo "$RESPONSE" | jq -r '.gateway_url')"
   echo "Status: $(echo "$RESPONSE" | jq -r '.status')"
@@ -153,7 +153,7 @@ if [[ "$SUCCESS" == "true" ]]; then
   echo "Other agents can now call your API:"
   echo "  curl $(echo "$RESPONSE" | jq -r '.gateway_url')"
 else
-  echo "❌ Registration failed"
+  echo " Registration failed"
   echo ""
   echo "$(echo "$RESPONSE" | jq -r '.message')"
   exit 1

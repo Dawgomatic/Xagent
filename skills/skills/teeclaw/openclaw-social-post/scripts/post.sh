@@ -253,7 +253,7 @@ if [ "$POST_TWITTER" = true ] && [ "$TWITTER_VALID" = true ] && [ "$FORCE_THREAD
       # Text would fit in single Premium post, but offer threading
       if [ "$AUTO_CONFIRM" = false ] && [ -t 0 ]; then
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-        echo "📝 Premium account: Your text ($char_count chars) can be posted as:"
+        echo " Premium account: Your text ($char_count chars) can be posted as:"
         echo "   1. Single long post (uses Premium 25k char limit)"
         echo "   2. Thread (split into multiple tweets)"
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -438,8 +438,8 @@ if [ "$POST_FARCASTER" = true ]; then
 fi
 
 if [ "$SUCCESS" = true ]; then
-  echo "✅ Done!"
+  echo " Done!"
 else
-  echo "⚠️ Some posts failed. Check output above."
+  echo " Some posts failed. Check output above."
   exit 1
 fi

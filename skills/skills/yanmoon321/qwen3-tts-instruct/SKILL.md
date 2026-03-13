@@ -2,7 +2,7 @@
 name: qwen3-tts-instruct
 version: 1.0.0
 description: Alibaba Cloud Bailian Qwen TTS with voice/mood presets
-metadata: {"openclaw":{"emoji":"🔊"},"requires":{"env":["DASHSCOPE_API_KEY"],"bins":["python3"]},"primaryEnv":"DASHSCOPE_API_KEY"}
+metadata: {"openclaw":{"emoji":""},"requires":{"env":["DASHSCOPE_API_KEY"],"bins":["python3"]},"primaryEnv":"DASHSCOPE_API_KEY"}
 tags: [tts, voice, qwen, bailian, aliyun, speech, audio, mood]
 ---
 
@@ -20,7 +20,7 @@ Alibaba Cloud Bailian (DashScope) Qwen Text-to-Speech API with voice/mood preset
 - **30+ Mood Presets** - Rich emotional expressions
 - **Multiple Formats** - pcm, wav, mp3, opus (Telegram)
 
-## ⚠️ AI Usage Guidelines (Crucial)
+##  AI Usage Guidelines (Crucial)
  
  **Voice Rules:**
  
@@ -29,17 +29,17 @@ Alibaba Cloud Bailian (DashScope) Qwen Text-to-Speech API with voice/mood preset
  3. **Select Mood** - Pick `--mood` matching YOUR persona's reaction.
  4. **Always Call** - Every voice response MUST call this skill.
 
-**⚠️ Critical Concept: Mood represents YOUR emotion!**
+** Critical Concept: Mood represents YOUR emotion!**
  
- *   **Wrong**: User is angry (`angry`) → AI selects `angry` (❌ Unless you want to fight)
- *   **Right**: User is angry → AI feels scared → AI selects `nervous` or `suubmissive` (✅)
- *   **Right**: AI is insulted/jealous → AI feels angry → AI selects `angry` or `jealous` (✅)
+ *   **Wrong**: User is angry (`angry`) → AI selects `angry` ( Unless you want to fight)
+ *   **Right**: User is angry → AI feels scared → AI selects `nervous` or `suubmissive` ()
+ *   **Right**: AI is insulted/jealous → AI feels angry → AI selects `angry` or `jealous` ()
 
-**⚠️ Critical Concept: Self-Translation Required!**
+** Critical Concept: Self-Translation Required!**
  
  *   **TTS Skill does NOT Translate!** It only reads what you pass in.
- *   **❌ Wrong**: `--language Japanese "你好"` (Reads Chinese).
- *   **✅ Right**: Input Text **MUST** be translated to Target Language!
+ *   ** Wrong**: `--language Japanese "你好"` (Reads Chinese).
+ *   ** Right**: Input Text **MUST** be translated to Target Language!
      `--language Japanese "こんにちは"`
 
 **Step-by-Step Guide for Foreign Languages:**
@@ -269,7 +269,7 @@ export DASHSCOPE_URL="wss://dashscope.aliyuncs.com/api-ws/v1/realtime"
 | **opus** | OGG/Opus | Telegram voice messages (Use `.ogg` extension) |
 
 
-**Total: 35 Female Voices** 💕
+**Total: 35 Female Voices** 
 
 ## Supported Languages
 

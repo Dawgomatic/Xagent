@@ -271,7 +271,7 @@ def list_calendars() -> List[Dict[str, Any]]:
 def _require_pro(operation: str) -> bool:
     """Check if Pro tier is required for an operation."""
     if not is_pro_user():
-        print(f"⚠️ {operation} requires gcal-pro Pro tier ($12 one-time).")
+        print(f" {operation} requires gcal-pro Pro tier ($12 one-time).")
         print("  Upgrade at: [your-gumroad-link]")
         return False
     return True
@@ -335,7 +335,7 @@ def create_event(
     
     # Confirmation check
     if not confirmed:
-        print(f"\n📅 Create event:")
+        print(f"\n Create event:")
         print(f"   Title: {summary}")
         print(f"   When:  {format_datetime(start)} - {format_datetime(end)}")
         if location:
@@ -455,7 +455,7 @@ def update_event(
     
     # Confirmation
     if not confirmed:
-        print(f"\n✏️ Update event: {event.get('summary')}")
+        print(f"\n Update event: {event.get('summary')}")
         if summary:
             print(f"   New title: {summary}")
         if start:
@@ -513,10 +513,10 @@ def delete_event(
     parsed = _parse_event(event)
     
     if not confirmed:
-        print(f"\n🗑️ Delete event:")
+        print(f"\n Delete event:")
         print(f"   Title: {parsed.get('summary')}")
         print(f"   When:  {format_datetime(parsed.get('start_dt'))}")
-        print(f"\n   ⚠️ This action cannot be undone!")
+        print(f"\n    This action cannot be undone!")
     
     try:
         service.events().delete(
@@ -580,7 +580,7 @@ def _parse_event(event: Dict[str, Any]) -> Dict[str, Any]:
 def format_events_for_display(events: List[Dict[str, Any]]) -> str:
     """Format events list for chat display."""
     if not events:
-        return "📭 No events found."
+        return " No events found."
     
     lines = []
     current_date = None
@@ -594,7 +594,7 @@ def format_events_for_display(events: List[Dict[str, Any]]) -> str:
         event_date = start_dt.date()
         if event_date != current_date:
             current_date = event_date
-            lines.append(f"\n📅 **{start_dt.strftime('%A, %B %d')}**")
+            lines.append(f"\n **{start_dt.strftime('%A, %B %d')}**")
         
         # Format event
         if event.get("all_day"):
@@ -607,7 +607,7 @@ def format_events_for_display(events: List[Dict[str, Any]]) -> str:
         
         line = f"  • {time_str} — {summary}"
         if location:
-            line += f" 📍 {location}"
+            line += f"  {location}"
         
         lines.append(line)
     
@@ -629,12 +629,12 @@ def generate_morning_brief() -> str:
     today_events = get_today()
     
     # Build brief
-    lines = [f"☀️ **Good morning! Here's your day:**"]
-    lines.append(f"📆 {now.strftime('%A, %B %d, %Y')}")
+    lines = [f" **Good morning! Here's your day:**"]
+    lines.append(f" {now.strftime('%A, %B %d, %Y')}")
     lines.append("")
     
     if not today_events:
-        lines.append("🎉 Your calendar is clear today!")
+        lines.append(" Your calendar is clear today!")
     else:
         lines.append(f"You have **{len(today_events)} event(s)** today:")
         lines.append(format_events_for_display(today_events))
@@ -642,7 +642,7 @@ def generate_morning_brief() -> str:
     # Add tomorrow preview
     tomorrow_events = get_tomorrow()
     if tomorrow_events:
-        lines.append(f"\n👀 **Tomorrow:** {len(tomorrow_events)} event(s)")
+        lines.append(f"\n **Tomorrow:** {len(tomorrow_events)} event(s)")
     
     return "\n".join(lines)
 

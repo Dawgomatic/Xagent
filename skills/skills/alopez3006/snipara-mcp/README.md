@@ -12,11 +12,11 @@
 
 Snipara MCP is a client package that connects AI assistants to the [Snipara API](https://snipara.com), enabling:
 
-- **🔍 90% Context Reduction** - Query 500K tokens, get 5K relevant results
-- **🌐 Multi-Project Search** - Search across all your repos in one query
-- **🧠 AI Memory** - Persistent semantic memory across sessions
-- **👥 Team Standards** - Auto-inject coding standards into every query
-- **🤖 Multi-Agent Swarms** - Coordinate multiple AI agents with shared state
+- ** 90% Context Reduction** - Query 500K tokens, get 5K relevant results
+- ** Multi-Project Search** - Search across all your repos in one query
+- ** AI Memory** - Persistent semantic memory across sessions
+- ** Team Standards** - Auto-inject coding standards into every query
+- ** Multi-Agent Swarms** - Coordinate multiple AI agents with shared state
 
 ### How It Works
 
@@ -175,7 +175,7 @@ rlm_context_query("authentication")
 
 ## Features
 
-### 🎯 Context Optimization (All Plans)
+###  Context Optimization (All Plans)
 
 **Tools:** `rlm_context_query`, `rlm_ask`, `rlm_search`
 
@@ -189,7 +189,7 @@ Query your documentation with semantic search and get only relevant results with
 }
 ```
 
-### 🌐 Multi-Project Search (Team+)
+###  Multi-Project Search (Team+)
 
 **Tool:** `rlm_multi_project_query`
 
@@ -203,7 +203,7 @@ Search across all your team's repositories in one query.
 }
 ```
 
-### 🧠 AI Memory (Agents Plans)
+###  AI Memory (Agents Plans)
 
 **Tools:** `rlm_remember`, `rlm_recall`
 
@@ -224,7 +224,7 @@ Persistent semantic memory across sessions with confidence decay.
 }
 ```
 
-### 👥 Team Standards (Team+)
+###  Team Standards (Team+)
 
 **Tool:** `rlm_shared_context`
 
@@ -237,7 +237,7 @@ Auto-inject team coding standards into every query.
 }
 ```
 
-### 🤖 Multi-Agent Swarms (Enterprise)
+###  Multi-Agent Swarms (Enterprise)
 
 **Tools:** `rlm_swarm_create`, `rlm_claim`, `rlm_task_create`, etc.
 
@@ -306,10 +306,10 @@ Full documentation: [docs.snipara.com](https://docs.snipara.com)
 
 | Plan       | Price   | Queries/mo | Search Mode       | Multi-Project |
 | ---------- | ------- | ---------- | ----------------- | ------------- |
-| FREE       | $0      | 100        | Keyword only      | ❌            |
-| PRO        | $19/mo  | 5,000      | Semantic + Hybrid | ❌            |
-| TEAM       | $49/mo  | 20,000     | Semantic + Hybrid | ✅            |
-| ENTERPRISE | $499/mo | Unlimited  | Semantic + Hybrid | ✅            |
+| FREE       | $0      | 100        | Keyword only      |             |
+| PRO        | $19/mo  | 5,000      | Semantic + Hybrid |             |
+| TEAM       | $49/mo  | 20,000     | Semantic + Hybrid |             |
+| ENTERPRISE | $499/mo | Unlimited  | Semantic + Hybrid |             |
 
 ### Agents Plans (Memory & Swarms)
 
@@ -554,6 +554,6 @@ MIT License - see [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ by the Snipara team**
+**Built with  by the Snipara team**
 
 [Website](https://snipara.com) • [Documentation](https://docs.snipara.com) • [PyPI](https://pypi.org/project/snipara-mcp/) • [GitHub](https://github.com/alopez3006/snipara-mcp)

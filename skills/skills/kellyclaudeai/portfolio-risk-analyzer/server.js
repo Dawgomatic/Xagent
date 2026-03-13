@@ -246,7 +246,7 @@ app.get('/api/stats', async (req, res) => {
 
 // Auto-buyback cron job (runs every hour)
 cron.schedule('0 * * * *', async () => {
-  console.log('⏰ Running automated buyback check...');
+  console.log(' Running automated buyback check...');
   
   try {
     const { execSync } = require('child_process');
@@ -259,8 +259,8 @@ cron.schedule('0 * * * *', async () => {
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Portfolio Risk Analyzer API running on port ${PORT}`);
-  console.log(`💎 BANKR Token: ${BANKR_TOKEN}`);
-  console.log(`💰 Scan Price: $${SCAN_PRICE}`);
-  console.log(`🎁 Free Access: ${FREE_HOLDER_THRESHOLD}+ BANKR`);
+  console.log(` Portfolio Risk Analyzer API running on port ${PORT}`);
+  console.log(` BANKR Token: ${BANKR_TOKEN}`);
+  console.log(` Scan Price: $${SCAN_PRICE}`);
+  console.log(` Free Access: ${FREE_HOLDER_THRESHOLD}+ BANKR`);
 });

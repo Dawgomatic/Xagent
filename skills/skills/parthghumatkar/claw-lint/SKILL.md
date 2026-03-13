@@ -259,7 +259,7 @@ import json, sys
 data = json.load(sys.stdin)
 high_risk = [s for s in data['results'] if s['risk_score'] > 60]
 if high_risk:
-    print(f'❌ {len(high_risk)} high-risk skills detected')
+    print(f' {len(high_risk)} high-risk skills detected')
     sys.exit(1)
 "
 ```

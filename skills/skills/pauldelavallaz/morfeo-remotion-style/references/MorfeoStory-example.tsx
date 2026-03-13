@@ -66,7 +66,7 @@ export const MorfeoStory1: React.FC = () => {
           gap: 8,
         }}
       >
-        <AppleEmoji emoji="🤖" size={28} /> ESTO ES BLACK MIRROR
+        <AppleEmoji emoji="" size={28} /> ESTO ES BLACK MIRROR
       </div>
 
       {/* Emoji */}
@@ -76,7 +76,7 @@ export const MorfeoStory1: React.FC = () => {
           transform: `scale(${emojiScale * pulse})`,
         }}
       >
-        <AppleEmoji emoji="🗣️" size={140} />
+        <AppleEmoji emoji="" size={140} />
       </div>
 
       {/* Title - Instrument Serif */}
@@ -183,7 +183,7 @@ export const MorfeoStory1: React.FC = () => {
             alignItems: "center",
           }}
         >
-          Le mandás un audio y te responde <InlineEmoji emoji="🎙️" size={38} />
+          Le mandás un audio y te responde <InlineEmoji emoji="" size={38} />
         </p>
       </div>
     </AbsoluteFill>

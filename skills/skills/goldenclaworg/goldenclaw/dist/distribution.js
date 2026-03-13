@@ -365,7 +365,7 @@ function formatDistributionStats(treasuryBalance) {
     const stats = getDistributionStats();
     const nextAmount = treasuryBalance ? calculateDistributionAmount(treasuryBalance) : null;
     const lines = [
-        `📊 ${config_js_1.TOKEN_SYMBOL} Distribution Stats`,
+        ` ${config_js_1.TOKEN_SYMBOL} Distribution Stats`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         ``,
         `Total Supply: ${stats.totalSupply.toLocaleString()} ${config_js_1.TOKEN_SYMBOL}`,
@@ -390,7 +390,7 @@ function formatDistributionStats(treasuryBalance) {
 function formatClaimResult(result) {
     if (result.success) {
         return [
-            `✅ Claim Successful!`,
+            ` Claim Successful!`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
             `Amount Received: ${result.amount?.toLocaleString()} ${config_js_1.TOKEN_SYMBOL}`,
             `Transaction: ${result.signature}`,
@@ -400,7 +400,7 @@ function formatClaimResult(result) {
         ].join('\n');
     }
     else {
-        return `❌ Claim Failed: ${result.error}`;
+        return ` Claim Failed: ${result.error}`;
     }
 }
 /**
@@ -409,7 +409,7 @@ function formatClaimResult(result) {
 function simulateDistribution(numClaims = 20) {
     let remaining = exports.TOTAL_SUPPLY;
     const lines = [
-        `📈 Distribution Simulation (first ${numClaims} claims)`,
+        ` Distribution Simulation (first ${numClaims} claims)`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         ``,
         `| Claim # | Amount Received | Treasury Remaining |`,

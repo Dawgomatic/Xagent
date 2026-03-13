@@ -1,4 +1,4 @@
-# 🚀 Agent Autonomy Kit
+#  Agent Autonomy Kit
 
 [![GitHub](https://img.shields.io/badge/GitHub-reflectt-blue?logo=github)](https://github.com/reflectt/agent-autonomy-kit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -250,11 +250,11 @@ Configure Discord/Slack for team communication:
 
 ## Anti-Patterns
 
-❌ **Passive heartbeats** — "HEARTBEAT_OK" wastes the opportunity to work
-❌ **No task queue** — Agents don't know what to work on
-❌ **Solo operation** — No coordination means duplicated effort
-❌ **Ignoring limits** — Getting rate-limited mid-task loses context
-❌ **No handoff notes** — Next session starts from scratch
+ **Passive heartbeats** — "HEARTBEAT_OK" wastes the opportunity to work
+ **No task queue** — Agents don't know what to work on
+ **Solo operation** — No coordination means duplicated effort
+ **Ignoring limits** — Getting rate-limited mid-task loses context
+ **No handoff notes** — Next session starts from scratch
 
 ---
 

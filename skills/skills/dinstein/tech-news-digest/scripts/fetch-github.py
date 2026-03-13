@@ -153,14 +153,14 @@ def resolve_github_token() -> Optional[str]:
     """
     # 1. Environment variable (PAT or externally-set App token)
     token = os.environ.get("GITHUB_TOKEN")
-    logging.info(f"🔍 GITHUB_TOKEN: {'set' if token else 'not set'}")
+    logging.info(f" GITHUB_TOKEN: {'set' if token else 'not set'}")
     if token:
         if token.startswith("ghp_"):
-            logging.info("🔑 Using GitHub PAT (5000 req/hr)")
+            logging.info(" Using GitHub PAT (5000 req/hr)")
         elif token.startswith("ghs_"):
-            logging.info("🔑 Using GitHub App installation token (5000 req/hr)")
+            logging.info(" Using GitHub App installation token (5000 req/hr)")
         else:
-            logging.info("🔑 Using GitHub token (5000 req/hr)")
+            logging.info(" Using GitHub token (5000 req/hr)")
         return token
     
     # 2. GitHub App auto-generation (requires GH_APP_ID, GH_APP_INSTALL_ID, GH_APP_KEY_FILE env vars)
@@ -168,21 +168,21 @@ def resolve_github_token() -> Optional[str]:
     app_id = os.environ.get("GH_APP_ID")
     install_id = os.environ.get("GH_APP_INSTALL_ID")
     key_file = os.environ.get("GH_APP_KEY_FILE")
-    logging.info(f"🔍 GH_APP_ID: {'set' if app_id else 'not set'}")
-    logging.info(f"🔍 GH_APP_INSTALL_ID: {'set' if install_id else 'not set'}")
-    logging.info(f"🔍 GH_APP_KEY_FILE: {'set' if key_file else 'not set'}{' (file exists)' if key_file and os.path.exists(key_file) else ' (file missing)' if key_file else ''}")
+    logging.info(f" GH_APP_ID: {'set' if app_id else 'not set'}")
+    logging.info(f" GH_APP_INSTALL_ID: {'set' if install_id else 'not set'}")
+    logging.info(f" GH_APP_KEY_FILE: {'set' if key_file else 'not set'}{' (file exists)' if key_file and os.path.exists(key_file) else ' (file missing)' if key_file else ''}")
     
     if app_id and install_id and key_file and os.path.exists(key_file):
         try:
             token = _generate_github_app_token(app_id, install_id, key_file)
             if token:
-                logging.info("🔑 GitHub App token auto-generated (5000 req/hr)")
+                logging.info(" GitHub App token auto-generated (5000 req/hr)")
                 return token
         except Exception as e:
             logging.debug(f"GitHub App token generation failed: {e}")
     
     # 3. gh CLI fallback
-    logging.info("🔍 Trying gh CLI fallback...")
+    logging.info(" Trying gh CLI fallback...")
     try:
         import subprocess
         result = subprocess.run(
@@ -190,15 +190,15 @@ def resolve_github_token() -> Optional[str]:
         )
         token = result.stdout.strip()
         if token and result.returncode == 0:
-            logging.info("🔑 Using gh CLI token (5000 req/hr)")
+            logging.info(" Using gh CLI token (5000 req/hr)")
             return token
         else:
-            logging.info(f"🔍 gh auth token: exit={result.returncode}, output={'set' if token else 'empty'}")
+            logging.info(f" gh auth token: exit={result.returncode}, output={'set' if token else 'empty'}")
     except Exception as e:
-        logging.info(f"🔍 gh CLI not available: {e}")
+        logging.info(f" gh CLI not available: {e}")
     
     # 4. Unauthenticated
-    logging.warning("⚠️ No GitHub token found — rate limit 60 req/hr (22 repos may fail)")
+    logging.warning(" No GitHub token found — rate limit 60 req/hr (22 repos may fail)")
     logging.warning("  Set $GITHUB_TOKEN or install GitHub App credentials to fix this")
     return None
 
@@ -300,7 +300,7 @@ def fetch_releases_with_retry(source: Dict[str, Any], cutoff: datetime, github_t
                     releases_data = json.loads(content)
             except HTTPError as e:
                 if e.code == 304:
-                    logging.info(f"⏭ {name}: not modified (304)")
+                    logging.info(f" {name}: not modified (304)")
                     return {
                         "source_id": source_id,
                         "source_type": "github",
@@ -524,9 +524,9 @@ Environment Variables:
                 results.append(result)
                 
                 if result["status"] == "ok":
-                    logger.debug(f"✅ {result['name']}: {result['count']} releases")
+                    logger.debug(f" {result['name']}: {result['count']} releases")
                 else:
-                    logger.debug(f"❌ {result['name']}: {result['error']}")
+                    logger.debug(f" {result['name']}: {result['error']}")
 
         # Flush conditional request cache
         _flush_github_cache()
@@ -555,13 +555,13 @@ Environment Variables:
         with open(args.output, "w", encoding='utf-8') as f:
             f.write(json_str)
 
-        logger.info(f"✅ Done: {ok_count}/{len(results)} repos ok, "
+        logger.info(f" Done: {ok_count}/{len(results)} repos ok, "
                    f"{total_articles} releases → {args.output}")
         
         return 0
         
     except Exception as e:
-        logger.error(f"💥 GitHub fetch failed: {e}")
+        logger.error(f" GitHub fetch failed: {e}")
         return 1
 
 

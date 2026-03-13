@@ -304,24 +304,24 @@ class ContextGuard:
                 force_reroute = True
                 recommended_model = HIGH_CONTEXT_MODEL
                 reroute_reason = f"Preventative Context Safety: {utilization:.1%} of {model_limit:,} limit"
-                warnings.append(f"⚠️ Context at {utilization:.1%} - force routing to Gemini Pro")
+                warnings.append(f" Context at {utilization:.1%} - force routing to Gemini Pro")
                 logger.warning(f"Pre-flight: Force reroute to Gemini ({total_tokens:,}/{model_limit:,} = {utilization:.1%})")
             elif not allow_reroute:
                 # Can't reroute, must compact
                 needs_compaction = True
                 compaction_target = int(model_limit * 0.7)  # Target 70%
-                warnings.append(f"⚠️ Context at {utilization:.1%} - JIT compaction required")
+                warnings.append(f" Context at {utilization:.1%} - JIT compaction required")
         
         elif utilization >= COMPACTION_THRESHOLD:
             # Warning: Approaching limit
             if allow_compaction and target_model not in ["gemini-pro", "flash"]:
                 needs_compaction = True
                 compaction_target = int(model_limit * 0.6)  # Target 60%
-                warnings.append(f"⚡ Context at {utilization:.1%} - compaction recommended")
+                warnings.append(f" Context at {utilization:.1%} - compaction recommended")
                 logger.info(f"Pre-flight: Compaction recommended ({total_tokens:,}/{model_limit:,})")
         
         elif utilization >= WARNING_THRESHOLD:
-            warnings.append(f"📊 Context at {utilization:.1%} of model limit")
+            warnings.append(f" Context at {utilization:.1%} of model limit")
         
         # Determine if safe to proceed
         safe_to_proceed = (
@@ -532,23 +532,23 @@ def dry_run(model: str, context_tokens: int) -> str:
     
     # Status
     if result.safe_to_proceed:
-        output.append("✅ SAFE TO PROCEED")
+        output.append(" SAFE TO PROCEED")
     else:
-        output.append("❌ UNSAFE - ACTION REQUIRED")
+        output.append(" UNSAFE - ACTION REQUIRED")
     
     # Routing decision
     if result.force_reroute:
-        output.append(f"\n🔄 FORCE REROUTE: → {result.recommended_model}")
+        output.append(f"\n FORCE REROUTE: → {result.recommended_model}")
         output.append(f"   Reason: {result.reroute_reason}")
     
     # Compaction decision
     if result.needs_compaction:
-        output.append(f"\n📦 JIT COMPACTION REQUIRED")
+        output.append(f"\n JIT COMPACTION REQUIRED")
         output.append(f"   Target: {result.compaction_target:,} tokens")
     
     # Warnings
     if result.warnings:
-        output.append("\n⚠️ WARNINGS:")
+        output.append("\n WARNINGS:")
         for w in result.warnings:
             output.append(f"   {w}")
     

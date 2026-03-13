@@ -104,7 +104,7 @@ Tone: Warm, approachable
 Greeting: "Hey [Name]!"
 Sign-off: "Cheers" or "Talk soon"
 Length: 2-4 sentences
-Allowed: Light emoji (😊), exclamations
+Allowed: Light emoji (), exclamations
 Special: Ask about them before pitching
 ```
 

@@ -172,8 +172,8 @@ def icon_step(status):
             "blocked": c("✗", C.RED, C.BOLD)}.get(status, "?")
 
 def icon_quest(status):
-    return {"active": c("▶", C.BLUE, C.BOLD), "completed": c("✓", C.GREEN, C.BOLD),
-            "archived": c("▪", C.DIM)}.get(status, "?")
+    return {"active": c("", C.BLUE, C.BOLD), "completed": c("✓", C.GREEN, C.BOLD),
+            "archived": c("", C.DIM)}.get(status, "?")
 
 def progress_bar(done, total, width=20):
     if total == 0: return c("░" * width, C.DIM)
@@ -224,7 +224,7 @@ def cmd_delete(args):
     quest = require_quest(quests, args.quest)
     if args.archive:
         quest["status"] = "archived"; save_quests(quests)
-        print(f"{c('▪', C.DIM)} Archived: {quest['name']}")
+        print(f"{c('', C.DIM)} Archived: {quest['name']}")
     else:
         del quests[quest["id"]]; save_quests(quests)
         print(f"{c('✗', C.RED)} Deleted: {quest['name']}")
@@ -356,7 +356,7 @@ def cmd_done(args):
     if t > 0 and d == t:
         quest["status"] = "completed"; quest["completedAt"] = now_iso()
         add_log(quest, "quest_completed", "")
-        print(f"\n{c('🎉 Quest completed!', C.GREEN, C.BOLD)} {quest['name']}")
+        print(f"\n{c(' Quest completed!', C.GREEN, C.BOLD)} {quest['name']}")
     quest["updated"] = now_iso()
     save_quests(quests)
 
@@ -438,7 +438,7 @@ def cmd_reorder(args):
     renumber_steps(quest)
     quest["updated"] = now_iso()
     save_quests(quests)
-    print(f"  {c('↕', C.BOLD)} Moved to position {args.position}")
+    print(f"  {c('', C.BOLD)} Moved to position {args.position}")
 
 # ── Commands: Context & Memory ──────────────────────────────────────────────
 
@@ -452,7 +452,7 @@ def cmd_note(args):
     add_log(quest, "note", f"Step {step['id']}: {args.text}")
     quest["updated"] = now_iso()
     save_quests(quests)
-    print(f"  {c('📝', C.BOLD)} Note on step {c(step['id'], C.BOLD)}")
+    print(f"  {c('', C.BOLD)} Note on step {c(step['id'], C.BOLD)}")
 
 def cmd_learn(args):
     """Record a key fact discovered during the process."""
@@ -463,7 +463,7 @@ def cmd_learn(args):
     add_log(quest, "learned", args.fact)
     quest["updated"] = now_iso()
     save_quests(quests)
-    print(f"  {c('💡', C.BOLD)} Fact recorded")
+    print(f"  {c('', C.BOLD)} Fact recorded")
 
 def cmd_decide(args):
     """Record a decision made during the process."""
@@ -475,7 +475,7 @@ def cmd_decide(args):
     add_log(quest, "decided", f"{args.decision} — {args.reason or 'no reason given'}")
     quest["updated"] = now_iso()
     save_quests(quests)
-    print(f"  {c('⚖', C.BOLD)} Decision recorded")
+    print(f"  {c('', C.BOLD)} Decision recorded")
 
 def cmd_risk(args):
     """Record a risk or concern."""
@@ -486,7 +486,7 @@ def cmd_risk(args):
     add_log(quest, "risk_noted", args.risk)
     quest["updated"] = now_iso()
     save_quests(quests)
-    print(f"  {c('⚠', C.YELLOW, C.BOLD)} Risk noted")
+    print(f"  {c('', C.YELLOW, C.BOLD)} Risk noted")
 
 def cmd_summarize(args):
     """Update the agent-maintained context summary."""
@@ -497,7 +497,7 @@ def cmd_summarize(args):
     add_log(quest, "summary_updated", "")
     quest["updated"] = now_iso()
     save_quests(quests)
-    print(f"  {c('📋', C.BOLD)} Summary updated")
+    print(f"  {c('', C.BOLD)} Summary updated")
 
 def cmd_meta(args):
     """Set quest metadata (priority, deadline, tags)."""
@@ -514,7 +514,7 @@ def cmd_meta(args):
             quest["tags"] = list(set(quest["tags"] + new_tags))
     quest["updated"] = now_iso()
     save_quests(quests)
-    print(f"  {c('⚙', C.BOLD)} Metadata updated")
+    print(f"  {c('', C.BOLD)} Metadata updated")
     if quest.get("priority"): print(f"  Priority: {quest['priority']}")
     if quest.get("deadline"): print(f"  Deadline: {quest['deadline']}")
     if quest.get("tags"): print(f"  Tags: {', '.join(quest['tags'])}")
@@ -533,7 +533,7 @@ def cmd_contact(args):
         quest["contacts"].append(contact)
         quest["updated"] = now_iso()
         save_quests(quests)
-        print(f"  {c('👤', C.BOLD)} Contact added: {args.name}")
+        print(f"  {c('', C.BOLD)} Contact added: {args.name}")
     else:
         if not quest["contacts"]:
             print(c("  No contacts.", C.DIM)); return
@@ -543,7 +543,7 @@ def cmd_contact(args):
             if ct.get("phone"): parts.append(ct["phone"])
             if ct.get("email"): parts.append(ct["email"])
             if ct.get("url"): parts.append(ct["url"])
-            print(f"  👤 {' '.join(parts)}")
+            print(f"   {' '.join(parts)}")
 
 def cmd_link(args):
     """Add or list links for a quest."""
@@ -555,12 +555,12 @@ def cmd_link(args):
         quest["links"].append(link)
         quest["updated"] = now_iso()
         save_quests(quests)
-        print(f"  {c('🔗', C.BOLD)} Link added: {link['label']}")
+        print(f"  {c('', C.BOLD)} Link added: {link['label']}")
     else:
         if not quest["links"]:
             print(c("  No links.", C.DIM)); return
         for lk in quest["links"]:
-            print(f"  🔗 {c(lk['label'], C.BOLD)} — {c(lk['url'], C.CYAN)}")
+            print(f"   {c(lk['label'], C.BOLD)} — {c(lk['url'], C.CYAN)}")
 
 def cmd_log_view(args):
     """View activity log."""
@@ -649,7 +649,7 @@ def cmd_context(args):
             lines.append(f"  {mark} {sub['id']} {sub['title']}")
         if cur.get("notes"):
             for n in cur["notes"]:
-                lines.append(f"  📝 {n['text']}")
+                lines.append(f"   {n['text']}")
 
     # Steps overview (compact)
     lines.append(f"\nSTEPS:")
@@ -706,7 +706,7 @@ def cmd_next(args):
     step, _ = current_step(quest)
     if not step:
         if quest["status"] == "completed":
-            print(c("  🎉 Quest completed!", C.GREEN, C.BOLD))
+            print(c("   Quest completed!", C.GREEN, C.BOLD))
         else:
             print(c("  No active steps.", C.YELLOW))
         return
@@ -725,7 +725,7 @@ def cmd_next(args):
     if step.get("substeps"): print()
     if step.get("notes"):
         for n in step["notes"]:
-            print(f"  {c('📝', C.DIM)} {n['text']}")
+            print(f"  {c('', C.DIM)} {n['text']}")
         print()
     # Context hints for the agent
     facts = quest["context"].get("keyFacts", [])
@@ -766,7 +766,7 @@ def cmd_show(args):
         is_cur = (step == cur)
         prefix = c("▸ ", C.BLUE, C.BOLD) if is_cur else "  "
         ts = (C.BOLD, C.WHITE) if is_cur else ((C.DIM,) if step["status"] == "done" else (C.RESET,))
-        bl = c(f" ⚠ {step.get('blockedReason', '')}", C.RED) if step["status"] == "blocked" else ""
+        bl = c(f"  {step.get('blockedReason', '')}", C.RED) if step["status"] == "blocked" else ""
         print(f"  {prefix}{icon_step(step['status'])} {c(step['id'], C.BOLD)}. {c(step['title'], *ts)}{bl}")
         if step.get("description") and is_cur:
             print(f"       {c(step['description'], C.DIM)}")
@@ -775,25 +775,25 @@ def cmd_show(args):
             print(f"       {icon_step(sub['status'])} {c(sub['id'], C.DIM)}  {c(sub['title'], *ss)}")
         if step.get("notes") and (is_cur or args.verbose):
             for n in step["notes"]:
-                print(f"       {c('📝', C.DIM)} {n['text']}")
+                print(f"       {c('', C.DIM)} {n['text']}")
     # Context section
     ctx = quest.get("context", {})
     if ctx.get("keyFacts") or ctx.get("decisions") or ctx.get("risks"):
         print(f"\n  {c('── Context ──', C.DIM)}")
         for f in ctx.get("keyFacts", []):
-            print(f"  {c('💡', C.DIM)} {f}")
+            print(f"  {c('', C.DIM)} {f}")
         for dc in ctx.get("decisions", []):
             r = f" — {dc['reason']}" if dc.get("reason") else ""
-            print(f"  {c('⚖', C.DIM)} {dc['decision']}{r}")
+            print(f"  {c('', C.DIM)} {dc['decision']}{r}")
         for r in ctx.get("risks", []):
-            print(f"  {c('⚠', C.YELLOW)} {r}")
+            print(f"  {c('', C.YELLOW)} {r}")
     if quest.get("contacts"):
         print(f"\n  {c('── Contacts ──', C.DIM)}")
         for ct in quest["contacts"]:
             parts = [c(ct["name"], C.BOLD)]
             if ct.get("role"): parts.append(c(f"({ct['role']})", C.DIM))
             if ct.get("phone"): parts.append(ct["phone"])
-            print(f"  👤 {' '.join(parts)}")
+            print(f"   {' '.join(parts)}")
     print()
 
 def cmd_status(args):
@@ -811,7 +811,7 @@ def cmd_status(args):
         cur_id = cur["id"]
         print(f"  Current:  {c(f'Step {cur_id}', C.BLUE)} — {cur['title']}{bl}")
     elif quest["status"] == "completed":
-        print(f"  {c('🎉 Completed!', C.GREEN, C.BOLD)}")
+        print(f"  {c(' Completed!', C.GREEN, C.BOLD)}")
     print()
 
 def cmd_brief(args):
@@ -825,7 +825,7 @@ def cmd_brief(args):
     if quest["context"].get("summary"):
         lines.append(quest["context"]["summary"])
     if cur:
-        bl = f" ⚠️ BLOCKED: {cur.get('blockedReason', '')}" if cur["status"] == "blocked" else ""
+        bl = f"  BLOCKED: {cur.get('blockedReason', '')}" if cur["status"] == "blocked" else ""
         lines.append(f"\n**Current:** Step {cur['id']} — {cur['title']}{bl}")
         if cur.get("substeps"):
             done_s = sum(1 for s in cur["substeps"] if s["status"] == "done")
@@ -855,14 +855,14 @@ def cmd_template(args):
             tmpl["steps"].append(s)
         templates[slugify(tmpl["name"])] = tmpl
         save_templates(templates)
-        print(f"  {c('📦', C.BOLD)} Template saved: {tmpl['name']}")
+        print(f"  {c('', C.BOLD)} Template saved: {tmpl['name']}")
 
     elif args.sub == "list":
         templates = load_templates()
         if not templates:
             print(c("  No templates.", C.DIM)); return
         for tid, t in templates.items():
-            print(f"  📦 {c(tid, C.CYAN, C.BOLD)} — {t['name']} ({len(t['steps'])} steps)")
+            print(f"   {c(tid, C.CYAN, C.BOLD)} — {t['name']} ({len(t['steps'])} steps)")
 
     elif args.sub == "use":
         templates = load_templates()
@@ -944,14 +944,14 @@ def cmd_export(args):
     for step in quest["steps"]:
         check = "x" if step["status"] == "done" else " "
         if step["status"] == "skipped": check = "-"
-        bl = f" ⚠️ BLOCKED: {step.get('blockedReason', '')}" if step["status"] == "blocked" else ""
+        bl = f"  BLOCKED: {step.get('blockedReason', '')}" if step["status"] == "blocked" else ""
         lines.append(f"- [{check}] **Step {step['id']}:** {step['title']}{bl}")
         if step.get("description"): lines.append(f"  {step['description']}")
         for sub in step.get("substeps", []):
             sc = "x" if sub["status"] == "done" else ("-" if sub["status"] == "skipped" else " ")
             lines.append(f"  - [{sc}] {sub['id']}: {sub['title']}")
         for n in step.get("notes", []):
-            lines.append(f"  - 📝 {n['text']} ({n['time'][:10]})")
+            lines.append(f"  -  {n['text']} ({n['time'][:10]})")
     output = "\n".join(lines)
     if args.file:
         with open(args.file, "w") as f: f.write(output)

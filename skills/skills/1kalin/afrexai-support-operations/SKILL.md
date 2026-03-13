@@ -1,7 +1,7 @@
 ---
 name: Customer Support Operations Engine
 description: Build and run a world-class customer support operation — from ticket management to team scaling. Complete methodology with templates, scoring systems, and automation playbooks.
-metadata: {"clawdbot":{"emoji":"🎧","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Customer Support Operations Engine
@@ -16,7 +16,7 @@ Before optimizing, understand current state.
 
 ### Quick Health Triage
 
-| Signal | 🔴 Critical | 🟡 Warning | 🟢 Healthy |
+| Signal |  Critical |  Warning |  Healthy |
 |--------|-------------|------------|------------|
 | First Response Time | >24h | 4-24h | <4h |
 | Resolution Time | >72h | 24-72h | <24h |
@@ -1191,18 +1191,18 @@ Use these to interact with this skill:
 
 ---
 
-## ⚡ Level Up Your Support Operations
+##  Level Up Your Support Operations
 
 This free skill gives you the complete methodology. For industry-specific support playbooks with compliance frameworks, SLA templates, and vertical-specific ticket taxonomies:
 
 **[AfrexAI Context Packs — $47 each](https://afrexai-cto.github.io/context-packs/)**
 
-- 🏥 **Healthcare Pack** — HIPAA-compliant support workflows
-- 💰 **Fintech Pack** — Regulated financial services support
-- 🛒 **Ecommerce Pack** — High-volume consumer support operations
-- 💻 **SaaS Pack** — Technical product support at scale
+-  **Healthcare Pack** — HIPAA-compliant support workflows
+-  **Fintech Pack** — Regulated financial services support
+-  **Ecommerce Pack** — High-volume consumer support operations
+-  **SaaS Pack** — Technical product support at scale
 
-### 🔗 More Free Skills by AfrexAI
+###  More Free Skills by AfrexAI
 
 - `afrexai-customer-success` — Retention, health scoring, expansion revenue
 - `afrexai-sales-playbook` — Complete B2B sales methodology

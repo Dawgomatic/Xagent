@@ -71,7 +71,7 @@ class LLMProcessor:
         """
         prompt_template = self._load_prompt(prompt_type)
         if not prompt_template:
-            print(f"⚠️  Prompt not found: {prompt_type}")
+            print(f"  Prompt not found: {prompt_type}")
             return None
 
         prompt = prompt_template.format(transcript_text=text)
@@ -85,7 +85,7 @@ class LLMProcessor:
         elif provider == "anthropic":
             return self._call_anthropic(prompt, llm_config)
         else:
-            print(f"⚠️  Unsupported provider: {provider}")
+            print(f"  Unsupported provider: {provider}")
             return None
 
     def _call_openai(self, prompt: str, config: dict) -> Optional[str]:
@@ -93,7 +93,7 @@ class LLMProcessor:
         try:
             from openai import OpenAI
         except ImportError:
-            print("❌ OpenAI package not installed")
+            print(" OpenAI package not installed")
             return None
 
         api_key = (
@@ -359,7 +359,7 @@ class LLMProcessor:
         try:
             from anthropic import Anthropic
         except ImportError:
-            print("❌ Anthropic package not installed")
+            print(" Anthropic package not installed")
             return None
 
         api_key = (

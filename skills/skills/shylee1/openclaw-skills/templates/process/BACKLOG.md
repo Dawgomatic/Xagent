@@ -4,7 +4,7 @@
 
 ---
 
-## 🟡 Ready (can be picked up)
+##  Ready (can be picked up)
 
 ### High Priority
 | Task | Size | Notes |
@@ -23,7 +23,7 @@
 
 ---
 
-## 🔴 Blocked
+##  Blocked
 
 | Task | Blocker | Owner |
 |------|---------|-------|
@@ -31,7 +31,7 @@
 
 ---
 
-## ✅ Done (this sprint)
+##  Done (this sprint)
 
 | Task | Completed | Agent |
 |------|-----------|-------|

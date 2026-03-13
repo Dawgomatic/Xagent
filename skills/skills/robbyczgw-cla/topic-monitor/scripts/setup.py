@@ -17,7 +17,7 @@ def print_welcome():
     """Print welcome message."""
     print()
     print("=" * 55)
-    print("  🔍 Topic Monitor - Setup Wizard")
+    print("   Topic Monitor - Setup Wizard")
     print("=" * 55)
     print()
     print("Welcome! Let's set up your personal topic monitoring.")
@@ -124,7 +124,7 @@ def gather_topics() -> list:
     topics = []
     
     print("-" * 55)
-    print("📋 STEP 1: Topics to Monitor")
+    print(" STEP 1: Topics to Monitor")
     print("-" * 55)
     
     topic_names = prompt_multiline(
@@ -133,7 +133,7 @@ def gather_topics() -> list:
     )
     
     if not topic_names:
-        print("\n⚠️  No topics entered. You can add them later with manage_topics.py")
+        print("\n  No topics entered. You can add them later with manage_topics.py")
         return []
     
     print(f"\nGreat! Let's configure each of your {len(topic_names)} topics.\n")
@@ -170,7 +170,7 @@ def gather_settings() -> dict:
     """Gather global settings interactively."""
     print()
     print("-" * 55)
-    print("⚙️  STEP 2: Monitoring Settings")
+    print("  STEP 2: Monitoring Settings")
     print("-" * 55)
     
     # Frequency
@@ -195,7 +195,7 @@ def gather_settings() -> dict:
     # Weekly digest
     print()
     print("-" * 55)
-    print("📊 STEP 3: Weekly Digest")
+    print(" STEP 3: Weekly Digest")
     print("-" * 55)
     
     print("\nThe weekly digest compiles lower-priority findings")
@@ -245,8 +245,8 @@ def build_config(topics: list, settings: dict) -> dict:
             "chat_id": None,
             "silent": False,
             "effects": {
-                "high_importance": "🔥",
-                "medium_importance": "📌"
+                "high_importance": "",
+                "medium_importance": ""
             }
         },
         "discord": {
@@ -285,14 +285,14 @@ def print_summary(config: dict):
     """Print configuration summary."""
     print()
     print("=" * 55)
-    print("  ✅ Setup Complete!")
+    print("   Setup Complete!")
     print("=" * 55)
     print()
     
     topics = config.get("topics", [])
     settings = config.get("settings", {})
     
-    print(f"📋 Topics configured: {len(topics)}")
+    print(f" Topics configured: {len(topics)}")
     for topic in topics:
         print(f"   • {topic['name']}")
         print(f"     Query: {topic['query'][:40]}...")
@@ -300,7 +300,7 @@ def print_summary(config: dict):
         print(f"     Frequency: {topic['frequency']}, Threshold: {topic['importance_threshold']}")
     
     print()
-    print(f"⚙️  Settings:")
+    print(f"  Settings:")
     print(f"   • Weekly digest: {'Enabled' if settings.get('digest_enabled', True) else 'Disabled'}")
     if settings.get('digest_enabled', True):
         print(f"   • Digest day: {settings.get('digest_day', 'sunday').capitalize()}")
@@ -308,7 +308,7 @@ def print_summary(config: dict):
     print(f"   • Learning mode: {'Enabled' if settings.get('learning_enabled', True) else 'Disabled'}")
     
     print()
-    print("📁 Config saved to: config.json")
+    print(" Config saved to: config.json")
     print()
     print("-" * 55)
     print("Next Steps:")
@@ -324,7 +324,7 @@ def print_summary(config: dict):
     print("   python3 scripts/manage_topics.py list")
     print("   python3 scripts/manage_topics.py add \"New Topic\" --query \"...\"")
     print()
-    print("Happy monitoring! 🔍")
+    print("Happy monitoring! ")
     print()
 
 
@@ -333,7 +333,7 @@ def main():
     # Check if config already exists
     if CONFIG_FILE.exists():
         print()
-        print("⚠️  config.json already exists!")
+        print("  config.json already exists!")
         print()
         overwrite = prompt_yes_no("Do you want to start fresh and overwrite it?", default=False)
         if not overwrite:
@@ -357,10 +357,10 @@ def main():
         print_summary(config)
         
     except KeyboardInterrupt:
-        print("\n\n⚠️  Setup cancelled. No changes made.")
+        print("\n\n  Setup cancelled. No changes made.")
         sys.exit(1)
     except EOFError:
-        print("\n\n⚠️  Input ended. No changes made.")
+        print("\n\n  Input ended. No changes made.")
         sys.exit(1)
 
 

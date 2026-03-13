@@ -124,7 +124,7 @@ schema: report/schema.json
 用户: 生成综合健康报告
 
 输出:
-✅ 健康报告已生成
+ 健康报告已生成
 文件路径: reports/health-report-2025-12-31.html
 包含章节：9个章节
 ```
@@ -134,7 +134,7 @@ schema: report/schema.json
 用户: 生成综合报告 上季度
 
 输出:
-✅ 健康报告已生成
+ 健康报告已生成
 时间范围: 2025-09-01 至 2025-12-31
 ```
 
@@ -143,6 +143,6 @@ schema: report/schema.json
 用户: 生成自定义报告 2025-01-01,2025-12-31 biochemical,medication
 
 输出:
-✅ 健康报告已生成
+ 健康报告已生成
 包含: 生化检查、用药分析
 ```

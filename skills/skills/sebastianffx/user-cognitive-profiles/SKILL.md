@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🤖🤝🧠",
+        "emoji": "",
         "requires": { "bins": ["python3"] },
         "tags": ["communication", "persona", "user-research", "optimization", "nlp"],
       },
@@ -15,7 +15,7 @@ metadata:
 
 # User Cognitive Profiles
 
-🤖🤝🧠 Discover how you communicate with AI and optimize your agent interactions.
+ Discover how you communicate with AI and optimize your agent interactions.
 
 This skill analyzes your ChatGPT conversation history to identify **cognitive archetypes** — recurring patterns in how you think, communicate, and collaborate. Use these insights to calibrate your OpenClaw agent for more effective, personalized interactions.
 
@@ -90,25 +90,25 @@ The analysis identifies archetypes based on **four dimensions**:
 
 ### Common Archetypes
 
-#### 🔧 Efficiency Optimizer
+####  Efficiency Optimizer
 - **Messages:** Short, direct, action-oriented
 - **Wants:** Quick answers, minimal explanation
 - **AI Role:** Tool to get things done
 - **Example:** "Set up email. Use pass. Go."
 
-#### 🏗️ Systems Architect
+####  Systems Architect
 - **Messages:** Long, structured, comprehensive
 - **Wants:** Deep analysis, trade-offs, strategic thinking
 - **AI Role:** Collaborative partner for complex problems
 - **Example:** 300-word technical breakdown with multiple considerations
 
-#### 🧭 Philosophical Explorer
+####  Philosophical Explorer
 - **Messages:** Varies widely, questions assumptions
 - **Wants:** Meaning, patterns, cross-domain connections
 - **AI Role:** Socratic partner for insight generation
 - **Example:** "How does this relate to [completely different domain]?"
 
-#### 🎨 Creative Synthesizer
+####  Creative Synthesizer
 - **Messages:** Connects disparate ideas, uses analogies
 - **Wants:** Novel combinations, pattern recognition
 - **AI Role:** Ideation partner and pattern mirror
@@ -238,10 +238,10 @@ python3 scripts/analyze_profile.py --archetypes 10
 ## Privacy & Security
 
 **All processing is local.** The script:
-- ✅ Runs entirely on your machine
-- ✅ Never uploads data to external services
-- ✅ Stores results in your local OpenClaw workspace
-- ✅ You control what gets shared (if anything)
+-  Runs entirely on your machine
+-  Never uploads data to external services
+-  Stores results in your local OpenClaw workspace
+-  You control what gets shared (if anything)
 
 **Recommended workflow:**
 1. Export ChatGPT data
@@ -385,4 +385,4 @@ Have a new archetype that works well? Submit a PR with:
 
 ---
 
-*Built for humans who want their AI to truly understand them.* 🤖🤝🧠
+*Built for humans who want their AI to truly understand them.* 

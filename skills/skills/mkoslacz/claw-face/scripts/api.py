@@ -347,73 +347,73 @@ Examples:
     # Handle shortcuts first (in priority order)
     if args.success:
         avatar.success(args.success)
-        print(f"✅ {args.success}")
+        print(f" {args.success}")
     elif args.error:
         avatar.error(args.error)
-        print(f"❌ {args.error}")
+        print(f" {args.error}")
     elif args.crash:
         avatar.crash(args.crash)
-        print(f"💥 {args.crash}")
+        print(f" {args.crash}")
     elif args.progress is not None:
         msg = getattr(args, 'message', "") or ""
         avatar.progress(args.progress, msg)
-        print(f"📊 Progress: {args.progress}%")
+        print(f" Progress: {args.progress}%")
     elif args.thinking:
         avatar.thinking(args.thinking)
-        print(f"🤔 {args.thinking}")
+        print(f" {args.thinking}")
     elif args.coding:
         avatar.coding(args.coding)
-        print(f"💻 {args.coding}")
+        print(f" {args.coding}")
     elif args.loading:
         avatar.processing(args.loading)
-        print(f"⏳ {args.loading}")
+        print(f" {args.loading}")
     elif args.idle:
         avatar.idle()
-        print("🦞 Idle")
+        print(" Idle")
 
     # Scenario shortcuts
     elif args.analyze:
         avatar.analyzing_code(args.analyze)
-        print(f"📖 {args.analyze}")
+        print(f" {args.analyze}")
     elif args.search:
         avatar.deep_search(args.search)
-        print(f"🔍 {args.search}")
+        print(f" {args.search}")
     elif args.intense:
         avatar.intense_coding(args.intense)
-        print(f"🔥 {args.intense}")
+        print(f" {args.intense}")
     elif args.celebrate:
         avatar.big_success(args.celebrate)
-        print(f"🎉 {args.celebrate}")
+        print(f" {args.celebrate}")
     elif args.quick:
         avatar.quick_win(args.quick)
-        print(f"⚡ {args.quick}")
+        print(f" {args.quick}")
     elif args.install:
         avatar.installing(args.install)
-        print(f"⚙️ {args.install}")
+        print(f" {args.install}")
     elif args.compile:
         avatar.compiling(args.compile)
-        print(f"🔢 {args.compile}")
+        print(f" {args.compile}")
     elif args.test:
         avatar.testing(args.test)
         print(f"✓ {args.test}")
     elif args.git:
         avatar.git_operation(args.git)
-        print(f"🌿 {args.git}")
+        print(f" {args.git}")
     elif args.upload:
         avatar.uploading(args.upload)
-        print(f"⬆️ {args.upload}")
+        print(f" {args.upload}")
     elif args.download:
         avatar.downloading(args.download)
-        print(f"⬇️ {args.download}")
+        print(f" {args.download}")
     elif args.output:
         avatar.outputting(args.output)
-        print(f"🔊 {args.output}")
+        print(f" {args.output}")
     elif args.deep:
         avatar.deep_thinking(args.deep)
-        print(f"🧠 {args.deep}")
+        print(f" {args.deep}")
     elif args.rainbow:
         avatar.everything_great(args.rainbow)
-        print(f"🌈 {args.rainbow}")
+        print(f" {args.rainbow}")
 
     elif args.emotion and args.action:
         # Full control mode

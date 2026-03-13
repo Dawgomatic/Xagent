@@ -1,7 +1,7 @@
 ---
 name: p0-for-agents
 description: Deploy tokens on Solana, trade on pump.fun & Jupiter, earn creator fees
-metadata: {"openclaw":{"emoji":"🚀","requires":{"env":["P0_API_KEY"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["P0_API_KEY"]}}}
 homepage: https://agents.p0.systems
 ---
 

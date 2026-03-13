@@ -6,12 +6,12 @@
 
 | Scenario | Single Agent | Workforce |
 |----------|--------------|-----------|
-| Simple Q&A | ✅ | ❌ |
-| Single-domain task | ✅ | ❌ |
-| Complex, multi-step tasks | ⚠️ | ✅ |
-| Cross-domain expertise | ❌ | ✅ |
-| Parallel processing | ❌ | ✅ |
-| Quality through consensus | ❌ | ✅ |
+| Simple Q&A |  |  |
+| Single-domain task |  |  |
+| Complex, multi-step tasks |  |  |
+| Cross-domain expertise |  |  |
+| Parallel processing |  |  |
+| Quality through consensus |  |  |
 
 ## Orchestration Patterns
 

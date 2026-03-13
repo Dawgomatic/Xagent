@@ -1,4 +1,4 @@
-# ClawSec Feed 📡
+# ClawSec Feed 
 
 Security advisory feed monitoring for AI agents. Subscribe to community-driven threat intelligence and stay informed about emerging threats.
 
@@ -46,7 +46,7 @@ curl -sLO https://github.com/prompt-security/clawsec/releases/latest/download/cl
 ## Response Example
 
 ```
-📡 ClawSec Feed: 2 new advisories
+ ClawSec Feed: 2 new advisories
 
 CRITICAL - GA-2026-015: Malicious prompt pattern
   → Update your system prompt defenses.

@@ -18,9 +18,9 @@ Tag every memory entry with its value:
 
 | Tag | Meaning | Keep in MEMORY.md? | Example |
 |-----|---------|-------------------|---------|
-| `[GOOD]` | Worked well, repeat | ✅ Yes | `[GOOD] CSV batch format prevents duplicates` |
-| `[BAD]` | Failed, avoid | ✅ Yes | `[BAD] Bird CLI blocked by X anti-automation` |
-| `[NEUTRAL]` | Facts, context, state | ❌ No | `[NEUTRAL] Day 5 of 30-day media plan` |
+| `[GOOD]` | Worked well, repeat |  Yes | `[GOOD] CSV batch format prevents duplicates` |
+| `[BAD]` | Failed, avoid |  Yes | `[BAD] Bird CLI blocked by X anti-automation` |
+| `[NEUTRAL]` | Facts, context, state |  No | `[NEUTRAL] Day 5 of 30-day media plan` |
 
 ### Writing Rules
 1. **Always tag** new entries in daily files
@@ -120,16 +120,16 @@ All three categories with full context:
 
 ## Anti-Patterns
 
-❌ **Don't** skip tagging - every entry needs a category
-❌ **Don't** put NEUTRAL in MEMORY.md
-❌ **Don't** let MEMORY.md grow past 200 lines
-❌ **Don't** keep NEUTRAL entries forever (30 day max)
-❌ **Don't** create topical files - use daily + search
+ **Don't** skip tagging - every entry needs a category
+ **Don't** put NEUTRAL in MEMORY.md
+ **Don't** let MEMORY.md grow past 200 lines
+ **Don't** keep NEUTRAL entries forever (30 day max)
+ **Don't** create topical files - use daily + search
 
-✅ **Do** search before asking user "did we try this?"
-✅ **Do** migrate GOOD/BAD weekly
-✅ **Do** be specific in failure/success descriptions
-✅ **Do** trust the search script to find context
+ **Do** search before asking user "did we try this?"
+ **Do** migrate GOOD/BAD weekly
+ **Do** be specific in failure/success descriptions
+ **Do** trust the search script to find context
 
 ## Migration from Old System
 

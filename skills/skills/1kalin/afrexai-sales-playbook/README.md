@@ -1,4 +1,4 @@
-# B2B Sales Playbook ⚡
+# B2B Sales Playbook 
 
 **The complete system for running a repeatable B2B sales operation — from ICP to closed-won.**
 
@@ -47,7 +47,7 @@ After installing, try:
 - Expansion revenue playbook with signals
 - Activity + outcome metrics with healthy ranges
 
-## ⚡ Level Up
+##  Level Up
 
 Love this skill? Our **$47 Context Packs** give your agent deep industry expertise:
 
@@ -55,9 +55,9 @@ Love this skill? Our **$47 Context Packs** give your agent deep industry experti
 - **Professional Services Pack** — Consultative selling, SOW structures, utilization targets
 - **Fintech Context Pack** — Compliance-aware selling, bank partnerships, API-first GTM
 
-👉 [Browse all 10 industry packs](https://afrexai-cto.github.io/context-packs/)
+ [Browse all 10 industry packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — ICP-based lead generation & enrichment
 - [afrexai-proposal-engine](https://clawhub.com/skills/afrexai-proposal-engine) — Deal-winning proposal methodology
@@ -67,4 +67,4 @@ Love this skill? Our **$47 Context Packs** give your agent deep industry experti
 
 ---
 
-Built with 🖤💛 by AfrexAI
+Built with  by AfrexAI

@@ -97,13 +97,13 @@ async function testReflection() {
       console.log(`   Scores: ${Object.entries(scores).map(([k,v]) => `${k}=${v}`).join(', ')}`);
     }
   } else {
-    console.log('   ⚠️ No reflection data in response');
+    console.log('    No reflection data in response');
   }
   
   // 3. Performance check
   const overhead = reflectDuration - baselineDuration;
   const overheadPct = Math.round((overhead / baselineDuration) * 100);
-  console.log(`\n   📊 Overhead: +${overhead}ms (+${overheadPct}%)`);
+  console.log(`\n    Overhead: +${overhead}ms (+${overheadPct}%)`);
   
   // Assertions
   assert(baselineOutput.length > 50, 'Baseline output too short');
@@ -136,7 +136,7 @@ ${typeof reflectOutput === 'string' ? reflectOutput.substring(0, 2000) : JSON.st
     baseScore = JSON.parse(bRaw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim());
     reflectScore = JSON.parse(rRaw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim());
   } catch (e) {
-    console.log('   ⚠️ Could not parse critic scores (non-JSON response)');
+    console.log('    Could not parse critic scores (non-JSON response)');
   }
   
   if (baseScore && reflectScore) {
@@ -210,7 +210,7 @@ async function testRouting() {
       res.on('end', () => resolve(JSON.parse(buf)));
     });
   });
-  console.log(`\n   📊 Routing stats: ${JSON.stringify(status.workers?.routedToPro || 'N/A')} tasks routed to Pro`);
+  console.log(`\n    Routing stats: ${JSON.stringify(status.workers?.routedToPro || 'N/A')} tasks routed to Pro`);
   
   return {
     feature: 'routing',
@@ -244,7 +244,7 @@ async function testErrors() {
   for (const tc of testCases) {
     const diag = diagnoseError(tc.error);
     const match = diag.category === tc.expectedCategory;
-    const icon = match ? '✅' : '❌';
+    const icon = match ? '' : '';
     console.log(`${icon} "${tc.error.message.substring(0, 40)}..." → ${diag.category} (expected: ${tc.expectedCategory})`);
     if (match) passed++;
     
@@ -253,7 +253,7 @@ async function testErrors() {
     assert(diag.severity, `Missing severity for ${tc.expectedCategory}`);
   }
   
-  console.log(`\n   📊 ${passed}/${testCases.length} categories matched correctly`);
+  console.log(`\n    ${passed}/${testCases.length} categories matched correctly`);
   assert(passed === testCases.length, `${testCases.length - passed} error categories mismatched`);
   
   return { feature: 'errors', passed: true, categoriesCorrect: passed, total: testCases.length };
@@ -269,31 +269,31 @@ async function testPerformanceGuardrails() {
   await post('/parallel', { prompts: ['Capital of France?'] });
   const single = Date.now() - t1;
   const singleOk = single < GUARDRAILS.singlePrompt;
-  console.log(`${singleOk ? '✅' : '❌'} Single prompt: ${single}ms (limit: ${GUARDRAILS.singlePrompt}ms)`);
+  console.log(`${singleOk ? '' : ''} Single prompt: ${single}ms (limit: ${GUARDRAILS.singlePrompt}ms)`);
   
   // 10 parallel
   const t2 = Date.now();
   await post('/parallel', { prompts: Array(10).fill('What is 1+1?') });
   const par10 = Date.now() - t2;
   const par10Ok = par10 < GUARDRAILS.parallel10;
-  console.log(`${par10Ok ? '✅' : '❌'} 10 parallel: ${par10}ms (limit: ${GUARDRAILS.parallel10}ms)`);
+  console.log(`${par10Ok ? '' : ''} 10 parallel: ${par10}ms (limit: ${GUARDRAILS.parallel10}ms)`);
   
   // Chain standard
   const t3 = Date.now();
   await post('/chain/auto', { task: 'Analyze this market', data: 'SaaS for plumbers. $50/mo. 500K market.', depth: 'standard' });
   const chain = Date.now() - t3;
   const chainOk = chain < GUARDRAILS.chainStandard;
-  console.log(`${chainOk ? '✅' : '❌'} Chain standard: ${chain}ms (limit: ${GUARDRAILS.chainStandard}ms)`);
+  console.log(`${chainOk ? '' : ''} Chain standard: ${chain}ms (limit: ${GUARDRAILS.chainStandard}ms)`);
   
   // Chain with reflection
   const t4 = Date.now();
   await post('/chain/auto', { task: 'Analyze this market', data: 'SaaS for plumbers. $50/mo. 500K market.', depth: 'quick', reflect: true });
   const chainReflect = Date.now() - t4;
   const chainReflectOk = chainReflect < GUARDRAILS.chainWithReflect;
-  console.log(`${chainReflectOk ? '✅' : '❌'} Chain + reflect: ${chainReflect}ms (limit: ${GUARDRAILS.chainWithReflect}ms)`);
+  console.log(`${chainReflectOk ? '' : ''} Chain + reflect: ${chainReflect}ms (limit: ${GUARDRAILS.chainWithReflect}ms)`);
   
   const allOk = singleOk && par10Ok && chainOk && chainReflectOk;
-  console.log(`\n   📊 ${allOk ? 'ALL GUARDRAILS PASSED' : '⚠️ SOME GUARDRAILS FAILED'}`);
+  console.log(`\n    ${allOk ? 'ALL GUARDRAILS PASSED' : ' SOME GUARDRAILS FAILED'}`);
   
   return {
     feature: 'guardrails',
@@ -333,9 +333,9 @@ async function testSkeleton() {
   // 3. Comparison
   const sotLen = sotOutput.length;
   const chainLen = String(chainOutput).length;
-  console.log(`\n   📊 SoT: ${sotLen} chars in ${sotDuration}ms (${Math.round(sotLen / (sotDuration / 1000))} chars/sec)`);
-  console.log(`   📊 Chain: ${chainLen} chars in ${chainDuration}ms (${Math.round(chainLen / (chainDuration / 1000))} chars/sec)`);
-  console.log(`   📊 SoT produces ${(sotLen / Math.max(chainLen, 1)).toFixed(1)}x more content`);
+  console.log(`\n    SoT: ${sotLen} chars in ${sotDuration}ms (${Math.round(sotLen / (sotDuration / 1000))} chars/sec)`);
+  console.log(`    Chain: ${chainLen} chars in ${chainDuration}ms (${Math.round(chainLen / (chainDuration / 1000))} chars/sec)`);
+  console.log(`    SoT produces ${(sotLen / Math.max(chainLen, 1)).toFixed(1)}x more content`);
   
   // Assertions
   assert(skeleton.sectionCount >= 3, `Too few sections: ${skeleton.sectionCount}`);
@@ -357,7 +357,7 @@ async function testSkeleton() {
 // ─── Test 6: Structured Output ──────────────────────────
 
 async function testStructured() {
-  console.log('\n📋 Test: Structured Output');
+  console.log('\n Test: Structured Output');
   let passed = true;
   const checks = [];
 
@@ -371,7 +371,7 @@ async function testStructured() {
   const valid1 = complete1?.validation?.valid === true;
   checks.push({ name: 'Built-in schema (entities)', ok: hasEntities && valid1 });
   if (!hasEntities || !valid1) passed = false;
-  console.log(`  ${hasEntities && valid1 ? '✅' : '❌'} Built-in schema: ${complete1?.output?.entities?.length || 0} entities, valid=${valid1}`);
+  console.log(`  ${hasEntities && valid1 ? '' : ''} Built-in schema: ${complete1?.output?.entities?.length || 0} entities, valid=${valid1}`);
 
   // Test 2: Built-in schema (summary)
   const r2 = await post('/structured', {
@@ -382,7 +382,7 @@ async function testStructured() {
   const hasSummary = complete2?.output?.summary?.length > 10;
   checks.push({ name: 'Built-in schema (summary)', ok: hasSummary });
   if (!hasSummary) passed = false;
-  console.log(`  ${hasSummary ? '✅' : '❌'} Summary schema: ${complete2?.output?.keyPoints?.length || 0} key points`);
+  console.log(`  ${hasSummary ? '' : ''} Summary schema: ${complete2?.output?.keyPoints?.length || 0} key points`);
 
   // Test 3: JSON mode (no schema)
   const r3 = await post('/structured', {
@@ -392,14 +392,14 @@ async function testStructured() {
   const hasJson = complete3?.parseSuccess === true && complete3?.output?.name;
   checks.push({ name: 'JSON mode (no schema)', ok: !!hasJson });
   if (!hasJson) passed = false;
-  console.log(`  ${hasJson ? '✅' : '❌'} JSON mode: parseSuccess=${complete3?.parseSuccess}`);
+  console.log(`  ${hasJson ? '' : ''} JSON mode: parseSuccess=${complete3?.parseSuccess}`);
 
   // Test 4: Schemas endpoint
   const schemas = await get('/structured/schemas');
   const schemaCount = schemas?.schemas?.length || 0;
   checks.push({ name: 'Schema listing', ok: schemaCount >= 5 });
   if (schemaCount < 5) passed = false;
-  console.log(`  ${schemaCount >= 5 ? '✅' : '❌'} Schemas available: ${schemaCount}`);
+  console.log(`  ${schemaCount >= 5 ? '' : ''} Schemas available: ${schemaCount}`);
 
   return { feature: 'Structured Output', passed, checks };
 }
@@ -407,7 +407,7 @@ async function testStructured() {
 // ─── Test 7: Majority Voting ────────────────────────────
 
 async function testVoting() {
-  console.log('\n🗳️  Test: Majority Voting');
+  console.log('\n  Test: Majority Voting');
   let passed = true;
   const checks = [];
 
@@ -423,7 +423,7 @@ async function testVoting() {
   const hasScores = complete1?.scores?.length >= 2;
   checks.push({ name: 'Similarity voting', ok: hasOutput && hasWinner && hasScores });
   if (!hasOutput || !hasWinner || !hasScores) passed = false;
-  console.log(`  ${hasOutput && hasWinner ? '✅' : '❌'} Similarity: winner=${complete1?.winner}, ${complete1?.validCandidates} candidates, ${complete1?.duration}ms`);
+  console.log(`  ${hasOutput && hasWinner ? '' : ''} Similarity: winner=${complete1?.winner}, ${complete1?.validCandidates} candidates, ${complete1?.duration}ms`);
 
   // Test 2: Longest strategy
   const r2 = await post('/vote', {
@@ -435,7 +435,7 @@ async function testVoting() {
   const longestOk = complete2?.output?.length > 50;
   checks.push({ name: 'Longest voting', ok: longestOk });
   if (!longestOk) passed = false;
-  console.log(`  ${longestOk ? '✅' : '❌'} Longest: winner=${complete2?.winner}, output=${complete2?.output?.length} chars, ${complete2?.duration}ms`);
+  console.log(`  ${longestOk ? '' : ''} Longest: winner=${complete2?.winner}, output=${complete2?.output?.length} chars, ${complete2?.duration}ms`);
 
   // Test 3: Judge strategy (most thorough but slowest)
   const r3 = await post('/vote', {
@@ -447,7 +447,7 @@ async function testVoting() {
   const judgeOk = complete3?.output?.length > 50 && complete3?.scores;
   checks.push({ name: 'Judge voting', ok: !!judgeOk });
   if (!judgeOk) passed = false;
-  console.log(`  ${judgeOk ? '✅' : '❌'} Judge: winner=${complete3?.winner}, scores=${JSON.stringify(complete3?.scores?.map(s => s.total))}, ${complete3?.duration}ms`);
+  console.log(`  ${judgeOk ? '' : ''} Judge: winner=${complete3?.winner}, scores=${JSON.stringify(complete3?.scores?.map(s => s.total))}, ${complete3?.duration}ms`);
 
   return { feature: 'Majority Voting', passed, checks };
 }
@@ -458,7 +458,7 @@ async function main() {
   const feature = process.argv.find(a => a !== '--feature' && process.argv[process.argv.indexOf(a) - 1] === '--feature') || 'all';
   
   console.log('═══════════════════════════════════════════');
-  console.log('🐝 SWARM FEATURE BENCHMARK SUITE');
+  console.log(' SWARM FEATURE BENCHMARK SUITE');
   console.log('═══════════════════════════════════════════');
   console.log(`Feature: ${feature}`);
   
@@ -473,7 +473,7 @@ async function main() {
     if (feature === 'all' || feature === 'structured') results.push(await testStructured());
     if (feature === 'all' || feature === 'voting') results.push(await testVoting());
   } catch (e) {
-    console.error(`\n💀 TEST FAILED: ${e.message}`);
+    console.error(`\n TEST FAILED: ${e.message}`);
     process.exit(1);
   }
   
@@ -481,11 +481,11 @@ async function main() {
   console.log('RESULTS');
   console.log('═══════════════════════════════════════════');
   for (const r of results) {
-    console.log(`${r.passed ? '✅' : '❌'} ${r.feature}`);
+    console.log(`${r.passed ? '' : ''} ${r.feature}`);
   }
   
   const allPassed = results.every(r => r.passed);
-  console.log(`\n${allPassed ? '🎉 ALL TESTS PASSED' : '💀 SOME TESTS FAILED'}`);
+  console.log(`\n${allPassed ? ' ALL TESTS PASSED' : ' SOME TESTS FAILED'}`);
   process.exit(allPassed ? 0 : 1);
 }
 

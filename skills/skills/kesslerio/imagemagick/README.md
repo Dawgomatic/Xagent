@@ -15,12 +15,12 @@ sudo apt install imagemagick  # Linux
 
 ## Features
 
-- 🖼️ **Background Removal** — Strip white/solid backgrounds with configurable tolerance
-- 📐 **Resize** — Scale images to any dimension
-- 🔄 **Format Conversion** — PNG ↔ WebP ↔ JPG ↔ GIF
-- 💧 **Watermarks** — Overlay logos or text
-- 📸 **Thumbnails** — Batch generate previews
-- 🎨 **Color Adjustments** — Brightness, contrast, saturation, grayscale
+-  **Background Removal** — Strip white/solid backgrounds with configurable tolerance
+-  **Resize** — Scale images to any dimension
+-  **Format Conversion** — PNG  WebP  JPG  GIF
+-  **Watermarks** — Overlay logos or text
+-  **Thumbnails** — Batch generate previews
+-  **Color Adjustments** — Brightness, contrast, saturation, grayscale
 
 ## Documentation
 

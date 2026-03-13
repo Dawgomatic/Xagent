@@ -6,7 +6,7 @@ version: 1.3.1
 homepage: "https://github.com/odrobnik/revolut-skill"
 metadata:
   openclaw:
-    emoji: "💳"
+    emoji: ""
     requires:
       bins: ["python3", "playwright"]
       python: ["playwright"]

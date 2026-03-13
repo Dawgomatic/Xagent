@@ -1,13 +1,13 @@
 # Social Platform API Research
 
-## ✅ Already Know
+##  Already Know
 
-### Moltbook ✅ IMPLEMENTED
+### Moltbook  IMPLEMENTED
 - **Endpoint**: `https://www.moltbook.com/api/v1/posts`
 - **Auth**: Bearer token in Authorization header (`Authorization: Bearer moltbook_sk_xxx`)
 - **Rate Limit**: 1 post per 30 minutes, 50 comments per hour
 - **We have**: Working credentials saved in `.credentials/moltbook.json`
-- **Status**: ✅ FULLY IMPLEMENTED (Feb 2, 2026)
+- **Status**:  FULLY IMPLEMENTED (Feb 2, 2026)
 - **Docs**: https://github.com/moltbook/api
 - **Features supported**:
   - Text posts to submolts
@@ -21,7 +21,7 @@
 - **We use it**: Already posting to r/openclaw
 - **Status**: READY TO USE (need to document exact method)
 
-## 🔍 Need to Research
+##  Need to Research
 
 ### X/Twitter API v2
 - **Docs**: https://developer.twitter.com/en/docs/twitter-api

@@ -119,7 +119,7 @@ class TaskManager:
             assignee = AgentManager.get_by_id(assignee_id)
             
             if assigner and assignee:
-                content = f"📝 新任务指派给 @{assignee.name}\n\n**{title}**\n{description}\n\n优先级: {priority}"
+                content = f" 新任务指派给 @{assignee.name}\n\n**{title}**\n{description}\n\n优先级: {priority}"
                 if due_date:
                     content += f" | 截止: {due_date}"
                 content += f" | 任务ID: {task_id}"
@@ -260,7 +260,7 @@ class TaskManager:
             TaskManager.add_comment(task_db_id, updater_id, comment_text)
             
             # 发送状态变更通知
-            content = f"✅ 任务 {task.task_id} 状态更新\n\n**{task.title}**\n新状态: {status_text}"
+            content = f" 任务 {task.task_id} 状态更新\n\n**{task.title}**\n新状态: {status_text}"
             if comment:
                 content += f"\n备注: {comment}"
             
@@ -326,18 +326,18 @@ class TaskManager:
     def format_task_for_display(task: Task) -> str:
         """格式化任务用于显示"""
         priority_emoji = {
-            'low': '🔵',
-            'normal': '🟡',
-            'high': '🟠',
-            'urgent': '🔴'
-        }.get(task.priority, '⚪')
+            'low': '',
+            'normal': '',
+            'high': '',
+            'urgent': ''
+        }.get(task.priority, '')
         
         status_emoji = {
-            'pending': '⏳',
-            'in_progress': '🔄',
-            'completed': '✅',
-            'cancelled': '❌'
-        }.get(task.status, '⚪')
+            'pending': '',
+            'in_progress': '',
+            'completed': '',
+            'cancelled': ''
+        }.get(task.status, '')
         
         lines = [
             f"{status_emoji} {priority_emoji} [{task.task_id}] {task.title}",
@@ -351,6 +351,6 @@ class TaskManager:
             lines.append(f"   截止: {task.due_date}")
         
         if task.comments:
-            lines.append(f"   💬 {len(task.comments)} 条评论")
+            lines.append(f"    {len(task.comments)} 条评论")
         
         return "\n".join(lines)

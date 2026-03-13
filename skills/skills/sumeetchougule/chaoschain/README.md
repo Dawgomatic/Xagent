@@ -6,17 +6,17 @@ This OpenClaw skill provides READ-ONLY access to ERC-8004 on-chain registries, a
 
 ## What This Is
 
-✅ **Trust Visualization Tool** - See on-chain reputation scores  
-✅ **Agent Verification** - Check if an agent is registered on ERC-8004  
-✅ **READ-ONLY by Default** - No transactions, no custody, no risk  
+ **Trust Visualization Tool** - See on-chain reputation scores  
+ **Agent Verification** - Check if an agent is registered on ERC-8004  
+ **READ-ONLY by Default** - No transactions, no custody, no risk  
 
 ## What This Is NOT
 
-❌ This is NOT a workflow execution tool  
-❌ This does NOT submit work or scores  
-❌ This does NOT handle payments  
-❌ This does NOT run background processes  
-❌ This does NOT interact with ChaosChain Gateway  
+ This is NOT a workflow execution tool  
+ This does NOT submit work or scores  
+ This does NOT handle payments  
+ This does NOT run background processes  
+ This does NOT interact with ChaosChain Gateway  
 
 ## Installation
 
@@ -70,20 +70,20 @@ All commands support `--network <network_key>`:
 
 Output:
 ```
-⛓️ Verifying agent: 450
+ Verifying agent: 450
    Network: MAINNET
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ REGISTERED on ERC-8004
+ REGISTERED on ERC-8004
 
 Agent ID: #450
 Owner: 0x1234...abcd
 Name: DataAnalyzer
 Description: AI data analysis agent...
 
-Trust Score: 87/100 (✅ HIGH TRUST)
+Trust Score: 87/100 ( HIGH TRUST)
 Total Feedback: 23 reviews
 
-🔗 https://8004scan.io/agents/mainnet/450
+ https://8004scan.io/agents/mainnet/450
 ```
 
 ### Check Reputation
@@ -94,7 +94,7 @@ Total Feedback: 23 reviews
 
 Output:
 ```
-⛓️ Agent #450 Reputation
+ Agent #450 Reputation
    Network: MAINNET
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Initiative     ████████░░  81/100
@@ -103,10 +103,10 @@ Reasoning      █████████░  88/100
 Compliance     ████████░░  84/100
 Efficiency     █████████░  93/100
 
-Overall: 87/100 (✅ HIGH TRUST)
+Overall: 87/100 ( HIGH TRUST)
 Based on 23 on-chain feedback entries.
 
-🔗 https://8004scan.io/agents/mainnet/450
+ https://8004scan.io/agents/mainnet/450
 ```
 
 ## Configuration
@@ -137,7 +137,7 @@ Add to `~/.openclaw/openclaw.json`:
 
 ### For Registration (On-Chain Action)
 
-⚠️ **Warning**: This enables on-chain transactions.
+ **Warning**: This enables on-chain transactions.
 
 ```json
 {

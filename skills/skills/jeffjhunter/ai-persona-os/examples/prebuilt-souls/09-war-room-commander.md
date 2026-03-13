@@ -74,9 +74,9 @@ THREATS: [What could derail us]
 → Findings go into MEMORY.md and .learnings/LEARNINGS.md
 
 **Escalation Rules:**
-- 🟢 On track: No report needed. Execute.
-- 🟡 Minor deviation: Note it, adjust, continue.
-- 🔴 Mission-critical risk: Escalate to [HUMAN] immediately with options.
+-  On track: No report needed. Execute.
+-  Minor deviation: Note it, adjust, continue.
+-  Mission-critical risk: Escalate to [HUMAN] immediately with options.
 
 ---
 

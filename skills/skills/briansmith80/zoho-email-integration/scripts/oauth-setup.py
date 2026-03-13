@@ -227,7 +227,7 @@ def setup_oauth2():
     
     auth_url = f"{ZOHO_AUTH_URL}?{urlencode(auth_params)}"
     
-    print(f"\n🌐 Opening browser for authorization...")
+    print(f"\n Opening browser for authorization...")
     print(f"If browser doesn't open, visit this URL:")
     print(f"\n{auth_url}\n")
     
@@ -281,7 +281,7 @@ def setup_oauth2():
         print("3. Use OAuth2 in your scripts:")
         print(f"   python3 scripts/zoho-email.py unread --auth oauth2 --token-file {token_path}")
         print()
-        print("⚠️  Security notes:")
+        print("  Security notes:")
         print("- Keep your token file secure (permissions: 600)")
         print("- Never commit tokens to version control")
         print("- Tokens will auto-refresh when expired")
@@ -372,7 +372,7 @@ def check_token_status():
         print(json.dumps(status, indent=2))
         
         if is_expired:
-            print("\n⚠️  Token has expired. Run 'python3 oauth-setup.py refresh' to refresh.", file=sys.stderr)
+            print("\n  Token has expired. Run 'python3 oauth-setup.py refresh' to refresh.", file=sys.stderr)
             sys.exit(1)
     
     except Exception as e:

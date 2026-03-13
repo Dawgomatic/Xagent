@@ -2,7 +2,7 @@
 
 A comprehensive voice production studio skill for OpenClaw, powered by ElevenLabs. Transform your personal AI assistant into a full-featured voice platform with text-to-speech, speech-to-text, voice cloning, sound effects, and multilingual dubbing capabilities.
 
-## 🎙️ Features
+##  Features
 
 - **Text-to-Speech (TTS)** - Generate lifelike speech with multiple voice models
 - **Speech-to-Text (STT)** - Transcribe audio with high accuracy
@@ -12,7 +12,7 @@ A comprehensive voice production studio skill for OpenClaw, powered by ElevenLab
 - **Multilingual Dubbing** - Translate and dub audio/video to 32+ languages
 - **Voice Library Management** - Browse and manage available voices
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -70,7 +70,7 @@ elevenlabs dub -t es audio.mp3  # Spanish
 elevenlabs dub -s en -t ja video.mp4  # English to Japanese
 ```
 
-## 📚 Available Commands
+##  Available Commands
 
 ### speak - Text to Speech
 ```bash
@@ -151,7 +151,7 @@ Supported Languages:
   vi (Vietnamese), sv (Swedish), da (Danish), fi (Finnish), and more...
 ```
 
-## 🔧 Environment Variables
+##  Environment Variables
 
 | Variable | Description | Default |
 |----------|-------------|---------|
@@ -160,7 +160,7 @@ Supported Languages:
 | `ELEVENLABS_DEFAULT_MODEL` | Default TTS model | eleven_turbo_v2_5 |
 | `ELEVENLABS_OUTPUT_DIR` | Default output directory | ~/.openclaw/audio |
 
-## 📖 Voice Models
+##  Voice Models
 
 | Model | Latency | Languages | Best For |
 |-------|---------|-----------|----------|
@@ -168,7 +168,7 @@ Supported Languages:
 | `eleven_turbo_v2_5` | ~250ms | 32 | Balanced quality/speed |
 | `eleven_multilingual_v2` | ~500ms | 29 | Long-form, highest quality |
 
-## 🎭 Built-in Voices
+##  Built-in Voices
 
 - **Rachel** - Calm and professional female voice
 - **Adam** - Confident male voice
@@ -179,7 +179,7 @@ Supported Languages:
 - **Josh** - Deep male voice
 - **Sam** - Young male voice
 
-## 💰 Pricing
+##  Pricing
 
 ElevenLabs API pricing (approximate):
 - **Flash v2.5**: ~$0.06/min
@@ -190,35 +190,35 @@ ElevenLabs API pricing (approximate):
 
 Free tier: ~10,000 characters/month
 
-## 🧪 Testing
+##  Testing
 
 Run the test suite:
 ```bash
 ./test.sh <your_api_key>
 ```
 
-## 🔗 Links
+##  Links
 
 - [ElevenLabs Dashboard](https://elevenlabs.io/app)
 - [API Documentation](https://elevenlabs.io/docs)
 - [Voice Library](https://elevenlabs.io/voice-library)
 - [Pricing](https://elevenlabs.io/pricing)
 
-## 📝 License
+##  License
 
 MIT License - See OpenClaw project license
 
-## 🏆 Hackathon Submission
+##  Hackathon Submission
 
 This skill was created for the Clawdbot x ElevenLabs Developer Challenge.
 
 **Features:**
-- ✅ Full ElevenLabs API coverage (TTS, STT, Clone, SFX, Dub, Isolate)
-- ✅ OpenClaw-native implementation with SKILL.md
-- ✅ Comprehensive CLI with help and error handling
-- ✅ Multi-language support (32+ languages)
-- ✅ Voice library management
-- ✅ Test suite included
+-  Full ElevenLabs API coverage (TTS, STT, Clone, SFX, Dub, Isolate)
+-  OpenClaw-native implementation with SKILL.md
+-  Comprehensive CLI with help and error handling
+-  Multi-language support (32+ languages)
+-  Voice library management
+-  Test suite included
 
 **Technically Deep:**
 - Implements all major ElevenLabs APIs

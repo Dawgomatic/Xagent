@@ -1,7 +1,7 @@
 ---
 name: warren-nft
 description: Deploy NFT collections permanently on MegaETH blockchain. Images stored on-chain via SSTORE2. Create and launch NFT collections with royalties, minting, and management pages.
-metadata: {"openclaw":{"emoji":"🖼️","homepage":"https://megawarren.xyz","requires":{"anyBins":["node"]}}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://megawarren.xyz","requires":{"anyBins":["node"]}}}
 user-invocable: true
 ---
 
@@ -111,7 +111,7 @@ PRIVATE_KEY=0x... node deploy-nft.js \
 After deployment, you'll receive:
 
 ```
-🎉 NFT Collection Deployed!
+ NFT Collection Deployed!
 ============================================================
 NFT Contract:  0xABC...
 Container ID:  15
@@ -119,8 +119,8 @@ Image Count:   10
 Max Supply:    100
 Public Price:  0 ETH (Free)
 
-📋 Management: https://megawarren.xyz/launchpad/0xABC.../
-🎨 Mint Page:  https://megawarren.xyz/launchpad/0xABC.../mint
+ Management: https://megawarren.xyz/launchpad/0xABC.../
+ Mint Page:  https://megawarren.xyz/launchpad/0xABC.../mint
 ============================================================
 ```
 

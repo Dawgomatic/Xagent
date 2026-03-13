@@ -6,7 +6,7 @@ homepage: https://github.com/globalcaos/clawdbot-moltbot-openclaw
 repository: https://github.com/globalcaos/clawdbot-moltbot-openclaw
 metadata:
   openclaw:
-    emoji: "📧"
+    emoji: ""
     requires:
       tools: ["browser"]
 ---
@@ -47,17 +47,17 @@ The Outlook Web app stores OAuth tokens in `localStorage`. This skill extracts t
 
 | Feature | Supported |
 |---------|-----------|
-| Read inbox (with preview) | ✅ |
-| Read full message body (HTML) | ✅ |
-| Search messages | ✅ |
-| Send email | ✅ |
-| Reply / Reply All / Forward | ✅ |
-| List folders + unread counts | ✅ |
-| Calendar events | ✅ |
-| Download attachments | ✅ |
-| Mark read/unread | ✅ |
-| Move to folder | ✅ |
-| Flag messages | ✅ |
+| Read inbox (with preview) |  |
+| Read full message body (HTML) |  |
+| Search messages |  |
+| Send email |  |
+| Reply / Reply All / Forward |  |
+| List folders + unread counts |  |
+| Calendar events |  |
+| Download attachments |  |
+| Mark read/unread |  |
+| Move to folder |  |
+| Flag messages |  |
 
 ## Usage
 
@@ -339,14 +339,14 @@ Tokens expire after ~1 hour but are refreshed automatically.
 
 | Feature | IMAP | Graph API | EWS | **Outlook Hack** |
 |---------|------|-----------|-----|------------------|
-| Admin consent needed | Often blocked | ✅ Required | Often blocked | ❌ None |
-| API keys needed | ✅ Credentials | ✅ App registration | ✅ Credentials | ❌ None |
-| Works with MFA | ❌ Breaks IMAP | ✅ | ❌ Often breaks | ✅ Via browser session |
-| Calendar access | ❌ | ✅ | ✅ | ✅ |
-| Send email | ✅ | ✅ | ✅ | ✅ |
-| Search | ❌ Limited | ✅ | ✅ | ✅ |
+| Admin consent needed | Often blocked |  Required | Often blocked |  None |
+| API keys needed |  Credentials |  App registration |  Credentials |  None |
+| Works with MFA |  Breaks IMAP |  |  Often breaks |  Via browser session |
+| Calendar access |  |  |  |  |
+| Send email |  |  |  |  |
+| Search |  Limited |  |  |  |
 | Setup time | Medium | Hours/days | Medium | **2 minutes** |
-| Requires browser open | ❌ | ❌ | ❌ | ✅ |
+| Requires browser open |  |  |  |  |
 
 ## Limitations
 

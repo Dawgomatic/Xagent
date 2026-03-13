@@ -6,12 +6,12 @@ author: oak lee
 tags: [nutrition, health, diet, mindful-eating, 减脂, 饮食, 健康]
 metadata:
   openclaw:
-    emoji: "🍃"
+    emoji: ""
     requires:
       bins: ["python3"]
 ---
 
-# 半饱 🍃
+# 半饱 
 
 生活的高潮所在。
 

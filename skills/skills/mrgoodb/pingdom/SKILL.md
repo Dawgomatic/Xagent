@@ -1,7 +1,7 @@
 ---
 name: pingdom
 description: Monitor uptime and performance via Pingdom API. Manage checks and view reports.
-metadata: {"clawdbot":{"emoji":"📡","requires":{"env":["PINGDOM_API_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["PINGDOM_API_TOKEN"]}}}
 ---
 # Pingdom
 Uptime monitoring.

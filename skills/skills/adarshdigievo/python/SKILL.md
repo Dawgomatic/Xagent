@@ -51,32 +51,32 @@ For new projects with uv: `uv init` or `uv venv && source .venv/bin/activate`
 ## Pythonic Patterns
 
 ```python
-# ✅ List/dict comprehensions over loops
+#  List/dict comprehensions over loops
 squares = [x**2 for x in range(10)]
 lookup = {item.id: item for item in items}
 
-# ✅ Context managers for resources
+#  Context managers for resources
 with open("file.txt") as f:
     data = f.read()
 
-# ✅ Unpacking
+#  Unpacking
 first, *rest = items
 a, b = b, a  # swap
 
-# ✅ EAFP over LBYL
+#  EAFP over LBYL
 try:
     value = d[key]
 except KeyError:
     value = default
 
-# ✅ f-strings for formatting
+#  f-strings for formatting
 msg = f"Hello {name}, you have {count} items"
 
-# ✅ Type hints
+#  Type hints
 def process(items: list[str]) -> dict[str, int]:
     ...
 
-# ✅ dataclasses/attrs for data containers
+#  dataclasses/attrs for data containers
 from dataclasses import dataclass
 
 @dataclass
@@ -85,11 +85,11 @@ class User:
     email: str
     active: bool = True
 
-# ✅ pathlib over os.path
+#  pathlib over os.path
 from pathlib import Path
 config = Path.home() / ".config" / "app.json"
 
-# ✅ enumerate, zip, itertools
+#  enumerate, zip, itertools
 for i, item in enumerate(items):
     ...
 for a, b in zip(list1, list2, strict=True):
@@ -99,13 +99,13 @@ for a, b in zip(list1, list2, strict=True):
 ## Anti-patterns to Avoid
 
 ```python
-# ❌ Mutable default arguments
+#  Mutable default arguments
 def bad(items=[]):  # Bug: shared across calls
     ...
 def good(items=None):
     items = items or []
 
-# ❌ Bare except
+#  Bare except
 try:
     ...
 except:  # Catches SystemExit, KeyboardInterrupt
@@ -113,11 +113,11 @@ except:  # Catches SystemExit, KeyboardInterrupt
 except Exception:  # Better
     ...
 
-# ❌ Global state
-# ❌ from module import * 
-# ❌ String concatenation in loops (use join)
-# ❌ == None (use `is None`)
-# ❌ len(x) == 0 (use `not x`)
+#  Global state
+#  from module import * 
+#  String concatenation in loops (use join)
+#  == None (use `is None`)
+#  len(x) == 0 (use `not x`)
 ```
 
 ## Testing

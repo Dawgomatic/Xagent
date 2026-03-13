@@ -2,7 +2,7 @@
 name: ape-claw
 description: Use the ape-claw CLI to bridge to ApeChain and execute NFT quote/simulate/buy flows with strict policy gating, confirm phrases, and telemetry. Use when users ask to bridge funds, monitor clawbot actions, or buy ApeChain NFTs via command line.
 metadata:
- { "openclaw": { "emoji": "🦞", "requires": { "bins": ["node"] } } }
+ { "openclaw": { "emoji": "", "requires": { "bins": ["node"] } } }
 ---
 
 # Ape Claw
@@ -27,7 +27,7 @@ For transaction commands, `nft buy` and `bridge execute` require explicit `--exe
 One-command installer (fresh machine, no repo clone):
 
 ```bash
-# Works everywhere. Installs everything. You're welcome. 🦞
+# Works everywhere. Installs everything. You're welcome. 
 curl -fsSL https://raw.githubusercontent.com/simplefarmer69/ape-claw/main/install.sh | bash
 ```
 

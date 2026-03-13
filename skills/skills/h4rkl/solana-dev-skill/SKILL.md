@@ -77,7 +77,7 @@ When you implement changes, provide:
 
 ## Progressive disclosure (read when needed)
 - UI + wallet + hooks: [frontend-framework-kit.md](frontend-framework-kit.md)
-- Kit ↔ web3.js boundary: [kit-web3-interop.md](kit-web3-interop.md)
+- Kit  web3.js boundary: [kit-web3-interop.md](kit-web3-interop.md)
 - Anchor programs: [programs-anchor.md](programs-anchor.md)
 - Pinocchio programs: [programs-pinocchio.md](programs-pinocchio.md)
 - Testing strategy: [testing.md](testing.md)

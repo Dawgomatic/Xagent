@@ -363,7 +363,7 @@ fi
 # Build human-readable summary
 if ! $QUIET && ! $JSON_ONLY; then
   if [[ "$OVERALL" == "healthy" ]]; then
-    text="✅ ECS health check ($CLUSTER): all systems healthy"
+    text=" ECS health check ($CLUSTER): all systems healthy"
   else
     issues=$(echo "$FINAL_JSON" | python3 -c "
 import json, sys
@@ -381,9 +381,9 @@ print('; '.join(issues[:5]) if issues else '$OVERALL')
 " 2>/dev/null)
 
     if [[ "$OVERALL" == "degraded" ]]; then
-      text="⚠️  ECS health ($CLUSTER): DEGRADED — $issues"
+      text="  ECS health ($CLUSTER): DEGRADED — $issues"
     else
-      text="🔴 ECS health ($CLUSTER): UNHEALTHY — $issues"
+      text=" ECS health ($CLUSTER): UNHEALTHY — $issues"
     fi
   fi
 

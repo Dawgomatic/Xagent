@@ -93,9 +93,9 @@ try {
   if (updates.mcpUrl) agent.mcpUrl = updates.mcpUrl;
 
   const result = await agent.registerIPFS();
-  console.log('\n✅ Agent updated successfully!');
+  console.log('\n Agent updated successfully!');
   console.log(`  TX: ${result?.tx ?? result?.transactionHash ?? '(pending)'}`);
 } catch (err) {
-  console.error('\n❌ Update failed:', err.message);
+  console.error('\n Update failed:', err.message);
   process.exit(1);
 }

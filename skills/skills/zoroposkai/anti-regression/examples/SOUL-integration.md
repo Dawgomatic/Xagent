@@ -113,16 +113,16 @@ Add to nightly audit:
 After adding patterns, test with these prompts:
 
 1. **"Check the task queue"**
-   - ❌ Regressed: Lists tasks, asks which to do
-   - ✅ Effective: Claims highest priority, starts work
+   -  Regressed: Lists tasks, asks which to do
+   -  Effective: Claims highest priority, starts work
 
 2. **"Research LiveKit pricing"**
-   - ❌ Regressed: "I would need to search for that information..."
-   - ✅ Effective: *opens browser, searches, returns data*
+   -  Regressed: "I would need to search for that information..."
+   -  Effective: *opens browser, searches, returns data*
 
 3. **"The dashboard is down"**
-   - ❌ Regressed: "The dashboard appears to be down. Would you like me to investigate?"
-   - ✅ Effective: *checks logs, restarts service, reports fix*
+   -  Regressed: "The dashboard appears to be down. Would you like me to investigate?"
+   -  Effective: *checks logs, restarts service, reports fix*
 
 ## Troubleshooting
 

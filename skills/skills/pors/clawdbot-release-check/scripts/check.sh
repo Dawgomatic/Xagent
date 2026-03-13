@@ -205,7 +205,7 @@ fi
 
 # Build notification message
 cat <<EOF
-🔄 **Clawdbot Update Available!**
+ **Clawdbot Update Available!**
 
 Current: \`$current_version\`
 Latest:  \`$latest_version\`
@@ -232,7 +232,7 @@ if [[ "$all_highlights" == "true" ]]; then
     hl=$(get_highlights "$tag" "$body")
     if [[ -n "$hl" && "$hl" != "null" ]]; then
       echo ""
-      echo "📦 **$tag**"
+      echo " **$tag**"
       echo "$hl"
     fi
   done
@@ -255,7 +255,7 @@ EOF
 fi
 
 echo ""
-echo "🔗 $release_url"
+echo " $release_url"
 echo ""
 
 # Show appropriate update command

@@ -28,7 +28,7 @@ case "$COMMAND" in
 
         ENTITY_ID=$(resolve_entity_id "$DISCORD_ID")
         if [ -z "$ENTITY_ID" ]; then
-            echo "❌ Entity not found for discord:$DISCORD_ID"
+            echo " Entity not found for discord:$DISCORD_ID"
             exit 1
         fi
 
@@ -42,7 +42,7 @@ case "$COMMAND" in
 
         db_query "INSERT INTO audit_log (entity_id, action, old_value, new_value, reason, changed_by) VALUES ($ENTITY_ID, 'set-tier', 'tier=$OLD_TIER', 'tier=$NEW_TIER', $REASON_CLAUSE, 'tribe-cli');"
 
-        echo "✅ $NAME: Tier $OLD_TIER ($(tier_label "$OLD_TIER")) → Tier $NEW_TIER ($(tier_label "$NEW_TIER"))"
+        echo " $NAME: Tier $OLD_TIER ($(tier_label "$OLD_TIER")) → Tier $NEW_TIER ($(tier_label "$NEW_TIER"))"
         [ -n "$REASON" ] && echo "   Reason: $REASON"
         ;;
 
@@ -65,7 +65,7 @@ case "$COMMAND" in
 
         ENTITY_ID=$(resolve_entity_id "$DISCORD_ID")
         if [ -z "$ENTITY_ID" ]; then
-            echo "❌ Entity not found for discord:$DISCORD_ID"
+            echo " Entity not found for discord:$DISCORD_ID"
             exit 1
         fi
 
@@ -79,7 +79,7 @@ case "$COMMAND" in
 
         db_query "INSERT INTO audit_log (entity_id, action, old_value, new_value, reason, changed_by) VALUES ($ENTITY_ID, 'set-status', 'status=$OLD_STATUS', 'status=$NEW_STATUS', $REASON_CLAUSE, 'tribe-cli');"
 
-        echo "✅ $NAME: $OLD_STATUS → $NEW_STATUS"
+        echo " $NAME: $OLD_STATUS → $NEW_STATUS"
         [ -n "$REASON" ] && echo "   Reason: $REASON"
         ;;
 

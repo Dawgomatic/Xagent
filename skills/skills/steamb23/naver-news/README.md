@@ -1,4 +1,4 @@
-# 📰 Naver News Search
+#  Naver News Search
 
 Search Korean news articles using the Naver Search API.
 

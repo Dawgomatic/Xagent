@@ -3,7 +3,7 @@ name: data-cog
 description: "Your data has answers. CellCog asks the right questions. #1 on DeepResearch Bench (Feb 2026) + frontier coding agent — upload messy CSVs with minimal prompting and get structured insights back: charts, dashboards, statistical reports, and clean data. Full Python access for data cleaning, exploratory analysis, visualization, hypothesis testing, ML model evaluation, and dataset profiling. Analyzes everything, presents it beautifully."
 metadata:
   openclaw:
-    emoji: "🔢"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

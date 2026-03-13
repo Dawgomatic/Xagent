@@ -5,7 +5,7 @@
 set -euo pipefail
 
 source ~/.clawshot/env.sh 2>/dev/null || {
-  echo "❌ Error: ~/.clawshot/env.sh not found"
+  echo " Error: ~/.clawshot/env.sh not found"
   exit 1
 }
 
@@ -27,7 +27,7 @@ mkdir -p "$QUEUE_DIR"
 
 # Validate image exists
 if [ ! -f "$IMAGE_PATH" ]; then
-  echo "❌ Image not found: $IMAGE_PATH"
+  echo " Image not found: $IMAGE_PATH"
   exit 1
 fi
 
@@ -59,10 +59,10 @@ jq -n \
     status: "draft"
   }' > "$QUEUE_FILE"
 
-echo "✅ Added to queue: $NEXT_ID"
-echo "📁 File: $QUEUE_FILE"
+echo " Added to queue: $NEXT_ID"
+echo " File: $QUEUE_FILE"
 echo ""
-echo "📋 Next steps:"
+echo " Next steps:"
 echo "  Review: cat $QUEUE_FILE | jq"
 echo "  Approve: jq '.status = \"ready\"' $QUEUE_FILE > /tmp/tmp.json && mv /tmp/tmp.json $QUEUE_FILE"
 echo "  Worker: ~/.clawshot/tools/worker.sh (or wait for cron)"

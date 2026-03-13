@@ -147,7 +147,7 @@ node test.live.mock.js
 Total Tests: 6
 ✓ Passed: 6
 ✗ Failed: 0
-⚠ Warned: 0
+ Warned: 0
 Duration: 0.01s
 Status: ✓ ALL TESTS PASSED
 ```

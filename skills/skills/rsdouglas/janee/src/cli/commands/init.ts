@@ -102,7 +102,7 @@ export async function initCommand(): Promise<void> {
 
     // Check if config already exists
     if (fs.existsSync(CONFIG_FILE)) {
-      console.error('❌ Config already exists at:', CONFIG_FILE);
+      console.error(' Config already exists at:', CONFIG_FILE);
       console.error('');
       console.error('To start fresh, remove the existing config:');
       console.error(`  rm ${CONFIG_FILE}`);
@@ -118,7 +118,7 @@ export async function initCommand(): Promise<void> {
     // Write config file
     fs.writeFileSync(CONFIG_FILE, config, { mode: 0o600 });
 
-    console.log('✅ Janee initialized successfully!');
+    console.log(' Janee initialized successfully!');
     console.log();
     console.log(`Config file: ${CONFIG_FILE}`);
     console.log(`Logs directory: ${LOGS_DIR}`);
@@ -132,9 +132,9 @@ export async function initCommand(): Promise<void> {
 
   } catch (error) {
     if (error instanceof Error) {
-      console.error('❌ Error:', error.message);
+      console.error(' Error:', error.message);
     } else {
-      console.error('❌ Unknown error occurred');
+      console.error(' Unknown error occurred');
     }
     process.exit(1);
   }

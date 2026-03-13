@@ -1,7 +1,7 @@
 ---
 name: heroku
 description: Manage Heroku apps, dynos, and add-ons via CLI and API. Deploy and scale applications.
-metadata: {"clawdbot":{"emoji":"🟣","requires":{"env":["HEROKU_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["HEROKU_API_KEY"]}}}
 ---
 # Heroku
 Platform as a Service.

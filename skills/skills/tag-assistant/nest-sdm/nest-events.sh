@@ -176,31 +176,31 @@ alerts = []
 if 'sdm.devices.events.DoorbellChime.Chime' in events:
     e = events['sdm.devices.events.DoorbellChime.Chime']
     event_id = e.get('eventId', '')
-    alerts.append(('🔔 *DOORBELL*', f'Someone rang the doorbell!', event_id))
+    alerts.append((' *DOORBELL*', f'Someone rang the doorbell!', event_id))
 
 # --- Person Detection ---
 if 'sdm.devices.events.CameraPerson.Person' in events:
     e = events['sdm.devices.events.CameraPerson.Person']
     event_id = e.get('eventId', '')
-    alerts.append(('👤 *Person Detected*', f'Person seen at {device_name}', event_id))
+    alerts.append((' *Person Detected*', f'Person seen at {device_name}', event_id))
 
 # --- Motion Detection ---
 if 'sdm.devices.events.CameraMotion.Motion' in events:
     e = events['sdm.devices.events.CameraMotion.Motion']
     event_id = e.get('eventId', '')
-    alerts.append(('🏃 *Motion Detected*', f'Motion at {device_name}', event_id))
+    alerts.append((' *Motion Detected*', f'Motion at {device_name}', event_id))
 
 # --- Sound Detection ---
 if 'sdm.devices.events.CameraSound.Sound' in events:
     e = events['sdm.devices.events.CameraSound.Sound']
     event_id = e.get('eventId', '')
-    alerts.append(('🔊 *Sound Detected*', f'Sound at {device_name}', event_id))
+    alerts.append((' *Sound Detected*', f'Sound at {device_name}', event_id))
 
 # --- Thermostat Events (trait changes) ---
 if 'sdm.devices.traits.ThermostatHvac' in traits:
     hvac = traits['sdm.devices.traits.ThermostatHvac']
     status = hvac.get('status', 'unknown')
-    emoji = '❄️' if status == 'COOLING' else '🔥' if status == 'HEATING' else '⏹️'
+    emoji = '' if status == 'COOLING' else '' if status == 'HEATING' else ''
     alerts.append((f'{emoji} *HVAC Status*', f'Thermostat is now {status}', ''))
 
 if 'sdm.devices.traits.ThermostatTemperatureSetpoint' in traits:
@@ -211,7 +211,7 @@ if 'sdm.devices.traits.ThermostatTemperatureSetpoint' in traits:
     if cool: parts.append(f'Cool: {round(cool * 9/5 + 32)}°F')
     if heat: parts.append(f'Heat: {round(heat * 9/5 + 32)}°F')
     if parts:
-        alerts.append(('🌡️ *Setpoint Changed*', ' | '.join(parts), ''))
+        alerts.append((' *Setpoint Changed*', ' | '.join(parts), ''))
 
 # --- Temperature Change ---
 if 'sdm.devices.traits.Temperature' in traits:
@@ -221,7 +221,7 @@ if 'sdm.devices.traits.Temperature' in traits:
         ambient_f = round(ambient_c * 9/5 + 32, 1)
         # Only alert on significant changes (skip minor fluctuations)
         # This will be handled by dedup logic
-        alerts.append(('🌡️ *Temperature*', f'Ambient: {ambient_f}°F', ''))
+        alerts.append((' *Temperature*', f'Ambient: {ambient_f}°F', ''))
 
 # Format timestamp
 time_str = ''
@@ -236,7 +236,7 @@ if timestamp:
 for title, body, event_id in alerts:
     msg = f'{title}\\n{body}'
     if time_str:
-        msg += f'\\n🕐 {time_str}'
+        msg += f'\\n {time_str}'
     print(msg)
     print('---EVENT_SEPARATOR---')
 " 2>/dev/null
@@ -348,11 +348,11 @@ if 'error' in d:
     code = d['error'].get('code', '')
     msg = d['error'].get('message', '')
     if code == 409:
-        print(f'Topic already exists ✅')
+        print(f'Topic already exists ')
     else:
         print(f'Error ({code}): {msg}')
 else:
-    print(f'Topic created: {d.get(\"name\", \"\")} ✅')
+    print(f'Topic created: {d.get(\"name\", \"\")} ')
 " 2>/dev/null
 }
 
@@ -382,11 +382,11 @@ if 'error' in d:
     code = d['error'].get('code', '')
     msg = d['error'].get('message', '')
     if code == 409:
-        print(f'Subscription already exists ✅')
+        print(f'Subscription already exists ')
     else:
         print(f'Error ({code}): {msg}')
 else:
-    print(f'Subscription created: {d.get(\"name\", \"\")} ✅')
+    print(f'Subscription created: {d.get(\"name\", \"\")} ')
 " 2>/dev/null
 }
 
@@ -437,7 +437,7 @@ print(json.dumps({'policy': policy}))
   local already_set
   already_set=$(echo "$new_policy" | python3 -c "import sys,json; print(json.load(sys.stdin).get('already_set', False))" 2>/dev/null)
   if [ "$already_set" = "True" ]; then
-    echo "SDM publisher already has access ✅"
+    echo "SDM publisher already has access "
     return 0
   fi
 
@@ -458,7 +458,7 @@ d = json.load(sys.stdin)
 if 'error' in d:
     print(f'Error: {d[\"error\"].get(\"message\", \"\")}')
 else:
-    print('SDM publisher permissions granted ✅')
+    print('SDM publisher permissions granted ')
 " 2>/dev/null
 }
 
@@ -469,15 +469,15 @@ setup_check() {
   # Check tokens
   echo -n "1. Pub/Sub auth: "
   if [ -f "$PUBSUB_TOKENS_FILE" ]; then
-    echo "✅ OAuth tokens at $PUBSUB_TOKENS_FILE"
+    echo " OAuth tokens at $PUBSUB_TOKENS_FILE"
   else
     local GCLOUD="${HOME}/.local/google-cloud-sdk/bin/gcloud"
     if [ -x "$GCLOUD" ] && "$GCLOUD" auth print-access-token &>/dev/null; then
       local gcloud_account
       gcloud_account=$("$GCLOUD" config get-value account 2>/dev/null)
-      echo "✅ Using gcloud CLI fallback (${gcloud_account})"
+      echo " Using gcloud CLI fallback (${gcloud_account})"
     else
-      echo "❌ No auth available. Need OAuth tokens or gcloud CLI."
+      echo " No auth available. Need OAuth tokens or gcloud CLI."
       echo "   OAuth URL (use your-email@example.com):"
       local client_id
       client_id=$(python3 -c "import json; print(json.load(open('${TOKENS_FILE}'))['client_id'])" 2>/dev/null || echo "UNKNOWN")
@@ -488,9 +488,9 @@ setup_check() {
   echo -n "2. Telegram config: "
   load_telegram_config
   if [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT_ID:-}" ]; then
-    echo "✅ Bot token and chat ID set"
+    echo " Bot token and chat ID set"
   else
-    echo "❌ Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID"
+    echo " Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID"
   fi
 
   echo -n "3. GCP Project: "

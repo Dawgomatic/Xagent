@@ -213,7 +213,7 @@ def generate_broadcast(items: list[dict]) -> str:
     """生成简报纯文本（UTF-8）。"""
     today = datetime.now().strftime("%Y年%m月%d日")
     lines = [
-        f"# 📰 每日科技新闻简报",
+        f"#  每日科技新闻简报",
         f"**{today}**",
         "",
     ]
@@ -240,7 +240,7 @@ def main() -> int:
     except Exception as e:
         log(f"broadcast 异常: {e}")
         # 仍输出一段降级文案，避免完全空白
-        fallback = f"# 📰 每日科技新闻简报\n\n今日简报生成时遇到问题：{e}\n请稍后重试或检查网络。"
+        fallback = f"#  每日科技新闻简报\n\n今日简报生成时遇到问题：{e}\n请稍后重试或检查网络。"
         print(fallback, flush=True)
         return 0  # 返回 0 让上层仍能发送这条降级消息
 

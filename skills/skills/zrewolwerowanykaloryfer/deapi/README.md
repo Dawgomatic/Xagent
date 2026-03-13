@@ -7,27 +7,27 @@
 
 Transcribe YouTube videos, generate images, convert text to speech, extract text with OCR, create videos, remove backgrounds, and more - all through one unified API at a fraction of the cost.
 
-## 🚀 Features
+##  Features
 
 | Feature | Description |
 |---------|-------------|
-| 🎬 **Transcription** | YouTube, Twitch, Kick, X, audio/video files (Whisper) |
-| 🖼️ **Image Generation** | Flux and Z-Image models |
-| 🗣️ **Text-to-Speech** | 54+ voices across 8 languages |
-| 📝 **OCR** | Extract text from images |
-| 🎥 **Video Generation** | Text-to-video and image-to-video |
-| ✂️ **Background Removal** | Remove backgrounds from images |
-| 🔍 **Upscale** | 2x/4x image upscaling (RealESRGAN) |
-| 🎨 **Style Transfer** | Transform images with AI |
-| 🧮 **Embeddings** | Text embeddings for semantic search |
+|  **Transcription** | YouTube, Twitch, Kick, X, audio/video files (Whisper) |
+|  **Image Generation** | Flux and Z-Image models |
+|  **Text-to-Speech** | 54+ voices across 8 languages |
+|  **OCR** | Extract text from images |
+|  **Video Generation** | Text-to-video and image-to-video |
+|  **Background Removal** | Remove backgrounds from images |
+|  **Upscale** | 2x/4x image upscaling (RealESRGAN) |
+|  **Style Transfer** | Transform images with AI |
+|  **Embeddings** | Text embeddings for semantic search |
 
-## 📦 Installation
+##  Installation
 
 ```bash
 clawdhub install deapi
 ```
 
-## ⚙️ Setup
+##  Setup
 
 1. Get your API key at [deapi.ai](https://deapi.ai) (free $5 credit on signup)
 2. Set environment variable (or simply provide the API key to your agent when needed):
@@ -35,7 +35,7 @@ clawdhub install deapi
    export DEAPI_API_KEY=your_api_key_here
    ```
 
-## 💰 Pricing
+##  Pricing
 
 - **Transcription:** ~$0.02/hour
 - **Image Generation:** ~$0.002/image  
@@ -44,7 +44,7 @@ clawdhub install deapi
 
 Free $5 credit = hundreds of hours of transcription or thousands of images!
 
-## 📖 Usage
+##  Usage
 
 Once installed, your Clawdbot agent automatically knows how to use deAPI. Just ask:
 
@@ -55,20 +55,20 @@ Once installed, your Clawdbot agent automatically knows how to use deAPI. Just a
 - *"Remove the background from this photo"*
 - *"Upscale this image 4x"*
 
-## 🔒 Security & Privacy
+##  Security & Privacy
 
 - All requests go to `api.deapi.ai` (official endpoint)
 - Media URLs you submit are sent to deAPI for processing
 - Results via `result_url` may be temporarily accessible
 - Review [deAPI's privacy policy](https://deapi.ai) for data handling details
 
-## 🙏 Credits
+##  Credits
 
 - **API Provider:** [deAPI.ai](https://deapi.ai)
 - **Original Claude Code skill:** [deapi-ai/claude-code-skills](https://github.com/deapi-ai/claude-code-skills)
 - **Clawdbot conversion:** [@zrewolwerowanykaloryfer](https://github.com/zrewolwerowanykaloryfer)
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) for details.
 

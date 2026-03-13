@@ -99,13 +99,13 @@ Read ALL queued messages before acting. The user might have sent corrections or 
 
 ## Anti-Patterns to Avoid
 
-- ❌ Spawning agents for simple tasks
-- ❌ Publishing without approval
-- ❌ Fighting broken tools for 20+ minutes
-- ❌ Long responses to frustrated users
-- ❌ Assuming instead of asking
-- ❌ Announcing "done" without verifying
-- ❌ Ignoring "READ THE CHAT"
+-  Spawning agents for simple tasks
+-  Publishing without approval
+-  Fighting broken tools for 20+ minutes
+-  Long responses to frustrated users
+-  Assuming instead of asking
+-  Announcing "done" without verifying
+-  Ignoring "READ THE CHAT"
 
 ## Recommended Config
 

@@ -132,20 +132,20 @@ When a user requests content refresh help:
 
    | Dimension | Quick Score | Key Weakness | Refresh Priority |
    |-----------|-----------|--------------|-----------------|
-   | C — Contextual Clarity | [X]/100 | [main issue] | 🔴/🟡/🟢 |
-   | O — Organization | [X]/100 | [main issue] | 🔴/🟡/🟢 |
-   | R — Referenceability | [X]/100 | [main issue] | 🔴/🟡/🟢 |
-   | E — Exclusivity | [X]/100 | [main issue] | 🔴/🟡/🟢 |
-   | Exp — Experience | [X]/100 | [main issue] | 🔴/🟡/🟢 |
-   | Ept — Expertise | [X]/100 | [main issue] | 🔴/🟡/🟢 |
-   | A — Authority | [X]/100 | [main issue] | 🔴/🟡/🟢 |
-   | T — Trust | [X]/100 | [main issue] | 🔴/🟡/🟢 |
+   | C — Contextual Clarity | [X]/100 | [main issue] | // |
+   | O — Organization | [X]/100 | [main issue] | // |
+   | R — Referenceability | [X]/100 | [main issue] | // |
+   | E — Exclusivity | [X]/100 | [main issue] | // |
+   | Exp — Experience | [X]/100 | [main issue] | // |
+   | Ept — Expertise | [X]/100 | [main issue] | // |
+   | A — Authority | [X]/100 | [main issue] | // |
+   | T — Trust | [X]/100 | [main issue] | // |
 
    **Weakest Dimensions** (focus refresh here):
    1. [Dimension] — [what needs fixing]
    2. [Dimension] — [what needs fixing]
 
-   **Refresh Strategy**: Focus on 🔴 dimensions first, then 🟡.
+   **Refresh Strategy**: Focus on  dimensions first, then .
 
    _For full 80-item audit, use [content-quality-auditor](../../cross-cutting/content-quality-auditor/)_
    ```
@@ -170,18 +170,18 @@ When a user requests content refresh help:
    
    | Content | Published | Last Updated | Traffic Trend | Priority |
    |---------|-----------|--------------|---------------|----------|
-   | [Title 1] | [date] | [date] | ↓ -45% | 🔴 High |
-   | [Title 2] | [date] | Never | ↓ -30% | 🔴 High |
-   | [Title 3] | [date] | [date] | ↓ -20% | 🟡 Medium |
-   | [Title 4] | [date] | [date] | → 0% | 🟡 Medium |
+   | [Title 1] | [date] | [date] | ↓ -45% |  High |
+   | [Title 2] | [date] | Never | ↓ -30% |  High |
+   | [Title 3] | [date] | [date] | ↓ -20% |  Medium |
+   | [Title 4] | [date] | [date] | → 0% |  Medium |
    
    ### Refresh Prioritization Matrix
    
    ```
-   High Traffic + High Decline = 🔴 Refresh Immediately
-   High Traffic + Low Decline = 🟡 Schedule Refresh
-   Low Traffic + High Decline = 🟡 Evaluate & Decide
-   Low Traffic + Low Decline = 🟢 Low Priority
+   High Traffic + High Decline =  Refresh Immediately
+   High Traffic + Low Decline =  Schedule Refresh
+   Low Traffic + High Decline =  Evaluate & Decide
+   Low Traffic + Low Decline =  Low Priority
    ```
    ```
 
@@ -532,14 +532,14 @@ When a user requests content refresh help:
 
 | Dimension | Quick Score | Key Weakness | Refresh Priority |
 |-----------|-----------|--------------|-----------------|
-| C — Contextual Clarity | 60/100 | Title says 2023 — stale intent signal | 🔴 |
-| O — Organization | 75/100 | Good comparison tables but no summary box | 🟡 |
-| R — Referenceability | 35/100 | Pricing from Q1 2023, 3 broken links | 🔴 |
-| E — Exclusivity | 50/100 | No original benchmarks or test data | 🟡 |
-| Exp — Experience | 30/100 | No first-person testing narrative | 🔴 |
-| Ept — Expertise | 65/100 | Author bio present but lacks credentials | 🟡 |
-| A — Authority | 55/100 | 12 backlinks, was ranking page 1 | 🟢 |
-| T — Trust | 60/100 | Affiliate links present but not disclosed | 🔴 |
+| C — Contextual Clarity | 60/100 | Title says 2023 — stale intent signal |  |
+| O — Organization | 75/100 | Good comparison tables but no summary box |  |
+| R — Referenceability | 35/100 | Pricing from Q1 2023, 3 broken links |  |
+| E — Exclusivity | 50/100 | No original benchmarks or test data |  |
+| Exp — Experience | 30/100 | No first-person testing narrative |  |
+| Ept — Expertise | 65/100 | Author bio present but lacks credentials |  |
+| A — Authority | 55/100 | 12 backlinks, was ranking page 1 |  |
+| T — Trust | 60/100 | Affiliate links present but not disclosed |  |
 
 **Weakest Dimensions** (focus refresh here):
 1. **Experience** — Add hands-on testing results ("We migrated a test site to each provider")

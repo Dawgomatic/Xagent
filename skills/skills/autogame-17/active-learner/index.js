@@ -143,7 +143,7 @@ function ask(text) {
   
   // Format the question
   const output = `
-❓ **Active Learning Request**
+ **Active Learning Request**
 I need clarification on the following:
 > ${text}
 

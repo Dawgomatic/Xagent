@@ -45,7 +45,7 @@ const timestamp = new Date().toISOString();
 logStream.write(`\n[${timestamp}] Starting conversion: ${filePath}\n`);
 logStream.write(`[${timestamp}] Output: ${outputPath}\n\n`);
 
-console.log(`🚀 Starting background conversion...`);
+console.log(` Starting background conversion...`);
 console.log(`   File: ${filePath}`);
 console.log(`   Output: ${outputPath}`);
 console.log(`   Log: ${logPath}`);
@@ -87,5 +87,5 @@ child.on("exit", (code) => {
   logStream.end();
 });
 
-console.log(`\n✅ Process detached (PID: ${child.pid})`);
+console.log(`\n Process detached (PID: ${child.pid})`);
 process.exit(0);

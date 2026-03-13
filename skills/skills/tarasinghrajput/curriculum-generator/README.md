@@ -4,13 +4,13 @@ An intelligent educational curriculum generation system for OpenClaw that create
 
 ## Features
 
-- ✅ Guided requirement gathering through structured questionnaires
-- ✅ Research-based curriculum design and assessment
-- ✅ Automatic resource link population via web search
-- ✅ Excel/CSV output generation
-- ✅ Local memory storage for continuous improvement
-- ✅ Strict step enforcement with human escalation policies
-- ✅ Background task execution support
+-  Guided requirement gathering through structured questionnaires
+-  Research-based curriculum design and assessment
+-  Automatic resource link population via web search
+-  Excel/CSV output generation
+-  Local memory storage for continuous improvement
+-  Strict step enforcement with human escalation policies
+-  Background task execution support
 
 ## What It Does
 

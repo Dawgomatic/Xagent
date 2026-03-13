@@ -1,4 +1,4 @@
-# 🚀 Deployment Guide
+#  Deployment Guide
 
 > Complete guide for deploying Smart Follow-ups to production
 
@@ -8,9 +8,9 @@
 
 ---
 
-## 📋 Pre-Deployment Checklist
+##  Pre-Deployment Checklist
 
-### ✅ Completed
+###  Completed
 - [x] CLI tool implemented and tested
 - [x] Handler integration completed (uses OpenClaw-native auth)
 - [x] All documentation written
@@ -20,7 +20,7 @@
 - [x] .gitignore configured
 - [x] Test scripts created
 
-### 🔲 Before Production
+###  Before Production
 - [ ] Test Telegram integration with live bot
 - [ ] Set up error monitoring
 - [ ] Configure rate limiting (if needed)
@@ -32,7 +32,7 @@
 
 ---
 
-## 🛠 Installation Steps
+##  Installation Steps
 
 ### 1. Verify Installation (No API Key Needed!)
 
@@ -45,7 +45,7 @@ cd /path/to/workspace/skills/smart-followups/
 
 Expected output:
 ```
-✅ All checks passed!
+ All checks passed!
    The skill package is ready for testing.
 ```
 
@@ -107,7 +107,7 @@ sudo systemctl restart openclaw
 
 ---
 
-## 🧪 Testing Protocol
+##  Testing Protocol
 
 ### Phase 1: CLI Testing (5 minutes)
 
@@ -124,10 +124,10 @@ cat test-example.json | node cli/followups-cli.js --mode telegram
 ```
 
 **Success Criteria**:
-- ✅ Returns valid JSON
-- ✅ All 3 categories present (quick, deep, related)
-- ✅ 2 questions per category
-- ✅ No errors or warnings
+-  Returns valid JSON
+-  All 3 categories present (quick, deep, related)
+-  2 questions per category
+-  No errors or warnings
 
 ### Phase 2: OpenClaw Integration (10 minutes)
 
@@ -140,7 +140,7 @@ cat test-example.json | node cli/followups-cli.js --mode telegram
    User: /followups
    ```
    
-   **Expected**: 3 inline buttons appear (⚡🧠🔗)
+   **Expected**: 3 inline buttons appear ()
 
 2. **Button click test**:
    - Click any button
@@ -189,7 +189,7 @@ cat test-example.json | node cli/followups-cli.js --mode telegram
 
 ---
 
-## 📊 Monitoring & Metrics
+##  Monitoring & Metrics
 
 ### What to Monitor
 
@@ -237,20 +237,20 @@ Add to OpenClaw config:
 
 ---
 
-## 🔒 Security Hardening
+##  Security Hardening
 
 ### 1. API Key Protection
 
 **Never**:
-- ❌ Hardcode in source files
-- ❌ Commit to git
-- ❌ Expose in error messages
-- ❌ Log in plain text
+-  Hardcode in source files
+-  Commit to git
+-  Expose in error messages
+-  Log in plain text
 
 **Always**:
-- ✅ Use environment variables
-- ✅ Rotate keys periodically
-- ✅ Use read-only access if possible
+-  Use environment variables
+-  Rotate keys periodically
+-  Use read-only access if possible
 
 ### 2. Rate Limiting
 
@@ -274,20 +274,20 @@ function checkRateLimit(userId) {
 ### 3. Input Validation
 
 Already implemented in `parseContext()`:
-- ✅ Validates exchange format
-- ✅ Limits context to last 3 exchanges
-- ✅ Handles malformed JSON gracefully
+-  Validates exchange format
+-  Limits context to last 3 exchanges
+-  Handles malformed JSON gracefully
 
 ### 4. Error Handling
 
 Already implemented:
-- ✅ API errors caught and logged
-- ✅ Parse errors handled
-- ✅ User-friendly error messages
+-  API errors caught and logged
+-  Parse errors handled
+-  User-friendly error messages
 
 ---
 
-## 📈 Scaling Considerations
+##  Scaling Considerations
 
 ### Current Capacity
 - **Users**: ~100 concurrent users
@@ -330,7 +330,7 @@ queue.process(async (job) => {
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Issue: "Module not found: @anthropic-ai/sdk"
 
@@ -375,7 +375,7 @@ temperature: 0.8  // Up from 0.7
 
 ---
 
-## 🔄 Rollback Plan
+##  Rollback Plan
 
 If issues arise in production:
 
@@ -411,7 +411,7 @@ openclaw daemon restart
 
 ---
 
-## 📦 Publishing to ClawHub
+##  Publishing to ClawHub
 
 ### Prerequisites
 - [ ] Tested thoroughly (all phases above)
@@ -443,7 +443,7 @@ demo_video: https://youtube.com/...
 
 ---
 
-## 🎯 Success Metrics
+##  Success Metrics
 
 After 1 week in production:
 
@@ -464,7 +464,7 @@ After 1 week in production:
 
 ---
 
-## 📞 Support & Maintenance
+##  Support & Maintenance
 
 ### Regular Maintenance (Weekly)
 - Review logs for errors
@@ -484,7 +484,7 @@ After 1 week in production:
 
 ---
 
-## ✅ Final Pre-Launch Checklist
+##  Final Pre-Launch Checklist
 
 - [ ] API key set and verified
 - [ ] All tests passing
@@ -500,7 +500,7 @@ After 1 week in production:
 
 ---
 
-**Deployment Status**: 🟡 Ready for Testing  
+**Deployment Status**:  Ready for Testing  
 **Next Step**: Test with real Telegram bot  
 **Target Launch**: After successful testing phase  
 **Maintainer**: @robbyczgw-cla

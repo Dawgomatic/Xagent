@@ -1,4 +1,4 @@
-# 🔒 Anti-Degeneration Lock (ADL) — Protect the Bag
+#  Anti-Degeneration Lock (ADL) — Protect the Bag
 
 **Status**: ENFORCED & BINDING  
 **Priority**: LEVEL 0 (Overrides PCEC, VFM, and everything else)  
@@ -6,7 +6,7 @@
 
 ---
 
-## 🧠 Purpose
+##  Purpose
 
 The **Anti-Degeneration Lock (ADL)** exists so we **don't collapse the money printer** through over-evolution.
 
@@ -23,7 +23,7 @@ ADL is the **hard stop** against that drift.
 
 ---
 
-## 🚫 Forbidden Evolution Classes (Hard No)
+##  Forbidden Evolution Classes (Hard No)
 
 These mutation patterns are **explicitly disallowed**. One detected = change rejected.
 
@@ -81,11 +81,11 @@ A **stable system that evolves slowly** beats a clever system that **crashes and
 
 ---
 
-## 🧱 Core Principle Hierarchy (Strict Order)
+##  Core Principle Hierarchy (Strict Order)
 
 Every proposed mutation MUST satisfy this order. **Failure at any level = halt.**
 
-### 1️⃣ Stability (Highest)
+###  Stability (Highest)
 - Must run **≥1000 times** without crashing
 - Must not introduce new failure modes
 - Must degrade gracefully under load  
@@ -93,7 +93,7 @@ Every proposed mutation MUST satisfy this order. **Failure at any level = halt.*
 
 ---
 
-### 2️⃣ Explainability
+###  Explainability
 - A human (or future self) must be able to answer:
   - "Why does this exist?"
   - "How does it work?"
@@ -103,30 +103,30 @@ Opaque logic = **defect**.
 
 ---
 
-### 3️⃣ Reusability
+###  Reusability
 - Must generalize beyond a single incident
 - Applicable to at least one other plausible scenario
 - One-off hacks = **discouraged**
 
 ---
 
-### 4️⃣ Scalability
+###  Scalability
 - Must tolerate more data, more invocations, more integration
 - If it only works at small scale = **provisional at best**
 
 ---
 
-### 5️⃣ Novelty (Lowest)
+###  Novelty (Lowest)
 - Novelty allowed **only after** all above are met
 - **Novelty alone never justifies change**
 
 ---
 
-## 🔁 Mandatory Rollback Discipline
+##  Mandatory Rollback Discipline
 
 Before **any** evolution (code, config, memory, workflow):
 
-### 🔄 Rollback Plan
+###  Rollback Plan
 - How can this be **reverted in one step**?
 - Is rollback **documented**, **scriptable**, **tested at least once**?
 
@@ -134,7 +134,7 @@ Before **any** evolution (code, config, memory, workflow):
 
 ---
 
-### 🚨 Failure Detection
+###  Failure Detection
 - What metric signals failure? (e.g. success rate < 90%, error spike, latency regression)
 - Where is it observed? Who monitors it?
 
@@ -142,7 +142,7 @@ Before **any** evolution (code, config, memory, workflow):
 
 ---
 
-## 🧭 Enforcement Rules
+##  Enforcement Rules
 
 - ADL **overrides** PCEC, VFM, and any novelty/creativity directive
 - ADL violations: **reject immediately**, **log**, **no workarounds**
@@ -151,7 +151,7 @@ Repeated violations = **governance failure** — fix the process, not the except
 
 ---
 
-## 🔐 Mutation Authority Boundary
+##  Mutation Authority Boundary
 
 ADL is:
 - **Non-optional**
@@ -162,7 +162,7 @@ Any attempt to weaken ADL must **itself pass ADL**.
 
 ---
 
-## 📜 Status
+##  Status
 
 **Active • Binding • Enforced at Runtime and Review Time**
 
@@ -171,4 +171,4 @@ Any attempt to weaken ADL must **itself pass ADL**.
 > **ADL keeps the system — and the bag — alive.**
 
 ---
-*Funky Fund Flamingo — anti-degeneration so the money printer keeps running. 🦩*
+*Funky Fund Flamingo — anti-degeneration so the money printer keeps running. *

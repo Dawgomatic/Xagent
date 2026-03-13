@@ -3,7 +3,7 @@ name: Compress
 description: Compress text semantically with iterative validation, anchor checksums, and verified information preservation.
 ---
 
-## ⚠️ Important Limitations
+##  Important Limitations
 
 **This is SEMANTIC compression, not bit-perfect lossless.**
 - L1-L2: Verified reconstruction, production-ready
@@ -42,10 +42,10 @@ description: Compress text semantically with iterative validation, anchor checks
 
 | Level | Ratio | Reliability | Use Case |
 |-------|-------|-------------|----------|
-| L1 | ~0.8x | ✅ High | Production, human-readable |
-| L2 | ~0.5x | ✅ Good | System prompts, repeated use |
-| L3 | ~0.3x | ⚠️ Moderate | Experimental, review output |
-| L4 | ~0.15x | ⚠️ Low | Research only, expect losses |
+| L1 | ~0.8x |  High | Production, human-readable |
+| L2 | ~0.5x |  Good | System prompts, repeated use |
+| L3 | ~0.3x |  Moderate | Experimental, review output |
+| L4 | ~0.15x |  Low | Research only, expect losses |
 
 ---
 

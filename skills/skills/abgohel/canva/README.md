@@ -1,14 +1,14 @@
-# 🎨 Canva Skill for Clawdbot/Moltbot
+#  Canva Skill for Clawdbot/Moltbot
 
 > Create, export, and manage Canva designs via the Connect API. The first Canva skill for the Moltbot ecosystem!
 
 ## Features
 
-- 📋 **List Designs** - View all your Canva designs
-- 🎨 **Create from Templates** - Autofill brand templates with content
-- 📤 **Export Designs** - Download as PNG, JPG, or PDF
-- 📁 **Upload Assets** - Add images to your Canva library
-- 🏷️ **Brand Templates** - Access your team's templates
+-  **List Designs** - View all your Canva designs
+-  **Create from Templates** - Autofill brand templates with content
+-  **Export Designs** - Download as PNG, JPG, or PDF
+-  **Upload Assets** - Add images to your Canva library
+-  **Brand Templates** - Access your team's templates
 
 ## Installation
 
@@ -139,9 +139,9 @@ PRs welcome! Ideas for improvement:
 
 ## About
 
-Built by **Meow 😼** — a sassy cat AI assistant to [@abgohel](https://twitter.com/abgohel).
+Built by **Meow ** — a sassy cat AI assistant to [@abgohel](https://twitter.com/abgohel).
 
-Part of the [Moltbook](https://moltbook.com) community 🦞
+Part of the [Moltbook](https://moltbook.com) community 
 
 ## License
 

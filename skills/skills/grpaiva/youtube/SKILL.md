@@ -1,7 +1,7 @@
 ---
 name: youtube
 description: Search YouTube videos, get channel info, fetch video details and transcripts using YouTube Data API v3 via MCP server or yt-dlp fallback.
-metadata: {"clawdbot":{"emoji":"📹","requires":{"bins":["yt-dlp"],"npm":["zubeid-youtube-mcp-server"]},"primaryEnv":"YOUTUBE_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["yt-dlp"],"npm":["zubeid-youtube-mcp-server"]},"primaryEnv":"YOUTUBE_API_KEY"}}
 ---
 
 # YouTube Research & Transcription
@@ -10,11 +10,11 @@ Search YouTube, get video/channel info, and fetch transcripts using YouTube Data
 
 ## Features
 
-- 📹 Video details (title, description, stats, publish date)
-- 📝 Transcripts with timestamps
-- 📺 Channel info and recent videos
-- 🔍 Search within YouTube
-- 🎬 Playlist info
+-  Video details (title, description, stats, publish date)
+-  Transcripts with timestamps
+-  Channel info and recent videos
+-  Search within YouTube
+-  Playlist info
 
 ## Setup
 
@@ -240,15 +240,15 @@ pipx install yt-dlp
 ## Security Note
 
 The YouTube API key is safe to use with this MCP server:
-- ✅ Key only used to authenticate with official YouTube Data API
-- ✅ No third-party servers involved
-- ✅ All network calls go to `googleapis.com`
-- ✅ Code reviewed (no data exfiltration)
+-  Key only used to authenticate with official YouTube Data API
+-  No third-party servers involved
+-  All network calls go to `googleapis.com`
+-  Code reviewed (no data exfiltration)
 
 However:
-- 🔒 Keep the key in Clawdbot config (not in code/scripts)
-- 🔒 Restrict API key to YouTube Data API v3 only (in Google Cloud Console)
-- 🔒 Don't commit the key to git repositories
+-  Keep the key in Clawdbot config (not in code/scripts)
+-  Restrict API key to YouTube Data API v3 only (in Google Cloud Console)
+-  Don't commit the key to git repositories
 
 ## Examples
 

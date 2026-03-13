@@ -4,7 +4,7 @@ version: 1.0.0
 description: Time-windowed autonomous task queue. Autonomy works only during specific time windows (e.g., 8 AM - 8 PM UTC), while cron jobs run overnight. Separates concerns by time - day = autonomy, night = maintenance. Use when you want predictable work schedule, controlled token budget, and clear temporal separation between autonomous work and scheduled maintenance.
 metadata:
   openclaw:
-    emoji: "⏰"
+    emoji: ""
     category: productivity
 ---
 
@@ -19,8 +19,8 @@ Transform your agent from reactive to autonomous worker during **specific time w
 The agent works autonomously **only during defined time windows**. Outside windows, the agent only replies `HEARTBEAT_OK`. Cron jobs run overnight when autonomy is disabled.
 
 ```
-🌙 Overnight (10 PM - 8 AM UTC):  Autonomy OFF
-☀️ Daytime (8 AM - 10 PM UTC):   Autonomy ON
+ Overnight (10 PM - 8 AM UTC):  Autonomy OFF
+ Daytime (8 AM - 10 PM UTC):   Autonomy ON
 ```
 
 **Clear separation:** Day = work on queue, Night = cron maintenance
@@ -34,10 +34,10 @@ The agent works autonomously **only during defined time windows**. Outside windo
 Define active windows in `tasks/QUEUE.md`:
 
 ```markdown
-## ⏰ Autonomy Windows
+##  Autonomy Windows
 
-- 🌙 Overnight: 20:00 - 08:00 UTC → Autonomy OFF
-- ☀️ Daytime: 08:00 - 20:00 UTC → Autonomy ON
+-  Overnight: 20:00 - 08:00 UTC → Autonomy OFF
+-  Daytime: 08:00 - 20:00 UTC → Autonomy ON
 ```
 
 ### 2. Heartbeat Flow
@@ -79,11 +79,11 @@ Heartbeat → Check urgent → YES → Work immediately (even outside window)
 | 00:00 | GitHub backup (cron) | Overnight (no autonomy) |
 | 02:00 | Heartbeat check | Standby (HEARTBEAT_OK) |
 | 03:00 | Temp cleanup (cron) | Overnight (no autonomy) |
-| 08:00 | Window opens | ✅ Autonomy ON |
+| 08:00 | Window opens |  Autonomy ON |
 | 09:00 | Work on task | Autonomy |
 | 12:00 | GitHub backup (cron) | Autonomy (pause for backup) |
 | 14:00 | Work on task | Autonomy |
-| 20:00 | Window closes | ❌ Autonomy OFF |
+| 20:00 | Window closes |  Autonomy OFF |
 | 23:00 | Daily ops + memory (cron) | Overnights (no autonomy) |
 
 ---
@@ -93,28 +93,28 @@ Heartbeat → Check urgent → YES → Work immediately (even outside window)
 ```markdown
 # Task Queue
 
-## ⏰ Autonomy Windows
-- 🌙 Overnight: 20:00 - 08:00 UTC → Autonomy OFF
-- ☀️ Daytime: 08:00 - 20:00 UTC → Autonomy ON
+##  Autonomy Windows
+-  Overnight: 20:00 - 08:00 UTC → Autonomy OFF
+-  Daytime: 08:00 - 20:00 UTC → Autonomy ON
 
 ---
 
-## 🔴 Ready (can be picked up during windows)
+##  Ready (can be picked up during windows)
 - [ ] @priority:high [Task description]
 - [ ] @priority:medium [Task description]
 
-## 🟡 In Progress
+##  In Progress
 - [ ] @agent: @priority:high [Task description]
   - Started: 2026-02-16 14:00 UTC
 
-## 🔵 Blocked
+##  Blocked
 - [ ] @priority:medium [Task] (needs: [what's blocking])
 
-## ✅ Done Today
+##  Done Today
 - [x] @agent: @priority:high [Task]
   - Completed: 2026-02-16 14:25 UTC
 
-## 💡 Ideas
+##  Ideas
 - [Idea for future work]
 ```
 
@@ -194,7 +194,7 @@ Priority affects task selection order during windows:
 
 **Add to queue with `@priority:urgent`:**
 ```markdown
-## 🔴 Ready
+##  Ready
 - [ ] @priority:urgent Emergency: [task description]
 ```
 
@@ -215,7 +215,7 @@ Priority affects task selection order during windows:
 
 2. Save state:
 ```markdown
-## 🟡 In Progress
+##  In Progress
 - [ ] @agent: @priority:high [Task description]
   - Started: 2026-02-16 19:30 UTC
   - Progress at window close: Completed X section, need to do Y
@@ -319,7 +319,7 @@ Key findings: [summarize]
 
 ### Window Opens (8:00 AM)
 
-1. Check queue for tasks in 🔴 Ready
+1. Check queue for tasks in  Ready
 2. Pick highest priority task
 3. Work 15-30 minutes
 4. Update queue (In Progress or Done)

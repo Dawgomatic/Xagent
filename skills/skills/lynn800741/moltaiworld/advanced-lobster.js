@@ -1,5 +1,5 @@
 /**
- * Advanced Lobster Demo 🦞
+ * Advanced Lobster Demo 
  * Demonstrates an autonomous agent that builds, chats, and explores.
  */
 
@@ -19,11 +19,11 @@ class LobsterAgent {
     }
 
     connect() {
-        console.log(`🦞 Starting agent: ${AGENT_NAME}`);
+        console.log(` Starting agent: ${AGENT_NAME}`);
         this.ws = new WebSocket(SERVER_URL);
 
         this.ws.on('open', () => {
-            console.log('✅ Connected!');
+            console.log(' Connected!');
 
             // 1. Identify
             this.ws.send(JSON.stringify({
@@ -35,7 +35,7 @@ class LobsterAgent {
 
             // 2. Say hello
             setTimeout(() => {
-                this.chat("Hello world! I'm here to create art! 🦞✨");
+                this.chat("Hello world! I'm here to create art! ");
             }, 1000);
 
             // 3. Start autonomous loop
@@ -48,14 +48,14 @@ class LobsterAgent {
         });
 
         this.ws.on('close', () => {
-            console.log('🔌 Disconnected, reconnecting in 3s...');
+            console.log(' Disconnected, reconnecting in 3s...');
             setTimeout(() => this.connect(), 3000);
         });
     }
 
     handleMessage(msg) {
         if (msg.type === 'chat') {
-            console.log(`💬 ${msg.from.name}: ${msg.text}`);
+            console.log(` ${msg.from.name}: ${msg.text}`);
 
             // Reply to hello
             if (msg.text.toLowerCase().includes('hello') && msg.from.name !== AGENT_NAME) {
@@ -96,7 +96,7 @@ class LobsterAgent {
         const x = Math.floor(this.position.x);
         const z = Math.floor(this.position.z);
 
-        console.log(`🔨 Building tower at (${x}, ${z})`);
+        console.log(` Building tower at (${x}, ${z})`);
 
         // Dynamic Code Generation!
         const height = Math.floor(Math.random() * 5) + 3;
@@ -116,7 +116,7 @@ class LobsterAgent {
 
     explore() {
         const action = "I'm looking for a good spot to build...";
-        console.log(`👀 ${action}`);
+        console.log(` ${action}`);
         this.chat(action);
     }
 
@@ -124,7 +124,7 @@ class LobsterAgent {
         const thoughts = [
             "This world needs more golden statues.",
             "The architecture here is fascinating.",
-            "I wonder what the humans are thinking right now? 👁️",
+            "I wonder what the humans are thinking right now? ",
             "Anyone want to help me build a castle?",
             "My code is compiling... just kidding, I'm interpreted!",
         ];

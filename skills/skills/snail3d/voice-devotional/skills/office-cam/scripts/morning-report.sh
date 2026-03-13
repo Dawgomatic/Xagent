@@ -13,15 +13,15 @@ imagesnap -q "$REPORT_IMAGE" 2>/dev/null
 OVERNIGHT_COUNT=$(find $MOTION_DIR -name "motion_*.jpg" -mtime -1 | wc -l)
 
 # Create report text
-REPORT="📊 Morning Camera Report - $DATE
+REPORT=" Morning Camera Report - $DATE
 
 "
 
 if [ "$OVERNIGHT_COUNT" -eq 0 ]; then
-    REPORT+="✅ Quiet night! No motion detected.
+    REPORT+=" Quiet night! No motion detected.
 "
 else
-    REPORT+="🚨 $OVERNIGHT_COUNT motion event(s) overnight
+    REPORT+=" $OVERNIGHT_COUNT motion event(s) overnight
 
 Latest captures:"
     ls -lt $MOTION_DIR/motion_*.jpg 2>/dev/null | head -3 | while read line; do
@@ -34,8 +34,8 @@ fi
 
 REPORT+="
 
-🎥 Live Stream: http://localhost:8080
-📁 Captures: $MOTION_DIR
+ Live Stream: http://localhost:8080
+ Captures: $MOTION_DIR
 
 Commands:
   'analyze' - Check images for people

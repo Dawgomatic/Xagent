@@ -99,7 +99,7 @@ class ContextMonitor {
     const conversationMessages = messages.filter(msg => 
       msg.role !== 'system' && 
       !msg.content.includes('HEARTBEAT_OK') &&
-      !msg.content.startsWith('✅ New session started')
+      !msg.content.startsWith(' New session started')
     );
 
     if (conversationMessages.length >= this.config.schedule.min_messages_for_optimization) {

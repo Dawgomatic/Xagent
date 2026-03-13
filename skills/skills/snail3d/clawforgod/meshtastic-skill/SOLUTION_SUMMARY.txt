@@ -2,7 +2,7 @@
 MESHTASTIC SKILL FIX - PERSISTENT CONNECTION WRAPPER
 ================================================================================
 
-TASK COMPLETED: ✅ Build persistent connection wrapper for meshtastic CLI
+TASK COMPLETED:  Build persistent connection wrapper for meshtastic CLI
 LOCATION: ~/clawd/meshtastic-skill/scripts/meshtastic-persistent.js
 
 ================================================================================
@@ -54,29 +54,29 @@ METHODS:
 FEATURES
 ================================================================================
 
-✅ SINGLE PERSISTENT CONNECTION
+ SINGLE PERSISTENT CONNECTION
    - Device connection stays open between commands
    - No reconnection overhead
    - ~3x faster message delivery
 
-✅ COMMAND QUEUEING
+ COMMAND QUEUEING
    - Serial execution prevents device overload
    - FIFO ordering ensures consistency
    - No race conditions
 
-✅ INTELLIGENT TIMEOUT HANDLING
+ INTELLIGENT TIMEOUT HANDLING
    - Per-command timeout (default 30s, configurable)
    - Clear error messages
    - Distinguishes timeout from actual errors
 
-✅ NATURAL LANGUAGE INTERFACE
+ NATURAL LANGUAGE INTERFACE
    - "broadcast: message" → Broadcast to all
    - "send to node: message" → Send to specific node
    - "nodes" → List nodes
    - "info" → Device info
    - Same format as original skill
 
-✅ PRODUCTION READY
+ PRODUCTION READY
    - Proper resource cleanup
    - Signal handling (SIGINT, SIGTERM)
    - Debug logging support
@@ -209,7 +209,7 @@ INTEGRATION STEPS
 5. Test with real device:
    killall Meshtastic  # Close GUI
    node scripts/meshtastic-persistent.js "broadcast: hello mesh"
-   # Should output: ✅ Broadcast sent: "hello mesh"
+   # Should output:  Broadcast sent: "hello mesh"
 
 ================================================================================
 TESTING WITH REAL DEVICE
@@ -234,16 +234,16 @@ TEST BROADCAST:
   [Persistent] Device info retrieved successfully
   [Persistent] Setting up persistent listener...
   [Persistent] Persistent listener ready
-  🔌 Connecting to Meshtastic device...
-  ✅ Connected!
-  ✅ Broadcast sent: "hello mesh"
+   Connecting to Meshtastic device...
+   Connected!
+   Broadcast sent: "hello mesh"
 
 SUCCESS CRITERIA:
-  ✅ Message sent without ETIMEDOUT
-  ✅ Response within 1-2 seconds
-  ✅ No process spawning overhead
-  ✅ Device stays connected
-  ✅ Multiple messages can be sent in succession
+   Message sent without ETIMEDOUT
+   Response within 1-2 seconds
+   No process spawning overhead
+   Device stays connected
+   Multiple messages can be sent in succession
 
 ================================================================================
 FILE MANIFEST
@@ -323,7 +323,7 @@ Common issues:
   Port not found → Check MESHTASTIC_PORT setting
 
 ================================================================================
-TASK STATUS: COMPLETE ✅
+TASK STATUS: COMPLETE 
 ================================================================================
 
 The Meshtastic Skill persistent connection wrapper is ready for deployment.

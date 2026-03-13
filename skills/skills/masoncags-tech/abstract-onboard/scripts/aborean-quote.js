@@ -106,7 +106,7 @@ async function main() {
   const rpcUrl = process.env.ABSTRACT_RPC || 'https://api.mainnet.abs.xyz';
   const provider = new Provider(rpcUrl);
 
-  console.log(`\n📊 Aborean Quote on Abstract`);
+  console.log(`\n Aborean Quote on Abstract`);
 
   // Handle ETH -> WETH for routing
   const isETHIn = tokenIn.address === 'ETH';
@@ -166,20 +166,20 @@ async function main() {
       const formattedOut = formatUnits(amountOut, tokenOut.decimals);
       const rate = parseFloat(formattedOut) / parseFloat(amountInArg);
       
-      console.log(`\n   ✅ Fee ${fee/10000}%: ${formattedOut} ${tokenOut.symbol}`);
+      console.log(`\n    Fee ${fee/10000}%: ${formattedOut} ${tokenOut.symbol}`);
       console.log(`      Rate: 1 ${tokenIn.symbol} = ${rate.toFixed(6)} ${tokenOut.symbol}`);
       
     } catch (error) {
       if (error.message.includes('execution reverted') || error.message.includes('call revert')) {
-        console.log(`   ❌ Fee ${fee/10000}%: No pool or insufficient liquidity`);
+        console.log(`    Fee ${fee/10000}%: No pool or insufficient liquidity`);
       } else {
         // Quoter might not exist at this address
-        console.log(`   ⚠️  Fee ${fee/10000}%: Could not quote (${error.message.slice(0, 50)}...)`);
+        console.log(`     Fee ${fee/10000}%: Could not quote (${error.message.slice(0, 50)}...)`);
       }
     }
   }
 
-  console.log(`\n💡 Tip: Use the fee tier with best output for your swap`);
+  console.log(`\n Tip: Use the fee tier with best output for your swap`);
   console.log(`   Run: node aborean-swap.js ${tokenInArg} ${tokenOutArg} ${amountInArg}`);
 }
 

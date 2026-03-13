@@ -7,7 +7,7 @@ metadata:
     requires:
       bins: ["/home/david/.cargo/bin/tickrs"]
       env: ["TICKTICK_CLIENT_ID", "TICKTICK_CLIENT_SECRET"]
-    emoji: "✅"
+    emoji: ""
 ---
 
 # TickTick

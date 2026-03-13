@@ -15,9 +15,9 @@ curl -s "https://api.dexscreener.com/tokens/v1/solana/DezXAZ8z7PnrnRJjz3wXBoRgix
 
 | Token | Address | Type | Expected Tier |
 |-------|---------|------|---------------|
-| BONK | `DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263` | Blue chip meme | 🟢 SAFE |
-| USDC | `EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v` | Stablecoin | 🟠 WARNING (has compliance authorities) |
-| Recent pump.fun | Find via `curl -s "https://api.rugcheck.xyz/v1/stats/new_tokens" \| jq '.[0].mint'` | Brand new token | 🟡-⛔ varies |
+| BONK | `DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263` | Blue chip meme |  SAFE |
+| USDC | `EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v` | Stablecoin |  WARNING (has compliance authorities) |
+| Recent pump.fun | Find via `curl -s "https://api.rugcheck.xyz/v1/stats/new_tokens" \| jq '.[0].mint'` | Brand new token | - varies |
 
 ## Test 1: Token Detection (detect-token.sh)
 
@@ -125,7 +125,7 @@ bash scripts/analyze-risk.sh DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263 2>/dev
 - Market overview table has non-N/A values
 - All 10 checks listed with bars and scores
 - Composite score bar aligns with score
-- Data sources table shows ✅ for all three
+- Data sources table shows  for all three
 - Links section has 4 working URLs
 - Disclaimer present at bottom
 
@@ -185,30 +185,30 @@ done
 ## Actual Test Results (2026-02-15)
 
 ### BONK
-- **detect-token.sh:** ✅ `found: true`, name: "Bonk", symbol: "Bonk"
-- **analyze-risk.sh:** ✅ Score: 12/100, Tier: SAFE
-  - Mint Authority: 0/10 (revoked) ✅
-  - Freeze Authority: 0/10 (none) ✅
-  - LP Lock: 0/10 (100% locked) ✅
-  - Verification: 0/10 (Jupiter strict) ✅
-  - All 3 data sources active ✅
-- **format-report.sh:** ✅ Clean render, all sections present
+- **detect-token.sh:**  `found: true`, name: "Bonk", symbol: "Bonk"
+- **analyze-risk.sh:**  Score: 12/100, Tier: SAFE
+  - Mint Authority: 0/10 (revoked) 
+  - Freeze Authority: 0/10 (none) 
+  - LP Lock: 0/10 (100% locked) 
+  - Verification: 0/10 (Jupiter strict) 
+  - All 3 data sources active 
+- **format-report.sh:**  Clean render, all sections present
 
 ### USDC
-- **analyze-risk.sh:** ✅ Score: 46/100, Tier: WARNING
-  - Name: "USD Coin" (DexScreener fallback works) ✅
-  - Symbol: "USDC" ✅
-  - Mint Authority: 10/10 (BJE5MMbq… — Circle) ✅
-  - Freeze Authority: 9/10 (7dGbd2QZ… — Circle) ✅
-  - Holder Concentration: "data unavailable" (correct for USDC) ✅
-  - LP Lock: "No DEX market data" (correct for USDC on Rugcheck) ✅
-- **format-report.sh:** ✅ Clean render
+- **analyze-risk.sh:**  Score: 46/100, Tier: WARNING
+  - Name: "USD Coin" (DexScreener fallback works) 
+  - Symbol: "USDC" 
+  - Mint Authority: 10/10 (BJE5MMbq… — Circle) 
+  - Freeze Authority: 9/10 (7dGbd2QZ… — Circle) 
+  - Holder Concentration: "data unavailable" (correct for USDC) 
+  - LP Lock: "No DEX market data" (correct for USDC on Rugcheck) 
+- **format-report.sh:**  Clean render
 
 ### Pump.fun Token (Cuckmaxxing / Wheelchair Fish)
-- **analyze-risk.sh:** ✅ Score: 23-29/100, Tier: CAUTION
-  - Creator history of rugged tokens flagged ✅
-  - Token age: "Very new (<24 hours)" ✅
-  - Rugcheck flags surfaced correctly ✅
+- **analyze-risk.sh:**  Score: 23-29/100, Tier: CAUTION
+  - Creator history of rugged tokens flagged 
+  - Token age: "Very new (<24 hours)" 
+  - Rugcheck flags surfaced correctly 
 
 ### Bugs Found and Fixed
 1. Holder Concentration: raw float in reason → formatted to 1 decimal place

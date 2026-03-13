@@ -8,19 +8,19 @@ Longbridge OpenAPI Skill 是一个集成了长桥证券开放接口的 AI 技能
 
 ## 核心功能
 
-### 📊 行情数据
+###  行情数据
 - **实时行情订阅**：订阅港股、美股、A股的实时行情推送
 - **股票报价查询**：获取最新价、成交量、涨跌幅等实时数据
 - **K线数据**：支持分钟、日、周、月、年线等多种周期
 - **静态信息**：查询股票名称、交易所、货币、每手股数等基础信息
 
-### 💰 交易功能
+###  交易功能
 - **智能下单**：支持限价单、市价单、增强限价单等多种订单类型
 - **订单管理**：撤销订单、修改订单
 - **订单查询**：查看当日订单、历史订单和成交记录
 - **多市场支持**：港股、美股、A股全覆盖
 
-### 💼 账户管理
+###  账户管理
 - **资金查询**：实时查看账户余额、购买力、净资产
 - **持仓管理**：查询当前持仓、成本价、市值等信息
 - **多币种支持**：支持港币、美元、人民币等多种货币
@@ -29,9 +29,9 @@ Longbridge OpenAPI Skill 是一个集成了长桥证券开放接口的 AI 技能
 
 | 市场 | 代码格式 | 示例 |
 |------|---------|------|
-| 🇭🇰 港股 | `XXX.HK` | `700.HK` (腾讯)、`9988.HK` (阿里巴巴) |
-| 🇺🇸 美股 | `XXX.US` | `AAPL.US` (苹果)、`TSLA.US` (特斯拉) |
-| 🇨🇳 A股 | `XXX.SH/SZ` | `000001.SZ` (平安银行)、`600519.SH` (茅台) |
+|  港股 | `XXX.HK` | `700.HK` (腾讯)、`9988.HK` (阿里巴巴) |
+|  美股 | `XXX.US` | `AAPL.US` (苹果)、`TSLA.US` (特斯拉) |
+|  A股 | `XXX.SH/SZ` | `000001.SZ` (平安银行)、`600519.SH` (茅台) |
 
 ## 配置说明
 
@@ -128,7 +128,7 @@ export LONGBRIDGE_ACCESS_TOKEN="your_access_token_here"
 
 **返回结果：**
 ```
-✅ 订单已提交成功
+ 订单已提交成功
 订单号：123456789
 股票：腾讯控股（700.HK）
 方向：买入
@@ -149,7 +149,7 @@ export LONGBRIDGE_ACCESS_TOKEN="your_access_token_here"
 
 **返回结果：**
 ```
-💰 账户资金情况
+ 账户资金情况
 
 港币账户（HKD）
 现金：50,000.00 HKD
@@ -174,7 +174,7 @@ export LONGBRIDGE_ACCESS_TOKEN="your_access_token_here"
 
 **返回结果：**
 ```
-📊 当前持仓
+ 当前持仓
 
 1. 腾讯控股（700.HK）
    持仓：500 股 | 可用：500 股
@@ -230,12 +230,12 @@ export LONGBRIDGE_ACCESS_TOKEN="your_access_token_here"
 
 ## 安全注意事项
 
-### ⚠️ 风险提示
+###  风险提示
 1. **投资有风险**：股票交易存在市场风险，使用者需自行承担投资决策带来的风险
 2. **仅供学习**：本 skill 仅用于技术学习和研究，不构成任何投资建议
 3. **谨慎操作**：请勿在生产环境未经充分测试的情况下直接使用
 
-### 🔒 安全建议
+###  安全建议
 1. **保护密钥**：妥善保管 API 密钥，不要泄露给他人或提交到代码仓库
 2. **模拟测试**：建议先在 Longbridge 模拟账户中测试
 3. **订单确认**：所有交易操作应经过人工确认后再执行
@@ -300,20 +300,20 @@ SDK 内部会输出日志，您可以通过配置 Python logging 模块查看详
 ## 更新日志
 
 ### v1.0.0 (2026-02-02)
-- ✨ 初始版本发布
-- ✅ 支持实时行情查询和订阅
-- ✅ 支持交易下单、撤单、改单
-- ✅ 支持账户资金和持仓查询
-- ✅ 支持历史K线数据获取
-- ✅ 港股、美股、A股全市场覆盖
+-  初始版本发布
+-  支持实时行情查询和订阅
+-  支持交易下单、撤单、改单
+-  支持账户资金和持仓查询
+-  支持历史K线数据获取
+-  港股、美股、A股全市场覆盖
 
 ## 参考资料
 
-- 📖 [Longbridge OpenAPI 官方文档](https://open.longbridge.com/docs)
-- 🐍 [Python SDK 文档](https://longbridge.readthedocs.io/en/latest/)
-- 💻 [GitHub 源码仓库](https://github.com/longportapp/openapi)
-- 📦 [PyPI 包地址](https://pypi.org/project/longbridge/)
-- 🌐 [开放平台首页](https://open.longportapp.com/)
+-  [Longbridge OpenAPI 官方文档](https://open.longbridge.com/docs)
+-  [Python SDK 文档](https://longbridge.readthedocs.io/en/latest/)
+-  [GitHub 源码仓库](https://github.com/longportapp/openapi)
+-  [PyPI 包地址](https://pypi.org/project/longbridge/)
+-  [开放平台首页](https://open.longportapp.com/)
 
 ## 许可证
 

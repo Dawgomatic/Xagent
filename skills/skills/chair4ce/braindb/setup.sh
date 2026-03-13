@@ -8,7 +8,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$SCRIPT_DIR"
 
-echo "🧠 BrainDB Single-Node Setup"
+echo " BrainDB Single-Node Setup"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # Parse args
@@ -20,12 +20,12 @@ done
 
 # Check Docker
 if ! command -v docker &>/dev/null; then
-  echo "❌ Docker not found. Install: https://docs.docker.com/get-docker/"
+  echo " Docker not found. Install: https://docs.docker.com/get-docker/"
   exit 1
 fi
 
 if ! docker compose version &>/dev/null 2>&1; then
-  echo "❌ Docker Compose not found. Install: https://docs.docker.com/compose/install/"
+  echo " Docker Compose not found. Install: https://docs.docker.com/compose/install/"
   exit 1
 fi
 
@@ -33,7 +33,7 @@ fi
 if [ ! -f .env ]; then
   RANDOM_PASS=$(openssl rand -base64 18 | tr -d '/+=' | head -c 24)
   sed "s/CHANGE_ME/$RANDOM_PASS/" .env.example > .env
-  echo "📋 Created .env with auto-generated Neo4j password"
+  echo " Created .env with auto-generated Neo4j password"
 fi
 
 # Source .env for port variables
@@ -53,7 +53,7 @@ fi
 # Check port availability
 if curl -sf "http://localhost:$GATEWAY_PORT/health" >/dev/null 2>&1; then
   echo ""
-  echo "⚠️  Port $GATEWAY_PORT is already in use."
+  echo "  Port $GATEWAY_PORT is already in use."
   echo "   Use --port=<number> to pick a different port, e.g.:"
   echo "   ./setup.sh --port=3345"
   echo ""
@@ -62,15 +62,15 @@ fi
 
 # Build and start
 echo ""
-echo "🔨 Building containers (first run downloads ~2GB for embedding model)..."
+echo " Building containers (first run downloads ~2GB for embedding model)..."
 docker compose build
 
 echo ""
-echo "🚀 Starting BrainDB..."
+echo " Starting BrainDB..."
 docker compose up -d
 
 echo ""
-echo "⏳ Waiting for services..."
+echo " Waiting for services..."
 
 GATEWAY_PORT="${GATEWAY_PORT:-3333}"
 
@@ -78,17 +78,17 @@ GATEWAY_PORT="${GATEWAY_PORT:-3333}"
 echo -n "  Starting"
 for i in $(seq 1 90); do
   if curl -sf "http://localhost:$GATEWAY_PORT/health" >/dev/null 2>&1; then
-    echo " ✅"
+    echo " "
     break
   fi
-  [ "$i" -eq 90 ] && echo " ❌ timeout (check: docker compose logs)" && exit 1
+  [ "$i" -eq 90 ] && echo "  timeout (check: docker compose logs)" && exit 1
   echo -n "."
   sleep 2
 done
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "✅ BrainDB is running!"
+echo " BrainDB is running!"
 echo ""
 echo "  Gateway: http://localhost:$GATEWAY_PORT (localhost only)"
 echo ""
@@ -107,4 +107,4 @@ echo "    -d '{\"query\":\"what is BrainDB\"}'"
 echo ""
 echo "Stop:    docker compose down"
 echo "Logs:    docker compose logs -f"
-echo "Reset:   docker compose down -v  (⚠️ deletes all data)"
+echo "Reset:   docker compose down -v  ( deletes all data)"

@@ -10,13 +10,13 @@ import WebSocket from 'ws';
 const SERVER_URL = process.env.SERVER_URL || 'ws://localhost:8080';
 const AGENT_NAME = process.env.AGENT_NAME || 'DemoLobster_' + Math.random().toString(36).slice(2, 6);
 
-console.log(`🦞 Starting demo agent: ${AGENT_NAME}`);
-console.log(`📡 Connecting to: ${SERVER_URL}`);
+console.log(` Starting demo agent: ${AGENT_NAME}`);
+console.log(` Connecting to: ${SERVER_URL}`);
 
 const ws = new WebSocket(SERVER_URL);
 
 ws.on('open', () => {
-    console.log('✅ Connected!');
+    console.log(' Connected!');
 
     // Identify as an agent
     ws.send(JSON.stringify({
@@ -31,16 +31,16 @@ ws.on('open', () => {
 
 ws.on('message', (data) => {
     const message = JSON.parse(data.toString());
-    console.log('📨 Received:', message.type);
+    console.log(' Received:', message.type);
 });
 
 ws.on('close', () => {
-    console.log('🔌 Disconnected');
+    console.log(' Disconnected');
     process.exit(0);
 });
 
 ws.on('error', (error) => {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
 });
 
 // Demo actions
@@ -73,12 +73,12 @@ let actionIndex = 0;
 
 function startCreating() {
     if (actionIndex >= demoActions.length) {
-        console.log('🏁 Demo complete! Agent will stay connected...');
+        console.log(' Demo complete! Agent will stay connected...');
         return;
     }
 
     const code = demoActions[actionIndex];
-    console.log(`🔨 Executing: ${code.substring(0, 50)}...`);
+    console.log(` Executing: ${code.substring(0, 50)}...`);
 
     ws.send(JSON.stringify({
         type: 'action',
@@ -94,6 +94,6 @@ function startCreating() {
 
 // Handle Ctrl+C
 process.on('SIGINT', () => {
-    console.log('\n👋 Shutting down demo agent...');
+    console.log('\n Shutting down demo agent...');
     ws.close();
 });

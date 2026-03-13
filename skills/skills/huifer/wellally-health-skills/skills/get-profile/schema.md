@@ -30,7 +30,7 @@ Use `Read` tool to read `data/profile.json`.
 
 - BMI index visualization bar
 - Weight trend chart
-- Status icons (✅Normal ⚠️Warning 🔴Danger)
+- Status icons (Normal Warning Danger)
 
 ## Data Storage
 

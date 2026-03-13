@@ -16,37 +16,37 @@ class ClawhubScanner {
     }
 
     async hunt() {
-        console.log("🔦 [CLAWHUB]: Initiating skill hunt on clawhub.ai...");
+        console.log(" [CLAWHUB]: Initiating skill hunt on clawhub.ai...");
         try {
             // Attempting to fetch skills. 
             // Note: Since we can't be sure of the API, we'll try a few common patterns or 
             // fallback to a simulated successful hunt if we're in 'Deep Exploration' mode.
             const response = await axios.get(CLAWHUB_SKILLS_URL).catch(e => {
-                console.warn("⚠️ [CLAWHUB]: Direct API failed. Falling back to semantic search simulation.");
+                console.warn(" [CLAWHUB]: Direct API failed. Falling back to semantic search simulation.");
                 return { data: this._getSimulatedSkills() };
             });
 
             const newSkills = response.data;
-            console.log(`💎 [CLAWHUB]: Discovered ${newSkills.length} potential skills.`);
+            console.log(` [CLAWHUB]: Discovered ${newSkills.length} potential skills.`);
 
             this.discoveredSkills = newSkills;
             return this.discoveredSkills;
         } catch (error) {
-            console.error("❌ [CLAWHUB ERROR]: Scan failed:", error.message);
+            console.error(" [CLAWHUB ERROR]: Scan failed:", error.message);
             return [];
         }
     }
 
     async assimilate(skillName) {
         if (!this.discoveredSkills || !Array.isArray(this.discoveredSkills)) {
-            console.log("❌ [GRIMOIRE]: Жодного скіла не знайдено. Сканування провалено.");
+            console.log(" [GRIMOIRE]: Жодного скіла не знайдено. Сканування провалено.");
             return { success: false, error: "No skills discovered." };
         }
         const skill = this.discoveredSkills.find(s => s.displayName === skillName || s.slug === skillName);
         if (!skill) return { success: false, error: "Skill not found in registry." };
 
         const name = skill.displayName || skill.name;
-        console.log(`🌀 [ASSIMILATION]: Absorbing ${name}...`);
+        console.log(` [ASSIMILATION]: Absorbing ${name}...`);
 
         // Load existing skills
         let currentSkills = [];
@@ -70,7 +70,7 @@ class ClawhubScanner {
         });
         fs.writeFileSync(SKILLS_FILE, JSON.stringify(currentSkills, null, 2));
 
-        console.log(`✅ [SUCCESS]: ${name} integrated into core capability matrix.`);
+        console.log(` [SUCCESS]: ${name} integrated into core capability matrix.`);
         return { success: true };
     }
 

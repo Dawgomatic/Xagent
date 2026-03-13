@@ -1,4 +1,4 @@
-# Chemistry Query Agent 🧪
+# Chemistry Query Agent 
 
 ## OpenClaw Skill for Chem Informatics
 

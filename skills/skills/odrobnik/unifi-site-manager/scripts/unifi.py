@@ -849,7 +849,7 @@ def cmd_list_known_clients(args):
         mac = client.get("mac", "?")
         oui = client.get("oui", "")
         last_ip = client.get("last_ip") or "—"
-        noted = "📌" if client.get("noted") else ""
+        noted = "" if client.get("noted") else ""
 
         last_seen = client.get("last_seen")
         last_seen_str = ""
@@ -1537,7 +1537,7 @@ def cmd_firmware_status(args):
         upgradable = device.get("upgradable", False)
         upgrade_to = device.get("upgrade_to_firmware", "")
         
-        status_icon = "⬆" if upgradable else "✓"
+        status_icon = "" if upgradable else "✓"
         
         print(f"{status_icon} {name} ({model})")
         print(f"  Current: {version}")
@@ -1591,8 +1591,8 @@ def cmd_list_devices_integration(args):
         if isinstance(features, dict):
             features = list(features.keys())
 
-        state_icon = "🟢" if state == "ONLINE" else "🔴" if state == "OFFLINE" else "🟡"
-        update_note = " ⬆" if updatable else ""
+        state_icon = "" if state == "ONLINE" else "" if state == "OFFLINE" else ""
+        update_note = " " if updatable else ""
 
         print(f"{state_icon} {name} ({model}){update_note}")
         print(f"  IP: {ip}  MAC: {mac}")

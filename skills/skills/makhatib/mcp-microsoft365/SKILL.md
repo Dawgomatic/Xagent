@@ -4,31 +4,31 @@ Full Microsoft 365 integration via Model Context Protocol (MCP).
 
 ## Features
 
-### 📧 Mail (Outlook)
+###  Mail (Outlook)
 - List, read, send, and search emails
 - Filter by folder (inbox, sent, drafts)
 - HTML email support
 
-### 📅 Calendar
+###  Calendar
 - List and create events
 - Teams meeting integration
 - Check availability/free-busy
 
-### 📁 OneDrive
+###  OneDrive
 - Browse files and folders
 - Search files
 - Read file content
 
-### ✅ Tasks (Microsoft To-Do)
+###  Tasks (Microsoft To-Do)
 - List task lists
 - Create and manage tasks
 - Set importance and due dates
 
-### 💬 Teams
+###  Teams
 - List chats
 - Read and send messages
 
-### 👥 Users
+###  Users
 - List organization users
 - Get user profiles
 

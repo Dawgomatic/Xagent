@@ -99,7 +99,7 @@ Search for jobs across multiple job boards with comprehensive filtering.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `search_term` | string | ✅ Yes | - | Job keywords (e.g., "software engineer", "data scientist") |
+| `search_term` | string |  Yes | - | Job keywords (e.g., "software engineer", "data scientist") |
 | `location` | string | No | - | Job location (e.g., "San Francisco, CA", "Remote") |
 | `site_name` | array | No | `["indeed", "linkedin", "zip_recruiter", "google"]` | Job boards to search |
 | `results_wanted` | integer | No | 15 | Number of results (1-1000) |
@@ -438,7 +438,7 @@ interface JobPost {
 
 ## Anti-Patterns (What NOT to Do)
 
-### ❌ DO NOT: Request Excessive Results
+###  DO NOT: Request Excessive Results
 
 ```json
 // BAD - Will likely timeout or get rate limited
@@ -451,7 +451,7 @@ interface JobPost {
 
 **Why:** Requesting too many results from too many sites simultaneously will trigger rate limits and cause timeouts.
 
-**✅ DO INSTEAD:**
+** DO INSTEAD:**
 ```json
 {
   "search_term": "software engineer",
@@ -462,7 +462,7 @@ interface JobPost {
 
 ---
 
-### ❌ DO NOT: Use LinkedIn Extensively
+###  DO NOT: Use LinkedIn Extensively
 
 ```json
 // BAD - LinkedIn is heavily rate limited
@@ -476,14 +476,14 @@ interface JobPost {
 
 **Why:** LinkedIn has the strictest rate limits. Using `linkedin_fetch_description: true` multiplies requests.
 
-**✅ DO INSTEAD:**
+** DO INSTEAD:**
 - Use Indeed as primary source
 - Limit LinkedIn to 10-15 results
 - Only enable `linkedin_fetch_description` when specifically needed
 
 ---
 
-### ❌ DO NOT: Use Conflicting Filters
+###  DO NOT: Use Conflicting Filters
 
 ```json
 // BAD - Indeed limitation: only one filter group allowed
@@ -498,7 +498,7 @@ interface JobPost {
 
 **Why:** Indeed only supports one of: `hours_old`, `job_type & is_remote`, or `easy_apply`.
 
-**✅ DO INSTEAD:**
+** DO INSTEAD:**
 ```json
 // Either filter by recency
 {
@@ -518,7 +518,7 @@ interface JobPost {
 
 ---
 
-### ❌ DO NOT: Make Vague Searches Without Context
+###  DO NOT: Make Vague Searches Without Context
 
 ```json
 // BAD - Too generic, will return irrelevant results
@@ -529,25 +529,25 @@ interface JobPost {
 
 **Why:** Vague searches return poor quality results and waste API calls.
 
-**✅ DO INSTEAD:**
+** DO INSTEAD:**
 - Always include specific job titles or skills
 - Include location when known
 - Use filters to narrow results
 
 ---
 
-### ❌ DO NOT: Ignore Error Responses
+###  DO NOT: Ignore Error Responses
 
 **Why:** Rate limits, network issues, and invalid parameters require appropriate handling.
 
-**✅ DO INSTEAD:**
+** DO INSTEAD:**
 - Check for error responses before processing results
 - Implement retry logic with backoff for rate limits
 - Provide helpful messages to users when searches fail
 
 ---
 
-### ❌ DO NOT: Use Wrong Country Codes
+###  DO NOT: Use Wrong Country Codes
 
 ```json
 // BAD - Wrong country code format
@@ -557,7 +557,7 @@ interface JobPost {
 }
 ```
 
-**✅ DO INSTEAD:**
+** DO INSTEAD:**
 - Use `get_supported_countries` to verify valid country codes
 - Common codes: "usa", "united kingdom", "canada", "germany", "india"
 

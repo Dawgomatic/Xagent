@@ -19,10 +19,10 @@ This skill fixes the asking part. I'll give you exactly what to say, when to say
 
 Timing is everything. These are your windows:
 
-✅ **Right after a win.** They just saw results? Ask now.
-✅ **When they thank you unprompted.** That's your cue.
-✅ **At project completion.** Natural checkpoint.
-✅ **When they renew or extend.** They're voting with their wallet.
+ **Right after a win.** They just saw results? Ask now.
+ **When they thank you unprompted.** That's your cue.
+ **At project completion.** Natural checkpoint.
+ **When they renew or extend.** They're voting with their wallet.
 
 The moment of peak happiness is the moment to ask. Don't wait.
 

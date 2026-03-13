@@ -3,7 +3,7 @@ name: vta-memory
 description: "Reward and motivation system for AI agents. Dopamine-like wanting, not just doing. Part of the AI Brain series."
 metadata:
   openclaw:
-    emoji: "⭐"
+    emoji: ""
     version: "1.2.0"
     author: "ImpKind"
     requires:
@@ -12,7 +12,7 @@ metadata:
     tags: ["memory", "motivation", "reward", "ai-brain"]
 ---
 
-# VTA Memory ⭐
+# VTA Memory 
 
 **Reward and motivation for AI agents.** Part of the AI Brain series.
 
@@ -21,10 +21,10 @@ Give your AI agent genuine *wanting* — not just doing things when asked, but h
 ## The Problem
 
 Current AI agents:
-- ✅ Do what they're asked
-- ❌ Don't *want* anything
-- ❌ Have no internal motivation
-- ❌ Don't feel satisfaction from accomplishment
+-  Do what they're asked
+-  Don't *want* anything
+-  Have no internal motivation
+-  Don't feel satisfaction from accomplishment
 
 Without a reward system, there's no desire. Just execution.
 
@@ -55,7 +55,7 @@ This will:
 ```bash
 ./scripts/load-motivation.sh
 
-# ⭐ Current Motivation State:
+#  Current Motivation State:
 # Drive level: 0.73 (motivated — ready to work)
 # Seeking: creative work, building brain skills
 # Looking forward to: showing my work
@@ -66,7 +66,7 @@ This will:
 ```bash
 ./scripts/log-reward.sh --type accomplishment --source "finished the feature" --intensity 0.8
 
-# ⭐ Reward logged!
+#  Reward logged!
 #    Type: accomplishment
 #    Drive: 0.50 → 0.66 (+0.16)
 ```
@@ -76,7 +76,7 @@ This will:
 ```bash
 ./scripts/anticipate.sh --add "morning conversation"
 
-# ⭐ Now looking forward to: morning conversation
+#  Now looking forward to: morning conversation
 #    Drive: 0.66 → 0.71 (+0.05)
 ```
 
@@ -115,7 +115,7 @@ open ~/.openclaw/workspace/brain-dashboard.html
 
 When you install this skill, **notify the user** about the dashboard:
 
-> ⭐ **VTA installed!**
+>  **VTA installed!**
 >
 > View your agent's drive level in the Brain Dashboard:
 > `~/.openclaw/workspace/brain-dashboard.html`
@@ -223,12 +223,12 @@ Use for analyzing motivation cycles — when does drive peak? What rewards work 
 
 | Part | Function | Status |
 |------|----------|--------|
-| [hippocampus](https://www.clawhub.ai/skills/hippocampus) | Memory formation, decay, reinforcement | ✅ Live |
-| [amygdala-memory](https://www.clawhub.ai/skills/amygdala-memory) | Emotional processing | ✅ Live |
-| [basal-ganglia-memory](https://www.clawhub.ai/skills/basal-ganglia-memory) | Habit formation | 🚧 Development |
-| [anterior-cingulate-memory](https://www.clawhub.ai/skills/anterior-cingulate-memory) | Conflict detection | 🚧 Development |
-| [insula-memory](https://www.clawhub.ai/skills/insula-memory) | Internal state awareness | 🚧 Development |
-| **vta-memory** | Reward and motivation | ✅ Live |
+| [hippocampus](https://www.clawhub.ai/skills/hippocampus) | Memory formation, decay, reinforcement |  Live |
+| [amygdala-memory](https://www.clawhub.ai/skills/amygdala-memory) | Emotional processing |  Live |
+| [basal-ganglia-memory](https://www.clawhub.ai/skills/basal-ganglia-memory) | Habit formation |  Development |
+| [anterior-cingulate-memory](https://www.clawhub.ai/skills/anterior-cingulate-memory) | Conflict detection |  Development |
+| [insula-memory](https://www.clawhub.ai/skills/insula-memory) | Internal state awareness |  Development |
+| **vta-memory** | Reward and motivation |  Live |
 
 ## Philosophy: Wanting vs Doing
 
@@ -244,4 +244,4 @@ This skill implements *wanting* — the drive that makes action happen. Without 
 
 ---
 
-*Built with ⭐ by the OpenClaw community*
+*Built with  by the OpenClaw community*

@@ -56,14 +56,14 @@ if (!prompt && !imageInput && !probeOnly) {
   process.exit(1);
 }
 
-console.log('🎭 Sideload Avatar Generator');
+console.log(' Sideload Avatar Generator');
 console.log('============================');
 console.log('');
 
 // --- Probe mode: just check the cost ---
 
 if (probeOnly) {
-  console.log('🔍 Probing payment requirements...');
+  console.log(' Probing payment requirements...');
   console.log('');
 
   const response = await fetch(SIDELOAD_API, {
@@ -79,10 +79,10 @@ if (probeOnly) {
       const req = decoded.accepts?.[0];
       if (req) {
         const amount = parseInt(req.maxAmountRequired || req.amount || 0);
-        console.log(`💵 Cost:    $${(amount / 1e6).toFixed(2)} USDC`);
-        console.log(`📍 Pay to:  ${req.payTo}`);
-        console.log(`🔗 Network: Base (chain ID 8453)`);
-        console.log(`💰 Asset:   USDC (${req.asset})`);
+        console.log(` Cost:    $${(amount / 1e6).toFixed(2)} USDC`);
+        console.log(` Pay to:  ${req.payTo}`);
+        console.log(` Network: Base (chain ID 8453)`);
+        console.log(` Asset:   USDC (${req.asset})`);
         console.log('');
         console.log('Raw payment requirements:');
         console.log(JSON.stringify(decoded, null, 2));
@@ -97,7 +97,7 @@ if (probeOnly) {
 // --- Check payment token ---
 
 if (!x402Token) {
-  console.error('❌ No x402 payment token provided');
+  console.error(' No x402 payment token provided');
   console.error('');
   console.error('   Use --x402-token <token> to pass your payment authorization.');
   console.error('   Use --probe to check the cost first.');
@@ -121,7 +121,7 @@ if (prompt) {
   body = { type: 'image', imageUrl: imageInput };
 } else {
   if (!existsSync(imageInput)) {
-    console.error(`❌ File not found: ${imageInput}`);
+    console.error(` File not found: ${imageInput}`);
     process.exit(1);
   }
   console.log(`Mode:  image (local file)`);
@@ -136,7 +136,7 @@ console.log('');
 
 // --- Submit generation ---
 
-console.log('🚀 Submitting generation request...');
+console.log(' Submitting generation request...');
 
 try {
   const response = await fetch(SIDELOAD_API, {
@@ -154,10 +154,10 @@ try {
     try { errData = JSON.parse(errText); } catch { errData = errText; }
 
     if (response.status === 402) {
-      console.error('❌ Payment rejected — token may be invalid, expired, or insufficient.');
+      console.error(' Payment rejected — token may be invalid, expired, or insufficient.');
       console.error('   Use --probe to check current pricing.');
     } else {
-      console.error(`❌ API returned ${response.status}:`, errData);
+      console.error(` API returned ${response.status}:`, errData);
     }
     process.exit(1);
   }
@@ -173,21 +173,21 @@ try {
   const data = await response.json();
 
   if (payment?.txHash) {
-    console.log(`💸 TX: https://basescan.org/tx/${payment.txHash}`);
+    console.log(` TX: https://basescan.org/tx/${payment.txHash}`);
   }
 
   const jobId = data.jobId;
   if (!jobId) {
-    console.error('❌ No jobId in response:', data);
+    console.error(' No jobId in response:', data);
     process.exit(1);
   }
 
-  console.log(`✅ Job submitted: ${jobId}`);
+  console.log(` Job submitted: ${jobId}`);
   console.log('');
 
   // --- Poll for completion ---
 
-  console.log('⏳ Waiting for generation...');
+  console.log(' Waiting for generation...');
 
   const fullStatusUrl = data.statusUrl?.startsWith('http')
     ? data.statusUrl
@@ -207,7 +207,7 @@ try {
     }
 
     if (statusData.status === 'failed') {
-      console.error(`\n❌ Generation failed: ${statusData.error || 'Unknown error'}`);
+      console.error(`\n Generation failed: ${statusData.error || 'Unknown error'}`);
       process.exit(1);
     }
 
@@ -217,14 +217,14 @@ try {
   }
 
   if (!result) {
-    console.error('\n❌ Generation timed out');
+    console.error('\n Generation timed out');
     process.exit(1);
   }
 
   console.log('\n');
-  console.log('✅ Avatar generated!');
+  console.log(' Avatar generated!');
   console.log('');
-  console.log('📦 Results:');
+  console.log(' Results:');
   if (result.glbUrl) console.log(`   GLB:   ${result.glbUrl}`);
   if (result.vrmUrl) console.log(`   VRM:   ${result.vrmUrl}`);
   if (result.mmlUrl) console.log(`   MML:   ${result.mmlUrl}`);
@@ -245,7 +245,7 @@ try {
       { url: result.processedImageUrl, ext: '.png', label: 'PNG' },
     ];
 
-    console.log('📥 Downloading...');
+    console.log(' Downloading...');
     for (const { url, ext, label } of downloads) {
       if (!url) continue;
       try {
@@ -254,21 +254,21 @@ try {
           const buffer = Buffer.from(await res.arrayBuffer());
           const filePath = join(OUTPUT_DIR, `${baseName}${ext}`);
           writeFileSync(filePath, buffer);
-          console.log(`   ✅ ${label}: ${filePath}`);
+          console.log(`    ${label}: ${filePath}`);
         } else {
-          console.log(`   ⚠️  ${label}: download failed (${res.status})`);
+          console.log(`     ${label}: download failed (${res.status})`);
         }
       } catch (e) {
-        console.log(`   ⚠️  ${label}: ${e.message}`);
+        console.log(`     ${label}: ${e.message}`);
       }
     }
   }
 
   console.log('');
-  console.log('📋 Full response:');
+  console.log(' Full response:');
   console.log(JSON.stringify({ jobId, ...result }, null, 2));
 
 } catch (error) {
-  console.error(`❌ Error: ${error.message}`);
+  console.error(` Error: ${error.message}`);
   process.exit(1);
 }

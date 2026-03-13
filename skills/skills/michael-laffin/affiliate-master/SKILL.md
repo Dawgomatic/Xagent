@@ -24,32 +24,32 @@ AffiliateMaster is a comprehensive affiliate marketing automation tool for OpenC
 
 ## Features
 
-### ✅ Link Management
+###  Link Management
 - Generate affiliate links from multiple networks (Amazon, ShareASale, CJ, Impact)
 - Track clicks, conversions, and revenue
 - Automatic link shortening and branding
 - Link health monitoring
 
-### ✅ FTC Compliance
+###  FTC Compliance
 - Automatic disclosure injection for all content
 - Customizable disclosure templates
 - Platform-specific formatting (blog, social, email)
 - Compliance audit logs
 
-### ✅ Content Integration
+###  Content Integration
 - Auto-detect opportunities for affiliate links
 - Insert links with context-aware placement
 - Generate call-to-action text
 - A/B test link placements
 
-### ✅ Multi-Network Support
+###  Multi-Network Support
 - Amazon Associates
 - ShareASale
 - Commission Junction (CJ)
 - Impact
 - Custom networks via API
 
-### ✅ Analytics & Optimization
+###  Analytics & Optimization
 - Real-time revenue dashboard
 - Conversion rate tracking
 - Best-performing products identification

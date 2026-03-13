@@ -8,7 +8,7 @@ metadata:
   website: https://unicon.sh
   repository: https://github.com/WebRenew/unicon
   openclaw:
-    emoji: "🦄"
+    emoji: ""
     requires:
       bins: ["node"]
     install:

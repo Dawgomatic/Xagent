@@ -34,7 +34,7 @@ def create_twitter_thread(content: str, tone: str = "conversational", hashtags: 
 
     # First tweet - hook
     first_para = lines[0][:200] if lines else ""
-    tweets.append(f"{first_para} 🧵 (1/?)")
+    tweets.append(f"{first_para}  (1/?)")
 
     # Middle tweets
     for i, section in enumerate(lines[1:6], 2):  # Max 6 middle tweets
@@ -44,7 +44,7 @@ def create_twitter_thread(content: str, tone: str = "conversational", hashtags: 
 
     # Final tweet with CTA
     if cta:
-        tweets.append(f"{cta}\n\n✅ Follow for more insights! #thread")
+        tweets.append(f"{cta}\n\n Follow for more insights! #thread")
 
     # Update tweet numbers
     for i, tweet in enumerate(tweets, 1):
@@ -61,7 +61,7 @@ def create_linkedin_post(content: str, tone: str = "professional", formatting: b
     # Hook - first line emphasized
     if lines:
         hook = lines[0][:150] + "..."
-        post_parts.append(f"🚀 {hook}\n")
+        post_parts.append(f" {hook}\n")
 
     # Main content with formatting
     for section in lines[1:4]:
@@ -71,7 +71,7 @@ def create_linkedin_post(content: str, tone: str = "professional", formatting: b
         post_parts.append(f"{section}\n\n")
 
     # CTA
-    post_parts.append("💡 What's your experience? Drop a comment below.\n\n#insights #growth")
+    post_parts.append(" What's your experience? Drop a comment below.\n\n#insights #growth")
 
     return "\n".join(post_parts)
 
@@ -81,7 +81,7 @@ def create_instagram_caption(content: str, hashtags_count: int = 11) -> str:
     lines = content.strip().split("\n\n")
 
     # Hook
-    caption = f"✨ {lines[0][:100]}...\n\n" if lines else ""
+    caption = f" {lines[0][:100]}...\n\n" if lines else ""
 
     # Main content
     for section in lines[1:3]:
@@ -89,7 +89,7 @@ def create_instagram_caption(content: str, hashtags_count: int = 11) -> str:
         caption += f"{section}\n\n"
 
     # CTA
-    caption += "💬 Save this for later!\n\n"
+    caption += " Save this for later!\n\n"
 
     # Hashtags (mixed volume strategy)
     hashtags = [
@@ -110,7 +110,7 @@ def create_facebook_post(content: str, tone: str = "conversational") -> str:
 
     # Hook with question
     if lines:
-        post = f"💭 Have you ever thought about this?\n\n{lines[0]}\n\n"
+        post = f" Have you ever thought about this?\n\n{lines[0]}\n\n"
 
     # Main content
     for section in lines[1:3]:
@@ -118,7 +118,7 @@ def create_facebook_post(content: str, tone: str = "conversational") -> str:
         post += f"{section}\n\n"
 
     # Engagement question
-    post += "👇 What's your take on this? Share in the comments!"
+    post += " What's your take on this? Share in the comments!"
 
     return post
 
@@ -141,7 +141,7 @@ def create_tiktok_script(content: str, duration: int = 60) -> str:
     script += "\n".join(f"• {point}" for point in main_points)
 
     # CTA (12 seconds)
-    script += f"\n\n[48-60s]\nFollow for more! Link in bio 🔗"
+    script += f"\n\n[48-60s]\nFollow for more! Link in bio "
 
     return script
 
@@ -150,12 +150,12 @@ def create_email_teaser(content: str, cta: str = "Read the full article") -> str
     """Create email newsletter teaser."""
     lines = content.strip().split("\n\n")
 
-    subject = f"📧 {lines[0][:50]}..." if lines else "This week's insights"
+    subject = f" {lines[0][:50]}..." if lines else "This week's insights"
     body = ""
 
     body += f"Hi there!\n\n"
     body += f"I just published something you might find interesting:\n\n"
-    body += f"💡 {lines[0] if lines else ''}\n\n"
+    body += f" {lines[0] if lines else ''}\n\n"
 
     for section in lines[1:3]:
         section = section.replace("\n", " ")
@@ -189,7 +189,7 @@ def write_output(platform: str, content: str or list, output_dir: str, input_fil
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(output)
 
-    print(f"✅ {PLATFORMS.get(platform, {}).get('name', platform)}: {output_path}")
+    print(f" {PLATFORMS.get(platform, {}).get('name', platform)}: {output_path}")
 
 
 def main():
@@ -244,12 +244,12 @@ def main():
             subject, body = create_email_teaser(content, args.cta)
             output = f"Subject: {subject}\n\n{body}"
         else:
-            print(f"⚠️  Unknown platform: {platform}")
+            print(f"  Unknown platform: {platform}")
             continue
 
         write_output(platform, output, args.output_dir, args.input)
 
-    print(f"\n✅ Content recycled to {len(platforms)} platforms in {args.output_dir}")
+    print(f"\n Content recycled to {len(platforms)} platforms in {args.output_dir}")
 
 
 if __name__ == "__main__":

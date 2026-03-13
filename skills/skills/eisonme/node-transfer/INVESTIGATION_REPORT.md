@@ -7,7 +7,7 @@
 | Phase | Time | Note |
 |-------|------|------|
 | Agent debugging/retrying | ~9 min | BOM markers, encoding issues, failed deployments |
-| Actual file transfer | 0.125s | ✅ Network was fast all along |
+| Actual file transfer | 0.125s |  Network was fast all along |
 
 ## Where the Time Went
 
@@ -124,9 +124,9 @@ await nodes.run({
 
 ## Next Steps
 
-1. ✅ Run deployment scripts on E3V3 and E3V3-Docker
-2. ✅ Test a transfer - should complete in ~0.5 seconds (check + transfer)
-3. 🔄 Future: When updating `send.js` or `receive.js`, increment version in `version.js`
+1.  Run deployment scripts on E3V3 and E3V3-Docker
+2.  Test a transfer - should complete in ~0.5 seconds (check + transfer)
+3.  Future: When updating `send.js` or `receive.js`, increment version in `version.js`
 
 ## Files Modified/Created
 
@@ -145,4 +145,4 @@ skills/node-transfer/
 
 ---
 
-**Result**: User gets "Click → Done" instead of "Click → 9 mins of agent fumbling → Done" ✅
+**Result**: User gets "Click → Done" instead of "Click → 9 mins of agent fumbling → Done" 

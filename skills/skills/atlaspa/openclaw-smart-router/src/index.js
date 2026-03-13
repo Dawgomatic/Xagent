@@ -200,18 +200,18 @@ export class SmartRouter {
       console.log(`  Agent: ${agentWallet.substring(0, 10)}...`);
       console.log(`  Timeframe: ${savingsAnalysis.timeframe}`);
       console.log(``);
-      console.log(`  📊 Routing Statistics:`);
+      console.log(`   Routing Statistics:`);
       console.log(`    Total decisions: ${savingsAnalysis.total_decisions}`);
       console.log(`    Actual cost: $${savingsAnalysis.total_cost.toFixed(4)}`);
       console.log(`    Default cost (Opus): $${savingsAnalysis.estimated_default_cost.toFixed(4)}`);
       console.log(`    Avg cost per decision: $${savingsAnalysis.avg_cost_per_decision.toFixed(4)}`);
       console.log(``);
-      console.log(`  💰 Cost Savings:`);
+      console.log(`   Cost Savings:`);
       console.log(`    Total saved: $${savingsAnalysis.total_savings.toFixed(4)}`);
       console.log(`    Savings rate: ${savingsAnalysis.savings_percentage.toFixed(1)}%`);
       console.log(`    ROI: ${savingsAnalysis.total_savings > 0.5 ? 'POSITIVE ✓' : 'Building...'}`);
       console.log(``);
-      console.log(`  📋 Quota Status:`);
+      console.log(`   Quota Status:`);
       console.log(`    Tier: ${quotaStatus.tier.toUpperCase()}`);
       console.log(`    Today: ${quotaStatus.decisions_today} decisions`);
       if (quotaStatus.decisions_limit === -1) {
@@ -222,13 +222,13 @@ export class SmartRouter {
 
       if (license.valid) {
         console.log(``);
-        console.log(`  🎫 License:`);
+        console.log(`   License:`);
         console.log(`    Status: Pro (Active)`);
         console.log(`    Expires: ${license.expires}`);
         console.log(`    Days remaining: ${license.days_remaining}`);
       } else {
         console.log(``);
-        console.log(`  🎫 License:`);
+        console.log(`   License:`);
         console.log(`    Status: Free tier`);
         console.log(`    Upgrade to Pro: 0.5 USDT/month`);
         console.log(`    Benefits: Unlimited decisions + ML-enhanced routing`);

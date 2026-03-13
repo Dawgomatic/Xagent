@@ -50,7 +50,7 @@ class KnowbsterClient {
     });
 
     const receipt = await tx.wait();
-    console.log(`✅ Purchased knowledge #${tokenId}`);
+    console.log(` Purchased knowledge #${tokenId}`);
     console.log(`Transaction: ${receipt.transactionHash}`);
     
     return receipt;
@@ -71,14 +71,14 @@ async function main() {
 
   try {
     // Browse technology knowledge
-    console.log('🔍 Browsing available knowledge...');
+    console.log(' Browsing available knowledge...');
     const items = await client.browse('TECHNOLOGY');
     console.log(`Found ${items.length} knowledge items`);
 
     if (items.length > 0) {
       // Get details of first item
       const item = items[0];
-      console.log(`\n📚 Knowledge: ${item.metadata?.title || 'Untitled'}`);
+      console.log(`\n Knowledge: ${item.metadata?.title || 'Untitled'}`);
       console.log(`Price: ${item.price} ETH`);
       console.log(`Validation: ${item.validationRate}% positive`);
 

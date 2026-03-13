@@ -31,7 +31,7 @@ case "$ACTION" in
       echo "No workplaces currently loaded."
       exit 0
     fi
-    echo "📂 Loaded workplaces ($COUNT):"
+    echo " Loaded workplaces ($COUNT):"
     echo ""
     jq -r '.[] | "  • \(.name) (\(.uuid | .[0:8])...)\n    Path: \(.path)\n    Loaded: \(.loadedAt)\n"' "$LOADED"
     ;;
@@ -54,7 +54,7 @@ case "$ACTION" in
     fi
 
     if [[ -z "$RESOLVED" ]]; then
-      echo "❌ Workplace not found in registry: $TARGET"
+      echo " Workplace not found in registry: $TARGET"
       echo "   Run 'workplace init <path>' or 'workplace scan <path> --register' first."
       exit 1
     fi
@@ -66,13 +66,13 @@ case "$ACTION" in
     # Check if already loaded
     ALREADY=$(jq --arg u "$WP_UUID" '[.[] | select(.uuid == $u)] | length' "$LOADED")
     if [[ "$ALREADY" != "0" ]]; then
-      echo "⚠️  $WP_NAME is already loaded."
+      echo "  $WP_NAME is already loaded."
       exit 0
     fi
 
     # Check that .workplace/config.json exists
     if [[ ! -f "$WP_PATH/.workplace/config.json" ]]; then
-      echo "❌ No .workplace/ found at $WP_PATH"
+      echo " No .workplace/ found at $WP_PATH"
       echo "   Initialize it first: workplace init $WP_PATH"
       exit 1
     fi
@@ -91,7 +91,7 @@ case "$ACTION" in
          "source": "manual"
        }]' "$LOADED" > "$LOADED.tmp" && mv "$LOADED.tmp" "$LOADED"
 
-    echo "✅ Loaded: $WP_NAME"
+    echo " Loaded: $WP_NAME"
     echo "   UUID: $WP_UUID"
     echo "   Path: $WP_PATH"
     ;;
@@ -107,7 +107,7 @@ case "$ACTION" in
     MATCH=$(jq -r --arg t "$TARGET" '.[] | select(.uuid == $t or (.uuid | startswith($t)) or .name == $t) | .uuid' "$LOADED" | head -1)
 
     if [[ -z "$MATCH" ]]; then
-      echo "❌ Not found in loaded workplaces: $TARGET"
+      echo " Not found in loaded workplaces: $TARGET"
       exit 1
     fi
 
@@ -115,12 +115,12 @@ case "$ACTION" in
 
     jq --arg u "$MATCH" '[.[] | select(.uuid != $u)]' "$LOADED" > "$LOADED.tmp" && mv "$LOADED.tmp" "$LOADED"
 
-    echo "✅ Unloaded: $WP_NAME ($MATCH)"
+    echo " Unloaded: $WP_NAME ($MATCH)"
     ;;
 
   status)
     COUNT=$(jq 'length' "$LOADED")
-    echo "📊 Loaded Workplaces: $COUNT"
+    echo " Loaded Workplaces: $COUNT"
     echo ""
     if [[ "$COUNT" != "0" ]]; then
       jq -r '.[] | "  \(.name) — \(.path)"' "$LOADED"

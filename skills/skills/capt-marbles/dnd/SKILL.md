@@ -11,12 +11,12 @@ Your complete Dungeons & Dragons 5th Edition assistant! Look up spells, monsters
 
 ## Features
 
-🎲 **Dice Roller** - Roll any dice with modifiers  
-✨ **Spell Lookup** - Search the entire SRD spell list  
-👹 **Monster Stats** - Get full stat blocks for any creature  
-⚔️ **Character Generator** - Random characters with stats  
-🗡️ **Encounter Builder** - Generate balanced encounters by CR  
-👤 **NPC Generator** - Create random NPCs with personality  
+ **Dice Roller** - Roll any dice with modifiers  
+ **Spell Lookup** - Search the entire SRD spell list  
+ **Monster Stats** - Get full stat blocks for any creature  
+ **Character Generator** - Random characters with stats  
+ **Encounter Builder** - Generate balanced encounters by CR  
+ **NPC Generator** - Create random NPCs with personality  
 
 ## Usage
 
@@ -40,7 +40,7 @@ python3 dnd.py roll 8d6
 
 **Output:**
 ```
-🎲 Rolling 2d6+3
+ Rolling 2d6+3
    Rolls: [4 + 5] +3
    Total: 12
 ```
@@ -60,7 +60,7 @@ python3 dnd.py spell --list
 
 **Output:**
 ```
-✨ Fireball
+ Fireball
    Level: 3 Evocation
    Casting Time: 1 action
    Range: 150 feet
@@ -87,7 +87,7 @@ python3 dnd.py monster --list
 
 **Output:**
 ```
-👹 Adult Red Dragon
+ Adult Red Dragon
    Huge Dragon, chaotic evil
    CR 17 (18,000 XP)
    
@@ -114,7 +114,7 @@ python3 dnd.py character
 
 **Output:**
 ```
-⚔️  Elara
+  Elara
    Race: Elf
    Class: Wizard
    
@@ -139,7 +139,7 @@ python3 dnd.py encounter
 
 **Output:**
 ```
-🎲 Random Encounter (CR ~5)
+ Random Encounter (CR ~5)
 
    2x Troll (CR 5)
       AC 15, HP 84
@@ -155,7 +155,7 @@ python3 dnd.py npc
 
 **Output:**
 ```
-👤 Finn Shadowend
+ Finn Shadowend
    Race: Halfling
    Occupation: Merchant
    Trait: Curious
@@ -200,4 +200,4 @@ Uses the official [D&D 5e API](https://www.dnd5eapi.co/) which includes all Syst
 - Party manager
 - Campaign notes
 
-Enjoy your adventure! 🐉⚔️✨
+Enjoy your adventure! 

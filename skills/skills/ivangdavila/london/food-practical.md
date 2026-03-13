@@ -8,7 +8,7 @@ London is excellent for plant-based dining.
 
 | Restaurant | Type | Location | Price |
 |------------|------|----------|-------|
-| **Plates** | Vegan fine dining (Michelin ⭐) | Shoreditch | £££ |
+| **Plates** | Vegan fine dining (Michelin ) | Shoreditch | £££ |
 | **Mildred's** | Vegetarian institution | Multiple | ££ |
 | **Holy Carrot** | Upscale vegan | Knightsbridge | £££ |
 | **Facing Heaven** | Vegan Sichuan | Hackney | ££ |

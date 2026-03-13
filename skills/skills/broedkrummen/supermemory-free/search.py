@@ -94,17 +94,17 @@ def format_results(data: dict, query: str) -> str:
     """Format search results for human-readable output."""
     # Handle API errors
     if "error" in data:
-        return f"❌ API Error: {data['error']}\n   {data.get('details', '')}"
+        return f" API Error: {data['error']}\n   {data.get('details', '')}"
 
     results = data.get("results", [])
 
     if not results:
         return (
-            f"🔍 No results found for: \"{query}\"\n"
+            f" No results found for: \"{query}\"\n"
             f"   Try a broader query, different --tag, or --no-tag to search all."
         )
 
-    lines = [f"🔍 Cloud memory search: \"{query}\"", f"   Found {len(results)} result(s)\n"]
+    lines = [f" Cloud memory search: \"{query}\"", f"   Found {len(results)} result(s)\n"]
 
     for i, r in enumerate(results, 1):
         score = r.get("score", r.get("similarity", "?"))

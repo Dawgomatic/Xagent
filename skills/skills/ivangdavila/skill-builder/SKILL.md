@@ -32,7 +32,7 @@ patterns.md
 reference.md
 ```
 
-### ⚠️ Publishing Rules
+###  Publishing Rules
 
 **Publishing is serious.** Each publish is permanent and public. No spam, no experiments.
 

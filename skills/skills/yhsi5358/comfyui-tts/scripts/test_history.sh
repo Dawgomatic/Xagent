@@ -12,7 +12,7 @@ if ! curl -s "${COMFYUI_URL}/system_stats" > /dev/null 2>&1; then
     echo "Error: Cannot connect to ComfyUI at ${COMFYUI_URL}"
     exit 1
 fi
-echo "✅ ComfyUI is reachable"
+echo " ComfyUI is reachable"
 echo ""
 
 # Submit a simple test job
@@ -121,7 +121,7 @@ while [ $COUNT -lt 60 ]; do
         HAS_OUTPUTS=$(echo "$PROMPT_DATA" | jq -r '(.outputs // {}) | length')
         if [ "$HAS_OUTPUTS" -gt 0 ]; then
             echo ""
-            echo "✅ Job has outputs - completed!"
+            echo " Job has outputs - completed!"
             break
         fi
     fi

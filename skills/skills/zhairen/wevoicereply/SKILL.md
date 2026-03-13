@@ -40,7 +40,7 @@ parameters:
 
 metadata:
   openclaw:
-    emoji: "🎤"
+    emoji: ""
     os: ["linux"]
     # 核心：将此技能名直接绑定到具体的 .py 脚本
     command: "python3 {{path}}/voice_reply_skill.py '{{text}}'"

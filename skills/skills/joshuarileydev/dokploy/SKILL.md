@@ -1,7 +1,7 @@
 ---
 name: dokploy
 description: "Manage Dokploy deployments, projects, applications, and domains via the Dokploy API."
-emoji: "🐳"
+emoji: ""
 metadata:
   clawdhub:
     requires:

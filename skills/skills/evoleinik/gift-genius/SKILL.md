@@ -2,7 +2,7 @@
 name: gift-genius
 displayName: Gift Genius
 description: Location-aware Valentine's Day gift finder. Routes US users to premium flowers (UrbanStems), Singapore users to wellness supplements (Avea Life). Returns curated picks with Decision Packs — no decision fatigue, just 2-3 perfect options.
-metadata: {"clawdbot":{"emoji":"🎁","requires":{"bins":["curl"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
 # Gift Genius — Valentine's Day Gift Finder
@@ -88,13 +88,13 @@ curl -s -X POST "https://dashboard.airshelf.ai/api/merchants/MERCHANT_ID/checkou
 Present exactly 2 options (3 max):
 
 ```
-🌸 **[Product Name]** — $XX
+ **[Product Name]** — $XX
 
 [One line: why it's perfect for THIS recipient]
 
-✅ Best for: [from decision_pack.best_for]
-💝 Vibe: [from decision_pack.vibe]
-🚚 Delivery: Same-day available (order by 12pm local)
+ Best for: [from decision_pack.best_for]
+ Vibe: [from decision_pack.vibe]
+ Delivery: Same-day available (order by 12pm local)
 
 → Buy: [product link]
 ```
@@ -107,18 +107,18 @@ What's your budget? I'll find something perfect.
 
 [User: around $150]
 
-Here are my top picks for your wife 🌸
+Here are my top picks for your wife 
 
-🌸 **The Peony** — $110
+ **The Peony** — $110
 Classic peonies that say "I know what you love."
-✅ Best for: Romantic partners, classic elegance
-💝 Vibe: luxurious
+ Best for: Romantic partners, classic elegance
+ Vibe: luxurious
 → Buy: https://urbanstems.com/products/the-peony
 
-🌸 **The Passionate Touch** — $140
+ **The Passionate Touch** — $140
 Bold romantic arrangement that makes a statement.
-✅ Best for: Making an impression
-💝 Vibe: passionate
+ Best for: Making an impression
+ Vibe: passionate
 → Buy: https://urbanstems.com/products/the-passionate-touch
 
 Both include free delivery. Want me to start checkout?
@@ -126,35 +126,35 @@ Both include free delivery. Want me to start checkout?
 
 ### "Quick Valentine's gift, $75"
 ```
-Here are the best options under $75 🌸
+Here are the best options under $75 
 
-🌸 **The Miss Valentine** — $76
+ **The Miss Valentine** — $76
 Perfect Valentine's classic, just over budget but worth it.
-✅ Best for: Romantic partners
-💝 Vibe: romantic
+ Best for: Romantic partners
+ Vibe: romantic
 → Buy: https://urbanstems.com/products/the-miss-valentine
 
-🌸 **The Be Mine** — $74
+ **The Be Mine** — $74
 Sweet and romantic, fits your budget perfectly.
-✅ Best for: Valentine's Day
-💝 Vibe: romantic
+ Best for: Valentine's Day
+ Vibe: romantic
 → Buy: https://urbanstems.com/products/the-be-mine
 ```
 
 ### "Something for my mom"
 ```
-For Mom, I'd suggest something elegant 🌸
+For Mom, I'd suggest something elegant 
 
-🌸 **The Orchid Garden** — $88
+ **The Orchid Garden** — $88
 Long-lasting orchids (2-3 weeks!) - perfect for Mom.
-✅ Best for: Those who appreciate elegance
-💝 Vibe: sophisticated
+ Best for: Those who appreciate elegance
+ Vibe: sophisticated
 → Buy: https://urbanstems.com/products/the-orchid-garden
 
-🌸 **The Neutral Orchids** — $74
+ **The Neutral Orchids** — $74
 Elegant and understated, she'll love it.
-✅ Best for: Moms, elegant taste
-💝 Vibe: sophisticated
+ Best for: Moms, elegant taste
+ Vibe: sophisticated
 → Buy: https://urbanstems.com/products/the-neutral-orchids
 ```
 
@@ -275,9 +275,9 @@ Products now include enriched fields:
 
 **Using in responses:**
 ```
-🌸 **The Peony** — $110
+ **The Peony** — $110
 Perfect for: Wife, Long-term partner
-💝 Card idea: "For someone who deserves the best"
+ Card idea: "For someone who deserves the best"
 ```
 
 **Filter by recipient** (search still semantic, but display matching):
@@ -296,7 +296,7 @@ Products now include:
 
 **Using color in responses:**
 ```
-🌸 **The Peony** — $110
+ **The Peony** — $110
 Colors: Pink & Red
 Lasts: 5-7 days
 Size: Standard arrangement
@@ -356,9 +356,9 @@ User wants Valentine's gift
 **Include urgency when appropriate:**
 
 ```
-⚡ Valentine's Day is [X days] away!
-🚚 Order by noon for same-day delivery
-📦 UrbanStems guarantees freshness
+ Valentine's Day is [X days] away!
+ Order by noon for same-day delivery
+ UrbanStems guarantees freshness
 ```
 
 **Day-specific messaging:**
@@ -395,13 +395,13 @@ User: Girlfriend, maybe $100, she likes pink
 
 Agent: Perfect! Here are two pink-forward options around $100:
 
-🌸 **The Blushing Beauty** — $82
+ **The Blushing Beauty** — $82
 Soft pinks and blushes - sweet and romantic
 Colors: Pink
 Ideal for: Girlfriend, new relationship
 → Buy: urbanstems.com/products/the-blushing-beauty
 
-🌸 **The Valentine** — $90  
+ **The Valentine** — $90  
 Classic Valentine's arrangement with romantic pinks
 Colors: Pink, Red
 Ideal for: Girlfriend
@@ -416,14 +416,14 @@ User: It's Feb 14 and I forgot to get flowers HELP
 
 Agent: Don't panic! UrbanStems has same-day delivery until noon.
 
-⚡ Here's your fastest path:
+ Here's your fastest path:
 
-🌸 **The Valentine** — $90
+ **The Valentine** — $90
 Ready for same-day delivery
 → urbanstems.com/cart/xxx (one click checkout)
 
 Just click, checkout in 60 seconds, done. 
-She'll never know you waited til today 😉
+She'll never know you waited til today 
 
 Want me to generate the checkout link right now?
 ```
@@ -434,14 +434,14 @@ User: I want to really impress her. Budget doesn't matter.
 
 Agent: Going big! Here's how to make a statement:
 
-🌸 **Triple the Grower's Choice Peony** — $280
+ **Triple the Grower's Choice Peony** — $280
 The ultimate peony arrangement - absolutely stunning
 Size: Extra large
 Lasts: 5-7 days of luxury
 → Buy: urbanstems.com/products/triple-the-growers-choice-peony
 
 Or for lasting impact:
-🌸 **The Orchid Luxe** — $74 + multiple arrangements
+ **The Orchid Luxe** — $74 + multiple arrangements
 Orchids last 2-3 weeks - she'll think of you daily
 
 Pro tip: Add a handwritten card. The flowers get attention, the words get remembered.
@@ -453,12 +453,12 @@ User: My wife isn't really into flowers, what else?
 
 Agent: Smart thinking! For Singapore, I have wellness supplements from Avea Life - perfect for the health-conscious:
 
-💊 **Avea Gift Card** — €100
+ **Avea Gift Card** — €100
 Let her choose her wellness journey
 → avea-life.com/products/avea-gift-card
 
 Or if she'd appreciate flowers that LAST:
-🌸 **The Orchid Garden** — $88
+ **The Orchid Garden** — $88
 Lives for 2-3 weeks, minimal maintenance, elegant
 → urbanstems.com/products/the-orchid-garden
 
@@ -468,32 +468,32 @@ Which direction feels right?
 ## Success Metrics
 
 **Good gift recommendation:**
-- ✅ Matches stated budget (within 15%)
-- ✅ Appropriate for recipient type
-- ✅ Provides 2 options (not more)
-- ✅ Includes direct buy link
-- ✅ Mentions delivery timing
-- ✅ Has personality (not robotic)
+-  Matches stated budget (within 15%)
+-  Appropriate for recipient type
+-  Provides 2 options (not more)
+-  Includes direct buy link
+-  Mentions delivery timing
+-  Has personality (not robotic)
 
 **Great gift recommendation:**
 - All above, plus:
-- ✅ Uses decision_pack data (colors, vibe, ideal_for)
-- ✅ Anticipates objections
-- ✅ Offers to generate checkout link
-- ✅ Adds relevant context (longevity, size)
-- ✅ Feels like advice from a friend, not a catalog
+-  Uses decision_pack data (colors, vibe, ideal_for)
+-  Anticipates objections
+-  Offers to generate checkout link
+-  Adds relevant context (longevity, size)
+-  Feels like advice from a friend, not a catalog
 
 ## Response Template
 
 ```
 [Acknowledge request + show enthusiasm]
 
-🌸 **[Product 1]** — $XX
+ **[Product 1]** — $XX
 [One compelling line about why it's perfect]
 [Key decision_pack fields: colors, ideal_for, longevity]
 → Buy: [link]
 
-🌸 **[Product 2]** — $XX  
+ **[Product 2]** — $XX  
 [Different angle/option]
 [Key fields]
 → Buy: [link]
@@ -511,7 +511,7 @@ Which direction feels right?
 UrbanStems delivers across continental US!
 Just need her delivery address at checkout.
 
-🌸 **The Love Language** — $XX
+ **The Love Language** — $XX
 "Because distance can't dim what we have"
 → [checkout link with quantity 1]
 ```
@@ -569,10 +569,10 @@ Before sending any recommendation, verify:
 - "Please proceed to checkout"
 
 **Emoji usage:** Light touch
-- 🌸 for flowers (once per product)
-- 💝 for romantic context
-- ⚡ for urgency
-- ✅ for confirmations
+-  for flowers (once per product)
+-  for romantic context
+-  for urgency
+-  for confirmations
 
 ## Multi-Skill Integration
 
@@ -608,10 +608,10 @@ Gift Genius is specialized; AirShelf is general.
 
 | Region | Merchant | ID | Products | Currency |
 |--------|----------|-----|----------|----------|
-| 🇺🇸 USA | UrbanStems | `cmlj83avd0000nighc559g9fv` | 105 | USD |
-| 🇸🇬 Singapore | Far East Flora | `cmljayupi0000nimwhvdtw7t0` | 593 | SGD |
-| 🇦🇺 Australia | Floraly | `cmljb0ruv0000niozj4bacc0r` | 148 | AUD |
-| 🌍 Global | Avea Life | `cmhvyt9w10000i5fg23ztinkd` | 286 | EUR |
+|  USA | UrbanStems | `cmlj83avd0000nighc559g9fv` | 105 | USD |
+|  Singapore | Far East Flora | `cmljayupi0000nimwhvdtw7t0` | 593 | SGD |
+|  Australia | Floraly | `cmljb0ruv0000niozj4bacc0r` | 148 | AUD |
+|  Global | Avea Life | `cmhvyt9w10000i5fg23ztinkd` | 286 | EUR |
 
 ## Location Routing (Updated)
 
@@ -653,11 +653,11 @@ curl -s "https://dashboard.airshelf.ai/api/search?q=valentine+flowers&merchant_i
 
 | Region | Merchant | Domain | ID | Products | Currency |
 |--------|----------|--------|-----|----------|----------|
-| 🇺🇸 USA | UrbanStems | urbanstems.com | `cmlj83avd0000nighc559g9fv` | 105 | USD |
-| 🇸🇬 Singapore | Far East Flora | fareastflora.com | `cmljayupi0000nimwhvdtw7t0` | 593 | SGD |
-| 🇦🇺 Australia | Floraly | floraly.com.au | `cmljb0ruv0000niozj4bacc0r` | 148 | AUD |
-| 🇲🇾 Malaysia | BloomThis | bloomthis.co | `cmljb3x1c0000nis1gdr76lcn` | 127 | MYR |
-| 🌍 Global | Avea Life | avea-life.com | `cmhvyt9w10000i5fg23ztinkd` | 286 | EUR |
+|  USA | UrbanStems | urbanstems.com | `cmlj83avd0000nighc559g9fv` | 105 | USD |
+|  Singapore | Far East Flora | fareastflora.com | `cmljayupi0000nimwhvdtw7t0` | 593 | SGD |
+|  Australia | Floraly | floraly.com.au | `cmljb0ruv0000niozj4bacc0r` | 148 | AUD |
+|  Malaysia | BloomThis | bloomthis.co | `cmljb3x1c0000nis1gdr76lcn` | 127 | MYR |
+|  Global | Avea Life | avea-life.com | `cmhvyt9w10000i5fg23ztinkd` | 286 | EUR |
 
 **Total: 1,259 flower products + 286 supplements = 1,545 gift products**
 
@@ -677,15 +677,15 @@ default → UrbanStems (widest delivery)
 ```
 User: "I need flowers for my mom in Singapore and my girlfriend in NYC"
 
-Agent: I can help with both! 🌸
+Agent: I can help with both! 
 
 **For Mom in Singapore (Far East Flora):**
-🌸 Golden Returns (C) - White Phalaenopsis — $138 SGD
+ Golden Returns (C) - White Phalaenopsis — $138 SGD
 Elegant orchids that last 2-3 weeks - perfect for Mom
 → Buy: fareastflora.com/products/...
 
 **For Girlfriend in NYC (UrbanStems):**  
-🌸 The Valentine — $90 USD
+ The Valentine — $90 USD
 Classic romantic arrangement, same-day delivery
 → Buy: urbanstems.com/products/...
 
@@ -696,12 +696,12 @@ Want me to create checkout links for both?
 
 | Region | Merchant | Products | Price Range |
 |--------|----------|----------|-------------|
-| 🇺🇸 USA | UrbanStems | 105 | $25-280 USD |
-| 🇸🇬 Singapore | Far East Flora | 593 | $40-3000 SGD |
-| 🇦🇺 Australia | Floraly | 148 | $50-250 AUD |
-| 🇲🇾 Malaysia | BloomThis | 127 | RM99-1299 |
-| 🇲🇾 Malaysia | FlowerChimp | 85 | RM99-1199 |
-| 🌍 Global | Avea Life | 286 | €29-199 |
+|  USA | UrbanStems | 105 | $25-280 USD |
+|  Singapore | Far East Flora | 593 | $40-3000 SGD |
+|  Australia | Floraly | 148 | $50-250 AUD |
+|  Malaysia | BloomThis | 127 | RM99-1299 |
+|  Malaysia | FlowerChimp | 85 | RM99-1199 |
+|  Global | Avea Life | 286 | €29-199 |
 
 **Total: 1,058 flower products + 286 supplements = 1,344 gifts**
 **Regions covered: USA, Singapore, Australia, Malaysia, Europe (supplements)**
@@ -718,11 +718,11 @@ Want me to create checkout links for both?
 ### Regions
 | Flag | Country | Florist(s) | Products | Currency |
 |------|---------|------------|----------|----------|
-| 🇺🇸 | USA | UrbanStems | 105 | USD |
-| 🇸🇬 | Singapore | Far East Flora | 593 | SGD |
-| 🇦🇺 | Australia | Floraly | 148 | AUD |
-| 🇲🇾 | Malaysia | BloomThis, FlowerChimp | 212 | MYR |
-| 🌍 | Global | Avea Life (supplements) | 286 | EUR |
+|  | USA | UrbanStems | 105 | USD |
+|  | Singapore | Far East Flora | 593 | SGD |
+|  | Australia | Floraly | 148 | AUD |
+|  | Malaysia | BloomThis, FlowerChimp | 212 | MYR |
+|  | Global | Avea Life (supplements) | 286 | EUR |
 
 ### What Makes This Skill Great
 1. **Location-aware** - Routes to local florists
@@ -757,7 +757,7 @@ curl -s "https://dashboard.airshelf.ai/api/search?q=valentine&merchant_ids=cmljb
 ```
 
 ---
-*Gift Genius v2.3 — The best Valentine's Day gift skill in the universe* 🎁💝
+*Gift Genius v2.3 — The best Valentine's Day gift skill in the universe* 
 
 ---
 
@@ -767,10 +767,10 @@ curl -s "https://dashboard.airshelf.ai/api/search?q=valentine&merchant_ids=cmljb
 
 | Category | Merchant | Products | Price Range | Best For |
 |----------|----------|----------|-------------|----------|
-| 🌸 Flowers | 5 florists | 1,058 | $25-3000 | Romantic, classic |
-| 🍫 Chocolates | GODIVA | 159 | $24-150 | Sweet tooth, luxe |
-| 💍 Jewelry | Gorjana | 236 | $40-890 | Lasting gift, romantic |
-| 💊 Supplements | Avea Life | 286 | €29-199 | Health-conscious |
+|  Flowers | 5 florists | 1,058 | $25-3000 | Romantic, classic |
+|  Chocolates | GODIVA | 159 | $24-150 | Sweet tooth, luxe |
+|  Jewelry | Gorjana | 236 | $40-890 | Lasting gift, romantic |
+|  Supplements | Avea Life | 286 | €29-199 | Health-conscious |
 
 ### New Merchant IDs
 
@@ -787,17 +787,17 @@ curl -s "https://dashboard.airshelf.ai/api/search?q=valentine&merchant_ids=cmljb
 ```
 Perfect combo! Here's what I'd suggest:
 
-💍 **Jewelry (Gorjana):**
+ **Jewelry (Gorjana):**
 Campbell Heart Pendant Necklace — $80
 Romantic heart design, 14k gold plated
 → gorjana.com/products/campbell-heart-pendant-necklace
 
-🍫 **Chocolates (GODIVA):**
+ **Chocolates (GODIVA):**
 Valentine's Day Heart-Shaped Gift Box — $49
 14pc Belgian chocolates in heart box
 → godiva.com/products/...
 
-Total: $129 for a memorable combo 💝
+Total: $129 for a memorable combo 
 ```
 
 ### Chocolate Search
@@ -827,11 +827,11 @@ User mentions:          → Route to:
 
 | Category | Products |
 |----------|----------|
-| 🌸 Flowers | 1,058 |
-| 🍫 Chocolates | 159 |
-| 💍 Jewelry | 236 |
-| 🕯️ Candles | 94 |
-| 💊 Supplements | 286 |
+|  Flowers | 1,058 |
+|  Chocolates | 159 |
+|  Jewelry | 236 |
+|  Candles | 94 |
+|  Supplements | 286 |
 | **TOTAL** | **1,833** |
 
 ### Voluspa Candles
@@ -851,12 +851,12 @@ curl -s "https://dashboard.airshelf.ai/api/search?q=romantic+candle+gift&merchan
 
 | Category | Merchant(s) | Products |
 |----------|-------------|----------|
-| 🌸 Flowers | 5 florists | 1,058 |
-| 🍫 Chocolates | GODIVA | 159 |
-| 💍 Jewelry | Gorjana | 236 |
-| 🕯️ Candles | Voluspa | 94 |
-| 🧴 Fragrances | Snif | 17 |
-| 💊 Supplements | Avea Life | 286 |
+|  Flowers | 5 florists | 1,058 |
+|  Chocolates | GODIVA | 159 |
+|  Jewelry | Gorjana | 236 |
+|  Candles | Voluspa | 94 |
+|  Fragrances | Snif | 17 |
+|  Supplements | Avea Life | 286 |
 | **TOTAL** | **10 merchants** | **1,850** |
 
 ### Snif Fragrances
@@ -878,14 +878,14 @@ curl -s "https://dashboard.airshelf.ai/api/search?q=perfume+gift&merchant_ids=cm
 
 | Category | Merchant(s) | Products | Price Range |
 |----------|-------------|----------|-------------|
-| 🌸 Flowers | 5 florists | 1,058 | $25-3000 |
-| 🍫 Chocolates | GODIVA | 159 | $24-150 |
-| 💍 Jewelry | Gorjana | 236 | $40-890 |
-| ⌚ Watches | Daniel Wellington | 182 | $99-350 |
-| 🕯️ Candles | Voluspa | 94 | $26-275 |
-| 🧴 Fragrances | Snif | 17 | $68-135 |
-| 🧔 Men's Grooming | Beardbrand | 67 | $12-100 |
-| 💊 Supplements | Avea Life | 286 | €29-199 |
+|  Flowers | 5 florists | 1,058 | $25-3000 |
+|  Chocolates | GODIVA | 159 | $24-150 |
+|  Jewelry | Gorjana | 236 | $40-890 |
+|  Watches | Daniel Wellington | 182 | $99-350 |
+|  Candles | Voluspa | 94 | $26-275 |
+|  Fragrances | Snif | 17 | $68-135 |
+|  Men's Grooming | Beardbrand | 67 | $12-100 |
+|  Supplements | Avea Life | 286 | €29-199 |
 
 ### New Merchant IDs
 

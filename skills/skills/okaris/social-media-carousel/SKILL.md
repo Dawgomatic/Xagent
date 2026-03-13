@@ -78,7 +78,7 @@ infsh app run infsh/html-to-image --input '{
 ```bash
 # CTA slide
 infsh app run infsh/html-to-image --input '{
-  "html": "<div style=\"width:1080px;height:1350px;background:linear-gradient(180deg,#312e81,#1e1b4b);display:flex;align-items:center;justify-content:center;padding:80px;font-family:system-ui;color:white;text-align:center\"><div><h2 style=\"font-size:56px;font-weight:900;margin:0;line-height:1.2\">Found this useful?</h2><p style=\"font-size:32px;opacity:0.8;margin-top:24px;line-height:1.5\">Save this post for later 🔖<br>Follow for more tips</p><p style=\"font-size:24px;opacity:0.4;margin-top:40px\">@yourusername</p></div></div>"
+  "html": "<div style=\"width:1080px;height:1350px;background:linear-gradient(180deg,#312e81,#1e1b4b);display:flex;align-items:center;justify-content:center;padding:80px;font-family:system-ui;color:white;text-align:center\"><div><h2 style=\"font-size:56px;font-weight:900;margin:0;line-height:1.2\">Found this useful?</h2><p style=\"font-size:32px;opacity:0.8;margin-top:24px;line-height:1.5\">Save this post for later <br>Follow for more tips</p><p style=\"font-size:24px;opacity:0.4;margin-top:40px\">@yourusername</p></div></div>"
 }'
 ```
 
@@ -156,7 +156,7 @@ Slide 7: "Want a review? DM me"
 ```
 Slide 1: "10 tools every designer needs in 2025"
 Slides 2-6: 2 tools per slide with logo + one-liner
-Slide 7: "Save this for later 🔖"
+Slide 7: "Save this for later "
 ```
 
 ## Swipe Psychology

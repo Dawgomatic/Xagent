@@ -3,10 +3,10 @@
 FRAME_PATH="/tmp/clawdbot-screen-latest.png"
 
 if [ -f "$FRAME_PATH" ]; then
-    echo "📸 Found active WebRTC frame. Analyzing..."
+    echo " Found active WebRTC frame. Analyzing..."
     SCREENSHOT="$FRAME_PATH"
 else
-    echo "📸 No portal active. Taking OS screenshot..."
+    echo " No portal active. Taking OS screenshot..."
     SCREENSHOT="/tmp/screenshot_$(date +%s).png"
     if command -v import &>/dev/null; then
         import -window root "$SCREENSHOT"

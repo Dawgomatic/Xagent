@@ -1,7 +1,7 @@
 ---
 name: Personal Knowledge Base
 description: Help users build a personal knowledge base by organizing whatever they send into structured notes.
-metadata: {"clawdbot":{"emoji":"🧠","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

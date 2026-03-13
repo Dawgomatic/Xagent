@@ -219,9 +219,9 @@ anycrawl_search_and_scrape({
 
 | Engine | Best For | Speed | JS Rendering |
 |--------|----------|-------|--------------|
-| `cheerio` | Static HTML, news, blogs | ⚡ Fastest | ❌ No |
-| `playwright` | SPAs, complex web apps | 🐢 Slower | ✅ Yes |
-| `puppeteer` | Chrome-specific, metrics | 🐢 Slower | ✅ Yes |
+| `cheerio` | Static HTML, news, blogs |  Fastest |  No |
+| `playwright` | SPAs, complex web apps |  Slower |  Yes |
+| `puppeteer` | Chrome-specific, metrics |  Slower |  Yes |
 
 ## Response Format
 

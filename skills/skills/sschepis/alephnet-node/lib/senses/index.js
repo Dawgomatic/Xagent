@@ -193,7 +193,7 @@ class SensorySystem {
         if (reading.anomalies.length > 0) {
             lines.push('');
             for (const anomaly of reading.anomalies) {
-                lines.push(`⚠️ ${anomaly.sense}: ${anomaly.message}`);
+                lines.push(` ${anomaly.sense}: ${anomaly.message}`);
             }
         }
         
@@ -233,7 +233,7 @@ class SensorySystem {
         
         // Anomaly count
         if (reading.anomalies.length > 0) {
-            parts.push(`⚠️${reading.anomalies.length}`);
+            parts.push(`${reading.anomalies.length}`);
         }
         
         return parts.join(' | ');

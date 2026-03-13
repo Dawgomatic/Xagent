@@ -24,15 +24,15 @@ async function notifyProposals(proposals) {
 }
 
 function formatProposals(proposals) {
-  const eff = { quick:'⚡', medium:'🔧', large:'🏗️' };
-  const cat = { automation:'🤖', project:'📦', tool:'🔨', optimization:'⚡', fix:'🔧', social:'🎭', follow_up:'📌', learning:'📚' };
-  let t = '🧠 *Hey, mir ist was aufgefallen:*\n\n';
+  const eff = { quick:'', medium:'', large:'' };
+  const cat = { automation:'', project:'', tool:'', optimization:'', fix:'', social:'', follow_up:'', learning:'' };
+  let t = ' *Hey, mir ist was aufgefallen:*\n\n';
   for (const p of proposals) {
     const effort = p.effort_estimate || p.effort || 'medium';
     const type = p.type || 'optimization';
     const followUp = p.follow_up || p.reasoning || '';
-    t += `${cat[type]||'💡'} *${p.title}*\n${p.description}`;
-    if (followUp) t += `\n💬 _${followUp}_`;
+    t += `${cat[type]||''} *${p.title}*\n${p.description}`;
+    if (followUp) t += `\n _${followUp}_`;
     t += `\n${eff[effort]||''} ${effort} | #${p.id}\n\n`;
   }
   t += '_/accept <ID...> | /reject <ID...> | /drop <ID...>_';
@@ -42,7 +42,7 @@ function formatProposals(proposals) {
 async function sendTelegram(text, config) {
   const token = config.notifications?.telegram?.botToken;
   const chatId = config.notifications?.telegram?.chatId;
-  if (!token || !chatId) { console.warn('⚠️  Telegram not configured'); return; }
+  if (!token || !chatId) { console.warn('  Telegram not configured'); return; }
   const body = JSON.stringify({ chat_id: chatId, text, parse_mode: 'Markdown', disable_web_page_preview: true });
   return new Promise((resolve, reject) => {
     const req = https.request({
@@ -50,7 +50,7 @@ async function sendTelegram(text, config) {
       headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }
     }, (res) => {
       let d=''; res.on('data', c=>d+=c); res.on('end', () => {
-        const j=JSON.parse(d); j.ok ? (console.log('✅ Telegram sent'), resolve()) : (console.error('❌ Telegram:', j.description), reject(new Error(j.description)));
+        const j=JSON.parse(d); j.ok ? (console.log(' Telegram sent'), resolve()) : (console.error(' Telegram:', j.description), reject(new Error(j.description)));
       });
     });
     req.on('error', reject); req.write(body); req.end();
@@ -59,7 +59,7 @@ async function sendTelegram(text, config) {
 
 async function sendDiscord(text, config) {
   const url = config.notifications?.discord?.webhookUrl;
-  if (!url) { console.warn('⚠️  Discord webhook not configured'); return; }
+  if (!url) { console.warn('  Discord webhook not configured'); return; }
   const u = new URL(url);
   const body = JSON.stringify({ content: text.replace(/\*/g, '**') });
   return new Promise((resolve, reject) => {
@@ -68,7 +68,7 @@ async function sendDiscord(text, config) {
       headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }
     }, (res) => {
       let d=''; res.on('data', c=>d+=c); res.on('end', () => {
-        (res.statusCode===204||res.statusCode===200) ? (console.log('✅ Discord sent'), resolve()) : reject(new Error(`Discord: ${res.statusCode}`));
+        (res.statusCode===204||res.statusCode===200) ? (console.log(' Discord sent'), resolve()) : reject(new Error(`Discord: ${res.statusCode}`));
       });
     });
     req.on('error', reject); req.write(body); req.end();
@@ -84,9 +84,9 @@ async function notifyNudges(nudges) {
   const muteUntil = getState('mute_until');
   if (muteUntil && new Date(muteUntil) > new Date()) return;
 
-  let t = '🔔 *Hey, kurze Erinnerung:*\n\n';
+  let t = ' *Hey, kurze Erinnerung:*\n\n';
   for (const n of nudges) {
-    t += `📌 *#${n.id} ${n.title}*\n`;
+    t += ` *#${n.id} ${n.title}*\n`;
     if (n.message) t += `${n.message}\n`;
     t += `_/accept ${n.id} | /drop ${n.id}_\n\n`;
   }

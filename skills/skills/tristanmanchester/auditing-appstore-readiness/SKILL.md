@@ -1,7 +1,7 @@
 ---
 name: auditing-appstore-readiness
 description: Audit an iOS app repo (Swift/Xcode or React Native/Expo) for App Store compliance and release readiness; output a pass/warn/fail report and publish checklist.
-metadata: {"openclaw":{"emoji":"🧾","requires":{"bins":["git"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["git"]}}}
 ---
 
 # App Store Readiness Audit

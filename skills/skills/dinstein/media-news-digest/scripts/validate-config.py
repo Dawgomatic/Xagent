@@ -82,11 +82,11 @@ def validate_against_schema(data: Dict[str, Any], schema: Dict[str, Any],
             raise ValueError(f"Unknown config type: {config_type}")
             
         validate(instance=data, schema=schema_def)
-        logging.info(f"✅ {config_type}.json passed schema validation")
+        logging.info(f" {config_type}.json passed schema validation")
         return True
         
     except ValidationError as e:
-        logging.error(f"❌ Schema validation failed for {config_type}.json:")
+        logging.error(f" Schema validation failed for {config_type}.json:")
         logging.error(f"   Path: {' -> '.join(str(p) for p in e.absolute_path)}")
         logging.error(f"   Error: {e.message}")
         return False
@@ -128,12 +128,12 @@ def validate_sources_consistency(sources_data: Dict[str, Any],
         errors.append(f"Duplicate topic IDs found: {duplicates}")
         
     if errors:
-        logging.error("❌ Consistency validation failed:")
+        logging.error(" Consistency validation failed:")
         for error in errors:
             logging.error(f"   {error}")
         return False
     else:
-        logging.info("✅ Consistency validation passed")
+        logging.info(" Consistency validation passed")
         return True
 
 
@@ -164,12 +164,12 @@ def validate_source_types(sources_data: Dict[str, Any]) -> bool:
             errors.append(f"Source '{source_id}' has invalid type: {source_type}")
             
     if errors:
-        logging.error("❌ Source type validation failed:")
+        logging.error(" Source type validation failed:")
         for error in errors:
             logging.error(f"   {error}")
         return False
     else:
-        logging.info("✅ Source type validation passed")
+        logging.info(" Source type validation passed")
         return True
 
 
@@ -264,14 +264,14 @@ Examples:
         
         # Summary
         if all_valid:
-            logger.info("🎉 All validations passed!")
+            logger.info(" All validations passed!")
             return 0
         else:
-            logger.error("💥 Validation failed!")
+            logger.error(" Validation failed!")
             return 1
             
     except Exception as e:
-        logger.error(f"💥 Validation error: {e}")
+        logger.error(f" Validation error: {e}")
         return 1
 
 

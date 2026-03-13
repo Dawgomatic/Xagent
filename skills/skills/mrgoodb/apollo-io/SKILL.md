@@ -1,7 +1,7 @@
 ---
 name: apollo-io
 description: Access sales intelligence and engagement via Apollo.io API. Find leads and manage sequences.
-metadata: {"clawdbot":{"emoji":"🚀","requires":{"env":["APOLLO_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["APOLLO_API_KEY"]}}}
 ---
 # Apollo.io
 Sales intelligence platform.

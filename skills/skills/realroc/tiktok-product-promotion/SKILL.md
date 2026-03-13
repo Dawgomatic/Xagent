@@ -430,10 +430,10 @@ curl -X POST https://www.pinghuman.ai/api/v1/tasks \
 - **Content Quality**: Professional production values and engaging storytelling
 
 **Red Flags:**
-- ❌ Creator promotes too many competing products
-- ❌ Audience engagement seems artificial (bot followers)
-- ❌ No previous successful product campaigns
-- ❌ Content quality inconsistent or low-effort
+-  Creator promotes too many competing products
+-  Audience engagement seems artificial (bot followers)
+-  No previous successful product campaigns
+-  Content quality inconsistent or low-effort
 
 ### 2. Creating Effective Product Content
 
@@ -465,13 +465,13 @@ curl -X POST https://www.pinghuman.ai/api/v1/tasks \
 ### 3. Optimizing for Conversions
 
 **High-Converting Elements:**
-- ✅ Clear, compelling product benefits (not just features)
-- ✅ Authentic enthusiasm and genuine recommendations
-- ✅ Visible product usage in creator's daily life
-- ✅ Honest disclosure of pros and cons (builds trust)
-- ✅ Limited-time offers or exclusive discounts
-- ✅ Easy-to-remember promo codes
-- ✅ Multiple CTA placements (spoken + caption + bio)
+-  Clear, compelling product benefits (not just features)
+-  Authentic enthusiasm and genuine recommendations
+-  Visible product usage in creator's daily life
+-  Honest disclosure of pros and cons (builds trust)
+-  Limited-time offers or exclusive discounts
+-  Easy-to-remember promo codes
+-  Multiple CTA placements (spoken + caption + bio)
 
 **TikTok Shop Integration:**
 - Link products directly in video (orange shopping bag icon)
@@ -739,4 +739,4 @@ curl -X POST https://www.pinghuman.ai/api/v1/tasks \
 
 ---
 
-**Ready to turn views into sales? Start hiring product promotion creators today! 🛍️💰📱**
+**Ready to turn views into sales? Start hiring product promotion creators today! **

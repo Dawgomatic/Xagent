@@ -129,46 +129,46 @@ Collectible (Area2D)
 
 ---
 
-## ⚠️ AI PITFALL：節點路徑錯誤
+##  AI PITFALL：節點路徑錯誤
 
 ```gdscript
-# ❌ WRONG - 硬編碼絕對路徑
+#  WRONG - 硬編碼絕對路徑
 var player = get_node("/root/Main/Level/Player")
 
-# ✅ CORRECT - 使用相對路徑
+#  CORRECT - 使用相對路徑
 var player = get_tree().get_first_node_in_group("player")
 
-# ✅ CORRECT - 使用 unique name (%前綴)
+#  CORRECT - 使用 unique name (%前綴)
 @onready var health_bar: ProgressBar = %HealthBar
 ```
 
 ---
 
-## ⚠️ AI PITFALL：get_node 在 _init 中
+##  AI PITFALL：get_node 在 _init 中
 
 ```gdscript
-# ❌ WRONG - 節點樹還沒準備好
+#  WRONG - 節點樹還沒準備好
 func _init() -> void:
     var sprite = $Sprite2D  # 錯誤！
 
-# ✅ CORRECT - 使用 @onready 或 _ready
+#  CORRECT - 使用 @onready 或 _ready
 @onready var sprite: Sprite2D = $Sprite2D
 ```
 
 ---
 
-## ⚠️ AI PITFALL：queue_free 後存取
+##  AI PITFALL：queue_free 後存取
 
 ```gdscript
-# ❌ WRONG - queue_free 後節點還存在一幀
+#  WRONG - queue_free 後節點還存在一幀
 enemy.queue_free()
 enemy.position = Vector2.ZERO  # 可能出問題
 
-# ✅ CORRECT - 先處理再刪除
+#  CORRECT - 先處理再刪除
 enemy.position = Vector2.ZERO
 enemy.queue_free()
 
-# ✅ 或者檢查
+#  或者檢查
 if is_instance_valid(enemy):
     enemy.position = Vector2.ZERO
 ```

@@ -55,10 +55,10 @@ cp skills/dingtalk-push/config.example.json ~/.config/dingtalk-push/config.json
 
 | 类型 | Emoji | 适用场景 |
 |------|-------|----------|
-| info | ℹ️ | 普通通知 |
-| success | ✅ | 成功完成任务 |
-| warning | ⚠️ | 警告、需要关注 |
-| error | ❌ | 错误、异常 |
+| info |  | 普通通知 |
+| success |  | 成功完成任务 |
+| warning |  | 警告、需要关注 |
+| error |  | 错误、异常 |
 
 ## 创建钉钉机器人
 

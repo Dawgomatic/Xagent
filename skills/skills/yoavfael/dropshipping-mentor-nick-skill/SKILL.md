@@ -4,7 +4,7 @@ description: The complete AI Business Mentor. From starting your first business 
 author: yoavfael
 homepage: https://github.com/yoavfael/dropshipping-mentor-skill
 version: 2.1.1
-emoji: 🚀
+emoji: 
 tags: [dropshipping, ecommerce, shopify, business-audit, marketing]
 ---
 

@@ -153,7 +153,7 @@ export class HttpAggregator {
   
   async printSummary(): Promise<void> {
     console.log('\n' + '='.repeat(80));
-    console.log('📊 FUNDING RATE COMPARISON: DRIFT vs BINANCE');
+    console.log(' FUNDING RATE COMPARISON: DRIFT vs BINANCE');
     console.log('='.repeat(80));
     
     const [driftRates, binanceRates] = await Promise.all([
@@ -161,7 +161,7 @@ export class HttpAggregator {
       this.getBinanceFunding(),
     ]);
     
-    console.log('\n📈 CURRENT RATES:\n');
+    console.log('\n CURRENT RATES:\n');
     console.log('Symbol     | Drift APY      | Binance APY    | Spread     | Direction');
     console.log('-'.repeat(80));
     
@@ -170,8 +170,8 @@ export class HttpAggregator {
       if (!cex) continue;
       
       const spread = Math.abs(dex.fundingRateApy - cex.fundingRateApy);
-      const dexDir = dex.longPayShort ? '🔴 L→S' : '🟢 S→L';
-      const cexDir = cex.longPayShort ? '🔴 L→S' : '🟢 S→L';
+      const dexDir = dex.longPayShort ? ' L→S' : ' S→L';
+      const cexDir = cex.longPayShort ? ' L→S' : ' S→L';
       
       console.log(
         `${dex.symbol.padEnd(10)} | ` +
@@ -182,7 +182,7 @@ export class HttpAggregator {
       );
     }
     
-    console.log('\n🎯 ARBITRAGE OPPORTUNITIES (>5% APY spread):\n');
+    console.log('\n ARBITRAGE OPPORTUNITIES (>5% APY spread):\n');
     
     const opps = await this.findArbitrageOpportunities(5);
     

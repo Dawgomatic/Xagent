@@ -174,12 +174,12 @@ def save_trends(trends, emerging, keywords, shift):
 
 def generate_report():
     """產生趨勢報告"""
-    print("📊 興趣趨勢分析報告")
+    print(" 興趣趨勢分析報告")
     print("=" * 50)
     
     # 取得標籤數據
     tags_counter, tag_timeline = get_all_tags()
-    print(f"✅ 找到 {len(tags_counter)} 個標籤")
+    print(f" 找到 {len(tags_counter)} 個標籤")
     
     # 計算趨勢
     trends = calculate_trends(tags_counter, tag_timeline)
@@ -197,15 +197,15 @@ def generate_report():
     data = save_trends(trends, emerging, keywords, shift)
     
     # 顯示報告
-    print(f"\n🔥 新興趨勢:")
+    print(f"\n 新興趨勢:")
     for e in emerging[:5]:
         print(f"  - {e['tag']}: +{e['trend']:.0f}% ({e['count']} 篇)")
     
-    print(f"\n📈 推薦關鍵字:")
+    print(f"\n 推薦關鍵字:")
     for kw in keywords[:5]:
         print(f"  - {kw}")
     
-    print(f"\n🔄 興趣轉變:")
+    print(f"\n 興趣轉變:")
     print(f"  {shift['summary']}")
     
     return data

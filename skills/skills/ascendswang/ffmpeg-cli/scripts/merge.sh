@@ -33,4 +33,4 @@ done
 ffmpeg -f concat -safe 0 -i "$TEMP_LIST" -c copy -y "$OUTPUT"
 rm -f "$TEMP_LIST"
 
-echo "✅ Merge complete: $OUTPUT"
+echo " Merge complete: $OUTPUT"

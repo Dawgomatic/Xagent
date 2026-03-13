@@ -1,7 +1,7 @@
 ---
 name: mlx-audio-server
 description: Local 24x7 OpenAI-compatible API server for STT/TTS, powered by MLX on your Mac.
-metadata: {"openclaw":{"always":true,"emoji":"🦞","homepage":"https://github.com/guoqiao/skills/blob/main/mlx-audio-server/mlx-audio-server/SKILL.md","os":["darwin"],"requires":{"bins":["brew"]}}}
+metadata: {"openclaw":{"always":true,"emoji":"","homepage":"https://github.com/guoqiao/skills/blob/main/mlx-audio-server/mlx-audio-server/SKILL.md","os":["darwin"],"requires":{"bins":["brew"]}}}
 ---
 
 # MLX Audio Server

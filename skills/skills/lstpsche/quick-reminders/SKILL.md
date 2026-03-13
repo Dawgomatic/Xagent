@@ -1,7 +1,7 @@
 ---
 name: quick-reminders
 description: "Zero-LLM one-shot reminders (<48h) via nohup sleep + openclaw message send, operated via {baseDir}/scripts/nohup-reminder.sh."
-metadata: {"openclaw":{"emoji":"⏰","requires":{"bins":["jq","openclaw"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["jq","openclaw"]}}}
 user-invocable: true
 ---
 

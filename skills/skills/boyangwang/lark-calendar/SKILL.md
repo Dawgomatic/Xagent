@@ -44,15 +44,15 @@ node skills/lark-calendar/scripts/create-event.mjs \
 **Parameters:**
 | Param | Required | Description |
 |-------|----------|-------------|
-| `--title` | ✅ | Event title |
-| `--description` | ❌ | Event description |
-| `--start` | ✅ | Start time (YYYY-MM-DD HH:MM:SS) |
-| `--end` | ✅ | End time (YYYY-MM-DD HH:MM:SS) |
-| `--attendees` | ❌ | Comma-separated names (auto-resolved to user_ids) |
-| `--attendee-ids` | ❌ | Comma-separated user_ids directly |
-| `--location` | ❌ | Event location |
-| `--timezone` | ❌ | Timezone (default: Asia/Singapore) |
-| `--calendar` | ❌ | Calendar ID (uses default if omitted) |
+| `--title` |  | Event title |
+| `--description` |  | Event description |
+| `--start` |  | Start time (YYYY-MM-DD HH:MM:SS) |
+| `--end` |  | End time (YYYY-MM-DD HH:MM:SS) |
+| `--attendees` |  | Comma-separated names (auto-resolved to user_ids) |
+| `--attendee-ids` |  | Comma-separated user_ids directly |
+| `--location` |  | Event location |
+| `--timezone` |  | Timezone (default: Asia/Singapore) |
+| `--calendar` |  | Calendar ID (uses default if omitted) |
 
 ### Update Calendar Event
 
@@ -96,12 +96,12 @@ node skills/lark-calendar/scripts/create-task.mjs \
 **Parameters:**
 | Param | Required | Description |
 |-------|----------|-------------|
-| `--title` | ✅ | Task title |
-| `--description` | ❌ | Task description |
-| `--due` | ✅ | Due date (YYYY-MM-DD HH:MM:SS) |
-| `--assignees` | ❌ | Comma-separated names (auto-resolved) |
-| `--assignee-ids` | ❌ | Comma-separated user_ids directly |
-| `--timezone` | ❌ | Timezone (default: Asia/Singapore) |
+| `--title` |  | Task title |
+| `--description` |  | Task description |
+| `--due` |  | Due date (YYYY-MM-DD HH:MM:SS) |
+| `--assignees` |  | Comma-separated names (auto-resolved) |
+| `--assignee-ids` |  | Comma-separated user_ids directly |
+| `--timezone` |  | Timezone (default: Asia/Singapore) |
 
 ### Update Task
 
@@ -215,11 +215,11 @@ const task = await createTask({
 ## Permissions Required
 
 Ensure your Lark app has these scopes:
-- `calendar:calendar` — Read/write calendar ✅ (already enabled)
-- `calendar:calendar:readonly` — Read calendar ✅ (already enabled)
-- `task:task:write` — Write tasks ⚠️ (needs to be added for task creation)
+- `calendar:calendar` — Read/write calendar  (already enabled)
+- `calendar:calendar:readonly` — Read calendar  (already enabled)
+- `task:task:write` — Write tasks  (needs to be added for task creation)
 - `task:task:read` — Read tasks
-- `contact:user.employee_id:readonly` — Read user info ✅ (already enabled)
+- `contact:user.employee_id:readonly` — Read user info  (already enabled)
 
 **To add permissions:**
 1. Go to [Lark Open Platform](https://open.larksuite.com/app/cli_a9f52a4ed7b8ded4/auth)

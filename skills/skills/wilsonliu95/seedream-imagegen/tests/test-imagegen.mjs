@@ -13,20 +13,20 @@ const testResults = {
 
 function runTest(name, command) {
   testResults.total++;
-  console.log(`\n▶️ Running Test: ${name}`);
+  console.log(`\n Running Test: ${name}`);
   try {
     const output = execSync(command, { encoding: 'utf8', stdio: 'pipe' });
-    console.log(`✅ Passed: ${name}`);
+    console.log(` Passed: ${name}`);
     testResults.passed++;
     return true;
   } catch (error) {
-    console.log(`❌ Failed: ${name}`);
+    console.log(` Failed: ${name}`);
     testResults.failed.push({ name, error: error.message });
     return false;
   }
 }
 
-console.log('🎨 Seedream Imagegen Sanity Tests');
+console.log(' Seedream Imagegen Sanity Tests');
 console.log('==================================');
 
 // Test 1: Help message
@@ -38,12 +38,12 @@ runTest('Python Script Help', `python3 ${PYTHON_SCRIPT} --help`);
 
 // Summary
 console.log('\n==================================');
-console.log(`📊 Test Summary: ${testResults.passed}/${testResults.total} passed`);
+console.log(` Test Summary: ${testResults.passed}/${testResults.total} passed`);
 if (testResults.failed.length > 0) {
-  console.log('❌ Failures:');
+  console.log(' Failures:');
   testResults.failed.forEach(f => console.log(`  - ${f.name}`));
   process.exit(1);
 } else {
-  console.log('✅ All sanity tests passed!');
+  console.log(' All sanity tests passed!');
   process.exit(0);
 }

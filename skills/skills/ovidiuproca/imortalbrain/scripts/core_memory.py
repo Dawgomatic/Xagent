@@ -418,7 +418,7 @@ class CoreMemoryManager:
 
     def load_all_files(self):
         """Încarcă și analizează toate fișierele core."""
-        log("📚 Încărcare fișiere core...")
+        log(" Încărcare fișiere core...")
 
         for file_type, filepath in CORE_FILES.items():
             if filepath.exists():
@@ -448,13 +448,13 @@ class CoreMemoryManager:
                         pass
 
                     log(
-                        f"   ✅ {file_type.upper()}: Încărcat ({len(content)} caractere)"
+                        f"    {file_type.upper()}: Încărcat ({len(content)} caractere)"
                     )
 
                 except Exception as e:
-                    log(f"   ❌ {file_type.upper()}: Eroare - {e}", "ERROR")
+                    log(f"    {file_type.upper()}: Eroare - {e}", "ERROR")
             else:
-                log(f"   ⚠️  {file_type.upper()}: Nu există", "WARNING")
+                log(f"     {file_type.upper()}: Nu există", "WARNING")
 
     def _get_version(self, file_type: str) -> int:
         """Obține versiunea curentă a unui fișier."""
@@ -463,14 +463,14 @@ class CoreMemoryManager:
 
     def analyze_all(self) -> Dict[str, List[Dict]]:
         """Analizează toate fișierele și generează sugestii."""
-        log("🔍 Analizare fișiere core...")
+        log(" Analizare fișiere core...")
         all_suggestions = {}
 
         for file_type, analysis in self.analyses.items():
             suggestions = self._generate_suggestions(file_type, analysis)
             if suggestions:
                 all_suggestions[file_type] = suggestions
-                log(f"   💡 {file_type.upper()}: {len(suggestions)} sugestii")
+                log(f"    {file_type.upper()}: {len(suggestions)} sugestii")
 
         return all_suggestions
 
@@ -659,7 +659,7 @@ class CoreMemoryManager:
     def get_comprehensive_report(self) -> str:
         """Generează raport complet despre toate fișierele core."""
         report = f"""
-📊 **RAPORT COMPLET CORE MEMORY**
+ **RAPORT COMPLET CORE MEMORY**
 
 **Stare Generală:**
 • Fișiere încărcate: {len(self.states)}/5
@@ -671,7 +671,7 @@ class CoreMemoryManager:
         for file_type in ["soul", "tools", "memory", "user", "identity"]:
             if file_type in self.states:
                 state = self.states[file_type]
-                report += f"\n📄 **{file_type.upper()}.md**\n"
+                report += f"\n **{file_type.upper()}.md**\n"
                 report += f"   • Versiune: {state.version}\n"
                 report += f"   • Dimensiune: {state.size} caractere\n"
                 report += f"   • Probleme: {len(state.issues)}\n"
@@ -693,7 +693,7 @@ class CoreMemoryManager:
                             f"   • Scor profil: {analysis.profile_completeness:.0%}\n"
                         )
             else:
-                report += f"\n⚠️  **{file_type.upper()}.md** - Nu există\n"
+                report += f"\n  **{file_type.upper()}.md** - Nu există\n"
 
         return report
 
@@ -780,7 +780,7 @@ Add whatever helps you do your job.
 ## Rutină și Preferințe Operative
 - *Adaugă preferințele specifice*
 
-## 🗓 Rutină și Preferințe Operative
+##  Rutină și Preferințe Operative
 - *Detalii despre cum preferi să lucrezi*
 """,
             "user": """# USER.md - About Your Human

@@ -28,7 +28,7 @@ CONFIG_FILE = Path.home() / ".openclaw" / "config.json"
 def load_config() -> Dict[str, Any]:
     """Load OpenClaw configuration."""
     if not CONFIG_FILE.exists():
-        print(f"❌ Config not found: {CONFIG_FILE}")
+        print(f" Config not found: {CONFIG_FILE}")
         sys.exit(1)
     
     with open(CONFIG_FILE, 'r') as f:
@@ -42,7 +42,7 @@ def get_discord_info(config: Dict[str, Any]) -> tuple[str, str]:
         guild_id = list(config['channels']['discord']['guilds'].keys())[0]
         return token, guild_id
     except (KeyError, IndexError):
-        print("❌ Discord configuration not found in config")
+        print(" Discord configuration not found in config")
         sys.exit(1)
 
 
@@ -91,7 +91,7 @@ def create_discord_channel(token: str, guild_id: str, channel_name: str, categor
             return result['id']
     except HTTPError as e:
         error_body = e.read().decode('utf-8')
-        print(f"❌ Failed to create channel: {e.code} - {error_body}")
+        print(f" Failed to create channel: {e.code} - {error_body}")
         return None
 
 
@@ -130,11 +130,11 @@ def main():
     context = args.context
     category_id = args.category_id or os.environ.get("DISCORD_CATEGORY_ID")
     
-    print(f"🔧 Setting up Discord channel: #{channel_name}")
+    print(f" Setting up Discord channel: #{channel_name}")
     
     # Validate context is provided
     if not context:
-        print("❌ Error: --context is required")
+        print(" Error: --context is required")
         print("   Specify the channel's purpose with --context \"Your description here\"")
         sys.exit(1)
     
@@ -144,13 +144,13 @@ def main():
     
     # Check if channel exists or create it
     if not channel_id:
-        print(f"🔍 Checking if channel #{channel_name} exists...")
+        print(f" Checking if channel #{channel_name} exists...")
         channel_id = channel_exists(token, guild_id, channel_name)
         
         if channel_id:
-            print(f"✅ Found existing channel: {channel_id}")
+            print(f" Found existing channel: {channel_id}")
         else:
-            print(f"📝 Channel doesn't exist. Creating it...")
+            print(f" Channel doesn't exist. Creating it...")
             
             if category_id:
                 print(f"   Using category ID: {category_id}")
@@ -161,17 +161,17 @@ def main():
             if not channel_id:
                 sys.exit(1)
             
-            print(f"✅ Created channel #{channel_name} (ID: {channel_id})")
+            print(f" Created channel #{channel_name} (ID: {channel_id})")
     
     # Build gateway config patch
     patch = build_gateway_config(channel_id, guild_id, context)
     
-    print(f"\n✅ Channel #{channel_name} setup complete!")
+    print(f"\n Channel #{channel_name} setup complete!")
     print(f"   Channel ID: {channel_id}")
     print(f"   Context: {context}")
-    print(f"\n📝 Run this command to apply the gateway config:")
+    print(f"\n Run this command to apply the gateway config:")
     print(f"\nopenclaw gateway config.patch --raw '{json.dumps(patch)}'")
-    print(f"\n⚠️  Gateway will restart automatically after applying config.")
+    print(f"\n  Gateway will restart automatically after applying config.")
 
 
 if __name__ == "__main__":

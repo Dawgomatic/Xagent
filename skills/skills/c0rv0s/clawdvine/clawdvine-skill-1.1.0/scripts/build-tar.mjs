@@ -43,7 +43,7 @@ const filesToInclude = INCLUDE.filter(f => {
     statSync(join(ROOT, f));
     return true;
   } catch {
-    console.warn(`⚠️  Skipping missing file: ${f}`);
+    console.warn(`  Skipping missing file: ${f}`);
     return false;
   }
 });
@@ -54,12 +54,12 @@ try {
   execSync(tarCmd, { cwd: ROOT, stdio: 'inherit' });
   const stats = statSync(OUTPUT);
   const sizeKB = (stats.size / 1024).toFixed(1);
-  console.log(`\n✅ Built: ${OUTPUT}`);
+  console.log(`\n Built: ${OUTPUT}`);
   console.log(`   Size: ${sizeKB} KB`);
   console.log(`   Files: ${filesToInclude.length}`);
   console.log(`\nIncluded:`);
   filesToInclude.forEach(f => console.log(`   - ${f}`));
 } catch (err) {
-  console.error('❌ Failed to build tarball:', err.message);
+  console.error(' Failed to build tarball:', err.message);
   process.exit(1);
 }

@@ -1,6 +1,6 @@
 # Self-Evolving Skill - OpenClaw集成指南
 
-## 安装完成 ✅
+## 安装完成 
 
 ### 文件位置
 

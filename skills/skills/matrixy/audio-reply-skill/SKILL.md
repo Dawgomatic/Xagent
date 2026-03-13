@@ -2,7 +2,7 @@
 name: audio-reply
 description: 'Generate audio replies using TTS. Trigger with "read it to me [public URL]" to fetch and read content aloud, or "talk to me [topic]" to generate a spoken response. Also responds to "speak", "say it", "voice reply".'
 homepage: https://github.com/MaTriXy/audio-reply-skill
-metadata: {"openclaw":{"emoji":"🔊","os":["darwin"],"requires":{"bins":["uv"]},"install":[{"id":"brew","kind":"brew","formula":"uv","bins":["uv"],"label":"Install uv (brew)"}]}}
+metadata: {"openclaw":{"emoji":"","os":["darwin"],"requires":{"bins":["uv"]},"install":[{"id":"brew","kind":"brew","formula":"uv","bins":["uv"],"label":"Install uv (brew)"}]}}
 ---
 
 # Audio Reply Skill

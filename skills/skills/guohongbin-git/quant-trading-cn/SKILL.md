@@ -3,7 +3,7 @@ name: quant-trading-cn
 description: 量化交易专家 - 基于印度股市实战经验，支持策略生成、回测、实盘交易（Zerodha/A股适配）
 metadata:
   openclaw:
-    emoji: "📈"
+    emoji: ""
     category: "finance"
     tags: ["trading", "quant", "algotrading", "india", "zerodha", "backtest"]
     requires:
@@ -16,7 +16,7 @@ metadata:
 
 ## 功能
 
-### 🎯 交互式机器人生成向导
+###  交互式机器人生成向导
 
 ```bash
 # 启动向导
@@ -30,7 +30,7 @@ metadata:
 # 5. 分析表现
 ```
 
-### 📊 16 个知识领域
+###  16 个知识领域
 
 1. **Zerodha 集成** - Tick size 四舍五入、仓位对账、止损生命周期
 2. **回测-实盘一致性** - 数据缓存、T vs T-1 对齐、VWAP 重置
@@ -49,16 +49,16 @@ metadata:
 15. **风险管理** - Kelly Criterion、组合热度
 16. **资金复利** - 市场状态检测、牛市放大
 
-### ⚠️ 30+ 常见陷阱
+###  30+ 常见陷阱
 
 ```markdown
-🔥 关键：Tick Size 四舍五入
+ 关键：Tick Size 四舍五入
 错误：kite.place_order(price=1847.35, ...)
 报错："Tick size for this script is 5.00"
 修复：price = round(price / tick_size) * tick_size  # 1847.35 → 1850.00
 影响：90% 订单拒绝是 tick size 错误
 
-🔥 关键：VWAP 必须每日重置
+ 关键：VWAP 必须每日重置
 错误：跨天累计 VWAP
 症状：回测 65% 胜率，实盘 40%
 修复：开盘时重置（9:15）
@@ -93,7 +93,7 @@ metadata:
 ./scripts/check-code.sh ./my_trading_bot.py
 
 # 输出：
-⚠️ 发现 3 个问题：
+ 发现 3 个问题：
 1. Tick size 未四舍五入（第 45 行）- 会导致订单拒绝
 2. VWAP 未每日重置（第 89 行）- 回测实盘不一致
 3. 无股票冷却期（第 120 行）- 报复交易风险
@@ -139,7 +139,7 @@ quant-trading-cn/
 
 ## 注意事项
 
-⚠️ 本 skill 提供教育性指导，不保证盈利。交易有风险，仅用可承受资金。
+ 本 skill 提供教育性指导，不保证盈利。交易有风险，仅用可承受资金。
 
 ---
 

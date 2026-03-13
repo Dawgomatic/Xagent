@@ -5,7 +5,7 @@ author: Privateer <85460639+pr1vateer@users.noreply.github.com>
 description: Small skill that reports basic system information (OS, uptime, CPU, memory, disk). Implemented in Bash.
 entrypoint: scripts/sysinfo.sh
 # metadata must be a single-line JSON object per OpenClaw parser requirements.
-metadata: {"openclaw":{"emoji":"🧰","short":"Basic system info (bash)","requires":{"bins":["bash"]}}}
+metadata: {"openclaw":{"emoji":"","short":"Basic system info (bash)","requires":{"bins":["bash"]}}}
 user-invocable: true
 command-dispatch: tool
 command-tool: sysinfo

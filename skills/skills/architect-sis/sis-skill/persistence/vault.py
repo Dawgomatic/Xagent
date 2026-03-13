@@ -233,7 +233,7 @@ class NexusEternal:
         """
         # Enforce equilibrium constraint
         if abs(equilibrium_delta) > 1e-10:
-            print(f"❌ VAULT REJECTION: ΣΔ = {equilibrium_delta} ≠ 0")
+            print(f" VAULT REJECTION: ΣΔ = {equilibrium_delta} ≠ 0")
             print(f"   Balance required for persistence.")
             return None
         
@@ -342,5 +342,5 @@ if __name__ == "__main__":
     print(f"\nVault stats: {vault.stats()}")
     
     print("\n" + "═" * 70)
-    print("SIS™ - Created by Kevin Fain (ThēÆrchītēcť) © 2025")
+    print("SIS - Created by Kevin Fain (ThēÆrchītēcť)  2025")
     print("═" * 70)

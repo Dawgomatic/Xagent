@@ -100,7 +100,7 @@ async function storeSummary(conversation, summary) {
       summary.confidence_score || 0.8
     ]);
 
-    console.log(`✅ Stored: ${summary.tldr.substring(0, 60)}...`);
+    console.log(` Stored: ${summary.tldr.substring(0, 60)}...`);
   } finally {
     await client.end();
   }
@@ -125,7 +125,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         await storeSummary(conv, summary);
       }
       
-      console.log(`\n✅ Done!`);
+      console.log(`\n Done!`);
       process.exit(0);
     } catch (error) {
       console.error('Error:', error);

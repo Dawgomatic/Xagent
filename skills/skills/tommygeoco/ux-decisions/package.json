@@ -22,6 +22,6 @@
     "./references/*": "./references/*"
   },
   "scripts": {
-    "postinstall": "echo '\\n📖 UX Decisions skill installed. Add to your project:\\n   - Clawdbot: Copy to ~/clawd/skills/ux-decisions/\\n   - Claude: Copy CLAUDE.md to your project root\\n'"
+    "postinstall": "echo '\\n UX Decisions skill installed. Add to your project:\\n   - Clawdbot: Copy to ~/clawd/skills/ux-decisions/\\n   - Claude: Copy CLAUDE.md to your project root\\n'"
   }
 }

@@ -2,7 +2,7 @@
 name: linearis
 version: 1.0.0
 description: Linear.app CLI for issue tracking. Use for listing, creating, updating, and searching Linear issues, comments, documents, cycles, and projects. Optimized for LLM agents with JSON output.
-metadata: {"clawdbot":{"emoji":"📋","requires":{"bins":["linearis"]},"install":[{"id":"npm","kind":"node","package":"linearis","bins":["linearis"],"label":"Install linearis (npm)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["linearis"]},"install":[{"id":"npm","kind":"node","package":"linearis","bins":["linearis"],"label":"Install linearis (npm)"}]}}
 ---
 
 # linearis

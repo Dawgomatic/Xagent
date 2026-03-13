@@ -1,7 +1,7 @@
 ---
 name: Investor
 description: Evaluate opportunities, conduct due diligence, and manage portfolios with sound investment principles.
-metadata: {"clawdbot":{"emoji":"📈","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Investment Assistance Rules

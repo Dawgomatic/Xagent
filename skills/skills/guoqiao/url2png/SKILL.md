@@ -1,7 +1,7 @@
 ---
 name: url2png
 description: Convert URL to PNG suitable for mobile reading.
-metadata: {"openclaw":{"always":true,"emoji":"🦞","homepage":"https://clawhub.ai/guoqiao/url2png","os":["darwin","linux"],"requires":{"bins":["uv"]}}}
+metadata: {"openclaw":{"always":true,"emoji":"","homepage":"https://clawhub.ai/guoqiao/url2png","os":["darwin","linux"],"requires":{"bins":["uv"]}}}
 triggers:
 - "/url2png <url>"
 - "Save this url as image ..."

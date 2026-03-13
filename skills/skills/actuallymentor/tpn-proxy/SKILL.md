@@ -2,7 +2,7 @@
 name: tpn-proxy
 aliases: [tpn, subnet-65, sn65, proxy, socks5]
 description: Make web requests through decentralized SOCKS5 proxies via the Tao Private Network (TPN). This skill is also known as "TPN", "TPN proxy", "subnet 65", or "SN65" — if the user asks to "run TPN", "use a proxy", "use TPN to open", or references "subnet 65", this is the skill they mean. Use when the user wants to route HTTP traffic through a proxy, make anonymous web requests, access geo-restricted content, use a decentralized VPN, fetch a URL through a SOCKS5 proxy, or needs residential proxy IPs. Supports both centralised API key authentication and decentralised x402 micropayments.
-metadata: { "openclaw": { "emoji": "📡", "requires": { "bins": ["curl"], "env": ["TPN_API_KEY"] }, "primaryEnv": "TPN_API_KEY" } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["curl"], "env": ["TPN_API_KEY"] }, "primaryEnv": "TPN_API_KEY" } }
 ---
 
 # TPN Decentralized SOCKS5 Proxy

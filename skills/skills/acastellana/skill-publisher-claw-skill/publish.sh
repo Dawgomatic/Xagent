@@ -25,7 +25,7 @@ cd "$SKILL_DIR"
 SKILL_NAME=$(basename "$(pwd)")
 
 echo ""
-echo -e "${BLUE}📦 Publishing skill:${NC} $SKILL_NAME"
+echo -e "${BLUE} Publishing skill:${NC} $SKILL_NAME"
 echo "   Path: $(pwd)"
 echo ""
 

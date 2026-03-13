@@ -37,8 +37,8 @@ The wizard walks you through 4 steps:
 
 ### Step 3: Mobile App Setup
 - Install **OwnTracks** on your phone:
-  - 📱 iPhone: https://apps.apple.com/app/owntracks/id692424691
-  - 🤖 Android: https://play.google.com/store/apps/details?id=org.owntracks.android
+  -  iPhone: https://apps.apple.com/app/owntracks/id692424691
+  -  Android: https://play.google.com/store/apps/details?id=org.owntracks.android
 - Configure app to HTTP mode
 - Point to your webhook URL
 
@@ -262,19 +262,19 @@ Session: main
 
 | Threat | Detection |
 |--------|-----------|
-| 💾 Disk full | Alert if >85% used |
-| 🧠 Memory | Alert if <40% free |
-| 🌡️ CPU temp | Alert if >85°C |
-| 🌊 Weather | NWS alerts at your location |
-| 🌋 Earthquakes | USGS M4+ within 50km |
-| 🌐 Network | Tailscale + internet connectivity |
-| ⏱️ Uptime | Suggest restart if >30 days |
+|  Disk full | Alert if >85% used |
+|  Memory | Alert if <40% free |
+|  CPU temp | Alert if >85°C |
+|  Weather | NWS alerts at your location |
+|  Earthquakes | USGS M4+ within 50km |
+|  Network | Tailscale + internet connectivity |
+|  Uptime | Suggest restart if >30 days |
 
 ### Alert Examples
 
-> ⚠️ "I'm in trouble — disk is 92% full. Can you clear some space?"
+>  "I'm in trouble — disk is 92% full. Can you clear some space?"
 
-> 🌊 "Flood warning at my location. If power goes, I'll go dark."
+>  "Flood warning at my location. If power goes, I'll go dark."
 
 ## Testing
 

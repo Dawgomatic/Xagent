@@ -16,21 +16,21 @@ def main():
 
     cfg = load_config(args.config)
 
-    print("📋 설정 확인")
+    print(" 설정 확인")
     print(f"  APP_KEY: {cfg['app_key'][:8]}...")
     print(f"  계좌번호: {cfg['account_no']}-{cfg['product_code']}")
     print(f"  BASE_URL: {cfg['base_url']}")
 
     is_demo = 'openapivts' in cfg['base_url']
-    print(f"  모드: {'🧪 모의투자' if is_demo else '💰 실전투자'}")
+    print(f"  모드: {' 모의투자' if is_demo else ' 실전투자'}")
 
     if args.check:
-        print("\n✅ 설정값 정상")
+        print("\n 설정값 정상")
         return
 
-    print("\n🔑 토큰 발급 테스트...")
+    print("\n 토큰 발급 테스트...")
     token = get_token(cfg)
-    print(f"✅ 토큰 발급 성공: {token[:20]}...")
+    print(f" 토큰 발급 성공: {token[:20]}...")
 
 
 if __name__ == '__main__':

@@ -15,7 +15,7 @@ let CONFIG = {};
 try {
   if (existsSync(CONFIG_FILE)) {
     CONFIG = JSON.parse(readFileSync(CONFIG_FILE, 'utf8'));
-    console.log(`📋 Loaded config: architecture=${CONFIG.architecture || 'default'}`);
+    console.log(` Loaded config: architecture=${CONFIG.architecture || 'default'}`);
   }
 } catch (e) { console.warn('Config load failed, using defaults:', e.message); }
 
@@ -142,7 +142,7 @@ async function cypher(shard, statements, { timeout = 5000, allowOffline = false 
 
     if (health.failCount >= 2) {
       health.status = 'offline';
-      console.warn(`⚠️  Shard ${shard} marked OFFLINE after ${health.failCount} failures: ${e.message}`);
+      console.warn(`  Shard ${shard} marked OFFLINE after ${health.failCount} failures: ${e.message}`);
     }
 
     throw e;
@@ -158,7 +158,7 @@ async function healthCheck() {
       // If was offline and now recovered, drain queued writes
       if (shardHealth[name].status === 'online' && shardHealth[name].recoveryAt === null && writeQueue.length > 0) {
         shardHealth[name].recoveryAt = new Date().toISOString();
-        console.log(`✅ Shard ${name} recovered! Draining ${writeQueue.filter(w => w.shard === name).length} queued writes...`);
+        console.log(` Shard ${name} recovered! Draining ${writeQueue.filter(w => w.shard === name).length} queued writes...`);
         await drainQueue(name);
       }
     } catch (e) {
@@ -174,9 +174,9 @@ async function drainQueue(shard) {
   for (const item of pending) {
     try {
       await encode(item.payload, true); // true = skip re-queuing
-      console.log(`  ✅ Drained: ${item.payload.event}`);
+      console.log(`   Drained: ${item.payload.event}`);
     } catch (e) {
-      console.warn(`  ❌ Failed to drain: ${item.payload.event} — ${e.message}`);
+      console.warn(`   Failed to drain: ${item.payload.event} — ${e.message}`);
       remaining.push(item); // re-queue
     }
   }
@@ -213,7 +213,7 @@ async function encode({ event, content, context = {}, shard = 'episodic', motiva
       strategic: 'semantic', competitive: 'semantic', economic: 'semantic' };
     const oldShard = shard;
     shard = remap[shard] || 'semantic';
-    console.warn(`⚠️ Invalid shard "${oldShard}" remapped to "${shard}"`);
+    console.warn(` Invalid shard "${oldShard}" remapped to "${shard}"`);
   }
   if (!event) event = (content || 'unnamed memory').slice(0, 80);
 
@@ -246,7 +246,7 @@ async function encode({ event, content, context = {}, shard = 'episodic', motiva
           if (sim > maxSim) { maxSim = sim; dupId = mem.id; }
         }
         if (maxSim >= dedupThreshold) {
-          console.log(`⚡ Dedup: rejected "${event.slice(0, 50)}" (sim=${maxSim.toFixed(3)} with ${dupId})`);
+          console.log(` Dedup: rejected "${event.slice(0, 50)}" (sim=${maxSim.toFixed(3)} with ${dupId})`);
           return { id: null, strength, signal, shard, queued: false, deduplicated: true, duplicateOf: dupId, similarity: maxSim };
         }
       }
@@ -310,7 +310,7 @@ async function encode({ event, content, context = {}, shard = 'episodic', motiva
         payload: { event, content, context, shard, motivationDelta }
       });
       saveQueue();
-      console.log(`📝 Queued write for offline shard ${shard}: ${event}`);
+      console.log(` Queued write for offline shard ${shard}: ${event}`);
       return { id: null, strength, signal, shard, queued: true, queuedAt: new Date().toISOString() };
     }
     throw e;
@@ -323,7 +323,7 @@ function loadEmbeddings() {
   try {
     if (existsSync(EMBEDDINGS_FILE)) {
       embeddingCache = JSON.parse(readFileSync(EMBEDDINGS_FILE, 'utf8'));
-      console.log(`📦 Loaded ${embeddingCache.length} embeddings from cache`);
+      console.log(` Loaded ${embeddingCache.length} embeddings from cache`);
     }
   } catch (e) { console.warn('Failed to load embeddings:', e.message); }
 }
@@ -696,7 +696,7 @@ if (API_KEY) {
     if (auth === `Bearer ${API_KEY}`) return next();
     res.status(401).json({ ok: false, error: 'Unauthorized' });
   });
-  console.log('🔐 API key authentication enabled');
+  console.log(' API key authentication enabled');
 }
 
 app.get('/health', async (req, res) => {
@@ -950,7 +950,7 @@ function loadExpansionCache() {
     if (existsSync(EXPANSION_CACHE_FILE)) {
       const entries = JSON.parse(readFileSync(EXPANSION_CACHE_FILE, 'utf8'));
       expansionCache = new Map(entries);
-      console.log(`📦 Loaded ${expansionCache.size} expansion cache entries`);
+      console.log(` Loaded ${expansionCache.size} expansion cache entries`);
     }
   } catch (e) {}
 }
@@ -1341,7 +1341,7 @@ async function warmPredictions() {
   }
   
   if (warmed > 0) {
-    console.log(`🔮 Predictive warmer: ${warmed} new expansions cached from ${predictions.length} predictions`);
+    console.log(` Predictive warmer: ${warmed} new expansions cached from ${predictions.length} predictions`);
   }
 }
 
@@ -1408,7 +1408,7 @@ async function recallCacheGet(query) {
             const entry = recallCache.get(bestKey);
             if (entry) {
               entry.hits++;
-              console.log(`🎯 Semantic cache hit: "${query.slice(0,40)}" → "${bestKey.slice(0,40)}" (sim: ${bestSim.toFixed(3)})`);
+              console.log(` Semantic cache hit: "${query.slice(0,40)}" → "${bestKey.slice(0,40)}" (sim: ${bestSim.toFixed(3)})`);
               return entry;
             }
           }
@@ -1482,7 +1482,7 @@ async function speculativeRecall() {
   }
   
   if (warmed > 0) {
-    console.log(`🔮 Speculative recall: ${warmed} full recalls pre-computed, ${skipped} already cached (${recallCache.size} total)`);
+    console.log(` Speculative recall: ${warmed} full recalls pre-computed, ${skipped} already cached (${recallCache.size} total)`);
   }
 }
 
@@ -1745,7 +1745,7 @@ app.get('/memory/session-context', async (req, res) => {
 
 const PORT = process.env.PORT || 3333;
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🧠 BrainDB Gateway v0.5.0 listening on port ${PORT}`);
+  console.log(` BrainDB Gateway v0.5.0 listening on port ${PORT}`);
   console.log(`   Architecture: ${ARCHITECTURE}`);
   console.log(`   Shards: ${Object.keys(SHARDS).join(', ')}`);
   console.log(`   Auth: ${API_KEY ? 'API key required' : 'open (localhost only)'}`);

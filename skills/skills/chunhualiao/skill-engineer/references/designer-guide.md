@@ -310,14 +310,14 @@ description: [What it does]. Use when user [trigger phrases]. [Key capabilities]
 
 **Description examples:**
 
-✅ Good — specific, actionable, includes triggers:
+ Good — specific, actionable, includes triggers:
 ```
 description: Analyzes Figma design files and generates developer handoff
 documentation. Use when user uploads .fig files, asks for "design specs",
 "component documentation", or "design-to-code handoff".
 ```
 
-❌ Bad — too vague, no triggers:
+ Bad — too vague, no triggers:
 ```
 description: Helps with projects.
 ```

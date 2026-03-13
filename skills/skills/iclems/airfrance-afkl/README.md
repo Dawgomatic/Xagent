@@ -55,11 +55,11 @@ Output behavior:
 - Prints a **ready-to-send multi-line message** when something changed
 
 The message is designed to be compact and human-readable:
-- Emojis for 🛫/🕤/🛬/✈️/📶
+- Emojis for ////
 - Weekday + date + time (to avoid timezone ambiguity)
 - Tail + aircraft type + cabin config summary
 - Wi‑Fi line (fast/slow) when available
-- Previous-flight chain summary (e.g. `↩️ Dubai → Paris → New York (on time)`)
+- Previous-flight chain summary (e.g. ` Dubai → Paris → New York (on time)`)
 - Optional headline line highlighting what changed (new time, inbound delay, new aircraft, boarding started)
 
 

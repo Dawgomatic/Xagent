@@ -230,7 +230,7 @@ class GitMapHandler(BaseHTTPRequestHandler):
 def run_server() -> None:
     """Start the GitMap skill HTTP server."""
     server = HTTPServer(("localhost", PORT), GitMapHandler)
-    print(f"🗺️  GitMap skill server running at http://localhost:{PORT}")
+    print(f"  GitMap skill server running at http://localhost:{PORT}")
     print()
     print(f"   Health:  http://localhost:{PORT}/health")
     print(f"   Tools:   http://localhost:{PORT}/tools")

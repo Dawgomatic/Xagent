@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏄 Code Cache Skill for OpenClaw
+#  Code Cache Skill for OpenClaw
 
 **Semantic code caching for AI agents**
 
@@ -111,7 +111,7 @@ Downloads code files to your sandbox and provides a prompt addition for the agen
 ## How It Works
 
 ```
-💬 You ask                    🔍 Search cache              ⚡ Execute or generate
+ You ask                     Search cache               Execute or generate
 "Generate quarterly report"   code-cache.search() finds    Run cached code instantly,
                               relevant code from prior     or generate new if no match
                               successful executions
@@ -121,7 +121,7 @@ Downloads code files to your sandbox and provides a prompt addition for the agen
 When similar code exists, you get:
 - Runnable code from previous successful agent runs
 - Number of times each snippet has been run
-- 👍/👎 scores from prior executions
+- / scores from prior executions
 
 ### Cache Miss
 When no match exists:
@@ -160,8 +160,8 @@ This skill wraps the [Raysurfer API](https://docs.raysurfer.com/api-reference):
 
 ## Related Projects
 
-- 📦 [code-cache-cli](https://github.com/ryx2/code-cache-cli) — CLI and Python library
-- 🔌 [code-cache-mcp](https://github.com/ryx2/code-cache-mcp) — MCP server for Claude
+-  [code-cache-cli](https://github.com/ryx2/code-cache-cli) — CLI and Python library
+-  [code-cache-mcp](https://github.com/ryx2/code-cache-mcp) — MCP server for Claude
 
 ## Requirements
 
@@ -170,10 +170,10 @@ This skill wraps the [Raysurfer API](https://docs.raysurfer.com/api-reference):
 
 ## Links
 
-- 🏄 [Raysurfer Website](https://raysurfer.com)
-- 📚 [Raysurfer Documentation](https://docs.raysurfer.com)
-- 🦞 [OpenClaw](https://openclaw.ai)
-- 📦 [PyPI Package](https://pypi.org/project/raysurfer/)
+-  [Raysurfer Website](https://raysurfer.com)
+-  [Raysurfer Documentation](https://docs.raysurfer.com)
+-  [OpenClaw](https://openclaw.ai)
+-  [PyPI Package](https://pypi.org/project/raysurfer/)
 
 ## License
 

@@ -1,15 +1,15 @@
 # Gmail Inbox Zero Triage - Release Package
 
-📬 **Achieve inbox zero with AI-powered email triage for Gmail!**
+ **Achieve inbox zero with AI-powered email triage for Gmail!**
 
-## 📦 What's Included
+##  What's Included
 
 - **gmail-inbox-zero.skill** - The skill package (ready to install)
 - **SHARE.md** - Public sharing page (post this online)
 - **SETUP.md** - Complete setup guide for users
 - **OVERVIEW.md** - Technical details and publishing info
 
-## 🚀 Quick Start
+##  Quick Start
 
 **For users:**
 1. Download `gmail-inbox-zero.skill`
@@ -22,7 +22,7 @@
 - Link to `gmail-inbox-zero.skill` for download
 - Point users to **SETUP.md** for help
 
-## ✨ What It Does
+##  What It Does
 
 - Process ALL Gmail inbox messages with AI summaries
 - Interactive Telegram buttons (Archive/Filter/Unsubscribe/View)
@@ -30,7 +30,7 @@
 - OAuth-based - secure, no passwords
 - Fast workflow - 10x faster than traditional email
 
-## 📊 File Sizes
+##  File Sizes
 
 ```
 gmail-inbox-zero.skill    17 KB  (compressed)
@@ -39,14 +39,14 @@ SETUP.md                   3 KB  (user guide)
 OVERVIEW.md                5 KB  (technical)
 ```
 
-## 🔒 Security
+##  Security
 
-✅ No user data included  
-✅ No credentials or keys  
-✅ OAuth-based authentication  
-✅ Safe to share publicly  
+ No user data included  
+ No credentials or keys  
+ OAuth-based authentication  
+ Safe to share publicly  
 
-## 📋 Sharing Checklist
+##  Sharing Checklist
 
 - [x] Skill packaged and validated
 - [x] All documentation complete
@@ -55,7 +55,7 @@ OVERVIEW.md                5 KB  (technical)
 - [x] Public description ready (SHARE.md)
 - [x] Ready for distribution
 
-## 🌐 Where To Share
+##  Where To Share
 
 Suggested platforms:
 - **GitHub** - Create a release with the .skill file
@@ -65,15 +65,15 @@ Suggested platforms:
 - **Twitter/X** - Demo video + download link
 - **Your blog/website** - Full write-up
 
-## 📝 Suggested Post
+##  Suggested Post
 
 Use **SHARE.md** as your template, or this quick version:
 
-> 📬 **Gmail Inbox Zero Triage** - New Clawdbot skill!
+>  **Gmail Inbox Zero Triage** - New Clawdbot skill!
 > 
 > Process your Gmail inbox 10x faster with AI summaries and batch actions.
 > 
-> ✨ Features:
+>  Features:
 > - AI-powered email summaries
 > - Telegram inline buttons
 > - Batch processing (queue → execute)
@@ -82,9 +82,9 @@ Use **SHARE.md** as your template, or this quick version:
 > Download: [link to gmail-inbox-zero.skill]
 > Setup guide: [link to SETUP.md]
 > 
-> Get to inbox zero in minutes! ⚡
+> Get to inbox zero in minutes! 
 
-## 🔗 Useful Links
+##  Useful Links
 
 - **Clawdbot:** https://clawd.bot
 - **Docs:** https://docs.clawd.bot
@@ -92,12 +92,12 @@ Use **SHARE.md** as your template, or this quick version:
 - **ClawdHub:** https://clawdhub.com
 - **gog CLI:** https://gogcli.sh
 
-## 🙏 Credits
+##  Credits
 
-Built for the Clawdbot community with ❤️
+Built for the Clawdbot community with 
 
 ---
 
-**Ready to share!** 🚀
+**Ready to share!** 
 
 Pick a platform and post **SHARE.md** with the `gmail-inbox-zero.skill` download link!

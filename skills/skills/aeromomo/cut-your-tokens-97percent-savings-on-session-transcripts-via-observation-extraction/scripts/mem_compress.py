@@ -426,7 +426,7 @@ def cmd_benchmark(workspace: Path, args) -> int:
     print("-" * 58)
     print(f"{'TOTAL (memory)':<22} | {baseline_tokens:>8,} | {tok_tokens:>8,} | {total_saved:>6,} | {total_pct:>5.1f}%")
     print()
-    print(f"💰 Total savings: {total_saved:,} tokens ({total_pct:.1f}%)")
+    print(f" Total savings: {total_saved:,} tokens ({total_pct:.1f}%)")
     print()
 
     # Session transcript info
@@ -474,7 +474,7 @@ def cmd_install(workspace: Path, args) -> int:
     if heartbeat_path.exists():
         existing = heartbeat_path.read_text(encoding="utf-8")
         if "claw-compactor" in existing:
-            print("✅ Already installed in HEARTBEAT.md")
+            print(" Already installed in HEARTBEAT.md")
             return 0
         # Append to existing
         with open(heartbeat_path, "a", encoding="utf-8") as f:
@@ -484,7 +484,7 @@ def cmd_install(workspace: Path, args) -> int:
         with open(heartbeat_path, "w", encoding="utf-8") as f:
             f.write("# HEARTBEAT.md\n" + entry)
 
-    print(f"✅ Installed claw-compactor heartbeat into {heartbeat_path}")
+    print(f" Installed claw-compactor heartbeat into {heartbeat_path}")
     print(f"   Script: {script_path}")
     print(f"   Workspace: {workspace}")
     return 0

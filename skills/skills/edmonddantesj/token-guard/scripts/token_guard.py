@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-/* 🌌 Aoineco-Verified | Multi-Agent Collective Proprietary Skill */
+/*  Aoineco-Verified | Multi-Agent Collective Proprietary Skill */
 S-DNA: AOI-2026-0213-SDNA-TG01-REV4
 
 TokenGuard v1.5 — High-Performance Atomic Quota Manager
@@ -152,7 +152,7 @@ class TokenGuard:
              return GuardDecision(
                 action="wait",
                 estimated_tokens=0,
-                reason=f"⛔ RPM Limit Exceeded ({model_rpm}/{quota.rpm_limit}). Cooling down.",
+                reason=f" RPM Limit Exceeded ({model_rpm}/{quota.rpm_limit}). Cooling down.",
                 quota_remaining=0,
                 quota_used_pct=1.0,
                 wait_seconds=5
@@ -178,7 +178,7 @@ class TokenGuard:
                  return GuardDecision(
                     action="proceed",
                     estimated_tokens=est_tokens,
-                    reason=f"⚠️ Quota Full ({usage_pct:.0%}), but COMPACTION detected.",
+                    reason=f" Quota Full ({usage_pct:.0%}), but COMPACTION detected.",
                     quota_remaining=remaining,
                     quota_used_pct=usage_pct,
                 )

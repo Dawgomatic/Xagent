@@ -1,31 +1,31 @@
 # Claw-Conductor v2.1 - Implementation Status
 
 **Date:** 2026-02-02
-**Status:** ✅ Core features implemented, ready for testing
+**Status:**  Core features implemented, ready for testing
 
 ---
 
-## ✅ Completed Features
+##  Completed Features
 
 ### 1. Configuration System
 **File:** `config/conductor-config.json`
 
-- ✅ Triage configuration (model, bias, thresholds)
-- ✅ Discord integration settings
-- ✅ Simple response configuration
-- ✅ Development mode settings
-- ✅ Logging configuration
-- ✅ User override triggers (!simple, !dev)
+-  Triage configuration (model, bias, thresholds)
+-  Discord integration settings
+-  Simple response configuration
+-  Development mode settings
+-  Logging configuration
+-  User override triggers (!simple, !dev)
 
 ### 2. Discord Integration
 **File:** `scripts/discord_integration.py`
 
-- ✅ Channel → workspace auto-detection
-- ✅ Channel mapping persistence (`channel-workspace-map.json`)
-- ✅ Auto-sync from `/root/projects/` directory
-- ✅ Context detection (Discord vs direct invocation)
-- ✅ Fallback to direct parameters when not in Discord
-- ✅ Project listing and management
+-  Channel → workspace auto-detection
+-  Channel mapping persistence (`channel-workspace-map.json`)
+-  Auto-sync from `/root/projects/` directory
+-  Context detection (Discord vs direct invocation)
+-  Fallback to direct parameters when not in Discord
+-  Project listing and management
 
 **Key Functions:**
 - `detect_context()` - Detects if message is from Discord and maps to workspace
@@ -35,11 +35,11 @@
 ### 3. Request Triage
 **File:** `scripts/orchestrator.py` (updated)
 
-- ✅ Intelligent classification (simple vs development)
-- ✅ Keyword-based heuristics with configurable bias
-- ✅ User override support (!simple, !dev)
-- ✅ Path announcement (📋 Simple / 🔧 Development)
-- ✅ Placeholder for AI-powered triage (marked TODO)
+-  Intelligent classification (simple vs development)
+-  Keyword-based heuristics with configurable bias
+-  User override support (!simple, !dev)
+-  Path announcement ( Simple /  Development)
+-  Placeholder for AI-powered triage (marked TODO)
 
 **Triage Logic:**
 - Development keywords: build, create, implement, add, fix, refactor, etc.
@@ -50,41 +50,41 @@
 ### 4. Simple Response Handler
 **File:** `scripts/orchestrator.py` (updated)
 
-- ✅ Fast response mode for questions/chat
-- ✅ Project-aware context (knows workspace, files, etc.)
-- ✅ Configurable model selection
-- ✅ Placeholder for actual model API call (marked TODO)
+-  Fast response mode for questions/chat
+-  Project-aware context (knows workspace, files, etc.)
+-  Configurable model selection
+-  Placeholder for actual model API call (marked TODO)
 
 ### 5. Main Entry Point
 **File:** `scripts/orchestrator.py` - `handle_message()`
 
 New unified entry point that:
-- ✅ Detects Discord context
-- ✅ Maps channel to workspace
-- ✅ Triages request
-- ✅ Announces path
-- ✅ Routes to simple or development handler
+-  Detects Discord context
+-  Maps channel to workspace
+-  Triages request
+-  Announces path
+-  Routes to simple or development handler
 
 ### 6. Channel Mapping
 **File:** `config/channel-workspace-map.json`
 
 Pre-configured mappings for your existing projects:
-- ✅ dispatch-suite
-- ✅ scientific-calculator
-- ✅ openclaw-commands
-- ✅ satire-news
+-  dispatch-suite
+-  scientific-calculator
+-  openclaw-commands
+-  satire-news
 
 ### 7. Updated Documentation
 **File:** `SKILL.md` (updated)
 
-- ✅ Always-on mode explanation
-- ✅ Usage examples (simple vs development)
-- ✅ User override documentation
-- ✅ Integration instructions
+-  Always-on mode explanation
+-  Usage examples (simple vs development)
+-  User override documentation
+-  Integration instructions
 
 ---
 
-## 🔄 TODO (Integration Points)
+##  TODO (Integration Points)
 
 ### 1. Model API Integration
 **Location:** `orchestrator.py` - Line ~95 (triage) and ~165 (simple response)
@@ -151,7 +151,7 @@ Once local testing complete:
 
 ---
 
-## 🧪 Testing Checklist
+##  Testing Checklist
 
 ### Local Testing
 - [ ] Test discord_integration.py standalone
@@ -180,7 +180,7 @@ Once local testing complete:
 
 ---
 
-## 📋 Configuration Reference
+##  Configuration Reference
 
 ### Triage Settings (`conductor-config.json`)
 ```json
@@ -188,7 +188,7 @@ Once local testing complete:
   "enabled": true,                           // Enable/disable triage
   "model": "chutes/openai/gpt-oss-120b-TEE", // Fast model for classification
   "bias": "development",                      // Lean towards dev when uncertain
-  "announce_path": true,                      // Show 📋 / 🔧 indicators
+  "announce_path": true,                      // Show  /  indicators
   "user_overrides": {
     "simple_trigger": "!simple",              // Force simple mode
     "dev_trigger": "!dev"                     // Force development mode
@@ -208,7 +208,7 @@ Once local testing complete:
 
 ---
 
-## 🎯 Architecture Flow
+##  Architecture Flow
 
 ```
 Discord Message in #scientific-calculator
@@ -238,7 +238,7 @@ Discord Message in #scientific-calculator
 
 ---
 
-## 🚀 Next Steps
+##  Next Steps
 
 1. **Test locally** - Run the examples in `orchestrator.py`
 2. **Add model API calls** - Replace TODO placeholders with actual calls
@@ -249,26 +249,26 @@ Discord Message in #scientific-calculator
 
 ---
 
-## 📝 Files Modified/Created
+##  Files Modified/Created
 
 ### New Files:
-- ✅ `config/conductor-config.json` - Main configuration
-- ✅ `config/channel-workspace-map.json` - Discord channel mappings
-- ✅ `scripts/discord_integration.py` - Discord detection & mapping
-- ✅ `IMPLEMENTATION-STATUS.md` - This file
+-  `config/conductor-config.json` - Main configuration
+-  `config/channel-workspace-map.json` - Discord channel mappings
+-  `scripts/discord_integration.py` - Discord detection & mapping
+-  `IMPLEMENTATION-STATUS.md` - This file
 
 ### Modified Files:
-- ✅ `scripts/orchestrator.py` - Added triage, Discord integration, handle_message()
-- ✅ `SKILL.md` - Updated docs for always-on mode
+-  `scripts/orchestrator.py` - Added triage, Discord integration, handle_message()
+-  `SKILL.md` - Updated docs for always-on mode
 
 ### Unchanged (still functional):
-- ✅ `scripts/router.py` - Model routing logic
-- ✅ `scripts/decomposer.py` - Task decomposition
-- ✅ `scripts/worker_pool.py` - Parallel execution
-- ✅ `scripts/consolidator.py` - Result consolidation
-- ✅ `scripts/project_manager.py` - Project management
-- ✅ `config/agent-registry.json` - Model capabilities
-- ✅ `config/task-categories.json` - Task classifications
+-  `scripts/router.py` - Model routing logic
+-  `scripts/decomposer.py` - Task decomposition
+-  `scripts/worker_pool.py` - Parallel execution
+-  `scripts/consolidator.py` - Result consolidation
+-  `scripts/project_manager.py` - Project management
+-  `config/agent-registry.json` - Model capabilities
+-  `config/task-categories.json` - Task classifications
 
 ---
 

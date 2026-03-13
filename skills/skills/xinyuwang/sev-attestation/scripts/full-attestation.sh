@@ -100,7 +100,7 @@ if [[ -f "$OUTPUT_DIR/report.bin" ]]; then
     echo ""
     echo -e "${GREEN}✓ Step 3 PASSED: Report information displayed${NC}"
 else
-    echo -e "${YELLOW}⚠ Step 3 SKIPPED: No report file found${NC}"
+    echo -e "${YELLOW} Step 3 SKIPPED: No report file found${NC}"
 fi
 
 echo ""
@@ -122,7 +122,7 @@ if [[ -f "$OUTPUT_DIR/report.bin" ]]; then
         ATTESTATION_PASSED=false
     fi
 else
-    echo -e "${YELLOW}⚠ Step 4 SKIPPED: No report file available${NC}"
+    echo -e "${YELLOW} Step 4 SKIPPED: No report file available${NC}"
     ATTESTATION_PASSED=false
 fi
 
@@ -145,7 +145,7 @@ if [[ -d "$OUTPUT_DIR/certs" ]]; then
         ATTESTATION_PASSED=false
     fi
 else
-    echo -e "${YELLOW}⚠ Step 5 SKIPPED: No certificates directory${NC}"
+    echo -e "${YELLOW} Step 5 SKIPPED: No certificates directory${NC}"
     ATTESTATION_PASSED=false
 fi
 
@@ -168,7 +168,7 @@ if [[ -f "$OUTPUT_DIR/report.bin" ]] && [[ -d "$OUTPUT_DIR/certs" ]]; then
         ATTESTATION_PASSED=false
     fi
 else
-    echo -e "${YELLOW}⚠ Step 6 SKIPPED: Missing report or certificates${NC}"
+    echo -e "${YELLOW} Step 6 SKIPPED: Missing report or certificates${NC}"
     ATTESTATION_PASSED=false
 fi
 

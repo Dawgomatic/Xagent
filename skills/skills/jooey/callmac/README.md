@@ -20,14 +20,14 @@ python3 scripts/generate_tts.py --text "Hello 你好" --play
 
 ## Features | 功能特性
 
-- 🎯 **Mixed Language Support**: Auto-detects Chinese/English and uses appropriate voices
-- 🎵 **High Quality Voices**: Uses Microsoft Edge neural TTS voices
-- 🔊 **Local Playback**: Plays directly on Mac using `afplay`
-- 🔁 **Loop Playback**: Supports repeated playback (1 to infinite loops)
-- 📊 **Volume Control**: Adjust system volume during playback
-- 💾 **File Export**: Save generated audio as MP3 files
-- 🔗 **Audio Merging**: Combine multiple audio segments
-- ⏰ **Scheduling**: Integrate with cron for scheduled announcements
+-  **Mixed Language Support**: Auto-detects Chinese/English and uses appropriate voices
+-  **High Quality Voices**: Uses Microsoft Edge neural TTS voices
+-  **Local Playback**: Plays directly on Mac using `afplay`
+-  **Loop Playback**: Supports repeated playback (1 to infinite loops)
+-  **Volume Control**: Adjust system volume during playback
+-  **File Export**: Save generated audio as MP3 files
+-  **Audio Merging**: Combine multiple audio segments
+-  **Scheduling**: Integrate with cron for scheduled announcements
 
 ## Usage Examples | 使用示例
 

@@ -20,7 +20,7 @@ def main():
         client = MoltGovClient()
         result = client.delegate(args.to, args.scope)
         
-        print(f"\n✅ Delegation active!\n")
+        print(f"\n Delegation active!\n")
         print(f"  Delegate To: {result['delegate_to']}")
         print(f"  Scope:       {result['scope']}")
         print(f"  Status:      {result['status']}")

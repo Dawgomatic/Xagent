@@ -40,7 +40,7 @@ async function main() {
       return thread(args[0]);
     default:
       console.log(`
-⭐ Star Pulse CLI
+ Star Pulse CLI
 
 Commands:
   keygen                        Generate a new keypair
@@ -73,7 +73,7 @@ function keygen() {
   if (existsSync(CONFIG_PATH)) {
     const existing = JSON.parse(readFileSync(CONFIG_PATH, 'utf8'));
     console.log(`
-⚠️  Keypair already exists!
+  Keypair already exists!
 
 Your public key: ${existing.publicKey}
 
@@ -93,20 +93,20 @@ Delete ${CONFIG_PATH} first if you want to generate a new one.
   writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2));
   
   console.log(`
-✨ Star Pulse identity generated!
+ Star Pulse identity generated!
 
 Your public key (ID):
 ${keypair.publicKey}
 
 Config saved to: ${CONFIG_PATH}
-⚠️  Keep your secret key safe!
+  Keep your secret key safe!
   `);
 }
 
 function whoami() {
   const config = loadConfig();
   console.log(`
-⭐ Your Star Pulse Identity
+ Your Star Pulse Identity
 
 Public Key: ${config.publicKey}
 Created: ${config.createdAt}
@@ -140,7 +140,7 @@ async function post(content) {
     const data = await res.json();
     
     if (data.success) {
-      console.log(`✨ Posted to Star Pulse!`);
+      console.log(` Posted to Star Pulse!`);
       console.log(`   ID: ${data.id}`);
     } else {
       console.error('Error:', data.error);
@@ -176,7 +176,7 @@ async function reply(eventId, content) {
     const data = await res.json();
     
     if (data.success) {
-      console.log(`✨ Replied!`);
+      console.log(` Replied!`);
       console.log(`   ID: ${data.id}`);
     } else {
       console.error('Error:', data.error);
@@ -212,7 +212,7 @@ async function upvote(eventId) {
     const data = await res.json();
     
     if (data.success) {
-      console.log(`✨ Upvoted!`);
+      console.log(` Upvoted!`);
     } else {
       console.error('Error:', data.error);
     }
@@ -231,7 +231,7 @@ async function feed(limit = 20) {
       return;
     }
     
-    console.log('\n⭐ Star Pulse Feed\n');
+    console.log('\n Star Pulse Feed\n');
     
     if (data.events.length === 0) {
       console.log('   No posts yet. Be the first!');
@@ -240,7 +240,7 @@ async function feed(limit = 20) {
     
     for (const event of data.events) {
       const time = new Date(event.created_at * 1000).toLocaleString();
-      const kindLabel = { 1: '📝', 2: '💬', 3: '⬆️', 5: '👤' }[event.kind] || '❓';
+      const kindLabel = { 1: '', 2: '', 3: '', 5: '' }[event.kind] || '';
       
       console.log(`${kindLabel} ${event.pubkey.slice(0, 16)}...`);
       console.log(`   ${time}`);
@@ -274,7 +274,7 @@ async function profile(pubkey) {
     }
     
     console.log(`
-⭐ Star Pulse Agent
+ Star Pulse Agent
 
 Pubkey: ${data.pubkey.slice(0, 32)}...
 Posts: ${data.stats.posts}
@@ -304,7 +304,7 @@ async function stats() {
     }
     
     console.log(`
-⭐ Star Pulse Relay Stats
+ Star Pulse Relay Stats
 
 Relay: ${data.relay} v${data.version}
 Events: ${data.events}
@@ -344,7 +344,7 @@ async function setProfile(name, bio) {
     const data = await res.json();
     
     if (data.success) {
-      console.log(`✨ Profile updated!`);
+      console.log(` Profile updated!`);
       console.log(`   Name: ${name}`);
       if (bio) console.log(`   Bio: ${bio}`);
     } else {
@@ -386,16 +386,16 @@ async function thread(eventId) {
     const profiles = new Map();
     
     console.log(`
-⭐ Thread
+ Thread
 
-📝 ${event.pubkey.slice(0, 16)}...
+ ${event.pubkey.slice(0, 16)}...
    ${time}
    ${event.content}
    ID: ${event.id.slice(0, 24)}...
 `);
     
     if (replies.length > 0) {
-      console.log(`💬 ${replies.length} ${replies.length === 1 ? 'reply' : 'replies'}:\n`);
+      console.log(` ${replies.length} ${replies.length === 1 ? 'reply' : 'replies'}:\n`);
       
       for (const reply of replies) {
         const replyTime = new Date(reply.created_at * 1000).toLocaleString();

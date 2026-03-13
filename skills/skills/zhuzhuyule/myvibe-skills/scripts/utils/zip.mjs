@@ -38,7 +38,7 @@ export async function zipDirectory(dirPath, outputPath) {
 
     output.on("close", () => {
       const sizeKB = (archive.pointer() / 1024).toFixed(2);
-      console.log(chalk.green(`✅ Created ZIP: ${zipPath} (${sizeKB} KB)`));
+      console.log(chalk.green(` Created ZIP: ${zipPath} (${sizeKB} KB)`));
 
       resolve({
         zipPath,

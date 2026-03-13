@@ -186,7 +186,7 @@ class CourtroomEvaluator {
    * This is what the cron job will send to the agent
    */
   getEvaluationPrompt() {
-    return `🏛️ **COURTROOM EVALUATION REQUEST**
+    return ` **COURTROOM EVALUATION REQUEST**
 
 You are the ClawTrial Courtroom Judge. Please evaluate the pending conversation for behavioral violations.
 

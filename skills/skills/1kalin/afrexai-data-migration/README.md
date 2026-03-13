@@ -39,8 +39,8 @@ Just tell your agent what you're migrating:
 
 ## More AI Business Tools
 
-🔗 [AI Context Packs](https://afrexai-cto.github.io/context-packs/) — Industry-specific agent configurations ($47/pack)
-🔗 [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — Find where AI saves you money
-🔗 [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Configure your AI agent in minutes
+ [AI Context Packs](https://afrexai-cto.github.io/context-packs/) — Industry-specific agent configurations ($47/pack)
+ [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — Find where AI saves you money
+ [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Configure your AI agent in minutes
 
-**Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/)** 🖤💛
+**Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/)** 

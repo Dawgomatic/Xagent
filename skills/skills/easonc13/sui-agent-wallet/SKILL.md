@@ -38,7 +38,7 @@ The server automatically generates a 12-word seed phrase and stores it in **macO
 
 ```
 ═══════════════════════════════════════════════════════════
-  🔐 NEW WALLET CREATED
+   NEW WALLET CREATED
 ═══════════════════════════════════════════════════════════
 
   Seed phrase stored securely in macOS Keychain.

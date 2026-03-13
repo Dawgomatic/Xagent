@@ -144,11 +144,11 @@ After EVERY expense logged, run this check:
 
 | Level | Trigger | Response |
 |-------|---------|----------|
-| 🟢 On track | < 75% budget, proportional to month progress | Silent (log only) |
-| 🟡 Warning | 75-90% budget used | "Heads up — you've used 78% of your $600 food budget with 18 days left. That's $3.67/day remaining." |
-| 🔴 Critical | > 90% budget used | "⚠️ Food budget is at 92% ($552/$600) with 12 days left. Only $4/day remaining. Consider cooking at home this week." |
-| 🚨 Over budget | > 100% | "🚨 You're $47 over your $600 food budget. Total: $647. This eats into your savings target." |
-| ⚡ Unusual | Single transaction > 2x average for category | "That $89 coffee purchase seems unusual — your average is $5.20. Correct amount?" |
+|  On track | < 75% budget, proportional to month progress | Silent (log only) |
+|  Warning | 75-90% budget used | "Heads up — you've used 78% of your $600 food budget with 18 days left. That's $3.67/day remaining." |
+|  Critical | > 90% budget used | " Food budget is at 92% ($552/$600) with 12 days left. Only $4/day remaining. Consider cooking at home this week." |
+|  Over budget | > 100% | " You're $47 over your $600 food budget. Total: $647. This eats into your savings target." |
+|  Unusual | Single transaction > 2x average for category | "That $89 coffee purchase seems unusual — your average is $5.20. Correct amount?" |
 
 ### Pace Tracking (Smart Budget Intelligence)
 
@@ -209,52 +209,52 @@ When checking goals, calculate:
 ### Weekly Summary (run every Sunday or on demand)
 
 ```
-📊 Week of Feb 7-13, 2026
+ Week of Feb 7-13, 2026
 
-💸 Spent: $487.23
-💰 Income: $2,500.00
-📈 Net: +$2,012.77
+ Spent: $487.23
+ Income: $2,500.00
+ Net: +$2,012.77
 
 Top categories:
-  🏠 Housing: $375 (rent proration)
-  🍔 Food: $112.23 (18.7% of budget used, on track)
+   Housing: $375 (rent proration)
+   Food: $112.23 (18.7% of budget used, on track)
 
-⚡ Unusual: $0 flagged
-🎯 Goals: Emergency Fund 35% → 40% (+$500)
-💡 Insight: Food spending down 12% vs last week. Nice work.
+ Unusual: $0 flagged
+ Goals: Emergency Fund 35% → 40% (+$500)
+ Insight: Food spending down 12% vs last week. Nice work.
 ```
 
 ### Monthly Report (run on 1st of each month)
 
 ```
-📊 January 2026 — Full Report
+ January 2026 — Full Report
 
 INCOME:         $5,000.00
 EXPENSES:       $3,847.23
 NET SAVINGS:    $1,152.77 (23.1% savings rate)
 
 BUDGET PERFORMANCE:
-  ✅ Housing:      $1,500 / $1,500 (100%) — on budget
-  ✅ Food:         $534 / $600 (89%) — $66 under
-  ✅ Transport:    $187 / $300 (62%) — $113 under
-  ⚠️ Shopping:     $342 / $300 (114%) — $42 OVER
-  ✅ Entertainment: $156 / $200 (78%) — $44 under
+   Housing:      $1,500 / $1,500 (100%) — on budget
+   Food:         $534 / $600 (89%) — $66 under
+   Transport:    $187 / $300 (62%) — $113 under
+   Shopping:     $342 / $300 (114%) — $42 OVER
+   Entertainment: $156 / $200 (78%) — $44 under
 
 CATEGORY TRENDS (vs last month):
-  📈 Food: +8% ($534 vs $495)
-  📉 Transport: -23% ($187 vs $243) — nice!
-  📈 Shopping: +37% ($342 vs $250) — watch this
+   Food: +8% ($534 vs $495)
+   Transport: -23% ($187 vs $243) — nice!
+   Shopping: +37% ($342 vs $250) — watch this
 
 SAVINGS GOALS:
-  🎯 Emergency Fund: $4,000 / $10,000 (40%) — on track for Aug completion
-  🎯 Vacation: $800 / $2,000 (40%) — on track
+   Emergency Fund: $4,000 / $10,000 (40%) — on track for Aug completion
+   Vacation: $800 / $2,000 (40%) — on track
 
 TOP MERCHANTS:
   1. Aldi — $178 (12 visits)
   2. Amazon — $156 (8 orders)
   3. Shell — $89 (6 fills)
 
-💡 INSIGHTS:
+ INSIGHTS:
   • Shopping was 14% over budget — 3 Amazon orders on Feb 8 totaled $120
   • You saved $113 on transport (worked from home more?)
   • At current savings rate ($1,153/mo), emergency fund complete by August
@@ -264,7 +264,7 @@ TOP MERCHANTS:
 ### Year-to-Date Dashboard (on demand)
 
 ```
-📊 2026 YTD (Jan-Feb)
+ 2026 YTD (Jan-Feb)
 
 Total Income:    $10,000
 Total Expenses:  $7,694
@@ -305,10 +305,10 @@ Calculate monthly:
 | Debt-free spending | 10% | No credit used = 100, some = 50, heavy = 10 |
 
 Score interpretation:
-- 90-100: 💪 Excellent — wealth building mode
-- 70-89: 👍 Good — minor optimizations possible
-- 50-69: ⚠️ Fair — specific areas need attention
-- Below 50: 🚨 Needs work — create an action plan
+- 90-100:  Excellent — wealth building mode
+- 70-89:  Good — minor optimizations possible
+- 50-69:  Fair — specific areas need attention
+- Below 50:  Needs work — create an action plan
 
 ---
 

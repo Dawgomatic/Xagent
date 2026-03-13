@@ -23,16 +23,16 @@ def format_result(result: dict, index: int) -> str:
     # Header based on type
     if doc_type == 'session':
         chunk_idx = metadata.get('chunk_index', '?')
-        header = f"\n📄 Session {source} (chunk {chunk_idx})"
+        header = f"\n Session {source} (chunk {chunk_idx})"
     elif doc_type == 'workspace':
-        header = f"\n📁 {source}"
+        header = f"\n {source}"
     elif doc_type == 'skill':
         skill_name = metadata.get('skill_name', source)
-        header = f"\n📜 Skill: {skill_name}"
+        header = f"\n Skill: {skill_name}"
     elif doc_type == 'memory':
-        header = f"\n🧠 Memory: {source}"
+        header = f"\n Memory: {source}"
     else:
-        header = f"\n🔹 {doc_type}: {source}"
+        header = f"\n {doc_type}: {source}"
 
     # Format text (limit length)
     text = result['text']
@@ -74,9 +74,9 @@ def search(
         List of result dicts
     """
     if verbose:
-        print(f"🔍 Query: {query}")
+        print(f" Query: {query}")
         if filters:
-            print(f"🎯 Filters: {filters}")
+            print(f" Filters: {filters}")
         print()
 
     # Initialize RAG
@@ -87,11 +87,11 @@ def search(
 
     if not results:
         if verbose:
-            print("❌ No results found")
+            print(" No results found")
         return []
 
     if verbose:
-        print(f"✅ Found {len(results)} results\n")
+        print(f" Found {len(results)} results\n")
         print("=" * 80)
 
         for i, result in enumerate(results, 1):
@@ -103,26 +103,26 @@ def search(
 
 def interactive_search(collection_name: str = "openclaw_knowledge"):
     """Interactive search mode"""
-    print("🚀 OpenClaw RAG Search - Interactive Mode")
+    print(" OpenClaw RAG Search - Interactive Mode")
     print("Type 'quit' or 'exit' to stop\n")
 
     rag = RAGSystem(collection_name=collection_name)
 
     # Show stats
     stats = rag.get_stats()
-    print(f"📊 Collection: {stats['collection_name']}")
+    print(f" Collection: {stats['collection_name']}")
     print(f"   Total documents: {stats['total_documents']}")
     print(f"   Storage: {stats['persist_directory']}\n")
 
     while True:
         try:
-            query = input("\n🔍 Search query: ").strip()
+            query = input("\n Search query: ").strip()
 
             if not query:
                 continue
 
             if query.lower() in ['quit', 'exit', 'q']:
-                print("\n👋 Goodbye!")
+                print("\n Goodbye!")
                 break
 
             # Parse filters if any
@@ -138,20 +138,20 @@ def interactive_search(collection_name: str = "openclaw_knowledge"):
             results = rag.search(query, n_results=10, filters=filters)
 
             if results:
-                print(f"\n✅ {len(results)} results:")
+                print(f"\n {len(results)} results:")
                 print("=" * 80)
 
                 for i, result in enumerate(results, 1):
                     print(format_result(result, i))
                     print("=" * 80)
             else:
-                print("❌ No results found")
+                print(" No results found")
 
         except KeyboardInterrupt:
-            print("\n\n👋 Goodbye!")
+            print("\n\n Goodbye!")
             break
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f" Error: {e}")
 
 
 if __name__ == "__main__":

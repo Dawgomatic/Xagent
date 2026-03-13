@@ -27,7 +27,7 @@ metadata: {
 
 This skill allows the agent to request the user to perform a manual login on a website and then capture the session cookies/localStorage for further automated work.
 
-## 🚨 Security & Risk Mitigation
+##  Security & Risk Mitigation
 
 We take security seriously. Below is how we address common concerns related to remote browser control:
 

@@ -33,12 +33,12 @@ def generate_memory_section(rules_data):
 
 ---
 
-## 🧠 LEARNED RULES (Auto-Generated)
+##  LEARNED RULES (Auto-Generated)
 
 *Last updated: {datetime.fromisoformat(generated_at).strftime('%Y-%m-%d %H:%M')}*
 *Based on {rules_data.get('total_rules', len(rules))} patterns from trade history*
 
-### ✅ PREFER (High Win Rate Patterns)
+###  PREFER (High Win Rate Patterns)
 
 """
     
@@ -52,7 +52,7 @@ def generate_memory_section(rules_data):
     else:
         section += "- *No high-confidence PREFER rules yet*\n"
     
-    section += "\n### 🚫 AVOID (Low Win Rate Patterns)\n\n"
+    section += "\n###  AVOID (Low Win Rate Patterns)\n\n"
     
     if avoid_rules:
         for r in avoid_rules:
@@ -62,13 +62,13 @@ def generate_memory_section(rules_data):
         section += "- *No high-confidence AVOID rules yet*\n"
     
     section += """
-### 📋 How to Use These Rules
+###  How to Use These Rules
 
 1. **Before opening a trade:** Check if any AVOID rules apply
 2. **When conditions match PREFER:** Consider the setup more seriously
 3. **Confidence levels:** HIGH = 10+ trades, MEDIUM = 5-9 trades
 
-> ⚠️ These rules are learned from YOUR trading history. They reflect your actual performance, not theoretical strategies.
+>  These rules are learned from YOUR trading history. They reflect your actual performance, not theoretical strategies.
 
 """
     
@@ -80,25 +80,25 @@ def update_memory_file(memory_path, dry_run=False):
     rules_data = load_rules()
     
     if not rules_data:
-        print("❌ No learned rules found. Run generate_rules.py first!")
+        print(" No learned rules found. Run generate_rules.py first!")
         return False
     
     new_section = generate_memory_section(rules_data)
     if not new_section:
-        print("❌ Could not generate rules section.")
+        print(" Could not generate rules section.")
         return False
     
     memory_path = Path(memory_path)
     
     if not memory_path.exists():
-        print(f"❌ Memory file not found: {memory_path}")
+        print(f" Memory file not found: {memory_path}")
         return False
     
     with open(memory_path, "r") as f:
         content = f.read()
     
     # Remove existing learned rules section if present
-    pattern = r'\n---\n\n## 🧠 LEARNED RULES \(Auto-Generated\).*?(?=\n---\n|\n## [^🧠]|\Z)'
+    pattern = r'\n---\n\n##  LEARNED RULES \(Auto-Generated\).*?(?=\n---\n|\n## [^]|\Z)'
     content = re.sub(pattern, '', content, flags=re.DOTALL)
     
     # Remove trailing whitespace
@@ -108,7 +108,7 @@ def update_memory_file(memory_path, dry_run=False):
     new_content = content + new_section
     
     if dry_run:
-        print("📄 DRY RUN - Would add this section:\n")
+        print(" DRY RUN - Would add this section:\n")
         print("=" * 50)
         print(new_section)
         print("=" * 50)
@@ -118,7 +118,7 @@ def update_memory_file(memory_path, dry_run=False):
     with open(memory_path, "w") as f:
         f.write(new_content)
     
-    print(f"✅ Updated: {memory_path}")
+    print(f" Updated: {memory_path}")
     print(f"   Added {len(rules_data['rules'])} learned rules")
     return True
 
@@ -133,7 +133,7 @@ def main():
     success = update_memory_file(args.memory_path, args.dry_run)
     
     if success and not args.dry_run:
-        print("\n🧠 Agent memory updated with learned trading rules!")
+        print("\n Agent memory updated with learned trading rules!")
         print("   The agent will now consider these patterns in future trades.")
 
 

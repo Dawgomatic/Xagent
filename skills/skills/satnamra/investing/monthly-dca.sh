@@ -2,7 +2,7 @@
 # Calculate monthly DCA amounts based on budget
 BUDGET=${1:-500}  # Default €500/month
 
-echo "💰 Monthly DCA Plan"
+echo " Monthly DCA Plan"
 echo "==================="
 echo "Budget: €$BUDGET"
 echo ""

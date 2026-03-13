@@ -114,10 +114,10 @@ Plugins with `export_to_journal: true` must provide their output in this format:
 ```yaml
 plugin_output:
   section_id: "finance"           # Unique section identifier
-  section_title: "💰 财务记录"    # Display title with emoji
+  section_title: " 财务记录"    # Display title with emoji
   section_order: 50               # Position (0-100, lower = earlier)
   content: |
-    > [!expense] 🍜 12:30 午餐
+    > [!expense]  12:30 午餐
     > 和同事吃火锅 | **¥150** | 餐饮
   summary:                        # Optional: for Growth Notes
     - "今日支出 ¥449"

@@ -7,7 +7,7 @@ description: |
   ask grok, grok chat, analyze voice, x trends.
 metadata:
   openclaw:
-    emoji: "🔎"
+    emoji: ""
     requires:
       bins: ["node"]
       env: ["XAI_API_KEY"]

@@ -224,14 +224,14 @@ def show_stats(agent_name: str) -> None:
             src = src_match.group(1)
             sources[src] = sources.get(src, 0) + 1
     
-    print(f"\n📊 Agent: {agent_name}")
+    print(f"\n Agent: {agent_name}")
     print(f"   總記憶數: {len(memories)}")
-    print(f"\n📁 分類分佈:")
+    print(f"\n 分類分佈:")
     for cat, count in sorted(categories.items(), key=lambda x: -x[1]):
         print(f"   {cat}: {count}")
     
     if sources:
-        print(f"\n📎 來源分佈:")
+        print(f"\n 來源分佈:")
         for src, count in sorted(sources.items(), key=lambda x: -x[1])[:5]:
             print(f"   {src}: {count}")
 

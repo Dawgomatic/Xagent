@@ -60,7 +60,7 @@ Bandwidth:    100GB/day = 1.2 MB/sec (avg)
 **Start with basic components:**
 ```
 ┌──────────┐     ┌──────────┐     ┌──────────┐
-│  Client  │────▶│   API    │────▶│ Database │
+│  Client  │────│   API    │────│ Database │
 └──────────┘     └──────────┘     └──────────┘
 ```
 
@@ -308,9 +308,9 @@ E-commerce:
 
 **Relationship types:**
 ```
-User ──1:N──▶ Order       (one user, many orders)
-Order ──1:N──▶ OrderItem  (one order, many items)
-Product ──1:N──▶ OrderItem (one product, many order items)
+User ──1:N── Order       (one user, many orders)
+Order ──1:N── OrderItem  (one order, many items)
+Product ──1:N── OrderItem (one product, many order items)
 ```
 
 ### Step 3: Choose Primary Keys

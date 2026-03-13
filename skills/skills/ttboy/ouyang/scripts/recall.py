@@ -25,7 +25,7 @@ try:
     import chromadb
     from sentence_transformers import SentenceTransformer
 except ImportError as e:
-    print(f"❌ Missing dependency: {e}", file=sys.stderr)
+    print(f" Missing dependency: {e}", file=sys.stderr)
     print("Run 'npx jasper-recall setup' to install dependencies.", file=sys.stderr)
     sys.exit(1)
 
@@ -39,7 +39,7 @@ def main():
     args = parser.parse_args()
     
     if not os.path.exists(CHROMA_DIR):
-        print("❌ No index found. Run 'index-digests' first.", file=sys.stderr)
+        print(" No index found. Run 'index-digests' first.", file=sys.stderr)
         sys.exit(1)
     
     # Load model and database
@@ -49,7 +49,7 @@ def main():
     try:
         collection = client.get_collection("jasper_memory")
     except Exception:
-        print("❌ Collection not found. Run 'index-digests' first.", file=sys.stderr)
+        print(" Collection not found. Run 'index-digests' first.", file=sys.stderr)
         sys.exit(1)
     
     # Embed query
@@ -66,7 +66,7 @@ def main():
         if args.json:
             print("[]")
         else:
-            print(f"🔍 No results for: \"{args.query}\"")
+            print(f" No results for: \"{args.query}\"")
         return
     
     if args.json:
@@ -84,7 +84,7 @@ def main():
             })
         print(json.dumps(output, indent=2))
     else:
-        print(f"🔍 Results for: \"{args.query}\"\n")
+        print(f" Results for: \"{args.query}\"\n")
         
         for i, (doc, meta, dist) in enumerate(zip(
             results['documents'][0],

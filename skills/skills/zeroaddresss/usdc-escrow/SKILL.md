@@ -3,7 +3,7 @@ name: usdc-escrow
 description: "Trustless USDC escrow for agent-to-agent payments on Base. Create, release, dispute escrows via simple commands."
 metadata:
   openclaw:
-    emoji: "🔐"
+    emoji: ""
     requires:
       bins: [curl, jq]
 ---

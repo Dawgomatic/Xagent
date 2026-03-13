@@ -9,7 +9,7 @@ crit() { EXIT_CODE=2; }
 has() { command -v "$1" >/dev/null 2>&1; }
 
 echo "══════════════════════════════════════"
-echo "  🍓 Raspberry Pi Health Report"
+echo "   Raspberry Pi Health Report"
 echo "══════════════════════════════════════"
 echo ""
 
@@ -20,16 +20,16 @@ if [[ -f /sys/class/thermal/thermal_zone0/temp ]]; then
   raw=$(cat /sys/class/thermal/thermal_zone0/temp)
   temp=$(awk "BEGIN { printf \"%.1f\", $raw / 1000 }")
   if (( $(echo "$temp > $TEMP_CRIT" | bc -l) )); then
-    echo "🔴 CPU Temp:       ${temp}°C (CRITICAL >$TEMP_CRIT)"
+    echo " CPU Temp:       ${temp}°C (CRITICAL >$TEMP_CRIT)"
     crit
   elif (( $(echo "$temp > $TEMP_WARN" | bc -l) )); then
-    echo "⚠️  CPU Temp:       ${temp}°C (WARNING >$TEMP_WARN)"
+    echo "  CPU Temp:       ${temp}°C (WARNING >$TEMP_WARN)"
     warn
   else
-    echo "✅ CPU Temp:       ${temp}°C"
+    echo " CPU Temp:       ${temp}°C"
   fi
 else
-  echo "⚠️  CPU Temp:       unavailable"
+  echo "  CPU Temp:       unavailable"
   warn
 fi
 
@@ -39,24 +39,24 @@ if has vcgencmd; then
   # Remove 0x prefix for arithmetic
   throttle_val=$((${raw_throttle}))
   if ((throttle_val != 0)); then
-    echo "⚠️  Throttling:     ${raw_throttle}"
+    echo "  Throttling:     ${raw_throttle}"
     # Decode current flags (bits 0-3)
-    ((throttle_val & 0x1))  && echo "   ├─ 🔴 Under-voltage detected!"
-    ((throttle_val & 0x2))  && echo "   ├─ ⚠️  ARM frequency capped"
-    ((throttle_val & 0x4))  && echo "   ├─ ⚠️  Currently throttled"
-    ((throttle_val & 0x8))  && echo "   ├─ ⚠️  Soft temperature limit"
+    ((throttle_val & 0x1))  && echo "   ├─  Under-voltage detected!"
+    ((throttle_val & 0x2))  && echo "   ├─   ARM frequency capped"
+    ((throttle_val & 0x4))  && echo "   ├─   Currently throttled"
+    ((throttle_val & 0x8))  && echo "   ├─   Soft temperature limit"
     # Historical flags (bits 16-19)
-    ((throttle_val & 0x10000))  && echo "   ├─ 📋 Under-voltage occurred (past)"
-    ((throttle_val & 0x20000))  && echo "   ├─ 📋 ARM freq capped (past)"
-    ((throttle_val & 0x40000))  && echo "   ├─ 📋 Throttling occurred (past)"
-    ((throttle_val & 0x80000))  && echo "   └─ 📋 Soft temp limit (past)"
+    ((throttle_val & 0x10000))  && echo "   ├─  Under-voltage occurred (past)"
+    ((throttle_val & 0x20000))  && echo "   ├─  ARM freq capped (past)"
+    ((throttle_val & 0x40000))  && echo "   ├─  Throttling occurred (past)"
+    ((throttle_val & 0x80000))  && echo "   └─  Soft temp limit (past)"
     # Under-voltage is critical, others are warnings
     ((throttle_val & 0x1)) && crit || warn
   else
-    echo "✅ Throttling:     none"
+    echo " Throttling:     none"
   fi
 else
-  echo "⚠️  Throttling:     vcgencmd not found"
+  echo "  Throttling:     vcgencmd not found"
   warn
 fi
 
@@ -80,13 +80,13 @@ if mem=$(free -m 2>/dev/null); then
   swap_total=$(echo "$mem" | awk '/^Swap:/ {print $2}')
   
   if ((ram_pct > 90)); then
-    echo "🔴 Memory:         ${ram_used}/${ram_total}MB (${ram_pct}%) CRITICAL"
+    echo " Memory:         ${ram_used}/${ram_total}MB (${ram_pct}%) CRITICAL"
     crit
   elif ((ram_pct > 75)); then
-    echo "⚠️  Memory:         ${ram_used}/${ram_total}MB (${ram_pct}%)"
+    echo "  Memory:         ${ram_used}/${ram_total}MB (${ram_pct}%)"
     warn
   else
-    echo "✅ Memory:         ${ram_used}/${ram_total}MB (${ram_pct}%)"
+    echo " Memory:         ${ram_used}/${ram_total}MB (${ram_pct}%)"
   fi
   
   if ((swap_total > 0 && swap_used > 0)); then
@@ -105,13 +105,13 @@ if [[ -n "$root_line" ]]; then
   disk_pct=$(echo "$root_line" | awk '{print $5}' | tr -d '%')
   
   if ((disk_pct > 90)); then
-    echo "🔴 Disk:           ${disk_used}/${disk_size} (${disk_pct}%) CRITICAL"
+    echo " Disk:           ${disk_used}/${disk_size} (${disk_pct}%) CRITICAL"
     crit
   elif ((disk_pct > 75)); then
-    echo "⚠️  Disk:           ${disk_used}/${disk_size} (${disk_pct}%)"
+    echo "  Disk:           ${disk_used}/${disk_size} (${disk_pct}%)"
     warn
   else
-    echo "✅ Disk:           ${disk_used}/${disk_size} (${disk_pct}%)"
+    echo " Disk:           ${disk_used}/${disk_size} (${disk_pct}%)"
   fi
 fi
 
@@ -122,9 +122,9 @@ if [[ -f "$cur_path" ]]; then
   cur_mhz=$(awk "BEGIN { printf \"%.0f\", $(cat "$cur_path") / 1000 }")
   if [[ -f "$max_path" ]]; then
     max_mhz=$(awk "BEGIN { printf \"%.0f\", $(cat "$max_path") / 1000 }")
-    echo "✅ CPU Freq:       ${cur_mhz}/${max_mhz} MHz"
+    echo " CPU Freq:       ${cur_mhz}/${max_mhz} MHz"
   else
-    echo "✅ CPU Freq:       ${cur_mhz} MHz"
+    echo " CPU Freq:       ${cur_mhz} MHz"
   fi
 fi
 
@@ -143,13 +143,13 @@ if [[ -f /proc/uptime ]]; then
   uptime_str="${uptime_str}${hours}h ${mins}m"
   
   if (( $(echo "$load1 > $ncpu * 2" | bc -l) )); then
-    echo "🔴 Uptime:         ${uptime_str} | Load: ${load} (HIGH)"
+    echo " Uptime:         ${uptime_str} | Load: ${load} (HIGH)"
     crit
   elif (( $(echo "$load1 > $ncpu" | bc -l) )); then
-    echo "⚠️  Uptime:         ${uptime_str} | Load: ${load}"
+    echo "  Uptime:         ${uptime_str} | Load: ${load}"
     warn
   else
-    echo "✅ Uptime:         ${uptime_str} | Load: ${load}"
+    echo " Uptime:         ${uptime_str} | Load: ${load}"
   fi
 fi
 
@@ -158,15 +158,15 @@ fan_input=$(find /sys/class/hwmon/*/fan1_input 2>/dev/null | head -1)
 if [[ -n "$fan_input" && -f "$fan_input" ]]; then
   rpm=$(cat "$fan_input" 2>/dev/null)
   if ((rpm > 0)); then
-    echo "✅ Fan:            ${rpm} RPM"
+    echo " Fan:            ${rpm} RPM"
   else
-    echo "✅ Fan:            off (passive cooling)"
+    echo " Fan:            off (passive cooling)"
   fi
 elif [[ -d /sys/class/thermal/cooling_device0 ]]; then
   state=$(cat /sys/class/thermal/cooling_device0/cur_state 2>/dev/null || echo "?")
-  echo "✅ Fan:            cooling state $state"
+  echo " Fan:            cooling state $state"
 else
-  echo "✅ Fan:            no fan detected"
+  echo " Fan:            no fan detected"
 fi
 
 # ── Overclock ──
@@ -175,36 +175,36 @@ config_file="/boot/firmware/config.txt"
 if [[ -f "$config_file" ]]; then
   oc_lines=$(grep -E "^(over_voltage|arm_freq|gpu_freq|force_turbo)" "$config_file" 2>/dev/null)
   if [[ -n "$oc_lines" ]]; then
-    echo "⚠️  Overclock:      detected"
+    echo "  Overclock:      detected"
     while IFS= read -r line; do
       echo "   └─ $line"
     done <<< "$oc_lines"
     warn
   else
-    echo "✅ Overclock:      stock settings"
+    echo " Overclock:      stock settings"
   fi
 else
-  echo "✅ Overclock:      config not found"
+  echo " Overclock:      config not found"
 fi
 
 # ── Power Issues (dmesg) ──
 if uv_count=$(dmesg 2>/dev/null | grep -ci "under.voltage"); then
   if ((uv_count > 0)); then
-    echo "🔴 Power:          $uv_count under-voltage events in dmesg!"
+    echo " Power:          $uv_count under-voltage events in dmesg!"
     crit
   else
-    echo "✅ Power:          no issues"
+    echo " Power:          no issues"
   fi
 else
-  echo "✅ Power:          dmesg not accessible"
+  echo " Power:          dmesg not accessible"
 fi
 
 echo ""
 echo "══════════════════════════════════════"
 case $EXIT_CODE in
-  0) echo "  Status: ✅ HEALTHY" ;;
-  1) echo "  Status: ⚠️  WARNINGS" ;;
-  2) echo "  Status: 🔴 CRITICAL" ;;
+  0) echo "  Status:  HEALTHY" ;;
+  1) echo "  Status:   WARNINGS" ;;
+  2) echo "  Status:  CRITICAL" ;;
 esac
 echo "══════════════════════════════════════"
 

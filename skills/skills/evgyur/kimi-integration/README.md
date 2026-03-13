@@ -71,12 +71,12 @@ clawdbot models list
 
 ## Features
 
-- ✅ Complete configuration examples for both providers
-- ✅ Multi-model setup with failover support
-- ✅ Model aliases for quick switching
-- ✅ API connection test script
-- ✅ Troubleshooting guide
-- ✅ Cost and context window specifications
+-  Complete configuration examples for both providers
+-  Multi-model setup with failover support
+-  Model aliases for quick switching
+-  API connection test script
+-  Troubleshooting guide
+-  Cost and context window specifications
 
 ## Available Models
 

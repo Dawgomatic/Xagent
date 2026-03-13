@@ -4,7 +4,7 @@ version: 1.0.0
 description: Personal habit coach that tracks daily habits, streaks, and provides AI-powered coaching. Say things like "track a new habit", "log my habits", "show my streaks", or "coach me".
 author: Dinesh18S
 homepage: https://github.com/Dinesh18S/dailyping
-metadata: {"openclaw": {"emoji": "🔥", "requires": {"bins": ["python3"]}, "homepage": "https://github.com/Dinesh18S/dailyping"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["python3"]}, "homepage": "https://github.com/Dinesh18S/dailyping"}}
 ---
 
 # HabitChat - Your Personal Habit Coach

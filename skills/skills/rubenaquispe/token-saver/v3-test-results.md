@@ -8,7 +8,7 @@
 
 ## Feature Tests
 
-### ✅ 1. Model Registry
+###  1. Model Registry
 ```
 node skills/token-saver/scripts/optimizer.js models
 ```
@@ -17,7 +17,7 @@ node skills/token-saver/scripts/optimizer.js models
 - Correct context windows (Claude 200K, GPT-4o 128K, Gemini 1M)
 - Alias resolution working (tested "opus", "sonnet", "gemini-flash")
 
-### ✅ 2. Dynamic Presets
+###  2. Dynamic Presets
 | Model | Aggressive | Balanced | Conservative |
 |-------|------------|----------|--------------|
 | Claude Sonnet (200K) | 80K | 120K | 160K |
@@ -26,7 +26,7 @@ node skills/token-saver/scripts/optimizer.js models
 
 **Result:** PASS — All presets calculate correctly as % of model's context
 
-### ✅ 3. Savings Scale with Model Pricing
+###  3. Savings Scale with Model Pricing
 | Model | Tier | Aggressive Savings |
 |-------|------|-------------------|
 | Claude Sonnet | Standard ($0.003/1K) | $200/mo |
@@ -35,38 +35,38 @@ node skills/token-saver/scripts/optimizer.js models
 
 **Result:** PASS — Savings scale with input pricing (5x for Opus, 0 for free)
 
-### ✅ 4. Model Detection Fallback Chain
+###  4. Model Detection Fallback Chain
 | Test | Detection Source | Result |
 |------|------------------|--------|
-| Default (no override) | openclaw.json | ✅ Claude Opus 4.5 |
-| `--model=gpt-4o` flag | runtime | ✅ GPT-4o |
-| `--model=gemini` flag | runtime (fuzzy) | ✅ Gemini 2.0 Flash |
+| Default (no override) | openclaw.json |  Claude Opus 4.5 |
+| `--model=gpt-4o` flag | runtime |  GPT-4o |
+| `--model=gemini` flag | runtime (fuzzy) |  Gemini 2.0 Flash |
 
 **Result:** PASS — Detection chain works, fuzzy matching handles partial names
 
-### ✅ 5. Context Usage Display
+###  5. Context Usage Display
 ```
-📊 **Context Usage:** [█░░░░░░░░░░░░░░░░░░░] 5% (10K/200K)
+ **Context Usage:** [█░░░░░░░░░░░░░░░░░░░] 5% (10K/200K)
 ```
 **Result:** PASS — Visual bar + percentage shows current usage
 
-### ✅ 6. Smart Bypass for Already-Optimized
+###  6. Smart Bypass for Already-Optimized
 | File | Has Markers | Skipped |
 |------|-------------|---------|
-| USER.md | Yes (compressed format) | ✅ |
-| SOUL.md | Yes (compressed format) | ✅ |
-| MEMORY.md | Yes (compressed format) | ✅ |
+| USER.md | Yes (compressed format) |  |
+| SOUL.md | Yes (compressed format) |  |
+| MEMORY.md | Yes (compressed format) |  |
 | AGENTS.md | No | Compressible |
 
 **Result:** PASS — Files with token-saver patterns are skipped
 
-### ✅ 7. Compaction Settings Apply
+###  7. Compaction Settings Apply
 ```bash
 node skills/token-saver/scripts/optimizer.js compaction balanced
 ```
 **Result:** PASS — Config saved to .token-saver-config.json
 
-### ✅ 8. Dashboard Display
+###  8. Dashboard Display
 - Model name + context shown
 - Detection source shown
 - Context usage bar renders correctly
@@ -79,12 +79,12 @@ node skills/token-saver/scripts/optimizer.js compaction balanced
 
 | Scenario | Expected | Actual |
 |----------|----------|--------|
-| Unknown model name | Fallback to Sonnet | ✅ |
-| models.json missing | Use inline defaults | ✅ |
-| No sessions found | Show "No data" | ✅ |
-| Already optimized files | Skip | ✅ |
-| Custom threshold (decimal) | Accept 0.2-1.0 | ✅ |
-| Custom threshold (K value) | Accept 20-context/1000 | ✅ |
+| Unknown model name | Fallback to Sonnet |  |
+| models.json missing | Use inline defaults |  |
+| No sessions found | Show "No data" |  |
+| Already optimized files | Skip |  |
+| Custom threshold (decimal) | Accept 0.2-1.0 |  |
+| Custom threshold (K value) | Accept 20-context/1000 |  |
 
 ## Performance
 - Dashboard render: <1 second
@@ -99,19 +99,19 @@ node skills/token-saver/scripts/optimizer.js compaction balanced
 ## Summary
 | Metric | Status |
 |--------|--------|
-| Features Complete | 8/8 ✅ |
-| Tests Passing | 8/8 ✅ |
-| Edge Cases Handled | 6/6 ✅ |
+| Features Complete | 8/8  |
+| Tests Passing | 8/8  |
+| Edge Cases Handled | 6/6  |
 | Bugs Fixed | 3 |
 | Quality Score | 10/10 |
 
 ## Stability Passes
 - **Pass 1:** Found 3 bugs (fixed)
-- **Pass 2:** No issues found ✅
-- **Pass 3:** Found README.md outdated (updated) ✅
-- **Pass 4:** No issues found ✅
-- **Pass 5:** No issues found ✅
-- **Pass 6:** No issues found ✅
+- **Pass 2:** No issues found 
+- **Pass 3:** Found README.md outdated (updated) 
+- **Pass 4:** No issues found 
+- **Pass 5:** No issues found 
+- **Pass 6:** No issues found 
 
 **Stability achieved:** 3 consecutive passes with no improvements found.
 

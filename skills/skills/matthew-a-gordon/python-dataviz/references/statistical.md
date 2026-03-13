@@ -164,8 +164,8 @@ plt.text(0.95, 0.95, stats_text, transform=plt.gca().transAxes,
 
 ## Common Pitfalls
 
-❌ **Bar charts for means**: Use box/violin plots instead (show distribution)
-❌ **Pie charts for >5 categories**: Use bar chart
-❌ **Dual y-axes**: Misleading, avoid when possible
-❌ **3D charts**: Harder to read, stick to 2D
-❌ **Truncated y-axis**: Can exaggerate differences (use with caution)
+ **Bar charts for means**: Use box/violin plots instead (show distribution)
+ **Pie charts for >5 categories**: Use bar chart
+ **Dual y-axes**: Misleading, avoid when possible
+ **3D charts**: Harder to read, stick to 2D
+ **Truncated y-axis**: Can exaggerate differences (use with caution)

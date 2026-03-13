@@ -8,7 +8,7 @@ This skill enables OpenClaw to spin up a browser and perform comprehensive testi
 
 ## Capabilities
 
-### 🧪 Testing Types
+###  Testing Types
 
 1. **Functional Testing**
    - Form validation
@@ -432,4 +432,4 @@ retry:
 
 ---
 
-**Happy Testing!** 🧪🔍✨
+**Happy Testing!** 

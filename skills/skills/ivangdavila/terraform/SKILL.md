@@ -1,7 +1,7 @@
 ---
 name: Terraform
 description: Avoid common Terraform mistakes — state corruption, count vs for_each, lifecycle traps, and dependency ordering.
-metadata: {"clawdbot":{"emoji":"🟪","requires":{"bins":["terraform"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["terraform"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## State Management

@@ -43,7 +43,7 @@ python3 skills/deploy-kit/scripts/deploy.py recommend <chemin>
 python3 skills/deploy-kit/scripts/deploy.py deploy <chemin> --platform <vercel|railway|supabase>
 ```
 
-⚠️ **TOUJOURS demander confirmation avant de déployer.** Le script demande aussi une confirmation interactive.
+ **TOUJOURS demander confirmation avant de déployer.** Le script demande aussi une confirmation interactive.
 
 ## Détection de projet — Règles
 

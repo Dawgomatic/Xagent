@@ -113,10 +113,10 @@ def tts_synthesize(text, voice="siyue", format="mp3", sample_rate=16000, output_
     if "audio" in content_type:
         with open(output_file, "wb") as f:
             f.write(body)
-        print(f"✅ 语音已保存: {output_file}")
+        print(f" 语音已保存: {output_file}")
         return True
     else:
-        print(f"❌ 失败: {body.decode()[:300]}", file=sys.stderr)
+        print(f" 失败: {body.decode()[:300]}", file=sys.stderr)
         return False
 
 if __name__ == "__main__":

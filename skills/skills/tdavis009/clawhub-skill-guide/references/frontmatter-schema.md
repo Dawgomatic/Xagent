@@ -30,7 +30,7 @@ name: My API Skill
 - **Type:** string (multi-line recommended)
 - **Required:** Yes
 - **Scanner check:** Must be present and substantive. Short or vague descriptions
-  may trigger ℹ on PURPOSE & CAPABILITY.
+  may trigger  on PURPOSE & CAPABILITY.
 
 The description serves as the primary trigger mechanism. Include:
 - Concrete actions the skill performs
@@ -200,7 +200,7 @@ category: "developer-tools"
 - **Purpose:** Display icon in ClawHub listings.
 
 ```yaml
-emoji: "🔧"
+emoji: ""
 ```
 
 ### `version`
@@ -255,7 +255,7 @@ requires:
   - "curl CLI tool"
 homepage: "https://github.com/example/example-api-manager"
 category: "api-integrations"
-emoji: "🔌"
+emoji: ""
 ---
 ```
 
@@ -284,7 +284,7 @@ description: >
   Complete PDF suite for all document operations including editing,
   signing, encrypting, converting, and managing PDFs.
 ---
-# Result: ℹ on PURPOSE & CAPABILITY (description overpromises)
+# Result:  on PURPOSE & CAPABILITY (description overpromises)
 ```
 
 ### Inline JSON metadata

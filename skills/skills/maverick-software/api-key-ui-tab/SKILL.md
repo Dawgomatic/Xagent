@@ -3,7 +3,7 @@ name: apikeys-ui
 description: API Keys management UI tab for OpenClaw dashboard. Enter and save API keys directly in the browser without exposing them to the AI agent. Shows which keys are configured, which are missing, and provides secure input fields for each.
 version: 1.1.0
 author: OpenClaw Community
-metadata: {"clawdbot":{"emoji":"🔑","requires":{"clawdbot":">=2026.1.0"},"category":"settings"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"clawdbot":">=2026.1.0"},"category":"settings"}}
 ---
 
 # API Keys UI
@@ -19,7 +19,7 @@ Adds an **API Keys** tab to the OpenClaw Control dashboard under **Settings**. M
 | **Key Status** | See which keys are configured (✓) or missing |
 | **Secure Input** | Password fields — keys never displayed after saving |
 | **Direct Save** | Keys go straight to config via `config.patch` RPC |
-| **Provider Links** | "Get key ↗" buttons for known providers |
+| **Provider Links** | "Get key " buttons for known providers |
 | **Clear Keys** | Remove keys from config with one click |
 | **Auto-Grouping** | Keys grouped by Environment / Skills / Other |
 
@@ -130,7 +130,7 @@ apikeys-ui/
    - Groups keys by category (env / skills / other)
    - Renders password inputs with save/clear buttons
    - Shows masked preview for configured keys
-   - "Get key ↗" links for known providers
+   - "Get key " links for known providers
 
 3. **Security**:
    - Keys entered in browser go directly to gateway via WebSocket

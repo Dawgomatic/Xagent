@@ -11,13 +11,13 @@ description: >
   API keys, or file contents.
 ---
 
-# Mission Control 🚀
+# Mission Control 
 
 A real-time dashboard showing what your OpenClaw agent is doing, cron job health, issues requiring attention, and recent activity. Check it from anywhere — your phone, your laptop, wherever.
 
 ## Quick Start
 
-### Tier 1 — Canvas (Zero Setup) ⚡
+### Tier 1 — Canvas (Zero Setup) 
 
 No external services. The agent renders the dashboard directly in your OpenClaw session.
 
@@ -35,7 +35,7 @@ That's it. No deploy, no accounts, nothing to configure.
 
 ---
 
-### Tier 2 — GitHub Pages + Polling (Recommended) 🌐
+### Tier 2 — GitHub Pages + Polling (Recommended) 
 
 Free hosting with 30-second auto-refresh. Takes 2 minutes to set up.
 
@@ -71,7 +71,7 @@ Your dashboard is now live at `https://YOUR_USERNAME.github.io/mission-control/`
 
 ---
 
-### Tier 3 — Supabase Realtime + Vercel (Premium) ⚡🔥
+### Tier 3 — Supabase Realtime + Vercel (Premium) 
 
 True websocket realtime — updates appear in under 1 second.
 
@@ -115,7 +115,7 @@ export SUPABASE_ANON_KEY="eyJ..."  # Same anon key used by the dashboard
 
 ---
 
-## 🔄 Keeping It Fresh — Auto-Update Mechanism
+##  Keeping It Fresh — Auto-Update Mechanism
 
 **The dashboard updates itself automatically.** Here's how:
 
@@ -154,10 +154,10 @@ prompt: |
 
 Beyond the periodic cron, the agent pushes updates **immediately** when significant events happen:
 
-- ✅ Task starts or finishes
-- ❌ Errors or failures
-- 🚀 Deploys complete
-- 📧 Important notifications arrive
+-  Task starts or finishes
+-  Errors or failures
+-  Deploys complete
+-  Important notifications arrive
 
 This means the dashboard reflects changes within seconds, not just every 30 minutes.
 
@@ -168,7 +168,7 @@ After this deploy finishes, push an update to Mission Control.
 
 ### 3. Force Update Button
 
-Every dashboard tier includes a **🔄 Update** button in the header:
+Every dashboard tier includes a ** Update** button in the header:
 - **Tier 2:** Re-fetches `dashboard-data.json` immediately
 - **Tier 3:** Re-fetches from Supabase immediately
 - Resets the "Updated X ago" timer
@@ -184,22 +184,22 @@ The combination of **periodic cron + real-time pushes + manual refresh** keeps y
 
 ## Dashboard Features
 
-### 🚨 Action Required
+###  Action Required
 Urgent items that need your attention. Highlighted at the top with priority badges (high/medium/low).
 
-### ⚡ Active Now
+###  Active Now
 What the agent is currently working on, with model name and duration.
 
-### 📊 Products
+###  Products
 Your product cards with live/testing/down status badges.
 
-### ⏰ Cron Jobs
+###  Cron Jobs
 Table showing all scheduled jobs with status, last run time, and error counts. Click to expand error details.
 
-### 📋 Recent Activity
+###  Recent Activity
 Timeline of recent events and accomplishments.
 
-### 🔴 Live Indicator (Tier 3 only)
+###  Live Indicator (Tier 3 only)
 Green pulsing dot shows websocket is connected. Flash animation when data updates.
 
 ---
@@ -276,7 +276,7 @@ The dashboard expects JSON in this format:
   "recentActivity": [
     {
       "time": "2024-01-15T11:30:00Z",
-      "event": "✅ Deployed v2.1.0 to production"
+      "event": " Deployed v2.1.0 to production"
     }
   ]
 }
@@ -299,7 +299,7 @@ The dashboard expects JSON in this format:
 
 ### What This Skill Does and Doesn't Do
 
-| ✅ Does | ❌ Doesn't |
+|  Does |  Doesn't |
 |---------|-----------|
 | Render HTML dashboards | Read local files (no HEARTBEAT.md, no memory files, no source code) |
 | Push operational status to YOUR services | Send data to third-party services |
@@ -312,15 +312,15 @@ The dashboard pushes ONLY these fields — nothing else:
 
 | Field | Example | Contains secrets? |
 |-------|---------|-------------------|
-| `actionRequired[].title` | "Review PR #42" | ❌ No |
-| `activeNow[].task` | "Deploying v2.0" | ❌ No |
-| `products[].name` | "My App" | ❌ No |
-| `products[].url` | "https://myapp.com" | ❌ No (public URLs only) |
-| `products[].status` | "live" | ❌ No |
-| `crons[].name` | "Daily Report" | ❌ No |
-| `crons[].status` | "ok" / "error" | ❌ No |
-| `crons[].lastError` | "timeout after 30s" | ❌ No (error messages only) |
-| `recentActivity[].event` | "✅ Deployed v2.1" | ❌ No |
+| `actionRequired[].title` | "Review PR #42" |  No |
+| `activeNow[].task` | "Deploying v2.0" |  No |
+| `products[].name` | "My App" |  No |
+| `products[].url` | "https://myapp.com" |  No (public URLs only) |
+| `products[].status` | "live" |  No |
+| `crons[].name` | "Daily Report" |  No |
+| `crons[].status` | "ok" / "error" |  No |
+| `crons[].lastError` | "timeout after 30s" |  No (error messages only) |
+| `recentActivity[].event` | " Deployed v2.1" |  No |
 
 **Never pushed:** passwords, API keys, tokens, file contents, database credentials, user data, or PII. The agent builds the JSON from operational status only — task names, timestamps, and status codes.
 
@@ -330,8 +330,8 @@ The auto-update cron uses ONLY OpenClaw built-in APIs:
 
 | Source | What it extracts | Sensitive? |
 |--------|-----------------|------------|
-| `cron list` (OpenClaw API) | Job names, status, error counts | ❌ No |
-| `sessions_list` (OpenClaw API) | Active task labels, models | ❌ No |
+| `cron list` (OpenClaw API) | Job names, status, error counts |  No |
+| `sessions_list` (OpenClaw API) | Active task labels, models |  No |
 
 **No local files are read.** The cron does not access HEARTBEAT.md, memory files, source code, or any other files on disk. Action items and recent activity are added manually by the user via the "Manual Update" command.
 

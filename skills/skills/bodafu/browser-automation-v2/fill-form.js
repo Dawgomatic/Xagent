@@ -10,7 +10,7 @@ const BrowserManager = require('./browser-manager.v2');
 const [url, fieldsJson] = process.argv.slice(2);
 
 if (!url || !fieldsJson) {
-  console.error('❌ 参数错误');
+  console.error(' 参数错误');
   console.log('用法: node fill-form.js "https://example.com/form" \'{"username":"test","email":"test@example.com"}\'');
   process.exit(1);
 }
@@ -19,7 +19,7 @@ let fields;
 try {
   fields = JSON.parse(fieldsJson);
 } catch (e) {
-  console.error('❌ JSON 格式错误:', e.message);
+  console.error(' JSON 格式错误:', e.message);
   process.exit(1);
 }
 
@@ -27,7 +27,7 @@ async function main() {
   const browser = new BrowserManager();
   
   try {
-    console.log(`📝 填写表单: ${url}`);
+    console.log(` 填写表单: ${url}`);
     console.log('字段:', fields);
     
     await browser.start();
@@ -56,7 +56,7 @@ async function main() {
       }
     }
     
-    console.log('🔍 识别到字段映射:', refs);
+    console.log(' 识别到字段映射:', refs);
     
     // 填充字段
     let completed = 0;
@@ -65,7 +65,7 @@ async function main() {
     for (const [fieldName, value] of Object.entries(fields)) {
       const ref = refs[fieldName];
       if (!ref) {
-        console.warn(`⚠️ 未找到字段 "${fieldName}" 的输入框`);
+        console.warn(` 未找到字段 "${fieldName}" 的输入框`);
         completed++;
         if (completed === total) finish();
         continue;
@@ -79,8 +79,8 @@ async function main() {
     }
     
     function finish() {
-      console.log('\n🎉 表单填写完成！');
-      console.log('💡 提示: 可能需要手动点击提交按钮，或使用 browser click <ref> 自动提交');
+      console.log('\n 表单填写完成！');
+      console.log(' 提示: 可能需要手动点击提交按钮，或使用 browser click <ref> 自动提交');
       browser.cleanup();
     }
     

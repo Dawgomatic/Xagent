@@ -78,7 +78,7 @@ class WaniKaniQueries:
             if r['meaning_current_streak'] <= 2:
                 issues.append(f"meaning streak {r['meaning_current_streak']}")
             if issues:
-                print(f"   🔴 Weak: {', '.join(issues)}")
+                print(f"    Weak: {', '.join(issues)}")
             print()
 
     def show_srs_distribution(self):
@@ -234,9 +234,9 @@ class WaniKaniQueries:
             
             warnings = []
             if r['reading_current_streak'] and r['reading_current_streak'] <= 1:
-                warnings.append("⚠️ reading streak critical")
+                warnings.append(" reading streak critical")
             if r['meaning_current_streak'] and r['meaning_current_streak'] <= 1:
-                warnings.append("⚠️ meaning streak critical")
+                warnings.append(" meaning streak critical")
             if warnings:
                 print(f"   {' | '.join(warnings)}")
             print()

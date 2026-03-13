@@ -6,7 +6,7 @@ version: 3.2.4
 homepage: https://github.com/odrobnik/intranet-skill
 metadata:
   openclaw:
-    emoji: "🌐"
+    emoji: ""
     requires:
       bins: ["python3"]
 ---

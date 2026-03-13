@@ -3,7 +3,7 @@ name: dingtalk-feishu-cn
 description: 钉钉/飞书集成 - 企业通讯、机器人、自动化工作流（Slack 中国版）
 metadata:
   openclaw:
-    emoji: "💼"
+    emoji: ""
     category: "productivity"
     tags: ["dingtalk", "feishu", "lark", "china", "enterprise", "slack"]
 ---
@@ -14,21 +14,21 @@ metadata:
 
 ## 功能
 
-- 💬 消息发送/接收
-- 🤖 机器人集成
-- 📅 日程管理
-- 📋 审批流程
-- 🔄 自动化工作流
+-  消息发送/接收
+-  机器人集成
+-  日程管理
+-  审批流程
+-  自动化工作流
 
 ## 平台对比
 
 | 功能 | 钉钉 | 飞书/Lark |
 |------|------|-----------|
-| Webhook | ✅ | ✅ |
-| API | ✅ | ✅ |
-| 机器人 | ✅ | ✅ |
-| 文档 | ✅ | ✅✅ |
-| 国际化 | ❌ | ✅ |
+| Webhook |  |  |
+| API |  |  |
+| 机器人 |  |  |
+| 文档 |  |  |
+| 国际化 |  |  |
 
 ## 钉钉集成
 

@@ -1,7 +1,7 @@
 ---
 name: zepto
 description: Order groceries from Zepto in seconds. Just say what you need, get a payment link on WhatsApp, pay on your phone, done. Remembers your usual items. Works across India where Zepto delivers.
-metadata: {"openclaw":{"emoji":"🛒","requires":{"config":["browser.enabled"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"config":["browser.enabled"]}}}
 ---
 
 # zepto
@@ -10,7 +10,7 @@ metadata: {"openclaw":{"emoji":"🛒","requires":{"config":["browser.enabled"]}}
 
 Tell your AI what you need. It shops, generates a payment link, sends it to WhatsApp. You pay on your phone. Groceries arrive in 10 minutes.
 
-## 💬 Examples
+##  Examples
 
 **Quick orders:**
 ```
@@ -35,20 +35,20 @@ Tell your AI what you need. It shops, generates a payment link, sends it to What
 
 ---
 
-## 🔒 Security & Privacy
+##  Security & Privacy
 
 **What this skill does:**
-- ✅ Browser automation on zepto.com (your local browser, your session)
-- ✅ Stores order history locally in `~/.openclaw/skills/zepto/order-history.json` (local file, not shared)
-- ✅ Sends payment links via WhatsApp (requires your consent for each order)
-- ✅ All authentication happens through Zepto's official flow (Phone + OTP)
+-  Browser automation on zepto.com (your local browser, your session)
+-  Stores order history locally in `~/.openclaw/skills/zepto/order-history.json` (local file, not shared)
+-  Sends payment links via WhatsApp (requires your consent for each order)
+-  All authentication happens through Zepto's official flow (Phone + OTP)
 
 **What this skill does NOT do:**
-- ❌ No automatic payments (you must click the link and pay manually)
-- ❌ No data sent to external servers (except Zepto.com and WhatsApp via your channels)
-- ❌ No persistent background jobs (optional one-time order status check only if you approve)
-- ❌ No storage of payment info or OTPs
-- ❌ No access to your banking/UPI apps
+-  No automatic payments (you must click the link and pay manually)
+-  No data sent to external servers (except Zepto.com and WhatsApp via your channels)
+-  No persistent background jobs (optional one-time order status check only if you approve)
+-  No storage of payment info or OTPs
+-  No access to your banking/UPI apps
 
 **Data Storage:**
 - Order history: `~/.openclaw/skills/zepto/order-history.json` (local only, helps with "usuals" feature)
@@ -62,7 +62,7 @@ Tell your AI what you need. It shops, generates a payment link, sends it to What
 
 ---
 
-## 🚨 CRITICAL WORKFLOW RULES
+##  CRITICAL WORKFLOW RULES
 
 **ALWAYS follow this order when building an order:**
 
@@ -158,20 +158,20 @@ write path={SKILL_DIR}/order-history.json content={json_data}
 ```
 
 **Automated scraper advantages:**
-- ✅ No manual screenshot review
-- ✅ Faster (visits all orders programmatically)
-- ✅ Always up-to-date
-- ✅ Can re-run anytime
+-  No manual screenshot review
+-  Faster (visits all orders programmatically)
+-  Always up-to-date
+-  Can re-run anytime
 
 **Example:**
 ```
 User: "Update my Zepto order history"
 
 Response:
-"🔍 Scanning your Zepto orders...
-📦 Found 6 delivered orders
-🔄 Extracting items...
-✅ Updated! Found:
+" Scanning your Zepto orders...
+ Found 6 delivered orders
+ Extracting items...
+ Updated! Found:
    - Coriander: 4 orders
    - Milk: 3 orders
    - Bread: 2 orders
@@ -193,10 +193,10 @@ User: "Add milk"
 → "Amul Taaza Toned Fresh Milk | Pouch (500ml)" ordered 3x
 
 Response:
-"🥛 Adding your usual milk!
+" Adding your usual milk!
 Amul Taaza Toned Fresh Milk (500ml) - ₹29
-📊 You've ordered this 3 times
-✅ Added to cart"
+ You've ordered this 3 times
+ Added to cart"
 ```
 
 **If only ordered once or never:**
@@ -207,10 +207,10 @@ User: "Add milk"
 → "Amul Taaza" ordered 1x only
 
 Response:
-"🥛 Found some milk options:
-1. Amul Taaza Toned (500ml) - ₹29 ⭐ 4.8 (100k) - You've ordered this once
-2. Amul Gold (1L) - ₹68 ⭐ 4.9 (80k) - Most popular
-3. Mother Dairy (500ml) - ₹30 ⭐ 4.7 (60k)
+" Found some milk options:
+1. Amul Taaza Toned (500ml) - ₹29  4.8 (100k) - You've ordered this once
+2. Amul Gold (1L) - ₹68  4.9 (80k) - Most popular
+3. Mother Dairy (500ml) - ₹30  4.7 (60k)
 
 Which one? (or tell me a number)"
 ```
@@ -261,7 +261,7 @@ browser act profile=openclaw request='{"kind":"type","ref":"{otp_input_ref}","te
 
 ## Step 2: Address Confirmation
 
-**🚨 CRITICAL: ALWAYS CHECK ADDRESS BEFORE PROCEEDING WITH ANY SHOPPING!**
+** CRITICAL: ALWAYS CHECK ADDRESS BEFORE PROCEEDING WITH ANY SHOPPING!**
 
 ### Address Selection Rules
 
@@ -281,9 +281,9 @@ browser snapshot --interactive profile=openclaw
 
 **ALWAYS ask user to confirm before shopping:**
 ```
-📍 I see your delivery address is set to:
+ I see your delivery address is set to:
 {Address Name} - {Full Address}
-⏱️ Delivery in ~{X} minutes
+ Delivery in ~{X} minutes
 
 Is this correct? Should I proceed with this address?
 ```
@@ -300,9 +300,9 @@ node zepto-agent.js select-address "kundu blr"
 
 **How it works:**
 1. **Fuzzy matching** - Case-insensitive, partial match supported
-   - "sanskar" → "Sanskar Blr" ✅
-   - "home" → "New Home" ✅
-   - "kundu" → "Kundu Blr" ✅
+   - "sanskar" → "Sanskar Blr" 
+   - "home" → "New Home" 
+   - "kundu" → "Kundu Blr" 
 2. **Already-selected detection** - Skips if you're already at that address
 3. **Verification** - Confirms address change in header after click
 
@@ -312,12 +312,12 @@ node zepto-agent.js select-address "kundu blr"
 node zepto-agent.js select-address "sanskar"
 
 # Output:
-# ℹ️ Opening Zepto...
-# ✅ Zepto opened
-# ℹ️ 📍 Selecting address: "sanskar"
-# ℹ️ Current: Kundu Blr
-# ✅ Clicked: Sanskar BlrA-301, A, BLOCK-B...
-# 🎉 Address changed to: Sanskar blr
+#  Opening Zepto...
+#  Zepto opened
+#   Selecting address: "sanskar"
+#  Current: Kundu Blr
+#  Clicked: Sanskar BlrA-301, A, BLOCK-B...
+#  Address changed to: Sanskar blr
 ```
 
 **When user says "change address to X" or "deliver to X":**
@@ -350,14 +350,14 @@ browser act profile=openclaw request='{"fn":"() => { const input = document.quer
 
 **After address confirmed by user:**
 ```
-✅ Delivery address confirmed: {address_name}
-📍 {full_address}
-⏱️ ETA: {eta} mins
+ Delivery address confirmed: {address_name}
+ {full_address}
+ ETA: {eta} mins
 
 Ready to shop! What would you like to add to cart?
 ```
 
-**⚠️ Address is CRITICAL - never skip this step!**
+** Address is CRITICAL - never skip this step!**
 
 ---
 
@@ -404,17 +404,17 @@ browser screenshot profile=openclaw
 
 **Discovery Response Format:**
 ```
-🔍 Found some great options in {category}:
+ Found some great options in {category}:
 
 1. **{Product Name}** - ₹{price} ({discount}% OFF)
-   ⭐ {rating} ({review_count} reviews)
-   📦 {size/quantity}
+    {rating} ({review_count} reviews)
+    {size/quantity}
    
 2. **{Product Name}** - ₹{price}
-   ⭐ {rating} ({review_count} reviews)
+    {rating} ({review_count} reviews)
    
 3. **{Product Name}** - ₹{price} ({discount}% OFF)
-   ⭐ {rating} ({review_count} reviews)
+    {rating} ({review_count} reviews)
 
 Want me to add any of these? Just tell me the number(s)!
 ```
@@ -463,10 +463,10 @@ When user gives a list (e.g., "add milk, butter, bread"):
 
 **When UNCLEAR about variant:**
 ```
-🥛 Found multiple milk options:
-1. Amul Taaza (500ml) - ₹29 ⭐ 4.8 (100k)
-2. Amul Gold (1L) - ₹68 ⭐ 4.9 (80k)
-3. Mother Dairy (500ml) - ₹30 ⭐ 4.7 (60k)
+ Found multiple milk options:
+1. Amul Taaza (500ml) - ₹29  4.8 (100k)
+2. Amul Gold (1L) - ₹68  4.9 (80k)
+3. Mother Dairy (500ml) - ₹30  4.7 (60k)
 
 Which one? (or tell me a number)
 ```
@@ -497,12 +497,12 @@ browser snapshot profile=openclaw  # Get cart summary
 
 **Cart Summary Format:**
 ```
-🛒 Added to cart:
+ Added to cart:
 1. Item 1 - ₹XX
 2. Item 2 - ₹YY
 3. Item 3 - ₹ZZ
 
-💰 Total: ₹{total}
+ Total: ₹{total}
 
 Ready to checkout? (say "yes" or "checkout" or "lessgo")
 ```
@@ -533,9 +533,9 @@ Example mapping:
 
 **If item not found or out of stock:**
 ```
-❌ {item} is currently unavailable.
+ {item} is currently unavailable.
 
-🔍 Suggestions:
+ Suggestions:
 - {similar_item_1}
 - {similar_item_2}
 
@@ -582,23 +582,23 @@ https://payments.juspay.in/payment-page/signature/zeptomarketplace-{ORDER_ID_EXA
 
 ### 4.3: Send Link via WhatsApp
 ```bash
-message action=send channel=whatsapp target={user_phone} message="🛒 *Your Zepto order is ready!*
+message action=send channel=whatsapp target={user_phone} message=" *Your Zepto order is ready!*
 
 *Cart Summary ({item_count} items):*
 1. {item1} - ₹{price1}
 2. {item2} - ₹{price2}
 3. {item3} - ₹{price3}
 
-*💰 Total: ₹{total}*
+* Total: ₹{total}*
 
-📍 Delivering to: {address_name} - {address}
-⏱️ ETA: {eta} minutes
+ Delivering to: {address_name} - {address}
+ ETA: {eta} minutes
 
-*🔗 Click here to pay:*
+* Click here to pay:*
 {juspay_payment_link}
 
-⚠️ *IMPORTANT: After payment, message me \"DONE\" to confirm your order!*
-(Don't rely on the payment page - just tell me when you've paid and I'll verify it) 🚀"
+ *IMPORTANT: After payment, message me \"DONE\" to confirm your order!*
+(Don't rely on the payment page - just tell me when you've paid and I'll verify it) "
 ```
 
 ### 4.4: Wait for User "Done" Message & Verify Order
@@ -621,7 +621,7 @@ Check for text like:
 
 **Step 3: Auto-clear cart (Post-Payment Behavior)**
 
-🚨 **CRITICAL: After payment, cart items persist because Zepto hasn't synced yet!**
+ **CRITICAL: After payment, cart items persist because Zepto hasn't synced yet!**
 
 **Automatically clear cart without asking (user expects cart to be empty after payment):**
 
@@ -641,20 +641,20 @@ browser act profile=openclaw request='{"kind":"click","ref":"{remove_button_ref_
 
 **If order confirmed:**
 ```
-✅ *Payment confirmed!*
-🚚 Your order is on the way! Arriving in ~{X} mins.
+ *Payment confirmed!*
+ Your order is on the way! Arriving in ~{X} mins.
 
 Order details:
 - {item_count} items, ₹{total}
 - Delivery to: {address}
 
-✅ Cart cleared ({item_count} items removed from previous order)
-🛒 Ready for your next order! 🐺
+ Cart cleared ({item_count} items removed from previous order)
+ Ready for your next order! 
 ```
 
 **If order NOT showing yet:**
 ```
-⏳ Payment processed, but order confirmation is still loading on Zepto's end.
+ Payment processed, but order confirmation is still loading on Zepto's end.
 
 Let me check again in 30 seconds...
 ```
@@ -679,13 +679,13 @@ browser act profile=openclaw request='{"kind":"click","ref":"{cart_button_ref}"}
 browser snapshot --interactive profile=openclaw
 ```
 
-**🚨 CRITICAL: Cart items may still be there because Zepto hasn't synced order confirmation yet!**
+** CRITICAL: Cart items may still be there because Zepto hasn't synced order confirmation yet!**
 
 **Step 4: Ask user about clearing cart**
 ```
-✅ Payment confirmed! Your order is on the way.
+ Payment confirmed! Your order is on the way.
 
-⚠️ I can see {X} items still in the cart (from the previous order that just went through).
+ I can see {X} items still in the cart (from the previous order that just went through).
 
 Should I:
 1. Clear the cart (recommended for fresh start)
@@ -707,16 +707,16 @@ browser act profile=openclaw request='{"fn":"() => { const removeButtons = docum
 
 **Confirmation message:**
 ```
-✅ Cart cleared! ({X} items removed)
-🛒 Ready for your next order!
+ Cart cleared! ({X} items removed)
+ Ready for your next order!
 
 Your current order ({item_count} items, ₹{total}) will arrive in ~{eta} mins.
 ```
 
 **If user says "keep it":**
 ```
-✅ Got it! Keeping {X} items in cart.
-🛒 Ready to add more items or proceed with these?
+ Got it! Keeping {X} items in cart.
+ Ready to add more items or proceed with these?
 ```
 
 ---
@@ -727,7 +727,7 @@ Your current order ({item_count} items, ₹{total}) will arrive in ~{eta} mins.
 
 **If delivery address becomes unserviceable:**
 ```
-⚠️ Your delivery address is currently unserviceable.
+ Your delivery address is currently unserviceable.
 Should I order it to a different address?
 
 (I can show you all your saved addresses)
@@ -735,13 +735,13 @@ Should I order it to a different address?
 
 ---
 
-## 🎯 Complete Order Flow Summary
+##  Complete Order Flow Summary
 
 ### Before Starting ANY New Order (Normal Flow - No Recent Payment):
 
 **1. Check Address (ALWAYS)**
 ```
-📍 Current address: {address}
+ Current address: {address}
 Is this correct?
 ```
 
@@ -754,7 +754,7 @@ browser snapshot --interactive profile=openclaw
 
 **If items in cart from NORMAL browsing (not post-payment):**
 ```
-⚠️ I see {X} items in your cart:
+ I see {X} items in your cart:
 1. {item1} - ₹{price1}
 2. {item2} - ₹{price2}
 
@@ -794,10 +794,10 @@ browser act profile=openclaw request='{"kind":"click","ref":"{remove_ref_3}"}'
 
 **4. Confirm to user**
 ```
-✅ Payment confirmed! Your order is on the way! Arriving in ~{X} mins.
+ Payment confirmed! Your order is on the way! Arriving in ~{X} mins.
 
-✅ Cart cleared ({item_count} items removed from previous order)
-🛒 Ready for your next order!
+ Cart cleared ({item_count} items removed from previous order)
+ Ready for your next order!
 ```
 
 **Why auto-clear in post-payment?**
@@ -810,10 +810,10 @@ browser act profile=openclaw request='{"kind":"click","ref":"{remove_ref_3}"}'
 
 ### Start Fresh Shopping (After Cart Cleared)
 ```
-✅ Cart cleared!
-✅ Address confirmed: {address}
+ Cart cleared!
+ Address confirmed: {address}
 
-What would you like to order? 🛒
+What would you like to order? 
 ```
 
 ---
@@ -826,14 +826,14 @@ What would you like to order? 🛒
 
 ## Safety & Best Practices
 
-✅ **DO:**
+ **DO:**
 - Check auth status before every order
 - Confirm address with user
 - Extract payment link accurately
 - Send link via WhatsApp
 - Let user complete payment
 
-❌ **DON'T:**
+ **DON'T:**
 - Never click "Pay" button
 - Never store OTP
 - Never auto-submit payment
@@ -856,7 +856,7 @@ Check your phone for the new code."
 
 **Location not serviceable:**
 ```
-"⚠️ Your location is currently not serviceable by Zepto.
+" Your location is currently not serviceable by Zepto.
 Store might be temporarily closed or location outside delivery zone.
 Want to try a different address?"
 ```

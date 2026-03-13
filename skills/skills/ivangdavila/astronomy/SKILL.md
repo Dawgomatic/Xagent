@@ -1,7 +1,7 @@
 ---
 name: Astronomy
 description: Explore the cosmos from backyard stargazing to astrophysics research.
-metadata: {"clawdbot":{"emoji":"🔭","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

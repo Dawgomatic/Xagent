@@ -50,28 +50,28 @@ async function main() {
 
     // --- Phase 1: Activation ---
     // (0,0)
-    nodes.push(createNode("n1", "📦 用户: 撕开激活码\n下载 App", 0, 0, C_USER));
-    nodes.push(createNode("n2", "📱 App: 输入激活码\n认证成功", 300, 0, C_APP));
+    nodes.push(createNode("n1", " 用户: 撕开激活码\n下载 App", 0, 0, C_USER));
+    nodes.push(createNode("n2", " App: 输入激活码\n认证成功", 300, 0, C_APP));
     
     // --- Phase 2: Creation ---
-    nodes.push(createNode("n3", "🎨 User: 创建角色\n(捏脸/设定)", 600, 0, C_USER));
-    nodes.push(createNode("n4", "☁️ Cloud: 工作流生成\n(图/视/音)", 900, 0, C_CLOUD));
+    nodes.push(createNode("n3", " User: 创建角色\n(捏脸/设定)", 600, 0, C_USER));
+    nodes.push(createNode("n4", " Cloud: 工作流生成\n(图/视/音)", 900, 0, C_CLOUD));
     
     // --- Phase 3: Binding (Hardware Branch) ---
     // Start a new row for Hardware parallel actions
-    nodes.push(createNode("n5", "📛 Badge: 开机 & 配网\n(连接WiFi)", 300, 300, C_BADGE));
-    nodes.push(createNode("n6", "📛 Badge: 生成信任码\n(Trust Code)", 600, 300, C_BADGE));
+    nodes.push(createNode("n5", " Badge: 开机 & 配网\n(连接WiFi)", 300, 300, C_BADGE));
+    nodes.push(createNode("n6", " Badge: 生成信任码\n(Trust Code)", 600, 300, C_BADGE));
     
     // Back to App Flow
-    nodes.push(createNode("n7", "📱 App: 输入信任码\n(需同WiFi)", 900, 300, C_APP));
+    nodes.push(createNode("n7", " App: 输入信任码\n(需同WiFi)", 900, 300, C_APP));
     
     // --- Phase 4: Injection ---
-    nodes.push(createNode("n8", "📤 App: 上传“灵魂包”\n(Inject Soul)", 1200, 150, C_APP)); // Merge point
-    nodes.push(createNode("n9", "🔄 Badge: 转圈圈\n(接收/加载)", 1500, 150, C_BADGE));
+    nodes.push(createNode("n8", " App: 上传“灵魂包”\n(Inject Soul)", 1200, 150, C_APP)); // Merge point
+    nodes.push(createNode("n9", " Badge: 转圈圈\n(接收/加载)", 1500, 150, C_BADGE));
     
     // --- Phase 5: Live ---
-    nodes.push(createNode("n10", "✨ Badge: 待机展示\n(周期性动作)", 1800, 150, C_BADGE));
-    nodes.push(createNode("n11", "👆 User: 触屏互动\n(激活反馈)", 2100, 150, C_USER));
+    nodes.push(createNode("n10", " Badge: 待机展示\n(周期性动作)", 1800, 150, C_BADGE));
+    nodes.push(createNode("n11", " User: 触屏互动\n(激活反馈)", 2100, 150, C_USER));
 
     // --- Connectors ---
     // Flow 1

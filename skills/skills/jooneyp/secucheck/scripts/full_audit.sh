@@ -185,7 +185,7 @@ if [ -n "$cli_audit" ] && echo "$cli_audit" | jq -e '.findings' >/dev/null 2>&1;
                     adjusted_severity="warn"
                     context_note="[NAT 뒤 - 외부 직접 노출 없음]"
                 else
-                    context_note="[⚠️ 외부 노출 시 실제 위험]"
+                    context_note="[ 외부 노출 시 실제 위험]"
                 fi
                 ;;
             "config.secrets.gateway_password_in_config")

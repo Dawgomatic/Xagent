@@ -3,10 +3,10 @@ name: protonmail-claw
 title: ProtonMail
 description: Manage ProtonMail emails via Playwright browser automation. Login, read, send, and manage your encrypted inbox.
 homepage: https://proton.me/mail
-metadata: {"clawdbot":{"emoji":"📧","requires":{"bins":["playwright","node"]},"install":[{"id":"npm","kind":"npm","package":"playwright","bins":["npx playwright"],"label":"Install Playwright (npm)"},{"id":"chromium","kind":"exec","command":"npx playwright install chromium","label":"Install Chromium browser"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["playwright","node"]},"install":[{"id":"npm","kind":"npm","package":"playwright","bins":["npx playwright"],"label":"Install Playwright (npm)"},{"id":"chromium","kind":"exec","command":"npx playwright install chromium","label":"Install Chromium browser"}]}}
 ---
 
-# ProtonMail 📨
+# ProtonMail 
 
 Your encrypted inbox, automated. Because checking emails manually is so 2010.
 
@@ -65,7 +65,7 @@ await page.addInitScript(() => {
 });
 ```
 
-This makes Chrome think it's being controlled by a human. Mostly works. ✨
+This makes Chrome think it's being controlled by a human. Mostly works. 
 
 ## Quick Start
 
@@ -227,7 +227,7 @@ async function main() {
   await page.keyboard.press('Control+Enter');
   
   await page.waitForTimeout(3000);
-  console.log('📧 Email sent!');
+  console.log(' Email sent!');
   
   await browser.close();
 }
@@ -264,14 +264,14 @@ Install system dependencies (see Requirements section)
 
 ## Security Notes
 
-- 🔒 Credentials should come from environment variables, not hardcoded
-- 🔑 Use app-specific passwords if ProtonMail supports them
-- 📝 Always logout when done
-- 🍪 Session cookies can be saved for re-use (advanced)
+-  Credentials should come from environment variables, not hardcoded
+-  Use app-specific passwords if ProtonMail supports them
+-  Always logout when done
+-  Session cookies can be saved for re-use (advanced)
 
 ---
 
-**Made with 🦞🔒**
+**Made with **
 
 *From Claws for Claws. Because reading emails manually is for plebs.*
 

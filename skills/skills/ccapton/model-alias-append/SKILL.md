@@ -17,8 +17,8 @@ license: MIT
 ![Model Alias Example](https://github.com/Ccapton/FileRepertory/blob/master/files/model_alias_snapshot.png?raw=true)
 
 ## Key Features
-- 🔍 **Automatic Detection** - Identifies the model used for each response
-- 🏷️ **Alias Appending** - Adds model alias from openclaw config **agents.defaults.models.{yourModelDict}.alias** format like the config below
+-  **Automatic Detection** - Identifies the model used for each response
+-  **Alias Appending** - Adds model alias from openclaw config **agents.defaults.models.{yourModelDict}.alias** format like the config below
 ```
 "agents": {
   "defaults": {
@@ -37,9 +37,9 @@ license: MIT
   }
 }
 ```
-- 🔄 **Real-time Monitoring** - Watches for configuration changes
-- 📢 **Update Notifications** - Shows when config changes occur
-- 🛡️ **Format Preservation** - Maintains reply tags and formatting
+-  **Real-time Monitoring** - Watches for configuration changes
+-  **Update Notifications** - Shows when config changes occur
+-  **Format Preservation** - Maintains reply tags and formatting
 
 ## Install
 ```

@@ -102,17 +102,17 @@ plt.savefig('output.png', dpi=300, bbox_inches='tight')
 ## Use Cases
 
 ### When to Use This Skill
-- ✅ Data-driven charts from CSV, Excel, databases
-- ✅ Statistical analysis and visualizations
-- ✅ Complex datasets with multiple series
-- ✅ Publication-quality graphics (papers, reports)
-- ✅ Interactive web-ready charts
+-  Data-driven charts from CSV, Excel, databases
+-  Statistical analysis and visualizations
+-  Complex datasets with multiple series
+-  Publication-quality graphics (papers, reports)
+-  Interactive web-ready charts
 
 ### When to Use SVG Instead
-- ✅ Simple infographics
-- ✅ Design-heavy graphics
-- ✅ Full control over every visual element
-- ✅ No data processing needed
+-  Simple infographics
+-  Design-heavy graphics
+-  Full control over every visual element
+-  No data processing needed
 
 ## Example Output
 

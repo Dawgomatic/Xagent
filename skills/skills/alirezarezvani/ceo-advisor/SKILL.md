@@ -481,25 +481,25 @@ From `references/board_governance_investor_relations.md`:
 
 ### CEO Effectiveness Indicators
 
-✅ **Strategic Success**
+ **Strategic Success**
 - Vision clarity and buy-in
 - Strategy execution on track
 - Market position improving
 - Innovation pipeline strong
 
-✅ **Financial Success**
+ **Financial Success**
 - Revenue growth targets met
 - Profitability improving
 - Cash position strong
 - Valuation increasing
 
-✅ **Organizational Success**
+ **Organizational Success**
 - Culture thriving
 - Talent retained
 - Engagement high
 - Succession ready
 
-✅ **Stakeholder Success**
+ **Stakeholder Success**
 - Board confidence high
 - Investor satisfaction
 - Customer NPS strong
@@ -507,11 +507,11 @@ From `references/board_governance_investor_relations.md`:
 
 ## Red Flags
 
-⚠️ Missing targets consistently  
-⚠️ High executive turnover  
-⚠️ Board relationship strained  
-⚠️ Culture deteriorating  
-⚠️ Market share declining  
-⚠️ Cash burn increasing  
-⚠️ Innovation stalling  
-⚠️ Personal burnout signs
+ Missing targets consistently  
+ High executive turnover  
+ Board relationship strained  
+ Culture deteriorating  
+ Market share declining  
+ Cash burn increasing  
+ Innovation stalling  
+ Personal burnout signs

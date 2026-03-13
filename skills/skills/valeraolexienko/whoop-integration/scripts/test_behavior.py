@@ -20,7 +20,7 @@ def test_sleep_scenarios():
                 "sleep_efficiency": 93,
                 "recovery_score": 85,
                 "sleep_duration_hours": 8.2,
-                "message": "🌟 Excellent sleep! High energy mode activated"
+                "message": " Excellent sleep! High energy mode activated"
             }
         },
         {
@@ -31,7 +31,7 @@ def test_sleep_scenarios():
                 "sleep_efficiency": 88,
                 "recovery_score": 75,
                 "sleep_duration_hours": 7.5,
-                "message": "😊 Good sleep quality, ready for the day"
+                "message": " Good sleep quality, ready for the day"
             }
         },
         {
@@ -42,7 +42,7 @@ def test_sleep_scenarios():
                 "sleep_efficiency": 78,
                 "recovery_score": 60,
                 "sleep_duration_hours": 6.8,
-                "message": "🙂 Decent sleep, taking it steady"
+                "message": " Decent sleep, taking it steady"
             }
         },
         {
@@ -53,29 +53,29 @@ def test_sleep_scenarios():
                 "sleep_efficiency": 65,
                 "recovery_score": 35,
                 "sleep_duration_hours": 5.5,
-                "message": "😴 Poor sleep detected, gentle mode activated"
+                "message": " Poor sleep detected, gentle mode activated"
             }
         }
     ]
     
-    print("🏃‍♀️ WHOOP Behavior Testing")
+    print(" WHOOP Behavior Testing")
     print("=" * 40)
     
     for scenario in scenarios:
         summary = scenario["summary"]
         context = create_behavior_context(summary)
         
-        print(f"\n📊 {scenario['name']}:")
+        print(f"\n {scenario['name']}:")
         print(f"Sleep Performance: {summary['sleep_performance']}% ({summary['status'].upper()})")
         print(f"Recovery Score: {summary['recovery_score']}")
         print(f"Duration: {summary['sleep_duration_hours']}h")
         
-        print(f"\n🤖 Behavior Mode: {context['behavior_mode']}")
+        print(f"\n Behavior Mode: {context['behavior_mode']}")
         print(f"Communication: {context['communication_style']}")
         print(f"Energy Level: {context['energy_level']}")
         print(f"Task Complexity: {context['task_complexity']}")
         
-        print(f"\n💡 Recommendations:")
+        print(f"\n Recommendations:")
         for rec in context['recommendations']:
             print(f"- {rec}")
         print("-" * 40)

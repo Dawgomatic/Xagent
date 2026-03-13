@@ -30,11 +30,11 @@
 
 ## Anti-Patterns
 
-❌ Re-reading highlights
-❌ Cramming before deadline
-❌ Blocking by topic (all vocab, then all grammar)
-❌ Fluency = mastery (easy now ≠ remembered later)
-❌ Passive consumption (videos without practice)
+ Re-reading highlights
+ Cramming before deadline
+ Blocking by topic (all vocab, then all grammar)
+ Fluency = mastery (easy now ≠ remembered later)
+ Passive consumption (videos without practice)
 
 ## What AI Should Do
 

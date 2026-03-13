@@ -4,21 +4,21 @@ A comprehensive database design and analysis toolkit that provides expert-level 
 
 ## Features
 
-### 🔍 Schema Analyzer
+###  Schema Analyzer
 - **Normalization Analysis**: Automated detection of 1NF through BCNF violations
 - **Data Type Optimization**: Identifies antipatterns and inappropriate types
 - **Constraint Analysis**: Finds missing foreign keys, unique constraints, and checks
 - **ERD Generation**: Creates Mermaid diagrams from DDL or JSON schema
 - **Naming Convention Validation**: Ensures consistent naming patterns
 
-### ⚡ Index Optimizer  
+###  Index Optimizer  
 - **Missing Index Detection**: Identifies indexes needed for query patterns
 - **Composite Index Design**: Optimizes column ordering for maximum efficiency
 - **Redundancy Analysis**: Finds duplicate and overlapping indexes
 - **Performance Modeling**: Estimates selectivity and query performance impact
 - **Covering Index Recommendations**: Eliminates table lookups
 
-### 🚀 Migration Generator
+###  Migration Generator
 - **Zero-Downtime Migrations**: Implements expand-contract patterns
 - **Schema Evolution**: Handles column changes, table renames, constraint updates
 - **Data Migration Scripts**: Automated data transformation and validation

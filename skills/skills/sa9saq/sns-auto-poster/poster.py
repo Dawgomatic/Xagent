@@ -20,7 +20,7 @@ def save_queue(q):
 
 def get_platform(name):
     if name not in PLATFORMS:
-        print(f"❌ Unknown platform: {name}")
+        print(f" Unknown platform: {name}")
         sys.exit(1)
     mod_path, cls_name = PLATFORMS[name].rsplit(".", 1)
     sys.path.insert(0, str(SCRIPT_DIR))
@@ -40,7 +40,7 @@ def cmd_add(args):
         "posted_at": None,
     })
     save_queue(q)
-    print(f"✅ Added to queue ({len(q)} total)")
+    print(f" Added to queue ({len(q)} total)")
 
 def cmd_run(args):
     q = load_queue()
@@ -58,28 +58,28 @@ def cmd_run(args):
             item["status"] = "posted"
             item["posted_at"] = now.isoformat()
             item["url"] = result.get("url")
-            print(f"✅ Posted [{item['platform']}]: {result.get('url', item['id'])}")
+            print(f" Posted [{item['platform']}]: {result.get('url', item['id'])}")
             posted += 1
         else:
             item["status"] = "failed"
             item["error"] = result.get("error", "")
-            print(f"❌ Failed [{item['platform']}]: {result.get('error', '')[:100]}")
+            print(f" Failed [{item['platform']}]: {result.get('error', '')[:100]}")
     save_queue(q)
     print(f"Processed: {posted} posted")
 
 def cmd_run_template(args):
     tpl_file = TEMPLATES_DIR / f"{args.template_name}.json"
     if not tpl_file.exists():
-        print(f"❌ Template not found: {tpl_file}")
+        print(f" Template not found: {tpl_file}")
         sys.exit(1)
     tpl = json.loads(tpl_file.read_text())
     text = tpl["text"].format(date=datetime.now().strftime("%Y-%m-%d"), custom_message="")
     platform = get_platform(tpl.get("platform", "x"))
     result = platform.post(text.strip())
     if result["success"]:
-        print(f"✅ Template posted: {result.get('url')}")
+        print(f" Template posted: {result.get('url')}")
     else:
-        print(f"❌ Failed: {result.get('error', '')[:100]}")
+        print(f" Failed: {result.get('error', '')[:100]}")
 
 def cmd_list(args):
     q = load_queue()
@@ -87,7 +87,7 @@ def cmd_list(args):
         print("Queue is empty")
         return
     for item in q:
-        status = {"pending": "⏳", "posted": "✅", "failed": "❌"}.get(item["status"], "?")
+        status = {"pending": "", "posted": "", "failed": ""}.get(item["status"], "?")
         print(f"  {status} [{item['platform']}] {item['text'][:50]}... | {item['schedule']} | {item['status']}")
 
 def cmd_clean(args):

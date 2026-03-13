@@ -1,7 +1,7 @@
 ---
 name: send-email
 description: Send emails via SMTP. Configure in ~/.openclaw/openclaw.json under skills.entries.send-email.env.
-metadata: {"openclaw":{"emoji":"📧","requires":{"anyBins":["python3"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"anyBins":["python3"]}}}
 ---
 
 # Send Email

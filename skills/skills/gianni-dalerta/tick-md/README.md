@@ -84,12 +84,12 @@ clawhub install tick-md
 ## What Gets Published
 
 When you run `clawhub publish .`, these files are included:
-- ✅ `SKILL.md` - Main documentation (required, editor-agnostic)
-- ✅ `skill.json` - Metadata (required)
-- ✅ `INSTALL.md` - Installation guide (editor-specific setup)
-- ✅ `mcp-reference.md` - API reference
-- ✅ `CHANGELOG.md` - Version history
-- ✅ `README.md` - Package info
+-  `SKILL.md` - Main documentation (required, editor-agnostic)
+-  `skill.json` - Metadata (required)
+-  `INSTALL.md` - Installation guide (editor-specific setup)
+-  `mcp-reference.md` - API reference
+-  `CHANGELOG.md` - Version history
+-  `README.md` - Package info
 
 Files automatically excluded:
 - `.git/` directories

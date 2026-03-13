@@ -32,7 +32,7 @@ async def fetch_page(url: str, wait: int = 8, screenshot: str = None,
                      output: str = None, proxy: str = None, headless: bool = False):
     """Fetch a page using Camoufox stealth browser."""
     
-    print(f"🥷 Starting Camoufox browser (max stealth)...")
+    print(f" Starting Camoufox browser (max stealth)...")
     
     # Camoufox config
     config = {
@@ -58,42 +58,42 @@ async def fetch_page(url: str, wait: int = 8, screenshot: str = None,
     async with AsyncCamoufox(**config) as browser:
         page = await browser.new_page()
         
-        print(f"📡 Navigating to: {url}")
+        print(f" Navigating to: {url}")
         await page.goto(url, wait_until="domcontentloaded")
         
         # Wait for anti-bot to resolve
-        print(f"⏳ Waiting {wait}s for anti-bot resolution...")
+        print(f" Waiting {wait}s for anti-bot resolution...")
         await asyncio.sleep(wait)
         
         # Get page info
         title = await page.title()
-        print(f"📄 Page title: {title}")
+        print(f" Page title: {title}")
         
         # Get content
         content = await page.content()
         
         # Check for block indicators
         if "Access Denied" in content or "blocked" in content.lower():
-            print("⚠️  Warning: Page may still be blocked. Check proxy quality.")
+            print("  Warning: Page may still be blocked. Check proxy quality.")
         elif "challenge" in content.lower() and "cloudflare" in content.lower():
-            print("⚠️  Warning: Cloudflare challenge detected. Increase wait time.")
+            print("  Warning: Cloudflare challenge detected. Increase wait time.")
         else:
-            print("✅ No obvious block indicators detected")
+            print(" No obvious block indicators detected")
         
         # Screenshot
         if screenshot:
             await page.screenshot(path=screenshot, full_page=True)
-            print(f"📸 Screenshot saved: {screenshot}")
+            print(f" Screenshot saved: {screenshot}")
         
         # Save HTML
         if output:
             with open(output, 'w', encoding='utf-8') as f:
                 f.write(content)
-            print(f"💾 HTML saved: {output}")
+            print(f" HTML saved: {output}")
         
         # Summary
         if not output:
-            print(f"\n✅ Success! Page loaded ({len(content)} bytes)")
+            print(f"\n Success! Page loaded ({len(content)} bytes)")
             print(f"   Final URL: {page.url}")
         
         return content

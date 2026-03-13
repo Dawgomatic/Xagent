@@ -22,18 +22,18 @@ WORK_DIR="/tmp/story-video-$(date +%s)"
 mkdir -p "$WORK_DIR"
 
 echo ""
-echo "🎬 STORY-VIDEO GENERATOR - PROFESSIONAL BRANDED"
+echo " STORY-VIDEO GENERATOR - PROFESSIONAL BRANDED"
 echo "=================================================="
-echo "📄 Script: $TEXT_FILE"
-echo "🎵 Audio: $AUDIO"
-echo "🌐 Brand: $BRAND_URL"
-echo "📁 Working: $WORK_DIR"
+echo " Script: $TEXT_FILE"
+echo " Audio: $AUDIO"
+echo " Brand: $BRAND_URL"
+echo " Working: $WORK_DIR"
 echo ""
 
 # Get audio duration
 DURATION=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$AUDIO")
 DURATION_INT=${DURATION%.*}
-echo "⏱️  Duration: ${DURATION_INT}s"
+echo "  Duration: ${DURATION_INT}s"
 echo ""
 
 # Professional color schemes (for trust/legal brands)
@@ -48,7 +48,7 @@ SECONDARY_BG="#16213e"    # Darker shade
 # ACCENT_COLOR="#d4af37"  # Gold
 # TEXT_COLOR="#ffffff"
 
-echo "1️⃣  Creating professional subtitles..."
+echo "  Creating professional subtitles..."
 
 # Create SRT with proper timing for readable subtitles
 TEXT=$(cat "$TEXT_FILE")
@@ -95,11 +95,11 @@ for ((i=0; i<$NUM_WORDS; i+=$WORDS_PER_SUBTITLE)); do
     SUBTITLE_NUMBER=$((SUBTITLE_NUMBER + 1))
 done
 
-echo "   ✅ Created $(wc -l < "$SRT_FILE") subtitle lines"
+echo "    Created $(wc -l < "$SRT_FILE") subtitle lines"
 echo ""
 
 # Create video with professional styling
-echo "2️⃣  Composing professional video..."
+echo "  Composing professional video..."
 
 # FFmpeg complex filter:
 # - Gradient background (professional)
@@ -127,11 +127,11 @@ ffmpeg -y \
 
 echo ""
 echo "=================================================="
-echo "✨ PROFESSIONAL VIDEO COMPLETE: $OUTPUT"
-echo "📱 Format: YouTube Shorts (9:16 portrait)"
-echo "🎬 Duration: ${DURATION_INT}s"
-echo "🎨 Styling: Professional colors + readable subtitles"
-echo "📊 Size: $(du -h "$OUTPUT" | cut -f1)"
+echo " PROFESSIONAL VIDEO COMPLETE: $OUTPUT"
+echo " Format: YouTube Shorts (9:16 portrait)"
+echo " Duration: ${DURATION_INT}s"
+echo " Styling: Professional colors + readable subtitles"
+echo " Size: $(du -h "$OUTPUT" | cut -f1)"
 echo "=================================================="
 echo ""
 

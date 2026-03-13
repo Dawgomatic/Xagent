@@ -3,7 +3,7 @@ name: markitdown-skill
 description: OpenClaw agent skill for converting documents to Markdown. Documentation and utilities for Microsoft's MarkItDown library. Supports PDF, Word, PowerPoint, Excel, images (OCR), audio (transcription), HTML, YouTube.
 metadata:
   openclaw:
-    emoji: "📄"
+    emoji: ""
     homepage: https://github.com/karmanverma/markitdown-skill
     requires:
       bins: ["python3", "pip", "markitdown"]
@@ -24,12 +24,12 @@ Documentation and utilities for converting documents to Markdown using Microsoft
 ## When to Use
 
 **Use markitdown for:**
-- 📄 Fetching documentation (README, API docs)
-- 🌐 Converting web pages to markdown
-- 📝 Document analysis (PDFs, Word, PowerPoint)
-- 🎬 YouTube transcripts
-- 🖼️ Image text extraction (OCR)
-- 🎤 Audio transcription
+-  Fetching documentation (README, API docs)
+-  Converting web pages to markdown
+-  Document analysis (PDFs, Word, PowerPoint)
+-  YouTube transcripts
+-  Image text extraction (OCR)
+-  Audio transcription
 
 ## Quick Start
 

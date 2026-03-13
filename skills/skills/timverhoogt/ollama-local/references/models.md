@@ -52,11 +52,11 @@ qwen3:4b → llama3.1:8b → gemma3:12b → mistral-small3.1
 ### Tool Use Support
 
 Models with good tool/function calling support:
-- ✅ `qwen2.5-coder:7b` - Excellent
-- ✅ `qwen3:4b` - Good
-- ✅ `llama3.1:8b` - Basic
-- ✅ `mistral` models - Good
-- ⚠️ Others - May not support tools natively
+-  `qwen2.5-coder:7b` - Excellent
+-  `qwen3:4b` - Good
+-  `llama3.1:8b` - Basic
+-  `mistral` models - Good
+-  Others - May not support tools natively
 
 ## OpenClaw Integration
 

@@ -4,13 +4,13 @@ An automated morning briefing that delivers weather, calendar, news, AI/tech upd
 
 ## Features
 
-- 🌤️ **Weather** — Current conditions and forecast for your location
-- 📅 **Calendar** — Today's events and upcoming deadlines
-- 📰 **Top News** — Headlines from trusted sources
-- 🤖 **AI/Tech Pulse** — Latest developments in AI and technology
-- 🦾 **OpenClaw Deep Dive** — New skills, community highlights, and tips
-- 💸 **AI Spend Tracker** — Track your AI model usage and costs (via codexbar)
-- 💡 **Two Things to Try** — Actionable suggestions to improve your workflow
+-  **Weather** — Current conditions and forecast for your location
+-  **Calendar** — Today's events and upcoming deadlines
+-  **Top News** — Headlines from trusted sources
+-  **AI/Tech Pulse** — Latest developments in AI and technology
+-  **OpenClaw Deep Dive** — New skills, community highlights, and tips
+-  **AI Spend Tracker** — Track your AI model usage and costs (via codexbar)
+-  **Two Things to Try** — Actionable suggestions to improve your workflow
 
 ## Installation
 

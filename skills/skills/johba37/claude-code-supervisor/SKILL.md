@@ -13,7 +13,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "👷",
+        "emoji": "",
         "os": ["darwin", "linux"],
         "requires": { "bins": ["tmux"], "anyBins": ["claude"] },
       },
@@ -109,24 +109,24 @@ Not every hook event needs an LLM call. Bash catches the obvious cases first:
 ### on-stop.sh
 | Signal | Bash decision | LLM triage? |
 |--------|--------------|-------------|
-| `max_tokens` | Always needs attention | ✅ Yes |
-| `end_turn` + shell prompt back | Agent might be done | ✅ Yes |
-| `end_turn` + no prompt | Agent is mid-work | ❌ Skip |
-| `stop_sequence` | Normal | ❌ Skip |
+| `max_tokens` | Always needs attention |  Yes |
+| `end_turn` + shell prompt back | Agent might be done |  Yes |
+| `end_turn` + no prompt | Agent is mid-work |  Skip |
+| `stop_sequence` | Normal |  Skip |
 
 ### on-error.sh
 | Signal | Bash decision | LLM triage? |
 |--------|--------------|-------------|
-| API 429 / rate limit | Transient, will resolve | ❌ Log only |
-| API 500 | Agent likely stuck | ✅ Yes |
-| Other tool error | Unknown severity | ✅ Yes |
+| API 429 / rate limit | Transient, will resolve |  Log only |
+| API 500 | Agent likely stuck |  Yes |
+| Other tool error | Unknown severity |  Yes |
 
 ### on-notify.sh
 | Signal | Bash decision | LLM triage? |
 |--------|--------------|-------------|
-| `auth_*` | Internal, transient | ❌ Skip |
-| `permission_prompt` | Needs decision | ✅ Yes |
-| `idle_prompt` | Agent waiting | ✅ Yes |
+| `auth_*` | Internal, transient |  Skip |
+| `permission_prompt` | Needs decision |  Yes |
+| `idle_prompt` | Agent waiting |  Yes |
 
 ## Triage Classifications
 

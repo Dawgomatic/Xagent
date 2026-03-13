@@ -4,7 +4,7 @@ description: "Optimized heartbeat execution - reduces heartbeat calls by 75%"
 homepage: https://github.com/qsmtco/tokenQrusher
 metadata: 
   openclaw: 
-    emoji: "💓"
+    emoji: ""
     events: ["agent:bootstrap"]
 ---
 
@@ -47,8 +47,8 @@ HEARTBEAT_OK
 
 Or for alerts:
 ```
-🔔 Email: 2 urgent messages
-🔔 Calendar: Meeting in 30 min
+ Email: 2 urgent messages
+ Calendar: Meeting in 30 min
 ```
 
 ## Configuration

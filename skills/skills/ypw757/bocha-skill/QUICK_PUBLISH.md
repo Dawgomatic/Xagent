@@ -17,10 +17,10 @@ chmod +x publish.sh
 ```
 
 脚本会引导你完成：
-- ✅ 安装 clawdhub CLI（如未安装）
-- ✅ 登录 ClawdHub
-- ✅ 输入版本号和更新说明
-- ✅ 自动发布
+-  安装 clawdhub CLI（如未安装）
+-  登录 ClawdHub
+-  输入版本号和更新说明
+-  自动发布
 
 ## 方法二：手动命令发布
 
@@ -101,7 +101,7 @@ zip -r bocha-search-v1.0.0.zip bocha-search \
 
 **描述**: 
 ```
-🔍 博查AI搜索 - 专为 OpenClaw 设计的中文搜索引擎
+ 博查AI搜索 - 专为 OpenClaw 设计的中文搜索引擎
 
 功能特点:
 • 针对中文内容优化的搜索结果
@@ -176,10 +176,10 @@ clawdhub delete bocha-search --yes
 
 ## 需要帮助?
 
-- 📖 [ClawdHub 文档](https://docs.clawdhub.com)
-- 💬 [OpenClaw Discord](https://discord.gg/clawd)
-- 🐛 [GitHub Issues](https://github.com/openclaw/openclaw/issues)
+-  [ClawdHub 文档](https://docs.clawdhub.com)
+-  [OpenClaw Discord](https://discord.gg/clawd)
+-  [GitHub Issues](https://github.com/openclaw/openclaw/issues)
 
 ---
 
-祝你发布顺利！🎉
+祝你发布顺利！

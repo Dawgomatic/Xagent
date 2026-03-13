@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🧬",
+        "emoji": "",
         "requires": { "env": ["HUMANNFT_API_KEY"] },
       },
   }

@@ -123,7 +123,7 @@ Each user result includes:
 | Contact info | Limited | Full (emails, websites, socials) |
 | Scoring details | Basic | Detailed breakdown |
 
-### 💰 Get Full Report
+###  Get Full Report
 
 For the complete list of all matched developers with full contact info:
 

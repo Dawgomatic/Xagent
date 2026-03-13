@@ -545,7 +545,7 @@ body::before {{
 }}
 
 .search-bar::before {{
-  content: '🔍';
+  content: '';
   position: absolute;
   left: 12px;
   top: 50%;
@@ -1513,7 +1513,7 @@ nav button.active {{
 
 <div class="header">
   <div class="header-left">
-    <div class="header-logo">🏛️</div>
+    <div class="header-logo"></div>
     <div>
       <div class="header-title">{TITLE}</div>
       <div class="header-subtitle">{SUBTITLE}</div>
@@ -1523,11 +1523,11 @@ nav button.active {{
     <input type="text" id="globalSearch" placeholder="Search people, places, dates..." />
   </div>
   <nav>
-    <button class="active" onclick="switchTab('dashboard')">📊 Dashboard</button>
-    <button onclick="switchTab('tree')">🌲 Family Tree</button>
-    <button onclick="switchTab('people')">👥 People</button>
-    <button onclick="switchTab('timeline')">📅 Timeline</button>
-    <button onclick="switchTab('alerts')">🔔 Daily Alerts</button>
+    <button class="active" onclick="switchTab('dashboard')"> Dashboard</button>
+    <button onclick="switchTab('tree')"> Family Tree</button>
+    <button onclick="switchTab('people')"> People</button>
+    <button onclick="switchTab('timeline')"> Timeline</button>
+    <button onclick="switchTab('alerts')"> Daily Alerts</button>
   </nav>
 </div>
 
@@ -1543,32 +1543,32 @@ nav button.active {{
     
     <div class="otd-section">
       <div class="otd-header">
-        <h3>✨ On This Day</h3>
+        <h3> On This Day</h3>
         <div class="otd-count" id="otdCount"></div>
       </div>
       <div class="otd-grid" id="otdGrid"></div>
     </div>
     
     <div class="pres-section">
-      <h3>🏛️ The Presidents</h3>
+      <h3> The Presidents</h3>
       <div class="pres-scroll" id="presScroll"></div>
     </div>
     
     <div class="charts-grid">
       <div class="card">
-        <div class="card-header">👨‍👩‍👧‍👦 Top Surnames</div>
+        <div class="card-header"> Top Surnames</div>
         <div class="card-body" id="surnameChart"></div>
       </div>
       <div class="card">
-        <div class="card-header">🗺️ Geographic Origins</div>
+        <div class="card-header"> Geographic Origins</div>
         <div class="card-body" id="geoChart"></div>
       </div>
       <div class="card">
-        <div class="card-header">⏳ People by Century</div>
+        <div class="card-header"> People by Century</div>
         <div class="card-body" id="centuryChart"></div>
       </div>
       <div class="card">
-        <div class="card-header">🎉 Party Breakdown</div>
+        <div class="card-header"> Party Breakdown</div>
         <div class="card-body" id="partyChart"></div>
       </div>
     </div>
@@ -1590,9 +1590,9 @@ nav button.active {{
     <div class="people-controls">
       <input type="text" id="peopleSearch" placeholder="Search by name, place, or year..." oninput="filterPeople()" />
       <button class="filter-btn active" onclick="setGender('all', this)">All</button>
-      <button class="filter-btn" onclick="setGender('M', this)">♂ Male</button>
-      <button class="filter-btn" onclick="setGender('F', this)">♀ Female</button>
-      <button class="filter-btn pres-filter" onclick="togglePresFilter(this)">🏛️ Presidents</button>
+      <button class="filter-btn" onclick="setGender('M', this)"> Male</button>
+      <button class="filter-btn" onclick="setGender('F', this)"> Female</button>
+      <button class="filter-btn pres-filter" onclick="togglePresFilter(this)"> Presidents</button>
     </div>
     <div class="people-count" id="peopleCount"></div>
     <div class="people-grid" id="peopleGrid"></div>
@@ -1604,9 +1604,9 @@ nav button.active {{
     <div class="timeline-controls">
       <input type="text" id="timelineSearch" placeholder="Filter by name, year, or place..." oninput="filterTimeline()" style="flex:1;min-width:200px;padding:10px 16px;background:var(--bg-glass);border:1px solid var(--border);border-radius:10px;color:var(--text-primary);font-family:inherit;font-size:14px;outline:none;" />
       <button class="filter-btn active" onclick="setTimelineType('all', this)">All</button>
-      <button class="filter-btn" onclick="setTimelineType('birth', this)">🟢 Births</button>
-      <button class="filter-btn" onclick="setTimelineType('death', this)">🔴 Deaths</button>
-      <button class="filter-btn" onclick="setTimelineType('marriage', this)">💛 Marriages</button>
+      <button class="filter-btn" onclick="setTimelineType('birth', this)"> Births</button>
+      <button class="filter-btn" onclick="setTimelineType('death', this)"> Deaths</button>
+      <button class="filter-btn" onclick="setTimelineType('marriage', this)"> Marriages</button>
     </div>
     <div class="timeline" id="timelineContainer"></div>
     <div class="pagination" id="timelinePagination"></div>
@@ -1615,19 +1615,19 @@ nav button.active {{
   <!-- DAILY ALERTS TAB -->
   <div id="tab-alerts" class="tab-content">
     <div class="alerts-hero">
-      <h2>🔔 This Day in Presidential History</h2>
+      <h2> This Day in Presidential History</h2>
       <div class="date-display" id="alertsDate"></div>
     </div>
     
     <div class="spotlight-card" id="spotlightCard"></div>
     
     <div class="otd-section">
-      <h3 style="margin-bottom:16px;">📅 All Events Today</h3>
+      <h3 style="margin-bottom:16px;"> All Events Today</h3>
       <div class="otd-grid" id="alertsOtdGrid"></div>
     </div>
     
     <div class="card" style="margin-top:32px;">
-      <div class="card-header">🎲 Fun Facts</div>
+      <div class="card-header"> Fun Facts</div>
       <div class="card-body" id="funFacts"></div>
     </div>
   </div>
@@ -1679,37 +1679,37 @@ function renderDashboard() {{
   const grid = document.getElementById('statsGrid');
   grid.innerHTML = `
     <div class="stat-card">
-      <div class="stat-icon">👥</div>
+      <div class="stat-icon"></div>
       <div class="stat-value">${{STATS.total.toLocaleString()}}</div>
       <div class="stat-label">People</div>
       <div class="stat-detail">${{STATS.males}} males · ${{STATS.females}} females</div>
     </div>
     <div class="stat-card">
-      <div class="stat-icon">🏛️</div>
+      <div class="stat-icon"></div>
       <div class="stat-value">${{STATS.numPresidents}}</div>
       <div class="stat-label">Presidents</div>
       <div class="stat-detail">Washington to Trump</div>
     </div>
     <div class="stat-card">
-      <div class="stat-icon">💑</div>
+      <div class="stat-icon"></div>
       <div class="stat-value">${{STATS.numFamilies.toLocaleString()}}</div>
       <div class="stat-label">Families</div>
       <div class="stat-detail">Linked family units</div>
     </div>
     <div class="stat-card">
-      <div class="stat-icon">📜</div>
+      <div class="stat-icon"></div>
       <div class="stat-value">${{STATS.earliestYear}}</div>
       <div class="stat-label">Earliest Record</div>
       <div class="stat-detail">${{STATS.earliestPerson}}</div>
     </div>
     <div class="stat-card">
-      <div class="stat-icon">📍</div>
+      <div class="stat-icon"></div>
       <div class="stat-value">${{STATS.uniquePlaces.toLocaleString()}}</div>
       <div class="stat-label">Unique Places</div>
       <div class="stat-detail">Locations mentioned</div>
     </div>
     <div class="stat-card">
-      <div class="stat-icon">🌲</div>
+      <div class="stat-icon"></div>
       <div class="stat-value">${{STATS.generations}}</div>
       <div class="stat-label">Generations</div>
       <div class="stat-detail">~${{STATS.latestYear - STATS.earliestYear}} years of history</div>
@@ -1802,7 +1802,7 @@ function renderOnThisDay() {{
       <div class="otd-info">
         <span class="otd-badge ${{e.type}}">${{e.type}}</span>
         <div class="otd-name">${{e.person.name}}${{e.person.president ? '<span class="pres-badge">#' + e.person.president.number + '</span>' : ''}}</div>
-        ${{e.place ? '<div class="otd-place">📍 ' + e.place + '</div>' : ''}}
+        ${{e.place ? '<div class="otd-place"> ' + e.place + '</div>' : ''}}
         <div class="otd-years-ago">${{year - e.year}} years ago</div>
       </div>
     </div>
@@ -1891,7 +1891,7 @@ function renderPeople() {{
         <div class="person-info">
           <div class="person-name">${{p.name}}</div>
           <div class="person-dates">${{dates}}</div>
-          ${{p.birthPlace ? '<div class="person-place">📍 ' + p.birthPlace + '</div>' : ''}}
+          ${{p.birthPlace ? '<div class="person-place"> ' + p.birthPlace + '</div>' : ''}}
         </div>
       </div>
     `;
@@ -1974,9 +1974,9 @@ function renderTimeline() {{
   container.innerHTML = page.map(e => `
     <div class="timeline-item" onclick="showPerson('${{e.id}}')">
       <div class="timeline-dot ${{e.type}}"></div>
-      <div class="timeline-year">${{e.year}} — ${{e.type === 'birth' ? '🟢 Born' : e.type === 'death' ? '🔴 Died' : '💛 Married'}}</div>
-      <div class="timeline-name">${{e.name}}${{e.president ? ' 🏛️' : ''}}</div>
-      ${{e.place ? '<div class="timeline-detail">📍 ' + e.place + '</div>' : ''}}
+      <div class="timeline-year">${{e.year}} — ${{e.type === 'birth' ? ' Born' : e.type === 'death' ? ' Died' : ' Married'}}</div>
+      <div class="timeline-name">${{e.name}}${{e.president ? ' ' : ''}}</div>
+      ${{e.place ? '<div class="timeline-detail"> ' + e.place + '</div>' : ''}}
     </div>
   `).join('');
   
@@ -2123,7 +2123,7 @@ function renderAlerts() {{
         <div class="otd-info">
           <span class="otd-badge ${{e.type}}">${{e.type}}</span>
           <div class="otd-name">${{e.person.name}}${{e.person.president ? '<span class="pres-badge">#' + e.person.president.number + '</span>' : ''}}</div>
-          ${{e.place ? '<div class="otd-place">📍 ' + e.place + '</div>' : ''}}
+          ${{e.place ? '<div class="otd-place"> ' + e.place + '</div>' : ''}}
           <div class="otd-years-ago">${{year - e.year}} years ago today</div>
         </div>
       </div>
@@ -2143,17 +2143,17 @@ function randomSpotlight() {{
   const lifespan = person.deathYear ? (person.deathYear - person.birthYear) + ' years' : 'Living or unknown';
   
   card.innerHTML = `
-    <div class="spotlight-label">🎲 Random Ancestor Spotlight</div>
-    <div class="spotlight-name">${{person.name}}${{person.president ? ' 🏛️' : ''}}</div>
+    <div class="spotlight-label"> Random Ancestor Spotlight</div>
+    <div class="spotlight-name">${{person.name}}${{person.president ? ' ' : ''}}</div>
     <div class="spotlight-dates">${{person.birthDate || person.birthYear}} ${{person.deathDate ? '— ' + person.deathDate : ''}}</div>
     ${{person.president ? '<div style="margin-bottom:16px;"><span style="background:var(--gradient-gold);color:#000;padding:4px 12px;border-radius:6px;font-size:13px;font-weight:700;">President #' + person.president.number + ' · ' + person.president.party + '</span></div>' : ''}}
     <div class="spotlight-details">
-      ${{person.birthPlace ? '<div class="spotlight-detail"><div class="spotlight-detail-label">Born</div><div class="spotlight-detail-value">📍 ' + person.birthPlace + '</div></div>' : ''}}
-      ${{person.deathPlace ? '<div class="spotlight-detail"><div class="spotlight-detail-label">Died</div><div class="spotlight-detail-value">📍 ' + person.deathPlace + '</div></div>' : ''}}
+      ${{person.birthPlace ? '<div class="spotlight-detail"><div class="spotlight-detail-label">Born</div><div class="spotlight-detail-value"> ' + person.birthPlace + '</div></div>' : ''}}
+      ${{person.deathPlace ? '<div class="spotlight-detail"><div class="spotlight-detail-label">Died</div><div class="spotlight-detail-value"> ' + person.deathPlace + '</div></div>' : ''}}
       <div class="spotlight-detail"><div class="spotlight-detail-label">Lifespan</div><div class="spotlight-detail-value">${{lifespan}}</div></div>
       ${{person.children.length ? '<div class="spotlight-detail"><div class="spotlight-detail-label">Children</div><div class="spotlight-detail-value">' + person.children.length + '</div></div>' : ''}}
     </div>
-    <button class="shuffle-btn" onclick="randomSpotlight()">🎲 Shuffle — New Spotlight</button>
+    <button class="shuffle-btn" onclick="randomSpotlight()"> Shuffle — New Spotlight</button>
   `;
 }}
 
@@ -2163,22 +2163,22 @@ function renderFunFacts() {{
   // Oldest person
   const withAge = PEOPLE.filter(p => p.birthYear > 0 && p.deathYear > 0).map(p => ({{ ...p, age: p.deathYear - p.birthYear }}));
   withAge.sort((a,b) => b.age - a.age);
-  if (withAge.length) facts.push(`🏆 <strong>Longest-lived:</strong> ${{withAge[0].name}} lived to ${{withAge[0].age}} years (${{withAge[0].birthYear}}–${{withAge[0].deathYear}})`);
+  if (withAge.length) facts.push(` <strong>Longest-lived:</strong> ${{withAge[0].name}} lived to ${{withAge[0].age}} years (${{withAge[0].birthYear}}–${{withAge[0].deathYear}})`);
   
   // Most children
   const byChildren = [...PEOPLE].sort((a,b) => b.children.length - a.children.length);
-  if (byChildren.length && byChildren[0].children.length > 0) facts.push(`👶 <strong>Most children:</strong> ${{byChildren[0].name}} had ${{byChildren[0].children.length}} children`);
+  if (byChildren.length && byChildren[0].children.length > 0) facts.push(` <strong>Most children:</strong> ${{byChildren[0].name}} had ${{byChildren[0].children.length}} children`);
   
   // Presidents count
   const presCount = PEOPLE.filter(p => p.president).length;
-  facts.push(`🏛️ <strong>${{presCount}} US Presidents</strong> are represented in this family tree with their ancestors and descendants`);
+  facts.push(` <strong>${{presCount}} US Presidents</strong> are represented in this family tree with their ancestors and descendants`);
   
   // Earliest ancestor
   const earliest = PEOPLE.filter(p => p.birthYear > 0).sort((a,b) => a.birthYear - b.birthYear)[0];
-  if (earliest) facts.push(`📜 <strong>Earliest ancestor:</strong> ${{earliest.name}} (born ${{earliest.birthYear}}) — that's ${{new Date().getFullYear() - earliest.birthYear}} years ago!`);
+  if (earliest) facts.push(` <strong>Earliest ancestor:</strong> ${{earliest.name}} (born ${{earliest.birthYear}}) — that's ${{new Date().getFullYear() - earliest.birthYear}} years ago!`);
   
   // Most common surname
-  if (STATS.topSurnames.length) facts.push(`📛 <strong>Most common surname:</strong> ${{STATS.topSurnames[0][0]}} (${{STATS.topSurnames[0][1]}} people)`);
+  if (STATS.topSurnames.length) facts.push(` <strong>Most common surname:</strong> ${{STATS.topSurnames[0][0]}} (${{STATS.topSurnames[0][1]}} people)`);
   
   document.getElementById('funFacts').innerHTML = facts.map(f => `<div style="padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;">${{f}}</div>`).join('');
 }}
@@ -2194,22 +2194,22 @@ function showPerson(id) {{
   let html = `<div class="modal-close" onclick="closeModal()">✕</div>`;
   html += `<h2>${{p.name}}</h2>`;
   if (p.president) {{
-    html += `<div class="pres-tag">🏛️ President #${{p.president.number}} · ${{p.president.party}}</div>`;
+    html += `<div class="pres-tag"> President #${{p.president.number}} · ${{p.president.party}}</div>`;
   }}
   
   html += `<div class="modal-section"><h4>Vital Records</h4>`;
-  if (p.birthDate || p.birthPlace) html += `<div class="modal-row"><span class="label">🟢 Born:</span><span>${{p.birthDate || ''}} ${{p.birthPlace ? '— ' + p.birthPlace : ''}}</span></div>`;
-  if (p.deathDate || p.deathPlace) html += `<div class="modal-row"><span class="label">🔴 Died:</span><span>${{p.deathDate || ''}} ${{p.deathPlace ? '— ' + p.deathPlace : ''}}</span></div>`;
-  if (p.burialPlace) html += `<div class="modal-row"><span class="label">⚰️ Buried:</span><span>${{p.burialDate || ''}} ${{p.burialPlace ? '— ' + p.burialPlace : ''}}</span></div>`;
-  if (p.occupation) html += `<div class="modal-row"><span class="label">💼 Occupation:</span><span>${{p.occupation}}</span></div>`;
-  if (p.birthYear && p.deathYear) html += `<div class="modal-row"><span class="label">⏳ Lifespan:</span><span>${{p.deathYear - p.birthYear}} years</span></div>`;
+  if (p.birthDate || p.birthPlace) html += `<div class="modal-row"><span class="label"> Born:</span><span>${{p.birthDate || ''}} ${{p.birthPlace ? '— ' + p.birthPlace : ''}}</span></div>`;
+  if (p.deathDate || p.deathPlace) html += `<div class="modal-row"><span class="label"> Died:</span><span>${{p.deathDate || ''}} ${{p.deathPlace ? '— ' + p.deathPlace : ''}}</span></div>`;
+  if (p.burialPlace) html += `<div class="modal-row"><span class="label"> Buried:</span><span>${{p.burialDate || ''}} ${{p.burialPlace ? '— ' + p.burialPlace : ''}}</span></div>`;
+  if (p.occupation) html += `<div class="modal-row"><span class="label"> Occupation:</span><span>${{p.occupation}}</span></div>`;
+  if (p.birthYear && p.deathYear) html += `<div class="modal-row"><span class="label"> Lifespan:</span><span>${{p.deathYear - p.birthYear}} years</span></div>`;
   html += `</div>`;
   
   // Parents
   if (p.parents.father || p.parents.mother) {{
     html += `<div class="modal-section"><h4>Parents</h4>`;
-    if (p.parents.father) html += `<div class="modal-row"><span class="label">👨 Father:</span><span class="modal-link" onclick="showPerson('${{p.parents.father.id}}')">${{p.parents.father.name}}</span></div>`;
-    if (p.parents.mother) html += `<div class="modal-row"><span class="label">👩 Mother:</span><span class="modal-link" onclick="showPerson('${{p.parents.mother.id}}')">${{p.parents.mother.name}}</span></div>`;
+    if (p.parents.father) html += `<div class="modal-row"><span class="label"> Father:</span><span class="modal-link" onclick="showPerson('${{p.parents.father.id}}')">${{p.parents.father.name}}</span></div>`;
+    if (p.parents.mother) html += `<div class="modal-row"><span class="label"> Mother:</span><span class="modal-link" onclick="showPerson('${{p.parents.mother.id}}')">${{p.parents.mother.name}}</span></div>`;
     html += `</div>`;
   }}
   
@@ -2217,7 +2217,7 @@ function showPerson(id) {{
   if (p.spouses.length) {{
     html += `<div class="modal-section"><h4>Spouse${{p.spouses.length > 1 ? 's' : ''}}</h4>`;
     p.spouses.forEach(s => {{
-      html += `<div class="modal-row"><span class="label">💍</span><span class="modal-link" onclick="showPerson('${{s.id}}')">${{s.name}}</span>${{s.marriage && s.marriage.date ? ' <span style="color:var(--text-muted);font-size:12px;">(' + s.marriage.date + ')</span>' : ''}}</div>`;
+      html += `<div class="modal-row"><span class="label"></span><span class="modal-link" onclick="showPerson('${{s.id}}')">${{s.name}}</span>${{s.marriage && s.marriage.date ? ' <span style="color:var(--text-muted);font-size:12px;">(' + s.marriage.date + ')</span>' : ''}}</div>`;
     }});
     html += `</div>`;
   }}

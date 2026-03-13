@@ -1,6 +1,6 @@
 # INSTALL.md - Ghid Complet de Instalare Immortal Brain
 
-## 🚀 Instalare Rapidă (3 pași)
+##  Instalare Rapidă (3 pași)
 
 ### Pasul 1: Copiere Fișiere
 ```bash
@@ -23,7 +23,7 @@ python scripts/brain_service.py heartbeat
 
 ---
 
-## 📋 Ghid Detaliat de Instalare
+##  Ghid Detaliat de Instalare
 
 ### 1. Pre-rechizite
 
@@ -310,31 +310,31 @@ del D:\OpenClaw_Setup\.openclaw\workspace\brain_*.json
 
 ---
 
-## 🎉 Instalare Completă!
+##  Instalare Completă!
 
 După ce ai urmat toți pașii de mai sus, sistemul Immortal Brain v5.0 este **complet funcțional**!
 
 **Ce se întâmplă automat acum:**
-- ✅ La fiecare 2 minute: Procesare task-uri și raportare
-- ✅ La fiecare 30 minute: Analiză Core Memory
-- ✅ Detectare automată task-uri noi din `memory/`
-- ✅ Gestionare completă IDENTITY.md și fișiere core
-- ✅ Workflow automat: research → analysis → planning → execution
+-  La fiecare 2 minute: Procesare task-uri și raportare
+-  La fiecare 30 minute: Analiză Core Memory
+-  Detectare automată task-uri noi din `memory/`
+-  Gestionare completă IDENTITY.md și fișiere core
+-  Workflow automat: research → analysis → planning → execution
 
 **Tu doar:**
 1. Adaugi task-uri în `memory/*.md`
 2. Primești notificări și rapoarte
 3. Răspunzi doar când vrei (opțional)
 
-**Sistemul face RESTUL!** 🤖🧠✨
+**Sistemul face RESTUL!** 
 
 ---
 
-## 📞 Suport
+##  Suport
 
 Dacă întâmpini probleme:
 1. Verifică `ACTIVARE_REUSITA.md` pentru troubleshooting
 2. Consultă `SKILL.md` pentru documentație completă
 3. Rulează `python scripts/brain_service.py help` pentru comenzi
 
-**Succes cu noul tău Brain Autonom!** 🚀
+**Succes cu noul tău Brain Autonom!** 

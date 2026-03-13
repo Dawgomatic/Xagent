@@ -115,26 +115,26 @@ class BenchmarkRunner:
         # Filter tasks if specific IDs provided
         if task_ids:
             tasks_to_run = [t for t in self.tasks if t.task_id in task_ids]
-            logger.info(f"🎯 Running benchmark on {len(tasks_to_run)} specified tasks")
+            logger.info(f" Running benchmark on {len(tasks_to_run)} specified tasks")
         else:
             tasks_to_run = self.tasks
-            logger.info(f"🎯 Running benchmark on all {len(tasks_to_run)} tasks")
+            logger.info(f" Running benchmark on all {len(tasks_to_run)} tasks")
 
         results = []
         for i, task in enumerate(tasks_to_run, 1):
             logger.info(f"\n{'=' * 80}")
-            logger.info(f"📋 Task {i}/{len(tasks_to_run)}")
+            logger.info(f" Task {i}/{len(tasks_to_run)}")
             logger.info(f"{'=' * 80}")
             result = agent.execute_task(task, simulate=simulate)
             results.append(result)
 
         logger.info(f"\n{'=' * 80}")
-        logger.info(f"✨ Benchmark complete! Executed {len(results)} tasks")
+        logger.info(f" Benchmark complete! Executed {len(results)} tasks")
         logger.info(f"{'=' * 80}")
 
         # Print summary
         total_time = sum(r["execution_time"] for r in results)
-        logger.info(f"\n📊 BENCHMARK SUMMARY")
+        logger.info(f"\n BENCHMARK SUMMARY")
         logger.info(f"   Agent: {agent.agent_id}")
         logger.info(f"   Tasks completed: {len(results)}")
         logger.info(f"   Total execution time: {total_time:.2f}s")
@@ -287,18 +287,18 @@ def main():
     skill_root = script_dir.parent  # Parent of scripts/ is the skill root
     tasks_dir = skill_root / "tasks"
 
-    logger.info("🦞🦀🦐 PinchBench - OpenClaw Benchmarking")
+    logger.info(" PinchBench - OpenClaw Benchmarking")
     ascii_crab = _load_ascii_art(skill_root, "crab.txt")
     if ascii_crab:
         print("\n" + _colorize_gradient(ascii_crab) + "\n")
     else:
-        print("\n" + "🦀 " * 30)
-        print("🦀 " * 30 + "\n")
-    logger.info("🦞🦀🦐 Starting PinchBench 🦐🦀🦞")
+        print("\n" + " " * 30)
+        print(" " * 30 + "\n")
+    logger.info(" Starting PinchBench ")
     time.sleep(5)
 
     if not tasks_dir.exists():
-        logger.error(f"❌ Tasks directory not found: {tasks_dir}")
+        logger.error(f" Tasks directory not found: {tasks_dir}")
         sys.exit(1)
 
     args = _parse_args()
@@ -339,10 +339,10 @@ def main():
             logger.error("Upload failed: %s", exc)
             sys.exit(1)
 
-    logger.info("🔧 Initializing BenchmarkRunner...")
+    logger.info(" Initializing BenchmarkRunner...")
     runner = BenchmarkRunner(tasks_dir)
 
-    logger.info("📂 Loading tasks from directory...")
+    logger.info(" Loading tasks from directory...")
     runner.load_tasks()
 
     model_slug = slugify_model(args.model)
@@ -371,7 +371,7 @@ def main():
         for run_index in range(runs_per_task):
             logger.info("\n%s", "=" * 80)
             logger.info(
-                "📋 Task %s/%s (Run %s/%s)",
+                " Task %s/%s (Run %s/%s)",
                 i,
                 len(tasks_to_run),
                 run_index + 1,

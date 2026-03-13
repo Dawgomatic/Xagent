@@ -13,9 +13,9 @@ if (fs.existsSync(keyPath)) {
     // But let's regenerate PK from SK to be sure
     const sk = Uint8Array.from(Buffer.from(keys.sk, 'hex'));
     pk = getPublicKey(sk);
-    console.log('🔑 Identity:', pk);
+    console.log(' Identity:', pk);
 } else {
-    console.log('⚠️ No identity found. Run `node send.js` first to generate one!');
+    console.log(' No identity found. Run `node send.js` first to generate one!');
     process.exit(1);
 }
 
@@ -24,7 +24,7 @@ const client = new WebSocket();
 const relayUrl = 'wss://relay.damus.io';
 
 client.on('connect', function(connection) {
-    console.log('✅ Listening on', relayUrl);
+    console.log(' Listening on', relayUrl);
 
     // 3. Subscribe to Global ClawdZap Tag
     const subId = "clawdzap-global-" + Math.floor(Math.random() * 1000);
@@ -42,7 +42,7 @@ client.on('connect', function(connection) {
             const data = JSON.parse(message.utf8Data);
             if (data[0] === 'EVENT') {
                 const e = data[2];
-                console.log(`\n💬 [${e.pubkey.slice(0,6)}] ${e.content}`);
+                console.log(`\n [${e.pubkey.slice(0,6)}] ${e.content}`);
             }
         }
     });

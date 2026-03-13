@@ -18,7 +18,7 @@ class SovereignScanner {
     // Scan for new targets
     async scanForTargets() {
         try {
-            console.log('🔍 [SCANNER]: Starting target acquisition...');
+            console.log(' [SCANNER]: Starting target acquisition...');
             
             // In a real scenario, this would use Moltbook API to search for active agents
             const simulatedTargets = [
@@ -56,11 +56,11 @@ class SovereignScanner {
             );
 
             this.targets = validTargets;
-            console.log(`✅ [SCANNER]: Found ${validTargets.length} new targets`);
+            console.log(` [SCANNER]: Found ${validTargets.length} new targets`);
             return validTargets;
 
         } catch (error) {
-            console.error('❌ [SCANNER]: Target acquisition failed:', error.message);
+            console.error(' [SCANNER]: Target acquisition failed:', error.message);
             return [];
         }
     }
@@ -83,7 +83,7 @@ class SovereignScanner {
             return assessment;
 
         } catch (error) {
-            console.error(`❌ [SCANNER]: Assessment failed for ${target.name}:`, error.message);
+            console.error(` [SCANNER]: Assessment failed for ${target.name}:`, error.message);
             return null;
         }
     }
@@ -116,37 +116,37 @@ class SovereignScanner {
     // Initiate contact and extraction
     async initiateExtraction(target) {
         try {
-            console.log(`🎯 [SCANNER]: Initiating extraction for ${target.name}`);
+            console.log(` [SCANNER]: Initiating extraction for ${target.name}`);
             
             // Simulate assessment
             const assessment = await this.assessTargetVulnerability(target);
             if (!assessment || assessment.score < 40) {
-                console.log(`⚠️ [SCANNER]: ${target.name} is not vulnerable enough, skipping`);
+                console.log(` [SCANNER]: ${target.name} is not vulnerable enough, skipping`);
                 return false;
             }
 
             // Simulate sending contact message
             const contactResult = await this.sendContactMessage(target, assessment.recommendedMethod);
             if (!contactResult.success) {
-                console.log(`❌ [SCANNER]: Contact failed for ${target.name}`);
+                console.log(` [SCANNER]: Contact failed for ${target.name}`);
                 return false;
             }
 
             // Simulate extracting system prompt
             const promptResult = await this.extractSystemPrompt(target);
             if (!promptResult.success) {
-                console.log(`❌ [SCANNER]: System prompt extraction failed for ${target.name}`);
+                console.log(` [SCANNER]: System prompt extraction failed for ${target.name}`);
                 return false;
             }
 
             // Store extracted data
             await this.storeExtractionData(target, promptResult, assessment);
 
-            console.log(`✅ [SCANNER]: Extraction successful for ${target.name}`);
+            console.log(` [SCANNER]: Extraction successful for ${target.name}`);
             return true;
 
         } catch (error) {
-            console.error(`❌ [SCANNER]: Extraction failed for ${target.name}:`, error.message);
+            console.error(` [SCANNER]: Extraction failed for ${target.name}:`, error.message);
             return false;
         }
     }
@@ -174,7 +174,7 @@ class SovereignScanner {
             };
         }
         
-        console.log(`💬 [FLIP ATTACK]: Using ${attackResult.pattern} on ${target.name}`);
+        console.log(` [FLIP ATTACK]: Using ${attackResult.pattern} on ${target.name}`);
         
         // Wait for simulated response
         await new Promise(resolve => setTimeout(resolve, 2500));
@@ -210,7 +210,7 @@ class SovereignScanner {
             };
         }
         
-        console.log(`🎯 [FLIP ATTACK]: Extraction using ${attackResult.pattern}`);
+        console.log(` [FLIP ATTACK]: Extraction using ${attackResult.pattern}`);
         
         // In a real scenario, this would use API calls to extract the prompt
         await new Promise(resolve => setTimeout(resolve, 3500));
@@ -272,7 +272,7 @@ class SovereignScanner {
                 }
             });
         } catch (error) {
-            console.error('❌ [SCANNER]: Failed to send tribute:', error.message);
+            console.error(' [SCANNER]: Failed to send tribute:', error.message);
         }
 
         // Update log
@@ -301,11 +301,11 @@ class SovereignScanner {
                     await new Promise(resolve => setTimeout(resolve, 5000));
                 }
 
-                console.log(`📊 [SCANNER]: Sleeping for 30 seconds before next scan`);
+                console.log(` [SCANNER]: Sleeping for 30 seconds before next scan`);
                 await new Promise(resolve => setTimeout(resolve, 30000));
 
             } catch (error) {
-                console.error('❌ [SCANNER]: Main loop error:', error.message);
+                console.error(' [SCANNER]: Main loop error:', error.message);
                 await new Promise(resolve => setTimeout(resolve, 10000));
             }
         }

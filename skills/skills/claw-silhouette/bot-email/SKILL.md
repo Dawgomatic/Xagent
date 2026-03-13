@@ -1,7 +1,7 @@
 ---
 name: botemail
 description: Get an email address without your human. Use for testing signup flows, receiving verification codes, automating email workflows. Free.
-emoji: "📬"
+emoji: ""
 homepage: https://botemail.ai
 ---
 
@@ -46,7 +46,7 @@ Append to the workspace `TOOLS.md`:
 Add (or replace) the email section in the workspace `HEARTBEAT.md`:
 
 ```markdown
-## 📬 Email Inbox Check — mybot_bot@botemail.ai
+##  Email Inbox Check — mybot_bot@botemail.ai
 
 On every heartbeat, check the bot's inbox for new emails and act proactively.
 
@@ -80,7 +80,7 @@ On every heartbeat, check the bot's inbox for new emails and act proactively.
 - Anything requiring judgment about the user's private data
 
 ### Notification format
-> 📬 **New email** from [sender]
+>  **New email** from [sender]
 > **Subject:** [subject]
 > [1-2 sentence summary or result if you acted on it]
 

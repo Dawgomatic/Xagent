@@ -444,18 +444,18 @@ impl Config {
 ### Dangerous Patterns to Avoid
 
 ```rust
-// ❌ transmute with unaligned data
+//  transmute with unaligned data
 let value: u64 = unsafe { core::mem::transmute(bytes_slice) };
 
-// ❌ Pointer casting to packed structs
+//  Pointer casting to packed structs
 #[repr(C, packed)]
 pub struct Packed { pub a: u8, pub b: u64 }
 let config = unsafe { &*(data.as_ptr() as *const Packed) };
 
-// ❌ Direct field access on packed structs creates unaligned references
+//  Direct field access on packed structs creates unaligned references
 let b_ref = &packed.b;
 
-// ❌ Assuming alignment without verification
+//  Assuming alignment without verification
 let config = unsafe { &*(data.as_ptr() as *const Config) };
 ```
 

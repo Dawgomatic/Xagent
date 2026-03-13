@@ -5,7 +5,7 @@ description: Semantic memory for AI agents. 95% token savings with vector search
 homepage: https://memorylayer.clawbot.hk
 metadata:
   clawdbot:
-    emoji: "🧠"
+    emoji: ""
 ---
 
 # MemoryLayer

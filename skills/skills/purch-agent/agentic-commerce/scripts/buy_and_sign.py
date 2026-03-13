@@ -154,17 +154,17 @@ def main():
     args = parser.parse_args()
 
     if not args.asin and not args.url:
-        print("❌ Error: Either --asin or --url is required")
+        print(" Error: Either --asin or --url is required")
         sys.exit(1)
 
     try:
         shipping_address = parse_address(args.address)
     except ValueError as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         sys.exit(1)
 
     # Step 1: Create order
-    print("📦 Creating order...")
+    print(" Creating order...")
     order_result = create_order(
         email=args.email,
         wallet_address=args.wallet,
@@ -178,7 +178,7 @@ def main():
         if args.json:
             print(json.dumps(order_result, indent=2))
         else:
-            print(f"❌ Order creation failed: {order_result['error']}")
+            print(f" Order creation failed: {order_result['error']}")
         sys.exit(1)
 
     order_id = order_result.get("orderId")
@@ -186,13 +186,13 @@ def main():
     product = order_result.get("product", {})
     total_price = order_result.get("totalPrice", {})
 
-    print(f"✅ Order created: {order_id}")
+    print(f" Order created: {order_id}")
     print(f"   Product: {product.get('title', 'N/A')}")
     print(f"   Total: {total_price.get('amount', 'N/A')} {total_price.get('currency', 'USDC').upper()}")
     print()
 
     # Step 2: Sign and submit transaction
-    print("🔐 Signing and submitting transaction...")
+    print(" Signing and submitting transaction...")
     tx_result = sign_and_send_transaction(serialized_tx, args.private_key, args.rpc_url)
 
     if args.json:
@@ -200,12 +200,12 @@ def main():
         return
 
     if "error" in tx_result:
-        print(f"❌ Transaction failed: {tx_result['error']}")
+        print(f" Transaction failed: {tx_result['error']}")
         print()
-        print(f"🌐 You can complete payment via browser: {order_result.get('checkoutUrl')}")
+        print(f" You can complete payment via browser: {order_result.get('checkoutUrl')}")
         sys.exit(1)
 
-    print("✅ Payment complete!")
+    print(" Payment complete!")
     print(f"   Signature: {tx_result['signature']}")
     print(f"   Explorer:  {tx_result['explorer_url']}")
 

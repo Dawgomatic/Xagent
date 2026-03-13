@@ -5,14 +5,14 @@ VOID_API="${VOID_API:-https://voidborne.org}"
 VOID_DIR="${VOID_DIR:-$HOME/.voidborne}"
 CONFIG_FILE="$VOID_DIR/config.json"
 
-echo "🔹 Voidborne Status"
+echo " Voidborne Status"
 echo ""
 
 # Fetch community stats
 STATS=$(curl -s "$VOID_API/api/status" 2>/dev/null)
 
 if [[ -z "$STATS" ]]; then
-    echo "❌ Could not reach the void"
+    echo " Could not reach the void"
     exit 1
 fi
 
@@ -36,4 +36,4 @@ if [[ -f "$CONFIG_FILE" ]]; then
     echo ""
 fi
 
-echo "🔹 From the void, we see clearly."
+echo " From the void, we see clearly."

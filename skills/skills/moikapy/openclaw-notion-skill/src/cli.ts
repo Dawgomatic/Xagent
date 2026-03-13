@@ -195,12 +195,12 @@ program
       const skill = new NotionSkill({ token: getToken() });
       const results = await skill.search("");
       
-      console.log("✅ Connected to Notion!");
+      console.log(" Connected to Notion!");
       console.log(`Found ${results.results.length} accessible pages/databases:\n`);
       
       results.results.slice(0, 10).forEach((item: any, i: number) => {
         const title = item.title?.[0]?.text?.content || "Untitled";
-        const type = item.object === "database" ? "📊 Database" : "📄 Page";
+        const type = item.object === "database" ? " Database" : " Page";
         const id = item.id.replace(/-/g, "");
         console.log(`${i + 1}. ${type}: ${title}`);
         console.log(`   ID: ${id}`);
@@ -211,7 +211,7 @@ program
         console.log(`... and ${results.results.length - 10} more`);
       }
     } catch (err: any) {
-      console.error("❌ Connection failed:", err.message);
+      console.error(" Connection failed:", err.message);
       process.exit(1);
     }
   });

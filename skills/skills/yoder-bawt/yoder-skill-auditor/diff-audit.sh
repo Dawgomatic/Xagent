@@ -63,13 +63,13 @@ added = [(k, v) for k, v in new_checks.items() if k not in old_checks and v['sev
 removed = [(k, v) for k, v in old_checks.items() if k not in new_checks and v['severity'] in ('critical', 'warning')]
 
 if added:
-    print('  🔴 NEW ISSUES:')
+    print('   NEW ISSUES:')
     for (check, sev), item in added:
         print(f'    [{sev.upper()}] {check}: {item[\"message\"]}')
     print()
 
 if removed:
-    print('  🟢 RESOLVED:')
+    print('   RESOLVED:')
     for (check, sev), item in removed:
         print(f'    [{sev.upper()}] {check}: {item[\"message\"]}')
     print()
@@ -81,10 +81,10 @@ if not added and not removed:
 dc = new['criticals'] - old['criticals']
 dw = new['warnings'] - old['warnings']
 if dc > 0 or dw > 0:
-    print(f'  ⚠️  REGRESSION: +{dc} criticals, +{dw} warnings')
+    print(f'    REGRESSION: +{dc} criticals, +{dw} warnings')
 elif dc < 0 or dw < 0:
-    print(f'  ✅ IMPROVEMENT: {dc} criticals, {dw} warnings')
+    print(f'   IMPROVEMENT: {dc} criticals, {dw} warnings')
 else:
-    print(f'  ➡️  No change in finding counts')
+    print(f'    No change in finding counts')
 " 2>/dev/null
 fi

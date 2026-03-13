@@ -15,7 +15,7 @@ const commands = {
 
 if (!command || command === 'help' || command === '--help' || command === '-h') {
   console.log(`
-🧠 Dual-Brain - Multi-LLM Perspective Synthesis for OpenClaw
+ Dual-Brain - Multi-LLM Perspective Synthesis for OpenClaw
 
 Usage:
   dual-brain setup            Interactive configuration

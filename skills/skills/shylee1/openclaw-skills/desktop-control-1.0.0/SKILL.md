@@ -6,47 +6,47 @@ description: Advanced desktop automation with mouse, keyboard, and screen contro
 
 **The most advanced desktop automation skill for OpenClaw.** Provides pixel-perfect mouse control, lightning-fast keyboard input, screen capture, window management, and clipboard operations.
 
-## 🎯 Features
+##  Features
 
 ### Mouse Control
-- ✅ **Absolute positioning** - Move to exact coordinates
-- ✅ **Relative movement** - Move from current position
-- ✅ **Smooth movement** - Natural, human-like mouse paths
-- ✅ **Click types** - Left, right, middle, double, triple clicks
-- ✅ **Drag & drop** - Drag from point A to point B
-- ✅ **Scroll** - Vertical and horizontal scrolling
-- ✅ **Position tracking** - Get current mouse coordinates
+-  **Absolute positioning** - Move to exact coordinates
+-  **Relative movement** - Move from current position
+-  **Smooth movement** - Natural, human-like mouse paths
+-  **Click types** - Left, right, middle, double, triple clicks
+-  **Drag & drop** - Drag from point A to point B
+-  **Scroll** - Vertical and horizontal scrolling
+-  **Position tracking** - Get current mouse coordinates
 
 ### Keyboard Control
-- ✅ **Text typing** - Fast, accurate text input
-- ✅ **Hotkeys** - Execute keyboard shortcuts (Ctrl+C, Win+R, etc.)
-- ✅ **Special keys** - Enter, Tab, Escape, Arrow keys, F-keys
-- ✅ **Key combinations** - Multi-key press combinations
-- ✅ **Hold & release** - Manual key state control
-- ✅ **Typing speed** - Configurable WPM (instant to human-like)
+-  **Text typing** - Fast, accurate text input
+-  **Hotkeys** - Execute keyboard shortcuts (Ctrl+C, Win+R, etc.)
+-  **Special keys** - Enter, Tab, Escape, Arrow keys, F-keys
+-  **Key combinations** - Multi-key press combinations
+-  **Hold & release** - Manual key state control
+-  **Typing speed** - Configurable WPM (instant to human-like)
 
 ### Screen Operations
-- ✅ **Screenshot** - Capture entire screen or regions
-- ✅ **Image recognition** - Find elements on screen (via OpenCV)
-- ✅ **Color detection** - Get pixel colors at coordinates
-- ✅ **Multi-monitor** - Support for multiple displays
+-  **Screenshot** - Capture entire screen or regions
+-  **Image recognition** - Find elements on screen (via OpenCV)
+-  **Color detection** - Get pixel colors at coordinates
+-  **Multi-monitor** - Support for multiple displays
 
 ### Window Management
-- ✅ **Window list** - Get all open windows
-- ✅ **Activate window** - Bring window to front
-- ✅ **Window info** - Get position, size, title
-- ✅ **Minimize/Maximize** - Control window states
+-  **Window list** - Get all open windows
+-  **Activate window** - Bring window to front
+-  **Window info** - Get position, size, title
+-  **Minimize/Maximize** - Control window states
 
 ### Safety Features
-- ✅ **Failsafe** - Move mouse to corner to abort
-- ✅ **Pause control** - Emergency stop mechanism
-- ✅ **Approval mode** - Require confirmation for actions
-- ✅ **Bounds checking** - Prevent out-of-screen operations
-- ✅ **Logging** - Track all automation actions
+-  **Failsafe** - Move mouse to corner to abort
+-  **Pause control** - Emergency stop mechanism
+-  **Approval mode** - Require confirmation for actions
+-  **Bounds checking** - Prevent out-of-screen operations
+-  **Logging** - Track all automation actions
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -81,7 +81,7 @@ position = dc.get_mouse_position()
 
 ---
 
-## 📋 Complete API Reference
+##  Complete API Reference
 
 ### Mouse Functions
 
@@ -403,7 +403,7 @@ print(f"Clipboard: {text}")
 
 ---
 
-## ⌨️ Key Names Reference
+##  Key Names Reference
 
 ### Alphabet Keys
 `'a'` through `'z'`
@@ -450,7 +450,7 @@ print(f"Clipboard: {text}")
 
 ---
 
-## 🛡️ Safety Features
+##  Safety Features
 
 ### Failsafe Mode
 
@@ -485,7 +485,7 @@ dc.click(500, 500)  # Prompt: "Allow click at (500, 500)? [y/n]"
 
 ---
 
-## 🎨 Advanced Examples
+##  Advanced Examples
 
 ### Example 1: Automated Form Filling
 
@@ -563,7 +563,7 @@ dc.drag(
 
 ---
 
-## ⚡ Performance Tips
+##  Performance Tips
 
 1. **Use instant movements** for speed: `duration=0`
 2. **Batch operations** instead of individual calls
@@ -573,7 +573,7 @@ dc.drag(
 
 ---
 
-## ⚠️ Important Notes
+##  Important Notes
 
 - **Screen coordinates** start at (0, 0) in top-left corner
 - **Multi-monitor setups** may have negative coordinates for secondary displays
@@ -583,7 +583,7 @@ dc.drag(
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Mouse not moving to correct position
 - Check DPI scaling settings
@@ -606,7 +606,7 @@ dc.drag(
 
 ---
 
-## 📦 Dependencies
+##  Dependencies
 
 - **PyAutoGUI** - Core automation engine
 - **Pillow** - Image processing
@@ -620,4 +620,4 @@ pip install pyautogui pillow opencv-python pygetwindow
 
 ---
 
-**Built for OpenClaw** - The ultimate desktop automation companion 🦞
+**Built for OpenClaw** - The ultimate desktop automation companion 

@@ -312,11 +312,11 @@ if __name__ == '__main__':
     state_file = Path('/home/node/.openclaw/workspace/skills/qst-memory/data/qst_doing-state.json')
     manager = SubtaskManager(state_file)
 
-    print("🧪 子任務管理器測試")
+    print(" 子任務管理器測試")
     print()
 
     # 添加子任務
-    print("✅ 添加子任務:")
+    print(" 添加子任務:")
     st1 = manager.add_subtask(
         title="開發子任務管理功能",
         description="實現子任務的CRUD操作",
@@ -336,7 +336,7 @@ if __name__ == '__main__':
     print()
 
     # 列出子任務
-    print("✅ 列出子任務:")
+    print(" 列出子任務:")
     subtasks = manager.list_subtasks()
     for st in subtasks:
         print(f"   [{st['status']}] {st['title']} (ID: {st['id']})")
@@ -344,14 +344,14 @@ if __name__ == '__main__':
     print()
 
     # 更新子任務狀態
-    print("✅ 更新子任務狀態:")
+    print(" 更新子任務狀態:")
     manager.update_subtask(st1['id'], status='completed')
     print(f"   子任務 1 已完成")
 
     print()
 
     # 重新列出並查看進度
-    print("✅ 重新列出子任務:")
+    print(" 重新列出子任務:")
     subtasks = manager.list_subtasks()
     for st in subtasks:
         print(f"   [{st['status']}] {st['title']}")
@@ -360,7 +360,7 @@ if __name__ == '__main__':
 
     # 查看進度
     progress = manager.calculate_progress()
-    print(f"✅ 當前進度: {progress}%")
+    print(f" 當前進度: {progress}%")
 
     print()
-    print("🐲 測試完成！")
+    print(" 測試完成！")

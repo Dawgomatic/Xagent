@@ -1,7 +1,7 @@
 ---
 name: Branding
 description: Build distinctive brand identity with clear positioning, voice, and visual consistency.
-metadata: {"clawdbot":{"emoji":"✨","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Discovery Questions (Ask First)

@@ -43,7 +43,7 @@ class FilesFilter extends BaseFilter {
 
     // Directory info
     const currentDir = lines[0].includes('.') ? '.' : 'unknown';
-    result.push(`📁 ${currentDir} (${lines.length - 1} items, ${this.formatBytes(totalSize)} total)`);
+    result.push(` ${currentDir} (${lines.length - 1} items, ${this.formatBytes(totalSize)} total)`);
 
     // Parse file entries
     const files = [];
@@ -74,7 +74,7 @@ class FilesFilter extends BaseFilter {
     // Show directories
     if (dirs.length > 0) {
       result.push('');
-      result.push(`📂 Directories (${dirs.length}):`);
+      result.push(` Directories (${dirs.length}):`);
       dirs.slice(0, 15).forEach(d => {
         result.push(`  ${d.name}`);
       });
@@ -86,7 +86,7 @@ class FilesFilter extends BaseFilter {
     // Show files
     if (files.length > 0) {
       result.push('');
-      result.push(`📄 Files (${files.length}):`);
+      result.push(` Files (${files.length}):`);
 
       // Show largest files first
       files.sort((a, b) => b.size - a.size);
@@ -101,7 +101,7 @@ class FilesFilter extends BaseFilter {
     // Show others
     if (others.length > 0) {
       result.push('');
-      result.push(`📦 Other (${others.length}):`);
+      result.push(` Other (${others.length}):`);
       others.slice(0, 5).forEach(o => {
         result.push(`  ${o.name}`);
       });
@@ -140,12 +140,12 @@ class FilesFilter extends BaseFilter {
       }
     }
 
-    const result = [`🔍 Found ${files.length + dirs.length} items`];
+    const result = [` Found ${files.length + dirs.length} items`];
 
     // Show directories
     if (dirs.length > 0) {
       result.push(``);
-      result.push(`📂 ${dirs.length} directories`);
+      result.push(` ${dirs.length} directories`);
       dirs.slice(0, 5).forEach(d => result.push(`  ${d}`));
       if (dirs.length > 5) {
         result.push(`  ... and ${dirs.length - 5} more`);
@@ -155,7 +155,7 @@ class FilesFilter extends BaseFilter {
     // Show files by extension
     if (files.length > 0) {
       result.push(``);
-      result.push(`📄 ${files.length} files`);
+      result.push(` ${files.length} files`);
       result.push(`  By extension:`);
 
       const sortedExts = Object.entries(extensions)
@@ -197,14 +197,14 @@ class FilesFilter extends BaseFilter {
     const dirs = lines.filter(l => l.includes('├──') || l.includes('└──') || l.includes('│'));
     const files = dirs.filter(l => !l.includes('/'));
 
-    const result = [`🌳 Tree (${lines.length} items)`];
+    const result = [` Tree (${lines.length} items)`];
 
     // Show top-level structure
     const topLevel = lines.filter(l => !l.includes('│') || l.startsWith('├──') || l.startsWith('└──'));
 
     if (topLevel.length > 0) {
       result.push(``);
-      result.push(`📁 Top-level (${topLevel.length} items):`);
+      result.push(` Top-level (${topLevel.length} items):`);
       topLevel.slice(0, 20).forEach(l => {
         result.push(`  ${l}`);
       });

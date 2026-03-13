@@ -130,16 +130,16 @@ curl -s -X POST "https://api.thirdweb.com/v1/payments/x402/fetch?url=https://x40
 
 Firecrawl is a web scraping and search API that extracts structured data from websites.
 
-### ⚠️ WARNING: Incomplete x402 Implementation
+###  WARNING: Incomplete x402 Implementation
 
 Firecrawl's x402 implementation is **non-standard and currently unusable** for automated agents:
 
 | Issue | Firecrawl | Standard x402 (Browserbase) |
 |-------|-----------|---------------------------|
 | Response code | `401 Unauthorized` | `402 Payment Required` |
-| Payment info | ❌ Not provided | ✅ `payTo`, `asset`, `amount` |
-| Auto-payment | ❌ Impossible | ✅ thirdweb handles it |
-| Docs explain header? | ❌ Just says `{{paymentHeader}}` | ✅ Client generates from 402 response |
+| Payment info |  Not provided |  `payTo`, `asset`, `amount` |
+| Auto-payment |  Impossible |  thirdweb handles it |
+| Docs explain header? |  Just says `{{paymentHeader}}` |  Client generates from 402 response |
 
 **The problem:** Their docs say to use `X-Payment: {{paymentHeader}}` but:
 1. They return 401, not 402
@@ -152,7 +152,7 @@ Firecrawl's x402 implementation is **non-standard and currently unusable** for a
 
 | Endpoint | Method | Status |
 |----------|--------|--------|
-| `/v1/x402/search` | POST | ❌ Cannot be used by agents |
+| `/v1/x402/search` | POST |  Cannot be used by agents |
 
 **Limitations:**
 - `limit` capped at 10 results (vs 100 for subscription)
@@ -549,9 +549,9 @@ As the x402 ecosystem grows, more services will support micropayments. To use an
 
 | Service | Category | x402 Endpoint | Type | Payment | Status |
 |---------|----------|---------------|------|---------|--------|
-| Browserbase | Browser Automation | `x402.browserbase.com` | True x402 | USDC | ✅ Works with thirdweb |
-| Firecrawl | Web Scraping | `api.firecrawl.dev/v1/x402/search` | Non-standard | USDC | ❌ Broken - returns 401, no payment info |
-| Mail.tm | Disposable Email | `api.mail.tm` | N/A | Free | ✅ Active |
+| Browserbase | Browser Automation | `x402.browserbase.com` | True x402 | USDC |  Works with thirdweb |
+| Firecrawl | Web Scraping | `api.firecrawl.dev/v1/x402/search` | Non-standard | USDC |  Broken - returns 401, no payment info |
+| Mail.tm | Disposable Email | `api.mail.tm` | N/A | Free |  Active |
 
 **Legend:**
 - **True x402:** Returns 402 with payment details, thirdweb handles automatically

@@ -20,7 +20,7 @@ async function sendTelegram(msg) {
 
 function formatArbitrageAlert(opp) {
   return `
-🔴 <b>ARBITRAGE OPPORTUNITY DETECTED</b>
+ <b>ARBITRAGE OPPORTUNITY DETECTED</b>
 
 Token: <code>${opp.token.slice(0,20)}...</code>
 Input: ${opp.inputSol} SOL
@@ -32,7 +32,7 @@ Route:
 Buy:  ${opp.buyRoute}
 Sell: ${opp.sellRoute}
 
-⚡ Act fast — opportunity lasts <2 seconds!
+ Act fast — opportunity lasts <2 seconds!
 `.trim();
 }
 
@@ -42,7 +42,7 @@ function formatWhaleTrade(tx) {
     .join('\n');
     
   return `
-🐋 <b>WHALE ACTIVITY DETECTED</b>
+ <b>WHALE ACTIVITY DETECTED</b>
 
 Wallet: AgmLJBM...zN51
 DEX: ${tx.dex}

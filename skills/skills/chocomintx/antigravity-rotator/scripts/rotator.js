@@ -92,22 +92,22 @@ class Rotator {
     }
 
     async run() {
-        if (!this.openclawBin) { console.error('❌ openclaw binary not found. Please run "node index.js --action=setup".'); return; }
+        if (!this.openclawBin) { console.error(' openclaw binary not found. Please run "node index.js --action=setup".'); return; }
         console.log(`=== Antigravity Rotator Engine [${new Date().toLocaleTimeString()}] ===\n`);
         const authData = this.readJson(this.paths.authProfiles);
         const modelPriority = this.config.modelPriority || [];
         const accounts = this.config.accounts || [];
-        if (accounts.length === 0) { console.log('⚠️ No accounts.'); return; }
+        if (accounts.length === 0) { console.log(' No accounts.'); return; }
 
-        console.log(`📋 Accounts: ${accounts.map(a => this.shortEmail(a)).join(', ')}`);
-        console.log(`📋 Priority: ${modelPriority.map(m => m.split('/').pop()).join(' > ')}\n`);
+        console.log(` Accounts: ${accounts.map(a => this.shortEmail(a)).join(', ')}`);
+        console.log(` Priority: ${modelPriority.map(m => m.split('/').pop()).join(' > ')}\n`);
 
         let currentModel = null;
         try {
             const statusOutput = execSync(`${this.openclawBin} gateway call status --params "{}" --json`, { encoding: 'utf8' });
             const status = JSON.parse(statusOutput);
             currentModel = status.sessions?.recent?.find(s => s.key === 'agent:main:main')?.model || status.sessions?.defaults?.model;
-            if (currentModel) console.log(`📡 Current Session Model: ${currentModel}`);
+            if (currentModel) console.log(` Current Session Model: ${currentModel}`);
         } catch (e) { }
 
         if (!currentModel) currentModel = modelPriority[0];
@@ -125,7 +125,7 @@ class Rotator {
         }
 
         if (!currentModel.startsWith('google-antigravity/')) {
-            console.log(`ℹ️ Non-Antigravity model (${currentModel}). Skipping.`); return;
+            console.log(` Non-Antigravity model (${currentModel}). Skipping.`); return;
         }
 
         console.log(`Current: ${this.shortEmail(currentEmail)} | ${currentModel}\n`);
@@ -141,7 +141,7 @@ class Rotator {
                 let token = profile.access;
                 const now = Date.now();
                 if (!profile.expires || profile.expires < now + 300000) {
-                    console.log(`🔄 ${this.shortEmail(email)}: Refreshing token...`);
+                    console.log(` ${this.shortEmail(email)}: Refreshing token...`);
                     token = await this.refreshAccessToken(profile.refresh);
                     authData.profiles[`google-antigravity:${email}`].access = token;
                     authData.profiles[`google-antigravity:${email}`].expires = now + 3600000;
@@ -151,7 +151,7 @@ class Rotator {
                     }
                     authUpdated = true;
                 }
-                console.log(`📡 ${this.shortEmail(email)}: Fetching quotas...`);
+                console.log(` ${this.shortEmail(email)}: Fetching quotas...`);
                 const quotas = await this.fetchAccountQuota(token, profile.projectId);
                 if (quotas.forbidden) continue;
                 for (const [m, d] of Object.entries(quotas)) {
@@ -159,7 +159,7 @@ class Rotator {
                     console.log(`   ${m.split('/').pop()}: ${d.quota}%`);
                 }
                 success++;
-            } catch (e) { console.log(`❌ ${this.shortEmail(email)}: ${e.message}`); }
+            } catch (e) { console.log(` ${this.shortEmail(email)}: ${e.message}`); }
         }
 
         if (authUpdated) this.writeJson(this.paths.authProfiles, authData);
@@ -186,7 +186,7 @@ class Rotator {
 
         if (!choice) return;
         if (choice.reason === 'Maintain') {
-            console.log("\n✅ Status Quo: Maintaining current setup.");
+            console.log("\n Status Quo: Maintaining current setup.");
         } else {
             this.performRotation(authData, choice, currentEmail, currentModel);
         }
@@ -210,8 +210,8 @@ class Rotator {
         });
 
         const zhReason = { 'Maintain': '维持', 'Upgrade Model': '调度更高优先级', 'Quota Low': '余量过低' }[choice.reason] || choice.reason;
-        this.appendLog(`✅ 已轮换账号：${this.shortEmail(choice.email)} | 模型：${choice.model.split('/').pop()} | 原因：${zhReason}`);
-        console.log(`\n✅ Rotation: ${this.shortEmail(currentEmail)} → ${this.shortEmail(choice.email)} (${zhReason})`);
+        this.appendLog(` 已轮换账号：${this.shortEmail(choice.email)} | 模型：${choice.model.split('/').pop()} | 原因：${zhReason}`);
+        console.log(`\n Rotation: ${this.shortEmail(currentEmail)} → ${this.shortEmail(choice.email)} (${zhReason})`);
     }
 
     async warmup(statusDb, authData, modelPriority, accounts) {
@@ -224,7 +224,7 @@ class Rotator {
             }
         }
         if (toW.length === 0) return;
-        console.log(`\n🔥 Warming up ${toW.length} models...`);
+        console.log(`\n Warming up ${toW.length} models...`);
         for (const { acc, m } of toW) {
             try {
                 const originalVip = authData.profiles[this.VIP_KEY];
@@ -234,7 +234,7 @@ class Rotator {
                 execSync(`${this.openclawBin} gateway call sessions.patch --params '{"key":"agent:main:${sId}","model":"${m}"}'`);
                 execSync(`timeout 10 ${this.openclawBin} agent --session-id ${sId} --message "1" --json 2>/dev/null || true`);
                 if (originalVip) { authData.profiles[this.VIP_KEY] = originalVip; this.writeJson(this.paths.authProfiles, authData); }
-                console.log(`   ✅ ${this.shortEmail(acc)} / ${m.split('/').pop()}`);
+                console.log(`    ${this.shortEmail(acc)} / ${m.split('/').pop()}`);
             } catch (e) { }
         }
     }

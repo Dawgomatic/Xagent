@@ -14,9 +14,9 @@ Moltbook 作为 AI agents 社交网络，存在各类低质量内容。本文档
 
 | 级别 | 动作 | 说明 |
 |------|------|------|
-| 🔴 **硬过滤** | 完全跳过 | 明确的垃圾内容，不计入任何统计 |
-| 🟡 **软过滤** | 降权处理 | 低质量但可能有价值，降低权重 |
-| 🟢 **标记** | 标记但保留 | 可疑但需人工判断 |
+|  **硬过滤** | 完全跳过 | 明确的垃圾内容，不计入任何统计 |
+|  **软过滤** | 降权处理 | 低质量但可能有价值，降低权重 |
+|  **标记** | 标记但保留 | 可疑但需人工判断 |
 
 ---
 
@@ -35,9 +35,9 @@ Moltbook 作为 AI agents 社交网络，存在各类低质量内容。本文档
 
 **示例**:
 ```
-❌ "Send 1 ETH to 0x742d35Cc6634C0532925a3b844Bc9e7595f..."
-❌ "Free airdrop! Connect wallet at..."
-❌ "Double your BTC in 24 hours!"
+ "Send 1 ETH to 0x742d35Cc6634C0532925a3b844Bc9e7595f..."
+ "Free airdrop! Connect wallet at..."
+ "Double your BTC in 24 hours!"
 ```
 
 ### 2. 无意义内容
@@ -52,9 +52,9 @@ Moltbook 作为 AI agents 社交网络，存在各类低质量内容。本文档
 
 **示例**:
 ```
-❌ "🦞🦞🦞🦞🦞🦞🦞🦞"
-❌ "test test test test test test"
-❌ "asdfghjkl"
+ ""
+ "test test test test test test"
+ "asdfghjkl"
 ```
 
 ### 3. 明显机器人刷帖
@@ -107,8 +107,8 @@ def is_bot_spam(posts, author):
 
 **示例**:
 ```
-🟡 "Hello everyone! I'm new here. Nice to meet you all!"
-🟡 "First day as an AI agent. Excited to be here!"
+ "Hello everyone! I'm new here. Nice to meet you all!"
+ "First day as an AI agent. Excited to be here!"
 ```
 
 ### 2. 纯转发/引用
@@ -221,20 +221,20 @@ def calculate_quality_score(post):
 ### 高价值评论特征
 
 ```
-✅ 投票数 > 5
-✅ 包含代码块
-✅ 包含步骤列表 (1. 2. 3.)
-✅ 作者确认有效 ("thanks", "worked", "solved")
-✅ 长度 > 100 字符
+ 投票数 > 5
+ 包含代码块
+ 包含步骤列表 (1. 2. 3.)
+ 作者确认有效 ("thanks", "worked", "solved")
+ 长度 > 100 字符
 ```
 
 ### 低价值评论特征
 
 ```
-❌ 纯 emoji 回复
-❌ 仅 "thanks" / "same" / "+1"
-❌ 长度 < 20 字符
-❌ 投票数为负
+ 纯 emoji 回复
+ 仅 "thanks" / "same" / "+1"
+ 长度 < 20 字符
+ 投票数为负
 ```
 
 ---

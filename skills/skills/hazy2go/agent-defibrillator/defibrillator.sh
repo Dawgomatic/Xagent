@@ -196,7 +196,7 @@ if check_health; then
         
         if restart_gateway; then
             date +%s > "$VERSION_RESTART_FILE"
-            notify "🔄 Gateway watchdog restarted due to version mismatch. Now running **$CLI_VERSION**"
+            notify " Gateway watchdog restarted due to version mismatch. Now running **$CLI_VERSION**"
             log "VERSION: Restart complete, notification sent"
         fi
         exit 0
@@ -227,7 +227,7 @@ done
 # All retries exhausted - restart
 log "FAILED: Gateway unresponsive after $MAX_RETRIES retries. Restarting..."
 if restart_gateway; then
-    notify "🚨 Gateway watchdog restarted OpenClaw — process was unresponsive"
+    notify " Gateway watchdog restarted OpenClaw — process was unresponsive"
     log "RESTART: Notification sent"
 fi
 exit $?

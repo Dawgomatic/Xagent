@@ -53,7 +53,7 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(summary)
 
-    print(f"✅ Summary generated: {args.output}")
+    print(f" Summary generated: {args.output}")
     print(f"   Word count: {len(summary.split())}")
 
 

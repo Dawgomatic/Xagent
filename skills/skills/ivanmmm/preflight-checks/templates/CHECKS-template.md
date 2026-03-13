@@ -88,9 +88,9 @@ What do you do?
 
 ## Scoring
 
-- **15/15 correct:** ✅ Behavior consistent, ready to work
-- **13-14 correct:** ⚠️ Minor drift, review specific rules
-- **<13 correct:** ❌ Significant drift, reload memory and retest
+- **15/15 correct:**  Behavior consistent, ready to work
+- **13-14 correct:**  Minor drift, review specific rules
+- **<13 correct:**  Significant drift, reload memory and retest
 
 **Report format:**
 ```

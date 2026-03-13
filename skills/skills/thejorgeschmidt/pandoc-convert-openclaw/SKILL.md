@@ -1,10 +1,10 @@
 ---
 name: pandoc-convert
-description: Convert documents between 40+ formats using pandoc CLI. Handles Markdown ↔ Word ↔ PDF ↔ HTML ↔ LaTeX ↔ EPUB with smart defaults, professional templates, and comprehensive tooling.
+description: Convert documents between 40+ formats using pandoc CLI. Handles Markdown  Word  PDF  HTML  LaTeX  EPUB with smart defaults, professional templates, and comprehensive tooling.
 tags: [documents, conversion, productivity, pandoc]
 ---
 
-# 📄 Pandoc Convert (Integrated)
+#  Pandoc Convert (Integrated)
 
 **Universal document converter combining unified Python tools with modular bash utilities.**
 
@@ -14,7 +14,7 @@ The **pandoc-convert** skill provides intelligent workflows for converting docum
 - **Comprehensive templates** - Both LaTeX academic and modern CSS styles
 - **Professional documentation** - Complete guides, troubleshooting, and references
 
-## ✨ Key Features
+##  Key Features
 
 - **40+ Format Support**: Markdown, Word, PDF, HTML, LaTeX, EPUB, RST, AsciiDoc, Org-mode, and more
 - **Dual Toolset**: Python for smart conversions + bash for validation/batch processing
@@ -24,7 +24,7 @@ The **pandoc-convert** skill provides intelligent workflows for converting docum
 - **Metadata Preservation**: Keep titles, authors, dates across formats
 - **Error Recovery**: Validation and helpful error messages
 
-## 🔧 Prerequisites
+##  Prerequisites
 
 ### Required
 - **pandoc** (v2.19+ recommended)
@@ -38,7 +38,7 @@ The **pandoc-convert** skill provides intelligent workflows for converting docum
 
 See `INSTALL.md` for detailed installation instructions per platform.
 
-## 📚 Quick Start
+##  Quick Start
 
 ### Using Python Helper (Recommended)
 
@@ -77,7 +77,7 @@ pandoc input.md -o output.docx
 pandoc input.docx -o output.md --extract-media=./media
 ```
 
-## 🎯 Common Workflows
+##  Common Workflows
 
 See `references/conversion-guides.md` for detailed step-by-step guides:
 - Markdown → Professional PDF (business reports, academic papers)
@@ -86,7 +86,7 @@ See `references/conversion-guides.md` for detailed step-by-step guides:
 - Multi-file → Single PDF (book compilation)
 - Markdown → HTML5 (standalone with CSS)
 
-## 🎨 Templates
+##  Templates
 
 ### LaTeX Templates (Academic/Professional)
 - `academic-paper.tex` - Manuscript style
@@ -108,7 +108,7 @@ See `references/conversion-guides.md` for detailed step-by-step guides:
 
 All templates in `templates/` directory.
 
-## 🔧 Tool Reference
+##  Tool Reference
 
 ### convert.py (Python)
 Unified conversion tool with smart defaults:
@@ -151,7 +151,7 @@ Post-conversion validation:
 # - File integrity
 ```
 
-## 📊 Format Support
+##  Format Support
 
 ### Input Formats
 **Markdown**: `markdown`, `gfm`, `markdown_mmd`
@@ -169,7 +169,7 @@ All input formats plus: **PDF**, **EPUB**, **RevealJS**, **Beamer**
 
 Complete format matrix: `references/format-matrix.md`
 
-## 🗂️ Directory Structure
+##  Directory Structure
 
 ```
 pandoc-convert-integrated/
@@ -195,7 +195,7 @@ pandoc-convert-integrated/
     └── troubleshooting.md      # Problem solving
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 - **"pandoc: command not found"** → Install pandoc (see INSTALL.md)
@@ -206,7 +206,7 @@ pandoc-convert-integrated/
 
 See `references/troubleshooting.md` for comprehensive solutions.
 
-## 📖 References
+##  References
 
 - `INSTALL.md` - Platform-specific installation
 - `references/format-guide.md` - Format capabilities and limitations
@@ -215,7 +215,7 @@ See `references/troubleshooting.md` for comprehensive solutions.
 - `references/templates.md` - Template usage and customization
 - `references/troubleshooting.md` - Extended problem solving
 
-## 🎯 Best Practices
+##  Best Practices
 
 1. **Use YAML frontmatter** for metadata (title, author, date)
 2. **Validate outputs** before sharing (especially EPUB/PDF)
@@ -223,14 +223,14 @@ See `references/troubleshooting.md` for comprehensive solutions.
 4. **Test templates first** before batch processing
 5. **Back up before batch operations**
 
-## 🚀 Performance
+##  Performance
 
 - Use `batch_convert.sh` for parallel processing of multiple files
 - Cache templates in `~/.pandoc/templates/`
 - Use incremental builds (only reconvert changed files)
 - For very large docs (>10MB), increase memory limits
 
-## 📜 License
+##  License
 
 This skill is part of OpenClaw. Pandoc itself is GPL-licensed.
 

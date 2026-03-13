@@ -18,50 +18,50 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}🧠 Cognitive Memory Upgrade to v${VERSION}${NC}"
+echo -e "${BLUE} Cognitive Memory Upgrade to v${VERSION}${NC}"
 echo "   Workspace: $WORKSPACE"
 echo ""
 
 # --- Pre-flight checks ---
 if [ ! -d "$WORKSPACE" ]; then
-    echo -e "${RED}❌ Workspace not found: $WORKSPACE${NC}"
+    echo -e "${RED} Workspace not found: $WORKSPACE${NC}"
     echo "   Usage: bash upgrade_to_1.0.6.sh /path/to/workspace"
     exit 1
 fi
 
 if [ ! -d "$WORKSPACE/memory" ]; then
-    echo -e "${RED}❌ No memory directory found. Is cognitive-memory installed?${NC}"
+    echo -e "${RED} No memory directory found. Is cognitive-memory installed?${NC}"
     echo "   Run init_memory.sh first for new installations."
     exit 1
 fi
 
 # --- Backup ---
 BACKUP_DIR="$WORKSPACE/.cognitive-memory-backup-$(date +%Y%m%d-%H%M%S)"
-echo -e "${YELLOW}📦 Creating backup...${NC}"
+echo -e "${YELLOW} Creating backup...${NC}"
 mkdir -p "$BACKUP_DIR"
 cp -r "$WORKSPACE/memory" "$BACKUP_DIR/" 2>/dev/null || true
 cp "$WORKSPACE/MEMORY.md" "$BACKUP_DIR/" 2>/dev/null || true
 cp "$WORKSPACE/IDENTITY.md" "$BACKUP_DIR/" 2>/dev/null || true
 cp "$WORKSPACE/SOUL.md" "$BACKUP_DIR/" 2>/dev/null || true
-echo -e "   ${GREEN}✅ Backup created: $BACKUP_DIR${NC}"
+echo -e "   ${GREEN} Backup created: $BACKUP_DIR${NC}"
 echo ""
 
 # --- Step 1: Create reflections directory ---
-echo -e "${BLUE}📁 Step 1: Creating reflections archive directory...${NC}"
+echo -e "${BLUE} Step 1: Creating reflections archive directory...${NC}"
 if [ ! -d "$WORKSPACE/memory/meta/reflections" ]; then
     mkdir -p "$WORKSPACE/memory/meta/reflections"
-    echo -e "   ${GREEN}✅ Created memory/meta/reflections/${NC}"
+    echo -e "   ${GREEN} Created memory/meta/reflections/${NC}"
 else
-    echo -e "   ${YELLOW}⏭️  memory/meta/reflections/ already exists${NC}"
+    echo -e "   ${YELLOW}  memory/meta/reflections/ already exists${NC}"
 fi
 echo ""
 
 # --- Step 2: Create IDENTITY.md ---
-echo -e "${BLUE}📄 Step 2: Creating IDENTITY.md...${NC}"
+echo -e "${BLUE} Step 2: Creating IDENTITY.md...${NC}"
 if [ ! -f "$WORKSPACE/IDENTITY.md" ]; then
     if [ -f "$TEMPLATES/IDENTITY.md" ]; then
         cp "$TEMPLATES/IDENTITY.md" "$WORKSPACE/IDENTITY.md"
-        echo -e "   ${GREEN}✅ Created IDENTITY.md from template${NC}"
+        echo -e "   ${GREEN} Created IDENTITY.md from template${NC}"
     else
         cat > "$WORKSPACE/IDENTITY.md" << 'EOF'
 # IDENTITY.md — Who Am I?
@@ -115,20 +115,20 @@ if [ ! -f "$WORKSPACE/IDENTITY.md" ]; then
 ### Archived (Compacted)
 <!-- Format: YYYY-MM (N entries): [summary] -->
 EOF
-        echo -e "   ${GREEN}✅ Created IDENTITY.md (inline template)${NC}"
+        echo -e "   ${GREEN} Created IDENTITY.md (inline template)${NC}"
     fi
 else
-    echo -e "   ${YELLOW}⏭️  IDENTITY.md already exists, skipping${NC}"
+    echo -e "   ${YELLOW}  IDENTITY.md already exists, skipping${NC}"
     echo -e "   ${YELLOW}   (Add Self-Image and Self-Awareness Log sections manually if missing)${NC}"
 fi
 echo ""
 
 # --- Step 3: Create SOUL.md ---
-echo -e "${BLUE}📄 Step 3: Creating SOUL.md...${NC}"
+echo -e "${BLUE} Step 3: Creating SOUL.md...${NC}"
 if [ ! -f "$WORKSPACE/SOUL.md" ]; then
     if [ -f "$TEMPLATES/SOUL.md" ]; then
         cp "$TEMPLATES/SOUL.md" "$WORKSPACE/SOUL.md"
-        echo -e "   ${GREEN}✅ Created SOUL.md from template${NC}"
+        echo -e "   ${GREEN} Created SOUL.md from template${NC}"
     else
         cat > "$WORKSPACE/SOUL.md" << 'EOF'
 # SOUL.md — Who You Are
@@ -180,21 +180,21 @@ Each session, you wake up fresh. These files _are_ your memory.
 
 _This file is yours to evolve._
 EOF
-        echo -e "   ${GREEN}✅ Created SOUL.md (inline template)${NC}"
+        echo -e "   ${GREEN} Created SOUL.md (inline template)${NC}"
     fi
 else
-    echo -e "   ${YELLOW}⏭️  SOUL.md already exists, skipping${NC}"
+    echo -e "   ${YELLOW}  SOUL.md already exists, skipping${NC}"
 fi
 echo ""
 
 # --- Step 4: Update decay-scores.json ---
-echo -e "${BLUE}📄 Step 4: Updating decay-scores.json...${NC}"
+echo -e "${BLUE} Step 4: Updating decay-scores.json...${NC}"
 DECAY_FILE="$WORKSPACE/memory/meta/decay-scores.json"
 
 if [ -f "$DECAY_FILE" ]; then
     # Check if already has new fields
     if grep -q "last_self_image_consolidation" "$DECAY_FILE"; then
-        echo -e "   ${YELLOW}⏭️  Already has v1.0.6 fields${NC}"
+        echo -e "   ${YELLOW}  Already has v1.0.6 fields${NC}"
     else
         # Backup original
         cp "$DECAY_FILE" "$DECAY_FILE.pre-upgrade"
@@ -217,34 +217,34 @@ if "self_awareness_count_since_consolidation" not in data:
 with open("$DECAY_FILE", "w") as f:
     json.dump(data, f, indent=2)
 
-print("   ✅ Updated decay-scores.json with new tracking fields")
+print("    Updated decay-scores.json with new tracking fields")
 PYEOF
         else
             # Fallback: manual sed (less safe but works)
-            echo -e "   ${YELLOW}⚠️  Python not found. Please manually add to decay-scores.json:${NC}"
+            echo -e "   ${YELLOW}  Python not found. Please manually add to decay-scores.json:${NC}"
             echo '     "last_self_image_consolidation": null,'
             echo '     "self_awareness_count_since_consolidation": 0,'
         fi
     fi
 else
-    echo -e "   ${RED}❌ decay-scores.json not found${NC}"
+    echo -e "   ${RED} decay-scores.json not found${NC}"
 fi
 echo ""
 
 # --- Step 5: Create pending-reflection.md if missing ---
-echo -e "${BLUE}📄 Step 5: Checking pending-reflection.md...${NC}"
+echo -e "${BLUE} Step 5: Checking pending-reflection.md...${NC}"
 if [ ! -f "$WORKSPACE/memory/meta/pending-reflection.md" ]; then
     if [ -f "$TEMPLATES/pending-reflection.md" ]; then
         cp "$TEMPLATES/pending-reflection.md" "$WORKSPACE/memory/meta/pending-reflection.md"
-        echo -e "   ${GREEN}✅ Created pending-reflection.md${NC}"
+        echo -e "   ${GREEN} Created pending-reflection.md${NC}"
     fi
 else
-    echo -e "   ${YELLOW}⏭️  pending-reflection.md already exists${NC}"
+    echo -e "   ${YELLOW}  pending-reflection.md already exists${NC}"
 fi
 echo ""
 
 # --- Step 6: Git commit if available ---
-echo -e "${BLUE}🔍 Step 6: Recording upgrade in git...${NC}"
+echo -e "${BLUE} Step 6: Recording upgrade in git...${NC}"
 cd "$WORKSPACE"
 if [ -d ".git" ]; then
     git add -A
@@ -258,15 +258,15 @@ Changes:
 
 Actor: system:upgrade
 Version: ${VERSION}" 2>/dev/null || echo -e "   ${YELLOW}No changes to commit${NC}"
-    echo -e "   ${GREEN}✅ Changes committed to git${NC}"
+    echo -e "   ${GREEN} Changes committed to git${NC}"
 else
-    echo -e "   ${YELLOW}⏭️  No git repository${NC}"
+    echo -e "   ${YELLOW}  No git repository${NC}"
 fi
 echo ""
 
 # --- Summary ---
 echo -e "${GREEN}════════════════════════════════════════════════════════════${NC}"
-echo -e "${GREEN}✅ Upgrade to v${VERSION} complete!${NC}"
+echo -e "${GREEN} Upgrade to v${VERSION} complete!${NC}"
 echo -e "${GREEN}════════════════════════════════════════════════════════════${NC}"
 echo ""
 echo "New structure:"
@@ -279,7 +279,7 @@ echo "      ├── reflections/         ← NEW (Full reflection archive)"
 echo "      ├── reflection-log.md    (Summaries for context)"
 echo "      └── decay-scores.json    (Updated with consolidation tracking)"
 echo ""
-echo -e "${YELLOW}⚠️  Manual steps required:${NC}"
+echo -e "${YELLOW}  Manual steps required:${NC}"
 echo ""
 echo "1. Update your AGENTS.md with the new Reflection section"
 echo "   (See UPGRADE.md for the full text to paste)"

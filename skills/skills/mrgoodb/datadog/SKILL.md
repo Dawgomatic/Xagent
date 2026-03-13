@@ -1,7 +1,7 @@
 ---
 name: datadog
 description: Monitor infrastructure and applications via Datadog API. Query metrics, manage dashboards, and create alerts.
-metadata: {"clawdbot":{"emoji":"🐕","requires":{"env":["DD_API_KEY","DD_APP_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["DD_API_KEY","DD_APP_KEY"]}}}
 ---
 
 # Datadog

@@ -1,7 +1,7 @@
 ---
 name: Passwords
 description: Local credential vault with OS keychain integration, encrypted storage, and session-based access control.
-metadata: {"clawdbot":{"emoji":"🔐","requires":{"bins":["age"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["age"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Storage

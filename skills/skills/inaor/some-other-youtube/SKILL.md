@@ -19,9 +19,9 @@ YouTube blocks transcript requests from cloud IPs (AWS, GCP, etc.). APIFY runs t
 
 ## Links
 
-- 🔗 [APIFY Pricing](https://apify.com/pricing)
-- 🔑 [Get API Key](https://console.apify.com/account/integrations)
-- 🎬 [YouTube Transcripts Actor](https://apify.com/karamelo/youtube-transcripts)
+-  [APIFY Pricing](https://apify.com/pricing)
+-  [Get API Key](https://console.apify.com/account/integrations)
+-  [YouTube Transcripts Actor](https://apify.com/karamelo/youtube-transcripts)
 
 ## Setup
 
@@ -99,7 +99,7 @@ The script handles common errors:
 ```yaml
 metadata:
   clawdbot:
-    emoji: "📹"
+    emoji: ""
     requires:
       env: ["APIFY_API_TOKEN"]
       bins: ["python3"]

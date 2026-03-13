@@ -158,7 +158,7 @@ def cmd_meetings_live(args):
     if not meetings:
         print("No live meetings right now.")
         return
-    print(f"🔴 {len(meetings)} live meeting(s):\n")
+    print(f" {len(meetings)} live meeting(s):\n")
     for m in meetings:
         topic = m.get("topic", "Untitled")
         mid = m.get("id", "?")
@@ -167,9 +167,9 @@ def cmd_meetings_live(args):
         participants = m.get("participants", 0)
         start = m.get("start_time", "?")
         duration = m.get("duration", "?")
-        has_video = "✅" if m.get("has_video", False) else "❌"
-        has_screen = "✅" if m.get("has_screen_share", False) else "❌"
-        has_recording = "✅" if m.get("has_recording", False) else "❌"
+        has_video = "" if m.get("has_video", False) else ""
+        has_screen = "" if m.get("has_screen_share", False) else ""
+        has_recording = "" if m.get("has_recording", False) else ""
         print(f"  [{mid}] {topic}")
         print(f"    UUID: {uuid}")
         print(f"    Host: {host}")
@@ -209,7 +209,7 @@ def cmd_meetings_rtms_start(args):
             "client_id": rtms_client_id,
         }
     })
-    print(f"✅ RTMS started for meeting {args.meeting_id} (host: {host_user_id})")
+    print(f" RTMS started for meeting {args.meeting_id} (host: {host_user_id})")
 
 
 def cmd_meetings_rtms_stop(args):
@@ -228,7 +228,7 @@ def cmd_meetings_rtms_stop(args):
             "client_id": rtms_client_id,
         }
     })
-    print(f"🛑 RTMS stopped for meeting {args.meeting_id} (host: {host_user_id})")
+    print(f" RTMS stopped for meeting {args.meeting_id} (host: {host_user_id})")
 
 
 def cmd_meetings_get(args):
@@ -455,7 +455,7 @@ def cmd_recordings_download_summary(args):
     fpath = os.path.join(out_dir, fname)
     with open(fpath, "w") as f:
         f.write("\n".join(lines))
-    print(f"✅ AI summary saved to {fpath}")
+    print(f" AI summary saved to {fpath}")
 
 
 def cmd_recordings_delete(args):

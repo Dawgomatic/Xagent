@@ -153,38 +153,38 @@ function formatVerifyReport(results, skillName, sourceUrl) {
   const tampered = results.modified.length > 0 || results.localOnly.length > 0 || results.remoteOnly.length > 0;
 
   if (!tampered) {
-    lines.push(`🔒 VERIFIED — "${skillName}"`);
+    lines.push(` VERIFIED — "${skillName}"`);
     lines.push('');
-    lines.push(`Integrity: 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 100%`);
+    lines.push(`Integrity:  100%`);
     lines.push(`Files: ${total} checked | All match source`);
     lines.push('');
-    lines.push(`✅ Every file matches the original source exactly.`);
+    lines.push(` Every file matches the original source exactly.`);
     lines.push(`Source: ${sourceUrl}`);
   } else {
     const matchPct = Math.round((results.matched.length / total) * 100);
     const fill = Math.round(matchPct / 10);
-    const bar = '🟩'.repeat(fill) + '🔴'.repeat(10 - fill);
+    const bar = ''.repeat(fill) + ''.repeat(10 - fill);
 
-    lines.push(`⚠️ TAMPERED — "${skillName}"`);
+    lines.push(` TAMPERED — "${skillName}"`);
     lines.push('');
     lines.push(`Integrity: ${bar} ${matchPct}%`);
     lines.push(`Files: ${total} checked | ${results.matched.length} match, ${results.modified.length} modified, ${results.localOnly.length} added, ${results.remoteOnly.length} missing`);
     lines.push('');
 
     if (results.modified.length > 0) {
-      lines.push('🔴 Modified (different from source):');
+      lines.push(' Modified (different from source):');
       for (const f of results.modified) lines.push(`  → ${f}`);
       lines.push('');
     }
 
     if (results.localOnly.length > 0) {
-      lines.push('⚠️ Added (not in source):');
+      lines.push(' Added (not in source):');
       for (const f of results.localOnly) lines.push(`  → ${f}`);
       lines.push('');
     }
 
     if (results.remoteOnly.length > 0) {
-      lines.push('❌ Missing (in source but not installed):');
+      lines.push(' Missing (in source but not installed):');
       for (const f of results.remoteOnly) lines.push(`  → ${f}`);
       lines.push('');
     }

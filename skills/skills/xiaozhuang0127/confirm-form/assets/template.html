@@ -160,28 +160,28 @@
     </style>
 </head>
 <body>
-    <h1>📋 AI助手的确认表单</h1>
+    <h1> AI助手的确认表单</h1>
     <p class="meta">生成时间：{{TIMESTAMP}} | 共 {{QUESTION_COUNT}} 个问题</p>
     <p style="color:#666;">我整理了以下问题需要主人确认。每个问题我都附上了背景、分析和建议选项。</p>
     
     <div id="questions"></div>
     
     <div class="global-section">
-        <h3>💬 整体反馈</h3>
+        <h3> 整体反馈</h3>
         <div class="btn-group">
-            <button type="button" onclick="setGlobalFeedback(this, 'all_ok')">✅ 全部同意我的判断</button>
-            <button type="button" onclick="setGlobalFeedback(this, 'need_more_info')">📄 需要补充材料</button>
-            <button type="button" onclick="setGlobalFeedback(this, 'discuss')">💭 需要讨论</button>
+            <button type="button" onclick="setGlobalFeedback(this, 'all_ok')"> 全部同意我的判断</button>
+            <button type="button" onclick="setGlobalFeedback(this, 'need_more_info')"> 需要补充材料</button>
+            <button type="button" onclick="setGlobalFeedback(this, 'discuss')"> 需要讨论</button>
         </div>
         <textarea id="globalComment" class="custom-input" rows="3" placeholder="整体意见或补充说明（可选）"></textarea>
     </div>
     
-    <button id="submitBtn" onclick="submitForm()">📤 提交确认</button>
+    <button id="submitBtn" onclick="submitForm()"> 提交确认</button>
     
     <div id="result">
-        <h3>✅ 提交成功！</h3>
+        <h3> 提交成功！</h3>
         <p>点下面按钮复制，然后粘贴给AI助手就行～</p>
-        <button class="copy-btn" onclick="copyResult()">📋 复制结果</button>
+        <button class="copy-btn" onclick="copyResult()"> 复制结果</button>
         <details style="margin-top:15px">
             <summary style="cursor:pointer;color:#666">查看详细内容</summary>
             <div id="resultText"></div>
@@ -202,7 +202,7 @@
                 if (q.findings && q.findings.length) {
                     findingsHtml = `
                         <div class="section findings">
-                            <div class="section-label">🔍 我发现的信息</div>
+                            <div class="section-label"> 我发现的信息</div>
                             <ul class="findings-list">
                                 ${q.findings.map(f => `
                                     <li>
@@ -220,12 +220,12 @@
                         <div class="question-number">${idx + 1}</div>
                         <h3 class="question-title">${q.title}</h3>
                     </div>
-                    ${q.context ? `<div class="section context"><div class="section-label">📖 背景</div><p>${q.context}</p></div>` : ''}
-                    ${q.uncertainty ? `<div class="section uncertainty"><div class="section-label">❓ 我不确定的点</div><p>${q.uncertainty}</p></div>` : ''}
+                    ${q.context ? `<div class="section context"><div class="section-label"> 背景</div><p>${q.context}</p></div>` : ''}
+                    ${q.uncertainty ? `<div class="section uncertainty"><div class="section-label"> 我不确定的点</div><p>${q.uncertainty}</p></div>` : ''}
                     ${findingsHtml}
-                    ${q.judgment ? `<div class="section judgment"><div class="section-label">💭 我的判断</div><p>${q.judgment}</p></div>` : ''}
+                    ${q.judgment ? `<div class="section judgment"><div class="section-label"> 我的判断</div><p>${q.judgment}</p></div>` : ''}
                     <div class="options">
-                        <div class="options-label">📋 请选择：</div>
+                        <div class="options-label"> 请选择：</div>
                         ${q.options.map((opt, optIdx) => `
                             <label class="option-item" onclick="selectOption(this, ${idx})">
                                 <input type="radio" name="q${idx}" value="${optIdx}">
@@ -285,7 +285,7 @@
             
             document.getElementById('result').style.display = 'block';
             document.getElementById('resultText').textContent = JSON.stringify(result, null, 2);
-            document.getElementById('submitBtn').textContent = '✅ 已生成';
+            document.getElementById('submitBtn').textContent = ' 已生成';
             document.getElementById('submitBtn').style.background = '#28a745';
             document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
         }
@@ -294,7 +294,7 @@
             const text = document.getElementById('resultText').textContent;
             const btn = document.querySelector('.copy-btn');
             navigator.clipboard.writeText(text).then(() => {
-                btn.textContent = '✅ 已复制！去粘贴给AI助手吧';
+                btn.textContent = ' 已复制！去粘贴给AI助手吧';
                 btn.style.background = '#155724';
             }).catch(() => {
                 const textarea = document.createElement('textarea');
@@ -303,7 +303,7 @@
                 textarea.select();
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
-                btn.textContent = '✅ 已复制！';
+                btn.textContent = ' 已复制！';
                 btn.style.background = '#155724';
             });
         }

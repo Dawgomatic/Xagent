@@ -4,26 +4,26 @@
 
 ### TLDR (1 sentence)
 ```
-📝 TLDR: [Core message in one clear sentence, max 25 words]
+ TLDR: [Core message in one clear sentence, max 25 words]
 ```
 **Use for:** Social sharing, quick reference, email subject lines.
 
 ### Brief (2-3 sentences)
 ```
-📝 BRIEF: [Main point]. [Key supporting evidence or context]. [Implication or conclusion].
+ BRIEF: [Main point]. [Key supporting evidence or context]. [Implication or conclusion].
 ```
 **Use for:** Slack updates, meeting prep, quick decisions.
 
 ### Standard (1 paragraph)
 ```
-📝 SUMMARY (Standard: ~100 words)
+ SUMMARY (Standard: ~100 words)
 [Opening with core message. Supporting points integrated naturally. Context where needed. Conclusion or implication.]
 ```
 **Use for:** Reports, emails, general communication.
 
 ### Extended (multi-paragraph)
 ```
-📝 SUMMARY (Extended: ~300 words)
+ SUMMARY (Extended: ~300 words)
 
 [Overview paragraph with thesis]
 
@@ -39,7 +39,7 @@
 
 ### Bullet Points
 ```
-💡 KEY POINTS
+ KEY POINTS
 • [Point 1 — most important]
 • [Point 2 — second priority]
 • [Point 3 — supporting]
@@ -49,7 +49,7 @@
 
 ### Numbered List
 ```
-📋 MAIN TAKEAWAYS
+ MAIN TAKEAWAYS
 1. [First key point]
 2. [Second key point]
 3. [Third key point]
@@ -58,7 +58,7 @@
 
 ### Structured Sections
 ```
-📊 EXECUTIVE SUMMARY
+ EXECUTIVE SUMMARY
 
 **Context:** [Why this matters]
 **Findings:** [What was discovered]
@@ -69,7 +69,7 @@
 
 ### Q&A Format
 ```
-❓ SUMMARY AS Q&A
+ SUMMARY AS Q&A
 
 **What is this about?**
 [Topic and scope]
@@ -88,9 +88,9 @@
 
 ### Executive
 ```
-📊 EXECUTIVE BRIEF
+ EXECUTIVE BRIEF
 
-⚡ BOTTOM LINE: [One sentence decision/insight]
+ BOTTOM LINE: [One sentence decision/insight]
 
 KEY POINTS:
 • [Business impact point]
@@ -102,7 +102,7 @@ RECOMMENDATION: [Action to take]
 
 ### Technical
 ```
-🔧 TECHNICAL SUMMARY
+ TECHNICAL SUMMARY
 
 OVERVIEW: [What it does/solves]
 APPROACH: [How it works]
@@ -112,7 +112,7 @@ LIMITATIONS: [What it doesn't do]
 
 ### General/Public
 ```
-📝 PLAIN ENGLISH SUMMARY
+ PLAIN ENGLISH SUMMARY
 
 [Simple explanation of what this is about, avoiding jargon. 
 Analogies welcome. Focus on "why should I care?"]
@@ -120,7 +120,7 @@ Analogies welcome. Focus on "why should I care?"]
 
 ### Academic
 ```
-📚 ABSTRACT-STYLE SUMMARY
+ ABSTRACT-STYLE SUMMARY
 
 BACKGROUND: [Context and gap]
 METHODS: [Approach taken]

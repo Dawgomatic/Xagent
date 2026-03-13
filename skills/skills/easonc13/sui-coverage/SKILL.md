@@ -4,7 +4,7 @@ description: Analyze Sui Move test coverage, identify untested code, write missi
 homepage: https://github.com/EasonC13-agent/sui-coverage-demo
 metadata:
   openclaw:
-    emoji: "🔍"
+    emoji: ""
     requires:
       bins: ["python3", "sui"]
 ---
@@ -57,9 +57,9 @@ python3 $SKILL_DIR/analyze_source.py -m <module_name> -o coverage.md
 ### Step 2: Read the Coverage Report
 
 Read the generated `coverage.md` to identify:
-- 🔴 **Uncalled functions** - Functions never executed
-- 🔴 **Uncovered assertions** - `assert!()` failure paths not tested
-- 🔴 **Uncovered branches** - `if/else` paths not taken
+-  **Uncalled functions** - Functions never executed
+-  **Uncovered assertions** - `assert!()` failure paths not tested
+-  **Uncovered branches** - `if/else` paths not taken
 
 ### Step 3: Write Missing Tests
 

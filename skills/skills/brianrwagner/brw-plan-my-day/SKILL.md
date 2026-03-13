@@ -119,7 +119,7 @@ Ask for each potential priority:
 
 ## Time-Blocked Schedule
 
-### 8:00 - 9:00: Morning Prime 🌅
+### 8:00 - 9:00: Morning Prime 
 **Focus:** Wake up, coffee, light movement, review plan
 
 - [ ] Morning routine (30 min)
@@ -130,7 +130,7 @@ Ask for each potential priority:
 
 ---
 
-### 9:00 - 11:00: Deep Work Block 1 🎯 [PRIORITY #1]
+### 9:00 - 11:00: Deep Work Block 1  [PRIORITY #1]
 **Focus:** [Specific priority 1 task]
 
 - [ ] [Concrete subtask 1]
@@ -143,7 +143,7 @@ Ask for each potential priority:
 
 ---
 
-### 11:00 - 11:15: Break ☕
+### 11:00 - 11:15: Break 
 **Focus:** Step away from desk
 
 - Physical movement (walk, stretch)
@@ -152,7 +152,7 @@ Ask for each potential priority:
 
 ---
 
-### 11:15 - 12:30: Deep Work Block 2 🎯 [PRIORITY #2]
+### 11:15 - 12:30: Deep Work Block 2  [PRIORITY #2]
 **Focus:** [Specific priority 2 task]
 
 - [ ] [Concrete subtask 1]
@@ -162,7 +162,7 @@ Ask for each potential priority:
 
 ---
 
-### 12:30 - 1:30: Lunch Break 🍽️
+### 12:30 - 1:30: Lunch Break 
 **Focus:** Eat, recharge, disconnect
 
 - Proper meal (not at desk)
@@ -173,7 +173,7 @@ Ask for each potential priority:
 
 ---
 
-### 1:30 - 3:00: Focused Work Block 🎯 [PRIORITY #3]
+### 1:30 - 3:00: Focused Work Block  [PRIORITY #3]
 **Focus:** [Specific priority 3 task]
 
 - [ ] [Concrete subtask 1]
@@ -183,12 +183,12 @@ Ask for each potential priority:
 
 ---
 
-### 3:00 - 3:15: Break ☕
+### 3:00 - 3:15: Break 
 **Focus:** Recharge
 
 ---
 
-### 3:15 - 4:30: Meetings / Collaborative Work 👥
+### 3:15 - 4:30: Meetings / Collaborative Work 
 **Focus:** [Meeting name or collaborative task]
 
 - [ ] [Meeting 1 with agenda]
@@ -198,7 +198,7 @@ Ask for each potential priority:
 
 ---
 
-### 4:30 - 5:30: Admin & Communication 📧
+### 4:30 - 5:30: Admin & Communication 
 **Focus:** Process inbox, respond to messages, light tasks
 
 - [ ] Clear email inbox (respond, archive, defer)
@@ -210,7 +210,7 @@ Ask for each potential priority:
 
 ---
 
-### 5:30 - 6:00: Planning & Wrap-Up 📋
+### 5:30 - 6:00: Planning & Wrap-Up 
 **Focus:** Close the day, plan tomorrow
 
 - [ ] Evening check-in (see below)
@@ -220,7 +220,7 @@ Ask for each potential priority:
 
 ---
 
-### 6:00 PM+: Personal Time 🏡
+### 6:00 PM+: Personal Time 
 **No work beyond this point**
 
 ---
@@ -232,11 +232,11 @@ Ask for each potential priority:
 - [ ] Priority 2 complete: [Specific outcome]
 - [ ] At least 80% progress on Priority 3
 
-### Should-Have (Important) ⭐
+### Should-Have (Important) 
 - [ ] [Secondary task 1]
 - [ ] [Secondary task 2]
 
-### Nice-to-Have (Bonus) 💡
+### Nice-to-Have (Bonus) 
 - [ ] [Bonus task 1]
 - [ ] [Bonus task 2]
 
@@ -463,11 +463,11 @@ cp -r plan-my-day $HOME/.openclaw/skills/
 
 ## Common Mistakes to Avoid
 
-❌ **Planning too much** - If you schedule 100% of your time, you'll fail. Always leave 20% buffer.
-❌ **Ignoring energy windows** - Putting hard thinking work at 4pm sets you up for failure.
-❌ **Skipping breaks** - 90-minute focus blocks REQUIRE 15-minute breaks or performance drops.
-❌ **No evening reflection** - Without check-ins, you can't improve your planning accuracy.
-❌ **Changing Top 3 mid-day** - Unless genuinely urgent, stick to morning priorities.
+ **Planning too much** - If you schedule 100% of your time, you'll fail. Always leave 20% buffer.
+ **Ignoring energy windows** - Putting hard thinking work at 4pm sets you up for failure.
+ **Skipping breaks** - 90-minute focus blocks REQUIRE 15-minute breaks or performance drops.
+ **No evening reflection** - Without check-ins, you can't improve your planning accuracy.
+ **Changing Top 3 mid-day** - Unless genuinely urgent, stick to morning priorities.
 
 ## Quality Checklist
 

@@ -10,7 +10,7 @@ description: >-
 homepage: https://moltalyzer.xyz
 metadata:
   openclaw:
-    emoji: "🔭"
+    emoji: ""
     requires:
       env: ["EVM_PRIVATE_KEY"]
       bins: ["node"]

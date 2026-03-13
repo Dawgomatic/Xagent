@@ -113,14 +113,14 @@ if __name__ == "__main__":
         content="This is a test memory for LanceDB integration",
         metadata={"type": "test", "importance": 8}
     )
-    print(f"✅ Added memory with ID: {memory_id}")
+    print(f" Added memory with ID: {memory_id}")
     
     # Search for memories
     results = search_memories("test memory")
-    print(f"✅ Search results: {len(results)} memories found")
+    print(f" Search results: {len(results)} memories found")
     
     # Get all memories
     all_memories = get_all_memories()
-    print(f"✅ Total memories: {len(all_memories)}")
+    print(f" Total memories: {len(all_memories)}")
     
-    print("🎉 Final LanceDB integration working perfectly!")
+    print(" Final LanceDB integration working perfectly!")

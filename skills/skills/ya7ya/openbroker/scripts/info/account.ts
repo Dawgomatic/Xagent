@@ -22,10 +22,10 @@ async function main() {
   console.log(`Builder Address:  ${client.builderAddress}`);
   console.log(`Builder Fee:      ${client.builderFeeBps} bps`);
   if (builderApproval) {
-    console.log(`Builder Approved: ✅ Yes (max: ${builderApproval})`);
+    console.log(`Builder Approved:  Yes (max: ${builderApproval})`);
   } else {
-    console.log(`Builder Approved: ❌ No`);
-    console.log(`\n⚠️  Run: npx tsx scripts/setup/approve-builder.ts`);
+    console.log(`Builder Approved:  No`);
+    console.log(`\n  Run: npx tsx scripts/setup/approve-builder.ts`);
   }
   console.log('');
 

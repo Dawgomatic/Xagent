@@ -223,7 +223,7 @@ class SubtitleRenderer:
             if frame_num % 30 == 0:
                 print(f"  Rendered frame {frame_num}/{total_frames}")
         
-        print(f"✅ Subtitle frames: {total_frames} frames in {output_dir}")
+        print(f" Subtitle frames: {total_frames} frames in {output_dir}")
         return output_dir
 
 def main():

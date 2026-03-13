@@ -133,7 +133,7 @@ if [ "$MODE" = "safe" ]; then
                     fi
                     ;;
                 *)
-                    echo "    ⚠ Skipped (only 'archive' is auto-safe)"
+                    echo "     Skipped (only 'archive' is auto-safe)"
                     ;;
             esac
         done
@@ -166,7 +166,7 @@ if [ "$MODE" = "all" ]; then
     jq -r '.maintenance_suggestions[] | "  [\(.type)] \(.target) -> \(.action)"' "$REVIEW_FILE" 2>/dev/null || echo "  (none)"
     echo ""
     
-    echo "⚠️  WARNING: This will modify MEMORY.md and move/delete files!"
+    echo "  WARNING: This will modify MEMORY.md and move/delete files!"
     read -p "Type 'APPLY' to confirm: " CONFIRM
     
     if [ "$CONFIRM" != "APPLY" ]; then
@@ -227,10 +227,10 @@ if [ "$MODE" = "all" ]; then
                     fi
                     ;;
                 consolidate)
-                    echo "    ⚠ Consolidation requires manual review"
+                    echo "     Consolidation requires manual review"
                     ;;
                 *)
-                    echo "    ⚠ Unknown type: $TYPE"
+                    echo "     Unknown type: $TYPE"
                     ;;
             esac
         done

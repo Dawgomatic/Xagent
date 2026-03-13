@@ -29,10 +29,10 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [ -n "$DEPLOYMENT" ]; then
-    echo "📊 Deployment status for $DEPLOYMENT:"
+    echo " Deployment status for $DEPLOYMENT:"
     npx vercel inspect "$DEPLOYMENT" --token "$VERCEL_TOKEN"
 elif [ -n "$PROJECT" ]; then
-    echo "📊 Latest deployments for $PROJECT:"
+    echo " Latest deployments for $PROJECT:"
     npx vercel ls "$PROJECT" --token "$VERCEL_TOKEN"
 else
     echo "Error: --project or --deployment required"

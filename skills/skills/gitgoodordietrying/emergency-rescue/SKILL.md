@@ -1,7 +1,7 @@
 ---
 name: emergency-rescue
 description: Recover from developer disasters. Use when someone force-pushed to main, leaked credentials in git, ran out of disk space, killed the wrong process, corrupted a database, broke a deploy, locked themselves out of SSH, lost commits after a bad rebase, or hit any other "oh no" moment that needs immediate, calm, step-by-step recovery.
-metadata: {"clawdbot":{"emoji":"🚨","requires":{"anyBins":["git","bash"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["git","bash"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Emergency Rescue Kit
@@ -92,7 +92,7 @@ git branch
 
 # FIX: Create the feature branch at current position, then reset main
 git branch feature-branch          # Create branch pointing at current commit
-git reset --hard HEAD~<N>          # Move main back N commits (⚠️ destructive)
+git reset --hard HEAD~<N>          # Move main back N commits ( destructive)
 git checkout feature-branch        # Switch to the new branch
 
 # FIX (safer alternative using cherry-pick):
@@ -193,7 +193,7 @@ echo ".env" >> .gitignore
 echo "credentials.json" >> .gitignore
 git add .gitignore
 
-# STEP 4: Remove from git history (⚠️ rewrites history)
+# STEP 4: Remove from git history ( rewrites history)
 # Option A: git-filter-repo (recommended, install with pip install git-filter-repo)
 git filter-repo --path <file-with-secret> --invert-paths
 
@@ -290,7 +290,7 @@ docker system df               # See Docker disk usage
 docker system prune -a -f      # Remove all unused images, containers, networks
 docker volume prune -f          # Remove unused volumes
 docker builder prune -a -f      # Remove build cache
-# ⚠️ This removes ALL unused Docker data. Safe if you can re-pull/rebuild.
+#  This removes ALL unused Docker data. Safe if you can re-pull/rebuild.
 
 # 2. Package manager caches
 # npm
@@ -348,7 +348,7 @@ docker builder prune -a -f
 docker volume ls -qf dangling=true
 docker volume prune -f
 
-# NUCLEAR OPTION (⚠️ removes EVERYTHING):
+# NUCLEAR OPTION ( removes EVERYTHING):
 docker system prune -a --volumes -f
 # You will need to re-pull all images and recreate all volumes
 
@@ -936,7 +936,7 @@ chmod 644 ~/.ssh/id_rsa.pub
 chmod 600 ~/.ssh/authorized_keys
 chmod 644 ~/.ssh/config
 
-# For a system directory (⚠️ serious — may need rescue boot):
+# For a system directory ( serious — may need rescue boot):
 # If /etc permissions are broken:
 # Boot from live USB, mount the drive, fix permissions
 # Reference: dpkg --verify (Debian) or rpm -Va (RHEL) to compare against package defaults

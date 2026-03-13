@@ -18,7 +18,7 @@ Thank you for your interest in contributing! This skill helps Clawdbot users mas
 
 ### Pull Requests
 
-**⚠️ Branch Protection: `main` branch is protected.**
+** Branch Protection: `main` branch is protected.**
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/your-feature`
@@ -51,18 +51,18 @@ Thank you for your interest in contributing! This skill helps Clawdbot users mas
 
 ## What We Accept
 
-✅ Bug fixes
-✅ Documentation improvements
-✅ New subagent templates
-✅ Script improvements
-✅ Compatibility fixes
+ Bug fixes
+ Documentation improvements
+ New subagent templates
+ Script improvements
+ Compatibility fixes
 
 ## What We Don't Accept
 
-❌ Large binary files
-❌ Credentials or secrets
-❌ Breaking changes without discussion
-❌ Features that require non-standard dependencies
+ Large binary files
+ Credentials or secrets
+ Breaking changes without discussion
+ Features that require non-standard dependencies
 
 ## Questions?
 

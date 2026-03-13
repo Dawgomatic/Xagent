@@ -20,11 +20,11 @@ Generate podcast RSS feeds ready for directory submission.
    **Podcast (channel)**:
    | Field | Required | Example |
    |-------|----------|---------|
-   | Title | ✅ | "My Tech Podcast" |
-   | Description | ✅ | "Weekly deep dives into..." |
-   | Author | ✅ | "John Doe" |
-   | Artwork URL | ✅ | Must be 3000×3000 JPEG/PNG |
-   | Website | ✅ | "https://example.com" |
+   | Title |  | "My Tech Podcast" |
+   | Description |  | "Weekly deep dives into..." |
+   | Author |  | "John Doe" |
+   | Artwork URL |  | Must be 3000×3000 JPEG/PNG |
+   | Website |  | "https://example.com" |
    | Language | ⬚ | "en-us" (default) |
    | Category | ⬚ | "Technology" |
    | Explicit | ⬚ | false (default) |
@@ -32,11 +32,11 @@ Generate podcast RSS feeds ready for directory submission.
    **Per episode**:
    | Field | Required | Example |
    |-------|----------|---------|
-   | Title | ✅ | "Episode 1: Getting Started" |
-   | Description | ✅ | "In this episode..." |
-   | Audio URL | ✅ | Direct link to .mp3/.m4a |
-   | Duration | ✅ | "01:23:45" (HH:MM:SS) |
-   | Pub date | ✅ | RFC 2822 format |
+   | Title |  | "Episode 1: Getting Started" |
+   | Description |  | "In this episode..." |
+   | Audio URL |  | Direct link to .mp3/.m4a |
+   | Duration |  | "01:23:45" (HH:MM:SS) |
+   | Pub date |  | RFC 2822 format |
    | GUID | ⬚ | Auto-generate if not provided |
 
 2. **Generate RSS XML**:
@@ -68,12 +68,12 @@ Generate podcast RSS feeds ready for directory submission.
    ```
 
 3. **Validate** before saving:
-   - ✅ Dates in RFC 2822 format (e.g., `Thu, 15 Jan 2025 10:00:00 +0000`)
-   - ✅ Audio URLs are direct file links (not streaming pages or YouTube)
-   - ✅ Duration format: `HH:MM:SS` or `MM:SS`
-   - ✅ GUIDs unique per episode
-   - ✅ Artwork is 3000×3000 minimum, JPEG or PNG
-   - ✅ XML is well-formed (no unescaped `&`, `<`, `>` in text)
+   -  Dates in RFC 2822 format (e.g., `Thu, 15 Jan 2025 10:00:00 +0000`)
+   -  Audio URLs are direct file links (not streaming pages or YouTube)
+   -  Duration format: `HH:MM:SS` or `MM:SS`
+   -  GUIDs unique per episode
+   -  Artwork is 3000×3000 minimum, JPEG or PNG
+   -  XML is well-formed (no unescaped `&`, `<`, `>` in text)
 
 4. **Save** as `feed.xml`.
 

@@ -326,7 +326,7 @@ async function main() {
     const resolved = path.resolve(args.filename);
     if (fs.existsSync(resolved)) {
       const adjusted = addTimestampToFilename(args.filename, runTimestamp);
-      process.stdout.write(`⚠️ 输出文件已存在，将避免覆盖并改为: ${adjusted}\n`);
+      process.stdout.write(` 输出文件已存在，将避免覆盖并改为: ${adjusted}\n`);
       args.filename = adjusted;
     }
   }
@@ -380,9 +380,9 @@ async function main() {
   // 生成前通知 + 生成中实时日志（避免长时间无输出导致体验不佳）
   const resolutionHint = args.resolution;
   const etaText = resolutionHint === '4K' ? '1-6分钟' : '30-120秒';
-  process.stdout.write('🎨 图片生成已启动！\n');
-  process.stdout.write(`⏱️ 预计时间: ${etaText}\n`);
-  process.stdout.write('📊 我会定期给您发送进度更新\n');
+  process.stdout.write(' 图片生成已启动！\n');
+  process.stdout.write(` 预计时间: ${etaText}\n`);
+  process.stdout.write(' 我会定期给您发送进度更新\n');
 
   process.stdout.write(`正在${modeStr}...\n`);
   process.stdout.write(`提示词: ${args.prompt}\n`);
@@ -422,7 +422,7 @@ async function main() {
   const startTime = Date.now();
   checkProgress = setInterval(() => {
     const elapsed = Math.floor((Date.now() - startTime) / 1000);
-    process.stdout.write(`🔄 已进行 ${elapsed}秒...\n`);
+    process.stdout.write(` 已进行 ${elapsed}秒...\n`);
   }, 5000);
 
   let data;
@@ -477,7 +477,7 @@ async function main() {
   fs.writeFileSync(outputFile, imageBytes);
 
   process.stdout.write(`✓ 图片已成功${modeStr}并保存到: ${args.filename}\n`);
-  process.stdout.write('✅ 生成完成！\n');
+  process.stdout.write(' 生成完成！\n');
 }
 
 main().catch((e) => {

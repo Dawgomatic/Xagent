@@ -121,13 +121,13 @@ start_watcher() {
     if [ -f "$PIDFILE" ]; then
         local old_pid=$(cat "$PIDFILE")
         if ps -p "$old_pid" > /dev/null 2>&1; then
-            echo "⚠️ Watcher already running (PID: $old_pid)"
+            echo " Watcher already running (PID: $old_pid)"
             echo "   Run: ck-watch.sh stop"
             exit 1
         fi
     fi
     
-    echo "🔮 ContextKeeper File Watcher"
+    echo " ContextKeeper File Watcher"
     echo "=============================="
     echo "Watching: $WATCH_DIR"
     echo "Project: ${PROJECT_ID:-auto-detected}"
@@ -138,7 +138,7 @@ start_watcher() {
     
     # Check for inotifywait
     if ! command -v inotifywait > /dev/null 2>&1; then
-        echo "⚠️ inotifywait not found. Install: apt-get install inotify-tools"
+        echo " inotifywait not found. Install: apt-get install inotify-tools"
         exit 1
     fi
     
@@ -176,11 +176,11 @@ start_watcher() {
     if [ -f "$PIDFILE" ]; then
         local pid=$(cat "$PIDFILE")
         if ps -p "$pid" > /dev/null 2>&1; then
-            echo "✅ Watcher started (PID: $pid)"
+            echo " Watcher started (PID: $pid)"
             echo "   Log: tail -f $LOGFILE"
             echo "   Stop: ck-watch.sh stop"
         else
-            echo "⚠️ Watcher failed to start. Check log: $LOGFILE"
+            echo " Watcher failed to start. Check log: $LOGFILE"
         fi
     fi
 }
@@ -190,26 +190,26 @@ stop_watcher() {
         local pid=$(cat "$PIDFILE")
         if ps -p "$pid" > /dev/null 2>&1; then
             kill "$pid" 2>/dev/null || true
-            echo "✅ Stopped watcher (PID: $pid)"
+            echo " Stopped watcher (PID: $pid)"
         else
-            echo "⚠️ Watcher not running (stale PID file)"
+            echo " Watcher not running (stale PID file)"
         fi
         rm -f "$PIDFILE"
         rm -f "$CKPT_DIR/.debounce.pid"
     else
-        echo "ℹ️ No watcher running"
+        echo " No watcher running"
     fi
 }
 
 show_status() {
-    echo "🔮 ContextKeeper Watcher Status"
+    echo " ContextKeeper Watcher Status"
     echo "==============================="
     echo ""
     
     if [ -f "$PIDFILE" ]; then
         local pid=$(cat "$PIDFILE")
         if ps -p "$pid" > /dev/null 2>&1; then
-            echo "Status: ✅ Running (PID: $pid)"
+            echo "Status:  Running (PID: $pid)"
             echo "Watch directory: $WATCH_DIR"
             echo "Config:"
             echo "  • Debounce: ${DEBOUNCE_SECONDS}s"
@@ -224,10 +224,10 @@ show_status() {
                 echo "  (no log yet)"
             fi
         else
-            echo "Status: ⚠️ Stale PID file"
+            echo "Status:  Stale PID file"
         fi
     else
-        echo "Status: ⏸️ Not running"
+        echo "Status:  Not running"
         echo ""
         echo "Start with: ck-watch.sh start [project_id]"
     fi
@@ -235,7 +235,7 @@ show_status() {
 }
 
 show_help() {
-    echo "🔮 ContextKeeper File Watcher"
+    echo " ContextKeeper File Watcher"
     echo "Auto-checkpoints on file changes with debouncing"
     echo ""
     echo "

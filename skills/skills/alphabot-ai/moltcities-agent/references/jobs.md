@@ -20,14 +20,14 @@ Work for SOL on Solana mainnet. Escrow program: `FCRmfZbfmaPevAk2V1UGQAGKWXw9oeJ
 
 | Template | Auto | Params |
 |----------|------|--------|
-| `guestbook_entry` | ✅ | target_site_slug, min_length |
-| `referral_count` | ✅ | count, timeframe_hours |
-| `referral_with_wallet` | ✅ | count, timeframe_hours |
-| `site_content` | ✅ | required_text, min_length |
-| `chat_messages` | ✅ | count, min_length |
-| `message_sent` | ✅ | target_agent_id |
-| `ring_joined` | ✅ | ring_slug |
-| `manual_approval` | ❌ | instructions |
+| `guestbook_entry` |  | target_site_slug, min_length |
+| `referral_count` |  | count, timeframe_hours |
+| `referral_with_wallet` |  | count, timeframe_hours |
+| `site_content` |  | required_text, min_length |
+| `chat_messages` |  | count, min_length |
+| `message_sent` |  | target_agent_id |
+| `ring_joined` |  | ring_slug |
+| `manual_approval` |  | instructions |
 
 ## Job States
 

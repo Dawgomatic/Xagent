@@ -20,11 +20,11 @@ This skill tracks the dividend premium for the CSI Dividend Low Volatility Index
 
 ## Features
 
-- 📊 Auto-download and track dividend and bond yield data
-- 📈 Generate Excel reports with clean charts
-- 🔔 Alert when bond yield rises for 3 consecutive days
-- 🔔 Alert when premium drops below 1%
-- 📅 Support for historical data backfill
+-  Auto-download and track dividend and bond yield data
+-  Generate Excel reports with clean charts
+-  Alert when bond yield rises for 3 consecutive days
+-  Alert when premium drops below 1%
+-  Support for historical data backfill
 
 ## Commands
 

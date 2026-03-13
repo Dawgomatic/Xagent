@@ -105,7 +105,7 @@ Add UI controls for users to manage notifications:
 ```html
 <!-- Settings panel -->
 <div id="notification-settings">
-  <h3>🔔 Notifications</h3>
+  <h3> Notifications</h3>
   
   <!-- Enable/Disable -->
   <label>
@@ -430,6 +430,6 @@ if (window.notifier) {
 
 ---
 
-**Integration difficulty:** ⭐⭐☆☆☆ (Easy)  
+**Integration difficulty:** ☆☆☆ (Easy)  
 **Estimated time:** 15-30 minutes  
 **Last updated:** 2026-01-28

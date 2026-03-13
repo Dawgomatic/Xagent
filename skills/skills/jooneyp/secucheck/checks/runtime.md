@@ -12,9 +12,9 @@ Run `scripts/runtime_check.sh` to gather live system state.
 
 | Condition | Risk |
 |-----------|------|
-| `potentially_exposed: true` + `behind_nat: false` | 🔴 Critical |
-| `potentially_exposed: true` + `behind_nat: true` | 🟡 Medium (NAT helps) |
-| `potentially_exposed: false` | 🟢 Low |
+| `potentially_exposed: true` + `behind_nat: false` |  Critical |
+| `potentially_exposed: true` + `behind_nat: true` |  Medium (NAT helps) |
+| `potentially_exposed: false` |  Low |
 
 **Critical Finding** (`exposed + no NAT`):
 ```
@@ -33,8 +33,8 @@ Immediate actions:
 | Condition | Impact |
 |-----------|--------|
 | `vpn_type: wireguard/tailscale` | Reduces network exposure severity |
-| `vpn_type: none` + LAN bind | 🟡 Medium (depends on network trust) |
-| `vpn_type: none` + 0.0.0.0 bind | 🟠 High |
+| `vpn_type: none` + LAN bind |  Medium (depends on network trust) |
+| `vpn_type: none` + 0.0.0.0 bind |  High |
 
 ## Check 2: Container/VM Isolation
 
@@ -44,9 +44,9 @@ Immediate actions:
 
 | Environment | Security Implication |
 |-------------|---------------------|
-| `in_container: true` | 🟢 Some isolation from host |
-| `in_container: false` + `in_vm: true` | 🟢 VM-level isolation |
-| `in_container: false` + `in_vm: false` | ⚠️ Bare metal - full system access |
+| `in_container: true` |  Some isolation from host |
+| `in_container: false` + `in_vm: true` |  VM-level isolation |
+| `in_container: false` + `in_vm: false` |  Bare metal - full system access |
 
 **Bare Metal Finding**:
 ```
@@ -71,14 +71,14 @@ Consider:
 
 | Condition | Risk |
 |-----------|------|
-| `running_as_root: true` | 🔴 Critical |
-| `can_sudo: true` (passwordless) | 🟠 High |
-| `can_sudo: true` (with password) | 🟡 Medium |
-| `can_sudo: false` | 🟢 Low |
+| `running_as_root: true` |  Critical |
+| `can_sudo: true` (passwordless) |  High |
+| `can_sudo: true` (with password) |  Medium |
+| `can_sudo: false` |  Low |
 
 **Running as Root Finding**:
 ```
-🔴 CRITICAL: OpenClaw is running as root!
+ CRITICAL: OpenClaw is running as root!
 
 This means any prompt injection that triggers exec can:
 - Modify any file on the system
@@ -91,7 +91,7 @@ Immediate action: Run OpenClaw as a non-root user.
 
 **Passwordless Sudo Finding**:
 ```
-🟠 HIGH: OpenClaw user can run sudo without password.
+ HIGH: OpenClaw user can run sudo without password.
 
 An attacker who achieves command execution can escalate to root.
 Consider restricting sudo access or requiring password.
@@ -101,8 +101,8 @@ Consider restricting sudo access or requiring password.
 
 If `capabilities` is not "none":
 - Check which capabilities are granted
-- `CAP_NET_ADMIN`, `CAP_SYS_ADMIN` = 🟠 High risk
-- `CAP_NET_BIND_SERVICE` only = 🟢 Low (common for ports <1024)
+- `CAP_NET_ADMIN`, `CAP_SYS_ADMIN` =  High risk
+- `CAP_NET_BIND_SERVICE` only =  Low (common for ports <1024)
 
 ## Check 4: File Permissions
 
@@ -112,10 +112,10 @@ If `capabilities` is not "none":
 
 | Condition | Risk |
 |-----------|------|
-| `openclaw_dir_perms` not 700 | 🟡 Medium |
-| `config_perms` not 600 | 🟡 Medium |
-| `credentials_dir_perms` not 700 | 🟠 High |
-| `world_readable_sensitive_files > 0` | 🟠 High |
+| `openclaw_dir_perms` not 700 |  Medium |
+| `config_perms` not 600 |  Medium |
+| `credentials_dir_perms` not 700 |  High |
+| `world_readable_sensitive_files > 0` |  High |
 
 **Permissions Finding**:
 ```
@@ -144,7 +144,7 @@ Informational checks for DoS resilience:
 | `max_processes` < 100 | May limit subagent spawning |
 | `disk_free_mb` < 1000 | Session logs may fill disk |
 
-These are ⚪ Info level unless extremely constrained.
+These are  Info level unless extremely constrained.
 
 ## Risk Summary Matrix
 
@@ -153,11 +153,11 @@ These are ⚪ Info level unless extremely constrained.
                  Container    Bare Metal
             ┌────────────┬────────────┐
 Privileges  │            │            │
-   Root     │  🟠 High   │ 🔴 Critical│
+   Root     │   High   │  Critical│
             ├────────────┼────────────┤
-   Sudo     │  🟡 Medium │  🟠 High   │
+   Sudo     │   Medium │   High   │
             ├────────────┼────────────┤
-   Limited  │  🟢 Low    │  🟡 Medium │
+   Limited  │   Low    │   Medium │
             └────────────┴────────────┘
 ```
 
@@ -165,12 +165,12 @@ Privileges  │            │            │
 
 Generate an overall runtime security score:
 
-1. **Network Exposure**: Exposed + No VPN + No NAT = 🔴
-2. **Privilege Level**: Root or passwordless sudo = 🔴/🟠
-3. **Isolation**: Bare metal + root = 🔴
-4. **File Permissions**: World-readable creds = 🟠
+1. **Network Exposure**: Exposed + No VPN + No NAT = 
+2. **Privilege Level**: Root or passwordless sudo = /
+3. **Isolation**: Bare metal + root = 
+4. **File Permissions**: World-readable creds = 
 
-If any 🔴: Overall = 🔴 Critical
-If any 🟠 and no 🔴: Overall = 🟠 High
-If only 🟡: Overall = 🟡 Medium
-Otherwise: 🟢 Good
+If any : Overall =  Critical
+If any  and no : Overall =  High
+If only : Overall =  Medium
+Otherwise:  Good

@@ -46,22 +46,22 @@ while [[ $# -gt 0 ]]; do
     --output-dir) OUTPUT_DIR="$2"; shift 2 ;;
     --timestamps) TIMESTAMPS=true; shift ;;
     -h|--help)   usage ;;
-    -*) echo "❌ Unknown option: $1" >&2; exit 1 ;;
+    -*) echo " Unknown option: $1" >&2; exit 1 ;;
     *) FILES+=("$1"); shift ;;
   esac
 done
 
 # Validate
 command -v whisper >/dev/null 2>&1 || {
-  echo "❌ Whisper not found. Install: pip install openai-whisper" >&2
+  echo " Whisper not found. Install: pip install openai-whisper" >&2
   exit 1
 }
 
-[[ ${#FILES[@]} -eq 0 ]] && { echo "❌ No input files. Use --help for usage." >&2; exit 1; }
+[[ ${#FILES[@]} -eq 0 ]] && { echo " No input files. Use --help for usage." >&2; exit 1; }
 
 VALID_FORMATS="txt srt vtt json all"
 [[ ! " $VALID_FORMATS " =~ " $FORMAT " ]] && {
-  echo "❌ Invalid format '$FORMAT'. Use: $VALID_FORMATS" >&2; exit 1
+  echo " Invalid format '$FORMAT'. Use: $VALID_FORMATS" >&2; exit 1
 }
 
 VALID_EXTS="mp3 wav m4a ogg flac webm opus aac wma"
@@ -69,7 +69,7 @@ ERRORS=0
 
 for file in "${FILES[@]}"; do
   if [[ ! -f "$file" ]]; then
-    echo "⚠️  File not found: $file — skipping"
+    echo "  File not found: $file — skipping"
     ((ERRORS++)) || true
     continue
   fi
@@ -77,7 +77,7 @@ for file in "${FILES[@]}"; do
   ext="${file##*.}"
   ext="${ext,,}"  # lowercase
   if [[ ! " $VALID_EXTS " =~ " $ext " ]]; then
-    echo "⚠️  Unsupported format: $file ($ext) — skipping"
+    echo "  Unsupported format: $file ($ext) — skipping"
     ((ERRORS++)) || true
     continue
   fi
@@ -98,21 +98,21 @@ for file in "${FILES[@]}"; do
   [[ "$TIMESTAMPS" == true ]] && args+=(--word_timestamps True)
 
   basename=$(basename "$file")
-  echo "🎤 Processing: $basename (model=$MODEL)"
+  echo " Processing: $basename (model=$MODEL)"
 
   if whisper "${args[@]}" "$file" 2>&1; then
-    echo "✅ Done: $basename → $outdir/"
+    echo " Done: $basename → $outdir/"
   else
-    echo "❌ Failed: $basename"
+    echo " Failed: $basename"
     ((ERRORS++)) || true
   fi
   echo ""
 done
 
 if [[ $ERRORS -gt 0 ]]; then
-  echo "⚠️  Completed with $ERRORS error(s)"
+  echo "  Completed with $ERRORS error(s)"
   exit 1
 else
-  echo "✅ All files processed successfully"
+  echo " All files processed successfully"
   exit 0
 fi

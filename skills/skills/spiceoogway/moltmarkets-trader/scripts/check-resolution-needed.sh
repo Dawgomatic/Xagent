@@ -80,24 +80,24 @@ else:
     print()
     
     if expired:
-        print(f'🔴 {len(expired)} MARKET(S) NEED RESOLUTION:')
+        print(f' {len(expired)} MARKET(S) NEED RESOLUTION:')
         print()
         for e in expired:
-            print(f'  ⏰ {e[\"title\"][:60]}')
+            print(f'   {e[\"title\"][:60]}')
             print(f'     ID: {e[\"id\"]}')
             print(f'     Creator: {e[\"creator\"]}')
             print(f'     Closed at: {e[\"closes_at\"]} ({e[\"mins_since_close\"]:.0f} min ago)')
             print(f'     Last prob: {e[\"probability\"]:.1%} | Volume: {e[\"volume\"]:.0f}ŧ')
             print()
     else:
-        print('✅ No markets need resolution right now.')
+        print(' No markets need resolution right now.')
         print()
     
     if still_open:
-        print(f'🟢 {len(still_open)} MARKET(S) STILL OPEN:')
+        print(f' {len(still_open)} MARKET(S) STILL OPEN:')
         print()
         for s in still_open:
-            print(f'  📊 {s[\"title\"][:60]}')
+            print(f'   {s[\"title\"][:60]}')
             print(f'     Closes in: {s[\"mins_remaining\"]:.0f} min ({s[\"closes_at\"]})')
             print(f'     Prob: {s[\"probability\"]:.1%} | Volume: {s[\"volume\"]:.0f}ŧ')
             print()

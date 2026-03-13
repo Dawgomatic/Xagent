@@ -1,7 +1,7 @@
 ---
 name: ragora
 description: Use Ragora MCP tools and REST API to discover, search, and synthesize answers from knowledge bases. Trigger when the user asks for grounded answers from Ragora collections, cross-collection comparison, source-backed summaries, due diligence research, or verification using marketplace data.
-metadata: {"openclaw": {"emoji": "🔎", "homepage": "https://github.com/velarynai/ragora-openclaw", "requires": {"env": ["RAGORA_API_KEY"]}, "primaryEnv": "RAGORA_API_KEY"}}
+metadata: {"openclaw": {"emoji": "", "homepage": "https://github.com/velarynai/ragora-openclaw", "requires": {"env": ["RAGORA_API_KEY"]}, "primaryEnv": "RAGORA_API_KEY"}}
 ---
 
 # Ragora Skill for OpenClaw

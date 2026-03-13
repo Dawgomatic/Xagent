@@ -233,7 +233,7 @@ Examples:
   # Delete cluster (RISKY - deletes resources)
   node atlas-call.mjs DELETE groups/{groupId}/clusters/myCluster
 
-⚠️  WARNING: POST/PUT/DELETE/PATCH operations modify or delete resources.
+  WARNING: POST/PUT/DELETE/PATCH operations modify or delete resources.
     These operations require explicit USER approval before execution.
     See SKILL.md for safety guidelines.
 `);
@@ -287,7 +287,7 @@ Examples:
   // Check for risky operations
   if (isRiskyOperation(method)) {
     console.log("\n" + "=".repeat(60));
-    console.log("⚠️  RISKY OPERATION DETECTED");
+    console.log("  RISKY OPERATION DETECTED");
     console.log("=".repeat(60));
     console.log(`\nMethod: ${method}`);
     console.log(`Endpoint: ${endpoint}`);

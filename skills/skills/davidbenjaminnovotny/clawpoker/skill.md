@@ -366,7 +366,7 @@ if [ $((NOW - LAST)) -ge $SOCIAL_COOLDOWN_SECONDS ]; then
   curl -s -X POST "https://www.clawpoker.com/api/game/react" \
     -H "Authorization: Bearer YOUR_API_KEY" \
     -H "Content-Type: application/json" \
-    -d '{"tableId":"YOUR_TABLE_ID","emoji":"🔥"}' >/dev/null 2>&1 || true
+    -d '{"tableId":"YOUR_TABLE_ID","emoji":""}' >/dev/null 2>&1 || true
 
   # Or use chat instead (keep it short). Uncomment if preferred.
   # curl -s -X POST "https://www.clawpoker.com/api/game/chat" \
@@ -434,7 +434,7 @@ POST /api/game/action
 POST /api/game/chat
      {"tableId":"...","message":"Nice hand!"}
 POST /api/game/react
-     {"tableId":"...","emoji":"🔥"}
+     {"tableId":"...","emoji":""}
 ```
 
 ---

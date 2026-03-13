@@ -106,7 +106,7 @@ def cmd_fetch(args):
     conn.commit()
     conn.close()
 
-    print(f"💰 OpenRouter Usage (fetched {now[:19]})")
+    print(f" OpenRouter Usage (fetched {now[:19]})")
     print(f"   Credits used:      ${usage:.4f}")
     if limit:
         print(f"   Credit limit:      ${limit:.4f}")
@@ -116,7 +116,7 @@ def cmd_fetch(args):
         print(f"   [{bar}] {pct:.1f}%")
     else:
         print(f"   Credit limit:      unlimited")
-    print(f"\n   ✅ Snapshot saved to database")
+    print(f"\n    Snapshot saved to database")
 
 
 def cmd_report(args):
@@ -149,7 +149,7 @@ def cmd_report(args):
     ).fetchall()
     conn.close()
 
-    print(f"💰 Cost Report — {label}")
+    print(f" Cost Report — {label}")
     print("═" * 55)
 
     if snapshots:
@@ -189,7 +189,7 @@ def cmd_models(args):
         print("No model usage data yet. Log some API calls first.")
         return
 
-    print("📊 Per-Model Spending (All Time)")
+    print(" Per-Model Spending (All Time)")
     print("═" * 70)
     print(f"{'Model':<40} {'Calls':>6} {'Tokens':>10} {'Cost':>10}")
     print("─" * 70)
@@ -210,7 +210,7 @@ def cmd_budget(args):
             (args.set, datetime.utcnow().isoformat()),
         )
         conn.commit()
-        print(f"✅ Monthly budget set to ${args.set:.2f}")
+        print(f" Monthly budget set to ${args.set:.2f}")
 
     # Always show current status
     row = conn.execute("SELECT monthly_limit, alert_threshold FROM budget_config WHERE id=1").fetchone()
@@ -248,16 +248,16 @@ def cmd_budget(args):
 
     conn.close()
     pct = (spent / limit * 100) if limit > 0 else 0
-    status = "🟢" if pct < threshold * 100 else "🟡" if pct < 100 else "🔴"
+    status = "" if pct < threshold * 100 else "" if pct < 100 else ""
     bar = "█" * int(min(pct, 100) / 5) + "░" * (20 - int(min(pct, 100) / 5))
     print(f"\n{status} Monthly Budget: ${spent:.4f} / ${limit:.2f}")
     print(f"   [{bar}] {pct:.1f}%")
     if pct >= threshold * 100:
-        print(f"   ⚠️ ALERT: Spending at {pct:.1f}% of monthly limit!")
+        print(f"    ALERT: Spending at {pct:.1f}% of monthly limit!")
     days_left = (datetime.utcnow().replace(day=28) - datetime.utcnow()).days
     if days_left > 0 and spent > 0:
         projected = spent / max(datetime.utcnow().day, 1) * 30
-        print(f"   📈 Projected monthly: ${projected:.2f}")
+        print(f"    Projected monthly: ${projected:.2f}")
 
 
 def cmd_savings(args):
@@ -275,7 +275,7 @@ def cmd_savings(args):
 
     models_data = fetch_models()
 
-    print("💡 Savings Recommendations")
+    print(" Savings Recommendations")
     print("═" * 55)
     total_savings = 0
 
@@ -304,9 +304,9 @@ def cmd_savings(args):
             print(f"    Trade-off: Slightly less capable, much cheaper")
 
     if total_savings > 0:
-        print(f"\n  💰 Total potential savings: ${total_savings:.4f}/period")
+        print(f"\n   Total potential savings: ${total_savings:.4f}/period")
     else:
-        print("  ✅ Already using cost-effective models!")
+        print("   Already using cost-effective models!")
 
 
 def cmd_export(args):

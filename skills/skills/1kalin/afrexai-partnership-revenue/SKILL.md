@@ -764,7 +764,7 @@ Red flags that mean it's over:
 
 ---
 
-## ⚡ Level Up
+##  Level Up
 
 This skill gives you the complete partnership playbook. For industry-specific partner strategies, deal structures, and vertical-specific outreach sequences:
 
@@ -775,7 +775,7 @@ This skill gives you the complete partnership playbook. For industry-specific pa
 - **Manufacturing Pack** — Distributor and supply chain partner methodologies
 - **Construction Pack** — Subcontractor and vendor partnership systems
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - `afrexai-lead-hunter` — Automated lead generation & enrichment
 - `afrexai-sales-playbook` — Complete B2B sales system

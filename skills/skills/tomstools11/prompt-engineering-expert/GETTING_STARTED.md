@@ -1,13 +1,13 @@
 # How to Use This Prompt Engineering Expert Skill
 
-## 📦 What You Have
+##  What You Have
 
 A complete Claude Skill for prompt engineering expertise, located at:
 ```
 ~/Documents/prompt-engineering-expert/
 ```
 
-## 🚀 How to Upload & Use
+##  How to Upload & Use
 
 ### Option 1: Upload via Claude.com (Easiest)
 
@@ -48,7 +48,7 @@ response = client.messages.create(
 )
 ```
 
-## 💡 How to Use the Skill
+##  How to Use the Skill
 
 ### Basic Usage
 
@@ -93,7 +93,7 @@ Issues I'm seeing:
 How can I fix it?"
 ```
 
-## 📚 Skill Contents
+##  Skill Contents
 
 ### Core Files
 - **SKILL.md** - Metadata and overview
@@ -112,7 +112,7 @@ How can I fix it?"
 - **INDEX.md** - Complete index and navigation
 - **SUMMARY.md** - What was created
 
-## 🎯 Quick Start Examples
+##  Quick Start Examples
 
 ### Example 1: Analyze a Prompt
 ```
@@ -153,7 +153,7 @@ Here's the prompt:
 What's wrong and how do I fix it?"
 ```
 
-## 📖 Documentation Guide
+##  Documentation Guide
 
 ### For Beginners
 1. Start with **README.md**
@@ -170,7 +170,7 @@ What's wrong and how do I fix it?"
 2. Review **examples/EXAMPLES.md** (All examples)
 3. Combine multiple techniques
 
-## ✨ Key Features
+##  Key Features
 
 ### Expertise Areas
 - Prompt writing best practices
@@ -191,7 +191,7 @@ What's wrong and how do I fix it?"
 - Develop test cases
 - Create documentation
 
-## 🔧 Customization
+##  Customization
 
 ### Add Domain-Specific Examples
 Edit `examples/EXAMPLES.md` to add examples for your domain.
@@ -202,7 +202,7 @@ Add domain-specific best practices to `docs/BEST_PRACTICES.md`.
 ### Add Troubleshooting Cases
 Add common issues to `docs/TROUBLESHOOTING.md`.
 
-## 📊 File Structure
+##  File Structure
 
 ```
 prompt-engineering-expert/
@@ -219,7 +219,7 @@ prompt-engineering-expert/
     └── EXAMPLES.md             # Examples
 ```
 
-## 🎓 Learning Resources
+##  Learning Resources
 
 ### Within the Skill
 - Comprehensive documentation
@@ -233,7 +233,7 @@ prompt-engineering-expert/
 - Anthropic Blog: https://www.anthropic.com/blog
 - Claude Cookbooks: https://github.com/anthropics/claude-cookbooks
 
-## ⚡ Pro Tips
+##  Pro Tips
 
 1. **Start Simple** - Begin with basic prompts before advanced techniques
 2. **Use Examples** - Provide examples to guide Claude's responses
@@ -242,7 +242,7 @@ prompt-engineering-expert/
 5. **Iterate** - Use feedback to continuously improve
 6. **Document** - Keep notes on what works for your use case
 
-## 🚀 Next Steps
+##  Next Steps
 
 1. **Upload the skill** using one of the methods above
 2. **Try a simple example** to get familiar with it
@@ -250,7 +250,7 @@ prompt-engineering-expert/
 4. **Apply to your prompts** and iterate
 5. **Share with your team** for collaborative improvement
 
-## 📞 Support
+##  Support
 
 ### If You Need Help
 
@@ -273,7 +273,7 @@ A: Check TROUBLESHOOTING.md or ask Claude to debug it
 **Q: Can I use this with the API?**
 A: Yes! See "Option 3: Use with Agent SDK" above
 
-## 🎉 You're Ready!
+##  You're Ready!
 
 Your Prompt Engineering Expert Skill is ready to use. Start by uploading it and asking Claude to review one of your prompts!
 

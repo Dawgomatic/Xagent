@@ -21,11 +21,11 @@ if (cmd === 'list') {
 } else if (cmd === 'import') {
   const file = process.argv[3];
   if (!file || !verify(file)) {
-    console.log('❌ Invalid/tampered - rejected.');
+    console.log(' Invalid/tampered - rejected.');
     process.exit(1);
   }
   fs.copyFileSync(file, path.join(sharesDir, path.basename(file)));
-  console.log('✅ Imported (valid).');
+  console.log(' Imported (valid).');
 } else {
   console.log('hub-cli: list | import <file>');
 }

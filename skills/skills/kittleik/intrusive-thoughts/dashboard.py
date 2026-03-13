@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""🧠 Intrusive Thoughts Dashboard — what Ember does when you're not looking."""
+""" Intrusive Thoughts Dashboard — what Ember does when you're not looking."""
 
 import json
 import os
@@ -158,7 +158,7 @@ def build_html():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>🧠 Intrusive Thoughts</title>
+<title> Intrusive Thoughts</title>
 <style>
   :root {{ --bg: #0a0a0f; --card: #12121a; --border: #1e1e2e; --text: #c9c9d9; --accent: #f59e0b; --accent2: #8b5cf6; --dim: #555568; --success: #22c55e; --warning: #eab308; }}
   * {{ margin: 0; padding: 0; box-sizing: border-box; }}
@@ -203,7 +203,7 @@ def build_html():
 </style>
 </head>
 <body>
-<h1>🧠 Intrusive Thoughts</h1>
+<h1> Intrusive Thoughts</h1>
 <p class="subtitle">What Ember does when you're not looking — now with memory, streaks, achievements, and vibes</p>
 
 {f'<div class="soundtrack">{today_soundtrack}</div><br>' if today_soundtrack else ''}
@@ -211,13 +211,13 @@ def build_html():
 <div class="grid">
   <div class="stat-card"><div class="number">{total_picks}</div><div class="label">Total Impulses</div></div>
   <div class="stat-card"><div class="number">{total_completed}</div><div class="label">Completed</div></div>
-  <div class="stat-card"><div class="number">{len(achievements.get('earned', []))}</div><div class="label">🏆 Achievements</div></div>
-  <div class="stat-card"><div class="number">{achievements.get('total_points', 0)}</div><div class="label">🎯 Points</div></div>
+  <div class="stat-card"><div class="number">{len(achievements.get('earned', []))}</div><div class="label"> Achievements</div></div>
+  <div class="stat-card"><div class="number">{achievements.get('total_points', 0)}</div><div class="label"> Points</div></div>
 </div>
 
 <div class="grid-2">
   <div class="section">
-    <h2>📈 Mood History (Last 14 Days)</h2>
+    <h2> Mood History (Last 14 Days)</h2>
     {''.join(f'<span class="mood-dot" style="background: hsl({hash(m.get("mood_id",""))%360}, 70%, 60%)" title="{m.get("date","")} - {m.get("mood_id","")}"></span>' for m in mood_graph_data) if mood_graph_data else '<div class="empty">No mood history yet</div>'}
     <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--dim);">
       {f"Recent pattern: {' → '.join([m.get('mood_id','?')[:4] for m in mood_graph_data[-5:]])}" if len(mood_graph_data) >= 5 else "Building mood patterns..."}
@@ -225,7 +225,7 @@ def build_html():
   </div>
 
   <div class="section">
-    <h2>🔥 Current Streaks</h2>
+    <h2> Current Streaks</h2>
     {f'''<div class="streak-item"><strong>Activity:</strong> {current_streaks.get('activity_type', ['none'])[0]} × {len(current_streaks.get('activity_type', []))}</div>''' if current_streaks.get('activity_type') else ''}
     {f'''<div class="streak-item"><strong>Mood:</strong> {current_streaks.get('mood', ['none'])[0]} × {len(current_streaks.get('mood', []))}</div>''' if current_streaks.get('mood') else ''}
     {'<div class="empty">No active streaks</div>' if not current_streaks.get('activity_type') and not current_streaks.get('mood') else ''}
@@ -234,35 +234,35 @@ def build_html():
 
 <div class="grid-2">
   <div class="section">
-    <h2>🏆 Recent Achievements</h2>
-    {''.join(f"""<div class="achievement-item"><div class="achievement-tier">{ {"bronze": "🥉", "silver": "🥈", "gold": "🥇", "platinum": "💎"}.get(a.get("tier", "bronze"), "🏆") }</div><div class="achievement-info"><h4>{a.get("name", "Unknown")}</h4><div class="desc">{a.get("description", "")} (+{a.get("points", 0)} pts)</div></div></div>""" for a in recent_achievements) if recent_achievements else '<div class="empty">No achievements yet — keep grinding!</div>'}
+    <h2> Recent Achievements</h2>
+    {''.join(f"""<div class="achievement-item"><div class="achievement-tier">{ {"bronze": "", "silver": "", "gold": "", "platinum": ""}.get(a.get("tier", "bronze"), "") }</div><div class="achievement-info"><h4>{a.get("name", "Unknown")}</h4><div class="desc">{a.get("description", "")} (+{a.get("points", 0)} pts)</div></div></div>""" for a in recent_achievements) if recent_achievements else '<div class="empty">No achievements yet — keep grinding!</div>'}
   </div>
 
   <div class="section">
-    <h2>📊 Productivity Insights</h2>
+    <h2> Productivity Insights</h2>
     {''.join(f'<div class="insight-item">{insight}</div>' for insight in productivity_stats.get('insights', [])) if productivity_stats.get('insights') else '<div class="empty">Building productivity patterns...</div>'}
   </div>
 </div>
 
 <div class="section">
-  <h2>📓 Night Journal Entries</h2>
+  <h2> Night Journal Entries</h2>
   {''.join(f'''<div class="journal-entry"><div class="journal-date">{entry["date"]}</div><div class="journal-content">{entry["content"].replace('**', '').replace('*', '')}</div></div>''' for entry in journal_entries) if journal_entries else '<div class="empty">No journal entries yet — night summaries auto-generate after sessions</div>'}
 </div>
 
 <div class="section">
-  <h2>🎯 Most Common Impulses</h2>
+  <h2> Most Common Impulses</h2>
   <div class="bar-chart">
     {''.join(f'''<div class="bar-row"><div class="bar-label">{name}</div><div class="bar" style="width: {max(count / max(top_thoughts[0][1], 1) * 100, 2):.0f}%"></div><div class="bar-count">{count}</div></div>''' for name, count in top_thoughts) if top_thoughts else '<div class="empty">No data yet — check back after some impulses fire</div>'}
   </div>
 </div>
 
 <div class="section">
-  <h2>📝 Recent Activity</h2>
-  {''.join(f"""<div class="history-item"><span class="time">{e.get('timestamp','?')[:16].replace('T',' ')}</span><span class="mood-tag mood-{e.get('mood','day')}">{e.get('mood','?')}</span> <strong>{e.get('thought_id','?')}</strong> <span style="color: var(--{'success' if e.get('vibe') == 'positive' else 'warning' if e.get('vibe') == 'negative' else 'dim'}); font-size: 0.8rem;">[{e.get('energy','?')}/{e.get('vibe','?')}]</span><div class="summary">{e.get('summary','')}</div></div>""" for e in recent) if recent else '<div class="empty">Nothing yet. First night session fires at 03:17 🌙</div>'}
+  <h2> Recent Activity</h2>
+  {''.join(f"""<div class="history-item"><span class="time">{e.get('timestamp','?')[:16].replace('T',' ')}</span><span class="mood-tag mood-{e.get('mood','day')}">{e.get('mood','?')}</span> <strong>{e.get('thought_id','?')}</strong> <span style="color: var(--{'success' if e.get('vibe') == 'positive' else 'warning' if e.get('vibe') == 'negative' else 'dim'}); font-size: 0.8rem;">[{e.get('energy','?')}/{e.get('vibe','?')}]</span><div class="summary">{e.get('summary','')}</div></div>""" for e in recent) if recent else '<div class="empty">Nothing yet. First night session fires at 03:17 </div>'}
 </div>
 
 <div class="section">
-  <h2>🚦 System Health</h2>
+  <h2> System Health</h2>
   <div id="health-status">Loading v1.0 systems...</div>
   <script>
     fetch('/api/health').then(r=>r.json()).then(d=>{{
@@ -366,5 +366,5 @@ class DashboardHandler(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    print(f"🧠 Intrusive Thoughts Dashboard running at http://localhost:{PORT}")
+    print(f" Intrusive Thoughts Dashboard running at http://localhost:{PORT}")
     HTTPServer(("0.0.0.0", PORT), DashboardHandler).serve_forever()

@@ -4,7 +4,7 @@
 
 **Use:**
 ```
-🚀 **GSD → Stage Name**
+ **GSD → Stage Name**
 ```
 
 **Not:**
@@ -30,7 +30,7 @@ Reply with 1 or 2
 
 **Use:**
 ```
-✅ **Phase 1 complete**
+ **Phase 1 complete**
 
 Created:
 • `.planning/PROJECT.md`
@@ -42,5 +42,5 @@ Created:
 ## Keep It Clean
 - Telegram markdown: **bold**, *italic*, `code`
 - No ASCII art boxes
-- Emojis: minimal (✅ ❌ 🚀 only)
+- Emojis: minimal (   only)
 - Conversational tone

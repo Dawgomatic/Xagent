@@ -10,14 +10,14 @@ Track spawned sub-agents until completion. **No orphans.**
 
 | Label | Task Summary | Spawned | Expected | Status |
 |-------|--------------|---------|----------|--------|
-| `example-research` | Research competitor pricing | Jan 30 9:00 AM | 15m | 🏃 Running |
-| `example-builder` | Build dashboard v2 | Jan 30 9:15 AM | 30m | 🏃 Running |
+| `example-research` | Research competitor pricing | Jan 30 9:00 AM | 15m |  Running |
+| `example-builder` | Build dashboard v2 | Jan 30 9:15 AM | 30m |  Running |
 
 **Status icons:**
-- 🏃 Running
-- ⏸️ Paused/Waiting
-- 🔄 Restarted
-- ⚠️ Stalled (running longer than expected)
+-  Running
+-  Paused/Waiting
+-  Restarted
+-  Stalled (running longer than expected)
 
 ---
 
@@ -25,15 +25,15 @@ Track spawned sub-agents until completion. **No orphans.**
 
 | Label | Task | Runtime | Result | Learnings |
 |-------|------|---------|--------|-----------|
-| `research-api-options` | Compare API providers | 8m | ✅ Done | Good prompt structure worked |
-| `builder-cli-tool` | Build CLI helper | 12m | ✅ Done | Ralph mode helped with edge cases |
-| `review-pr-47` | Review auth PR | 4m | ✅ Approved | Need better security criteria |
+| `research-api-options` | Compare API providers | 8m |  Done | Good prompt structure worked |
+| `builder-cli-tool` | Build CLI helper | 12m |  Done | Ralph mode helped with edge cases |
+| `review-pr-47` | Review auth PR | 4m |  Approved | Need better security criteria |
 
 **Result icons:**
-- ✅ Success — user stories satisfied
-- ⚠️ Partial — some stories incomplete
-- ❌ Failed — didn't achieve goal
-- 🔄 Respawned — needed another attempt
+-  Success — user stories satisfied
+-  Partial — some stories incomplete
+-  Failed — didn't achieve goal
+-  Respawned — needed another attempt
 
 ---
 
@@ -41,9 +41,9 @@ Track spawned sub-agents until completion. **No orphans.**
 
 | Date | Label | Task | Result | Key Learning |
 |------|-------|------|--------|--------------|
-| Jan 29 | `research-db-options` | Vector DB comparison | ✅ | search_limit prevents rabbit holes |
-| Jan 28 | `builder-script-v1` | Data migration script | ⚠️ → ✅ | Ralph mode on 2nd attempt |
-| Jan 27 | `review-docs` | API docs review | ✅ | Need "completeness" criterion |
+| Jan 29 | `research-db-options` | Vector DB comparison |  | search_limit prevents rabbit holes |
+| Jan 28 | `builder-script-v1` | Data migration script |  →  | Ralph mode on 2nd attempt |
+| Jan 27 | `review-docs` | API docs review |  | Need "completeness" criterion |
 
 ---
 
@@ -52,7 +52,7 @@ Track spawned sub-agents until completion. **No orphans.**
 ### On Spawn
 1. Add row to "Currently Running" immediately
 2. Fill in: label, task summary, spawn time, expected duration
-3. Set initial status to 🏃 Running
+3. Set initial status to  Running
 
 ### During Heartbeats
 ```bash
@@ -69,7 +69,7 @@ For each agent in "Currently Running":
 ### On Completion
 1. Move from "Currently Running" to "Completed Today"
 2. Record actual runtime
-3. Assess result (✅/⚠️/❌)
+3. Assess result (//)
 4. **Write one learning** — what worked or didn't
 5. If pattern was valuable → update templates
 
@@ -156,4 +156,4 @@ Log insights to `notes/resources/prompt-library/LEARNINGS.md`
 
 ---
 
-*Part of the Hal Stack 🦞 — Agent Orchestration*
+*Part of the Hal Stack  — Agent Orchestration*

@@ -1,4 +1,4 @@
-# slk 💬 — Slack CLI for macOS, so your agents can read and send messages
+# slk  — Slack CLI for macOS, so your agents can read and send messages
 
 `slk` is a Slack command-line tool for macOS that auto-extracts auth from the Slack desktop app. Read channels, send messages, search, manage drafts, track unreads, and view pins — no tokens, no OAuth, no config.
 

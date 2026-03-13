@@ -602,7 +602,7 @@ class FinancialStatementReporter(BaseReporter):
         if abs(balance_check) < 0.01:
             summary += " ✓ BALANCED"
         else:
-            summary += f" ⚠ IMBALANCE: {self.format_currency(balance_check)}"
+            summary += f"  IMBALANCE: {self.format_currency(balance_check)}"
         
         return ReportResult(
             report_type="ifrs_balance_sheet",

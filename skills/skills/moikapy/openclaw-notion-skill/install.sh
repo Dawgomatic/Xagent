@@ -1,7 +1,7 @@
 #!/bin/bash
 # Install script for Notion Skill
 
-echo "📝 Installing Notion Skill for OpenClaw..."
+echo " Installing Notion Skill for OpenClaw..."
 
 cd "$(dirname "$0")"
 
@@ -10,13 +10,13 @@ if [ -f "package.json" ]; then
     echo "Installing dependencies..."
     npm install
     npm run build
-    echo "✅ Full version installed!"
+    echo " Full version installed!"
 else
     # Use standalone version
     mv package-standalone.json package.json
     echo "Installing standalone dependencies..."
     npm install
-    echo "✅ Standalone version installed!"
+    echo " Standalone version installed!"
 fi
 
 echo ""

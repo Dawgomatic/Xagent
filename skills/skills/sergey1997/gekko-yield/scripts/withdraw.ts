@@ -39,7 +39,7 @@ async function main() {
   const withdrawAll = amountArg === 'all';
 
   if (!withdrawAll && !isValidUSDCAmount(amountArg)) {
-    console.error('❌ Invalid amount format');
+    console.error(' Invalid amount format');
     console.error('   Use a number like: 100, 100.50, 1,000.00');
     console.error('   Or use "all" to withdraw entire position');
     process.exit(1);
@@ -48,14 +48,14 @@ async function main() {
   const config = loadConfig();
   const { publicClient, walletClient, account } = getClients(config);
 
-  console.log('🦎 Gekko Yield — Withdraw\n');
+  console.log(' Gekko Yield — Withdraw\n');
   console.log(`Wallet: ${account.address}\n`);
 
   // Verify contracts
-  console.log('🔐 Verifying contracts...');
+  console.log(' Verifying contracts...');
   try {
     await verifyContracts(publicClient);
-    console.log('   ✅ Contracts verified\n');
+    console.log('    Contracts verified\n');
   } catch (err) {
     handleError(err, 'Contract verification failed');
   }
@@ -69,7 +69,7 @@ async function main() {
   });
 
   if (vaultShares === 0n) {
-    console.error('❌ No position to withdraw');
+    console.error(' No position to withdraw');
     console.error('   You have 0 shares in the vault.');
     process.exit(1);
   }
@@ -86,7 +86,7 @@ async function main() {
   // Check ETH for gas
   const ethBalance = await publicClient.getBalance({ address: account.address });
   if (ethBalance < BigInt(1e14)) {
-    console.error(`❌ Insufficient ETH for gas`);
+    console.error(` Insufficient ETH for gas`);
     console.error(`   Available: ${(Number(ethBalance) / 1e18).toFixed(6)} ETH`);
     process.exit(1);
   }
@@ -106,12 +106,12 @@ async function main() {
     const withdrawAmount = parseUSDC(amountArg);
 
     if (withdrawAmount <= 0n) {
-      console.error('❌ Amount must be greater than 0');
+      console.error(' Amount must be greater than 0');
       process.exit(1);
     }
 
     if (withdrawAmount > currentPositionValue) {
-      console.error(`❌ Withdrawal amount exceeds position`);
+      console.error(` Withdrawal amount exceeds position`);
       console.error(`   Requested: ${formatUSDC(withdrawAmount)} USDC`);
       console.error(`   Available: ${formatUSDC(currentPositionValue)} USDC`);
       process.exit(1);
@@ -136,7 +136,7 @@ async function main() {
   });
 
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('📋 Transaction Preview');
+  console.log(' Transaction Preview');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log(`Redeeming:         ${formatUSDC(sharesToRedeem)} mwUSDC`);
   console.log(`Expected USDC:     ${formatUSDC(expectedAssets)} USDC`);
@@ -144,7 +144,7 @@ async function main() {
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
   // Execute withdrawal
-  console.log('📝 Withdrawing from vault...');
+  console.log(' Withdrawing from vault...');
 
   try {
     const redeemHash = await simulateAndWrite(publicClient, walletClient, {
@@ -161,7 +161,7 @@ async function main() {
     const receipt = await waitForTransaction(publicClient, redeemHash);
 
     if (receipt.status === 'success') {
-      console.log('   ✅ Withdrawal successful!\n');
+      console.log('    Withdrawal successful!\n');
 
       // Get updated balances
       const [newUsdcBalance, newShares] = await Promise.all([
@@ -188,7 +188,7 @@ async function main() {
       });
 
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-      console.log('🎉 Withdrawal Complete!');
+      console.log(' Withdrawal Complete!');
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
       console.log(`USDC received:     ${formatUSDC(usdcReceived)} USDC`);
       console.log(`New USDC balance:  ${formatUSDC(newUsdcBalance)} USDC`);
@@ -197,7 +197,7 @@ async function main() {
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
       if (newShares === 0n) {
-        console.log('\n📤 Fully exited from the vault.');
+        console.log('\n Fully exited from the vault.');
       }
       
       // Explicitly exit to close any open connections

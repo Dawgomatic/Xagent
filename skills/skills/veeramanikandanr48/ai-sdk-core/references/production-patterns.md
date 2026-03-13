@@ -11,7 +11,7 @@ Best practices for deploying AI SDK Core in production environments.
 **Always use streaming for user-facing long-form content:**
 
 ```typescript
-// ✅ GOOD: User-facing (better perceived performance)
+//  GOOD: User-facing (better perceived performance)
 app.post('/chat', async (req, res) => {
   const stream = streamText({
     model: openai('gpt-5'),
@@ -21,7 +21,7 @@ app.post('/chat', async (req, res) => {
   return stream.toDataStreamResponse();
 });
 
-// ❌ BAD: User waits for entire response
+//  BAD: User waits for entire response
 app.post('/chat', async (req, res) => {
   const result = await generateText({
     model: openai('gpt-5'),
@@ -31,7 +31,7 @@ app.post('/chat', async (req, res) => {
   return res.json({ response: result.text });
 });
 
-// ✅ GOOD: Background tasks (no user waiting)
+//  GOOD: Background tasks (no user waiting)
 async function processDocument(doc: string) {
   const result = await generateText({
     model: openai('gpt-5'),
@@ -45,7 +45,7 @@ async function processDocument(doc: string) {
 ### 2. Set Appropriate maxOutputTokens
 
 ```typescript
-// ✅ GOOD: Limit token usage based on use case
+//  GOOD: Limit token usage based on use case
 const shortSummary = await generateText({
   model: openai('gpt-5'),
   prompt: 'Summarize in 2 sentences',
@@ -58,7 +58,7 @@ const article = await generateText({
   maxOutputTokens: 2000,  // Appropriate for long-form
 });
 
-// ❌ BAD: No limit (can waste tokens/money)
+//  BAD: No limit (can waste tokens/money)
 const unlimited = await generateText({
   model: openai('gpt-5'),
   prompt: 'Write something',
@@ -69,7 +69,7 @@ const unlimited = await generateText({
 ### 3. Cache Provider Instances
 
 ```typescript
-// ✅ GOOD: Reuse provider instances
+//  GOOD: Reuse provider instances
 const gpt4 = openai('gpt-4-turbo');
 const claude = anthropic('claude-3-5-sonnet-20241022');
 
@@ -81,7 +81,7 @@ app.post('/chat', async (req, res) => {
   return res.json({ response: result.text });
 });
 
-// ❌ BAD: Create new instance every time
+//  BAD: Create new instance every time
 app.post('/chat', async (req, res) => {
   const result = await generateText({
     model: openai('gpt-4-turbo'),  // New instance each call
@@ -93,12 +93,12 @@ app.post('/chat', async (req, res) => {
 ### 4. Optimize Zod Schemas (Especially in Workers)
 
 ```typescript
-// ❌ BAD: Complex schema at top level (slow startup)
+//  BAD: Complex schema at top level (slow startup)
 const ComplexSchema = z.object({
   // 50+ fields with deep nesting
 });
 
-// ✅ GOOD: Define schemas inside functions
+//  GOOD: Define schemas inside functions
 function generateStructuredData() {
   const schema = z.object({
     // Schema definition here
@@ -107,7 +107,7 @@ function generateStructuredData() {
   return generateObject({ model: openai('gpt-5'), schema, prompt: '...' });
 }
 
-// ✅ GOOD: Split into smaller reusable schemas
+//  GOOD: Split into smaller reusable schemas
 const AddressSchema = z.object({ street: z.string(), city: z.string() });
 const PersonSchema = z.object({ name: z.string(), address: AddressSchema });
 ```
@@ -351,7 +351,7 @@ async function generateWithTracking(prompt: string) {
 ### 1. Lazy Initialization
 
 ```typescript
-// ✅ GOOD: Import inside handler
+//  GOOD: Import inside handler
 export default {
   async fetch(request, env) {
     const { generateText } = await import('ai');
@@ -368,7 +368,7 @@ export default {
   }
 };
 
-// ❌ BAD: Top-level imports (startup overhead)
+//  BAD: Top-level imports (startup overhead)
 import { generateText } from 'ai';
 const workersai = createWorkersAI({ binding: env.AI }); // Runs at startup!
 ```

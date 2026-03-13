@@ -259,7 +259,7 @@ do_kickstart() {
 do_nuclear_reinstall() {
   log "Step 4: NUCLEAR — full reinstall via $INSTALL_URL"
 
-  notify_signal "🚨 Gateway Guardian: All recovery steps failed after $((INFERENCE_FAIL_COUNT * 2))+ min. Executing nuclear reinstall now."
+  notify_signal " Gateway Guardian: All recovery steps failed after $((INFERENCE_FAIL_COUNT * 2))+ min. Executing nuclear reinstall now."
 
   log "Executing: curl -fsSL $INSTALL_URL | bash"
   local nuclear_rc=0
@@ -278,7 +278,7 @@ do_nuclear_reinstall() {
     log "RECOVERED: Nuclear reinstall succeeded (HTTP $http_code)."
     echo "0" > "$INFERENCE_STATE_FILE"
     echo "0" > "$STATE_FILE"
-    notify_signal "✅ Gateway Guardian: Nuclear reinstall succeeded. Agent back online."
+    notify_signal " Gateway Guardian: Nuclear reinstall succeeded. Agent back online."
     return 0
   fi
   log "Step 4: Nuclear reinstall completed but gateway not responding."
@@ -293,7 +293,7 @@ restart_all_steps() {
 
   log "CRITICAL: All restart attempts including nuclear reinstall FAILED."
   log "CRITICAL: Manual intervention required: curl -fsSL $INSTALL_URL | bash"
-  notify_signal "🔴 Gateway Guardian: ALL recovery steps failed (graceful → hard → kickstart → nuclear). Manual intervention required."
+  notify_signal " Gateway Guardian: ALL recovery steps failed (graceful → hard → kickstart → nuclear). Manual intervention required."
   return 1
 }
 
@@ -340,7 +340,7 @@ handle_billing_exhaustion() {
 
   # Notify owner (once per billing event)
   if [[ "$BILLING_NOTIFIED" -eq 0 ]]; then
-    notify_signal "⚠️ DIEM credits exhausted on all Venice keys. I'll be back when credits reset in ~${hours_left}h (midnight UTC). Morpheus fallback also unavailable. No action needed — will auto-recover."
+    notify_signal " DIEM credits exhausted on all Venice keys. I'll be back when credits reset in ~${hours_left}h (midnight UTC). Morpheus fallback also unavailable. No action needed — will auto-recover."
     echo "1" > "$BILLING_NOTIFIED_FILE"
     log "BILLING: Owner notified via Signal."
   fi
@@ -460,7 +460,7 @@ if [[ "$INFERENCE_OK" == "true" ]]; then
   if [[ "$BILLING_DEAD_SINCE" -gt 0 ]]; then
     local dead_duration=$(( $(date +%s) - BILLING_DEAD_SINCE ))
     log "BILLING RECOVERED: Credits are back after $((dead_duration / 60)) min."
-    notify_signal "✅ DIEM credits restored! I'm back online after $((dead_duration / 60)) min of billing exhaustion."
+    notify_signal " DIEM credits restored! I'm back online after $((dead_duration / 60)) min of billing exhaustion."
     echo "0" > "$BILLING_STATE_FILE"
     echo "0" > "$BILLING_NOTIFIED_FILE"
   fi

@@ -44,7 +44,7 @@ ${DESCRIPTION}
 - [ ] 
 
 ---
-*Checkpoint saved by context-checkpoint skill* 🦊
+*Checkpoint saved by context-checkpoint skill* 
 EOF
 
 # Update latest symlink

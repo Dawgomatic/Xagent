@@ -121,7 +121,7 @@ async function setup() {
         body: 'Write an engaging blog post based on the research findings.'
       }
     ],
-    // ⚠️ CRITICAL: Edges define how data flows through your workflow
+    //  CRITICAL: Edges define how data flows through your workflow
     // Without edges, tasks won't execute even if dependencies are set!
     edges: [
       { from: 'trigger:webhook', to: 'task:research' },

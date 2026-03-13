@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🌱",
+        "emoji": "",
         "tags": ["web3", "base", "incubator", "funding", "revenue-share", "defi"],
         "heartbeat": true
       }

@@ -10,18 +10,18 @@ provides:
 
 # Table Image Generator
 
-**⚠️ USE THIS INSTEAD OF ASCII TABLES — ALWAYS!**
+** USE THIS INSTEAD OF ASCII TABLES — ALWAYS!**
 
 Generate PNG table images from JSON data. ASCII tables look broken on Discord, Telegram, WhatsApp, and most messaging platforms. This skill renders clean images that work everywhere.
 
 ## Why This Skill?
 
-- ✅ **REPLACES ASCII TABLES** - Never use `| col | col |` formatting on messaging platforms
-- ✅ **No ASCII hell** - Clean images that render consistently everywhere
-- ✅ **No Puppeteer** - Pure Node.js with Sharp, lightweight
-- ✅ **Dark mode** - Matches Discord dark theme
-- ✅ **Auto-sizing** - Columns adjust to content
-- ✅ **Fast** - Generates in <100ms
+-  **REPLACES ASCII TABLES** - Never use `| col | col |` formatting on messaging platforms
+-  **No ASCII hell** - Clean images that render consistently everywhere
+-  **No Puppeteer** - Pure Node.js with Sharp, lightweight
+-  **Dark mode** - Matches Discord dark theme
+-  **Auto-sizing** - Columns adjust to content
+-  **Fast** - Generates in <100ms
 
 ## Setup (one-time)
 
@@ -31,7 +31,7 @@ cd /data/clawd/skills/table-image/scripts && npm install
 
 ## Quick Usage
 
-**⚠️ BEST PRACTICE: Use heredoc or --data-file to avoid shell quoting errors!**
+** BEST PRACTICE: Use heredoc or --data-file to avoid shell quoting errors!**
 
 ```bash
 # RECOMMENDED: Write JSON to temp file first (avoids shell quoting issues)

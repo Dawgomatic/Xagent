@@ -8,11 +8,11 @@
 
 ## Features
 
-- 🔍 **Search Papers** - Query arXiv with natural language
-- 📄 **Get Details** - Fetch full paper metadata and abstracts
-- 📥 **Download PDFs** - Save papers locally for reading
-- 📚 **Reading List** - Track papers in MongoDB (to-read, reading, read, cited)
-- 🤖 **AI-Ready** - Works with OpenClaw, Claude, and any AI with shell access
+-  **Search Papers** - Query arXiv with natural language
+-  **Get Details** - Fetch full paper metadata and abstracts
+-  **Download PDFs** - Save papers locally for reading
+-  **Reading List** - Track papers in MongoDB (to-read, reading, read, cited)
+-  **AI-Ready** - Works with OpenClaw, Claude, and any AI with shell access
 
 ## Installation
 
@@ -70,9 +70,9 @@ export ARXIV_PAPERS_DIR="./papers"
 ## Example Output
 
 ```
-🔍 Found 5 papers for: "prompt injection attack LLM"
+ Found 5 papers for: "prompt injection attack LLM"
 
-📄 Automatic and Universal Prompt Injection Attacks against Large Language Models
+ Automatic and Universal Prompt Injection Attacks against Large Language Models
    ID: 2403.04957v1
    Authors: Xiaogeng Liu, Zhiyuan Yu, Yizhe Zhang (+2 more)
    Published: 2024-03-07
@@ -93,4 +93,4 @@ MIT License - Use freely, attribution appreciated.
 
 ## Author
 
-Created by [Ractor](https://github.com/Ractorrr) 🦅
+Created by [Ractor](https://github.com/Ractorrr) 

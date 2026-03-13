@@ -1,7 +1,7 @@
 ---
 name: pipeline-analytics
 description: Generate interactive analytics dashboards from CRM data. Use when asked to "show pipeline stats", "create a report", "analyze leads", "show conversion rates", "build a dashboard", "visualize outreach data", "funnel analysis", or any data visualization request from DuckDB workspace data.
-metadata: { "openclaw": { "emoji": "📊" } }
+metadata: { "openclaw": { "emoji": "" } }
 ---
 
 # Pipeline Analytics — NL → SQL → Interactive Charts

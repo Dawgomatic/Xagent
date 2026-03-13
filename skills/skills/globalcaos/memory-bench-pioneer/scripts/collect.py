@@ -347,7 +347,7 @@ def main():
     # Find database
     db_path = Path(args.db) if args.db else find_db()
     if not db_path or not db_path.exists():
-        print("❌ Memory database not found. Searched:")
+        print(" Memory database not found. Searched:")
         print("   ~/.openclaw/workspace/db/memory.db")
         print("   ~/.openclaw/workspace/db/cognitive_memory.db")
         print("   ~/.openclaw/workspace/db/jarvis.db")
@@ -397,7 +397,7 @@ def main():
     if args.output:
         Path(args.output).parent.mkdir(parents=True, exist_ok=True)
         Path(args.output).write_text(output)
-        print(f"✅ Report saved to {args.output}")
+        print(f" Report saved to {args.output}")
         print(f"   Instance: {report['instance_id']}")
         print(f"   Memories: {report['memory_stats']['memories']['total_active']}")
         print(f"   Period: {args.days} days")

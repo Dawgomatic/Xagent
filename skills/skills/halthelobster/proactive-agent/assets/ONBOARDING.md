@@ -77,18 +77,18 @@ As questions are answered, the agent logs them here:
 
 | # | Question | Answered | Source |
 |---|----------|----------|--------|
-| 1 | Name | ❌ | — |
-| 2 | Timezone | ❌ | — |
-| 3 | Communication style | ❌ | — |
-| 4 | Pet peeves | ❌ | — |
-| 5 | Primary goal | ❌ | — |
-| 6 | 1-year vision | ❌ | — |
-| 7 | Ideal life | ❌ | — |
-| 8 | Productivity time | ❌ | — |
-| 9 | Async vs real-time | ❌ | — |
-| 10 | Current projects | ❌ | — |
-| 11 | Key people | ❌ | — |
-| 12 | Agent personality | ❌ | — |
+| 1 | Name |  | — |
+| 2 | Timezone |  | — |
+| 3 | Communication style |  | — |
+| 4 | Pet peeves |  | — |
+| 5 | Primary goal |  | — |
+| 6 | 1-year vision |  | — |
+| 7 | Ideal life |  | — |
+| 8 | Productivity time |  | — |
+| 9 | Async vs real-time |  | — |
+| 10 | Current projects |  | — |
+| 11 | Key people |  | — |
+| 12 | Agent personality |  | — |
 
 ---
 

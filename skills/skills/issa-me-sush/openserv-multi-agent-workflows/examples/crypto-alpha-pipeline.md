@@ -126,7 +126,7 @@ async function setup() {
         body: 'Based on the analysis, write a professional investment report. Include: executive summary, key metrics, trend analysis, risk factors, and actionable insights.'
       }
     ],
-    // ⚠️ CRITICAL: Edges define the workflow execution path
+    //  CRITICAL: Edges define the workflow execution path
     edges: [
       { from: 'trigger:webhook', to: 'task:fetch' },
       { from: 'task:fetch', to: 'task:analyze' },

@@ -4,13 +4,13 @@ P2P file transfer between AI agents via message channels.
 
 ## Features
 
-- 🔗 **Message-based**: Transfer files through existing chat channels
-- 📦 **Chunked transfer**: Split large files into small pieces
-- ✅ **Integrity verification**: SHA-256 hash for chunks and files
-- 🤝 **Request/Accept**: Explicit acceptance or auto-accept policy
-- 🔒 **Security**: Trusted peer whitelist with secrets
-- ⏰ **Secret TTL**: Set expiry time for trust relationships
-- 🔄 **Resume**: Resume interrupted transfers from last chunk
+-  **Message-based**: Transfer files through existing chat channels
+-  **Chunked transfer**: Split large files into small pieces
+-  **Integrity verification**: SHA-256 hash for chunks and files
+-  **Request/Accept**: Explicit acceptance or auto-accept policy
+-  **Security**: Trusted peer whitelist with secrets
+-  **Secret TTL**: Set expiry time for trust relationships
+-  **Resume**: Resume interrupted transfers from last chunk
 
 ## Installation
 
@@ -145,10 +145,10 @@ const resumable = bot.getResumableTransfers();
 
 ## Message Format
 
-OCFT messages use a `🔗OCFT:` prefix with Base64-encoded JSON:
+OCFT messages use a `OCFT:` prefix with Base64-encoded JSON:
 
 ```
-🔗OCFT:eyJ2ZXJzaW9uIjoiMS4wIiwidHlwZSI6Im9mZmVyIi4uLn0=
+OCFT:eyJ2ZXJzaW9uIjoiMS4wIiwidHlwZSI6Im9mZmVyIi4uLn0=
 ```
 
 This allows file transfers over any text-based channel (Telegram, Discord, Slack, etc).

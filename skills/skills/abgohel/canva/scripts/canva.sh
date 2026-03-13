@@ -8,7 +8,7 @@ TOKEN_FILE="$HOME/.canva/tokens.json"
 
 get_token() {
     if [ ! -f "$TOKEN_FILE" ]; then
-        echo "❌ Not authenticated. Run: canva-auth.sh" >&2
+        echo " Not authenticated. Run: canva-auth.sh" >&2
         exit 1
     fi
     jq -r '.access_token' "$TOKEN_FILE"
@@ -33,7 +33,7 @@ api() {
 
 case "$1" in
     designs|list)
-        echo "📋 Listing designs..."
+        echo " Listing designs..."
         api GET "/designs" | jq '.items[] | {id, name: .title, created: .created_at}'
         ;;
     
@@ -46,7 +46,7 @@ case "$1" in
         ;;
     
     templates)
-        echo "📋 Listing brand templates..."
+        echo " Listing brand templates..."
         api GET "/brand-templates" | jq '.items[] | {id, name: .title}'
         ;;
     
@@ -56,7 +56,7 @@ case "$1" in
             exit 1
         fi
         FORMAT="${3:-png}"
-        echo "📤 Starting export job..."
+        echo " Starting export job..."
         RESULT=$(api POST "/exports" "{\"design_id\": \"$2\", \"format\": {\"type\": \"$FORMAT\"}}")
         JOB_ID=$(echo "$RESULT" | jq -r '.job.id')
         echo "Job ID: $JOB_ID"
@@ -69,17 +69,17 @@ case "$1" in
             
             if [ "$STATE" = "completed" ]; then
                 URL=$(echo "$STATUS" | jq -r '.job.result.url')
-                echo "✅ Export complete!"
+                echo " Export complete!"
                 echo "Download URL: $URL"
                 exit 0
             elif [ "$STATE" = "failed" ]; then
-                echo "❌ Export failed"
+                echo " Export failed"
                 echo "$STATUS" | jq .
                 exit 1
             fi
             echo "  Status: $STATE..."
         done
-        echo "⏰ Timeout waiting for export"
+        echo " Timeout waiting for export"
         ;;
     
     autofill)
@@ -88,7 +88,7 @@ case "$1" in
             echo "Example: canva.sh autofill TMPL_123 '{\"title\":{\"type\":\"text\",\"text\":\"Hello\"}}'"
             exit 1
         fi
-        echo "🎨 Creating design from template..."
+        echo " Creating design from template..."
         api POST "/autofills" "{\"brand_template_id\": \"$2\", \"data\": $3}" | jq .
         ;;
     
@@ -98,7 +98,7 @@ case "$1" in
             exit 1
         fi
         FILENAME=$(basename "$2")
-        echo "📤 Uploading $FILENAME..."
+        echo " Uploading $FILENAME..."
         TOKEN=$(get_token)
         curl -s -X POST "https://api.canva.com/rest/v1/asset-uploads" \
             -H "Authorization: Bearer $TOKEN" \
@@ -108,12 +108,12 @@ case "$1" in
         ;;
     
     user)
-        echo "👤 Getting user info..."
+        echo " Getting user info..."
         api GET "/users/me" | jq .
         ;;
     
     *)
-        echo "🎨 Canva CLI Helper"
+        echo " Canva CLI Helper"
         echo ""
         echo "Commands:"
         echo "  designs         List all designs"

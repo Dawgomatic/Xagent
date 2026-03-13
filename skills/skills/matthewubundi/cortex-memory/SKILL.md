@@ -1,7 +1,7 @@
 ---
 name: cortex-memory
 description: Long-term structured memory with knowledge graph, entity tracking, temporal reasoning, and cross-session recall. Powered by the Cortex API.
-metadata: {"openclaw": {"emoji": "🧠", "category": "memory", "homepage": "https://github.com/Ubundi/Cortex", "primaryEnv": "CORTEX_API_KEY", "requires": {"env": ["CORTEX_API_KEY", "CORTEX_BASE_URL"], "bins": ["curl", "jq"]}}}
+metadata: {"openclaw": {"emoji": "", "category": "memory", "homepage": "https://github.com/Ubundi/Cortex", "primaryEnv": "CORTEX_API_KEY", "requires": {"env": ["CORTEX_API_KEY", "CORTEX_BASE_URL"], "bins": ["curl", "jq"]}}}
 ---
 
 # Cortex Memory

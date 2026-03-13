@@ -22,7 +22,7 @@ export PRISM_API_KEY="your-api-key"
 
 ## Quick Reference
 
-### 🔍 Asset Resolution (Core Feature)
+###  Asset Resolution (Core Feature)
 
 Resolve ANY asset identifier to canonical form:
 
@@ -46,7 +46,7 @@ curl -X POST "$PRISM_URL/resolve/batch" \
 curl "$PRISM_URL/resolve/venues/BTC"
 ```
 
-### 💰 Price Data
+###  Price Data
 
 ```bash
 # Crypto price
@@ -67,7 +67,7 @@ curl -X POST "$PRISM_URL/stocks/batch/quotes" \
   -d '{"symbols": ["AAPL", "MSFT", "GOOGL"]}'
 ```
 
-### 📊 Market Overview
+###  Market Overview
 
 ```bash
 # Full market overview (crypto + tradfi)
@@ -88,7 +88,7 @@ curl "$PRISM_URL/stocks/losers"
 curl "$PRISM_URL/stocks/active"
 ```
 
-### 🛡️ Token Security Analysis
+###  Token Security Analysis
 
 ```bash
 # Analyze token for risks
@@ -107,7 +107,7 @@ curl "$PRISM_URL/analyze/fork/ETH"
 curl "$PRISM_URL/analytics/holders/0x1234..."
 ```
 
-### 🔥 Trending & Discovery
+###  Trending & Discovery
 
 ```bash
 # Trending crypto overall
@@ -129,7 +129,7 @@ curl "$PRISM_URL/crypto/trending/evm"
 curl "$PRISM_URL/stocks/multi-day-movers"
 ```
 
-### 📈 DeFi & Derivatives
+###  DeFi & Derivatives
 
 ```bash
 # DEX pairs
@@ -147,7 +147,7 @@ curl "$PRISM_URL/dex/BTC/funding/all"
 curl "$PRISM_URL/dex/BTC/oi/all"
 ```
 
-### 💼 Wallet & On-Chain
+###  Wallet & On-Chain
 
 ```bash
 # Wallet balances (multi-chain)
@@ -163,7 +163,7 @@ curl "$PRISM_URL/chains"
 curl "$PRISM_URL/analytics/price/onchain/0xContractAddress"
 ```
 
-### 🌍 Traditional Finance
+###  Traditional Finance
 
 ```bash
 # Forex rates
@@ -186,7 +186,7 @@ curl "$PRISM_URL/indexes/nasdaq100"
 curl "$PRISM_URL/sectors"
 ```
 
-### 🔧 System & Health
+###  System & Health
 
 ```bash
 # API health
@@ -265,9 +265,9 @@ Response: "Bitcoin (BTC) is $43,250 (+2.1% 24h)"
 ### Security Check
 ```
 User: "is PEPE safe"
-Response: "🛡️ PEPE Analysis
+Response: " PEPE Analysis
 • Risk Score: 35/100 (Low)
-• Liquidity: Locked ✅
+• Liquidity: Locked 
 • Top holders: 15% concentration
 • Copycat risk: None detected
 Overall: Lower risk, but DYOR"
@@ -276,7 +276,7 @@ Overall: Lower risk, but DYOR"
 ### Market Overview
 ```
 User: "how's the market"
-Response: "📊 Market Overview
+Response: " Market Overview
 Crypto: BTC $43.2K (+2%), ETH $2,290 (+1.8%)
 Fear & Greed: 72 (Greed)
 Trending: SOL, ONDO, WIF

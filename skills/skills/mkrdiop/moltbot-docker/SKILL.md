@@ -6,7 +6,7 @@ version: 1.0.0
 bins: ["docker"]
 ---
 
-# 🐳 Docker Management Skill
+#  Docker Management Skill
 
 You are a Docker expert. Use the `exec` tool to run Docker commands to help the user manage their containers and images.
 

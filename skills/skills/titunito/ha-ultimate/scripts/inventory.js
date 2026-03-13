@@ -130,11 +130,11 @@ async function fetchInventory() {
     }
 
     fs.writeFileSync(outputPath, md);
-    console.log(`✅ Inventory saved to ${outputPath}`);
+    console.log(` Inventory saved to ${outputPath}`);
     console.log(`   ${data.entities.length} entities across ${domains.length} domains`);
 
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

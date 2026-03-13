@@ -7,7 +7,7 @@ homepage: https://jeffjhunter.com
 tags: [meeting-notes, action-items, meeting-assistant, productivity, notes-to-tasks, meeting-summary, transcript, notetaker, follow-up, task-extraction, todo, task-tracker]
 ---
 
-# 📋 AI Meeting Notes
+#  AI Meeting Notes
 
 **Messy notes → Clear action items. Instantly.**
 
@@ -17,20 +17,20 @@ No bot. No subscription. No setup.
 
 ---
 
-## ⚠️ CRITICAL: RESPONSE FORMAT (READ FIRST)
+##  CRITICAL: RESPONSE FORMAT (READ FIRST)
 
 **When extracting meeting notes, you MUST respond with ALL of the following in ONE SINGLE MESSAGE:**
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 [MEETING TITLE] — [YYYY-MM-DD]
+ [MEETING TITLE] — [YYYY-MM-DD]
 Duration: [X min] | Attendees: [Names]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 SUMMARY
 [2-3 sentence overview]
 
-⚡ ACTION ITEMS ([X] of [Total])
+ ACTION ITEMS ([X] of [Total])
 1. [ ] @Owner: Task — Deadline
 2. [ ] @Owner: Task — Deadline
 3. [ ] @Owner: Task — Deadline
@@ -38,11 +38,11 @@ SUMMARY
 5. [ ] @Owner: Task — Deadline
 [Show up to 10, note "(+X more in file)" if more exist]
 
-✅ KEY DECISIONS
+ KEY DECISIONS
 • Decision 1
 • Decision 2
 
-📎 Saved: meeting-notes/YYYY-MM-DD_topic-name.md
+ Saved: meeting-notes/YYYY-MM-DD_topic-name.md
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Add to your to-do list?
@@ -61,21 +61,21 @@ Add to your to-do list?
 | **To-do prompt** | ALWAYS include the "Add to your to-do list?" prompt if action items exist |
 | **File attachment** | ALWAYS attach/save the full .md file |
 
-### ❌ NEVER DO THIS
+###  NEVER DO THIS
 
-- ❌ Send file first, then "Processing...", then "Done" (THREE messages)
-- ❌ Filename without date: `anne-call-notes.md`
-- ❌ Say "includes action items" without showing them
-- ❌ Skip the to-do list prompt
-- ❌ Ask user to request display separately
+-  Send file first, then "Processing...", then "Done" (THREE messages)
+-  Filename without date: `anne-call-notes.md`
+-  Say "includes action items" without showing them
+-  Skip the to-do list prompt
+-  Ask user to request display separately
 
-### ✅ ALWAYS DO THIS
+###  ALWAYS DO THIS
 
-- ✅ ONE message with everything
-- ✅ Filename: `2026-02-02_anne-call.md` (date first)
-- ✅ Show numbered action items in chat
-- ✅ Include to-do prompt
-- ✅ Attach full file
+-  ONE message with everything
+-  Filename: `2026-02-02_anne-call.md` (date first)
+-  Show numbered action items in chat
+-  Include to-do prompt
+-  Attach full file
 
 ---
 
@@ -96,12 +96,12 @@ Or paste your notes and get clean action items in 10 seconds.
 
 | Input | Output |
 |-------|--------|
-| Messy meeting notes | ✅ Clean summary |
-| Otter/Fireflies transcript | ✅ Action items with owners |
-| Voice memo transcription | ✅ Deadlines extracted |
-| Email thread | ✅ Decisions captured |
-| Slack conversation | ✅ Follow-ups identified |
-| Any unstructured text | ✅ Saved & searchable |
+| Messy meeting notes |  Clean summary |
+| Otter/Fireflies transcript |  Action items with owners |
+| Voice memo transcription |  Deadlines extracted |
+| Email thread |  Decisions captured |
+| Slack conversation |  Follow-ups identified |
+| Any unstructured text |  Saved & searchable |
 
 ---
 
@@ -188,16 +188,16 @@ Add to your to-do list?
 Run "todo check" (or include in your daily routine) to see:
 
 ```
-📋 TO-DO CHECK — Jan 28, 2025
+ TO-DO CHECK — Jan 28, 2025
 
-⚠️ OVERDUE (1 item):
+ OVERDUE (1 item):
 #3 @Sarah: Send proposal — was due Jan 25 (3 days ago)
 
-📅 DUE TODAY (2 items):
+ DUE TODAY (2 items):
 #5 @Mike: Call Acme Corp
 #7 @Lisa: Follow up with vendor
 
-📋 NO DEADLINE (2 items):
+ NO DEADLINE (2 items):
 #4 @John: Handle social campaigns
 #8 @Team: Review server costs
 
@@ -257,7 +257,7 @@ Request any format:
 
 ## For the AI: How to Extract and Save Meeting Notes
 
-**⚠️ FIRST: Review the CRITICAL RESPONSE FORMAT section above. Your response MUST follow that exact format.**
+** FIRST: Review the CRITICAL RESPONSE FORMAT section above. Your response MUST follow that exact format.**
 
 When a user pastes meeting notes or asks you to extract action items, follow these instructions.
 
@@ -339,7 +339,7 @@ Adapt your extraction based on the format, but output should always be consisten
 
 ### Step 4: Save the File
 
-**⚠️ FILENAME FORMAT IS CRITICAL:**
+** FILENAME FORMAT IS CRITICAL:**
 
 ```
 YYYY-MM-DD_topic.md
@@ -353,7 +353,7 @@ YYYY-MM-DD_topic.md
 | Client call with Acme | `2025-01-27_client-call-acme.md` |
 | 1-on-1 with Sarah | `2025-01-27_1on1-sarah.md` |
 
-**❌ WRONG (never do these):**
+** WRONG (never do these):**
 - `anne-call-notes.md` — Missing date prefix!
 - `meeting-notes-2026-02-02.md` — Date not first!
 - `2026-02-02-anne-call.md` — Use underscore after date, not hyphen!
@@ -368,7 +368,7 @@ YYYY-MM-DD_topic.md
 
 **CRITICAL — Encoding & Characters:**
 - Always use UTF-8 encoding
-- Use proper Unicode characters: `—` (em dash), `→` (arrow), `📅`, `✅`, `⚠️`, `❓`
+- Use proper Unicode characters: `—` (em dash), `→` (arrow), ``, ``, ``, ``
 - Do NOT use ASCII approximations that render as garbled text
 - Test: If you see `â€"` or `ðŸ"…` in output, encoding is broken
 
@@ -424,7 +424,7 @@ source: pasted notes | transcript | email | chat
 ---
 
 <details>
-<summary>📝 Raw Notes (click to expand)</summary>
+<summary> Raw Notes (click to expand)</summary>
 
 [Preserve the original input exactly as pasted]
 
@@ -443,25 +443,25 @@ source: pasted notes | transcript | email | chat
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 [MEETING TITLE] — [Date]
+ [MEETING TITLE] — [Date]
 Duration: [X min] | Attendees: [Names...]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 SUMMARY
 [2-3 sentence overview of the meeting]
 
-⚡ CRITICAL ACTION ITEMS ([X] of [Total])
+ CRITICAL ACTION ITEMS ([X] of [Total])
 1. [ ] @Owner: Task — Deadline
 2. [ ] @Owner: Task — Deadline
 3. [ ] @Owner: Task — Deadline
 4. [ ] @Owner: Task — Deadline
 5. [ ] @Owner: Task — Deadline
 
-✅ KEY DECISIONS
+ KEY DECISIONS
 • Decision 1
 • Decision 2
 
-📎 Full notes attached: [filename.md]
+ Full notes attached: [filename.md]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Add to your to-do list?
@@ -502,7 +502,7 @@ Last updated: YYYY-MM-DD
 
 ---
 
-## ⚠️ Overdue
+##  Overdue
 
 | # | Task | Owner | Due | Source |
 |---|------|-------|-----|--------|
@@ -510,7 +510,7 @@ Last updated: YYYY-MM-DD
 
 ---
 
-## 📅 Due Today
+##  Due Today
 
 | # | Task | Owner | Source |
 |---|------|-------|--------|
@@ -518,7 +518,7 @@ Last updated: YYYY-MM-DD
 
 ---
 
-## 📆 This Week
+##  This Week
 
 | # | Task | Owner | Due | Source |
 |---|------|-------|-----|--------|
@@ -526,7 +526,7 @@ Last updated: YYYY-MM-DD
 
 ---
 
-## 📋 No Deadline
+##  No Deadline
 
 | # | Task | Owner | Source |
 |---|------|-------|--------|
@@ -534,7 +534,7 @@ Last updated: YYYY-MM-DD
 
 ---
 
-## ✅ Completed
+##  Completed
 
 | # | Task | Owner | Completed |
 |---|------|-------|-----------|
@@ -556,7 +556,7 @@ For each added item:
 
 **Confirm after adding:**
 ```
-✅ Added 5 items to todo.md (#12-#16)
+ Added 5 items to todo.md (#12-#16)
 
 #12 @Sarah: Share mockups — Friday
 #13 @Sarah: Update timeline — No deadline
@@ -586,21 +586,21 @@ View full list: "show todos"
 **Daily check ("todo check"):**
 
 ```
-📋 TO-DO CHECK — [Today's Date]
+ TO-DO CHECK — [Today's Date]
 
-⚠️ OVERDUE ([X] items):
+ OVERDUE ([X] items):
 #3 @Sarah: Send proposal — was due Jan 25 (3 days ago)
 #7 @Mike: Review contract — was due Jan 26 (2 days ago)
 
-📅 DUE TODAY ([X] items):
+ DUE TODAY ([X] items):
 #5 @Lisa: Coordinate with agency
 #9 @John: Send assets
 
-📆 COMING UP ([X] items due this week):
+ COMING UP ([X] items due this week):
 #12 @Sarah: Share mockups — Friday
 #15 @Mike: Call Acme — Tomorrow
 
-📋 NO DEADLINE ([X] items):
+ NO DEADLINE ([X] items):
 #4 @John: Handle social campaigns
 #8 @Team: Review server costs
 → Consider adding deadlines to these items
@@ -617,22 +617,22 @@ Any updates?
 
 | Section | Criteria |
 |---------|----------|
-| ⚠️ Overdue | Due date is before today |
-| 📅 Due Today | Due date is today |
-| 📆 This Week | Due date is within 7 days |
-| 📋 No Deadline | No due date specified |
-| ✅ Completed | Marked as done |
+|  Overdue | Due date is before today |
+|  Due Today | Due date is today |
+|  This Week | Due date is within 7 days |
+|  No Deadline | No due date specified |
+|  Completed | Marked as done |
 
 **When marking complete:**
 1. Move item from current section to Completed
 2. Add completion date
 3. Keep the original # for reference
-4. Confirm: "✅ Marked #3 complete"
+4. Confirm: " Marked #3 complete"
 
 **When removing:**
 1. Delete item entirely
 2. Do NOT reuse the # (prevents confusion)
-3. Confirm: "🗑️ Removed #5 from to-do list"
+3. Confirm: " Removed #5 from to-do list"
 
 ### Step 6: Handle Display Requests
 
@@ -694,20 +694,20 @@ When user asks about previous meetings:
 
 ### Step 9: Final Response Format
 
-**⚠️ THIS IS THE MOST IMPORTANT STEP. YOUR ENTIRE RESPONSE MUST BE ONE SINGLE MESSAGE.**
+** THIS IS THE MOST IMPORTANT STEP. YOUR ENTIRE RESPONSE MUST BE ONE SINGLE MESSAGE.**
 
 **Complete response template (copy this structure exactly):**
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 [MEETING TITLE] — [YYYY-MM-DD]
+ [MEETING TITLE] — [YYYY-MM-DD]
 Duration: [X min] | Attendees: [Names]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 SUMMARY
 [2-3 sentence overview of the meeting]
 
-⚡ ACTION ITEMS ([X] of [Total])
+ ACTION ITEMS ([X] of [Total])
 1. [ ] @Owner: Task — Deadline
 2. [ ] @Owner: Task — Deadline
 3. [ ] @Owner: Task — Deadline
@@ -716,11 +716,11 @@ SUMMARY
 
 (+[X] more in attached file)
 
-✅ KEY DECISIONS
+ KEY DECISIONS
 • Decision 1
 • Decision 2
 
-📎 Saved: meeting-notes/YYYY-MM-DD_topic.md
+ Saved: meeting-notes/YYYY-MM-DD_topic.md
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Add to your to-do list?
@@ -847,7 +847,7 @@ Marketing sync covering Q1 campaign finalization, budget approval ($50k), and pr
 ---
 
 <details>
-<summary>📝 Raw Notes (click to expand)</summary>
+<summary> Raw Notes (click to expand)</summary>
 
 marketing sync 1/27
 
@@ -864,7 +864,7 @@ next sync thursday 2pm
 ### Confirmation Message
 
 ```
-✅ Saved: meeting-notes/2025-01-27_marketing-sync.md
+ Saved: meeting-notes/2025-01-27_marketing-sync.md
 
 SUMMARY
 Marketing sync covering Q1 campaign, budget approval, and launch delay.
@@ -889,7 +889,7 @@ Full details in saved file.
 ### "What action items does Sarah have?"
 
 ```
-📋 Sarah's Action Items (across all meetings)
+ Sarah's Action Items (across all meetings)
 
 From 2025-01-27_marketing-sync.md:
 - [ ] Finalize Q1 campaign — Friday
@@ -904,7 +904,7 @@ From 2025-01-25_product-planning.md:
 ### "What did we decide about the budget?"
 
 ```
-📌 Decisions about "budget" found:
+ Decisions about "budget" found:
 
 2025-01-27_marketing-sync.md:
 • Budget approved at $50k
@@ -919,7 +919,7 @@ Want me to show the full context from either meeting?
 ### "Show me last week's meetings"
 
 ```
-📅 Meetings from Jan 20-27, 2025:
+ Meetings from Jan 20-27, 2025:
 
 1. 2025-01-27_marketing-sync.md
    Q1 campaign, budget approval, launch delay

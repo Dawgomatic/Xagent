@@ -71,7 +71,7 @@ To obtain the credentials:
 python skills/axelrod/scripts/axelrod_chat.py --message "check my balance"
 ```
 
-> **⚠️ Note**: If the API returns "please login first", it means your AK/SK is incorrect. Please double-check and reconfigure your credentials.
+> ** Note**: If the API returns "please login first", it means your AK/SK is incorrect. Please double-check and reconfigure your credentials.
 
 ## How It Works
 
@@ -170,8 +170,8 @@ axelrod/
 
 ---
 
-**💡 Pro Tip**: Always specify token amounts clearly (e.g. `"buy 50u of AXR"` or `"sell 50% of my ETH"`) to avoid ambiguity.
+** Pro Tip**: Always specify token amounts clearly (e.g. `"buy 50u of AXR"` or `"sell 50% of my ETH"`) to avoid ambiguity.
 
-**⚠️ Security**: Keep your AK/SK private. Never commit credentials to version control. Start with small test amounts.
+** Security**: Keep your AK/SK private. Never commit credentials to version control. Start with small test amounts.
 
-**🚀 Quick Win**: Start by checking your balance (`"check my balance"`) to verify setup, then try a small trade on Base.
+** Quick Win**: Start by checking your balance (`"check my balance"`) to verify setup, then try a small trade on Base.

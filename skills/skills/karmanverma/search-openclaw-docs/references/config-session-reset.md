@@ -8,7 +8,7 @@
 
 ## Critical Pattern: Per-Channel Reset
 
-### ✅ Correct: Global + Channel Overrides
+###  Correct: Global + Channel Overrides
 
 ```json
 {
@@ -34,7 +34,7 @@
 
 ---
 
-## ❌ Common Mistakes
+##  Common Mistakes
 
 ### Wrong: Only setting per-channel (no global)
 

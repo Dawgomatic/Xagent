@@ -28,9 +28,9 @@ echo "  Source: $SOURCE"
 echo "  Dest:   ${SSH_HOST}:${DEST_PATH}"
 
 if scp "$SOURCE" "${SSH_HOST}:${DEST_PATH}"; then
-    echo "✅ Saved: $SAFE_FILENAME"
+    echo " Saved: $SAFE_FILENAME"
     echo "   iCloud sync will propagate within 1-2 minutes"
 else
-    echo "❌ scp failed. Check: SSH access to $SSH_HOST, vault path exists, disk space"
+    echo " scp failed. Check: SSH access to $SSH_HOST, vault path exists, disk space"
     exit 1
 fi

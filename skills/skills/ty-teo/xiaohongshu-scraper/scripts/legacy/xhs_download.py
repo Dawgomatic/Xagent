@@ -156,7 +156,7 @@ def main():
     success, new_files, data = download_note(args.url, record_data=True)
     
     if not success and not new_files:
-        print("❌ 下载失败或无新文件")
+        print(" 下载失败或无新文件")
         return
     
     print(f"\n✓ 下载完成，{len(new_files)} 个新文件:")
@@ -242,7 +242,7 @@ def main():
         
         print(f"\n输出目录: {output_dir}")
     
-    print("\n✅ 完成!")
+    print("\n 完成!")
 
 
 if __name__ == '__main__':

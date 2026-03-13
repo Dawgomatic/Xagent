@@ -115,7 +115,7 @@ def show_update_info(api: BilibiliAPI, mid: int):
         face = info.get("face", "")
         
         print(f"\n{'='*60}")
-        print(f"👤 UP主: {name}")
+        print(f" UP主: {name}")
         print(f"   mid: {mid}")
         if sign:
             print(f"   签名: {sign[:50]}{'...' if len(sign) > 50 else ''}")
@@ -129,7 +129,7 @@ def show_update_info(api: BilibiliAPI, mid: int):
 
 def show_latest_videos(api: BilibiliAPI, mid: int, count: int = 10):
     """显示最新视频列表"""
-    print(f"\n📹 最新视频 (最近{count}个)")
+    print(f"\n 最新视频 (最近{count}个)")
     print("-" * 60)
     
     try:
@@ -149,9 +149,9 @@ def show_latest_videos(api: BilibiliAPI, mid: int, count: int = 10):
             comment = video.get("comment", 0)
             
             print(f"\n  {i}. {title}")
-            print(f"     📊 播放: {format_number(play)} | 评论: {comment}")
-            print(f"     ⏱️  时长: {length} | 发布: {format_timestamp(pubdate)}")
-            print(f"     🔗 https://www.bilibili.com/video/{bvid}")
+            print(f"      播放: {format_number(play)} | 评论: {comment}")
+            print(f"       时长: {length} | 发布: {format_timestamp(pubdate)}")
+            print(f"      https://www.bilibili.com/video/{bvid}")
         
         print()
         return videos
@@ -163,7 +163,7 @@ def show_latest_videos(api: BilibiliAPI, mid: int, count: int = 10):
 
 def show_latest_dynamics(api: BilibiliAPI, mid: int, count: int = 10):
     """显示最新动态列表"""
-    print(f"\n📢 最新动态 (最近{count}条)")
+    print(f"\n 最新动态 (最近{count}条)")
     print("-" * 60)
     
     try:
@@ -208,10 +208,10 @@ def show_latest_dynamics(api: BilibiliAPI, mid: int, count: int = 10):
                 bvid = archive.get("bvid", "")
                 play = archive.get("stat", {}).get("play", "")
                 
-                print(f"     📹 视频: {title}")
+                print(f"      视频: {title}")
                 if text:
-                    print(f"     💬 {text[:80]}{'...' if len(text) > 80 else ''}")
-                print(f"     🔗 https://www.bilibili.com/video/{bvid}")
+                    print(f"      {text[:80]}{'...' if len(text) > 80 else ''}")
+                print(f"      https://www.bilibili.com/video/{bvid}")
                 
             elif dynamic_type == "DYNAMIC_TYPE_DRAW":
                 # 图文动态
@@ -219,35 +219,35 @@ def show_latest_dynamics(api: BilibiliAPI, mid: int, count: int = 10):
                 items_count = len(draw.get("items", []))
                 
                 if text:
-                    print(f"     💬 {text[:100]}{'...' if len(text) > 100 else ''}")
+                    print(f"      {text[:100]}{'...' if len(text) > 100 else ''}")
                 if items_count > 0:
-                    print(f"     🖼️  包含 {items_count} 张图片")
+                    print(f"       包含 {items_count} 张图片")
                     
             elif dynamic_type == "DYNAMIC_TYPE_WORD":
                 # 纯文字动态
                 if text:
-                    print(f"     💬 {text[:150]}{'...' if len(text) > 150 else ''}")
+                    print(f"      {text[:150]}{'...' if len(text) > 150 else ''}")
                     
             elif dynamic_type == "DYNAMIC_TYPE_ARTICLE":
                 # 专栏文章
                 article = major.get("article", {})
                 title = article.get("title", "")
                 
-                print(f"     📝 专栏: {title}")
+                print(f"      专栏: {title}")
                 if text:
-                    print(f"     💬 {text[:80]}{'...' if len(text) > 80 else ''}")
+                    print(f"      {text[:80]}{'...' if len(text) > 80 else ''}")
                     
             elif dynamic_type == "DYNAMIC_TYPE_FORWARD":
                 # 转发动态
                 if text:
-                    print(f"     🔄 转发: {text[:100]}{'...' if len(text) > 100 else ''}")
+                    print(f"      转发: {text[:100]}{'...' if len(text) > 100 else ''}")
                     
             else:
                 # 其他类型
                 if text:
-                    print(f"     💬 {text[:100]}{'...' if len(text) > 100 else ''}")
+                    print(f"      {text[:100]}{'...' if len(text) > 100 else ''}")
                 else:
-                    print(f"     📌 类型: {dynamic_type}")
+                    print(f"      类型: {dynamic_type}")
         
         print()
         return items[:count]
@@ -268,23 +268,23 @@ def _print_user_list(users: list, source: str = ""):
         level = user.get("level", 0)
 
         print(f"\n  {i}. {uname}")
-        print(f"     🆔 mid: {mid}")
-        print(f"     👥 粉丝: {format_number(fans)} | 视频: {videos} | 等级: Lv{level}")
+        print(f"      mid: {mid}")
+        print(f"      粉丝: {format_number(fans)} | 视频: {videos} | 等级: Lv{level}")
         if usign:
-            print(f"     📝 签名: {usign[:60]}{'...' if len(usign) > 60 else ''}")
-        print(f"     🔗 https://space.bilibili.com/{mid}")
+            print(f"      签名: {usign[:60]}{'...' if len(usign) > 60 else ''}")
+        print(f"      https://space.bilibili.com/{mid}")
     print()
 
 
 def show_search_results(api: BilibiliAPI, keyword: str, count: int = 10):
     """搜索用户并显示结果（优先使用本地缓存）"""
-    print(f"\n🔍 搜索用户: \"{keyword}\"")
+    print(f"\n 搜索用户: \"{keyword}\"")
     print("-" * 60)
 
     # 先查本地缓存
     cached = lookup_cache(keyword)
     if cached:
-        print(f"  📦 命中本地缓存（共 {len(cached)} 条）")
+        print(f"   命中本地缓存（共 {len(cached)} 条）")
         _print_user_list(cached[:count])
         return cached[:count]
 

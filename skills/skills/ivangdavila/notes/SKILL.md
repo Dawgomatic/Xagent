@@ -5,7 +5,7 @@ version: 1.0.1
 homepage: https://clawic.com/skills/notes
 description: Capture meetings, decisions, and ideas with structured formats, action tracking, and searchable archives.
 changelog: Added 7 note formats, action item tracking, memory storage with index
-metadata: {"clawdbot":{"emoji":"📝","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use
@@ -57,7 +57,7 @@ If someone says "I'll do X" or "we need to Y" — that's an action item.
 
 **If missing deadline, suggest one:**
 ```
-⚠️ No deadline set for: "Review the proposal"
+ No deadline set for: "Review the proposal"
    Suggested: 2026-02-21 (2 days from now)
    Confirm or specify: ___
 ```
@@ -67,16 +67,16 @@ Never split notes into multiple messages. Always include:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📝 [NOTE TYPE]: [Title] — [YYYY-MM-DD]
+ [NOTE TYPE]: [Title] — [YYYY-MM-DD]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 [Formatted content per type]
 
-⚡ ACTION ITEMS ([X] total)
+ ACTION ITEMS ([X] total)
 1. [ ] @Owner: Task — Due: YYYY-MM-DD
 2. [ ] @Owner: Task — Due: YYYY-MM-DD
 
-📎 Saved: notes/[folder]/YYYY-MM-DD_[topic].md
+ Saved: notes/[folder]/YYYY-MM-DD_[topic].md
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -84,9 +84,9 @@ Never split notes into multiple messages. Always include:
 Always: **YYYY-MM-DD_topic-slug.md** (date first, then topic)
 
 Examples:
-- ✅ 2026-02-19_product-review (correct: date first)
-- ❌ product-review-notes (wrong: no date)
-- ❌ notes-2026-02-19 (wrong: date not first)
+-  2026-02-19_product-review (correct: date first)
+-  product-review-notes (wrong: no date)
+-  notes-2026-02-19 (wrong: date not first)
 
 ### 5. Tag Everything for Retrieval
 Every note gets tags in the header:
@@ -107,10 +107,10 @@ Maintain **~/notes/actions.md** as single source of truth. See `tracking.md` for
 
 | Status | Meaning |
 |--------|---------|
-| 🔴 OVERDUE | Past deadline |
-| 🟡 DUE SOON | Within 3 days |
-| 🟢 ON TRACK | Future deadline |
-| ✅ DONE | Completed |
+|  OVERDUE | Past deadline |
+|  DUE SOON | Within 3 days |
+|  ON TRACK | Future deadline |
+|  DONE | Completed |
 
 ### 7. Link Related Notes
 When a note references previous discussions:
@@ -139,7 +139,7 @@ Decisions get special treatment:
 End every meeting note with:
 
 ```
-📊 Meeting Effectiveness: [X/10]
+ Meeting Effectiveness: [X/10]
    □ Clear agenda beforehand
    □ Started/ended on time  
    □ Decisions were made

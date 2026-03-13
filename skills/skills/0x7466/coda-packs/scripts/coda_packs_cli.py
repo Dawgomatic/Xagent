@@ -285,7 +285,7 @@ class PacksCommands:
         if status == 201:
             print(f"Created Pack: {result['name']} (ID: {result['id']})")
             print(f"Short ID: {result.get('shortId', 'N/A')}")
-            print("\n⚠️  NOTE: This creates a Pack shell.")
+            print("\n  NOTE: This creates a Pack shell.")
             print("   For builds and Gallery submission, use the Pack SDK CLI:")
             print("   npx @codahq/packs-sdk")
         else:

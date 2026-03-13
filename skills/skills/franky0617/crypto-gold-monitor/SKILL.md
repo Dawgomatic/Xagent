@@ -17,22 +17,22 @@ Real-time monitoring of Bitcoin, Ethereum, Gold, and Silver prices with multi-cu
 - Ξ **以太坊 / Ethereum** - 实时价格 (USD/CNY)、24h涨跌
   - Real-time price (USD/CNY), 24h change
 
-- 🥇 **黄金 / Gold** - XAU/USD 实时价格 (USD/CNY)
+-  **黄金 / Gold** - XAU/USD 实时价格 (USD/CNY)
   - Gold XAU/USD real-time price (USD/CNY)
 
-- 🥈 **白银 / Silver** - XAG/USD 实时价格 (USD/CNY)
+-  **白银 / Silver** - XAG/USD 实时价格 (USD/CNY)
   - Silver XAG/USD real-time price (USD/CNY)
 
-- 💱 **汇率显示 / Exchange Rate** - 实时USD/CNY汇率
+-  **汇率显示 / Exchange Rate** - 实时USD/CNY汇率
   - Real-time USD/CNY exchange rate
 
-- 📊 **价格对比 / Comparison** - 对比多个资产表现
+-  **价格对比 / Comparison** - 对比多个资产表现
   - Compare multiple asset performance
 
-- 📈 **涨跌幅排行 / Rankings** - 24h涨跌幅排名
+-  **涨跌幅排行 / Rankings** - 24h涨跌幅排名
   - 24h change rate rankings
 
-- 🔔 **价格提醒 / Alerts** - 设置价格阈值提醒
+-  **价格提醒 / Alerts** - 设置价格阈值提醒
   - Set price threshold alerts
 
 ## 使用方法 / Usage
@@ -103,14 +103,14 @@ crypto-monitor all --interval 30
 
 ## 注意事项 / Notes
 
-⚠️ 价格数据可能有15-60秒延迟
-⚠️ Price data may have 15-60 seconds delay
+ 价格数据可能有15-60秒延迟
+ Price data may have 15-60 seconds delay
 
-⚠️ 贵金属API可能有每日请求限制
-⚠️ Precious Metals API may have daily request limits
+ 贵金属API可能有每日请求限制
+ Precious Metals API may have daily request limits
 
-⚠️ 投资有风险，数据仅供参考
-⚠️ Investment involves risk, data for reference only
+ 投资有风险，数据仅供参考
+ Investment involves risk, data for reference only
 
 ## 常见问题 / FAQ
 

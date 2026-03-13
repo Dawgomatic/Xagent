@@ -1,4 +1,4 @@
-# Proposal Engine — Win More Deals 🖤💛
+# Proposal Engine — Win More Deals 
 
 Turn discovery calls into winning proposals. Full lifecycle from qualification to close.
 
@@ -39,7 +39,7 @@ This skill focuses on making proposals **win**:
 - Discovery-to-close methodology with follow-up sequences
 - Objection handling scripts for the conversations that happen *after* you send
 
-## ⚡ Level Up — Context Packs
+##  Level Up — Context Packs
 
 Want industry-specific proposal templates, pricing benchmarks, and competitive positioning?
 
@@ -51,7 +51,7 @@ Each pack is $47 and gives your agent deep vertical expertise.
 
 **Full storefront:** https://afrexai-cto.github.io/context-packs/
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Find and qualify prospects
 - [afrexai-seo-content-engine](https://clawhub.com/skills/afrexai-seo-content-engine) — SEO content that ranks
@@ -61,4 +61,4 @@ Each pack is $47 and gives your agent deep vertical expertise.
 
 ---
 
-*Built by AfrexAI — turning AI agents into revenue machines.* 🖤💛
+*Built by AfrexAI — turning AI agents into revenue machines.* 

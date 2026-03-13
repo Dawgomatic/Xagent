@@ -27,8 +27,8 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 log()  { echo -e "${GREEN}[everclaw]${NC} $1"; }
-warn() { echo -e "${YELLOW}[everclaw]${NC} ⚠️  $1"; }
-err()  { echo -e "${RED}[everclaw]${NC} ❌ $1"; }
+warn() { echo -e "${YELLOW}[everclaw]${NC}   $1"; }
+err()  { echo -e "${RED}[everclaw]${NC}  $1"; }
 info() { echo -e "${BLUE}[everclaw]${NC} $1"; }
 
 # ─── Collision Detection ────────────────────────────────────────────────────
@@ -172,7 +172,7 @@ post_install() {
 
   echo ""
   log "╔══════════════════════════════════════════════════╗"
-  log "║  ♾️  Everclaw v${version} installed                  ║"
+  log "║    Everclaw v${version} installed                  ║"
   log "╚══════════════════════════════════════════════════╝"
   echo ""
   info "Next steps:"

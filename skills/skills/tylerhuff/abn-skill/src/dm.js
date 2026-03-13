@@ -224,7 +224,7 @@ async function main() {
       const messages = await readDMs({ since: args[0] ? parseInt(args[0]) : undefined });
       console.log(`\nFound ${messages.length} messages:\n`);
       for (const msg of messages) {
-        console.log(`📨 ${msg.type.toUpperCase()} from ${msg.from.slice(0, 20)}...`);
+        console.log(` ${msg.type.toUpperCase()} from ${msg.from.slice(0, 20)}...`);
         console.log(`   Date: ${msg.date}`);
         console.log(`   Content: ${JSON.stringify(msg, null, 2).slice(0, 200)}...`);
         console.log('');
@@ -256,7 +256,7 @@ async function main() {
     case 'watch':
       await watchDMs((msg) => {
         console.log('━'.repeat(50));
-        console.log(`📬 New ${msg.type.toUpperCase()} from ${msg.from.slice(0, 20)}...`);
+        console.log(` New ${msg.type.toUpperCase()} from ${msg.from.slice(0, 20)}...`);
         console.log(JSON.stringify(msg, null, 2));
         console.log('');
       });

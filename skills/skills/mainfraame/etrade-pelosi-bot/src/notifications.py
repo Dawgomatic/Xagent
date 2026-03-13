@@ -51,7 +51,7 @@ class TelegramNotifier:
         amount = trade.get('amount_range', trade.get('amount', 'N/A'))
         date = trade.get('disclosure_date', 'N/A')
 
-        emoji = "🟢" if tx_type == "PURCHASE" else "🔴"
+        emoji = "" if tx_type == "PURCHASE" else ""
 
         message = f"""
 {emoji} *New Congressional Trade*
@@ -73,7 +73,7 @@ _Processing for execution..._
         price = trade.get('estimated_price', 0)
         cost = trade.get('estimated_cost', 0)
 
-        emoji = "✅" if action == "BUY" else "💰"
+        emoji = "" if action == "BUY" else ""
 
         message = f"""
 {emoji} *Trade Executed*
@@ -95,7 +95,7 @@ _Position tracking enabled_
         entry = stop_info.get('entry_price', 0)
         pnl = stop_info.get('pnl_percent', 0)
 
-        emoji = "🛑" if pnl < 0 else "🎯"
+        emoji = "" if pnl < 0 else ""
 
         message = f"""
 {emoji} *Stop-Loss Triggered*
@@ -116,12 +116,12 @@ P/L: *{pnl:+.1f}%*
         if not warnings:
             return True  # No alerts
 
-        message = "⚠️ *Risk Alert*\n\n"
+        message = " *Risk Alert*\n\n"
         for w in warnings:
             message += f"• {w}\n"
 
         if status == 'halt':
-            message += "\n🛑 *Trading halted*"
+            message += "\n *Trading halted*"
 
         return self.send_message(message)
 
@@ -132,7 +132,7 @@ P/L: *{pnl:+.1f}%*
         positions = summary.get('open_positions', 0)
         new_disclosures = summary.get('new_disclosures', 0)
 
-        emoji = "📈" if pnl >= 0 else "📉"
+        emoji = "" if pnl >= 0 else ""
 
         message = f"""
 {emoji} *Daily Summary*

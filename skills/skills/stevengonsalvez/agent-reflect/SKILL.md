@@ -19,7 +19,7 @@ allowed-tools:
   - Bash
 metadata:
   clawdbot:
-    emoji: "🪞"
+    emoji: ""
     config:
       stateDirs: ["~/.reflect"]
 ---

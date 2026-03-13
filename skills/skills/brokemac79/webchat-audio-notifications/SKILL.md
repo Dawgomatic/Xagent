@@ -14,7 +14,7 @@ tags:
   - howler
 metadata:
   clawdbot:
-    emoji: 🔔
+    emoji: 
     compatibility:
       minVersion: "2026.1.0"
       browsers:
@@ -64,22 +64,22 @@ metadata:
           See docs/integration.md for full guide.
 ---
 
-# 🔔 Webchat Audio Notifications
+#  Webchat Audio Notifications
 
 Browser audio notifications for Moltbot/Clawdbot webchat. Plays a notification sound when new messages arrive - but only when the tab is in the background.
 
 ## Features
 
-- 🔔 **Smart notifications** - Only plays when tab is hidden
-- 🎚️ **Volume control** - Adjustable 0-100%
-- 🎵 **5 intensity levels** - Whisper (1) to impossible-to-miss (5)
-- 📁 **Custom sounds** - Upload your own (MP3, WAV, OGG, WebM)
-- 🔕 **Easy toggle** - Enable/disable with one click
-- 💾 **Persistent settings** - Preferences saved in localStorage
-- 📱 **Mobile-friendly** - Graceful degradation on mobile
-- 🚫 **Autoplay handling** - Respects browser policies
-- ⏱️ **Cooldown** - Prevents spam (3s between alerts)
-- 🐞 **Debug mode** - Optional logging
+-  **Smart notifications** - Only plays when tab is hidden
+-  **Volume control** - Adjustable 0-100%
+-  **5 intensity levels** - Whisper (1) to impossible-to-miss (5)
+-  **Custom sounds** - Upload your own (MP3, WAV, OGG, WebM)
+-  **Easy toggle** - Enable/disable with one click
+-  **Persistent settings** - Preferences saved in localStorage
+-  **Mobile-friendly** - Graceful degradation on mobile
+-  **Autoplay handling** - Respects browser policies
+-  **Cooldown** - Prevents spam (3s between alerts)
+-  **Debug mode** - Optional logging
 
 ## Quick Start
 
@@ -94,7 +94,7 @@ python3 -m http.server 8080
 **Test steps:**
 1. Switch to another tab
 2. Click "Trigger Notification"
-3. Hear the sound! 🔊
+3. Hear the sound! 
 
 ### Basic Integration
 
@@ -154,10 +154,10 @@ new WebchatNotifications({
 
 | Browser | Version | Support |
 |---------|---------|---------|
-| Chrome | 92+ | ✅ Full |
-| Firefox | 90+ | ✅ Full |
-| Safari | 15+ | ✅ Full |
-| Mobile | Latest | ⚠️ Limited |
+| Chrome | 92+ |  Full |
+| Firefox | 90+ |  Full |
+| Safari | 15+ |  Full |
+| Mobile | Latest |  Limited |
 
 **Overall:** 92% of users (Web Audio API support)
 
@@ -237,7 +237,7 @@ socket.on('dm', () => {
 ```html
 <input type="range" min="0" max="100" 
        onchange="notifier.setVolume(this.value / 100)">
-<button onclick="notifier.test()">Test 🔊</button>
+<button onclick="notifier.test()">Test </button>
 ```
 
 ## Troubleshooting
@@ -266,10 +266,10 @@ socket.on('dm', () => {
 
 ## Security
 
-- ✅ No external requests
-- ✅ localStorage only
-- ✅ No tracking
-- ✅ No special permissions
+-  No external requests
+-  localStorage only
+-  No tracking
+-  No special permissions
 
 ## License
 
@@ -299,13 +299,13 @@ MIT License
 
 ---
 
-**Status:** ✅ v1.1.0 Complete - 5 Intensity Levels  
+**Status:**  v1.1.0 Complete - 5 Intensity Levels  
 **Tested:** Chrome, Firefox, Safari  
 **Ready for:** Production use & ClawdHub publishing
 
 ## Links
 
-- 📖 [README](./README.md) - Full documentation
-- 🔧 [Integration Guide](./docs/integration.md) - Setup instructions
-- 🧪 [Test Page](./examples/test.html) - Try it yourself
-- 💬 [Discord Thread](https://discord.com/channels/1456350064065904867/1466181146374307881) - Community discussion
+-  [README](./README.md) - Full documentation
+-  [Integration Guide](./docs/integration.md) - Setup instructions
+-  [Test Page](./examples/test.html) - Try it yourself
+-  [Discord Thread](https://discord.com/channels/1456350064065904867/1466181146374307881) - Community discussion

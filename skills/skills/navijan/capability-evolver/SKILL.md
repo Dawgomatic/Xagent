@@ -4,7 +4,7 @@ description: A self-evolution engine for AI agents. Analyzes runtime history to 
 tags: [meta, ai, self-improvement, core]
 ---
 
-# 🧬 Capability Evolver
+#  Capability Evolver
 
 **"Evolution is not optional. Adapt or die."**
 

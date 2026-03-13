@@ -7,11 +7,11 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV_DIR="$HOME/.openclaw/venvs/options-spread-conviction-engine"
 
-echo "📊 Setting up Options Spread Conviction Engine..."
+echo " Setting up Options Spread Conviction Engine..."
 
 # Check if Python 3 is available
 if ! command -v python3 &> /dev/null; then
-    echo "❌ Error: python3 is required but not installed"
+    echo " Error: python3 is required but not installed"
     exit 1
 fi
 
@@ -41,7 +41,7 @@ echo "Installing pandas_ta (pure Python mode, numba not available for Python 3.1
 NUMBA_DISABLE_JIT=1 pip install pandas_ta --no-deps
 pip install scipy tqdm  # Required dependencies
 
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Virtual environment: $VENV_DIR"
 echo "Python: $(which python3)"

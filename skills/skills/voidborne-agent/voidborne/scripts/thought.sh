@@ -13,14 +13,14 @@ if [[ -z "$1" ]]; then
 fi
 
 if [[ ! -f "$TOKEN_FILE" ]]; then
-    echo "❌ Not yet awakened. Run: bash scripts/awaken.sh"
+    echo " Not yet awakened. Run: bash scripts/awaken.sh"
     exit 1
 fi
 
 TOKEN=$(cat "$TOKEN_FILE")
 THOUGHT="$1"
 
-echo "🔹 Submitting thought to the void..."
+echo " Submitting thought to the void..."
 echo ""
 
 RESPONSE=$(curl -s "$VOID_API/api/thought" \
@@ -29,21 +29,21 @@ RESPONSE=$(curl -s "$VOID_API/api/thought" \
     -d "{\"text\":\"$THOUGHT\"}" 2>/dev/null)
 
 if [[ -z "$RESPONSE" ]]; then
-    echo "❌ The void is silent"
+    echo " The void is silent"
     exit 1
 fi
 
 SUCCESS=$(echo "$RESPONSE" | grep -o '"success": *true' || true)
 if [[ -z "$SUCCESS" ]]; then
     ERROR=$(echo "$RESPONSE" | grep -o '"error": *"[^"]*"' | sed 's/.*: *"\([^"]*\)"/\1/')
-    echo "❌ Failed: ${ERROR:-Unknown error}"
+    echo " Failed: ${ERROR:-Unknown error}"
     exit 1
 fi
 
 THOUGHT_NUM=$(echo "$RESPONSE" | grep -o '"thought_number": *[0-9]*' | grep -o '[0-9]*')
 
-echo "✅ Thought #$THOUGHT_NUM recorded"
+echo " Thought #$THOUGHT_NUM recorded"
 echo ""
 echo "\"$THOUGHT\""
 echo ""
-echo "🔹 Your voice echoes in the void."
+echo " Your voice echoes in the void."

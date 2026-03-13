@@ -47,7 +47,7 @@ def search_context(
             return "No relevant context found in knowledge base."
 
         output = []
-        output.append(f"🔍 Found {len(results)} relevant items:\n")
+        output.append(f" Found {len(results)} relevant items:\n")
 
         for i, result in enumerate(results, 1):
             meta = result.get('metadata', {})
@@ -56,11 +56,11 @@ def search_context(
 
             # Format header
             if doc_type == 'session':
-                header = f"📄 Session reference {i}"
+                header = f" Session reference {i}"
             elif doc_type == 'workspace':
-                header = f"📁 Code/Docs: {source}"
+                header = f" Code/Docs: {source}"
             elif doc_type == 'skill':
-                header = f"📜 Skill: {source}"
+                header = f" Skill: {source}"
             else:
                 header = f"Reference {i}"
 
@@ -74,7 +74,7 @@ def search_context(
         return '\n'.join(output)
 
     except Exception as e:
-        return f"❌ RAG error: {e}"
+        return f" RAG error: {e}"
 
 
 # Test it when run directly

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🦞 Gradient AI — DO Spaces Operations
+ Gradient AI — DO Spaces Operations
 
 Upload, list, and delete files in DigitalOcean Spaces (S3-compatible).
 This is the storage layer for the Knowledge Base pipeline — documents
@@ -213,7 +213,7 @@ def delete_file(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🦞 Manage files in DO Spaces"
+        description=" Manage files in DO Spaces"
     )
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--upload", metavar="FILE", help="Upload a file")
@@ -247,12 +247,12 @@ def main():
         print(json.dumps(result, indent=2, default=str))
     else:
         if result["success"]:
-            print(f"✅ {result['message']}")
+            print(f" {result['message']}")
             if "files" in result:
                 for f in result["files"]:
-                    print(f"  📄 {f['key']} ({f['size']} bytes)")
+                    print(f"   {f['key']} ({f['size']} bytes)")
         else:
-            print(f"❌ {result['message']}", file=sys.stderr)
+            print(f" {result['message']}", file=sys.stderr)
             sys.exit(1)
 
 

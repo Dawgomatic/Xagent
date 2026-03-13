@@ -7,7 +7,7 @@ metadata:
   author: maton
   version: "1.0"
   clawdbot:
-    emoji: 🧠
+    emoji: 
     requires:
       env:
         - MATON_API_KEY
@@ -401,11 +401,11 @@ Content-Type: application/json
 
 {
   "chat_id": 6442870329,
-  "emoji": "🎲"
+  "emoji": ""
 }
 ```
 
-Supported emoji: 🎲 🎯 🎳 🏀 ⚽ 🎰
+Supported emoji:      
 
 ### Editing Messages
 

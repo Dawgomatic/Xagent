@@ -31,7 +31,7 @@ def generate_pages(template_path, data_path, output_dir):
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(content)
         
-        print(f"✅ Created {output_file}")
+        print(f" Created {output_file}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
@@ -43,4 +43,4 @@ if __name__ == "__main__":
     output_dir = sys.argv[3]
     
     generate_pages(template_file, data_file, output_dir)
-    print(f"\n✨ Generated {len(json.load(open(data_file)))} pages")
+    print(f"\n Generated {len(json.load(open(data_file)))} pages")

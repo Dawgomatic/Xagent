@@ -70,7 +70,7 @@ class AppleNotesExtractor:
     
     def extract_simple(self):
         """Extract notes using AppleScript/JXA method"""
-        print("🔍 Extracting notes using simple method...")
+        print(" Extracting notes using simple method...")
         
         applescript = '''
         tell application "Notes"
@@ -115,16 +115,16 @@ class AppleNotesExtractor:
             )
             
             if result.returncode != 0:
-                print(f"❌ AppleScript error: {result.stderr}")
+                print(f" AppleScript error: {result.stderr}")
                 return False
                 
             return self.process_simple_output(result.stdout)
             
         except subprocess.TimeoutExpired:
-            print(f"⏰ Simple extraction timed out after {self.config['methods']['simple']['timeout']} seconds")
+            print(f" Simple extraction timed out after {self.config['methods']['simple']['timeout']} seconds")
             return False
         except Exception as e:
-            print(f"❌ Error during simple extraction: {e}")
+            print(f" Error during simple extraction: {e}")
             return False
     
     def process_simple_output(self, raw_output):
@@ -173,24 +173,24 @@ class AppleNotesExtractor:
                     notes.append(note_data)
                     
             except Exception as e:
-                print(f"⚠️ Error processing note block: {e}")
+                print(f" Error processing note block: {e}")
                 continue
         
         # Save results
         self.save_notes(notes, "simple")
-        print(f"✅ Extracted {len(notes)} notes using simple method")
+        print(f" Extracted {len(notes)} notes using simple method")
         return True
     
     def extract_full(self):
         """Extract notes using the comprehensive Ruby parser"""
-        print("🔍 Extracting notes using full method (Ruby parser)...")
+        print(" Extracting notes using full method (Ruby parser)...")
         
         # Check if Ruby parser is available
         parser_path = self.root_dir / "tools" / "apple_cloud_notes_parser"
         if not parser_path.exists():
-            print("📦 Ruby parser not found, installing...")
+            print(" Ruby parser not found, installing...")
             if not self.install_ruby_parser():
-                print("❌ Failed to install Ruby parser")
+                print(" Failed to install Ruby parser")
                 return False
         
         try:
@@ -210,16 +210,16 @@ class AppleNotesExtractor:
             )
             
             if result.returncode != 0:
-                print(f"❌ Ruby parser error: {result.stderr}")
+                print(f" Ruby parser error: {result.stderr}")
                 return False
             
             return self.process_full_output(output_file)
             
         except subprocess.TimeoutExpired:
-            print(f"⏰ Full extraction timed out after {self.config['methods']['full']['timeout']} seconds")
+            print(f" Full extraction timed out after {self.config['methods']['full']['timeout']} seconds")
             return False
         except Exception as e:
-            print(f"❌ Error during full extraction: {e}")
+            print(f" Error during full extraction: {e}")
             return False
     
     def install_ruby_parser(self):
@@ -240,17 +240,17 @@ class AppleNotesExtractor:
                 "bundle", "install"
             ], cwd=str(parser_dir), check=True)
             
-            print("✅ Ruby parser installed successfully")
+            print(" Ruby parser installed successfully")
             return True
             
         except subprocess.CalledProcessError as e:
-            print(f"❌ Failed to install Ruby parser: {e}")
+            print(f" Failed to install Ruby parser: {e}")
             return False
     
     def process_full_output(self, output_file):
         """Process the Ruby parser JSON output"""
         if not output_file.exists():
-            print(f"❌ Full extraction output file not found: {output_file}")
+            print(f" Full extraction output file not found: {output_file}")
             return False
         
         try:
@@ -278,11 +278,11 @@ class AppleNotesExtractor:
                     notes.append(processed_note)
             
             self.save_notes(notes, "full")
-            print(f"✅ Extracted {len(notes)} notes using full method")
+            print(f" Extracted {len(notes)} notes using full method")
             return True
             
         except Exception as e:
-            print(f"❌ Error processing full extraction output: {e}")
+            print(f" Error processing full extraction output: {e}")
             return False
     
     def is_sensitive_note(self, note):
@@ -293,7 +293,7 @@ class AppleNotesExtractor:
         
         for pattern in exclude_patterns:
             if pattern.lower() in content:
-                print(f"🔒 Skipping sensitive note: {note.get('title', 'Untitled')}")
+                print(f" Skipping sensitive note: {note.get('title', 'Untitled')}")
                 return True
         
         return False
@@ -307,7 +307,7 @@ class AppleNotesExtractor:
             json_file = self.output_dir / "json" / f"notes_{method}_{timestamp}.json"
             with open(json_file, 'w') as f:
                 json.dump(notes, f, indent=2, ensure_ascii=False)
-            print(f"💾 Saved JSON: {json_file}")
+            print(f" Saved JSON: {json_file}")
         
         # Save as Markdown
         if "markdown" in self.config["output"]["formats"]:
@@ -330,7 +330,7 @@ class AppleNotesExtractor:
                     f.write(note.get('body', ''))
                     f.write("\n\n---\n\n")
             
-            print(f"📝 Saved Markdown: {md_file}")
+            print(f" Saved Markdown: {md_file}")
         
         # Update index
         self.update_index(notes, method)
@@ -370,7 +370,7 @@ class AppleNotesExtractor:
         with open(index_file, 'w') as f:
             json.dump(index, f, indent=2)
         
-        print(f"📊 Updated index: {len(index['notes'])} unique notes tracked")
+        print(f" Updated index: {len(index['notes'])} unique notes tracked")
 
 def main():
     parser = argparse.ArgumentParser(description="Extract Apple Notes content")
@@ -393,7 +393,7 @@ def main():
     
     args = parser.parse_args()
     
-    print("🍎 Apple Notes Extraction System")
+    print(" Apple Notes Extraction System")
     print("================================")
     
     extractor = AppleNotesExtractor(args.output_dir, args.config)
@@ -405,20 +405,20 @@ def main():
     elif args.method == "full":
         success = extractor.extract_full()
     elif args.method == "auto":
-        print("🤖 Auto-selecting best extraction method...")
+        print(" Auto-selecting best extraction method...")
         # Try simple first, fall back to full if needed
         if extractor.extract_simple():
-            print("✅ Simple extraction completed successfully")
+            print(" Simple extraction completed successfully")
             success = True
         else:
-            print("⚠️ Simple extraction failed, trying full method...")
+            print(" Simple extraction failed, trying full method...")
             success = extractor.extract_full()
     
     if success:
-        print("\n✅ Extraction completed successfully!")
-        print(f"📁 Output saved to: {extractor.output_dir}")
+        print("\n Extraction completed successfully!")
+        print(f" Output saved to: {extractor.output_dir}")
     else:
-        print("\n❌ Extraction failed")
+        print("\n Extraction failed")
         sys.exit(1)
 
 if __name__ == "__main__":

@@ -57,11 +57,11 @@ openclaw activityclaw setup
 
 ## What ActivityClaw Tracks
 
-- **📝 File Operations** - Creates, edits, reads
-- **⚡ Commands** - Shell executions via exec
-- **🔍 Web Activity** - Searches and fetches
-- **💬 Messages** - Outbound messages to channels
-- **🚀 Sub-agents** - Spawned agent sessions
+- ** File Operations** - Creates, edits, reads
+- ** Commands** - Shell executions via exec
+- ** Web Activity** - Searches and fetches
+- ** Messages** - Outbound messages to channels
+- ** Sub-agents** - Spawned agent sessions
 
 ## Dashboard Features
 
@@ -79,7 +79,7 @@ The dashboard at http://localhost:18796 provides:
 ```bash
 openclaw activityclaw dashboard
 ```
-Then check the "📝 Create" and "✏️ Edit" filters in the dashboard to see recent file operations.
+Then check the " Create" and " Edit" filters in the dashboard to see recent file operations.
 
 **User asks:** "Show me recent command executions"
 
@@ -87,7 +87,7 @@ Then check the "📝 Create" and "✏️ Edit" filters in the dashboard to see r
 ```bash
 openclaw activityclaw dashboard
 ```
-Filter by "⚡ Exec" to see command history.
+Filter by " Exec" to see command history.
 
 **User asks:** "What has the agent been doing?"
 

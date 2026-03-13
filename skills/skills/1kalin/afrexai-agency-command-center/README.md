@@ -50,7 +50,7 @@ clawhub install afrexai-agency-command-center
 - Growth lever prioritization framework
 - 12 natural language commands
 
-## ⚡ Level Up
+##  Level Up
 
 This skill handles agency operations. For deep industry expertise to deliver better client work:
 
@@ -63,7 +63,7 @@ Pre-built knowledge systems for 10 industries. Drop into your agent and deliver 
 - **Healthcare Pack** — compliance, patient workflows, HIPAA
 - **Real Estate Pack** — deal analysis, property management, market research
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Prospect research and outreach
 - [afrexai-proposal-engine](https://clawhub.com/skills/afrexai-proposal-engine) — Win more deals with better proposals
@@ -75,4 +75,4 @@ Pre-built knowledge systems for 10 industries. Drop into your agent and deliver 
 
 ---
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

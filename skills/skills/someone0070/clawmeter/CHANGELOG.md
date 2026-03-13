@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2026-02-14
 
 ### Added
-- Initial release 🎉
+- Initial release 
 - Real-time cost tracking dashboard
 - Session log ingestion and parsing
 - SQLite storage with automatic aggregation
@@ -21,14 +21,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Comprehensive documentation (README, SKILL.md)
 
 ### Features
-- 📊 Dashboard with daily/weekly/monthly spend
-- 💰 Accurate cost calculation with cache pricing
-- 🔔 Configurable budget thresholds
-- 📈 Daily cost chart (7/14/30/90 day views)
-- 🎨 Model breakdown donut chart
-- 📋 Top sessions and recent activity tables
-- 🔄 Real-time log watching and ingestion
-- 🗄️ Portable SQLite database (sql.js)
+-  Dashboard with daily/weekly/monthly spend
+-  Accurate cost calculation with cache pricing
+-  Configurable budget thresholds
+-  Daily cost chart (7/14/30/90 day views)
+-  Model breakdown donut chart
+-  Top sessions and recent activity tables
+-  Real-time log watching and ingestion
+-  Portable SQLite database (sql.js)
 
 ### Technical Details
 - Built with Express.js, Chart.js, vanilla JavaScript

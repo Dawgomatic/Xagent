@@ -72,12 +72,12 @@ memory_file = f"data/users/{canonical_id}/memory.json"
 
 ## Features
 
-✅ **Auto-registers owner** from workspace USER.md  
-✅ **Thread-safe** identity map storage with fcntl locking  
-✅ **CLI + Python API** for both users and developers  
-✅ **Path traversal protection** — sanitizes all canonical IDs  
-✅ **Zero dependencies** — pure Python stdlib  
-✅ **Multi-channel support** — Telegram, WhatsApp, Discord, web, and future channels
+ **Auto-registers owner** from workspace USER.md  
+ **Thread-safe** identity map storage with fcntl locking  
+ **CLI + Python API** for both users and developers  
+ **Path traversal protection** — sanitizes all canonical IDs  
+ **Zero dependencies** — pure Python stdlib  
+ **Multi-channel support** — Telegram, WhatsApp, Discord, web, and future channels
 
 ## Use Cases
 

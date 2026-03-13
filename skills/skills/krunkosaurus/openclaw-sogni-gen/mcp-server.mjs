@@ -237,7 +237,7 @@ async function formatSuccess(result) {
   if (savedPaths.length > 0) {
     const textBlock = content[0];
     textBlock.text += '\n\n' + savedPaths.map((p, i) =>
-      savedPaths.length === 1 ? `📁 Saved: ${p}` : `📁 Saved #${i + 1}: ${p}`
+      savedPaths.length === 1 ? ` Saved: ${p}` : ` Saved #${i + 1}: ${p}`
     ).join('\n');
     textBlock.text += '\n\nTip: In Claude Code, ask Claude to run `open <path>` to view the file.';
   }

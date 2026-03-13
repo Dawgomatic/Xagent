@@ -1,7 +1,7 @@
 ---
 name: attio
 description: Manage Attio CRM records (companies, people, deals, tasks, notes). Search, create, update records and manage deal pipelines.
-metadata: {"moltbot":{"emoji":"📇","requires":{"bins":["attio"],"env":["ATTIO_ACCESS_TOKEN"]}}}
+metadata: {"moltbot":{"emoji":"","requires":{"bins":["attio"],"env":["ATTIO_ACCESS_TOKEN"]}}}
 ---
 
 # Attio CRM

@@ -14,7 +14,7 @@ Day 0 of launch. Subscribers have been nurtured and warmed up with pre-launch se
 
 ### Subject Line Options
 
-**Option 1:** "🚀 It's here! The Email Marketing Accelerator is now open"
+**Option 1:** " It's here! The Email Marketing Accelerator is now open"
 
 **Option 2:** "{{ subscriber.first_name }}, doors are open (early-bird pricing ends Friday)"
 
@@ -45,10 +45,10 @@ Today, you can get access to the complete system.
 
 It's a 6-week intensive program that teaches you how to:
 
-✅ **Build your list** — Grow from 0 to your first 1,000 subscribers (or 1K → 10K)  
-✅ **Write emails that convert** — Subject lines, storytelling, CTAs that actually work  
-✅ **Create sequences that sell** — Welcome, nurture, launch, and automation workflows  
-✅ **Optimize for revenue** — Turn subscribers into customers (and customers into repeat buyers)
+ **Build your list** — Grow from 0 to your first 1,000 subscribers (or 1K → 10K)  
+ **Write emails that convert** — Subject lines, storytelling, CTAs that actually work  
+ **Create sequences that sell** — Welcome, nurture, launch, and automation workflows  
+ **Optimize for revenue** — Turn subscribers into customers (and customers into repeat buyers)
 
 **The result:** A profitable email marketing system that runs 24/7.
 
@@ -56,7 +56,7 @@ It's a 6-week intensive program that teaches you how to:
 
 **What's Included:**
 
-📚 **6 Core Modules** (Video + written lessons)
+ **6 Core Modules** (Video + written lessons)
 • Module 1: List-Building Foundations
 • Module 2: Subject Line Mastery
 • Module 3: Email Copywriting
@@ -64,17 +64,17 @@ It's a 6-week intensive program that teaches you how to:
 • Module 5: Conversion Optimization
 • Module 6: Automation & Scaling
 
-🎯 **Weekly Live Q&A Sessions** (6 weeks)
+ **Weekly Live Q&A Sessions** (6 weeks)
 • Get your questions answered in real-time
 • Hot-seat coaching
 • Strategy breakdowns
 
-💬 **Private Community** (Lifetime access)
+ **Private Community** (Lifetime access)
 • Network with 500+ email marketers
 • Share wins and get feedback
 • Accountability partners
 
-🛠️ **Complete Template Library**
+ **Complete Template Library**
 • 50+ email templates
 • 10 sequence blueprints
 • Swipe file of high-converting campaigns
@@ -95,9 +95,9 @@ It's a 6-week intensive program that teaches you how to:
 
 **Bonuses (If You Enroll by Friday):**
 
-🎁 **Bonus #1:** 1-on-1 Strategy Call with me ($500 value)  
-🎁 **Bonus #2:** Email Teardown — I'll review your last 5 emails and give feedback ($300 value)  
-🎁 **Bonus #3:** "100 Subject Lines That Worked" swipe file ($97 value)
+ **Bonus #1:** 1-on-1 Strategy Call with me ($500 value)  
+ **Bonus #2:** Email Teardown — I'll review your last 5 emails and give feedback ($300 value)  
+ **Bonus #3:** "100 Subject Lines That Worked" swipe file ($97 value)
 
 **Total Bonus Value:** $897 (yours free)
 
@@ -119,9 +119,9 @@ It's a 6-week intensive program that teaches you how to:
 
 **Who This Is NOT For:**
 
-❌ Complete beginners with no list or offer  
-❌ Anyone expecting "push-button" results with no work  
-❌ Large companies (this is designed for solopreneurs/small teams)
+ Complete beginners with no list or offer  
+ Anyone expecting "push-button" results with no work  
+ Large companies (this is designed for solopreneurs/small teams)
 
 ---
 
@@ -177,14 +177,14 @@ The Productivity Lab | 123 Main St, San Francisco, CA 94102
 
 ### Why This Works
 
-✅ **Clear offer:** No confusion about what it is  
-✅ **Detailed breakdown:** Shows exactly what's included  
-✅ **Specific value:** "$2,497 value" → "$497" creates contrast  
-✅ **Urgency:** Early-bird deadline drives action  
-✅ **Bonuses:** Stack value and incentivize fast action  
-✅ **Testimonials:** Social proof with specific results  
-✅ **Risk reversal:** 60-day guarantee removes objection  
-✅ **Qualification:** "Who this is for/not for" filters leads  
+ **Clear offer:** No confusion about what it is  
+ **Detailed breakdown:** Shows exactly what's included  
+ **Specific value:** "$2,497 value" → "$497" creates contrast  
+ **Urgency:** Early-bird deadline drives action  
+ **Bonuses:** Stack value and incentivize fast action  
+ **Testimonials:** Social proof with specific results  
+ **Risk reversal:** 60-day guarantee removes objection  
+ **Qualification:** "Who this is for/not for" filters leads  
 
 ---
 
@@ -249,10 +249,10 @@ I audit your entire onboarding experience—from signup to activation—and give
 
 **Deliverables:**
 
-📊 50-page audit report  
-📧 Complete email sequence templates  
-🛠️ Implementation checklist  
-💬 90 days of Slack support
+ 50-page audit report  
+ Complete email sequence templates  
+ Implementation checklist  
+ 90 days of Slack support
 
 ---
 
@@ -285,11 +285,11 @@ If you're interested, reply now.
 
 **Is This Right for You?**
 
-✅ You're a B2B or B2C SaaS company  
-✅ You have product-market fit (some happy customers)  
-✅ You have at least 50 trials/month  
-✅ Your trial-to-paid is below 20% (industry avg)  
-✅ You're committed to implementing changes
+ You're a B2B or B2C SaaS company  
+ You have product-market fit (some happy customers)  
+ You have at least 50 trials/month  
+ Your trial-to-paid is below 20% (industry avg)  
+ You're committed to implementing changes
 
 ---
 
@@ -316,13 +316,13 @@ Jordan Mitchell Consulting | jordan@example.com
 
 ### Why This Works
 
-✅ **Scarcity:** "3 spots" creates urgency  
-✅ **Detailed process:** Client knows exactly what they're getting  
-✅ **Clear deliverables:** No ambiguity  
-✅ **ROI-focused:** "8-12x investment" = easy yes  
-✅ **Qualification criteria:** Filters out bad-fit leads  
-✅ **Low-friction CTA:** Just reply "Interested"  
-✅ **Social proof:** Real client results  
+ **Scarcity:** "3 spots" creates urgency  
+ **Detailed process:** Client knows exactly what they're getting  
+ **Clear deliverables:** No ambiguity  
+ **ROI-focused:** "8-12x investment" = easy yes  
+ **Qualification criteria:** Filters out bad-fit leads  
+ **Low-friction CTA:** Just reply "Interested"  
+ **Social proof:** Real client results  
 
 ---
 
@@ -333,7 +333,7 @@ Promotional email for established subscribers. Product line refresh or seasonal 
 
 ### Subject Line Options
 
-**Option 1:** "⚡ Flash Sale: 40% off everything (24 hours)"
+**Option 1:** " Flash Sale: 40% off everything (24 hours)"
 
 **Option 2:** "{{ subscriber.first_name }}, this is our biggest sale of the year"
 
@@ -358,33 +358,33 @@ This is your last chance to save up to 40% on your favorite products.
 
 ---
 
-**⚡ FLASH DEALS (FINAL HOURS):**
+** FLASH DEALS (FINAL HOURS):**
 
-**🔥 Bestseller #1: Organic Face Serum**
+** Bestseller #1: Organic Face Serum**
 ~~$68~~ → **$40.80** (40% off)
 [Shop Now]
 
-> "This serum changed my skin. I'm on my 3rd bottle." — Sarah M. ⭐⭐⭐⭐⭐
+> "This serum changed my skin. I'm on my 3rd bottle." — Sarah M. 
 
 ---
 
-**🔥 Bestseller #2: Hydrating Night Cream**
+** Bestseller #2: Hydrating Night Cream**
 ~~$54~~ → **$37.80** (30% off)
 [Shop Now]
 
-> "Woke up with glowing skin. Worth every penny." — Lisa K. ⭐⭐⭐⭐⭐
+> "Woke up with glowing skin. Worth every penny." — Lisa K. 
 
 ---
 
-**🔥 Bestseller #3: Complete Skincare Set**
+** Bestseller #3: Complete Skincare Set**
 ~~$180~~ → **$126** (30% off)
 [Shop Now]
 
-> "Best value! I bought one for my mom too." — Jordan P. ⭐⭐⭐⭐⭐
+> "Best value! I bought one for my mom too." — Jordan P. 
 
 ---
 
-**💝 BONUS: Free Gift with Purchase**
+** BONUS: Free Gift with Purchase**
 
 Spend $100+ and get a **free travel-size sample set** ($28 value)
 
@@ -397,7 +397,7 @@ Perfect for travel or trying new products!
 
 ---
 
-**⏰ Sale Ends TONIGHT at Midnight PST**
+** Sale Ends TONIGHT at Midnight PST**
 
 After midnight, prices go back to normal.
 
@@ -407,10 +407,10 @@ After midnight, prices go back to normal.
 
 **Why Our Customers Love Us:**
 
-🌱 **100% Organic:** No harsh chemicals, ever  
-♻️ **Sustainably Made:** Carbon-neutral shipping  
-⭐ **4.9/5 Stars:** From 2,000+ happy customers  
-💰 **60-Day Guarantee:** Love it or your money back
+ **100% Organic:** No harsh chemicals, ever  
+ **Sustainably Made:** Carbon-neutral shipping  
+ **4.9/5 Stars:** From 2,000+ happy customers  
+ **60-Day Guarantee:** Love it or your money back
 
 ---
 
@@ -418,9 +418,9 @@ After midnight, prices go back to normal.
 
 Our team is standing by to help:
 
-📧 Email: support@brandname.com  
-💬 Live Chat: [brandname.com](http://brandname.com)  
-📞 Phone: (555) 123-4567 (9 AM - 6 PM PST)
+ Email: support@brandname.com  
+ Live Chat: [brandname.com](http://brandname.com)  
+ Phone: (555) 123-4567 (9 AM - 6 PM PST)
 
 Happy shopping!
 
@@ -439,13 +439,13 @@ P.S. — Not ready to buy? Add items to your cart and we'll save them for 7 days
 
 ### Why This Works
 
-✅ **Immediate urgency:** "FINAL HOURS" in subject + body  
-✅ **Visual hierarchy:** Clear product breakouts  
-✅ **Social proof:** Testimonials for each product  
-✅ **Value stacking:** Discounts + free gift  
-✅ **Risk reversal:** 60-day guarantee  
-✅ **Multiple CTAs:** Easy to shop  
-✅ **Backup CTA (P.S.):** "Add to cart" for hesitant buyers  
+ **Immediate urgency:** "FINAL HOURS" in subject + body  
+ **Visual hierarchy:** Clear product breakouts  
+ **Social proof:** Testimonials for each product  
+ **Value stacking:** Discounts + free gift  
+ **Risk reversal:** 60-day guarantee  
+ **Multiple CTAs:** Easy to shop  
+ **Backup CTA (P.S.):** "Add to cart" for hesitant buyers  
 
 ---
 
@@ -487,28 +487,28 @@ This is for you if:
 
 **Here's what we'll cover (90 minutes):**
 
-📌 **The 3 list-building strategies that actually work in 2026**
+ **The 3 list-building strategies that actually work in 2026**
 (No, it's not "create a lead magnet"—everyone does that)
 
-📌 **The "Content Flywheel" method**
+ **The "Content Flywheel" method**
 How to turn one piece of content into 7 subscriber sources
 
-📌 **Why your lead magnet isn't working** (and how to fix it in 24 hours)
+ **Why your lead magnet isn't working** (and how to fix it in 24 hours)
 
-📌 **The 10-minute-per-day system**
+ **The 10-minute-per-day system**
 Grow your list without spending all day on "marketing"
 
-📌 **Live Q&A + hot-seat coaching**
+ **Live Q&A + hot-seat coaching**
 Bring your questions. I'll help you personally.
 
 ---
 
 **What You'll Walk Away With:**
 
-✅ A complete 90-day action plan  
-✅ Specific tactics you can start using TODAY  
-✅ Templates and examples (I'll share my screen)  
-✅ Feedback on YOUR strategy (if you want it)
+ A complete 90-day action plan  
+ Specific tactics you can start using TODAY  
+ Templates and examples (I'll share my screen)  
+ Feedback on YOUR strategy (if you want it)
 
 ---
 
@@ -564,13 +564,13 @@ The Productivity Lab | 123 Main St, San Francisco, CA 94102
 
 ### Why This Works
 
-✅ **Clear value proposition:** Specific outcome in subject  
-✅ **Qualification:** "This is for you if..."  
-✅ **Detailed agenda:** They know what they're getting  
-✅ **Tangible deliverables:** "90-day action plan"  
-✅ **Replay option:** Removes objection "I'm busy"  
-✅ **Transparency:** Mentions the paid offer (no surprise pitch)  
-✅ **Testimonials:** Social proof from past attendees  
+ **Clear value proposition:** Specific outcome in subject  
+ **Qualification:** "This is for you if..."  
+ **Detailed agenda:** They know what they're getting  
+ **Tangible deliverables:** "90-day action plan"  
+ **Replay option:** Removes objection "I'm busy"  
+ **Transparency:** Mentions the paid offer (no surprise pitch)  
+ **Testimonials:** Social proof from past attendees  
 
 ---
 
@@ -618,13 +618,13 @@ The Productivity Lab | 123 Main St, San Francisco, CA 94102
 
 Every sales email MUST have:
 
-1. ✅ **Clear offer:** What are you selling?
-2. ✅ **Price:** Don't make them guess
-3. ✅ **Value:** Why is it worth the price?
-4. ✅ **Social proof:** Who else bought/used it?
-5. ✅ **Risk reversal:** Guarantee, trial, refund
-6. ✅ **Urgency:** Why buy now vs. later?
-7. ✅ **CTA:** One primary button/link
+1.  **Clear offer:** What are you selling?
+2.  **Price:** Don't make them guess
+3.  **Value:** Why is it worth the price?
+4.  **Social proof:** Who else bought/used it?
+5.  **Risk reversal:** Guarantee, trial, refund
+6.  **Urgency:** Why buy now vs. later?
+7.  **CTA:** One primary button/link
 
 **Missing any = lower conversion**
 
@@ -657,12 +657,12 @@ Every sales email MUST have:
 
 **Button text formulas:**
 
-❌ **Generic:**
+ **Generic:**
 - "Buy Now"
 - "Click Here"
 - "Learn More"
 
-✅ **Specific & Benefit-Driven:**
+ **Specific & Benefit-Driven:**
 - "Enroll Now & Save $500"
 - "Get [Product Name] Today"
 - "Yes, I Want [Outcome]"
@@ -679,15 +679,15 @@ Every sales email MUST have:
 ### Urgency & Scarcity
 
 **Genuine Urgency:**
-✅ Sale ends [specific date/time]  
-✅ Limited spots [actual number]  
-✅ Bonus expires [deadline]  
-✅ Early-bird pricing [tier pricing]
+ Sale ends [specific date/time]  
+ Limited spots [actual number]  
+ Bonus expires [deadline]  
+ Early-bird pricing [tier pricing]
 
 **Fake Urgency (Avoid):**
-❌ Evergreen countdown timers  
-❌ "Only 2 left!" (false)  
-❌ Repeated "last chance" (but not really)
+ Evergreen countdown timers  
+ "Only 2 left!" (false)  
+ Repeated "last chance" (but not really)
 
 **Rule:** Only use urgency if it's REAL. Fake urgency destroys trust.
 
@@ -711,13 +711,13 @@ Every sales email MUST have:
 
 ## Common Mistakes to Avoid
 
-❌ **Too many CTAs:** Confuses the buyer (one offer, one CTA)  
-❌ **No urgency:** "I'll buy later" = never buys  
-❌ **Hidden price:** Makes people suspicious  
-❌ **No social proof:** "Am I the first buyer?"  
-❌ **No risk reversal:** "What if it doesn't work?"  
-❌ **Vague value:** "This will change your life" (how?)  
-❌ **No segmentation:** Same pitch to everyone  
+ **Too many CTAs:** Confuses the buyer (one offer, one CTA)  
+ **No urgency:** "I'll buy later" = never buys  
+ **Hidden price:** Makes people suspicious  
+ **No social proof:** "Am I the first buyer?"  
+ **No risk reversal:** "What if it doesn't work?"  
+ **Vague value:** "This will change your life" (how?)  
+ **No segmentation:** Same pitch to everyone  
 
 ---
 

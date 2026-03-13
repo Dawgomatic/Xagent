@@ -1,4 +1,4 @@
-# 🐾 Humanizer — AI Content De-Robotifier
+#  Humanizer — AI Content De-Robotifier
 
 > by Odin's Eye Enterprises — Ancient Wisdom. Modern Intelligence.
 
@@ -61,4 +61,4 @@ python humanize.py "TEXT" --channel CHANNEL
 
 Stdout = clean rewritten text. Stderr = detection info.
 
-<!-- 🐾 a raven left paw prints in the snow -->
+<!--  a raven left paw prints in the snow -->

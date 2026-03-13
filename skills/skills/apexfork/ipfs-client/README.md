@@ -17,10 +17,10 @@ curl "$IPFS_GATEWAY/ipns/docs.ipfs.tech"
 
 ## Key Features
 
-- **🔒 Read-only:** No publishing, no pinning, completely safe exploration
-- **🌐 Public gateways:** Instant access via ipfs.io, cloudflare-ipfs.com, dweb.link
-- **📁 Content inspection:** DAG exploration, metadata analysis, file type detection
-- **🔗 IPNS resolution:** Resolve mutable names and ENS+IPFS integration
+- ** Read-only:** No publishing, no pinning, completely safe exploration
+- ** Public gateways:** Instant access via ipfs.io, cloudflare-ipfs.com, dweb.link
+- ** Content inspection:** DAG exploration, metadata analysis, file type detection
+- ** IPNS resolution:** Resolve mutable names and ENS+IPFS integration
 
 ## Requirements
 

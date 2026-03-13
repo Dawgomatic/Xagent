@@ -59,7 +59,7 @@ get_etf_name() {
 
 # 显示ETF列表
 cmd_list() {
-    echo -e "${GREEN}📊 常用ETF列表${NC}"
+    echo -e "${GREEN} 常用ETF列表${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━"
     printf "%-10s %-20s\n" "代码" "名称"
     echo "━━━━━━━━━━━━━━━━━━━━"
@@ -71,12 +71,12 @@ cmd_list() {
 cmd_price() {
     local code=$1
     if [ -z "$code" ]; then
-        echo -e "${RED}❌ 请输入ETF代码${NC}"
+        echo -e "${RED} 请输入ETF代码${NC}"
         return 1
     fi
     
     local name=$(get_etf_name "$code")
-    echo -e "${GREEN}📈 $name ($code) 实时行情${NC}"
+    echo -e "${GREEN} $name ($code) 实时行情${NC}"
     echo ""
     
     # 使用curl获取数据
@@ -122,19 +122,19 @@ except: print('N/A')
         
         # 获取涨跌幅颜色
         if [[ "$change" == +* ]]; then
-            echo -e "${GREEN}📈 上涨${NC}"
+            echo -e "${GREEN} 上涨${NC}"
         else
-            echo -e "${RED}📉 下跌${NC}"
+            echo -e "${RED} 下跌${NC}"
         fi
     else
-        echo -e "${YELLOW}⚠️  暂时无法获取行情数据${NC}"
+        echo -e "${YELLOW}  暂时无法获取行情数据${NC}"
         echo "可能原因: 网络问题或代码不存在"
     fi
 }
 
 # 热门ETF
 cmd_hot() {
-    echo -e "${GREEN}🔥 热门ETF${NC}"
+    echo -e "${GREEN} 热门ETF${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━"
     echo "1. 沪深300ETF (510300) - 蓝筹白马"
     echo "2. 科创50ETF (159919) - 科技创新"
@@ -151,11 +151,11 @@ cmd_hot() {
 cmd_search() {
     local keyword=$1
     if [ -z "$keyword" ]; then
-        echo -e "${RED}❌ 请输入搜索关键词${NC}"
+        echo -e "${RED} 请输入搜索关键词${NC}"
         return 1
     fi
     
-    echo -e "${GREEN}🔍 搜索: $keyword${NC}"
+    echo -e "${GREEN} 搜索: $keyword${NC}"
     echo ""
     
     # 在ETF列表中搜索
@@ -177,7 +177,7 @@ cmd_compare() {
     local code2=$2
     
     if [ -z "$code1" ] || [ -z "$code2" ]; then
-        echo -e "${RED}❌ 请输入两个ETF代码${NC}"
+        echo -e "${RED} 请输入两个ETF代码${NC}"
         echo "示例: $0 compare 510300 159915"
         return 1
     fi
@@ -185,7 +185,7 @@ cmd_compare() {
     local name1=$(get_etf_name "$code1")
     local name2=$(get_etf_name "$code2")
     
-    echo -e "${GREEN}📊 ETF对比分析${NC}"
+    echo -e "${GREEN} ETF对比分析${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━"
     echo -e "$code1 $name1  VS  $code2 $name2"
     echo "━━━━━━━━━━━━━━━━━━━━"
@@ -224,7 +224,7 @@ cmd_calc() {
     local years=$3
     
     if [ -z "$code" ] || [ -z "$amount" ] || [ -z "$years" ]; then
-        echo -e "${RED}❌ 参数不全${NC}"
+        echo -e "${RED} 参数不全${NC}"
         echo "示例: $0 calc 510300 1000 10"
         echo "含义: 每月定投1000元，定投10年"
         return 1
@@ -232,7 +232,7 @@ cmd_calc() {
     
     local name=$(get_etf_name "$code")
     
-    echo -e "${GREEN}📈 定投计算器${NC}"
+    echo -e "${GREEN} 定投计算器${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━"
     echo "ETF: $name ($code)"
     echo "月定投: ¥$amount"
@@ -249,20 +249,20 @@ cmd_calc() {
     local future_value=$(echo "scale=2; $amount * ((1 + $monthly_return)^$months - 1) / $monthly_return" | bc)
     local total_invest=$((amount * months))
     
-    echo "📊 估算收益 (假设年化8%):"
+    echo " 估算收益 (假设年化8%):"
     echo "  总投入: ¥$total_invest"
     echo "  预计价值: ¥$future_value"
     echo "  收益: ¥$(echo "scale=2; $future_value - $total_invest" | bc)"
     echo ""
-    echo "💡 提示: 实际收益取决于市场表现"
+    echo " 提示: 实际收益取决于市场表现"
 }
 
 # ETF投资摘要
 cmd_summary() {
-    echo -e "${GREEN}💼 ETF投资摘要${NC}"
+    echo -e "${GREEN} ETF投资摘要${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━"
     echo ""
-    echo "📌 主流ETF分类:"
+    echo " 主流ETF分类:"
     echo ""
     echo "【宽基指数】"
     echo "  510300 沪深300 - 蓝筹白马代表"

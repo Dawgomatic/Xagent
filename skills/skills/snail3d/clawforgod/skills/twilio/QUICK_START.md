@@ -154,19 +154,19 @@ The skill uses these environment variables:
 
 ## Tips
 
-💡 **Cost Savings:**
+ **Cost Savings:**
 - Calls cost $0.013-0.025 per minute
 - SMS costs $0.0075 per message
 - Test with short messages during development
 - Monitor usage in Twilio Console
 
-💡 **Best Practices:**
+ **Best Practices:**
 - Always use E.164 phone number format
 - Store credentials in `.env` (never in code)
 - Test with your own number first
 - Review Twilio logs for troubleshooting
 
-💡 **Automation:**
+ **Automation:**
 - Create shell aliases for common calls
 - Integrate with cron for scheduled messages
 - Use with Clawdbot for chat-based calling
@@ -176,4 +176,4 @@ The skill uses these environment variables:
 
 **Version**: 1.0  
 **Last Updated**: Feb 3, 2025  
-**Status**: Production Ready ✅
+**Status**: Production Ready 

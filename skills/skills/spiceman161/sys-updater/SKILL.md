@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔄",
+        "emoji": "",
         "os": ["linux"],
         "requires": { "bins": ["apt-get", "npm", "brew", "clawhub"] },
       },

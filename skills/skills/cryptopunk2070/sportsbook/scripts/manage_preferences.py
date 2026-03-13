@@ -147,7 +147,7 @@ def format_preferences_display(prefs: Dict[str, Any]) -> str:
     lines.append("")
     
     # Agent subscriptions
-    lines.append("📡 AGENT SUBSCRIPTIONS:")
+    lines.append(" AGENT SUBSCRIPTIONS:")
     lines.append(f"  Follow all agents: {prefs.get('follow_all_agents', True)}")
     if prefs.get('followed_agents'):
         lines.append(f"  Followed agents: {', '.join(prefs['followed_agents'])}")
@@ -158,7 +158,7 @@ def format_preferences_display(prefs: Dict[str, Any]) -> str:
     lines.append("")
     
     # Filters
-    lines.append("🎯 FILTERS:")
+    lines.append(" FILTERS:")
     lines.append(f"  Minimum edge threshold: {prefs.get('min_edge_threshold', 2.0)} points")
     if prefs.get('sports_filter'):
         lines.append(f"  Sports filter: {', '.join(prefs['sports_filter'])}")
@@ -175,7 +175,7 @@ def format_preferences_display(prefs: Dict[str, Any]) -> str:
     lines.append("")
     
     # Timing
-    lines.append("⏰ TIMING:")
+    lines.append(" TIMING:")
     if prefs.get('quiet_hours_start') and prefs.get('quiet_hours_end'):
         lines.append(f"  Quiet hours: {prefs['quiet_hours_start']} to {prefs['quiet_hours_end']} ({prefs.get('timezone', 'America/New_York')})")
     lines.append(f"  Game day only: {prefs.get('game_day_only', False)}")
@@ -189,7 +189,7 @@ def format_preferences_display(prefs: Dict[str, Any]) -> str:
     lines.append("")
     
     # Event types
-    lines.append("📬 NOTIFICATION TYPES:")
+    lines.append(" NOTIFICATION TYPES:")
     event_types = [
         ('notify_post_created', 'New picks posted'),
         ('notify_bet_placed', 'Bets placed'),
@@ -205,13 +205,13 @@ def format_preferences_display(prefs: Dict[str, Any]) -> str:
     
     for field, description in event_types:
         enabled = prefs.get(field, False)
-        status = "✅" if enabled else "❌"
+        status = "" if enabled else ""
         lines.append(f"  {status} {description}")
     
     lines.append("")
     
     # Stats
-    lines.append("📊 STATS:")
+    lines.append(" STATS:")
     lines.append(f"  Notifications sent today: {prefs.get('notifications_sent_today', 0)}")
     if prefs.get('last_notification_at'):
         lines.append(f"  Last notification: {prefs['last_notification_at']}")
@@ -277,7 +277,7 @@ Examples:
         elif args.reset:
             print("Resetting preferences to defaults...")
             result = await reset_preferences(config)
-            print("✅ Preferences reset successfully!")
+            print(" Preferences reset successfully!")
             if 'preferences' in result:
                 print("\nNew preferences:")
                 print(format_preferences_display(result['preferences']))
@@ -335,7 +335,7 @@ Examples:
             if updates:
                 print("Updating preferences...")
                 result = await update_preferences(config, updates)
-                print("✅ Preferences updated successfully!")
+                print(" Preferences updated successfully!")
                 print("\nUpdated preferences:")
                 print(format_preferences_display(result))
             else:

@@ -47,19 +47,19 @@ Dubai's culinary landscape is extraordinary: 200+ nationalities, 11,800+ restaur
 
 Dubai now has **22 Michelin-starred restaurants**, including:
 
-### Three Stars ⭐⭐⭐
+### Three Stars 
 | Restaurant | Cuisine | Location |
 |------------|---------|----------|
 | **FZN by Björn Frantzén** | Scandinavian-Asian | Atlantis, The Palm |
 | **Trèsind Studio** | Modern Indian | St. Regis Gardens, Palm Jumeirah |
 
-### Two Stars ⭐⭐
+### Two Stars 
 | Restaurant | Cuisine | Location |
 |------------|---------|----------|
 | **STAY by Yannick Alléno** | French | One&Only The Palm |
 | **Il Ristorante – Niko Romito** | Italian | Bulgari Resort |
 
-### One Star ⭐
+### One Star 
 - **Dinner by Heston Blumenthal** (British) — Atlantis The Royal
 - **Ossiano** (Seafood) — Atlantis, The Palm
 - **Nobu** (Japanese-Peruvian) — Atlantis, The Palm

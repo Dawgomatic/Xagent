@@ -26,7 +26,7 @@ echo ""
 
 # 检查依赖
 check_dependencies() {
-    echo "🔧 检查依赖..."
+    echo " 检查依赖..."
     
     if ! command -v yt-dlp &> /dev/null; then
         echo -e "${RED}错误: yt-dlp 未安装${NC}"
@@ -46,7 +46,7 @@ check_dependencies() {
         echo "安装方法: brew install node"
     fi
     
-    echo -e "${GREEN}✅ 依赖检查完成${NC}"
+    echo -e "${GREEN} 依赖检查完成${NC}"
     echo ""
 }
 
@@ -71,7 +71,7 @@ download_audio() {
     local URL="$1"
     local OUTPUT_NAME="$2"
     
-    echo "📥 准备下载..."
+    echo " 准备下载..."
     echo "   链接: $URL"
     echo "   输出: ${OUTPUT_NAME}.mp3"
     echo ""
@@ -116,12 +116,12 @@ download_audio() {
     
     if [ "$success" = true ]; then
         echo ""
-        echo -e "${GREEN}✅ 下载完成!${NC}"
-        echo "📁 文件位置: $(pwd)/${OUTPUT_NAME}.mp3"
-        echo "📊 文件大小: $(ls -lh "${OUTPUT_NAME}.mp3" 2>/dev/null | awk '{print $5}')"
+        echo -e "${GREEN} 下载完成!${NC}"
+        echo " 文件位置: $(pwd)/${OUTPUT_NAME}.mp3"
+        echo " 文件大小: $(ls -lh "${OUTPUT_NAME}.mp3" 2>/dev/null | awk '{print $5}')"
     else
         echo ""
-        echo -e "${RED}❌ 下载失败${NC}"
+        echo -e "${RED} 下载失败${NC}"
         echo ""
         echo "可能的原因和解决方案:"
         echo ""

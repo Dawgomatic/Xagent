@@ -137,13 +137,13 @@ def clean_obsidian(vault_path: str, attachments_folder: str = DEFAULT_ATTACHMENT
 
 def print_report(result: dict, vault_path: str, attachments_folder: str):
     """Print a formatted report of the cleaning operation."""
-    print(f"\n🔍 Scanning {vault_path}...")
+    print(f"\n Scanning {vault_path}...")
     
     if result['found'] == 0:
-        print("✅ No loose attachments found! Your vault is already clean.")
+        print(" No loose attachments found! Your vault is already clean.")
         return
     
-    print(f"\n📁 Found {result['found']} loose file(s):")
+    print(f"\n Found {result['found']} loose file(s):")
     
     for f in result['files']:
         if f['action'] == 'moved':
@@ -151,11 +151,11 @@ def print_report(result: dict, vault_path: str, attachments_folder: str):
         elif f['action'] == 'would move':
             print(f"  ├── {f['file']} → {f['destination']} (DRY RUN)")
         elif f['action'] == 'skipped':
-            print(f"  ├── {f['file']} ⏭️  ({f['reason']})")
+            print(f"  ├── {f['file']}   ({f['reason']})")
         else:
-            print(f"  ├── {f['file']} ❌ ({f.get('reason', 'Unknown')})")
+            print(f"  ├── {f['file']}  ({f.get('reason', 'Unknown')})")
     
-    print(f"\n📊 Summary:")
+    print(f"\n Summary:")
     print(f"  ├── Moved: {result['moved']}")
     print(f"  ├── Skipped: {result['skipped']}")
     
@@ -166,7 +166,7 @@ def print_report(result: dict, vault_path: str, attachments_folder: str):
     else:
         print("  └── Errors: 0")
     
-    print(f"\n🎉 Done! Files moved to {attachments_folder}/")
+    print(f"\n Done! Files moved to {attachments_folder}/")
 
 
 def main():

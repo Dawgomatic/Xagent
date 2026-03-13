@@ -80,7 +80,7 @@ def test_pptx_creation():
         error_msg = result.get('error', 'Unknown error')
         # If missing dependency, prompt installation
         if 'python-pptx' in error_msg:
-            print("⚠ PPTX test skipped (requires python-pptx installation)")
+            print(" PPTX test skipped (requires python-pptx installation)")
             return True  # Not considered failure
         else:
             print(f"✗ PPTX document creation failed: {error_msg}")
@@ -125,9 +125,9 @@ def main():
     print(f"\nTests completed: {passed}/{total} passed")
     
     if passed == total:
-        print("🎉 All tests passed!")
+        print(" All tests passed!")
     else:
-        print("⚠ Some tests failed, please check dependencies and configuration")
+        print(" Some tests failed, please check dependencies and configuration")
     
     print("\nNote: Actual file upload tests require valid API key and network connection")
 

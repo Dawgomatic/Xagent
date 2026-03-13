@@ -139,7 +139,7 @@ class TokenAnalyzer {
             label: modelName || 'Unknown Model',
             vendor: 'unknown',
             unknown: true,
-            warning: `⚠️ Model "${modelName}" not in registry. Using defaults (200K context). Add to models.json for accurate tracking.`
+            warning: ` Model "${modelName}" not in registry. Using defaults (200K context). Add to models.json for accurate tracking.`
         };
     }
 

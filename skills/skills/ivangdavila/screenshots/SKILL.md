@@ -4,7 +4,7 @@ slug: screenshots
 version: 1.0.1
 description: Create professional App Store and Google Play screenshots with automatic sizing, device frames, marketing copy, and iterative visual learning.
 changelog: Preferences now persist across skill updates
-metadata: {"clawdbot":{"emoji":"📱","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

@@ -7,7 +7,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📚",
+        "emoji": "",
         "requires": { "env": ["LARK_APP_ID", "LARK_APP_SECRET"] },
         "primaryEnv": "LARK_APP_ID",
       },
@@ -68,13 +68,13 @@ larksuite-wiki sync <doc_id_or_url> --output ./lark-wiki/ --force
 
 ## Features
 
-### 1. ✅ Batch Export
+### 1.  Batch Export
 Export entire knowledge base with one command.
 
-### 2. ✅ Recursive Subdocument Export
+### 2.  Recursive Subdocument Export
 Automatically follows and exports all linked subdocuments.
 
-### 3. ✅ Preserves Directory Structure
+### 3.  Preserves Directory Structure
 Creates nested folders matching your wiki structure:
 ```
 lark-wiki/
@@ -87,7 +87,7 @@ lark-wiki/
 │   └── ...
 ```
 
-### 4. ✅ Incremental Sync
+### 4.  Incremental Sync
 Tracks document revisions and only exports changed documents:
 - Saves sync state to `.lark-sync-state.json`
 - Compares revision IDs

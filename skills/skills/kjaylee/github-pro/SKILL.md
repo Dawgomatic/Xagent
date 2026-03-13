@@ -1,7 +1,7 @@
 ---
 name: github-pro
 description: Advanced GitHub operations via `gh` CLI. CI/CD monitoring, API queries, and automated PR reviews.
-metadata: {"clawdbot":{"emoji":"🐙"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # GitHub Pro (Miss Kim Edition)
@@ -19,7 +19,7 @@ Use `gh api` for data not exposed via standard CLI commands:
 
 ## PR Management
 - **Checks**: `gh pr checks <number>`
-- **Review**: `gh pr review --approve --body "Miss Kim says looks good! 💋"`
+- **Review**: `gh pr review --approve --body "Miss Kim says looks good! "`
 - **Diff**: `gh pr diff <number>`
 
 ## Repository Maintenance

@@ -512,16 +512,16 @@ async function validateAuthConfig() {
 
   // Show warnings (non-blocking)
   if (warnings.length > 0) {
-    console.warn('\n⚠️  Migration Warnings:\n');
+    console.warn('\n  Migration Warnings:\n');
     warnings.forEach((warn) => console.warn(`   ${warn}`));
     console.warn('\n   Add plugins for features you used in Supabase to migrate that data.\n');
   }
 
   // Show errors (blocking)
   if (errors.length > 0) {
-    console.error('\n🟧 Better Auth Configuration Errors:\n');
+    console.error('\n Better Auth Configuration Errors:\n');
     errors.forEach((err) => console.error(`   ${err}`));
-    console.error('\n🟧 Please update your Better Auth configuration to include:\n');
+    console.error('\n Please update your Better Auth configuration to include:\n');
     console.error('   1. emailAndPassword: { enabled: true }');
     console.error(
       '   2. user.additionalFields: { userMetadata, appMetadata, invitedAt, lastSignInAt }\n',
@@ -884,7 +884,7 @@ async function migrateFromSupabase() {
     stateManager.complete();
     const finalState = stateManager.getState();
 
-    console.log('\n🎉 Migration completed');
+    console.log('\n Migration completed');
     console.log(`   - Success: ${finalState.successCount.toLocaleString()}`);
     console.log(`   - Skipped: ${finalState.skipCount.toLocaleString()}`);
     console.log(`   - Failed: ${finalState.failureCount.toLocaleString()}`);
@@ -920,7 +920,7 @@ async function migrateFromSupabase() {
 // ============================================================================
 
 async function main() {
-  console.log('🚀 Supabase Auth → Better Auth Migration\n');
+  console.log(' Supabase Auth → Better Auth Migration\n');
 
   if (!process.env.FROM_DATABASE_URL) {
     console.error('Error: FROM_DATABASE_URL environment variable is required');

@@ -65,7 +65,7 @@ Tracks all long-running and infinite tasks. Updated by heartbeat to:
 Heartbeat reads `ongoing-tasks.md` every check to:
 - Execute due infinite tasks
 - Detect and report blockers
-- Update health status (🟢🟡🔴)
+- Update health status ()
 - Ping user if intervention needed
 
 ## Quick Reference

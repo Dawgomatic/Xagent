@@ -75,7 +75,7 @@ def report_unhealthy(health: Dict[str, Any], logger: logging.Logger) -> int:
         failures = sum(1 for c in checks if not c["ok"])
         rate = failures / len(checks)
         if rate > FAILURE_THRESHOLD:
-            logger.warning(f"⚠️  Unhealthy source: {info.get('name', sid)} "
+            logger.warning(f"  Unhealthy source: {info.get('name', sid)} "
                          f"({failures}/{len(checks)} failures, {rate:.0%} failure rate)")
             unhealthy += 1
     return unhealthy
@@ -102,7 +102,7 @@ def main():
     unhealthy = report_unhealthy(health, logger)
 
     total = len(health)
-    logger.info(f"📊 Health check: {total} sources tracked, {unhealthy} unhealthy")
+    logger.info(f" Health check: {total} sources tracked, {unhealthy} unhealthy")
     return 0
 
 

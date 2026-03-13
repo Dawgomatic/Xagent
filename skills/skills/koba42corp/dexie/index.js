@@ -65,7 +65,7 @@ async function handleCommand(input) {
       if (command && command.length > 0) {
         return await getAssetPrice(input);
       }
-      return `❌ Unknown command: ${command}\n\nTry 'dex help' for usage.`;
+      return ` Unknown command: ${command}\n\nTry 'dex help' for usage.`;
   }
 }
 
@@ -75,7 +75,7 @@ async function listOffers(status) {
   const statusCode = status === 'completed' ? 1 : status === 'cancelled' ? 2 : 0;
   const results = await api.getOffers({ page_size: 20, status: statusCode });
   
-  let output = `💱 ${status || 'Active'} Offers:\n\n`;
+  let output = ` ${status || 'Active'} Offers:\n\n`;
   
   if (results.offers?.length > 0) {
     results.offers.forEach((offer, i) => {
@@ -91,15 +91,15 @@ async function listOffers(status) {
     return output;
   }
   
-  return '❌ No offers found';
+  return ' No offers found';
 }
 
 async function getOfferDetails(offerId) {
-  if (!offerId) return '❌ Please provide an offer ID';
+  if (!offerId) return ' Please provide an offer ID';
   
   const offer = await api.getOffer(offerId);
   
-  let output = `💱 Offer Details\n\n`;
+  let output = ` Offer Details\n\n`;
   
   const offered = offer.offered[0];
   const requested = offer.requested[0];
@@ -125,7 +125,7 @@ async function getOfferDetails(offerId) {
 async function listAssets() {
   const results = await api.getAssets({ page_size: 30, sort: 'volume' });
   
-  let output = `🪙 Top Tokens by Volume (24h):\n\n`;
+  let output = ` Top Tokens by Volume (24h):\n\n`;
   
   if (results.assets?.length > 0) {
     results.assets.forEach((asset, i) => {
@@ -142,16 +142,16 @@ async function listAssets() {
     return output;
   }
   
-  return '❌ No assets found';
+  return ' No assets found';
 }
 
 async function getAssetDetails(assetId) {
-  if (!assetId) return '❌ Please provide an asset ID or code';
+  if (!assetId) return ' Please provide an asset ID or code';
   
   try {
     const asset = await api.getAsset(assetId);
     
-    let output = `🪙 ${asset.code} - ${asset.name}\n\n`;
+    let output = ` ${asset.code} - ${asset.name}\n\n`;
     
     if (asset.description) {
       output += `${asset.description}\n\n`;
@@ -181,7 +181,7 @@ async function getAssetDetails(assetId) {
 }
 
 async function searchAssets(query) {
-  if (!query) return '❌ Please provide a search query';
+  if (!query) return ' Please provide a search query';
   
   // Search through assets list
   const results = await api.getAssets({ page_size: 100 });
@@ -192,10 +192,10 @@ async function searchAssets(query) {
   ) || [];
   
   if (matches.length === 0) {
-    return '❌ No matching tokens found';
+    return ' No matching tokens found';
   }
   
-  let output = `🔍 Search results for "${query}":\n\n`;
+  let output = ` Search results for "${query}":\n\n`;
   
   matches.slice(0, 10).forEach((asset, i) => {
     output += `${i + 1}. ${asset.code} - ${asset.name}\n`;
@@ -207,7 +207,7 @@ async function searchAssets(query) {
 }
 
 async function getAssetPrice(query) {
-  if (!query) return '❌ Please provide a token code or name';
+  if (!query) return ' Please provide a token code or name';
   
   const results = await api.getAssets({ page_size: 100 });
   
@@ -217,10 +217,10 @@ async function getAssetPrice(query) {
   );
   
   if (!match) {
-    return `❌ Token "${query}" not found. Try: dex search ${query}`;
+    return ` Token "${query}" not found. Try: dex search ${query}`;
   }
   
-  let output = `💰 ${match.code} Price\n\n`;
+  let output = ` ${match.code} Price\n\n`;
   output += `$${match.current_avg_price?.toFixed(6) || 'N/A'}\n`;
   
   if (match.volume && match.volume[0]) {
@@ -233,7 +233,7 @@ async function getAssetPrice(query) {
 async function listPairs() {
   const results = await api.getPairs();
   
-  let output = `📊 Trading Pairs:\n\n`;
+  let output = ` Trading Pairs:\n\n`;
   
   if (results.pairs?.length > 0) {
     results.pairs.slice(0, 20).forEach((pair, i) => {
@@ -244,15 +244,15 @@ async function listPairs() {
     return output;
   }
   
-  return '❌ No pairs found';
+  return ' No pairs found';
 }
 
 async function getPairDetails(pairId) {
-  if (!pairId) return '❌ Please provide a pair ID';
+  if (!pairId) return ' Please provide a pair ID';
   
   const pair = await api.getPair(pairId);
   
-  let output = `📊 ${pair.base.code}/${pair.quote.code}\n\n`;
+  let output = ` ${pair.base.code}/${pair.quote.code}\n\n`;
   output += `Base: ${pair.base.name}\n`;
   output += `Quote: ${pair.quote.name}\n`;
   
@@ -262,7 +262,7 @@ async function getPairDetails(pairId) {
 async function getStats() {
   const stats = await api.getStats();
   
-  let output = `📈 Dexie Stats\n\n`;
+  let output = ` Dexie Stats\n\n`;
   
   if (stats.total_volume_24h) {
     output += `Volume (24h): ${formatAmount(stats.total_volume_24h)} XCH\n`;

@@ -63,7 +63,7 @@ class UniversalVoiceAgent {
 
   async makeCall() {
     try {
-      console.log(`\n📞 Initiating call...`);
+      console.log(`\n Initiating call...`);
       console.log(`Goal: ${this.goal}`);
       console.log(`To: ${this.phoneNumber}`);
       console.log(`From: ${TWILIO_PHONE}\n`);
@@ -78,8 +78,8 @@ class UniversalVoiceAgent {
       this.callSid = call.sid;
       this.summary.callSid = call.sid;
 
-      console.log(`✅ Call initiated: ${call.sid}`);
-      console.log(`⚠️ Note: This is a simulation. Real implementation requires:`);
+      console.log(` Call initiated: ${call.sid}`);
+      console.log(` Note: This is a simulation. Real implementation requires:`);
       console.log(`   - Twilio WebSocket for real-time audio`);
       console.log(`   - Groq Whisper for transcription`);
       console.log(`   - Claude Haiku for real-time reasoning`);
@@ -91,7 +91,7 @@ class UniversalVoiceAgent {
       // Send summary
       await this.sendSummary();
     } catch (error) {
-      console.error(`❌ Call failed: ${error.message}`);
+      console.error(` Call failed: ${error.message}`);
       this.summary.status = 'failed';
       this.summary.error = error.message;
       await this.sendSummary();
@@ -102,12 +102,12 @@ class UniversalVoiceAgent {
     // For now, simulate the conversation flow
     // In production, this would be a real-time WebSocket loop with Twilio
 
-    console.log(`\n🎭 Simulating conversation...\n`);
+    console.log(`\n Simulating conversation...\n`);
 
     // Simulate restaurant answering
     const restaurantGreeting =
       "Hi, thanks for calling Mario's Pizza!";
-    console.log(`🔊 Restaurant: ${restaurantGreeting}`);
+    console.log(` Restaurant: ${restaurantGreeting}`);
     this.conversationHistory.push({
       role: 'other',
       text: restaurantGreeting,
@@ -120,7 +120,7 @@ class UniversalVoiceAgent {
     // Simulate order placement
     const yourResponse =
       "Hi! I'd like to order 2 large pepperoni pizzas for pickup at 6pm.";
-    console.log(`🎤 You: ${yourResponse}`);
+    console.log(` You: ${yourResponse}`);
     this.conversationHistory.push({
       role: 'you',
       text: yourResponse,
@@ -132,7 +132,7 @@ class UniversalVoiceAgent {
     // Simulate confirmation
     const restaurantConfirm =
       'Perfect! So 2 large pepperoni, no onions, pickup at 6pm. That will be $35.';
-    console.log(`🔊 Restaurant: ${restaurantConfirm}`);
+    console.log(` Restaurant: ${restaurantConfirm}`);
     this.conversationHistory.push({
       role: 'other',
       text: restaurantConfirm,
@@ -147,7 +147,7 @@ class UniversalVoiceAgent {
 
     // Confirm
     const finalResponse = 'Great! Thank you so much!';
-    console.log(`🎤 You: ${finalResponse}`);
+    console.log(` You: ${finalResponse}`);
     this.conversationHistory.push({
       role: 'you',
       text: finalResponse,
@@ -158,7 +158,7 @@ class UniversalVoiceAgent {
     this.summary.status = 'completed';
     this.summary.duration = Math.round((Date.now() - this.startTime) / 1000);
 
-    console.log(`\n✅ Goal achieved! Hanging up...\n`);
+    console.log(`\n Goal achieved! Hanging up...\n`);
   }
 
   async think() {
@@ -176,7 +176,7 @@ class UniversalVoiceAgent {
 
   async sendSummary() {
     if (!this.notifyTo) {
-      console.log(`\n📊 Summary:`);
+      console.log(`\n Summary:`);
       console.log(JSON.stringify(this.summary, null, 2));
       return;
     }
@@ -184,24 +184,24 @@ class UniversalVoiceAgent {
     try {
       const statusEmoji =
         this.summary.status === 'completed'
-          ? '✅'
+          ? ''
           : this.summary.status === 'failed'
-            ? '❌'
-            : '⚠️';
+            ? ''
+            : '';
 
       const summaryText = `${statusEmoji} Voice Call: ${this.goal}\n\n${this.summary.keyDetails.map((d) => `• ${d}`).join('\n')}\n\nDuration: ${this.summary.duration}s`;
 
-      console.log(`\n📱 Sending SMS summary...`);
+      console.log(`\n Sending SMS summary...`);
       const message = await client.messages.create({
         body: summaryText,
         from: TWILIO_PHONE,
         to: this.notifyTo,
       });
 
-      console.log(`✅ SMS sent: ${message.sid}`);
+      console.log(` SMS sent: ${message.sid}`);
       console.log(`Message: "${summaryText}"`);
     } catch (error) {
-      console.error(`⚠️ Failed to send SMS: ${error.message}`);
+      console.error(` Failed to send SMS: ${error.message}`);
     }
   }
 

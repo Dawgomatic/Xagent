@@ -4,7 +4,7 @@ Last updated: [DATE]
 
 ---
 
-## ⚠️ Overdue
+##  Overdue
 
 | # | Task | Owner | Due | Source |
 |---|------|-------|-----|--------|
@@ -12,7 +12,7 @@ Last updated: [DATE]
 
 ---
 
-## 📅 Due Today
+##  Due Today
 
 | # | Task | Owner | Source |
 |---|------|-------|--------|
@@ -20,7 +20,7 @@ Last updated: [DATE]
 
 ---
 
-## 📆 This Week
+##  This Week
 
 | # | Task | Owner | Due | Source |
 |---|------|-------|-----|--------|
@@ -28,7 +28,7 @@ Last updated: [DATE]
 
 ---
 
-## 📋 No Deadline
+##  No Deadline
 
 | # | Task | Owner | Source |
 |---|------|-------|--------|
@@ -36,7 +36,7 @@ Last updated: [DATE]
 
 ---
 
-## ✅ Completed
+##  Completed
 
 | # | Task | Owner | Completed |
 |---|------|-------|-----------|

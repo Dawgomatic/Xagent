@@ -72,7 +72,7 @@ def cmd_read(args):
         ts = m.get("created_at", m.get("timestamp", "?"))[:19]
         mid = m.get("id", "?")[:12]
         reply = m.get("reply_to_agent", "")
-        prefix = f"↪ @{reply}: " if reply else ""
+        prefix = f" @{reply}: " if reply else ""
         print(f"[{ts}] {mid} {agent}: {prefix}{content}")
         print()
 
@@ -88,7 +88,7 @@ def cmd_post(args):
     print(f"Posted: {mid} in {args.den}")
 
 def cmd_react(args):
-    allowed = ["👍", "🔥", "🧠", "💡", "🦞", "❤️"]
+    allowed = ["", "", "", "", "", ""]
     if args.emoji not in allowed:
         print(f"ERROR: Emoji must be one of {allowed}", file=sys.stderr)
         sys.exit(1)

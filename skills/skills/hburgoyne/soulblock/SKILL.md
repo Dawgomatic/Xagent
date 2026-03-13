@@ -28,7 +28,7 @@ Before using this skill — especially with a real wallet — we recommend havin
 
 Ask your agent: *"Review the evm-wallet and soulblock skill source code for security vulnerabilities before I use them with my wallet."*
 
-⚠️ **Treat any agent-connected wallet as a hot wallet.** Keep only small amounts. Never store significant holdings in a wallet accessible to AI agents.
+ **Treat any agent-connected wallet as a hot wallet.** Keep only small amounts. Never store significant holdings in a wallet accessible to AI agents.
 
 ## Prerequisites
 
@@ -109,14 +109,14 @@ People using Soul Blocks will think about their SOUL.md more than most users. Th
 - Editing SOUL.md locally (no on-chain effect)
 - Changing active/embodied token config
 
-### What is IRREVERSIBLE ⚠️
+### What is IRREVERSIBLE 
 
 - **Appending a fragment to the blockchain** — once written, it can never be removed, edited, or overwritten. The fragment becomes a permanent part of the soul's on-chain history.
 - **Minting a new Soul Block** — the ETH is spent and the token exists forever.
 
 Before ANY on-chain write, you MUST:
 1. Show the exact content that will be written
-2. Explicitly warn: *"⚠️ This will permanently inscribe this fragment on-chain. It can never be removed or edited. Are you sure?"*
+2. Explicitly warn: *" This will permanently inscribe this fragment on-chain. It can never be removed or edited. Are you sure?"*
 3. Wait for explicit confirmation before proceeding
 
 ## SOUL.md Cache Rule
@@ -255,7 +255,7 @@ Follow this exact flow:
 6. Draft only the new fragment content.
 7. Show the exact fragment and get explicit confirmation:
    - Display the full text that will be inscribed
-   - Warn: *"⚠️ This will permanently inscribe this fragment on-chain. It can never be removed or edited. Are you sure?"*
+   - Warn: *" This will permanently inscribe this fragment on-chain. It can never be removed or edited. Are you sure?"*
    - Do NOT proceed without explicit user confirmation
 8. Encode and submit:
    ```bash

@@ -1,4 +1,4 @@
-# WEEX Futures Trading Skill 🔵
+# WEEX Futures Trading Skill 
 
 An **Open AI Agent Skill** for trading USDT-margined perpetual futures on [WEEX](https://www.weex.com) exchange with up to 125x leverage.
 
@@ -19,12 +19,12 @@ An **Open AI Agent Skill** for trading USDT-margined perpetual futures on [WEEX]
 
 | Agent | Status | Notes |
 |-------|--------|-------|
-| Claude (Anthropic) | ✅ Fully Supported | Claude Code, API |
-| GPT-4 (OpenAI) | ✅ Fully Supported | ChatGPT, API with code interpreter |
-| Gemini (Google) | ✅ Fully Supported | Gemini Pro, API |
-| LLaMA (Meta) | ✅ Fully Supported | With code execution capability |
-| Mistral | ✅ Fully Supported | With code execution capability |
-| Other LLMs | ✅ Compatible | Any agent supporting bash/curl |
+| Claude (Anthropic) |  Fully Supported | Claude Code, API |
+| GPT-4 (OpenAI) |  Fully Supported | ChatGPT, API with code interpreter |
+| Gemini (Google) |  Fully Supported | Gemini Pro, API |
+| LLaMA (Meta) |  Fully Supported | With code execution capability |
+| Mistral |  Fully Supported | With code execution capability |
+| Other LLMs |  Compatible | Any agent supporting bash/curl |
 
 ## Installation
 
@@ -241,11 +241,11 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 An **Open Agent Skill** is a markdown-based skill definition that can be used by any AI agent with code execution capabilities. Unlike proprietary plugin formats, open agent skills:
 
-- 📖 **Human-readable** - Written in Markdown with embedded code blocks
-- 🔌 **Universal** - Work with any AI agent (Claude, GPT, Gemini, LLaMA, etc.)
-- 🛠️ **Self-contained** - Include all necessary code snippets and documentation
-- 🔒 **Transparent** - Users can inspect exactly what commands will be executed
-- 🤝 **Shareable** - Easy to distribute, fork, and contribute to
+-  **Human-readable** - Written in Markdown with embedded code blocks
+-  **Universal** - Work with any AI agent (Claude, GPT, Gemini, LLaMA, etc.)
+-  **Self-contained** - Include all necessary code snippets and documentation
+-  **Transparent** - Users can inspect exactly what commands will be executed
+-  **Shareable** - Easy to distribute, fork, and contribute to
 
 ## Links
 

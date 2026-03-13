@@ -37,19 +37,19 @@ Not every task should be automated. Start by finding the highest-value opportuni
 - Time-consuming (takes 10+ minutes)
 
 **Examples:**
-- ✅ Sending weekly reports to clients (same format, same schedule)
-- ✅ Creating invoices after payment
-- ✅ Adding new leads to CRM from form submissions
-- ✅ Posting social media content on a schedule
-- ❌ Conducting customer discovery interviews (requires nuance)
-- ❌ Writing custom proposals for clients (requires creativity)
+-  Sending weekly reports to clients (same format, same schedule)
+-  Creating invoices after payment
+-  Adding new leads to CRM from form submissions
+-  Posting social media content on a schedule
+-  Conducting customer discovery interviews (requires nuance)
+-  Writing custom proposals for clients (requires creativity)
 
 **Low-hanging fruit checklist (start here):**
 - [ ] Email notifications for form submissions
 - [ ] Auto-save form responses to spreadsheet
 - [ ] Schedule social posts in advance
 - [ ] Auto-create invoices from payment confirmations
-- [ ] Sync data between tools (CRM ↔ email tool ↔ spreadsheet)
+- [ ] Sync data between tools (CRM  email tool  spreadsheet)
 
 ---
 

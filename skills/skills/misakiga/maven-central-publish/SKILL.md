@@ -4,7 +4,7 @@ description: "Comprehensive guide and toolkit for publishing Java artifacts to M
 version: 1.0.0
 metadata:
   openclaw:
-    emoji: "📦"
+    emoji: ""
     category: publishing
   clawhub:
     requires:
@@ -15,13 +15,13 @@ metadata:
 
 This skill provides a standardized workflow for publishing Java/Kotlin libraries to the Maven Central Repository using the modern **Central Portal** (via `central-publishing-maven-plugin`).
 
-## 📋 Prerequisites
+##  Prerequisites
 
 1.  **Central Portal Account**: Sign up at [central.sonatype.com](https://central.sonatype.com/).
 2.  **Namespace Verified**: You must have verified your `groupId` (e.g., `io.github.username` or `com.yourdomain`) in the portal.
 3.  **User Token**: Generated from the Central Portal (My Account -> Generate User Token).
 
-## 🛠️ Environment Setup
+##  Environment Setup
 
 ### 1. Install Tools
 Ensure `maven`, `gnupg`, and `openjdk-17+` are installed.
@@ -76,7 +76,7 @@ Configure your Central Portal credentials.
 </settings>
 ```
 
-## 📦 Project Configuration (`pom.xml`)
+##  Project Configuration (`pom.xml`)
 
 Your project **MUST** meet the [Quality Requirements](https://central.sonatype.org/publish/requirements/):
 1.  **Coordinates**: `groupId`, `artifactId`, `version`.
@@ -152,7 +152,7 @@ Add this to your `<build><plugins>` section:
 </plugin>
 ```
 
-## 🚀 Deployment
+##  Deployment
 
 Run the deploy command with the `release` profile active:
 
@@ -166,7 +166,7 @@ mvn clean deploy -P release
 
 If `autoPublish` is false (recommended for first time), log in to [central.sonatype.com](https://central.sonatype.com/publishing/deployments), review the deployment, and click **Publish**.
 
-## ❓ Troubleshooting
+##  Troubleshooting
 
 | Error | Cause | Fix |
 |-------|-------|-----|

@@ -22,7 +22,7 @@ Deploy a standby OpenClaw gateway that automatically takes over when your primar
 PRIMARY (your main VPS)          STANDBY (failover VPS)
 ├─ Full stack (all channels)     ├─ Single channel only (e.g., Discord DM)
 ├─ All cron jobs                 ├─ No crons (recovery mode)
-├─ Gateway active ✅              ├─ Gateway stopped 💤
+├─ Gateway active               ├─ Gateway stopped 
 └─ Pushes workspace to git       └─ Health monitor watches primary
                                       │
                                       ├─ Primary healthy → sleep

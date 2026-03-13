@@ -1,6 +1,6 @@
-# Archive Memory 📦
+# Archive Memory 
 
-**Status:** ✅ Live | **Module:** archive | **Part of:** Agent Brain
+**Status:**  Live | **Module:** archive | **Part of:** Agent Brain
 
 Memory storage and retrieval. The only module that reads/writes to the memory backend (`memory.db` via SQLite by default, or `memory.json` with legacy JSON backend).
 

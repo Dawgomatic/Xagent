@@ -1,7 +1,7 @@
 ---
 name: Markdown
 description: Generate clean, portable Markdown that renders correctly across parsers.
-metadata: {"clawdbot":{"emoji":"📝","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Whitespace Traps

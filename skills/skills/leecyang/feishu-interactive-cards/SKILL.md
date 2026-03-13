@@ -100,7 +100,7 @@ Callback server automatically sends all card interactions to OpenClaw Gateway. F
 if (callback.data.action.value.action === "confirm") {
   const file = callback.data.action.value.file;
   
-  // ⚠️ SECURITY: Validate and sanitize file path before use
+  //  SECURITY: Validate and sanitize file path before use
   // Use OpenClaw's built-in file operations instead of shell commands
   const fs = require('fs').promises;
   const path = require('path');
@@ -201,7 +201,7 @@ Callback server reads config automatically.
 
 ## Security
 
-**⚠️ CRITICAL: Never pass user input directly to shell commands!**
+** CRITICAL: Never pass user input directly to shell commands!**
 
 This skill includes comprehensive security guidelines. Please read [references/security-best-practices.md](references/security-best-practices.md) before implementing callback handlers.
 

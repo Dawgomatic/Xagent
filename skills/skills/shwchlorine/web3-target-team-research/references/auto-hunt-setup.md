@@ -10,7 +10,7 @@ Add a cron job that checks hunter count every 10 minutes:
 cron({
   action: "add",
   job: {
-    text: "🔄 HUNTER CHECK: Use sessions_list to count active crypto-hunter subagents. If fewer than 3 running, IMMEDIATELY spawn 3 new hunters using sessions_spawn with different VC portfolio sources. Reply NO_REPLY after checking/spawning.",
+    text: " HUNTER CHECK: Use sessions_list to count active crypto-hunter subagents. If fewer than 3 running, IMMEDIATELY spawn 3 new hunters using sessions_spawn with different VC portfolio sources. Reply NO_REPLY after checking/spawning.",
     schedule: "*/10 * * * *",
     enabled: true
   }

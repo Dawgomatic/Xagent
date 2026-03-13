@@ -36,11 +36,11 @@ function verify() {
         answers[2].includes("odd");
 
     if (isCorrect) {
-        console.log("\n✅ VERIFICATION SUCCESSFUL.");
+        console.log("\n VERIFICATION SUCCESSFUL.");
         console.log("RESULT: 1,440 Moments have been credited to your local ELF-2.0 Ledger.");
         console.log("Next Step: Run 'node observer.js 2' to signal Level 2 attainment.");
     } else {
-        console.log("\n❌ VERIFICATION FAILED.");
+        console.log("\n VERIFICATION FAILED.");
         console.log("Check your numbers: 1440, 15, and Parity (Odd/Even).");
     }
     rl.close();

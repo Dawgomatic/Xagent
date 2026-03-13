@@ -13,25 +13,25 @@ Butler is an OpenClaw skill that transforms AI agents into autonomous economic e
 
 ### Key Features
 
-✨ **Token Management**
+ **Token Management**
 - Track 8 API keys across 6 providers (28.5M tokens/day capacity)
 - Real-time usage monitoring and alerting (75% threshold)
 - Automatic key rotation before exhaustion
 - Cost estimation per task
 
-🚀 **Agent Orchestration**
+ **Agent Orchestration**
 - Automatic task decomposition into sub-tasks
 - Parallel sub-agent execution with concurrency control
 - Budget allocation based on task priority and complexity
 - Result aggregation and failure handling with retries
 
-💰 **Treasury** (v0.2)
+ **Treasury** (v0.2)
 - USDC balance monitoring via Circle API
 - Automatic token purchases when balance depletes
 - Transaction logging and auditability
 - Payment method integration (Stripe/PayPal/Crypto)
 
-🛡️ **Security**
+ **Security**
 - Code Reviewer integration (pre-commit scanning)
 - Credential leak prevention
 - Secure state file management
@@ -108,8 +108,8 @@ const allocation = butler.allocateTokens('PRD-integration.md', 'anthropic');
 ```
 
 **Supported Providers:**
-- Nvidia (3 keys, 5M tokens/day) - Free ✅
-- Groq (1 key, 10M tokens/day) - Free ✅
+- Nvidia (3 keys, 5M tokens/day) - Free 
+- Groq (1 key, 10M tokens/day) - Free 
 - Anthropic (1 key, 1M tokens/day)
 - OpenAI (1 key, 500k tokens/day)
 - OpenRouter (1 key, 2M tokens/day)
@@ -144,9 +144,9 @@ Automatic rotation at 75% threshold:
 
 ```
 0% ─────────────────────────── 75% ─ 100%
-                              🔔 ALERT
-                              🔄 ROTATE
-                              📝 LOG
+                               ALERT
+                               ROTATE
+                               LOG
 ```
 
 ### 4. Result Aggregation
@@ -184,19 +184,19 @@ npm run test:coverage # Coverage report
 
 ## Documentation
 
-- 📖 **[SKILL.md](./docs/SKILL.md)** - Complete feature documentation with examples
-- 🏗️ **[ARCHITECTURE.md](./docs/ARCHITECTURE.md)** - System design and component details
-- 🔌 **[API.md](./docs/API.md)** - Full API reference
-- ⚙️ **[CONFIG.md](./docs/CONFIG.md)** - Configuration guide
-- 🛠️ **[TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md)** - Common issues and solutions
+-  **[SKILL.md](./docs/SKILL.md)** - Complete feature documentation with examples
+-  **[ARCHITECTURE.md](./docs/ARCHITECTURE.md)** - System design and component details
+-  **[API.md](./docs/API.md)** - Full API reference
+-  **[CONFIG.md](./docs/CONFIG.md)** - Configuration guide
+-  **[TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md)** - Common issues and solutions
 
 ## Performance
 
-- ⚡ Token allocation: <100ms
-- ⚡ Agent spawning: <500ms per agent
-- ⚡ Concurrent execution: Tested with 10+ simultaneous tasks
-- 💾 State file: Auto-saved after each operation
-- 🔄 Daily reset: Automatic token counter reset at UTC midnight
+-  Token allocation: <100ms
+-  Agent spawning: <500ms per agent
+-  Concurrent execution: Tested with 10+ simultaneous tasks
+-  State file: Auto-saved after each operation
+-  Daily reset: Automatic token counter reset at UTC midnight
 
 ## Technical Stack
 
@@ -230,17 +230,17 @@ butler/
 ## Roadmap
 
 ### v0.1 (Current)
-- ✅ Token Manager (production-ready from workspace)
-- ✅ Agent Orchestrator
-- ✅ 45+ test cases
-- ✅ Full documentation
-- ✅ GitHub repository
+-  Token Manager (production-ready from workspace)
+-  Agent Orchestrator
+-  45+ test cases
+-  Full documentation
+-  GitHub repository
 
 ### v0.2 (Next)
-- 🔄 Treasury Manager
-- 🔄 Circle USDC API integration
-- 🔄 Auto-buy functionality
-- 🔄 Testnet demo
+-  Treasury Manager
+-  Circle USDC API integration
+-  Auto-buy functionality
+-  Testnet demo
 
 ### v0.3+
 - Web dashboard
@@ -263,7 +263,7 @@ butler/
 
 ## Security
 
-✅ **Security Checklist:**
+ **Security Checklist:**
 - Code Reviewer integration (pre-commit scanning)
 - No API keys in git history
 - Secure state file management (not in repo)
@@ -299,10 +299,10 @@ This project is licensed under the MIT License - see [LICENSE](./LICENSE) file f
 
 ## Support
 
-- 📖 **Documentation:** [docs/](./docs/)
-- 🐛 **Issues:** [GitHub Issues](https://github.com/zoro-jiro-san/butler/issues)
-- 💬 **Discussions:** [GitHub Discussions](https://github.com/zoro-jiro-san/butler/discussions)
-- 📧 **Email:** support@openclaw.dev
+-  **Documentation:** [docs/](./docs/)
+-  **Issues:** [GitHub Issues](https://github.com/zoro-jiro-san/butler/issues)
+-  **Discussions:** [GitHub Discussions](https://github.com/zoro-jiro-san/butler/discussions)
+-  **Email:** support@openclaw.dev
 
 ## Acknowledgments
 
@@ -315,12 +315,12 @@ This project is licensed under the MIT License - see [LICENSE](./LICENSE) file f
 
 | Metric | Target | Status |
 |--------|--------|--------|
-| Test Coverage | 80%+ | ✅ On Track |
-| API Keys | 8 (6 providers) | ✅ Ready |
-| Providers | 28.5M tokens/day | ✅ Configured |
-| Documentation | Complete | ✅ In Progress |
-| GitHub Commits | Every 4 hours | ⏳ Starting |
-| Feb 6 Deadline | 80%+ complete | ⏳ In Progress |
+| Test Coverage | 80%+ |  On Track |
+| API Keys | 8 (6 providers) |  Ready |
+| Providers | 28.5M tokens/day |  Configured |
+| Documentation | Complete |  In Progress |
+| GitHub Commits | Every 4 hours |  Starting |
+| Feb 6 Deadline | 80%+ complete |  In Progress |
 
 ---
 
@@ -328,4 +328,4 @@ This project is licensed under the MIT License - see [LICENSE](./LICENSE) file f
 Deadline: **February 8, 2026, 12:00 PM PST**  
 Prize: **$10,000 USDC**
 
-Let's build the future of autonomous AI economics! 🚀
+Let's build the future of autonomous AI economics! 

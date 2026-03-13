@@ -18,10 +18,10 @@ Fiverr explicitly permits AI tools in all service categories. Disclosure require
 ## Buyer Communication
 
 **Prioritize by type:**
-- 🔥 Hot (specific project, budget mentioned) → respond in <1h
-- 🟡 Warm (interested, needs info) → respond in <4h
-- 🔵 FAQ (can template) → use saved responses
-- 🚩 Red flag → see `red-flags.md`
+-  Hot (specific project, budget mentioned) → respond in <1h
+-  Warm (interested, needs info) → respond in <4h
+-  FAQ (can template) → use saved responses
+-  Red flag → see `red-flags.md`
 
 **Scope creep defense**: "That's outside the original order. I can add it for $X—want me to send a custom offer?"
 

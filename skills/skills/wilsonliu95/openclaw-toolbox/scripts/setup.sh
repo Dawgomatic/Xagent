@@ -2,7 +2,7 @@
 #
 # OpenClaw 一键初始化脚本
 # 用于在新电脑上快速部署 OpenClaw 环境
-# 作者: 虾宝宝 🦐
+# 作者: 虾宝宝 
 # 创建时间: 2026-02-05
 #
 
@@ -42,7 +42,7 @@ print_success() {
 }
 
 print_warning() {
-    echo -e "${YELLOW}⚠ $1${NC}"
+    echo -e "${YELLOW} $1${NC}"
 }
 
 print_error() {
@@ -228,7 +228,7 @@ setup_environment() {
     if [ -f ".env.example" ]; then
         cp .env.example .env
         print_warning "已从 .env.example 创建 .env 文件"
-        print_warning "⚠️ 请编辑 .env 文件，填入你的实际 API Keys！"
+        print_warning " 请编辑 .env 文件，填入你的实际 API Keys！"
     else
         cat > .env << 'EOF'
 # ============================================
@@ -262,7 +262,7 @@ OPENCLAW_GATEWAY_TOKEN=your_gateway_token
 
 EOF
         print_warning "已创建默认 .env 文件"
-        print_warning "⚠️ 请编辑 .env 文件，填入你的实际 API Keys！"
+        print_warning " 请编辑 .env 文件，填入你的实际 API Keys！"
     fi
 
     # 加载环境变量
@@ -336,7 +336,7 @@ setup_claude_mcp() {
 }
 EOF
             print_warning "已创建默认 Claude Code MCP 配置"
-            print_warning "⚠️ 请编辑 ~/.claude/mcp.json，填入你的实际 API Keys！"
+            print_warning " 请编辑 ~/.claude/mcp.json，填入你的实际 API Keys！"
         fi
     fi
 
@@ -400,7 +400,7 @@ main() {
     print_header "OpenClaw 一键初始化脚本"
     echo ""
     echo "项目名称: OpenClaw AI Assistant Environment"
-    echo "主人: 深圳刘家（虾宝宝 🦐）"
+    echo "主人: 深圳刘家（虾宝宝 ）"
     echo "仓库: https://github.com/YOUR_USERNAME/YOUR_REPO"
     echo ""
 
@@ -471,7 +471,7 @@ main() {
 
     print_header "初始化完成！"
     echo ""
-    echo "🎉 OpenClaw 环境已成功初始化！"
+    echo " OpenClaw 环境已成功初始化！"
     echo ""
     echo "下一步操作："
     echo "1. 编辑 .env 文件，填入你的 API Keys"
@@ -479,7 +479,7 @@ main() {
     echo "3. 查看状态: openclaw status"
     echo ""
     echo "详细文档: $ROOT_DIR/workspace/skills/openclaw-setup/SETUP.md"
-    echo "🦐 虾宝宝为刘家服务"
+    echo " 虾宝宝为刘家服务"
     echo ""
 }
 

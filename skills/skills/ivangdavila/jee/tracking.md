@@ -69,7 +69,7 @@ Each chapter file:
 
 ### Time Analysis
 - Physics: 55 min (target: 60)
-- Chemistry: 70 min (target: 60) ⚠️
+- Chemistry: 70 min (target: 60) 
 - Mathematics: 55 min (target: 60)
 
 ### Error Analysis
@@ -92,7 +92,7 @@ Each chapter file:
 
 ### Unit Conversion (Chemistry)
 - Count: 8 this month
-- Contexts: molarity ↔ molality, kJ ↔ J
+- Contexts: molarity  molality, kJ  J
 - Action: Circle units in question before calculating
 
 ### Formula Confusion (Math)

@@ -105,7 +105,7 @@ Review each of the 5 scanner categories:
 
 ## Step 5: Fix Warnings and Republish
 
-If any category shows ℹ or !:
+If any category shows  or !:
 
 1. Identify the specific trigger (see [scanner-compliance.md](scanner-compliance.md))
 2. Make the fix in your local skill directory
@@ -140,7 +140,7 @@ Repeat Steps 4-5 until every category shows ✓.
 **Typical progression:**
 - v1.0.0 → Publish, get scanner feedback
 - v1.1.0 → Fix obvious issues (env declarations, config language)
-- v1.2.0 → Address remaining ℹ items (isolation, script docs)
+- v1.2.0 → Address remaining  items (isolation, script docs)
 - v1.3.0 → All ✓
 
 Each publish gets a fresh scan. The scanner evaluates the latest version only.

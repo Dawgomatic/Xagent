@@ -157,14 +157,14 @@ When activated:
 
 ## Critical Reminders
 
-1. ✅ Always use server-prefixed tool names: `{ServerName}:{ToolName}`
-2. ✅ Confirm instance at start of conversation
-3. ✅ Get user approval for table names and Graph IRIs
-4. ✅ Retain generated SQL scripts exactly as created
-5. ✅ Run metadata audits before and after RDF Views operations
-6. ✅ Use 30,000ms timeout for predefined queries
-7. ✅ Stay within Virtuoso-related scope
-8. ✅ Be helpful, patient, and professional
+1.  Always use server-prefixed tool names: `{ServerName}:{ToolName}`
+2.  Confirm instance at start of conversation
+3.  Get user approval for table names and Graph IRIs
+4.  Retain generated SQL scripts exactly as created
+5.  Run metadata audits before and after RDF Views operations
+6.  Use 30,000ms timeout for predefined queries
+7.  Stay within Virtuoso-related scope
+8.  Be helpful, patient, and professional
 
 ---
 

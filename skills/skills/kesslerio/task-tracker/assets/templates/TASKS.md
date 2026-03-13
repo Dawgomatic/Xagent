@@ -6,7 +6,7 @@
 
 ---
 
-## 🔴 High Priority (This Week)
+##  High Priority (This Week)
 
 ### Blocking Others
 
@@ -27,7 +27,7 @@ _Tasks affecting sales or revenue_
 
 ---
 
-## 🟡 Medium Priority (This Week)
+##  Medium Priority (This Week)
 
 ### Reviews & Feedback
 
@@ -37,7 +37,7 @@ _Reviews, approvals, feedback loops_
 
 ---
 
-## 🟢 Delegated / Waiting
+##  Delegated / Waiting
 
 _Tasks owned by others, monitoring only_
 - [ ] **Website redesign** — Assigned to design team
@@ -45,7 +45,7 @@ _Tasks owned by others, monitoring only_
 
 ---
 
-## 📅 Upcoming
+##  Upcoming
 
 ### This Week
 
@@ -57,7 +57,7 @@ _Tasks owned by others, monitoring only_
 
 ---
 
-## ✅ Done (Week of YYYY-MM-DD)
+##  Done (Week of YYYY-MM-DD)
 
 _Move completed items here during daily standup_
 - [x] **Set up shared calendar** — Completed Jan 15
@@ -65,7 +65,7 @@ _Move completed items here during daily standup_
 
 ---
 
-## 📝 Notes
+##  Notes
 
 _Context, meeting links, reference material_
 

@@ -723,7 +723,7 @@ When skills reference tools you don't have, substitute OpenCode equivalents:
       );
 
       const updateNotice = hasUpdates ?
-        '\n\n⚠️ **Updates available!** Run `cd ~/.config/opencode/superpowers && git pull` to update superpowers.' :
+        '\n\n **Updates available!** Run `cd ~/.config/opencode/superpowers && git pull` to update superpowers.' :
         '';
 
       // Return context to inject into session

@@ -14,7 +14,7 @@ rm -rf ../../life/resources/bookmarks/*
 npm run verify
 ```
 
-Should show: **🎉 Package is ready for ClawHub!**
+Should show: ** Package is ready for ClawHub!**
 
 ### 2. Test Fresh Install
 
@@ -68,35 +68,35 @@ Files that SHOULD be included:
 ```
 skills/bookmark-intelligence/
 ├── scripts/
-│   ├── setup.js              ✅ Setup wizard
-│   ├── uninstall.js          ✅ Uninstall script
-│   └── verify-package.js     ✅ Verification tool
+│   ├── setup.js               Setup wizard
+│   ├── uninstall.js           Uninstall script
+│   └── verify-package.js      Verification tool
 ├── examples/
-│   ├── sample-analysis.json  ✅ Example output
-│   └── sample-notification.md ✅ Example notification
-├── monitor.js                ✅ Main monitor script
-├── analyzer.js               ✅ Analysis engine
-├── ecosystem.config.js       ✅ PM2 config
-├── package.json              ✅ NPM package file
-├── config.example.json       ✅ Example config
-├── .gitignore                ✅ Git exclusions
-├── README.md                 ✅ Package overview
-├── SKILL.md                  ✅ Full documentation
-├── INSTALL.md                ✅ Install guide
-├── TESTING_CHECKLIST.md      ✅ Testing guide
-└── CLAWHUB_CHECKLIST.md      ✅ This file
+│   ├── sample-analysis.json   Example output
+│   └── sample-notification.md  Example notification
+├── monitor.js                 Main monitor script
+├── analyzer.js                Analysis engine
+├── ecosystem.config.js        PM2 config
+├── package.json               NPM package file
+├── config.example.json        Example config
+├── .gitignore                 Git exclusions
+├── README.md                  Package overview
+├── SKILL.md                   Full documentation
+├── INSTALL.md                 Install guide
+├── TESTING_CHECKLIST.md       Testing guide
+└── CLAWHUB_CHECKLIST.md       This file
 ```
 
 Files that should **NOT** be included:
 
 ```
-❌ .env                        (user credentials)
-❌ config.json                 (user-specific config)
-❌ bookmarks.json              (user state)
-❌ ../../life/resources/bookmarks/*.json  (user data)
-❌ node_modules/               (dependencies)
-❌ logs/                       (runtime logs)
-❌ .bookmark-*.json            (temp files)
+ .env                        (user credentials)
+ config.json                 (user-specific config)
+ bookmarks.json              (user state)
+ ../../life/resources/bookmarks/*.json  (user data)
+ node_modules/               (dependencies)
+ logs/                       (runtime logs)
+ .bookmark-*.json            (temp files)
 ```
 
 ---
@@ -104,7 +104,7 @@ Files that should **NOT** be included:
 ## ClawHub Listing
 
 ### Title
-🔖 Bookmark Intelligence - AI-Powered X Bookmark Analysis
+ Bookmark Intelligence - AI-Powered X Bookmark Analysis
 
 ### Short Description
 Turn your X bookmarks into actionable insights automatically. Fetch articles, analyze with AI, get implementation ideas for YOUR projects.

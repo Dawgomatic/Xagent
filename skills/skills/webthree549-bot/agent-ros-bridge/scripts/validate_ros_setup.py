@@ -38,16 +38,16 @@ def print_header(text):
     print(f"{BLUE}{'='*60}{RESET}")
 
 def print_success(text):
-    print(f"{GREEN}✅{RESET} {text}")
+    print(f"{GREEN}{RESET} {text}")
 
 def print_error(text):
-    print(f"{RED}❌{RESET} {text}")
+    print(f"{RED}{RESET} {text}")
 
 def print_warning(text):
-    print(f"{YELLOW}⚠️{RESET} {text}")
+    print(f"{YELLOW}{RESET} {text}")
 
 def print_info(text):
-    print(f"{BLUE}ℹ️{RESET} {text}")
+    print(f"{BLUE}{RESET} {text}")
 
 def run_command(cmd, capture_output=True):
     """Run shell command and return (success, output)"""
@@ -308,11 +308,11 @@ def print_summary(all_results):
     
     print("\n" + "="*60)
     if total_failed == 0:
-        print(f"{GREEN}✅ All validations passed!{RESET}")
+        print(f"{GREEN} All validations passed!{RESET}")
         print(f"\nYour native ROS setup is ready for production.")
         print(f"Start the bridge with: python run_bridge.py")
     else:
-        print(f"{RED}❌ Some validations failed{RESET}")
+        print(f"{RED} Some validations failed{RESET}")
         print(f"\nPlease fix the issues above before deploying.")
         print(f"See docs/NATIVE_ROS.md for installation help.")
     print("="*60)
@@ -335,7 +335,7 @@ def main():
     )
     args = parser.parse_args()
     
-    print_header("🤖 Agent ROS Bridge - Native ROS Validation")
+    print_header(" Agent ROS Bridge - Native ROS Validation")
     print("\nThis script validates your ROS environment for production use.")
     print("Run this before deploying to native Ubuntu servers.")
     

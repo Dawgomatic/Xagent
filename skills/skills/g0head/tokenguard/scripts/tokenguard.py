@@ -33,7 +33,7 @@ WARNING_THRESHOLD = float(os.environ.get("TOKENGUARD_WARNING_PCT", "0.8"))
 
 # Branding
 TOOL_NAME = "TokenGuard"
-TOOL_EMOJI = "🛡️"
+TOOL_EMOJI = ""
 
 
 def ensure_storage():
@@ -118,7 +118,7 @@ def cmd_status(args):
     print(f"╰─────────────────────────────────────╯")
     
     if pct_used >= WARNING_THRESHOLD * 100:
-        print(f"\n⚠️  WARNING: Approaching limit ({pct_used:.1f}% used)")
+        print(f"\n  WARNING: Approaching limit ({pct_used:.1f}% used)")
     
     if session["entries"]:
         print(f"\nRecent entries:")
@@ -144,7 +144,7 @@ def cmd_set(args):
         "set_by": "user"
     }
     save_json(LIMIT_FILE, limit_config)
-    print(f"✅ Limit set to ${new_limit:.2f}")
+    print(f" Limit set to ${new_limit:.2f}")
 
 
 def cmd_log(args):
@@ -172,14 +172,14 @@ def cmd_log(args):
     limit = get_limit()["limit"]
     remaining = limit - session["total_spent"]
     
-    print(f"📝 Logged: ${amount:.4f} — {description}")
+    print(f" Logged: ${amount:.4f} — {description}")
     print(f"   Total: ${session['total_spent']:.4f} | Remaining: ${remaining:.4f}")
     
     if session["total_spent"] >= limit:
-        print(f"\n🚨 LIMIT EXCEEDED! Total: ${session['total_spent']:.4f} / ${limit:.2f}")
+        print(f"\n LIMIT EXCEEDED! Total: ${session['total_spent']:.4f} / ${limit:.2f}")
         sys.exit(2)
     elif session["total_spent"] >= limit * WARNING_THRESHOLD:
-        print(f"\n⚠️  Warning: {session['total_spent']/limit*100:.1f}% of limit used")
+        print(f"\n  Warning: {session['total_spent']/limit*100:.1f}% of limit used")
 
 
 def cmd_check(args):
@@ -197,14 +197,14 @@ def cmd_check(args):
     
     # Check for override flag
     if would_be > limit and check_override():
-        print(f"⚡ OVERRIDE ACTIVE — proceeding despite limit")
+        print(f" OVERRIDE ACTIVE — proceeding despite limit")
         print(f"   Current: ${spent:.4f} | Action: +${estimated:.4f}")
         print(f"   Total: ${would_be:.4f} (over ${limit:.2f} limit)")
         return  # Exit 0
     
     if would_be > limit:
         over_by = would_be - limit
-        print(f"🚫 BUDGET EXCEEDED")
+        print(f" BUDGET EXCEEDED")
         print(f"╭──────────────────────────────────────────╮")
         print(f"│  Current spent:  ${spent:>10.4f}            │")
         print(f"│  This action:    ${estimated:>10.4f}            │")
@@ -212,7 +212,7 @@ def cmd_check(args):
         print(f"│  Limit:          ${limit:>10.2f}            │")
         print(f"│  Over by:        ${over_by:>10.4f}            │")
         print(f"╰──────────────────────────────────────────╯")
-        print(f"\n💡 Options:")
+        print(f"\n Options:")
         print(f"   tokenguard extend {int(over_by + 1)}    # Add to limit")
         print(f"   tokenguard set <amt>       # Set new limit")
         print(f"   tokenguard reset           # Clear session")
@@ -220,12 +220,12 @@ def cmd_check(args):
         sys.exit(1)
     else:
         remaining_after = limit - would_be
-        print(f"✅ Within budget")
+        print(f" Within budget")
         print(f"   Current: ${spent:.4f} | Action: +${estimated:.4f}")
         print(f"   Total: ${would_be:.4f} | After: ${remaining_after:.4f} remaining")
         
         if would_be >= limit * WARNING_THRESHOLD:
-            print(f"\n⚠️  Note: Would use {would_be/limit*100:.1f}% of limit")
+            print(f"\n  Note: Would use {would_be/limit*100:.1f}% of limit")
 
 
 def cmd_reset(args):
@@ -236,7 +236,7 @@ def cmd_reset(args):
         "entries": []
     }
     save_json(SESSION_FILE, session)
-    print("🔄 Session reset. Spending cleared.")
+    print(" Session reset. Spending cleared.")
 
 
 def cmd_history(args):
@@ -247,7 +247,7 @@ def cmd_history(args):
         print("No entries yet today.")
         return
     
-    print(f"📊 Spending History ({session['date']})")
+    print(f" Spending History ({session['date']})")
     print("─" * 55)
     
     for i, entry in enumerate(session["entries"], 1):
@@ -281,7 +281,7 @@ def cmd_extend(args):
     session = get_session()
     remaining = new_limit - session["total_spent"]
     
-    print(f"📈 Limit extended!")
+    print(f" Limit extended!")
     print(f"   {old_limit:.2f} → ${new_limit:.2f} (+${amount:.2f})")
     print(f"   Remaining: ${remaining:.4f}")
 
@@ -292,7 +292,7 @@ def cmd_override(args):
     with open(OVERRIDE_FILE, "w") as f:
         f.write(datetime.now().isoformat())
     
-    print(f"⚡ Override flag set!")
+    print(f" Override flag set!")
     print(f"   Next budget check will pass regardless of limit.")
     print(f"   Flag auto-clears after one use.")
 

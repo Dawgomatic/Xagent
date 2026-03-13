@@ -42,10 +42,10 @@ class TestRunner {
     this.testCount++;
     try {
       await testFunction();
-      console.log(`✅ ${name}`);
+      console.log(` ${name}`);
       this.passedTests++;
     } catch (error) {
-      console.error(`❌ ${name}: ${error.message}`);
+      console.error(` ${name}: ${error.message}`);
       this.failedTests++;
     }
   }
@@ -69,7 +69,7 @@ class TestRunner {
   }
 
   async run() {
-    console.log('🧪 Running AgentLedger Tests\n');
+    console.log(' Running AgentLedger Tests\n');
     
     await this.setup();
 
@@ -347,16 +347,16 @@ class TestRunner {
     await this.teardown();
 
     // Summary
-    console.log('\n📊 Test Results:');
+    console.log('\n Test Results:');
     console.log(`Total tests: ${this.testCount}`);
-    console.log(`✅ Passed: ${this.passedTests}`);
-    console.log(`❌ Failed: ${this.failedTests}`);
+    console.log(` Passed: ${this.passedTests}`);
+    console.log(` Failed: ${this.failedTests}`);
     
     if (this.failedTests === 0) {
-      console.log('\n🎉 All tests passed!');
+      console.log('\n All tests passed!');
       process.exit(0);
     } else {
-      console.log('\n💥 Some tests failed!');
+      console.log('\n Some tests failed!');
       process.exit(1);
     }
   }

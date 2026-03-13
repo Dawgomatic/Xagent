@@ -2,7 +2,7 @@
 name: zerox
 description: Convert documents (PDF, DOCX, PPTX, images, etc.) to Markdown using the zerox library. Use when the user needs to extract text content from document files.
 homepage: https://github.com/getomni-ai/zerox
-metadata: {"clawdbot":{"emoji":"📄","requires":{"bins":["node"],"env":["APIYI_API_KEY"]},"primaryEnv":"APIYI_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"],"env":["APIYI_API_KEY"]},"primaryEnv":"APIYI_API_KEY"}}
 ---
 
 # Zerox Document Converter

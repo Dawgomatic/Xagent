@@ -20,7 +20,7 @@ if (!msg) process.exit(0);
                 : 'blue';
         await sendCard({
             target,
-            title: `🧬 Evolver [${new Date().toISOString().substring(11,19)}]`,
+            title: ` Evolver [${new Date().toISOString().substring(11,19)}]`,
             text: `${prefix} ${msg}`,
             color
         });

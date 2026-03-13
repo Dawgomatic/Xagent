@@ -11,8 +11,8 @@ Guide for shopping on Checkers.co.za using browser automation, focused on Sixty6
 
 Checkers offers two delivery options:
 
-1. **Sixty60** (scooter icon 🛵) - Quick shop and delivery, **maximum 40 items**
-2. **Hyper** (van icon 🚚) - Bulk shopping and larger items
+1. **Sixty60** (scooter icon ) - Quick shop and delivery, **maximum 40 items**
+2. **Hyper** (van icon ) - Bulk shopping and larger items
 
 **Default to Sixty60 delivery** unless the user specifically requests bulk/hyper shopping.
 
@@ -28,7 +28,7 @@ The cart has two sections:
 
 Click the **Sixty60 icon** next to "Shop By Delivery" in the navigation to show only Sixty60-eligible items.
 
-⚠️ **Important**: This is a toggle button. If already active, clicking again will deactivate the filter.
+ **Important**: This is a toggle button. If already active, clicking again will deactivate the filter.
 
 ### 2. Search and Add Items
 
@@ -51,7 +51,7 @@ When choosing between similar products:
 
 ### 4. Adding Items to Cart (Error Handling)
 
-⚠️ **Critical**: Always wait for UI to update after clicking Add/+/- buttons.
+ **Critical**: Always wait for UI to update after clicking Add/+/- buttons.
 
 **Process**:
 1. Click the Add button or +/- button

@@ -1,6 +1,6 @@
 # Trading Basics
 
-> ⚠️ **GATED SECTION** — Trading operations require running a local API and understanding risk. Read [safety-first.md](safety-first.md) first.
+>  **GATED SECTION** — Trading operations require running a local API and understanding risk. Read [safety-first.md](safety-first.md) first.
 
 This guide covers the fundamentals of placing orders, managing positions, and understanding the 01.xyz trading mechanics. **Only proceed after setting up your local API and completing testnet validation.**
 
@@ -452,7 +452,7 @@ setInterval(async () => {
   const fills = await nord.getFills({ since: lastCheckTime });
   
   for (const fill of fills) {
-    console.log(`💰 Fill: ${fill.size} ${fill.symbol} @ $${fill.price}`);
+    console.log(` Fill: ${fill.size} ${fill.symbol} @ $${fill.price}`);
     console.log(`   Fee: $${fill.fee} | PnL: $${fill.realizedPnl || 0}`);
   }
   
@@ -464,16 +464,16 @@ setInterval(async () => {
 
 ## Local API Setup Required Note
 
-⚠️ **Important**: All trading operations require running the 01.xyz local API.
+ **Important**: All trading operations require running the 01.xyz local API.
 
 ### Why Local API?
 
 | Feature | Local API | Direct HTTP |
 |---------|-----------|-------------|
-| Signing transactions | ✅ Yes | ❌ No |
-| Private key access | ✅ Secure (local) | ❌ Impossible |
-| Account data | ✅ Yes | ❌ No |
-| Public market data | ✅ Yes | ✅ Yes |
+| Signing transactions |  Yes |  No |
+| Private key access |  Secure (local) |  Impossible |
+| Account data |  Yes |  No |
+| Public market data |  Yes |  Yes |
 
 ### Quick Setup
 

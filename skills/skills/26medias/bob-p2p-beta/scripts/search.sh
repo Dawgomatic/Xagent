@@ -6,7 +6,7 @@ CLIENT_DIR="$HOME/.bob-p2p/client"
 CONFIG_FILE="$CLIENT_DIR/config.json"
 
 if [ ! -d "$CLIENT_DIR" ]; then
-    echo "❌ Bob P2P client not installed."
+    echo " Bob P2P client not installed."
     echo ""
     echo "Run setup first:"
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -15,7 +15,7 @@ if [ ! -d "$CLIENT_DIR" ]; then
 fi
 
 if [ ! -f "$CONFIG_FILE" ]; then
-    echo "❌ Config file not found at $CONFIG_FILE"
+    echo " Config file not found at $CONFIG_FILE"
     echo "   Run setup.sh to create configuration."
     exit 1
 fi

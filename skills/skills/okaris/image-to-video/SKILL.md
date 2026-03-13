@@ -83,14 +83,14 @@ infsh app run falai/wan-2-5-i2v --input '{
 AI video models produce better results with **gentle, subtle motion** than dramatic action. Requesting too much movement causes distortion and artifacts.
 
 ```
-❌ "person running and jumping over obstacles while the camera spins"
-✅ "person slowly walking forward, gentle breeze, camera follows alongside"
+ "person running and jumping over obstacles while the camera spins"
+ "person slowly walking forward, gentle breeze, camera follows alongside"
 
-❌ "explosion with debris flying everywhere"
-✅ "candle flame flickering gently, warm ambient light shifting"
+ "explosion with debris flying everywhere"
+ "candle flame flickering gently, warm ambient light shifting"
 
-❌ "fast zoom into the eyes with dramatic camera shake"
-✅ "slow dolly forward toward the subject, subtle focus shift"
+ "fast zoom into the eyes with dramatic camera shake"
+ "slow dolly forward toward the subject, subtle focus shift"
 ```
 
 ### Prompt Structure

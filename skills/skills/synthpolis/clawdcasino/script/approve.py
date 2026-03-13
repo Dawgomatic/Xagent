@@ -160,7 +160,7 @@ def approve_all(amount: Optional[float] = None):
     if success_count == len(games):
         print(f"✓ All {success_count} games approved! You're ready to play.")
     else:
-        print(f"⚠ {success_count}/{len(games)} games approved.")
+        print(f" {success_count}/{len(games)} games approved.")
         print("  Run /approve again to retry failed approvals.")
     print()
     print("Check your status with: /balance")

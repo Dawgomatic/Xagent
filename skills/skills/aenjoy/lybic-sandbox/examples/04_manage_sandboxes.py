@@ -15,7 +15,7 @@ from lybic import LybicClient
 async def main():
     async with LybicClient() as client:
         # Get organization stats
-        print("📊 Organization Statistics:")
+        print(" Organization Statistics:")
         print("="*60)
         try:
             stats = await client.stats.get()
@@ -23,11 +23,11 @@ async def main():
             print(f"Total Projects: {stats.projects}")
             print(f"MCP Servers: {stats.mcpServers}")
         except Exception as e:
-            print(f"❌ Error getting stats: {e}")
+            print(f" Error getting stats: {e}")
             return
         
         # List all projects
-        print("\n📁 Projects:")
+        print("\n Projects:")
         print("="*60)
         projects = await client.project.list()
         for project in projects:
@@ -38,7 +38,7 @@ async def main():
             print()
         
         # List all sandboxes
-        print("\n🖥️  Sandboxes:")
+        print("\n  Sandboxes:")
         print("="*60)
         sandboxes = await client.sandbox.list()
         
@@ -58,7 +58,7 @@ async def main():
                     print(f"   Project: {details.projectId}")
                     print(f"   Max Life: {details.maxLifeSeconds}s")
                 except Exception as e:
-                    print(f"   ⚠️ Could not get details: {e}")
+                    print(f"    Could not get details: {e}")
         
         print(f"\n{'='*60}")
         print(f"Total: {len(sandboxes)} sandbox(es)")
@@ -77,7 +77,7 @@ async def main():
                     print(f"  ID: {new_project.id}")
                     print(f"  Name: {new_project.name}")
                 except Exception as e:
-                    print(f"❌ Error creating project: {e}")
+                    print(f" Error creating project: {e}")
 
 
 if __name__ == '__main__':

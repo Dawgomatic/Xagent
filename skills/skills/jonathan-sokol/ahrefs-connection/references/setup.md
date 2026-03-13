@@ -35,7 +35,7 @@ Check your plan at https://ahrefs.com/pricing
 6. Click **Create** or **Save**
 
 7. **Copy the API key immediately**  
-   ⚠️ You won't be able to see the full key again after closing the dialog
+    You won't be able to see the full key again after closing the dialog
 
 ### API Key Format
 

@@ -41,7 +41,7 @@
         "level": "X",
         "level_name": "绝对禁忌",
         "level_code": 5,
-        "color": "🆘"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "阿司匹林抑制血小板功能，与华法林的抗凝作用产生协同效应",
@@ -82,7 +82,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "NSAID抑制血小板功能并可能损伤胃黏膜",
@@ -123,7 +123,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "排钾利尿剂导致低钾血症，增加心肌对地高辛的敏感性",
@@ -163,7 +163,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "ACEI减少醛固酮分泌，螺内酯保钾，两者协同导致高钾血症",
@@ -204,7 +204,7 @@
         "level": "X",
         "level_name": "绝对禁忌",
         "level_code": 5,
-        "color": "🆘"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "两者均扩张血管，产生协同降压作用",
@@ -244,7 +244,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "氨氯地平抑制辛伐他汀通过CYP3A4代谢，增加血药浓度",
@@ -284,7 +284,7 @@
         "level": "X",
         "level_name": "绝对禁忌",
         "level_code": 5,
-        "color": "🆘"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "克拉霉素强效抑制CYP3A4，显著增加辛伐他汀血药浓度",
@@ -324,7 +324,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "甲硝唑抑制乙醛脱氢酶，导致乙醛蓄积",
@@ -363,7 +363,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "头孢哌酮抑制乙醛脱氢酶，导致乙醛蓄积",
@@ -402,7 +402,7 @@
         "level": "C",
         "level_name": "相对禁忌",
         "level_code": 3,
-        "color": "🟠"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "苯妥英钠诱导肝酶，加速华法林代谢",
@@ -442,7 +442,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "氟喹诺酮类和糖皮质激素均可能影响肌腱功能",
@@ -481,7 +481,7 @@
         "level": "C",
         "level_name": "相对禁忌",
         "level_code": 3,
-        "color": "🟠"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "磺胺类从白蛋白结合位点置换华法林，并抑制其代谢",
@@ -522,7 +522,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "两者均增加5-羟色胺水平，协同作用",
@@ -562,7 +562,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "两者均增强CNS抑制作用，协同效应",
@@ -600,7 +600,7 @@
         "level": "X",
         "level_name": "绝对禁忌",
         "level_code": 5,
-        "color": "🆘"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "NSAID抑制前列腺素合成，削弱胃黏膜保护",
@@ -635,7 +635,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "β受体阻滞可能诱发支气管痉挛",
@@ -669,7 +669,7 @@
         "level": "C",
         "level_name": "相对禁忌",
         "level_code": 3,
-        "color": "🟠"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "糖皮质激素促进糖异生，降低胰岛素敏感性",
@@ -704,7 +704,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "抗胆碱药导致瞳孔散大，可能诱发闭角型青光眼急性发作",
@@ -738,7 +738,7 @@
         "level": "C",
         "level_name": "相对禁忌",
         "level_code": 3,
-        "color": "🟠"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "维生素K是凝血因子合成所需的辅因子",
@@ -773,7 +773,7 @@
         "level": "C",
         "level_name": "相对禁忌",
         "level_code": 3,
-        "color": "🟠"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "葡萄柚汁抑制CYP3A4，减少他汀类药物代谢",
@@ -807,7 +807,7 @@
         "level": "X",
         "level_name": "绝对禁忌",
         "level_code": 5,
-        "color": "🆘"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "MAOI抑制酪胺代谢，导致酪胺蓄积",
@@ -841,7 +841,7 @@
         "level": "C",
         "level_name": "相对禁忌",
         "level_code": 3,
-        "color": "🟠"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "酒精抑制乳酸代谢，增加乳酸酸中毒风险",
@@ -892,7 +892,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "toxicity_details": {
         "symptoms": ["恶心", "呕吐", "视觉改变", "心律失常"],
@@ -945,7 +945,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "toxicity_details": {
         "symptoms": ["恶心", "呕吐", "腹痛", "肝功能异常"],
@@ -974,7 +974,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "两者均有抗凝作用，协同效应",
@@ -1002,7 +1002,7 @@
         "level": "C",
         "level_name": "相对禁忌",
         "level_code": 3,
-        "color": "🟠"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "卡马西平诱导肝酶，加速华法林代谢",
@@ -1030,7 +1030,7 @@
         "level": "D",
         "level_name": "禁忌",
         "level_code": 4,
-        "color": "🔴"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "胺碘酮抑制P-糖蛋白，减少地高辛排泄",
@@ -1058,7 +1058,7 @@
         "level": "X",
         "level_name": "绝对禁忌",
         "level_code": 5,
-        "color": "🆘"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "红霉素抑制CYP3A4，减少特非那定代谢",
@@ -1085,7 +1085,7 @@
         "level": "C",
         "level_name": "相对禁忌",
         "level_code": 3,
-        "color": "🟠"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "西咪替丁抑制肝酶，减少华法林代谢",
@@ -1113,7 +1113,7 @@
         "level": "C",
         "level_name": "相对禁忌",
         "level_code": 3,
-        "color": "🟠"
+        "color": ""
       },
       "interaction_details": {
         "mechanism": "布洛芬干扰阿司匹林的抗血小板作用",

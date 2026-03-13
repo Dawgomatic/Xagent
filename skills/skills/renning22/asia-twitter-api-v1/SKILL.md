@@ -2,10 +2,10 @@
 name: Twitter Command Center (Search + Monitor)
 description: "Search X (Twitter) in real time, monitor trends, extract posts, and analyze social media data—perfect for social listening and intelligence gathering. Safe read-only operations by default."
 homepage: https://openclaw.ai
-metadata: {"openclaw":{"emoji":"🐦","requires":{"bins":["curl","python3"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","python3"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
 ---
 
-# OpenClaw Twitter 🐦
+# OpenClaw Twitter 
 
 **Twitter/X data access and automation for autonomous agents. Powered by AIsa.**
 
@@ -13,26 +13,26 @@ One API key. Full Twitter intelligence.
 
 ---
 
-## ⚠️ IMPORTANT SECURITY NOTICE
+##  IMPORTANT SECURITY NOTICE
 
 This skill provides two types of operations:
 
-### ✅ Read Operations (SAFE - Recommended for Most Users)
+###  Read Operations (SAFE - Recommended for Most Users)
 - User profiles, tweets, search, trends, followers
 - **No authentication required**
 - **No credentials transmitted**
 - **Safe for production use**
 
-### ⚠️ Write Operations (HIGH RISK - Use Only with Dedicated Accounts)
+###  Write Operations (HIGH RISK - Use Only with Dedicated Accounts)
 - Posting, liking, retweeting
 - **Requires transmitting email + password + proxy to third-party API**
 - **Security Risk**: Full account access granted to `api.aisa.one`
 
-**⚠️ CRITICAL**: Never use write operations with your primary Twitter account. Create dedicated automation accounts only.
+** CRITICAL**: Never use write operations with your primary Twitter account. Create dedicated automation accounts only.
 
 ---
 
-## 🔥 What Can You Do? (Safe Read Operations)
+##  What Can You Do? (Safe Read Operations)
 
 ### Monitor Influencers
 ```
@@ -73,7 +73,7 @@ Get your API key at [aisa.one](https://aisa.one)
 
 ## Core Capabilities
 
-### ✅ Read Operations (No Login Required - Safe)
+###  Read Operations (No Login Required - Safe)
 
 All read operations are safe and require only your AIsa API key. No Twitter credentials needed.
 
@@ -143,9 +143,9 @@ curl "https://api.aisa.one/apis/v1/twitter/user/user_followings?userName=elonmus
 
 ---
 
-## ⚠️ Write Operations (High Risk - Requires Authentication)
+##  Write Operations (High Risk - Requires Authentication)
 
-**🚨 CRITICAL SECURITY WARNING**
+** CRITICAL SECURITY WARNING**
 
 Write operations require you to:
 1. Send your Twitter email, password, and proxy credentials to `api.aisa.one`
@@ -153,16 +153,16 @@ Write operations require you to:
 3. Accept responsibility for account security
 
 **NEVER use these operations with:**
-- ❌ Your primary Twitter account
-- ❌ Accounts with sensitive data
-- ❌ Verified or high-value accounts
-- ❌ Accounts you cannot afford to lose
+-  Your primary Twitter account
+-  Accounts with sensitive data
+-  Verified or high-value accounts
+-  Accounts you cannot afford to lose
 
 **ONLY use with:**
-- ✅ Dedicated test/automation accounts
-- ✅ Unique passwords not used elsewhere
-- ✅ Accounts created specifically for this purpose
-- ✅ After reviewing AIsa's security policies
+-  Dedicated test/automation accounts
+-  Unique passwords not used elsewhere
+-  Accounts created specifically for this purpose
+-  After reviewing AIsa's security policies
 
 **You acknowledge and accept all risks by using write operations.**
 
@@ -170,7 +170,7 @@ Write operations require you to:
 
 ### Write Operations API Reference
 
-> ⚠️ **Warning**: All write operations require prior authentication via login endpoint.
+>  **Warning**: All write operations require prior authentication via login endpoint.
 
 #### Step 1: Account Login (Async Operation)
 
@@ -263,7 +263,7 @@ python3 {baseDir}/scripts/twitter_client.py user-search --keyword "AI researcher
 python3 {baseDir}/scripts/twitter_client.py trends --woeid 1
 ```
 
-### ⚠️ Write Operations (High Risk)
+###  Write Operations (High Risk)
 
 **Only use with dedicated test accounts:**
 
@@ -309,14 +309,14 @@ python3 {baseDir}/scripts/twitter_client.py retweet \
 | `/twitter/tweet/tweetById` | GET | Get tweets by IDs |
 | `/twitter/trends` | GET | Get trending topics |
 
-### Write Operations (⚠️ High Risk)
+### Write Operations ( High Risk)
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
-| `/twitter/user_login_v3` | POST | Login to account ⚠️ |
-| `/twitter/send_tweet_v3` | POST | Send a tweet ⚠️ |
-| `/twitter/like_tweet_v3` | POST | Like a tweet ⚠️ |
-| `/twitter/retweet_v3` | POST | Retweet ⚠️ |
+| `/twitter/user_login_v3` | POST | Login to account  |
+| `/twitter/send_tweet_v3` | POST | Send a tweet  |
+| `/twitter/like_tweet_v3` | POST | Like a tweet  |
+| `/twitter/retweet_v3` | POST | Retweet  |
 
 ---
 

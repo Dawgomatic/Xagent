@@ -1,4 +1,4 @@
-# 🔥 ZeroRules — Stop the API Wallet Assassin
+#  ZeroRules — Stop the API Wallet Assassin
 
 **Intercept deterministic tasks before they burn tokens. Math, time, currency, files, dates → $0.**
 
@@ -45,7 +45,7 @@ Create `~/clawd/skills/zero-rules/` and copy `SKILL.md` + `rules.js` into it. Th
 2. OpenClaw sees ZeroRules is active → runs `rules.js` with your query
 3. `rules.js` matches the math pattern → computes `4,446` in 2ms
 4. OpenClaw returns the result **without calling the LLM**
-5. You see: **4,446** 🔥 ZeroRules | math | ~850 tokens saved
+5. You see: **4,446**  ZeroRules | math | ~850 tokens saved
 
 If ZeroRules can't handle it (e.g., *"Write a proposal for Sarah"*), it returns `matched: false` and OpenClaw proceeds with the LLM normally. Zero interference.
 
@@ -53,11 +53,11 @@ If ZeroRules can't handle it (e.g., *"Write a proposal for Sarah"*), it returns 
 
 | Rule | Catches | Examples |
 |------|---------|----------|
-| 🧮 **Math** | Arithmetic, percentages, sqrt, powers | "15% of 200", "sqrt 144", "2^10" |
-| 🕐 **Time** | Current time in 60+ cities | "Time in Tokyo", "What time in London" |
-| 💱 **Currency** | 20+ currencies, live + offline rates | "$100 to EUR", "500 GBP to JPY" |
-| 📁 **Files** | Directory listings (read-only, sandboxed) | "List ~/projects", "What's in src/" |
-| 📅 **Dates** | Today, tomorrow, days-until, day-of-week | "Days until Christmas", "What day is March 15" |
+|  **Math** | Arithmetic, percentages, sqrt, powers | "15% of 200", "sqrt 144", "2^10" |
+|  **Time** | Current time in 60+ cities | "Time in Tokyo", "What time in London" |
+|  **Currency** | 20+ currencies, live + offline rates | "$100 to EUR", "500 GBP to JPY" |
+|  **Files** | Directory listings (read-only, sandboxed) | "List ~/projects", "What's in src/" |
+|  **Dates** | Today, tomorrow, days-until, day-of-week | "Days until Christmas", "What day is March 15" |
 
 ## Commands
 
@@ -79,11 +79,11 @@ If ZeroRules can't handle it (e.g., *"Write a proposal for Sarah"*), it returns 
 
 Free tier covers the 5 built-in rules. [ZeroRules Pro](https://cascadeai.dev/pro) unlocks:
 
-- ♾️ Unlimited custom rules (regex + handler)
-- 📊 Persistent savings dashboard (across sessions)
-- 📧 Weekly cost reports via email/Telegram
-- 🔧 Priority support + rule templates
-- 🧩 Community rule library
+-  Unlimited custom rules (regex + handler)
+-  Persistent savings dashboard (across sessions)
+-  Weekly cost reports via email/Telegram
+-  Priority support + rule templates
+-  Community rule library
 
 ## Verify It Works
 
@@ -91,7 +91,7 @@ After installing, ask your OpenClaw:
 
 > "What's 1337 × 42?"
 
-If you see `🔥 ZeroRules | math | ~850 tokens saved` — you're live.
+If you see ` ZeroRules | math | ~850 tokens saved` — you're live.
 
 ## FAQ
 

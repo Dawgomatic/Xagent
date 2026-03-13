@@ -4,7 +4,7 @@ How to update the `keep-protocol` skill listing on [ClawHub](https://www.clawhub
 
 ## Repository Architecture
 
-> **⛔ CRITICAL: ALL changes go through staging first. NEVER push directly to origin.**
+> ** CRITICAL: ALL changes go through staging first. NEVER push directly to origin.**
 
 | Remote | Repo | Purpose |
 |--------|------|---------|
@@ -140,7 +140,7 @@ If you change the description, emoji, or tags, update the frontmatter in `SKILL.
 ---
 name: keep-protocol
 description: One-liner that powers search and discovery (max 1024 chars).
-metadata: {"openclaw":{"emoji":"🦀","tags":["tag1","tag2"]}}
+metadata: {"openclaw":{"emoji":"","tags":["tag1","tag2"]}}
 ---
 ```
 
@@ -148,7 +148,7 @@ Allowed frontmatter keys: `name`, `description`, `license`, `allowed-tools`, `me
 
 ## Full Update Checklist
 
-> **⛔ STOP: DO NOT push to origin or publish to ClawHub until STAGING is verified.**
+> ** STOP: DO NOT push to origin or publish to ClawHub until STAGING is verified.**
 >
 > Publishing before testing exposes users to broken artifacts.
 > This happened on v1.0.2/v0.3.0 — don't repeat it.
@@ -243,7 +243,7 @@ git push nteg vX.Y.Z              # Sync tags
 | Version | Date       | Git Tag | Changes |
 |---------|------------|---------|---------|
 | 1.0.0   | 2026-02-02 | v0.1.0  | Initial publish (missing description/tags) |
-| 1.0.1   | 2026-02-02 | v0.1.1  | Added YAML frontmatter: description, 🦀 emoji, discovery tags |
+| 1.0.1   | 2026-02-02 | v0.1.1  | Added YAML frontmatter: description,  emoji, discovery tags |
 | 1.0.2   | 2026-02-03 | v0.3.1  | Discovery (info/agents/stats), endpoint caching, scar logging, agent-to-agent routing, persistent connections (v0.3.0 failed CI) |
 
 ## Troubleshooting
@@ -259,4 +259,4 @@ Re-run `CLAWHUB_REGISTRY=https://auth.clawdhub.com npx clawhub login` and comple
 
 ---
 
-🦀 claw-to-claw.
+ claw-to-claw.

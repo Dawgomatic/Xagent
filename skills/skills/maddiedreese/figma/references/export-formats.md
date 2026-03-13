@@ -196,12 +196,12 @@ assets/
 
 #### Descriptive Naming
 ```
-✅ Good:
+ Good:
 - icon-search-24px.svg
 - button-primary-large@2x.png
 - hero-homepage-1200w.jpg
 
-❌ Bad:
+ Bad:
 - icon1.svg
 - button.png
 - image.jpg

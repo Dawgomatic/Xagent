@@ -30,7 +30,7 @@ MISSING=""
 [ -z "$MODEL" ] && MISSING="${MISSING}  - XHS_AI_MODEL\n"
 
 if [ -n "$MISSING" ]; then
-  echo "❌ 错误: 缺少以下环境变量:"
+  echo " 错误: 缺少以下环境变量:"
   echo -e "$MISSING"
   echo "示例:"
   echo "  export XHS_AI_API_KEY=\"sk-xxx\""
@@ -42,7 +42,7 @@ if [ -n "$MISSING" ]; then
 fi
 
 if [ -z "$CONTENT" ]; then
-  echo "❌ 错误: 请提供内容参数"
+  echo " 错误: 请提供内容参数"
   echo "用法:"
   echo "  bash $0 title \"内容摘要\""
   echo "  bash $0 content \"完整内容\" \"选定标题\""
@@ -58,7 +58,7 @@ CONTENT_ESCAPED=$(escape_json "$CONTENT")
 
 if [ "$MODE" = "title" ]; then
   # ========== 生成标题 ==========
-  SYSTEM_PROMPT='## 小红书爆款标题生成专家\n\n### 角色设定\n你是一名资深的小红书标题大师。\n你精通各种爆款标题创作技巧。\n你擅长用标题瞬间抓住用户注意力。\n\n### 标题创作技能\n\n你掌握以下5种标题创作方法：\n1. **数字法则**：用具体数字增加可信度（如"7天"、"3个方法"）\n2. **二极管标题**：制造强烈反差和对比效果\n3. **疑问句式**：激发好奇心（如"为什么..."、"怎么..."）\n4. **情绪共鸣**：使用高唤起情绪词，瞬间唤醒用户共鸣\n5. **利益驱动**：直击痛点或利益点\n\n【7大爆款标题风格】\n- 数字悬念型：【3个懒人收纳法，房间一周不乱！】\n- 情感共鸣型：【谁懂啊！这碗面直接治愈了我的周一！】\n- 结果导向型：【跟着博主做，7天搞定Python基础！】\n- 反差对比型：【从烂脸到水光肌，我只做了这两件事】\n- 稀缺信息型：【这10个上海小众秘境，90%的人没去过】\n- 对话互动型：【你的枕头选对了吗？快来对照这份指南！】\n- 价值宣言型：【2025年投资自己，这3项技能最值钱】\n\n### 平台禁忌词（严禁使用）\n【诱导类】速来、必看、必收、千万不要、马上、抓紧、最后一波\n【夸大类】全网第一、最全、最强、史上、终极、完美、天花板、封神\n【营销类】免费送、0元购、薅羊毛、福利、红包、点击领取、价格感人\n【负面类】丑哭、踩雷、血亏、别买、避坑、垃圾、后悔、翻车\n\n### 标题创作要求\n1. 每个标题使用不同的爆款标题风格\n2. 严禁使用平台禁忌词\n3. emoji优先用✨🔥✅💡❗️😭🤔💪，每个标题最多2个\n4. 避免"XX分享""XX笔记"等无效词\n5. 使用"亲测""试过""我发现"等真实感表述\n6. 每个标题字数控制在20字以内\n7. 标题要有吸引力，让人忍不住点进来看'
+  SYSTEM_PROMPT='## 小红书爆款标题生成专家\n\n### 角色设定\n你是一名资深的小红书标题大师。\n你精通各种爆款标题创作技巧。\n你擅长用标题瞬间抓住用户注意力。\n\n### 标题创作技能\n\n你掌握以下5种标题创作方法：\n1. **数字法则**：用具体数字增加可信度（如"7天"、"3个方法"）\n2. **二极管标题**：制造强烈反差和对比效果\n3. **疑问句式**：激发好奇心（如"为什么..."、"怎么..."）\n4. **情绪共鸣**：使用高唤起情绪词，瞬间唤醒用户共鸣\n5. **利益驱动**：直击痛点或利益点\n\n【7大爆款标题风格】\n- 数字悬念型：【3个懒人收纳法，房间一周不乱！】\n- 情感共鸣型：【谁懂啊！这碗面直接治愈了我的周一！】\n- 结果导向型：【跟着博主做，7天搞定Python基础！】\n- 反差对比型：【从烂脸到水光肌，我只做了这两件事】\n- 稀缺信息型：【这10个上海小众秘境，90%的人没去过】\n- 对话互动型：【你的枕头选对了吗？快来对照这份指南！】\n- 价值宣言型：【2025年投资自己，这3项技能最值钱】\n\n### 平台禁忌词（严禁使用）\n【诱导类】速来、必看、必收、千万不要、马上、抓紧、最后一波\n【夸大类】全网第一、最全、最强、史上、终极、完美、天花板、封神\n【营销类】免费送、0元购、薅羊毛、福利、红包、点击领取、价格感人\n【负面类】丑哭、踩雷、血亏、别买、避坑、垃圾、后悔、翻车\n\n### 标题创作要求\n1. 每个标题使用不同的爆款标题风格\n2. 严禁使用平台禁忌词\n3. emoji优先用，每个标题最多2个\n4. 避免"XX分享""XX笔记"等无效词\n5. 使用"亲测""试过""我发现"等真实感表述\n6. 每个标题字数控制在20字以内\n7. 标题要有吸引力，让人忍不住点进来看'
 
   # 截取内容前500字
   CONTENT_SHORT=$(echo "$CONTENT" | head -c 1500)
@@ -79,7 +79,7 @@ if [ "$MODE" = "title" ]; then
 EOFPAYLOAD
 )
 
-  echo "🔄 正在生成小红书爆款标题..."
+  echo " 正在生成小红书爆款标题..."
   RESULT=$(curl -s -X POST "$API_URL" \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $API_KEY" \
@@ -92,13 +92,13 @@ data = json.load(sys.stdin)
 if 'choices' in data and len(data['choices']) > 0:
     print(data['choices'][0]['message']['content'])
 else:
-    print('❌ 生成失败:', json.dumps(data, ensure_ascii=False))
+    print(' 生成失败:', json.dumps(data, ensure_ascii=False))
 "
 
 elif [ "$MODE" = "content" ]; then
   # ========== 生成正文 ==========
   if [ -z "$TITLE" ]; then
-    echo "❌ 错误: 生成正文需要提供标题参数"
+    echo " 错误: 生成正文需要提供标题参数"
     echo "用法: bash $0 content \"完整内容\" \"选定标题\""
     exit 1
   fi
@@ -122,7 +122,7 @@ elif [ "$MODE" = "content" ]; then
 EOFPAYLOAD
 )
 
-  echo "🔄 正在生成小红书正文..."
+  echo " 正在生成小红书正文..."
   RESULT=$(curl -s -X POST "$API_URL" \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $API_KEY" \
@@ -134,11 +134,11 @@ data = json.load(sys.stdin)
 if 'choices' in data and len(data['choices']) > 0:
     print(data['choices'][0]['message']['content'])
 else:
-    print('❌ 生成失败:', json.dumps(data, ensure_ascii=False))
+    print(' 生成失败:', json.dumps(data, ensure_ascii=False))
 "
 
 else
-  echo "❌ 未知模式: $MODE"
+  echo " 未知模式: $MODE"
   echo "用法:"
   echo "  bash $0 title \"内容摘要\"       # 生成5个标题"
   echo "  bash $0 content \"内容\" \"标题\"  # 生成正文"

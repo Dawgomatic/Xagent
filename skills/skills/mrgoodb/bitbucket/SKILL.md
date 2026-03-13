@@ -1,7 +1,7 @@
 ---
 name: bitbucket
 description: Manage Bitbucket repositories, pull requests, and pipelines via API.
-metadata: {"clawdbot":{"emoji":"🪣","requires":{"env":["BITBUCKET_USERNAME","BITBUCKET_APP_PASSWORD"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["BITBUCKET_USERNAME","BITBUCKET_APP_PASSWORD"]}}}
 ---
 # Bitbucket
 Git repository hosting.

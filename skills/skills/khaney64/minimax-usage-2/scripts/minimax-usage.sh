@@ -79,9 +79,9 @@ fi
 
 # Build output
 if [[ -n "$THRESHOLD" ]] && [[ "$remaining_pct_int" -lt "$THRESHOLD" ]]; then
-  echo "**⚠️ MiniMax Usage Alert — ${model}**"
+  echo "** MiniMax Usage Alert — ${model}**"
 else
-  echo "**🤖 MiniMax Usage — ${model}**"
+  echo "** MiniMax Usage — ${model}**"
 fi
 
 remaining_fmt=$(printf "%'d" "$remaining")

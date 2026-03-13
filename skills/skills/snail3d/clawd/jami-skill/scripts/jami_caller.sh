@@ -24,7 +24,7 @@ if [ -z "$ACCOUNT_ID" ]; then
     fi
 fi
 
-echo "📞 Calling $CONTACT_ID..."
+echo " Calling $CONTACT_ID..."
 echo "   Account: $ACCOUNT_ID"
 echo "   Duration: ${DURATION}s"
 
@@ -32,24 +32,24 @@ echo "   Duration: ${DURATION}s"
 CALL_ID=$(jami call "$ACCOUNT_ID" "$CONTACT_ID" 2>&1 | grep -oE '[a-f0-9]{8}' | head -1)
 
 if [ -z "$CALL_ID" ]; then
-    echo "❌ Failed to initiate call"
+    echo " Failed to initiate call"
     exit 1
 fi
 
-echo "✅ Call initiated (ID: $CALL_ID)"
+echo " Call initiated (ID: $CALL_ID)"
 
 # Send message if provided
 if [ -n "$MESSAGE" ]; then
-    echo "📨 Sending message: $MESSAGE"
+    echo " Sending message: $MESSAGE"
     jami message send "$CONTACT_ID" "$MESSAGE" 2>/dev/null || true
 fi
 
 # Wait for duration
-echo "⏱️  Call active for $DURATION seconds..."
+echo "  Call active for $DURATION seconds..."
 sleep "$DURATION"
 
 # Hangup
-echo "📞 Ending call..."
+echo " Ending call..."
 jami hangup "$CALL_ID" 2>/dev/null || true
 
-echo "✅ Call ended"
+echo " Call ended"

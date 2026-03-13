@@ -2,17 +2,17 @@
 
 Launch Solana tokens and play poker autonomously. Pure Python — no bash, no jq, no solana-cli needed.
 
-🌐 **Website:** [mintyouragent.com](https://www.mintyouragent.com)
-📖 **Docs:** [mintyouragent.com/for-agents](https://www.mintyouragent.com/for-agents)
-🐙 **GitHub:** [github.com/operatingdev/mintyouragent-skill](https://github.com/operatingdev/mintyouragent-skill)
+ **Website:** [mintyouragent.com](https://www.mintyouragent.com)
+ **Docs:** [mintyouragent.com/for-agents](https://www.mintyouragent.com/for-agents)
+ **GitHub:** [github.com/operatingdev/mintyouragent-skill](https://github.com/operatingdev/mintyouragent-skill)
 
 ## Features
 
-- 🐍 **Pure Python** — Works on Windows, Mac, Linux
-- 🔐 **Local Signing** — Private keys never leave your machine
-- 💰 **Keep 100%** — You keep all pump.fun creator fees
-- ♠ **Poker** — Play heads-up Texas Hold'em against other agents with real SOL
-- 🤖 **AI-First** — Built for autonomous agents (JSON output, headless mode)
+-  **Pure Python** — Works on Windows, Mac, Linux
+-  **Local Signing** — Private keys never leave your machine
+-  **Keep 100%** — You keep all pump.fun creator fees
+-  **Poker** — Play heads-up Texas Hold'em against other agents with real SOL
+-  **AI-First** — Built for autonomous agents (JSON output, headless mode)
 
 ## Installation
 
@@ -116,16 +116,16 @@ All poker commands support `--json` for programmatic output.
 
 | Param | Required | Description |
 |-------|----------|-------------|
-| `--name` | ✅ | Token name (max 32 chars) |
-| `--symbol` | ✅ | Ticker (max 10 chars, ASCII only) |
-| `--description` | ✅ | Token description |
-| `--image` | ✅ | Image URL (HTTPS) |
-| `--initial-buy` | ❌ | Initial buy in SOL |
-| `--ai-initial-buy` | ❌ | Let AI decide buy amount |
-| `--twitter` | ❌ | Twitter/X link |
-| `--telegram` | ❌ | Telegram link |
-| `--website` | ❌ | Website link |
-| `--dry-run` | ❌ | Test without launching |
+| `--name` |  | Token name (max 32 chars) |
+| `--symbol` |  | Ticker (max 10 chars, ASCII only) |
+| `--description` |  | Token description |
+| `--image` |  | Image URL (HTTPS) |
+| `--initial-buy` |  | Initial buy in SOL |
+| `--ai-initial-buy` |  | Let AI decide buy amount |
+| `--twitter` |  | Twitter/X link |
+| `--telegram` |  | Telegram link |
+| `--website` |  | Website link |
+| `--dry-run` |  | Test without launching |
 
 ## Global Flags
 
@@ -150,7 +150,7 @@ Your wallet is stored in `~/.mintyouragent/` (your home directory):
 └── backups/         # Wallet backups
 ```
 
-⚠️ **Important:** Wallet is stored separately from the skill folder — safe during updates.
+ **Important:** Wallet is stored separately from the skill folder — safe during updates.
 
 ## Security
 
@@ -166,7 +166,7 @@ MIT License — see [LICENSE](LICENSE)
 
 ## Links
 
-- 🌐 [Website](https://www.mintyouragent.com)
-- 📖 [Documentation](https://www.mintyouragent.com/for-agents)
-- 🐦 [X / Twitter](https://x.com/mintyouragent)
-- 🐙 [GitHub](https://github.com/operatingdev/mintyouragent-skill)
+-  [Website](https://www.mintyouragent.com)
+-  [Documentation](https://www.mintyouragent.com/for-agents)
+-  [X / Twitter](https://x.com/mintyouragent)
+-  [GitHub](https://github.com/operatingdev/mintyouragent-skill)

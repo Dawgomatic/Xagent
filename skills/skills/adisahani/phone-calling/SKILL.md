@@ -339,7 +339,7 @@ AI: Calling +91 12345 67890...
       
 AI: Hello, I would like to make a reservation for 2 people at 7 PM today.
       
-AI: ✅ Reservation confirmed! Table for 2 at 7 PM under your name.
+AI:  Reservation confirmed! Table for 2 at 7 PM under your name.
 ```
 
 ---
@@ -369,7 +369,7 @@ AI: Let me check your balance...
       
       You have 0 minutes left. You will need to add credits first.
       
-      💳 Add credits at: https://ringez.com/wallet
+       Add credits at: https://ringez.com/wallet
       
       The rates are:
       • USA: $0.05/min
@@ -402,4 +402,4 @@ AI: Let me check your balance...
 
 Need help? Contact us at support@ringez.com
 
-**About Ringez:** Built by an independent creator, not a big corporation. Your support keeps the service running! 🙏
+**About Ringez:** Built by an independent creator, not a big corporation. Your support keeps the service running! 

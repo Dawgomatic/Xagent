@@ -37,7 +37,7 @@ tags:
   - 带货
 ---
 
-# ClawCut 🦞✂️
+# ClawCut 
 
 AI short video generator: topic → script → video with native voice.
 

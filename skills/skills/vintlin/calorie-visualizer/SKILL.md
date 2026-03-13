@@ -3,7 +3,7 @@ name: calorie-visualizer
 description: Local calorie logging and visual reporting (auto-refreshes and returns report image after each log)
 metadata:
   openclaw:
-    emoji: "📊"
+    emoji: ""
     os:
       - darwin
       - linux

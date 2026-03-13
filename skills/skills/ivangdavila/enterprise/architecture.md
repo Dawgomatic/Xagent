@@ -24,11 +24,11 @@ What becomes easier or more difficult because of this change?
 
 | Factor | Monolith | Microservices | Serverless |
 |--------|----------|---------------|------------|
-| Initial velocity | ✅ Fast | ⚠️ Slow | ✅ Fast |
-| Team independence | ❌ Low | ✅ High | ✅ High |
-| Operational cost | ✅ Low | ⚠️ High | ⚠️ Variable |
-| Debugging | ✅ Easy | ❌ Hard | ❌ Hard |
-| Scaling | ⚠️ All-or-nothing | ✅ Granular | ✅ Auto |
+| Initial velocity |  Fast |  Slow |  Fast |
+| Team independence |  Low |  High |  High |
+| Operational cost |  Low |  High |  Variable |
+| Debugging |  Easy |  Hard |  Hard |
+| Scaling |  All-or-nothing |  Granular |  Auto |
 
 ## Decision Frameworks
 

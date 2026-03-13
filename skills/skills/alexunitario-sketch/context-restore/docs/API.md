@@ -123,9 +123,9 @@ def extract_recent_operations(content: str, max_count: int = 5) -> list[str]
 from restore_context import extract_recent_operations
 
 content = """
-✅ 完成数据清洗模块
-✅ 部署新功能到生产环境
-✅ 添加 3 个新 cron 任务
+ 完成数据清洗模块
+ 部署新功能到生产环境
+ 添加 3 个新 cron 任务
 """
 
 ops = extract_recent_operations(content, max_count=10)
@@ -267,7 +267,7 @@ from restore_context import extract_timeline
 timeline = extract_timeline(content, period="weekly", days=30)
 
 for week in timeline['timeline']:
-    print(f"📅 {week['period_label']}")
+    print(f" {week['period_label']}")
     for op in week['operations']:
         print(f"  - {op}")
 ```
@@ -378,11 +378,11 @@ from restore_context import compare_contexts
 diff = compare_contexts('context_yesterday.json', 'context_today.json')
 
 if diff['success']:
-    print(f"⏱️  时间差: {diff['time_diff_hours']:.1f} 小时")
-    print(f"➕ 新增项目: {len(diff['added_projects'])}")
-    print(f"➖ 移除项目: {len(diff['removed_projects'])}")
-    print(f"🔄 修改项目: {len(diff['modified_projects'])}")
-    print(f"📝 新增操作: {len(diff['operations_added'])}")
+    print(f"  时间差: {diff['time_diff_hours']:.1f} 小时")
+    print(f" 新增项目: {len(diff['added_projects'])}")
+    print(f" 移除项目: {len(diff['removed_projects'])}")
+    print(f" 修改项目: {len(diff['modified_projects'])}")
+    print(f" 新增操作: {len(diff['operations_added'])}")
 ```
 
 ---

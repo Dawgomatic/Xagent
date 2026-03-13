@@ -8,11 +8,11 @@ Prevents "open firewall" tickets without any context and enforces meaningful des
 
 ## Features
 
-✅ **JSON Output:** Clean JSON response for easy parsing  
-✅ **Smart Defaults:** Configurable tag, "BACKLOG" status  
-✅ **Priority Mapping:** urgent, high, normal, low  
-✅ **Simple CLI:** Only title + description required  
-✅ **Direct Links:** Get ClickUp task URL immediately
+ **JSON Output:** Clean JSON response for easy parsing  
+ **Smart Defaults:** Configurable tag, "BACKLOG" status  
+ **Priority Mapping:** urgent, high, normal, low  
+ **Simple CLI:** Only title + description required  
+ **Direct Links:** Get ClickUp task URL immediately
 
 ## Installation
 
@@ -99,8 +99,8 @@ clup --title "Title" --description "Description"
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| `--title` | ✅ Yes | Short, clear title |
-| `--description` | ✅ Yes | Description with context (min 2-3 sentences!) |
+| `--title` |  Yes | Short, clear title |
+| `--description` |  Yes | Description with context (min 2-3 sentences!) |
 | `--priority` | No | `urgent`, `high`, `normal`, `low` |
 | `--status` | No | Status (default: "BACKLOG") |
 | `--help` | - | Show help |
@@ -184,20 +184,20 @@ export CLICKUP_DEFAULT_LIST_ID="123456789"
 
 ## Pro Tips
 
-💡 **Set aliases:**
+ **Set aliases:**
 ```bash
 alias ticket='clup'
 alias bug='clup --priority high'
 ```
 
-💡 **Template scripts:**
+ **Template scripts:**
 ```bash
 # bug.sh
 #!/bin/bash
 clup --title "$1" --description "$2" --priority high
 ```
 
-💡 **Use with agent:**
+ **Use with agent:**
 Just say "Create ticket for..." and let the agent ensure quality!
 
 ## Roadmap (Ideas for later)

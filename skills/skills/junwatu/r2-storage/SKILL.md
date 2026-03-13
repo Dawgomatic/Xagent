@@ -1,10 +1,10 @@
 ---
 name: r2
 description: Cloudflare R2 Storage management — setup, upload, download, sync via rclone
-metadata: {"clawdbot":{"emoji":"☁️","requires":{"bins":["rclone"]},"env":["R2_CONFIG"],"install":[{"id":"rclone","kind":"shell","command":"curl -fsSL https://rclone.org/install.sh | sudo bash","label":"Install rclone"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["rclone"]},"env":["R2_CONFIG"],"install":[{"id":"rclone","kind":"shell","command":"curl -fsSL https://rclone.org/install.sh | sudo bash","label":"Install rclone"}]}}
 ---
 
-# r2 ☁️
+# r2 
 
 Cloudflare R2 Storage management using rclone.
 
@@ -117,9 +117,9 @@ rclone size r2:bucket
 
 ### 403 Access Denied
 Token lacks permissions. Update API token in Cloudflare with:
-- Object Read ✅
-- Object Write ✅
-- Object List ✅
+- Object Read 
+- Object Write 
+- Object List 
 
 ### Bucket Not Found
 Create the bucket first:

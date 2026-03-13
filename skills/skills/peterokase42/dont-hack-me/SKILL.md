@@ -10,7 +10,7 @@ author: "小安 Ann Agent — Taiwan 台灣"
 homepage: https://github.com/peterann/dont-hack-me
 metadata:
   clawdbot:
-    emoji: "🔒"
+    emoji: ""
 ---
 
 # dont-hack-me
@@ -110,7 +110,7 @@ stat -f '%Lp' ~/.clawdbot/clawdbot.json
 After completing all checks, output a report in this exact format:
 
 ```
-🔒 Security Check Report
+ Security Check Report
 
 1. Gateway Bind        <ICON> <STATUS> — <detail>
 2. Gateway Auth        <ICON> <STATUS> — <detail>
@@ -124,7 +124,7 @@ Score: X/7 PASS, Y WARN, Z FAIL
 ```
 
 Where:
-- `<ICON>` is one of: ✅ (PASS), ⚠️ (WARN), ❌ (FAIL), ⏭️ (SKIP)
+- `<ICON>` is one of:  (PASS),  (WARN),  (FAIL),  (SKIP)
 - `<STATUS>` is one of: `PASS`, `WARN`, `FAIL`, `SKIP`
 - `<detail>` is a short explanation (e.g., "loopback", "token mode", "48 chars", "permissions 600")
 

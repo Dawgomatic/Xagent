@@ -2,7 +2,7 @@
   "name": "JARVIS",
   "agent": {
     "name": "JARVIS",
-    "emoji": "🤖",
+    "emoji": "",
     "sessionKey": "agent:main:main",
     "skills": []
   },

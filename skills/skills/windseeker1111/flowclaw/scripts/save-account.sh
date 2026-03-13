@@ -7,12 +7,12 @@ set -euo pipefail
 TOKEN_DIR="${TOKEN_DIR:-$HOME/.openclaw/usage-tokens}"
 mkdir -p "$TOKEN_DIR"
 
-echo "🧠 FlowClaw — Add Account"
+echo " FlowClaw — Add Account"
 echo ""
 
 # Check for Claude Code CLI
 if ! command -v claude >/dev/null 2>&1; then
-  echo "❌ Claude Code CLI not found."
+  echo " Claude Code CLI not found."
   echo "   Install: npm install -g @anthropic-ai/claude-code"
   exit 1
 fi
@@ -20,7 +20,7 @@ fi
 # Read current keychain credential
 CREDS=$(security find-generic-password -s "Claude Code-credentials" -w 2>/dev/null || echo "")
 if [ -z "$CREDS" ]; then
-  echo "❌ No Claude Code credentials found in Keychain."
+  echo " No Claude Code credentials found in Keychain."
   echo "   Run 'claude login' first, then try again."
   exit 1
 fi
@@ -43,12 +43,12 @@ PYEOF
 <<< "$CREDS")
 
 if [[ "$PARSED" == ERROR* ]]; then
-  echo "❌ $PARSED"
+  echo " $PARSED"
   exit 1
 fi
 
 if [[ "$PARSED" == WARNING* ]]; then
-  echo "⚠️  $PARSED"
+  echo "  $PARSED"
   echo "   The token may not work for usage monitoring."
   echo "   Try: claude logout && claude login"
   exit 1
@@ -59,19 +59,19 @@ TIER=$(echo "$PARSED" | cut -d'|' -f3)
 
 # Ask for label
 EXISTING=$(ls "$TOKEN_DIR"/account-*.json 2>/dev/null | wc -l | tr -d ' ')
-echo "📊 Found token: $SUB_TYPE ($TIER)"
-echo "📁 Existing accounts: $EXISTING"
+echo " Found token: $SUB_TYPE ($TIER)"
+echo " Existing accounts: $EXISTING"
 echo ""
 
 read -p "Account label (e.g., 'work', 'personal', 'main'): " LABEL
 if [ -z "$LABEL" ]; then
-  echo "❌ Label required."
+  echo " Label required."
   exit 1
 fi
 
 read -p "Email for this account: " EMAIL
 if [ -z "$EMAIL" ]; then
-  echo "❌ Email required."
+  echo " Email required."
   exit 1
 fi
 
@@ -80,7 +80,7 @@ for f in "$TOKEN_DIR"/account-*.json; do
   [ -f "$f" ] || continue
   EXISTING_LABEL=$(python3 -c "import json; print(json.load(open('$f')).get('label',''))")
   if [ "$EXISTING_LABEL" = "$LABEL" ]; then
-    read -p "⚠️  Account '$LABEL' already exists. Overwrite? (y/N): " OVERWRITE
+    read -p "  Account '$LABEL' already exists. Overwrite? (y/N): " OVERWRITE
     if [ "${OVERWRITE,,}" != "y" ]; then
       echo "Aborted."
       exit 0
@@ -118,14 +118,14 @@ PYEOF
 chmod 600 "$ACCT_FILE"
 
 echo ""
-echo "✅ Account saved: $ACCT_FILE"
+echo " Account saved: $ACCT_FILE"
 echo "   Label: $LABEL"
 echo "   Email: $EMAIL"
 echo "   Type: $SUB_TYPE ($TIER)"
 echo ""
 
 # Test it
-echo "🔍 Testing usage API..."
+echo " Testing usage API..."
 RESULT=$(python3 << PYEOF
 import json, urllib.request
 d = json.load(open("$ACCT_FILE"))
@@ -143,12 +143,12 @@ PYEOF
 )
 
 if [[ "$RESULT" == OK* ]]; then
-  echo "   ✅ API working: $(echo "$RESULT" | cut -d'|' -f2-)"
+  echo "    API working: $(echo "$RESULT" | cut -d'|' -f2-)"
 else
-  echo "   ❌ API error: $(echo "$RESULT" | cut -d'|' -f2)"
+  echo "    API error: $(echo "$RESULT" | cut -d'|' -f2)"
 fi
 
 echo ""
 TOTAL=$(ls "$TOKEN_DIR"/account-*.json 2>/dev/null | wc -l | tr -d ' ')
-echo "📊 Total accounts configured: $TOTAL"
+echo " Total accounts configured: $TOTAL"
 echo "   Run 'flowclaw status --fresh' to see all accounts."

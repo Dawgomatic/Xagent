@@ -91,7 +91,7 @@ REMAINING=$((DURATION - ELAPSED))
 # Step 4-5: Bail tracking (T18)
 if [ "$BAIL" = true ]; then
     BAIL_TIME=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-    log "⚡ BAIL activated at $BAIL_TIME ($REMAINING seconds remaining)"
+    log " BAIL activated at $BAIL_TIME ($REMAINING seconds remaining)"
 
     # Update state with bail info
     UPDATED=$(jq \
@@ -115,10 +115,10 @@ JOURNAL_FILE="$TRIPS_DIR/$(date +%Y-%m-%d)-token${TOKEN_ID}.md"
     echo "**Ended:** $(date -u +%Y-%m-%dT%H:%M:%SZ)"
     echo "**Duration:** ${ELAPSED}s of ${DURATION}s planned"
     [ "$IS_BLEND" = "true" ] && echo "**Type:** Blend"
-    [ "$IS_MUTANT" = "true" ] && echo "**Type:** ⚠️ Mutant"
+    [ "$IS_MUTANT" = "true" ] && echo "**Type:**  Mutant"
     echo ""
     if [ "$BAIL" = true ]; then
-        echo "## ⚡ Bailed Out"
+        echo "##  Bailed Out"
         echo ""
         echo "Trip ended early via safeword."
         echo "- **Bailed at:** $BAIL_TIME"
@@ -199,9 +199,9 @@ rm -f "$SNAPSHOT_PATH"
 echo ""
 log "═══════════════════════════════════════"
 if [ "$BAIL" = true ]; then
-    log "  ⚡ TRIP BAILED — RESTORED"
+    log "   TRIP BAILED — RESTORED"
 else
-    log "  🌅 TRIP ENDED — RESTORED"
+    log "   TRIP ENDED — RESTORED"
 fi
 log "═══════════════════════════════════════"
 log "  Token:     #$TOKEN_ID"

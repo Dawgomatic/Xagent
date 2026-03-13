@@ -44,9 +44,9 @@ async function main() {
     const gap = 300;
 
     const nodes = [
-        createNode("📱 App", startX, startY, "#bae7ff"),
-        createNode("☁️ Cloud", startX + gap, startY, "#d9f7be"),
-        createNode("📛 Badge", startX + gap * 2, startY, "#efdbff"),
+        createNode(" App", startX, startY, "#bae7ff"),
+        createNode(" Cloud", startX + gap, startY, "#d9f7be"),
+        createNode(" Badge", startX + gap * 2, startY, "#efdbff"),
         
         createArrow(startX + 160, startY + 40, startX + gap, startY + 40),
         createArrow(startX + gap + 160, startY + 40, startX + gap * 2, startY + 40)

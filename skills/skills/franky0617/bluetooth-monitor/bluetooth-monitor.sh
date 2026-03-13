@@ -59,7 +59,7 @@ show_battery_bar() {
     local name="$2"
     
     if [ "$level" == "N/A" ]; then
-        echo -e "   🔋 电量: ${YELLOW}不可用${NC}"
+        echo -e "    电量: ${YELLOW}不可用${NC}"
         return
     fi
     
@@ -83,14 +83,14 @@ show_battery_bar() {
         bar="${bar}░"
     done
     
-    echo -e "   🔋 电量: ${color}${level}%${NC} ${bar}"
+    echo -e "    电量: ${color}${level}%${NC} ${bar}"
 }
 
 # 显示已连接设备 / Show connected devices
 cmd_connected() {
     check_blueutil
     
-    echo -e "${BLUE}📱 已连接的蓝牙设备 / Connected Bluetooth Devices:${NC}"
+    echo -e "${BLUE} 已连接的蓝牙设备 / Connected Bluetooth Devices:${NC}"
     echo "================================"
     
     devices=$(blueutil --connected 2>/dev/null)
@@ -107,7 +107,7 @@ cmd_connected() {
             addr=$(format_address "$addr")
             name=$(echo "$line" | sed 's/.*name: "\([^"]*\)".*/\1/')
             
-            echo -e "🔗 ${GREEN}$name${NC}"
+            echo -e " ${GREEN}$name${NC}"
             echo "   地址 / Address: $addr"
             
             # 获取电量 / Get battery level
@@ -124,7 +124,7 @@ cmd_connected() {
 cmd_paired() {
     check_blueutil
     
-    echo -e "${BLUE}📋 已配对的蓝牙设备 / Paired Bluetooth Devices:${NC}"
+    echo -e "${BLUE} 已配对的蓝牙设备 / Paired Bluetooth Devices:${NC}"
     echo "================================"
     
     devices=$(blueutil --paired 2>/dev/null)
@@ -143,12 +143,12 @@ cmd_paired() {
             connected=$(echo "$line" | grep -o 'connected' || echo "")
             
             if [ -n "$connected" ]; then
-                echo -e "🔗 ${GREEN}$name${NC} (已连接 / Connected)"
+                echo -e " ${GREEN}$name${NC} (已连接 / Connected)"
                 # 获取电量 / Get battery level
                 battery=$(get_battery_level "$name")
                 show_battery_bar "$battery" "$name"
             else
-                echo -e "🔗 $name (未连接 / Disconnected)"
+                echo -e " $name (未连接 / Disconnected)"
             fi
             echo "   地址 / Address: $addr"
             echo ""
@@ -173,9 +173,9 @@ cmd_connect() {
     echo -e "${BLUE}正在连接到设备 / Connecting to device: $addr${NC}"
     
     if blueutil --connect "$addr" 2>/dev/null; then
-        echo -e "${GREEN}✅ 连接成功 / Connected successfully${NC}"
+        echo -e "${GREEN} 连接成功 / Connected successfully${NC}"
     else
-        echo -e "${RED}❌ 连接失败 / Connection failed${NC}"
+        echo -e "${RED} 连接失败 / Connection failed${NC}"
         exit 1
     fi
 }
@@ -197,9 +197,9 @@ cmd_disconnect() {
     echo -e "${BLUE}正在断开设备 / Disconnecting device: $addr${NC}"
     
     if blueutil --disconnect "$addr" 2>/dev/null; then
-        echo -e "${GREEN}✅ 已断开 / Disconnected${NC}"
+        echo -e "${GREEN} 已断开 / Disconnected${NC}"
     else
-        echo -e "${RED}❌ 操作失败 / Operation failed${NC}"
+        echo -e "${RED} 操作失败 / Operation failed${NC}"
         exit 1
     fi
 }
@@ -214,20 +214,20 @@ cmd_power() {
         # 显示当前状态 / Show current status
         local power=$(blueutil --power)
         if [ "$power" == "1" ]; then
-            echo -e "${GREEN}🔵 蓝牙已开启 / Bluetooth is ON${NC}"
+            echo -e "${GREEN} 蓝牙已开启 / Bluetooth is ON${NC}"
         else
-            echo -e "${RED}⚫ 蓝牙已关闭 / Bluetooth is OFF${NC}"
+            echo -e "${RED} 蓝牙已关闭 / Bluetooth is OFF${NC}"
         fi
     else
         # 设置状态 / Set status
         if [[ "$state" == "on" || "$state" == "1" ]]; then
             echo -e "${BLUE}正在开启蓝牙... / Turning Bluetooth ON...${NC}"
             blueutil --power 1
-            echo -e "${GREEN}✅ 蓝牙已开启 / Bluetooth is ON${NC}"
+            echo -e "${GREEN} 蓝牙已开启 / Bluetooth is ON${NC}"
         elif [[ "$state" == "off" || "$state" == "0" ]]; then
             echo -e "${BLUE}正在关闭蓝牙... / Turning Bluetooth OFF...${NC}"
             blueutil --power 0
-            echo -e "${YELLOW}⚠️ 蓝牙已关闭 / Bluetooth is OFF${NC}"
+            echo -e "${YELLOW} 蓝牙已关闭 / Bluetooth is OFF${NC}"
         else
             echo -e "${RED}用法: bluetooth-monitor power [on|off]${NC}"
             echo "Usage: bluetooth-monitor power [on|off]"

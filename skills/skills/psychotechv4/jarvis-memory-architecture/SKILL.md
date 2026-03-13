@@ -145,7 +145,7 @@ Track what you've posted on external platforms to prevent duplicates and enable 
 - **Posted:** 2026-02-07 02:30 PM EST
 - **Thread/URL:** https://platform.com/link
 - Description of what was posted
-- [View ↗](https://platform.com/link)
+- [View ](https://platform.com/link)
 ```
 
 **Critical fields:**

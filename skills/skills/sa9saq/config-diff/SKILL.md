@@ -22,18 +22,18 @@ Semantically compare and merge configuration files (YAML, JSON, TOML, INI, .env)
    diff <(sort a.env) <(sort b.env)
    ```
 3. **Classify changes**:
-   - 🟢 **Added**: New keys in target
-   - 🔴 **Removed**: Keys missing from target
-   - 🟡 **Changed**: Same key, different value
-   - ⚪ **Unchanged**: Same key and value
+   -  **Added**: New keys in target
+   -  **Removed**: Keys missing from target
+   -  **Changed**: Same key, different value
+   -  **Unchanged**: Same key and value
 4. **Report format**:
    ```
-   📋 Config Diff: config.yml vs config.prod.yml
+    Config Diff: config.yml vs config.prod.yml
    | Key Path | Source | Target | Change |
    |----------|--------|--------|--------|
-   | db.host  | localhost | db.prod.internal | 🟡 Changed |
-   | db.pool  | —      | 20     | 🟢 Added |
-   | debug    | true   | —      | 🔴 Removed |
+   | db.host  | localhost | db.prod.internal |  Changed |
+   | db.pool  | —      | 20     |  Added |
+   | debug    | true   | —      |  Removed |
    ```
 5. **Merge suggestions**: For conflicts, recommend which value to keep based on environment context
 

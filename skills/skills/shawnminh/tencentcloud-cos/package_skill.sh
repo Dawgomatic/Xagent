@@ -352,11 +352,11 @@ $(find "dist/${PACKAGE_NAME}" -type f | sort | sed 's|^dist/'"${PACKAGE_NAME}"'/
 
 ## 发布说明
 此包已通过基本测试，包含：
-- ✅ 核心技能文件
-- ✅ 安装脚本
-- ✅ 配置模板
-- ✅ 使用示例
-- ✅ 测试脚本
+-  核心技能文件
+-  安装脚本
+-  配置模板
+-  使用示例
+-  测试脚本
 
 ## 校验信息
 - MD5: \$(md5sum "dist/${PACKAGE_NAME}.tar.gz" | cut -d' ' -f1)
@@ -384,11 +384,11 @@ show_results() {
     echo "=========================================="
     echo ""
     echo "生成的包文件:"
-    echo "  📦 dist/${PACKAGE_NAME}.tar.gz"
-    echo "  📦 dist/${PACKAGE_NAME}.zip"
+    echo "   dist/${PACKAGE_NAME}.tar.gz"
+    echo "   dist/${PACKAGE_NAME}.zip"
     echo ""
     echo "包内容:"
-    echo "  📁 ${PACKAGE_NAME}/"
+    echo "   ${PACKAGE_NAME}/"
     echo "  ├── SKILL.md          (技能主文档)"
     echo "  ├── README.md         (项目文档)"
     echo "  ├── QUICK_START.md    (快速指南)"

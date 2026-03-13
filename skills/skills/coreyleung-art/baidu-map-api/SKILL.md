@@ -2,7 +2,7 @@
 name: baidu-map
 description: 使用百度地图Web服务API进行地点搜索、天气查询、路线规划和地理编码。
 homepage: https://lbsyun.baidu.com/
-metadata: {"clawdbot":{"emoji":"🗺️","slug":"baidu-map","requires":{"bins":["curl"]},"primaryEnv":"BAIDU_MAP_AK"}}
+metadata: {"clawdbot":{"emoji":"","slug":"baidu-map","requires":{"bins":["curl"]},"primaryEnv":"BAIDU_MAP_AK"}}
 ---
 
 # 百度地图 (Baidu Map)

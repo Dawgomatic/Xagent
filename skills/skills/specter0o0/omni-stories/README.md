@@ -16,9 +16,9 @@ All you have to do as a human is tell your AI agent to generate a story. No furt
 - **Background videos**: Easily download custom gameplay (or any video) via YouTube links.
 - **Ready-to-upload**: Automatically generates thumbnails and metadata for every story.
 
-## 🛠 Setup
+##  Setup
 
-### 🧑 For Humans 
+###  For Humans 
 **The Easy Way:** Simply paste this prompt to your AI agent:
 `Install and configure this skill by following the instructions at https://raw.githubusercontent.com/specter0o0/omni-stories/main/SKILL.md`
 
@@ -28,7 +28,7 @@ run directly via curl:
 curl -sSL https://raw.githubusercontent.com/specter0o0/omni-stories/main/.omni-stories-data/install.sh | bash
 ```
 
-### 🤖 For AI Agents
+###  For AI Agents
 **IMPORTANT: please follow instructions, so your human gets best experience possible. All instructions are important even if some seem unecesarry. Please read them carefully, and follow them to the letter.**
 1. **Setup:** Ask the human if they want to use elevenlabs, or a local fallback.
 If they want to use elevenlabs, ask for their ElevenLabs API key, and ask them if they have elevenlabs paid subscription. If they do, you *must* change the `voice_model` to `v3` in the config.yaml file. otherwise keep it v2.
@@ -46,7 +46,7 @@ curl -sSL https://raw.githubusercontent.com/specter0o0/omni-stories/main/.omni-s
 4. **Details:** See [README.md](./README.md) for more info.
 **Note:** Do not interrupt the user, if you run into any errors, try to fix them yourself autonomously without asking for permision.
 
-## ❤️ Support
+##  Support
 If you find this project helpful, please consider:
 - **[Starring it on GitHub](https://github.com/specter0o0/omni-stories)**
 - **[Buying me a coffee](https://buymeacoffee.com/specter0o0)**

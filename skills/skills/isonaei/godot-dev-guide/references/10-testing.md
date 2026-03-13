@@ -334,11 +334,11 @@ jobs:
 ### 命名
 
 ```gdscript
-# ✅ Good - 描述性名稱
+#  Good - 描述性名稱
 func test_player_dies_when_health_reaches_zero() -> void:
 func test_enemy_attacks_when_player_in_range() -> void:
 
-# ❌ Bad - 模糊名稱
+#  Bad - 模糊名稱
 func test_player() -> void:
 func test_1() -> void:
 ```
@@ -369,16 +369,16 @@ func before_test() -> void:
 
 ---
 
-## ⚠️ AI PITFALL：忘記 auto_free() 造成記憶體洩漏
+##  AI PITFALL：忘記 auto_free() 造成記憶體洩漏
 
 ```gdscript
-# ❌ WRONG - 節點沒有自動清理
+#  WRONG - 節點沒有自動清理
 func test_player_health() -> void:
     var player := Player.new()  # 測試結束後不會被清理！
     add_child(player)
     assert_int(player.health).is_equal(100)
 
-# ✅ CORRECT - 使用 auto_free 確保清理
+#  CORRECT - 使用 auto_free 確保清理
 func test_player_health() -> void:
     var player := auto_free(Player.new())
     add_child(player)
@@ -387,10 +387,10 @@ func test_player_health() -> void:
 
 ---
 
-## ⚠️ AI PITFALL：異步斷言忘記 await
+##  AI PITFALL：異步斷言忘記 await
 
 ```gdscript
-# ❌ WRONG - 沒有 await，信號斷言不會等待
+#  WRONG - 沒有 await，信號斷言不會等待
 func test_signal_emitted() -> void:
     var player := auto_free(Player.new())
     var collector := signal_collector(player, "died")
@@ -398,7 +398,7 @@ func test_signal_emitted() -> void:
     
     assert_signal(collector).is_emitted("died")  # 不等待！永遠失敗
 
-# ✅ CORRECT - 使用 await 等待信號
+#  CORRECT - 使用 await 等待信號
 func test_signal_emitted() -> void:
     var player := auto_free(Player.new())
     var collector := signal_collector(player, "died")
@@ -409,16 +409,16 @@ func test_signal_emitted() -> void:
 
 ---
 
-## ⚠️ AI PITFALL：測試 GDScript 內部實作細節
+##  AI PITFALL：測試 GDScript 內部實作細節
 
 ```gdscript
-# ❌ WRONG - 測試私有實作細節
+#  WRONG - 測試私有實作細節
 func test_internal_timer() -> void:
     var player := auto_free(Player.new())
     # 依賴內部計時器實作，重構後就會壞
     assert_float(player._attack_cooldown_timer).is_equal(0.5)
 
-# ✅ CORRECT - 測試可觀察的行為
+#  CORRECT - 測試可觀察的行為
 func test_cannot_attack_during_cooldown() -> void:
     var player := auto_free(Player.new())
     add_child(player)

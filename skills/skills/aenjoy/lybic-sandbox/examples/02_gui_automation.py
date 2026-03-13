@@ -24,17 +24,17 @@ async def main():
             sandbox_info = await client.sandbox.get(sandbox_id)
             print(f"✓ Connected to: {sandbox_info.name}")
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f" Error: {e}")
             return
         
         # Take initial screenshot
-        print("\n📸 Taking screenshot...")
+        print("\n Taking screenshot...")
         url, image, _ = await client.sandbox.get_screenshot(sandbox_id)
         print(f"Screenshot URL: {url}")
         # Optionally display: image.show()
         
         # Click at screen center
-        print("\n🖱️  Clicking at screen center...")
+        print("\n  Clicking at screen center...")
         await client.sandbox.execute_sandbox_action(
             sandbox_id,
             action={
@@ -47,7 +47,7 @@ async def main():
         print("✓ Click executed")
         
         # Type some text
-        print("\n⌨️  Typing text...")
+        print("\n  Typing text...")
         await client.sandbox.execute_sandbox_action(
             sandbox_id,
             action={
@@ -69,7 +69,7 @@ async def main():
         print("✓ Enter pressed")
         
         # Wait a moment
-        print("\n⏳ Waiting 2 seconds...")
+        print("\n Waiting 2 seconds...")
         await client.sandbox.execute_sandbox_action(
             sandbox_id,
             action={
@@ -79,11 +79,11 @@ async def main():
         )
         
         # Take final screenshot
-        print("\n📸 Taking final screenshot...")
+        print("\n Taking final screenshot...")
         url2, image2, _ = await client.sandbox.get_screenshot(sandbox_id)
         print(f"Screenshot URL: {url2}")
         
-        print("\n✅ GUI automation completed!")
+        print("\n GUI automation completed!")
 
 
 if __name__ == '__main__':

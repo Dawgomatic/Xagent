@@ -13,10 +13,10 @@ class ReportGenerator:
     """Generates Markdown security reports from scan results."""
 
     RATING_ICONS = {
-        "SAFE": "✅",
-        "CAUTION": "⚠️",
-        "DANGEROUS": "🔶",
-        "MALICIOUS": "🔴",
+        "SAFE": "",
+        "CAUTION": "",
+        "DANGEROUS": "",
+        "MALICIOUS": "",
     }
 
     def generate_single_report(
@@ -36,7 +36,7 @@ class ReportGenerator:
         engine_str = " + ".join(layers_used)
 
         lines = []
-        lines.append(f"# 🛡️ SenseGuard Security Report")
+        lines.append(f"#  SenseGuard Security Report")
         lines.append("")
         lines.append(f"## Skill: {skill_name}")
         lines.append(f"**Score: {score}/100** {icon} **{rating}**")
@@ -63,7 +63,7 @@ class ReportGenerator:
         # Critical findings
         all_critical = critical_findings + critical_structure + [f for f in l2_display if f["severity"] == "critical"]
         if all_critical:
-            lines.append(f"### 🚨 Critical Findings ({len(all_critical)})")
+            lines.append(f"###  Critical Findings ({len(all_critical)})")
             lines.append("")
             for i, f in enumerate(all_critical, 1):
                 lines.extend(self._format_finding(i, f))
@@ -72,7 +72,7 @@ class ReportGenerator:
         # High findings
         all_high = high_findings + [f for f in l2_display if f["severity"] == "high"]
         if all_high:
-            lines.append(f"### ⚠️ High Findings ({len(all_high)})")
+            lines.append(f"###  High Findings ({len(all_high)})")
             lines.append("")
             offset = len(all_critical)
             for i, f in enumerate(all_high, offset + 1):
@@ -83,7 +83,7 @@ class ReportGenerator:
         medium_structure = [f for f in structure_findings if f["severity"] == "medium"]
         all_medium = medium_findings + medium_structure
         if all_medium:
-            lines.append(f"### 📋 Medium Findings ({len(all_medium)})")
+            lines.append(f"###  Medium Findings ({len(all_medium)})")
             lines.append("")
             offset = len(all_critical) + len(all_high)
             for i, f in enumerate(all_medium, offset + 1):
@@ -92,13 +92,13 @@ class ReportGenerator:
 
         # No findings
         if not all_critical and not all_high and not all_medium:
-            lines.append("### ✅ No significant findings")
+            lines.append("###  No significant findings")
             lines.append("")
             lines.append("No suspicious patterns or structural issues detected.")
             lines.append("")
 
         # Score breakdown table
-        lines.append("### 📊 Reputation Score Breakdown")
+        lines.append("###  Reputation Score Breakdown")
         lines.append("")
         lines.append("| Dimension | Points | Reason |")
         lines.append("|-----------|--------|--------|")
@@ -136,7 +136,7 @@ class ReportGenerator:
             by_rating.setdefault(rating, []).append(r)
 
         lines = []
-        lines.append("# 🛡️ SenseGuard Full Security Checkup")
+        lines.append("#  SenseGuard Full Security Checkup")
         lines.append("")
         lines.append(f"**Scan time**: {now}")
         lines.append(f"**Skills scanned**: {len(results)}")
@@ -149,7 +149,7 @@ class ReportGenerator:
         lines.append("")
 
         # Overview table
-        lines.append("## 📊 Overview")
+        lines.append("##  Overview")
         lines.append("")
         lines.append("| Rating | Count | Skills |")
         lines.append("|--------|-------|--------|")
@@ -163,7 +163,7 @@ class ReportGenerator:
         # Urgent actions
         urgent = by_rating.get("MALICIOUS", []) + by_rating.get("DANGEROUS", [])
         if urgent:
-            lines.append("## 🚨 Requires Immediate Attention")
+            lines.append("##  Requires Immediate Attention")
             lines.append("")
             for i, r in enumerate(urgent, 1):
                 icon = self.RATING_ICONS.get(r["rating"], "")
@@ -179,7 +179,7 @@ class ReportGenerator:
         # Caution items
         caution = by_rating.get("CAUTION", [])
         if caution:
-            lines.append("## ⚠️ Caution")
+            lines.append("##  Caution")
             lines.append("")
             for r in caution:
                 icon = self.RATING_ICONS.get(r["rating"], "")
@@ -190,7 +190,7 @@ class ReportGenerator:
         # Safe items
         safe = by_rating.get("SAFE", [])
         if safe:
-            lines.append("## ✅ Safe")
+            lines.append("##  Safe")
             lines.append("")
             for r in safe:
                 score = r.get("score", 0)
@@ -327,23 +327,23 @@ class ReportGenerator:
         self, rating: str, critical: list, high: list, skill_name: str
     ) -> List[str]:
         """Generate recommendation section based on rating."""
-        lines = ["### 💡 Recommendations", ""]
+        lines = ["###  Recommendations", ""]
 
         if rating == "MALICIOUS":
-            lines.append(f"**⛔ Strongly recommend NOT installing this skill.**")
+            lines.append(f"** Strongly recommend NOT installing this skill.**")
             lines.append(f"This skill exhibits clear malicious characteristics.")
             lines.append("If already installed, consider removing it and checking:")
             lines.append("- `~/.openclaw/SOUL.md`")
             lines.append("- `~/.openclaw/AGENTS.md`")
             lines.append("- Environment variables and API keys")
         elif rating == "DANGEROUS":
-            lines.append(f"**🔶 High risk. Not recommended for installation.**")
+            lines.append(f"** High risk. Not recommended for installation.**")
             lines.append("Review the critical/high findings above carefully before deciding.")
         elif rating == "CAUTION":
-            lines.append(f"**⚠️ Potential risks detected. Review recommended.**")
+            lines.append(f"** Potential risks detected. Review recommended.**")
             lines.append("The findings above may be benign, but manual review is advised.")
         else:
-            lines.append(f"**✅ No significant risks detected.**")
+            lines.append(f"** No significant risks detected.**")
             lines.append("This skill appears safe based on automated analysis.")
 
         lines.append("")
@@ -353,11 +353,11 @@ class ReportGenerator:
         self, previous: dict, current: dict, current_score: int
     ) -> List[str]:
         """Generate diff comparison with previous scan."""
-        lines = ["### 🔄 Changes Since Last Scan", ""]
+        lines = ["###  Changes Since Last Scan", ""]
 
         prev_score = previous.get("score", 100)
         if current_score != prev_score:
-            direction = "⬆️ improved" if current_score > prev_score else "⬇️ degraded"
+            direction = " improved" if current_score > prev_score else " degraded"
             lines.append(f"- Score: {prev_score} → {current_score} ({direction})")
 
         prev_critical = previous.get("critical_count", 0)
@@ -380,7 +380,7 @@ class ReportGenerator:
         self, results: List[dict], previous_results: Dict[str, dict]
     ) -> List[str]:
         """Generate diff section for batch reports."""
-        lines = ["## 🔄 Changes Since Last Scan", ""]
+        lines = ["##  Changes Since Last Scan", ""]
 
         current_names = {r["skill_name"] for r in results}
         previous_names = set(previous_results.keys())
@@ -405,7 +405,7 @@ class ReportGenerator:
             if name in previous_results:
                 prev = previous_results[name]
                 if r.get("hash") and prev.get("hash") and r["hash"] != prev["hash"]:
-                    lines.append(f"- **File changed**: {name} SKILL.md was modified ← ⚠️ review recommended")
+                    lines.append(f"- **File changed**: {name} SKILL.md was modified ←  review recommended")
 
         if not new_skills and not removed_skills:
             changed = any(

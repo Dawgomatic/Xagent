@@ -66,7 +66,7 @@ Parse and summarize application logs to find errors, patterns, and anomalies.
 
 4. **Output format**:
    ```
-   📊 Log Analysis — filename.log (42,531 lines)
+    Log Analysis — filename.log (42,531 lines)
    Time range: 2025-01-15 00:00 → 2025-01-15 14:30
 
    ## Summary
@@ -86,11 +86,11 @@ Parse and summarize application logs to find errors, patterns, and anomalies.
    ## Error Timeline
    | Hour | Errors | |
    |------|--------|-|
-   | 14:00 | 3 | ▪ |
-   | 15:00 | 47 | ▪▪▪▪▪▪▪▪▪▪▪▪▪ ⚠️ Spike |
-   | 16:00 | 5 | ▪▪ |
+   | 14:00 | 3 |  |
+   | 15:00 | 47 |   Spike |
+   | 16:00 | 5 |  |
 
-   ## 🔍 Recommendations
+   ##  Recommendations
    - [ ] Check database connectivity (42 connection refused errors)
    - [ ] Review timeout settings (18 timeouts at 30s)
    - [ ] Increase JVM heap size (7 OOM errors)

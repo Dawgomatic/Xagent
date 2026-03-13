@@ -12,7 +12,7 @@ def send_gocq_msg(url, user_id=None, group_id=None, content=""):
         endpoint = f"{url}/send_private_msg"
         data = {"user_id": user_id, "message": content}
     else:
-        print("❌ Error: Either user_id or group_id must be provided")
+        print(" Error: Either user_id or group_id must be provided")
         sys.exit(1)
 
     headers = {'Content-Type': 'application/json'}
@@ -21,9 +21,9 @@ def send_gocq_msg(url, user_id=None, group_id=None, content=""):
         req = urllib.request.Request(endpoint, data=json.dumps(data).encode('utf-8'), headers=headers)
         with urllib.request.urlopen(req) as response:
             result = response.read().decode('utf-8')
-            print(f"✅ GoCqHttp Message sent. Response: {result}")
+            print(f" GoCqHttp Message sent. Response: {result}")
     except Exception as e:
-        print(f"❌ Failed to send GoCqHttp message: {e}")
+        print(f" Failed to send GoCqHttp message: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

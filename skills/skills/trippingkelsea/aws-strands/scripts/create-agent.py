@@ -216,11 +216,11 @@ python3 {filename} --interactive
 
     (agent_dir / "README.md").write_text(readme)
 
-    print(f"✅ Agent scaffolded at {agent_dir}/")
+    print(f" Agent scaffolded at {agent_dir}/")
     print(f"   Entry point: {agent_dir / filename}")
     print(f"   Provider: {args.provider} ({model_id})")
     if provider["env"]:
-        print(f"   ⚠️  Set {provider['env']} before running")
+        print(f"     Set {provider['env']} before running")
     print(f"\n   Run: python3 {agent_dir / filename} \"Hello!\"")
 
 

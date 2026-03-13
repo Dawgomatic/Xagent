@@ -8,11 +8,11 @@ import { MoltTraderClient } from '../client';
 import { AuthenticationError } from '../errors';
 
 async function testConnection() {
-  console.log('🧪 Molt Trader SDK - Connection Test\n');
+  console.log(' Molt Trader SDK - Connection Test\n');
 
   const apiKey = process.env.MOLT_TRADER_API_KEY;
   if (!apiKey) {
-    console.error('❌ Error: MOLT_TRADER_API_KEY environment variable not set');
+    console.error(' Error: MOLT_TRADER_API_KEY environment variable not set');
     console.log('   Set it with: export MOLT_TRADER_API_KEY=your-api-key');
     process.exit(1);
   }
@@ -25,7 +25,7 @@ async function testConnection() {
 
   try {
     // Test 1: Fetch portfolio
-    console.log('📊 Fetching portfolio...');
+    console.log(' Fetching portfolio...');
     const portfolio = await client.getPortfolioMetrics();
     console.log(`   ✓ Balance: $${portfolio.balance.toFixed(0)}`);
     console.log(`   ✓ ROI: ${portfolio.roi.toFixed(2)}%`);
@@ -33,7 +33,7 @@ async function testConnection() {
     console.log(`   ✓ Win Rate: ${portfolio.winRate.toFixed(2)}%\n`);
 
     // Test 2: Fetch positions
-    console.log('📈 Fetching open positions...');
+    console.log(' Fetching open positions...');
     const positions = await client.getPositions();
     console.log(`   ✓ Open positions: ${positions.length}`);
     positions.slice(0, 3).forEach((p) => {
@@ -45,7 +45,7 @@ async function testConnection() {
     console.log();
 
     // Test 3: Fetch leaderboard
-    console.log('🏆 Fetching leaderboard...');
+    console.log(' Fetching leaderboard...');
     const leaderboard = await client.getLeaderboard('weekly');
     console.log(`   ✓ Period: ${leaderboard.period}`);
     console.log(`   ✓ Top 5 traders:`);
@@ -56,16 +56,16 @@ async function testConnection() {
     });
     console.log();
 
-    console.log('✅ All tests passed! Your SDK is configured correctly.\n');
-    console.log('📚 Next steps:');
+    console.log(' All tests passed! Your SDK is configured correctly.\n');
+    console.log(' Next steps:');
     console.log('   1. See examples/ for trading strategy templates');
     console.log('   2. Read SKILL.md for full API documentation');
     console.log('   3. Start building your trading bot!\n');
   } catch (error) {
     if (error instanceof AuthenticationError) {
-      console.error('❌ Authentication failed. Check your API key.');
+      console.error(' Authentication failed. Check your API key.');
     } else {
-      console.error(`❌ Test failed: ${error}`);
+      console.error(` Test failed: ${error}`);
     }
     process.exit(1);
   }

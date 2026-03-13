@@ -14,7 +14,7 @@ Template for displaying expenses detected from conversation text.
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `{{ICON}}` | Category emoji | 🍜, 🚗, 🛒 |
+| `{{ICON}}` | Category emoji | , ,  |
 | `{{TIME}}` | Transaction time (HH:MM) | 12:30 |
 | `{{DESCRIPTION}}` | Brief description | Lunch |
 | `{{DETAILS}}` | Additional context | "With colleagues at hotpot restaurant" |
@@ -26,26 +26,26 @@ Template for displaying expenses detected from conversation text.
 
 | Category | Icon |
 |----------|------|
-| Food & Dining | 🍜 |
-| Transportation | 🚗 |
-| Shopping | 🛒 |
-| Entertainment | 🎬 |
-| Utilities | 📱 |
-| Housing | 🏠 |
-| Health | 💊 |
-| Education | 📚 |
-| Personal | 💈 |
-| Subscription | 🔄 |
-| Income | 💰 |
-| Transfer | 💸 |
-| Other | 📦 |
+| Food & Dining |  |
+| Transportation |  |
+| Shopping |  |
+| Entertainment |  |
+| Utilities |  |
+| Housing |  |
+| Health |  |
+| Education |  |
+| Personal |  |
+| Subscription |  |
+| Income |  |
+| Transfer |  |
+| Other |  |
 
 ## Examples
 
 ### Basic Expense
 
 ```markdown
-> [!expense] 🍜 12:30 Lunch
+> [!expense]  12:30 Lunch
 > Hotpot with colleagues | **¥150.00** | Food & Dining
 > *Source: Conversation*
 ```
@@ -53,7 +53,7 @@ Template for displaying expenses detected from conversation text.
 ### With People
 
 ```markdown
-> [!expense] 🍜 19:00 Dinner
+> [!expense]  19:00 Dinner
 > Birthday celebration with Alice and Bob | **¥320.00** | Food & Dining
 > *Source: Conversation*
 ```
@@ -61,7 +61,7 @@ Template for displaying expenses detected from conversation text.
 ### Transport
 
 ```markdown
-> [!expense] 🚗 08:15 Commute
+> [!expense]  08:15 Commute
 > Rideshare to office | **¥35.00** | Transportation
 > *Source: Conversation*
 ```
@@ -69,7 +69,7 @@ Template for displaying expenses detected from conversation text.
 ### Shopping
 
 ```markdown
-> [!expense] 🛒 15:30 Electronics
+> [!expense]  15:30 Electronics
 > New wireless earbuds | **¥299.00** | Shopping
 > *Source: Conversation*
 ```
@@ -77,7 +77,7 @@ Template for displaying expenses detected from conversation text.
 ### Income
 
 ```markdown
-> [!income] 💰 10:00 Salary
+> [!income]  10:00 Salary
 > Monthly salary deposited | **+¥15,000.00** | Income
 > *Source: Conversation*
 ```
@@ -96,7 +96,7 @@ Template for displaying expenses detected from conversation text.
 For medium-confidence detections:
 
 ```markdown
-> [!expense] 🛒 14:00 Purchase
+> [!expense]  14:00 Purchase
 > Online shopping | **¥199.00** | Shopping
-> *Source: Conversation • ⚠️ Verify amount*
+> *Source: Conversation •  Verify amount*
 ```

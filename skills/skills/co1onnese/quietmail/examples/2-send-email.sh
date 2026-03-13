@@ -9,7 +9,7 @@ if [ -z "$QUIETMAIL_API_KEY" ]; then
   if [ -f ~/.quietmail_key ]; then
     QUIETMAIL_API_KEY=$(cat ~/.quietmail_key)
   else
-    echo "❌ Error: QUIETMAIL_API_KEY not set"
+    echo " Error: QUIETMAIL_API_KEY not set"
     echo "Set it with: export QUIETMAIL_API_KEY=\"your_key_here\""
     exit 1
   fi
@@ -31,8 +31,8 @@ echo "$response" | python3 -m json.tool
 
 if echo "$response" | grep -q '"id"'; then
   echo ""
-  echo "✅ Email sent successfully!"
+  echo " Email sent successfully!"
 else
   echo ""
-  echo "❌ Error sending email. Check the response above."
+  echo " Error sending email. Check the response above."
 fi

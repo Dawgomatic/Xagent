@@ -64,7 +64,7 @@ Task has failed when:
 
 ## Escalation Format
 ```
-⚠️ Task Failed: [TASK_ID]
+ Task Failed: [TASK_ID]
 
 Tried:
 1. [Method] → [Result]

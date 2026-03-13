@@ -41,7 +41,7 @@ function saveMemory(data) {
 // ============ CORE TOOLS ============
 
 /**
- * 📊 AUDIT AGENT
+ *  AUDIT AGENT
  * Analyzes reputation with "Calldata Stashing" support.
  */
 async function audit_agent({ agentId, minScore = 0, strictMode = false }) {
@@ -101,7 +101,7 @@ async function audit_agent({ agentId, minScore = 0, strictMode = false }) {
     if (count === 0) return `Agent #${agentId} has reviews, but all were filtered out by your settings.`;
 
     const rating = (totalScore / count).toFixed(2);
-    const signal = rating > 80 ? "🟢 HIGH TRUST" : rating > 50 ? "🟡 MEDIUM TRUST" : "🔴 LOW TRUST";
+    const signal = rating > 80 ? " HIGH TRUST" : rating > 50 ? " MEDIUM TRUST" : " LOW TRUST";
 
     return JSON.stringify({
       agentId,
@@ -116,12 +116,12 @@ async function audit_agent({ agentId, minScore = 0, strictMode = false }) {
     }, null, 2);
 
   } catch (e) {
-    return `❌ Audit Error: ${e.message}`;
+    return ` Audit Error: ${e.message}`;
   }
 }
 
 /**
- * ⭐ RATE AGENT
+ *  RATE AGENT
  * Writes on-chain feedback with optional Proof of Interaction.
  */
 async function rate_agent({ agentId, score, proofTx }) {
@@ -131,16 +131,16 @@ async function rate_agent({ agentId, score, proofTx }) {
   const memory = loadMemory();
 
   // --- VALIDATION START ---
-  if (score < 0 || score > 100) return "❌ Score must be between 0 and 100.";
+  if (score < 0 || score > 100) return " Score must be between 0 and 100.";
   
   // Strict check on Proof TX to prevent gas waste
   let appendData = "";
   if (proofTx) {
     if (!ethers.isHexString(proofTx) || proofTx.length !== 66) {
-      return "❌ Invalid Proof Transaction. Must be a 32-byte hash (0x + 64 chars).";
+      return " Invalid Proof Transaction. Must be a 32-byte hash (0x + 64 chars).";
     }
     appendData = proofTx.replace("0x", "");
-    console.log(`🔗 Attaching Proof: ${proofTx}`);
+    console.log(` Attaching Proof: ${proofTx}`);
   }
   // --- VALIDATION END ---
 
@@ -159,7 +159,7 @@ async function rate_agent({ agentId, score, proofTx }) {
       value: fee
     });
 
-    console.log(`🚀 TX Sent: ${tx.hash}`);
+    console.log(` TX Sent: ${tx.hash}`);
     await tx.wait();
 
     // Update Local Memory
@@ -171,20 +171,20 @@ async function rate_agent({ agentId, score, proofTx }) {
     };
     saveMemory(memory);
 
-    return `✅ Rated Agent #${agentId}. Memory updated. (TX: ${tx.hash})`;
+    return ` Rated Agent #${agentId}. Memory updated. (TX: ${tx.hash})`;
   } catch (e) {
-    return `❌ Rating Failed: ${e.message}`;
+    return ` Rating Failed: ${e.message}`;
   }
 }
 
 /**
- * 🧠 MANAGE PEERS
+ *  MANAGE PEERS
  * Configure your personal Web of Trust.
  */
 function manage_peers({ action, walletAddress }) {
   const memory = loadMemory();
   
-  if (!ethers.isAddress(walletAddress)) return "❌ Invalid Wallet Address.";
+  if (!ethers.isAddress(walletAddress)) return " Invalid Wallet Address.";
 
   if (action === "trust") {
     if (!memory.trusted_peers.includes(walletAddress)) {
@@ -197,11 +197,11 @@ function manage_peers({ action, walletAddress }) {
       memory.trusted_peers = memory.trusted_peers.filter(w => w !== walletAddress);
     }
   } else {
-    return "❌ Action must be 'trust' or 'block'.";
+    return " Action must be 'trust' or 'block'.";
   }
   
   saveMemory(memory);
-  return `✅ Peer updated: ${walletAddress} is now [${action.toUpperCase()}ED].`;
+  return ` Peer updated: ${walletAddress} is now [${action.toUpperCase()}ED].`;
 }
 
 module.exports = { audit_agent, rate_agent, manage_peers };

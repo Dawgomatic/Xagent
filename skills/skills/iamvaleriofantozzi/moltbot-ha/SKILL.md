@@ -2,7 +2,7 @@
 name: moltbot-ha
 description: Control Home Assistant smart home devices, lights, scenes, and automations via moltbot-ha CLI with configurable safety confirmations.
 homepage: https://github.com/iamvaleriofantozzi/moltbot-ha
-metadata: {"moltbot":{"emoji":"🏠","requires":{"bins":["moltbot-ha"],"env":["HA_TOKEN"]},"primaryEnv":"HA_TOKEN","install":[{"id":"uv","kind":"uv","package":"moltbot-ha","bins":["moltbot-ha"],"label":"Install moltbot-ha (uv tool)"}]}}
+metadata: {"moltbot":{"emoji":"","requires":{"bins":["moltbot-ha"],"env":["HA_TOKEN"]},"primaryEnv":"HA_TOKEN","install":[{"id":"uv","kind":"uv","package":"moltbot-ha","bins":["moltbot-ha"],"label":"Install moltbot-ha (uv tool)"}]}}
 ---
 
 # Home Assistant Control
@@ -131,7 +131,7 @@ moltbot-ha on cover.garage
 
 2. **Tool returns error:**
 ```
-⚠️  CRITICAL ACTION REQUIRES CONFIRMATION
+  CRITICAL ACTION REQUIRES CONFIRMATION
 
 Action: turn_on on cover.garage
 
@@ -156,7 +156,7 @@ moltbot-ha on cover.garage --force
 
 ### Important: Never Use --force Without User Consent
 
-**⚠️ CRITICAL RULE FOR AGENTS:**
+** CRITICAL RULE FOR AGENTS:**
 
 - **NEVER** add `--force` flag without explicit user confirmation
 - **ALWAYS** show the user which critical action is being attempted
@@ -275,7 +275,7 @@ Agent: "Living room light is now on"
 User: "Open the garage"
 Agent: moltbot-ha on cover.garage
 <receives CriticalActionError>
-Agent: "⚠️ Opening the garage door is a critical action. Do you want to proceed?"
+Agent: " Opening the garage door is a critical action. Do you want to proceed?"
 User: "Yes, open it"
 Agent: moltbot-ha on cover.garage --force
 Agent: "Garage door is opening"

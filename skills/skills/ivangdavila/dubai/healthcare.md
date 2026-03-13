@@ -9,7 +9,7 @@ Dubai has developed one of the most modern healthcare systems in the Middle East
 
 ---
 
-## 🏥 Healthcare System Structure
+##  Healthcare System Structure
 
 ### Key Organizations
 | Entity | Role |
@@ -35,7 +35,7 @@ Dubai has developed one of the most modern healthcare systems in the Middle East
 
 ---
 
-## 📋 Mandatory Health Insurance (CRITICAL)
+##  Mandatory Health Insurance (CRITICAL)
 
 ### Legal Requirement
 Since 2014, **health insurance is mandatory** for all Dubai residents (visa holders). As of January 2025, this extends to all UAE emirates.
@@ -65,7 +65,7 @@ The minimum required coverage mandated by DHA:
 
 ---
 
-## 💰 Insurance Costs (2024-2026)
+##  Insurance Costs (2024-2026)
 
 ### Average Annual Premiums
 
@@ -89,7 +89,7 @@ The minimum required coverage mandated by DHA:
 
 ---
 
-## 🏆 Top Health Insurance Providers
+##  Top Health Insurance Providers
 
 ### Local Market Leaders
 
@@ -117,7 +117,7 @@ The minimum required coverage mandated by DHA:
 
 ---
 
-## 🏨 Top Hospitals in Dubai
+##  Top Hospitals in Dubai
 
 ### Public (DHA) Hospitals
 
@@ -150,7 +150,7 @@ The minimum required coverage mandated by DHA:
 
 ---
 
-## 💵 Typical Healthcare Costs (Without Insurance)
+##  Typical Healthcare Costs (Without Insurance)
 
 ### Consultations
 | Service | Cost (AED) |
@@ -178,7 +178,7 @@ The minimum required coverage mandated by DHA:
 
 ---
 
-## 🩺 Accessing Healthcare as an Expat
+##  Accessing Healthcare as an Expat
 
 ### Getting a DHA Health Card
 Required for public facility access:
@@ -211,7 +211,7 @@ Required for public facility access:
 
 ---
 
-## 🤰 Maternity Care
+##  Maternity Care
 
 ### Key Points
 - **Pre-authorization required** from insurance before delivery
@@ -235,7 +235,7 @@ Required for public facility access:
 
 ---
 
-## 💊 Pharmacies & Medications
+##  Pharmacies & Medications
 
 ### Key Information
 - Pharmacies everywhere (in malls, neighborhoods)
@@ -259,7 +259,7 @@ Required for public facility access:
 
 ---
 
-## 🚨 Emergency Services
+##  Emergency Services
 
 ### Emergency Numbers
 - **Ambulance:** 998 (DCAS)
@@ -280,7 +280,7 @@ Required for public facility access:
 
 ---
 
-## 🦷 Dental & Vision Care
+##  Dental & Vision Care
 
 ### Dental
 - **Usually NOT included** in basic insurance plans
@@ -301,7 +301,7 @@ Required for public facility access:
 
 ---
 
-## 📱 Telehealth Options
+##  Telehealth Options
 
 Many providers now offer virtual consultations:
 - **DHA App** - Book appointments, access records

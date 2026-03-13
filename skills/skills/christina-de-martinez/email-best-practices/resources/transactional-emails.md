@@ -12,7 +12,7 @@ Clear, actionable emails that users expect and need—password resets, confirmat
 
 **Be specific and include context:**
 
-| ✅ Good | ❌ Bad |
+|  Good |  Bad |
 |---------|--------|
 | Reset your password for [App] | Action required |
 | Your order #12345 has shipped | Update on your order |

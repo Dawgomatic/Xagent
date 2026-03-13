@@ -234,7 +234,7 @@ async function authenticate(accountName = null) {
   // Check for existing valid tokens
   const existingTokens = loadTokens(accountConfig);
   if (existingTokens && existingTokens.expires_at > Date.now()) {
-    console.log('✅ Already authenticated! Token is valid.');
+    console.log(' Already authenticated! Token is valid.');
     return existingTokens;
   }
   
@@ -243,7 +243,7 @@ async function authenticate(accountName = null) {
   const deviceCodeResponse = await requestDeviceCode(accountConfig);
   
   console.log('\n' + '='.repeat(60));
-  console.log('📱 AUTHENTICATION REQUIRED');
+  console.log(' AUTHENTICATION REQUIRED');
   console.log('='.repeat(60));
   console.log(`\n1. Open this URL: ${deviceCodeResponse.verification_uri}`);
   console.log(`\n2. Enter this code: ${deviceCodeResponse.user_code}`);
@@ -263,7 +263,7 @@ async function authenticate(accountName = null) {
       const tokenResponse = await pollForToken(deviceCodeResponse.device_code, accountConfig);
       const saved = saveTokens(tokenResponse, accountConfig);
       
-      console.log('\n✅ Authentication successful!');
+      console.log('\n Authentication successful!');
       console.log(`Token expires: ${new Date(saved.expires_at).toLocaleString()}`);
       console.log(`Tokens saved to: ${accountConfig.tokenPath}\n`);
       
@@ -293,7 +293,7 @@ if (require.main === module) {
   
   if (command === 'login') {
     authenticate(accountName).catch(err => {
-      console.error('\n❌ Authentication failed:', err.message);
+      console.error('\n Authentication failed:', err.message);
       process.exit(1);
     });
   } else if (command === 'status') {
@@ -304,17 +304,17 @@ if (require.main === module) {
       console.log(`Account: ${accountConfig.name}`);
       
       if (!tokens) {
-        console.log('Status: ❌ Not authenticated');
+        console.log('Status:  Not authenticated');
         process.exit(1);
       }
       
       const expired = tokens.expires_at < Date.now();
-      console.log(`Status: ${expired ? '⚠️  Expired' : '✅ Valid'}`);
+      console.log(`Status: ${expired ? '  Expired' : ' Valid'}`);
       console.log(`Expires: ${new Date(tokens.expires_at).toLocaleString()}`);
       console.log(`Scopes: ${tokens.scope}`);
       process.exit(expired ? 1 : 0);
     } catch (err) {
-      console.error('❌ Error:', err.message);
+      console.error(' Error:', err.message);
       process.exit(1);
     }
   } else if (command === 'token') {
@@ -324,7 +324,7 @@ if (require.main === module) {
         process.exit(0);
       })
       .catch(err => {
-        console.error('❌ Failed to get token:', err.message);
+        console.error(' Failed to get token:', err.message);
         process.exit(1);
       });
   } else {

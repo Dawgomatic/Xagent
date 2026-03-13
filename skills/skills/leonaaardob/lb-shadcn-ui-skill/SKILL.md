@@ -166,5 +166,5 @@ Official shadcn/ui documentation extracted from:
 
 ## License
 
-Documentation content © shadcn. Used for educational purposes under fair use.
-Skill package © OpenClaw Community, MIT License.
+Documentation content  shadcn. Used for educational purposes under fair use.
+Skill package  OpenClaw Community, MIT License.

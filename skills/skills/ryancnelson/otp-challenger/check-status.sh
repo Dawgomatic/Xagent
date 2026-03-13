@@ -29,16 +29,16 @@ fi
 
 # Check if state file exists and validate JSON structure
 if [ ! -f "$STATE_FILE" ]; then
-  echo "❌ Never verified" >&2
+  echo " Never verified" >&2
   exit 1
 fi
 
 # Validate JSON structure, recover if corrupted
 if ! jq empty "$STATE_FILE" 2>/dev/null; then
-  echo "❌ Never verified (state file corrupted)" >&2
+  echo " Never verified (state file corrupted)" >&2
   exit 1
 elif ! jq -e '.verifications' "$STATE_FILE" >/dev/null 2>&1; then
-  echo "❌ Never verified (invalid state structure)" >&2
+  echo " Never verified (invalid state structure)" >&2
   exit 1
 fi
 
@@ -47,7 +47,7 @@ VERIFIED_AT=$(jq -r --arg userId "$USER_ID" '.verifications[$userId].verifiedAt 
 EXPIRES_AT=$(jq -r --arg userId "$USER_ID" '.verifications[$userId].expiresAt // empty' "$STATE_FILE")
 
 if [ -z "$VERIFIED_AT" ] || [ -z "$EXPIRES_AT" ]; then
-  echo "❌ Never verified" >&2
+  echo " Never verified" >&2
   exit 1
 fi
 
@@ -69,7 +69,7 @@ if [ "$NOW_MS" -lt "$EXPIRES_AT" ]; then
     EXPIRES_DATE=$(date -r "$((EXPIRES_AT / 1000))" "+%Y-%m-%d %H:%M:%S")
   fi
   
-  echo "✅ Valid for $REMAINING_HOURS more hours"
+  echo " Valid for $REMAINING_HOURS more hours"
   echo "   Verified: $VERIFIED_DATE"
   echo "   Expires:  $EXPIRES_DATE"
   exit 0
@@ -82,6 +82,6 @@ else
     # BSD/macOS date
     VERIFIED_DATE=$(date -r "$((VERIFIED_AT / 1000))" "+%Y-%m-%d %H:%M:%S")
   fi
-  echo "❌ Expired (last verified: $VERIFIED_DATE)" >&2
+  echo " Expired (last verified: $VERIFIED_DATE)" >&2
   exit 1
 fi

@@ -158,4 +158,4 @@ PRIVATE_KEY=0x... mcporter call 'onlyswaps.swap(fromToken: "0x833589fCD6eDb6E08f
 
 ---
 
-Built by [OnlySwaps](https://onlyswaps.fyi) 🦞
+Built by [OnlySwaps](https://onlyswaps.fyi) 

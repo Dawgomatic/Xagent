@@ -36,7 +36,7 @@ When given text to review or humanize:
 14. **Boldface overuse** — **Mechanical** **emphasis** **everywhere**
 15. **Inline-header lists** — "- **Topic:** Topic is discussed here"
 16. **Title Case headings** — Every Main Word Capitalized In Headings
-17. **Emoji overuse** — 🚀💡✅ decorating professional text
+17. **Emoji overuse** —  decorating professional text
 18. **Curly quotes** — "smart quotes" instead of "straight quotes"
 
 ### Communication Patterns

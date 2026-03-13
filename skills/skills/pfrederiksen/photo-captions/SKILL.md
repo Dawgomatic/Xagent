@@ -11,52 +11,52 @@ If the user specifies gear (camera body, lens, film stock, digital settings), in
 
 ## Platforms
 
-### 📸 Instagram
+###  Instagram
 - **Tone**: Short, evocative, slightly poetic or witty. Let the image speak.
 - **Format**: 1-2 line caption → blank line → gear line (if provided) → blank line → hashtags.
 - **Hashtags**: 10-15 relevant tags. Include `#photography`, location tags, gear tags (e.g. `#kodaktrix`, `#sonygm`), and mood/genre tags. Add `#filmphotography #shootfilm #filmisnotdead` for analog shots.
 
-### 📷 Flickr
+###  Flickr
 - **Tone**: Slightly more descriptive and contemplative. Flickr audiences appreciate story and craft.
 - **Format**: Italicized title, dash, then 1-3 sentences of context/story. End with gear info.
 - **Include**: Location context, what drew the photographer to the shot. Think photo essay voice.
 
-### 🐦 X (Twitter)
+###  X (Twitter)
 - **Tone**: Punchy, concise, dry. Under 280 characters ideally. No hashtag spam.
 - **Format**: One strong line about the image. Gear at the end if it fits naturally.
 - **Goal**: Makes someone stop scrolling.
 
-### 🪟 Glass
+###  Glass
 - **Tone**: Photographer-to-photographer. Understated, genuine. No hashtags, no engagement bait.
 - **Format**: 1-3 sentences. Location and brief observation. Gear on a separate line with middle dots (·) as separators.
 - **Vibe**: Like talking to a friend at a photo walk.
 
-### 🟦 Tumblr
+###  Tumblr
 - **Tone**: More literary, expressive, slightly longer. Tumblr appreciates mood and storytelling.
 - **Format**: Bold location as title. 2-4 sentences of narrative/reflection. Gear line. Then tags.
 - **Tags**: Use spaces in Tumblr tags: `#film photography` not `#filmphotography`. 8-12 tags.
 
-### 🔵 Bluesky
+###  Bluesky
 - **Tone**: Conversational, warm, community-minded. Similar energy to early Twitter.
 - **Format**: 1-2 sentences, casual but thoughtful. Under 300 characters. Gear mention optional.
 - **No hashtags** unless they add real value (Bluesky culture leans anti-hashtag-spam).
 
-### 🧵 Threads
+###  Threads
 - **Tone**: Casual, Instagram-adjacent but more conversational. Think talking to followers, not curating a gallery.
 - **Format**: 1-2 sentences, relaxed. Gear mention if interesting. Minimal hashtags (3-5 max).
 
-### 🔢 500px
+###  500px
 - **Tone**: Technical and craft-focused. 500px is a photography-first community that values technique.
 - **Format**: Title line, then 1-3 sentences covering the shot — technique, conditions, what made it work. Always include full gear details.
 - **Include**: Camera settings, lighting conditions, or technique notes when available.
 
-### 🟠 Reddit
+###  Reddit
 - **Tone**: Authentic, slightly self-deprecating, community-friendly. No self-promotion vibes.
 - **Format**: Post title (concise, descriptive) + comment body with context and gear.
 - **Title**: Location or subject + gear in brackets, e.g. `Bombay Beach [Canon EOS 1V, Tri-X 400]`
 - **Comment**: 2-3 sentences of context/story. Mention relevant subreddits: r/analog for film, r/photography for digital, r/streetphotography, r/LandscapePhotography, etc.
 
-### 👤 Facebook
+###  Facebook
 - **Tone**: Personal, conversational, like sharing with friends and family. Most accessible voice.
 - **Format**: 2-3 casual sentences. Story-driven — where you were, what you were doing, why it caught your eye. Gear mention only if it adds to the story.
 - **No hashtags** (or 1-2 at most). Facebook audiences care about the story, not the craft.

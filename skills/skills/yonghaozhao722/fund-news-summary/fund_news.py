@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 MARKETS = {
     "us": {
         "name": "美股市场 (纳斯达克/标普500)",
-        "emoji": "🇺🇸",
+        "emoji": "",
         "symbols": ["QQQ", "SPY", "AAPL", "MSFT", "NVDA", "GOOGL", "META", "AMZN"],
         "keywords": ["NASDAQ", "S&P 500", "tech", "AI", "芯片"],
         "tool": "finnhub.news.retrieve.v1",
@@ -35,7 +35,7 @@ MARKETS = {
     },
     "europe": {
         "name": "欧洲股市",
-        "emoji": "🇪🇺",
+        "emoji": "",
         "symbols": ["ASML", "SAP", "MC.PA", "AIR.PA", "NESN.SW"],  # LVMH用MC.PA代替
         "keywords": ["Europe", "ECB", "欧股", "ASML", "SAP", "LVMH"],
         "tool": "yahoo_finance.finance_news.v1",
@@ -43,7 +43,7 @@ MARKETS = {
     },
     "japan": {
         "name": "日本股市 (日经225)",
-        "emoji": "🇯🇵",
+        "emoji": "",
         "symbols": ["TM", "SONY", "NTDOY", "HMC", "6758.T"],  # 6758.T是索尼东京代码
         "keywords": ["Nikkei", "Japan", "日经", "丰田", "索尼", "任天堂"],
         "tool": "yahoo_finance.finance_news.v1",
@@ -51,7 +51,7 @@ MARKETS = {
     },
     "gold": {
         "name": "黄金市场",
-        "emoji": "🥇",
+        "emoji": "",
         "symbols": ["GC=F", "GLD", "XAUUSD"],
         "keywords": ["gold", "XAU", "COMEX", "贵金属", "现货黄金"],
         "tool": "finnhub.news.retrieve.v1",
@@ -577,13 +577,13 @@ class FundNewsGenerator:
         # 构建报告
         today_str = datetime.now().strftime("%Y-%m-%d")
         report_lines = [
-            f"📊 **基金新闻摘要** ({today_str})",
+            f" **基金新闻摘要** ({today_str})",
             ""
         ]
         
-        # 🇺🇸 美股市场
+        #  美股市场
         report_lines.extend([
-            "🇺🇸 **美股市场 (纳斯达克/标普500)**",
+            " **美股市场 (纳斯达克/标普500)**",
             ""
         ])
         if us_news:
@@ -598,9 +598,9 @@ class FundNewsGenerator:
             report_lines.append("• 暂无最新美股新闻")
             report_lines.append("")
         
-        # 🇪🇺 欧洲股市
+        #  欧洲股市
         report_lines.extend([
-            "🇪🇺 **欧洲股市**",
+            " **欧洲股市**",
             ""
         ])
         if europe_news:
@@ -616,9 +616,9 @@ class FundNewsGenerator:
             report_lines.append("• 暂无最新欧洲股市新闻")
             report_lines.append("")
         
-        # 🇯🇵 日本股市
+        #  日本股市
         report_lines.extend([
-            "🇯🇵 **日本股市 (日经225)**",
+            " **日本股市 (日经225)**",
             ""
         ])
         if japan_news:
@@ -634,9 +634,9 @@ class FundNewsGenerator:
             report_lines.append("• 暂无最新日本股市新闻")
             report_lines.append("")
         
-        # 🥇 黄金市场
+        #  黄金市场
         report_lines.extend([
-            "🥇 **黄金市场**",
+            " **黄金市场**",
             ""
         ])
         if gold_news:
@@ -651,9 +651,9 @@ class FundNewsGenerator:
             report_lines.append("• 暂无最新黄金新闻")
             report_lines.append("")
         
-        # 🎯 基金相关要点
+        #  基金相关要点
         report_lines.extend([
-            "🎯 **基金相关要点**",
+            " **基金相关要点**",
             ""
         ])
         
@@ -682,9 +682,9 @@ class FundNewsGenerator:
         
         report_lines.append("")
         
-        # ⚠️ 风险提示
+        #  风险提示
         report_lines.extend([
-            "⚠️ **风险提示**",
+            " **风险提示**",
             ""
         ])
         report_lines.append("• 美股市场波动可能受美联储政策及科技股表现影响")
@@ -695,7 +695,7 @@ class FundNewsGenerator:
         report_lines.append("")
         
         # 数据来源
-        report_lines.append(f"⏱️ 获取耗时: {elapsed:.1f}秒 | 📰 数据来源: QVeris API / Finnhub / Yahoo Finance")
+        report_lines.append(f" 获取耗时: {elapsed:.1f}秒 |  数据来源: QVeris API / Finnhub / Yahoo Finance")
         
         return "\n".join(report_lines)
     
@@ -705,28 +705,28 @@ class FundNewsGenerator:
         """
         today_str = datetime.now().strftime("%Y-%m-%d")
         report_lines = [
-            f"📊 **基金新闻摘要** ({today_str})",
+            f" **基金新闻摘要** ({today_str})",
             "",
-            "🇺🇸 **美股市场 (纳斯达克/标普500)**",
+            " **美股市场 (纳斯达克/标普500)**",
             "• AI板块持续受关注，科技股波动需留意",
             "• 美联储政策预期影响市场情绪",
             "",
-            "🇪🇺 **欧洲股市**",
+            " **欧洲股市**",
             "• 关注ASML、SAP等龙头企业动态",
             "• 欧洲央行货币政策维持宽松预期",
             "",
-            "🇯🇵 **日本股市 (日经225)**",
+            " **日本股市 (日经225)**",
             "• 关注日元汇率和日本央行政策动向",
             "• 出口企业受益于汇率变化",
             "",
-            "🥇 **黄金市场**",
+            " **黄金市场**",
             "• 地缘政治风险推升避险需求",
             "• 关注美元指数走势",
             "",
-            "⚠️ **风险提示**",
+            " **风险提示**",
             "• QDII基金受汇率波动影响，投资需谨慎",
             "",
-            "📊 数据来源: 备用数据"
+            " 数据来源: 备用数据"
         ]
         return "\n".join(report_lines)
 

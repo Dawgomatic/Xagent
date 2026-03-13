@@ -1,6 +1,6 @@
 # Installation Guide
 
-## 📦 Quick Installation
+##  Quick Installation
 
 ### 1. Clone or Download the Skill
 
@@ -36,7 +36,7 @@ node scripts/playwright-stealth.js https://example.com
 
 ---
 
-## 🔧 Advanced Installation
+##  Advanced Installation
 
 ### Using with OpenClaw
 
@@ -51,7 +51,7 @@ cp -r playwright-scraper-skill ~/.openclaw/workspace/skills/
 
 ---
 
-## ✅ Verify Installation
+##  Verify Installation
 
 Run the example script:
 
@@ -63,15 +63,15 @@ bash examples/discuss-hk.sh
 If you see output similar to this, installation is successful:
 
 ```
-🕷️  Starting Playwright Stealth scraper...
-📱 Navigating to: https://m.discuss.com.hk/#hot
-📡 HTTP Status: 200
-✅ Scraping complete!
+  Starting Playwright Stealth scraper...
+ Navigating to: https://m.discuss.com.hk/#hot
+ HTTP Status: 200
+ Scraping complete!
 ```
 
 ---
 
-## 🐛 Common Issues
+##  Common Issues
 
 ### Issue: Playwright not found
 
@@ -104,7 +104,7 @@ chmod +x examples/*.sh
 
 ---
 
-## 📝 System Requirements
+##  System Requirements
 
 - **Node.js:** v18+ recommended
 - **OS:** macOS / Linux / Windows
@@ -113,7 +113,7 @@ chmod +x examples/*.sh
 
 ---
 
-## 🚀 Next Steps
+##  Next Steps
 
 After installation, check out:
 - [README.md](README.md) — Quick reference

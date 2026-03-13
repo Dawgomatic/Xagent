@@ -11,7 +11,7 @@ Common coding mistakes with explanations and fixes. Each pattern includes bad/go
 **Problem**: Abbreviations save keystrokes but cost readability. Future readers (including yourself) won't remember what `usrMgr` means.
 
 ```typescript
-// ❌ Bad
+//  Bad
 const usrMgr = new UsrMgr();
 const cfg = loadCfg();
 const btn = document.getElementById('sbmt');
@@ -19,7 +19,7 @@ const val = calc(x, y, z);
 ```
 
 ```typescript
-// ✅ Good
+//  Good
 const userManager = new UserManager();
 const config = loadConfig();
 const submitButton = document.getElementById('submit');
@@ -35,7 +35,7 @@ const totalPrice = calculateTotalPrice(quantity, unitPrice, taxRate);
 **Problem**: Names like `data`, `info`, `item`, `thing`, `manager`, `handler` tell you nothing about what the code does.
 
 ```typescript
-// ❌ Bad
+//  Bad
 function processData(data: any) {
   const info = getData();
   const result = handle(info);
@@ -49,7 +49,7 @@ class Manager {
 ```
 
 ```typescript
-// ✅ Good
+//  Good
 function validateUserRegistration(registration: UserRegistration) {
   const existingUser = findUserByEmail(registration.email);
   const validationResult = checkEmailAvailability(existingUser);
@@ -71,7 +71,7 @@ class ShoppingCart {
 **Problem**: Names that lie are worse than bad names. They actively deceive readers.
 
 ```typescript
-// ❌ Bad - name lies about what it does
+//  Bad - name lies about what it does
 function getUserList() {
   // Actually returns a single user, not a list
   return this.currentUser;
@@ -83,7 +83,7 @@ class AccountList extends Map { } // It's a Map, not a List
 ```
 
 ```typescript
-// ✅ Good - names match behavior
+//  Good - names match behavior
 function getCurrentUser() {
   return this.currentUser;
 }
@@ -102,7 +102,7 @@ class AccountRegistry extends Map { }
 **Problem**: Encoding types in names was useful in weakly-typed languages. TypeScript makes it redundant and noisy.
 
 ```typescript
-// ❌ Bad
+//  Bad
 const strName: string = 'Alice';
 const nCount: number = 42;
 const arrUsers: User[] = [];
@@ -112,7 +112,7 @@ type TUserRole = 'admin' | 'user'; // "T" prefix for types
 ```
 
 ```typescript
-// ✅ Good
+//  Good
 const name: string = 'Alice';
 const count: number = 42;
 const users: User[] = [];
@@ -132,7 +132,7 @@ type UserRole = 'admin' | 'user';
 **Problem**: Functions over 20 lines are hard to understand, test, and modify. They usually do too many things.
 
 ```typescript
-// ❌ Bad - 50+ line function doing everything
+//  Bad - 50+ line function doing everything
 async function processOrder(order: Order) {
   // Validate order
   if (!order.items.length) throw new Error('Empty order');
@@ -164,7 +164,7 @@ async function processOrder(order: Order) {
 ```
 
 ```typescript
-// ✅ Good - composed of small, focused functions
+//  Good - composed of small, focused functions
 async function processOrder(order: Order) {
   validateOrder(order);
   const totals = calculateOrderTotals(order);
@@ -196,7 +196,7 @@ function calculateOrderTotals(order: Order): OrderTotals {
 **Problem**: Functions with 4+ parameters are hard to call correctly and often indicate the function does too much.
 
 ```typescript
-// ❌ Bad - too many parameters, order matters
+//  Bad - too many parameters, order matters
 function createUser(
   firstName: string,
   lastName: string,
@@ -216,7 +216,7 @@ createUser('John', 'Doe', 'john@example.com', 'secret', 'admin', 'Engineering', 
 ```
 
 ```typescript
-// ✅ Good - use an options object
+//  Good - use an options object
 interface CreateUserOptions {
   firstName: string;
   lastName: string;
@@ -254,7 +254,7 @@ createUser({
 **Problem**: Boolean parameters hide branching logic and make function calls unreadable.
 
 ```typescript
-// ❌ Bad - what does `true` mean here?
+//  Bad - what does `true` mean here?
 renderButton('Submit', true, false, true);
 
 function renderButton(
@@ -268,7 +268,7 @@ function renderButton(
 ```
 
 ```typescript
-// ✅ Good - use options object or separate functions
+//  Good - use options object or separate functions
 renderButton({
   label: 'Submit',
   variant: 'primary',
@@ -293,7 +293,7 @@ type ButtonState = 'default' | 'loading' | 'disabled';
 **Problem**: Getters that modify state violate the principle of least surprise. Readers expect getters to be pure.
 
 ```typescript
-// ❌ Bad - getter with hidden side effect
+//  Bad - getter with hidden side effect
 class ShoppingCart {
   private _items: CartItem[] = [];
   private _lastAccessed: Date;
@@ -312,7 +312,7 @@ class ShoppingCart {
 ```
 
 ```typescript
-// ✅ Good - getters are pure, side effects are explicit
+//  Good - getters are pure, side effects are explicit
 class ShoppingCart {
   private _items: CartItem[] = [];
   private _lastAccessed: Date;
@@ -345,7 +345,7 @@ class ShoppingCart {
 **Problem**: Functions that return different types based on conditions make code unpredictable and hard to type.
 
 ```typescript
-// ❌ Bad - return type depends on runtime condition
+//  Bad - return type depends on runtime condition
 function getUser(id: string) {
   const user = database.find(id);
   if (!user) {
@@ -365,7 +365,7 @@ else { /* use result.name */ }
 ```
 
 ```typescript
-// ✅ Good - consistent return type with discriminated union
+//  Good - consistent return type with discriminated union
 type GetUserResult =
   | { status: 'found'; user: User }
   | { status: 'not_found' }
@@ -400,7 +400,7 @@ if (result.status === 'found') {
 **Problem**: Deeply nested code is hard to follow and usually indicates missing abstractions.
 
 ```typescript
-// ❌ Bad - 5 levels deep
+//  Bad - 5 levels deep
 function processOrder(order: Order) {
   if (order) {
     if (order.items.length > 0) {
@@ -428,7 +428,7 @@ function processOrder(order: Order) {
 ```
 
 ```typescript
-// ✅ Good - guard clauses flatten the structure
+//  Good - guard clauses flatten the structure
 function processOrder(order: Order) {
   if (!order) throw new Error('No order');
   if (!order.items.length) throw new Error('No items');
@@ -449,7 +449,7 @@ function processOrder(order: Order) {
 **Problem**: Creating abstractions before you understand the problem leads to wrong abstractions that are hard to change.
 
 ```typescript
-// ❌ Bad - abstraction created for one use case
+//  Bad - abstraction created for one use case
 interface DataFetcher<T> {
   fetch(): Promise<T>;
   cache(): void;
@@ -466,7 +466,7 @@ const userRepo = new GenericRepository(new UserAdapter());
 ```
 
 ```typescript
-// ✅ Good - start simple, abstract when patterns emerge
+//  Good - start simple, abstract when patterns emerge
 // First implementation: just fetch users
 async function fetchUsers(): Promise<User[]> {
   return await db.query('SELECT * FROM users');
@@ -494,7 +494,7 @@ async function fetchUsersWithCache(): Promise<User[]> {
 **Problem**: Building for hypothetical future requirements adds complexity without value.
 
 ```typescript
-// ❌ Bad - enterprise FizzBuzz
+//  Bad - enterprise FizzBuzz
 interface FizzBuzzStrategy {
   applies(n: number): boolean;
   execute(n: number): string;
@@ -527,7 +527,7 @@ const processor = new FizzBuzzProcessor([
 ```
 
 ```typescript
-// ✅ Good - solve the actual problem
+//  Good - solve the actual problem
 function fizzBuzz(n: number): string {
   if (n % 15 === 0) return 'FizzBuzz';
   if (n % 3 === 0) return 'Fizz';
@@ -545,7 +545,7 @@ function fizzBuzz(n: number): string {
 **Problem**: Duplicated code means duplicated bugs and maintenance burden.
 
 ```typescript
-// ❌ Bad - same validation logic copied
+//  Bad - same validation logic copied
 function createUser(data: UserInput) {
   if (!data.email) throw new Error('Email required');
   if (!data.email.includes('@')) throw new Error('Invalid email');
@@ -569,7 +569,7 @@ function inviteUser(data: UserInput) {
 ```
 
 ```typescript
-// ✅ Good - extract shared logic
+//  Good - extract shared logic
 function validateEmail(email: string): void {
   if (!email) throw new Error('Email required');
   if (!email.includes('@')) throw new Error('Invalid email');
@@ -601,7 +601,7 @@ function inviteUser(data: UserInput) {
 **Problem**: Classes that know too much and do too much become unmaintainable.
 
 ```typescript
-// ❌ Bad - class does everything
+//  Bad - class does everything
 class ApplicationManager {
   users: User[] = [];
   orders: Order[] = [];
@@ -632,7 +632,7 @@ class ApplicationManager {
 ```
 
 ```typescript
-// ✅ Good - separate concerns
+//  Good - separate concerns
 class UserService {
   createUser() { /* ... */ }
   deleteUser() { /* ... */ }
@@ -664,7 +664,7 @@ class NotificationService {
 **Problem**: Commented code is dead code. It confuses readers and never gets cleaned up.
 
 ```typescript
-// ❌ Bad
+//  Bad
 function calculateTotal(items: Item[]) {
   let total = 0;
   for (const item of items) {
@@ -681,7 +681,7 @@ function calculateTotal(items: Item[]) {
 ```
 
 ```typescript
-// ✅ Good - delete it, git remembers
+//  Good - delete it, git remembers
 function calculateTotal(items: Item[]) {
   return items.reduce((total, item) => total + item.price, 0);
 }
@@ -696,7 +696,7 @@ function calculateTotal(items: Item[]) {
 **Problem**: Comments that restate the code add noise without value.
 
 ```typescript
-// ❌ Bad - comments that add nothing
+//  Bad - comments that add nothing
 // Increment counter
 counter++;
 
@@ -714,7 +714,7 @@ for (const item of items) {
 ```
 
 ```typescript
-// ✅ Good - code is self-documenting, comments explain WHY
+//  Good - code is self-documenting, comments explain WHY
 counter++; // No comment needed
 
 if (!user) return;
@@ -736,7 +736,7 @@ if (user.isPremium && hoursUntilLaunch < 48) {
 **Problem**: TODOs accumulate and never get done. They become invisible noise.
 
 ```typescript
-// ❌ Bad - TODO graveyard
+//  Bad - TODO graveyard
 function processPayment(amount: number) {
   // TODO: Add retry logic
   // TODO: Handle currency conversion
@@ -750,7 +750,7 @@ function processPayment(amount: number) {
 ```
 
 ```typescript
-// ✅ Good - TODOs are tracked in issues, not code
+//  Good - TODOs are tracked in issues, not code
 function processPayment(amount: number) {
   // See JIRA-1234 for planned retry logic
   return charge(amount);
@@ -771,7 +771,7 @@ async function processPayment(amount: number) {
 **Problem**: Comments that contradict the code are actively harmful.
 
 ```typescript
-// ❌ Bad - comment lies about the code
+//  Bad - comment lies about the code
 // Returns the user's full name (first + last)
 function getUserName(user: User): string {
   return user.email; // Actually returns email!
@@ -790,7 +790,7 @@ function oldFunction() {
 ```
 
 ```typescript
-// ✅ Good - update or remove outdated comments
+//  Good - update or remove outdated comments
 function getUserEmail(user: User): string {
   return user.email;
 }
@@ -817,7 +817,7 @@ function oldFunction() {
 **Problem**: Using exceptions for normal control flow is slow and hard to follow.
 
 ```typescript
-// ❌ Bad - exceptions for expected cases
+//  Bad - exceptions for expected cases
 function findUser(id: string): User {
   try {
     return database.getUser(id);
@@ -836,7 +836,7 @@ function findUser(id: string): User {
 ```
 
 ```typescript
-// ✅ Good - explicit control flow
+//  Good - explicit control flow
 function findUser(id: string): User | null {
   const dbUser = database.getUser(id);
   if (dbUser) return dbUser;
@@ -857,7 +857,7 @@ function findUser(id: string): User | null {
 **Problem**: Using strings where enums or types would be safer leads to typos and missing cases.
 
 ```typescript
-// ❌ Bad - magic strings everywhere
+//  Bad - magic strings everywhere
 function handleStatus(status: string) {
   if (status === 'pending') { /* ... */ }
   else if (status === 'Pending') { /* ... */ } // Typo variant
@@ -869,7 +869,7 @@ user.role = 'admni'; // Typo, no error!
 ```
 
 ```typescript
-// ✅ Good - type-safe enums or unions
+//  Good - type-safe enums or unions
 type Status = 'pending' | 'active' | 'completed' | 'cancelled';
 type UserRole = 'admin' | 'user' | 'guest';
 
@@ -895,7 +895,7 @@ user.role = 'admni'; // TypeScript error!
 **Problem**: Nested callbacks create unreadable, hard-to-debug code.
 
 ```typescript
-// ❌ Bad - callback pyramid
+//  Bad - callback pyramid
 getUser(userId, (err, user) => {
   if (err) return handleError(err);
   getOrders(user.id, (err, orders) => {
@@ -915,7 +915,7 @@ getUser(userId, (err, user) => {
 ```
 
 ```typescript
-// ✅ Good - async/await
+//  Good - async/await
 async function processUserOrder(userId: string) {
   try {
     const user = await getUser(userId);

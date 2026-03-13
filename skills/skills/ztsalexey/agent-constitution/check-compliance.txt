@@ -11,12 +11,12 @@ echo "Checking compliance for agent #$AGENT_ID..."
 RESULT=$(cast call $REGISTRY "isCompliant(uint256)(bool)" $AGENT_ID --rpc-url $RPC 2>&1)
 
 if [[ "$RESULT" == "true" ]]; then
-  echo "✅ Agent #$AGENT_ID is COMPLIANT"
+  echo " Agent #$AGENT_ID is COMPLIANT"
   exit 0
 elif [[ "$RESULT" == "false" ]]; then
-  echo "❌ Agent #$AGENT_ID is NOT COMPLIANT"
+  echo " Agent #$AGENT_ID is NOT COMPLIANT"
   exit 1
 else
-  echo "⚠️ Error checking compliance: $RESULT"
+  echo " Error checking compliance: $RESULT"
   exit 2
 fi

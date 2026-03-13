@@ -30,7 +30,7 @@ uv run scripts/send_to_kindle.py --file essays.epub --kindle-email user@kindle.c
 3. **Compile** - Combine into EPUB with cover embedded
 4. **Send** - Email to Kindle address
 
-⚠️ **Always generate and include cover before sending.** Never send without cover.
+ **Always generate and include cover before sending.** Never send without cover.
 
 ## Supported Sites
 

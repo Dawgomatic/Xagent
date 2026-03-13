@@ -4,7 +4,7 @@ slug: growth-hacker
 version: 1.0.0
 homepage: https://clawic.com/skills/growth-hacker
 description: Drive explosive user growth through rapid experimentation, viral loops, and data-driven tactics.
-metadata: {"clawdbot":{"emoji":"🚀","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

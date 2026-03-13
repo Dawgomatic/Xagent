@@ -11,8 +11,8 @@
 - Caption style: "POV: [relatable couples scenario]"
 
 **Proven results (Jack's content):**
-- 109K likes on "pov: reminding your bf who he belongs to 💖"
-- 5.2M likes on "may this type of love & care find you 💕"
+- 109K likes on "pov: reminding your bf who he belongs to "
+- 5.2M likes on "may this type of love & care find you "
 - 770K likes on "pov: asking ur bf for a taco date night using this widget"
 
 **Why it works:**
@@ -23,12 +23,12 @@
 - Comments asking for app name = free marketing
 
 **Caption templates:**
-- "pov: [action] for your [bf/gf/partner] 💕"
-- "may this type of [emotion] find you 🥹"
+- "pov: [action] for your [bf/gf/partner] "
+- "may this type of [emotion] find you "
 - "when your partner [does sweet thing] using this app"
-- "stop scrolling if you love your [bf/gf] 💖"
+- "stop scrolling if you love your [bf/gf] "
 - "this app lets you [feature] with your partner"
-- "long distance couples need this app 🥺"
+- "long distance couples need this app "
 - "showing my [bf/gf] how much I love them through doodles"
 
 **Variations:**

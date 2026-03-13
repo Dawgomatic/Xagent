@@ -22,7 +22,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-echo "🎬 Creating Remotion project: $PROJECT_NAME"
+echo " Creating Remotion project: $PROJECT_NAME"
 echo "   Template: $TEMPLATE"
 echo ""
 
@@ -34,7 +34,7 @@ cd "$PROJECT_NAME"
 npm init -y > /dev/null 2>&1
 
 # Install Remotion
-echo "📦 Installing Remotion..."
+echo " Installing Remotion..."
 npm install --save-exact remotion @remotion/cli @remotion/tailwind > /dev/null 2>&1
 
 # Install dev deps
@@ -144,7 +144,7 @@ const MessageBubble = ({ text, isUser, delay = 0, emoji }: Message & { delay: nu
           width: 40, height: 40, borderRadius: 20, backgroundColor: "#E53935",
           display: "flex", alignItems: "center", justifyContent: "center",
           marginRight: 8, fontSize: 24,
-        }}>🦞</div>
+        }}></div>
       )}
       <div style={{
         maxWidth: "75%",
@@ -169,12 +169,12 @@ export const ChatDemo: React.FC<{ messages: Message[] }> = ({ messages }) => {
       {/* Status bar */}
       <div style={{ display: "flex", justifyContent: "space-between", padding: "50px 24px 12px", fontSize: 18, fontWeight: 600 }}>
         <span>9:41</span>
-        <div style={{ display: "flex", gap: 8 }}>📶 📡 🔋</div>
+        <div style={{ display: "flex", gap: 8 }}>  </div>
       </div>
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", padding: "16px 20px", borderBottom: "1px solid #E0E0E0", backgroundColor: "#F8F8F8" }}>
         <div style={{ color: "#0088cc", fontSize: 28, marginRight: 12 }}>‹</div>
-        <div style={{ width: 48, height: 48, borderRadius: 24, backgroundColor: "#E53935", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28, marginRight: 12 }}>🦞</div>
+        <div style={{ width: 48, height: 48, borderRadius: 24, backgroundColor: "#E53935", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28, marginRight: 12 }}></div>
         <div>
           <div style={{ fontWeight: 600, fontSize: 22 }}>Lobster</div>
           <div style={{ fontSize: 16, color: "#888" }}>online</div>
@@ -193,11 +193,11 @@ CHATDEMO
             cat > src/messages.json << 'MESSAGES'
 [
   { "text": "What's the battery level?", "isUser": true },
-  { "text": "🔋 Battery: 67% (175 mi)\n⚡ Charging: Disconnected\n🌡️ Inside: 44°F", "isUser": false },
+  { "text": " Battery: 67% (175 mi)\n Charging: Disconnected\n Inside: 44°F", "isUser": false },
   { "text": "Unlock the car", "isUser": true },
-  { "text": "🔓 Car unlocked!", "isUser": false, "emoji": "🚗" },
+  { "text": " Car unlocked!", "isUser": false, "emoji": "" },
   { "text": "Turn on defrost", "isUser": true },
-  { "text": "🔥 Max defrost ON", "isUser": false }
+  { "text": " Max defrost ON", "isUser": false }
 ]
 MESSAGES
         }
@@ -305,7 +305,7 @@ registerRoot(RemotionRoot);
 EOF
 
 echo ""
-echo "✅ Project created: $PROJECT_NAME"
+echo " Project created: $PROJECT_NAME"
 echo ""
 echo "Next steps:"
 echo "  cd $PROJECT_NAME"

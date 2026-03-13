@@ -115,42 +115,42 @@ class StoryVideoGenerator:
         """
         output_path = Path(output_path)
         
-        print(f"\n🎬 STORY-VIDEO GENERATOR")
+        print(f"\n STORY-VIDEO GENERATOR")
         print(f"{'='*60}")
-        print(f"📄 Title: {self.title}")
-        print(f"🎵 Audio: {self.audio_path}")
-        print(f"⏱️  Duration: {self._get_audio_duration():.1f}s")
-        print(f"📝 Text: {len(self.text)} chars, {len(self.text.split())} words\n")
+        print(f" Title: {self.title}")
+        print(f" Audio: {self.audio_path}")
+        print(f"  Duration: {self._get_audio_duration():.1f}s")
+        print(f" Text: {len(self.text)} chars, {len(self.text.split())} words\n")
         
         # Step 1: Transcribe to get word timings
-        print("1️⃣  TRANSCRIBING AUDIO...")
+        print("  TRANSCRIBING AUDIO...")
         word_timings = self._transcribe_audio()
-        print(f"   ✅ {len(word_timings)} words with timing\n")
+        print(f"    {len(word_timings)} words with timing\n")
         
         # Step 2: Parse sections and search for background images
-        print("2️⃣  SEARCHING BACKGROUND IMAGES...")
+        print("  SEARCHING BACKGROUND IMAGES...")
         sections = self._parse_sections()
         background_images = self._get_background_images(sections)
-        print(f"   ✅ Found {len(background_images)} background images\n")
+        print(f"    Found {len(background_images)} background images\n")
         
         # Step 3: Render subtitle frames
-        print("3️⃣  RENDERING SUBTITLES...")
+        print("  RENDERING SUBTITLES...")
         subtitle_frames_dir = self._render_subtitles(word_timings, background_images)
-        print(f"   ✅ Rendered subtitle frames\n")
+        print(f"    Rendered subtitle frames\n")
         
         # Step 4: Compose video with ffmpeg
-        print("4️⃣  COMPOSING VIDEO...")
+        print("  COMPOSING VIDEO...")
         self._compose_video(
             str(self.audio_path),
             subtitle_frames_dir,
             str(output_path)
         )
-        print(f"   ✅ Video composed\n")
+        print(f"    Video composed\n")
         
         print(f"{'='*60}")
-        print(f"✨ VIDEO READY: {output_path}")
-        print(f"📱 Format: YouTube Shorts (9:16, 1080x1920)")
-        print(f"🎬 Duration: {self._get_audio_duration():.1f}s")
+        print(f" VIDEO READY: {output_path}")
+        print(f" Format: YouTube Shorts (9:16, 1080x1920)")
+        print(f" Duration: {self._get_audio_duration():.1f}s")
         print(f"{'='*60}\n")
         
         return str(output_path)
@@ -198,7 +198,7 @@ class StoryVideoGenerator:
                 if i in images:
                     results[i] = images[i]
             except Exception as e:
-                print(f"   ⚠️  Search failed: {e}")
+                print(f"     Search failed: {e}")
         
         # Fallback: create solid color background if no images found
         if not results:
@@ -258,7 +258,7 @@ class StoryVideoGenerator:
         result = subprocess.run(cmd, capture_output=True, text=True)
         
         if result.returncode != 0:
-            print(f"   ❌ ffmpeg error: {result.stderr}")
+            print(f"    ffmpeg error: {result.stderr}")
             raise Exception("Video composition failed")
 
 def main():

@@ -8,7 +8,7 @@ license: MIT
 keywords: [adhd, planner, bullet-journal, daily, productivity, time-blindness, bujo, planning, founders, dopamine, migration, swim-lanes, energy-management, reflection, neurodivergent, executive-function]
 metadata:
   clawdbot:
-    emoji: "📝🧠"
+    emoji: ""
     tags: ["adhd", "planner", "bullet-journal", "daily", "productivity", "time-blindness", "founders", "neurodivergent", "dopamine", "reflection"]
     category: productivity
     requires: {}
@@ -28,7 +28,7 @@ metadata:
     slug: adhd-founder-planner
 ---
 
-# ADHD Daily Planner 📝🧠
+# ADHD Daily Planner 
 
 **Part of the [ADHD-founder.com](https://adhd-founder.com) Ecosystem**
 *"Time-blindness friendly. Migration supported. Dopamine optimized."*
@@ -100,11 +100,11 @@ For detailed workflow templates, see `templates/daily.md` and `templates/reflect
 ADHD brains are time-blind. We use energy-based swim lanes:
 
 ```
-🎯 MUST HAPPEN   → Today's ONE thing (only ONE task here)
-🔥 HIGH ENERGY   → Deep work, creative tasks
-💧 MEDIUM ENERGY → Standard tasks, calls, meetings
-❄️ LOW ENERGY    → Admin, easy wins, mindless tasks
-🚫 NOT TODAY     → Captured but deferred
+ MUST HAPPEN   → Today's ONE thing (only ONE task here)
+ HIGH ENERGY   → Deep work, creative tasks
+ MEDIUM ENERGY → Standard tasks, calls, meetings
+ LOW ENERGY    → Admin, easy wins, mindless tasks
+ NOT TODAY     → Captured but deferred
 ```
 
 Users work in whichever lane matches their CURRENT energy. Tasks can move between lanes.
@@ -123,7 +123,7 @@ For detailed swim lane strategy and custom lane creation, see `references/swim-l
 | `<` | Scheduled for future date |
 | `★` | Today's ONE thing |
 | `☆` | If-energy (nice to have) |
-| `💀` | Dread task (needs extra support) |
+| `` | Dread task (needs extra support) |
 
 For the full symbol set including signifiers and priority markers, see `references/symbols.md`.
 
@@ -147,7 +147,7 @@ For migration decision trees, anti-patterns, and weekly/monthly migration ritual
 
 No absolute times. We use:
 - **Relative time markers** - "morning block" not "9am"
-- **Duration estimates** - ⚡5 min, ⏱️15 min, 🕐30 min, ⏳60+ min
+- **Duration estimates** - 5 min, 15 min, 30 min, 60+ min
 - **Energy mapping** - schedule by energy, not clock
 - **Transition buffers** - 5 min between task types
 
@@ -221,11 +221,11 @@ Evening:
 
 This planner is a free, fully functional daily planning system. It's also part of what [ADHD-founder.com](https://adhd-founder.com) builds for founders 50+ who need systems, not life hacks.
 
-🎯 **Founder Circle Mastermind** - High-ticket accountability for serious founders
-💼 **Executive Consulting** - Operational systems for ADHD entrepreneurs
-📚 **Operating System Course** - Build your own ADHD business framework
+ **Founder Circle Mastermind** - High-ticket accountability for serious founders
+ **Executive Consulting** - Operational systems for ADHD entrepreneurs
+ **Operating System Course** - Build your own ADHD business framework
 
-🔗 **[ADHD-founder.com](https://adhd-founder.com)** | **[Founder Circle](https://adhd-founder.com/founder-circle)**
+ **[ADHD-founder.com](https://adhd-founder.com)** | **[Founder Circle](https://adhd-founder.com/founder-circle)**
 
 ---
 

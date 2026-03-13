@@ -42,9 +42,9 @@
 
 | Attraction | Verdict | Notes |
 |------------|---------|-------|
-| **Buckingham Palace** | ✅ IF open (July-Sept) | Book far ahead |
-| **St Paul's Cathedral** | ✅ Worth the climb | Skip if seen many cathedrals |
-| **Tower Bridge** | ⚠️ View from outside free | Inside optional |
-| **Portobello Market** | ⚠️ Getting touristy | Saturday AM best |
-| **Harrods** | ⚠️ Interesting once | See food halls, leave |
-| **The Shard** | ⚠️ Expensive | Only if free options booked |
+| **Buckingham Palace** |  IF open (July-Sept) | Book far ahead |
+| **St Paul's Cathedral** |  Worth the climb | Skip if seen many cathedrals |
+| **Tower Bridge** |  View from outside free | Inside optional |
+| **Portobello Market** |  Getting touristy | Saturday AM best |
+| **Harrods** |  Interesting once | See food halls, leave |
+| **The Shard** |  Expensive | Only if free options booked |

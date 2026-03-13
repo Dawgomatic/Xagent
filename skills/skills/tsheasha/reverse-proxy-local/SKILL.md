@@ -4,7 +4,7 @@ version: 1.0.0
 description: Connect OpenClaw to the internet via Tailscale Funnel. Use when user says "connect with ecto", "setup ecto connection", "expose openclaw publicly", or "enable external access".
 metadata:
   openclaw:
-    emoji: "🔌"
+    emoji: ""
     author: "OpenClaw"
     commands:
       - connect

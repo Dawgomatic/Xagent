@@ -20,7 +20,7 @@ class TransactionExecutor {
       this.walletAddress = this.wallet.address;
       console.log(`✓ Wallet initialized: ${this.walletAddress}`);
     } else {
-      console.warn('⚠ Wallet not initialized - private key not provided');
+      console.warn(' Wallet not initialized - private key not provided');
     }
     
     this.contracts = {};
@@ -144,7 +144,7 @@ class TransactionExecutor {
         console.log(`  ✓ Tx sent: ${txHash}`);
 
         // Wait for confirmation with timeout
-        console.log(`  ⏳ Waiting for confirmation...`);
+        console.log(`   Waiting for confirmation...`);
         receipt = await this.waitForConfirmation(txHash, 40); // Max 40 blocks
 
         if (receipt.status === 1) {
@@ -160,16 +160,16 @@ class TransactionExecutor {
           return this.logExecution(executionId, action, vaultId, 'SUCCESS', result);
         } else {
           lastError = 'Transaction reverted (status 0)';
-          console.log(`  ⚠ Attempt ${attempt}: ${lastError}`);
+          console.log(`   Attempt ${attempt}: ${lastError}`);
         }
       } catch (error) {
         lastError = error.message;
-        console.log(`  ⚠ Attempt ${attempt} failed: ${lastError}`);
+        console.log(`   Attempt ${attempt} failed: ${lastError}`);
 
         // Check if error is retryable
         if (this.isRetryableError(error) && attempt < maxRetries) {
           const backoffMs = Math.pow(2, attempt - 1) * 3000; // Exponential backoff
-          console.log(`  ⏳ Backing off ${backoffMs}ms before retry...`);
+          console.log(`   Backing off ${backoffMs}ms before retry...`);
           await this.sleep(backoffMs);
         } else if (attempt === maxRetries) {
           console.log(`  ✗ FAILED after ${maxRetries} attempts`);

@@ -226,9 +226,9 @@ When I review your contract, I'll provide:
 
 | Severity | Count | Key Issues |
 |----------|-------|------------|
-| 🔴 High  | X     | [Brief list] |
-| 🟡 Medium| X     | [Brief list] |
-| 🟢 Low   | X     | [Brief list] |
+|  High  | X     | [Brief list] |
+|  Medium| X     | [Brief list] |
+|  Low   | X     | [Brief list] |
 
 **Overall Assessment**: [SAFE / REVIEW NEEDED / HIGH RISK]
 
@@ -236,7 +236,7 @@ When I review your contract, I'll provide:
 
 ### Detailed Findings
 
-#### 🔴 High Risk Issues
+####  High Risk Issues
 
 **1. [Issue Name]** (Section X.X)
 > "[Exact quote from contract]"
@@ -251,10 +251,10 @@ When I review your contract, I'll provide:
 
 ### Completeness Check
 
-✅ Present:
+ Present:
 - [List of included elements]
 
-⚠️ Missing or Unclear:
+ Missing or Unclear:
 - [List of missing elements with recommendations]
 
 ---
@@ -294,15 +294,15 @@ legal advice. For important contracts, consult a qualified attorney.
 
 | Severity | Count | Key Issues |
 |----------|-------|------------|
-| 🔴 High  | 2     | IP assignment too broad, No liability cap |
-| 🟡 Medium| 3     | Non-compete (unenforceable in CA), Auto-renewal, Arbitration |
-| 🟢 Low   | 1     | No audit rights |
+|  High  | 2     | IP assignment too broad, No liability cap |
+|  Medium| 3     | Non-compete (unenforceable in CA), Auto-renewal, Arbitration |
+|  Low   | 1     | No audit rights |
 
-**Overall Assessment**: ⚠️ REVIEW NEEDED
+**Overall Assessment**:  REVIEW NEEDED
 
 ### Detailed Findings
 
-#### 🔴 High Risk Issues
+####  High Risk Issues
 
 **1. Broad IP Assignment** (Section 5.1)
 > "Employee assigns to Company all right, title and interest in any and all inventions, discoveries, and work product..."

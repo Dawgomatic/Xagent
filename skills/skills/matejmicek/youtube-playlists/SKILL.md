@@ -1,7 +1,7 @@
 ---
 name: youtube-playlists
 description: Create and manage YouTube playlists. Use when user wants to create a playlist, add videos to playlists, or manage their YouTube playlists.
-metadata: {"openclaw":{"emoji":"📋","requires":{"bins":["python3"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
 # YouTube Playlists

@@ -232,10 +232,10 @@ for path, h in sorted(data.items()):
         current_hash=$(grep "^${path}"$'\t' "$current_file" 2>/dev/null | cut -f2 || true)
 
         if [[ -z "$current_hash" ]]; then
-            echo -e "  ${RED}❌ REMOVED${RESET}  $path"
+            echo -e "  ${RED} REMOVED${RESET}  $path"
             ((removed++)) || true
         elif [[ "$current_hash" != "$stored_hash" ]]; then
-            echo -e "  ${YELLOW}⚠ MODIFIED${RESET} $path"
+            echo -e "  ${YELLOW} MODIFIED${RESET} $path"
             ((modified++)) || true
         else
             ((unchanged++)) || true
@@ -246,7 +246,7 @@ for path, h in sorted(data.items()):
     while IFS=$'\t' read -r path current_hash; do
         [[ -z "$path" ]] && continue
         if ! grep -q "^${path}"$'\t' "$stored_file" 2>/dev/null; then
-            echo -e "  ${BLUE}🆕 NEW${RESET}      $path"
+            echo -e "  ${BLUE} NEW${RESET}      $path"
             ((new_files++)) || true
         fi
     done < "$current_file"
@@ -255,13 +255,13 @@ for path, h in sorted(data.items()):
     echo ""
     echo -e "${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
     echo -e "  ${GREEN}✓ Unchanged:${RESET} ${unchanged}"
-    echo -e "  ${YELLOW}⚠ Modified:${RESET}  ${modified}"
-    echo -e "  ${BLUE}🆕 New:${RESET}       ${new_files}"
-    echo -e "  ${RED}❌ Removed:${RESET}  ${removed}"
+    echo -e "  ${YELLOW} Modified:${RESET}  ${modified}"
+    echo -e "  ${BLUE} New:${RESET}       ${new_files}"
+    echo -e "  ${RED} Removed:${RESET}  ${removed}"
     echo ""
 
     if [[ $modified -gt 0 || $removed -gt 0 ]]; then
-        echo -e "  ${RED}${BOLD}⚠ Integrity violations detected!${RESET}"
+        echo -e "  ${RED}${BOLD} Integrity violations detected!${RESET}"
         echo -e "  ${DIM}Review changes. Run --update to accept current state.${RESET}"
         echo ""
         exit 1

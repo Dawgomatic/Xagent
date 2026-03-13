@@ -21,21 +21,21 @@ Target: 50-90 words.
 
 ### Line 1: Situation Recognition (1 sentence)
 Describe THEIR exact situation. Be direct.
-- ✅ "Saw you posted about {{ai_generation}}—seems like it was {{days_ago}} days since the one before that."
-- ❌ "I hope this email finds you well!"
+-  "Saw you posted about {{ai_generation}}—seems like it was {{days_ago}} days since the one before that."
+-  "I hope this email finds you well!"
 
 ### Line 2: Value Prop + Proof (1-2 sentences MAX)
 What you do + metric. No fluff.
-- ✅ "We helped companies like Lemlist double down on social with our scheduling tool."
-- ✅ "We've attributed a 4.7x increase in upgrades after adding product videos."
+-  "We helped companies like Lemlist double down on social with our scheduling tool."
+-  "We've attributed a 4.7x increase in upgrades after adding product videos."
 
 ### Optional: The "Specifically" Line
 > "Specifically, it looks like you're trying to sell to {{customer_type}}, and we can help with that."
 
 ### Line 3: Low-Effort CTA (1 sentence)
 Binary question or simple offer.
-- ✅ "Worth a look?"
-- ✅ "Could I send you access?"
+-  "Worth a look?"
+-  "Could I send you access?"
 
 ## How to Make Emails Punchier
 

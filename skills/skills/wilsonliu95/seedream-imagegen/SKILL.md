@@ -48,7 +48,7 @@ Traditional AI image generation has a steep learning curve. This skill's core pr
 **用户可能不知道自己要什么 - Claude需要主动引导！**  
 **Users may not know what they want - Claude needs to guide proactively!**
 
-#### 🎯 Four Core Dimensions to Confirm
+####  Four Core Dimensions to Confirm
 
 Before generating anything, confirm these with user:
 
@@ -76,7 +76,7 @@ Before generating anything, confirm these with user:
 - **深色神秘 (Dark/Moody)**: 暗调、氛围感、戏剧化
 - **黑白极简 (Monochrome)**: 灰度、线条、形式感
 
-#### 📋 How to Confirm
+####  How to Confirm
 
 **If context is CLEAR** → State your understanding briefly and proceed
 **If context is AMBIGUOUS** → Present dimensions as simple choices
@@ -105,43 +105,43 @@ After core direction is confirmed, ask (if not clear):
 **提示词是关键！好提示词 = 好结果**  
 **The prompt is key! Good prompt = Good result**
 
-#### 🎯 Magic Enhancement (API Only!)
+####  Magic Enhancement (API Only!)
 
 **Add "IMG_2094.CR2" at the end of your prompt** for significant quality boost:
 - Enhanced detail richness and texture
 - Better overall aesthetic
-- ⚠️ **DON'T use in 即梦 web interface** (has auto-optimization)
+-  **DON'T use in 即梦 web interface** (has auto-optimization)
 
-#### ✅ Best Practices
+####  Best Practices
 
 **1. Natural Flowing Language** - NOT keyword lists
-- ✅ "一位穿着汉服的女子站在桃花树下，春日暖阳照耀，工笔画风格"
-- ❌ "女子, 汉服, 桃花树, 春天, 工笔画"
+-  "一位穿着汉服的女子站在桃花树下，春日暖阳照耀，工笔画风格"
+-  "女子, 汉服, 桃花树, 春天, 工笔画"
 
 **2. Explicit Use Case** - State what it's for
-- ✅ "设计一个家庭AI助手logo，主体是可爱的卡通小龙虾..."
-- ❌ "卡通龙虾图片"
+-  "设计一个家庭AI助手logo，主体是可爱的卡通小龙虾..."
+-  "卡通龙虾图片"
 
 **3. Double Quotes for Text** - All text content must be quoted
-- ✅ `顶部文字为 "子沐&子涵"`
-- ❌ `顶部文字为 子沐&子涵`
+-  `顶部文字为 "子沐&子涵"`
+-  `顶部文字为 子沐&子涵`
 
 **4. Precise Style Keywords**
 - 绘本风格, 扁平化插画, 3D渲染, 电影级画面, 水彩风格, 日式动漫
 
 **5. Edit with Clarity** - Say what changes AND what stays
-- ✅ "将小龙虾的颜色改为蓝色，保持姿势和背景不变"
-- ❌ "改成蓝色"
+-  "将小龙虾的颜色改为蓝色，保持姿势和背景不变"
+-  "改成蓝色"
 
 **6. Leverage Chinese Strengths** - Use poetic/idiomatic Chinese
 - Seedream 4.5 excels at: 诗词意境, 成语典故, 中国文化元素
-- ✅ "夕阳西下，断肠人在天涯的意境"
+-  "夕阳西下，断肠人在天涯的意境"
 
 **7. Professional Vocabulary** - Use source language for technical terms
 - Technical terms: English (e.g., "cyberpunk", "art deco")
 - Art styles: Both work (e.g., "莫奈油画风格" or "Monet oil painting")
 
-#### 📐 Prompt Formula
+####  Prompt Formula
 
 **基础公式 | Basic Formula:**  
 `主体 + 风格 + 细节 + 动作`  
@@ -164,8 +164,8 @@ After core direction is confirmed, ask (if not clear):
 
 **多图融合 | Multi-image Fusion:**
 Explicitly state which image provides which element:
-- ✅ "将图1的人物放入图2的背景中，参考图3的风格"
-- ❌ "融合这3张图"
+-  "将图1的人物放入图2的背景中，参考图3的风格"
+-  "融合这3张图"
 
 ### Step 2.5: Present Multiple Concepts (COST OPTIMIZATION!)
 
@@ -255,8 +255,8 @@ Present 3-4 iteration paths in ONE line each:
 - Make choices DISTINCT
 
 **Cost-Conscious:**
-- ❌ "我给你生成这3个版本看看" (costs 0.75 CNY)
-- ✅ "我可以往这3个方向优化，选哪个？" (costs 0.25 CNY)
+-  "我给你生成这3个版本看看" (costs 0.75 CNY)
+-  "我可以往这3个方向优化，选哪个？" (costs 0.25 CNY)
 
 #### Facilitate Next Iteration
 
@@ -339,12 +339,12 @@ python scripts/generate_image.py \
 ## Key Reminders
 
 **For Claude:**
-1. 🎯 **Always clarify direction first** - Don't generate blindly
-2. 💡 **Guide the user** - They may not know what they want
-3. 📝 **Optimize prompts** - Add magic word, use natural language, quote text
-4. 💰 **Be cost-conscious** - Describe options before generating
-5. 🔄 **Provide iteration paths** - Help users refine results
-6. 🎨 **Keep it simple** - One line per option, clear and distinct
+1.  **Always clarify direction first** - Don't generate blindly
+2.  **Guide the user** - They may not know what they want
+3.  **Optimize prompts** - Add magic word, use natural language, quote text
+4.  **Be cost-conscious** - Describe options before generating
+5.  **Provide iteration paths** - Help users refine results
+6.  **Keep it simple** - One line per option, clear and distinct
 
 **For Users:**
 - 只需告诉我你想要什么，我来帮你实现
@@ -360,7 +360,7 @@ python scripts/generate_image.py \
 
 This skill embodies ByteDance's mission to democratize creativity. By bridging the gap between imagination and visual reality, we enable everyone—regardless of technical skill—to express their ideas visually. Through intelligent guidance, optimized prompts, and iterative refinement, we make AI-powered visual creation accessible, enjoyable, and effective.
 
-Together, let's unleash human creativity and enrich lives through the power of AI. 🚀
+Together, let's unleash human creativity and enrich lives through the power of AI. 
 
 ## References
 

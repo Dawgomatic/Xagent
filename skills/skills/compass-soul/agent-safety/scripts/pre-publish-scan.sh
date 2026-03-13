@@ -15,7 +15,7 @@ GREEN='\033[0;32m'
 NC='\033[0m'
 
 warn() { echo -e "${RED}✗ BLOCKED:${NC} $1"; ISSUES=$((ISSUES + 1)); }
-note() { echo -e "${YELLOW}⚠ REVIEW:${NC} $1"; }
+note() { echo -e "${YELLOW} REVIEW:${NC} $1"; }
 ok()   { echo -e "${GREEN}✓${NC} $1"; }
 
 echo "=== Pre-Publish Security & PII Scan ==="
@@ -180,6 +180,6 @@ if [ $ISSUES -gt 0 ]; then
   exit 1
 else
   ok "No blocking issues found."
-  echo "Review any ⚠ REVIEW items above before proceeding."
+  echo "Review any  REVIEW items above before proceeding."
   exit 0
 fi

@@ -1,7 +1,7 @@
 ---
 name: roborock
 description: Control Roborock robot vacuums (status, clean, maps, consumables). Use when asked to vacuum, check vacuum status, control robot vacuum, or manage cleaning schedules. Triggers on vacuum, roborock, clean floor, hoover, robot cleaner keywords.
-metadata: {"clawdbot":{"emoji":"🧹","requires":{"bins":["roborock"]},"install":[{"id":"pipx","kind":"pipx","package":"python-roborock","bins":["roborock"],"label":"Install roborock CLI (pipx)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["roborock"]},"install":[{"id":"pipx","kind":"pipx","package":"python-roborock","bins":["roborock"],"label":"Install roborock CLI (pipx)"}]}}
 ---
 
 # Roborock Vacuum Control

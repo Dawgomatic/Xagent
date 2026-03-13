@@ -111,7 +111,7 @@ Send the same message to multiple WhatsApp groups.
 bash ~/baby-brain/scripts/whatsapp.sh groups --list
 
 # Step 2: Draft message
-MESSAGE="🎉 Important Announcement! 🎉
+MESSAGE=" Important Announcement! 
 
 Hello everyone! This is a test broadcast message from BABY Brain.
 
@@ -120,7 +120,7 @@ Hello everyone! This is a test broadcast message from BABY Brain.
 - Feature 3: 100% reliable
 
 Best regards,
-BABY Brain 🤖"
+BABY Brain "
 
 # Step 3: Send broadcast (test first)
 echo "$MESSAGE" | bash ~/baby-brain/scripts/whatsapp.sh broadcast \

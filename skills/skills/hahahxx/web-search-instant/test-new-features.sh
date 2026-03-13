@@ -78,7 +78,7 @@ if [ "$RELATED_COUNT" -le 2 ]; then
     echo -e "${GREEN}✓ PASS${NC} Limited to 2 or fewer related topics (found: $RELATED_COUNT)"
     PASSED=$((PASSED + 1))
 else
-    echo -e "${YELLOW}⚠ WARN${NC} Found $RELATED_COUNT related topics (expected ≤2)"
+    echo -e "${YELLOW} WARN${NC} Found $RELATED_COUNT related topics (expected ≤2)"
     FAILED=$((FAILED + 1))
 fi
 echo ""
@@ -91,7 +91,7 @@ if [ "$RELATED_COUNT" -ge 5 ]; then
     echo -e "${GREEN}✓ PASS${NC} Increased to at least 5 related topics (found: $RELATED_COUNT)"
     PASSED=$((PASSED + 1))
 else
-    echo -e "${YELLOW}⚠ WARN${NC} Found only $RELATED_COUNT related topics (expected ≥5)"
+    echo -e "${YELLOW} WARN${NC} Found only $RELATED_COUNT related topics (expected ≥5)"
     FAILED=$((FAILED + 1))
 fi
 echo ""
@@ -161,7 +161,7 @@ if echo "$OUTPUT" | grep -q "Invalid format" || echo "$OUTPUT" | grep -q "text, 
     echo -e "${GREEN}✓ PASS${NC} Invalid format rejected with helpful message"
     PASSED=$((PASSED + 1))
 else
-    echo -e "${YELLOW}⚠ WARN${NC} Invalid format not properly validated"
+    echo -e "${YELLOW} WARN${NC} Invalid format not properly validated"
     FAILED=$((FAILED + 1))
 fi
 echo ""
@@ -173,7 +173,7 @@ if echo "$OUTPUT" | grep -q $'\033\[0;34m' && echo "$OUTPUT" | grep -q "Searchin
     echo -e "${GREEN}✓ PASS${NC} Default format has colored headers"
     PASSED=$((PASSED + 1))
 else
-    echo -e "${YELLOW}⚠ WARN${NC} Default format may not have colors"
+    echo -e "${YELLOW} WARN${NC} Default format may not have colors"
     # Not counting as failure, might be environment-specific
 fi
 echo ""

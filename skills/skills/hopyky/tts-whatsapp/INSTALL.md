@@ -1,4 +1,4 @@
-# 📦 Installation Guide
+#  Installation Guide
 
 Complete installation guide for the tts-whatsapp skill.
 
@@ -6,10 +6,10 @@ Complete installation guide for the tts-whatsapp skill.
 
 Before installing this skill, ensure you have:
 
-1. ✅ **Clawdbot** installed and configured
-2. ✅ **WhatsApp** connected to Clawdbot
-3. ✅ **Node.js** v14 or higher
-4. ✅ **Python 3.9+** (for Piper TTS)
+1.  **Clawdbot** installed and configured
+2.  **WhatsApp** connected to Clawdbot
+3.  **Node.js** v14 or higher
+4.  **Python 3.9+** (for Piper TTS)
 
 ## Step 1: Install Dependencies
 
@@ -165,9 +165,9 @@ tts-whatsapp "This is a test" --no-send
 ```
 
 You should see:
-- ✅ TTS generation successful
-- ✅ Conversion to OGG successful
-- ✅ File path displayed
+-  TTS generation successful
+-  Conversion to OGG successful
+-  File path displayed
 
 ### Test sending to yourself
 
@@ -260,13 +260,13 @@ pip3 uninstall piper-tts
 
 ## Next Steps
 
-- 📖 Read [README.md](README.md) for usage examples
-- 🌍 Check [LANGUAGES.md](LANGUAGES.md) for all available voices
-- 🎤 Test different voices and qualities
-- 👥 Try sending to WhatsApp groups
+-  Read [README.md](README.md) for usage examples
+-  Check [LANGUAGES.md](LANGUAGES.md) for all available voices
+-  Test different voices and qualities
+-  Try sending to WhatsApp groups
 
 ## Need Help?
 
-- 📚 [Full Documentation](README.md)
-- 🐛 [Report Issues](https://github.com/clawdbot/clawdhub/issues)
-- 💬 [Clawdbot Discussions](https://github.com/clawdbot/clawdbot/discussions)
+-  [Full Documentation](README.md)
+-  [Report Issues](https://github.com/clawdbot/clawdhub/issues)
+-  [Clawdbot Discussions](https://github.com/clawdbot/clawdbot/discussions)

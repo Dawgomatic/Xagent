@@ -52,11 +52,11 @@ sys.path.insert(0, str(SCRIPT_DIR))
 KAKAO_TEXT_LIMIT = 900  # 카카오 SimpleText 최대 1000자, 안전 마진 100자
 MAX_OUTPUTS = 5  # 카카오 응답 최대 outputs 개수
 
-GREETING_MESSAGE = """안녕하세요! 저는 라온이에요 🌅
+GREETING_MESSAGE = """안녕하세요! 저는 라온이에요 
 
 창업 아이디어나 사업계획서를 알려주시면 맞춤 분석을 해드려요.
 
-💡 이런 걸 도와드릴 수 있어요:
+ 이런 걸 도와드릴 수 있어요:
 • 사업계획서 평가 (TIPS 기준)
 • 소상공인 창업 컨설팅
 • 정부 지원사업 매칭
@@ -110,7 +110,7 @@ class KakaoWebhook:
             pass
 
         if not utterance:
-            return self.format_response("메시지를 입력해주세요 😊")
+            return self.format_response("메시지를 입력해주세요 ")
 
         # 인사말 처리
         if utterance.lower() in ("안녕", "안녕하세요", "hi", "hello", "시작", "처음부터"):
@@ -190,7 +190,7 @@ class KakaoWebhook:
                 strategy = "llm"
             except Exception as e:
                 print(f"[kakao_webhook] LLM 폴백 실패: {e}", file=sys.stderr)
-                answer = "죄송해요, 지금 일시적으로 응답이 어렵습니다. 잠시 후 다시 시도해주세요 😊"
+                answer = "죄송해요, 지금 일시적으로 응답이 어렵습니다. 잠시 후 다시 시도해주세요 "
 
         # 세션 히스토리 업데이트
         session.setdefault("history", []).extend([

@@ -1,7 +1,7 @@
 ---
 name: japanfinance-agent
 description: "Compound MCP agent combining 6 Japan finance data sources — EDINET securities filings (有価証券報告書), TDNET timely disclosures (適時開示), e-Stat government statistics (GDP/CPI/雇用), BOJ central bank data (金利/マネーサプライ), financial news, J-Quants stock prices. Company analysis, macro snapshots, earnings monitoring. Japanese financial data aggregator."
-metadata: {"openclaw":{"emoji":"🏯","requires":{"bins":["japanfinance-agent"]},"install":[{"id":"uv","kind":"uv","package":"japanfinance-agent[all]","bins":["japanfinance-agent"],"label":"Install japanfinance-agent with all data sources (uv)"}],"tags":["japan","finance","mcp","agent","edinet","tdnet","estat","boj","stock","compound-analysis"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["japanfinance-agent"]},"install":[{"id":"uv","kind":"uv","package":"japanfinance-agent[all]","bins":["japanfinance-agent"],"label":"Install japanfinance-agent with all data sources (uv)"}],"tags":["japan","finance","mcp","agent","edinet","tdnet","estat","boj","stock","compound-analysis"]}}
 ---
 
 # Japan Finance Agent: Compound Analysis from 6 Data Sources

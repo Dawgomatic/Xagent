@@ -37,11 +37,11 @@ cd ~/.openclaw/skills/ai-media
 
 ## Status
 
-✅ **Talking heads** — SadTalker fully working  
-⏳ **Video (AnimateDiff)** — Working, automation pending  
-⏳ **Video (LTX-2)** — Models ready, workflow integration pending  
-⏳ **Image** — Models downloading (z-image 43%, Juggernaut ready)  
-⏳ **Audio** — Using gTTS, Voxtral integration pending  
+ **Talking heads** — SadTalker fully working  
+ **Video (AnimateDiff)** — Working, automation pending  
+ **Video (LTX-2)** — Models ready, workflow integration pending  
+ **Image** — Models downloading (z-image 43%, Juggernaut ready)  
+ **Audio** — Using gTTS, Voxtral integration pending  
 
 ## GPU Server
 
@@ -54,8 +54,8 @@ SSH key required: `~/.ssh/id_ed25519_alexchen`
 
 ## Next Steps
 
-1. ✅ Complete z-image download (9/21 files, ~57% remaining)
-2. ✅ Set up LTX-2 ComfyUI workflow
+1.  Complete z-image download (9/21 files, ~57% remaining)
+2.  Set up LTX-2 ComfyUI workflow
 3. Implement ComfyUI API automation (HTTP calls instead of manual)
 4. Integrate Voxtral for higher quality TTS
 5. Add batch generation support

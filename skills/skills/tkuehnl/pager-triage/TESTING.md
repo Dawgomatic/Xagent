@@ -150,7 +150,7 @@ export PAGERDUTY_EMAIL="you@company.com"
 
 ### T-INT-6: Full write workflow
 
-> ⚠️ This test creates real state changes in PagerDuty. Use a test service/incident.
+>  This test creates real state changes in PagerDuty. Use a test service/incident.
 
 ```bash
 # Step 1: Create a test incident via PagerDuty API or UI

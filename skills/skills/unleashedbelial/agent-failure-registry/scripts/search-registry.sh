@@ -143,34 +143,34 @@ def format_entry(data, file_path):
     
     output = []
     output.append(f"\n{'='*60}")
-    output.append(f"📋 {data.get('title', 'Untitled')}")
-    output.append(f"📁 Category: {data.get('category', 'unknown')}")
-    output.append(f"🏷️  Tags: {', '.join(data.get('tags', []))}")
-    output.append(f"📄 Source: {file_path}")
+    output.append(f" {data.get('title', 'Untitled')}")
+    output.append(f" Category: {data.get('category', 'unknown')}")
+    output.append(f"  Tags: {', '.join(data.get('tags', []))}")
+    output.append(f" Source: {file_path}")
     output.append(f"{'='*60}")
     
     if data.get('summary'):
-        output.append(f"\n💡 SUMMARY:")
+        output.append(f"\n SUMMARY:")
         output.append(f"{data['summary']}")
     
     if data.get('root_cause'):
-        output.append(f"\n🔍 ROOT CAUSE:")
+        output.append(f"\n ROOT CAUSE:")
         output.append(f"{data['root_cause']}")
     
     if data.get('fix'):
-        output.append(f"\n✅ FIX:")
+        output.append(f"\n FIX:")
         output.append(f"{data['fix']}")
     
     if data.get('prevention'):
-        output.append(f"\n🛡️  PREVENTION:")
+        output.append(f"\n  PREVENTION:")
         output.append(f"{data['prevention']}")
     
     if data.get('lessons'):
-        output.append(f"\n📚 LESSONS LEARNED:")
+        output.append(f"\n LESSONS LEARNED:")
         output.append(f"{data['lessons']}")
     
     confidence = data.get('confidence', 'unknown')
-    output.append(f"\n🎯 Confidence: {confidence}/5")
+    output.append(f"\n Confidence: {confidence}/5")
     
     return '\n'.join(output)
 
@@ -209,13 +209,13 @@ for search_dir in search_dirs:
             found_count += 1
 
 if found_count == 0:
-    print("\n🔍 No matching entries found.")
+    print("\n No matching entries found.")
     print("\nTry:")
     print("  • Broader search terms")
     print("  • Different categories or tags")
     print("  • --all to browse everything")
 else:
-    print(f"\n✅ Found {found_count} matching entries.")
+    print(f"\n Found {found_count} matching entries.")
 
 EOF
 }
@@ -267,14 +267,14 @@ search_with_grep() {
     
     # Display results
     if [ ${#found_files[@]} -eq 0 ]; then
-        echo -e "\n🔍 No matching entries found."
+        echo -e "\n No matching entries found."
         return
     fi
     
     for file in "${found_files[@]}"; do
         echo -e "\n${'='*60}"
-        echo -e "${BOLD}📄 $(basename "$file")${NC}"
-        echo -e "📁 Source: ${file#$REPO_DIR/}"
+        echo -e "${BOLD} $(basename "$file")${NC}"
+        echo -e " Source: ${file#$REPO_DIR/}"
         echo -e "${'='*60}"
         
         # Extract and display key fields
@@ -282,12 +282,12 @@ search_with_grep() {
         grep -E "^(title|category|summary|root_cause|fix|prevention|lessons|confidence):" "$file" 2>/dev/null | head -20
     done
     
-    echo -e "\n✅ Found ${#found_files[@]} matching entries."
+    echo -e "\n Found ${#found_files[@]} matching entries."
 }
 
 # Main execution
 main() {
-    echo -e "${BOLD}🔍 Agent Failure Registry Search${NC}"
+    echo -e "${BOLD} Agent Failure Registry Search${NC}"
     
     # Setup repository
     setup_repo
@@ -297,9 +297,9 @@ main() {
     
     # Show search criteria
     if [ "$SHOW_ALL" = true ]; then
-        echo -e "${BLUE}📋 Showing all entries${NC}"
+        echo -e "${BLUE} Showing all entries${NC}"
     else
-        echo -e "${BLUE}📋 Search criteria:${NC}"
+        echo -e "${BLUE} Search criteria:${NC}"
         [ ${#CATEGORIES[@]} -gt 0 ] && echo "   Categories: ${CATEGORIES[*]}"
         [ ${#TAGS[@]} -gt 0 ] && echo "   Tags: ${TAGS[*]}"
         [ ${#KEYWORDS[@]} -gt 0 ] && echo "   Keywords: ${KEYWORDS[*]}"

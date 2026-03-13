@@ -30,7 +30,7 @@ from pathlib import Path
 try:
     import requests
 except ImportError:
-    print("❌ Error: requests module required", file=sys.stderr)
+    print(" Error: requests module required", file=sys.stderr)
     print("   pip install requests", file=sys.stderr)
     sys.exit(1)
 
@@ -40,8 +40,8 @@ DEFAULT_VOICE = "A warm, gentle young Italian female voice with clear pronunciat
 
 def synthesize(remote_url, text, voice_desc, language, instruct, output_path):
     """Synthesize speech using VoiceDesign server."""
-    print(f"🌐 Server: {remote_url}", file=sys.stderr)
-    print(f"🎙️  Voice: {voice_desc[:60]}...", file=sys.stderr)
+    print(f" Server: {remote_url}", file=sys.stderr)
+    print(f"  Voice: {voice_desc[:60]}...", file=sys.stderr)
     
     try:
         response = requests.post(
@@ -56,7 +56,7 @@ def synthesize(remote_url, text, voice_desc, language, instruct, output_path):
         )
         
         if response.status_code != 200:
-            print(f"❌ Server error: {response.status_code}", file=sys.stderr)
+            print(f" Server error: {response.status_code}", file=sys.stderr)
             print(response.text, file=sys.stderr)
             sys.exit(1)
         
@@ -67,11 +67,11 @@ def synthesize(remote_url, text, voice_desc, language, instruct, output_path):
         with open(output_path, 'wb') as f:
             f.write(response.content)
         
-        print(f"✅ Audio saved: {output_path}", file=sys.stderr)
+        print(f" Audio saved: {output_path}", file=sys.stderr)
         print(str(output_path))
         
     except requests.exceptions.RequestException as e:
-        print(f"❌ Connection error: {e}", file=sys.stderr)
+        print(f" Connection error: {e}", file=sys.stderr)
         print(f"   Is server running at {remote_url}?", file=sys.stderr)
         sys.exit(1)
 
@@ -99,7 +99,7 @@ def main():
     args = parser.parse_args()
     
     if not args.remote:
-        print("❌ Error: --remote URL required", file=sys.stderr)
+        print(" Error: --remote URL required", file=sys.stderr)
         print("   Or set: export QWEN_TTS_REMOTE=http://192.168.188.177:8765", file=sys.stderr)
         sys.exit(1)
     

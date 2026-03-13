@@ -469,7 +469,7 @@ def format_output(
         return "\n".join(lines)
     
     else:  # markdown
-        risk_emoji = {"high": "🔴", "medium": "🟡", "low": "🟢", "unknown": "⚪"}
+        risk_emoji = {"high": "", "medium": "", "low": "", "unknown": ""}
         
         lines = [
             f"# Clause Extraction Report",
@@ -483,7 +483,7 @@ def format_output(
         ]
         
         for clause in clauses:
-            emoji = risk_emoji.get(clause.risk_level, "⚪")
+            emoji = risk_emoji.get(clause.risk_level, "")
             
             lines.append(f"## {emoji} {clause.clause_type.replace('_', ' ').title()}")
             if clause.section:
@@ -499,7 +499,7 @@ def format_output(
             lines.append(f"**Analysis:** {clause.risk_notes}")
             if clause.suggested_revision:
                 lines.append("")
-                lines.append(f"**💡 Suggested Revisions:** {clause.suggested_revision}")
+                lines.append(f"** Suggested Revisions:** {clause.suggested_revision}")
             lines.append("")
             lines.append("---")
             lines.append("")

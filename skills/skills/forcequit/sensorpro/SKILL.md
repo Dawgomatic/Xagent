@@ -3,7 +3,7 @@ name: sensorpro
 description: "Manage your Sensorpro email marketing account in OpenClaw."
 metadata:
   openclaw:
-    emoji: "📨"
+    emoji: ""
     homepage: "https://github.com/forcequit/openclaw-sensorpro"
     requires:
       env: ["SENSORPRO_API_KEY","SENSORPRO_ORG","SENSORPRO_USER","SENSORPRO_PASS"]

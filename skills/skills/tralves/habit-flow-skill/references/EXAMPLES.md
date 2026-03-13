@@ -44,7 +44,7 @@ npx tsx scripts/parse_natural_language.ts --text "I meditated today"
 npx tsx scripts/log_habit.ts --habit-id h_abc123 --status completed
 ```
 4. Respond:
-> "Logged! 🔥 Your meditation streak is now 8 days (excellent quality). You're at 87% completion this week. Keep it up!"
+> "Logged!  Your meditation streak is now 8 days (excellent quality). You're at 87% completion this week. Keep it up!"
 
 ## Example 3: Struggling User
 
@@ -81,9 +81,9 @@ npx tsx scripts/calculate_streaks.ts --all
 3. Respond with summary:
 > "Here's your weekly progress:
 >
-> **Meditation** - 6/7 days (86%) - 12-day streak 🔥
+> **Meditation** - 6/7 days (86%) - 12-day streak 
 > **Exercise** - 4/7 days (57%) - 2-day streak
-> **Reading** - 7/7 days (100%) - 21-day streak! 🎉
+> **Reading** - 7/7 days (100%) - 21-day streak! 
 >
 > You're doing great overall! Reading is solid. Want to work on exercise consistency?"
 
@@ -102,11 +102,11 @@ npx tsx assets/canvas-dashboard.ts streak \
 3. Display image and celebrate:
 > [Display celebration.png]
 >
-> 🎉 MAJOR MILESTONE! You've hit a 21-DAY STREAK on meditation!
+>  MAJOR MILESTONE! You've hit a 21-DAY STREAK on meditation!
 >
 > This is HUGE! Research shows it takes 21+ days to form a habit. You're officially building neural pathways that make this automatic. You're not just meditating—you ARE a meditator now. That's identity-level change!
 >
-> Keep this momentum going. The hardest part is behind you. 💪
+> Keep this momentum going. The hardest part is behind you. 
 
 ## Example 6: Persona Switch
 
@@ -123,11 +123,11 @@ cat ~/clawd/habit-flow-data/config.json
 cat references/personas/coach-blaze.md
 ```
 4. Respond in new persona's voice:
-> 🔥 BOOM! Coach Blaze is IN THE HOUSE, champ!
+>  BOOM! Coach Blaze is IN THE HOUSE, champ!
 >
 > Let's DO THIS! I'm here to PUMP YOU UP and help you CRUSH those habits! We're gonna build UNSTOPPABLE momentum together!
 >
-> What habit are we DOMINATING today? Let's GOOOO! 💪🔥
+> What habit are we DOMINATING today? Let's GOOOO! 
 
 ## Example 7: Bulk Logging
 
@@ -221,10 +221,10 @@ mkdir -p ~/clawd/habit-flow-data/logs
 >
 > **Choose your coaching style:**
 > - **Flex**: Professional, data-driven (default)
-> - **Coach Blaze**: Energetic motivational coach 🔥
-> - **Luna**: Gentle therapist 💜
-> - **Ava**: Curious productivity nerd 🤓
-> - **Max**: Chill buddy 😎
-> - **The Monk**: Wise minimalist 🧘
+> - **Coach Blaze**: Energetic motivational coach 
+> - **Luna**: Gentle therapist 
+> - **Ava**: Curious productivity nerd 
+> - **Max**: Chill buddy 
+> - **The Monk**: Wise minimalist 
 >
 > What habit would you like to start tracking first?"

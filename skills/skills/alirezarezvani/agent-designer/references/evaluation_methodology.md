@@ -606,14 +606,14 @@ kpi_dashboard:
 ```yaml
 trend_analysis:
   performance_trends:
-    success_rate: "↗ +2.3% vs last month"
-    response_time: "↘ -15% vs last month"
+    success_rate: " +2.3% vs last month"
+    response_time: " -15% vs last month"
     error_rate: "→ stable vs last month"
   
   cost_trends:
-    total_cost: "↗ +8% vs last month"
-    cost_per_task: "↘ -5% vs last month"
-    efficiency: "↗ +12% vs last month"
+    total_cost: " +8% vs last month"
+    cost_per_task: " -5% vs last month"
+    efficiency: " +12% vs last month"
 ```
 
 ### 2. Technical Deep-Dive Report

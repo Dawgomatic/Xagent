@@ -1,7 +1,7 @@
 {
   "config": { "wide_screen_mode": true },
   "header": {
-    "title": { "content": "📊 团队投票", "tag": "plain_text" },
+    "title": { "content": " 团队投票", "tag": "plain_text" },
     "template": "purple"
   },
   "elements": [
@@ -20,19 +20,19 @@
       "actions": [
         {
           "tag": "button",
-          "text": { "content": "🎳 保龄球", "tag": "plain_text" },
+          "text": { "content": " 保龄球", "tag": "plain_text" },
           "type": "default",
           "value": { "action": "vote", "option": "bowling" }
         },
         {
           "tag": "button",
-          "text": { "content": "🎬 看电影", "tag": "plain_text" },
+          "text": { "content": " 看电影", "tag": "plain_text" },
           "type": "default",
           "value": { "action": "vote", "option": "movie" }
         },
         {
           "tag": "button",
-          "text": { "content": "🍕 聚餐", "tag": "plain_text" },
+          "text": { "content": " 聚餐", "tag": "plain_text" },
           "type": "default",
           "value": { "action": "vote", "option": "dinner" }
         }
@@ -43,19 +43,19 @@
       "actions": [
         {
           "tag": "button",
-          "text": { "content": "🏃 户外运动", "tag": "plain_text" },
+          "text": { "content": " 户外运动", "tag": "plain_text" },
           "type": "default",
           "value": { "action": "vote", "option": "outdoor" }
         },
         {
           "tag": "button",
-          "text": { "content": "🎮 电竞", "tag": "plain_text" },
+          "text": { "content": " 电竞", "tag": "plain_text" },
           "type": "default",
           "value": { "action": "vote", "option": "gaming" }
         },
         {
           "tag": "button",
-          "text": { "content": "📊 查看结果", "tag": "plain_text" },
+          "text": { "content": " 查看结果", "tag": "plain_text" },
           "type": "primary",
           "value": { "action": "view_poll_results" }
         }

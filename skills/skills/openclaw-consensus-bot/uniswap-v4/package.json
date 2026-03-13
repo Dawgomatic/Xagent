@@ -25,7 +25,7 @@
   ],
   "openclaw": {
     "type": "skill",
-    "emoji": "🦄",
+    "emoji": "",
     "chains": [
       "base",
       "ethereum"

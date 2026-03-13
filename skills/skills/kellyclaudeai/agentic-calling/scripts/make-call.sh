@@ -140,14 +140,14 @@ STATUS=$(echo "$RESPONSE" | jq -r '.status // empty')
 ERROR_MESSAGE=$(echo "$RESPONSE" | jq -r '.message // empty')
 
 if [[ -n "$CALL_SID" ]]; then
-  echo "✅ Call initiated successfully!"
+  echo " Call initiated successfully!"
   echo "Call SID: $CALL_SID"
   echo "Status: $STATUS"
   echo ""
   echo "To check status:"
   echo "  ./call-status.sh --sid $CALL_SID"
 else
-  echo "❌ Call failed:"
+  echo " Call failed:"
   echo "$ERROR_MESSAGE"
   exit 1
 fi

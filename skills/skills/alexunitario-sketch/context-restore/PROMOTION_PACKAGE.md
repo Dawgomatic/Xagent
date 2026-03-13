@@ -14,11 +14,11 @@ context-restore 是 OpenClaw 生态中的智能上下文管理技能，专为解
 支持三种恢复级别：极简模式（核心状态一句话）、标准模式（项目+任务列表）、完整模式（完整时间线和历史记录）。完美集成 context-save、memory_get 等技能，配合使用可实现全自动的上下文保存与恢复流程。
 
 ## 功能亮点
-- 🔄 **智能上下文保存和恢复** - 自然语言触发，无感恢复
-- 🌐 **三语言支持** - 中文、英文、意大利语
-- 📊 **三级恢复模式** - minimal/normal/detailed 自由选择
-- 🤝 **与 OpenClaw 技能生态完美集成** - 支持 context-save、memory_get 等
-- 🚀 **提升 10x 工作连续性** - 秒级恢复，无需重复解释背景
+-  **智能上下文保存和恢复** - 自然语言触发，无感恢复
+-  **三语言支持** - 中文、英文、意大利语
+-  **三级恢复模式** - minimal/normal/detailed 自由选择
+-  **与 OpenClaw 技能生态完美集成** - 支持 context-save、memory_get 等
+-  **提升 10x 工作连续性** - 秒级恢复，无需重复解释背景
 
 ## 标签
 #OpenClaw #AISkills #Productivity #ChatGPT #Automation #AIAssistant
@@ -75,10 +75,10 @@ Introducing context-restore: The Smart Way to Never Lose Your AI Conversation Co
 只需说"继续之前的工作"，它会自动读取压缩的上下文文件，提取项目进度、待办任务、最近操作等信息，让你在几秒钟内恢复到之前的工作状态。
 
 **核心功能：**
-- 🔄 自动恢复对话上下文
-- 📊 三种恢复级别（极简/标准/完整）
-- 🌐 支持中文、英文、意大利语
-- 🤝 与 OpenClaw 技能生态集成
+-  自动恢复对话上下文
+-  三种恢复级别（极简/标准/完整）
+-  支持中文、英文、意大利语
+-  与 OpenClaw 技能生态集成
 
 **使用示例：**
 ```bash
@@ -96,13 +96,13 @@ Introducing context-restore: The Smart Way to Never Lose Your AI Conversation Co
 ## Twitter/X 推广文案
 
 **文案1（简短）：**
-🔄 Introducing context-restore - The smart way to never lose your AI conversation context! Seamlessly restore your work state across sessions. #OpenClaw #AISkills #Productivity
+ Introducing context-restore - The smart way to never lose your AI conversation context! Seamlessly restore your work state across sessions. #OpenClaw #AISkills #Productivity
 
 **文案2（功能强调）：**
-Never lose your AI conversation context again! 🧠 context-restore supports 3 restoration levels, multilingual support, and integrates with @OpenClaw skills ecosystem. Try it now!
+Never lose your AI conversation context again!  context-restore supports 3 restoration levels, multilingual support, and integrates with @OpenClaw skills ecosystem. Try it now!
 
 **文案3（痛点共鸣）：**
-💡 "Where did we leave off?" - with context-restore, this question is history. Auto-save and restore your AI conversation context effortlessly. #AI #Automation
+ "Where did we leave off?" - with context-restore, this question is history. Auto-save and restore your AI conversation context effortlessly. #AI #Automation
 
 ## Reddit 推广文案
 
@@ -118,17 +118,17 @@ Found this super useful OpenClaw skill - context-restore. It helps you seamlessl
 ## Discord 推广文案
 
 **消息内容：**
-🎉 New skill release: **context-restore**!
+ New skill release: **context-restore**!
 
 Never lose your AI conversation context again! 
 
-✨ Features:
+ Features:
 - Auto-restore conversation context with natural language
 - 3 restoration levels: minimal/normal/detailed
 - Multilingual support (EN/ZH/IT)
 - Perfect integration with OpenClaw skills
 
-🚀 Try it: `/context-restore` or say "continue previous work"
+ Try it: `/context-restore` or say "continue previous work"
 
 ## 技术博客文章
 

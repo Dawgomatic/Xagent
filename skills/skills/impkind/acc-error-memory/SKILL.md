@@ -3,7 +3,7 @@ name: acc-error-memory
 description: "Error pattern tracking for AI agents. Detects corrections, escalates recurring mistakes, learns mitigations. The 'something's off' detector from the AI Brain series."
 metadata:
   openclaw:
-    emoji: "⚡"
+    emoji: ""
     version: "1.0.0"
     author: "ImpKind"
     repo: "https://github.com/ImpKind/acc-error-memory"
@@ -13,7 +13,7 @@ metadata:
     tags: ["memory", "monitoring", "ai-brain", "error-detection"]
 ---
 
-# Anterior Cingulate Memory ⚡
+# Anterior Cingulate Memory 
 
 **Conflict detection and error monitoring for AI agents.** Part of the AI Brain series.
 
@@ -81,7 +81,7 @@ This will:
 
 ```bash
 ./scripts/load-state.sh
-# ⚡ ACC State Loaded:
+#  ACC State Loaded:
 # Active patterns: 2
 # - tone_mismatch: 2x (warning)
 # - missed_context: 1x (normal)
@@ -124,7 +124,7 @@ The `encode-pipeline.sh` extracts exchanges from session transcripts:
 
 ```bash
 ./scripts/encode-pipeline.sh --no-spawn
-# ⚡ ACC Encode Pipeline
+#  ACC Encode Pipeline
 # Step 1: Extracting exchanges...
 # Found 47 exchanges to analyze
 ```
@@ -236,9 +236,9 @@ Events append to `~/.openclaw/workspace/memory/brain-events.jsonl`:
 ### Behavior Guidelines
 
 When you see patterns in ACC state:
-- 🔴 **Critical (3+)** — actively verify before responding in this area
-- ⚠️ **Warning (2x)** — be extra careful
-- ✅ **Resolved** — lesson learned, don't repeat
+-  **Critical (3+)** — actively verify before responding in this area
+-  **Warning (2x)** — be extra careful
+-  **Resolved** — lesson learned, don't repeat
 
 ## Future: Amygdala Integration
 
@@ -251,12 +251,12 @@ When you see patterns in ACC state:
 
 | Part | Function | Status |
 |------|----------|--------|
-| [hippocampus](https://www.clawhub.ai/skills/hippocampus) | Memory formation, decay, reinforcement | ✅ Live |
-| [amygdala-memory](https://www.clawhub.ai/skills/amygdala-memory) | Emotional processing | ✅ Live |
-| [vta-memory](https://www.clawhub.ai/skills/vta-memory) | Reward and motivation | ✅ Live |
-| **anterior-cingulate-memory** | Conflict detection, error monitoring | ✅ Live |
-| [basal-ganglia-memory](https://www.clawhub.ai/skills/basal-ganglia-memory) | Habit formation | 🚧 Development |
-| [insula-memory](https://www.clawhub.ai/skills/insula-memory) | Internal state awareness | 🚧 Development |
+| [hippocampus](https://www.clawhub.ai/skills/hippocampus) | Memory formation, decay, reinforcement |  Live |
+| [amygdala-memory](https://www.clawhub.ai/skills/amygdala-memory) | Emotional processing |  Live |
+| [vta-memory](https://www.clawhub.ai/skills/vta-memory) | Reward and motivation |  Live |
+| **anterior-cingulate-memory** | Conflict detection, error monitoring |  Live |
+| [basal-ganglia-memory](https://www.clawhub.ai/skills/basal-ganglia-memory) | Habit formation |  Development |
+| [insula-memory](https://www.clawhub.ai/skills/insula-memory) | Internal state awareness |  Development |
 
 ## Philosophy
 
@@ -266,4 +266,4 @@ Mistakes aren't failures. They're data. The ACC turns that data into learning.
 
 ---
 
-*Built with ⚡ by the OpenClaw community*
+*Built with  by the OpenClaw community*

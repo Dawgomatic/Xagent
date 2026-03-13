@@ -8,7 +8,7 @@
 
 ---
 
-## 🚀 ELON's Take
+##  ELON's Take
 
 **Core Opinion:** [1-2 sentence verdict]
 
@@ -18,7 +18,7 @@
 
 ---
 
-## 💰 CAPITALIST's Take
+##  CAPITALIST's Take
 
 **Core Opinion:** [1-2 sentence verdict]
 
@@ -28,7 +28,7 @@
 
 ---
 
-## 🐵 MONKEY's Take
+##  MONKEY's Take
 
 **Core Opinion:** [1-2 sentence verdict]
 
@@ -38,7 +38,7 @@
 
 ---
 
-## 📊 Summary Table
+##  Summary Table
 
 | Persona | Verdict | Confidence | Key Condition |
 |---|---|---|---|

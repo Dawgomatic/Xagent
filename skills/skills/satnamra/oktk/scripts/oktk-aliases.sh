@@ -3,7 +3,7 @@
 # Source this file in your .zshrc or .bashrc:
 #   source ~/.openclaw/workspace/skills/oktk/scripts/oktk-aliases.sh
 #
-# By Buba Draugelis 🇱🇹
+# By Buba Draugelis 
 # https://github.com/satnamra/openclaw-workspace
 
 # Check if oktk is installed
@@ -96,6 +96,6 @@ ok() {
 # ═══════════════════════════════════════════════════════════════
 alias oktk-stats='oktk --stats'
 
-echo "[oktk] 🚀 Token optimizer aliases loaded!"
+echo "[oktk]  Token optimizer aliases loaded!"
 echo "[oktk] Use 'ok <command>' to filter any output, or use aliases like gst, dps, kpods"
 echo "[oktk] Check stats: oktk --stats"

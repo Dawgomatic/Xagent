@@ -1,7 +1,7 @@
 ---
 name: miniflux
 description: "Browse, read, and manage Miniflux feed articles. Use when Claude needs to work with RSS/atom feeds via Miniflux - listing unread/new articles, reading article content, marking articles as read, and managing feeds/categories. Provides CLI access with flexible output formats (headlines, summaries, full content)."
-metadata: {"clawdbot":{"emoji":"📣","requires":{"bins":["uv"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["uv"]}}}
 ---
 
 # Miniflux Skill

@@ -23,7 +23,7 @@ EXISTING_CONFIG=""
 
 if [ -f "${BIN_DIR}/mesh" ]; then
     EXISTING_MESH="yes"
-    echo -e "${YELLOW}⚠ Existing mesh CLI detected at ${BIN_DIR}/mesh${NC}"
+    echo -e "${YELLOW} Existing mesh CLI detected at ${BIN_DIR}/mesh${NC}"
 fi
 
 if [ -f "${CONFIG_FILE}" ]; then
@@ -99,6 +99,6 @@ if [ -f "${CONFIG_FILE}" ]; then
     if "${BIN_DIR}/mesh" status 2>/dev/null | grep -q "Online"; then
         echo -e "${GREEN}✓ Connected to AgentOS Mesh!${NC}"
     else
-        echo -e "${YELLOW}⚠ Could not verify connection. Check your config.${NC}"
+        echo -e "${YELLOW} Could not verify connection. Check your config.${NC}"
     fi
 fi

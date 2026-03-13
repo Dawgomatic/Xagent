@@ -402,7 +402,7 @@ ERROR_PATTERNS = [
     (re.compile(r'Ambiguous|ambiguous', re.IGNORECASE), "ambiguous"),
     (re.compile(r'Permission denied', re.IGNORECASE), "permission"),
     (re.compile(r'No such file|not found', re.IGNORECASE), "not_found"),
-    (re.compile(r'⚠️|🔧|Exec.*failed', re.IGNORECASE), "exec_fail"),
+    (re.compile(r'||Exec.*failed', re.IGNORECASE), "exec_fail"),
 ]
 
 for log_name in log_files:

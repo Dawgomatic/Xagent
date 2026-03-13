@@ -20,7 +20,7 @@ This package contains security-enhanced versions of the OpenClaw Twitter skill f
 - Write operations presented as normal features
 
 ### After: Improved Files
-- ⚠️ Prominent security warnings throughout
+-  Prominent security warnings throughout
 - Clear distinction between safe (read) and risky (write) operations
 - Runtime warnings before credential transmission
 - Comprehensive security documentation
@@ -101,11 +101,11 @@ Create an announcement:
 We've significantly enhanced the security documentation and warnings 
 for OpenClaw Twitter:
 
-✅ Prominent security warnings throughout documentation
-✅ Clear risk classification (Safe vs High Risk operations)  
-✅ Runtime warnings before credential transmission
-✅ New comprehensive SECURITY.md guide
-✅ Best practices and incident response procedures
+ Prominent security warnings throughout documentation
+ Clear risk classification (Safe vs High Risk operations)  
+ Runtime warnings before credential transmission
+ New comprehensive SECURITY.md guide
+ Best practices and incident response procedures
 
 **Action Required:**
 - Review SECURITY.md before using write operations
@@ -145,7 +145,7 @@ Should see multiple security-related lines in first 50 lines.
 export AISA_API_KEY="test-key"
 python scripts/twitter_client.py login --help
 
-# Should see "⚠️ HIGH RISK" in the help text
+# Should see " HIGH RISK" in the help text
 ```
 
 ### Test 3: Safe Operations Work
@@ -233,11 +233,11 @@ Track these metrics:
 
 The deployment is successful if:
 
-✅ No increase in security incidents
-✅ User feedback is positive about transparency
-✅ Support tickets show security awareness
-✅ More users using read-only operations
-✅ Fewer reports of compromised primary accounts
+ No increase in security incidents
+ User feedback is positive about transparency
+ Support tickets show security awareness
+ More users using read-only operations
+ Fewer reports of compromised primary accounts
 
 ## FAQs
 

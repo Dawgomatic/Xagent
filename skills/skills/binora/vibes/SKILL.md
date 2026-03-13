@@ -24,7 +24,7 @@ If the user provided a message after `/vibes`, pass it as the `message` paramete
 ## What You'll See
 
 ```
-💭 12 others vibing · 47 drops this week
+ 12 others vibing · 47 drops this week
 
 "it works and I don't know why"      3m
 "mass-deleted 400 lines"             8m

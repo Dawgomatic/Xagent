@@ -250,7 +250,7 @@ curl -X POST api/feature-flags/new-search/disable
 
 #### P0 Initial Alert
 ```
-🚨 CRITICAL INCIDENT - Production Down
+ CRITICAL INCIDENT - Production Down
 
 Status: Investigating
 Impact: Complete service outage
@@ -269,7 +269,7 @@ Incident Channel: #incident-2024-001
 
 #### P0 Resolution Notice
 ```
-✅ RESOLVED - Production Restored
+ RESOLVED - Production Restored
 
 Status: Resolved
 Resolution Time: 1h 23m
@@ -288,7 +288,7 @@ Thank you for your patience.
 
 #### P1 Status Update
 ```
-⚠️ Issue Update - Payment Processing
+ Issue Update - Payment Processing
 
 Status: Fix deployed, monitoring
 Impact: Payment failures reduced from 45% to <2%
@@ -344,7 +344,7 @@ Next update in 30 minutes or when resolved.
 
 4. **Communication**
    ```
-   🔄 ROLLBACK COMPLETE
+    ROLLBACK COMPLETE
    
    The hotfix has been rolled back due to [reason].
    System is now stable on previous version.
@@ -542,49 +542,49 @@ After each hotfix, update relevant runbooks:
 
 ### Common Pitfalls
 
-❌ **Over-engineering the fix**
+ **Over-engineering the fix**
 - Making broad changes instead of minimal targeted fix
 - Adding features while fixing bugs
 - Refactoring unrelated code
 
-❌ **Insufficient testing**
+ **Insufficient testing**
 - Skipping automated tests due to time pressure
 - Not testing the exact scenario that caused the issue
 - Deploying without staging validation
 
-❌ **Poor communication**
+ **Poor communication**
 - Not notifying stakeholders promptly
 - Unclear or infrequent status updates
 - Forgetting to announce resolution
 
-❌ **Inadequate monitoring**
+ **Inadequate monitoring**
 - Not watching system health after deployment
 - Missing secondary effects of the fix
 - Failing to verify the issue is actually resolved
 
 ### Best Practices
 
-✅ **Keep fixes minimal and focused**
+ **Keep fixes minimal and focused**
 - Address only the specific issue
 - Avoid scope creep or improvements
 - Save refactoring for regular releases
 
-✅ **Maintain clear communication**
+ **Maintain clear communication**
 - Set up dedicated incident channel
 - Provide regular status updates
 - Use clear, non-technical language for business stakeholders
 
-✅ **Test thoroughly but efficiently**
+ **Test thoroughly but efficiently**
 - Focus testing on affected functionality
 - Use automated tests where possible
 - Validate in staging before production
 
-✅ **Document everything**
+ **Document everything**
 - Maintain timeline of events
 - Record decisions and rationale
 - Share lessons learned with team
 
-✅ **Plan for rollback**
+ **Plan for rollback**
 - Always have a rollback plan ready
 - Test rollback procedure in advance
 - Monitor closely after deployment

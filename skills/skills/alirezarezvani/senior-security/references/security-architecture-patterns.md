@@ -48,7 +48,7 @@ ZERO TRUST ARCHITECTURE
 ┌─────────────────────────────┴───────────────────────────────┐
 │                        DATA PLANE                            │
 │  ┌──────────────┐                      ┌──────────────┐     │
-│  │    User      │──── PEP ────────────▶│   Resource   │     │
+│  │    User      │──── PEP ────────────│   Resource   │     │
 │  │   Device     │      │               │   (App/Data) │     │
 │  └──────────────┘      │               └──────────────┘     │
 │                   Policy Enforcement                         │
@@ -207,18 +207,18 @@ OAUTH 2.0 AUTHORIZATION CODE FLOW WITH PKCE
      │    client_id=xxx&                             │
      │    code_challenge=xxx&                        │
      │    code_challenge_method=S256                 │
-     │──────────────────────────────────────────────▶│
+     │──────────────────────────────────────────────│
      │                                               │
-     │◀──────────────────────────────────────────────│
+     │──────────────────────────────────────────────│
      │ 3. Redirect with authorization_code           │
      │                                               │
      │ 4. POST /token                                │
      │    grant_type=authorization_code&             │
      │    code=xxx&                                  │
      │    code_verifier=xxx  (proves possession)     │
-     │──────────────────────────────────────────────▶│
+     │──────────────────────────────────────────────│
      │                                               │
-     │◀──────────────────────────────────────────────│
+     │──────────────────────────────────────────────│
      │ 5. { access_token, refresh_token, id_token }  │
      │                                               │
 ```

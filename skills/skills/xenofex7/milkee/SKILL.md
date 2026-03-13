@@ -15,11 +15,11 @@ Complete integration for MILKEE Swiss accounting software. Manage projects, cust
 
 ## Features
 
-- ⏱️ **Time Tracking** – Start/stop timers with fuzzy project matching
-- 👥 **Customers** – Full CRUD operations
-- 📋 **Projects** – Create, update, manage budgets
-- ✅ **Tasks** – Track project tasks
-- 📦 **Products** – Manage billable items
+-  **Time Tracking** – Start/stop timers with fuzzy project matching
+-  **Customers** – Full CRUD operations
+-  **Projects** – Create, update, manage budgets
+-  **Tasks** – Track project tasks
+-  **Products** – Manage billable items
 
 ## Quick Start
 

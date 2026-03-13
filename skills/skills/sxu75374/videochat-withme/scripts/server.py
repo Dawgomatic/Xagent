@@ -424,12 +424,12 @@ if __name__ == "__main__":
     use_ssl = ssl_cert and ssl_key and Path(ssl_cert).exists() and Path(ssl_key).exists()
     proto = "https" if use_ssl else "http"
 
-    print(f"🎥 {AGENT_NAME} Video Chat · {proto}://localhost:{PORT}")
-    print(f"📡 OpenClaw API → {OPENCLAW_BASE}")
-    print(f"🎤 STT → Groq Whisper")
-    print(f"🔊 TTS → edge-tts")
+    print(f" {AGENT_NAME} Video Chat · {proto}://localhost:{PORT}")
+    print(f" OpenClaw API → {OPENCLAW_BASE}")
+    print(f" STT → Groq Whisper")
+    print(f" TTS → edge-tts")
     if use_ssl:
-        print(f"🔒 SSL → {ssl_cert}")
+        print(f" SSL → {ssl_cert}")
     print()
 
     if use_ssl:

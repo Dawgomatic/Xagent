@@ -14,7 +14,7 @@ if [ -f "$PROJECT_ROOT/.env" ]; then
   export $(grep -v '^#' "$PROJECT_ROOT/.env" | xargs 2>/dev/null || true)
 fi
 
-# ⭐ CRITICAL: Accept --user-id flag (OpenClaw format)
+#  CRITICAL: Accept --user-id flag (OpenClaw format)
 # OpenClaw passes: scripts/generate.sh --user-id $OPENCLAW_USER_ID
 # We need to forward this correctly to the TypeScript CLI
 

@@ -296,7 +296,7 @@ Let views be pure expressions of state.
 
 Focus complexity where it belongs: services and business logic.
 
-Goodbye MVVM 🚮
-Long live the View 👑
+Goodbye MVVM 
+Long live the View 
 
-Happy coding 🚀
+Happy coding 

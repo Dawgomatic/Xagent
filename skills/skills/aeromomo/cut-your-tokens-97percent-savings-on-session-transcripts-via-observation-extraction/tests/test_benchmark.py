@@ -65,7 +65,7 @@ class TestBenchmarkOutput:
         cmd_benchmark(ws, args)
         out = capsys.readouterr().out
         assert "Total savings:" in out
-        assert "💰" in out
+        assert "" in out
 
     def test_benchmark_has_session_info(self, tmp_path, capsys):
         ws = self._make_workspace(tmp_path)

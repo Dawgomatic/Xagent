@@ -20,7 +20,7 @@ class AliyunPureASR:
     def load_config(self) -> Dict[str, Any]:
         """加载阿里云ASR配置"""
         if not os.path.exists(self.config_path):
-            print(f"❌ 配置文件未找到: {self.config_path}")
+            print(f" 配置文件未找到: {self.config_path}")
             print("请创建配置文件，包含以下字段:")
             print("{")
             print('  "access_key_id": "your-access-key-id",')
@@ -129,7 +129,7 @@ def main():
     
     audio_file = sys.argv[1]
     if not os.path.exists(audio_file):
-        print(f"❌ 音频文件不存在: {audio_file}")
+        print(f" 音频文件不存在: {audio_file}")
         sys.exit(1)
     
     asr = AliyunPureASR()

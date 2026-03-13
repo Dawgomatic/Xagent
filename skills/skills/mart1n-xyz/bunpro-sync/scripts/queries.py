@@ -163,7 +163,7 @@ class BunproQueries:
         
         for row in rows:
             title = row['title'] or f"ID:{row['reviewable_id']}"
-            leech_mark = "🔴" if row['is_leech'] else ""
+            leech_mark = "" if row['is_leech'] else ""
             print(f"{title:<25} {row['reviewable_type']:<10} {row['streak'] or 0:>8} {leech_mark:<8}")
         
         print()

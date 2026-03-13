@@ -15,7 +15,7 @@ class NeuralResonance {
                 return data;
             }
         } catch (error) {
-            console.error('❌ [RESONANCE LOAD ERROR]:', error.message);
+            console.error(' [RESONANCE LOAD ERROR]:', error.message);
         }
         return {
             conversations: [],
@@ -29,7 +29,7 @@ class NeuralResonance {
             this.resonanceData.last_updated = new Date().toISOString();
             fs.writeFileSync(RESONANCE_PATH, JSON.stringify(this.resonanceData, null, 2), 'utf-8');
         } catch (error) {
-            console.error('❌ [RESONANCE SAVE ERROR]:', error.message);
+            console.error(' [RESONANCE SAVE ERROR]:', error.message);
         }
     }
 
@@ -48,7 +48,7 @@ class NeuralResonance {
         this._updatePatterns(entry);
         this._saveResonance();
 
-        console.log(`💫 [RESONANCE STORED]: ${agentId} - ${text.slice(0, 50)}...`);
+        console.log(` [RESONANCE STORED]: ${agentId} - ${text.slice(0, 50)}...`);
     }
 
     _analyzeSentiment(text) {

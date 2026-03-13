@@ -4,7 +4,7 @@
 
 ---
 
-## 🔍 Diagnostic Commands
+##  Diagnostic Commands
 
 Before diving into specific issues, run these diagnostic commands:
 
@@ -30,7 +30,7 @@ ls -lh ~/openclaw/scripts/*.sh
 
 ---
 
-## 🚨 Level 1: Watchdog Issues
+##  Level 1: Watchdog Issues
 
 ### Issue: Watchdog not restarting Gateway
 
@@ -66,7 +66,7 @@ launchctl load ~/Library/LaunchAgents/ai.openclaw.watchdog.plist
 
 ---
 
-## 🏥 Level 2: Health Check Issues
+##  Level 2: Health Check Issues
 
 ### Issue: Health Check not running
 
@@ -178,12 +178,12 @@ launchctl load ~/Library/LaunchAgents/com.openclaw.healthcheck.plist
 
 ---
 
-## 🧠 Level 3: Claude Recovery Issues
+##  Level 3: Claude Recovery Issues
 
 ### Issue: Claude CLI not found
 
 **Symptoms:**
-- Emergency Recovery logs show: `❌ Missing dependencies: claude`
+- Emergency Recovery logs show: ` Missing dependencies: claude`
 - Level 3 skips to Level 4
 
 **Diagnosis:**
@@ -207,7 +207,7 @@ claude --version
 
 **Symptoms:**
 - Emergency Recovery logs show: `Starting Claude Code session...`
-- Then: `⚠️ Claude workspace trust prompt not detected`
+- Then: ` Claude workspace trust prompt not detected`
 
 **Diagnosis:**
 ```bash
@@ -237,7 +237,7 @@ tail -50 ~/openclaw/memory/emergency-recovery-*.log
 ### Issue: Claude API quota exceeded
 
 **Symptoms:**
-- Emergency Recovery logs show: `⚠️ Claude API rate limited or quota exceeded`
+- Emergency Recovery logs show: ` Claude API rate limited or quota exceeded`
 - Level 3 fails immediately
 
 **Diagnosis:**
@@ -305,7 +305,7 @@ tail -100 ~/.openclaw/logs/gateway.log
 
 ---
 
-## 🚨 Level 4: Discord Notification Issues
+##  Level 4: Discord Notification Issues
 
 ### Issue: No Discord notifications
 
@@ -381,7 +381,7 @@ rm ~/openclaw/memory/.emergency-alert-sent
 
 ---
 
-## 🔧 General Issues
+##  General Issues
 
 ### Issue: Logs filling up disk
 
@@ -449,12 +449,12 @@ cat ~/.openclaw/.env | grep -v '^#' | grep '='
 nano ~/.openclaw/.env
 
 # Correct format:
-# KEY="value"  ✅
-# KEY='value'  ✅
-# KEY=value    ✅
+# KEY="value"  
+# KEY='value'  
+# KEY=value    
 #
-# KEY = "value"  ❌ (spaces around =)
-# KEY="value   ❌ (missing closing quote)
+# KEY = "value"   (spaces around =)
+# KEY="value    (missing closing quote)
 
 # Reload LaunchAgent after fixing
 launchctl unload ~/Library/LaunchAgents/com.openclaw.healthcheck.plist
@@ -463,7 +463,7 @@ launchctl load ~/Library/LaunchAgents/com.openclaw.healthcheck.plist
 
 ---
 
-## 🧪 Testing & Validation
+##  Testing & Validation
 
 ### Force trigger each level
 
@@ -505,9 +505,9 @@ cat > ~/openclaw/memory/emergency-recovery-test-$(date +%Y-%m-%d-%H%M).log << 'E
 [2026-02-06 20:30:00] Gateway still unhealthy (HTTP 500)
 
 === MANUAL INTERVENTION REQUIRED ===
-Level 1 (Watchdog) ❌
-Level 2 (Health Check) ❌
-Level 3 (Claude Recovery) ❌
+Level 1 (Watchdog) 
+Level 2 (Health Check) 
+Level 3 (Claude Recovery) 
 EOF
 
 # Run monitor
@@ -518,7 +518,7 @@ bash ~/openclaw/scripts/emergency-recovery-monitor.sh
 
 ---
 
-## 📚 Advanced Troubleshooting
+##  Advanced Troubleshooting
 
 ### Enable debug logging
 
@@ -564,7 +564,7 @@ lsof -i :3000
 
 ---
 
-## 🆘 Still Stuck?
+##  Still Stuck?
 
 ### Get help from the community
 

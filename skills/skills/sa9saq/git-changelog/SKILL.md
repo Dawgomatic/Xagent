@@ -33,16 +33,16 @@ Auto-generate changelogs from git commit history.
 3. **Parse and categorize** using Conventional Commits:
    | Prefix | Category |
    |--------|----------|
-   | `feat:` | ✨ Features |
-   | `fix:` | 🐛 Bug Fixes |
-   | `docs:` | 📝 Documentation |
-   | `refactor:` | ♻️ Refactoring |
-   | `perf:` | ⚡ Performance |
-   | `test:` | ✅ Tests |
-   | `chore:` | 🔧 Chores |
-   | `BREAKING CHANGE` | 💥 Breaking Changes |
+   | `feat:` |  Features |
+   | `fix:` |  Bug Fixes |
+   | `docs:` |  Documentation |
+   | `refactor:` |  Refactoring |
+   | `perf:` |  Performance |
+   | `test:` |  Tests |
+   | `chore:` |  Chores |
+   | `BREAKING CHANGE` |  Breaking Changes |
 
-   Non-conventional commits go under **📦 Other Changes**.
+   Non-conventional commits go under ** Other Changes**.
 
 4. **Generate commit links** if remote exists:
    ```bash
@@ -56,13 +56,13 @@ Auto-generate changelogs from git commit history.
 
    ## [1.2.0] — 2025-01-15
 
-   ### 💥 Breaking Changes
+   ###  Breaking Changes
    - Removed deprecated `oldAPI()` method ([abc1234])
 
-   ### ✨ Features
+   ###  Features
    - Add user authentication flow ([def5678])
 
-   ### 🐛 Bug Fixes
+   ###  Bug Fixes
    - Fix memory leak in connection pool ([ghi9012])
    ```
 

@@ -1,4 +1,4 @@
-# 📜 The Let's Send It Philosophy
+#  The Let's Send It Philosophy
 
 > *"Mechanics beat promises."*
 

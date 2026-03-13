@@ -6,7 +6,7 @@ metadata:
   author: custom
   version: "2.0.0"
   openclaw:
-    emoji: "🌐"
+    emoji: ""
     requires:
       bins: ["python3"]
       anyBins: ["uv", "pip"]

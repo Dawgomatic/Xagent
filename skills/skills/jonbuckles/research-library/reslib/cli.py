@@ -378,22 +378,22 @@ class TableFormatter:
 
 def echo_success(message: str):
     """Print success message with checkmark."""
-    click.echo(click.style(f"✅ {message}", fg="green"))
+    click.echo(click.style(f" {message}", fg="green"))
 
 
 def echo_error(message: str):
     """Print error message."""
-    click.echo(click.style(f"❌ {message}", fg="red"), err=True)
+    click.echo(click.style(f" {message}", fg="red"), err=True)
 
 
 def echo_warning(message: str):
     """Print warning message."""
-    click.echo(click.style(f"⚠️  {message}", fg="yellow"), err=True)
+    click.echo(click.style(f"  {message}", fg="yellow"), err=True)
 
 
 def echo_info(message: str):
     """Print info message."""
-    click.echo(click.style(f"ℹ️  {message}", fg="blue"))
+    click.echo(click.style(f"  {message}", fg="blue"))
 
 
 # ============================================================================
@@ -1293,7 +1293,7 @@ def show_status(ctx: click.Context):
     
     # Formatted output
     click.echo()
-    click.echo(click.style("📚 Research Library Status", bold=True))
+    click.echo(click.style(" Research Library Status", bold=True))
     click.echo("=" * 40)
     
     click.echo()
@@ -1319,7 +1319,7 @@ def show_status(ctx: click.Context):
     click.echo(click.style("Extraction Queue:", bold=True))
     if stats["queue"]:
         for status, count in stats["queue"].items():
-            icon = {"pending": "⏳", "processing": "⚙️", "completed": "✅", "failed": "❌"}.get(status, "•")
+            icon = {"pending": "", "processing": "", "completed": "", "failed": ""}.get(status, "•")
             click.echo(f"  {icon} {status}: {count}")
     else:
         click.echo("  (empty)")
@@ -1409,7 +1409,7 @@ def restore_backup(ctx: click.Context, date: str, list_backups: bool, force: boo
     # Confirm restore
     if not force:
         click.echo(f"Restore from backup: {backup_file.name}")
-        click.echo(click.style("⚠️  This will overwrite the current database!", fg="yellow"))
+        click.echo(click.style("  This will overwrite the current database!", fg="yellow"))
         if not click.confirm("Continue?"):
             ctx.exit(0)
     

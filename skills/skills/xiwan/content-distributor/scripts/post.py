@@ -44,7 +44,7 @@ def main():
         # 仅验证凭据
         if args.validate:
             if platform.validate_credentials():
-                print(f"✅ {args.platform} 凭据有效")
+                print(f" {args.platform} 凭据有效")
             return
         
         # 获取内容
@@ -54,7 +54,7 @@ def main():
                 content = f.read()
         
         if not content:
-            print("❌ 错误: 必须提供 --content 或 --content-file")
+            print(" 错误: 必须提供 --content 或 --content-file")
             sys.exit(1)
         
         # 构建发布参数
@@ -71,29 +71,29 @@ def main():
         
         # 干运行
         if args.dry_run:
-            print(f"🔍 干运行模式")
+            print(f" 干运行模式")
             print(f"   平台: {args.platform}")
             print(f"   类型: {args.type}")
             print(f"   参数: {kwargs}")
             
             if platform.validate_credentials():
-                print(f"   凭据: ✅ 有效")
+                print(f"   凭据:  有效")
             return
         
         # 发布
-        print(f"📤 正在发布到 {args.platform}...")
+        print(f" 正在发布到 {args.platform}...")
         result = platform.post(args.type, **kwargs)
         
         if result.get("success"):
-            print(f"✅ 发布成功!")
+            print(f" 发布成功!")
             if result.get("url"):
                 print(f"   链接: {result['url']}")
         else:
-            print(f"❌ 发布失败: {result}")
+            print(f" 发布失败: {result}")
             sys.exit(1)
             
     except PlatformError as e:
-        print(f"❌ 错误: {e}")
+        print(f" 错误: {e}")
         sys.exit(1)
 
 

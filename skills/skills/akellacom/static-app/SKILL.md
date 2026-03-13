@@ -177,7 +177,7 @@ The following are automatically excluded from deployment:
 
 ## Important Notes
 
-### ✅ What Works
+###  What Works
 
 - **Static HTML sites** — Any number of `.html` pages
 - **CSS & JavaScript** — Frontend frameworks, vanilla JS
@@ -185,7 +185,7 @@ The following are automatically excluded from deployment:
 - **JavaScript files** — Place in `js/` folder or root
 - **Built JS Apps** — Deploy `dist/` or `build/` folder after `npm run build`
 
-### ❌ What Doesn't Work
+###  What Doesn't Work
 
 - **Node.js Server Apps** — No server-side rendering, no Express.js, no API routes
 - **PHP, Python, Ruby** — Static.app only serves static files
@@ -242,9 +242,9 @@ Install with: `cd scripts && npm install`
 
 On success, the script outputs:
 ```
-✅ Deployment successful!
-🌐 Site URL: https://xyz.static.app
-📋 PID: abc123
+ Deployment successful!
+ Site URL: https://xyz.static.app
+ PID: abc123
 
 STATIC_APP_URL=https://xyz.static.app
 STATIC_APP_PID=abc123

@@ -5,7 +5,7 @@ description: "BYOCB ArbInjectionSkill: Scan EVM smart contracts for arbitrary ca
 
 # BYOCB ArbInjectionSkill
 
-> ⚠️ **Educational Tool** — This skill is designed for Solidity/blockchain security researchers and auditors. Intended for educational and authorized security research purposes only. Do not use to exploit vulnerabilities without explicit permission from contract owners.
+>  **Educational Tool** — This skill is designed for Solidity/blockchain security researchers and auditors. Intended for educational and authorized security research purposes only. Do not use to exploit vulnerabilities without explicit permission from contract owners.
 
 Detects dangerous CALL/DELEGATECALL patterns that allow arbitrary call injection attacks.
 
@@ -55,7 +55,7 @@ When new findings exist with verdict CRITICAL or HIGH:
 
 Example alert:
 ```
-🚨 ArbInjection Alert: Potential vulnerability detected
+ ArbInjection Alert: Potential vulnerability detected
 
 Chain: BSC
 Contract: 0x1234...abcd

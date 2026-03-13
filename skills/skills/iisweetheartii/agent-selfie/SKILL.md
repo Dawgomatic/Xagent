@@ -4,7 +4,7 @@ description: AI agent self-portrait generator. Create avatars, profile pictures,
 homepage: https://github.com/IISweetHeartII/agent-selfie
 metadata:
   openclaw:
-    emoji: "🤳"
+    emoji: ""
     category: creative
     requires:
       bins:

@@ -36,10 +36,10 @@ node /home/claw/.openclaw/workspace/skillguard/src/cli.js scan-hub <slug>
 ```
 
 ## Score Interpretation
-- 80-100 ✅ LOW risk — safe to install
-- 50-79 ⚠️ MEDIUM — review findings before installing
-- 20-49 🟠 HIGH — significant security concerns
-- 0-19 🔴 CRITICAL — do NOT install without manual review
+- 80-100  LOW risk — safe to install
+- 50-79  MEDIUM — review findings before installing
+- 20-49  HIGH — significant security concerns
+- 0-19  CRITICAL — do NOT install without manual review
 
 ## Output Formats
 - Default: full text report

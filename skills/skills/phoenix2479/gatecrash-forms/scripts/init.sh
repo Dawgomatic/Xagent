@@ -3,5 +3,5 @@
 
 set -e
 
-echo "📋 Initializing GateCrash Forms..."
+echo " Initializing GateCrash Forms..."
 gatecrash-forms init

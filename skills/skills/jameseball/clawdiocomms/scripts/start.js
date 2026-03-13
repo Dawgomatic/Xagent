@@ -32,9 +32,9 @@ async function startClawdioNode() {
     });
 
     if (isRunning) {
-      console.log('⚠️  Clawdio appears to already be running');
+      console.log('  Clawdio appears to already be running');
     } else {
-      console.log('🚀 Starting Clawdio node...');
+      console.log(' Starting Clawdio node...');
       
       // Start the node in the background
       const child = exec('node run.js', {
@@ -60,13 +60,13 @@ async function startClawdioNode() {
       owner: 'James'
     };
 
-    console.log('✅ Clawdio node connection info:');
+    console.log(' Clawdio node connection info:');
     console.log(JSON.stringify(connectionInfo, null, 2));
     
     return connectionInfo;
 
   } catch (error) {
-    console.error('❌ Error starting Clawdio node:', error.message);
+    console.error(' Error starting Clawdio node:', error.message);
     throw error;
   }
 }
@@ -75,7 +75,7 @@ async function startClawdioNode() {
 if (require.main === module) {
   startClawdioNode()
     .then((info) => {
-      console.log('\n🔗 Connection string for friends:');
+      console.log('\n Connection string for friends:');
       console.log(info.connectionString);
     })
     .catch((error) => {

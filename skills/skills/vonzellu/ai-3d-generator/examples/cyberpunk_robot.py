@@ -168,7 +168,7 @@ def create_cyberpunk_robot():
     return combined
 
 if __name__ == "__main__":
-    print("🤖 Génération Robot Cyberpunk Humanoïde")
+    print(" Génération Robot Cyberpunk Humanoïde")
     print("=" * 50)
     print()
     
@@ -176,6 +176,6 @@ if __name__ == "__main__":
     save_mesh(robot, "cyberpunk_robot.stl")
     
     print()
-    print("✅ Robot généré avec succès!")
+    print(" Robot généré avec succès!")
     print("   Style: Cyberpunk avec articulations visibles")
     print("   Hauteur: ~160mm (échelle 1:10)")

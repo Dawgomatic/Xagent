@@ -163,14 +163,14 @@ async function getComparisonRates() {
 
 async function main() {
   console.log('═'.repeat(80));
-  console.log('📊 SOLANA FUNDING ARBITRAGE - 1 MONTH BACKTEST');
+  console.log(' SOLANA FUNDING ARBITRAGE - 1 MONTH BACKTEST');
   console.log('═'.repeat(80));
   
   // Generate simulated data
   const historicalData = generateHistoricalData(30);
   
   // Run backtest scenarios
-  console.log('\n📈 BACKTEST RESULTS (30 Days, 3x Leverage, 0.1% Fee per trade)\n');
+  console.log('\n BACKTEST RESULTS (30 Days, 3x Leverage, 0.1% Fee per trade)\n');
   
   const results = runBacktest(historicalData, 10000, 3, 0.001);
   
@@ -210,47 +210,47 @@ async function main() {
   const rates = await getComparisonRates();
   
   console.log('\n' + '═'.repeat(80));
-  console.log('📊 COMPARISON WITH TRADITIONAL & DEFI YIELDS');
+  console.log(' COMPARISON WITH TRADITIONAL & DEFI YIELDS');
   console.log('═'.repeat(80));
   
-  console.log('\n🏦 TRADITIONAL BANKS (Annual):\n');
+  console.log('\n TRADITIONAL BANKS (Annual):\n');
   console.log(`  Turkey TRY Deposit:     ${rates.turkeyBankRates.deposit}%`);
   console.log(`  Turkey USD Deposit:     ${rates.turkeyBankRates.usd_deposit}%`);
   console.log(`  US High-Yield Savings:  ${rates.usBankRates.savings}%`);
   console.log(`  US 1-Year CD:           ${rates.usBankRates.cd_1year}%`);
   
-  console.log('\n🔷 AAVE V3 (USDC Lending):\n');
+  console.log('\n AAVE V3 (USDC Lending):\n');
   console.log(`  Ethereum:               ${rates.aaveRates.usdc_eth}%`);
   console.log(`  Base:                   ${rates.aaveRates.usdc_base}%`);
   console.log(`  Arbitrum:               ${rates.aaveRates.usdc_arb}%`);
   
-  console.log('\n☀️ SOLANA LENDING:\n');
+  console.log('\n SOLANA LENDING:\n');
   console.log(`  Marginfi USDC:          ${rates.solanaLending.marginfi_usdc}%`);
   console.log(`  Kamino USDC:            ${rates.solanaLending.kamino_usdc}%`);
   console.log(`  Solend USDC:            ${rates.solanaLending.solend_usdc}%`);
   
-  console.log('\n⚡ FUNDING RATE ARBITRAGE:\n');
+  console.log('\n FUNDING RATE ARBITRAGE:\n');
   console.log(`  Estimated APY:          ${avgAPY.toFixed(0)}% (${(avgAPY / rates.aaveRates.usdc_eth).toFixed(0)}x Aave)`);
   console.log(`  1-Month Return:         ${avgReturn.toFixed(1)}%`);
   console.log(`  Daily Average:          ${(avgReturn / 30).toFixed(2)}%`);
   
   console.log('\n' + '═'.repeat(80));
-  console.log('⚠️  RISK COMPARISON');
+  console.log('  RISK COMPARISON');
   console.log('═'.repeat(80));
   
   console.log(`
 ┌──────────────────────┬──────────────┬─────────────────────────────────────┐
 │ Strategy             │ Est. APY     │ Risk Level                          │
 ├──────────────────────┼──────────────┼─────────────────────────────────────┤
-│ Bank Deposit (FDIC)  │ 4-5%         │ 🟢 Very Low (insured)               │
-│ Aave USDC            │ 2-4%         │ 🟡 Low (smart contract risk)        │
-│ Solana Lending       │ 5-9%         │ 🟡 Low-Medium (platform risk)       │
-│ Funding Arb (1x)     │ ~100-200%    │ 🟠 Medium (rate reversal, spread)   │
-│ Funding Arb (3x)     │ ~300-600%    │ 🔴 High (liquidation, execution)    │
+│ Bank Deposit (FDIC)  │ 4-5%         │  Very Low (insured)               │
+│ Aave USDC            │ 2-4%         │  Low (smart contract risk)        │
+│ Solana Lending       │ 5-9%         │  Low-Medium (platform risk)       │
+│ Funding Arb (1x)     │ ~100-200%    │  Medium (rate reversal, spread)   │
+│ Funding Arb (3x)     │ ~300-600%    │  High (liquidation, execution)    │
 └──────────────────────┴──────────────┴─────────────────────────────────────┘
 `);
 
-  console.log('\n📋 KEY TAKEAWAYS:\n');
+  console.log('\n KEY TAKEAWAYS:\n');
   console.log('  1. Funding arb offers significantly higher yields than DeFi lending');
   console.log('  2. Higher risk due to: rate changes, execution, liquidation');
   console.log('  3. Requires active monitoring and position management');

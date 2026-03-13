@@ -4,10 +4,10 @@ A command-line interface for controlling Dyson air purifiers, fans, and heaters.
 
 ## Features
 
-- 🔌 **Local control** - Communicates directly with your Dyson device over MQTT (no cloud required after setup)
-- 🌡️ **Full control** - Power, fan speed, oscillation angles, heat mode, target temperature
-- 📊 **Status monitoring** - View current state, air quality, and environmental data
-- 🔐 **Easy setup** - Fetch credentials automatically via your Dyson account
+-  **Local control** - Communicates directly with your Dyson device over MQTT (no cloud required after setup)
+-  **Full control** - Power, fan speed, oscillation angles, heat mode, target temperature
+-  **Status monitoring** - View current state, air quality, and environmental data
+-  **Easy setup** - Fetch credentials automatically via your Dyson account
 
 ## Supported Devices
 

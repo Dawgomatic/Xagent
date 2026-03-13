@@ -4,10 +4,10 @@ version: 1.0.10
 description: Real-time companion monitor for OpenClaw agents
 homepage: https://crabwalk.app
 repository: https://github.com/luccast/crabwalk
-metadata: {"emoji":"🦀","category":"monitoring"}
+metadata: {"emoji":"","category":"monitoring"}
 ---
 
-# Crabwalk 🦀
+# Crabwalk 
 
 Real-time companion monitor for OpenClaw agents.
 
@@ -16,7 +16,7 @@ Real-time companion monitor for OpenClaw agents.
 ## Step 1: Install
 
 ```bash
-VERSION=$(curl -s https://api.github.com/repos/luccast/crabwalk/releases/latest | grep '"tag_name"' | cut -d'"' -f4) && mkdir -p ~/.crabwalk ~/.local/bin && curl -sL "https://github.com/luccast/crabwalk/releases/download/${VERSION}/crabwalk-${VERSION}.tar.gz" | tar -xz -C ~/.crabwalk && cp ~/.crabwalk/bin/crabwalk ~/.local/bin/ && chmod +x ~/.local/bin/crabwalk && (echo $PATH | grep -q "$HOME/.local/bin" || ([ -f ~/.bashrc ] && echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc; [ -f ~/.zshrc ] && echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc; export PATH="$HOME/.local/bin:$PATH")) && (command -v qrencode &>/dev/null || (command -v pacman &>/dev/null && sudo pacman -S --noconfirm qrencode || command -v apt &>/dev/null && sudo apt install -y qrencode || command -v brew &>/dev/null && brew install qrencode || command -v dnf &>/dev/null && sudo dnf install -y qrencode) 2>/dev/null || true) && echo "🦀 Crabwalk ${VERSION} installed"
+VERSION=$(curl -s https://api.github.com/repos/luccast/crabwalk/releases/latest | grep '"tag_name"' | cut -d'"' -f4) && mkdir -p ~/.crabwalk ~/.local/bin && curl -sL "https://github.com/luccast/crabwalk/releases/download/${VERSION}/crabwalk-${VERSION}.tar.gz" | tar -xz -C ~/.crabwalk && cp ~/.crabwalk/bin/crabwalk ~/.local/bin/ && chmod +x ~/.local/bin/crabwalk && (echo $PATH | grep -q "$HOME/.local/bin" || ([ -f ~/.bashrc ] && echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc; [ -f ~/.zshrc ] && echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc; export PATH="$HOME/.local/bin:$PATH")) && (command -v qrencode &>/dev/null || (command -v pacman &>/dev/null && sudo pacman -S --noconfirm qrencode || command -v apt &>/dev/null && sudo apt install -y qrencode || command -v brew &>/dev/null && brew install qrencode || command -v dnf &>/dev/null && sudo dnf install -y qrencode) 2>/dev/null || true) && echo " Crabwalk ${VERSION} installed"
 ```
 
 ## Step 2: Verify
@@ -159,7 +159,7 @@ VERSION=$(curl -s https://api.github.com/repos/luccast/crabwalk/releases/latest 
 rm -rf ~/.crabwalk/.output
 curl -sL "https://github.com/luccast/crabwalk/releases/download/${VERSION}/crabwalk-${VERSION}.tar.gz" | tar -xz -C ~/.crabwalk
 cp ~/.crabwalk/bin/crabwalk ~/.local/bin/crabwalk
-echo "🦀 Updated to ${VERSION}"
+echo " Updated to ${VERSION}"
 ```
 
 ---

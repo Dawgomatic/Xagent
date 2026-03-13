@@ -67,7 +67,7 @@ class OKTK {
   async execute(command, context = {}) {
     // Check for emergency mode
     if (await this.emergencyModeActive()) {
-      console.warn('⚠️  Emergency mode active, bypassing filters');
+      console.warn('  Emergency mode active, bypassing filters');
       return this.runCommand(command);
     }
 
@@ -123,7 +123,7 @@ class OKTK {
 
     } catch (error) {
       // Command execution failed - return as-is
-      console.error(`❌ Command failed: ${error.message}`);
+      console.error(` Command failed: ${error.message}`);
       throw error;
     }
   }
@@ -162,7 +162,7 @@ class OKTK {
       const filtered = await filter.apply(output, { ...context, command, exitCode });
 
       if (this.options.debug) {
-        console.log(`🔍 Filter applied: ${Filter.name}`);
+        console.log(` Filter applied: ${Filter.name}`);
       }
 
       return {
@@ -172,7 +172,7 @@ class OKTK {
       };
 
     } catch (error) {
-      console.warn(`⚠️  Filter ${Filter.name} failed: ${error.message}`);
+      console.warn(`  Filter ${Filter.name} failed: ${error.message}`);
 
       // Fallback to PassthroughFilter
       try {
@@ -186,7 +186,7 @@ class OKTK {
         };
 
       } catch (passthroughError) {
-        console.error(`❌ Even passthrough failed: ${passthroughError.message}`);
+        console.error(` Even passthrough failed: ${passthroughError.message}`);
 
         // Ultimate fallback: raw output
         return {
@@ -266,7 +266,7 @@ class OKTK {
    * List available filters
    */
   listFilters() {
-    console.log('📋 Available Filters:');
+    console.log(' Available Filters:');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     this.filters.forEach(([pattern, Filter]) => {
       console.log(`  ${Filter.name.padEnd(20)} ${pattern.toString()}`);
@@ -333,7 +333,7 @@ Examples:
     const oktk = new OKTK();
     const filter = args[2] || null;
     await oktk.clearCache(filter);
-    console.log(`✅ Cache cleared${filter ? ` for ${filter}` : ''}`);
+    console.log(` Cache cleared${filter ? ` for ${filter}` : ''}`);
     return;
   }
 
@@ -343,10 +343,10 @@ Examples:
     if (args[1] === '--list') {
       const learned = aiFilter.listLearned();
       if (learned.length === 0) {
-        console.log('📚 No learned patterns yet.');
+        console.log(' No learned patterns yet.');
         console.log('   Enable AI learning with: export OKTK_AI_LEARN=1');
       } else {
-        console.log(`📚 Learned Patterns (${learned.length}):`);
+        console.log(` Learned Patterns (${learned.length}):`);
         learned.forEach(p => console.log(`   - ${p}`));
       }
       return;
@@ -354,14 +354,14 @@ Examples:
     
     if (args[1] === '--clear') {
       aiFilter.clearLearned();
-      console.log('✅ Learned patterns cleared');
+      console.log(' Learned patterns cleared');
       return;
     }
     
     // Show status
     const learned = aiFilter.listLearned();
     const enabled = process.env.OKTK_AI_LEARN === '1';
-    console.log(`🧠 AI Learning: ${enabled ? '✅ Enabled' : '❌ Disabled'}`);
+    console.log(` AI Learning: ${enabled ? ' Enabled' : ' Disabled'}`);
     console.log(`   Model: ${process.env.OKTK_AI_MODEL || 'glm-flash (default)'}`);
     console.log(`   Learned patterns: ${learned.length}`);
     if (!enabled) {
@@ -387,7 +387,7 @@ Examples:
 
   // Show savings if filtered and debug mode
   if (oktk.options.debug && result.filtered && result.savings) {
-    console.error(`\n📊 Saved ${result.savings.percentage}% tokens (${result.savings.saved}/${result.savings.original})`);
+    console.error(`\n Saved ${result.savings.percentage}% tokens (${result.savings.saved}/${result.savings.original})`);
   }
 
   // Exit with command's exit code

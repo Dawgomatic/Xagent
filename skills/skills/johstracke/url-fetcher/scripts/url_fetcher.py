@@ -146,14 +146,14 @@ def fetch_command(args):
         print("Error: URL is required")
         return
     
-    print(f"🌐 Fetching: {url}")
+    print(f" Fetching: {url}")
     result = fetch_url(url)
     
     if 'error' in result:
-        print(f"❌ Error: {result['error']}")
+        print(f" Error: {result['error']}")
         return
     
-    print(f"✅ Status: {result['status_code']}")
+    print(f" Status: {result['status_code']}")
     print(f"   Content-Type: {result['content_type']}")
     print(f"   Size: {result['content_length']} bytes")
     
@@ -165,7 +165,7 @@ def fetch_command(args):
     
     if output_file:
         if not is_safe_path(output_file):
-            print(f"❌ Security error: Unsafe output path: {output_file}")
+            print(f" Security error: Unsafe output path: {output_file}")
             return
         
         Path(output_file).parent.mkdir(parents=True, exist_ok=True)
@@ -173,7 +173,7 @@ def fetch_command(args):
         print(f"   Saved to: {output_file}")
     else:
         preview = content[:500] + "..." if len(content) > 500 else content
-        print(f"\n📄 Preview:\n{preview}")
+        print(f"\n Preview:\n{preview}")
 
 def main():
     if len(sys.argv) < 2:

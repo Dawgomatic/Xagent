@@ -34,7 +34,7 @@ app.get("/paid", (req, res) => {
   if (paymentHeader) {
     // Payment provided — in production, we'd verify via facilitator
     // For testing, accept any signed payment
-    console.log("💰 Payment received!");
+    console.log(" Payment received!");
     console.log("   Header:", paymentHeader.substring(0, 80) + "...");
     
     res.setHeader("x-payment-response", JSON.stringify({
@@ -44,7 +44,7 @@ app.get("/paid", (req, res) => {
     }));
     
     return res.json({
-      message: "🎉 Payment successful! You accessed the paid content.",
+      message: " Payment successful! You accessed the paid content.",
       timestamp: new Date().toISOString(),
       paidAmount: "$0.001 USDC",
       network: "Base Sepolia (testnet)",
@@ -125,7 +125,7 @@ app.get("/audit", (req, res) => {
 });
 
 const server = app.listen(4021, "127.0.0.1", async () => {
-  console.log("\n🛡️  x402 Test Server (E2E mode)");
+  console.log("\n  x402 Test Server (E2E mode)");
   console.log("   Port: 4021");
   console.log("   Pay to: " + wallet.address);
   console.log("   Network: Base Sepolia (testnet)\n");
@@ -134,14 +134,14 @@ const server = app.listen(4021, "127.0.0.1", async () => {
   console.log("=== TEST 1: Free endpoint ===");
   try {
     const r1 = await fetch("http://127.0.0.1:4021/");
-    console.log(`✅ Status: ${r1.status}`);
+    console.log(` Status: ${r1.status}`);
     console.log(`   Body: ${await r1.text()}`);
-  } catch(e) { console.error("❌", e.message); }
+  } catch(e) { console.error("", e.message); }
   
   console.log("\n=== TEST 2: Paid endpoint (no payment → 402) ===");
   try {
     const r2 = await fetch("http://127.0.0.1:4021/paid");
-    console.log(`✅ Status: ${r2.status} (expected 402)`);
+    console.log(` Status: ${r2.status} (expected 402)`);
     // x402 v2: requirements in PAYMENT-REQUIRED header (base64 JSON)
     const reqHeader = r2.headers.get("payment-required");
     if (reqHeader) {
@@ -151,9 +151,9 @@ const server = app.listen(4021, "127.0.0.1", async () => {
       console.log(`   Network: ${body.accepts[0].network}`);
       console.log(`   Pay to: ${body.accepts[0].payTo}`);
     } else {
-      console.log(`   ⚠️ No PAYMENT-REQUIRED header found`);
+      console.log(`    No PAYMENT-REQUIRED header found`);
     }
-  } catch(e) { console.error("❌", e.message); }
+  } catch(e) { console.error("", e.message); }
   
   console.log("\n=== TEST 3: Paid endpoint (with x402 client) ===");
   try {
@@ -169,7 +169,7 @@ const server = app.listen(4021, "127.0.0.1", async () => {
     
     console.log("   Signing payment with wallet...");
     const r3 = await payFetch("http://127.0.0.1:4021/paid");
-    console.log(`✅ Status: ${r3.status}`);
+    console.log(` Status: ${r3.status}`);
     const paymentResponse = r3.headers.get("x-payment-response");
     if (paymentResponse) {
       console.log(`   Payment response: ${paymentResponse}`);
@@ -177,7 +177,7 @@ const server = app.listen(4021, "127.0.0.1", async () => {
     const body3 = await r3.json();
     console.log(`   Body: ${JSON.stringify(body3)}`);
   } catch(e) {
-    console.error("❌ Payment test failed:", e.message);
+    console.error(" Payment test failed:", e.message);
     if (e.stack) console.error(e.stack.split("\n").slice(0, 5).join("\n"));
   }
   
@@ -193,11 +193,11 @@ const server = app.listen(4021, "127.0.0.1", async () => {
     const payFetch = wrapFetchWithPayment(globalThis.fetch, client);
     
     const r4 = await payFetch("http://127.0.0.1:4021/audit?skill=hello-world");
-    console.log(`✅ Status: ${r4.status}`);
+    console.log(` Status: ${r4.status}`);
     const body4 = await r4.json();
     console.log(`   Skill: ${body4.skillName}, Risk: ${body4.overallRisk}, Score: ${body4.score}`);
   } catch(e) {
-    console.error("❌ Audit test failed:", e.message);
+    console.error(" Audit test failed:", e.message);
   }
   
   console.log("\n=== DONE ===");

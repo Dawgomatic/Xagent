@@ -383,7 +383,7 @@ Appears at bottom of first column on page 1:
 Format depends on publication rights:
 ```
 Permission to make digital or hard copies of all or part of this work...
-© 2025 Association for Computing Machinery.
+ 2025 Association for Computing Machinery.
 ACM ISBN 978-1-4503-XXXX-X/YY/MM...$15.00
 https://doi.org/10.1145/XXXXXX.XXXXXX
 ```
@@ -394,7 +394,7 @@ https://doi.org/10.1145/XXXXXX.XXXXXX
 Top of first page:
 ```
 CONF '25, Month Day-Day, Year, City, Country
-© 2025 Copyright held by owner/author(s). Publication rights licensed to ACM.
+ 2025 Copyright held by owner/author(s). Publication rights licensed to ACM.
 ```
 
 ## Acknowledgments

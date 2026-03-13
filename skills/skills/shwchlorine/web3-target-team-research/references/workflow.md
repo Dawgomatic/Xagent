@@ -32,8 +32,8 @@ Find **individual Telegram contacts** for crypto "target teams" — up-and-comin
 - **Take a SCREENSHOT** (web_fetch CANNOT see profile pictures!)
 - **RETRY if page fails to load** — don't skip due to browser issues
 - Check screenshot:
-  - ✅ **VALID**: Has profile picture (pfp) OR bio text → ADD to list
-  - ❌ **INVALID**: No pfp AND no bio (just generic placeholder "If you have Telegram, you can contact X right away") → TRY VARIATIONS
+  -  **VALID**: Has profile picture (pfp) OR bio text → ADD to list
+  -  **INVALID**: No pfp AND no bio (just generic placeholder "If you have Telegram, you can contact X right away") → TRY VARIATIONS
 
 ### Step 4b: Try Username Variations
 If X handle doesn't work on TG, try combinations based on their real name:
@@ -61,7 +61,7 @@ If X handle doesn't work on TG, try combinations based on their real name:
 - **Retry on errors** — browser timeouts happen, just retry. If anything times out, RESTART immediately and keep going. Never stop.
 - **Scroll through ALL X search results** — team members may be lower in results
 - Save progress to CSV frequently
-- **⚠️ CLOSE TABS AFTER EACH VERIFICATION** — Don't leave t.me tabs open! Close immediately after screenshot.
+- ** CLOSE TABS AFTER EACH VERIFICATION** — Don't leave t.me tabs open! Close immediately after screenshot.
 
 ## If Can't Find Contacts for a Company
 - **ALWAYS add to `/Users/derrick/clawd/crypto-no-contacts.csv`** with notes on what you tried
@@ -74,14 +74,14 @@ If X handle doesn't work on TG, try combinations based on their real name:
 ## Validation Examples
 
 ### VALID (add to list):
-- @jessepollak — has profile picture ✅
-- @zkBruv — has bio "Eng @ Superstate. 110 patents granted." ✅
-- @davidtsocy — has pfp + bio ✅
-- @JonWalch — has pfp + bio "head of engineering @ superstate" ✅
+- @jessepollak — has profile picture 
+- @zkBruv — has bio "Eng @ Superstate. 110 patents granted." 
+- @davidtsocy — has pfp + bio 
+- @JonWalch — has pfp + bio "head of engineering @ superstate" 
 
 ### INVALID (do not add):
-- @rleshner — no pfp, no bio, just placeholder text ❌
-- @tmnsky — shows different person (Russian guy "Дмитрий") ❌
+- @rleshner — no pfp, no bio, just placeholder text 
+- @tmnsky — shows different person (Russian guy "Дмитрий") 
 
 ## Finding NEW Target Teams
 
@@ -208,7 +208,7 @@ When a subagent completes or times out, immediately spawn a new one to continue.
 - **Public Preview**: https://t.me/s/crypto_fundraising
 - **Subscribers**: 30,200+
 - **Contact**: @VAL_J
-- **Quality**: ⭐⭐⭐⭐⭐ EXCELLENT
+- **Quality**:  EXCELLENT
 - **Content**: All private fundraising events, real-time updates
 - **Frequency**: Multiple posts/day
 - **Recent $10M+ Raises Found**:
@@ -224,14 +224,14 @@ When a subagent completes or times out, immediately spawn a new one to continue.
 - **Type**: Notification bot with filters
 - **Features**: Filter by fund, category; early access before public channel
 - **Paid**: Yes (subscription model)
-- **Quality**: ⭐⭐⭐⭐⭐ Best for personalized alerts
+- **Quality**:  Best for personalized alerts
 
 ### NEWS CHANNELS (General Crypto News)
 
 #### 3. @coindesk
 - **Channel URL**: https://t.me/coindesk
 - **Subscribers**: 15,400+
-- **Quality**: ⭐⭐⭐ Good for general news
+- **Quality**:  Good for general news
 - **Funding Coverage**: Mixed with other news
 
 ### COMMUNITY CHATS (Not Announcement Channels)
@@ -259,19 +259,19 @@ When a subagent completes or times out, immediately spawn a new one to continue.
 ## JAN 25, 2026 - HUNTING SESSION RESULTS
 
 ### Teams Added/Updated from @crypto_fundraising Channel:
-1. **LMAX Group** - $150M (Ripple) - FX/Digital Assets - ADDED ✅
-2. **BitGo** - $212.80M IPO - Custody/Security - ADDED ✅
-3. **Alpaca** - $150M Series D - Trading API - ADDED ✅
+1. **LMAX Group** - $150M (Ripple) - FX/Digital Assets - ADDED 
+2. **BitGo** - $212.80M IPO - Custody/Security - ADDED 
+3. **Alpaca** - $150M Series D - Trading API - ADDED 
 4. **Rain** - Updated from $17M → $250M (Series C)
 5. **ZBD** - Updated from $40M → $75M (new $40M Series C)
 
 ### BitGo Contact Research (FAILED):
 Team members found on X but TG verification failed:
-- @mikebelshe (CEO) - No TG pfp/bio ❌
-- @itisjakeonx (MD, BitGo Ventures) - No TG pfp/bio ❌
-- @mtballensweig (Head of Trading) - No TG pfp/bio ❌
-- @chenfang (CRO) - Name only, no pfp/bio ❌
-- @chrispark_bitgo (Director) - No TG pfp/bio ❌
+- @mikebelshe (CEO) - No TG pfp/bio 
+- @itisjakeonx (MD, BitGo Ventures) - No TG pfp/bio 
+- @mtballensweig (Head of Trading) - No TG pfp/bio 
+- @chenfang (CRO) - Name only, no pfp/bio 
+- @chrispark_bitgo (Director) - No TG pfp/bio 
 
 ### Key Finding:
 **@crypto_fundraising is the PRIMARY source** for funding announcements. 
@@ -284,8 +284,8 @@ Their **@CryptoFundrising_bot** provides filtered alerts (paid) before public ch
 
 ## Session Jan 26, 2026 (v7)
 **Perle Labs added** ($17.5M) - 2 verified TG contacts:
-- Ahmed (Founder) @AhmedZRashad ✅
-- Arthur @rthurding ✅
+- Ahmed (Founder) @AhmedZRashad 
+- Arthur @rthurding 
 
 **Researched but no valid TG found:**
 - Canton Network ($50M) - @ShaulKfir, @thejonnymagic had no TG pfp/bio (only names, no bio/pfp)
@@ -302,7 +302,7 @@ Their **@CryptoFundrising_bot** provides filtered alerts (paid) before public ch
 
 ## Session Jan 26, 2026 (v8)
 **New companies added:**
-- **Yellow** ($10M) - @rohaan411 (Marketing) ✅ verified
+- **Yellow** ($10M) - @rohaan411 (Marketing)  verified
 - **Codex** ($15M) - added but NO verified TG (team members @haonan, @momoeureka, @citruscanine all have no pfp/bio)
 
 **Researched but NO valid TG found:**
@@ -315,7 +315,7 @@ Their **@CryptoFundrising_bot** provides filtered alerts (paid) before public ch
 
 ## Session Jan 25, 2026 (v29)
 **New company added:**
-- **SynFutures** ($22M+ from Polychain/Framework) - Rachel Lin (Co-Founder/CEO) @RachelLin_SF ✅
+- **SynFutures** ($22M+ from Polychain/Framework) - Rachel Lin (Co-Founder/CEO) @RachelLin_SF 
 
 **Researched but not added:**
 - Swell Network (@swellnetworkio) - Found @leckylao (Co-founder) with valid TG, but confirmed funding is only $3.75M (below threshold)
@@ -331,11 +331,11 @@ Their **@CryptoFundrising_bot** provides filtered alerts (paid) before public ch
 ## Session Jan 27, 2026 (v44)
 **New companies added:**
 - **Plume Network** ($20M from Haun/Galaxy) - RWA L2
-  - Teddy (Co-Founder) @teddyP_xyz ✅
+  - Teddy (Co-Founder) @teddyP_xyz 
 
 - **Turnkey** ($15M from Sequoia/Coinbase Ventures) - Wallet Infrastructure
-  - Bryce (Co-Founder) @sadbryce ✅
-  - Jack Kearney (Co-Founder/CTO) @whojackjones ✅
+  - Bryce (Co-Founder) @sadbryce 
+  - Jack Kearney (Co-Founder/CTO) @whojackjones 
 
 **Researched but NO valid TG found:**
 - **OpenEden** (YZi Labs backed RWA platform) - @jeremyng777 (CEO), @dukedu2022 (CTO), @nathanpaitchel (Growth) - all TG profiles have no pfp/bio
@@ -384,9 +384,9 @@ Their **@CryptoFundrising_bot** provides filtered alerts (paid) before public ch
 ## Session Jan 27, 2026 (v32)
 **New company added:**
 - **Miden** ($25M from a16z/1kx) - Privacy L2/ZK rollup launching Q1 2026
-  - Azeem (Cofounder) @azeemk ✅
-  - Akshit Sharma (Head of Ops) @midenmonk ✅
-  - Bobbin Threadbare (Engineer) @bobbinth ✅
+  - Azeem (Cofounder) @azeemk 
+  - Akshit Sharma (Head of Ops) @midenmonk 
+  - Bobbin Threadbare (Engineer) @bobbinth 
 
 **Researched but no valid TG:**
 - Dominik Schmid (Miden Co-founder Product) @schmiddominik1 / @dominikschmid - no pfp/bio
@@ -405,7 +405,7 @@ Their **@CryptoFundrising_bot** provides filtered alerts (paid) before public ch
 ## Session Jan 26, 2026 (v113)
 **New company added:**
 - **Polymarket** ($70M+ from 1confirmation/Dragonfly) - Prediction Markets
-  - LeGate (Growth Lead) @williamlegate ✅
+  - LeGate (Growth Lead) @williamlegate 
 
 **Verified existing:**
 - **Kaito AI** - Yu Hu (Founder) @Punk9277 was already in CSV, verified TG has pfp + bio 'Yu Hu | Kaito AI'

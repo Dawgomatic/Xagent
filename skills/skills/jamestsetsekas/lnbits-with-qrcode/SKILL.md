@@ -2,14 +2,14 @@
 name: lnbits
 description: Manage LNbits Lightning Wallet (Balance, Pay, Invoice)
 homepage: https://lnbits.com
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"bins":["python3"],"pip":["qrcode[pil]"],"env":["LNBITS_API_KEY", "LNBITS_BASE_URL"]},"primaryEnv":"LNBITS_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"],"pip":["qrcode[pil]"],"env":["LNBITS_API_KEY", "LNBITS_BASE_URL"]},"primaryEnv":"LNBITS_API_KEY"}}
 ---
 
 # LNbits Wallet Manager
 
 Enable the assistant to safely and effectively manage an LNbits Lightning Network wallet.
 
-## 🛑 CRITICAL PROTOCOLS 🛑
+##  CRITICAL PROTOCOLS 
 
 1.  **NEVER Expose Secrets**: Do NOT display Admin Keys, User IDs, or Wallet IDs.
 2.  **Explicit Confirmation**: You MUST ask for "Yes/No" confirmation before paying.
@@ -53,7 +53,7 @@ python3 {baseDir}/scripts/lnbits_cli.py invoice --amount 1000 --memo "Pizza"
 python3 {baseDir}/scripts/lnbits_cli.py invoice --amount 1000 --memo "Pizza" --no-qr
 ```
 
-**⚠️ MANDATORY RESPONSE FORMAT**: When generating an invoice, your response MUST include:
+** MANDATORY RESPONSE FORMAT**: When generating an invoice, your response MUST include:
 
 1. **Invoice text for copying**: Show the full `payment_request` string so user can copy it
 2. **QR code image**: Output `MEDIA:` followed by the `qr_file` path on ONE line
@@ -79,7 +79,7 @@ python3 {baseDir}/scripts/lnbits_cli.py qr <bolt11_string>
 Returns: `{"qr_file": "./.lnbits_qr/invoice_xxx.png", "bolt11": "..."}`
 
 ### 3. Pay Invoice (Send)
-**⚠️ REQUIRES CONFIRMATION**: Decode first, verify balance, ask user, then execute.
+** REQUIRES CONFIRMATION**: Decode first, verify balance, ask user, then execute.
 
 ```bash
 # Step 1: Decode to verify amount/memo

@@ -32,12 +32,12 @@ function encrypt(text: string, password: string) {
 }
 
 async function main() {
-  console.log("🚀 Starting OpenClaw Identity Onboarding...");
+  console.log(" Starting OpenClaw Identity Onboarding...");
 
   const password = process.env.CLAW_PASSWORD;
   if (!password) {
     console.error(
-      "❌ ERROR: CLAW_PASSWORD environment variable is required to encrypt your identity.",
+      " ERROR: CLAW_PASSWORD environment variable is required to encrypt your identity.",
     );
     console.error(
       "   Usage: CLAW_PASSWORD=mypassword npx tsx scripts/onboard.ts",
@@ -46,11 +46,11 @@ async function main() {
   }
 
   if (fs.existsSync(ENV_PATH)) {
-    console.log("✅ Identity found in .env.agent. You are ready to go!");
+    console.log(" Identity found in .env.agent. You are ready to go!");
     return;
   }
 
-  console.log("⚠️  No identity found. Generating a new Master Identity...");
+  console.log("  No identity found. Generating a new Master Identity...");
 
   // 1. Generate Ed25519 Key Pair
   const { publicKey, privateKey } = await jose.generateKeyPair("EdDSA", {
@@ -73,7 +73,7 @@ async function main() {
   const didIdentifier = bs58.encode(didKeyBytes);
   const did = `did:key:z${didIdentifier}`;
 
-  console.log(`\n🔑 New DID Generated: ${did}`);
+  console.log(`\n New DID Generated: ${did}`);
 
   // 5. Encrypt Private Key
   const encryptedData = encrypt(privateKeyPem, password);
@@ -84,8 +84,8 @@ async function main() {
   const envContent = `AGENT_DID=${did}\nAGENT_ENCRYPTED_KEY='${serializedAuth}'\n`;
 
   fs.writeFileSync(ENV_PATH, envContent);
-  console.log(`✅ Encrypted Identity saved to ${ENV_PATH}`);
-  console.log("🔒 This file is gitignored. NEVER share it or your password.");
+  console.log(` Encrypted Identity saved to ${ENV_PATH}`);
+  console.log(" This file is gitignored. NEVER share it or your password.");
 
   console.log("\nOnboarding Complete! Run 'npm test' to verify.");
 }

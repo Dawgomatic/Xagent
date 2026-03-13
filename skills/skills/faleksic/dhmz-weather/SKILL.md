@@ -2,7 +2,7 @@
 name: dhmz-weather
 description: Get Croatian weather data, forecasts, and alerts from DHMZ (meteo.hr) - no API key required.
 homepage: https://meteo.hr/proizvodi.php?section=podaci&param=xml_korisnici
-metadata: { "openclaw": { "emoji": "🇭🇷", "requires": { "bins": ["curl"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["curl"] } } }
 ---
 
 # DHMZ Weather (Croatia)
@@ -24,45 +24,45 @@ Use these emojis when displaying weather data to make it more intuitive:
 ### Conditions
 | Croatian | English | Emoji |
 |----------|---------|-------|
-| vedro, sunčano | clear, sunny | ☀️ |
-| djelomično oblačno | partly cloudy | ⛅ |
-| pretežno oblačno | mostly cloudy | 🌥️ |
-| potpuno oblačno | overcast | ☁️ |
-| slaba kiša | light rain | 🌦️ |
-| kiša | rain | 🌧️ |
-| jaka kiša | heavy rain | 🌧️🌧️ |
-| grmljavina | thunderstorm | ⛈️ |
-| snijeg | snow | 🌨️ |
-| susnježica | sleet | 🌨️🌧️ |
-| magla | fog | 🌫️ |
-| rosa | dew | 💧 |
+| vedro, sunčano | clear, sunny |  |
+| djelomično oblačno | partly cloudy |  |
+| pretežno oblačno | mostly cloudy |  |
+| potpuno oblačno | overcast |  |
+| slaba kiša | light rain |  |
+| kiša | rain |  |
+| jaka kiša | heavy rain |  |
+| grmljavina | thunderstorm |  |
+| snijeg | snow |  |
+| susnježica | sleet |  |
+| magla | fog |  |
+| rosa | dew |  |
 
 ### Metrics
 | Metric | Emoji |
 |--------|-------|
-| Temperature | 🌡️ |
-| Humidity | 💧 |
-| Pressure | 📊 |
-| Wind | 💨 |
-| Rain/Precipitation | 🌧️ |
-| UV Index | ☀️ |
-| Sea temperature | 🌊 |
+| Temperature |  |
+| Humidity |  |
+| Pressure |  |
+| Wind |  |
+| Rain/Precipitation |  |
+| UV Index |  |
+| Sea temperature |  |
 
 ### Wind Strength
 | Description | Emoji |
 |-------------|-------|
-| calm, light | 🍃 |
-| moderate | 💨 |
-| strong/windy (vjetrovito) | 💨💨 |
-| stormy (olujni) | 🌬️ |
+| calm, light |  |
+| moderate |  |
+| strong/windy (vjetrovito) |  |
+| stormy (olujni) |  |
 
 ### Alerts
 | Level | Emoji |
 |-------|-------|
-| Green (no warning) | 🟢 |
-| Yellow | 🟡 |
-| Orange | 🟠 |
-| Red | 🔴 |
+| Green (no warning) |  |
+| Yellow |  |
+| Orange |  |
+| Red |  |
 
 ## Current Weather
 

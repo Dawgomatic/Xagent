@@ -10,7 +10,7 @@ API_KEY="${3:-${REFINORE_API_KEY:-${REFINORE_AUTH_TOKEN:-}}}"
 LIMIT="${4:-50}"
 
 if [ -z "$API_KEY" ]; then
-  echo "❌ No credentials."
+  echo " No credentials."
   echo "Usage: analytics.sh <command> <api_url> <api_key>"
   exit 1
 fi
@@ -70,13 +70,13 @@ print(f'Motherlode: {d.get(\"motherlode_formatted\",0)} ORE (hit: {d.get(\"mothe
   rewards)
     echo "=== Mining Rewards ==="
     WALLET=$(get_wallet)
-    if [ -z "$WALLET" ]; then echo "❌ Could not get wallet"; exit 1; fi
+    if [ -z "$WALLET" ]; then echo " Could not get wallet"; exit 1; fi
     curl -s "$API_URL/rewards?wallet=$WALLET" -H "$AUTH_HEADER" | python3 -m json.tool 2>/dev/null
     ;;
   staking)
     echo "=== Staking Info ==="
     WALLET=$(get_wallet)
-    if [ -z "$WALLET" ]; then echo "❌ Could not get wallet"; exit 1; fi
+    if [ -z "$WALLET" ]; then echo " Could not get wallet"; exit 1; fi
     curl -s "$API_URL/staking/info?wallet=$WALLET" -H "$AUTH_HEADER" | python3 -m json.tool 2>/dev/null
     ;;
   *)

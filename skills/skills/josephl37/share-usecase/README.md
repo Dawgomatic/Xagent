@@ -33,13 +33,13 @@ Your assistant handles the rest!
 
 When you submit, you can choose:
 
-### ✅ Get Credit
+###  Get Credit
 Connect your X (Twitter) or GitHub account to:
 - Get a link on the live use case
 - Build your profile in the community
 - Show off your work
 
-### 🎭 Stay Anonymous
+###  Stay Anonymous
 Submit without attribution if you prefer privacy
 
 ## How It Works Behind the Scenes
@@ -124,13 +124,13 @@ Your use case should:
 
 ## Examples of Great Use Cases
 
-### Good 👍
+### Good 
 **Title**: "Email notifications for Pro subscriptions"
 **Hook**: "Automatically sends welcome emails when users upgrade"
 **Problem**: "Users upgrading to Pro weren't receiving confirmation emails, leading to support tickets"
 **Solution**: "Built a Resend email integration with React Email templates, connected to Stripe webhooks..."
 
-### Needs Work 👎
+### Needs Work 
 **Title**: "Email thing"
 **Hook**: "Sends emails"
 **Problem**: "No emails"
@@ -155,4 +155,4 @@ MIT - See LICENSE file
 
 ---
 
-Built with 🐧 by Rex
+Built with  by Rex

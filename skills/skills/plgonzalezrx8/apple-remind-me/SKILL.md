@@ -1,7 +1,7 @@
 ---
 name: apple-remind-me
 description: Natural language reminders that create actual Apple Reminders.app entries (macOS-native)
-metadata: {"openclaw":{"emoji":"⏰","os":["darwin"],"requires":{"bins":["remindctl","date"]}}}
+metadata: {"openclaw":{"emoji":"","os":["darwin"],"requires":{"bins":["remindctl","date"]}}}
 ---
 
 # Apple Remind Me (macOS Native)
@@ -47,7 +47,7 @@ Display all incomplete reminders with IDs, titles, due dates, and lists.
 
 **Output Format:**
 ```
-⏳ ID: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ ID: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    Title: Reminder text
    Due: 2026-01-27 14:00
    List: Reminders

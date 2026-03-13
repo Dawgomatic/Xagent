@@ -62,7 +62,7 @@ await client.workflows.sync({
     { name: 'research', agentId: researcherId, description: 'Research topic' },
     { name: 'write', agentId: writerId, description: 'Write article' }
   ],
-  // ⚠️ CRITICAL: Always define edges to connect your workflow nodes
+  //  CRITICAL: Always define edges to connect your workflow nodes
   edges: [
     { from: 'trigger:api', to: 'task:research' },
     { from: 'task:research', to: 'task:write' }

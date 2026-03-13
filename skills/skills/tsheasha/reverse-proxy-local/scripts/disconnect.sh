@@ -15,7 +15,7 @@ NC='\033[0m'
 
 echo ""
 echo -e "${BLUE}╔═══════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║     🔌 Ecto Connection Disconnect     ║${NC}"
+echo -e "${BLUE}║      Ecto Connection Disconnect     ║${NC}"
 echo -e "${BLUE}╚═══════════════════════════════════════╝${NC}"
 echo ""
 

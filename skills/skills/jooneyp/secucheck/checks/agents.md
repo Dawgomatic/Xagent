@@ -10,10 +10,10 @@ From `config.agents.list[]`, check each agent's permissions.
 
 | Profile | Risk Level | Notes |
 |---------|------------|-------|
-| `minimal` | 🟢 Low | Read, basic tools only |
-| `standard` | 🟡 Medium | Includes exec |
-| `coding` | 🟡 Medium | Full coding capabilities |
-| `full` | 🟠 High | Everything enabled |
+| `minimal` |  Low | Read, basic tools only |
+| `standard` |  Medium | Includes exec |
+| `coding` |  Medium | Full coding capabilities |
+| `full` |  High | Everything enabled |
 | (none specified) | Check defaults | Inherits from `agents.defaults` |
 
 ## Check 2: Dangerous Tool Combinations
@@ -30,9 +30,9 @@ From `config.agents.list[]`, check each agent's permissions.
 
 **Finding Pattern**:
 ```
-Agent exposed to external input (non-main) + exec + no deny = 🔴 Critical
-Agent with gateway access (non-main) = 🔴 Critical (can reconfigure itself)
-Agent with browser + exec = 🟠 High (fetch-and-execute chain)
+Agent exposed to external input (non-main) + exec + no deny =  Critical
+Agent with gateway access (non-main) =  Critical (can reconfigure itself)
+Agent with browser + exec =  High (fetch-and-execute chain)
 ```
 
 ## Check 3: Workspace Sharing
@@ -45,9 +45,9 @@ Agent with browser + exec = 🟠 High (fetch-and-execute chain)
 
 **Check**:
 - Count agents sharing same workspace path
-- If >1 and any has external exposure: 🟡 Medium
-- **Exception**: Single-user deployment = 🟢 Low (no cross-user risk)
-- **Exception**: All agents are internal subagents = 🟢 Low
+- If >1 and any has external exposure:  Medium
+- **Exception**: Single-user deployment =  Low (no cross-user risk)
+- **Exception**: All agents are internal subagents =  Low
 
 ## Check 4: Subagent Permissions
 
@@ -55,8 +55,8 @@ Agent with browser + exec = 🟠 High (fetch-and-execute chain)
 
 **Risk Assessment**:
 - Main agent can spawn subagents listed here
-- If subagent has more permissions than caller context: 🟡 Medium
-- If subagent list includes `"*"` (all agents): 🟠 High
+- If subagent has more permissions than caller context:  Medium
+- If subagent list includes `"*"` (all agents):  High
 
 ## Check 5: Message Tool as Exfiltration Vector
 
@@ -68,8 +68,8 @@ Agent with browser + exec = 🟠 High (fetch-and-execute chain)
 
 **Risk Assessment**:
 ```
-External-facing agent + message + Read = 🟠 High (exfiltration path)
-Internal agent + message = 🟢 Low (expected for notifications)
+External-facing agent + message + Read =  High (exfiltration path)
+Internal agent + message =  Low (expected for notifications)
 ```
 
 ## Check 6: Main Agent Special Risks
@@ -93,8 +93,8 @@ Consider the agent's purpose:
 
 2. **Data analyst agent**
    - Should NOT need exec or browser
-   - Flag if present: 🟠 High
+   - Flag if present:  High
 
 3. **External-facing agent** (public bot)
    - Should have minimal tools
-   - Any exec/browser/gateway: 🔴 Critical
+   - Any exec/browser/gateway:  Critical

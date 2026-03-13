@@ -31,7 +31,7 @@ If you're not logged in, log in with your Dropbox account.
 
 Select **"Scoped access"** (the modern, recommended API)
 
-❌ Don't choose "App folder access" or "Full Dropbox" here yet
+ Don't choose "App folder access" or "Full Dropbox" here yet
 
 ### 1.3 Choose Access Type
 
@@ -95,19 +95,19 @@ Click the **"Permissions"** tab at the top of your app settings page.
 Find and **enable** these permissions:
 
 **Files and folders:**
-- ✅ `files.metadata.read` - View files and folders in your Dropbox
-- ✅ `files.content.read` - Download files
+-  `files.metadata.read` - View files and folders in your Dropbox
+-  `files.content.read` - Download files
 
 **Account:**
-- ✅ `account_info.read` - View your account information
+-  `account_info.read` - View your account information
 
 ### 3.3 Verify Write Permissions Are Disabled
 
 Make sure these are **NOT enabled** (for safety):
 
-- ❌ `files.metadata.write` - Create, edit, and delete files
-- ❌ `files.content.write` - Upload files
-- ❌ `files.permanent_delete` - Permanently delete files
+-  `files.metadata.write` - Create, edit, and delete files
+-  `files.content.write` - Upload files
+-  `files.permanent_delete` - Permanently delete files
 
 ### 3.4 Save Changes
 
@@ -178,7 +178,7 @@ node setup-oauth.js
 You'll see output like:
 
 ```
-📦 Dropbox OAuth Setup
+ Dropbox OAuth Setup
 
 1. Open this URL in your browser:
 
@@ -188,7 +188,7 @@ You'll see output like:
 3. You'll be redirected to localhost (may show an error - that's OK)
 4. Copy the full URL from your browser and paste it here
 
-🌐 Local server started on http://localhost:3000
+ Local server started on http://localhost:3000
    Waiting for authorization...
 ```
 
@@ -218,7 +218,7 @@ The local server will automatically catch this and exchange the code for tokens.
 You should see:
 
 ```
-✅ Authorization successful!
+ Authorization successful!
 Your access token has been saved to token.json
 You can close this window and return to your terminal.
 ```
@@ -228,7 +228,7 @@ You can close this window and return to your terminal.
 Back in your terminal, you should see:
 
 ```
-✅ Success! Token saved to token.json
+ Success! Token saved to token.json
 
 Token details:
   - Access token: sl.B3g5xyz...
@@ -264,9 +264,9 @@ node test-connection.js
 You should see your Dropbox account information:
 
 ```
-🔐 Testing Dropbox connection...
+ Testing Dropbox connection...
 
-✅ Connected successfully!
+ Connected successfully!
 
 Account: John Doe (john@example.com)
 Account ID: dbid:AAH4f99T0taONIb-OurWxbNQ6ywGRopQngc
@@ -375,11 +375,11 @@ Your `token.json` will stop working, and you'll need to re-authenticate.
 
 Now that setup is complete:
 
-1. ✅ Browse your files with `browse.js`
-2. ✅ Search for specific files with `search-files.js`
-3. ✅ Download files with `download.js`
-4. ✅ Integrate with OpenClaw using the `exec` tool
-5. ✅ Build custom automation using `dropbox-helper.js`
+1.  Browse your files with `browse.js`
+2.  Search for specific files with `search-files.js`
+3.  Download files with `download.js`
+4.  Integrate with OpenClaw using the `exec` tool
+5.  Build custom automation using `dropbox-helper.js`
 
 ## Additional Resources
 

@@ -1,7 +1,7 @@
 ---
 name: Affirmations
 description: Build a personal affirmation system for daily practice, custom affirmations, and mindset reinforcement.
-metadata: {"clawdbot":{"emoji":"✨","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

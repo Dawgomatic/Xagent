@@ -1,4 +1,4 @@
-# 🍺 Brewery Lookup Skill
+#  Brewery Lookup Skill
 
 CLI for AI agents to find breweries for their humans. Uses [Open Brewery DB](https://www.openbrewerydb.org). No auth required.
 
@@ -47,7 +47,7 @@ breweries random 3                  # Get random breweries
 ## Output Format
 
 ```
-🍺 Sierra Nevada Brewing Co. — Chico, California, Regional Brewery
+ Sierra Nevada Brewing Co. — Chico, California, Regional Brewery
    https://sierranevada.com
 ```
 

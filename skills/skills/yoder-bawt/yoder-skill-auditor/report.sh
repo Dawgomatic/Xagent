@@ -48,9 +48,9 @@ print()
 print(f"| Metric | Count |")
 print(f"|--------|-------|")
 print(f"| Total Skills | {total} |")
-print(f"| ✅ Pass | {pass_count} |")
-print(f"| ⚠️ Review | {review_count} |")
-print(f"| ❌ Fail | {fail_count} |")
+print(f"|  Pass | {pass_count} |")
+print(f"|  Review | {review_count} |")
+print(f"|  Fail | {fail_count} |")
 print()
 
 # Pass rate
@@ -61,7 +61,7 @@ print()
 # Failures first
 fails = [r for r in results if r.get("verdict") == "fail"]
 if fails:
-    print(f"## ❌ Critical Failures ({len(fails)})")
+    print(f"##  Critical Failures ({len(fails)})")
     print()
     for r in fails:
         name = r.get("skill", "unknown")
@@ -78,7 +78,7 @@ if fails:
 # Reviews
 reviews = [r for r in results if r.get("verdict") == "review"]
 if reviews:
-    print(f"## ⚠️ Needs Review ({len(reviews)})")
+    print(f"##  Needs Review ({len(reviews)})")
     print()
     for r in reviews:
         name = r.get("skill", "unknown")
@@ -92,7 +92,7 @@ if reviews:
 # Pass list (compact)
 passes = [r for r in results if r.get("verdict") == "pass"]
 if passes:
-    print(f"## ✅ Passing Skills ({len(passes)})")
+    print(f"##  Passing Skills ({len(passes)})")
     print()
     print("| Skill | Infos | Allowlisted |")
     print("|-------|-------|-------------|")

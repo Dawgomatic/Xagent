@@ -1,7 +1,7 @@
 ---
 name: Business
 description: Validate, plan, and refine business strategy with practical frameworks.
-metadata: {"clawdbot":{"emoji":"💼","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Idea Validation

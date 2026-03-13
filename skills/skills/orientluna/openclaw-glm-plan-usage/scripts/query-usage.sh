@@ -71,8 +71,8 @@ get_text() {
         "warn_model:en") echo "Unable to get model usage statistics" ;;
         "warn_tool:zh") echo "无法获取工具使用统计" ;;
         "warn_tool:en") echo "Unable to get tool usage statistics" ;;
-        "header_title:zh") echo "📊 GLM 编码套餐使用统计" ;;
-        "header_title:en") echo "📊 GLM Coding Plan Usage Statistics" ;;
+        "header_title:zh") echo " GLM 编码套餐使用统计" ;;
+        "header_title:en") echo " GLM Coding Plan Usage Statistics" ;;
         "label_provider:zh") echo "提供商" ;;
         "label_provider:en") echo "Provider" ;;
         "label_time:zh") echo "统计时间" ;;
@@ -113,7 +113,7 @@ get_text() {
 
 print_error() {
     local key="$1"
-    echo -e "${RED}❌ $(get_text 'error_prefix')${NC} $(get_text "$key")" >&2
+    echo -e "${RED} $(get_text 'error_prefix')${NC} $(get_text "$key")" >&2
 }
 
 print_success() {
@@ -122,11 +122,11 @@ print_success() {
 
 print_warning() {
     local key="$1"
-    echo -e "${YELLOW}⚠${NC} $(get_text "$key")"
+    echo -e "${YELLOW}${NC} $(get_text "$key")"
 }
 
 print_info() {
-    echo -e "${CYAN}ℹ${NC} $*"
+    echo -e "${CYAN}${NC} $*"
 }
 
 # 检查依赖工具 / Check dependencies

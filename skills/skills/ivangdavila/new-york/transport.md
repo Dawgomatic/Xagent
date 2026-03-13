@@ -80,7 +80,7 @@
 
 ## Best Transit Apps
 
-1. **Citymapper** ⭐ — Best overall, shows all options
+1. **Citymapper**  — Best overall, shows all options
 2. **Google Maps** — Reliable directions
 3. **MTA App** — Official, real-time arrivals
 4. **Transit** — Clean interface
@@ -94,5 +94,5 @@
 
 ### Staten Island Ferry
 - **Fare:** FREE
-- **Route:** Whitehall ↔ Staten Island
+- **Route:** Whitehall  Staten Island
 - **Best for:** Free Statue of Liberty views

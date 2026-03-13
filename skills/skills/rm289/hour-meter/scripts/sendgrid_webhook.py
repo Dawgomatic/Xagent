@@ -59,16 +59,16 @@ DEFAULT_MAX_AGE_SECONDS = 300
 
 # Event type emoji mapping
 EVENT_EMOJI = {
-    "delivered": "✅",
-    "open": "👀",
-    "click": "🔗",
-    "bounce": "⚠️",
-    "dropped": "🚫",
-    "deferred": "⏳",
-    "unsubscribe": "🔕",
-    "group_unsubscribe": "🔕",
-    "spamreport": "🚨",
-    "processed": "📤",
+    "delivered": "",
+    "open": "",
+    "click": "",
+    "bounce": "",
+    "dropped": "",
+    "deferred": "",
+    "unsubscribe": "",
+    "group_unsubscribe": "",
+    "spamreport": "",
+    "processed": "",
 }
 
 # Configuration holder
@@ -157,42 +157,42 @@ def verify_signature(payload: bytes, signature: str, timestamp: str, public_key:
 def format_event_message(event: Dict[str, Any]) -> str:
     """Format a SendGrid event as a Discord message."""
     event_type = event.get("event", "unknown")
-    emoji = EVENT_EMOJI.get(event_type, "📧")
+    emoji = EVENT_EMOJI.get(event_type, "")
     recipient = event.get("email", "unknown")
     timestamp = event.get("timestamp")
     
     # Build message
     lines = [f"{emoji} **SendGrid Event: {event_type.upper()}**"]
-    lines.append(f"📬 Recipient: `{recipient}`")
+    lines.append(f" Recipient: `{recipient}`")
     
     # Add event-specific details
     if event_type == "click":
         url = event.get("url", "N/A")
-        lines.append(f"🔗 Clicked: {url[:50]}..." if len(url) > 50 else f"🔗 Clicked: {url}")
+        lines.append(f" Clicked: {url[:50]}..." if len(url) > 50 else f" Clicked: {url}")
     
     if event_type == "bounce":
         reason = event.get("reason", "Unknown")
         bounce_type = event.get("type", "unknown")
-        lines.append(f"⚠️ Type: {bounce_type}")
-        lines.append(f"💬 Reason: {reason[:100]}")
+        lines.append(f" Type: {bounce_type}")
+        lines.append(f" Reason: {reason[:100]}")
     
     if event_type in ("unsubscribe", "group_unsubscribe"):
         asm_group = event.get("asm_group_id", "N/A")
-        lines.append(f"🔕 Unsubscribe Group: {asm_group}")
+        lines.append(f" Unsubscribe Group: {asm_group}")
     
     if event_type == "spamreport":
-        lines.append("🚨 User marked this email as spam!")
+        lines.append(" User marked this email as spam!")
     
     if event_type == "open":
         user_agent = event.get("useragent", "")
         if user_agent:
-            lines.append(f"🌐 Client: {user_agent[:60]}")
+            lines.append(f" Client: {user_agent[:60]}")
     
     # Timestamp
     if timestamp:
         try:
             dt = datetime.fromtimestamp(int(timestamp), tz=timezone.utc)
-            lines.append(f"🕐 Time: {dt.strftime('%Y-%m-%d %H:%M:%S UTC')}")
+            lines.append(f" Time: {dt.strftime('%Y-%m-%d %H:%M:%S UTC')}")
         except (TypeError, ValueError):
             pass
     

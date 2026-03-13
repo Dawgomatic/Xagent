@@ -1,7 +1,7 @@
 ---
 name: SQL
 description: Write efficient queries avoiding common performance traps and subtle bugs.
-metadata: {"clawdbot":{"emoji":"🗄️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # SQL Gotchas

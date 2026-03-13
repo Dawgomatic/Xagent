@@ -1,4 +1,4 @@
-# ✈️ Meeting Autopilot
+#  Meeting Autopilot
 
 **Turn meeting transcripts into operational outputs — not summaries, but action items, decisions, follow-up emails, and ticket drafts.**
 
@@ -16,12 +16,12 @@ Paste or point it at a meeting transcript (VTT, SRT, or plain text). Meeting Aut
 
 | Output | What You Get |
 |--------|-------------|
-| ✅ **Decisions** | What was decided, by whom, with rationale |
-| 📋 **Action Items** | Owner, deadline, priority — ready for your task tracker |
-| 📧 **Follow-Up Emails** | Professional, ready-to-send email drafts |
-| 🎫 **Ticket Drafts** | Jira/Linear/GitHub-ready issue descriptions |
-| ❓ **Open Questions** | What's still unresolved |
-| 🅿️ **Parking Lot** | What was deferred for later |
+|  **Decisions** | What was decided, by whom, with rationale |
+|  **Action Items** | Owner, deadline, priority — ready for your task tracker |
+|  **Follow-Up Emails** | Professional, ready-to-send email drafts |
+|  **Ticket Drafts** | Jira/Linear/GitHub-ready issue descriptions |
+|  **Open Questions** | What's still unresolved |
+|  **Parking Lot** | What was deferred for later |
 
 ### The WOW Moment: Follow-Up Emails
 
@@ -30,27 +30,27 @@ Other tools give you bullet points. Meeting Autopilot gives you a complete follo
 ### Example Output
 
 ```
-## ✈️ Meeting Autopilot Report
+##  Meeting Autopilot Report
 
 **Sprint Planning — Week 7**
-📅 February 15, 2026 at 14:30
-👥 Participants: Sarah, Mike, Priya, James
+ February 15, 2026 at 14:30
+ Participants: Sarah, Mike, Priya, James
 
-## 📊 Overview
+##  Overview
 | Category        | Count |
 |-----------------|------:|
-| ✅ Decisions     |     3 |
-| 📋 Action Items  |     7 |
-| ❓ Open Questions |     2 |
+|  Decisions     |     3 |
+|  Action Items  |     7 |
+|  Open Questions |     2 |
 
-## 📋 Action Items
+##  Action Items
 | # | Action                              | Owner | Deadline   | Status |
 |:-:|-------------------------------------|-------|------------|:------:|
-| 1 | Set up PostgreSQL staging instance  | Mike  | Friday     | ⬜ Open |
-| 2 | Draft API migration plan            | Priya | Next Tues  | ⬜ Open |
-| 3 | Schedule security review            | Sarah | This week  | ⬜ Open |
+| 1 | Set up PostgreSQL staging instance  | Mike  | Friday     |  Open |
+| 2 | Draft API migration plan            | Priya | Next Tues  |  Open |
+| 3 | Schedule security review            | Sarah | This week  |  Open |
 
-## 📧 Follow-Up Email
+##  Follow-Up Email
 **Subject:** Sprint Planning Follow-Up — 3 Decisions, 7 Action Items
 
 Hi team,
@@ -83,9 +83,9 @@ bash scripts/meeting-autopilot.sh meeting.txt --title "Board Meeting" --output .
 
 | Format | Source | Speaker Labels |
 |--------|--------|:--------------:|
-| **VTT** (WebVTT) | Zoom, Google Meet, Teams | ✅ Yes |
-| **SRT** (SubRip) | Otter.ai, video editors | ⚠️ Sometimes |
-| **TXT** (Plain text) | Manual notes, any source | ✅ If formatted as `Speaker: text` |
+| **VTT** (WebVTT) | Zoom, Google Meet, Teams |  Yes |
+| **SRT** (SubRip) | Otter.ai, video editors |  Sometimes |
+| **TXT** (Plain text) | Manual notes, any source |  If formatted as `Speaker: text` |
 
 Format is auto-detected. Force with `--format vtt|srt|txt` if needed.
 
@@ -140,4 +140,4 @@ A: No — it requires an LLM API call. A local LLM option is planned for v1.1.
 
 ---
 
-<sub>Powered by CacheForge ✈️ | [Report an issue](https://github.com/cacheforge-ai/cacheforge-skills/issues)</sub>
+<sub>Powered by CacheForge  | [Report an issue](https://github.com/cacheforge-ai/cacheforge-skills/issues)</sub>

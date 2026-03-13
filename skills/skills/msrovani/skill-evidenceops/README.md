@@ -14,13 +14,13 @@ EvidenceOps provides a complete solution for forensic evidence handling in OpenC
 
 ### Features
 
-- 🔒 **Immutable Storage** - Append-only vault with cryptographic hashes
-- 🔗 **Chain of Custody** - Tamper-evident hash chain for all operations
-- 📋 **Audit Trail** - Complete JSONL logging with secret redaction
-- 🔍 **Integrity Verification** - Verify evidence hasn't been modified
-- 📦 **Export** - Generate archives with hash verification
-- 🏷️ **Sensitivity Tagging** - Classify evidence by confidentiality
-- ⏱️ **Retention Policies** - Configurable retention with legal hold
+-  **Immutable Storage** - Append-only vault with cryptographic hashes
+-  **Chain of Custody** - Tamper-evident hash chain for all operations
+-  **Audit Trail** - Complete JSONL logging with secret redaction
+-  **Integrity Verification** - Verify evidence hasn't been modified
+-  **Export** - Generate archives with hash verification
+-  **Sensitivity Tagging** - Classify evidence by confidentiality
+-  **Retention Policies** - Configurable retention with legal hold
 
 ## Repository Structure
 

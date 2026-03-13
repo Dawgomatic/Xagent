@@ -78,10 +78,10 @@ Run the same audit queries monthly. Track:
 
 ## Red Flags
 
-- ❌ AI never mentions you → no presence in training data
-- ❌ AI mentions you negatively → reputation problem in sources
-- ❌ AI confuses you with competitor → brand differentiation issue
-- ❌ AI only mentions you for wrong use case → positioning mismatch
+-  AI never mentions you → no presence in training data
+-  AI mentions you negatively → reputation problem in sources
+-  AI confuses you with competitor → brand differentiation issue
+-  AI only mentions you for wrong use case → positioning mismatch
 
 ## What This Doesn't Cover
 

@@ -3,7 +3,7 @@ name: C++
 slug: cpp
 version: 1.0.1
 description: Write safe C++ avoiding memory leaks, dangling pointers, undefined behavior, and ownership confusion.
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"bins":["g++"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["g++"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

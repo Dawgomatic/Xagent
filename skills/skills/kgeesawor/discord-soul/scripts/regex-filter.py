@@ -150,15 +150,15 @@ def main():
         import json
         print(json.dumps(results, indent=2))
     else:
-        print(f"📊 Scanned: {results['scanned']} messages")
-        print(f"🚩 Flagged: {results['flagged']} messages")
+        print(f" Scanned: {results['scanned']} messages")
+        print(f" Flagged: {results['flagged']} messages")
         
         if results["flagged"] > 0:
-            print(f"\n📋 Pattern matches:")
+            print(f"\n Pattern matches:")
             for pattern, count in sorted(results["patterns"].items(), key=lambda x: -x[1]):
                 print(f"  {count}x: {pattern[:60]}...")
             
-            print(f"\n⚠️  Flagged messages:")
+            print(f"\n  Flagged messages:")
             for msg in results["flagged_messages"][:10]:  # Show first 10
                 print(f"  [{msg['channel']}] {msg['author']}: {msg['content'][:80]}...")
                 print(f"    Patterns: {', '.join(msg['patterns'][:3])}")
@@ -167,7 +167,7 @@ def main():
                 print(f"  ... and {len(results['flagged_messages']) - 10} more")
         
         if args.update:
-            print(f"\n✅ Updated {results.get('updated', 0)} messages to 'regex_flagged'")
+            print(f"\n Updated {results.get('updated', 0)} messages to 'regex_flagged'")
 
 if __name__ == "__main__":
     main()

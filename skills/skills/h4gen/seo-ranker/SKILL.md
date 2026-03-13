@@ -4,7 +4,7 @@ description: Meta-skill for end-to-end SEO auditing and on-page optimization by 
 homepage: https://clawhub.ai
 user-invocable: true
 disable-model-invocation: false
-metadata: {"openclaw":{"emoji":"📈","requires":{"bins":["node","npx","summarize","uvx"],"env":["BRAVE_API_KEY","MATON_API_KEY","OPENAI_API_KEY","ANTHROPIC_API_KEY","XAI_API_KEY","GEMINI_API_KEY"],"config":[]},"note":"Requires local installation of brave-search, summarize, api-gateway, and markdown-converter. At least one summarize model API key must be present."}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node","npx","summarize","uvx"],"env":["BRAVE_API_KEY","MATON_API_KEY","OPENAI_API_KEY","ANTHROPIC_API_KEY","XAI_API_KEY","GEMINI_API_KEY"],"config":[]},"note":"Requires local installation of brave-search, summarize, api-gateway, and markdown-converter. At least one summarize model API key must be present."}}
 ---
 
 # Purpose

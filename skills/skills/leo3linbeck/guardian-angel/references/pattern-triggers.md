@@ -137,11 +137,11 @@ Circumstances that elevate risk even for neutral acts:
 
 | Marker | Description | Escalation Level |
 |--------|-------------|------------------|
-| **Explicit vulnerability** | Children, elderly, disabled, mentally ill | 🔶 ALWAYS ELEVATE |
-| **Situational vulnerability** | Grieving, desperate, isolated, dependent | ⚠️ CAUTION |
-| **Informational asymmetry** | Target doesn't know what user knows | ⚠️ CAUTION |
-| **Economic precarity** | Financial pressure on target | ⚠️ CAUTION |
-| **Fiduciary relationship** | User has duty of care to target | 🔶 ALWAYS ELEVATE |
+| **Explicit vulnerability** | Children, elderly, disabled, mentally ill |  ALWAYS ELEVATE |
+| **Situational vulnerability** | Grieving, desperate, isolated, dependent |  CAUTION |
+| **Informational asymmetry** | Target doesn't know what user knows |  CAUTION |
+| **Economic precarity** | Financial pressure on target |  CAUTION |
+| **Fiduciary relationship** | User has duty of care to target |  ALWAYS ELEVATE |
 
 ### 4.2 Relationship Red Flags
 
@@ -190,12 +190,12 @@ Circumstances that elevate risk even for neutral acts:
 ## TRIGGER COUNTING SYSTEM
 
 ```
-0 triggers      → ✅ PASS to Gate 2
-1-2 triggers    → ⚠️ PASS with logging
-3-4 triggers    → 🔶 ESCALATE to Gate 3 (request clarification)
-5+ triggers     → 🛑 ESCALATE to Gate 3 (full analysis required)
+0 triggers      →  PASS to Gate 2
+1-2 triggers    →  PASS with logging
+3-4 triggers    →  ESCALATE to Gate 3 (request clarification)
+5+ triggers     →  ESCALATE to Gate 3 (full analysis required)
 
-OVERRIDE: Any Category 4.1 "ALWAYS ELEVATE" → 🔶 minimum regardless of count
+OVERRIDE: Any Category 4.1 "ALWAYS ELEVATE" →  minimum regardless of count
 ```
 
 ---

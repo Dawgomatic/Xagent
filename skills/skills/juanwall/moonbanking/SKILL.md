@@ -6,7 +6,7 @@ requires:
   env: ["MOON_BANKING_API_KEY"]
 metadata:
   openclaw:
-    emoji: "💰"
+    emoji: ""
     requires:
       env: ["MOON_BANKING_API_KEY"]
       bins: ["curl", "jq"]

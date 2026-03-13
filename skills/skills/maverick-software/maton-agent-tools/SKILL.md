@@ -1,7 +1,7 @@
 ---
 name: maton
 description: Connect to SaaS tools via Maton AI. Includes full UI integration for Clawdbot Gateway dashboard. Use when setting up Maton integration, connecting apps (Gmail, Slack, Notion, HubSpot, etc.), or managing OAuth connections.
-metadata: {"clawdbot":{"emoji":"🔗","requires":{"clawdbot":">=2026.1.0"},"category":"integrations"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"clawdbot":">=2026.1.0"},"category":"integrations"}}
 ---
 
 # Maton AI

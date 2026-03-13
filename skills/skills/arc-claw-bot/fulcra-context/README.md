@@ -88,16 +88,16 @@ sleep = api.time_series_grouped(
 
 ## Integration Patterns
 
-### 🌅 Context-Aware Morning Briefing
+###  Context-Aware Morning Briefing
 Check sleep quality + today's calendar + weather → compose a briefing calibrated to actual energy level. Poor sleep? Lighter tone, fewer tasks. Great sleep? Full agenda.
 
-### 💆 Stress-Aware Communication
+###  Stress-Aware Communication
 Monitor HRV + heart rate → if stress indicators are elevated, keep messages brief and avoid adding non-urgent tasks.
 
-### 🏃 Recovery-Aware Scheduling
+###  Recovery-Aware Scheduling
 After intense workout or poor sleep → suggest lighter schedule, remind about hydration, reschedule demanding work.
 
-### ✈️ Travel Awareness
+###  Travel Awareness
 Detect location changes → adjust timezone handling, suggest local info, modify schedule expectations.
 
 ## Security

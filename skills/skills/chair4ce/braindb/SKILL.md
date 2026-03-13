@@ -8,7 +8,7 @@ author: Oaiken LLC
 metadata:
   {
     "openclaw": {
-      "emoji": "🧠",
+      "emoji": "",
       "requires": {
         "bins": ["docker", "node"],
         "env": [],

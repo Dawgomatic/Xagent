@@ -47,7 +47,7 @@ class GitFilter extends BaseFilter {
     // Extract branch
     const branchLine = lines.find(l => l.includes('On branch'));
     const branch = branchLine?.match(/On branch\s+(.+)/)?.[1] || 'unknown';
-    result.push(`📍 ${branch}`);
+    result.push(` ${branch}`);
 
     // Check for ahead/behind status
     const statusLine = lines.find(l => l.includes('Your branch is'));
@@ -79,10 +79,10 @@ class GitFilter extends BaseFilter {
       if (line.trim().startsWith('??')) untracked++;
     }
 
-    if (modified > 0) result.push(`✏️  Modified: ${modified}`);
-    if (added > 0) result.push(`➕ Added: ${added}`);
-    if (deleted > 0) result.push(`🗑️  Deleted: ${deleted}`);
-    if (untracked > 0) result.push(`❓ Untracked: ${untracked}`);
+    if (modified > 0) result.push(`  Modified: ${modified}`);
+    if (added > 0) result.push(` Added: ${added}`);
+    if (deleted > 0) result.push(`  Deleted: ${deleted}`);
+    if (untracked > 0) result.push(` Untracked: ${untracked}`);
 
     // If no changes
     if (modified === 0 && added === 0 && deleted === 0 && untracked === 0) {
@@ -149,7 +149,7 @@ class GitFilter extends BaseFilter {
       const shortHash = commit.hash.substring(0, 7);
       const shortMessage = (commit.message || 'no message').trim().substring(0, 50);
       const shortAuthor = commit.author.split(' ')[0] || 'unknown';
-      const prefix = index === 0 ? '📍' : '•';
+      const prefix = index === 0 ? '' : '•';
       return `${prefix} ${shortHash} ${shortMessage} (${shortAuthor})`;
     });
 
@@ -177,9 +177,9 @@ class GitFilter extends BaseFilter {
     }
 
     const result = [
-      `📊 ${Math.ceil(files / 2)} file(s) changed`,
-      `➕ ${additions} insertions`,
-      `➖ ${deletions} deletions`
+      ` ${Math.ceil(files / 2)} file(s) changed`,
+      ` ${additions} insertions`,
+      ` ${deletions} deletions`
     ];
 
     // Show first few file names
@@ -190,7 +190,7 @@ class GitFilter extends BaseFilter {
 
     if (fileNames.length > 0) {
       result.push('');
-      result.push('📁 Modified files:');
+      result.push(' Modified files:');
       fileNames.forEach(name => result.push(`  - ${name}`));
       if (files / 2 > 5) {
         result.push(`  ... and ${Math.ceil(files / 2) - 5} more`);
@@ -220,11 +220,11 @@ class GitFilter extends BaseFilter {
     const result = [];
 
     if (current) {
-      result.push(`📍 ${current.name} (current)`);
+      result.push(` ${current.name} (current)`);
     }
 
     if (others.length > 0) {
-      result.push(`📋 ${others.length} other branch(es):`);
+      result.push(` ${others.length} other branch(es):`);
       others.slice(0, 10).forEach(b => result.push(`  - ${b.name}`));
       if (others.length > 10) {
         result.push(`  ... and ${others.length - 10} more`);
@@ -294,7 +294,7 @@ class GitFilter extends BaseFilter {
       }
     }
 
-    const result = ['⚙️  Git Configuration'];
+    const result = ['  Git Configuration'];
     for (const [section, items] of Object.entries(sections)) {
       result.push(`\n${section}:`);
       items.slice(0, 5).forEach(item => result.push(`  ${item}`));

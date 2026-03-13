@@ -2,7 +2,7 @@
 
 High-speed, memory-efficient file transfer between OpenClaw nodes using native Node.js streams.
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Problem Solved](#problem-solved)
 - [Architecture](#architecture)
@@ -14,7 +14,7 @@ High-speed, memory-efficient file transfer between OpenClaw nodes using native N
 
 ---
 
-## 🎯 Problem Solved
+##  Problem Solved
 
 ### The Original Problem
 
@@ -31,10 +31,10 @@ When transferring large files between OpenClaw nodes using the standard `nodes.i
 
 `node-transfer` uses **native HTTP streaming** with Node.js streams, providing:
 
-- ✅ **Zero memory overhead** - Files stream directly from disk to network
-- ✅ **No Base64 encoding** - Raw binary transfer
-- ✅ **Speed** - Line-speed limited only by network bandwidth
-- ✅ **Install Once, Run Many** - Scripts persist on nodes after first deployment
+-  **Zero memory overhead** - Files stream directly from disk to network
+-  **No Base64 encoding** - Raw binary transfer
+-  **Speed** - Line-speed limited only by network bandwidth
+-  **Install Once, Run Many** - Scripts persist on nodes after first deployment
 
 ### Performance Comparison
 
@@ -47,7 +47,7 @@ When transferring large files between OpenClaw nodes using the standard `nodes.i
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ### How It Works
 
@@ -94,7 +94,7 @@ When transferring large files between OpenClaw nodes using the standard `nodes.i
 
 ---
 
-## 📦 Requirements
+##  Requirements
 
 - **Node.js**: 14.0.0 or higher
 - **Network**: TCP connectivity between nodes (any port 1024-65535)
@@ -103,7 +103,7 @@ When transferring large files between OpenClaw nodes using the standard `nodes.i
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### The "Install Once" Pattern
 
@@ -155,7 +155,7 @@ if (!checkResult.installed) {
 
 ---
 
-## 💡 Usage
+##  Usage
 
 ### Basic Transfer Workflow
 
@@ -252,7 +252,7 @@ node receive.js --version
 
 ---
 
-## 📚 API Reference
+##  API Reference
 
 ### send.js
 
@@ -391,7 +391,7 @@ Generates deployment scripts for the main agent.
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### "Connection timeout"
 
@@ -458,7 +458,7 @@ Generates deployment scripts for the main agent.
 
 ---
 
-## 📄 Files
+##  Files
 
 | File | Purpose |
 |------|---------|
@@ -470,7 +470,7 @@ Generates deployment scripts for the main agent.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 See [CONTRIBUTING_PROPOSAL.md](./CONTRIBUTING_PROPOSAL.md) for information on how this could be integrated into OpenClaw core.
 

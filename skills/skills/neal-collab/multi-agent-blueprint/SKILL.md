@@ -2,7 +2,7 @@
 name: multi-agent-blueprint
 version: 2.0.0
 description: Production-tested blueprint for building 5-10 agent teams in OpenClaw with cross-agent routing, Telegram integration, and role-based architecture
-emoji: 🏗️
+emoji: 
 tags:
   - multi-agent
   - team
@@ -375,7 +375,7 @@ sessions_send({
 | 7 | Multiple agents doing file ops directly | Inconsistent state, race conditions |
 | 8 | Same workspace for multiple agents | File conflicts and memory collision |
 | 9 | No fallback chain | Single provider outage = all agents down |
-| 10 | Forgetting to sync agentDir ↔ workspace | Config drift between the two locations |
+| 10 | Forgetting to sync agentDir  workspace | Config drift between the two locations |
 
 ## Scaling Guide
 

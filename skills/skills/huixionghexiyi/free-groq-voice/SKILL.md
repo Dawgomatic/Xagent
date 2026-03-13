@@ -10,18 +10,18 @@ description: FREE voice recognition using Groq's complimentary Whisper API. Tran
 **100% FREE** voice recognition powered by Groq's complimentary Whisper API (whisper-large-v3 model). No credit card required, no usage limits.
 
 Convert audio messages, voice notes, and recordings to text in 50+ languages. Perfect for:
-- 🎙️ Voice message transcription
-- 📝 Meeting notes
-- ♿ Accessibility features
-- 🤖 Voice-controlled automation
+-  Voice message transcription
+-  Meeting notes
+-  Accessibility features
+-  Voice-controlled automation
 
 ## Cost: $0.00
 
-- ✅ **Completely free** Groq API tier
-- ✅ No credit card needed
-- ✅ No monthly fees
-- ✅ Generous rate limits
-- ✅ Whisper-large-v3 model (most accurate)
+-  **Completely free** Groq API tier
+-  No credit card needed
+-  No monthly fees
+-  Generous rate limits
+-  Whisper-large-v3 model (most accurate)
 
 ## Setup
 
@@ -77,16 +77,16 @@ You: [processes all .ogg/.mp3/.wav files]
 
 ## Supported Languages
 
-- 🇨🇳 Chinese (zh) - Mandarin, Cantonese
-- 🇺🇸 English (en) - US, UK, Australian
-- 🇯🇵 Japanese (ja)
-- 🇰🇷 Korean (ko)
-- 🇫🇷 French (fr)
-- 🇩🇪 German (de)
-- 🇪🇸 Spanish (es)
-- 🇮🇹 Italian (it)
-- 🇵🇹 Portuguese (pt)
-- 🇷🇺 Russian (ru)
+-  Chinese (zh) - Mandarin, Cantonese
+-  English (en) - US, UK, Australian
+-  Japanese (ja)
+-  Korean (ko)
+-  French (fr)
+-  German (de)
+-  Spanish (es)
+-  Italian (it)
+-  Portuguese (pt)
+-  Russian (ru)
 - ... and 40+ more
 
 ## Technical Details
@@ -111,25 +111,25 @@ https://api.groq.com/openai/v1/audio/transcriptions
 
 ## Troubleshooting
 
-**❌ "Forbidden" Error:**
+** "Forbidden" Error:**
 - Check API key is valid
 - Ensure proxy is configured (if in restricted region)
 - Try HTTP proxy instead of SOCKS5
 
-**❌ "File Not Found":**
+** "File Not Found":**
 - Check file path is absolute
 - Ensure file exists
 
-**❌ Slow Response:**
+** Slow Response:**
 - Check proxy speed
 - Groq API is usually fast (< 1s for short audio)
 
 ## Privacy & Security
 
-- ✅ Audio processed by Groq's API (not stored permanently)
-- ✅ API key stored locally in your TOOLS.md
-- ✅ No data sent to third parties
-- ✅ Open-source and auditable
+-  Audio processed by Groq's API (not stored permanently)
+-  API key stored locally in your TOOLS.md
+-  No data sent to third parties
+-  Open-source and auditable
 
 ## Why Groq?
 
@@ -137,10 +137,10 @@ https://api.groq.com/openai/v1/audio/transcriptions
 
 | Service | Cost | Accuracy | Speed |
 |---------|------|----------|-------|
-| **Groq (FREE)** | **$0** | ⭐⭐⭐⭐⭐ | ⚡⚡⚡⚡⚡ |
-| OpenAI Whisper | $0.006/min | ⭐⭐⭐⭐⭐ | ⚡⚡⚡ |
-| Google Speech | $0.006/min | ⭐⭐⭐⭐ | ⚡⚡⚡⚡ |
-| AWS Transcribe | $0.024/min | ⭐⭐⭐⭐ | ⚡⚡⚡ |
+| **Groq (FREE)** | **$0** |  |  |
+| OpenAI Whisper | $0.006/min |  |  |
+| Google Speech | $0.006/min |  |  |
+| AWS Transcribe | $0.024/min |  |  |
 
 **Groq's free tier offers:**
 - Same Whisper-large-v3 model as OpenAI
@@ -161,6 +161,6 @@ MIT - Free to use, modify, and distribute.
 
 ---
 
-**Enjoy FREE voice recognition! 🎉**
+**Enjoy FREE voice recognition! **
 
 No more paying for transcription services. Groq's complimentary API makes professional-grade speech-to-text accessible to everyone.

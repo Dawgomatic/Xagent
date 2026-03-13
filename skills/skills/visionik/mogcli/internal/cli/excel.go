@@ -68,7 +68,7 @@ func (c *ExcelListCmd) Run(root *Root) error {
 	fmt.Println("Excel Workbooks")
 	fmt.Println()
 	for _, wb := range resp.Value {
-		fmt.Printf("📊 %s  %s  %s\n", wb.Name, formatSize(wb.Size), wb.LastModifiedDateTime[:10])
+		fmt.Printf(" %s  %s  %s\n", wb.Name, formatSize(wb.Size), wb.LastModifiedDateTime[:10])
 		fmt.Printf("   ID: %s\n", graph.FormatID(wb.ID))
 		if root.Verbose && wb.WebURL != "" {
 			fmt.Printf("   URL: %s\n", wb.WebURL)
@@ -121,7 +121,7 @@ func (c *ExcelMetadataCmd) Run(root *Root) error {
 		if sheet.Visibility != "Visible" {
 			visibility = fmt.Sprintf(" (%s)", sheet.Visibility)
 		}
-		fmt.Printf("📄 %s%s\n", sheet.Name, visibility)
+		fmt.Printf(" %s%s\n", sheet.Name, visibility)
 		fmt.Printf("   ID: %s\n", sheet.ID)
 		if sheet.Position >= 0 {
 			fmt.Printf("   Position: %d\n", sheet.Position)
@@ -471,7 +471,7 @@ func (c *ExcelTablesCmd) Run(root *Root) error {
 	fmt.Println("Tables")
 	fmt.Println()
 	for _, table := range resp.Value {
-		fmt.Printf("📋 %s\n", table.Name)
+		fmt.Printf(" %s\n", table.Name)
 		if table.ShowHeaders {
 			fmt.Printf("   Headers: Yes\n")
 		}

@@ -139,5 +139,5 @@ rm -f "$OUTPUT_FILE"
 rm -f /tmp/pc-upload-response.txt
 
 echo ""
-log "✅ Done! '$FINAL_TITLE' is now in your Pocket Casts Files"
+log " Done! '$FINAL_TITLE' is now in your Pocket Casts Files"
 log "UUID: $FILE_UUID"

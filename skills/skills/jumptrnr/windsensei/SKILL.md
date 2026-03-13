@@ -4,7 +4,7 @@ description: Check wind and weather conditions for wind sports (kitesurfing, win
 homepage: https://windsensei.com
 source: https://github.com/jumptrnr/spotsensei
 user-invocable: true
-metadata: {"emoji": "🪁", "optionalEnv": "WINDSENSEI_API_KEY"}
+metadata: {"emoji": "", "optionalEnv": "WINDSENSEI_API_KEY"}
 ---
 
 # WindSensei - Wind Forecast Assistant

@@ -4,7 +4,7 @@
 
 set -e
 
-echo "🧠 NIMA Core Installer"
+echo " NIMA Core Installer"
 echo "======================"
 
 # Defaults
@@ -27,49 +27,49 @@ done
 
 # Check prerequisites
 echo ""
-echo "📋 Checking prerequisites..."
+echo " Checking prerequisites..."
 
 if ! command -v python3 &> /dev/null; then
-    echo "❌ Python 3 is required"
+    echo " Python 3 is required"
     exit 1
 fi
 
 if ! command -v node &> /dev/null; then
-    echo "❌ Node.js is required"
+    echo " Node.js is required"
     exit 1
 fi
 
-echo "✅ Prerequisites OK"
+echo " Prerequisites OK"
 
 # Create directories
 echo ""
-echo "📁 Creating directories..."
+echo " Creating directories..."
 mkdir -p ~/.nima/memory
 mkdir -p ~/.nima/affect
 mkdir -p ~/.openclaw/extensions
 
-echo "✅ Directories created"
+echo " Directories created"
 
 # Install Python dependencies
 echo ""
-echo "📦 Installing Python dependencies..."
+echo " Installing Python dependencies..."
 pip install -q numpy pandas
 
 if [ "$INSTALL_LADYBUG" = true ]; then
-    echo "📦 Installing LadybugDB..."
+    echo " Installing LadybugDB..."
     pip install -q real-ladybug
 fi
 
 if [ "$LOCAL_EMBEDDER" = true ]; then
-    echo "📦 Installing sentence-transformers..."
+    echo " Installing sentence-transformers..."
     pip install -q sentence-transformers
 fi
 
-echo "✅ Python dependencies installed"
+echo " Python dependencies installed"
 
 # Install hooks
 echo ""
-echo "🔌 Installing OpenClaw hooks..."
+echo " Installing OpenClaw hooks..."
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
@@ -78,16 +78,16 @@ cp -r "$SCRIPT_DIR/openclaw_hooks/nima-memory" ~/.openclaw/extensions/
 cp -r "$SCRIPT_DIR/openclaw_hooks/nima-recall-live" ~/.openclaw/extensions/
 cp -r "$SCRIPT_DIR/openclaw_hooks/nima-affect" ~/.openclaw/extensions/
 
-echo "✅ Hooks installed"
+echo " Hooks installed"
 
 # Configure OpenClaw
 echo ""
-echo "⚙️ Configuring OpenClaw..."
+echo " Configuring OpenClaw..."
 
 CONFIG_FILE="$HOME/.openclaw/openclaw.json"
 
 if [ -f "$CONFIG_FILE" ]; then
-    echo "⚠️ Config file exists, please add manually:"
+    echo " Config file exists, please add manually:"
     echo ""
     echo 'Add to plugins section:'
     echo '  "plugins": {'
@@ -96,12 +96,12 @@ if [ -f "$CONFIG_FILE" ]; then
     echo '    }'
     echo '  }'
 else
-    echo "⚠️ Config file not found, skipping auto-config"
+    echo " Config file not found, skipping auto-config"
 fi
 
 # Initialize database
 echo ""
-echo "🗄️ Initializing database..."
+echo " Initializing database..."
 python3 -c "
 import sqlite3
 import os
@@ -181,23 +181,23 @@ CREATE INDEX IF NOT EXISTS idx_edges_target ON memory_edges(target_id);
 
 conn.commit()
 conn.close()
-print('✅ Database initialized')
+print(' Database initialized')
 "
 
 # Migrate to LadybugDB if requested
 if [ "$INSTALL_LADYBUG" = true ]; then
     echo ""
-    echo "🔄 Migrating to LadybugDB..."
+    echo " Migrating to LadybugDB..."
     if [ -f "$SCRIPT_DIR/scripts/ladybug_parallel.py" ]; then
-        python3 "$SCRIPT_DIR/scripts/ladybug_parallel.py" --migrate || echo "⚠️ Migration had issues, SQLite will be used as fallback"
+        python3 "$SCRIPT_DIR/scripts/ladybug_parallel.py" --migrate || echo " Migration had issues, SQLite will be used as fallback"
     else
-        echo "⚠️ Migration script not found, skipping. Run manually: python scripts/ladybug_parallel.py --migrate"
+        echo " Migration script not found, skipping. Run manually: python scripts/ladybug_parallel.py --migrate"
     fi
 fi
 
 # Summary
 echo ""
-echo "🎉 Installation complete!"
+echo " Installation complete!"
 echo ""
 echo "Next steps:"
 echo "  1. Set your embedding provider:"
@@ -210,5 +210,5 @@ echo ""
 echo "  3. Verify installation:"
 echo "     python3 -c \"from nima_core.db import get_stats; print(get_stats())\""
 echo ""
-echo "📚 Documentation: docs/"
-echo "🐛 Issues: https://github.com/your-org/nima-core/issues"
+echo " Documentation: docs/"
+echo " Issues: https://github.com/your-org/nima-core/issues"

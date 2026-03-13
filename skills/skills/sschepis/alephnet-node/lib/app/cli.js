@@ -89,7 +89,7 @@ class SentientCLI {
     printBanner() {
         console.log(this.color(c.bold + c.magenta, `
 ╔════════════════════════════════════════════════════════════╗
-║              🌌 Sentient Observer Interface                ║
+║               Sentient Observer Interface                ║
 ║      Emergent Time • Holographic Memory • Prime Resonance  ║
 ╚════════════════════════════════════════════════════════════╝
 `));
@@ -114,7 +114,7 @@ class SentientCLI {
         });
         
         if (!result.success) {
-            console.log(this.color(c.red, `\n⚠️  ${result.error}\n\nMake sure LMStudio is running with a model loaded.`));
+            console.log(this.color(c.red, `\n  ${result.error}\n\nMake sure LMStudio is running with a model loaded.`));
             return false;
         }
         
@@ -165,7 +165,7 @@ class SentientCLI {
             logLearn('Learning system initialized for CLI');
             console.log(this.color(c.dim, '  Learning system ready for topic tracking'));
         } catch (error) {
-            console.log(this.color(c.yellow, `  ⚠ Learning system: ${error.message}`));
+            console.log(this.color(c.yellow, `   Learning system: ${error.message}`));
             logLearn.error?.('Initialization failed:', error.message) || logLearn('Initialization failed:', error.message);
         }
     }
@@ -179,7 +179,7 @@ class SentientCLI {
             return; // Warning already shown by args parser
         }
         
-        console.log(this.color(c.cyan, `\n🌐 Connecting to ${seeds.length} seed node(s)...`));
+        console.log(this.color(c.cyan, `\n Connecting to ${seeds.length} seed node(s)...`));
         
         for (const seedUrl of seeds) {
             await this.connectToSeed(seedUrl);
@@ -190,7 +190,7 @@ class SentientCLI {
         if (connected > 0) {
             console.log(this.color(c.green, `✓ Connected to ${connected}/${seeds.length} seed nodes\n`));
         } else {
-            console.log(this.color(c.yellow, `⚠ Could not connect to any seed nodes\n`));
+            console.log(this.color(c.yellow, ` Could not connect to any seed nodes\n`));
         }
     }
     
@@ -381,7 +381,7 @@ class SentientCLI {
         const now = Date.now();
         if (now - this.lastMomentDisplay < this.momentDisplayThrottle) return;
         this.lastMomentDisplay = now;
-        const trigger = moment.trigger === 'coherence' ? '🎯' : moment.trigger === 'entropy_extreme' ? '⚡' : '📍';
+        const trigger = moment.trigger === 'coherence' ? '' : moment.trigger === 'entropy_extreme' ? '' : '';
         console.log(this.color(c.dim, `  ${trigger} Moment: C=${moment.coherence.toFixed(2)}, H=${moment.entropy.toFixed(2)}`));
     }
     
@@ -435,7 +435,7 @@ class SentientCLI {
      * Show current sense readings
      */
     async showSenses() {
-        console.log(this.color(c.bold, '\n👁️ Senses'));
+        console.log(this.color(c.bold, '\n Senses'));
         console.log('─'.repeat(50));
         const prompt = await this.senses.formatForPrompt({ forceRefresh: true });
         console.log(prompt);
@@ -482,7 +482,7 @@ class SentientCLI {
      */
     showStatus() {
         const s = this.observer.getStatus();
-        console.log(this.color(c.bold, '\n📊 Observer Status'));
+        console.log(this.color(c.bold, '\n Observer Status'));
         console.log('─'.repeat(40));
         console.log(`  Running: ${s.running ? '✓' : '✗'} | Uptime: ${(s.uptime/1000).toFixed(1)}s`);
         console.log(`  Coherence: ${(s.state.coherence*100).toFixed(1)}% | Entropy: ${(s.state.entropy*100).toFixed(1)}%`);
@@ -495,7 +495,7 @@ class SentientCLI {
      */
     showIntrospection() {
         const intro = this.observer.introspect();
-        console.log(this.color(c.bold, '\n🔮 Introspection'));
+        console.log(this.color(c.bold, '\n Introspection'));
         console.log('─'.repeat(40));
         console.log(`  Name: ${intro.identity.identity.name}`);
         console.log(`  Processing: ${(intro.metacognition.processingLoad*100).toFixed(0)}%`);
@@ -508,7 +508,7 @@ class SentientCLI {
      */
     showMoments() {
         const moments = this.observer.temporal.recentMoments(10);
-        console.log(this.color(c.bold, '\n⏰ Recent Moments'));
+        console.log(this.color(c.bold, '\n Recent Moments'));
         console.log('─'.repeat(40));
         if (moments.length === 0) console.log(this.color(c.dim, '  No moments yet'));
         for (const m of moments) {
@@ -522,7 +522,7 @@ class SentientCLI {
      */
     showGoals() {
         const stats = this.observer.agency.getStats();
-        console.log(this.color(c.bold, '\n🎯 Goals'));
+        console.log(this.color(c.bold, '\n Goals'));
         console.log('─'.repeat(40));
         console.log(`  Active: ${stats.activeGoals} | Achieved: ${stats.achievedGoals}`);
         console.log();
@@ -533,7 +533,7 @@ class SentientCLI {
      */
     showMemory() {
         const stats = this.observer.memory.getStats();
-        console.log(this.color(c.bold, '\n🧠 Memory'));
+        console.log(this.color(c.bold, '\n Memory'));
         console.log('─'.repeat(40));
         console.log(`  Traces: ${stats.traceCount} | Holographic: ${stats.holographicCount}`);
         console.log(`  Avg strength: ${(stats.averageStrength*100).toFixed(0)}%`);
@@ -545,7 +545,7 @@ class SentientCLI {
      */
     showSafety() {
         const r = this.observer.safety.generateReport();
-        console.log(this.color(c.bold, '\n🛡️ Safety'));
+        console.log(this.color(c.bold, '\n Safety'));
         console.log('─'.repeat(40));
         console.log(`  Status: ${r.overallStatus}`);
         console.log(`  Violations: ${r.stats.totalViolations}`);
@@ -558,7 +558,7 @@ class SentientCLI {
     showSMF() {
         const smf = this.observer.smf;
         const axes = smf.constructor.AXES;
-        console.log(this.color(c.bold, '\n🌀 SMF Orientation'));
+        console.log(this.color(c.bold, '\n SMF Orientation'));
         console.log('─'.repeat(40));
         for (let i = 0; i < Math.min(8, axes.length); i++) {
             const val = smf.s[i];
@@ -573,7 +573,7 @@ class SentientCLI {
      */
     showOscillators() {
         const prsc = this.observer.prsc;
-        console.log(this.color(c.bold, '\n🎵 PRSC Oscillators'));
+        console.log(this.color(c.bold, '\n PRSC Oscillators'));
         console.log('─'.repeat(40));
         console.log(`  Total: ${prsc.oscillators.length} | Active: ${prsc.oscillators.filter(o => o.amplitude > 0.1).length}`);
         console.log(`  Coherence: ${prsc.globalCoherence().toFixed(3)} | Energy: ${prsc.totalEnergy().toFixed(3)}`);
@@ -587,7 +587,7 @@ class SentientCLI {
         const suite = new AssaySuite(this.observer);
         const assayName = args[0]?.toUpperCase() || 'ALL';
         
-        console.log(this.color(c.bold, '\n🧪 Evaluation Assays (Section 15)'));
+        console.log(this.color(c.bold, '\n Evaluation Assays (Section 15)'));
         console.log('─'.repeat(50));
         
         try {
@@ -640,7 +640,7 @@ class SentientCLI {
             
             if (blockIdStr === undefined || blockIdStr === '') {
                 // Show available blocks
-                console.log(this.color(c.bold, '\n📦 Available Code Blocks'));
+                console.log(this.color(c.bold, '\n Available Code Blocks'));
                 console.log('─'.repeat(40));
                 for (const block of blocks) {
                     const preview = block.code.split('\n')[0].substring(0, 50);
@@ -653,7 +653,7 @@ class SentientCLI {
             
             // Run all blocks
             if (blockIdStr.toLowerCase() === 'all') {
-                console.log(this.color(c.bold, '\n🚀 Running All Code Blocks'));
+                console.log(this.color(c.bold, '\n Running All Code Blocks'));
                 console.log('─'.repeat(40));
                 for (const block of blocks) {
                     console.log(this.color(c.cyan, `\n[${block.id}] ${block.language}`));
@@ -671,7 +671,7 @@ class SentientCLI {
             }
             
             const block = blocks[blockId];
-            console.log(this.color(c.bold, `\n🚀 Running Block [${blockId}] (${block.language})`));
+            console.log(this.color(c.bold, `\n Running Block [${blockId}] (${block.language})`));
             console.log('─'.repeat(40));
             await this.executeCodeBlock(block);
             console.log();
@@ -704,7 +704,7 @@ class SentientCLI {
             
             const blocks = this.currentMdRenderer.getCodeBlocks();
             
-            console.log(this.color(c.bold, '\n📦 Code Blocks'));
+            console.log(this.color(c.bold, '\n Code Blocks'));
             console.log('─'.repeat(40));
             
             if (blocks.length === 0) {
@@ -734,13 +734,13 @@ class SentientCLI {
         
         this.agent.on('task:created', ({ task }) => {
             if (!this.showAgentSteps) return;
-            console.log(this.color(c.dim, `\n  🎯 Task created: ${task.id}`));
+            console.log(this.color(c.dim, `\n   Task created: ${task.id}`));
         });
         
         this.agent.on('task:analyzed', ({ task, complexity }) => {
             if (!this.showAgentSteps) return;
             const mode = complexity.shouldDecompose ? 'decomposing' : 'direct';
-            console.log(this.color(c.dim, `  📊 Complexity: ${complexity.score.toFixed(2)} (${mode})`));
+            console.log(this.color(c.dim, `   Complexity: ${complexity.score.toFixed(2)} (${mode})`));
             if (complexity.reasons && complexity.reasons.length > 0) {
                 console.log(this.color(c.dim, `     Reasons: ${complexity.reasons.slice(0, 2).join(', ')}`));
             }
@@ -748,7 +748,7 @@ class SentientCLI {
         
         this.agent.on('task:planned', ({ task, stepCount, summary }) => {
             if (!this.showAgentSteps) return;
-            console.log(this.color(c.cyan, `  📋 Plan: ${stepCount} steps`));
+            console.log(this.color(c.cyan, `   Plan: ${stepCount} steps`));
             if (summary) {
                 console.log(this.color(c.dim, `     ${summary.slice(0, 80)}${summary.length > 80 ? '...' : ''}`));
             }
@@ -756,9 +756,9 @@ class SentientCLI {
         
         this.agent.on('step:start', ({ step }) => {
             if (!this.showAgentSteps) return;
-            const icon = step.action === 'tool' ? '🔧' :
-                        step.action === 'think' ? '💭' :
-                        step.action === 'respond' ? '💬' : '▶️';
+            const icon = step.action === 'tool' ? '' :
+                        step.action === 'think' ? '' :
+                        step.action === 'respond' ? '' : '';
             console.log(this.color(c.dim, `  ${icon} Step ${step.index + 1}: ${step.description.slice(0, 60)}${step.description.length > 60 ? '...' : ''}`));
         });
         
@@ -774,12 +774,12 @@ class SentientCLI {
         
         this.agent.on('task:completed', ({ task, result }) => {
             if (!this.showAgentSteps) return;
-            console.log(this.color(c.green, `  ✅ Task completed in ${task.duration}ms`));
+            console.log(this.color(c.green, `   Task completed in ${task.duration}ms`));
         });
         
         this.agent.on('task:failed', ({ task, error }) => {
             if (!this.showAgentSteps) return;
-            console.log(this.color(c.red, `  ❌ Task failed: ${error}`));
+            console.log(this.color(c.red, `   Task failed: ${error}`));
         });
     }
     
@@ -787,7 +787,7 @@ class SentientCLI {
      * Show agent status
      */
     showAgentStatus() {
-        console.log(this.color(c.bold, '\n🤖 Agent Status'));
+        console.log(this.color(c.bold, '\n Agent Status'));
         console.log('─'.repeat(40));
         
         if (!this.agent) {
@@ -857,7 +857,7 @@ class SentientCLI {
             return;
         }
         
-        console.log(this.color(c.cyan, '\n🤖 Running as agent task...'));
+        console.log(this.color(c.cyan, '\n Running as agent task...'));
         
         try {
             const result = await this.agent.decompose(taskDescription, {
@@ -865,7 +865,7 @@ class SentientCLI {
             });
             
             if (result.success) {
-                console.log(this.color(c.green, `\n✅ Task completed`));
+                console.log(this.color(c.green, `\n Task completed`));
                 console.log(this.color(c.dim, `   Steps: ${result.completedSteps}/${result.steps}`));
                 console.log(this.color(c.dim, `   Duration: ${result.duration}ms`));
                 
@@ -874,7 +874,7 @@ class SentientCLI {
                     console.log(this.color(c.cyan + c.bold, '\nObserver: ') + result.result.response);
                 }
             } else {
-                console.log(this.color(c.red, `\n❌ Task failed: ${result.error}`));
+                console.log(this.color(c.red, `\n Task failed: ${result.error}`));
             }
         } catch (error) {
             console.log(this.color(c.red, `Error: ${error.message}`));
@@ -887,7 +887,7 @@ class SentientCLI {
      * Show conversation history
      */
     showHistory() {
-        console.log(this.color(c.bold, '\n📜 History'));
+        console.log(this.color(c.bold, '\n History'));
         console.log('─'.repeat(40));
         if (this.conversationHistory.length === 0) {
             console.log(this.color(c.dim, '  No messages'));
@@ -905,7 +905,7 @@ class SentientCLI {
      * Show connected nodes
      */
     showNodes() {
-        console.log(this.color(c.bold, '\n🌐 Network'));
+        console.log(this.color(c.bold, '\n Network'));
         console.log('─'.repeat(40));
         console.log(`  Node ID: ${this.nodeId}`);
         console.log(`  Seeds configured: ${this.options.seeds?.length || 0}`);
@@ -938,7 +938,7 @@ class SentientCLI {
         const dir = path.dirname(savePath);
         if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
         fs.writeFileSync(savePath, JSON.stringify(data, null, 2));
-        console.log(this.color(c.green, `💾 Saved to ${savePath}`));
+        console.log(this.color(c.green, ` Saved to ${savePath}`));
     }
     
     /**
@@ -1177,7 +1177,7 @@ class SentientCLI {
         console.log(this.color(c.yellow, '\nSaving state...'));
         this.save();
         this.observer.stop();
-        console.log(this.color(c.magenta, 'Goodbye! 🌌\n'));
+        console.log(this.color(c.magenta, 'Goodbye! \n'));
         this.isRunning = false;
         if (this.rl) this.rl.close();
         process.exit(0);

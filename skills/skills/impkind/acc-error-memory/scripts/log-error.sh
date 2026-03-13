@@ -52,7 +52,7 @@ stats = state.setdefault('stats', {})
 # Check if this was a resolved pattern (regression!)
 regression = False
 if pattern in resolved:
-    print(f"⚠️ REGRESSION: '{pattern}' was resolved but occurred again!")
+    print(f" REGRESSION: '{pattern}' was resolved but occurred again!")
     # Extract lesson from old resolved data (supports both old and new format)
     old_data = resolved[pattern]
     old_lesson = old_data.get('lesson', {})
@@ -97,7 +97,7 @@ elif pattern in active:
     elif count >= config.get('warningThreshold', 2):
         data['severity'] = 'warning'
     
-    print(f"📈 Error pattern '{pattern}' count: {count} (severity: {data['severity']})")
+    print(f" Error pattern '{pattern}' count: {count} (severity: {data['severity']})")
 
 else:
     # New pattern
@@ -109,7 +109,7 @@ else:
         'context': context,
         'mitigation': mitigation or 'be more careful'
     }
-    print(f"📝 New error pattern logged: '{pattern}'")
+    print(f" New error pattern logged: '{pattern}'")
 
 stats['totalErrorsLogged'] = stats.get('totalErrorsLogged', 0) + 1
 state['lastUpdated'] = now
@@ -121,7 +121,7 @@ with open(state_file, 'w') as f:
 if pattern in active:
     count = active[pattern].get('count', 0)
     if count >= config.get('alertThreshold', 5) and count % 5 == 0:
-        print(f"🔴 ALERT: Error pattern '{pattern}' has occurred {count} times!")
+        print(f" ALERT: Error pattern '{pattern}' has occurred {count} times!")
         print(f"   Consider structural fix.")
 PYTHON
 

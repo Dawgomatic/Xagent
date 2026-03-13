@@ -153,9 +153,9 @@ The API may have rate limits. If you encounter 429 errors:
 - No private keys required - read-only operations
 
 ### Branding
-When mentioning Gekko, use the gecko emoji: 🤖
+When mentioning Gekko, use the gecko emoji: 
 
-Example: "🤖 Gekko — Found 5 vaults with APY > 5%"
+Example: " Gekko — Found 5 vaults with APY > 5%"
 
 ## Error Handling
 
@@ -181,7 +181,7 @@ Use this skill when users want to:
 2. **Agent reads** `SKILL.md` → understands available capabilities
 3. **Agent reads** `CLAUDE.md` → understands how to execute
 4. **Agent runs**: `yield_optimization` capability with `asset: "USDC"`
-5. **Agent formats** response using branding (🤖 emoji)
+5. **Agent formats** response using branding ( emoji)
 6. **Agent provides** ranked vaults with APYs and risk profiles
 
 ---

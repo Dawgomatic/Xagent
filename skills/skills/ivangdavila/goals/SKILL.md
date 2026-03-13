@@ -1,7 +1,7 @@
 ---
 name: Goals
 description: Build a personal goal-setting system with milestones, tracking, and regular reviews.
-metadata: {"clawdbot":{"emoji":"🎯","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

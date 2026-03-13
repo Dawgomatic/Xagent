@@ -480,7 +480,7 @@ def ask(query, config=None, num_final=None, model=None, bucket=None,
     lines = []
     lines.append(answer)
     lines.append("")
-    lines.append("📚 Sources: " + ", ".join(sources))
+    lines.append(" Sources: " + ", ".join(sources))
 
     if show_context:
         lines.append("")
@@ -533,7 +533,7 @@ def main():
     query = " ".join(args.query)
 
     if not args.output_json:
-        print("\n🤔 Asking: \"%s\"\n" % query)
+        print("\n Asking: \"%s\"\n" % query)
 
     result = ask(
         query=query,

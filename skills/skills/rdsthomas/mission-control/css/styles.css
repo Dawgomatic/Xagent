@@ -534,7 +534,7 @@
         }
 
         .task-card.archived .task-title::before {
-            content: '📦 ';
+            content: ' ';
         }
 
         .archived-badge {

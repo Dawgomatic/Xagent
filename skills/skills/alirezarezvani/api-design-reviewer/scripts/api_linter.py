@@ -761,15 +761,15 @@ class APILinter:
             f"  Overall Score: {self.report.score:.1f}/100.0",
             "",
             "ISSUE BREAKDOWN:",
-            f"  🔴 Errors: {len(issues_by_severity['error'])}",
-            f"  🟡 Warnings: {len(issues_by_severity['warning'])}",
-            f"  ℹ️  Info: {len(issues_by_severity['info'])}",
+            f"   Errors: {len(issues_by_severity['error'])}",
+            f"   Warnings: {len(issues_by_severity['warning'])}",
+            f"    Info: {len(issues_by_severity['info'])}",
             "",
         ]
         
         if not self.report.issues:
             report_lines.extend([
-                "🎉 Congratulations! No issues found in your API specification.",
+                " Congratulations! No issues found in your API specification.",
                 ""
             ])
         else:
@@ -786,7 +786,7 @@ class APILinter:
                 report_lines.append(f"{'═' * 60}")
                 
                 for issue in issues:
-                    severity_icon = {"error": "🔴", "warning": "🟡", "info": "ℹ️"}[issue.severity]
+                    severity_icon = {"error": "", "warning": "", "info": ""}[issue.severity]
                     
                     report_lines.extend([
                         f"{severity_icon} {issue.severity.upper()}: {issue.message}",
@@ -794,7 +794,7 @@ class APILinter:
                     ])
                     
                     if issue.suggestion:
-                        report_lines.append(f"   💡 Suggestion: {issue.suggestion}")
+                        report_lines.append(f"    Suggestion: {issue.suggestion}")
                     
                     report_lines.append("")
         
@@ -813,15 +813,15 @@ class APILinter:
         
         # Add recommendations based on score
         if self.report.score >= 90:
-            report_lines.append("🏆 Excellent! Your API design follows best practices.")
+            report_lines.append(" Excellent! Your API design follows best practices.")
         elif self.report.score >= 80:
-            report_lines.append("✅ Good API design with minor areas for improvement.")
+            report_lines.append(" Good API design with minor areas for improvement.")
         elif self.report.score >= 70:
-            report_lines.append("⚠️  Fair API design. Consider addressing warnings and errors.")
+            report_lines.append("  Fair API design. Consider addressing warnings and errors.")
         elif self.report.score >= 50:
-            report_lines.append("❌ Poor API design. Multiple issues need attention.")
+            report_lines.append(" Poor API design. Multiple issues need attention.")
         else:
-            report_lines.append("🚨 Critical API design issues. Immediate attention required.")
+            report_lines.append(" Critical API design issues. Immediate attention required.")
         
         return "\n".join(report_lines)
 

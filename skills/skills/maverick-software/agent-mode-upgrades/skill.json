@@ -15,7 +15,7 @@
     "mode"
   ],
   "clawdbot": {
-    "emoji": "🚀",
+    "emoji": "",
     "category": "agent",
     "requires": {
       "clawdbot": ">=2026.1.0"
@@ -57,7 +57,7 @@
         {
           "id": "mode",
           "label": "Mode",
-          "icon": "⚡",
+          "icon": "",
           "section": "Agent",
           "view": "ui/views/mode.ts",
           "controller": "ui/controllers/mode.ts"

@@ -1,10 +1,10 @@
 ---
 name: liuren
 description: Traditional Chinese "Xiao Liu Ren" divination based on current lunar time.
-metadata: {"clawdbot":{"emoji":"⛩️","always":true,"requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","always":true,"requires":{"bins":["node"]}}}
 ---
 
-# 小六壬 (Liu Ren) ⛩️
+# 小六壬 (Liu Ren) 
 
 基于当前农历时间（月、日、时）的快速起卦工具。
 

@@ -3,7 +3,7 @@ name: think-cog
 description: "Complex ideas need iteration, not conversation. Think → Do → Review → Repeat. CellCog completes the full loop — brainstorming, reasoning, problem-solving, strategic thinking, then executing across every modality: research, documents, visuals, data, prototypes. Like having an Alfred who doesn't just advise — he builds."
 metadata:
   openclaw:
-    emoji: "💭"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

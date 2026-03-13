@@ -30,7 +30,7 @@ def test_tts_configs():
     
     # 检查配置
     if not all([app_id, access_token, secret_key]):
-        print("\n❌ 错误: 缺少API配置")
+        print("\n 错误: 缺少API配置")
         print("请设置以下环境变量:")
         print("  - VOLCANO_TTS_APPID")
         print("  - VOLCANO_TTS_ACCESS_TOKEN")
@@ -81,21 +81,21 @@ def test_tts_configs():
                 import os as os_module
                 if os_module.path.exists(output_path):
                     file_size = os_module.path.getsize(output_path)
-                    print(f"  ✅ 成功! 文件: {output_path} ({file_size} 字节)")
+                    print(f"   成功! 文件: {output_path} ({file_size} 字节)")
                     
                     # 第一个成功的配置就返回
                     print(f"\n{'=' * 60}")
-                    print("✅ 找到可用配置!")
+                    print(" 找到可用配置!")
                     print(f"   推荐配置: voice_type={voice_type}, cluster={cluster}")
                     print(f"{'=' * 60}")
                     return True
                     
             except Exception as e:
-                print(f"  ❌ 失败: {e}")
+                print(f"   失败: {e}")
                 continue
         
         print(f"\n{'=' * 60}")
-        print("❌ 所有配置测试失败")
+        print(" 所有配置测试失败")
         print("可能原因:")
         print("  1. API Token没有TTS权限")
         print("  2. 账户余额不足")
@@ -104,7 +104,7 @@ def test_tts_configs():
         return False
             
     except Exception as e:
-        print(f"\n❌ 测试失败: {e}")
+        print(f"\n 测试失败: {e}")
         import traceback
         traceback.print_exc()
         return False

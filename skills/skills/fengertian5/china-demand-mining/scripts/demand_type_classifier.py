@@ -121,16 +121,16 @@ def main():
     with open(args.output, 'w', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
     
-    print(f"✅ 需求类型判断完成")
+    print(f" 需求类型判断完成")
     print(f"   关键词：{args.keyword}")
     print(f"   需求类型：{'实物需求' if demand_type == 'physical' else '无实物需求'}")
     print(f"   置信度：{confidence:.2%}")
     print(f"   目标数据量：{args.target_count} 条")
-    print(f"\n📊 平台数据分配：")
+    print(f"\n 平台数据分配：")
     for platform, count in sorted(platform_allocation.items(), key=lambda x: platform_info['platforms'][x[0]]['priority']):
         priority = platform_info['platforms'][platform]['priority']
         print(f"   {priority}. {platform}: {count} 条")
-    print(f"\n💾 策略已保存到 {args.output}")
+    print(f"\n 策略已保存到 {args.output}")
 
 if __name__ == '__main__':
     main()

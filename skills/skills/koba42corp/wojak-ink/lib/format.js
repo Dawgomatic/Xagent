@@ -79,14 +79,14 @@ function formatListing(listing, xchPrice = null) {
  */
 function formatListings(listings, xchPrice = null, limit = 10) {
   if (!listings || listings.length === 0) {
-    return '❌ No listings found';
+    return ' No listings found';
   }
 
   const sorted = [...listings].sort((a, b) => (a.priceXch || 0) - (b.priceXch || 0));
   const limited = sorted.slice(0, limit);
 
   const output = [
-    `📊 Found ${listings.length} listing${listings.length === 1 ? '' : 's'}`,
+    ` Found ${listings.length} listing${listings.length === 1 ? '' : 's'}`,
     `${limit < listings.length ? `(showing top ${limit})` : ''}`,
     ''
   ];
@@ -105,11 +105,11 @@ function formatListings(listings, xchPrice = null, limit = 10) {
 function formatFloorPrice(floor, characterType = null, xchPrice = null) {
   if (!floor) {
     const typeStr = characterType ? ` for ${formatCharacterType(characterType)}` : '';
-    return `❌ No listings found${typeStr}`;
+    return ` No listings found${typeStr}`;
   }
 
   const output = [
-    characterType ? `🏆 ${formatCharacterType(characterType)} Floor:` : '🏆 Collection Floor:',
+    characterType ? ` ${formatCharacterType(characterType)} Floor:` : ' Collection Floor:',
     ``,
     formatListing(floor, xchPrice)
   ];
@@ -122,11 +122,11 @@ function formatFloorPrice(floor, characterType = null, xchPrice = null) {
  */
 function formatCollectionStats(stats) {
   if (!stats) {
-    return '❌ Failed to fetch collection stats';
+    return ' Failed to fetch collection stats';
   }
 
   const output = [
-    '📊 Wojak Farmers Plot Collection Stats',
+    ' Wojak Farmers Plot Collection Stats',
     '',
     `Total NFTs: 4,200`,
     `Floor Price: ${formatXCH(stats.floor_price || 0)}`,
@@ -142,7 +142,7 @@ function formatCollectionStats(stats) {
  */
 function formatSearchResults(results, xchPrice = null) {
   if (!results || results.length === 0) {
-    return '❌ No results found';
+    return ' No results found';
   }
 
   return formatListings(results, xchPrice, 20);

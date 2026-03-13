@@ -141,12 +141,12 @@ node scripts/quality-gate.js --project=my-project --pr=5
 
 | Regra | Problema | Solução Automática |
 |-------|----------|-------------------|
-| S6606 | Use `\|\|` instead of `??` | ✅ Substituir por `??` |
-| S3358 | Nested ternary | ❌ Requer refatoração manual |
-| S6749 | Redundant fragment | ✅ Remover fragment |
-| S6759 | Non-readonly props | ✅ Adicionar `readonly` |
-| S3776 | Cognitive complexity | ❌ Requer extração de componentes |
-| S6571 | `any` in union type | ✅ Remover redundância |
+| S6606 | Use `\|\|` instead of `??` |  Substituir por `??` |
+| S3358 | Nested ternary |  Requer refatoração manual |
+| S6749 | Redundant fragment |  Remover fragment |
+| S6759 | Non-readonly props |  Adicionar `readonly` |
+| S3776 | Cognitive complexity |  Requer extração de componentes |
+| S6571 | `any` in union type |  Remover redundância |
 
 ## Requisitos
 

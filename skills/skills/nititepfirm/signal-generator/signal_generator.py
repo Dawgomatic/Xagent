@@ -179,22 +179,22 @@ class SignalGenerator:
 
     def format_message(self, signal: Dict) -> str:
         """Format signal as a readable message"""
-        emoji_long = "🟢" if signal.get('long') else "⚪"
-        emoji_short = "🔴" if signal.get('short') else "⚪"
+        emoji_long = "" if signal.get('long') else ""
+        emoji_short = "" if signal.get('short') else ""
 
         message = f"""
-📊 **{signal['strategy']}** - {signal.get('symbol', 'BTC/USDT')}
-⏱️ Interval: {signal.get('interval', '15m')}
-💰 Price: ${signal.get('price', 0):,.2f}
+ **{signal['strategy']}** - {signal.get('symbol', 'BTC/USDT')}
+ Interval: {signal.get('interval', '15m')}
+ Price: ${signal.get('price', 0):,.2f}
 
 {emoji_long} **LONG:** {signal.get('long', False)}
 {emoji_short} **SHORT:** {signal.get('short', False)}
 
-📈 BB Upper: ${signal.get('bb_upper', 0):,.2f}
-📉 BB Lower: ${signal.get('bb_lower', 0):,.2f}
-🔢 RSI: {signal.get('rsi', 0):.2f}
+ BB Upper: ${signal.get('bb_upper', 0):,.2f}
+ BB Lower: ${signal.get('bb_lower', 0):,.2f}
+ RSI: {signal.get('rsi', 0):.2f}
 
-🕐 {signal.get('timestamp', '')}
+ {signal.get('timestamp', '')}
         """.strip()
 
         return message
@@ -219,7 +219,7 @@ def main():
     # Output signals
     if signals:
         print(f"\n{'='*50}")
-        print(f"📊 Generated {len(signals)} Signal(s)")
+        print(f" Generated {len(signals)} Signal(s)")
         print(f"{'='*50}\n")
 
         for signal in signals:
@@ -232,9 +232,9 @@ def main():
         with open(output_path, 'w') as f:
             json.dump(signals, f, indent=2)
 
-        print(f"✅ Signals saved to: {output_path}")
+        print(f" Signals saved to: {output_path}")
     else:
-        print("⚪ No signals generated")
+        print(" No signals generated")
 
 
 if __name__ == '__main__':

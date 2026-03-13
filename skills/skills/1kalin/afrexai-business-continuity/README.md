@@ -41,8 +41,8 @@ Install in OpenClaw, then:
 
 This is one skill from the [AfrexAI Context Pack collection](https://afrexai-cto.github.io/context-packs/) — pre-built AI agent configurations for specific business functions.
 
-- 🧮 [AI Revenue Leak Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — find where your business is bleeding money
-- 🚀 [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — get your AI agent configured in 5 minutes
-- 📦 [Full Context Pack Store](https://afrexai-cto.github.io/context-packs/) — $47/pack or bundle deals starting at $97
+-  [AI Revenue Leak Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — find where your business is bleeding money
+-  [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — get your AI agent configured in 5 minutes
+-  [Full Context Pack Store](https://afrexai-cto.github.io/context-packs/) — $47/pack or bundle deals starting at $97
 
 Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) — turning operational knowledge into AI agent context.

@@ -1,4 +1,4 @@
-# Taobao Hot Products Discovery 🛒 | 淘宝爆款发现
+# Taobao Hot Products Discovery  | 淘宝爆款发现
 
 > Discover trending products and hot categories on Taobao (淘宝)
 
@@ -6,7 +6,7 @@ AI-powered tool for finding profitable products on China's largest e-commerce pl
 
 ## Features | 功能
 
-### 📊 Hot Products | 热销商品
+###  Hot Products | 热销商品
 Find top-selling products by category.
 
 ```bash
@@ -17,21 +17,21 @@ Find top-selling products by category.
 ./scripts/hot.sh "家居"      # Home goods
 ```
 
-### 🏷️ Trending Categories | 热门品类
+###  Trending Categories | 热门品类
 Discover trending product categories.
 
 ```bash
 ./scripts/categories.sh
 ```
 
-### 💰 Price Analysis | 价格分析
+###  Price Analysis | 价格分析
 Understand pricing strategies for different categories.
 
 ```bash
 ./scripts/price.sh "女装" 89-299
 ```
 
-### 📈 Seasonal Trends | 季节趋势
+###  Seasonal Trends | 季节趋势
 Plan inventory based on seasonal demand.
 
 ```bash
@@ -49,20 +49,20 @@ Plan inventory based on seasonal demand.
 
 ## Supported Categories | 支持品类
 
-- 👗 女装 (Women's Fashion)
-- 💄 美妆 (Beauty & Cosmetics)
-- 📱 数码 (Electronics)
-- 🍪 零食 (Snacks & Food)
-- 🏠 家居 (Home & Living)
+-  女装 (Women's Fashion)
+-  美妆 (Beauty & Cosmetics)
+-  数码 (Electronics)
+-  零食 (Snacks & Food)
+-  家居 (Home & Living)
 
 ## Seasonal Events | 季节活动
 
-- 🧧 春节 (Chinese New Year)
-- 💝 情人节 (Valentine's Day)
-- 👩 三八节 (Women's Day)
-- 🛒 618 (Mid-Year Sale)
-- 🎉 双11 (Double 11 - Biggest Sale)
-- 🛍️ 双12 (Double 12)
+-  春节 (Chinese New Year)
+-  情人节 (Valentine's Day)
+-  三八节 (Women's Day)
+-  618 (Mid-Year Sale)
+-  双11 (Double 11 - Biggest Sale)
+-  双12 (Double 12)
 
 ## Installation | 安装
 
@@ -87,4 +87,4 @@ MIT
 
 ---
 
-Made for cross-border e-commerce success | 为跨境电商成功打造 🌏
+Made for cross-border e-commerce success | 为跨境电商成功打造 

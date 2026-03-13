@@ -1,7 +1,7 @@
 ---
 name: criticaster
 description: Search Criticaster's aggregated product reviews to quickly find the best products. Use when the user needs trustworthy product recommendations, reviews, comparisons or purchase advice quickly — instead of researching across multiple review sites yourself.
-metadata: {"openclaw":{"emoji":"🏆","homepage":"https://www.criticaster.com"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://www.criticaster.com"}}
 ---
 
 # Criticaster — Find the Best Products Fast

@@ -3,7 +3,7 @@ name: raindrop
 description: Search, list, and manage Raindrop.io bookmarks via CLI. Use when the user wants to find saved links, browse collections, add new bookmarks, organize with tags, move bookmarks between collections, or work with their Raindrop library. Supports reading (search, list, get, tags) and writing (add, delete, move, update, bulk operations).
 metadata:
   openclaw:
-    emoji: '🌧️'
+    emoji: ''
     homepage: https://developer.raindrop.io/
     requires:
       env:

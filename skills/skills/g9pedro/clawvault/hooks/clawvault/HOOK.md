@@ -3,7 +3,7 @@ name: clawvault
 description: "Context resilience - recovery detection, auto-checkpoint, and session context injection"
 metadata:
   openclaw:
-    emoji: "🐘"
+    emoji: ""
     events: ["gateway:startup", "gateway:heartbeat", "command:new", "session:start", "compaction:memoryFlush", "cron.weekly"]
     requires:
       bins: ["clawvault"]

@@ -38,7 +38,7 @@ program
         // Handle --list-profiles
         if (options.listProfiles) {
             const profiles = listChromeProfiles();
-            console.log('\n📋 Available Chrome profiles:\n');
+            console.log('\n Available Chrome profiles:\n');
             profiles.forEach((profile, index) => {
                 const marker = profile.id === 'Default' ? ' ★' : '';
                 console.log(`  ${index + 1}. ${profile.name}${marker}`);
@@ -73,10 +73,10 @@ program
             else {
                 selectedProfile = getProfileById(options.profile);
                 if (selectedProfile) {
-                    console.log(`✅ Using profile: ${selectedProfile.name} [${selectedProfile.id}]`);
+                    console.log(` Using profile: ${selectedProfile.name} [${selectedProfile.id}]`);
                 }
                 else {
-                    console.log(`⚠️  Profile "${options.profile}" not found, using incognito mode`);
+                    console.log(`  Profile "${options.profile}" not found, using incognito mode`);
                     console.log('   Run with --list-profiles to see available profiles');
                 }
             }
@@ -84,7 +84,7 @@ program
         // Use welcome page as default if no URL provided
         const targetUrl = url || WELCOME_PAGE_PATH;
         if (!url) {
-            console.log('🦞 No URL provided, opening welcome page...');
+            console.log(' No URL provided, opening welcome page...');
         }
         await startBrowser(targetUrl, {
             site: options.site,
@@ -339,7 +339,7 @@ program
     .action(async (options) => {
     if (options.list) {
         const profiles = listChromeProfiles();
-        console.log('\n📋 Available Chrome profiles:\n');
+        console.log('\n Available Chrome profiles:\n');
         profiles.forEach((profile, index) => {
             const marker = profile.id === 'Default' ? ' ★' : '';
             console.log(`  ${index + 1}. ${profile.name}${marker}`);
@@ -352,21 +352,21 @@ program
     if (options.create) {
         try {
             const profileName = options.create;
-            console.log(`\n🔧 Creating Chrome profile: "${profileName}"...\n`);
+            console.log(`\n Creating Chrome profile: "${profileName}"...\n`);
             const profile = createChromeProfile(profileName);
-            console.log('✅ Profile created successfully!\n');
+            console.log(' Profile created successfully!\n');
             console.log(`   Name: ${profile.name}`);
             console.log(`   ID: ${profile.id}`);
             console.log(`   Path: ${profile.path}`);
             console.log(`   Welcome page: ${profile.welcomePage}`);
-            console.log('\n📋 Next steps:');
+            console.log('\n Next steps:');
             console.log('   1. Chrome will open with a welcome page');
             console.log('   2. Install the Bitwarden extension');
             console.log('   3. Install the OpenClaw Browser Relay extension');
             console.log('   4. Log in to your password vault');
             console.log('\n   Use this profile: browser-secure navigate <url> --profile "' + profile.id + '"');
             if (options.launch) {
-                console.log('\n🚀 Launching Chrome...\n');
+                console.log('\n Launching Chrome...\n');
                 const chromePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
                 const child = spawn(chromePath, [`--profile-directory=${profile.id}`], {
                     detached: true,

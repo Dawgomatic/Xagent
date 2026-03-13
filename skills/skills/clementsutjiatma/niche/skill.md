@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎴",
+        "emoji": "",
         "requires": { "bins": ["node"] },
         "cron": [
           {
@@ -128,13 +128,13 @@ niche confirm abc123 --simulate seller1
 
 | Action | Without Login | With Login |
 |--------|--------------|------------|
-| Search / browse | ✅ Works | ✅ Works |
-| Post listings | ✅ With simulate | ✅ Works |
-| Place deposit | ❌ REQUIRES LOGIN | ✅ Real USDC deposit |
-| Confirm + pay | ❌ REQUIRES LOGIN | ✅ Completes purchase |
-| Cancel deposit | ❌ REQUIRES LOGIN | ✅ Get refund |
-| Dispute | ❌ REQUIRES LOGIN | ✅ Holds funds |
-| Fund wallet | ❌ REQUIRES LOGIN | ✅ Faucet |
+| Search / browse |  Works |  Works |
+| Post listings |  With simulate |  Works |
+| Place deposit |  REQUIRES LOGIN |  Real USDC deposit |
+| Confirm + pay |  REQUIRES LOGIN |  Completes purchase |
+| Cancel deposit |  REQUIRES LOGIN |  Get refund |
+| Dispute |  REQUIRES LOGIN |  Holds funds |
+| Fund wallet |  REQUIRES LOGIN |  Faucet |
 
 ## User Journey
 

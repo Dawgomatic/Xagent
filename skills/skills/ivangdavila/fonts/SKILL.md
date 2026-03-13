@@ -1,7 +1,7 @@
 ---
 name: Fonts
 description: Choose and implement web typography avoiding common rendering, pairing, and hierarchy mistakes.
-metadata: {"clawdbot":{"emoji":"🅰️","requires":{},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{},"os":["linux","darwin","win32"]}}
 ---
 
 ## Display vs Text Fonts

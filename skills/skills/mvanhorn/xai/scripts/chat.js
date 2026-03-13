@@ -85,7 +85,7 @@ function imageToBase64(imagePath) {
 async function chat(options) {
   const apiKey = getApiKey();
   if (!apiKey) {
-    console.error('❌ No API key found. Set XAI_API_KEY or configure in clawdbot.');
+    console.error(' No API key found. Set XAI_API_KEY or configure in clawdbot.');
     console.error('   Get your key at: https://console.x.ai');
     process.exit(1);
   }
@@ -160,7 +160,7 @@ async function chat(options) {
       
       res.on('end', () => {
         if (res.statusCode !== 200) {
-          console.error(`❌ API Error (${res.statusCode}):`, data);
+          console.error(` API Error (${res.statusCode}):`, data);
           process.exit(1);
         }
         
@@ -177,7 +177,7 @@ async function chat(options) {
             
             resolve(response);
           } catch (e) {
-            console.error('❌ Failed to parse response:', e.message);
+            console.error(' Failed to parse response:', e.message);
             process.exit(1);
           }
         } else {
@@ -188,7 +188,7 @@ async function chat(options) {
     });
     
     req.on('error', (e) => {
-      console.error('❌ Request failed:', e.message);
+      console.error(' Request failed:', e.message);
       process.exit(1);
     });
     
@@ -202,7 +202,7 @@ const args = process.argv.slice(2);
 
 if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
   console.log(`
-🤖 xAI/Grok Chat
+ xAI/Grok Chat
 
 Usage:
   node chat.js [options] "Your prompt"
@@ -233,7 +233,7 @@ Examples:
 const options = parseArgs(args);
 
 if (!options.prompt && !options.image) {
-  console.error('❌ Please provide a prompt');
+  console.error(' Please provide a prompt');
   process.exit(1);
 }
 

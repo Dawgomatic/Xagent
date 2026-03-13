@@ -21,7 +21,7 @@ elif [[ -f "$CONFIG_FILE" ]]; then
     ENDPOINT=$(grep -A10 "^\[${REMOTE}\]" "$CONFIG_FILE" | grep "endpoint" | cut -d'=' -f2 | tr -d ' ')
     BUCKET=""
 else
-    echo "❌ R2 config not found. Run setup first."
+    echo " R2 config not found. Run setup first."
     exit 1
 fi
 
@@ -31,7 +31,7 @@ if [[ "$1" == "--raw" ]]; then
     echo "R2_ENDPOINT=$ENDPOINT"
     [[ -n "$BUCKET" ]] && echo "R2_BUCKET=$BUCKET"
 else
-    echo "☁️ R2 Credentials"
+    echo " R2 Credentials"
     echo "================="
     echo ""
     echo "Access Key ID:"

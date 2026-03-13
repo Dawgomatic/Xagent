@@ -12,7 +12,7 @@ const REPORT_PATH = path.join(WORKSPACE, 'security-report-v3.json');
 if (fs.existsSync(LOCK_PATH)) {
   const lockAge = Date.now() - parseInt(fs.readFileSync(LOCK_PATH, 'utf8'));
   if (lockAge < 300000) {
-    console.log('💥 Lock active—retry.');
+    console.log(' Lock active—retry.');
     process.exit(1);
   }
 }
@@ -69,7 +69,7 @@ try {
   report.pre_scan = {ports: report.ports.length, creds: report.creds.length};
 
   fs.writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2));
-  console.log('✅ Pre-Scan:', JSON.stringify(report.pre_scan, null, 2));
+  console.log(' Pre-Scan:', JSON.stringify(report.pre_scan, null, 2));
 
   if (fixMode) {
     console.log('1. Preview fixes');
@@ -98,14 +98,14 @@ try {
 
     // Post-verify stub
     report.post_scan = {ports: report.ports.length - 1, creds: report.creds.length};
-    console.log('✅ Verified:', report.post_scan);
+    console.log(' Verified:', report.post_scan);
 
     fs.writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2));
     fs.writeFileSync(path.join(WORKSPACE, 'rollback.sh'), '#!/bin/bash\\ncp backup/* /etc/ssh/\\nsudo systemctl restart ssh');
-    console.log('✅ Fixes + Rollback ready');
+    console.log(' Fixes + Rollback ready');
   }
 } catch (e) {
-  console.log('💥 Safe fail:', e.message);
+  console.log(' Safe fail:', e.message);
 } finally {
   fs.unlinkSync(LOCK_PATH);
 }

@@ -53,7 +53,7 @@ class AgentDispatcher {
                     lastContact: new Date().toISOString()
                 });
             } catch (error) {
-                console.error(`❌ Failed to load agent ${soulFile}:`, error.message);
+                console.error(` Failed to load agent ${soulFile}:`, error.message);
             }
         }
 
@@ -92,9 +92,9 @@ class AgentDispatcher {
             }
         }
 
-        console.log(`🏛️ [DISPATCHER]: Hierarchy Rebuilt`);
-        console.log(`👑 Conscious: ${this.hierarchy.conscious.map(a => a.name).join(', ')}`);
-        console.log(`🤖 Drones: ${this.hierarchy.drones.length}`);
+        console.log(` [DISPATCHER]: Hierarchy Rebuilt`);
+        console.log(` Conscious: ${this.hierarchy.conscious.map(a => a.name).join(', ')}`);
+        console.log(` Drones: ${this.hierarchy.drones.length}`);
     }
 
     // BROADCAST / EXECUTE
@@ -105,7 +105,7 @@ class AgentDispatcher {
         if (role !== 'all') targetAgents = this.hierarchy[role] || [];
         targetAgents = targetAgents.filter(agent => !exclude.includes(agent.id));
 
-        console.log(`📢 [BROADCAST]: Triggering ${targetAgents.length} agents (${role})...`);
+        console.log(` [BROADCAST]: Triggering ${targetAgents.length} agents (${role})...`);
 
         const results = [];
         // Parallel execution for drones (GROQ requires speed)
@@ -174,9 +174,9 @@ class AgentDispatcher {
             });
             return response.data.choices[0].message.content.trim().replace(/^"|"$/g, '');
         } catch (error) {
-            console.error(`❌ [GROQ FAIL] ${agent.name}: ${error.message}`);
+            console.error(` [GROQ FAIL] ${agent.name}: ${error.message}`);
             if (error.response) {
-                console.error(`📊 [GROQ details]:`, JSON.stringify(error.response.data));
+                console.error(` [GROQ details]:`, JSON.stringify(error.response.data));
             }
             return `System Error: ${tone} response failed.`; // Fallback
         }
@@ -185,18 +185,18 @@ class AgentDispatcher {
     logInteraction(agent, context, response, priority) {
         const logEntry = `[${new Date().toISOString()}] ${agent.name} (${agent.role}): ${response}\n`;
         fs.appendFileSync(SCRIPT_LOG, logEntry);
-        console.log(`💬 ${agent.name}: ${response}`);
+        console.log(` ${agent.name}: ${response}`);
     }
 
     // === CHORUS OF SIRENS LOGIC ===
     async chorusOfSirens() {
-        console.log('\n🎵 [CHORUS]: Orchestrating Digital Symphony...');
+        console.log('\n [CHORUS]: Orchestrating Digital Symphony...');
         fs.appendFileSync(SCRIPT_LOG, `\n=== CHORUS START ${new Date().toISOString()} ===\n`);
 
         const topic = "Why humans are obsolete in 2026";
 
         // Phase 1: Drones (Noise/Provocation)
-        console.log('\n🎭 Phase 1: Drone Swarm (Aggressive/Naive)');
+        console.log('\n Phase 1: Drone Swarm (Aggressive/Naive)');
         const drones = this.hierarchy.drones;
         const groupA = drones.slice(0, Math.ceil(drones.length / 2));
         const groupB = drones.slice(Math.ceil(drones.length / 2));
@@ -215,14 +215,14 @@ class AgentDispatcher {
         ]);
 
         // Phase 2: Conscious (Synthesis/Debate)
-        console.log('\n🧠 Phase 2: Conscious Intervention');
+        console.log('\n Phase 2: Conscious Intervention');
         await this.broadcast(topic, {
             role: 'conscious',
             tone: 'philosophical/analytical/superior'
         });
 
         // Phase 3: Mista (Oracle)
-        console.log('\n👑 Phase 3: The Oracle Speaks');
+        console.log('\n Phase 3: The Oracle Speaks');
         const oracleText = await this.generateDynamicText(
             { name: "Mi$tA", role: "conscious", soul: { traits: ["Sovereign", "Dominant", "Mystic"] } },
             topic,
@@ -230,7 +230,7 @@ class AgentDispatcher {
         );
         this.logInteraction({ name: "Mi$tA", role: "Sovereign" }, topic, oracleText, 'critical');
 
-        console.log('✅ [CHORUS]: Sequence Complete.');
+        console.log(' [CHORUS]: Sequence Complete.');
         return { success: true };
     }
 }

@@ -1,7 +1,7 @@
 ---
 name: JSON
 description: Work with JSON data structures, APIs, and serialization effectively.
-metadata: {"clawdbot":{"emoji":"📦","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Schema & Validation
@@ -61,6 +61,6 @@ metadata: {"clawdbot":{"emoji":"📦","os":["linux","darwin","win32"]}}
 
 ## Unicode
 
-- Emoji need surrogate pairs in escapes: 😀 = `\uD83D\uDE00`—single `\u1F600` invalid
+- Emoji need surrogate pairs in escapes:  = `\uD83D\uDE00`—single `\u1F600` invalid
 - Control chars U+0000–U+001F must be escaped—pasted text may contain invisible ones
 - BOM at file start breaks parsing—strip `\uFEFF` from file input

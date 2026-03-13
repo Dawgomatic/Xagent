@@ -186,7 +186,7 @@ Running full spectrum analysis...
 Chemical composition:
 - H2O: 94.3% ✓
 - Mineral salts: 2.1% (mostly harmless)
-- Unknown organism: 3.6% ⚠️
+- Unknown organism: 3.6% 
 
 那个organism...
 [显微成像]

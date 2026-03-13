@@ -3,7 +3,7 @@ name: NAS
 slug: nas
 version: 1.0.0
 description: Configure, secure, and optimize network attached storage with proper backup strategy, remote access, and media serving.
-metadata: {"clawdbot":{"emoji":"🗄️","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

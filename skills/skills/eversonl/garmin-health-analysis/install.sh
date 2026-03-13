@@ -4,12 +4,12 @@
 
 set -e  # Exit on error
 
-echo "🏃 Installing Garmin Health Analysis Skill..."
+echo " Installing Garmin Health Analysis Skill..."
 echo
 
 # Check Python
 if ! command -v python3 &> /dev/null; then
-    echo "❌ Error: Python 3 is required but not found"
+    echo " Error: Python 3 is required but not found"
     exit 1
 fi
 
@@ -17,7 +17,7 @@ echo "✓ Python 3 found: $(python3 --version)"
 
 # Install Python dependencies
 echo
-echo "📦 Installing Python dependencies..."
+echo " Installing Python dependencies..."
 
 if pip3 install --user garminconnect fitparse gpxpy 2>/dev/null; then
     echo "✓ Dependencies installed (--user)"
@@ -26,7 +26,7 @@ elif pip3 install --break-system-packages garminconnect fitparse gpxpy 2>/dev/nu
 elif pip3 install garminconnect fitparse gpxpy 2>/dev/null; then
     echo "✓ Dependencies installed (system-wide)"
 else
-    echo "❌ Failed to install Python dependencies"
+    echo " Failed to install Python dependencies"
     echo "   Try manually: pip3 install --user garminconnect fitparse gpxpy"
     exit 1
 fi
@@ -34,14 +34,14 @@ fi
 # Create config from example if it doesn't exist
 if [ ! -f "config.json" ] && [ -f "config.example.json" ]; then
     echo
-    echo "📝 Creating config.json from example..."
+    echo " Creating config.json from example..."
     cp config.example.json config.json
     echo "✓ config.json created (edit with your credentials)"
 fi
 
 # Success
 echo
-echo "✅ Installation complete!"
+echo " Installation complete!"
 echo
 echo "Next steps:"
 echo "  1. Add your Garmin credentials:"
@@ -55,4 +55,4 @@ echo
 echo "  3. Test:"
 echo "     python3 scripts/garmin_data.py summary --days 7"
 echo
-echo "📖 Read SKILL.md for full documentation"
+echo " Read SKILL.md for full documentation"

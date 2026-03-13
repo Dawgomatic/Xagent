@@ -1,5 +1,5 @@
 # Weekly Review — Cron Job Template
-# ⚠️  OPT-IN ONLY: This template is NOT auto-installed.
+#   OPT-IN ONLY: This template is NOT auto-installed.
 # The user must explicitly request cron setup ("set up cron jobs")
 # and manually copy-paste this command into their terminal.
 # This skill NEVER runs this command automatically.
@@ -38,5 +38,5 @@ openclaw cron add \
 
 6. Deliver a weekly summary: wins, issues resolved, lessons learned, and focus areas for the coming week.
 
-Use 🟢🟡🔴 indicators for overall system health." \
+Use  indicators for overall system health." \
   --announce

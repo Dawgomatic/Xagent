@@ -92,10 +92,10 @@ def list_piles():
         print("No compost piles tracked yet.")
         return
 
-    print(f"\n🗑️  Compost Piles ({len(db['compost_piles'])} total):\n")
+    print(f"\n  Compost Piles ({len(db['compost_piles'])} total):\n")
 
     for pile in sorted(db["compost_piles"], key=lambda x: x["created"], reverse=True):
-        status_icon = "✅" if pile["status"] == "Ready" else "🔄"
+        status_icon = "" if pile["status"] == "Ready" else ""
         print(f"{status_icon} {pile['name']} ({pile['size']})")
         print(f"   Location: {pile['location']}")
         print(f"   Status: {pile['status']}")
@@ -122,7 +122,7 @@ def show_pile(name):
     created = datetime.fromisoformat(pile["created"]).strftime("%Y-%m-%d")
 
     print(f"\n{'='*60}")
-    print(f"🗑️  {pile['name']}")
+    print(f"  {pile['name']}")
     print(f"{'='*60}")
     print(f"Created: {created}")
     print(f"Size: {pile['size']}")
@@ -134,7 +134,7 @@ def show_pile(name):
         print(f"\nNotes: {pile['notes']}")
 
     if pile["readings"]:
-        print(f"\n📊 Temperature Readings ({len(pile['readings'])}):\n")
+        print(f"\n Temperature Readings ({len(pile['readings'])}):\n")
         for reading in pile["readings"][-5:]:  # Show last 5
             date = datetime.fromisoformat(reading["date"]).strftime("%Y-%m-%d %H:%M")
             temp = reading["temperature"]
@@ -142,7 +142,7 @@ def show_pile(name):
             print(f"  {date}: {temp}°C{notes}")
 
     if pile["turns"]:
-        print(f"\n🔄 Turn History ({len(pile['turns'])}):\n")
+        print(f"\n Turn History ({len(pile['turns'])}):\n")
         for turn in pile["turns"][-5:]:  # Show last 5
             date = datetime.fromisoformat(turn["date"]).strftime("%Y-%m-%d")
             notes = f" - {turn['notes']}" if turn["notes"] else ""
@@ -247,7 +247,7 @@ def search(query):
         print(f"No compost piles matching '{query}' found.")
         return
 
-    print(f"\n🔍 Search results for '{query}':\n")
+    print(f"\n Search results for '{query}':\n")
 
     for pile in results:
         print(f"• {pile['name']} ({pile['status']})")
@@ -257,7 +257,7 @@ def search(query):
 def export(path):
     """Export compost data to markdown"""
     if not is_safe_path(path):
-        print(f"❌ Export path not allowed: {path}")
+        print(f" Export path not allowed: {path}")
         print("Allowed paths: workspace, home directory, /tmp")
         return
 

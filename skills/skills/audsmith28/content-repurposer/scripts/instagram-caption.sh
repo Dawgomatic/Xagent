@@ -49,7 +49,7 @@ Before you begin writing, please think step-by-step to ensure you follow all con
 3.  **Caption Structure:**
     - Hook: The first line MUST be a strong, curiosity-driven hook, no more than $(jq -r '.hook_length' <<< "$PLATFORM_CONFIG") characters.
     - Body: Briefly summarize the core message of the source content. Use line breaks for readability.
-    - Call to Action: End with an engagement question (e.g., 'What's your take? 👇').
+    - Call to Action: End with an engagement question (e.g., 'What's your take? ').
 4.  **Length:** The main caption (excluding hashtags) should be between 150 and $(jq -r '.target_length' <<< "$PLATFORM_CONFIG") characters. Total length must not exceed $(jq -r '.max_length' <<< "$PLATFORM_CONFIG") characters.
 5.  **Hashtags:**
     - After the main caption, add a separator '---'.
@@ -67,15 +67,15 @@ Begin."
 # --- Call LLM ---
 # This uses the built-in Clawdbot LLM tool.
 # For now, let's create a mock response to demonstrate the skill
-MOCK_RESPONSE="Stop doing this ONE thing with your content. 🙅‍♀️
+MOCK_RESPONSE="Stop doing this ONE thing with your content. 
 
 You spend hours on a great article, then just... let it die? No!
 
-One piece of content should fuel your entire week. Create it once, then let your agent repurpose it everywhere. 🧠→✍️→♻️
+One piece of content should fuel your entire week. Create it once, then let your agent repurpose it everywhere. →→
 
 More creating, less reformatting.
 
-What's your content workflow like? Drop it in the comments! 👇
+What's your content workflow like? Drop it in the comments! 
 ---
 #ContentCreator #MarketingTips #AI #Automation #Productivity #ContentStrategy #SocialMediaMarketing #WorkSmarter"
 

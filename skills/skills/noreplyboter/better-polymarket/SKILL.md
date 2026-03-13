@@ -2,7 +2,7 @@
 name: Better Polymarket
 description: Query Polymarket prediction markets - check odds, trending markets, search events, track prices, list markets by volume.
 homepage: https://polymarket.com
-metadata: {"clawdbot":{"emoji":"📊"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Better Polymarket

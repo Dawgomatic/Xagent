@@ -54,7 +54,7 @@ def list_topics():
         print("No research topics yet.")
         return
     
-    print("\n📚 Research Topics:")
+    print("\n Research Topics:")
     for topic, data in sorted(db.items(), key=lambda x: x[1]["last_updated"], reverse=True):
         note_count = len(data["notes"])
         last_update = data["last_updated"][:10]
@@ -69,7 +69,7 @@ def show_topic(topic):
         return False
     
     data = db[topic]
-    print(f"\n📖 {topic}")
+    print(f"\n {topic}")
     print(f"Created: {data['created'][:10]} | Notes: {len(data['notes'])}")
     print("-" * 60)
     
@@ -104,7 +104,7 @@ def search(query):
         print(f"No results for '{query}'")
         return
     
-    print(f"\n🔍 Search results for '{query}':")
+    print(f"\n Search results for '{query}':")
     for r in results:
         ts = r["note"]["timestamp"][:19].replace("T", " ")
         preview = r["note"]["content"][:100] + "..." if len(r["note"]["content"]) > 100 else r["note"]["content"]
@@ -122,7 +122,7 @@ def export_topic(topic, output_file):
     # Security: Validate output path
     output_path = Path(output_file)
     if not is_safe_path(output_path):
-        print(f"❌ Security error: Cannot write to '{output_path}'")
+        print(f" Security error: Cannot write to '{output_path}'")
         print("   Path must be within workspace or home directory (not system paths)")
         return False
     

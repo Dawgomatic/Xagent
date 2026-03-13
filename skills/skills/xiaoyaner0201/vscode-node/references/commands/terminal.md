@@ -6,9 +6,9 @@ Terminal is **disabled by default** for security. Must be enabled in extension s
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `command` | string | ✅ | Command (must be in whitelist) |
-| `cwd` | string | ❌ | Working directory |
-| `timeoutMs` | number | ❌ | Timeout (default: 30000) |
+| `command` | string |  | Command (must be in whitelist) |
+| `cwd` | string |  | Working directory |
+| `timeoutMs` | number |  | Timeout (default: 30000) |
 
 **Returns:** `{ exitCode: number, stdout: string, stderr: string, timedOut: boolean }`
 

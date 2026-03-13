@@ -12,7 +12,7 @@ description: >
   together. If the user mentions GitHub AND Slack (or any two dev tools) together, this skill connects them.
 metadata:
   openclaw:
-    emoji: "🔧"
+    emoji: ""
 ---
 
 # DevOps Bridge
@@ -30,7 +30,7 @@ Developers already use separate skills for GitHub, Slack, etc. But nobody has bu
 Transform noisy GitHub events into actionable, context-rich messages. Instead of "Build failed", deliver:
 
 ```
-🔴 CI Failed — PR #142 "Add OAuth flow" by @alice
+ CI Failed — PR #142 "Add OAuth flow" by @alice
   └─ Test: auth.test.ts:47 — Expected 200, got 401
   └─ Last passing commit: abc1234 (2 hours ago)  
   └─ Linked issue: LINEAR-389 "Implement SSO"
@@ -54,7 +54,7 @@ Track pull request lifecycle across tools:
 - Send reminders to the assigned reviewer via Slack/Discord DM or channel
 - Format:
   ```
-  👀 Review needed:
+   Review needed:
   • PR #142 "Add OAuth flow" — waiting 3 days (assigned: @bob)
   • PR #156 "Fix pagination" — waiting 1 day (assigned: @carol)
   ```
@@ -87,14 +87,14 @@ Keep issue trackers (Linear, Jira, GitHub Issues) in sync with actual developmen
 Generate a team-level development summary on demand or via cron:
 
 ```
-🧑‍💻 Dev Standup — [Date]
+ Dev Standup — [Date]
 
 Merged yesterday:
   • PR #140 "Refactor auth module" by @alice → LINEAR-385 closed
   • PR #143 "Update deps" by @bob
 
 In review:
-  • PR #142 "Add OAuth flow" by @alice — 2 approvals, CI passing ✅
+  • PR #142 "Add OAuth flow" by @alice — 2 approvals, CI passing 
   • PR #156 "Fix pagination" by @carol — changes requested by @bob
 
 Blocked:

@@ -102,4 +102,4 @@ yt-meta search "ai tools 2024" --sort views -o csv
 
 **Built by [LXGIC Studios](https://lxgicstudios.com)**
 
-🔗 [GitHub](https://github.com/lxgicstudios/yt-meta) · [Twitter](https://x.com/lxgicstudios)
+ [GitHub](https://github.com/lxgicstudios/yt-meta) · [Twitter](https://x.com/lxgicstudios)

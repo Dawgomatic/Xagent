@@ -6,7 +6,7 @@ user-invocable: true
 disable-model-invocation: true
 metadata:
   clawdbot:
-    emoji: "🎬"
+    emoji: ""
     requires:
       bins: [node, npx]
     os: [linux]
@@ -49,7 +49,7 @@ Edit `src/messages.json`:
 ```json
 [
   {"text": "What's the weather?", "isUser": true},
-  {"text": "☀️ 72°F and sunny!", "isUser": false}
+  {"text": " 72°F and sunny!", "isUser": false}
 ]
 ```
 

@@ -130,7 +130,7 @@ class FleetOrchestrator:
         """Start the orchestrator"""
         self.running = True
         self._allocation_loop_task = asyncio.create_task(self._allocation_loop())
-        logger.info("🚀 Fleet orchestrator started")
+        logger.info(" Fleet orchestrator started")
     
     async def stop(self):
         """Stop the orchestrator"""
@@ -141,7 +141,7 @@ class FleetOrchestrator:
                 await self._allocation_loop_task
             except asyncio.CancelledError:
                 pass
-        logger.info("⏹️  Fleet orchestrator stopped")
+        logger.info("  Fleet orchestrator stopped")
     
     async def add_robot(self, robot: FleetRobot) -> bool:
         """Add a robot to the fleet"""
@@ -150,7 +150,7 @@ class FleetOrchestrator:
             return False
         
         self.robots[robot.robot_id] = robot
-        logger.info(f"🤖 Robot added: {robot.name} ({robot.robot_id})")
+        logger.info(f" Robot added: {robot.name} ({robot.robot_id})")
         return True
     
     async def remove_robot(self, robot_id: str) -> bool:
@@ -165,7 +165,7 @@ class FleetOrchestrator:
             await self.cancel_task(robot.current_task)
         
         del self.robots[robot_id]
-        logger.info(f"🗑️  Robot removed: {robot_id}")
+        logger.info(f"  Robot removed: {robot_id}")
         return True
     
     async def submit_task(self, task: Task) -> str:
@@ -181,7 +181,7 @@ class FleetOrchestrator:
             insert_idx = i + 1
         
         self.task_queue.insert(insert_idx, task)
-        logger.info(f"📋 Task submitted: {task.type} (priority: {task.priority}, id: {task.id})")
+        logger.info(f" Task submitted: {task.type} (priority: {task.priority}, id: {task.id})")
         
         # Trigger immediate allocation attempt
         asyncio.create_task(self._allocate_tasks())
@@ -210,7 +210,7 @@ class FleetOrchestrator:
             robot.current_task = None
         
         task.status = TaskStatus.CANCELLED
-        logger.info(f"🚫 Task cancelled: {task_id}")
+        logger.info(f" Task cancelled: {task_id}")
         return True
     
     async def update_robot_status(self, robot_id: str, status: RobotStatus,
@@ -274,13 +274,13 @@ class FleetOrchestrator:
         if success:
             task.status = TaskStatus.COMPLETED
             task.completed_at = datetime.utcnow()
-            logger.info(f"✅ Task completed: {task_id}")
+            logger.info(f" Task completed: {task_id}")
             if self.on_task_completed and robot:
                 self.on_task_completed(task, robot)
         else:
             task.status = TaskStatus.FAILED
             task.error_message = result.get('error') if result else "Unknown error"
-            logger.error(f"❌ Task failed: {task_id} - {task.error_message}")
+            logger.error(f" Task failed: {task_id} - {task.error_message}")
             if self.on_task_failed:
                 self.on_task_failed(task, task.error_message)
         
@@ -456,7 +456,7 @@ class FleetOrchestrator:
         robot.status = RobotStatus.BUSY
         robot.current_task = task.id
         
-        logger.info(f"🎯 Task {task.id} assigned to {robot.name}")
+        logger.info(f" Task {task.id} assigned to {robot.name}")
         
         if self.on_task_assigned:
             self.on_task_assigned(task, robot)
@@ -468,7 +468,7 @@ class FleetOrchestrator:
         """Execute task on robot (simulated)"""
         task.status = TaskStatus.EXECUTING
         
-        logger.info(f"▶️  Executing task {task.id} on {robot.name}")
+        logger.info(f"  Executing task {task.id} on {robot.name}")
         
         # In real implementation, send command to robot via bridge
         # For now, simulate task execution

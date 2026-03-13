@@ -175,7 +175,7 @@ min_volume: 1000000
 
 The skill validates expressions before evaluation:
 
-✅ **Valid:**
+ **Valid:**
 ```python
 PRICE > SIMPLE_MOVING_AVERAGE_50
 (PRICE > 100) and (VOLUME > 1000000)
@@ -183,7 +183,7 @@ RELATIVE_STRENGTH_INDEX_14 < 30
 CHANGE_PERCENT > CHANGE_PERCENT.mean()
 ```
 
-❌ **Invalid:**
+ **Invalid:**
 ```python
 import os  # No imports
 eval("malicious code")  # No eval/exec

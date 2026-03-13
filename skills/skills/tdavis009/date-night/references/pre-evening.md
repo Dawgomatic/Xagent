@@ -112,7 +112,7 @@ Check forecast for the evening using the wttr.in service.
 
 ```bash
 # Quick format: temp, conditions, precip, wind
-curl -s "wttr.in/{config.location}?format=%l:+%t+%C+💧%p+💨%w" 2>/dev/null || true
+curl -s "wttr.in/{config.location}?format=%l:+%t+%C+%p+%w" 2>/dev/null || true
 
 # 3-day summary
 curl -s "wttr.in/{config.location}?format=3" 2>/dev/null || true
@@ -134,15 +134,15 @@ curl -s "wttr.in/{config.location}?format=3" 2>/dev/null || true
 ### Weather Line in Brief
 
 ```
-🌡️ **Weather:** ~{temp} and {conditions}. {advisory}
+ **Weather:** ~{temp} and {conditions}. {advisory}
 ```
 
 **Examples:**
-> *🌡️ Weather: 29°F with light snow — bundle up. Covered parking is closest, about a half-block walk.*
+> * Weather: 29°F with light snow — bundle up. Covered parking is closest, about a half-block walk.*
 
-> *🌡️ Weather: 67°F and clear — beautiful evening. The patio should be great if you want it.*
+> * Weather: 67°F and clear — beautiful evening. The patio should be great if you want it.*
 
-> *🌡️ Weather: 42°F, partly cloudy. A jacket will do.*
+> * Weather: 42°F, partly cloudy. A jacket will do.*
 
 ---
 
@@ -151,16 +151,16 @@ curl -s "wttr.in/{config.location}?format=3" 2>/dev/null || true
 Assemble all gathered intel into a clean summary:
 
 ```
-📋 **Evening Brief: {Event/Restaurant}**
-📅 {Day, Date} at {Time} — {details}
+ **Evening Brief: {Event/Restaurant}**
+ {Day, Date} at {Time} — {details}
 
-🍽️ **Menu highlights:** {signature dishes, price range}
+ **Menu highlights:** {signature dishes, price range}
       {any dietary-relevant note}
-👔 **Dress code:** {recommendation}
-🅿️  **Parking:** {valet/garage/street}
-🚗 **Drive time:** ~{X} min from home — leave by {time}
-🌡️ **Weather:** ~{temp}, {conditions}. {advisory}
-📝 **Note:** {cancellation policy, occasion, anything else}
+ **Dress code:** {recommendation}
+  **Parking:** {valet/garage/street}
+ **Drive time:** ~{X} min from home — leave by {time}
+ **Weather:** ~{temp}, {conditions}. {advisory}
+ **Note:** {cancellation policy, occasion, anything else}
 ```
 
 ---
@@ -221,8 +221,8 @@ web_search "{artist/event} {venue} {date} opener doors time"
 
 **Pre-show brief additions:**
 ```
-🎤 **Doors:** {doors open time}
-🎭 **Show starts:** {start time} (arrive by {doors time} for best experience)
-🎒 **Bag policy:** {clear bag required / small clutch / no restrictions}
-🅿️  **Parking:** {venue-specific options; pre-pay if available}
+ **Doors:** {doors open time}
+ **Show starts:** {start time} (arrive by {doors time} for best experience)
+ **Bag policy:** {clear bag required / small clutch / no restrictions}
+  **Parking:** {venue-specific options; pre-pay if available}
 ```

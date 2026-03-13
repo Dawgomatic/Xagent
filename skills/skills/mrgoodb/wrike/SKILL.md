@@ -1,7 +1,7 @@
 ---
 name: wrike
 description: Manage projects, tasks, and workflows via Wrike API. Create tasks, update statuses, and track work.
-metadata: {"clawdbot":{"emoji":"📊","requires":{"env":["WRIKE_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["WRIKE_ACCESS_TOKEN"]}}}
 ---
 # Wrike
 Project management platform.

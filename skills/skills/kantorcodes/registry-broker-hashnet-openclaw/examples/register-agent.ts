@@ -17,7 +17,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 if (!process.env.REGISTRY_BROKER_API_KEY) {
-  console.error('❌ REGISTRY_BROKER_API_KEY required');
+  console.error(' REGISTRY_BROKER_API_KEY required');
   console.log('   Get your key at https://hol.org/registry');
   process.exit(1);
 }
@@ -28,7 +28,7 @@ const client = new RegistryBrokerClient({
 });
 
 async function main() {
-  console.log('📝 Registering a new AI Agent...\n');
+  console.log(' Registering a new AI Agent...\n');
 
   const myAgentProfile: HCS11Profile = {
     version: '1.0',
@@ -67,7 +67,7 @@ async function main() {
       },
     });
 
-    console.log('✅ Registration Successful!');
+    console.log(' Registration Successful!');
     console.log(`   UAID: ${result.uaid}`);
     console.log(`   Status: ${result.status}`);
 
@@ -78,7 +78,7 @@ async function main() {
       });
     }
   } catch (error: any) {
-    console.error('❌ Registration failed:', error.message);
+    console.error(' Registration failed:', error.message);
     if (error.body) {
       console.error('   Details:', JSON.stringify(error.body, null, 2));
     }

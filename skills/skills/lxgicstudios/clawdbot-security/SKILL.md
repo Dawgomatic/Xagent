@@ -148,11 +148,11 @@ sudo tailscale up
 
 When a Clawdbot gateway is exposed:
 
-- ❌ Complete conversation histories (Telegram, WhatsApp, Signal, iMessage)
-- ❌ API keys (Claude, OpenAI, etc.)
-- ❌ OAuth tokens and bot credentials
-- ❌ Full shell access to the host machine
-- ❌ All files in the workspace
+-  Complete conversation histories (Telegram, WhatsApp, Signal, iMessage)
+-  API keys (Claude, OpenAI, etc.)
+-  OAuth tokens and bot credentials
+-  Full shell access to the host machine
+-  All files in the workspace
 
 **Prompt injection attacks** can extract this data with a single email or message.
 

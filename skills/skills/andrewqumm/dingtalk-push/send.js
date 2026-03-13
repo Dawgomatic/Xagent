@@ -68,14 +68,14 @@ export async function sendDingTalkMessage(options = {}) {
   } = options;
 
   // 根据类型获取emoji
-  const emojis = { info: 'ℹ️', success: '✅', warning: '⚠️', error: '❌' };
-  const emoji = emojis[type] || 'ℹ️';
+  const emojis = { info: '', success: '', warning: '', error: '' };
+  const emoji = emojis[type] || '';
   
   // 格式化时间
   const time = new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
   
   // 构建Markdown消息
-  const markdownText = `### ${emoji} ${title}\n\n${message}\n\n> ⏰ ${time}`;
+  const markdownText = `### ${emoji} ${title}\n\n${message}\n\n>  ${time}`;
 
   // 构建请求URL
   let url = config.webhook;
@@ -208,22 +208,22 @@ async function main() {
   
   if (!args.message) {
     // 测试模式
-    console.log('📤 发送测试消息...');
+    console.log(' 发送测试消息...');
   }
 
   try {
     const result = await sendDingTalkMessage({
-      message: args.message || '🧪 钉钉推送技能测试成功！',
+      message: args.message || ' 钉钉推送技能测试成功！',
       title: args.title || '测试通知',
       type: args.type,
       atMobiles: args.atMobiles,
       isAtAll: args.isAtAll
     });
     
-    console.log('✅ 发送成功!');
+    console.log(' 发送成功!');
     console.log(JSON.stringify(result, null, 2));
   } catch (error) {
-    console.error('❌ 发送失败:', error.message);
+    console.error(' 发送失败:', error.message);
     process.exit(1);
   }
 }

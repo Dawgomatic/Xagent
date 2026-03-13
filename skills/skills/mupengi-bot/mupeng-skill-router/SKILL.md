@@ -1,14 +1,14 @@
 ---
 name: skill-router
 description: "Context-based skill auto-routing + federated skill composition. Analyzes user input to auto-select single or multiple skills and execute in order. First gateway for all requests. Use on every request to determine optimal skill combination."
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
 # Skill Router
 
 Meta system that analyzes natural language input to auto-select appropriate skill(s), determine order, and chain execution.
 
-## 🚀 v2 Architecture: Low-level Call Protocol
+##  v2 Architecture: Low-level Call Protocol
 
 ### Execution Flow
 ```
@@ -191,4 +191,4 @@ When skill-router activates, for all skills:
 
 ---
 
-> 🐧 Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill
+>  Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill

@@ -53,10 +53,10 @@ HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
 BODY=$(echo "$RESPONSE" | sed '$d')
 
 if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
-    echo "✅ Dashboard updated successfully at $TIMESTAMP"
+    echo " Dashboard updated successfully at $TIMESTAMP"
     exit 0
 else
-    echo "❌ Failed to update dashboard (HTTP $HTTP_CODE)" >&2
+    echo " Failed to update dashboard (HTTP $HTTP_CODE)" >&2
     [ -n "$BODY" ] && echo "$BODY" >&2
     exit 1
 fi

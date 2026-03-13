@@ -57,14 +57,14 @@ async function main() {
       timezone: values.timezone
     });
     
-    console.log('✅ Task updated successfully!');
+    console.log(' Task updated successfully!');
     console.log('');
     console.log('Updated Task:');
     console.log(`  Title: ${task.summary}`);
     console.log(`  Task ID: ${task.guid}`);
     
   } catch (error) {
-    console.error('❌ Failed to update task:', error.message);
+    console.error(' Failed to update task:', error.message);
     if (error.larkResponse) {
       console.error('Lark response:', JSON.stringify(error.larkResponse, null, 2));
     }

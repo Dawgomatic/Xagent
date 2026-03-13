@@ -83,7 +83,7 @@ meetgeek summary 81a6ab96-19e7-44f5-bd2b-594a91d2e44b
 ### Get action items from a call
 ```bash
 meetgeek summary <meeting-id>
-# Look for the "✅ Action Items" section
+# Look for the " Action Items" section
 ```
 
 ### Find what was discussed about a topic

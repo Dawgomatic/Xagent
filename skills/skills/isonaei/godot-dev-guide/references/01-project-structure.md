@@ -108,25 +108,25 @@ textures/vram_compression/import_etc2_astc=true
 
 ---
 
-## ⚠️ AI PITFALL：路徑錯誤
+##  AI PITFALL：路徑錯誤
 
 ```gdscript
-# ❌ WRONG - 絕對路徑或相對路徑混用
+#  WRONG - 絕對路徑或相對路徑混用
 var scene = load("/home/user/project/scenes/player.tscn")
 
-# ✅ CORRECT - 使用 res:// 前綴
+#  CORRECT - 使用 res:// 前綴
 var scene = load("res://scenes/player.tscn")
 ```
 
-## ⚠️ AI PITFALL：自動載入順序
+##  AI PITFALL：自動載入順序
 
 ```gdscript
-# ❌ WRONG - 在 Globals 中存取 Events（如果 Events 在後面加載）
+#  WRONG - 在 Globals 中存取 Events（如果 Events 在後面加載）
 # globals.gd
 func _ready():
     Events.something.connect(...)  # Events 可能還不存在
 
-# ✅ CORRECT - 使用 call_deferred 或確保加載順序
+#  CORRECT - 使用 call_deferred 或確保加載順序
 func _ready():
     call_deferred("_connect_signals")
 

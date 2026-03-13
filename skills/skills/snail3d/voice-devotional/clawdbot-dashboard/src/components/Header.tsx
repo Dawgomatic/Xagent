@@ -30,7 +30,7 @@ export default function Header({ isDark, onToggleDark }: HeaderProps) {
               ? 'bg-gradient-to-br from-teal-accent to-purple-accent text-black'
               : 'bg-gradient-to-br from-blue-500 to-purple-500 text-white'
           }`}>
-            ⚡
+            
           </div>
           <div className="hidden sm:block">
             <h1 className={`text-xl font-bold transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>

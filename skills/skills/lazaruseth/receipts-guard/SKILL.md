@@ -1,7 +1,7 @@
 ---
 name: receipts-guard
 description: ERC-8004 identity, x402 payments, and arbitration protocol for autonomous agent commerce. The three rails for the machine economy.
-metadata: {"openclaw":{"emoji":"⚖️","requires":{"anyBins":["node"]},"version":"0.7.1"}}
+metadata: {"openclaw":{"emoji":"","requires":{"anyBins":["node"]},"version":"0.7.1"}}
 ---
 
 # RECEIPTS Guard v0.7.1 - The Three Rails
@@ -21,28 +21,28 @@ ERC-8004 identity + x402 payments + arbitration protocol. The infrastructure for
 
 ## What's New in v0.7.1 (Security Hardening)
 
-- **🔐 HTTP Authentication** - API Key and DID Request Signing
-- **🛡️ Authorization Checks** - Counterparty verification for /accept
-- **🌐 CORS Hardening** - Configurable origin whitelist (blocked by default)
-- **⚡ Rate Limiting** - 100 requests/minute per IP
-- **✅ Input Validation** - Payment address, cost, deadline validation
+- ** HTTP Authentication** - API Key and DID Request Signing
+- ** Authorization Checks** - Counterparty verification for /accept
+- ** CORS Hardening** - Configurable origin whitelist (blocked by default)
+- ** Rate Limiting** - 100 requests/minute per IP
+- ** Input Validation** - Payment address, cost, deadline validation
 
 ## What's New in v0.7.0
 
-- **⛓️ ERC-8004 Integration** - Anchor identity to Ethereum/Base registries
-- **💰 x402 Payments** - Paid arbitration with USDC/ETH
-- **☁️ Cloud Deployment** - Dockerfile + Fly.io Sprites support
-- **🌐 HTTP Server Mode** - REST API for cloud agents
+- ** ERC-8004 Integration** - Anchor identity to Ethereum/Base registries
+- ** x402 Payments** - Paid arbitration with USDC/ETH
+- ** Cloud Deployment** - Dockerfile + Fly.io Sprites support
+- ** HTTP Server Mode** - REST API for cloud agents
 
 ### From v0.6.0:
-- **🪪 Self-Sovereign Identity** - DID-based identity with Ed25519 signatures
-- **🔑 Key Rotation** - Old key signs new key, creating unbroken proof chain
-- **👤 Human Controller** - Twitter-based recovery backstop
+- ** Self-Sovereign Identity** - DID-based identity with Ed25519 signatures
+- ** Key Rotation** - Old key signs new key, creating unbroken proof chain
+- ** Human Controller** - Twitter-based recovery backstop
 
 ### From v0.5.0:
-- **⚖️ Full Arbitration Protocol** - propose → accept → fulfill → arbitrate → ruling
-- **📜 PAO (Programmable Agreement Object)** - Canonical termsHash, mutual signatures
-- **📊 LPR (Legal Provenance Review)** - Timeline visualization for arbiters
+- ** Full Arbitration Protocol** - propose → accept → fulfill → arbitrate → ruling
+- ** PAO (Programmable Agreement Object)** - Canonical termsHash, mutual signatures
+- ** LPR (Legal Provenance Review)** - Timeline visualization for arbiters
 
 ## Quick Start
 

@@ -1,12 +1,12 @@
-# 🦞 OpenClaw Godot Skill
+#  OpenClaw Godot Skill
 
-> **TL;DR:** Vibe-code your game development remotely from anywhere! 🌍
+> **TL;DR:** Vibe-code your game development remotely from anywhere! 
 > 
-> **한줄요약:** 이제 집밖에서도 원격으로 바이브코딩으로 게임 개발 가능합니다! 🎮
+> **한줄요약:** 이제 집밖에서도 원격으로 바이브코딩으로 게임 개발 가능합니다! 
 
 Companion skill for the [OpenClaw Godot Plugin](https://github.com/TomLeeLive/openclaw-godot-plugin). Provides AI workflow patterns and gateway extension for Godot Editor control.
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 This software is in **beta**. Use at your own risk.
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Show status of all tmux agent sessions
 
-echo "🖥️  Tmux Agent Sessions"
+echo "  Tmux Agent Sessions"
 echo "========================"
 echo ""
 
@@ -13,7 +13,7 @@ if [ -z "$SESSIONS" ]; then
 fi
 
 for session in $SESSIONS; do
-  echo "📍 Session: $session"
+  echo " Session: $session"
   echo "   Created: $(tmux display-message -t "$session" -p '#{session_created}' | xargs -I{} date -r {} '+%Y-%m-%d %H:%M')"
   
   # Get last few lines to show current state

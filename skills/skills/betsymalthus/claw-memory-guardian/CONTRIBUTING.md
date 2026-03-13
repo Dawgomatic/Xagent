@@ -2,7 +2,7 @@
 
 感谢你对 Claw Memory Guardian 的兴趣！我们欢迎各种形式的贡献。
 
-## 🎯 贡献方式
+##  贡献方式
 
 ### 1. 报告问题
 - 使用 [GitHub Issues](https://github.com/openclaw-skills/claw-memory-guardian/issues) 报告bug
@@ -30,7 +30,7 @@
 - 分享使用经验
 - 推广项目
 
-## 🛠️ 开发环境设置
+##  开发环境设置
 
 ### 前提条件
 - Node.js >= 14.0.0
@@ -53,7 +53,7 @@ npm test
 npm run dev  # 如果有的话
 ```
 
-## 📁 项目结构
+##  项目结构
 
 ```
 claw-memory-guardian/
@@ -70,7 +70,7 @@ claw-memory-guardian/
 └── docs/                # 文档目录（未来）
 ```
 
-## 📝 代码规范
+##  代码规范
 
 ### JavaScript 规范
 - 使用 ES6+ 语法
@@ -100,7 +100,7 @@ fix: 修复备份文件损坏问题
 docs: 更新安装说明
 ```
 
-## 🧪 测试要求
+##  测试要求
 
 ### 测试覆盖
 - 核心功能必须有测试
@@ -121,7 +121,7 @@ node test.js
 - 新功能必须有测试
 - 修复bug时添加回归测试
 
-## 🔄 开发流程
+##  开发流程
 
 ### 1. 创建分支
 ```bash
@@ -154,7 +154,7 @@ git push origin feat/your-feature-name
 - 根据反馈修改
 - 通过后合并
 
-## 🎨 设计原则
+##  设计原则
 
 ### 核心原则
 1. **实用性** - 解决真实问题
@@ -174,7 +174,7 @@ git push origin feat/your-feature-name
 - 搜索性能
 - 备份速度
 
-## 📚 文档要求
+##  文档要求
 
 ### 技能文档 (SKILL.md)
 - 完整的功能描述
@@ -193,7 +193,7 @@ git push origin feat/your-feature-name
 - 最佳实践
 - 故障排除
 
-## 🐛 问题处理流程
+##  问题处理流程
 
 ### 1. 确认问题
 - 复现问题
@@ -220,7 +220,7 @@ git push origin feat/your-feature-name
 - 自动化测试
 - 用户验证
 
-## 🤝 沟通协作
+##  沟通协作
 
 ### 沟通渠道
 - GitHub Issues - 问题讨论
@@ -233,7 +233,7 @@ git push origin feat/your-feature-name
 - 保持专业态度
 - 使用清晰的语言
 
-## 📅 发布流程
+##  发布流程
 
 ### 版本号规则
 使用语义化版本：
@@ -249,7 +249,7 @@ git push origin feat/your-feature-name
 5. 发布到 ClawdHub
 6. 更新文档
 
-## 🙏 致谢
+##  致谢
 
 感谢所有贡献者的付出！你的每一份贡献都让这个项目变得更好。
 
@@ -258,4 +258,4 @@ git push origin feat/your-feature-name
 
 ---
 
-**让我们一起打造更好的记忆守护者！** 🧠
+**让我们一起打造更好的记忆守护者！** 

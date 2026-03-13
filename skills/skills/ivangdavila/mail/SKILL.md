@@ -4,7 +4,7 @@ slug: mail
 version: 1.2.0
 description: Execute email operations with platform-specific optimizations and secure credential handling.
 changelog: Added explicit scope, requirements, and data access documentation
-metadata: {"clawdbot":{"emoji":"📧","requires":{"bins":["himalaya"]},"os":["darwin","linux"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["himalaya"]},"os":["darwin","linux"]}}
 ---
 
 ## Requirements
@@ -26,12 +26,12 @@ metadata: {"clawdbot":{"emoji":"📧","requires":{"bins":["himalaya"]},"os":["da
 ## Scope
 
 This skill:
-- ✅ Reads email via himalaya CLI or Apple Mail SQLite
-- ✅ Sends email via himalaya (draft-review-send workflow)
-- ✅ Searches and filters messages
-- ❌ NEVER modifies credentials
-- ❌ NEVER deletes emails without explicit confirmation
-- ❌ NEVER auto-sends without user review
+-  Reads email via himalaya CLI or Apple Mail SQLite
+-  Sends email via himalaya (draft-review-send workflow)
+-  Searches and filters messages
+-  NEVER modifies credentials
+-  NEVER deletes emails without explicit confirmation
+-  NEVER auto-sends without user review
 
 ## Quick Reference
 

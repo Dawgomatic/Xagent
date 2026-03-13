@@ -32,7 +32,7 @@ last -5 2>/dev/null && who                            # Login activity
 
 ### Step 2: Score each area
 
-| Area | 🟢 Healthy | 🟡 Warning | 🔴 Critical |
+| Area |  Healthy |  Warning |  Critical |
 |------|-----------|------------|-------------|
 | CPU Load | < 0.8 × cores | 0.8–1.5 × cores | > 1.5 × cores |
 | Memory | < 80% | 80–95% | > 95% |
@@ -43,24 +43,24 @@ last -5 2>/dev/null && who                            # Login activity
 ### Step 3: Generate report
 
 ```
-## 🏥 System Health Report
+##  System Health Report
 **Host:** <hostname> | **OS:** <os> | **Uptime:** <uptime>
 **Generated:** <timestamp>
 
-### Overall: 🟢 Healthy / 🟡 Degraded / 🔴 Critical
+### Overall:  Healthy /  Degraded /  Critical
 
 | Area | Status | Details |
 |------|--------|---------|
-| CPU | 🟢 | Load 0.5 / 4 cores |
-| Memory | 🟡 | 82% (13.1/16 GB) |
-| Disk | 🟢 | / at 45% |
-| Services | 🟢 | 0 failed |
+| CPU |  | Load 0.5 / 4 cores |
+| Memory |  | 82% (13.1/16 GB) |
+| Disk |  | / at 45% |
+| Services |  | 0 failed |
 
-### ⚠️ Recommendations
+###  Recommendations
 1. [High] Consider freeing memory — 82% used
 2. [Low] 2 zombie processes detected (PPIDs: 1234, 5678)
 
-### 📊 Top Consumers
+###  Top Consumers
 - **Memory**: java (2.1 GB), chrome (1.5 GB)
 - **CPU**: ffmpeg (45%), node (12%)
 ```

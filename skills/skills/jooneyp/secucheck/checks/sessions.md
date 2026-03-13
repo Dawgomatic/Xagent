@@ -11,9 +11,9 @@ Session configuration from `config.sessions` and `config.agents.defaults`.
 | Scope | Risk Level | Notes |
 |-------|------------|-------|
 | `main` | Depends | All DMs share context (default) |
-| `per-peer` | 🟢 Low | Isolated by sender |
-| `per-channel-peer` | 🟢 Low | Isolated by channel+sender |
-| `per-account-channel-peer` | 🟢 Low | Most isolated |
+| `per-peer` |  Low | Isolated by sender |
+| `per-channel-peer` |  Low | Isolated by channel+sender |
+| `per-account-channel-peer` |  Low | Most isolated |
 
 **Risk with `main` scope**:
 - Multiple users DM the same bot = shared context
@@ -21,9 +21,9 @@ Session configuration from `config.sessions` and `config.agents.defaults`.
 
 **Context-Aware Assessment**:
 ```
-Single user (personal deployment) + main scope = 🟢 Low (no risk)
-Multi-user + main scope = 🔴 Critical (session leak)
-Unknown user count + main scope = 🟡 Medium (ask user)
+Single user (personal deployment) + main scope =  Low (no risk)
+Multi-user + main scope =  Critical (session leak)
+Unknown user count + main scope =  Medium (ask user)
 ```
 
 **Finding if multi-user + main scope**:
@@ -52,7 +52,7 @@ Unknown user count + main scope = 🟡 Medium (ask user)
 - Files created in one session accessible to others
 - Credentials, notes, generated content could leak
 
-**Single workspace for all agents**: 🟡 Medium
+**Single workspace for all agents**:  Medium
 - Recommend separate workspaces for external-facing agents
 
 ## Check 4: Session Persistence

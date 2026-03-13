@@ -1,14 +1,14 @@
-# 📖 OpenClaw Security Guard - Documentation
+#  OpenClaw Security Guard - Documentation
 
 <div align="center">
 
 **Complete Documentation for OpenClaw Security Guard**
 
-[🏠 Home](./README.md) •
-[🚀 Getting Started](./guides/getting-started.md) •
-[📋 CLI Reference](./api/cli.md) •
-[🔌 API Reference](./api/programmatic.md) •
-[🌍 Translations](./fr/README.md)
+[ Home](./README.md) •
+[ Getting Started](./guides/getting-started.md) •
+[ CLI Reference](./api/cli.md) •
+[ API Reference](./api/programmatic.md) •
+[ Translations](./fr/README.md)
 
 </div>
 
@@ -36,10 +36,10 @@
 
 **OpenClaw Security Guard** is a comprehensive security layer for OpenClaw installations. It provides:
 
-- 🔍 **5 Security Scanners** - Detect secrets, misconfigurations, and vulnerabilities
-- 📊 **Live Dashboard** - Real-time monitoring with password protection
-- 🔧 **Auto-Fix** - Automatically fix common security issues
-- 🌍 **Multi-language** - English, French, Arabic
+-  **5 Security Scanners** - Detect secrets, misconfigurations, and vulnerabilities
+-  **Live Dashboard** - Real-time monitoring with password protection
+-  **Auto-Fix** - Automatically fix common security issues
+-  **Multi-language** - English, French, Arabic
 
 ### Why You Need This
 
@@ -47,22 +47,22 @@ OpenClaw is powerful, but default configurations may expose your system to:
 
 | Risk | Without Guard | With Guard |
 |------|---------------|------------|
-| Exposed API Keys | 😰 Unknown | ✅ Detected & Masked |
-| Prompt Injection | 😰 Vulnerable | ✅ Real-time Blocking |
-| Open DM Policy | 😰 Anyone can message | ✅ Audit & Alert |
-| No Cost Limits | 😰 Unlimited spending | ✅ Cost Monitoring |
-| Sandbox Disabled | 😰 Full system access | ✅ Auto-fix Available |
+| Exposed API Keys |  Unknown |  Detected & Masked |
+| Prompt Injection |  Vulnerable |  Real-time Blocking |
+| Open DM Policy |  Anyone can message |  Audit & Alert |
+| No Cost Limits |  Unlimited spending |  Cost Monitoring |
+| Sandbox Disabled |  Full system access |  Auto-fix Available |
 
 ### Privacy
 
 This tool is **100% private**:
 
-- ❌ No telemetry
-- ❌ No tracking
-- ❌ No external requests
-- ❌ No data collection
-- ✅ Everything runs locally
-- ✅ Open source - verify yourself
+-  No telemetry
+-  No tracking
+-  No external requests
+-  No data collection
+-  Everything runs locally
+-  Open source - verify yourself
 
 ---
 
@@ -105,15 +105,15 @@ openclaw-guard audit
 This will scan your OpenClaw installation and show a security report:
 
 ```
-🛡️ OpenClaw Security Guard v1.0.0
+ OpenClaw Security Guard v1.0.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔍 Secrets Scanner............ ✅ No issues
-🔧 Config Auditor............. ❌ 2 critical
-💉 Injection Detector......... ✅ No issues
-📦 Dependency Scanner......... ⚠️ 1 warning
-🔌 MCP Server Auditor......... ✅ No issues
+ Secrets Scanner............  No issues
+ Config Auditor.............  2 critical
+ Injection Detector.........  No issues
+ Dependency Scanner.........  1 warning
+ MCP Server Auditor.........  No issues
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 Security Score: 65/100
+ Security Score: 65/100
 ```
 
 ### 2. Fix Issues
@@ -526,9 +526,9 @@ Your security score starts at 100 and decreases based on issues:
 
 | Score | Status | Icon |
 |-------|--------|------|
-| 80-100 | Healthy | 🟢 |
-| 60-79 | Attention Needed | 🟡 |
-| 0-59 | Critical Issues | 🔴 |
+| 80-100 | Healthy |  |
+| 60-79 | Attention Needed |  |
+| 0-59 | Critical Issues |  |
 
 ### Improving Your Score
 
@@ -734,17 +734,17 @@ Open an issue on [GitHub](https://github.com/2pidata/openclaw-security-guard/iss
 
 ## Support
 
-- 📖 [Documentation](https://github.com/2pidata/openclaw-security-guard/docs)
-- 🐛 [Report Bug](https://github.com/2pidata/openclaw-security-guard/issues)
-- 💡 [Request Feature](https://github.com/2pidata/openclaw-security-guard/issues)
-- 🌐 [Website](https://2pidata.com)
+-  [Documentation](https://github.com/2pidata/openclaw-security-guard/docs)
+-  [Report Bug](https://github.com/2pidata/openclaw-security-guard/issues)
+-  [Request Feature](https://github.com/2pidata/openclaw-security-guard/issues)
+-  [Website](https://2pidata.com)
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by [Miloud Belarebia](https://github.com/2pidata)**
+**Made with  by [Miloud Belarebia](https://github.com/2pidata)**
 
-[2pidata.com](https://2pidata.com) • #databelarebia 🇲🇦
+[2pidata.com](https://2pidata.com) • #databelarebia 
 
 </div>

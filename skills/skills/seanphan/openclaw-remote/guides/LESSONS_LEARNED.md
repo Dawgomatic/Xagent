@@ -5,22 +5,22 @@
 
 ## What We Learned The Hard Way
 
-### ❌ Config Fields That DON'T Work
+###  Config Fields That DON'T Work
 
 These fields cause `Config validation failed` errors:
 
 ```json
 {
   "logging": {
-    "redactSensitive": "all",  // ❌ Invalid input
-    "enabled": true             // ❌ Unrecognized key
+    "redactSensitive": "all",  //  Invalid input
+    "enabled": true             //  Unrecognized key
   },
   "agents": {
     "defaults": {
-      "tools": {                // ❌ Unrecognized key
+      "tools": {                //  Unrecognized key
         "deny": ["exec", "browser", "cron", "process", "gateway"]
       },
-      "sandbox": {              // ❌ Unrecognized key (in defaults)
+      "sandbox": {              //  Unrecognized key (in defaults)
         "mode": "all",
         "scope": "agent"
       }
@@ -31,7 +31,7 @@ These fields cause `Config validation failed` errors:
 
 **Why?** OpenClaw's config schema doesn't support these fields. The original hardening guide was based on assumptions, not tested reality.
 
-### ✅ What Actually Works
+###  What Actually Works
 
 1. **File Permissions** (tested, works):
    ```bash
@@ -77,13 +77,13 @@ Summary: 0 critical · 2 warn · 1 info
 ## The Reality: OpenClaw is Secure by Default
 
 OpenClaw already provides:
-- ✅ Localhost-only binding (`gateway.bind: "loopback"`)
-- ✅ Token-based authentication required
-- ✅ Secrets encrypted at rest
-- ✅ OAuth flows with PKCE
-- ✅ Session isolation
-- ✅ CSRF protections
-- ✅ Rate limiting
+-  Localhost-only binding (`gateway.bind: "loopback"`)
+-  Token-based authentication required
+-  Secrets encrypted at rest
+-  OAuth flows with PKCE
+-  Session isolation
+-  CSRF protections
+-  Rate limiting
 
 **Your job:** Verify these are working, lock down file permissions, maintain good operational security practices.
 
@@ -115,19 +115,19 @@ openclaw models status
 
 ## Don't Waste Time On
 
-- ❌ Manual config edits for tool restrictions (schema doesn't support)
-- ❌ Manual logging config (not supported)
-- ❌ Sandbox mode in defaults (not supported)
-- ❌ Complex security configs (already built-in)
+-  Manual config edits for tool restrictions (schema doesn't support)
+-  Manual logging config (not supported)
+-  Sandbox mode in defaults (not supported)
+-  Complex security configs (already built-in)
 
 ## Focus On
 
-- ✅ File permissions (700/600)
-- ✅ Network binding verification
-- ✅ Regular security audits (`openclaw security audit --deep`)
-- ✅ API key rotation (90-day cycle)
-- ✅ Git-tracking config changes
-- ✅ Operational security (dedicated accounts, separate machines)
+-  File permissions (700/600)
+-  Network binding verification
+-  Regular security audits (`openclaw security audit --deep`)
+-  API key rotation (90-day cycle)
+-  Git-tracking config changes
+-  Operational security (dedicated accounts, separate machines)
 
 ## Command Reference
 

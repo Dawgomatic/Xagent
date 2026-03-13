@@ -113,11 +113,11 @@ if __name__ == "__main__":
     # Example usage
     monitor = create_monitor()
     
-    print("🦞 Claw Trader Lite - Market Monitor")
+    print(" Claw Trader Lite - Market Monitor")
     print("=" * 40)
     
     # Check prices
-    print("\n📊 Live Markets:")
+    print("\n Live Markets:")
     for asset in ["BTC", "ETH", "SOL", "AVAX"]:
         try:
             if asset == "BTC":
@@ -129,6 +129,6 @@ if __name__ == "__main__":
             print(f"  {asset}: Error - {e}")
     
     print("\n" + "=" * 40)
-    print("✅ Read-only monitoring active")
-    print("\n⚠️ For live execution, upgrade to Claw Pro")
+    print(" Read-only monitoring active")
+    print("\n For live execution, upgrade to Claw Pro")
     print("   Message @Opennnclawww_bot with 'buy'")

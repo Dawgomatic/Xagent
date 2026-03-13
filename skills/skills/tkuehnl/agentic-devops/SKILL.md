@@ -17,7 +17,7 @@ tags:
   - sre
   - discord
   - discord-v2
-metadata: {"openclaw":{"emoji":"🛠️","homepage":"https://app.anvil-ai.io","requires":{"bins":["python3"]}}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://app.anvil-ai.io","requires":{"bins":["python3"]}}}
 ---
 
 ## When to use this skill

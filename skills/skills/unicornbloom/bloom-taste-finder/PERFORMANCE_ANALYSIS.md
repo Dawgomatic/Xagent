@@ -2,13 +2,13 @@
 
 **Date:** 2026-02-06
 **Issue:** OpenClaw agent running bloom-identity-skill is very slow
-**Status:** 🔍 Analyzed, 🚀 Solutions Ready
+**Status:**  Analyzed,  Solutions Ready
 
 ---
 
-## 🐌 Identified Bottlenecks
+##  Identified Bottlenecks
 
-### 1. **CDP Wallet Initialization Timeout** ⏰ (CRITICAL - 30-60 seconds!)
+### 1. **CDP Wallet Initialization Timeout**  (CRITICAL - 30-60 seconds!)
 
 **Location:** `src/blockchain/agent-wallet.ts:73-154`
 
@@ -48,12 +48,12 @@ this.walletProvider = await CdpWalletProvider.configureWithWallet({
   ```
 
 **Why it's wrong:**
-- ❌ `id` should be `name` with full organization path
-- ❌ `privateKey` should be PEM format (BEGIN/END markers), not base64
+-  `id` should be `name` with full organization path
+-  `privateKey` should be PEM format (BEGIN/END markers), not base64
 
 ---
 
-### 2. **ClawHub Sequential API Calls** 🔄 (6-12 seconds)
+### 2. **ClawHub Sequential API Calls**  (6-12 seconds)
 
 **Location:** `src/integrations/clawhub-client.ts:72-95`
 
@@ -91,7 +91,7 @@ const results = await Promise.all(
 
 ---
 
-### 3. **Bloom Backend Registration** 🌐 (2-5 seconds)
+### 3. **Bloom Backend Registration**  (2-5 seconds)
 
 **Location:** `src/blockchain/agent-wallet.ts:243-303`
 
@@ -113,35 +113,35 @@ const response = await fetch(`${BLOOM_API_URL}/x402/agent-claim`, {
 
 ---
 
-## 📊 Total Execution Time Breakdown
+##  Total Execution Time Breakdown
 
-### Current (Slow) 🐌
+### Current (Slow) 
 ```
 1. Data Collection            →    ~1 sec    (mock data, fast)
 2. Personality Analysis       →    ~2 sec    (AI analysis)
-3. ClawHub Recommendations    →   6-12 sec   ⚠️ Sequential
-4. CDP Wallet Init (TIMEOUT)  →  30-60 sec   ❌ CRITICAL
+3. ClawHub Recommendations    →   6-12 sec    Sequential
+4. CDP Wallet Init (TIMEOUT)  →  30-60 sec    CRITICAL
 5. Bloom Registration         →   2-5 sec    (acceptable)
 6. Twitter Share Link         →    ~1 sec    (fast)
 ────────────────────────────────────────────
-TOTAL:                         42-81 seconds  😱
+TOTAL:                         42-81 seconds  
 ```
 
-### After Quick Fix 🚀
+### After Quick Fix 
 ```
 1. Data Collection            →    ~1 sec
 2. Personality Analysis       →    ~2 sec
-3. ClawHub Recommendations    →   2-4 sec    ✅ Parallel
-4. CDP Wallet (Skip Timeout)  →    <1 sec    ✅ Removed file
+3. ClawHub Recommendations    →   2-4 sec     Parallel
+4. CDP Wallet (Skip Timeout)  →    <1 sec     Removed file
 5. Bloom Registration         →   2-5 sec
 6. Twitter Share Link         →    ~1 sec
 ────────────────────────────────────────────
-TOTAL:                         8-13 seconds   ✅ Fast!
+TOTAL:                         8-13 seconds    Fast!
 ```
 
 ---
 
-## ✅ Solutions
+##  Solutions
 
 ### Solution 1: Remove Bad CDP File (Immediate Fix - 5 seconds)
 
@@ -187,7 +187,7 @@ npm run build
 node dist/index.js --user-id test-user
 
 # Should see:
-# ✅ Agent Wallet created: 0x{real_address}
+#  Agent Wallet created: 0x{real_address}
 # (NOT "Mock wallet")
 ```
 
@@ -202,7 +202,7 @@ node dist/index.js --user-id test-user
 async searchMultipleCategories(categories: string[], limitPerCategory: number = 3) {
   const allResults: ClawHubSkill[] = [];
 
-  for (const category of categories) {  // ❌ Sequential
+  for (const category of categories) {  //  Sequential
     const results = await this.searchSkills({
       query: category,
       limit: limitPerCategory,
@@ -217,7 +217,7 @@ async searchMultipleCategories(categories: string[], limitPerCategory: number = 
 **Optimized (Parallel):**
 ```typescript
 async searchMultipleCategories(categories: string[], limitPerCategory: number = 3) {
-  console.log(`🔍 Searching ${categories.length} categories in parallel...`);
+  console.log(` Searching ${categories.length} categories in parallel...`);
 
   // Execute all searches in parallel
   const searchPromises = categories.map(category =>
@@ -227,7 +227,7 @@ async searchMultipleCategories(categories: string[], limitPerCategory: number = 
     })
   );
 
-  const resultsArrays = await Promise.all(searchPromises);  // ✅ Parallel
+  const resultsArrays = await Promise.all(searchPromises);  //  Parallel
 
   // Flatten and deduplicate
   const allResults: ClawHubSkill[] = [];
@@ -260,10 +260,10 @@ async searchMultipleCategories(categories: string[], limitPerCategory: number = 
 **Add timeout wrapper:**
 ```typescript
 async initialize(): Promise<AgentWalletInfo> {
-  console.log(`🤖 Initializing Agent Wallet for user ${this.userId}...`);
+  console.log(` Initializing Agent Wallet for user ${this.userId}...`);
 
   try {
-    // ⭐ Add 5-second timeout
+    //  Add 5-second timeout
     const result = await Promise.race([
       this.initializeWallet(),
       this.createTimeoutPromise(5000)  // 5 seconds max
@@ -272,7 +272,7 @@ async initialize(): Promise<AgentWalletInfo> {
     return result;
   } catch (error) {
     // Fast fallback to mock
-    console.warn('⚠️  CDP timeout, using mock wallet');
+    console.warn('  CDP timeout, using mock wallet');
     return this.createMockWallet();
   }
 }
@@ -290,27 +290,27 @@ private createTimeoutPromise(ms: number): Promise<never> {
 
 ---
 
-## 🎯 Recommended Action Plan
+##  Recommended Action Plan
 
 ### Phase 1: Immediate Fix (Do Now - 2 minutes)
-1. ✅ Delete/rename bad CDP credentials file
-2. ✅ Test skill → Should be fast now (~10 seconds)
-3. ✅ Commit and push
+1.  Delete/rename bad CDP credentials file
+2.  Test skill → Should be fast now (~10 seconds)
+3.  Commit and push
 
 ### Phase 2: Performance Optimization (Next - 15 minutes)
-1. ✅ Implement parallel ClawHub searches
-2. ✅ Add CDP initialization timeout (defensive)
-3. ✅ Test and verify improved speed
-4. ✅ Commit and push
+1.  Implement parallel ClawHub searches
+2.  Add CDP initialization timeout (defensive)
+3.  Test and verify improved speed
+4.  Commit and push
 
 ### Phase 3: Production CDP Keys (When Ready)
-1. ⏳ Get correct format CDP keys from portal
-2. ⏳ Test with real wallets
-3. ⏳ Deploy to production
+1.  Get correct format CDP keys from portal
+2.  Test with real wallets
+3.  Deploy to production
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Test Current Performance:
 ```bash
@@ -322,18 +322,18 @@ time node dist/index.js --user-id test-performance
 
 ---
 
-## 📝 Summary
+##  Summary
 
 | Issue | Impact | Fix | Time Saved |
 |-------|--------|-----|------------|
-| CDP credentials timeout | 30-60 sec | Remove bad file | 30-60 sec ✅ |
-| Sequential ClawHub API | 6-12 sec | Parallel requests | 4-10 sec ✅ |
-| No timeout defense | Variable | Add 5s timeout | Reduces risk ✅ |
+| CDP credentials timeout | 30-60 sec | Remove bad file | 30-60 sec  |
+| Sequential ClawHub API | 6-12 sec | Parallel requests | 4-10 sec  |
+| No timeout defense | Variable | Add 5s timeout | Reduces risk  |
 
 **Total Time Saved:** 34-70 seconds (from 42-81s → 8-13s)
 
-**Performance Improvement:** ~6x faster! 🚀
+**Performance Improvement:** ~6x faster! 
 
 ---
 
-Built with 💜 for @openclaw by Bloom Protocol
+Built with  for @openclaw by Bloom Protocol

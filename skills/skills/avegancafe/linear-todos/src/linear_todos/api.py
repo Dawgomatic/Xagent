@@ -419,10 +419,10 @@ class LinearAPI:
             Icon emoji
         """
         icons = {
-            0: "📋",
-            1: "🔥",
-            2: "⚡",
-            3: "📌",
-            4: "💤",
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
         }
-        return icons.get(priority, "📋")
+        return icons.get(priority, "")

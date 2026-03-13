@@ -40,9 +40,9 @@ python scripts/tarifa_periodos.py --all
 ```
 
 **Periodos 2.0TD:**
-- **VALLE** 🌙: 00:00-08:00 (todos los días) + sábados/domingos completos
-- **LLANO** ⚡: 08:00-10:00, 14:00-18:00, 22:00-00:00 (lun-vie)
-- **PUNTA** 🔴: 10:00-14:00, 18:00-22:00 (lun-vie)
+- **VALLE** : 00:00-08:00 (todos los días) + sábados/domingos completos
+- **LLANO** : 08:00-10:00, 14:00-18:00, 22:00-00:00 (lun-vie)
+- **PUNTA** : 10:00-14:00, 18:00-22:00 (lun-vie)
 
 **Nota:** Los periodos son iguales en horario de verano e invierno para 2.0TD.
 

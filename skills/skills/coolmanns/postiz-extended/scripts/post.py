@@ -85,7 +85,7 @@ def check_config():
         missing.append("POSTIZ_PASSWORD")
     
     if missing:
-        print(f"❌ Missing required environment variables: {', '.join(missing)}")
+        print(f" Missing required environment variables: {', '.join(missing)}")
         print("\nSet them in your shell or .env file:")
         print("  export POSTIZ_URL='https://your-postiz.example.com'")
         print("  export POSTIZ_EMAIL='your@email.com'")
@@ -233,9 +233,9 @@ def validate_content(platform: str, content: str) -> tuple[bool, str]:
     limit = config["char_limit"]
     
     if char_count > limit:
-        return False, f"❌ {config['name']}: {char_count}/{limit} chars (over by {char_count - limit})"
+        return False, f" {config['name']}: {char_count}/{limit} chars (over by {char_count - limit})"
     elif char_count > limit * 0.9:
-        return True, f"⚠️  {config['name']}: {char_count}/{limit} chars (close to limit)"
+        return True, f"  {config['name']}: {char_count}/{limit} chars (close to limit)"
     else:
         return True, f"✓ {config['name']}: {char_count}/{limit} chars"
 
@@ -318,7 +318,7 @@ def main():
             all_valid = False
     
     if not all_valid:
-        print("\n❌ Content validation failed. Please fix and retry.")
+        print("\n Content validation failed. Please fix and retry.")
         sys.exit(1)
     
     if args.validate:
@@ -362,7 +362,7 @@ def main():
         print(f"  Platforms: {', '.join(platforms)}")
         
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         sys.exit(1)
 
 

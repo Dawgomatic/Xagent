@@ -1,4 +1,4 @@
-# CRM Intel Module 🐾
+# CRM Intel Module 
 
 **Berman-style 2-stage filtering + contact scoring** for OEE's Personal CRM.
 
@@ -100,4 +100,4 @@ pip install anthropic
 ```
 
 ---
-*🐾*
+**

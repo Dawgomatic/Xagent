@@ -5,7 +5,7 @@ description: "Complete Bluesky CLI: post, reply, like, repost, follow, block, mu
 homepage: https://bsky.app
 metadata:
   openclaw:
-    emoji: "🦋"
+    emoji: ""
     requires:
       bins: ["python3"]
     tags: ["social", "bluesky", "at-protocol", "cli"]
@@ -113,9 +113,9 @@ bsky create-thread "Look!" "Nice" --image pic.jpg --alt "A photo"  # Image on fi
 
 ### Engagement
 ```bash
-bsky like <post-url>             # ❤️ Like
+bsky like <post-url>             #  Like
 bsky unlike <post-url>           # Remove like
-bsky repost <post-url>           # 🔁 Repost (aliases: boost, rt)
+bsky repost <post-url>           #  Repost (aliases: boost, rt)
 bsky unrepost <post-url>         # Remove repost
 ```
 
@@ -129,9 +129,9 @@ bsky profile --json              # JSON output
 
 ### Moderation
 ```bash
-bsky block @someone              # 🚫 Block user
+bsky block @someone              #  Block user
 bsky unblock @someone            # Unblock
-bsky mute @someone               # 🔇 Mute user
+bsky mute @someone               #  Mute user
 bsky unmute @someone             # Unmute
 ```
 

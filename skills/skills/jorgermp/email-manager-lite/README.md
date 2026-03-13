@@ -20,17 +20,17 @@ export EMAIL_PASS="your-app-password"
 
 ## New in v0.2
 
-✨ **Advanced Search**
+ **Advanced Search**
 - Filter by sender, subject, date range, read status
 - Search in email body
 - Combine multiple filters
 
-📁 **Folder Management**
+ **Folder Management**
 - List all IMAP folders
 - Move emails between folders
 - Automatic folder validation
 
-📎 **Attachment Info**
+ **Attachment Info**
 - Detect attachments automatically
 - Show filename, type, and size
 - Displayed in all email listings
@@ -57,11 +57,11 @@ See [SKILL.md](SKILL.md) for complete documentation with all features, examples,
 
 ## Compatibility
 
-- ✅ Zoho Mail (default config)
-- ✅ Gmail
-- ✅ Outlook/Hotmail
-- ✅ iCloud Mail
-- ✅ Custom IMAP/SMTP servers
+-  Zoho Mail (default config)
+-  Gmail
+-  Outlook/Hotmail
+-  iCloud Mail
+-  Custom IMAP/SMTP servers
 
 ## Configuration
 
@@ -71,6 +71,6 @@ To change provider, edit `scripts/email.js` and update `smtpConfig` and `imapCon
 
 ## Support
 
-- 📚 Full docs: [SKILL.md](SKILL.md)
-- 🐛 Issues: Check troubleshooting section in SKILL.md
-- 💡 Tips: Run `./scripts/email.js help`
+-  Full docs: [SKILL.md](SKILL.md)
+-  Issues: Check troubleshooting section in SKILL.md
+-  Tips: Run `./scripts/email.js help`

@@ -1,14 +1,14 @@
 ---
 name: screen-monitor
 description: Dual-mode screen sharing and analysis. Model-agnostic (Gemini/Claude/Qwen3-VL).
-metadata: {"clawdbot":{"emoji":"🖥️","requires":{"model_features":["vision"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"model_features":["vision"]}}}
 ---
 
 # Screen Monitor
 
 This skill provides two ways for the agent to see and interact with your screen.
 
-## 🟢 Path A: Fast Share (WebRTC)
+##  Path A: Fast Share (WebRTC)
 *Best for: Quick visual checks, restricted browsers, or non-technical environments.*
 
 ### Tools
@@ -26,7 +26,7 @@ bash command:"{baseDir}/references/screen-analyze.sh"
 
 ---
 
-## 🔵 Path B: Full Control (Browser Relay)
+##  Path B: Full Control (Browser Relay)
 *Best for: Deep debugging, UI automation, and clicking/typing in tabs.*
 
 ### Setup

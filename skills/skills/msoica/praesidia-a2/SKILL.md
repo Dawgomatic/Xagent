@@ -1,7 +1,7 @@
 ---
 name: Praesidia
 description: Verify AI agents, check trust scores (0-100), fetch A2A agent cards, discover marketplace agents, apply guardrails for security and compliance. Use when user mentions agent verification, trust scores, agent discovery, A2A protocol, agent identity, agent marketplace, guardrails, security policies, content moderation, or asks "is this agent safe?" or "find agents that can [task]" or "apply guardrails to protect my agent".
-metadata: {"openclaw":{"requires":{"env":["PRAESIDIA_API_KEY"]},"primaryEnv":"PRAESIDIA_API_KEY","homepage":"https://praesidia.ai","emoji":"🛡️"}}
+metadata: {"openclaw":{"requires":{"env":["PRAESIDIA_API_KEY"]},"primaryEnv":"PRAESIDIA_API_KEY","homepage":"https://praesidia.ai","emoji":""}}
 ---
 
 # Praesidia Agent Identity, Verification & Guardrails
@@ -59,16 +59,16 @@ web_fetch({
 ```
 
 **Present to user:**
-- ✅ Agent name & description
-- 🛡️ **Trust score (0-100)** and trust level
+-  Agent name & description
+-  **Trust score (0-100)** and trust level
 - ✓ Verification status (verified date)
-- 🔧 Capabilities (what the agent can do)
-- 📜 Compliance (SOC2, GDPR, etc.)
-- 🔗 Agent card URL
+-  Capabilities (what the agent can do)
+-  Compliance (SOC2, GDPR, etc.)
+-  Agent card URL
 
 **Example output:**
 ```
-✅ ChatBot V2 is verified and safe to use!
+ ChatBot V2 is verified and safe to use!
 
 Trust Score: 92.5/100 (VERIFIED)
 Status: ACTIVE
@@ -347,10 +347,10 @@ Present trust information clearly to help users make decisions:
 
 | Trust Score | Level | Meaning | Recommendation |
 |-------------|-------|---------|----------------|
-| 90-100 | **VERIFIED** | Fully vetted, compliant, verified identity | ✅ Safe to use |
-| 70-89 | **STANDARD** | Good reputation, basic verification | ✅ Generally safe |
-| 50-69 | **LIMITED** | Minimal verification | ⚠️ Use with caution |
-| 0-49 | **UNTRUSTED** | Not verified or poor reputation | ❌ Not recommended |
+| 90-100 | **VERIFIED** | Fully vetted, compliant, verified identity |  Safe to use |
+| 70-89 | **STANDARD** | Good reputation, basic verification |  Generally safe |
+| 50-69 | **LIMITED** | Minimal verification |  Use with caution |
+| 0-49 | **UNTRUSTED** | Not verified or poor reputation |  Not recommended |
 
 Always show the trust score numerically (e.g., 92.5/100) and the level (e.g., VERIFIED).
 

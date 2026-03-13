@@ -20,10 +20,10 @@ TASK_LOG_FILE = LOG_DIR / "task_status.jsonl"
 
 # Status type to emoji mapping
 STATUS_EMOJIS = {
-    "progress": "🔄",
-    "success": "✅",
-    "error": "❌",
-    "warning": "⚠️"
+    "progress": "",
+    "success": "",
+    "error": "",
+    "warning": ""
 }
 
 def ensure_log_dir():

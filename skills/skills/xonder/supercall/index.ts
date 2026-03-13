@@ -285,7 +285,7 @@ const supercallPlugin = {
               .map(t => `${t.speaker}: ${t.text}`)
               .join("\n");
             
-            const eventText = `📞 Call completed (${call.endReason})\n` +
+            const eventText = ` Call completed (${call.endReason})\n` +
               `Goal: ${personaInfo?.goal || "N/A"}\n` +
               `Transcript:\n${transcriptSummary}`;
             

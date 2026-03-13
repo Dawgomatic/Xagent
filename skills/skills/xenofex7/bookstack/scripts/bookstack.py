@@ -20,7 +20,7 @@ TOKEN_SECRET = os.getenv('BOOKSTACK_TOKEN_SECRET', '')
 def api_call(method, endpoint, data=None, params=None):
     """Make API call to BookStack"""
     if not BASE_URL or not TOKEN_ID or not TOKEN_SECRET:
-        print("❌ Error: BOOKSTACK_URL, BOOKSTACK_TOKEN_ID, and BOOKSTACK_TOKEN_SECRET required!")
+        print(" Error: BOOKSTACK_URL, BOOKSTACK_TOKEN_ID, and BOOKSTACK_TOKEN_SECRET required!")
         print("   Set them as environment variables or in your gateway config.")
         sys.exit(1)
     
@@ -52,15 +52,15 @@ def api_call(method, endpoint, data=None, params=None):
     except urllib.error.HTTPError as e:
         try:
             error_data = json.loads(e.read().decode())
-            print(f"❌ HTTP {e.code}: {error_data.get('error', {}).get('message', 'Unknown error')}")
+            print(f" HTTP {e.code}: {error_data.get('error', {}).get('message', 'Unknown error')}")
         except:
-            print(f"❌ HTTP {e.code}: {e.reason}")
+            print(f" HTTP {e.code}: {e.reason}")
         sys.exit(1)
     except urllib.error.URLError as e:
-        print(f"❌ Connection error: {e.reason}")
+        print(f" Connection error: {e.reason}")
         sys.exit(1)
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         sys.exit(1)
 
 # ============ BOOKS ============
@@ -71,10 +71,10 @@ def list_books(args):
     result = api_call("GET", "books", params=params)
     
     if not result.get('data'):
-        print("📚 No books found")
+        print(" No books found")
         return
     
-    print(f"📚 {result.get('total', len(result['data']))} Books:\n")
+    print(f" {result.get('total', len(result['data']))} Books:\n")
     for book in result['data']:
         desc = book.get('description', '')[:50] + '...' if book.get('description') else ''
         print(f"  [{book['id']}] {book['name']}")
@@ -84,7 +84,7 @@ def list_books(args):
 def get_book(args):
     """Get book details"""
     result = api_call("GET", f"books/{args.id}")
-    print(f"📚 Book: {result['name']}")
+    print(f" Book: {result['name']}")
     print(f"   ID: {result['id']}")
     print(f"   Slug: {result['slug']}")
     if result.get('description'):
@@ -94,7 +94,7 @@ def get_book(args):
     if result.get('contents'):
         print(f"\n   Contents ({len(result['contents'])} items):")
         for item in result['contents'][:10]:
-            icon = '📑' if item['type'] == 'chapter' else '📄'
+            icon = '' if item['type'] == 'chapter' else ''
             print(f"     {icon} [{item['id']}] {item['name']}")
 
 def create_book(args):
@@ -104,7 +104,7 @@ def create_book(args):
         "description": args.description
     }
     result = api_call("POST", "books", data)
-    print(f"✅ Book created: {result['name']} (ID: {result['id']})")
+    print(f" Book created: {result['name']} (ID: {result['id']})")
 
 def update_book(args):
     """Update a book"""
@@ -115,16 +115,16 @@ def update_book(args):
         data['description'] = args.description
     
     if not data:
-        print("❌ Nothing to update. Use --name or --description")
+        print(" Nothing to update. Use --name or --description")
         sys.exit(1)
     
     result = api_call("PUT", f"books/{args.id}", data)
-    print(f"✅ Book updated: {result['name']}")
+    print(f" Book updated: {result['name']}")
 
 def delete_book(args):
     """Delete a book"""
     api_call("DELETE", f"books/{args.id}")
-    print(f"✅ Book {args.id} deleted")
+    print(f" Book {args.id} deleted")
 
 # ============ CHAPTERS ============
 
@@ -134,17 +134,17 @@ def list_chapters(args):
     result = api_call("GET", "chapters", params=params)
     
     if not result.get('data'):
-        print("📑 No chapters found")
+        print(" No chapters found")
         return
     
-    print(f"📑 {result.get('total', len(result['data']))} Chapters:\n")
+    print(f" {result.get('total', len(result['data']))} Chapters:\n")
     for ch in result['data']:
         print(f"  [{ch['id']}] {ch['name']} (Book: {ch.get('book_id', '?')})")
 
 def get_chapter(args):
     """Get chapter details"""
     result = api_call("GET", f"chapters/{args.id}")
-    print(f"📑 Chapter: {result['name']}")
+    print(f" Chapter: {result['name']}")
     print(f"   ID: {result['id']}")
     print(f"   Book ID: {result['book_id']}")
     if result.get('description'):
@@ -152,7 +152,7 @@ def get_chapter(args):
     if result.get('pages'):
         print(f"\n   Pages ({len(result['pages'])}):")
         for page in result['pages'][:10]:
-            print(f"     📄 [{page['id']}] {page['name']}")
+            print(f"      [{page['id']}] {page['name']}")
 
 def create_chapter(args):
     """Create a new chapter"""
@@ -162,7 +162,7 @@ def create_chapter(args):
         "description": args.description
     }
     result = api_call("POST", "chapters", data)
-    print(f"✅ Chapter created: {result['name']} (ID: {result['id']})")
+    print(f" Chapter created: {result['name']} (ID: {result['id']})")
 
 def update_chapter(args):
     """Update a chapter"""
@@ -175,16 +175,16 @@ def update_chapter(args):
         data['book_id'] = args.book_id
     
     if not data:
-        print("❌ Nothing to update")
+        print(" Nothing to update")
         sys.exit(1)
     
     result = api_call("PUT", f"chapters/{args.id}", data)
-    print(f"✅ Chapter updated: {result['name']}")
+    print(f" Chapter updated: {result['name']}")
 
 def delete_chapter(args):
     """Delete a chapter"""
     api_call("DELETE", f"chapters/{args.id}")
-    print(f"✅ Chapter {args.id} deleted")
+    print(f" Chapter {args.id} deleted")
 
 # ============ PAGES ============
 
@@ -194,10 +194,10 @@ def list_pages(args):
     result = api_call("GET", "pages", params=params)
     
     if not result.get('data'):
-        print("📄 No pages found")
+        print(" No pages found")
         return
     
-    print(f"📄 {result.get('total', len(result['data']))} Pages:\n")
+    print(f" {result.get('total', len(result['data']))} Pages:\n")
     for page in result['data']:
         location = f"Chapter {page['chapter_id']}" if page.get('chapter_id') else f"Book {page['book_id']}"
         print(f"  [{page['id']}] {page['name']} ({location})")
@@ -205,7 +205,7 @@ def list_pages(args):
 def get_page(args):
     """Get page with full content"""
     result = api_call("GET", f"pages/{args.id}")
-    print(f"📄 Page: {result['name']}")
+    print(f" Page: {result['name']}")
     print(f"   ID: {result['id']}")
     print(f"   Book ID: {result['book_id']}")
     if result.get('chapter_id'):
@@ -242,7 +242,7 @@ def create_page(args):
         data['chapter_id'] = args.chapter_id
     
     if not args.book_id and not args.chapter_id:
-        print("❌ Either --book-id or --chapter-id required")
+        print(" Either --book-id or --chapter-id required")
         sys.exit(1)
     
     if args.html:
@@ -257,7 +257,7 @@ def create_page(args):
             data['html'] = args.content
     
     result = api_call("POST", "pages", data)
-    print(f"✅ Page created: {result['name']} (ID: {result['id']})")
+    print(f" Page created: {result['name']} (ID: {result['id']})")
 
 def update_page(args):
     """Update a page"""
@@ -279,16 +279,16 @@ def update_page(args):
         data['chapter_id'] = args.chapter_id
     
     if not data:
-        print("❌ Nothing to update")
+        print(" Nothing to update")
         sys.exit(1)
     
     result = api_call("PUT", f"pages/{args.id}", data)
-    print(f"✅ Page updated: {result['name']}")
+    print(f" Page updated: {result['name']}")
 
 def delete_page(args):
     """Delete a page"""
     api_call("DELETE", f"pages/{args.id}")
-    print(f"✅ Page {args.id} deleted")
+    print(f" Page {args.id} deleted")
 
 # ============ SHELVES ============
 
@@ -298,24 +298,24 @@ def list_shelves(args):
     result = api_call("GET", "shelves", params=params)
     
     if not result.get('data'):
-        print("📁 No shelves found")
+        print(" No shelves found")
         return
     
-    print(f"📁 {result.get('total', len(result['data']))} Shelves:\n")
+    print(f" {result.get('total', len(result['data']))} Shelves:\n")
     for shelf in result['data']:
         print(f"  [{shelf['id']}] {shelf['name']}")
 
 def get_shelf(args):
     """Get shelf details"""
     result = api_call("GET", f"shelves/{args.id}")
-    print(f"📁 Shelf: {result['name']}")
+    print(f" Shelf: {result['name']}")
     print(f"   ID: {result['id']}")
     if result.get('description'):
         print(f"   Description: {result['description']}")
     if result.get('books'):
         print(f"\n   Books ({len(result['books'])}):")
         for book in result['books'][:10]:
-            print(f"     📚 [{book['id']}] {book['name']}")
+            print(f"      [{book['id']}] {book['name']}")
 
 def create_shelf(args):
     """Create a new shelf"""
@@ -324,7 +324,7 @@ def create_shelf(args):
         "description": args.description
     }
     result = api_call("POST", "shelves", data)
-    print(f"✅ Shelf created: {result['name']} (ID: {result['id']})")
+    print(f" Shelf created: {result['name']} (ID: {result['id']})")
 
 # ============ SEARCH ============
 
@@ -340,12 +340,12 @@ def search(args):
     result = api_call("GET", "search", params=params)
     
     if not result.get('data'):
-        print(f"🔍 No results for: {args.query}")
+        print(f" No results for: {args.query}")
         return
     
-    print(f"🔍 {result.get('total', len(result['data']))} Results for '{args.query}':\n")
+    print(f" {result.get('total', len(result['data']))} Results for '{args.query}':\n")
     for item in result['data']:
-        icon = {'page': '📄', 'chapter': '📑', 'book': '📚', 'bookshelf': '📁'}.get(item['type'], '📎')
+        icon = {'page': '', 'chapter': '', 'book': '', 'bookshelf': ''}.get(item['type'], '')
         print(f"  {icon} [{item['type']}:{item['id']}] {item['name']}")
         if item.get('preview_html'):
             import re

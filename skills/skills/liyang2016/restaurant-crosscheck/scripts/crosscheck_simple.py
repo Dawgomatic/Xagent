@@ -136,7 +136,7 @@ class SimpleCrossChecker:
                 name=match.dianping_data.name,
                 dianping_rating=match.dianping_data.rating,
                 dianping_reviews=match.dianping_data.review_count,
-                xhs_engagement=f"{xhs_rating:.1f}⭐ ({match.xhs_data.likes}赞/{match.xhs_data.saves}收藏)",
+                xhs_engagement=f"{xhs_rating:.1f} ({match.xhs_data.likes}赞/{match.xhs_data.saves}收藏)",
                 recommendation_score=round(recommendation_score, 1),
                 consistency_level=consistency_level,
                 address=match.dianping_data.address,
@@ -149,20 +149,20 @@ class SimpleCrossChecker:
     def format_output(self, results: List[RecommendationResult], location: str, cuisine: str) -> str:
         """Format results for display."""
         if not results:
-            return f"❌ 未找到符合条件的餐厅: {location} - {cuisine}"
+            return f" 未找到符合条件的餐厅: {location} - {cuisine}"
 
         output = []
-        output.append(f"📍 {location} {cuisine} 餐厅推荐\n")
+        output.append(f" {location} {cuisine} 餐厅推荐\n")
         output.append("=" * 60 + "\n")
 
         for i, r in enumerate(results, 1):
             output.append(f"{i}. {r.name}")
-            output.append(f"   🏆 推荐指数: {r.recommendation_score}/10")
-            output.append(f"   ⭐ 大众点评: {r.dianping_rating}⭐ ({r.dianping_reviews}评价)")
-            output.append(f"   💬 小红书: {r.xhs_engagement}")
-            output.append(f"   📍 地址: {r.address}")
-            output.append(f"   💰 人均: {r.price_range}")
-            output.append(f"   ✅ 一致性: {r.consistency_level}")
+            output.append(f"    推荐指数: {r.recommendation_score}/10")
+            output.append(f"    大众点评: {r.dianping_rating} ({r.dianping_reviews}评价)")
+            output.append(f"    小红书: {r.xhs_engagement}")
+            output.append(f"    地址: {r.address}")
+            output.append(f"    人均: {r.price_range}")
+            output.append(f"    一致性: {r.consistency_level}")
             output.append("")
 
         return "\n".join(output)
@@ -181,8 +181,8 @@ def main():
     location = sys.argv[1]
     cuisine = sys.argv[2]
 
-    print(f"\n🔍 搜索: {location} - {cuisine}")
-    print("⚠️ 使用模拟数据（服务器版本）\n")
+    print(f"\n 搜索: {location} - {cuisine}")
+    print(" 使用模拟数据（服务器版本）\n")
 
     checker = SimpleCrossChecker()
     results = checker.search_mock(location, cuisine)

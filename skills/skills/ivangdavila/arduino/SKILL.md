@@ -1,7 +1,7 @@
 ---
 name: Arduino
 description: Develop Arduino projects avoiding common wiring, power, and code pitfalls.
-metadata: {"clawdbot":{"emoji":"🔌","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Voltage and Power Traps

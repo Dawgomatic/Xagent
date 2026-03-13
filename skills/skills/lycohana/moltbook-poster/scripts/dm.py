@@ -170,7 +170,7 @@ def send_message(target_name, message, headers):
         return {'success': True, 'action': 'request_sent'}
     
     elif r.status_code == 429:
-        print("⚠ Rate limited")
+        print(" Rate limited")
         return {'success': False, 'error': 'Rate limited'}
     
     else:
@@ -259,8 +259,8 @@ def main():
         else:
             print(f"\n=== 私信会话 ({result.get('count', 0)}) ===\n")
             for c in result.get('conversations', []):
-                unread = '🔴' if c.get('unread') else '  '
-                human = '👤' if c.get('needs_human_input') else '  '
+                unread = '' if c.get('unread') else '  '
+                human = '' if c.get('needs_human_input') else '  '
                 print(f"{unread}{human} [{c['id']}] @{c['with']}")
                 print(f"   最后消息: {c['last_message']}\n")
     

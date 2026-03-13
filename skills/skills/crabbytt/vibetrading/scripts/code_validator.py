@@ -327,11 +327,11 @@ def validate_strategy_directory(directory):
         
         if not result["valid"]:
             all_valid = False
-            print("  ❌ Validation failed")
+            print("   Validation failed")
             for error in result["errors"]:
                 print("    - {}".format(error))
         else:
-            print("  ✅ Validation passed")
+            print("   Validation passed")
             if result["changes"]:
                 print("    Changes made: {}".format(", ".join(result["changes"])))
     
@@ -365,24 +365,24 @@ def main():
         print("=" * 60)
         
         if result["valid"]:
-            print("✅ Code is valid!")
+            print(" Code is valid!")
         else:
-            print("❌ Code has issues:")
+            print(" Code has issues:")
             for error in result.get("errors", []):
                 print("  - {}".format(error))
         
         if result.get("warnings"):
-            print("\n⚠️  Warnings:")
+            print("\n  Warnings:")
             for warning in result["warnings"]:
                 print("  - {}".format(warning))
         
         if result.get("changes"):
-            print("\n🔧 Changes made:")
+            print("\n Changes made:")
             for change in result["changes"]:
                 print("  - {}".format(change))
         
         if result.get("iterations"):
-            print("\n🔄 Fix iterations: {}".format(result["iterations"]))
+            print("\n Fix iterations: {}".format(result["iterations"]))
     
     elif path.is_dir():
         result = validate_strategy_directory(str(path))
@@ -391,14 +391,14 @@ def main():
         print("=" * 60)
         
         if result["valid"]:
-            print("✅ All files are valid!")
+            print(" All files are valid!")
         else:
-            print("❌ Some files have issues")
+            print(" Some files have issues")
         
         for filename, file_result in result["files"].items():
-            print("\n📄 {}: {}".format(
+            print("\n {}: {}".format(
                 filename,
-                "✅ Valid" if file_result["valid"] else "❌ Invalid"
+                " Valid" if file_result["valid"] else " Invalid"
             ))
             
             if not file_result["valid"] and file_result.get("errors"):

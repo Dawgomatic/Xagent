@@ -1,4 +1,4 @@
-# OpenClaw Audit Watchdog 🔭
+# OpenClaw Audit Watchdog 
 
 Automated daily security audits for OpenClaw/Clawdbot agents with email reporting.
 

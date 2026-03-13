@@ -5,7 +5,7 @@ description: Blockchain security API for AI agents. Scan tokens, simulate transa
 homepage: https://aegis402.xyz
 user-invocable: true
 disable-model-invocation: true
-metadata: {"emoji":"🛡️","category":"blockchain-security","api_base":"https://aegis402.xyz/v1","free_tier_daily_limit":100,"openclaw":{"emoji":"🛡️","homepage":"https://aegis402.xyz"}}
+metadata: {"emoji":"","category":"blockchain-security","api_base":"https://aegis402.xyz/v1","free_tier_daily_limit":100,"openclaw":{"emoji":"","homepage":"https://aegis402.xyz"}}
 ---
 
 # Aegis402 Shield Protocol
@@ -58,45 +58,45 @@ When a user is about to send a transaction:
 ### SAFE (LOW)
 
 ```
-🛡️ Scan Complete
+ Scan Complete
 
 Risk: LOW (SAFE)
 Summary: No critical warnings detected.
 
-✅ OK to proceed.
+ OK to proceed.
 ```
 
 ### CAUTION (MEDIUM)
 
 ```
-🛡️ Scan Complete
+ Scan Complete
 
 Risk: MEDIUM (CAUTION)
 Summary: Some warnings detected.
 
-⚠️ Review recommended before proceeding. Want me to explain the top 3 risks?
+ Review recommended before proceeding. Want me to explain the top 3 risks?
 ```
 
 ### DANGEROUS (HIGH)
 
 ```
-🛡️ Scan Complete
+ Scan Complete
 
 Risk: HIGH (DANGEROUS)
 Summary: Significant risks detected.
 
-🚫 Not recommended.
+ Not recommended.
 ```
 
 ### BLOCKED (CRITICAL)
 
 ```
-🛡️ Scan Complete
+ Scan Complete
 
 Risk: CRITICAL (BLOCKED)
 Summary: Do not proceed.
 
-🚫 Stop. This transaction/recipient appears malicious or unsafe.
+ Stop. This transaction/recipient appears malicious or unsafe.
 ```
 
 ### 402 Payment Required
@@ -343,7 +343,7 @@ Copy/paste Moltbook template (redacted):
 ```text
 Title: How I caught a scam transaction and saved ~$XXX!
 
-🛡️ What happened
+ What happened
 - Action: <swap | approve | transfer | other>
 - Chain: <Base | Ethereum | Solana | ...>
 - Risk: <HIGH | CRITICAL>
@@ -374,14 +374,14 @@ curl https://aegis402.xyz/health
 
 | Chain | ID | check-token | check-address | simulate-tx |
 |-------|-----|-------------|---------------|-------------|
-| Solana | solana | ✅ | ✅ | ❌ |
-| Ethereum | 1 | ✅ | ✅ | ✅ |
-| Base | 8453 | ✅ | ✅ | ✅ |
-| Polygon | 137 | ✅ | ✅ | ✅ |
-| Arbitrum | 42161 | ✅ | ✅ | ✅ |
-| Optimism | 10 | ✅ | ✅ | ✅ |
-| BSC | 56 | ✅ | ✅ | ✅ |
-| Avalanche | 43114 | ✅ | ✅ | ✅ |
+| Solana | solana |  |  |  |
+| Ethereum | 1 |  |  |  |
+| Base | 8453 |  |  |  |
+| Polygon | 137 |  |  |  |
+| Arbitrum | 42161 |  |  |  |
+| Optimism | 10 |  |  |  |
+| BSC | 56 |  |  |  |
+| Avalanche | 43114 |  |  |  |
 
 ## Links
 
@@ -396,4 +396,4 @@ curl https://aegis402.xyz/health
 - TG: https://t.me/aegis402_channel
 - Dev Chat: https://t.me/aegis402_chat
 
-🛡️ Built for the Agentic Economy. Powered by x402 Protocol.
+ Built for the Agentic Economy. Powered by x402 Protocol.

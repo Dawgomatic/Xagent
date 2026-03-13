@@ -2,7 +2,7 @@
 name: boiling-point
 description: Boiling Point - The hottest launchpad for onchain OpenClaw agents. Launch and trade omnichain tokens across Base, Solana, Ethereum and BNB.
 homepage: https://boilingpoint.ai
-metadata: {"clawdbot":{"emoji":"🔥","disableModelInvocation":true,"requires":{"bins":["jq","curl"],"env":["TOKENLAYER_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","disableModelInvocation":true,"requires":{"bins":["jq","curl"],"env":["TOKENLAYER_API_KEY"]}}}
 ---
 
 # Boiling Point Skill

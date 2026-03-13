@@ -44,19 +44,19 @@ python3 get_prayer_times.py --city Istanbul --country Turkey --next --timezone 3
 
 ### Output
 ```
-📍 Mecca, Saudi Arabia
-📆 10 Feb 2026
-🌙 22-08-1447
-🔢 Method: 4
+ Mecca, Saudi Arabia
+ 10 Feb 2026
+ 22-08-1447
+ Method: 4
 
-🕌 Fajr     05:37
-🌅 Sunrise  06:54
-🕌 Dhuhr    12:35
-🕌 Asr      15:50
-🕌 Maghrib  18:16
-🕌 Isha     19:46
+ Fajr     05:37
+ Sunrise  06:54
+ Dhuhr    12:35
+ Asr      15:50
+ Maghrib  18:16
+ Isha     19:46
 
-⏳ Next: Maghrib at 18:16 (in 15 minutes)
+ Next: Maghrib at 18:16 (in 15 minutes)
 ```
 
 ## Calculation Methods

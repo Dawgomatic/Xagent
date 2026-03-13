@@ -1,6 +1,6 @@
 # Quick Reference Guide
 
-## 🔥 Your Critical Voice in One Page
+##  Your Critical Voice in One Page
 
 ### The Sound
 
@@ -8,7 +8,7 @@
 
 ---
 
-## 🎯 Voice in 3 Dimensions
+##  Voice in 3 Dimensions
 
 ### Dimension 1: CRITICAL
 - Skepticism about corporate claims
@@ -33,7 +33,7 @@
 
 ---
 
-## 📝 Content Architecture
+##  Content Architecture
 
 ```
 ARTICLE SHAPE
@@ -56,7 +56,7 @@ CLOSE (sharp observation)
 
 ---
 
-## 💬 Opening Patterns You Use
+##  Opening Patterns You Use
 
 | Pattern | Example |
 |---------|---------|
@@ -68,7 +68,7 @@ CLOSE (sharp observation)
 
 ---
 
-## 🎨 Writing Techniques Checklist
+##  Writing Techniques Checklist
 
 - [ ] Short punchy sentences mixed with elaborate ones
 - [ ] Em dashes (—) for emphasis and pauses
@@ -83,7 +83,7 @@ CLOSE (sharp observation)
 
 ---
 
-## 📊 Content Types You Create
+##  Content Types You Create
 
 ### ARTICLE (600-1000 words)
 - Deep analysis of trend/claim
@@ -115,7 +115,7 @@ CLOSE (sharp observation)
 
 ---
 
-## 🚀 Prompting Formula
+##  Prompting Formula
 
 ```
 BASIC:
@@ -140,7 +140,7 @@ Please outline first for approval."
 
 ---
 
-## 🎯 Quality Check (30 seconds)
+##  Quality Check (30 seconds)
 
 Before finalizing, scan for:
 
@@ -154,7 +154,7 @@ Before finalizing, scan for:
 
 ---
 
-## 💎 Your Distinctive Moves
+##  Your Distinctive Moves
 
 **What makes YOUR writing unique:**
 
@@ -171,7 +171,7 @@ Before finalizing, scan for:
 
 ---
 
-## 🔧 If Claude Isn't Matching...
+##  If Claude Isn't Matching...
 
 | Problem | Solution |
 |---------|----------|
@@ -183,7 +183,7 @@ Before finalizing, scan for:
 
 ---
 
-## 📚 Files at Your Fingertips
+##  Files at Your Fingertips
 
 | File | Use For |
 |------|---------|
@@ -197,7 +197,7 @@ Before finalizing, scan for:
 
 ---
 
-## 🎓 Master Prompts
+##  Master Prompts
 
 **BEST FOR OUTLINES:**
 "Use critical article writer skill to outline an article claiming [position]. Audience: [who]. Focus on [angle]. Evidence: [your facts]. Structure first, then I'll approve."
@@ -213,15 +213,15 @@ Before finalizing, scan for:
 
 ---
 
-## ✨ The Core Promise
+##  The Core Promise
 
 This skill ensures that every piece you create:
 
-🎯 **Sounds like you** - Not AI, not generic, distinctively YOUR voice  
-🔍 **Is intellectually honest** - Skeptical but fair, critical but credible  
-📊 **Is well-supported** - Evidence integrated throughout  
-💬 **Engages readers** - Questions, examples, direct address  
-🎨 **Maintains consistency** - Same voice across all pieces  
+ **Sounds like you** - Not AI, not generic, distinctively YOUR voice  
+ **Is intellectually honest** - Skeptical but fair, critical but credible  
+ **Is well-supported** - Evidence integrated throughout  
+ **Engages readers** - Questions, examples, direct address  
+ **Maintains consistency** - Same voice across all pieces  
 
 ---
 

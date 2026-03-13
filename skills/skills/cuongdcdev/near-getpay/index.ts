@@ -142,11 +142,11 @@ if (require.main === module) {
       
       payInvoice({ invoiceId, nearAccount, sourceToken })
         .then(result => {
-          console.log('\n✅ Payment Result:');
+          console.log('\n Payment Result:');
           console.log(JSON.stringify(result, null, 2));
         })
         .catch(error => {
-          console.error('❌ Error:', error.message);
+          console.error(' Error:', error.message);
           process.exit(1);
         });
       break;
@@ -155,11 +155,11 @@ if (require.main === module) {
       const status = process.argv[3] as any;
       listInvoices({ status })
         .then(invoices => {
-          console.log('\n📄 Invoices:');
+          console.log('\n Invoices:');
           console.log(JSON.stringify(invoices, null, 2));
         })
         .catch(error => {
-          console.error('❌ Error:', error.message);
+          console.error(' Error:', error.message);
           process.exit(1);
         });
       break;
@@ -176,11 +176,11 @@ if (require.main === module) {
       
       createTestInvoice({ amount, recipientAddress, description })
         .then(invoice => {
-          console.log('\n✅ Test Invoice Created:');
+          console.log('\n Test Invoice Created:');
           console.log(JSON.stringify(invoice, null, 2));
         })
         .catch(error => {
-          console.error('❌ Error:', error.message);
+          console.error(' Error:', error.message);
           process.exit(1);
         });
       break;

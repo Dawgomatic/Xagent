@@ -197,17 +197,17 @@ Ask targeted questions based on document type:
 
 ## Common Pitfalls
 
-❌ **Don't use for simple document reading** - just use Read tool
-❌ **Don't upload sensitive personal data** - NotebookLM is a Google service
-❌ **Don't expect real-time data** - analysis based on uploaded documents
-❌ **Don't ignore file size limits** - check NotebookLM upload limits
-❌ **Don't forget to organize documents** - group related files for better analysis
+ **Don't use for simple document reading** - just use Read tool
+ **Don't upload sensitive personal data** - NotebookLM is a Google service
+ **Don't expect real-time data** - analysis based on uploaded documents
+ **Don't ignore file size limits** - check NotebookLM upload limits
+ **Don't forget to organize documents** - group related files for better analysis
 
-✅ **Always upload related documents together** - better context for analysis
-✅ **Use specific, targeted questions** - better than general queries
-✅ **Batch analyze first** - identify high-value files before uploading
-✅ **Create separate notebooks** - organize by project or document type
-✅ **Follow up with specific questions** - dig deeper into insights
+ **Always upload related documents together** - better context for analysis
+ **Use specific, targeted questions** - better than general queries
+ **Batch analyze first** - identify high-value files before uploading
+ **Create separate notebooks** - organize by project or document type
+ **Follow up with specific questions** - dig deeper into insights
 
 ## Best Practices
 

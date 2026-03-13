@@ -2,7 +2,7 @@
 name: chirp
 description: "X/Twitter CLI using OpenClaw browser tool. Use when the user wants to interact with X/Twitter: reading timeline, posting tweets, liking, retweeting, replying, or searching. Alternative to bird CLI for environments without Homebrew."
 homepage: https://github.com/zizi-cat/chirp
-metadata: {"clawdhub":{"emoji":"🐦"}}
+metadata: {"clawdhub":{"emoji":""}}
 ---
 
 # chirp

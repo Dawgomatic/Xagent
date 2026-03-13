@@ -12,11 +12,11 @@ description: Complete RAG (Retrieval-Augmented Generation) system for OpenClaw. 
 This skill provides a complete RAG (Retrieval-Augmented Generation) system for OpenClaw. It indexes your entire knowledge base – chat transcripts, workspace code, skill documentation – and enables semantic search across everything.
 
 **Key features:**
-- 🧠 Semantic search across all conversations and code
-- 📚 Automatic knowledge base management
-- 🔍 Find past solutions, code patterns, decisions instantly
-- 💾 Local ChromaDB storage (no API keys required)
-- 🚀 Automatic AI integration – retrieves context transparently
+-  Semantic search across all conversations and code
+-  Automatic knowledge base management
+-  Find past solutions, code patterns, decisions instantly
+-  Local ChromaDB storage (no API keys required)
+-  Automatic AI integration – retrieves context transparently
 
 ## Installation
 
@@ -176,7 +176,7 @@ python3 rag_manage.py stats
 
 Output:
 ```
-📊 OpenClaw RAG Statistics
+ OpenClaw RAG Statistics
 
 Collection: openclaw_knowledge
 Total Documents: 635
@@ -341,7 +341,7 @@ This skill integrates seamlessly with OpenClaw:
 
 ## Security Considerations
 
-**⚠️ Important Privacy Note:** This RAG system indexes local data, which may contain:
+** Important Privacy Note:** This RAG system indexes local data, which may contain:
 - API keys, tokens, or credentials in session transcripts
 - Private messages or personal information
 - Tool results with sensitive data

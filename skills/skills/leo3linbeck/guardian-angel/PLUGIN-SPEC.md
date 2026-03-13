@@ -732,7 +732,7 @@ export async function runStartupDiagnostics(api: OpenClawPluginApi): Promise<voi
   
   if (lowerPriorityHooks.length > 0) {
     logger.warn(
-      `[GA] ⚠️ SECURITY WARNING: ${lowerPriorityHooks.length} hook(s) registered ` +
+      `[GA]  SECURITY WARNING: ${lowerPriorityHooks.length} hook(s) registered ` +
       `with lower priority than Guardian Angel. These could override GA decisions:\n` +
       lowerPriorityHooks.map(h => `  - ${h.pluginId} (priority: ${h.priority})`).join("\n")
     );

@@ -1,7 +1,7 @@
 ---
 name: todo-management
 description: Per-workspace SQLite todo manager (./todo.db) with groups and task statuses (pending/in_progress/done/skipped), operated via {baseDir}/scripts/todo.sh for adding, listing, editing, moving, and removing entries and managing groups.
-metadata: {"openclaw":{"emoji":"📝","requires":{"bins":["sqlite3"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["sqlite3"]}}}
 user-invocable: true
 ---
 

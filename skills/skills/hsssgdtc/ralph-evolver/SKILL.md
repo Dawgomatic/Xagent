@@ -5,7 +5,7 @@ tags: [meta, recursive, evolution, emergence, first-principles]
 version: 1.0.6
 ---
 
-# 🧬 Ralph-Evolver
+#  Ralph-Evolver
 
 **Philosophy: Recursion + Emergence + First Principles**
 

@@ -4,7 +4,7 @@ description: Connect Perplexity PRO to OpenClaw with anti-bot browser automation
 homepage: https://github.com/Hantok/Perplexity-PRO-to-OpenClaw
 metadata:
   clawdbot:
-    emoji: "🔍"
+    emoji: ""
   requires:
     env: ["DISPLAY"]
   files: ["scripts/*"]
@@ -17,10 +17,10 @@ This skill enables OpenClaw to search Perplexity PRO with persistent authenticat
 
 ## What This Skill Does
 
-- ✅ Bypasses Cloudflare bot detection (Xvfb + stealth Chrome)
-- ✅ Maintains persistent Perplexity PRO sessions across reboots
-- ✅ Provides VNC access for manual OAuth authentication
-- ✅ Creates automated search capability for OpenClaw agents
+-  Bypasses Cloudflare bot detection (Xvfb + stealth Chrome)
+-  Maintains persistent Perplexity PRO sessions across reboots
+-  Provides VNC access for manual OAuth authentication
+-  Creates automated search capability for OpenClaw agents
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ sudo apt-get install -y x11vnc
 x11vnc -storepasswd openclaw /tmp/vncpass
 ```
 
-**⚠️ Security Note:** Default VNC password is "openclaw" - change this in production!
+** Security Note:** Default VNC password is "openclaw" - change this in production!
 
 ### Step 4: Manual Authentication (Required)
 **You must authenticate manually through VNC:**

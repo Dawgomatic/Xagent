@@ -1,7 +1,7 @@
 ---
 name: Quotes
 description: Build a personal quotes system for saving, discovering, and automatically surfacing meaningful words.
-metadata: {"clawdbot":{"emoji":"💬","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

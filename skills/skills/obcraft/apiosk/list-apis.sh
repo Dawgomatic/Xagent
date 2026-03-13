@@ -3,14 +3,14 @@
 
 GATEWAY_URL="https://gateway.apiosk.com"
 
-echo "🦞 Available Apiosk APIs"
+echo " Available Apiosk APIs"
 echo ""
 
 # Fetch API list
 APIS=$(curl -s "$GATEWAY_URL/v1/apis")
 
 if [ $? -ne 0 ]; then
-  echo "❌ Failed to fetch APIs from $GATEWAY_URL"
+  echo " Failed to fetch APIs from $GATEWAY_URL"
   exit 1
 fi
 

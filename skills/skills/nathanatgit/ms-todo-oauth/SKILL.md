@@ -20,7 +20,7 @@ metadata:
 
 A fully-tested Microsoft To Do command-line client for managing tasks and lists via Microsoft Graph API.
 
-## ⚠️This is a oauth based script. It contains a generated Azure Client ID and Secret ID
+## This is a oauth based script. It contains a generated Azure Client ID and Secret ID
 
 IF YOU WORRIED ABOUT YOUR PRIVACY, CONSIDER REPLACING THEM TO YOUR OWN IN `scripts\ms-todo-oauth.py`.
 Just search for values below:
@@ -29,17 +29,17 @@ Just search for values below:
 
 `client_secret="TwQ8Q……`
 
-## ✨ Features
+##  Features
 
-- ✅ **Full Task Management**: Create, complete, delete, and search tasks
-- 🗂️ **List Organization**: Create and manage multiple task lists
-- ⏰ **Rich Task Options**: Priorities, due dates, reminders, descriptions, tags
-- 🔄 **Recurring Tasks**: Daily, weekly, monthly patterns with custom intervals
-- 📊 **Multiple Views**: Today, overdue, pending, statistics
-- 🔍 **Powerful Search**: Find tasks across all lists
-- 💾 **Data Export**: Export all tasks to JSON
-- 🧪 **Fully Tested**: 29 comprehensive automated tests
-- 🌐 **Unicode Support**: Full support for Chinese characters and emojis
+-  **Full Task Management**: Create, complete, delete, and search tasks
+-  **List Organization**: Create and manage multiple task lists
+-  **Rich Task Options**: Priorities, due dates, reminders, descriptions, tags
+-  **Recurring Tasks**: Daily, weekly, monthly patterns with custom intervals
+-  **Multiple Views**: Today, overdue, pending, statistics
+-  **Powerful Search**: Find tasks across all lists
+-  **Data Export**: Export all tasks to JSON
+-  **Fully Tested**: 29 comprehensive automated tests
+-  **Unicode Support**: Full support for Chinese characters and emojis
 
 ## Prerequisites
 
@@ -138,11 +138,11 @@ python3 scripts/ms-todo-oauth.py [GLOBAL_OPTIONS] <command> [COMMAND_OPTIONS]
 | `--debug`       | Enable debug mode to display API requests and responses. Useful for troubleshooting.**Must be placed BEFORE the subcommand.** |
 | `--reauth`      | Force re-authentication by clearing the token cache and starting fresh login                                                        |
 
-> ⚠️ **Common mistake**: Global options MUST come before the subcommand.
+>  **Common mistake**: Global options MUST come before the subcommand.
 >
-> - ✅ `python3 scripts/ms-todo-oauth.py -v lists`
-> - ✅ `python3 scripts/ms-todo-oauth.py --debug add "Task"`
-> - ❌ `python3 scripts/ms-todo-oauth.py lists -v`
+> -  `python3 scripts/ms-todo-oauth.py -v lists`
+> -  `python3 scripts/ms-todo-oauth.py --debug add "Task"`
+> -  `python3 scripts/ms-todo-oauth.py lists -v`
 
 ---
 
@@ -160,7 +160,7 @@ python3 scripts/ms-todo-oauth.py login get
 
 ```
 ======================================================================
-🔐 OAuth2 Authorization Required
+ OAuth2 Authorization Required
 ======================================================================
 
 Please visit the following URL to authorize the application:
@@ -212,7 +212,7 @@ python3 scripts/ms-todo-oauth.py login verify "M.R3_BAY.abc123def456..."
 **Output on failure:**
 
 ```
-❌ Token acquisition failed
+ Token acquisition failed
 Error: invalid_grant
 Description: AADSTS54005: OAuth2 Authorization code was already redeemed...
 ```
@@ -252,7 +252,7 @@ python3 scripts/ms-todo-oauth.py -v lists  # with IDs and creation dates
 **Output example:**
 
 ```
-📋 Task Lists (3 total):
+ Task Lists (3 total):
 
 1. 任务
    ID: AQMkADAwATYwMAItYTQwZC04OThhLTAwAi0wMAoALgAAA0QJKpxW32BIsIlHaM...
@@ -290,7 +290,7 @@ python3 scripts/ms-todo-oauth.py delete-list "<name>" [-y]
 | `name`        | Yes      | Name of the list to delete |
 | `-y, --yes`   | No       | Skip confirmation prompt   |
 
-> ⚠️ **This is a destructive operation**. Without `-y`, the command will prompt for confirmation. All tasks in the list will be deleted. Consider asking the user before deleting important lists.
+>  **This is a destructive operation**. Without `-y`, the command will prompt for confirmation. All tasks in the list will be deleted. Consider asking the user before deleting important lists.
 
 Output: `✓ List deleted: <name>`
 
@@ -330,7 +330,7 @@ python3 scripts/ms-todo-oauth.py add "<title>" [options]
 
 ```
 ✓ Task added: Daily standup
-🔄 Recurring task created
+ Recurring task created
 ```
 
 **Examples:**
@@ -364,7 +364,7 @@ python3 scripts/ms-todo-oauth.py add "Project Review" \
   -t "work,important,meeting"
 
 # Chinese task with emoji
-python3 scripts/ms-todo-oauth.py add "🎉 完成项目" -l "任务" -p high
+python3 scripts/ms-todo-oauth.py add " 完成项目" -l "任务" -p high
 ```
 
 #### `complete` — Mark a task as completed
@@ -396,7 +396,7 @@ python3 scripts/ms-todo-oauth.py delete "<title>" [-l "<list>"] [-y]
 | `-l, --list` | No       | (default list) | List name where the task resides |
 | `-y, --yes`  | No       | —             | Skip confirmation prompt         |
 
-> ⚠️ **Destructive operation**. Without `-y`, will prompt for confirmation.
+>  **Destructive operation**. Without `-y`, will prompt for confirmation.
 
 Output: `✓ Task deleted: <title>`
 
@@ -420,18 +420,18 @@ python3 scripts/ms-todo-oauth.py tasks "<list>" [-a]
 **Output example:**
 
 ```
-📋 Tasks in list "Work" (2 total):
+ Tasks in list "Work" (2 total):
 
-1. [In Progress] Write documentation ⭐
+1. [In Progress] Write documentation 
 2. [In Progress] Review PR
 ```
 
 **With `-a` flag:**
 
 ```
-📋 Tasks in list "Work" (3 total):
+ Tasks in list "Work" (3 total):
 
-1. [In Progress] Write documentation ⭐
+1. [In Progress] Write documentation 
 2. [Completed] Submit report
 3. [In Progress] Review PR
 ```
@@ -451,22 +451,22 @@ python3 scripts/ms-todo-oauth.py pending [-g]
 **Output example (with `-g`):**
 
 ```
-📋 All incomplete tasks (3 total):
+ All incomplete tasks (3 total):
 
-📂 Work:
-  [In Progress] Write documentation ⭐
+ Work:
+  [In Progress] Write documentation 
   [In Progress] Review PR
 
-📂 Shopping:
+ Shopping:
   [In Progress] Buy groceries
 ```
 
 **Without `-g`:**
 
 ```
-📋 All incomplete tasks (3 total):
+ All incomplete tasks (3 total):
 
-[In Progress] Write documentation ⭐
+[In Progress] Write documentation 
    List: Work
 [In Progress] Review PR
    List: Work
@@ -485,15 +485,15 @@ Lists incomplete tasks with due date matching today's date.
 **Output example:**
 
 ```
-📅 Tasks due today (2 total):
+ Tasks due today (2 total):
 
-[In Progress] Submit report ⭐
+[In Progress] Submit report 
    List: Work
 [In Progress] Buy groceries
    List: Shopping
 ```
 
-If no tasks: `📅 No tasks due today`
+If no tasks: ` No tasks due today`
 
 #### `overdue` — Overdue tasks
 
@@ -506,9 +506,9 @@ Lists incomplete tasks past their due date, sorted by days overdue.
 **Output example:**
 
 ```
-⚠️  Overdue tasks (1 total):
+  Overdue tasks (1 total):
 
-[In Progress] Submit report ⭐
+[In Progress] Submit report 
    List: Work
    Overdue: 3 days
 ```
@@ -537,25 +537,25 @@ When multiple tasks match:
 
 ```
 ============================================================
-📌 Task Details
+ Task Details
 ============================================================
 
-📋 Title: Complete Q1 Report
-🔖 Status: [In Progress]
-⚡ Priority: ⭐ High
-📅 Created: 2026-01-15 08:30:00
-📝 Modified: 2026-02-10 14:22:00
-⏰ Due: 2026-02-20 00:00:00
-🔔 Reminder: 2026-02-20 09:00:00
+ Title: Complete Q1 Report
+ Status: [In Progress]
+ Priority:  High
+ Created: 2026-01-15 08:30:00
+ Modified: 2026-02-10 14:22:00
+ Due: 2026-02-20 00:00:00
+ Reminder: 2026-02-20 09:00:00
 
-📝 Notes:
+ Notes:
 - Review sales figures
 - Include charts
 - Prepare for board meeting
 
-🏷️  Categories: work, important, Q1
+  Categories: work, important, Q1
 
-🔄 Recurrence:
+ Recurrence:
    Every week on Monday
    Start date: 2026-02-17
    No end date
@@ -574,9 +574,9 @@ Searches across **all lists** in both task titles and descriptions (case-insensi
 **Output example:**
 
 ```
-🔍 Search results for "report" (2 found):
+ Search results for "report" (2 found):
 
-[In Progress] Complete Q1 Report ⭐
+[In Progress] Complete Q1 Report 
    List: Work
    Notes: Review sales figures...
 
@@ -595,7 +595,7 @@ Shows aggregate statistics across all lists.
 **Output example:**
 
 ```
-📊 Task Statistics:
+ Task Statistics:
 
   Total lists: 3
   Total tasks: 15
@@ -663,13 +663,13 @@ Exports complete task data from all lists in JSON format.
 
 | Error                                           | Cause                             | Resolution                                                                  |
 | ----------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------- |
-| `❌ Not logged in`                            | No cached token or token expired  | Run `login get` then `login verify <code>`                              |
+| ` Not logged in`                            | No cached token or token expired  | Run `login get` then `login verify <code>`                              |
 | `ModuleNotFoundError: No module named 'msal'` | Dependencies not installed        | Run `pip install -r requirements.txt`                      |
-| `❌ List not found: <name>`                   | Specified list does not exist     | Check list name with `lists` command. Note: exact match required.         |
-| `❌ Task not found: <name>`                   | No task with exact matching title | Use `search` to find exact title, or `tasks "<list>"` to list all tasks |
-| `❌ Error: Invalid isoformat string`          | DateTime parsing error            | This should not occur in v1.1.0+. If you see this, report as bug.           |
-| `❌ Error: Unsupported HTTP method`           | Internal API error                | This should not occur in v1.1.0+. If you see this, report as bug.           |
-| `❌ Error: <API error message>`               | Microsoft Graph API error         | Retry; check network; use `--debug` for full details                      |
+| ` List not found: <name>`                   | Specified list does not exist     | Check list name with `lists` command. Note: exact match required.         |
+| ` Task not found: <name>`                   | No task with exact matching title | Use `search` to find exact title, or `tasks "<list>"` to list all tasks |
+| ` Error: Invalid isoformat string`          | DateTime parsing error            | This should not occur in v1.1.0+. If you see this, report as bug.           |
+| ` Error: Unsupported HTTP method`           | Internal API error                | This should not occur in v1.1.0+. If you see this, report as bug.           |
+| ` Error: <API error message>`               | Microsoft Graph API error         | Retry; check network; use `--debug` for full details                      |
 | `Network error` / `Connection timeout`      | No internet or API unreachable    | Check network connection; verify access to graph.microsoft.com              |
 
 ---
@@ -695,15 +695,15 @@ python3 test_ms_todo_oauth.py
 
 **Test Coverage** (29 tests):
 
-- ✅ Authentication (login/logout)
-- ✅ List management (create, delete, list)
-- ✅ Basic task operations (add, complete, delete, list)
-- ✅ Task options (priorities, due dates, reminders, descriptions, tags)
-- ✅ Recurring tasks (daily, weekly, weekdays, monthly, custom intervals)
-- ✅ Task views (today, overdue, pending, search, stats)
-- ✅ Data export and validation
-- ✅ Error handling (non-existent resources)
-- ✅ Unicode support (Chinese characters, emojis)
+-  Authentication (login/logout)
+-  List management (create, delete, list)
+-  Basic task operations (add, complete, delete, list)
+-  Task options (priorities, due dates, reminders, descriptions, tags)
+-  Recurring tasks (daily, weekly, weekdays, monthly, custom intervals)
+-  Task views (today, overdue, pending, search, stats)
+-  Data export and validation
+-  Error handling (non-existent resources)
+-  Unicode support (Chinese characters, emojis)
 
 **Expected output:**
 
@@ -718,7 +718,7 @@ Failed: 0
 Pass rate: 100.0%
 
 ========================================================================
-🎉 ALL TESTS PASSED! 🎉
+ ALL TESTS PASSED! 
 ========================================================================
 ```
 
@@ -734,7 +734,7 @@ For manual verification, see `MANUAL_TEST_CHECKLIST.txt` which provides:
 
 The automated test suite:
 
-- Creates a temporary test list (e.g., `🧪 Test List 14:23:45`)
+- Creates a temporary test list (e.g., ` Test List 14:23:45`)
 - Runs all tests in isolation
 - Deletes the test list on completion
 - Cleans up any temporary files
@@ -777,8 +777,8 @@ If tests are interrupted, you may need to manually delete leftover test lists.
    - These operations return exit code 1 on failure (resource not found)
 6. **Global option placement**: `-v`, `--debug`, and `--reauth` must come BEFORE the subcommand:
 
-   - ✅ `python3 scripts/ms-todo-oauth.py -v lists`
-   - ❌ `python3 scripts/ms-todo-oauth.py lists -v`
+   -  `python3 scripts/ms-todo-oauth.py -v lists`
+   -  `python3 scripts/ms-todo-oauth.py lists -v`
 7. **Login flow**:
 
    - Do NOT call `login verify` until user confirms they've completed browser authentication
@@ -950,16 +950,16 @@ python3 scripts/ms-todo-oauth.py stats
 
 ### Version 1.1.0 (Current)
 
-- ✅ **Fixed**: DateTime parsing errors (Microsoft's 7-decimal format)
-- ✅ **Fixed**: HTTP method parameter order bugs
-- ✅ **Fixed**: Missing `start_date` parameter in `create_task()`
-- ✅ **Fixed**: Missing `complete_task()` method
-- ✅ **Fixed**: Error exit codes now correctly return 1 on failure
-- ✅ **Added**: Comprehensive test suite (29 automated tests)
-- ✅ **Added**: Better error messages and troubleshooting
-- ✅ **Improved**: OAuth2 authentication flow documentation
-- ✅ **Improved**: Unicode and emoji support documentation
-- ✅ **Improved**: Agent usage guidelines
+-  **Fixed**: DateTime parsing errors (Microsoft's 7-decimal format)
+-  **Fixed**: HTTP method parameter order bugs
+-  **Fixed**: Missing `start_date` parameter in `create_task()`
+-  **Fixed**: Missing `complete_task()` method
+-  **Fixed**: Error exit codes now correctly return 1 on failure
+-  **Added**: Comprehensive test suite (29 automated tests)
+-  **Added**: Better error messages and troubleshooting
+-  **Improved**: OAuth2 authentication flow documentation
+-  **Improved**: Unicode and emoji support documentation
+-  **Improved**: Agent usage guidelines
 
 ### Version 1.0.2 (Previous)
 
@@ -975,11 +975,11 @@ python3 scripts/ms-todo-oauth.py stats
 
 ### Authentication Issues
 
-**Problem:** `❌ Not logged in`
+**Problem:** ` Not logged in`
 
 - **Solution**: Run `login get`, complete browser flow, then `login verify <code>`
 
-**Problem:** `❌ Token acquisition failed: invalid_grant`
+**Problem:** ` Token acquisition failed: invalid_grant`
 
 - **Cause**: Authorization code already used or expired
 - **Solution**: Run `login get` again to get a fresh code
@@ -1013,12 +1013,12 @@ python3 scripts/ms-todo-oauth.py stats
 
 ### Task/List Not Found
 
-**Problem:** `❌ Task not found: <title>`
+**Problem:** ` Task not found: <title>`
 
 - **Solution**: Use `search` to find exact title
 - **Note**: `complete` and `delete` require exact title match
 
-**Problem:** `❌ List not found: <name>`
+**Problem:** ` List not found: <name>`
 
 - **Solution**: Run `lists` to see exact list names
 - **Note**: List names are case-sensitive
@@ -1077,4 +1077,4 @@ MIT License - See LICENSE file for details
 
 **Version**: 1.1.0
 **Last Updated**: 2026-02-13
-**Status**: ✅ Fully Tested & Production Ready
+**Status**:  Fully Tested & Production Ready

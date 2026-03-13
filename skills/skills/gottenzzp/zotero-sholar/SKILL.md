@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🧠",
+        "emoji": "",
         "requires": { "bins": ["uv"], "env": ["ZOTERO_CREDENTIALS"] },
         "primaryEnv": "ZOTERO_CREDENTIALS"
       }

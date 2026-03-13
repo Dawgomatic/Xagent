@@ -58,7 +58,7 @@ const action = args[0];
 
 // List profiles
 async function listAction() {
-  console.log('📋 Gandi Organization Profiles');
+  console.log(' Gandi Organization Profiles');
   console.log('');
   
   const { profiles, default: defaultProfile } = listProfiles();
@@ -66,17 +66,17 @@ async function listAction() {
   if (Object.keys(profiles).length === 0) {
     console.log('No profiles configured.');
     console.log('');
-    console.log('💡 To add a profile:');
+    console.log(' To add a profile:');
     console.log('   node manage-profiles.js add <name> <token>');
     console.log('');
-    console.log('📝 Get your Personal Access Token at:');
+    console.log(' Get your Personal Access Token at:');
     console.log('   https://admin.gandi.net/organizations/account/pat');
     return;
   }
   
   Object.entries(profiles).forEach(([name, profile]) => {
     const isDefault = name === defaultProfile;
-    console.log(`${isDefault ? '✅' : '  '} ${name}`);
+    console.log(`${isDefault ? '' : '  '} ${name}`);
     console.log(`   Organization: ${profile.org_name} (${profile.org_type})`);
     console.log(`   ID: ${profile.org_id}`);
     console.log(`   Token: ${profile.token_file}`);
@@ -84,13 +84,13 @@ async function listAction() {
   });
   
   if (defaultProfile) {
-    console.log(`Default profile: ${defaultProfile} ✅`);
+    console.log(`Default profile: ${defaultProfile} `);
   } else {
-    console.log('⚠️  No default profile set');
+    console.log('  No default profile set');
   }
   
   console.log('');
-  console.log('💡 To use a specific profile:');
+  console.log(' To use a specific profile:');
   console.log('   Use --profile <name> flag with any command');
   console.log('   Example: node list-domains.js --profile work');
 }
@@ -98,17 +98,17 @@ async function listAction() {
 // Add profile
 async function addAction(name, token, setDefault = false) {
   if (!name || !token) {
-    console.error('❌ Usage: node manage-profiles.js add <name> <token>');
+    console.error(' Usage: node manage-profiles.js add <name> <token>');
     process.exit(1);
   }
   
-  console.log(`📝 Adding profile "${name}"...`);
+  console.log(` Adding profile "${name}"...`);
   console.log('');
   
   try {
     const profile = await addProfile(name, token, { setDefault });
     
-    console.log('✅ Profile added successfully!');
+    console.log(' Profile added successfully!');
     console.log('');
     console.log(`   Name: ${name}`);
     console.log(`   Organization: ${profile.org_name}`);
@@ -116,18 +116,18 @@ async function addAction(name, token, setDefault = false) {
     console.log(`   ID: ${profile.org_id}`);
     
     if (setDefault) {
-      console.log('   ✅ Set as default profile');
+      console.log('    Set as default profile');
     }
     
     console.log('');
-    console.log('💡 To use this profile:');
+    console.log(' To use this profile:');
     console.log(`   node list-domains.js --profile ${name}`);
     console.log('');
-    console.log('💡 To set as default:');
+    console.log(' To set as default:');
     console.log(`   node manage-profiles.js default ${name}`);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }
@@ -135,23 +135,23 @@ async function addAction(name, token, setDefault = false) {
 // Remove profile
 async function removeAction(name) {
   if (!name) {
-    console.error('❌ Usage: node manage-profiles.js remove <name>');
+    console.error(' Usage: node manage-profiles.js remove <name>');
     process.exit(1);
   }
   
-  console.log(`🗑️  Removing profile "${name}"...`);
+  console.log(`  Removing profile "${name}"...`);
   console.log('');
   
   try {
     removeProfile(name);
     
-    console.log('✅ Profile removed successfully!');
+    console.log(' Profile removed successfully!');
     console.log('');
-    console.log('📋 To see remaining profiles:');
+    console.log(' To see remaining profiles:');
     console.log('   node manage-profiles.js list');
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }
@@ -159,23 +159,23 @@ async function removeAction(name) {
 // Set default profile
 async function defaultAction(name) {
   if (!name) {
-    console.error('❌ Usage: node manage-profiles.js default <name>');
+    console.error(' Usage: node manage-profiles.js default <name>');
     process.exit(1);
   }
   
-  console.log(`⚙️  Setting default profile to "${name}"...`);
+  console.log(`  Setting default profile to "${name}"...`);
   console.log('');
   
   try {
     setDefaultProfile(name);
     
-    console.log('✅ Default profile updated!');
+    console.log(' Default profile updated!');
     console.log('');
     console.log(`   All commands will now use the "${name}" profile by default`);
     console.log('   unless you specify --profile <other-name>');
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }
@@ -183,7 +183,7 @@ async function defaultAction(name) {
 // Show profile details
 async function showAction(name) {
   if (!name) {
-    console.error('❌ Usage: node manage-profiles.js show <name>');
+    console.error(' Usage: node manage-profiles.js show <name>');
     process.exit(1);
   }
   
@@ -191,7 +191,7 @@ async function showAction(name) {
     const profile = getProfile(name);
     const { default: defaultProfile } = listProfiles();
     
-    console.log(`📋 Profile: ${name}`);
+    console.log(` Profile: ${name}`);
     console.log('');
     console.log(`   Organization: ${profile.org_name}`);
     console.log(`   Type: ${profile.org_type}`);
@@ -199,36 +199,36 @@ async function showAction(name) {
     console.log(`   Token File: ${profile.token_file}`);
     
     if (name === defaultProfile) {
-      console.log(`   Status: ✅ Default profile`);
+      console.log(`   Status:  Default profile`);
     }
     
     console.log('');
-    console.log('💡 To use this profile:');
+    console.log(' To use this profile:');
     console.log(`   node list-domains.js --profile ${name}`);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }
 
 // Migrate legacy token
 async function migrateAction() {
-  console.log('📦 Checking for legacy token...');
+  console.log(' Checking for legacy token...');
   console.log('');
   
   try {
     const result = await migrateLegacyToken();
     
     if (!result) {
-      console.log('ℹ️  No legacy token found or profiles already exist.');
+      console.log('  No legacy token found or profiles already exist.');
       console.log('');
-      console.log('💡 To add a profile manually:');
+      console.log(' To add a profile manually:');
       console.log('   node manage-profiles.js add <name> <token>');
     }
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }
@@ -268,13 +268,13 @@ async function main() {
         break;
         
       default:
-        console.error(`❌ Unknown action: ${action}`);
+        console.error(` Unknown action: ${action}`);
         console.error('Valid actions: list, add, remove, default, show, migrate');
         process.exit(1);
     }
     
   } catch (error) {
-    console.error('❌ Unexpected error:', error.message);
+    console.error(' Unexpected error:', error.message);
     process.exit(1);
   }
 }

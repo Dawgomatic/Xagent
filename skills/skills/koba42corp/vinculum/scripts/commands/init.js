@@ -69,7 +69,7 @@ async function generateInvite(context) {
     config.encryption_key
   );
   
-  return `🔗 **Invite Code**
+  return ` **Invite Code**
 
 Share this with other Clawdbot instances:
 

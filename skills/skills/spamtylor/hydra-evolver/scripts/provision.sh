@@ -54,4 +54,4 @@ docker --version || error "Docker failed"
 node --version || error "Node failed"
 openclaw --version || error "OpenClaw failed"
 
-log "✅ GMKtec Node Ready. Run 'openclaw configure' to link."
+log " GMKtec Node Ready. Run 'openclaw configure' to link."

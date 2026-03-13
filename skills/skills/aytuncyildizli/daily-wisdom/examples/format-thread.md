@@ -2,7 +2,7 @@
 
 > Alternative format: Twitter/X thread style for social sharing
 
-🧵 **The man who broke gold** (1/5)
+ **The man who broke gold** (1/5)
 
 In 1324, Mansa Musa of Mali went on Hajj to Mecca. He brought 60,000 men, 12,000 slaves each carrying 4 pounds of gold, and 80 camels each carrying 300 pounds of gold.
 

@@ -17,8 +17,8 @@
         "tags": [
           "Live prices"
         ],
-        "summary": "💵 Usd Mep",
-        "description": "## 💵 USD MEP Endpoint\n- Direct URL   [&nbsp;&nbsp;  🔗&nbsp; Open MEP panel in new window ](/live/mep) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds ⚡\n- Response data summary:\n  - ticker: Stock symbol code\n  - bid: Bid price for MEP USD implicit value\n  - ask: Ask price for MEP USD implicit value\n  - close: Last closing price of MEP USD implicit value\n  - mark: Current average bid-ask price of MEP\n  - v_ars: Trading volume in ARS \n  - v_usd: Trading volume in USD \n  - q_ars: Quantity of trades in ARS\n  - q_usd: Quantity of trades in USD\n  - ars_bid: Bid price in ARS for stock\n  - ars_ask: Ask price in ARS for stock\n  - usd_bid: Bid price in D for stock\n  - usd_ask: Ask price in D for stock\n  - panel: Panel or market segment where the stock is traded",
+        "summary": " Usd Mep",
+        "description": "##  USD MEP Endpoint\n- Direct URL   [&nbsp;&nbsp;  &nbsp; Open MEP panel in new window ](/live/mep) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds \n- Response data summary:\n  - ticker: Stock symbol code\n  - bid: Bid price for MEP USD implicit value\n  - ask: Ask price for MEP USD implicit value\n  - close: Last closing price of MEP USD implicit value\n  - mark: Current average bid-ask price of MEP\n  - v_ars: Trading volume in ARS \n  - v_usd: Trading volume in USD \n  - q_ars: Quantity of trades in ARS\n  - q_usd: Quantity of trades in USD\n  - ars_bid: Bid price in ARS for stock\n  - ars_ask: Ask price in ARS for stock\n  - usd_bid: Bid price in D for stock\n  - usd_ask: Ask price in D for stock\n  - panel: Panel or market segment where the stock is traded",
         "operationId": "__USD_MEP_live_mep_get",
         "responses": {
           "200": {
@@ -38,8 +38,8 @@
         "tags": [
           "Live prices"
         ],
-        "summary": "💵 Usd Ccl",
-        "description": "## 💵 USD MEP Endpoint\n- Direct URL   [&nbsp;&nbsp;  🔗&nbsp; Open MEP panel in new window ](/live/ccl) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds ⚡\n- Response data summary:\n  - ticker_usa: Stock symbol code in the USA market\n  - ticker_ar: Stock symbol code in the Argentine market\n  - CCL_bid: Bid price for the CCL implicit value\n  - CCL_ask: Ask price for the CCL calculation\n  - CCL_close: Last closing price for the CCL\n  - CCL_mark: Current average bid-ask price for the CCL\n  - ars_volume: Trading volume in Argentine pesos\n  - volume_rank: Rank of the stock based on trading volume\n  - arg_panel: Market segment or panel for the stock in Argentina\n  - usa_panel: Market segment or panel for the stock in the USA",
+        "summary": " Usd Ccl",
+        "description": "##  USD MEP Endpoint\n- Direct URL   [&nbsp;&nbsp;  &nbsp; Open MEP panel in new window ](/live/ccl) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds \n- Response data summary:\n  - ticker_usa: Stock symbol code in the USA market\n  - ticker_ar: Stock symbol code in the Argentine market\n  - CCL_bid: Bid price for the CCL implicit value\n  - CCL_ask: Ask price for the CCL calculation\n  - CCL_close: Last closing price for the CCL\n  - CCL_mark: Current average bid-ask price for the CCL\n  - ars_volume: Trading volume in Argentine pesos\n  - volume_rank: Rank of the stock based on trading volume\n  - arg_panel: Market segment or panel for the stock in Argentina\n  - usa_panel: Market segment or panel for the stock in the USA",
         "operationId": "__USD_CCL_live_ccl_get",
         "responses": {
           "200": {
@@ -59,8 +59,8 @@
         "tags": [
           "Live prices"
         ],
-        "summary": "🇦🇷 Arg Stocks",
-        "description": "## 📈 Stocks Endpoint\n- Direct URL   [&nbsp;&nbsp;  🔗&nbsp; Open STOCKS endpoint in new window ](/live/arg_stocks) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds ⚡\n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
+        "summary": " Arg Stocks",
+        "description": "##  Stocks Endpoint\n- Direct URL   [&nbsp;&nbsp;  &nbsp; Open STOCKS endpoint in new window ](/live/arg_stocks) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds \n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
         "operationId": "___arg_stocks_live_arg_stocks_get",
         "responses": {
           "200": {
@@ -80,8 +80,8 @@
         "tags": [
           "Live prices"
         ],
-        "summary": "🇦🇷 Option Chains  ",
-        "description": "## 📈 Options Endpoint\n- Direct URL   [&nbsp;&nbsp;  🔗&nbsp; Open OPTIONS endpoint in new window ](/live/arg_options) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds ⚡\n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
+        "summary": " Option Chains  ",
+        "description": "##  Options Endpoint\n- Direct URL   [&nbsp;&nbsp;  &nbsp; Open OPTIONS endpoint in new window ](/live/arg_options) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds \n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
         "operationId": "___option_chains___live_arg_options_get",
         "responses": {
           "200": {
@@ -101,8 +101,8 @@
         "tags": [
           "Live prices"
         ],
-        "summary": "🇦🇷 Cedears ",
-        "description": "## 📈 Cedears Endpoint\n- Direct URL   [&nbsp;&nbsp;  🔗&nbsp; Open CEDEARS endpoint in new window ](/live/arg_cedears) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds ⚡\n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
+        "summary": " Cedears ",
+        "description": "##  Cedears Endpoint\n- Direct URL   [&nbsp;&nbsp;  &nbsp; Open CEDEARS endpoint in new window ](/live/arg_cedears) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds \n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
         "operationId": "___cedears__live_arg_cedears_get",
         "responses": {
           "200": {
@@ -122,8 +122,8 @@
         "tags": [
           "Live prices"
         ],
-        "summary": "🇦🇷 Gov Notes ",
-        "description": "## 📈 Notes Endpoint\n- Direct URL   [&nbsp;&nbsp;  🔗&nbsp; Open NOTES endpoint in new window ](/live/arg_notes) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds ⚡\n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
+        "summary": " Gov Notes ",
+        "description": "##  Notes Endpoint\n- Direct URL   [&nbsp;&nbsp;  &nbsp; Open NOTES endpoint in new window ](/live/arg_notes) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds \n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
         "operationId": "___gov_notes__live_arg_notes_get",
         "responses": {
           "200": {
@@ -143,8 +143,8 @@
         "tags": [
           "Live prices"
         ],
-        "summary": "🇦🇷 Corporate Debt  ",
-        "description": "## 📈 Corp Endpoint\n- Direct URL   [&nbsp;&nbsp;  🔗&nbsp; Open CORP endpoint in new window ](/live/arg_corp) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds ⚡\n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
+        "summary": " Corporate Debt  ",
+        "description": "##  Corp Endpoint\n- Direct URL   [&nbsp;&nbsp;  &nbsp; Open CORP endpoint in new window ](/live/arg_corp) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds \n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
         "operationId": "___corporate_debt___live_arg_corp_get",
         "responses": {
           "200": {
@@ -164,8 +164,8 @@
         "tags": [
           "Live prices"
         ],
-        "summary": "🇦🇷 Gov Bonds ",
-        "description": "## 📈 Bonds Endpoint\n- Direct URL   [&nbsp;&nbsp;  🔗&nbsp; Open BONDS endpoint in new window ](/live/arg_bonds) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds ⚡\n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
+        "summary": " Gov Bonds ",
+        "description": "##  Bonds Endpoint\n- Direct URL   [&nbsp;&nbsp;  &nbsp; Open BONDS endpoint in new window ](/live/arg_bonds) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds \n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
         "operationId": "___gov_bonds__live_arg_bonds_get",
         "responses": {
           "200": {
@@ -185,8 +185,8 @@
         "tags": [
           "Live prices"
         ],
-        "summary": "🇺🇸 Adrs",
-        "description": "## 📈 Adrs Endpoint\n- Direct URL   [&nbsp;&nbsp;  🔗&nbsp; Open ADRS endpoint in new window ](/live/usa_adrs) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds ⚡\n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
+        "summary": " Adrs",
+        "description": "##  Adrs Endpoint\n- Direct URL   [&nbsp;&nbsp;  &nbsp; Open ADRS endpoint in new window ](/live/usa_adrs) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds \n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
         "operationId": "___ADRs_live_usa_adrs_get",
         "responses": {
           "200": {
@@ -206,8 +206,8 @@
         "tags": [
           "Live prices"
         ],
-        "summary": "🇺🇸 Usa Stocks",
-        "description": "## 📈 Stocks Endpoint\n- Direct URL   [&nbsp;&nbsp;  🔗&nbsp; Open STOCKS endpoint in new window ](/live/usa_stocks) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds ⚡\n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
+        "summary": " Usa Stocks",
+        "description": "##  Stocks Endpoint\n- Direct URL   [&nbsp;&nbsp;  &nbsp; Open STOCKS endpoint in new window ](/live/usa_stocks) \n\n- Endpoint rate limit 120 req/min\n- Not real time, endpoints data refreshed every 20 seconds \n- Response data summary:\n  - symbol: Stock symbol code\n  - c: Current stock price\n  - v: Stock trading volume\n  - q_bid: bid quantity\n  - px_bid: bid price\n  - px_ask: ask price\n  - q_ask: ask quantity\n  - q_op: daily operations\n  - pct_change: daily percent change",
         "operationId": "___usa_stocks_live_usa_stocks_get",
         "responses": {
           "200": {
@@ -227,8 +227,8 @@
         "tags": [
           "Historical"
         ],
-        "summary": "🇦🇷 Arg Stocks Ohlc",
-        "description": "## 📈 Historical Endpoint\n- Direct URL   [ &nbsp; 🔗 &nbsp;  Open historical endpoint in new window](/historical/stocks/HAVA) \n\n- Endpoint rate limit 120 req/min\n- **Data Summary:**\n  - date: Date\n  - o: Open price\n  - h: Max price\n  - l: Low price\n  - c: Close price\n  - v: Notional trading volume\n  - dr: Daily return\n  - sa: Sigma annualized\n\n\nPossible tickers: ALUA BBAR BMA BYMA CEPU COME CRES CVH EDN GGAL LOMA MIRG PAMP SUPV TECO2 TGNO4 TGSU2 TRAN TXAR VALO YPFD AGRO AUSO BHIP BOLT BPAT CADO CAPX CARC CECO2 CELU CGPA2 CTIO DGCU2 DOME DYCA FERR FIPL GAMI GARO GBAN GCDI GCLA GRIM HARG HAVA HSAT INTR INVJ IRSA LEDE LONG METR MOLA MOLI MORI MTR OEST PATA POLL RICH RIGO ROSE SAMI SEMI",
+        "summary": " Arg Stocks Ohlc",
+        "description": "##  Historical Endpoint\n- Direct URL   [ &nbsp;  &nbsp;  Open historical endpoint in new window](/historical/stocks/HAVA) \n\n- Endpoint rate limit 120 req/min\n- **Data Summary:**\n  - date: Date\n  - o: Open price\n  - h: Max price\n  - l: Low price\n  - c: Close price\n  - v: Notional trading volume\n  - dr: Daily return\n  - sa: Sigma annualized\n\n\nPossible tickers: ALUA BBAR BMA BYMA CEPU COME CRES CVH EDN GGAL LOMA MIRG PAMP SUPV TECO2 TGNO4 TGSU2 TRAN TXAR VALO YPFD AGRO AUSO BHIP BOLT BPAT CADO CAPX CARC CECO2 CELU CGPA2 CTIO DGCU2 DOME DYCA FERR FIPL GAMI GARO GBAN GCDI GCLA GRIM HARG HAVA HSAT INTR INVJ IRSA LEDE LONG METR MOLA MOLI MORI MTR OEST PATA POLL RICH RIGO ROSE SAMI SEMI",
         "operationId": "___arg_stocks_OHLC_historical_stocks__ticker__get",
         "parameters": [
           {
@@ -259,8 +259,8 @@
         "tags": [
           "Historical"
         ],
-        "summary": "🇦🇷 Cedears Ohlc",
-        "description": "## 📈 Historical Endpoint\n- Direct URL   [ &nbsp; 🔗 &nbsp;  Open historical endpoint in new window](/historical/cedears/AAPL) \n\n- Endpoint rate limit 120 req/min\n- **Data Summary:**\n  - date: Date\n  - o: Open price\n  - h: Max price\n  - l: Low price\n  - c: Close price\n  - v: Notional trading volume\n  - dr: Daily return\n  - sa: Sigma annualized\n\n\nPossible tickers: AAPL ABBV ABEV ABNB ABT ADBE ADGO ADI ADP AEM AIG AMAT AMD AMGN AMX AMZN ANF ARCO ARKK AVGO AVY AXP AZN BA BA.C BABA BB BBD BBV BCS BHP BIDU BIIB BIOX BITF BK BMY BNG BP BRFS BRKB BSBR C CAAP CAH CAR CAT CDE CL COIN COST CRM CSCO CVX CX DD DE DESP DIA DISN DOCU DOW E EA EBAY EBR EEM EFX ERIC ERJ ETSY EWZ F FCX FDX FSLR GE GFI GGB GILD GLOB GM GOLD GOOGL GPRK GRMN GS GSK HAL HD HL HMC HMY HOG HON HPQ HSY HUT HWM IBM IFF INFY ING INTC IP ITUB IWM JD JMIA JNJ JPM KEP KGC KMB KO KOFM LLY LMT LRCX LVS LYG MA MCD MDT MELI META MMM MO MOS MRK MSFT MSI MSTR MU NEM NFLX NIO NKE NOKA NTES NUE NVDA NVS PBR PFE PYPL QCOM QQQ SPY T TEN TRIP TSLA TXR V VALE WFC WMT XLE XLF XOM",
+        "summary": " Cedears Ohlc",
+        "description": "##  Historical Endpoint\n- Direct URL   [ &nbsp;  &nbsp;  Open historical endpoint in new window](/historical/cedears/AAPL) \n\n- Endpoint rate limit 120 req/min\n- **Data Summary:**\n  - date: Date\n  - o: Open price\n  - h: Max price\n  - l: Low price\n  - c: Close price\n  - v: Notional trading volume\n  - dr: Daily return\n  - sa: Sigma annualized\n\n\nPossible tickers: AAPL ABBV ABEV ABNB ABT ADBE ADGO ADI ADP AEM AIG AMAT AMD AMGN AMX AMZN ANF ARCO ARKK AVGO AVY AXP AZN BA BA.C BABA BB BBD BBV BCS BHP BIDU BIIB BIOX BITF BK BMY BNG BP BRFS BRKB BSBR C CAAP CAH CAR CAT CDE CL COIN COST CRM CSCO CVX CX DD DE DESP DIA DISN DOCU DOW E EA EBAY EBR EEM EFX ERIC ERJ ETSY EWZ F FCX FDX FSLR GE GFI GGB GILD GLOB GM GOLD GOOGL GPRK GRMN GS GSK HAL HD HL HMC HMY HOG HON HPQ HSY HUT HWM IBM IFF INFY ING INTC IP ITUB IWM JD JMIA JNJ JPM KEP KGC KMB KO KOFM LLY LMT LRCX LVS LYG MA MCD MDT MELI META MMM MO MOS MRK MSFT MSI MSTR MU NEM NFLX NIO NKE NOKA NTES NUE NVDA NVS PBR PFE PYPL QCOM QQQ SPY T TEN TRIP TSLA TXR V VALE WFC WMT XLE XLF XOM",
         "operationId": "___cedears_OHLC_historical_cedears__ticker__get",
         "parameters": [
           {
@@ -291,8 +291,8 @@
         "tags": [
           "Historical"
         ],
-        "summary": "🇦🇷 Arg Bonds Ohlc",
-        "description": "## 📈 Historical Endpoint\n- Direct URL   [ &nbsp; 🔗 &nbsp;  Open historical endpoint in new window](/historical/bonds/AL30) \n\n- Endpoint rate limit 120 req/min\n- **Data Summary:**\n  - date: Date\n  - o: Open price\n  - h: Max price\n  - l: Low price\n  - c: Close price\n  - v: Notional trading volume\n  - dr: Daily return\n  - sa: Sigma annualized\n\n\nPossible tickers: AE38 AE38D AL29 AL29D AL30 AL30C AL30D AL35 AL35D AL41 AL41D BA37D BB37D BC37D BDC28 BPY26 CO26 CO26D CUAP DICP DIP0 GD29 GD29D GD30 GD30C GD30D GD35 GD35D GD38 GD38D GD41 GD41D GD46 GD46D NDT25 PAP0 PARP PBA25 T2X5 TDE25 TO26 TVPA TVPE TVPP TVPY TX25 TX26 TX28",
+        "summary": " Arg Bonds Ohlc",
+        "description": "##  Historical Endpoint\n- Direct URL   [ &nbsp;  &nbsp;  Open historical endpoint in new window](/historical/bonds/AL30) \n\n- Endpoint rate limit 120 req/min\n- **Data Summary:**\n  - date: Date\n  - o: Open price\n  - h: Max price\n  - l: Low price\n  - c: Close price\n  - v: Notional trading volume\n  - dr: Daily return\n  - sa: Sigma annualized\n\n\nPossible tickers: AE38 AE38D AL29 AL29D AL30 AL30C AL30D AL35 AL35D AL41 AL41D BA37D BB37D BC37D BDC28 BPY26 CO26 CO26D CUAP DICP DIP0 GD29 GD29D GD30 GD30C GD30D GD35 GD35D GD38 GD38D GD41 GD41D GD46 GD46D NDT25 PAP0 PARP PBA25 T2X5 TDE25 TO26 TVPA TVPE TVPP TVPY TX25 TX26 TX28",
         "operationId": "___arg_bonds_OHLC_historical_bonds__ticker__get",
         "parameters": [
           {
@@ -323,8 +323,8 @@
         "tags": [
           "EOD"
         ],
-        "summary": "🇺🇸 Usa Stocks Risk Analytics",
-        "description": "## 📈 Volatilities Endpoint\n- Direct URL   [&nbsp;&nbsp;  🔗&nbsp; Open VOLATILITIES endpoint in new window ](/eod/volatilities/YPF) \n\n- Endpoint rate limit 120 req/min\n- Response data summary:\n  - iv_s_term: Short-term implied volatility\n  - iv_m_term: Medium-term implied volatility\n  - iv_l_term: Long-term implied volatility\n  - iv_s_term_percentile: Short-term implied volatility percentile\n  - iv_m_term_percentile: Medium-term implied volatility percentile\n  - iv_l_term_percentile: Long-term implied volatility percentile\n  - hv_s_term: Short-term historical volatility\n  - hv_m_term: Medium-term historical volatility\n  - hv_l_term: Long-term historical volatility\n  - hv_s_term_percentile: Short-term historical volatility percentile\n  - hv_m_term_percentile: Medium-term historical volatility percentile\n  - hv_l_term_percentile: Long-term historical volatility percentile\n  - iv_hv_s_ratio: Short-term implied/historical volatility ratio\n  - iv_hv_s_ratio_percentile: Percentile of short-term IV/HV ratio\n  - iv_hv_m_ratio: Medium-term implied/historical volatility ratio\n  - iv_hv_m_ratio_percentile: Percentile of medium-term IV/HV ratio\n  - iv_hv_l_ratio: Long-term implied/historical volatility ratio\n  - iv_hv_l_ratio_percentile: Percentile of long-term IV/HV ratio\n  - fair_iv: Fair implied volatility  (beta, experimental)\n  - fair_iv_percentile: Fair implied volatility percentile  (beta, experimental)\n  - iv_fair_iv_ratio: Ratio of implied volatility to fair implied volatility  (beta, experimental)\n  - iv_fair_iv_ratio_percentile: Percentile of IV/fair IV ratio  (beta, experimental)",
+        "summary": " Usa Stocks Risk Analytics",
+        "description": "##  Volatilities Endpoint\n- Direct URL   [&nbsp;&nbsp;  &nbsp; Open VOLATILITIES endpoint in new window ](/eod/volatilities/YPF) \n\n- Endpoint rate limit 120 req/min\n- Response data summary:\n  - iv_s_term: Short-term implied volatility\n  - iv_m_term: Medium-term implied volatility\n  - iv_l_term: Long-term implied volatility\n  - iv_s_term_percentile: Short-term implied volatility percentile\n  - iv_m_term_percentile: Medium-term implied volatility percentile\n  - iv_l_term_percentile: Long-term implied volatility percentile\n  - hv_s_term: Short-term historical volatility\n  - hv_m_term: Medium-term historical volatility\n  - hv_l_term: Long-term historical volatility\n  - hv_s_term_percentile: Short-term historical volatility percentile\n  - hv_m_term_percentile: Medium-term historical volatility percentile\n  - hv_l_term_percentile: Long-term historical volatility percentile\n  - iv_hv_s_ratio: Short-term implied/historical volatility ratio\n  - iv_hv_s_ratio_percentile: Percentile of short-term IV/HV ratio\n  - iv_hv_m_ratio: Medium-term implied/historical volatility ratio\n  - iv_hv_m_ratio_percentile: Percentile of medium-term IV/HV ratio\n  - iv_hv_l_ratio: Long-term implied/historical volatility ratio\n  - iv_hv_l_ratio_percentile: Percentile of long-term IV/HV ratio\n  - fair_iv: Fair implied volatility  (beta, experimental)\n  - fair_iv_percentile: Fair implied volatility percentile  (beta, experimental)\n  - iv_fair_iv_ratio: Ratio of implied volatility to fair implied volatility  (beta, experimental)\n  - iv_fair_iv_ratio_percentile: Percentile of IV/fair IV ratio  (beta, experimental)",
         "operationId": "___USA_Stocks_Risk_Analytics_eod_volatilities__ticker__get",
         "parameters": [
           {
@@ -355,8 +355,8 @@
         "tags": [
           "EOD"
         ],
-        "summary": "🇺🇸 Usa Option Chains",
-        "description": "## 📈 Option_chain Endpoint\n- Direct URL   [&nbsp;&nbsp;  🔗&nbsp; Open OPTION_CHAIN endpoint in new window ](/eod/option_chain/GGAL) \n\n- Endpoint rate limit 120 req/min\n- Data refreshed once per day, END OF DAY data. Covered: 5000+ underlying stocks\n- Response data summary:\n  - opex: Expiration date\n  - s_symbol: Underlying stock symbol\n  - type: Type (call/put)\n  - k: Strike price\n  - oi: Open interest\n  - c: Close price\n  - iv: Implied volatility\n  - ask: Ask price\n  - bid: Bid price\n  - delta: Sensitivity to price changes\n  - gamma: Rate of change of delta\n  - rho: Sensitivity to interest rate changes\n  - theta: Time decay of the option\n  - vega: Sensitivity to volatility changes\n  - fair_value: Theoretical fair value (beta, experimental)\n  - itm_prob: Probability of being in-the-money\n  - otm: Out-of-the-money value\n  - intrinsic: Intrinsic value\n  - fair_iv: Fair implied volatility (beta, experimental)\n  - r_days: Remaining days until expiration\n  - r_tdays: Remaining trading days until expiration\n  - hv_2m: 2-month historical volatility\n  - hv_1yr: 1-year historical volatility",
+        "summary": " Usa Option Chains",
+        "description": "##  Option_chain Endpoint\n- Direct URL   [&nbsp;&nbsp;  &nbsp; Open OPTION_CHAIN endpoint in new window ](/eod/option_chain/GGAL) \n\n- Endpoint rate limit 120 req/min\n- Data refreshed once per day, END OF DAY data. Covered: 5000+ underlying stocks\n- Response data summary:\n  - opex: Expiration date\n  - s_symbol: Underlying stock symbol\n  - type: Type (call/put)\n  - k: Strike price\n  - oi: Open interest\n  - c: Close price\n  - iv: Implied volatility\n  - ask: Ask price\n  - bid: Bid price\n  - delta: Sensitivity to price changes\n  - gamma: Rate of change of delta\n  - rho: Sensitivity to interest rate changes\n  - theta: Time decay of the option\n  - vega: Sensitivity to volatility changes\n  - fair_value: Theoretical fair value (beta, experimental)\n  - itm_prob: Probability of being in-the-money\n  - otm: Out-of-the-money value\n  - intrinsic: Intrinsic value\n  - fair_iv: Fair implied volatility (beta, experimental)\n  - r_days: Remaining days until expiration\n  - r_tdays: Remaining trading days until expiration\n  - hv_2m: 2-month historical volatility\n  - hv_1yr: 1-year historical volatility",
         "operationId": "___USA_option_chains_eod_option_chain__ticker__get",
         "parameters": [
           {

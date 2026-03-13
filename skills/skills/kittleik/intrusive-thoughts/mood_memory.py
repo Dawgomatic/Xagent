@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""🧠 Mood Memory — Track and analyze mood patterns across days."""
+""" Mood Memory — Track and analyze mood patterns across days."""
 
 import json
 from pathlib import Path

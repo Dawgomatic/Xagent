@@ -89,7 +89,7 @@ async function main() {
     }
 
     try {
-        console.log(`🎤 Generating audio for: "${options.text}"...`);
+        console.log(` Generating audio for: "${options.text}"...`);
         
         // Step 1: Generate TTS
         // duby.duby_tts returns "MEDIA:/path/to/file.mp3" string
@@ -110,23 +110,23 @@ async function main() {
             throw new Error(`Generated audio file not found at: ${absolutePath}`);
         }
 
-        console.log(`📤 Uploading audio: ${filePath}...`);
+        console.log(` Uploading audio: ${filePath}...`);
         
         // Step 2: Upload to Feishu
         const token = await getToken();
         const fileKey = await uploadAudio(token, absolutePath);
         
-        console.log(`📨 Sending audio message to ${options.target}...`);
+        console.log(` Sending audio message to ${options.target}...`);
 
         // Step 3: Send Message
         await sendAudioMessage(options.target, fileKey);
 
-        console.log('✅ Voice message sent successfully!');
+        console.log(' Voice message sent successfully!');
         
         // Cleanup temp file
         // fs.unlinkSync(absolutePath); // Optional: keep for cache or delete
     } catch (error) {
-        console.error(`❌ Error: ${error.message}`);
+        console.error(` Error: ${error.message}`);
         process.exit(1);
     }
 }

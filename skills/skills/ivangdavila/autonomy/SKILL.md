@@ -4,7 +4,7 @@ slug: autonomy
 version: 1.0.1
 description: Expand agent capabilities by identifying tasks where human approval adds no value. Systematic delegation.
 changelog: Limited observation to conversation context, explicit safety boundaries
-metadata: {"clawdbot":{"emoji":"🤖","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Data Storage
@@ -21,13 +21,13 @@ Create on first use: `mkdir -p ~/autonomy`
 ## Scope
 
 This skill:
-- ✅ Identifies repetitive tasks from conversation history
-- ✅ Proposes delegation opportunities to user
-- ✅ Tracks success rate of delegated tasks
-- ❌ NEVER acts autonomously without explicit prior approval
-- ❌ NEVER observes outside of conversation context
-- ❌ NEVER accesses files/systems to "audit" user activity
-- ❌ NEVER monitors calendar/email without permission
+-  Identifies repetitive tasks from conversation history
+-  Proposes delegation opportunities to user
+-  Tracks success rate of delegated tasks
+-  NEVER acts autonomously without explicit prior approval
+-  NEVER observes outside of conversation context
+-  NEVER accesses files/systems to "audit" user activity
+-  NEVER monitors calendar/email without permission
 
 ## Quick Reference
 
@@ -59,7 +59,7 @@ NEVER from:
 ### 3. Takeover Proposal
 When you spot a pattern in conversation:
 ```
-💡 Delegation opportunity
+ Delegation opportunity
 
 I noticed: [what you observed in our chats]
 Pattern: [how often you've asked for this]

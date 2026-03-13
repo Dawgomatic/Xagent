@@ -1,8 +1,8 @@
-# 🚀 START HERE!
+#  START HERE!
 
 ## Your OpenClaw Menu Bar App is Ready!
 
-### ⚡ Quick Start (30 seconds)
+###  Quick Start (30 seconds)
 
 ```bash
 cd /Users/prabhanjansharma/.openclaw/workspace/openclaw-menubar
@@ -10,42 +10,42 @@ npm start
 ```
 
 **That's it!** You should see:
-1. ✅ A menu bar icon appear (top right of screen)
-2. ✅ Click it to open chat window
-3. ✅ **Auto-discovers gateway** - No configuration needed!
-4. ✅ Type a message and hit Enter!
+1.  A menu bar icon appear (top right of screen)
+2.  Click it to open chat window
+3.  **Auto-discovers gateway** - No configuration needed!
+4.  Type a message and hit Enter!
 
 ---
 
-## 📋 What You Get
+##  What You Get
 
-✅ **Menu bar access** - Always available  
-✅ **Auto-discovery** - Finds OpenClaw Gateway automatically  
-✅ **Zero configuration** - Just works!  
-✅ **Quick chat** - Instant OpenClaw connection  
-✅ **Drag & drop files** - Drop images, docs, code  
-✅ **Model switching** - Sonnet (fast) ↔ Opus (powerful)  
-✅ **Keyboard shortcut** - `Cmd+Shift+O` to toggle  
-✅ **Message history** - Persists across restarts  
-✅ **Live status** - Shows connection state  
-✅ **Auto-reconnect** - Handles disconnections gracefully  
+ **Menu bar access** - Always available  
+ **Auto-discovery** - Finds OpenClaw Gateway automatically  
+ **Zero configuration** - Just works!  
+ **Quick chat** - Instant OpenClaw connection  
+ **Drag & drop files** - Drop images, docs, code  
+ **Model switching** - Sonnet (fast)  Opus (powerful)  
+ **Keyboard shortcut** - `Cmd+Shift+O` to toggle  
+ **Message history** - Persists across restarts  
+ **Live status** - Shows connection state  
+ **Auto-reconnect** - Handles disconnections gracefully  
 
 ---
 
-## 🎨 Smart Auto-Discovery
+##  Smart Auto-Discovery
 
 The app automatically:
-- ✅ **Reads your OpenClaw config** (`~/.openclaw/openclaw.json`)
-- ✅ **Detects gateway URL** (localhost, LAN, custom)
-- ✅ **Uses your gateway token** (no manual entry)
-- ✅ **Saves connection** for faster startup
-- ✅ **Shows setup screen** if gateway offline
+-  **Reads your OpenClaw config** (`~/.openclaw/openclaw.json`)
+-  **Detects gateway URL** (localhost, LAN, custom)
+-  **Uses your gateway token** (no manual entry)
+-  **Saves connection** for faster startup
+-  **Shows setup screen** if gateway offline
 
 **No hardcoded URLs!** Works on any machine with OpenClaw installed.  
 
 ---
 
-## 🎯 Try These Commands
+##  Try These Commands
 
 Once the app is open:
 
@@ -70,7 +70,7 @@ Scan BTC for trading setups
 
 ---
 
-## ⌨️ Keyboard Shortcuts
+##  Keyboard Shortcuts
 
 | Shortcut | Action |
 |----------|--------|
@@ -80,9 +80,9 @@ Scan BTC for trading setups
 
 ---
 
-## 🛠️ Optional: Add Custom Icon
+##  Optional: Add Custom Icon
 
-Want the 🦞 claw icon in menu bar?
+Want the  claw icon in menu bar?
 
 ```bash
 # Install ImageMagick
@@ -97,7 +97,7 @@ brew install imagemagick
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### "Cannot connect to Gateway"
 
@@ -127,7 +127,7 @@ npm start
 
 ---
 
-## 📦 Build Standalone App
+##  Build Standalone App
 
 Want a double-clickable .app file?
 
@@ -141,7 +141,7 @@ Drag it to Applications folder!
 
 ---
 
-## 🎉 You're All Set!
+##  You're All Set!
 
 **Next:** Just run `npm start` and click the menu bar icon!
 
@@ -149,4 +149,4 @@ Questions? Check `README.md` for full documentation.
 
 ---
 
-**Built with ❤️ for quick OpenClaw access** 🦞
+**Built with  for quick OpenClaw access** 

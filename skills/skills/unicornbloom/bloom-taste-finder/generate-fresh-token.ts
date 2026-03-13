@@ -13,7 +13,7 @@ dotenv.config();
 const TEST_PRIVATE_KEY = '0x' + crypto.randomBytes(32).toString('hex');
 
 async function generateFreshToken() {
-  console.log('\n🎯 Generating Fresh Auth Token\n');
+  console.log('\n Generating Fresh Auth Token\n');
   console.log('═══════════════════════════════════════\n');
 
   // Check JWT_SECRET
@@ -21,12 +21,12 @@ async function generateFreshToken() {
   if (!jwtSecret) {
     throw new Error('JWT_SECRET not found in .env');
   }
-  console.log('✅ JWT_SECRET loaded:', jwtSecret.substring(0, 10) + '...\n');
+  console.log(' JWT_SECRET loaded:', jwtSecret.substring(0, 10) + '...\n');
 
   // Create test wallet
   const account = privateKeyToAccount(TEST_PRIVATE_KEY as `0x${string}`);
   const address = account.address;
-  console.log('✅ Test wallet created:', address, '\n');
+  console.log(' Test wallet created:', address, '\n');
 
   // Generate token data
   const nonce = crypto.randomUUID();
@@ -44,7 +44,7 @@ async function generateFreshToken() {
 
   console.log('Signing message with wallet...');
   const signature = await account.signMessage({ message });
-  console.log('✅ Signature:', signature.substring(0, 20) + '...\n');
+  console.log(' Signature:', signature.substring(0, 20) + '...\n');
 
   // Include identity metadata in the token
   const identityMetadata = {
@@ -77,9 +77,9 @@ async function generateFreshToken() {
     audience: 'bloom-dashboard',
   });
 
-  console.log('✅ Token generated!\n');
+  console.log(' Token generated!\n');
   console.log('═══════════════════════════════════════\n');
-  console.log('🌐 Dashboard URL:\n');
+  console.log(' Dashboard URL:\n');
   const dashboardUrl = process.env.DASHBOARD_URL || 'http://localhost:3001';
   console.log(`${dashboardUrl}/dashboard?token=${token}\n`);
   console.log('═══════════════════════════════════════\n');
@@ -91,9 +91,9 @@ async function generateFreshToken() {
       audience: 'bloom-dashboard',
       algorithms: ['HS256'],
     });
-    console.log('✅ Token self-verification passed\n');
+    console.log(' Token self-verification passed\n');
   } catch (error) {
-    console.error('❌ Token self-verification failed:', error);
+    console.error(' Token self-verification failed:', error);
   }
 }
 

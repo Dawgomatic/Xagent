@@ -25,7 +25,7 @@ export async function createPool(params: {
     rpcUrl?: string;
     poolConfig?: string;
 }): Promise<{ txHash: string; mintAddress: string }> {
-    console.log("🏊 正在创建 DBC 资金池...");
+    console.log(" 正在创建 DBC 资金池...");
 
     // 动态导入 DBC SDK 和 bn.js
     const { PoolService } = await import(
@@ -93,7 +93,7 @@ export async function createPool(params: {
             console.log(`  首次购买交易: ${buyTxHash}`);
         }
 
-        console.log(`✅ 资金池创建成功!`);
+        console.log(` 资金池创建成功!`);
         return { txHash: poolTxHash, mintAddress: baseMint.publicKey.toBase58() };
     } else {
         // 仅创建池子，不购买
@@ -114,7 +114,7 @@ export async function createPool(params: {
             { commitment: "confirmed" }
         );
 
-        console.log(`✅ 资金池创建成功!`);
+        console.log(` 资金池创建成功!`);
         console.log(`  交易哈希: ${txHash}`);
         return { txHash, mintAddress: baseMint.publicKey.toBase58() };
     }

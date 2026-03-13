@@ -4,7 +4,7 @@
 - **What to call them:** Snail
 - **Pronouns:** 
 - **Timezone:** America/Denver
-- **Notes:** Has a sense of humor. 🐌
+- **Notes:** Has a sense of humor. 
 
 ## Context
 

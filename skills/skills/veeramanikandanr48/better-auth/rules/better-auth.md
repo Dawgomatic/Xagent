@@ -9,17 +9,17 @@ Claude's training may reference older better-auth patterns. This project uses **
 ## Critical: No D1 Adapter
 
 ```typescript
-/* ❌ This doesn't exist */
+/*  This doesn't exist */
 import { d1Adapter } from 'better-auth/adapters/d1'
 database: d1Adapter(env.DB)
 
-/* ✅ Use Drizzle instead */
+/*  Use Drizzle instead */
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
 import { drizzle } from 'drizzle-orm/d1'
 const db = drizzle(env.DB, { schema })
 database: drizzleAdapter(db, { provider: "sqlite" })
 
-/* ✅ Or use Kysely */
+/*  Or use Kysely */
 import { Kysely } from 'kysely'
 import { D1Dialect } from 'kysely-d1'
 database: {
@@ -31,35 +31,35 @@ database: {
 ## v1.4.x Breaking Changes
 
 ```typescript
-/* ❌ CommonJS no longer supported (v1.4.0) */
+/*  CommonJS no longer supported (v1.4.0) */
 const { betterAuth } = require('better-auth')
 
-/* ✅ ESM only */
+/*  ESM only */
 import { betterAuth } from 'better-auth'
 
-/* ❌ MCP plugin deprecated (v1.4.9) */
+/*  MCP plugin deprecated (v1.4.9) */
 import { mcp } from 'better-auth/plugins'
 
-/* ✅ Use OAuth 2.1 Provider instead */
+/*  Use OAuth 2.1 Provider instead */
 import { oauthProvider, jwt } from 'better-auth/plugins'
 plugins: [jwt(), oauthProvider({ accessTokenExpiresIn: 3600 })]
 
-/* ❌ Admin impersonation of admins (v1.4.6 default changed) */
+/*  Admin impersonation of admins (v1.4.6 default changed) */
 admin() // allowImpersonatingAdmins now defaults to false
 
-/* ✅ Explicit if you need admin-on-admin impersonation */
+/*  Explicit if you need admin-on-admin impersonation */
 admin({ allowImpersonatingAdmins: true })
 ```
 
 ## TanStack Start: Cookie Plugin Required
 
 ```typescript
-/* ❌ Cookies won't set properly */
+/*  Cookies won't set properly */
 export const auth = betterAuth({
   plugins: [twoFactor(), organization()],
 })
 
-/* ✅ reactStartCookies MUST be last */
+/*  reactStartCookies MUST be last */
 import { reactStartCookies } from 'better-auth/react-start'
 export const auth = betterAuth({
   plugins: [
@@ -73,10 +73,10 @@ export const auth = betterAuth({
 ## Nanostore Session Invalidation
 
 ```typescript
-/* ❌ TanStack Query invalidation doesn't update session */
+/*  TanStack Query invalidation doesn't update session */
 queryClient.invalidateQueries({ queryKey: ['user-profile'] })
 
-/* ✅ Notify nanostore after user updates */
+/*  Notify nanostore after user updates */
 const { data, error } = await authClient.updateUser({ image: newAvatarUrl })
 if (!error) {
   authClient.$store.notify('$sessionSignal')
@@ -86,10 +86,10 @@ if (!error) {
 ## Schema Generation
 
 ```bash
-# ❌ better-auth migrate doesn't work well with D1
+#  better-auth migrate doesn't work well with D1
 npx better-auth migrate
 
-# ✅ Use Drizzle Kit instead
+#  Use Drizzle Kit instead
 npx drizzle-kit generate
 wrangler d1 migrations apply my-db --remote
 ```

@@ -17,10 +17,10 @@ async function example1() {
   });
   
   if (result.exitCode === 0) {
-    console.log('✅ Conversion successful!');
+    console.log(' Conversion successful!');
     console.log('Output:', result.stdout.substring(0, 200) + '...');
   } else {
-    console.error('❌ Conversion failed:', result.stderr);
+    console.error(' Conversion failed:', result.stderr);
   }
 }
 
@@ -41,7 +41,7 @@ async function example2() {
     try {
       const output = JSON.parse(result.stdout);
       if (output.success) {
-        console.log('✅ Conversion successful!');
+        console.log(' Conversion successful!');
         console.log(`Output file: ${output.outputPath}`);
         console.log(`File type: ${output.fileType}`);
         console.log(`Stats: ${output.stats.lines} lines, ${output.stats.words} words`);
@@ -71,7 +71,7 @@ async function example3() {
   });
   
   if (result.exitCode !== 0) {
-    console.log('✅ Correctly detected error (as expected)');
+    console.log(' Correctly detected error (as expected)');
     console.log('Error message:', result.stderr.substring(0, 200));
   }
 }
@@ -102,14 +102,14 @@ async function example4() {
       
       if (result.exitCode === 0) {
         results.push({ file: doc, success: true });
-        console.log('  ✅ Success');
+        console.log('   Success');
       } else {
         results.push({ file: doc, success: false, error: result.stderr });
-        console.log('  ❌ Failed:', result.stderr.substring(0, 100));
+        console.log('   Failed:', result.stderr.substring(0, 100));
       }
     } catch (error) {
       results.push({ file: doc, success: false, error: error.message });
-      console.log('  ❌ Error:', error.message);
+      console.log('   Error:', error.message);
     }
   }
   
@@ -129,14 +129,14 @@ async function example5() {
     const result = await convertOfficeToMarkdown('/path/to/document.pdf');
     
     if (result.success) {
-      console.log('✅ Direct module usage successful!');
+      console.log(' Direct module usage successful!');
       console.log(`Output: ${result.outputPath}`);
       console.log(`Preview: ${result.preview.substring(0, 150)}...`);
     } else {
-      console.error('❌ Direct module usage failed:', result.error);
+      console.error(' Direct module usage failed:', result.error);
     }
   } catch (error) {
-    console.error('❌ Failed to load module:', error.message);
+    console.error(' Failed to load module:', error.message);
   }
 }
 

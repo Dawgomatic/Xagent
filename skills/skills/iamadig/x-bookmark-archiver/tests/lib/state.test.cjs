@@ -70,7 +70,7 @@ if (fs.existsSync(TEST_STATE_DIR)) {
   fs.rmSync(TEST_STATE_DIR, { recursive: true });
 }
 
-console.log('\n📦 State Management Tests');
+console.log('\n State Management Tests');
 console.log(`   Using: ${TEST_STATE_DIR}\n`);
 
 // Test: Empty state
@@ -149,7 +149,7 @@ test('JSON files are pretty-printed', () => {
 });
 
 // Cleanup
-console.log('\n🧹 Cleaning up test directory...');
+console.log('\n Cleaning up test directory...');
 fs.rmSync(TEST_STATE_DIR, { recursive: true, force: true });
 
-console.log('\n' + (process.exitCode ? '❌ Some tests failed' : '✅ All tests passed'));
+console.log('\n' + (process.exitCode ? ' Some tests failed' : ' All tests passed'));

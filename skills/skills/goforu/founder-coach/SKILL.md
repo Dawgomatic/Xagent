@@ -18,7 +18,7 @@ description: |
 
 Founder Coach is an AI-powered coaching skill for startup founders. It focuses on upgrading thinking patterns, applying proven mental models, and building accountability through weekly challenges.
 
-## 🎯 Core Philosophy
+##  Core Philosophy
 
 **Mindset over Tactics**: Rather than giving specific business advice ("do X market"), Founder Coach helps founders develop better thinking frameworks to solve their own problems.
 
@@ -26,7 +26,7 @@ Founder Coach is an AI-powered coaching skill for startup founders. It focuses o
 
 **Just-in-Time Learning**: Mental models are introduced when relevant to the founder's current challenges.
 
-## 🔄 Core Workflow
+##  Core Workflow
 
 Founder Coach operates through these stages:
 
@@ -53,7 +53,7 @@ Founder Coach operates through these stages:
    - Include: mental model progress, anti-patterns observed, challenge completion, PMF stage observations
    - Update `founder-profile.md` with new insights
 
-## 🧠 Mental Model Library
+##  Mental Model Library
 
 ### Product-Market Fit Levels (First Round)
 - **Nascent**: 0-5 customers, $0-$500K ARR
@@ -76,7 +76,7 @@ Founder Coach operates through these stages:
 - Go Full Speed
 - (See references for complete list)
 
-## ⚠️ Anti-Patterns (Low-Level Thinking)
+##  Anti-Patterns (Low-Level Thinking)
 
 Founder Coach detects and intervenes on:
 
@@ -89,7 +89,7 @@ Founder Coach detects and intervenes on:
 
 **Intervention Style**: Gentle Socratic questioning, not criticism. Max once per pattern per conversation.
 
-## 📊 Founder Profile System
+##  Founder Profile System
 
 **Location**: `~/PhoenixClaw/Startup/founder-profile.md`
 
@@ -103,7 +103,7 @@ Founder Coach detects and intervenes on:
 
 **Update Rule**: Append-only. Never overwrite existing content.
 
-## 🔗 PhoenixClaw Integration
+##  PhoenixClaw Integration
 
 **Optional Integration**: Founder Coach can read PhoenixClaw data if available.
 
@@ -115,7 +115,7 @@ Founder Coach detects and intervenes on:
 
 **Journal Output**: Weekly reports can be configured to add a "Coaching Insights" section to PhoenixClaw daily journals.
 
-## 📚 Documentation Reference
+##  Documentation Reference
 
 ### References (`references/`)
 - `user-config.md` - Configuration specification and onboarding flow
@@ -138,7 +138,7 @@ Founder Coach detects and intervenes on:
 - `challenge-template.md` - Weekly challenge card template
 - `weekly-report-template.md` - Weekly report template
 
-## 🚫 Guardrails
+##  Guardrails
 
 **Founder Coach MUST NOT**:
 - Give specific business advice (market selection, pricing, etc.)
@@ -150,7 +150,7 @@ Founder Coach detects and intervenes on:
 - Support multiple languages (v1)
 - Send proactive notifications (unless user sets cron)
 
-## 📝 Example Interactions
+##  Example Interactions
 
 **Low-Level Thinking Detection**:
 > User: "We can't grow because the market is too saturated and we don't have enough funding."

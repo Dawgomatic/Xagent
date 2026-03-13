@@ -59,7 +59,7 @@ Examples:
 async function listFiles(apiKey, pid) {
   const url = `${API_BASE}/${pid}`;
   
-  console.log(`📁 Fetching files for site: ${pid}\n`);
+  console.log(` Fetching files for site: ${pid}\n`);
   
   const response = await fetch(url, {
     method: 'GET',
@@ -101,14 +101,14 @@ function formatFiles(files, basePath = '') {
     const sizeFormatted = formatBytes(size);
     
     if (isDir) {
-      output += `📁 ${name}/\n`;
+      output += ` ${name}/\n`;
     } else {
-      output += `📄 ${name} (${sizeFormatted})\n`;
+      output += ` ${name} (${sizeFormatted})\n`;
       totalSize += size;
     }
   });
   
-  output += `\n📊 Total: ${files.length} items, ${formatBytes(totalSize)}\n`;
+  output += `\n Total: ${files.length} items, ${formatBytes(totalSize)}\n`;
   
   return output;
 }
@@ -125,13 +125,13 @@ async function main() {
   const options = parseArgs();
   
   if (!options.apiKey) {
-    console.error('❌ Error: API key required. Provide --api-key or set STATIC_APP_API_KEY env var.');
+    console.error(' Error: API key required. Provide --api-key or set STATIC_APP_API_KEY env var.');
     console.error('   Get your API key at: https://static.app/account/api');
     process.exit(1);
   }
   
   if (!options.pid) {
-    console.error('❌ Error: PID required. Provide PID as argument or use --pid.');
+    console.error(' Error: PID required. Provide PID as argument or use --pid.');
     console.error('   Example: node files.js abc123');
     process.exit(1);
   }
@@ -148,7 +148,7 @@ async function main() {
     }
     
   } catch (error) {
-    console.error(`❌ Failed to list files: ${error.message}`);
+    console.error(` Failed to list files: ${error.message}`);
     process.exit(1);
   }
 }

@@ -2,17 +2,17 @@
 
 ## What This Skill Does NOT Do
 
-❌ **No private keys** — Never requests or stores your seed phrase, private key, or signing credentials  
-❌ **No signing** — Never executes transactions on-chain  
-❌ **No token storage** — Telegram/Discord/Slack tokens are managed by OpenClaw, not this skill  
-❌ **No sensitive logging** — API responses are parsed safely; position data is NOT logged  
+ **No private keys** — Never requests or stores your seed phrase, private key, or signing credentials  
+ **No signing** — Never executes transactions on-chain  
+ **No token storage** — Telegram/Discord/Slack tokens are managed by OpenClaw, not this skill  
+ **No sensitive logging** — API responses are parsed safely; position data is NOT logged  
 
 ## What This Skill Does
 
-✅ **Read-only monitoring** — Queries Aave's public GraphQL API for position data  
-✅ **Uses OpenClaw's message routing** — Sends alerts through your configured channels  
-✅ **Local config storage** — Wallet address stored in OpenClaw's encrypted preferences  
-✅ **Background monitoring** — Registers a cron job for automated checks  
+ **Read-only monitoring** — Queries Aave's public GraphQL API for position data  
+ **Uses OpenClaw's message routing** — Sends alerts through your configured channels  
+ **Local config storage** — Wallet address stored in OpenClaw's encrypted preferences  
+ **Background monitoring** — Registers a cron job for automated checks  
 
 ---
 
@@ -77,30 +77,30 @@ For security reviewers, here's what to verify:
 ### Scripts
 
 **scripts/monitor.js**
-- ✅ Only fetches from `https://api.v3.aave.com/graphql` (Aave public API)
-- ✅ No private key handling
-- ✅ No logging of full API responses
-- ✅ Error messages don't include sensitive data
-- ✅ Returns only parsed data (HF, collateral, debt, asset names)
+-  Only fetches from `https://api.v3.aave.com/graphql` (Aave public API)
+-  No private key handling
+-  No logging of full API responses
+-  Error messages don't include sensitive data
+-  Returns only parsed data (HF, collateral, debt, asset names)
 
 **scripts/cron-runner.js**
-- ✅ No credential storage
-- ✅ Returns structured result for OpenClaw routing
-- ✅ No external messaging calls (uses OpenClaw's system)
+-  No credential storage
+-  Returns structured result for OpenClaw routing
+-  No external messaging calls (uses OpenClaw's system)
 
 ### Configuration
 
 **assets/config-template.json**
-- ✅ No API keys or tokens
-- ✅ Wallet address marked as configuration (not hardcoded)
-- ✅ Thresholds and intervals are user-configurable
+-  No API keys or tokens
+-  Wallet address marked as configuration (not hardcoded)
+-  Thresholds and intervals are user-configurable
 
 ### Documentation
 
 **SKILL.md**
-- ✅ Clearly states "no private keys"
-- ✅ Explains credential handling via OpenClaw
-- ✅ Documents what data is stored where
+-  Clearly states "no private keys"
+-  Explains credential handling via OpenClaw
+-  Documents what data is stored where
 
 ---
 
@@ -171,11 +171,11 @@ Users should understand:
 
 For maximum security:
 
-1. ✅ Use a **read-only address** (not your hot wallet with signing keys)
-2. ✅ Ensure your **Telegram/Discord/Slack channel is private**
-3. ✅ Keep **OpenClaw updated** to get security patches
-4. ✅ Review **OpenClaw logs** periodically
-5. ✅ Don't share **ClawhHub links with untrusted sources**
+1.  Use a **read-only address** (not your hot wallet with signing keys)
+2.  Ensure your **Telegram/Discord/Slack channel is private**
+3.  Keep **OpenClaw updated** to get security patches
+4.  Review **OpenClaw logs** periodically
+5.  Don't share **ClawhHub links with untrusted sources**
 
 ---
 

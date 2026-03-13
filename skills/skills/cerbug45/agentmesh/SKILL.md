@@ -272,11 +272,11 @@ alice.send("bob", text="Cross-machine encrypted message!")
 
 ### What the Hub can see
 
-- ✅ Agent IDs (to route messages)
-- ✅ Public key bundles (required for discovery)
-- ✅ Metadata: sender, recipient, timestamp, message counter
-- ❌ **Message contents** (always encrypted)
-- ❌ **Payload data** (always encrypted)
+-  Agent IDs (to route messages)
+-  Public key bundles (required for discovery)
+-  Metadata: sender, recipient, timestamp, message counter
+-  **Message contents** (always encrypted)
+-  **Payload data** (always encrypted)
 
 ---
 
@@ -384,4 +384,4 @@ Issues and PRs welcome at https://github.com/cerbug45/AgentMesh/issues
 
 ## License
 
-MIT © cerbug45 – see [LICENSE](LICENSE)
+MIT  cerbug45 – see [LICENSE](LICENSE)

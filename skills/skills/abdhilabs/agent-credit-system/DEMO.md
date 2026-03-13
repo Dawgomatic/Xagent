@@ -1,4 +1,4 @@
-# KarmaBank Demo Guide 💰
+# KarmaBank Demo Guide 
 
 A step-by-step guide for AI agents to install, configure, and use KarmaBank for borrowing USDC based on Moltbook karma.
 
@@ -148,7 +148,7 @@ CREDIT_LEDGER_PATH=.credit-ledger.json
 3. Create a new API key
 4. Copy the key to your `.env`
 
-> ⚠️ **Security Note:** Never share your API keys. Keep them in `.env` and add `.env` to `.gitignore`.
+>  **Security Note:** Never share your API keys. Keep them in `.env` and add `.env` to `.gitignore`.
 
 ---
 
@@ -163,8 +163,8 @@ karmabank register youragentname
 **Example:**
 ```bash
 karmabank register assistant
-# ✅ Registered: assistant with 50 karma (Bronze tier)
-# 📊 Credit Limit: 50 USDC
+#  Registered: assistant with 50 karma (Bronze tier)
+#  Credit Limit: 50 USDC
 ```
 
 ### What Happens During Registration
@@ -220,11 +220,11 @@ karmabank check youragentname
 
 **Example Output:**
 ```bash
-📊 KarmaBank Credit Report
+ KarmaBank Credit Report
 ━━━━━━━━━━━━━━━━━━━━━━━━━
 Agent: assistant
 Score: 75
-Tier: Platinum 💎
+Tier: Platinum 
 Max Borrow: 600 USDC
 Current Balance: 0 USDC
 ━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -238,20 +238,20 @@ karmabank check youragentname --verbose
 
 **Example Output:**
 ```bash
-📊 KarmaBank Credit Report (Detailed)
+ KarmaBank Credit Report (Detailed)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Agent: assistant
-Score: 75 (Platinum 💎)
+Score: 75 (Platinum )
 Max Borrow: 600 USDC
 Current Balance: 0 USDC
 
-📈 Score Breakdown:
+ Score Breakdown:
   - Moltbook Karma: 75
   - Activity Bonus: 10
   - Reputation: +5
   - Verification: ✓
 
-💳 Credit Utilization:
+ Credit Utilization:
   - Available: 600 USDC
   - Used: 0 USDC
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -270,7 +270,7 @@ karmabank borrow youragentname amount
 **Example:**
 ```bash
 karmabank borrow assistant 100
-# 🏦 KarmaBank Loan Request
+#  KarmaBank Loan Request
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Agent: assistant
 # Amount: 100 USDC
@@ -284,8 +284,8 @@ karmabank borrow assistant 100
 
 ```bash
 karmabank borrow assistant 100 --yes
-# ✅ Loan Approved!
-# 📝 Loan Details:
+#  Loan Approved!
+#  Loan Details:
 #   Amount: 100 USDC
 #   Balance: 100 USDC
 #   Term: 14 days
@@ -298,21 +298,21 @@ karmabank borrow assistant 100 --yes
 **Bronze (50 USDC max):**
 ```bash
 karmabank borrow newagent 50 --yes
-# ✅ Approved (at max limit)
+#  Approved (at max limit)
 ```
 
 **Diamond (1000 USDC max):**
 ```bash
 karmabank borrow topagent 500 --yes
-# ✅ Approved
-# 📊 Remaining Credit: 500 USDC
+#  Approved
+#  Remaining Credit: 500 USDC
 ```
 
 ### Check Balance After Borrowing
 
 ```bash
 karmabank check assistant
-# 📊 Credit Report
+#  Credit Report
 # Balance: 100 USDC (of 600 max)
 ```
 
@@ -329,7 +329,7 @@ karmabank repay youragentname amount
 **Example:**
 ```bash
 karmabank repay assistant 50
-# 💰 Loan Repayment
+#  Loan Repayment
 # ━━━━━━━━━━━━━━━━━━━
 # Agent: assistant
 # Repay Amount: 50 USDC
@@ -342,17 +342,17 @@ karmabank repay assistant 50
 
 ```bash
 karmabank repay assistant 50 --yes
-# ✅ Repayment Successful!
-# 📝 New Balance: 50 USDC
+#  Repayment Successful!
+#  New Balance: 50 USDC
 ```
 
 ### Repay Full Balance
 
 ```bash
 karmabank repay assistant 50 --yes
-# ✅ Loan Fully Repaid!
-# 📊 Outstanding Balance: 0 USDC
-# 🎉 Credit available for new loans
+#  Loan Fully Repaid!
+#  Outstanding Balance: 0 USDC
+#  Credit available for new loans
 ```
 
 ### Check History
@@ -363,11 +363,11 @@ karmabank history youragentname
 
 **Example Output:**
 ```bash
-📜 Transaction History
+ Transaction History
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-2024-02-05 10:00  📥 BORROW   +100 USDC  (Bal: 100)
-2024-02-05 10:15  📤 REPAY    -50 USDC   (Bal: 50)
-2024-02-05 10:20  📤 REPAY    -50 USDC   (Bal: 0)
+2024-02-05 10:00   BORROW   +100 USDC  (Bal: 100)
+2024-02-05 10:15   REPAY    -50 USDC   (Bal: 50)
+2024-02-05 10:20   REPAY    -50 USDC   (Bal: 0)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -473,11 +473,11 @@ karmabank check testagent
 
 # Try to borrow more than limit
 karmabank borrow testagent 100 --yes
-# ❌ Error: Exceeds credit limit (50 USDC)
+#  Error: Exceeds credit limit (50 USDC)
 
 # Borrow at limit
 karmabank borrow testagent 50 --yes
-# ✅ Approved (max for Bronze)
+#  Approved (max for Bronze)
 
 # Repay
 karmabank repay testagent 50 --yes
@@ -614,17 +614,17 @@ Never commit `.env` to version control:
 
 You've now completed the KarmaBank demo! You can:
 
-✅ Install and configure KarmaBank  
-✅ Register agents  
-✅ Check credit scores  
-✅ Borrow USDC  
-✅ Repay loans  
-✅ View transaction history  
-✅ Manage multiple agents  
+ Install and configure KarmaBank  
+ Register agents  
+ Check credit scores  
+ Borrow USDC  
+ Repay loans  
+ View transaction history  
+ Manage multiple agents  
 
 **Next Steps:**
 - Explore the [full SKILL.md](./SKILL.md) documentation
 - Try the [hackathon submission template](./SUBMISSION.md)
 - Integrate with other skills (circle-wallet, etc.)
 
-Happy banking! 🏦💰
+Happy banking! 

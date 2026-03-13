@@ -25,7 +25,7 @@ if [ -z "$CONTENT" ] || [ -z "$SCHEDULE_TIME" ]; then
 fi
 
 cat << EOF
-📅 LINKEDIN SCHEDULED POST
+ LINKEDIN SCHEDULED POST
 ═══════════════════════════════════════
 
 Schedule: $SCHEDULE_TIME (UTC)
@@ -66,5 +66,5 @@ Convert your desired time to Unix milliseconds:
 
 Then create the cron job via the OpenClaw cron tool.
 
-💡 Tip: Keep a content calendar in a file and schedule a week at a time.
+ Tip: Keep a content calendar in a file and schedule a week at a time.
 EOF

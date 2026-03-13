@@ -20,7 +20,7 @@ Queries about total spending or income over a specific period (day, week, month,
 
 ### Response Template
 ```markdown
-> [!summary] 💰 {{period_label}} Spending
+> [!summary]  {{period_label}} Spending
 > Total: **{{currency}}{{total_amount}}**
 > Breakdown:
 > - {{#each categories}}- {{name}}: {{currency}}{{amount}} ({{percent}}%){{/each}}
@@ -40,7 +40,7 @@ Queries focused on specific spending categories (e.g., Food, Transport, Shopping
 
 ### Response Template
 ```markdown
-> [!expense] 🏷️ {{category_name}}: {{period_label}}
+> [!expense]  {{category_name}}: {{period_label}}
 > Total: **{{currency}}{{total_amount}}**
 > Count: {{transaction_count}} transactions
 > Recent:
@@ -61,7 +61,7 @@ Queries about specific merchants or service providers.
 
 ### Response Template
 ```markdown
-> [!receipt] 🛒 Merchant: {{merchant_name}}
+> [!receipt]  Merchant: {{merchant_name}}
 > Total spent: **{{currency}}{{total_amount}}**
 > Last visit: {{last_visit_date}}
 > Transactions:
@@ -82,10 +82,10 @@ Queries regarding current budget status and remaining limits.
 
 ### Response Template
 ```markdown
-> [!info] 🎯 Budget Status: {{period_label}}
+> [!info]  Budget Status: {{period_label}}
 > Used: **{{currency}}{{used_amount}}** / **{{currency}}{{budget_limit}}** ({{percent}}%)
 > Remaining: **{{currency}}{{remaining_amount}}**
-> {{#if over_budget}}> [!warning] ⚠️ Over budget by {{currency}}{{over_amount}}!{{else}}> Daily allowance: {{currency}}{{daily_allowance}} remaining{{/if}}
+> {{#if over_budget}}> [!warning]  Over budget by {{currency}}{{over_amount}}!{{else}}> Daily allowance: {{currency}}{{daily_allowance}} remaining{{/if}}
 ```
 
 ---
@@ -102,11 +102,11 @@ Queries comparing spending between two periods or categories.
 
 ### Response Template
 ```markdown
-> [!insight] 📊 Comparison: {{period_a}} vs {{period_b}}
+> [!insight]  Comparison: {{period_a}} vs {{period_b}}
 > - {{period_a}}: **{{currency}}{{amount_a}}**
 > - {{period_b}}: **{{currency}}{{amount_b}}**
 > Difference: **{{diff_prefix}}{{currency}}{{diff_amount}}** ({{diff_percent}}%)
-> {{#if decreased}}✨ You spent less than the previous period!{{else}}📈 Spending increased this period.{{/if}}
+> {{#if decreased}} You spent less than the previous period!{{else}} Spending increased this period.{{/if}}
 ```
 
 ---
@@ -116,21 +116,21 @@ Queries comparing spending between two periods or categories.
 ### 1. No Data Found
 If no transactions match the query parameters.
 - **Pattern**: "I couldn't find any records for [Category/Merchant] in [Period]."
-- **Template**: `> [!info] 🔍 No records found for {{query_subject}} during this period.`
+- **Template**: `> [!info]  No records found for {{query_subject}} during this period.`
 
 ### 2. Ambiguous Time Range
 If the user says "recently" or "a while ago" without specific dates.
 - **Agent Behavior**: Default to "Last 30 days" and state the assumption.
-- **Template**: `> [!info] 🕒 Showing records for the last 30 days (default).`
+- **Template**: `> [!info]  Showing records for the last 30 days (default).`
 
 ### 3. Unsupported Category
 If the user asks for a category that hasn't been mapped yet.
 - **Agent Behavior**: Search description fields for keywords and offer to create a new category mapping.
-- **Template**: `> [!insight] 💡 I found {{count}} items related to "{{keyword}}", though they aren't in a specific category yet.`
+- **Template**: `> [!insight]  I found {{count}} items related to "{{keyword}}", though they aren't in a specific category yet.`
 
 ### 4. Budget Not Set
 If the user asks about budget but none is configured.
 - **Agent Behavior**: Inform the user and provide the command to set one.
-- **Template**: `> [!warning] ⚠️ No budget configured. Use "Set my monthly budget to [amount]" to start tracking.`
+- **Template**: `> [!warning]  No budget configured. Use "Set my monthly budget to [amount]" to start tracking.`
 
 ---

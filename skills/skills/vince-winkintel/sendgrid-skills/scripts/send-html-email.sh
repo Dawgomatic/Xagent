@@ -45,7 +45,7 @@ fi
 
 # Validate arguments
 if [[ $# -lt 3 ]]; then
-  echo "❌ Error: Missing required arguments"
+  echo " Error: Missing required arguments"
   echo ""
   show_help
   exit 1
@@ -57,7 +57,7 @@ HTML_INPUT="$3"
 
 # Check for API key
 if [[ -z "$SENDGRID_API_KEY" ]]; then
-  echo "❌ Error: SENDGRID_API_KEY environment variable not set"
+  echo " Error: SENDGRID_API_KEY environment variable not set"
   echo ""
   echo "Get your API key at: https://app.sendgrid.com/settings/api_keys"
   echo "Then set it: export SENDGRID_API_KEY=SG.xxxxxxxxx"
@@ -78,11 +78,11 @@ fi
 
 # Validate HTML content is not empty
 if [[ -z "$HTML_CONTENT" ]]; then
-  echo "❌ Error: HTML content is empty"
+  echo " Error: HTML content is empty"
   exit 1
 fi
 
-echo "📧 Sending HTML email..."
+echo " Sending HTML email..."
 echo "  From: $FROM_EMAIL"
 echo "  To: $RECIPIENT"
 echo "  Subject: $SUBJECT"
@@ -121,12 +121,12 @@ RESPONSE_BODY=$(echo "$RESPONSE" | head -n-1)
 
 # Check response
 if [[ "$HTTP_CODE" == "202" ]]; then
-  echo "✅ Success! Email queued for delivery (HTTP $HTTP_CODE)"
+  echo " Success! Email queued for delivery (HTTP $HTTP_CODE)"
   echo ""
   echo "Note: Check recipient inbox/spam folder in ~1 minute"
   exit 0
 else
-  echo "❌ Error: Unexpected response (HTTP $HTTP_CODE)"
+  echo " Error: Unexpected response (HTTP $HTTP_CODE)"
   echo ""
   if [[ -n "$RESPONSE_BODY" ]]; then
     echo "Response: $RESPONSE_BODY"

@@ -21,15 +21,15 @@ Use this skill when users request:
 - "Diagram the workflow of..."
 
 **Supported diagram types:**
-- 📊 **Flowcharts**: Sequential processes, workflows, decision trees
-- 🔗 **Relationship Diagrams**: Entity relationships, system components, dependencies
-- 🧠 **Mind Maps**: Concept hierarchies, brainstorming results, topic organization
-- 🏗️ **Architecture Diagrams**: System design, module interactions, data flow
-- 📈 **Data Flow Diagrams (DFD)**: Data flow visualization, data transformation processes
-- 🏊 **Business Flow (Swimlane)**: Cross-functional workflows, actor-based process flows
-- 📦 **Class Diagrams**: Object-oriented design, class structures and relationships
-- 🔄 **Sequence Diagrams**: Object interactions over time, message flows
-- 🗃️ **ER Diagrams**: Database entity relationships, data models
+-  **Flowcharts**: Sequential processes, workflows, decision trees
+-  **Relationship Diagrams**: Entity relationships, system components, dependencies
+-  **Mind Maps**: Concept hierarchies, brainstorming results, topic organization
+-  **Architecture Diagrams**: System design, module interactions, data flow
+-  **Data Flow Diagrams (DFD)**: Data flow visualization, data transformation processes
+-  **Business Flow (Swimlane)**: Cross-functional workflows, actor-based process flows
+-  **Class Diagrams**: Object-oriented design, class structures and relationships
+-  **Sequence Diagrams**: Object interactions over time, message flows
+-  **ER Diagrams**: Database entity relationships, data models
 
 ## Prerequisites
 
@@ -271,10 +271,10 @@ const id = Date.now().toString(36) + Math.random().toString(36).substr(2);
 ## Output Format
 
 Always provide:
-1. ✅ Complete `.excalidraw` JSON file
-2. 📊 Summary of what was created
-3. 📝 Element count
-4. 💡 Instructions for opening/editing
+1.  Complete `.excalidraw` JSON file
+2.  Summary of what was created
+3.  Element count
+4.  Instructions for opening/editing
 
 **Example summary:**
 ```
@@ -442,12 +442,12 @@ The repository includes Python scripts that handle icon integration automaticall
    ```
 
 **Benefits of Python Script Approach**:
-- ✅ **No token consumption**: Icon JSON data (200-1000 lines each) never enters AI context
-- ✅ **Accurate transformations**: Coordinate calculations handled deterministically
-- ✅ **ID management**: Automatic UUID generation prevents conflicts
-- ✅ **Reliable**: No risk of coordinate miscalculation or ID collision
-- ✅ **Fast**: Direct file manipulation, no parsing overhead
-- ✅ **Reusable**: Works with any Excalidraw library you provide
+-  **No token consumption**: Icon JSON data (200-1000 lines each) never enters AI context
+-  **Accurate transformations**: Coordinate calculations handled deterministically
+-  **ID management**: Automatic UUID generation prevents conflicts
+-  **Reliable**: No risk of coordinate miscalculation or ID collision
+-  **Fast**: Direct file manipulation, no parsing overhead
+-  **Reusable**: Works with any Excalidraw library you provide
 
 **ALTERNATIVE: Manual Icon Integration (Not Recommended)**
 
@@ -498,10 +498,10 @@ Only use this if Python scripts are unavailable:
    ```
 
 **Manual Integration Challenges**:
-- ⚠️ High token consumption (200-1000 lines per icon × number of icons)
-- ⚠️ Complex coordinate transformation calculations
-- ⚠️ Risk of ID collision if not handled carefully
-- ⚠️ Time-consuming for diagrams with many icons
+-  High token consumption (200-1000 lines per icon × number of icons)
+-  Complex coordinate transformation calculations
+-  Risk of ID collision if not handled carefully
+-  Time-consuming for diagrams with many icons
 
 ### Example: Creating AWS Diagram with Icons
 

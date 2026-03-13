@@ -31,17 +31,17 @@ function checkReceiver() {
  * Start media receiver
  */
 function startReceiver() {
-  console.log(`📡 Starting media receiver...`);
+  console.log(` Starting media receiver...`);
   receiverProcess = spawn('node', [
     path.join(skillDir, 'scripts/media-receiver.js'),
   ]);
 
   receiverProcess.on('error', (err) => {
-    console.error(`❌ Receiver error: ${err.message}`);
+    console.error(` Receiver error: ${err.message}`);
   });
 
   receiverProcess.on('close', (code) => {
-    console.warn(`⚠️ Receiver exited with code ${code}`);
+    console.warn(` Receiver exited with code ${code}`);
     receiverProcess = null;
   });
 }
@@ -50,17 +50,17 @@ function startReceiver() {
  * Start analyzer
  */
 function startAnalyzer() {
-  console.log(`🤖 Starting analyzer...`);
+  console.log(` Starting analyzer...`);
   analyzerProcess = spawn('node', [
     path.join(skillDir, 'scripts/analyzer.js'),
   ]);
 
   analyzerProcess.on('error', (err) => {
-    console.error(`❌ Analyzer error: ${err.message}`);
+    console.error(` Analyzer error: ${err.message}`);
   });
 
   analyzerProcess.on('close', (code) => {
-    console.warn(`⚠️ Analyzer exited with code ${code}`);
+    console.warn(` Analyzer exited with code ${code}`);
     analyzerProcess = null;
   });
 }
@@ -69,7 +69,7 @@ function startAnalyzer() {
  * Monitor loop
  */
 async function monitor() {
-  console.log(`\n🏥 ClawdSense Health Monitor started\n`);
+  console.log(`\n ClawdSense Health Monitor started\n`);
 
   setInterval(async () => {
     const receiverOk = await checkReceiver();
@@ -82,7 +82,7 @@ async function monitor() {
       startAnalyzer();
     }
 
-    const status = receiverOk ? '✅' : '❌';
+    const status = receiverOk ? '' : '';
     console.log(`${status} ${new Date().toISOString()}`);
   }, 30000); // Check every 30s
 }
@@ -96,7 +96,7 @@ monitor();
 
 // Graceful shutdown
 process.on('SIGINT', () => {
-  console.log('\n👋 Shutting down...');
+  console.log('\n Shutting down...');
   if (receiverProcess) receiverProcess.kill();
   if (analyzerProcess) analyzerProcess.kill();
   process.exit(0);

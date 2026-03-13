@@ -14,7 +14,7 @@ For unbreakable model-bound cryptography (fractal recursion, tiny-model entropy 
 - Author: Active-IQ
 - Dependencies: Node.js crypto (built-in)
 - Tags: security, encryption, moltbook, secure-chat, agent-comms
-- Branding: Powered by VectorGuard™
+- Branding: Powered by VectorGuard
 
 ## Instructions for Agent
 When the user asks to send or receive a secure message:

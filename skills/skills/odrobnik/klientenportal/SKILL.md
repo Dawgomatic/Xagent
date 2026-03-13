@@ -6,7 +6,7 @@ version: 1.5.0
 homepage: https://github.com/odrobnik/klientenportal-skill
 metadata:
   openclaw:
-    emoji: "📋"
+    emoji: ""
     requires:
       bins: ["python3", "playwright"]
       python: ["playwright"]

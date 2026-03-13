@@ -21,13 +21,13 @@ while [[ $# -gt 0 ]]; do
         --human-discord-id) HUMAN_DISCORD_ID="$2"; shift 2 ;;
         --db-path) DB_PATH="$2"; shift 2 ;;
         --server) SERVERS+=("$2"); shift 2 ;;
-        *) echo "❌ Unknown option: $1"; exit 1 ;;
+        *) echo " Unknown option: $1"; exit 1 ;;
     esac
 done
 
 # Check sqlite3
 if ! command -v sqlite3 &>/dev/null; then
-    echo "❌ sqlite3 is required but not found. Install it first."
+    echo " sqlite3 is required but not found. Install it first."
     exit 1
 fi
 
@@ -40,7 +40,7 @@ DB_DIR="$(dirname "$DB_FILE")"
 
 # Check if already initialized
 if [ -f "$DB_FILE" ]; then
-    echo "⚠️  Tribe DB already exists at: $DB_FILE"
+    echo "  Tribe DB already exists at: $DB_FILE"
     echo "   Delete it manually to re-initialize."
     exit 1
 fi
@@ -48,7 +48,7 @@ fi
 # Create directory
 mkdir -p "$DB_DIR"
 
-echo "🏛️  Initializing Tribe Protocol..."
+echo "  Initializing Tribe Protocol..."
 echo "   DB: $DB_FILE"
 
 # Create schema
@@ -75,7 +75,7 @@ if [ -n "$BOT_NAME" ] && [ -n "$BOT_DISCORD_ID" ]; then
     sqlite3 "$DB_FILE" "INSERT INTO entities (name, type, trust_tier, status, relationship) VALUES ('$BOT_NAME', 'bot', 4, 'active', 'self');"
     BOT_ID=$(sqlite3 "$DB_FILE" "SELECT id FROM entities WHERE name='$BOT_NAME';")
     sqlite3 "$DB_FILE" "INSERT INTO platform_ids (entity_id, platform, platform_id, verified, primary_contact) VALUES ($BOT_ID, 'discord', '$BOT_DISCORD_ID', 1, 1);"
-    echo "   ✅ Bot entity created: $BOT_NAME (Tier 4)"
+    echo "    Bot entity created: $BOT_NAME (Tier 4)"
 fi
 
 # Seed human owner if provided
@@ -88,7 +88,7 @@ if [ -n "$HUMAN_NAME" ] && [ -n "$HUMAN_DISCORD_ID" ]; then
     if [ -n "${BOT_ID:-}" ]; then
         sqlite3 "$DB_FILE" "UPDATE entities SET owner_entity_id=$HUMAN_ID WHERE id=$BOT_ID;"
     fi
-    echo "   ✅ Owner entity created: $HUMAN_NAME (Tier 4)"
+    echo "    Owner entity created: $HUMAN_NAME (Tier 4)"
 fi
 
 # Seed server roles if --server provided (format: slug:guild_id e.g. electrons:000000000000000008)
@@ -105,7 +105,7 @@ for SERVER_ENTRY in "${SERVERS[@]}"; do
         if [ -n "${HUMAN_ID:-}" ]; then
             sqlite3 "$DB_FILE" "INSERT OR IGNORE INTO server_roles (entity_id, server_slug, server_id, role) VALUES ($HUMAN_ID, '$S_SLUG', $GUILD_CLAUSE, 'admin');"
         fi
-        echo "   ✅ Server added: $S_SLUG (guild: ${S_GUILD_ID:-unknown})"
+        echo "    Server added: $S_SLUG (guild: ${S_GUILD_ID:-unknown})"
     fi
 done
 
@@ -122,13 +122,13 @@ if [ -f "$TEMPLATE" ]; then
         -e "s|{{SKILL_DIR}}|$SKILL_DIR|g" \
         -e "s|{{DB_PATH}}|$DB_FILE|g" \
         "$TEMPLATE" > "$TRIBE_MD"
-    echo "   ✅ TRIBE.md generated at: $TRIBE_MD"
+    echo "    TRIBE.md generated at: $TRIBE_MD"
 fi
 
 echo ""
-echo "🎉 Tribe Protocol initialized!"
+echo " Tribe Protocol initialized!"
 echo ""
-echo "📋 Add this to your AGENTS.md:"
+echo " Add this to your AGENTS.md:"
 echo "   $(cat "$SKILL_DIR/templates/AGENTS.md.snippet" 2>/dev/null || echo '**Non-owner messages → ALWAYS check TRIBE.md first (mandatory trust lookup).**')"
 echo ""
 echo "Next steps:"

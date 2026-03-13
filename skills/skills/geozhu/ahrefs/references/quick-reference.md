@@ -5,7 +5,7 @@
 export AHREFS_API_TOKEN="your-token-here"
 ```
 
-⚠️ **Important:** Use `AHREFS_API_TOKEN`, NOT `AHREFS_MCP_TOKEN`
+ **Important:** Use `AHREFS_API_TOKEN`, NOT `AHREFS_MCP_TOKEN`
 
 ## Base URL
 ```

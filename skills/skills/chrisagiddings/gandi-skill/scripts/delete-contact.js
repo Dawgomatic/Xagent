@@ -33,10 +33,10 @@ function confirm(message) {
 }
 
 async function main() {
-  console.log('🗑️  Delete Saved Contact\n');
+  console.log('  Delete Saved Contact\n');
   
   if (!fs.existsSync(CONTACT_FILE)) {
-    console.log('✅ No contact file found.');
+    console.log(' No contact file found.');
     console.log('');
     console.log(`   Location: ${CONTACT_FILE}`);
     console.log('   Status: Already deleted or never created');
@@ -49,11 +49,11 @@ async function main() {
   try {
     contact = JSON.parse(fs.readFileSync(CONTACT_FILE, 'utf8'));
   } catch (err) {
-    console.error('⚠️  Warning: Could not read contact file');
+    console.error('  Warning: Could not read contact file');
   }
   
   if (contact) {
-    console.log('📋 Contact to be deleted:');
+    console.log(' Contact to be deleted:');
     console.log(`   Name: ${contact.given} ${contact.family}`);
     console.log(`   Email: ${contact.email}`);
     console.log(`   Location: ${CONTACT_FILE}`);
@@ -64,7 +64,7 @@ async function main() {
   if (!forceDelete) {
     const shouldDelete = await confirm('Delete this contact? (yes/no): ');
     if (!shouldDelete) {
-      console.log('❌ Deletion cancelled.');
+      console.log(' Deletion cancelled.');
       return;
     }
   }
@@ -73,19 +73,19 @@ async function main() {
   try {
     fs.unlinkSync(CONTACT_FILE);
     console.log('');
-    console.log('✅ Contact deleted successfully!');
+    console.log(' Contact deleted successfully!');
     console.log('');
-    console.log('💡 To set up contact again:');
+    console.log(' To set up contact again:');
     console.log('   node setup-contact.js');
     console.log('');
   } catch (err) {
     console.error('');
-    console.error('❌ Error deleting contact:', err.message);
+    console.error(' Error deleting contact:', err.message);
     process.exit(1);
   }
 }
 
 main().catch(err => {
-  console.error('❌ Error:', err.message);
+  console.error(' Error:', err.message);
   process.exit(1);
 });

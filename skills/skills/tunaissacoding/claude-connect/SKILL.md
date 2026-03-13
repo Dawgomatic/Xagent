@@ -8,11 +8,11 @@ description: "Connect Claude to Clawdbot instantly and keep it connected 24/7. R
 **Connect your Claude subscription to Clawdbot in one step.**
 
 Automatically:
-- ✅ Reads Claude OAuth tokens from Keychain
-- ✅ Writes them to Clawdbot in proper OAuth format
-- ✅ Auto-refreshes every 2 hours (before expiry)
-- ✅ Notifies you on success/failure
-- ✅ Works with `clawdbot onboard` (fixes OAuth auth-profiles bug)
+-  Reads Claude OAuth tokens from Keychain
+-  Writes them to Clawdbot in proper OAuth format
+-  Auto-refreshes every 2 hours (before expiry)
+-  Notifies you on success/failure
+-  Works with `clawdbot onboard` (fixes OAuth auth-profiles bug)
 
 ---
 
@@ -76,10 +76,10 @@ cd ~/clawd/skills/claude-connect
 ```
 
 The installer will:
-- ✅ Verify Claude CLI is set up
-- ✅ Create config file
-- ✅ Set up auto-refresh job (launchd)
-- ✅ Run first refresh to test
+-  Verify Claude CLI is set up
+-  Create config file
+-  Set up auto-refresh job (launchd)
+-  Run first refresh to test
 
 ### Manual
 

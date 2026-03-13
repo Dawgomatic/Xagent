@@ -21,7 +21,7 @@ def pct(found, total):
 def species_rows(species_list, color):
     rows = ""
     for s in species_list:
-        check = "✅" if s["found"] else "⬜"
+        check = "" if s["found"] else ""
         date  = f'<span class="date">{s["dateFound"]}</span>' if s["found"] else ""
         rows += f'<div class="species-row {"found" if s["found"] else ""}">{check} {s["species"]}{date}</div>\n'
     return rows
@@ -115,10 +115,10 @@ def main():
 <body>
   <div class="header">
     <div>
-      <div class="title">🦅 {region}</div>
+      <div class="title"> {region}</div>
       <div class="subtitle">Birdfolio Checklist · {datetime.now().strftime("%b %d, %Y")}</div>
     </div>
-    <div class="logo">🦅 Birdfolio</div>
+    <div class="logo"> Birdfolio</div>
   </div>
 
   <div class="total-bar-wrap">
@@ -133,7 +133,7 @@ def main():
 
   <div class="tier">
     <div class="tier-header">
-      <span class="tier-badge" style="background:{COMMON_COLOR}">🟢 Common</span>
+      <span class="tier-badge" style="background:{COMMON_COLOR}"> Common</span>
       <span class="tier-progress">{cf} / {ct}</span>
     </div>
     <div class="bar-track" style="margin-bottom:10px">
@@ -144,7 +144,7 @@ def main():
 
   <div class="tier">
     <div class="tier-header">
-      <span class="tier-badge" style="background:{RARE_COLOR}">🟡 Rare</span>
+      <span class="tier-badge" style="background:{RARE_COLOR}"> Rare</span>
       <span class="tier-progress">{rf} / {rt}</span>
     </div>
     <div class="bar-track" style="margin-bottom:10px">
@@ -155,7 +155,7 @@ def main():
 
   <div class="tier">
     <div class="tier-header">
-      <span class="tier-badge" style="background:{SUPER_RARE_COLOR}">🔴 Super Rare</span>
+      <span class="tier-badge" style="background:{SUPER_RARE_COLOR}"> Super Rare</span>
       <span class="tier-progress">{sf} / {st}</span>
     </div>
     <div class="bar-track" style="margin-bottom:10px">

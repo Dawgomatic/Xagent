@@ -1,7 +1,7 @@
 ---
 name: circleci
 description: Manage CircleCI pipelines, jobs, and workflows via API. Trigger and monitor builds.
-metadata: {"clawdbot":{"emoji":"⭕","requires":{"env":["CIRCLECI_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["CIRCLECI_TOKEN"]}}}
 ---
 # CircleCI
 Continuous integration platform.

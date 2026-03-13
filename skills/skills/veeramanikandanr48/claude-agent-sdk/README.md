@@ -134,21 +134,21 @@ This skill automatically activates when you mention:
 
 ## What This Skill Does
 
-- ✅ Complete Agent SDK API reference (query, tools, MCP, subagents)
-- ✅ V2 Session APIs (preview) for simpler multi-turn conversations
-- ✅ Sandbox Settings for secure bash execution
-- ✅ File Checkpointing for rollback capability
-- ✅ Tool integration patterns (built-in tools + custom MCP servers)
-- ✅ Subagent orchestration with skills and maxTurns support (v0.2.10+)
-- ✅ Session management (start, resume, fork sessions)
-- ✅ Permission control (fine-grained safety controls)
-- ✅ Filesystem settings (user, project, local configurations)
-- ✅ Query object methods (setModel, supportedCommands, etc.)
-- ✅ Complete hooks system (all 12 hook events)
-- ✅ Streaming message handling (all message types)
-- ✅ Error handling and recovery patterns
-- ✅ 11 production-ready TypeScript templates
-- ✅ 12+ documented errors with solutions
+-  Complete Agent SDK API reference (query, tools, MCP, subagents)
+-  V2 Session APIs (preview) for simpler multi-turn conversations
+-  Sandbox Settings for secure bash execution
+-  File Checkpointing for rollback capability
+-  Tool integration patterns (built-in tools + custom MCP servers)
+-  Subagent orchestration with skills and maxTurns support (v0.2.10+)
+-  Session management (start, resume, fork sessions)
+-  Permission control (fine-grained safety controls)
+-  Filesystem settings (user, project, local configurations)
+-  Query object methods (setModel, supportedCommands, etc.)
+-  Complete hooks system (all 12 hook events)
+-  Streaming message handling (all message types)
+-  Error handling and recovery patterns
+-  11 production-ready TypeScript templates
+-  12+ documented errors with solutions
 
 ---
 
@@ -173,7 +173,7 @@ This skill automatically activates when you mention:
 
 ## When to Use This Skill
 
-✅ **Use when:**
+ **Use when:**
 - Building autonomous AI agents with Claude
 - Creating multi-step reasoning workflows
 - Orchestrating specialized subagents
@@ -183,7 +183,7 @@ This skill automatically activates when you mention:
 - Need fine-grained permission control
 - Building coding agents, SRE systems, or automation
 
-❌ **Don't use when:**
+ **Don't use when:**
 - You need direct Claude API access (use claude-api skill)
 - You want Cloudflare Durable Objects agents (use cloudflare-agents skill)
 - Simple single-turn Claude interactions (use claude-api skill)
@@ -261,14 +261,14 @@ Copy from `templates/basic-query.ts` or other templates as needed.
 
 ## Key Features
 
-### 🤖 Autonomous Agents
+###  Autonomous Agents
 
 Build agents that reason, plan, and execute multi-step workflows.
 
 **Template**: `templates/basic-query.ts`
 **Guide**: Check SKILL.md "Query API" section
 
-### 🔧 Custom Tools & MCP Servers
+###  Custom Tools & MCP Servers
 
 Create type-safe tools with Zod schemas and integrate MCP servers.
 
@@ -278,28 +278,28 @@ Create type-safe tools with Zod schemas and integrate MCP servers.
 
 **Guide**: `references/mcp-servers-guide.md`
 
-### 👥 Subagent Orchestration
+###  Subagent Orchestration
 
 Coordinate specialized agents for complex tasks.
 
 **Template**: `templates/subagents-orchestration.ts`
 **Guide**: `references/subagents-patterns.md`
 
-### 💾 Session Management
+###  Session Management
 
 Resume conversations and fork alternative paths.
 
 **Template**: `templates/session-management.ts`
 **Guide**: `references/session-management.md`
 
-### 🔒 Permission Control
+###  Permission Control
 
 Fine-grained safety controls with custom logic.
 
 **Template**: `templates/permission-control.ts`
 **Guide**: `references/permissions-guide.md`
 
-### ⚙️ Filesystem Settings
+###  Filesystem Settings
 
 Load configurations from user, project, or local settings.
 
@@ -463,13 +463,13 @@ See: `templates/session-management.ts`
 
 ## Production Validation
 
-✅ All templates tested and working
-✅ All 12 documented errors have solutions
-✅ Comprehensive API coverage (query, tools, MCP, subagents)
-✅ Session management patterns verified
-✅ Permission control patterns tested
-✅ MCP server integration validated
-✅ Package versions current (latest stable)
+ All templates tested and working
+ All 12 documented errors have solutions
+ Comprehensive API coverage (query, tools, MCP, subagents)
+ Session management patterns verified
+ Permission control patterns tested
+ MCP server integration validated
+ Package versions current (latest stable)
 
 ---
 

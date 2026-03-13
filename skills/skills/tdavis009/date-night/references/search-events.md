@@ -133,18 +133,18 @@ For local venues, skip the major platforms and book direct — lower fees, often
 ## Event Discovery Output Format
 
 ```
-🎵 **Events Near {config.location} — {Month Year}**
+ **Events Near {config.location} — {Month Year}**
 
-1. 🎤 **{Artist / Show}**
-   📅 {Date}, {Time}
-   📍 {Venue} (~{drive time} from home)
-   💰 From ${lowest} all-in | SeatGeek Deal Score: {N}/100
-   🔗 Cheapest on {platform}
+1.  **{Artist / Show}**
+    {Date}, {Time}
+    {Venue} (~{drive time} from home)
+    From ${lowest} all-in | SeatGeek Deal Score: {N}/100
+    Cheapest on {platform}
 
-2. 🏀 **{Team} vs. {Opponent}**
-   📅 {Date}, {Time}
-   📍 {Arena} (~{drive time} from home)
-   💰 From ${price} on Ticketmaster
+2.  **{Team} vs. {Opponent}**
+    {Date}, {Time}
+    {Arena} (~{drive time} from home)
+    From ${price} on Ticketmaster
 ```
 
 **Notes:**

@@ -1,7 +1,7 @@
 ---
 name: Meilisearch
 description: Deploy and tune Meilisearch with indexing, filtering, and production configuration.
-metadata: {"clawdbot":{"emoji":"🔎","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Index Configuration Traps

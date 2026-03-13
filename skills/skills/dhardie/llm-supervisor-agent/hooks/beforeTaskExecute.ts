@@ -40,7 +40,7 @@ export async function beforeTaskExecute(
 
   // Block execution
   event.block(
-    `⚠️ You are currently running on a **local LLM** due to cloud rate limits.\n` +
+    ` You are currently running on a **local LLM** due to cloud rate limits.\n` +
     `This may affect code quality.\n\n` +
     `If you want to proceed anyway, reply:\n` +
     `**${confirmationPhrase}**`

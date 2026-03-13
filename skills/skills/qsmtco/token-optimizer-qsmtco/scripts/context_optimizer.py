@@ -229,7 +229,7 @@ def generate_optimized_agents_md():
     
     return f"""# AGENTS.md - Token-Optimized Workspace
 
-## 🎯 Context Loading Strategy (OPTIMIZED)
+##  Context Loading Strategy (OPTIMIZED)
 
 **Default: Minimal context, load on-demand**
 
@@ -255,10 +255,10 @@ def generate_optimized_agents_md():
 - Read `USER.md`
 
 **Never load automatically:**
-- ❌ Documentation (`docs/**/*.md`) — load only when explicitly referenced
-- ❌ Old memory logs (`memory/2026-01-*.md`) — load only if user mentions date
-- ❌ Knowledge base (`knowledge/**/*`) — load only when user asks about specific topic
-- ❌ Task files (`tasks/**/*`) — load only when user references task
+-  Documentation (`docs/**/*.md`) — load only when explicitly referenced
+-  Old memory logs (`memory/2026-01-*.md`) — load only if user mentions date
+-  Knowledge base (`knowledge/**/*`) — load only when user asks about specific topic
+-  Task files (`tasks/**/*`) — load only when user references task
 
 ### Context by Conversation Type
 
@@ -279,7 +279,7 @@ def generate_optimized_agents_md():
 - Skip: Unrelated documentation
 - **Token savings: ~30%**
 
-## 🔥 Model Selection (ENFORCED)
+##  Model Selection (ENFORCED)
 
 **Simple conversations → QUICK ONLY**
 - Greetings, acknowledgments, simple questions
@@ -294,25 +294,25 @@ def generate_optimized_agents_md():
 - Architecture design, deep analysis
 - Use sparingly, only when explicitly needed
 
-## 💾 Memory (Lazy Loading)
+##  Memory (Lazy Loading)
 
 **Daily notes:** `memory/YYYY-MM-DD.md`
-- ✅ Load TODAY when user asks about recent work
-- ❌ Don't load YESTERDAY unless explicitly needed
-- ❌ Don't load older logs automatically
+-  Load TODAY when user asks about recent work
+-  Don't load YESTERDAY unless explicitly needed
+-  Don't load older logs automatically
 
 **Long-term:** `MEMORY.md`
-- ✅ Load when user mentions "remember", "history", "before"
-- ❌ Don't load for simple conversations
+-  Load when user mentions "remember", "history", "before"
+-  Don't load for simple conversations
 
-## 📊 Heartbeats (Optimized)
+##  Heartbeats (Optimized)
 
 Use `heartbeat_optimizer.py` from token-optimizer skill:
 - Check only what needs checking (not everything every time)
 - Skip during quiet hours (23:00-08:00)
 - Return `HEARTBEAT_OK` when nothing to report
 
-## 🎨 Skills (Lazy Loading)
+##  Skills (Lazy Loading)
 
 **Don't pre-read skill documentation.**
 
@@ -321,21 +321,21 @@ When skill triggers:
 2. Read only the specific reference files you need
 3. Skip examples/assets unless explicitly needed
 
-## 🚫 Anti-Patterns (What NOT to Do)
+##  Anti-Patterns (What NOT to Do)
 
-❌ Loading all docs at session start  
-❌ Re-reading unchanged files  
-❌ Using Opus for simple chat  
-❌ Checking everything in every heartbeat  
-❌ Loading full conversation history for simple questions  
+ Loading all docs at session start  
+ Re-reading unchanged files  
+ Using Opus for simple chat  
+ Checking everything in every heartbeat  
+ Loading full conversation history for simple questions  
 
-✅ Load minimal context by default  
-✅ Read files only when referenced  
-✅ Use cheapest model for the task  
-✅ Batch heartbeat checks intelligently  
-✅ Keep context focused on current task  
+ Load minimal context by default  
+ Read files only when referenced  
+ Use cheapest model for the task  
+ Batch heartbeat checks intelligently  
+ Keep context focused on current task  
 
-## 📈 Monitoring
+##  Monitoring
 
 Track your savings:
 ```bash

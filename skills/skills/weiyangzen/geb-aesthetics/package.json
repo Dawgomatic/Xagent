@@ -41,7 +41,7 @@
   ],
   "openclaw": {
     "entry": "SKILL.md",
-    "emoji": "🎭",
+    "emoji": "",
     "category": "creative",
     "requires": {
       "agents": ["coding", "creative"],

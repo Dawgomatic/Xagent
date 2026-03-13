@@ -16,7 +16,7 @@ const commands = {
 
 function showHelp() {
     console.log(`
-✈️  Variflight Aviation Skill v1.0.0
+  Variflight Aviation Skill v1.0.0
 
 Usage: variflight <command> [arguments]
 
@@ -50,7 +50,7 @@ async function main() {
     }
 
     if (!commands[command]) {
-        console.error(`❌ Unknown command: ${command}`);
+        console.error(` Unknown command: ${command}`);
         showHelp();
         process.exit(1);
     }
@@ -58,7 +58,7 @@ async function main() {
     try {
         await commands[command](...args);
     } catch (error) {
-        console.error(`❌ Error: ${error.message}`);
+        console.error(` Error: ${error.message}`);
         if (process.env.DEBUG) {
             console.error(error.stack);
         }

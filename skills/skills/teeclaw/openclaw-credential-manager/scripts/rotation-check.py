@@ -96,13 +96,13 @@ def init_meta(env_file: Path, meta_file: Path):
 
     save_meta(meta_file, meta)
 
-    print(f"\n📋 Initialized rotation tracking")
+    print(f"\n Initialized rotation tracking")
     print(f"   Total keys: {len(meta)}")
     print(f"   New entries: {new_count}")
     print(f"   Critical: {sum(1 for v in meta.values() if v['risk'] == 'critical')}")
     print(f"   Standard: {sum(1 for v in meta.values() if v['risk'] == 'standard')}")
     print(f"   Low: {sum(1 for v in meta.values() if v['risk'] == 'low')}")
-    print(f"\n   📁 Metadata: {meta_file}")
+    print(f"\n    Metadata: {meta_file}")
 
 
 def record_rotation(meta_file: Path, key_name: str):
@@ -110,13 +110,13 @@ def record_rotation(meta_file: Path, key_name: str):
     meta = load_meta(meta_file)
 
     if key_name not in meta:
-        print(f"⚠️  Key '{key_name}' not found in rotation metadata")
+        print(f"  Key '{key_name}' not found in rotation metadata")
         print(f"   Run: ./scripts/rotation-check.py --init")
         return
 
     meta[key_name]['lastRotated'] = datetime.now().strftime('%Y-%m-%d')
     save_meta(meta_file, meta)
-    print(f"✅ Recorded rotation for {key_name} ({datetime.now().strftime('%Y-%m-%d')})")
+    print(f" Recorded rotation for {key_name} ({datetime.now().strftime('%Y-%m-%d')})")
 
 
 def check_rotation(meta_file: Path) -> bool:
@@ -124,7 +124,7 @@ def check_rotation(meta_file: Path) -> bool:
     meta = load_meta(meta_file)
 
     if not meta:
-        print("\n⚠️  No rotation metadata found")
+        print("\n  No rotation metadata found")
         print("   Run: ./scripts/rotation-check.py --init")
         return False
 
@@ -133,7 +133,7 @@ def check_rotation(meta_file: Path) -> bool:
     upcoming = []
     ok = []
 
-    print(f"\n🔄 Credential Rotation Status ({today.strftime('%Y-%m-%d')})\n")
+    print(f"\n Credential Rotation Status ({today.strftime('%Y-%m-%d')})\n")
 
     for key, info in sorted(meta.items(), key=lambda x: x[1]['risk']):
         risk = info['risk']
@@ -158,38 +158,38 @@ def check_rotation(meta_file: Path) -> bool:
 
     # Print overdue
     if overdue:
-        print("🔴 OVERDUE:")
+        print(" OVERDUE:")
         for key, risk, age, rot, overdue_days in overdue:
-            print(f"   ❌ {key}")
+            print(f"    {key}")
             print(f"      Risk: {risk} | Age: {age}d | Rotate every: {rot}d | Overdue: {overdue_days}d")
         print()
 
     # Print upcoming
     if upcoming:
-        print("🟡 UPCOMING (within 14 days):")
+        print(" UPCOMING (within 14 days):")
         for key, risk, age, rot, days_left in upcoming:
-            print(f"   ⚠️  {key}")
+            print(f"     {key}")
             print(f"      Risk: {risk} | Age: {age}d | Rotate every: {rot}d | Due in: {days_left}d")
         print()
 
     # Print OK summary
     if ok:
-        print(f"✅ OK: {len(ok)} key(s) within rotation schedule")
+        print(f" OK: {len(ok)} key(s) within rotation schedule")
         # Show critical/standard detail even if OK
         for key, risk, age, rot, days_left in ok:
             if risk in ('critical', 'standard'):
-                print(f"   ✅ {key} ({risk}, {age}d old, due in {days_left}d)")
+                print(f"    {key} ({risk}, {age}d old, due in {days_left}d)")
         print()
 
     # Summary
     total = len(overdue) + len(upcoming) + len(ok)
-    print(f"📊 Summary: {total} keys tracked")
-    print(f"   🔴 Overdue: {len(overdue)}")
-    print(f"   🟡 Upcoming: {len(upcoming)}")
-    print(f"   ✅ OK: {len(ok)}")
+    print(f" Summary: {total} keys tracked")
+    print(f"    Overdue: {len(overdue)}")
+    print(f"    Upcoming: {len(upcoming)}")
+    print(f"    OK: {len(ok)}")
 
     if overdue:
-        print(f"\n💡 Rotate overdue keys and record:")
+        print(f"\n Rotate overdue keys and record:")
         print(f"   ./scripts/rotation-check.py --rotated KEY_NAME")
 
     return len(overdue) == 0
@@ -210,7 +210,7 @@ def main():
     meta_file = Path(args.meta_file) if args.meta_file else home / '.openclaw' / '.env.meta'
 
     if not env_file.exists():
-        print("❌ ~/.openclaw/.env does not exist")
+        print(" ~/.openclaw/.env does not exist")
         return 1
 
     if args.init:

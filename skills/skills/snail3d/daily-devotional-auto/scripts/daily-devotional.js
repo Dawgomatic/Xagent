@@ -42,44 +42,44 @@ const CONFIG = {
  */
 async function runDailyDevotional() {
   const timestamp = new Date().toISOString();
-  console.log(`🌅 Starting Daily Devotional Automation - ${timestamp}`);
+  console.log(` Starting Daily Devotional Automation - ${timestamp}`);
   
   try {
     // Step 1: Check for user-suggested topics from comments
-    console.log('💬 Checking user suggestions...');
+    console.log(' Checking user suggestions...');
     const userSuggestedTopics = await checkUserSuggestedTopics();
     
     // Step 2: Fetch national/international news (if no user suggestions)
-    console.log('📰 Fetching news...');
+    console.log(' Fetching news...');
     const newsContext = await fetchWorldNews();
     
     // Step 3: Generate devotional (prioritizing user suggestions)
-    console.log('✍️ Generating devotional...');
+    console.log(' Generating devotional...');
     const devotional = await generateDevotional(newsContext, userSuggestedTopics);
     
     // Step 3: Generate thumbnail
-    console.log('🎨 Generating thumbnail...');
+    console.log(' Generating thumbnail...');
     const thumbnailResult = await generateThumbnail(devotional, { resolution: '1K' });
     const thumbnailPath = thumbnailResult ? thumbnailResult.baseImage : null;
     
     // Step 4: Create TTS audio
-    console.log('🎙️ Creating audio...');
+    console.log(' Creating audio...');
     const audioPath = await createTTS(devotional);
     
     // Step 5: Render video with thumbnail as background
-    console.log('🎬 Rendering video...');
+    console.log(' Rendering video...');
     const videoPath = await renderVideoWithTitle(audioPath, devotional, thumbnailPath);
     
     // Step 6: Upload to YouTube (with thumbnail if generated)
-    console.log('📤 Uploading to YouTube...');
+    console.log(' Uploading to YouTube...');
     const uploadResult = await uploadToYouTube(videoPath, devotional, thumbnailPath);
     
     // Step 7: Clean up
-    console.log('🧹 Cleaning up...');
+    console.log(' Cleaning up...');
     cleanup(videoPath, audioPath, thumbnailPath);
     
-    console.log('✅ Daily devotional complete!');
-    console.log(`📺 YouTube URL: https://youtube.com/watch?v=${uploadResult.videoId}`);
+    console.log(' Daily devotional complete!');
+    console.log(` YouTube URL: https://youtube.com/watch?v=${uploadResult.videoId}`);
     
     return {
       success: true,
@@ -87,7 +87,7 @@ async function runDailyDevotional() {
       devotional,
     };
   } catch (error) {
-    console.error('❌ Devotional automation failed:', error);
+    console.error(' Devotional automation failed:', error);
     throw error;
   }
 }
@@ -335,7 +335,7 @@ ${devotional.prayer}`;
 }
 
 function formatDescription(devotional) {
-  return `${devotional.intro}\n\n${devotional.body}\n\n🤔 Reflection Question:\n${devotional.reflection}\n\n🙏 Prayer:\n${devotional.prayer}\n\n---\n🌅 Daily Devotional for ${devotional.date}\n📖 Scripture: ${devotional.scripture}\n\n🤖 This devotional was generated 100% automatically by AI based on current news and/or viewer suggestions.\n\n💬 Have a topic you'd like us to cover? Leave a comment below with your suggestion! We read every comment and may feature your topic in a future devotional.\n\n---\n📝 A Note from Snail:\n\n"I know this is a little bit weird and freaky, but I'm trying to prove a point with this: automations can be used for Kingdom work and to inspire people to make their own things for Jesus and His glory. I'm not trying to replace any pastor or subvert their authority. Please keep in mind that this was written, composed, and even posted entirely by AI. So please post in the comments if you see any errors."\n\n💬 Want to reach me directly? Check the channel description for my Discord link - that's the best way to get in touch!\n\n---\n🔧 Interested in how this works?\n\nThis devotional is generated entirely by AI using OpenClaw. Want to create your own automated devotionals or see how it's built?\n\n⭐ GitHub Repo: https://github.com/Snail3D/daily-devotional-auto\n\nFeel free to fork, star, and adapt it for your own ministry or projects!\n\n📢 Subscribe for daily encouragement and biblical perspective on current events!`;
+  return `${devotional.intro}\n\n${devotional.body}\n\n Reflection Question:\n${devotional.reflection}\n\n Prayer:\n${devotional.prayer}\n\n---\n Daily Devotional for ${devotional.date}\n Scripture: ${devotional.scripture}\n\n This devotional was generated 100% automatically by AI based on current news and/or viewer suggestions.\n\n Have a topic you'd like us to cover? Leave a comment below with your suggestion! We read every comment and may feature your topic in a future devotional.\n\n---\n A Note from Snail:\n\n"I know this is a little bit weird and freaky, but I'm trying to prove a point with this: automations can be used for Kingdom work and to inspire people to make their own things for Jesus and His glory. I'm not trying to replace any pastor or subvert their authority. Please keep in mind that this was written, composed, and even posted entirely by AI. So please post in the comments if you see any errors."\n\n Want to reach me directly? Check the channel description for my Discord link - that's the best way to get in touch!\n\n---\n Interested in how this works?\n\nThis devotional is generated entirely by AI using OpenClaw. Want to create your own automated devotionals or see how it's built?\n\n GitHub Repo: https://github.com/Snail3D/daily-devotional-auto\n\nFeel free to fork, star, and adapt it for your own ministry or projects!\n\n Subscribe for daily encouragement and biblical perspective on current events!`;
 }
 
 /**
@@ -352,13 +352,13 @@ async function createTTS(devotional) {
   const VOICE_ID = 'eAfXdNE5aiS46rHwX5Mv'; // Your preferred custom voice
   
   if (!ELEVENLABS_API_KEY) {
-    console.warn('⚠️  ELEVENLABS_API_KEY not set. Using fallback TTS.');
+    console.warn('  ELEVENLABS_API_KEY not set. Using fallback TTS.');
     console.log(`Audio would be saved to: ${audioPath}`);
     return audioPath;
   }
   
   try {
-    console.log('🎙️ Generating natural audio with your ElevenLabs voice...');
+    console.log(' Generating natural audio with your ElevenLabs voice...');
     console.log('  - Added natural pauses between sections');
     console.log('  - Optimized voice settings for devotional speaking');
     
@@ -384,11 +384,11 @@ async function createTTS(devotional) {
     });
     
     fs.writeFileSync(audioPath, Buffer.from(response.data));
-    console.log(`✅ Audio saved: ${audioPath}`);
+    console.log(` Audio saved: ${audioPath}`);
     return audioPath;
     
   } catch (error) {
-    console.error('❌ ElevenLabs TTS failed:', error.message);
+    console.error(' ElevenLabs TTS failed:', error.message);
     console.log('Using fallback...');
     return audioPath;
   }
@@ -407,7 +407,7 @@ async function renderVideoWithTitle(audioPath, devotional, thumbnailPath = null)
   
   if (thumbnailPath && fs.existsSync(thumbnailPath)) {
     // Use AI-generated thumbnail as background
-    console.log('🎨 Using AI-generated thumbnail as video background...');
+    console.log(' Using AI-generated thumbnail as video background...');
     backgroundInput = thumbnailPath;
   } else {
     // Fallback to title card
@@ -580,7 +580,7 @@ async function uploadToYouTube(videoPath, devotional, thumbnailPath = null) {
  */
 async function checkUserSuggestedTopics() {
   try {
-    console.log('💬 Checking YouTube comments for user suggestions...');
+    console.log(' Checking YouTube comments for user suggestions...');
     
     // Check if there's a comments cache file
     const suggestionsFile = path.join(CONFIG.tempDir, 'user-suggestions.json');

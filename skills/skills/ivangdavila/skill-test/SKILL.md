@@ -53,7 +53,7 @@ sessions_spawn(
 
 ### Sandbox Isolation
 
-⚠️ Never load test skill into your main context.
+ Never load test skill into your main context.
 
 **Sub-agent approach (recommended):**
 ```

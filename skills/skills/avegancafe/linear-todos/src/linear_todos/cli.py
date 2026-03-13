@@ -36,7 +36,7 @@ def setup():
     except click.Abort:
         raise
     except Exception as e:
-        click.echo(f"\n❌ Setup failed: {e}", err=True)
+        click.echo(f"\n Setup failed: {e}", err=True)
         raise click.Abort()
 
 
@@ -301,20 +301,20 @@ def snooze(ctx, issue_id, when):
 # Fun morning greetings for digest
 # Note: secrets.choice used below for security scan compliance (B311)
 MORNING_GREETINGS = [
-    "🌅 Rise and grind!",
-    "☕ Morning! Coffee's brewing, here's what's cooking:",
-    "🌞 Good morning — let's knock these out:",
-    "✨ Today's the day to tackle:",
-    "🚀 Morning! Here's your hit list:",
-    "🎯 Locked and loaded for today:",
-    "🌤️ Rise and shine, here's what's due:",
+    " Rise and grind!",
+    " Morning! Coffee's brewing, here's what's cooking:",
+    " Good morning — let's knock these out:",
+    " Today's the day to tackle:",
+    " Morning! Here's your hit list:",
+    " Locked and loaded for today:",
+    " Rise and shine, here's what's due:",
 ]
 
 NO_TASK_GREETINGS = [
-    "🌅 Morning! Nothing urgent today — you're free.",
-    "☕ Coffee time, no fires to put out today.",
-    "🌞 Good morning! Clear skies, zero TODOs.",
-    "✨ Morning! Looks like a chill day ahead.",
+    " Morning! Nothing urgent today — you're free.",
+    " Coffee time, no fires to put out today.",
+    " Good morning! Clear skies, zero TODOs.",
+    " Morning! Looks like a chill day ahead.",
 ]
 
 
@@ -450,7 +450,7 @@ def review(ctx):
         output = []
         
         # DO TODAY section
-        output.append("**🚨 Do Today:**")
+        output.append("** Do Today:**")
         if due_today:
             output.extend(due_today)
         else:
@@ -458,7 +458,7 @@ def review(ctx):
         output.append("")
         
         # Board overview by due date ranges
-        output.append("**📊 Board Overview:**")
+        output.append("** Board Overview:**")
         output.append("")
         
         output.append("**By End of Week:**")

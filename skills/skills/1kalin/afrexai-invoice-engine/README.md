@@ -36,17 +36,17 @@ The skill handles numbering, tax logic, payment terms, and tracking automaticall
 | Feature | Others | This Skill |
 |---|---|---|
 | Dependencies | Node.js + weasyprint | Zero |
-| Client management | ❌ | Full registry + onboarding |
-| Recurring billing | ❌ | Auto-generate on schedule |
-| Overdue automation | ❌ | 5-stage reminder sequence |
-| Revenue reporting | ❌ | Dashboard + aging + trends |
-| Multi-currency | ❌ | USD/GBP/EUR/BTC |
-| Quote pipeline | ❌ | Quote → Accept → Invoice |
+| Client management |  | Full registry + onboarding |
+| Recurring billing |  | Auto-generate on schedule |
+| Overdue automation |  | 5-stage reminder sequence |
+| Revenue reporting |  | Dashboard + aging + trends |
+| Multi-currency |  | USD/GBP/EUR/BTC |
+| Quote pipeline |  | Quote → Accept → Invoice |
 | Tax handling | Basic | Decision tree by region |
-| Credit notes | ❌ | Full adjustment workflow |
-| Late fees | ❌ | Auto-calculate with caps |
+| Credit notes |  | Full adjustment workflow |
+| Late fees |  | Auto-calculate with caps |
 
-## ⚡ Level Up
+##  Level Up
 
 Get the full **AI Context Pack** for your industry — includes invoicing context PLUS market landscape, competitor analysis, compliance frameworks, and automation playbooks:
 
@@ -54,7 +54,7 @@ Get the full **AI Context Pack** for your industry — includes invoicing contex
 - [Professional Services Pack ($47)](https://afrexai-cto.github.io/context-packs/) — time & materials, retainers, milestone billing
 - [Manufacturing Pack ($47)](https://afrexai-cto.github.io/context-packs/) — purchase orders, materials billing, progress invoicing
 
-**🔗 More free skills by AfrexAI:**
+** More free skills by AfrexAI:**
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Find and qualify leads
 - [afrexai-budget-tracker](https://clawhub.com/skills/afrexai-budget-tracker) — Track spending and budgets
 - [afrexai-business-automation](https://clawhub.com/skills/afrexai-business-automation) — Automate workflows

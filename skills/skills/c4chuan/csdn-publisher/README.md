@@ -1,6 +1,6 @@
 # CSDN Publisher Skill
 
-🐙 OpenClaw Skill - 写文章并发布到 CSDN
+ OpenClaw Skill - 写文章并发布到 CSDN
 
 ## 功能
 

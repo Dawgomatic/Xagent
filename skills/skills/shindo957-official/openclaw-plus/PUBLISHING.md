@@ -2,13 +2,13 @@
 
 ## Quick Fix - Updated Files
 
-✅ **SKILL.md has been updated** with the required `license` field in the YAML frontmatter.
+ **SKILL.md has been updated** with the required `license` field in the YAML frontmatter.
 
 The skill package now includes:
-- ✅ Proper YAML frontmatter with `name`, `description`, and `license` fields
-- ✅ manifest.json with metadata
-- ✅ LICENSE.txt file
-- ✅ All documentation and implementation files
+-  Proper YAML frontmatter with `name`, `description`, and `license` fields
+-  manifest.json with metadata
+-  LICENSE.txt file
+-  All documentation and implementation files
 
 ## Publishing Steps
 
@@ -116,11 +116,11 @@ unzip -p openclaw-plus.skill openclaw-plus/manifest.json
 ## What's Fixed
 
 In this version:
-- ✅ Added `license: Complete terms in LICENSE.txt` to SKILL.md frontmatter
-- ✅ Created manifest.json with all required fields
-- ✅ Included LICENSE.txt file
-- ✅ Proper directory structure (files inside openclaw-plus/)
-- ✅ Both .zip and .skill files available
+-  Added `license: Complete terms in LICENSE.txt` to SKILL.md frontmatter
+-  Created manifest.json with all required fields
+-  Included LICENSE.txt file
+-  Proper directory structure (files inside openclaw-plus/)
+-  Both .zip and .skill files available
 
 ## Files to Upload
 
@@ -156,4 +156,4 @@ Author: Shindo957 (choochoocharlese@gmail.com)
 
 ---
 
-Good luck with publishing! 🚀
+Good luck with publishing! 

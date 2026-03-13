@@ -5,21 +5,21 @@
 ## Why?
 
 YouTube videos are full of valuable information buried in:
-- ⏱️ Long introductions
-- 📢 Sponsor segments  
-- 🎵 Music/intros
-- 💬 Off-topic discussions
+-  Long introductions
+-  Sponsor segments  
+-  Music/intros
+-  Off-topic discussions
 
 **TubeClaw** extracts the signal from the noise.
 
 ## Features
 
-- ✅ Fetches video transcripts
-- ✅ Removes ads & sponsorships
-- ✅ Extracts key insights
-- ✅ Finds mentioned tools/resources
-- ✅ Identifies GitHub repos & links
-- ✅ Generates clean summary
+-  Fetches video transcripts
+-  Removes ads & sponsorships
+-  Extracts key insights
+-  Finds mentioned tools/resources
+-  Identifies GitHub repos & links
+-  Generates clean summary
 
 ## Quick Start
 
@@ -43,22 +43,22 @@ node analyze.js --url "https://www.youtube.com/watch?v=AEmHcFH1UgQ"
 
 **Output:**
 ```
-🎯 TUBECLAW ANALYSIS
+ TUBECLAW ANALYSIS
 
-📝 SUMMARY:
+ SUMMARY:
 Discussion about PI coding agent harness, Claude Code, 
 and the future of AI agents...
 
-🏷️ TOPICS:
+ TOPICS:
 ai, agents, coding, bash, security
 
-🔗 RESOURCES:
+ RESOURCES:
   1. https://github.com/... (PI project)
   2. Claude Code (Technology mentioned)
   3. https://sentry.io/...
 
-📊 Transcript length: 45023 chars
-🎬 Video: https://www.youtube.com/watch?v=AEmHcFH1UgQ
+ Transcript length: 45023 chars
+ Video: https://www.youtube.com/watch?v=AEmHcFH1UgQ
 ```
 
 ## Requirements

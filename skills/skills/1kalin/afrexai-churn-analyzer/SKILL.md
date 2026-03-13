@@ -34,10 +34,10 @@ Apply this risk framework:
 **Score**: 0-100 (higher = more likely to churn)
 
 ### 3. Categorize
-- **🔴 Critical (75-100)**: Immediate intervention needed
-- **🟡 At Risk (50-74)**: Schedule check-in this week
-- **🟢 Healthy (25-49)**: Monitor monthly
-- **💚 Thriving (0-24)**: Expansion opportunity
+- ** Critical (75-100)**: Immediate intervention needed
+- ** At Risk (50-74)**: Schedule check-in this week
+- ** Healthy (25-49)**: Monitor monthly
+- ** Thriving (0-24)**: Expansion opportunity
 
 ### 4. Recommend Actions
 For each at-risk account, suggest specific retention plays:

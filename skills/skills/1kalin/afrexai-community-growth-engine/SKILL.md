@@ -1,10 +1,10 @@
 ---
 name: afrexai-community-growth-engine
 description: "Complete community building, engagement, and monetization system. From zero to thriving community — launch strategy, member engagement loops, content programming, moderation frameworks, growth tactics, monetization models, and health metrics. Works for Discord, Slack, Telegram, Circle, forums, or any platform."
-metadata: {"clawdbot":{"emoji":"🏘️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
-# Community Growth Engine 🏘️
+# Community Growth Engine 
 
 Complete 12-phase system for building, growing, and monetizing communities. From launch strategy through engagement loops, moderation, growth tactics, and revenue — everything you need to run a thriving community.
 
@@ -84,33 +84,33 @@ community_brief:
 **Discord example (adapt for your platform):**
 
 ```
-📌 START HERE
+ START HERE
   #welcome — Auto-message, rules, role select
   #introduce-yourself — Template: name, role, what you're working on
   #rules — Community guidelines (link, not wall of text)
 
-💬 GENERAL
+ GENERAL
   #general — Main conversation
   #off-topic — Non-community-topic chat
   #wins — Celebrate achievements (positive reinforcement loop)
 
-🎓 KNOWLEDGE
+ KNOWLEDGE
   #resources — Curated links, tools, guides
   #ask-anything — Q&A (encourage answers from members, not just staff)
   #tutorials — Member-created guides
   #[topic-1] — Specific topic channel
   #[topic-2] — Specific topic channel
 
-🔨 BUILD
+ BUILD
   #show-your-work — Share projects for feedback
   #accountability — Public goals and check-ins
   #collabs — Find collaborators
 
-📢 ANNOUNCEMENTS
+ ANNOUNCEMENTS
   #announcements — Official updates (admin-only post)
   #events — Upcoming events, AMAs, workshops
 
-🔒 PREMIUM (if applicable)
+ PREMIUM (if applicable)
   #premium-general — Paid members only
   #premium-resources — Exclusive content
   #office-hours — Direct access to experts
@@ -129,32 +129,32 @@ roles:
   - name: "New Member"
     auto_assign: true
     permissions: "read + post in general channels"
-    visual: "🆕"
+    visual: ""
     
   - name: "Member"
     earn_criteria: "7 days + 10 messages + intro posted"
     permissions: "full access to public channels"
-    visual: "✅"
+    visual: ""
     
   - name: "Active Member"
     earn_criteria: "30 days + 50 messages + helped 3 people"
     permissions: "member + create threads"
-    visual: "⭐"
+    visual: ""
     
   - name: "Champion"
     earn_criteria: "90 days + consistent value + nominated by staff"
     permissions: "active member + moderate threads + beta access"
-    visual: "🏆"
+    visual: ""
     
   - name: "Moderator"
     earn_criteria: "Champion + invitation"
     permissions: "full moderation powers"
-    visual: "🛡️"
+    visual: ""
     
   - name: "Admin"
     earn_criteria: "Core team only"
     permissions: "everything"
-    visual: "👑"
+    visual: ""
 ```
 
 ### Onboarding Flow
@@ -163,7 +163,7 @@ roles:
 
 1. **Immediate** (auto): Welcome DM with 3 specific actions
    ```
-   Welcome to [Community]! 🎉
+   Welcome to [Community]! 
    
    Here's how to get started:
    1. Introduce yourself in #introduce-yourself (use the template pinned there)
@@ -261,7 +261,7 @@ Trigger → Action → Variable Reward → Investment
 | AMAs | Expert access creates FOMO | "AMA with [expert] Thursday 2pm" | Bi-weekly |
 | Debates | Friendly disagreement drives engagement | "Hot take: [controversial opinion]" | Weekly |
 | Collaborations | Members work together | "Find a collab partner for [project]" | Monthly |
-| Celebrations | Public wins reinforce participation | "🎉 [member] just hit [milestone]!" | As earned |
+| Celebrations | Public wins reinforce participation | " [member] just hit [milestone]!" | As earned |
 
 ### Conversation Starters That Actually Work
 
@@ -306,7 +306,7 @@ Trigger → Action → Variable Reward → Investment
 - Appeals: DM a moderator within 7 days
 
 ## Report Issues
-React with 🚩 or DM a moderator. All reports are confidential.
+React with  or DM a moderator. All reports are confidential.
 ```
 
 ### Moderation Decision Matrix

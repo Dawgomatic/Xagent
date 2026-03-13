@@ -52,14 +52,14 @@ Default public RPCs for chains listed above. All are rate-limited — use a prov
 | **Mantle** | 5000 | `https://rpc.mantle.xyz` | Official Mantle |
 | **Berachain** | 80094 | `https://rpc.berachain.com` | Also: `https://berachain-rpc.publicnode.com` |
 | **Ink** | 57073 | `https://rpc-gel.inkonchain.com` | Also: `https://ink.drpc.org` |
-| **Unichain** | 130 | `https://mainnet.unichain.org` | ⚠️ Rate-limited, not for production |
+| **Unichain** | 130 | `https://mainnet.unichain.org` |  Rate-limited, not for production |
 | **Sei** | 1329 | `https://evm-rpc.sei-apis.com` | Official Sei EVM |
 | **Flare** | 14 | `https://flare-api.flare.network/ext/C/rpc` | Official Flare |
 | **Rootstock** | 30 | `https://public-node.rsk.co` | Official Rootstock |
 | **Corn** | 21000000 | `https://maizenet-rpc.usecorn.com` | Official Corn |
 | **Morph** | 2818 | `https://rpc-quicknode.morphl2.io` | Official Morph |
 | **XLayer** | 196 | `https://rpc.xlayer.tech` | Official OKX; 100 req/s limit |
-| **HyperEVM** | 999 | `https://rpc.hyperliquid.xyz/evm` | ⚠️ 100 req/min limit |
+| **HyperEVM** | 999 | `https://rpc.hyperliquid.xyz/evm` |  100 req/min limit |
 | **MegaETH** | 4326 | `https://mainnet.megaeth.com/rpc` | Official MegaETH |
 | **Monad** | 143 | `https://rpc.monad.xyz` | Also: `https://monad-mainnet.drpc.org` |
 | **Stable** | 988 | `https://rpc.stable.xyz` | Gas paid in gUSDT |
@@ -92,10 +92,10 @@ EIP-3009 allows `transferWithAuthorization` / `receiveWithAuthorization` — the
 
 | Token | Chain | EIP-3009 Support |
 |-------|-------|-----------------|
-| USDT (native) | Ethereum | ❌ Not supported |
-| USDT (native) | TRON | ❌ Not supported |
-| USDT0 | Arbitrum | ✅ Supported |
-| USDT0 | Plasma | ✅ Supported — Plasma Relayer API provides free gas. Min 1 USDT0 (1,000,000 base units). |
+| USDT (native) | Ethereum |  Not supported |
+| USDT (native) | TRON |  Not supported |
+| USDT0 | Arbitrum |  Supported |
+| USDT0 | Plasma |  Supported — Plasma Relayer API provides free gas. Min 1 USDT0 (1,000,000 base units). |
 
 Spec: https://eips.ethereum.org/EIPS/eip-3009
 

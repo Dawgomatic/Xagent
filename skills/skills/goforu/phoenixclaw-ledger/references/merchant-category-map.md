@@ -8,19 +8,19 @@ This document defines the rules for automatically categorizing transactions base
 
 | Category ID | Display Name | Icon | Description |
 |-------------|--------------|------|-------------|
-| `food` | Food & Dining | 🍜 | Restaurants, groceries, delivery |
-| `transport` | Transportation | 🚗 | Rides, fuel, public transit |
-| `shopping` | Shopping | 🛒 | Retail, online purchases |
-| `entertainment` | Entertainment | 🎬 | Movies, games, events |
-| `utilities` | Bills & Utilities | 📱 | Phone, internet, electricity |
-| `housing` | Housing | 🏠 | Rent, property fees |
-| `health` | Health | 💊 | Medical, pharmacy, fitness |
-| `education` | Education | 📚 | Courses, books, training |
-| `personal` | Personal Care | 💈 | Haircuts, beauty, clothing |
-| `subscription` | Subscriptions | 🔄 | Digital services, memberships |
-| `transfer` | Transfers | 💸 | P2P, bank transfers |
-| `income` | Income | 💰 | Salary, reimbursements |
-| `other` | Other | 📦 | Uncategorized |
+| `food` | Food & Dining |  | Restaurants, groceries, delivery |
+| `transport` | Transportation |  | Rides, fuel, public transit |
+| `shopping` | Shopping |  | Retail, online purchases |
+| `entertainment` | Entertainment |  | Movies, games, events |
+| `utilities` | Bills & Utilities |  | Phone, internet, electricity |
+| `housing` | Housing |  | Rent, property fees |
+| `health` | Health |  | Medical, pharmacy, fitness |
+| `education` | Education |  | Courses, books, training |
+| `personal` | Personal Care |  | Haircuts, beauty, clothing |
+| `subscription` | Subscriptions |  | Digital services, memberships |
+| `transfer` | Transfers |  | P2P, bank transfers |
+| `income` | Income |  | Salary, reimbursements |
+| `other` | Other |  | Uncategorized |
 
 ### Subcategories (Optional)
 

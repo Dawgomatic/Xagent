@@ -13,11 +13,11 @@ Thank you for your interest in contributing to RLM Controller! This document pro
 
 RLM Controller is designed for safe operation with untrusted inputs. All contributions must:
 
-- ✅ Never execute arbitrary model-generated code
-- ✅ Maintain strict bounds on resource usage
-- ✅ Treat all input as potentially malicious
-- ✅ Use only safelisted operations
-- ✅ Follow principle of least privilege
+-  Never execute arbitrary model-generated code
+-  Maintain strict bounds on resource usage
+-  Treat all input as potentially malicious
+-  Use only safelisted operations
+-  Follow principle of least privilege
 
 See [docs/security_checklist.md](docs/security_checklist.md) for operational guidelines.
 

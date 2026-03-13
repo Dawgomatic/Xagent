@@ -10,7 +10,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🗣️",
+        "emoji": "",
         "requires": {"bins": ["uvx"]}
       }
   }

@@ -19,14 +19,14 @@ case "$CMD" in
     store|add)
         TEXT="$1"
         if [ -z "$TEXT" ]; then
-            echo "❌ 请提供要存储的文本"
+            echo " 请提供要存储的文本"
             echo "用法: $0 store \"要存储的文本内容\""
             exit 1
         fi
         
         # Check if API credentials are available
         if [ -z "$BAIDU_API_STRING" ] || [ -z "$BAIDU_SECRET_KEY" ]; then
-            echo "❌ 错误: 缺少必要的API凭据!"
+            echo " 错误: 缺少必要的API凭据!"
             echo "   请设置以下环境变量:"
             echo "   export BAIDU_API_STRING='your_bce_v3_api_string'"
             echo "   export BAIDU_SECRET_KEY='your_secret_key'"
@@ -34,7 +34,7 @@ case "$CMD" in
             exit 1
         fi
         
-        echo "📦 存储到Baidu Embedding记忆库: $TEXT"
+        echo " 存储到Baidu Embedding记忆库: $TEXT"
         python3 -c "
 import sys
 sys.path.append('$SKILL_DIR/skills/memory-baidu-embedding-db')
@@ -43,16 +43,16 @@ from memory_baidu_embedding_db import MemoryBaiduEmbeddingDB
 try:
     db = MemoryBaiduEmbeddingDB()
     result = db.add_memory(content='$TEXT', tags=['conversation'], metadata={'source': 'triple-memory'})
-    print('✅ 成功存储记忆')
+    print(' 成功存储记忆')
     print(f'ID: {result.get(\"id\", \"unknown\")}')
 except Exception as e:
-    print(f'❌ 存储失败: {str(e)}')
+    print(f' 存储失败: {str(e)}')
 "
         ;;
     recall|search|find)
         QUERY="$1"
         if [ -z "$QUERY" ]; then
-            echo "❌ 请提供搜索查询"
+            echo " 请提供搜索查询"
             echo "用法: $0 search \"搜索查询\" [数量限制]"
             exit 1
         fi
@@ -61,7 +61,7 @@ except Exception as e:
         
         # Check if API credentials are available
         if [ -z "$BAIDU_API_STRING" ] || [ -z "$BAIDU_SECRET_KEY" ]; then
-            echo "❌ 错误: 缺少必要的API凭据!"
+            echo " 错误: 缺少必要的API凭据!"
             echo "   请设置以下环境变量:"
             echo "   export BAIDU_API_STRING='your_bce_v3_api_string'"
             echo "   export BAIDU_SECRET_KEY='your_secret_key'"
@@ -69,7 +69,7 @@ except Exception as e:
             exit 1
         fi
         
-        echo "🔍 使用Baidu Embedding搜索: $QUERY (最多$LIMIT个结果)"
+        echo " 使用Baidu Embedding搜索: $QUERY (最多$LIMIT个结果)"
         python3 -c "
 import sys
 import os
@@ -95,7 +95,7 @@ except Exception as e:
 "
         ;;
     list|show)
-        echo "📚 列出最近的记忆..."
+        echo " 列出最近的记忆..."
         python3 -c "
 import sys
 sys.path.append('$SKILL_DIR/skills/memory-baidu-embedding-db')
@@ -105,8 +105,8 @@ try:
     db = MemoryBaiduEmbeddingDB()
     # Note: This assumes the DB has a method to list recent memories
     # Implementation may vary based on actual DB structure
-    print('💡 Baidu Embedding DB主要通过语义搜索工作，暂不支持直接列出所有记忆')
-    print('🔍 请使用 search 命令查找特定内容')
+    print(' Baidu Embedding DB主要通过语义搜索工作，暂不支持直接列出所有记忆')
+    print(' 请使用 search 命令查找特定内容')
 except Exception as e:
     print(f'操作失败: {str(e)}')
 "
@@ -114,17 +114,17 @@ except Exception as e:
     status|health)
         # Check if API credentials are available
         if [ -z "$BAIDU_API_STRING" ] || [ -z "$BAIDU_SECRET_KEY" ]; then
-            echo "🏥 检查Baidu Embedding记忆系统状态..."
-            echo "❌ 错误: 缺少必要的API凭据!"
+            echo " 检查Baidu Embedding记忆系统状态..."
+            echo " 错误: 缺少必要的API凭据!"
             echo "   请设置以下环境变量:"
             echo "   export BAIDU_API_STRING='your_bce_v3_api_string'"
             echo "   export BAIDU_SECRET_KEY='your_secret_key'"
             echo "   您可以从 https://console.bce.baidu.com/qianfan/ 获取API凭据"
-            echo "⚠️  系统将在降级模式下运行，仅使用Git-Notes和文件系统"
+            echo "  系统将在降级模式下运行，仅使用Git-Notes和文件系统"
             exit 1
         fi
         
-        echo "🏥 检查Baidu Embedding记忆系统状态..."
+        echo " 检查Baidu Embedding记忆系统状态..."
         python3 -c "
 import sys
 import os
@@ -134,18 +134,18 @@ sys.path.insert(0, os.path.join(workspace, 'skills', 'memory-baidu-embedding-db'
 try:
     from memory_baidu_embedding_db import MemoryBaiduEmbeddingDB
     db = MemoryBaiduEmbeddingDB()
-    print('✅ Baidu Embedding记忆系统连接正常')
-    print('💡 系统已准备好进行语义搜索和存储')
-    print('🔑 API凭证已配置')
+    print(' Baidu Embedding记忆系统连接正常')
+    print(' 系统已准备好进行语义搜索和存储')
+    print(' API凭证已配置')
 except ImportError as e:
-    print(f'❌ 导入错误: {str(e)}')
-    print('💡 请确认 memory-baidu-embedding-db 技能已正确安装')
+    print(f' 导入错误: {str(e)}')
+    print(' 请确认 memory-baidu-embedding-db 技能已正确安装')
 except Exception as e:
-    print(f'❌ 连接失败: {str(e)}')
+    print(f' 连接失败: {str(e)}')
 "
         ;;
     *)
-        echo "🧠 Triple Memory System with Baidu Embedding"
+        echo " Triple Memory System with Baidu Embedding"
         echo ""
         echo "用法: $0 <command> [options]"
         echo ""

@@ -1,7 +1,7 @@
 ---
 name: strapi
 description: Manage Strapi CMS content through the official @strapi/client SDK. CRUD on collection types, single types, and media files. Upload files to media library. Introspect content type schemas, relations, and components. Manage i18n locales and localized content (translations). Draft/publish workflow. Configure edit form layout (field order, sizes, labels). Manage end users, roles, and authentication. Use when the user asks about Strapi, headless CMS, content management, managing articles, blog posts, pages, entries, media files, upload images, upload from URL, download and upload, translations, localization, publishing, drafts, content types, schemas, form layout, edit view, users, roles, permissions, authentication, login, register, REST API, or creating/updating/deleting CMS content.
-metadata: {"openclaw": {"emoji": "🔵", "requires": {"bins": ["node"], "env": ["STRAPI_API_TOKEN", "STRAPI_BASE_URL"]}, "primaryEnv": "STRAPI_API_TOKEN", "install": [{"id": "node", "kind": "node", "package": ".", "bins": ["node"], "label": "Install Strapi skill dependencies"}]}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["node"], "env": ["STRAPI_API_TOKEN", "STRAPI_BASE_URL"]}, "primaryEnv": "STRAPI_API_TOKEN", "install": [{"id": "node", "kind": "node", "package": ".", "bins": ["node"], "label": "Install Strapi skill dependencies"}]}}
 ---
 
 # Strapi CMS Skill

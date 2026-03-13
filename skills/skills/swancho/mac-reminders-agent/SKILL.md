@@ -131,7 +131,7 @@ Use `locales.json` templates to format responses in user's language:
 - 2/3 (Tue) 14:00 [Personal] Visit bank
 
 [Completed]
-- 2/1 (Sun) [Work] Submit report ✅
+- 2/1 (Sun) [Work] Submit report 
 ```
 
 **Korean:**
@@ -141,7 +141,7 @@ Use `locales.json` templates to format responses in user's language:
 - 2/3 (화) 14:00 [개인] 은행 방문
 
 [완료됨]
-- 2/1 (일) [업무] 보고서 제출 ✅
+- 2/1 (일) [업무] 보고서 제출 
 ```
 
 ---

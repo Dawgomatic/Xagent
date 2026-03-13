@@ -1,28 +1,28 @@
-# 🍊 Wojak.ink Skill - Complete Feature List
+#  Wojak.ink Skill - Complete Feature List
 
-## ✅ What We Built
+##  What We Built
 
 A comprehensive NFT analysis tool for the Wojak Farmers Plot collection with **17 commands** across **5 feature categories**.
 
 ---
 
-## 📦 Core Features (v1.0)
+##  Core Features (v1.0)
 
 ### 1. Collection Browsing
 **Commands:** `floor`, `listings`, `characters`, `nft`, `stats`, `search`
 
 **What it does:**
-- ✅ View floor prices (collection-wide or per character)
-- ✅ Browse marketplace listings from Dexie
-- ✅ Search NFTs by ID or name
-- ✅ Look up individual NFT details
-- ✅ View collection statistics
-- ✅ List all 14 character types
+-  View floor prices (collection-wide or per character)
+-  Browse marketplace listings from Dexie
+-  Search NFTs by ID or name
+-  Look up individual NFT details
+-  View collection statistics
+-  List all 14 character types
 
 **Example:**
 ```bash
 $ wojak floor wojak
-🏆 Wojak Floor:
+ Wojak Floor:
 
 Wojak #0042
   Price: 1.50 XCH
@@ -30,31 +30,31 @@ Wojak #0042
 
 ---
 
-## 🎯 Rarity System (v2.0)
+##  Rarity System (v2.0)
 
 ### 2. Rarity Analysis
 **Commands:** `rarity`
 
 **What it does:**
-- ✅ Estimate rarity score (0-10+)
-- ✅ Classify into tiers (Common → Legendary)
-- ✅ Approximate rank within 4,200 NFTs
-- ✅ Character-type aware scoring
-- ✅ Visual tier indicators (🌟💎💠🔷⬜)
+-  Estimate rarity score (0-10+)
+-  Classify into tiers (Common → Legendary)
+-  Approximate rank within 4,200 NFTs
+-  Character-type aware scoring
+-  Visual tier indicators ()
 
 **Rarity Tiers:**
 | Tier | Score | Emoji | Example |
 |------|-------|-------|---------|
-| Legendary | ≥10 | 🌟 | Alien Waifu |
-| Epic | ≥7 | 💎 | Bepe variants |
-| Rare | ≥5 | 💠 | Papa Tang |
-| Uncommon | ≥3 | 🔷 | Waifu, Baddie |
-| Common | <3 | ⬜ | Wojak, Soyjak |
+| Legendary | ≥10 |  | Alien Waifu |
+| Epic | ≥7 |  | Bepe variants |
+| Rare | ≥5 |  | Papa Tang |
+| Uncommon | ≥3 |  | Waifu, Baddie |
+| Common | <3 |  | Wojak, Soyjak |
 
 **Example:**
 ```bash
 $ wojak rarity 4001
-🌟 Rarity Analysis: Wojak #4001
+ Rarity Analysis: Wojak #4001
 
 Character: Alien Waifu
 Rarity Score: 10.05
@@ -64,17 +64,17 @@ Estimated Rank: ~#3497 / 4,200
 
 ---
 
-## 📊 Price Tracking (v2.0)
+##  Price Tracking (v2.0)
 
 ### 3. Historical Data & Trends
 **Commands:** `history`, `track`
 
 **What it does:**
-- ✅ Track sales over time
-- ✅ Detect price trends (📈📉➡️)
-- ✅ Calculate statistics (min/max/avg/change%)
-- ✅ Store data locally (JSON)
-- ✅ Analyze by character type
+-  Track sales over time
+-  Detect price trends ()
+-  Calculate statistics (min/max/avg/change%)
+-  Store data locally (JSON)
+-  Analyze by character type
 
 **Sub-commands:**
 - `history recent` - Last 10 sales
@@ -85,7 +85,7 @@ Estimated Rank: ~#3497 / 4,200
 **Example:**
 ```bash
 $ wojak history trend 24
-📈 Price Trend (24h)
+ Price Trend (24h)
 
 Direction: RISING
 Confidence: 78.3%
@@ -99,17 +99,17 @@ Collection-wide
 
 ---
 
-## 🎨 Trait Analysis (v2.0)
+##  Trait Analysis (v2.0)
 
 ### 4. Trait System
 **Commands:** `traits`
 
 **What it does:**
-- ✅ List trait categories
-- ✅ Analyze trait distribution
-- ✅ Calculate trait rarity
-- ✅ Find rare combinations
-- ✅ Identify "naked floors"
+-  List trait categories
+-  Analyze trait distribution
+-  Calculate trait rarity
+-  Find rare combinations
+-  Identify "naked floors"
 
 **Trait Categories:**
 1. Base (character type)
@@ -123,7 +123,7 @@ Collection-wide
 **Example:**
 ```bash
 $ wojak traits
-🎨 Trait Categories:
+ Trait Categories:
 
   • Base
   • Face
@@ -136,22 +136,22 @@ $ wojak traits
 
 ---
 
-## 💎 Deal Finder (v2.0)
+##  Deal Finder (v2.0)
 
 ### 5. Smart Price Analysis
 **Commands:** `deals`
 
 **What it does:**
-- ✅ Calculate average listing price
-- ✅ Find underpriced NFTs
-- ✅ Sort by best deals first
-- ✅ Show savings percentage
-- ✅ Customizable threshold
+-  Calculate average listing price
+-  Find underpriced NFTs
+-  Sort by best deals first
+-  Show savings percentage
+-  Customizable threshold
 
 **Example:**
 ```bash
 $ wojak deals 15
-💎 Found 7 Deals!
+ Found 7 Deals!
 (15% below avg price of 2.50 XCH)
 
 1. Wojak #0123
@@ -163,7 +163,7 @@ $ wojak deals 15
 
 ---
 
-## 🛠️ Technical Architecture
+##  Technical Architecture
 
 ### Libraries (4 modules)
 ```
@@ -188,14 +188,14 @@ lib/
 
 ---
 
-## 📱 Platform Support
+##  Platform Support
 
 **Works everywhere:**
-- ✅ CLI (`wojak <command>`)
-- ✅ Telegram (`/wojak <command>`)
-- ✅ Discord (via Clawdbot)
-- ✅ WhatsApp (plain text, no tables)
-- ✅ API/Module (for integrations)
+-  CLI (`wojak <command>`)
+-  Telegram (`/wojak <command>`)
+-  Discord (via Clawdbot)
+-  WhatsApp (plain text, no tables)
+-  API/Module (for integrations)
 
 **Output formats:**
 - Plain text (always)
@@ -204,7 +204,7 @@ lib/
 
 ---
 
-## 📈 Command Summary
+##  Command Summary
 
 ### Basic (6 commands)
 1. `floor [character]` - Floor prices
@@ -232,7 +232,7 @@ lib/
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 **Install:**
 ```bash
@@ -257,7 +257,7 @@ node cli.js history recent    # Sales history
 
 ---
 
-## 🎯 Use Cases
+##  Use Cases
 
 **For Collectors:**
 - Track floor prices over time
@@ -279,28 +279,28 @@ node cli.js history recent    # Sales history
 
 ---
 
-## 📊 Data & Stats
+##  Data & Stats
 
 **Collection Coverage:**
-- ✅ All 4,200 NFTs indexed
-- ✅ 14 character types mapped
-- ✅ ID range detection
-- ✅ IPFS image URLs
+-  All 4,200 NFTs indexed
+-  14 character types mapped
+-  ID range detection
+-  IPFS image URLs
 
 **Market Coverage:**
-- ✅ Dexie listings (real-time)
-- ✅ MintGarden stats (cached)
-- ✅ Historical tracking (user-driven)
+-  Dexie listings (real-time)
+-  MintGarden stats (cached)
+-  Historical tracking (user-driven)
 
 **Rarity Coverage:**
-- ⚠️ Estimated (no full metadata yet)
-- ✅ Character-type awareness
-- ✅ Tier classification
-- ✅ Rank approximation
+-  Estimated (no full metadata yet)
+-  Character-type awareness
+-  Tier classification
+-  Rank approximation
 
 ---
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 **Next steps:**
 1. Scrape full collection metadata
@@ -318,21 +318,21 @@ node cli.js history recent    # Sales history
 
 ---
 
-## 📝 Summary
+##  Summary
 
 **We built a complete NFT analytics platform with:**
-- 🎯 Rarity estimation
-- 📊 Price tracking
-- 🎨 Trait analysis
-- 💎 Deal finder
-- 📈 Market trends
-- 🗄️ Historical data
+-  Rarity estimation
+-  Price tracking
+-  Trait analysis
+-  Deal finder
+-  Market trends
+-  Historical data
 
-**All in ~1 hour!** 🚀
+**All in ~1 hour!** 
 
 **Total code:** ~600 lines across 7 files
 **Features:** 17+ commands
 **Data sources:** 3 APIs + local storage
 **Platform support:** CLI + Telegram + more
 
-**Ready to use NOW!** ✅
+**Ready to use NOW!** 

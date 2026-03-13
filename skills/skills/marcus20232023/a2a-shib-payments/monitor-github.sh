@@ -34,17 +34,17 @@ ALERTS=""
 
 if [ "$CURRENT_STARS" -gt "$PREV_STARS" ]; then
   NEW_STARS=$((CURRENT_STARS - PREV_STARS))
-  ALERTS="${ALERTS}⭐ +${NEW_STARS} new star(s)! Total: ${CURRENT_STARS}\n"
+  ALERTS="${ALERTS} +${NEW_STARS} new star(s)! Total: ${CURRENT_STARS}\n"
 fi
 
 if [ "$CURRENT_FORKS" -gt "$PREV_FORKS" ]; then
   NEW_FORKS=$((CURRENT_FORKS - PREV_FORKS))
-  ALERTS="${ALERTS}🍴 +${NEW_FORKS} new fork(s)! Total: ${CURRENT_FORKS}\n"
+  ALERTS="${ALERTS} +${NEW_FORKS} new fork(s)! Total: ${CURRENT_FORKS}\n"
 fi
 
 if [ "$CURRENT_ISSUES" -gt "$PREV_ISSUES" ]; then
   NEW_ISSUES=$((CURRENT_ISSUES - PREV_ISSUES))
-  ALERTS="${ALERTS}📝 +${NEW_ISSUES} new issue(s)! Total: ${CURRENT_ISSUES}\n"
+  ALERTS="${ALERTS} +${NEW_ISSUES} new issue(s)! Total: ${CURRENT_ISSUES}\n"
   # Get latest issue details
   LATEST_ISSUE=$(gh issue list --repo "$REPO" --limit 1 --json number,title,author --jq '.[0]')
   if [ "$LATEST_ISSUE" != "null" ]; then
@@ -57,7 +57,7 @@ fi
 
 if [ "$CURRENT_PRS" -gt "$PREV_PRS" ]; then
   NEW_PRS=$((CURRENT_PRS - PREV_PRS))
-  ALERTS="${ALERTS}🎉 +${NEW_PRS} new PR(s)! Total: ${CURRENT_PRS}\n"
+  ALERTS="${ALERTS} +${NEW_PRS} new PR(s)! Total: ${CURRENT_PRS}\n"
   # Get latest PR details with full info
   LATEST_PR=$(echo "$PR_DATA" | jq -r '.[0]')
   if [ "$LATEST_PR" != "null" ]; then
@@ -74,28 +74,28 @@ if [ "$CURRENT_PRS" -gt "$PREV_PRS" ]; then
       CHANGED_FILES=$(echo "$PR_DETAIL" | jq -r '.changedFiles')
       
       ALERTS="${ALERTS}  PR #${PR_NUM}: \"${PR_TITLE}\" by @${PR_AUTHOR}\n"
-      ALERTS="${ALERTS}  📊 Changes: ${CHANGED_FILES} files, +${ADDITIONS}/-${DELETIONS}\n"
-      ALERTS="${ALERTS}  🔗 ${PR_URL}\n"
-      ALERTS="${ALERTS}\n  ✅ Suggested Actions:\n"
+      ALERTS="${ALERTS}   Changes: ${CHANGED_FILES} files, +${ADDITIONS}/-${DELETIONS}\n"
+      ALERTS="${ALERTS}   ${PR_URL}\n"
+      ALERTS="${ALERTS}\n   Suggested Actions:\n"
       ALERTS="${ALERTS}  1. Review the code changes\n"
       ALERTS="${ALERTS}  2. Check if tests are included\n"
       ALERTS="${ALERTS}  3. Test locally if needed\n"
       ALERTS="${ALERTS}  4. Approve or request changes\n"
     else
       ALERTS="${ALERTS}  PR #${PR_NUM}: \"${PR_TITLE}\" by @${PR_AUTHOR}\n"
-      ALERTS="${ALERTS}  🔗 ${PR_URL}\n"
+      ALERTS="${ALERTS}   ${PR_URL}\n"
     fi
   fi
 fi
 
 # Send alerts if any
 if [ -n "$ALERTS" ]; then
-  echo -e "🚀 GitHub Activity Alert - $(date)\n"
+  echo -e " GitHub Activity Alert - $(date)\n"
   echo -e "$ALERTS"
   echo ""
   
   # Send Telegram notification
-  MESSAGE="🚀 *GitHub Activity Alert*\n\n${ALERTS}\nRepo: https://github.com/${REPO}"
+  MESSAGE=" *GitHub Activity Alert*\n\n${ALERTS}\nRepo: https://github.com/${REPO}"
   openclaw message send --channel telegram --to 5275167911 --message "$MESSAGE" 2>/dev/null || true
 fi
 
@@ -111,8 +111,8 @@ cat > "$STATE_FILE" << EOF
 EOF
 
 # Always show current stats
-echo "📊 Current Stats ($(date '+%Y-%m-%d %H:%M:%S'))"
-echo "⭐ Stars: $CURRENT_STARS"
-echo "🍴 Forks: $CURRENT_FORKS"
-echo "📝 Issues: $CURRENT_ISSUES"
-echo "🔀 PRs: $CURRENT_PRS"
+echo " Current Stats ($(date '+%Y-%m-%d %H:%M:%S'))"
+echo " Stars: $CURRENT_STARS"
+echo " Forks: $CURRENT_FORKS"
+echo " Issues: $CURRENT_ISSUES"
+echo " PRs: $CURRENT_PRS"

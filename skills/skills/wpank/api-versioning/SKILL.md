@@ -232,7 +232,7 @@ routes:
 
 ```
 Request → API Gateway → Version Router → v1 Handler → Shared Service Layer → DB
-                                        → v2 Handler ↗
+                                        → v2 Handler 
 ```
 
 **Principles:**

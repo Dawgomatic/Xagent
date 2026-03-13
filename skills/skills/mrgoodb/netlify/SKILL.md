@@ -1,7 +1,7 @@
 ---
 name: netlify
 description: Manage Netlify sites, deploys, and functions via API. Deploy and configure web projects.
-metadata: {"clawdbot":{"emoji":"🔷","requires":{"env":["NETLIFY_AUTH_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["NETLIFY_AUTH_TOKEN"]}}}
 ---
 # Netlify
 Web deployment platform.

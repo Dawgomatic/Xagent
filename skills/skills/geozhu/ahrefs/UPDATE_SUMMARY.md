@@ -2,7 +2,7 @@
 
 ## What Changed
 
-### 🎯 Major Updates
+###  Major Updates
 
 1. **Plan Configuration Added**
    - Users now specify their Ahrefs plan tier in `.env` file
@@ -20,7 +20,7 @@
    - Troubleshooting section
    - API field reference with correct names
 
-### 📝 New Files
+###  New Files
 
 - `README.md` - GitHub/ClawHub homepage with badges and quick start
 - `INSTALL.md` - Detailed installation and configuration guide
@@ -29,7 +29,7 @@
 - `UPDATE_SUMMARY.md` - This file
 - `scripts/ahrefs-compare-filtered.ps1` - Advanced comparison script
 
-### 🔧 Updated Files
+###  Updated Files
 
 - `SKILL.md` - Added plan configuration, updated prerequisites
 - `references/api-endpoints.md` - (ready to update with correct field names)
@@ -54,7 +54,7 @@ ahrefs/
 
 ## Breaking Changes
 
-⚠️ **Users must now specify `AHREFS_API_PLAN` in `.env` file**
+ **Users must now specify `AHREFS_API_PLAN` in `.env` file**
 
 ### Migration Guide for Existing Users
 
@@ -145,7 +145,7 @@ Before publishing, verify:
 ### Announcement Template
 
 ```
-🚀 Ahrefs Skill v1.1.0 Released!
+ Ahrefs Skill v1.1.0 Released!
 
 New in this version:
 • Plan configuration - specify your tier (lite/standard/advanced/enterprise)
@@ -162,12 +162,12 @@ Changelog: [link to CHANGELOG]
 
 ## Next Steps
 
-1. ✅ Commit changes to Git
-2. ⏳ Push to GitHub with tags
-3. ⏳ Create GitHub release
-4. ⏳ Update ClawHub listing
-5. ⏳ Announce in OpenClaw Discord
-6. ⏳ Update any external documentation
+1.  Commit changes to Git
+2.  Push to GitHub with tags
+3.  Create GitHub release
+4.  Update ClawHub listing
+5.  Announce in OpenClaw Discord
+6.  Update any external documentation
 
 ## Support
 

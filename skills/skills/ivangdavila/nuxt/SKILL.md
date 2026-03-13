@@ -1,7 +1,7 @@
 ---
 name: Nuxt
 description: Build Vue 3 SSR/SSG applications with proper data fetching, hydration, and server patterns.
-metadata: {"clawdbot":{"emoji":"💚","requires":{"bins":["node"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Nuxt 3 Patterns

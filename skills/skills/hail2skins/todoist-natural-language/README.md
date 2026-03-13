@@ -4,12 +4,12 @@ Manage your Todoist tasks directly from OpenClaw. Add tasks, check your list, co
 
 ## Features
 
-- ✅ List tasks with filters (today, overdue, by project, by priority)
-- ✅ Add new tasks with natural language due dates
-- ✅ Complete tasks
-- ✅ List all projects
-- ✅ Full timezone support (respects your local time)
-- ✅ Smart filtering — "today" actually shows today's tasks, not future recurring ones
+-  List tasks with filters (today, overdue, by project, by priority)
+-  Add new tasks with natural language due dates
+-  Complete tasks
+-  List all projects
+-  Full timezone support (respects your local time)
+-  Smart filtering — "today" actually shows today's tasks, not future recurring ones
 
 ## Prerequisites
 

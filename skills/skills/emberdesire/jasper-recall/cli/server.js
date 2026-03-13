@@ -171,7 +171,7 @@ function startServer(port = 3458, host = '127.0.0.1') {
   const server = http.createServer(handleRequest);
   
   server.listen(port, host, () => {
-    console.log(`🦊 Jasper Recall Server running on http://${host}:${port}`);
+    console.log(` Jasper Recall Server running on http://${host}:${port}`);
     console.log('');
     console.log('Endpoints:');
     console.log(`  GET /recall?q=query     Search memories (public-only by default)`);

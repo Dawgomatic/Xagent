@@ -56,12 +56,12 @@ if (require.main === module) {
   const result = switchProject(projectName);
 
   if (result.success) {
-    console.log(`\n✅ ${result.message}`);
+    console.log(`\n ${result.message}`);
     console.log(`\nRoot: ${result.project.root}`);
     console.log(`Lock: ${result.project.lockFile}`);
     console.log(`\nContext updated. Use [PROJECT: ${result.project.name}] in tasks.`);
   } else {
-    console.error(`\n❌ ${result.error}`);
+    console.error(`\n ${result.error}`);
     process.exit(1);
   }
 }

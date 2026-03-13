@@ -202,4 +202,4 @@ Collection of frequently used skill combination pipelines. Templates for handlin
 
 ---
 
-> 🐧 Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill
+>  Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill

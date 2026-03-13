@@ -2,7 +2,7 @@
 name: nima-core
 description: Neural Integrated Memory Architecture — Graph-based memory with LadybugDB, semantic search, dynamic affect, lazy recall. Production-ready for AI agents. Learn more at nima-core.ai
 version: 2.0.12
-metadata: {"clawdbot":{"emoji":"🧠","requires":{"bins":["python3","node"],"env":["NIMA_DATA_DIR"]},"optional_env":{"NIMA_EMBEDDER":"voyage|openai|local (default: local)","VOYAGE_API_KEY":"Required when NIMA_EMBEDDER=voyage","OPENAI_API_KEY":"Required when NIMA_EMBEDDER=openai"},"permissions":{"reads":["~/.openclaw/agents/*/sessions/*.jsonl"],"writes":["~/.nima/"],"network":["voyage.ai (conditional)","openai.com (conditional)"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3","node"],"env":["NIMA_DATA_DIR"]},"optional_env":{"NIMA_EMBEDDER":"voyage|openai|local (default: local)","VOYAGE_API_KEY":"Required when NIMA_EMBEDDER=voyage","OPENAI_API_KEY":"Required when NIMA_EMBEDDER=openai"},"permissions":{"reads":["~/.openclaw/agents/*/sessions/*.jsonl"],"writes":["~/.nima/"],"network":["voyage.ai (conditional)","openai.com (conditional)"]}}}
 ---
 
 # NIMA Core 2.0
@@ -12,7 +12,7 @@ metadata: {"clawdbot":{"emoji":"🧠","requires":{"bins":["python3","node"],"env
 **Website:** https://nima-core.ai
 **GitHub:** https://github.com/lilubot/nima-core
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Install
@@ -32,16 +32,16 @@ export VOYAGE_API_KEY=your-key
 openclaw restart
 ```
 
-## 🔒 Privacy & Permissions
+##  Privacy & Permissions
 
 **Data Access:**
-- ✅ Reads session transcripts from `~/.openclaw/agents/*/sessions/*.jsonl`
-- ✅ Writes to local storage at `~/.nima/` (databases, affect history, embeddings)
+-  Reads session transcripts from `~/.openclaw/agents/*/sessions/*.jsonl`
+-  Writes to local storage at `~/.nima/` (databases, affect history, embeddings)
 
 **Network Calls (conditional on embedder choice):**
-- 🌐 **Voyage API** — Only when `NIMA_EMBEDDER=voyage` (sends text for embeddings)
-- 🌐 **OpenAI API** — Only when `NIMA_EMBEDDER=openai` (sends text for embeddings)
-- 🔒 **Local embeddings** — Default (`NIMA_EMBEDDER=local`), no external API calls
+-  **Voyage API** — Only when `NIMA_EMBEDDER=voyage` (sends text for embeddings)
+-  **OpenAI API** — Only when `NIMA_EMBEDDER=openai` (sends text for embeddings)
+-  **Local embeddings** — Default (`NIMA_EMBEDDER=local`), no external API calls
 
 **Opt-in Controls:**
 ```json

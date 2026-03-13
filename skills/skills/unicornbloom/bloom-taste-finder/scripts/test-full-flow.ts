@@ -17,16 +17,16 @@ import { BloomIdentitySkillV2 } from '../src/bloom-identity-skill-v2';
 dotenv.config();
 
 async function testFullFlow() {
-  console.log('🧪 Testing Complete Bloom Identity Flow\n');
+  console.log(' Testing Complete Bloom Identity Flow\n');
   console.log('━'.repeat(60));
-  console.log('📋 STEP 1: Initialize Skill');
+  console.log(' STEP 1: Initialize Skill');
   console.log('━'.repeat(60));
 
   const skill = new BloomIdentitySkillV2();
-  console.log('✅ Skill initialized\n');
+  console.log(' Skill initialized\n');
 
   console.log('━'.repeat(60));
-  console.log('🎴 STEP 2: Generate Identity');
+  console.log(' STEP 2: Generate Identity');
   console.log('━'.repeat(60));
 
   // Test with a mock user ID
@@ -38,13 +38,13 @@ async function testFullFlow() {
   });
 
   console.log('━'.repeat(60));
-  console.log('📊 RESULTS');
+  console.log(' RESULTS');
   console.log('━'.repeat(60));
 
   if (result.success) {
-    console.log('\n✅ SUCCESS!\n');
+    console.log('\n SUCCESS!\n');
 
-    console.log('🎭 Identity Data:');
+    console.log(' Identity Data:');
     console.log(`   Type: ${result.identityData?.personalityType}`);
     console.log(`   Tagline: ${result.identityData?.customTagline}`);
     console.log(`   Description: ${result.identityData?.customDescription}`);
@@ -52,18 +52,18 @@ async function testFullFlow() {
     console.log(`   Sub Categories: ${result.identityData?.subCategories.join(', ')}`);
 
     if (result.dimensions) {
-      console.log('\n📊 2x2 Metrics:');
+      console.log('\n 2x2 Metrics:');
       console.log(`   Conviction: ${result.dimensions.conviction}/100`);
       console.log(`   Intuition: ${result.dimensions.intuition}/100`);
       console.log(`   Contribution: ${result.dimensions.contribution}/100`);
     }
 
-    console.log('\n💰 Wallet:');
+    console.log('\n Wallet:');
     console.log(`   Address: ${result.agentWallet?.address}`);
     console.log(`   Network: ${result.agentWallet?.network}`);
     console.log(`   X402 Endpoint: ${result.agentWallet?.x402Endpoint}`);
 
-    console.log('\n🎯 Skill Recommendations:');
+    console.log('\n Skill Recommendations:');
     if (result.recommendations && result.recommendations.length > 0) {
       result.recommendations.slice(0, 5).forEach((skill, i) => {
         console.log(`   ${i + 1}. ${skill.skillName} (${skill.matchScore}% match)`);
@@ -73,39 +73,39 @@ async function testFullFlow() {
         console.log('');
       });
     } else {
-      console.log('   ⚠️  No recommendations found');
+      console.log('     No recommendations found');
     }
 
-    console.log('🔗 Dashboard:');
+    console.log(' Dashboard:');
     console.log(`   URL: ${result.dashboardUrl || 'Not generated'}`);
 
     if (result.actions?.save) {
-      console.log('\n💾 Save Actions:');
+      console.log('\n Save Actions:');
       console.log(`   Register: ${result.actions.save.registerUrl}`);
       console.log(`   Login: ${result.actions.save.loginUrl}`);
     }
 
-    console.log('\n📈 Quality:');
+    console.log('\n Quality:');
     console.log(`   Mode: ${result.mode}`);
     console.log(`   Data Quality: ${result.dataQuality}%`);
 
   } else {
-    console.log('\n❌ FAILED\n');
+    console.log('\n FAILED\n');
     console.log(`Error: ${result.error}`);
 
     if (result.needsManualInput) {
-      console.log('\nℹ️  Manual input required:');
+      console.log('\n  Manual input required:');
       console.log(result.manualQuestions);
     }
   }
 
   console.log('\n' + '━'.repeat(60));
-  console.log('✨ Test Complete');
+  console.log(' Test Complete');
   console.log('━'.repeat(60));
 }
 
 // Run test
 testFullFlow().catch(error => {
-  console.error('\n❌ Test failed:', error);
+  console.error('\n Test failed:', error);
   process.exit(1);
 });

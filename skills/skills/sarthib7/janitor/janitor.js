@@ -163,7 +163,7 @@ class Janitor {
    * Main cleanup method - removes cache, logs, and temp files
    */
   async cleanup(workingDir = process.cwd()) {
-    console.log('🧹 Janitor: Starting cleanup...');
+    console.log(' Janitor: Starting cleanup...');
     const startTime = Date.now();
 
     let filesDeleted = 0;
@@ -211,7 +211,7 @@ class Janitor {
       memoryFreed: true
     };
 
-    console.log(`✅ Cleanup complete: ${filesDeleted} files, ${result.spaceSaved} saved`);
+    console.log(` Cleanup complete: ${filesDeleted} files, ${result.spaceSaved} saved`);
     return result;
   }
 
@@ -364,7 +364,7 @@ class Janitor {
   _freeMemory() {
     if (global.gc) {
       global.gc();
-      console.log('   🗑️  Memory freed');
+      console.log('     Memory freed');
     }
   }
 
@@ -401,12 +401,12 @@ class Janitor {
   async report() {
     const stats = this.getStats();
 
-    console.log('\n📊 Janitor Report:');
+    console.log('\n Janitor Report:');
     console.log(`   Total Cleanups: ${stats.totalCleanups}`);
     console.log(`   Files Deleted: ${stats.totalFilesDeleted}`);
     console.log(`   Space Saved: ${stats.totalSpaceSaved}`);
     console.log(`   Memory (Heap): ${stats.memoryUsage.heapUsed}`);
-    console.log('\n   💡 For advanced features (backup, scheduling, etc.):');
+    console.log('\n    For advanced features (backup, scheduling, etc.):');
     console.log('      https://github.com/openclaw/janitor\n');
 
     return {
@@ -461,7 +461,7 @@ class Janitor {
       throw new Error('Session management is disabled');
     }
 
-    console.log(`🧹 Starting context cleanup (${strategy} strategy)...\n`);
+    console.log(` Starting context cleanup (${strategy} strategy)...\n`);
 
     // Get current usage
     const beforeUsage = await this.sessionMonitor.getContextUsage();
@@ -479,19 +479,19 @@ class Janitor {
 
     // Archive sessions first
     if (sessionsToPrune.length > 0) {
-      console.log(`\n📦 Archiving ${sessionsToPrune.length} sessions...`);
+      console.log(`\n Archiving ${sessionsToPrune.length} sessions...`);
       const archiveResult = await this.sessionArchiver.archiveSessions(sessionsToPrune, 'manual-cleanup');
-      console.log(`   ✅ ${archiveResult.message}`);
+      console.log(`    ${archiveResult.message}`);
     }
 
     // Prune sessions
-    console.log(`\n🗑️  Pruning sessions...`);
+    console.log(`\n  Pruning sessions...`);
     const pruneResult = await this.sessionPruner.prune(strategy);
 
     // Get new usage
     const afterUsage = await this.sessionMonitor.getContextUsage();
 
-    console.log(`\n✅ Cleanup complete:`);
+    console.log(`\n Cleanup complete:`);
     console.log(`   Sessions pruned: ${pruneResult.sessionsPruned}`);
     console.log(`   Tokens freed: ${this.sessionMonitor.formatTokens(pruneResult.tokensFreed)}`);
     console.log(`   After: ${this.sessionMonitor.formatTokens(afterUsage.currentTokens)}/200k (${afterUsage.utilizationPercent.toFixed(1)}%)`);
@@ -561,7 +561,7 @@ class Janitor {
 
     const archives = await this.sessionArchiver.listArchives();
 
-    console.log('\n📦 Session Archives:\n');
+    console.log('\n Session Archives:\n');
 
     if (archives.length === 0) {
       console.log('  No archives found\n');
@@ -588,11 +588,11 @@ class Janitor {
       throw new Error('Session management is disabled');
     }
 
-    console.log(`📦 Restoring archive: ${archiveName}...`);
+    console.log(` Restoring archive: ${archiveName}...`);
 
     const result = await this.sessionArchiver.restore(archiveName);
 
-    console.log(`✅ ${result.message}`);
+    console.log(` ${result.message}`);
     if (result.skipped > 0) {
       console.log(`   (Skipped ${result.skipped} sessions that already exist)`);
     }
@@ -619,11 +619,11 @@ class Janitor {
       throw new Error('Session management is disabled');
     }
 
-    console.log('🗑️  Cleaning up old archives...');
+    console.log('  Cleaning up old archives...');
 
     const result = await this.sessionArchiver.cleanupOldArchives();
 
-    console.log(`✅ ${result.message}`);
+    console.log(` ${result.message}`);
 
     return result;
   }

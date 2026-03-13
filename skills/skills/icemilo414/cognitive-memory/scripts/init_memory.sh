@@ -9,10 +9,10 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 TEMPLATES="$SKILL_DIR/assets/templates"
 
-echo "🧠 Initializing cognitive memory system in: $WORKSPACE"
+echo " Initializing cognitive memory system in: $WORKSPACE"
 
 # --- Create directory structure ---
-echo "📁 Creating directory structure..."
+echo " Creating directory structure..."
 mkdir -p "$WORKSPACE/memory/episodes"
 mkdir -p "$WORKSPACE/memory/graph/entities"
 mkdir -p "$WORKSPACE/memory/procedures"
@@ -23,83 +23,83 @@ mkdir -p "$WORKSPACE/memory/meta/reflections/dialogues"
 mkdir -p "$WORKSPACE/memory/meta/rewards"
 
 # --- Copy templates ---
-echo "📋 Copying templates..."
+echo " Copying templates..."
 
 # Core memory
 if [ ! -f "$WORKSPACE/MEMORY.md" ]; then
     cp "$TEMPLATES/MEMORY.md" "$WORKSPACE/MEMORY.md"
-    echo "   ✅ Created MEMORY.md"
+    echo "    Created MEMORY.md"
 else
-    echo "   ⏭️  MEMORY.md already exists, skipping"
+    echo "     MEMORY.md already exists, skipping"
 fi
 
 # Identity
 if [ ! -f "$WORKSPACE/IDENTITY.md" ]; then
     cp "$TEMPLATES/IDENTITY.md" "$WORKSPACE/IDENTITY.md"
-    echo "   ✅ Created IDENTITY.md"
+    echo "    Created IDENTITY.md"
 else
-    echo "   ⏭️  IDENTITY.md already exists, skipping"
+    echo "     IDENTITY.md already exists, skipping"
 fi
 
 # Soul
 if [ ! -f "$WORKSPACE/SOUL.md" ]; then
     cp "$TEMPLATES/SOUL.md" "$WORKSPACE/SOUL.md"
-    echo "   ✅ Created SOUL.md"
+    echo "    Created SOUL.md"
 else
-    echo "   ⏭️  SOUL.md already exists, skipping"
+    echo "     SOUL.md already exists, skipping"
 fi
 
 # Graph templates
 if [ ! -f "$WORKSPACE/memory/graph/index.md" ]; then
     cp "$TEMPLATES/graph-index.md" "$WORKSPACE/memory/graph/index.md"
-    echo "   ✅ Created graph/index.md"
+    echo "    Created graph/index.md"
 fi
 
 if [ ! -f "$WORKSPACE/memory/graph/relations.md" ]; then
     cp "$TEMPLATES/relations.md" "$WORKSPACE/memory/graph/relations.md"
-    echo "   ✅ Created graph/relations.md"
+    echo "    Created graph/relations.md"
 fi
 
 # Meta files
 if [ ! -f "$WORKSPACE/memory/meta/decay-scores.json" ]; then
     cp "$TEMPLATES/decay-scores.json" "$WORKSPACE/memory/meta/decay-scores.json"
-    echo "   ✅ Created meta/decay-scores.json"
+    echo "    Created meta/decay-scores.json"
 fi
 
 if [ ! -f "$WORKSPACE/memory/meta/reflection-log.md" ]; then
     cp "$TEMPLATES/reflection-log.md" "$WORKSPACE/memory/meta/reflection-log.md"
-    echo "   ✅ Created meta/reflection-log.md"
+    echo "    Created meta/reflection-log.md"
 fi
 
 if [ ! -f "$WORKSPACE/memory/meta/reward-log.md" ]; then
     cp "$TEMPLATES/reward-log.md" "$WORKSPACE/memory/meta/reward-log.md"
-    echo "   ✅ Created meta/reward-log.md"
+    echo "    Created meta/reward-log.md"
 fi
 
 if [ ! -f "$WORKSPACE/memory/meta/audit.log" ]; then
     echo "# Audit Log — Cognitive Memory System" > "$WORKSPACE/memory/meta/audit.log"
     echo "# Format: TIMESTAMP | ACTION | FILE | ACTOR | APPROVAL | SUMMARY" >> "$WORKSPACE/memory/meta/audit.log"
     echo "" >> "$WORKSPACE/memory/meta/audit.log"
-    echo "   ✅ Created meta/audit.log"
+    echo "    Created meta/audit.log"
 fi
 
 if [ ! -f "$WORKSPACE/memory/meta/pending-memories.md" ]; then
     cp "$TEMPLATES/pending-memories.md" "$WORKSPACE/memory/meta/pending-memories.md"
-    echo "   ✅ Created meta/pending-memories.md"
+    echo "    Created meta/pending-memories.md"
 fi
 
 if [ ! -f "$WORKSPACE/memory/meta/evolution.md" ]; then
     cp "$TEMPLATES/evolution.md" "$WORKSPACE/memory/meta/evolution.md"
-    echo "   ✅ Created meta/evolution.md"
+    echo "    Created meta/evolution.md"
 fi
 
 if [ ! -f "$WORKSPACE/memory/meta/pending-reflection.md" ]; then
     cp "$TEMPLATES/pending-reflection.md" "$WORKSPACE/memory/meta/pending-reflection.md"
-    echo "   ✅ Created meta/pending-reflection.md"
+    echo "    Created meta/pending-reflection.md"
 fi
 
 # --- Initialize git ---
-echo "🔍 Setting up git audit tracking..."
+echo " Setting up git audit tracking..."
 cd "$WORKSPACE"
 
 if [ ! -d ".git" ]; then
@@ -110,14 +110,14 @@ if [ ! -d ".git" ]; then
 Actor: system:init
 Approval: auto
 Trigger: init_memory.sh"
-    echo "   ✅ Git repository initialized"
+    echo "    Git repository initialized"
 else
-    echo "   ⏭️  Git repository already exists"
+    echo "     Git repository already exists"
 fi
 
 # --- Summary ---
 echo ""
-echo "✅ Cognitive memory system initialized!"
+echo " Cognitive memory system initialized!"
 echo ""
 echo "Directory structure:"
 echo "  $WORKSPACE/"

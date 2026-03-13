@@ -17,7 +17,7 @@
 
 ---
 
-## ⚠️ Important: Local Claude Code Only
+##  Important: Local Claude Code Only
 
 **This skill works ONLY with local [Claude Code](https://github.com/anthropics/claude-code) installations, NOT in the web UI.**
 
@@ -49,10 +49,10 @@ Your Task → Claude asks NotebookLM → Gemini synthesizes answer → Claude wr
 
 | Approach | Token Cost | Setup Time | Hallucinations | Answer Quality |
 |----------|------------|------------|----------------|----------------|
-| **Feed docs to Claude** | 🔴 Very high (multiple file reads) | Instant | Yes - fills gaps | Variable retrieval |
-| **Web search** | 🟡 Medium | Instant | High - unreliable sources | Hit or miss |
-| **Local RAG** | 🟡 Medium-High | Hours (embeddings, chunking) | Medium - retrieval gaps | Depends on setup |
-| **NotebookLM Skill** | 🟢 Minimal | 5 minutes | **Minimal** - source-grounded only | Expert synthesis |
+| **Feed docs to Claude** |  Very high (multiple file reads) | Instant | Yes - fills gaps | Variable retrieval |
+| **Web search** |  Medium | Instant | High - unreliable sources | Hit or miss |
+| **Local RAG** |  Medium-High | Hours (embeddings, chunking) | Medium - retrieval gaps | Depends on setup |
+| **NotebookLM Skill** |  Minimal | 5 minutes | **Minimal** - source-grounded only | Expert synthesis |
 
 ### What Makes NotebookLM Superior?
 
@@ -97,9 +97,9 @@ patchright install chrome
 ```
 
 **Why Chrome and not Chromium?**
-- ✅ Cross-platform reliability (fixes auth issues on some systems)
-- ✅ Consistent browser identity for Google services
-- ✅ Better anti-detection (Patchright best practice)
+-  Cross-platform reliability (fixes auth issues on some systems)
+-  Consistent browser identity for Google services
+-  Better anti-detection (Patchright best practice)
 
 ---
 
@@ -124,12 +124,12 @@ Claude will list your available skills including NotebookLM.
 ### 3. Create your knowledge base
 
 Go to [notebooklm.google.com](https://notebooklm.google.com) → Create notebook → Upload your docs:
-- 📄 PDFs, Google Docs, markdown files
-- 🔗 Websites, GitHub repos
-- 🎥 YouTube videos
-- 📚 Multiple sources per notebook
+-  PDFs, Google Docs, markdown files
+-  Websites, GitHub repos
+-  YouTube videos
+-  Multiple sources per notebook
 
-Share: **⚙️ Share → Anyone with link → Copy**
+Share: ** Share → Anyone with link → Copy**
 
 ### 4. Add to your library
 

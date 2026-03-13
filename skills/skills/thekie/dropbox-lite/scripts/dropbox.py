@@ -92,7 +92,7 @@ def refresh_access_token():
             config["DROPBOX_ACCESS_TOKEN"] = new_access_token
             save_config(config)
             
-            print("🔄 Access token refreshed", file=sys.stderr)
+            print(" Access token refreshed", file=sys.stderr)
             return new_access_token
     except urllib.error.HTTPError as e:
         error_body = e.read().decode() if e.fp else ""
@@ -291,7 +291,7 @@ def main():
     if args.command == "ls":
         entries = list_folder(args.path)
         for e in entries:
-            icon = "📁" if e['.tag'] == 'folder' else "📄"
+            icon = "" if e['.tag'] == 'folder' else ""
             size = f" ({e.get('size', 0)} bytes)" if e['.tag'] == 'file' else ""
             print(f"{icon} {e['name']}{size}")
     
@@ -299,16 +299,16 @@ def main():
         matches = search(args.query, args.path)
         for m in matches:
             meta = m.get('metadata', {}).get('metadata', {})
-            icon = "📁" if meta.get('.tag') == 'folder' else "📄"
+            icon = "" if meta.get('.tag') == 'folder' else ""
             print(f"{icon} {meta.get('path_display', 'unknown')}")
     
     elif args.command == "download":
         result = download(args.path, args.output)
-        print(f"✅ Downloaded to: {result.get('saved', args.output or os.path.basename(args.path))}")
+        print(f" Downloaded to: {result.get('saved', args.output or os.path.basename(args.path))}")
     
     elif args.command == "upload":
         result = upload(args.local, args.remote)
-        print(f"✅ Uploaded to: {result.get('path_display', args.remote)}")
+        print(f" Uploaded to: {result.get('path_display', args.remote)}")
     
     elif args.command == "account":
         info = get_account()
@@ -317,7 +317,7 @@ def main():
     
     elif args.command == "mkdir":
         result = create_folder(args.path)
-        print(f"✅ Created: {result['metadata']['path_display']}")
+        print(f" Created: {result['metadata']['path_display']}")
 
 
 if __name__ == "__main__":

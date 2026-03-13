@@ -2,7 +2,7 @@
 name: brew-audit
 version: 1.0.0
 description: Audit Homebrew installation — outdated packages, cleanup opportunities, and health checks. Use when asked about brew updates, system maintenance, or package health on macOS.
-metadata: {"clawdbot":{"emoji":"🍺","homepage":"https://brew.sh","requires":{"bins":["brew"],"os":["darwin"]}}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://brew.sh","requires":{"bins":["brew"],"os":["darwin"]}}}
 ---
 
 # Homebrew Audit Skill
@@ -26,19 +26,19 @@ bash scripts/brew-audit.sh --json --section outdated
 
 ## What It Checks
 
-### 📦 Outdated Packages
+###  Outdated Packages
 Lists all formulae and casks with newer versions available, with current → available version info.
 
-### 🧹 Cleanup Opportunities
+###  Cleanup Opportunities
 Shows how many old versions/downloads can be removed and estimated disk savings. Run `brew cleanup` to reclaim.
 
-### 🩺 Health Check
+###  Health Check
 Runs `brew doctor` to detect:
 - Formulae with no source (orphaned kegs)
 - Deprecated/disabled packages needing replacement
 - Permission issues, broken symlinks, config problems
 
-### 📊 Summary
+###  Summary
 Total formulae, casks, and Homebrew prefix.
 
 ## When to Use

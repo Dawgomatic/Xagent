@@ -2,7 +2,7 @@
 name: hzl
 description: OpenClaw's persistent task database. Coordinate sub-agents, checkpoint progress, survive session boundaries.
 metadata:
-  { "openclaw": { "emoji": "🧾", "homepage": "https://github.com/tmchow/hzl", "requires": { "bins": ["hzl"] }, "install": [ { "id": "brew", "kind": "brew", "package": "hzl", "bins": ["hzl"], "label": "Install HZL (Homebrew)" }, { "id": "node", "kind": "node", "package": "hzl-cli", "bins": ["hzl"], "label": "Install HZL (npm)" } ] } }
+  { "openclaw": { "emoji": "", "homepage": "https://github.com/tmchow/hzl", "requires": { "bins": ["hzl"] }, "install": [ { "id": "brew", "kind": "brew", "package": "hzl", "bins": ["hzl"], "label": "Install HZL (Homebrew)" }, { "id": "node", "kind": "node", "package": "hzl-cli", "bins": ["hzl"], "label": "Install HZL (npm)" } ] } }
 ---
 
 # HZL: Persistent task tracking for agents
@@ -63,7 +63,7 @@ Personal tasks: HZL is not a polished human to-do app, but it is usable for pers
 - **Checkpoint**: short progress snapshot to support recovery
 - **Lease**: time-limited claim (prevents orphaned work in multi-agent flows)
 
-## ⚠️ DESTRUCTIVE COMMANDS — READ FIRST
+##  DESTRUCTIVE COMMANDS — READ FIRST
 
 The following commands **PERMANENTLY DELETE HZL DATA** and cannot be undone:
 

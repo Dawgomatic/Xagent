@@ -10,7 +10,7 @@ npx clawhub install smart-memory
 node smart-memory/smart_memory.js --sync
 ```
 
-## ✨ The Magic
+##  The Magic
 
 **Same function call. Two modes. You choose.**
 
@@ -28,7 +28,7 @@ memory_search("What did we decide about the architecture?")
 | **Fast** | Quick lookups, facts | Direct vector similarity (~10ms) |
 | **Focus** | Decisions, synthesis | Retrieve → Rank → Synthesize (~100ms) |
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### From ClawHub (Recommended)
 ```bash
@@ -47,7 +47,7 @@ git clone https://github.com/BluePointDigital/smart-memory.git
 cd smart-memory/smart-memory && npm install
 ```
 
-## 🎯 How It Works
+##  How It Works
 
 ### Dual Retrieval Modes
 
@@ -86,7 +86,7 @@ User searches
 3. **Choose mode** → Fast for speed, Focus for depth
 4. **Use** → Always best available
 
-## 🎛️ Toggle Modes
+##  Toggle Modes
 
 ```bash
 # Enable Focus mode (curated retrieval)
@@ -99,15 +99,15 @@ node smart-memory/smart_memory.js --unfocus
 node smart-memory/smart_memory.js --mode
 ```
 
-## 📊 Before & After
+##  Before & After
 
 | Query | Without Skill | With Skill (Fast) | With Skill (Focus) |
 |-------|--------------|-------------------|-------------------|
-| "User collaboration style" | ⚠️ Weak | ✅ Better | ✅ "work with me, not just for me" + context |
-| "What did we decide?" | ⚠️ Scattered | ✅ Related chunks | ✅ Synthesized decision narrative |
-| "Compare options A and B" | ⚠️ Manual work | ✅ Related hits | ✅ Structured comparison with sources |
+| "User collaboration style" |  Weak |  Better |  "work with me, not just for me" + context |
+| "What did we decide?" |  Scattered |  Related chunks |  Synthesized decision narrative |
+| "Compare options A and B" |  Manual work |  Related hits |  Structured comparison with sources |
 
-## 🛠️ Usage
+##  Usage
 
 ### In OpenClaw
 
@@ -139,7 +139,7 @@ node smart-memory/smart_memory.js --unfocus    # Disable focus
 node smart-memory/smart_memory.js --status
 ```
 
-## 📁 What's Included
+##  What's Included
 
 ```
 smart-memory/
@@ -159,13 +159,13 @@ skills/
     └── README.md
 ```
 
-## 🔧 Requirements
+##  Requirements
 
 - Node.js 18+
 - ~80MB disk space (for model, cached after download)
 - OpenClaw (or any Node.js agent)
 
-## 🎛️ Tools
+##  Tools
 
 | Tool | Purpose |
 |------|---------|
@@ -175,7 +175,7 @@ skills/
 | `memory_mode` | Toggle fast/focus modes |
 | `memory_status` | Check mode and database stats |
 
-## 🔄 Auto-Sync (Optional)
+##  Auto-Sync (Optional)
 
 Add to `HEARTBEAT.md`:
 ```bash
@@ -184,14 +184,14 @@ if [ -n "$(find memory MEMORY.md -newer smart-memory/.last_sync 2>/dev/null)" ];
 fi
 ```
 
-## 📈 Performance
+##  Performance
 
 | Mode | Quality | Speed | Best For |
 |------|---------|-------|----------|
-| Fast | ⭐⭐⭐⭐ | ~10ms | Quick lookups, facts |
-| Focus | ⭐⭐⭐⭐⭐ | ~100ms | Decisions, synthesis, planning |
+| Fast |  | ~10ms | Quick lookups, facts |
+| Focus |  | ~100ms | Decisions, synthesis, planning |
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
@@ -201,7 +201,7 @@ fi
 | **Focus mode too slow** | Switch to fast: `node smart_memory.js --unfocus` |
 | **Want pure built-in?** | Don't sync - built-in always available as fallback |
 
-## 🧪 Verify Installation
+##  Verify Installation
 
 ```bash
 node smart-memory/smart_memory.js --status
@@ -209,7 +209,7 @@ node smart-memory/smart_memory.js --status
 
 Checks: dependencies, vector index, search functionality, memory files, current mode.
 
-## 📋 For Agent Developers
+##  For Agent Developers
 
 Add to your `AGENTS.md`:
 ```markdown
@@ -223,7 +223,7 @@ Before answering about prior work, decisions, preferences:
 
 See full template in `AGENTS.md`.
 
-## 🗂️ Suggested Memory Structure
+##  Suggested Memory Structure
 
 ```
 workspace/
@@ -237,17 +237,17 @@ workspace/
 
 See `MEMORY_STRUCTURE.md` for templates.
 
-## 🔗 Links
+##  Links
 
 - **GitHub**: https://github.com/BluePointDigital/smart-memory
 - **ClawHub**: https://clawhub.ai/BluePointDigital/smart-memory
 - **Issues**: https://github.com/BluePointDigital/smart-memory/issues
 
-## 📜 License
+##  License
 
 MIT
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Embeddings: [Xenova Transformers](https://github.com/xenova/transformers.js)
 - Model: `sentence-transformers/all-MiniLM-L6-v2`

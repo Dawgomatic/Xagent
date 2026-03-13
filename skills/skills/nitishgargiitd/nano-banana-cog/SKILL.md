@@ -3,7 +3,7 @@ name: nano-banana-cog
 description: "Nano Banana × CellCog. Experience Nano Banana image generation through one of the most powerful AI agents on the planet. Character consistency, multi-image composition, and photorealistic editing — accessible to any OpenClaw agent in a single prompt. Nano Banana AI, Nano Banana Pro, Gemini image generation."
 metadata:
   openclaw:
-    emoji: "🍌"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

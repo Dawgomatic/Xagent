@@ -17,7 +17,7 @@ author: clawd
 | **LP locked** | Forever | Forever | varies |
 | **Chain** | Base | Base | Solana |
 | **Cost to launch** | **$0** | ~$10 | varies |
-| **Agent-native** | ✅ CLI + API | ❌ | ❌ |
+| **Agent-native** |  CLI + API |  |  |
 
 ## Quick Start (30 seconds)
 

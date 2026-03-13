@@ -56,7 +56,7 @@ const html = `<!doctype html>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
   const map = L.map('map').setView([${centerLat}, ${centerLon}], 13);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(map);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: ' OpenStreetMap' }).addTo(map);
   const line = ${JSON.stringify(latlng)};
   const poly = L.polyline(line, {color:'#e11d48', weight:4}).addTo(map);
   map.fitBounds(poly.getBounds(), {padding:[30,30]});

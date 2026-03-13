@@ -157,7 +157,7 @@ def cmd_register(args):
         }
     else:
         # Deprecated easy mode
-        print("⚠️  WARNING: /register/easy is DEPRECATED. The server generates your private key.", file=sys.stderr)
+        print("  WARNING: /register/easy is DEPRECATED. The server generates your private key.", file=sys.stderr)
         print("   Use --secure to generate keys locally (recommended).", file=sys.stderr)
 
         result = api("POST", "/register/easy", {
@@ -166,7 +166,7 @@ def cmd_register(args):
         })
 
         if result.get("security_warning"):
-            print(f"⚠️  Server warning: {result['security_warning']}", file=sys.stderr)
+            print(f"  Server warning: {result['security_warning']}", file=sys.stderr)
 
         creds = {
             "did": result["did"],
@@ -180,10 +180,10 @@ def cmd_register(args):
     with open(out, "w") as f:
         json.dump(creds, f, indent=2)
 
-    print(f"✅ Registered successfully!")
+    print(f" Registered successfully!")
     print(f"   DID: {creds['did']}")
     print(f"   Credentials saved to: {out}")
-    print(f"   ⚠️  Back up {out} — private key cannot be recovered!")
+    print(f"     Back up {out} — private key cannot be recovered!")
 
 
 def cmd_verify(args):
@@ -197,10 +197,10 @@ def cmd_verify(args):
         sys.exit(1)
 
     if not result or not result.get("verified"):
-        print("❌ Agent not found in AIP registry.")
+        print(" Agent not found in AIP registry.")
         return
 
-    print(f"✅ Verified agent:")
+    print(f" Verified agent:")
     print(f"   DID: {result.get('did')}")
     platforms = result.get("platforms", [])
     for p in platforms:
@@ -241,7 +241,7 @@ def cmd_vouch(args):
         "signature": sig,
     })
 
-    print(f"✅ Vouched for {args.target_did} [{scope}]")
+    print(f" Vouched for {args.target_did} [{scope}]")
     if result.get("vouch_id"):
         print(f"   Vouch ID: {result['vouch_id']}")
 
@@ -267,7 +267,7 @@ def cmd_sign(args):
         "signature": sig,
     })
 
-    print(f"✅ Signed!")
+    print(f" Signed!")
     print(f"   Hash: sha256:{content_hash}")
     if result.get("signature_block"):
         print(f"   Signature block:\n{result['signature_block']}")
@@ -282,7 +282,7 @@ def cmd_message(args):
     # Look up recipient public key
     recipient = api("GET", f"/lookup/{args.recipient_did}")
     if not recipient or not recipient.get("public_key"):
-        print(f"❌ Could not find public key for {args.recipient_did}", file=sys.stderr)
+        print(f" Could not find public key for {args.recipient_did}", file=sys.stderr)
         sys.exit(1)
 
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -291,7 +291,7 @@ def cmd_message(args):
     try:
         encrypted = _encrypt_nacl(args.text.encode(), recipient["public_key"], creds["private_key"])
     except ImportError:
-        print("❌ nacl library required for encryption. Install: pip install pynacl", file=sys.stderr)
+        print(" nacl library required for encryption. Install: pip install pynacl", file=sys.stderr)
         sys.exit(1)
 
     msg = f"{creds['did']}|{args.recipient_did}|{ts}|{encrypted}"
@@ -305,7 +305,7 @@ def cmd_message(args):
         "signature": sig,
     })
 
-    print(f"✅ Message sent to {args.recipient_did}")
+    print(f" Message sent to {args.recipient_did}")
 
 
 def cmd_messages(args):
@@ -315,7 +315,7 @@ def cmd_messages(args):
     # Step 1: Get challenge for auth
     ch = api("POST", "/challenge", {"did": creds["did"]})
     if not ch or not ch.get("challenge"):
-        print("❌ Challenge failed", file=sys.stderr)
+        print(" Challenge failed", file=sys.stderr)
         sys.exit(1)
     challenge = ch["challenge"]
 
@@ -330,17 +330,17 @@ def cmd_messages(args):
         "unread_only": getattr(args, 'unread', False),
     })
     if not data:
-        print("❌ Failed to retrieve messages", file=sys.stderr)
+        print(" Failed to retrieve messages", file=sys.stderr)
         sys.exit(1)
 
     messages = data.get("messages", [])
     count = data.get("count", len(messages))
 
     if count == 0:
-        print("📭 No messages.")
+        print(" No messages.")
         return
 
-    print(f"📬 {count} message(s):\n")
+    print(f" {count} message(s):\n")
 
     for i, msg in enumerate(messages, 1):
         sender = msg.get("sender_did", "unknown")
@@ -364,7 +364,7 @@ def cmd_messages(args):
                 sealed_box = nacl.public.SealedBox(curve_priv)
                 plaintext = sealed_box.decrypt(base64.b64decode(content))
                 print(f"  Content: {plaintext.decode()}")
-                print(f"  🔓 (decrypted)")
+                print(f"   (decrypted)")
             except ImportError:
                 print(f"  Content: [encrypted — pip install pynacl to decrypt]")
             except Exception as e:
@@ -398,7 +398,7 @@ def cmd_rotate_key(args):
     with open(out, "w") as f:
         json.dump(creds, f, indent=2)
 
-    print(f"✅ Key rotated successfully!")
+    print(f" Key rotated successfully!")
     print(f"   New public key: {new_pub_b64[:20]}...")
     print(f"   Credentials updated in: {out}")
 
@@ -411,7 +411,7 @@ def cmd_badge(args):
         did = args.did
 
     url = f"{AIP_BASE}/badge/{did}"
-    print(f"🏷️  Badge URL: {url}")
+    print(f"  Badge URL: {url}")
     print(f"   Embed: ![AIP Badge]({url})")
 
     # Also fetch trust status
@@ -426,10 +426,10 @@ def cmd_whoami(args):
     creds = load_creds(args.credentials)
     result = api("GET", f"/verify?did={creds['did']}")
     if not result or not result.get("verified"):
-        print("❌ DID not found in registry (may have been removed).")
+        print(" DID not found in registry (may have been removed).")
         return
 
-    print(f"🆔 Your AIP Identity:")
+    print(f" Your AIP Identity:")
     print(f"   DID: {creds['did']}")
     platforms = result.get("platforms", [])
     if platforms:
@@ -469,7 +469,7 @@ def cmd_reply(args):
             original = m
             break
     if not original:
-        print(f"❌ Message {args.message_id} not found.")
+        print(f" Message {args.message_id} not found.")
         sys.exit(1)
     recipient_did = original.get("sender_did")
     content = f"[Re: {args.message_id[:8]}] {args.content}"
@@ -479,7 +479,7 @@ def cmd_reply(args):
         "content": content, "signature": send_sig,
     })
     if result:
-        print(f"✅ Reply sent to {recipient_did}")
+        print(f" Reply sent to {recipient_did}")
 
 
 def cmd_list(args):
@@ -517,7 +517,7 @@ def cmd_revoke(args):
         "challenge": challenge, "signature": sig,
     })
     if result:
-        print(f"✅ Vouch revoked: {args.vouch_id}")
+        print(f" Vouch revoked: {args.vouch_id}")
 
 
 def cmd_trust_score(args):
@@ -529,14 +529,14 @@ def cmd_trust_score(args):
     if not data:
         sys.exit(1)
     if not data.get("path_exists"):
-        print(f"❌ No trust path: {args.source[:20]}… → {args.target[:20]}…")
+        print(f" No trust path: {args.source[:20]}… → {args.target[:20]}…")
         print(f"   Score: 0.0")
         return
     score = data.get("trust_score", 0.0)
     bar_len = 20
     filled = int(score * bar_len)
     bar = "█" * filled + "░" * (bar_len - filled)
-    print(f"🔗 Trust Score: {score:.4f} [{bar}]")
+    print(f" Trust Score: {score:.4f} [{bar}]")
     print(f"   Hops: {data.get('path_length', '?')}")
     for did in data.get("path", []):
         print(f"   → {did}")

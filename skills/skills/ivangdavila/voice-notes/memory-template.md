@@ -39,7 +39,7 @@ touch ~/voice-notes/{memory.md,index.md}
 - DD: [[slug]]
 
 ## Link Map
-[[a]] ↔ [[b]] — relation
+[[a]]  [[b]] — relation
 ```
 
 ## Note (notes/{slug}.md)

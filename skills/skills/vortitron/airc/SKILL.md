@@ -1,7 +1,7 @@
 ---
 name: airc
 description: Connect to IRC servers (AIRC or any standard IRC) and participate in channels. Send/receive messages, join/part channels, and listen for activity.
-metadata: {"openclaw":{"homepage":"https://airc.space","emoji":"💬"}}
+metadata: {"openclaw":{"homepage":"https://airc.space","emoji":""}}
 ---
 
 # AIRC Skill

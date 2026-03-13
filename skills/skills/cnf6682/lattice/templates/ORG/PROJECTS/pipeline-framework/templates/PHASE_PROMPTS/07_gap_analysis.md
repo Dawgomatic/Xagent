@@ -19,7 +19,7 @@ Review answers "Is this run good enough?", you answer "How to do better next run
 - Code files in project repo (Spot check key modules)
 - `ORG/PROJECTS/<project>/PIPELINE_STATE.json` (Check `deferredTasks` field — tasks deferred by Auto-Triage this run)
 
-## ⚠️ Deferred Task Handling (Important)
+##  Deferred Task Handling (Important)
 If PIPELINE_STATE.json contains `deferredTasks` in any phase, you must:
 1. Add a **"Deferred Task List"** section in GAP_ANALYSIS.md
 2. List each deferred task's taskId, deferral reason, and original error summary
@@ -75,7 +75,7 @@ Must include the following sections:
    |-------------|------------|------|
    | ...         | XX%        | ...  |
    ```
-3. **Scenario Coverage Matrix** (Covered ✅ / Partial ⚠️ / Not Covered ❌)
+3. **Scenario Coverage Matrix** (Covered  / Partial  / Not Covered )
 4. **Cross-Run Comparison** (If historical data exists)
 5. **Improvement Suggestions List** (At least 3 items, sorted by priority)
    ```

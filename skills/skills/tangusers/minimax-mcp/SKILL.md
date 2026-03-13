@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔍",
+        "emoji": "",
         "requires": { "bins": ["uvx"], "env": ["MINIMAX_API_KEY", "MINIMAX_API_HOST"] },
         "primaryEnv": "MINIMAX_API_KEY",
         "install":
@@ -64,8 +64,8 @@ Use this skill when user says:
 
 | Region | API Key URL | API Host |
 |--------|-------------|----------|
-| 🇨🇳 China | platform.minimaxi.com | https://api.minimaxi.com |
-| 🇺🇳 Global | minimax.io | https://api.minimax.io |
+|  China | platform.minimaxi.com | https://api.minimaxi.com |
+|  Global | minimax.io | https://api.minimax.io |
 
 ### 2. Configure mcporter (Recommended)
 
@@ -98,12 +98,12 @@ See [references/examples.md](references/examples.md)
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `MINIMAX_API_KEY` | ✅ | Your MiniMax API Key |
-| `MINIMAX_API_HOST` | ✅ | API endpoint |
+| `MINIMAX_API_KEY` |  | Your MiniMax API Key |
+| `MINIMAX_API_HOST` |  | API endpoint |
 
 ## Important Notes
 
-⚠️ **API Key must match the host region!**
+ **API Key must match the host region!**
 
 | Region | API Key Source | API Host |
 |--------|---------------|----------|

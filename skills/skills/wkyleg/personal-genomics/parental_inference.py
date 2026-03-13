@@ -154,7 +154,7 @@ def generate_report(haplogroups, het_markers):
     lines.append("• mtDNA haplogroup (maternal line)")
     lines.append("• Heterozygous ancestry-informative markers")
     lines.append("")
-    lines.append("⚠️  Note: Without parental DNA samples, these are inferences only.")
+    lines.append("  Note: Without parental DNA samples, these are inferences only.")
     lines.append("")
     
     lines.append("-" * 70)

@@ -87,7 +87,7 @@ Trendyol API Integration allows companies participating in the Trendyol Partner 
 
 ## 2. Authorization
 ### Regions and Store Front Codes
-> ⚠️ **CRITICAL: The `storeFrontCode` header is the mandatory parameter used to switch between different country markets.**
+>  **CRITICAL: The `storeFrontCode` header is the mandatory parameter used to switch between different country markets.**
 
 | Region | Country | Store Front Code | Currency |
 |---|---|---|---|
@@ -116,7 +116,7 @@ All requests to the integration services must be authorized using **Basic Authen
 | `API KEY` | Your API key (username for Basic Auth) |
 | `API SECRET KEY` | Your API secret (password for Basic Auth) |
 
-> ⚠️ **IMPORTANT:** Never share API keys on public platforms (GitHub, GitLab, etc.)
+>  **IMPORTANT:** Never share API keys on public platforms (GitHub, GitLab, etc.)
 
 ### Required Headers
 All requests MUST include both `Authorization` and `User-Agent` headers.

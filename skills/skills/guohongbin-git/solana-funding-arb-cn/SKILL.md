@@ -10,7 +10,7 @@ metadata:
 
 Automated funding rate arbitrage bot for Solana perpetual DEXes.
 
-## 🔥 What's New in v2.0
+##  What's New in v2.0
 
 - **Auto-Trading**: Fully automated position management
 - **Multi-DEX Support**: Drift Protocol + Flash Trade
@@ -22,8 +22,8 @@ Automated funding rate arbitrage bot for Solana perpetual DEXes.
 
 | DEX | Markets | Trading | Data Source |
 |-----|---------|---------|-------------|
-| Drift Protocol | 64 | ✅ Full | Direct API |
-| Flash Trade | 19 | 🔶 DRY_RUN | CoinGecko |
+| Drift Protocol | 64 |  Full | Direct API |
+| Flash Trade | 19 |  DRY_RUN | CoinGecko |
 
 ## Strategy Options
 
@@ -156,10 +156,10 @@ scripts/
 
 ## Risks
 
-⚠️ **Smart Contract Risk**: DEX bugs, hacks
-⚠️ **Rate Reversal**: 15-18% daily probability
-⚠️ **Execution Slippage**: 0.2-0.4%
-⚠️ **Liquidation**: Only with leverage >1x
+ **Smart Contract Risk**: DEX bugs, hacks
+ **Rate Reversal**: 15-18% daily probability
+ **Execution Slippage**: 0.2-0.4%
+ **Liquidation**: Only with leverage >1x
 
 ## Yield Comparison
 

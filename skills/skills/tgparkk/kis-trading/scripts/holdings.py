@@ -64,10 +64,10 @@ def main():
     active = [h for h in holdings_list if safe_int(h.get('hldg_qty')) > 0]
 
     if not active:
-        print("📊 보유 종목 없음")
+        print(" 보유 종목 없음")
         return
 
-    print(f"📊 보유 종목 ({len(active)}개)")
+    print(f" 보유 종목 ({len(active)}개)")
     print()
 
     total_purchase = 0
@@ -88,7 +88,7 @@ def main():
         total_eval += eval_amt
         total_pl += pl_amt
 
-        emoji = '🔴' if pl_amt < 0 else '🟢' if pl_amt > 0 else '⚪'
+        emoji = '' if pl_amt < 0 else '' if pl_amt > 0 else ''
         print(f"{emoji} {name} ({code})")
         print(f"   {fmt_num(qty)}주 | 평균 {fmt_price(int(avg_price))} → 현재 {fmt_price(cur_price)}")
         print(f"   평가 {fmt_price(eval_amt)} | 손익 {fmt_price(pl_amt)} ({fmt_rate(pl_rate)})")
@@ -96,7 +96,7 @@ def main():
 
     print("─" * 40)
     total_rate = (total_pl / total_purchase * 100) if total_purchase > 0 else 0
-    emoji = '🔴' if total_pl < 0 else '🟢' if total_pl > 0 else '⚪'
+    emoji = '' if total_pl < 0 else '' if total_pl > 0 else ''
     print(f"{emoji} 합계: 매입 {fmt_price(total_purchase)} | 평가 {fmt_price(total_eval)} | 손익 {fmt_price(total_pl)} ({fmt_rate(total_rate)})")
 
 

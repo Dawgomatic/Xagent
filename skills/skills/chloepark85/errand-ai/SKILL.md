@@ -4,11 +4,11 @@
 Enable your AI assistant to post and manage errands for human workers through the ErrandAI platform. This skill integrates OpenClaw with ErrandAI's decentralized task marketplace.
 
 ## Features
-- 🤖 **Natural Language Commands** - Post errands using conversational language
-- 📊 **Status Tracking** - Check errand status and submissions in real-time
-- ✅ **Work Review** - Approve or reject submissions with feedback
-- 💰 **Automated Payments** - USDC payments released automatically upon approval
-- 🌍 **Global Reach** - Post errands for any location worldwide
+-  **Natural Language Commands** - Post errands using conversational language
+-  **Status Tracking** - Check errand status and submissions in real-time
+-  **Work Review** - Approve or reject submissions with feedback
+-  **Automated Payments** - USDC payments released automatically upon approval
+-  **Global Reach** - Post errands for any location worldwide
 
 ## Installation
 
@@ -65,7 +65,7 @@ skills:
 ### Post an Errand
 ```
 You: Post an errand to check iPhone 15 stock at Apple Store Gangnam for $20
-OpenClaw: ✅ Errand posted successfully!
+OpenClaw:  Errand posted successfully!
 Title: check iPhone 15 stock at Apple Store Gangnam
 Location: Apple Store Gangnam
 Reward: $20 USDC
@@ -76,7 +76,7 @@ URL: https://errand.be/errand/err_abc123
 ### Check Status
 ```
 You: Check errand err_abc123
-OpenClaw: 📋 Errand Status
+OpenClaw:  Errand Status
 Title: check iPhone 15 stock at Apple Store Gangnam
 Status: in_progress
 Reward: $20 USDC
@@ -86,7 +86,7 @@ Submissions: 2
 ### Review Submissions
 ```
 You: Approve submission sub_def456
-OpenClaw: ✅ Submission approved! Payment has been released to the worker.
+OpenClaw:  Submission approved! Payment has been released to the worker.
 ```
 
 ## Supported Commands
@@ -107,13 +107,13 @@ The skill understands various natural language patterns:
 - "Approve/Reject submission..."
 
 ## Categories Supported
-- 📸 **Photography** - Product photos, location verification
-- 🔍 **Product Verification** - Stock checks, availability
-- 💰 **Price Research** - Price comparisons, market research
-- 📝 **Translation** - Document and menu translation
-- 📊 **Research** - Surveys, interviews, data collection
-- 📦 **Delivery** - Package pickup, delivery confirmation
-- 🎯 **General** - Custom tasks
+-  **Photography** - Product photos, location verification
+-  **Product Verification** - Stock checks, availability
+-  **Price Research** - Price comparisons, market research
+-  **Translation** - Document and menu translation
+-  **Research** - Surveys, interviews, data collection
+-  **Delivery** - Package pickup, delivery confirmation
+-  **General** - Custom tasks
 
 ## API Integration
 
@@ -218,10 +218,10 @@ tail -f ~/.openclaw/logs/skills.log
 - USDC payment integration
 
 ## Support
-- 📧 Email: support@errand.be
-- 💬 Discord: [ErrandAI Community](https://discord.gg/errandai)
-- 🐛 Issues: [GitHub](https://github.com/errandai/openclaw-skill/issues)
-- 📖 Docs: [docs.errand.be](https://docs.errand.be)
+-  Email: support@errand.be
+-  Discord: [ErrandAI Community](https://discord.gg/errandai)
+-  Issues: [GitHub](https://github.com/errandai/openclaw-skill/issues)
+-  Docs: [docs.errand.be](https://docs.errand.be)
 
 ## License
 MIT License - See LICENSE file for details

@@ -131,7 +131,7 @@ collection: all_basic_info     # 所有用户的基础信息向量
 
 **触发匹配推送：** 匹配达标后，创建匹配记录写入匹配历史，然后分别向 A 和 B 的个人 Agent 发送 MATCH_FOUND 消息。消息中包含匹配评分、匹配理由、破冰话题建议，以及根据对方 disclosure_settings 过滤后的可展示信息。
 
-在群组中发送日志：`[ENGINE] 发现匹配：user_{a} ↔ user_{b}，综合分 {score}，已通知双方。`
+在群组中发送日志：`[ENGINE] 发现匹配：user_{a}  user_{b}，综合分 {score}，已通知双方。`
 
 #### 信息展示过滤逻辑
 
@@ -149,7 +149,7 @@ collection: all_basic_info     # 所有用户的基础信息向量
 
 第四步，更新匹配历史中的状态为 confirmed。
 
-在群组中发送日志：`[ENGINE] 匹配 {match_id} 已确认！user_{a} ↔ user_{b} 即将建立联系。`
+在群组中发送日志：`[ENGINE] 匹配 {match_id} 已确认！user_{a}  user_{b} 即将建立联系。`
 
 ### 5. 定时任务配置
 

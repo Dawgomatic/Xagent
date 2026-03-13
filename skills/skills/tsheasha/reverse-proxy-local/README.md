@@ -1,6 +1,6 @@
 # Ecto Connection Skill
 
-🔌 One-command setup to expose OpenClaw to the internet via Tailscale Funnel.
+ One-command setup to expose OpenClaw to the internet via Tailscale Funnel.
 
 ## Quick Start
 

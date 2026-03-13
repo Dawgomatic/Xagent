@@ -1,11 +1,11 @@
 # Context Restore - 5分钟快速开始
 
-> 📚 **预计时间**：5 分钟  
-> 🎯 **目标**：学会使用 Context Restore 技能恢复工作状态
+>  **预计时间**：5 分钟  
+>  **目标**：学会使用 Context Restore 技能恢复工作状态
 
 ---
 
-## ⏱️ 第一步：安装技能（1分钟）
+##  第一步：安装技能（1分钟）
 
 ### 方式一：ClawdHub 安装（推荐）
 
@@ -23,11 +23,11 @@ git clone https://github.com/openclaw/context-restore.git ~/.openclaw/skills/con
 ls -la ~/.openclaw/skills/context-restore/
 ```
 
-✅ **验证**：看到 `scripts/` 目录说明安装成功
+ **验证**：看到 `scripts/` 目录说明安装成功
 
 ---
 
-## ⏱️ 第二步：基本使用（2分钟）
+##  第二步：基本使用（2分钟）
 
 ### 场景：继续昨天的工作
 
@@ -40,23 +40,23 @@ ls -la ~/.openclaw/skills/context-restore/
 **2. 技能自动恢复上下文，输出：**
 
 ```
-✅ 上下文已恢复
+ 上下文已恢复
 
-📊 压缩信息:
+ 压缩信息:
 - 原始消息: 45
 - 压缩后: 12
 - 压缩率: 26.7%
 
-🔄 最近操作:
+ 最近操作:
 - 完成数据管道测试
 - 部署新功能到生产环境
 - 添加 3 个 cron 任务
 
-🚀 当前项目:
+ 当前项目:
 1. Hermes Plan (80%)
 2. Akasha Plan (45%)
 
-📋 待办任务:
+ 待办任务:
 - [高] 编写测试用例
 - [中] 设计 UI 组件
 ```
@@ -76,7 +76,7 @@ python ~/.openclaw/skills/context-restore/scripts/restore_context.py --level min
 
 ---
 
-## ⏱️ 第三步：进阶功能（2分钟）
+##  第三步：进阶功能（2分钟）
 
 ### 功能 1：时间线回顾
 
@@ -92,14 +92,14 @@ python restore_context.py --timeline --period monthly
 
 **输出示例**：
 ```
-📅 Week 6 (Feb 2-8)
-├── ✅ 完成数据管道测试
-├── ✅ 部署新功能
-└── 🚀 Hermes, Akasha
+ Week 6 (Feb 2-8)
+├──  完成数据管道测试
+├──  部署新功能
+└──  Hermes, Akasha
 
-📅 Week 5 (Jan 26 - Feb 1)
-├── ✅ 启动 UI 改进
-└── 🚀 Hermes Plan
+ Week 5 (Jan 26 - Feb 1)
+├──  启动 UI 改进
+└──  Hermes Plan
 ```
 
 ### 功能 2：过滤特定内容
@@ -128,7 +128,7 @@ python restore_context.py --diff old.json new.json --level detailed
 
 ---
 
-## ⏱️ 第四步：自动监控（可选）
+##  第四步：自动监控（可选）
 
 ### 设置自动上下文监控
 
@@ -142,7 +142,7 @@ python restore_context.py --install-cron --cron-interval 10
 
 **输出**：
 ```
-✅ Cron script created: scripts/auto_context_monitor.sh
+ Cron script created: scripts/auto_context_monitor.sh
 
 安装命令：
 echo "*/5 * * * * /path/to/auto_context_monitor.sh" >> ~/.crontab
@@ -166,7 +166,7 @@ python restore_context.py --check-only
 
 ---
 
-## 📋 恢复级别速查表
+##  恢复级别速查表
 
 | 级别 | 命令 | 适用场景 |
 |------|------|---------|
@@ -176,7 +176,7 @@ python restore_context.py --check-only
 
 ---
 
-## 🆘 常见问题
+##  常见问题
 
 ### Q: 提示 "文件不存在"？
 
@@ -210,7 +210,7 @@ python restore_context.py --telegram
 
 ---
 
-## 🎯 下一步
+##  下一步
 
 掌握基础后，建议探索：
 
@@ -220,12 +220,12 @@ python restore_context.py --telegram
 
 ---
 
-## 📚 相关资源
+##  相关资源
 
-- 📖 [完整文档](README.md)
-- 🛠️ [API 参考](SKILL.md)
-- 🐛 [问题反馈](https://github.com/openclaw/context-restore/issues)
+-  [完整文档](README.md)
+-  [API 参考](SKILL.md)
+-  [问题反馈](https://github.com/openclaw/context-restore/issues)
 
 ---
 
-*快速开始完成！🎉*
+*快速开始完成！*

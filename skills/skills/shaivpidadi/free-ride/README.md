@@ -1,4 +1,4 @@
-# 🎢 FreeRide
+#  FreeRide
 
 ### Stop paying for AI. Start riding free.
 
@@ -20,10 +20,10 @@ You: *keeps coding*
 
 You're using OpenClaw. You love it. But:
 
-- 💸 API costs add up fast
-- 🚫 Free models have rate limits
-- 😤 Manually switching models is annoying
-- 🤷 You don't know which free model is actually good
+-  API costs add up fast
+-  Free models have rate limits
+-  Manually switching models is annoying
+-  You don't know which free model is actually good
 
 ## The Solution
 
@@ -290,9 +290,9 @@ MIT - Do whatever you want.
   <b>Stop paying. Start riding.</b>
   <br>
   <br>
-  <a href="https://github.com/Shaivpidadi/FreeRide">⭐ Star us on GitHub</a>
+  <a href="https://github.com/Shaivpidadi/FreeRide"> Star us on GitHub</a>
   ·
-  <a href="https://openrouter.ai/keys">🔑 Get OpenRouter Key</a>
+  <a href="https://openrouter.ai/keys"> Get OpenRouter Key</a>
   ·
-  <a href="https://github.com/openclaw/openclaw">🦞 Install OpenClaw</a>
+  <a href="https://github.com/openclaw/openclaw"> Install OpenClaw</a>
 </p>

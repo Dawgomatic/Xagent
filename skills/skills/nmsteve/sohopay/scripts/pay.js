@@ -27,20 +27,20 @@ async function main() {
     // 1. Load Signer from Environment
     const privateKey = process.env.PRIVATE_KEY || process.env.SOHO_TEST_PRIVATE_KEY;
     if (!privateKey) {
-        console.error("❌ FATAL: PRIVATE_KEY / SOHO_TEST_PRIVATE_KEY environment variable not set. This skill cannot sign transactions.");
+        console.error(" FATAL: PRIVATE_KEY / SOHO_TEST_PRIVATE_KEY environment variable not set. This skill cannot sign transactions.");
         process.exit(1);
     }
 
     // 2. Parse Command-Line Arguments
     if (process.argv.length < 4) {
-        console.error("❌ USAGE: node pay.js <amount> <merchant_address>");
+        console.error(" USAGE: node pay.js <amount> <merchant_address>");
         process.exit(1);
     }
     const amountString = process.argv[2];
     const merchantInput = process.argv[3];
 
     if (!ethers.isAddress(merchantInput)) {
-        console.error("❌ ERROR: merchant_address must be a valid EVM address (0x...). No name-to-address or random generation is allowed.");
+        console.error(" ERROR: merchant_address must be a valid EVM address (0x...). No name-to-address or random generation is allowed.");
         process.exit(1);
     }
 
@@ -54,12 +54,12 @@ async function main() {
     const chainIdBigInt = network.chainId;
 
     if (chainIdBigInt === 1n) {
-        console.error("❌ FATAL: Connected to Ethereum mainnet. This script is TESTNET ONLY. Aborting.");
+        console.error(" FATAL: Connected to Ethereum mainnet. This script is TESTNET ONLY. Aborting.");
         process.exit(1);
     }
 
     if (chainIdBigInt !== BigInt(CHAIN_ID)) {
-        console.error(`❌ FATAL: Unexpected chainId ${chainIdBigInt}. Expected Base Sepolia (${CHAIN_ID}). Aborting.`);
+        console.error(` FATAL: Unexpected chainId ${chainIdBigInt}. Expected Base Sepolia (${CHAIN_ID}). Aborting.`);
         process.exit(1);
     }
 
@@ -70,7 +70,7 @@ async function main() {
     const nativeBalance = await provider.getBalance(payerAddress);
     const nativeBalanceEth = Number(ethers.formatEther(nativeBalance));
     if (nativeBalanceEth > 0.5) {
-        console.warn(`⚠️  WARNING: Signer native balance is ${nativeBalanceEth} ETH-equivalent, which is high for a testnet key. Ensure this is NOT a mainnet or real-funds wallet.`);
+        console.warn(`  WARNING: Signer native balance is ${nativeBalanceEth} ETH-equivalent, which is high for a testnet key. Ensure this is NOT a mainnet or real-funds wallet.`);
     }
 
     console.log(`--- Initializing SOHO Pay Transaction ---`);
@@ -83,25 +83,25 @@ async function main() {
     console.log(`-------------------------------------------`);
 
     // 5. Pre-Flight Checks
-    console.log("\n🔍 Performing Pre-Flight Checks...");
+    console.log("\n Performing Pre-Flight Checks...");
     const borrowerManager = new ethers.Contract(ADDRESSES.borrowerManager, BORROWER_MANAGER_ABI, provider);
 
     const isRegistered = await borrowerManager.isBorrowerRegistered(payerAddress);
     const isActive = await borrowerManager.isActiveBorrower(payerAddress);
     const creditLimit = await borrowerManager.getAgentSpendLimit(payerAddress);
 
-    console.log(`- Borrower Registered? ${isRegistered ? '✅ Yes' : '❌ No'}`);
-    console.log(`- Borrower Active? ${isActive ? '✅ Yes' : '❌ No'}`);
+    console.log(`- Borrower Registered? ${isRegistered ? ' Yes' : ' No'}`);
+    console.log(`- Borrower Active? ${isActive ? ' Yes' : ' No'}`);
     console.log(`- Borrower Credit Limit: ${ethers.formatUnits(creditLimit, USDC_DECIMALS)} USDC`);
     
     if (!isRegistered || !isActive || creditLimit < amount) {
-        if (!isRegistered) console.error("\n❌ REASON: Borrower is not registered.");
-        if (!isActive) console.error("\n❌ REASON: Borrower is not active.");
-        if (creditLimit < amount) console.error(`\n❌ REASON: Credit limit (${ethers.formatUnits(creditLimit, USDC_DECIMALS)}) is less than amount (${amountString}).`);
+        if (!isRegistered) console.error("\n REASON: Borrower is not registered.");
+        if (!isActive) console.error("\n REASON: Borrower is not active.");
+        if (creditLimit < amount) console.error(`\n REASON: Credit limit (${ethers.formatUnits(creditLimit, USDC_DECIMALS)}) is less than amount (${amountString}).`);
         console.error("Transaction aborted due to failed pre-flight checks.");
         process.exit(1);
     }
-    console.log("✅ All checks passed.");
+    console.log(" All checks passed.");
 
     // 6. EIP-712 Signing
     const domain = { name: 'CreditContract', version: '1', chainId: CHAIN_ID, verifyingContract: ADDRESSES.creditor };
@@ -121,24 +121,24 @@ async function main() {
         validAfter: now - 60, expiry: now + 600
     };
     
-    console.log("\n✍️  Signing EIP-712 message...");
+    console.log("\n  Signing EIP-712 message...");
     const signature = await wallet.signTypedData(domain, types, message);
 
     // 7. Execute Transaction
     const creditorContract = new ethers.Contract(ADDRESSES.creditor, CREDITOR_ABI, wallet);
     try {
-        console.log("\n🚀 Submitting transaction to the blockchain...");
+        console.log("\n Submitting transaction to the blockchain...");
         const tx = await creditorContract.spendWithAuthorization(
             message.payer, message.merchant, message.asset, message.amount,
             message.paymentPlanId, message.nonce, message.validAfter, message.expiry,
             signature
         );
-        console.log(`\n✅ Transaction sent! Hash: ${tx.hash}`);
+        console.log(`\n Transaction sent! Hash: ${tx.hash}`);
         console.log(`Waiting for confirmation...`);
         const receipt = await tx.wait();
-        console.log(`\n🎉 Transaction confirmed in block: ${receipt.blockNumber}`);
+        console.log(`\n Transaction confirmed in block: ${receipt.blockNumber}`);
     } catch (error) {
-        console.error("\n❌ On-Chain Transaction Failed:", error.reason || error.message);
+        console.error("\n On-Chain Transaction Failed:", error.reason || error.message);
         process.exit(1);
     }
 }

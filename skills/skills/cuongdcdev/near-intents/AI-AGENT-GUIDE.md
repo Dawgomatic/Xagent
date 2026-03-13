@@ -55,7 +55,7 @@ User request → Parse assetIn, assetOut, amount, recipient
 - Agent wants to show the quote before committing
 - No NEAR credentials available
 
-### ⚠️ CRITICAL: Refund Address for Cross-Chain Swaps
+###  CRITICAL: Refund Address for Cross-Chain Swaps
 
 **When origin is NOT NEAR** (e.g., Base, Arbitrum, Ethereum, Solana):
 1. **ALWAYS ask the user for their refund address** on the origin chain
@@ -181,12 +181,12 @@ Explorer: https://explorer.near-intents.org/transactions/2dc254...
 
 ### Manual Mode Response
 ```
-🎯 Manual Mode: Quote Generated
+ Manual Mode: Quote Generated
 
 You need to send: 0.519188 USDT
 You will receive: 0.5 USDC
 
-📋 Instructions:
+ Instructions:
 1. Send 0.519188 USDT to:
    de6eba71e700601d2c46ac9722e6b249e5efed59a423edf7fadfe37909eadeef
 
@@ -196,7 +196,7 @@ You will receive: 0.5 USDC
 3. Your USDC will arrive at:
    0x30FE694284a082a5D1adfF6D25C0B9B6bF61F77D
 
-⏰ Deadline: 2026-02-16T02:43:56.552Z
+ Deadline: 2026-02-16T02:43:56.552Z
 ```
 
 **Extract from response**:
@@ -294,7 +294,7 @@ ONE_CLICK_JWT=optional_jwt_token
 
 ## Tips for AI Agents
 
-1. **🚨 ALWAYS ask for refundAddress** when origin is not NEAR — never assume or guess
+1. ** ALWAYS ask for refundAddress** when origin is not NEAR — never assume or guess
 2. **Default to manual mode** unless you control the NEAR account and origin is NEAR
 3. **Use EXACT_OUTPUT** when user specifies desired output amount
 4. **Always provide the recipient address** for cross-chain swaps
@@ -330,4 +330,4 @@ npx ts-node test-manual-mode.ts
 ---
 
 **Version**: 2.0.0
-**Status**: ✅ Production Ready
+**Status**:  Production Ready

@@ -2,25 +2,25 @@
 
 自动获取B站热门视频，使用字幕+LLM生成AI总结，生成包含数据分析的日报，支持邮件发送。
 
-## 📦 版本历史
+##  版本历史
 
 ### v1.0.11 (2025-02-05)
 
 **重大更新：改用字幕+LLM方案替代B站官方AI总结API**
 
-- ✨ **新功能**
+-  **新功能**
   - 使用视频字幕 + OpenRouter LLM 生成 AI 视频总结
   - 支持多种 LLM 模型：Claude、Gemini、GPT、DeepSeek
   - 实时进度条显示，用户可看到处理进度
   - 预估耗时提示
 
-- 🔧 **优化**
+-  **优化**
   - 禁用所有模型的 thinking/reasoning 模式，避免输出被截断
   - 添加网络重试机制（最多3次），提高稳定性
   - 优化 JSON 解析，增加 fallback 提取逻辑
   - 改进 SKILL.md 中的 Cookie 获取说明（使用 Network 选项卡方法）
 
-- 🐛 **修复**
+-  **修复**
   - 修复字幕获取兼容性问题
   - 修复 URL 链接被括号破坏的问题
 
@@ -28,17 +28,17 @@
 
 - 初始版本，使用 B站官方 AI 总结 API
 
-## ✨ 功能特点
+##  功能特点
 
-- 📊 获取B站热门视频Top 10/20/30
-- 🤖 字幕提取 + LLM 生成 AI 视频总结
-- 📝 自动生成结构化Markdown报告
-- 💡 支持 OpenRouter AI 智能点评（Claude/Gemini/GPT/DeepSeek）
-- 📧 HTML邮件发送（支持多收件人）
-- 🎨 精美的邮件排版（蓝色主题）
-- 📈 关键节点进度显示（每阶段仅在 25%/50%/75%/100% 输出，避免刷屏）
+-  获取B站热门视频Top 10/20/30
+-  字幕提取 + LLM 生成 AI 视频总结
+-  自动生成结构化Markdown报告
+-  支持 OpenRouter AI 智能点评（Claude/Gemini/GPT/DeepSeek）
+-  HTML邮件发送（支持多收件人）
+-  精美的邮件排版（蓝色主题）
+-  关键节点进度显示（每阶段仅在 25%/50%/75%/100% 输出，避免刷屏）
 
-## 🚀 快速开始
+##  快速开始
 
 ### 1. 安装依赖
 
@@ -109,31 +109,31 @@ python send_email.py --config bilibili-monitor.json --body-file report.md --html
 python generate_report.py --cookies "你的cookies" --openrouter-key "你的key" --config bilibili-monitor.json --output report.md
 ```
 
-## 📋 报告内容
+##  报告内容
 
 生成的报告包含：
 
 ```
-📋 本期热门视频（摘要表格）
+ 本期热门视频（摘要表格）
 ├── 排名、标题、播放量、亮点、链接
 
-🌟 本期亮点
+ 本期亮点
 ├── 播放量冠军
 ├── 点赞数冠军
 ├── 硬币数冠军
 └── 分享数冠军
 
-📹 详细报告（每个视频）
+ 详细报告（每个视频）
 ├── 基本信息（UP主、时长、发布时间）
-├── 📊 数据统计
-├── 📝 视频简介
-├── 🤖 AI视频总结 + 内容大纲（LLM生成）
-├── 💡 AI点评
-├── 📈 运营爆款分析
-└── 🔗 视频链接
+├──  数据统计
+├──  视频简介
+├──  AI视频总结 + 内容大纲（LLM生成）
+├──  AI点评
+├──  运营爆款分析
+└──  视频链接
 ```
 
-## 🤖 作为AI Skill使用
+##  作为AI Skill使用
 
 本项目可作为 OpenClaw 等 AI Agent 的 Skill 使用。
 
@@ -143,7 +143,7 @@ python generate_report.py --cookies "你的cookies" --openrouter-key "你的key"
 - "视频日报"
 - "热门视频"
 
-## 📁 文件结构
+##  文件结构
 
 ```
 bilibili-monitor/
@@ -158,14 +158,14 @@ bilibili-monitor/
 └── example_report.md           # 报告示例
 ```
 
-## 🔒 安全说明
+##  安全说明
 
 - 所有凭据仅存储在用户本地设备上，Skill 发布包中不包含任何凭据
 - 配置文件 `bilibili-monitor.json` 已通过 `.gitignore` 排除，不会被意外上传或分享
 - 网络传输使用 HTTPS 和 TLS/STARTTLS 加密
 - 同时支持环境变量和命令行参数传递凭据，用户可自行选择
 
-## ⚙️ 配置说明
+##  配置说明
 
 ### OpenRouter 模型选择
 
@@ -182,12 +182,12 @@ bilibili-monitor/
 1. 访问 https://myaccount.google.com/apppasswords
 2. 生成16位应用密码
 
-## ⚠️ 注意事项
+##  注意事项
 
 1. **Cookie有效期**：SESSDATA 约 1-3 个月，过期需重新获取
 2. **API频率限制**：请求间隔建议 >= 1 秒
 3. **字幕可用性**：部分视频可能无字幕，会跳过 AI 总结生成
 
-## 📄 License
+##  License
 
 MIT License

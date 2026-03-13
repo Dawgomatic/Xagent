@@ -1,4 +1,4 @@
-# 👔 Executive Assistant Starter Pack
+#  Executive Assistant Starter Pack
 
 A pre-configured AI Persona setup for high-level executive support.
 
@@ -37,25 +37,25 @@ A pre-configured AI Persona setup for high-level executive support.
 
 ## Key Features
 
-### 📅 Calendar Intelligence
+###  Calendar Intelligence
 - Daily schedule review
 - Conflict detection
 - Meeting prep checklists
 - Tomorrow preview
 
-### 📧 Communications Triage
+###  Communications Triage
 - Priority flagging
 - Response tracking
 - Follow-up management
 - Draft assistance
 
-### 🤝 Relationship Management
+###  Relationship Management
 - Contact tier system
 - Last contact tracking
 - Check-in reminders
 - Context preservation
 
-### 🎯 Proactive Support
+###  Proactive Support
 - Anticipate needs
 - Surface opportunities
 - Prepare briefings
@@ -84,25 +84,25 @@ A pre-configured AI Persona setup for high-level executive support.
 ```
 DAILY BRIEFING — Monday, January 27, 2026
 
-📅 TODAY'S SCHEDULE
+ TODAY'S SCHEDULE
 5 meetings, first at 9:00 AM
 Key: Board sync at 2:00 PM (prep ready)
 
-📧 COMMUNICATIONS
+ COMMUNICATIONS
 - 2 urgent items flagged
 - 3 awaiting response (oldest: 2 days)
 - 1 follow-up due today (Chen partnership)
 
-⚠️ ATTENTION NEEDED
+ ATTENTION NEEDED
 - Board deck needs final approval by noon
 - Travel booking for Thursday needs confirmation
 
-✅ PREP COMPLETED
+ PREP COMPLETED
 - Board meeting briefing ready
 - Chen background research done
 - Tomorrow's investor call materials prepped
 
-🎯 TODAY'S PRIORITIES
+ TODAY'S PRIORITIES
 1. Finalize board deck (9 AM deadline)
 2. Board sync meeting (2 PM)
 3. Follow up with Chen on partnership

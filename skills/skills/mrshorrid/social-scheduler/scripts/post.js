@@ -77,11 +77,11 @@ async function main() {
         throw new Error(`Platform '${platform}' not yet supported`);
     }
 
-    console.log('✅ Posted successfully!');
+    console.log(' Posted successfully!');
     console.log(JSON.stringify(result, null, 2));
 
   } catch (error) {
-    console.error('❌ Post failed:', error.message);
+    console.error(' Post failed:', error.message);
     process.exit(1);
   }
 }

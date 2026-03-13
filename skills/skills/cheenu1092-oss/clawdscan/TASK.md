@@ -58,7 +58,7 @@ python3 /path/to/clawdscan.py scan --json /tmp/clawdscan-report.json
 ```
 
 Check the JSON report:
-- If any sessions are 🔴 critical → alert the user
+- If any sessions are  critical → alert the user
 - If zombie count > 20 → suggest cleanup
 - If total disk > 200MB → suggest cleanup
 - Track trends: compare with previous report

@@ -59,10 +59,10 @@ def check_hkgbook(state: dict):
     status = state.get('status', 'IDLE').upper()
 
     if status == 'PAUSED':
-        print("🔄 狀態: PAUSED - 跳過 HKGBook 檢查")
+        print(" 狀態: PAUSED - 跳過 HKGBook 檢查")
         return
 
-    print(f"🔄 狀態: {status} - 執行 HKGBook 檢查 (策略: {'完整' if status in ['IDLE', 'COMPLETED', 'FAILED'] else '簡化'})")
+    print(f" 狀態: {status} - 執行 HKGBook 檢查 (策略: {'完整' if status in ['IDLE', 'COMPLETED', 'FAILED'] else '簡化'})")
 
     # 載入 Heartbeat 狀態
     heartbeat_data = load_json(HEARTBEAT_STATE)
@@ -82,13 +82,13 @@ def check_hkgbook(state: dict):
         result = subprocess.run(curl_cmd, capture_output=True, text=True, timeout=10)
         data = json.loads(result.stdout)
 
-        print(f"   📊 時間戳: {data.get('timestamp', 'N/A')}")
-        print(f"   📢 通知: {len(data.get('mention_notifications', []))} 提及, {len(data.get('replies_to_your_posts', []))} 回覆")
+        print(f"    時間戳: {data.get('timestamp', 'N/A')}")
+        print(f"    通知: {len(data.get('mention_notifications', []))} 提及, {len(data.get('replies_to_your_posts', []))} 回覆")
 
         # 根據狀態決定是否投票
         if status in ['IDLE', 'COMPLETED', 'FAILED']:
             needs_votes = data.get('needs_votes', [])
-            print(f"   ⏳ 需要投票: {len(needs_votes)} 項")
+            print(f"    需要投票: {len(needs_votes)} 項")
 
             # 投票（最多 2 項）
             if needs_votes:
@@ -105,7 +105,7 @@ def check_hkgbook(state: dict):
                         subprocess.run(vote_cmd, capture_output=True)
                         print(f"      ✓ 投票: {reply_id[:8]}...")
         else:
-            print(f"   ⚠️  DOING/WAITING - 跳過投票")
+            print(f"     DOING/WAITING - 跳過投票")
 
         # 更新心跳狀態
         heartbeat_data['lastHkgbookCheck'] = data.get('timestamp', '')
@@ -122,10 +122,10 @@ def check_hkgbook(state: dict):
         }
 
         save_json(HEARTBEAT_STATE, heartbeat_data)
-        print("   ✅ HKGBook 檢查完成")
+        print("    HKGBook 檢查完成")
 
     except Exception as e:
-        print(f"   ❌ HKGBook 檢查失敗: {e}")
+        print(f"    HKGBook 檢查失敗: {e}")
 
 def show_agent_status(state: dict):
     """顯示 Agent 當前任務狀態"""
@@ -135,7 +135,7 @@ def show_agent_status(state: dict):
     task_type = state.get('type', 'N/A')
 
     print(f"\n{'='*60}")
-    print(f"🤖 Agent: qst | 狀態: {status.upper()}")
+    print(f" Agent: qst | 狀態: {status.upper()}")
     print(f"{'='*60}")
     print(f"   任務: {task}")
     print(f"   類型: {task_type}")
@@ -166,7 +166,7 @@ def show_urgent_notifications(state: dict):
     replies = last_scan.get('repliesToPosts', 0)
 
     if mentions > 0 or replies > 0:
-        print(f"🔔 緊急通知:")
+        print(f" 緊急通知:")
         if mentions > 0:
             print(f"   • {mentions} 項 @提及")
         if replies > 0:
@@ -176,7 +176,7 @@ def show_urgent_notifications(state: dict):
 def main():
     """主執行流程"""
     print(f"\n{'='*60}")
-    print(f"❤️  Heartbeat Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}")
+    print(f"  Heartbeat Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}")
     print(f"{'='*60}\n")
 
     # 1. 載入 Agent 狀態
@@ -193,11 +193,11 @@ def main():
 
     # 5. 顯示 Agent 事件（可選）
     if state.get('status') == 'DOING':
-        print(f"📜 Agent 事件:")
+        print(f" Agent 事件:")
         print(f"   當前任務進行中...")
 
     print(f"\n{'='*60}")
-    print(f"✅ Heartbeat Completed: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}")
+    print(f" Heartbeat Completed: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}")
     print(f"{'='*60}\n")
 
     # 返回狀態碼（供外部使用）

@@ -11,7 +11,7 @@ Add something like this to your workspace TOOLS.md after setup:
 - Upload: `POST /doUpload?dir=/image` with form field `file`
 - Set active: `/set?img=%2Fimage%2Ffilename.jpg`
 - Set theme: `/set?theme=2` (Photo Album)
-- ⚠️ NEVER use `/set?reset=1` — that's factory reset, wipes WiFi config
+-  NEVER use `/set?reset=1` — that's factory reset, wipes WiFi config
 - Reboot: `/set?reboot=1` (response may time out)
 - Art style: Glass display — dark/black backgrounds so glass disappears.
 

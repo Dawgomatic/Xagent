@@ -74,18 +74,18 @@ Reference when analyzing:
 
 ### Quick Summary Version
 ```
-📊 Market Summary [2025/01/15 14:00]
+ Market Summary [2025/01/15 14:00]
 ━━━━━━━━━━━━━━━━━━━━━
 【US】S&P 500: 5,123.45 (+0.45%)
 【JP】Nikkei 225: 38,456.78 (-0.23%)
 【FX】USD/JPY: 149.85 (↑0.15)
 【VIX】16.2 (Normal range)
 
-⚡ Key Events
+ Key Events
 - Japan GDP Flash
 - US Employment Report
 
-📈 Environment: Risk-On Continues
+ Environment: Risk-On Continues
 ```
 
 ### Detailed Analysis Version
@@ -106,9 +106,9 @@ Key clarifications:
 
 ### Economic Calendar Priority
 Categorize by importance:
-- ⭐⭐⭐ Critical (FOMC, NFP, CPI, etc.)
-- ⭐⭐ Important (GDP, Retail Sales, etc.)
-- ⭐ Reference level
+-  Critical (FOMC, NFP, CPI, etc.)
+-  Important (GDP, Retail Sales, etc.)
+-  Reference level
 
 ### Data Source Priority
 1. Official releases (Central banks, Government statistics)

@@ -17,10 +17,10 @@ Scan your IMAP inbox, classify emails into priority categories, and surface the 
 
 | Icon | Category | Description |
 |------|----------|-------------|
-| 🔴 | `urgent` | Outages, security alerts, legal, payment failures, time-critical |
-| 🟡 | `needs-response` | Business inquiries, questions, action items requiring a reply |
-| 🔵 | `informational` | Receipts, confirmations, newsletters, automated notifications |
-| ⚫ | `spam` | Marketing, promotions, unsolicited junk |
+|  | `urgent` | Outages, security alerts, legal, payment failures, time-critical |
+|  | `needs-response` | Business inquiries, questions, action items requiring a reply |
+|  | `informational` | Receipts, confirmations, newsletters, automated notifications |
+|  | `spam` | Marketing, promotions, unsolicited junk |
 
 ## Configuration
 
@@ -28,10 +28,10 @@ All configuration is via environment variables:
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `IMAP_HOST` | ✅ | — | IMAP server hostname |
+| `IMAP_HOST` |  | — | IMAP server hostname |
 | `IMAP_PORT` | — | `993` | IMAP port (SSL) |
-| `IMAP_USER` | ✅ | — | IMAP username / email address |
-| `IMAP_PASS` | ✅ | — | IMAP password or app-specific password |
+| `IMAP_USER` |  | — | IMAP username / email address |
+| `IMAP_PASS` |  | — | IMAP password or app-specific password |
 | `EMAIL_TRIAGE_STATE` | — | `./data/email-triage.json` | Path to the JSON state file |
 | `OLLAMA_URL` | — | `http://127.0.0.1:11434` | Ollama API endpoint |
 | `OLLAMA_MODEL` | — | `qwen2.5:7b` | Ollama model for classification |

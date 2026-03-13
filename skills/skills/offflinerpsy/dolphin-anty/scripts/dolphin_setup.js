@@ -81,7 +81,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('🔑 Проверяю токен...');
+  console.log(' Проверяю токен...');
 
   // 1. Verify token against cloud API
   try {
@@ -90,21 +90,21 @@ async function main() {
     });
     
     if (res.data.success === false || res.status === 401) {
-      console.error('❌ Токен невалидный! Проверьте, правильно ли скопировали.');
+      console.error(' Токен невалидный! Проверьте, правильно ли скопировали.');
       console.error('   Ответ API:', JSON.stringify(res.data));
       process.exit(1);
     }
     
     const total = res.data.total || res.data.data?.length || 0;
-    console.log(`✅ Токен валидный! Профилей в аккаунте: ${total}`);
+    console.log(` Токен валидный! Профилей в аккаунте: ${total}`);
   } catch (err) {
-    console.error('⚠️ Не удалось проверить токен онлайн:', err.message);
+    console.error(' Не удалось проверить токен онлайн:', err.message);
     console.log('   Сохраняю токен и пробую локально...');
   }
 
   // 2. Save token to file
   fs.writeFileSync(TOKEN_FILE, token, 'utf8');
-  console.log(`💾 Токен сохранён: ${TOKEN_FILE}`);
+  console.log(` Токен сохранён: ${TOKEN_FILE}`);
 
   // 3. Register token with local API
   try {
@@ -114,17 +114,17 @@ async function main() {
     );
     
     if (res.data.success !== false) {
-      console.log('✅ Локальный API авторизован!');
+      console.log(' Локальный API авторизован!');
     } else {
-      console.log('⚠️ Локальный API ответ:', JSON.stringify(res.data));
+      console.log(' Локальный API ответ:', JSON.stringify(res.data));
       console.log('   Убедитесь, что Dolphin Anty запущен.');
     }
   } catch (err) {
-    console.log('⚠️ Dolphin Anty не запущен (localhost:3001 недоступен).');
+    console.log(' Dolphin Anty не запущен (localhost:3001 недоступен).');
     console.log('   Токен сохранён — при следующем запуске скриптов он будет использован.');
   }
 
-  console.log('\n🎉 Готово! Теперь можно использовать:');
+  console.log('\n Готово! Теперь можно использовать:');
   console.log('   node dolphin_profiles.js list');
   console.log('   node dolphin_profiles.js status');
   console.log('   node dolphin_automate.js --profile-id <ID> --task warmup');

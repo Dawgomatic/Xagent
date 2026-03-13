@@ -11,8 +11,8 @@ That's it. The council will include your new agent on the next run.
 
 ## Current Members
 
-- Devil's Advocate (🔍) - Challenges assumptions, finds weaknesses
-- Architect (🏗️) - Systems thinking, structure, trade-offs
-- Engineer (🛠️) - Practical implementation, effort estimates
-- Artist (🎨) - User experience, aesthetics, feel
-- Quant (📊) - Data-driven analysis, expected value, risk
+- Devil's Advocate () - Challenges assumptions, finds weaknesses
+- Architect () - Systems thinking, structure, trade-offs
+- Engineer () - Practical implementation, effort estimates
+- Artist () - User experience, aesthetics, feel
+- Quant () - Data-driven analysis, expected value, risk

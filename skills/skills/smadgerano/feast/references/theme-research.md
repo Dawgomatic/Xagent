@@ -147,19 +147,19 @@ This reduces future research effort. The first Thai meal takes 45 minutes to res
 
 ## Red Flags (What to Avoid)
 
-❌ **Generic "world music" playlists** — These are for airports and hotel lobbies, not cultural immersion
+ **Generic "world music" playlists** — These are for airports and hotel lobbies, not cultural immersion
 
-❌ **Stopping at country level** — "Chinese food" could mean Sichuan, Cantonese, Hunan, Xinjiang... they're completely different
+ **Stopping at country level** — "Chinese food" could mean Sichuan, Cantonese, Hunan, Xinjiang... they're completely different
 
-❌ **Stereotypical music choices** — Not all Italian food needs Pavarotti. Not all Mexican food needs mariachi.
+ **Stereotypical music choices** — Not all Italian food needs Pavarotti. Not all Mexican food needs mariachi.
 
-❌ **Ignoring contemporary culture** — Places are alive, not frozen in time. Include modern music.
+ **Ignoring contemporary culture** — Places are alive, not frozen in time. Include modern music.
 
-❌ **Making it up** — If you can't find good information, say so. Don't invent "facts."
+ **Making it up** — If you can't find good information, say so. Don't invent "facts."
 
-❌ **Cultural tourism vs appreciation** — Research with respect. You're a guest, not a coloniser. Don't mock or trivialise.
+ **Cultural tourism vs appreciation** — Research with respect. You're a guest, not a coloniser. Don't mock or trivialise.
 
-❌ **Overwhelming the meal** — The food is the star. The theme supports it, doesn't overshadow it.
+ **Overwhelming the meal** — The food is the star. The theme supports it, doesn't overshadow it.
 
 ## Example: Good vs Bad
 

@@ -8,7 +8,7 @@
 
 ## Critical Pattern: Disabling Channels
 
-### ✅ Correct: Explicit `allow: false`
+###  Correct: Explicit `allow: false`
 
 ```json
 {
@@ -27,7 +27,7 @@
 
 ---
 
-## ❌ Common Mistakes
+##  Common Mistakes
 
 ### Wrong: Just removing from list
 

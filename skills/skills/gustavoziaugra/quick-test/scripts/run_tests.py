@@ -29,7 +29,7 @@ def run_command(cmd, description=""):
         }
 
 def main():
-    print("🔍 Quick Test - OpenClaw System Verification")
+    print(" Quick Test - OpenClaw System Verification")
     print("=" * 50)
     print(f"Started: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}\n")
 
@@ -55,7 +55,7 @@ def main():
 
     # Print summary
     print("\n" + "=" * 50)
-    print("📊 Test Results Summary:")
+    print(" Test Results Summary:")
     print(f"Total tests: {len(tests)}")
     
     passed = 0
@@ -63,25 +63,25 @@ def main():
     
     for test in tests:
         if test['returncode'] == 0:
-            print(f"✅ {test['description']}")
+            print(f" {test['description']}")
             print(f"   Command: {test['command']}")
             if test['stdout']:
                 print(f"   Output: {test['stdout'][:100]}")
             passed += 1
         else:
-            print(f"❌ {test['description']}")
+            print(f" {test['description']}")
             print(f"   Command: {test['command']}")
             print(f"   Error: {test['stderr'][:200]}")
             failed += 1
     
     print("\n" + "=" * 50)
-    print(f"✅ Passed: {passed}")
-    print(f"❌ Failed: {failed}")
+    print(f" Passed: {passed}")
+    print(f" Failed: {failed}")
     
     if failed == 0:
-        print("\n🎉 All tests passed! System is working correctly.")
+        print("\n All tests passed! System is working correctly.")
     else:
-        print(f"\n⚠️  {failed} test(s) failed. Check system status.")
+        print(f"\n  {failed} test(s) failed. Check system status.")
 
 if __name__ == '__main__':
     main()

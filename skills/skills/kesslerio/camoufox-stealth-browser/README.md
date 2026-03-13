@@ -1,4 +1,4 @@
-# Camoufox Stealth Browser 🦊
+# Camoufox Stealth Browser 
 
 **C++ level** anti-bot evasion — not JavaScript band-aids.
 
@@ -8,7 +8,7 @@
 
 | Approach | Patches At | Detectable? |
 |----------|-----------|-------------|
-| **Camoufox** ✅ | C++ (compiled into browser) | No — fingerprints are genuinely different |
+| **Camoufox**  | C++ (compiled into browser) | No — fingerprints are genuinely different |
 | undetected-chromedriver | JS runtime | Yes — timing analysis reveals patches |
 | puppeteer-stealth | JS injection | Yes — applied after page load |
 | playwright-stealth | JS injection | Yes — same limitations |
@@ -19,10 +19,10 @@ Most "stealth" tools patch Chrome with JavaScript after the browser starts. Anti
 
 ## Key Features
 
-- 🦊 **C++ Level Stealth** — Fingerprints baked into the browser binary
-- 📦 **Container Isolation** — Runs in distrobox, keeps host clean
-- ⚡ **Dual-Tool Design** — Camoufox for browsers, curl_cffi for fast API-only scraping
-- 🔥 **Firefox-Based** — Less fingerprinted than Chrome (bots love Chrome)
+-  **C++ Level Stealth** — Fingerprints baked into the browser binary
+-  **Container Isolation** — Runs in distrobox, keeps host clean
+-  **Dual-Tool Design** — Camoufox for browsers, curl_cffi for fast API-only scraping
+-  **Firefox-Based** — Less fingerprinted than Chrome (bots love Chrome)
 
 ## Quick Start
 
@@ -69,4 +69,4 @@ Apache 2.0 — See [LICENSE](LICENSE)
 
 ---
 
-Made with 🦊 by [Kessler.io](https://kessler.io)
+Made with  by [Kessler.io](https://kessler.io)

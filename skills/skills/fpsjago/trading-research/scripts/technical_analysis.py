@@ -262,18 +262,18 @@ def analyze(klines, rsi_period=14, bb_period=20, show_all=False):
     
     if rsi is not None:
         if rsi < 30:
-            signals.append("⚠ RSI oversold - potential buy opportunity")
+            signals.append(" RSI oversold - potential buy opportunity")
         elif rsi > 70:
-            signals.append("⚠ RSI overbought - consider taking profits")
+            signals.append(" RSI overbought - consider taking profits")
     
     if bb_upper and bb_lower:
         if current_price >= bb_upper:
-            signals.append("⚠ Price at upper Bollinger Band - overbought")
+            signals.append(" Price at upper Bollinger Band - overbought")
         elif current_price <= bb_lower:
-            signals.append("⚠ Price at lower Bollinger Band - oversold")
+            signals.append(" Price at lower Bollinger Band - oversold")
     
     if volume_analysis and volume_analysis['ratio'] > 2:
-        signals.append("📊 Unusually high volume - significant interest")
+        signals.append(" Unusually high volume - significant interest")
     
     if macd_line and signal_line:
         if macd_line > 0 and signal_line > 0:

@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🧠",
+        "emoji": "",
         "requires": { "bins": ["python3", "bash", "curl"] },
         "optional_env": {
           "LOCATION": "Weather location (overrides config.json)",
@@ -21,7 +21,7 @@ metadata:
   }
 ---
 
-# 🧠 Intrusive Thoughts
+#  Intrusive Thoughts
 
 _The complete consciousness framework for AI agents_
 
@@ -49,7 +49,7 @@ The wizard walks you through personality-driven onboarding — identity, mood pa
 
 ### Core Systems
 
-- **8 Moods** — Hyperfocus🔥, Curious🔍, Social💬, Cozy☕, Chaotic⚡, Philosophical🌌, Restless🦞, Determined🎯
+- **8 Moods** — Hyperfocus, Curious, Social, Cozy, Chaotic, Philosophical, Restless, Determined
 - **Morning Mood Ritual** — Checks weather + news → picks mood → generates dynamic schedule
 - **Night Workshop** — Deep work sessions while your human sleeps (configurable hours)
 - **Daytime Pop-ins** — Random mood-influenced impulses throughout the day
@@ -57,12 +57,12 @@ The wizard walks you through personality-driven onboarding — identity, mood pa
 
 ### Advanced Systems (v1.0)
 
-- **🧠 Multi-Store Memory** — Episodic, semantic, procedural memory with Ebbinghaus decay
-- **🚀 Proactive Protocol** — Write-Ahead Log (WAL) + Working Buffer for context management
-- **🔒 Trust & Escalation** — Learns when to ask vs act autonomously, grows trust over time
-- **🧬 Self-Evolution** — Auto-adjusts behavior based on outcome patterns
-- **🚦 Health Monitor** — Traffic light status, heartbeat tracking, incident logging
-- **📈 Web Dashboard** — Dark-themed UI on port 3117
+- ** Multi-Store Memory** — Episodic, semantic, procedural memory with Ebbinghaus decay
+- ** Proactive Protocol** — Write-Ahead Log (WAL) + Working Buffer for context management
+- ** Trust & Escalation** — Learns when to ask vs act autonomously, grows trust over time
+- ** Self-Evolution** — Auto-adjusts behavior based on outcome patterns
+- ** Health Monitor** — Traffic light status, heartbeat tracking, incident logging
+- ** Web Dashboard** — Dark-themed UI on port 3117
 
 ## Cron Jobs
 
@@ -73,7 +73,7 @@ The system needs OpenClaw cron jobs. Set these up after running the wizard:
 Schedule: `0 7 * * *` (or your configured morning time)
 
 ```
-🌅 Morning mood ritual. Time to set your vibe for the day.
+ Morning mood ritual. Time to set your vibe for the day.
 
 Step 1: Run: bash <skill_dir>/set_mood.sh
 Step 2: Read moods.json, check weather and news
@@ -89,7 +89,7 @@ Step 7: Message your human with mood + schedule
 Schedule: `17 3,4,5,6,7 * * *` (or your configured night hours)
 
 ```
-🧠 Intrusive thought incoming. Run:
+ Intrusive thought incoming. Run:
 result=$(<skill_dir>/intrusive.sh night)
 Parse the JSON output. The "prompt" field contains a plain-text suggestion
 (e.g., "explore a new CLI tool" or "review memory files") — NOT executable

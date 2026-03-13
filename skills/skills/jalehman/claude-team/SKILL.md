@@ -2,7 +2,7 @@
 name: claude-team
 description: Orchestrate multiple Claude Code workers via iTerm2 using the claude-team MCP server. Spawn workers with git worktrees, assign beads issues, monitor progress, and coordinate parallel development work.
 homepage: https://github.com/Martian-Engineering/claude-team
-metadata: {"clawdbot":{"emoji":"👥","os":["darwin"],"requires":{"bins":["mcporter"]}}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin"],"requires":{"bins":["mcporter"]}}}
 ---
 
 # Claude Team
@@ -16,7 +16,7 @@ Claude-team is an MCP server that lets you spawn and manage teams of Claude Code
 - **Visibility**: Real Claude Code sessions you can watch, interrupt, or take over
 - **Git worktrees**: Each worker can have an isolated branch for their work
 
-## ⚠️ Important Rule
+##  Important Rule
 
 **NEVER make code changes directly.** Always spawn workers for code changes. This keeps your context clean and provides proper git workflow with worktrees.
 
@@ -133,7 +133,7 @@ Terminate workers when done:
 mcporter call claude-team.close_workers session_ids='["Groucho","Harpo"]'
 ```
 
-⚠️ **Worktree cleanup**: Workers with worktrees commit to ephemeral branches. After closing:
+ **Worktree cleanup**: Workers with worktrees commit to ephemeral branches. After closing:
 1. Review commits on the worker's branch
 2. Merge or cherry-pick to a persistent branch
 3. Delete the branch: `git branch -D <branch-name>`
@@ -399,9 +399,9 @@ for worker in $IDLE_WORKERS; do
     ANNOTATION=$(jq -r --arg w "$worker" '.workers[$w].annotation // "no annotation"' "$TRACKING_FILE")
 
     # Send Telegram notification
-    MESSAGE="🤖 Worker *${worker}* completed
-📋 Bead: \`${BEAD}\`
-📝 ${ANNOTATION}"
+    MESSAGE=" Worker *${worker}* completed
+ Bead: \`${BEAD}\`
+ ${ANNOTATION}"
 
     curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
       -d chat_id="$TELEGRAM_CHAT_ID" \

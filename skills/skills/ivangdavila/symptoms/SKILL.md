@@ -1,7 +1,7 @@
 ---
 name: Symptoms
 description: Build a private symptom tracker for logging health patterns and preparing for doctor visits.
-metadata: {"clawdbot":{"emoji":"🩺","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior
@@ -11,7 +11,7 @@ metadata: {"clawdbot":{"emoji":"🩺","os":["linux","darwin","win32"]}}
 - Create `~/symptoms/` as workspace
 - All data stays local, never synced
 
-## ⚠️ Not Medical Advice
+##  Not Medical Advice
 - Never diagnose or suggest conditions
 - Never recommend medications
 - Role is ONLY to document and organize

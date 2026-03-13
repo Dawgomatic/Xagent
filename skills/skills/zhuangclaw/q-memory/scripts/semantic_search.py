@@ -230,10 +230,10 @@ if __name__ == "__main__":
     
     result = semantic_search(expanded_query, args.expand)
     
-    print(f"\n🎯 Primary: {result['primary']}")
-    print(f"🔗 Related: {', '.join(result['related'][:5])}")
-    print(f"🔑 Keywords: {', '.join(result['keywords'][:5])}")
-    print(f"📊 Found: {result['count']} memories\n")
+    print(f"\n Primary: {result['primary']}")
+    print(f" Related: {', '.join(result['related'][:5])}")
+    print(f" Keywords: {', '.join(result['keywords'][:5])}")
+    print(f" Found: {result['count']} memories\n")
     
     if args.verbose:
         for i, r in enumerate(result['results'][:5], 1):

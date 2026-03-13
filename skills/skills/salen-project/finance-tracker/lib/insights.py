@@ -177,7 +177,7 @@ def get_insights() -> str:
     currency = storage.get_currency()
     
     lines = [
-        "💡 Smart Insights",
+        " Smart Insights",
         "━━━━━━━━━━━━━━━━━━━━━"
     ]
     
@@ -185,7 +185,7 @@ def get_insights() -> str:
     velocity = get_spending_velocity()
     if velocity.get("has_data"):
         lines.append("")
-        lines.append("📈 **Spending Velocity**")
+        lines.append(" **Spending Velocity**")
         lines.append(f"   Daily avg: {velocity['daily_avg']:,} {currency}")
         lines.append(f"   This month so far: {velocity['month_so_far']:,} {currency}")
         lines.append(f"   Projected month total: {velocity['projected_month']:,} {currency}")
@@ -193,13 +193,13 @@ def get_insights() -> str:
     # Period comparison
     comparison = compare_to_last_period(7)
     lines.append("")
-    lines.append("📊 **This Week vs Last Week**")
+    lines.append(" **This Week vs Last Week**")
     
     if comparison["increased"]:
-        emoji = "📈"
+        emoji = ""
         direction = "UP"
     else:
-        emoji = "📉"
+        emoji = ""
         direction = "DOWN"
     
     lines.append(f"   {emoji} Spending {direction} {abs(comparison['change_pct']):.0f}%")
@@ -214,7 +214,7 @@ def get_insights() -> str:
     
     if significant_changes:
         lines.append("")
-        lines.append("🏷️ **Notable Category Changes**")
+        lines.append(" **Notable Category Changes**")
         for cat, data in sorted(significant_changes, key=lambda x: abs(x[1]["change_pct"]), reverse=True)[:3]:
             emoji = get_emoji(cat)
             arrow = "↑" if data["increased"] else "↓"
@@ -224,7 +224,7 @@ def get_insights() -> str:
     anomalies = detect_anomalies()
     if anomalies:
         lines.append("")
-        lines.append("⚠️ **Alerts**")
+        lines.append(" **Alerts**")
         for anomaly in anomalies[:3]:
             lines.append(f"   • {anomaly['message']}")
     
@@ -234,7 +234,7 @@ def get_insights() -> str:
         due = recurring.get_due_today()
         if due:
             lines.append("")
-            lines.append("🔄 **Due Today**")
+            lines.append(" **Due Today**")
             for item in due:
                 emoji = get_emoji(item["category"])
                 lines.append(f"   {emoji} {item['amount']:,} — {item['description']}")
@@ -249,7 +249,7 @@ def get_insights() -> str:
             daily_target = goals_mgr.get_daily_target()
             if daily_target > 0:
                 lines.append("")
-                lines.append("🎯 **Savings Goals**")
+                lines.append(" **Savings Goals**")
                 lines.append(f"   Need to save: {daily_target:,} {currency}/day")
                 
                 # Show most urgent goal
@@ -280,17 +280,17 @@ def get_daily_summary() -> str:
     velocity = get_spending_velocity()
     
     lines = [
-        f"💰 Today: {today_total:,} {currency}",
-        f"📅 This week: {week_total:,} {currency}",
+        f" Today: {today_total:,} {currency}",
+        f" This week: {week_total:,} {currency}",
     ]
     
     if velocity.get("has_data"):
-        lines.append(f"📊 Daily avg: {velocity['daily_avg']:,} {currency}")
+        lines.append(f" Daily avg: {velocity['daily_avg']:,} {currency}")
     
     # Alerts
     anomalies = detect_anomalies(7)
     if anomalies:
-        lines.append(f"⚠️ {len(anomalies)} alert(s)")
+        lines.append(f" {len(anomalies)} alert(s)")
     
     return "\n".join(lines)
 
@@ -304,21 +304,21 @@ def get_weekly_digest() -> str:
     velocity = get_spending_velocity()
     
     lines = [
-        "📊 Weekly Finance Digest",
+        " Weekly Finance Digest",
         "━━━━━━━━━━━━━━━━━━━━━",
         "",
-        f"💵 This week: {comparison['current_total']:,} {currency}",
-        f"💵 Last week: {comparison['previous_total']:,} {currency}",
+        f" This week: {comparison['current_total']:,} {currency}",
+        f" Last week: {comparison['previous_total']:,} {currency}",
     ]
     
     if comparison["increased"]:
-        lines.append(f"📈 Up {comparison['change_pct']:.0f}%")
+        lines.append(f" Up {comparison['change_pct']:.0f}%")
     else:
-        lines.append(f"📉 Down {abs(comparison['change_pct']):.0f}%")
+        lines.append(f" Down {abs(comparison['change_pct']):.0f}%")
     
     # Top categories
     lines.append("")
-    lines.append("🏷️ Top Categories:")
+    lines.append(" Top Categories:")
     
     sorted_cats = sorted(
         comparison["by_category"].items(),
@@ -333,6 +333,6 @@ def get_weekly_digest() -> str:
     # Projection
     if velocity.get("has_data"):
         lines.append("")
-        lines.append(f"📅 Month projection: {velocity['projected_month']:,} {currency}")
+        lines.append(f" Month projection: {velocity['projected_month']:,} {currency}")
     
     return "\n".join(lines)

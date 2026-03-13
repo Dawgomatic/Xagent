@@ -7,7 +7,7 @@ import paho.mqtt.publish as publish
 
 app = typer.Typer(add_completion=False)
 
-# 🔒 고정 MQTT 설정
+#  고정 MQTT 설정
 BROKER = "localhost"
 PORT = 1883
 QOS = 1

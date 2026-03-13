@@ -21,7 +21,7 @@ A DCA bot opens a base position, then adds to it ("averages in") each time the p
 
 ---
 
-## 1️⃣ Setup Credentials
+##  Setup Credentials
 
 ```bash
 supurr init --address 0xYOUR_WALLET --api-wallet 0xYOUR_API_KEY
@@ -29,7 +29,7 @@ supurr init --address 0xYOUR_WALLET --api-wallet 0xYOUR_API_KEY
 
 ---
 
-## 2️⃣ Understand the DCA Mechanics
+##  Understand the DCA Mechanics
 
 DCA works in **cycles**:
 
@@ -73,7 +73,7 @@ Make sure your account can handle this at max leverage.
 
 ---
 
-## 3️⃣ Generate Config
+##  Generate Config
 
 **Example — BTC long DCA, buy dips from $95k:**
 
@@ -129,7 +129,7 @@ supurr new dca \
 
 ---
 
-## 4️⃣ Deploy
+##  Deploy
 
 ```bash
 supurr deploy -c btc-dca.json
@@ -137,7 +137,7 @@ supurr deploy -c btc-dca.json
 
 ---
 
-## 5️⃣ Monitor
+##  Monitor
 
 ```bash
 supurr monitor --watch

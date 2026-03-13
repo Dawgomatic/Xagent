@@ -292,7 +292,7 @@ body{
 <!-- Sidebar -->
 <aside class="sidebar collapsed" id="sidebar">
   <div class="sidebar-header">
-    <div class="sidebar-logo">🌅</div>
+    <div class="sidebar-logo"></div>
     <div>
       <div class="sidebar-title">라온 AI 비서</div>
       <div class="sidebar-subtitle">스타트업 성장 파트너</div>
@@ -301,18 +301,18 @@ body{
 
   <div class="sidebar-section">
     <div class="sidebar-label">모드</div>
-    <button class="mode-btn active" data-mode="idea"><span class="mode-icon">🚀</span>아이디어</button>
-    <button class="mode-btn" data-mode="draft"><span class="mode-icon">✍️</span>초안 작성</button>
-    <button class="mode-btn" data-mode="evaluate"><span class="mode-icon">📊</span>사업 평가</button>
-    <button class="mode-btn" data-mode="improve"><span class="mode-icon">💡</span>개선 제안</button>
-    <button class="mode-btn" data-mode="match"><span class="mode-icon">🎯</span>정부사업 매칭</button>
-    <button class="mode-btn" data-mode="checklist"><span class="mode-icon">✅</span>체크리스트</button>
+    <button class="mode-btn active" data-mode="idea"><span class="mode-icon"></span>아이디어</button>
+    <button class="mode-btn" data-mode="draft"><span class="mode-icon"></span>초안 작성</button>
+    <button class="mode-btn" data-mode="evaluate"><span class="mode-icon"></span>사업 평가</button>
+    <button class="mode-btn" data-mode="improve"><span class="mode-icon"></span>개선 제안</button>
+    <button class="mode-btn" data-mode="match"><span class="mode-icon"></span>정부사업 매칭</button>
+    <button class="mode-btn" data-mode="checklist"><span class="mode-icon"></span>체크리스트</button>
   </div>
 
   <div class="sidebar-divider"></div>
 
   <div class="sidebar-section" style="flex-shrink:0">
-    <div class="sidebar-label">📂 이전 대화</div>
+    <div class="sidebar-label"> 이전 대화</div>
   </div>
   <div class="history-section" id="historyList">
     <div class="history-empty">아직 대화 기록이 없습니다</div>
@@ -320,7 +320,7 @@ body{
 
   <div class="profile-card" id="profileCard">
     <div class="profile-top">
-      <span class="profile-title" id="profileTitle">🌱 예비창업자</span>
+      <span class="profile-title" id="profileTitle"> 예비창업자</span>
       <span class="profile-level" id="profileLevel">Lv.1</span>
     </div>
     <div class="xp-bar"><div class="xp-fill" id="xpFill" style="width:0%"></div></div>
@@ -333,7 +333,7 @@ body{
 <div class="main">
   <div class="topbar">
     <button class="topbar-toggle" id="sidebarToggle">☰</button>
-    <div class="topbar-mode" id="topbarMode">🚀 아이디어</div>
+    <div class="topbar-mode" id="topbarMode"> 아이디어</div>
     <button class="topbar-new" id="newChatBtn">
       <span>+ 새 대화</span>
       <span class="topbar-kbd">⌘N</span>
@@ -343,14 +343,14 @@ body{
   <div class="messages" id="messagesArea">
     <div class="messages-inner" id="messagesInner">
       <div class="welcome" id="welcomeScreen">
-        <div class="welcome-emoji">🌅</div>
+        <div class="welcome-emoji"></div>
         <h2>라온 AI 비서</h2>
         <p>YC · a16z 기반 아이디어 추천부터 사업계획서 평가, 정부사업 매칭까지</p>
         <div class="welcome-cards">
-          <div class="welcome-card" data-mode="idea"><div class="wc-icon">🚀</div><div class="wc-title">아이디어 탐색</div><div class="wc-desc">YC·a16z 트렌드 기반 추천</div></div>
-          <div class="welcome-card" data-mode="evaluate"><div class="wc-icon">📊</div><div class="wc-title">사업 평가</div><div class="wc-desc">TIPS 기준 100점 평가</div></div>
-          <div class="welcome-card" data-mode="draft"><div class="wc-icon">✍️</div><div class="wc-title">초안 작성</div><div class="wc-desc">지원서 초안 자동 생성</div></div>
-          <div class="welcome-card" data-mode="match"><div class="wc-icon">🎯</div><div class="wc-title">정부사업 매칭</div><div class="wc-desc">508개 사업 자동 매칭</div></div>
+          <div class="welcome-card" data-mode="idea"><div class="wc-icon"></div><div class="wc-title">아이디어 탐색</div><div class="wc-desc">YC·a16z 트렌드 기반 추천</div></div>
+          <div class="welcome-card" data-mode="evaluate"><div class="wc-icon"></div><div class="wc-title">사업 평가</div><div class="wc-desc">TIPS 기준 100점 평가</div></div>
+          <div class="welcome-card" data-mode="draft"><div class="wc-icon"></div><div class="wc-title">초안 작성</div><div class="wc-desc">지원서 초안 자동 생성</div></div>
+          <div class="welcome-card" data-mode="match"><div class="wc-icon"></div><div class="wc-title">정부사업 매칭</div><div class="wc-desc">508개 사업 자동 매칭</div></div>
         </div>
       </div>
     </div>
@@ -359,16 +359,16 @@ body{
   <div class="input-area">
     <div class="input-inner">
       <div class="file-badge" id="fileBadge">
-        📄 <span id="fileName"></span>
+         <span id="fileName"></span>
         <button id="fileClear">✕</button>
       </div>
-      <div class="drop-zone" id="dropZone">📄 PDF 파일을 여기에 드래그하세요</div>
+      <div class="drop-zone" id="dropZone"> PDF 파일을 여기에 드래그하세요</div>
       <div class="input-row">
         <div class="input-wrap">
           <textarea id="chatInput" rows="1" placeholder="메시지를 입력하세요... (Shift+Enter: 줄바꿈)"></textarea>
           <div class="input-btns">
             <input type="file" id="fileInput" accept=".pdf" style="display:none">
-            <button class="pdf-btn" id="pdfBtn" title="PDF 업로드">📎</button>
+            <button class="pdf-btn" id="pdfBtn" title="PDF 업로드"></button>
           </div>
         </div>
         <button class="send-btn" id="sendBtn">↑</button>
@@ -381,12 +381,12 @@ body{
 <div class="cmd-modal-overlay" id="cmdModal">
   <div class="cmd-modal">
     <div class="cmd-modal-header">모드 전환 <span class="topbar-kbd">⌘K</span></div>
-    <button class="mode-btn" data-mode="idea"><span class="mode-icon">🚀</span>아이디어</button>
-    <button class="mode-btn" data-mode="draft"><span class="mode-icon">✍️</span>초안 작성</button>
-    <button class="mode-btn" data-mode="evaluate"><span class="mode-icon">📊</span>사업 평가</button>
-    <button class="mode-btn" data-mode="improve"><span class="mode-icon">💡</span>개선 제안</button>
-    <button class="mode-btn" data-mode="match"><span class="mode-icon">🎯</span>정부사업 매칭</button>
-    <button class="mode-btn" data-mode="checklist"><span class="mode-icon">✅</span>체크리스트</button>
+    <button class="mode-btn" data-mode="idea"><span class="mode-icon"></span>아이디어</button>
+    <button class="mode-btn" data-mode="draft"><span class="mode-icon"></span>초안 작성</button>
+    <button class="mode-btn" data-mode="evaluate"><span class="mode-icon"></span>사업 평가</button>
+    <button class="mode-btn" data-mode="improve"><span class="mode-icon"></span>개선 제안</button>
+    <button class="mode-btn" data-mode="match"><span class="mode-icon"></span>정부사업 매칭</button>
+    <button class="mode-btn" data-mode="checklist"><span class="mode-icon"></span>체크리스트</button>
   </div>
 </div>
 
@@ -396,8 +396,8 @@ body{
 
 const API_URL = window.RAON_API_URL || '';
 const MODE_NAMES = {
-  idea:'🚀 아이디어', draft:'✍️ 초안 작성', evaluate:'📊 사업 평가',
-  improve:'💡 개선 제안', match:'🎯 정부사업 매칭', checklist:'✅ 체크리스트'
+  idea:' 아이디어', draft:' 초안 작성', evaluate:' 사업 평가',
+  improve:' 개선 제안', match:' 정부사업 매칭', checklist:' 체크리스트'
 };
 const MODE_PLACEHOLDERS = {
   idea:'관심 분야를 입력하거나 "전체"로 목록 확인',
@@ -459,12 +459,12 @@ function setMode(mode) {
   if (window.innerWidth <= 768) toggleSidebar(false);
   // Show mode guide message
   const guides = {
-    idea: '🚀 <strong>아이디어 모드</strong><br>전송 버튼을 누르면 YC·a16z 기반 62개 아이디어를 탐색할 수 있어요.<br>관심 분야를 입력하면 맞춤 추천도 가능합니다.',
-    evaluate: '📊 <strong>평가 모드</strong><br>사업 아이디어나 계획서를 입력하면 TIPS 심사 기준으로 100점 만점 평가해드려요.<br>PDF 파일도 업로드 가능합니다.',
-    draft: '✍️ <strong>초안 작성 모드</strong><br>사업 아이디어를 입력하면 정부지원사업 지원서 초안을 자동 생성해드려요.',
-    improve: '💡 <strong>개선 모드</strong><br>기존 사업계획서를 입력하면 구체적인 개선점을 제안해드려요.',
-    match: '🎯 <strong>매칭 모드</strong><br>사업 내용을 입력하면 적합한 정부지원사업을 추천해드려요.',
-    checklist: '✅ <strong>체크리스트 모드</strong><br>지원서 제출 전 빠진 항목이 없는지 점검해드려요.'
+    idea: ' <strong>아이디어 모드</strong><br>전송 버튼을 누르면 YC·a16z 기반 62개 아이디어를 탐색할 수 있어요.<br>관심 분야를 입력하면 맞춤 추천도 가능합니다.',
+    evaluate: ' <strong>평가 모드</strong><br>사업 아이디어나 계획서를 입력하면 TIPS 심사 기준으로 100점 만점 평가해드려요.<br>PDF 파일도 업로드 가능합니다.',
+    draft: ' <strong>초안 작성 모드</strong><br>사업 아이디어를 입력하면 정부지원사업 지원서 초안을 자동 생성해드려요.',
+    improve: ' <strong>개선 모드</strong><br>기존 사업계획서를 입력하면 구체적인 개선점을 제안해드려요.',
+    match: ' <strong>매칭 모드</strong><br>사업 내용을 입력하면 적합한 정부지원사업을 추천해드려요.',
+    checklist: ' <strong>체크리스트 모드</strong><br>지원서 제출 전 빠진 항목이 없는지 점검해드려요.'
   };
   if (guides[mode] && welcomeScreen.style.display === 'none') {
     addMsg(guides[mode], 'bot');
@@ -505,7 +505,7 @@ fileClear.addEventListener('click', clearFile);
 function handleFileSelect() {
   const file = fileInput.files[0];
   if (!file) return;
-  if (file.size > 10*1024*1024) { addMsg('⚠️ 파일이 너무 큽니다 (최대 10MB)', 'bot'); fileInput.value=''; return; }
+  if (file.size > 10*1024*1024) { addMsg(' 파일이 너무 큽니다 (최대 10MB)', 'bot'); fileInput.value=''; return; }
   const reader = new FileReader();
   reader.onload = () => {
     pendingPdfBase64 = reader.result.split(',')[1];
@@ -569,7 +569,7 @@ function addMsg(html, type, extra) {
   const div = document.createElement('div');
   div.className = `msg msg-${type}`;
   if (type === 'bot') {
-    div.innerHTML = `<div class="msg-avatar">🌅</div><div class="msg-content">${html}</div>`;
+    div.innerHTML = `<div class="msg-avatar"></div><div class="msg-content">${html}</div>`;
   } else {
     div.innerHTML = `<div class="msg-content">${html}</div>`;
   }
@@ -615,25 +615,25 @@ function boldify(s){ return s.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>'); }
 
 // ── Loading UX ──
 const tips = [
-  '💡 TIPS 운영사는 AC/VC 60+개사가 참여해요',
-  '💡 2026년 창업지원사업 총 예산: 3.46조원!',
-  '💡 사업계획서에 정량 수치가 있으면 합격률 2배↑',
-  '💡 TAM-SAM-SOM 프레임워크로 시장 규모를 보여주세요',
-  '💡 TIPS 최대 8억원 (2026년 기준)',
-  '💡 고객 PoC/LOI가 있으면 심사에서 압도적 유리!',
-  '💡 520x 같은 효율 수치는 강력한 차별화 포인트',
-  '💡 2026년 508개 정부 창업지원사업이 운영 중',
+  ' TIPS 운영사는 AC/VC 60+개사가 참여해요',
+  ' 2026년 창업지원사업 총 예산: 3.46조원!',
+  ' 사업계획서에 정량 수치가 있으면 합격률 2배↑',
+  ' TAM-SAM-SOM 프레임워크로 시장 규모를 보여주세요',
+  ' TIPS 최대 8억원 (2026년 기준)',
+  ' 고객 PoC/LOI가 있으면 심사에서 압도적 유리!',
+  ' 520x 같은 효율 수치는 강력한 차별화 포인트',
+  ' 2026년 508개 정부 창업지원사업이 운영 중',
 ];
 const modeStages = {
-  evaluate:['📄 사업계획서 읽는 중','🔍 핵심 지표 분석 중','📊 TIPS 심사기준 대조 중','🏛️ 정부사업 매칭 중','✍️ 결과 정리 중'],
-  improve:['📄 사업계획서 분석 중','🔍 약점 파악 중','💡 개선안 생성 중','✍️ 결과 정리 중'],
-  match:['📄 사업 내용 분석 중','🏛️ 508개 정부사업 검색 중','🎯 적합도 매칭 중','✍️ 결과 정리 중'],
-  draft:['📄 아이디어 분석 중','🏛️ 지원사업 요건 확인 중','✍️ 지원서 초안 작성 중','📝 항목별 내용 채우는 중','🔍 최종 검토 중'],
-  checklist:['📄 사업 요건 확인 중','✅ 체크리스트 생성 중','✍️ 결과 정리 중'],
+  evaluate:[' 사업계획서 읽는 중',' 핵심 지표 분석 중',' TIPS 심사기준 대조 중',' 정부사업 매칭 중',' 결과 정리 중'],
+  improve:[' 사업계획서 분석 중',' 약점 파악 중',' 개선안 생성 중',' 결과 정리 중'],
+  match:[' 사업 내용 분석 중',' 508개 정부사업 검색 중',' 적합도 매칭 중',' 결과 정리 중'],
+  draft:[' 아이디어 분석 중',' 지원사업 요건 확인 중',' 지원서 초안 작성 중',' 항목별 내용 채우는 중',' 최종 검토 중'],
+  checklist:[' 사업 요건 확인 중',' 체크리스트 생성 중',' 결과 정리 중'],
 };
 
 function createLoading(mode) {
-  const stages = modeStages[mode] || ['⏳ 처리 중'];
+  const stages = modeStages[mode] || [' 처리 중'];
   const el = addMsg(`<div class="loading-inner"><div class="spinner"></div><span>${stages[0]}...</span></div>`, 'bot');
   el.classList.add('msg-loading');
   const start = Date.now();
@@ -644,10 +644,10 @@ function createLoading(mode) {
     const pct = Math.min(95, (stageIdx/(stages.length+2))*100);
     const content = el.querySelector('.msg-content');
     if (stageIdx < stages.length) {
-      content.innerHTML = `<div class="loading-inner"><div class="spinner"></div><span>${stages[stageIdx]}...</span></div><div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div><div class="loading-elapsed">⏱ ${elapsed}초 경과</div>`;
+      content.innerHTML = `<div class="loading-inner"><div class="spinner"></div><span>${stages[stageIdx]}...</span></div><div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div><div class="loading-elapsed"> ${elapsed}초 경과</div>`;
     } else {
       const tip = tips[tipIdx++ % tips.length];
-      content.innerHTML = `<div class="loading-inner"><div class="spinner"></div><span>AI가 열심히 작성 중...</span></div><div class="progress-bar"><div class="progress-fill" style="width:${Math.min(95,70+tipIdx*3)}%"></div></div><div class="loading-tip">${tip}</div><div class="loading-elapsed">⏱ ${elapsed}초 경과 — 문서 길이에 따라 수 분 소요</div>`;
+      content.innerHTML = `<div class="loading-inner"><div class="spinner"></div><span>AI가 열심히 작성 중...</span></div><div class="progress-bar"><div class="progress-fill" style="width:${Math.min(95,70+tipIdx*3)}%"></div></div><div class="loading-tip">${tip}</div><div class="loading-elapsed"> ${elapsed}초 경과 — 문서 길이에 따라 수 분 소요</div>`;
     }
     messagesArea.scrollTop = messagesArea.scrollHeight;
   }, 3000);
@@ -659,7 +659,7 @@ const levelThresholds = [0,100,300,600,1000,1500,2500,5000];
 function updateProfileCard(profile) {
   if (!profile) return;
   const lvl = profile.level || 1;
-  const title = profile.title || '🌱 예비창업자';
+  const title = profile.title || ' 예비창업자';
   const xp = profile.xp || 0;
   const badges = profile.badges || [];
   const cur = levelThresholds[Math.min(lvl-1, levelThresholds.length-1)] || 0;
@@ -688,14 +688,14 @@ fetchProfile();
 function buildXpHtml(data, profile) {
   if (!data.xp_gained) return '';
   const lvl = profile?.level || data.level || 1;
-  const title = profile?.title || data.title || '🌱 예비창업자';
+  const title = profile?.title || data.title || ' 예비창업자';
   const xp = profile?.xp || 0;
   const cur = levelThresholds[Math.min(lvl-1,levelThresholds.length-1)]||0;
   const next = levelThresholds[Math.min(lvl,levelThresholds.length-1)]||(cur+100);
   const inLevel = xp-cur, needed = next-cur;
   const pct = Math.min(100, Math.round(inLevel/needed*100));
   let html = `<div class="xp-inline"><div style="display:flex;justify-content:space-between"><span>${title} Lv.${lvl}</span><span style="color:var(--accent)">+${data.xp_gained} XP</span></div><div class="xp-bar-inline"><div class="xp-fill-inline" style="width:${pct}%"></div></div><div style="text-align:right;color:var(--text3);font-size:10px;margin-top:2px">${inLevel}/${needed} XP</div>`;
-  if (data.new_badges?.length) html += `<div style="margin-top:4px;color:var(--accent2)">🏆 새 뱃지: ${data.new_badges.join(', ')}</div>`;
+  if (data.new_badges?.length) html += `<div style="margin-top:4px;color:var(--accent2)"> 새 뱃지: ${data.new_badges.join(', ')}</div>`;
   html += '</div>';
   return html;
 }
@@ -714,7 +714,7 @@ async function sendMessage() {
   _lastRequest = { text, pdf: pendingPdfBase64, mode: currentMode };
 
   const displayText = pendingPdfBase64
-    ? `📄 ${fileName.textContent}${text?' — '+text:''}`
+    ? ` ${fileName.textContent}${text?' — '+text:''}`
     : text;
   if (displayText) addMsg(displayText, 'user');
   chatInput.value = '';
@@ -747,7 +747,7 @@ async function sendMessage() {
           html += '</div><p style="color:var(--text2);font-size:13px;margin-top:8px">카드를 클릭하면 상세 설명을 볼 수 있어요!</p>';
           addMsg(html, 'bot');
         } else {
-          addMsg('⚠️ '+(data.error||'목록을 불러올 수 없습니다.'), 'bot');
+          addMsg(' '+(data.error||'목록을 불러올 수 없습니다.'), 'bot');
         }
       } else if (/^\d+$/.test(text.trim())) {
         await showIdeaDetail(text.trim());
@@ -761,7 +761,7 @@ async function sendMessage() {
         clearInterval(loading.timer); loading.el.remove();
         if (data.status === 'ok') {
           const items = data.suggestions || data.matches || [];
-          let html = '<h2>💡 맞춤 아이디어 추천</h2><div class="idea-grid">';
+          let html = '<h2> 맞춤 아이디어 추천</h2><div class="idea-grid">';
           items.forEach((s,i) => {
             const desc = s.reason||s.why_now||s.description||s.subtitle||'';
             const sName = (s.name||'').replace(/'/g,"\\'");
@@ -772,9 +772,9 @@ async function sendMessage() {
               <div class="ic-desc">${desc}</div>
               <div class="ic-source">${s.source||''}</div>
               <div class="idea-actions">
-                <button class="idea-action-btn" style="background:#FF6B35" onclick="window._raonIdeaAction('evaluate','${sName}','${sDesc}')">📊 평가</button>
-                <button class="idea-action-btn" style="background:#6366f1" onclick="window._raonIdeaAction('match','${sName}','${sDesc}')">🎯 매칭</button>
-                <button class="idea-action-btn" style="background:#f59e0b" onclick="window._raonIdeaAction('draft','${sName}','${sDesc}')">✍️ 초안</button>
+                <button class="idea-action-btn" style="background:#FF6B35" onclick="window._raonIdeaAction('evaluate','${sName}','${sDesc}')"> 평가</button>
+                <button class="idea-action-btn" style="background:#6366f1" onclick="window._raonIdeaAction('match','${sName}','${sDesc}')"> 매칭</button>
+                <button class="idea-action-btn" style="background:#f59e0b" onclick="window._raonIdeaAction('draft','${sName}','${sDesc}')"> 초안</button>
               </div>
             </div>`;
           });
@@ -782,11 +782,11 @@ async function sendMessage() {
           if (!items.length) html = '<p>매칭되는 아이디어가 없습니다. 다른 키워드로 시도해보세요!</p>';
           addMsg(html, 'bot');
         } else {
-          addMsg('⚠️ '+(data.error||'추천을 불러올 수 없습니다.'), 'bot');
+          addMsg(' '+(data.error||'추천을 불러올 수 없습니다.'), 'bot');
         }
       }
     } catch(e) {
-      addMsg('⚠️ 서버에 연결할 수 없습니다. <button onclick="sendMessage()" style="margin-left:8px;padding:4px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:13px;">🔄 재시도</button>', 'bot');
+      addMsg(' 서버에 연결할 수 없습니다. <button onclick="sendMessage()" style="margin-left:8px;padding:4px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:13px;"> 재시도</button>', 'bot');
     }
     sendBtn.disabled = false;
     chatInput.focus();
@@ -830,7 +830,7 @@ async function sendMessage() {
 
     if (data.status === 'ok') {
       const result = renderMarkdown(data.result || data.response || '');
-      const scoreHtml = data.score ? `<div class="score-display">📊 ${data.score}점</div>` : '';
+      const scoreHtml = data.score ? `<div class="score-display"> ${data.score}점</div>` : '';
 
       // Store session context
       if (currentMode === 'draft') sessionContext.lastDraft = data.result;
@@ -854,8 +854,8 @@ async function sendMessage() {
         fbBar.className = 'feedback-bar';
         fbBar.innerHTML =
           '<span class="feedback-label">이 평가가 도움이 됐나요?</span>' +
-          '<button class="fb-btn" data-rating="1">👍 도움됐어요</button>' +
-          '<button class="fb-btn" data-rating="-1">👎 아니에요</button>';
+          '<button class="fb-btn" data-rating="1"> 도움됐어요</button>' +
+          '<button class="fb-btn" data-rating="-1"> 아니에요</button>';
         msgEl.querySelector('.msg-content').appendChild(fbBar);
 
         fbBar.querySelectorAll('.fb-btn').forEach(function(btn) {
@@ -863,7 +863,7 @@ async function sendMessage() {
             const rating = parseInt(this.dataset.rating);
             // 즉시 UI 업데이트 (중복 클릭 방지)
             fbBar.querySelectorAll('.fb-btn').forEach(function(b) { b.disabled = true; });
-            fbBar.innerHTML = '<span class="fb-thanks">감사합니다! 🙏</span>';
+            fbBar.innerHTML = '<span class="fb-thanks">감사합니다! </span>';
             try {
               await fetch((API_URL || '') + '/v1/feedback', {
                 method: 'POST',
@@ -875,11 +875,11 @@ async function sendMessage() {
         });
       }
     } else {
-      addMsg(`⚠️ ${data.error||'오류가 발생했습니다.'}`, 'bot');
+      addMsg(` ${data.error||'오류가 발생했습니다.'}`, 'bot');
     }
   } catch(e) {
     clearInterval(loading.timer); loading.el.remove();
-    addMsg('⚠️ 서버에 연결할 수 없습니다. <button onclick="sendMessage()" style="margin-left:8px;padding:4px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:13px;">🔄 재시도</button>', 'bot');
+    addMsg(' 서버에 연결할 수 없습니다. <button onclick="sendMessage()" style="margin-left:8px;padding:4px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:13px;"> 재시도</button>', 'bot');
   }
   sendBtn.disabled = false;
   chatInput.focus();
@@ -896,24 +896,24 @@ async function showIdeaDetail(id) {
       sessionContext.lastIdea = d;
       const ideaName = (d.name||'').replace(/'/g,"\\'");
       const ideaDesc = (d.description||d.subtitle||'').replace(/'/g,"\\'").substring(0,200);
-      let html = `<h2>🚀 [${d.id||id}] ${d.name||''}</h2>`;
+      let html = `<h2> [${d.id||id}] ${d.name||''}</h2>`;
       if (d.subtitle) html += `<p style="color:var(--text2);margin-bottom:12px">${d.subtitle}</p>`;
-      if (d.description) html += `<h3>📋 설명</h3><p>${d.description.replace(/\n/g,'<br>')}</p>`;
-      if (d.why_now) html += `<h3>⏰ 왜 지금</h3><p>${d.why_now.replace(/\n/g,'<br>')}</p>`;
-      if (d.founder_profile) html += `<h3>👤 적합한 창업자</h3><p>${d.founder_profile}</p>`;
-      if (d.korea_market) html += `<h3>🇰🇷 한국 시장</h3><p>${d.korea_market.replace(/\n/g,'<br>')}</p>`;
+      if (d.description) html += `<h3> 설명</h3><p>${d.description.replace(/\n/g,'<br>')}</p>`;
+      if (d.why_now) html += `<h3> 왜 지금</h3><p>${d.why_now.replace(/\n/g,'<br>')}</p>`;
+      if (d.founder_profile) html += `<h3> 적합한 창업자</h3><p>${d.founder_profile}</p>`;
+      if (d.korea_market) html += `<h3> 한국 시장</h3><p>${d.korea_market.replace(/\n/g,'<br>')}</p>`;
       html += `<div class="idea-actions" style="margin-top:16px">
-        <button class="idea-action-btn" style="background:#FF6B35" onclick="window._raonIdeaAction('evaluate','${ideaName}','${ideaDesc}')">📊 이걸로 평가받기</button>
-        <button class="idea-action-btn" style="background:#10b981" onclick="window._raonIdeaAction('improve','${ideaName}','${ideaDesc}')">💡 사업계획서 개선</button>
-        <button class="idea-action-btn" style="background:#6366f1" onclick="window._raonIdeaAction('match','${ideaName}','${ideaDesc}')">🎯 정부사업 매칭</button>
-        <button class="idea-action-btn" style="background:#f59e0b" onclick="window._raonIdeaAction('draft','${ideaName}','${ideaDesc}')">✍️ 지원서 초안</button>
+        <button class="idea-action-btn" style="background:#FF6B35" onclick="window._raonIdeaAction('evaluate','${ideaName}','${ideaDesc}')"> 이걸로 평가받기</button>
+        <button class="idea-action-btn" style="background:#10b981" onclick="window._raonIdeaAction('improve','${ideaName}','${ideaDesc}')"> 사업계획서 개선</button>
+        <button class="idea-action-btn" style="background:#6366f1" onclick="window._raonIdeaAction('match','${ideaName}','${ideaDesc}')"> 정부사업 매칭</button>
+        <button class="idea-action-btn" style="background:#f59e0b" onclick="window._raonIdeaAction('draft','${ideaName}','${ideaDesc}')"> 지원서 초안</button>
       </div>`;
       addMsg(html, 'bot');
     } else {
-      addMsg('⚠️ '+(data.error||'상세 정보를 불러올 수 없습니다.'), 'bot');
+      addMsg(' '+(data.error||'상세 정보를 불러올 수 없습니다.'), 'bot');
     }
   } catch(e) {
-    addMsg('⚠️ 서버에 연결할 수 없습니다. <button onclick="sendMessage()" style="margin-left:8px;padding:4px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:13px;">🔄 재시도</button>', 'bot');
+    addMsg(' 서버에 연결할 수 없습니다. <button onclick="sendMessage()" style="margin-left:8px;padding:4px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:13px;"> 재시도</button>', 'bot');
   }
 }
 
@@ -952,7 +952,7 @@ function renderHistory() {
   if (!keys.length) { historyList.innerHTML = '<div class="history-empty">아직 대화 기록이 없습니다</div>'; return; }
   historyList.innerHTML = keys.map(k => {
     const c = conversations[k];
-    const icon = MODE_NAMES[c.mode]?.split(' ')[0] || '💬';
+    const icon = MODE_NAMES[c.mode]?.split(' ')[0] || '';
     return `<div class="history-item" data-id="${k}">
       <span class="hi-icon">${icon}</span>
       <span class="hi-text">${c.title}</span>

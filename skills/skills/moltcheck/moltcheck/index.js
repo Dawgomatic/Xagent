@@ -18,24 +18,24 @@ function getApiKey() {
 // Format risk severity with emoji
 function severityEmoji(severity) {
   const map = {
-    critical: '🔴',
-    high: '🟠',
-    medium: '🟡',
-    low: '🔵'
+    critical: '',
+    high: '',
+    medium: '',
+    low: ''
   }
-  return map[severity] || '⚪'
+  return map[severity] || ''
 }
 
 // Format grade with emoji
 function gradeEmoji(grade) {
   const map = {
-    A: '✅',
-    B: '👍',
-    C: '⚠️',
-    D: '⚠️',
-    F: '🚨'
+    A: '',
+    B: '',
+    C: '',
+    D: '',
+    F: ''
   }
-  return map[grade] || '❓'
+  return map[grade] || ''
 }
 
 /**
@@ -82,7 +82,7 @@ async function scan(url) {
       url: data.url,
       score: data.score,
       grade: `${gradeEmoji(data.grade)} ${data.grade}`,
-      type: data.isSkill ? '🦞 Moltbot Skill' : '📦 General Repo',
+      type: data.isSkill ? ' Moltbot Skill' : ' General Repo',
       summary: data.summary,
       reportUrl: data.reportUrl
     }

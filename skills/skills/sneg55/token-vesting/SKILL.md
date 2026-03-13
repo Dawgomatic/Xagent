@@ -3,7 +3,7 @@ name: sablier-vesting
 description: Create and manage token vesting streams using the Sablier Lockup protocol (linear, dynamic, tranched).
 homepage: https://docs.sablier.com
 disable-model-invocation: true
-metadata: {"openclaw":{"emoji":"⏳","requires":{"anyBins":["cast","forge"],"env":["ETH_RPC_URL"]},"primaryEnv":"ETH_PRIVATE_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"anyBins":["cast","forge"],"env":["ETH_RPC_URL"]},"primaryEnv":"ETH_PRIVATE_KEY"}}
 ---
 
 # Sablier Vesting Skill

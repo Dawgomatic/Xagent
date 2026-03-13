@@ -26,19 +26,19 @@ def classify_price(price, stats):
     if price <= p30:
         return {
             'level': 'BAJO',
-            'emoji': '🟢',
+            'emoji': '',
             'description': 'Precio bajo (oportunidad de ahorro)'
         }
     elif price >= p70:
         return {
             'level': 'ALTO',
-            'emoji': '🔴',
+            'emoji': '',
             'description': 'Precio alto (evita consumos no esenciales)'
         }
     else:
         return {
             'level': 'MEDIO',
-            'emoji': '🟡',
+            'emoji': '',
             'description': 'Precio medio'
         }
 
@@ -104,18 +104,18 @@ def main():
     else:
         print(f"   {price:.4f} €/kWh")
     
-    print(f"\n📊 Contexto del día:")
+    print(f"\n Contexto del día:")
     print(f"   Media: {stats['mean']:.4f} €/kWh")
     print(f"   Mínimo: {stats['min']:.4f} €/kWh ({stats['min_hour']:02d}:00)")
     print(f"   Máximo: {stats['max']:.4f} €/kWh ({stats['max_hour']:02d}:00)")
     
     if context['below_mean']:
-        print(f"\n💰 {abs(context['deviation_percent']):.1f}% por debajo de la media")
+        print(f"\n {abs(context['deviation_percent']):.1f}% por debajo de la media")
     else:
-        print(f"\n💸 {context['deviation_percent']:.1f}% por encima de la media")
+        print(f"\n {context['deviation_percent']:.1f}% por encima de la media")
     
-    print(f"📍 Posición: {context['position_percent']:.0f}% del rango diario")
-    print(f"\n💡 {cls['description']}")
+    print(f" Posición: {context['position_percent']:.0f}% del rango diario")
+    print(f"\n {cls['description']}")
 
 if __name__ == '__main__':
     main()

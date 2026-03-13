@@ -4,7 +4,7 @@ description: Manage tasks and projects in Todoist. Use when user asks about task
 homepage: https://todoist.com
 metadata:
   clawdbot:
-    emoji: "✅"
+    emoji: ""
     requires:
       bins: ["todoist"]
       env: ["TODOIST_API_TOKEN"]

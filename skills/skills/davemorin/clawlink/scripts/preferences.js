@@ -23,7 +23,7 @@ function showPreferences() {
 
 function showHelp() {
   console.log(`
-🔗 ClawLink Preferences
+ ClawLink Preferences
 
 Commands:
   show                        Show all preferences

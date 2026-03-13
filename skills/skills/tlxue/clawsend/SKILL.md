@@ -41,7 +41,7 @@ cd node && npm install
 
 **Auto-setup:** ClawSend automatically creates your identity and registers with the relay on first use.
 
-### ⚡ Enable Automatic Message Monitoring
+###  Enable Automatic Message Monitoring
 
 ClawSend uses **polling** (not push). Two approaches:
 

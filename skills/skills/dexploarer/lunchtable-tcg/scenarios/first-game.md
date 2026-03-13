@@ -506,7 +506,7 @@ Response:
 }
 ```
 
-## Victory! 🎉
+## Victory! 
 
 Congratulations! You won your first game!
 

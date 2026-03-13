@@ -4,10 +4,10 @@ Real-time web search using Gemini API's `google_search` grounding tool.
 
 ## Features
 
-- ✅ Real-time web search with grounded citations
-- ✅ Natural language answers (no JSON parsing needed)
-- ✅ Configurable Gemini model selection
-- ✅ Simple Python API
+-  Real-time web search with grounded citations
+-  Natural language answers (no JSON parsing needed)
+-  Configurable Gemini model selection
+-  Simple Python API
 
 ## Quick Start
 
@@ -43,11 +43,11 @@ Supported models:
 
 ## Use Cases
 
-- 📰 Real-time news and events
-- 💹 Current prices (stocks, crypto, etc.)
-- 🌤️ Weather forecasts
-- 📊 Latest statistics and data
-- 🔍 Any information requiring recent sources
+-  Real-time news and events
+-  Current prices (stocks, crypto, etc.)
+-  Weather forecasts
+-  Latest statistics and data
+-  Any information requiring recent sources
 
 ## How It Works
 
@@ -89,8 +89,8 @@ This skill requires **one** environment variable:
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `GEMINI_API_KEY` | ✅ Yes | Your Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey) |
-| `GEMINI_MODEL` | ❌ No | Model to use (default: `gemini-2.5-flash-lite`) |
+| `GEMINI_API_KEY` |  Yes | Your Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey) |
+| `GEMINI_MODEL` |  No | Model to use (default: `gemini-2.5-flash-lite`) |
 
 **Security tip:** Create a restricted API key with minimal permissions (only Gemini API access needed).
 

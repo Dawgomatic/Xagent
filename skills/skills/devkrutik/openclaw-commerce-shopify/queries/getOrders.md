@@ -96,10 +96,10 @@ When a user requests order or draft order information, follow these steps:
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Fetches too many orders with many fields
+   #  HIGH COST - Fetches too many orders with many fields
    query { orders(first: 250) { edges { node { id name email customer { ... } lineItems(first: 100) { ... } } } } }
    
-   # ✅ LOW COST - Fetches reasonable amount with needed fields only
+   #  LOW COST - Fetches reasonable amount with needed fields only
    query { orders(first: 10) { edges { node { id name createdAt } } } }
    ```
 

@@ -2,14 +2,14 @@
 name: agents-manager
 description: Manage Clawdbot agents: discover, profile, track capabilities, define routing hierarchy, and assign tasks.
 homepage: https://www.clawhub.com/skills/agents-manager
-metadata: {"openclaw":{"emoji":"🕵️","requires":{"bins":["node"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Agents Manager
 
 Manage all Clawdbot agents centrally: discover available agents, profile their capabilities, define routing hierarchy (who can assign to whom, who reports to whom), and intelligently route new tasks through the escalation chain.
 
-## 🤖 For Agents
+##  For Agents
 
 ### System Prompt (Copy-Paste)
 Give this prompt to any agent to teach them this skill:
@@ -22,7 +22,7 @@ Give this prompt to any agent to teach them this skill:
    - IF `requires_approval` is FALSE -> Assign directly.
    - IF `requires_approval` is TRUE -> Ask supervisor (Human or Agent).
 
-## 👤 For Humans
+##  For Humans
 
 ### Quick Start
 | Goal | Command |

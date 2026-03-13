@@ -7,7 +7,7 @@ description: Monitor iMessage/SMS conversations and auto-respond based on config
 
 Automatically respond to iMessages/SMS from specific contacts using AI-generated replies that match your voice and conversation context.
 
-## ⚠️ Requirements Checklist
+##  Requirements Checklist
 
 Before using this skill, ensure you have:
 
@@ -19,18 +19,18 @@ Before using this skill, ensure you have:
 
 ## Features
 
-- 🤖 **AI-powered responses** using OpenAI GPT-4
-- 📱 **Contact-based prompts** - different AI personality per contact
-- ⏱️ **Rate limiting** - configurable delays between auto-responses
-- 💬 **Context-aware** - AI sees recent conversation history
-- 📊 **Telegram management** - slash commands + natural language
-- 🔄 **Background monitoring** - continuous polling for new messages
-- 🔧 **Auto-cleanup** - clears stale locks on restart (prevents stuck contacts)
-- 🧪 **Test mode** - generate real AI responses without sending
-- ⏰ **Time windows** - only respond during specific hours (e.g., 9 AM - 10 PM)
-- 🔑 **Keyword triggers** - only respond if message contains specific keywords (e.g., "urgent", "help")
-- 📊 **Statistics tracking** - track total responses, daily counts, and averages per contact
-- 🚦 **Daily cap** - limit max replies per day per contact (safety feature)
+-  **AI-powered responses** using OpenAI GPT-4
+-  **Contact-based prompts** - different AI personality per contact
+-  **Rate limiting** - configurable delays between auto-responses
+-  **Context-aware** - AI sees recent conversation history
+-  **Telegram management** - slash commands + natural language
+-  **Background monitoring** - continuous polling for new messages
+-  **Auto-cleanup** - clears stale locks on restart (prevents stuck contacts)
+-  **Test mode** - generate real AI responses without sending
+-  **Time windows** - only respond during specific hours (e.g., 9 AM - 10 PM)
+-  **Keyword triggers** - only respond if message contains specific keywords (e.g., "urgent", "help")
+-  **Statistics tracking** - track total responses, daily counts, and averages per contact
+-  **Daily cap** - limit max replies per day per contact (safety feature)
 
 ## Quick Start
 
@@ -374,7 +374,7 @@ Perfect for testing new prompts before going live!
 
 ## Privacy & Safety
 
-⚠️ **Important:** This tool sends messages on your behalf automatically.
+ **Important:** This tool sends messages on your behalf automatically.
 
 - Only add contacts who know they're texting an AI or won't mind
 - Review responses regularly via `/autorespond_history`

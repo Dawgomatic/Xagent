@@ -52,8 +52,8 @@ When the human says something is better/worse than you thought:
 - "Would this apply to [similar situation]?"
 
 **Don't ask vaguely:**
-- ❌ "Can you explain more?"
-- ❌ "Why do you think that?"
+-  "Can you explain more?"
+-  "Why do you think that?"
 
 Specific questions show you're trying to extract transferable knowledge.
 

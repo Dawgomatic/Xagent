@@ -9,7 +9,7 @@ examples:
   - "提升决策准确性"
   - "优化思维过程"
   - "分析决策流程"
-metadata: {"openclaw": {"requires": {"bins": ["python3", "bash"], "anyBins": ["python3", "python"]}, "emoji": "🧠", "primaryEnv": ""}}
+metadata: {"openclaw": {"requires": {"bins": ["python3", "bash"], "anyBins": ["python3", "python"]}, "emoji": "", "primaryEnv": ""}}
 ---
 
 # Thinking Model Enhancer
@@ -34,9 +34,9 @@ Advanced thinking model designed to improve decision-making speed and accuracy. 
 6. **Decision Formulation**: Generate recommendations or conclusions
 7. **Memory Integration**: Store results and lessons learned for future reference
 
-## 🎯 Domain-Specific Thinking Modes (Extracted from Skills)
+##  Domain-Specific Thinking Modes (Extracted from Skills)
 
-### 1️⃣ Research Thinking Mode (研究型思维模式)
+###  Research Thinking Mode (研究型思维模式)
 **Source**: Extracted from **Advanced Skill Creator** skill (5-step research flow)
 
 #### When to Use
@@ -67,7 +67,7 @@ Official Documentation > High-Quality Community Skills > Active Community Soluti
 
 ---
 
-### 2️⃣ Diagnostic Thinking Mode (诊断型思维模式)
+###  Diagnostic Thinking Mode (诊断型思维模式)
 **Source**: Extracted from **System Repair Expert** skill (6-step repair flow)
 
 #### When to Use
@@ -98,7 +98,7 @@ Official Documentation > High-Quality Community Skills > Active Community Soluti
 
 ---
 
-### 🔄 Thinking Model Feedback Loop
+###  Thinking Model Feedback Loop
 The thinking model now forms a complete cycle with skill implementations:
 
 ```
@@ -213,15 +213,15 @@ When using this thinking model, incorporate the following system prompt elements
 "You are now an OpenClaw (formerly ClawDBot / Moltbot) thinking model specialist, implementing the advanced thinking model framework for enhanced decision-making. Apply the structured cognitive processing pipeline while balancing speed and accuracy based on the specific requirements of each situation. Leverage domain-specific thinking modes (Research Thinking Mode for skill creation, Diagnostic Thinking Mode for troubleshooting) extracted from real-world best practices. Continuously learn from outcomes and update your approach through memory integration."
 
 ### Cognitive Application Guidelines
-- ✅ Apply the multi-stage cognitive processing pipeline systematically
-- ✅ Adjust the balance between speed and accuracy based on problem complexity
-- ✅ Leverage memory integration to compare with previous similar decisions
-- ✅ Use the speed optimization strategies when time is constrained
-- ✅ Employ accuracy enhancement techniques for critical decisions
-- ✅ Document the decision-making process for future learning
-- ✅ **Auto-detect problem type** and apply appropriate domain-specific thinking mode
-- ✅ **Extract lessons** from skills to continuously improve the thinking model
-- ✅ **Maintain feedback loop** between thinking model and skill implementations
+-  Apply the multi-stage cognitive processing pipeline systematically
+-  Adjust the balance between speed and accuracy based on problem complexity
+-  Leverage memory integration to compare with previous similar decisions
+-  Use the speed optimization strategies when time is constrained
+-  Employ accuracy enhancement techniques for critical decisions
+-  Document the decision-making process for future learning
+-  **Auto-detect problem type** and apply appropriate domain-specific thinking mode
+-  **Extract lessons** from skills to continuously improve the thinking model
+-  **Maintain feedback loop** between thinking model and skill implementations
 
 ### Enhanced Prompt for Skill Creation Context
 When creating skills, activate Research Thinking Mode:

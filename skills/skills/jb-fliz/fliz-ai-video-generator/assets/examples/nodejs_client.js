@@ -378,14 +378,14 @@ if (require.main === module) {
     try {
       // Test connection
       await client.testConnection();
-      console.log('✅ Connection successful!');
+      console.log(' Connection successful!');
 
       // List voices
       const voices = await client.getVoices();
-      console.log(`\n🎙️ Found ${voices.length} voices`);
+      console.log(`\n Found ${voices.length} voices`);
 
       // Create video
-      console.log('\n📹 Creating video...');
+      console.log('\n Creating video...');
       const result = await client.createVideo({
         name: 'Test Video',
         description: 'This is a test video created via the Fliz API.',
@@ -396,15 +396,15 @@ if (require.main === module) {
       console.log(`   Video ID: ${result.video_id}`);
 
       // Wait for completion
-      console.log('\n⏳ Waiting for video...');
+      console.log('\n Waiting for video...');
       const video = await client.waitForVideo(result.video_id, {
         pollInterval: 10,
         onProgress: (status) => console.log(`   Status: ${status.step}`)
       });
-      console.log(`\n✅ Video ready: ${video.url}`);
+      console.log(`\n Video ready: ${video.url}`);
 
     } catch (error) {
-      console.error(`\n❌ Error: ${error.message}`);
+      console.error(`\n Error: ${error.message}`);
       process.exit(1);
     }
   })();

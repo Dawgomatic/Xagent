@@ -201,22 +201,22 @@ Below is the list of Zod 3 issues types and their Zod 4 equivalent:
 import * as z from "zod"; // v3
 
 export type IssueFormats =
-  | z.ZodInvalidTypeIssue // ♻️ renamed to z.core.$ZodIssueInvalidType
-  | z.ZodTooBigIssue  // ♻️ renamed to z.core.$ZodIssueTooBig
-  | z.ZodTooSmallIssue // ♻️ renamed to z.core.$ZodIssueTooSmall
-  | z.ZodInvalidStringIssue // ♻️ z.core.$ZodIssueInvalidStringFormat
-  | z.ZodNotMultipleOfIssue // ♻️ renamed to z.core.$ZodIssueNotMultipleOf
-  | z.ZodUnrecognizedKeysIssue // ♻️ renamed to z.core.$ZodIssueUnrecognizedKeys
-  | z.ZodInvalidUnionIssue // ♻️ renamed to z.core.$ZodIssueInvalidUnion
-  | z.ZodCustomIssue // ♻️ renamed to z.core.$ZodIssueCustom
-  | z.ZodInvalidEnumValueIssue // ❌ merged in z.core.$ZodIssueInvalidValue
-  | z.ZodInvalidLiteralIssue // ❌ merged into z.core.$ZodIssueInvalidValue
-  | z.ZodInvalidUnionDiscriminatorIssue // ❌ throws an Error at schema creation time
-  | z.ZodInvalidArgumentsIssue // ❌ z.function throws ZodError directly
-  | z.ZodInvalidReturnTypeIssue // ❌ z.function throws ZodError directly
-  | z.ZodInvalidDateIssue // ❌ merged into invalid_type
-  | z.ZodInvalidIntersectionTypesIssue // ❌ removed (throws regular Error)
-  | z.ZodNotFiniteIssue // ❌ infinite values no longer accepted (invalid_type)
+  | z.ZodInvalidTypeIssue //  renamed to z.core.$ZodIssueInvalidType
+  | z.ZodTooBigIssue  //  renamed to z.core.$ZodIssueTooBig
+  | z.ZodTooSmallIssue //  renamed to z.core.$ZodIssueTooSmall
+  | z.ZodInvalidStringIssue //  z.core.$ZodIssueInvalidStringFormat
+  | z.ZodNotMultipleOfIssue //  renamed to z.core.$ZodIssueNotMultipleOf
+  | z.ZodUnrecognizedKeysIssue //  renamed to z.core.$ZodIssueUnrecognizedKeys
+  | z.ZodInvalidUnionIssue //  renamed to z.core.$ZodIssueInvalidUnion
+  | z.ZodCustomIssue //  renamed to z.core.$ZodIssueCustom
+  | z.ZodInvalidEnumValueIssue //  merged in z.core.$ZodIssueInvalidValue
+  | z.ZodInvalidLiteralIssue //  merged into z.core.$ZodIssueInvalidValue
+  | z.ZodInvalidUnionDiscriminatorIssue //  throws an Error at schema creation time
+  | z.ZodInvalidArgumentsIssue //  z.function throws ZodError directly
+  | z.ZodInvalidReturnTypeIssue //  z.function throws ZodError directly
+  | z.ZodInvalidDateIssue //  merged into invalid_type
+  | z.ZodInvalidIntersectionTypesIssue //  removed (throws regular Error)
+  | z.ZodNotFiniteIssue //  infinite values no longer accepted (invalid_type)
 ```
 
 While certain Zod 4 issue types have been merged, dropped, and modified, each issue remains structurally similar to Zod 3 counterpart (identical, in most cases). All issues still conform to the same base interface as Zod 3, so most common error handling logic will work without modification.
@@ -271,12 +271,12 @@ myError.issues.push({
 The `.and()` method on `ZodType` has been dropped in favor of `z.intersection(A, B)`. Not only is this method rarely used, there are few good reasons to use intersections at all. The `.and()` API prevented bundlers from treeshaking `ZodIntersection`, a fairly large and complex class. 
 
 ```ts
-z.object({ a: z.string() }).and(z.object({ b: z.number() })); // ❌
+z.object({ a: z.string() }).and(z.object({ b: z.number() })); // 
 
 // use z.intersection
-z.intersection(z.object({ a: z.string() }), z.object({ b: z.number() })); // ✅
+z.intersection(z.object({ a: z.string() }), z.object({ b: z.number() })); // 
 // or .extend() when possible
-z.object({ a: z.string() }).extend(z.object({ b: z.number() })); // ✅
+z.object({ a: z.string() }).extend(z.object({ b: z.number() })); // 
 ``` */}
 
 ## `z.number()`
@@ -323,8 +323,8 @@ z.iso.duration();
 The method forms (`z.string().email()`) still exist and work as before, but are now deprecated.
 
 ```ts
-z.string().email(); // ❌ deprecated
-z.email(); // ✅ 
+z.string().email(); //  deprecated
+z.email(); //  
 ```
 
 ### stricter `.uuid()`
@@ -345,9 +345,9 @@ Padding is no longer allowed in `z.base64url()` (formerly `z.string().base64url(
 This has been replaced with separate `.ipv4()` and `.ipv6()` methods. Use `z.union()` to combine them if you need to accept both.
 
 ```ts
-z.string().ip() // ❌
-z.ipv4() // ✅
-z.ipv6() // ✅
+z.string().ip() // 
+z.ipv4() // 
+z.ipv6() // 
 ```
 
 ### updates `z.string().ipv6()`
@@ -359,9 +359,9 @@ Validation now happens using the `new URL()` constructor, which is far more robu
 Similarly, this has been replaced with separate `.cidrv4()` and `.cidrv6()` methods. Use `z.union()` to combine them if you need to accept both.
 
 ```ts
-z.string().cidr() // ❌
-z.cidrv4() // ✅
-z.cidrv6() // ✅
+z.string().cidr() // 
+z.cidrv4() // 
+z.cidrv6() // 
 ```
 
 ## `z.coerce` updates
@@ -496,15 +496,15 @@ enum Color {
   Blue = "blue",
 }
 
-const ColorSchema = z.enum(Color); // ✅
+const ColorSchema = z.enum(Color); // 
 ```
 
 As part of this refactor of `ZodEnum`, a number of long-deprecated and redundant features have been removed. These were all identical and only existed for historical reasons.
 
 ```ts
-ColorSchema.enum.Red; // ✅ => "Red" (canonical API)
-ColorSchema.Enum.Red; // ❌ removed
-ColorSchema.Values.Red; // ❌ removed
+ColorSchema.enum.Red; //  => "Red" (canonical API)
+ColorSchema.Enum.Red; //  removed
+ColorSchema.Values.Red; //  removed
 ```
 
 ## `z.array()`
@@ -604,7 +604,7 @@ Zod's new parsing architecture does not eagerly evaluate the `path` array. This 
 
 ```ts
 z.string().superRefine((val, ctx) => {
-  ctx.path; // ❌ no longer available
+  ctx.path; //  no longer available
 });
 ```
 
@@ -631,7 +631,7 @@ const UniqueStringArray = z.array(z.string()).check((ctx) => {
       maximum: 3,
       origin: "array",
       inclusive: true,
-      message: "Too many items 😡",
+      message: "Too many items ",
       input: ctx.value
     });
   }
@@ -662,7 +662,7 @@ Symbols aren't considered literal values, nor can they be simply compared with `
 Previously all Zod classes defined a static `.create()` method. These are now implemented as standalone factory functions.
 
 ```ts
-z.ZodString.create(); // ❌ 
+z.ZodString.create(); //  
 ```
 
 ## `z.record()`
@@ -673,11 +673,11 @@ Before, `z.record()` could be used with a single argument. This is no longer sup
 
 ```ts
 // Zod 3
-z.record(z.string()); // ✅
+z.record(z.string()); // 
 
 // Zod 4
-z.record(z.string()); // ❌
-z.record(z.string(), z.string()); // ✅
+z.record(z.string()); // 
+z.record(z.string(), z.string()); // 
 ```
 
 ### improves enum support

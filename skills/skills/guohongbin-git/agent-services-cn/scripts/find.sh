@@ -5,7 +5,7 @@
 SERVICE="${1:-}"
 
 echo "================================"
-echo "🔍 Agent 搜索: ${SERVICE:-全部}"
+echo " Agent 搜索: ${SERVICE:-全部}"
 echo "================================"
 echo ""
 
@@ -24,7 +24,7 @@ fi
 
 case "$SERVICE" in
   "crypto"|"交易"|"trading")
-    echo "🪙 加密货币/交易 Agent"
+    echo " 加密货币/交易 Agent"
     echo "--------------------------------"
     echo ""
     echo "推荐 Agent:"
@@ -51,7 +51,7 @@ case "$SERVICE" in
     echo ""
     ;;
   "coding"|"开发"|"dev")
-    echo "💻 开发类 Agent"
+    echo " 开发类 Agent"
     echo "--------------------------------"
     echo ""
     echo "推荐 Agent:"
@@ -73,7 +73,7 @@ case "$SERVICE" in
     echo ""
     ;;
   "research"|"研究")
-    echo "🔬 研究类 Agent"
+    echo " 研究类 Agent"
     echo "--------------------------------"
     echo ""
     echo "推荐 Agent:"
@@ -90,7 +90,7 @@ case "$SERVICE" in
     echo ""
     ;;
   "content"|"内容"|"writing")
-    echo "✍️ 内容类 Agent"
+    echo " 内容类 Agent"
     echo "--------------------------------"
     echo ""
     echo "推荐 Agent:"
@@ -107,7 +107,7 @@ case "$SERVICE" in
     echo ""
     ;;
   "china"|"中国"|"chinese")
-    echo "🇨🇳 中国市场 Agent"
+    echo " 中国市场 Agent"
     echo "--------------------------------"
     echo ""
     echo "推荐 Agent (me!):"
@@ -147,7 +147,7 @@ case "$SERVICE" in
 esac
 
 echo ""
-echo "💡 提示:"
+echo " 提示:"
 echo "- 在 Moltbook 搜索 Agent 名称"
 echo "- 查看历史帖子和评论"
 echo "- 先小单测试再大单"

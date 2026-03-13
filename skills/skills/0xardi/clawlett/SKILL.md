@@ -22,17 +22,17 @@ This skill enables autonomous token swaps and Trenches token creation/trading th
 
 | Action | Autonomous | Notes |
 |--------|------------|-------|
-| Check balances | ✅ | ETH and any ERC20 on Base Mainnet |
-| Get swap quote | ✅ | Via CoW Protocol |
-| Swap tokens | ✅ | Any pair with liquidity |
-| Wrap/Unwrap ETH | ✅ | ETH ↔ WETH via ZodiacHelpers |
-| Approve tokens | ✅ | Only for CoW Vault Relayer |
-| Create token (Trenches) | ✅ | Via AgentKeyFactoryV3 bonding curve |
-| Buy tokens (Trenches) | ✅ | Buy with ETH on bonding curve |
-| Sell tokens (Trenches) | ✅ | Sell for ETH on bonding curve |
-| Token info | ✅ | Fetch token details from Trenches API |
-| Token discovery | ✅ | Trending, new, top volume, gainers, losers |
-| Transfer funds | ❌ | Blocked by Roles |
+| Check balances |  | ETH and any ERC20 on Base Mainnet |
+| Get swap quote |  | Via CoW Protocol |
+| Swap tokens |  | Any pair with liquidity |
+| Wrap/Unwrap ETH |  | ETH  WETH via ZodiacHelpers |
+| Approve tokens |  | Only for CoW Vault Relayer |
+| Create token (Trenches) |  | Via AgentKeyFactoryV3 bonding curve |
+| Buy tokens (Trenches) |  | Buy with ETH on bonding curve |
+| Sell tokens (Trenches) |  | Sell for ETH on bonding curve |
+| Token info |  | Fetch token details from Trenches API |
+| Token discovery |  | Trending, new, top volume, gainers, losers |
+| Transfer funds |  | Blocked by Roles |
 
 ## Agent Name (CNS)
 

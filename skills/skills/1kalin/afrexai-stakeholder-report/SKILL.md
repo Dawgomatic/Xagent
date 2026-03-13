@@ -16,7 +16,7 @@ The agent structures your raw inputs into a polished report with these sections:
 ### 1. Executive Summary (3-5 sentences)
 - What happened this period
 - Key wins and blockers
-- Overall health: 🟢 On Track | 🟡 At Risk | 🔴 Off Track
+- Overall health:  On Track |  At Risk |  Off Track
 
 ### 2. Milestone Tracker
 | Milestone | Target Date | Status | Notes |

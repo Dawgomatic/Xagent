@@ -6,14 +6,14 @@ The most comprehensive email-to-calendar skill for OpenClaw. No external depende
 
 ## What It Does
 
-- 📧 Extracts events, deadlines, action items, and travel logistics from any email
-- 🎯 Confidence scoring (high/medium/low) so you know what's solid vs. vague
-- ✈️ Special travel mode: flights, hotels, car rentals — all auto-extracted
-- ⚠️ Deadline engine with smart reminder scheduling
-- 🔄 Duplicate detection before creating events
-- 📬 Batch inbox scanning with grouped results
-- 🌍 Multi-timezone support with automatic conversion
-- 📋 Works with Google Calendar, Apple Calendar, Outlook, Notion, or raw ICS export
+-  Extracts events, deadlines, action items, and travel logistics from any email
+-  Confidence scoring (high/medium/low) so you know what's solid vs. vague
+-  Special travel mode: flights, hotels, car rentals — all auto-extracted
+-  Deadline engine with smart reminder scheduling
+-  Duplicate detection before creating events
+-  Batch inbox scanning with grouped results
+-  Multi-timezone support with automatic conversion
+-  Works with Google Calendar, Apple Calendar, Outlook, Notion, or raw ICS export
 
 ## Install
 
@@ -43,7 +43,7 @@ Most email-to-calendar skills only handle simple "meeting at 2pm" cases. This on
 - Recurring events with exceptions
 - ICS attachment parsing
 
-## ⚡ Level Up
+##  Level Up
 
 Want full industry-specific agent context? Check out our premium packs:
 
@@ -52,7 +52,7 @@ Want full industry-specific agent context? Check out our premium packs:
 
 Each pack includes 5 deep-context files that make your agent an industry expert.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - `afrexai-humanizer` — Remove AI-speak from any content
 - `afrexai-prospect-researcher` — Deep company & contact research
@@ -64,4 +64,4 @@ Each pack includes 5 deep-context files that make your agent an industry expert.
 
 ---
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

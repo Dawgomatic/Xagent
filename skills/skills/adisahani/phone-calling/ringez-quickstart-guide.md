@@ -3,18 +3,18 @@
 
 ---
 
-## 🎯 What You'll Build
+##  What You'll Build
 
 By the end of this guide, your AI agent will be able to:
-- ✅ Make international phone calls
-- ✅ Transcribe conversations in real-time
-- ✅ Detect caller intent and sentiment
-- ✅ Route calls intelligently
-- ✅ Handle callbacks and webhooks
+-  Make international phone calls
+-  Transcribe conversations in real-time
+-  Detect caller intent and sentiment
+-  Route calls intelligently
+-  Handle callbacks and webhooks
 
 ---
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Basic knowledge of REST APIs
 - Python 3.8+ or Node.js 14+ installed
@@ -278,7 +278,7 @@ async def analyze_transcript(text):
     })
     
     if intent.intent == "escalation_request":
-        print("⚠️  Customer wants to escalate!")
+        print("  Customer wants to escalate!")
         # Take action...
 
 # Usage
@@ -317,7 +317,7 @@ async function transcribeCall(callId) {
       });
 
       if (intent.intent === 'escalation_request') {
-        console.log('⚠️  Customer wants to escalate!');
+        console.log('  Customer wants to escalate!');
         // Transfer to supervisor
         await client.calls.transfer(callId, {
           transferTo: '+14155559999'
@@ -332,7 +332,7 @@ transcribeCall('call_xyz789');
 
 ---
 
-## 🎓 Common Use Cases
+##  Common Use Cases
 
 ### Use Case 1: Customer Support Bot
 
@@ -366,7 +366,7 @@ class CustomerSupportBot:
             })
             
             if sentiment.sentiment == "negative":
-                print(f"😠 Negative sentiment detected: {sentiment.score}")
+                print(f" Negative sentiment detected: {sentiment.score}")
                 
                 # Escalate if very negative
                 if sentiment.score < -0.7:
@@ -428,9 +428,9 @@ class AppointmentReminder {
     });
 
     if (response.digits === '1') {
-      console.log(`✅ ${appointment.patientName} confirmed`);
+      console.log(` ${appointment.patientName} confirmed`);
     } else if (response.digits === '2') {
-      console.log(`📅 ${appointment.patientName} wants to reschedule`);
+      console.log(` ${appointment.patientName} wants to reschedule`);
     }
 
     await this.client.calls.hangup(call.id);
@@ -480,13 +480,13 @@ class SalesOutreachBot:
             })
             
             if intent.intent == "interested":
-                print(f"🎯 Lead interested! Call: {call_id}")
+                print(f" Lead interested! Call: {call_id}")
                 # Schedule follow-up, send materials, etc.
 ```
 
 ---
 
-## 🪝 Setting Up Webhooks
+##  Setting Up Webhooks
 
 Webhooks let you receive real-time notifications about call events.
 
@@ -558,7 +558,7 @@ print(f"Webhook registered: {webhook.webhook_id}")
 
 ---
 
-## 🎛️ Testing with Sandbox
+##  Testing with Sandbox
 
 Use sandbox mode for testing without charges:
 
@@ -585,7 +585,7 @@ call = client.calls.initiate({
 
 ---
 
-## 📊 Monitoring & Analytics
+##  Monitoring & Analytics
 
 ```python
 # Get call metrics
@@ -612,14 +612,14 @@ print(f"Projected month-end: ${spending.predictions.estimated_month_end_spend}")
 
 ---
 
-## 🔒 Security Best Practices
+##  Security Best Practices
 
 1. **Never hardcode API keys**
    ```python
-   # ❌ BAD
+   #  BAD
    client = RingezClient(api_key="sk_live_abc123")
    
-   # ✅ GOOD
+   #  GOOD
    client = RingezClient(api_key=os.getenv('RINGEZ_API_KEY'))
    ```
 
@@ -632,8 +632,8 @@ print(f"Projected month-end: ${spending.predictions.estimated_month_end_spend}")
 
 3. **Use HTTPS for webhooks**
    ```
-   ✅ https://your-domain.com/webhooks
-   ❌ http://your-domain.com/webhooks
+    https://your-domain.com/webhooks
+    http://your-domain.com/webhooks
    ```
 
 4. **Validate phone numbers**
@@ -650,20 +650,20 @@ print(f"Projected month-end: ${spending.predictions.estimated_month_end_spend}")
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Issue: Call fails immediately
 ```python
 # Check balance
 balance = client.wallet.balance(session_id=session.id)
 if balance.minutes < 1:
-    print("❌ Insufficient balance")
+    print(" Insufficient balance")
     # Add credits...
 
 # Validate number
 validation = client.numbers.validate(phone_number="+14155551234")
 if not validation.is_callable:
-    print(f"❌ Number not callable: {validation.reason}")
+    print(f" Number not callable: {validation.reason}")
 ```
 
 ### Issue: Transcription not working
@@ -671,7 +671,7 @@ if not validation.is_callable:
 # Check transcription status
 transcript = client.transcripts.get(call_id)
 if transcript.status == "failed":
-    print(f"❌ Transcription failed: {transcript.error}")
+    print(f" Transcription failed: {transcript.error}")
 
 # Ensure transcription was enabled
 call = client.calls.initiate({
@@ -690,7 +690,7 @@ webhooks = client.webhooks.list(session_id=session.id)
 for wh in webhooks:
     print(f"Webhook: {wh.webhook_id}, Status: {wh.status}")
     if wh.status != "active":
-        print(f"⚠️  Webhook is {wh.status}")
+        print(f"  Webhook is {wh.status}")
 
 # Check webhook delivery stats
 stats = client.webhooks.get_stats(webhook_id="wh_abc123")
@@ -699,7 +699,7 @@ print(f"Success rate: {stats.successful_deliveries / stats.total_attempts * 100}
 
 ---
 
-## 📚 Next Steps
+##  Next Steps
 
 1. **Read Full API Documentation**: https://docs.ringez.com/api
 2. **Explore Example Projects**: https://github.com/ringez/examples
@@ -708,7 +708,7 @@ print(f"Success rate: {stats.successful_deliveries / stats.total_attempts * 100}
 
 ---
 
-## 💬 Get Help
+##  Get Help
 
 - **Documentation**: https://docs.ringez.com
 - **Email Support**: developers@ringez.com
@@ -717,8 +717,8 @@ print(f"Success rate: {stats.successful_deliveries / stats.total_attempts * 100}
 
 ---
 
-## 🎉 You're Ready!
+##  You're Ready!
 
 You now have everything you need to integrate Ringez into your AI agent. Start building amazing voice-powered applications!
 
-**Happy Calling! 📞**
+**Happy Calling! **

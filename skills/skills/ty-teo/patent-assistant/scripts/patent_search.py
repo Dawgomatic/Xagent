@@ -249,13 +249,13 @@ def format_output(patents: list[dict], format_type: str = "text") -> str:
         sources[src].append(p)
     
     for source, items in sources.items():
-        lines.append(f"### 📚 {source}\n")
+        lines.append(f"###  {source}\n")
         
         for i, p in enumerate(items, 1):
             if "note" in p:
                 lines.append(f"**提示**: {p['note']}")
                 if p.get("url"):
-                    lines.append(f"🔗 链接: {p['url']}")
+                    lines.append(f" 链接: {p['url']}")
                 if p.get("features"):
                     lines.append(f"特点: {', '.join(p['features'])}")
                 lines.append("")

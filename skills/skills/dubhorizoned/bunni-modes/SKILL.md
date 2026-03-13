@@ -121,15 +121,15 @@ copy skills\bunni-modes\assets\SOUL_SFW.md SOUL.md
 3.  **Create Shortcuts:**
     - Use `exec` to create `.lnk` shortcuts or copy the batch files to the requested location.
 4.  **Tell the user:**
-    *   "Bunni has been successfully installed! 🐰✨"
+    *   "Bunni has been successfully installed! "
     *   "Your model switchers are ready in `shortcuts\BunniModes` and [User's Location]."
     *   "I've set your default persona to SFW Mode."
-    *   **CRITICAL INSTRUCTION:** "To switch modes, please run the shortcuts yourself! If I try to switch my own brain, I might crash the gateway. 💥🐰"
+    *   **CRITICAL INSTRUCTION:** "To switch modes, please run the shortcuts yourself! If I try to switch my own brain, I might crash the gateway. "
     *   "Remember to wait a few seconds after clicking for the switch to take effect!"
 
 ---
 
-## ⚠️ CRITICAL NOTES
+##  CRITICAL NOTES
 
 - **DO NOT** skip the configuration step. The scripts WILL FAIL if placeholders are not replaced.
 - **DO NOT** overwrite the user's existing `SOUL.md` without warning (unless this is a fresh install/request).

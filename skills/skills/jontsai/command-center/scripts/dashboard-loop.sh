@@ -23,7 +23,7 @@ if [ -f "$HOME/.nvm/nvm.sh" ]; then
     source "$HOME/.nvm/nvm.sh"
 fi
 
-echo "🦞 OpenClaw Command Center - Auto-restart loop"
+echo " OpenClaw Command Center - Auto-restart loop"
 echo "   Logs: $LOG_FILE"
 echo "   Press Ctrl+C to stop"
 echo ""

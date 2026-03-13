@@ -2,7 +2,7 @@
 name: openrouter-transcribe
 description: Transcribe audio files via OpenRouter using audio-capable models (Gemini, GPT-4o-audio, etc).
 homepage: https://openrouter.ai/docs
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"bins":["curl","ffmpeg","base64","jq"],"env":["OPENROUTER_API_KEY"]},"primaryEnv":"OPENROUTER_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","ffmpeg","base64","jq"],"env":["OPENROUTER_API_KEY"]},"primaryEnv":"OPENROUTER_API_KEY"}}
 ---
 
 # OpenRouter Audio Transcription

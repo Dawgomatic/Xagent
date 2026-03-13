@@ -2,7 +2,7 @@
 name: granola
 description: Access Granola AI meeting notes - CSV import, shared note fetching, and MCP-ready for upcoming API support.
 homepage: https://granola.ai
-metadata: {"clawdbot":{"emoji":"🥣","requires":{}}}
+metadata: {"clawdbot":{"emoji":"","requires":{}}}
 ---
 
 # Granola

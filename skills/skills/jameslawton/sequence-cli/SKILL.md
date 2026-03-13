@@ -4,7 +4,7 @@ description: "Manage Sequence smart wallets, projects, API keys, ERC20 transfers
 homepage: https://github.com/0xsequence/builder-cli
 metadata:
   clawdbot:
-    emoji: "⛓️"
+    emoji: ""
     os:
       - darwin
       - linux

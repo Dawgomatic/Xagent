@@ -5,7 +5,7 @@
   "author": "Clawdbot Community",
   "license": "MIT",
   "clawdbot": {
-    "emoji": "🔌",
+    "emoji": "",
     "category": "integrations",
     "tags": ["oauth", "api", "gmail", "google", "slack", "github", "pipedream", "mcp"],
     "requires": {

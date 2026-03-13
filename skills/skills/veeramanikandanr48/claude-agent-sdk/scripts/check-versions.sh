@@ -5,7 +5,7 @@
 
 set -e
 
-echo "🔍 Checking Claude Agent SDK package versions..."
+echo " Checking Claude Agent SDK package versions..."
 echo ""
 
 # Colors
@@ -16,7 +16,7 @@ NC='\033[0m' # No Color
 
 # Check if npm is available
 if ! command -v npm &> /dev/null; then
-    echo -e "${RED}❌ npm not found. Please install Node.js.${NC}"
+    echo -e "${RED} npm not found. Please install Node.js.${NC}"
     exit 1
 fi
 
@@ -31,25 +31,25 @@ check_package() {
     latest_version=$(npm view $package version 2>/dev/null)
 
     if [ $? -ne 0 ]; then
-        echo -e "${RED}❌ Not found in npm registry${NC}"
+        echo -e "${RED} Not found in npm registry${NC}"
         return 1
     fi
 
     if [ "$current_version" = "$latest_version" ]; then
-        echo -e "${GREEN}✅ Up to date ($current_version)${NC}"
+        echo -e "${GREEN} Up to date ($current_version)${NC}"
     else
-        echo -e "${YELLOW}⚠️  Update available: $current_version → $latest_version${NC}"
+        echo -e "${YELLOW}  Update available: $current_version → $latest_version${NC}"
     fi
 }
 
-echo "📦 Dependencies:"
+echo " Dependencies:"
 check_package "@anthropic-ai/claude-agent-sdk" "0.1.0"
 check_package "zod" "3.23.0"
 
 echo ""
-echo "🛠️  Dev Dependencies:"
+echo "  Dev Dependencies:"
 check_package "@types/node" "20.0.0"
 check_package "typescript" "5.3.0"
 
 echo ""
-echo "✨ Check complete!"
+echo " Check complete!"

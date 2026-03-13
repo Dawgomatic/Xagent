@@ -3,10 +3,10 @@
 name: prezentit
 description: Generate beautiful AI-powered presentations instantly. Create professional slides with custom themes, visual designs, and speaker notes—all through natural language commands.
 homepage: https://prezentit.net
-emoji: "👽"
+emoji: ""
 metadata:
   clawdbot:
-    emoji: "👽"
+    emoji: ""
     skillKey: prezentit
     homepage: https://prezentit.net
     requires:
@@ -35,7 +35,7 @@ metadata:
 
 > **This skill requires a `PREZENTIT_API_KEY` environment variable.** Get a free API key at https://prezentit.net/api-keys — new accounts include 100 free credits.
 
-## ⚠️ CRITICAL FOR AI AGENTS
+##  CRITICAL FOR AI AGENTS
 
 **ALWAYS use `"stream": false`** in generation requests! Without this, you get streaming responses that cause issues.
 
@@ -124,7 +124,7 @@ Content-Type: application/json
 }
 ```
 
-**⏱️ IMPORTANT: Generation takes 1-3 minutes. The API will return when complete.**
+** IMPORTANT: Generation takes 1-3 minutes. The API will return when complete.**
 
 **Full Request Parameters:**
 

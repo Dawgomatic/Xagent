@@ -2,7 +2,7 @@
 
 ## Common Issues & Solutions
 
-### 📸 Camera Issues
+###  Camera Issues
 
 #### No images captured
 ```bash
@@ -37,7 +37,7 @@ killall "Photo Booth"
 
 ---
 
-### 🎬 Motion Detection Issues
+###  Motion Detection Issues
 
 #### Motion detection too sensitive
 ```bash
@@ -72,7 +72,7 @@ ls -la ~/.clawdbot/overwatch/
 
 ---
 
-### 👁️ Overwatch & Monitoring
+###  Overwatch & Monitoring
 
 #### Overwatch not running
 ```bash
@@ -120,7 +120,7 @@ ps aux | grep checkin
 
 ---
 
-### 🔐 API & Authentication
+###  API & Authentication
 
 #### "GROQ_API_KEY not found"
 ```bash
@@ -166,7 +166,7 @@ export TELEGRAM_CHAT_ID=your_chat_id
 
 ---
 
-### 📹 ESP32-CAM Issues
+###  ESP32-CAM Issues
 
 #### Firmware upload fails
 ```bash
@@ -215,7 +215,7 @@ df -h ~/.clawdbot/media/
 
 ---
 
-### 🎬 Wyze Camera Issues
+###  Wyze Camera Issues
 
 #### RTSP not available
 - Check camera firmware is latest
@@ -243,7 +243,7 @@ ffmpeg -rtsp_transport tcp -i "rtsp://$WYZE_IP:554/live" \
 
 ---
 
-### 🔄 BOLO (Be On Lookout) Issues
+###  BOLO (Be On Lookout) Issues
 
 #### BOLO not matching
 - Ensure **critical features** are visible in both images (moles, scars, plates)
@@ -269,7 +269,7 @@ file reference.jpg
 
 ---
 
-### 🌐 Network & Connectivity
+###  Network & Connectivity
 
 #### "Connection refused" errors
 ```bash
@@ -299,7 +299,7 @@ curl http://localhost:5555/health
 
 ---
 
-### 💾 Storage & Cleanup
+###  Storage & Cleanup
 
 #### Disk space running out
 ```bash
@@ -327,7 +327,7 @@ chmod -R 644 ~/.clawdbot/overwatch/*
 
 ---
 
-### 🐛 Debug Mode
+###  Debug Mode
 
 #### Enable verbose logging
 ```bash
@@ -355,7 +355,7 @@ netstat -an | grep ESTABLISHED
 
 ---
 
-### 📊 Performance Diagnostics
+###  Performance Diagnostics
 
 ```bash
 # Time a capture operation
@@ -371,7 +371,7 @@ time ffmpeg -i photo.jpg -q:v 2 output.jpg
 
 ---
 
-### 🆘 Still Stuck?
+###  Still Stuck?
 
 1. **Check logs:**
    ```bash

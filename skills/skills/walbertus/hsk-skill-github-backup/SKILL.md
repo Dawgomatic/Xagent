@@ -3,7 +3,7 @@ name: hsk-learning
 description: "HSK Chinese learning system with spaced repetition mastery tracking, vocabulary analysis, and adaptive quiz generation. Use when: (1) tracking HSK vocabulary progress, (2) generating adaptive quizzes, (3) analyzing Chinese language exposure in conversations, (4) managing spaced repetition reviews. NOT for: general language learning beyond HSK, pronunciation practice, or handwriting practice."
 metadata:
   openclaw:
-    emoji: "📚"
+    emoji: ""
     requires:
       node: true
     install:
@@ -110,11 +110,11 @@ The skill maintains these data files in its `data/` directory:
 
 | File | Purpose | User-Specific? | Git Ignored? |
 |------|---------|----------------|--------------|
-| `hsk-database.json` | HSK word database (shared) | ❌ No | ❌ No |
-| `hsk-word-to-level.json` | Word-to-level mapping (shared) | ❌ No | ❌ No |
-| `hsk-mastery-db.json` | Your personal mastery tracking | ✅ Yes | ✅ Yes |
-| `user-config.json` | Your preferences (optional) | ✅ Yes | ✅ Yes |
-| `user-config.template.json` | Configuration template | ❌ No | ❌ No |
+| `hsk-database.json` | HSK word database (shared) |  No |  No |
+| `hsk-word-to-level.json` | Word-to-level mapping (shared) |  No |  No |
+| `hsk-mastery-db.json` | Your personal mastery tracking |  Yes |  Yes |
+| `user-config.json` | Your preferences (optional) |  Yes |  Yes |
+| `user-config.template.json` | Configuration template |  No |  No |
 
 ### Git Repository Setup
 

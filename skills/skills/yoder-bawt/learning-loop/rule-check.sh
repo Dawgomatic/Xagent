@@ -127,9 +127,9 @@ result = {
 
 if scored:
     # Also output a compact summary for inline use
-    print("⚠️ RULES CHECK:")
+    print(" RULES CHECK:")
     for m in scored[:5]:
-        prefix = "🚫" if m['type'] == 'NEVER' else "✅" if m['type'] == 'MUST' else "🔍" if m['type'] == 'CHECK' else "💡"
+        prefix = "" if m['type'] == 'NEVER' else "" if m['type'] == 'MUST' else "" if m['type'] == 'CHECK' else ""
         viol = f" [{m['violations']}x violated]" if m['violations'] else ""
         print(f"  {prefix} {m['id']}: {m['rule'][:80]}{viol}")
     print()

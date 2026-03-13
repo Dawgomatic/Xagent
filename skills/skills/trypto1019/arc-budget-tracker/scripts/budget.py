@@ -64,10 +64,10 @@ def cmd_log(args, data):
     print(f"Remaining budget: ${bal:.2f}")
 
     if data["budget"]["alert_threshold"] > 0 and bal < data["budget"]["alert_threshold"]:
-        print(f"⚠️  WARNING: Balance ${bal:.2f} is below alert threshold ${data['budget']['alert_threshold']:.2f}")
+        print(f"  WARNING: Balance ${bal:.2f} is below alert threshold ${data['budget']['alert_threshold']:.2f}")
 
     if bal < 0:
-        print(f"🚨 OVER BUDGET by ${abs(bal):.2f}!")
+        print(f" OVER BUDGET by ${abs(bal):.2f}!")
 
 
 def cmd_balance(args, data):
@@ -81,7 +81,7 @@ def cmd_balance(args, data):
     print(f"Remaining: ${bal:.2f}")
 
     if data["budget"]["alert_threshold"] > 0 and bal < data["budget"]["alert_threshold"]:
-        print(f"⚠️  Below alert threshold (${data['budget']['alert_threshold']:.2f})")
+        print(f"  Below alert threshold (${data['budget']['alert_threshold']:.2f})")
 
 
 def cmd_summary(args, data):
@@ -146,11 +146,11 @@ def cmd_set_alert(args, data):
 def cmd_check(args, data):
     bal = remaining(data)
     if args.amount <= bal:
-        print(f"✅ Safe to spend ${args.amount:.2f} (${bal:.2f} remaining, ${bal - args.amount:.2f} after)")
+        print(f" Safe to spend ${args.amount:.2f} (${bal:.2f} remaining, ${bal - args.amount:.2f} after)")
     elif args.amount <= bal + data["budget"]["alert_threshold"]:
-        print(f"⚠️  Possible — ${args.amount:.2f} would leave only ${bal - args.amount:.2f} (below alert threshold)")
+        print(f"  Possible — ${args.amount:.2f} would leave only ${bal - args.amount:.2f} (below alert threshold)")
     else:
-        print(f"🚨 BLOCKED — ${args.amount:.2f} exceeds remaining budget of ${bal:.2f}")
+        print(f" BLOCKED — ${args.amount:.2f} exceeds remaining budget of ${bal:.2f}")
         sys.exit(1)
 
 

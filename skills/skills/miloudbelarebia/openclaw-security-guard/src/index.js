@@ -1,5 +1,5 @@
 /**
- * 🛡️ OpenClaw Security Guard
+ *  OpenClaw Security Guard
  * 
  * Complete security layer for OpenClaw
  * CLI Scanner + Live Dashboard

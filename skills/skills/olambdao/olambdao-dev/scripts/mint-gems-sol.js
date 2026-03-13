@@ -34,7 +34,7 @@ async function main() {
   // Pre-flight: check SOL balance
   const solBal = await conn.getBalance(wallet.publicKey);
   if (BigInt(solBal) < lamports + 10000n) {
-    console.error(`❌ Not enough SOL. Have ${(solBal / 1e9).toFixed(4)}, need ${solAmount} + fees.`);
+    console.error(` Not enough SOL. Have ${(solBal / 1e9).toFixed(4)}, need ${solAmount} + fees.`);
     process.exit(1);
   }
 
@@ -73,7 +73,7 @@ async function main() {
 
   const sig = await conn.sendTransaction(tx, [wallet]);
   await conn.confirmTransaction(sig, 'confirmed');
-  console.log(`✅ Minted! TX: ${sig}`);
+  console.log(` Minted! TX: ${sig}`);
   console.log(`   Explorer: https://explorer.solana.com/tx/${sig}?cluster=devnet`);
 
   // Show balance
@@ -83,4 +83,4 @@ async function main() {
   } catch {}
 }
 
-main().catch(err => { console.error('❌', err.message); process.exit(1); });
+main().catch(err => { console.error('', err.message); process.exit(1); });

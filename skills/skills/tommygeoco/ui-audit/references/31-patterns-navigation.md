@@ -105,13 +105,13 @@ Mobile (375px):
 [Avatar] User Name    
          user@email   
 ──────────────────────
-🏠 Dashboard
-📁 Projects
-👥 Team
-📊 Reports
-⚙️ Settings
+ Dashboard
+ Projects
+ Team
+ Reports
+ Settings
 ──────────────────────
-🚪 Sign out
+ Sign out
 ```
 
 ---
@@ -200,7 +200,7 @@ Mobile (375px):
 │       [Content Area]         │
 │                              │
 ├──────────────────────────────┤
-│ 🏠     📁     ➕     👤     ⚙️ │
+│                      │
 │ Home  Files  New   Profile  More│
 └──────────────────────────────┘
 ```
@@ -258,13 +258,13 @@ Mobile (375px):
 │ [Logo]                    [Collapse] │
 ├──────────────────────────────────────┤
 │ MAIN                                 │
-│ 🏠 Dashboard                         │
-│ 📁 Projects                          │
-│ 📊 Analytics                         │
+│  Dashboard                         │
+│  Projects                          │
+│  Analytics                         │
 ├──────────────────────────────────────┤
 │ WORKSPACE                            │
-│ 👥 Team                              │
-│ ⚙️ Settings                          │
+│  Team                              │
+│  Settings                          │
 ├──────────────────────────────────────┤
 │ [Avatar] User Name              [▼]  │
 └──────────────────────────────────────┘
@@ -383,16 +383,16 @@ Products ▼
 ```
 ⌘K
 ┌────────────────────────────────────────┐
-│ 🔍 Type a command or search...         │
+│  Type a command or search...         │
 ├────────────────────────────────────────┤
 │ RECENT                                 │
-│ 📄 Project Alpha                       │
-│ 📊 Analytics Dashboard                 │
+│  Project Alpha                       │
+│  Analytics Dashboard                 │
 ├────────────────────────────────────────┤
 │ ACTIONS                                │
-│ ➕ Create new project          ⌘N      │
-│ 👤 Invite team member          ⌘I      │
-│ ⚙️ Open settings               ⌘,      │
+│  Create new project          ⌘N      │
+│  Invite team member          ⌘I      │
+│  Open settings               ⌘,      │
 └────────────────────────────────────────┘
 ```
 

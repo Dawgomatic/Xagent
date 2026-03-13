@@ -107,17 +107,17 @@ def execute(request_type: str, payload: dict | None = None) -> Any:
 def format_state(state: str) -> str:
     """Format state with emoji."""
     states = {
-        "Ok": "🟢",
-        "Running": "🟢",
-        "Stopped": "🔴",
-        "NotDeployed": "⚪",
-        "Unknown": "❓",
-        "Unhealthy": "🟡",
-        "Restarting": "🔄",
-        "Building": "🔨",
-        "Pending": "⏳",
+        "Ok": "",
+        "Running": "",
+        "Stopped": "",
+        "NotDeployed": "",
+        "Unknown": "",
+        "Unhealthy": "",
+        "Restarting": "",
+        "Building": "",
+        "Pending": "",
     }
-    emoji = states.get(state, "❓")
+    emoji = states.get(state, "")
     return f"{emoji} {state}"
 
 

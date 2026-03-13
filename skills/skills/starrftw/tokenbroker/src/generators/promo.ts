@@ -145,7 +145,7 @@ function detectCategory(analysis: RepoAnalysis): string {
  * Generate X thread title
  */
 function generateThreadTitle(name: string, ticker: string): string {
-    return `Introducing ${name} (${ticker}) 🚀`;
+    return `Introducing ${name} (${ticker}) `;
 }
 
 /**
@@ -182,7 +182,7 @@ function generateTweet(
     const templates: Record<number, () => Tweet> = {
         1: () => ({
             number: 1,
-            content: `🧵 New token launch: ${name} (${ticker})\n\nA new chapter in crypto begins. Let me explain why this matters 👇`,
+            content: ` New token launch: ${name} (${ticker})\n\nA new chapter in crypto begins. Let me explain why this matters `,
             hasImage: true,
             imageDescription: `${ticker} token logo - sleek, memorable design`
         }),
@@ -208,7 +208,7 @@ function generateTweet(
         }),
         6: () => ({
             number: 6,
-            content: `🚀 Launching soon on nad.fun\n\nDon't miss out. ${ticker} to the moon!`,
+            content: ` Launching soon on nad.fun\n\nDon't miss out. ${ticker} to the moon!`,
             hasImage: true,
             imageDescription: `${ticker} rocket to the moon`
         })
@@ -246,7 +246,7 @@ function generateTelegramPost(
     const { name, ticker, description } = identity;
 
     return {
-        title: `🎉 ${name} (${ticker}) Launch Announcement`,
+        title: ` ${name} (${ticker}) Launch Announcement`,
         content: `**${name}** is coming to nad.fun!
 
 _${description.substring(0, 200)}_
@@ -256,7 +256,7 @@ _${description.substring(0, 200)}_
 • Fair launch, no presales
 • Built for longevity
 
-**Stay tuned for launch!** 🚀
+**Stay tuned for launch!** 
 
 #${ticker} #Memecoin #NadFun`,
         hasButton: true,
@@ -276,17 +276,17 @@ function generateDiscordAnnouncement(
     const { vision } = reasoning;
 
     return {
-        title: `🎉 ${name} Launching on Nad.fun!`,
+        title: ` ${name} Launching on Nad.fun!`,
         content: `Hey everyone! Big news - **${name}** (${ticker}) is launching!
 
 ${vision}
 
 Stay tuned for:
-• 📢 Launch announcements
-• 💰 Airdrop opportunities  
-• 🎁 Community rewards
+•  Launch announcements
+•  Airdrop opportunities  
+•  Community rewards
 
-Let's go ${ticker}! 🚀`,
+Let's go ${ticker}! `,
         hasEmbed: true,
         embedColor: '#6366f1',
         embedFields: [

@@ -6,15 +6,15 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 
-echo "🔧 Installing Sui Agent Wallet..."
+echo " Installing Sui Agent Wallet..."
 
 # Install server dependencies
-echo "📦 Installing server dependencies..."
+echo " Installing server dependencies..."
 cd "$SKILL_DIR/server"
 bun install
 
 # Generate icons from SVG
-echo "🎨 Generating icons..."
+echo " Generating icons..."
 ICONS_DIR="$SKILL_DIR/extension/icons"
 
 # Create simple PNG icons using ImageMagick or just use placeholder
@@ -33,7 +33,7 @@ EOF
   convert /tmp/sui-agent-wallet.svg -resize 128x128 "$ICONS_DIR/icon128.png"
   echo "   ✓ Icons generated"
 else
-  echo "   ⚠️  ImageMagick not found, using placeholder icons"
+  echo "     ImageMagick not found, using placeholder icons"
   # Create minimal 1x1 PNG as placeholder (base64 decoded)
   echo -n "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" | base64 -d > "$ICONS_DIR/icon16.png"
   cp "$ICONS_DIR/icon16.png" "$ICONS_DIR/icon48.png"
@@ -41,7 +41,7 @@ else
 fi
 
 echo ""
-echo "✅ Installation complete!"
+echo " Installation complete!"
 echo ""
 echo "Next steps:"
 echo "1. Start the server:"

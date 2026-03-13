@@ -4,7 +4,7 @@ slug: gym
 version: 1.0.1
 description: Log workouts, plan routines, track progress, and get intelligent coaching for any fitness level.
 changelog: "Preferences now persist across skill updates"
-metadata: {"clawdbot":{"emoji":"🏋️","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

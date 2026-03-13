@@ -13,9 +13,9 @@ const OPENROUTER_BASE_URL = 'https://openrouter.ai/api/v1';
 
 // Category definitions
 const CATEGORIES = {
-  QUICK: { emoji: '⚡', label: 'Quick', description: 'Clarifications and quick questions' },
-  DEEP: { emoji: '🧠', label: 'Deep Dive', description: 'Technical exploration and detailed analysis' },
-  RELATED: { emoji: '🔗', label: 'Related', description: 'Connected topics and broader context' }
+  QUICK: { emoji: '', label: 'Quick', description: 'Clarifications and quick questions' },
+  DEEP: { emoji: '', label: 'Deep Dive', description: 'Technical exploration and detailed analysis' },
+  RELATED: { emoji: '', label: 'Related', description: 'Connected topics and broader context' }
 };
 
 /**
@@ -228,7 +228,7 @@ function createTelegramButtons(suggestions) {
  * Format as numbered text list
  */
 function formatTextList(suggestions) {
-  let output = '💡 **Smart Follow-up Suggestions**\n\n';
+  let output = ' **Smart Follow-up Suggestions**\n\n';
   
   output += `${CATEGORIES.QUICK.emoji} **Quick**\n`;
   output += `1. ${suggestions.quick}\n`;
@@ -249,9 +249,9 @@ function formatTextList(suggestions) {
  */
 function formatCompactList(suggestions) {
   const all = [
-    `⚡ ${suggestions.quick}`,
-    `🧠 ${suggestions.deep}`,
-    `🔗 ${suggestions.related}`
+    ` ${suggestions.quick}`,
+    ` ${suggestions.deep}`,
+    ` ${suggestions.related}`
   ];
   
   return all.map((q, i) => `${i + 1}. ${q}`).join('\n');

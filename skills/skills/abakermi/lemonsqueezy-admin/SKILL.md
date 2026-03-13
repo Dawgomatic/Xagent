@@ -5,12 +5,12 @@ description: Admin CLI for Lemon Squeezy stores. View orders, subscriptions, and
 author: abakermi
 metadata:
   openclaw:
-    emoji: "🍋"
+    emoji: ""
     requires:
       env: ["LEMONSQUEEZY_API_KEY"]
 ---
 
-# Lemon Squeezy Admin 🍋
+# Lemon Squeezy Admin 
 
 Manage your Lemon Squeezy store from the command line.
 

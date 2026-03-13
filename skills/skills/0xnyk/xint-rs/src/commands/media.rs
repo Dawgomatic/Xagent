@@ -216,7 +216,7 @@ pub async fn run(args: &MediaArgs, config: &Config, client: &XClient) -> Result<
     }
 
     println!(
-        "\n🎞️  Media download for tweet {tweet_id}{}",
+        "\n  Media download for tweet {tweet_id}{}",
         username
             .as_ref()
             .map(|u| format!(" (@{u})"))
@@ -232,14 +232,14 @@ pub async fn run(args: &MediaArgs, config: &Config, client: &XClient) -> Result<
     for (idx, rec) in records.iter().enumerate() {
         if let Some(err) = &rec.error {
             println!(
-                "{}. ❌ {} ({}) — {}",
+                "{}.  {} ({}) — {}",
                 idx + 1,
                 rec.media_type,
                 rec.media_key,
                 err
             );
         } else {
-            println!("{}. ✅ {} ({})", idx + 1, rec.media_type, rec.media_key);
+            println!("{}.  {} ({})", idx + 1, rec.media_type, rec.media_key);
             if let (Some(path), Some(size)) = (&rec.saved_path, rec.bytes) {
                 println!("   {path} ({size} bytes)");
             }

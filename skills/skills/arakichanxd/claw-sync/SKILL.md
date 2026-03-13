@@ -84,7 +84,7 @@ BACKUP_TOKEN=ghp_your_token
 
 ## Features
 
-- 🏷️ **Versioned** - Each sync creates a restorable version
-- 💾 **Disaster Recovery** - Local backup before every restore
-- 🔒 **Secure** - No config files synced, token sanitization
-- 🖥️ **Cross-platform** - Windows, Mac, Linux
+-  **Versioned** - Each sync creates a restorable version
+-  **Disaster Recovery** - Local backup before every restore
+-  **Secure** - No config files synced, token sanitization
+-  **Cross-platform** - Windows, Mac, Linux

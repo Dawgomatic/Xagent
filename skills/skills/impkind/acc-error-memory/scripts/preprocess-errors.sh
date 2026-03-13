@@ -35,7 +35,7 @@ if [ "$SESSION_COUNT" -eq 0 ]; then
     exit 1
 fi
 
-echo "⚡ ACC Preprocess: Extracting exchanges from $SESSION_COUNT session files"
+echo " ACC Preprocess: Extracting exchanges from $SESSION_COUNT session files"
 echo "Mode: $([ "$FULL_MODE" = true ] && echo 'FULL' || echo 'incremental')"
 
 export TRANSCRIPT_DIR OUTPUT WATERMARK_FILE FULL_MODE LIMIT

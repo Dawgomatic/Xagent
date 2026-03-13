@@ -7,7 +7,7 @@ description: Comprehensive management of Trendyol marketplace via API v2.0. Incl
 
 This skill provides a comprehensive reference for the Trendyol Marketplace API v2.0. It contains all necessary endpoints, authorization requirements, and payload schemas to manage a Trendyol store.
 
-## 🛠 Usage for AI Agents
+##  Usage for AI Agents
 
 1. **Authentication**: Always use Basic Auth.
    - Username: `API_KEY`
@@ -34,7 +34,7 @@ This skill provides a comprehensive reference for the Trendyol Marketplace API v
 3. **Endpoints**: Refer to [references/api_reference.md](references/api_reference.md) to find the correct URL for the task (Product, Inventory, Order, etc.).
 4. **Execution**: Since there are no pre-built scripts, use `curl` or inline Node.js/Python code to execute requests as defined in the reference.
 
-## 📖 Key Sections in Reference
+##  Key Sections in Reference
 
 - **Authorization**: Header construction and error codes.
 - **Product Integration**: Full lifecycle management of items.
@@ -42,7 +42,7 @@ This skill provides a comprehensive reference for the Trendyol Marketplace API v
 - **Webhooks**: Real-time notification models.
 - **API Reference File**: [references/api_reference.md](references/api_reference.md)
 
-## ⚠️ Important Rules
+##  Important Rules
 
 - **Base URL (Prod)**: `https://apigw.trendyol.com/integration/`
 - **Rate Limit**: 50 requests per 10 seconds.

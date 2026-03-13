@@ -1,7 +1,7 @@
 ---
 name: Projects
 description: Build a personal project management system that scales from simple lists to structured planning.
-metadata: {"clawdbot":{"emoji":"📁","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

@@ -36,7 +36,7 @@ class VideoGenerator:
         import openai
         client = openai.OpenAI(api_key=OPENAI_API_KEY)
         
-        print(f"🎨 Generating image with DALL-E 3: {prompt[:50]}...")
+        print(f" Generating image with DALL-E 3: {prompt[:50]}...")
         
         response = client.images.generate(
             model="dall-e-3",
@@ -64,7 +64,7 @@ class VideoGenerator:
             
         import replicate
         
-        print(f"🎨 Generating image with {model}: {prompt[:50]}...")
+        print(f" Generating image with {model}: {prompt[:50]}...")
         
         output = replicate.run(
             model,
@@ -89,7 +89,7 @@ class VideoGenerator:
         if not LUMAAI_API_KEY:
             raise ValueError("LUMAAI_API_KEY not set")
             
-        print(f"🎬 Creating video from image with LumaAI...")
+        print(f" Creating video from image with LumaAI...")
         
         headers = {
             "Authorization": f"Bearer {LUMAAI_API_KEY}",
@@ -127,7 +127,7 @@ class VideoGenerator:
             elif status['state'] == 'failed':
                 raise Exception(f"Video generation failed: {status}")
             
-            print("⏳ Waiting for video generation...")
+            print(" Waiting for video generation...")
             time.sleep(5)
         
         # Download video
@@ -147,7 +147,7 @@ class VideoGenerator:
         import openai
         client = openai.OpenAI(api_key=OPENAI_API_KEY)
         
-        print(f"🎤 Generating voiceover: {text[:50]}...")
+        print(f" Generating voiceover: {text[:50]}...")
         
         response = client.audio.speech.create(
             model="tts-1",
@@ -165,7 +165,7 @@ class VideoGenerator:
         """Combine video and audio using FFmpeg"""
         import subprocess
         
-        print(f"🎞️ Combining video and audio...")
+        print(f" Combining video and audio...")
         
         cmd = [
             'ffmpeg', '-y',
@@ -210,7 +210,7 @@ def main():
         if args.video_model == 'luma':
             video_path = generator.image_to_video_luma(image_path, args.prompt)
         else:
-            print("⚠️ Runway support coming soon. Using Luma for now.")
+            print(" Runway support coming soon. Using Luma for now.")
             video_path = generator.image_to_video_luma(image_path, args.prompt)
         
         # Step 3: Add voiceover if requested
@@ -222,10 +222,10 @@ def main():
             os.rename(video_path, args.output)
             final_path = args.output
         
-        print(f"\n✅ SUCCESS! Video created: {final_path}")
+        print(f"\n SUCCESS! Video created: {final_path}")
         
     except Exception as e:
-        print(f"\n❌ ERROR: {str(e)}")
+        print(f"\n ERROR: {str(e)}")
         sys.exit(1)
 
 

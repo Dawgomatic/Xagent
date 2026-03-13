@@ -87,7 +87,7 @@ def aggregate_model_history(items, cutoff_days=7):
 
 def format_digest(today, week, month, balance, per_model):
     lines = []
-    lines.append("💰 OpenRouter Usage")
+    lines.append(" OpenRouter Usage")
     lines.append(f"Today: ${today:.2f} | Week: ${week:.2f} | Month: ${month:.2f}")
     lines.append(f"Balance: ${balance:.2f} / $TOTAL")  # TOTAL placeholder to be replaced if needed
     lines.append("")
@@ -145,7 +145,7 @@ def main():
 
     # 4) Format a compact digest
     # If you want balance formatting to include TOTAL, adjust in formatting
-    digest = f"💰 OpenRouter Usage\nToday: ${today:.2f} | Week: ${week:.2f} | Month: ${month:.2f}\n"
+    digest = f" OpenRouter Usage\nToday: ${today:.2f} | Week: ${week:.2f} | Month: ${month:.2f}\n"
     digest += f"Balance: ${balance:.2f} / ${float(total_credits or 0):.2f}\n"
     if per_model:
         digest += "\n*Recent Models (7d):*\n"

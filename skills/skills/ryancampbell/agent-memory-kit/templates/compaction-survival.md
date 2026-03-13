@@ -109,9 +109,9 @@ When you wake up after a compaction:
 ### Don't Re-Read Everything
 
 You don't need to re-read:
-- ❌ MEMORY.md (unless >3 days since last read)
-- ❌ All procedures (only the ones you're actively using)
-- ❌ Old daily logs (unless debugging something)
+-  MEMORY.md (unless >3 days since last read)
+-  All procedures (only the ones you're actively using)
+-  Old daily logs (unless debugging something)
 
 **Focus on recency:** context-snapshot.md + today + yesterday = enough to get oriented.
 

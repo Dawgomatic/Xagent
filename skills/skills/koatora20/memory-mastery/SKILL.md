@@ -49,7 +49,7 @@ This will output JSON showing:
 
 ## Pros & Cons
 
-### ✅ Advantages
+###  Advantages
 
 1. **Persistent Context**: Agents remember across sessions
 2. **Two-Layer Freshness**: Daily logs for raw data, curated memory for insights
@@ -58,7 +58,7 @@ This will output JSON showing:
 5. **Weekly Maintenance**: Structured review process keeps memory current
 6. **Privacy Protection**: MEMORY.md only loads in main sessions (not shared contexts)
 
-### ⚠️ Disadvantages
+###  Disadvantages
 
 1. **MEMORY.md Bloat**: Can grow large over time, increasing token usage
 2. **Embedding API Cost**: L3 vector search requires external API (e.g., Voyage)

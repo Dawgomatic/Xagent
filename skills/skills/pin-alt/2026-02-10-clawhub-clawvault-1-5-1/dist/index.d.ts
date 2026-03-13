@@ -258,7 +258,7 @@ declare function extractWikiLinks(content: string): string[];
 declare function extractTags(content: string): string[];
 
 /**
- * ClawVault 🐘 — An Elephant Never Forgets
+ * ClawVault  — An Elephant Never Forgets
  *
  * Structured memory system for AI agents with Obsidian-compatible markdown
  * and embedded semantic search.

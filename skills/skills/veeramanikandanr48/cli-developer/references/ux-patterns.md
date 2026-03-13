@@ -16,7 +16,7 @@ Indeterminate (unknown duration):
 Multi-step:
   ✓ Dependencies installed
   ⠋ Building application...
-  ⏳ Running tests...
+   Running tests...
   Use: Multi-phase operations (build, deploy, etc.)
 ```
 
@@ -71,8 +71,8 @@ Gray:    Less important, metadata, timestamps
 Examples:
 ✓ Success: Deployment complete
 ✗ Error: File not found
-⚠ Warning: Deprecated flag --old-flag
-ℹ Info: Using cache from ~/.mycli/cache
+ Warning: Deprecated flag --old-flag
+ Info: Using cache from ~/.mycli/cache
 ```
 
 ### When to Disable Colors
@@ -344,8 +344,8 @@ Multi-step process:
 ✓ Dependencies installed (2.3s)
 ✓ Application built (8.1s)
 ⠋ Running tests... (current)
-⏳ Deploying... (pending)
-⏳ Verifying... (pending)
+ Deploying... (pending)
+ Verifying... (pending)
 
 Updates:
 ⠋ Installing dependencies...

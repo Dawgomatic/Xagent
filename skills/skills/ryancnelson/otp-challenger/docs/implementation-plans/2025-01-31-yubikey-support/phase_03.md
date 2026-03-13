@@ -57,7 +57,7 @@ export YUBIKEY_SECRET_KEY="your-base64-secret-key"
 ```bash
 # Touch your YubiKey when prompted
 ./verify.sh "testuser" "cccccccccccc..."  # paste YubiKey output
-# Should show: ✅ YubiKey verified for testuser (valid for 24 hours)
+# Should show:  YubiKey verified for testuser (valid for 24 hours)
 ```
 
 #### Using Both TOTP and YubiKey
@@ -225,11 +225,11 @@ source ../otp/verify.sh
 
 # Works with both 6-digit TOTP codes and YubiKey OTP
 if ! verify_otp "$USER" "$OTP_CODE"; then
-  echo "🔒 Production deployment requires OTP verification"
+  echo " Production deployment requires OTP verification"
   exit 1
 fi
 
-echo "✅ Identity verified. Deploying..."
+echo " Identity verified. Deploying..."
 kubectl apply -f production.yaml
 ```
 ```

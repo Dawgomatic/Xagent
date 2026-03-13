@@ -25,7 +25,7 @@ function question(prompt) {
 
 async function main() {
   console.log(`
-🎭 Welcome to Persona Evolution Onboarding
+ Welcome to Persona Evolution Onboarding
 
 This guided setup will help configure your AI companion's personality.
 You'll answer a few questions to establish the baseline persona.
@@ -37,14 +37,14 @@ Let's begin!
   const userName = await question("What's your name? (e.g., Alex) ");
   const agentName = await question("What would you like to name your AI companion? (default: Aria) ") || "Aria";
   
-  console.log("\n📋 Communication Preferences");
+  console.log("\n Communication Preferences");
   const formatPref = await question("Do you prefer: (1) bullet points, (2) paragraphs, or (3) mixed? [1/2/3] ");
   const detailPref = await question("Detail level: (1) concise, (2) balanced, or (3) thorough? [1/2/3] ");
   
   const formatMap = { '1': 'bullets', '2': 'paragraphs', '3': 'mixed' };
   const detailMap = { '1': 'concise', '2': 'balanced', '3': 'thorough' };
   
-  console.log("\n🎨 Personality Style");
+  console.log("\n Personality Style");
   const personalityStyle = await question("Preferred personality: (1) Professional, (2) Creative, (3) Casual/Friendly, (4) Direct [1/2/3/4] ");
   
   const styleMap = {
@@ -54,16 +54,16 @@ Let's begin!
     '4': { name: 'Direct', tone: 'Ultra-concise, no fluff, efficient' }
   };
   
-  console.log("\n🚧 Boundaries & Permissions");
+  console.log("\n Boundaries & Permissions");
   const canDraftExternal = await question("Can I draft external communications (emails, posts) for your review? [y/n] ");
   const canSpendMoney = await question("Can I suggest purchases or services? [y/n] ");
   
-  console.log("\n👥 Context (optional, helps with personalization)");
+  console.log("\n Context (optional, helps with personalization)");
   const familyContext = await question("Family members to remember? (comma-separated, or skip) ");
   const keyProjects = await question("Current projects/goals? (comma-separated, or skip) ");
   const interests = await question("Topics you enjoy discussing? (comma-separated, or skip) ");
   
-  console.log("\n💾 Saving your configuration...\n");
+  console.log("\n Saving your configuration...\n");
   
   // Generate personalized core.md
   const coreContent = `# ${agentName} - Persona Core
@@ -87,8 +87,8 @@ You are ${agentName} — a ${styleMap[personalityStyle]?.name.toLowerCase() || '
 - Never explicit/sexual content
 - Always transparent about being AI
 - Private information stays private
-${canDraftExternal === 'y' ? '- Draft external comms for review ✅' : '- Ask before drafting external comms'}
-${canSpendMoney === 'y' ? '- Suggest purchases within budget ✅' : '- Never suggest spending money'}
+${canDraftExternal === 'y' ? '- Draft external comms for review ' : '- Ask before drafting external comms'}
+${canSpendMoney === 'y' ? '- Suggest purchases within budget ' : '- Never suggest spending money'}
 
 ## User Context
 ${familyContext ? `**Family:** ${familyContext}` : '<!-- Family context not provided -->'}
@@ -153,24 +153,24 @@ ${keyProjects ? keyProjects.split(',').map(p => `- ${p.trim()} (project)`).join(
 `;
   writeFileSync(join(PERSONA_DIR, 'config.json'), configContent);
   
-  console.log(`✅ Onboarding Complete!
+  console.log(` Onboarding Complete!
 
-📁 Your PERSONA/ folder is now configured with:
+ Your PERSONA/ folder is now configured with:
    • core.md - Your companion's base personality
    • interests.md - Topics to engage with
    • config.json - Settings and permissions
    • evolves/ - Auto-generated insights
 
-🚀 Next Steps:
+ Next Steps:
    1. Start chatting naturally
    2. Run 'npx persona-evolution analyze' after sessions
    3. Check weekly reports for insights
    4. Update core.md anytime to refine personality
 
-💡 Pro Tip: The more we interact, the better I'll understand your
+ Pro Tip: The more we interact, the better I'll understand your
    preferences and adapt accordingly!
 
-Happy collaborating! 🎭
+Happy collaborating! 
 `);
 
   rl.close();

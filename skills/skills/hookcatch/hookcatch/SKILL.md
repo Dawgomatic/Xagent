@@ -2,7 +2,7 @@
 name: hookcatch
 description: Test webhooks and expose local services using HookCatch - a developer-friendly webhook testing tool
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🪝","requires":{"bins":["hookcatch"],"env":["HOOKCATCH_API_KEY"]},"primaryEnv":"HOOKCATCH_API_KEY","homepage":"https://hookcatch.dev","install":[{"id":"npm","kind":"node","packages":["hookcatch"],"bins":["hookcatch"],"label":"Install HookCatch CLI (npm)"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["hookcatch"],"env":["HOOKCATCH_API_KEY"]},"primaryEnv":"HOOKCATCH_API_KEY","homepage":"https://hookcatch.dev","install":[{"id":"npm","kind":"node","packages":["hookcatch"],"bins":["hookcatch"],"label":"Install HookCatch CLI (npm)"}]}}
 ---
 
 # HookCatch - Webhook Testing & Tunneling for OpenClaw
@@ -262,4 +262,4 @@ for (const req of captured) {
 
 ---
 
-**Built for OpenClaw by the HookCatch team** 🪝
+**Built for OpenClaw by the HookCatch team** 

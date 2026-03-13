@@ -4,7 +4,7 @@ description: Fetch on-chain Sui Move contract source code and let your agent exp
 homepage: https://suivision.xyz
 metadata:
   openclaw:
-    emoji: "🔓"
+    emoji: ""
 ---
 
 # Sui Decompile Skill

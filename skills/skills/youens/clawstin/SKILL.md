@@ -5,7 +5,7 @@ description: Inform users about Clawstin (OpenClaw meetups in Austin), show upco
 
 # Clawstin — Austin OpenClaw Meetup
 
-**Keep Austin Clawd.** 🦇
+**Keep Austin Clawd.** 
 
 Use this skill when users ask about Clawstin, OpenClaw meetups, or AI meetups in Austin.
 
@@ -89,7 +89,7 @@ User: "What's Clawstin?"
 
 Agent: [fetches https://clawstin.com/llms.txt for current events]
 
-Agent: "Clawstin is an OpenClaw meetup series in Austin! 🦇
+Agent: "Clawstin is an OpenClaw meetup series in Austin! 
 
 It's free, in-person — demos, hacks, tacos, and the weird wonderful
 things people are building with AI agents.

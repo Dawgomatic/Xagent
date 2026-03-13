@@ -50,7 +50,7 @@ class SwarmDisplay {
     this.failedTasks = 0;
     
     console.log('');
-    console.log(`🐝 ${this.bold('Swarm initializing...')}`);
+    console.log(` ${this.bold('Swarm initializing...')}`);
     console.log(`   ${this.dim(`${data.phases} phase(s), up to ${data.maxWorkers} workers`)}`);
     console.log('');
   }
@@ -62,16 +62,16 @@ class SwarmDisplay {
       : 100;
     
     console.log('');
-    console.log(`🐝 ${this.bold('Swarm complete')} ${this.green('✓')}`);
+    console.log(` ${this.bold('Swarm complete')} ${this.green('✓')}`);
     console.log(`   ${this.completedTasks}/${this.totalTasks} tasks (${successRate}% success)`);
     console.log(`   ${duration}s total`);
     
     if (data.speedup && data.speedup > 1) {
-      console.log(`   ${this.cyan(`⚡ ${data.speedup.toFixed(1)}x faster`)} than sequential`);
+      console.log(`   ${this.cyan(` ${data.speedup.toFixed(1)}x faster`)} than sequential`);
     }
     
     if (this.failedTasks > 0) {
-      console.log(`   ${this.yellow(`⚠ ${this.failedTasks} failed`)}`);
+      console.log(`   ${this.yellow(` ${this.failedTasks} failed`)}`);
     }
     
     console.log('');

@@ -20,7 +20,7 @@ TOKEN_FILE="${SIMKL_TOKEN_FILE:-$HOME/.config/clawarr/simkl_tokens.json}"
 API_BASE="https://api.simkl.com"
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required"
+  echo " Error: jq is required"
   exit 1
 fi
 
@@ -67,7 +67,7 @@ simkl_api() {
   local data=${3:-}
   
   if ! load_tokens; then
-    echo "❌ Not authenticated. Run: simkl.sh auth"
+    echo " Not authenticated. Run: simkl.sh auth"
     exit 1
   fi
   
@@ -92,7 +92,7 @@ simkl_api_public() {
   local endpoint=$1
   
   if [[ -z "$CLIENT_ID" ]]; then
-    echo "❌ SIMKL_CLIENT_ID not set"
+    echo " SIMKL_CLIENT_ID not set"
     exit 1
   fi
   
@@ -103,12 +103,12 @@ simkl_api_public() {
 
 # Command: auth
 cmd_auth() {
-  echo "🔐 Simkl Authentication"
+  echo " Simkl Authentication"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
   if [[ -z "$CLIENT_ID" ]] || [[ -z "$CLIENT_SECRET" ]]; then
-    echo "❌ Simkl API credentials not configured"
+    echo " Simkl API credentials not configured"
     echo ""
     echo "To set up Simkl integration:"
     echo "  1. Go to: https://simkl.com/settings/developer"
@@ -135,7 +135,7 @@ cmd_auth() {
   read -r auth_code
   
   if [[ -z "$auth_code" ]]; then
-    echo "❌ No code provided"
+    echo " No code provided"
     exit 1
   fi
   
@@ -154,7 +154,7 @@ cmd_auth() {
     }")
   
   if [[ -z "$token_response" ]]; then
-    echo "❌ Failed to get access token"
+    echo " Failed to get access token"
     exit 1
   fi
   
@@ -162,14 +162,14 @@ cmd_auth() {
   access_token=$(echo "$token_response" | jq -r '.access_token')
   
   if [[ -z "$access_token" ]] || [[ "$access_token" == "null" ]]; then
-    echo "❌ Invalid response from Simkl"
+    echo " Invalid response from Simkl"
     echo "$token_response" | jq '.'
     exit 1
   fi
   
   save_tokens "$access_token"
   
-  echo "✅ Successfully authenticated!"
+  echo " Successfully authenticated!"
   echo "Token saved to: $TOKEN_FILE"
   echo ""
 }
@@ -178,7 +178,7 @@ cmd_auth() {
 cmd_profile() {
   local username="${1:-}"
   
-  echo "👤 Simkl Profile"
+  echo " Simkl Profile"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -204,7 +204,7 @@ cmd_profile() {
 
 # Command: stats
 cmd_stats() {
-  echo "📊 Simkl Statistics"
+  echo " Simkl Statistics"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -229,7 +229,7 @@ cmd_stats() {
 cmd_history() {
   local type="${1:-all}"
   
-  echo "📜 Watch History: $type"
+  echo " Watch History: $type"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -248,7 +248,7 @@ cmd_history() {
       return
       ;;
     *)
-      echo "❌ Invalid type. Use: all, movies, shows, or anime"
+      echo " Invalid type. Use: all, movies, shows, or anime"
       exit 1
       ;;
   esac
@@ -269,7 +269,7 @@ cmd_history() {
 cmd_watchlist() {
   local type="${1:-all}"
   
-  echo "⭐ Watchlist: $type"
+  echo " Watchlist: $type"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -287,7 +287,7 @@ cmd_watchlist() {
       return
       ;;
     *)
-      echo "❌ Invalid type. Use: all, movies, or shows"
+      echo " Invalid type. Use: all, movies, or shows"
       exit 1
       ;;
   esac
@@ -306,13 +306,13 @@ cmd_watchlist() {
 
 # Command: sync
 cmd_sync() {
-  echo "🔄 Syncing with Plex"
+  echo " Syncing with Plex"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
   # Check for Tautulli
   if [[ -z "${TAUTULLI_KEY:-}" ]] || [[ -z "${CLAWARR_HOST:-}" ]]; then
-    echo "❌ Tautulli not configured"
+    echo " Tautulli not configured"
     echo "Set: TAUTULLI_KEY and CLAWARR_HOST"
     exit 1
   fi
@@ -323,7 +323,7 @@ cmd_sync() {
   tautulli_history=$(curl -sf "http://${CLAWARR_HOST}:8181/api/v2?apikey=${TAUTULLI_KEY}&cmd=get_history&length=100")
   
   if [[ -z "$tautulli_history" ]]; then
-    echo "❌ Failed to fetch Tautulli history"
+    echo " Failed to fetch Tautulli history"
     exit 1
   fi
   
@@ -344,7 +344,7 @@ cmd_sync() {
   done
   
   echo ""
-  echo "⚠️  Full Simkl sync not yet implemented"
+  echo "  Full Simkl sync not yet implemented"
   echo "   (Requires proper ID matching and API mapping)"
   echo ""
 }
@@ -361,7 +361,7 @@ case "$COMMAND" in
   sync)        cmd_sync ;;
   help|--help|-h) show_help ;;
   *)
-    echo "❌ Unknown command: $COMMAND"
+    echo " Unknown command: $COMMAND"
     echo "Run '$0 help' for usage"
     exit 1
     ;;

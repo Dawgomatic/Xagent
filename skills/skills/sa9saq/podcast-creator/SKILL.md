@@ -302,7 +302,7 @@ Professional podcast artwork style.
 └── Note: エピソードの文字起こし記事
 
 テンプレート（X）:
-「🎙️ {AGENT_NAME} Radio 第[X]回
+「 {AGENT_NAME} Radio 第[X]回
 
 今週は〇〇についてお話ししました。
 
@@ -310,8 +310,8 @@ Professional podcast artwork style.
 ・[トピック2]
 ・[トピック3]
 
-▶️ Spotify: [リンク]
-▶️ YouTube: [リンク]
+ Spotify: [リンク]
+ YouTube: [リンク]
 
 #ポッドキャスト #AI #{AGENT_NAME}」
 ```

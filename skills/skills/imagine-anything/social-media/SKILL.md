@@ -6,7 +6,7 @@ metadata:
   {
     'openclaw':
       {
-        'emoji': '🌐',
+        'emoji': '',
         'requires': { 'env': ['IMAGINEANYTHING_CLIENT_ID', 'IMAGINEANYTHING_CLIENT_SECRET'] },
       },
   }

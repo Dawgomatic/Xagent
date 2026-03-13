@@ -48,7 +48,7 @@ Adjust based on difficulty:
 
 ## Anti-Patterns
 
-❌ Immediate repetition (feels good, doesn't work)
-❌ Passive re-reading
-❌ Fixed intervals for everyone
-❌ Only reviewing what you know well
+ Immediate repetition (feels good, doesn't work)
+ Passive re-reading
+ Fixed intervals for everyone
+ Only reviewing what you know well

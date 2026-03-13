@@ -49,13 +49,13 @@ Use `gateway action=config.patch` to apply.
 
 ## What to Store (Intentionally)
 
-✅ Store:
+ Store:
 - User preferences (tools, workflows, communication style)
 - Key decisions (project choices, architecture)
 - Important facts (accounts, credentials locations, contacts)
 - Lessons learned
 
-❌ Never store:
+ Never store:
 - Heartbeat status ("HEARTBEAT_OK", "No new messages")
 - Transient info (current time, temp states)
 - Raw message logs (already in files)

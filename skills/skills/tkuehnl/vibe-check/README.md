@@ -1,4 +1,4 @@
-# 🎭 Vibe Check
+#  Vibe Check
 
 > Audit code for "vibe coding sins" — patterns that indicate AI-generated code was accepted without proper human review.
 
@@ -8,13 +8,13 @@
 
 ## Features
 
-- 🔍 **8 sin categories** — error handling, duplication, dead code, input validation, magic values, test coverage, naming, security
-- 📊 **Scored report card** — 0-100 score with letter grades (A-F)
-- 📁 **Flexible input** — single file, directory (recursive), or git diff
-- 🔧 **Fix mode** — generates unified diff patches for each finding
-- 🏷️ **README badge** — copy-pasteable shields.io badge for your repo
-- 🤖 **LLM-powered** — uses Claude or GPT for deep analysis, with heuristic fallback
-- 💬 **Discord v2-ready delivery** — compact first response + quick follow-up actions for OpenClaw Discord channels
+-  **8 sin categories** — error handling, duplication, dead code, input validation, magic values, test coverage, naming, security
+-  **Scored report card** — 0-100 score with letter grades (A-F)
+-  **Flexible input** — single file, directory (recursive), or git diff
+-  **Fix mode** — generates unified diff patches for each finding
+-  **README badge** — copy-pasteable shields.io badge for your repo
+-  **LLM-powered** — uses Claude or GPT for deep analysis, with heuristic fallback
+-  **Discord v2-ready delivery** — compact first response + quick follow-up actions for OpenClaw Discord channels
 
 ## Quick Start
 
@@ -68,52 +68,52 @@ Tested against OpenClaw Discord channel capabilities documented for v2026.2.14+:
 
 | # | Category | Weight | Description |
 |:-:|----------|:------:|-------------|
-| 1 | 🛡️ Error Handling | 20% | Missing try/catch, bare exceptions, no edge cases |
-| 2 | 📋 Duplication | 15% | Copy-pasted logic, DRY violations |
-| 3 | 💀 Dead Code | 10% | Unused imports, commented-out blocks, unreachable code |
-| 4 | 🔍 Input Validation | 15% | No type checks, no bounds checks, trusting all input |
-| 5 | 🔮 Magic Values | 10% | Hardcoded numbers/strings/URLs without named constants |
-| 6 | 🧪 Test Coverage | 10% | No test files, no assertions, no test patterns |
-| 7 | 📛 Naming Quality | 10% | Vague names (data, result, temp, x), misleading names |
-| 8 | 🔒 Security | 10% | eval(), exec(), hardcoded secrets, SQL injection |
+| 1 |  Error Handling | 20% | Missing try/catch, bare exceptions, no edge cases |
+| 2 |  Duplication | 15% | Copy-pasted logic, DRY violations |
+| 3 |  Dead Code | 10% | Unused imports, commented-out blocks, unreachable code |
+| 4 |  Input Validation | 15% | No type checks, no bounds checks, trusting all input |
+| 5 |  Magic Values | 10% | Hardcoded numbers/strings/URLs without named constants |
+| 6 |  Test Coverage | 10% | No test files, no assertions, no test patterns |
+| 7 |  Naming Quality | 10% | Vague names (data, result, temp, x), misleading names |
+| 8 |  Security | 10% | eval(), exec(), hardcoded secrets, SQL injection |
 
 ## Scoring
 
 | Grade | Range | Meaning |
 |:-----:|:-----:|---------|
-| A | 90-100 | Pristine code. Ship it! 🚀 |
+| A | 90-100 | Pristine code. Ship it!  |
 | B | 80-89 | Clean code with minor issues |
 | C | 70-79 | Decent but some lazy patterns |
 | D | 60-69 | Needs human attention |
-| F | <60 | Heavy vibe coding detected 🚨 |
+| F | <60 | Heavy vibe coding detected  |
 
 ## Example Output
 
 ```
-# 🎭 Vibe Check Report
+#  Vibe Check Report
 
 **Project:** `src/`
 **Score:** 42/100 (Grade: F)
 **Files analyzed:** 5
 **Total lines:** 847
-**Verdict:** Heavy vibe coding detected. This codebase needs serious human review. 🚨
+**Verdict:** Heavy vibe coding detected. This codebase needs serious human review. 
 
 ![Vibe Score](https://img.shields.io/badge/vibe--score-42%2F100-red)
 
-## 📊 Score Breakdown
+##  Score Breakdown
 
 | Category | Score | Weight | Issues |
 |----------|:-----:|:------:|:------:|
-| 🛡️ Error Handling | 25 | 20% | 8 |
-| 📋 Duplication | 50 | 15% | 4 |
-| 💀 Dead Code | 65 | 10% | 3 |
-| 🔍 Input Validation | 20 | 15% | 7 |
-| 🔮 Magic Values | 45 | 10% | 5 |
-| 🧪 Test Coverage | 0 | 10% | 0 test files |
-| 📛 Naming Quality | 55 | 10% | 3 |
-| 🔒 Security | 30 | 10% | 4 |
+|  Error Handling | 25 | 20% | 8 |
+|  Duplication | 50 | 15% | 4 |
+|  Dead Code | 65 | 10% | 3 |
+|  Input Validation | 20 | 15% | 7 |
+|  Magic Values | 45 | 10% | 5 |
+|  Test Coverage | 0 | 10% | 0 test files |
+|  Naming Quality | 55 | 10% | 3 |
+|  Security | 30 | 10% | 4 |
 
-## 📈 Category Bars
+##  Category Bars
 
 \`\`\`
 Error Handling       █████░░░░░░░░░░░░░░░  25/100
@@ -126,23 +126,23 @@ Naming Quality       ███████████░░░░░░░░�
 Security             ██████░░░░░░░░░░░░░░  30/100
 \`\`\`
 
-## 🔍 Top Findings
+##  Top Findings
 
-### 🔴 Critical
+###  Critical
 1. **api/handler.py:42** — `eval(user_input)` — Remote code execution vulnerability
 2. **utils/db.py:88** — `f"SELECT * FROM users WHERE id={user_id}"` — SQL injection via f-string
 3. **auth/login.py:15** — `password = "admin123"` — Hardcoded credential
 
-### 🟡 Warning
+###  Warning
 4. **api/handler.py:15-67** — Entire function has no error handling (53 lines)
 5. **utils/helpers.py:23** — `data = process(x)` — Vague variable names throughout
 6. **api/handler.py:90** — `# result = old_function(data)` — Commented-out code block
 
-### 🔵 Info
+###  Info
 7. **utils/helpers.py:1** — `import os, sys, json, re` — Unused imports: os, re
 8. **api/handler.py:30** — `timeout = 30` — Magic number without named constant
 
-## 📁 Per-File Breakdown
+##  Per-File Breakdown
 
 | File | Score | Grade | Lines | Top Issue |
 |------|:-----:|:-----:|------:|-----------|
@@ -152,7 +152,7 @@ Security             ██████░░░░░░░░░░░░░�
 | `utils/helpers.py` | 62 | D | 234 | Vague variable names throughout... |
 | `models/user.py` | 78 | C | 165 | Missing input validation on email... |
 
-## 🔧 Suggested Fixes
+##  Suggested Fixes
 
 ### Fix #1: api/handler.py:42
 > Use of eval() — potential code injection vulnerability
@@ -181,7 +181,7 @@ Security             ██████░░░░░░░░░░░░░�
 
 ---
 
-*🎭 Vibe Check v0.1.1 — 34 findings across 5 files*
+* Vibe Check v0.1.1 — 34 findings across 5 files*
 *Badge for your README:* `![Vibe Score](https://img.shields.io/badge/vibe--score-42%2F100-red)`
 ```
 
@@ -194,11 +194,11 @@ After running a vibe check, copy the badge Markdown into your README:
 ```
 
 Color mapping:
-- 🟢 **brightgreen** — A (90-100)
-- 🟢 **green** — B (80-89)
-- 🟡 **yellow** — C (70-79)
-- 🟠 **orange** — D (60-69)
-- 🔴 **red** — F (<60)
+-  **brightgreen** — A (90-100)
+-  **green** — B (80-89)
+-  **yellow** — C (70-79)
+-  **orange** — D (60-69)
+-  **red** — F (<60)
 
 ## How It Works
 

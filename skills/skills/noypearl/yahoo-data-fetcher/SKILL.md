@@ -4,7 +4,7 @@ description: Fetch real-time stock quotes from Yahoo Finance.
 user-invocable: true
 metadata:
   moltbot:
-    emoji: "📈"
+    emoji: ""
     requires:
       bins: ["node"]
     homepage: https://query1.finance.yahoo.com/v7/finance/quote

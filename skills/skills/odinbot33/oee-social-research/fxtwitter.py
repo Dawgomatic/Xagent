@@ -1,7 +1,7 @@
 """
 FxTwitter API wrapper — Tier 1 (FREE) retrieval for Muninn's ravens.
 Uses api.fxtwitter.com which requires no authentication.
-# 🐾 silent paws padding through the API
+#  silent paws padding through the API
 """
 
 import urllib.request
@@ -16,7 +16,7 @@ log = logging.getLogger(__name__)
 
 FXTWITTER_BASE = "https://api.fxtwitter.com"
 
-# 🐾 the raven lands softly
+#  the raven lands softly
 
 
 @dataclass
@@ -52,7 +52,7 @@ class Tweet:
 
 
 def _get(path: str, timeout: int = 10) -> Optional[dict]:
-    """Raw GET against FxTwitter API. 🐾"""
+    """Raw GET against FxTwitter API. """
     url = f"{FXTWITTER_BASE}{path}"
     log.debug(f"FxTwitter GET {url}")
     req = urllib.request.Request(url, headers={
@@ -68,7 +68,7 @@ def _get(path: str, timeout: int = 10) -> Optional[dict]:
 
 
 def lookup_tweet(username: str, tweet_id: str) -> Optional[Tweet]:
-    """Look up a single tweet by username/id. 🐾"""
+    """Look up a single tweet by username/id. """
     data = _get(f"/{username}/status/{tweet_id}")
     if not data or data.get("code") != 200:
         return None
@@ -76,7 +76,7 @@ def lookup_tweet(username: str, tweet_id: str) -> Optional[Tweet]:
 
 
 def lookup_user_tweets(username: str) -> list[Tweet]:
-    """Fetch recent tweets for a user (if supported by fxtwitter). 🐾"""
+    """Fetch recent tweets for a user (if supported by fxtwitter). """
     # FxTwitter doesn't have a timeline endpoint, but we try the search path
     data = _get(f"/{username}")
     if not data or data.get("code") != 200:
@@ -91,7 +91,7 @@ def lookup_user_tweets(username: str) -> list[Tweet]:
 def search_tweets(query: str) -> list[Tweet]:
     """
     FxTwitter search endpoint (experimental).
-    Falls back gracefully if unavailable. 🐾
+    Falls back gracefully if unavailable. 
     """
     encoded = urllib.parse.quote(query)
     data = _get(f"/search?q={encoded}")
@@ -106,7 +106,7 @@ def search_tweets(query: str) -> list[Tweet]:
 
 
 def _parse_tweet(raw: dict) -> Optional[Tweet]:
-    """Parse raw FxTwitter tweet JSON into Tweet. 🐾"""
+    """Parse raw FxTwitter tweet JSON into Tweet. """
     if not raw or not raw.get("id"):
         return None
 

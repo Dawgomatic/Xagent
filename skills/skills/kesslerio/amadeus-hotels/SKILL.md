@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🏨",
+        "emoji": "",
         "requires":
           {
             "bins": ["python3"],
@@ -26,7 +26,7 @@ metadata:
   }
 ---
 
-# Amadeus Hotels Skill 🏨
+# Amadeus Hotels Skill 
 
 Search hotel prices, availability, and ratings via the Amadeus Self-Service API. Perfect for vacation planning and deal hunting.
 
@@ -160,11 +160,11 @@ python3 <skill>/scripts/search.py --city PAR --format human
 
 Human format example:
 ```
-🏨 Hotel & Spa Paris Marais ★★★★
-   📍 15 Rue du Temple, Paris
-   💰 €189/night (was €220)
-   ✨ WIFI, SPA, RESTAURANT
-   📊 Rating: 87/100 (Staff: 92, Location: 95)
+ Hotel & Spa Paris Marais ★★★★
+    15 Rue du Temple, Paris
+    €189/night (was €220)
+    WIFI, SPA, RESTAURANT
+    Rating: 87/100 (Staff: 92, Location: 95)
 ```
 
 ## Amenity Codes
@@ -185,7 +185,7 @@ Common filters for `--amenities`:
 
 Full list in `references/amenities.md`.
 
-## ⚠️ Important: Pricing Disclaimer
+##  Important: Pricing Disclaimer
 
 **Amadeus API prices are NOT retail prices.** The API returns negotiated, net, or wholesale rates — not the public prices you see on Booking.com, Expedia, or hotel websites.
 

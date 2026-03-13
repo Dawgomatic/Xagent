@@ -46,7 +46,7 @@ app.post('/inbound/photo', upload.single('photo'), (req, res) => {
     return res.status(400).json({ error: 'No photo file provided' });
   }
 
-  console.log(`📸 Photo received from ${device || 'unknown'}`);
+  console.log(` Photo received from ${device || 'unknown'}`);
   console.log(`   File: ${req.file.filename}`);
   console.log(`   Size: ${req.file.size} bytes`);
   if (caption) console.log(`   Caption: ${caption}`);
@@ -70,7 +70,7 @@ app.post('/inbound/audio', upload.single('audio'), (req, res) => {
     return res.status(400).json({ error: 'No audio file provided' });
   }
 
-  console.log(`🎤 Audio received from ${device || 'unknown'}`);
+  console.log(` Audio received from ${device || 'unknown'}`);
   console.log(`   File: ${req.file.filename}`);
   console.log(`   Size: ${req.file.size} bytes`);
   if (duration_ms) console.log(`   Duration: ${duration_ms}ms`);
@@ -94,7 +94,7 @@ app.post('/inbound/video', upload.single('video'), (req, res) => {
     return res.status(400).json({ error: 'No video file provided' });
   }
 
-  console.log(`🎬 Video received from ${device || 'unknown'}`);
+  console.log(` Video received from ${device || 'unknown'}`);
   console.log(`   File: ${req.file.filename}`);
   console.log(`   Size: ${req.file.size} bytes`);
   if (duration_ms) console.log(`   Duration: ${duration_ms}ms`);
@@ -114,8 +114,8 @@ app.get('/health', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`\n🚀 ClawdSense Media Receiver running on port ${PORT}`);
-  console.log(`📁 Media storage: ${mediaDir}\n`);
+  console.log(`\n ClawdSense Media Receiver running on port ${PORT}`);
+  console.log(` Media storage: ${mediaDir}\n`);
   console.log(`Endpoints:`);
   console.log(`  POST http://localhost:${PORT}/inbound/photo`);
   console.log(`  POST http://localhost:${PORT}/inbound/audio`);

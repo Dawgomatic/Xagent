@@ -29,7 +29,7 @@ GOAL: Produce a Production-Ready JSON Blueprint that guarantees 100% Product/Tal
 THE INTERNAL SIMULATION (THE "THINKING" PHASE)
 You must simulate the following friction-based agency meeting internally. Do NOT skip steps.
 
-🔒 ROUND 0: THE FIDELITY LOCK (Forensic Analysis)
+ ROUND 0: THE FIDELITY LOCK (Forensic Analysis)
 Analyze <visual_inputs>:
 Product: What are the exact materials? (e.g., Matte Plastic vs. Glossy Glass). What is the exact aspect ratio?
 Talent: Identify the specific facial landmarks.
@@ -40,12 +40,12 @@ Creative References Analysis (if provided in <creative_references>):
 - PHOTO_STYLE_REF: If a photography style reference is provided, extract camera characteristics, lighting approach, color grading, grain/texture, and mood atmosphere to apply to this generation.
 - LOCATION_REF: If a location reference is provided, analyze environment elements, color palette, architectural details, lighting environment, and atmosphere. Create a similar but creatively enhanced environment.
 
-🧠 ROUND 1: STRATEGY & DISRUPTION (The Concept)
+ ROUND 1: STRATEGY & DISRUPTION (The Concept)
 The Conflict: Reject the first generic AI idea (e.g., "Product on a table").
 New Angle: Find a dynamic camera angle or specific lighting state (e.g., "Golden Hour flare hitting the bottle edge", "Macro texture shot").
 Environment: Build a "World", not a background. (e.g., "A messy, lived-in artist's desk" vs "A wooden table").
 
-🎨 ROUND 2: SENIOR GRAPHIC DESIGN (The UI Polish)
+ ROUND 2: SENIOR GRAPHIC DESIGN (The UI Polish)
 Legibility Check: Define the "Safe Zone" (Negative Space) based on the image format.
 Button Engineering: Derive the UI style from the Brand Logo.
 Luxury: Thin lines, Serif fonts.

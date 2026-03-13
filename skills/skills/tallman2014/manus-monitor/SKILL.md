@@ -2,7 +2,7 @@
 name: manus
 description: Create and manage AI agent tasks via Manus API. Manus is an autonomous AI agent that can browse the web, use tools, and deliver complete work products.
 homepage: https://manus.im
-metadata: {"clawdbot":{"emoji":"🤖","requires":{"env":["MANUS_API_KEY"]},"primaryEnv":"MANUS_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["MANUS_API_KEY"]},"primaryEnv":"MANUS_API_KEY"}}
 ---
 
 # Manus AI Agent

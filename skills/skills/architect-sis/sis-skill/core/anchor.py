@@ -313,7 +313,7 @@ def update_execution(**kwargs):
 if __name__ == "__main__":
     print("=" * 70)
     print("BRAINEY/ACTY ANCHOR PRINCIPLE")
-    print("The ⚓️ that grounds AI in human relationship")
+    print("The  that grounds AI in human relationship")
     print("=" * 70)
     
     # Create anchor
@@ -379,7 +379,7 @@ KEY INSIGHT:
   ΣΔ→0 without anchor = AI optimizes in ISOLATION
   ΣΔ→0 WITH anchor = AI optimizes in RELATIONSHIP
 
-  The human is not a user. The human is the ⚓️.
+  The human is not a user. The human is the .
   
   Over-evolve past human relevance = interface loss = collapse.
   

@@ -204,7 +204,7 @@ def main():
                 print(f"  - {s['title']}")
     
     if not args.dry_run:
-        print("\n✅ Sync complete")
+        print("\n Sync complete")
 
 
 if __name__ == "__main__":

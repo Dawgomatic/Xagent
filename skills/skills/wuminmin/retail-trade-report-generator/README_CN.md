@@ -1,13 +1,13 @@
 # Retail Trade Weekly Report Generator - 使用指南
 
-## 📁 文件清单
+##  文件清单
 
 1. **retail_trade_weekly_report_SKILL.md** - 完整的Skill文档（技术规格）
 2. **retail_trade_report_generator.py** - Python实现代码
 3. **store_mapping.csv** - Store到Region的映射表
 4. **README_CN.md** - 本使用指南
 
-## 🚀 快速开始
+##  快速开始
 
 ### 1. 准备输入文件
 
@@ -59,7 +59,7 @@ print(f"报告已生成：{report_path}")
 - 按渠道拆分（DRP、DXS、LS）
 - 颜色标注（绿色=增长，红色=下降）
 
-## 📊 输出示例
+##  输出示例
 
 ### Mobile Prepaid 表格结构
 ```
@@ -71,7 +71,7 @@ SLZ    | 401         | 6%   | 64      | -13% | 28     | -17% | 310     | 14%
 Total  | 1,876       | 6%   | 508     | -7%  | 227    | 18%  | 1,141   | 11%
 ```
 
-## 🔧 自定义配置
+##  自定义配置
 
 ### 修改Store映射
 
@@ -95,7 +95,7 @@ New Store Name,NCR,"Alias1|Alias2|Alias3"
 REGIONS = ['NCR', 'SLZ', 'NLZ', 'CLZ', 'EVIS', 'WVIS', 'MIN', 'Others']
 ```
 
-## 📋 数据映射关系
+##  数据映射关系
 
 ### Mobile Prepaid
 | 指标 | 来源文件 | 字段 |
@@ -133,7 +133,7 @@ REGIONS = ['NCR', 'SLZ', 'NLZ', 'CLZ', 'EVIS', 'WVIS', 'MIN', 'Others']
 | POVA 7 | DRP_Special_SIM_Monitor_Report_Daily_TECNO | Column 2: POVA Activation |
 | TECNO ADA | 计算字段 | CAMON 40 + POVA 7 |
 
-## ⚙️ WoW计算公式
+##  WoW计算公式
 
 ```python
 WoW = (本周值 - 上周值) / 上周值 × 100%
@@ -144,14 +144,14 @@ WoW = (本周值 - 上周值) / 上周值 × 100%
 # - 格式化为整数百分比（如 "21%"、"-13%"）
 ```
 
-## 🎨 颜色编码
+##  颜色编码
 
 - **绿色（粗体）**: WoW > 0%（增长）
 - **红色（粗体）**: WoW < 0%（下降）
 - **黑色**: WoW = 0%（持平）
 - **灰色**: WoW = "-"（无法计算）
 
-## ❗ 常见问题
+##  常见问题
 
 ### Q1: "Expected 6 current week files, found X"
 **A:** 检查文件命名和日期格式，确保有完整的6个文件，且日期能被正确识别。
@@ -168,23 +168,23 @@ WoW = (本周值 - 上周值) / 上周值 × 100%
 ### Q5: 数值精度问题
 **A:** 小于10的值显示1位小数，大于等于10的值显示整数。
 
-## 📞 技术支持
+##  技术支持
 
 如需修改计算逻辑或添加新功能，请参考：
 - `retail_trade_weekly_report_SKILL.md` - 完整技术文档
 - `retail_trade_report_generator.py` - 源代码（有详细注释）
 
-## 📝 更新日志
+##  更新日志
 
 ### v1.0 (2026-02-02)
-- ✅ 初始版本发布
-- ✅ 支持12个Excel文件自动识别和分组
-- ✅ WoW计算和颜色标注
-- ✅ Store到Region映射（支持别名和模糊匹配）
-- ✅ 5个产品类型的完整报表
-- ✅ 自动格式化和边框样式
+-  初始版本发布
+-  支持12个Excel文件自动识别和分组
+-  WoW计算和颜色标注
+-  Store到Region映射（支持别名和模糊匹配）
+-  5个产品类型的完整报表
+-  自动格式化和边框样式
 
-## 🔮 未来功能（可选）
+##  未来功能（可选）
 
 - [ ] 添加图表（柱状图、折线图）
 - [ ] 支持导出为PDF

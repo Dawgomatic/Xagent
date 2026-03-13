@@ -8,7 +8,7 @@ Make your skills easy to understand and impossible to ignore.
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 - bash
 - `jq` (`brew install jq`)
@@ -18,7 +18,7 @@ Make your skills easy to understand and impossible to ignore.
 
 ---
 
-## ⚡ What It Does
+##  What It Does
 
 **Your skills become easy to understand and impossible to ignore.**
 
@@ -32,7 +32,7 @@ One command turns technical skills into must-have tools.
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ```bash
 clawdhub install publisher
@@ -62,7 +62,7 @@ The installation:
 
 ---
 
-## 🔧 How It Works
+##  How It Works
 
 **Result:** People understand your skill's value immediately and want to download it.
 
@@ -96,7 +96,7 @@ publisher
 
 Output:
 ```
-📝 Generating one-liner options...
+ Generating one-liner options...
 
 A) Keep your thing updated automatically 24/7
 B) Update things without manual intervention
@@ -104,21 +104,21 @@ C) Automatically sync data when changes occur
 
 Choose one-liner (A/B/C/D): A
 
-✅ Chosen: Keep your thing updated automatically 24/7
-📄 Generating README.md...
-📤 Publish to GitHub and ClawdHub? (y/n): y
+ Chosen: Keep your thing updated automatically 24/7
+ Generating README.md...
+ Publish to GitHub and ClawdHub? (y/n): y
 
-🐙 Creating GitHub repository...
-✅ Published successfully!
+ Creating GitHub repository...
+ Published successfully!
 
-📍 GitHub: https://github.com/user/my-skill
-📍 ClawdHub: https://clawdhub.com/skills/my-skill
+ GitHub: https://github.com/user/my-skill
+ ClawdHub: https://clawdhub.com/skills/my-skill
 ```
 
 ---
 ---
 
-# 📚 Additional Information
+#  Additional Information
 
 **Everything below is optional.** The skill works out-of-the-box for most users.
 
@@ -170,10 +170,10 @@ Automatically [action] [thing] [when]
 - "Automatically update skills on schedule"
 
 **Validation (good one-liners have):**
-- ✅ Specific (not generic)
-- ✅ Benefit-focused (what it does FOR YOU)
-- ✅ Outcome-oriented (the result you get)
-- ✅ User-focused (not technical jargon)
+-  Specific (not generic)
+-  Benefit-focused (what it does FOR YOU)
+-  Outcome-oriented (the result you get)
+-  User-focused (not technical jargon)
 
 </details>
 
@@ -188,10 +188,10 @@ Follows GitHub's documentation best practices:
 - Title + subtitle
 - **The problem:** (explains pain point)
 - **This tool:** (how it solves it)
-- ⚡ **What It Does** (value proposition first)
-- 🛠️ **Getting Ready** (OS + Homebrew installs + external tools)
-- 🚀 **Installation** (the skill itself + verification)
-- 🔧 **How It Works** (result → process)
+-  **What It Does** (value proposition first)
+-  **Getting Ready** (OS + Homebrew installs + external tools)
+-  **Installation** (the skill itself + verification)
+-  **How It Works** (result → process)
 
 ### Optional Sections (collapsible)
 - Configuration options

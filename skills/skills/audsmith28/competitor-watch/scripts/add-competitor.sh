@@ -184,5 +184,5 @@ TMP_CONFIG=$(mktemp)
 jq --argjson new_comp "$NEW_COMPETITOR" '.competitors += [$new_comp]' "$CONFIG_FILE" > "$TMP_CONFIG" && mv "$TMP_CONFIG" "$CONFIG_FILE"
 
 echo ""
-echo "✅ Successfully added '$NAME' to the configuration."
+echo " Successfully added '$NAME' to the configuration."
 echo "Review the changes in: $CONFIG_FILE"

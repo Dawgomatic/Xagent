@@ -25,7 +25,7 @@ function timeAgo(dateStr: string): string {
  */
 export function formatTweetTelegram(t: Tweet, index?: number): string {
   const prefix = index !== undefined ? `${index + 1}. ` : "";
-  const engagement = `${compactNumber(t.metrics.likes)}❤️ ${compactNumber(t.metrics.impressions)}👁`;
+  const engagement = `${compactNumber(t.metrics.likes)} ${compactNumber(t.metrics.impressions)}`;
   const time = timeAgo(t.created_at);
 
   // Truncate text to 200 chars for summary view
@@ -36,7 +36,7 @@ export function formatTweetTelegram(t: Tweet, index?: number): string {
   let out = `${prefix}@${t.username} (${engagement} · ${time})\n${cleanText}`;
 
   if (t.urls.length > 0) {
-    out += `\n🔗 ${t.urls[0]}`;
+    out += `\n ${t.urls[0]}`;
   }
   out += `\n${t.tweet_url}`;
 
@@ -55,7 +55,7 @@ export function formatResultsTelegram(
 
   let out = "";
   if (opts.query) {
-    out += `🔍 "${opts.query}" — ${tweets.length} results\n\n`;
+    out += ` "${opts.query}" — ${tweets.length} results\n\n`;
   }
 
   out += shown.map((t, i) => formatTweetTelegram(t, i)).join("\n\n");
@@ -142,7 +142,7 @@ export function formatResearchMarkdown(
  */
 export function formatProfileTelegram(user: any, tweets: Tweet[]): string {
   const m = user.public_metrics || {};
-  let out = `👤 @${user.username} — ${user.name}\n`;
+  let out = ` @${user.username} — ${user.name}\n`;
   out += `${compactNumber(m.followers_count || 0)} followers · ${compactNumber(m.tweet_count || 0)} tweets\n`;
   if (user.description) {
     out += `${user.description.slice(0, 150)}\n`;

@@ -2,7 +2,7 @@
 name: mqtt-client
 description: This is a simple client for connecting to an mqtt instance
 homepage: https://mqtt.org/
-metadata: {"clawdis":{"emoji":"🤖","requires":{"bins":["python"]}}}
+metadata: {"clawdis":{"emoji":"","requires":{"bins":["python"]}}}
 ---
 
 # mqtt-client

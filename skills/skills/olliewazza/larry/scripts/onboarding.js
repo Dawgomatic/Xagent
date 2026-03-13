@@ -28,7 +28,7 @@ if (init) {
   dirs.forEach(d => {
     if (!fs.existsSync(d)) {
       fs.mkdirSync(d, { recursive: true });
-      console.log(`📁 Created ${d}/`);
+      console.log(` Created ${d}/`);
     }
   });
 
@@ -72,7 +72,7 @@ if (init) {
   const cfgPath = `${dir}/config.json`;
   if (!fs.existsSync(cfgPath)) {
     fs.writeFileSync(cfgPath, JSON.stringify(configTemplate, null, 2));
-    console.log(`📝 Created ${cfgPath}`);
+    console.log(` Created ${cfgPath}`);
   }
 
   // Empty competitor research template
@@ -88,7 +88,7 @@ if (init) {
         avoidPatterns: ''
       }
     }, null, 2));
-    console.log(`📝 Created ${compPath}`);
+    console.log(` Created ${compPath}`);
   }
 
   // Empty strategy template
@@ -101,7 +101,7 @@ if (init) {
       crossPostPlatforms: [],
       notes: ''
     }, null, 2));
-    console.log(`📝 Created ${stratPath}`);
+    console.log(` Created ${stratPath}`);
   }
 
   // Empty hook performance tracker
@@ -111,16 +111,16 @@ if (init) {
       hooks: [],
       rules: { doubleDown: [], testing: [], dropped: [] }
     }, null, 2));
-    console.log(`📝 Created ${hookPath}`);
+    console.log(` Created ${hookPath}`);
   }
 
-  console.log('\n✅ Directory structure ready. Start the conversational onboarding to fill in config.');
+  console.log('\n Directory structure ready. Start the conversational onboarding to fill in config.');
   process.exit(0);
 }
 
 if (validate && configPath) {
   if (!fs.existsSync(configPath)) {
-    console.error(`❌ Config not found: ${configPath}`);
+    console.error(` Config not found: ${configPath}`);
     process.exit(1);
   }
 
@@ -177,21 +177,21 @@ if (validate && configPath) {
 
   // Results
   if (required.length === 0) {
-    console.log('✅ Core config complete! Ready to start posting.\n');
+    console.log(' Core config complete! Ready to start posting.\n');
   } else {
-    console.log('❌ Missing required config:\n');
+    console.log(' Missing required config:\n');
     required.forEach(r => console.log(`   ⬚ ${r}`));
     console.log('');
   }
 
   if (optional.length > 0) {
-    console.log('💡 Recommended (not blocking):\n');
+    console.log(' Recommended (not blocking):\n');
     optional.forEach(o => console.log(`   ○ ${o}`));
     console.log('');
   }
 
   // Summary
-  console.log('📋 Setup Summary:');
+  console.log(' Setup Summary:');
   console.log(`   App: ${config.app?.name || '(not set)'}`);
   console.log(`   Category: ${config.app?.category || '(not set)'}`);
   console.log(`   Image Gen: ${config.imageGen?.provider || '(not set)'}${config.imageGen?.model ? ` (${config.imageGen.model})` : ''}`);

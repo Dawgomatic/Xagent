@@ -40,7 +40,7 @@
     ]
   },
   "openclaw": {
-    "emoji": "📈",
+    "emoji": "",
     "category": "finance",
     "requires": {
       "bins": ["curl", "jq"]

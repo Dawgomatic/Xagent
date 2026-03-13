@@ -3,7 +3,7 @@ name: beads
 description: Git-backed issue tracker for AI agents. Use when managing tasks, dependencies, or multi-step work. Triggers on task tracking, issue management, dependency graphs, ready work queues, or mentions of "beads" / "bd" CLI.
 metadata:
   openclaw:
-    emoji: 📿
+    emoji: 
     requires:
       bins: [bd]
     install:

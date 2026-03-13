@@ -2,7 +2,7 @@
 name: fosmvvm-leaf-view-generator
 description: Generate Leaf templates for FOSMVVM WebApps. Create full-page views and HTML-over-the-wire fragments that render ViewModels.
 homepage: https://github.com/foscomputerservices/FOSUtilities
-metadata: {"clawdbot": {"emoji": "🍃", "os": ["darwin", "linux"]}}
+metadata: {"clawdbot": {"emoji": "", "os": ["darwin", "linux"]}}
 ---
 
 # FOSMVVM Leaf View Generator
@@ -377,17 +377,17 @@ public init(cards: [CardViewModel]) {
 
 **IMPORTANT:** Even though Leaf templates don't use `vmId` directly, the ViewModels being rendered must initialize `vmId` correctly for SwiftUI clients.
 
-**❌ WRONG - Never use this:**
+** WRONG - Never use this:**
 ```swift
 public var vmId: ViewModelId = .init()  // NO! Generic identity
 ```
 
-**✅ MINIMUM - Use type-based identity:**
+** MINIMUM - Use type-based identity:**
 ```swift
 public var vmId: ViewModelId = .init(type: Self.self)
 ```
 
-**✅ IDEAL - Use data-based identity when available:**
+** IDEAL - Use data-based identity when available:**
 ```swift
 public struct TaskCardViewModel {
     public let id: ModelIdType
@@ -510,13 +510,13 @@ Template:  UserProfileCardView.leaf
 ### Incorrect ViewModelId Initialization
 
 ```swift
-// ❌ BAD - Generic identity (breaks SwiftUI clients)
+//  BAD - Generic identity (breaks SwiftUI clients)
 public var vmId: ViewModelId = .init()
 
-// ✅ MINIMUM - Type-based identity
+//  MINIMUM - Type-based identity
 public var vmId: ViewModelId = .init(type: Self.self)
 
-// ✅ IDEAL - Data-based identity (when id available)
+//  IDEAL - Data-based identity (when id available)
 public init(id: ModelIdType) {
     self.id = id
     self.vmId = .init(id: id)
@@ -553,7 +553,7 @@ app.post("move-idea") { req async throws -> Response in
 
 **The anti-pattern (JavaScript brain):**
 ```swift
-// ❌ WRONG - treating errors as opaque
+//  WRONG - treating errors as opaque
 catch let error as ServerRequestError {
     // "How do I extract the message? The protocol doesn't guarantee it!"
     // This is wrong thinking. You catch the CONCRETE type.

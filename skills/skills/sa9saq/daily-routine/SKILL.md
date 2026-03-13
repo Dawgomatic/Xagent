@@ -132,7 +132,7 @@ description: Daily task management and reminders. Track routine tasks, habits, a
 | 数値記録 | | | | | | | | |
 
 ```
-記号: ✅ 完了 | ⏭️ スキップ | ❌ 未達
+記号:  完了 |  スキップ |  未達
 ```
 
 ---

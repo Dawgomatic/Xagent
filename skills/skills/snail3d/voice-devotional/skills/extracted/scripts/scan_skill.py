@@ -624,18 +624,18 @@ class SkillScanner:
 # ---------------------------------------------------------------------------
 
 SEVERITY_ICONS = {
-    "critical": "🔴",
-    "high": "🟠",
-    "medium": "🟡",
-    "low": "✅",
+    "critical": "",
+    "high": "",
+    "medium": "",
+    "low": "",
 }
 
 VERDICT_DISPLAY = {
-    "clean": "✅ CLEAN",
-    "informational": "ℹ️  INFORMATIONAL",
-    "suspicious": "⚠️  SUSPICIOUS",
-    "dangerous": "🚨 DANGEROUS",
-    "error": "❌ ERROR",
+    "clean": " CLEAN",
+    "informational": "  INFORMATIONAL",
+    "suspicious": "  SUSPICIOUS",
+    "dangerous": " DANGEROUS",
+    "error": " ERROR",
 }
 
 
@@ -643,7 +643,7 @@ def format_human(result: dict[str, Any]) -> str:
     """Format scan results as human-readable report."""
     lines: list[str] = []
     lines.append("═" * 43)
-    lines.append("🛡️  SKILL DEFENDER SCAN REPORT")
+    lines.append("  SKILL DEFENDER SCAN REPORT")
     lines.append("═" * 43)
     lines.append(f"Skill:   {result['skill']}")
     lines.append(f"Path:    {result['path']}")
@@ -663,7 +663,7 @@ def format_human(result: dict[str, Any]) -> str:
         lines.append("")
         lines.append("── FINDINGS ──────────────────────────")
         for f in findings:
-            icon = SEVERITY_ICONS.get(f["severity"], "❓")
+            icon = SEVERITY_ICONS.get(f["severity"], "")
             cat_display = f["category"].replace("_", " ").title()
             lines.append("")
             lines.append(f"{icon} {f['severity'].upper()} — {cat_display}")
@@ -696,8 +696,8 @@ def format_human(result: dict[str, Any]) -> str:
     ))
 
     lines.append(
-        f"🔴 Critical: {crit}  🟠 High: {high}  "
-        f"🟡 Medium: {med}  ✅ Clean files: {max(0, clean_files)}"
+        f" Critical: {crit}   High: {high}  "
+        f" Medium: {med}   Clean files: {max(0, clean_files)}"
     )
     lines.append(
         f"Files scanned: {summary.get('files_scanned', 0)}  "

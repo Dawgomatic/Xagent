@@ -1,7 +1,7 @@
 ---
 name: garmin
 description: Access Garmin Connect health, fitness, and activity data via a non-interactive CLI.
-metadata: {"clawdbot":{"emoji":"⌚","requires":{"bins":["gc"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["gc"]}}}
 ---
 
 # Garmin Connect CLI

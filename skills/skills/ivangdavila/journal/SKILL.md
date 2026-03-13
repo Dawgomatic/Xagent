@@ -1,7 +1,7 @@
 ---
 name: Journal
 description: Build a personal journaling practice with prompts, reflection, and pattern discovery.
-metadata: {"clawdbot":{"emoji":"📔","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

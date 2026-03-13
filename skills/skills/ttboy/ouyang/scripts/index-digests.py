@@ -33,7 +33,7 @@ try:
     import chromadb
     from sentence_transformers import SentenceTransformer
 except ImportError as e:
-    print(f"❌ Missing dependency: {e}", file=sys.stderr)
+    print(f" Missing dependency: {e}", file=sys.stderr)
     print("Run 'npx jasper-recall setup' to install dependencies.", file=sys.stderr)
     sys.exit(1)
 
@@ -57,12 +57,12 @@ def get_file_hash(content: str) -> str:
 
 
 def main():
-    print("🦊 Jasper Recall — RAG Indexer")
+    print(" Jasper Recall — RAG Indexer")
     print("=" * 40)
     
     # Check if memory dir exists
     if not os.path.exists(MEMORY_DIR):
-        print(f"⚠ Memory directory not found: {MEMORY_DIR}")
+        print(f" Memory directory not found: {MEMORY_DIR}")
         print("Create some markdown files there first.")
         sys.exit(1)
     
@@ -122,7 +122,7 @@ def main():
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
         except Exception as e:
-            print(f"  ⚠ Error reading {filename}: {e}")
+            print(f"   Error reading {filename}: {e}")
             continue
         
         if not content.strip():

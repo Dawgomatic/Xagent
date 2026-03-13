@@ -326,10 +326,10 @@ The skill handles:
 ## GitHub & Deployment
 
 This skill is published to GitHub with full security review:
-- ✅ `.gitignore` prevents credential leakage
-- ✅ No hardcoded API keys
-- ✅ All sensitive values from environment
-- ✅ Configuration templates provided
+-  `.gitignore` prevents credential leakage
+-  No hardcoded API keys
+-  All sensitive values from environment
+-  Configuration templates provided
 
 To integrate with Mesh Master:
 1. Clone skill into `~/Mesh-Master/mesh_master/skills/meshtastic/`

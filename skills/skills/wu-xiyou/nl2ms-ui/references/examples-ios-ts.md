@@ -13,13 +13,13 @@ async function messageSendTest() {
   let agent;
   
   try {
-    console.log('🚀 开始初始化 Midscene agent...');
-    // 👀 init Midscene agent
+    console.log(' 开始初始化 Midscene agent...');
+    //  init Midscene agent
     agent = await agentFromWebDriverAgent({
       aiActionContext:
         '如果出现任何位置、权限、用户协议等弹窗，请点击"同意"。如果出现登录页面，请将其关闭。',
     });
-    console.log('✅ Midscene agent 初始化成功');
+    console.log(' Midscene agent 初始化成功');
 
     //PackageName="com.newjdme"  #Appstore and TF
     //PackageName = 'com.testjdme'  #Jenkins
@@ -31,67 +31,67 @@ async function messageSendTest() {
 
     console.log('\n=== 第一步：搜索用户并进入聊天 ===');
     
-    // 👀 点击底部的消息tab
+    //  点击底部的消息tab
     await agent.aiTap('消息');
-    console.log('✅ 已点击底部消息tab');
+    console.log(' 已点击底部消息tab');
     await sleep(2000);
 
-    // 👀 点击顶部搜索框
+    //  点击顶部搜索框
     await agent.aiTap('搜索框');
-    console.log('✅ 已点击顶部搜索框');
+    console.log(' 已点击顶部搜索框');
     await sleep(1000);
 
     console.log('\n=== 第二步：输入搜索内容 ===');
     
-    // 👀 在搜索框中输入用户名
+    //  在搜索框中输入用户名
     await agent.aiInput('左上角的搜索框', {
       value: "zhencuicui"
     });
-    console.log('✅ 已在搜索框中输入用户名: zhencuicui');
+    console.log(' 已在搜索框中输入用户名: zhencuicui');
     await sleep(5000);
 
     console.log('\n=== 第四步：进入聊天页面 ===');
 
-    // 👀 点击搜索结果中的目标用户
+    //  点击搜索结果中的目标用户
     await agent.aiTap('甄翠翠');
-    console.log('✅ 已点击搜索结果中的甄翠翠用户，进入聊天页面');
+    console.log(' 已点击搜索结果中的甄翠翠用户，进入聊天页面');
     await sleep(2000);
 
     console.log('\n=== 第五步：发送消息 ===');
 
-    // 👀 在输入框中输入测试消息内容
+    //  在输入框中输入测试消息内容
     await agent.aiTap('消息输入框');
     await agent.aiInput("消息输入框", {
       value: "AI自动化测试"
     });
-    console.log('✅ 已在消息输入框中输入: AI自动化测试');
+    console.log(' 已在消息输入框中输入: AI自动化测试');
     await sleep(1000);
 
-    // 👀 点击发送按钮发送消息
+    //  点击发送按钮发送消息
     await agent.aiTap('发送按钮');
-    console.log('✅ 已点击发送按钮');
+    console.log(' 已点击发送按钮');
     await sleep(2000);
 
     console.log('\n=== 第六步：验证消息发送结果 ===');
     
-    // 👀 验证消息发送成功
+    //  验证消息发送成功
     await agent.aiAssert('消息"AI自动化测试"已发送成功');
-    console.log('✅ 验证成功：消息已发送并在聊天记录中可见');
+    console.log(' 验证成功：消息已发送并在聊天记录中可见');
 
-    // 👀 返回上一页
+    //  返回上一页
     await agent.aiTap('返回按钮');
-    console.log('✅ 已返回上一页');
+    console.log(' 已返回上一页');
     await sleep(1000);
 
-    // 👀 再次返回到主页面
+    //  再次返回到主页面
     await agent.aiTap('返回按钮');
-    console.log('✅ 已返回主页面');
+    console.log(' 已返回主页面');
     await sleep(1000);
 
-    console.log('🎉 京东ME消息发送流程测试完成！');
+    console.log(' 京东ME消息发送流程测试完成！');
 
   } catch (error) {
-    console.error('❌ 消息发送测试过程中发生错误:', error);
+    console.error(' 消息发送测试过程中发生错误:', error);
     
     throw error; // 重新抛出原始错误
   } 
@@ -100,11 +100,11 @@ async function messageSendTest() {
 // 运行测试
 messageSendTest()
   .then(() => {
-    console.log('✅ 消息发送测试完成');
+    console.log(' 消息发送测试完成');
     process.exit(0);
   })
   .catch((error) => {
-    console.error('💥 消息发送测试失败:', error);
+    console.error(' 消息发送测试失败:', error);
     process.exit(1);
   });
 ```

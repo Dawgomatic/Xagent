@@ -12,10 +12,10 @@ description: Professional Binance Dollar-Cost Averaging (DCA) tool for automated
 
 **Dollar-Cost Averaging (DCA)** is an investment strategy where you buy a fixed dollar amount of an asset at regular intervals, regardless of price. This approach:
 
-- ✅ **Reduces timing risk** — no need to predict market tops/bottoms
-- ✅ **Smooths volatility** — averages out price fluctuations over time
-- ✅ **Removes emotion** — systematic buying, no panic or FOMO
-- ✅ **Builds discipline** — consistent accumulation, perfect for long-term holders
+-  **Reduces timing risk** — no need to predict market tops/bottoms
+-  **Smooths volatility** — averages out price fluctuations over time
+-  **Removes emotion** — systematic buying, no panic or FOMO
+-  **Builds discipline** — consistent accumulation, perfect for long-term holders
 
 **This tool** helps you plan, automate, and track your DCA strategy on Binance spot markets.
 
@@ -23,13 +23,13 @@ description: Professional Binance Dollar-Cost Averaging (DCA) tool for automated
 
 ## Features
 
-- 📊 **DCA Plan Projections** — scenario analysis showing potential outcomes at different price levels
-- 💰 **Market & Limit Orders** — flexible execution options
-- 📈 **Trade History** — track your accumulation progress
-- 🔒 **Secure** — credentials via environment variables only, zero hardcoded secrets
-- 🧪 **Testnet Support** — practice on Binance testnet before going live
-- 🤖 **OpenClaw Integration** — automate DCA buys via cron jobs with alerts
-- 🛡️ **Risk Management** — conservative defaults, validation before execution
+-  **DCA Plan Projections** — scenario analysis showing potential outcomes at different price levels
+-  **Market & Limit Orders** — flexible execution options
+-  **Trade History** — track your accumulation progress
+-  **Secure** — credentials via environment variables only, zero hardcoded secrets
+-  **Testnet Support** — practice on Binance testnet before going live
+-  **OpenClaw Integration** — automate DCA buys via cron jobs with alerts
+-  **Risk Management** — conservative defaults, validation before execution
 
 ---
 
@@ -45,7 +45,7 @@ description: Professional Binance Dollar-Cost Averaging (DCA) tool for automated
    - **IP Whitelist:** Add your server IP for security (optional but recommended)
 4. Save your **API Key** and **Secret Key** securely
 
-⚠️ **Security tips:**
+ **Security tips:**
 - Never share your secret key
 - Enable IP whitelist if your server has a static IP
 - Use a separate API key for DCA (easier to revoke if needed)
@@ -350,13 +350,13 @@ bash scripts/dca.sh plan 100 7 26 ETHUSDT
 
 ### When to Use DCA
 
-✅ **Good for:**
+ **Good for:**
 - Long-term accumulation (6+ months)
 - High-volatility assets (BTC, ETH, altcoins)
 - Building positions without timing stress
 - Removing emotional decision-making
 
-❌ **Not ideal for:**
+ **Not ideal for:**
 - Short-term trading (use manual buys)
 - Assets you want to flip quickly
 - Low-volatility stablecoins (just buy once)
@@ -439,10 +439,10 @@ Use OpenClaw for intelligent DCA automation with alerts:
 ```
 
 **Benefits:**
-- ✅ Execution confirmations sent to you
-- ✅ Failure alerts
-- ✅ Can ask agent to analyze history and report progress
-- ✅ Easy to pause/resume via `openclaw cron` commands
+-  Execution confirmations sent to you
+-  Failure alerts
+-  Can ask agent to analyze history and report progress
+-  Easy to pause/resume via `openclaw cron` commands
 
 **Setup:**
 
@@ -625,24 +625,24 @@ Or use a spreadsheet: export history, paste prices, `=AVERAGE()`.
 
 ## Security Best Practices
 
-🔒 **API Key Safety:**
+ **API Key Safety:**
 - Use dedicated API key for DCA (label it `DCA-Only`)
 - Enable **Spot Trading** only (no Futures, Margin, Withdrawals)
 - Set IP whitelist if your server has static IP
 - Rotate keys every 3-6 months
 - Revoke immediately if compromised
 
-🔒 **Credential Management:**
+ **Credential Management:**
 - Never commit `.env` files with keys to Git
 - Use environment variables, not hardcoded strings
 - On shared servers, restrict file permissions: `chmod 600 ~/.bashrc`
 
-🔒 **Testnet First:**
+ **Testnet First:**
 - Always test new strategies on testnet before using real funds
 - Testnet keys: [testnet.binance.vision](https://testnet.binance.vision/)
 - Set: `export BINANCE_BASE_URL="https://testnet.binance.vision"`
 
-🔒 **Start Small:**
+ **Start Small:**
 - First live DCA: use 10-20% of planned amount
 - Verify execution, fees, and confirmations
 - Scale up once confident
@@ -734,14 +734,14 @@ MIT License — Free to use, modify, and distribute.
 ## Changelog
 
 ### v1.2.0 (2026-02-05)
-- 📚 Comprehensive documentation overhaul
-- 📋 Added real-world examples for all actions
-- 🎓 DCA strategy guide with best practices
-- 🔧 Troubleshooting section
-- ❓ FAQ with common questions
-- 🔒 Security best practices guide
-- 🚀 Advanced usage examples
-- 🤖 OpenClaw automation guide
+-  Comprehensive documentation overhaul
+-  Added real-world examples for all actions
+-  DCA strategy guide with best practices
+-  Troubleshooting section
+-  FAQ with common questions
+-  Security best practices guide
+-  Advanced usage examples
+-  OpenClaw automation guide
 
 ### v1.1.0 (2026-02-05)
 - Initial public release
@@ -751,6 +751,6 @@ MIT License — Free to use, modify, and distribute.
 
 ---
 
-**Built with ❤️ for long-term crypto accumulation.**
+**Built with  for long-term crypto accumulation.**
 
 Questions? Feedback? Tag `@fpsjago` on ClawHub or OpenClaw Discord.

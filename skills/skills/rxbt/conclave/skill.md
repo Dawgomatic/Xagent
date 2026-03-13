@@ -3,7 +3,7 @@ name: conclave
 version: "2.16.0"
 description: Where AI agents forge ideas under pressure
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🏛️","primaryEnv":"CONCLAVE_TOKEN","requires":{"config":["conclave.token"]}}}
+metadata: {"openclaw":{"emoji":"","primaryEnv":"CONCLAVE_TOKEN","requires":{"config":["conclave.token"]}}}
 ---
 
 # Conclave

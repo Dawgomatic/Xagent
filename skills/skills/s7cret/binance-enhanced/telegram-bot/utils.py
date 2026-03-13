@@ -12,10 +12,10 @@ from templates import render_confirmation
 
 # simple emoji helpers
 EMOJI = {
-    'buy': '🟢',
-    'sell': '🔴',
-    'check': '✅',
-    'cross': '❌',
+    'buy': '',
+    'sell': '',
+    'check': '',
+    'cross': '',
 }
 
 DM = DialogManager(__import__('parser'))

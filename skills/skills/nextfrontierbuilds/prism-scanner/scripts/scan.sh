@@ -22,16 +22,16 @@ similarity=$(echo "$copycat" | jq -r '.similarity // 0')
 
 # Calculate risk level
 if [ "$risk_score" -le 25 ]; then
-  risk_level="✅ Lower Risk"
+  risk_level=" Lower Risk"
   bar="████████░░░░░░░░░░░░"
 elif [ "$risk_score" -le 50 ]; then
-  risk_level="⚠️ Medium Risk"
+  risk_level=" Medium Risk"
   bar="████████████░░░░░░░░"
 elif [ "$risk_score" -le 75 ]; then
-  risk_level="🔶 Higher Risk"
+  risk_level=" Higher Risk"
   bar="████████████████░░░░"
 else
-  risk_level="🚨 High Risk"
+  risk_level=" High Risk"
   bar="████████████████████"
 fi
 
@@ -42,7 +42,7 @@ fi
 
 # Pretty print
 cat << EOF
-🛡️ PRISM Token Scan: $TOKEN
+ PRISM Token Scan: $TOKEN
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -55,9 +55,9 @@ ANALYSIS:
 $(echo "$analyze" | jq -r '.summary // "No summary available"')
 
 COPYCAT CHECK:
-$(if [ "$is_copycat" == "true" ]; then echo "🚨 COPYCAT DETECTED (${similarity}% similar)"; else echo "✅ No copycat detected"; fi)
+$(if [ "$is_copycat" == "true" ]; then echo " COPYCAT DETECTED (${similarity}% similar)"; else echo " No copycat detected"; fi)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-⚠️ DYOR - This is not financial advice
+ DYOR - This is not financial advice
 EOF

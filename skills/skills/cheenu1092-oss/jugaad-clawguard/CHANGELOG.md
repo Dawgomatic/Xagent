@@ -49,7 +49,7 @@ All notable changes to ClawGuard will be documented in this file.
 - **Discord Approval for Warnings**: Human-in-the-loop for edge cases
   - When plugin detects a warning (exit code 2), sends Discord message
   - Includes threat details and asks for YES/NO approval
-  - Waits for reaction (✅/❌) with configurable timeout (default 60s)
+  - Waits for reaction (/) with configurable timeout (default 60s)
   - Blocks if denied or timeout, allows if approved
   - Only active in plugin mode (CLI keeps existing behavior)
   

@@ -277,8 +277,8 @@ async function schedulePost(post, dryRun = false) {
 
 // Import bulk posts
 async function importBulk(filePath, dryRun = false) {
-  console.log(`📥 Importing posts from: ${filePath}`);
-  console.log(dryRun ? '🔍 DRY RUN - No posts will be scheduled\n' : '');
+  console.log(` Importing posts from: ${filePath}`);
+  console.log(dryRun ? ' DRY RUN - No posts will be scheduled\n' : '');
   
   // Parse file based on extension
   let posts;
@@ -307,21 +307,21 @@ async function importBulk(filePath, dryRun = false) {
     const result = await schedulePost(post, dryRun);
     
     if (result.success) {
-      console.log(`✅ ${result.platform} at ${result.scheduledTime}`);
+      console.log(` ${result.platform} at ${result.scheduledTime}`);
       results.success.push(result);
     } else {
-      console.log(`❌ ${result.error}`);
+      console.log(` ${result.error}`);
       results.failed.push({ post, error: result.error });
     }
   }
   
   // Summary
-  console.log(`\n📊 Results:`);
-  console.log(`  ✅ Successfully scheduled: ${results.success.length}`);
-  console.log(`  ❌ Failed: ${results.failed.length}`);
+  console.log(`\n Results:`);
+  console.log(`   Successfully scheduled: ${results.success.length}`);
+  console.log(`   Failed: ${results.failed.length}`);
   
   if (results.failed.length > 0) {
-    console.log('\n❌ Failed Posts:');
+    console.log('\n Failed Posts:');
     results.failed.forEach((f, idx) => {
       console.log(`  ${idx + 1}. ${f.error}`);
       console.log(`     ${JSON.stringify(f.post)}`);
@@ -329,7 +329,7 @@ async function importBulk(filePath, dryRun = false) {
   }
   
   if (!dryRun && results.success.length > 0) {
-    console.log('\n✨ Posts scheduled! Run "node scripts/schedule.js list" to view queue.');
+    console.log('\n Posts scheduled! Run "node scripts/schedule.js list" to view queue.');
   }
 }
 
@@ -354,21 +354,21 @@ async function main() {
     const dryRun = args.includes('--dry-run') || args.includes('-d');
     
     if (!filePath) {
-      console.error('❌ Usage: node scripts/bulk.js import <file.csv|file.json> [--dry-run]');
+      console.error(' Usage: node scripts/bulk.js import <file.csv|file.json> [--dry-run]');
       process.exit(1);
     }
     
     try {
       await importBulk(filePath, dryRun);
     } catch (err) {
-      console.error(`❌ Error: ${err.message}`);
+      console.error(` Error: ${err.message}`);
       process.exit(1);
     }
   } else if (command === 'template') {
     generateTemplate();
   } else {
     console.log(`
-📦 Bulk Scheduler - Schedule multiple posts at once
+ Bulk Scheduler - Schedule multiple posts at once
 
 Usage:
   node scripts/bulk.js import <file.csv|file.json> [--dry-run]

@@ -168,7 +168,7 @@ def format_market(market: dict, verbose: bool = False) -> str:
     lines = []
     
     question = market.get('question') or market.get('title', 'Unknown')
-    lines.append(f"📊 **{question}**")
+    lines.append(f" **{question}**")
     
     prices = market.get('outcomePrices')
     if prices:
@@ -205,21 +205,21 @@ def format_market(market: dict, verbose: bool = False) -> str:
     end_date = market.get('endDate') or market.get('endDateIso')
     time_left = format_time_remaining(end_date)
     if time_left:
-        lines.append(f"   ⏰ {time_left}")
+        lines.append(f"    {time_left}")
     
     if verbose:
         week_change = format_change(market.get('oneWeekPriceChange'))
         month_change = format_change(market.get('oneMonthPriceChange'))
         if week_change or month_change:
-            lines.append(f"   📈 1w: {week_change or 'N/A'} | 1m: {month_change or 'N/A'}")
+            lines.append(f"    1w: {week_change or 'N/A'} | 1m: {month_change or 'N/A'}")
         
         liquidity = market.get('liquidityNum') or market.get('liquidity')
         if liquidity:
-            lines.append(f"   💧 Liquidity: {format_volume(liquidity)}")
+            lines.append(f"    Liquidity: {format_volume(liquidity)}")
     
     slug = market.get('slug') or market.get('market_slug')
     if slug:
-        lines.append(f"   🔗 polymarket.com/event/{slug}")
+        lines.append(f"    polymarket.com/event/{slug}")
     
     return '\n'.join(lines)
 
@@ -229,7 +229,7 @@ def format_event(event: dict, show_all_markets: bool = False) -> str:
     lines = []
     
     title = event.get('title', 'Unknown Event')
-    lines.append(f"🎯 **{title}**")
+    lines.append(f" **{title}**")
     
     volume = event.get('volume')
     if volume:
@@ -242,7 +242,7 @@ def format_event(event: dict, show_all_markets: bool = False) -> str:
     end_date = event.get('endDate')
     time_left = format_time_remaining(end_date)
     if time_left:
-        lines.append(f"   ⏰ {time_left}")
+        lines.append(f"    {time_left}")
     
     markets = event.get('markets', [])
     if markets:
@@ -274,7 +274,7 @@ def format_event(event: dict, show_all_markets: bool = False) -> str:
     
     slug = event.get('slug')
     if slug:
-        lines.append(f"   🔗 polymarket.com/event/{slug}")
+        lines.append(f"    polymarket.com/event/{slug}")
     
     return '\n'.join(lines)
 
@@ -292,7 +292,7 @@ def cmd_trending(args):
     
     data = fetch('/events', params)
     
-    print(f"🔥 **Trending on Polymarket**\n")
+    print(f" **Trending on Polymarket**\n")
     
     for event in data:
         print(format_event(event))
@@ -309,7 +309,7 @@ def cmd_featured(args):
     
     data = fetch('/events', params)
     
-    print(f"⭐ **Featured Markets**\n")
+    print(f" **Featured Markets**\n")
     
     if not data:
         params = {
@@ -380,7 +380,7 @@ def cmd_search(args):
     try:
         data = fetch('/events', {'slug': slug_guess, 'closed': 'false'})
         if data:
-            print(f"🔍 **Found: '{args.query}'**\n")
+            print(f" **Found: '{args.query}'**\n")
             for event in data[:args.limit]:
                 print(format_event(event, show_all_markets=args.all))
                 print()
@@ -418,7 +418,7 @@ def cmd_search(args):
                 if found:
                     break
         
-        print(f"🔍 **Search: '{args.query}'**\n")
+        print(f" **Search: '{args.query}'**\n")
         
         if not matches:
             print("No markets found.")
@@ -447,7 +447,7 @@ def cmd_event(args):
             if matches:
                 data = matches
             else:
-                print(f"❌ Event not found: {slug}")
+                print(f" Event not found: {slug}")
                 return
         
         event = data[0] if isinstance(data, list) and data else data
@@ -455,7 +455,7 @@ def cmd_event(args):
         
     except requests.HTTPError as e:
         if e.response.status_code == 404:
-            print(f"❌ Event not found: {slug}")
+            print(f" Event not found: {slug}")
         else:
             raise
 
@@ -469,14 +469,14 @@ def cmd_market(args):
         data = fetch('/events', {'slug': slug})
         
         if not data:
-            print(f"❌ Event not found: {slug}")
+            print(f" Event not found: {slug}")
             return
         
         event = data[0] if isinstance(data, list) else data
         markets = event.get('markets', [])
         
         if not outcome:
-            print(f"🎯 **{event.get('title')}**\n")
+            print(f" **{event.get('title')}**\n")
             for m in markets:
                 print(format_market(m, verbose=True))
                 print()
@@ -489,7 +489,7 @@ def cmd_market(args):
                 print(format_market(m, verbose=True))
                 return
         
-        print(f"❌ Outcome '{args.outcome}' not found")
+        print(f" Outcome '{args.outcome}' not found")
         print(f"\nAvailable outcomes:")
         for m in markets[:15]:
             name = m.get('groupItemTitle') or m.get('question', '')[:40]
@@ -497,7 +497,7 @@ def cmd_market(args):
                 
     except requests.HTTPError as e:
         if e.response.status_code == 404:
-            print(f"❌ Event not found: {slug}")
+            print(f" Event not found: {slug}")
         else:
             raise
 
@@ -533,7 +533,7 @@ def cmd_category(args):
                 matches.append(event)
                 break
     
-    print(f"📁 **Category: {args.category.title()}**\n")
+    print(f" **Category: {args.category.title()}**\n")
     
     if not matches:
         print(f"No markets found for '{args.category}'")
@@ -557,11 +557,11 @@ def cmd_watch(args):
         try:
             data = fetch('/events', {'slug': slug})
             if not data:
-                print(f"❌ Event not found: {slug}")
+                print(f" Event not found: {slug}")
                 return
             event = data[0] if isinstance(data, list) else data
         except:
-            print(f"❌ Could not fetch event: {slug}")
+            print(f" Could not fetch event: {slug}")
             return
         
         # Get price from first market or specified outcome
@@ -605,7 +605,7 @@ def cmd_watch(args):
         if args.alert_change:
             alert_str += f" (alert on {args.alert_change}% change)"
         
-        print(f"👁️ Now watching: **{market_name}**")
+        print(f" Now watching: **{market_name}**")
         print(f"   Current: {format_price(price)}{alert_str}")
         print(f"   Slug: {slug}")
         
@@ -616,17 +616,17 @@ def cmd_watch(args):
         save_json('watchlist.json', watchlist)
         
         if len(watchlist['markets']) < before:
-            print(f"✅ Removed {slug} from watchlist")
+            print(f" Removed {slug} from watchlist")
         else:
-            print(f"❌ {slug} not in watchlist")
+            print(f" {slug} not in watchlist")
             
     elif args.action == 'list':
         if not watchlist['markets']:
-            print("📋 Watchlist is empty")
+            print(" Watchlist is empty")
             print("\nAdd markets with: polymarket watch add <slug>")
             return
         
-        print(f"👁️ **Watchlist** ({len(watchlist['markets'])} markets)\n")
+        print(f" **Watchlist** ({len(watchlist['markets'])} markets)\n")
         
         for w in watchlist['markets']:
             try:
@@ -721,14 +721,14 @@ def cmd_alerts(args):
             continue
     
     if alerts:
-        print(f"🚨 **Polymarket Alerts** ({len(alerts)})\n")
+        print(f" **Polymarket Alerts** ({len(alerts)})\n")
         for a in alerts:
             print(f"• **{a['name']}**")
             print(f"  {a['reason']}")
-            print(f"  🔗 polymarket.com/event/{a['slug']}")
+            print(f"   polymarket.com/event/{a['slug']}")
             print()
     elif not args.quiet:
-        print("✅ No alerts triggered")
+        print(" No alerts triggered")
 
 
 # ==================== NEW: CALENDAR ====================
@@ -762,7 +762,7 @@ def cmd_calendar(args):
     
     upcoming.sort(key=lambda x: x[0])
     
-    print(f"📅 **Resolving in {days} days** ({len(upcoming)} markets)\n")
+    print(f" **Resolving in {days} days** ({len(upcoming)} markets)\n")
     
     if not upcoming:
         print("No markets resolving in this timeframe.")
@@ -844,14 +844,14 @@ def cmd_movers(args):
     # Sort by absolute change
     movers.sort(key=lambda x: abs(x['change']), reverse=True)
     
-    print(f"📈 **Biggest Movers ({timeframe})**\n")
+    print(f" **Biggest Movers ({timeframe})**\n")
     
     if not movers:
         print("No significant movers found.")
         return
     
     for m in movers[:args.limit]:
-        direction = "🟢" if m['change'] > 0 else "🔴"
+        direction = "" if m['change'] > 0 else ""
         change_pct = m['change'] * 100
         
         name = m['market'] or m['event']
@@ -937,24 +937,24 @@ def cmd_digest(args):
     upcoming.sort(key=lambda x: x[0])
     
     # Print digest
-    print(f"📊 **{category.title()} Digest**\n")
+    print(f" **{category.title()} Digest**\n")
     print(f"Markets: {len(matches)} | Volume: {format_volume(total_volume)} | 24h: {format_volume(total_24h)}")
     print()
     
     if movers:
-        print("**🔥 Biggest Movers (24h)**")
+        print("** Biggest Movers (24h)**")
         for m in movers[:5]:
             direction = "↑" if m['change'] > 0 else "↓"
             print(f"  {direction} {m['name'][:40]}: {m['change']*100:+.1f}%")
         print()
     
     if upcoming:
-        print("**⏰ Resolving This Week**")
+        print("** Resolving This Week**")
         for dt, event in upcoming[:5]:
             print(f"  {dt.strftime('%a %b %d')}: {event.get('title', '')[:40]}")
         print()
     
-    print("**📈 Top by Volume**")
+    print("** Top by Volume**")
     for event in matches[:5]:
         print(format_event(event))
         print()
@@ -967,13 +967,13 @@ def cmd_portfolio(args):
     portfolio = load_json('portfolio.json', {'positions': [], 'history': [], 'cash': 10000})
     
     if not portfolio['positions']:
-        print("📈 **Paper Portfolio**\n")
+        print(" **Paper Portfolio**\n")
         print(f"Cash: ${portfolio['cash']:,.2f}")
         print("\nNo positions. Start with:")
         print("  polymarket buy <slug> <amount>")
         return
     
-    print("📈 **Paper Portfolio**\n")
+    print(" **Paper Portfolio**\n")
     
     total_value = portfolio['cash']
     total_cost = 0
@@ -1003,7 +1003,7 @@ def cmd_portfolio(args):
                 total_value += current_value
                 total_cost += cost_basis
                 
-                direction = "🟢" if pnl >= 0 else "🔴"
+                direction = "" if pnl >= 0 else ""
                 print(f"{direction} **{pos['name'][:40]}**")
                 print(f"   {shares:.0f} shares @ {format_price(pos['entry_price'])} → {format_price(current_price)}")
                 print(f"   Value: ${current_value:,.2f} | P&L: ${pnl:+,.2f} ({pnl_pct:+.1f}%)")
@@ -1027,13 +1027,13 @@ def cmd_buy(args):
     amount = args.amount
     
     if amount > portfolio['cash']:
-        print(f"❌ Insufficient cash. Have: ${portfolio['cash']:,.2f}, Need: ${amount:,.2f}")
+        print(f" Insufficient cash. Have: ${portfolio['cash']:,.2f}, Need: ${amount:,.2f}")
         return
     
     try:
         data = fetch('/events', {'slug': slug})
         if not data:
-            print(f"❌ Event not found: {slug}")
+            print(f" Event not found: {slug}")
             return
         
         event = data[0] if isinstance(data, list) else data
@@ -1051,7 +1051,7 @@ def cmd_buy(args):
                     market_name = m.get('groupItemTitle', market_name)
                     break
             if price == 0:
-                print(f"❌ Outcome '{outcome}' not found")
+                print(f" Outcome '{outcome}' not found")
                 return
         elif markets:
             price = get_market_price(markets[0])
@@ -1059,7 +1059,7 @@ def cmd_buy(args):
                 market_name = markets[0].get('question', market_name)
         
         if price <= 0:
-            print("❌ Could not get price")
+            print(" Could not get price")
             return
         
         shares = amount / price
@@ -1102,12 +1102,12 @@ def cmd_buy(args):
         
         save_json('portfolio.json', portfolio)
         
-        print(f"✅ Bought {shares:.1f} shares of **{market_name}**")
+        print(f" Bought {shares:.1f} shares of **{market_name}**")
         print(f"   Price: {format_price(price)} | Cost: ${amount:,.2f}")
         print(f"   Cash remaining: ${portfolio['cash']:,.2f}")
         
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
 
 
 def cmd_sell(args):
@@ -1124,13 +1124,13 @@ def cmd_sell(args):
             break
     
     if not pos:
-        print(f"❌ No position in {slug}")
+        print(f" No position in {slug}")
         return
     
     try:
         data = fetch('/events', {'slug': slug})
         if not data:
-            print(f"❌ Event not found: {slug}")
+            print(f" Event not found: {slug}")
             return
         
         event = data[0] if isinstance(data, list) else data
@@ -1146,7 +1146,7 @@ def cmd_sell(args):
             price = get_market_price(markets[0])
         
         if price <= 0:
-            print("❌ Could not get price")
+            print(" Could not get price")
             return
         
         shares = pos['shares']
@@ -1167,14 +1167,14 @@ def cmd_sell(args):
         
         save_json('portfolio.json', portfolio)
         
-        direction = "🟢" if pnl >= 0 else "🔴"
+        direction = "" if pnl >= 0 else ""
         print(f"{direction} Sold {shares:.1f} shares of **{pos['name']}**")
         print(f"   Price: {format_price(price)} | Proceeds: ${proceeds:,.2f}")
         print(f"   P&L: ${pnl:+,.2f}")
         print(f"   Cash: ${portfolio['cash']:,.2f}")
         
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
 
 
 # ==================== MAIN ====================
@@ -1265,10 +1265,10 @@ def main():
     try:
         commands[args.command](args)
     except requests.RequestException as e:
-        print(f"❌ API Error: {e}", file=sys.stderr)
+        print(f" API Error: {e}", file=sys.stderr)
         sys.exit(1)
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

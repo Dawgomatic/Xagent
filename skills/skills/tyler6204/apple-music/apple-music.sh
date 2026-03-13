@@ -41,7 +41,7 @@ warn() {
 }
 
 info() {
-    echo -e "${CYAN}ℹ${NC} $1"
+    echo -e "${CYAN}${NC} $1"
 }
 
 # Load configuration
@@ -529,7 +529,7 @@ cmd_player() {
             else
                 osascript -e 'tell application "Music" to play'
             fi
-            echo -e "${GREEN}▶${NC} Playing"
+            echo -e "${GREEN}${NC} Playing"
             ;;
         song)
             # Search library and play a specific song
@@ -551,7 +551,7 @@ cmd_player() {
             if [[ "$result" == "NOT_FOUND" ]]; then
                 error "Song not found in library: $query"
             else
-                echo -e "${GREEN}▶${NC} Now playing: $result"
+                echo -e "${GREEN}${NC} Now playing: $result"
             fi
             ;;
         id|catalog)
@@ -611,16 +611,16 @@ cmd_player() {
             if [[ "$result" == "NOT_FOUND" ]]; then
                 warn "Song added but couldn't auto-play. Try: apple-music player song \"$song_name\""
             else
-                echo -e "${GREEN}▶${NC} Now playing: $result"
+                echo -e "${GREEN}${NC} Now playing: $result"
             fi
             ;;
         pause)
             osascript -e 'tell application "Music" to pause'
-            echo -e "${YELLOW}⏸${NC} Paused"
+            echo -e "${YELLOW}${NC} Paused"
             ;;
         toggle)
             osascript -e 'tell application "Music" to playpause'
-            echo -e "${CYAN}⏯${NC} Toggled play/pause"
+            echo -e "${CYAN}${NC} Toggled play/pause"
             ;;
         next|skip)
             osascript -e 'tell application "Music" to next track'
@@ -637,10 +637,10 @@ cmd_player() {
             current=$(osascript -e 'tell application "Music" to get shuffle enabled')
             if [[ "$current" == "true" ]]; then
                 osascript -e 'tell application "Music" to set shuffle enabled to false'
-                echo -e "${CYAN}🔀${NC} Shuffle: OFF"
+                echo -e "${CYAN}${NC} Shuffle: OFF"
             else
                 osascript -e 'tell application "Music" to set shuffle enabled to true'
-                echo -e "${CYAN}🔀${NC} Shuffle: ON"
+                echo -e "${CYAN}${NC} Shuffle: ON"
             fi
             ;;
         repeat)
@@ -649,15 +649,15 @@ cmd_player() {
             case "$current" in
                 off)
                     osascript -e 'tell application "Music" to set song repeat to all'
-                    echo -e "${CYAN}🔁${NC} Repeat: ALL"
+                    echo -e "${CYAN}${NC} Repeat: ALL"
                     ;;
                 all)
                     osascript -e 'tell application "Music" to set song repeat to one'
-                    echo -e "${CYAN}🔂${NC} Repeat: ONE"
+                    echo -e "${CYAN}${NC} Repeat: ONE"
                     ;;
                 one)
                     osascript -e 'tell application "Music" to set song repeat to off'
-                    echo -e "${CYAN}➡️${NC} Repeat: OFF"
+                    echo -e "${CYAN}${NC} Repeat: OFF"
                     ;;
             esac
             ;;
@@ -670,15 +670,15 @@ cmd_player() {
                     set albumName to album of current track
                     set shuffleState to shuffle enabled
                     set repeatState to song repeat as string
-                    set statusLine to "▶ " & trackName & " - " & artistName & " (" & albumName & ")"
+                    set statusLine to " " & trackName & " - " & artistName & " (" & albumName & ")"
                     if shuffleState then
-                        set statusLine to statusLine & " 🔀"
+                        set statusLine to statusLine & " "
                     end if
                     if repeatState is not "off" then
                         if repeatState is "one" then
-                            set statusLine to statusLine & " 🔂"
+                            set statusLine to statusLine & " "
                         else
-                            set statusLine to statusLine & " 🔁"
+                            set statusLine to statusLine & " "
                         end if
                     end if
                     return statusLine
@@ -686,11 +686,11 @@ cmd_player() {
                     set trackName to name of current track
                     set artistName to artist of current track
                     set albumName to album of current track
-                    return "⏸ " & trackName & " - " & artistName & " (" & albumName & ")"
+                    return " " & trackName & " - " & artistName & " (" & albumName & ")"
                 else
-                    return "⏹ Not playing"
+                    return " Not playing"
                 end if
-            end tell' 2>/dev/null) || info="⏹ Music app not running"
+            end tell' 2>/dev/null) || info=" Music app not running"
             echo "$info"
             ;;
         vol|volume)
@@ -713,11 +713,11 @@ cmd_player() {
                 osascript -e "set volume output volume $vol"
                 osascript -e "set volume without output muted"
                 
-                echo -e "${CYAN}🔊${NC} Volume set to $vol (app + system)"
+                echo -e "${CYAN}${NC} Volume set to $vol (app + system)"
             else
                 local vol
                 vol=$(osascript -e 'tell application "Music" to get sound volume')
-                echo -e "${CYAN}🔊${NC} Volume: $vol"
+                echo -e "${CYAN}${NC} Volume: $vol"
             fi
             ;;
         --help|-h|"")
@@ -756,7 +756,7 @@ cmd_airplay() {
     
     case "$subcommand" in
         list|devices)
-            echo -e "${CYAN}ℹ${NC} AirPlay Devices:"
+            echo -e "${CYAN}${NC} AirPlay Devices:"
             echo ""
             osascript -e '
                 tell application "Music"

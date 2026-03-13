@@ -4,25 +4,25 @@ A powerful OpenClaw skill for discovering, downloading, and managing datasets fr
 
 ## Features
 
-✅ **Multi-Repository Search**
+ **Multi-Repository Search**
 - Kaggle (ML competitions & community datasets)
 - Hugging Face (NLP, vision, audio datasets)
 - UCI ML Repository (classic ML datasets)
 - Data.gov (US government open data)
 
-✅ **Smart Download**
+ **Smart Download**
 - Automatic format detection
 - Multiple format support (CSV, JSON, Parquet, Excel)
 - Batch downloading
 - Progress tracking
 
-✅ **Dataset Preview**
+ **Dataset Preview**
 - Quick statistics without full load
 - Column types and missing values
 - Sample data inspection
 - Memory usage estimation
 
-✅ **Documentation Generation**
+ **Documentation Generation**
 - Auto-generate data cards
 - Schema documentation
 - Usage examples
@@ -52,7 +52,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-⚠️ **Never use `--break-system-packages`** - use virtual environments instead!
+ **Never use `--break-system-packages`** - use virtual environments instead!
 
 ### API Credentials
 

@@ -3,7 +3,7 @@ name: content-remix-studio
 description: Transform one piece of content into platform-optimized versions for YouTube, TikTok, Twitter/X, LinkedIn, Instagram, newsletters, and blogs. Adapts tone, format, length, and style for each platform's algorithm and audience expectations.
 metadata:
   openclaw:
-    emoji: "🎬"
+    emoji: ""
     version: "1.0.0"
     author: "AM"
     tags: ["content-creation", "social-media", "repurposing", "marketing", "video", "writing", "creator-economy"]
@@ -123,7 +123,7 @@ Beyond just conversion, get strategic guidance:
 - Title: "5 Productivity Hacks That Actually Work for Remote Workers (No BS)"
 - Hook Script: "If you're working from home and feel like you're drowning in distractions..."
 - Timestamps: 0:00 Intro | 1:23 Hack #1: The 52-17 Rule | 4:10 Hack #2...
-- Pinned Comment: "Which hack are you trying first? Drop a number 1-5 below 👇"
+- Pinned Comment: "Which hack are you trying first? Drop a number 1-5 below "
 
 **TikTok/Shorts (5x 60-second clips):**
 Clip 1: "The 52-17 Rule"
@@ -134,7 +134,7 @@ Clip 1: "The 52-17 Rule"
 **Twitter Thread (12 tweets):**
 1/ I just tested 5 productivity hacks for 30 days while working remotely.
 
-Only 3 actually worked. Here's what I learned 🧵
+Only 3 actually worked. Here's what I learned 
 
 2/ First, the problem: Working from home = endless distractions...
 
@@ -142,7 +142,7 @@ Only 3 actually worked. Here's what I learned 🧵
 
 12/ Which one resonates most with you? Reply and let me know!
 
-And if this thread helped you, RT the first tweet so others can see it 🙏
+And if this thread helped you, RT the first tweet so others can see it 
 
 **LinkedIn Article:**
 Title: "5 Evidence-Based Productivity Strategies for Remote Teams"
@@ -151,11 +151,11 @@ Opening: "In Q4 2025, I conducted a personal experiment testing popular producti
 CTA: "What productivity systems have worked for your remote team? Share in comments."
 
 **Instagram Carousel (10 slides):**
-Slide 1: "5 Productivity Hacks for Remote Work ➡️"
+Slide 1: "5 Productivity Hacks for Remote Work "
 Slide 2-6: [Each hack with icon, 1-2 sentences, visual design]
 Slide 7: "My Results After 30 Days"
 Slide 8-9: [Data visualization, key metrics]
-Slide 10: "Save this for later! Which will you try? Drop a 🔥 in comments"
+Slide 10: "Save this for later! Which will you try? Drop a  in comments"
 
 **Blog Post (SEO Version):**
 Title: "5 Productivity Hacks for Remote Workers (2026 Guide)"
@@ -387,7 +387,7 @@ Same topic, different angles for different platforms:
 
 ### Twitter Hooks
 - **Bold Claim**: "X is dead. Here's what's replacing it..."
-- **Numbered Thread**: "10 lessons from X that changed my life 🧵"
+- **Numbered Thread**: "10 lessons from X that changed my life "
 - **Contrarian**: "Unpopular opinion: X is overrated. Here's why..."
 - **Data-Driven**: "I analyzed 1000 tweets. Here's what works..."
 - **Personal**: "I made $X doing Y. Here's exactly how..."

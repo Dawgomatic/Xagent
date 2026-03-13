@@ -7,13 +7,13 @@ Educational options trading tool providing theoretical pricing, strategy analysi
 Options Strategy Advisor helps traders understand and analyze options strategies without requiring expensive real-time options data. It uses theoretical pricing models (Black-Scholes) combined with free stock market data (FMP API) to simulate strategies and calculate Greeks.
 
 **Key Features:**
-- ✅ Black-Scholes pricing engine
-- ✅ All Greeks calculation (Delta, Gamma, Theta, Vega, Rho)
-- ✅ 17+ options strategies supported
-- ✅ P/L simulation and visualization
-- ✅ Earnings strategy integration
-- ✅ Historical volatility calculation
-- ✅ Risk management guidance
+-  Black-Scholes pricing engine
+-  All Greeks calculation (Delta, Gamma, Theta, Vega, Rho)
+-  17+ options strategies supported
+-  P/L simulation and visualization
+-  Earnings strategy integration
+-  Historical volatility calculation
+-  Risk management guidance
 
 ## Why This Approach?
 

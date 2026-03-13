@@ -106,7 +106,7 @@ def get_scripts_dir() -> Path:
 def generate_encryption_key() -> bytes:
     """Generate a new Fernet encryption key."""
     if not CRYPTO_AVAILABLE:
-        print("❌ cryptography library not installed!")
+        print(" cryptography library not installed!")
         print("   Install with: pip install clawbrain[encryption]")
         sys.exit(1)
     
@@ -135,27 +135,27 @@ def print_key_info(key: bytes, show_full: bool = False) -> None:
     key_str = key.decode()
     
     if show_full:
-        print(f"\n🔑 Encryption Key:")
+        print(f"\n Encryption Key:")
         print(f"   {key_str}")
     else:
         # Show only first and last 8 characters
         masked = f"{key_str[:8]}...{key_str[-8:]}"
-        print(f"\n🔑 Encryption Key (masked): {masked}")
+        print(f"\n Encryption Key (masked): {masked}")
     
-    print(f"\n📋 Key Length: {len(key_str)} characters")
-    print(f"📅 Generated: {datetime.now().isoformat()}")
+    print(f"\n Key Length: {len(key_str)} characters")
+    print(f" Generated: {datetime.now().isoformat()}")
 
 
 def cmd_setup(args):
     """Set up ClawBrain for ClawdBot/OpenClaw."""
-    print("🧠 ClawBrain Setup")
+    print(" ClawBrain Setup")
     print("=" * 40)
     
     # Detect platform
     platform_name, config_dir, hooks_dir = detect_platform()
     
     if platform_name == "unknown":
-        print("\n⚠️  ClawdBot/OpenClaw not detected.")
+        print("\n  ClawdBot/OpenClaw not detected.")
         print("   ClawBrain can still be used as a Python library.")
         print("   For full integration, install ClawdBot or OpenClaw first.")
         
@@ -165,36 +165,36 @@ def cmd_setup(args):
                 print("Setup cancelled.")
                 return 1
     else:
-        print(f"\n📍 Detected platform: {platform_name}")
-        print(f"📁 Config directory: {config_dir}")
-        print(f"📁 Hooks directory: {hooks_dir}")
+        print(f"\n Detected platform: {platform_name}")
+        print(f" Config directory: {config_dir}")
+        print(f" Hooks directory: {hooks_dir}")
     
     # Step 1: Generate encryption key
-    print("\n📦 Step 1: Setting up encryption...")
+    print("\n Step 1: Setting up encryption...")
     key_path = get_key_path()
     
     if key_path.exists() and not args.force:
-        print(f"   ✅ Encryption key already exists at {key_path}")
+        print(f"    Encryption key already exists at {key_path}")
         key = load_key(key_path)
     else:
         if CRYPTO_AVAILABLE:
             key = generate_encryption_key()
             save_key(key, key_path)
-            print(f"   ✅ Generated new encryption key")
-            print(f"   📁 Saved to: {key_path}")
+            print(f"    Generated new encryption key")
+            print(f"    Saved to: {key_path}")
             
             # Show key backup options
-            print("\n   ⚠️  IMPORTANT: Backup your encryption key!")
+            print("\n     IMPORTANT: Backup your encryption key!")
             print("   Lost keys = lost encrypted data.")
             print(f"\n   Run 'clawbrain backup-key' to create a backup.")
         else:
-            print("   ⚠️  cryptography not installed - encryption disabled")
+            print("     cryptography not installed - encryption disabled")
             print("   Install with: pip install clawbrain[encryption]")
             key = None
     
     # Step 2: Install hooks (if platform detected)
     if platform_name != "unknown":
-        print("\n📦 Step 2: Installing hooks...")
+        print("\n Step 2: Installing hooks...")
         
         try:
             hooks_src_dir = get_hooks_dir()
@@ -208,17 +208,17 @@ def cmd_setup(args):
                     shutil.rmtree(hook_dst)
                 
                 shutil.copytree(hook_src, hook_dst)
-                print(f"   ✅ Installed hook: clawbrain-startup")
-                print(f"   📁 Location: {hook_dst}")
+                print(f"    Installed hook: clawbrain-startup")
+                print(f"    Location: {hook_dst}")
             else:
-                print(f"   ⚠️  Hook source not found at {hook_src}")
+                print(f"     Hook source not found at {hook_src}")
                 print("   You may need to install hooks manually.")
                 print(f"   Check: {hooks_src_dir}")
         except Exception as e:
-            print(f"   ❌ Failed to install hooks: {e}")
+            print(f"    Failed to install hooks: {e}")
     
     # Step 3: Test installation
-    print("\n📦 Step 3: Testing installation...")
+    print("\n Step 3: Testing installation...")
     unencrypted_count = 0
     try:
         from clawbrain import Brain
@@ -226,7 +226,7 @@ def cmd_setup(args):
         health = brain.health_check()
         
         if health.get("sqlite") or health.get("postgresql"):
-            print("   ✅ ClawBrain is working!")
+            print("    ClawBrain is working!")
             print(f"   Storage: {brain.storage_backend}")
             
             # Check for unencrypted secrets
@@ -237,11 +237,11 @@ def cmd_setup(args):
                 except Exception:
                     pass  # Ignore errors during check
         else:
-            print("   ⚠️  Storage backend not available")
+            print("     Storage backend not available")
         
         brain.close()
     except Exception as e:
-        print(f"   ❌ Test failed: {e}")
+        print(f"    Test failed: {e}")
     
     # Check for personality files
     personality_files_found = False
@@ -254,44 +254,44 @@ def cmd_setup(args):
     
     # Summary
     print("\n" + "=" * 40)
-    print("✅ Setup complete!")
+    print(" Setup complete!")
     
     if platform_name != "unknown":
         service_name = platform_name
-        print(f"\n🎉 Restart your service to activate:")
+        print(f"\n Restart your service to activate:")
         print(f"   sudo systemctl restart {service_name}")
     
     if key:
-        print(f"\n🔐 Encryption is enabled!")
+        print(f"\n Encryption is enabled!")
         print(f"   Key location: {key_path}")
         print(f"   Run 'clawbrain backup-key' to backup your key.")
         
         # Alert about unencrypted secrets
         if unencrypted_count > 0:
-            print(f"\n⚠️  Found {unencrypted_count} existing unencrypted secret(s)!")
+            print(f"\n  Found {unencrypted_count} existing unencrypted secret(s)!")
             print("   These were stored before encryption was enabled.")
             print("   Run 'clawbrain migrate-secrets' to encrypt them.")
     
     # Suggest personality import
     if personality_files_found:
-        print(f"\n📄 Found OpenClaw personality files!")
+        print(f"\n Found OpenClaw personality files!")
         print("   Import them to seed ClawBrain's memory:")
         print("   clawbrain import-personality")
     
-    print("\n📚 Documentation: https://github.com/clawcolab/clawbrain")
+    print("\n Documentation: https://github.com/clawcolab/clawbrain")
     
     return 0
 
 
 def cmd_generate_key(args):
     """Generate a new encryption key."""
-    print("🔑 Generating Encryption Key")
+    print(" Generating Encryption Key")
     print("=" * 40)
     
     key_path = get_key_path()
     
     if key_path.exists() and not args.force:
-        print(f"\n⚠️  An encryption key already exists at {key_path}")
+        print(f"\n  An encryption key already exists at {key_path}")
         print("   Generating a new key will NOT affect existing encrypted data.")
         print("   You'll need to keep the old key to decrypt old data.")
         
@@ -303,53 +303,53 @@ def cmd_generate_key(args):
         # Backup old key
         backup_path = key_path.with_suffix(f".backup.{datetime.now().strftime('%Y%m%d_%H%M%S')}")
         shutil.copy(key_path, backup_path)
-        print(f"\n📁 Old key backed up to: {backup_path}")
+        print(f"\n Old key backed up to: {backup_path}")
     
     # Generate new key
     key = generate_encryption_key()
     save_key(key, key_path)
     
-    print(f"\n✅ New encryption key generated!")
+    print(f"\n New encryption key generated!")
     print_key_info(key, show_full=args.show)
     
-    print(f"\n📁 Saved to: {key_path}")
-    print("\n⚠️  IMPORTANT: Run 'clawbrain backup-key' to backup this key!")
+    print(f"\n Saved to: {key_path}")
+    print("\n  IMPORTANT: Run 'clawbrain backup-key' to backup this key!")
     
     return 0
 
 
 def cmd_show_key(args):
     """Display the current encryption key."""
-    print("🔑 Current Encryption Key")
+    print(" Current Encryption Key")
     print("=" * 40)
     
     key_path = get_key_path()
     
     if not key_path.exists():
-        print("\n❌ No encryption key found!")
+        print("\n No encryption key found!")
         print("   Run 'clawbrain setup' or 'clawbrain generate-key' first.")
         return 1
     
     key = load_key(key_path)
     print_key_info(key, show_full=args.full)
     
-    print(f"\n📁 Key location: {key_path}")
+    print(f"\n Key location: {key_path}")
     
     if args.full:
-        print("\n⚠️  Keep this key secret! Anyone with this key can decrypt your data.")
+        print("\n  Keep this key secret! Anyone with this key can decrypt your data.")
     
     return 0
 
 
 def cmd_backup_key(args):
     """Backup the encryption key with multiple options."""
-    print("💾 Backup Encryption Key")
+    print(" Backup Encryption Key")
     print("=" * 40)
     
     key_path = get_key_path()
     
     if not key_path.exists():
-        print("\n❌ No encryption key found!")
+        print("\n No encryption key found!")
         print("   Run 'clawbrain setup' or 'clawbrain generate-key' first.")
         return 1
     
@@ -385,7 +385,7 @@ To restore:
         if platform.system() != "Windows":
             os.chmod(backup_path, 0o600)
         
-        print(f"\n✅ Key backed up to file: {backup_path}")
+        print(f"\n Key backed up to file: {backup_path}")
         backup_methods.append("file")
     
     # Method 2: Display as QR code (if qrcode library available)
@@ -404,7 +404,7 @@ To restore:
             qr.make(fit=True)
             
             # Print QR code as ASCII
-            print("\n📱 QR Code (scan with phone):")
+            print("\n QR Code (scan with phone):")
             print("-" * 40)
             
             f = StringIO()
@@ -417,7 +417,7 @@ To restore:
             backup_methods.append("qr")
         except ImportError:
             if args.qr:  # Only warn if explicitly requested
-                print("\n⚠️  QR code requires qrcode library:")
+                print("\n  QR code requires qrcode library:")
                 print("   pip install qrcode")
     
     # Method 3: Copy to clipboard
@@ -425,17 +425,17 @@ To restore:
         try:
             import pyperclip
             pyperclip.copy(key_str)
-            print("\n✅ Key copied to clipboard!")
+            print("\n Key copied to clipboard!")
             print("   Paste it into your password manager or secure notes.")
             backup_methods.append("clipboard")
         except ImportError:
             if args.clipboard:  # Only warn if explicitly requested
-                print("\n⚠️  Clipboard copy requires pyperclip library:")
+                print("\n  Clipboard copy requires pyperclip library:")
                 print("   pip install pyperclip")
     
     # Method 4: Display the key
     if args.display or args.all or not backup_methods:
-        print("\n🔑 Encryption Key:")
+        print("\n Encryption Key:")
         print("-" * 40)
         print(key_str)
         print("-" * 40)
@@ -447,9 +447,9 @@ To restore:
     
     # Summary
     print("\n" + "=" * 40)
-    print("✅ Backup complete!")
+    print(" Backup complete!")
     print(f"   Methods used: {', '.join(backup_methods)}")
-    print("\n⚠️  IMPORTANT:")
+    print("\n  IMPORTANT:")
     print("   • Store backup in a secure location")
     print("   • Delete temporary files after securing the key")
     print("   • Lost keys = lost encrypted data")
@@ -459,7 +459,7 @@ To restore:
 
 def cmd_health(args):
     """Check ClawBrain health status."""
-    print("🏥 ClawBrain Health Check")
+    print(" ClawBrain Health Check")
     print("=" * 40)
     
     try:
@@ -468,53 +468,53 @@ def cmd_health(args):
         brain = Brain()
         health = brain.health_check()
         
-        print(f"\n📦 Storage Backend: {brain.storage_backend}")
-        print(f"🔐 Encryption: {'Enabled' if brain._cipher else 'Disabled'}")
+        print(f"\n Storage Backend: {brain.storage_backend}")
+        print(f" Encryption: {'Enabled' if brain._cipher else 'Disabled'}")
         
-        print("\n📊 Backend Status:")
+        print("\n Backend Status:")
         for backend, status in health.items():
-            icon = "✅" if status else "❌"
+            icon = "" if status else ""
             print(f"   {icon} {backend}: {'Available' if status else 'Not available'}")
         
         brain.close()
-        print("\n✅ ClawBrain is healthy!")
+        print("\n ClawBrain is healthy!")
         return 0
         
     except Exception as e:
-        print(f"\n❌ Health check failed: {e}")
+        print(f"\n Health check failed: {e}")
         return 1
 
 
 def cmd_info(args):
     """Show installation information."""
-    print("ℹ️  ClawBrain Information")
+    print("  ClawBrain Information")
     print("=" * 40)
     
     try:
         import clawbrain
-        print(f"\n📦 Version: {getattr(clawbrain, '__version__', 'unknown')}")
-        print(f"📁 Package Location: {get_package_dir()}")
+        print(f"\n Version: {getattr(clawbrain, '__version__', 'unknown')}")
+        print(f" Package Location: {get_package_dir()}")
     except ImportError:
-        print("\n❌ ClawBrain not installed!")
+        print("\n ClawBrain not installed!")
         return 1
     
-    print(f"\n🔧 Configuration:")
+    print(f"\n Configuration:")
     print(f"   Config Dir: {get_config_dir()}")
     print(f"   Key Path: {get_key_path()}")
     print(f"   Key Exists: {'Yes' if get_key_path().exists() else 'No'}")
     
     platform_name, config_dir, hooks_dir = detect_platform()
-    print(f"\n🖥️  Platform:")
+    print(f"\n  Platform:")
     print(f"   Detected: {platform_name}")
     if platform_name != "unknown":
         print(f"   Config Dir: {config_dir}")
         print(f"   Hooks Dir: {hooks_dir}")
     
-    print(f"\n🐍 Python:")
+    print(f"\n Python:")
     print(f"   Version: {sys.version}")
     print(f"   Executable: {sys.executable}")
     
-    print(f"\n📚 Optional Dependencies:")
+    print(f"\n Optional Dependencies:")
     deps = [
         ("cryptography", "Encryption"),
         ("psycopg2", "PostgreSQL"),
@@ -527,22 +527,22 @@ def cmd_info(args):
     for module, desc in deps:
         try:
             __import__(module)
-            print(f"   ✅ {desc} ({module})")
+            print(f"    {desc} ({module})")
         except ImportError:
-            print(f"   ❌ {desc} ({module})")
+            print(f"    {desc} ({module})")
     
     return 0
 
 
 def cmd_migrate_secrets(args):
     """Migrate unencrypted secrets to encrypted storage."""
-    print("🔐 ClawBrain Secret Migration")
+    print(" ClawBrain Secret Migration")
     print("=" * 40)
     
     # Check for encryption key
     key_path = get_key_path()
     if not key_path.exists():
-        print("\n❌ No encryption key found!")
+        print("\n No encryption key found!")
         print("   Run 'clawbrain setup' or 'clawbrain generate-key' first.")
         return 1
     
@@ -552,7 +552,7 @@ def cmd_migrate_secrets(args):
         try:
             from clawbrain import Brain
         except ImportError:
-            print("\n❌ Cannot import Brain class!")
+            print("\n Cannot import Brain class!")
             return 1
     
     # Set up environment for encryption
@@ -562,54 +562,54 @@ def cmd_migrate_secrets(args):
         brain = Brain()
         
         if args.dry_run:
-            print("\n🔍 Dry run - checking for unencrypted secrets...")
+            print("\n Dry run - checking for unencrypted secrets...")
             result = brain.migrate_secrets(dry_run=True)
             
             if result["count"] == 0:
-                print("\n✅ No unencrypted secrets found! All secrets are already encrypted.")
+                print("\n No unencrypted secrets found! All secrets are already encrypted.")
                 return 0
             
-            print(f"\n⚠️  Found {result['count']} unencrypted secret(s):")
+            print(f"\n  Found {result['count']} unencrypted secret(s):")
             for secret in result.get("secrets", []):
                 print(f"   • ID: {secret['id'][:8]}... | Agent: {secret.get('agent_id', 'N/A')}")
             
-            print(f"\n💡 Run 'clawbrain migrate-secrets' (without --dry-run) to encrypt them.")
+            print(f"\n Run 'clawbrain migrate-secrets' (without --dry-run) to encrypt them.")
             return 0
         
         # Confirm migration
         if not args.force:
-            print("\n⚠️  This will encrypt all unencrypted secrets in the database.")
+            print("\n  This will encrypt all unencrypted secrets in the database.")
             print("   Make sure you have backed up your encryption key!")
             response = input("\n   Proceed? [y/N]: ").strip().lower()
             if response not in ("y", "yes"):
-                print("\n❌ Migration cancelled.")
+                print("\n Migration cancelled.")
                 return 1
         
-        print("\n🔄 Migrating secrets...")
+        print("\n Migrating secrets...")
         result = brain.migrate_secrets(dry_run=False)
         
         if result.get("count", 0) == 0:
-            print("\n✅ No unencrypted secrets found! Nothing to migrate.")
+            print("\n No unencrypted secrets found! Nothing to migrate.")
             return 0
         
         if result.get("success"):
-            print(f"\n✅ Successfully migrated {result['migrated']} secret(s)!")
+            print(f"\n Successfully migrated {result['migrated']} secret(s)!")
         else:
-            print(f"\n⚠️  Migration completed with issues:")
+            print(f"\n  Migration completed with issues:")
             print(f"   Migrated: {result['migrated']}")
             print(f"   Failed: {result['failed']}")
             if result.get("errors"):
                 for err in result["errors"]:
                     print(f"   • Error: {err['error']}")
         
-        print("\n⚠️  Important: Your encryption key is critical for accessing these secrets!")
+        print("\n  Important: Your encryption key is critical for accessing these secrets!")
         print(f"   Key location: {key_path}")
         print("   Run 'clawbrain backup-key --all' to create backups.")
         
         return 0 if result.get("success") else 1
         
     except Exception as e:
-        print(f"\n❌ Migration failed: {e}")
+        print(f"\n Migration failed: {e}")
         return 1
 
 
@@ -657,30 +657,30 @@ def parse_personality_file(filepath: Path) -> dict:
 
 def cmd_import_personality(args):
     """Import OpenClaw personality files into ClawBrain memories."""
-    print("📥 Import OpenClaw Personality Files")
+    print(" Import OpenClaw Personality Files")
     print("=" * 40)
     
     # Detect or use provided path
     if args.path:
         base_path = Path(args.path)
         if not base_path.exists():
-            print(f"\n❌ Path not found: {args.path}")
+            print(f"\n Path not found: {args.path}")
             return 1
     else:
         platform_name, config_dir, _ = detect_platform()
         if platform_name == "unknown":
-            print("\n❌ OpenClaw/ClawdBot not detected.")
+            print("\n OpenClaw/ClawdBot not detected.")
             print("   Use --path to specify the directory containing personality files.")
             return 1
         base_path = config_dir
-        print(f"\n📍 Detected: {platform_name}")
-        print(f"📁 Looking in: {base_path}")
+        print(f"\n Detected: {platform_name}")
+        print(f" Looking in: {base_path}")
     
     # Personality files to import
     personality_files = ["SOUL.md", "IDENTITY.md", "USER.md", "MEMORY.md"]
     found_files = []
     
-    print("\n🔍 Scanning for personality files...")
+    print("\n Scanning for personality files...")
     
     for filename in personality_files:
         filepath = base_path / filename
@@ -688,30 +688,30 @@ def cmd_import_personality(args):
             parsed = parse_personality_file(filepath)
             if parsed:
                 found_files.append(parsed)
-                print(f"   ✅ Found: {filename}")
+                print(f"    Found: {filename}")
         else:
-            print(f"   ⚠️  Not found: {filename}")
+            print(f"     Not found: {filename}")
     
     if not found_files:
-        print("\n❌ No personality files found!")
+        print("\n No personality files found!")
         return 1
     
-    print(f"\n📋 Found {len(found_files)} personality file(s)")
+    print(f"\n Found {len(found_files)} personality file(s)")
     
     # Show what will be imported
     for pf in found_files:
-        print(f"\n   📄 {pf['filename']}")
+        print(f"\n    {pf['filename']}")
         if pf['sections']:
             for section_name in list(pf['sections'].keys())[:5]:
                 content_preview = pf['sections'][section_name][:50].replace('\n', ' ')
                 print(f"      • {section_name}: {content_preview}...")
     
     if args.dry_run:
-        print("\n🔍 Dry run - no changes made.")
+        print("\n Dry run - no changes made.")
         return 0
     
     # Import into ClawBrain
-    print("\n📦 Importing into ClawBrain...")
+    print("\n Importing into ClawBrain...")
     
     try:
         from clawbrain import Brain
@@ -745,7 +745,7 @@ def cmd_import_personality(args):
                         if hasattr(mem, 'metadata') and mem.metadata:
                             meta = mem.metadata if isinstance(mem.metadata, dict) else {}
                             if meta.get("source") == f"openclaw_{file_type.lower()}":
-                                print(f"   ⏭️  Skipping {pf['filename']} (already imported)")
+                                print(f"     Skipping {pf['filename']} (already imported)")
                                 skipped_count += 1
                                 continue
             
@@ -762,28 +762,28 @@ def cmd_import_personality(args):
             )
             
             if memory_id:
-                print(f"   ✅ Imported {pf['filename']} → {memory_type} (ID: {memory_id[:8]}...)")
+                print(f"    Imported {pf['filename']} → {memory_type} (ID: {memory_id[:8]}...)")
                 imported_count += 1
             else:
-                print(f"   ❌ Failed to import {pf['filename']}")
+                print(f"    Failed to import {pf['filename']}")
         
         brain.close()
         
         # Summary
         print("\n" + "=" * 40)
-        print(f"✅ Import complete!")
+        print(f" Import complete!")
         print(f"   Imported: {imported_count}")
         print(f"   Skipped:  {skipped_count}")
         print(f"   Agent ID: {args.agent}")
         
-        print("\n💡 Use these memories in your agent:")
+        print("\n Use these memories in your agent:")
         print("   brain.recall('core identity', memory_type='core_identity')")
         print("   brain.recall('user preferences', memory_type='user_profile')")
         
         return 0
         
     except Exception as e:
-        print(f"\n❌ Import failed: {e}")
+        print(f"\n Import failed: {e}")
         import traceback
         traceback.print_exc()
         return 1

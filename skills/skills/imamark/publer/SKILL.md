@@ -3,7 +3,7 @@ name: publer-post
 description: Post content to social media via the Publer API. Use when scheduling or publishing posts to TikTok (carousels, videos), Instagram, Facebook, Twitter/X, or any Publer-supported platform. Handles media upload, post creation, scheduling, and job polling. Use for any task involving "post to TikTok", "schedule a post", "publish to social media", or "upload to Publer".
 metadata:
   openclaw:
-    emoji: 📱
+    emoji: 
     requires:
       bins: ["python3"]
       env: ["PUBLER_API_KEY", "PUBLER_WORKSPACE_ID"]

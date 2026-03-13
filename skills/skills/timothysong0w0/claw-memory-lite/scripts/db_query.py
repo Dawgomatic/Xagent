@@ -126,7 +126,7 @@ def stats():
     
     conn.close()
     
-    print(f"📊 Database Statistics")
+    print(f" Database Statistics")
     print(f"   Total records: {total}")
     print(f"   Date range: {date_range[0]} to {date_range[1]}")
     print(f"\n   Records by category:")

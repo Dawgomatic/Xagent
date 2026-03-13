@@ -9,7 +9,7 @@
 const LATTICE_URL = process.env.LATTICE_URL || 'https://lattice.quest';
 
 async function checkHealth() {
-  console.log('🏥 Checking Lattice server health...');
+  console.log(' Checking Lattice server health...');
   console.log(`Server: ${LATTICE_URL}`);
   console.log('');
   
@@ -27,7 +27,7 @@ async function checkHealth() {
     const diffMs = localTime.getTime() - serverTime.getTime();
     const diffSec = Math.abs(diffMs) / 1000;
     
-    console.log('✅ Server is healthy');
+    console.log(' Server is healthy');
     console.log('');
     console.log('Time Synchronization:');
     console.log('─────────────────────');
@@ -37,14 +37,14 @@ async function checkHealth() {
     console.log('');
     
     if (diffSec > 300) {
-      console.log('⚠️  WARNING: Clock skew detected (>5 minutes)');
+      console.log('  WARNING: Clock skew detected (>5 minutes)');
       console.log('   This may cause AUTH_TIMESTAMP_EXPIRED errors.');
       console.log('   Consider using server time for signatures.');
     } else if (diffSec > 60) {
-      console.log('⚠️  Notice: Minor clock skew (>1 minute)');
+      console.log('  Notice: Minor clock skew (>1 minute)');
       console.log('   Should be acceptable, but monitor if issues occur.');
     } else {
-      console.log('✅ Clocks are synchronized');
+      console.log(' Clocks are synchronized');
     }
     
     console.log('');
@@ -52,7 +52,7 @@ async function checkHealth() {
     console.log(`  ${serverTime.getTime()}`);
     
   } catch (error) {
-    console.error('❌ Health check failed:', error.message);
+    console.error(' Health check failed:', error.message);
     process.exit(1);
   }
 }

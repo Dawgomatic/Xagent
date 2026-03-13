@@ -5,7 +5,7 @@ homepage: https://sociclaw.com
 user-invocable: true
 disable-model-invocation: false
 command-dispatch: true
-emoji: "🔵"
+emoji: ""
 requires:
   bins: ["python3"]
   env: []
@@ -29,7 +29,7 @@ SociClaw is an AI agent dedicated to managing social media accounts autonomously
 - Keep command names and code snippets unchanged.
 - Never expose internal reasoning, scratchpad, or tool planning text.
 - If a command is missing required inputs, ask directly for missing fields in one short message.
-- Always prefix every user-facing reply with: `🔵Soci:`
+- Always prefix every user-facing reply with: `Soci:`
 
 ## Conversation UX Contract
 

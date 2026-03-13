@@ -3,7 +3,7 @@ name: zoom-manager
 description: Manage Zoom meetings via OAuth API. Create, list, delete, and update events.
 metadata: {
   "clawdbot": {
-    "emoji": "📹",
+    "emoji": "",
     "requires": {"bins": ["node"]},
     "secrets": ["ZOOM_CLIENT_ID", "ZOOM_CLIENT_SECRET", "ZOOM_ACCOUNT_ID"]
   }

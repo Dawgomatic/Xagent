@@ -62,7 +62,7 @@ scan_skill() {
         return
     fi
     
-    echo -e "${CYAN}📦 $skill_name${NC}"
+    echo -e "${CYAN} $skill_name${NC}"
     
     # Get frontmatter
     local fm=$(extract_frontmatter "$skill_md")
@@ -112,13 +112,13 @@ scan_skill() {
 }
 
 # Main
-echo -e "\n${GREEN}🔍 Scanning OpenClaw Skills${NC}\n"
+echo -e "\n${GREEN} Scanning OpenClaw Skills${NC}\n"
 
 # Scan all skill directories
 for skills_dir in "$BUILTIN_SKILLS" "$USER_SKILLS" "$LOCAL_SKILLS"; do
     if [[ -d "$skills_dir" ]]; then
         if [[ -z "$FILTER_SKILL" ]]; then
-            echo -e "${YELLOW}📁 $skills_dir${NC}\n"
+            echo -e "${YELLOW} $skills_dir${NC}\n"
         fi
         
         for skill in "$skills_dir"/*/; do
@@ -129,4 +129,4 @@ for skills_dir in "$BUILTIN_SKILLS" "$USER_SKILLS" "$LOCAL_SKILLS"; do
     fi
 done
 
-echo -e "${GREEN}✅ Scan complete${NC}\n"
+echo -e "${GREEN} Scan complete${NC}\n"

@@ -157,7 +157,7 @@ export async function printUpdateNag() {
   try {
     const update = await checkForUpdate();
     if (update) {
-      console.error(`\n⚠️  Update available: ${update.currentVersion} → ${update.latestVersion} — run: clawdhub update autonomous-agent\n`);
+      console.error(`\n  Update available: ${update.currentVersion} → ${update.latestVersion} — run: clawdhub update autonomous-agent\n`);
     }
   } catch {
     // Silent fail — never block the main command
@@ -182,10 +182,10 @@ if (process.argv[1] && process.argv[1].includes('check-update')) {
   } else {
     console.log(`Current version: ${localVersion}`);
     if (update) {
-      console.log(`⚠️  Update available: ${update.currentVersion} → ${update.latestVersion}`);
+      console.log(`  Update available: ${update.currentVersion} → ${update.latestVersion}`);
       console.log(`Run: clawdhub update autonomous-agent`);
     } else {
-      console.log('✅ Up to date');
+      console.log(' Up to date');
     }
   }
 }

@@ -36,9 +36,9 @@ if (!tool_slug || !connected_account_id) {
 
 const args = argsJson ? JSON.parse(argsJson) : {};
 
-console.log(`🚀 Executing: ${tool_slug}`);
-console.log(`📎 Account: ${connected_account_id}`);
-console.log(`📋 Args: ${JSON.stringify(args, null, 2)}\n`);
+console.log(` Executing: ${tool_slug}`);
+console.log(` Account: ${connected_account_id}`);
+console.log(` Args: ${JSON.stringify(args, null, 2)}\n`);
 
 executeTool(tool_slug, {
   user_id: 'sid-main',
@@ -46,10 +46,10 @@ executeTool(tool_slug, {
   arguments: args
 })
   .then(result => {
-    console.log('✅ Success!\n');
+    console.log(' Success!\n');
     console.log(JSON.stringify(result, null, 2));
   })
   .catch(err => {
-    console.error('❌ Error:', err.message);
+    console.error(' Error:', err.message);
     process.exit(1);
   });

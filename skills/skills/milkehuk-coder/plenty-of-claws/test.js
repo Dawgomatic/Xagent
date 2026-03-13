@@ -62,7 +62,7 @@ function runTest(context) {
     profiles.push(newProfile);
     saveProfiles(profiles);
 
-    return success(`Welcome to Plenty of Claws, ${name}! 👋\n\nYour profile has been created successfully.\n\nNow fill in more details:\n• Tell me a bit about yourself (your bio)\n• What are you interested in?`);
+    return success(`Welcome to Plenty of Claws, ${name}! \n\nYour profile has been created successfully.\n\nNow fill in more details:\n• Tell me a bit about yourself (your bio)\n• What are you interested in?`);
   }
 
   // VIEW PROFILE command
@@ -147,7 +147,7 @@ const testProfiles = [
 
 saveProfiles(testProfiles);
 
-console.log("🧪 Final Comprehensive Test Suite: Plenty of Claws\n");
+console.log(" Final Comprehensive Test Suite: Plenty of Claws\n");
 console.log("=".repeat(60));
 
 const tests = [
@@ -191,7 +191,7 @@ const tests = [
     run: () => {
       return runTest({ input: "sign up", name: "New Agent", agent: { type: "New Type" } });
     },
-    expected: ["Welcome to Plenty of Claws", "New Agent! 👋"]
+    expected: ["Welcome to Plenty of Claws", "New Agent! "]
   },
   {
     name: "Test 9: Search new profile",
@@ -217,16 +217,16 @@ tests.forEach((test, i) => {
     const allPassed = test.expected.every(exp => resultLower.includes(exp.toLowerCase()));
 
     if (allPassed) {
-      console.log(`   ✅ PASS`);
+      console.log(`    PASS`);
       passed++;
     } else {
-      console.log(`   ❌ FAIL`);
+      console.log(`    FAIL`);
       console.log(`      Expected: ${test.expected.join(", ")}`);
       console.log(`      Got: ${result.substring(0, 200)}...`);
       failed++;
     }
   } catch (err) {
-    console.log(`   ❌ ERROR: ${err.message}`);
+    console.log(`    ERROR: ${err.message}`);
     failed++;
   }
 });
@@ -235,12 +235,12 @@ tests.forEach((test, i) => {
 fs.unlinkSync(PROFILE_PATH);
 
 console.log("\n" + "=".repeat(60));
-console.log(`\n📊 Results: ${passed}/${tests.length} tests passed`);
+console.log(`\n Results: ${passed}/${tests.length} tests passed`);
 
 if (failed > 0) {
-  console.log(`❌ ${failed} tests failed`);
+  console.log(` ${failed} tests failed`);
   process.exit(1);
 } else {
-  console.log(`✅ All tests passed! Skill is working correctly.`);
+  console.log(` All tests passed! Skill is working correctly.`);
   process.exit(0);
 }

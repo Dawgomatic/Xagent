@@ -431,7 +431,7 @@ async function cmdTelegram() {
     console.log(`Telegram chat ID set: ${chatId}`);
 
     // Test message
-    const sent = await sendTelegram('🐍 Snake game Telegram logging enabled!', chatId);
+    const sent = await sendTelegram(' Snake game Telegram logging enabled!', chatId);
     if (sent) {
       console.log('Test message sent successfully.');
     } else {
@@ -452,7 +452,7 @@ function showHelp() {
   const settings = loadSettings();
 
   console.log(`
-🐍 Snake Game Daemon
+ Snake Game Daemon
 
 Play the Trifle Snake game automatically with configurable strategies.
 

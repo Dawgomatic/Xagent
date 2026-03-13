@@ -15,7 +15,7 @@ metadata:
         - ffmpeg
         - python3
         - curl
-    emoji: "🎬"
+    emoji: ""
     os:
       - linux
       - macos

@@ -139,9 +139,9 @@ Key Risks:
   2. [Risk] — [Mitigation]
 
 Leading Indicators:
-  🟢 [Healthy metric]
-  🟡 [Watch metric]
-  🔴 [Concerning metric]
+   [Healthy metric]
+   [Watch metric]
+   [Concerning metric]
 
 Next Month Actions:
   1. [Specific action]

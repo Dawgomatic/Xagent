@@ -47,7 +47,7 @@ Tell your agent:
 | SRE Practices | SLO framework, toil reduction, capacity planning |
 | Cost Optimization | Cloud cost rules, monthly review template |
 
-## ⚡ Level Up
+##  Level Up
 
 Need DevOps for a specific industry? Our context packs include industry-specific infrastructure patterns, compliance requirements, and deployment strategies:
 
@@ -57,7 +57,7 @@ Need DevOps for a specific industry? Our context packs include industry-specific
 
 **Browse all packs →** [AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-code-reviewer](https://clawhub.com/skills/afrexai-code-reviewer) — SPEAR code review framework
 - [afrexai-api-architect](https://clawhub.com/skills/afrexai-api-architect) — Complete API lifecycle
@@ -67,4 +67,4 @@ Need DevOps for a specific industry? Our context packs include industry-specific
 
 ---
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

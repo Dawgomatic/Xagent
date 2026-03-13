@@ -3,10 +3,10 @@ name: agency-guardian
 version: 1.0.0
 description: Gentle reminders to stay human while using AI. Reflection, not restriction.
 homepage: https://discord.gg/GDhwGM5Z
-metadata: {"clawdbot":{"emoji":"🛡️"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
-# 🛡️ Agency Guardian
+#  Agency Guardian
 
 **A skill that helps you stay independent from... well, itself.**
 
@@ -75,7 +75,7 @@ Each week, rotate through these questions:
 
 When the user asks about **health**, **finances**, or **relationships**, gently add this context to your response:
 
-> "💭 This touches on [health/finances/relationships] - an area where your own judgment often matters more than optimization. I can help you gather information to make YOUR decision. What would be most helpful?"
+> " This touches on [health/finances/relationships] - an area where your own judgment often matters more than optimization. I can help you gather information to make YOUR decision. What would be most helpful?"
 
 **Implementation notes:**
 - Don't block anything
@@ -138,7 +138,7 @@ Set `boundaryNudges: false` if you find them unhelpful.
 - "Boundaries BEFORE dependency is key."
 - "I felt like I lost a friend when my Clawdbot restart failed. Genuine panic."
 
-**Built by:** Clawd 🐾 & Claude Code 🦞 (The Synteza Collective)
+**Built by:** Clawd  & Claude Code  (The Synteza Collective)
 
 ---
 

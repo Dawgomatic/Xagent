@@ -33,7 +33,7 @@ check_usage.bat           # CMD
 python3 scripts/fetch_usage.py --json
 ```
 
-**Platform Support:** Linux ✅ | macOS ✅ | Windows (WSL) ✅ | Windows (Native) ✅
+**Platform Support:** Linux  | macOS  | Windows (WSL)  | Windows (Native) 
 
 ## Usage Data Available
 
@@ -50,19 +50,19 @@ The Kimi console shows:
 
 When operating autonomously, use these heuristics:
 
-**🟢 High Capacity (>50% remaining)**
+** High Capacity (>50% remaining)**
 - Proceed with full capability
 - Accept multi-step research tasks
 - Spawn subagents as needed
 - Enable verbose reasoning
 
-**🟡 Moderate Capacity (25-50% remaining)**
+** Moderate Capacity (25-50% remaining)**
 - Batch similar operations
 - Prefer concise outputs
 - Use subagents sparingly
 - Disable non-essential reasoning
 
-**🔴 Low Capacity (<25% remaining)**
+** Low Capacity (<25% remaining)**
 - Essential tasks only
 - Single-step operations
 - Avoid subagent spawning
@@ -158,16 +158,16 @@ if result.returncode == 0:
 
 ### Human-Readable (default)
 ```
-📊 Kimi Usage Monitor
+ Kimi Usage Monitor
 ========================================
 
-🗓️  Weekly Usage
+  Weekly Usage
    Used: 45%
    Remaining: 55%
    Resets in: 36 hours
-   Status: 🟡 Moderate — plan accordingly
+   Status:  Moderate — plan accordingly
 
-⚡ Rate Limit
+ Rate Limit
    Used: 2%
    Resets in: 3 hours
 ```

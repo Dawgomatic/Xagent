@@ -133,7 +133,7 @@ def collect_all(full=False):
     since_iso = since.strftime("%Y-%m-%dT%H:%M:%SZ")
     now_iso = now.strftime("%Y-%m-%dT%H:%M:%SZ")
     
-    print("📡 Collecting OpenClaw ecosystem news...", file=sys.stderr)
+    print(" Collecting OpenClaw ecosystem news...", file=sys.stderr)
     print(f"   Since: {since_iso}", file=sys.stderr)
     
     data = {
@@ -167,7 +167,7 @@ def collect_all(full=False):
     with open(STATE_DIR / "pending_searches.json", "w") as f:
         json.dump(queries, f, indent=2)
     
-    print("✅ Collection complete.", file=sys.stderr)
+    print(" Collection complete.", file=sys.stderr)
     print(f"   GitHub: {len(data['releases'])} releases, {len(data['pull_requests'])} PRs, {len(data['security'])} security items", file=sys.stderr)
     print(f"   ClawdHub: {len(data['clawhub_skills'])} skills", file=sys.stderr)
     print(f"   Agent: run web searches from state/pending_searches.json", file=sys.stderr)
@@ -192,7 +192,7 @@ def merge_web_results(results_file):
     with open(RAW_OUTPUT, "w") as f:
         json.dump(data, f, indent=2)
     
-    print("✅ Web results merged.", file=sys.stderr)
+    print(" Web results merged.", file=sys.stderr)
     return data
 
 def format_briefing(data, short=False):
@@ -209,7 +209,7 @@ def format_briefing(data, short=False):
     # Releases
     if data.get("releases"):
         has_content = True
-        lines = ["🚀 **RELEASES**"]
+        lines = [" **RELEASES**"]
         for r in data["releases"]:
             tag = r.get("tag", "?")
             name = r.get("name", "") or tag
@@ -223,11 +223,11 @@ def format_briefing(data, short=False):
     # PRs
     if data.get("pull_requests"):
         has_content = True
-        lines = ["📋 **NOTABLE PRS**"]
+        lines = [" **NOTABLE PRS**"]
         for pr in data["pull_requests"][:5]:
             num = pr.get("number", "?")
             title = pr.get("title", "")
-            merged = "✅ merged" if pr.get("merged") else pr.get("state", "")
+            merged = " merged" if pr.get("merged") else pr.get("state", "")
             url = pr.get("url", "")
             lines.append(f"• #{num}: {title} ({merged})")
             if url:
@@ -237,7 +237,7 @@ def format_briefing(data, short=False):
     # Skills
     if data.get("clawhub_skills"):
         has_content = True
-        lines = ["🧩 **CLAWHUB SKILLS**"]
+        lines = [" **CLAWHUB SKILLS**"]
         for s in data["clawhub_skills"][:8]:
             lines.append(f"• {s.get('raw', s.get('name', '?'))}")
         sections.append("\n".join(lines))
@@ -245,7 +245,7 @@ def format_briefing(data, short=False):
     # Security
     if data.get("security"):
         has_content = True
-        lines = ["🔒 **SECURITY**"]
+        lines = [" **SECURITY**"]
         for s in data["security"]:
             lines.append(f"• #{s.get('number','?')}: {s.get('title','')}")
             if s.get("url"):
@@ -255,7 +255,7 @@ def format_briefing(data, short=False):
     # Community
     if data.get("community"):
         has_content = True
-        lines = ["💬 **COMMUNITY**"]
+        lines = [" **COMMUNITY**"]
         for c in data["community"][:5]:
             if isinstance(c, dict):
                 title = c.get("title", "")
@@ -271,7 +271,7 @@ def format_briefing(data, short=False):
     # Ecosystem
     if data.get("ecosystem_news"):
         has_content = True
-        lines = ["📰 **ECOSYSTEM**"]
+        lines = [" **ECOSYSTEM**"]
         for e in data["ecosystem_news"][:5]:
             if isinstance(e, dict):
                 lines.append(f"• {e.get('title', '')}")
@@ -284,7 +284,7 @@ def format_briefing(data, short=False):
     # Moltbook
     if data.get("moltbook"):
         has_content = True
-        lines = ["🐛 **MOLTBOOK**"]
+        lines = [" **MOLTBOOK**"]
         for m in data["moltbook"][:3]:
             if isinstance(m, dict):
                 lines.append(f"• {m.get('title', m.get('text', str(m)))}")
@@ -300,11 +300,11 @@ def format_briefing(data, short=False):
             if data.get("pull_requests"): counts.append(f"{len(data['pull_requests'])} PR(s)")
             if data.get("clawhub_skills"): counts.append(f"{len(data['clawhub_skills'])} skill(s)")
             if data.get("security"): counts.append(f"{len(data['security'])} security item(s)")
-            return f"📡 OpenClaw News ({date_str}): {', '.join(counts)}."
+            return f" OpenClaw News ({date_str}): {', '.join(counts)}."
         else:
-            return f"📡 All quiet in the OpenClaw ecosystem. ({date_str})"
+            return f" All quiet in the OpenClaw ecosystem. ({date_str})"
     
-    output = [f"📡 **OpenClaw Ecosystem News** — {date_str}", ""]
+    output = [f" **OpenClaw Ecosystem News** — {date_str}", ""]
     
     if has_content:
         output.append("\n\n".join(sections))
@@ -326,7 +326,7 @@ def format_briefing(data, short=False):
     errors = data.get("errors", [])
     if errors:
         sources = ", ".join(e.get("source", "?") for e in errors)
-        output.append(f"\n⚠ {len(errors)} source(s) had issues: {sources}")
+        output.append(f"\n {len(errors)} source(s) had issues: {sources}")
     
     return "\n".join(output)
 

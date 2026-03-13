@@ -36,13 +36,13 @@ When given a pitch deck (text, slides, or description), evaluate each section:
 | Problem | X/10 | ... |
 ...
 
-### 🟢 Strengths
+###  Strengths
 - ...
 
-### 🔴 Critical Fixes (Do Before Sending)
+###  Critical Fixes (Do Before Sending)
 - ...
 
-### 🟡 Nice to Have
+###  Nice to Have
 - ...
 
 ### Investor Questions You'll Get

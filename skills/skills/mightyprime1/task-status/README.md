@@ -36,7 +36,7 @@ python scripts/monitor_task.py stop "my_long_task" "success" "Task complete!"
 - **Manual Status Updates**: Send one-off status messages
 - **Automatic Monitoring**: Periodic "heartbeat" updates every 5 seconds
 - **ASCII Fallback**: Uses ASCII symbols (->, OK, !, ?) on Windows CMD
-- **Emoji Support**: Uses emojis (🔄, ✅, ❌, ⚠️) on Windows Terminal/PowerShell
+- **Emoji Support**: Uses emojis (, , , ) on Windows Terminal/PowerShell
 - **Background Monitoring**: Runs independently until stopped
 - **State Management**: Tracks active monitors in `.task_status_state.json`
 
@@ -44,10 +44,10 @@ python scripts/monitor_task.py stop "my_long_task" "success" "Task complete!"
 
 | Type | Emoji | ASCII | Use Case |
 |------|-------|-------|----------|
-| progress | 🔄 | -> | Ongoing work |
-| success | ✅ | OK | Completed successfully |
-| error | ❌ | ! | Failed, cannot continue |
-| warning | ⚠️ | ? | Issue but continuing |
+| progress |  | -> | Ongoing work |
+| success |  | OK | Completed successfully |
+| error |  | ! | Failed, cannot continue |
+| warning |  | ? | Issue but continuing |
 
 ## Examples
 

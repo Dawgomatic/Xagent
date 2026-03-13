@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 npm init -y > /dev/null 2>&1
 npm install ethers
 echo ""
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Deploy NFT collection:"
 echo "  PRIVATE_KEY=0x... node deploy-nft.js --generate-svg 10 --name 'My NFT' --symbol 'MNFT'"

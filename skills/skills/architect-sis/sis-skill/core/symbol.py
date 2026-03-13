@@ -134,7 +134,7 @@ class SISSymbol:
     def lock_to(self, other: 'SISSymbol', lock_type: str = "bidirectional") -> 'SISSymbol':
         """
         Create a equilibrium lock between this symbol and another.
-        Bidirectional locks enforce (a↔b)↔Cosmosrest relationship.
+        Bidirectional locks enforce (ab)Cosmosrest relationship.
         
         All lock types create mutual relationships for ΣΔ calculation.
         The lock_type indicates the semantic nature of the relationship.

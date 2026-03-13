@@ -127,16 +127,16 @@ Requires:
 ## Security
 
 **What agent CAN do:**
-- ✅ Use existing payment methods
-- ✅ Use existing addresses
-- ✅ Complete checkout
-- ✅ Capture order confirmation
+-  Use existing payment methods
+-  Use existing addresses
+-  Complete checkout
+-  Capture order confirmation
 
 **What agent CANNOT do:**
-- ❌ Add new payment methods
-- ❌ Change shipping addresses
-- ❌ See raw passwords
-- ❌ Purchase beyond budget
+-  Add new payment methods
+-  Change shipping addresses
+-  See raw passwords
+-  Purchase beyond budget
 
 **All purchases:**
 - Logged with proof hash
@@ -174,7 +174,7 @@ Requires:
 **USDC Hackathon:**
 - Track 3: Agentic Commerce
 - Submission: Feb 8, 2026
-- Status: ⏳ Awaiting results
+- Status:  Awaiting results
 
 ---
 

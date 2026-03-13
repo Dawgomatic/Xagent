@@ -737,8 +737,8 @@ def is_precheck_approved(precheck_docx: Path) -> bool:
     if not precheck_docx.exists():
         return False
     text = _docx_plain_text(precheck_docx)
-    text = text.replace("[✓]", "☑").replace("[√]", "☑").replace("✅", "☑")
-    return ("☑ 信息无误" in text) and ("☑ 同意输出" in text)
+    text = text.replace("[✓]", "").replace("[√]", "").replace("", "")
+    return (" 信息无误" in text) and (" 同意输出" in text)
 
 
 def image_to_single_page_pdf(image_path: Path, out_pdf: Path) -> None:
@@ -2955,7 +2955,7 @@ def sanitize_public_fact_text(text: str, fallback: str = "") -> str:
             continue
         if "该证据属于" in p and "覆盖计算" in p:
             continue
-        if p.startswith("⚠跨期矛盾"):
+        if p.startswith("跨期矛盾"):
             continue
         kept.append(p)
     base = kept[0] if kept else str(fallback or "").strip("；;，,。 ")
@@ -5821,7 +5821,7 @@ def create_pre_output_checklist_docx(
     doc.add_heading("（4）确认机制", level=2)
     doc.add_paragraph("□ 信息无误")
     doc.add_paragraph("□ 同意输出")
-    doc.add_paragraph("提示：请将“□”改为“☑”后再执行输出。")
+    doc.add_paragraph("提示：请将“□”改为“”后再执行输出。")
 
     doc.save(str(path))
     return path
@@ -8337,7 +8337,7 @@ def main():
 
             if not precheck_doc.exists() or not precheck_ok:
                 print("已先生成《证据目录》，请核验并勾选后再输出其余文书。")
-                print(f"请先在文件中勾选“☑ 信息无误”“☑ 同意输出”：{precheck_doc}")
+                print(f"请先在文件中勾选“ 信息无误”“ 同意输出”：{precheck_doc}")
                 summary_path = Path(args.out_dir) / "扫描识别摘要.json"
                 summary_path.write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
                 rc = 4

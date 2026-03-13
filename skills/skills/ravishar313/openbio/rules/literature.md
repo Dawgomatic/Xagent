@@ -82,36 +82,36 @@ review[pt]                # Publication type
 
 ### Wrong: Overly broad queries
 ```
-❌ search_pubmed: "cancer"
+ search_pubmed: "cancer"
    → Returns millions of results, unhelpful
 ```
 
 ```
-✅ Be specific:
+ Be specific:
    "EGFR inhibitor resistance lung cancer 2020:2024[pdat]"
    → Focused, recent, actionable results
 ```
 
 ### Wrong: Missing synonyms
 ```
-❌ Searching only "Alzheimer's disease"
+ Searching only "Alzheimer's disease"
    → Misses papers using "Alzheimer disease" (no apostrophe)
 ```
 
 ```
-✅ Use OR for synonyms:
+ Use OR for synonyms:
    ("Alzheimer's disease" OR "Alzheimer disease" OR AD)
    Or use MeSH: "Alzheimer Disease"[MeSH]
 ```
 
 ### Wrong: Ignoring preprints for fast-moving fields
 ```
-❌ Only searching PubMed for AI/ML in biology
+ Only searching PubMed for AI/ML in biology
    → Missing 3-6 months of recent work
 ```
 
 ```
-✅ For rapidly evolving fields:
+ For rapidly evolving fields:
    1. search_pubmed for established work
    2. biorxiv_recent_papers for last 30 days
    3. arxiv_search for computational methods
@@ -119,12 +119,12 @@ review[pt]                # Publication type
 
 ### Wrong: Not using MeSH terms
 ```
-❌ "heart attack" (colloquial)
+ "heart attack" (colloquial)
    → Inconsistent indexing
 ```
 
 ```
-✅ "Myocardial Infarction"[MeSH]
+ "Myocardial Infarction"[MeSH]
    → Standardized term, better recall
 ```
 

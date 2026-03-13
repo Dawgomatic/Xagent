@@ -35,7 +35,7 @@ pattern = r'YOUR_PATTERN'
 tests = ['test1', 'test2', 'test3']
 for t in tests:
     m = re.search(pattern, t)
-    print(f'{t!r}: {\"✅ Match\" if m else \"❌ No match\"}' + (f' → groups: {m.groups()}' if m else ''))
+    print(f'{t!r}: {\" Match\" if m else \" No match\"}' + (f' → groups: {m.groups()}' if m else ''))
 "
 
 # Grep (quick check)

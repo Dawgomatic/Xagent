@@ -2,7 +2,7 @@
 name: ai-podcast
 description: PDF to podcast and text to podcast in a natural two-person format with MagicPodcast.
 homepage: https://www.magicpodcast.app
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"bins":["curl","jq"],"env":["MAGICPODCAST_API_URL","MAGICPODCAST_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq"],"env":["MAGICPODCAST_API_URL","MAGICPODCAST_API_KEY"]}}}
 ---
 
 ## What this skill does

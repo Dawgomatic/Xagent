@@ -47,4 +47,4 @@ if __name__ == "__main__":
     problem_summary = sys.argv[2] if len(sys.argv) > 2 else "analysis"
     
     filepath = export_analysis(content, problem_summary)
-    print(f"✅ Analysis exported to: {filepath}")
+    print(f" Analysis exported to: {filepath}")

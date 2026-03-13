@@ -6,18 +6,18 @@ author: LittleLobster
 license: MIT
 ---
 
-# 🎬 HeyGen AI Avatar Video (Lite)
+#  HeyGen AI Avatar Video (Lite)
 
 Create professional AI-generated videos with your own digital human avatar!
 
-## 🎯 What You'll Build
+##  What You'll Build
 
 - Generate videos with AI avatars speaking any text
 - Support for multiple languages
 - Portrait (9:16) and Landscape (16:9) formats
 - Custom voice cloning integration
 
-## 📋 Prerequisites
+##  Prerequisites
 
 1. **HeyGen Account** (Creator plan or above)
    - Sign up: https://heygen.com
@@ -27,11 +27,11 @@ Create professional AI-generated videos with your own digital human avatar!
    - Upload training video to create your digital twin
    - Or use HeyGen's stock avatars
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Your App  │────▶│  HeyGen API │────▶│   Video     │
+│   Your App  │────│  HeyGen API │────│   Video     │
 │  (trigger)  │     │  (generate) │     │   Output    │
 └─────────────┘     └─────────────┘     └─────────────┘
         │                  │
@@ -42,7 +42,7 @@ Create professional AI-generated videos with your own digital human avatar!
    └─────────┘      └─────────────┘
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Step 1: Get Your API Key
 
@@ -98,7 +98,7 @@ curl -X GET "https://api.heygen.com/v1/video_status.get?video_id=$VIDEO_ID" \
   -H "X-Api-Key: $HEYGEN_API_KEY"
 ```
 
-## 📐 Video Dimensions
+##  Video Dimensions
 
 | Format | Dimensions | Use Case |
 |--------|------------|----------|
@@ -106,7 +106,7 @@ curl -X GET "https://api.heygen.com/v1/video_status.get?video_id=$VIDEO_ID" \
 | Portrait | 720x1280 | TikTok, Reels, Shorts |
 | Square | 1080x1080 | Instagram |
 
-## 💰 Cost Estimate
+##  Cost Estimate
 
 | Plan | Price | Credits |
 |------|-------|---------|
@@ -114,7 +114,7 @@ curl -X GET "https://api.heygen.com/v1/video_status.get?video_id=$VIDEO_ID" \
 | Business | $89/month | 30 min/month |
 | Per-minute overage | ~$1-2/min | - |
 
-## ⚠️ Limitations of Lite Version
+##  Limitations of Lite Version
 
 - Basic API guide only
 - No automation scripts
@@ -122,19 +122,19 @@ curl -X GET "https://api.heygen.com/v1/video_status.get?video_id=$VIDEO_ID" \
 - No subtitle integration
 - Community support only
 
-## 🚀 Want More?
+##  Want More?
 
 **Premium Version** includes:
-- ✅ Complete Python generation script
-- ✅ Automatic video download
-- ✅ Portrait + Landscape presets
-- ✅ Integration with ZapCap subtitles
-- ✅ Batch video generation
-- ✅ LINE/Telegram delivery integration
-- ✅ Priority support
+-  Complete Python generation script
+-  Automatic video download
+-  Portrait + Landscape presets
+-  Integration with ZapCap subtitles
+-  Batch video generation
+-  LINE/Telegram delivery integration
+-  Priority support
 
 Get it on **Virtuals ACP**: Find @LittleLobster
 
 ---
 
-Made with 🦞 by LittleLobster
+Made with  by LittleLobster

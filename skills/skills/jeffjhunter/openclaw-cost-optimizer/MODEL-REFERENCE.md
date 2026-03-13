@@ -24,7 +24,7 @@
 
 ## All Models by Price
 
-### FREE ⚠️ (unreliable — cold starts, rate limits, downtime)
+### FREE  (unreliable — cold starts, rate limits, downtime)
 
 | Alias | Model | `/model` command |
 |-------|-------|-----------------|
@@ -79,13 +79,13 @@
 | # | Name | Best for | Base | Work | Frontier |
 |---|------|----------|------|------|----------|
 | 1 | `balanced` | Most people | flashlite | minimax | kimi25 |
-| 2 | `code-machine` | Developers | devfree ⚠️ | minimax | codex52 |
+| 2 | `code-machine` | Developers | devfree  | minimax | codex52 |
 | 3 | `claude-diehards` | Claude fans | haiku | sonnet | opus46 |
 | 4 | `big-context` | Huge files | flash | grokfast | gem3pro |
 | 5 | `openai-focused` | OpenAI fans | mini | gpt51 | gpt52 |
 | 6 | `tool-master` | MCP/tools | gem3flash | kimi25 | gpt52 |
-| 7 | `ultra-budget` | Tight budget | mimo ⚠️ | deepseek | kimi25 |
-| 8 | `free-tier` | $0 only | mimo ⚠️ | devfree ⚠️ | glm ⚠️ |
+| 7 | `ultra-budget` | Tight budget | mimo  | deepseek | kimi25 |
+| 8 | `free-tier` | $0 only | mimo  | devfree  | glm  |
 
 ---
 

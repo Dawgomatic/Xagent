@@ -2,7 +2,7 @@
 
 > Real-world examples of follow-up suggestions across different messaging platforms
 
-## 📱 Telegram (Interactive Mode)
+##  Telegram (Interactive Mode)
 
 ### Example 1: Technical Topic
 
@@ -15,20 +15,20 @@ User: /followups
 
 **Output**:
 ```
-💡 What would you like to explore next?
+ What would you like to explore next?
 
 ┌─────────────────────────────────────────┐
-│ ⚡ What's the difference between         │
+│  What's the difference between         │
 │   containers and VMs?                   │
 └─────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────┐
-│ 🧠 Explain Docker's layer caching       │
+│  Explain Docker's layer caching       │
 │   mechanism                             │
 └─────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────┐
-│ 🔗 What about Kubernetes?               │
+│  What about Kubernetes?               │
 └─────────────────────────────────────────┘
 ```
 
@@ -48,16 +48,16 @@ User: /followups
 
 **Output**:
 ```
-💡 What would you like to explore next?
+ What would you like to explore next?
 
-[⚡ How is konnichiwa pronounced exactly?]
-[🧠 Explain Japanese greeting etiquette]
-[🔗 Teach me other basic Japanese phrases]
+[ How is konnichiwa pronounced exactly?]
+[ Explain Japanese greeting etiquette]
+[ Teach me other basic Japanese phrases]
 ```
 
 ---
 
-## 💬 Signal / iMessage (Text Mode)
+##  Signal / iMessage (Text Mode)
 
 ### Example 1: Technical Topic
 
@@ -70,15 +70,15 @@ User: /followups
 
 **Output**:
 ```
-💡 Smart Follow-up Suggestions
+ Smart Follow-up Suggestions
 
-⚡ Quick
+ Quick
 1. What's the difference between containers and VMs?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain Docker's layer caching mechanism
 
-🔗 Related
+ Related
 3. What about Kubernetes?
 
 Reply with a number (1-3) to ask that question.
@@ -99,15 +99,15 @@ User: /followups
 
 **Output**:
 ```
-💡 Smart Follow-up Suggestions
+ Smart Follow-up Suggestions
 
-⚡ Quick
+ Quick
 1. What rice should I use?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain the science of creamy risotto
 
-🔗 Related
+ Related
 3. Show me other Italian rice dishes
 
 Reply with a number (1-3) to ask that question.
@@ -115,7 +115,7 @@ Reply with a number (1-3) to ask that question.
 
 ---
 
-## 🎮 Discord (Interactive Mode)
+##  Discord (Interactive Mode)
 
 ### Example: Gaming Discussion
 
@@ -128,18 +128,18 @@ User: /followups
 
 **Output** (Discord embed):
 ```
-💡 What would you like to explore next?
+ What would you like to explore next?
 
-⚡ When should I build my second city?
-🧠 Explain the Science victory path in detail
-🔗 What about Domination victory strategies?
+ When should I build my second city?
+ Explain the Science victory path in detail
+ What about Domination victory strategies?
 ```
 
 **Technical**: Discord buttons use `components` API with custom_id for callbacks
 
 ---
 
-## 💼 Slack (Interactive Mode)
+##  Slack (Interactive Mode)
 
 ### Example: Work/Project Management
 
@@ -152,18 +152,18 @@ User: /followups
 
 **Output**:
 ```
-💡 What would you like to explore next?
+ What would you like to explore next?
 
-[⚡] What's a good retrospective template?
-[🧠] Explain advanced retrospective techniques
-[🔗] What about sprint planning best practices?
+[] What's a good retrospective template?
+[] Explain advanced retrospective techniques
+[] What about sprint planning best practices?
 ```
 
 **Technical**: Slack uses Block Kit with button elements
 
 ---
 
-## 📧 Email / SMS (Compact Text Mode)
+##  Email / SMS (Compact Text Mode)
 
 ### Example: Quick Exchange
 
@@ -177,16 +177,16 @@ User: followups
 **Output** (compact mode):
 ```
 Suggestions:
-1. ⚡ What's the agenda?
-2. 🧠 Review previous meeting notes
-3. 🔗 Show related project deadlines
+1.  What's the agenda?
+2.  Review previous meeting notes
+3.  Show related project deadlines
 
 Reply 1-3
 ```
 
 ---
 
-## 🔄 Auto-Trigger Mode Examples
+##  Auto-Trigger Mode Examples
 
 When `autoTrigger: true` is enabled, follow-ups appear automatically after EVERY assistant response.
 
@@ -197,11 +197,11 @@ User: What is React?
 Bot: React is a JavaScript library for building user interfaces, developed by Facebook. It uses a component-based architecture and virtual DOM for efficient updates.
 
 [Auto-generated, no user prompt needed]
-💡 What would you like to explore next?
+ What would you like to explore next?
 
-[⚡ What are React components?]
-[🧠 Explain the Virtual DOM in detail]
-[🔗 What about Next.js?]
+[ What are React components?]
+[ Explain the Virtual DOM in detail]
+[ What about Next.js?]
 ```
 
 ### Signal Auto-Trigger
@@ -210,15 +210,15 @@ Bot: React is a JavaScript library for building user interfaces, developed by Fa
 User: What is React?
 Bot: React is a JavaScript library for building user interfaces, developed by Facebook. It uses a component-based architecture and virtual DOM for efficient updates.
 
-💡 Smart Follow-up Suggestions
+ Smart Follow-up Suggestions
 
-⚡ Quick
+ Quick
 1. What are React components?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain the Virtual DOM in detail
 
-🔗 Related
+ Related
 3. What about Next.js?
 
 Reply with a number (1-3) to ask that question.
@@ -226,7 +226,7 @@ Reply with a number (1-3) to ask that question.
 
 ---
 
-## 🧪 Edge Cases
+##  Edge Cases
 
 ### Case 1: Very Short Exchange
 
@@ -239,7 +239,7 @@ User: /followups
 
 **Output**:
 ```
-⚠ Not enough conversation context to generate follow-ups. Have a conversation first!
+ Not enough conversation context to generate follow-ups. Have a conversation first!
 ```
 
 *(Ephemeral message, only visible to user)*
@@ -256,11 +256,11 @@ User: /followups
 
 **Output**:
 ```
-💡 What would you like to explore next?
+ What would you like to explore next?
 
-[⚡ Show me a simple decorator example]
-[🧠 Explain decorator factories and chaining]
-[🔗 What about context managers?]
+[ Show me a simple decorator example]
+[ Explain decorator factories and chaining]
+[ What about context managers?]
 ```
 
 **Note**: Only last 3 exchanges analyzed, so suggestions stay focused on current topic (decorators).
@@ -271,7 +271,7 @@ User: /followups
 
 **Output** (manual mode):
 ```
-❌ Failed to generate follow-ups: API request failed
+ Failed to generate follow-ups: API request failed
 
 (Ephemeral error message)
 ```
@@ -283,7 +283,7 @@ User: /followups
 
 ---
 
-## 📊 Comparison Table
+##  Comparison Table
 
 | Channel | Mode | Interaction | Best For |
 |---------|------|-------------|----------|
@@ -297,7 +297,7 @@ User: /followups
 
 ---
 
-## 🎨 Customization Examples
+##  Customization Examples
 
 ### Custom Category Emojis
 
@@ -305,20 +305,20 @@ Edit `cli/followups-cli.js`:
 
 ```javascript
 const CATEGORIES = {
-  QUICK: { emoji: '🚀', label: 'Quick Start' },
-  DEEP: { emoji: '🔬', label: 'Technical' },
-  RELATED: { emoji: '🌐', label: 'Explore More' }
+  QUICK: { emoji: '', label: 'Quick Start' },
+  DEEP: { emoji: '', label: 'Technical' },
+  RELATED: { emoji: '', label: 'Explore More' }
 };
 ```
 
 **Result**:
 ```
-[🚀 How do I get started?]
-[🚀 What tools do I need?]
-[🔬 Explain the architecture]
-[🔬 Deep dive into performance]
-[🌐 Related frameworks]
-[🌐 Industry trends]
+[ How do I get started?]
+[ What tools do I need?]
+[ Explain the architecture]
+[ Deep dive into performance]
+[ Related frameworks]
+[ Industry trends]
 ```
 
 ### Multi-Language Support
@@ -333,7 +333,7 @@ const LANG = {
 };
 
 function formatTextList(suggestions, lang = 'en') {
-  let output = `💡 **${LANG[lang].title}**\n\n`;
+  let output = ` **${LANG[lang].title}**\n\n`;
   // ... rest of formatting
   output += `\n${LANG[lang].reply} (1-6).`;
   return output;
@@ -342,33 +342,33 @@ function formatTextList(suggestions, lang = 'en') {
 
 ---
 
-## 🧠 Prompt Engineering Impact
+##  Prompt Engineering Impact
 
 The quality and diversity of suggestions depends heavily on the prompt. Here's how different prompt changes affect output:
 
 ### Standard Prompt Output
 
 ```
-⚡ Quick
+ Quick
 1. What does Docker stand for?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain container internals
 
-🔗 Related
+ Related
 3. What about Kubernetes?
 ```
 
 ### With "Be Creative" Instruction
 
 ```
-⚡ Quick
+ Quick
 1. ELI5: Containers vs VMs?
 
-🧠 Deep Dive
+ Deep Dive
 2. Walk me through a container's lifecycle
 
-🔗 Related
+ Related
 3. When should I NOT use Docker?
 ```
 
@@ -377,19 +377,19 @@ The quality and diversity of suggestions depends heavily on the prompt. Here's h
 If user is tagged as "DevOps Engineer":
 
 ```
-⚡ Quick
+ Quick
 1. Show me a multi-stage Dockerfile
 
-🧠 Deep Dive
+ Deep Dive
 2. Docker security hardening checklist
 
-🔗 Related
+ Related
 3. Docker Swarm vs Kubernetes tradeoffs
 ```
 
 ---
 
-## 📝 JSON Output Format (for developers)
+##  JSON Output Format (for developers)
 
 **Raw JSON** (`--mode json`):
 
@@ -405,9 +405,9 @@ If user is tagged as "DevOps Engineer":
 
 ```json
 [
-  [{"text": "⚡ What's the difference between containers and VMs?", "callback_data": "ask:What's the difference between containers and VMs"}],
-  [{"text": "🧠 Explain Docker's layer caching mechanism", "callback_data": "ask:Explain Docker's layer caching mechanism"}],
-  [{"text": "🔗 What about Kubernetes?", "callback_data": "ask:What about Kubernetes?"}]
+  [{"text": " What's the difference between containers and VMs?", "callback_data": "ask:What's the difference between containers and VMs"}],
+  [{"text": " Explain Docker's layer caching mechanism", "callback_data": "ask:Explain Docker's layer caching mechanism"}],
+  [{"text": " What about Kubernetes?", "callback_data": "ask:What about Kubernetes?"}]
 ]
 ```
 

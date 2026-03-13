@@ -270,8 +270,8 @@ Write-Host "=== Security Audit Summary ===" -ForegroundColor Green
 Write-Host ""
 Write-Host "Users:" -ForegroundColor Cyan
 Write-Host "  Total Users: $($users.Count)"
-Write-Host "  Users without MFA: $usersWithoutMFA $(if($usersWithoutMFA -gt 0){'⚠️'}else{'✓'})"
-Write-Host "  Inactive Users (90+ days): $($inactiveUsers.Count) $(if($inactiveUsers.Count -gt 0){'⚠️'}else{'✓'})"
+Write-Host "  Users without MFA: $usersWithoutMFA $(if($usersWithoutMFA -gt 0){''}else{'✓'})"
+Write-Host "  Inactive Users (90+ days): $($inactiveUsers.Count) $(if($inactiveUsers.Count -gt 0){''}else{'✓'})"
 Write-Host "  Guest Users: $($guestUsers.Count)"
 Write-Host ""
 Write-Host "Administration:" -ForegroundColor Cyan

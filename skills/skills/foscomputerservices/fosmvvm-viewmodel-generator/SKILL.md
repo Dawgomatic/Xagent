@@ -2,7 +2,7 @@
 name: fosmvvm-viewmodel-generator
 description: Generate FOSMVVM ViewModels for SwiftUI screens, pages, and components. Scaffolds RequestableViewModel, localization bindings, and stub factories.
 homepage: https://github.com/foscomputerservices/FOSUtilities
-metadata: {"clawdbot": {"emoji": "🏗️", "os": ["darwin", "linux"]}}
+metadata: {"clawdbot": {"emoji": "", "os": ["darwin", "linux"]}}
 ---
 
 # FOSMVVM ViewModel Generator
@@ -154,10 +154,10 @@ A ViewModel answers: **"What does the View need to display?"**
 ### Anti-Pattern: Composition in Views
 
 ```swift
-// ❌ WRONG - View is composing
+//  WRONG - View is composing
 Text(viewModel.firstName) + Text(" ") + Text(viewModel.lastName)
 
-// ✅ RIGHT - ViewModel provides shaped result
+//  RIGHT - ViewModel provides shaped result
 Text(viewModel.fullName)  // via @LocalizedCompoundString
 ```
 

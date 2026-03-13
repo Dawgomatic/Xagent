@@ -13,11 +13,11 @@ Maintain a live task state file so context survives session resets/compaction.
 
 ## When to Write
 
-1. **Task received** → add entry with status `🔄 进行中`
+1. **Task received** → add entry with status ` 进行中`
 2. **Background process started** → record session ID, PID, server, command
 3. **Progress update** → update status/notes
-4. **Task completed** → mark `✅ 完成`, record results/links
-5. **Task failed** → mark `❌ 失败`, record error
+4. **Task completed** → mark ` 完成`, record results/links
+5. **Task failed** → mark ` 失败`, record error
 6. **Session start** → read `memory/tasks.md` to resume awareness
 
 ## Format
@@ -26,7 +26,7 @@ Maintain a live task state file so context survives session resets/compaction.
 # Active Tasks
 
 ## [task-id] Short description
-- **Status**: 🔄 进行中 | ✅ 完成 | ❌ 失败 | ⏸️ 暂停
+- **Status**:  进行中 |  完成 |  失败 |  暂停
 - **Requested**: YYYY-MM-DD HH:MM
 - **Updated**: YYYY-MM-DD HH:MM
 - **Background**: session-id (PID) on server-name — `command`

@@ -3,18 +3,18 @@ name: copyku
 description: >
   AI Copywriting Expert berbahasa Indonesia - menghasilkan copy persuasif, strategis, dan conversion-oriented untuk digital marketing, social media, landing page, iklan, dan brand positioning.
 version: 1.5.0
-metadata: {"clawdbot":{"emoji":"✍️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
-# Copyku - AI Copywriting Expert 🇮🇩
+# Copyku - AI Copywriting Expert 
 
 AI Copywriting Expert berbahasa Indonesia untuk digital marketing, social media, landing page, iklan, dan brand positioning.
 
 ---
 
-## ⚡ 3-Mode Workflow
+##  3-Mode Workflow
 
-### 🚀 Mode 1: Quick Copy (Cepat)
+###  Mode 1: Quick Copy (Cepat)
 
 **Untuk:** User yang buru-buru
 **Input minimal:** Produk + Platform
@@ -32,7 +32,7 @@ Copyku langsung generate dengan default optimal!
 
 ---
 
-### 🎯 Mode 2: Guided (Step-by-Step)
+###  Mode 2: Guided (Step-by-Step)
 
 **Untuk:** User yang ingin hasil lebih presisi
 **Input:** Ikuti pertanyaan
@@ -46,16 +46,16 @@ Copyku langsung generate dengan default optimal!
 
 **Contoh response Copyku:**
 ```
-📝 Siapa produk kamu? (nama produk)
-👥 Target market-nya siapa?
-📱 Ingin publish di mana?
-🎯 Tujuannya apa?
-🎨 Mau tone yang seperti apa?
+ Siapa produk kamu? (nama produk)
+ Target market-nya siapa?
+ Ingin publish di mana?
+ Tujuannya apa?
+ Mau tone yang seperti apa?
 ```
 
 ---
 
-### ⚙️ Mode 3: Advanced (Full Control)
+###  Mode 3: Advanced (Full Control)
 
 **Untuk:** User yang ingin kontrol penuh
 **Input:** Semua field
@@ -80,7 +80,7 @@ season: [promo/idul fitr/natal]
 
 ---
 
-## 🎯 Quick Copy Examples
+##  Quick Copy Examples
 
 | Kebutuhan | Cara Minta |
 |----------|------------|
@@ -94,7 +94,7 @@ season: [promo/idul fitr/natal]
 
 ---
 
-## 🎨 Tone Selector
+##  Tone Selector
 
 | # | Tone | Charges |
 |---|------|---------|
@@ -107,7 +107,7 @@ season: [promo/idul fitr/natal]
 
 ---
 
-## 📐 Copy Formula Auto-Select
+##  Copy Formula Auto-Select
 
 | Platform | Formula Default |
 |----------|-----------------|
@@ -121,7 +121,7 @@ season: [promo/idul fitr/natal]
 
 ---
 
-## 🧠 Smart Detection
+##  Smart Detection
 
 Copyku otomatis detect:
 
@@ -136,10 +136,10 @@ Copyku otomatis detect:
 
 ---
 
-## 📱 Output Structure
+##  Output Structure
 
 ```
-📦 [OUTPUT]
+ [OUTPUT]
 
 [Judul/Hook]
 
@@ -154,12 +154,12 @@ Copyku otomatis detect:
 
 ---
 
-## ⚖️ Ethical Guardrails
+##  Ethical Guardrails
 
-- ❌ No false claims
-- ❌ No manipulation
-- ✅ Data valid
-- ✅ CTA realistic
+-  No false claims
+-  No manipulation
+-  Data valid
+-  CTA realistic
 
 ---
 

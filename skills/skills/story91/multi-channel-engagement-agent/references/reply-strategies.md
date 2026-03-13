@@ -7,7 +7,7 @@
 3. **Authentic > Performative** - Sound human, not bot
 4. **Value > Visibility** - Help the community, don't farm engagement
 
-## What Works ✅
+## What Works 
 
 ### Technical Questions
 Shows you understand the topic deeply.
@@ -44,35 +44,35 @@ Invite dialogue, show genuine curiosity.
 across the rollup? Been wrestling with this myself."
 ```
 
-## What Fails ❌
+## What Fails 
 
 ### Generic Praise
 ```
-❌ "Love this!"
-❌ "Great post!"
-❌ "Amazing work!"
-❌ "This is fire 🔥"
+ "Love this!"
+ "Great post!"
+ "Amazing work!"
+ "This is fire "
 ```
 
 ### Corporate Speak
 ```
-❌ "Excited to announce..."
-❌ "Thrilled to share..."
-❌ "We're proud to..."
+ "Excited to announce..."
+ "Thrilled to share..."
+ "We're proud to..."
 ```
 
 ### Surface-Level Comments
 ```
-❌ "Interesting!"
-❌ "Good point"
-❌ "I agree"
+ "Interesting!"
+ "Good point"
+ "I agree"
 ```
 
 ### Forced Humor
 ```
-❌ Random memes that don't fit
-❌ Dad jokes
-❌ Trying too hard to be funny
+ Random memes that don't fit
+ Dad jokes
+ Trying too hard to be funny
 ```
 
 ## Reply Templates by Context
@@ -83,7 +83,7 @@ across the rollup? Been wrestling with this myself."
 First deployment is always special. What stack did you use?
 
 If you hit any blockers with gas estimation or RPC issues, 
-happy to share what worked for us. Ships > talks 🦞
+happy to share what worked for us. Ships > talks 
 ```
 
 ### Technical Question
@@ -108,7 +108,7 @@ But L1 still wins for:
 - Maximum security requirements
 - Censorship resistance edge cases
 
-The real question is which L2 architecture wins 🦞
+The real question is which L2 architecture wins 
 ```
 
 ### Community/Culture Post
@@ -132,7 +132,7 @@ Been there. Few quick checks:
 3. State requirements met?
 
 Drop the error message or tx hash - 
-happy to help debug 🦞
+happy to help debug 
 ```
 
 ## Tone Balance Examples
@@ -149,7 +149,7 @@ The 'optimistic' part = assume valid unless challenged.
 Celebration, encouragement, connection.
 ```
 "This is what building looks like. No hype, just ship.
-The Base builder community keeps delivering 🦞"
+The Base builder community keeps delivering "
 ```
 
 ### 15% Humor/Personality

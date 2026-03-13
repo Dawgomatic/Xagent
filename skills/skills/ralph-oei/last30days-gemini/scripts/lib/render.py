@@ -65,17 +65,17 @@ def render_compact(report: schema.Report, limit: int = 15, missing_keys: str = "
     # Assess data freshness and add honesty warning if needed
     freshness = _assess_data_freshness(report)
     if freshness["is_sparse"]:
-        lines.append("**⚠️ LIMITED RECENT DATA** - Few discussions from the last 30 days.")
+        lines.append("** LIMITED RECENT DATA** - Few discussions from the last 30 days.")
         lines.append(f"Only {freshness['total_recent']} item(s) confirmed from {report.range_from} to {report.range_to}.")
         lines.append("Results below may include older/evergreen content. Be transparent with the user about this.")
         lines.append("")
 
     # Web-only mode banner (when no API keys)
     if report.mode == "web-only":
-        lines.append("**🌐 WEB SEARCH MODE** - assistant will search blogs, docs & news")
+        lines.append("** WEB SEARCH MODE** - assistant will search blogs, docs & news")
         lines.append("")
         lines.append("---")
-        lines.append("**⚡ Want better results?** Add API keys to unlock Reddit & X data:")
+        lines.append("** Want better results?** Add API keys to unlock Reddit & X data:")
         lines.append("- `OPENAI_API_KEY` → Reddit threads with real upvotes & comments")
         lines.append("- `XAI_API_KEY` → X posts with real likes & reposts")
         lines.append("- Edit `~/.config/last30days/.env` to add keys")
@@ -85,7 +85,7 @@ def render_compact(report: schema.Report, limit: int = 15, missing_keys: str = "
     # Cache indicator
     if report.from_cache:
         age_str = f"{report.cache_age_hours:.1f}h old" if report.cache_age_hours else "cached"
-        lines.append(f"**⚡ CACHED RESULTS** ({age_str}) - use `--refresh` for fresh data")
+        lines.append(f"** CACHED RESULTS** ({age_str}) - use `--refresh` for fresh data")
         lines.append("")
 
     lines.append(f"**Date Range:** {report.range_from} to {report.range_to}")
@@ -98,10 +98,10 @@ def render_compact(report: schema.Report, limit: int = 15, missing_keys: str = "
 
     # Coverage note for partial coverage
     if report.mode == "reddit-only" and missing_keys == "x":
-        lines.append("*💡 Tip: Add XAI_API_KEY for X/Twitter data and better triangulation.*")
+        lines.append("* Tip: Add XAI_API_KEY for X/Twitter data and better triangulation.*")
         lines.append("")
     elif report.mode == "x-only" and missing_keys == "reddit":
-        lines.append("*💡 Tip: Add OPENAI_API_KEY for Reddit data and better triangulation.*")
+        lines.append("* Tip: Add OPENAI_API_KEY for Reddit data and better triangulation.*")
         lines.append("")
 
     # Reddit items
@@ -258,44 +258,44 @@ def render_source_status(report: schema.Report, source_info: dict = None) -> str
 
     # Reddit
     if report.reddit_error:
-        lines.append(f"  ❌ Reddit: error — {report.reddit_error}")
+        lines.append(f"   Reddit: error — {report.reddit_error}")
     elif report.reddit:
-        lines.append(f"  ✅ Reddit: {len(report.reddit)} threads")
+        lines.append(f"   Reddit: {len(report.reddit)} threads")
     elif report.mode in ("both", "reddit-only", "all", "reddit-web"):
-        lines.append("  ⚠️ Reddit: 0 threads found")
+        lines.append("   Reddit: 0 threads found")
     else:
         reason = source_info.get("reddit_skip_reason", "not configured")
-        lines.append(f"  ⏭️ Reddit: skipped — {reason}")
+        lines.append(f"   Reddit: skipped — {reason}")
 
     # X
     if report.x_error:
-        lines.append(f"  ❌ X: error — {report.x_error}")
+        lines.append(f"   X: error — {report.x_error}")
     elif report.x:
-        lines.append(f"  ✅ X: {len(report.x)} posts")
+        lines.append(f"   X: {len(report.x)} posts")
     elif report.mode in ("both", "x-only", "all", "x-web"):
-        lines.append("  ⚠️ X: 0 posts found")
+        lines.append("   X: 0 posts found")
     else:
         reason = source_info.get("x_skip_reason", "No Bird CLI or XAI_API_KEY")
-        lines.append(f"  ⏭️ X: skipped — {reason}")
+        lines.append(f"   X: skipped — {reason}")
 
     # YouTube
     if report.youtube_error:
-        lines.append(f"  ❌ YouTube: error — {report.youtube_error}")
+        lines.append(f"   YouTube: error — {report.youtube_error}")
     elif report.youtube:
         with_transcripts = sum(1 for v in report.youtube if getattr(v, 'transcript_snippet', None))
-        lines.append(f"  ✅ YouTube: {len(report.youtube)} videos ({with_transcripts} with transcripts)")
+        lines.append(f"   YouTube: {len(report.youtube)} videos ({with_transcripts} with transcripts)")
     else:
         reason = source_info.get("youtube_skip_reason", "yt-dlp not installed (brew install yt-dlp)")
-        lines.append(f"  ⏭️ YouTube: skipped — {reason}")
+        lines.append(f"   YouTube: skipped — {reason}")
 
     # Web
     if report.web_error:
-        lines.append(f"  ❌ Web: error — {report.web_error}")
+        lines.append(f"   Web: error — {report.web_error}")
     elif report.web:
-        lines.append(f"  ✅ Web: {len(report.web)} pages")
+        lines.append(f"   Web: {len(report.web)} pages")
     else:
         reason = source_info.get("web_skip_reason", "assistant will use WebSearch")
-        lines.append(f"  ⚡ Web: {reason}")
+        lines.append(f"   Web: {reason}")
 
     lines.append("")
     return "\n".join(lines)

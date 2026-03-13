@@ -14,8 +14,8 @@ resources:
     nvidia.com/gpu: 1  # This reserves the WHOLE GPU
 ```
 
-❌ You cannot request 0.5 GPU natively
-❌ Memory-based requests don't exist in standard K8s
+ You cannot request 0.5 GPU natively
+ Memory-based requests don't exist in standard K8s
 
 ## GPU Sharing Options
 

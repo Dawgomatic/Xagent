@@ -6,7 +6,7 @@ This document describes the complete workflow for Jarvis's paper research proces
 
 ---
 
-## 📋 Complete Workflow
+##  Complete Workflow
 
 ```
 User Request
@@ -221,7 +221,7 @@ For EACH selected paper:
 5. **Write briefing section** following **SKILL.md Standard Format**:
 
 ```markdown
-## 📄 PAPER_TITLE
+##  PAPER_TITLE
 
 **标题:** Full title
 **作者:** Author1, Author2, Author3...
@@ -249,7 +249,7 @@ Chinese translation of full abstract (~200-400 characters).
 
 ### Jarvis 笔记
 - AI 评分: X/5
-- 推荐度: ⭐⭐⭐⭐⭐
+- 推荐度: 
 - 适合研究方向: Field1, Field2
 - 重要性: One sentence
 ```

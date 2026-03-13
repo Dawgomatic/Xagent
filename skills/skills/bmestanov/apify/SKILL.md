@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🐝",
+        "emoji": "",
         "primaryEnv": "APIFY_TOKEN",
         "requires": { "anyBins": ["curl", "wget"], "env": ["APIFY_TOKEN"] },
       },

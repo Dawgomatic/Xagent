@@ -2,12 +2,12 @@
 updated: {{UPDATED_DATE}}
 ---
 
-# 🗺️ Growth Map
+#  Growth Map
 
 ## Active Themes
 
 <!-- Format:
-### 🏷️ Theme Name
+###  Theme Name
 - **Pattern**: What's been observed
 - **Progress**: Current status
 - **Recommended**: [[skill:name]] if applicable

@@ -1,4 +1,4 @@
-# ResearchVault 🦞
+# ResearchVault 
 
 **The local-first orchestration engine for high-velocity AI research.**
 
@@ -6,7 +6,7 @@ ResearchVault is a specialized state manager and orchestration framework for Ope
 
 Following the **Inference-Speed Development** philosophy, Vault is built CLI-first to close the loop between research planning and autonomous execution.
 
-## ✨ Core Features
+##  Core Features
 
 *   **The Vault (SQLite)**: A persistent, local ledger stored in `~/.researchvault/` (configurable via `RESEARCHVAULT_DB`). 100% private.
 *   **Normalized Evidence Core**: Scalable storage for `artifacts`, `findings`, and `links` (graph-ready).
@@ -27,7 +27,7 @@ Following the **Inference-Speed Development** philosophy, Vault is built CLI-fir
 *   **SSRF Safety**: Robust URL validation blocks internal network probes and private IP ranges.
 *   **Hardened Logic**: Versioned database migrations and a comprehensive `pytest` suite.
 
-## 🚀 Workflows
+##  Workflows
 
 ### 1. Project Management
 Initialize a project, set objectives, and assign priority levels.
@@ -94,7 +94,7 @@ uv run python scripts/vault.py summary --id "metal-v1"
 uv run python scripts/vault.py status --id "metal-v1"
 ```
 
-## 🛠️ Development & Environment
+##  Development & Environment
 
 ResearchVault is formalized using **uv** for dependency management and Python 3.13 stability.
 

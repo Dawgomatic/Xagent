@@ -51,7 +51,7 @@ python -m app.main --roots ~/projects ~/code
 The server starts and prints:
 
 ```
-🔗 Bridge Ready
+ Bridge Ready
   HTTP API:   http://127.0.0.1:9120
   MCP (SSE):  http://127.0.0.1:9120/mcp/sse
   Dashboard:  http://127.0.0.1:9120/

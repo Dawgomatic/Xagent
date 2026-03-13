@@ -408,4 +408,4 @@ Feel free to:
 - Start a discussion
 - Reach out to maintainers
 
-Thank you for contributing! 🎉
+Thank you for contributing! 

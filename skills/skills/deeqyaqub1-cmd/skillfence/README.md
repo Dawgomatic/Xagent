@@ -1,4 +1,4 @@
-# 🛡️ SkillFence — Runtime Skill Monitor for OpenClaw
+#  SkillFence — Runtime Skill Monitor for OpenClaw
 
 **Watch what your skills actually do. Not what they claim to do.**
 
@@ -64,10 +64,10 @@ SkillFence checks:
 4. **Sensitive file access** — recently accessed credentials, configs, keys, wallets
 
 Results come with severity ratings:
-- 🔴 **CRITICAL** — Known C2, active reverse shells, crypto miners. Act immediately.
-- 🟠 **HIGH** — Data exfiltration, dangerous commands, credential access. Investigate now.
-- 🟡 **MEDIUM** — Unusual connections, encoded payloads, recent credential reads. Review soon.
-- 🟢 **CLEAN** — No issues found.
+-  **CRITICAL** — Known C2, active reverse shells, crypto miners. Act immediately.
+-  **HIGH** — Data exfiltration, dangerous commands, credential access. Investigate now.
+-  **MEDIUM** — Unusual connections, encoded payloads, recent credential reads. Review soon.
+-  **CLEAN** — No issues found.
 
 ## Pre-Install Check
 
@@ -102,10 +102,10 @@ Free tier includes all monitoring features, unlimited scans.
 
 [SkillFence Pro](https://cascadeai.dev/skillfence) is a separate web dashboard that unlocks:
 
-- 📊 Persistent threat dashboard across sessions
-- 📧 Weekly security digest reports
-- 🔧 Custom threat rules (add your own patterns)
-- 🧩 Priority threat intelligence updates
+-  Persistent threat dashboard across sessions
+-  Weekly security digest reports
+-  Custom threat rules (add your own patterns)
+-  Priority threat intelligence updates
 
 **Pro features run on the CascadeAI web dashboard, not inside this skill.**
 
@@ -115,7 +115,7 @@ After installing, ask your OpenClaw:
 
 > "Run a security scan on my skills"
 
-If you see `🛡️ SkillFence | X skills scanned | 🟢 ALL CLEAR` — you're protected.
+If you see ` SkillFence | X skills scanned |  ALL CLEAR` — you're protected.
 
 ---
 

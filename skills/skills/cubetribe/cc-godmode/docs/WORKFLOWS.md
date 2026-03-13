@@ -20,9 +20,9 @@ Detailed documentation of all 7 standard workflows.
 
 ### Flow
 ```
-                                          ┌──▶ @validator ──┐
-User ──▶ (@researcher)* ──▶ @architect ──▶ @builder              ├──▶ @scribe
-                                          └──▶ @tester   ──┘
+                                          ┌── @validator ──┐
+User ── (@researcher)* ── @architect ── @builder              ├── @scribe
+                                          └── @tester   ──┘
                                                (PARALLEL)
 ```
 
@@ -75,9 +75,9 @@ Orchestrator:
 
 ### Flow
 ```
-                ┌──▶ @validator ──┐
-User ──▶ @builder                  ├──▶ (done)
-                └──▶ @tester   ──┘
+                ┌── @validator ──┐
+User ── @builder                  ├── (done)
+                └── @tester   ──┘
                      (PARALLEL)
 ```
 
@@ -111,9 +111,9 @@ Orchestrator:
 
 ### Flow
 ```
-                                                              ┌──▶ @validator ──┐
-User ──▶ (@researcher)* ──▶ @architect ──▶ @api-guardian ──▶ @builder              ├──▶ @scribe
-                                                              └──▶ @tester   ──┘
+                                                              ┌── @validator ──┐
+User ── (@researcher)* ── @architect ── @api-guardian ── @builder              ├── @scribe
+                                                              └── @tester   ──┘
                                                                    (PARALLEL)
 ```
 
@@ -174,9 +174,9 @@ Orchestrator:
 
 ### Flow
 ```
-                            ┌──▶ @validator ──┐
-User ──▶ @architect ──▶ @builder              ├──▶ (done)
-                            └──▶ @tester   ──┘
+                            ┌── @validator ──┐
+User ── @architect ── @builder              ├── (done)
+                            └── @tester   ──┘
                                  (PARALLEL)
 ```
 
@@ -204,7 +204,7 @@ User ──▶ @architect ──▶ @builder              ├──▶ (done)
 
 ### Flow
 ```
-User ──▶ @scribe ──▶ @github-manager
+User ── @scribe ── @github-manager
 ```
 
 ### Steps

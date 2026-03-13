@@ -188,7 +188,7 @@ class PromptPerformanceTester:
 
         for model in models:
             if model not in self.MODEL_PRICING:
-                print(f"⚠️  Unknown model: {model}")
+                print(f"  Unknown model: {model}")
                 continue
 
             print(f"Testing {model}...")
@@ -466,10 +466,10 @@ DETAILED RESULTS
 
         for result in results.results:
             if result.error:
-                output += f"\n❌ {result.model_id} ({result.provider})\n   Error: {result.error}\n"
+                output += f"\n {result.model_id} ({result.provider})\n   Error: {result.error}\n"
             else:
                 output += f"""
-✅ {result.model_id} ({result.provider})
+ {result.model_id} ({result.provider})
    Latency:  {result.latency_ms:.0f}ms
    Cost:     ${result.estimated_cost_cents/100:.6f}
    Quality:  {result.quality_score:.1f}/100

@@ -1162,7 +1162,7 @@ console.log(`Impressions ${(pacing.impression_pacing * 100).toFixed(1)}% deliver
 
 // Alert if underpacing
 if (pacing.spend_pacing < pacing.percent_complete - 0.1) {
-  console.warn('⚠️ Campaign is underpacing - consider budget increase');
+  console.warn(' Campaign is underpacing - consider budget increase');
 }
 ```
 
@@ -1245,7 +1245,7 @@ async function optimizeBudgetAllocation(mediaBuyId) {
   if (topPackage && bottomPackage) {
     const efficiencyDiff = topPackage.efficiency / bottomPackage.efficiency;
     if (efficiencyDiff > 2) {
-      console.log(`\n💡 Consider reallocating budget from ${bottomPackage.buyer_ref} to ${topPackage.buyer_ref}`);
+      console.log(`\n Consider reallocating budget from ${bottomPackage.buyer_ref} to ${topPackage.buyer_ref}`);
     }
   }
 }
@@ -1272,7 +1272,7 @@ async function analyzeCreativePerformance(mediaBuyId) {
     return currentScore > bestScore ? current : best;
   });
   
-  console.log(`🏆 Winner: ${winner.creative_id}`);
+  console.log(` Winner: ${winner.creative_id}`);
   console.log(`   CTR: ${(winner.ctr * 100).toFixed(2)}%`);
   console.log(`   Completion: ${(winner.completion_rate * 100).toFixed(1)}%`);
   
@@ -1282,7 +1282,7 @@ async function analyzeCreativePerformance(mediaBuyId) {
     .sort((a, b) => (b.ctr || 0) - (a.ctr || 0))
     .forEach(creative => {
       const isWinner = creative.creative_id === winner.creative_id;
-      console.log(`${isWinner ? '  🏆' : '    '} ${creative.creative_id}: CTR ${(creative.ctr * 100).toFixed(2)}%`);
+      console.log(`${isWinner ? '  ' : '    '} ${creative.creative_id}: CTR ${(creative.ctr * 100).toFixed(2)}%`);
     });
 }
 ```

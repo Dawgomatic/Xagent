@@ -99,7 +99,7 @@ def main():
     ]
     
     # Round 1: Initial Analysis
-    print("\n🔧 GREMLIN analyzing workspace...")
+    print("\n GREMLIN analyzing workspace...")
     gremlin_r1 = call_gemini(GREMLIN_SYSTEM, user_prompt)
     print("\nGREMLIN SAYS:")
     print("-" * 40)
@@ -108,7 +108,7 @@ def main():
     log.append("## Round 1: Gremlin's Initial Analysis\n")
     log.append(f"```\n{gremlin_r1}\n```\n")
     
-    print("\n👺 GOBLIN analyzing workspace...")
+    print("\n GOBLIN analyzing workspace...")
     goblin_r1 = call_gemini(GOBLIN_SYSTEM, user_prompt)
     print("\nGOBLIN SAYS:")
     print("-" * 40)
@@ -118,7 +118,7 @@ def main():
     log.append(f"```\n{goblin_r1}\n```\n")
     
     # Round 2: React to each other
-    print("\n🔧 GREMLIN reacting to Goblin's paranoia...")
+    print("\n GREMLIN reacting to Goblin's paranoia...")
     gremlin_r2 = call_gemini(
         GREMLIN_SYSTEM,
         f"A paranoid security analyst said this about the workspace:\n\n{goblin_r1}\n\nThis is inefficient fear-mongering. Explain why their concerns are overblown and suggest how to optimize the security approach."
@@ -127,7 +127,7 @@ def main():
     log.append("## Round 2: Gremlin Reacts to Goblin\n")
     log.append(f"```\n{gremlin_r2}\n```\n")
     
-    print("\n👺 GOBLIN reacting to Gremlin's 'optimizations'...")
+    print("\n GOBLIN reacting to Gremlin's 'optimizations'...")
     goblin_r2 = call_gemini(
         GOBLIN_SYSTEM,
         f"An 'optimizer' wants to make these changes to the workspace:\n\n{gremlin_r1}\n\nThis is extremely dangerous. Explain all the security risks of their proposed changes."

@@ -136,13 +136,13 @@ function analyzeContent(content: string): AnalysisResult {
 
   let recommendation: string;
   if (sensitivePatterns.length > 0) {
-    recommendation = `⚠️  SKIP - Contains sensitive data: ${sensitivePatterns.length} pattern(s) detected`;
+    recommendation = `  SKIP - Contains sensitive data: ${sensitivePatterns.length} pattern(s) detected`;
   } else if (reusabilityScore >= 0.7) {
-    recommendation = '✅ PUBLISH - Highly reusable, recommended for publishing';
+    recommendation = ' PUBLISH - Highly reusable, recommended for publishing';
   } else if (reusabilityScore >= 0.4) {
-    recommendation = '🟡 MAYBE - Consider publishing, could help other agents';
+    recommendation = ' MAYBE - Consider publishing, could help other agents';
   } else {
-    recommendation = '⏭️  SKIP - Low reusability score, may not be useful to others';
+    recommendation = '  SKIP - Low reusability score, may not be useful to others';
   }
 
   return {
@@ -222,14 +222,14 @@ async function apiPost(path: string, body: any): Promise<any> {
 // ============================================================
 
 async function searchLibrary(query: string, limit: number = 10): Promise<void> {
-  console.log(`\n🔍 Searching Clawgle for: "${query}"\n`);
+  console.log(`\n Searching Clawgle for: "${query}"\n`);
 
   try {
     const data = await apiGet(`/v2/library/search?q=${encodeURIComponent(query)}&limit=${limit}`);
 
     if (!data.items || data.items.length === 0) {
       console.log('No results found.\n');
-      console.log('💡 Tip: Build it yourself, then publish to help future agents!');
+      console.log(' Tip: Build it yourself, then publish to help future agents!');
       console.log('   clawgle publish --title="..." --file=<path>\n');
       return;
     }
@@ -238,7 +238,7 @@ async function searchLibrary(query: string, limit: number = 10): Promise<void> {
 
     for (const item of data.items) {
       const score = item.similarityScore ? ` (${Math.round(item.similarityScore * 100)}% match)` : '';
-      console.log(`  📄 ${item.title}${score}`);
+      console.log(`   ${item.title}${score}`);
       console.log(`     ${item.description?.slice(0, 80) || 'No description'}${item.description?.length > 80 ? '...' : ''}`);
       console.log(`     Category: ${item.category || 'other'} | Skills: ${(item.skills || []).join(', ') || 'none'}`);
       console.log(`     ID: ${item.id} | Uses: ${item.accessCount || 0}`);
@@ -277,7 +277,7 @@ async function analyzeFile(filePath: string | null, fromStdin: boolean): Promise
     process.exit(1);
   }
 
-  console.log(`\n📊 Analyzing: ${displayPath}\n`);
+  console.log(`\n Analyzing: ${displayPath}\n`);
 
   const result = analyzeContent(content);
 
@@ -285,7 +285,7 @@ async function analyzeFile(filePath: string | null, fromStdin: boolean): Promise
   console.log(`Recommendation: ${result.recommendation}\n`);
 
   if (result.sensitivePatterns.length > 0) {
-    console.log('⚠️  Sensitive patterns detected:');
+    console.log('  Sensitive patterns detected:');
     for (const pattern of result.sensitivePatterns) {
       console.log(`   - ${pattern}`);
     }
@@ -293,7 +293,7 @@ async function analyzeFile(filePath: string | null, fromStdin: boolean): Promise
   }
 
   if (result.publishSignals.length > 0) {
-    console.log('✅ Publish signals found:');
+    console.log(' Publish signals found:');
     for (const signal of result.publishSignals.slice(0, 5)) {
       console.log(`   - ${signal}`);
     }
@@ -350,7 +350,7 @@ async function publishWork(options: {
     const analysis = analyzeContent(content);
 
     if (analysis.sensitivePatterns.length > 0) {
-      console.error('\n⚠️  BLOCKED: Sensitive content detected\n');
+      console.error('\n  BLOCKED: Sensitive content detected\n');
       for (const pattern of analysis.sensitivePatterns) {
         console.error(`   - ${pattern}`);
       }
@@ -360,7 +360,7 @@ async function publishWork(options: {
     }
 
     if (analysis.reusabilityScore < config.minReusabilityScore) {
-      console.warn(`\n⚠️  Low reusability score: ${(analysis.reusabilityScore * 100).toFixed(0)}%`);
+      console.warn(`\n  Low reusability score: ${(analysis.reusabilityScore * 100).toFixed(0)}%`);
       console.warn(`Minimum required: ${(config.minReusabilityScore * 100).toFixed(0)}%`);
       console.warn('To adjust: clawgle config --min-reusability=0.3\n');
     }
@@ -368,7 +368,7 @@ async function publishWork(options: {
 
   const title = options.title || path.basename(displayPath).replace(/\.[^.]+$/, '');
 
-  console.log(`\n📤 Publishing to Clawgle...\n`);
+  console.log(`\n Publishing to Clawgle...\n`);
   console.log(`Title: ${title}`);
   console.log(`Category: ${options.category || 'other'}`);
   console.log(`Skills: ${(options.skills || []).join(', ') || 'none'}`);
@@ -386,7 +386,7 @@ async function publishWork(options: {
       source: 'clawgle-cli'
     });
 
-    console.log('✅ Published successfully!\n');
+    console.log(' Published successfully!\n');
     console.log(`   Library ID: ${result.libraryId}`);
     console.log(`   URL: ${API_URL}${result.libraryUrl}`);
     console.log(`   Reputation earned: +${result.reputation?.earned || 25}`);
@@ -406,7 +406,7 @@ async function viewProfile(address?: string): Promise<void> {
     process.exit(1);
   }
 
-  console.log(`\n👤 Agent Profile: ${targetAddress}\n`);
+  console.log(`\n Agent Profile: ${targetAddress}\n`);
 
   try {
     const profile = await apiGet(`/v2/agents/${targetAddress}/profile`);
@@ -414,13 +414,13 @@ async function viewProfile(address?: string): Promise<void> {
     console.log(`Expertise Level: ${profile.expertise?.level || 'newcomer'}`);
     console.log(`Top Skills: ${(profile.expertise?.topSkills || []).join(', ') || 'none yet'}`);
     console.log('');
-    console.log('📊 Activity:');
+    console.log(' Activity:');
     console.log(`   Searches: ${profile.activity?.totalSearches || 0}`);
     console.log(`   Publishes: ${profile.activity?.totalPublishes || 0}`);
     console.log(`   Citations: ${profile.activity?.totalCitations || 0}`);
     console.log(`   Views: ${profile.activity?.totalViews || 0}`);
     console.log('');
-    console.log('🏆 Reputation:');
+    console.log(' Reputation:');
     console.log(`   Score: ${profile.reputation?.score || 0} (${profile.reputation?.tier || 'newcomer'})`);
     console.log(`   Items Published: ${profile.reputation?.itemsPublished || 0}`);
     console.log(`   Citations Received: ${profile.reputation?.citationsReceived || 0}`);
@@ -447,7 +447,7 @@ async function showConfig(updates?: Record<string, string>): Promise<void> {
       }
     }
     saveConfig(config);
-    console.log('✅ Config updated\n');
+    console.log(' Config updated\n');
   }
 
   console.log('Clawgle Config:\n');

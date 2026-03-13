@@ -107,7 +107,7 @@ curl -s https://api.daily.dev/public/v1/docs/json | jq -r '.paths | keys[]'
 
 These examples show how AI agents can combine daily.dev APIs with external context to create powerful developer workflows.
 
-### 🔍 GitHub Repo → Personalized Feed
+###  GitHub Repo → Personalized Feed
 Scan a user's GitHub repositories to detect their actual tech stack from `package.json`, `go.mod`, `Cargo.toml`, `requirements.txt`, etc. Then:
 - Auto-follow matching tags via `/feeds/filters/tags/follow`
 - Create a custom feed tuned to their stack with `/feeds/custom/`
@@ -115,7 +115,7 @@ Scan a user's GitHub repositories to detect their actual tech stack from `packag
 
 **Trigger:** "Set up daily.dev based on my GitHub projects"
 
-### 🛠️ GitHub → Auto-fill Stack Profile
+###  GitHub → Auto-fill Stack Profile
 Analyze a user's GitHub activity to build their daily.dev tech stack profile automatically:
 - Scan repositories for languages, frameworks, and tools actually used in code
 - Search `/profile/stack/search` to find matching technologies on daily.dev
@@ -124,7 +124,7 @@ Analyze a user's GitHub activity to build their daily.dev tech stack profile aut
 
 **Trigger:** "Build my daily.dev profile from my GitHub"
 
-### 🚀 New Project → Curated Onboarding
+###  New Project → Curated Onboarding
 When a user initializes a new project or clones a repo:
 - Analyze the tech choices from config files
 - Create a dedicated custom feed filtered to exactly those technologies
@@ -133,7 +133,7 @@ When a user initializes a new project or clones a repo:
 
 **Trigger:** "Help me learn the stack for this project"
 
-### 📊 Weekly Digest → Synthesized Briefing
+###  Weekly Digest → Synthesized Briefing
 Compile a personalized weekly summary by:
 - Fetching `/feeds/foryou` and `/feeds/popular` filtered by user's followed tags
 - Cross-referencing with their GitHub activity to prioritize relevant topics
@@ -142,7 +142,7 @@ Compile a personalized weekly summary by:
 
 **Trigger:** Scheduled, or "Give me my weekly dev news"
 
-### 📚 Research Project Workspace
+###  Research Project Workspace
 When a user wants to deep-dive into a topic (e.g., "I want to learn Kubernetes"):
 - Create a custom feed via `/feeds/custom/` filtered to that topic
 - Set up a matching bookmark list via `POST /bookmarks/lists` to collect the best finds
@@ -152,7 +152,7 @@ When a user wants to deep-dive into a topic (e.g., "I want to learn Kubernetes")
 
 **Trigger:** "Start a research project on [topic]"
 
-### 🧠 Agent Self-Improvement Feed
+###  Agent Self-Improvement Feed
 Agents can overcome their knowledge cutoff by maintaining their own custom feed:
 - Create a custom feed via `/feeds/custom/` for technologies the agent frequently assists with
 - Periodically fetch `/feeds/custom/{feedId}` to ingest recent articles
@@ -162,7 +162,7 @@ Agents can overcome their knowledge cutoff by maintaining their own custom feed:
 
 **Trigger:** Agent background process, or "What's new in [technology] since your training?"
 
-### 🔀 Multi-Source Synthesis
+###  Multi-Source Synthesis
 Get balanced perspectives by aggregating content across publishers:
 - Search `/search/posts` for a topic to find coverage from multiple sources
 - Use `/search/sources` to identify authoritative publishers on the topic
@@ -172,7 +172,7 @@ Get balanced perspectives by aggregating content across publishers:
 
 **Trigger:** "What are the different perspectives on [topic]?" or "Compare approaches to [problem]"
 
-### 📈 Trending Radar
+###  Trending Radar
 Help users stay ahead by monitoring community signals:
 - Fetch `/feeds/popular` to detect what's gaining traction right now
 - Cross-reference with user's followed tags to surface relevant trends

@@ -11,7 +11,7 @@ if [ -z "$PERSON_NAME" ]; then
     exit 1
 fi
 
-echo "📖 Opening conversation with: $PERSON_NAME"
+echo " Opening conversation with: $PERSON_NAME"
 
 # Ensure Chrome is focused
 peekaboo app launch "Google Chrome"
@@ -32,5 +32,5 @@ peekaboo see \
     --annotate \
     --path "$OUTPUT_PATH"
 
-echo "✅ Conversation captured: $OUTPUT_PATH"
+echo " Conversation captured: $OUTPUT_PATH"
 echo "$OUTPUT_PATH"

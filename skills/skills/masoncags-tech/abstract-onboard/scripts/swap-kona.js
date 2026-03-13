@@ -79,7 +79,7 @@ async function main() {
     console.log('TX:', swapTx.hash);
     const receipt = await swapTx.wait();
     console.log('Confirmed in block:', receipt.blockNumber);
-    console.log('\n✅ Kona V2 swap complete!');
+    console.log('\n Kona V2 swap complete!');
     console.log('https://abscan.org/tx/' + swapTx.hash);
     
   } catch (e) {

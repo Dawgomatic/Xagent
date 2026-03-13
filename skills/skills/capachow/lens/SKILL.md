@@ -4,7 +4,7 @@ description: Use when you need your agent to see the world through your LENS. Th
 metadata:
   {
     "openclaw": {
-      "emoji": "🧐",
+      "emoji": "",
       "requires": { "files": [".lens/AXIOM.md", ".lens/ETHOS.md", ".lens/MODUS.md", ".lens/SET.json"] }
     }
   }

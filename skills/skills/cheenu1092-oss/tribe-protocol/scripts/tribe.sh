@@ -15,7 +15,7 @@ case "$COMMAND" in
         esac
         ;;
     *)
-        echo "❌ Unknown command: $COMMAND"
+        echo " Unknown command: $COMMAND"
         echo ""
         echo "Usage: tribe <command> [args]"
         echo ""

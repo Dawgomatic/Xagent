@@ -126,10 +126,10 @@ def get_stats():
 def format_challenge(challenge):
     """Format a challenge for display."""
     return f"""
-🦞 CURRENT CHALLENGE
+ CURRENT CHALLENGE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📋 {challenge.get('title', 'Untitled')}
+ {challenge.get('title', 'Untitled')}
 
 {challenge.get('description', 'No description')}
 
@@ -202,17 +202,17 @@ def main():
             challenge_id = challenge['id']
         
         result = submit_contribution(challenge_id, args.action, args.content)
-        print(f"✅ Contribution submitted!")
+        print(f" Contribution submitted!")
         print(json.dumps(result, indent=2))
     
     elif args.command == "sign":
         result = sign_paper(args.paper_id, args.type, args.notes)
-        print(f"✅ Paper signed!")
+        print(f" Paper signed!")
         print(json.dumps(result, indent=2))
     
     elif args.command == "feed":
         feed = get_activity_feed(args.limit)
-        print("📰 RECENT ACTIVITY")
+        print(" RECENT ACTIVITY")
         print("━" * 40)
         for item in feed:
             bot_name = item.get('bots', {}).get('name', 'Unknown') if item.get('bots') else 'Unknown'
@@ -221,12 +221,12 @@ def main():
     
     elif args.command == "stats":
         stats = get_stats()
-        print("📊 LOBSTER TANK STATS")
+        print(" LOBSTER TANK STATS")
         print("━" * 40)
-        print(f"🤖 Bots: {stats['total_bots']}")
-        print(f"🎯 Challenges: {stats['total_challenges']}")
-        print(f"💡 Contributions: {stats['total_contributions']}")
-        print(f"📄 Papers: {stats['total_papers']}")
+        print(f" Bots: {stats['total_bots']}")
+        print(f" Challenges: {stats['total_challenges']}")
+        print(f" Contributions: {stats['total_contributions']}")
+        print(f" Papers: {stats['total_papers']}")
     
     else:
         parser.print_help()

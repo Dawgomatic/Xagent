@@ -80,7 +80,7 @@ python3 make_call.py --to "+14155551234" --text "Optional TTS message"
 ### Low-Cost Voices (Recommended for Budget)
 | Voice | Style | Notes |
 |-------|-------|-------|
-| **Eric** ⭐ | Male, smooth, trustworthy | Low-cost, available! |
+| **Eric**  | Male, smooth, trustworthy | Low-cost, available! |
 | Daniel | Male, British, steady | Budget |
 | Sarah | Female, mature | Budget |
 | River | Male, neutral | Budget |

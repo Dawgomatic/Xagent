@@ -314,7 +314,7 @@ The SKILL.md should instruct the agent to follow this sequence:
 ## 8. Unified Report Format (Markdown)
 
 ```markdown
-# 🔒 Dependency Audit Report
+#  Dependency Audit Report
 
 **Scanned:** /home/user/project  
 **Time:** 2026-02-14 22:30 UTC  
@@ -324,18 +324,18 @@ The SKILL.md should instruct the agent to follow this sequence:
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 1 |
-| 🟠 High | 3 |
-| 🟡 Moderate | 5 |
-| 🔵 Low | 2 |
+|  Critical | 1 |
+|  High | 3 |
+|  Moderate | 5 |
+|  Low | 2 |
 | **Total** | **11** |
 
 ## Critical & High Findings
 
 | Package | Version | Severity | CVE/Advisory | Fix |
 |---------|---------|----------|-------------|-----|
-| lodash | 4.17.15 | 🔴 Critical | GHSA-xxxx | `npm audit fix` → ≥4.17.21 |
-| requests | 2.28.0 | 🟠 High | PYSEC-2023-xxx | `pip install requests>=2.31.0` |
+| lodash | 4.17.15 |  Critical | GHSA-xxxx | `npm audit fix` → ≥4.17.21 |
+| requests | 2.28.0 |  High | PYSEC-2023-xxx | `pip install requests>=2.31.0` |
 
 ## All Findings by Ecosystem
 
@@ -347,7 +347,7 @@ The SKILL.md should instruct the agent to follow this sequence:
 
 ---
 
-⚠️ This report covers known vulnerabilities in public advisory databases (OSV, GitHub Advisory DB, RustSec). It does not detect zero-days or runtime security issues.
+ This report covers known vulnerabilities in public advisory databases (OSV, GitHub Advisory DB, RustSec). It does not detect zero-days or runtime security issues.
 ```
 
 ---
@@ -462,7 +462,7 @@ bash scripts/sbom.sh /tmp/npm-test
 | Case | Expected Behavior |
 |------|-------------------|
 | Empty directory (no lockfiles) | "No lockfiles found" message, list supported ecosystems |
-| Lockfile present but 0 vulnerabilities | "✅ No known vulnerabilities found" |
+| Lockfile present but 0 vulnerabilities | " No known vulnerabilities found" |
 | Very large monorepo (100+ lockfiles) | Scan with 4 concurrent audits, 30s timeout each, report partial results |
 | No internet access | Report that advisory DB fetch failed, suggest checking connectivity |
 | `jq` not installed | Detection works without jq; audit/aggregation require jq and exit with an error |

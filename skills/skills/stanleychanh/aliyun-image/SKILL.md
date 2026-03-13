@@ -14,7 +14,7 @@ metadata:
 
 # 阿里云百炼图像生成与编辑
 
-> 🔄 **同步更新**：本项目在 [GitHub](https://github.com/StanleyChanH/aliyun-image-skill) 和 [ClawHub](https://clawhub.com/skill/aliyun-image) 同步发布。
+>  **同步更新**：本项目在 [GitHub](https://github.com/StanleyChanH/aliyun-image-skill) 和 [ClawHub](https://clawhub.com/skill/aliyun-image) 同步发布。
 
 ## 快速开始
 

@@ -15,5 +15,5 @@ fi
 # Restart fail2ban
 sudo systemctl restart fail2ban
 
-echo "✅ Auto-reporting removed."
+echo " Auto-reporting removed."
 echo "   Manual reporting still works: bash scripts/report-banned.sh"

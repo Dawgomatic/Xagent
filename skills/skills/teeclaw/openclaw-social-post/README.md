@@ -12,19 +12,19 @@
 
 ## Features
 
-✅ **Multi-account support** - Manage multiple Twitter accounts from one skill  
-✅ **Auto-variation** - Avoid Twitter's duplicate content detection with `--vary` flag  
-✅ **Multi-platform posting** - X/Twitter, Farcaster, or both simultaneously  
-✅ **Reply support** - Reply to specific tweets and casts with text and images  
-✅ **Draft preview** - See exactly what will be posted before confirmation  
-✅ **Cost transparency** - Clear pricing for both platforms documented  
-✅ **Thread support** - Auto-split long posts into numbered threads  
-✅ **Image uploads** - Attach images to posts and replies on both platforms  
-✅ **Link shortening** - Compress URLs to save characters  
-✅ **Character validation** - Validates limits before posting (252 chars / 288 bytes)  
-✅ **Balance monitoring** - Check Farcaster wallet balance anytime  
-✅ **Auto-truncate** - Optional automatic text shortening  
-✅ **Dry-run mode** - Test without actually posting  
+ **Multi-account support** - Manage multiple Twitter accounts from one skill  
+ **Auto-variation** - Avoid Twitter's duplicate content detection with `--vary` flag  
+ **Multi-platform posting** - X/Twitter, Farcaster, or both simultaneously  
+ **Reply support** - Reply to specific tweets and casts with text and images  
+ **Draft preview** - See exactly what will be posted before confirmation  
+ **Cost transparency** - Clear pricing for both platforms documented  
+ **Thread support** - Auto-split long posts into numbered threads  
+ **Image uploads** - Attach images to posts and replies on both platforms  
+ **Link shortening** - Compress URLs to save characters  
+ **Character validation** - Validates limits before posting (252 chars / 288 bytes)  
+ **Balance monitoring** - Check Farcaster wallet balance anytime  
+ **Auto-truncate** - Optional automatic text shortening  
+ **Dry-run mode** - Test without actually posting  
 
 ## Table of Contents
 
@@ -51,7 +51,7 @@
 2. For X/Twitter: Enable API access (consumption-based billing)
 3. For Farcaster: Fund custody wallet with USDC on Base
 4. Test with `--dry-run` flag
-5. Start posting! 🚀
+5. Start posting! 
 
 **Cost Model Comparison:**
 
@@ -61,20 +61,20 @@
 | **Farcaster** | Pay-per-cast | 0.001 USDC per cast. Pre-fund wallet on Base. |
 
 **X/Twitter:**
-- ✅ Pay per API request (post, read, etc.)
-- ✅ No subscription tiers (eliminated)
-- ✅ No monthly minimums
-- ✅ Credit card billing through X Developer Portal
-- 📊 See official pricing: https://developer.twitter.com/#pricing
+-  Pay per API request (post, read, etc.)
+-  No subscription tiers (eliminated)
+-  No monthly minimums
+-  Credit card billing through X Developer Portal
+-  See official pricing: https://developer.twitter.com/#pricing
 
 **Farcaster:**
-- ✅ Fixed cost: 0.001 USDC per cast
-- ✅ Pre-fund wallet with USDC on Base chain
-- ✅ Deducted instantly per cast
+-  Fixed cost: 0.001 USDC per cast
+-  Pre-fund wallet with USDC on Base chain
+-  Deducted instantly per cast
 
 ### Required Credentials
 
-#### **X/Twitter Setup** 🐦
+#### **X/Twitter Setup** 
 
 **Step 1: Get Developer Access**
 1. Go to https://developer.twitter.com/en/portal/dashboard
@@ -101,7 +101,7 @@ X_USERNAME=your_username  # Optional but recommended
 X_USER_ID=your_user_id    # Optional but recommended
 ```
 
-**💰 X/Twitter Costs:**
+** X/Twitter Costs:**
 - **100% Consumption-based pricing** - NO subscription tiers
 - **Pay per API request** - charged for each call you make
 - No monthly fees, no minimums, no tier upgrades
@@ -112,7 +112,7 @@ X_USER_ID=your_user_id    # Optional but recommended
 
 **Important:** X API eliminated subscription tiers. It's now purely pay-per-use.
 
-#### **Farcaster Setup** 🟣
+#### **Farcaster Setup** 
 
 **Step 1: Create Farcaster Account**
 
@@ -154,7 +154,7 @@ scripts/check-balance.sh
 # Recommended: 1-5 USDC (1000-5000 casts)
 ```
 
-**💰 Farcaster Costs:**
+** Farcaster Costs:**
 - **0.001 USDC per cast** (via x402 payment protocol)
 - Deducted from custody wallet on **Base chain**
 - Uses Neynar Hub API (`hub-api.neynar.com`)
@@ -189,9 +189,9 @@ ls -la ~/.openclaw/farcaster-credentials.json
 ```bash
 scripts/check-balance.sh
 # Should show:
-# 💎 ETH Balance: X.XXX ETH
-# 💵 USDC Balance: X.XXX USDC
-# 📢 Casts Remaining: ~XXX
+#  ETH Balance: X.XXX ETH
+#  USDC Balance: X.XXX USDC
+#  Casts Remaining: ~XXX
 ```
 
 **3. Test with dry-run (doesn't actually post):**
@@ -199,8 +199,8 @@ scripts/check-balance.sh
 scripts/post.sh --dry-run "Test message"
 
 # Should show:
-# ✅ Twitter: X/252 characters
-# ✅ Farcaster: X/288 bytes
+#  Twitter: X/252 characters
+#  Farcaster: X/288 bytes
 # === Draft Preview ===
 # Would post to Twitter
 # Would post to Farcaster
@@ -215,7 +215,7 @@ scripts/post.sh --twitter --dry-run "Twitter test"
 scripts/post.sh --farcaster --dry-run "Farcaster test"
 ```
 
-**Ready to post!** 🚀
+**Ready to post!** 
 
 ### Quick Start
 
@@ -223,7 +223,7 @@ scripts/post.sh --farcaster --dry-run "Farcaster test"
 
 ```bash
 # Post to both platforms
-scripts/post.sh "gm! Building onchain 🦞"
+scripts/post.sh "gm! Building onchain "
 
 # Twitter only
 scripts/post.sh --twitter "Twitter announcement"
@@ -244,7 +244,7 @@ scripts/post.sh --shorten-links "Check out this cool site: https://very-long-url
 scripts/post.sh --thread --shorten-links --image ~/pic.jpg "Long text with links and image..."
 ```
 
-#### Replying ✨ NEW
+#### Replying  NEW
 
 ```bash
 # Reply to Twitter tweet (get ID from URL: twitter.com/user/status/[ID])
@@ -268,14 +268,14 @@ scripts/reply.sh --twitter 123456 --yes "Quick acknowledgment"
 
 ### Features
 
-✅ Post to Twitter, Farcaster, or both  
-✅ **Reply to tweets and casts** - respond to specific posts on both platforms  
-✅ Automatic character/byte limit validation  
-✅ Image upload support (for posts and replies)  
-✅ **Thread support** - split long text into numbered posts  
-✅ **Link shortening** - compress URLs to save characters  
-✅ Auto-truncate option  
-✅ Dry-run mode  
+ Post to Twitter, Farcaster, or both  
+ **Reply to tweets and casts** - respond to specific posts on both platforms  
+ Automatic character/byte limit validation  
+ Image upload support (for posts and replies)  
+ **Thread support** - split long text into numbered posts  
+ **Link shortening** - compress URLs to save characters  
+ Auto-truncate option  
+ Dry-run mode  
 
 ### Platform Comparison
 
@@ -383,8 +383,8 @@ scripts/reply.sh --twitter 123456 --yes "Quick acknowledgment"
 
 ## License
 
-MIT © 0xdas
+MIT  0xdas
 
 ---
 
-**Version 1.2.0** | Built for [OpenClaw](https://openclaw.ai) 🦞
+**Version 1.2.0** | Built for [OpenClaw](https://openclaw.ai) 

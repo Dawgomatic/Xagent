@@ -7,11 +7,11 @@
 **Rule:** ALWAYS add `subtasks=true` to task queries
 
 ```bash
-# ✅ CORRECT
+#  CORRECT
 curl "https://api.clickup.com/api/v2/team/{team_id}/task?subtasks=true" \
   -H "Authorization: {api_key}"
 
-# ❌ WRONG - Missing subtasks parameter
+#  WRONG - Missing subtasks parameter
 curl "https://api.clickup.com/api/v2/team/{team_id}/task" \
   -H "Authorization: {api_key}"
 ```

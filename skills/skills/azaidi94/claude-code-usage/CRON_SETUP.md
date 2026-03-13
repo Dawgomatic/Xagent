@@ -67,11 +67,11 @@ cat /tmp/claude-usage-state.json | grep last_check
 When a reset is detected, you'll receive:
 
 ```
-🎉 Claude Code Session Reset!
+ Claude Code Session Reset!
 
-⏱️  Your 5-hour quota has reset
-📊 Usage: 2%
-⏰ Next reset: 4h 58m
+  Your 5-hour quota has reset
+ Usage: 2%
+ Next reset: 4h 58m
 
-Fresh usage available! 🦞
+Fresh usage available! 
 ```

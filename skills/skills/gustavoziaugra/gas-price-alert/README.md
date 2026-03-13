@@ -1,6 +1,6 @@
 # Gas Price Alert / Alerta de Preço de Combustível
 
-**⛽ Find cheapest gas prices with daily notifications / Encontre os preços mais baratos de combustível com alertas diários**
+** Find cheapest gas prices with daily notifications / Encontre os preços mais baratos de combustível com alertas diários**
 
 This OpenClaw skill helps you find and monitor gas prices, with special focus on Costco and other discount stations.
 
@@ -8,12 +8,12 @@ Este skill do OpenClaw ajuda você a encontrar e monitorar preços de combustív
 
 ## Features / Funcionalidades
 
-- 🔍 **ZIP code search** - Search by any US ZIP code / Busca por qualquer CEP dos EUA
-- 💰 **Best price detection** - Shows cheapest options first / Mostra opções mais baratas primeiro
-- 📏 **Configurable radius** - Set your preferred search range / Defina o raio de busca preferido
-- 🏠 **Costco support** - Special tracking of Costco locations / Rastreamento especial de locais da Costco
-- ⏰ **Daily alerts** - Schedule automated notifications / Agende notificações automatizadas
-- 🌍 **Works anywhere** - Supports any US location / Funciona em qualquer lugar dos EUA
+-  **ZIP code search** - Search by any US ZIP code / Busca por qualquer CEP dos EUA
+-  **Best price detection** - Shows cheapest options first / Mostra opções mais baratas primeiro
+-  **Configurable radius** - Set your preferred search range / Defina o raio de busca preferido
+-  **Costco support** - Special tracking of Costco locations / Rastreamento especial de locais da Costco
+-  **Daily alerts** - Schedule automated notifications / Agende notificações automatizadas
+-  **Works anywhere** - Supports any US location / Funciona em qualquer lugar dos EUA
 
 ## Quick Start / Início Rápido
 
@@ -93,7 +93,7 @@ Set up automated daily alerts using OpenClaw's cron system / Configure alertas d
   },
   "payload": {
     "kind": "systemEvent",
-    "text": "⛽ Gas Prices / Preços de Combustível\n\nRun: python3 scripts/gas_alternative.py --zip 43215 --radius 20 --fuel 87 --summary"
+    "text": " Gas Prices / Preços de Combustível\n\nRun: python3 scripts/gas_alternative.py --zip 43215 --radius 20 --fuel 87 --summary"
   },
   "sessionTarget": "main"
 }
@@ -115,20 +115,20 @@ Set up automated daily alerts using OpenClaw's cron system / Configure alertas d
 ## Example Output / Exemplo de Saída
 
 ```
-⛽ Gas Prices (87 Octane) - Columbus, OH
-⛽ Preços de Gasolina (87 Octanos) - Columbus, OH
+ Gas Prices (87 Octane) - Columbus, OH
+ Preços de Gasolina (87 Octanos) - Columbus, OH
 
-💰 Best Prices Available (3 with prices)
-💰 Melhores Preços Disponíveis (3 com preços)
-
-• Costco Gas - $2.69 (est.)
-  📍 5000 Morse Rd, Columbus, OH 43213 (7.9 miles) ⭐
+ Best Prices Available (3 with prices)
+ Melhores Preços Disponíveis (3 com preços)
 
 • Costco Gas - $2.69 (est.)
-  📍 1350 Hilliard Rome Rd, Columbus, OH 43228 (8.2 miles) ⭐
+   5000 Morse Rd, Columbus, OH 43213 (7.9 miles) 
 
-📍 Nearest Stations (Top 10 by distance)
-📍 Postos Mais Próximos (Top 10 por distância)
+• Costco Gas - $2.69 (est.)
+   1350 Hilliard Rome Rd, Columbus, OH 43228 (8.2 miles) 
+
+ Nearest Stations (Top 10 by distance)
+ Postos Mais Próximos (Top 10 por distância)
 
 1. Speedway (1.6 miles)
 2. GetGo (2.2 miles)
@@ -139,7 +139,7 @@ Set up automated daily alerts using OpenClaw's cron system / Configure alertas d
 ... and 129 more stations within 20 miles
 ... e 129 postos a mais dentro de 20 milhas
 
-💡 Tips / Dicas:
+ Tips / Dicas:
 • Costco typically has gas $0.15-0.25 below market average
 • Costco geralmente tem gasolina $0.15-0.25 abaixo da média do mercado
 • For exact prices, check GasBuddy.com or station's app
@@ -208,7 +208,7 @@ Criado por **Gustavo (GustavoZiaugra)** com OpenClaw
 **Find this and more OpenClaw skills at ClawHub.com**
 **Encontre este e mais skills do OpenClaw em ClawHub.com**
 
-⭐ **Star this repository if you find it useful!**
-**⭐ Dê uma estrela neste repositório se você achar útil!**
+ **Star this repository if you find it useful!**
+** Dê uma estrela neste repositório se você achar útil!**
 
-🇧🇷 **Disponível em português e inglês!**
+ **Disponível em português e inglês!**

@@ -18,7 +18,7 @@ def main():
     transformed, changes = transform(text, aggressive=args.aggressive)
     after = detect(transformed)
     
-    icons = {"very high": "🔴", "high": "🟠", "medium": "🟡", "low": "🟢"}
+    icons = {"very high": "", "high": "", "medium": "", "low": ""}
     
     print(f"\n{'='*60}")
     print("BEFORE → AFTER COMPARISON")
@@ -46,7 +46,7 @@ def main():
         pct = (reduction / before.total_issues * 100) if before.total_issues else 0
         print(f"\n✓ Reduced {reduction} issues ({pct:.0f}% improvement)")
     elif reduction < 0:
-        print(f"\n⚠ Issues increased by {-reduction}")
+        print(f"\n Issues increased by {-reduction}")
     else:
         print(f"\n— No change in issue count")
     

@@ -34,7 +34,7 @@ core.sort(key=lambda x: x['importance'], reverse=True)
 if not core:
     print("No core memories above threshold")
 else:
-    print(f"🧠 HIPPOCAMPUS: {len(core)} core memories (importance ≥ {THRESHOLD})")
+    print(f" HIPPOCAMPUS: {len(core)} core memories (importance ≥ {THRESHOLD})")
     print("")
     
     # Group by domain

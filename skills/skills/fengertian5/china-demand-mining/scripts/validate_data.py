@@ -118,19 +118,19 @@ class DataValidator:
         recommendations = []
         
         if not count_val['valid']:
-            recommendations.append(f"⚠️  数据量不足，还需抓取至少 {count_val['shortage']} 条数据")
+            recommendations.append(f"  数据量不足，还需抓取至少 {count_val['shortage']} 条数据")
         
         if quality_val['valid_ratio'] < 0.8:
-            recommendations.append(f"⚠️  数据质量较低，有效数据占比仅 {quality_val['valid_ratio']:.1%}")
+            recommendations.append(f"  数据质量较低，有效数据占比仅 {quality_val['valid_ratio']:.1%}")
         
         if dup_check['has_excessive_duplicates']:
-            recommendations.append(f"⚠️  重复数据过多，重复率 {dup_check['duplicate_ratio']:.1%}")
+            recommendations.append(f"  重复数据过多，重复率 {dup_check['duplicate_ratio']:.1%}")
         
         if platform_val and platform_val.get('missing_platforms'):
-            recommendations.append(f"⚠️  缺少以下平台数据：{', '.join(platform_val['missing_platforms'])}")
+            recommendations.append(f"  缺少以下平台数据：{', '.join(platform_val['missing_platforms'])}")
         
         if not recommendations:
-            recommendations.append("✅ 数据质量良好，可以进行下一步分析")
+            recommendations.append(" 数据质量良好，可以进行下一步分析")
         
         return recommendations
     
@@ -138,10 +138,10 @@ class DataValidator:
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(report, f, ensure_ascii=False, indent=2)
         
-        print(f"\n📊 数据验证报告")
+        print(f"\n 数据验证报告")
         print(f"{'='*50}")
         print(f"验证时间：{report['validation_time']}")
-        print(f"总体状态：{'✅ 通过' if report['overall_valid'] else '❌ 未通过'}")
+        print(f"总体状态：{' 通过' if report['overall_valid'] else ' 未通过'}")
         print(f"\n数据量验证：{report['count_validation']['message']}")
         print(f"数据质量：有效数据 {report['quality_validation']['valid_count']} 条 ({report['quality_validation']['valid_ratio']:.1%})")
         print(f"重复检查：重复数据 {report['duplicate_check']['duplicate_count']} 条 ({report['duplicate_check']['duplicate_ratio']:.1%})")
@@ -149,11 +149,11 @@ class DataValidator:
         if report.get('platform_validation'):
             print(f"平台覆盖：{len(report['platform_validation']['covered_platforms'])} 个平台")
         
-        print(f"\n💡 建议：")
+        print(f"\n 建议：")
         for rec in report['recommendations']:
             print(f"  {rec}")
         
-        print(f"\n💾 报告已保存到 {output_path}")
+        print(f"\n 报告已保存到 {output_path}")
 
 def main():
     parser = argparse.ArgumentParser(description='数据质量验证')

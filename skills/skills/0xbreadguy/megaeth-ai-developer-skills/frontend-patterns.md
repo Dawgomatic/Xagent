@@ -5,8 +5,8 @@
 **Never open per-user WebSocket connections.** Use one connection, broadcast to users.
 
 ```
-❌ Wrong: Each user → WebSocket → MegaETH
-✅ Right: Server → WebSocket → MegaETH, Server → broadcast → Users
+ Wrong: Each user → WebSocket → MegaETH
+ Right: Server → WebSocket → MegaETH, Server → broadcast → Users
 ```
 
 ## Real-time Data Flow
@@ -172,13 +172,13 @@ export const megaethTestnet = defineChain({
 ## Gas Configuration
 
 ```typescript
-// ❌ Wrong: viem adds 20% buffer
+//  Wrong: viem adds 20% buffer
 const gasPrice = await publicClient.getGasPrice();
 
-// ✅ Right: use base fee directly
+//  Right: use base fee directly
 const gasPrice = 1000000n; // 0.001 gwei
 
-// ✅ Right: hardcode gas for known operations
+//  Right: hardcode gas for known operations
 const tx = await walletClient.sendTransaction({
   to: recipient,
   value: amount,
@@ -193,7 +193,7 @@ const tx = await walletClient.sendTransaction({
 As of v2.0.14, **Multicall is preferred** for batching `eth_call` requests. The `eth_call` implementation is now 2-10x faster, and Multicall amortizes per-RPC overhead.
 
 ```typescript
-// ✅ Preferred: Multicall (v2.0.14+)
+//  Preferred: Multicall (v2.0.14+)
 import { multicall } from 'viem/actions';
 
 const results = await multicall(client, {
@@ -204,7 +204,7 @@ const results = await multicall(client, {
   ]
 });
 
-// ❌ Still avoid: mixing slow with fast
+//  Still avoid: mixing slow with fast
 // Don't batch eth_getLogs with eth_call — logs are always slower
 ```
 

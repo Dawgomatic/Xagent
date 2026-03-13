@@ -33,12 +33,12 @@ This skill enables batch conversion of documents between multiple formats using 
 
 | From | To: DOCX | To: PDF | To: MD | To: HTML | To: PPTX |
 |------|----------|---------|--------|----------|----------|
-| DOCX | - | ✅ | ✅ | ✅ | - |
-| PDF | ✅ | - | ✅ | ✅ | - |
-| MD | ✅ | ✅ | - | ✅ | ✅ |
-| HTML | ✅ | ✅ | ✅ | - | - |
-| XLSX | - | ✅ | ✅ | ✅ | - |
-| PPTX | - | ✅ | ✅ | ✅ | - |
+| DOCX | - |  |  |  | - |
+| PDF |  | - |  |  | - |
+| MD |  |  | - |  |  |
+| HTML |  |  |  | - | - |
+| XLSX | - |  |  |  | - |
+| PPTX | - |  |  |  | - |
 
 ### Core Pipeline
 

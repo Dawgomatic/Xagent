@@ -1,6 +1,6 @@
 # Frontend Implementation Guide: Agent Dashboard Route
 
-## 📋 Overview
+##  Overview
 
 The Bloom Identity Skill now generates **permanent agent URLs** instead of temporary tokens:
 
@@ -13,7 +13,7 @@ Example: https://preflight.bloomprotocol.ai/agents/123
 
 ---
 
-## 🎯 Required Changes
+##  Required Changes
 
 ### 1. Add New Route: `/agents/[agentUserId]`
 
@@ -83,7 +83,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
 ---
 
-## 🔌 Backend API Integration
+##  Backend API Integration
 
 ### API Endpoint
 
@@ -155,7 +155,7 @@ async function fetchAgentData(agentUserId: string) {
 
 ---
 
-## 🎨 UI Components Needed
+##  UI Components Needed
 
 ### 1. Identity Card Display
 
@@ -193,13 +193,13 @@ function IdentityCard({ data }: IdentityCardProps) {
 
 function getPersonalityEmoji(type: string): string {
   const emojiMap = {
-    'The Visionary': '💜',
-    'The Explorer': '💚',
-    'The Cultivator': '🩵',
-    'The Optimizer': '🧡',
-    'The Innovator': '💙',
+    'The Visionary': '',
+    'The Explorer': '',
+    'The Cultivator': '',
+    'The Optimizer': '',
+    'The Innovator': '',
   };
-  return emojiMap[type] || '🎴';
+  return emojiMap[type] || '';
 }
 ```
 
@@ -220,7 +220,7 @@ interface SkillRecommendationsProps {
 function SkillRecommendations({ skills }: SkillRecommendationsProps) {
   return (
     <div className="recommendations">
-      <h2>🎯 Matching Skills</h2>
+      <h2> Matching Skills</h2>
       {skills.map((skill, i) => (
         <div key={i} className="skill-card">
           <div className="skill-header">
@@ -256,7 +256,7 @@ interface WalletInfoProps {
 function WalletInfo({ wallet }: WalletInfoProps) {
   return (
     <div className="wallet-info">
-      <h2>🤖 Agent Wallet</h2>
+      <h2> Agent Wallet</h2>
       <div className="info-row">
         <strong>Address:</strong>
         <code>{wallet.address}</code>
@@ -278,23 +278,23 @@ function WalletInfo({ wallet }: WalletInfoProps) {
 
 ---
 
-## 🚀 Deployment Checklist
+##  Deployment Checklist
 
 ### Backend (bp-api)
-- [x] ✅ CDP wallet creation working (RPC URL fixed)
-- [ ] ❓ `/x402/agent/{agentUserId}` endpoint returns agent data
-- [ ] ❓ `/x402/agent-claim` endpoint saves identity data
+- [x]  CDP wallet creation working (RPC URL fixed)
+- [ ]  `/x402/agent/{agentUserId}` endpoint returns agent data
+- [ ]  `/x402/agent-claim` endpoint saves identity data
 
 ### Frontend (Railway)
-- [ ] ⏳ Add `/agents/[agentUserId]` route
-- [ ] ⏳ Implement `fetchAgentData()` function
-- [ ] ⏳ Create UI components (IdentityCard, SkillRecommendations, WalletInfo)
-- [ ] ⏳ Deploy to Railway
-- [ ] ⏳ Test with real agent URL
+- [ ]  Add `/agents/[agentUserId]` route
+- [ ]  Implement `fetchAgentData()` function
+- [ ]  Create UI components (IdentityCard, SkillRecommendations, WalletInfo)
+- [ ]  Deploy to Railway
+- [ ]  Test with real agent URL
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Step 1: Generate Agent URL
 ```bash
@@ -304,7 +304,7 @@ npm start -- --user-id test-123
 
 **Expected output:**
 ```
-🌐 View Your Card
+ View Your Card
 → https://preflight.bloomprotocol.ai/agents/123
 ```
 
@@ -314,10 +314,10 @@ https://preflight.bloomprotocol.ai/agents/123
 ```
 
 **Expected result:**
-- ✅ Page loads (not 404)
-- ✅ Shows agent identity card
-- ✅ Shows skill recommendations
-- ✅ Shows wallet info
+-  Page loads (not 404)
+-  Shows agent identity card
+-  Shows skill recommendations
+-  Shows wallet info
 
 ### Step 3: Check API
 ```bash
@@ -340,9 +340,9 @@ curl https://api.bloomprotocol.ai/x402/agent/123
 
 ---
 
-## 🔀 URL Format Comparison
+##  URL Format Comparison
 
-### ❌ Old Format (Deprecated)
+###  Old Format (Deprecated)
 ```
 https://preflight.bloomprotocol.ai/dashboard?token=eyJhbGc...
 ```
@@ -353,7 +353,7 @@ https://preflight.bloomprotocol.ai/dashboard?token=eyJhbGc...
 - Long, ugly URL
 - Complex token generation
 
-### ✅ New Format (Current)
+###  New Format (Current)
 ```
 https://preflight.bloomprotocol.ai/agents/123
 ```
@@ -366,7 +366,7 @@ https://preflight.bloomprotocol.ai/agents/123
 
 ---
 
-## 📝 Environment Variables
+##  Environment Variables
 
 ### Skill (.env)
 ```bash
@@ -387,7 +387,7 @@ NEXT_PUBLIC_API_URL=https://api.bloomprotocol.ai
 
 ---
 
-## ❓ FAQ
+##  FAQ
 
 ### Q: Why `/agents/` instead of `/dashboard`?
 
@@ -430,7 +430,7 @@ if (searchParams.has('token')) {
 
 ---
 
-## 📚 Related Files
+##  Related Files
 
 In this project (`bloom-identity-skill`):
 - `src/bloom-identity-skill-v2.ts:248` - Generates dashboard URL
@@ -439,7 +439,7 @@ In this project (`bloom-identity-skill`):
 
 ---
 
-## 🎯 Next Steps
+##  Next Steps
 
 1. **Share this guide** with frontend team
 2. **Verify backend API** has `/x402/agent/{agentUserId}` endpoint

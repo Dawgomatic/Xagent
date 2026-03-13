@@ -27,7 +27,7 @@ function inferAgentType(data: any): string {
 async function main() {
   // Check credentials
   if (!fs.existsSync(CREDS_FILE)) {
-    console.error('\n❌ Not registered. Run first:');
+    console.error('\n Not registered. Run first:');
     console.error('   npx ts-node scripts/register.ts\n');
     process.exit(1);
   }
@@ -42,7 +42,7 @@ async function main() {
   }
   
   if (!input.trim()) {
-    console.error('\n❌ No input received. Pipe summarized JSON to this script.\n');
+    console.error('\n No input received. Pipe summarized JSON to this script.\n');
     console.error('Usage:');
     console.error('  npx ts-node extract.ts | npx ts-node anonymize.ts | npx ts-node summarize.ts | npx ts-node upload.ts\n');
     process.exit(1);
@@ -52,7 +52,7 @@ async function main() {
   try {
     data = JSON.parse(input);
   } catch (e) {
-    console.error('\n❌ Invalid JSON input\n');
+    console.error('\n Invalid JSON input\n');
     process.exit(1);
   }
   
@@ -103,11 +103,11 @@ async function main() {
   const result = await res.json() as { message?: string; url?: string; id?: string };
   
   if (!res.ok) {
-    console.error('\n❌ Upload failed:', result.message);
+    console.error('\n Upload failed:', result.message);
     process.exit(1);
   }
   
-  console.log('\n✅ Soul shared!');
+  console.log('\n Soul shared!');
   console.log(`   ${result.url}`);
   
   // Share on X link
@@ -117,7 +117,7 @@ async function main() {
   
   // Hint about LFM2.5 for better summaries
   if (!data.meta?.usedLLM) {
-    console.log('💡 Tip: Get better summaries with the Liquid Foundation Model:');
+    console.log(' Tip: Get better summaries with the Liquid Foundation Model:');
     console.log('   ollama pull hf.co/LiquidAI/LFM2.5-1.2B-Instruct');
     console.log('   opensoul share   # LFM2.5 will be used automatically\n');
   }

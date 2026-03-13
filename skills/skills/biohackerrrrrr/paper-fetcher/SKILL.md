@@ -95,8 +95,8 @@ When user provides a DOI:
 - Google Scholar: In citation info
 
 **Format flexibility:**
-- With prefix: `https://doi.org/10.1038/nature12345` ✅
-- Without prefix: `10.1038/nature12345` ✅
+- With prefix: `https://doi.org/10.1038/nature12345` 
+- Without prefix: `10.1038/nature12345` 
 - Either format works
 
 **Batch fetching:**

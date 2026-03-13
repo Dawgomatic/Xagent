@@ -29,7 +29,7 @@ Buy/Sell/Hold Trade Signals for AI agents. Transform complex market intelligence
 
 ## Features
 
-### 📊 Research Capabilities
+###  Research Capabilities
 
 | Query Type | Examples |
 |------------|----------|
@@ -45,7 +45,7 @@ Each response includes:
 - **Tickers**: Relevant stock symbols identified
 - **Sources**: Full citation list with titles and publication dates
 
-### 📈 Market Coverage
+###  Market Coverage
 
 **37,565 Global Tickers + 6,104 ETFs** across all major exchanges:
 
@@ -64,7 +64,7 @@ Each response includes:
 
 **Asset Classes**: Global Equities, ETFs, Global macro, FX, commodities, crypto content available.
 
-### 🔬 Data Sources
+###  Data Sources
 
 | Source | Data Type |
 |--------|-----------|
@@ -163,7 +163,7 @@ Running the script returns JSON:
 **Query:** `./scripts/search.sh "What was Apple's iPhone revenue last quarter?"`
 
 ```
-📊 **Apple iPhone Revenue Analysis**
+ **Apple iPhone Revenue Analysis**
 
 Apple reported iPhone revenue of $46.2 billion in Q4 FY2024, up 6% year-over-year
 and representing 52% of total company revenue. [1]
@@ -185,7 +185,7 @@ growing double-digits for the fifth consecutive quarter. [2]
 **Query:** `./scripts/search.sh "Compare Microsoft and Google cloud revenue growth"`
 
 ```
-📊 **Cloud Revenue Comparison: Microsoft vs Google**
+ **Cloud Revenue Comparison: Microsoft vs Google**
 
 **Microsoft Azure:**
 - Q4 2024 Revenue: $25.9 billion
@@ -212,7 +212,7 @@ prior years. [2]
 **Query:** `./scripts/search.sh "What are analysts saying about NVIDIA?"`
 
 ```
-📊 **NVIDIA Analyst Sentiment**
+ **NVIDIA Analyst Sentiment**
 
 Wall Street remains overwhelmingly bullish on NVIDIA with 45 Buy ratings,
 3 Hold, and 0 Sell. Average price target: $950 (18% upside). [1]

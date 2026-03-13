@@ -2,15 +2,15 @@
 
 **The Brain for OpenClaw** - Self-hosted RAG engine with hybrid search.
 
-> ⚠️ This skill requires Docker. It connects OpenClaw to your local ClawRAG instance.
+>  This skill requires Docker. It connects OpenClaw to your local ClawRAG instance.
 
 ## What is ClawRAG?
 
 Production-ready RAG infrastructure that keeps your data local:
-- 🔒 **Privacy-first**: Vector DB runs on your machine
-- 🔍 **Hybrid Search**: Semantic + Keyword (BM25) + RRF ranking
-- 📄 **Smart Ingestion**: PDFs, Office docs, Markdown via Docling
-- 🧠 **MCP-native**: Seamless OpenClaw integration
+-  **Privacy-first**: Vector DB runs on your machine
+-  **Hybrid Search**: Semantic + Keyword (BM25) + RRF ranking
+-  **Smart Ingestion**: PDFs, Office docs, Markdown via Docling
+-  **MCP-native**: Seamless OpenClaw integration
 
 ## Installation
 
@@ -64,10 +64,10 @@ OpenClaw ◄──MCP──► @clawrag/mcp-server ◄──HTTP──► ClawRA
 
 ## Links
 
-- 📚 Full Docs: https://github.com/2dogsandanerd/ClawRag#readme
-- 🔧 API Reference: http://localhost:8080/docs (when running)
-- 🐛 Issues: https://github.com/2dogsandanerd/ClawRag/issues
-- 📦 MCP Package: https://www.npmjs.com/package/@clawrag/mcp-server
+-  Full Docs: https://github.com/2dogsandanerd/ClawRag#readme
+-  API Reference: http://localhost:8080/docs (when running)
+-  Issues: https://github.com/2dogsandanerd/ClawRag/issues
+-  MCP Package: https://www.npmjs.com/package/@clawrag/mcp-server
 
 ## Tags
 

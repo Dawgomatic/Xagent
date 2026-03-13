@@ -3,18 +3,18 @@
  */
 
 const SEVERITY_ICONS = {
-  critical: '🔴',
-  high: '🟠',
-  medium: '🟡',
-  low: '🔵',
-  info: 'ℹ️',
+  critical: '',
+  high: '',
+  medium: '',
+  low: '',
+  info: '',
 };
 
 const RISK_ICONS = {
-  LOW: '✅',
-  MEDIUM: '⚠️',
-  HIGH: '🟠',
-  CRITICAL: '🔴',
+  LOW: '',
+  MEDIUM: '',
+  HIGH: '',
+  CRITICAL: '',
 };
 
 /**
@@ -39,7 +39,7 @@ export function formatTextReport(report) {
   if (report.summary.high > 0) parts.push(`${SEVERITY_ICONS.high} ${report.summary.high} high`);
   if (report.summary.medium > 0) parts.push(`${SEVERITY_ICONS.medium} ${report.summary.medium} medium`);
   if (report.summary.low > 0) parts.push(`${SEVERITY_ICONS.low} ${report.summary.low} low`);
-  if (parts.length === 0) parts.push('✅ No issues found');
+  if (parts.length === 0) parts.push(' No issues found');
   lines.push(`  Findings: ${parts.join(' | ')}`);
   lines.push('');
 
@@ -111,12 +111,12 @@ export function formatCompactReport(report, skillName = null) {
   const name = skillName || report.metadata?.name || report.path.split('/').pop();
   const lines = [];
 
-  lines.push(`🛡️ **SkillGuard Audit: ${name}**`);
+  lines.push(` **SkillGuard Audit: ${name}**`);
   lines.push(`Score: **${report.score}/100** ${RISK_ICONS[report.risk]}`);
   lines.push('');
 
   if (report.findings.length === 0) {
-    lines.push('✅ Clean — no issues detected.');
+    lines.push(' Clean — no issues detected.');
     return lines.join('\n');
   }
 
@@ -148,12 +148,12 @@ export function formatMoltbookPost(report, skillName) {
   const name = skillName || report.metadata?.name || 'Unknown Skill';
   const lines = [];
 
-  lines.push(`🛡️ SkillGuard Audit: ${name}`);
+  lines.push(` SkillGuard Audit: ${name}`);
   lines.push(`Score: ${report.score}/100 | Risk: ${report.risk}`);
   lines.push('');
 
   if (report.summary.critical > 0) {
-    lines.push(`⚠️ CRITICAL ISSUES FOUND (${report.summary.critical})`);
+    lines.push(` CRITICAL ISSUES FOUND (${report.summary.critical})`);
     const criticals = report.findings.filter(f => f.severity === 'critical');
     for (const f of criticals.slice(0, 5)) {
       lines.push(`- [${f.ruleId}] ${f.title} @ ${f.file}:${f.line}`);
@@ -162,10 +162,10 @@ export function formatMoltbookPost(report, skillName) {
   }
 
   if (report.summary.high > 0) {
-    lines.push(`🟠 High severity: ${report.summary.high} finding(s)`);
+    lines.push(` High severity: ${report.summary.high} finding(s)`);
   }
   if (report.summary.medium > 0) {
-    lines.push(`🟡 Medium severity: ${report.summary.medium} finding(s)`);
+    lines.push(` Medium severity: ${report.summary.medium} finding(s)`);
   }
 
   lines.push('');
@@ -178,10 +178,10 @@ export function formatMoltbookPost(report, skillName) {
 }
 
 function getVerdict(report) {
-  if (report.score >= 80) return '✅ PASS — Low risk, appears safe to install.';
-  if (report.score >= 50) return '⚠️ CAUTION — Review findings before installing.';
-  if (report.score >= 20) return '🟠 WARNING — Significant security concerns detected.';
-  return '🔴 FAIL — Critical security issues. Do NOT install without thorough manual review.';
+  if (report.score >= 80) return ' PASS — Low risk, appears safe to install.';
+  if (report.score >= 50) return ' CAUTION — Review findings before installing.';
+  if (report.score >= 20) return ' WARNING — Significant security concerns detected.';
+  return ' FAIL — Critical security issues. Do NOT install without thorough manual review.';
 }
 
 function severityRank(sev) {

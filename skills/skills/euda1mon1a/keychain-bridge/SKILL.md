@@ -4,7 +4,7 @@ description: Manage secrets via macOS Keychain instead of plaintext files. Migra
 homepage: https://github.com/moltbot/keychain-bridge
 metadata:
   openclaw:
-    emoji: "🔐"
+    emoji: ""
     requires:
       bins: ["bash", "python3"]
       env: []

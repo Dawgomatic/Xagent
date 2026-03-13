@@ -2,7 +2,7 @@
 name: manus
 description: Agente de IA autónomo de Manus con capacidades de investigación, desarrollo, automatización y generación de medios.
 homepage: https://manus.im
-metadata: {"clawdbot":{"emoji":"🧠","requires":{"env":["MANUS_API_KEY"]},"primaryEnv":"MANUS_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["MANUS_API_KEY"]},"primaryEnv":"MANUS_API_KEY"}}
 ---
 
 # Manus AI Skill
@@ -218,12 +218,12 @@ python3 run_task.py "Basándote en el archivo subido, crea una presentación"
 
 ### Prompts efectivos
 
-**✅ Buenos:**
+** Buenos:**
 - "Investiga las regulaciones de IA en la UE y resume los puntos clave"
 - "Crea una web app de clima con React y OpenWeatherMap"
 - "Analiza los últimos 10 tweets de una cuenta y genera un reporte"
 
-**❌ Evitar:**
+** Evitar:**
 - "Haz algo útil" (muy vago)
 - "Mejora esto" (sin contexto)
 

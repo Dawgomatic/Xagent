@@ -22,7 +22,7 @@ echo ""
 [ ! -d ".git" ] && git init
 sensitive_files=$(find . -maxdepth 2 \( -name ".env*" -o -name "*.pem" -o -name "*.key" -o -name "*.secret" -o -name "id_rsa*" \) 2>/dev/null || true)
 if [ -n "$sensitive_files" ]; then
-    echo "⚠️  Potentially sensitive files detected:"
+    echo "  Potentially sensitive files detected:"
     echo "$sensitive_files"
     echo ""
     read -rp "Continue anyway? (y/N) " confirm

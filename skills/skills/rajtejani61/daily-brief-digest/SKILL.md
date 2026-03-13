@@ -24,16 +24,16 @@ This skill provides a structured way to get a quick overview of your day. It rel
 
 ## Example Output
 
-**📅 Daily Briefing - 2026-02-12**
+** Daily Briefing - 2026-02-12**
 
-**📧 Emails (Recent)**
+** Emails (Recent)**
 - **Google**: Security alert (04:10)
 - **The Replit Team**: Unlock Replit Agent's Full Potential (Feb 11)
 
-**🗓️ Calendar**
+** Calendar**
 - 10:30 AM: Workout (Shoulder)
 - 02:00 PM: Project Review
 
-**📰 News**
+** News**
 - [Top news item 1]
 - [Top news item 2]

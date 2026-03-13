@@ -249,7 +249,7 @@
 
 - **Avoid driving 7-9am and 5-8pm** — gridlock
 - Friday morning = quiet (weekend)
-- Metro is often faster than taxi for Downtown ↔ Marina
+- Metro is often faster than taxi for Downtown  Marina
 
 ### Weather Considerations
 

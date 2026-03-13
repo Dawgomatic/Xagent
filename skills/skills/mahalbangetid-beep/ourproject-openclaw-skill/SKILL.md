@@ -3,7 +3,7 @@ name: ourproject
 description: Manage your ourproject.app workspace — projects, tasks, finance, CRM, and more — directly from your OpenClaw agent
 ---
 
-# OurProject Skill for OpenClaw 🦞
+# OurProject Skill for OpenClaw 
 
 Connect your [ourproject.app](https://ourproject.app) account to your OpenClaw agent. Query your projects, tasks, finances, bills, CRM clients, and notifications — all through natural conversation.
 

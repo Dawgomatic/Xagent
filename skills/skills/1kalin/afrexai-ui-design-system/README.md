@@ -1,4 +1,4 @@
-# 🎨 UI/UX Design System — Complete Product Design Engine
+#  UI/UX Design System — Complete Product Design Engine
 
 The most comprehensive design system skill on ClawHub. Not just CSS tips — a full methodology from user research through pixel-perfect implementation.
 
@@ -40,15 +40,15 @@ Tell your agent:
 | Accessibility | Mentioned | Full WCAG AA checklist with semantic HTML guide |
 | Quality | Not measured | 100-point scoring rubric + ship-ready checklist |
 
-## ⚡ Level Up
+##  Level Up
 
 Want production-ready design systems for your industry?
 
 **AfrexAI Context Packs** ($47) include industry-specific design patterns, component libraries, and UX research templates:
 
-👉 [Browse Context Packs](https://afrexai-cto.github.io/context-packs/)
+ [Browse Context Packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - `afrexai-ux-research-engine` — User research methodology
 - `afrexai-brand-strategy` — Brand identity & visual systems
@@ -58,4 +58,4 @@ Want production-ready design systems for your industry?
 
 ---
 
-*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛*
+*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) *

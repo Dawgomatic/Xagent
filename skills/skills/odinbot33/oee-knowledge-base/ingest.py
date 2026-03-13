@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🐾 Ingest a URL or text into OEE's Second Brain.
+ Ingest a URL or text into OEE's Second Brain.
 
 Usage:
     python ingest.py "https://example.com/article"
@@ -16,7 +16,7 @@ from kb import ingest, ingest_text
 
 
 def main():
-    parser = argparse.ArgumentParser(description="🐾 Ingest into OEE's Second Brain")
+    parser = argparse.ArgumentParser(description=" Ingest into OEE's Second Brain")
     parser.add_argument("url", nargs="?", help="URL to ingest")
     parser.add_argument("--text", help="Plain text to ingest directly")
     parser.add_argument("--stdin", action="store_true", help="Read text from stdin")
@@ -36,9 +36,9 @@ def main():
         sys.exit(1)
 
     if result["status"] == "duplicate":
-        print(f"⚡ Already exists: {result['title']} (id={result['source_id']})")
+        print(f" Already exists: {result['title']} (id={result['source_id']})")
     else:
-        print(f"✅ Done: {result['title']} — {result['chunks']} chunks (id={result['source_id']})")
+        print(f" Done: {result['title']} — {result['chunks']} chunks (id={result['source_id']})")
 
 
 if __name__ == "__main__":

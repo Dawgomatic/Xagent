@@ -83,7 +83,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     const result = await getToday({ json: isJson });
     if (isJson) process.stdout.write(JSON.stringify(result));
   } catch (err) {
-    console.error(`❌ ${err.message}`);
+    console.error(` ${err.message}`);
     process.exit(1);
   }
 }

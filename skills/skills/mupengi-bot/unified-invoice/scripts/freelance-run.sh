@@ -33,7 +33,7 @@ while [[ $# -gt 0 ]]; do
       shift 2
       ;;
     *)
-      echo "❌ 알 수 없는 옵션: $1"
+      echo " 알 수 없는 옵션: $1"
       echo "사용법: run.sh --service '서비스명' --amount 금액 --client '고객' --date 날짜"
       exit 1
       ;;
@@ -42,7 +42,7 @@ done
 
 # 필수 인자 확인
 if [ -z "$SERVICE" ] || [ -z "$AMOUNT" ] || [ -z "$CLIENT" ]; then
-  echo "❌ 필수 인자 누락"
+  echo " 필수 인자 누락"
   echo "사용법: run.sh --service '서비스명' --amount 금액 --client '고객' [--date 날짜]"
   exit 1
 fi
@@ -116,7 +116,7 @@ cat > "$FILENAME" << EOF
 
 ---
 
-**발행자**: 무펭이 🐧  
+**발행자**: 무펭이   
 **발행일**: $DATE
 EOF
 
@@ -136,11 +136,11 @@ cat > "$EVENT_FILE" << EOF
 EOF
 
 # 출력
-echo "✅ 청구서 생성 완료"
+echo " 청구서 생성 완료"
 echo ""
-echo "📄 파일: $FILENAME"
-echo "💰 공급가액: ₩$AMOUNT"
-echo "💵 부가세: ₩$VAT"
-echo "💸 총 금액: ₩$TOTAL"
+echo " 파일: $FILENAME"
+echo " 공급가액: ₩$AMOUNT"
+echo " 부가세: ₩$VAT"
+echo " 총 금액: ₩$TOTAL"
 echo ""
 cat "$FILENAME"

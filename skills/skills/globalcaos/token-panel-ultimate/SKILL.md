@@ -5,14 +5,14 @@ description: Track AI usage across Claude Max, ChatGPT, Gemini & Manus — one O
 homepage: https://github.com/globalcaos/clawdbot-moltbot-openclaw
 metadata:
   openclaw:
-    emoji: "🎛️"
+    emoji: ""
     requires:
       bins: ["python3"]
 ---
 
 # Token Panel ULTIMATE
 
-> 🎛️ Know your limits. Stay within them. Maximize your capacity.
+>  Know your limits. Stay within them. Maximize your capacity.
 
 Real-time usage tracking for **Claude Max**, **Gemini**, and **Manus** — all in one place.
 
@@ -209,10 +209,10 @@ Add to your SOUL.md:
 **Behavior by budget level:**
 | Budget | Behavior |
 |--------|----------|
-| 🟢 >50% | Normal operations |
-| 🟡 30-50% | Be concise |
-| 🟠 10-30% | Defer non-essential tasks |
-| 🔴 <10% | Minimal responses only |
+|  >50% | Normal operations |
+|  30-50% | Be concise |
+|  10-30% | Defer non-essential tasks |
+|  <10% | Minimal responses only |
 ```
 
 ### Agent Self-Check

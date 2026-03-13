@@ -49,7 +49,7 @@ GEMINI_API_KEY="$KEY" uv run {baseDir}/scripts/analyze.py --brand "Nike"
 
 | Input | Required | Description |
 |-------|----------|-------------|
-| `--brand` | ✅ | Brand name to analyze |
+| `--brand` |  | Brand name to analyze |
 | `--output` | Optional | Output file path (default: stdout) |
 | `--auto-save` | Optional | Auto-save to Ad-Ready brands catalog |
 | `--api-key` | Optional | Gemini API key (or set `GEMINI_API_KEY` env var) |

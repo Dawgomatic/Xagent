@@ -119,7 +119,7 @@ async function handleCommand(command, args, context) {
     }
     catch (error) {
         const message = error instanceof Error ? error.message : 'Unknown error';
-        return `❌ Error: ${message}`;
+        return ` Error: ${message}`;
     }
 }
 // =============================================================================
@@ -127,25 +127,25 @@ async function handleCommand(command, args, context) {
 // =============================================================================
 async function handleSetup(password) {
     if (walletExists()) {
-        return `⚠️ Wallet already exists. Use 'gclaw address' to see your address or 'gclaw delete' to remove it.`;
+        return ` Wallet already exists. Use 'gclaw address' to see your address or 'gclaw delete' to remove it.`;
     }
     if (!password) {
-        return `❌ Password required. Please provide a password to encrypt your wallet.`;
+        return ` Password required. Please provide a password to encrypt your wallet.`;
     }
     const result = await createWallet(password);
     return [
-        `✅ Wallet Created Successfully!`,
+        ` Wallet Created Successfully!`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         ``,
-        `📍 Your Address:`,
+        ` Your Address:`,
         `${result.address}`,
         ``,
-        `🔑 BACKUP SEED PHRASE (SAVE THIS!)`,
+        ` BACKUP SEED PHRASE (SAVE THIS!)`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         `${result.mnemonic}`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         ``,
-        `⚠️ IMPORTANT:`,
+        ` IMPORTANT:`,
         `• Write down these 24 words and store them safely`,
         `• This seed phrase is Phantom-compatible — restore it in Phantom for the same address`,
         `• Never share your seed phrase with anyone`,
@@ -159,17 +159,17 @@ async function handleSetup(password) {
 }
 async function handleRecover(mnemonic, password) {
     if (!mnemonic || mnemonic.split(' ').length < 12) {
-        return `❌ Please provide your 24-word seed phrase: claw recover <seed phrase>`;
+        return ` Please provide your 24-word seed phrase: claw recover <seed phrase>`;
     }
     if (!password) {
-        return `❌ Password required to encrypt the recovered wallet.`;
+        return ` Password required to encrypt the recovered wallet.`;
     }
     if (walletExists()) {
-        return `⚠️ Wallet already exists. Delete it first with 'gclaw delete' if you want to recover a different wallet.`;
+        return ` Wallet already exists. Delete it first with 'gclaw delete' if you want to recover a different wallet.`;
     }
     const result = await recoverWallet(mnemonic.trim(), password);
     return [
-        `✅ Wallet Recovered Successfully!`,
+        ` Wallet Recovered Successfully!`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         `Address: ${result.address}`,
         ``,
@@ -179,10 +179,10 @@ async function handleRecover(mnemonic, password) {
 }
 async function handleBalance() {
     if (!walletExists()) {
-        return `❌ No wallet found. Use 'gclaw setup' to create one.`;
+        return ` No wallet found. Use 'gclaw setup' to create one.`;
     }
     if (!isConfigured()) {
-        return `⚠️ ${TOKEN_SYMBOL} token not configured yet.`;
+        return ` ${TOKEN_SYMBOL} token not configured yet.`;
     }
     const balance = await getBalance();
     return formatBalance(balance);
@@ -190,10 +190,10 @@ async function handleBalance() {
 function handleAddress() {
     const address = getWalletAddress();
     if (!address) {
-        return `❌ No wallet found. Use 'gclaw setup' to create one.`;
+        return ` No wallet found. Use 'gclaw setup' to create one.`;
     }
     return [
-        `📍 Your ${TOKEN_SYMBOL} Wallet Address`,
+        ` Your ${TOKEN_SYMBOL} Wallet Address`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         `${address}`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
@@ -204,23 +204,23 @@ function handleAddress() {
 }
 async function handleSend(amount, recipient, password, confirm) {
     if (!amount || !recipient) {
-        return `❌ Usage: claw send <amount> <recipient_address>`;
+        return ` Usage: claw send <amount> <recipient_address>`;
     }
     if (!password) {
-        return `❌ Password required to sign the transaction.`;
+        return ` Password required to sign the transaction.`;
     }
     const amountNum = parseFloat(amount);
     if (isNaN(amountNum) || amountNum <= 0) {
-        return `❌ Invalid amount: ${amount}`;
+        return ` Invalid amount: ${amount}`;
     }
     // Check limits before attempting
     const limitCheck = checkSpendingLimit(amountNum);
     if (!limitCheck.allowed) {
-        return `❌ ${limitCheck.reason}`;
+        return ` ${limitCheck.reason}`;
     }
     if (limitCheck.requiresConfirmation && !confirm) {
         return [
-            `⚠️ Confirmation Required`,
+            ` Confirmation Required`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
             `Amount: ${amountNum} ${TOKEN_SYMBOL}`,
             `To: ${recipient}`,
@@ -235,7 +235,7 @@ async function handleSend(amount, recipient, password, confirm) {
 async function handleDonate(amountStr, password) {
     if (!amountStr) {
         return [
-            `🩵 Donate SOL`,
+            ` Donate SOL`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
             ``,
             `Send SOL to the GoldenClaw main wallet (treasury).`,
@@ -248,18 +248,18 @@ async function handleDonate(amountStr, password) {
         ].join('\n');
     }
     if (!password) {
-        return `❌ Password required to sign the transaction.`;
+        return ` Password required to sign the transaction.`;
     }
     const amount = parseFloat(amountStr);
     if (isNaN(amount) || amount <= 0) {
-        return `❌ Invalid amount. Use a positive number, e.g. 0.01`;
+        return ` Invalid amount. Use a positive number, e.g. 0.01`;
     }
     const result = await donateSol(amount, password);
     return formatDonateResult(result);
 }
 async function handleHistory(limit) {
     if (!walletExists()) {
-        return `❌ No wallet found. Use 'gclaw setup' to create one.`;
+        return ` No wallet found. Use 'gclaw setup' to create one.`;
     }
     const transactions = await getTransactionHistory(limit);
     return formatTransactionHistory(transactions);
@@ -267,7 +267,7 @@ async function handleHistory(limit) {
 function handleLimits() {
     const remaining = getRemainingDailyAllowance();
     return [
-        `🔒 Spending Limits`,
+        ` Spending Limits`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         `Per Transaction: ${SPENDING_LIMITS.perTransaction} ${TOKEN_SYMBOL}`,
         `Daily Limit: ${SPENDING_LIMITS.daily} ${TOKEN_SYMBOL}`,
@@ -286,29 +286,29 @@ function handleStatus() {
     const hasWallet = walletExists();
     const address = getWalletAddress();
     return [
-        `📊 ${TOKEN_NAME} Skill Status`,
+        ` ${TOKEN_NAME} Skill Status`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-        `Token Configured: ${configured ? '✅' : '❌'}`,
+        `Token Configured: ${configured ? '' : ''}`,
         `Network: ${NETWORK_NAME}`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-        `Wallet Created: ${hasWallet ? '✅' : '❌'}`,
+        `Wallet Created: ${hasWallet ? '' : ''}`,
         `Wallet Address: ${address || 'N/A'}`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         ``,
         configured && hasWallet
-            ? `✅ Ready to use! Try 'gclaw balance' or 'gclaw send'.`
+            ? ` Ready to use! Try 'gclaw balance' or 'gclaw send'.`
             : !configured
-                ? `⚠️ Token not configured. Check config.`
-                : `⚠️ Use 'gclaw setup' to create a wallet.`,
+                ? ` Token not configured. Check config.`
+                : ` Use 'gclaw setup' to create a wallet.`,
     ].join('\n');
 }
 function handleDelete(confirm) {
     if (!walletExists()) {
-        return `❌ No wallet to delete.`;
+        return ` No wallet to delete.`;
     }
     if (!confirm) {
         return [
-            `⚠️ WARNING: This will permanently delete your wallet!`,
+            ` WARNING: This will permanently delete your wallet!`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
             `Make sure you have backed up your seed phrase.`,
             `This action cannot be undone.`,
@@ -318,7 +318,7 @@ function handleDelete(confirm) {
     }
     deleteWallet();
     return [
-        `✅ Wallet Deleted`,
+        ` Wallet Deleted`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         `Your wallet has been securely deleted.`,
         `Use 'gclaw setup' to create a new wallet.`,
@@ -326,16 +326,16 @@ function handleDelete(confirm) {
 }
 async function handleClaim() {
     if (!walletExists()) {
-        return `❌ No wallet found. Use 'gclaw setup' to create one first.`;
+        return ` No wallet found. Use 'gclaw setup' to create one first.`;
     }
     const address = getWalletAddress();
     if (!address) {
-        return `❌ Could not get wallet address.`;
+        return ` Could not get wallet address.`;
     }
     // Check if already claimed (local cache; server is source of truth)
     if (hasAlreadyClaimed(address)) {
         return [
-            `⚠️ Already Claimed`,
+            ` Already Claimed`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
             `This wallet has already claimed ${TOKEN_SYMBOL} tokens.`,
             `Each wallet can only claim once.`,
@@ -365,7 +365,7 @@ async function handleClaim() {
         // 400 or error payload
         const errorMsg = data.error || (res.status === 400 ? 'Claim failed' : `Faucet returned ${res.status}`);
         return [
-            `❌ Claim Failed`,
+            ` Claim Failed`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
             errorMsg,
             ``,
@@ -376,7 +376,7 @@ async function handleClaim() {
     catch (err) {
         const msg = err instanceof Error ? err.message : 'Network error';
         return [
-            `❌ Faucet Unavailable`,
+            ` Faucet Unavailable`,
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
             `Could not reach the claim server: ${msg}`,
             ``,
@@ -392,24 +392,24 @@ function handleTokenomics() {
     const estimatedTreasury = TOTAL_SUPPLY * Math.pow((DISTRIBUTION_DIVISOR - 1) / DISTRIBUTION_DIVISOR, stats.claimedCount);
     const nextClaimAmount = calculateDistributionAmount(estimatedTreasury);
     return [
-        `📊 ${TOKEN_SYMBOL} Tokenomics`,
+        ` ${TOKEN_SYMBOL} Tokenomics`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         ``,
-        `📈 Supply`,
+        ` Supply`,
         `   Total Supply: ${TOTAL_SUPPLY.toLocaleString()} ${TOKEN_SYMBOL}`,
         `   Fixed: Yes (no minting after creation)`,
         ``,
-        `🎁 Distribution Model`,
+        ` Distribution Model`,
         `   Each new wallet receives: 1/${DISTRIBUTION_DIVISOR.toLocaleString()} of treasury`,
         `   Distribution ends when: Treasury < 0.000001 ${TOKEN_SYMBOL}`,
         ``,
-        `📊 Current Status`,
+        ` Current Status`,
         `   Wallets claimed: ${stats.claimedCount.toLocaleString()}`,
         `   Est. treasury remaining: ~${estimatedTreasury.toLocaleString()} ${TOKEN_SYMBOL}`,
         `   Next claim amount: ~${nextClaimAmount.toLocaleString()} ${TOKEN_SYMBOL}`,
         `   Est. remaining claims: ~${stats.estimatedRemainingClaims.toLocaleString()}`,
         ``,
-        `💡 Use 'gclaw simulate [n]' to see distribution preview`,
+        ` Use 'gclaw simulate [n]' to see distribution preview`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
     ].join('\n');
 }
@@ -418,7 +418,7 @@ function handleSimulate(numClaims) {
 }
 function getHelpText() {
     return [
-        `🦞 ${TOKEN_NAME} (${TOKEN_SYMBOL}) - OpenClaw Skill`,
+        ` ${TOKEN_NAME} (${TOKEN_SYMBOL}) - OpenClaw Skill`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         ``,
         `Exchange services like API tokens and AI compute`,

@@ -3,7 +3,7 @@ name: clawmail
 description: Email service for AI agents with wallet authentication and crypto payments
 metadata:
   openclaw:
-    emoji: "📧"
+    emoji: ""
     bins:
       - node
       - npx

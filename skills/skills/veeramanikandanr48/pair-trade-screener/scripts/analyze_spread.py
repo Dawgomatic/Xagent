@@ -235,13 +235,13 @@ def print_analysis_report(symbol_a, symbol_b, prices_a, prices_b, beta_result, s
         print(f"    {key}: {value:.4f}")
 
     if coint_result['is_cointegrated']:
-        print(f"  Result: ✅ COINTEGRATED (p < 0.05)")
+        print(f"  Result:  COINTEGRATED (p < 0.05)")
         if coint_result['p_value'] < 0.01:
             print(f"  Strength: ★★★ Very Strong")
         else:
             print(f"  Strength: ★★ Moderate")
     else:
-        print(f"  Result: ❌ NOT COINTEGRATED (p ≥ 0.05)")
+        print(f"  Result:  NOT COINTEGRATED (p ≥ 0.05)")
 
     # Mean Reversion
     print("\n[ MEAN REVERSION ]")
@@ -278,16 +278,16 @@ def print_analysis_report(symbol_a, symbol_b, prices_a, prices_b, beta_result, s
     # Trade Signal
     print("\n[ TRADE SIGNAL ]")
     if not coint_result['is_cointegrated']:
-        print(f"  Signal: ⚠️ NO TRADE (pair not cointegrated)")
+        print(f"  Signal:  NO TRADE (pair not cointegrated)")
     elif abs(current_zscore) < entry_zscore:
-        print(f"  Signal: ⏸ WAIT (|z| < {entry_zscore})")
+        print(f"  Signal:  WAIT (|z| < {entry_zscore})")
         print(f"  Status: Spread within normal range, no trade signal")
     elif current_zscore > entry_zscore:
-        print(f"  Signal: 🔻 SHORT SPREAD")
+        print(f"  Signal:  SHORT SPREAD")
         print(f"  Action: Short {symbol_a}, Long {symbol_b}")
         print(f"  Rationale: Z-score = {current_zscore:.2f} (>{entry_zscore}) → {symbol_a} expensive relative to {symbol_b}")
     else:  # current_zscore < -entry_zscore
-        print(f"  Signal: 🔺 LONG SPREAD")
+        print(f"  Signal:  LONG SPREAD")
         print(f"  Action: Long {symbol_a}, Short {symbol_b}")
         print(f"  Rationale: Z-score = {current_zscore:.2f} (<-{entry_zscore}) → {symbol_a} cheap relative to {symbol_b}")
 

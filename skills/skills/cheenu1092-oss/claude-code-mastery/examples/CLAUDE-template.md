@@ -52,31 +52,31 @@ npm run lint       # Lint check
 
 ## What NOT to Include (Anti-patterns)
 
-❌ Self-evident practices:
+ Self-evident practices:
 ```markdown
 - Write clean code
 - Follow best practices
 - Make sure tests pass
 ```
 
-❌ Standard conventions Claude already knows:
+ Standard conventions Claude already knows:
 ```markdown
 - Use camelCase for variables
 - Use PascalCase for classes
 - Add semicolons in JavaScript
 ```
 
-❌ Detailed API documentation (link instead):
+ Detailed API documentation (link instead):
 ```markdown
 See @docs/api-reference.md for API details
 ```
 
-❌ Long explanations:
+ Long explanations:
 ```markdown
 <!-- Instead of paragraphs explaining why, just state the rule -->
 ```
 
-❌ Information that changes frequently:
+ Information that changes frequently:
 ```markdown
 <!-- Version numbers, current sprint items, etc. -->
 ```

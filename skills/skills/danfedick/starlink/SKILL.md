@@ -3,7 +3,7 @@ name: starlink
 version: 1.0.0
 description: Control Starlink dish via local gRPC API. Get status, list WiFi clients, run speed tests, stow/unstow dish, reboot, and get GPS location. Use when the user asks about Starlink, internet status, connected devices, or satellite connectivity.
 homepage: https://github.com/danfedick/starlink-cli
-metadata: {"clawdbot":{"emoji":"📡","requires":{"bins":["starlink"]},"install":[{"id":"cargo","kind":"cargo","git":"https://github.com/danfedick/starlink-cli","bins":["starlink"],"label":"Install starlink-cli (cargo)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["starlink"]},"install":[{"id":"cargo","kind":"cargo","git":"https://github.com/danfedick/starlink-cli","bins":["starlink"],"label":"Install starlink-cli (cargo)"}]}}
 ---
 
 # Starlink CLI

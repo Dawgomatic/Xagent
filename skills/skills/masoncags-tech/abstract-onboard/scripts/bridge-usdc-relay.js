@@ -70,7 +70,7 @@ async function main() {
     }
   }
   
-  console.log('\n✅ Bridge complete! USDC should arrive on Abstract shortly.');
+  console.log('\n Bridge complete! USDC should arrive on Abstract shortly.');
 }
 
 main().catch(e => {

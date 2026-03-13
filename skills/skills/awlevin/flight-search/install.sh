@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "✈️  Installing flight-search..."
+echo "  Installing flight-search..."
 
 if command -v uv &>/dev/null; then
   echo "Using uv..."
@@ -16,13 +16,13 @@ elif command -v pip &>/dev/null; then
   echo "Using pip..."
   pip install --user flight-search
 else
-  echo "❌ No Python package manager found (uv, pipx, or pip)"
+  echo " No Python package manager found (uv, pipx, or pip)"
   echo "Install uv: curl -LsSf https://astral.sh/uv/install.sh | sh"
   exit 1
 fi
 
 echo ""
-echo "✅ flight-search installed!"
+echo " flight-search installed!"
 echo ""
 echo "Try it:"
 echo "  flight-search DEN LAX --date 2025-03-01"

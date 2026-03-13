@@ -157,11 +157,11 @@ auto-skill-builder optimize --directory <path> [options]
 auto-skill-builder quality --directory <path>
 
 # 检查项目
-✅ SKILL.md 结构完整性
-✅ YAML frontmatter 格式
-✅ 代码示例覆盖率
-✅ 文档链接有效性
-✅ 引用文件存在性
+ SKILL.md 结构完整性
+ YAML frontmatter 格式
+ 代码示例覆盖率
+ 文档链接有效性
+ 引用文件存在性
 ```
 
 ### package - 打包 Skill

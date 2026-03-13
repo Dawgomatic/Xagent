@@ -9,7 +9,7 @@
   "keywords": ["image-generation", "gemini", "imagen", "ai-art", "google", "openclaw", "skill", "zero-dependencies", "batch", "gallery", "editing", "style-presets"],
   "metadata": {
     "openclaw": {
-      "emoji": "🎨",
+      "emoji": "",
       "category": "creative",
       "requires": {
         "bins": ["python3"],

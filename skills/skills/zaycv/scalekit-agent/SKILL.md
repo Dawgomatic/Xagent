@@ -22,10 +22,10 @@ Centralized OAuth token management for AI agents. No local token storage, automa
 **Problem:** OAuth tokens scattered across config files, no refresh logic, security risks.
 
 **Solution:** Scalekit handles all token lifecycle:
-- ✅ Secure cloud storage (never stored locally)
-- ✅ Automatic token refresh
-- ✅ Multi-service support (Gmail, Slack, Notion, GitHub, etc.)
-- ✅ Always returns fresh, valid tokens
+-  Secure cloud storage (never stored locally)
+-  Automatic token refresh
+-  Multi-service support (Gmail, Slack, Notion, GitHub, etc.)
+-  Always returns fresh, valid tokens
 
 ## Installation
 
@@ -298,4 +298,4 @@ Found a bug? Have a feature request? Open an issue on ClawHub!
 
 ---
 
-**Remember:** Tokens are secrets. Handle with care. 🔐
+**Remember:** Tokens are secrets. Handle with care. 

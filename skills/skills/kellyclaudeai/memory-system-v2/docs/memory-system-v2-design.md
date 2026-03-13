@@ -160,5 +160,5 @@ memory timeline --project ClawdHub
 
 ---
 
-**Status**: Design Complete ✅  
+**Status**: Design Complete   
 **Next**: Build core infrastructure

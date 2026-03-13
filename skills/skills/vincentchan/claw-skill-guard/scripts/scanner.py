@@ -232,30 +232,30 @@ def print_report(findings, source):
     risk_level = calculate_risk_level(findings)
     total_findings = sum(len(f) for f in findings.values())
     
-    print(f"\n🔍 Scanning: {source}")
+    print(f"\n Scanning: {source}")
     print("━" * 50)
     
     # Risk level banner
     risk_colors = {
-        CRITICAL: "🔴 CRITICAL",
-        HIGH: "🟡 HIGH", 
-        MEDIUM: "🟠 MEDIUM",
-        LOW: "🟢 LOW",
-        "safe": "✅ SAFE"
+        CRITICAL: " CRITICAL",
+        HIGH: " HIGH", 
+        MEDIUM: " MEDIUM",
+        LOW: " LOW",
+        "safe": " SAFE"
     }
-    print(f"\n⚠️  RISK LEVEL: {risk_colors.get(risk_level, risk_level).upper()}")
+    print(f"\n  RISK LEVEL: {risk_colors.get(risk_level, risk_level).upper()}")
     
     if total_findings == 0:
-        print("\n✅ No suspicious patterns found.")
+        print("\n No suspicious patterns found.")
         print("\n" + "━" * 50)
-        print("✅ RECOMMENDATION: Safe to install")
+        print(" RECOMMENDATION: Safe to install")
         return 0
     
-    print(f"\n📋 Findings ({total_findings} total):\n")
+    print(f"\n Findings ({total_findings} total):\n")
     
     for level in [CRITICAL, HIGH, MEDIUM, LOW]:
         if findings[level]:
-            level_icon = {"critical": "🔴", "high": "🟡", "medium": "🟠", "low": "🟢"}[level]
+            level_icon = {"critical": "", "high": "", "medium": "", "low": ""}[level]
             print(f"  {level_icon} {level.upper()} ({len(findings[level])})")
             
             for i, finding in enumerate(findings[level]):
@@ -268,20 +268,20 @@ def print_report(findings, source):
     print("━" * 50)
     
     if risk_level == CRITICAL:
-        print("\n❌ RECOMMENDATION: DO NOT INSTALL")
+        print("\n RECOMMENDATION: DO NOT INSTALL")
         print("   This skill contains patterns commonly used in malware.")
         return 2
     elif risk_level == HIGH:
-        print("\n⚠️  RECOMMENDATION: MANUAL REVIEW REQUIRED")
+        print("\n  RECOMMENDATION: MANUAL REVIEW REQUIRED")
         print("   Review each flagged line. Only install if you trust the author")
         print("   and understand what each command does.")
         return 1
     elif risk_level == MEDIUM:
-        print("\n⚠️  RECOMMENDATION: Review flagged items")
+        print("\n  RECOMMENDATION: Review flagged items")
         print("   Likely safe, but verify the URLs and commands are expected.")
         return 0
     else:
-        print("\n✅ RECOMMENDATION: Low risk, likely safe to install")
+        print("\n RECOMMENDATION: Low risk, likely safe to install")
         return 0
 
 
@@ -351,7 +351,7 @@ def main():
             print(f"Error: {directory} is not a directory")
             sys.exit(1)
         
-        print(f"🔍 Scanning all skills in: {directory}\n")
+        print(f" Scanning all skills in: {directory}\n")
         
         exit_code = 0
         for skill_path in sorted(skills_dir.iterdir()):
@@ -370,9 +370,9 @@ def main():
         
         url = sys.argv[2]
         if is_allowlisted(url, "urls"):
-            print(f"✅ URL is allowlisted: {url}")
+            print(f" URL is allowlisted: {url}")
         else:
-            print(f"⚠️  URL is NOT in allowlist: {url}")
+            print(f"  URL is NOT in allowlist: {url}")
             print("   This doesn't mean it's malicious, just unknown.")
     
     else:

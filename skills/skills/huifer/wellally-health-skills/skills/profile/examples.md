@@ -52,7 +52,7 @@ User: view
 
 Output:
 ╔══════════════════════════════════════╗
-║         👤 Personal Health Profile   ║
+║          Personal Health Profile   ║
 ╠══════════════════════════════════════╣
 ║  Height:    ████ 175 cm              ║
 ║  Weight:    ██████ 70 kg             ║
@@ -69,6 +69,6 @@ Output:
 User: view
 
 Output:
-⚠️ Data not set
+ Data not set
 Please use: /profile set 175 70 1990-01-01
 ```

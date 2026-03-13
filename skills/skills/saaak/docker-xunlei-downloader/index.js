@@ -116,7 +116,7 @@ Commands:
         return 'No active download tasks.';
       }
 
-      let response = `📥 Active Download Tasks (${tasks.length}):\n\n`;
+      let response = ` Active Download Tasks (${tasks.length}):\n\n`;
       tasks.forEach((task, index) => {
         const progress = task.progress || 0;
         const speed = task.params?.speed ? Math.round(task.params.speed / 1024 / 1024 * 100) / 100 : 0; // Convert to MB/s
@@ -415,7 +415,7 @@ Commands:
         return 'No completed download tasks.';
       }
 
-      let response = `✅ Completed Download Tasks (${tasks.length}):\n\n`;
+      let response = ` Completed Download Tasks (${tasks.length}):\n\n`;
       // Show only the most recent 10 tasks
       const recentTasks = tasks.slice(0, 10);
       recentTasks.forEach((task, index) => {

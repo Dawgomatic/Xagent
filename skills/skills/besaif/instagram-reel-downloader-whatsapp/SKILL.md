@@ -30,7 +30,7 @@ description: Download an Instagram Reel via sssinstagram.com and return it as a 
 
 3. Send the file to user on WhatsApp.
    - Use `message` `action=send` with `media` set to `MEDIA_PATH`.
-   - Add a small caption like `Done 🐾`.
+   - Add a small caption like `Done `.
 
 4. If the site blocks automation.
    - Retry once after a short wait.

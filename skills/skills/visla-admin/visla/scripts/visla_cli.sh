@@ -428,8 +428,8 @@ wait_and_export() {
     local project_uuid="$1"
 
     echo ""
-    echo -e "☕ ${YELLOW}Grab a coffee! Video generation takes a few minutes...${NC}"
-    echo -e "🎬 Visla AI is creating your video"
+    echo -e " ${YELLOW}Grab a coffee! Video generation takes a few minutes...${NC}"
+    echo -e " Visla AI is creating your video"
     echo ""
 
     local attempts=0

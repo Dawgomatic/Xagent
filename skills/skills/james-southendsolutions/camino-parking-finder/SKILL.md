@@ -1,7 +1,7 @@
 ---
 name: parking-finder
 description: "Locate parking garages, lots, and street parking near your destination using Camino AI's location intelligence with AI-powered ranking."
-metadata: {"clawdbot":{"emoji":"🅿️","requires":{"env":["CAMINO_API_KEY"]},"primaryEnv":"CAMINO_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["CAMINO_API_KEY"]},"primaryEnv":"CAMINO_API_KEY"}}
 ---
 
 ## Installation

@@ -4,7 +4,7 @@ description: Generate images using the internal Google Antigravity API (Gemini 3
 read_when:
   - User asks to generate an image
   - User wants to create visual content
-metadata: {"clawdbot":{"emoji":"🎨","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Antigravity Image Generation

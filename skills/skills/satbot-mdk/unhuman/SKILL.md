@@ -99,7 +99,7 @@ Requires:
 
 Flow: submit request → receive 402 with Lightning invoice → agent-wallet pays → retry with preimage.
 
-**⚠️ Always confirm with the user before using --wallet.** This flag triggers a real bitcoin payment. Without --wallet, the CLI prints the invoice for the user to pay manually.
+** Always confirm with the user before using --wallet.** This flag triggers a real bitcoin payment. Without --wallet, the CLI prints the invoice for the user to pay manually.
 
 ## Credentials & Storage
 

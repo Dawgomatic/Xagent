@@ -24,7 +24,7 @@ for VERSION in $VERSIONS; do
 
   # Safety: skip if tag doesn't exist (don't create tags on HEAD)
   if ! git rev-parse "$TAG" >/dev/null 2>&1; then
-    echo "⚠️  Tag $TAG not found — skipping (create it manually on the correct commit first)"
+    echo "  Tag $TAG not found — skipping (create it manually on the correct commit first)"
     continue
   fi
 
@@ -49,7 +49,7 @@ for VERSION in $VERSIONS; do
     echo "---"
   else
     echo "Creating release $TAG..."
-    gh release create "$TAG" --title "$TAG" --notes-file "$NOTES_FILE" $FLAGS 2>&1 || echo "  ⚠️  Skipped (may already exist)"
+    gh release create "$TAG" --title "$TAG" --notes-file "$NOTES_FILE" $FLAGS 2>&1 || echo "    Skipped (may already exist)"
   fi
 
   rm -f "$NOTES_FILE"

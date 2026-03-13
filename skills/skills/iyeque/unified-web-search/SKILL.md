@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔍",
+        "emoji": "",
         "requires": { "bins": ["node"], "env": ["TAVILY_API_KEY"] },
         "version": "1.1.0",
       },

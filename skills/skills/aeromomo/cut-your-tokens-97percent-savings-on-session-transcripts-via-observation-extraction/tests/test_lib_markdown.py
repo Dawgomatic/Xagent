@@ -187,9 +187,9 @@ class TestNormalizeChinesePunctuation:
 
 class TestStripEmoji:
     def test_removes_emoji(self):
-        result = strip_emoji("Hello 🌍 World 🎉")
-        assert "🌍" not in result
-        assert "🎉" not in result
+        result = strip_emoji("Hello  World ")
+        assert "" not in result
+        assert "" not in result
         assert "Hello" in result
 
     def test_empty(self):
@@ -200,24 +200,24 @@ class TestStripEmoji:
         assert strip_emoji(text) == text
 
     def test_only_emoji(self):
-        result = strip_emoji("🎉🎊🎈")
+        result = strip_emoji("")
         assert result.strip() == "" or len(result.strip()) < 3
 
     def test_emoji_in_bullets(self):
-        text = "- 🔴 High priority\n- 🟢 Low priority"
+        text = "-  High priority\n-  Low priority"
         result = strip_emoji(text)
         assert "High priority" in result
         assert "Low priority" in result
 
     def test_preserves_cjk(self):
-        text = "中文 🎉 日本語"
+        text = "中文  日本語"
         result = strip_emoji(text)
         assert "中文" in result
         assert "日本語" in result
 
     def test_compound_emoji(self):
         # Family emoji, flag emoji, etc
-        text = "test 👨‍👩‍👧‍👦 end"
+        text = "test  end"
         result = strip_emoji(text)
         assert "test" in result
         assert "end" in result

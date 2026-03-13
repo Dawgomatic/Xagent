@@ -25,7 +25,7 @@ def get_api_key():
 
 def upload_file(api_key, file_path):
     if not os.path.exists(file_path):
-        print(f"❌ File not found: {file_path}")
+        print(f" File not found: {file_path}")
         sys.exit(1)
     
     url = f"{API_BASE}/files"
@@ -38,7 +38,7 @@ def upload_file(api_key, file_path):
         response = requests.post(url, files=files, headers=headers)
     
     if response.status_code != 200:
-        print(f"❌ Error uploading: {response.text}")
+        print(f" Error uploading: {response.text}")
         sys.exit(1)
     
     return response.json()
@@ -51,10 +51,10 @@ def main():
     file_path = sys.argv[1]
     api_key = get_api_key()
     
-    print("📤 Uploading file...")
+    print(" Uploading file...")
     result = upload_file(api_key, file_path)
     
-    print(f"✅ File uploaded!")
+    print(f" File uploaded!")
     print(f"   ID: {result.get('id')}")
     print(f"   Filename: {result.get('filename')}")
     print(f"   Size: {result.get('size')} bytes")

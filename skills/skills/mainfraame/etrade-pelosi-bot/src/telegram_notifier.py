@@ -64,7 +64,7 @@ class TelegramNotifier:
         reason = details.get('reason', '')
         
         message = f"""
-🚀 *TRADE EXECUTED* 🚀
+ *TRADE EXECUTED* 
 
 *Action:* {action} {symbol}
 *Quantity:* {quantity} shares
@@ -86,7 +86,7 @@ class TelegramNotifier:
         date = trade.get('transaction_date', '')
         
         message = f"""
-📊 *CONGRESSIONAL TRADE ALERT* 📊
+ *CONGRESSIONAL TRADE ALERT* 
 
 *Politician:* {politician}
 *Action:* {action} {symbol}
@@ -104,7 +104,7 @@ class TelegramNotifier:
             return False
         
         message = f"""
-⚠️ *SYSTEM ERROR* ⚠️
+ *SYSTEM ERROR* 
 
 *Type:* {error_type}
 *Error:* {error_message}
@@ -125,10 +125,10 @@ class TelegramNotifier:
         pnl = summary_data.get('pnl', 0)
         account_balance = summary_data.get('account_balance', 0)
         
-        pnl_emoji = "📈" if pnl >= 0 else "📉"
+        pnl_emoji = "" if pnl >= 0 else ""
         
         message = f"""
-📋 *DAILY TRADING SUMMARY* 📋
+ *DAILY TRADING SUMMARY* 
 
 *Date:* {date}
 *Trades Made:* {trades_made}
@@ -144,7 +144,7 @@ class TelegramNotifier:
     def send_test_message(self):
         """Send test message to verify setup"""
         message = f"""
-✅ *TRADING SYSTEM TEST* ✅
+ *TRADING SYSTEM TEST* 
 
 *System:* E*TRADE Congressional Trading Bot
 *Status:* Online and Ready

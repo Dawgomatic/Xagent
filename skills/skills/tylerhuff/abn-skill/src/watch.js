@@ -33,7 +33,7 @@ async function watchBids(filters = {}) {
       const npub = nip19.npubEncode(event.pubkey);
       
       console.log('━'.repeat(50));
-      console.log(`⚡ New ${bid.type.toUpperCase()} bid`);
+      console.log(` New ${bid.type.toUpperCase()} bid`);
       console.log(`   From: ${npub.slice(0, 20)}...`);
       console.log(`   Industry: ${bid.industry}`);
       
@@ -105,10 +105,10 @@ async function queryBids(filters = {}) {
     const npub = nip19.npubEncode(event.pubkey);
     
     if (bid.type === 'seeking') {
-      console.log(`🔍 SEEKING: ${bid.industry} links for ${bid.targetSite}`);
+      console.log(` SEEKING: ${bid.industry} links for ${bid.targetSite}`);
       console.log(`   Wants DA${bid.requirements?.minDA}+, paying ${bid.offer?.sats} sats`);
     } else {
-      console.log(`📢 OFFERING: ${bid.linkType} on ${bid.site} (DA${bid.da})`);
+      console.log(` OFFERING: ${bid.linkType} on ${bid.site} (DA${bid.da})`);
       console.log(`   ${bid.placement} placement, ${bid.price?.sats} sats`);
     }
     console.log(`   Contact: ${npub.slice(0, 30)}...`);

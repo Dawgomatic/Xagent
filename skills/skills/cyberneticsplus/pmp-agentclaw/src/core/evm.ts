@@ -181,13 +181,13 @@ export function formatEVMMarkdown(result: EVMOutput): string {
 | PV | ${currency.format(result.pv)} | — |
 | EV | ${currency.format(result.ev)} | — |
 | AC | ${currency.format(result.ac)} | — |
-| CV | ${currency.format(result.cv)} | ${result.cv >= 0 ? '🟢' : '🔴'} |
-| SV | ${currency.format(result.sv)} | ${result.sv >= 0 ? '🟢' : '🔴'} |
+| CV | ${currency.format(result.cv)} | ${result.cv >= 0 ? '' : ''} |
+| SV | ${currency.format(result.sv)} | ${result.sv >= 0 ? '' : ''} |
 | CPI | ${result.cpi.toFixed(2)} | ${result.status} |
 | SPI | ${result.spi.toFixed(2)} | ${result.status} |
 | EAC | ${currency.format(result.eac)} | — |
 | ETC | ${currency.format(result.etc)} | — |
-| VAC | ${currency.format(result.vac)} | ${result.vac >= 0 ? '🟢' : '🔴'} |
+| VAC | ${currency.format(result.vac)} | ${result.vac >= 0 ? '' : ''} |
 | TCPI | ${result.tcpi.toFixed(2)} | — |
 | % Complete | ${result.percentComplete}% | — |
 
@@ -195,6 +195,6 @@ export function formatEVMMarkdown(result: EVMOutput): string {
 ${result.interpretation}
 
 ## Status: ${result.status}
-${result.status === 'GREEN' ? '✅ Project is on track' : result.status === 'AMBER' ? '⚠️ Project needs attention' : '🔴 Project is in trouble'}
+${result.status === 'GREEN' ? ' Project is on track' : result.status === 'AMBER' ? ' Project needs attention' : ' Project is in trouble'}
 `;
 }

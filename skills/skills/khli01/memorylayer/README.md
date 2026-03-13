@@ -5,7 +5,7 @@ Semantic memory for AI agents with **95% token savings**.
 [![Install with ClawdBot](https://img.shields.io/badge/ClawdBot-Install-blue)](https://clawhub.ai/skills/memorylayer)
 [![Homepage](https://img.shields.io/badge/Homepage-memorylayer.clawbot.hk-green)](https://memorylayer.clawbot.hk)
 
-## 🎯 What is MemoryLayer?
+##  What is MemoryLayer?
 
 MemoryLayer provides semantic long-term memory for AI agents, replacing bloated file-based memory systems with efficient vector search.
 
@@ -21,9 +21,9 @@ MemoryLayer provides semantic long-term memory for AI agents, replacing bloated 
 - <200ms retrieval
 - **Cost:** $45/month at 30K requests
 
-**Savings: $900/month** 💰
+**Savings: $900/month** 
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Install
 
@@ -81,7 +81,7 @@ for r in results:
     print(f"{r.relevance_score:.2f}: {r.memory.content}")
 ```
 
-## 📊 Token Savings Example
+##  Token Savings Example
 
 **Before MemoryLayer:**
 ```python
@@ -99,7 +99,7 @@ prompt = f"{context}\n\nUser: What are my preferences?"
 
 **Result:** 95% token reduction, $900/month savings at scale
 
-## 🌟 Features
+##  Features
 
 - **Semantic Search** - Find by meaning, not keywords
 - **Multi-tenant** - Isolated memory per agent
@@ -108,7 +108,7 @@ prompt = f"{context}\n\nUser: What are my preferences?"
 - **FREE Plan** - 10,000 operations/month
 - **Dual Language** - JavaScript + Python support
 
-## 📖 API Reference
+##  API Reference
 
 ### `memory.remember(content, options)`
 
@@ -148,7 +148,7 @@ Get usage statistics.
 
 **Returns:** Object with `total_memories`, `memory_types`, `operations_this_month`
 
-## 💰 Pricing
+##  Pricing
 
 ### FREE Plan
 - 10,000 operations/month
@@ -168,27 +168,27 @@ Get usage statistics.
 - Dedicated support
 - Self-hosted option
 
-## 🔗 Links
+##  Links
 
 - **Homepage:** https://memorylayer.clawbot.hk
 - **Dashboard:** https://dashboard.memorylayer.clawbot.hk
 - **API Docs:** https://memorylayer.clawbot.hk/docs
 - **ClawdHub:** https://clawhub.ai/skills/memorylayer
 
-## 📝 Examples
+##  Examples
 
 See the `examples/` directory for:
 - `basic-usage.js` - Simple remember + search demo
 - `agent-integration.js` - Agent workflow integration
 - `token-savings-demo.js` - Before/after ROI comparison
 
-## 🤝 Support
+##  Support
 
 - **Documentation:** https://memorylayer.clawbot.hk/docs
 - **Issues:** GitHub Issues
 - **Community:** Discord (link in docs)
 
-## 📄 License
+##  License
 
 MIT
 

@@ -16,16 +16,16 @@ metadata:
 
 **Use when** you need secure local storage for passwords, API keys, or credentials.
 
-🔒 **AES-256-GCM encryption** - This plugin stores passwords encrypted using industry-standard AES-256-GCM encryption with a master key.
+ **AES-256-GCM encryption** - This plugin stores passwords encrypted using industry-standard AES-256-GCM encryption with a master key.
 
 ## Features
 
-- 🔒 AES-256-GCM encryption for all stored passwords
-- 📝 Simple command-line interface
-- 🗂️ Key management and listing
-- 💾 JSON-based local storage (encrypted)
-- 🕐 Automatic timestamp tracking
-- 🔑 Master key protection
+-  AES-256-GCM encryption for all stored passwords
+-  Simple command-line interface
+-  Key management and listing
+-  JSON-based local storage (encrypted)
+-  Automatic timestamp tracking
+-  Master key protection
 
 ## Installation
 
@@ -86,11 +86,11 @@ Or in your OpenClaw config:
 - `masterKey` - Master encryption key (can also use VAULT_MASTER_KEY env var)
 - `storageFile` (default: `.vault/passwords.json`) - Storage file path relative to home directory
 
-⚠️ **Important**: Keep your master key secure! Without it, you cannot decrypt stored passwords.
+ **Important**: Keep your master key secure! Without it, you cannot decrypt stored passwords.
 
 ## Security
 
-🔒 **Encryption Details**:
+ **Encryption Details**:
 
 - **Algorithm**: AES-256-GCM (Galois/Counter Mode)
 - **Key Derivation**: scrypt with random salt per password

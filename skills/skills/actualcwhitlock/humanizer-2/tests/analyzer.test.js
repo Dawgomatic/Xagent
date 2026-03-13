@@ -249,7 +249,7 @@ describe('pattern detection', () => {
   // 17. Emoji overuse
   it('detects emoji overuse in professional text', () => {
     const text =
-      '🚀 Launch phase complete\n💡 Key insights discovered\n✅ Next steps defined\n🎯 Goals aligned';
+      ' Launch phase complete\n Key insights discovered\n Next steps defined\n Goals aligned';
     const result = analyze(text, { patternsToCheck: [17] });
     expect(result.findings.length).toBeGreaterThan(0);
   });

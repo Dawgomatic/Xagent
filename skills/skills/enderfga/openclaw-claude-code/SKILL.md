@@ -4,7 +4,7 @@ description: Control Claude Code via MCP protocol. Execute commands, read/write 
 homepage: https://github.com/enderfga/claude-code-skill
 metadata: {
   "clawdis": {
-    "emoji": "🤖",
+    "emoji": "",
     "requires": {
       "bins": ["node"],
       "env": []
@@ -25,7 +25,7 @@ metadata: {
 
 Control Claude Code via MCP (Model Context Protocol). This skill unleashes the full power of Claude Code for openclaw agents, including persistent sessions, agent teams, and advanced tool control.
 
-## ⚡ Quick Start
+##  Quick Start
 
 ```bash
 # Start a persistent Claude session for your project
@@ -41,22 +41,22 @@ claude-code-skill session-send myproject "Find all TODO comments and create GitH
 claude-code-skill session-status myproject
 ```
 
-## 🎯 When to Use This Skill
+##  When to Use This Skill
 
 ### Use Persistent Sessions When:
-- ✅ Multi-step tasks requiring multiple tool calls
-- ✅ Iterative development (write code → test → fix → repeat)
-- ✅ Long conversations needing full context
-- ✅ Agent needs to work autonomously
-- ✅ You want streaming real-time feedback
+-  Multi-step tasks requiring multiple tool calls
+-  Iterative development (write code → test → fix → repeat)
+-  Long conversations needing full context
+-  Agent needs to work autonomously
+-  You want streaming real-time feedback
 
 ### Use Direct MCP Tools When:
-- ✅ Single command execution
-- ✅ Quick file read/write
-- ✅ One-off searches
-- ✅ No context needed between operations
+-  Single command execution
+-  Quick file read/write
+-  One-off searches
+-  No context needed between operations
 
-## 📚 Command Reference
+##  Command Reference
 
 ### Basic MCP Operations
 
@@ -187,7 +187,7 @@ claude-code-skill resume <session-id> "Continue where we left off" -d ~/project
 claude-code-skill batch-read "src/**/*.ts" "tests/**/*.test.ts" -p ~/project
 ```
 
-## 🤝 Agent Team Features
+##  Agent Team Features
 
 Deploy multiple Claude agents working together on complex tasks.
 
@@ -245,7 +245,7 @@ claude-code-skill session-start fullstack -d ~/project \
   --agent frontend
 ```
 
-## 🔧 Advanced Features
+##  Advanced Features
 
 ### Tool Control
 
@@ -310,17 +310,17 @@ cd ~/clawd/claude-code-proxy && source .venv/bin/activate
 uvicorn server:app --host 127.0.0.1 --port 8082
 ```
 
-## 🎓 Best Practices
+##  Best Practices
 
 ### For OpenClaw Agents
 
 1. **Always use persistent sessions for multi-step tasks**
    ```bash
-   # ❌ Bad: Multiple disconnect/reconnect cycles
+   #  Bad: Multiple disconnect/reconnect cycles
    claude-code-skill bash "step1"
    claude-code-skill bash "step2"
 
-   # ✅ Good: Single persistent session
+   #  Good: Single persistent session
    claude-code-skill session-start task -d ~/project
    claude-code-skill session-send task "Do step1 then step2"
    ```
@@ -359,7 +359,7 @@ claude-code-skill session-stop myproject
 claude-code-skill session-start myproject -d ~/project --resume <old-session-id>
 ```
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 openclaw agent
@@ -373,7 +373,7 @@ claude mcp serve (Claude Code)
 Your files & tools
 ```
 
-## 🔌 Available Tools (via MCP)
+##  Available Tools (via MCP)
 
 All Claude Code tools are accessible:
 
@@ -392,7 +392,7 @@ All Claude Code tools are accessible:
 | AskUserQuestion | Interactive prompts |
 | ... | and 10+ more |
 
-## 📊 Examples
+##  Examples
 
 ### Example 1: Code Review
 
@@ -433,7 +433,7 @@ claude-code-skill session-send debug "We have a memory leak in the API server" -
 # Detective investigates, then hands off to fixer, then to tester
 ```
 
-## 🔗 Integration with OpenClaw
+##  Integration with OpenClaw
 
 When openclaw needs to perform complex coding tasks:
 
@@ -446,7 +446,7 @@ openclaw skills run claude-code-skill -- session-status task
 
 Or use the skill programmatically via sasha-doctor HTTP API (see TOOLS.md section 3).
 
-## 📖 See Also
+##  See Also
 
 - **TOOLS.md section 3** - Full HTTP API documentation
 - **sasha-doctor endpoints** - Backend integration details

@@ -31,8 +31,8 @@ pip install 'aura-core[all]'
 
 ```
 You: Learn my project in ~/repos/api-service
-Agent: 🔥 Compiling ~/repos/api-service...
-       ✅ Compiled 847 files → api-service.aura
+Agent:  Compiling ~/repos/api-service...
+        Compiled 847 files → api-service.aura
        Indexed: Python (312), TypeScript (201), YAML (44), Markdown (73), JSON (217)
 
 You: How does the auth middleware handle token refresh?
@@ -47,8 +47,8 @@ Agent: Based on src/middleware/auth.ts (lines 45-89), the auth middleware
 
 ```
 You: Learn everything in ~/legal but mask any personal info
-Agent: 🔥 Compiling with PII masking enabled...
-       ✅ Compiled → legal.aura
+Agent:  Compiling with PII masking enabled...
+        Compiled → legal.aura
        Masked: 23 emails, 8 phone numbers, 4 SSNs
 
 You: What are the termination conditions in the Series A agreement?
@@ -65,7 +65,7 @@ Agent: Per series_a_term_sheet.pdf, Section 7.2 — the agreement may be
 You: Remember that our production database is on us-east-1, the staging
      API key rotates every 30 days, and I prefer verbose error logs.
 
-Agent: ✅ Written to /fact:
+Agent:  Written to /fact:
        • Production DB region: us-east-1
        • Staging API key rotation: 30-day cycle
        • Preference: verbose error logging
@@ -85,7 +85,7 @@ Agent: I remember your staging API key rotates every 30 days — I'll add
 You: We decided to use PostgreSQL over MongoDB for the user service,
      and the team agreed on GraphQL for the public API.
 
-Agent: ✅ Written to /episodic:
+Agent:  Written to /episodic:
        • Architecture decision: PostgreSQL for user service (over MongoDB)
        • API decision: GraphQL for public-facing API
 

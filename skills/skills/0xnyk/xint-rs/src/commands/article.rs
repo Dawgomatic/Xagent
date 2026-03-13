@@ -13,7 +13,7 @@ pub async fn run(args: &ArticleArgs, config: &Config) -> Result<()> {
 
     // Check if it's an X tweet URL - warn user
     if url.contains("x.com/") && url.contains("/status/") {
-        println!("📝 X tweet URLs not supported in Rust version yet.");
+        println!(" X tweet URLs not supported in Rust version yet.");
         println!("   Please provide a direct article URL.");
         return Ok(());
     }
@@ -28,7 +28,7 @@ pub async fn run(args: &ArticleArgs, config: &Config) -> Result<()> {
 
     // If AI prompt provided, analyze the article
     if let Some(ai_prompt) = &args.ai {
-        println!("🤖 Analyzing with Grok...\n");
+        println!(" Analyzing with Grok...\n");
 
         let analysis = grok::analyze_query(
             &http,
@@ -39,7 +39,7 @@ pub async fn run(args: &ArticleArgs, config: &Config) -> Result<()> {
         )
         .await?;
 
-        println!("📝 Analysis: {ai_prompt}\n");
+        println!(" Analysis: {ai_prompt}\n");
         println!("{}", analysis.content);
         println!("\n---");
     }

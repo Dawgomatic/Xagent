@@ -11,32 +11,32 @@ When asked to facilitate or prepare a retrospective, offer one of these formats 
 ### Formats
 
 **Mad / Sad / Glad**
-- 😡 Mad: What frustrated you this sprint?
-- 😢 Sad: What disappointed you or felt like a missed opportunity?
-- 😊 Glad: What made you happy or proud?
+-  Mad: What frustrated you this sprint?
+-  Sad: What disappointed you or felt like a missed opportunity?
+-  Glad: What made you happy or proud?
 
 **Sailboat** (Metaphor: team is a boat sailing toward an island)
-- 🏝️ Island: Our goal / where we want to be
-- 💨 Wind: What propelled us forward?
-- ⚓ Anchor: What held us back?
-- 🪨 Rocks: What risks do we see ahead?
+-  Island: Our goal / where we want to be
+-  Wind: What propelled us forward?
+-  Anchor: What held us back?
+-  Rocks: What risks do we see ahead?
 
 **4Ls**
-- 💚 Liked: What did we enjoy?
-- 📘 Learned: What did we learn?
-- 🤷 Lacked: What was missing?
-- 🔜 Longed for: What do we wish we had?
+-  Liked: What did we enjoy?
+-  Learned: What did we learn?
+-  Lacked: What was missing?
+-  Longed for: What do we wish we had?
 
 **Start / Stop / Continue**
-- ▶️ Start: What should we begin doing?
-- ⏹️ Stop: What should we stop doing?
-- 🔁 Continue: What's working and should continue?
+-  Start: What should we begin doing?
+-  Stop: What should we stop doing?
+-  Continue: What's working and should continue?
 
 **DAKI**
-- ➕ Drop: What should we remove?
-- ➕ Add: What should we introduce?
-- 🔒 Keep: What should we preserve?
-- ⬆️ Improve: What needs improvement?
+-  Drop: What should we remove?
+-  Add: What should we introduce?
+-  Keep: What should we preserve?
+-  Improve: What needs improvement?
 
 ### Facilitation Flow
 1. **Set the stage** — Remind the team of the Prime Directive: "Regardless of what we discover, we understand and truly believe that everyone did the best job they could, given what they knew at the time, their skills and abilities, the resources available, and the situation at hand."
@@ -168,16 +168,16 @@ Always prompt the team to think about:
 ```
 ## Daily Update — [Name] — [Date]
 
-**✅ Yesterday:** What did I complete?
+** Yesterday:** What did I complete?
 - ...
 
-**🎯 Today:** What will I work on?
+** Today:** What will I work on?
 - ...
 
-**🚧 Blockers:** Anything in my way?
+** Blockers:** Anything in my way?
 - [ ] ...
 
-**💡 FYI:** Anything the team should know?
+** FYI:** Anything the team should know?
 - ...
 ```
 
@@ -192,10 +192,10 @@ Always prompt the team to think about:
 ## Active Blockers — Sprint [N]
 | # | Blocker | Raised By | Date | Owner | Status | Resolution |
 |---|---------|-----------|------|-------|--------|------------|
-| 1 | ...     | ...       | ...  | ...   | 🔴 Open | ...      |
+| 1 | ...     | ...       | ...  | ...   |  Open | ...      |
 ```
 
-Statuses: 🔴 Open → 🟡 In Progress → 🟢 Resolved
+Statuses:  Open →  In Progress →  Resolved
 
 ---
 
@@ -211,7 +211,7 @@ Statuses: 🔴 Open → 🟡 In Progress → 🟢 Resolved
 | S3     | ...            | ...             | ...          |
 | **Avg** |               | **X SP**        |              |
 
-Trend: [📈 Improving / 📉 Declining / ➡️ Stable]
+Trend: [ Improving /  Declining /  Stable]
 ```
 
 **Coaching notes on velocity:**
@@ -249,28 +249,28 @@ Run periodically (every 1-2 sprints). Each dimension is rated with traffic light
 **Dimensions:**
 | # | Dimension | Question |
 |---|-----------|----------|
-| 1 | 🚀 Speed | Do we deliver fast? Do we minimize wait times? |
-| 2 | 📦 Delivering Value | Do we deliver valuable stuff, or are we just busy? |
-| 3 | 🎯 Mission | Do we know why we're here and does it excite us? |
-| 4 | 🤝 Teamwork | Do we help each other and work well together? |
-| 5 | 🎉 Fun | Do we enjoy our work? Is the vibe good? |
-| 6 | 📚 Learning | Are we learning new things and growing? |
-| 7 | 🔧 Tech Quality | Is our codebase healthy? Little tech debt? |
-| 8 | 🧩 Process | Does our process support us or slow us down? |
-| 9 | 🏢 Support | Do we get the support we need from the org? |
-| 10 | 👥 Pawns vs Players | Do we feel in control of our work? |
+| 1 |  Speed | Do we deliver fast? Do we minimize wait times? |
+| 2 |  Delivering Value | Do we deliver valuable stuff, or are we just busy? |
+| 3 |  Mission | Do we know why we're here and does it excite us? |
+| 4 |  Teamwork | Do we help each other and work well together? |
+| 5 |  Fun | Do we enjoy our work? Is the vibe good? |
+| 6 |  Learning | Are we learning new things and growing? |
+| 7 |  Tech Quality | Is our codebase healthy? Little tech debt? |
+| 8 |  Process | Does our process support us or slow us down? |
+| 9 |  Support | Do we get the support we need from the org? |
+| 10 |  Pawns vs Players | Do we feel in control of our work? |
 
 **Rating:**
-- 🟢 Green = Awesome / 📈 Improving
-- 🟡 Yellow = OK but has issues / ➡️ No change
-- 🔴 Red = Needs attention / 📉 Getting worse
+-  Green = Awesome /  Improving
+-  Yellow = OK but has issues /  No change
+-  Red = Needs attention /  Getting worse
 
 ### Health Check Template
 ```
 ## Team Health Check — [Date]
 | Dimension | Rating | Trend | Notes |
 |-----------|--------|-------|-------|
-| Speed | 🟢/🟡/🔴 | 📈/➡️/📉 | ... |
+| Speed | // | // | ... |
 | Delivering Value | ... | ... | ... |
 | ... | ... | ... | ... |
 

@@ -4,13 +4,13 @@
 A comprehensive OpenClaw skill for converting office documents to Markdown format. This skill supports PDF, DOC, DOCX, and PPTX files with special emphasis on legacy .doc format support.
 
 ## Features
-- ✅ **Full .doc support** using word-extractor library
-- ✅ **Chinese encoding** automatically handled
-- ✅ **OpenClaw integration** ready to use
-- ✅ **Multiple formats** PDF, DOC, DOCX, PPTX
-- ✅ **Structured output** with statistics and preview
-- ✅ **Error handling** comprehensive error reporting
-- ✅ **Batch processing** support for multiple files
+-  **Full .doc support** using word-extractor library
+-  **Chinese encoding** automatically handled
+-  **OpenClaw integration** ready to use
+-  **Multiple formats** PDF, DOC, DOCX, PPTX
+-  **Structured output** with statistics and preview
+-  **Error handling** comprehensive error reporting
+-  **Batch processing** support for multiple files
 
 ## Quick Start
 
@@ -36,7 +36,7 @@ const result = await exec(
 );
 
 if (result.exitCode === 0) {
-  console.log('✅ Conversion successful!');
+  console.log(' Conversion successful!');
   // Output file: /path/to/document.md
 }
 ```
@@ -143,7 +143,7 @@ MIT - See included license file for details.
 ---
 
 **Skill successfully tested with:**
-- ✅ 2023级操作系统课程设计任务书.doc (Chinese .doc file)
-- ✅ Full text extraction with Chinese characters
-- ✅ OpenClaw integration working
-- ✅ All dependencies installed and working
+-  2023级操作系统课程设计任务书.doc (Chinese .doc file)
+-  Full text extraction with Chinese characters
+-  OpenClaw integration working
+-  All dependencies installed and working

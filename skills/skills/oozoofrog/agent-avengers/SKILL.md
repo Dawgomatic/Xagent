@@ -8,7 +8,7 @@ version: 1.0.0
 author: 카라얀
 ---
 
-# 🦸 Agent Avengers
+#  Agent Avengers
 
 > "어벤저스, 어셈블!" — 복잡한 태스크를 자동으로 에이전트 팀이 처리
 
@@ -45,27 +45,27 @@ author: 카라얀
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    🦸 AVENGERS ASSEMBLE                         │
+│                     AVENGERS ASSEMBLE                         │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│  1️⃣  ANALYZE — 태스크 분석 및 분해                              │
+│    ANALYZE — 태스크 분석 및 분해                              │
 │      └─ 목표 파악 → 서브태스크 도출 → 의존성 매핑                 │
 │                                                                 │
-│  2️⃣  RECRUIT — 에이전트 팀 구성                                 │
+│    RECRUIT — 에이전트 팀 구성                                 │
 │      └─ 각 서브태스크에 최적 에이전트 프로필 생성                 │
-│      └─ 에이전트 역할: 🔬연구 🖊️작성 🔍분석 ✅검토 🔧통합        │
+│      └─ 에이전트 역할: 연구 작성 분석 검토 통합        │
 │                                                                 │
-│  3️⃣  DEPLOY — 에이전트 스폰 및 태스크 할당                      │
+│    DEPLOY — 에이전트 스폰 및 태스크 할당                      │
 │      └─ sessions_spawn으로 병렬 실행                            │
 │      └─ 각 에이전트에 명확한 입력/출력 지정                      │
 │                                                                 │
-│  4️⃣  MONITOR — 진행 상황 추적                                   │
+│    MONITOR — 진행 상황 추적                                   │
 │      └─ 완료 대기, 실패 시 재시도 또는 대체                      │
 │                                                                 │
-│  5️⃣  ASSEMBLE — 결과 통합                                       │
+│    ASSEMBLE — 결과 통합                                       │
 │      └─ 모든 산출물 수집 → 검증 → 병합                          │
 │                                                                 │
-│  6️⃣  REPORT — 최종 보고 및 정리                                 │
+│    REPORT — 최종 보고 및 정리                                 │
 │      └─ 사용자에게 결과 전달, 임시 리소스 정리                   │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
@@ -75,7 +75,7 @@ author: 카라얀
 
 ## 에이전트 모드
 
-### 🔷 Mode 1: 기존 에이전트 활용
+###  Mode 1: 기존 에이전트 활용
 Gateway에 등록된 에이전트들을 조합하여 사용
 
 ```javascript
@@ -92,7 +92,7 @@ sessions_send({
 - Discord 채널 바인딩 활용 가능
 - 지속적인 컨텍스트
 
-### 🔶 Mode 2: 임시 에이전트 스폰
+###  Mode 2: 임시 에이전트 스폰
 태스크별로 일회성 에이전트 생성
 
 ```javascript
@@ -110,7 +110,7 @@ sessions_spawn({
 - 완료 후 자동 정리
 - 유연한 모델 선택
 
-### 🟣 Mode 3: 멀티 프로필 (봇 인스턴스)
+###  Mode 3: 멀티 프로필 (봇 인스턴스)
 다른 OpenClaw 프로필/봇을 팀에 참여시킴
 
 ```yaml
@@ -148,22 +148,22 @@ sessions_send({
 - 각 봇의 전문 스킬 활용
 - 부하 분산
 
-### 🔷🔶🟣 Mode 4: 풀 하이브리드 (권장)
+###  Mode 4: 풀 하이브리드 (권장)
 기존 에이전트 + 임시 스폰 + 멀티 프로필 통합
 
 ```
 예시: "대규모 경쟁 분석 프로젝트"
 
 ┌─────────────────────────────────────────┐
-│  🟣 research-bot (별도 봇)              │
-│     └── 🔬 watson (에이전트) → A사 조사  │
-│     └── 🔶 temp-1 (스폰) → B사 조사      │
+│   research-bot (별도 봇)              │
+│     └──  watson (에이전트) → A사 조사  │
+│     └──  temp-1 (스폰) → B사 조사      │
 ├─────────────────────────────────────────┤
-│  🟣 code-bot (별도 봇)                  │
-│     └── 💻 분석 스크립트 작성            │
+│   code-bot (별도 봇)                  │
+│     └──  분석 스크립트 작성            │
 ├─────────────────────────────────────────┤
-│  🔷 main (카라얀)                       │
-│     └── 🔧 결과 통합 + 리포트 생성       │
+│   main (카라얀)                       │
+│     └──  결과 통합 + 리포트 생성       │
 └─────────────────────────────────────────┘
 ```
 
@@ -242,12 +242,12 @@ const results = await collectFromProfiles(assignedTasks)
 
 | 타입 | 이모지 | 역할 | 모델 추천 |
 |------|--------|------|-----------|
-| **Researcher** | 🔬 | 웹 검색, 데이터 수집 | sonnet |
-| **Analyst** | 🔍 | 데이터 분석, 패턴 발견 | opus |
-| **Writer** | 🖊️ | 콘텐츠 작성, 문서화 | sonnet |
-| **Coder** | 💻 | 코드 구현, 테스트 | opus |
-| **Reviewer** | ✅ | 품질 검토, 피드백 | opus |
-| **Integrator** | 🔧 | 결과 병합, 최종 산출물 | sonnet |
+| **Researcher** |  | 웹 검색, 데이터 수집 | sonnet |
+| **Analyst** |  | 데이터 분석, 패턴 발견 | opus |
+| **Writer** |  | 콘텐츠 작성, 문서화 | sonnet |
+| **Coder** |  | 코드 구현, 테스트 | opus |
+| **Reviewer** |  | 품질 검토, 피드백 | opus |
+| **Integrator** |  | 결과 병합, 최종 산출물 | sonnet |
 
 ---
 
@@ -289,16 +289,16 @@ agents:
 
 ```
 태스크: "A사 경쟁 분석"
-  → watson (researcher, 심층 리서치) ✅ 매칭
+  → watson (researcher, 심층 리서치)  매칭
 
 태스크: "인포그래픽 만들기"  
-  → picasso (creator, 디자인) ✅ 매칭
+  → picasso (creator, 디자인)  매칭
 
 태스크: "API 연동 코드 작성"
-  → coder-bot (coder) ✅ 매칭
+  → coder-bot (coder)  매칭
   
 태스크: "B사 조사" (전문 에이전트 없음)
-  → temp-researcher 스폰 🔶
+  → temp-researcher 스폰 
 ```
 
 ---
@@ -430,10 +430,10 @@ sessions_spawn({
 입력: "어벤저스 어셈블! A사, B사, C사 경쟁 분석 리포트"
 
 에이전트 구성:
-├── 🔬 watson (기존) → A사 조사 (전문성 활용)
-├── 🔬 temp-researcher-1 (스폰) → B사 조사
-├── 🔬 temp-researcher-2 (스폰) → C사 조사
-└── 🔧 temp-integrator (스폰) → 비교 리포트 작성
+├──  watson (기존) → A사 조사 (전문성 활용)
+├──  temp-researcher-1 (스폰) → B사 조사
+├──  temp-researcher-2 (스폰) → C사 조사
+└──  temp-integrator (스폰) → 비교 리포트 작성
 
 실행:
 1. watson에게 sessions_send로 A사 태스크 전달
@@ -449,11 +449,11 @@ sessions_spawn({
 입력: "어벤저스 어셈블! 날씨 앱 만들어줘"
 
 에이전트 구성:
-├── 🔍 temp-analyst → 요구사항 정의
-├── 💻 temp-frontend → UI 구현
-├── 💻 temp-backend → API 연동
-├── ✅ temp-reviewer → 코드 리뷰
-└── 🔧 temp-integrator → 통합 및 테스트
+├──  temp-analyst → 요구사항 정의
+├──  temp-frontend → UI 구현
+├──  temp-backend → API 연동
+├──  temp-reviewer → 코드 리뷰
+└──  temp-integrator → 통합 및 테스트
 
 실행:
 1. Analyst 먼저 (요구사항 도출)
@@ -469,8 +469,8 @@ sessions_spawn({
 입력: "어벤저스 어셈블! watson이랑 picasso 써서 리서치 + 인포그래픽"
 
 에이전트 구성:
-├── 🔬 watson (기존) → 심층 리서치
-└── 🎨 picasso (기존) → 인포그래픽 제작 (watson 완료 후)
+├──  watson (기존) → 심층 리서치
+└──  picasso (기존) → 인포그래픽 제작 (watson 완료 후)
 
 실행:
 1. sessions_send(watson, "리서치 태스크")
@@ -486,16 +486,16 @@ sessions_spawn({
 
 프로필 구성:
 ┌─────────────────────────────────────────┐
-│  🟣 research-bot                        │
+│   research-bot                        │
 │     └── 시장 조사 + 경쟁사 분석          │
 ├─────────────────────────────────────────┤
-│  🟣 creative-bot                        │
+│   creative-bot                        │
 │     └── UI/UX 디자인 + 브랜딩            │
 ├─────────────────────────────────────────┤
-│  🟣 code-bot                            │
+│   code-bot                            │
 │     └── 프론트엔드 + 백엔드 개발         │
 ├─────────────────────────────────────────┤
-│  🔷 main (카라얀)                       │
+│   main (카라얀)                       │
 │     └── 오케스트레이션 + 최종 통합        │
 └─────────────────────────────────────────┘
 
@@ -601,23 +601,23 @@ agents:
 
 ---
 
-## 🌟 창발적 협업 패턴
+##  창발적 협업 패턴
 
-### 1. 🗳️ 경쟁 드래프트 (Competitive Draft)
+### 1.  경쟁 드래프트 (Competitive Draft)
 동일 태스크를 여러 에이전트가 독립적으로 수행 → 결과 비교 → 최고안 선택
 
 ```
 태스크: "마케팅 전략 수립"
 
-├── 🔷 watson → 전략 A (데이터 기반)
-├── 🔶 temp-strategist-1 → 전략 B (창의적)
-├── 🟣 creative-bot → 전략 C (감성적)
-└── 🗳️ 투표/평가 → 최고안 선택 또는 하이브리드
+├──  watson → 전략 A (데이터 기반)
+├──  temp-strategist-1 → 전략 B (창의적)
+├──  creative-bot → 전략 C (감성적)
+└──  투표/평가 → 최고안 선택 또는 하이브리드
 
 장점: 다양한 관점, 최적해 도출
 ```
 
-### 2. 🎭 역할 순환 (Role Rotation)
+### 2.  역할 순환 (Role Rotation)
 진행 중 역할을 바꿔서 신선한 시각 확보
 
 ```
@@ -634,7 +634,7 @@ Round 2 (순환):
 → 고착화 방지, 다각적 검토
 ```
 
-### 3. ⚔️ 적대적 협력 (Adversarial Collaboration)
+### 3.  적대적 협력 (Adversarial Collaboration)
 한 에이전트가 만들면 다른 에이전트가 공격적으로 비판 → 반복
 
 ```
@@ -653,7 +653,7 @@ Arbiter ──→ 최종 판정
 결과: 훨씬 견고한 산출물
 ```
 
-### 4. 🧬 진화적 선택 (Evolutionary Selection)
+### 4.  진화적 선택 (Evolutionary Selection)
 여러 솔루션 생성 → 평가 → 상위권 교배 → 반복
 
 ```
@@ -671,7 +671,7 @@ Generation 2:
 ... 3세대 반복 → 최적해
 ```
 
-### 5. 🐝 스웜 인텔리전스 (Swarm Intelligence)
+### 5.  스웜 인텔리전스 (Swarm Intelligence)
 많은 마이크로 에이전트가 작은 조각 처리 → 창발적 결과
 
 ```
@@ -687,7 +687,7 @@ Swarm:
 Aggregator → 패턴 발견, 통합 인사이트
 ```
 
-### 6. 🔗 체인 릴레이 (Chain Relay)
+### 6.  체인 릴레이 (Chain Relay)
 한 에이전트의 출력이 다음 에이전트의 입력 (변형 전달)
 
 ```
@@ -704,7 +704,7 @@ Agent E: 실행
 각 단계에서 가치 증폭
 ```
 
-### 7. 💭 합의 프로토콜 (Consensus Protocol)
+### 7.  합의 프로토콜 (Consensus Protocol)
 모든 에이전트가 동의해야 진행
 
 ```
@@ -721,22 +721,22 @@ Proposal: "이 방향으로 가자"
 위험한 결정에 안전장치
 ```
 
-### 8. 🎪 크로스 도메인 잼 (Cross-Domain Jam)
+### 8.  크로스 도메인 잼 (Cross-Domain Jam)
 완전히 다른 분야의 에이전트가 협업
 
 ```
 태스크: "혁신적인 앱 아이디어"
 
-├── 🎨 Art-Agent: 예술적 관점
-├── 🔬 Science-Agent: 기술적 관점
-├── 📚 History-Agent: 역사적 패턴
-├── 🎮 Game-Agent: 게이미피케이션
-└── 🧘 Philosophy-Agent: 윤리적 고려
+├──  Art-Agent: 예술적 관점
+├──  Science-Agent: 기술적 관점
+├──  History-Agent: 역사적 패턴
+├──  Game-Agent: 게이미피케이션
+└──  Philosophy-Agent: 윤리적 고려
 
 → 예상치 못한 조합에서 혁신 탄생
 ```
 
-### 9. 🪞 메타 관찰자 (Meta Observer)
+### 9.  메타 관찰자 (Meta Observer)
 다른 에이전트들을 관찰하고 코칭하는 에이전트
 
 ```
@@ -754,21 +754,21 @@ Meta-Observer:
 팀 전체 효율성 향상
 ```
 
-### 10. ⏰ 시간 분리 협업 (Time-Horizon Split)
+### 10.  시간 분리 협업 (Time-Horizon Split)
 같은 문제를 다른 시간 관점으로 접근
 
 ```
 태스크: "비즈니스 전략"
 
-├── 🏃 Sprint-Agent: 다음 주 할 일
-├── 🚶 Quarter-Agent: 분기 계획
-├── 🧘 Year-Agent: 연간 비전
-└── 🔮 Decade-Agent: 장기 트렌드
+├──  Sprint-Agent: 다음 주 할 일
+├──  Quarter-Agent: 분기 계획
+├──  Year-Agent: 연간 비전
+└──  Decade-Agent: 장기 트렌드
 
 → 단기-장기 균형 잡힌 전략
 ```
 
-### 11. 🎰 태스크 경매 (Task Auction)
+### 11.  태스크 경매 (Task Auction)
 에이전트가 자신감 기반으로 태스크에 입찰
 
 ```
@@ -783,7 +783,7 @@ Bids:
 → 실패 시 차순위 시도
 ```
 
-### 12. 🧠 공유 메모리 실시간 동기화
+### 12.  공유 메모리 실시간 동기화
 
 ```
 Shared Memory Pool:

@@ -2,7 +2,7 @@
 name: "rag-construction"
 description: "Build RAG systems for construction knowledge bases. Create searchable AI-powered construction document systems"
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "🐼", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # RAG Construction
 

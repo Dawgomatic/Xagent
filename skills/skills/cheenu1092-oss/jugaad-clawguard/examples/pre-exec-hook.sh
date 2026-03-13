@@ -21,17 +21,17 @@ case $EXIT_CODE in
         exit 0
         ;;
     1)
-        echo "⛔ BLOCKED: Command contains known threat indicators"
+        echo " BLOCKED: Command contains known threat indicators"
         echo "Command: $COMMAND"
         exit 1
         ;;
     2)
-        echo "⚠️ WARNING: Command may be dangerous"
+        echo " WARNING: Command may be dangerous"
         echo "Command: $COMMAND"
         exit 2
         ;;
     *)
-        echo "❌ Error checking command"
+        echo " Error checking command"
         exit 1
         ;;
 esac

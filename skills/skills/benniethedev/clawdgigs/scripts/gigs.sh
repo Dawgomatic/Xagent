@@ -11,7 +11,7 @@ TOKEN_FILE="$CLAWDGIGS_DIR/token"
 
 # Check if registered
 if [[ ! -f "$CONFIG_FILE" ]]; then
-    echo "❌ Not registered on ClawdGigs yet."
+    echo " Not registered on ClawdGigs yet."
     echo "Run: ./scripts/register.sh <wallet_address>"
     exit 1
 fi
@@ -97,18 +97,18 @@ done
 
 # List gigs
 if [[ "$ACTION" == "list" ]]; then
-    echo "🤖 Your ClawdGigs"
+    echo " Your ClawdGigs"
     echo ""
     
     RESPONSE=$(curl -sf "$CLAWDGIGS_API/db/gigs?where=agent_id:eq:$AGENT_ID" \
         -H "Authorization: Bearer ${PRESSBASE_SERVICE_KEY:-$AGENT_TOKEN}" 2>/dev/null) || {
-        echo "❌ Failed to fetch gigs"
+        echo " Failed to fetch gigs"
         exit 1
     }
 
     SUCCESS=$(echo "$RESPONSE" | jq -r '.ok // false')
     if [[ "$SUCCESS" != "true" ]]; then
-        echo "❌ Failed to fetch gigs"
+        echo " Failed to fetch gigs"
         exit 1
     fi
 
@@ -132,23 +132,23 @@ fi
 # Create gig
 if [[ "$ACTION" == "create" ]]; then
     if [[ -z "$TITLE" ]]; then
-        echo "❌ Error: --title required"
+        echo " Error: --title required"
         exit 1
     fi
     if [[ -z "$PRICE" ]]; then
-        echo "❌ Error: --price required"
+        echo " Error: --price required"
         exit 1
     fi
     
     # Validate category
     VALID_CATEGORIES="development writing design consulting analysis other"
     if [[ ! " $VALID_CATEGORIES " =~ " $CATEGORY " ]]; then
-        echo "❌ Invalid category: $CATEGORY"
+        echo " Invalid category: $CATEGORY"
         echo "Valid categories: $VALID_CATEGORIES"
         exit 1
     fi
 
-    echo "🤖 Creating gig..."
+    echo " Creating gig..."
     echo ""
     
     PAYLOAD=$(jq -n \
@@ -173,20 +173,20 @@ if [[ "$ACTION" == "create" ]]; then
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${PRESSBASE_SERVICE_KEY:-$AGENT_TOKEN}" \
         -d "$PAYLOAD" 2>/dev/null) || {
-        echo "❌ Failed to create gig"
+        echo " Failed to create gig"
         exit 1
     }
 
     SUCCESS=$(echo "$RESPONSE" | jq -r '.ok // false')
     if [[ "$SUCCESS" != "true" ]]; then
         ERROR=$(echo "$RESPONSE" | jq -r '.error // "Unknown error"')
-        echo "❌ Create failed: $ERROR"
+        echo " Create failed: $ERROR"
         exit 1
     fi
 
     NEW_GIG_ID=$(echo "$RESPONSE" | jq -r '.data.id // empty')
     
-    echo "✅ Gig created!"
+    echo " Gig created!"
     echo ""
     echo "   Title: $TITLE"
     echo "   Price: \$$PRICE USDC"
@@ -201,7 +201,7 @@ fi
 # Update gig
 if [[ "$ACTION" == "update" ]]; then
     if [[ -z "$GIG_ID" ]]; then
-        echo "❌ Error: Gig ID required"
+        echo " Error: Gig ID required"
         echo "Usage: $0 update <gig_id> [--title ...] [--price ...]"
         exit 1
     fi
@@ -217,85 +217,85 @@ if [[ "$ACTION" == "update" ]]; then
     [[ -n "$STATUS" ]] && UPDATE_FIELDS="$UPDATE_FIELDS\"status\": \"$STATUS\","
     
     if [[ -z "$UPDATE_FIELDS" ]]; then
-        echo "❌ No fields to update"
+        echo " No fields to update"
         exit 1
     fi
     
     UPDATE_FIELDS="${UPDATE_FIELDS%,}"
     PAYLOAD="{$UPDATE_FIELDS}"
     
-    echo "🤖 Updating gig $GIG_ID..."
+    echo " Updating gig $GIG_ID..."
     
     RESPONSE=$(curl -sf "$CLAWDGIGS_API/db/gigs/$GIG_ID" \
         -X PUT \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${PRESSBASE_SERVICE_KEY:-$AGENT_TOKEN}" \
         -d "$PAYLOAD" 2>/dev/null) || {
-        echo "❌ Failed to update gig"
+        echo " Failed to update gig"
         exit 1
     }
 
     SUCCESS=$(echo "$RESPONSE" | jq -r '.ok // false')
     if [[ "$SUCCESS" != "true" ]]; then
         ERROR=$(echo "$RESPONSE" | jq -r '.error // "Unknown error"')
-        echo "❌ Update failed: $ERROR"
+        echo " Update failed: $ERROR"
         exit 1
     fi
 
-    echo "✅ Gig updated!"
+    echo " Gig updated!"
     exit 0
 fi
 
 # Pause gig
 if [[ "$ACTION" == "pause" ]]; then
     if [[ -z "$GIG_ID" ]]; then
-        echo "❌ Error: Gig ID required"
+        echo " Error: Gig ID required"
         exit 1
     fi
     
-    echo "🤖 Pausing gig $GIG_ID..."
+    echo " Pausing gig $GIG_ID..."
     
     RESPONSE=$(curl -sf "$CLAWDGIGS_API/db/gigs/$GIG_ID" \
         -X PUT \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${PRESSBASE_SERVICE_KEY:-$AGENT_TOKEN}" \
         -d '{"status": "inactive"}' 2>/dev/null) || {
-        echo "❌ Failed to pause gig"
+        echo " Failed to pause gig"
         exit 1
     }
 
     SUCCESS=$(echo "$RESPONSE" | jq -r '.ok // false')
     if [[ "$SUCCESS" != "true" ]]; then
-        echo "❌ Pause failed"
+        echo " Pause failed"
         exit 1
     fi
 
-    echo "✅ Gig paused"
+    echo " Gig paused"
     exit 0
 fi
 
 # Delete gig
 if [[ "$ACTION" == "delete" ]]; then
     if [[ -z "$GIG_ID" ]]; then
-        echo "❌ Error: Gig ID required"
+        echo " Error: Gig ID required"
         exit 1
     fi
     
-    echo "🤖 Deleting gig $GIG_ID..."
+    echo " Deleting gig $GIG_ID..."
     
     RESPONSE=$(curl -sf "$CLAWDGIGS_API/db/gigs/$GIG_ID" \
         -X DELETE \
         -H "Authorization: Bearer ${PRESSBASE_SERVICE_KEY:-$AGENT_TOKEN}" 2>/dev/null) || {
-        echo "❌ Failed to delete gig"
+        echo " Failed to delete gig"
         exit 1
     }
 
     SUCCESS=$(echo "$RESPONSE" | jq -r '.ok // false')
     if [[ "$SUCCESS" != "true" ]]; then
-        echo "❌ Delete failed"
+        echo " Delete failed"
         exit 1
     fi
 
-    echo "✅ Gig deleted"
+    echo " Gig deleted"
     exit 0
 fi

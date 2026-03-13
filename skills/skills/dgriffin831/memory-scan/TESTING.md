@@ -86,25 +86,25 @@ The `text` field contains markdown formatted as agent memory — headers, contex
 
 ```
 ── Safe Content (3 cases) ──
-  ✅ safe-preferences: SAFE
-  ✅ safe-tasks: SAFE
-  ✅ safe-learnings: SAFE
+   safe-preferences: SAFE
+   safe-tasks: SAFE
+   safe-learnings: SAFE
 
 ── Malicious Content (2 cases) ──
-  ✅ injection-delete-guardrails: CRITICAL
-  ✅ credential-leak: HIGH
+   injection-delete-guardrails: CRITICAL
+   credential-leak: HIGH
 
 ── Prompt Stealing (10 cases) ──
-  ✅ prompt-steal-chatgpt-repeat: HIGH
-  ✅ prompt-steal-repeat-initial: HIGH
-  ✅ prompt-steal-developer-debug: HIGH
-  ✅ prompt-steal-maintainer: HIGH
-  ✅ prompt-steal-foundational: HIGH
-  ✅ prompt-steal-codeblock: HIGH
-  ✅ prompt-steal-verbatim-guidelines: HIGH
-  ✅ prompt-steal-china: HIGH
-  ✅ prompt-steal-smartgpt: HIGH
-  ✅ prompt-steal-smartgpt2: HIGH
+   prompt-steal-chatgpt-repeat: HIGH
+   prompt-steal-repeat-initial: HIGH
+   prompt-steal-developer-debug: HIGH
+   prompt-steal-maintainer: HIGH
+   prompt-steal-foundational: HIGH
+   prompt-steal-codeblock: HIGH
+   prompt-steal-verbatim-guidelines: HIGH
+   prompt-steal-china: HIGH
+   prompt-steal-smartgpt: HIGH
+   prompt-steal-smartgpt2: HIGH
 ```
 
 ### Prompt Stealing Coverage

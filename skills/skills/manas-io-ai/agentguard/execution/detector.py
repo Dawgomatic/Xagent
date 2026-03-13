@@ -404,15 +404,15 @@ def main():
             save_anomalies(anomalies)
             for a in anomalies:
                 severity_icon = {
-                    Severity.INFO: "🔵",
-                    Severity.LOW: "🟢",
-                    Severity.MEDIUM: "🟡",
-                    Severity.HIGH: "🟠",
-                    Severity.CRITICAL: "🔴"
-                }.get(a.severity, "⚪")
+                    Severity.INFO: "",
+                    Severity.LOW: "",
+                    Severity.MEDIUM: "",
+                    Severity.HIGH: "",
+                    Severity.CRITICAL: ""
+                }.get(a.severity, "")
                 print(f"{severity_icon} [{a.severity.value.upper()}] {a.description}")
         else:
-            print("✅ No anomalies detected")
+            print(" No anomalies detected")
             
     elif args.command == "status":
         baseline = detector.baseline_manager.baseline

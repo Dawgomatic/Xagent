@@ -33,10 +33,10 @@ function log(msg, color = RESET) {
   if (!flags.quiet) console.log(`${color}${msg}${RESET}`);
 }
 
-function pass(msg) { log(`✅ ${msg}`, GREEN); }
-function warn(msg) { log(`⚠️  ${msg}`, YELLOW); }
-function fail(msg) { log(`❌ ${msg}`, RED); }
-function info(msg) { log(`ℹ️  ${msg}`, CYAN); }
+function pass(msg) { log(` ${msg}`, GREEN); }
+function warn(msg) { log(`  ${msg}`, YELLOW); }
+function fail(msg) { log(` ${msg}`, RED); }
+function info(msg) { log(`  ${msg}`, CYAN); }
 
 function showHelp() {
   console.log(`
@@ -63,7 +63,7 @@ Checks:
 
 // Check 1: Gateway binding
 function checkGatewayBinding() {
-  log('\n📡 Checking gateway binding...', BOLD);
+  log('\n Checking gateway binding...', BOLD);
   
   if (!existsSync(CONFIG_FILE)) {
     warn('Config file not found at ' + CONFIG_FILE);
@@ -99,7 +99,7 @@ function checkGatewayBinding() {
 
 // Check 2: File permissions
 function checkFilePermissions() {
-  log('\n🔐 Checking file permissions...', BOLD);
+  log('\n Checking file permissions...', BOLD);
   
   if (platform() === 'win32') {
     info('Skipping permission check on Windows');
@@ -142,7 +142,7 @@ function checkFilePermissions() {
 
 // Check 3: Authentication
 function checkAuthentication() {
-  log('\n🔑 Checking authentication...', BOLD);
+  log('\n Checking authentication...', BOLD);
   
   if (!existsSync(CONFIG_FILE)) {
     warn('Config file not found');
@@ -170,7 +170,7 @@ function checkAuthentication() {
 
 // Check 4: Node.js version
 function checkNodeVersion() {
-  log('\n📦 Checking Node.js version...', BOLD);
+  log('\n Checking Node.js version...', BOLD);
   
   const version = process.version;
   const [major, minor] = version.slice(1).split('.').map(Number);
@@ -190,7 +190,7 @@ function checkNodeVersion() {
 
 // Check 5: mDNS/Bonjour
 function checkMdns() {
-  log('\n📢 Checking mDNS broadcasting...', BOLD);
+  log('\n Checking mDNS broadcasting...', BOLD);
   
   const disabled = process.env.CLAWDBOT_DISABLE_BONJOUR === '1';
   
@@ -206,7 +206,7 @@ function checkMdns() {
 
 // Check 6: Tailscale
 function checkTailscale() {
-  log('\n🔒 Checking Tailscale...', BOLD);
+  log('\n Checking Tailscale...', BOLD);
   
   try {
     const result = execSync('tailscale status 2>/dev/null', { encoding: 'utf-8' });
@@ -227,7 +227,7 @@ function checkTailscale() {
 async function checkExternalAccess() {
   if (!flags.deep) return true;
   
-  log('\n🌐 [DEEP] Checking external accessibility...', BOLD);
+  log('\n [DEEP] Checking external accessibility...', BOLD);
   
   try {
     const config = JSON.parse(readFileSync(CONFIG_FILE, 'utf-8'));
@@ -271,14 +271,14 @@ function printSummary(results) {
   const total = Object.keys(results).length;
   
   for (const [check, passed] of Object.entries(results)) {
-    log(`  ${passed ? '✅' : '❌'} ${check}`);
+    log(`  ${passed ? '' : ''} ${check}`);
   }
   
   log('');
   if (passed === total) {
-    log(`🎉 All ${total} checks passed!`, GREEN);
+    log(` All ${total} checks passed!`, GREEN);
   } else {
-    log(`⚠️  ${passed}/${total} checks passed`, YELLOW);
+    log(`  ${passed}/${total} checks passed`, YELLOW);
     if (!flags.fix) {
       info('Run with --fix to auto-remediate issues');
     }
@@ -292,7 +292,7 @@ async function main() {
     process.exit(0);
   }
 
-  log('🔍 Clawdbot Security Audit', BOLD);
+  log(' Clawdbot Security Audit', BOLD);
   log(`   Config: ${CONFIG_FILE}`);
   log(`   Mode: ${flags.fix ? 'Fix' : 'Scan only'}${flags.deep ? ' (deep)' : ''}`);
   

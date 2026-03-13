@@ -92,7 +92,7 @@ async function getRevenueCatMetrics(startDate, endDate) {
       revenue: metricsMap.revenue || 0
     };
   } catch (e) {
-    console.log(`  ⚠️ RevenueCat API error: ${e.message}`);
+    console.log(`   RevenueCat API error: ${e.message}`);
     return null;
   }
 }
@@ -125,7 +125,7 @@ function savePlatformStats(stats) {
   const startDate = new Date(now - days * 86400000);
   const dateStr = now.toISOString().slice(0, 10);
 
-  console.log(`📊 Daily Report — ${dateStr} (last ${days} days)\n`);
+  console.log(` Daily Report — ${dateStr} (last ${days} days)\n`);
 
   // ==========================================
   // 1. POSTIZ: Per-post analytics
@@ -137,7 +137,7 @@ function savePlatformStats(stats) {
   );
   posts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
 
-  console.log(`  📱 Found ${posts.length} connected TikTok posts\n`);
+  console.log(`   Found ${posts.length} connected TikTok posts\n`);
 
   const postResults = [];
   for (const post of posts) {
@@ -187,7 +187,7 @@ function savePlatformStats(stats) {
   let rcPrevMetrics = null;
   
   if (config.revenuecat?.enabled) {
-    console.log(`  💰 Fetching RevenueCat metrics...`);
+    console.log(`   Fetching RevenueCat metrics...`);
     rcMetrics = await getRevenueCatMetrics(startDate, now);
     
     // Load previous RC snapshot for deltas
@@ -269,14 +269,14 @@ function savePlatformStats(stats) {
       // Funnel diagnostic
       report += `\n**Funnel health:**\n`;
       if (customerDelta > 10 && subDelta === 0) {
-        report += `- ⚠️ Users are downloading (${customerDelta > 0 ? '+' : ''}${customerDelta} new customers) but nobody is subscribing → **App issue** (onboarding/paywall/pricing)\n`;
+        report += `-  Users are downloading (${customerDelta > 0 ? '+' : ''}${customerDelta} new customers) but nobody is subscribing → **App issue** (onboarding/paywall/pricing)\n`;
       } else if (customerDelta > 10 && subDelta > 0) {
-        report += `- ✅ Funnel working: +${customerDelta} customers → +${subDelta} subscribers (${((subDelta / customerDelta) * 100).toFixed(1)}% conversion)\n`;
+        report += `-  Funnel working: +${customerDelta} customers → +${subDelta} subscribers (${((subDelta / customerDelta) * 100).toFixed(1)}% conversion)\n`;
       } else if (customerDelta <= 5) {
-        report += `- ⚠️ Few new customers (${customerDelta > 0 ? '+' : ''}${customerDelta}) → **Marketing issue** (views not converting to downloads — check App Store page, link in bio)\n`;
+        report += `-  Few new customers (${customerDelta > 0 ? '+' : ''}${customerDelta}) → **Marketing issue** (views not converting to downloads — check App Store page, link in bio)\n`;
       }
       if (userDelta > 20 && subDelta === 0) {
-        report += `- 🔴 ${userDelta} active users but zero new subs → Users are trying the app but not paying. Check: Is the paywall too aggressive? Is the free experience too good? Is the value proposition clear?\n`;
+        report += `-  ${userDelta} active users but zero new subs → Users are trying the app but not paying. Check: Is the paywall too aggressive? Is the free experience too good? Is the value proposition clear?\n`;
       }
     }
 
@@ -328,34 +328,34 @@ function savePlatformStats(stats) {
     report += `### ${app}\n\n`;
 
     if (viewsGood && (!hasConversionData || conversionGood)) {
-      report += `🟢 **Views good${hasConversionData ? ' + Conversions good' : ''}** → SCALE IT\n`;
+      report += ` **Views good${hasConversionData ? ' + Conversions good' : ''}** → SCALE IT\n`;
       report += `- Average ${Math.round(avgViews).toLocaleString()} views per post\n`;
       report += `- Make 3 variations of the top-performing hooks\n`;
       report += `- Test different posting times for optimization\n`;
       report += `- Cross-post to Instagram Reels & YouTube Shorts\n`;
     } else if (viewsGood && hasConversionData && !conversionGood) {
-      report += `🟡 **Views good + Conversions poor** → FIX THE CTA\n`;
+      report += ` **Views good + Conversions poor** → FIX THE CTA\n`;
       report += `- People are watching (avg ${Math.round(avgViews).toLocaleString()} views) but not converting\n`;
       report += `- Try different CTAs on slide 6 (direct vs subtle)\n`;
       report += `- Check if app landing page matches the slideshow promise\n`;
       report += `- Test different caption structures\n`;
       report += `- DO NOT change the hooks — they're working\n`;
     } else if (!viewsGood && hasConversionData && conversionGood) {
-      report += `🟡 **Views poor + Conversions good** → FIX THE HOOKS\n`;
+      report += ` **Views poor + Conversions good** → FIX THE HOOKS\n`;
       report += `- People who see it convert, but not enough see it (avg ${Math.round(avgViews).toLocaleString()} views)\n`;
       report += `- Test radically different hook categories\n`;
       report += `- Try person+conflict, POV, listicle, mistakes formats\n`;
       report += `- Test different posting times and slide 1 thumbnails\n`;
       report += `- DO NOT change the CTA — it's converting\n`;
     } else if (!viewsGood && (!hasConversionData || !conversionGood)) {
-      report += `🔴 **Views poor${hasConversionData ? ' + Conversions poor' : ''}** → NEEDS WORK\n`;
+      report += ` **Views poor${hasConversionData ? ' + Conversions poor' : ''}** → NEEDS WORK\n`;
       report += `- Average ${Math.round(avgViews).toLocaleString()} views per post\n`;
       report += `- Try radically different format/approach\n`;
       report += `- Research what's trending in the niche RIGHT NOW\n`;
       report += `- Consider different target audience angle\n`;
       report += `- Test new hook categories from scratch\n`;
       if (!hasConversionData) {
-        report += `- ⚠️ No conversion data — consider connecting RevenueCat for full picture\n`;
+        report += `-  No conversion data — consider connecting RevenueCat for full picture\n`;
       }
     }
     report += '\n';
@@ -428,13 +428,13 @@ function savePlatformStats(stats) {
       report += `**"${h.text.substring(0, 55)}..."** — ${h.views.toLocaleString()} views, ${h.conversions} conversions\n`;
 
       if (highViews && hasConversions) {
-        report += `  🟢 Hook + CTA both working → SCALE this hook, keep the CTA\n`;
+        report += `   Hook + CTA both working → SCALE this hook, keep the CTA\n`;
       } else if (highViews && !hasConversions) {
-        report += `  🟡 High views but no conversions → Hook is good, CTA needs changing. Try a different slide 6 CTA.\n`;
+        report += `   High views but no conversions → Hook is good, CTA needs changing. Try a different slide 6 CTA.\n`;
       } else if (!highViews && hasConversions) {
-        report += `  🟡 Low views but people who saw it converted → CTA is great, hook needs work. Try a stronger hook with the same CTA.\n`;
+        report += `   Low views but people who saw it converted → CTA is great, hook needs work. Try a stronger hook with the same CTA.\n`;
       } else {
-        report += `  🔴 Low views + no conversions → Drop this hook and CTA combination\n`;
+        report += `   Low views + no conversions → Drop this hook and CTA combination\n`;
       }
       report += '\n';
     }
@@ -446,7 +446,7 @@ function savePlatformStats(stats) {
     const customerDelta = rcMetrics.newCustomers - (rcPrevMetrics.newCustomers || 0);
 
     if (totalRecentViews > 50000 && customerDelta > 10 && subDelta <= 0) {
-      report += `### 🔴 APP ISSUE DETECTED\n\n`;
+      report += `###  APP ISSUE DETECTED\n\n`;
       report += `Views are high (${totalRecentViews.toLocaleString()}) and people are downloading (+${customerDelta} new customers), but nobody is paying (${subDelta >= 0 ? '+' : ''}${subDelta} subscribers).\n`;
       report += `This is NOT a marketing problem — the content is working. The app onboarding, paywall, or pricing needs attention.\n`;
       report += `- Is the paywall shown at the right time?\n`;
@@ -454,12 +454,12 @@ function savePlatformStats(stats) {
       report += `- Is the value proposition clear before the paywall?\n`;
       report += `- Does the onboarding guide users to the "aha moment"?\n\n`;
     } else if (totalRecentViews > 50000 && customerDelta <= 3) {
-      report += `### 🟡 CTA ISSUE DETECTED\n\n`;
+      report += `###  CTA ISSUE DETECTED\n\n`;
       report += `Views are high (${totalRecentViews.toLocaleString()}) but very few people are downloading (+${customerDelta} new customers).\n`;
       report += `The hooks are working but the CTAs aren't driving action. Rotate to a different CTA style.\n\n`;
     }
   } else if (!hasRC) {
-    report += `⚠️ No RevenueCat data — can only diagnose hooks (views), not CTAs (conversions). Connect RevenueCat for full funnel intelligence.\n\n`;
+    report += ` No RevenueCat data — can only diagnose hooks (views), not CTAs (conversions). Connect RevenueCat for full funnel intelligence.\n\n`;
   }
 
   // ==========================================
@@ -502,7 +502,7 @@ function savePlatformStats(stats) {
       report += `**Strongest pattern:** ${topPattern[0]} (${topPattern[1]}/${winners.length} winners use this)\n\n`;
 
       // Generate new hooks based on winning patterns
-      report += `**🔥 Generated hooks (based on your winners):**\n`;
+      report += `** Generated hooks (based on your winners):**\n`;
       report += `\n`;
       report += `The agent should now generate 3-5 NEW hooks that follow the "${topPattern[0]}" pattern, using:\n`;
       report += `- The app's product description from config\n`;
@@ -529,7 +529,7 @@ function savePlatformStats(stats) {
       const lowViewHighConvert = appHooks.filter(h => h.views < 5000 && (h.conversions || 0) > 0);
 
       if (highViewLowConvert.length > 0) {
-        report += `**🔄 CTA rotation needed** — ${highViewLowConvert.length} posts got 10K+ views but zero conversions.\n`;
+        report += `** CTA rotation needed** — ${highViewLowConvert.length} posts got 10K+ views but zero conversions.\n`;
         report += `Current CTAs aren't driving downloads. Try rotating through:\n`;
         report += `- "Download [app] — link in bio"\n`;
         report += `- "[app] is free to try — link in bio"\n`;
@@ -540,7 +540,7 @@ function savePlatformStats(stats) {
       }
 
       if (lowViewHighConvert.length > 0) {
-        report += `**💎 Hidden gems** — ${lowViewHighConvert.length} posts got low views but high conversions.\n`;
+        report += `** Hidden gems** — ${lowViewHighConvert.length} posts got low views but high conversions.\n`;
         report += `The CTA on these posts is working. Reuse that CTA with stronger hooks.\n`;
         for (const g of lowViewHighConvert) {
           report += `- "${g.text.substring(0, 50)}..." — ${g.views} views, ${g.conversions} conversions (CTA: ${g.cta || 'unknown'})\n`;
@@ -557,6 +557,6 @@ function savePlatformStats(stats) {
   fs.mkdirSync(reportsDir, { recursive: true });
   const reportPath = path.join(reportsDir, `${dateStr}.md`);
   fs.writeFileSync(reportPath, report);
-  console.log(`\n📋 Report saved to ${reportPath}`);
+  console.log(`\n Report saved to ${reportPath}`);
   console.log('\n' + report);
 })();

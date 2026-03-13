@@ -98,7 +98,7 @@ async function main() {
       calendarId: values.calendar
     });
     
-    console.log('✅ Event created successfully!');
+    console.log(' Event created successfully!');
     console.log('');
     console.log('Event Details:');
     console.log(`  Event ID: ${result.event.event_id}`);
@@ -113,7 +113,7 @@ async function main() {
     }
     
   } catch (error) {
-    console.error('❌ Failed to create event:', error.message);
+    console.error(' Failed to create event:', error.message);
     if (error.larkResponse) {
       console.error('Lark response:', JSON.stringify(error.larkResponse, null, 2));
     }

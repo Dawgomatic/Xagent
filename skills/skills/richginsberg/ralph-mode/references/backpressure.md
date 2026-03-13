@@ -89,17 +89,17 @@ When sub-agent completes work:
 
 ## Anti-Patterns
 
-❌ **Don't skip gates**
+ **Don't skip gates**
    - "Tests pass locally" → no, must actually run
    - "Will fix lint later" → no, fix now
    - "Looks good" → verify with gates
 
-❌ **Don't cheat completion**
+ **Don't cheat completion**
    - Marking [x] without tests passing
    - Stub implementations that skip tests
    - Assuming "should work" without validation
 
-✅ **Do enforce quality**
+ **Do enforce quality**
    - All gates must pass before committing
    - Backpressure drives iteration and quality
    - Natural convergence through enforcement

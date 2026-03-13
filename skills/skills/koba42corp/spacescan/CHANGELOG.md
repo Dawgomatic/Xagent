@@ -30,15 +30,15 @@ All notable changes to the Spacescan skill will be documented in this file.
 - MIT License
 
 ### Features
-- 🧱 Blocks: Latest, by height/hash, ranges
-- 💸 Transactions: Lookup and history
-- 👤 Addresses: Balance, transactions, coins
-- 🪙 Coins: Details and lineage
-- 📊 Network: Stats, space, mempool
-- 🎨 NFTs: Details and collections
-- 🪙 CATs: Token list and info
-- 💰 Price: Real-time XCH price
-- 🔍 Search: Universal blockchain search
+-  Blocks: Latest, by height/hash, ranges
+-  Transactions: Lookup and history
+-  Addresses: Balance, transactions, coins
+-  Coins: Details and lineage
+-  Network: Stats, space, mempool
+-  NFTs: Details and collections
+-  CATs: Token list and info
+-  Price: Real-time XCH price
+-  Search: Universal blockchain search
 
 ### Technical
 - Node.js 18+ compatibility

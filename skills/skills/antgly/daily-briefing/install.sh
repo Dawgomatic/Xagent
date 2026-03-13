@@ -8,7 +8,7 @@ BIN_DIR="${SCRIPT_DIR}/bin"
 ORCHESTRATOR="${SCRIPT_DIR}/scripts/daily_briefing_orchestrator.sh"
 RUNNER_SCRIPT="${BIN_DIR}/run_daily_briefing.sh"
 
-echo "📦 Installing daily-briefing skill..."
+echo " Installing daily-briefing skill..."
 
 # Create bin directory
 mkdir -p "$BIN_DIR"
@@ -41,9 +41,9 @@ RUNNER_EOF
 
 chmod +x "$RUNNER_SCRIPT"
 
-echo "✅ Runner script created at: ${RUNNER_SCRIPT}"
+echo " Runner script created at: ${RUNNER_SCRIPT}"
 echo ""
-echo "📋 Next steps:"
+echo " Next steps:"
 echo ""
 echo "   1. Grant Terminal.app access to Contacts, Calendar, and Reminders:"
 echo "      System Settings > Privacy & Security > [Contacts/Calendars/Reminders]"
@@ -61,4 +61,4 @@ echo "      brew install himalaya                 # iCloud Mail"
 echo ""
 echo "   4. Configure the skill in ~/.openclaw/openclaw.json"
 echo ""
-echo "🎉 Installation complete!"
+echo " Installation complete!"

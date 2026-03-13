@@ -173,7 +173,7 @@ console.log(result.shareLink);
 When saved to Google Drive, creates:
 
 ```
-📁 Story Title/
+ Story Title/
 ├── 00_INDEX.md                    # Navigation
 ├── 01_SCRIPT_README.md            # Human-readable script
 ├── 02_IMAGE_PROMPTS.md            # AI generation prompts

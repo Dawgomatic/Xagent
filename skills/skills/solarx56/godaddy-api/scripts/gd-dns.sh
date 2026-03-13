@@ -69,7 +69,7 @@ case "$cmd" in
     domain="${1:?Domain required}"
     file="${2:?JSON file required}"
     require_file "$file"
-    echo "⚠️  WARNING: This will REPLACE ALL DNS RECORDS for ${domain}." >&2
+    echo "  WARNING: This will REPLACE ALL DNS RECORDS for ${domain}." >&2
     echo "Payload: $(jq -c . "$file")" >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api PUT "/v1/domains/${domain}/records" "$(cat "$file")" | jq .
@@ -80,7 +80,7 @@ case "$cmd" in
     type="${2:?Type required}"
     file="${3:?JSON file required}"
     require_file "$file"
-    echo "⚠️  WARNING: This will replace all ${type} records for ${domain}." >&2
+    echo "  WARNING: This will replace all ${type} records for ${domain}." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api PUT "/v1/domains/${domain}/records/${type}" "$(cat "$file")" | jq .
     ;;
@@ -98,7 +98,7 @@ case "$cmd" in
     domain="${1:?Domain required}"
     type="${2:?Type required}"
     name="${3:?Name required}"
-    echo "⚠️  WARNING: This will delete ${type} record '${name}' for ${domain}." >&2
+    echo "  WARNING: This will delete ${type} record '${name}' for ${domain}." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api DELETE "/v1/domains/${domain}/records/${type}/${name}" | jq .
     ;;

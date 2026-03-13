@@ -14,12 +14,12 @@ const CLAWD_DIR = join(homedir(), 'clawd');
 const HEARTBEAT_FILE = join(CLAWD_DIR, 'HEARTBEAT.md');
 
 function main() {
-  console.log('🔗 ClawLink Uninstall');
+  console.log(' ClawLink Uninstall');
   console.log('='.repeat(50));
   
   // Check if HEARTBEAT.md exists
   if (!existsSync(HEARTBEAT_FILE)) {
-    console.log('⚠ HEARTBEAT.md not found at', HEARTBEAT_FILE);
+    console.log(' HEARTBEAT.md not found at', HEARTBEAT_FILE);
     console.log('  Nothing to uninstall.');
     return;
   }

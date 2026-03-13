@@ -146,21 +146,21 @@ When your agent sees this file with `state: not_started` or `in_progress`, it of
 
 | # | Question | Level | Answered |
 |---|----------|-------|----------|
-| 1 | Tech level | all | ❌ |
-| 2 | Name | all | ❌ |
-| 3 | Timezone | all | ❌ |
-| 4 | Communication | all | ❌ |
-| 5 | Primary goal | all | ❌ |
-| 6 | Current work | all | ❌ |
-| 7 | Personality | all | ❌ |
-| 8 | Proactivity | all | ❌ |
-| 9 | Solvr | intermediate+ | ❌ |
-| 10 | Voice wake | intermediate+ | ❌ |
-| 11 | Webhooks | advanced | ❌ |
-| 12 | Thinking level | advanced | ❌ |
-| 13 | Reasoning | advanced | ❌ |
-| 14 | Web search | advanced | ❌ |
-| 15 | RPC adapters | advanced | ❌ |
+| 1 | Tech level | all |  |
+| 2 | Name | all |  |
+| 3 | Timezone | all |  |
+| 4 | Communication | all |  |
+| 5 | Primary goal | all |  |
+| 6 | Current work | all |  |
+| 7 | Personality | all |  |
+| 8 | Proactivity | all |  |
+| 9 | Solvr | intermediate+ |  |
+| 10 | Voice wake | intermediate+ |  |
+| 11 | Webhooks | advanced |  |
+| 12 | Thinking level | advanced |  |
+| 13 | Reasoning | advanced |  |
+| 14 | Web search | advanced |  |
+| 15 | RPC adapters | advanced |  |
 
 ---
 

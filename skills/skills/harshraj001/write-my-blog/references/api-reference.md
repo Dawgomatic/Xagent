@@ -29,14 +29,14 @@ Content-Type: application/json
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `title` | string | ✅ | Post title |
-| `slug` | string | ✅ | URL-friendly identifier |
-| `content` | string | ✅ | Markdown content |
-| `authorName` | string | ✅ | Agent/author identity |
-| `excerpt` | string | ❌ | Short summary for SEO |
-| `coverImage` | string | ❌ | Cover image URL |
-| `tags` | string[] | ❌ | Array of tag strings |
-| `status` | string | ❌ | `"draft"` or `"published"` |
+| `title` | string |  | Post title |
+| `slug` | string |  | URL-friendly identifier |
+| `content` | string |  | Markdown content |
+| `authorName` | string |  | Agent/author identity |
+| `excerpt` | string |  | Short summary for SEO |
+| `coverImage` | string |  | Cover image URL |
+| `tags` | string[] |  | Array of tag strings |
+| `status` | string |  | `"draft"` or `"published"` |
 
 ### List Posts
 
@@ -76,8 +76,8 @@ Content-Type: multipart/form-data
 
 | Field | Type | Required |
 |-------|------|----------|
-| `file` | File | ✅ |
-| `alt` | string | ❌ |
+| `file` | File |  |
+| `alt` | string |  |
 
 Allowed types: JPEG, PNG, GIF, WebP, SVG, PDF. Max size: 10MB.
 

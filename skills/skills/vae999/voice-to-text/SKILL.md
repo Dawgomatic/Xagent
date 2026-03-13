@@ -7,7 +7,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎤",
+        "emoji": "",
         "os": ["darwin", "linux"],
         "requires": { "bins": ["ffmpeg"], "python": ["vosk"] },
         "install":

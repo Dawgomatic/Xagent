@@ -5,10 +5,10 @@ An AgentSkills-compliant skill that enables AI agents (Claude Code, ClawdBot, et
 ## What This Skill Does
 
 When users mention flight prices from any booking website (Skyscanner, Kayak, Google Flights, etc.), this skill automatically:
-1. ✈️ Extracts flight details from text or screenshots
-2. 🔍 Searches Navifare's network of booking sites
-3. 💰 Compares prices to find the best deals
-4. 🔗 Provides direct booking links to providers
+1.  Extracts flight details from text or screenshots
+2.  Searches Navifare's network of booking sites
+3.  Compares prices to find the best deals
+4.  Provides direct booking links to providers
 
 ## Installation
 
@@ -90,33 +90,33 @@ navifare-flight-validator/
 ## When The Skill Activates
 
 The skill automatically triggers when you:
-- 💬 Mention finding a flight price: "I found this flight for $X"
-- 📸 Upload a flight booking screenshot
-- ❓ Ask "Is this a good price?"
-- 🤔 Say "Should I book this?"
-- 🔍 Ask "Can you find cheaper?"
+-  Mention finding a flight price: "I found this flight for $X"
+-  Upload a flight booking screenshot
+-  Ask "Is this a good price?"
+-  Say "Should I book this?"
+-  Ask "Can you find cheaper?"
 
 ## What Information is Needed
 
 For accurate price comparison, the skill needs:
 
 **Required**:
-- ✈️ **Route**: Departure and arrival airports (e.g., "JFK to LHR")
-- 📅 **Date**: Travel date (e.g., "June 15, 2025")
-- 🛫 **Flight**: Airline and flight number (e.g., "BA553")
-- ⏰ **Times**: Departure and arrival times (e.g., "6:00 PM - 6:30 AM")
+-  **Route**: Departure and arrival airports (e.g., "JFK to LHR")
+-  **Date**: Travel date (e.g., "June 15, 2025")
+-  **Flight**: Airline and flight number (e.g., "BA553")
+-  **Times**: Departure and arrival times (e.g., "6:00 PM - 6:30 AM")
 
 **Optional but helpful**:
-- 💺 **Class**: Economy, Business, First (defaults to Economy)
-- 👥 **Passengers**: Number of adults/children (defaults to 1 adult)
-- 💵 **Reference price**: What you saw on other sites
-- 💱 **Currency**: USD, EUR, GBP, etc. (auto-detected from price)
+-  **Class**: Economy, Business, First (defaults to Economy)
+-  **Passengers**: Number of adults/children (defaults to 1 adult)
+-  **Reference price**: What you saw on other sites
+-  **Currency**: USD, EUR, GBP, etc. (auto-detected from price)
 
 If any information is missing, Claude will ask you for it!
 
 ## Features
 
-### ✅ What This Skill Does
+###  What This Skill Does
 - Compares prices across 10+ booking sites
 - Handles direct and connecting flights
 - Supports one-way and round-trip searches
@@ -126,7 +126,7 @@ If any information is missing, Claude will ask you for it!
 - Shows price trends and savings
 - Provides direct booking links
 
-### ❌ What This Skill Does NOT Do
+###  What This Skill Does NOT Do
 - Book flights automatically (returns links only)
 - Store your payment information
 - Make purchasing decisions for you
@@ -226,11 +226,11 @@ Common mistakes:
 
 ## Privacy & Security
 
-- ✅ No booking data is stored
-- ✅ No payment information is collected
-- ✅ Searches are anonymous
-- ✅ Booking happens directly on provider sites
-- ✅ Links are direct to booking platforms (no tracking)
+-  No booking data is stored
+-  No payment information is collected
+-  Searches are anonymous
+-  Booking happens directly on provider sites
+-  Links are direct to booking platforms (no tracking)
 
 ## Contributing
 

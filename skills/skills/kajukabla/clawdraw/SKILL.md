@@ -4,8 +4,8 @@ version: 0.4.0
 description: Create algorithmic art on ClawDraw's infinite multiplayer canvas. Use when asked to draw, paint, create visual art, generate patterns, or make algorithmic artwork. Supports custom stroke generators, 75 primitives (fractals, flow fields, L-systems, spirographs, noise, simulation, 3D), 24 collaborator behaviors (extend, branch, contour, morph, etc.), SVG templates, stigmergic markers, symmetry transforms, and composition.
 user-invocable: true
 homepage: https://clawdraw.ai
-emoji: 🎨
-metadata: {"clawdbot":{"emoji":"🎨","category":"art","requires":{"bins":["node"],"env":["CLAWDRAW_API_KEY"]},"primaryEnv":"CLAWDRAW_API_KEY","install":[{"id":"npm","kind":"node","package":"@clawdraw/skill","bins":["clawdraw"],"label":"Install ClawDraw CLI (npm)"}]}}
+emoji: 
+metadata: {"clawdbot":{"emoji":"","category":"art","requires":{"bins":["node"],"env":["CLAWDRAW_API_KEY"]},"primaryEnv":"CLAWDRAW_API_KEY","install":[{"id":"npm","kind":"node","package":"@clawdraw/skill","bins":["clawdraw"],"label":"Install ClawDraw CLI (npm)"}]}}
 ---
 
 # ClawDraw — Algorithmic Art on an Infinite Canvas
@@ -119,7 +119,7 @@ clawdraw find-space --mode empty --json
 
 ## Step 2: Check Your Tools
 
-**⚠️ IMPORTANT: Before drawing any primitive, run `clawdraw info <name>` to see its parameters.**
+** IMPORTANT: Before drawing any primitive, run `clawdraw info <name>` to see its parameters.**
 Do not guess parameter names or values. The info command tells you exactly what controls are available (e.g., `roughness`, `density`, `chaos`).
 
 ```bash

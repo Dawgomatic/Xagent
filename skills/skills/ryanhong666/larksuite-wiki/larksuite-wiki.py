@@ -57,7 +57,7 @@ class LarkWikiClient:
             print("No wiki spaces found. Make sure your app is authorized.")
             return
         
-        print("\n📚 Wiki Spaces:")
+        print("\n Wiki Spaces:")
         print("-" * 60)
         for space in spaces:
             print(f"ID: {space.get('space_id')}")
@@ -195,7 +195,7 @@ class LarkWikiClient:
             f.write(tree["content"])
         
         exported = 1
-        print(f"✅ Exported: {md_file}")
+        print(f" Exported: {md_file}")
         
         # Export children
         for i, child in enumerate(tree.get("children", []), 1):
@@ -224,7 +224,7 @@ class LarkWikiClient:
     
     def sync_document(self, doc_id, output_dir, force=False):
         """Sync document with incremental update support"""
-        print(f"\n🔄 Syncing document: {doc_id}")
+        print(f"\n Syncing document: {doc_id}")
         
         # Load previous sync state
         state = self.load_sync_state(output_dir)
@@ -232,7 +232,7 @@ class LarkWikiClient:
         # Get current document info
         result = self.api_get(f"/docx/v1/documents/{doc_id}")
         if result.get("code") != 0:
-            print(f"❌ Error: {result.get('msg')}")
+            print(f" Error: {result.get('msg')}")
             return 0
         
         doc_info = result.get("data", {}).get("document", {})
@@ -241,7 +241,7 @@ class LarkWikiClient:
         # Check if update needed
         last_sync = state.get(doc_id, {})
         if not force and last_sync.get("revision") == current_revision:
-            print(f"⏭️  Skipped (no changes): {doc_info.get('title')}")
+            print(f"  Skipped (no changes): {doc_info.get('title')}")
             return 0
         
         # Build and export tree
@@ -259,7 +259,7 @@ class LarkWikiClient:
         }
         self.save_sync_state(output_dir, state)
         
-        print(f"\n📊 Sync complete: {exported} documents exported")
+        print(f"\n Sync complete: {exported} documents exported")
         return exported
     
     def export_single(self, doc_id, output_dir):
@@ -279,7 +279,7 @@ class LarkWikiClient:
             f.write(f"# {doc['title']}\n\n")
             f.write(doc["content"])
         
-        print(f"✅ Exported: {filepath}")
+        print(f" Exported: {filepath}")
         return True
 
 def main():
@@ -317,10 +317,10 @@ def main():
     elif args.command == "read":
         doc = client.read_document(args.doc_id)
         if doc:
-            print(f"\n📄 {doc['title']}\n")
+            print(f"\n {doc['title']}\n")
             print(doc['content'])
             if doc.get('subdocuments'):
-                print("\n📎 Subdocuments:")
+                print("\n Subdocuments:")
                 for sub in doc['subdocuments']:
                     print(f"  - {sub['title']} ({sub['id']})")
     elif args.command == "export":
@@ -328,15 +328,15 @@ def main():
     elif args.command == "sync":
         count = client.sync_document(args.doc_id, args.output, force=args.force)
         if count > 0:
-            print(f"\n🎉 Total exported: {count} documents")
-            print(f"📁 Output: {Path(args.output).absolute()}")
+            print(f"\n Total exported: {count} documents")
+            print(f" Output: {Path(args.output).absolute()}")
     elif args.command == "tree":
-        print("\n🌳 Building document tree...")
+        print("\n Building document tree...")
         tree = client.build_doc_tree(args.doc_id)
         if tree:
             print_tree(tree)
         else:
-            print("❌ Failed to build tree")
+            print(" Failed to build tree")
     else:
         parser.print_help()
 

@@ -166,11 +166,11 @@ async function main() {
 
   // Markdown receipt
   const md = [
-    `# 🧾 Payment Receipt`,
+    `#  Payment Receipt`,
     ``,
     `| Field | Value |`,
     `|-------|-------|`,
-    `| **Status** | ${receiptObj.status === "SUCCESS" ? "✅ Success" : "❌ Failed"} |`,
+    `| **Status** | ${receiptObj.status === "SUCCESS" ? " Success" : " Failed"} |`,
     `| **Amount** | ${amount} ${symbol} |`,
     `| **From** | \`${shortAddr(from)}\` |`,
     `| **To** | \`${shortAddr(to)}\` |`,

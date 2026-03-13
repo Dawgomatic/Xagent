@@ -86,9 +86,9 @@ Tracks time elapsed since a start epoch. Runs indefinitely.
 
 **Display:**
 ```
-📍 Started: 2025-06-15 08:00:00 UTC
-⏱️  Elapsed: 231d 18h 8m 41s
-🕐 Hours:   5,562.1 hours
+ Started: 2025-06-15 08:00:00 UTC
+  Elapsed: 231d 18h 8m 41s
+ Hours:   5,562.1 hours
 ```
 
 ### 2.2 Count Down (Time Remaining)
@@ -101,9 +101,9 @@ Tracks time remaining until a target end time.
 
 **Display:**
 ```
-🎯 Target: 2026-10-15 00:00:00 UTC
-⏳ Remaining: 254d 21h 51m 8s
-🕐 Hours:     6,118.0 hours
+ Target: 2026-10-15 00:00:00 UTC
+ Remaining: 254d 21h 51m 8s
+ Hours:     6,118.0 hours
 ```
 
 **Completion:** Fires automatic notification when target is reached.
@@ -118,13 +118,13 @@ Tracks progress through a defined time span with percentage complete.
 
 **Display:**
 ```
-📍 Start:     2010-05-15 00:00:00 UTC
-🎯 End:       2050-05-15 00:00:00 UTC
+ Start:     2010-05-15 00:00:00 UTC
+ End:       2050-05-15 00:00:00 UTC
 
 [█████████████░░░░░░░] 69.3%
 
-✅ Elapsed:   10125d 2h 8m 57s (243,002 hrs)
-⏳ Remaining: 4484d 21h 51m 2s (107,638 hrs)
+ Elapsed:   10125d 2h 8m 57s (243,002 hrs)
+ Remaining: 4484d 21h 51m 2s (107,638 hrs)
 ```
 
 **Completion:** Fires automatic notification when 100% is reached.
@@ -159,7 +159,7 @@ integrity_hash = SHA256(name + ":" + start_ms + ":" + salt)
 1. User provides paper code or full hash
 2. System recomputes: SHA256(stored_name + ":" + stored_start_ms + ":" + stored_salt)
 3. Compare computed hash to provided/stored hash
-4. Match → ✅ VERIFIED | Mismatch → ❌ TAMPERED
+4. Match →  VERIFIED | Mismatch →  TAMPERED
 ```
 
 ### Limitations
@@ -225,7 +225,7 @@ This prevents false tampering alerts from transcription errors.
   "id": "a7f3b92c",
   "type": "hours",
   "value": 720,
-  "message": "🎉 30 days smoke-free!",
+  "message": " 30 days smoke-free!",
   "fired": false,
   "fired_ms": null
 }
@@ -250,7 +250,7 @@ The `check-milestones` command:
       "milestone_id": "a7f3b92c",
       "type": "hours",
       "value": 720,
-      "message": "🎉 30 days smoke-free!",
+      "message": " 30 days smoke-free!",
       "channel": "discord",
       "target": "1289044017803300957",
       "description": "Last cigarette"
@@ -305,13 +305,13 @@ meter.py create smoke-free --start "2025-06-15T08:00:00Z" \
 
 # Add health milestones
 meter.py milestone smoke-free -t hours -v 24 \
-  -m "🎉 24 hours! Nicotine leaving your body"
+  -m " 24 hours! Nicotine leaving your body"
 meter.py milestone smoke-free -t hours -v 72 \
-  -m "🎉 3 days! Breathing easier"
+  -m " 3 days! Breathing easier"
 meter.py milestone smoke-free -t hours -v 720 \
-  -m "🎉 30 days! Lung function improving"
+  -m " 30 days! Lung function improving"
 meter.py milestone smoke-free -t hours -v 8760 \
-  -m "🎉 ONE YEAR! Heart disease risk halved"
+  -m " ONE YEAR! Heart disease risk halved"
 
 # Lock and save paper code
 meter.py lock smoke-free
@@ -328,11 +328,11 @@ meter.py create baby-emma \
 
 # Trimester milestones
 meter.py milestone baby-emma -t percent -v 33 \
-  -m "👶 First trimester complete! Baby is size of a lime"
+  -m " First trimester complete! Baby is size of a lime"
 meter.py milestone baby-emma -t percent -v 66 \
-  -m "👶 Second trimester done! Baby can hear your voice"
+  -m " Second trimester done! Baby can hear your voice"
 meter.py milestone baby-emma -t percent -v 90 \
-  -m "👶 Almost there! Pack the hospital bag!"
+  -m " Almost there! Pack the hospital bag!"
 ```
 
 ### 7.3 Career Inventory (80,000 Hours)
@@ -345,13 +345,13 @@ meter.py create my-career \
 
 # Career phase milestones
 meter.py milestone my-career -t percent -v 25 \
-  -m "📊 25% - Establishing expertise"
+  -m " 25% - Establishing expertise"
 meter.py milestone my-career -t percent -v 50 \
-  -m "📊 HALFTIME - Peak earning years"
+  -m " HALFTIME - Peak earning years"
 meter.py milestone my-career -t percent -v 75 \
-  -m "📊 75% - Mentorship phase"
+  -m " 75% - Mentorship phase"
 meter.py milestone my-career -t percent -v 90 \
-  -m "🎯 90% - Plan retirement seriously"
+  -m " 90% - Plan retirement seriously"
 
 # Project earnings
 meter.py career --meter my-career --rate 85 --raise-pct 2.5
@@ -367,11 +367,11 @@ meter.py create acme-project \
 
 # Budget milestones
 meter.py milestone acme-project -t hours -v 100 \
-  -m "📊 100 hours billed - 20% of budget"
+  -m " 100 hours billed - 20% of budget"
 meter.py milestone acme-project -t hours -v 400 \
-  -m "⚠️ 400 hours - discuss extension with client"
+  -m " 400 hours - discuss extension with client"
 meter.py milestone acme-project -t hours -v 475 \
-  -m "🚨 475 hours - STOP and get approval"
+  -m " 475 hours - STOP and get approval"
 
 # Lock for billing records
 meter.py lock acme-project
@@ -386,11 +386,11 @@ meter.py create n12345-engine \
   -d "Lycoming IO-540 - TBO 2000 hours"
 
 meter.py milestone n12345-engine -t hours -v 500 \
-  -m "🔧 500h inspection due"
+  -m " 500h inspection due"
 meter.py milestone n12345-engine -t hours -v 1000 \
-  -m "🔧 1000h major inspection"
+  -m " 1000h major inspection"
 meter.py milestone n12345-engine -t hours -v 1800 \
-  -m "⚠️ 200 hours to TBO - plan overhaul"
+  -m " 200 hours to TBO - plan overhaul"
 
 meter.py lock n12345-engine
 # Store paper code in aircraft logbook

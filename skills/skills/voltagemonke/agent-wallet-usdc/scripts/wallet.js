@@ -103,10 +103,10 @@ async function createWallet() {
   
   console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔐 NEW WALLET GENERATED
+ NEW WALLET GENERATED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-⚠️  CRITICAL: Save this seed phrase securely!
+  CRITICAL: Save this seed phrase securely!
     It will NOT be shown again.
     Anyone with this phrase can access your funds.
 
@@ -139,7 +139,7 @@ async function showAddresses() {
   if (!seedPhrase) {
     console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚠️  NO WALLET CONFIGURED
+  NO WALLET CONFIGURED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 To create a new wallet:
@@ -161,7 +161,7 @@ To import existing wallet:
   
   console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💼 YOUR ADDRESSES
+ YOUR ADDRESSES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ├─ Solana:   ${solanaAddr}
 ├─ Base:     ${evmAddr}
@@ -265,7 +265,7 @@ async function checkBalance(chain = null) {
   
   console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💰 WALLET BALANCES
+ WALLET BALANCES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
   
   for (const r of results) {
@@ -305,7 +305,7 @@ async function transfer(chain, token, amount, recipient) {
     process.exit(1);
   }
   
-  console.log(`\n📤 Transferring ${amount} ${tokenKey} on ${chainConfig.name}...`);
+  console.log(`\n Transferring ${amount} ${tokenKey} on ${chainConfig.name}...`);
   console.log(`   To: ${recipient}\n`);
   
   try {
@@ -340,7 +340,7 @@ async function transfer(chain, token, amount, recipient) {
         const signature = await connection.sendRawTransaction(transaction.serialize());
         await connection.confirmTransaction(signature, 'confirmed');
         
-        console.log(`✅ Success!`);
+        console.log(` Success!`);
         console.log(`   Signature: ${signature}`);
         
       } else if (tokenKey === 'USDC') {
@@ -382,7 +382,7 @@ async function transfer(chain, token, amount, recipient) {
         const signature = await connection.sendRawTransaction(transaction.serialize());
         await connection.confirmTransaction(signature, 'confirmed');
         
-        console.log(`✅ Success!`);
+        console.log(` Success!`);
         console.log(`   Signature: ${signature}`);
         
       } else {
@@ -413,7 +413,7 @@ async function transfer(chain, token, amount, recipient) {
         console.log(`   Tx Hash: ${tx.hash}`);
         const receipt = await tx.wait();
         
-        console.log(`✅ Success!`);
+        console.log(` Success!`);
         console.log(`   Block: ${receipt.blockNumber}`);
         
       } else if (tokenKey === 'USDC') {
@@ -433,7 +433,7 @@ async function transfer(chain, token, amount, recipient) {
         console.log(`   Tx Hash: ${tx.hash}`);
         const receipt = await tx.wait();
         
-        console.log(`✅ Success!`);
+        console.log(` Success!`);
         console.log(`   Block: ${receipt.blockNumber}`);
         
       } else {
@@ -441,7 +441,7 @@ async function transfer(chain, token, amount, recipient) {
       }
     }
   } catch (e) {
-    console.error(`❌ Transfer failed: ${e.message}`);
+    console.error(` Transfer failed: ${e.message}`);
     process.exit(1);
   }
 }
@@ -486,7 +486,7 @@ async function bridge(fromChain, toChain, amount) {
   
   console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🌉 CROSS-CHAIN BRIDGE (USDC)
+ CROSS-CHAIN BRIDGE (USDC)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 From:   ${CHAINS[fromKey].name}
 To:     ${CHAINS[toKey].name}
@@ -497,7 +497,7 @@ Network: ${NETWORK.toUpperCase()}
   
   try {
     // Dynamic import of Bridge Kit
-    console.log('📦 Loading Bridge Kit...');
+    console.log(' Loading Bridge Kit...');
     const bridgeKitModule = await import('@circle-fin/bridge-kit');
     BridgeKit = bridgeKitModule.BridgeKit;
     
@@ -542,7 +542,7 @@ Network: ${NETWORK.toUpperCase()}
       });
     }
     
-    console.log('🔄 Initiating bridge transfer...');
+    console.log(' Initiating bridge transfer...');
     console.log('   This may take 1-5 minutes (burn → attest → mint)\n');
     
     const result = await kit.bridge({
@@ -553,17 +553,17 @@ Network: ${NETWORK.toUpperCase()}
     
     // Debug: log full result (with BigInt handling)
     const safeStringify = (obj) => JSON.stringify(obj, (_, v) => typeof v === 'bigint' ? v.toString() : v, 2);
-    console.log('📋 Full result:', safeStringify(result));
+    console.log(' Full result:', safeStringify(result));
     
     console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ BRIDGE COMPLETE
+ BRIDGE COMPLETE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
     
     // Log transaction steps
     if (result.steps) {
       for (const step of result.steps) {
-        const status = step.state === 'success' ? '✅' : '❌';
+        const status = step.state === 'success' ? '' : '';
         console.log(`${status} ${step.name}: ${step.txHash || 'N/A'}`);
         if (step.data?.explorerUrl) {
           console.log(`   Explorer: ${step.data.explorerUrl}`);
@@ -576,7 +576,7 @@ Network: ${NETWORK.toUpperCase()}
 `);
     
   } catch (e) {
-    console.error(`\n❌ Bridge failed: ${e.message}`);
+    console.error(`\n Bridge failed: ${e.message}`);
     if (e.message.includes('insufficient')) {
       console.error('   Make sure you have enough USDC and native tokens for gas.');
     }
@@ -587,7 +587,7 @@ Network: ${NETWORK.toUpperCase()}
 function showChains() {
   console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔗 SUPPORTED CHAINS
+ SUPPORTED CHAINS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Chain      | Native | USDC Contract

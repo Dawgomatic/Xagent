@@ -60,5 +60,5 @@ jq --arg token "$NEW_ACCESS_TOKEN" --arg expiry "$EXPIRY_DATE" \
     '.access_token = $token | .expiry_date = ($expiry | tonumber)' \
     "$TOKEN_FILE" > "$TOKEN_FILE.tmp" && mv "$TOKEN_FILE.tmp" "$TOKEN_FILE"
 
-echo "✅ Token refreshed successfully"
+echo " Token refreshed successfully"
 echo "New expiry: $(date -d "@$((EXPIRY_DATE / 1000))" 2>/dev/null || date -r $((EXPIRY_DATE / 1000)))"

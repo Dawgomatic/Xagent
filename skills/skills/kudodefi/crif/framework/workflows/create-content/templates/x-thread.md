@@ -19,7 +19,7 @@ CONTENT CONSTRAINTS:
 
 **1/{N}**
 {Hook tweet}
-🧵
+
 
 ---
 

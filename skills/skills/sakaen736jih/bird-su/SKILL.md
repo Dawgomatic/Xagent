@@ -4,7 +4,7 @@ description: X/Twitter CLI for reading, searching, and posting via cookies or Sw
 homepage: https://bird.fast
 metadata:
   clawdbot:
-    emoji: "🐦"
+    emoji: ""
     requires:
       bins: ["bird"]
     install:

@@ -411,7 +411,7 @@ table_design:
 ```
 ┌──────────────────────────────┐
 │                              │
-│          📋 (icon)           │
+│           (icon)           │
 │                              │
 │    No projects yet           │
 │                              │

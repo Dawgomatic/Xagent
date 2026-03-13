@@ -23,7 +23,7 @@ Before diving into specific issues, check these common problems:
 **Solution**: Ensure `TrailsProvider` wraps your app:
 
 ```tsx
-// ❌ Wrong
+//  Wrong
 function App() {
   return (
     <div>
@@ -35,7 +35,7 @@ function App() {
   );
 }
 
-// ✅ Correct
+//  Correct
 function App() {
   return (
     <TrailsProvider>
@@ -55,7 +55,7 @@ function App() {
 **Solution**: Correct provider order:
 
 ```tsx
-// ✅ Correct order
+//  Correct order
 <WagmiProvider config={wagmiConfig}>
   <QueryClientProvider client={queryClient}>
     <TrailsProvider trailsApiKey="...">
@@ -297,10 +297,10 @@ const result = await client.simulateContract({
 
 **Solution**: Use exact placeholder:
 ```typescript
-// ✅ Correct placeholder
+//  Correct placeholder
 const PLACEHOLDER = BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff');
 
-// ❌ Wrong (missing leading 0x or wrong length)
+//  Wrong (missing leading 0x or wrong length)
 const WRONG = BigInt('0xffffffff');
 ```
 

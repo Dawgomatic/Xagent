@@ -2,7 +2,7 @@
 name: samsung-smart-tv
 description: Control Samsung TVs via SmartThings (OAuth app + device control).
 homepage: https://developer.smartthings.com/docs
-metadata: {"clawdbot":{"emoji":"📺","requires":{"bins":["python3","npx"]},"install":[{"id":"python-brew","kind":"brew","formula":"python","bins":["python3"],"label":"Install Python (brew)"},{"id":"node-brew","kind":"brew","formula":"node","bins":["node","npx"],"label":"Install Node.js (brew)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3","npx"]},"install":[{"id":"python-brew","kind":"brew","formula":"python","bins":["python3"],"label":"Install Python (brew)"},{"id":"node-brew","kind":"brew","formula":"node","bins":["node","npx"],"label":"Install Node.js (brew)"}]}}
 ---
 
 # Samsung Smart TV (SmartThings)

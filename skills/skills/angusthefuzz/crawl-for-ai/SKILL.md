@@ -7,7 +7,7 @@ requiresEnv:
   - CRAWL4AI_URL
 metadata:
   clawdbot:
-    emoji: "🕷️"
+    emoji: ""
     requires:
       bins: ["node"]
 ---

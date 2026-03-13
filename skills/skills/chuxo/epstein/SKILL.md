@@ -9,7 +9,7 @@ metadata:
   author: project-einstein
   version: "1.1.0"
   clawdbot:
-    emoji: "📂"
+    emoji: ""
     homepage: "https://emc2ai.io"
     requires:
       bins: ["node", "curl"]

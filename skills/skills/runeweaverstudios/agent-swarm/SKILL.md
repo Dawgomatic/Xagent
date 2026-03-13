@@ -176,7 +176,7 @@ The router validates and sanitizes all inputs to prevent injection attacks:
 **Critical**: When calling `router.py` from orchestrator code, always use `subprocess` with a list of arguments, **never** shell string interpolation:
 
 ```python
-# ✅ SAFE: Use subprocess with list arguments
+#  SAFE: Use subprocess with list arguments
 import subprocess
 result = subprocess.run(
     ["python3", "/path/to/router.py", "spawn", "--json", user_message],
@@ -184,7 +184,7 @@ result = subprocess.run(
     text=True
 )
 
-# ❌ UNSAFE: Shell string interpolation (vulnerable to injection)
+#  UNSAFE: Shell string interpolation (vulnerable to injection)
 import os
 os.system(f'python3 router.py spawn --json "{user_message}"')  # DON'T DO THIS
 ```

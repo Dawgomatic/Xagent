@@ -34,7 +34,7 @@ async function createClient(id: string) {
 }
 
 async function runConcurrencyTest() {
-    console.log("🚀 Starting Multi-Agent Concurrency Test...");
+    console.log(" Starting Multi-Agent Concurrency Test...");
     
     const agents = ["A", "B", "C"];
     const clients: any[] = [];
@@ -51,7 +51,7 @@ async function runConcurrencyTest() {
         category: "concurrency_test"
     }));
 
-    console.log("🔥 Launching concurrent add_memory calls...");
+    console.log(" Launching concurrent add_memory calls...");
     
     const startTime = Date.now();
     const writePromises = clients.map((c, i) => {
@@ -74,10 +74,10 @@ async function runConcurrencyTest() {
     try {
         const results = await Promise.all([...writePromises, ...searchPromises]);
         const duration = Date.now() - startTime;
-        console.log(`✅ All concurrent operations finished in ${duration}ms`);
+        console.log(` All concurrent operations finished in ${duration}ms`);
         
         // Verify results
-        console.log("🧐 Verifying data integrity...");
+        console.log(" Verifying data integrity...");
         const memoriesDir = path.join(TEST_PROJECT_ROOT, ".muninn/memories/concurrency_test");
         const files = await fs.readdir(memoriesDir);
         
@@ -86,20 +86,20 @@ async function runConcurrencyTest() {
         for (const id of agents) {
             const expectedFile = `concurrency_test_memory_${id.toLowerCase()}.md`;
             if (files.includes(expectedFile)) {
-                console.log(`  ✅ Memory from Agent ${id} exists.`);
+                console.log(`   Memory from Agent ${id} exists.`);
             } else {
-                console.error(`  ❌ Memory from Agent ${id} is MISSING!`);
+                console.error(`   Memory from Agent ${id} is MISSING!`);
             }
         }
 
         if (files.length === agents.length) {
-            console.log("✨ No data loss detected.");
+            console.log(" No data loss detected.");
         } else {
-            console.warn(`⚠️ Unexpected number of files: ${files.length} (expected ${agents.length})`);
+            console.warn(` Unexpected number of files: ${files.length} (expected ${agents.length})`);
         }
 
     } catch (err) {
-        console.error("❌ Concurrency test FAILED with error:", err);
+        console.error(" Concurrency test FAILED with error:", err);
     } finally {
         // Cleanup
         for (const c of clients) {

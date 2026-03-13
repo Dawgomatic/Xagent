@@ -64,7 +64,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-echo -e "${BLUE}📦 Installing skill: $SKILL_SLUG${NC}"
+echo -e "${BLUE} Installing skill: $SKILL_SLUG${NC}"
 
 # Create temp directory for staging
 TEMP_DIR=$(mktemp -d)
@@ -77,24 +77,24 @@ cleanup() {
 trap cleanup EXIT
 
 # Step 1: Download to temp directory
-echo -e "${BLUE}⬇️  Downloading to staging area...${NC}"
+echo -e "${BLUE}  Downloading to staging area...${NC}"
 if ! clawdhub install "$SKILL_SLUG" --workdir "$TEMP_DIR" "${CLAWDHUB_OPTS[@]}" 2>&1; then
-    echo -e "${RED}❌ Failed to download skill${NC}"
+    echo -e "${RED} Failed to download skill${NC}"
     exit 1
 fi
 
 SKILL_PATH="$TEMP_SKILLS/$SKILL_SLUG"
 
 if [[ ! -d "$SKILL_PATH" ]]; then
-    echo -e "${RED}❌ Skill not found at $SKILL_PATH${NC}"
+    echo -e "${RED} Skill not found at $SKILL_PATH${NC}"
     exit 1
 fi
 
 # Step 2: Security audit
 if $SKIP_AUDIT; then
-    echo -e "${YELLOW}⚠️  Skipping security audit (--skip-audit)${NC}"
+    echo -e "${YELLOW}  Skipping security audit (--skip-audit)${NC}"
 else
-    echo -e "${BLUE}🔍 Running security audit...${NC}"
+    echo -e "${BLUE} Running security audit...${NC}"
     echo ""
     
     # Run audit and capture output
@@ -112,35 +112,35 @@ else
     
     # Check results
     if [[ "$CRITICAL" -gt 0 ]]; then
-        echo -e "${RED}🚨 CRITICAL security issues found!${NC}"
+        echo -e "${RED} CRITICAL security issues found!${NC}"
         if ! $ALLOW_CRITICAL; then
-            echo -e "${RED}❌ Installation blocked. Use --allow-critical to override (dangerous!)${NC}"
+            echo -e "${RED} Installation blocked. Use --allow-critical to override (dangerous!)${NC}"
             exit 1
         else
-            echo -e "${YELLOW}⚠️  Proceeding despite CRITICAL issues (--allow-critical)${NC}"
+            echo -e "${YELLOW}  Proceeding despite CRITICAL issues (--allow-critical)${NC}"
         fi
     fi
     
     if [[ "$HIGH" -gt 0 || "$MEDIUM" -gt 0 ]]; then
-        echo -e "${YELLOW}⚠️  Security warnings found (HIGH: $HIGH, MEDIUM: $MEDIUM)${NC}"
+        echo -e "${YELLOW}  Security warnings found (HIGH: $HIGH, MEDIUM: $MEDIUM)${NC}"
         if ! $FORCE; then
             echo -e "${YELLOW}Use --force to install anyway${NC}"
             read -p "Continue with installation? [y/N] " -n 1 -r
             echo
             if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-                echo -e "${RED}❌ Installation cancelled${NC}"
+                echo -e "${RED} Installation cancelled${NC}"
                 exit 1
             fi
         fi
     fi
     
     if [[ "$CRITICAL" -eq 0 && "$HIGH" -eq 0 && "$MEDIUM" -eq 0 ]]; then
-        echo -e "${GREEN}✅ Security audit passed!${NC}"
+        echo -e "${GREEN} Security audit passed!${NC}"
     fi
 fi
 
 # Step 3: Move to final location
-echo -e "${BLUE}📁 Installing to $SKILLS_DIR/$SKILL_SLUG${NC}"
+echo -e "${BLUE} Installing to $SKILLS_DIR/$SKILL_SLUG${NC}"
 
 # Remove existing if present
 if [[ -d "$SKILLS_DIR/$SKILL_SLUG" ]]; then
@@ -161,4 +161,4 @@ if [[ -f "$TEMP_DIR/clawdhub-lock.json" ]]; then
     fi
 fi
 
-echo -e "${GREEN}✅ Successfully installed $SKILL_SLUG${NC}"
+echo -e "${GREEN} Successfully installed $SKILL_SLUG${NC}"

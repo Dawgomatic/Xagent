@@ -43,10 +43,10 @@ Then ask your agent:
 
 ## More from AfrexAI
 
-🛒 **[Industry Context Packs](https://afrexai-cto.github.io/context-packs/)** — $47 each. Deep operational frameworks for SaaS, Healthcare, Fintech, Legal, Construction, Manufacturing, Real Estate, Ecommerce, Recruitment, Professional Services.
+ **[Industry Context Packs](https://afrexai-cto.github.io/context-packs/)** — $47 each. Deep operational frameworks for SaaS, Healthcare, Fintech, Legal, Construction, Manufacturing, Real Estate, Ecommerce, Recruitment, Professional Services.
 
-📊 **[AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)** — Quantify where manual processes are costing you money.
+ **[AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)** — Quantify where manual processes are costing you money.
 
-🚀 **[Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)** — Configure your AI agent in minutes.
+ **[Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)** — Configure your AI agent in minutes.
 
-💰 **Bundle deals:** [Pick 3 — $97](https://buy.stripe.com/4gw17UgsE2lY1So5kz) | [All 10 — $197](https://buy.stripe.com/7sI8ws4K0fpKgJi9AQ) | [Everything — $247](https://buy.stripe.com/6oE8wsekoaZq0Ok5kB)
+ **Bundle deals:** [Pick 3 — $97](https://buy.stripe.com/4gw17UgsE2lY1So5kz) | [All 10 — $197](https://buy.stripe.com/7sI8ws4K0fpKgJi9AQ) | [Everything — $247](https://buy.stripe.com/6oE8wsekoaZq0Ok5kB)

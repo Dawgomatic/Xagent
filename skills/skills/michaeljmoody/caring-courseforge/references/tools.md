@@ -20,7 +20,7 @@ Create a new course
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `name` | string | ✅ | Course title |
+| `name` | string |  | Course title |
 | `description` | string |  | Course description |
 | `language` | string |  | Language code (ISO 639-1, default: en) |
 | `difficulty` | string |  | Course difficulty |
@@ -32,7 +32,7 @@ Get a specific course by ID
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
+| `courseId` | string |  | Course ID |
 
 ### `update_course`
 
@@ -40,7 +40,7 @@ Update an existing course
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
+| `courseId` | string |  | Course ID |
 | `name` | string |  | Course title |
 | `description` | string |  | Course description |
 | `difficulty` | string |  |  |
@@ -52,7 +52,7 @@ Delete a course
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
+| `courseId` | string |  | Course ID |
 
 ### `get_course_settings`
 
@@ -60,7 +60,7 @@ Get course settings for a specific course. Returns all settings or filtered by c
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID to get settings for |
+| `courseId` | string |  | Course ID to get settings for |
 | `category` | string |  | Settings category to retrieve (default: all) |
 
 ### `update_course_settings`
@@ -69,9 +69,9 @@ Update course settings for a specific course. Can update individual fields or en
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID to update settings for |
-| `category` | string | ✅ | Settings category to update |
-| `settings` | object | ✅ | Settings object with fields to update. Only include fields you want to change. |
+| `courseId` | string |  | Course ID to update settings for |
+| `category` | string |  | Settings category to update |
+| `settings` | object |  | Settings object with fields to update. Only include fields you want to change. |
 
 ## Modules
 
@@ -81,8 +81,8 @@ Create a new module in a course
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Parent course ID |
-| `name` | string | ✅ | Module name |
+| `courseId` | string |  | Parent course ID |
+| `name` | string |  | Module name |
 | `description` | string |  | Module description |
 | `order` | number |  | Display order |
 | `learningObjectives` | array |  | Array of learning objectives for this module |
@@ -93,8 +93,8 @@ Update an existing module
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
 | `name` | string |  | Module name |
 | `description` | string |  | Module description |
 | `order` | number |  | Display order |
@@ -106,8 +106,8 @@ Delete a module from a course
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
 
 ### `reorder_modules`
 
@@ -115,8 +115,8 @@ Reorder modules in a course
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleIds` | array | ✅ | Ordered array of module IDs |
+| `courseId` | string |  | Course ID |
+| `moduleIds` | array |  | Ordered array of module IDs |
 
 ### `get_module`
 
@@ -124,8 +124,8 @@ Get a specific module by ID
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
 
 ## Lessons
 
@@ -135,9 +135,9 @@ Create a new lesson in a module
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Parent module ID |
-| `name` | string | ✅ | Lesson name |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Parent module ID |
+| `name` | string |  | Lesson name |
 | `description` | string |  | Lesson description |
 | `order` | number |  | Display order |
 | `learningObjectives` | array |  | Array of learning objectives for this lesson |
@@ -148,9 +148,9 @@ Get a specific lesson by ID. Returns the lesson with all content blocks.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
-| `lessonId` | string | ✅ | Lesson ID |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
+| `lessonId` | string |  | Lesson ID |
 
 ### `update_lesson`
 
@@ -158,9 +158,9 @@ Update an existing lesson
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
-| `lessonId` | string | ✅ | Lesson ID |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
+| `lessonId` | string |  | Lesson ID |
 | `name` | string |  | Lesson name |
 | `description` | string |  | Lesson description |
 | `order` | number |  | Display order |
@@ -172,9 +172,9 @@ Delete a lesson from a module
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
-| `lessonId` | string | ✅ | Lesson ID |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
+| `lessonId` | string |  | Lesson ID |
 
 ### `reorder_lessons`
 
@@ -182,9 +182,9 @@ Reorder lessons in a module
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
-| `lessonIds` | array | ✅ | Ordered array of lesson IDs |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
+| `lessonIds` | array |  | Ordered array of lesson IDs |
 
 ### `move_lesson`
 
@@ -192,10 +192,10 @@ Move a lesson from one module to another within the same course. Updates lesson 
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `sourceModuleId` | string | ✅ | Current module ID containing the lesson |
-| `lessonId` | string | ✅ | Lesson ID to move |
-| `targetModuleId` | string | ✅ | Target module ID |
+| `courseId` | string |  | Course ID |
+| `sourceModuleId` | string |  | Current module ID containing the lesson |
+| `lessonId` | string |  | Lesson ID to move |
+| `targetModuleId` | string |  | Target module ID |
 | `targetPosition` | number |  | Position in target module (0-indexed, optional, defaults to end) |
 
 ### `duplicate_lesson`
@@ -204,9 +204,9 @@ Copy a lesson with all its content blocks to the same module or a different modu
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID containing the lesson |
-| `sourceModuleId` | string | ✅ | Module ID containing the source lesson |
-| `sourceLessonId` | string | ✅ | Lesson ID to duplicate |
+| `courseId` | string |  | Course ID containing the lesson |
+| `sourceModuleId` | string |  | Module ID containing the source lesson |
+| `sourceLessonId` | string |  | Lesson ID to duplicate |
 | `targetModuleId` | string |  | Target module ID (optional, defaults to same module) |
 | `newTitle` | string |  | New lesson title (optional, defaults to "Copy of [original]") |
 
@@ -218,10 +218,10 @@ Add a content block to a lesson.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
-| `lessonId` | string | ✅ | Lesson ID |
-| `block` | object | ✅ | Content block data. For flip cards: type "interactive", content.interactionType "flipcard", content.data.cards array. Fo |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
+| `lessonId` | string |  | Lesson ID |
+| `block` | object |  | Content block data. For flip cards: type "interactive", content.interactionType "flipcard", content.data.cards array. Fo |
 | `position` | object |  | Where to insert the block. Omit to append at end. |
 
 ### `get_content_block`
@@ -230,10 +230,10 @@ Get a specific content block by ID. Returns the full block data including:
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
-| `lessonId` | string | ✅ | Lesson ID |
-| `blockId` | string | ✅ | Content block ID |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
+| `lessonId` | string |  | Lesson ID |
+| `blockId` | string |  | Content block ID |
 
 ### `update_content_block`
 
@@ -241,11 +241,11 @@ Update an existing content block. Only include fields you want to change.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
-| `lessonId` | string | ✅ | Lesson ID |
-| `blockId` | string | ✅ | Content block ID |
-| `updates` | object | ✅ | Fields to update. For image blocks, include content.size, content.crop, content.filters |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
+| `lessonId` | string |  | Lesson ID |
+| `blockId` | string |  | Content block ID |
+| `updates` | object |  | Fields to update. For image blocks, include content.size, content.crop, content.filters |
 
 ### `delete_content_block`
 
@@ -253,10 +253,10 @@ Delete a content block from a lesson. This permanently removes the block and its
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
-| `lessonId` | string | ✅ | Lesson ID |
-| `blockId` | string | ✅ | Content block ID |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
+| `lessonId` | string |  | Lesson ID |
+| `blockId` | string |  | Content block ID |
 
 ### `reorder_content_blocks`
 
@@ -264,10 +264,10 @@ Reorder content blocks in a lesson by providing the complete ordered list of blo
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
-| `lessonId` | string | ✅ | Lesson ID |
-| `blockIds` | array | ✅ | Ordered array of block IDs |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
+| `lessonId` | string |  | Lesson ID |
+| `blockIds` | array |  | Ordered array of block IDs |
 
 ### `move_content_block`
 
@@ -275,13 +275,13 @@ Move a content block to a new position within the same lesson or to a different 
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Source module ID |
-| `lessonId` | string | ✅ | Source lesson ID |
-| `blockId` | string | ✅ | Content block ID to move |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Source module ID |
+| `lessonId` | string |  | Source lesson ID |
+| `blockId` | string |  | Content block ID to move |
 | `targetModuleId` | string |  | Target module ID (optional, defaults to source module) |
 | `targetLessonId` | string |  | Target lesson ID (optional, defaults to source lesson) |
-| `position` | object | ✅ | Where to place the block in the target lesson |
+| `position` | object |  | Where to place the block in the target lesson |
 
 ## Course Management
 
@@ -291,7 +291,7 @@ Validate course readiness for export. Runs comprehensive checks including:
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID to validate |
+| `courseId` | string |  | Course ID to validate |
 | `wcagLevel` | string |  | WCAG compliance level to check (default: AA) |
 | `checkTypes` | array |  | Specific check types to run (optional, runs all if not specified) |
 
@@ -301,8 +301,8 @@ Copy a module with all its lessons and content blocks. Creates a complete copy w
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID containing the module |
-| `sourceModuleId` | string | ✅ | Module ID to duplicate |
+| `courseId` | string |  | Course ID containing the module |
+| `sourceModuleId` | string |  | Module ID to duplicate |
 | `newTitle` | string |  | New module title (optional, defaults to "Copy of [original]") |
 
 ### `export_course`
@@ -311,8 +311,8 @@ Export course to various e-learning formats:
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID to export |
-| `format` | string | ✅ | Export format |
+| `courseId` | string |  | Course ID to export |
+| `format` | string |  | Export format |
 | `options` | object |  | Export options |
 
 ## Knowledge Library
@@ -327,7 +327,7 @@ Create a new knowledge collection to organize documents
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `name` | string | ✅ | Collection name (e.g., "Medical Terminology", "Company Policies") |
+| `name` | string |  | Collection name (e.g., "Medical Terminology", "Company Policies") |
 | `description` | string |  | Collection description (optional) |
 | `color` | string |  | Hex color code for visual organization (optional, default: #3B82F6) |
 
@@ -337,7 +337,7 @@ List all documents in a specific knowledge collection
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `collectionId` | string | ✅ | Collection ID |
+| `collectionId` | string |  | Collection ID |
 
 ### `delete_document`
 
@@ -345,7 +345,7 @@ Delete a document from the knowledge library
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `documentId` | string | ✅ | Document ID to delete |
+| `documentId` | string |  | Document ID to delete |
 
 ### `search_knowledge`
 
@@ -353,7 +353,7 @@ Search the knowledge library for relevant information using semantic search. Ret
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `query` | string | ✅ | Search query or question |
+| `query` | string |  | Search query or question |
 | `collectionIds` | array |  | Collection IDs to search (optional, searches all if not provided) |
 | `topK` | number |  | Number of results to return (default: 5, max: 20) |
 
@@ -365,7 +365,7 @@ Chat with the AI instructional designer assistant for help with course creation,
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `message` | string | ✅ | Your message or question for the AI assistant |
+| `message` | string |  | Your message or question for the AI assistant |
 | `context` | object |  | Optional context about the current course, module, or lesson being worked on |
 | `conversationHistory` | array |  | Previous messages in the conversation |
 
@@ -375,7 +375,7 @@ Full conversational AI with optional web research capabilities. Use this for com
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `message` | string | ✅ | Your message or question |
+| `message` | string |  | Your message or question |
 | `courseContext` | object |  | Optional context about the current course |
 | `enableResearch` | boolean |  | Enable web research for current information (default: false) |
 | `conversationId` | string |  | Optional conversation ID for context continuity |
@@ -388,7 +388,7 @@ Analyze an image using Claude vision for content suggestions, quality checks, or
 |-------|------|-----|-------------|
 | `imageUrl` | string |  | URL of image to analyze |
 | `imageBase64` | string |  | Base64 encoded image data (alternative to URL) |
-| `prompt` | string | ✅ | What to analyze about the image |
+| `prompt` | string |  | What to analyze about the image |
 
 ### `auto_fix_quality_issues`
 
@@ -396,7 +396,7 @@ Automatically fix quality issues in a course such as missing alt text, placehold
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
+| `courseId` | string |  | Course ID |
 | `issues` | array |  | Specific issues to fix (from validate_course) |
 | `fixAll` | boolean |  | Fix all detected auto-fixable issues (default: false) |
 
@@ -406,7 +406,7 @@ Convert PowerPoint, Word, or Excel documents to PDF for preview or download.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `sourceUrl` | string | ✅ | Firebase Storage URL of the document |
+| `sourceUrl` | string |  | Firebase Storage URL of the document |
 
 ### `delete_storage_file`
 
@@ -423,7 +423,7 @@ Fetch and extract content from URLs for use in course creation. Supports up to 3
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `urls` | array | ✅ | URLs to fetch (max 3) |
+| `urls` | array |  | URLs to fetch (max 3) |
 
 ### `generate_course_outline`
 
@@ -431,7 +431,7 @@ Generate a complete course outline including modules, lessons, and learning obje
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `topic` | string | ✅ | Course topic |
+| `topic` | string |  | Course topic |
 | `targetAudience` | string |  | Target audience description |
 | `duration` | string |  | Expected course duration (e.g., "2 hours", "1 week") |
 | `learningObjectives` | array |  | High-level learning objectives (optional) |
@@ -443,9 +443,9 @@ Generate custom images using AI (Gemini 2.5) for course content. Images are auto
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `prompt` | string | ✅ | Detailed description of the image to generate (be specific about style, composition, mood, colors) |
-| `courseId` | string | ✅ | Course ID (for organizing uploads) |
-| `lessonId` | string | ✅ | Lesson ID (for organizing uploads) |
+| `prompt` | string |  | Detailed description of the image to generate (be specific about style, composition, mood, colors) |
+| `courseId` | string |  | Course ID (for organizing uploads) |
+| `lessonId` | string |  | Lesson ID (for organizing uploads) |
 | `aspectRatio` | string |  | Image aspect ratio (default: 16:9) |
 | `numberOfImages` | number |  | Number of images to generate (default: 1, max: 4) |
 | `context` | string |  | Additional context for better alt text generation |
@@ -456,9 +456,9 @@ Generate a professionally formatted PDF job aid from step-by-step instructions.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `title` | string | ✅ | Job aid title |
+| `title` | string |  | Job aid title |
 | `description` | string |  | Job aid description (optional) |
-| `steps` | array | ✅ | Steps for the job aid |
+| `steps` | array |  | Steps for the job aid |
 | `courseId` | string |  | Course ID for file organization (optional) |
 | `lessonId` | string |  | Lesson ID for file organization (optional) |
 
@@ -468,10 +468,10 @@ Generate content for a lesson using AI based on topic and learning objectives
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
-| `lessonId` | string | ✅ | Lesson ID |
-| `topic` | string | ✅ | Lesson topic |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
+| `lessonId` | string |  | Lesson ID |
+| `topic` | string |  | Lesson topic |
 | `learningObjectives` | array |  | Learning objectives |
 
 ### `generate_quiz_from_content`
@@ -480,7 +480,7 @@ Auto-generate quiz questions from existing lesson content.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `lessonId` | string | ✅ | Lesson ID to generate quiz from |
+| `lessonId` | string |  | Lesson ID to generate quiz from |
 | `questionCount` | number |  | Number of questions (default: 5) |
 | `questionTypes` | array |  | Types of questions to generate |
 
@@ -502,7 +502,7 @@ Extract captions/transcript from a YouTube video for accessibility or content cr
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `videoId` | string | ✅ | YouTube video ID |
+| `videoId` | string |  | YouTube video ID |
 | `language` | string |  | Language code (default: en) |
 
 ### `get_youtube_metadata`
@@ -511,7 +511,7 @@ Get detailed metadata for a YouTube video including duration, captions availabil
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `videoUrl` | string | ✅ | YouTube video URL or video ID |
+| `videoUrl` | string |  | YouTube video URL or video ID |
 
 ### `list_storage_files`
 
@@ -529,8 +529,8 @@ Manage files in the Knowledge Library - move between collections or remove from 
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `action` | string | ✅ | Action to perform |
-| `documentId` | string | ✅ | Knowledge document ID to manage |
+| `action` | string |  | Action to perform |
+| `documentId` | string |  | Knowledge document ID to manage |
 | `targetCollectionId` | string |  | Target collection ID (required for move action) |
 
 ### `marketing_support_chat`
@@ -539,7 +539,7 @@ Chat with the marketing support assistant for questions about CourseForge featur
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `message` | string | ✅ | Your question or support request |
+| `message` | string |  | Your question or support request |
 | `page` | string |  | Current page context (e.g., "pricing", "features", "docs", "faq") |
 | `conversationHistory` | array |  | Previous messages in the conversation |
 
@@ -549,8 +549,8 @@ Scrape web page content and add it to a knowledge collection for AI reference.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `url` | string | ✅ | URL to scrape |
-| `collectionId` | string | ✅ | Knowledge collection ID to add the content to |
+| `url` | string |  | URL to scrape |
+| `collectionId` | string |  | Knowledge collection ID to add the content to |
 
 ### `search_user_media`
 
@@ -558,7 +558,7 @@ Search the user's existing images by description, prompt, or tags. Use this befo
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `query` | string | ✅ | Search query (description, prompt keywords, or concept) |
+| `query` | string |  | Search query (description, prompt keywords, or concept) |
 | `courseId` | string |  | Filter to specific course (optional) |
 | `category` | string |  | Filter by image category (default: all) |
 | `limit` | number |  | Maximum results to return (default: 10, max: 50) |
@@ -580,7 +580,7 @@ Summarize a knowledge library document into key points.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `documentId` | string | ✅ | Knowledge document ID |
+| `documentId` | string |  | Knowledge document ID |
 | `summaryLength` | string |  | Length of summary (default: standard) |
 
 ### `translate_content`
@@ -589,9 +589,9 @@ Translate course content to another language.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `contentId` | string | ✅ | ID of the content to translate |
-| `contentType` | string | ✅ | Type of content |
-| `targetLanguage` | string | ✅ | Target language code (e.g., "es", "fr", "de") |
+| `contentId` | string |  | ID of the content to translate |
+| `contentType` | string |  | Type of content |
+| `targetLanguage` | string |  | Target language code (e.g., "es", "fr", "de") |
 
 ### `upload_to_knowledge`
 
@@ -599,7 +599,7 @@ Upload or add a file to a Knowledge Library collection for use in AI-powered cou
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `collectionId` | string | ✅ | Target Knowledge Library collection ID |
+| `collectionId` | string |  | Target Knowledge Library collection ID |
 | `fileUrl` | string |  | URL of existing file to add (Firebase Storage URL or external) |
 | `base64Data` | string |  | Base64-encoded file content (alternative to fileUrl) |
 | `fileName` | string |  | Name for the file (required with base64Data) |
@@ -612,7 +612,7 @@ Search the web for current information to include in course content. Useful for 
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `query` | string | ✅ | Search query |
+| `query` | string |  | Search query |
 | `numResults` | number |  | Number of results (default: 5, max: 10) |
 | `category` | string |  | Search category filter |
 
@@ -624,7 +624,7 @@ Search for stock photos and videos from Pexels and Pixabay. Use this to find rel
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `query` | string | ✅ | Search query (e.g., "teamwork", "coding laptop", "classroom learning") |
+| `query` | string |  | Search query (e.g., "teamwork", "coding laptop", "classroom learning") |
 | `mediaType` | string |  | Type of media to search for (default: photo) |
 | `provider` | string |  | Specific provider to search or "all" for combined results (default: all) |
 | `count` | number |  | Number of results per provider (default: 3, max: 10) |
@@ -636,7 +636,7 @@ Search YouTube videos for embedding in courses. Returns videos with metadata, th
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `query` | string | ✅ | Search query (e.g., "React hooks tutorial", "project management basics") |
+| `query` | string |  | Search query (e.g., "React hooks tutorial", "project management basics") |
 | `maxResults` | number |  | Maximum results to return (1-12, default: 5) |
 | `order` | string |  | Sort order: relevance (default), date (newest), viewCount (popular), rating (top rated) |
 | `videoDuration` | string |  | Filter by duration: any (default), short (<4min), medium (4-20min), long (>20min) |
@@ -665,7 +665,7 @@ Create a new API key
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `name` | string | ✅ | API key name/description |
+| `name` | string |  | API key name/description |
 
 ### `revoke_api_key`
 
@@ -673,7 +673,7 @@ Revoke an existing API key
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `keyId` | string | ✅ | API key ID to revoke |
+| `keyId` | string |  | API key ID to revoke |
 
 ## Skills
 
@@ -691,7 +691,7 @@ Get the full content of a specific CourseForge skill. Returns the complete skill
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `skillId` | string | ✅ | Skill ID (e.g., "course-builder", "salesforce-specialist", "ocm-specialist") |
+| `skillId` | string |  | Skill ID (e.g., "course-builder", "salesforce-specialist", "ocm-specialist") |
 
 ## Agentic UI Control
 
@@ -701,11 +701,11 @@ Add a temporary visual annotation to a content block.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
-| `lessonId` | string | ✅ | Lesson ID |
-| `blockId` | string | ✅ | Block ID to annotate |
-| `type` | string | ✅ | Annotation type (affects color/style) |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
+| `lessonId` | string |  | Lesson ID |
+| `blockId` | string |  | Block ID to annotate |
+| `type` | string |  | Annotation type (affects color/style) |
 | `note` | string |  | Annotation note/message |
 
 ### `close_preview`
@@ -714,7 +714,7 @@ Close the course preview modal and return to the editor.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
+| `courseId` | string |  | Course ID |
 
 ### `create_checkpoint`
 
@@ -722,8 +722,8 @@ Create a named checkpoint of the current course state for potential rollback.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `name` | string | ✅ | Checkpoint name (for later reference) |
+| `courseId` | string |  | Course ID |
+| `name` | string |  | Checkpoint name (for later reference) |
 | `description` | string |  | Optional description of what the checkpoint captures |
 
 ### `expand_sidebar_item`
@@ -732,9 +732,9 @@ Expand or collapse a module in the sidebar to show/hide its lessons.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID to expand/collapse |
-| `expanded` | boolean | ✅ | true to expand, false to collapse |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID to expand/collapse |
+| `expanded` | boolean |  | true to expand, false to collapse |
 
 ### `focus_content_block`
 
@@ -742,10 +742,10 @@ Focus the editor on a specific content block, opening it for editing if applicab
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `moduleId` | string | ✅ | Module ID |
-| `lessonId` | string | ✅ | Lesson ID |
-| `blockId` | string | ✅ | Block ID to focus |
+| `courseId` | string |  | Course ID |
+| `moduleId` | string |  | Module ID |
+| `lessonId` | string |  | Lesson ID |
+| `blockId` | string |  | Block ID to focus |
 | `openEditor` | boolean |  | Open the block editor if available (default: false) |
 
 ### `get_canvas_state`
@@ -754,7 +754,7 @@ Get the current state of the course editor canvas.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
+| `courseId` | string |  | Course ID |
 
 ### `highlight_issues`
 
@@ -762,8 +762,8 @@ Highlight multiple quality issues across the course with visual indicators.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `issues` | array | ✅ | Issues to highlight |
+| `courseId` | string |  | Course ID |
+| `issues` | array |  | Issues to highlight |
 
 ### `list_checkpoints`
 
@@ -771,7 +771,7 @@ List all available checkpoints for a course.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
+| `courseId` | string |  | Course ID |
 
 ### `lock_canvas`
 
@@ -779,7 +779,7 @@ Lock the course editor canvas to prevent user edits while MCP is making changes.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID to lock |
+| `courseId` | string |  | Course ID to lock |
 | `message` | string |  | Message to display to user (e.g., "Creating modules...", "Adding content...") |
 
 ### `notify_user`
@@ -788,8 +788,8 @@ Send a toast notification to the user. Use this to communicate progress, complet
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID (for routing to correct editor instance) |
-| `message` | string | ✅ | Notification message |
+| `courseId` | string |  | Course ID (for routing to correct editor instance) |
+| `message` | string |  | Notification message |
 | `type` | string |  | Notification type (default: info) |
 | `duration` | number |  | Duration in milliseconds (default: 4000, use 0 for persistent) |
 
@@ -799,7 +799,7 @@ Open the course preview modal to show the user how the course looks to learners.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
+| `courseId` | string |  | Course ID |
 | `startAt` | object |  | Where to start the preview (optional) |
 
 ### `open_settings`
@@ -808,7 +808,7 @@ Open the course settings dialog.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
+| `courseId` | string |  | Course ID |
 | `tab` | string |  | Settings tab to open (optional) |
 
 ### `refresh_canvas`
@@ -817,7 +817,7 @@ Force the course editor to refresh and reload the latest course data from the da
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID to refresh |
+| `courseId` | string |  | Course ID to refresh |
 
 ### `remove_annotation`
 
@@ -825,7 +825,7 @@ Remove a specific annotation or all annotations from a block/lesson/course.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
+| `courseId` | string |  | Course ID |
 | `blockId` | string |  | Block ID to remove annotation from (optional) |
 | `lessonId` | string |  | Remove all annotations from lesson (optional) |
 | `clearAll` | boolean |  | Remove all annotations from course (default: false) |
@@ -836,10 +836,10 @@ Present the user with multiple options to choose from.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `title` | string | ✅ | Dialog title |
-| `message` | string | ✅ | Explanation of the choice |
-| `options` | array | ✅ | Available options |
+| `courseId` | string |  | Course ID |
+| `title` | string |  | Dialog title |
+| `message` | string |  | Explanation of the choice |
+| `options` | array |  | Available options |
 | `allowCancel` | boolean |  | Allow user to cancel (default: true) |
 
 ### `request_confirmation`
@@ -848,9 +848,9 @@ Ask the user for confirmation before performing a destructive or significant ope
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `title` | string | ✅ | Dialog title |
-| `message` | string | ✅ | Detailed explanation of what will happen |
+| `courseId` | string |  | Course ID |
+| `title` | string |  | Dialog title |
+| `message` | string |  | Detailed explanation of what will happen |
 | `confirmLabel` | string |  | Confirm button text (default: "Confirm") |
 | `cancelLabel` | string |  | Cancel button text (default: "Cancel") |
 | `isDestructive` | boolean |  | If true, styles confirm button as destructive (red) |
@@ -861,8 +861,8 @@ Restore the course to a previously created checkpoint.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `checkpointName` | string | ✅ | Name of checkpoint to restore |
+| `courseId` | string |  | Course ID |
+| `checkpointName` | string |  | Name of checkpoint to restore |
 
 ### `scroll_to_element`
 
@@ -870,9 +870,9 @@ Scroll the editor viewport to a specific element (module, lesson, or content blo
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `elementType` | string | ✅ | Type of element to scroll to |
-| `elementId` | string | ✅ | ID of the element |
+| `courseId` | string |  | Course ID |
+| `elementType` | string |  | Type of element to scroll to |
+| `elementId` | string |  | ID of the element |
 | `highlight` | boolean |  | Briefly highlight the element after scrolling (default: true) |
 
 ### `select_element`
@@ -881,7 +881,7 @@ Select a module, lesson, or content block in the editor sidebar/canvas.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
+| `courseId` | string |  | Course ID |
 | `moduleId` | string |  | Module ID (selects module if only this provided) |
 | `lessonId` | string |  | Lesson ID (selects lesson, requires moduleId) |
 | `blockId` | string |  | Block ID (selects block, requires moduleId and lessonId) |
@@ -892,7 +892,7 @@ Display a progress indicator for multi-step operations.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
+| `courseId` | string |  | Course ID |
 | `message` | string |  | Current operation description |
 | `total` | number |  | Total number of steps |
 | `current` | number |  | Current step (0-indexed) |
@@ -904,8 +904,8 @@ Show or hide the course structure sidebar.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID |
-| `visible` | boolean | ✅ | true to show, false to hide |
+| `courseId` | string |  | Course ID |
+| `visible` | boolean |  | true to show, false to hide |
 
 ### `unlock_canvas`
 
@@ -913,5 +913,5 @@ Unlock the course editor canvas to allow user edits again.
 
 | Param | Type | Req | Description |
 |-------|------|-----|-------------|
-| `courseId` | string | ✅ | Course ID to unlock |
+| `courseId` | string |  | Course ID to unlock |
 

@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🐄",
+        "emoji": "",
         "requires":
           {
             "env": ["RTM_API_KEY", "RTM_SHARED_SECRET"],
@@ -91,7 +91,7 @@ Task output includes IDs needed for write operations:
 ```
   Task Name [P1] (due: 2025-03-15) #tag1 #tag2
     list=12345 series=67890 task=11111
-    📝 Note Title (note_id=99999)
+     Note Title (note_id=99999)
     Note body text here
 ```
 

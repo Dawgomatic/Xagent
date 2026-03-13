@@ -32,8 +32,8 @@ Ask for marketing content like:
 - "The $300 cream vs the $30 secret that actually works..."
 
 ### Instagram Captions
-- "Your skin doesn't need 10 products. It needs THIS one thing 👇"
-- "3 months ago vs now... the glow up is REAL ✨"
+- "Your skin doesn't need 10 products. It needs THIS one thing "
+- "3 months ago vs now... the glow up is REAL "
 
 ### CTAs
 - "Link in bio for the full routine!"

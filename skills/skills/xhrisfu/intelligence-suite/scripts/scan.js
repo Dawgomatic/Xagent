@@ -18,7 +18,7 @@ const cheerio = require('cheerio');
 
 const parser = new Parser();
 
-console.log("🔍 Makima is deepening her gaze...");
+console.log(" Makima is deepening her gaze...");
 
 const SOURCES = [
     { name: "OpenAI", url: "https://openai.com/blog/rss.xml", type: "rss" },

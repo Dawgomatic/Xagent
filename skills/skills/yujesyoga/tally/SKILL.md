@@ -70,7 +70,7 @@ Tally forms are composed of **blocks**. Questions require **multiple blocks grou
 - `CHECKBOX` - Multi select (groupType: CHECKBOXES)
 - `DROPDOWN_OPTION` - Dropdown option
 
-### ⚠️ Types that don't render well via API
+###  Types that don't render well via API
 - `RATING` - Stars don't display
 - `LINEAR_SCALE` - Scale doesn't display
 
@@ -100,7 +100,7 @@ Tally forms are composed of **blocks**. Questions require **multiple blocks grou
   "groupUuid": "group-sec1",
   "groupType": "TEXT",
   "payload": {
-    "safeHTMLSchema": [["📊 Section Title", [["tag", "span"]]]]
+    "safeHTMLSchema": [[" Section Title", [["tag", "span"]]]]
   }
 }
 ```
@@ -195,35 +195,35 @@ Tally forms are composed of **blocks**. Questions require **multiple blocks grou
   "type": "MULTIPLE_CHOICE_OPTION",
   "groupUuid": "group-q4",
   "groupType": "MULTIPLE_CHOICE",
-  "payload": {"isRequired": true, "index": 0, "isFirst": true, "isLast": false, "text": "⭐ Poor"}
+  "payload": {"isRequired": true, "index": 0, "isFirst": true, "isLast": false, "text": " Poor"}
 },
 {
   "uuid": "q4-opt2",
   "type": "MULTIPLE_CHOICE_OPTION",
   "groupUuid": "group-q4",
   "groupType": "MULTIPLE_CHOICE",
-  "payload": {"isRequired": true, "index": 1, "isFirst": false, "isLast": false, "text": "⭐⭐ Fair"}
+  "payload": {"isRequired": true, "index": 1, "isFirst": false, "isLast": false, "text": " Fair"}
 },
 {
   "uuid": "q4-opt3",
   "type": "MULTIPLE_CHOICE_OPTION",
   "groupUuid": "group-q4",
   "groupType": "MULTIPLE_CHOICE",
-  "payload": {"isRequired": true, "index": 2, "isFirst": false, "isLast": false, "text": "⭐⭐⭐ Good"}
+  "payload": {"isRequired": true, "index": 2, "isFirst": false, "isLast": false, "text": " Good"}
 },
 {
   "uuid": "q4-opt4",
   "type": "MULTIPLE_CHOICE_OPTION",
   "groupUuid": "group-q4",
   "groupType": "MULTIPLE_CHOICE",
-  "payload": {"isRequired": true, "index": 3, "isFirst": false, "isLast": false, "text": "⭐⭐⭐⭐ Very good"}
+  "payload": {"isRequired": true, "index": 3, "isFirst": false, "isLast": false, "text": " Very good"}
 },
 {
   "uuid": "q4-opt5",
   "type": "MULTIPLE_CHOICE_OPTION",
   "groupUuid": "group-q4",
   "groupType": "MULTIPLE_CHOICE",
-  "payload": {"isRequired": true, "index": 4, "isFirst": false, "isLast": true, "text": "⭐⭐⭐⭐⭐ Excellent"}
+  "payload": {"isRequired": true, "index": 4, "isFirst": false, "isLast": true, "text": " Excellent"}
 }
 ```
 
@@ -252,6 +252,6 @@ curl -s "https://api.tally.so/forms/{ID}" \
 
 1. **Always backup** before modifying a form
 2. **Use descriptive UUIDs** (q1-title, q1-input, sec1-head)
-3. **Section titles:** Use lowercase with emoji prefix (📊 General feedback)
-4. **For ratings:** Use MULTIPLE_CHOICE with ⭐ emojis instead of RATING type
+3. **Section titles:** Use lowercase with emoji prefix ( General feedback)
+4. **For ratings:** Use MULTIPLE_CHOICE with  emojis instead of RATING type
 5. **Verify after update:** Check block count matches expected

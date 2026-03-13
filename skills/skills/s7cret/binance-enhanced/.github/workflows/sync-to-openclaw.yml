@@ -27,7 +27,7 @@ jobs:
           OPENCLAW_API_KEY: ${{ secrets.OPENCLAW_API_KEY }}
           OPENCLAW_INSTANCE: ${{ secrets.OPENCLAW_INSTANCE }}
         run: |
-          echo "🚀 Deploying to OpenClaw..."
+          echo " Deploying to OpenClaw..."
           
           # Создайте архив навыка
           tar -czf binance-enhanced.tar.gz \
@@ -42,12 +42,12 @@ jobs:
             --api-key "$OPENCLAW_API_KEY" \
             --instance "$OPENCLAW_INSTANCE"
           
-          echo "✅ Skill deployed to OpenClaw!"
+          echo " Skill deployed to OpenClaw!"
           
       - name: Notify on success
         if: success()
         run: |
-          echo "🎉 Successfully synced to OpenClaw"
+          echo " Successfully synced to OpenClaw"
           echo "Skill: binance-enhanced"
           echo "Version: $(git describe --tags --always)"
           echo "OpenClaw Instance: ${{ secrets.OPENCLAW_INSTANCE }}"
@@ -55,5 +55,5 @@ jobs:
       - name: Notify on failure
         if: failure()
         run: |
-          echo "❌ Failed to sync to OpenClaw"
+          echo " Failed to sync to OpenClaw"
           echo "Check logs above for details"

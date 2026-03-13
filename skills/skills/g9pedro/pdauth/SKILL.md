@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔐",
+        "emoji": "",
         "requires": { "bins": ["pdauth"] },
         "install":
           [
@@ -159,5 +159,5 @@ Agent:
 7. pdauth call spotify.add_to_playlist playlist_id=... track_id=...
    → Done!
 
-8. Reply: "Added Bohemian Rhapsody to your playlist! 🎵"
+8. Reply: "Added Bohemian Rhapsody to your playlist! "
 ```

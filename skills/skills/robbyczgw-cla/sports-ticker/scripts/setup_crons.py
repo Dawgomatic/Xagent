@@ -76,7 +76,7 @@ def get_cron_configs(telegram_id: str, timezone: str) -> list[dict]:
             "sessionTarget": "main",
             "payload": {
                 "kind": "systemEvent",
-                "text": "⏰ Match reminder: Your team plays soon! Check the schedule."
+                "text": " Match reminder: Your team plays soon! Check the schedule."
             },
             "enabled": False
         }

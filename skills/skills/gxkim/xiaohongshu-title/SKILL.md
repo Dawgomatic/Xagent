@@ -1,7 +1,7 @@
 ---
 name: xiaohongshu-title
 description: Maximize CTR (Click-Through Rate) by leveraging emotional hooks and platform algorithms.
-metadata: {"openclaw":{"emoji":"📺"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 ## 1. Identity & Objective

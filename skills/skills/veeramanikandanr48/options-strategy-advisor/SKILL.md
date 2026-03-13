@@ -515,7 +515,7 @@ Greeks:
 - Vega: +$50 (long volatility)
 - Theta: -$25/day (time decay hurts)
 
-IV Crush Risk: ⚠️ CRITICAL
+IV Crush Risk:  CRITICAL
 - Pre-earnings IV: 40% (elevated)
 - Post-earnings IV: 25% (typical)
 - IV drop: -15 points = -$750 loss even if stock doesn't move!
@@ -527,8 +527,8 @@ Analysis:
 - Probability Profit: ~30-40% (implied move > breakeven move)
 
 Recommendation:
-✅ Consider if you expect >10% move (larger than implied)
-❌ Avoid if expect normal ~5% earnings move (IV crush will hurt)
+ Consider if you expect >10% move (larger than implied)
+ Avoid if expect normal ~5% earnings move (IV crush will hurt)
 
 Alternative: Buy further OTM strikes to reduce cost
 - $175/$185 strangle cost $4.00 (need >$8 move, but cheaper)
@@ -547,7 +547,7 @@ Profit Zone: $175 to $185
 Max Profit: $400
 Max Loss: $100
 
-IV Crush Benefit: ✅
+IV Crush Benefit: 
 - Short high IV before earnings
 - IV drops after earnings → profit on vega
 - Even if stock moves slightly, IV drop helps
@@ -558,9 +558,9 @@ Greeks:
 - Theta: +$20/day
 
 Recommendation:
-✅ Good if expect normal earnings reaction (<8% move)
-✅ Benefit from IV crush regardless of direction
-⚠️ Risk if stock gaps outside range (>10% move)
+ Good if expect normal earnings reaction (<8% move)
+ Benefit from IV crush regardless of direction
+ Risk if stock gaps outside range (>10% move)
 
 Exit Plan:
 - Close next day if IV crushed (capture profit early)
@@ -600,9 +600,9 @@ Current Portfolio:
 - Vega: -$300 (short volatility)
 
 Interpretation:
-✅ Neutral delta (safe)
-✅ Positive theta (time working for you)
-⚠️ Short vega: If IV spikes, lose $300 per 1% IV increase
+ Neutral delta (safe)
+ Positive theta (time working for you)
+ Short vega: If IV spikes, lose $300 per 1% IV increase
 → Reduce short premium positions if VIX rising
 ```
 
@@ -708,7 +708,7 @@ Straddle/Strangle:
 ## Trade Management
 
 ### Entry
-✅ Enter if: [Conditions]
+ Enter if: [Conditions]
 - Stock price $178-$182
 - IV below 30%
 - >21 DTE
@@ -730,15 +730,15 @@ Straddle/Strangle:
 ## Suitability
 
 ### When to Use This Strategy
-✅ Moderately bullish on AAPL
-✅ Expect upside to $185-$190
-✅ Want defined risk
-✅ 21-45 DTE timeframe
+ Moderately bullish on AAPL
+ Expect upside to $185-$190
+ Want defined risk
+ 21-45 DTE timeframe
 
 ### When to Avoid
-❌ Very bullish (buy stock or long call instead)
-❌ High IV environment (wait for IV to drop)
-❌ Earnings in <7 days (IV crush risk)
+ Very bullish (buy stock or long call instead)
+ High IV environment (wait for IV to drop)
+ Earnings in <7 days (IV crush risk)
 
 ---
 

@@ -1,4 +1,4 @@
-# 📱 qr-factory
+#  qr-factory
 
 Multi-purpose QR code generator — URLs, WiFi, vCards, and plain text.
 

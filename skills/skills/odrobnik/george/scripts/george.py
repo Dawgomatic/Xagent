@@ -738,7 +738,7 @@ def wait_for_login_approval(page, timeout_seconds: int = 300) -> bool:
         # Dismissed (user rejected)
         try:
             if dismissed_locator.first.is_visible(timeout=200):
-                print("\n[login] ❌ LOGIN DISMISSED - user rejected. Start over.", flush=True)
+                print("\n[login]  LOGIN DISMISSED - user rejected. Start over.", flush=True)
                 return False
         except Exception:
             pass
@@ -913,7 +913,7 @@ def login(page, timeout_seconds: int = 300) -> bool:
     if code:
         print(f"[login] Verification code: {code}", flush=True)
     else:
-        print("[login] ⚠️ Could not extract code - CHECK BROWSER WINDOW", flush=True)
+        print("[login]  Could not extract code - CHECK BROWSER WINDOW", flush=True)
     
     # NOTE: No macOS-specific notifications. Code is printed to stdout for the caller
     # (Moltbot session) to forward via Telegram.

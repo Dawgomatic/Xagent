@@ -51,7 +51,7 @@ def export_data(input_data: str, format: str = "csv", output: str = "export.csv"
         with open(output, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
 
-    print(f"✅ Data exported: {output}")
+    print(f" Data exported: {output}")
 
 
 def main():

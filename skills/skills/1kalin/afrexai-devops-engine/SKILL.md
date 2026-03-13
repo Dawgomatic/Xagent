@@ -1,7 +1,7 @@
 ---
 name: afrexai-devops-engine
 description: Complete DevOps & Platform Engineering system. CI/CD pipelines, infrastructure as code, container orchestration, observability, incident response, and SRE practices — all platforms, all clouds.
-metadata: {"clawdbot":{"emoji":"🔧","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # DevOps & Platform Engineering Engine
@@ -573,10 +573,10 @@ Safe migration pattern:
   v4: Drop old column (after v3 is fully deployed)
 
 NEVER in one deploy:
-  ❌ Rename column
-  ❌ Change column type
-  ❌ Drop column still read by current version
-  ❌ Add NOT NULL without default
+   Rename column
+   Change column type
+   Drop column still read by current version
+   Add NOT NULL without default
 ```
 
 ## Phase 7: Observability Stack

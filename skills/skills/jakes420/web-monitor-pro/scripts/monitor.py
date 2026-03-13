@@ -157,7 +157,7 @@ def _check_whats_new():
     _save_meta(meta)
     if last_seen is not None:
         print()
-        print(f"🆕 Web Monitor Pro v{VERSION} — What's new:")
+        print(f" Web Monitor Pro v{VERSION} — What's new:")
         print(f"   {WHATS_NEW}")
         print(f"   Run: monitor.py help for details")
         print()
@@ -895,7 +895,7 @@ def check_condition(condition, content, monitor=None):
 def cmd_engines(args):
     """Show which fetch engines are available on this system."""
     print()
-    print(_bold("🔧 Fetch Engines"))
+    print(_bold(" Fetch Engines"))
     print()
 
     # curl
@@ -903,11 +903,11 @@ def cmd_engines(args):
         result = subprocess.run(["curl", "--version"], capture_output=True, text=True, timeout=5)
         version = result.stdout.split('\n')[0].strip() if result.returncode == 0 else None
         if version:
-            print(f"  curl: {_green('✅ installed')} ({version.split()[1] if len(version.split()) > 1 else version})")
+            print(f"  curl: {_green(' installed')} ({version.split()[1] if len(version.split()) > 1 else version})")
         else:
-            print(f"  curl: {_red('❌ not found')}")
+            print(f"  curl: {_red(' not found')}")
     except Exception:
-        print(f"  curl: {_red('❌ not found')}")
+        print(f"  curl: {_red(' not found')}")
 
     # cloudscraper
     if HAS_CLOUDSCRAPER:
@@ -915,15 +915,15 @@ def cmd_engines(args):
             cs_version = _cloudscraper_module.__version__
         except AttributeError:
             cs_version = "unknown"
-        print(f"  cloudscraper: {_green('✅ installed')} (v{cs_version})")
+        print(f"  cloudscraper: {_green(' installed')} (v{cs_version})")
     else:
-        print(f"  cloudscraper: {_red('❌ not installed')} (pip3 install cloudscraper)")
+        print(f"  cloudscraper: {_red(' not installed')} (pip3 install cloudscraper)")
 
     # playwright
     if HAS_PLAYWRIGHT:
-        print(f"  playwright: {_green('✅ installed')}")
+        print(f"  playwright: {_green(' installed')}")
     else:
-        print(f"  playwright: {_red('❌ not installed')} (pip3 install playwright && python3 -m playwright install chromium)")
+        print(f"  playwright: {_red(' not installed')} (pip3 install playwright && python3 -m playwright install chromium)")
 
     print()
     print(_dim("  Engine fallback order (auto mode): curl -> cloudscraper -> playwright"))
@@ -932,7 +932,7 @@ def cmd_engines(args):
 
 def cmd_setup(args):
     print()
-    print(_bold("👁️  Web Monitor Pro v" + VERSION))
+    print(_bold("  Web Monitor Pro v" + VERSION))
     print()
     print("Track web pages for price drops, stock changes, and content updates.")
     print("All data is stored locally in ~/.web-monitor/")
@@ -964,7 +964,7 @@ def cmd_setup(args):
     print(f"Run {_cyan('monitor.py help')} for all commands.")
     print()
     ensure_dirs()
-    print(_green("✅ Storage directory ready: " + str(STORE_DIR)))
+    print(_green(" Storage directory ready: " + str(STORE_DIR)))
     print()
     print(_bold("Engines:"))
     engines_available = ["curl"]
@@ -1030,7 +1030,7 @@ def cmd_feedback(args):
     )
 
     print()
-    print(f"Thanks! Your feedback helps make Web Monitor Pro better. 👁️")
+    print(f"Thanks! Your feedback helps make Web Monitor Pro better. ")
     print()
     print(f"Open an issue:")
     print(f"  {url}")
@@ -1060,7 +1060,7 @@ def cmd_debug(args):
             store_size = f"{total_bytes / 1_000:.1f} KB"
 
     print()
-    print(_bold("👁️  Web Monitor Pro Debug Info"))
+    print(_bold("  Web Monitor Pro Debug Info"))
     print()
     print(f"  Version:       {VERSION}")
     print(f"  Python:        {sys.version.split()[0]}")
@@ -1100,7 +1100,7 @@ def cmd_quickstart(args):
     suggestions = [
         {
             "category": "price",
-            "icon": "💰",
+            "icon": "",
             "label": "Price Drop Alert",
             "description": "Track product prices on Amazon, Takealot, eBay, or any store",
             "command": 'monitor.py watch "<product-url>"',
@@ -1108,7 +1108,7 @@ def cmd_quickstart(args):
         },
         {
             "category": "restock",
-            "icon": "📦",
+            "icon": "",
             "label": "Back in Stock Alert",
             "description": "Get notified when a sold-out item comes back",
             "command": 'monitor.py template use restock "<product-url>"',
@@ -1116,7 +1116,7 @@ def cmd_quickstart(args):
         },
         {
             "category": "news",
-            "icon": "📰",
+            "icon": "",
             "label": "Page Change Tracker",
             "description": "Watch news sites, blogs, docs, or competitor pages for updates",
             "command": 'monitor.py watch "<page-url>"',
@@ -1124,7 +1124,7 @@ def cmd_quickstart(args):
         },
         {
             "category": "sale",
-            "icon": "🏷️",
+            "icon": "",
             "label": "Sale & Discount Watcher",
             "description": "Get alerted when a sale or discount appears on a page",
             "command": 'monitor.py template use sale "<deals-page-url>"',
@@ -1153,7 +1153,7 @@ def cmd_quickstart(args):
 
     # Also print human-readable
     print()
-    print(_bold("👁️  Web Monitor Pro v" + VERSION))
+    print(_bold("  Web Monitor Pro v" + VERSION))
     print()
 
     if len(monitors) > 0:
@@ -1173,7 +1173,7 @@ def cmd_quickstart(args):
     if result["tips"]:
         print()
         for tip in result["tips"]:
-            print(f"  💡 {tip}")
+            print(f"   {tip}")
     print()
 
     print(json.dumps(result, indent=2))
@@ -1181,7 +1181,7 @@ def cmd_quickstart(args):
 
 def cmd_help(args):
     print()
-    print(_bold("👁️  Web Monitor Pro v" + VERSION))
+    print(_bold("  Web Monitor Pro v" + VERSION))
     print()
     print(_bold("Get started:"))
     print(f"  quickstart                 Smart setup with suggestions and engine check")
@@ -1480,10 +1480,10 @@ def cmd_dashboard(args):
 
     lines = []
     if whatsapp:
-        lines.append("*👁️ Web Monitor Dashboard*")
+        lines.append("* Web Monitor Dashboard*")
         lines.append("")
     else:
-        lines.append(_bold("👁️  Web Monitor Dashboard"))
+        lines.append(_bold("  Web Monitor Dashboard"))
         lines.append("")
 
     for group_name in sorted(groups.keys()):
@@ -1500,23 +1500,23 @@ def cmd_dashboard(args):
             label = m.get("label", m["url"])[:50]
 
             if not enabled:
-                status = "⏸️"
+                status = ""
             elif not latest:
-                status = "⏳"
+                status = ""
             else:
                 condition = m.get("condition")
                 if condition and latest:
                     met, _ = check_condition(condition, latest.get("content", ""), m)
                     if met:
-                        status = "🔴"
+                        status = ""
                     else:
-                        status = "✅"
+                        status = ""
                 else:
-                    status = "✅"
+                    status = ""
 
             last = relative_time(latest["timestamp"] if latest else None)
             days = days_since(m.get("created"))
-            pri_icon = {"high": "🔥", "low": "💤"}.get(priority, "")
+            pri_icon = {"high": "", "low": ""}.get(priority, "")
 
             price_str = ""
             ph = m.get("price_history", [])
@@ -1526,13 +1526,13 @@ def cmd_dashboard(args):
                 price_str = f" R{current:,.0f}"
                 if target_val:
                     if current <= target_val:
-                        price_str += " 🎯"
+                        price_str += " "
                     else:
                         pct = (current - target_val) / target_val * 100
                         price_str += f" ({pct:.0f}% above target)"
 
-            browser_icon = " 🌐" if m.get("browser") else ""
-            webhook_icon = " 🔔" if m.get("webhooks") else ""
+            browser_icon = " " if m.get("browser") else ""
+            webhook_icon = " " if m.get("webhooks") else ""
 
             if whatsapp:
                 lines.append(f"{status} *{label}*{price_str}{browser_icon}{webhook_icon}")
@@ -1598,9 +1598,9 @@ def cmd_trend(args):
     if len(prices) >= 2:
         recent = prices[-3:] if len(prices) >= 3 else prices
         if recent[-1] > recent[0]:
-            direction = "↗️ rising"
+            direction = " rising"
         elif recent[-1] < recent[0]:
-            direction = "↘️ dropping"
+            direction = " dropping"
         else:
             direction = "→ stable"
     else:
@@ -1614,7 +1614,7 @@ def cmd_trend(args):
             return iso[:10]
 
     print()
-    print(_bold(f"📈 Price Trend: {m.get('label', mid)}"))
+    print(_bold(f" Price Trend: {m.get('label', mid)}"))
     print(f"  Direction: {direction}")
     print(f"  Current:  R{current:,.0f}")
     print(f"  Lowest:   R{min_price:,.0f} on {fmt_date(min_date)}")
@@ -1625,7 +1625,7 @@ def cmd_trend(args):
     target_val = m.get("target")
     if target_val:
         if current <= target_val:
-            print(f"  🎯 Target of R{target_val:,.0f} reached!")
+            print(f"   Target of R{target_val:,.0f} reached!")
         else:
             pct = (current - target_val) / target_val * 100
             print(f"  Target:   R{target_val:,.0f} (currently {pct:.0f}% above)")
@@ -1717,7 +1717,7 @@ def cmd_notes(args):
         print(_yellow(f"No notes for '{m.get('label', mid)}'."))
         return
 
-    print(_bold(f"📝 Notes for {m.get('label', mid)}"))
+    print(_bold(f" Notes for {m.get('label', mid)}"))
     for n in notes:
         t = relative_time(n.get("timestamp"))
         print(f"  [{t}] {n['text']}")
@@ -1734,7 +1734,7 @@ def cmd_groups(args):
         g = m.get("group") or "ungrouped"
         groups[g] = groups.get(g, 0) + 1
 
-    print(_bold("📁 Groups"))
+    print(_bold(" Groups"))
     for g, count in sorted(groups.items()):
         print(f"  {g}: {count} monitor{'s' if count != 1 else ''}")
 
@@ -1787,10 +1787,10 @@ def cmd_report(args):
                 price_movements.append((m.get("label", mid), week_prices[0], week_prices[-1], change_pct))
 
     lines = []
-    lines.append("*👁️ Weekly Monitor Report*")
+    lines.append("* Weekly Monitor Report*")
     lines.append("")
-    lines.append(f"📊 {total_checked} monitors checked")
-    lines.append(f"🔄 {total_changes} changes detected")
+    lines.append(f" {total_checked} monitors checked")
+    lines.append(f" {total_changes} changes detected")
     lines.append("")
 
     if price_movements:
@@ -1798,9 +1798,9 @@ def cmd_report(args):
         drops = sorted([p for p in price_movements if p[3] < 0], key=lambda x: x[3])
         rises = sorted([p for p in price_movements if p[3] > 0], key=lambda x: -x[3])
         for label, old, new, pct in drops[:5]:
-            lines.append(f"  ↘️ {label}: R{old:,.0f} → R{new:,.0f} ({pct:+.0f}%)")
+            lines.append(f"   {label}: R{old:,.0f} → R{new:,.0f} ({pct:+.0f}%)")
         for label, old, new, pct in rises[:5]:
-            lines.append(f"  ↗️ {label}: R{old:,.0f} → R{new:,.0f} ({pct:+.0f}%)")
+            lines.append(f"   {label}: R{old:,.0f} → R{new:,.0f} ({pct:+.0f}%)")
         lines.append("")
 
     if change_counts:
@@ -1828,7 +1828,7 @@ def cmd_watch(args):
     if engine == "openclaw":
         content = None
         title = None
-        print(f"  🔧 OpenClaw engine: skipping initial fetch.")
+        print(f"   OpenClaw engine: skipping initial fetch.")
         print(f"  First check needs: monitor.py check --id <id> --content-file <path>")
     else:
         content, err, title = fetch_url_auto(url, use_browser=use_browser, engine=engine)
@@ -1853,20 +1853,20 @@ def cmd_watch(args):
             monitor_type = "price"
             best_price = prices[0]
             condition = f"price below {best_price * 0.9:.0f}"
-            print(f"  💰 Detected price: R{best_price:,.0f}")
+            print(f"   Detected price: R{best_price:,.0f}")
             print(f"  Auto-set alert: price drops below R{best_price * 0.9:,.0f}")
         elif has_stock:
             monitor_type = "stock"
             if any(t in content_lower for t in ["out of stock", "sold out", "unavailable"]):
                 condition = "contains 'in stock'"
-                print(f"  📦 Currently out of stock. Will alert when back in stock.")
+                print(f"   Currently out of stock. Will alert when back in stock.")
             else:
                 condition = "not contains 'out of stock'"
-                print(f"  📦 Currently in stock. Will alert if it goes out of stock.")
+                print(f"   Currently in stock. Will alert if it goes out of stock.")
         else:
-            print(f"  📄 Set up for content change monitoring.")
+            print(f"   Set up for content change monitoring.")
     else:
-        print(f"  📄 Set up for content change monitoring (no initial snapshot).")
+        print(f"   Set up for content change monitoring (no initial snapshot).")
 
     mid = gen_id(url, label)
     monitors = load_monitors()
@@ -1902,7 +1902,7 @@ def cmd_watch(args):
     save_monitors(monitors)
 
     print()
-    print(_green(f"✅ Now monitoring: {label}"))
+    print(_green(f" Now monitoring: {label}"))
     print(f"   ID: {mid}")
     if engine == "openclaw":
         print(f"   First check: monitor.py check --id {mid} --content-file <path>")
@@ -2046,7 +2046,7 @@ def cmd_compare(args):
 
     print()
     title = f"group '{group_name}'" if group_name else "all price monitors"
-    print(_bold(f"💰 Price Comparison: {title}"))
+    print(_bold(f" Price Comparison: {title}"))
     print()
 
     for i, (mid, m) in enumerate(price_monitors):
@@ -2057,7 +2057,7 @@ def cmd_compare(args):
         high = max(prices_list) if prices_list else price
 
         label = m.get("label", mid)[:40]
-        rank = "🥇" if i == 0 else ("🥈" if i == 1 else ("🥉" if i == 2 else f"  {i+1}."))
+        rank = "" if i == 0 else ("" if i == 1 else ("" if i == 2 else f"  {i+1}."))
 
         pct_vs_avg = ((price - avg_price) / avg_price * 100) if avg_price else 0
         vs_avg = f"{pct_vs_avg:+.0f}% vs avg" if abs(pct_vs_avg) > 1 else "at avg"
@@ -2147,7 +2147,7 @@ def cmd_template(args):
     elif sub == "use":
         cmd_template_use(args)
     else:
-        print(_bold("📋 Monitor Templates"))
+        print(_bold(" Monitor Templates"))
         print()
         print(f"  template list              Show available templates")
         print(f"  template use <name> <url>  Apply a template to a URL")
@@ -2156,7 +2156,7 @@ def cmd_template(args):
 
 def cmd_template_list(args):
     print()
-    print(_bold("📋 Available Templates"))
+    print(_bold(" Available Templates"))
     print()
     for name, t in TEMPLATES.items():
         print(f"  {_cyan(name)}")
@@ -2199,7 +2199,7 @@ def cmd_template_use(args):
         if prices:
             best = prices[0]
             condition = f"price below {best * 0.9:.0f}"
-            print(f"  💰 Current price: R{best:,.0f}. Alert below R{best * 0.9:,.0f}")
+            print(f"   Current price: R{best:,.0f}. Alert below R{best * 0.9:,.0f}")
         else:
             print(_yellow("  No price detected. Monitoring for content changes instead."))
 
@@ -2234,7 +2234,7 @@ def cmd_template_use(args):
     monitors[mid] = monitor
     save_monitors(monitors)
 
-    print(_green(f"✅ Template '{name}' applied: {label}"))
+    print(_green(f" Template '{name}' applied: {label}"))
     print(f"   ID: {mid}")
 
 

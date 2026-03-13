@@ -25,7 +25,7 @@ transcripts/
 
 Each transcript is speaker-labeled and ready to paste into ChatGPT, Claude, or any LLM.
 
-## Why 🍯
+## Why 
 
 I consume a lot of video content — YouTube, Instagram, TikTok, podcasts, interviews. I wanted to:
 - Ask questions about videos in LLMs
@@ -34,14 +34,14 @@ I consume a lot of video content — YouTube, Instagram, TikTok, podcasts, inter
 
 transcribee does exactly that. Transcribe once, knowledge stays forever.
 
-## Features 🪻
+## Features 
 
 - **Transcribes** YouTube, Instagram Reels, TikTok, and local audio/video files
 - **Speaker diarization** — identifies different speakers
 - **Auto-categorizes** transcripts using Claude based on content
 - **Builds a knowledge library** that organizes itself over time
 
-## Use with Clawdbot 🤖
+## Use with Clawdbot 
 
 transcribee is available as a [Clawdbot](https://github.com/clawdbot/clawdbot) skill. Just ask your agent to transcribe any YouTube video:
 
@@ -59,7 +59,7 @@ git clone https://github.com/itsfabioroma/transcribee.git ~/.clawdbot/skills/tra
 
 Make sure you have the dependencies installed (`brew install yt-dlp ffmpeg`) and API keys configured.
 
-## Quick Start 🪺
+## Quick Start 
 
 ```bash
 # Install dependencies (macOS)
@@ -86,7 +86,7 @@ Add to `~/.zshrc`:
 alias transcribee="noglob /path/to/transcribee/transcribe.sh"
 ```
 
-## Output 🍯
+## Output 
 
 Each transcript saves to `~/Documents/transcripts/{category}/{title}/`:
 
@@ -105,7 +105,7 @@ transcribee --raw "https://youtube.com/watch?v=..."
 
 This adds `transcript-raw.json` with the full ElevenLabs response.
 
-## How it works 🐝
+## How it works 
 
 1. Downloads audio from YouTube (yt-dlp) or extracts from local video (ffmpeg)
 2. Transcribes with ElevenLabs (`scribe_v1_experimental` with speaker diarization)
@@ -132,4 +132,4 @@ This adds `transcript-raw.json` with the full ElevenLabs response.
 
 ---
 
-*bzz bzz* 🐝
+*bzz bzz* 

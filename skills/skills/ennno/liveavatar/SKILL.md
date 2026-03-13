@@ -2,7 +2,7 @@
 name: liveavatar
 description: Talk face-to-face with your OpenClaw agent using a real-time video avatar powered by LiveAvatar
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🎭","requires":{"env":["LIVEAVATAR_API_KEY"],"bins":["node","npm"]},"install":[{"id":"node","kind":"node","package":"openclaw-liveavatar","bins":["openclaw-liveavatar"],"label":"Install LiveAvatar (npm)"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["LIVEAVATAR_API_KEY"],"bins":["node","npm"]},"install":[{"id":"node","kind":"node","package":"openclaw-liveavatar","bins":["openclaw-liveavatar"],"label":"Install LiveAvatar (npm)"}]}}
 ---
 
 # OpenClaw LiveAvatar

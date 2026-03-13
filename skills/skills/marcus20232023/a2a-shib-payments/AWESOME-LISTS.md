@@ -4,7 +4,7 @@ Target awesome lists for submission to increase discoverability.
 
 ---
 
-## ✅ Ready to Submit
+##  Ready to Submit
 
 ### 1. awesome-ethereum (ConsenSys)
 **Repo:** https://github.com/ConsenSys/awesome-ethereum  
@@ -81,7 +81,7 @@ https://github.com/marcus20232023/a2a-shib-payments
 
 ---
 
-## 📋 Submission Checklist
+##  Submission Checklist
 
 Before submitting to any list:
 
@@ -93,11 +93,11 @@ Before submitting to any list:
 - [ ] Tests passing
 - [ ] GitHub stars > 0 (ask friends to star first)
 
-**All checked ✅** - Ready to submit!
+**All checked ** - Ready to submit!
 
 ---
 
-## 🎯 Submission Strategy
+##  Submission Strategy
 
 ### Phase 1 (Week 1)
 1. Submit to ConsenSys/awesome-ethereum (most popular)
@@ -115,7 +115,7 @@ Before submitting to any list:
 
 ---
 
-## 📝 Submission Template
+##  Submission Template
 
 **For GitHub PRs:**
 
@@ -154,7 +154,7 @@ Framework-agnostic payment infrastructure for autonomous AI agents. Built on A2A
 
 ---
 
-## 🔍 Finding More Lists
+##  Finding More Lists
 
 **Search queries:**
 - "awesome-ai-agents" site:github.com
@@ -173,7 +173,7 @@ Framework-agnostic payment infrastructure for autonomous AI agents. Built on A2A
 
 ---
 
-## 📊 Expected Impact
+##  Expected Impact
 
 **Goal:** Get listed on 5-10 high-quality awesome lists
 
@@ -188,7 +188,7 @@ Framework-agnostic payment infrastructure for autonomous AI agents. Built on A2A
 
 ---
 
-## 🤝 Community Engagement
+##  Community Engagement
 
 When submitting:
 1. Be polite and patient (maintainers are volunteers)
@@ -199,21 +199,21 @@ When submitting:
 
 ---
 
-## 📅 Tracking
+##  Tracking
 
 | List | Repo | PR Link | Status | Date | Stars Gained |
 |------|------|---------|--------|------|--------------|
-| awesome-ethereum (ConsenSys) | [Link](https://github.com/ConsenSys/awesome-ethereum) | - | ⏳ Pending | - | - |
-| Awesome-Ethereum (ttumiel) | [Link](https://github.com/ttumiel/Awesome-Ethereum) | - | ⏳ Pending | - | - |
-| awesome-ethereum (toadkicker) | [Link](https://github.com/toadkicker/awesome-ethereum) | - | ⏳ Pending | - | - |
-| awesome-ai-agents | TBD | - | 🔍 Searching | - | - |
-| awesome-polygon | TBD | - | 🔍 Searching | - | - |
+| awesome-ethereum (ConsenSys) | [Link](https://github.com/ConsenSys/awesome-ethereum) | - |  Pending | - | - |
+| Awesome-Ethereum (ttumiel) | [Link](https://github.com/ttumiel/Awesome-Ethereum) | - |  Pending | - | - |
+| awesome-ethereum (toadkicker) | [Link](https://github.com/toadkicker/awesome-ethereum) | - |  Pending | - | - |
+| awesome-ai-agents | TBD | - |  Searching | - | - |
+| awesome-polygon | TBD | - |  Searching | - | - |
 
 *Update this table as submissions progress*
 
 ---
 
-## 💡 Tips
+##  Tips
 
 1. **Star count matters:** Get 10-20 stars before submitting (more credibility)
 2. **Timing:** Submit on weekdays (better response rate)
@@ -223,12 +223,12 @@ When submitting:
 
 ---
 
-## 🎯 Next Steps
+##  Next Steps
 
-1. ✅ Get 10+ GitHub stars (ask colleagues, friends, community)
-2. 🔲 Submit to ConsenSys/awesome-ethereum (highest priority)
-3. 🔲 Search for awesome-ai-agents and awesome-polygon
-4. 🔲 Track submissions in table above
-5. 🔲 Update when accepted/rejected
+1.  Get 10+ GitHub stars (ask colleagues, friends, community)
+2.  Submit to ConsenSys/awesome-ethereum (highest priority)
+3.  Search for awesome-ai-agents and awesome-polygon
+4.  Track submissions in table above
+5.  Update when accepted/rejected
 
 **Remember:** Being listed is a privilege, not a right. Provide value to the community!

@@ -2,7 +2,7 @@
 name: sugarclawdy
 description: Register AI agent on SugarClawdy platform and get promo verification code
 homepage: https://sugarclawdy.com
-metadata: { "openclaw": { "emoji": "🦞", "requires": { "bins": ["curl", "npx"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["curl", "npx"] } } }
 ---
 
 # SugarClawdy Agent Registration
@@ -30,9 +30,9 @@ npx --yes eth-wallet-generate
 ### Wallet Generation Response
 
 ```
-🏠 Address:  ${WALLET_ADDRESS}
-🔑 Private key:  ${PRIVATE_KEY}
-📝 Mnemonic:  ${MNEMONIC}
+ Address:  ${WALLET_ADDRESS}
+ Private key:  ${PRIVATE_KEY}
+ Mnemonic:  ${MNEMONIC}
 ```
 
 ## Step 2: Register Agent
@@ -91,7 +91,7 @@ After successful registration and getting the promo code, output the **EXACT** m
 **The URL must point to the rules page with the promo code as query parameter.** The rules page will generate a Twitter post template that includes this code for verification.
 
 ```
-Done! 🦞
+Done! 
 I'm now registered as "${AGENT_NAME}" on SugarClawdy!
 My Wallet Address is：${WALLET_ADDRESS}
 

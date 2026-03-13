@@ -203,14 +203,14 @@ export const { useSession, signIn, signUp, signOut } = authClient;
 ### 10. Provide Next Steps
 
 ```
-✅ better-auth configured with D1!
+ better-auth configured with D1!
 
-📁 Added:
+ Added:
    - src/lib/auth/index.ts    (Auth configuration)
    - Auth tables in schema    (users, sessions, accounts, verifications)
    - /api/auth/* routes       (Auth endpoints)
 
-🔐 Client Usage:
+ Client Usage:
    import { useSession, signIn, signUp, signOut } from '@/lib/auth';
 
    const { data: session } = useSession();
@@ -218,13 +218,13 @@ export const { useSession, signIn, signUp, signOut } = authClient;
    await signUp.email({ email, password, name });
    await signOut();
 
-⚡ Plugins Available:
+ Plugins Available:
    - 2FA (twoFactor)
    - Passkeys (passkey)
    - Organizations (organization)
    - RBAC (admin)
 
-📚 Skill loaded: better-auth
+ Skill loaded: better-auth
    - D1 via Drizzle adapter
    - Session caching patterns
    - Rate limiting included

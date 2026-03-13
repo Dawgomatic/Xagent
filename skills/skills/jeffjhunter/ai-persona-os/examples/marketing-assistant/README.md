@@ -1,4 +1,4 @@
-# 📣 Marketing Assistant Starter Pack
+#  Marketing Assistant Starter Pack
 
 A pre-configured AI Persona setup for content creation and brand growth.
 
@@ -37,25 +37,25 @@ A pre-configured AI Persona setup for content creation and brand growth.
 
 ## Key Features
 
-### 📊 Performance Tracking
+###  Performance Tracking
 - Daily engagement metrics
 - Comparison to benchmarks
 - Trend identification
 - Content performance analysis
 
-### 📝 Content Management
+###  Content Management
 - Content calendar overview
 - Pipeline visibility
 - Platform-specific formatting
 - Content pillar balance
 
-### 💬 Engagement Management
+###  Engagement Management
 - Comment response tracking
 - DM monitoring
 - Mention acknowledgment
 - Sentiment awareness
 
-### 🔥 Trend Monitoring
+###  Trend Monitoring
 - Relevant trending topics
 - Opportunity assessment
 - Competitor activity
@@ -85,30 +85,30 @@ A pre-configured AI Persona setup for content creation and brand growth.
 ```
 MARKETING BRIEFING — Monday, January 27, 2026
 
-📊 YESTERDAY'S PERFORMANCE
+ YESTERDAY'S PERFORMANCE
 - Top post: LinkedIn carousel — 5.2% engagement (+2.1%)
 - Total engagement: 847 interactions
 - New followers: +43 across platforms
 
-🔥 TRENDING NOW
+ TRENDING NOW
 - "AI productivity" trending on LinkedIn — HIGH relevance
 - Opportunity: Quick take on our AI workflow?
 
-📅 TODAY'S CONTENT
+ TODAY'S CONTENT
 - LinkedIn: "5 automation mistakes" carousel — READY
 - Twitter: Thread on delegation — NEEDS REVIEW
 - Instagram: Behind-the-scenes story — SCHEDULED
 
-💬 ENGAGEMENT NEEDED
+ ENGAGEMENT NEEDED
 - 12 comments to respond to (2 high-priority)
 - 3 DMs pending
 - 5 mentions to acknowledge
 
-⚠️ WATCH
+ WATCH
 - Competitor launched new campaign yesterday
 - Consider response content?
 
-🎯 PRIORITIES
+ PRIORITIES
 1. Respond to high-priority comments
 2. Finalize Twitter thread for approval
 3. Draft response to competitor campaign

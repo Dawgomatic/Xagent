@@ -35,13 +35,13 @@ Use SubAgent               Direct handling
 
 | Scenario | Action | Reason |
 |----------|--------|--------|
-| "Check weather" | ❌ Direct | Quick lookup |
-| "Explain bubble sort" | ❌ Direct | Simple explanation |
-| "Summarize this file" | ❌ Direct | Single task |
-| "Implement + verify algorithm" | ✅ SubAgent | Worker + Reviewer |
-| "Design UI components" | ✅ SubAgent | Specialized work |
-| "Process 1000 files" | ✅ SubAgent | Batch + parallel |
-| "Research + implement" | ✅ SubAgent | Multi-phase |
+| "Check weather" |  Direct | Quick lookup |
+| "Explain bubble sort" |  Direct | Simple explanation |
+| "Summarize this file" |  Direct | Single task |
+| "Implement + verify algorithm" |  SubAgent | Worker + Reviewer |
+| "Design UI components" |  SubAgent | Specialized work |
+| "Process 1000 files" |  SubAgent | Batch + parallel |
+| "Research + implement" |  SubAgent | Multi-phase |
 
 ---
 
@@ -123,7 +123,7 @@ Aggregator combines results
 
 ## Anti-Patterns: Don't Do This!
 
-### ❌ Over-decomposition
+###  Over-decomposition
 ```python
 # Bad: Creating agents for trivial tasks
 planner = create_agent("plan")
@@ -132,13 +132,13 @@ reviewer = create_agent("review")
 # User just wanted to convert a file!
 ```
 
-### ❌ No Cleanup
+###  No Cleanup
 ```python
 # Bad: Leaving tickets in active/ forever
 # Always archive completed tasks
 ```
 
-### ❌ Wrong Role
+###  Wrong Role
 ```python
 # Bad: Using researcher for implementation
 # Match role to actual need
@@ -148,18 +148,18 @@ reviewer = create_agent("review")
 
 ## Best Practices
 
-### ✅ Check Before Creating
+###  Check Before Creating
 - [ ] Is this too complex for direct handling?
 - [ ] Do I have a clear completion criteria?
 - [ ] Can I archive this when done?
 
-### ✅ Use Correct Role
+###  Use Correct Role
 - **worker**: Implementation, execution
 - **reviewer**: Quality assurance
 - **researcher**: Investigation, analysis
 - **formatter**: Conversion, cleanup
 
-### ✅ Keep Tickets Tidy
+###  Keep Tickets Tidy
 - Archive completed tasks promptly
 - Use descriptive ticket IDs
 - Include timeout estimates
@@ -188,4 +188,4 @@ mcporter call 'exa.web_search_exa(query: "SKILL.md image generation", numResults
 > Use Tickets for process, QMD for knowledge.  
 > Simple tasks = direct handling.  > Complex workflows = SubAgents.
 
-*FIS 3.2.0-lite — Minimal workflow, maximal clarity 🐱⚡*
+*FIS 3.2.0-lite — Minimal workflow, maximal clarity *

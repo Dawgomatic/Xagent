@@ -38,7 +38,7 @@ openclaw cron add \
   --name "$WORK_NAME" \
   --at "${WORK_MINS}m" \
   --session isolated \
-  --message "🍅 工作时间结束！准备进入5分钟休息～" \
+  --message " 工作时间结束！准备进入5分钟休息～" \
   --deliver \
   --channel qqbot \
   --to "$USER_ID" \
@@ -52,11 +52,11 @@ openclaw cron add \
   --name "$REST_NAME" \
   --at "$((WORK_MINS + REST_MINS))m" \
   --session isolated \
-  --message "☕ 休息结束！下一个番茄钟随时开始～ 🐾" \
+  --message " 休息结束！下一个番茄钟随时开始～ " \
   --deliver \
   --channel qqbot \
   --to "$USER_ID" \
   --delete-after-run
 
-echo "✅ 番茄钟已启动：${WORK_MINS}分钟工作 → ${REST_MINS}分钟休息"
+echo " 番茄钟已启动：${WORK_MINS}分钟工作 → ${REST_MINS}分钟休息"
 echo "ID: $USER_ID | 任务名: $WORK_NAME, $REST_NAME"

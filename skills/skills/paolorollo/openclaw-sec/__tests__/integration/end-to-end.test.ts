@@ -206,7 +206,7 @@ describe('End-to-End Integration Tests', () => {
     });
 
     it('should handle unicode characters', async () => {
-      const unicode = '你好世界 🌍 Здравствуй мир';
+      const unicode = '你好世界  Здравствуй мир';
 
       const result = await engine.validate(unicode, {
         userId: 'test-user',

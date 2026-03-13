@@ -194,7 +194,7 @@ export default function ChatWithAttachments() {
           {/* File input */}
           <label className="flex items-center space-x-2 cursor-pointer">
             <div className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">
-              📎 Attach Files
+               Attach Files
             </div>
             <input
               type="file"

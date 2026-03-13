@@ -144,10 +144,10 @@ def format_traffic_status(status_code):
     """将路况状态码转为中文描述"""
     status_map = {
         "0": "未知",
-        "1": "畅通 🟢",
-        "2": "缓行 🟡",
-        "3": "拥堵 🔴",
-        "4": "严重拥堵 🟣"
+        "1": "畅通 ",
+        "2": "缓行 ",
+        "3": "拥堵 ",
+        "4": "严重拥堵 "
     }
     return status_map.get(status_code, "未知")
 
@@ -185,7 +185,7 @@ def main():
         sys.exit(1)
     
     # 3. 输出结果
-    print("🚗 实时路况最优路线:")
+    print(" 实时路况最优路线:")
     print("-" * 50)
     time_str = format_time(route["duration_sec"])
     dist_str = f"{route['distance']/1000:.1f}公里"
@@ -193,7 +193,7 @@ def main():
     print(f"预计时间: {time_str}")
     print(f"行驶距离: {dist_str}")
     print(f"预估费用: {cost_str}")
-    print("\n🚦 详细路况:")
+    print("\n 详细路况:")
     for segment in route["traffic_details"]:
         status = format_traffic_status(segment["status"])
         speed = segment["speed"] if segment["speed"] != "0" else "N/A"

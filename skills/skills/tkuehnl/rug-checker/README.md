@@ -1,4 +1,4 @@
-# 🛡️ Rug Checker — Solana Token Risk Analysis
+#  Rug Checker — Solana Token Risk Analysis
 
 **Instant rug-pull risk reports for any Solana token.** 10-point on-chain analysis. No API keys. No wallet connections. Just data.
 
@@ -12,16 +12,16 @@ Rug Checker analyzes Solana SPL tokens across 10 risk vectors and produces a vis
 
 | Check | What It Catches |
 |-------|----------------|
-| 🔑 Mint Authority | Can the creator print unlimited tokens? |
-| 🧊 Freeze Authority | Can the creator freeze your wallet? |
-| 👥 Holder Concentration | Are a few wallets holding everything? |
-| 🔒 LP Lock Status | Can liquidity be pulled? (the classic rug) |
-| ⏰ Token Age | Is this dangerously new? |
-| 💧 Liquidity Depth | Can you actually sell without 90% slippage? |
-| 🚩 Rugcheck Flags | Mutable metadata, known scam patterns |
-| 🕵️ Insider Activity | Coordinated wallet networks |
-| 💸 Transfer Fee | Hidden tax on transfers |
-| ✅ Verification | Is it listed on Jupiter? |
+|  Mint Authority | Can the creator print unlimited tokens? |
+|  Freeze Authority | Can the creator freeze your wallet? |
+|  Holder Concentration | Are a few wallets holding everything? |
+|  LP Lock Status | Can liquidity be pulled? (the classic rug) |
+|  Token Age | Is this dangerously new? |
+|  Liquidity Depth | Can you actually sell without 90% slippage? |
+|  Rugcheck Flags | Mutable metadata, known scam patterns |
+|  Insider Activity | Coordinated wallet networks |
+|  Transfer Fee | Hidden tax on transfers |
+|  Verification | Is it listed on Jupiter? |
 
 ## OpenClaw Discord v2 Ready
 
@@ -34,24 +34,24 @@ Tested for OpenClaw Discord channel delivery behavior (v2026.2.14+):
 
 | Score | Tier | Meaning |
 |-------|------|---------|
-| 0-15 | 🟢 SAFE | Low risk indicators across the board |
-| 16-35 | 🟡 CAUTION | Some yellow flags — proceed carefully |
-| 36-55 | 🟠 WARNING | Multiple risk factors detected |
-| 56-75 | 🔴 DANGER | Significant red flags |
-| 76-100 | ⛔ CRITICAL | Extreme risk — stay away |
+| 0-15 |  SAFE | Low risk indicators across the board |
+| 16-35 |  CAUTION | Some yellow flags — proceed carefully |
+| 36-55 |  WARNING | Multiple risk factors detected |
+| 56-75 |  DANGER | Significant red flags |
+| 76-100 |  CRITICAL | Extreme risk — stay away |
 
 ## Example Report
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║  🛡️  CacheForge Rug Report                                 ║
+║    CacheForge Rug Report                                 ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  Token:  $Bonk (Bonk)
 ║  Mint:   DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263
-║  Risk:   12/100 🟢 SAFE
+║  Risk:   12/100  SAFE
 ╚══════════════════════════════════════════════════════════════╝
 
-## 📊 Market Overview
+##  Market Overview
 
 | Metric | Value |
 |--------|-------|
@@ -62,41 +62,41 @@ Tested for OpenClaw Discord channel delivery behavior (v2026.2.14+):
 | Total Liquidity | $1.6M |
 | Holders | 966796 |
 
-## 🔍 Risk Breakdown
+##  Risk Breakdown
 
-🟢 **Mint Authority        ** ░░░░░░░░░░  0/10  (×2.0)
+ **Mint Authority        ** ░░░░░░░░░░  0/10  (×2.0)
    └─ Mint authority revoked — no new tokens can be created
 
-🟢 **Freeze Authority      ** ░░░░░░░░░░  0/10  (×1.5)
+ **Freeze Authority      ** ░░░░░░░░░░  0/10  (×1.5)
    └─ No freeze authority — tokens cannot be frozen
 
-🟡 **Holder Concentration  ** ████░░░░░░  4/10  (×1.5)
+ **Holder Concentration  ** ████░░░░░░  4/10  (×1.5)
    └─ Moderate concentration — top 10 hold 40.0% of supply
 
-🟢 **LP Lock Status        ** ░░░░░░░░░░  0/10  (×2.0)
+ **LP Lock Status        ** ░░░░░░░░░░  0/10  (×2.0)
    └─ LP strongly locked (100.0%) — liquidity pull very unlikely
 
-🟢 **Token Age             ** ░░░░░░░░░░  0/10  (×1.0)
+ **Token Age             ** ░░░░░░░░░░  0/10  (×1.0)
    └─ Mature token (1147 days / 3+ years)
 
-🟢 **Liquidity Depth       ** ░░░░░░░░░░  0/10  (×1.0)
+ **Liquidity Depth       ** ░░░░░░░░░░  0/10  (×1.0)
    └─ Strong liquidity ($1,602,345)
 
-🟡 **Rugcheck Flags        ** ███░░░░░░░  3/10  (×1.0)
+ **Rugcheck Flags        ** ███░░░░░░░  3/10  (×1.0)
    └─ 1 risk flag(s): Mutable metadata
 
-🟢 **Insider Activity      ** ░░░░░░░░░░  0/10  (×1.5)
+ **Insider Activity      ** ░░░░░░░░░░  0/10  (×1.5)
    └─ No insider networks detected
 
-🟢 **Transfer Fee          ** ░░░░░░░░░░  0/10  (×1.0)
+ **Transfer Fee          ** ░░░░░░░░░░  0/10  (×1.0)
    └─ No transfer fee
 
-🟢 **Verification          ** ░░░░░░░░░░  0/10  (×0.5)
+ **Verification          ** ░░░░░░░░░░  0/10  (×0.5)
    └─ Jupiter strict-listed — highest verification tier
 
-## 📈 Composite Score
+##  Composite Score
 
-  [██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 12/100 🟢 SAFE
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 12/100  SAFE
 
   0         20        40        60        80       100
   |--SAFE---|--CAUTION-|--WARNING-|--DANGER--|CRITICAL|

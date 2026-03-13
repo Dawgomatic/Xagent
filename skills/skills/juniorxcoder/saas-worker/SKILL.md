@@ -3,7 +3,7 @@ name: saas-worker
 description: Build and launch profitable SAAS products. Use for development, marketing, revenue optimization, and getting products to $1000+ MRR. The worker bee skill for SAAS factory operations.
 ---
 
-# 🤖 SAAS Worker - The Builder
+#  SAAS Worker - The Builder
 
 This is the workhorse skill for actually building and launching SAAS products. When you need to get shit done and make money, this is your tool.
 

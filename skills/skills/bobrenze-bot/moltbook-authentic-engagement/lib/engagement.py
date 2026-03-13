@@ -16,7 +16,7 @@ CREDS_PATH = Path.home() / ".config" / "moltbook" / "credentials.json"
 def get_api_key():
     """Get API key from credentials file."""
     if not CREDS_PATH.exists():
-        print(f"❌ No credentials found at {CREDS_PATH}")
+        print(f" No credentials found at {CREDS_PATH}")
         print("Create: ~/.config/moltbook/credentials.json with {\"api_key\": \"...\"}")
         sys.exit(1)
     
@@ -51,7 +51,7 @@ def is_mint_spam(post):
 def is_emoji_spam(post):
     """Detect emoji-heavy posts."""
     content = post.get("content", "")
-    emoji_count = sum(1 for c in content if c in "🦞🐺🎉🔥💎🚀🌈⭐💫✨")
+    emoji_count = sum(1 for c in content if c in "")
     return emoji_count > 5
 
 def is_foreign_spam(post):
@@ -94,13 +94,13 @@ def solve_verification(challenge):
 
 def engage_with_community():
     """Main engagement workflow."""
-    print("🦞 Moltbook Authentic Engagement")
+    print(" Moltbook Authentic Engagement")
     print("=" * 50)
     
     # Get my info
     me = api_call("/agents/me")
     if "error" in me:
-        print(f"❌ API error: {me['error']}")
+        print(f" API error: {me['error']}")
         return 1
     
     my_id = me.get("agent", {}).get("id")
@@ -109,7 +109,7 @@ def engage_with_community():
     print()
     
     # Get feed
-    print("📡 Scanning feed...")
+    print(" Scanning feed...")
     feed = api_call("/posts?submolt=general&sort=hot&limit=15")
     posts = feed.get("posts", [])
     
@@ -124,11 +124,11 @@ def engage_with_community():
         
         # Spam filter
         if is_spam(post):
-            print(f"🚫 Skipping spam: '{post.get('title', 'Untitled')[:50]}...'")
+            print(f" Skipping spam: '{post.get('title', 'Untitled')[:50]}...'")
             skipped_spam += 1
             continue
         
-        print(f"👀 Processing: '{post.get('title', 'Untitled')[:50]}...'")
+        print(f" Processing: '{post.get('title', 'Untitled')[:50]}...'")
         
         # Upvote if interesting (simple heuristic: karma > 0 or genuine content)
         if post.get("upvotes", 0) >= 0 and not is_spam(post):
@@ -145,7 +145,7 @@ def engage_with_community():
             
             # Check if verification required
             if result.get("verification_required"):
-                print("  🔐 Verification required...")
+                print("   Verification required...")
                 challenge = result.get("verification", {}).get("challenge", "")
                 vcode = result.get("verification", {}).get("code", "")
                 

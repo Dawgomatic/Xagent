@@ -270,18 +270,18 @@ Created: \(.createdAt | split("T")[0])
     ;;
 
   standup)
-    echo "=== 📊 Daily Standup ==="
+    echo "===  Daily Standup ==="
     echo ""
-    echo "🎯 YOUR TODOS:"
+    echo " YOUR TODOS:"
     gql "{ viewer { assignedIssues(first: 10, filter: { state: { type: { eq: \\\"unstarted\\\" } } }) { nodes { identifier title priorityLabel } } } }" | jq -r '.data.viewer.assignedIssues.nodes // [] | sort_by(.priorityLabel) | .[] | "  [\(.priorityLabel // "—")] \(.identifier): \(.title)"'
     echo ""
-    echo "🚧 IN PROGRESS (yours):"
+    echo " IN PROGRESS (yours):"
     gql "{ viewer { assignedIssues(first: 10, filter: { state: { type: { eq: \\\"started\\\" } } }) { nodes { identifier title state { name } } } } }" | jq -r '.data.viewer.assignedIssues.nodes // [] | .[] | "  \(.identifier): \(.title) (\(.state.name))"'
     echo ""
-    echo "🔴 BLOCKED (team-wide):"
+    echo " BLOCKED (team-wide):"
     gql "{ issues(filter: { state: { name: { in: [\\\"Blocked\\\", \\\"Paused\\\"] } } }, first: 10) { nodes { identifier title assignee { name } } } }" | jq -r '.data.issues.nodes // [] | .[] | "  \(.identifier): \(.title) → \(.assignee.name // "unassigned")"'
     echo ""
-    echo "✅ RECENTLY DONE (last 7 days):"
+    echo " RECENTLY DONE (last 7 days):"
     week_ago=$(date -d '7 days ago' +%Y-%m-%d 2>/dev/null || date -v-7d +%Y-%m-%d)
     gql "{ issues(filter: { state: { type: { eq: \\\"completed\\\" } }, completedAt: { gte: \\\"$week_ago\\\" } }, first: 10) { nodes { identifier title completedAt assignee { name } } } }" | jq -r '.data.issues.nodes // [] | .[] | "  \(.identifier): \(.title) → \(.assignee.name // "unassigned")"'
     ;;

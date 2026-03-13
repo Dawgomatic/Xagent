@@ -5,7 +5,7 @@ description: "Local-first RAG cache: distill docs into structured Markdown, then
 metadata:
   {
     "openclaw": {
-      "emoji": "🔎",
+      "emoji": "",
       "os": ["darwin", "linux"],
       "requires": { "bins": ["python3", "pip"] }
     }
@@ -21,7 +21,7 @@ It does **not** replace model memory or chat context. It gives your agent a dura
 ## Why it’s better than “paid RAG” / knowledge bases (for many use cases)
 
 - **Local-first privacy:** keep sensitive data on your machine/network.
-- **Open-source building blocks:** **Chroma** 🧠 + **ripgrep** ⚡ — no managed vector DB required.
+- **Open-source building blocks:** **Chroma**  + **ripgrep**  — no managed vector DB required.
 - **Compression-before-embeddings:** distill first → less fluff/duplication → cheaper prompts + more reliable retrieval.
 - **Auditable artifacts:** the distilled Markdown is human-readable and version-controllable.
 
@@ -29,20 +29,20 @@ If you later outgrow local, you can swap in a hosted DB — but you often don’
 
 ## What it does
 
-### 1) Condense ✍️
+### 1) Condense 
 Turns docs into structured Markdown outputs (low fluff, more “what matters”).
 
-### 2) Index 🧠
+### 2) Index 
 Embeds the distilled outputs into a **Chroma** collection (one DB, many collections).
 
-### 3) Query 🔎
+### 3) Query 
 Hybrid retrieval:
 - vector similarity via Chroma
 - keyword matches via ripgrep (`rg`)
 
 ## Default engine
 
-This skill defaults to **OpenClaw** 🦞 for condensation unless you pass `--engine` explicitly.
+This skill defaults to **OpenClaw**  for condensation unless you pass `--engine` explicitly.
 
 ## Prereqs
 

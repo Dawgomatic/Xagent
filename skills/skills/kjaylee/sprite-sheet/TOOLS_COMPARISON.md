@@ -17,7 +17,7 @@
 
 ## Detailed Reviews
 
-### 1. TexturePacker ⭐⭐⭐⭐⭐
+### 1. TexturePacker 
 **Website**: https://www.codeandweb.com/texturepacker
 
 **Pros**:
@@ -43,7 +43,7 @@ TexturePacker --sheet output.png --data output.json \
 
 ---
 
-### 2. Aseprite ⭐⭐⭐⭐½
+### 2. Aseprite ½
 **Website**: https://www.aseprite.org/
 
 **Pros**:
@@ -68,7 +68,7 @@ TexturePacker --sheet output.png --data output.json \
 
 ---
 
-### 3. Free Texture Packer ⭐⭐⭐⭐
+### 3. Free Texture Packer 
 **Website**: https://free-tex-packer.com/
 
 **Pros**:
@@ -91,7 +91,7 @@ TexturePacker --sheet output.png --data output.json \
 
 ---
 
-### 4. ShoeBox ⭐⭐⭐½
+### 4. ShoeBox ½
 **Website**: https://renderhjs.net/shoebox/
 
 **Pros**:
@@ -109,7 +109,7 @@ TexturePacker --sheet output.png --data output.json \
 
 ---
 
-### 5. Kenney Asset Studio ⭐⭐⭐⭐
+### 5. Kenney Asset Studio 
 **Website**: https://kenney.nl/tools/asset-studio
 
 **Pros**:
@@ -133,7 +133,7 @@ TexturePacker --sheet output.png --data output.json \
 
 ---
 
-### 6. Godot Editor ⭐⭐⭐⭐
+### 6. Godot Editor 
 **Built-in Tool**
 
 **Pros**:
@@ -232,7 +232,7 @@ TexturePacker \
   --padding 1 \
   sprites/tiles/*.png
 
-echo "✅ Atlases built successfully"
+echo " Atlases built successfully"
 ```
 
 **Add to Git hooks** (pre-commit):
@@ -266,15 +266,15 @@ fi
 
 | Tool Output | Redistribution OK? | Commercial OK? | Attribution Required? |
 |-------------|-------------------|----------------|----------------------|
-| Kenney.nl assets | ✅ Yes (CC0) | ✅ Yes | ❌ No |
-| Custom sprites (your art) | ✅ Yes | ✅ Yes | N/A |
-| Unity Asset Store | ❌ Usually NO | ⚠️ Check license | ⚠️ Check license |
-| OpenGameArt | ⚠️ Varies | ⚠️ Varies | ⚠️ Often YES |
+| Kenney.nl assets |  Yes (CC0) |  Yes |  No |
+| Custom sprites (your art) |  Yes |  Yes | N/A |
+| Unity Asset Store |  Usually NO |  Check license |  Check license |
+| OpenGameArt |  Varies |  Varies |  Often YES |
 
 **Workspace Policy** (see `AGENTS.md`):
-- ✅ Public games: **Kenney.nl CC0 only**
-- ✅ Private/local: Unity Asset Store OK
-- ❌ Never redistribute Unity assets in public repos
+-  Public games: **Kenney.nl CC0 only**
+-  Private/local: Unity Asset Store OK
+-  Never redistribute Unity assets in public repos
 
 ---
 

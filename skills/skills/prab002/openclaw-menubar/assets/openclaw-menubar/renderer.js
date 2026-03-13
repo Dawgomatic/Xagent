@@ -99,7 +99,7 @@ async function discoverGateway() {
 async function connectGatewayClient() {
     // Use simple CLI-based client (no WebSocket complexity)
     gatewayClient = new SimpleClient();
-    console.log('✅ Using OpenClaw CLI client');
+    console.log(' Using OpenClaw CLI client');
     updateStatus('ready', 'Connected');
 }
 
@@ -115,10 +115,10 @@ async function testGateway(url, token = '') {
         // Test if openclaw command exists and gateway is running
         await execPromise('openclaw status', { timeout: 3000 });
         
-        console.log('✅ OpenClaw CLI found');
+        console.log(' OpenClaw CLI found');
         return true;
     } catch (error) {
-        console.log('❌ OpenClaw CLI not available:', error.message);
+        console.log(' OpenClaw CLI not available:', error.message);
         return false;
     }
 }
@@ -227,7 +227,7 @@ function loadSavedConfig() {
 function showSetupScreen() {
     messagesContainer.innerHTML = `
         <div class="setup-screen">
-            <div class="setup-icon">⚠️</div>
+            <div class="setup-icon"></div>
             <div class="setup-title">OpenClaw Gateway Not Found</div>
             <div class="setup-message">
                 The menu bar app couldn't connect to OpenClaw Gateway.
@@ -264,7 +264,7 @@ function showSetupScreen() {
             </div>
             
             <div class="setup-footer">
-                <button id="retryBtn" class="retry-btn">🔄 Retry Auto-Discovery</button>
+                <button id="retryBtn" class="retry-btn"> Retry Auto-Discovery</button>
             </div>
         </div>
     `;
@@ -288,7 +288,7 @@ function showSetupScreen() {
             // Reload UI
             messagesContainer.innerHTML = `
                 <div class="welcome-message">
-                    <div class="welcome-icon">🦞</div>
+                    <div class="welcome-icon"></div>
                     <div class="welcome-text">Welcome to OpenClaw</div>
                     <div class="welcome-hint">Type a message or drag & drop files</div>
                 </div>
@@ -409,7 +409,7 @@ async function sendMessage() {
             errorMessage = error.message;
         }
         
-        addMessage('assistant', `❌ ${errorMessage}`);
+        addMessage('assistant', ` ${errorMessage}`);
         updateStatus('error', errorMessage);
     }
 
@@ -429,7 +429,7 @@ function addMessage(role, content, files = []) {
 
     const avatar = document.createElement('div');
     avatar.className = 'message-avatar';
-    avatar.textContent = role === 'user' ? '👤' : '🦞';
+    avatar.textContent = role === 'user' ? '' : '';
 
     const contentDiv = document.createElement('div');
     
@@ -452,7 +452,7 @@ function addMessage(role, content, files = []) {
             const fileDiv = document.createElement('div');
             fileDiv.className = 'file-attachment';
             fileDiv.innerHTML = `
-                <span class="file-icon">📎</span>
+                <span class="file-icon"></span>
                 <span class="file-name">${file.name}</span>
                 <span class="file-size">${formatFileSize(file.size)}</span>
             `;
@@ -486,7 +486,7 @@ function showTypingIndicator() {
 
     const avatar = document.createElement('div');
     avatar.className = 'message-avatar';
-    avatar.textContent = '🦞';
+    avatar.textContent = '';
 
     const typingDiv = document.createElement('div');
     typingDiv.className = 'message-content typing-indicator';
@@ -600,7 +600,7 @@ function addMessageToUI(role, content, files) {
 
     const avatar = document.createElement('div');
     avatar.className = 'message-avatar';
-    avatar.textContent = role === 'user' ? '👤' : '🦞';
+    avatar.textContent = role === 'user' ? '' : '';
 
     const contentDiv = document.createElement('div');
     
@@ -615,7 +615,7 @@ function addMessageToUI(role, content, files) {
             const fileDiv = document.createElement('div');
             fileDiv.className = 'file-attachment';
             fileDiv.innerHTML = `
-                <span class="file-icon">📎</span>
+                <span class="file-icon"></span>
                 <span class="file-name">${file.name}</span>
                 <span class="file-size">${formatFileSize(file.size)}</span>
             `;

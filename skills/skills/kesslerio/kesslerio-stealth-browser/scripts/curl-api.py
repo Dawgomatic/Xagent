@@ -42,12 +42,12 @@ def fetch_api(url: str, headers: dict = None, method: str = "GET",
               proxy: str = None, output: str = None):
     """Fetch API endpoint with TLS fingerprint spoofing."""
     
-    print(f"🥷 curl_cffi request (impersonating {impersonate})")
-    print(f"📡 {method} {url}")
+    print(f" curl_cffi request (impersonating {impersonate})")
+    print(f" {method} {url}")
     
     # Validate impersonate
     if impersonate not in BROWSERS:
-        print(f"⚠️  Unknown browser '{impersonate}'. Using chrome120.")
+        print(f"  Unknown browser '{impersonate}'. Using chrome120.")
         print(f"   Available: {', '.join(BROWSERS[:5])}...")
         impersonate = "chrome120"
     
@@ -78,23 +78,23 @@ def fetch_api(url: str, headers: dict = None, method: str = "GET",
         else:
             response = requests.request(method.upper(), url, **kwargs)
     except Exception as e:
-        print(f"❌ Request failed: {e}")
+        print(f" Request failed: {e}")
         sys.exit(1)
     
-    print(f"📊 Status: {response.status_code}")
-    print(f"📏 Response size: {len(response.content)} bytes")
+    print(f" Status: {response.status_code}")
+    print(f" Response size: {len(response.content)} bytes")
     
     # Check for blocks
     if response.status_code == 403:
-        print("⚠️  403 Forbidden - Try different impersonate or residential proxy")
+        print("  403 Forbidden - Try different impersonate or residential proxy")
     elif response.status_code == 503:
-        print("⚠️  503 Service Unavailable - Likely anti-bot block")
+        print("  503 Service Unavailable - Likely anti-bot block")
     elif "Access Denied" in response.text:
-        print("⚠️  Access Denied in response body")
+        print("  Access Denied in response body")
     
     # Content type
     content_type = response.headers.get("content-type", "")
-    print(f"📄 Content-Type: {content_type}")
+    print(f" Content-Type: {content_type}")
     
     # Output
     if output:
@@ -102,21 +102,21 @@ def fetch_api(url: str, headers: dict = None, method: str = "GET",
         content = response.content if mode == "wb" else response.text
         with open(output, mode) as f:
             f.write(content)
-        print(f"💾 Saved to: {output}")
+        print(f" Saved to: {output}")
     else:
         # Pretty print JSON if applicable
         if "json" in content_type:
             try:
                 data = response.json()
-                print("\n📋 Response (JSON):")
+                print("\n Response (JSON):")
                 print(json.dumps(data, indent=2)[:2000])
                 if len(response.text) > 2000:
                     print(f"... ({len(response.text) - 2000} more bytes)")
             except:
-                print("\n📋 Response (raw):")
+                print("\n Response (raw):")
                 print(response.text[:2000])
         else:
-            print("\n📋 Response (first 500 chars):")
+            print("\n Response (first 500 chars):")
             print(response.text[:500])
     
     return response
@@ -141,7 +141,7 @@ def main():
         try:
             headers = json.loads(args.headers)
         except json.JSONDecodeError:
-            print(f"❌ Invalid headers JSON: {args.headers}")
+            print(f" Invalid headers JSON: {args.headers}")
             sys.exit(1)
     
     fetch_api(

@@ -3,7 +3,7 @@ name: direct-analysis
 description: Анализ рекламных кампаний Яндекс.Директ
 metadata:
   openclaw:
-    emoji: "📊"
+    emoji: ""
     requires:
       bins: ["curl"]
 ---

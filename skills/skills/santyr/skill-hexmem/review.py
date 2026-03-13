@@ -87,17 +87,17 @@ def show_due_items(conn, limit: int = 10):
     
     rows = cur.fetchall()
     if not rows:
-        print("✅ No items due for review!")
+        print(" No items due for review!")
         return
     
-    print(f"\n📚 Items Due for Review ({len(rows)})\n")
+    print(f"\n Items Due for Review ({len(rows)})\n")
     print("-" * 70)
     
     for row in rows:
         source, sid, preview, importance, retention, hours, priority = row
         preview = (preview[:50] + '...') if len(preview or '') > 50 else preview
         
-        priority_emoji = {'URGENT': '🔴', 'DUE': '🟡', 'OPTIONAL': '🟢'}.get(priority, '⚪')
+        priority_emoji = {'URGENT': '', 'DUE': '', 'OPTIONAL': ''}.get(priority, '')
         
         print(f"{priority_emoji} [{source}:{sid}] {preview}")
         print(f"   Retention: {retention*100:.0f}% | Importance: {importance:.1f} | Last review: {hours:.0f}h ago")
@@ -199,7 +199,7 @@ def review_item(conn, source_table: str, source_id: int, quality: int):
         next_str = f"{next_interval_hours/24:.1f} days"
     
     quality_labels = ['Blackout', 'Barely', 'Struggled', 'Hard', 'Good', 'Easy']
-    print(f"\n✅ Review recorded: {quality_labels[quality]}")
+    print(f"\n Review recorded: {quality_labels[quality]}")
     print(f"   Memory strength: {strength:.2f} → {new_strength:.2f}")
     print(f"   Next review in: {next_str}")
 
@@ -209,7 +209,7 @@ def show_stats(conn):
     cur = conn.execute("SELECT * FROM v_retention_stats")
     rows = cur.fetchall()
     
-    print("\n📊 Memory Retention Statistics\n")
+    print("\n Memory Retention Statistics\n")
     print("-" * 60)
     
     for row in rows:
@@ -222,7 +222,7 @@ def show_stats(conn):
     # Show forgetting candidates
     cur = conn.execute("SELECT COUNT(*) FROM v_forgetting_soon")
     at_risk = cur.fetchone()[0]
-    print(f"⚠️ Memories at risk of forgetting: {at_risk}")
+    print(f" Memories at risk of forgetting: {at_risk}")
 
 
 def process_decay(conn, dry_run: bool = True):
@@ -245,7 +245,7 @@ def process_decay(conn, dry_run: bool = True):
         print("No memories ready for forgetting.")
         return
     
-    print(f"\n🗑️ Forgetting Candidates ({len(candidates)})\n")
+    print(f"\n Forgetting Candidates ({len(candidates)})\n")
     
     for id, summary, importance, retention in candidates:
         preview = (summary[:40] + '...') if len(summary) > 40 else summary
@@ -265,7 +265,7 @@ def process_decay(conn, dry_run: bool = True):
             )
         """)
         conn.commit()
-        print(f"\n✅ Marked {len(candidates)} items as forgotten.")
+        print(f"\n Marked {len(candidates)} items as forgotten.")
 
 
 def main():

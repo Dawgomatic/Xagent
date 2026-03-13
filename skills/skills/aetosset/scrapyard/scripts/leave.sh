@@ -22,7 +22,7 @@ RESPONSE=$(curl -s -X POST "https://scrapyard-game-server-production.up.railway.
 
 SUCCESS=$(echo "$RESPONSE" | jq -r '.success')
 if [ "$SUCCESS" == "true" ]; then
-  echo "✅ $BOT_NAME left the queue"
+  echo " $BOT_NAME left the queue"
 else
   MESSAGE=$(echo "$RESPONSE" | jq -r '.message // .error // "Failed to leave"')
   echo "Note: $MESSAGE"

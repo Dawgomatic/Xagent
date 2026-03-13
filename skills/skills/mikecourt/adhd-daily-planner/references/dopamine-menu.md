@@ -27,19 +27,19 @@ Create a personalized menu of activities across effort levels:
 │                     YOUR DOPAMINE MENU                       │
 ├──────────────────────────────────────────────────────────────┤
 │                                                              │
-│  🍬 APPETIZERS (Quick hits, minimal effort)                 │
+│   APPETIZERS (Quick hits, minimal effort)                 │
 │     5 minutes or less, instant availability                  │
 │                                                              │
-│  🥗 STARTERS (Light effort, moderate reward)                │
+│   STARTERS (Light effort, moderate reward)                │
 │     10-20 minutes, some setup required                       │
 │                                                              │
-│  🍝 MAIN COURSES (Moderate effort, good reward)             │
+│   MAIN COURSES (Moderate effort, good reward)             │
 │     30-60 minutes, planned activity                          │
 │                                                              │
-│  🍰 DESSERTS (Higher effort, major reward)                  │
+│   DESSERTS (Higher effort, major reward)                  │
 │     60+ minutes, special occasion                            │
 │                                                              │
-│  🌟 SPECIALS (Healthy dopamine builders)                    │
+│   SPECIALS (Healthy dopamine builders)                    │
 │     Long-term investments in sustainable happiness           │
 │                                                              │
 └──────────────────────────────────────────────────────────────┘
@@ -47,7 +47,7 @@ Create a personalized menu of activities across effort levels:
 
 ## Sample Dopamine Menu
 
-### 🍬 APPETIZERS (0-5 minutes)
+###  APPETIZERS (0-5 minutes)
 *For: Quick reset between tasks, micro-breaks, motivation boost*
 
 **Physical:**
@@ -74,7 +74,7 @@ Create a personalized menu of activities across effort levels:
 - [ ] Cross off completed todo item
 - [ ] Unsubscribe from one newsletter
 
-### 🥗 STARTERS (10-20 minutes)
+###  STARTERS (10-20 minutes)
 *For: Transition periods, building momentum, recovery breaks*
 
 **Movement:**
@@ -104,7 +104,7 @@ Create a personalized menu of activities across effort levels:
 - [ ] Plan tomorrow's outfit
 - [ ] Do one small errand
 
-### 🍝 MAIN COURSES (30-60 minutes)
+###  MAIN COURSES (30-60 minutes)
 *For: Scheduled breaks, reward after hard work, weekend activities*
 
 **Physical:**
@@ -143,7 +143,7 @@ Create a personalized menu of activities across effort levels:
 - [ ] TV episode
 - [ ] Movie (yes, full movie counts)
 
-### 🍰 DESSERTS (60+ minutes)
+###  DESSERTS (60+ minutes)
 *For: Major rewards, special occasions, weekend highlights*
 
 **Adventure:**
@@ -168,7 +168,7 @@ Create a personalized menu of activities across effort levels:
 - [ ] Workshop/class
 - [ ] Major organizing project
 
-### 🌟 SPECIALS (Dopamine Investments)
+###  SPECIALS (Dopamine Investments)
 *For: Long-term wellbeing, sustainable happiness*
 
 **Daily investments:**

@@ -268,7 +268,7 @@ def main():
     storage_path = config.get("storage", {}).get("path", "~/.llm-cost-monitor")
 
     if args.full:
-        print("\n🚀 Performing FULL SCAN of all sessions...")
+        print("\n Performing FULL SCAN of all sessions...")
         fetch_openclow_usage(date=None, storage_path=storage_path, force_full=True)
     else:
         # Fetch for specific dates (idempotent)
@@ -283,7 +283,7 @@ def main():
             else:
                 # TODO: Add external API fetching when config is provided
                 fetch_openclow_usage(date, storage_path)
-                print("\n⚠️ External API fetching not yet implemented")
+                print("\n External API fetching not yet implemented")
                 print("Config detected but only OpenClaw sessions are being read")
 
 

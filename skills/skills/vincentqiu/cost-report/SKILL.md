@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "💰",
+        "emoji": "",
         "os": ["darwin", "linux"],
         "requires": { "bins": ["jq"] },
         "install":
@@ -59,16 +59,16 @@ This script directly extracts cost data from OpenClaw session log files (`~/.ope
 ## Discord Output Format
 
 ```
-💰 OpenClaw Cost Report (2026-02-04)
+ OpenClaw Cost Report (2026-02-04)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Today's Total Cost: $XX.XX (🟢 -XX% vs yesterday)
+Today's Total Cost: $XX.XX ( -XX% vs yesterday)
 
-📊 Model Details:
+ Model Details:
 • claude-opus-4-5: $XX.XX (XX%)
 • gpt-4o: $X.XX (X%)
 • ...
 
-📈 Weekly Total: $XXX.XX
+ Weekly Total: $XXX.XX
 ```
 
 ## Installation Requirements

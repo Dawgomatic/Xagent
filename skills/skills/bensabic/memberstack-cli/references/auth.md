@@ -29,7 +29,7 @@ Example [#example]
 ```bash
 $ memberstack auth login
 Opening browser for authentication...
-✔ Authentication successful
+ Authentication successful
 ```
 
 auth logout [#auth-logout]
@@ -48,7 +48,7 @@ Example [#example-1]
 
 ```bash
 $ memberstack auth logout
-✔ Logged out successfully
+ Logged out successfully
 ```
 
 auth status [#auth-status]

@@ -18,9 +18,9 @@ class SAPRFCCaller:
         """Initialize SAP connection"""
         try:
             self.conn = pyrfc.Connection(**connection_params)
-            print(f"✅ Connected to SAP system: {connection_params.get('ashost', 'Unknown')}")
+            print(f" Connected to SAP system: {connection_params.get('ashost', 'Unknown')}")
         except Exception as e:
-            print(f"❌ SAP connection failed: {str(e)}")
+            print(f" SAP connection failed: {str(e)}")
             sys.exit(1)
     
     def get_function_interface(self, function_name: str) -> Dict[str, Any]:
@@ -64,7 +64,7 @@ class SAPRFCCaller:
             return result
             
         except Exception as e:
-            print(f"❌ Error getting function interface: {str(e)}")
+            print(f" Error getting function interface: {str(e)}")
             return {}
     
     def call_function(self, function_name: str, parameters: Dict[str, Any] = None,
@@ -82,7 +82,7 @@ class SAPRFCCaller:
             Dictionary containing function result
         """
         try:
-            print(f"🔄 Calling function: {function_name}")
+            print(f" Calling function: {function_name}")
             
             # Execute function call
             if parameters:
@@ -90,7 +90,7 @@ class SAPRFCCaller:
             else:
                 result = self.conn.call(function_name)
             
-            print(f"✅ Function executed successfully")
+            print(f" Function executed successfully")
             
             # Save result if requested
             if save_result or output_file:
@@ -100,7 +100,7 @@ class SAPRFCCaller:
             return result
             
         except Exception as e:
-            print(f"❌ Error calling function {function_name}: {str(e)}")
+            print(f" Error calling function {function_name}: {str(e)}")
             return {}
     
     def call_bapi(self, business_object: str, method: str, parameters: Dict[str, Any] = None) -> Dict[str, Any]:
@@ -133,7 +133,7 @@ class SAPRFCCaller:
             return system_info
             
         except Exception as e:
-            print(f"❌ Error getting system info: {str(e)}")
+            print(f" Error getting system info: {str(e)}")
             return {}
     
     def test_connection(self) -> bool:
@@ -142,7 +142,7 @@ class SAPRFCCaller:
             result = self.call_function('RFC_PING')
             return True
         except Exception as e:
-            print(f"❌ Connection test failed: {str(e)}")
+            print(f" Connection test failed: {str(e)}")
             return False
     
     def list_available_functions(self, pattern: str = "*") -> list:
@@ -166,7 +166,7 @@ class SAPRFCCaller:
             return functions
             
         except Exception as e:
-            print(f"❌ Error listing functions: {str(e)}")
+            print(f" Error listing functions: {str(e)}")
             return []
     
     def save_result(self, result: Dict[str, Any], filename: str):
@@ -181,10 +181,10 @@ class SAPRFCCaller:
             with open(filename, 'w', encoding='utf-8') as f:
                 json.dump(result, f, indent=2, default=serialize_datetime, ensure_ascii=False)
             
-            print(f"✅ Result saved to {filename}")
+            print(f" Result saved to {filename}")
             
         except Exception as e:
-            print(f"❌ Error saving result: {str(e)}")
+            print(f" Error saving result: {str(e)}")
     
     def format_result(self, result: Dict[str, Any], compact: bool = False) -> str:
         """Format function result for display"""
@@ -201,7 +201,7 @@ class SAPRFCCaller:
         """Clean up SAP connection"""
         try:
             self.conn.close()
-            print("✅ SAP connection closed")
+            print(" SAP connection closed")
         except:
             pass
 
@@ -268,7 +268,7 @@ def main():
         with open(config_file, 'r') as f:
             config = json.load(f)
     except Exception as e:
-        print(f"❌ Error loading config: {str(e)}")
+        print(f" Error loading config: {str(e)}")
         sys.exit(1)
     
     # Initialize RFC caller
@@ -277,13 +277,13 @@ def main():
     try:
         # Test connection first
         if not caller.test_connection():
-            print("❌ Connection test failed")
+            print(" Connection test failed")
             sys.exit(1)
         
         # Handle different execution modes
         if len(sys.argv) > 2 and sys.argv[2] == '--interactive':
             # Interactive mode
-            print("\n🔧 SAP RFC Function Caller - Interactive Mode")
+            print("\n SAP RFC Function Caller - Interactive Mode")
             print("Available commands:")
             print("  call <function_name> - Call function without parameters")
             print("  interface <function_name> - Show function interface")
@@ -306,7 +306,7 @@ def main():
                 elif command[0] == 'call' and len(command) > 1:
                     result = caller.call_function(command[1])
                     if result:
-                        print("\n📋 Result:")
+                        print("\n Result:")
                         print(caller.format_result(result, compact=True))
                 elif command[0] == 'interface' and len(command) > 1:
                     interface = caller.get_function_interface(command[1])
@@ -337,24 +337,24 @@ def main():
                         
                         result = caller.call_function(template['function'], params)
                         if result:
-                            print(f"\n📋 {template['description']} Result:")
+                            print(f"\n {template['description']} Result:")
                             print(caller.format_result(result, compact=True))
                     else:
-                        print(f"❌ Template '{template_name}' not found")
+                        print(f" Template '{template_name}' not found")
                 else:
-                    print("❌ Invalid command")
+                    print(" Invalid command")
                     
         elif len(sys.argv) > 2 and sys.argv[2] == '--template':
             # Template mode
             if len(sys.argv) < 4:
-                print("❌ Template name required")
+                print(" Template name required")
                 sys.exit(1)
                 
             template_name = sys.argv[3]
             templates = load_function_templates()
             
             if template_name not in templates:
-                print(f"❌ Template '{template_name}' not found")
+                print(f" Template '{template_name}' not found")
                 print("Available templates:", list(templates.keys()))
                 sys.exit(1)
             
@@ -367,7 +367,7 @@ def main():
             
             result = caller.call_function(template['function'], params, save_result=True)
             if result:
-                print(f"\n📋 {template['description']} Result:")
+                print(f"\n {template['description']} Result:")
                 print(caller.format_result(result))
                 
         else:
@@ -381,14 +381,14 @@ def main():
                     with open(sys.argv[3], 'r') as f:
                         parameters = json.load(f)
                 except Exception as e:
-                    print(f"❌ Error loading parameters: {str(e)}")
+                    print(f" Error loading parameters: {str(e)}")
                     sys.exit(1)
             
             # Execute function
             result = caller.call_function(function_name, parameters, save_result=True)
             
             if result:
-                print(f"\n📋 Function Result:")
+                print(f"\n Function Result:")
                 print(caller.format_result(result))
     
     finally:

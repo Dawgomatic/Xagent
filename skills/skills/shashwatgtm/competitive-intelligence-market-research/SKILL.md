@@ -1,9 +1,9 @@
 ---
 name: competitive-intelligence-market-research
 description: B2B SaaS competitive intelligence with 24 scenarios across Sales/HR/Fintech/Ops Tech
-metadata: {"clawdbot":{"emoji":"🔍","homepage":"https://github.com/shashwatgtm","always":true}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://github.com/shashwatgtm","always":true}}
 ---
-## **🎯 Multi-Dimensional Navigator**
+## ** Multi-Dimensional Navigator**
 
 **This skill serves B2B SaaS companies across multiple dimensions. Find your path:**
 
@@ -89,7 +89,7 @@ Your role determines:
 
 ---
 
-# 📊 SECTION A: SALES TECH COMPETITIVE INTELLIGENCE
+#  SECTION A: SALES TECH COMPETITIVE INTELLIGENCE
 
 **When To Use This Section:**
 - Your product: Sales engagement, conversation intelligence, sales enablement, coaching
@@ -217,10 +217,10 @@ SALES TECH SPECIFIC INSIGHTS:
 - 22% want "real-time coaching vs post-call analysis"
 
 YOUR OPPORTUNITY:
-✅ Simplified feature set (80% of value, 20% of complexity)
-✅ SMB pricing ($200-500/seat/year vs $1,500+)
-✅ AI coaching focus (vs pure analytics)
-✅ India-first, then global
+ Simplified feature set (80% of value, 20% of complexity)
+ SMB pricing ($200-500/seat/year vs $1,500+)
+ AI coaching focus (vs pure analytics)
+ India-first, then global
 
 11:00-13:00 | GTM Strategy Analysis
 
@@ -266,9 +266,9 @@ WHERE COMPETITORS LAND:
 - [YOU]: Bottom-right (SMB, Coaching)
 
 WHITE SPACE IDENTIFIED:
-✅ SMB + Coaching focus = underserved
-✅ India market (Gong expensive for Indian SMBs)
-✅ AI-powered real-time coaching (vs post-call)
+ SMB + Coaching focus = underserved
+ India market (Gong expensive for Indian SMBs)
+ AI-powered real-time coaching (vs post-call)
 
 10:30-12:00 | Battle Cards (Top 3 Competitors)
 
@@ -472,10 +472,10 @@ FOR EACH COMPETITOR:
 □ Tech stack (BuiltWith: what tools do they use?)
 
 TOOLS YOU CAN NOW AFFORD:
-✅ LinkedIn Sales Navigator ($99/mo) - Org charts, decision makers
-✅ Crunchbase Pro ($29/mo) - Funding, M&A, investors
-✅ SimilarWeb Starter ($125/mo) - Traffic, digital strategy
-✅ Ahrefs Lite ($99/mo) - SEO competitive analysis
+ LinkedIn Sales Navigator ($99/mo) - Org charts, decision makers
+ Crunchbase Pro ($29/mo) - Funding, M&A, investors
+ SimilarWeb Starter ($125/mo) - Traffic, digital strategy
+ Ahrefs Lite ($99/mo) - SEO competitive analysis
 Total: ~$350/month (justified by time savings)
 
 DAY 3-4: Win/Loss Analysis (8 hours)
@@ -525,11 +525,11 @@ COMPETITOR ANALYSIS:
 
 GAP ANALYSIS:
 Missing for mid-market:
-❌ SOC 2 compliance (need 6 months)
-❌ SSO (need 3 months)
-❌ Advanced analytics (need 4 months)
-✅ Salesforce integration (have it)
-✅ Core conversation intel (have it)
+ SOC 2 compliance (need 6 months)
+ SSO (need 3 months)
+ Advanced analytics (need 4 months)
+ Salesforce integration (have it)
+ Core conversation intel (have it)
 
 DECISION: 
 - Timeline: 12 months to be mid-market ready
@@ -601,9 +601,9 @@ TIER 3 (NICE-TO-HAVE):
   → ROI: Better win/loss research, customer interviews
 
 CANNOT YET JUSTIFY:
-❌ Gartner ($30K/year) - Too expensive for Series B
-❌ Klue ($15K/year) - Maybe at Series C
-❌ ZoomInfo ($15K/year) - Sales Nav sufficient for now
+ Gartner ($30K/year) - Too expensive for Series B
+ Klue ($15K/year) - Maybe at Series C
+ ZoomInfo ($15K/year) - Sales Nav sufficient for now
 ```
 
 ---
@@ -690,11 +690,11 @@ SECTION 3: Strategic Recommendations (10 slides)
 - GTM strategy adjustments
 
 DATA SOURCES:
-✅ Gartner Magic Quadrant (if in category)
-✅ Forrester Wave (if in category)
-✅ Custom research (commission primary research)
-✅ Win/loss analysis (200+ interviews/year)
-✅ G2 Grid analysis (track quarterly movement)
+ Gartner Magic Quadrant (if in category)
+ Forrester Wave (if in category)
+ Custom research (commission primary research)
+ Win/loss analysis (200+ interviews/year)
+ G2 Grid analysis (track quarterly movement)
 
 Q2: Strategic M&A Analysis
 
@@ -808,7 +808,7 @@ TOTAL: $75K-150K/year
 
 ---
 
-# 📊 SECTION B: HR TECH COMPETITIVE INTELLIGENCE
+#  SECTION B: HR TECH COMPETITIVE INTELLIGENCE
 
 **When To Use This Section:**
 - Your product: HRIS, employee engagement, performance management, recruiting, learning
@@ -853,15 +853,15 @@ HR TECH:
 
 ```
 FOR SALES TECH:
-✅ Aggressive competitive positioning okay ("We're 10× cheaper than Gong")
-✅ Fast iteration, experiment
-✅ Attack incumbents publicly
+ Aggressive competitive positioning okay ("We're 10× cheaper than Gong")
+ Fast iteration, experiment
+ Attack incumbents publicly
 
 FOR HR TECH:
-❌ NEVER attack competitors (HR community is small, reputation matters)
-❌ Conservative positioning only
-❌ Professional tone mandatory (HR is risk-averse)
-✅ Emphasize: Trust, security, compliance, relationships
+ NEVER attack competitors (HR community is small, reputation matters)
+ Conservative positioning only
+ Professional tone mandatory (HR is risk-averse)
+ Emphasize: Trust, security, compliance, relationships
 ```
 
 ### **Series A HR Tech Research: Conservative Approach**
@@ -915,21 +915,21 @@ NOT: "10× cheaper" (too aggressive for HR)
 HR TECH MUST-HAVES (Regulatory):
 
 FOR INDIA MARKET:
-✅ PF/ESI compliance (mandatory)
-✅ Gratuity calculations
-✅ Leave policy (Indian labor law)
-✅ Payroll (statutory deductions)
+ PF/ESI compliance (mandatory)
+ Gratuity calculations
+ Leave policy (Indian labor law)
+ Payroll (statutory deductions)
 
 FOR US MARKET:
-✅ EEOC compliance (equal employment)
-✅ ADA compliance (disability)
-✅ FMLA tracking (family medical leave)
-✅ 401K integration
+ EEOC compliance (equal employment)
+ ADA compliance (disability)
+ FMLA tracking (family medical leave)
+ 401K integration
 
 FOR EU MARKET:
-✅ GDPR compliance (data privacy)
-✅ Works council integration
-✅ Country-specific labor laws
+ GDPR compliance (data privacy)
+ Works council integration
+ Country-specific labor laws
 
 COMPETITOR ANALYSIS (Compliance Focus):
 □ Which markets does competitor support?
@@ -947,12 +947,12 @@ HR Tech: Compliance MANDATORY (you lose deals without it)
 ```
 HR TECH POSITIONING RULES:
 
-❌ DON'T SAY:
+ DON'T SAY:
 "We're crushing competitors"
 "Workday sucks"
 "10× better than X"
 
-✅ DO SAY:
+ DO SAY:
 "Trusted by 500+ HR leaders"
 "Built specifically for mid-market"
 "Compliant, secure, easy to use"
@@ -982,16 +982,16 @@ Not: "Culture Amp is too expensive. We're cheaper."
 │ • Need engagement + performance           │
 │                                            │
 │ NEVER SAY:                                 │
-│ ❌ "Culture Amp is too expensive"          │
-│ ❌ "We're better than Culture Amp"         │
-│ ❌ "Culture Amp has bad customer support"  │
+│  "Culture Amp is too expensive"          │
+│  "We're better than Culture Amp"         │
+│  "Culture Amp has bad customer support"  │
 │                                            │
 │ INSTEAD SAY:                               │
-│ ✅ "Culture Amp is excellent for enterprise│
+│  "Culture Amp is excellent for enterprise│
 │    We're purpose-built for mid-market."   │
-│ ✅ "We focus on X (performance management) │
+│  "We focus on X (performance management) │
 │    Culture Amp is broader (engagement)."  │
-│ ✅ "Mid-market companies love our pricing  │
+│  "Mid-market companies love our pricing  │
 │    and hands-on support."                 │
 │                                            │
 │ RESPECTFUL DIFFERENTIATION:                │
@@ -1116,18 +1116,18 @@ HR TECH WIN/LOSS QUESTIONS:
 PATTERN RECOGNITION (HR Tech Specific):
 
 WE WIN WHEN:
-✅ Mid-market (200-800 employees)
-✅ Budget-conscious ($3-5/employee budget)
-✅ Want hands-on support (not self-serve)
-✅ HR team is small (1-3 people)
-✅ Need fast implementation (<6 weeks)
+ Mid-market (200-800 employees)
+ Budget-conscious ($3-5/employee budget)
+ Want hands-on support (not self-serve)
+ HR team is small (1-3 people)
+ Need fast implementation (<6 weeks)
 
 WE LOSE WHEN:
-❌ Enterprise (1,000+ employees) - lack SSO, SCIM
-❌ Global (need GDPR, EU compliance)
-❌ Complex hierarchy (role-based access insufficient)
-❌ IT-led buying (they want API-first, we're UI-first)
-❌ Want "platform" (we're point solution)
+ Enterprise (1,000+ employees) - lack SSO, SCIM
+ Global (need GDPR, EU compliance)
+ Complex hierarchy (role-based access insufficient)
+ IT-led buying (they want API-first, we're UI-first)
+ Want "platform" (we're point solution)
 
 STRATEGIC IMPLICATIONS:
 - Build SSO/SCIM for enterprise (6-month roadmap)
@@ -1157,8 +1157,8 @@ TIER 2 (SHOULD-HAVE):
   → HR TECH SPECIFIC: HR buyers rely heavily on G2 (conservative buyers)
 
 SKIP FOR NOW:
-❌ SimilarWeb ($125/mo) - Less relevant for HR Tech (not PLG)
-❌ Ahrefs ($99/mo) - HR Tech = sales-led, SEO less critical
+ SimilarWeb ($125/mo) - Less relevant for HR Tech (not PLG)
+ Ahrefs ($99/mo) - HR Tech = sales-led, SEO less critical
 
 TOTAL: $280-350/month (conservative for HR Tech)
 ```
@@ -1212,10 +1212,10 @@ For top 10 competitors, research:
 □ State-specific: CA CCPA, NY SHIELD Act?
 
 COMPLIANCE GAP ANALYSIS:
-Workday: SOC 2, ISO 27001, GDPR, HIPAA ✅✅✅✅
-BambooHR: SOC 2, GDPR ✅✅
-Culture Amp: SOC 2, GDPR ✅✅
-Us: SOC 2, GDPR ✅✅
+Workday: SOC 2, ISO 27001, GDPR, HIPAA 
+BambooHR: SOC 2, GDPR 
+Culture Amp: SOC 2, GDPR 
+Us: SOC 2, GDPR 
 Gap: Need ISO 27001 for global enterprise
 
 INVESTMENT NEEDED:
@@ -1369,7 +1369,7 @@ TOTAL: $140K-200K/year
 
 ---
 
-# 📊 SECTION C: FINTECH COMPETITIVE INTELLIGENCE
+#  SECTION C: FINTECH COMPETITIVE INTELLIGENCE
 
 **When To Use This Section:**
 - Your product: Payments, expense management, corporate cards, payroll, neo-banking
@@ -1399,23 +1399,23 @@ COMPANY PROFILE:
 
 ```
 SALES TECH:
-✅ Can be aggressive
-✅ Fast experimentation
-✅ Attack competitors
-✅ Share metrics openly
+ Can be aggressive
+ Fast experimentation
+ Attack competitors
+ Share metrics openly
 Risk: Low (worst case: lose customers)
 
 HR TECH:
-⚠️ Must be professional
-⚠️ Cannot attack competitors
-⚠️ Relationship-driven
+ Must be professional
+ Cannot attack competitors
+ Relationship-driven
 Risk: Medium (people data sensitive)
 
 FINTECH:
-🔴 MUST be conservative
-🔴 NEVER attack competitors (could trigger regulatory review)
-🔴 CANNOT share metrics without legal approval
-🔴 CANNOT make unverified claims (financial advertising rules)
+ MUST be conservative
+ NEVER attack competitors (could trigger regulatory review)
+ CANNOT share metrics without legal approval
+ CANNOT make unverified claims (financial advertising rules)
 Risk: EXTREME (regulatory fines, license revocation, criminal liability)
 ```
 
@@ -1483,9 +1483,9 @@ PAYMENT PROCESSING:
 
 COMPLIANCE COMPETITIVE INTEL:
 Company | RBI License | SOC 2 | ISO 27001 | PCI DSS | Data Localization
-Razorpay | ✅ PA | ✅ | ✅ | ✅ | ✅
-Happay | ✅ | ✅ | ✅ | ✅ | ✅
-[Us] | ⏳ Applying | ❌ | ❌ | ⏳ | ✅
+Razorpay |  PA |  |  |  | 
+Happay |  |  |  |  | 
+[Us] |  Applying |  |  |  | 
 
 GAP: Need SOC 2, ISO 27001 before enterprise sales
 Timeline: 12-18 months for full compliance stack
@@ -1505,9 +1505,9 @@ RESEARCH SOURCES (Fintech-Safe):
 □ Your own customer interviews (first-party data, compliant)
 
 WHAT YOU CANNOT DO:
-❌ Scrape competitor pricing from private dashboards
-❌ Pose as customer to get pricing (fraud)
-❌ Use competitor's confidential data
+ Scrape competitor pricing from private dashboards
+ Pose as customer to get pricing (fraud)
+ Use competitor's confidential data
 
 PRICING BENCHMARKS (India Expense Management):
 - Happay: ₹150-300/employee/month (from reviews)
@@ -1524,14 +1524,14 @@ DAY 5: Positioning (Risk-Averse, Compliance-First)
 
 FINTECH POSITIONING PRINCIPLES:
 
-✅ DO EMPHASIZE:
+ DO EMPHASIZE:
 - "RBI-compliant" (if licensed)
 - "Bank-grade security"
 - "SOC 2 certified" (if have it)
 - "Trusted by [X] companies"
 - "Backed by [reputable investors]"
 
-❌ NEVER SAY:
+ NEVER SAY:
 - "Better than [Competitor]"
 - "Competitor X has security issues"
 - "Fastest-growing fintech" (unless verified by 3rd party)
@@ -1551,19 +1551,19 @@ CONSERVATIVE BATTLE CARD:
 │ • CRED ecosystem (card + expense bundled)   │
 │                                             │
 │ RESPECTFUL POSITIONING:                     │
-│ ✅ "Happay is excellent for enterprise      │
+│  "Happay is excellent for enterprise      │
 │     We focus on SMB (50-500 employees)"     │
-│ ✅ "Both of us are RBI-compliant            │
+│  "Both of us are RBI-compliant            │
 │     We offer more flexible pricing for SMB" │
-│ ✅ "Great product with strong backing       │
+│  "Great product with strong backing       │
 │     We provide hands-on support for growing │
 │     finance teams"                          │
 │                                             │
 │ NEVER SAY (Legal Risk):                     │
-│ ❌ "Happay is too expensive"                 │
-│ ❌ "Happay has compliance issues"            │
-│ ❌ "We're more secure than Happay"           │
-│ ❌ "Customers switch from Happay to us"      │
+│  "Happay is too expensive"                 │
+│  "Happay has compliance issues"            │
+│  "We're more secure than Happay"           │
+│  "Customers switch from Happay to us"      │
 │    (unless you have written testimonials)   │
 │                                             │
 │ WHY EXTREME CAUTION:                        │
@@ -1647,10 +1647,10 @@ COMPLIANCE RESEARCH:
 COMPETITOR LICENSE MAPPING:
 
 Company | Expense Mgmt | Corporate Cards | Lending | Payroll
-Happay | ✅ | ✅ (via CRED) | ❌ | ❌
-EnKash | ✅ | ✅ RBI PPI | ❌ | ❌
-Volopay | ✅ | ✅ Singapore | ❌ | ❌
-[Us] | ✅ | ⏳ Want | ❌ | ❌
+Happay |  |  (via CRED) |  | 
+EnKash |  |  RBI PPI |  | 
+Volopay |  |  Singapore |  | 
+[Us] |  |  Want |  | 
 
 STRATEGIC ANALYSIS:
 Option 1: Build in-house (12-18 months, ₹1-2Cr investment)
@@ -1816,7 +1816,7 @@ TOTAL: $230K-340K/year
 
 ---
 
-# 📊 SECTION D: OPERATIONS TECH COMPETITIVE INTELLIGENCE
+#  SECTION D: OPERATIONS TECH COMPETITIVE INTELLIGENCE
 
 **When To Use This Section:**
 - Your product: Retail execution, logistics, field force automation, route optimization
@@ -1977,11 +1977,11 @@ DIFFERENTIATORS:
 COMPETITOR FEATURE COMPARISON:
 
 Feature | FieldAssist | Bizom | Ivy | [Us]
-Offline app | ✅ | ✅ | ✅ | ✅
-Image AI | ✅ | ✅ | ⚠️ | ✅
-Distributor app | ✅ | ⚠️ | ❌ | ✅ (our edge!)
-WhatsApp | ⚠️ | ❌ | ❌ | ✅ (our edge!)
-Multi-language | ✅ | ✅ | ✅ | ✅
+Offline app |  |  |  | 
+Image AI |  |  |  | 
+Distributor app |  |  |  |  (our edge!)
+WhatsApp |  |  |  |  (our edge!)
+Multi-language |  |  |  | 
 
 POSITIONING:
 "FieldAssist for mid-market CPG
@@ -2049,11 +2049,11 @@ FIELDASSIST WINS TIER 1 BECAUSE:
 □ Customization (enterprise workflows)
 
 OUR GAPS:
-❌ No Tier 1 references (chicken-egg problem)
-❌ Not battle-tested at scale (max 5,000 reps)
-❌ Limited integrations (no SAP connector yet)
-❌ No SOC 2 (need 12 months)
-❌ Small support team (can't dedicate account team)
+ No Tier 1 references (chicken-egg problem)
+ Not battle-tested at scale (max 5,000 reps)
+ Limited integrations (no SAP connector yet)
+ No SOC 2 (need 12 months)
+ Small support team (can't dedicate account team)
 
 PATH TO TIER 1:
 
@@ -2117,7 +2117,7 @@ Q4: IPO Readiness
 
 ---
 
-# 🔄 CROSS-CUTTING: UNIVERSAL FRAMEWORKS
+#  CROSS-CUTTING: UNIVERSAL FRAMEWORKS
 
 ## **Master Decision Tree: Finding Your Research Path**
 
@@ -2260,17 +2260,17 @@ WEEK 1: US Market Landscape
 WEEK 2: Go/No-Go Analysis
 
 PROS (Go to US):
-✅ 7× larger market (15K SMB SaaS vs 2K in India)
-✅ Higher ACVs ($10K-20K vs $3K-5K in India)
-✅ Less competitive at SMB (Gong focuses on enterprise)
-✅ Investors want US traction
+ 7× larger market (15K SMB SaaS vs 2K in India)
+ Higher ACVs ($10K-20K vs $3K-5K in India)
+ Less competitive at SMB (Gong focuses on enterprise)
+ Investors want US traction
 
 CONS (Wait):
-❌ Need US team (sales, support = $300K-500K/year)
-❌ Brand unknown (India success doesn't transfer)
-❌ Time zone challenge (India team supporting US customers)
-❌ Payment processing (Stripe US vs India)
-❌ India market still underpenetrated (2K companies, only 50 customers)
+ Need US team (sales, support = $300K-500K/year)
+ Brand unknown (India success doesn't transfer)
+ Time zone challenge (India team supporting US customers)
+ Payment processing (Stripe US vs India)
+ India market still underpenetrated (2K companies, only 50 customers)
 
 CALCULATION:
 US Expansion Cost Year 1: $500K (team + marketing)
@@ -2401,9 +2401,9 @@ TARGET SHORTLIST:
 WEEK 4: Due Diligence (Company A)
 
 LICENSE VERIFICATION:
-□ RBI PPI license: Valid until 2027 ✅
-□ Compliance record: Clean (no RBI actions) ✅
-□ License transferable: Yes (with RBI approval, 3-6 months) ✅
+□ RBI PPI license: Valid until 2027 
+□ Compliance record: Clean (no RBI actions) 
+□ License transferable: Yes (with RBI approval, 3-6 months) 
 
 CUSTOMER ANALYSIS:
 □ Total customers: 180
@@ -2545,29 +2545,29 @@ If bottom-up = $50M and top-down = $200M:
 
 | Tool | Series A | Series B | Series C+ | Best For | Industry |
 |------|----------|----------|-----------|----------|----------|
-| **Google Search** | ✅ FREE | ✅ Use | ✅ Use | All | All |
-| **LinkedIn (Free)** | ✅ FREE | ✅ Use | ✅ Use | All | All |
-| **G2/Capterra** | ✅ FREE | ✅ Use | ✅ Use | Review mining | All |
-| **Crunchbase Free** | ✅ FREE | ⚠️ Limit | ⚠️ Limit | Funding data | All |
+| **Google Search** |  FREE |  Use |  Use | All | All |
+| **LinkedIn (Free)** |  FREE |  Use |  Use | All | All |
+| **G2/Capterra** |  FREE |  Use |  Use | Review mining | All |
+| **Crunchbase Free** |  FREE |  Limit |  Limit | Funding data | All |
 | | | | | | |
-| **LinkedIn Sales Nav** | 💰 $99 | ✅ YES | ✅ YES | ICP sizing, org charts | All |
-| **Crunchbase Pro** | 💰 $29 | ✅ YES | ✅ YES | Competitor funding | All |
-| **SimilarWeb** | ❌ Skip | ✅ $125 | ✅ YES | Traffic analysis | Sales/Martech |
-| **Ahrefs** | ❌ Skip | ⚠️ $99 | ✅ YES | SEO competitive | Sales/Martech |
-| **G2 Track** | ❌ Skip | ⚠️ $150 | ✅ YES | Review monitoring | HR Tech |
+| **LinkedIn Sales Nav** |  $99 |  YES |  YES | ICP sizing, org charts | All |
+| **Crunchbase Pro** |  $29 |  YES |  YES | Competitor funding | All |
+| **SimilarWeb** |  Skip |  $125 |  YES | Traffic analysis | Sales/Martech |
+| **Ahrefs** |  Skip |  $99 |  YES | SEO competitive | Sales/Martech |
+| **G2 Track** |  Skip |  $150 |  YES | Review monitoring | HR Tech |
 | | | | | | |
-| **Gartner** | ❌ No | ❌ Maybe | ✅ $35K+ | Analyst access, MQ | HR Tech, Enterprise |
-| **Klue/Crayon** | ❌ No | ❌ Maybe | ✅ $18K+ | CI platform | Series C+ All |
-| **ZoomInfo** | ❌ No | ❌ Maybe | ✅ $20K+ | Contact data | Series C+ All |
+| **Gartner** |  No |  Maybe |  $35K+ | Analyst access, MQ | HR Tech, Enterprise |
+| **Klue/Crayon** |  No |  Maybe |  $18K+ | CI platform | Series C+ All |
+| **ZoomInfo** |  No |  Maybe |  $20K+ | Contact data | Series C+ All |
 | | | | | | |
-| **Vanta/Drata** | ⚠️ Fintech | ✅ Fintech | ✅ All | SOC 2 compliance | Fintech, HR Tech, Ops |
-| **Legal Counsel** | ✅ Fintech | ✅ Fintech | ✅ All | Regulatory | Fintech mandatory |
+| **Vanta/Drata** |  Fintech |  Fintech |  All | SOC 2 compliance | Fintech, HR Tech, Ops |
+| **Legal Counsel** |  Fintech |  Fintech |  All | Regulatory | Fintech mandatory |
 
 **Key:**
-- ✅ = Recommended at this stage
-- 💰 = Consider if budget allows
-- ⚠️ = Conditional (see section for details)
-- ❌ = Skip (not worth it at this stage)
+-  = Recommended at this stage
+-  = Consider if budget allows
+-  = Conditional (see section for details)
+-  = Skip (not worth it at this stage)
 
 ---
 

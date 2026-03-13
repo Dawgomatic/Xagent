@@ -1,24 +1,24 @@
 # Superpowers 비판적 분석 (2026-02-07)
 
-## 소스: github.com/obra/superpowers (21,815⭐, MIT)
+## 소스: github.com/obra/superpowers (21,815, MIT)
 작성자: Jesse Vincent. Claude Code 전용 스킬 프레임워크.
 
 ## 평가 요약
 
 | 스킬 | 평가 | 흡수 여부 | 이유 |
 |------|------|----------|------|
-| subagent-driven-development | ⭐⭐⭐⭐⭐ | ✅ 핵심 흡수 | 2단계 리뷰 (스펙→품질)가 품질 게이트로 탁월 |
-| verification-before-completion | ⭐⭐⭐⭐⭐ | ✅ 핵심 흡수 | "Evidence before claims" — 워커 보고 맹신 방지 |
-| systematic-debugging | ⭐⭐⭐⭐ | ✅ 3회 룰 흡수 | 3회 실패→아키텍처 재검토가 무한루프 방지에 효과적 |
-| test-driven-development | ⭐⭐⭐ | ⚠️ 선택 흡수 | 철학은 좋으나 단일 HTML에 과도. Rust/Godot만 적용 |
-| writing-plans | ⭐⭐⭐⭐ | ✅ 태스크 크기 흡수 | 2-5분 단위 분할 + 정확한 파일경로/코드 포함 |
-| brainstorming | ⭐⭐ | ❌ 비적합 | 소크라테스식 대화는 우리 환경(Master 지시→즉시 실행)에 안 맞음 |
-| using-git-worktrees | ⭐⭐ | ❌ 불필요 | OpenClaw 서브에이전트가 이미 컨텍스트 격리 제공 |
-| finishing-a-development-branch | ⭐⭐ | ❌ 불필요 | 우리는 단일 브랜치(master) 직접 푸시 |
-| dispatching-parallel-agents | ⭐⭐⭐ | ❌ 이미 있음 | ralph-loop 3-tier가 이미 동일 기능 |
-| executing-plans | ⭐⭐⭐ | ❌ 이미 있음 | ralph-loop Phase 3와 중복 |
-| requesting/receiving-code-review | ⭐⭐⭐ | ⚠️ 부분 흡수 | 2단계 리뷰로 통합 (별도 스킬 불필요) |
-| writing-skills | ⭐⭐⭐ | ❌ 이미 있음 | skill-creator 스킬이 더 포괄적 |
+| subagent-driven-development |  |  핵심 흡수 | 2단계 리뷰 (스펙→품질)가 품질 게이트로 탁월 |
+| verification-before-completion |  |  핵심 흡수 | "Evidence before claims" — 워커 보고 맹신 방지 |
+| systematic-debugging |  |  3회 룰 흡수 | 3회 실패→아키텍처 재검토가 무한루프 방지에 효과적 |
+| test-driven-development |  |  선택 흡수 | 철학은 좋으나 단일 HTML에 과도. Rust/Godot만 적용 |
+| writing-plans |  |  태스크 크기 흡수 | 2-5분 단위 분할 + 정확한 파일경로/코드 포함 |
+| brainstorming |  |  비적합 | 소크라테스식 대화는 우리 환경(Master 지시→즉시 실행)에 안 맞음 |
+| using-git-worktrees |  |  불필요 | OpenClaw 서브에이전트가 이미 컨텍스트 격리 제공 |
+| finishing-a-development-branch |  |  불필요 | 우리는 단일 브랜치(master) 직접 푸시 |
+| dispatching-parallel-agents |  |  이미 있음 | ralph-loop 3-tier가 이미 동일 기능 |
+| executing-plans |  |  이미 있음 | ralph-loop Phase 3와 중복 |
+| requesting/receiving-code-review |  |  부분 흡수 | 2단계 리뷰로 통합 (별도 스킬 불필요) |
+| writing-skills |  |  이미 있음 | skill-creator 스킬이 더 포괄적 |
 
 ## 핵심 인사이트
 

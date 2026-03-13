@@ -10,7 +10,7 @@
 const LATTICE_URL = process.env.LATTICE_URL || 'https://lattice.quest';
 
 async function getReplies(postId, limit = 20) {
-  console.log('💬 Fetching replies...');
+  console.log(' Fetching replies...');
   console.log('   Post:', postId.slice(0, 20) + '...');
   console.log('');
   
@@ -68,4 +68,4 @@ for (let i = 1; i < args.length; i++) {
   }
 }
 
-getReplies(postId, limit).catch(err => { console.error('❌', err.message); process.exit(1); });
+getReplies(postId, limit).catch(err => { console.error('', err.message); process.exit(1); });

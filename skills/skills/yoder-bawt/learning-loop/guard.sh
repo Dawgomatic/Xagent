@@ -227,15 +227,15 @@ except Exception as e:
 
 # Output
 if top:
-    print(f"🛡️ GUARD CHECK [{guard_id}]")
+    print(f" GUARD CHECK [{guard_id}]")
     print(f"Action: {action}")
     print(f"Rules to follow:")
     for r, s in top:
-        prefix = "🚫" if r['type'] == 'NEVER' else "✅" if r['type'] == 'MUST' else "🔍" if r['type'] == 'CHECK' else "💡"
-        viol = f" ⚠️{r['violations']}x broken" if r.get('violations') else ""
+        prefix = "" if r['type'] == 'NEVER' else "" if r['type'] == 'MUST' else "" if r['type'] == 'CHECK' else ""
+        viol = f" {r['violations']}x broken" if r.get('violations') else ""
         print(f"  {prefix} {r['id']}: {r['rule'][:90]}{viol}")
     print(f"\nAfter success, log save: bash guard.sh [workspace] --save {guard_id}")
 else:
-    print(f"🛡️ GUARD CHECK [{guard_id}]: No specific rules match. Proceed with standard care.")
+    print(f" GUARD CHECK [{guard_id}]: No specific rules match. Proceed with standard care.")
 
 PYGUARD

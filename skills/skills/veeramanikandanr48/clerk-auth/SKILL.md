@@ -15,7 +15,7 @@ user-invocable: true
 
 ## What's New (Dec 2025 - Jan 2026)
 
-### 1. API Keys Beta (Dec 11, 2025) - NEW ✨
+### 1. API Keys Beta (Dec 11, 2025) - NEW 
 
 User-scoped and organization-scoped API keys for your application. Zero-code UI component.
 
@@ -69,7 +69,7 @@ clerkMiddleware((auth, req) => {
 
 ### 2. Next.js 16: proxy.ts Middleware Filename (Dec 2025)
 
-**⚠️ BREAKING**: Next.js 16 changed middleware filename due to critical security vulnerability (CVE disclosed March 2025).
+** BREAKING**: Next.js 16 changed middleware filename due to critical security vulnerability (CVE disclosed March 2025).
 
 **Background**: The March 2025 vulnerability (affecting Next.js 11.1.4-15.2.2) allowed attackers to completely bypass middleware-based authorization by adding a single HTTP header: `x-middleware-subrequest: true`. This affected all auth libraries (NextAuth, Clerk, custom solutions).
 
@@ -118,7 +118,7 @@ Dashboard now includes org creation metrics and filtering by name/slug/date.
 
 ## API Version 2025-11-10 Breaking Changes
 
-### 1. API Version 2025-11-10 (Nov 10, 2025) - BREAKING CHANGES ⚠️
+### 1. API Version 2025-11-10 (Nov 10, 2025) - BREAKING CHANGES 
 
 **Affects:** Applications using Clerk Billing/Commerce APIs
 
@@ -155,25 +155,25 @@ Dashboard now includes org creation metrics and filtering by name/slug/date.
 
 **Official Guide:** https://clerk.com/docs/guides/development/upgrading/upgrade-guides/2025-11-10
 
-### 2. Next.js v6 Async auth() (Oct 2024) - BREAKING CHANGE ⚠️
+### 2. Next.js v6 Async auth() (Oct 2024) - BREAKING CHANGE 
 
 **Affects:** All Next.js Server Components using `auth()`
 
 ```typescript
-// ❌ OLD (v5 - synchronous)
+//  OLD (v5 - synchronous)
 const { userId } = auth()
 
-// ✅ NEW (v6 - asynchronous)
+//  NEW (v6 - asynchronous)
 const { userId } = await auth()
 ```
 
 **Also affects:** `auth.protect()` is now async in middleware
 
 ```typescript
-// ❌ OLD (v5)
+//  OLD (v5)
 auth.protect()
 
-// ✅ NEW (v6)
+//  NEW (v6)
 await auth.protect()
 ```
 
@@ -282,7 +282,7 @@ export default clerkMiddleware(async (auth, req) => {
 
 ### Organization Sync (URL-based Org Activation)
 
-**⚠️ Next.js Only**: This feature currently only works with `clerkMiddleware()` in Next.js. It does NOT work with `authenticateRequest()` in other runtimes (Cloudflare Workers, Express, etc.) due to `Sec-Fetch-Dest` header checks.
+** Next.js Only**: This feature currently only works with `clerkMiddleware()` in Next.js. It does NOT work with `authenticateRequest()` in other runtimes (Cloudflare Workers, Express, etc.) due to `Sec-Fetch-Dest` header checks.
 
 **Source**: [GitHub Issue #7178](https://github.com/clerk/javascript/issues/7178)
 
@@ -336,7 +336,7 @@ export async function POST(req: Request) {
 | `organization.created` | New org created |
 | `organization.membership.created` | User joins org |
 
-**⚠️ Important:** Webhook routes must be PUBLIC (no auth). Add to middleware exclude list:
+** Important:** Webhook routes must be PUBLIC (no auth). Add to middleware exclude list:
 
 ```typescript
 const isPublicRoute = createRouteMatcher([
@@ -384,22 +384,22 @@ clerkMiddleware((auth, req) => {
 
 ## JWT Templates - Size Limits & Shortcodes
 
-### JWT Size Limitation: 1.2KB for Custom Claims ⚠️
+### JWT Size Limitation: 1.2KB for Custom Claims 
 
 **Problem**: Browser cookies limited to 4KB. Clerk's default claims consume ~2.8KB, leaving **1.2KB for custom claims**.
 
-**⚠️ Development Note**: When testing custom JWT claims in Vite dev mode, you may encounter **"431 Request Header Fields Too Large"** error. This is caused by Clerk's handshake token in the URL exceeding Vite's 8KB limit. See [Issue #11](#issue-11-431-request-header-fields-too-large-vite-dev-mode) for solution.
+** Development Note**: When testing custom JWT claims in Vite dev mode, you may encounter **"431 Request Header Fields Too Large"** error. This is caused by Clerk's handshake token in the URL exceeding Vite's 8KB limit. See [Issue #11](#issue-11-431-request-header-fields-too-large-vite-dev-mode) for solution.
 
 **Solution:**
 ```json
-// ✅ GOOD: Minimal claims
+//  GOOD: Minimal claims
 {
   "user_id": "{{user.id}}",
   "email": "{{user.primary_email_address}}",
   "role": "{{user.public_metadata.role}}"
 }
 
-// ❌ BAD: Exceeds limit
+//  BAD: Exceeds limit
 {
   "bio": "{{user.public_metadata.bio}}",  // 6KB field
   "all_metadata": "{{user.public_metadata}}"  // Entire object
@@ -590,12 +590,12 @@ Add to `package.json`:
 **Prevention**: Use shared properties only, or create separate utility functions for client vs server contexts.
 
 ```typescript
-// ✅ CORRECT: Use properties that exist in both
+//  CORRECT: Use properties that exist in both
 const primaryEmailAddress = user.emailAddresses.find(
   ({ id }) => id === user.primaryEmailAddressId
 )
 
-// ✅ CORRECT: Separate types
+//  CORRECT: Separate types
 type ClientUser = ReturnType<typeof useUser>['user']
 type ServerUser = Awaited<ReturnType<typeof currentUser>>
 ```

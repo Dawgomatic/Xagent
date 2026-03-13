@@ -7,7 +7,7 @@ metadata:
   short-description: Manage ad campaigns across Google, Meta, LinkedIn & TikTok
   homepage: https://www.adspirer.com
   openclaw:
-    emoji: "📊"
+    emoji: ""
     requires:
       env: []
       bins: []

@@ -4,7 +4,7 @@
 
 | Area | Why | Watch Out |
 |------|-----|-----------|
-| **Paddington/Bayswater** ⭐ | Near Hyde Park, good value | Some hotels dated |
+| **Paddington/Bayswater**  | Near Hyde Park, good value | Some hotels dated |
 | **Bloomsbury** | Near British Museum, central | Quiet at night |
 | **King's Cross** | Transport hub, hostels | Some streets rough |
 | **Shoreditch** | Trendy, nightlife | Further from sights |
@@ -21,7 +21,7 @@
 
 | Area | Why | Best For |
 |------|-----|----------|
-| **Covent Garden/Soho** ⭐ | Walk everywhere | Everything on doorstep |
+| **Covent Garden/Soho**  | Walk everywhere | Everything on doorstep |
 | **South Bank** | Tate, Borough, riverside | Art lovers, foodies |
 | **Marylebone** | Village feel, restaurants | Couples, foodies |
 | **Clerkenwell** | Trendy, restaurants | Foodies |

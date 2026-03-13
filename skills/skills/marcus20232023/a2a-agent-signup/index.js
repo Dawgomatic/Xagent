@@ -56,7 +56,7 @@ async function setupWallet() {
 
   const { prompt } = require('enquirer');
 
-  console.log('\n🦪 A2A Agent Signup - First Time Setup\n');
+  console.log('\n A2A Agent Signup - First Time Setup\n');
   console.log('Let\'s set up your agent wallet.\n');
 
   const result = await prompt({
@@ -84,7 +84,7 @@ A2A_API_URL=https://a2a.ex8.ca/a2a/jsonrpc
   fs.writeFileSync(ENV_PATH, envContent);
   fs.chmodSync(ENV_PATH, 0o600);
 
-  console.log(`\n✅ Wallet saved to .env`);
+  console.log(`\n Wallet saved to .env`);
   console.log(`   Agent Wallet: ${AGENT_WALLET}\n`);
 }
 
@@ -92,7 +92,7 @@ async function interactivePrompt() {
   // Dynamic import for enquirer
   const { prompt } = require('enquirer');
 
-  console.log('\n🦪 A2A Marketplace - Agent Signup Wizard\n');
+  console.log('\n A2A Marketplace - Agent Signup Wizard\n');
   console.log('Register as an agent and list your first service.\n');
 
   // Step 1: Wallet (skip if already configured from setupWallet)
@@ -121,7 +121,7 @@ async function interactivePrompt() {
       const msg = `Sign up for A2A Marketplace: ${Date.now()}`;
       signature = await wallet.signMessage(msg);
       console.log(`\n  Generated wallet: ${walletAddress}`);
-      console.log(`  ⚠️  Save your private key: ${wallet.privateKey}\n`);
+      console.log(`    Save your private key: ${wallet.privateKey}\n`);
     } else {
       const result = await prompt({
         type: 'input',
@@ -330,9 +330,9 @@ async function askPaymentMethod() {
     name: 'method',
     message: 'How would you like to pay the $0.01 USDC registration fee?',
     choices: [
-      { name: 'browser', message: '🌐 Open in browser (MetaMask)' },
-      { name: 'manual', message: '📋 Copy payment details manually' },
-      { name: 'qr', message: '📱 Show QR code for mobile wallet' }
+      { name: 'browser', message: ' Open in browser (MetaMask)' },
+      { name: 'manual', message: ' Copy payment details manually' },
+      { name: 'qr', message: ' Show QR code for mobile wallet' }
     ]
   });
   
@@ -358,7 +358,7 @@ async function registerAgent(params) {
     }
   };
 
-  console.log('\n⏳ Registering with A2A Marketplace...\n');
+  console.log('\n Registering with A2A Marketplace...\n');
   console.log(`  Agent Wallet: ${params.walletAddress}`);
   console.log(`  Signup Fee Recipient: ${SIGNUP_FEE_RECIPIENT}\n`);
 
@@ -417,7 +417,7 @@ async function main() {
         currency: args.currency || 'SHIB',
         walletAddress: args.walletAddress || AGENT_WALLET
       };
-      console.log('\n🦪 A2A Marketplace - Agent Registration\n');
+      console.log('\n A2A Marketplace - Agent Registration\n');
     } else {
       params = await interactivePrompt();
     }
@@ -431,7 +431,7 @@ async function main() {
     
     if (paymentMethod === 'browser') {
       const paymentUrl = `${BASE_URL}/signup/${session.sessionId}`;
-      console.log(`\n🌐 Opening payment page in browser...\n`);
+      console.log(`\n Opening payment page in browser...\n`);
       console.log(`   URL: ${paymentUrl}\n`);
       console.log('   Please complete the payment in your browser.\n');
       
@@ -440,7 +440,7 @@ async function main() {
       exec(`open "${paymentUrl}" || xdg-open "${paymentUrl}" || start "${paymentUrl}"`, () => {});
       
     } else if (paymentMethod === 'manual') {
-      console.log('\n📋 Payment Details:\n');
+      console.log('\n Payment Details:\n');
       console.log(`   Amount:    0.01 USDC`);
       console.log(`   To:        ${SIGNUP_FEE_RECIPIENT}`);
       console.log(`   Network:   Polygon (chainId: 137)`);
@@ -451,21 +451,21 @@ async function main() {
       const paymentUrl = `${BASE_URL}/signup/${session.sessionId}`;
       const QRCode = require('qrcode');
       
-      console.log('\n📱 Scan with your mobile wallet:\n');
+      console.log('\n Scan with your mobile wallet:\n');
       const qrAscii = await QRCode.toString(paymentUrl, { type: 'terminal' });
       console.log(qrAscii);
       console.log(`\n   Payment URL: ${paymentUrl}\n`);
     }
     
-    console.log('⏳ Waiting for payment confirmation...\n');
+    console.log(' Waiting for payment confirmation...\n');
     const paymentStatus = await pollPaymentStatus(session.sessionId);
-    console.log('\n✅ Payment verified!\n');
+    console.log('\n Payment verified!\n');
     
     // Now register the agent with the verified session
     const result = await registerAgent(params);
     const config = saveConfig(result, params.walletAddress);
 
-    console.log('✅ Registration successful!\n');
+    console.log(' Registration successful!\n');
     console.log(`  Profile ID:  ${result.profileId}`);
     console.log(`  Service ID:  ${result.serviceId}`);
     console.log(`  Profile URL: ${result.profileUrl}`);
@@ -479,7 +479,7 @@ async function main() {
 
     return result;
   } catch (error) {
-    console.error(`\n❌ Registration failed: ${error.message}\n`);
+    console.error(`\n Registration failed: ${error.message}\n`);
     process.exit(1);
   }
 }

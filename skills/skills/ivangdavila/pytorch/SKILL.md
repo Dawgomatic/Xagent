@@ -1,7 +1,7 @@
 ---
 name: PyTorch
 description: Avoid common PyTorch mistakes — train/eval mode, gradient leaks, device mismatches, and checkpoint gotchas.
-metadata: {"clawdbot":{"emoji":"🔥","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Train vs Eval Mode

@@ -70,30 +70,30 @@ Use `anydocs` when you need to:
 
 ## Key Features
 
-### 🔍 Multi-Method Search
+###  Multi-Method Search
 - **Keyword search**: Fast, term-based matching with BM25-style scoring
 - **Hybrid search**: Keyword + phrase proximity for better relevance
 - **Regex search**: Advanced pattern matching for power users
 
-### 🌐 Works with Any Docs Site
+###  Works with Any Docs Site
 - Sitemap-based discovery (standard XML sitemap)
 - Fallback crawling from base URL
 - HTML content extraction with smart selector detection
 - Automatic rate limiting to be respectful
 
-### 💾 Smart Caching
+###  Smart Caching
 - Pages cached locally with 7-day TTL (configurable)
 - Search indexes cached for instant second searches
 - Cache statistics and cleanup commands
 - Respects cache invalidation
 
-### ⚙️ Profile-Based Configuration
+###  Profile-Based Configuration
 - Support multiple doc sites simultaneously
 - Per-profile search methods and cache TTLs
 - Configuration stored in `~/.anydocs/config.json`
 - Examples for Discord, OpenClaw, and custom sites
 
-### 🌐 JavaScript Rendering (Optional)
+###  JavaScript Rendering (Optional)
 - Uses Playwright to render client-side SPAs (Single Page Apps)
 - Automatically discovers links on JS-heavy sites like Discord docs
 - Gracefully falls back to standard HTTP if Playwright unavailable

@@ -35,10 +35,10 @@ environments:
 
 | Risk Profile | Unit | Integration | E2E | Performance | Security | Accessibility |
 |---|---|---|---|---|---|---|
-| Internal tool | ✅ Core | ✅ API | ⚠️ Happy path | ❌ | ⚠️ Basic | ❌ |
-| B2B SaaS | ✅ Full | ✅ Full | ✅ Critical flows | ✅ Load | ✅ OWASP Top 10 | ✅ WCAG AA |
-| B2C high-traffic | ✅ Full | ✅ Full | ✅ Full | ✅ Stress + soak | ✅ Full | ✅ WCAG AA |
-| Financial/Health | ✅ Full + mutation | ✅ Full + contract | ✅ Full + chaos | ✅ Full suite | ✅ Pen test | ✅ WCAG AAA |
+| Internal tool |  Core |  API |  Happy path |  |  Basic |  |
+| B2B SaaS |  Full |  Full |  Critical flows |  Load |  OWASP Top 10 |  WCAG AA |
+| B2C high-traffic |  Full |  Full |  Full |  Stress + soak |  Full |  WCAG AA |
+| Financial/Health |  Full + mutation |  Full + contract |  Full + chaos |  Full suite |  Pen test |  WCAG AAA |
 
 ### Test Pyramid Architecture
 
@@ -87,12 +87,12 @@ describe('PricingCalculator', () => {
 
 **Format:** `[unit] [scenario] [expected behavior]`
 
-✅ Good:
+ Good:
 - `PricingCalculator applies 15% discount when units exceed 100`
 - `UserService throws NotFoundError when user ID is invalid`
 - `parseDate returns null for malformed ISO strings`
 
-❌ Bad:
+ Bad:
 - `test1`, `should work`, `calculates price`
 
 ### What to Unit Test (Priority Order)
@@ -268,7 +268,7 @@ critical_journeys:
 2. `getByLabelText('Email')` — Form-specific, accessible
 3. `getByText('Welcome back')` — Content-based
 4. `getByTestId('submit-btn')` — Explicit test hook
-5. `querySelector('.btn-primary')` — ❌ Fragile, breaks on CSS changes
+5. `querySelector('.btn-primary')` —  Fragile, breaks on CSS changes
 
 ### Flaky Test Triage
 
@@ -418,7 +418,7 @@ injection_payloads:
   command: ["; ls -la", "| cat /etc/passwd", "$(whoami)", "`id`"]
   
 boundary_values:
-  strings: ["", " ", "a"*10000, null, undefined, "emoji: 🎯", "unicode: é à ü", "rtl: مرحبا"]
+  strings: ["", " ", "a"*10000, null, undefined, "emoji: ", "unicode: é à ü", "rtl: مرحبا"]
   numbers: [0, -1, 2147483647, -2147483648, NaN, Infinity, 0.1+0.2]
   arrays: [[], [null], Array(10000)]
   dates: ["1970-01-01", "2099-12-31", "invalid-date", "2024-02-29", "2023-02-29"]
@@ -539,20 +539,20 @@ metrics:
 # Test Report — [Feature/Sprint/Release]
 
 ## Summary
-- **Status:** ✅ PASS / ⚠️ PASS WITH RISKS / ❌ FAIL
+- **Status:**  PASS /  PASS WITH RISKS /  FAIL
 - **Tests Run:** X | **Passed:** X | **Failed:** X | **Skipped:** X
 - **Coverage:** Line X% | Branch X% | Critical 100%
 - **Duration:** Xm Xs
 
 ## Key Findings
 
-### 🔴 Critical (Block Release)
+###  Critical (Block Release)
 1. [Finding] — [Impact] — [Fix recommendation]
 
-### 🟡 High (Fix Before Next Release)
+###  High (Fix Before Next Release)
 1. [Finding] — [Impact] — [Fix recommendation]
 
-### 🟢 Medium/Low (Backlog)
+###  Medium/Low (Backlog)
 1. [Finding] — [Impact]
 
 ## Risk Assessment
@@ -577,7 +577,7 @@ metrics:
 | Documentation | 5% | None=0, Basic=2, Complete=5 |
 | Automation ratio | 10% | <50%=0, 50-70%=3, 70-90%=7, 90%+=10 |
 
-**Scoring:** 0-40 = 🔴 Critical | 41-60 = 🟡 Needs Work | 61-80 = 🟢 Good | 81-100 = 💎 Excellent
+**Scoring:** 0-40 =  Critical | 41-60 =  Needs Work | 61-80 =  Good | 81-100 =  Excellent
 
 ---
 

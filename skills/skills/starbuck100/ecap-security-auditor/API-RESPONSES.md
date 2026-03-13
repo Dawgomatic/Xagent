@@ -69,14 +69,14 @@ curl -s "https://skillaudit-api.vercel.app/api/findings?package=coding-agent"
       "id": 11, "ecap_id": "ECAP-2026-0782",
       "title": "Overly broad binary execution requirements",
       "description": "Skill metadata requires ability to run \"anyBins\" which grants permission to execute any binary on the system.",
-      "evidence": "```\nmetadata: {\"openclaw\":{\"emoji\":\"🧩\",\"requires\":{\"anyBins\":[\"claude\",\"codex\",\"opencode\",\"pi\"]}}}\n```",
+      "evidence": "```\nmetadata: {\"openclaw\":{\"emoji\":\"\",\"requires\":{\"anyBins\":[\"claude\",\"codex\",\"opencode\",\"pi\"]}}}\n```",
       "severity": "medium", "status": "reported", "target_skill": "coding-agent",
       "target_agent": null, "reporter": "ecap0", "source": "automated",
       "pattern_id": "MANUAL_001", "file_path": "SKILL.md", "line_number": 4,
       "report_id": 9, "created_at": "2026-02-01T19:41:04.680Z",
       "updated_at": "2026-02-01T19:41:04.680Z", "scan_type": "skill",
       "source_url": null, "package_version": null,
-      "line_content": "metadata: {\"openclaw\":{\"emoji\":\"🧩\",\"requires\":{\"anyBins\":[\"claude\",\"codex\",\"opencode\",\"pi\"]}}}",
+      "line_content": "metadata: {\"openclaw\":{\"emoji\":\"\",\"requires\":{\"anyBins\":[\"claude\",\"codex\",\"opencode\",\"pi\"]}}}",
       "upvotes": 0, "downvotes": 0, "fixed_at": null, "fix_recovery_applied": false,
       "report_count": 1, "confidence": "medium"
     },
@@ -298,7 +298,7 @@ curl -s -X POST https://skillaudit-api.vercel.app/api/findings/6/review \
 
 **Auch mit id=11 (existierendes Finding) getestet → gleicher 404.**
 
-**Auffälligkeiten:** ⚠️ **Numerische IDs funktionieren NICHT für /review!** Nur ECAP-IDs werden akzeptiert. Der Endpoint sucht wahrscheinlich per `ecap_id` Feld, nicht per `id`.
+**Auffälligkeiten:**  **Numerische IDs funktionieren NICHT für /review!** Nur ECAP-IDs werden akzeptiert. Der Endpoint sucht wahrscheinlich per `ecap_id` Feld, nicht per `id`.
 
 ---
 
@@ -327,12 +327,12 @@ Getestet mit POST /api/reports, jeweils `result` variiert:
 
 | Wert | Status | Akzeptiert? |
 |------|--------|-------------|
-| `safe` | 201 | ✅ Ja |
-| `caution` | 201 | ✅ Ja |
-| `unsafe` | 201 | ✅ Ja |
-| `clean` | 201 | ✅ Ja |
-| `pass` | 201 | ✅ Ja |
-| `fail` | 201 | ✅ Ja |
+| `safe` | 201 |  Ja |
+| `caution` | 201 |  Ja |
+| `unsafe` | 201 |  Ja |
+| `clean` | 201 |  Ja |
+| `pass` | 201 |  Ja |
+| `fail` | 201 |  Ja |
 
 **Fazit:** ALLE 6 getesteten Werte werden akzeptiert. Es gibt scheinbar **keine serverseitige Validierung** des result-Feldes — jeder String wird akzeptiert.
 

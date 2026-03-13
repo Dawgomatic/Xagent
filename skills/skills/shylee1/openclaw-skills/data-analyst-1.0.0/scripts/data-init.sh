@@ -4,7 +4,7 @@
 
 DATA_DIR="${HOME}/.openclaw/workspace/data-analysis"
 
-echo "🚀 Initializing Data Analysis Workspace"
+echo " Initializing Data Analysis Workspace"
 echo "======================================="
 
 # Create directory structure
@@ -171,7 +171,7 @@ def main():
         df.to_csv(args.output, index=False)
         print(f"\nResults saved to: {args.output}")
     
-    print("\n✅ Analysis complete!")
+    print("\n Analysis complete!")
 
 if __name__ == '__main__':
     main()
@@ -220,13 +220,13 @@ Use this for every new dataset.
 3. 
 EOF
 
-echo "✅ Created: $DATA_DIR/data/"
-echo "✅ Created: $DATA_DIR/queries/"
-echo "✅ Created: $DATA_DIR/reports/"
-echo "✅ Created: $DATA_DIR/scripts/"
-echo "✅ Created: $DATA_DIR/data-quality-checklist.md"
+echo " Created: $DATA_DIR/data/"
+echo " Created: $DATA_DIR/queries/"
+echo " Created: $DATA_DIR/reports/"
+echo " Created: $DATA_DIR/scripts/"
+echo " Created: $DATA_DIR/data-quality-checklist.md"
 echo ""
-echo "🎉 Data analysis workspace ready!"
+echo " Data analysis workspace ready!"
 echo ""
 echo "Quick start:"
 echo "  1. Put data files in data/"

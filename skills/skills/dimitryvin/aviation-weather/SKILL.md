@@ -35,10 +35,10 @@ When no stations specified, defaults to Santa Monica area: `KSMO`, `KLAX`, `KVNY
 
 ## Flight Categories
 
-- 🟢 VFR - Ceiling >3000ft AGL and visibility >5sm
-- 🔵 MVFR - Ceiling 1000-3000ft or visibility 3-5sm
-- 🔴 IFR - Ceiling 500-1000ft or visibility 1-3sm
-- 🟣 LIFR - Ceiling <500ft or visibility <1sm
+-  VFR - Ceiling >3000ft AGL and visibility >5sm
+-  MVFR - Ceiling 1000-3000ft or visibility 3-5sm
+-  IFR - Ceiling 500-1000ft or visibility 1-3sm
+-  LIFR - Ceiling <500ft or visibility <1sm
 
 ## Common SoCal Airports
 

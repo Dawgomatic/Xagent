@@ -2,7 +2,7 @@
 name: captchas-openclaw
 description: OpenClaw integration guidance for CAPTCHAS Agent API, including OpenResponses tool schemas and plugin tool registration.
 homepage: https://captchas.co
-metadata: {"openclaw":{"emoji":"🧩","requires":{"env":["CAPTCHAS_API_KEY","CAPTCHAS_ENDPOINT"]},"primaryEnv":"CAPTCHAS_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["CAPTCHAS_API_KEY","CAPTCHAS_ENDPOINT"]},"primaryEnv":"CAPTCHAS_API_KEY"}}
 ---
 
 # CAPTCHAS + OpenClaw

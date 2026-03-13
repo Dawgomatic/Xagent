@@ -1,4 +1,4 @@
-# 🎯 思维模型增强器 - ClawdHub发布指南
+#  思维模型增强器 - ClawdHub发布指南
 
 ## 发布前准备
 
@@ -79,7 +79,7 @@ clawdhub list
 
 ---
 
-## 🚀 下一步
+##  下一步
 
 请按以下步骤操作：
 
@@ -95,4 +95,4 @@ clawdhub list
    clawdhub publish /root/clawd/skills/thinking-model-enhancer
    ```
 
-祝您发布顺利！🎉
+祝您发布顺利！

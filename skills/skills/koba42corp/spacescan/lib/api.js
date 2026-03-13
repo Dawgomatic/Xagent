@@ -7,7 +7,7 @@ class SpacescanAPI {
     this.apiKey = apiKey || process.env.SPACESCAN_API_KEY;
     
     if (!this.apiKey) {
-      console.warn('⚠️  No Spacescan API key found. Set SPACESCAN_API_KEY environment variable.');
+      console.warn('  No Spacescan API key found. Set SPACESCAN_API_KEY environment variable.');
     }
     
     this.client = axios.create({

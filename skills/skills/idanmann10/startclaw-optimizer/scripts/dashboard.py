@@ -53,23 +53,23 @@ class OptimizerDashboard:
         metrics = self.fetch_live_metrics()
 
         # Budget Section
-        stdscr.addstr(2, 2, f"💰 Daily Budget: ${metrics['daily_budget']:.2f}", curses.A_BOLD)
-        stdscr.addstr(3, 2, f"💵 Current Spend: ${metrics['current_spend']:.2f}")
+        stdscr.addstr(2, 2, f" Daily Budget: ${metrics['daily_budget']:.2f}", curses.A_BOLD)
+        stdscr.addstr(3, 2, f" Current Spend: ${metrics['current_spend']:.2f}")
         spend_percentage = (metrics['current_spend'] / metrics['daily_budget']) * 100
-        stdscr.addstr(4, 2, f"📊 Spend %: {spend_percentage:.1f}%")
+        stdscr.addstr(4, 2, f" Spend %: {spend_percentage:.1f}%")
 
         # Tasks Section
-        stdscr.addstr(6, 2, f"🚀 Tasks Executed: {metrics['tasks_executed']}", curses.A_BOLD)
+        stdscr.addstr(6, 2, f" Tasks Executed: {metrics['tasks_executed']}", curses.A_BOLD)
 
         # Model Distribution
-        stdscr.addstr(8, 2, "🤖 Model Distribution:", curses.A_BOLD)
+        stdscr.addstr(8, 2, " Model Distribution:", curses.A_BOLD)
         y_pos = 9
         for model, percentage in metrics['model_distribution'].items():
             stdscr.addstr(y_pos, 4, f"{model.capitalize()}: {percentage}%")
             y_pos += 1
 
         # Circuit Breakers
-        stdscr.addstr(13, 2, "🔒 Circuit Breakers:", curses.A_BOLD)
+        stdscr.addstr(13, 2, " Circuit Breakers:", curses.A_BOLD)
         y_pos = 14
         for breaker, status in metrics['circuit_breakers'].items():
             color = curses.color_pair(2) if status else curses.color_pair(1)

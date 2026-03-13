@@ -6,7 +6,7 @@ disable-model-invocation: false
 command-dispatch: tool
 command-tool: tasker_cmd
 command-arg-mode: raw
-metadata: {"clawdbot":{"emoji":"🗂️"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 Route task-related requests to `tasker_cmd` (raw args only, no leading `tasker`).

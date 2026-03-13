@@ -640,7 +640,7 @@ def main():
                     for i, fb_id in enumerate(result['fallback_chain'], 1):
                         print(f"  {i}. {fb_id}")
             else:
-                print(f"\n⚠️  {result['reasoning']}")
+                print(f"\n  {result['reasoning']}")
         
         elif command == 'score':
             if len(sys.argv) < 3:
@@ -692,9 +692,9 @@ def main():
             if result['issues']:
                 print(f"\nIssues found:")
                 for issue in result['issues']:
-                    print(f"  ⚠️  {issue}")
+                    print(f"    {issue}")
             else:
-                print("\n✅ Configuration is valid")
+                print("\n Configuration is valid")
         
         elif command == 'cost-estimate':
             if len(sys.argv) < 3:

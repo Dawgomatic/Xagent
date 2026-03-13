@@ -142,7 +142,7 @@ def analyze_orderbook_imbalance(orderbook, depth=20):
 def format_large_trades_output(large_trades, threshold):
     """Format large trades output"""
     print(f"\n{'='*90}")
-    print(f"🐋 Large Trades (Whale Activity)")
+    print(f" Large Trades (Whale Activity)")
     print(f"{'='*90}")
     print(f"Threshold: ${threshold:,.2f} (top 10% of recent trades)")
     print(f"Total Large Trades: {len(large_trades)}")
@@ -162,9 +162,9 @@ def format_large_trades_output(large_trades, threshold):
     print(f"  Sell Orders: {sell_count} (${sell_volume:,.2f})")
     
     if buy_volume > sell_volume * 1.2:
-        print(f"  ⚠ Whale buying pressure detected!")
+        print(f"   Whale buying pressure detected!")
     elif sell_volume > buy_volume * 1.2:
-        print(f"  ⚠ Whale selling pressure detected!")
+        print(f"   Whale selling pressure detected!")
     
     print(f"\nRecent Large Trades (last 20):")
     print(f"{'Time':<20} {'Side':<6} {'Price':<15} {'Quantity':<15} {'Value':<15}")
@@ -182,7 +182,7 @@ def format_large_trades_output(large_trades, threshold):
 def format_orderbook_output(analysis, current_price):
     """Format orderbook analysis output"""
     print(f"\n{'='*90}")
-    print(f"📊 Orderbook Analysis")
+    print(f" Orderbook Analysis")
     print(f"{'='*90}")
     print(f"Current Price: ${current_price:,.2f}")
     
@@ -198,7 +198,7 @@ def format_orderbook_output(analysis, current_price):
     elif analysis['imbalance'] == 'BEARISH':
         print(f"  ✗ More sell pressure - potential downward movement")
     
-    print(f"\n🧱 Orderbook Walls:")
+    print(f"\n Orderbook Walls:")
     
     if analysis['bid_walls']:
         print(f"\n  Support Walls (Large Bids):")

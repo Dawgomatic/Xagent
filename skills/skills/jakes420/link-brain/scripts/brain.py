@@ -301,7 +301,7 @@ def _check_whats_new(db):
     db.commit()
     if last_seen is not None:  # Only show on upgrade, not first install
         print()
-        print(f"🆕 Link Brain v{VERSION} — What's new:")
+        print(f" Link Brain v{VERSION} — What's new:")
         print(f"   {WHATS_NEW}")
         print(f"   Run: brain.py help for details")
         print()
@@ -417,13 +417,13 @@ def track_activity(db, activity_type):
         total_saves = db.execute("SELECT COUNT(*) as n FROM links").fetchone()["n"]
         for milestone in [500, 100, 50, 10]:
             if total_saves == milestone:
-                messages.append(f"🎯 {milestone} links saved!")
+                messages.append(f" {milestone} links saved!")
                 break
 
     streak_days = _calculate_streak(db)
     for milestone in [30, 7, 3]:
         if streak_days == milestone:
-            messages.append(f"🔥 {milestone}-day streak!")
+            messages.append(f" {milestone}-day streak!")
             break
 
     return messages
@@ -951,7 +951,7 @@ canvas:active {{ cursor: grabbing; }}
 </head>
 <body>
 <div id="header">
-    <h1>🧠 Link Brain</h1>
+    <h1> Link Brain</h1>
     <p>{len(nodes)} links, {len(edges)} connections</p>
 </div>
 <div id="tooltip">
@@ -1594,7 +1594,7 @@ def _export_collection_markdown(coll, links):
     lines.append(f"*{len(links)} links*")
     lines.append("")
     for i, link in enumerate(links, 1):
-        rating_str = f" {'⭐' * link.get('rating', 0)}" if link.get("rating") else ""
+        rating_str = f" {'' * link.get('rating', 0)}" if link.get("rating") else ""
         lines.append(f"## {i}. {link['title']}{rating_str}")
         lines.append(f"<{link['url']}>")
         lines.append("")
@@ -1613,7 +1613,7 @@ def _export_collection_html(coll, links):
     items_html = ""
     for i, link in enumerate(links, 1):
         tags_html = "".join(f'<span class="tag">{t}</span>' for t in link["tags"])
-        rating_html = f'<span class="rating">{"⭐" * link.get("rating", 0)}</span>' if link.get("rating") else ""
+        rating_html = f'<span class="rating">{"" * link.get("rating", 0)}</span>' if link.get("rating") else ""
         summary_html = f'<p class="summary">{_html_escape(link.get("summary", ""))}</p>' if link.get("summary") else ""
         items_html += f"""
         <div class="link-card">
@@ -2687,7 +2687,7 @@ def cmd_random(args):
         print(json.dumps({"status": "empty", "message": "No unread links in your backlog."}))
         return
     print(json.dumps({
-        "status": "ok", "message": "🎲 Here's something from your backlog...",
+        "status": "ok", "message": " Here's something from your backlog...",
         "count": len(rows), "links": [link_to_dict(r) for r in rows]
     }, indent=2))
 
@@ -2788,14 +2788,14 @@ def cmd_weekly(args):
         "top_tags": [{"tag": r["name"], "count": r["cnt"]} for r in top_tags_week],
         "current_streak": streak, "total_links": total, "unread_backlog": unread,
     }
-    lines = ["📚 *Weekly Link Brain Summary*", "",
-             f"📥 *Saved:* {saved_this_week} links", f"📖 *Read:* {read_this_week} links"]
+    lines = [" *Weekly Link Brain Summary*", "",
+             f" *Saved:* {saved_this_week} links", f" *Read:* {read_this_week} links"]
     if top_tags_week:
         tags_str = ", ".join(f"{r['name']} ({r['cnt']})" for r in top_tags_week)
-        lines.append(f"🏷️ *Top tags:* {tags_str}")
+        lines.append(f" *Top tags:* {tags_str}")
     if streak > 0:
-        lines.append(f"🔥 *Streak:* {streak} day{'s' if streak != 1 else ''}")
-    lines.append(f"📊 *Total:* {total} links ({unread} unread)")
+        lines.append(f" *Streak:* {streak} day{'s' if streak != 1 else ''}")
+    lines.append(f" *Total:* {total} links ({unread} unread)")
     result["formatted"] = "\n".join(lines)
     print(json.dumps(result, indent=2))
 
@@ -3181,7 +3181,7 @@ def cmd_setup(args):
                 {"name": n, "count": c, "path": p} for n, c, p in browsers
             ]
         # Also print human-readable
-        print(f"🧠 {_bold('Link Brain')} v{VERSION}")
+        print(f" {_bold('Link Brain')} v{VERSION}")
         print(f"   Data: {DB_DIR}")
         print(f"   Links: {total}")
         if browsers:
@@ -3197,7 +3197,7 @@ def cmd_setup(args):
             "version": VERSION,
             "data_dir": str(DB_DIR),
         }
-        print(f"🧠 {_bold('Link Brain')} v{VERSION}")
+        print(f" {_bold('Link Brain')} v{VERSION}")
         print()
         print("Your personal knowledge base for links.")
         print()
@@ -3278,7 +3278,7 @@ def cmd_feedback(args):
     )
 
     print()
-    print(f"Thanks! Your feedback helps make Link Brain better. 🧠")
+    print(f"Thanks! Your feedback helps make Link Brain better. ")
     print()
     print(f"Open an issue:")
     print(f"  {url}")
@@ -3306,7 +3306,7 @@ def cmd_debug(args):
         install_via = "clawhub"
 
     print()
-    print(_bold("🧠 Link Brain Debug Info"))
+    print(_bold(" Link Brain Debug Info"))
     print()
     print(f"  Version:      {VERSION}")
     print(f"  Python:       {sys.version.split()[0]}")
@@ -4007,27 +4007,27 @@ if (DATA.recent.length === 0) {
 
 
 def cmd_help(args):
-    print(f"🧠 {_bold('Link Brain')} v{VERSION}")
+    print(f" {_bold('Link Brain')} v{VERSION}")
     print()
-    print(f"{_bold('🚀 Get started')}")
+    print(f"{_bold(' Get started')}")
     print(f"  {_cyan('quickstart')}               Auto-import all browser bookmarks + open GUI")
     print(f"  {_cyan('setup')}                    First-time setup (detects your browsers)")
     print()
-    print(f"{_bold('📥 Save stuff')}")
+    print(f"{_bold(' Save stuff')}")
     print(f"  {_cyan('save')} <url>              Save a URL (add --title, --summary, --tags)")
     print(f"  {_cyan('save')} <url> --auto       Auto-fetch, summarize, and tag (no LLM needed)")
     print(f"  {_cyan('auto-save')} <url>         Shortcut for save --auto")
     print(f"  {_cyan('scan')} <source>           Pull bookmarks from chrome, safari, or firefox")
     print(f"  {_cyan('import')} <file>           Import from Pocket, YouTube, Reddit, and more")
     print()
-    print(f"{_bold('🔍 Find stuff')}")
+    print(f"{_bold(' Find stuff')}")
     print(f"  {_cyan('search')} <query>          Full-text search (supports natural language)")
     print(f"  {_cyan('tags')} [name]             List all tags, or show links for a tag")
     print(f"  {_cyan('get')} <id>                Full details for a link")
     print(f"  {_cyan('related')} <id>            Find links with similar tags")
     print(f"  {_cyan('suggest-tags')} <url>      Get tag suggestions based on your patterns")
     print()
-    print(f"{_bold('✨ Discover stuff')}")
+    print(f"{_bold(' Discover stuff')}")
     print(f"  {_cyan('digest')}                  Get a batch of links to review")
     print(f"  {_cyan('recommend')}               Surface links based on your top tags")
     print(f"  {_cyan('gems')}                    Your highest-rated links and hidden gems")
@@ -4035,7 +4035,7 @@ def cmd_help(args):
     print(f"  {_cyan('graph')}                   Interactive knowledge graph visualization")
     print(f"  {_cyan('gui')}                     Open the visual console in your browser")
     print()
-    print(f"{_bold('📖 Track your reading')}")
+    print(f"{_bold(' Track your reading')}")
     print(f"  {_cyan('read')} <id>               Mark as read")
     print(f"  {_cyan('unread')}                  Show unread links")
     print(f"  {_cyan('rate')} <id> <1-5>         Rate a link")
@@ -4043,7 +4043,7 @@ def cmd_help(args):
     print(f"  {_cyan('insights')}                Reading personality and analytics")
     print(f"  {_cyan('weekly')}                  Weekly summary (WhatsApp-ready)")
     print()
-    print(f"{_bold('📚 Collections')}")
+    print(f"{_bold(' Collections')}")
     print(f"  {_cyan('collection create')} <name>           Create a reading list")
     print(f"  {_cyan('collection add')} <name> <id>         Add link to collection")
     print(f"  {_cyan('collection remove')} <name> <id>      Remove link from collection")
@@ -4052,14 +4052,14 @@ def cmd_help(args):
     print(f"  {_cyan('collection export')} <name>           Export as markdown")
     print(f"  {_cyan('collection export')} <name> --html    Export as HTML page")
     print()
-    print(f"{_bold('🔄 Spaced Repetition')}")
+    print(f"{_bold(' Spaced Repetition')}")
     print(f"  {_cyan('review')}                  Show next link due for review")
     print(f"  {_cyan('review done')} <id>        Mark reviewed (advances interval)")
     print(f"  {_cyan('review skip')} <id>        Skip for now")
     print(f"  {_cyan('review reset')} <id>       Reset interval to 1 day")
     print(f"  {_cyan('review stats')}            Review queue stats")
     print()
-    print(f"{_bold('🔧 Manage')}")
+    print(f"{_bold(' Manage')}")
     print(f"  {_cyan('recent')}                  Last saved links")
     print(f"  {_cyan('delete')} <id>             Remove a link")
     print(f"  {_cyan('stats')}                   Collection overview")
@@ -4068,7 +4068,7 @@ def cmd_help(args):
     print(f"  {_cyan('sync')} <source>           Check for removed bookmarks")
     print(f"  {_cyan('setup')}                   First-time setup")
     print()
-    print(f"{_bold('💬 Feedback')}")
+    print(f"{_bold(' Feedback')}")
     print(f"  {_cyan('feedback')} <message>       Send feedback or suggestions")
     print(f"  {_cyan('feedback')} --bug <msg>     Report a bug")
     print(f"  {_cyan('feedback')} --idea <msg>    Suggest a feature")

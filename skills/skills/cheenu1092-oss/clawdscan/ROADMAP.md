@@ -1,6 +1,6 @@
 # clawdscan Roadmap
 
-## ✅ Shipped
+##  Shipped
 
 ### v0.2.0 — Core
 - Session health scanning, bloat detection, zombie identification
@@ -16,7 +16,7 @@
 - `--check-versions` — binary version validation
 - Auto-detect skill dirs from OpenClaw config
 
-## 🔮 Future
+##  Future
 
 ### v3.0 — Ecosystem
 

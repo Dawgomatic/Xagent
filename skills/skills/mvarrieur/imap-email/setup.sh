@@ -2,19 +2,19 @@
 
 # IMAP Email Skill Setup Helper
 
-echo "🦞 IMAP Email Skill Setup"
+echo " IMAP Email Skill Setup"
 echo ""
 echo "Setting up ProtonMail Bridge configuration..."
 echo ""
 
 # Check if Bridge is running
 if ! ps aux | grep -i "proton.*bridge" | grep -v grep > /dev/null; then
-    echo "❌ ProtonMail Bridge doesn't appear to be running"
+    echo " ProtonMail Bridge doesn't appear to be running"
     echo "   Please start ProtonMail Bridge first"
     exit 1
 fi
 
-echo "✅ ProtonMail Bridge is running"
+echo " ProtonMail Bridge is running"
 echo ""
 
 # Prompt for credentials
@@ -40,20 +40,20 @@ IMAP_MAILBOX=INBOX
 EOF
 
 echo ""
-echo "✅ Created .env file"
+echo " Created .env file"
 echo ""
 echo "Testing connection..."
 echo ""
 
 # Test the connection
 if node scripts/imap.js list-mailboxes 2>&1 | grep -q "name"; then
-    echo "✅ IMAP connection successful!"
+    echo " IMAP connection successful!"
     echo ""
     echo "Try checking for emails:"
     echo "  node scripts/imap.js check"
     echo ""
 else
-    echo "❌ Connection test failed"
+    echo " Connection test failed"
     echo ""
     echo "Troubleshooting:"
     echo "1. Verify Bridge is running and logged in"

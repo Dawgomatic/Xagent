@@ -22,7 +22,7 @@ class RequestorAgent {
    * Find a payment agent that supports SHIB
    */
   async findPaymentAgent() {
-    console.log(`🤖 [${this.name}] Looking for a SHIB payment agent...`);
+    console.log(` [${this.name}] Looking for a SHIB payment agent...`);
     
     const agents = this.discovery.findByCapability('shib');
     if (agents.length === 0) {
@@ -30,7 +30,7 @@ class RequestorAgent {
     }
 
     const paymentAgent = agents[0];
-    console.log(`✅ Found: ${paymentAgent.name} (${paymentAgent.id})`);
+    console.log(` Found: ${paymentAgent.name} (${paymentAgent.id})`);
     
     return paymentAgent.id;
   }
@@ -39,23 +39,23 @@ class RequestorAgent {
    * Request payment via discovered agent
    */
   async requestPayment(recipient, amount) {
-    console.log(`\n💼 [${this.name}] Task: Send ${amount} SHIB to ${recipient}`);
+    console.log(`\n [${this.name}] Task: Send ${amount} SHIB to ${recipient}`);
     
     // Step 1: Discover payment agent
     const agentId = await this.findPaymentAgent();
     
     // Step 2: Check balance first
-    console.log(`\n📊 Checking balance via ${agentId}...`);
+    console.log(`\n Checking balance via ${agentId}...`);
     const balanceResponse = await this.discovery.sendMessage(agentId, 'balance');
     
     // Step 3: Send payment
-    console.log(`\n💸 Requesting payment of ${amount} SHIB...`);
+    console.log(`\n Requesting payment of ${amount} SHIB...`);
     const paymentResponse = await this.discovery.sendMessage(
       agentId,
       `send ${amount} SHIB to ${recipient}`
     );
     
-    console.log(`✅ [${this.name}] Payment completed!`);
+    console.log(` [${this.name}] Payment completed!`);
     return paymentResponse;
   }
 
@@ -64,7 +64,7 @@ class RequestorAgent {
    */
   async runWorkflow() {
     console.log(`\n${'='.repeat(60)}`);
-    console.log(`🦪 Agent-to-Agent Communication Demo`);
+    console.log(` Agent-to-Agent Communication Demo`);
     console.log(`${'='.repeat(60)}\n`);
 
     try {
@@ -77,10 +77,10 @@ class RequestorAgent {
       );
 
       console.log(`\n${'='.repeat(60)}`);
-      console.log(`✅ Workflow Complete!`);
+      console.log(` Workflow Complete!`);
       console.log(`${'='.repeat(60)}\n`);
       
-      console.log(`📝 What just happened:`);
+      console.log(` What just happened:`);
       console.log(`   1. Requestor agent needed to send SHIB`);
       console.log(`   2. Discovered payment agent via registry`);
       console.log(`   3. Checked balance via A2A protocol`);
@@ -88,7 +88,7 @@ class RequestorAgent {
       console.log(`   5. Received confirmation via A2A response\n`);
 
     } catch (error) {
-      console.error(`❌ [${this.name}] Workflow failed:`, error.message);
+      console.error(` [${this.name}] Workflow failed:`, error.message);
       throw error;
     }
   }
@@ -129,7 +129,7 @@ This demonstrates:
         `);
     }
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

@@ -68,9 +68,9 @@ if [ "$LATEST_SESSION" -gt "$LAST_SESSION_INDEX" ]; then
     python3 ingest_sessions.py --sessions-dir "$OPENCLAW_DIR/agents/main/sessions" >> "$LOG_FILE" 2>&1
 
     if [ $? -eq 0 ]; then
-        log "✅ Sessions re-indexed successfully"
+        log " Sessions re-indexed successfully"
     else
-        log "❌ Session indexing failed (see log)"
+        log " Session indexing failed (see log)"
         exit 1
     fi
 else
@@ -83,9 +83,9 @@ cd "$RAG_DIR"
 python3 ingest_docs.py workspace >> "$LOG_FILE" 2>&1
 
 if [ $? -eq 0 ]; then
-    log "✅ Workspace re-indexed successfully"
+    log " Workspace re-indexed successfully"
 else
-    log "❌ Workspace indexing failed (see log)"
+    log " Workspace indexing failed (see log)"
     exit 1
 fi
 
@@ -95,9 +95,9 @@ cd "$RAG_DIR"
 python3 ingest_docs.py skills >> "$LOG_FILE" 2>&1
 
 if [ $? -eq 0 ]; then
-    log "✅ Skills re-indexed successfully"
+    log " Skills re-indexed successfully"
 else
-    log "❌ Skills indexing failed (see log)"
+    log " Skills indexing failed (see log)"
     exit 1
 fi
 

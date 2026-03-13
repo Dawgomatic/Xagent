@@ -23,7 +23,7 @@ metadata:
         required: false
 ---
 
-# MindGardener 🌱
+# MindGardener 
 
 **Your agents forget everything. This fixes it.**
 

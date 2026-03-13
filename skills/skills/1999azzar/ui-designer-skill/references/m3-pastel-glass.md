@@ -2,7 +2,7 @@
 
 Use this design system for modern dashboards (like Glass Gallery Hub). It combines Material You (M3) shapes with Glassmorphism depth and pastel tones.
 
-## 🎨 CSS Variables (Pastel Blue Theme)
+##  CSS Variables (Pastel Blue Theme)
 
 ```css
 :root {
@@ -22,7 +22,7 @@ Use this design system for modern dashboards (like Glass Gallery Hub). It combin
 }
 ```
 
-## 🧩 The "M3 Tile" Component
+##  The "M3 Tile" Component
 
 A hybrid card that morphs shape on interaction.
 - **Normal**: Large rounded corners (28px).
@@ -49,7 +49,7 @@ A hybrid card that morphs shape on interaction.
 }
 ```
 
-## 📐 Layout Example (Tailwind)
+##  Layout Example (Tailwind)
 
 ```html
 <div class="grid grid-cols-2 md:grid-cols-4 gap-5">

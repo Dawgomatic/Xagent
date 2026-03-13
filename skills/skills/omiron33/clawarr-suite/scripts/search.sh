@@ -33,7 +33,7 @@ if [[ -z "$HOST" ]]; then
 fi
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required but not installed"
+  echo " Error: jq is required but not installed"
   exit 1
 fi
 
@@ -47,7 +47,7 @@ case "$TYPE" in
       exit 1
     fi
     
-    echo "🎬 Searching Radarr for: $QUERY"
+    echo " Searching Radarr for: $QUERY"
     echo ""
     
     results=$(curl -sf -H "X-Api-Key: ${RADARR_KEY}" \
@@ -70,7 +70,7 @@ case "$TYPE" in
       exit 1
     fi
     
-    echo "📺 Searching Sonarr for: $QUERY"
+    echo " Searching Sonarr for: $QUERY"
     echo ""
     
     results=$(curl -sf -H "X-Api-Key: ${SONARR_KEY}" \
@@ -93,7 +93,7 @@ case "$TYPE" in
       exit 1
     fi
     
-    echo "🎵 Searching Lidarr for: $QUERY"
+    echo " Searching Lidarr for: $QUERY"
     echo ""
     
     results=$(curl -sf -H "X-Api-Key: ${LIDARR_KEY}" \

@@ -264,10 +264,10 @@ if __name__ == "__main__":
     )
     
     if result["success"]:
-        print(f"\n✅ {result['message']}\n")
-        print(f"📁 分類: {args.name}")
-        print(f"🔗 父節點: {args.parent or 'Root'}")
-        print(f"🔑 關鍵詞: {', '.join(keywords)}")
-        print(f"⚖️ 權重: {args.weight}")
+        print(f"\n {result['message']}\n")
+        print(f" 分類: {args.name}")
+        print(f" 父節點: {args.parent or 'Root'}")
+        print(f" 關鍵詞: {', '.join(keywords)}")
+        print(f" 權重: {args.weight}")
     else:
-        print(f"\n❌ {result['message']}\n")
+        print(f"\n {result['message']}\n")

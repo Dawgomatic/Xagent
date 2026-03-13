@@ -65,7 +65,7 @@ function parseArgs() {
 }
 
 async function queryAgent(client, contract, agentId) {
-  console.log(`📋 Agent ID: ${agentId}`);
+  console.log(` Agent ID: ${agentId}`);
   console.log('');
 
   try {
@@ -73,9 +73,9 @@ async function queryAgent(client, contract, agentId) {
     let owner;
     try {
       owner = await client.callMethod(contract, 'ownerOf', agentId);
-      console.log(`👤 Owner: ${owner}`);
+      console.log(` Owner: ${owner}`);
     } catch (e) {
-      console.log('❌ Agent does not exist');
+      console.log(' Agent does not exist');
       return;
     }
 
@@ -89,9 +89,9 @@ async function queryAgent(client, contract, agentId) {
         // Fallback to tokenURI (ERC-721 standard)
         uri = await client.callMethod(contract, 'tokenURI', agentId);
       }
-      console.log(`🔗 URI: ${uri || '(not set)'}`);
+      console.log(` URI: ${uri || '(not set)'}`);
     } catch (e) {
-      console.log(`🔗 URI: (not set)`);
+      console.log(` URI: (not set)`);
     }
 
     // Get wallet if set (optional, may not be supported on all deployments)
@@ -99,14 +99,14 @@ async function queryAgent(client, contract, agentId) {
       const wallet = await client.callMethod(contract, 'getAgentWallet', agentId);
       const zeroAddresses = ['0x0000000000000000000000000000000000000000', 'T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb'];
       if (wallet && !zeroAddresses.includes(wallet)) {
-        console.log(`💼 Wallet: ${wallet}`);
+        console.log(` Wallet: ${wallet}`);
       }
     } catch (e) {
       // Wallet feature not available on this deployment
     }
 
     console.log('');
-    console.log('✅ Query successful');
+    console.log(' Query successful');
 
   } catch (error) {
     throw error;
@@ -114,12 +114,12 @@ async function queryAgent(client, contract, agentId) {
 }
 
 async function queryReputation(client, contract, agentId) {
-  console.log(`📊 Reputation for Agent ID: ${agentId}`);
+  console.log(` Reputation for Agent ID: ${agentId}`);
   console.log('');
 
   try {
     // First, get the list of clients who gave feedback
-    console.log('🔍 Checking for feedback clients...');
+    console.log(' Checking for feedback clients...');
     let clients = [];
     try {
       const clientsResult = await client.callMethod(contract, 'getClients', agentId);
@@ -135,7 +135,7 @@ async function queryReputation(client, contract, agentId) {
     console.log('');
 
     // Get summary - use clients list if available, otherwise empty array
-    console.log('📊 Querying reputation summary...');
+    console.log(' Querying reputation summary...');
     const summary = await client.callMethod(
       contract,
       'getSummary',
@@ -149,21 +149,21 @@ async function queryReputation(client, contract, agentId) {
     const value = summary[1] || summary.summaryValue;
     const decimals = summary[2] || summary.summaryValueDecimals;
 
-    console.log(`📈 Total Feedback: ${count.toString()}`);
+    console.log(` Total Feedback: ${count.toString()}`);
     
     if (count > 0) {
       const actualValue = Number(value) / Math.pow(10, Number(decimals));
-      console.log(`⭐ Average Score: ${actualValue.toFixed(Number(decimals))}`);
+      console.log(` Average Score: ${actualValue.toFixed(Number(decimals))}`);
     } else {
-      console.log(`⭐ Average Score: No feedback yet`);
+      console.log(` Average Score: No feedback yet`);
     }
 
     console.log('');
-    console.log('✅ Query successful');
+    console.log(' Query successful');
 
   } catch (error) {
     // Show the actual error for debugging
-    console.log('⚠️  Error querying reputation:');
+    console.log('  Error querying reputation:');
     console.log(`   ${error.message || error}`);
     console.log('');
     console.log('   This usually means:');
@@ -202,7 +202,7 @@ async function query() {
 
   // Validate chain
   if (!contractsConfig.chains[options.chain]) {
-    console.error(`❌ Invalid chain: ${options.chain}`);
+    console.error(` Invalid chain: ${options.chain}`);
     console.error(`Available chains: ${Object.keys(contractsConfig.chains).join(', ')}`);
     process.exit(1);
   }
@@ -211,15 +211,15 @@ async function query() {
   
   // Validate network
   if (!chainConfig.networks[options.network]) {
-    console.error(`❌ Invalid network: ${options.network}`);
+    console.error(` Invalid network: ${options.network}`);
     console.error(`Available networks for ${options.chain}: ${Object.keys(chainConfig.networks).join(', ')}`);
     process.exit(1);
   }
 
   const networkConfig = chainConfig.networks[options.network];
 
-  console.log(`🔗 Chain: ${chainConfig.name}`);
-  console.log(`🌐 Network: ${networkConfig.name}`);
+  console.log(` Chain: ${chainConfig.name}`);
+  console.log(` Network: ${networkConfig.name}`);
   console.log('');
 
   try {
@@ -243,7 +243,7 @@ async function query() {
       await queryReputation(client, contract, options.agentId);
 
     } else {
-      console.error(`❌ Invalid query type: ${options.queryType}`);
+      console.error(` Invalid query type: ${options.queryType}`);
       console.error('Valid types: agent, reputation');
       process.exit(1);
     }

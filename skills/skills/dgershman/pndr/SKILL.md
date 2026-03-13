@@ -2,7 +2,7 @@
 name: pndr
 description: Personal productivity app with Ideas/Tasks, Journal, Habits, Package tracking, Lists, and more via MCP
 homepage: https://pndr.io
-metadata: {"openclaw":{"emoji":"📝","requires":{"bins":["mcporter"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["mcporter"]}}}
 ---
 
 # Pndr

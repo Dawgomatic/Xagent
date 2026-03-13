@@ -7,22 +7,22 @@ description: Generate professional advertising images from product URLs using th
 
 Generate professional advertising images from product URLs using a 4-phase AI pipeline on ComfyDeploy.
 
-## ⚠️ CRITICAL: Required Inputs Checklist
+##  CRITICAL: Required Inputs Checklist
 
 Before running ANY ad generation, the agent MUST ensure ALL of these are provided:
 
 | Input | Required? | How to Get It |
 |-------|-----------|---------------|
-| `--product-url` | ✅ ALWAYS | User provides the product page URL |
-| `--product-image` | ✅ ALWAYS | Download from the product page, or user provides |
-| `--logo` | ✅ ALWAYS | Download from brand website or search online. MUST be an image file |
-| `--reference` | ✅ RECOMMENDED | An existing ad whose style we want to clone. Search online or use previously generated images |
-| `--brand-profile` | ✅ NEVER EMPTY | Pick from catalog or run brand-analyzer first. NEVER leave as "No Brand" if a brand is known |
-| `--prompt-profile` | ✅ ALWAYS | Choose based on campaign objective |
+| `--product-url` |  ALWAYS | User provides the product page URL |
+| `--product-image` |  ALWAYS | Download from the product page, or user provides |
+| `--logo` |  ALWAYS | Download from brand website or search online. MUST be an image file |
+| `--reference` |  RECOMMENDED | An existing ad whose style we want to clone. Search online or use previously generated images |
+| `--brand-profile` |  NEVER EMPTY | Pick from catalog or run brand-analyzer first. NEVER leave as "No Brand" if a brand is known |
+| `--prompt-profile` |  ALWAYS | Choose based on campaign objective |
 | `--aspect-ratio` | Default: 4:5 | Change if needed for platform |
 | `--model` | Optional | Model/talent face from catalog or user-provided |
 
-### 🚨 NEVER Skip These Steps:
+###  NEVER Skip These Steps:
 
 1. **Product image** — Download the main product photo from the product URL. The scraper is fragile; always provide a product image explicitly.
 2. **Brand logo** — Download the logo from the brand's official website or search for "{brand name} logo" online. Must be a clean logo image (PNG preferred).
@@ -124,7 +124,7 @@ These are the exact variable names the ComfyDeploy deployment expects:
 ### Phase 1: Product Scraping
 - Gemini Flash visits the product URL
 - Extracts: title, description, features, price, images
-- ⚠️ Image scraping is the most fragile part — always provide product images manually
+-  Image scraping is the most fragile part — always provide product images manually
 
 ### Phase 2: Campaign Brief Generation (CRITICAL)
 - Uses Brand Identity JSON + Product Data → 10-point brief
@@ -142,7 +142,7 @@ These are the exact variable names the ComfyDeploy deployment expects:
 
 ### Supporting Reference Nodes
 - `pose_ref` → enforce a specific pose (replicated exactly)
-- `photo_style_ref` → replicate photographic style (⚠️ can be too literal, being optimized)
+- `photo_style_ref` → replicate photographic style ( can be too literal, being optimized)
 - `location_ref` → replicate location and color palette
 
 ## Brand Profiles

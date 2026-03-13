@@ -10,14 +10,14 @@
 
 | Test Case | Status | Details |
 |-----------|--------|---------|
-| Help command display | ✅ Pass | Complete help with examples |
-| Minimal level output | ✅ Pass | Brief summary with counts |
-| Normal level output | ✅ Pass | Full details with descriptions |
-| Detailed level output | ✅ Pass | Complete dump with JSON format |
-| Custom file path | ✅ Pass | `--file` parameter works |
-| File output | ✅ Pass | `--output` saves to file |
-| Invalid level handling | ✅ Pass | Shows error message |
-| Non-existent file | ✅ Pass | Proper error handling |
+| Help command display |  Pass | Complete help with examples |
+| Minimal level output |  Pass | Brief summary with counts |
+| Normal level output |  Pass | Full details with descriptions |
+| Detailed level output |  Pass | Complete dump with JSON format |
+| Custom file path |  Pass | `--file` parameter works |
+| File output |  Pass | `--output` saves to file |
+| Invalid level handling |  Pass | Shows error message |
+| Non-existent file |  Pass | Proper error handling |
 
 ---
 
@@ -51,15 +51,15 @@ Examples:
 CONTEXT RESTORE REPORT (Minimal)
 ============================================================
 
-📊 Context Status:
+ Context Status:
    Messages: 45 → 12
 
-🚀 Key Projects (3)
+ Key Projects (3)
    • Hermes Plan
    • Akasha Plan
    • Morning Brief
 
-📋 Ongoing Tasks (3)
+ Ongoing Tasks (3)
    • Isolated Sessions
    • Cron Tasks
    • Main Session
@@ -74,43 +74,43 @@ CONTEXT RESTORE REPORT (Minimal)
 CONTEXT RESTORE REPORT (Normal)
 ============================================================
 
-📊 Context Compression Info:
+ Context Compression Info:
    Original messages: 45
    Compressed messages: 12
    Timestamp: 2026-02-06T23:30:00.000
    Compression ratio: 26.7%
 
-🔄 Recent Operations (4)
+ Recent Operations (4)
    • **上下文已恢复**
    • 11个cron任务已转为 isolated mode
    • Context restoration performed
    • User interaction detected
 
-🚀 Key Projects
+ Key Projects
 
-   📁 Hermes Plan
+    Hermes Plan
       Description: Data analysis assistant for Excel, documents, and reports
       Status: Active
 
-   📁 Akasha Plan
+    Akasha Plan
       Description: Autonomous news system with anchor tracking and learning
       Status: Active
 
-   📁 Morning Brief
+    Morning Brief
       Description: Daily news briefing at 8 AM Rome time (weather + news)
       Status: Active
 
-📋 Ongoing Tasks
+ Ongoing Tasks
 
-   📌 Isolated Sessions
+    Isolated Sessions
       Status: Active
       Detail: 3 sessions running in parallel
 
-   📌 Cron Tasks
+    Cron Tasks
       Status: Running
       Detail: 11 scheduled tasks (isolated mode)
 
-   📌 Main Session
+    Main Session
       Status: Active
       Detail: Primary conversation session with user
 
@@ -138,15 +138,15 @@ Report saved to `/tmp/detailed_test.md` with full JSON dump and raw content prev
 
 | Requirement | Status | Notes |
 |-------------|--------|-------|
-| Docstrings on all functions | ✅ Pass | 7 functions documented |
-| Comments on key steps | ✅ Pass | All complex logic explained |
-| Error handling (try-except) | ✅ Pass | 6 error scenarios handled |
-| Example usage in code | ✅ Pass | Docstrings include examples |
-| PEP 8 style compliance | ✅ Pass | Consistent formatting |
-| CLI help information | ✅ Pass | Complete with examples |
-| README documentation | ✅ Pass | Full user guide |
-| All features implemented | ✅ Pass | No TODOs or placeholders |
-| Tests verify functionality | ✅ Pass | All 8 test cases pass |
+| Docstrings on all functions |  Pass | 7 functions documented |
+| Comments on key steps |  Pass | All complex logic explained |
+| Error handling (try-except) |  Pass | 6 error scenarios handled |
+| Example usage in code |  Pass | Docstrings include examples |
+| PEP 8 style compliance |  Pass | Consistent formatting |
+| CLI help information |  Pass | Complete with examples |
+| README documentation |  Pass | Full user guide |
+| All features implemented |  Pass | No TODOs or placeholders |
+| Tests verify functionality |  Pass | All 8 test cases pass |
 
 ---
 
@@ -159,7 +159,7 @@ cd /home/athur/.openclaw/workspace
 python3 skills/context-restore/scripts/restore_context.py
 ```
 
-**Result:** ✅ Success - Normal report displayed correctly
+**Result:**  Success - Normal report displayed correctly
 
 ### Command: Minimal Level
 
@@ -167,7 +167,7 @@ python3 skills/context-restore/scripts/restore_context.py
 python3 skills/context-restore/scripts/restore_context.py --level minimal
 ```
 
-**Result:** ✅ Success - Minimal summary displayed
+**Result:**  Success - Minimal summary displayed
 
 ### Command: Detailed Level with Output
 
@@ -177,7 +177,7 @@ python3 skills/context-restore/scripts/restore_context.py \
     --output /tmp/detailed_test.md
 ```
 
-**Result:** ✅ Success - Detailed report saved to file
+**Result:**  Success - Detailed report saved to file
 
 ---
 
@@ -190,7 +190,7 @@ python3 restore_context.py --file /nonexistent/file.json
 ```
 
 **Expected:** Error message "File not found: /nonexistent/file.json"  
-**Result:** ✅ Pass
+**Result:**  Pass
 
 ### Test: Invalid Level
 
@@ -199,7 +199,7 @@ python3 restore_context.py --level invalid
 ```
 
 **Expected:** Help message displayed  
-**Result:** ✅ Pass
+**Result:**  Pass
 
 ---
 
@@ -207,10 +207,10 @@ python3 restore_context.py --level invalid
 
 | Component | Status |
 |-----------|--------|
-| Script file exists | ✅ Ready |
-| README documentation | ✅ Complete |
-| Test results | ✅ Verified |
-| All functions tested | ✅ Pass |
+| Script file exists |  Ready |
+| README documentation |  Complete |
+| Test results |  Verified |
+| All functions tested |  Pass |
 
 ---
 
@@ -222,15 +222,15 @@ The `restore_context.py` script is **fully functional and production-ready**.
 
 | File | Status | Size |
 |------|--------|------|
-| `scripts/restore_context.py` | ✅ Complete | ~30KB |
-| `README.md` | ✅ Complete | ~8KB |
-| `scripts/test_results.md` | ✅ Complete | This file |
+| `scripts/restore_context.py` |  Complete | ~30KB |
+| `README.md` |  Complete | ~8KB |
+| `scripts/test_results.md` |  Complete | This file |
 
 ### Ready for Use
 
 All requirements met:
-- ✅ Complete documentation
-- ✅ Comprehensive error handling
-- ✅ Three report levels working
-- ✅ File I/O support
-- ✅ Tested and verified
+-  Complete documentation
+-  Comprehensive error handling
+-  Three report levels working
+-  File I/O support
+-  Tested and verified

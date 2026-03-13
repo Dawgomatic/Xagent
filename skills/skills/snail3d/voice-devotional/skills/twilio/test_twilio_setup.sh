@@ -86,7 +86,7 @@ if ! lsof -i :5000 > /dev/null 2>&1; then
     ((TESTS_PASSED++))
 else
     echo -n "Testing: Port 5000 available ... "
-    echo -e "${YELLOW}⚠ WARNING${NC} (something already using port 5000)"
+    echo -e "${YELLOW} WARNING${NC} (something already using port 5000)"
 fi
 
 # Step 8: Check gateway connectivity (if running)
@@ -96,7 +96,7 @@ if lsof -i :18789 > /dev/null 2>&1; then
     test_check "Gateway running on :18789" "curl -s http://localhost:18789/health > /dev/null"
 else
     echo -n "Testing: Gateway running on :18789 ... "
-    echo -e "${YELLOW}⚠ WARNING${NC} (Gateway not running - will be needed for webhook forwarding)"
+    echo -e "${YELLOW} WARNING${NC} (Gateway not running - will be needed for webhook forwarding)"
 fi
 
 # Step 9: Phone number format validation

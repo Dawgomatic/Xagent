@@ -45,7 +45,7 @@ Total Position Notional = $500,000 + $15,000 = $515,000
 
 Margin Fraction = -$450 / $515,000 = -0.00087 (-0.087%)
 
-⚠️ RESULT: Account is bankrupt and will be liquidated
+ RESULT: Account is bankrupt and will be liquidated
 ```
 
 ### Margin Fraction Zones
@@ -399,18 +399,18 @@ class EmergencyKillSwitch {
   async trigger(reason) {
     if (!this.armed) return;
     
-    console.log(`🚨 EMERGENCY KILL SWITCH ACTIVATED: ${reason}`);
+    console.log(` EMERGENCY KILL SWITCH ACTIVATED: ${reason}`);
     
     try {
       // 1. Cancel all pending orders
       await this.nord.cancelAllOrders();
-      console.log('✅ All orders cancelled');
+      console.log(' All orders cancelled');
       
       // 2. Close all positions
       const account = await this.nord.getAccount();
       for (const position of account.positions) {
         await this.nord.closePosition(position.marketId);
-        console.log(`✅ Closed position: ${position.marketId}`);
+        console.log(` Closed position: ${position.marketId}`);
       }
       
       // 3. Log and notify
@@ -427,7 +427,7 @@ class EmergencyKillSwitch {
   }
   
   disarm() {
-    console.log('⚠️ Kill switch disarmed — trading resumed');
+    console.log(' Kill switch disarmed — trading resumed');
     this.armed = false;
   }
 }
@@ -504,7 +504,7 @@ class RiskMonitor {
     } else if (mf < 15) {
       await this.alert('WARNING', `Margin fraction ${mf.toFixed(2)}% — Add margin or reduce positions`);
     } else if (mf < 20) {
-      console.log(`⚠️ Margin fraction low: ${mf.toFixed(2)}%`);
+      console.log(` Margin fraction low: ${mf.toFixed(2)}%`);
     }
   }
   
@@ -558,7 +558,7 @@ class RiskMonitor {
     this.alerts.push(alert);
     
     // Log to console
-    const emoji = level === 'CRITICAL' ? '🚨' : level === 'WARNING' ? '⚠️' : 'ℹ️';
+    const emoji = level === 'CRITICAL' ? '' : level === 'WARNING' ? '' : '';
     console.log(`${emoji} [${level}] ${message}`);
     
     // Send notification (implement your own)

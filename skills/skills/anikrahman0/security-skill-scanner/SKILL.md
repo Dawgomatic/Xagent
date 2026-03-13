@@ -24,14 +24,14 @@ A security-focused skill that analyzes OpenClaw SKILL.md files and skill package
 
 ## Features
 
-- ✅ **Pattern Detection**: Identifies suspicious code patterns and behaviors
-- ✅ **Prerequisite Analysis**: Validates required dependencies and downloads
-- ✅ **API Endpoint Validation**: Checks for suspicious external connections
-- ✅ **File System Auditing**: Detects dangerous file operations
-- ✅ **Encoding Detection**: Flags base64, hex, and other obfuscation attempts
-- ✅ **Risk Scoring**: Assigns risk levels (LOW, MEDIUM, HIGH, CRITICAL)
-- ✅ **Detailed Reports**: Provides clear explanations of findings
-- ✅ **Whitelist Support**: Configure trusted domains and patterns
+-  **Pattern Detection**: Identifies suspicious code patterns and behaviors
+-  **Prerequisite Analysis**: Validates required dependencies and downloads
+-  **API Endpoint Validation**: Checks for suspicious external connections
+-  **File System Auditing**: Detects dangerous file operations
+-  **Encoding Detection**: Flags base64, hex, and other obfuscation attempts
+-  **Risk Scoring**: Assigns risk levels (LOW, MEDIUM, HIGH, CRITICAL)
+-  **Detailed Reports**: Provides clear explanations of findings
+-  **Whitelist Support**: Configure trusted domains and patterns
 
 ## How It Works
 
@@ -101,34 +101,34 @@ Agent: [Scans all skills in ~/.openclaw/skills/ and generates report]
 
 ## What It Detects
 
-### 🔴 CRITICAL Risks
+###  CRITICAL Risks
 - Shell command injection attempts
 - External executable downloads (curl/wget binaries)
 - Suspicious eval() or exec() usage
 - Credential harvesting patterns
 - Known malware signatures
 
-### 🟠 HIGH Risks
+###  HIGH Risks
 - Unvalidated external API calls
 - File system write access to sensitive directories
 - Base64 or hex encoded commands
 - Requests to unknown domains
 - Privilege escalation attempts
 
-### 🟡 MEDIUM Risks
+###  MEDIUM Risks
 - Extensive file system read access
 - Network requests without HTTPS
 - Large numbers of dependencies
 - Unusual prerequisite requests
 - Deprecated or vulnerable packages
 
-### 🟢 LOW Risks
+###  LOW Risks
 - Minor code quality issues
 - Missing error handling
 - Incomplete documentation
 - Non-critical warnings
 
-## ⚠️ IMPORTANT: False Positives & Limitations
+##  IMPORTANT: False Positives & Limitations
 
 ### This Scanner WILL Flag Legitimate Patterns
 
@@ -143,11 +143,11 @@ The scanner uses regex patterns that may match innocent code. **Common false pos
 ### What This Actually Scans
 
 Skills are **markdown instruction files**, not executable code. This scanner:
-- ✅ Reads the markdown text of skill files
-- ✅ Looks for instruction patterns that might be concerning
-- ✅ Flags items for **your manual review**
-- ❌ Does NOT scan for executable malware (skills aren't programs)
-- ❌ Does NOT provide definitive verdicts
+-  Reads the markdown text of skill files
+-  Looks for instruction patterns that might be concerning
+-  Flags items for **your manual review**
+-  Does NOT scan for executable malware (skills aren't programs)
+-  Does NOT provide definitive verdicts
 
 ### Your Responsibility
 
@@ -163,7 +163,7 @@ Skills are **markdown instruction files**, not executable code. This scanner:
 === Security Scan Report ===
 Skill: email-automation
 Scanned: 2024-02-09 14:30:22
-Overall Risk: HIGH ⚠️
+Overall Risk: HIGH 
 
 FINDINGS:
 [CRITICAL] External Binary Download Detected
@@ -191,7 +191,7 @@ High: 1
 Medium: 1
 Low: 0
 
-RECOMMENDATION: ❌ DO NOT INSTALL
+RECOMMENDATION:  DO NOT INSTALL
 This skill has critical security issues that pose significant risk to your system.
 ```
 
@@ -200,14 +200,14 @@ This skill has critical security issues that pose significant risk to your syste
 ### Scenario 1: Clean Skill
 ```
 User: "Scan the weather-checker skill"
-Agent: "✅ SAFE - No security issues detected. The skill uses standard API calls
+Agent: " SAFE - No security issues detected. The skill uses standard API calls
        to api.weatherapi.com with proper HTTPS and no file system access."
 ```
 
 ### Scenario 2: Suspicious Skill
 ```
 User: "Should I install the productivity-helper skill?"
-Agent: "⚠️ WARNING - This skill attempts to download an external binary and
+Agent: " WARNING - This skill attempts to download an external binary and
        makes requests to an unknown domain. Risk Level: CRITICAL
        Recommendation: DO NOT INSTALL"
 ```
@@ -215,7 +215,7 @@ Agent: "⚠️ WARNING - This skill attempts to download an external binary and
 ### Scenario 3: Minor Issues
 ```
 User: "Analyze the note-taker skill"
-Agent: "⚠️ CAUTION - Risk Level: LOW
+Agent: " CAUTION - Risk Level: LOW
        Found 2 minor issues:
        - Uses HTTP instead of HTTPS for icon download
        - Missing input validation on file paths
@@ -226,12 +226,12 @@ Agent: "⚠️ CAUTION - Risk Level: LOW
 
 This scanner itself is designed with security in mind:
 
-- ✅ **No Network Access**: The scanner itself runs completely offline (but if you ask Claude to download a skill file first, that download uses network)
-- ✅ **No External Dependencies**: Pure JavaScript/Node.js
-- ✅ **Read-Only**: Never modifies files being scanned
-- ✅ **No Telemetry**: Doesn't send data anywhere
-- ✅ **Open Source**: All code is auditable
-- ✅ **Sandboxed**: Doesn't execute code from scanned skills
+-  **No Network Access**: The scanner itself runs completely offline (but if you ask Claude to download a skill file first, that download uses network)
+-  **No External Dependencies**: Pure JavaScript/Node.js
+-  **Read-Only**: Never modifies files being scanned
+-  **No Telemetry**: Doesn't send data anywhere
+-  **Open Source**: All code is auditable
+-  **Sandboxed**: Doesn't execute code from scanned skills
 
 ## False Positives
 

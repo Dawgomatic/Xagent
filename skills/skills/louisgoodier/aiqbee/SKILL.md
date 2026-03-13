@@ -2,7 +2,7 @@
 name: aiqbee
 description: Connect to your Aiqbee knowledge graph via MCP. Search, create, and link neurons across your architecture, portfolio, and digital strategy brains.
 homepage: https://aiqbee.com
-metadata: {"clawdbot":{"emoji":"🧠"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Aiqbee Brain

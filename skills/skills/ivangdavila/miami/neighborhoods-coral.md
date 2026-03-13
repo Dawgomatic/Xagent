@@ -28,19 +28,19 @@
 - Family-oriented, multigenerational
 
 ### Pros
-✅ **Beautiful architecture** — Strict codes preserve character
-✅ **Excellent schools** — Top public schools in Miami-Dade
-✅ **Safe** — Well-policed, quiet streets
-✅ **Trees** — Lush canopy, unlike most of Miami
-✅ **Dining scene** — Miracle Mile, Giralda Plaza
-✅ **Biltmore Hotel** — Stunning landmark, pool access
+ **Beautiful architecture** — Strict codes preserve character
+ **Excellent schools** — Top public schools in Miami-Dade
+ **Safe** — Well-policed, quiet streets
+ **Trees** — Lush canopy, unlike most of Miami
+ **Dining scene** — Miracle Mile, Giralda Plaza
+ **Biltmore Hotel** — Stunning landmark, pool access
 
 ### Cons
-❌ **Need car** — No transit
-❌ **Boring for young singles** — Family-oriented
-❌ **Far from beach** — 30+ min
-❌ **Strict HOAs** — Can't modify homes freely
-❌ **Expensive** — Premium for the prestige
+ **Need car** — No transit
+ **Boring for young singles** — Family-oriented
+ **Far from beach** — 30+ min
+ **Strict HOAs** — Can't modify homes freely
+ **Expensive** — Premium for the prestige
 
 ### Best For
 - Families with school-age children
@@ -79,19 +79,19 @@ Miami's oldest neighborhood. Bohemian history meets gentrification. Waterfront, 
 - Mix of old-timers and young families
 
 ### Pros
-✅ **Character** — Trees, history, unique feel
-✅ **Walkable village** — CocoWalk, Main Highway
-✅ **Waterfront access** — Marinas, kayaking
-✅ **Community feel** — Farmers market, festivals
-✅ **Good restaurants** — Lulu, Glass & Vine, Greenstreet
-✅ **Near everything** — Brickell, UM, Coral Gables close
+ **Character** — Trees, history, unique feel
+ **Walkable village** — CocoWalk, Main Highway
+ **Waterfront access** — Marinas, kayaking
+ **Community feel** — Farmers market, festivals
+ **Good restaurants** — Lulu, Glass & Vine, Greenstreet
+ **Near everything** — Brickell, UM, Coral Gables close
 
 ### Cons
-❌ **No beach** — Bay waterfront, not ocean
-❌ **Need car** — Transit limited
-❌ **Gentrifying rapidly** — Pricing out longtime residents
-❌ **Limited nightlife** — Sleepy after 10pm
-❌ **Parking** — Village area packed on weekends
+ **No beach** — Bay waterfront, not ocean
+ **Need car** — Transit limited
+ **Gentrifying rapidly** — Pricing out longtime residents
+ **Limited nightlife** — Sleepy after 10pm
+ **Parking** — Village area packed on weekends
 
 ### Best For
 - Young families wanting community feel
@@ -121,16 +121,16 @@ Affluent suburban community south of Coral Gables. Known for excellent schools, 
 - Miami's version of Westchester
 
 ### Pros
-✅ **Top schools** — Pinecrest Elementary, Palmetto High
-✅ **Space** — Large lots, yards
-✅ **Safe** — Very low crime
-✅ **Pinecrest Gardens** — Beautiful botanical garden
+ **Top schools** — Pinecrest Elementary, Palmetto High
+ **Space** — Large lots, yards
+ **Safe** — Very low crime
+ **Pinecrest Gardens** — Beautiful botanical garden
 
 ### Cons
-❌ **Far from everything** — 30+ min to beach, downtown
-❌ **Suburban** — Need car for everything
-❌ **Expensive** — Premium for schools
-❌ **Limited nightlife/dining** — Drive to Coral Gables
+ **Far from everything** — 30+ min to beach, downtown
+ **Suburban** — Need car for everything
+ **Expensive** — Premium for schools
+ **Limited nightlife/dining** — Drive to Coral Gables
 
 ### Best For
 - Families prioritizing schools above all

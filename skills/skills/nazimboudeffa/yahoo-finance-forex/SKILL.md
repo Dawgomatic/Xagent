@@ -4,7 +4,7 @@ description: Fetches real-time FOREX news and market data from Yahoo Finance for
 homepage: https://github.com/nazimboudeffa/openclaw-yahoo-finance-forex
 metadata:
   openclaw:
-    emoji: "💱"
+    emoji: ""
     requires:
       bins: ["python3"]
     install:
@@ -28,13 +28,13 @@ Analyze major FOREX pairs using Yahoo Finance data: news, market data, sentiment
 ## Supported Currency Pairs
 
 **7 Major Pairs:**
-- EUR/USD 🇪🇺🇺🇸 (Euro Dollar)
-- GBP/USD 🇬🇧🇺🇸 (Cable)
-- USD/JPY 🇺🇸🇯🇵 (Dollar Yen)
-- USD/CHF 🇺🇸🇨🇭 (Swissy)
-- AUD/USD 🇦🇺🇺🇸 (Aussie)
-- USD/CAD 🇺🇸🇨🇦 (Loonie)
-- NZD/USD 🇳🇿🇺🇸 (Kiwi)
+- EUR/USD  (Euro Dollar)
+- GBP/USD  (Cable)
+- USD/JPY  (Dollar Yen)
+- USD/CHF  (Swissy)
+- AUD/USD  (Aussie)
+- USD/CAD  (Loonie)
+- NZD/USD  (Kiwi)
 
 ## Quick Start
 

@@ -95,15 +95,15 @@ class CodeFormatter:
             
             for file_info in generated_files:
                 if file_info['type'] == 'strategy':
-                    print("🔍 Validating generated code...")
+                    print(" Validating generated code...")
                     result = validator.validate_and_fix(file_info['path'])
                     
                     if result['valid']:
-                        print("✅ Code validation passed")
+                        print(" Code validation passed")
                         if result.get('changes'):
                             print("   Changes made: {}".format(', '.join(result['changes'])))
                     else:
-                        print("⚠️  Code validation failed")
+                        print("  Code validation failed")
                         for error in result.get('errors', []):
                             print("   Error: {}".format(error))
                         
@@ -111,9 +111,9 @@ class CodeFormatter:
                         self._suggest_fixes(result, file_info['path'])
                         
         except ImportError:
-            print("⚠️  Code validator not available, skipping validation")
+            print("  Code validator not available, skipping validation")
         except Exception as e:
-            print("⚠️  Validation failed: {}".format(e))
+            print("  Validation failed: {}".format(e))
     
     def _suggest_fixes(self, validation_result, filepath):
         """Suggest fixes for validation errors"""
@@ -123,7 +123,7 @@ class CodeFormatter:
         if not errors:
             return
         
-        print("\n🔧 Suggested fixes:")
+        print("\n Suggested fixes:")
         
         for error in errors:
             if 'List' in error or 'Dict' in error or 'typing' in error:
@@ -152,7 +152,7 @@ class CodeFormatter:
                 with open(filepath, 'w') as f:
                     f.write('\n'.join(lines))
                 
-                print("    ✅ Added typing import")
+                print("     Added typing import")
             
             elif 'sys.path' in error or 'api_wrappers' in error:
                 print("  - Add sys.path modification for api_wrappers")
@@ -184,7 +184,7 @@ class CodeFormatter:
                 with open(filepath, 'w') as f:
                     f.write('\n'.join(lines))
                 
-                print("    ✅ Added sys.path modification")
+                print("     Added sys.path modification")
             
             elif 'encoding' in error.lower():
                 print("  - Add encoding declaration")
@@ -201,7 +201,7 @@ class CodeFormatter:
                 with open(filepath, 'w') as f:
                     f.write('\n'.join(lines))
                 
-                print("    ✅ Added encoding declaration")
+                print("     Added encoding declaration")
     
     def _generate_strategy_name(self, strategy_info):
         """Generate strategy name from strategy info."""
@@ -600,13 +600,13 @@ python {strategy_name}.py --config {strategy_name}_config.json
 
 ## 重要提醒
 
-⚠️ **风险警告**
+ **风险警告**
 - 加密货币交易具有极高风险
 - 可能损失全部投资资金
 - 过去表现不代表未来结果
 - 仅使用可承受损失的资金进行交易
 
-✅ **最佳实践**
+ **最佳实践**
 - 在模拟环境中充分测试
 - 从小资金开始逐步增加
 - 设置严格的止损规则

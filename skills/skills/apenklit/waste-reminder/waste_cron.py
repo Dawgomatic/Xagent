@@ -92,7 +92,7 @@ def check_reminders():
                 
                 # Build message
                 template = reminder_config.get("template", "Reminder: {container_name}")
-                container_emoji = container_info.get("emoji", "🗑️")
+                container_emoji = container_info.get("emoji", "")
                 container_name = container_info.get("name", container)
                 
                 message = template.replace("{container_emoji}", container_emoji)

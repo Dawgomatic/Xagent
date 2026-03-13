@@ -400,7 +400,7 @@ function generateStateChangeComment(newState, session) {
     case "active":
     case "live":
       return (
-        `🟢 **Work resumed** on this issue.\n\n` +
+        ` **Work resumed** on this issue.\n\n` +
         `Session: \`${sessionLabel}\`\n` +
         `Time: ${timestamp}\n\n` +
         `_Updated automatically by OpenClaw Dashboard_`
@@ -408,7 +408,7 @@ function generateStateChangeComment(newState, session) {
 
     case "idle":
       return (
-        `⏸️ **Work paused** on this issue (session idle >30 min).\n\n` +
+        ` **Work paused** on this issue (session idle >30 min).\n\n` +
         `Session: \`${sessionLabel}\`\n` +
         `Time: ${timestamp}\n\n` +
         `_Updated automatically by OpenClaw Dashboard_`
@@ -416,7 +416,7 @@ function generateStateChangeComment(newState, session) {
 
     case "completed":
       return (
-        `✅ **Work completed** on this issue.\n\n` +
+        ` **Work completed** on this issue.\n\n` +
         `Session: \`${sessionLabel}\`\n` +
         `Time: ${timestamp}\n\n` +
         `_Updated automatically by OpenClaw Dashboard_`
@@ -424,7 +424,7 @@ function generateStateChangeComment(newState, session) {
 
     default:
       return (
-        `📝 Session state changed to: ${newState}\n\n` +
+        ` Session state changed to: ${newState}\n\n` +
         `Session: \`${sessionLabel}\`\n` +
         `Time: ${timestamp}`
       );

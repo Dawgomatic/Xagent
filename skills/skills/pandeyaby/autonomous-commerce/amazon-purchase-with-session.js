@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 🐉 VHAGAR Amazon Purchase - With Saved Session
+ *  VHAGAR Amazon Purchase - With Saved Session
  * 
  * Run amazon-login.js first to save your session.
  * Then run this to complete a purchase.
@@ -28,16 +28,16 @@ function log(msg) {
 async function screenshot(page, name) {
   const p = `${SCREENSHOT_DIR}/${name}.png`;
   await page.screenshot({ path: p });
-  log(`📸 ${p}`);
+  log(` ${p}`);
   return p;
 }
 
 async function main() {
-  log('🐉 VHAGAR Amazon Purchase (with session)');
+  log(' VHAGAR Amazon Purchase (with session)');
   log('=========================================');
   
   if (!fs.existsSync(USER_DATA_DIR)) {
-    console.error('❌ No session found! Run amazon-login.js first.');
+    console.error(' No session found! Run amazon-login.js first.');
     process.exit(1);
   }
   
@@ -62,7 +62,7 @@ async function main() {
     log(`Login status: ${greeting}`);
     
     if (greeting.includes('Sign in') || !greeting || greeting.includes('Hello, sign')) {
-      log('⚠️ Not logged in. Please run amazon-login.js first.');
+      log(' Not logged in. Please run amazon-login.js first.');
       await browser.close();
       return;
     }
@@ -137,7 +137,7 @@ async function main() {
     
     log('');
     log('═══════════════════════════════════════');
-    log('⚠️  READY TO PLACE ORDER');
+    log('  READY TO PLACE ORDER');
     log('═══════════════════════════════════════');
     log(`Item: ${title.slice(0, 40)}...`);
     log(`Price: $${price}`);
@@ -150,7 +150,7 @@ async function main() {
     });
     
     if (answer.toLowerCase() === 'yes') {
-      log('🔥 PLACING ORDER...');
+      log(' PLACING ORDER...');
       
       // Click place order
       const placeOrderBtn = await page.$('[name="placeYourOrder1"], input[name="placeYourOrder1"], #submitOrderButtonId input');
@@ -166,7 +166,7 @@ async function main() {
         
         log('');
         log('═══════════════════════════════════════');
-        log('🎉 ORDER PLACED!');
+        log(' ORDER PLACED!');
         log('═══════════════════════════════════════');
         log(`Order ID: ${orderId}`);
         log(`Amount: $${price}`);
@@ -202,7 +202,7 @@ async function main() {
         log(`Proof saved: ${proofFile}`);
         
       } else {
-        log('❌ Could not find Place Order button');
+        log(' Could not find Place Order button');
       }
     } else {
       log('Order cancelled.');
@@ -213,7 +213,7 @@ async function main() {
     await page.waitForTimeout(30000);
     
   } catch (err) {
-    log(`❌ Error: ${err.message}`);
+    log(` Error: ${err.message}`);
     await screenshot(page, 'error');
   } finally {
     await browser.close();

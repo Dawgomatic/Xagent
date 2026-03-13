@@ -5,7 +5,7 @@ Wrapper for register command - uses venv with web3 installed
 OpenClaw expects separate scripts for each command.
 This wrapper calls the main chaoschain_skill.py with the 'register' command.
 
-⚠️ WARNING: This command submits an on-chain transaction!
+ WARNING: This command submits an on-chain transaction!
 """
 import sys
 import os

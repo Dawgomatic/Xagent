@@ -4,7 +4,7 @@ version: 1.3.0
 description: Direct MyAnimeList lookup tool. Bypasses Jikan/API issues by using MAL's internal endpoints.
 metadata:
   openclaw:
-    emoji: "🎌"
+    emoji: ""
     requires:
       bins: ["curl", "jq", "grep", "awk"]
     tags: ["anime", "manga", "mal", "search", "list"]

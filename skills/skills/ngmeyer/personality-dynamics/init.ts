@@ -12,13 +12,13 @@ const WORKSPACE = process.cwd();
 const PERSONA_DIR = join(WORKSPACE, 'PERSONA');
 const EVOLVES_DIR = join(PERSONA_DIR, 'evolves');
 
-console.log('🎭 Initializing Persona Evolution...\n');
+console.log(' Initializing Persona Evolution...\n');
 
 // Create directories
 [ PERSONA_DIR, EVOLVES_DIR ].forEach(dir => {
   if (!existsSync(dir)) {
     mkdirSync(dir, { recursive: true });
-    console.log(`📁 Created: ${dir}`);
+    console.log(` Created: ${dir}`);
   }
 });
 
@@ -144,9 +144,9 @@ Object.entries(templates).forEach(([filename, content]) => {
   const filepath = join(PERSONA_DIR, filename);
   if (!existsSync(filepath)) {
     writeFileSync(filepath, content);
-    console.log(`📝 Created: ${filename}`);
+    console.log(` Created: ${filename}`);
   } else {
-    console.log(`⏭️  Skipped: ${filename} (already exists)`);
+    console.log(`  Skipped: ${filename} (already exists)`);
   }
 });
 
@@ -156,9 +156,9 @@ if (!existsSync(gitkeep)) {
   writeFileSync(gitkeep, '');
 }
 
-console.log('\n✅ Persona Evolution initialized!');
+console.log('\n Persona Evolution initialized!');
 console.log('\nNext steps:');
 console.log('1. Edit PERSONA/core.md to customize your base persona');
 console.log('2. Run "npx persona-evolution analyze" after sessions');
 console.log('3. Check PERSONA/evolves/ for auto-generated insights');
-console.log('\nYour agent will now learn and adapt! 🎭');
+console.log('\nYour agent will now learn and adapt! ');

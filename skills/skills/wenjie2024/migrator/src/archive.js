@@ -50,7 +50,7 @@ async function createArchive(sourceDirs, outputPath, password) {
       if (fs.existsSync(dir)) {
         archive.directory(dir, path.basename(dir));
       } else {
-        console.warn(`⚠️ Warning: Source dir not found: ${dir}`);
+        console.warn(` Warning: Source dir not found: ${dir}`);
       }
     }
 
@@ -113,8 +113,8 @@ if (require.main === module) {
     }
 
     createArchive(src, dest, pass)
-        .then(() => console.log("✅ Done."))
-        .catch(err => console.error("❌ Failed:", err));
+        .then(() => console.log(" Done."))
+        .catch(err => console.error(" Failed:", err));
 }
 
 module.exports = { createArchive };

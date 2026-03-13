@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔐",
+        "emoji": "",
         "requires":
           {
             "bins": ["redshift"],
@@ -139,7 +139,7 @@ redshift configure reset --yes        # Reset to initial state
 ```bash
 redshift serve                        # http://127.0.0.1:3000 (localhost only)
 redshift serve --port 8080 --open     # Custom port, auto-open browser
-redshift serve --host 0.0.0.0         # ⚠️ Exposes to network — use with caution
+redshift serve --host 0.0.0.0         #  Exposes to network — use with caution
 ```
 
 ## Global flags

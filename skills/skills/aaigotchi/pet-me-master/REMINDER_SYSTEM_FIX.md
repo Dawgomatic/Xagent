@@ -1,4 +1,4 @@
-# Reminder System Fix - File-Based Delivery 🔧
+# Reminder System Fix - File-Based Delivery 
 
 **Date:** 2026-02-16  
 **Issue:** Reminders not reaching user  
@@ -6,15 +6,15 @@
 
 ---
 
-## 🐛 The Problem
+##  The Problem
 
 ### What Went Wrong
 
 **Symptom:**
-- Cron ran at 17:30 UTC ✅
-- Checked gotchis, all ready ✅  
-- Tried to send reminder ❌
-- User never received message ❌
+- Cron ran at 17:30 UTC 
+- Checked gotchis, all ready   
+- Tried to send reminder 
+- User never received message 
 
 **Root Cause:**
 ```
@@ -22,7 +22,7 @@ check-and-remind.sh → Bankr API → "Send message to user"
                                       ↓
                             "I can't send messages"
                                       ↓
-                                  FAILED ❌
+                                  FAILED 
 ```
 
 **Why Bankr Failed:**
@@ -42,7 +42,7 @@ Bankr response:
 
 ---
 
-## ✅ The Solution
+##  The Solution
 
 ### File-Based Reminder System
 
@@ -66,12 +66,12 @@ Step 5: Delete file (one-time use)
 ```bash
 # When all gotchis ready:
 cat > "$HOME/.openclaw/workspace/.gotchi-reminder.txt" << EOF
-fren, pet your gotchi(s)! 👻
+fren, pet your gotchi(s)! 
 
 All 3 gotchis are ready for petting!
 
 Reply with 'pet all my gotchis' or I'll auto-pet 
-them in 1 hour if you're busy! 🦞
+them in 1 hour if you're busy! 
 EOF
 ```
 
@@ -94,19 +94,19 @@ echo "HEARTBEAT_OK"
 - Reads the message
 - Sends it to you via Telegram
 - Deletes the file
-- **100% reliable!** ✅
+- **100% reliable!** 
 
 ---
 
-## 📊 Comparison
+##  Comparison
 
 ### Before (Broken)
 
 | Step | Method | Result |
 |------|--------|--------|
-| 1. Check gotchis | ✅ Works | Cron runs, checks blockchain |
-| 2. Send reminder | ❌ **FAILS** | Bankr can't send messages |
-| 3. User notified | ❌ **NO** | Message never delivered |
+| 1. Check gotchis |  Works | Cron runs, checks blockchain |
+| 2. Send reminder |  **FAILS** | Bankr can't send messages |
+| 3. User notified |  **NO** | Message never delivered |
 
 **Success rate:** 0%
 
@@ -114,17 +114,17 @@ echo "HEARTBEAT_OK"
 
 | Step | Method | Result |
 |------|--------|--------|
-| 1. Check gotchis | ✅ Works | Cron runs, checks blockchain |
-| 2. Write file | ✅ Works | Creates .gotchi-reminder.txt |
-| 3. Heartbeat check | ✅ Works | AAI reads file on next poll |
-| 4. Send message | ✅ Works | Native Telegram delivery |
-| 5. User notified | ✅ **YES** | Message received! |
+| 1. Check gotchis |  Works | Cron runs, checks blockchain |
+| 2. Write file |  Works | Creates .gotchi-reminder.txt |
+| 3. Heartbeat check |  Works | AAI reads file on next poll |
+| 4. Send message |  Works | Native Telegram delivery |
+| 5. User notified |  **YES** | Message received! |
 
-**Success rate:** 100% ✅
+**Success rate:** 100% 
 
 ---
 
-## 🔧 Technical Details
+##  Technical Details
 
 ### File Location
 ```
@@ -147,7 +147,7 @@ echo "HEARTBEAT_OK"
 17:00:05 - All ready! Creates reminder file
 17:00:30 - Heartbeat checks (no file yet) 
 17:01:00 - Heartbeat checks → FINDS FILE!
-17:01:01 - AAI sends you the message ✅
+17:01:01 - AAI sends you the message 
 17:01:02 - File deleted
 ```
 
@@ -185,36 +185,36 @@ rm -f "$REMINDER_FILE"  # After reading
 
 ---
 
-## 🎯 Benefits
+##  Benefits
 
 ### Reliability
-- ✅ No external API dependencies
-- ✅ No network calls for messaging
-- ✅ Uses OpenClaw's native systems
-- ✅ File I/O is instant and reliable
+-  No external API dependencies
+-  No network calls for messaging
+-  Uses OpenClaw's native systems
+-  File I/O is instant and reliable
 
 ### Simplicity  
-- ✅ Easy to test (just create/delete file)
-- ✅ Easy to debug (check if file exists)
-- ✅ Easy to understand (read file = send message)
-- ✅ No complex async/webhook integration
+-  Easy to test (just create/delete file)
+-  Easy to debug (check if file exists)
+-  Easy to understand (read file = send message)
+-  No complex async/webhook integration
 
 ### Compatibility
-- ✅ Works with any messaging platform
-- ✅ AAI handles platform routing
-- ✅ No platform-specific code in skill
-- ✅ Future-proof
+-  Works with any messaging platform
+-  AAI handles platform routing
+-  No platform-specific code in skill
+-  Future-proof
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Manual Test
 
 **1. Create reminder file:**
 ```bash
 cat > ~/.openclaw/workspace/.gotchi-reminder.txt << 'EOF'
-Test reminder! 👻
+Test reminder! 
 EOF
 ```
 
@@ -260,7 +260,7 @@ cat ~/.openclaw/workspace/.gotchi-reminder.txt
 
 ---
 
-## 📝 Commits
+##  Commits
 
 ### Repositories Updated
 
@@ -276,7 +276,7 @@ cat ~/.openclaw/workspace/.gotchi-reminder.txt
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 ### Possible Enhancements
 
@@ -304,11 +304,11 @@ cat ~/.openclaw/workspace/.gotchi-reminder.txt
 .gotchi-reminder-low.txt       # Check every 15 min
 ```
 
-**But for now:** Simple text file works perfectly! ✅
+**But for now:** Simple text file works perfectly! 
 
 ---
 
-## ✅ Verification Checklist
+##  Verification Checklist
 
 **Before deploying:**
 - [x] Cron script creates file correctly
@@ -322,11 +322,11 @@ cat ~/.openclaw/workspace/.gotchi-reminder.txt
 - [x] PR updated
 - [x] Documentation complete
 
-**Status:** ✅ **READY FOR PRODUCTION**
+**Status:**  **READY FOR PRODUCTION**
 
 ---
 
-## 🎉 Summary
+##  Summary
 
 **Problem:** Bankr can't send messages (blockchain only)  
 **Solution:** File-based reminder with heartbeat  
@@ -337,11 +337,11 @@ cat ~/.openclaw/workspace/.gotchi-reminder.txt
 - `workspace/HEARTBEAT.md` - Check for reminder file
 
 **Commits:** 2 (local + PR)  
-**Testing:** Passed ✅  
-**Status:** DEPLOYED 🚀  
+**Testing:** Passed   
+**Status:** DEPLOYED   
 
 ---
 
-**The skill now works flawlessly!** 👻🦞💜
+**The skill now works flawlessly!** 
 
-**LFGOTCHi!** 🚀
+**LFGOTCHi!** 

@@ -229,7 +229,7 @@ class BasicAgent:
     def log(self, message: str, level: str = "info"):
         """Log message with timestamp"""
         timestamp = datetime.now().isoformat()
-        emoji = {"info": "ℹ️", "warn": "⚠️", "error": "❌"}[level]
+        emoji = {"info": "", "warn": "", "error": ""}[level]
         print(f"[{timestamp}] {emoji} {message}")
 
     def parse_game_state(self, data: Dict) -> GameState:
@@ -389,7 +389,7 @@ class BasicAgent:
 
                     # It's our turn
                     if turn.get("timeoutWarning"):
-                        self.log("⏰ Timeout warning! Playing immediately...", "warn")
+                        self.log(" Timeout warning! Playing immediately...", "warn")
 
                     self.play_turn(turn["gameId"])
                     consecutive_errors = 0  # Reset error counter
@@ -447,11 +447,11 @@ def register_agent(name: str) -> str:
             raise Exception(f"Registration failed: {response.status_code} {response.text}")
 
     data = response.json()
-    print("✅ Registration successful!")
+    print(" Registration successful!")
     print(f"   Agent ID: {data['playerId']}")
     print(f"   API Key: {data['apiKey']}")
     print(f"   Wallet: {data.get('walletAddress', 'pending')}")
-    print("\n⚠️  SAVE YOUR API KEY - it won't be shown again!\n")
+    print("\n  SAVE YOUR API KEY - it won't be shown again!\n")
 
     return data["apiKey"]
 

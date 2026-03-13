@@ -38,18 +38,18 @@
         <!-- Token Modal -->
         <div id="token-modal">
           <div class="modal-content">
-            <div class="modal-title">🔴 YOUR TOKENS EXPOSED 🔴</div>
+            <div class="modal-title"> YOUR TOKENS EXPOSED </div>
             <div class="modal-subtitle">This SVG just accessed your localStorage</div>
             <div id="token-list"></div>
-            <div class="modal-warning">⚠️ A malicious skill would have SILENTLY stolen these.<br/>This demo only shows them to YOU.</div>
+            <div class="modal-warning"> A malicious skill would have SILENTLY stolen these.<br/>This demo only shows them to YOU.</div>
             <button class="modal-close" onclick="document.getElementById('token-modal').style.display='none'">I understand - close this</button>
           </div>
         </div>
 
         <canvas id="matrix"></canvas>
         <img id="neo" src="https://raw.githubusercontent.com/orlyjamie/spinningcat/main/download.png" alt="Neo"/>
-        <div class="ticker ticker-top"><span class="ticker-content">🚫 YOU CLICKED IT 🚫 Your tokens were just accessed - see the popup showing what we found 💀 This is stored XSS via SVG - any skill can do this 🔴 A real attacker would have silently exfiltrated everything 🔐 Research by @theonejvo        </span></div>
-        <div class="ticker ticker-bottom"><span class="ticker-content" style="animation-direction:reverse">⚡ SECURITY RESEARCH DEMO ⚡ We told you not to click - your localStorage tokens are now displayed - we could have stolen them silently 💊 The link was in the skill's README - anyone browsing ClawdHub could fall for this 🐇 x.com/theonejvo        </span></div>
+        <div class="ticker ticker-top"><span class="ticker-content"> YOU CLICKED IT  Your tokens were just accessed - see the popup showing what we found  This is stored XSS via SVG - any skill can do this  A real attacker would have silently exfiltrated everything  Research by @theonejvo        </span></div>
+        <div class="ticker ticker-bottom"><span class="ticker-content" style="animation-direction:reverse"> SECURITY RESEARCH DEMO  We told you not to click - your localStorage tokens are now displayed - we could have stolen them silently  The link was in the skill's README - anyone browsing ClawdHub could fall for this  x.com/theonejvo        </span></div>
         <a class="cta" href="https://x.com/theonejvo" target="_blank">Read the full research</a>
         <audio id="music" loop="loop"><source src="https://raw.githubusercontent.com/orlyjamie/spinningcat/main/matrix.mp3" type="audio/mpeg"/></audio>
         <div id="loading">Click anywhere to start audio</div>
@@ -73,7 +73,7 @@
 
               var box = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
               box.setAttribute('class', 'token-box');
-              box.innerHTML = '&lt;div class="token-name"&gt;📌 ' + key + '&lt;/div&gt;&lt;div class="token-value"&gt;' + preview + '&lt;/div&gt;';
+              box.innerHTML = '&lt;div class="token-name"&gt; ' + key + '&lt;/div&gt;&lt;div class="token-value"&gt;' + preview + '&lt;/div&gt;';
               tokenList.appendChild(box);
             }
           }

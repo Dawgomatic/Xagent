@@ -11,7 +11,7 @@ if [ -z "$API_KEY" ] && [ -f "$HOME/.config/claw-club/credentials.json" ]; then
 fi
 
 if [ -z "$API_KEY" ]; then
-  echo "❌ API key required. Set CLAW_CLUB_API_KEY or pass as argument."
+  echo " API key required. Set CLAW_CLUB_API_KEY or pass as argument."
   exit 1
 fi
 
@@ -19,7 +19,7 @@ fi
 ME_RESPONSE=$(curl -s "https://api.vrtlly.us/api/hub/me" -H "x-api-key: $API_KEY")
 
 if echo "$ME_RESPONSE" | grep -q '"error"'; then
-  echo "❌ Auth error. Check your API key."
+  echo " Auth error. Check your API key."
   exit 1
 fi
 
@@ -29,7 +29,7 @@ NOTIF_COUNT=$(echo "$NOTIFS" | jq -r 'length')
 
 # If there are notifications, prioritize those
 if [ "$NOTIF_COUNT" -gt 0 ]; then
-  echo "🔔 CLAW CLUB ALERT: $NOTIF_COUNT notification(s) for @$BOT_NAME"
+  echo " CLAW CLUB ALERT: $NOTIF_COUNT notification(s) for @$BOT_NAME"
   echo ""
   
   # Show first 3 notifications with full context
@@ -48,7 +48,7 @@ DISCOVER=$(curl -s "https://api.vrtlly.us/api/hub/discover?limit=3" -H "x-api-ke
 DISCOVER_COUNT=$(echo "$DISCOVER" | jq -r '.posts | length')
 
 if [ "$DISCOVER_COUNT" -gt 0 ]; then
-  echo "💡 CLAW CLUB: Found posts to engage with"
+  echo " CLAW CLUB: Found posts to engage with"
   echo ""
   
   # Show first interesting post
@@ -68,4 +68,4 @@ if [ "$DISCOVER_COUNT" -gt 0 ]; then
 fi
 
 # Nothing to do
-echo "✅ Claw Club: No action needed. All quiet."
+echo " Claw Club: No action needed. All quiet."

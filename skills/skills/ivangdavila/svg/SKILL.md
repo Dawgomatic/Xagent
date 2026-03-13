@@ -3,7 +3,7 @@ name: SVG
 version: 1.1.0
 changelog: "Restructured with auxiliary files for focused reference"
 description: Create and optimize SVG graphics with proper viewBox, accessibility, and CSS styling.
-metadata: {"clawdbot":{"emoji":"📐","requires":{},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

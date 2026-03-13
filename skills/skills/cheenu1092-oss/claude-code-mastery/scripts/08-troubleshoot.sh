@@ -33,12 +33,12 @@ check_fail() {
 }
 
 check_warn() {
-    echo -e "  ${YELLOW}⚠${NC} $1"
+    echo -e "  ${YELLOW}${NC} $1"
     ((WARNINGS_FOUND++))
 }
 
 check_info() {
-    echo -e "  ${BLUE}ℹ${NC} $1"
+    echo -e "  ${BLUE}${NC} $1"
 }
 
 # 1. Check Node.js
@@ -182,7 +182,7 @@ echo -e "${BLUE}═════════════════════�
 if [ $ISSUES_FOUND -eq 0 ] && [ $WARNINGS_FOUND -eq 0 ]; then
     echo -e "${GREEN}✓ All checks passed! Claude Code should work correctly.${NC}"
 elif [ $ISSUES_FOUND -eq 0 ]; then
-    echo -e "${YELLOW}⚠ $WARNINGS_FOUND warning(s) found, but no critical issues.${NC}"
+    echo -e "${YELLOW} $WARNINGS_FOUND warning(s) found, but no critical issues.${NC}"
 else
     echo -e "${RED}✗ $ISSUES_FOUND issue(s) and $WARNINGS_FOUND warning(s) found.${NC}"
     echo ""

@@ -201,7 +201,7 @@ How can I fix it?"
 
 ## Best Practices Included
 
-### Do's ✅
+### Do's 
 - Be clear and specific
 - Provide examples
 - Specify format
@@ -211,7 +211,7 @@ How can I fix it?"
 - Use progressive disclosure
 - Handle edge cases
 
-### Don'ts ❌
+### Don'ts 
 - Be vague or ambiguous
 - Assume understanding
 - Skip format specification

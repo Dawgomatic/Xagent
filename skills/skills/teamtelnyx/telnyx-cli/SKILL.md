@@ -3,7 +3,7 @@ name: telnyx-cli
 description: "Telnyx API integration for Clawdbot. Send SMS/email/WhatsApp messages, manage phone numbers, query call logs, debug webhooks, and access your Telnyx account. Use when you need to interact with Telnyx APIs via CLI, manage phone numbers and messaging, debug webhooks, or access account data."
 metadata:
   clawdbot:
-    emoji: "📞"
+    emoji: ""
     requires:
       bins: ["telnyx"]
       env: []
@@ -141,7 +141,7 @@ done < recipients.txt
 #!/bin/bash
 while true; do
   FAILED=$(telnyx debugger list --status failed --output json | jq '.data | length')
-  [ "$FAILED" -gt 0 ] && echo "⚠️  $FAILED failed webhooks"
+  [ "$FAILED" -gt 0 ] && echo "  $FAILED failed webhooks"
   sleep 300
 done
 ```

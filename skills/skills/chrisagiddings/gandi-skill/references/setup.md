@@ -17,10 +17,10 @@ How to set up and configure the Gandi skill for Moltbot.
    - **Name:** Moltbot Gandi Skill
    - **Organization:** Select your organization
    - **Scopes:** Select required permissions:
-     - ✅ Domain management (read, write)
-     - ✅ DNS management (read, write)
-     - ✅ Certificate management (read) - optional
-     - ✅ Email management (read, write) - optional
+     -  Domain management (read, write)
+     -  DNS management (read, write)
+     -  Certificate management (read) - optional
+     -  Email management (read, write) - optional
 5. Click **Create**
 6. **Copy the token immediately** - you won't be able to see it again!
 
@@ -176,14 +176,14 @@ chmod 600 ~/.config/gandi/api_token
 
 ### Token Storage
 
-✅ **DO:**
+ **DO:**
 - Store in `~/.config/gandi/` with 600 permissions
 - Use different tokens for different environments
 - Rotate tokens regularly (monthly/quarterly)
 - Revoke unused tokens
 - Keep tokens out of version control
 
-❌ **DON'T:**
+ **DON'T:**
 - Commit tokens to git repositories
 - Share tokens between users/systems
 - Use API keys (deprecated)

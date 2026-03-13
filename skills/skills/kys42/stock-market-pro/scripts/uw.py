@@ -96,7 +96,7 @@ async def fetch_advanced_options(ticker):
                 "sentiment": "N/A" # Default, will try to get from element
             }
             
-            sent_elem = page.locator("div:has-text('🐂'), div:has-text('🐻')").filter(has_text="%").first
+            sent_elem = page.locator("div:has-text(''), div:has-text('')").filter(has_text="%").first
             if await sent_elem.count() > 0:
                 overview["sentiment"] = await sent_elem.inner_text()
             else: # Fallback if specific emoji not found, try a more general sentiment text
@@ -179,9 +179,9 @@ def print_advanced_report(ticker, data):
         ov_table.add_row("Put Premium", ov.get('put_prem', 'N/A'))
         
         sent_text = ov.get('sentiment', 'N/A')
-        sent_color = "green" if "🐂" in sent_text or "Bullish" in sent_text else "red" if "🐻" in sent_text or "Bearish" in sent_text else "yellow"
+        sent_color = "green" if "" in sent_text or "Bullish" in sent_text else "red" if "" in sent_text or "Bearish" in sent_text else "yellow"
         
-        console.print(Panel(ov_table, title=f"🐳 {ticker} Option Overview", border_style="bright_blue"))
+        console.print(Panel(ov_table, title=f" {ticker} Option Overview", border_style="bright_blue"))
         console.print(Panel(f"Market Sentiment: [{sent_color}]{sent_text}[/{sent_color}]", box=None, justify="center"))
     else:
         console.print(Panel(f"[red]Could not retrieve overview data for {ticker}.[/red]", border_style="red"))
@@ -207,12 +207,12 @@ def print_advanced_report(ticker, data):
             flow_bear_pct = (flow_bear_count / total_flow_sentiment_trades) * 100
             flow_sentiment_display = f"[green]{flow_bull_pct:.1f}% Bullish[/green] | [red]{flow_bear_pct:.1f}% Bearish[/red]"
 
-        insight_text = f"🎯 [bold]Most Active Strike:[/bold] ${target_strike}\n"
-        insight_text += f"📊 [bold]Recent Flow Sentiment:[/bold] {flow_sentiment_display}\n"
-        insight_text += f"🐋 [bold]Large Whale Trades (>$100k):[/bold] {len(whales)} detected\n"
-        insight_text += f"⚠️ [bold]Unusual Entries (Volume > OI):[/bold] {len(unusual_vol_gt_oi)} detected (potential new positions)"
+        insight_text = f" [bold]Most Active Strike:[/bold] ${target_strike}\n"
+        insight_text += f" [bold]Recent Flow Sentiment:[/bold] {flow_sentiment_display}\n"
+        insight_text += f" [bold]Large Whale Trades (>$100k):[/bold] {len(whales)} detected\n"
+        insight_text += f" [bold]Unusual Entries (Volume > OI):[/bold] {len(unusual_vol_gt_oi)} detected (potential new positions)"
         
-        console.print(Panel(insight_text, title="🔍 Deep Insights from Live Flow", border_style="yellow"))
+        console.print(Panel(insight_text, title=" Deep Insights from Live Flow", border_style="yellow"))
         
         if whales:
             w_table = Table(title="Top Whale Bets (>$100k Premium)", box=None)

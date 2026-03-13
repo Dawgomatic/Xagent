@@ -171,11 +171,11 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-heig
 <nav class="sb">
 <div class="logo">G</div>
 <div class="nav ${p==='overview'?'act':''}" onclick="go('overview')"><span>⌂</span><span class="tip">Overview</span></div>
-<div class="nav ${p==='system'?'act':''}" onclick="go('system')"><span>⚙</span><span class="tip">System</span></div>
-<div class="nav ${p==='network'?'act':''}" onclick="go('network')"><span>🌐</span><span class="tip">Network</span></div>
+<div class="nav ${p==='system'?'act':''}" onclick="go('system')"><span></span><span class="tip">System</span></div>
+<div class="nav ${p==='network'?'act':''}" onclick="go('network')"><span></span><span class="tip">Network</span></div>
 <div class="nav ${p==='tasks'?'act':''}" onclick="go('tasks')"><span>☰</span><span class="tip">Tasks</span></div>
-<div class="nav ${p==='tokens'?'act':''}" onclick="go('tokens')"><span>🔑</span><span class="tip">Tokens</span></div>
-<div class="nav ${p==='logs'?'act':''}" onclick="go('logs')"><span>📋</span><span class="tip">Logs</span></div>
+<div class="nav ${p==='tokens'?'act':''}" onclick="go('tokens')"><span></span><span class="tip">Tokens</span></div>
+<div class="nav ${p==='logs'?'act':''}" onclick="go('logs')"><span></span><span class="tip">Logs</span></div>
 </nav>
 <main class="main">
 <header class="hdr"><h1>Glitch Dashboard</h1><div class="st"><span class="st-item"><span class="refresh" onclick="location.reload()">↻ Refresh</span></span><span class="st-item">${plat}</span><div class="st-item"><div class="st-dot"></div>Online</div></div></header>
@@ -189,14 +189,14 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-heig
 <div class="grid-item"><div class="grid-val" style="color:var(--gr)">${mihomo.run?'ON':'OFF'}</div><div class="grid-lab">Mihomo</div></div>
 <div class="grid-item"><div class="grid-val" style="color:var(--ac)">${tokens.length}</div><div class="grid-lab">Tokens</div></div>
 </div>
-<div class="card" style="margin-top:20px"><div class="card-tit"><div class="ic ic-s">⚙</div>System Status</div>
+<div class="card" style="margin-top:20px"><div class="card-tit"><div class="ic ic-s"></div>System Status</div>
 <div class="prog"><div class="prog-hd"><span>CPU</span><span>${sys.cpu.use}% / ${sys.cpu.n} cores</span></div><div class="prog-bar"><div class="prog-fill" style="width:${sys.cpu.use}%;background:${col(parseFloat(sys.cpu.use))}"></div></div></div>
 <div class="prog"><div class="prog-hd"><span>Memory</span><span>${sys.mem.used} / ${sys.mem.tot}</span></div><div class="prog-bar"><div class="prog-fill" style="width:${sys.mem.pct}%;background:${col(parseFloat(sys.mem.pct))}"></div></div></div>
 </div>
 </div>
 
 <div class="pg ${p==='system'?'act':''}" id="system">
-<div class="card"><div class="card-tit"><div class="ic ic-s">⚙</div>System Monitor</div>
+<div class="card"><div class="card-tit"><div class="ic ic-s"></div>System Monitor</div>
 <div class="prog"><div class="prog-hd"><span>CPU Usage</span><span>${sys.cpu.use}% (${sys.cpu.n} cores)</span></div><div class="prog-bar"><div class="prog-fill" style="width:${sys.cpu.use}%;background:${col(parseFloat(sys.cpu.use))}"></div></div></div>
 <div class="prog"><div class="prog-hd"><span>Memory Usage</span><span>${sys.mem.used} / ${sys.mem.tot}</span></div><div class="prog-bar"><div class="prog-fill" style="width:${sys.mem.pct}%;background:${col(parseFloat(sys.mem.pct))}"></div></div></div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px">
@@ -207,11 +207,11 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-heig
 </div></div>
 
 <div class="pg ${p==='network'?'act':''}" id="network">
-<div class="card"><div class="card-tit"><div class="ic ic-n">🌐</div>ZeroTier Network</div>
+<div class="card"><div class="card-tit"><div class="ic ic-n"></div>ZeroTier Network</div>
 <div style="background:var(--ch);border-radius:10px;padding:24px;text-align:center;margin:12px 0"><div style="font-size:12px;color:var(--tm);margin-bottom:8px">ZeroTier Virtual IP</div><div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:600;color:var(--ac)">${zt.ip}</div></div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"><div style="background:var(--ch);padding:14px;border-radius:8px"><div style="font-size:12px;color:var(--tm)">Network ID</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;margin-top:4px">${zt.net||'Not connected'}</div></div><div style="background:var(--ch);padding:14px;border-radius:8px"><div style="font-size:12px;color:var(--tm)">ZT Address</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;margin-top:4px">${zt.addr}</div></div><div style="background:var(--ch);padding:14px;border-radius:8px"><div style="font-size:12px;color:var(--tm)">LAN IP</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;margin-top:4px">${sys.lanIp}</div></div></div>
 </div>
-<div class="card"><div class="card-tit"><div class="ic ic-n">⚙</div>Network Configuration</div>
+<div class="card"><div class="card-tit"><div class="ic ic-n"></div>Network Configuration</div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px"><div><div style="font-size:12px;color:var(--tm);margin-bottom:6px">Gateway IP</div><input type="text" id="gatewayIp" placeholder="e.g., 192.168.192.1" style="width:100%;background:var(--ch);border:1px solid var(--b);border-radius:6px;padding:10px;color:var(--t);font-size:14px"></div><div><div style="font-size:12px;color:var(--tm);margin-bottom:6px">DNS Servers</div><input type="text" id="dnsServers" placeholder="e.g., 1.1.1.1, 8.8.8.8" style="width:100%;background:var(--ch);border:1px solid var(--b);border-radius:6px;padding:10px;color:var(--t);font-size:14px"></div></div>
 <div style="display:flex;gap:8px"><button class="btn-sm" onclick="saveNetworkConfig()" style="background:var(--ac);color:#000;padding:8px 16px">Apply Configuration</button><button class="btn-sm" onclick="leaveNetwork()" style="background:var(--rd);color:#fff;padding:8px 16px">Leave Network</button></div>
 </div></div>
@@ -222,13 +222,13 @@ ${tasks.list.length?tasks.list.map(t=>`<div class="task ${t.st}"><div class="tas
 </div></div>
 
 <div class="pg ${p==='tokens'?'act':''}" id="tokens">
-<div class="card"><div class="card-tit"><div class="ic ic-x">🔑</div>API Tokens</div>
+<div class="card"><div class="card-tit"><div class="ic ic-x"></div>API Tokens</div>
 ${tokens.map(t=>`<div class="tok"><div><div class="tok-n">${t.name}</div><div class="tok-k">${t.key}</div></div><div style="font-size:12px;color:var(--tm)">${t.baseUrl||''}</div><label class="tog"><input type="checkbox" ${t.enabled?'checked':''} disabled><span class="tog-sl"></span></label></div>`).join('')}
 <div class="gw"><div class="gw-l">Gateway Token</div><div class="gw-v">${(()=>{try{const cf=path.join(os.homedir(),'.openclaw','openclaw.json');return fs.existsSync(cf)?JSON.parse(fs.readFileSync(cf,'utf8')).gateway?.auth?.token?.substring(0,12)+'...':'Not configured'}catch(e){return'Error'}})()}</div></div>
 </div></div>
 
 <div class="pg ${p==='logs'?'act':''}" id="logs">
-<div class="card"><div class="card-tit"><div class="ic ic-l">📋</div>System Logs <button class="btn-sm" onclick="loadLogs()" style="margin-left:auto">↻</button></div>
+<div class="card"><div class="card-tit"><div class="ic ic-l"></div>System Logs <button class="btn-sm" onclick="loadLogs()" style="margin-left:auto">↻</button></div>
 ${logs.map(l=>`<div class="log"><span class="log-t">${l.t.substring(0,16)}</span><span class="log-s">[${l.s}]</span><span class="log-m">${l.m}</span></div>`).join('')}
 </div></div>
 

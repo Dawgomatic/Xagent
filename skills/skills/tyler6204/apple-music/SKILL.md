@@ -1,7 +1,7 @@
 ---
 name: apple-music
 description: Search Apple Music, add songs to library, manage playlists, control playback and AirPlay.
-metadata: {"clawdbot":{"emoji":"🎵","os":["darwin"],"requires":{"bins":["node","curl"]}}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin"],"requires":{"bins":["node","curl"]}}}
 ---
 
 # Apple Music
@@ -30,7 +30,7 @@ Requires Apple Developer account ($99/yr) + MusicKit key.
 
 The launcher opens Terminal.app and runs the setup script there. Enter your .p8 path, Key ID, Team ID, then authorize in browser and paste the token.
 
-**⚠️ Agents:** Always use `./launch-setup.sh` to open Terminal. Don't run setup.sh through chat (requires interactive input).
+** Agents:** Always use `./launch-setup.sh` to open Terminal. Don't run setup.sh through chat (requires interactive input).
 
 ### Commands
 

@@ -363,14 +363,14 @@ function pushToGitHub(repoName, files) {
       fs.mkdirSync(path.dirname(fullPath), { recursive: true });
       fs.writeFileSync(fullPath, content, 'utf8');
     });
-    // 🛡️ SECURITY RAILCARD: Scan files before commit
-    console.log('🛡️ Running security railcard scan...');
+    //  SECURITY RAILCARD: Scan files before commit
+    console.log(' Running security railcard scan...');
     const railcardPath = path.join(WORKSPACE, 'scripts', 'tools', 'security_railcard.js');
     try {
       const scanCmd = `node "${railcardPath}" "${repoDir}"`;
       const scanResult = execSync(scanCmd, { encoding: 'utf8' });
       console.log(scanResult);
-      if (scanResult.includes('SECURITY ALERT') || scanResult.includes('❌')) {
+      if (scanResult.includes('SECURITY ALERT') || scanResult.includes('')) {
         throw new Error('Security railcard blocked push due to potential secrets.');
       }
     } catch (err) {

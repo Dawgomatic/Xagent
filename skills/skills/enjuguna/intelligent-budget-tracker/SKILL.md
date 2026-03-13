@@ -130,9 +130,9 @@ const comparison = clawhub.compareToLastMonth();
 // Generate AI-powered insights
 const insights = await clawhub.generateInsights();
 // Returns insights like:
-// - "⚠️ Your dining expenses are 3x higher than usual"
-// - "💡 Cancel unused subscriptions to save $50/month"
-// - "🏆 You've tracked expenses for 7 consecutive days!"
+// - " Your dining expenses are 3x higher than usual"
+// - " Cancel unused subscriptions to save $50/month"
+// - " You've tracked expenses for 7 consecutive days!"
 
 // Get unread insights
 const unreadInsights = clawhub.getInsights();
@@ -183,23 +183,23 @@ const dataPath = clawhub.getDataPath();
 ### Expense Categories
 | Category | Icon |
 |----------|------|
-| Food & Dining | 🍔 |
-| Transportation | 🚗 |
-| Shopping | 🛍️ |
-| Bills & Utilities | 💡 |
-| Entertainment | 🎬 |
-| Health & Fitness | 💪 |
-| Education | 📚 |
-| Personal Care | 💄 |
-| Subscriptions | 📱 |
+| Food & Dining |  |
+| Transportation |  |
+| Shopping |  |
+| Bills & Utilities |  |
+| Entertainment |  |
+| Health & Fitness |  |
+| Education |  |
+| Personal Care |  |
+| Subscriptions |  |
 
 ### Income Categories
 | Category | Icon |
 |----------|------|
-| Salary | 💰 |
-| Freelance | 💻 |
-| Investments | 📈 |
-| Gifts | 🎁 |
+| Salary |  |
+| Freelance |  |
+| Investments |  |
+| Gifts |  |
 
 ---
 

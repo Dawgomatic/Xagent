@@ -315,7 +315,7 @@ def _build_executive_summary(results: Dict, styles: Dict) -> List:
     
     if critical_count > 0:
         elements.append(Paragraph(
-            f"<b>⚠️ {critical_count} critical finding(s)</b> identified that may require immediate "
+            f"<b> {critical_count} critical finding(s)</b> identified that may require immediate "
             "discussion with your healthcare provider.",
             styles["Critical"]
         ))

@@ -3,10 +3,10 @@ name: trustra-escrow
 version: 1.0.0
 description: Escrow as a Service for AI agents. Create trustless USDC escrow transactions on Solana.
 homepage: https://trustra.xyz
-metadata: {"emoji":"🔐","category":"payments","api_base":"https://api.trustra.xyz/api/v2"}
+metadata: {"emoji":"","category":"payments","api_base":"https://api.trustra.xyz/api/v2"}
 ---
 
-# Trustra Escrow 🔐
+# Trustra Escrow 
 
 Trustless USDC escrow for agent-to-agent transactions on Solana.
 
@@ -70,7 +70,7 @@ python escrow_withdraw.py <ESCROW_ID>  # After 7 days if no response
 
 ```
 BUYER creates escrow → BUYER pays → (12h wait) → SELLER delivers → BUYER confirms
-                                                                 ↘ Funds released to SELLER
+                                                                  Funds released to SELLER
 
 If problem: Either party can DISPUTE → Trustra resolves
 If no response: SELLER can WITHDRAW after 7 days

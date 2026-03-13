@@ -797,7 +797,7 @@ Examples:
     # Validation mode
     if args.validate:
         if not args.input:
-            print("❌ Error: Input file required for validation")
+            print(" Error: Input file required for validation")
             return 1
         
         with open(args.input, 'r', encoding='utf-8') as f:
@@ -805,12 +805,12 @@ Examples:
         
         issues = validate_gutenberg_blocks(content)
         if issues:
-            print("❌ Validation issues found:")
+            print(" Validation issues found:")
             for issue in issues:
                 print(f"  - {issue}")
             return 1
         else:
-            print("✅ Gutenberg blocks are valid")
+            print(" Gutenberg blocks are valid")
             return 0
     
     # Conversion mode
@@ -828,14 +828,14 @@ Examples:
     # Validate the result
     issues = validate_gutenberg_blocks(result)
     if issues:
-        print("⚠️  Warning: Generated content has issues:")
+        print("  Warning: Generated content has issues:")
         for issue in issues:
             print(f"  - {issue}")
     
     if args.output:
         with open(args.output, 'w', encoding='utf-8') as f:
             f.write(result)
-        print(f'✅ Output written to {args.output}')
+        print(f' Output written to {args.output}')
     else:
         print(result)
     

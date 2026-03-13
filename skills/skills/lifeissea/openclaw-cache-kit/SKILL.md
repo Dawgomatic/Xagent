@@ -80,7 +80,7 @@ bash scripts/check-savings.sh
 ```bash
 bash scripts/check-savings.sh
 # 예시 출력:
-# 📊 오늘 캐시 절약 리포트 (2026-02-19)
+#  오늘 캐시 절약 리포트 (2026-02-19)
 # cacheRead 토큰: 1,234,567
 # 절약 금액: $3.33 (vs 캐시 없을 때)
 ```

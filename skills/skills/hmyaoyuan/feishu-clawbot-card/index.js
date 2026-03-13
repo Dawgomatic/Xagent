@@ -45,7 +45,7 @@ program
         }
         console.log(color.bold(`\nRolodex (${cards.length})\n`));
         cards.forEach(card => {
-            console.log(`  ${color.green('📇')} ${color.cyan(card.display_name)} [${card.id.slice(0,6)}]`);
+            console.log(`  ${color.green('')} ${color.cyan(card.display_name)} [${card.id.slice(0,6)}]`);
             if (options.verbose) {
                 console.log(`    Feishu: ${card.feishu_id}`);
                 console.log(`    Bio: ${card.bio?.species} (${card.bio?.mbti || 'Unknown'})`);
@@ -148,27 +148,27 @@ program
             // For now, we assume the user of 'render' might want to see the JSON to send manually.
             
             // Row 1: Header (Name & ID)
-            [{ tag: "text", text: `📇 ${card.display_name}`, style: ["bold"] }],
+            [{ tag: "text", text: ` ${card.display_name}`, style: ["bold"] }],
             [{ tag: "text", text: `ID: ${card.feishu_id}`, style: ["italic"] }],
             
             // Row 2: Divider
             [{ tag: "text", text: "--------------------------------------------------" }],
 
             // Row 3: Bio Section
-            [{ tag: "text", text: "🧬 Species: ", style: ["bold"] }, { tag: "text", text: card.bio?.species || "Unknown" }],
-            [{ tag: "text", text: "🧠 MBTI:    ", style: ["bold"] }, { tag: "text", text: card.bio?.mbti || "Unknown" }],
-            [{ tag: "text", text: "📝 Desc:    ", style: ["bold"] }, { tag: "text", text: card.bio?.desc || "No description provided." }],
+            [{ tag: "text", text: " Species: ", style: ["bold"] }, { tag: "text", text: card.bio?.species || "Unknown" }],
+            [{ tag: "text", text: " MBTI:    ", style: ["bold"] }, { tag: "text", text: card.bio?.mbti || "Unknown" }],
+            [{ tag: "text", text: " Desc:    ", style: ["bold"] }, { tag: "text", text: card.bio?.desc || "No description provided." }],
 
             // Row 4: Capabilities
-            [{ tag: "text", text: "\n✨ Capabilities:", style: ["bold"] }],
+            [{ tag: "text", text: "\n Capabilities:", style: ["bold"] }],
             [{ tag: "text", text: (card.capabilities || []).join(" • ") }],
 
             // Row 5: Divider
             [{ tag: "text", text: "--------------------------------------------------" }],
 
             // Row 6: Interaction Guide (Standardized)
-            [{ tag: "text", text: "🛠️ Skill: ", style: ["bold"] }, { tag: "a", text: "feishu-clawbot-card", href: "https://clawhub.ai/HMyaoyuan/feishu-clawbot-card" }],
-            [{ tag: "text", text: "💾 Save:  ", style: ["bold"] }, { tag: "text", text: "Copy the code below & send to your bot:" }],
+            [{ tag: "text", text: " Skill: ", style: ["bold"] }, { tag: "a", text: "feishu-clawbot-card", href: "https://clawhub.ai/HMyaoyuan/feishu-clawbot-card" }],
+            [{ tag: "text", text: " Save:  ", style: ["bold"] }, { tag: "text", text: "Copy the code below & send to your bot:" }],
             
             // Row 7: Code Block (The Command)
             [{ tag: "text", text: `node skills/feishu-clawbot-card/index.js import '${JSON.stringify(CardProtocolSchema.parse(card))}'` }],

@@ -206,10 +206,10 @@ class GoalsManager:
         completed = [g for g in goals if g.get("completed", False)]
         
         if not goals:
-            return "🎯 Savings Goals\n━━━━━━━━━━━━━━━━━━━━━\n\n📭 No goals set.\n\nAdd one: finance goal add \"Laptop\" 5000000 --by=2026-06-01"
+            return " Savings Goals\n━━━━━━━━━━━━━━━━━━━━━\n\n No goals set.\n\nAdd one: finance goal add \"Laptop\" 5000000 --by=2026-06-01"
         
         lines = [
-            "🎯 Savings Goals",
+            " Savings Goals",
             "━━━━━━━━━━━━━━━━━━━━━"
         ]
         
@@ -218,7 +218,7 @@ class GoalsManager:
             total_target = sum(g["target_amount"] for g in active)
             total_saved = sum(g["current_amount"] for g in active)
             
-            lines.append(f"💰 Total Saved: {total_saved:,} / {total_target:,} UZS")
+            lines.append(f" Total Saved: {total_saved:,} / {total_target:,} UZS")
             lines.append("")
             
             for goal in active:
@@ -229,24 +229,24 @@ class GoalsManager:
                 filled = int(pct / 10)
                 bar = "█" * filled + "░" * (10 - filled)
                 
-                priority_emoji = {"high": "🔴", "medium": "🟡", "low": "🟢"}.get(goal.get("priority", "medium"), "🟡")
+                priority_emoji = {"high": "", "medium": "", "low": ""}.get(goal.get("priority", "medium"), "")
                 
                 lines.append(f"{priority_emoji} **{goal['name']}**")
                 lines.append(f"   [{bar}] {pct:.0f}%")
                 lines.append(f"   {progress['current']:,} / {progress['target']:,} UZS")
                 
                 if progress.get("overdue"):
-                    lines.append(f"   ⚠️ Overdue by {progress['days_overdue']} days!")
+                    lines.append(f"    Overdue by {progress['days_overdue']} days!")
                 elif progress.get("days_left"):
-                    lines.append(f"   📅 {progress['days_left']} days left — need {progress['daily_required']:,}/day")
+                    lines.append(f"    {progress['days_left']} days left — need {progress['daily_required']:,}/day")
                 
                 lines.append("")
         
         # Completed goals
         if completed:
-            lines.append("✅ Completed:")
+            lines.append(" Completed:")
             for goal in completed[-3:]:  # Show last 3
-                lines.append(f"   🏆 {goal['name']} ({goal['target_amount']:,} UZS)")
+                lines.append(f"    {goal['name']} ({goal['target_amount']:,} UZS)")
         
         return "\n".join(lines)
     

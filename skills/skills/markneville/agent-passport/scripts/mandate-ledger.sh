@@ -1065,7 +1065,7 @@ init_passport() {
             if [ -n "$agent_id" ] && [ -n "$principal" ]; then
                 kya_register "$agent_id" "$principal" "$scope" "$provider" > /dev/null
                 echo "Already initialized at $LEDGER_DIR/ ($mandate_count mandates)"
-                echo "🪪 Registered agent: $agent_id (principal: $principal)"
+                echo " Registered agent: $agent_id (principal: $principal)"
                 return 0
             fi
             
@@ -1074,7 +1074,7 @@ init_passport() {
             registered="$(jq -r '.agents[] | select(.status == "verified") | "\(.agent_id) (principal: \(.verified_principal))"' "$KYA_FILE" 2>/dev/null | head -1 || true)"
             if [ -n "$registered" ]; then
                 echo "Already initialized at $LEDGER_DIR/ ($mandate_count mandates)"
-                echo "🪪 Registered agent: $registered"
+                echo " Registered agent: $registered"
             else
                 echo "Already initialized at $LEDGER_DIR/ ($mandate_count mandates)"
             fi
@@ -1087,12 +1087,12 @@ init_passport() {
     # If KYA args provided, register agent
     if [ -n "$agent_id" ] && [ -n "$principal" ]; then
         kya_register "$agent_id" "$principal" "$scope" "$provider" > /dev/null
-        echo "✅ Agent Passport initialized at $LEDGER_DIR/"
-        echo "🪪 Agent registered: $agent_id (principal: $principal)"
+        echo " Agent Passport initialized at $LEDGER_DIR/"
+        echo " Agent registered: $agent_id (principal: $principal)"
     else
-        echo "✅ Agent Passport initialized at $LEDGER_DIR/"
+        echo " Agent Passport initialized at $LEDGER_DIR/"
         echo ""
-        echo "⚠️  No agent registered yet. Register your agent for full KYA tracking:"
+        echo "  No agent registered yet. Register your agent for full KYA tracking:"
         echo "  ./mandate-ledger.sh init agent:my-assistant \"Your Name\" \"assistant scope\" \"openclaw\""
     fi
     

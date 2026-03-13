@@ -4,7 +4,7 @@ version: 2.0.3
 description: "Polymarket prediction markets: analytics, trading, hot markets, price movements, top traders, and market search. Powered by prob.trade."
 homepage: https://app.prob.trade
 user-invocable: true
-metadata: {"openclaw":{"requires":{"bins":["python3"],"env":["PROBTRADE_API_KEY","PROBTRADE_API_SECRET"],"config":["~/.openclaw/skills/probtrade/config.yaml"]},"emoji":"📊","install":[{"id":"python3","kind":"brew","formula":"python@3","bins":["python3"],"label":"Install Python 3","os":["darwin","linux"]}]}}
+metadata: {"openclaw":{"requires":{"bins":["python3"],"env":["PROBTRADE_API_KEY","PROBTRADE_API_SECRET"],"config":["~/.openclaw/skills/probtrade/config.yaml"]},"emoji":"","install":[{"id":"python3","kind":"brew","formula":"python@3","bins":["python3"],"label":"Install Python 3","os":["darwin","linux"]}]}}
 ---
 
 # prob.trade — Polymarket Analytics & Trading

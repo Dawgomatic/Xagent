@@ -111,6 +111,6 @@ python skills/browser-use-local/scripts/extract_data_images.py \
 - **`state` shows `elements: 0`**: use `get html` + regex discovery, plus screenshots; use `eval` to query DOM.
 - **Page readiness timeout warnings**: usually harmless; rely on screenshot + HTML.
 - **CLI flags order**: global flags go *before* the subcommand:
-  - ✅ `browser-use --browser chromium --json open https://...`
-  - ❌ `browser-use open https://... --browser chromium`
+  -  `browser-use --browser chromium --json open https://...`
+  -  `browser-use open https://... --browser chromium`
 

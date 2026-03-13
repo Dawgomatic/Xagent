@@ -261,7 +261,7 @@ show_security_warning() {
 
 **Added at Top:**
 ```markdown
-## ⚠️ Security Notice
+##  Security Notice
 
 **This is a high-privilege skill** that requires file deletion, process execution, and optional network access.
 
@@ -279,27 +279,27 @@ Key safety features: Protected files, path validation, command injection prevent
 
 | Risk | Status | Example |
 |------|--------|---------|
-| Path Traversal | ❌ Vulnerable | `../../etc/passwd` could be accessed |
-| Command Injection | ❌ Vulnerable | `message"; rm -rf /` in commit message |
-| Mass Deletion | ❌ No limits | Could delete unlimited files |
-| System Paths | ❌ Not validated | Could target /etc, /usr, etc. |
-| URL Validation | ❌ None | Any URL accepted |
-| Execution Timeouts | ⚠️ Partial | Only maxBuffer, no timeout |
-| Security Logging | ❌ None | No audit trail |
-| User Consent | ❌ None | No warnings |
+| Path Traversal |  Vulnerable | `../../etc/passwd` could be accessed |
+| Command Injection |  Vulnerable | `message"; rm -rf /` in commit message |
+| Mass Deletion |  No limits | Could delete unlimited files |
+| System Paths |  Not validated | Could target /etc, /usr, etc. |
+| URL Validation |  None | Any URL accepted |
+| Execution Timeouts |  Partial | Only maxBuffer, no timeout |
+| Security Logging |  None | No audit trail |
+| User Consent |  None | No warnings |
 
 ### After Hardening
 
 | Risk | Status | Protection |
 |------|--------|------------|
-| Path Traversal | ✅ Protected | `..` sequences rejected, base dir validation |
-| Command Injection | ✅ Protected | All inputs sanitized, heredoc for strings |
-| Mass Deletion | ✅ Protected | 1000 file limit, requires confirmation |
-| System Paths | ✅ Protected | Only /home, /Users, $HOME allowed |
-| URL Validation | ✅ Protected | HTTPS only, Git format validated |
-| Execution Timeouts | ✅ Protected | 10-120s timeouts on all exec calls |
-| Security Logging | ✅ Implemented | All failures logged as security events |
-| User Consent | ✅ Required | Security warning + dual consent |
+| Path Traversal |  Protected | `..` sequences rejected, base dir validation |
+| Command Injection |  Protected | All inputs sanitized, heredoc for strings |
+| Mass Deletion |  Protected | 1000 file limit, requires confirmation |
+| System Paths |  Protected | Only /home, /Users, $HOME allowed |
+| URL Validation |  Protected | HTTPS only, Git format validated |
+| Execution Timeouts |  Protected | 10-120s timeouts on all exec calls |
+| Security Logging |  Implemented | All failures logged as security events |
+| User Consent |  Required | Security warning + dual consent |
 
 ## Files Modified
 
@@ -343,16 +343,16 @@ Despite hardening, these inherent risks remain:
 
 This hardened version addresses all concerns from the security report:
 
-✅ Documented risks and mitigations (SECURITY.md)
-✅ Input validation for all external inputs
-✅ Path traversal prevention
-✅ Command injection prevention
-✅ Execution timeouts and limits
-✅ Security event logging
-✅ User consent and warnings
-✅ Dry-run testing capability
-✅ Protected file patterns
-✅ Archive-before-delete safety
+ Documented risks and mitigations (SECURITY.md)
+ Input validation for all external inputs
+ Path traversal prevention
+ Command injection prevention
+ Execution timeouts and limits
+ Security event logging
+ User consent and warnings
+ Dry-run testing capability
+ Protected file patterns
+ Archive-before-delete safety
 
 ## Conclusion
 

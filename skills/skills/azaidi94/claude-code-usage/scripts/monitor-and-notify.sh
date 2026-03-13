@@ -6,8 +6,8 @@ OUTPUT=$("$SCRIPT_DIR/monitor-usage.sh" 2>&1)
 
 # Check if a reset was detected (output contains "Reset notification sent")
 if echo "$OUTPUT" | grep -q "Reset notification sent"; then
-  # Extract just the notification message (before "✅ Reset notification sent")
-  MESSAGE=$(echo "$OUTPUT" | sed '/✅ Reset notification sent/q' | sed '$ d')
+  # Extract just the notification message (before " Reset notification sent")
+  MESSAGE=$(echo "$OUTPUT" | sed '/ Reset notification sent/q' | sed '$ d')
   
   # Send via Telegram using clawdbot
   if command -v clawdbot >/dev/null 2>&1; then

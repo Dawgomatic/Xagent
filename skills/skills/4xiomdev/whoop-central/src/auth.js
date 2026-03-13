@@ -97,7 +97,7 @@ function migrateLegacyAuthFiles() {
   if (migrateLegacyFile(LEGACY_TLS_KEY_PATH, tlsKey)) moved.push('tls.key');
   if (migrateLegacyFile(LEGACY_TLS_CERT_PATH, tlsCert)) moved.push('tls.crt');
   if (moved.length) {
-    console.log(`ℹ️  Migrated legacy WHOOP auth files to ${DATA_DIR}: ${moved.join(', ')}`);
+    console.log(`  Migrated legacy WHOOP auth files to ${DATA_DIR}: ${moved.join(', ')}`);
   }
 }
 
@@ -113,7 +113,7 @@ function ensureLocalTlsCert() {
 
   try {
     ensureDataDir();
-    console.log('🔐 Generating a local self-signed TLS cert for https://localhost callback...');
+    console.log(' Generating a local self-signed TLS cert for https://localhost callback...');
     execFileSync('openssl', [
       'req',
       '-x509',
@@ -199,7 +199,7 @@ async function preflightAuthUrl(authUrl) {
 function loadCredentials() {
   migrateLegacyAuthFiles();
   if (!fs.existsSync(CREDENTIALS_PATH)) {
-    console.error('❌ credentials.json not found!\n');
+    console.error(' credentials.json not found!\n');
     console.log('Setup instructions:');
     console.log('1. Go to: https://developer.whoop.com/');
     console.log('2. Create an App (or edit existing)');
@@ -226,7 +226,7 @@ function buildAuthUrl(client_id, state) {
 }
 
 async function exchangeCodeForToken(code, client_id, client_secret) {
-  console.log('\n🔄 Exchanging code for token...');
+  console.log('\n Exchanging code for token...');
 
   const response = await fetch(WHOOP_TOKEN_URL, {
     method: 'POST',
@@ -243,14 +243,14 @@ async function exchangeCodeForToken(code, client_id, client_secret) {
   const tokens = await response.json();
 
   if (tokens.error) {
-    console.error('\n❌ Token exchange failed!');
+    console.error('\n Token exchange failed!');
     console.error(`   Error: ${tokens.error}`);
     if (tokens.error_hint) {
       console.error(`   Hint: ${tokens.error_hint}`);
     }
 
     if (tokens.error_hint?.includes('redirect_uri')) {
-      console.log('\n⚠️  REDIRECT URI MISMATCH');
+      console.log('\n  REDIRECT URI MISMATCH');
       console.log('   Make sure your WHOOP app has this EXACT redirect URI:');
       console.log(`   ${REDIRECT_URI}`);
       console.log('\n   To fix:');
@@ -275,12 +275,12 @@ async function exchangeCodeForToken(code, client_id, client_secret) {
     tokens.redirect_uri = REDIRECT_URI;
     ensureDataDir();
     fs.writeFileSync(TOKEN_PATH, JSON.stringify(tokens, null, 2));
-    console.log('✅ WHOOP authenticated!');
+    console.log(' WHOOP authenticated!');
     console.log(`   Token saved to: ${TOKEN_PATH}`);
     return tokens;
   }
 
-  console.error('❌ Unexpected response:', tokens);
+  console.error(' Unexpected response:', tokens);
   return null;
 }
 
@@ -291,7 +291,7 @@ async function manualAuth() {
   const authUrl = buildAuthUrl(client_id, state);
   const preflight = await preflightAuthUrl(authUrl);
   if (!preflight.ok) {
-    console.error('\n❌ WHOOP authorization preflight failed.');
+    console.error('\n WHOOP authorization preflight failed.');
     if (preflight.reason === 'oauth_error') {
       console.error(`   Error: ${preflight.error}`);
       if (preflight.description) console.error(`   Description: ${preflight.description}`);
@@ -307,7 +307,7 @@ async function manualAuth() {
 
   const startUrl = await resolveWhoopBrowserLoginUrl(authUrl);
 
-  console.log('🔐 WHOOP Manual Authentication\n');
+  console.log(' WHOOP Manual Authentication\n');
   console.log('Step 1: Open this URL in your browser:\n');
   console.log(startUrl ?? authUrl);
   if (startUrl) {
@@ -331,13 +331,13 @@ async function manualAuth() {
 
   const code = answer.trim();
   if (!code) {
-    console.error('❌ No code provided');
+    console.error(' No code provided');
     process.exit(1);
   }
 
   const tokens = await exchangeCodeForToken(code, client_id, client_secret);
   if (tokens) {
-    console.log('\n✅ Success! You can now use the WHOOP commands.');
+    console.log('\n Success! You can now use the WHOOP commands.');
   }
   process.exit(tokens ? 0 : 1);
 }
@@ -349,7 +349,7 @@ async function browserAuth() {
   const authUrl = buildAuthUrl(client_id, state);
   const preflight = await preflightAuthUrl(authUrl);
   if (!preflight.ok) {
-    console.error('\n❌ WHOOP authorization preflight failed.');
+    console.error('\n WHOOP authorization preflight failed.');
     if (preflight.reason === 'oauth_error') {
       console.error(`   Error: ${preflight.error}`);
       if (preflight.description) console.error(`   Description: ${preflight.description}`);
@@ -363,7 +363,7 @@ async function browserAuth() {
     return false;
   }
 
-  console.log('🔐 WHOOP Browser Authentication\n');
+  console.log(' WHOOP Browser Authentication\n');
   console.log('Required redirect URI (must be in WHOOP app settings):');
   console.log(`   ${REDIRECT_URI}\n`);
 
@@ -389,13 +389,13 @@ async function browserAuth() {
         if (error) {
           res.writeHead(400, { 'Content-Type': 'text/html' });
           res.end(
-            `<h1>❌ Authorization Failed</h1>` +
+            `<h1> Authorization Failed</h1>` +
             `<p><b>Error:</b> ${error}</p>` +
             (errorDescription ? `<p><b>Description:</b> ${errorDescription}</p>` : '') +
             (errorHint ? `<p><b>Hint:</b> ${errorHint}</p>` : '') +
             `<p>Check the terminal for details.</p>`
           );
-          console.error(`\n❌ Authorization error: ${error}`);
+          console.error(`\n Authorization error: ${error}`);
           if (errorDescription) console.error(`   Description: ${errorDescription}`);
           if (errorHint) console.error(`   Hint: ${errorHint}`);
           server.close();
@@ -405,8 +405,8 @@ async function browserAuth() {
 
         if (returnedState !== state) {
           res.writeHead(400, { 'Content-Type': 'text/html' });
-          res.end('<h1>❌ State Mismatch</h1><p>Security check failed. Please try again.</p>');
-          console.error('\n❌ State mismatch - possible CSRF attack');
+          res.end('<h1> State Mismatch</h1><p>Security check failed. Please try again.</p>');
+          console.error('\n State mismatch - possible CSRF attack');
           server.close();
           resolve(false);
           return;
@@ -417,12 +417,12 @@ async function browserAuth() {
 
           if (tokens) {
             res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end('<h1>✅ WHOOP Connected!</h1><p>You can close this window.</p>');
+            res.end('<h1> WHOOP Connected!</h1><p>You can close this window.</p>');
             server.close();
             resolve(true);
           } else {
             res.writeHead(400, { 'Content-Type': 'text/html' });
-            res.end('<h1>❌ Token Exchange Failed</h1><p>Check the terminal for details.</p>');
+            res.end('<h1> Token Exchange Failed</h1><p>Check the terminal for details.</p>');
             server.close();
             resolve(false);
           }
@@ -450,13 +450,13 @@ async function browserAuth() {
         }
       })();
 
-      console.log('💡 If the browser doesn\'t open or you\'re on a different device:');
+      console.log(' If the browser doesn\'t open or you\'re on a different device:');
       console.log('   Run: node src/auth.js --manual\n');
     });
 
     // Timeout after 5 minutes
     setTimeout(() => {
-      console.log('\n⏰ Timeout - no callback received after 5 minutes');
+      console.log('\n Timeout - no callback received after 5 minutes');
       console.log('   Try: node src/auth.js --manual');
       server.close();
       resolve(false);
@@ -500,7 +500,7 @@ export async function refreshAccessToken() {
     throw new Error('Token has no refresh_token (did you request the "offline" scope?). Run: node src/auth.js');
   }
 
-  console.log('🔄 Refreshing WHOOP token...');
+  console.log(' Refreshing WHOOP token...');
   const { client_id, client_secret } = loadCredentials();
   const refreshRedirect = tokens.redirect_uri || REDIRECT_URI;
 

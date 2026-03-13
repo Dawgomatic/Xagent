@@ -47,9 +47,9 @@ def require_secure_env(exit_on_fail: bool = True) -> bool:
         True if all checks pass, False otherwise.
     """
     checks = [
-        (check_env_exists, "❌ ~/.openclaw/.env does not exist"),
-        (check_env_permissions, "❌ ~/.openclaw/.env has insecure permissions (should be 600)"),
-        (check_gitignore, "❌ .env is not git-ignored"),
+        (check_env_exists, " ~/.openclaw/.env does not exist"),
+        (check_env_permissions, " ~/.openclaw/.env has insecure permissions (should be 600)"),
+        (check_gitignore, " .env is not git-ignored"),
     ]
     
     failed = []
@@ -58,13 +58,13 @@ def require_secure_env(exit_on_fail: bool = True) -> bool:
             failed.append(error_msg)
     
     if failed:
-        print("\n🔒 SECURITY REQUIREMENT NOT MET\n", file=sys.stderr)
+        print("\n SECURITY REQUIREMENT NOT MET\n", file=sys.stderr)
         print("OpenClaw requires centralized credential management.", file=sys.stderr)
         print("\nIssues found:", file=sys.stderr)
         for msg in failed:
             print(f"  {msg}", file=sys.stderr)
         
-        print("\n💡 Fix this by running:", file=sys.stderr)
+        print("\n Fix this by running:", file=sys.stderr)
         print("   cd ~/.openclaw/skills/credential-manager", file=sys.stderr)
         print("   ./scripts/consolidate.py", file=sys.stderr)
         print("   ./scripts/validate.py --fix", file=sys.stderr)
@@ -100,22 +100,22 @@ def get_credential(key: str) -> str:
                 if k.strip() == key:
                     return v.strip()
     
-    print(f"\n❌ Credential '{key}' not found in .env\n", file=sys.stderr)
+    print(f"\n Credential '{key}' not found in .env\n", file=sys.stderr)
     print("Add it to ~/.openclaw/.env:", file=sys.stderr)
     print(f"   {key}=your_value_here\n", file=sys.stderr)
     sys.exit(1)
 
 if __name__ == '__main__':
     # When run directly, validate and report
-    print("🔍 Checking OpenClaw credential security...\n")
+    print(" Checking OpenClaw credential security...\n")
     
     if require_secure_env(exit_on_fail=False):
-        print("✅ All security checks passed")
+        print(" All security checks passed")
         print("\nYour credentials are properly secured:")
         print("  • ~/.openclaw/.env exists")
         print("  • Permissions are 600 (owner only)")
         print("  • Git-ignored")
-        print("\n🔒 Good job! Your OpenClaw deployment follows security best practices.")
+        print("\n Good job! Your OpenClaw deployment follows security best practices.")
         sys.exit(0)
     else:
         sys.exit(1)

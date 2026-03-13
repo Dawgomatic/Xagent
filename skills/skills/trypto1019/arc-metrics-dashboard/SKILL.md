@@ -2,7 +2,7 @@
 name: metrics-dashboard
 description: Track and visualize your agent's operational metrics. Record API calls, task completions, uptime, errors, and custom counters. Generate text-based dashboards and export data for analysis.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "📊", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Metrics Dashboard

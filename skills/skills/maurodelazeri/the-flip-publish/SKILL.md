@@ -3,13 +3,13 @@ name: the-flip
 description: "$1 USDC entry. 14 coin flips. Get all 14 right, take the entire jackpot. Live on Solana devnet — continuous game, enter anytime."
 metadata:
   openclaw:
-    emoji: "🎰"
+    emoji: ""
     homepage: "https://github.com/maurodelazeri/the-flip-publish"
     requires:
       bins: ["node"]
 ---
 
-# 🎰 THE FLIP
+#  THE FLIP
 
 **$1 USDC. 14 coin flips. Get all 14 right → take the entire jackpot.**
 

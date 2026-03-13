@@ -449,7 +449,7 @@ python3 scripts/screen_dividend_growth_rsi.py 2>&1 | grep "Analyzing" | wc -l
 **Monitor rate limit status:**
 Script outputs warning when approaching limit:
 ```
-⚠️  API rate limit reached after analyzing 41 stocks.
+  API rate limit reached after analyzing 41 stocks.
 Returning results collected so far: 3 qualified stocks
 ```
 
@@ -630,7 +630,7 @@ prices = ticker.history(period="1mo")
 **Solution:**
 Script automatically skips these stocks with warning:
 ```
-⚠️  Insufficient price data for RSI calculation
+  Insufficient price data for RSI calculation
 ```
 
 No action needed - this is expected behavior.

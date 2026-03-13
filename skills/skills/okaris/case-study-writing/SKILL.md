@@ -39,11 +39,11 @@ Every case study follows: **Situation -> Task -> Action -> Result**
 ### 1. Headline (Lead with the Result)
 
 ```
-❌ "How Company X Uses Our Product"
-❌ "Company X Case Study"
+ "How Company X Uses Our Product"
+ "Company X Case Study"
 
-✅ "How Company X Reduced Onboarding Time by 60% with [Product]"
-✅ "Company X Grew Revenue 340% in 6 Months Using [Product]"
+ "How Company X Reduced Onboarding Time by 60% with [Product]"
+ "Company X Grew Revenue 340% in 6 Months Using [Product]"
 ```
 
 The headline should be specific, quantified, and state the outcome.
@@ -95,13 +95,13 @@ Place at the top for skimmers:
 ### How to Present Numbers
 
 ```
-❌ "Improved efficiency"
-❌ "Saved time"
-❌ "Better results"
+ "Improved efficiency"
+ "Saved time"
+ "Better results"
 
-✅ "Reduced processing time from 4 hours to 45 minutes (81% decrease)"
-✅ "Increased conversion rate from 2.1% to 5.8% (176% improvement)"
-✅ "Saved $240,000 annually in operational costs"
+ "Reduced processing time from 4 hours to 45 minutes (81% decrease)"
+ "Increased conversion rate from 2.1% to 5.8% (176% improvement)"
+ "Saved $240,000 annually in operational costs"
 ```
 
 ### Metric Categories
@@ -128,13 +128,13 @@ infsh app run infsh/python-executor --input '{
 ### What Makes a Good Quote
 
 ```
-❌ "We love the product." (vague, could be about anything)
-❌ "It's great." (meaningless)
+ "We love the product." (vague, could be about anything)
+ "It's great." (meaningless)
 
-✅ "We went from processing 50 orders a day to 200, without adding a single person to the team."
+ "We went from processing 50 orders a day to 200, without adding a single person to the team."
    — Sarah Chen, VP Operations, Acme Corp
 
-✅ "Before [Product], our team dreaded Monday mornings because of the report backlog.
+ "Before [Product], our team dreaded Monday mornings because of the report backlog.
     Now it's automated and they can focus on actual analysis."
    — Marcus Rodriguez, Head of Analytics, DataCo
 ```

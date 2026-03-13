@@ -4,7 +4,7 @@ description: iCloud Calendar, Reminders & Contacts via Pear. Manage events, remi
 homepage: https://pearmcp.com
 metadata:
   openclaw:
-    emoji: "🍐"
+    emoji: ""
     primaryEnv: PEAR_API_KEY
     requires:
       env:

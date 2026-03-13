@@ -300,12 +300,12 @@ void sleep() {
 
 ## Next Steps
 
-1. ✅ Firmware uploaded
-2. ✅ WiFi connected
-3. ✅ Receiver running
-4. ✅ Analyzer processing images
-5. 🎯 Integrate with Overwatch monitoring
-6. 🎯 Add Telegram alerts
+1.  Firmware uploaded
+2.  WiFi connected
+3.  Receiver running
+4.  Analyzer processing images
+5.  Integrate with Overwatch monitoring
+6.  Add Telegram alerts
 
 See **[overwatch-checkin.js](../scripts/overwatch-checkin.js)** for integration with check-in GIFs.
 

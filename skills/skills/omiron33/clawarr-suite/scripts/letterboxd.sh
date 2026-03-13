@@ -16,12 +16,12 @@ TAUTULLI_KEY="${TAUTULLI_KEY:-}"
 RADARR_KEY="${RADARR_KEY:-}"
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required"
+  echo " Error: jq is required"
   exit 1
 fi
 
 if ! command -v curl &> /dev/null; then
-  echo "❌ Error: curl is required"
+  echo " Error: curl is required"
   exit 1
 fi
 
@@ -34,7 +34,7 @@ show_help() {
 cmd_export() {
   local output_file="${1:-letterboxd_import_$(date +%Y%m%d_%H%M%S).csv}"
   
-  echo "📤 Exporting to Letterboxd CSV: $output_file"
+  echo " Exporting to Letterboxd CSV: $output_file"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -48,7 +48,7 @@ cmd_export() {
     history=$(curl -sf "http://${HOST}:8181/api/v2?apikey=${TAUTULLI_KEY}&cmd=get_history&length=10000&media_type=movie")
     
     if [[ -z "$history" ]]; then
-      echo "❌ Failed to fetch Tautulli history"
+      echo " Failed to fetch Tautulli history"
       exit 1
     fi
     
@@ -77,7 +77,7 @@ cmd_export() {
     exported=$(wc -l < "$output_file")
     exported=$((exported - 1))  # Subtract header
     
-    echo "✅ Exported $exported movies to: $output_file"
+    echo " Exported $exported movies to: $output_file"
     echo ""
     echo "Upload at: https://letterboxd.com/import/"
     echo ""
@@ -89,7 +89,7 @@ cmd_export() {
     movies=$(curl -sf -H "X-Api-Key: $RADARR_KEY" "http://${HOST}:7878/api/v3/movie")
     
     if [[ -z "$movies" ]]; then
-      echo "❌ Failed to fetch Radarr library"
+      echo " Failed to fetch Radarr library"
       exit 1
     fi
     
@@ -115,13 +115,13 @@ cmd_export() {
     exported=$(wc -l < "$output_file")
     exported=$((exported - 1))  # Subtract header
     
-    echo "✅ Exported $exported movies to: $output_file"
+    echo " Exported $exported movies to: $output_file"
     echo ""
     echo "Upload at: https://letterboxd.com/import/"
     echo ""
     
   else
-    echo "❌ Neither Tautulli nor Radarr configured"
+    echo " Neither Tautulli nor Radarr configured"
     echo ""
     echo "Set one of:"
     echo "  • TAUTULLI_KEY + CLAWARR_HOST (for watch history)"
@@ -141,11 +141,11 @@ cmd_export_from_trakt() {
   fi
   
   if [[ ! -f "$input_file" ]]; then
-    echo "❌ File not found: $input_file"
+    echo " File not found: $input_file"
     exit 1
   fi
   
-  echo "📤 Converting Trakt history to Letterboxd CSV"
+  echo " Converting Trakt history to Letterboxd CSV"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -171,7 +171,7 @@ cmd_export_from_trakt() {
   count=$(wc -l < "$output_file")
   count=$((count - 1))  # Subtract header
   
-  echo "✅ Converted $count movies to: $output_file"
+  echo " Converted $count movies to: $output_file"
   echo ""
   echo "Upload at: https://letterboxd.com/import/"
   echo ""
@@ -187,11 +187,11 @@ cmd_import() {
   fi
   
   if [[ ! -f "$file" ]]; then
-    echo "❌ File not found: $file"
+    echo " File not found: $file"
     exit 1
   fi
   
-  echo "📥 Importing Letterboxd diary"
+  echo " Importing Letterboxd diary"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -234,7 +234,7 @@ cmd_import() {
   local count
   count=$(echo "$entries" | jq 'length')
   
-  echo "✅ Imported $count movies to local database"
+  echo " Imported $count movies to local database"
   echo "   Saved to: $local_db"
   echo ""
 }
@@ -248,7 +248,7 @@ cmd_profile() {
     exit 1
   fi
   
-  echo "👤 Letterboxd Profile: $username"
+  echo " Letterboxd Profile: $username"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -259,7 +259,7 @@ cmd_profile() {
   profile_html=$(curl -sf "https://letterboxd.com/$username/" || echo "")
   
   if [[ -z "$profile_html" ]]; then
-    echo "❌ Could not fetch profile (user may not exist or be private)"
+    echo " Could not fetch profile (user may not exist or be private)"
     exit 1
   fi
   
@@ -304,7 +304,7 @@ cmd_diary() {
     exit 1
   fi
   
-  echo "📖 Letterboxd Diary: $username ($year)"
+  echo " Letterboxd Diary: $username ($year)"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   
@@ -315,7 +315,7 @@ cmd_diary() {
   diary_html=$(curl -sf "https://letterboxd.com/$username/films/diary/for/$year/" || echo "")
   
   if [[ -z "$diary_html" ]]; then
-    echo "❌ Could not fetch diary (user may not exist or be private)"
+    echo " Could not fetch diary (user may not exist or be private)"
     exit 1
   fi
   
@@ -346,7 +346,7 @@ case "$COMMAND" in
   diary)               cmd_diary "${2:-}" "${3:-}" ;;
   help|--help|-h)      show_help ;;
   *)
-    echo "❌ Unknown command: $COMMAND"
+    echo " Unknown command: $COMMAND"
     echo "Run '$0 help' for usage"
     exit 1
     ;;

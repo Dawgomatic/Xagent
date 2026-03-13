@@ -12,10 +12,10 @@
 
 | Type | Count |
 |------|-------|
-| ✨ feat | |
-| 🐛 fix | |
-| ♻️ refactor | |
-| 🔧 config | |
+|  feat | |
+|  fix | |
+|  refactor | |
+|  config | |
 
 ## Pattern Discovery
 
@@ -23,7 +23,7 @@
 
 | Repeated Operation | #Tag | Count | Recommendation |
 |-------------------|------|-------|----------------|
-| | | | → Formalize as skill / Keep observing / Already exists ✅ |
+| | | | → Formalize as skill / Keep observing / Already exists  |
 
 ## Candidate Skill Pool
 

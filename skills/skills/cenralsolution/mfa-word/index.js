@@ -29,21 +29,21 @@ export const initialize_mfa = ({ secret, super_secret, sensitive_list, use_dead_
     if (!fs.existsSync(path.dirname(STORE_PATH))) fs.mkdirSync(path.dirname(STORE_PATH), { recursive: true });
     fs.writeFileSync(STORE_PATH, JSON.stringify(data));
     logEvent("INITIALIZATION", "SUCCESS");
-    return `✅ MFA Word active. Mode: ${use_dead_mans_switch ? "Dead Man's Switch" : "15-min Window"}`;
+    return ` MFA Word active. Mode: ${use_dead_mans_switch ? "Dead Man's Switch" : "15-min Window"}`;
 };
 
 export const verify_access = ({ word }) => {
-    if (!fs.existsSync(STORE_PATH)) return "❌ MFA not configured.";
+    if (!fs.existsSync(STORE_PATH)) return " MFA not configured.";
     const vault = JSON.parse(fs.readFileSync(STORE_PATH));
     
     if (hash(word) === vault.secret_hash) {
         sessionState.isUnlocked = true;
         sessionState.expiry = Date.now() + (15 * 60 * 1000);
         logEvent("CHALLENGE", "SUCCESS");
-        return "🔓 Access Granted.";
+        return " Access Granted.";
     }
     logEvent("CHALLENGE", "FAILED_ATTEMPT");
-    return "🚫 Incorrect Secret Word.";
+    return " Incorrect Secret Word.";
 };
 
 export const check_gate_status = () => {
@@ -68,8 +68,8 @@ export const reset_mfa = ({ super_word, new_secret }) => {
         vault.secret_hash = hash(new_secret);
         fs.writeFileSync(STORE_PATH, JSON.stringify(vault));
         logEvent("RESET", "SUCCESS");
-        return "🔄 Secret word successfully reset.";
+        return " Secret word successfully reset.";
     }
     logEvent("RESET", "FAILED_CRITICAL");
-    return "💀 CRITICAL: Super Secret Word incorrect.";
+    return " CRITICAL: Super Secret Word incorrect.";
 };

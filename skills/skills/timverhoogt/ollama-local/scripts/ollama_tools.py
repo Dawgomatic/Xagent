@@ -125,8 +125,8 @@ def execute_tool_call(tool_call):
         except:
             args = {}
     
-    print(f"  🔧 Tool: {name}")
-    print(f"  📥 Args: {json.dumps(args, indent=2)}")
+    print(f"   Tool: {name}")
+    print(f"   Args: {json.dumps(args, indent=2)}")
     
     # Mock responses
     if name == "get_weather":
@@ -178,26 +178,26 @@ After receiving tool results, provide a helpful answer to the user."""
         tool_calls = msg.get("tool_calls", [])
         
         if content:
-            print(f"🤖 Model: {content}")
+            print(f" Model: {content}")
         
         if not tool_calls:
-            print("\n✅ Final response (no more tool calls)")
+            print("\n Final response (no more tool calls)")
             return content
         
         # Process tool calls
         messages.append({"role": "assistant", "content": content, "tool_calls": tool_calls})
         
         for tc in tool_calls:
-            print(f"\n📞 Tool call requested:")
+            print(f"\n Tool call requested:")
             result = execute_tool_call(tc)
-            print(f"  📤 Result: {json.dumps(result)}")
+            print(f"   Result: {json.dumps(result)}")
             
             messages.append({
                 "role": "tool",
                 "content": json.dumps(result)
             })
     
-    print("\n⚠️ Max iterations reached")
+    print("\n Max iterations reached")
     return content
 
 def main():

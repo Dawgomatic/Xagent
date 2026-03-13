@@ -1,7 +1,7 @@
 ---
 name: Scholar
 description: Search academic literature with Google Scholar using effective queries, citations, and filters.
-metadata: {"clawdbot":{"emoji":"🎓","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Google Scholar Research Rules

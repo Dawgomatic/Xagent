@@ -203,17 +203,17 @@ Kit: Querying both servers...
 ### Color/Badge Approach (if supported)
 
 ```
-🏷️ [lab] macOS inventory
+ [lab] macOS inventory
    Devices: 5
    • Device1 (Monterey)
    • Device2 (Sonoma)
 
-🏷️ [production] macOS inventory
+ [production] macOS inventory
    Devices: 12
    • DeviceA (Sonoma)
    • DeviceB (Sequoia)
 
-⚖️ Comparison: Production has 7 more
+ Comparison: Production has 7 more
 ```
 
 ### Plain Text Approach (Signal safe)
@@ -312,12 +312,12 @@ def compare_results(ref1, ref2):
 
 ## Benefits
 
-✅ **No confusion** — Always know which server data came from  
-✅ **Traceable** — Full history of queries in session  
-✅ **Safe comparisons** — Validate before cross-server operations  
-✅ **Referenceable** — Can refer back to earlier queries  
-✅ **Explicit** — User and Kit both see server context  
-✅ **Scalable** — Works with 1 server or 10 servers  
+ **No confusion** — Always know which server data came from  
+ **Traceable** — Full history of queries in session  
+ **Safe comparisons** — Validate before cross-server operations  
+ **Referenceable** — Can refer back to earlier queries  
+ **Explicit** — User and Kit both see server context  
+ **Scalable** — Works with 1 server or 10 servers  
 
 ## Example Session Log
 

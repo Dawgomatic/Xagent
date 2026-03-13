@@ -10,7 +10,7 @@ import { loadPackagerSpec } from "../../src/node/packager-spec.mjs";
 test("caption contract is exact", () => {
   const expected = `TCG prices look certain — until you zoom in.
 JK Index is building the truth layer: clean IDs, real comps, market signals.
-Follow if you want collector-first market intelligence. 👑🧱
+Follow if you want collector-first market intelligence. 
 
 #pokemon #tcg #cardcollecting #marketdata #startup`;
   assert.equal(buildCaption(), expected);

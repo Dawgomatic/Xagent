@@ -3,7 +3,7 @@ name: perplexity-search
 description: Search the web using Perplexity's Search API for ranked, real-time web results with advanced filtering. Use when you need to search for current information, market research, trending topics, or when Brave Search is unavailable. Supports recency filtering (day/week/month/year) and returns structured results with titles, URLs, and snippets.
 metadata:
   openclaw:
-    emoji: 🔍
+    emoji: 
     requires:
       env:
         - PERPLEXITY_API_KEY

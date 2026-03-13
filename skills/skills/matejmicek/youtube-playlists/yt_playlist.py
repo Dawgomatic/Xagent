@@ -56,7 +56,7 @@ def auth():
     """Authenticate and store credentials."""
     print("Opening browser for Google authentication...")
     service = get_authenticated_service()
-    print("✅ Authentication successful! Token saved.")
+    print(" Authentication successful! Token saved.")
     return service
 
 def create_playlist(title: str, description: str = "", privacy: str = "private"):
@@ -78,7 +78,7 @@ def create_playlist(title: str, description: str = "", privacy: str = "private")
     response = request.execute()
     
     playlist_id = response['id']
-    print(f"✅ Created playlist: {title}")
+    print(f" Created playlist: {title}")
     print(f"   ID: {playlist_id}")
     print(f"   URL: https://youtube.com/playlist?list={playlist_id}")
     
@@ -108,7 +108,7 @@ def add_video_to_playlist(playlist_id: str, video_id: str):
         }
     )
     response = request.execute()
-    print(f"✅ Added video {video_id} to playlist")
+    print(f" Added video {video_id} to playlist")
     return response
 
 def bulk_create_playlist(title: str, video_ids: list, description: str = "", privacy: str = "unlisted"):
@@ -123,7 +123,7 @@ def bulk_create_playlist(title: str, video_ids: list, description: str = "", pri
         except Exception as e:
             print(f"   [{i}/{len(video_ids)}] Failed: {video_id} - {e}")
     
-    print(f"\n🎉 Done! Playlist URL: https://youtube.com/playlist?list={playlist_id}")
+    print(f"\n Done! Playlist URL: https://youtube.com/playlist?list={playlist_id}")
     return playlist_id
 
 def list_playlists(max_results: int = 25):
@@ -174,12 +174,12 @@ def remove_video_from_playlist(playlist_id: str, video_id: str):
             break
     
     if not item_id:
-        print(f"❌ Video {video_id} not found in playlist")
+        print(f" Video {video_id} not found in playlist")
         return None
     
     # Delete the playlist item
     service.playlistItems().delete(id=item_id).execute()
-    print(f"✅ Removed video {video_id} from playlist")
+    print(f" Removed video {video_id} from playlist")
     return True
 
 def list_playlist_videos(playlist_id: str, max_results: int = 50):

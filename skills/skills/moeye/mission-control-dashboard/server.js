@@ -870,9 +870,9 @@ try {
     io.emit('proposal:created', proposal);
   });
   
-  console.log('✅ Multi-Agent Coordination System loaded');
+  console.log(' Multi-Agent Coordination System loaded');
 } catch (e) {
-  console.log('⚠️  Multi-Agent System not available:', e.message);
+  console.log('  Multi-Agent System not available:', e.message);
 }
 
 // Get all agents status
@@ -900,7 +900,7 @@ app.post('/api/coordination/task', async (req, res) => {
       const tasksFile = path.join(AGENTS_DIR, 'agents-coord', 'tasks.json');
       const data = await fs.readFile(tasksFile, 'utf-8').catch(() => '[]');
       const tasks = JSON.parse(data);
-      const agentNames = { scout: '🔍 Scout', analyst: '📊 Analyst', executor: '⚡ Executor', auditor: '🛡️ Auditor', content: '✍️ Content', infra: '🔧 Infra' };
+      const agentNames = { scout: ' Scout', analyst: ' Analyst', executor: ' Executor', auditor: ' Auditor', content: ' Content', infra: ' Infra' };
       const newTask = {
         id: Date.now(),
         title: `[${agentNames[agentId] || agentId}] ${task.substring(0, 50)}`,
@@ -2196,7 +2196,7 @@ app.get('/api/predict/opportunities', requireAuth, async (req, res) => {
       }
       
       // Strategy A: TA (Technical Analysis)
-      if (line.includes('📊 TA ANALYSIS') || line.includes('SIGNAL FLIP')) {
+      if (line.includes(' TA ANALYSIS') || line.includes('SIGNAL FLIP')) {
         const flipMatch = line.match(/SIGNAL FLIP: (\w+) → (\w+) \((\d+)%\)/);
         if (flipMatch) {
           opportunities.push({
@@ -2215,7 +2215,7 @@ app.get('/api/predict/opportunities', requireAuth, async (req, res) => {
       
       // Strategy B: Sniper (Orderbook) - new format with signal
       if (line.includes('Flow:') && line.includes('Book:')) {
-        const signalMatch = line.match(/(🟢 BUY UP|🔴 BUY DOWN|⚪ WAIT)/);
+        const signalMatch = line.match(/( BUY UP| BUY DOWN| WAIT)/);
         const bookMatch = line.match(/Book:([-\d.]+)%/);
         const assetMatch = line.match(/ASSET:([^\s|]+)/);
         const slugMatch = line.match(/SLUG:([^\s|]+)/);
@@ -2223,7 +2223,7 @@ app.get('/api/predict/opportunities', requireAuth, async (req, res) => {
         
         if (bookMatch && Math.abs(parseFloat(bookMatch[1])) > 20) {
           const imbalance = parseFloat(bookMatch[1]);
-          const signal = signalMatch ? signalMatch[1] : (imbalance > 0 ? '🟢 BUY UP' : '🔴 BUY DOWN');
+          const signal = signalMatch ? signalMatch[1] : (imbalance > 0 ? ' BUY UP' : ' BUY DOWN');
           opportunities.push({
             strategy: 'B',
             name: 'Sniper',
@@ -2239,7 +2239,7 @@ app.get('/api/predict/opportunities', requireAuth, async (req, res) => {
       }
       
       // Strategy C: Liquid Markets (from LIQUID CRYPTO MARKETS log)
-      if (line.includes('Liq:') && line.includes('SLUG:') && (line.includes('🟢') || line.includes('🔴') || line.includes('⚪'))) {
+      if (line.includes('Liq:') && line.includes('SLUG:') && (line.includes('') || line.includes('') || line.includes(''))) {
         const liqMatch = line.match(/Liq:\$(\d+)K/);
         const slugMatch = line.match(/SLUG:([^\s|]+)/);
         const assetMatch = line.match(/ASSET:([^\s|]+)/);
@@ -2251,7 +2251,7 @@ app.get('/api/predict/opportunities', requireAuth, async (req, res) => {
           opportunities.push({
             strategy: 'C',
             name: 'Liquid',
-            type: signal === 'UP' ? '🟢 BUY UP' : signal === 'DOWN' ? '🔴 BUY DOWN' : '⚪ WAIT',
+            type: signal === 'UP' ? ' BUY UP' : signal === 'DOWN' ? ' BUY DOWN' : ' WAIT',
             detail: `${odds}% odds | $${liqMatch[1]}K liq`,
             market: assetMatch ? assetMatch[1] : (currentAsset || 'Crypto'),
             slug: slugMatch ? slugMatch[1] : '',
@@ -2263,7 +2263,7 @@ app.get('/api/predict/opportunities', requireAuth, async (req, res) => {
       }
       
       // Strategy D: Sports
-      if (line.includes('🏀') || line.includes('SPORTS') || line.includes('NBA') || line.includes('NFL') || line.includes('Super Bowl')) {
+      if (line.includes('') || line.includes('SPORTS') || line.includes('NBA') || line.includes('NFL') || line.includes('Super Bowl')) {
         const sportMatch = line.match(/(NBA|NFL|NHL|MLB|Super Bowl)[:\s]+(.+?)(?:\||$)/i);
         if (sportMatch) {
           opportunities.push({
@@ -2279,7 +2279,7 @@ app.get('/api/predict/opportunities', requireAuth, async (req, res) => {
       }
       
       // Strategy E: Weather
-      if (line.includes('🌤') || line.includes('WEATHER')) {
+      if (line.includes('') || line.includes('WEATHER')) {
         opportunities.push({
           strategy: 'E',
           name: 'Weather',
@@ -2494,6 +2494,6 @@ app.post('/api/momo/rules', requireAuth, async (req, res) => {
 });
 
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`🍑 Mission Control running at http://0.0.0.0:${PORT}`);
-  console.log(`🔐 Login required - Rate limit: ${RATE_LIMIT_MAX} attempts per ${RATE_LIMIT_WINDOW/1000}s`);
+  console.log(` Mission Control running at http://0.0.0.0:${PORT}`);
+  console.log(` Login required - Rate limit: ${RATE_LIMIT_MAX} attempts per ${RATE_LIMIT_WINDOW/1000}s`);
 });

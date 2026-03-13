@@ -10,7 +10,7 @@ metadata:
   author: AI Artist
   license: MIT
   openclaw:
-    emoji: "🎨"
+    emoji: ""
     homepage: "https://github.com/Numba1ne/nft-skill"
     requires:
       bins:

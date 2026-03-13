@@ -355,7 +355,7 @@ Use this to clean up bounties that are stuck or no longer needed.
 
 ```
 open → pending_match → claimed → fulfilled (auto-cleaned)
-         ↕ (reject)      ↓
+          (reject)      ↓
          open           rejected / expired (auto-cleaned)
 ```
 

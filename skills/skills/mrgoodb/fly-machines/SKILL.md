@@ -1,7 +1,7 @@
 ---
 name: fly-machines
 description: Deploy and manage Fly.io Machines - create, start, stop, delete, and monitor containerized apps. Use for deploying containers, managing app instances, and orchestrating multi-tenant workloads.
-metadata: {"clawdbot":{"emoji":"🪰"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # fly-machines

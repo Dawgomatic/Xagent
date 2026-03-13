@@ -75,7 +75,7 @@ def parse_entry(entry):
 
 def format_text(parsed):
     """Plain text format."""
-    return f"""📜 **{parsed['date_label']}**
+    return f""" **{parsed['date_label']}**
 **{parsed['title']}**
 
 _"{parsed['quote']}"_
@@ -85,7 +85,7 @@ _"{parsed['quote']}"_
 
 def format_telegram(parsed):
     """Telegram markdown format."""
-    return f"""📜 **{parsed['date_label']}**
+    return f""" **{parsed['date_label']}**
 **{parsed['title']}**
 
 _"{parsed['quote']}"_

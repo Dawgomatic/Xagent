@@ -11,7 +11,7 @@ WORKSPACE="${WORKSPACE:-$HOME/.openclaw/workspace}"
 STATE_FILE="$WORKSPACE/memory/reward-state.json"
 
 if [ ! -f "$STATE_FILE" ]; then
-  echo "❌ No reward state found"
+  echo " No reward state found"
   exit 1
 fi
 
@@ -60,7 +60,7 @@ case $ACTION in
        .lastUpdated = $now
        ' "$STATE_FILE" > "$STATE_FILE.tmp"
     mv "$STATE_FILE.tmp" "$STATE_FILE"
-    echo "⭐ Now looking forward to: $ITEM"
+    echo " Now looking forward to: $ITEM"
     
     # Anticipation boosts drive slightly
     CURRENT_DRIVE=$(jq -r '.drive' "$STATE_FILE")
@@ -82,11 +82,11 @@ case $ACTION in
        .lastUpdated = $now
        ' "$STATE_FILE" > "$STATE_FILE.tmp"
     mv "$STATE_FILE.tmp" "$STATE_FILE"
-    echo "⭐ Removed from anticipation: $ITEM"
+    echo " Removed from anticipation: $ITEM"
     ;;
     
   list)
-    echo "⭐ Looking forward to:"
+    echo " Looking forward to:"
     jq -r '.anticipating[]?' "$STATE_FILE" | while read -r item; do
       echo "  • $item"
     done
@@ -99,7 +99,7 @@ case $ACTION in
   clear)
     jq --arg now "$NOW" '.anticipating = [] | .anticipatingMeta = [] | .lastUpdated = $now' "$STATE_FILE" > "$STATE_FILE.tmp"
     mv "$STATE_FILE.tmp" "$STATE_FILE"
-    echo "⭐ Cleared all anticipations"
+    echo " Cleared all anticipations"
     ;;
     
   *)

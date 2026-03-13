@@ -48,7 +48,7 @@ done
 
 echo -e "${BLUE}"
 echo "╔═══════════════════════════════════════════════════════════╗"
-echo "║     🦞 OpenClaw Self-Healing System Installer             ║"
+echo "║      OpenClaw Self-Healing System Installer             ║"
 echo "║     \"The system that heals itself\"                        ║"
 echo "╚═══════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
@@ -56,7 +56,7 @@ echo -e "${NC}"
 # Check OS
 check_os() {
     if [[ "$(uname)" != "Darwin" ]]; then
-        echo -e "${YELLOW}⚠️  This installer is optimized for macOS.${NC}"
+        echo -e "${YELLOW}  This installer is optimized for macOS.${NC}"
         echo -e "${YELLOW}   For Linux, see: ${REPO_URL}/blob/main/docs/LINUX_SETUP.md${NC}"
         echo ""
         read -p "Continue anyway? (y/N) " -n 1 -r
@@ -94,7 +94,7 @@ check_prerequisites() {
     fi
     
     if [[ ${#missing[@]} -gt 0 ]]; then
-        echo -e "${RED}❌ Missing prerequisites:${NC}"
+        echo -e "${RED} Missing prerequisites:${NC}"
         for item in "${missing[@]}"; do
             echo "   - $item"
         done
@@ -106,7 +106,7 @@ check_prerequisites() {
         exit 1
     fi
     
-    echo -e "${GREEN}✅ All prerequisites found${NC}"
+    echo -e "${GREEN} All prerequisites found${NC}"
 }
 
 # Create directories
@@ -118,7 +118,7 @@ create_directories() {
     mkdir -p "$OPENCLAW_CONFIG_DIR"
     mkdir -p "$HOME/Library/LaunchAgents"
     
-    echo -e "${GREEN}✅ Directories created${NC}"
+    echo -e "${GREEN} Directories created${NC}"
 }
 
 # Download scripts
@@ -137,7 +137,7 @@ download_scripts() {
         chmod 700 "$OPENCLAW_WORKSPACE/scripts/$script"
     done
     
-    echo -e "${GREEN}✅ Scripts downloaded${NC}"
+    echo -e "${GREEN} Scripts downloaded${NC}"
 }
 
 # Setup environment
@@ -175,7 +175,7 @@ EOF
         chmod 600 "$env_file"
     fi
     
-    echo -e "${GREEN}✅ Environment configured${NC}"
+    echo -e "${GREEN} Environment configured${NC}"
 }
 
 # Install LaunchAgent
@@ -221,7 +221,7 @@ EOF
     
     launchctl load "$plist"
     
-    echo -e "${GREEN}✅ LaunchAgent installed and loaded${NC}"
+    echo -e "${GREEN} LaunchAgent installed and loaded${NC}"
 }
 
 # Print summary
@@ -229,14 +229,14 @@ print_summary() {
     echo -e "${BLUE}[6/6] Installation complete!${NC}"
     echo ""
     echo -e "${GREEN}╔═══════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${GREEN}║     🎉 Self-Healing System Installed Successfully!        ║${NC}"
+    echo -e "${GREEN}║      Self-Healing System Installed Successfully!        ║${NC}"
     echo -e "${GREEN}╚═══════════════════════════════════════════════════════════╝${NC}"
     echo ""
     echo -e "${BLUE}What's installed:${NC}"
-    echo "  ✅ Level 1: Watchdog (use existing OpenClaw watchdog)"
-    echo "  ✅ Level 2: Health Check (LaunchAgent, every 5 min)"
-    echo "  ✅ Level 3: Claude Emergency Recovery (on-demand)"
-    echo "  ✅ Level 4: Discord Alert (requires webhook setup)"
+    echo "   Level 1: Watchdog (use existing OpenClaw watchdog)"
+    echo "   Level 2: Health Check (LaunchAgent, every 5 min)"
+    echo "   Level 3: Claude Emergency Recovery (on-demand)"
+    echo "   Level 4: Discord Alert (requires webhook setup)"
     echo ""
     echo -e "${BLUE}Scripts location:${NC}"
     echo "  $OPENCLAW_WORKSPACE/scripts/"
@@ -244,7 +244,7 @@ print_summary() {
     echo -e "${BLUE}Configuration:${NC}"
     echo "  $OPENCLAW_CONFIG_DIR/.env"
     echo ""
-    echo -e "${YELLOW}⚠️  Optional: Set up Level 4 Discord alerts${NC}"
+    echo -e "${YELLOW}  Optional: Set up Level 4 Discord alerts${NC}"
     echo "  1. Create a Discord webhook"
     echo "  2. Edit $OPENCLAW_CONFIG_DIR/.env"
     echo "  3. Add: DISCORD_WEBHOOK_URL=\"your-webhook-url\""
@@ -256,7 +256,7 @@ print_summary() {
     echo -e "${BLUE}Documentation:${NC}"
     echo "  $REPO_URL"
     echo ""
-    echo -e "${GREEN}The system is now watching your watcher. Sleep well. 🦞${NC}"
+    echo -e "${GREEN}The system is now watching your watcher. Sleep well. ${NC}"
 }
 
 # Main

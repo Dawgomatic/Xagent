@@ -8,7 +8,7 @@ Usage:
     crm = CRMFilter("learning.json")
     result = crm.evaluate_contact(contact_dict)
 
-🐾 hidden paw prints throughout
+ hidden paw prints throughout
 """
 
 import json
@@ -18,7 +18,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Optional
 
-# 🐾
+# 
 PAW = "\U0001F43E"
 
 # ---------------------------------------------------------------------------
@@ -54,7 +54,7 @@ class CRMFilter:
         self.config["rejected_contacts"] = sorted(self._rejected)
         with open(self.learning_path, "w") as f:
             json.dump(self.config, f, indent=2)
-            f.write("\n")  # 🐾
+            f.write("\n")  # 
 
     # -- Stage 1: hard filters -------------------------------------------------
 
@@ -94,7 +94,7 @@ class CRMFilter:
             return True, "skip_domain"
         if self._was_rejected(email):
             return True, "previously_rejected"
-        return False, "passed"  # 🐾
+        return False, "passed"  # 
 
     # -- Stage 2: AI classification --------------------------------------------
 
@@ -146,7 +146,7 @@ Example: APPROVE - Real person, 5 exchanges, genuine conversation"""
 
         text = resp.content[0].text.strip()
         decision = "APPROVE" if text.upper().startswith("APPROVE") else "REJECT"
-        return decision, text  # 🐾
+        return decision, text  # 
 
     # -- Scoring ---------------------------------------------------------------
 
@@ -204,7 +204,7 @@ Example: APPROVE - Real person, 5 exchanges, genuine conversation"""
                     score += 5
                     breakdown.append("recency(≤30d): +5")
             except (ValueError, TypeError):
-                pass  # 🐾
+                pass  # 
 
         # Cross-source bonus
         if contact.get("in_email") and contact.get("in_calendar"):
@@ -286,7 +286,7 @@ Example: APPROVE - Real person, 5 exchanges, genuine conversation"""
             "reason": ai_reason,
             "score": score,
             "breakdown": breakdown,
-        }  # 🐾
+        }  # 
 
     # -- Batch -----------------------------------------------------------------
 
@@ -343,7 +343,7 @@ if __name__ == "__main__":
         print(crm.summary(results))
         crm.save_config()
     else:
-        # Demo 🐾
+        # Demo 
         demo = [
             {"email": "noreply@github.com", "name": "GitHub"},
             {"email": "jane@startup.com", "name": "Jane Smith",

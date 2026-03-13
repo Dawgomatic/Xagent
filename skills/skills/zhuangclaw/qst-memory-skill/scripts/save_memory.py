@@ -240,17 +240,17 @@ if __name__ == "__main__":
         auto_weight=not args.no_auto_weight
     )
     
-    print(f"\n💾 Memory Saved")
+    print(f"\n Memory Saved")
     print(f"{'='*50}")
-    print(f"✅ Success: {result['success']}")
-    print(f"🏷️ Category: {result['category']}")
-    print(f"⚖️ Weight: {result['weight']}")
-    print(f"📝 Index: {result['index']}")
-    print(f"🤖 Auto-classified: {result['auto_classified']}")
-    print(f"💡 Reasoning: {result['reasoning']}")
-    print(f"🕐 Timestamp: {result['timestamp']}")
+    print(f" Success: {result['success']}")
+    print(f" Category: {result['category']}")
+    print(f" Weight: {result['weight']}")
+    print(f" Index: {result['index']}")
+    print(f" Auto-classified: {result['auto_classified']}")
+    print(f" Reasoning: {result['reasoning']}")
+    print(f" Timestamp: {result['timestamp']}")
     
     if args.verbose:
-        print(f"\n📄 Formatted Preview:")
+        print(f"\n Formatted Preview:")
         print("-" * 50)
         print(result['formatted'])

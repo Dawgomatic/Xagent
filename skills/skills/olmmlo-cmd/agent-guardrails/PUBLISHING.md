@@ -93,8 +93,8 @@
 ### Required Files
 
 1. **skill.json** - Metadata (see above)
-2. **README.md** - Already have ✅
-3. **SKILL.md** - Already have ✅
+2. **README.md** - Already have 
+3. **SKILL.md** - Already have 
 4. **LICENSE** - Need to add
 5. **CHANGELOG.md** - See above
 6. **VERSION** - See above

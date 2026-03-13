@@ -94,7 +94,7 @@ When a user requests to fetch customer data, follow these steps:
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Fetches all customers with excessive fields
+   #  HIGH COST - Fetches all customers with excessive fields
    query {
      customers(first: 50) {
        edges {
@@ -106,7 +106,7 @@ When a user requests to fetch customer data, follow these steps:
      }
    }
    
-   # ✅ LOW COST - Fetches customers with essential fields only
+   #  LOW COST - Fetches customers with essential fields only
    query {
      customers(first: 10, query:"email:*@example.com") {
        edges {

@@ -227,7 +227,7 @@ Same as `run_nondet` but without sandbox protection.
 - Simple validators that won't error
 - When you need maximum speed
 
-**⚠️ Warning:** Validator errors become Disagree status directly.
+** Warning:** Validator errors become Disagree status directly.
 
 ```python
 result = gl.vm.run_nondet_unsafe(
@@ -240,7 +240,7 @@ result = gl.vm.run_nondet_unsafe(
 
 ## Writing Secure Validators
 
-### ❌ Bad Example
+###  Bad Example
 ```python
 def bad_validator(leader_result):
     return True  # Always accepts - DANGEROUS!
@@ -248,7 +248,7 @@ def bad_validator(leader_result):
 
 This allows a malicious leader to return arbitrary data.
 
-### ✅ Good Example - Independent Verification
+###  Good Example - Independent Verification
 ```python
 def good_validator(leader_result):
     # Fetch data independently
@@ -259,7 +259,7 @@ def good_validator(leader_result):
     return abs(leader_result["score"] - my_result) <= 1
 ```
 
-### ✅ Good Example - LLM Validation
+###  Good Example - LLM Validation
 ```python
 def llm_validator(leader_result):
     prompt = f"""

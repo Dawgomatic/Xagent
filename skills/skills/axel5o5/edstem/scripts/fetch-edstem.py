@@ -183,7 +183,7 @@ Examples:
         with open(edstem_dir / f"thread-{thread_num:03d}.md", "w") as f:
             f.write(md_content)
     
-    print(f"✅ Done! Threads saved to {edstem_dir.resolve()}/")
+    print(f" Done! Threads saved to {edstem_dir.resolve()}/")
 
 if __name__ == "__main__":
     main()

@@ -1,29 +1,29 @@
 # Postiz CLI - Feature Summary
 
-## ✅ Complete Feature Set
+##  Complete Feature Set
 
 ### Posts with Comments and Media - FULLY SUPPORTED
 
 The Postiz CLI **fully supports** the complete API structure including:
 
-#### ✅ Posts with Comments
+####  Posts with Comments
 - Main post content
 - Multiple comments/replies
 - Each comment can have different content
 - Configurable delays between comments
 
-#### ✅ Multiple Media per Post/Comment
+####  Multiple Media per Post/Comment
 - Each post can have **multiple images** (array of MediaDto)
 - Each comment can have **its own images** (separate MediaDto arrays)
 - Support for various image formats (PNG, JPG, JPEG, GIF)
 - Media can be URLs or uploaded files
 
-#### ✅ Multi-Platform Posting
+####  Multi-Platform Posting
 - Post to multiple platforms in one request
 - Platform-specific content for each integration
 - Different media for different platforms
 
-#### ✅ Advanced Features
+####  Advanced Features
 - Scheduled posting with precise timestamps
 - URL shortening support
 - Tags and metadata
@@ -61,11 +61,11 @@ postiz posts:create --json complex-post.json
 ```
 
 **Capabilities:**
-- ✅ Each comment can have different media
-- ✅ Custom delays between comments
-- ✅ Multiple posts to different platforms
-- ✅ Platform-specific content and media
-- ✅ Full control over all API features
+-  Each comment can have different media
+-  Custom delays between comments
+-  Multiple posts to different platforms
+-  Platform-specific content and media
+-  Full control over all API features
 
 ## Real-World Examples
 
@@ -83,7 +83,7 @@ postiz posts:create --json complex-post.json
     "integration": { "id": "twitter-123" },
     "value": [
       {
-        "content": "🚀 Launching our new product!",
+        "content": " Launching our new product!",
         "image": [
           { "id": "p1", "path": "product-1.jpg" },
           { "id": "p2", "path": "product-2.jpg" },
@@ -91,14 +91,14 @@ postiz posts:create --json complex-post.json
         ]
       },
       {
-        "content": "⭐ Key features you'll love:",
+        "content": " Key features you'll love:",
         "image": [
           { "id": "f1", "path": "features-screenshot.jpg" }
         ],
         "delay": 60
       },
       {
-        "content": "🎁 Limited time: 50% off!",
+        "content": " Limited time: 50% off!",
         "image": [
           { "id": "o1", "path": "special-offer.jpg" }
         ],
@@ -121,7 +121,7 @@ postiz posts:create --json complex-post.json
     "integration": { "id": "twitter-123" },
     "value": [
       {
-        "content": "🧵 How to use our CLI (1/5)",
+        "content": " How to use our CLI (1/5)",
         "image": [{ "id": "1", "path": "overview.jpg" }]
       },
       {
@@ -140,7 +140,7 @@ postiz posts:create --json complex-post.json
         "delay": 2000
       },
       {
-        "content": "You're all set! 🎉 (5/5)",
+        "content": "You're all set!  (5/5)",
         "image": [{ "id": "5", "path": "done.jpg" }],
         "delay": 2000
       }
@@ -162,7 +162,7 @@ postiz posts:create --json complex-post.json
       "integration": { "id": "twitter-123" },
       "value": [
         {
-          "content": "Short, catchy Twitter post 🐦",
+          "content": "Short, catchy Twitter post ",
           "image": [{ "id": "t1", "path": "twitter-square.jpg" }]
         },
         {
@@ -248,11 +248,11 @@ postiz posts:create --json complex-post.json
 - Same content across platforms
 
 ### When to Use Advanced Mode (JSON)
-- ✅ **Comments need their own media** ← YOUR USE CASE
-- ✅ Multi-platform with different content
-- ✅ Threads with step-by-step images
-- ✅ Timed follow-up comments
-- ✅ Complex campaigns
+-  **Comments need their own media** ← YOUR USE CASE
+-  Multi-platform with different content
+-  Threads with step-by-step images
+-  Timed follow-up comments
+-  Complex campaigns
 
 ### AI Agent Tips
 
@@ -275,13 +275,13 @@ postiz posts:create --json complex-post.json
 
 ### Question: Does it support posts with comments, each with media?
 
-**Answer: YES! ✅**
+**Answer: YES! **
 
-- ✅ Posts can have multiple comments
-- ✅ Each comment can have its own media (multiple images)
-- ✅ Each post can have multiple images
-- ✅ Use JSON files for full control
-- ✅ See examples/ directory for working templates
-- ✅ Fully compatible with the Postiz API structure
+-  Posts can have multiple comments
+-  Each comment can have its own media (multiple images)
+-  Each post can have multiple images
+-  Use JSON files for full control
+-  See examples/ directory for working templates
+-  Fully compatible with the Postiz API structure
 
 The CLI supports the **complete Postiz API** including all advanced features!

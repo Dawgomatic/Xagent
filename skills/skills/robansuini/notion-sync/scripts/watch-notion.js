@@ -96,14 +96,14 @@ async function checkPage(pageId, localPath, stateFile = DEFAULT_STATE_FILE) {
       result.blockCount = blocks.length;
 
       if (pageState.lastEditedTime) {
-        result.actions.push(`📝 Page edited since last check (${new Date(pageState.lastEditedTime).toLocaleString()})`);
+        result.actions.push(` Page edited since last check (${new Date(pageState.lastEditedTime).toLocaleString()})`);
       } else {
-        result.actions.push('🆕 First time checking this page');
+        result.actions.push(' First time checking this page');
       }
 
       if (localDiffers) {
-        result.actions.push('⚠️  Local markdown differs from Notion version');
-        result.actions.push('💡 Suggested: Sync Notion → markdown to update local file');
+        result.actions.push('  Local markdown differs from Notion version');
+        result.actions.push(' Suggested: Sync Notion → markdown to update local file');
       }
 
       pageState.lastEditedTime = lastEditedTime;
@@ -120,7 +120,7 @@ async function checkPage(pageId, localPath, stateFile = DEFAULT_STATE_FILE) {
     return {
       pageId: normalizeId(pageId),
       error: error.message,
-      actions: [`❌ Error checking page: ${error.message}`]
+      actions: [` Error checking page: ${error.message}`]
     };
   }
 }

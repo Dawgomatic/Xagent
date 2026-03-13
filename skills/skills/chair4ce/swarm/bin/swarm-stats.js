@@ -15,13 +15,13 @@ switch (command) {
     const days = parseInt(args[1]) || 7;
     const report = metrics.getReport(days);
     
-    console.log('\n🐝 SWARM PERFORMANCE REPORT');
+    console.log('\n SWARM PERFORMANCE REPORT');
     console.log('═'.repeat(50));
     console.log(`Period: ${report.period}`);
     console.log('');
     
     if (report.error) {
-      console.log(`ℹ️  ${report.error}`);
+      console.log(`  ${report.error}`);
       console.log('Run some Swarm tasks to start collecting metrics.');
     } else {
       console.log(`Executions:    ${report.executions}`);
@@ -31,7 +31,7 @@ switch (command) {
       console.log(`Total Time:    ${(report.durationMs / 1000 / 60).toFixed(1)} minutes`);
       
       if (report.dailyBreakdown) {
-        console.log('\n📅 Daily Breakdown:');
+        console.log('\n Daily Breakdown:');
         Object.entries(report.dailyBreakdown).forEach(([date, day]) => {
           console.log(`  ${date}: ${day.executions} runs, ${day.totalTasks} tasks, ${day.avgSpeedup?.toFixed(1) || 'N/A'}x avg`);
         });
@@ -47,11 +47,11 @@ switch (command) {
     const limit = parseInt(args[1]) || 20;
     const edgeCases = metrics.getEdgeCases(limit);
     
-    console.log('\n🔍 SWARM EDGE CASES');
+    console.log('\n SWARM EDGE CASES');
     console.log('═'.repeat(50));
     
     if (edgeCases.length === 0) {
-      console.log('ℹ️  No edge cases logged yet. This is good!');
+      console.log('  No edge cases logged yet. This is good!');
     } else {
       edgeCases.forEach((ec, i) => {
         console.log(`\n${i + 1}. [${ec.type.toUpperCase()}] ${ec.description}`);
@@ -74,14 +74,14 @@ switch (command) {
       fs.rmSync(dir, { recursive: true });
       console.log('✓ Metrics cleared');
     } else {
-      console.log('ℹ️  No metrics to clear');
+      console.log('  No metrics to clear');
     }
     break;
   }
   
   default:
     console.log(`
-🐝 Swarm Statistics
+ Swarm Statistics
 
 Usage:
   swarm-stats report [days]    Show performance report (default: 7 days)

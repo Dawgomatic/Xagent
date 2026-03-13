@@ -9,7 +9,7 @@ PIECE_DIR="$WORKSPACE/pieces/$PIECE_ID"
 CONTENT_FILE="$PIECE_DIR/content.md"
 AUDIT_DIR="$WORKSPACE/audits/$PIECE_ID"
 
-[[ -f "$CONTENT_FILE" ]] || { echo "❌ Content not found: $CONTENT_FILE"; exit 1; }
+[[ -f "$CONTENT_FILE" ]] || { echo " Content not found: $CONTENT_FILE"; exit 1; }
 
 mkdir -p "$AUDIT_DIR"
 
@@ -89,6 +89,6 @@ jq --arg audit "audit_${TIMESTAMP}" --arg ts "$(date -Iseconds)" \
   "$PIECE_DIR/meta.json" > "$PIECE_DIR/meta.json.tmp" && \
   mv "$PIECE_DIR/meta.json.tmp" "$PIECE_DIR/meta.json"
 
-echo "✅ Audit created: $AUDIT_FILE"
+echo " Audit created: $AUDIT_FILE"
 echo ""
 echo "Fill in the scores and issues, then run rewrite if needed."

@@ -3,7 +3,7 @@ name: spots
 description: Exhaustive Google Places search using grid-based scanning. Finds ALL places, not just what Google surfaces.
 metadata:
   clawdbot:
-    emoji: 📍
+    emoji: 
     private: true
 ---
 

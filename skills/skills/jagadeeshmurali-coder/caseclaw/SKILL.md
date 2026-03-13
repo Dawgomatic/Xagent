@@ -2,7 +2,7 @@
 name: caseclaw
 description: Missed deadlines are the #1 malpractice trigger. caseclaw auto-calculates every deadline from 600+ court rule sets, runs conflict checks before you even open the file, and captures billable time you'd otherwise forget—right from your terminal. Free forever for solo attorneys. Pro for firms that can't afford mistakes.
 homepage: https://github.com/legal-tools/caseclaw
-metadata: {"clawdbot":{"emoji":"🔱","requires":{"bins":["caseclaw"]},"install":[{"id":"brew","kind":"brew","formula":"legal-tools/tap/caseclaw","bins":["caseclaw"],"label":"Install caseclaw (brew)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["caseclaw"]},"install":[{"id":"brew","kind":"brew","formula":"legal-tools/tap/caseclaw","bins":["caseclaw"],"label":"Install caseclaw (brew)"}]}}
 ---
 
 # caseclaw
@@ -25,7 +25,7 @@ No browser tabs. No clunky SaaS dashboards. No $500/seat enterprise contracts. J
 
 | Feature | Free | Pro ($29/mo) | Firm ($99/mo) |
 |---|---|---|---|
-| Deadline tracking (manual) | ✅ | ✅ | ✅ |
+| Deadline tracking (manual) |  |  |  |
 | Auto-calculated deadlines | 5/month | Unlimited | Unlimited |
 | Court rules database | 50 courts | 600+ courts | 600+ courts |
 | Conflict checks | Basic (local) | Full (fuzzy + entity) | Full + cross-matter |
@@ -34,7 +34,7 @@ No browser tabs. No clunky SaaS dashboards. No $500/seat enterprise contracts. J
 | Opposing counsel intel | — | Win/loss lookup | Full analytics |
 | Matters | 3 active | Unlimited | Unlimited |
 | Team members | 1 | 1 | Up to 25 |
-| API access | — | — | ✅ |
+| API access | — | — |  |
 | Priority support | — | Email | Dedicated Slack |
 
 > `caseclaw upgrade pro` to unlock. 14-day free trial, no credit card required.
@@ -54,7 +54,7 @@ caseclaw config set court "SDNY"       # Set default court
 
 ## Core Features
 
-### 1. Deadline Tracking ⏰ (The Malpractice Killer)
+### 1. Deadline Tracking  (The Malpractice Killer)
 
 The #1 reason attorneys get sued is missed deadlines. caseclaw makes it impossible.
 
@@ -71,7 +71,7 @@ The #1 reason attorneys get sued is missed deadlines. caseclaw makes it impossib
 **View and manage:**
 - `caseclaw deadline list`                         — All upcoming deadlines
 - `caseclaw deadline list --matter "Smith v. Jones"` — Per-matter deadlines
-- `caseclaw deadline list --overdue`               — 🚨 What you missed
+- `caseclaw deadline list --overdue`               —  What you missed
 - `caseclaw deadline list --next 7`                — Next 7 days
 - `caseclaw deadline list --next 30 --json`        — Export for calendaring
 - `caseclaw deadline done --id DL-0042`            — Mark complete
@@ -81,7 +81,7 @@ The #1 reason attorneys get sued is missed deadlines. caseclaw makes it impossib
 - `caseclaw deadline alerts --slack #deadlines`    — Slack notifications (Firm)
 - `caseclaw deadline alerts --calendar`            — Sync to Google/Outlook
 
-### 2. Court Rules Compliance 📏
+### 2. Court Rules Compliance 
 
 Every court has different rules. Wrong font? Wrong margin? Filing rejected, deadline missed, client furious.
 
@@ -89,7 +89,7 @@ Every court has different rules. Wrong font? Wrong margin? Filing rejected, dead
 - `caseclaw rules show SDNY --topic "page-limit"`  — Specific rule
 - `caseclaw rules show SDNY --topic "font"`
 - `caseclaw rules show SDNY --topic "efiling"`
-- `caseclaw rules check brief.pdf --court SDNY`    — ✅/❌ compliance check
+- `caseclaw rules check brief.pdf --court SDNY`    — / compliance check
 - `caseclaw rules diff SDNY EDNY`                  — Compare two courts' rules
 - `caseclaw rules search "electronic filing" --state NY`
 
@@ -103,7 +103,7 @@ Every court has different rules. Wrong font? Wrong margin? Filing rejected, dead
 - E-filing format (PDF/A, bookmarks, OCR layer)
 - Caption and cover page format
 
-### 3. Conflict Checks 🔍
+### 3. Conflict Checks 
 
 Miss a conflict and you're looking at disqualification—or worse, a bar complaint.
 
@@ -116,11 +116,11 @@ Miss a conflict and you're looking at disqualification—or worse, a bar complai
 - `caseclaw conflict export --format csv`
 
 **Fuzzy matching (Pro) catches:**
-- Name variations: "Bob Smith" ↔ "Robert Smith" ↔ "R. Smith"
-- Entity aliases: "Acme Corp" ↔ "Acme Corporation" ↔ "ACME Inc."
+- Name variations: "Bob Smith"  "Robert Smith"  "R. Smith"
+- Entity aliases: "Acme Corp"  "Acme Corporation"  "ACME Inc."
 - Related parties: parent/subsidiary/affiliate detection
 
-### 4. Case Law Monitoring 📡 (Pro)
+### 4. Case Law Monitoring  (Pro)
 
 Stop getting surprised at oral argument by a case decided last week.
 
@@ -131,7 +131,7 @@ Stop getting surprised at oral argument by a case decided last week.
 - `caseclaw watch results --last 7`                          — New hits this week
 - `caseclaw watch alerts --email you@firm.com --frequency weekly`
 
-### 5. Time & Billing ⏱️
+### 5. Time & Billing 
 
 Every 6 minutes you don't capture is money you'll never see.
 
@@ -153,7 +153,7 @@ Every 6 minutes you don't capture is money you'll never see.
 - `caseclaw time start --matter "Smith v. Jones" --task "research"`
   → Auto-suggests: UTBMS code L120 (Research - Legal Issues)
 
-### 6. Matter Management 📂
+### 6. Matter Management 
 
 - `caseclaw matter new --name "Smith v. Jones" --type litigation --court SDNY --client "Jane Smith"`
 - `caseclaw matter list`
@@ -169,7 +169,7 @@ Every 6 minutes you don't capture is money you'll never see.
 - Parties and conflict status
 - Recent activity
 
-### 7. Opposing Counsel Intel 🕵️ (Pro)
+### 7. Opposing Counsel Intel  (Pro)
 
 Know who you're up against before you walk into the courtroom.
 

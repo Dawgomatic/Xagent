@@ -41,7 +41,7 @@ log_event() {
 check_kill_switch() {
   if [ -f "$KILL_SWITCH_FILE" ]; then
     log_event "CRITICAL" "kill_switch_active" "Emergency shutdown active - blocking all operations" "{}"
-    echo "🚨 KILL SWITCH ACTIVE - All operations blocked"
+    echo " KILL SWITCH ACTIVE - All operations blocked"
     echo "To disable: rm $KILL_SWITCH_FILE"
     exit 1
   fi
@@ -57,7 +57,7 @@ activate_kill_switch() {
   # Log security incident
   cat >> "$WORKSPACE/memory/security-incidents.md" << EOF
 
-## 🚨 KILL SWITCH ACTIVATED
+##  KILL SWITCH ACTIVATED
 **Date:** $(date '+%Y-%m-%d %H:%M:%S')
 **Reason:** $reason
 **Action:** All skill operations blocked until manual review

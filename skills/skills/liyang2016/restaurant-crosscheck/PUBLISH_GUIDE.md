@@ -1,6 +1,6 @@
-# 📤 发布到 ClawHub 指南
+#  发布到 ClawHub 指南
 
-## 🚀 快速发布
+##  快速发布
 
 ### 方法 1：在本地电脑发布（推荐）
 
@@ -53,7 +53,7 @@ clawhub publish . \
 
 ---
 
-## 📋 发布元数据
+##  发布元数据
 
 ### Skill 信息
 
@@ -105,7 +105,7 @@ Usage:
 
 ---
 
-## 🔧 完整发布命令
+##  完整发布命令
 
 ### 基础发布
 
@@ -131,27 +131,27 @@ clawhub publish . \
 
 ---
 
-## 📦 Skill 文件检查
+##  Skill 文件检查
 
 发布前确保以下文件存在：
 
 ```
 restaurant-review-crosscheck/
-├── SKILL.md                   ✅ 必需
-├── README.md                  ✅ 推荐
-├── QUICKSTART.md              ✅ 推荐
-├── SERVER_GUIDE.md            ✅ 推荐
-├── restaurant-crosscheck      ✅ 可执行命令
+├── SKILL.md                    必需
+├── README.md                   推荐
+├── QUICKSTART.md               推荐
+├── SERVER_GUIDE.md             推荐
+├── restaurant-crosscheck       可执行命令
 ├── scripts/
-│   ├── crosscheck_simple.py   ✅ 服务器版本
-│   ├── config.py              ✅ 配置文件
+│   ├── crosscheck_simple.py    服务器版本
+│   ├── config.py               配置文件
 │   └── ...                    (其他脚本)
 └── references/                (可选文档)
 ```
 
 ---
 
-## ✅ 发布前检查清单
+##  发布前检查清单
 
 - [ ] SKILL.md 格式正确
 - [ ] README.md 完整
@@ -163,7 +163,7 @@ restaurant-review-crosscheck/
 
 ---
 
-## 🔄 更新已发布的 Skill
+##  更新已发布的 Skill
 
 如果需要更新已发布的 skill：
 
@@ -179,7 +179,7 @@ clawhub publish . \
 
 ---
 
-## 💡 提示
+##  提示
 
 ### 版本号规范
 
@@ -214,7 +214,7 @@ Docs:
 
 ---
 
-## 📖 参考资料
+##  参考资料
 
 - **ClawHub 文档**: https://clawhub.com/docs
 - **Skill 创建指南**: `/home/ubuntu/.npm-global/lib/node_modules/openclaw/skills/skill-creator/SKILL.md`
@@ -222,7 +222,7 @@ Docs:
 
 ---
 
-## 🎯 下一步
+##  下一步
 
 1. **选择发布方法**：
    - 本地电脑（推荐）
@@ -245,4 +245,4 @@ Docs:
 
 ---
 
-**准备好了吗？开始发布吧！** 🚀
+**准备好了吗？开始发布吧！** 

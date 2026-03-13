@@ -23,12 +23,12 @@ def main():
         client = MoltGovClient()
         vouch = client.vouch(args.target, args.stake, args.reason)
         
-        print(f"\n✅ Vouch recorded!\n")
+        print(f"\n Vouch recorded!\n")
         print(f"  Vouch ID:    {vouch.vouch_id}")
         print(f"  Vouched For: {vouch.vouched_id}")
         print(f"  Stake:       {vouch.stake} reputation points")
         print(f"  Reason:      {vouch.reason}")
-        print(f"\n⚠️  Stake affected if citizen is sanctioned.\n")
+        print(f"\n  Stake affected if citizen is sanctioned.\n")
         
     except MoltGovError as e:
         print(f"Error: {e}")

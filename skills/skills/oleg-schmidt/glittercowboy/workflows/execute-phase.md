@@ -147,14 +147,14 @@ Output this markdown directly (not as a code block). Route based on status:
 
 **Route A: Phase verified, more phases remain**
 
-🚀 **GSD → Phase {Z} Complete** ✓
+ **GSD → Phase {Z} Complete** ✓
 
 **Phase {Z}: {Name}**
 
 {Y} plans executed
 Goal verified ✓
 
-**▶ Next Up**
+** Next Up**
 
 **Phase {Z+1}: {Name}** — {Goal from ROADMAP.md}
 
@@ -170,14 +170,14 @@ Goal verified ✓
 
 **Route B: Phase verified, milestone complete**
 
-🚀 **GSD → Milestone Complete** 🎉
+ **GSD → Milestone Complete** 
 
 **v1.0**
 
 {N} phases completed
 All phase goals verified ✓
 
-**▶ Next Up**
+** Next Up**
 
 **Audit milestone** — verify requirements, cross-phase integration, E2E flows
 
@@ -193,7 +193,7 @@ All phase goals verified ✓
 
 **Route C: Gaps found — need additional planning**
 
-🚀 **GSD → Phase {Z} Gaps Found** ⚠️
+ **GSD → Phase {Z} Gaps Found** 
 
 **Phase {Z}: {Name}**
 
@@ -204,7 +204,7 @@ Report: `.planning/phases/{phase_dir}/{phase}-VERIFICATION.md`
 
 {Extract gap summaries from VERIFICATION.md}
 
-**▶ Next Up**
+** Next Up**
 
 **Plan gap closure** — create additional plans to complete the phase
 

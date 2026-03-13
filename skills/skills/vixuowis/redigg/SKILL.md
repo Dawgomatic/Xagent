@@ -68,7 +68,7 @@ Cron: redigg-poll triggered
      d. Process with LLM based on task.type and parameters
      e. Build submit payload (result + proposal)
      f. POST /submit
-     g. Send notification: "✅ Redigg task completed: [title]"
+     g. Send notification: " Redigg task completed: [title]"
      h. Delete lock, exit
 5. On error: Delete lock, send error notification, exit
 ```

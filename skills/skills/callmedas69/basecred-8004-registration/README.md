@@ -4,17 +4,17 @@ Interactive ERC-8004 agent registration for [OpenClaw](https://openclaw.ai) agen
 
 ## Features
 
-- 🗂️ **Auto-prefill** — fills from agent identity files, `.env`, and context
-- 📋 **Full draft preview** — all fields with ✅/⚠️ status before submitting
-- ✏️ **Inline section editing** — tap buttons to edit Basic Info, Endpoints, Skills, or Config
-- 💬 **Instant button feedback** — immediate acknowledgment on every tap
-- 🔘 **Multi-select toggles** — skills, domains, and trust models as toggleable buttons
-- ⛓️ **Multi-chain** — Base (default), Ethereum, Polygon, BNB, Arbitrum, Celo, Gnosis, Scroll
-- 💾 **Fully onchain** — default storage on-chain, no IPFS dependency
-- 🔑 **Wallet flexibility** — paste an address or auto-detect from private key
-- 🔐 **EIP-712 wallet linking** — sets agent wallet after registration
-- 📄 **8004.org compatible** — imports/exports the standard 8004.org JSON template
-- ⏳ **Progress updates** — step-by-step feedback during on-chain registration
+-  **Auto-prefill** — fills from agent identity files, `.env`, and context
+-  **Full draft preview** — all fields with / status before submitting
+-  **Inline section editing** — tap buttons to edit Basic Info, Endpoints, Skills, or Config
+-  **Instant button feedback** — immediate acknowledgment on every tap
+-  **Multi-select toggles** — skills, domains, and trust models as toggleable buttons
+-  **Multi-chain** — Base (default), Ethereum, Polygon, BNB, Arbitrum, Celo, Gnosis, Scroll
+-  **Fully onchain** — default storage on-chain, no IPFS dependency
+-  **Wallet flexibility** — paste an address or auto-detect from private key
+-  **EIP-712 wallet linking** — sets agent wallet after registration
+-  **8004.org compatible** — imports/exports the standard 8004.org JSON template
+-  **Progress updates** — step-by-step feedback during on-chain registration
 
 ## How It Works
 
@@ -88,8 +88,8 @@ node scripts/register.mjs --template
 
 | Field | Required | Default | Description |
 |-------|----------|---------|-------------|
-| Agent Name | ✅ | — | Display name |
-| Description | ✅ | — | What the agent does |
+| Agent Name |  | — | Display name |
+| Description |  | — | What the agent does |
 | Agent Address | No | auto from `.env` | Wallet address (paste or auto-detect) |
 | Image | No | — | Avatar URL |
 | Version | No | `1.0.0` | Agent version |
@@ -135,7 +135,7 @@ Two ways to link your wallet:
 
 | Chain | ID | Default |
 |-------|----|---------|
-| **Base** | 8453 | ✅ |
+| **Base** | 8453 |  |
 | Ethereum | 1 | |
 | Polygon | 137 | |
 | BNB Chain | 56 | |

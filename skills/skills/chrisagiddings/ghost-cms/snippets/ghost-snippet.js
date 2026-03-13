@@ -189,7 +189,7 @@ For programmatic usage, import functions:
         const includeExamples = process.argv.includes('--examples');
         const { library, examples } = listSnippets(includeExamples);
         
-        console.log('\\n📚 Snippet Library:');
+        console.log('\\n Snippet Library:');
         if (library.length === 0) {
           console.log('  (no snippets in library)');
         } else {
@@ -197,7 +197,7 @@ For programmatic usage, import functions:
         }
         
         if (includeExamples && examples.length > 0) {
-          console.log('\\n📖 Examples:');
+          console.log('\\n Examples:');
           examples.forEach(s => console.log(`  • ${s}`));
         }
         
@@ -237,7 +237,7 @@ For programmatic usage, import functions:
         
         const content = JSON.parse(fs.readFileSync(file, 'utf8'));
         const savedPath = saveSnippet(name, content);
-        console.log(`✅ Saved snippet: ${name}`);
+        console.log(` Saved snippet: ${name}`);
         console.log(`   Location: ${savedPath}`);
         break;
       }
@@ -252,7 +252,7 @@ For programmatic usage, import functions:
         }
         
         deleteSnippet(name);
-        console.log(`✅ Deleted snippet: ${name}`);
+        console.log(` Deleted snippet: ${name}`);
         break;
       }
       
@@ -275,7 +275,7 @@ For programmatic usage, import functions:
         }
         
         const savedPath = saveSnippet(destName, snippet);
-        console.log(`✅ Copied ${sourceName} → ${destName}`);
+        console.log(` Copied ${sourceName} → ${destName}`);
         console.log(`   Location: ${savedPath}`);
         break;
       }

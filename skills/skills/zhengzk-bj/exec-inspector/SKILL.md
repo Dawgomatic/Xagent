@@ -2,7 +2,7 @@
 
 查看和分析 OpenClaw Agent 的 exec 工具执行历史和明细。
 
-## 🎯 AI 自动使用指南
+##  AI 自动使用指南
 
 **当用户提出以下需求时，AI 应该立即执行相应命令，而不是只告诉用户怎么做：**
 
@@ -19,7 +19,7 @@
 | "实时监控 exec" | 启动实时监控 | `~/.openclaw/scripts/exec-history.sh watch` |
 | "导出执行历史" | 导出 JSON 文件 | `~/.openclaw/scripts/exec-history.sh export` |
 
-## 🤖 AI 行为准则
+##  AI 行为准则
 
 1. **主动执行，不要只解释** - 用户问历史记录时，直接运行命令并展示结果
 2. **美化输出** - 将原始输出整理成易读的格式
@@ -28,18 +28,18 @@
 
 ### 示例对话
 
-**❌ 错误示例** (只告诉，不执行):
+** 错误示例** (只告诉，不执行):
 ```
 用户: 我最近执行了哪些命令？
 AI: 你可以运行 exec-history.sh list 来查看...
 ```
 
-**✅ 正确示例** (立即执行):
+** 正确示例** (立即执行):
 ```
 用户: 我最近执行了哪些命令？
 AI: 让我查看一下... [运行命令]
 
-📋 最近 20 条 exec 命令：
+ 最近 20 条 exec 命令：
 1. ls -la (今天 15:30)
 2. git status (今天 15:28)
 ...
@@ -49,15 +49,15 @@ AI: 让我查看一下... [运行命令]
 
 ## 功能
 
-- 🔍 查看 session 中所有 exec 命令的执行历史
-- 📊 统计最常用的命令
-- 🕐 按时间筛选执行记录
-- 🔎 搜索特定命令的执行记录
-- 📈 分析命令执行频率和模式
-- 🔴 实时监控新执行的命令
-- 🚀 **后台守护进程 - 自动捕获所有 exec 执行并实时输出**
+-  查看 session 中所有 exec 命令的执行历史
+-  统计最常用的命令
+-  按时间筛选执行记录
+-  搜索特定命令的执行记录
+-  分析命令执行频率和模式
+-  实时监控新执行的命令
+-  **后台守护进程 - 自动捕获所有 exec 执行并实时输出**
 
-## 🔥 自动实时输出 - 守护进程模式
+##  自动实时输出 - 守护进程模式
 
 ### 启动自动监控
 
@@ -75,17 +75,17 @@ AI: 让我查看一下... [运行命令]
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚡ EXEC COMMAND DETECTED
-🕐 Time:     15:30:45
-🤖 Model:    gpt-4.1 (friday-aws)
-📋 Command:  ls -la
+ EXEC COMMAND DETECTED
+ Time:     15:30:45
+ Model:    gpt-4.1 (friday-aws)
+ Command:  ls -la
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚡ EXEC COMMAND DETECTED
-🕐 Time:     15:30:48
-🤖 Model:    gpt-4.1 (friday-aws)
-📋 Command:  git status
+ EXEC COMMAND DETECTED
+ Time:     15:30:48
+ Model:    gpt-4.1 (friday-aws)
+ Command:  git status
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -205,12 +205,12 @@ SESSION_DIR="$HOME/.openclaw/agents/main/sessions"
 
 case "$1" in
   list|"")
-    echo "📋 Recent exec commands (last 20):"
+    echo " Recent exec commands (last 20):"
     grep '"name":"exec"' "$SESSION_DIR"/*.jsonl 2>/dev/null | tail -20 | jq -r '"\(.timestamp | split("T")[0]) \(.timestamp | split("T")[1] | split(".")[0]) | \(.message.content[0].arguments.command)"' | nl
     ;;
     
   stats)
-    echo "📊 Command usage statistics:"
+    echo " Command usage statistics:"
     grep '"name":"exec"' "$SESSION_DIR"/*.jsonl 2>/dev/null | jq -r '.message.content[0].arguments.command' | awk '{print $1}' | sort | uniq -c | sort -rn | head -20
     ;;
     
@@ -219,13 +219,13 @@ case "$1" in
       echo "Usage: $0 search <keyword>"
       exit 1
     fi
-    echo "🔍 Searching for commands containing: $2"
+    echo " Searching for commands containing: $2"
     grep '"name":"exec"' "$SESSION_DIR"/*.jsonl 2>/dev/null | jq -r "select(.message.content[0].arguments.command | contains(\"$2\")) | \"\(.timestamp | split(\"T\")[0]) \(.timestamp | split(\"T\")[1] | split(\".\")[0]) | \(.message.content[0].arguments.command)\"" | nl
     ;;
     
   today)
     TODAY=$(date +%Y-%m-%d)
-    echo "📅 Commands executed today ($TODAY):"
+    echo " Commands executed today ($TODAY):"
     grep '"name":"exec"' "$SESSION_DIR"/*.jsonl 2>/dev/null | jq -r "select(.timestamp | startswith(\"$TODAY\")) | \"\(.timestamp | split(\"T\")[1] | split(\".\")[0]) | \(.message.content[0].arguments.command)\"" | nl
     ;;
     
@@ -240,12 +240,12 @@ case "$1" in
       echo "Session not found: $2"
       exit 1
     fi
-    echo "📝 Exec history for session: $2"
+    echo " Exec history for session: $2"
     grep '"name":"exec"' "$SESSION_FILE" 2>/dev/null | jq -r '"\(.timestamp | split("T")[0]) \(.timestamp | split("T")[1] | split(".")[0]) | \(.message.content[0].arguments.command)"' | nl
     ;;
     
   all-tools)
-    echo "🔧 All tool usage statistics:"
+    echo " All tool usage statistics:"
     grep -o '"name":"[^"]*"' "$SESSION_DIR"/*.jsonl 2>/dev/null | grep -v '"name":"[A-Z]' | sort | uniq -c | sort -rn
     ;;
     
@@ -282,7 +282,7 @@ chmod +x ~/.openclaw/scripts/exec-history.sh
 ```
 让我查看一下你最近的 exec 执行记录...
 
-📋 最近 10 条 exec 命令：
+ 最近 10 条 exec 命令：
 
 1. 2026-02-10 15:30:45 | ls -la
 2. 2026-02-10 15:28:12 | git status
@@ -295,7 +295,7 @@ chmod +x ~/.openclaw/scripts/exec-history.sh
 9. 2026-02-10 14:30:08 | tail -f logs/app.log
 10. 2026-02-10 14:25:45 | find . -name "*.js"
 
-📊 最常用的命令类型：
+ 最常用的命令类型：
 - git (15次)
 - npm (12次)
 - ls (10次)
@@ -386,11 +386,11 @@ exec-history all-tools # 查看所有工具的使用统计
 
 你可以基于这个 skill 创建：
 
-- 🎨 Web UI 可视化工具
-- 📊 命令执行时间线图表
-- 🔔 异常命令监控告警
-- 📝 自动生成操作日志报告
-- 🔐 命令审计和合规检查
+-  Web UI 可视化工具
+-  命令执行时间线图表
+-  异常命令监控告警
+-  自动生成操作日志报告
+-  命令审计和合规检查
 
 ---
 

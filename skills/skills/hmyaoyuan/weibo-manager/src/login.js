@@ -68,7 +68,7 @@ const TARGET_CHAT_ID = process.argv[2]; // Passed from caller
         // Send to Feishu
         const msg = JSON.stringify({
             zh_cn: {
-                title: "请扫码登录微博 📱",
+                title: "请扫码登录微博 ",
                 content: [
                     [{ tag: "text", text: "检测到登录失效，请使用微博APP扫码登录：" }],
                     [{ tag: "img", image_key: imageKey }],
@@ -107,7 +107,7 @@ const TARGET_CHAT_ID = process.argv[2]; // Passed from caller
         if (loggedIn) {
             const successMsg = JSON.stringify({
                 zh_cn: {
-                    title: "登录成功！🎉",
+                    title: "登录成功！",
                     content: [[{ tag: "text", text: "Cookie 已保存。现在可以使用微博技能了！" }]]
                 }
             });
@@ -115,7 +115,7 @@ const TARGET_CHAT_ID = process.argv[2]; // Passed from caller
         } else {
             const failMsg = JSON.stringify({
                 zh_cn: {
-                    title: "登录超时 ❌",
+                    title: "登录超时 ",
                     content: [[{ tag: "text", text: "等待扫码超时，请重新触发指令。" }]]
                 }
             });

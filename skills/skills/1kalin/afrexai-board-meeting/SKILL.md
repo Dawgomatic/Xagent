@@ -81,7 +81,7 @@ Headcount           | ___       | ___       | ___       | ___
 **Last Quarter Objectives — Scorecard**
 | OBJECTIVE | TARGET | ACTUAL | STATUS |
 |-----------|--------|--------|--------|
-| | | | ✅/⚠️/❌ |
+| | | | // |
 
 **Next Quarter Objectives**
 | OBJECTIVE | METRIC | TARGET | OWNER |

@@ -1,4 +1,4 @@
-# JITS Builder - Just-In-Time Software 🚀
+# JITS Builder - Just-In-Time Software 
 
 Build instant mini-apps from voice or text descriptions. Describe what you need, get a working tool deployed in seconds.
 
@@ -69,7 +69,7 @@ When building JITS apps:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🚀 JITS - [App Name]</title>
+  <title> JITS - [App Name]</title>
   <style>
     /* Dark theme, centered layout */
     body {
@@ -130,4 +130,4 @@ When building JITS apps:
 
 ---
 
-*"The best tool is the one you build exactly when you need it."* 🐱🦞
+*"The best tool is the one you build exactly when you need it."* 

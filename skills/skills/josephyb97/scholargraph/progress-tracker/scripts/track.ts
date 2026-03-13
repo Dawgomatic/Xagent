@@ -524,17 +524,17 @@ export default class ProgressTracker {
    * 导出报告为Markdown
    */
   toMarkdown(report: ProgressReport): string {
-    const md = `# 📊 ${report.reportType === 'daily' ? '日报' : report.reportType === 'weekly' ? '周报' : '月报'}
+    const md = `#  ${report.reportType === 'daily' ? '日报' : report.reportType === 'weekly' ? '周报' : '月报'}
 
 **时间段**: ${report.period.start} ~ ${report.period.end}
 
-## 📈 概览
+##  概览
 
 - 总论文数: ${report.summary.totalPapers}
 - 高重要性: ${report.summary.highlightedPapers}
 - 趋势主题: ${report.summary.trendingTopics.slice(0, 5).join(', ')}
 
-## 🔥 趋势主题
+##  趋势主题
 
 ${report.trending.map(t => `
 ### ${t.topic}
@@ -542,7 +542,7 @@ ${report.trending.map(t => `
 - 代表论文: ${t.keyPapers.slice(0, 2).join(', ')}
 `).join('\n')}
 
-## 📚 重点论文
+##  重点论文
 
 ${report.papers.filter(p => p.importance === 'high').slice(0, 5).map(p => `
 ### ${p.title}
@@ -552,7 +552,7 @@ ${report.papers.filter(p => p.importance === 'high').slice(0, 5).map(p => `
 ${p.summary ? `- 摘要: ${p.summary}` : ''}
 `).join('\n')}
 
-## 💡 推荐
+##  推荐
 
 ${report.recommendations.slice(0, 5).map(r => `
 - **${r.paper.title}**

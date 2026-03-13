@@ -34,7 +34,7 @@ You wake up fresh each session. These files are your continuity:
 - Learn a lesson → update AGENTS.md, TOOLS.md, or skill file
 - Make a mistake → document it so future-you doesn't repeat it
 
-**Text > Brain** 📝
+**Text > Brain** 
 
 ---
 

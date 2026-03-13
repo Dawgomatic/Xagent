@@ -24,10 +24,10 @@ let failed = 0;
 function check(label: string, condition: boolean, detail?: string): void {
   if (condition) {
     passed++;
-    process.stdout.write(`  ✅ ${label}\n`);
+    process.stdout.write(`   ${label}\n`);
   } else {
     failed++;
-    process.stdout.write(`  ❌ ${label}${detail ? ` — ${detail}` : ""}\n`);
+    process.stdout.write(`   ${label}${detail ? ` — ${detail}` : ""}\n`);
   }
 }
 
@@ -40,7 +40,7 @@ async function cleanup(): Promise<void> {
 }
 
 async function main(): Promise<void> {
-  process.stdout.write("\n🔍 hashbox-plugin Local Verification\n");
+  process.stdout.write("\n hashbox-plugin Local Verification\n");
   process.stdout.write(`   Mode: ${DRY_RUN ? "dry-run (skip webhook)" : "full (sends real webhook)"}\n\n`);
 
   // ── Step 1: Plugin object structure ──
@@ -95,7 +95,7 @@ async function main(): Promise<void> {
   process.stdout.write("\n── Step 3: send_hashbox_notification ──\n");
 
   if (DRY_RUN) {
-    process.stdout.write("  ⏭️  Skipping webhook call (--dry-run)\n");
+    process.stdout.write("    Skipping webhook call (--dry-run)\n");
 
     // Still verify payload construction by checking no throw before fetch
     check("function is callable", typeof sendHashBoxNotification === "function");
@@ -106,7 +106,7 @@ async function main(): Promise<void> {
       const result = await sendHashBoxNotification(
         "article",
         "AI Trends",
-        "🤖",
+        "",
         "Local Test Article",
         "# Hello from hashbox-plugin\n\nThis is a **local integration test**."
       );
@@ -125,7 +125,7 @@ async function main(): Promise<void> {
       const result = await sendHashBoxNotification(
         "metric",
         "System Health",
-        "📊",
+        "",
         "Server Metrics",
         [
           { label: "CPU Usage", value: 42, unit: "%", trend: "up" as const },
@@ -147,7 +147,7 @@ async function main(): Promise<void> {
       const result = await sendHashBoxNotification(
         "audit",
         "Security Log",
-        "🛡️",
+        "",
         "Access Audit",
         [
           {
@@ -171,7 +171,7 @@ async function main(): Promise<void> {
     // 3d: Via plugin action interface
     try {
       const result = await hashBoxPlugin.actions[0].execute(
-        "article", "Test Channel", "🧪", "Plugin Interface Test", "Sent via action.execute"
+        "article", "Test Channel", "", "Plugin Interface Test", "Sent via action.execute"
       );
       check("action.execute works via plugin interface", result !== undefined);
     } catch (err: unknown) {
@@ -185,7 +185,7 @@ async function main(): Promise<void> {
   await cleanup();
 
   try {
-    await sendHashBoxNotification("article", "Test", "📝", "Test", "test");
+    await sendHashBoxNotification("article", "Test", "", "Test", "test");
     check("throws when config missing", false, "did not throw");
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);

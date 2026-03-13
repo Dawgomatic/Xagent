@@ -60,7 +60,7 @@ app.get('/camera/:id', (req, res) => {
 
 // Web interface - view all cameras
 app.get('/', (req, res) => {
-  let html = '<h1>🏠 ESP32 Camera Network</h1>';
+  let html = '<h1> ESP32 Camera Network</h1>';
   html += '<p><a href="/cameras">JSON Status</a></p>';
   html += '<h2>Cameras:</h2>';
   
@@ -92,9 +92,9 @@ app.post('/trigger/:id', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🎥 ESP32 Camera Receiver running on port ${PORT}`);
-  console.log(`📁 Photos saved to: ${PHOTO_DIR}`);
-  console.log(`🌐 Open: http://localhost:${PORT}`);
+  console.log(` ESP32 Camera Receiver running on port ${PORT}`);
+  console.log(` Photos saved to: ${PHOTO_DIR}`);
+  console.log(` Open: http://localhost:${PORT}`);
   console.log('');
   console.log('Camera firmware should POST to:');
   console.log(`  http://YOUR_MAC_IP:${PORT}/capture`);

@@ -79,8 +79,8 @@
 ## Frequent Travelers
 
 ### Fabric Filtering
-- ✅ Merino wool, ponte, technical blends, travel-grade cotton
-- ❌ Linen (wrinkles), 100% cotton dress shirts, silk, velvet
+-  Merino wool, ponte, technical blends, travel-grade cotton
+-  Linen (wrinkles), 100% cotton dress shirts, silk, velvet
 
 ### Packing Rules
 - Schedule → outfit mapping (not "versatile options")

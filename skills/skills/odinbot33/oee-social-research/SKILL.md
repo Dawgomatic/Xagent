@@ -1,4 +1,4 @@
-# 🐾 Social Research (Ravens) — What Are People Saying?
+#  Social Research (Ravens) — What Are People Saying?
 
 > by Odin's Eye Enterprises — Ancient Wisdom. Modern Intelligence.
 
@@ -55,4 +55,4 @@ python social_research.py "TOPIC"
 
 Output is a structured briefing on stdout.
 
-<!-- 🐾 Huginn and Muninn fly at dawn -->
+<!--  Huginn and Muninn fly at dawn -->

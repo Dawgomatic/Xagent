@@ -49,7 +49,7 @@ async function main() {
         }
 
         const calendarId = createRes.data.calendar.calendar_id;
-        console.log(`✅ Calendar Created: ${calendarId}`);
+        console.log(` Calendar Created: ${calendarId}`);
 
         // 2. Add Members (ACL)
         const members = options.members.split(',').map(s => s.trim()).filter(s => s);
@@ -75,16 +75,16 @@ async function main() {
             // However, this script creates NEW calendars, so permission should be fine (Bot is owner).
             
             if (aclRes.code !== 0) {
-                console.error(`❌ Failed to add ${userId}: ${aclRes.msg}`);
+                console.error(` Failed to add ${userId}: ${aclRes.msg}`);
             } else {
-                console.log(`✅ Added ${userId}`);
+                console.log(` Added ${userId}`);
             }
         }
         
         // 3. Subscribe to the calendar (Bot needs to subscribe to manage it effectively? Bot is owner, auto-subscribed)
         // Actually Bot is owner, so it has access.
 
-        console.log(`\n🎉 Shared Calendar Setup Complete! ID: ${calendarId}`);
+        console.log(`\n Shared Calendar Setup Complete! ID: ${calendarId}`);
 
     } catch (e) {
         console.error('Error:', e.message);

@@ -3,8 +3,8 @@
 ## Device Naming Best Practices
 
 **Format:** Location + Function
-- ✅ "Kitchen Light", "Bedroom Fan", "Front Door Lock"
-- ❌ "Light 1", "Lamp", "Smart Bulb #3"
+-  "Kitchen Light", "Bedroom Fan", "Front Door Lock"
+-  "Light 1", "Lamp", "Smart Bulb #3"
 
 **Naming Rules:**
 - No punctuation or special characters

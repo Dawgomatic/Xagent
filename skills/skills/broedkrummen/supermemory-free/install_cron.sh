@@ -23,9 +23,9 @@ RED='\033[0;31m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-info()    { echo -e "${GREEN}✅${NC} $*"; }
-warn()    { echo -e "${YELLOW}⚠️ ${NC} $*"; }
-error()   { echo -e "${RED}❌${NC} $*" >&2; }
+info()    { echo -e "${GREEN}${NC} $*"; }
+warn()    { echo -e "${YELLOW} ${NC} $*"; }
+error()   { echo -e "${RED}${NC} $*" >&2; }
 
 # ── Check Python ─────────────────────────────────────────────────────────────
 check_python() {

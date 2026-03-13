@@ -92,21 +92,21 @@ def get_history(account_id=None, transaction_type=None, limit=None):
 
         if trades:
             print("\n" + "-" * 80)
-            print("📈 TRADES")
+            print(" TRADES")
             print("-" * 80)
             for t in trades:
                 print_transaction(t)
 
         if money_movements:
             print("\n" + "-" * 80)
-            print("💰 MONEY MOVEMENTS")
+            print(" MONEY MOVEMENTS")
             print("-" * 80)
             for t in money_movements:
                 print_transaction(t)
 
         if position_adjustments:
             print("\n" + "-" * 80)
-            print("🔄 POSITION ADJUSTMENTS")
+            print(" POSITION ADJUSTMENTS")
             print("-" * 80)
             for t in position_adjustments:
                 print_transaction(t)

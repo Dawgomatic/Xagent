@@ -110,7 +110,7 @@ program
         console.log(JSON.stringify(output, null, 2));
       } else if (options.send) {
         // When --send is used, output in a format that clawdbot's isolated session can deliver
-        console.log('📤 COACHING MESSAGES FOR DELIVERY\n');
+        console.log(' COACHING MESSAGES FOR DELIVERY\n');
 
         for (const message of messages) {
           console.log(`\n${'='.repeat(60)}`);
@@ -121,26 +121,26 @@ program
           if (message.attachments && message.attachments.length > 0) {
             const validAttachments = message.attachments.filter(a => a);
             if (validAttachments.length > 0) {
-              console.log(`\n📎 Attachments to send: ${validAttachments.join(', ')}`);
+              console.log(`\n Attachments to send: ${validAttachments.join(', ')}`);
               console.log('(Agent: Use the Read tool to display these images)');
             }
           }
           console.log(`${'='.repeat(60)}`);
         }
 
-        console.log(`\n✅ Generated ${messages.length} coaching message(s)`);
+        console.log(`\n Generated ${messages.length} coaching message(s)`);
         console.log('When running in clawdbot cron with --deliver, the above will be sent automatically.');
       } else {
-        console.log('🔍 DRY RUN - Messages that would be sent:\n');
+        console.log(' DRY RUN - Messages that would be sent:\n');
         for (const message of messages) {
           console.log(`\n${'='.repeat(60)}`);
-          console.log(`📬 ${message.subject}`);
-          console.log(`📊 Type: ${message.messageType} | Priority: ${message.priority}`);
+          console.log(` ${message.subject}`);
+          console.log(` Type: ${message.messageType} | Priority: ${message.priority}`);
           console.log(`\n${message.body}`);
           if (message.attachments && message.attachments.length > 0) {
             const validAttachments = message.attachments.filter(a => a);
             if (validAttachments.length > 0) {
-              console.log(`\n📎 Attachments: ${validAttachments.join(', ')}`);
+              console.log(`\n Attachments: ${validAttachments.join(', ')}`);
             }
           }
         }

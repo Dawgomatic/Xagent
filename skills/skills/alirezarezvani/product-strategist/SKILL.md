@@ -200,54 +200,54 @@ Teams: Growth, Platform, Mobile, Data
 Product Contribution: 30%
 ============================================================
 
-🏢 COMPANY OKRS
+ COMPANY OKRS
 
-📌 CO-1: Accelerate user acquisition and market expansion
+ CO-1: Accelerate user acquisition and market expansion
    └─ CO-1-KR1: Increase MAU from 100000 to 150000
    └─ CO-1-KR2: Achieve 150000% MoM growth rate
    └─ CO-1-KR3: Expand to 150000 new markets
 
-📌 CO-2: Achieve product-market fit in new segments
+ CO-2: Achieve product-market fit in new segments
    └─ CO-2-KR1: Reduce CAC by 150000%
    └─ CO-2-KR2: Improve activation rate to 150000%
    └─ CO-2-KR3: Increase MAU from 100000 to 150000
 
-📌 CO-3: Build sustainable growth engine
+ CO-3: Build sustainable growth engine
    └─ CO-3-KR1: Achieve 150000% MoM growth rate
    └─ CO-3-KR2: Expand to 150000 new markets
    └─ CO-3-KR3: Reduce CAC by 150000%
 
-🚀 PRODUCT OKRS
+ PRODUCT OKRS
 
-📌 PO-1: Build viral product features and market expansion
+ PO-1: Build viral product features and market expansion
    ↳ Supports: CO-1
    └─ PO-1-KR1: Increase product MAU from 100000 to 45000.0
    └─ PO-1-KR2: Achieve 45000.0% feature adoption rate
 
-📌 PO-2: Validate product hypotheses in new segments
+ PO-2: Validate product hypotheses in new segments
    ↳ Supports: CO-2
    └─ PO-2-KR1: Reduce product onboarding efficiency by 45000.0%
    └─ PO-2-KR2: Improve activation rate to 45000.0%
 
-📌 PO-3: Create product-led growth loops engine
+ PO-3: Create product-led growth loops engine
    ↳ Supports: CO-3
    └─ PO-3-KR1: Achieve 45000.0% feature adoption rate
    └─ PO-3-KR2: Expand to 45000.0 new markets
 
-👥 TEAM OKRS
+ TEAM OKRS
 
 Growth Team:
-  📌 GRO-1: Build viral product features through acquisition and activation
+   GRO-1: Build viral product features through acquisition and activation
      └─ GRO-1-KR1: [Growth] Increase product MAU from 100000 to 11250.0
      └─ GRO-1-KR2: [Growth] Achieve 11250.0% feature adoption rate
 
 Platform Team:
-  📌 PLA-1: Build viral product features through infrastructure and reliability
+   PLA-1: Build viral product features through infrastructure and reliability
      └─ PLA-1-KR1: [Platform] Increase product MAU from 100000 to 11250.0
      └─ PLA-1-KR2: [Platform] Achieve 11250.0% feature adoption rate
 
 
-📊 ALIGNMENT MATRIX
+ ALIGNMENT MATRIX
 
 Company → Product → Teams
 ----------------------------------------
@@ -264,7 +264,7 @@ CO-3
   ├─ PO-3
 
 
-🎯 ALIGNMENT SCORES
+ ALIGNMENT SCORES
 ----------------------------------------
 ✓ Vertical Alignment: 100.0%
 ! Horizontal Alignment: 75.0%
@@ -272,7 +272,7 @@ CO-3
 ✓ Balance: 97.5%
 ✓ Overall: 94.0%
 
-✅ Overall alignment is GOOD (≥80%)
+ Overall alignment is GOOD (≥80%)
 ```
 
 #### Example 2: JSON Output

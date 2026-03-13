@@ -51,7 +51,7 @@ Performance Update (last 24h)
       Value change:      +$120
       Status: Healthy
 
-    UNI/WETH 0.30% (Ethereum) — OUT OF RANGE ⚠
+    UNI/WETH 0.30% (Ethereum) — OUT OF RANGE 
       Fees earned (24h): $0 (not earning — out of range)
       Value change:      -$50
       Status: Needs rebalance

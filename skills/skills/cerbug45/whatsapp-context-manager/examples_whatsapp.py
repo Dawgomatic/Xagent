@@ -23,27 +23,27 @@ def example_1_basic_usage():
     phone = "+1234567890"
     message = "Hi, where is my order? I've been waiting for days!"
     
-    print(f"📱 Incoming message from {phone}:")
+    print(f" Incoming message from {phone}:")
     print(f"   '{message}'\n")
     
     # Process message and get context
     context = manager.process_incoming_message(phone, message, agent_id="agent_001")
     
-    print("🔍 CONTEXT ANALYSIS:")
+    print(" CONTEXT ANALYSIS:")
     print(f"   Priority: {context.priority.value.upper()}")
     print(f"   Sentiment: {context.sentiment.value}")
     print(f"   Customer: {context.customer.phone}")
     print(f"   Total Messages: {context.customer.total_messages}")
     
-    print("\n💡 KEY INSIGHTS:")
+    print("\n KEY INSIGHTS:")
     for insight in context.key_insights:
         print(f"   {insight}")
     
-    print("\n⚠️ WARNINGS:")
+    print("\n WARNINGS:")
     for warning in context.warnings:
         print(f"   {warning}")
     
-    print("\n💬 SUGGESTED RESPONSES:")
+    print("\n SUGGESTED RESPONSES:")
     for i, response in enumerate(context.suggested_responses, 1):
         print(f"   {i}. {response}")
 
@@ -80,8 +80,8 @@ def example_2_with_order():
     # Now process the order inquiry
     context = manager.process_incoming_message(phone, message, agent_id="agent_002")
     
-    print(f"📱 Customer: {phone}")
-    print(f"📦 Active Orders: {len(context.active_orders)}\n")
+    print(f" Customer: {phone}")
+    print(f" Active Orders: {len(context.active_orders)}\n")
     
     if context.active_orders:
         order = context.active_orders[0]
@@ -92,11 +92,11 @@ def example_2_with_order():
         print(f"   Tracking: {order.tracking_number}")
         print(f"   Est. Delivery: {order.estimated_delivery}")
     
-    print(f"\n💡 KEY INSIGHTS:")
+    print(f"\n KEY INSIGHTS:")
     for insight in context.key_insights:
         print(f"   {insight}")
     
-    print(f"\n💬 SUGGESTED RESPONSES:")
+    print(f"\n SUGGESTED RESPONSES:")
     for i, response in enumerate(context.suggested_responses, 1):
         print(f"   {i}. {response}")
 
@@ -119,14 +119,14 @@ def example_3_angry_customer():
     ]
     
     for i, msg in enumerate(messages, 1):
-        print(f"\n📱 Message {i}: '{msg}'")
+        print(f"\n Message {i}: '{msg}'")
         context = manager.process_incoming_message(phone, msg, agent_id="agent_003")
         
         print(f"   Priority: {context.priority.value.upper()}")
         print(f"   Sentiment: {context.sentiment.value}")
         
         if context.warnings:
-            print(f"   ⚠️ Warnings:")
+            print(f"    Warnings:")
             for warning in context.warnings:
                 print(f"      {warning}")
 
@@ -165,17 +165,17 @@ def example_4_vip_customer():
         agent_id="agent_004"
     )
     
-    print(f"📱 Customer: {context.customer.name}")
+    print(f" Customer: {context.customer.name}")
     print(f"   Phone: {context.customer.phone}")
     print(f"   Email: {context.customer.email}")
     print(f"   VIP Status: {'YES' if context.customer.is_vip else 'NO'}")
     print(f"   Tags: {', '.join(context.customer.tags)}")
     
-    print(f"\n💡 KEY INSIGHTS:")
+    print(f"\n KEY INSIGHTS:")
     for insight in context.key_insights:
         print(f"   {insight}")
     
-    print(f"\n💬 SUGGESTED RESPONSES:")
+    print(f"\n SUGGESTED RESPONSES:")
     for i, response in enumerate(context.suggested_responses, 1):
         print(f"   {i}. {response}")
 
@@ -202,23 +202,23 @@ def example_5_conversation_history():
         ("inbound", "Thanks! Also, do you offer warranty?"),
     ]
     
-    print("📱 CONVERSATION:\n")
+    print(" CONVERSATION:\n")
     
     for direction, message in conversation:
         if direction == "inbound":
-            print(f"👤 Customer: {message}")
+            print(f" Customer: {message}")
             context = manager.process_incoming_message(phone, message, agent_id)
         else:
-            print(f"👨‍💼 Agent: {message}")
+            print(f" Agent: {message}")
             manager.send_message(phone, message, agent_id)
     
-    print(f"\n📊 CONVERSATION SUMMARY:")
+    print(f"\n CONVERSATION SUMMARY:")
     print(f"   Total Messages: {context.customer.total_messages}")
     print(f"   Messages in History: {len(context.recent_messages)}")
     
-    print(f"\n📜 RECENT MESSAGE HISTORY:")
+    print(f"\n RECENT MESSAGE HISTORY:")
     for msg in context.recent_messages[-5:]:  # Last 5 messages
-        direction_icon = "👤" if msg.direction == "inbound" else "👨‍💼"
+        direction_icon = "" if msg.direction == "inbound" else ""
         print(f"   {direction_icon} [{msg.timestamp[:19]}] {msg.content[:50]}...")
 
 
@@ -254,14 +254,14 @@ def example_6_multiple_customers():
     
     contexts.sort(key=lambda x: priority_order[x[1].priority])
     
-    print("📋 PRIORITY QUEUE (Highest to Lowest):\n")
+    print(" PRIORITY QUEUE (Highest to Lowest):\n")
     
     for i, (phone, context, label) in enumerate(contexts, 1):
         priority_emoji = {
-            MessagePriority.CRITICAL: "🔴",
-            MessagePriority.HIGH: "🟠",
-            MessagePriority.NORMAL: "🟡",
-            MessagePriority.LOW: "🟢"
+            MessagePriority.CRITICAL: "",
+            MessagePriority.HIGH: "",
+            MessagePriority.NORMAL: "",
+            MessagePriority.LOW: ""
         }
         
         print(f"{i}. {priority_emoji[context.priority]} {phone}")
@@ -269,7 +269,7 @@ def example_6_multiple_customers():
         print(f"   Sentiment: {context.sentiment.value}")
         print(f"   Category: {context.recent_messages[-1].category.value if context.recent_messages else 'N/A'}")
         if context.warnings:
-            print(f"   ⚠️ {context.warnings[0]}")
+            print(f"    {context.warnings[0]}")
         print()
 
 
@@ -346,10 +346,10 @@ def example_8_export_context():
     # Export to JSON
     context_json = json.dumps(context.to_dict(), indent=2)
     
-    print("📄 Context exported to JSON format:\n")
+    print(" Context exported to JSON format:\n")
     print(context_json[:500] + "...")  # Show first 500 chars
     
-    print(f"\n✅ Full context can be exported for:")
+    print(f"\n Full context can be exported for:")
     print(f"   • Integration with other systems")
     print(f"   • API responses")
     print(f"   • Logging and analytics")
@@ -375,8 +375,8 @@ def main():
     print("ALL EXAMPLES COMPLETED")
     print("="*60 + "\n")
     
-    print("💡 TIP: Check the *.db files created to see the stored data")
-    print("🧹 Clean up: Delete example*.db files when done")
+    print(" TIP: Check the *.db files created to see the stored data")
+    print(" Clean up: Delete example*.db files when done")
 
 
 if __name__ == "__main__":

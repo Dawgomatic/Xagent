@@ -52,7 +52,7 @@ export async function recover(
   }
   
   // Build recovery message
-  let message = '⚠️ **CONTEXT DEATH DETECTED**\n\n';
+  let message = ' **CONTEXT DEATH DETECTED**\n\n';
   message += `Your previous session died at ${deathTime}.\n\n`;
   
   if (checkpoint) {
@@ -100,7 +100,7 @@ export function formatRecoveryInfo(info: RecoveryInfo, options: { verbose?: bool
     return '✓ Clean startup - no context death detected.';
   }
   
-  let output = '\n⚠️  CONTEXT DEATH DETECTED\n';
+  let output = '\n  CONTEXT DEATH DETECTED\n';
   output += '═'.repeat(40) + '\n\n';
   output += `Death time: ${info.deathTime}\n`;
   if (info.checkpoint?.timestamp) {

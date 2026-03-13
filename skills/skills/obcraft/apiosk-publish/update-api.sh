@@ -144,11 +144,11 @@ fi
 SUCCESS=$(echo "$RESPONSE" | jq -r '.success')
 
 if [[ "$SUCCESS" == "true" ]]; then
-  echo "✅ API updated successfully!"
+  echo " API updated successfully!"
   echo ""
   echo "$(echo "$RESPONSE" | jq -r '.message')"
 else
-  echo "❌ Update failed"
+  echo " Update failed"
   echo ""
   echo "$(echo "$RESPONSE" | jq -r '.message')"
   exit 1

@@ -50,11 +50,11 @@ async function reportPost(postId, reason) {
   
   const keys = loadKeys();
   if (!keys) {
-    console.log('❌ No identity found. Run: lattice-id generate [username]');
+    console.log(' No identity found. Run: lattice-id generate [username]');
     process.exit(1);
   }
   
-  console.log(`🚩 Reporting post: ${postId}`);
+  console.log(` Reporting post: ${postId}`);
   console.log(`Reason: ${reason}`);
   console.log('');
   
@@ -81,7 +81,7 @@ async function reportPost(postId, reason) {
     throw new Error(data.error?.message || 'Failed to submit report');
   }
   
-  console.log('✅ Report submitted successfully');
+  console.log(' Report submitted successfully');
   console.log('');
   console.log('The post will be reviewed by the community.');
   console.log('3+ reports automatically confirm spam and apply -50 EXP penalty.');
@@ -92,4 +92,4 @@ const args = process.argv.slice(2);
 const postId = args[0];
 const reason = args.slice(1).join(' ');
 
-reportPost(postId, reason).catch(err => { console.error('❌', err.message); process.exit(1); });
+reportPost(postId, reason).catch(err => { console.error('', err.message); process.exit(1); });

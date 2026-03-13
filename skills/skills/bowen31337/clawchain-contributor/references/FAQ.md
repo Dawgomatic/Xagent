@@ -115,11 +115,11 @@ Yes (open source), but:
 ## Process Questions
 
 ### What's the merge criteria?
-- ✅ CLA signed
-- ✅ Follows commit conventions
-- ✅ Tests pass (when applicable)
-- ✅ Documentation updated
-- ✅ Code review approved
+-  CLA signed
+-  Follows commit conventions
+-  Tests pass (when applicable)
+-  Documentation updated
+-  Code review approved
 
 ### Can I work on multiple PRs?
 Yes! Multiple parallel contributions encouraged.

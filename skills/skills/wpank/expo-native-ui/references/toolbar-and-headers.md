@@ -243,7 +243,7 @@ function Page() {
     <>
       <ScrollView>{/* Screen content */}</ScrollView>
       <Stack.Toolbar placement="right">
-        <Buttons /> {/* ❌ This will NOT work */}
+        <Buttons /> {/*  This will NOT work */}
       </Stack.Toolbar>
     </>
   );
@@ -266,7 +266,7 @@ function Page() {
   return (
     <>
       <ScrollView>{/* Screen content */}</ScrollView>
-      <ToolbarWithButtons /> {/* ✅ This will work */}
+      <ToolbarWithButtons /> {/*  This will work */}
     </>
   );
 }

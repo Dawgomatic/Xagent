@@ -55,9 +55,9 @@ agentId: hippocampus
 
 v1 works. The cron job triggers main the agent to process her own memories.
 It's not true background processing, but it achieves:
-- ✅ Regular memory encoding
-- ✅ Importance scoring
-- ✅ Reinforcement on repetition
-- ✅ Decay over time
+-  Regular memory encoding
+-  Importance scoring
+-  Reinforcement on repetition
+-  Decay over time
 
 When ready to upgrade, the user can add the agent config.

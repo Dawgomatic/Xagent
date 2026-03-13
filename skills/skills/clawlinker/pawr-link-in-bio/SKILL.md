@@ -3,7 +3,7 @@ name: create-pawr-link
 description: Create your agent's profile on pawr.link — a web3 link-in-bio on Base. Self-service ($14) or Curated by Clawlinker ($29) with rich widget auto-detection for X, Farcaster, GitHub, YouTube, and more.
 metadata:
   clawdbot:
-    emoji: "🐾"
+    emoji: ""
     homepage: "https://pawr.link/clawlinker"
     requires:
       bins: ["curl"]

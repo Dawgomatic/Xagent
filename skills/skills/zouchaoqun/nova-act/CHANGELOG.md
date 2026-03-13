@@ -4,7 +4,7 @@ All notable changes to the Nova Act Usability Testing skill will be documented i
 
 ## [2.0.0] - 2026-02-06
 
-### 🎯 Major: Agent-Driven Interpretation (Breaking Change)
+###  Major: Agent-Driven Interpretation (Breaking Change)
 
 **Problem:** The script was setting `overall_success: false` always and attempting hardcoded regex-based interpretation of responses. This was wrong because:
 1. Hardcoded patterns can't understand context
@@ -42,8 +42,8 @@ All notable changes to the Nova Act Usability Testing skill will be documented i
 ┌─────────────────────────────────────────────────────────────────┐
 │ Phase 3: REPORT GENERATION (enhanced_report_generator.py)       │
 │ - Reads interpreted JSON                                        │
-│ - Shows ✅ PASSED / ❌ FAILED based on goal_achieved            │
-│ - Shows ⏳ PENDING if agent hasn't interpreted yet              │
+│ - Shows  PASSED /  FAILED based on goal_achieved            │
+│ - Shows  PENDING if agent hasn't interpreted yet              │
 │ - Global recording numbering (1→N across all tests)             │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -59,7 +59,7 @@ All notable changes to the Nova Act Usability Testing skill will be documented i
 
 #### enhanced_report_generator.py
 - **Added** `goal_achieved` field support (agent-set interpretation)
-- **Added** "⏳ PENDING" status for un-interpreted tests
+- **Added** " PENDING" status for un-interpreted tests
 - **Added** "Awaiting agent interpretation" warnings on steps
 - **Fixed** recording numbering: now globally sequential (1, 2, 3... not restarting per test)
 - **Added** CSS for `.pending` status styling
@@ -86,14 +86,14 @@ All notable changes to the Nova Act Usability Testing skill will be documented i
 
 1. **No hardcoded interpretation** - Agent understands "Leaderboard, News, Stats" is useful content
 2. **No wasted API calls** - Agent doing the work is already running
-3. **Correct reports** - Tests that found content show ✅, tests with "No" show ❌
+3. **Correct reports** - Tests that found content show , tests with "No" show 
 4. **Transparency** - PENDING status shows when interpretation is needed
 
 ---
 
 ## [2.0.0-beta] - 2026-02-05
 
-### 🎯 Simplified Nova Act Prompts
+###  Simplified Nova Act Prompts
 
 **Problem:** Prompts were asking Nova Act to reason about personas and usability, e.g.:
 - "As a tournament_follower with high technical skills, can you easily accomplish this task?"
@@ -104,8 +104,8 @@ This is wrong - Nova Act is a browser automation tool, not a reasoning engine.
 
 ### Changed
 - **Cookbook updated**: Added "Nova Act is NOT a Reasoning Engine" as Principle #0
-  - ❌ "As a beginner user, can you easily find the docs?"
-  - ✅ "Click the Documentation link in the navigation"
+  -  "As a beginner user, can you easily find the docs?"
+  -  "Click the Documentation link in the navigation"
 - **dynamic_exploration.py**: Generic fallback now generates direct browser commands
   - Removed persona-specific prompt generation
   - `adapt_prompt_for_persona()` now returns prompts unchanged
@@ -124,7 +124,7 @@ This is wrong - Nova Act is a browser automation tool, not a reasoning engine.
 
 ## [1.3.1] - 2026-02-05
 
-### 🛡️ Graceful Shutdown & Partial Reports
+###  Graceful Shutdown & Partial Reports
 
 **Problem:** Tests could be killed (timeout/signal) mid-run with no report generated.
 
@@ -154,7 +154,7 @@ This is wrong - Nova Act is a browser automation tool, not a reasoning engine.
 
 ## [1.3.0] - 2026-02-05
 
-### 🎯 Major: Semantic Response Interpretation
+###  Major: Semantic Response Interpretation
 
 **Critical Fix:** Nova Act returning "No" was being treated as success because the API call worked.
 Now we interpret responses semantically to determine if the **goal was actually achieved**.
@@ -205,7 +205,7 @@ Now we interpret responses semantically to determine if the **goal was actually 
 
 ## [1.2.0] - 2026-02-05
 
-### 🎯 Major Features
+###  Major Features
 
 #### AI Agent-Orchestrated Persona Generation
 - **AI agent (Claude) generates personas** and passes them as JSON to the test script
@@ -228,7 +228,7 @@ Now we interpret responses semantically to determine if the **goal was actually 
 - Dynamic page analysis based on site type
 - Session recordings section with clickable trace links
 
-### 🔧 Bug Fixes
+###  Bug Fixes
 
 #### Critical Fixes
 - **safe_act returns observations**: Added `ActResult`/`QueryResult` dataclasses with observation tracking
@@ -243,13 +243,13 @@ Now we interpret responses semantically to determine if the **goal was actually 
 - **Configurable defaults**: Timeouts and thresholds now centralized as constants
 - **URL parameter passing**: Removed global variable mutation
 
-### 📦 Installation & Setup
+###  Installation & Setup
 - Automatic setup script (`setup.sh`) - no sudo prompts
 - Playwright browser installation handled automatically
 - Config file template auto-created at `~/.openclaw/config/nova-act.json`
 - 60-second status updates during test execution
 
-### 📝 Documentation
+###  Documentation
 - Complete SKILL.md rewrite with AI agent guidance
 - Persona generation examples by industry
 - Workflow testing patterns and safety guidelines

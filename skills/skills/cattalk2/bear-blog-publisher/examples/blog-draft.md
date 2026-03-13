@@ -244,4 +244,4 @@ clawhub install bear-blog-publisher
 
 ---
 
-*Happy blogging!* 📝
+*Happy blogging!* 

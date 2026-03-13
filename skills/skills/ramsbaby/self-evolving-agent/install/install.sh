@@ -48,7 +48,7 @@ run() {
 # ── OS 감지 ────────────────────────────────────────────────
 OS="$(uname -s)"
 
-echo -e "${B}🔧 Self-Evolving Agent v5.0 — Stream Monitor 설치${N}"
+echo -e "${B} Self-Evolving Agent v5.0 — Stream Monitor 설치${N}"
 echo "스킬 디렉토리: $SKILL_DIR"
 echo "모니터 스크립트: $MONITOR_SCRIPT"
 echo ""
@@ -60,16 +60,16 @@ install_macos() {
   local launch_agents_dir="$HOME/Library/LaunchAgents"
 
   if [[ "$UNINSTALL" == true ]]; then
-    echo -e "${Y}🗑️  LaunchAgent 제거...${N}"
+    echo -e "${Y}  LaunchAgent 제거...${N}"
     if launchctl list | grep -q "com.sea.monitor" 2>/dev/null; then
       run "launchctl unload '$plist_dst' 2>/dev/null || true"
-      echo -e "  ${G}✅ LaunchAgent 언로드됨${N}"
+      echo -e "  ${G} LaunchAgent 언로드됨${N}"
     fi
     if [[ -f "$plist_dst" ]]; then
       run "rm -f '$plist_dst'"
-      echo -e "  ${G}✅ plist 파일 제거됨${N}"
+      echo -e "  ${G} plist 파일 제거됨${N}"
     fi
-    echo -e "${G}✅ 제거 완료${N}"
+    echo -e "${G} 제거 완료${N}"
     return
   fi
 
@@ -83,7 +83,7 @@ install_macos() {
       "s|/Users/Shared/openclaw/skills/self-evolving-agent/scripts/v5/stream-monitor.sh|$MONITOR_SCRIPT|g" \
       "s|/Users/Shared|$HOME|g" \
       "$plist_src" > "$plist_dst"
-    echo -e "  ${G}✅ plist 복사됨: $plist_dst${N}"
+    echo -e "  ${G} plist 복사됨: $plist_dst${N}"
   else
     echo -e "  ${Y}[dry-run]${N} $plist_src → $plist_dst (경로 치환 포함)"
   fi
@@ -95,10 +95,10 @@ install_macos() {
 
   # 로드
   run "launchctl load '$plist_dst'"
-  echo -e "  ${G}✅ LaunchAgent 로드됨${N}"
+  echo -e "  ${G} LaunchAgent 로드됨${N}"
 
   echo ""
-  echo -e "${G}✅ 설치 완료!${N}"
+  echo -e "${G} 설치 완료!${N}"
   echo ""
   echo "상태 확인: launchctl list | grep sea.monitor"
   echo "로그 확인: tail -f /tmp/sea-monitor.stdout.log"
@@ -112,15 +112,15 @@ install_linux() {
   local service_dst="$systemd_dir/sea-monitor.service"
 
   if [[ "$UNINSTALL" == true ]]; then
-    echo -e "${Y}🗑️  systemd 서비스 제거...${N}"
+    echo -e "${Y}  systemd 서비스 제거...${N}"
     run "systemctl --user stop sea-monitor 2>/dev/null || true"
     run "systemctl --user disable sea-monitor 2>/dev/null || true"
     if [[ -f "$service_dst" ]]; then
       run "rm -f '$service_dst'"
-      echo -e "  ${G}✅ service 파일 제거됨${N}"
+      echo -e "  ${G} service 파일 제거됨${N}"
     fi
     run "systemctl --user daemon-reload"
-    echo -e "${G}✅ 제거 완료${N}"
+    echo -e "${G} 제거 완료${N}"
     return
   fi
 
@@ -132,7 +132,7 @@ install_linux() {
     sed \
       "s|%h/openclaw/skills/self-evolving-agent/scripts/v5/stream-monitor.sh|$MONITOR_SCRIPT|g" \
       "$service_src" > "$service_dst"
-    echo -e "  ${G}✅ service 파일 복사됨: $service_dst${N}"
+    echo -e "  ${G} service 파일 복사됨: $service_dst${N}"
   else
     echo -e "  ${Y}[dry-run]${N} $service_src → $service_dst (경로 치환 포함)"
   fi
@@ -142,7 +142,7 @@ install_linux() {
   run "systemctl --user start sea-monitor"
 
   echo ""
-  echo -e "${G}✅ 설치 완료!${N}"
+  echo -e "${G} 설치 완료!${N}"
   echo ""
   echo "상태 확인: systemctl --user status sea-monitor"
   echo "로그 확인: journalctl --user -u sea-monitor -f"
@@ -150,11 +150,11 @@ install_linux() {
 }
 
 # ── 진입점 ─────────────────────────────────────────────────
-[[ "$DRY_RUN" == true ]] && echo -e "${Y}⚠️  dry-run 모드 (실제 변경 없음)${N}\n"
+[[ "$DRY_RUN" == true ]] && echo -e "${Y}  dry-run 모드 (실제 변경 없음)${N}\n"
 
 # 모니터 스크립트 존재 확인
 if [[ ! -f "$MONITOR_SCRIPT" ]]; then
-  echo -e "${R}❌ stream-monitor.sh 없음: $MONITOR_SCRIPT${N}"
+  echo -e "${R} stream-monitor.sh 없음: $MONITOR_SCRIPT${N}"
   echo "스킬이 올바르게 설치되어 있는지 확인하세요."
   exit 1
 fi

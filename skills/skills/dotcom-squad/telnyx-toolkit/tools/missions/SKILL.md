@@ -1,7 +1,7 @@
 ---
 name: telnyx-missions
 description: Track agent activities using the Telnyx AI Missions API. Use this skill when executing multi-step tasks that should be logged and tracked. Supports creating voice/SMS agents, scheduling calls, and retrieving conversation insights. Use when tasks involve calling people, sending SMS, or any substantial tracked work.
-metadata: {"openclaw":{"emoji":"🎯","requires":{"bins":["python3"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
 ---
 
 # Telnyx AI Missions
@@ -31,7 +31,7 @@ This skill enables you to track your work using the Telnyx AI Missions API, incl
 
 ---
 
-# ⚠️ CRITICAL: SAVE STATE FREQUENTLY ⚠️
+#  CRITICAL: SAVE STATE FREQUENTLY 
 
 **You MUST save your progress after EVERY significant action.** If the session crashes or restarts, unsaved work is LOST.
 
@@ -45,18 +45,18 @@ Always save to BOTH:
 
 | Action | Save Memory | Log Event |
 |--------|-------------|-----------|
-| Web search returns results | ✅ append-memory | ✅ log-event (tool_call) |
-| Found a contractor/lead | ✅ append-memory | ✅ log-event (custom) |
-| Created assistant | ✅ save-memory | ✅ log-event (custom) |
-| Assigned phone number | ✅ save-memory | ✅ log-event (custom) |
-| Scheduled a call/SMS | ✅ append-memory | ✅ log-event (custom) |
-| Call completed | ✅ save-memory | ✅ log-event (custom) |
-| Got quote/insight | ✅ save-memory | ✅ log-event (custom) |
-| Made a decision | ✅ save-memory | ✅ log-event (message) |
-| Step started | ✅ save-memory | ✅ update-step (in_progress) + log-event (step_started) |
-| Step completed | ✅ save-memory | ✅ update-step (completed) + log-event (step_completed) |
-| Step failed | ✅ save-memory | ✅ update-step (failed) + log-event (error) |
-| Error occurred | ✅ save-memory | ✅ log-event (error) |
+| Web search returns results |  append-memory |  log-event (tool_call) |
+| Found a contractor/lead |  append-memory |  log-event (custom) |
+| Created assistant |  save-memory |  log-event (custom) |
+| Assigned phone number |  save-memory |  log-event (custom) |
+| Scheduled a call/SMS |  append-memory |  log-event (custom) |
+| Call completed |  save-memory |  log-event (custom) |
+| Got quote/insight |  save-memory |  log-event (custom) |
+| Made a decision |  save-memory |  log-event (message) |
+| Step started |  save-memory |  update-step (in_progress) + log-event (step_started) |
+| Step completed |  save-memory |  update-step (completed) + log-event (step_completed) |
+| Step failed |  save-memory |  update-step (failed) + log-event (error) |
+| Error occurred |  save-memory |  log-event (error) |
 
 ## Memory Commands (Local Backup)
 
@@ -774,7 +774,7 @@ python telnyx_api.py complete "find-window-washing-contractors" "mis_abc123" "ru
 
 ---
 
-# ⚠️ BEFORE CREATING ANYTHING: Review Existing Resources
+#  BEFORE CREATING ANYTHING: Review Existing Resources
 
 **Always check what already exists before creating new assistants, insights, or insight groups.** Reuse is better than duplication.
 
@@ -802,7 +802,7 @@ python telnyx_api.py list-phones --available
 
 ### Decision Flow
 
-#### ⚠️ CRITICAL: Reuse Without Modification
+####  CRITICAL: Reuse Without Modification
 
 **The rule is: reuse existing resources IF you can use them as-is. Do NOT modify existing assistants, insights, or insight groups that may be in use by other missions or users.** Editing a shared resource (e.g., changing an assistant's instructions or an insight's schema) can silently break unrelated workflows that depend on the current configuration.
 
@@ -995,7 +995,7 @@ Fan out calls in parallel, but each call follows a structured rubric. Results ar
 
 Calls MUST run serially. Each call's strategy depends on previous results. You're leveraging information from earlier calls to get better outcomes in later ones.
 
-**⚠️ NEVER parallelize these.** The entire value comes from sequential information advantage.
+** NEVER parallelize these.** The entire value comes from sequential information advantage.
 
 ### When to Use
 - You're **negotiating** — quotes, prices, terms

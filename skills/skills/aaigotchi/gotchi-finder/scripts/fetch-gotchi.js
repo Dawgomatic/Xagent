@@ -19,7 +19,7 @@ const STATUS_NAMES = {
 };
 
 async function fetchGotchi(tokenId, outputDir = '.') {
-  console.log(`\n👻 Fetching Gotchi #${tokenId}...\n`);
+  console.log(`\n Fetching Gotchi #${tokenId}...\n`);
   
   try {
     const provider = new ethers.JsonRpcProvider(RPC_URL);
@@ -40,10 +40,10 @@ async function fetchGotchi(tokenId, outputDir = '.') {
       isGotchi: status >= 2
     };
     
-    console.log(`📊 Status: ${status} - ${statusName}`);
-    console.log(`📛 Name: ${result.name}`);
-    console.log(`👤 Owner: ${result.owner}`);
-    console.log(`🏰 Haunt: ${result.hauntId}`);
+    console.log(` Status: ${status} - ${statusName}`);
+    console.log(` Name: ${result.name}`);
+    console.log(` Owner: ${result.owner}`);
+    console.log(` Haunt: ${result.hauntId}`);
     
     if (result.isGotchi) {
       result.brs = gotchiData.baseRarityScore.toString();
@@ -65,13 +65,13 @@ async function fetchGotchi(tokenId, outputDir = '.') {
         eyeColor: gotchiData.numericTraits[5].toString()
       };
       
-      console.log(`📛 Name: ${result.name}`);
-      console.log(`⭐ BRS: ${result.brs} (Modified: ${result.modifiedBrs})`);
-      console.log(`💜 Kinship: ${result.kinship}`);
-      console.log(`🎯 Level: ${result.level}`);
-      console.log(`✨ XP: ${result.experience}`);
-      console.log(`🔒 Locked: ${result.locked ? 'Yes' : 'No'}`);
-      console.log(`\n🎭 Traits:`);
+      console.log(` Name: ${result.name}`);
+      console.log(` BRS: ${result.brs} (Modified: ${result.modifiedBrs})`);
+      console.log(` Kinship: ${result.kinship}`);
+      console.log(` Level: ${result.level}`);
+      console.log(` XP: ${result.experience}`);
+      console.log(` Locked: ${result.locked ? 'Yes' : 'No'}`);
+      console.log(`\n Traits:`);
       console.log(`   Energy: ${result.traits.energy}`);
       console.log(`   Aggression: ${result.traits.aggression}`);
       console.log(`   Spookiness: ${result.traits.spookiness}`);
@@ -81,50 +81,50 @@ async function fetchGotchi(tokenId, outputDir = '.') {
     }
     
     // Fetch SVG
-    console.log(`\n📥 Fetching SVG...`);
+    console.log(`\n Fetching SVG...`);
     const svg = await contract.getAavegotchiSvg(tokenId);
     
     // Determine image type
     let imageType = 'Unknown';
     if (svg.includes('gotchi-body') || svg.includes('gotchi-wearable')) {
-      imageType = '👻 Gotchi';
+      imageType = ' Gotchi';
     } else if (svg.includes('Portal')) {
-      imageType = '🌀 Portal';
+      imageType = ' Portal';
     } else if (svg.includes('Sacrificed')) {
-      imageType = '💀 Sacrificed';
+      imageType = ' Sacrificed';
     }
     
     result.imageType = imageType;
     result.svgSize = svg.length;
     
-    console.log(`🎨 Image Type: ${imageType}`);
-    console.log(`📏 SVG Size: ${(svg.length / 1024).toFixed(2)} KB`);
+    console.log(` Image Type: ${imageType}`);
+    console.log(` SVG Size: ${(svg.length / 1024).toFixed(2)} KB`);
     
     // Save SVG
     const svgFilename = path.join(outputDir, `gotchi-${tokenId}.svg`);
     fs.writeFileSync(svgFilename, svg);
     result.svgPath = svgFilename;
-    console.log(`💾 Saved SVG: ${svgFilename}`);
+    console.log(` Saved SVG: ${svgFilename}`);
     
     // Save JSON metadata
     const jsonFilename = path.join(outputDir, `gotchi-${tokenId}.json`);
     fs.writeFileSync(jsonFilename, JSON.stringify(result, null, 2));
     result.jsonPath = jsonFilename;
-    console.log(`💾 Saved JSON: ${jsonFilename}`);
+    console.log(` Saved JSON: ${jsonFilename}`);
     
     console.log('\n' + '═'.repeat(70));
-    console.log(`✅ Gotchi #${tokenId} "${result.name}" fetched successfully!`);
+    console.log(` Gotchi #${tokenId} "${result.name}" fetched successfully!`);
     console.log('═'.repeat(70));
     
     return result;
     
   } catch (error) {
     if (error.message.includes('does not exist')) {
-      console.error(`❌ Gotchi #${tokenId} does not exist on Base chain`);
+      console.error(` Gotchi #${tokenId} does not exist on Base chain`);
     } else if (error.message.includes('rate limit')) {
-      console.error(`❌ RPC rate limit hit - try again in a few seconds`);
+      console.error(` RPC rate limit hit - try again in a few seconds`);
     } else {
-      console.error(`❌ Error:`, error.message);
+      console.error(` Error:`, error.message);
     }
     throw error;
   }

@@ -185,7 +185,7 @@ def test_scraper_browser_mode():
     if PLAYWRIGHT_AVAILABLE:
         print("  ✓ Playwright is available")
     else:
-        print("  ⚠ Playwright not installed (browser rendering will fallback)")
+        print("   Playwright not installed (browser rendering will fallback)")
     
     # Test 4: scrape_page with browser override
     # This will try a simple fetch; full browser test would need a real URL
@@ -200,7 +200,7 @@ def test_scraper_browser_mode():
         assert "full_content" in page_data, "Page scrape missing full_content"
         print("  ✓ Page scraping works correctly")
     else:
-        print("  ⚠ Could not fetch test URL (network issue, acceptable)")
+        print("   Could not fetch test URL (network issue, acceptable)")
     
     print("✓ Scraper browser mode tests passed")
 

@@ -16,14 +16,14 @@ OUTPUT_DIR="/data/ai-stack/output"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 OUTPUT_FILE="video_${TIMESTAMP}.mp4"
 
-echo "🎬 Generating video with prompt: '$PROMPT'"
-echo "🤖 Model: $MODEL"
-echo "⏱️  Duration: ${DURATION}s"
-echo "🖥️  GPU Server: $GPU_HOST"
+echo " Generating video with prompt: '$PROMPT'"
+echo " Model: $MODEL"
+echo "  Duration: ${DURATION}s"
+echo "  GPU Server: $GPU_HOST"
 
 # Check SSH connectivity
 if ! ssh -i "$SSH_KEY" -o ConnectTimeout=5 "$GPU_HOST" "echo 'SSH OK'" &>/dev/null; then
-    echo "❌ Cannot connect to GPU server"
+    echo " Cannot connect to GPU server"
     exit 1
 fi
 
@@ -32,7 +32,7 @@ ssh -i "$SSH_KEY" "$GPU_HOST" "mkdir -p $OUTPUT_DIR"
 
 if [[ "$MODEL" == "animatediff" ]]; then
     # Use AnimateDiff workflow (proven working)
-    echo "📝 Using AnimateDiff workflow..."
+    echo " Using AnimateDiff workflow..."
     
     # Calculate frames (8fps)
     FRAMES=$((DURATION * 8))
@@ -69,29 +69,29 @@ PYTHON
 EOF
 
 elif [[ "$MODEL" == "ltx2" ]]; then
-    echo "📝 Using LTX-2 workflow via ComfyUI API..."
+    echo " Using LTX-2 workflow via ComfyUI API..."
     
     # Use the Python API client
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     python3 "$SCRIPT_DIR/comfyui_api.py" video-ltx2 "$PROMPT" $DURATION
     
     if [[ $? -eq 0 ]]; then
-        echo "✅ LTX-2 video generation complete"
+        echo " LTX-2 video generation complete"
     else
-        echo "❌ LTX-2 video generation failed"
+        echo " LTX-2 video generation failed"
         exit 1
     fi
 
 else
-    echo "❌ Unknown model: $MODEL"
+    echo " Unknown model: $MODEL"
     echo "   Available: animatediff, ltx2"
     exit 1
 fi
 
 echo ""
-echo "✅ Video generation queued"
-echo "📁 Output: $OUTPUT_DIR/$OUTPUT_FILE"
+echo " Video generation queued"
+echo " Output: $OUTPUT_DIR/$OUTPUT_FILE"
 echo ""
-echo "⚠️  Note: Full automation pending. Use existing workflows:"
+echo "  Note: Full automation pending. Use existing workflows:"
 echo "    - AnimateDiff: /tmp/animatediff_simple_workflow.json"
 echo "    - LTX-2: Fetch from Lightricks/ComfyUI-LTXVideo"

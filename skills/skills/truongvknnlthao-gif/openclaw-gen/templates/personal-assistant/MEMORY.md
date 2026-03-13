@@ -20,9 +20,9 @@
 - Seasonal: [Task 1, Task 2...]
 
 ### Priority Framework
-- 🔴 High: Must do today
-- 🟡 Medium: Should do this week
-- 🟢 Low: When time permits
+-  High: Must do today
+-  Medium: Should do this week
+-  Low: When time permits
 
 ## Goals & Projects
 

@@ -199,7 +199,7 @@ async function storeSummary(conversation, summary) {
 }
 
 function formatSummaryForSlack(channelName, conversations, summaries) {
-  let output = `📊 **Context Memory Test: #${channelName}**\n\n`;
+  let output = ` **Context Memory Test: #${channelName}**\n\n`;
   output += `Found **${conversations.length}** conversation(s) to summarize:\n\n`;
 
   for (let i = 0; i < summaries.length; i++) {
@@ -227,7 +227,7 @@ function formatSummaryForSlack(channelName, conversations, summaries) {
     output += `**Outcome:** ${sum.outcome}\n\n`;
   }
 
-  output += `---\n✅ Summaries stored in database with embeddings for semantic search.`;
+  output += `---\n Summaries stored in database with embeddings for semantic search.`;
   return output;
 }
 
@@ -238,7 +238,7 @@ if (!channelId) {
   process.exit(1);
 }
 
-console.log(`\n🔍 Processing channel: ${channelId}`);
+console.log(`\n Processing channel: ${channelId}`);
 
 // Get channel name
 const client = new Client({ connectionString: DB_URL });
@@ -247,20 +247,20 @@ const channelResult = await client.query('SELECT name FROM slack_channels WHERE 
 const channelName = channelResult.rows[0]?.name || channelId;
 await client.end();
 
-console.log(`📌 Channel: #${channelName}`);
+console.log(` Channel: #${channelName}`);
 
 // Detect conversations
-console.log('🔄 Detecting conversations...');
+console.log(' Detecting conversations...');
 const conversations = await detectConversations(channelId);
 console.log(`   Found ${conversations.length} conversation(s)`);
 
 if (conversations.length === 0) {
-  console.log('❌ No conversations to summarize');
+  console.log(' No conversations to summarize');
   process.exit(0);
 }
 
 // Summarize each
-console.log('🧠 Generating summaries...');
+console.log(' Generating summaries...');
 const summaries = [];
 for (let i = 0; i < conversations.length; i++) {
   console.log(`   Summarizing ${i + 1}/${conversations.length}...`);
@@ -269,12 +269,12 @@ for (let i = 0; i < conversations.length; i++) {
   
   // Store in DB
   await storeSummary(conversations[i], summary);
-  console.log(`   ✅ Stored: ${summary.tldr.substring(0, 60)}...`);
+  console.log(`    Stored: ${summary.tldr.substring(0, 60)}...`);
 }
 
 // Format for Slack
 const slackMessage = formatSummaryForSlack(channelName, conversations, summaries);
-console.log('\n📝 Slack message:\n');
+console.log('\n Slack message:\n');
 console.log(slackMessage);
 
 // Output the formatted message for posting

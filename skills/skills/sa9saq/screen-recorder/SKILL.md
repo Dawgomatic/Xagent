@@ -45,7 +45,7 @@ ffmpeg -f x11grab -framerate 30 -video_size 1280x720 -i :0.0+100,200 -c:v libx26
 ```bash
 pkill -INT ffmpeg      # Graceful stop (finalizes file)
 pkill -INT wf-recorder
-# ⚠️ Do NOT use pkill -9 — this corrupts the output file
+#  Do NOT use pkill -9 — this corrupts the output file
 ```
 
 ### Post-processing

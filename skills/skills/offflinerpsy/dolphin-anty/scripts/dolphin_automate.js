@@ -83,7 +83,7 @@ function randomDelay(minMs = 500, maxMs = 2000) {
 // ─── Запуск профиля ─────────────────────────────────────────────
 
 async function startProfile(profileId) {
-  console.log(`🚀 Запускаю профиль ${profileId}...`);
+  console.log(` Запускаю профиль ${profileId}...`);
   const res = await apiRequest('GET', `/browser_profiles/${profileId}/start?automation=1`);
 
   if (!res.data || !res.data.automation) {
@@ -93,16 +93,16 @@ async function startProfile(profileId) {
   }
 
   const { port, wsEndpoint } = res.data.automation;
-  console.log(`✅ Профиль запущен. Port: ${port}, wsEndpoint: ${wsEndpoint}`);
+  console.log(` Профиль запущен. Port: ${port}, wsEndpoint: ${wsEndpoint}`);
   return { port, wsEndpoint };
 }
 
 // ─── Остановка профиля ──────────────────────────────────────────
 
 async function stopProfile(profileId) {
-  console.log(`⏹️ Останавливаю профиль ${profileId}...`);
+  console.log(` Останавливаю профиль ${profileId}...`);
   await apiRequest('GET', `/browser_profiles/${profileId}/stop`);
-  console.log(`✅ Профиль остановлен.`);
+  console.log(` Профиль остановлен.`);
 }
 
 // ─── Подключение Playwright ─────────────────────────────────────
@@ -117,13 +117,13 @@ async function connectBrowser(port, wsEndpoint) {
       const globalPath = require('child_process').execSync('npm root -g', { encoding: 'utf8' }).trim();
       playwright = require(require('path').join(globalPath, 'playwright'));
     } catch {
-      console.error('❌ Playwright не установлен. Выполните: npm install -g playwright');
+      console.error(' Playwright не установлен. Выполните: npm install -g playwright');
       process.exit(1);
     }
   }
 
   const wsUrl = `ws://127.0.0.1:${port}${wsEndpoint}`;
-  console.log(`🔗 Подключаюсь к браузеру: ${wsUrl}`);
+  console.log(` Подключаюсь к браузеру: ${wsUrl}`);
   
   const browser = await playwright.chromium.connectOverCDP(wsUrl);
   const contexts = browser.contexts();
@@ -136,19 +136,19 @@ async function connectBrowser(port, wsEndpoint) {
 
 async function taskScreenshot(context, url) {
   const page = await context.newPage();
-  console.log(`📸 Открываю ${url}...`);
+  console.log(` Открываю ${url}...`);
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
   await randomDelay(1000, 3000);
   
   const filename = `screenshot_${Date.now()}.png`;
   await page.screenshot({ path: filename, fullPage: true });
-  console.log(`✅ Скриншот сохранён: ${filename}`);
+  console.log(` Скриншот сохранён: ${filename}`);
   await page.close();
 }
 
 async function taskScrape(context, url) {
   const page = await context.newPage();
-  console.log(`🔍 Собираю данные с ${url}...`);
+  console.log(` Собираю данные с ${url}...`);
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
   await randomDelay(1000, 3000);
   
@@ -172,7 +172,7 @@ async function taskScrape(context, url) {
     return { title, metaDesc, h1s, h2s, links, paragraphs, images };
   });
 
-  console.log(`\n📄 Результаты скрапинга:\n`);
+  console.log(`\n Результаты скрапинга:\n`);
   console.log(`Заголовок: ${data.title}`);
   console.log(`Описание: ${data.metaDesc}`);
   if (data.h1s.length) console.log(`H1: ${data.h1s.join(', ')}`);
@@ -184,19 +184,19 @@ async function taskScrape(context, url) {
   // Выводим JSON для парсинга агентом
   const outputFile = `scrape_${Date.now()}.json`;
   require('fs').writeFileSync(outputFile, JSON.stringify(data, null, 2), 'utf8');
-  console.log(`\n💾 Полные данные сохранены: ${outputFile}`);
+  console.log(`\n Полные данные сохранены: ${outputFile}`);
   
   await page.close();
 }
 
 async function taskNavigate(context, url) {
   const page = await context.newPage();
-  console.log(`🌐 Открываю ${url}...`);
+  console.log(` Открываю ${url}...`);
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
   await randomDelay(1000, 2000);
   
   const title = await page.title();
-  console.log(`✅ Страница открыта: "${title}"`);
+  console.log(` Страница открыта: "${title}"`);
   console.log(`   URL: ${page.url()}`);
   // Не закрываем страницу — пользователь может продолжить вручную
 }
@@ -219,7 +219,7 @@ async function taskWarmup(context) {
   const count = Math.floor(Math.random() * 3) + 3;
   const shuffled = sites.sort(() => Math.random() - 0.5).slice(0, count);
 
-  console.log(`🔥 Прогрев профиля: посещу ${count} сайтов...\n`);
+  console.log(` Прогрев профиля: посещу ${count} сайтов...\n`);
 
   for (const site of shuffled) {
     const page = await context.newPage();
@@ -235,31 +235,31 @@ async function taskWarmup(context) {
       await randomDelay(1000, 2000);
       
     } catch (err) {
-      console.log(`  ⚠️ ${site}: ${err.message.substring(0, 60)}`);
+      console.log(`   ${site}: ${err.message.substring(0, 60)}`);
     }
     await page.close();
     await randomDelay(1000, 3000); // Пауза между сайтами
   }
 
-  console.log(`\n✅ Прогрев завершён. Посещено ${count} сайтов.`);
+  console.log(`\n Прогрев завершён. Посещено ${count} сайтов.`);
 }
 
 async function taskCustom(context, url, code) {
   if (!code) {
-    console.error('❌ Для task=custom нужен --code "javascript code"');
+    console.error(' Для task=custom нужен --code "javascript code"');
     process.exit(1);
   }
   
   const page = await context.newPage();
   if (url) {
-    console.log(`🌐 Открываю ${url}...`);
+    console.log(` Открываю ${url}...`);
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await randomDelay(500, 1500);
   }
   
-  console.log(`⚡ Выполняю код...`);
+  console.log(` Выполняю код...`);
   const result = await page.evaluate(code);
-  console.log(`✅ Результат:`, result);
+  console.log(` Результат:`, result);
   await page.close();
 }
 
@@ -300,7 +300,7 @@ Dolphin Anty Browser Automation
   try {
     automation = await startProfile(profileId);
   } catch (err) {
-    console.error('❌', err.message);
+    console.error('', err.message);
     process.exit(1);
   }
 
@@ -313,7 +313,7 @@ Dolphin Anty Browser Automation
   try {
     ({ browser, context } = await connectBrowser(port, wsEndpoint));
   } catch (err) {
-    console.error('❌ Не удалось подключиться к браузеру:', err.message);
+    console.error(' Не удалось подключиться к браузеру:', err.message);
     await stopProfile(profileId);
     process.exit(1);
   }
@@ -321,15 +321,15 @@ Dolphin Anty Browser Automation
   try {
     switch (task) {
       case 'screenshot':
-        if (!url) { console.error('❌ Нужен --url'); process.exit(1); }
+        if (!url) { console.error(' Нужен --url'); process.exit(1); }
         await taskScreenshot(context, url);
         break;
       case 'scrape':
-        if (!url) { console.error('❌ Нужен --url'); process.exit(1); }
+        if (!url) { console.error(' Нужен --url'); process.exit(1); }
         await taskScrape(context, url);
         break;
       case 'navigate':
-        if (!url) { console.error('❌ Нужен --url'); process.exit(1); }
+        if (!url) { console.error(' Нужен --url'); process.exit(1); }
         await taskNavigate(context, url);
         break;
       case 'warmup':
@@ -339,10 +339,10 @@ Dolphin Anty Browser Automation
         await taskCustom(context, url, code);
         break;
       default:
-        console.error(`❌ Неизвестная задача: ${task}`);
+        console.error(` Неизвестная задача: ${task}`);
     }
   } catch (err) {
-    console.error('❌ Ошибка выполнения:', err.message);
+    console.error(' Ошибка выполнения:', err.message);
   }
 
   // Для navigate — не отключаемся, пользователь работает

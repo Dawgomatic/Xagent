@@ -830,11 +830,11 @@ After collecting data from multiple products, perform surgical competitive analy
 
 | Moat Type | [Product A] | [Product B] | [Product C] |
 |-----------|-------------|-------------|-------------|
-| Patents/Tech | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
-| Economies of Scale | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐ |
-| Brand Assets | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
-| Channel Advantage | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐ |
-| Customer Lock-in | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
+| Patents/Tech |  |  |  |
+| Economies of Scale |  |  |  |
+| Brand Assets |  |  |  |
+| Channel Advantage |  |  |  |
+| Customer Lock-in |  |  |  |
 | **Overall Score** | **X.X/5.0** | **X.X/5.0** | **X.X/5.0** |
 
 ### 7. Vulnerabilities and Opportunities

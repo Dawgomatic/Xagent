@@ -13,7 +13,7 @@ import { homedir } from 'os';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 async function setup() {
-    console.log('🔧 Setting up ClawGuard...');
+    console.log(' Setting up ClawGuard...');
     
     // Create config directory
     const configDir = join(homedir(), '.clawguard');
@@ -22,7 +22,7 @@ async function setup() {
         console.log(`   Created ${configDir}`);
     }
 
-    console.log('✅ Setup complete! Run "clawguard sync" to initialize the database.');
+    console.log(' Setup complete! Run "clawguard sync" to initialize the database.');
 }
 
 setup().catch(err => {

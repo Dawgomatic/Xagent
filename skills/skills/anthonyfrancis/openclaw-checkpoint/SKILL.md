@@ -325,7 +325,7 @@ checkpoint-init
 # 2. Create PRIVATE GitHub repository
 # Go to https://github.com/new
 # Name: openclaw-state
-# ⚠️  Visibility: PRIVATE (important - contains your personal data!)
+#   Visibility: PRIVATE (important - contains your personal data!)
 
 # 3. Add remote (use SSH, not HTTPS)
 cd ~/.openclaw/workspace
@@ -533,7 +533,7 @@ checkpoint-schedule hourly
 
 ## Security Considerations
 
-### ⚠️ CRITICAL: Repository MUST be PRIVATE
+###  CRITICAL: Repository MUST be PRIVATE
 
 Your backup contains sensitive personal data:
 - SOUL.md, MEMORY.md (your identity & memories)
@@ -543,18 +543,18 @@ Your backup contains sensitive personal data:
 **If you make the repo public, anyone can see your data!**
 
 **What gets backed up:**
-- ✅ Memory files (conversation history)
-- ✅ Identity files (SOUL.md, etc.)
-- ✅ Cron jobs (memory/cron-jobs-backup.json)
-- ✅ Scripts and tools
-- ✅ Configuration
-- ✅ Agents (~/.openclaw/agents/ -> agents/ in backup repo)
+-  Memory files (conversation history)
+-  Identity files (SOUL.md, etc.)
+-  Cron jobs (memory/cron-jobs-backup.json)
+-  Scripts and tools
+-  Configuration
+-  Agents (~/.openclaw/agents/ -> agents/ in backup repo)
 
 **What does NOT get backed up:**
-- ❌ API keys (.env.*) — keep in 1Password
-- ❌ OAuth tokens — re-authenticate on new machine
-- ❌ Downloaded media — ephemeral
-- ❌ Temporary files — ephemeral
+-  API keys (.env.*) — keep in 1Password
+-  OAuth tokens — re-authenticate on new machine
+-  Downloaded media — ephemeral
+-  Temporary files — ephemeral
 
 **Best practices:**
 - **Always use a PRIVATE repository**

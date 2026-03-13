@@ -168,7 +168,7 @@ button.type 可用值：
 ```json
 {
   "header": {
-    "title": { "content": "⚠️ 确认操作", "tag": "plain_text" },
+    "title": { "content": " 确认操作", "tag": "plain_text" },
     "template": "orange"
   },
   "elements": [
@@ -184,13 +184,13 @@ button.type 可用值：
       "actions": [
         {
           "tag": "button",
-          "text": { "content": "✅ 确认", "tag": "plain_text" },
+          "text": { "content": " 确认", "tag": "plain_text" },
           "type": "danger",
           "value": { "action": "confirm" }
         },
         {
           "tag": "button",
-          "text": { "content": "❌ 取消", "tag": "plain_text" },
+          "text": { "content": " 取消", "tag": "plain_text" },
           "type": "default",
           "value": { "action": "cancel" }
         }
@@ -205,7 +205,7 @@ button.type 可用值：
 ```json
 {
   "header": {
-    "title": { "content": "🎯 请选择", "tag": "plain_text" },
+    "title": { "content": " 请选择", "tag": "plain_text" },
     "template": "blue"
   },
   "elements": [
@@ -248,7 +248,7 @@ button.type 可用值：
 ```json
 {
   "header": {
-    "title": { "content": "📊 任务进度", "tag": "plain_text" },
+    "title": { "content": " 任务进度", "tag": "plain_text" },
     "template": "blue"
   },
   "elements": [
@@ -261,23 +261,23 @@ button.type 可用值：
     },
     {
       "tag": "div",
-      "text": { "content": "✅ 任务 1 - 已完成", "tag": "lark_md" }
+      "text": { "content": " 任务 1 - 已完成", "tag": "lark_md" }
     },
     {
       "tag": "div",
-      "text": { "content": "✅ 任务 2 - 已完成", "tag": "lark_md" }
+      "text": { "content": " 任务 2 - 已完成", "tag": "lark_md" }
     },
     {
       "tag": "div",
-      "text": { "content": "⏳ 任务 3 - 进行中", "tag": "lark_md" }
+      "text": { "content": " 任务 3 - 进行中", "tag": "lark_md" }
     },
     {
       "tag": "div",
-      "text": { "content": "⬜ 任务 4 - 待开始", "tag": "lark_md" }
+      "text": { "content": " 任务 4 - 待开始", "tag": "lark_md" }
     },
     {
       "tag": "div",
-      "text": { "content": "⬜ 任务 5 - 待开始", "tag": "lark_md" }
+      "text": { "content": " 任务 5 - 待开始", "tag": "lark_md" }
     }
   ]
 }
@@ -287,19 +287,19 @@ button.type 可用值：
 
 ### 1. 使用 Emoji 增强可读性
 
-- ✅ 成功/确认
-- ❌ 失败/取消
-- ⚠️ 警告
-- 📊 数据/统计
-- 📋 列表/清单
-- 🎯 目标/选择
-- ⏳ 进行中
-- ⬜ 待完成
+-  成功/确认
+-  失败/取消
+-  警告
+-  数据/统计
+-  列表/清单
+-  目标/选择
+-  进行中
+-  待完成
 
 ### 2. 文字简洁明确
 
-- ❌ "是否要执行这个操作？"
-- ✅ "确认删除文件？"
+-  "是否要执行这个操作？"
+-  "确认删除文件？"
 
 ### 3. 防止误操作
 

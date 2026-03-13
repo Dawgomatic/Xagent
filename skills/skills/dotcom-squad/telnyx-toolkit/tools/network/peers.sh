@@ -23,7 +23,7 @@ fi
 WG_ID=$(python3 -c "import json; c=json.load(open('$CONFIG_FILE')); print(c['wireguard_gateway']['id'])")
 
 echo ""
-echo "🔗 Telnyx Network Peers"
+echo " Telnyx Network Peers"
 echo "======================="
 echo ""
 

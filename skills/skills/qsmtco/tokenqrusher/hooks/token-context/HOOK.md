@@ -4,7 +4,7 @@ description: "Filters context files based on message complexity to reduce token 
 homepage: https://github.com/qsmtco/tokenQrusher
 metadata: 
   openclaw: 
-    emoji: "🎯"
+    emoji: ""
     events: ["agent:bootstrap"]
     requires: 
       config: ["workspace.dir"]

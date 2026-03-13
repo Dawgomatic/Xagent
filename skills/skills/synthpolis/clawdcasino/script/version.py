@@ -51,7 +51,7 @@ def check_version(quiet: bool = False):
             print("✓ Your skill is up to date!")
             return True
         else:
-            print("⚠ Update available!")
+            print(" Update available!")
             print()
             print(f"Your version ({LOCAL_VERSION}) differs from server ({server_version}).")
             print("Please update your skill to get the latest features and fixes.")

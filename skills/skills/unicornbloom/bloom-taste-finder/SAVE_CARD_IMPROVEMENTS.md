@@ -11,7 +11,7 @@
 
 ## 建議方案
 
-### Option A: 優化當前 Modal（推薦）✅
+### Option A: 優化當前 Modal（推薦）
 
 **改進點**：
 1. **記住用戶選擇** - 如果用戶關閉 modal，改變按鈕文字
@@ -77,16 +77,16 @@ const handleSaveToCollection = async () => {
 ```
 
 **優點**：
-- ✅ 簡單直接
-- ✅ 不會重複彈出 modal
+-  簡單直接
+-  不會重複彈出 modal
 
 **缺點**：
-- ❌ 沒有給用戶選擇 "Sign In" vs "Create Account"
-- ❌ 直接跳轉可能讓用戶不知所措
+-  沒有給用戶選擇 "Sign In" vs "Create Account"
+-  直接跳轉可能讓用戶不知所措
 
 ---
 
-### Option C: Sticky Banner（最優雅）⭐
+### Option C: Sticky Banner（最優雅）
 
 **在頁面頂部顯示持續的提示條**：
 
@@ -120,10 +120,10 @@ const handleSaveToCollection = async () => {
 ```
 
 **優點**：
-- ✅ 不會打斷用戶體驗（不是 modal）
-- ✅ 持續顯示，不會被關閉後消失
-- ✅ 提供兩個選項（Sign Up / Log In）
-- ✅ 清晰的 CTA
+-  不會打斷用戶體驗（不是 modal）
+-  持續顯示，不會被關閉後消失
+-  提供兩個選項（Sign Up / Log In）
+-  清晰的 CTA
 
 ---
 
@@ -140,9 +140,9 @@ const handleSaveToCollection = async () => {
      - 用戶關閉後再次點擊 → 直接跳轉（Option B）
 
 這樣提供了：
-- ✅ 清晰的 CTA（banner）
-- ✅ 快速操作（按鈕）
-- ✅ 不會重複打擾用戶
+-  清晰的 CTA（banner）
+-  快速操作（按鈕）
+-  不會重複打擾用戶
 
 ---
 

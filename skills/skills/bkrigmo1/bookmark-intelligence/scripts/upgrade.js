@@ -13,20 +13,20 @@ function displayTierComparison() {
   console.log('BOOKMARK INTELLIGENCE - SUBSCRIPTION TIERS');
   console.log('='.repeat(80));
   
-  console.log('\n📦 FREE TIER');
+  console.log('\n FREE TIER');
   console.log('   Price: $0/month');
   console.log('   • 10 bookmarks per month');
   console.log('   • Manual run only (no automation)');
   console.log('   • Basic analysis (no LLM)');
   console.log('   • No notifications');
   
-  console.log('\n⭐ PRO TIER - $9/month');
+  console.log('\n PRO TIER - $9/month');
   console.log('   • Unlimited bookmarks');
   console.log('   • Automated monitoring');
   console.log('   • Full LLM analysis');
   console.log('   • Telegram notifications');
   
-  console.log('\n🚀 ENTERPRISE TIER - $29/month');
+  console.log('\n ENTERPRISE TIER - $29/month');
   console.log('   • Everything in Pro, plus:');
   console.log('   • Team sharing');
   console.log('   • Custom AI models');
@@ -40,7 +40,7 @@ function displayTierComparison() {
 function displayCurrentStatus() {
   const status = getLicenseStatus();
   
-  console.log('\n📊 YOUR CURRENT STATUS');
+  console.log('\n YOUR CURRENT STATUS');
   console.log(`   Tier: ${status.tierName}`);
   console.log(`   Usage: ${status.usage.current}/${status.usage.limit} bookmarks this month`);
   console.log(`   Status: ${status.message}`);

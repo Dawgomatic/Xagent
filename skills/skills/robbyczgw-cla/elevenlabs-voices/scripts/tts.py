@@ -87,7 +87,7 @@ PRICING = {
 def load_voices() -> dict:
     """Load voice configurations from voices.json."""
     if not VOICES_FILE.exists():
-        print(f"❌ voices.json not found at {VOICES_FILE}")
+        print(f" voices.json not found at {VOICES_FILE}")
         sys.exit(1)
     return json.loads(VOICES_FILE.read_text())
 
@@ -169,14 +169,14 @@ def show_stats():
     total_requests = usage.get("total_requests", 0)
     last_reset = usage.get("last_reset", "Unknown")
     
-    print("📊 ElevenLabs Usage Statistics\n")
+    print(" ElevenLabs Usage Statistics\n")
     print(f"  Total Characters: {total_chars:,}")
     print(f"  Total Requests:   {total_requests:,}")
     print(f"  Since:            {last_reset[:10]}")
     print()
     
     # Estimated costs
-    print("💰 Estimated Costs:")
+    print(" Estimated Costs:")
     for plan, rate in PRICING.items():
         cost = (total_chars / 1000) * rate
         print(f"  {plan.capitalize():<10} ${cost:.2f} (${rate}/1k chars)")
@@ -184,7 +184,7 @@ def show_stats():
     # Recent sessions
     sessions = usage.get("sessions", [])[-10:]
     if sessions:
-        print("\n📜 Recent Sessions:")
+        print("\n Recent Sessions:")
         for s in reversed(sessions):
             ts = s.get("timestamp", "")[:16].replace("T", " ")
             chars = s.get("characters", 0)
@@ -201,7 +201,7 @@ def reset_stats():
         "last_reset": datetime.now().isoformat()
     }
     save_usage(usage)
-    print("✅ Usage statistics reset.")
+    print(" Usage statistics reset.")
 
 
 def get_api_key() -> str:
@@ -218,7 +218,7 @@ def get_api_key() -> str:
             if line.startswith("ELEVEN_API_KEY="):
                 return line.split("=", 1)[1].strip().strip('"\'')
     
-    print("❌ No ElevenLabs API key found.")
+    print(" No ElevenLabs API key found.")
     print("   Options:")
     print("   1. Set ELEVEN_API_KEY environment variable")
     print("   2. Configure in OpenClaw (tts.elevenlabs.apiKey)")
@@ -231,19 +231,19 @@ def list_voices(voices_data: dict):
     voices = voices_data.get("voices", {})
     presets = voices_data.get("presets", {})
     
-    print("🎙️  Available Voices\n")
+    print("  Available Voices\n")
     print(f"{'Name':<15} {'Language':<10} {'Gender':<8} {'Persona':<15} Description")
     print("-" * 80)
     
     for name, v in sorted(voices.items()):
         print(f"{name:<15} {v.get('language', 'n/a'):<10} {v.get('gender', 'n/a'):<8} {v.get('persona', 'n/a'):<15} {v.get('description', '')[:40]}...")
     
-    print(f"\n📋 Presets: {', '.join(presets.keys())}")
+    print(f"\n Presets: {', '.join(presets.keys())}")
 
 
 def list_languages():
     """List all supported languages."""
-    print("🌍 Supported Languages (32)\n")
+    print(" Supported Languages (32)\n")
     print(f"{'Code':<6} {'Language':<15}")
     print("-" * 25)
     for code, info in sorted(SUPPORTED_LANGUAGES.items()):
@@ -269,7 +269,7 @@ def synthesize(
         if voice_name in presets:
             voice_name = presets[voice_name]
         else:
-            print(f"❌ Voice '{voice_name}' not found.")
+            print(f" Voice '{voice_name}' not found.")
             print(f"   Available: {', '.join(voices.keys())}")
             return False
     
@@ -329,9 +329,9 @@ def synthesize(
                             break
                         f.write(chunk)
                         total_bytes += len(chunk)
-                        print(f"\r⏳ Streaming: {total_bytes / 1024:.1f} KB", end="", flush=True)
+                        print(f"\r Streaming: {total_bytes / 1024:.1f} KB", end="", flush=True)
                     print()
-                print(f"✅ Saved: {output_path} ({total_bytes / 1024:.1f} KB)")
+                print(f" Saved: {output_path} ({total_bytes / 1024:.1f} KB)")
         else:
             with urllib.request.urlopen(req, timeout=30) as response:
                 audio_data = response.read()
@@ -340,7 +340,7 @@ def synthesize(
                 with open(output_path, "wb") as f:
                     f.write(audio_data)
                 
-                print(f"✅ Saved: {output_path} ({len(audio_data) / 1024:.1f} KB)")
+                print(f" Saved: {output_path} ({len(audio_data) / 1024:.1f} KB)")
         
         # Track usage
         track_usage(len(text), voice_name)
@@ -348,10 +348,10 @@ def synthesize(
             
     except urllib.error.HTTPError as e:
         error_body = e.read().decode("utf-8") if e.fp else ""
-        print(f"❌ API Error ({e.code}): {error_body[:200]}")
+        print(f" API Error ({e.code}): {error_body[:200]}")
         return False
     except urllib.error.URLError as e:
-        print(f"❌ Network Error: {e.reason}")
+        print(f" Network Error: {e.reason}")
         return False
 
 
@@ -367,7 +367,7 @@ def process_batch(
     """Process batch of texts from file."""
     batch_path = Path(batch_file)
     if not batch_path.exists():
-        print(f"❌ Batch file not found: {batch_file}")
+        print(f" Batch file not found: {batch_file}")
         return 0, 0
     
     out_path = Path(output_dir)
@@ -388,10 +388,10 @@ def process_batch(
         texts = [line.strip() for line in content.splitlines() if line.strip()]
     
     if not texts:
-        print("❌ No texts found in batch file")
+        print(" No texts found in batch file")
         return 0, 0
     
-    print(f"📦 Processing batch: {len(texts)} items\n")
+    print(f" Processing batch: {len(texts)} items\n")
     
     success = 0
     failed = 0
@@ -418,8 +418,8 @@ def process_batch(
         # Rate limiting
         time.sleep(0.5)
     
-    print(f"\n✅ Complete: {success} success, {failed} failed")
-    print(f"📁 Output: {out_path}")
+    print(f"\n Complete: {success} success, {failed} failed")
+    print(f" Output: {out_path}")
     return success, failed
 
 
@@ -437,7 +437,7 @@ def test_voices(voices_data: dict, api_key: str):
         "it": "Ciao! Questo è un test della sintesi vocale ElevenLabs."
     }
     
-    print("🧪 Testing all voices...\n")
+    print(" Testing all voices...\n")
     
     success = 0
     failed = 0
@@ -453,8 +453,8 @@ def test_voices(voices_data: dict, api_key: str):
         else:
             failed += 1
     
-    print(f"\n✅ Success: {success}, ❌ Failed: {failed}")
-    print(f"📁 Samples saved to: {output_dir}")
+    print(f"\n Success: {success},  Failed: {failed}")
+    print(f" Samples saved to: {output_dir}")
 
 
 def main():
@@ -544,7 +544,7 @@ Examples:
     # Single synthesis
     if not args.text:
         parser.print_help()
-        print("\n❌ --text or --batch is required for synthesis")
+        print("\n --text or --batch is required for synthesis")
         sys.exit(1)
     
     synthesize(

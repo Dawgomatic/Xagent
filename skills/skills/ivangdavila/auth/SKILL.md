@@ -5,7 +5,7 @@ version: 1.3.0
 homepage: https://clawic.com/skills/auth
 description: Build secure authentication with sessions, JWT, OAuth, passwordless, MFA, and SSO for web and mobile apps.
 changelog: "Added documentation-only disclaimer, clarified example code does not execute"
-metadata: {"clawdbot":{"emoji":"🔐","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Documentation-Only Skill

@@ -72,7 +72,7 @@ def test_config_loading():
         except Exception as e:
             print(f"✗ 配置文件加载失败: {e}")
     else:
-        print("ℹ️  配置文件不存在，跳过测试")
+        print("  配置文件不存在，跳过测试")
 
 def test_document_reader():
     """测试文档读取器基本功能"""

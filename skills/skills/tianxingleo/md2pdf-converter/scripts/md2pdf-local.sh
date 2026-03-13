@@ -40,12 +40,12 @@ trap cleanup EXIT
 # --- 1. 检查并下载 Twemoji 完整版 (只需执行一次) ---
 ensure_twemoji() {
     if [ -f "$EMOJI_MAPPING" ]; then
-        echo "✅ Twemoji 资源已缓存: $EMOJI_DIR"
+        echo " Twemoji 资源已缓存: $EMOJI_DIR"
         echo "   映射表: $EMOJI_MAPPING"
         return 0
     fi
 
-    echo "🚧 正在设置 Twemoji ${TWEMOJI_VERSION}..."
+    echo " 正在设置 Twemoji ${TWEMOJI_VERSION}..."
     mkdir -p "$CACHE_DIR"
 
     # 下载 GitHub 的 tar.gz 包
@@ -69,7 +69,7 @@ ensure_twemoji() {
     echo "   生成 emoji 映射表..."
     python3 /home/ltx/.openclaw/workspace/skills/md2pdf-converter/scripts/generate_emoji_mapping.py
 
-    echo "✅ Twemoji 完整版已准备就绪"
+    echo " Twemoji 完整版已准备就绪"
 }
 
 ensure_twemoji
@@ -271,7 +271,7 @@ EOF
 
 # --- 4. 执行转换 ---
 
-echo "📝 正在处理 Markdown (使用 Twemoji 完整版 ${TWEMOJI_VERSION})..."
+echo " 正在处理 Markdown (使用 Twemoji 完整版 ${TWEMOJI_VERSION})..."
 pandoc "$INPUT_FILE" \
     --lua-filter="$LUA_FILTER" \
     --css="$CSS_STYLE" \
@@ -279,12 +279,12 @@ pandoc "$INPUT_FILE" \
     --standalone \
     -o "$HTML_TEMP"
 
-echo "🖨️  正在生成 PDF..."
+echo "  正在生成 PDF..."
 weasyprint "$HTML_TEMP" "$OUTPUT_FILE"
 
-echo "✨ 转换成功: $OUTPUT_FILE"
+echo " 转换成功: $OUTPUT_FILE"
 echo ""
-echo "📊 Emoji 信息:"
+echo " Emoji 信息:"
 echo "   - 版本: Twemoji ${TWEMOJI_VERSION}"
 echo "   - 数量: 3660 个彩色 PNG (包含变体)"
 echo "   - 大小: 72x72px"

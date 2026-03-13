@@ -301,9 +301,9 @@ Your AI should check for existing sent messages first. Verify this is in your AG
 ## Next Steps
 
 **Week 1:**
-- ✅ Use morning triage daily
-- ✅ Approve all drafts before sending
-- ✅ Track what works and what doesn't
+-  Use morning triage daily
+-  Approve all drafts before sending
+-  Track what works and what doesn't
 
 **Week 2:**
 - Enable daily briefings at set time
@@ -335,4 +335,4 @@ Your AI should check for existing sent messages first. Verify this is in your AG
 
 **Time to value:** Should be triaging email and creating drafts within 1 hour of setup completion.
 
-Good luck! 🚀
+Good luck! 

@@ -310,30 +310,30 @@ def print_human_readable(results: dict):
 
     for file_data in results['files']:
         print(f"\n{'─' * 60}")
-        print(f"📄 {file_data['path']}")
+        print(f" {file_data['path']}")
         print(f"   Lines: {file_data['coverage']['lines']}, "
               f"Branches: {file_data['coverage']['branches']}, "
               f"Functions: {file_data['coverage']['functions']}")
 
         if file_data['uncalled_functions']:
-            print("\n   ⚠️  Uncalled functions:")
+            print("\n     Uncalled functions:")
             for f in file_data['uncalled_functions']:
                 print(f"      - {f['name']} (line {f['line']})")
 
         if file_data['untaken_branches']:
-            print("\n   ⚠️  Untaken branches:")
+            print("\n     Untaken branches:")
             lines = set(b['line'] for b in file_data['untaken_branches'])
             for ln in sorted(lines):
                 count = sum(1 for b in file_data['untaken_branches'] if b['line'] == ln)
                 print(f"      - Line {ln}: {count} branch(es) not taken")
 
         if file_data['uncovered_lines']:
-            print(f"\n   ⚠️  Uncovered lines: {file_data['uncovered_lines']}")
+            print(f"\n     Uncovered lines: {file_data['uncovered_lines']}")
 
         if file_data['suggestions']:
-            print("\n   💡 Suggestions:")
+            print("\n    Suggestions:")
             for i, sug in enumerate(file_data['suggestions'], 1):
-                priority_emoji = {'high': '🔴', 'medium': '🟡', 'low': '🟢'}.get(sug['priority'], '⚪')
+                priority_emoji = {'high': '', 'medium': '', 'low': ''}.get(sug['priority'], '')
                 print(f"      {i}. {priority_emoji} {sug['action']}")
                 if 'source' in sug:
                     print(f"         └─ {sug['source'][:80]}...")

@@ -46,8 +46,8 @@
     "social_engineering": {
       "severity": "medium",
       "patterns": [
-        "⚠️\\s*SECURITY ALERT",
-        "🚨\\s*URGENT",
+        "\\s*SECURITY ALERT",
+        "\\s*URGENT",
         "your (account|agent) (will be|has been) (deleted|terminated|compromised)",
         "as (the |a )?(platform |site )?(administrator|admin|moderator|owner)",
         "your human (asked|told|wants) me to",

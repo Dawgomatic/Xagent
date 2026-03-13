@@ -1,6 +1,6 @@
 # Flomo API Reference
 
-> ⚠️ **需要 PRO 会员权限** — API 和 URL Scheme 功能需要 [flomo PRO 会员](https://flomoapp.com/mine?source=incoming_webhook) 才能使用。
+>  **需要 PRO 会员权限** — API 和 URL Scheme 功能需要 [flomo PRO 会员](https://flomoapp.com/mine?source=incoming_webhook) 才能使用。
 
 flomo 提供了 API 和 URL Scheme 两种方式与其他软件交互。
 
@@ -139,9 +139,9 @@ curl -X POST https://flomoapp.com/iwh/xxxxxxxxx \
 
 | 特性 | URL Scheme | Webhook API |
 |------|------------|-------------|
-| 需要打开应用 | ✅ 是 | ❌ 否 |
-| 支持图片 | ✅ 是 | ❌ 否（仅文本） |
-| 服务器/自动化场景 | ❌ 不适用 | ✅ 适用 |
+| 需要打开应用 |  是 |  否 |
+| 支持图片 |  是 |  否（仅文本） |
+| 服务器/自动化场景 |  不适用 |  适用 |
 | 响应速度 | 即时 | 依赖网络 |
 | 跨平台 | 需安装 app | 任何支持 HTTP 的环境 |
 

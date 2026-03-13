@@ -8,34 +8,34 @@
 
 This skill enables OpenClaw agents to interact with [Ghost CMS](https://ghost.org), the open-source publishing platform. Manage content, members, subscriptions, comments, and analytics—all via the Ghost Admin API.
 
-**Status:** ✅ **Production Ready** (Security hardened Feb 10, 2026)  
+**Status:**  **Production Ready** (Security hardened Feb 10, 2026)  
 **API Version:** Ghost Admin API v5.0  
-**Hosting:** ✅ **Works with Ghost(Pro) AND self-hosted Ghost installations** (v5.0+)
+**Hosting:**  **Works with Ghost(Pro) AND self-hosted Ghost installations** (v5.0+)
 
 ## Features
 
-✅ **Content Management** - Create, update, publish, schedule posts and pages  
-✅ **Member Management** - Manage subscribers, free and paid memberships  
-✅ **Subscription Management** - Create and manage pricing tiers  
-✅ **Comment Management** - Reply to, approve, and moderate comments  
-✅ **Newsletter Management** - Configure newsletters and email campaigns  
-✅ **Analytics** - Access subscriber stats, popular content, MRR  
-✅ **Media Management** - Upload images and featured images  
-✅ **User Management** - Invite and manage site users  
-✅ **Theme Management** - Upload, activate, switch, and manage custom themes  
-✅ **Theme Validation** - Validate themes before upload using official Ghost gscan validator
+ **Content Management** - Create, update, publish, schedule posts and pages  
+ **Member Management** - Manage subscribers, free and paid memberships  
+ **Subscription Management** - Create and manage pricing tiers  
+ **Comment Management** - Reply to, approve, and moderate comments  
+ **Newsletter Management** - Configure newsletters and email campaigns  
+ **Analytics** - Access subscriber stats, popular content, MRR  
+ **Media Management** - Upload images and featured images  
+ **User Management** - Invite and manage site users  
+ **Theme Management** - Upload, activate, switch, and manage custom themes  
+ **Theme Validation** - Validate themes before upload using official Ghost gscan validator
 
 ## Security
 
 **This skill includes comprehensive security controls:**
 
-- **🔒 Autonomous invocation disabled** - Requires explicit user commands
-- **📋 Capability declarations** - 8 capabilities clearly documented
-- **🔑 Credential documentation** - Multiple secure storage options
-- **📚 Operation classification** - ~50 operations (17 read-only, 33 destructive)
-- **⚠️ Security warnings** - Prominent warnings about public publishing
-- **📖 Comprehensive docs** - Complete API reference with safety guide
-- **🛡️ Recovery procedures** - Undo guide for all operations
+- ** Autonomous invocation disabled** - Requires explicit user commands
+- ** Capability declarations** - 8 capabilities clearly documented
+- ** Credential documentation** - Multiple secure storage options
+- ** Operation classification** - ~50 operations (17 read-only, 33 destructive)
+- ** Security warnings** - Prominent warnings about public publishing
+- ** Comprehensive docs** - Complete API reference with safety guide
+- ** Recovery procedures** - Undo guide for all operations
 
 **Admin API Key Access:**
 - Ghost Admin API keys provide **full site access**
@@ -199,10 +199,10 @@ All operations documented with safety classifications, side effects, and recover
 ### Operation Classification
 
 Every API operation is classified:
-- **✅ Safe (Read-Only)** - No data modification (all GET requests)
-- **⚠️ Destructive** - Modifies or creates data (POST, PUT)
-- **🚨 Permanent** - Cannot be undone (DELETE operations)
-- **🚨 PUBLIC RISK** - Publishes content to the internet
+- ** Safe (Read-Only)** - No data modification (all GET requests)
+- ** Destructive** - Modifies or creates data (POST, PUT)
+- ** Permanent** - Cannot be undone (DELETE operations)
+- ** PUBLIC RISK** - Publishes content to the internet
 
 ### Metadata Security Controls
 
@@ -248,7 +248,7 @@ Complete undo procedures documented for all operations:
 - Delete operations → **Permanent, cannot undo**
 - Publish operations → Can unpublish, but content was temporarily public
 
-**⚠️ Important:** Ghost does not keep version history. Always save important data before modifying.
+** Important:** Ghost does not keep version history. Always save important data before modifying.
 
 ## Scripts
 
@@ -353,20 +353,20 @@ See [references/setup.md](references/setup.md) for complete troubleshooting guid
 
 Ghost has a built-in snippet feature that allows authors to save and reuse content blocks (signatures, CTAs, disclosures, etc.) in the editor. However, the Admin API **blocks access to snippets** for integration tokens (403 Forbidden), meaning:
 
-- ❌ Cannot list snippets programmatically
-- ❌ Cannot fetch snippet content via API
-- ❌ Cannot use author's existing Ghost snippets in code
+-  Cannot list snippets programmatically
+-  Cannot fetch snippet content via API
+-  Cannot use author's existing Ghost snippets in code
 
 **Our Solution:**
 
 This skill includes a **complete snippet system** with automated extraction from Ghost:
 
-**🚀 Automated Snippet Extraction:**
-- ✅ Migrate all existing Ghost snippets in one command
-- ✅ Create extraction post in Ghost (one-time setup)
-- ✅ Run extractor script → all snippets saved locally
-- ✅ Preserves exact structure (bookmarks, callouts, images, etc.)
-- ✅ Takes ~15 minutes manual + 5 seconds automated
+** Automated Snippet Extraction:**
+-  Migrate all existing Ghost snippets in one command
+-  Create extraction post in Ghost (one-time setup)
+-  Run extractor script → all snippets saved locally
+-  Preserves exact structure (bookmarks, callouts, images, etc.)
+-  Takes ~15 minutes manual + 5 seconds automated
 
 **Extraction Workflow:**
 ```bash
@@ -378,12 +378,12 @@ node scripts/snippet-extractor.js my-snippets-post
 ```
 
 **Local Snippet Library:**
-- ✅ Reusable content blocks (signatures, CTAs, disclosures)
-- ✅ Stored as Lexical JSON fragments (same format Ghost uses)
-- ✅ CLI management tool for easy snippet handling
-- ✅ Example snippets included to get started
-- ✅ Git version control (bonus: Ghost doesn't version snippets!)
-- ✅ Programmatic injection into posts via API
+-  Reusable content blocks (signatures, CTAs, disclosures)
+-  Stored as Lexical JSON fragments (same format Ghost uses)
+-  CLI management tool for easy snippet handling
+-  Example snippets included to get started
+-  Git version control (bonus: Ghost doesn't version snippets!)
+-  Programmatic injection into posts via API
 
 **Snippet Management:**
 ```bash
@@ -412,33 +412,33 @@ See [snippets/README.md](snippets/README.md) for complete documentation.
 
 **Media:**
 - Image, Gallery, Bookmark
-- ✨ **Video** - MP4, WebM, OGG embeds
-- ✨ **Audio** - MP3, WAV, OGG embeds
-- ✨ **File** - Downloadable files (any type)
+-  **Video** - MP4, WebM, OGG embeds
+-  **Audio** - MP3, WAV, OGG embeds
+-  **File** - Downloadable files (any type)
 
 **Layout:**
 - Callout, Divider
-- ✨ **Header** - Section headers with images/layouts
+-  **Header** - Section headers with images/layouts
 
 **Interactive:**
-- ✨ **Button** - Call-to-action buttons
-- ✨ **Toggle** - Collapsible content
+-  **Button** - Call-to-action buttons
+-  **Toggle** - Collapsible content
 - Signup forms
 
 **Marketing:**
-- ✨ **Call-to-Action** - Promotional content with visibility
-- ✨ **Product** - E-commerce product displays
+-  **Call-to-Action** - Promotional content with visibility
+-  **Product** - E-commerce product displays
 
 **Member Content:**
-- ✨ **Paywall** - Public preview divider
-- ✨ **HTML** - Custom HTML with visibility
+-  **Paywall** - Public preview divider
+-  **HTML** - Custom HTML with visibility
 
 **Embeds:**
-- ✨ **Embed** - YouTube, Spotify, Twitter, and more via oEmbed
+-  **Embed** - YouTube, Spotify, Twitter, and more via oEmbed
 
-**📖 Complete Documentation:** [lexical-cards.md](references/lexical-cards.md) - Likely the most comprehensive public documentation of Ghost Lexical card types, with complete JSON structures, field references, and usage examples for all 23 card types.
+** Complete Documentation:** [lexical-cards.md](references/lexical-cards.md) - Likely the most comprehensive public documentation of Ghost Lexical card types, with complete JSON structures, field references, and usage examples for all 23 card types.
 
-**🛠️ Helper Functions:** [lexical-builder.js](scripts/lexical-builder.js) - **Complete set of 20+ builder functions** for all documented card types:
+** Helper Functions:** [lexical-builder.js](scripts/lexical-builder.js) - **Complete set of 20+ builder functions** for all documented card types:
 
 ```javascript
 import {
@@ -480,44 +480,44 @@ This skill provides complete core functionality for Ghost CMS management. See [o
 - Content snippets via API (Ghost limitation)
 
 **Current version (v0.1.0) provides:**
-- ✅ Complete content management (posts, pages, tags)
-- ✅ **23 Lexical card types documented** (expanded!)
-- ✅ **20+ builder helper functions** for all card types
-- ✅ **Automated snippet extraction tool** (new!)
-- ✅ **Local snippet library system** with CLI
-- ✅ Full member and subscription management
-- ✅ Comment moderation
-- ✅ Newsletter management
-- ✅ Basic analytics
-- ✅ Image uploads
-- ✅ User management
+-  Complete content management (posts, pages, tags)
+-  **23 Lexical card types documented** (expanded!)
+-  **20+ builder helper functions** for all card types
+-  **Automated snippet extraction tool** (new!)
+-  **Local snippet library system** with CLI
+-  Full member and subscription management
+-  Comment moderation
+-  Newsletter management
+-  Basic analytics
+-  Image uploads
+-  User management
 
 ## Privacy & Security
 
 **What this skill stores locally:**
-- ✅ Extracted snippets in `snippets/library/` (your content, git-ignored)
-- ✅ Temporary test data in `extracted-cards/` (git-ignored)
-- ❌ NO credentials (user responsibility to secure)
+-  Extracted snippets in `snippets/library/` (your content, git-ignored)
+-  Temporary test data in `extracted-cards/` (git-ignored)
+-  NO credentials (user responsibility to secure)
 
 **What this skill transmits:**
-- ✅ API requests to YOUR Ghost site only (HTTPS)
-- ❌ NO third-party API calls
-- ❌ NO telemetry or analytics
-- ❌ NO external logging
+-  API requests to YOUR Ghost site only (HTTPS)
+-  NO third-party API calls
+-  NO telemetry or analytics
+-  NO external logging
 
 **Security features:**
-- ✅ Credentials never logged or transmitted to third parties
-- ✅ JWT tokens generated on-demand (5-minute expiry)
-- ✅ Input sanitization (filenames, sizes)
-- ✅ Operation classification (safe vs. destructive)
-- ✅ `.gitignore` prevents credential commits
+-  Credentials never logged or transmitted to third parties
+-  JWT tokens generated on-demand (5-minute expiry)
+-  Input sanitization (filenames, sizes)
+-  Operation classification (safe vs. destructive)
+-  `.gitignore` prevents credential commits
 
 **Best practices:**
-- 🔒 Store API keys securely (1Password CLI, env vars, or `~/.config/ghost/`)
-- 🔄 Rotate API keys every 90 days
-- 🧪 Test on staging sites before production
-- 📝 Review content before publishing
-- 🚫 Never commit credentials to version control
+-  Store API keys securely (1Password CLI, env vars, or `~/.config/ghost/`)
+-  Rotate API keys every 90 days
+-  Test on staging sites before production
+-  Review content before publishing
+-  Never commit credentials to version control
 
 **For detailed security information:**
 - See [SECURITY.md](../SECURITY.md) for security policy and incident response
@@ -546,4 +546,4 @@ Contributions welcome! Please:
 
 ---
 
-**⚠️ Security Notice:** This skill can publish content to the public internet. Always review content before publishing. Test on staging sites when possible. Store API keys securely.
+** Security Notice:** This skill can publish content to the public internet. Always review content before publishing. Test on staging sites when possible. Store API keys securely.

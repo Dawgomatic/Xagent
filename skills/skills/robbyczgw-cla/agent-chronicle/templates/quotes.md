@@ -1,4 +1,4 @@
-# Quote Hall of Fame 💬
+# Quote Hall of Fame 
 
 Memorable things my human has said — funny, profound, or touching.
 

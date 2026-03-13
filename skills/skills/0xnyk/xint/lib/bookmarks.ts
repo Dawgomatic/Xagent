@@ -187,5 +187,5 @@ function outputBookmarks(
   const filterNote = filtered.length !== tweets.length
     ? ` (${filtered.length} after filters)`
     : "";
-  console.error(`\n📑 ${tweets.length} bookmarks fetched${filterNote}, showing ${shown.length}`);
+  console.error(`\n ${tweets.length} bookmarks fetched${filterNote}, showing ${shown.length}`);
 }

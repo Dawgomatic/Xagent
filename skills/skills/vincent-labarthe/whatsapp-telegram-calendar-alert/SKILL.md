@@ -24,7 +24,7 @@ User confirms → Google Calendar event created
 ./setup.sh
 # Enter your Telegram Chat ID when prompted
 # Scan the QR code with WhatsApp
-# Done! 🎉
+# Done! 
 ```
 
 ## Requirements

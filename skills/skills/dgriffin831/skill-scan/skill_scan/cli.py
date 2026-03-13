@@ -16,7 +16,7 @@ ALERT_RISK_ORDER = {"LOW": 0, "MEDIUM": 1, "HIGH": 2, "CRITICAL": 3}
 def _send_alert(message: str) -> bool:
     channel = os.environ.get("OPENCLAW_ALERT_CHANNEL")
     if not channel:
-        print("⚠️ OPENCLAW_ALERT_CHANNEL not set; alert not sent.", file=sys.stderr)
+        print(" OPENCLAW_ALERT_CHANNEL not set; alert not sent.", file=sys.stderr)
         return False
     cmd = ["openclaw", "message", "send", "--channel", channel, "--message", message]
     target = os.environ.get("OPENCLAW_ALERT_TO")
@@ -26,7 +26,7 @@ def _send_alert(message: str) -> bool:
         subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         return True
     except Exception as e:
-        print(f"⚠️ Failed to send alert: {e}", file=sys.stderr)
+        print(f" Failed to send alert: {e}", file=sys.stderr)
         return False
 
 def main() -> None:

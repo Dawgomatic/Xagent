@@ -113,7 +113,7 @@ For full details with examples, see `references/patterns.md`.
 | 14 | Boldface overuse | Mechanical emphasis everywhere |
 | 15 | Inline-header lists | "- Topic: Topic is discussed here" |
 | 16 | Title Case headings | Every Main Word Capitalized |
-| 17 | Emoji overuse | 🚀💡✅ decorating professional text |
+| 17 | Emoji overuse |  decorating professional text |
 | 18 | Curly quotes | "smart quotes" instead of "straight quotes" |
 | 19 | Chatbot artifacts | "I hope this helps!", "Let me know if..." |
 | 20 | Cutoff disclaimers | "As of my last training...", "While details are limited..." |

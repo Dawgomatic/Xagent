@@ -8,11 +8,11 @@ description: 自动将文档网站、GitHub 仓库、PDF 转换为 Claude AI Ski
 ## 功能
 
 快速创建 Claude AI Skills，支持：
-- 📖 文档网站抓取 (React, Godot, Vue, Django, FastAPI 等)
-- 🐙 GitHub 仓库分析 (深度 AST 解析)
-- 📄 PDF 提取 (文本、表格、OCR)
-- 🔄 多源合并 + 冲突检测
-- ✨ AI 增强 (自动生成优质 SKILL.md)
+-  文档网站抓取 (React, Godot, Vue, Django, FastAPI 等)
+-  GitHub 仓库分析 (深度 AST 解析)
+-  PDF 提取 (文本、表格、OCR)
+-  多源合并 + 冲突检测
+-  AI 增强 (自动生成优质 SKILL.md)
 
 ## 使用场景
 
@@ -151,10 +151,10 @@ skill-seekers unified --config configs/myframework_unified.json
 
 | 类型 | 说明 |
 |------|------|
-| 🔴 Missing in code | 文档有但代码没有 |
-| 🟡 Missing in docs | 代码有但文档没有 |
-| ⚠️ Signature mismatch | 参数/类型不匹配 |
-| ℹ️ Description mismatch | 描述不一致 |
+|  Missing in code | 文档有但代码没有 |
+|  Missing in docs | 代码有但文档没有 |
+|  Signature mismatch | 参数/类型不匹配 |
+|  Description mismatch | 描述不一致 |
 
 ## AI 增强
 

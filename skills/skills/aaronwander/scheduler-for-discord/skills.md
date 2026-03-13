@@ -1,7 +1,7 @@
 ---
 name: schedule
 description: Create and manage scheduled reminders and posts. Use when the user asks Moltbot to send a message later or on a recurring schedule (especially to the current Discord channel) without requiring them to provide channel IDs.
-metadata: {"moltbot":{"emoji":"⏰","requires":{"config":["channels.discord"]}}}
+metadata: {"moltbot":{"emoji":"","requires":{"config":["channels.discord"]}}}
 ---
 
 # Scheduler (cron)

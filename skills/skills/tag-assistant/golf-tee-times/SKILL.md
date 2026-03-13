@@ -3,12 +3,12 @@ name: golf-tee-times
 description: "Search for golf tee times and deals near any location. Find cheapest rounds, compare prices across platforms, and get discount tips. Use when asked about golf, tee times, courses, or booking a round."
 metadata:
   openclaw:
-    emoji: "⛳"
+    emoji: ""
     requires:
       bins: ["curl", "python3"]
 ---
 
-# Golf Tee Time Finder ⛳
+# Golf Tee Time Finder 
 
 Find and compare golf tee times using the GolfNow API (reverse-engineered). Works for any location.
 
@@ -32,7 +32,7 @@ User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
 Origin: https://www.golfnow.com
 ```
 
-### Facility-Specific Search (SearchType: 1) — WORKS ✅
+### Facility-Specific Search (SearchType: 1) — WORKS 
 Requires a `FacilityId`. Returns all tee times for that course on a given date.
 
 ```json
@@ -65,7 +65,7 @@ Requires a `FacilityId`. Returns all tee times for that course on a given date.
 }
 ```
 
-### Area Search (SearchType: 0) — DOES NOT WORK ❌
+### Area Search (SearchType: 0) — DOES NOT WORK 
 Returns 0 results without a FacilityId. The API requires facility-specific queries.
 
 ### Key Parameters
@@ -93,8 +93,8 @@ ttResults.teeTimes[] → array of tee time groups
   ├── facility.latitude, facility.longitude
   └── teeTimeRates[] → rate options for this time slot
        ├── rateName: "Prepaid - Online Rate" / "Hot Deal" / "Twilight" / etc.
-       ├── isHotDeal: true/false  🔥
-       ├── isTradeOffer: true/false  💳 (credit-bookable)
+       ├── isHotDeal: true/false  
+       ├── isTradeOffer: true/false   (credit-bookable)
        ├── isCartIncluded: true/false
        ├── singlePlayerPrice.greensFees.value: 35.0
        └── rateSetTypeId: 1=prepaid, other=pay at course
@@ -123,20 +123,20 @@ Since area search doesn't work, you need FacilityIds. Methods:
 Use this clean format for presenting tee times:
 
 ```
-🏌️ *Tee Times · {Day} {Date} · {Players} Players*
+ *Tee Times · {Day} {Date} · {Players} Players*
 
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 
-🔥 *DEALS*
+ *DEALS*
 
-🔥 *[Course Name](url)*
-City · X mi · ⭐ X.X · N reviews
-▸ Time · *$XX* · 18 holes · cart 🔥
+ *[Course Name](url)*
+City · X mi ·  X.X · N reviews
+▸ Time · *$XX* · 18 holes · cart 
 
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 
 *[Course Name](url)*
-City · X mi · ⭐ X.X · N reviews
+City · X mi ·  X.X · N reviews
 ▸ Time range · $XX
 ▸ Time range · $XX twilight
 
@@ -148,7 +148,7 @@ _All prices per player · cart included · via GolfNow_
 Key formatting rules:
 - Use `▸` for time slot lines
 - Bold the course name as a markdown link
-- Show deals section first (🔥 hot deals, 💳 credit/trade offers)
+- Show deals section first ( hot deals,  credit/trade offers)
 - Group times by price tier within each course
 - Include distance, rating, review count
 - Add `← AM slots` or similar callouts for notable availability
@@ -157,15 +157,15 @@ Key formatting rules:
 
 ## Discount Tips
 
-1. 🔥 **GolfNow Hot Deals** — `isHotDeal: true` in API. Unsold inventory at deep discounts.
-2. 💳 **Trade Offers** — `isTradeOffer: true`. Bookable with GolfNow credits.
-3. 🚶 **Walk don't ride** — saves $20-50 on cart fees
-4. 🌅 **Twilight rates** — after 2-3 PM, prices drop significantly (look for `rateName: "Twilight"`)
-5. 🏠 **FL resident rate** — show ID for local discount at public courses
-6. ⏰ **Last-minute deals** — day-of prices drop; hot deals appear closer to tee time
-7. 📞 **Call pro shop** — phone-only rates sometimes cheaper than online
-8. 🗓️ **Weekday > Weekend** — Monday-Thursday is always cheaper
-9. 🌧️ **Rain forecast** — prices drop when weather looks iffy
+1.  **GolfNow Hot Deals** — `isHotDeal: true` in API. Unsold inventory at deep discounts.
+2.  **Trade Offers** — `isTradeOffer: true`. Bookable with GolfNow credits.
+3.  **Walk don't ride** — saves $20-50 on cart fees
+4.  **Twilight rates** — after 2-3 PM, prices drop significantly (look for `rateName: "Twilight"`)
+5.  **FL resident rate** — show ID for local discount at public courses
+6.  **Last-minute deals** — day-of prices drop; hot deals appear closer to tee time
+7.  **Call pro shop** — phone-only rates sometimes cheaper than online
+8.  **Weekday > Weekend** — Monday-Thursday is always cheaper
+9.  **Rain forecast** — prices drop when weather looks iffy
 
 ## Seasonal Notes (your area)
 - **Peak season** (Dec-Apr): Highest prices, book 3-7 days ahead. Morning sells out fast.
@@ -175,7 +175,7 @@ Key formatting rules:
 
 ## Booking Flow## Booking Flow (GolfNow via Browser)
 
-### ⚠️ CRITICAL: Always send a screenshot of the final checkout page to the user BEFORE clicking "Make Your Reservation". Wait for explicit approval.
+###  CRITICAL: Always send a screenshot of the final checkout page to the user BEFORE clicking "Make Your Reservation". Wait for explicit approval.
 
 ### Steps
 1. **Navigate** to `https://www.golfnow.com/tee-times/facility/{facilityId}/tee-time/{teeTimeId}`
@@ -190,7 +190,7 @@ Key formatting rules:
    - **Decline Tee Time Protection**: Click `input[name=rdlTeeTimeProtection][value=false]`
    - **Decline charity roundup**: Click "No Thanks" if desired
    - **Payment**: Pre-filled from saved cards (default: AMEX 1004)
-6. **📸 SCREENSHOT & SEND TO USER** — Send checkout screenshot via Telegram before proceeding
+6. ** SCREENSHOT & SEND TO USER** — Send checkout screenshot via Telegram before proceeding
 7. **Wait for approval**
 8. **Accept terms**: Check `#agree-terms-top`
 9. **Click reservation**: `#reservation-button-top`

@@ -5,7 +5,7 @@ version: 1.0.0
 author: Ania
 metadata:
   clawdbot:
-    emoji: "📚"
+    emoji: ""
     requires:
       bins: ["node"]
 ---

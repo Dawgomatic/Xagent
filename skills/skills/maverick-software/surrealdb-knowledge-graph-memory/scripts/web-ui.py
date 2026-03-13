@@ -549,13 +549,13 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </style>
 </head>
 <body>
-    <h1>🧠 SurrealDB Memory</h1>
+    <h1> SurrealDB Memory</h1>
     <p class="subtitle">Knowledge Graph Management UI</p>
 
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-title">📊 Statistics</div>
+                <div class="card-title"> Statistics</div>
                 <div class="row" id="stats">
                     <div class="stat col"><div class="stat-value" id="stat-facts">-</div><div class="stat-label">Facts</div></div>
                     <div class="stat col"><div class="stat-value" id="stat-entities">-</div><div class="stat-label">Entities</div></div>
@@ -572,7 +572,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-title">🏥 Health Status</div>
+                <div class="card-title"> Health Status</div>
                 <div id="health">
                     <div class="health-item">
                         <span>SurrealDB Binary</span>
@@ -593,21 +593,21 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 </div>
                 <div class="actions">
                     <button class="btn" onclick="loadHealth()">↻ Check Health</button>
-                    <button class="btn btn-primary" onclick="autoRepair()">🔧 Auto-Repair</button>
+                    <button class="btn btn-primary" onclick="autoRepair()"> Auto-Repair</button>
                 </div>
             </div>
         </div>
 
         <div class="col">
             <div class="card">
-                <div class="card-title">🔧 Maintenance</div>
+                <div class="card-title"> Maintenance</div>
                 <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 14px;">
                     Run maintenance operations to keep the knowledge graph healthy.
                 </p>
                 <div class="actions">
-                    <button class="btn" onclick="runMaintenance('decay')">📉 Apply Decay</button>
-                    <button class="btn" onclick="runMaintenance('prune')">🗑️ Prune Stale</button>
-                    <button class="btn btn-primary" onclick="runMaintenance('full')">🔄 Full Maintenance</button>
+                    <button class="btn" onclick="runMaintenance('decay')"> Apply Decay</button>
+                    <button class="btn" onclick="runMaintenance('prune')"> Prune Stale</button>
+                    <button class="btn btn-primary" onclick="runMaintenance('full')"> Full Maintenance</button>
                 </div>
                 <div id="maintenance-log" class="log" style="margin-top: 12px; display: none;"></div>
             </div>
@@ -615,7 +615,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </div>
 
     <div class="card">
-        <div class="card-title">🛠️ Installation</div>
+        <div class="card-title"> Installation</div>
         <div class="row">
             <div class="col">
                 <h3 style="font-size: 14px; margin-bottom: 8px;">Manual Steps</h3>

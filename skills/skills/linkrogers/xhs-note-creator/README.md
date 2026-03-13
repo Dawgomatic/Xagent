@@ -1,24 +1,24 @@
-## 📕 Auto-Redbook-Skills（已重构版）
+##  Auto-Redbook-Skills（已重构版）
 
 > 自动撰写小红书笔记、生成多主题卡片、可选自动发布的 Skills  
-> 当前版本对渲染脚本和样式系统做了**一次完整重构**，感谢 Cursor 的辅助开发 🙌
+> 当前版本对渲染脚本和样式系统做了**一次完整重构**，感谢 Cursor 的辅助开发 
 
 ---
 
-## ✨ 本次重构亮点
+##  本次重构亮点
 
-- **🎨 8 套主题皮肤**：默认简约灰 + Playful Geometric / Neo-Brutalism / Botanical / Professional / Retro / Terminal / Sketch
-- **📐 4 种分页模式**：
+- ** 8 套主题皮肤**：默认简约灰 + Playful Geometric / Neo-Brutalism / Botanical / Professional / Retro / Terminal / Sketch
+- ** 4 种分页模式**：
   - `separator`：按 `---` 分隔手动分页
   - `auto-fit`：固定尺寸，自动整体缩放内容，避免溢出/大面积留白
   - `auto-split`：根据渲染后高度自动拆分为多张卡片
   - `dynamic`：根据内容动态调整图片高度
-- **🧱 统一卡片结构**：外层浅灰背景（`card-container`）+ 内层主题背景（`card-inner`）+ 纯排版层（`card-content`）
-- **🧠 封面与正文一体化**：封面背景、标题渐变和正文卡片背景都按主题自动匹配
+- ** 统一卡片结构**：外层浅灰背景（`card-container`）+ 内层主题背景（`card-inner`）+ 纯排版层（`card-content`）
+- ** 封面与正文一体化**：封面背景、标题渐变和正文卡片背景都按主题自动匹配
 
 ---
 
-## 🖼 主题效果示例
+##  主题效果示例
 
 > 所有示例均为 1080×1440px，小红书推荐 3:4 比例
 > 更多示例去 [demo](/demos) 中查看  
@@ -34,7 +34,7 @@
 
 ---
 
-## 🚀 使用方式总览
+##  使用方式总览
 
 ### 1. 克隆项目
 
@@ -67,7 +67,7 @@ npx playwright install chromium
 
 ---
 
-## 🎨 渲染图片（Python）
+##  渲染图片（Python）
 
 核心脚本：`scripts/render_xhs.py`
 
@@ -103,7 +103,7 @@ python scripts/render_xhs.py demos/content.md -t retro -m dynamic --width 1080 -
 
 ---
 
-## 🎨 渲染图片（Node.js）
+##  渲染图片（Node.js）
 
 脚本：`scripts/render_xhs.js`，参数与 Python 基本一致：
 
@@ -117,7 +117,7 @@ node scripts/render_xhs.js demos/content.md -t terminal -m auto-split
 
 ---
 
-## 📤 发布到小红书
+##  发布到小红书
 
 ### 1. 配置 Cookie
 
@@ -153,7 +153,7 @@ python scripts/publish_xhs.py \
 
 ---
 
-## 📁 项目结构（重构后）
+##  项目结构（重构后）
 
 ```bash
 Auto-Redbook-Skills/
@@ -192,7 +192,7 @@ Auto-Redbook-Skills/
 
 ---
 
-## ⚠️ 注意事项
+##  注意事项
 
 1. **Cookie 安全**：不要把 `.env` 提交到 Git 或共享出去。
 2. **Cookie 有效期**：过期后发布失败是正常现象，重新抓一次 Cookie 即可。
@@ -201,15 +201,15 @@ Auto-Redbook-Skills/
 
 ---
 
-## 🙏 致谢
+##  致谢
 
 - [Playwright](https://playwright.dev/) - 浏览器自动化渲染
 - [Marked](https://marked.js.org/) - Markdown 解析
 - [xhs](https://github.com/ReaJason/xhs) - 小红书 API 客户端
-- **Cursor** - 本次重构过程中提供了极大帮助 ❤️
+- **Cursor** - 本次重构过程中提供了极大帮助 
 
 ---
 
-## 📄 License
+##  License
 
-MIT License © 2026
+MIT License  2026

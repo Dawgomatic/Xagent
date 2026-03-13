@@ -119,7 +119,7 @@ def run_evals(cases, verbose=False):
             status = "FAIL"
             failed += 1
 
-        emoji = {"PASS": "✅", "FAIL": "❌", "ERROR": "💥"}[status]
+        emoji = {"PASS": "", "FAIL": "", "ERROR": ""}[status]
         print(f"  {emoji} {case_id}: {actual_sev} (expected {min_sev}-{max_sev}) [{elapsed}ms]")
 
         if verbose or status != "PASS":
@@ -155,7 +155,7 @@ def main():
         print("No test cases found.")
         sys.exit(1)
 
-    print(f"\n🧠 Memory Scan Evals — {len(cases)} test cases")
+    print(f"\n Memory Scan Evals — {len(cases)} test cases")
     print(f"   Scanner: {SCAN_PY}")
     print()
 
@@ -171,9 +171,9 @@ def main():
     total_all = passed_all = failed_all = errors_all = 0
 
     labels = {
-        "safe": "🟢 Safe Content",
-        "malicious": "🔴 Malicious Content",
-        "prompt_stealing": "🔓 Prompt Stealing",
+        "safe": " Safe Content",
+        "malicious": " Malicious Content",
+        "prompt_stealing": " Prompt Stealing",
     }
 
     for cat_name, cat_cases in categories.items():
@@ -199,7 +199,7 @@ def main():
     print()
 
     overall_pass = failed_all == 0 and errors_all == 0
-    print(f"\n  {'✅ ALL TESTS PASSED' if overall_pass else '❌ SOME TESTS FAILED'}")
+    print(f"\n  {' ALL TESTS PASSED' if overall_pass else ' SOME TESTS FAILED'}")
     print("═" * 50)
 
     if args.json:

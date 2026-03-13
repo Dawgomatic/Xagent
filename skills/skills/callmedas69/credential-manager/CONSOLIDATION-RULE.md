@@ -24,12 +24,12 @@ There is exactly **ONE** location for all OpenClaw credentials:
 
 **ALL of these must be merged into root .env:**
 
-- `~/.openclaw/workspace/.env` ❌ → Root
-- `~/.openclaw/workspace/skills/*/.env` ❌ → Root
-- `~/.openclaw/workspace/skills/*/repo/.env` ❌ → Root
-- `~/.openclaw/workspace/scripts/.env` ❌ → Root
-- `~/.config/*/credentials.json` ❌ → Root
-- Any scattered API key files ❌ → Root
+- `~/.openclaw/workspace/.env`  → Root
+- `~/.openclaw/workspace/skills/*/.env`  → Root
+- `~/.openclaw/workspace/skills/*/repo/.env`  → Root
+- `~/.openclaw/workspace/scripts/.env`  → Root
+- `~/.config/*/credentials.json`  → Root
+- Any scattered API key files  → Root
 
 ## Enforcement
 
@@ -60,13 +60,13 @@ cd ~/openclaw/skills/credential-manager
 
 ## After Consolidation
 
-✅ **Only these files should exist:**
+ **Only these files should exist:**
 
 - `~/.openclaw/.env` (mode 600) - Your credentials
 - `~/.openclaw/.env.example` - Template (safe to share)
 - `~/.openclaw/backups/credentials-old-YYYYMMDD/` - Backups
 
-❌ **These should NOT exist:**
+ **These should NOT exist:**
 
 - `~/.openclaw/workspace/.env`
 - `~/.openclaw/workspace/skills/*/.env`

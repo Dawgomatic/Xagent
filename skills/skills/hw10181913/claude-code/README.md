@@ -2,7 +2,7 @@
 
 A comprehensive skill integration that provides Claude Code documentation, best practices, and workflow guidance directly within OpenClaw.
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Overview](#overview)
 - [Installation](#installation)
@@ -17,10 +17,10 @@ A comprehensive skill integration that provides Claude Code documentation, best 
 
 This skill bridges Claude Code's powerful AI-assisted development capabilities with OpenClaw's workflow system, providing:
 
-- 📚 **Documentation Queries** - Instant access to Claude Code docs
-- 🤖 **Best Practices** - AI coding guidelines and workflows
-- 🛠️ **Troubleshooting** - Common issues and solutions
-- 📖 **Workflow Guidance** - Development process recommendations
+-  **Documentation Queries** - Instant access to Claude Code docs
+-  **Best Practices** - AI coding guidelines and workflows
+-  **Troubleshooting** - Common issues and solutions
+-  **Workflow Guidance** - Development process recommendations
 
 ## Installation
 
@@ -85,7 +85,7 @@ claude-code query "API design best practices"
 
 ## Commands
 
-### 📚 docs - Documentation Overview
+###  docs - Documentation Overview
 
 Show overview of all available documentation.
 
@@ -96,7 +96,7 @@ claude-code docs best-practices    # AI coding best practices
 claude-code docs troubleshooting   # Troubleshooting guide
 ```
 
-### 🔍 query - Documentation Query
+###  query - Documentation Query
 
 Query specific documentation topics.
 
@@ -113,7 +113,7 @@ claude-code query plugins
 claude-code query mcp
 ```
 
-### 🤖 task - Create Coding Task
+###  task - Create Coding Task
 
 Create a coding subagent task (integrates with OpenClaw's native subagent system).
 
@@ -128,7 +128,7 @@ claude-code task -d "Refactor database" -p high
 claude-code task -d "Implement API" -m claude-3-5-sonnet
 ```
 
-### ℹ️ info - Show Configuration
+###  info - Show Configuration
 
 Display Claude Code configuration and status.
 
@@ -272,27 +272,27 @@ To add new documentation topics:
 
 ## Features
 
-✅ **Documentation at Your Fingertips**
+ **Documentation at Your Fingertips**
 - Instant access to Claude Code docs
 - Searchable knowledge base
 - Regularly updated
 
-✅ **Best Practices Library**
+ **Best Practices Library**
 - AI coding guidelines
 - Development workflows
 - Security recommendations
 
-✅ **Troubleshooting Guide**
+ **Troubleshooting Guide**
 - Common issues and solutions
 - Error resolution steps
 - Performance optimization tips
 
-✅ **OpenClaw Integration**
+ **OpenClaw Integration**
 - Seamless workflow integration
 - Command-line interface
 - Scriptable and automatable
 
-✅ **Open Source**
+ **Open Source**
 - Transparent and auditable
 - Community contributions
 - Customizable
@@ -327,6 +327,6 @@ Future enhancements may include:
 
 ---
 
-Made with ❤️ by the OpenClaw Community
+Made with  by the OpenClaw Community
 
-**Enjoy AI-assisted development! 🚀**
+**Enjoy AI-assisted development! **

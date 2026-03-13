@@ -21,7 +21,7 @@ SKIP_HISTORY=false
 show_help() {
   cat << EOF
 
-  ✈️  ${BOLD}Meeting Autopilot${RESET} v${VERSION}
+    ${BOLD}Meeting Autopilot${RESET} v${VERSION}
   Turn meeting transcripts into operational outputs.
 
   ${BOLD}USAGE${RESET}
@@ -161,7 +161,7 @@ ITEM_COUNT=$(jq '.summary.total' "$WORKDIR/extracted.json")
 log_ok "Extracted $ITEM_COUNT items"
 
 # Show breakdown
-jq -r '"  ✅ " + (.summary.decisions | tostring) + " decisions, 📋 " + (.summary.action_items | tostring) + " action items, ❓ " + (.summary.open_questions | tostring) + " questions"' \
+jq -r '"   " + (.summary.decisions | tostring) + " decisions,  " + (.summary.action_items | tostring) + " action items,  " + (.summary.open_questions | tostring) + " questions"' \
   "$WORKDIR/extracted.json" >&2
 
 # ── Step 3: Generate operational outputs ──────────────────

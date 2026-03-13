@@ -66,39 +66,39 @@ JSON with:
 Use this compact format for WhatsApp/chat responses:
 
 ```
-🚂 {Origin} → {Destination}
+ {Origin} → {Destination}
 
-*{dep} → {arr}* │📍{platform} │ 🚃 {coaches}
+*{dep} → {arr}* │{platform} │  {coaches}
 {status}
 
-*{dep} → {arr}* │📍{platform} │ 🚃 {coaches}
+*{dep} → {arr}* │{platform} │  {coaches}
 {status}
 ```
 
 ### Elements
-- **Header:** 🚂 emoji + origin → destination
+- **Header:**  emoji + origin → destination
 - **Time:** Bold, departure → arrival times
-- **Platform:** 📍 + number (or "TBC" if unknown)
-- **Coaches:** 🚃 + space + number
+- **Platform:**  + number (or "TBC" if unknown)
+- **Coaches:**  + space + number
 - **Status:**
-  - ✅ On time
-  - ⚠️ Delayed (exp {time})
-  - ❌ Cancelled — {reason}
-  - 🔄 Starts here
+  -  On time
+  -  Delayed (exp {time})
+  -  Cancelled — {reason}
+  -  Starts here
 
 ### Example
 
 ```
-🚂 Hemel Hempstead → Euston
+ Hemel Hempstead → Euston
 
-*20:18 → 20:55* │📍4 │ 🚃 4
-✅ On time
+*20:18 → 20:55* │4 │  4
+ On time
 
-*20:55 → 21:30* │📍4 │ 🚃 12
-✅ On time
+*20:55 → 21:30* │4 │  12
+ On time
 
-*21:11 → 21:41* │📍4 │ 🚃 8
-✅ On time
+*21:11 → 21:41* │4 │  8
+ On time
 ```
 
 ### Getting Arrival Times
@@ -111,4 +111,4 @@ Match services by the numeric prefix in serviceID (e.g., `4748110HEMLHMP_` match
 ### Notes
 - Separate each service with a blank line
 - Omit coaches if formation data unavailable
-- For delays, show expected time: `⚠️ Delayed (exp 20:35)`
+- For delays, show expected time: ` Delayed (exp 20:35)`

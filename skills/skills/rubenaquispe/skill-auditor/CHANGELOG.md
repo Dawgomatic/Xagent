@@ -59,4 +59,4 @@ Follow the project on GitHub for update notifications. Updates are manual — do
 - False positive reference guide
 - License file URL grouping (reduces noise, preserves prompt injection detection)
 - Known limitations documented
-- 🔍 Details / ✅ Install / ❌ Pass workflow after every scan
+-  Details /  Install /  Pass workflow after every scan

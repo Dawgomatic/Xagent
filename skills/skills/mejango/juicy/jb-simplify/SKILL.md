@@ -170,43 +170,43 @@ Ask these questions in order. Stop at the first "yes":
 ### Mistake 1: Wrapping the 721 Hook
 
 ```
-❌ WRONG: Create DataHookWrapper that delegates to 721 hook
-✅ RIGHT: Use 721 hook directly, achieve goals via ruleset config
+ WRONG: Create DataHookWrapper that delegates to 721 hook
+ RIGHT: Use 721 hook directly, achieve goals via ruleset config
 ```
 
 ### Mistake 2: Vesting Split Hook
 
 ```
-❌ WRONG: VestingSplitHook that holds funds and releases over time
-✅ RIGHT: Payout limits reset each cycle, achieving the same result
+ WRONG: VestingSplitHook that holds funds and releases over time
+ RIGHT: Payout limits reset each cycle, achieving the same result
 ```
 
 ### Mistake 3: Queue 12 Rulesets for 12-Month Vesting
 
 ```
-❌ WRONG: Queue 12 identical rulesets with different start times
-✅ RIGHT: One ruleset with duration: 30 days that cycles automatically
+ WRONG: Queue 12 identical rulesets with different start times
+ RIGHT: One ruleset with duration: 30 days that cycles automatically
 ```
 
 ### Mistake 4: Split Hook for Simple Forwarding
 
 ```
-❌ WRONG: Split hook that just forwards ETH to an address
-✅ RIGHT: Set the address as the split beneficiary directly
+ WRONG: Split hook that just forwards ETH to an address
+ RIGHT: Set the address as the split beneficiary directly
 ```
 
 ### Mistake 5: Custom Redemption Math
 
 ```
-❌ WRONG: Custom hook calculating pro-rata share of surplus
-✅ RIGHT: cashOutTaxRate: 0 gives linear redemption natively
+ WRONG: Custom hook calculating pro-rata share of surplus
+ RIGHT: cashOutTaxRate: 0 gives linear redemption natively
 ```
 
 ### Mistake 6: Custom Hook for NFT Artwork
 
 ```
-❌ WRONG: Write custom pay hook to generate dynamic NFT metadata
-✅ RIGHT: Use 721 hook + custom IJB721TokenUriResolver for content only
+ WRONG: Write custom pay hook to generate dynamic NFT metadata
+ RIGHT: Use 721 hook + custom IJB721TokenUriResolver for content only
 ```
 
 ---

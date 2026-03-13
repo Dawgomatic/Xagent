@@ -52,7 +52,7 @@ Tools are grouped into features that the site admin enables in AI Engine → Set
 
 | Feature | Default | Description |
 |---------|---------|-------------|
-| **WordPress** | ✅ On | Posts, pages, comments, users, media, taxonomies, settings |
+| **WordPress** |  On | Posts, pages, comments, users, media, taxonomies, settings |
 | **Plugins** | Off | Install, activate, update, and modify plugins |
 | **Themes** | Off | Install, activate, switch, and customize themes |
 | **Database** | Off | Execute SQL queries on the WordPress database |

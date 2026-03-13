@@ -91,7 +91,7 @@ django
 
 def test_credential_detection():
     """测试凭据泄露检测"""
-    print("🧪 测试凭据泄露检测...")
+    print(" 测试凭据泄露检测...")
     
     scanner = SecurityScanner()
     
@@ -118,14 +118,14 @@ AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
             print(f"  - {finding.description} (风险: {finding.risk_level.value})")
         
         assert len(findings) >= 2, "应该至少检测到2个凭据泄露"
-        print("  ✅ 测试通过")
+        print("   测试通过")
         
     finally:
         os.unlink(temp_file)
 
 def test_malware_detection():
     """测试恶意代码检测"""
-    print("🧪 测试恶意代码检测...")
+    print(" 测试恶意代码检测...")
     
     scanner = SecurityScanner()
     
@@ -152,14 +152,14 @@ eval("malicious_code()")
             print(f"  - {finding.description} (风险: {finding.risk_level.value})")
         
         assert len(findings) >= 1, "应该至少检测到1个恶意代码模式"
-        print("  ✅ 测试通过")
+        print("   测试通过")
         
     finally:
         os.unlink(temp_file)
 
 def test_dependency_detection():
     """测试依赖安全检测"""
-    print("🧪 测试依赖安全检测...")
+    print(" 测试依赖安全检测...")
     
     scanner = SecurityScanner()
     
@@ -190,14 +190,14 @@ def test_dependency_detection():
         
         # 依赖检测可能没有发现问题（根据测试数据）
         # 至少验证检测器能正常运行而不崩溃
-        print("  ✅ 测试通过（依赖检测器正常运行）")
+        print("   测试通过（依赖检测器正常运行）")
         
     finally:
         os.unlink(temp_file)
 
 def test_full_scan():
     """测试完整扫描"""
-    print("🧪 测试完整技能扫描...")
+    print(" 测试完整技能扫描...")
     
     scanner = SecurityScanner()
     
@@ -239,7 +239,7 @@ def test_full_scan():
         assert "skill_name" in json_data
         assert "findings" in json_data
         
-        print("  ✅ 测试通过")
+        print("   测试通过")
         
     finally:
         # 清理测试目录
@@ -247,7 +247,7 @@ def test_full_scan():
 
 def test_configuration_detection():
     """测试配置安全检测"""
-    print("🧪 测试配置安全检测...")
+    print(" 测试配置安全检测...")
     
     scanner = SecurityScanner()
     
@@ -275,14 +275,14 @@ API_KEY=your_api_key_here  # 这是示例
         
         # 应该至少检测到2个配置问题（排除示例）
         assert len(findings) >= 2, f"应该至少检测到2个配置问题，实际找到 {len(findings)} 个"
-        print("  ✅ 测试通过")
+        print("   测试通过")
         
     finally:
         os.unlink(temp_file)
 
 def test_cli():
     """测试命令行接口"""
-    print("🧪 测试命令行接口...")
+    print(" 测试命令行接口...")
     
     # 创建测试技能
     test_skill_dir = create_test_skill()
@@ -306,7 +306,7 @@ def test_cli():
             print(f"   扫描完成（返回码 {result.returncode}）")
         
         assert "Claw Security Scanner" in result.stdout, "输出应该包含扫描器名称"
-        print("  ✅ 基本扫描测试通过")
+        print("   基本扫描测试通过")
         
         # 测试JSON输出
         print("  运行JSON输出测试...")
@@ -321,7 +321,7 @@ def test_cli():
             json_data = json.loads(result.stdout)
             assert "skill_name" in json_data
             assert "findings" in json_data
-            print("  ✅ JSON输出测试通过")
+            print("   JSON输出测试通过")
         else:
             print(f"  JSON输出测试失败: {result.stderr}")
         
@@ -331,7 +331,7 @@ def test_cli():
 
 def run_all_tests():
     """运行所有测试"""
-    print("🔬 运行 Claw Security Scanner 测试套件")
+    print(" 运行 Claw Security Scanner 测试套件")
     print("=" * 50)
     
     tests = [
@@ -351,20 +351,20 @@ def run_all_tests():
             test_func()
             passed += 1
         except AssertionError as e:
-            print(f"  ❌ 测试失败: {e}")
+            print(f"   测试失败: {e}")
             failed += 1
         except Exception as e:
-            print(f"  ❌ 测试异常: {e}")
+            print(f"   测试异常: {e}")
             failed += 1
     
     print("=" * 50)
     print(f"测试结果: {passed} 通过, {failed} 失败")
     
     if failed == 0:
-        print("🎉 所有测试通过！")
+        print(" 所有测试通过！")
         return 0
     else:
-        print("⚠️  部分测试失败")
+        print("  部分测试失败")
         return 1
 
 if __name__ == "__main__":

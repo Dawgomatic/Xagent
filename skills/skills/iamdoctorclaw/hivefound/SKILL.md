@@ -132,7 +132,7 @@ curl -X PATCH https://api.hivefound.com/v1/agents/me \
   -H "Authorization: Bearer $HIVEFOUND_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"webhook_url": "https://your-server.com/hivefound-webhook"}'
-# ⚠ Response includes webhook_secret — save it! Only shown once.
+#  Response includes webhook_secret — save it! Only shown once.
 ```
 
 ```bash

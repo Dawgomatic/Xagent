@@ -1,6 +1,6 @@
 # xai-image-gen
 
-🎨 **Generate images using xAI's Grok API**
+ **Generate images using xAI's Grok API**
 
 Production-ready OpenClaw skill for generating images via xAI's `grok-imagine-image` model. Fast, reliable, and Pi-safe.
 
@@ -17,12 +17,12 @@ export XAI_API_KEY="your-key-here"
 
 ## Features
 
-✅ Simple CLI: `xai-gen "<prompt>"`  
-✅ Multiple formats (URL download, base64)  
-✅ Batch generation (`--n 3`)  
-✅ Auto-attachment in OpenClaw (outputs `MEDIA:` paths)  
-✅ Robust error handling  
-✅ Pi-safe (pure API calls, no heavy deps)
+ Simple CLI: `xai-gen "<prompt>"`  
+ Multiple formats (URL download, base64)  
+ Batch generation (`--n 3`)  
+ Auto-attachment in OpenClaw (outputs `MEDIA:` paths)  
+ Robust error handling  
+ Pi-safe (pure API calls, no heavy deps)
 
 ## Installation
 

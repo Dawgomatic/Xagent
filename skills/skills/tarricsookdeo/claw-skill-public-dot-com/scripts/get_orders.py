@@ -49,7 +49,7 @@ def get_orders(account_id=None):
 
         for order in portfolio.orders:
             inst = order.instrument
-            print(f"\n  📋 Order ID: {order.order_id}")
+            print(f"\n   Order ID: {order.order_id}")
             print(f"  {'-' * 66}")
             print(f"    Symbol: {inst.symbol} ({inst.type.value})")
             print(f"    Side: {order.side.value}")
@@ -93,7 +93,7 @@ def get_orders(account_id=None):
 
             # Reject reason if any
             if order.reject_reason:
-                print(f"    ⚠️  Reject Reason: {order.reject_reason}")
+                print(f"      Reject Reason: {order.reject_reason}")
 
             # Multi-leg orders
             if order.legs:

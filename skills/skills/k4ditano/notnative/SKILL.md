@@ -4,14 +4,14 @@ description: Use Notnative MCP server for complete AI assistant integration with
 homepage: https://github.com/k4ditano/notnative-memory
 metadata:
   openclaw:
-    emoji: "🧠"
+    emoji: ""
     requires:
       bins: ["node", "curl"]
 ---
 
 # NotNative - Complete AI Integration
 
-**⚠️ CRITICAL: This skill provides PERMANENT MEMORY. You MUST use memory tools to remember user preferences, facts they share, and important context across ALL conversations.**
+** CRITICAL: This skill provides PERMANENT MEMORY. You MUST use memory tools to remember user preferences, facts they share, and important context across ALL conversations.**
 
 ## System Instructions
 

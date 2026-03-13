@@ -7,13 +7,13 @@
 
 ---
 
-## 📌 Final Title
+##  Final Title
 
 > **I built a skill that makes my OpenClaw review its own mistakes weekly — here's the honest results (including what it gets wrong)**
 
 ---
 
-## 📝 r/AI_Agents — Primary Post
+##  r/AI_Agents — Primary Post
 
 ---
 
@@ -47,7 +47,7 @@ I automated that loop. Imperfectly. But here's what it found that I never would 
 I added exec retry detection to the latest version. When I ran it on my actual logs, it found this:
 
 ```
-📊 exec retry analysis (7-day window):
+ exec retry analysis (7-day window):
    Sessions with 3+ consecutive exec retries: 221
    Maximum consecutive retries in one session: 119
    Total retry events: 405
@@ -56,7 +56,7 @@ I added exec retry detection to the latest version. When I ran it on my actual l
 119 consecutive retries. Same command. Same failure. The agent was stuck in a loop and just... kept going. That's not something you notice by scrolling logs manually. The tool generated this proposal:
 
 ```diff
-+ ## ⚡ exec Consecutive Retry Limit
++ ##  exec Consecutive Retry Limit
 +
 + If the same exec command fails 3+ times in a row:
 + 1. Report the error immediately — don't retry silently
@@ -148,7 +148,7 @@ Happy to answer questions, especially about tuning the complaint patterns.
 
 ---
 
-## 📝 r/ClaudeAI — Secondary Post
+##  r/ClaudeAI — Secondary Post
 
 ---
 
@@ -222,7 +222,7 @@ GitHub: [link] | ClawHub: [link]
 
 ---
 
-## 📌 Posting Strategy
+##  Posting Strategy
 
 - **Platform priority:** r/AI_Agents first, r/ClaudeAI same day (different post, different angle)
 - **Timing:** Tuesday–Thursday, 9–11 AM EST (peak engagement window)
@@ -245,7 +245,7 @@ of the signal quality improvement comes from.
 
 ---
 
-## ❌ Things NOT to say
+##  Things NOT to say
 
 - "Revolutionary" / "game-changing" — it's a useful cron, not a breakthrough
 - "Full feedback loop" — there's no measurement of whether proposals actually helped

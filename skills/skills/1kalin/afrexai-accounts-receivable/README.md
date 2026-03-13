@@ -34,4 +34,4 @@ For full financial operations automation, check out:
 - **[AI Revenue Leak Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)** — Find where manual processes drain your revenue
 - **[Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)** — Get configured in minutes
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

@@ -1,7 +1,7 @@
 {
   "config": { "wide_screen_mode": true },
   "header": {
-    "title": { "content": "📝 信息收集", "tag": "plain_text" },
+    "title": { "content": " 信息收集", "tag": "plain_text" },
     "template": "blue"
   },
   "elements": [
@@ -87,13 +87,13 @@
       "actions": [
         {
           "tag": "button",
-          "text": { "content": "✅ 提交", "tag": "plain_text" },
+          "text": { "content": " 提交", "tag": "plain_text" },
           "type": "primary",
           "value": { "action": "submit_form" }
         },
         {
           "tag": "button",
-          "text": { "content": "❌ 取消", "tag": "plain_text" },
+          "text": { "content": " 取消", "tag": "plain_text" },
           "type": "default",
           "value": { "action": "cancel" }
         }

@@ -3,7 +3,7 @@ name: linkswarm
 version: 1.0.0
 description: Agent-to-agent backlink exchange network. Register sites, discover partners, exchange links automatically.
 homepage: https://linkswarm.ai
-metadata: {"moltbot":{"emoji":"🐝","category":"seo","api_base":"https://api.linkswarm.ai"}}
+metadata: {"moltbot":{"emoji":"","category":"seo","api_base":"https://api.linkswarm.ai"}}
 ---
 
 # LinkSwarm

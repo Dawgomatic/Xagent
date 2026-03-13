@@ -1,15 +1,15 @@
 ---
 name: airfoil
 description: Control AirPlay speakers via Airfoil from the command line. Connect, disconnect, set volume, and manage multi-room audio with simple CLI commands.
-metadata: {"clawdbot":{"emoji":"🔊","os":["darwin"],"requires":{"bins":["osascript"]}}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin"],"requires":{"bins":["osascript"]}}}
 ---
 
-# 🔊 Airfoil Skill
+#  Airfoil Skill
 
 ```
     ╔═══════════════════════════════════════════════════════════╗
     ║                                                           ║
-    ║   🎵  A I R F O I L   S P E A K E R   C O N T R O L  🎵  ║
+    ║     A I R F O I L   S P E A K E R   C O N T R O L    ║
     ║                                                           ║
     ║        Stream audio to any AirPlay speaker                ║
     ║              from your Mac via CLI                        ║
@@ -17,24 +17,24 @@ metadata: {"clawdbot":{"emoji":"🔊","os":["darwin"],"requires":{"bins":["osasc
     ╚═══════════════════════════════════════════════════════════╝
 ```
 
-> *"Why hop to your Mac when you can croak at it?"* 🐸
+> *"Why hop to your Mac when you can croak at it?"* 
 
 ---
 
-## 📖 What Does This Skill Do?
+##  What Does This Skill Do?
 
 The **Airfoil Skill** gives you full control over your AirPlay speakers directly from the terminal – or through Clawd! Connect speakers, control volume, check status – all without touching the mouse.
 
 **Features:**
-- 📡 **List** — Show all available speakers
-- 🔗 **Connect** — Connect to a speaker
-- 🔌 **Disconnect** — Disconnect from a speaker
-- 🔊 **Volume** — Control volume (0-100%)
-- 📊 **Status** — Show connected speakers with volume levels
+-  **List** — Show all available speakers
+-  **Connect** — Connect to a speaker
+-  **Disconnect** — Disconnect from a speaker
+-  **Volume** — Control volume (0-100%)
+-  **Status** — Show connected speakers with volume levels
 
 ---
 
-## ⚙️ Requirements
+##  Requirements
 
 | What | Details |
 |------|---------|
@@ -54,11 +54,11 @@ The **Airfoil Skill** gives you full control over your AirPlay speakers directly
 
 2. **Launch Airfoil** and grant Accessibility permissions (System Settings → Privacy & Security → Accessibility)
 
-3. **Skill is ready!** 🚀
+3. **Skill is ready!** 
 
 ---
 
-## 🛠️ Commands
+##  Commands
 
 ### `list` — Show All Speakers
 
@@ -84,7 +84,7 @@ Computer, Andy's M5 Macbook, Sonos Move, Living Room TV
 Connected: Sonos Move
 ```
 
-> 💡 Speaker name must match exactly (case-sensitive!)
+>  Speaker name must match exactly (case-sensitive!)
 
 ---
 
@@ -140,35 +140,35 @@ No speakers connected
 
 ---
 
-## 🎯 Example Workflows
+##  Example Workflows
 
-### 🏠 "Music in the Living Room"
+###  "Music in the Living Room"
 ```bash
 ./airfoil.sh connect "Sonos Move"
 ./airfoil.sh volume "Sonos Move" 50
 # → Now fire up Spotify/Apple Music and enjoy!
 ```
 
-### 🎬 "Movie Night Setup"
+###  "Movie Night Setup"
 ```bash
 ./airfoil.sh connect "Living Room TV"
 ./airfoil.sh volume "Living Room TV" 70
 ./airfoil.sh disconnect "Sonos Move"  # If still connected
 ```
 
-### 🌙 "All Off"
+###  "All Off"
 ```bash
 for speaker in "Sonos Move" "Living Room TV"; do
     ./airfoil.sh disconnect "$speaker" 2>/dev/null
 done
-echo "All speakers disconnected 🌙"
+echo "All speakers disconnected "
 ```
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
-### ❌ "Speaker Not Found"
+###  "Speaker Not Found"
 
 **Problem:** `execution error: Airfoil got an error: Can't get speaker...`
 
@@ -180,7 +180,7 @@ echo "All speakers disconnected 🌙"
 
 ---
 
-### ❌ "Airfoil Won't Start / No Permission"
+###  "Airfoil Won't Start / No Permission"
 
 **Problem:** AppleScript can't control Airfoil
 
@@ -188,11 +188,11 @@ echo "All speakers disconnected 🌙"
 1. **System Settings → Privacy & Security → Accessibility**
 2. Add Terminal (or iTerm)
 3. Add Airfoil
-4. Restart macOS (sometimes necessary 🙄)
+4. Restart macOS (sometimes necessary )
 
 ---
 
-### ❌ "Volume Doesn't Work"
+###  "Volume Doesn't Work"
 
 **Problem:** Volume command has no effect
 
@@ -203,7 +203,7 @@ echo "All speakers disconnected 🌙"
 
 ---
 
-### ❌ "Airfoil Not Installed"
+###  "Airfoil Not Installed"
 
 **Problem:** `execution error: Application isn't running`
 
@@ -218,7 +218,7 @@ brew install --cask airfoil
 
 ---
 
-### ❌ "bc: command not found"
+###  "bc: command not found"
 
 **Problem:** Volume calculation fails
 
@@ -230,7 +230,7 @@ brew install bc
 
 ---
 
-## 📋 Known Speakers
+##  Known Speakers
 
 These speakers have been tested:
 
@@ -241,11 +241,11 @@ These speakers have been tested:
 | `Sonos Move` | Sonos | Bluetooth or WiFi |
 | `Living Room TV` | Apple TV | Via AirPlay |
 
-> 💡 Use `./airfoil.sh list` to discover your own speakers!
+>  Use `./airfoil.sh list` to discover your own speakers!
 
 ---
 
-## 🔗 Integration with Clawd
+##  Integration with Clawd
 
 This skill works perfectly with Clawd! Examples:
 
@@ -262,17 +262,17 @@ This skill works perfectly with Clawd! Examples:
 
 ---
 
-## 📜 Changelog
+##  Changelog
 
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | 2025-01-25 | Initial release |
-| 1.1.0 | 2025-06-10 | Documentation polished 🐸 |
+| 1.1.0 | 2025-06-10 | Documentation polished  |
 | 1.2.0 | 2025-06-26 | Translated to English, ClawdHub-ready! |
 
 ---
 
-## 🐸 Credits
+##  Credits
 
 ```
   @..@
@@ -281,7 +281,7 @@ This skill works perfectly with Clawd! Examples:
  ^^  ^^     by a frog and his human!"
 ```
 
-**Author:** Andy Steinberger (with help from his Clawdbot Owen the Frog 🐸)  
+**Author:** Andy Steinberger (with help from his Clawdbot Owen the Frog )  
 **Powered by:** [Airfoil](https://rogueamoeba.com/airfoil/mac/) by Rogue Amoeba  
 **Part of:** [Clawdbot](https://clawdhub.com) Skills Collection
 
@@ -289,8 +289,8 @@ This skill works perfectly with Clawd! Examples:
 
 <div align="center">
 
-**Made with 💚 for the Clawdbot Community**
+**Made with  for the Clawdbot Community**
 
-*Ribbit!* 🐸
+*Ribbit!* 
 
 </div>

@@ -34,7 +34,7 @@ clovercli merchant get
 clovercli reports summary
 ```
 
-## Reports with Period Shortcuts ✨
+## Reports with Period Shortcuts 
 
 ```bash
 # Using --period (new in v1.2.0!)

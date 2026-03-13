@@ -430,7 +430,7 @@ class FundNewsGenerator:
         
         # Build report
         report_lines = [
-            f"**📊 基金新闻摘要** — {datetime.now().strftime('%Y年%m月%d日')}",
+            f"** 基金新闻摘要** — {datetime.now().strftime('%Y年%m月%d日')}",
             "",
             "---",
             ""
@@ -471,7 +471,7 @@ class FundNewsGenerator:
         report_lines.extend([
             "---",
             "",
-            "**💡 今日净值影响预测**",
+            "** 今日净值影响预测**",
             ""
         ])
         

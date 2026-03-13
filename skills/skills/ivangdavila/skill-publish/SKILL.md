@@ -32,10 +32,10 @@ Transform any knowledge into a publishable skill. Sanitize personal data, format
 
 ### Critical Rules
 
-⚠️ **Never modify original files** — Create separate publish version
-⚠️ **Never publish without sanitization** — Check `sanitize.md`
-⚠️ **Never publish without user approval** — Always verify first
-⚠️ **When in doubt, include more** — User can remove, harder to add later
+ **Never modify original files** — Create separate publish version
+ **Never publish without sanitization** — Check `sanitize.md`
+ **Never publish without user approval** — Always verify first
+ **When in doubt, include more** — User can remove, harder to add later
 
 ### Asking the User
 

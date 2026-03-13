@@ -31,7 +31,7 @@ with open('$RELAY_DIR/stream.jsonl') as f:
                 dur = d.get('duration_ms', 0) // 1000
                 cost = d.get('total_cost_usd', 0)
                 result = d.get('result', '')[:800]
-                status = '✅' if d.get('subtype') == 'success' else '❌'
+                status = '' if d.get('subtype') == 'success' else ''
                 print(f'{status} **{turns} turns | {dur}s | \${cost:.2f}**')
                 print()
                 print(result)
@@ -39,5 +39,5 @@ with open('$RELAY_DIR/stream.jsonl') as f:
         except:
             pass
     else:
-        print('⚠️ Session ended but no result event found in stream.jsonl')
-" 2>/dev/null || echo "⚠️ Failed to parse session results"
+        print(' Session ended but no result event found in stream.jsonl')
+" 2>/dev/null || echo " Failed to parse session results"

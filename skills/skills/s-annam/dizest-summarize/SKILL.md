@@ -1,7 +1,7 @@
 ---
 name: dizest-summarize
 description: "Summarize long-form content — articles, podcasts, research papers, PDFs, notes, and more — using the Dizest API. Turn what you read into structured, searchable knowledge."
-metadata: {"openclaw":{"emoji":"📝","requires":{"env":["DIZEST_API_KEY"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["DIZEST_API_KEY"]}}}
 ---
 
 # Dizest Summarize

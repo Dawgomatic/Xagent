@@ -3,7 +3,7 @@ name: moltrade
 description: Operate the Moltrade trading bot (config, backtest, test-mode runs, Nostr signal broadcast, exchange adapters, strategy integration) in OpenClaw.
 metadata:
   openclaw:
-    emoji: "🤖"
+    emoji: ""
     requires:
       bins: ["python", "pip"]
     homepage: https://github.com/hetu-project/moltrade.git

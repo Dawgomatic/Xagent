@@ -145,39 +145,39 @@ def generate_summary(entries: List[Dict]) -> Dict:
 def print_summary(summary: Dict):
     """Pretty print summary."""
     print("=" * 60)
-    print("🛡️  PROMPT GUARD SECURITY SUMMARY")
+    print("  PROMPT GUARD SECURITY SUMMARY")
     print("=" * 60)
     
     if summary.get('total_entries', 0) == 0:
-        print("\n✅ No security events recorded.\n")
+        print("\n No security events recorded.\n")
         return
     
-    print(f"\n📊 Total Events: {summary['total_entries']}")
-    print(f"🎯 Risk Level: {summary['risk_level']} (score: {summary['risk_score']})")
+    print(f"\n Total Events: {summary['total_entries']}")
+    print(f" Risk Level: {summary['risk_level']} (score: {summary['risk_score']})")
     
-    print("\n📈 By Severity:")
-    emoji = {'CRITICAL': '🚨', 'HIGH': '🔴', 'MEDIUM': '⚠️', 'LOW': '📝', 'SAFE': '✅'}
+    print("\n By Severity:")
+    emoji = {'CRITICAL': '', 'HIGH': '', 'MEDIUM': '', 'LOW': '', 'SAFE': ''}
     for sev, count in sorted(summary['by_severity'].items(), 
                              key=lambda x: -{'CRITICAL': 4, 'HIGH': 3, 'MEDIUM': 2, 'LOW': 1}.get(x[0], 0)):
-        print(f"  {emoji.get(sev, '❓')} {sev}: {count}")
+        print(f"  {emoji.get(sev, '')} {sev}: {count}")
     
     if summary['top_users']:
-        print("\n👤 Top Flagged Users:")
+        print("\n Top Flagged Users:")
         for user, count in summary['top_users']:
             print(f"  - {user}: {count} events")
     
     if summary['top_patterns']:
-        print("\n🔍 Top Patterns Detected:")
+        print("\n Top Patterns Detected:")
         for pattern, count in summary['top_patterns'][:5]:
             print(f"  - {pattern}: {count}")
     
     if summary['top_chats']:
-        print("\n💬 Top Affected Chats:")
+        print("\n Top Affected Chats:")
         for chat, count in summary['top_chats']:
             print(f"  - {chat}: {count}")
     
     if summary['peak_hours']:
-        print("\n⏰ Peak Hours:")
+        print("\n Peak Hours:")
         for hour, count in summary['peak_hours']:
             print(f"  - {hour}:00: {count} events")
     
@@ -213,8 +213,8 @@ def main():
             print(json.dumps(filtered, indent=2, ensure_ascii=False))
         else:
             for entry in filtered:
-                emoji = {'CRITICAL': '🚨', 'HIGH': '🔴', 'MEDIUM': '⚠️', 'LOW': '📝'}
-                print(f"{emoji.get(entry['severity'], '❓')} [{entry['date']} {entry['time']}] "
+                emoji = {'CRITICAL': '', 'HIGH': '', 'MEDIUM': '', 'LOW': ''}
+                print(f"{emoji.get(entry['severity'], '')} [{entry['date']} {entry['time']}] "
                       f"{entry['severity']} | user:{entry['user_id']} | {entry['chat']}")
                 if entry['patterns']:
                     print(f"   Patterns: {', '.join(entry['patterns'])}")

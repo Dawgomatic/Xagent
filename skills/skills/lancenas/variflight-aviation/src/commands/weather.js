@@ -15,13 +15,13 @@ module.exports = async function weather(airport) {
     const client = new VariflightClient();
 
     try {
-        console.log(`🌤️  查询机场 ${airport.toUpperCase()} 的天气...\n`);
+        console.log(`  查询机场 ${airport.toUpperCase()} 的天气...\n`);
 
         const result = await client.getAirportWeather(airport.toUpperCase());
 
         // 解析标准响应格式
         if (!result || result.code !== 200) {
-            console.log('❌ 查询失败:', result?.message || '未知错误');
+            console.log(' 查询失败:', result?.message || '未知错误');
             return;
         }
 
@@ -34,7 +34,7 @@ module.exports = async function weather(airport) {
         const weather = Array.isArray(data) ? data[0] : data;
 
         if (!weather || Object.keys(weather).length === 0) {
-            console.log('⚠️  暂无天气数据');
+            console.log('  暂无天气数据');
             return;
         }
 
@@ -63,7 +63,7 @@ module.exports = async function weather(airport) {
         }
 
     } catch (error) {
-        console.error(`❌ 查询失败: ${error.message}`);
+        console.error(` 查询失败: ${error.message}`);
         process.exit(1);
     } finally {
         await client.disconnect();

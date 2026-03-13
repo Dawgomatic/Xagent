@@ -4,7 +4,7 @@ set -euo pipefail
 
 DEFAULT_URL="https://mcp.paywithlocus.com/mcp"
 
-echo "📍 Locus Payment Setup"
+echo " Locus Payment Setup"
 echo "======================"
 echo ""
 
@@ -23,7 +23,7 @@ fi
 
 # Check if already configured
 if mcporter config get locus &>/dev/null 2>&1; then
-  echo "⚠️  Locus is already configured in mcporter."
+  echo "  Locus is already configured in mcporter."
   echo ""
   mcporter config get locus 2>/dev/null
   echo ""
@@ -39,7 +39,7 @@ fi
 # Get API key
 echo "You'll need a Locus API key to connect your wallet."
 echo ""
-echo "  👉 Get your key at: https://app.paywithlocus.com"
+echo "   Get your key at: https://app.paywithlocus.com"
 echo ""
 echo "Each key is tied to your wallet and permission group."
 echo ""
@@ -47,13 +47,13 @@ read -rp "Paste your API key (locus_...): " api_key
 
 if [[ -z "$api_key" ]]; then
   echo ""
-  echo "❌ No API key provided. Get one at https://app.paywithlocus.com"
+  echo " No API key provided. Get one at https://app.paywithlocus.com"
   exit 1
 fi
 
 if [[ ! "$api_key" =~ ^locus_ ]]; then
   echo ""
-  echo "⚠️  That doesn't look like a Locus API key (should start with 'locus_')."
+  echo "  That doesn't look like a Locus API key (should start with 'locus_')."
   read -rp "Use it anyway? (y/N): " use_anyway
   if [[ ! "$use_anyway" =~ ^[Yy]$ ]]; then
     echo "Aborted. Get your key at https://app.paywithlocus.com"
@@ -70,13 +70,13 @@ mcporter config add locus \
   --scope home
 
 echo ""
-echo "✅ Locus configured! Testing connection..."
+echo " Locus configured! Testing connection..."
 echo ""
 
 # Test and show available tools
 if mcporter list locus 2>/dev/null; then
   echo ""
-  echo "🎉 Setup complete! Your agent can now use Locus payment tools."
+  echo " Setup complete! Your agent can now use Locus payment tools."
   echo ""
   echo "Next steps:"
   echo "  • Your ClawdBot agent will automatically discover Locus tools"
@@ -84,7 +84,7 @@ if mcporter list locus 2>/dev/null; then
   echo "  • Or run: mcporter call locus.list_tokens"
 else
   echo ""
-  echo "❌ Connection failed. Possible issues:"
+  echo " Connection failed. Possible issues:"
   echo "  • Invalid or expired API key"
   echo "  • Network connectivity"
   echo ""

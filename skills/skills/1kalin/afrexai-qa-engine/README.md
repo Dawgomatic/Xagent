@@ -31,7 +31,7 @@ Tell your agent:
 - "Security checklist for the payment flow"
 - "Release readiness check for v2.1"
 
-## ⚡ Level Up
+##  Level Up
 
 This free skill covers QA methodology. For industry-specific testing contexts (compliance requirements, regulatory testing, domain-specific edge cases):
 
@@ -41,7 +41,7 @@ This free skill covers QA methodology. For industry-specific testing contexts (c
 
 **[Fintech Context Pack ($47)](https://afrexai-cto.github.io/context-packs/)** — PCI-DSS testing, transaction integrity, reconciliation testing
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-code-reviewer](https://clawhub.com/skills/afrexai-code-reviewer) — SPEAR code review framework with 60+ patterns
 - [afrexai-api-architect](https://clawhub.com/skills/afrexai-api-architect) — Complete API lifecycle from design to monitoring

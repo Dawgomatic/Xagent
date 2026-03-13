@@ -21,7 +21,7 @@ CODE=$(echo "$RESPONSE" | python3 -c "import json, sys; data=json.load(sys.stdin
 TOKEN=$(echo "$RESPONSE" | python3 -c "import json, sys; data=json.load(sys.stdin); print(data.get('tenant_access_token', ''))")
 
 if [ "$CODE" = "0" ] && [ -n "$TOKEN" ]; then
-    echo -e "\n✅ 成功获取访问令牌!"
+    echo -e "\n 成功获取访问令牌!"
     echo "令牌: ${TOKEN:0:50}..."
     
     # 保存令牌到文件
@@ -36,7 +36,7 @@ if [ "$CODE" = "0" ] && [ -n "$TOKEN" ]; then
     
     echo "API测试响应: $TEST_RESPONSE"
 else
-    echo -e "\n❌ 获取令牌失败"
+    echo -e "\n 获取令牌失败"
     MSG=$(echo "$RESPONSE" | python3 -c "import json, sys; data=json.load(sys.stdin); print(data.get('msg', '未知错误'))")
     echo "错误信息: $MSG"
 fi

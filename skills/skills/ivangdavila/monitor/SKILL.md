@@ -4,7 +4,7 @@ slug: monitor
 version: 1.0.2
 description: Create monitors for anything. User defines what to check, skill handles scheduling and alerts.
 changelog: Declared required binaries and optional env vars in metadata
-metadata: {"clawdbot":{"emoji":"📡","requires":{"bins":["curl"],"env":{"optional":["PUSHOVER_TOKEN","PUSHOVER_USER"]}},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"],"env":{"optional":["PUSHOVER_TOKEN","PUSHOVER_USER"]}},"os":["linux","darwin","win32"]}}
 ---
 
 ## Data Storage
@@ -22,9 +22,9 @@ Create on first use: `mkdir -p ~/monitor/logs`
 ## Scope
 
 This skill:
-- ✅ Stores monitor definitions in ~/monitor/
-- ✅ Runs checks at specified intervals
-- ✅ Alerts user on status changes
+-  Stores monitor definitions in ~/monitor/
+-  Runs checks at specified intervals
+-  Alerts user on status changes
 
 **Execution model:**
 - User explicitly defines WHAT to monitor
@@ -32,9 +32,9 @@ This skill:
 - Skill only handles WHEN and ALERTING
 
 This skill does NOT:
-- ❌ Assume access to any service or endpoint
-- ❌ Run checks without user-defined instructions
-- ❌ Store credentials (user provides via environment or other skills)
+-  Assume access to any service or endpoint
+-  Run checks without user-defined instructions
+-  Store credentials (user provides via environment or other skills)
 
 ## Requirements
 
@@ -108,11 +108,11 @@ User can request any of these (or others):
 
 ### 4. Confirmation Format
 ```
-✅ Monitor: [description]
-🔍 Checks: [what will be checked]
-⏱️ Interval: [how often]
-🔔 Alert: [when to notify]
-🔧 Requires: [tools/access needed]
+ Monitor: [description]
+ Checks: [what will be checked]
+ Interval: [how often]
+ Alert: [when to notify]
+ Requires: [tools/access needed]
 ```
 
 ### 5. Alert on Change

@@ -23,7 +23,7 @@ def test_telegram():
     notifier = TelegramNotifier(config)
     
     if not notifier.enabled:
-        print("❌ Telegram is disabled in config")
+        print(" Telegram is disabled in config")
         print("Please enable it in config/config.json and add your bot token and chat ID")
         return False
     
@@ -32,9 +32,9 @@ def test_telegram():
     # Test 1: Send test message
     print("1. Sending test message...")
     if notifier.send_test_message():
-        print("   ✅ Test message sent successfully!")
+        print("    Test message sent successfully!")
     else:
-        print("   ❌ Failed to send test message")
+        print("    Failed to send test message")
         return False
     
     # Test 2: Send trade alert
@@ -47,9 +47,9 @@ def test_telegram():
         'reason': 'Congressional trade: Nancy Pelosi'
     }
     if notifier.send_trade_alert('BUY', trade_details):
-        print("   ✅ Trade alert sent successfully!")
+        print("    Trade alert sent successfully!")
     else:
-        print("   ❌ Failed to send trade alert")
+        print("    Failed to send trade alert")
     
     # Test 3: Send congressional alert
     print("3. Testing congressional alert...")
@@ -61,19 +61,19 @@ def test_telegram():
         'transaction_date': '2026-01-31'
     }
     if notifier.send_congressional_alert(congress_trade):
-        print("   ✅ Congressional alert sent successfully!")
+        print("    Congressional alert sent successfully!")
     else:
-        print("   ❌ Failed to send congressional alert")
+        print("    Failed to send congressional alert")
     
     # Test 4: Send error alert
     print("4. Testing error alert...")
     if notifier.send_error_alert('Connection Error', 'Failed to connect to E*TRADE API', 'During authentication'):
-        print("   ✅ Error alert sent successfully!")
+        print("    Error alert sent successfully!")
     else:
-        print("   ❌ Failed to send error alert")
+        print("    Failed to send error alert")
     
     print("\n" + "="*50)
-    print("✅ Telegram setup test completed!")
+    print(" Telegram setup test completed!")
     print("Check your Telegram app for all test messages.")
     print("If you didn't receive them, check your bot token and chat ID.")
     

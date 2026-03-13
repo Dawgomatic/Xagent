@@ -48,7 +48,7 @@ python3 dx-monitor.py watch --callsign KN4XYZ --cluster ea7jxh
 The monitor outputs DX spots in readable format:
 
 ```
-📡 Latest DX Spots from EA7JXH
+ Latest DX Spots from EA7JXH
 
    20m   SSB      14.195   K1ABC        - CQ Contest
    40m   CW        7.015   VP8/G3XYZ    - Falklands

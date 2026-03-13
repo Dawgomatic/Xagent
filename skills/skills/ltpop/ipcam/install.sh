@@ -64,7 +64,7 @@ else
 }
 EOF
   echo "  ✓ Config created: $CONFIG_FILE"
-  echo "  ⚠  Edit config to set your camera IP and password."
+  echo "    Edit config to set your camera IP and password."
 fi
 
 # ── Permissions ──────────────────────────────────────────────────────────────

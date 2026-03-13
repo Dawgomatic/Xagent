@@ -17,7 +17,7 @@ def get_chrome_cookies():
     chrome_cookies_path = Path.home() / 'Library/Application Support/Google/Chrome/Default/Cookies'
     
     if not chrome_cookies_path.exists():
-        print(f"❌ Chrome cookies 文件不存在: {chrome_cookies_path}")
+        print(f" Chrome cookies 文件不存在: {chrome_cookies_path}")
         return None
     
     # 复制数据库（因为 Chrome 可能锁定了原文件）
@@ -41,7 +41,7 @@ def get_chrome_cookies():
         conn.close()
         
         if not rows:
-            print("❌ 没有找到小红书的 cookies，请确认已登录")
+            print(" 没有找到小红书的 cookies，请确认已登录")
             return None
         
         # 转换为标准格式
@@ -77,11 +77,11 @@ def decrypt_chrome_cookies():
             capture_output=True, text=True
         )
         if result.returncode != 0:
-            print("❌ 无法获取 Chrome 加密密钥")
+            print(" 无法获取 Chrome 加密密钥")
             return None
         password = result.stdout.strip()
     except Exception as e:
-        print(f"❌ 获取密钥失败: {e}")
+        print(f" 获取密钥失败: {e}")
         return None
     
     # 这里需要用 pycryptodome 解密，比较复杂
@@ -117,7 +117,7 @@ def extract_with_browser_cookie3():
         
         return cookies
     except Exception as e:
-        print(f"❌ 提取失败: {e}")
+        print(f" 提取失败: {e}")
         return None
 
 
@@ -129,7 +129,7 @@ def main():
     cookies = extract_with_browser_cookie3()
     
     if not cookies:
-        print("\n❌ 无法提取 cookies")
+        print("\n 无法提取 cookies")
         return
     
     # 保存目录
@@ -147,7 +147,7 @@ def main():
     with open(cookie_str_file, 'w', encoding='utf-8') as f:
         f.write(cookie_str)
     
-    print(f"\n✅ 成功提取 {len(cookies)} 个 cookies!")
+    print(f"\n 成功提取 {len(cookies)} 个 cookies!")
     print(f"\n保存位置:")
     print(f"  - {cookie_file}")
     print(f"  - {cookie_str_file}")

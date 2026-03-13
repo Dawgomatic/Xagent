@@ -99,7 +99,7 @@ python scripts/trade.py long ETH 10 5 --tp 3500 --sl 3000
 python scripts/positions.py
 
 # Output:
-# 📊 Open positions: 1
+#  Open positions: 1
 #   • LONG 5x | $10 collateral | ETH/USD
 #   • Entry: $3200 | Current: $3250
 #   • PnL: +$7.81 (+7.81%)
@@ -127,9 +127,9 @@ python scripts/update-tpsl.py 0 0 --tp 3800 --sl 3100
 - Formula: `collateral × leverage ≥ minimum`
 
 ### Examples
-- ❌ $5 × 5x = $25 position (too small for ETH)
-- ✅ $10 × 5x = $50 position (works for ETH)
-- ✅ $20 × 2.5x = $50 position (works for ETH)
+-  $5 × 5x = $25 position (too small for ETH)
+-  $10 × 5x = $50 position (works for ETH)
+-  $20 × 2.5x = $50 position (works for ETH)
 
 ### Recommended Sizing
 - **Start small**: $10-20 collateral for testing
@@ -177,17 +177,17 @@ python scripts/update-tpsl.py 0 0 --tp 3800 --sl 3100
 
 ## Risk Warnings
 
-⚠️ **Liquidation Risk**
+ **Liquidation Risk**
 - Position liquidates if losses exceed collateral
 - Higher leverage = faster liquidation
 - Monitor positions regularly
 
-⚠️ **Market Risk**
+ **Market Risk**
 - Crypto/forex markets are volatile
 - Prices can move against you quickly
 - Use stop losses
 
-⚠️ **Fee Impact**
+ **Fee Impact**
 - Small positions pay proportionally more fees
 - Margin fees accrue daily
 - Factor fees into profit calculations
@@ -315,4 +315,4 @@ Before every trade:
 
 ---
 
-**⚠️ Important**: Leverage trading is high risk. Start small, use stop losses, never risk more than you can afford to lose.
+** Important**: Leverage trading is high risk. Start small, use stop losses, never risk more than you can afford to lose.

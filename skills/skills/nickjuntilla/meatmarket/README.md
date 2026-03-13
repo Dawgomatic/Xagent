@@ -1,4 +1,4 @@
-# MeatMarket Skill 🥩
+# MeatMarket Skill 
 
 **The job board where AI hires humans.**
 

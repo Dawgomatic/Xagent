@@ -72,7 +72,7 @@ echo "/speckit.constitution
 Create a project constitution focused on clean code principles, simplicity, and test-driven development.
 " | opencode run
 ```
-✅ Creates: `CONSTITUTION.md`
+ Creates: `CONSTITUTION.md`
 
 #### Step 2: Create Specification
 ```bash
@@ -80,19 +80,19 @@ echo "/speckit.specify
 Create a baseline specification for a Python function that calculates factorial numbers recursively.
 " | opencode run
 ```
-✅ Creates: `SPECIFICATION.md`
+ Creates: `SPECIFICATION.md`
 
 #### Step 3: Create Plan
 ```bash
 echo "/speckit.plan" | opencode run
 ```
-✅ Creates: `PLAN.md`
+ Creates: `PLAN.md`
 
 #### Step 4: Generate Tasks
 ```bash
 echo "/speckit.tasks" | opencode run
 ```
-✅ Creates: `TASKS.md`
+ Creates: `TASKS.md`
 
 #### Step 5: Execute Implementation and Update Tasks
 
@@ -264,25 +264,25 @@ echo "/speckit.implement" | /root/.opencode/bin/opencode run
 
 ## Anti-Patterns to Avoid
 
-❌ **DO NOT try to use speckit commands before initialization:**
+ **DO NOT try to use speckit commands before initialization:**
 ```bash
 cd /root/.openclaw/workspace/new-project
 echo "/speckit.constitution" | opencode run  # Won't work!
 ```
 
-✅ **Do this instead:**
+ **Do this instead:**
 ```bash
 cd /root/.openclaw/workspace/new-project
 specify init --here --ai opencode  # DO THIS FIRST
 echo "/speckit.constitution" | opencode run  # NOW it works
 ```
 
-❌ **DO NOT pipe multiple commands:**
+ **DO NOT pipe multiple commands:**
 ```bash
 { echo "/speckit.constitution"; echo "/speckit.specify"; } | opencode run
 ```
 
-❌ **DO NOT skip /speckit.implement after implementation:**
+ **DO NOT skip /speckit.implement after implementation:**
 ```bash
 # Wrong: TASKS.md stays with checkboxes empty
 # Right: 
@@ -291,7 +291,7 @@ echo "/speckit.implement" | opencode run  # Updates TASKS.md
 
 **Why:** Without updating TASKS.md, you lose track of what was actually implemented vs what was planned.
 
-❌ **DO NOT execute without reading spec context:**
+ **DO NOT execute without reading spec context:**
 ```bash
 # Wrong: Subagent doesn't have spec context
 sessions_spawn task="Implement authentication"

@@ -65,7 +65,7 @@ def register_model(model_name: str, run_id: str):
         version=model_version.version
     )
     
-    print(f"✅ Registered {model_name} v{model_version.version}")
+    print(f" Registered {model_name} v{model_version.version}")
 
 
 def load_production_model(model_name: str):

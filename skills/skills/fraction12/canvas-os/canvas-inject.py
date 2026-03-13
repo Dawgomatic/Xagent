@@ -71,7 +71,7 @@ def example_usage():
 </head>
 <body>
     <div class="card">
-        <h1>🎨 Canvas Injection Works!</h1>
+        <h1> Canvas Injection Works!</h1>
         <p>This HTML was injected directly via document.write()</p>
         <p>No file paths, no localhost server needed.</p>
     </div>

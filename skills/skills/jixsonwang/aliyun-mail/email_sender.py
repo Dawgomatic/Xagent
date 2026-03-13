@@ -226,13 +226,13 @@ def main():
             config_path=args.config
         )
         if success:
-            print("✅ Email sent successfully!")
+            print(" Email sent successfully!")
             return 0
         else:
-            print("❌ Failed to send email", file=sys.stderr)
+            print(" Failed to send email", file=sys.stderr)
             return 1
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         return 1
 
 

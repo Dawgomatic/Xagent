@@ -29,18 +29,18 @@ function openBrowser(url) {
   
   exec(`${cmd} "${url}"`, (err) => {
     if (err) {
-      console.log(`⚠️  Could not auto-open browser. Please manually visit: ${url}`);
+      console.log(`  Could not auto-open browser. Please manually visit: ${url}`);
     }
   });
 }
 
 async function main() {
-  console.log('\n🔧 LINE Official Account Setup\n');
+  console.log('\n LINE Official Account Setup\n');
   
   // Check if config already exists
   if (fs.existsSync(CONFIG_PATH)) {
     const existing = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
-    console.log(`✅ Configuration already exists:`);
+    console.log(` Configuration already exists:`);
     console.log(`   ${existing.chatUrl}\n`);
     const overwrite = await question('Do you want to reconfigure? (y/N): ');
     if (overwrite.toLowerCase() !== 'y') {
@@ -53,7 +53,7 @@ async function main() {
   console.log('Opening LINE Official Account Manager in your browser...\n');
   openBrowser(LINE_OA_URL);
   
-  console.log('📋 Instructions:');
+  console.log(' Instructions:');
   console.log('  1. Log in with your LINE Business ID');
   console.log('  2. Select your official account from the list');
   console.log('  3. Once on the chat interface, copy the full URL from the address bar');
@@ -67,12 +67,12 @@ async function main() {
     chatUrl = chatUrl.trim();
     
     if (!chatUrl) {
-      console.log('❌ URL cannot be empty. Try again.\n');
+      console.log(' URL cannot be empty. Try again.\n');
       continue;
     }
     
     if (!chatUrl.startsWith('https://chat.line.biz/')) {
-      console.log('❌ Invalid URL. Must start with https://chat.line.biz/\n');
+      console.log(' Invalid URL. Must start with https://chat.line.biz/\n');
       continue;
     }
     
@@ -80,7 +80,7 @@ async function main() {
     const accountId = parts[parts.length - 1];
     
     if (!accountId || accountId.length < 10) {
-      console.log('❌ URL seems incomplete. Make sure to copy the full URL.\n');
+      console.log(' URL seems incomplete. Make sure to copy the full URL.\n');
       continue;
     }
     
@@ -91,7 +91,7 @@ async function main() {
   const config = { chatUrl };
   fs.writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2) + '\n', 'utf8');
   
-  console.log('\n✅ Configuration saved!');
+  console.log('\n Configuration saved!');
   console.log(`   ${chatUrl}`);
   console.log('\nYou can now use LINE OA commands with OpenClaw.\n');
   

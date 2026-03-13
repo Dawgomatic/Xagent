@@ -124,7 +124,7 @@ async function startServer({
     });
 
     server.listen(port, host, () => {
-        console.log(`\n🚀 BROWSER AUTH SERVER READY`);
+        console.log(`\n BROWSER AUTH SERVER READY`);
         console.log(`Access Link: http://${host === '0.0.0.0' ? 'YOUR_IP' : host}:${port}/?token=${token}`);
     });
 

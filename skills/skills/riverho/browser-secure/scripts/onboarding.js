@@ -151,7 +151,7 @@ const checks = {
 };
 
 async function checkPrerequisites() {
-  console.log('\n🔍 Checking prerequisites...\n');
+  console.log('\n Checking prerequisites...\n');
   
   const results = [];
   const missing = [];
@@ -159,7 +159,7 @@ async function checkPrerequisites() {
   
   for (const [key, check] of Object.entries(checks)) {
     const passed = check.check();
-    const status = passed ? '✅' : check.required ? '❌' : '⚠️';
+    const status = passed ? '' : check.required ? '' : '';
     const label = check.required ? '(required)' : '(optional)';
     
     console.log(`   ${status} ${check.name} ${label}`);
@@ -190,9 +190,9 @@ async function installMissing(missing) {
   
   // Fail fast on manual-fix required items
   if (manualFix.length > 0) {
-    console.log('\n❌ Missing required prerequisites that need manual installation:\n');
+    console.log('\n Missing required prerequisites that need manual installation:\n');
     for (const item of manualFix) {
-      console.log(`   ❌ ${item.name}: ${item.fixHint}`);
+      console.log(`    ${item.name}: ${item.fixHint}`);
     }
     console.log('\nPlease install these and run setup again.');
     return false;
@@ -200,19 +200,19 @@ async function installMissing(missing) {
   
   // Offer to auto-install
   if (autoFixable.length > 0) {
-    console.log('\n📦 The following can be auto-installed:\n');
+    console.log('\n The following can be auto-installed:\n');
     for (const item of autoFixable) {
       console.log(`   • ${item.name}`);
     }
     
-    const shouldInstall = await ask('\n🚀 Install these now? [Y/n]: ');
+    const shouldInstall = await ask('\n Install these now? [Y/n]: ');
     
     if (shouldInstall.toLowerCase() === 'n') {
-      console.log('\n⚠️ Skipping auto-install. Setup may not work correctly.');
+      console.log('\n Skipping auto-install. Setup may not work correctly.');
       return false;
     }
     
-    console.log('\n📦 Installing dependencies...\n');
+    console.log('\n Installing dependencies...\n');
     
     for (const item of autoFixable) {
       const cmd = item.installCmd();
@@ -221,9 +221,9 @@ async function installMissing(missing) {
       console.log(`   Installing ${item.name}...`);
       try {
         execSync(cmd, { stdio: 'inherit' });
-        console.log(`   ✅ ${item.name} installed\n`);
+        console.log(`    ${item.name} installed\n`);
       } catch (err) {
-        console.log(`   ⚠️ Failed to install ${item.name}, continuing...\n`);
+        console.log(`    Failed to install ${item.name}, continuing...\n`);
       }
     }
   }
@@ -232,7 +232,7 @@ async function installMissing(missing) {
 }
 
 async function buildAndLink() {
-  console.log('\n🔨 Building browser-secure...\n');
+  console.log('\n Building browser-secure...\n');
   
   const steps = [
     { name: 'Installing npm dependencies', cmd: 'npm install' },
@@ -244,9 +244,9 @@ async function buildAndLink() {
     console.log(`   ${step.name}...`);
     try {
       execSync(step.cmd, { stdio: 'inherit' });
-      console.log(`   ✅ ${step.name}\n`);
+      console.log(`    ${step.name}\n`);
     } catch (err) {
-      console.error(`   ❌ ${step.name} failed`);
+      console.error(`    ${step.name} failed`);
       throw err;
     }
   }
@@ -260,7 +260,7 @@ async function setupConfig() {
   if (isReinstall) {
     const backupDir = `${configDir}.backup.${Date.now()}`;
     fs.cpSync(configDir, backupDir, { recursive: true });
-    console.log(`📁 Backed up existing config to: ${backupDir}`);
+    console.log(` Backed up existing config to: ${backupDir}`);
     fs.rmSync(configDir, { recursive: true, force: true });
   }
   
@@ -299,12 +299,12 @@ security:
     fs.writeFileSync(userConfig, defaultYaml);
   }
   
-  console.log('📝 Created config at ~/.browser-secure/config.yaml');
+  console.log(' Created config at ~/.browser-secure/config.yaml');
 }
 
 async function runOnboarding() {
   console.log('╔════════════════════════════════════════════════════════════╗');
-  console.log('║          🔒 Browser-Secure Installation                    ║');
+  console.log('║           Browser-Secure Installation                    ║');
   console.log('║     Secure browser automation with vault integration       ║');
   console.log('╚════════════════════════════════════════════════════════════╝');
   
@@ -312,10 +312,10 @@ async function runOnboarding() {
   const isReinstall = fs.existsSync(configDir);
   
   if (isReinstall) {
-    console.log('\n⚠️  Browser-Secure is already installed.');
+    console.log('\n  Browser-Secure is already installed.');
     const reinstall = await ask('Reinstall/reset? [y/N]: ');
     if (reinstall.toLowerCase() !== 'y') {
-      console.log('\n✅ Keeping existing installation.');
+      console.log('\n Keeping existing installation.');
       rl.close();
       return;
     }
@@ -333,7 +333,7 @@ async function runOnboarding() {
   
   // Phase 3: Show summary and get final permission
   console.log('\n────────────────────────────────────────────────────────────');
-  console.log('\n📋 Installation Summary:\n');
+  console.log('\n Installation Summary:\n');
   console.log('   • browser-secure CLI (globally available)');
   console.log('   • Config directory: ~/.browser-secure/');
   console.log('   • Audit logs for session tracking');
@@ -341,15 +341,15 @@ async function runOnboarding() {
   console.log('   • Vault-backed credentials (Bitwarden default)');
   
   if (optionalMissing.length > 0) {
-    console.log('\n⚠️  Optional (install later if needed):');
+    console.log('\n  Optional (install later if needed):');
     for (const item of optionalMissing) {
       console.log(`      • ${item.name}`);
     }
   }
   
-  const confirm = await ask('\n🚀 Proceed? [Y/n]: ');
+  const confirm = await ask('\n Proceed? [Y/n]: ');
   if (confirm.toLowerCase() === 'n') {
-    console.log('\n❌ Installation cancelled.');
+    console.log('\n Installation cancelled.');
     rl.close();
     process.exit(0);
   }
@@ -371,7 +371,7 @@ async function runOnboarding() {
     
     // Success message
     console.log('\n╔════════════════════════════════════════════════════════════╗');
-    console.log('║              ✅ Installation Complete!                     ║');
+    console.log('║               Installation Complete!                     ║');
     console.log('╚════════════════════════════════════════════════════════════╝');
     console.log('\nQuick start:\n');
     console.log('   browser-secure --version');
@@ -384,7 +384,7 @@ async function runOnboarding() {
     console.log('');
     
   } catch (error) {
-    console.error('\n❌ Installation failed:', error.message);
+    console.error('\n Installation failed:', error.message);
     rl.close();
     process.exit(1);
   }

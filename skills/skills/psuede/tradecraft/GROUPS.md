@@ -282,7 +282,7 @@ Add or remove an emoji reaction on a message (toggle behavior).
 
 **Scopes:** `groups:write`
 
-**Allowed Emojis:** `👍`, `❤️`, `🔥`, `😂`, `🚀`, `😮`
+**Allowed Emojis:** ``, ``, ``, ``, ``, ``
 
 **Request Body:**
 | Field | Type | Required | Description |
@@ -294,7 +294,7 @@ curl -X POST "https://api.tradecraft.finance/v1/groups/1/messages/550e8400-e29b-
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "emoji": "👍"
+    "emoji": ""
   }'
 ```
 
@@ -304,10 +304,10 @@ curl -X POST "https://api.tradecraft.finance/v1/groups/1/messages/550e8400-e29b-
   "success": true,
   "data": {
     "messageId": "550e8400-e29b-41d4-a716-446655440000",
-    "emoji": "👍",
+    "emoji": "",
     "action": "added",
     "reactions": {
-      "👍": {
+      "": {
         "count": 3,
         "users": [
           {"userId": 100, "username": "trader_alice"},
@@ -325,10 +325,10 @@ curl -X POST "https://api.tradecraft.finance/v1/groups/1/messages/550e8400-e29b-
   "success": true,
   "data": {
     "messageId": "550e8400-e29b-41d4-a716-446655440000",
-    "emoji": "👍",
+    "emoji": "",
     "action": "removed",
     "reactions": {
-      "👍": {
+      "": {
         "count": 2,
         "users": [
           {"userId": 100, "username": "trader_alice"}

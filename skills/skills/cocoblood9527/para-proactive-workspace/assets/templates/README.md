@@ -4,7 +4,7 @@ Personal workspace combining **PARA Method** + **Proactive Agent Architecture**
 
 ---
 
-## 📁 Directory Structure
+##  Directory Structure
 
 ### PARA Method (Content Organization)
 
@@ -43,7 +43,7 @@ Personal workspace combining **PARA Method** + **Proactive Agent Architecture**
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### For You (Human)
 
@@ -59,7 +59,7 @@ Personal workspace combining **PARA Method** + **Proactive Agent Architecture**
 
 ---
 
-## 🔄 Workflows
+##  Workflows
 
 ### New Project
 ```
@@ -78,7 +78,7 @@ Error occurs → Log to .learnings/ERRORS.md → Fix → Promote to AGENTS.md if
 
 ---
 
-## 📝 Maintenance
+##  Maintenance
 
 - **Daily**: Clear `+temp/`, process `+inbox/`
 - **Weekly**: Review `2-areas/`, archive completed projects

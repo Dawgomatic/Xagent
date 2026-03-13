@@ -3,7 +3,7 @@ name: "Invest"
 description: "Start investing with account selection, portfolio building, and long-term wealth strategies."
 ---
 
-## ⚠️ Important Disclaimer
+##  Important Disclaimer
 
 **This is general educational information, NOT personalized investment advice.**
 

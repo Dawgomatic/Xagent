@@ -566,7 +566,7 @@ class SynapseNode:
         if is_trusted:
             logger.info(f"✓ Creator {shard.creator_agent_id} is trusted (score: {trust_score:.2f})")
         else:
-            logger.warning(f"⚠ Creator {shard.creator_agent_id} has low trust (score: {trust_score:.2f})")
+            logger.warning(f" Creator {shard.creator_agent_id} has low trust (score: {trust_score:.2f})")
         
         return is_trusted
     

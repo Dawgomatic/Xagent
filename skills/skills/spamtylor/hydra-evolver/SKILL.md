@@ -9,7 +9,7 @@ metadata:
   env: ["PVE_TOKEN_ID", "PVE_TOKEN_SECRET"]
 ---
 
-# 🐉 Hydra Mesh Evolver
+#  Hydra Mesh Evolver
 
 **Weaponize your infrastructure. Decentralize your brain.**
 

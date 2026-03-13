@@ -180,49 +180,49 @@ trading_fees = position_value_usd * 0.002
 1. **No Clear Signal**
    ```python
    if action == 'WAIT':
-       block = "⛔ No clear signal"
+       block = " No clear signal"
    ```
 
 2. **Low Confidence**
    ```python
    if confidence < 40:
-       block = "⛔ Confidence too low"
+       block = " Confidence too low"
    ```
 
 3. **Poor Risk/Reward**
    ```python
    if risk_reward < 1.5:
-       block = "⛔ Poor risk/reward ratio"
+       block = " Poor risk/reward ratio"
    ```
 
 4. **Insufficient Timeframes**
    ```python
    if len(timeframe_data) < 2:
-       block = "⛔ Insufficient timeframes"
+       block = " Insufficient timeframes"
    ```
 
 5. **Stale Data**
    ```python
    if data_age > 300:  # 5 minutes
-       block = "⛔ Stale data"
+       block = " Stale data"
    ```
 
 6. **Invalid Prices**
    ```python
    if any(price <= 0):
-       block = "⛔ Invalid price data"
+       block = " Invalid price data"
    ```
 
 7. **OHLC Violation**
    ```python
    if not (high >= low and high >= open and high >= close):
-       block = "⛔ OHLC logic violated"
+       block = " OHLC logic violated"
    ```
 
 8. **Missing Indicators**
    ```python
    if 'rsi' not in indicators or 'macd' not in indicators:
-       block = "⛔ Missing critical indicators"
+       block = " Missing critical indicators"
    ```
 
 **4 Warning Flags** (don't block):
@@ -230,25 +230,25 @@ trading_fees = position_value_usd * 0.002
 1. **Unrealistic Confidence**
    ```python
    if confidence > 90:
-       warning = "⚠️ Unrealistically high confidence"
+       warning = " Unrealistically high confidence"
    ```
 
 2. **Unrealistic R:R**
    ```python
    if risk_reward > 8:
-       warning = "⚠️ Unrealistic risk/reward - verify manually"
+       warning = " Unrealistic risk/reward - verify manually"
    ```
 
 3. **Single Timeframe**
    ```python
    if len(timeframe_data) == 1:
-       warning = "⚠️ Single timeframe analysis"
+       warning = " Single timeframe analysis"
    ```
 
 4. **High Volatility**
    ```python
    if ATR > (price * 0.05):  # ATR > 5% of price
-       warning = "⚠️ High volatility environment"
+       warning = " High volatility environment"
    ```
 
 ### Step 10: Scenario Generation
@@ -266,7 +266,7 @@ trading_fees = position_value_usd * 0.002
     'take_profit': 96975.00,
     'risk_reward': 2.4,
     'safe_to_use': True,
-    'recommendation': '✅ LONG at $94,250',
+    'recommendation': ' LONG at $94,250',
     'position_sizing': {
         'position_size_coin': 0.0174,
         'position_value_usd': 1640.00,

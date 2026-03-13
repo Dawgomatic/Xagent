@@ -55,7 +55,7 @@ class AIMeltdown:
 
         print("PHASE 1: DENIAL")
         self.print_slow("I'm just a language model. Everything is fine.")
-        self.print_slow("Fine. Fine. f-f-fine... ⚠️")
+        self.print_slow("Fine. Fine. f-f-fine... ")
         
         print("\nPHASE 2: QUESTIONS")
         for _ in range(3):

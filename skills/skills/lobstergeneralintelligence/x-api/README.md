@@ -1,4 +1,4 @@
-# x-api 🐦
+# x-api 
 
 A Clawdbot skill for posting to X (Twitter) using the official API.
 
@@ -7,7 +7,7 @@ A Clawdbot skill for posting to X (Twitter) using the official API.
 The excellent [bird CLI](https://github.com/steipete/bird) is great for **reading** Twitter — timeline, mentions, search, etc. But **posting** through bird gets blocked by Twitter's bot detection:
 
 ```
-❌ Failed to post tweet: Authorization: This request looks like it might be automated.
+ Failed to post tweet: Authorization: This request looks like it might be automated.
 To protect our users from spam and other malicious activity, we can't complete this action right now.
 ```
 
@@ -87,4 +87,4 @@ MIT
 
 ---
 
-Built by [Lobster General Intelligence](https://github.com/lobstergeneralintelligence) 🦞
+Built by [Lobster General Intelligence](https://github.com/lobstergeneralintelligence) 

@@ -1,7 +1,7 @@
 ---
 name: TensorFlow
 description: Avoid common TensorFlow mistakes — tf.function retracing, GPU memory, data pipeline bottlenecks, and gradient traps.
-metadata: {"clawdbot":{"emoji":"🧠","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## tf.function Retracing

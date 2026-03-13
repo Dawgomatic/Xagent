@@ -130,22 +130,22 @@ class SkillGuard:
         critical = sum(1 for r in results if r["status"] == "critical")
 
         report_lines.extend([
-            "📊 摘要統計:",
-            f"  ✅ 安全: {clean}",
-            f"  ⚠️  警告: {warnings}",
-            f"  🔴 危險: {critical}",
+            " 摘要統計:",
+            f"   安全: {clean}",
+            f"    警告: {warnings}",
+            f"   危險: {critical}",
             "",
-            "🔍 詳細結果:",
+            " 詳細結果:",
             ""
         ])
 
         # 個別報告
         for result in results:
             status_icon = {
-                "clean": "✅",
-                "warning": "⚠️ ",
-                "critical": "🔴"
-            }.get(result["status"], "❓")
+                "clean": "",
+                "warning": " ",
+                "critical": ""
+            }.get(result["status"], "")
 
             report_lines.extend([
                 f"{status_icon} {result['directory']}",
@@ -162,16 +162,16 @@ class SkillGuard:
         # 建議
         report_lines.extend([
             "=" * 60,
-            "💡 安全建議:",
+            " 安全建議:",
             ""
         ])
 
         if critical > 0:
-            report_lines.append("🔴 需要立即處理：有危險等級 skills 不可使用")
+            report_lines.append(" 需要立即處理：有危險等級 skills 不可使用")
         if warnings > 0:
-            report_lines.append("⚠️  建議審查：有警告等級 skills 需要了解風險")
+            report_lines.append("  建議審查：有警告等級 skills 需要了解風險")
         if clean > 0:
-            report_lines.append(f"✅ 安全可靠：{clean} 個 skills 可以安全使用")
+            report_lines.append(f" 安全可靠：{clean} 個 skills 可以安全使用")
 
         report_lines.append("")
         report_lines.append("=" * 60)

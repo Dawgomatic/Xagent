@@ -16,7 +16,7 @@
       "env": ["VERCEL_TOKEN"]
     },
     "primaryEnv": "VERCEL_TOKEN",
-    "emoji": "🚀",
+    "emoji": "",
     "os": ["darwin", "linux", "win32"]
   }
 }

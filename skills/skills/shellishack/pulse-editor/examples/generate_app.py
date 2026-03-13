@@ -126,10 +126,10 @@ def generate_pulse_app(
     if version:
         payload["version"] = version
     
-    print(f"🚀 Starting Vibe Dev Flow")
+    print(f" Starting Vibe Dev Flow")
     if app_name:
-        print(f"📱 App: {app_name}")
-    print(f"📝 Prompt: {prompt}")
+        print(f" App: {app_name}")
+    print(f" Prompt: {prompt}")
     print("-" * 50)
     
     tracker = MessageTracker()
@@ -147,13 +147,13 @@ def generate_pulse_app(
         
         # Check for errors
         if response.status_code == 401:
-            print("❌ Error: Unauthorized. Check your API key.")
+            print(" Error: Unauthorized. Check your API key.")
             return None
         elif response.status_code == 400:
-            print(f"❌ Error: Bad request. {response.text}")
+            print(f" Error: Bad request. {response.text}")
             return None
         elif response.status_code != 200:
-            print(f"❌ Error: HTTP {response.status_code}")
+            print(f" Error: HTTP {response.status_code}")
             return None
         
         # Process SSE stream with proper buffering
@@ -177,34 +177,34 @@ def generate_pulse_app(
                         if msg:
                             display_message(msg, data.get("type") == "creation")
                     except json.JSONDecodeError as e:
-                        print(f"⚠️ Parse error: {e}")
+                        print(f" Parse error: {e}")
         
         print("-" * 50)
         
         # Get final artifact output
         artifact = tracker.get_artifactOutput()
         if artifact:
-            print("✅ Generation complete!")
+            print(" Generation complete!")
             if artifact.get("publishedAppLink"):
-                print(f"🔗 Published: {artifact['publishedAppLink']}")
+                print(f" Published: {artifact['publishedAppLink']}")
             if artifact.get("sourceCodeArchiveLink"):
-                print(f"📦 Source: {artifact['sourceCodeArchiveLink']}")
-            print(f"🆔 App ID: {artifact.get('appId')}")
+                print(f" Source: {artifact['sourceCodeArchiveLink']}")
+            print(f" App ID: {artifact.get('appId')}")
             if artifact.get("version"):
-                print(f"📌 Version: {artifact['version']}")
+                print(f" Version: {artifact['version']}")
             return artifact
         else:
-            print("⚠️ Generation completed but no artifact output found")
+            print(" Generation completed but no artifact output found")
             return None
         
     except requests.exceptions.Timeout:
-        print("❌ Error: Request timed out")
+        print(" Error: Request timed out")
         return None
     except requests.exceptions.ConnectionError:
-        print("❌ Error: Connection failed")
+        print(" Error: Connection failed")
         return None
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         return None
 
 
@@ -215,23 +215,23 @@ def display_message(msg: AgentTaskMessage, is_new: bool) -> None:
         if is_new and msg.result:
             # Only show first part of new text messages
             preview = msg.result[:100] + "..." if len(msg.result) > 100 else msg.result
-            print(f"💬 {preview}")
+            print(f" {preview}")
     
     elif msg.data_type == "toolCall":
         if is_new:
-            print(f"🔧 Tool call started...")
+            print(f" Tool call started...")
     
     elif msg.data_type == "toolResult":
         if msg.is_final:
-            status = "✅" if not msg.error else "❌"
+            status = "" if not msg.error else ""
             print(f"{status} Tool completed")
     
     elif msg.data_type == "artifactOutput":
         if is_new:
-            print(f"📦 Building artifact...")
+            print(f" Building artifact...")
     
     if msg.error and msg.is_final:
-        print(f"❌ Error: {msg.error}")
+        print(f" Error: {msg.error}")
 
 
 def main():
@@ -239,7 +239,7 @@ def main():
     api_key = os.environ.get("PULSE_EDITOR_API_KEY")
     
     if not api_key:
-        print("❌ Error: PULSE_EDITOR_API_KEY environment variable not set")
+        print(" Error: PULSE_EDITOR_API_KEY environment variable not set")
         print("\nTo set it:")
         print("  Windows:  set PULSE_EDITOR_API_KEY=your_api_key_here")
         print("  Linux/Mac: export PULSE_EDITOR_API_KEY=your_api_key_here")
@@ -254,7 +254,7 @@ def main():
     )
     
     if result:
-        print(f"\n🎉 Success! Your app is ready.")
+        print(f"\n Success! Your app is ready.")
     
     # Example: Update an existing app (uncomment to use)
     # result = generate_pulse_app(

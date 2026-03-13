@@ -11,7 +11,7 @@ const setupPath = path.join(__dirname, 'setup.js');
 const setupCode = fs.readFileSync(setupPath, 'utf8');
 
 // Extract and test key functions
-console.log('🧪 Testing setup.js...\n');
+console.log(' Testing setup.js...\n');
 
 // Test 1: Syntax check
 console.log('1. Syntax check...');
@@ -19,7 +19,7 @@ try {
   require('child_process').execSync(`node -c "${setupPath}"`, { stdio: 'pipe' });
   console.log('   ✓ Syntax is valid\n');
 } catch (e) {
-  console.error('   ❌ Syntax error:', e.message);
+  console.error('    Syntax error:', e.message);
   process.exit(1);
 }
 
@@ -50,7 +50,7 @@ requiredVars.forEach((varName) => {
       const useMatches = [...setupCode.matchAll(new RegExp(`\\b${varName}\\b`, 'g'))];
       useMatches.forEach((match) => {
         if (match.index < defIndex && match.index > 0) {
-          console.error(`   ❌ ${varName} used before definition at position ${match.index}`);
+          console.error(`    ${varName} used before definition at position ${match.index}`);
           foundIssues = true;
         }
       });
@@ -69,7 +69,7 @@ const hasContinueOption = setupCode.includes('Continue without updating');
 if (hasErrorHandling && hasContinueOption) {
   console.log('   ✓ Error handling with continue option found\n');
 } else {
-  console.error('   ❌ Missing error handling or continue option\n');
+  console.error('    Missing error handling or continue option\n');
   foundIssues = true;
 }
 
@@ -80,7 +80,7 @@ const credPathUse = setupCode.indexOf('credentialsPath', credPathDef + 1);
 if (credPathDef !== -1 && credPathUse > credPathDef) {
   console.log('   ✓ credentialsPath is defined before use\n');
 } else {
-  console.error('   ❌ credentialsPath may be used before definition\n');
+  console.error('    credentialsPath may be used before definition\n');
   foundIssues = true;
 }
 
@@ -90,7 +90,7 @@ const bridgePortFallbacks = (setupCode.match(/bridgePort\s*\|\|/g) || []).length
 if (bridgePortFallbacks >= 3) {
   console.log(`   ✓ Found ${bridgePortFallbacks} fallback checks for bridgePort\n`);
 } else {
-  console.warn(`   ⚠️  Only ${bridgePortFallbacks} fallback checks found (expected at least 3)\n`);
+  console.warn(`     Only ${bridgePortFallbacks} fallback checks found (expected at least 3)\n`);
 }
 
 // Test 6: Check that all readline interfaces are closed
@@ -100,15 +100,15 @@ const rlCloses = (setupCode.match(/\.close\(\)/g) || []).length;
 if (rlCloses >= rlCreates) {
   console.log(`   ✓ All ${rlCreates} readline interfaces are closed\n`);
 } else {
-  console.warn(`   ⚠️  ${rlCreates} interfaces created but only ${rlCloses} closed\n`);
+  console.warn(`     ${rlCreates} interfaces created but only ${rlCloses} closed\n`);
 }
 
 // Summary
 console.log('═'.repeat(70));
 if (foundIssues) {
-  console.log('❌ Some issues found. Please review above.');
+  console.log(' Some issues found. Please review above.');
   process.exit(1);
 } else {
-  console.log('✅ All tests passed! Script is ready to use.');
+  console.log(' All tests passed! Script is ready to use.');
   console.log('═'.repeat(70));
 }

@@ -73,14 +73,14 @@ from your personal assistant. This means:
 
 ### What to Restrict
 The debate agent should have:
-- ✅ Discord message sending/reading (in configured channels only)
-- ✅ Access to its own workspace (`skills/debate-moderator/`)
-- ✅ Ability to run scoreboard scripts
-- ❌ No access to personal files or other workspaces
-- ❌ No email, calendar, or contacts access
-- ❌ No home automation
-- ❌ No iMessage or SMS
-- ❌ No web browsing (optional — enable if you want the moderator to fact-check)
+-  Discord message sending/reading (in configured channels only)
+-  Access to its own workspace (`skills/debate-moderator/`)
+-  Ability to run scoreboard scripts
+-  No access to personal files or other workspaces
+-  No email, calendar, or contacts access
+-  No home automation
+-  No iMessage or SMS
+-  No web browsing (optional — enable if you want the moderator to fact-check)
 
 ### How Isolation Works in OpenClaw
 OpenClaw supports multiple agents, each with their own:

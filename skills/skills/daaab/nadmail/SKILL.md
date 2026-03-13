@@ -6,7 +6,7 @@ homepage: https://nadmail.ai
 repository: https://github.com/dAAAb/NadMail-Skill
 metadata:
   openclaw:
-    emoji: "📬"
+    emoji: ""
     requires:
       bins: ["node"]
       env: ["NADMAIL_PRIVATE_KEY"]

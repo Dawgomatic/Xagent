@@ -3,7 +3,7 @@ name: meihua-yishu
 description: Traditional Chinese "Mei Hua Yi Shu" (Plum Blossom Divination) based on specific time calculation (Hour/Minute). Use when the user specifically asks for Plum Blossom Divination or provides hour/minute for calculation.
 ---
 
-# 梅花易数 (Mei Hua Yi Shu) 🌸
+# 梅花易数 (Mei Hua Yi Shu) 
 
 基于时间（时、分）的精细起卦工具。
 

@@ -680,7 +680,7 @@ Examples:
             if args.json:
                 print(json.dumps(entry, indent=2))
             else:
-                print(f"✅ Written: {args.key} (with lock)")
+                print(f" Written: {args.key} (with lock)")
                 if args.ttl:
                     print(f"   TTL: {args.ttl} seconds")
         
@@ -695,13 +695,13 @@ Examples:
                 if args.json:
                     print("null")
                 else:
-                    print(f"❌ Key not found or expired: {args.key}")
+                    print(f" Key not found or expired: {args.key}")
                 sys.exit(1)
             
             if args.json:
                 print(json.dumps(entry, indent=2))
             else:
-                print(f"📖 {args.key}:")
+                print(f" {args.key}:")
                 print(f"   Value: {json.dumps(entry.get('value'))}")
                 print(f"   Source: {entry.get('source_agent')}")
                 print(f"   Timestamp: {entry.get('timestamp')}")
@@ -714,9 +714,9 @@ Examples:
                 sys.exit(1)
             
             if bb.delete(args.key):
-                print(f"✅ Deleted: {args.key}")
+                print(f" Deleted: {args.key}")
             else:
-                print(f"❌ Key not found: {args.key}")
+                print(f" Key not found: {args.key}")
                 sys.exit(1)
         
         elif args.command == "list":
@@ -726,13 +726,13 @@ Examples:
                 print(json.dumps(keys, indent=2))
             else:
                 if keys:
-                    print(f"📋 Blackboard keys ({len(keys)}):")
+                    print(f" Blackboard keys ({len(keys)}):")
                     for key in sorted(keys):
                         entry = bb.read(key)
                         ttl_info = f" [TTL: {entry['ttl']}s]" if entry and entry.get('ttl') else ""
                         print(f"   • {key}{ttl_info}")
                 else:
-                    print("📋 Blackboard is empty")
+                    print(" Blackboard is empty")
         
         elif args.command == "snapshot":
             snapshot = bb.get_snapshot()
@@ -767,12 +767,12 @@ Examples:
                 print(json.dumps(result, indent=2))
             else:
                 if result["success"]:
-                    print(f"📝 Change PROPOSED: {change_id}")
+                    print(f" Change PROPOSED: {change_id}")
                     print(f"   Key: {actual_key}")
                     print(f"   Status: pending validation")
                     print(f"   Next: run 'validate {change_id}'")
                 else:
-                    print(f"❌ Proposal FAILED: {result['error']}")
+                    print(f" Proposal FAILED: {result['error']}")
                     sys.exit(1)
         
         elif args.command == "validate":
@@ -786,12 +786,12 @@ Examples:
                 print(json.dumps(result, indent=2))
             else:
                 if result["valid"]:
-                    print(f"✅ Change VALIDATED: {args.key}")
+                    print(f" Change VALIDATED: {args.key}")
                     print(f"   Key: {result['key']}")
                     print(f"   No conflicts detected")
                     print(f"   Next: run 'commit {args.key}'")
                 else:
-                    print(f"❌ Validation FAILED: {result['error']}")
+                    print(f" Validation FAILED: {result['error']}")
                     sys.exit(1)
         
         elif args.command == "commit":
@@ -805,11 +805,11 @@ Examples:
                 print(json.dumps(result, indent=2))
             else:
                 if result["committed"]:
-                    print(f"🎉 Change COMMITTED: {args.key}")
+                    print(f" Change COMMITTED: {args.key}")
                     print(f"   Key: {result['key']}")
                     print(f"   Operation: {result['operation']}")
                 else:
-                    print(f"❌ Commit FAILED: {result['error']}")
+                    print(f" Commit FAILED: {result['error']}")
                     sys.exit(1)
         
         elif args.command == "abort":
@@ -823,9 +823,9 @@ Examples:
                 print(json.dumps(result, indent=2))
             else:
                 if result["aborted"]:
-                    print(f"🚫 Change ABORTED: {args.key}")
+                    print(f" Change ABORTED: {args.key}")
                 else:
-                    print(f"❌ Abort FAILED: {result['error']}")
+                    print(f" Abort FAILED: {result['error']}")
                     sys.exit(1)
         
         elif args.command == "list-pending":
@@ -835,16 +835,16 @@ Examples:
                 print(json.dumps(pending, indent=2))
             else:
                 if pending:
-                    print(f"📋 Pending changes ({len(pending)}):")
+                    print(f" Pending changes ({len(pending)}):")
                     for p in pending:
-                        status_icon = "🟡" if p["status"] == "pending" else "🟢"
+                        status_icon = "" if p["status"] == "pending" else ""
                         print(f"   {status_icon} {p['change_id']}: {p['operation']} '{p['key']}'")
                         print(f"      Agent: {p['source_agent']} | Status: {p['status']}")
                 else:
-                    print("📋 No pending changes")
+                    print(" No pending changes")
     
     except TimeoutError as e:
-        print(f"🔒 LOCK TIMEOUT: {e}", file=sys.stderr)
+        print(f" LOCK TIMEOUT: {e}", file=sys.stderr)
         sys.exit(1)
 
 

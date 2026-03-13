@@ -26,7 +26,7 @@ try:
     HAS_SUMY = True
 except ImportError:
     HAS_SUMY = False
-    print("⚠️  Sumy not installed. Falling back to truncation mode.")
+    print("  Sumy not installed. Falling back to truncation mode.")
     print("   Install with: pip install sumy")
 
 # Configuration
@@ -47,7 +47,7 @@ class SessionCompressor:
                 self.tokenizer = Tokenizer(lang)
                 self.summarizer = LexRankSummarizer()
             except Exception as e:
-                print(f"⚠️  Tokenizer error: {e}")
+                print(f"  Tokenizer error: {e}")
                 print("   Using fallback mode.")
                 self.tokenizer = None
                 self.summarizer = None
@@ -179,7 +179,7 @@ class SessionCompressor:
             backup_path = filepath + ".backup"
             if os.path.exists(filepath):
                 os.rename(filepath, backup_path)
-                print(f"💾 Backup created: {backup_path}")
+                print(f" Backup created: {backup_path}")
         
         with open(filepath, 'w', encoding='utf-8') as f:
             for msg in messages:
@@ -198,11 +198,11 @@ class SessionCompressor:
         """Restore session from backup file."""
         backup_path = filepath + ".backup"
         if not os.path.exists(backup_path):
-            print(f"❌ No backup found at {backup_path}")
+            print(f" No backup found at {backup_path}")
             return False
         
         os.rename(backup_path, filepath)
-        print(f"✅ Restored from backup: {filepath}")
+        print(f" Restored from backup: {filepath}")
         return True
     
     def get_stats(self, messages):
@@ -277,7 +277,7 @@ class SessionCompressor:
             
             return compression_entry
         except Exception as e:
-            print(f"⚠️  Could not log stats: {e}")
+            print(f"  Could not log stats: {e}")
             return None
     
     def _update_gsheet(self, compression_entry):
@@ -377,7 +377,7 @@ class SessionCompressor:
                         ]]}
                     ).execute()
             
-            print(f"   📊 Google Sheet updated")
+            print(f"    Google Sheet updated")
             
         except Exception as e:
             # Silently fail - don't break compression if sheet update fails
@@ -398,7 +398,7 @@ class SessionCompressor:
             
             return {day: daily[day] for day in sorted_days}
         except Exception as e:
-            print(f"⚠️  Could not read stats: {e}")
+            print(f"  Could not read stats: {e}")
             return None
 
 
@@ -436,11 +436,11 @@ Examples:
     if args.stats:
         daily_stats = compressor.get_daily_stats(days=7)
         if not daily_stats:
-            print("📊 No compression stats yet.")
+            print(" No compression stats yet.")
             print(f"   Stats file: {STATS_FILE}")
             sys.exit(0)
         
-        print("📈 Compression Statistics (Last 7 Days)")
+        print(" Compression Statistics (Last 7 Days)")
         print("=" * 50)
         
         total_compressions = 0
@@ -456,18 +456,18 @@ Examples:
             total_tokens_saved += tokens
             total_kb_saved += kb
             
-            print(f"\n📅 {date}:")
+            print(f"\n {date}:")
             print(f"   Compressions: {count}")
             print(f"   Messages saved: {day_stats['total_messages_saved']}")
             print(f"   KB saved: {kb:.1f} KB")
             print(f"   Tokens saved: ~{format_number(tokens)}")
         
         print("\n" + "=" * 50)
-        print(f"📊 TOTAL (7 days):")
+        print(f" TOTAL (7 days):")
         print(f"   {total_compressions} compressions")
         print(f"   {total_kb_saved:.1f} KB saved")
         print(f"   ~{format_number(total_tokens_saved)} tokens saved")
-        print(f"   💰 Est. savings: ${total_tokens_saved * 0.000003:.2f} - ${total_tokens_saved * 0.000015:.2f}")
+        print(f"    Est. savings: ${total_tokens_saved * 0.000003:.2f} - ${total_tokens_saved * 0.000015:.2f}")
         sys.exit(0)
     
     # Find session file
@@ -477,11 +477,11 @@ Examples:
         session_file = compressor.find_latest_session()
     
     if not session_file or not os.path.exists(session_file):
-        print("❌ No session file found!")
+        print(" No session file found!")
         print(f"   Searched in: {DEFAULT_SESSION_DIR}")
         sys.exit(1)
     
-    print(f"🎯 Session: {os.path.basename(session_file)}")
+    print(f" Session: {os.path.basename(session_file)}")
     print(f"   Path: {session_file}")
     
     # Handle restore
@@ -495,12 +495,12 @@ Examples:
     messages = compressor.load_session(session_file)
     
     if not messages:
-        print("❌ Session file is empty!")
+        print(" Session file is empty!")
         sys.exit(1)
     
     # Get before stats
     before_stats = compressor.get_stats(messages)
-    print(f"\n📊 Current session: {before_stats['message_count']} messages, {before_stats['total_kb']:.1f} KB")
+    print(f"\n Current session: {before_stats['message_count']} messages, {before_stats['total_kb']:.1f} KB")
     print(f"   Estimated tokens: ~{format_number(before_stats['estimated_tokens'])}")
     
     # Compress
@@ -511,13 +511,13 @@ Examples:
     reduction = (1 - new_count / original_count) * 100 if original_count > 0 else 0
     tokens_saved = before_stats['estimated_tokens'] - after_stats['estimated_tokens']
     
-    print(f"\n📈 Compression preview:")
+    print(f"\n Compression preview:")
     print(f"   Messages: {original_count} → {new_count} ({reduction:.1f}% reduction)")
     print(f"   Size: {before_stats['total_kb']:.1f} KB → {after_stats['total_kb']:.1f} KB")
     print(f"   Tokens saved: ~{format_number(tokens_saved)}")
     
     if new_count < original_count:
-        print(f"\n📝 Summary preview:")
+        print(f"\n Summary preview:")
         summary_msg = new_messages[0]
         preview = summary_msg.get('content', '')[:300]
         print(f"   {preview}...")
@@ -531,11 +531,11 @@ Examples:
             'after_stats': after_stats
         }
         compressor.save_session(session_file, new_messages, backup=True, compression_stats=compression_stats)
-        print(f"\n✅ Compression applied!")
-        print(f"   💾 Backup saved as: {session_file}.backup")
-        print(f"   📊 Logged: {format_number(tokens_saved)} tokens saved")
+        print(f"\n Compression applied!")
+        print(f"    Backup saved as: {session_file}.backup")
+        print(f"    Logged: {format_number(tokens_saved)} tokens saved")
     else:
-        print(f"\n🔍 DRY RUN - No changes made")
+        print(f"\n DRY RUN - No changes made")
         print(f"   Use --apply to compress the session")
 
 

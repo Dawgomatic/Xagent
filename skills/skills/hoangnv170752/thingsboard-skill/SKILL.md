@@ -2,7 +2,7 @@
 name: thingsboard
 description: Manage ThingsBoard devices, dashboards, telemetry, and users via the ThingsBoard REST API.
 homepage: https://thingsboard.io
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":["jq","curl"],"env":["TB_URL","TB_USERNAME","TB_PASSWORD"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["jq","curl"],"env":["TB_URL","TB_USERNAME","TB_PASSWORD"]}}}
 ---
 
 # ThingsBoard Skill

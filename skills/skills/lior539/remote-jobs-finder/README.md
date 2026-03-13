@@ -158,4 +158,4 @@ Monitor hourly
 
 ---
 
-Enjoy 🚀
+Enjoy 

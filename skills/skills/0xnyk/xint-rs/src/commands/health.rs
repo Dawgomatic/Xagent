@@ -107,9 +107,9 @@ fn combine_status(current: StatusLevel, next: StatusLevel) -> StatusLevel {
 
 fn icon(status: StatusLevel) -> &'static str {
     match status {
-        StatusLevel::Ok => "✅",
-        StatusLevel::Warn => "⚠️",
-        StatusLevel::Fail => "❌",
+        StatusLevel::Ok => "",
+        StatusLevel::Warn => "",
+        StatusLevel::Fail => "",
     }
 }
 

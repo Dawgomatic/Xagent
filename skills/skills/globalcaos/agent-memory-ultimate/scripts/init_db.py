@@ -128,13 +128,13 @@ def init_schema(conn: sqlite3.Connection):
     
     conn.execute("INSERT OR IGNORE INTO schema_version (version) VALUES (2)")
     conn.commit()
-    print("✅ Schema created")
+    print(" Schema created")
 
 def import_whatsapp_contacts(conn: sqlite3.Connection):
     """Import WhatsApp contacts and groups"""
     json_path = WORKSPACE / "bank" / "whatsapp-contacts-full.json"
     if not json_path.exists():
-        print("⚠️  WhatsApp contacts file not found")
+        print("  WhatsApp contacts file not found")
         return
     
     with open(json_path) as f:
@@ -177,7 +177,7 @@ def import_whatsapp_contacts(conn: sqlite3.Connection):
                 pass
     
     conn.commit()
-    print(f"✅ WhatsApp: {groups_added} groups, {contacts_added} contacts, {memberships_added} memberships")
+    print(f" WhatsApp: {groups_added} groups, {contacts_added} contacts, {memberships_added} memberships")
 
 def import_daily_logs(conn: sqlite3.Connection):
     """Import markdown files from memory/"""
@@ -209,13 +209,13 @@ def import_daily_logs(conn: sqlite3.Connection):
             pass
     
     conn.commit()
-    print(f"✅ Documents: {docs_added} markdown files")
+    print(f" Documents: {docs_added} markdown files")
 
 def import_chatgpt(conn: sqlite3.Connection):
     """Import ChatGPT conversations"""
     export_path = WORKSPACE / "chatgpt-export" / "chatgpt-export-2026-02-06.json"
     if not export_path.exists():
-        print("⚠️  ChatGPT export not found")
+        print("  ChatGPT export not found")
         return
     
     with open(export_path) as f:
@@ -257,7 +257,7 @@ def import_chatgpt(conn: sqlite3.Connection):
             msgs_added += 1
     
     conn.commit()
-    print(f"✅ ChatGPT: {convs_added} conversations, {msgs_added} messages")
+    print(f" ChatGPT: {convs_added} conversations, {msgs_added} messages")
 
 def rebuild_fts(conn: sqlite3.Connection):
     """Rebuild FTS indexes"""
@@ -273,13 +273,13 @@ def rebuild_fts(conn: sqlite3.Connection):
             SELECT conversation_id, role, content FROM chatgpt_messages
         """)
         conn.commit()
-        print("✅ FTS indexes rebuilt")
+        print(" FTS indexes rebuilt")
     except Exception as e:
-        print(f"⚠️  FTS rebuild: {e}")
+        print(f"  FTS rebuild: {e}")
 
 def print_stats(conn: sqlite3.Connection):
     """Print database statistics"""
-    print("\n📊 Database Statistics:")
+    print("\n Database Statistics:")
     
     tables = [
         ("contacts", "SELECT COUNT(*) FROM contacts"),
@@ -302,7 +302,7 @@ def print_stats(conn: sqlite3.Connection):
 
 def test_search(conn: sqlite3.Connection):
     """Test search functionality"""
-    print("\n🔍 Testing search...")
+    print("\n Testing search...")
     
     # Test contact search
     result = conn.execute("SELECT phone FROM contacts WHERE phone LIKE '%659418%' LIMIT 3").fetchall()
@@ -332,7 +332,7 @@ def test_search(conn: sqlite3.Connection):
         print(f"  ChatGPT FTS: {e}")
 
 def main():
-    print(f"🗄️  JarvisOne Knowledge Base v2")
+    print(f"  JarvisOne Knowledge Base v2")
     print(f"   Database: {DB_PATH}\n")
     
     conn = sqlite3.connect(DB_PATH)
@@ -346,7 +346,7 @@ def main():
     test_search(conn)
     
     conn.close()
-    print("\n✅ Knowledge Base ready!")
+    print("\n Knowledge Base ready!")
 
 if __name__ == "__main__":
     main()

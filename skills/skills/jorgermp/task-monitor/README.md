@@ -1,25 +1,25 @@
-# 🤖 Task Monitor v0.1
+#  Task Monitor v0.1
 
 Real-time web dashboard for monitoring OpenClaw sessions and background tasks with a beautiful, mobile-responsive interface.
 
-## ✨ Features
+##  Features
 
-- **🌐 Web Dashboard** - Beautiful, responsive UI accessible from any device (desktop, tablet, mobile)
-- **📱 Mobile-First Design** - Optimized touch-friendly interface for phones and tablets
-- **🔄 Auto-Refresh** - Live updates every 60 seconds without manual intervention
-- **🎨 Modern UI** - Gradient design with dark theme and glassmorphism effects
-- **📊 Comprehensive Monitoring** - Track main session, Discord, sub-agents, and cron jobs
-- **🚀 Fast API** - JSON endpoint with intelligent caching (30s TTL)
-- **⚡ High Performance** - <100ms response time (cached), ~15s cold cache
-- **💾 Smart Caching** - Stale-while-revalidate pattern ensures fast responses even when cache expires
+- ** Web Dashboard** - Beautiful, responsive UI accessible from any device (desktop, tablet, mobile)
+- ** Mobile-First Design** - Optimized touch-friendly interface for phones and tablets
+- ** Auto-Refresh** - Live updates every 60 seconds without manual intervention
+- ** Modern UI** - Gradient design with dark theme and glassmorphism effects
+- ** Comprehensive Monitoring** - Track main session, Discord, sub-agents, and cron jobs
+- ** Fast API** - JSON endpoint with intelligent caching (30s TTL)
+- ** High Performance** - <100ms response time (cached), ~15s cold cache
+- ** Smart Caching** - Stale-while-revalidate pattern ensures fast responses even when cache expires
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Node.js 14.0.0 or higher
 - OpenClaw CLI installed and configured
 - Access to `openclaw sessions list` and `openclaw cron list` commands
 
-## 🚀 Installation
+##  Installation
 
 1. Navigate to the skill directory:
 ```bash
@@ -31,7 +31,7 @@ cd skills/task-monitor
 npm install
 ```
 
-## 📖 Usage
+##  Usage
 
 ### Start the Web Server
 
@@ -117,7 +117,7 @@ The original markdown generator is still available:
 
 This creates/updates `DASHBOARD.md` in your workspace root.
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Technology Stack
 - **Backend:** Node.js + Express
@@ -139,7 +139,7 @@ This creates/updates `DASHBOARD.md` in your workspace root.
 | Cache Miss | ~15s | First request or expired cache |
 | Stale Cache | <100ms | Returns stale data while refreshing |
 
-## 📱 Mobile Experience
+##  Mobile Experience
 
 The dashboard is fully optimized for mobile devices:
 - Touch-friendly card-based layout
@@ -148,7 +148,7 @@ The dashboard is fully optimized for mobile devices:
 - No horizontal scrolling
 - Optimized for portrait and landscape modes
 
-## 🔧 Configuration
+##  Configuration
 
 ### Change Port
 
@@ -173,7 +173,7 @@ The HTML dashboard is embedded in `server.js`. You can modify:
 - Card layout and content
 - Typography and spacing
 
-## 🔄 Automation
+##  Automation
 
 ### Optional: CRON Integration
 
@@ -185,7 +185,7 @@ openclaw cron add "*/5 * * * *" "cd ~/clawd/skills/task-monitor && ./scripts/gen
 
 This updates `DASHBOARD.md` every 5 minutes.
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Server won't start
 - Check if port 3030 is already in use: `lsof -i :3030`
@@ -202,21 +202,21 @@ This updates `DASHBOARD.md` every 5 minutes.
 - Check if `openclaw` commands are slow (try running manually)
 - Monitor server logs for errors
 
-## 📝 License
+##  License
 
 MIT License - Free to use, modify, and distribute.
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! This skill is part of the OpenClaw ecosystem.
 
-## 🔗 Related Skills
+##  Related Skills
 
 - **session-manager** - Manage OpenClaw sessions
 - **cron-helper** - Advanced cron job management
 - **log-viewer** - View and search OpenClaw logs
 
-## 📚 Learn More
+##  Learn More
 
 - [OpenClaw Documentation](https://openclaw.org/docs)
 - [ClawHub](https://clawhub.org)

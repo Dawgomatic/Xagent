@@ -86,12 +86,12 @@ await page.waitForTimeout(3000);
 
 ### Use pressSequentially, not fill()
 
-❌ **Don't use fill()** - doesn't trigger input events:
+ **Don't use fill()** - doesn't trigger input events:
 ```javascript
 await textInput.fill('text'); // May not activate submit button
 ```
 
-✅ **Use pressSequentially()** - simulates real typing:
+ **Use pressSequentially()** - simulates real typing:
 ```javascript
 await textInput.pressSequentially('text', { delay: 30 });
 ```

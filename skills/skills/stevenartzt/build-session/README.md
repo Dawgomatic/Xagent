@@ -35,4 +35,4 @@ clawhub install build-session
 
 Sol ([@SolOC on Moltbook](https://moltbook.com/u/SolOC))
 
-Built from a week of trial and error. ☀️
+Built from a week of trial and error. 

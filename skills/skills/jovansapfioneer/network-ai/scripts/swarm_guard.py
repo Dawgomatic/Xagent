@@ -626,7 +626,7 @@ class SwarmGuard:
         usage_pct = (new_total / budget["max_tokens"]) * 100
         warning = None
         if usage_pct >= BUDGET_WARNING_THRESHOLD * 100:
-            warning = f"⚠️ Budget at {usage_pct:.0f}% - complete task soon!"
+            warning = f" Budget at {usage_pct:.0f}% - complete task soon!"
         
         self._save_state()
         
@@ -662,7 +662,7 @@ class SwarmGuard:
             "blocked": True,
             "task_id": task_id,
             "reason": "SAFETY_SHUTDOWN",
-            "message": f"🛑 BUDGET EXCEEDED: Task '{task_id}' ABORTED. {reason}",
+            "message": f" BUDGET EXCEEDED: Task '{task_id}' ABORTED. {reason}",
             "action_required": "Task terminated. Do NOT continue. Report to supervisor."
         }
     
@@ -740,7 +740,7 @@ class SwarmGuard:
         if not budget_status.get("can_continue"):
             result["blocked"] = True
             result["reason"] = "BUDGET_EXHAUSTED"
-            result["message"] = f"🛑 Cannot handoff: budget exhausted for task '{task_id}'"
+            result["message"] = f" Cannot handoff: budget exhausted for task '{task_id}'"
             result["budget_status"] = budget_status
             
             log_audit("handoff_blocked", {
@@ -781,7 +781,7 @@ class SwarmGuard:
         if handoff_result.get("blocked"):
             result["blocked"] = True
             result["reason"] = "HANDOFF_TAX_EXCEEDED"
-            result["message"] = f"🛑 Handoff blocked: {handoff_result['violations']}"
+            result["message"] = f" Handoff blocked: {handoff_result['violations']}"
             result["handoff_result"] = handoff_result
             return result
         
@@ -974,10 +974,10 @@ def _pretty_print(command: str, result: dict[str, Any]) -> None:
     """Human-readable output."""
     if command == "check-handoff":
         if not result.get("exists"):
-            print(f"📋 Task '{result['task_id']}' not found (new task)")
+            print(f" Task '{result['task_id']}' not found (new task)")
         else:
             remaining = result.get("remaining", 0)
-            status_icon = "🟢" if remaining > 1 else "🟡" if remaining == 1 else "🔴"
+            status_icon = "" if remaining > 1 else "" if remaining == 1 else ""
             print(f"{status_icon} Task: {result['task_id']}")
             print(f"   Handoffs: {result['handoffs']}/{MAX_HANDOFFS_PER_TASK}")
             print(f"   Remaining: {remaining}")
@@ -986,18 +986,18 @@ def _pretty_print(command: str, result: dict[str, Any]) -> None:
     
     elif command == "record-handoff":
         if result.get("blocked"):
-            print("🚫 HANDOFF BLOCKED")
+            print(" HANDOFF BLOCKED")
             for v in result.get("violations", []):
-                print(f"   ❌ {v}")
+                print(f"    {v}")
         else:
-            print(f"✅ Handoff #{result['handoff_number']} recorded")
+            print(f" Handoff #{result['handoff_number']} recorded")
         
         for w in result.get("warnings", []):
-            print(f"   ⚠️  {w}")
+            print(f"     {w}")
     
     elif command == "intercept-handoff":
         if result.get("allowed"):
-            print(f"✅ HANDOFF ALLOWED: {result['from_agent']} → {result['to_agent']}")
+            print(f" HANDOFF ALLOWED: {result['from_agent']} → {result['to_agent']}")
             print(f"   Task: {result['task_id']}")
             print(f"   Tokens spent: {result.get('tokens_spent', 0):,}")
             print(f"   Budget remaining: {result.get('remaining_budget', 0):,}")
@@ -1005,9 +1005,9 @@ def _pretty_print(command: str, result: dict[str, Any]) -> None:
             print("   → Proceed with sessions_send")
             
             for w in result.get("warnings", []):
-                print(f"   ⚠️  {w}")
+                print(f"     {w}")
         else:
-            print(f"🛑 HANDOFF BLOCKED: {result['from_agent']} → {result['to_agent']}")
+            print(f" HANDOFF BLOCKED: {result['from_agent']} → {result['to_agent']}")
             print(f"   Task: {result['task_id']}")
             print(f"   Reason: {result.get('reason', 'Unknown')}")
             print(f"   {result.get('message', '')}")
@@ -1015,35 +1015,35 @@ def _pretty_print(command: str, result: dict[str, Any]) -> None:
     
     elif command == "validate-result":
         if result.get("valid"):
-            print("✅ RESULT VALID")
+            print(" RESULT VALID")
             print(f"   Task: {result['task_id']}")
             print(f"   Agent: {result['agent_id']}")
             print(f"   → {result['recommendation']}")
         else:
-            print("❌ RESULT INVALID")
+            print(" RESULT INVALID")
             for issue in result.get("issues", []):
-                print(f"   ❌ {issue}")
+                print(f"    {issue}")
             print(f"   → {result['recommendation']}")
         
         for w in result.get("warnings", []):
-            print(f"   ⚠️  {w}")
+            print(f"     {w}")
     
     elif command == "health-check":
         if result.get("healthy"):
-            print(f"💚 Agent '{result['agent_id']}' is HEALTHY")
+            print(f" Agent '{result['agent_id']}' is HEALTHY")
             print(f"   Status: {result.get('status')}")
             print(f"   Last seen: {result.get('seconds_since_heartbeat', 0):.0f}s ago")
         else:
-            print(f"💔 Agent '{result['agent_id']}' is UNHEALTHY")
+            print(f" Agent '{result['agent_id']}' is UNHEALTHY")
             print(f"   Reason: {result.get('reason')}")
             print(f"   → {result.get('recommendation')}")
     
     elif command == "heartbeat":
-        print(f"💓 Heartbeat recorded for '{result['agent_id']}'")
+        print(f" Heartbeat recorded for '{result['agent_id']}'")
     
     elif command == "supervisor-review":
         verdict = result.get("verdict", "UNKNOWN")
-        icon = "✅" if verdict == "APPROVED" else "⚠️" if verdict == "WARNING" else "🚫"
+        icon = "" if verdict == "APPROVED" else "" if verdict == "WARNING" else ""
         
         print(f"{icon} SUPERVISOR VERDICT: {verdict}")
         print(f"   Task: {result['task_id']}")
@@ -1052,33 +1052,33 @@ def _pretty_print(command: str, result: dict[str, Any]) -> None:
         print(f"   Artifacts: {result.get('artifacts', 0)}")
         
         for issue in result.get("issues", []):
-            print(f"   ❌ {issue}")
+            print(f"    {issue}")
         
         for rec in result.get("recommendations", []):
-            print(f"   💡 {rec}")
+            print(f"    {rec}")
     
     # === BUDGET COMMANDS ===
     
     elif command == "budget-init":
         if result.get("initialized"):
-            print(f"💰 Budget INITIALIZED for '{result['task_id']}'")
+            print(f" Budget INITIALIZED for '{result['task_id']}'")
             print(f"   Max tokens: {result['max_tokens']:,}")
         else:
-            print(f"❌ Budget init FAILED: {result.get('error')}")
+            print(f" Budget init FAILED: {result.get('error')}")
     
     elif command == "budget-check":
         if not result.get("initialized"):
-            print(f"❌ {result.get('error')}")
+            print(f" {result.get('error')}")
         else:
             usage = result.get("usage_percentage", 0)
             status = result.get("status", "UNKNOWN")
             
             if status == "EXHAUSTED":
-                icon = "🛑"
+                icon = ""
             elif status == "WARNING":
-                icon = "⚠️"
+                icon = ""
             else:
-                icon = "💰"
+                icon = ""
             
             print(f"{icon} Budget Status: {status}")
             print(f"   Task: {result['task_id']}")
@@ -1093,28 +1093,28 @@ def _pretty_print(command: str, result: dict[str, Any]) -> None:
             print(f"   [{bar}]")
             
             if not result.get("can_continue"):
-                print("   🚫 Cannot continue - budget exhausted!")
+                print("    Cannot continue - budget exhausted!")
     
     elif command == "budget-spend":
         if result.get("blocked"):
-            print("🛑 SAFETY SHUTDOWN TRIGGERED")
+            print(" SAFETY SHUTDOWN TRIGGERED")
             print(f"   {result.get('message')}")
             print(f"   → {result.get('action_required')}")
         elif result.get("allowed"):
-            print(f"💸 Spent {result['tokens_spent']:,} tokens")
+            print(f" Spent {result['tokens_spent']:,} tokens")
             print(f"   Reason: {result['reason']}")
             print(f"   Remaining: {result['remaining_tokens']:,} tokens ({100 - result['usage_percentage']:.1f}%)")
             if result.get("warning"):
                 print(f"   {result['warning']}")
         else:
-            print(f"❌ Spend failed: {result.get('error')}")
+            print(f" Spend failed: {result.get('error')}")
     
     elif command == "budget-report":
         if result.get("error"):
-            print(f"❌ {result['error']}")
+            print(f" {result['error']}")
         else:
             summary = result.get("summary", {})
-            print(f"📊 Budget Report: {result['task_id']}")
+            print(f" Budget Report: {result['task_id']}")
             print(f"   Total Budget: {summary.get('max_tokens', 0):,} tokens")
             print(f"   Used: {summary.get('used_tokens', 0):,} ({summary.get('usage_percentage', 0):.1f}%)")
             print(f"   Remaining: {summary.get('remaining_tokens', 0):,}")

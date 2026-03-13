@@ -13,7 +13,7 @@ London has one of the world's most comprehensive public transport networks, run 
 | **Tube** (Underground) | 11 lines, 272 stations | Central London, cross-city |
 | **Bus** | 675+ routes, 24hr coverage | Local trips, night travel |
 | **Overground** | Orbital routes, outer zones | Zone 2-6 connections |
-| **Elizabeth Line** | West-East corridor + Heathrow | Paddington↔Liverpool St, airports |
+| **Elizabeth Line** | West-East corridor + Heathrow | PaddingtonLiverpool St, airports |
 | **DLR** | East London, Docklands | Canary Wharf, City Airport, Greenwich |
 | **National Rail** | Mainline stations, suburbs | Long distance, airport expresses |
 | **River Bus** | Thames piers | Scenic travel, avoiding traffic |
@@ -237,11 +237,11 @@ Public bike-share scheme covering central/inner London.
 ### Night Tube (Fri-Sat nights only)
 
 24-hour service on 5 lines:
-- **Central:** West Ruislip ↔ Epping (every 10 min)
-- **Jubilee:** Stanmore ↔ Stratford (every 10 min)
-- **Northern:** High Barnet/Edgware ↔ Morden (every 8-20 min)
-- **Piccadilly:** Cockfosters ↔ Heathrow T5 (every 10 min)
-- **Victoria:** Walthamstow ↔ Brixton (every 10 min)
+- **Central:** West Ruislip  Epping (every 10 min)
+- **Jubilee:** Stanmore  Stratford (every 10 min)
+- **Northern:** High Barnet/Edgware  Morden (every 8-20 min)
+- **Piccadilly:** Cockfosters  Heathrow T5 (every 10 min)
+- **Victoria:** Walthamstow  Brixton (every 10 min)
 
 **Standard off-peak fares apply.**
 

@@ -5,7 +5,7 @@ compatibility: Requires Node.js 20+ and pnpm.
 metadata:
   {
     'clawdbot':
-      { 'emoji': '👋', 'homepage': 'https://coinfello.com', 'requires': { 'bins': ['node'] } },
+      { 'emoji': '', 'homepage': 'https://coinfello.com', 'requires': { 'bins': ['node'] } },
   }
 ---
 

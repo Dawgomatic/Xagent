@@ -6,7 +6,7 @@ Skill pour accéder aux services français : trains SNCF, suivi colis La Poste, 
 
 Tous dans `skills/french-services/scripts/`. Utilisent uniquement la stdlib Python (pas de dépendances).
 
-### 🚄 SNCF — Trains (`sncf.py`)
+###  SNCF — Trains (`sncf.py`)
 
 Recherche d'itinéraires et prochains départs via l'API Navitia.
 
@@ -24,7 +24,7 @@ python3 scripts/sncf.py disruptions
 
 **API key requise :** `SNCF_API_KEY` (token Navitia — gratuit sur https://navitia.io)
 
-### 📦 La Poste — Suivi de colis (`laposte.py`)
+###  La Poste — Suivi de colis (`laposte.py`)
 
 ```bash
 # Suivre un colis
@@ -36,7 +36,7 @@ python3 scripts/laposte.py track 6A12345678901 8R98765432109
 
 **API key requise :** `LAPOSTE_API_KEY` (gratuit sur https://developer.laposte.fr)
 
-### 🌤️ Météo (`meteo.py`)
+###  Météo (`meteo.py`)
 
 Météo actuelle et prévisions via Open-Meteo (modèle Météo France). **Pas de clé API nécessaire.**
 
@@ -50,7 +50,7 @@ python3 scripts/meteo.py --lat 43.6 --lon 1.44    # Toulouse par coordonnées
 python3 scripts/meteo.py Paris --json
 ```
 
-### 🚇 RATP/IDFM — Transports IDF (`ratp.py`)
+###  RATP/IDFM — Transports IDF (`ratp.py`)
 
 État du trafic et prochains passages en Île-de-France via l'API PRIM.
 

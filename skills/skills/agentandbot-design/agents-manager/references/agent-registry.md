@@ -53,7 +53,7 @@
 | `can_assign_to` | sessions_spawn ile oluşturulan sub-agent'lar (on-demand) |
 | `escalation_path` | main → Ilkerkaan |
 
-**Health Status:** 🟢 Healthy
+**Health Status:**  Healthy
 - Last check: 2026-01-31
 - Response time: <500ms
 
@@ -77,7 +77,7 @@ Level 2: Ilkerkaan (human, telegram:8143462994)
 **Preferences:**
 - Language: tr, en
 - Timezone: UTC+3
-- Style: Playful 😼, conversational, not too serious
+- Style: Playful , conversational, not too serious
 
 ---
 
@@ -104,9 +104,9 @@ Level 2: Ilkerkaan (human, telegram:8143462994)
 
 | Date | Task | Assigned To | Status |
 |------|------|-------------|--------|
-| 2026-01-31 | Create agents-manager skill | main | ✅ Completed |
-| 2026-01-31 | Profile all available agents | main | ✅ Completed |
-| 2026-01-31 | Update skill with routing fields | main | ✅ Completed |
+| 2026-01-31 | Create agents-manager skill | main |  Completed |
+| 2026-01-31 | Profile all available agents | main |  Completed |
+| 2026-01-31 | Update skill with routing fields | main |  Completed |
 
 ---
 

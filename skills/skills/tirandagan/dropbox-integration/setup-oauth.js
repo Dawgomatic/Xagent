@@ -21,7 +21,7 @@ const readline = require('readline');
 // Load credentials
 const credsPath = path.join(__dirname, 'credentials.json');
 if (!fs.existsSync(credsPath)) {
-  console.error('❌ credentials.json not found!');
+  console.error(' credentials.json not found!');
   console.error('\nCreate credentials.json with:');
   console.error(JSON.stringify({
     app_key: 'your_app_key_here',
@@ -34,7 +34,7 @@ const credentials = JSON.parse(fs.readFileSync(credsPath, 'utf8'));
 const { app_key, app_secret } = credentials;
 
 if (!app_key || !app_secret) {
-  console.error('❌ Invalid credentials.json - missing app_key or app_secret');
+  console.error(' Invalid credentials.json - missing app_key or app_secret');
   process.exit(1);
 }
 
@@ -48,7 +48,7 @@ authUrl.searchParams.append('response_type', 'code');
 authUrl.searchParams.append('redirect_uri', REDIRECT_URI);
 authUrl.searchParams.append('token_access_type', 'offline'); // Get refresh token
 
-console.log('\n📦 Dropbox OAuth Setup\n');
+console.log('\n Dropbox OAuth Setup\n');
 console.log('1. Open this URL in your browser:\n');
 console.log(`   ${authUrl.toString()}\n`);
 console.log('2. Authorize the app');
@@ -65,16 +65,16 @@ const server = http.createServer(async (req, res) => {
     
     if (error) {
       res.writeHead(400, { 'Content-Type': 'text/html' });
-      res.end(`<h1>❌ Authorization failed</h1><p>Error: ${error}</p>`);
-      console.error(`\n❌ Authorization failed: ${error}`);
+      res.end(`<h1> Authorization failed</h1><p>Error: ${error}</p>`);
+      console.error(`\n Authorization failed: ${error}`);
       server.close();
       process.exit(1);
     }
     
     if (!code) {
       res.writeHead(400, { 'Content-Type': 'text/html' });
-      res.end('<h1>❌ No authorization code received</h1>');
-      console.error('\n❌ No authorization code received');
+      res.end('<h1> No authorization code received</h1>');
+      console.error('\n No authorization code received');
       server.close();
       process.exit(1);
     }
@@ -107,12 +107,12 @@ const server = http.createServer(async (req, res) => {
       
       res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(`
-        <h1>✅ Authorization successful!</h1>
+        <h1> Authorization successful!</h1>
         <p>Your access token has been saved to token.json</p>
         <p>You can close this window and return to your terminal.</p>
       `);
       
-      console.log('\n✅ Success! Token saved to token.json');
+      console.log('\n Success! Token saved to token.json');
       console.log('\nToken details:');
       console.log(`  - Access token: ${tokenData.access_token.substring(0, 20)}...`);
       if (tokenData.refresh_token) {
@@ -124,9 +124,9 @@ const server = http.createServer(async (req, res) => {
       
       server.close();
     } catch (error) {
-      console.error('\n❌ Error exchanging code for token:', error.message);
+      console.error('\n Error exchanging code for token:', error.message);
       res.writeHead(500, { 'Content-Type': 'text/html' });
-      res.end(`<h1>❌ Error</h1><p>${error.message}</p>`);
+      res.end(`<h1> Error</h1><p>${error.message}</p>`);
       server.close();
       process.exit(1);
     }
@@ -137,13 +137,13 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(3000, () => {
-  console.log('🌐 Local server started on http://localhost:3000');
+  console.log(' Local server started on http://localhost:3000');
   console.log('   Waiting for authorization...\n');
 });
 
 // Handle Ctrl+C
 process.on('SIGINT', () => {
-  console.log('\n\n⚠️  Setup cancelled');
+  console.log('\n\n  Setup cancelled');
   server.close();
   process.exit(0);
 });

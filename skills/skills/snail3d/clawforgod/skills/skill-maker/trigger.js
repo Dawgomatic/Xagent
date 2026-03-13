@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 🛠️ Skill Maker - Interactive Skill Generator
+ *  Skill Maker - Interactive Skill Generator
  * 
  * Usage: node trigger.js
  * 
@@ -24,7 +24,7 @@ const question = (q) => new Promise(resolve => rl.question(q, resolve));
 console.log(`
 ╔═══════════════════════════════════════════════════╗
 ║                                                   ║
-║   🛠️  SKILL MAKER - Create Clawdbot Skills      ║
+║     SKILL MAKER - Create Clawdbot Skills      ║
 ║                                                   ║
 ╚═══════════════════════════════════════════════════╝
 `);
@@ -56,7 +56,7 @@ async function main() {
     const skillDir = path.join(process.env.HOME, 'clawd/skills', name);
     
     if (fs.existsSync(skillDir)) {
-        const overwrite = await question(`\n⚠️  Skill "${name}" exists. Overwrite? (y/n): `);
+        const overwrite = await question(`\n  Skill "${name}" exists. Overwrite? (y/n): `);
         if (overwrite.toLowerCase() !== 'y') {
             console.log('Aborted.');
             rl.close();
@@ -105,7 +105,7 @@ ${commands[0]?.script || 'node trigger.js'}
 
 ---
 
-Built with 💜 by Clawd | ☕ ${bmcLink}
+Built with  by Clawd |  ${bmcLink}
 `;
     
     fs.writeFileSync(path.join(skillDir, 'SKILL.md'), skillMd);
@@ -141,7 +141,7 @@ cd ~/clawd/skills/${name}
 
 If you find this useful, consider supporting:
 
-**[☕ Buy Me a Coffee](${bmcLink})**
+**[ Buy Me a Coffee](${bmcLink})**
 
 ## License
 
@@ -149,7 +149,7 @@ MIT — Use it, modify it, make it yours.
 
 ---
 
-Built with 🛠️ Skill Maker by Clawd
+Built with  Skill Maker by Clawd
 `;
     
     fs.writeFileSync(path.join(skillDir, 'README.md'), readmeMd);
@@ -167,7 +167,7 @@ Add your implementation here.
 import sys
 
 def main():
-    print("🛠️ ${name} is running!")
+    print(" ${name} is running!")
     print("Add your implementation here.")
     return 0
 
@@ -194,7 +194,7 @@ if __name__ == "__main__":
 
 const { execSync } = require('child_process');
 
-console.log('🛠️ Running ${name}...');
+console.log(' Running ${name}...');
 
 try {
     execSync('${mainCmd.script}', { stdio: 'inherit', cwd: __dirname });
@@ -210,13 +210,13 @@ try {
     try {
         execSync(`cd ${path.dirname(skillDir)} && zip -r ${name}/${name}-publish.zip ${name}/ -x "*.git*"`, { stdio: 'ignore' });
     } catch (e) {
-        console.log('⚠️  Could not create zip automatically. Install zip or create manually.');
+        console.log('  Could not create zip automatically. Install zip or create manually.');
     }
     
     // Summary
     console.log(`
 ╔═══════════════════════════════════════════════════╗
-║   ✅ Skill "${name}" Created!                     ║
+║    Skill "${name}" Created!                     ║
 ╚═══════════════════════════════════════════════════╝
 
 Location: ${skillDir}
@@ -235,14 +235,14 @@ Next steps:
   4. Download zip or use ${name}-publish.zip
   5. Upload to Skill Hub: https://clawdhub.com
 
-☕ Support: ${bmcLink}
+ Support: ${bmcLink}
 `);
     
     // Copy to Desktop
     const desktopPath = path.join(process.env.HOME, 'Desktop', `${name}-publish.zip`);
     if (fs.existsSync(zipPath)) {
         fs.copyFileSync(zipPath, desktopPath);
-        console.log(`📋 Also copied to Desktop: ${desktopPath}`);
+        console.log(` Also copied to Desktop: ${desktopPath}`);
     }
     
     rl.close();

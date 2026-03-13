@@ -28,8 +28,8 @@ Anthropic recommends these techniques in order of broad effectiveness:
 - **Use sequential steps:** Numbered lists/bullet points ensure exact execution order
 
 ### Example — Unclear vs. Clear:
-- ❌ "Remove PII from this feedback"
-- ✅ "Your task is to anonymize customer feedback for our quarterly review. Instructions: 1. Replace names with CUSTOMER_[ID]. 2. Replace emails with EMAIL_[ID]@example.com. 3. Redact phone numbers as PHONE_[ID]. 4. Leave product names intact. 5. Output only processed messages separated by ---."
+-  "Remove PII from this feedback"
+-  "Your task is to anonymize customer feedback for our quarterly review. Instructions: 1. Replace names with CUSTOMER_[ID]. 2. Replace emails with EMAIL_[ID]@example.com. 3. Redact phone numbers as PHONE_[ID]. 4. Leave product names intact. 5. Output only processed messages separated by ---."
 
 ---
 

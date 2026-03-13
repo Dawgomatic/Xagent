@@ -80,7 +80,7 @@ export class ContextBrain extends BaseBrain {
     const entry = `\n[${timestamp}] ${content}`;
 
     await fs.promises.appendFile(logFile, entry);
-    await this.sendMessage('✅ Logged.');
+    await this.sendMessage(' Logged.');
   }
 
   /**
@@ -94,9 +94,9 @@ export class ContextBrain extends BaseBrain {
       const logs = await fs.promises.readFile(logFile, 'utf-8');
       // Discord limit is 2000 chars
       const truncated = logs.slice(-1900);
-      await this.sendMessage(`📄 **Daily Log:**\n${truncated}`);
+      await this.sendMessage(` **Daily Log:**\n${truncated}`);
     } catch {
-      await this.sendMessage('📄 **Daily Log:**\n(Empty)');
+      await this.sendMessage(' **Daily Log:**\n(Empty)');
     }
   }
 
@@ -110,14 +110,14 @@ export class ContextBrain extends BaseBrain {
       const newContext = args.slice(1).join(' ');
       const contextFile = path.join(this.storagePath, 'CONTEXT.md');
       await fs.promises.writeFile(contextFile, newContext);
-      await this.sendMessage('✅ Context updated.');
+      await this.sendMessage(' Context updated.');
     } else {
       const contextFile = path.join(this.storagePath, 'CONTEXT.md');
       try {
         const ctx = await fs.promises.readFile(contextFile, 'utf-8');
-        await this.sendMessage(`🧠 **Current Context:**\n${ctx}`);
+        await this.sendMessage(` **Current Context:**\n${ctx}`);
       } catch {
-        await this.sendMessage('🧠 **Current Context:**\nNo context defined.');
+        await this.sendMessage(' **Current Context:**\nNo context defined.');
       }
     }
   }
@@ -133,6 +133,6 @@ export class ContextBrain extends BaseBrain {
       title: taskTitle,
     });
 
-    await this.sendMessage(`✅ Task "${taskTitle}" created.`);
+    await this.sendMessage(` Task "${taskTitle}" created.`);
   }
 }

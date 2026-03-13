@@ -29,10 +29,10 @@ npx ai-roast ./src
 ## Example Output
 
 ```
-🔥 Line 42: "password123" as a default? Bold strategy.
+ Line 42: "password123" as a default? Bold strategy.
    FIX: Use environment variables for credentials.
 
-💀 Line 89: A 200-line function named "doStuff"? 
+ Line 89: A 200-line function named "doStuff"? 
    Truly a monument to ambiguity.
    FIX: Break into smaller, well-named functions.
 ```

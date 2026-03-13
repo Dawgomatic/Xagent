@@ -2,7 +2,7 @@
 
 A comprehensive memory architecture combining three complementary systems for maximum context retention across sessions, with full privacy protection using Baidu Embedding technology.
 
-## 🚀 Features
+##  Features
 
 - **Three-Tier Memory Architecture** - Combines Baidu Embedding, Git-Notes, and File Search
 - **Privacy Focused** - All vector storage local with Baidu API calls
@@ -11,7 +11,7 @@ A comprehensive memory architecture combining three complementary systems for ma
 - **Auto-Recall & Capture** - Automatic memory injection and storage
 - **Entity Extraction** - Smart topic and concept recognition
 
-## 🎯 Use Cases
+##  Use Cases
 
 - **Persistent Context** - Maintain conversation history across sessions
 - **Decision Tracking** - Remember user decisions and preferences
@@ -19,14 +19,14 @@ A comprehensive memory architecture combining three complementary systems for ma
 - **Task Management** - Track ongoing tasks and progress
 - **Learning Retention** - Remember learned information from conversations
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Clawdbot installation
 - Baidu Qianfan API credentials (API Key and Secret Key) - *Optional, without these the system will operate in degraded mode*
 - Git for branch-aware memory
 - Python 3.8+
 
-## 🛠️ Installation
+##  Installation
 
 ### Method 1: Using ClawdHub
 ```bash
@@ -48,7 +48,7 @@ export BAIDU_SECRET_KEY='your_secret_key'
 
 **Note**: Without API credentials, the system operates in degraded mode using only Git-Notes and file system search.
 
-## 📚 Usage
+##  Usage
 
 ### Initialization
 The system can be integrated with Clawdbot's startup hooks for automatic initialization.
@@ -93,7 +93,7 @@ python3 skills/git-notes-memory/memory.py -p $WORKSPACE search "database choice"
 python3 skills/git-notes-memory/memory.py -p $WORKSPACE get "preferences"
 ```
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Three-Tier Design
 1. **Baidu Embedding Layer** - Semantic search and auto-recall (requires API credentials)
@@ -130,7 +130,7 @@ Git-Notes Storage (structured data)
 File System (persistent docs)
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 ```bash
@@ -142,21 +142,21 @@ export BAIDU_SECRET_KEY='your_secret_key'
 ### Memory Settings
 The skill works with Clawdbot's built-in memory configuration.
 
-## 📊 Performance
+##  Performance
 
 - **Search Speed**: ~50-100ms for semantic searches
 - **Storage**: Local SQLite database (~1MB per 1000 memories)
 - **API Latency**: Depends on Baidu API response time
 - **Chinese Accuracy**: Enhanced semantic understanding for Chinese
 
-## 🔐 Privacy & Security
+##  Privacy & Security
 
 - **Local Storage**: All memories stored in local SQLite
 - **Controlled API Calls**: Only Baidu API for embeddings
 - **No External Sharing**: Memories never leave your system
 - **Branch Isolation**: Memories separated by git branch
 
-## 🔄 Migration from Original Triple Memory
+##  Migration from Original Triple Memory
 
 If migrating from the original Triple Memory:
 1. Install this skill
@@ -164,7 +164,7 @@ If migrating from the original Triple Memory:
 3. Disable original if desired
 4. The system will continue to work with existing Git-Notes memories
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please submit issues and pull requests to improve this skill.
 
@@ -178,11 +178,11 @@ cd triple-memory-baidu-embedding
 clawdhub install --dev
 ```
 
-## 📄 License
+##  License
 
 Based on the original Triple Memory system by Clawdbot Team. Modified to use Baidu Embedding for enhanced privacy and Chinese language support.
 
-## 🆘 Support
+##  Support
 
 For support, please:
 1. Check the documentation
@@ -190,7 +190,7 @@ For support, please:
 3. Ensure Baidu API credentials are properly configured
 4. Verify Git is properly installed for branch-aware features
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Original Triple Memory system by Clawdbot Team
 - Baidu Qianfan API for embedding services

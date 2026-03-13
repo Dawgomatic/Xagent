@@ -82,7 +82,7 @@ export abstract class Brain {
         await this.graph.updateTaskStatus(task.id, 'EXECUTING' as any);
 
         try {
-            await this.sendMessage(`🤖 **${this.name}** is processing task: "${task.title}"...`);
+            await this.sendMessage(` **${this.name}** is processing task: "${task.title}"...`);
 
             const execAsync = promisify(exec);
             let scheduleContext = '';
@@ -134,7 +134,7 @@ export abstract class Brain {
 
         } catch (error) {
             console.error(`[${this.name}] Task failed:`, error);
-            await this.sendMessage(`❌ **Task Failed:** ${String(error)}`);
+            await this.sendMessage(` **Task Failed:** ${String(error)}`);
             await this.graph.updateTaskStatus(task.id, 'FAILED' as any, String(error));
         } finally {
             this.status = 'IDLE';

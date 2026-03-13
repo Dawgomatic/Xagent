@@ -243,12 +243,12 @@ Navigate to https://nofxai.com/backtest
 
 ### Report Contents
 
-- 🤖 AI500 signals (coin + score + gain)
-- 💰 Institution flow TOP10
-- 🚀 Price gainers TOP10
-- 📈 OI increase TOP10
-- 📉 OI decrease TOP10
-- ⚠️ Drop alerts
+-  AI500 signals (coin + score + gain)
+-  Institution flow TOP10
+-  Price gainers TOP10
+-  OI increase TOP10
+-  OI decrease TOP10
+-  Drop alerts
 
 ## 8. Common Workflows
 

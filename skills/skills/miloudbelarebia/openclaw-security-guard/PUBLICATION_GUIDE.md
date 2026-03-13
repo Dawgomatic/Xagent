@@ -45,7 +45,7 @@ npx clawhub publish . --version 1.0.0
 **Discord message (copy-paste):**
 
 ```
-🛡️ **OpenClaw Security Guard** -- CLI security scanner + live dashboard
+ **OpenClaw Security Guard** -- CLI security scanner + live dashboard
 
 Just released an open-source tool that audits your OpenClaw installation for security issues:
 
@@ -65,7 +65,7 @@ openclaw-guard audit
 GitHub: https://github.com/2pidata/openclaw-security-guard
 Discussion: https://github.com/openclaw/openclaw/discussions/15124
 
-Stars welcome! ⭐
+Stars welcome! 
 ```
 
 ---

@@ -89,7 +89,7 @@ class AdaptiveLearningAgent:
         self.learnings.append(learning)
         self._save_learnings()
 
-        print(f"✅ Learning recorded: {learning.id}")
+        print(f" Learning recorded: {learning.id}")
         return learning
 
     def record_error(
@@ -124,7 +124,7 @@ class AdaptiveLearningAgent:
                 context=context
             )
 
-        print(f"⚠️  Error recorded: {error.id}")
+        print(f"  Error recorded: {error.id}")
         return error
 
     def get_recent_learnings(self, limit: int = 10) -> List[Learning]:
@@ -212,7 +212,7 @@ class AdaptiveLearningAgent:
         with open(output_file, 'w') as f:
             json.dump(data, f, indent=2)
 
-        print(f"📁 Learnings exported to {output_file}")
+        print(f" Learnings exported to {output_file}")
 
     def _load_learnings(self) -> List[Learning]:
         """Load learnings from disk"""
@@ -264,7 +264,7 @@ class AdaptiveLearningAgent:
 ║         ADAPTIVE LEARNING AGENT - SUMMARY                 ║
 ╚═══════════════════════════════════════════════════════════╝
 
-📊 Total Learnings: {summary['total_learnings']}
+ Total Learnings: {summary['total_learnings']}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 By Category:
@@ -274,15 +274,15 @@ By Category:
 
         output += f"""
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-❌ ERROR STATISTICS
+ ERROR STATISTICS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Total Errors: {summary['error_statistics']['total_errors']}
-✅ Resolved: {summary['error_statistics']['resolved']}
-⏳ Unresolved: {summary['error_statistics']['unresolved']}
+ Resolved: {summary['error_statistics']['resolved']}
+ Unresolved: {summary['error_statistics']['unresolved']}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📚 RECENT LEARNINGS
+ RECENT LEARNINGS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
 
@@ -321,4 +321,4 @@ if __name__ == "__main__":
 
     # Search learnings
     results = agent.search_learnings("JSON")
-    print(f"\n🔍 Found {len(results)} learnings matching 'JSON'")
+    print(f"\n Found {len(results)} learnings matching 'JSON'")

@@ -2,7 +2,7 @@
 name: 13-Day Sprint Method
 description: Productivity system based on Maya calendar with 13 natural tones for project management and personal development
 homepage: https://www.amazon.de/-/en/13-DAY-SPRINT-METHOD-Inspired-Management/dp/3384763025/
-metadata: {"clawdbot":{"emoji":"📅","requires":{"bins":[],"env":[]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[],"env":[]}}}
 ---
 
 # 13-Day Sprint Method - Productivity System Inspired by Maya Calendar
@@ -648,14 +648,14 @@ You don't have to solve everything alone today. Who could you connect with about
 
 ### For Personal Projects
 
-✅ **Do:**
+ **Do:**
 - Set realistic 13-day goals (not 3-month projects)
 - Write down your goal on Tone 1
 - Actually release something on Tone 10 (even if imperfect)
 - Take reflection days seriously (Tones 11-13)
 - Use the calendar daily as a guide
 
-❌ **Don't:**
+ **Don't:**
 - Skip tones or rush ahead
 - Start new goals on Tone 13
 - Ignore the reflection phase
@@ -663,14 +663,14 @@ You don't have to solve everything alone today. Who could you connect with about
 
 ### For Teams
 
-✅ **Do:**
+ **Do:**
 - Align sprint starts with Tone 1 (Magnetic)
 - Schedule demos for Tone 10 (Planetary)
 - Hold retrospectives on Tone 13 (Cosmic)
 - Reference tones in daily standups
 - Use Tone 7 for stakeholder meetings
 
-❌ **Don't:**
+ **Don't:**
 - Force everyone to be mystical about it
 - Make it overly complicated
 - Skip the cleanup phase
@@ -720,4 +720,4 @@ Michael Galizki is an entrepreneur with extensive experience in IT project manag
 
 ---
 
-**Start your 13-day journey today. Check the calendar, find your tone, and take action.** 📅✨
+**Start your 13-day journey today. Check the calendar, find your tone, and take action.** 

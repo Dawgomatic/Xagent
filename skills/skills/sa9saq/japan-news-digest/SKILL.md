@@ -30,31 +30,31 @@ Fetch, categorize, and summarize top Japanese news.
 2. **Read promising articles** with `web_fetch` — pick 5-8 most interesting/important articles.
 
 3. **Categorize**:
-   - 🏛️ Politics & Society
-   - 💰 Business & Economy
-   - 🤖 Technology & AI
-   - 🌏 International
-   - 🎌 Culture & Entertainment
+   -  Politics & Society
+   -  Business & Economy
+   -  Technology & AI
+   -  International
+   -  Culture & Entertainment
 
 4. **Output format**:
    ```
-   ## 📰 Japan News Digest
+   ##  Japan News Digest
    **Date:** YYYY-MM-DD
 
-   ### 🔥 Top Story
+   ###  Top Story
    **[Headline](URL)**
    2-3 sentence summary. Key takeaway.
 
-   ### 🤖 Technology
+   ###  Technology
    **[Headline](URL)**
    Summary. (Source: NHK)
 
-   ### 💰 Economy
+   ###  Economy
    **[Headline](URL)**
    Summary. (Source: 日経)
 
    ---
-   📌 = Important | 🔥 = Breaking | 💡 = Interesting
+    = Important |  = Breaking |  = Interesting
    *Sources: NHK, 日経, 朝日, Reuters Japan*
    ```
 
@@ -63,7 +63,7 @@ Fetch, categorize, and summarize top Japanese news.
 ## Guidelines
 
 - Default language: **Japanese summaries**. Switch to English on request.
-- Prioritize relevance tags: 🔥 breaking > 📌 important > 💡 interesting
+- Prioritize relevance tags:  breaking >  important >  interesting
 - Always attribute sources
 - Don't extract paywalled content — summarize from available preview text
 - Include 5-8 articles per digest (not too long, not too short)

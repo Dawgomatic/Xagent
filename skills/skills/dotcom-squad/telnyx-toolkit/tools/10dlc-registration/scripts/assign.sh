@@ -50,7 +50,7 @@ if [[ ! "$PHONE" =~ ^\+1[0-9]{10}$ ]]; then
     echo -e "${YELLOW}Warning: Phone number should be in E.164 format (+15551234567)${NC}"
 fi
 
-echo -e "${GREEN}📱 Assigning Number to Campaign${NC}"
+echo -e "${GREEN} Assigning Number to Campaign${NC}"
 echo "======================================"
 echo "Phone:    $PHONE"
 echo "Campaign: $CAMPAIGN"
@@ -71,11 +71,11 @@ fi
 # Assign
 if telnyx 10dlc assign "$PHONE" "$CAMPAIGN"; then
     echo ""
-    echo -e "${GREEN}✅ Assignment submitted!${NC}"
+    echo -e "${GREEN} Assignment submitted!${NC}"
     echo ""
     echo "Check status with: telnyx 10dlc assignment status $PHONE"
 else
     echo ""
-    echo -e "${RED}❌ Assignment failed${NC}"
+    echo -e "${RED} Assignment failed${NC}"
     exit 1
 fi

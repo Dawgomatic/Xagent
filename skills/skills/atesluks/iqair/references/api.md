@@ -85,12 +85,12 @@ All endpoints return similar JSON:
 
 | AQI Range | Level | Color | Emoji |
 |-----------|-------|-------|-------|
-| 0-50 | Good | Green | 🟢 |
-| 51-100 | Moderate | Yellow | 🟡 |
-| 101-150 | Unhealthy for Sensitive Groups | Orange | 🟠 |
-| 151-200 | Unhealthy | Red | 🔴 |
-| 201-300 | Very Unhealthy | Purple | 🟣 |
-| 301+ | Hazardous | Maroon | 🟤 |
+| 0-50 | Good | Green |  |
+| 51-100 | Moderate | Yellow |  |
+| 101-150 | Unhealthy for Sensitive Groups | Orange |  |
+| 151-200 | Unhealthy | Red |  |
+| 201-300 | Very Unhealthy | Purple |  |
+| 301+ | Hazardous | Maroon |  |
 
 ## Rate Limits (Community Plan)
 

@@ -44,6 +44,6 @@ export const listCommand = new Command()
       }
       console.log();
     } catch (error: any) {
-      console.error(`\n❌ Error: ${error.message}\n`);
+      console.error(`\n Error: ${error.message}\n`);
     }
   });

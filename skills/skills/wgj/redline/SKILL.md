@@ -54,10 +54,10 @@ Wire both scripts into your heartbeat to automatically pace work based on remain
 
 | Tier | Remaining | Behavior |
 |------|-----------|----------|
-| 🟢 GREEN | >50% | Normal operations |
-| 🟡 YELLOW | 25-50% | Skip sub-agents, defer non-urgent research |
-| 🟠 ORANGE | 10-25% | Essential replies only, no proactive checks |
-| 🔴 RED | <10% | Critical only, warn user |
+|  GREEN | >50% | Normal operations |
+|  YELLOW | 25-50% | Skip sub-agents, defer non-urgent research |
+|  ORANGE | 10-25% | Essential replies only, no proactive checks |
+|  RED | <10% | Critical only, warn user |
 
 ### Heartbeat integration
 

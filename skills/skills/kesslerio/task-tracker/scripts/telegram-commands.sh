@@ -10,7 +10,7 @@ case "$1" in
     ;;
   weekly)
     # Show high priority tasks, then medium priority tasks
-    echo "📋 Weekly Priorities"
+    echo " Weekly Priorities"
     echo ""
     echo "### High Priority"
     python3 "$SCRIPT_DIR/tasks.py" list --priority high --status todo

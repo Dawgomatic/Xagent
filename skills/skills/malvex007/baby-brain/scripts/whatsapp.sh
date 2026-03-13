@@ -18,14 +18,14 @@ CYAN='\033[0;36m'
 WHITE='\033[1;37m'
 NC='\033[0m'
 
-ICON_SUCCESS="✅"
-ICON_ERROR="❌"
-ICON_INFO="ℹ️"
-ICON_WARNING="⚠️"
-ICON_MESSAGE="💬"
-ICON_GROUP="👥"
-ICON_AUDIO="🎤"
-ICON_IMAGE="🖼️"
+ICON_SUCCESS=""
+ICON_ERROR=""
+ICON_INFO=""
+ICON_WARNING=""
+ICON_MESSAGE=""
+ICON_GROUP=""
+ICON_AUDIO=""
+ICON_IMAGE=""
 
 #-------------------------------------------------------------------------------
 # Configuration
@@ -306,7 +306,7 @@ cmd_groups() {
         echo "----------------------------------+------------------"
 
         # Sample groups (would fetch real list)
-        echo "120363406119655513@g.us          | BABY 👾"
+        echo "120363406119655513@g.us          | BABY "
         echo "120363319698309639@g.us          | Test Group"
         echo "120363220156287108@g.us          | Family"
     else
@@ -700,7 +700,7 @@ cmd_pin() {
 cmd_react() {
     local chat=""
     local message_id=""
-    local emoji="👍"
+    local emoji=""
     local dry_run=false
 
     while [[ $# -gt 0 ]]; do

@@ -101,10 +101,10 @@ All included in the authorization URL above.
 
 ## Security Notes
 
-- ✅ **Never commit config to git** - Add `fitbit-config.json` to `.gitignore`
-- ✅ **Refresh tokens don't expire** - Keep them secure
-- ✅ **Access tokens expire in 8 hours** - Auto-refreshed by skill
-- ✅ **Read-only access** - Skill never writes to Fitbit
+-  **Never commit config to git** - Add `fitbit-config.json` to `.gitignore`
+-  **Refresh tokens don't expire** - Keep them secure
+-  **Access tokens expire in 8 hours** - Auto-refreshed by skill
+-  **Read-only access** - Skill never writes to Fitbit
 
 ## Troubleshooting
 
@@ -135,7 +135,7 @@ Once configured, just start asking fitness questions! The AI will:
 2. Analyze trends and patterns
 3. Provide conversational insights
 
-No need to check the app - just ask! 🏋️✨
+No need to check the app - just ask! 
 
 ## Support
 

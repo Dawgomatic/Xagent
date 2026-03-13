@@ -16,7 +16,7 @@
 pip install proxmoxer requests
 ```
 
-#### ⚙️ <u>Environment Variables</u>
+####  <u>Environment Variables</u>
 
 **Add these to your .bashrc or OpenClaw environment config:**
 
@@ -55,29 +55,29 @@ export PVE_TOKEN_SECRET="your-generated-secret"
 
 # [ Features ]
 
-##### 🖥️ Node Health
+#####  Node Health
 
 > **Monitor real-time CPU and RAM usage for physical hosts.**
 > *Stay ahead of hardware bottlenecks before they impact your services.*
 
-##### 🔍 Resource Discovery
+#####  Resource Discovery
 
 > **List all VMs and Containers across the Proxmox cluster.**
 > *Instant visibility into your entire infrastructure.*
 
-##### ⚡ Power Management
+#####  Power Management
 
 > **Start, Stop, Reboot, and Shutdown.**
 > *Full control over your virtual fleet with safety-first logic.*
 
-##### 📸 Snapshot Management
+#####  Snapshot Management
 
 > **Take, list, and rollback snapshots for any VM or Container.**
 > *One-click recovery points for your lab experiments.*
 
 ---
 
-# 🛡️ Security & Guardrails
+#  Security & Guardrails
 
 - Non-Root Users: Always create a restricted user for your API tokens.
 

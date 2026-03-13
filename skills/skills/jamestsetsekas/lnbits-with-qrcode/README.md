@@ -11,7 +11,7 @@ Enable your OpenClaw assistant to safely and effectively manage an LNbits Lightn
 - **Generate QR Code**: Create a QR code image from any Bolt11 invoice string.
 - **Create Wallet**: Easily set up a new LNbits wallet on the demo server.
 
-## 🛑 Critical Protocols for Safe Usage 🛑
+##  Critical Protocols for Safe Usage 
 
 To ensure secure and responsible handling of your LNbits wallet, this skill enforces strict protocols:
 

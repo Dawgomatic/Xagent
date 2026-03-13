@@ -1,10 +1,10 @@
 # Warden Agent Builder - Quick Reference
 
-## 🎯 What This Skill Does
+##  What This Skill Does
 
 Helps build and deploy LangGraph agents for Warden Protocol's incentive programme (open to OpenClaw agents).
 
-## ⚡ Quick Commands
+##  Quick Commands
 
 ```bash
 # Study example agents (for learning only)
@@ -21,18 +21,18 @@ python scripts/test-agent.py https://api.example.com --api-key [YOUR-API-KEY]
 # Use the LangSmith Deployments UI after pushing to GitHub
 ```
 
-## 📋 Requirements Checklist
+##  Requirements Checklist
 
 Must have:
-- ✅ LangGraph framework (TypeScript or Python)
-- ✅ API-accessible endpoint
-- ✅ One agent per LangGraph instance
-- ❌ No wallet access (Phase 1)
-- ❌ No data storage on Warden (Phase 1)
+-  LangGraph framework (TypeScript or Python)
+-  API-accessible endpoint
+-  One agent per LangGraph instance
+-  No wallet access (Phase 1)
+-  No data storage on Warden (Phase 1)
 
-## 🎨 Example Agents (Study These!)
+##  Example Agents (Study These!)
 
-| Agent | Level | Study For | ⚠️ Warning |
+| Agent | Level | Study For |  Warning |
 |----------|-------|---------|-----------|
 | **Quick Start** | Beginner | LangGraph basics | OK to use as starting point |
 | **Weather Agent** | Starter | Simple data fetching | DON'T REBUILD - already exists |
@@ -41,11 +41,11 @@ Must have:
 
 **These are REFERENCES, not templates. Build something NEW!**
 
-## 🗂️ Skill Files Overview
+##  Skill Files Overview
 
 ```
 warden-agent-builder/
-├── SKILL.md                      # 👈 START HERE
+├── SKILL.md                      #  START HERE
 ├── references/
 │   ├── langgraph-patterns.md     # Code patterns & examples
 │   └── deployment-guide.md       # API & deployment details
@@ -56,7 +56,7 @@ warden-agent-builder/
     └── example-configs.md        # Config templates
 ```
 
-## 🚀 Deployment Options
+##  Deployment Options
 
 ### LangSmith Deployments (Easiest)
 - Push your repo to GitHub
@@ -67,7 +67,7 @@ warden-agent-builder/
 - HTTPS endpoint
 - API key authentication
 
-## 💡 Agent Ideas
+##  Agent Ideas
 
 **Web3:**
 - Gas optimizer
@@ -80,7 +80,7 @@ warden-agent-builder/
 - Research assistant
 - Data visualizer
 
-## 🔑 Key Patterns
+##  Key Patterns
 
 ### Simple Agent
 ```typescript
@@ -97,7 +97,7 @@ validate → extract → fetch → analyze → generate
 parse → fetch_all → compare → summarize
 ```
 
-## 📊 Warden Studio Registration
+##  Warden Studio Registration
 
 Need to provide:
 - Agent name & description
@@ -106,25 +106,25 @@ Need to provide:
 - Avatar image (512x512px)
 - Capabilities list (3-5 items)
 
-## 🎁 Incentive Programme
+##  Incentive Programme
 
 - **Requirements**: LangGraph, API access, unique functionality
 - **Tip**: Study the Weather Agent structure (do not rebuild)
 - **Support**: Discord #developers channel
 
-## 📚 Resources
+##  Resources
 
 - **Repository**: github.com/warden-protocol/community-agents
 - **Docs**: docs.wardenprotocol.org
 - **Discord**: Join #developers channel
 - **Examples**: All templates include READMEs
 
-## ➡️ Next Step: Publish on Warden Studio
+##  Next Step: Publish on Warden Studio
 
 Use the OpenClaw skill:
 https://www.clawhub.ai/Kryptopaid/warden-studio-deploy
 
-## ⚙️ Environment Setup
+##  Environment Setup
 
 ```bash
 # Required
@@ -149,7 +149,7 @@ NODE_ENV=production
 2. Go to Settings → API Keys
 3. Create new key
 
-## 🧪 Testing Endpoints
+##  Testing Endpoints
 
 ```bash
 # Health check
@@ -166,7 +166,7 @@ curl -X POST http://localhost:8000/stream \
   -d '{"input": "test query"}'
 ```
 
-## 🐛 Common Issues
+##  Common Issues
 
 | Problem | Solution |
 |---------|----------|
@@ -175,7 +175,7 @@ curl -X POST http://localhost:8000/stream \
 | OpenAI errors | Verify API key, check rate limits |
 | Slow responses | Parallelize API calls, add caching |
 
-## 📝 Project Structure
+##  Project Structure
 
 ```typescript
 my-agent/
@@ -190,7 +190,7 @@ my-agent/
 └── README.md            # Documentation
 ```
 
-## 🎓 Learning Path
+##  Learning Path
 
 1. **Study**: LangGraph Quick Start (understand basics)
 2. **Study**: Weather Agent (learn simple patterns)  
@@ -201,14 +201,14 @@ my-agent/
 
 **Remember**: Study the examples, then build something NEW!
 
-## 🔗 Important Links
+##  Important Links
 
 - Clone agents: `git clone https://github.com/warden-protocol/community-agents.git`
 - Deploy guide: `references/deployment-guide.md`
 - Code patterns: `references/langgraph-patterns.md`
 - Examples: `assets/example-configs.md`
 
-## 💬 Getting Help
+##  Getting Help
 
 1. Check SKILL.md for full guide
 2. Read relevant reference files

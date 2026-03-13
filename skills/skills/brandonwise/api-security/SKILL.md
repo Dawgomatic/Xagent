@@ -165,7 +165,7 @@ module.exports = { authenticateToken };
 
 ## Input Validation (SQL Injection Prevention)
 
-### ❌ Vulnerable Code
+###  Vulnerable Code
 
 ```javascript
 // NEVER DO THIS - SQL Injection vulnerability
@@ -179,7 +179,7 @@ app.get('/api/users/:id', async (req, res) => {
 // Attack: GET /api/users/1' OR '1'='1 → Returns all users!
 ```
 
-### ✅ Safe: Parameterized Queries
+###  Safe: Parameterized Queries
 
 ```javascript
 app.get('/api/users/:id', async (req, res) => {
@@ -204,7 +204,7 @@ app.get('/api/users/:id', async (req, res) => {
 });
 ```
 
-### ✅ Safe: Using ORM (Prisma)
+###  Safe: Using ORM (Prisma)
 
 ```javascript
 app.get('/api/users/:id', async (req, res) => {
@@ -330,7 +330,7 @@ app.use(helmet({
 
 ## Authorization Checks
 
-### ❌ Bad: Only Authentication
+###  Bad: Only Authentication
 
 ```javascript
 app.delete('/api/posts/:id', authenticateToken, async (req, res) => {
@@ -339,7 +339,7 @@ app.delete('/api/posts/:id', authenticateToken, async (req, res) => {
 });
 ```
 
-### ✅ Good: Authentication + Authorization
+###  Good: Authentication + Authorization
 
 ```javascript
 app.delete('/api/posts/:id', authenticateToken, async (req, res) => {
@@ -363,7 +363,7 @@ app.delete('/api/posts/:id', authenticateToken, async (req, res) => {
 
 ## Best Practices
 
-### ✅ Do This
+###  Do This
 
 - **Use HTTPS Everywhere** - Never send sensitive data over HTTP
 - **Implement Authentication** - Require authentication for protected endpoints
@@ -377,7 +377,7 @@ app.delete('/api/posts/:id', authenticateToken, async (req, res) => {
 - **Use Security Headers** - Implement Helmet.js
 - **Sanitize Error Messages** - Don't leak sensitive information
 
-### ❌ Don't Do This
+###  Don't Do This
 
 - **Don't Store Passwords in Plain Text**
 - **Don't Use Weak Secrets** - Use strong, random JWT secrets

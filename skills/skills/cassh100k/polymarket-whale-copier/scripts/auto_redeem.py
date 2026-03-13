@@ -14,7 +14,7 @@ def fetch_json(url, timeout=15):
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             return json.loads(resp.read().decode())
     except Exception as e:
-        print(f"⚠️ Error: {e}")
+        print(f" Error: {e}")
         return None
 
 def get_positions(wallet):
@@ -26,29 +26,29 @@ def main():
     wallet = os.environ.get("POLYMARKET_WALLET", "")
     
     if not wallet:
-        print("❌ Set POLYMARKET_WALLET environment variable")
+        print(" Set POLYMARKET_WALLET environment variable")
         return
     
-    print(f"🔍 Checking positions for {wallet[:10]}...")
+    print(f" Checking positions for {wallet[:10]}...")
     positions = get_positions(wallet)
     
     resolved = [p for p in positions if p.get("resolved")]
     pending = [p for p in positions if not p.get("resolved")]
     
-    print(f"\n📊 Total: {len(positions)} positions")
-    print(f"✅ Resolved (redeemable): {len(resolved)}")
-    print(f"⏳ Pending: {len(pending)}")
+    print(f"\n Total: {len(positions)} positions")
+    print(f" Resolved (redeemable): {len(resolved)}")
+    print(f" Pending: {len(pending)}")
     
     if resolved:
-        print("\n🎯 Positions to redeem:")
+        print("\n Positions to redeem:")
         for p in resolved:
             title = p.get("title", "Unknown")[:50]
             size = p.get("size", 0)
             print(f"  - {title}: {size} shares")
         
-        print("\n⚠️ To redeem, use Polymarket CLOB API with your private key")
+        print("\n To redeem, use Polymarket CLOB API with your private key")
     else:
-        print("\n✨ No positions to redeem right now")
+        print("\n No positions to redeem right now")
 
 if __name__ == "__main__":
     main()

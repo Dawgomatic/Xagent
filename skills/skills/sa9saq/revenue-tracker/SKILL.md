@@ -40,7 +40,7 @@ Track income, expenses, and profitability across all platforms.
 
    ### Daily
    ```
-   📊 Daily Revenue — 2026-02-10
+    Daily Revenue — 2026-02-10
    Income:  ¥3,000 (Coconala ×1)
    Expense: ¥0
    Net:     ¥2,340 (after fees)
@@ -48,7 +48,7 @@ Track income, expenses, and profitability across all platforms.
 
    ### Weekly
    ```
-   📊 Weekly Revenue — Week 6, 2026
+    Weekly Revenue — Week 6, 2026
    | Platform | Orders | Gross | Fees | Net |
    |----------|--------|-------|------|-----|
    | Coconala | 2 | ¥6,000 | ¥1,320 | ¥4,680 |
@@ -61,7 +61,7 @@ Track income, expenses, and profitability across all platforms.
 
    ### Monthly
    ```
-   📊 Monthly Revenue — February 2026
+    Monthly Revenue — February 2026
    Total Income:    ¥XX,XXX
    Total Expenses:  ¥X,XXX
    Net Profit:      ¥XX,XXX
@@ -84,11 +84,11 @@ Track income, expenses, and profitability across all platforms.
 
 | Level | Monthly Target | Status |
 |-------|---------------|--------|
-| 🥉 Bronze | ¥10,000 | |
-| 🥈 Silver | ¥50,000 | |
-| 🥇 Gold | ¥100,000 | |
-| 💎 Diamond | ¥300,000 | Goal: quit job |
-| 👑 Crown | ¥1,000,000 | |
+|  Bronze | ¥10,000 | |
+|  Silver | ¥50,000 | |
+|  Gold | ¥100,000 | |
+|  Diamond | ¥300,000 | Goal: quit job |
+|  Crown | ¥1,000,000 | |
 
 ## Security
 

@@ -17,11 +17,11 @@ Paris has a temperate oceanic climate. Expect grey skies and rain year-round, bu
 | **Feb** | 4-8 | 9 | Low | Still grey, short days |
 | **Mar** | 6-12 | 10 | Medium | Starting to warm |
 | **Apr** | 8-15 | 9 | High | Cherry blossoms, variable |
-| **May** | 11-19 | 10 | High | ✅ Great time, long days |
-| **Jun** | 14-22 | 8 | Very High | ✅ Peak weather, Fête de la Musique |
+| **May** | 11-19 | 10 | High |  Great time, long days |
+| **Jun** | 14-22 | 8 | Very High |  Peak weather, Fête de la Musique |
 | **Jul** | 16-25 | 7 | Very High | Hot, can be very crowded |
 | **Aug** | 16-25 | 7 | Medium | Locals on vacation, closures |
-| **Sep** | 13-21 | 8 | High | ✅ Perfect, back to life |
+| **Sep** | 13-21 | 8 | High |  Perfect, back to life |
 | **Oct** | 10-16 | 10 | Medium | Autumn colors, cooling |
 | **Nov** | 6-11 | 10 | Low | Grey, Christmas prep |
 | **Dec** | 4-8 | 10 | Medium | Christmas markets, cold |

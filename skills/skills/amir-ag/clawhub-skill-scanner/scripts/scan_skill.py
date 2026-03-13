@@ -208,12 +208,12 @@ class ScanResult:
     def recommendation(self) -> str:
         level = self.risk_level
         if level == "BLOCKED":
-            return "🔴 BLOCK - Do NOT install this skill"
+            return " BLOCK - Do NOT install this skill"
         elif level == "DANGER":
-            return "🔶 DANGER - Detailed review required before installation"
+            return " DANGER - Detailed review required before installation"
         elif level == "CAUTION":
-            return "⚠️ CAUTION - Review findings before proceeding"
-        return "✅ APPROVE - Safe to install"
+            return " CAUTION - Review findings before proceeding"
+        return " APPROVE - Safe to install"
 
 
 def is_whitelisted(line: str) -> bool:
@@ -346,14 +346,14 @@ def print_report(result: ScanResult) -> None:
     # Risk Score
     score = result.risk_score
     level = result.risk_level
-    level_emoji = {"SAFE": "🟢", "CAUTION": "🟡", "DANGER": "🔶", "BLOCKED": "🔴"}[level]
-    print(f"📊 RISK SCORE: {score}/100 - {level_emoji} {level}")
+    level_emoji = {"SAFE": "", "CAUTION": "", "DANGER": "", "BLOCKED": ""}[level]
+    print(f" RISK SCORE: {score}/100 - {level_emoji} {level}")
     print()
     
     # Critical Findings
     criticals = [f for f in result.findings if f.level == 'CRITICAL']
     if criticals:
-        print(f"🔴 CRITICAL FINDINGS ({len(criticals)})")
+        print(f" CRITICAL FINDINGS ({len(criticals)})")
         for f in criticals[:10]:  # Limit output
             print(f"  [{f.file}:{f.line}]")
             print(f"    Pattern: {f.description}")
@@ -365,7 +365,7 @@ def print_report(result: ScanResult) -> None:
     # Warnings
     warnings = [f for f in result.findings if f.level == 'WARNING']
     if warnings:
-        print(f"🟡 WARNINGS ({len(warnings)})")
+        print(f" WARNINGS ({len(warnings)})")
         for f in warnings[:5]:
             print(f"  [{f.file}:{f.line}] {f.description}")
         if len(warnings) > 5:
@@ -375,7 +375,7 @@ def print_report(result: ScanResult) -> None:
     # Info
     infos = [f for f in result.findings if f.level == 'INFO']
     if infos:
-        print(f"🟢 INFO ({len(infos)})")
+        print(f" INFO ({len(infos)})")
         for f in infos[:3]:
             print(f"  [{f.file}:{f.line}] {f.description}")
         if len(infos) > 3:
@@ -383,8 +383,8 @@ def print_report(result: ScanResult) -> None:
         print()
     
     # Summary
-    print(f"📁 FILES SCANNED: {result.files_scanned}")
-    print(f"📏 TOTAL LINES: {result.total_lines}")
+    print(f" FILES SCANNED: {result.files_scanned}")
+    print(f" TOTAL LINES: {result.total_lines}")
     print()
     print("═" * 60)
     print(f"  {result.recommendation}")

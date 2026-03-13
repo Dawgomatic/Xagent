@@ -100,21 +100,21 @@ def format_confirmation(amount: int, category: str, description: str, currency: 
         from categories import get_emoji
     
     emoji = get_emoji(category)
-    return f"✅ Logged: {emoji} {amount:,} {currency} — {description} ({category})"
+    return f" Logged: {emoji} {amount:,} {currency} — {description} ({category})"
 
 
 def format_error(error_type: str, hint: str = "") -> str:
     """Format an error message."""
     errors = {
-        "no_amount": "❌ Couldn't find an amount. Try: finance add 50000 \"lunch\"",
-        "invalid_amount": "❌ Invalid amount. Use a positive number.",
-        "no_description": "❌ Missing description. What was this expense for?",
-        "parse_failed": "❌ Couldn't parse that. Try: finance add 50000 \"description\"",
+        "no_amount": " Couldn't find an amount. Try: finance add 50000 \"lunch\"",
+        "invalid_amount": " Invalid amount. Use a positive number.",
+        "no_description": " Missing description. What was this expense for?",
+        "parse_failed": " Couldn't parse that. Try: finance add 50000 \"description\"",
     }
     
-    msg = errors.get(error_type, f"❌ Error: {error_type}")
+    msg = errors.get(error_type, f" Error: {error_type}")
     if hint:
-        msg += f"\n💡 {hint}"
+        msg += f"\n {hint}"
     
     return msg
 

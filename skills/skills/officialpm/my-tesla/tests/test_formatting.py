@@ -39,11 +39,11 @@ class FormattingTests(unittest.TestCase):
         }
 
         out = tesla._short_status(vehicle, data)
-        self.assertIn("🚗 Test Car", out)
+        self.assertIn(" Test Car", out)
         self.assertIn("Locked", out)
         self.assertIn("55%", out)
         self.assertIn("123 mi", out)
-        self.assertIn("⚡ Stopped", out)
+        self.assertIn(" Stopped", out)
         self.assertIn("68°F", out)
         self.assertIn("Off", out)
 
@@ -93,7 +93,7 @@ class FormattingTests(unittest.TestCase):
 
         out = tesla._report(vehicle, data)
         # Basic structure
-        self.assertTrue(out.startswith("🚗 Test Car"))
+        self.assertTrue(out.startswith(" Test Car"))
         self.assertIn("State: online", out)
         self.assertIn("Locked: No", out)
         self.assertIn("Sentry: On", out)

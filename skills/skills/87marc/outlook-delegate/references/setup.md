@@ -12,7 +12,7 @@ Complete guide for setting up your AI assistant as a delegate for the owner's Mi
   2. **As owner (Send As)** — emails appear to come directly from owner
   3. **On behalf of owner** — emails show "Assistant on behalf of Owner"
 
-> **⚠️ Important:** Modes 2 and 3 are mutually exclusive at the Exchange level. You must grant only ONE of SendAs or SendOnBehalf. If both are granted, Exchange always uses SendAs and the "on behalf of" indication will never appear.
+> ** Important:** Modes 2 and 3 are mutually exclusive at the Exchange level. You must grant only ONE of SendAs or SendOnBehalf. If both are granted, Exchange always uses SendAs and the "on behalf of" indication will never appear.
 
 ## Step 1: Create the Assistant's M365 Account
 
@@ -96,7 +96,7 @@ Add-MailboxFolderPermission -Identity "${Owner}:\Calendar" `
 
 ### Choose Your Sending Mode (Pick ONE)
 
-> **⚠️ Do NOT grant both.** If both SendAs and SendOnBehalf are active, Exchange always uses SendAs and the "on behalf of" indication will never appear.
+> ** Do NOT grant both.** If both SendAs and SendOnBehalf are active, Exchange always uses SendAs and the "on behalf of" indication will never appear.
 
 **Option A: Send As (emails look like they came directly from the owner)**
 ```powershell

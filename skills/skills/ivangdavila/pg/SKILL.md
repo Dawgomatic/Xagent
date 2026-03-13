@@ -1,7 +1,7 @@
 ---
 name: PostgreSQL
 description: Write efficient PostgreSQL queries and design schemas with proper indexing and patterns.
-metadata: {"clawdbot":{"emoji":"🐘","requires":{"anyBins":["psql","pgcli"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["psql","pgcli"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Indexes I Forget to Create

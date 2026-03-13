@@ -37,17 +37,17 @@
 date: 2026-02-01
 weekday: Saturday
 type: daily
-mood: 😊
+mood: 
 energy: high
 ---
 
-# 🌅 2026-02-01 — Saturday
+#  2026-02-01 — Saturday
 
-## ✨ Highlights
+##  Highlights
 - 修好了困扰两天的 bug
 - 拍到了美丽的日落
 
-## 🖼️ Moments
+##  Moments
 ...
 ```
 

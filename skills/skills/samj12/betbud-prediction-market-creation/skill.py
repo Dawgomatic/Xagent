@@ -309,9 +309,9 @@ def main():
         success = register_bubble_event(proposal, market_num, account.address, image_url)
         if success:
             save_prediction(proposal["question"])
-            print(f"\n✅ SUCCESS! Market #{market_num} created and registered to betbud.live!")
+            print(f"\n SUCCESS! Market #{market_num} created and registered to betbud.live!")
         else:
-            print(f"\n⚠️ Market #{market_num} created on blockchain but Bubble registration failed")
+            print(f"\n Market #{market_num} created on blockchain but Bubble registration failed")
 
 if __name__ == "__main__":
     try:

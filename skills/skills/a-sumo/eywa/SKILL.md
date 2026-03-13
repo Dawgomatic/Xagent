@@ -5,7 +5,7 @@ user-invocable: true
 metadata:
   {
     "openclaw": {
-      "emoji": "🌳",
+      "emoji": "",
       "requires": {
         "anyBins": ["curl", "wget"]
       },

@@ -1,6 +1,6 @@
 # Publishing SearXNG Skill to ClawdHub
 
-## ✅ Pre-Publication Verification
+##  Pre-Publication Verification
 
 All files present:
 - [x] SKILL.md (v1.0.1)
@@ -18,7 +18,7 @@ Security:
 Author:
 - [x] Updated to: Avinash Venkatswamy
 
-## 📤 Publishing Steps
+##  Publishing Steps
 
 ### Step 1: Login to ClawdHub
 
@@ -64,7 +64,7 @@ clawdhub search searxng
 **View on ClawdHub:**
 Visit https://clawdhub.com/skills/searxng
 
-## 📋 What Gets Published
+##  What Gets Published
 
 The CLI will upload:
 - SKILL.md
@@ -80,7 +80,7 @@ It will NOT upload:
 - Any .git files
 - Any node_modules or temporary files
 
-## 🔧 If Publishing Fails
+##  If Publishing Fails
 
 ### Common Issues
 
@@ -107,7 +107,7 @@ It will NOT upload:
 clawdhub publish --help
 ```
 
-## 📊 After Publishing
+##  After Publishing
 
 ### Update Notifications
 
@@ -129,7 +129,7 @@ clawdhub delete searxng
 clawdhub undelete searxng
 ```
 
-## 🎉 Success!
+##  Success!
 
 Once published, users can install with:
 

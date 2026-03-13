@@ -4,7 +4,7 @@
 
 SALES_DIR="${HOME}/.openclaw/workspace/sales"
 
-echo "🚀 Initializing Sales Workspace"
+echo " Initializing Sales Workspace"
 echo "================================"
 
 # Create directory structure
@@ -122,13 +122,13 @@ if [ ! -f "$SALES_DIR/followups.md" ]; then
 EOF
 fi
 
-echo "✅ Created: $SALES_DIR/leads/"
-echo "✅ Created: $SALES_DIR/pipeline/current.md"
-echo "✅ Created: $SALES_DIR/analytics/"
-echo "✅ Created: $SALES_DIR/templates/lead-template.md"
-echo "✅ Created: $SALES_DIR/followups.md"
+echo " Created: $SALES_DIR/leads/"
+echo " Created: $SALES_DIR/pipeline/current.md"
+echo " Created: $SALES_DIR/analytics/"
+echo " Created: $SALES_DIR/templates/lead-template.md"
+echo " Created: $SALES_DIR/followups.md"
 echo ""
-echo "🎉 Sales workspace ready!"
+echo " Sales workspace ready!"
 echo "Next steps:"
 echo "  1. Add leads to leads/ directory"
 echo "  2. Track pipeline in pipeline/current.md"

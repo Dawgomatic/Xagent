@@ -82,8 +82,8 @@ class TestFullPipeline:
 
         costs["music"] = "~10 Suno credits"
         music_duration = tracks[0].get("duration", 0)
-        print(f"  ✅ Music done: {tracks[0]['title']} ({music_duration:.0f}s)")
-        print(f"  ✅ Tracks: {len(tracks)}")
+        print(f"   Music done: {tracks[0]['title']} ({music_duration:.0f}s)")
+        print(f"   Tracks: {len(tracks)}")
 
         # ── Step 2: Generate Visuals ──
         print("\n" + "=" * 60)
@@ -113,7 +113,7 @@ class TestFullPipeline:
         for img in images:
             size = os.path.getsize(img)
             assert size > 50_000, f"Image too small ({size}B): {img}"
-            print(f"  ✅ {os.path.basename(img)} ({size // 1024}KB)")
+            print(f"   {os.path.basename(img)} ({size // 1024}KB)")
 
         # Verify visuals metadata
         vis_meta_path = os.path.join(project_dir, "visuals_meta.json")
@@ -150,13 +150,13 @@ class TestFullPipeline:
         # ── Final Report ──
         elapsed = time.time() - start_time
         print("\n" + "=" * 60)
-        print("🎬 E2E TEST COMPLETE")
+        print(" E2E TEST COMPLETE")
         print("=" * 60)
-        print(f"  ⏱  Time: {elapsed:.0f}s")
-        print(f"  🎵 Music: {tracks[0]['title']} ({music_duration:.0f}s, {len(tracks)} tracks)")
-        print(f"  🎨 Images: {len(images)}")
-        print(f"  📁 Video: {output_path} ({video_size // 1024}KB)")
-        print(f"  💰 Cost: music={costs['music']}, visuals={costs['visuals']}")
+        print(f"    Time: {elapsed:.0f}s")
+        print(f"   Music: {tracks[0]['title']} ({music_duration:.0f}s, {len(tracks)} tracks)")
+        print(f"   Images: {len(images)}")
+        print(f"   Video: {output_path} ({video_size // 1024}KB)")
+        print(f"   Cost: music={costs['music']}, visuals={costs['visuals']}")
         print("=" * 60)
 
         # Save test report
@@ -186,7 +186,7 @@ class TestFullPipeline:
         report_path = os.path.join(project_dir, "test_report.json")
         with open(report_path, "w") as f:
             json.dump(report, f, indent=2, ensure_ascii=False)
-        print(f"\n  📄 Report: {report_path}")
+        print(f"\n   Report: {report_path}")
 
 
 @pytest.mark.expensive
@@ -247,4 +247,4 @@ class TestFullPipelineCustomMusic:
         assert asm_result.returncode == 0, f"STDERR: {asm_result.stderr}"
         assert os.path.exists(output)
         assert os.path.getsize(output) > 100_000
-        print(f"\n🎬 Custom MV: {output} ({os.path.getsize(output) // 1024}KB)")
+        print(f"\n Custom MV: {output} ({os.path.getsize(output) // 1024}KB)")

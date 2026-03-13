@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * ClawVault CLI 🐘
+ * ClawVault CLI 
  * An elephant never forgets.
  */
 
@@ -104,7 +104,7 @@ function printQmdMissing() {
 
 program
   .name('clawvault')
-  .description('🐘 An elephant never forgets. Structured memory for AI agents.')
+  .description(' An elephant never forgets. Structured memory for AI agents.')
   .version(CLI_VERSION);
 
 // === INIT ===
@@ -116,7 +116,7 @@ program
   .option('--qmd-collection <name>', 'qmd collection name (defaults to vault name)')
   .action(async (vaultPath, options) => {
     const targetPath = vaultPath || '.';
-    console.log(chalk.cyan(`\n🐘 Initializing ClawVault at ${path.resolve(targetPath)}...\n`));
+    console.log(chalk.cyan(`\n Initializing ClawVault at ${path.resolve(targetPath)}...\n`));
     
     try {
       const vault = await createVault(targetPath, {
@@ -142,10 +142,10 @@ program
         console.log(chalk.green('✓ qmd collection created'));
       } catch (err) {
         // Collection might already exist
-        console.log(chalk.yellow('⚠ qmd collection may already exist'));
+        console.log(chalk.yellow(' qmd collection may already exist'));
       }
       
-      console.log(chalk.green('\n✅ ClawVault ready!\n'));
+      console.log(chalk.green('\n ClawVault ready!\n'));
       console.log(chalk.dim('Next steps:'));
       console.log(chalk.dim('  clawvault store --category inbox --title "My note" --content "Hello world"'));
       console.log(chalk.dim('  clawvault search "hello"'));
@@ -274,11 +274,11 @@ program
         return;
       }
       
-      console.log(chalk.cyan(`\n🔍 Found ${results.length} result(s) for "${query}":\n`));
+      console.log(chalk.cyan(`\n Found ${results.length} result(s) for "${query}":\n`));
       
       for (const result of results) {
         const scoreBar = '█'.repeat(Math.round(result.score * 10)).padEnd(10, '░');
-        console.log(chalk.green(`📄 ${result.document.title}`));
+        console.log(chalk.green(` ${result.document.title}`));
         console.log(chalk.dim(`   ${result.document.category}/${result.document.id.split('/').pop()}`));
         console.log(chalk.dim(`   Score: ${scoreBar} ${(result.score * 100).toFixed(0)}%`));
         if (result.snippet) {
@@ -327,11 +327,11 @@ program
         return;
       }
       
-      console.log(chalk.cyan(`\n🧠 Found ${results.length} result(s) for "${query}":\n`));
+      console.log(chalk.cyan(`\n Found ${results.length} result(s) for "${query}":\n`));
       
       for (const result of results) {
         const scoreBar = '█'.repeat(Math.round(result.score * 10)).padEnd(10, '░');
-        console.log(chalk.green(`📄 ${result.document.title}`));
+        console.log(chalk.green(` ${result.document.title}`));
         console.log(chalk.dim(`   ${result.document.category}/${result.document.id.split('/').pop()}`));
         console.log(chalk.dim(`   Score: ${scoreBar} ${(result.score * 100).toFixed(0)}%`));
         if (result.snippet) {
@@ -377,7 +377,7 @@ program
         return;
       }
       
-      console.log(chalk.cyan(`\n📚 ${docs.length} document(s)${category ? ` in ${category}` : ''}:\n`));
+      console.log(chalk.cyan(`\n ${docs.length} document(s)${category ? ` in ${category}` : ''}:\n`));
       
       // Group by category
       const grouped = {};
@@ -420,7 +420,7 @@ program
         return;
       }
       
-      console.log(chalk.cyan(`\n📄 ${doc.title}\n`));
+      console.log(chalk.cyan(`\n ${doc.title}\n`));
       console.log(chalk.dim(`Category: ${doc.category}`));
       console.log(chalk.dim(`Path: ${doc.path}`));
       console.log(chalk.dim(`Tags: ${doc.tags.join(', ') || 'none'}`));
@@ -450,7 +450,7 @@ program
         return;
       }
       
-      console.log(chalk.cyan(`\n🐘 ${vault.getName()} Stats\n`));
+      console.log(chalk.cyan(`\n ${vault.getName()} Stats\n`));
       console.log(chalk.dim(`Path: ${vault.getPath()}`));
       console.log(`Documents: ${chalk.green(stats.documents)}`);
       console.log(`Links: ${chalk.blue(stats.links)}`);
@@ -478,7 +478,7 @@ program
     try {
       const vault = await getVault(options.vault);
       
-      console.log(chalk.cyan(`\n🔄 Syncing to ${target}...\n`));
+      console.log(chalk.cyan(`\n Syncing to ${target}...\n`));
       
       const result = await vault.sync({
         target,
@@ -532,7 +532,7 @@ program
     try {
       const vault = await getVault(options.vault);
       
-      console.log(chalk.cyan('\n🔄 Reindexing...\n'));
+      console.log(chalk.cyan('\n Reindexing...\n'));
       
       const count = await vault.reindex();
       console.log(chalk.green(`✓ Indexed ${count} documents`));
@@ -610,7 +610,7 @@ program
         brief: !options.full
       });
 
-      console.log(chalk.cyan('\n🌅 ClawVault Wake\n'));
+      console.log(chalk.cyan('\n ClawVault Wake\n'));
       console.log(formatRecoveryInfo(result.recovery));
       console.log();
       console.log(chalk.cyan('Recap'));
@@ -814,7 +814,7 @@ template
         console.log(chalk.yellow('No templates found.'));
         return;
       }
-      console.log(chalk.cyan('\n📄 Templates:\n'));
+      console.log(chalk.cyan('\n Templates:\n'));
       for (const name of templates) {
         console.log(`- ${name}`);
       }
@@ -875,7 +875,7 @@ program
       const { doctor } = await import('../dist/commands/doctor.js');
       const report = await doctor(options.vault);
 
-      console.log(chalk.cyan('\n🩺 ClawVault Health Check\n'));
+      console.log(chalk.cyan('\n ClawVault Health Check\n'));
       if (report.vaultPath) {
         console.log(chalk.dim(`Vault: ${report.vaultPath}`));
         console.log();
@@ -885,7 +885,7 @@ program
         const prefix = check.status === 'ok'
           ? chalk.green('✓')
           : check.status === 'warn'
-            ? chalk.yellow('⚠')
+            ? chalk.yellow('')
             : chalk.red('✗');
         const detail = check.detail ? ` — ${check.detail}` : '';
         console.log(`${prefix} ${check.label}${detail}`);
@@ -897,9 +897,9 @@ program
       const issues = report.warnings + report.errors;
       console.log();
       if (issues === 0) {
-        console.log(chalk.green('✅ ClawVault is healthy!\n'));
+        console.log(chalk.green(' ClawVault is healthy!\n'));
       } else {
-        console.log(chalk.yellow(`⚠ ${issues} issue(s) found\n`));
+        console.log(chalk.yellow(` ${issues} issue(s) found\n`));
       }
     } catch (err) {
       console.error(chalk.red(`Error: ${err.message}`));

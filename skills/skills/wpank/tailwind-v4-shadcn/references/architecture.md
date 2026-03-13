@@ -21,10 +21,10 @@ Tailwind v4 requires a specific architecture for CSS variable-based theming. Thi
 ```
 
 **Critical Rules:**
-- ✅ Define at root level (NOT inside `@layer base`)
-- ✅ Use `hsl()` wrapper on all color values
-- ✅ Use `.dark` for dark mode overrides (NOT `.dark { @theme { } }`)
-- ❌ Never put `:root` or `.dark` inside `@layer base`
+-  Define at root level (NOT inside `@layer base`)
+-  Use `hsl()` wrapper on all color values
+-  Use `.dark` for dark mode overrides (NOT `.dark { @theme { } }`)
+-  Never put `:root` or `.dark` inside `@layer base`
 
 ### Step 2: Map Variables to Tailwind Utilities
 
@@ -53,8 +53,8 @@ Tailwind v4 requires a specific architecture for CSS variable-based theming. Thi
 ```
 
 **Critical Rules:**
-- ✅ Reference variables directly: `var(--background)`
-- ❌ Never double-wrap: `hsl(var(--background))` (already has hsl)
+-  Reference variables directly: `var(--background)`
+-  Never double-wrap: `hsl(var(--background))` (already has hsl)
 
 ### Step 4: Result - Automatic Dark Mode
 
@@ -92,7 +92,7 @@ UI updates without re-render
 
 ## Common Mistakes
 
-### ❌ Mistake 1: Variables Inside @layer base
+###  Mistake 1: Variables Inside @layer base
 
 ```css
 /* WRONG */
@@ -105,7 +105,7 @@ UI updates without re-render
 
 **Why It Fails:** Tailwind v4 strips CSS outside `@theme`/`@layer`, but `:root` must be at root level to persist.
 
-### ❌ Mistake 2: Using .dark { @theme { } }
+###  Mistake 2: Using .dark { @theme { } }
 
 ```css
 /* WRONG */
@@ -122,7 +122,7 @@ UI updates without re-render
 
 **Why It Fails:** Tailwind v4 doesn't support nested `@theme` directives.
 
-### ❌ Mistake 3: Double hsl() Wrapping
+###  Mistake 3: Double hsl() Wrapping
 
 ```css
 /* WRONG */
@@ -135,7 +135,7 @@ UI updates without re-render
 
 **Why It Fails:** `--background` already contains `hsl()`, results in `hsl(hsl(...))`.
 
-### ❌ Mistake 4: Config-Based Colors
+###  Mistake 4: Config-Based Colors
 
 ```typescript
 // WRONG (tailwind.config.ts)
@@ -160,8 +160,8 @@ export default {
 
 Use semantic names, not color values:
 ```css
---primary      /* ✅ Semantic */
---blue-500     /* ❌ Not semantic */
+--primary      /*  Semantic */
+--blue-500     /*  Not semantic */
 ```
 
 ### 2. Foreground Pairing

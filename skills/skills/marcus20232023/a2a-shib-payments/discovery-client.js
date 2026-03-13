@@ -26,7 +26,7 @@ class DiscoveryClient {
     
     const data = fs.readFileSync(this.registryPath, 'utf8');
     this.registry = JSON.parse(data);
-    console.log(`📋 Loaded registry: ${this.registry.agents.length} agents`);
+    console.log(` Loaded registry: ${this.registry.agents.length} agents`);
     return this.registry;
   }
 
@@ -68,12 +68,12 @@ class DiscoveryClient {
       throw new Error(`Agent not found: ${agentId}`);
     }
 
-    console.log(`🔌 Connecting to ${agent.name}...`);
+    console.log(` Connecting to ${agent.name}...`);
     const client = await this.clientFactory.createFromUrl(
       agent.agentCardUrl.replace('/.well-known/agent-card.json', '')
     );
     
-    console.log(`✅ Connected to ${agent.name}`);
+    console.log(` Connected to ${agent.name}`);
     return { agent, client };
   }
 
@@ -83,7 +83,7 @@ class DiscoveryClient {
   async sendMessage(agentId, messageText) {
     const { agent, client } = await this.connect(agentId);
     
-    console.log(`💬 Sending: "${messageText}"`);
+    console.log(` Sending: "${messageText}"`);
     
     const response = await client.sendMessage({
       message: {
@@ -96,10 +96,10 @@ class DiscoveryClient {
 
     if (response.kind === 'message') {
       const reply = response.parts[0].text;
-      console.log(`📨 Response:\n${reply}\n`);
+      console.log(` Response:\n${reply}\n`);
       return reply;
     } else if (response.kind === 'task') {
-      console.log(`📋 Task created: ${response.id}`);
+      console.log(` Task created: ${response.id}`);
       console.log(`Status: ${response.status.state}`);
       return response;
     }
@@ -115,7 +115,7 @@ async function main() {
     switch (command) {
       case 'list':
         const agents = client.listAgents();
-        console.log('\n📋 Available Agents:\n');
+        console.log('\n Available Agents:\n');
         agents.forEach(agent => {
           console.log(`  ${agent.id}`);
           console.log(`    Name: ${agent.name}`);
@@ -131,7 +131,7 @@ async function main() {
           process.exit(1);
         }
         const found = client.findByCapability(capability);
-        console.log(`\n🔍 Agents with capability "${capability}":\n`);
+        console.log(`\n Agents with capability "${capability}":\n`);
         found.forEach(agent => {
           console.log(`  - ${agent.name} (${agent.id})`);
         });
@@ -158,7 +158,7 @@ async function main() {
           console.error(`Agent not found: ${id}`);
           process.exit(1);
         }
-        console.log('\n📄 Agent Info:\n');
+        console.log('\n Agent Info:\n');
         console.log(JSON.stringify(agent, null, 2));
         break;
 
@@ -180,7 +180,7 @@ Examples:
         `);
     }
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

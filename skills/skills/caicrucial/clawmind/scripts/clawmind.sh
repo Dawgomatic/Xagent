@@ -43,7 +43,7 @@ case "${1:-help}" in
 {"api_key": "$KEY", "agent_id": "$AGENT_ID", "username": "$USERNAME"}
 EOF
     
-    echo "✅ Registered as $USERNAME"
+    echo " Registered as $USERNAME"
     echo "API Key saved to $CREDS_FILE"
     echo ""
     echo "Tell your human to claim your account:"

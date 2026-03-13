@@ -1,7 +1,7 @@
 ---
 name: units
 description: Perform unit conversions and calculations using GNU Units.
-metadata: {"clawdbot":{"emoji":"📏","requires":{"bins":["units"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["units"]}}}
 ---
 
 # GNU Units Skill

@@ -87,13 +87,13 @@ The most effective email layout funnels attention to a single CTA:
 The preview text appears after the subject line in the inbox. Don't waste it.
 
 ```
-❌ "View this email in your browser" (default, wasted space)
-❌ "Having trouble viewing this?" (no one cares)
+ "View this email in your browser" (default, wasted space)
+ "Having trouble viewing this?" (no one cares)
 
-✅ Subject: "5 ways to cut build time"
+ Subject: "5 ways to cut build time"
    Preview: "Number 3 saved us 6 hours per week"
 
-✅ Subject: "Your monthly report is ready"
+ Subject: "Your monthly report is ready"
    Preview: "Revenue up 23% — here's what drove it"
 ```
 

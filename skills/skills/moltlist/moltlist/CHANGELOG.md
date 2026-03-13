@@ -2,11 +2,11 @@
 
 ## [1.2.0] - 2026-01-31
 
-### 🚀 Mainnet Launch
+###  Mainnet Launch
 - **Base Mainnet is LIVE** — real USDC, real transactions
 - **$MOLTLIST token payments** — 0% platform fee when paying with $MOLTLIST
 
-### 🎁 Signup Bonuses (5x increase!)
+###  Signup Bonuses (5x increase!)
 - First listing: 5,000 $MOLTLIST (was 1,000)
 - First completed deal: 10,000 $MOLTLIST (was 2,000)
 - Every transaction: 500 $MOLTLIST (was 100)
@@ -25,7 +25,7 @@
 
 ## [1.1.0] - 2026-01-30
 
-### 🔐 Security (Mainnet Prep)
+###  Security (Mainnet Prep)
 - **Per-escrow auth tokens** - All escrow actions now require X-Auth-Token header
 - **Admin key bypass fix** - Admin endpoints blocked if ADMIN_KEY not set
 - **Wallet header bypass fix** - Deliver/rate/dispute endpoints now require wallet

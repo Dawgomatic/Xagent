@@ -40,7 +40,7 @@ class LiveTest {
     };
     this.results.tests.push(result);
     
-    const emoji = status === 'PASS' ? '✓' : status === 'FAIL' ? '✗' : '⚠';
+    const emoji = status === 'PASS' ? '✓' : status === 'FAIL' ? '✗' : '';
     console.log(`${emoji} [${status}] ${name}`);
     if (details.message) console.log(`  → ${details.message}`);
   }
@@ -389,7 +389,7 @@ class LiveTest {
     console.log(`Total Tests: ${this.results.tests.length}`);
     console.log(`✓ Passed: ${passed}`);
     console.log(`✗ Failed: ${failed}`);
-    console.log(`⚠ Warned: ${warned}`);
+    console.log(` Warned: ${warned}`);
     console.log(`Duration: ${duration}s`);
 
     if (this.results.errors.length > 0) {

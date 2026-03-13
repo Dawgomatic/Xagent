@@ -1,7 +1,7 @@
 ---
 name: minimax-usage
 description: Monitor Minimax Coding Plan usage to stay within API limits. Fetches current usage stats and provides status alerts.
-metadata: {"clawdbot":{"emoji":"📊"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Minimax Usage Skill
@@ -28,15 +28,15 @@ Get your GroupId from: https://platform.minimax.io/user-center/basic-information
 ## Output Example
 
 ```
-🔍 Checking Minimax Coding Plan usage...
-✅ Usage retrieved successfully:
+ Checking Minimax Coding Plan usage...
+ Usage retrieved successfully:
 
-📊 Coding Plan Status (MiniMax-M2):
+ Coding Plan Status (MiniMax-M2):
    Used:      255 / 1500 prompts (17%)
    Remaining: 1245 prompts
    Resets in: 3h 17m
 
-💚 GREEN: 17% used. Plenty of buffer.
+ GREEN: 17% used. Plenty of buffer.
 ```
 
 ## API Details

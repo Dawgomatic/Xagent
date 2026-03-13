@@ -155,18 +155,18 @@ Errors are returned in JSON format:
 ## vs. Brave Search API
 
 **SearXNG advantages:**
-- ✅ Self-hosted (no external API calls)
-- ✅ Privacy-respecting (randomized fingerprints, IP masking)
-- ✅ Aggregates 250+ engines simultaneously
-- ✅ No API keys required
-- ✅ Free (no rate limits)
-- ✅ Ad-free results
-- ✅ Optional Tor/Proxy routing
+-  Self-hosted (no external API calls)
+-  Privacy-respecting (randomized fingerprints, IP masking)
+-  Aggregates 250+ engines simultaneously
+-  No API keys required
+-  Free (no rate limits)
+-  Ad-free results
+-  Optional Tor/Proxy routing
 
 **Brave API advantages:**
-- ✅ JSON API (cleaner)
-- ✅ More structured data
-- ✅ Faster response times
+-  JSON API (cleaner)
+-  More structured data
+-  Faster response times
 
 **When to use SearXNG:**
 - Privacy-sensitive searches

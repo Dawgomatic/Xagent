@@ -43,14 +43,14 @@ query                Search location (e.g., "Steamboat Springs, CO")
 ## Example Output
 
 ```
-📍 Steamboat Springs, CO
-📊 Found 300+ total listings
+ Steamboat Springs, CO
+ Found 300+ total listings
 
 ==========================================================================================
-Cozy Mountain Cabin 🏆
-  2BR/1BA | ⭐4.92 | 127 reviews
-  💰 $407 total
-  🔗 https://airbnb.com/rooms/12345678
+Cozy Mountain Cabin 
+  2BR/1BA | 4.92 | 127 reviews
+   $407 total
+   https://airbnb.com/rooms/12345678
 ```
 
 ## Notes

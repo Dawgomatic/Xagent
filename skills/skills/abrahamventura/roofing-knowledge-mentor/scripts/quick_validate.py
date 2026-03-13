@@ -211,7 +211,7 @@ def main() -> int:
             eprint(f"  - {err}")
         return 1
 
-    print("VALIDATION PASSED ✅")
+    print("VALIDATION PASSED ")
     print(f"Skill directory: {root}")
     return 0
 

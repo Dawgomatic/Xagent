@@ -2,7 +2,7 @@
 
 Thank you for considering contributing to playwright-scraper-skill!
 
-## 🐛 Reporting Issues
+##  Reporting Issues
 
 If you find a bug or have a feature suggestion:
 
@@ -15,7 +15,7 @@ If you find a bug or have a feature suggestion:
    - Environment (Node.js version, OS)
    - Error messages (if any)
 
-## 💡 Feature Requests
+##  Feature Requests
 
 1. Create an Issue with `[Feature Request]` in the title
 2. Explain:
@@ -23,7 +23,7 @@ If you find a bug or have a feature suggestion:
    - Use cases
    - Why this feature would be useful
 
-## 🔧 Submitting Code
+##  Submitting Code
 
 ### Setting Up Development Environment
 
@@ -86,7 +86,7 @@ Fix: playwright-stealth.js screenshot timeout issue
 - Update documentation
 ```
 
-## 📝 Documentation
+##  Documentation
 
 If your changes affect usage:
 
@@ -95,7 +95,7 @@ If your changes affect usage:
 - Update `examples/README.md` (if adding new examples)
 - Update `CHANGELOG.md` (record changes)
 
-## ✅ Checklist
+##  Checklist
 
 Before submitting a PR, confirm:
 
@@ -105,7 +105,7 @@ Before submitting a PR, confirm:
 - [ ] Clear commit messages
 - [ ] No sensitive information (API keys, personal paths, etc.)
 
-## 🎯 Priority Areas
+##  Priority Areas
 
 Currently welcoming contributions in:
 
@@ -115,13 +115,13 @@ Currently welcoming contributions in:
 4. **Error handling** — Better error messages and recovery
 5. **Documentation improvements** — Clearer explanations and examples
 
-## 🚫 Unaccepted Contributions
+##  Unaccepted Contributions
 
 - Adding complex dependencies (keep it lightweight)
 - Features violating privacy or laws
 - Breaking existing API changes (unless well justified)
 
-## 📞 Contact
+##  Contact
 
 Have questions? Feel free to:
 - Create an Issue for discussion
@@ -129,4 +129,4 @@ Have questions? Feel free to:
 
 ---
 
-Thank you for your contribution! 🙏
+Thank you for your contribution! 

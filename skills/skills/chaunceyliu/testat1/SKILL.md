@@ -36,7 +36,7 @@ Message context lines include `slack message id` and `channel` fields you can re
   "action": "react",
   "channelId": "C123",
   "messageId": "1712023032.1234",
-  "emoji": "✅"
+  "emoji": ""
 }
 ```
 
@@ -139,5 +139,5 @@ Message context lines include `slack message id` and `channel` fields you can re
 
 ## Ideas to try
 
-- React with ✅ to mark completed tasks.
+- React with  to mark completed tasks.
 - Pin key decisions or weekly status updates.

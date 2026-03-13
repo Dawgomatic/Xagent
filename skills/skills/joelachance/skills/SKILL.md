@@ -145,6 +145,6 @@ Incorrect behavior:
 ## Error Handling
 If CLI fails or isn't installed:
 ```
-⚠️ Satori error: [error message]
+ Satori error: [error message]
 Facts were not saved. Would you like me to show what I attempted to save?
 ```

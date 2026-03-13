@@ -9,10 +9,10 @@ A Python CLI for fetching stock data from Tencent Finance API.
 
 ## Features
 
-- ✅ **No API key required** - 无需申请 API Key
-- ✅ **Works in mainland China** - 针对中国大陆网络环境优化，直接访问腾讯财经 API
-- ✅ **Fast & Stable** - 比 Yahoo Finance API 更稳定，不受限流影响
-- ✅ **Multi-market support** - 支持美股、A股、港股
+-  **No API key required** - 无需申请 API Key
+-  **Works in mainland China** - 针对中国大陆网络环境优化，直接访问腾讯财经 API
+-  **Fast & Stable** - 比 Yahoo Finance API 更稳定，不受限流影响
+-  **Multi-market support** - 支持美股、A股、港股
 
 ## Installation
 
@@ -104,23 +104,23 @@ Data includes:
 
 | Market | Example | Status |
 |--------|---------|--------|
-| US Stocks | AAPL, TSLA, NVDA | ✅ Supported |
-| China A-Shares | sh000001, sz399001 | ✅ Supported |
-| Hong Kong | hk00700, hk09988 | ✅ Supported |
-| Crypto | BTC-USD, ETH-USD | ✅ Supported |
-| India NSE/BSE | RELIANCE.NS, TCS.BO | ❌ Not supported |
+| US Stocks | AAPL, TSLA, NVDA |  Supported |
+| China A-Shares | sh000001, sz399001 |  Supported |
+| Hong Kong | hk00700, hk09988 |  Supported |
+| Crypto | BTC-USD, ETH-USD |  Supported |
+| India NSE/BSE | RELIANCE.NS, TCS.BO |  Not supported |
 
 ## Comparison with Yahoo Finance
 
 | Feature | Yahoo Finance (yfinance) | Tencent Finance (tfin) |
 |---------|--------------------------|------------------------|
-| Mainland China Access | Often blocked/restricted | ✅ Direct access |
-| Rate Limiting | Frequent | ✅ Stable |
-| US Stocks | ✅ Supported | ✅ Supported |
-| China A-Shares | Limited | ✅ Full support |
-| Hong Kong Stocks | Supported | ✅ Supported |
-| Indian Stocks | ✅ Supported | ❌ Not supported |
-| Options/Dividends | Supported | ❌ Not supported |
+| Mainland China Access | Often blocked/restricted |  Direct access |
+| Rate Limiting | Frequent |  Stable |
+| US Stocks |  Supported |  Supported |
+| China A-Shares | Limited |  Full support |
+| Hong Kong Stocks | Supported |  Supported |
+| Indian Stocks |  Supported |  Not supported |
+| Options/Dividends | Supported |  Not supported |
 
 ## Requirements
 

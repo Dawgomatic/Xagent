@@ -4,16 +4,16 @@
 
 | Pattern | Severity | Auto-Fixable | Description |
 |---------|----------|--------------|-------------|
-| EMPTY_CATCH | critical | ✅ | Empty catch block silently swallows errors |
-| PROMISE_EMPTY_CATCH | critical | ✅ | `.catch(() => {})` — errors vanish into the void |
-| CATCH_AND_CONTINUE_CRITICAL_PATH | critical | ❌ | Critical path logs-and-continues after errors |
-| NO_LOGGING_IN_CATCH | high | ✅ | Catch block with no logging, stderr, or rethrow |
-| ERROR_STRING_MATCHING | high | ❌ | `.includes()` on error.message to detect types |
-| PROMISE_CATCH_NO_LOGGING | high | ✅ | Promise `.catch()` handler that doesn't log |
-| LARGE_TRY_BLOCK | medium | ❌ | Try blocks over 10 significant lines (too broad) |
-| GENERIC_CATCH | medium | ❌ | No error type discrimination in catch |
-| PARTIAL_ERROR_LOGGING | medium | ✅ | Logging `error.message` instead of full error object |
-| ERROR_MESSAGE_GUESSING | medium | ❌ | Multiple string checks to guess what went wrong |
+| EMPTY_CATCH | critical |  | Empty catch block silently swallows errors |
+| PROMISE_EMPTY_CATCH | critical |  | `.catch(() => {})` — errors vanish into the void |
+| CATCH_AND_CONTINUE_CRITICAL_PATH | critical |  | Critical path logs-and-continues after errors |
+| NO_LOGGING_IN_CATCH | high |  | Catch block with no logging, stderr, or rethrow |
+| ERROR_STRING_MATCHING | high |  | `.includes()` on error.message to detect types |
+| PROMISE_CATCH_NO_LOGGING | high |  | Promise `.catch()` handler that doesn't log |
+| LARGE_TRY_BLOCK | medium |  | Try blocks over 10 significant lines (too broad) |
+| GENERIC_CATCH | medium |  | No error type discrimination in catch |
+| PARTIAL_ERROR_LOGGING | medium |  | Logging `error.message` instead of full error object |
+| ERROR_MESSAGE_GUESSING | medium |  | Multiple string checks to guess what went wrong |
 
 ## Fix Templates
 

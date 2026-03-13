@@ -1,7 +1,7 @@
 {
   "name": "cherry-mcp",
   "version": "1.0.0",
-  "description": "HTTP bridge for MCP servers 🍒",
+  "description": "HTTP bridge for MCP servers ",
   "main": "bridge.js",
   "bin": {
     "cherry-mcp": "./cli.js"

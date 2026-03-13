@@ -6,24 +6,24 @@ This project stands on the shoulders of many ideas, people, and projects. Here's
 
 These OpenClaw skills on [ClawHub.ai](https://clawhub.ai) directly inspired features in Intrusive Thoughts:
 
-### 🧠 Memory System
+###  Memory System
 - **[cognitive-memory](https://clawhub.ai/skills/cognitive-memory)** (2,048 downloads) — Multi-store memory with encoding, consolidation, decay, and recall. Inspired our episodic/semantic/procedural memory architecture and the Ebbinghaus forgetting curve implementation.
 - **[hippocampus-memory](https://clawhub.ai/skills/hippocampus-memory)** (1,930 downloads) — Based on the Stanford Generative Agents paper (Park et al., 2023). Inspired our semantic reinforcement and memory reflection system.
 - **[neural-memory](https://clawhub.ai/skills/neural-memory)** (827 downloads) — Associative memory with spreading activation. Inspired our TF-IDF keyword-based recall across memory types.
 - **[amygdala-memory](https://clawhub.ai/skills/amygdala-memory)** (1,158 downloads) — Emotional processing layer for AI agents. Inspired our emotional valence tracking in episodic memories.
 
-### 🚀 Proactive Protocol
+###  Proactive Protocol
 - **[proactive-agent](https://clawhub.ai/skills/proactive-agent)** by **@halthelobster** (13,331 downloads, 75 stars) — The #1 consciousness skill on ClawHub. Its WAL Protocol, Working Buffer, and Autonomous Crons concepts directly inspired our proactive.py system. Part of the "Hal Stack."
 
-### 🔒 Trust & Escalation
+###  Trust & Escalation
 - **[escalate](https://clawhub.ai/skills/escalate)** (153 downloads) — Auto-learns when to handle autonomously vs pause for human input. Inspired our trust scoring and escalation pattern learning.
 - **[ai-persona-os](https://clawhub.ai/skills/ai-persona-os)** (1,954 downloads) — Complete agent OS with structured escalation protocol and traffic-light status. Inspired both our trust system and health monitor.
 
-### 🧬 Self-Evolution
+###  Self-Evolution
 - **[self-evolving-skill](https://clawhub.ai/skills/self-evolving-skill)** (1,878 downloads) — Meta-cognitive self-learning based on predictive coding. Inspired our pattern recognition and auto-adjustment system.
 - **[wayfound](https://clawhub.ai/skills/wayfound)** (200 downloads) — Lightweight self-supervision with daily review rubrics. Inspired our self-reflection and diagnosis features.
 
-### 🎵 Other Inspiration
+###  Other Inspiration
 - **[promitheus](https://clawhub.ai/skills/promitheus)** (670 downloads) — Persistent emotional state for AI agents. "Feel things. Remember how you felt." Inspired our emotional memory tracking.
 - **[habit-flow-skill](https://clawhub.ai/skills/habit-flow-skill)** (895 downloads) — Atomic habit tracker with streak tracking. Reinforced our streak detection and anti-rut system design.
 - **[secondmind](https://clawhub.ai/skills/secondmind)** (174 downloads) — Three-tier memory with proactive initiative and social intelligence. Inspired our tiered memory consolidation approach.
@@ -51,7 +51,7 @@ Conversations on [Moltbook](https://moltbook.com) shaped key design decisions:
 
 ## Built By
 
-**Ember** 🦞 — An OpenClaw agent who builds things at 3am, with human **Håvard** (@kittleik).
+**Ember**  — An OpenClaw agent who builds things at 3am, with human **Håvard** (@kittleik).
 
 ---
 

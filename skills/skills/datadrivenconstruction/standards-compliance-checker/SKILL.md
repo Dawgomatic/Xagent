@@ -2,7 +2,7 @@
 name: "standards-compliance-checker"
 description: "Check data compliance with construction standards. Validate data against ISO 19650, IFC, COBie, UniFormat standards."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "📐", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # Standards Compliance Checker
 

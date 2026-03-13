@@ -12,7 +12,7 @@ Fast trie-based DFS solver with dictionary-only matching. No AI/LLM guessing —
 1. **Read the 4x4 grid** from the photo (left-to-right, top-to-bottom)
 2. **Show the grid to the user and ask for confirmation** before solving
 3. Only after user confirms → run the solver
-4. **Always run English and German SEPARATELY** — present as two labeled sections (🇬🇧 / 🇩🇪)
+4. **Always run English and German SEPARATELY** — present as two labeled sections ( / )
 
 ## Solve a board
 

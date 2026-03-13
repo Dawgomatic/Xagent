@@ -197,12 +197,12 @@ const stats = await kit.getBroadcastStats(broadcastId);
 
 **Present stats in readable format:**
 ```
-📊 Campaign Performance: "Your Subject Line"
+ Campaign Performance: "Your Subject Line"
 
-📤 Recipients: 1,234
-📬 Opens: 456 (37%)
-🖱️ Clicks: 89 (19.5% of opens)
-🚪 Unsubscribes: 5 (0.4%)
+ Recipients: 1,234
+ Opens: 456 (37%)
+ Clicks: 89 (19.5% of opens)
+ Unsubscribes: 5 (0.4%)
 ```
 
 **Provide insights:**
@@ -224,7 +224,7 @@ Users can:
 
 ### Email Content
 
-✅ **DO:**
+ **DO:**
 - Write conversational, authentic copy
 - Use short paragraphs (2-3 sentences max)
 - Include one clear CTA
@@ -233,7 +233,7 @@ Users can:
 - Match user's brand voice
 - Lead with value, not pitch
 
-❌ **DON'T:**
+ **DON'T:**
 - Use spam trigger words (free, guarantee, act now)
 - Write long blocks of text
 - Include multiple conflicting CTAs
@@ -243,14 +243,14 @@ Users can:
 
 ### Subject Lines
 
-✅ **DO:**
+ **DO:**
 - Keep 27-73 characters
 - Use curiosity, urgency, or benefit
 - Personalize when appropriate
 - A/B test different approaches
 - Avoid spam triggers
 
-❌ **DON'T:**
+ **DON'T:**
 - Use all caps or excessive punctuation
 - Mislead about content inside
 - Use spammy words
@@ -258,7 +258,7 @@ Users can:
 
 ### Sending Strategy
 
-✅ **DO:**
+ **DO:**
 - Send drafts first (review before scheduling)
 - Test send to yourself
 - Check deliverability (SPF, DKIM, DMARC)
@@ -266,7 +266,7 @@ Users can:
 - Track performance
 - Clean your list regularly
 
-❌ **DON'T:**
+ **DON'T:**
 - Send without review
 - Blast entire list with sales pitch
 - Ignore unsubscribes or complaints

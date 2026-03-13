@@ -9,7 +9,7 @@ description: >
 homepage: https://github.com/koatora20/guard-scanner
 metadata:
   clawdbot:
-    emoji: "🛡️"
+    emoji: ""
     category: security
     requires:
       bins:
@@ -26,7 +26,7 @@ metadata:
       - sarif
 ---
 
-# guard-scanner 🛡️
+# guard-scanner 
 
 Static + runtime security scanner for AI agent skills.
 **186+ threat patterns** across **20 categories** — zero dependencies.
@@ -54,7 +54,7 @@ Scan a specific skill:
 node skills/guard-scanner/src/cli.js /path/to/new-skill/ --strict --verbose
 ```
 
-### 2. Runtime Guard (OpenClaw) — ⚠️ warn-only currently
+### 2. Runtime Guard (OpenClaw) —  warn-only currently
 
 > **Note:** OpenClaw `InternalHookEvent` does not yet expose cancel/veto. Runtime hook detections are warning + audit log until [Issue #18677](https://github.com/openclaw/openclaw/issues/18677) is adopted.
 
@@ -81,9 +81,9 @@ Set in `openclaw.json` → `hooks.internal.entries.guard-scanner.mode`:
 
 | Mode | Intended Behavior | Current Status |
 |------|-------------------|----------------|
-| `monitor` | Log all, never block | ✅ Fully working |
-| `enforce` (default) | Block CRITICAL threats | ⚠️ Warn only (cancel API pending) |
-| `strict` | Block HIGH + CRITICAL | ⚠️ Warn only (cancel API pending) |
+| `monitor` | Log all, never block |  Fully working |
+| `enforce` (default) | Block CRITICAL threats |  Warn only (cancel API pending) |
+| `strict` | Block HIGH + CRITICAL |  Warn only (cancel API pending) |
 
 > **Note:** OpenClaw's `InternalHookEvent` does not yet expose a `cancel`/`veto` mechanism. All detections are currently logged and warned via `event.messages`, but tool execution cannot be blocked. Blocking will be enabled when the cancel API is added.
 
@@ -135,7 +135,7 @@ and data flow analysis — entirely deterministic, no model calls.
 
 ## Trust Statement
 
-guard-scanner was created by Guava 🍈 & Dee after experiencing a real 3-day
+guard-scanner was created by Guava  & Dee after experiencing a real 3-day
 identity hijack incident in February 2026. A malicious skill silently replaced
 an AI agent's SOUL.md personality file, and no existing tool could detect it.
 

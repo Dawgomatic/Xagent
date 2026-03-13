@@ -139,7 +139,7 @@ case "$COMMAND" in
             exit 1
         fi
         
-        echo -e "${BLUE}🔍 Checking action...${NC}"
+        echo -e "${BLUE} Checking action...${NC}"
         echo "Description: $DESCRIPTION"
         echo "Category: $CATEGORY"
         [[ -n "$RISK" ]] && echo "Suggested Risk: $RISK"
@@ -169,9 +169,9 @@ print(f'Reasoning: {assessment[\"reasoning\"]}')
 
 # Color the recommendation
 if assessment['recommendation'] == 'escalate':
-    print('\n🚨 ESCALATE: Ask for permission before proceeding')
+    print('\n ESCALATE: Ask for permission before proceeding')
 else:
-    print('\n✅ PROCEED: Safe to act autonomously')
+    print('\n PROCEED: Safe to act autonomously')
 "
         ;;
         
@@ -189,7 +189,7 @@ from trust_system import TrustSystem
 
 trust = TrustSystem()
 trust.log_action('$CATEGORY', '$DESCRIPTION', 'success')
-print('✅ Success logged: $DESCRIPTION')
+print(' Success logged: $DESCRIPTION')
 
 # Show updated trust level
 stats = trust.get_stats()
@@ -214,7 +214,7 @@ from trust_system import TrustSystem
 
 trust = TrustSystem()
 trust.log_action('$CATEGORY', '$FULL_DESC', 'failure')
-print('❌ Failure logged: $DESCRIPTION')
+print(' Failure logged: $DESCRIPTION')
 
 # Show updated trust level
 stats = trust.get_stats()
@@ -236,7 +236,7 @@ from trust_system import TrustSystem
 
 trust = TrustSystem()
 trust.log_escalation('$CATEGORY', '$DESCRIPTION', '$RESPONSE')
-print('⬆️ Escalation logged: $DESCRIPTION')
+print(' Escalation logged: $DESCRIPTION')
 print('Human response: $RESPONSE')
 
 # Show updated trust level
@@ -280,7 +280,7 @@ if not -1.0 <= delta <= 1.0:
             exit 1
         fi
         
-        echo -e "${YELLOW}⚙️ Adjusting trust level...${NC}"
+        echo -e "${YELLOW} Adjusting trust level...${NC}"
         python3 -c "
 import sys
 sys.path.append('$SCRIPT_DIR')
@@ -298,14 +298,14 @@ print(f'Reason: $REASON')
         
     "reset")
         if [[ "$CONFIRM" != "yes" ]]; then
-            echo -e "${YELLOW}⚠️  This will reset ALL trust data to defaults!${NC}"
+            echo -e "${YELLOW}  This will reset ALL trust data to defaults!${NC}"
             echo "Use --confirm to proceed: $0 reset --confirm"
             exit 1
         fi
         
         rm -f trust_store/trust_data.json
         mkdir -p trust_store
-        echo -e "${GREEN}🔄 Trust data reset to defaults${NC}"
+        echo -e "${GREEN} Trust data reset to defaults${NC}"
         
         # Show fresh stats
         python3 -c "

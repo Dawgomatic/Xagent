@@ -53,7 +53,7 @@ def main():
         
         categories = explorer.list_categories()
         for category in categories:
-            print(f"📂 {category}")
+            print(f" {category}")
         
         print()
         
@@ -64,14 +64,14 @@ def main():
         search_queries = ["search", "productivity", "development", "automation"]
         
         for query in search_queries:
-            print(f"  🔍 搜索: '{query}'")
+            print(f"   搜索: '{query}'")
             results = explorer.search_skills(query, 3)
             
             if results:
                 for skill in results:
-                    print(f"    🎯 {skill.name} ({skill.slug}@v{skill.version})")
+                    print(f"     {skill.name} ({skill.slug}@v{skill.version})")
             else:
-                print(f"    ❌ 没有找到相关技能")
+                print(f"     没有找到相关技能")
             print()
         
         # 浏览分类
@@ -81,14 +81,14 @@ def main():
         categories_to_browse = ["general", "productivity"]
         
         for category in categories_to_browse:
-            print(f"  📂 分类: '{category}'")
+            print(f"   分类: '{category}'")
             results = explorer.browse_category(category, 4)
             
             if results:
                 for skill in results:
-                    print(f"    🎯 {skill.name} ({skill.slug}@v{skill.version})")
+                    print(f"     {skill.name} ({skill.slug}@v{skill.version})")
             else:
-                print(f"    ❌ 分类 '{category}' 为空")
+                print(f"     分类 '{category}' 为空")
             print()
         
         # 获取推荐技能
@@ -97,14 +97,14 @@ def main():
         
         recommendations = explorer.get_recommendations(3)
         for skill in recommendations:
-            print(f"  🎯 {skill.name} ({skill.slug}@v{skill.version})")
+            print(f"   {skill.name} ({skill.slug}@v{skill.version})")
             print(f"     {skill.description}")
             print()
         
         print()
         
     except Exception as e:
-        print(f"❌ 错误: {e}")
+        print(f" 错误: {e}")
         import traceback
         print(traceback.format_exc())
         return 1

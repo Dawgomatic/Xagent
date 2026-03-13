@@ -165,7 +165,7 @@ class SentientServer {
         if (networkState.load(genesisPath)) {
             console.log('✓ Network Trust Root anchored');
         } else {
-            console.warn('⚠️  Network Genesis not loaded. Running in bootstrap mode.');
+            console.warn('  Network Genesis not loaded. Running in bootstrap mode.');
         }
 
         const result = await initializeObserver(this.options, {
@@ -280,7 +280,7 @@ class SentientServer {
             logProvider('Provider manager initialized');
             console.log('✓ Provider manager initialized');
         } catch (error) {
-            console.error('⚠ Failed to initialize provider manager:', error.message);
+            console.error(' Failed to initialize provider manager:', error.message);
             logProvider.error?.('Initialization failed:', error.message);
         }
     }
@@ -290,7 +290,7 @@ class SentientServer {
      */
     initializeWebRTC() {
         if (!this.webrtcEnabled) {
-            console.log('⚠ WebRTC coordinator disabled');
+            console.log(' WebRTC coordinator disabled');
             return;
         }
         
@@ -314,7 +314,7 @@ class SentientServer {
             console.log('✓ WebRTC coordinator initialized');
             logWebRTC('WebRTC coordinator ready');
         } catch (error) {
-            console.error('⚠ Failed to initialize WebRTC coordinator:', error.message);
+            console.error(' Failed to initialize WebRTC coordinator:', error.message);
             logWebRTC.error('Initialization failed:', error.message);
             this.webrtcEnabled = false;
         }
@@ -358,7 +358,7 @@ class SentientServer {
             console.log('✓ Autonomous learning system initialized');
             console.log('✓ Next-step suggestion generator initialized');
         } catch (error) {
-            console.error('⚠ Failed to initialize learning system:', error.message);
+            console.error(' Failed to initialize learning system:', error.message);
             logLearn.error('Initialization failed:', error.message);
         }
     }
@@ -765,7 +765,7 @@ class SentientServer {
         });
         
         this.server.listen(this.options.port, this.options.host, async () => {
-            console.log(`\n🌌 Sentient Observer Server`);
+            console.log(`\n Sentient Observer Server`);
             console.log(`   Node ID: ${this.nodeId}`);
             console.log(`   Listening on http://${this.options.host}:${this.options.port}`);
             console.log(`   Static files: ${this.options.staticPath}`);

@@ -6,12 +6,12 @@ An [OpenClaw](https://openclaw.dev) skill for [Bitwarden](https://bitwarden.com/
 
 ## Features
 
-- 🔐 Automatic login & session caching
-- 🔑 Store, retrieve, and manage credentials
-- 🎲 Secure password generation
-- 🔍 Search across your vault
-- ⚡ Simple single-command interface
-- 🏠 Compatible with official Bitwarden AND self-hosted Vaultwarden
+-  Automatic login & session caching
+-  Store, retrieve, and manage credentials
+-  Secure password generation
+-  Search across your vault
+-  Simple single-command interface
+-  Compatible with official Bitwarden AND self-hosted Vaultwarden
 
 ## Prerequisites
 

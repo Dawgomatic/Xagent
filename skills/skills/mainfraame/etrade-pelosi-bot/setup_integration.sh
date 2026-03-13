@@ -4,7 +4,7 @@
 
 set -e
 
-echo "🔗 Setting up Congressional Data to E*TRADE Trading Integration"
+echo " Setting up Congressional Data to E*TRADE Trading Integration"
 echo "================================================================"
 
 # Colors for output
@@ -70,7 +70,7 @@ if [ ! -f "config/config.json" ]; then
   }
 }
 EOF
-    echo -e "${YELLOW}⚠ Created template config. Please edit with your settings.${NC}"
+    echo -e "${YELLOW} Created template config. Please edit with your settings.${NC}"
 else
     echo -e "${GREEN}✓ Main config file found${NC}"
 fi
@@ -90,7 +90,7 @@ python3 src/congress_data/setup_cron.py setup
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✓ Cron job scheduled (9 AM Monday-Friday)${NC}"
 else
-    echo -e "${YELLOW}⚠ Could not set up cron job automatically${NC}"
+    echo -e "${YELLOW} Could not set up cron job automatically${NC}"
     echo "You can manually add to crontab:"
     echo "0 9 * * 1-5 cd $(pwd) && src/congress_data/run_cron.sh"
 fi
@@ -103,7 +103,7 @@ python3 src/congress_data/main.py once --verbose
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✓ Congressional data collection working${NC}"
 else
-    echo -e "${YELLOW}⚠ Congressional data collection test had issues${NC}"
+    echo -e "${YELLOW} Congressional data collection test had issues${NC}"
 fi
 
 echo -e "\n2. Testing alert system..."
@@ -111,7 +111,7 @@ python3 src/congress_data/main.py test-alerts
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✓ Alert system working${NC}"
 else
-    echo -e "${YELLOW}⚠ Alert system test had issues${NC}"
+    echo -e "${YELLOW} Alert system test had issues${NC}"
 fi
 
 echo -e "\n3. Testing E*TRADE integration..."
@@ -119,7 +119,7 @@ python3 src/congress_data/etrade_integration.py process
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✓ E*TRADE integration working${NC}"
 else
-    echo -e "${YELLOW}⚠ E*TRADE integration test had issues${NC}"
+    echo -e "${YELLOW} E*TRADE integration test had issues${NC}"
 fi
 
 # Create systemd service for continuous monitoring (optional)
@@ -132,7 +132,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "To start: systemctl --user start congress-trade-collector.service"
     echo "To enable on boot: systemctl --user enable congress-trade-collector.service"
 else
-    echo -e "${YELLOW}⚠ Skipping systemd service setup${NC}"
+    echo -e "${YELLOW} Skipping systemd service setup${NC}"
 fi
 
 # Create automated trading script
@@ -207,28 +207,28 @@ cat > monitor_dashboard.sh << 'EOF'
 
 while true; do
     clear
-    echo "📊 CONGRESSIONAL TRADING SYSTEM DASHBOARD"
+    echo " CONGRESSIONAL TRADING SYSTEM DASHBOARD"
     echo "=========================================="
     echo "Last Updated: $(date)"
     echo ""
     
     # Congressional System Status
-    echo "🔍 CONGRESSIONAL DATA SYSTEM"
+    echo " CONGRESSIONAL DATA SYSTEM"
     echo "----------------------------"
     python3 src/congress_data/main.py stats 2>/dev/null | grep -A20 "CONGRESSIONAL DATA COLLECTION STATISTICS" | tail -n +3
     
     echo ""
-    echo "💼 E*TRADE INTEGRATION"
+    echo " E*TRADE INTEGRATION"
     echo "----------------------"
     python3 src/congress_data/etrade_integration.py stats 2>/dev/null | grep -A10 "E*TRADE Integration Statistics" | tail -n +3
     
     echo ""
-    echo "📈 RECENT TRADING RECOMMENDATIONS"
+    echo " RECENT TRADING RECOMMENDATIONS"
     echo "---------------------------------"
     python3 src/congress_data/etrade_integration.py recommendations --limit 3 2>/dev/null | grep -A30 "Congressional Trading Recommendations" | tail -n +3
     
     echo ""
-    echo "⏰ Next cron run: 9:00 AM $(date -d 'tomorrow' +%A) (weekdays only)"
+    echo " Next cron run: 9:00 AM $(date -d 'tomorrow' +%A) (weekdays only)"
     echo ""
     echo "Press Ctrl+C to exit. Refreshing in 60 seconds..."
     
@@ -240,10 +240,10 @@ chmod +x monitor_dashboard.sh
 echo -e "${GREEN}✓ Created monitoring dashboard: ./monitor_dashboard.sh${NC}"
 
 # Final instructions
-echo -e "\n${GREEN}✅ INTEGRATION SETUP COMPLETE${NC}"
+echo -e "\n${GREEN} INTEGRATION SETUP COMPLETE${NC}"
 echo "================================================================"
 echo ""
-echo "📋 NEXT STEPS:"
+echo " NEXT STEPS:"
 echo ""
 echo "1. ${YELLOW}Configure Alert Channels:${NC}"
 echo "   - Edit config/congress_config.json"
@@ -272,16 +272,16 @@ echo "   - Set 'use_sandbox': false in config/config.json"
 echo "   - Add production E*TRADE API keys"
 echo "   - Test extensively in sandbox first!"
 echo ""
-echo "📁 IMPORTANT DIRECTORIES:"
+echo " IMPORTANT DIRECTORIES:"
 echo "   - data/congress_trades/etrade_alerts/ - Congressional trade alerts"
 echo "   - data/trading_recommendations/ - Generated trading recommendations"
 echo "   - logs/ - System logs"
 echo ""
-echo "🔧 TROUBLESHOOTING:"
+echo " TROUBLESHOOTING:"
 echo "   - Check logs in logs/congress_data/ and logs/trading/"
 echo "   - Run tests: python3 src/congress_data/main.py test-alerts"
 echo "   - View stats: python3 src/congress_data/main.py stats"
 echo ""
 echo "================================================================"
-echo "🚀 System ready for automated congressional trade mirroring!"
+echo " System ready for automated congressional trade mirroring!"
 echo "================================================================"

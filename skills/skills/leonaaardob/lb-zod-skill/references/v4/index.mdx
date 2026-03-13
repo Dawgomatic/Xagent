@@ -9,7 +9,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 After a year of active development: Zod 4 is now stable! It's faster, slimmer, more `tsc`-efficient, and implements some long-requested features. 
 
-<Callout icon="❤️"> 
+<Callout icon=""> 
 Huge thanks to [Clerk](https://go.clerk.com/zod-clerk), who supported my work on Zod 4 through their extremely generous [OSS Fellowship](https://clerk.com/blog/zod-fellowship). They were an amazing partner throughout the (much longer than anticipated!) development process.
 </Callout>
 
@@ -636,10 +636,10 @@ z.prettifyError(myError);
 This returns the following pretty-printable multi-line string:
 
 ```ts
-✖ Unrecognized key: "extraField"
-✖ Invalid input: expected string, received number
+ Unrecognized key: "extraField"
+ Invalid input: expected string, received number
   → at username
-✖ Invalid input: expected number, received string
+ Invalid input: expected number, received string
   → at favoriteNumbers[1]
 ```
 
@@ -881,7 +881,7 @@ In Zod 3, they were stored in a `ZodEffects` class that wrapped the original sch
 z.string()
   .refine(val => val.includes("@"))
   .min(5);
-// ^ ❌ Property 'min' does not exist on type ZodEffects<ZodString, string, string>
+// ^  Property 'min' does not exist on type ZodEffects<ZodString, string, string>
 ```
 
 In Zod 4, refinements are stored inside the schemas themselves, so the code above works as expected.
@@ -889,7 +889,7 @@ In Zod 4, refinements are stored inside the schemas themselves, so the code abov
 ```ts
 z.string()
   .refine(val => val.includes("@"))
-  .min(5); // ✅
+  .min(5); // 
 ```
 
 ### `.overwrite()`

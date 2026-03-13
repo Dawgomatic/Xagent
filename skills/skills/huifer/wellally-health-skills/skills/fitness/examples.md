@@ -98,7 +98,7 @@ Save:
 User: /fitness history
 
 Output:
-📋 Recent Workout Records
+ Recent Workout Records
 
 2025-06-20 07:00 - Running 30 minutes Moderate intensity
 2025-06-19 18:30 - Swimming 45 minutes Low intensity
@@ -132,7 +132,7 @@ Swimming: 1 time
 User: /fitness stats week
 
 Output:
-📊 Weekly Workout Statistics
+ Weekly Workout Statistics
 
 Workout Volume:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -140,7 +140,7 @@ Total Duration: 240 minutes (Average 34 min/session)
 Total Distance: 35 km
 Calories Burned: 1800 kcal
 
-Workout Frequency: 5 days/week ✅
+Workout Frequency: 5 days/week 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 Recommendation: 3-5 days per week recommended, current meets recommendation
 
@@ -152,8 +152,8 @@ High Intensity: 0%
 
 Comparison with Last Week:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
-Duration: +30 minutes ↗️
-Distance: +5 km ↗️
+Duration: +30 minutes 
+Distance: +5 km 
 Frequency: Unchanged
 ```
 
@@ -212,7 +212,7 @@ Update goal progress
 User: /fitness goal active
 
 Output:
-🎯 Active Goals
+ Active Goals
 
 Lose 5 kg
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -220,7 +220,7 @@ Start: 2025-01-01
 Target: 2025-06-30
 Current: 72.5 kg
 Goal: 70.0 kg
-Progress: 50% ⏳
+Progress: 50% 
 Status: On track
 ```
 
@@ -231,7 +231,7 @@ Status: On track
 User: /fitness trend 30days
 
 Output:
-📈 Workout Trend Analysis (Last 30 days)
+ Workout Trend Analysis (Last 30 days)
 
 Workout Volume Trend:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -239,7 +239,7 @@ Week 1: 120 minutes
 Week 2: 180 minutes
 Week 3: 210 minutes
 Week 4: 240 minutes
-Trend: Consistent increase ↗️
+Trend: Consistent increase 
 
 Intensity Distribution Change:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -248,7 +248,7 @@ Moderate Intensity: 50% → 60%
 
 Progress Tracking:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
-Running Pace: 6'30" → 6'00" ✅
+Running Pace: 6'30" → 6'00" 
 Workout Duration: Average 30 min → 40 min
 ```
 
@@ -259,7 +259,7 @@ Workout Duration: Average 30 min → 40 min
 User: /fitness prescription beginner
 
 Output:
-🏋️ Beginner Exercise Prescription Reference
+ Beginner Exercise Prescription Reference
 
 FITT Principles:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━

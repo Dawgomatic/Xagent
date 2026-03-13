@@ -204,7 +204,7 @@ export function expandPath(p: string): string {
  */
 export function handleError(err: unknown, context: string): never {
   const message = err instanceof Error ? err.message : String(err);
-  console.error(`❌ ${context}: ${message}`);
+  console.error(` ${context}: ${message}`);
   process.exit(1);
 }
 
@@ -259,7 +259,7 @@ export function loadConfig(): Config {
   const configPath = expandPath('~/.config/morpho-yield/config.json');
   
   if (!existsSync(configPath)) {
-    console.error('❌ Config not found at ~/.config/morpho-yield/config.json');
+    console.error(' Config not found at ~/.config/morpho-yield/config.json');
     console.error('   Run: npx tsx setup.ts');
     process.exit(1);
   }
@@ -269,7 +269,7 @@ export function loadConfig(): Config {
     const stats = statSync(configPath);
     const mode = stats.mode & 0o777;
     if (mode & 0o077) { // Readable by group or others
-      console.warn('⚠️  Warning: Config file has loose permissions.');
+      console.warn('  Warning: Config file has loose permissions.');
       console.warn(`   Run: chmod 600 ${configPath}`);
     }
   } catch {
@@ -292,7 +292,7 @@ export function getPrivateKey(config: Config): Hex {
       case 'env': {
         key = process.env[wallet.env_var || 'MORPHO_PRIVATE_KEY'];
         if (!key) {
-          console.error(`❌ Environment variable ${wallet.env_var || 'MORPHO_PRIVATE_KEY'} not set`);
+          console.error(` Environment variable ${wallet.env_var || 'MORPHO_PRIVATE_KEY'} not set`);
           process.exit(1);
         }
         break;
@@ -304,7 +304,7 @@ export function getPrivateKey(config: Config): Hex {
         try {
           key = execSync(`op read "op://${item}/${field}"`, { encoding: 'utf-8' }).trim();
         } catch {
-          console.error('❌ Failed to read from 1Password. Is the CLI installed and authenticated?');
+          console.error(' Failed to read from 1Password. Is the CLI installed and authenticated?');
           console.error('   Run: op signin');
           process.exit(1);
         }
@@ -314,7 +314,7 @@ export function getPrivateKey(config: Config): Hex {
       case 'file': {
         const keyPath = expandPath(wallet.path || '~/.clawd/vault/morpho.key');
         if (!existsSync(keyPath)) {
-          console.error(`❌ Key file not found: ${keyPath}`);
+          console.error(` Key file not found: ${keyPath}`);
           process.exit(1);
         }
         
@@ -323,7 +323,7 @@ export function getPrivateKey(config: Config): Hex {
           const stats = statSync(keyPath);
           const mode = stats.mode & 0o777;
           if (mode & 0o077) {
-            console.warn('⚠️  Warning: Key file has loose permissions.');
+            console.warn('  Warning: Key file has loose permissions.');
             console.warn(`   Run: chmod 600 ${keyPath}`);
           }
         } catch {
@@ -335,7 +335,7 @@ export function getPrivateKey(config: Config): Hex {
       }
       
       default:
-        console.error(`❌ Unknown wallet source: ${wallet.source}`);
+        console.error(` Unknown wallet source: ${wallet.source}`);
         process.exit(1);
     }
     
@@ -382,7 +382,7 @@ export async function verifyContracts(publicClient: PublicClient): Promise<void>
   });
   
   if (!vaultName.toLowerCase().includes('moonwell') && !vaultName.toLowerCase().includes('usdc')) {
-    console.warn(`⚠️  Vault name doesn't match expected: ${vaultName}`);
+    console.warn(`  Vault name doesn't match expected: ${vaultName}`);
   }
 }
 

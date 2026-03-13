@@ -170,7 +170,7 @@ python3 scripts/workflow_engine.py --validate
       "agent": "notification-agent",
       "action": "send_telegram",
       "input": {
-        "message": "🚨 Important ETH News!\n{{payload.title}}\n{{payload.url}}"
+        "message": " Important ETH News!\n{{payload.title}}\n{{payload.url}}"
       }
     }
   ]
@@ -617,4 +617,4 @@ MIT
 
 ---
 
-**Built with 🦎 by Robby**
+**Built with  by Robby**

@@ -46,11 +46,11 @@ See `send-email` skill for installation instructions across supported languages.
 ```
 What's your use case?
 ├─ Transactional emails (receipts, notifications, password resets)
-│  └─ SendGrid (send-email) ✅
+│  └─ SendGrid (send-email) 
 ├─ Marketing campaigns / bulk email
 │  └─ Consider SendGrid Marketing Campaigns (outside this skill)
 ├─ Receiving emails programmatically
-│  └─ SendGrid Inbound Parse (sendgrid-inbound) ✅
+│  └─ SendGrid Inbound Parse (sendgrid-inbound) 
 └─ Simple SMTP relay
    └─ SendGrid SMTP (outside this skill)
 ```

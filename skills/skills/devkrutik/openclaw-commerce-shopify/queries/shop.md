@@ -83,10 +83,10 @@ When a user requests shop or business entity information, follow these steps:
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Fetches too many fields with nested connections
+   #  HIGH COST - Fetches too many fields with nested connections
    query { shop { fulfillmentServices(first: 100) { ... } shopPolicies { ... } metafields(first: 50) { ... } } }
    
-   # ✅ LOW COST - Fetches reasonable amount with needed fields only
+   #  LOW COST - Fetches reasonable amount with needed fields only
    query { shop { id name email currencyCode plan { displayName } } }
    ```
 

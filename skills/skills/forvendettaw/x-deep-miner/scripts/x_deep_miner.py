@@ -83,7 +83,7 @@ def search_x_tweets(keywords: list, min_bookmarks: int = 1000) -> list:
     # 2. 打开 x.com/home
     # 3. 解析 DOM 获取推文
     
-    print("\n💡 使用 OpenClaw Managed Browser:")
+    print("\n 使用 OpenClaw Managed Browser:")
     print("   browser action=start profile=openclaw")
     print("   browser action=open targetUrl=https://x.com/home profile=openclaw")
     
@@ -137,14 +137,14 @@ tags:
 > [!abstract] Monica's Insight
 > (一句话犀利点评：关于 {category} 的高热度长文)
 
-## 📌 核心要点 (Key Takeaways)
+##  核心要点 (Key Takeaways)
 
-- 🔹 观点 1: 待提取
-- 🔹 观点 2: 待提取
+-  观点 1: 待提取
+-  观点 2: 待提取
 
 ---
 
-## 📖 正文详情
+##  正文详情
 
 {content}
 
@@ -179,7 +179,7 @@ def scan():
     ensure_dirs()
     
     print("\n" + "="*50)
-    print("🔍 X-Deep-Miner 开始扫描")
+    print(" X-Deep-Miner 开始扫描")
     print("="*50 + "\n")
     
     all_results = []
@@ -187,7 +187,7 @@ def scan():
     # 按类别扫描
     for category_key, keywords in config['keywords'].items():
         category = TAG_MAPPING.get(category_key, 'Unknown')
-        print(f"\n📂 扫描类别: {category}")
+        print(f"\n 扫描类别: {category}")
         
         results = search_x_tweets(
             keywords, 
@@ -206,8 +206,8 @@ def scan():
         all_results.extend(results)
     
     print("\n" + "="*50)
-    print(f"✅ 扫描完成! 共处理 {len(all_results)} 条内容")
-    print(f"📁 输出目录: {OUTPUT_DIR}")
+    print(f" 扫描完成! 共处理 {len(all_results)} 条内容")
+    print(f" 输出目录: {OUTPUT_DIR}")
     print("="*50 + "\n")
     
     return True
@@ -248,7 +248,7 @@ def main():
     elif args.command == 'status':
         return status()
     elif args.command == 'test':
-        print("🧪 测试模式")
+        print(" 测试模式")
         config = load_config()
         print(f"配置: {config}")
         return True

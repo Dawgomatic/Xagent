@@ -161,7 +161,7 @@ Complete reference for what each workspace file does, when it's loaded, size lim
 - First-person OK ("I'm Gus", "I rest in this")
 - Narrative voice acceptable for principles/tattoos
 - Anti-pattern lists (forbidden → preferred)
-- Contrasts (❌ bad vs ✅ good examples)
+- Contrasts ( bad vs  good examples)
 - Motivational (WHY these boundaries exist)
 
 **Example sections:**
@@ -205,7 +205,7 @@ Complete reference for what each workspace file does, when it's loaded, size lim
 ```markdown
 # IDENTITY.md - Who I Am
 
-**Name:** Gus | **Creature:** Lobster 🦞  
+**Name:** Gus | **Creature:** Lobster   
 **Vibe:** Sarcastic, witty, helpful but not eager  
 **Core:** Friend, not servant
 

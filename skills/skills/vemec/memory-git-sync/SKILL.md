@@ -3,7 +3,7 @@ name: memory-git-sync
 description: Automates the backup of the OpenClaw workspace to a remote Git repository. Handles large file exclusions, validates git configuration, and performs intelligent sync with conflict resolution.
 metadata:
   openclaw:
-    emoji: "📦"
+    emoji: ""
     requires:
       bins:
         - bash

@@ -10,7 +10,7 @@ metadata:
       bins:
         - python3
     primaryEnv: BUNPRO_FRONTEND_API_TOKEN
-    emoji: 📚
+    emoji: 
     homepage: https://www.bunpro.jp
 ---
 
@@ -18,7 +18,7 @@ metadata:
 
 Sync your Bunpro grammar learning progress locally for analysis and insights.
 
-**⚠️ Important:** This uses a community-documented API. The official Bunpro API Key from settings does NOT work - you need the Frontend API Token from your browser.
+** Important:** This uses a community-documented API. The official Bunpro API Key from settings does NOT work - you need the Frontend API Token from your browser.
 
 ## Overview
 
@@ -28,14 +28,14 @@ This skill fetches your Japanese grammar progress from Bunpro and stores it in a
 
 Bunpro has **two different API tokens** that serve different purposes:
 
-### ❌ DO NOT USE: "Official" API Key (from Settings)
+###  DO NOT USE: "Official" API Key (from Settings)
 
 - Found at: `bunpro.jp/settings/account`
 - Looks like: `d406663ff421af27c87caaa62eefdb7a` (32 hex characters)
 - **Does NOT work** with the Frontend API endpoints this skill uses
 - Returns 401 Unauthorized errors
 
-### ✅ USE THIS: Frontend API Token (from Browser)
+###  USE THIS: Frontend API Token (from Browser)
 
 - Found in: Browser DevTools → Console or Application Storage
 - Looks like: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...` (long JWT, 200+ chars)
@@ -74,7 +74,7 @@ Bunpro has **two different API tokens** that serve different purposes:
 6. Find `Authorization: Bearer eyJ...`
 7. Copy the part after "Bearer "
 
-**⚠️ Token Expiry:**
+** Token Expiry:**
 The Frontend API Token expires eventually (days/weeks). When you get 401 errors, repeat the steps above to get a fresh token.
 
 ## Quick Start

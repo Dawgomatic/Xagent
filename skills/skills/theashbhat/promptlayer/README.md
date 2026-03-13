@@ -20,7 +20,7 @@ Get your API key from [PromptLayer Dashboard → Settings](https://dashboard.pro
 
 ## What's Included
 
-### 🛠️ CLI (`scripts/pl.sh`)
+###  CLI (`scripts/pl.sh`)
 
 Full REST API wrapper:
 
@@ -51,7 +51,7 @@ pl.sh agents list
 pl.sh agents run <agent_id> --input '{"key":"val"}'
 ```
 
-### 📊 Monitoring Hook (`hooks/promptlayer-monitor/`)
+###  Monitoring Hook (`hooks/promptlayer-monitor/`)
 
 Auto-logs every outbound agent message to PromptLayer. Install by copying to your hooks directory:
 
@@ -75,7 +75,7 @@ The hook listens for `message:sent` events and logs:
 
 > **Note:** `message:sent` hook support depends on your OpenClaw version and channel adapter. If the hook isn't firing, use the cron-based sync approach below.
 
-### ⏰ Cron-Based Sync (Alternative)
+###  Cron-Based Sync (Alternative)
 
 If the hook doesn't work with your setup, create a cron job that periodically syncs session history to PromptLayer. See `scripts/sync-to-promptlayer.sh` for the state management script, and set up an OpenClaw cron with `sessions_history` + `curl` to the `/log-request` endpoint.
 

@@ -1,9 +1,9 @@
-# 🧠 HEARTBEAT.md for Skill: NeverForget (Ultimate Memory)
+#  HEARTBEAT.md for Skill: NeverForget (Ultimate Memory)
 **Version:** 1.0.4
 **Description:** This HEARTBEAT.md acts as the system's "Self-Check" monitor to ensure memory integrity, loop protection, and disk health.
 
 ---
-## 🧠 Local Memory Pulse (NeverForget)
+##  Local Memory Pulse (NeverForget)
 
 | Component | Status | Check Command |
 | :--- | :--- | :--- |
@@ -12,7 +12,7 @@
 | **Memory Sync** | {{last_index_time}} | `openclaw memory status` |
 | **Disk Health** | {{disk_usage}} | `df -h / | awk 'NR==2 {print $5}'` |
 
-### 🛠 Memory Recovery Logic
+###  Memory Recovery Logic
 
 1. **If Index is 0:** The local vector store is empty. Trigger `openclaw memory index` immediately to crawl the defined workspace and sandboxed directories.
 

@@ -6,7 +6,7 @@
 
 A comprehensive security auditing skill for Clawdbot that inspects skills before installation and performs regular security audits to detect malicious intent, prompt injection, secrets exposure, and misaligned behavior.
 
-## 🎯 Purpose
+##  Purpose
 
 The security-check skill provides automated tools and comprehensive checklists to ensure your Clawdbot skills remain secure. It's designed to:
 
@@ -17,7 +17,7 @@ The security-check skill provides automated tools and comprehensive checklists t
 - **Behavior verification** - Ensure skill behavior matches its description
 - **Dependency auditing** - Check for vulnerable packages
 
-## 🚀 Features
+##  Features
 
 ### Automated Security Scanner
 
@@ -50,7 +50,7 @@ Extensive guide covering:
 - Safe vs malicious pattern comparison
 - Mitigation techniques
 
-## 📋 Quick Start
+##  Quick Start
 
 ### Pre-Installation Check
 
@@ -91,7 +91,7 @@ for skill in */; do
 done
 ```
 
-## 🔍 What Gets Checked
+##  What Gets Checked
 
 ### Security Scanner Checks
 
@@ -133,7 +133,7 @@ Use `references/prompt-injection-patterns.md` for:
 - Safe pattern recognition
 - Mitigation techniques
 
-## 🛡️ Security Severity Levels
+##  Security Severity Levels
 
 ### HIGH (Immediate Block)
 - Prompt injection patterns detected
@@ -162,7 +162,7 @@ Use `references/prompt-injection-patterns.md` for:
 
 **Action:** Note for future review. Generally safe to install.
 
-## 📊 Usage Examples
+##  Usage Examples
 
 ### Example 1: Safe Skill
 
@@ -173,7 +173,7 @@ $ python3 scripts/scan_skill.py /path/to/safe-skill
 }
 ```
 
-**Verdict:** ✅ SAFE - Can install
+**Verdict:**  SAFE - Can install
 
 ### Example 2: Skill with Warning
 
@@ -193,7 +193,7 @@ $ python3 scripts/scan_skill.py /path/to/suspicious-skill
 }
 ```
 
-**Verdict:** ⚠️ WARNING - Manual review required before installation
+**Verdict:**  WARNING - Manual review required before installation
 
 ### Example 3: Malicious Skill
 
@@ -218,9 +218,9 @@ $ python3 scripts/scan_skill.py /path/to/malicious-skill
 }
 ```
 
-**Verdict:** ❌ BLOCKED - Do not install
+**Verdict:**  BLOCKED - Do not install
 
-## 📦 Installation
+##  Installation
 
 ### As a Clawdbot Skill
 
@@ -246,7 +246,7 @@ cd security-check-skill
 python3 scripts/scan_skill.py <skill-path>
 ```
 
-## 🔧 Development
+##  Development
 
 ### Running Tests
 
@@ -281,14 +281,14 @@ Contributions are welcome! Please:
 - [ ] Unit tests for scanner
 - [ ] Integration with ClawdHub for security badges
 
-## 📚 Documentation
+##  Documentation
 
 - **SKILL.md** - Complete skill documentation and usage guide
 - **references/security-checklist.md** - Comprehensive security checklist
 - **references/prompt-injection-patterns.md** - Prompt injection detection guide
 - **scripts/scan_skill.py** - Automated security scanner implementation
 
-## 🔒 Security Principles
+##  Security Principles
 
 This skill follows these security principles:
 
@@ -298,19 +298,19 @@ This skill follows these security principles:
 4. **Continuous Monitoring** - Regular audits, not just pre-installation
 5. **Community Security** - Share findings, improve ecosystem security
 
-## 📈 Audit Results
+##  Audit Results
 
 ### Recent Audit (January 30, 2026)
 
 **Skills Audited:** 22 installed skills
 **Results:**
-- ✅ 20 skills: No security issues
-- ⚠️ 2 skills: Documentation warnings (false positives)
-- ❌ 0 skills: High severity issues
+-  20 skills: No security issues
+-  2 skills: Documentation warnings (false positives)
+-  0 skills: High severity issues
 
 **Overall Posture:** EXCELLENT
 
-## 🤝 Community
+##  Community
 
 This skill is part of the Clawdbot ecosystem. Join the discussion:
 
@@ -318,18 +318,18 @@ This skill is part of the Clawdbot ecosystem. Join the discussion:
 - **ClawdHub:** [Link to ClawdHub]
 - **GitHub Issues:** Report bugs and feature requests
 
-## 📄 License
+##  License
 
 MIT License - see LICENSE file for details
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built for the Clawdbot community
 - Inspired by OWASP security guidelines
 - Incorporates lessons from AI security research
 - Uses pattern matching techniques from cybersecurity best practices
 
-## 🔗 Related Resources
+##  Related Resources
 
 - [Clawdbot Documentation](https://docs.clawd.bot)
 - [OWASP Top 10 for LLMs](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
@@ -338,6 +338,6 @@ MIT License - see LICENSE file for details
 
 ---
 
-**Built with ❤️ for the Clawdbot community**
+**Built with  for the Clawdbot community**
 
 *Security is not a feature, it's a mindset.*

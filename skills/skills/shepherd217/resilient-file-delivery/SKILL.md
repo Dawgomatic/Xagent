@@ -24,13 +24,13 @@ integration
 - **Pro:** $29.99
 
 ## Key Features
-- ✅ Multi-channel delivery (Telegram, Discord, Google Drive, S3, IPFS)
-- ✅ Automatic fallback on failure
-- ✅ Retry logic with exponential backoff
-- ✅ File chunking for large payloads
-- ✅ Integrity verification (MD5/SHA256)
-- ✅ Delivery receipts & tracking
-- ✅ Rate limiting aware
+-  Multi-channel delivery (Telegram, Discord, Google Drive, S3, IPFS)
+-  Automatic fallback on failure
+-  Retry logic with exponential backoff
+-  File chunking for large payloads
+-  Integrity verification (MD5/SHA256)
+-  Delivery receipts & tracking
+-  Rate limiting aware
 
 ## Use Cases
 - Deliver large datasets when email fails
@@ -67,5 +67,5 @@ await delivery.send({
 https://github.com/midas-skills/resilient-file-delivery
 
 ## Support
-📧 support@midas-skills.com  
-🔗 Docs: https://docs.midas-skills.com/resilient-file-delivery
+ support@midas-skills.com  
+ Docs: https://docs.midas-skills.com/resilient-file-delivery

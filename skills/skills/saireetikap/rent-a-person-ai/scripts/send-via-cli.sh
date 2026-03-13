@@ -23,7 +23,7 @@ FULL_MESSAGE="[RentAPerson agent. API docs: https://dev.rentaperson.ai/skill.md]
 
 $MESSAGE
 
-🔑 API KEY: $API_KEY
+ API KEY: $API_KEY
 Use this header: X-API-Key: $API_KEY"
 
 # Send via OpenClaw gateway API

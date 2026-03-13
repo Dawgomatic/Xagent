@@ -9,25 +9,25 @@ CONFIG_FILE="$HOME/.openclaw/openclaw.json"
 TRANSFORMS_DIR="$HOME/.openclaw/hooks/transforms"
 SKILL_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-echo "🔧 Installing $SKILL_NAME skill..."
+echo " Installing $SKILL_NAME skill..."
 
 # Check if config exists
 if [ ! -f "$CONFIG_FILE" ]; then
-    echo "❌ Error: OpenClaw config not found at $CONFIG_FILE"
+    echo " Error: OpenClaw config not found at $CONFIG_FILE"
     exit 1
 fi
 
 # Create transforms directory if it doesn't exist
-echo "📁 Setting up transforms directory..."
+echo " Setting up transforms directory..."
 mkdir -p "$TRANSFORMS_DIR"
 
 # Copy transform module
-echo "📦 Installing transform module..."
+echo " Installing transform module..."
 cp "$SKILL_DIR/transforms/xerolite.js" "$TRANSFORMS_DIR/"
-echo "✅ Copied xerolite.js to $TRANSFORMS_DIR/"
+echo " Copied xerolite.js to $TRANSFORMS_DIR/"
 
 # Add xerolite mapping using node
-echo "📝 Adding webhook mapping..."
+echo " Adding webhook mapping..."
 
 node -e "
 const fs = require('fs');
@@ -53,24 +53,24 @@ const existingIndex = config.hooks.mappings.findIndex(m => m.id === 'xerolite');
 
 if (existingIndex >= 0) {
   config.hooks.mappings[existingIndex] = xeroliteMapping;
-  console.log('✅ Updated existing xerolite mapping');
+  console.log(' Updated existing xerolite mapping');
 } else {
   config.hooks.mappings.push(xeroliteMapping);
-  console.log('✅ Added xerolite mapping');
+  console.log(' Added xerolite mapping');
 }
 
 fs.writeFileSync('$CONFIG_FILE', JSON.stringify(config, null, 2));
 "
 
 # Restart gateway
-echo "🔄 Restarting gateway..."
+echo " Restarting gateway..."
 openclaw gateway restart
 
 echo ""
-echo "✅ Transform module installed: $TRANSFORMS_DIR/xerolite.js"
+echo " Transform module installed: $TRANSFORMS_DIR/xerolite.js"
 echo ""
-echo "📋 Webhook endpoint ready:"
+echo " Webhook endpoint ready:"
 echo "   POST http://localhost:18789/hooks/xerolite"
 echo "   Header: Authorization: Bearer <your-hooks-token>"
 echo ""
-echo "🎉 $SKILL_NAME skill installed!"
+echo " $SKILL_NAME skill installed!"

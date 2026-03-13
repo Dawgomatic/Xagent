@@ -1,6 +1,6 @@
 # Safety First: Non-Custodial Trading Reality Check
 
-> ⚠️ **MANDATORY READING** — Read this entire file before proceeding with any trading or account management operations.
+>  **MANDATORY READING** — Read this entire file before proceeding with any trading or account management operations.
 
 ## Table of Contents
 
@@ -30,16 +30,16 @@
 ### What This Means for You
 
 **You are fully responsible for:**
-- ✅ Private key security
-- ✅ Transaction verification
-- ✅ Local API configuration
-- ✅ All trading decisions
-- ✅ Understanding risks and liquidation mechanics
+-  Private key security
+-  Transaction verification
+-  Local API configuration
+-  All trading decisions
+-  Understanding risks and liquidation mechanics
 
 **You never have to trust:**
-- ✅ The exchange with your private keys
-- ✅ Third parties with fund custody
-- ✅ AI systems with spending authority
+-  The exchange with your private keys
+-  Third parties with fund custody
+-  AI systems with spending authority
 
 ---
 
@@ -47,23 +47,23 @@
 
 ### What AI CAN Do
 
-✅ **Read public market data** — Prices, orderbooks, funding rates (safe, no auth)  
-✅ **Read your positions** — When you provide wallet address  
-✅ **Calculate health metrics** — Margin fraction, liquidation prices  
-✅ **Suggest strategies** — Based on market conditions and risk parameters  
-✅ **Monitor and alert** — Funding payments, liquidations, price movements  
-✅ **Generate code** — SDK integration, automation scripts  
-✅ **Explain concepts** — Order types, margin mechanics, N1 protocol  
+ **Read public market data** — Prices, orderbooks, funding rates (safe, no auth)  
+ **Read your positions** — When you provide wallet address  
+ **Calculate health metrics** — Margin fraction, liquidation prices  
+ **Suggest strategies** — Based on market conditions and risk parameters  
+ **Monitor and alert** — Funding payments, liquidations, price movements  
+ **Generate code** — SDK integration, automation scripts  
+ **Explain concepts** — Order types, margin mechanics, N1 protocol  
 
 ### What AI CANNOT Do
 
-❌ **Access your private keys** — We never have them  
-❌ **Sign transactions** — Only your local API can sign  
-❌ **Move your funds** — Impossible without your keys  
-❌ **Place orders without confirmation** — Safety guardrails prevent this  
-❌ **Guarantee profits** — No financial advice, all trading is risky  
-❌ **Prevent liquidation** — We can warn, but you must act  
-❌ **Reverse transactions** — Blockchain transactions are final  
+ **Access your private keys** — We never have them  
+ **Sign transactions** — Only your local API can sign  
+ **Move your funds** — Impossible without your keys  
+ **Place orders without confirmation** — Safety guardrails prevent this  
+ **Guarantee profits** — No financial advice, all trading is risky  
+ **Prevent liquidation** — We can warn, but you must act  
+ **Reverse transactions** — Blockchain transactions are final  
 
 ### The Human-in-the-Loop Requirement
 
@@ -123,9 +123,9 @@ Before proceeding to trading operations, you must acknowledge:
 ### The Golden Rule
 
 ```
-🔴 NEVER deploy untested code to mainnet with real funds
-🟡 ALWAYS test thoroughly on devnet first
-🟢 ONLY proceed to mainnet after successful devnet validation
+ NEVER deploy untested code to mainnet with real funds
+ ALWAYS test thoroughly on devnet first
+ ONLY proceed to mainnet after successful devnet validation
 ```
 
 ### Devnet vs Mainnet
@@ -247,11 +247,11 @@ const nord = await Nord.new({
 
 ### What NOT To Do
 
-❌ **Never share private keys** — With anyone, including "support"  
-❌ **Never commit keys to git** — Use environment variables  
-❌ **Never run local API on public server** — Local machine only  
-❌ **Never ignore liquidation warnings** — Act immediately  
-❌ **Never trade more than you can afford to lose** — Risk management first  
+ **Never share private keys** — With anyone, including "support"  
+ **Never commit keys to git** — Use environment variables  
+ **Never run local API on public server** — Local machine only  
+ **Never ignore liquidation warnings** — Act immediately  
+ **Never trade more than you can afford to lose** — Risk management first  
 
 ---
 

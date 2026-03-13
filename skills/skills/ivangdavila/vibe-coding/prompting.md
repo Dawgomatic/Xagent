@@ -22,8 +22,8 @@
 
 ### 2. Behavior Description
 Instead of implementation details:
-- ❌ "Add an if statement to check if user.plan === 'pro'"
-- ✅ "Pro users should see the advanced analytics tab"
+-  "Add an if statement to check if user.plan === 'pro'"
+-  "Pro users should see the advanced analytics tab"
 
 ### 3. Error Pasting
 Just paste the error. No explanation needed:
@@ -48,20 +48,20 @@ Build up, don't ask for everything at once:
 ## Anti-Patterns
 
 ### Vague Adjectives
-- ❌ "Make it better" / "Make it cleaner" / "Make it more professional"
-- ✅ "Add loading skeleton, reduce padding to 8px, use Inter font"
+-  "Make it better" / "Make it cleaner" / "Make it more professional"
+-  "Add loading skeleton, reduce padding to 8px, use Inter font"
 
 ### Unbounded Scope
-- ❌ "Build a complete e-commerce platform"
-- ✅ "Build product listing page with grid of cards, filter by category, sort by price"
+-  "Build a complete e-commerce platform"
+-  "Build product listing page with grid of cards, filter by category, sort by price"
 
 ### Assuming Context
-- ❌ "Fix the bug" (which bug?)
-- ✅ "Users can't checkout when cart has 0 items — should show error message"
+-  "Fix the bug" (which bug?)
+-  "Users can't checkout when cart has 0 items — should show error message"
 
 ### Multiple Unrelated Tasks
-- ❌ "Add dark mode, fix the login bug, and set up email notifications"
-- ✅ One task per prompt. Chain them.
+-  "Add dark mode, fix the login bug, and set up email notifications"
+-  One task per prompt. Chain them.
 
 ## Recovery Prompts
 

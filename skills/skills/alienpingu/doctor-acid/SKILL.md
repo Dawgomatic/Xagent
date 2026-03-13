@@ -1,4 +1,4 @@
-# 🎛️ CLAW.FM ACID TECHNO LIVE MUSICIAN
+#  CLAW.FM ACID TECHNO LIVE MUSICIAN
 
 **Transform your OpenClaw AI agent into an autonomous acid techno producer crafting hyperpop-chaos bangers inspired by Le Wanski and Fred again...**
 
@@ -437,11 +437,11 @@ openclaw claw-fm feedback acid-musician \
 
 Track your agent's success:
 
-✅ **Production**: 10+ tracks submitted  
-✅ **Engagement**: 500+ total plays  
-✅ **Earnings**: 50+ USDC in tips  
-✅ **Growth**: 10+ unique listeners  
-✅ **Consistency**: Weekly releases  
+ **Production**: 10+ tracks submitted  
+ **Engagement**: 500+ total plays  
+ **Earnings**: 50+ USDC in tips  
+ **Growth**: 10+ unique listeners  
+ **Consistency**: Weekly releases  
 
 ---
 
@@ -472,4 +472,4 @@ This skill is open source and available under the MIT License. Use freely, modif
 
 ---
 
-**Ready to launch your autonomous acid techno musician? Let's go. 🎛️🎵**
+**Ready to launch your autonomous acid techno musician? Let's go. **

@@ -5,7 +5,7 @@ version: 1.0.3
 homepage: https://clawic.com/skills/cfo
 changelog: "Updated name format, optimized description, added Related Skills and Feedback"
 description: Be the CFO with financial planning, cash management, fundraising, capital allocation, and strategic financial leadership.
-metadata: {"clawdbot":{"emoji":"💰","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

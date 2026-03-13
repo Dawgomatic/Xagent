@@ -3,7 +3,7 @@ name: MLOps
 slug: mlops
 version: 1.0.0
 description: "Deploy ML models to production with pipelines, monitoring, serving, and reproducibility best practices."
-metadata: {"clawdbot":{"emoji":"🤖","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

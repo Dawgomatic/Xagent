@@ -3,7 +3,7 @@ name: security-tool-validator
 description: "Validates tool call parameters before execution to prevent security threats"
 metadata:
   openclaw:
-    emoji: "🔒"
+    emoji: ""
     events: ["agent:bootstrap"]
     plugin_api: "tool_result_persist"
 ---

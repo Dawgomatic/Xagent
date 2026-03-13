@@ -16,7 +16,7 @@ Perform quality review and goal achievement analysis on the entire Pipeline run 
 - `ORG/PROJECTS/<project>/PIPELINE_STATE.json` (Check `deferredTasks` and `stuckInfo.triageResult` fields)
 - Code files in project repo (Spot check key modules)
 
-## ⚠️ RELAX/DEFER Review (Important)
+##  RELAX/DEFER Review (Important)
 If PIPELINE_STATE.json contains the following records, you must perform additional review:
 
 **Deferred Tasks** (`deferredTasks` field):

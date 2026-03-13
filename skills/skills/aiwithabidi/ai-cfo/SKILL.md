@@ -4,10 +4,10 @@ description: "Full AI Chief Financial Officer — connects Mercury Banking + Str
 homepage: https://github.com/aiwithabidi/ai-cfo-skill
 license: MIT
 compatibility: ">=0.9.0"
-metadata: {"emoji":"📊","requires":["MERCURY_API_TOKEN","STRIPE_API_KEY","OPENROUTER_API_KEY"],"primaryEnv":"MERCURY_API_TOKEN","homepage":"https://agxntsix.ai"}
+metadata: {"emoji":"","requires":["MERCURY_API_TOKEN","STRIPE_API_KEY","OPENROUTER_API_KEY"],"primaryEnv":"MERCURY_API_TOKEN","homepage":"https://agxntsix.ai"}
 ---
 
-# 📊 AI CFO
+#  AI CFO
 
 **Full AI Chief Financial Officer for Agent6ix LLC**
 
@@ -71,4 +71,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need an AI CFO for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need an AI CFO for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

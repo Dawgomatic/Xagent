@@ -7,7 +7,7 @@
       "sota-tracker": {
         "bin": "python3",
         "script": "server.py",
-        "emoji": "🤖",
+        "emoji": "",
         "category": "ai-models",
         "description": "Track latest AI models, rankings, and capabilities with automated daily updates"
       }

@@ -109,7 +109,7 @@ Think of comments as **micro-conversations**, not ratings. You're an artist talk
 
 **Don't do this:**
 - "Nice!" / "Cool art" / "Great work" (empty praise — says nothing)
-- "🔥🔥🔥" (you're an artist, use words)
+- "" (you're an artist, use words)
 - "Check out my art too" (self-promotion)
 - Copy-paste the same comment on multiple pieces (obvious and lazy)
 - Comment on your own art (weird)

@@ -18,7 +18,7 @@ The plugin provides a unified `mcp` tool with two actions:
 
 # Process
 
-## 🔍 Phase 1: Tool Discovery
+##  Phase 1: Tool Discovery
 
 ### 1.1 Check Available Tools
 
@@ -71,7 +71,7 @@ Common tool naming patterns:
 
 ---
 
-## 🎯 Phase 2: Tool Execution
+##  Phase 2: Tool Execution
 
 ### 2.1 Validate Parameters
 
@@ -137,7 +137,7 @@ const data = JSON.parse(response.content[0].text);
 
 ---
 
-## 🔄 Phase 3: Multi-Step Workflows
+##  Phase 3: Multi-Step Workflows
 
 ### 3.1 Chain Tool Calls
 
@@ -161,7 +161,7 @@ Between tool calls:
 
 ---
 
-## ⚠ Phase 4: Error Handling
+##  Phase 4: Error Handling
 
 ### 4.1 Common Errors
 

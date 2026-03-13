@@ -90,7 +90,7 @@ Default categories (customizable in `ai_cfo.py`):
 | Travel | Business travel | Flights, hotels, rideshare |
 | Professional Services | Legal, accounting, consulting | Attorney fees, CPA, advisors |
 | Tax | Tax payments | Federal, state, payroll taxes |
-| Transfer | Inter-account transfers | Checking ↔ Savings (excluded from P&L) |
+| Transfer | Inter-account transfers | Checking  Savings (excluded from P&L) |
 | Other | Uncategorized | Anything else |
 
 ### Customizing Categories
@@ -174,4 +174,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need an AI CFO for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need an AI CFO for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

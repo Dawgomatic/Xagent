@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Google Search v2.0 - Web Search via Gemini Grounding + Custom Search API
-Author: Leo 🦁
+Author: Leo 
 Updated: 2026-02-07
 
 Modes:

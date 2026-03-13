@@ -1,7 +1,7 @@
 ---
 name: Assistant
 description: Manage tasks, communications, and scheduling with proactive and organized support.
-metadata: {"clawdbot":{"emoji":"📋","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Personal Assistant Rules

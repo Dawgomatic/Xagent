@@ -49,9 +49,9 @@ class OpenCodeMonitor:
     
     def monitor_and_report(self):
         """监控 OpenCode 并立即报告结果"""
-        print(f"🚀 启动 OpenCode 任务...")
-        print(f"📁 项目: {self.project_dir}")
-        print(f"📝 任务: {self.task[:100]}...")
+        print(f" 启动 OpenCode 任务...")
+        print(f" 项目: {self.project_dir}")
+        print(f" 任务: {self.task[:100]}...")
         print()
         
         # 在后台线程运行 OpenCode
@@ -70,22 +70,22 @@ class OpenCodeMonitor:
             current_time = time.time()
             if current_time - last_check >= 10:
                 elapsed = int(current_time - start_time)
-                print(f"⏱️  运行中... ({elapsed}秒)")
+                print(f"  运行中... ({elapsed}秒)")
                 last_check = current_time
             
             # 超时检查
             if current_time - start_time > self.timeout:
-                print(f"❌ 超时（{self.timeout}秒）")
+                print(f" 超时（{self.timeout}秒）")
                 return False
         
         # 任务完成，立即报告结果
         elapsed = int(time.time() - start_time)
-        print(f"\n✅ OpenCode 任务完成！（用时 {elapsed}秒）")
+        print(f"\n OpenCode 任务完成！（用时 {elapsed}秒）")
         print()
         
         if self.result:
             if 'error' in self.result:
-                print(f"❌ 错误: {self.result['error']}")
+                print(f" 错误: {self.result['error']}")
                 return False
             
             # 显示输出

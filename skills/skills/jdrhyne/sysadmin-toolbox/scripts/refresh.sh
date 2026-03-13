@@ -8,7 +8,7 @@ REPO_URL="https://github.com/trimstray/the-book-of-secret-knowledge.git"
 TEMP_DIR="/tmp/tbsk-refresh-$$"
 SKILL_DIR="${1:-$HOME/clawd-duke-leto/skills/sysadmin-toolbox}"
 
-echo "🔄 Refreshing sysadmin-toolbox from upstream..."
+echo " Refreshing sysadmin-toolbox from upstream..."
 
 # Clone fresh copy
 git clone --depth 1 "$REPO_URL" "$TEMP_DIR" 2>/dev/null
@@ -16,7 +16,7 @@ git clone --depth 1 "$REPO_URL" "$TEMP_DIR" 2>/dev/null
 cd "$TEMP_DIR"
 
 # Extract sections
-echo "📦 Extracting references..."
+echo " Extracting references..."
 
 awk '/^#### Shell One-liners/,/^#### Shell Tricks/' README.md > "$SKILL_DIR/references/shell-oneliners.md"
 awk '/^#### Shell Tricks/,/^#### Shell Functions/' README.md > "$SKILL_DIR/references/shell-tricks.md"
@@ -27,5 +27,5 @@ awk '/^#### Hacking\/Penetration Testing/,/^#### Your daily knowledge/' README.m
 # Cleanup
 rm -rf "$TEMP_DIR"
 
-echo "✅ sysadmin-toolbox refreshed from upstream"
+echo " sysadmin-toolbox refreshed from upstream"
 echo "   Shell one-liners: $(wc -l < "$SKILL_DIR/references/shell-oneliners.md") lines"

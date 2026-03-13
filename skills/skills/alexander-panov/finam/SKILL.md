@@ -1,7 +1,7 @@
 ---
 name: finam
 description: Execute trades, manage portfolios, access real-time market data, browse market assets and scan volatility using Finam Trade API
-metadata: '{"openclaw": {"emoji": "📈", "homepage": "https://tradeapi.finam.ru/", "requires": {"bins": ["curl", "jq", "python3"], "env": ["FINAM_API_KEY", "FINAM_ACCOUNT_ID"]}, "primaryEnv": "FINAM_API_KEY"}}'
+metadata: '{"openclaw": {"emoji": "", "homepage": "https://tradeapi.finam.ru/", "requires": {"bins": ["curl", "jq", "python3"], "env": ["FINAM_API_KEY", "FINAM_ACCOUNT_ID"]}, "primaryEnv": "FINAM_API_KEY"}}'
 ---
 
 # Finam Trade API Skill

@@ -8,7 +8,7 @@
 
 ## Critical Pattern: Heartbeat Configuration
 
-### ✅ Correct: Full Heartbeat Config
+###  Correct: Full Heartbeat Config
 
 ```json
 {
@@ -42,7 +42,7 @@
 
 ---
 
-## ❌ Common Mistakes
+##  Common Mistakes
 
 ### Wrong: No activeHours timezone
 
@@ -150,8 +150,8 @@
 
 | Alias | Full Name | Cost | Use Case |
 |-------|-----------|------|----------|
-| `haiku` | `us.anthropic.claude-haiku-4-5-20251001-v1:0` | Lowest | ✅ Heartbeats |
-| `nova-lite` | `us.amazon.nova-lite-v1:0` | Lowest | ✅ Heartbeats |
+| `haiku` | `us.anthropic.claude-haiku-4-5-20251001-v1:0` | Lowest |  Heartbeats |
+| `nova-lite` | `us.amazon.nova-lite-v1:0` | Lowest |  Heartbeats |
 | `sonnet` | `us.anthropic.claude-sonnet-4-5-20250929-v1:0` | Medium | Main work |
 | `opus` | `global.anthropic.claude-opus-4-6-v1` | Highest | Complex tasks |
 

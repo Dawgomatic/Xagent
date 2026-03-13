@@ -1,16 +1,16 @@
 ---
 name: beeper-api-cli
 description: Read and send messages via Beeper CLI. Supports WhatsApp, Telegram, Signal, Instagram, Twitter/X, LinkedIn, Facebook Messenger and more.
-metadata: {"clawdbot":{"emoji":"💬","os":["darwin","linux"]}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin","linux"]}}
 ---
 
 # beeper-api-cli
 
 LLM-friendly wrapper around the Beeper CLI for reading and sending messages across all connected chat networks.
 
-## ⚠️ CRITICAL: Message Sending Policy
+##  CRITICAL: Message Sending Policy
 
-**🚨 NEVER SEND ANY MESSAGE WITHOUT EXPLICIT USER APPROVAL 🚨**
+** NEVER SEND ANY MESSAGE WITHOUT EXPLICIT USER APPROVAL **
 
 **MANDATORY PROTOCOL FOR ALL MESSAGING:**
 1. **ALWAYS show the complete message draft first** - display full content
@@ -49,7 +49,7 @@ export BEEPER_API_URL="http://[::1]:23373"  # Default
 /Users/ashrafali/clawd/beeper-api-cli/beeper chats list --output json
 ```
 
-**⚠️ Important:** Without setting `BEEPER_TOKEN`, all commands will fail with "Unauthorized" errors.
+** Important:** Without setting `BEEPER_TOKEN`, all commands will fail with "Unauthorized" errors.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ export BEEPER_API_URL="http://[::1]:23373"  # Default
 The CLI connects to Beeper Desktop's local API server.
 
 ### 2. Enable API Access in Beeper Desktop
-**⚠️ REQUIRED: You must configure the API token in Beeper Desktop first!**
+** REQUIRED: You must configure the API token in Beeper Desktop first!**
 
 1. Open **Beeper Desktop**
 2. Go to **Settings → Advanced → API**
@@ -82,9 +82,9 @@ export BEEPER_API_URL="http://[::1]:23373"
 - Beeper Desktop → Settings → Advanced → API → Copy Bearer Token
 
 **Important:**
-- ❌ The CLI will **NOT work** without setting `BEEPER_TOKEN`
-- ⚠️ Default API URL is `localhost` (`http://[::1]:23373`)
-- 🔒 If accessing from another machine, you must:
+-  The CLI will **NOT work** without setting `BEEPER_TOKEN`
+-  Default API URL is `localhost` (`http://[::1]:23373`)
+-  If accessing from another machine, you must:
   1. Add that machine's IP in Beeper Desktop API settings
   2. Update `BEEPER_API_URL` to use the correct host IP
 
@@ -149,7 +149,7 @@ export BEEPER_API_URL="http://[::1]:23373"
 ### Send a Message
 
 ```bash
-# ⚠️ REQUIRES USER APPROVAL FIRST - see Message Sending Policy above
+#  REQUIRES USER APPROVAL FIRST - see Message Sending Policy above
 ~/clawd/skills/beeper-api-cli/beeper.sh send --chat-id <chat-id> --message "Your message here"
 ```
 
@@ -289,9 +289,9 @@ export BEEPER_TOKEN="your-token-here"
 ### Skill Wrapper Behavior
 
 The skill wrapper (`beeper.sh`) will:
-- ✅ Use `$BEEPER_TOKEN` from environment (you must set this!)
-- ✅ Default `$BEEPER_API_URL` to `http://[::1]:23373` if not set
-- ❌ **Fail with error** if `BEEPER_TOKEN` is not set
+-  Use `$BEEPER_TOKEN` from environment (you must set this!)
+-  Default `$BEEPER_API_URL` to `http://[::1]:23373` if not set
+-  **Fail with error** if `BEEPER_TOKEN` is not set
 
 ## Troubleshooting
 
@@ -410,9 +410,9 @@ When using from Clawdbot tools, the environment variables are already configured
 ```
 
 The skill wrapper handles:
-- ✅ Auto-configuration of `BEEPER_API_URL` and `BEEPER_TOKEN`
-- ✅ Error checking for required environment variables
-- ✅ Clean passthrough of all CLI arguments
+-  Auto-configuration of `BEEPER_API_URL` and `BEEPER_TOKEN`
+-  Error checking for required environment variables
+-  Clean passthrough of all CLI arguments
 
 ## Binary Location
 
@@ -422,14 +422,14 @@ The skill wrapper handles:
 
 ## Features
 
-✅ Read-only and write operations (unlike other tools)  
-✅ LLM-optimized JSON output  
-✅ Human-readable text and markdown formats  
-✅ Auto-discovery of Beeper Desktop API  
-✅ Cross-platform binaries (macOS, Linux, Windows)  
-✅ Environment variable configuration  
-✅ Comprehensive error messages  
-✅ Unix pipeline friendly  
+ Read-only and write operations (unlike other tools)  
+ LLM-optimized JSON output  
+ Human-readable text and markdown formats  
+ Auto-discovery of Beeper Desktop API  
+ Cross-platform binaries (macOS, Linux, Windows)  
+ Environment variable configuration  
+ Comprehensive error messages  
+ Unix pipeline friendly  
 
 ## Notes
 

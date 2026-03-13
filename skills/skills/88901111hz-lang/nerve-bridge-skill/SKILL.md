@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "⚡️",
+        "emoji": "",
         "requires": { "bins": ["python3", "osascript"] },
         "install":
           [

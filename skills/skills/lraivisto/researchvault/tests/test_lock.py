@@ -23,7 +23,7 @@ def test_sqlite_lock_resilience():
         # This should hang/retry until we COMMIT or ROLLBACK in the main thread
         try:
             add_insight(project_id, "Retry Title", "Retry Content")
-            print("\n[✔] add_insight recovered from lock.")
+            print("\n[] add_insight recovered from lock.")
         except Exception as e:
             print(f"\n[!] add_insight failed: {e}")
 

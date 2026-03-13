@@ -115,18 +115,18 @@ def cmd_summary(args):
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
 
-    print(f"📊 Résumé — {year}")
+    print(f" Résumé — {year}")
     print("═" * 50)
 
     # CA
-    print(f"\n💰 Chiffre d'affaires : {total_ca:,.2f}€")
-    print(f"📄 Factures : {nb_invoices} ({len(paid_invoices)} payée(s), {len(unpaid_invoices)} en attente)")
+    print(f"\n Chiffre d'affaires : {total_ca:,.2f}€")
+    print(f" Factures : {nb_invoices} ({len(paid_invoices)} payée(s), {len(unpaid_invoices)} en attente)")
     if unpaid_total > 0:
-        print(f"   💸 Payé : {paid_total:,.2f}€  |  ⏳ Impayé : {unpaid_total:,.2f}€")
+        print(f"    Payé : {paid_total:,.2f}€  |   Impayé : {unpaid_total:,.2f}€")
 
     # Par client
     if ca_by_client:
-        print(f"\n👥 CA par client :")
+        print(f"\n CA par client :")
         for client, ca in sorted(ca_by_client.items(), key=lambda x: -x[1]):
             pct = (ca / total_ca * 100) if total_ca > 0 else 0
             bar = "█" * int(pct / 5)
@@ -134,12 +134,12 @@ def cmd_summary(args):
 
     # Heures
     if total_hours > 0:
-        print(f"\n⏱ Heures travaillées : {total_hours:.1f}h ({working_days} jours ouvrés)")
-        print(f"💶 Taux horaire effectif : {effective_rate:.2f}€/h")
+        print(f"\n Heures travaillées : {total_hours:.1f}h ({working_days} jours ouvrés)")
+        print(f" Taux horaire effectif : {effective_rate:.2f}€/h")
 
     # Résumé mensuel compact
     if ca_by_month:
-        print(f"\n📅 CA mensuel :")
+        print(f"\n CA mensuel :")
         for month, ca in sorted(ca_by_month.items()):
             bar = "█" * max(1, int(ca / max(ca_by_month.values()) * 20)) if ca > 0 else ""
             print(f"  {month}  {ca:>10,.2f}€  {bar}")
@@ -173,7 +173,7 @@ def cmd_monthly(args):
         print(json.dumps({"year": year, "months": months_data}, ensure_ascii=False, indent=2))
         return
 
-    print(f"📅 Détail mensuel — {year}")
+    print(f" Détail mensuel — {year}")
     print("═" * 65)
     print(f"{'Mois':<10} {'CA':>12} {'Factures':>10} {'Heures':>10} {'Taux eff.':>12}")
     print("─" * 65)

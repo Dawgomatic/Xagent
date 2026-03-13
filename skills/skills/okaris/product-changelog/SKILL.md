@@ -28,7 +28,7 @@ infsh app run falai/flux-dev-lora --input '{
 ### The Anatomy of a Good Entry
 
 ```markdown
-### New: Bulk Export for Reports 📊
+### New: Bulk Export for Reports 
 
 You can now export up to 10,000 rows at once from any report view.
 Select your rows, click Export, and choose CSV or Excel format.
@@ -43,12 +43,12 @@ Previously limited to 500 rows per export.
 ### User-Facing Language
 
 ```
-❌ Internal language:
+ Internal language:
 "Implemented batch processing queue for the export service"
 "Refactored the ReportExporter class to support pagination"
 "Fixed bug in CSV serialization (PR #4521)"
 
-✅ User-facing language:
+ User-facing language:
 "You can now export up to 10,000 rows at once from any report"
 "Reports now load 3x faster when filtering large datasets"
 "Fixed an issue where exported CSV files had missing columns"
@@ -66,11 +66,11 @@ Previously limited to 500 rows per export.
 
 | Category | Color | Icon | Use For |
 |----------|-------|------|---------|
-| **New** | Green | ✨ or 🆕 | Entirely new features or capabilities |
-| **Improved** | Blue | ⚡ or 🔧 | Enhancements to existing features |
-| **Fixed** | Yellow/Orange | 🐛 or 🔨 | Bug fixes |
-| **Removed** | Red | 🗑️ or ⚠️ | Deprecated or removed features |
-| **Security** | Purple | 🔒 | Security patches |
+| **New** | Green |  or  | Entirely new features or capabilities |
+| **Improved** | Blue |  or  | Enhancements to existing features |
+| **Fixed** | Yellow/Orange |  or  | Bug fixes |
+| **Removed** | Red |  or  | Deprecated or removed features |
+| **Security** | Purple |  | Security patches |
 
 ### Categorization Rules
 
@@ -178,7 +178,7 @@ infsh app run falai/flux-dev-lora --input '{
 Breaking changes need special treatment:
 
 ```markdown
-### ⚠️ Breaking: API v2 Endpoints Deprecated
+###  Breaking: API v2 Endpoints Deprecated
 
 **What changed:** API v1 endpoints will stop working on March 15, 2026.
 
@@ -209,7 +209,7 @@ If you need help migrating, contact support@company.com.
 ### Social Media Snippet Format
 
 ```
-🆕 New in [Product]: [Feature Name]
+ New in [Product]: [Feature Name]
 
 [1-2 sentence description of what you can now do]
 

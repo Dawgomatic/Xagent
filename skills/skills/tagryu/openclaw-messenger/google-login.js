@@ -26,7 +26,7 @@ async function eval_(ws, expr) {
   console.log('현재:', url);
   
   // "Continue with Google" 버튼 클릭
-  console.log('🔐 Continue with Google 클릭...');
+  console.log(' Continue with Google 클릭...');
   await eval_(ws, `
     const links = document.querySelectorAll('a, button');
     for (const el of links) {
@@ -43,7 +43,7 @@ async function eval_(ws, expr) {
   
   // Google 로그인 - 이메일 입력
   if (url.includes('accounts.google.com')) {
-    console.log('📧 이메일 입력...');
+    console.log(' 이메일 입력...');
     await eval_(ws, `
       const emailInput = document.querySelector('input[type="email"]');
       if (emailInput) {
@@ -69,7 +69,7 @@ async function eval_(ws, expr) {
     console.log('비밀번호 페이지:', url);
     
     // 비밀번호 입력
-    console.log('🔑 비밀번호 입력...');
+    console.log(' 비밀번호 입력...');
     await eval_(ws, `
       const pwInput = document.querySelector('input[type="password"]');
       if (pwInput) {
@@ -107,8 +107,8 @@ async function eval_(ws, expr) {
   
   if (url.includes('clawhub')) {
     const body = await eval_(ws, 'document.body?.innerText?.slice(0, 200)');
-    console.log('✅ clawhub 복귀:', body);
+    console.log(' clawhub 복귀:', body);
   }
   
   ws.close();
-})().catch(e => console.error('❌', e.message));
+})().catch(e => console.error('', e.message));

@@ -118,7 +118,7 @@ PLAN_SENTINEL='STATUS: COMPLETE'
 TEST_CMD='...'   # optional
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-  echo "❌ Run this inside a git repo."
+  echo " Run this inside a git repo."
   exit 1
 fi
 
@@ -139,13 +139,13 @@ for i in $(seq 1 "$MAX_ITERS"); do
   fi
 
   if grep -Fq "$PROMISE" "$LOG_FILE" || grep -Fq "$PLAN_SENTINEL" IMPLEMENTATION_PLAN.md; then
-    echo "✅ Completion detected. Stopping." | tee -a "$LOG_FILE"
+    echo " Completion detected. Stopping." | tee -a "$LOG_FILE"
     exit 0
   fi
 
 done
 
-echo "❌ Max iterations reached without completion." | tee -a "$LOG_FILE"
+echo " Max iterations reached without completion." | tee -a "$LOG_FILE"
 exit 1
 ```
 

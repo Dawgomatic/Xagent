@@ -40,17 +40,17 @@ After gathering answers, present the full plan before doing anything. Show every
 ```
 Here's the plan:
 
-📦 Deploy: Docker on <target>
-📛 Name: <agent-name>
-🌐 Port: <port>
+ Deploy: Docker on <target>
+ Name: <agent-name>
+ Port: <port>
 
 Carrying over from current agent:
-  ✅ Provider: Anthropic (API key)
-  ✅ Model: anthropic/claude-sonnet-4-20250514
-  ✅ Brave Search API key
-  ✅ Plugins: openclaw-agent-reach
-  ✅ Skills: agent-spawner, weather
-  ✅ Heartbeat: 30m
+   Provider: Anthropic (API key)
+   Model: anthropic/claude-sonnet-4-20250514
+   Brave Search API key
+   Plugins: openclaw-agent-reach
+   Skills: agent-spawner, weather
+   Heartbeat: 30m
 
 The new agent will bootstrap its own identity on first message.
 

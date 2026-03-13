@@ -10,7 +10,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 async function testMediaLoader() {
-  console.log('🧪 Testing Media Loader...\n');
+  console.log(' Testing Media Loader...\n');
 
   const tests = [
     {
@@ -40,14 +40,14 @@ async function testMediaLoader() {
         throw new Error('Result must have a filename');
       }
 
-      console.log(`✅ ${test.name}`);
+      console.log(` ${test.name}`);
       console.log(`   MIME: ${result.mimeType}`);
       console.log(`   Filename: ${result.filename}`);
       console.log(`   Size: ${result.buffer.length} bytes\n`);
       passed++;
 
     } catch (error) {
-      console.log(`❌ ${test.name}`);
+      console.log(` ${test.name}`);
       console.log(`   Error: ${error.message}\n`);
       failed++;
     }
@@ -57,7 +57,7 @@ async function testMediaLoader() {
 }
 
 async function testPlatformValidation() {
-  console.log('🧪 Testing Platform Validation...\n');
+  console.log(' Testing Platform Validation...\n');
 
   const testBuffer = Buffer.alloc(100 * 1024); // 100 KB
   const tests = [
@@ -91,19 +91,19 @@ async function testPlatformValidation() {
       media.validateForPlatform(test.platform, testBuffer, test.mimeType);
       
       if (test.shouldPass) {
-        console.log(`✅ ${test.platform} + ${test.mimeType} (expected pass)`);
+        console.log(` ${test.platform} + ${test.mimeType} (expected pass)`);
         passed++;
       } else {
-        console.log(`❌ ${test.platform} + ${test.mimeType} (should have failed)`);
+        console.log(` ${test.platform} + ${test.mimeType} (should have failed)`);
         failed++;
       }
 
     } catch (error) {
       if (!test.shouldPass) {
-        console.log(`✅ ${test.platform} + ${test.mimeType} (expected fail: ${error.message})`);
+        console.log(` ${test.platform} + ${test.mimeType} (expected fail: ${error.message})`);
         passed++;
       } else {
-        console.log(`❌ ${test.platform} + ${test.mimeType} (unexpected fail: ${error.message})`);
+        console.log(` ${test.platform} + ${test.mimeType} (unexpected fail: ${error.message})`);
         failed++;
       }
     }
@@ -113,7 +113,7 @@ async function testPlatformValidation() {
 }
 
 async function testSizeValidation() {
-  console.log('\n🧪 Testing Size Validation...\n');
+  console.log('\n Testing Size Validation...\n');
 
   const tests = [
     {
@@ -151,19 +151,19 @@ async function testSizeValidation() {
       media.validateForPlatform(test.platform, buffer, 'image/jpeg');
       
       if (test.shouldPass) {
-        console.log(`✅ ${test.name}`);
+        console.log(` ${test.name}`);
         passed++;
       } else {
-        console.log(`❌ ${test.name} (should have failed)`);
+        console.log(` ${test.name} (should have failed)`);
         failed++;
       }
 
     } catch (error) {
       if (!test.shouldPass) {
-        console.log(`✅ ${test.name}`);
+        console.log(` ${test.name}`);
         passed++;
       } else {
-        console.log(`❌ ${test.name} (unexpected: ${error.message})`);
+        console.log(` ${test.name} (unexpected: ${error.message})`);
         failed++;
       }
     }
@@ -174,7 +174,7 @@ async function testSizeValidation() {
 
 async function runAllTests() {
   console.log('═══════════════════════════════════════════════════════════\n');
-  console.log('   📸 MEDIA UPLOAD MODULE TEST SUITE\n');
+  console.log('    MEDIA UPLOAD MODULE TEST SUITE\n');
   console.log('═══════════════════════════════════════════════════════════\n');
 
   const results = [];
@@ -191,10 +191,10 @@ async function runAllTests() {
   console.log('═══════════════════════════════════════════════════════════\n');
 
   if (totalFailed === 0) {
-    console.log('✅ All tests passed! Media module is ready.\n');
+    console.log(' All tests passed! Media module is ready.\n');
     process.exit(0);
   } else {
-    console.log('❌ Some tests failed. Please review.\n');
+    console.log(' Some tests failed. Please review.\n');
     process.exit(1);
   }
 }

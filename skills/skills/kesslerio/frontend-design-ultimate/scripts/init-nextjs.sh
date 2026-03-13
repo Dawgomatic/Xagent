@@ -9,11 +9,11 @@ PROJECT_NAME="${1:-my-site}"
 # Check Node version
 NODE_VERSION=$(node -v 2>/dev/null | cut -d'v' -f2 | cut -d'.' -f1)
 if [ -z "$NODE_VERSION" ] || [ "$NODE_VERSION" -lt 18 ]; then
-  echo "❌ Error: Node.js 18+ is required. Current: $(node -v 2>/dev/null || echo 'not installed')"
+  echo " Error: Node.js 18+ is required. Current: $(node -v 2>/dev/null || echo 'not installed')"
   exit 1
 fi
 
-echo "🚀 Creating Next.js project: $PROJECT_NAME"
+echo " Creating Next.js project: $PROJECT_NAME"
 
 # Create Next.js project with all options
 npx create-next-app@latest "$PROJECT_NAME" \
@@ -29,19 +29,19 @@ cd "$PROJECT_NAME"
 # Create .nvmrc for Node version
 echo "18" > .nvmrc
 
-echo "📦 Installing additional dependencies..."
+echo " Installing additional dependencies..."
 
 # Install animation library
 npm install framer-motion
 
 # Install shadcn/ui
-echo "📦 Initializing shadcn/ui..."
+echo " Initializing shadcn/ui..."
 npx shadcn@latest init -y -d
 
 # Install common components
-echo "📦 Installing common components..."
+echo " Installing common components..."
 npx shadcn@latest add button badge card accordion dialog navigation-menu tabs sheet separator avatar alert -y || {
-  echo "⚠️ Warning: Some shadcn components may not have installed. Run 'npx shadcn@latest add [name]' manually."
+  echo " Warning: Some shadcn components may not have installed. Run 'npx shadcn@latest add [name]' manually."
 }
 
 # Install lucide icons
@@ -132,7 +132,7 @@ export default function Home() {
 EOF
 
 echo ""
-echo "✅ Next.js project created successfully!"
+echo " Next.js project created successfully!"
 echo ""
 echo "Installed:"
 echo "  ✓ Next.js 14+ with App Router"

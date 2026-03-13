@@ -49,7 +49,7 @@ For HIP-3 dexes that use non-USDC collateral (USDH, USDe, USDT0), use the `swap`
 
 - **229+ perps** — all native Hyperliquid perpetual futures
 - **HIP-3 multi-dex** — equities (TSLA, META, NVDA), commodities (GOLD, SILVER), forex, and more across 7+ builder dexes
-- **HIP-3 collateral swaps** — `swap` command for USDC ↔ USDH/USDe/USDT0 on dexes that require non-USDC collateral
+- **HIP-3 collateral swaps** — `swap` command for USDC  USDH/USDe/USDT0 on dexes that require non-USDC collateral
 - **Caching proxy** — reduces API weight usage, prevents rate limiting for agents making many calls
 - **Account modes** — auto-detects unified, portfolio margin, and standard accounts
 - **Order types** — market, limit, stop-loss, take-profit, modify

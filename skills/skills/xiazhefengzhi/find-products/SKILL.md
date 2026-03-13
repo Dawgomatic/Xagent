@@ -76,7 +76,7 @@ Format each product as:
 
 ```
 ### Product Name
-⭐ Upvotes: 523 | Hype: 85 | Utility: 78
+ Upvotes: 523 | Hype: 85 | Utility: 78
 > Metaphor: "It's like Canva but for video editing"
 
 **Tagline**: Short description
@@ -84,7 +84,7 @@ Format each product as:
 **Pros**: Great UI, Fast rendering
 **Cons**: Limited free tier
 
-🔗 [ProductHunt](phUrl) | [Website](websiteUrl)
+ [ProductHunt](phUrl) | [Website](websiteUrl)
 ```
 
 ## Examples

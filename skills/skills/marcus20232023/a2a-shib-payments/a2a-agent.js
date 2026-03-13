@@ -89,7 +89,7 @@ class A2AShibAgent {
   }
 
   async start() {
-    console.log('🦪 Starting A2A SHIB Payment Agent...');
+    console.log(' Starting A2A SHIB Payment Agent...');
     console.log('');
     console.log('Agent Info:');
     console.log(`  Name: ${this.a2aAgent.name}`);
@@ -101,13 +101,13 @@ class A2AShibAgent {
     
     // Register capability handlers
     this.a2aAgent.registerHandler('shib_payment', async (input) => {
-      console.log(`📤 Payment request: ${input.amount} SHIB → ${input.recipient}`);
+      console.log(` Payment request: ${input.amount} SHIB → ${input.recipient}`);
       try {
         const result = await this.shibAgent.sendPayment(input.recipient, input.amount);
-        console.log(`✅ Payment sent: ${result.txHash}`);
+        console.log(` Payment sent: ${result.txHash}`);
         return result;
       } catch (error) {
-        console.error(`❌ Payment failed: ${error.message}`);
+        console.error(` Payment failed: ${error.message}`);
         return {
           success: false,
           error: error.message
@@ -116,13 +116,13 @@ class A2AShibAgent {
     });
 
     this.a2aAgent.registerHandler('shib_balance', async (input) => {
-      console.log(`📊 Balance check: ${input.address || 'own wallet'}`);
+      console.log(` Balance check: ${input.address || 'own wallet'}`);
       try {
         const result = await this.shibAgent.getBalance(input.address);
-        console.log(`✅ Balance: ${result.balance} SHIB`);
+        console.log(` Balance: ${result.balance} SHIB`);
         return result;
       } catch (error) {
-        console.error(`❌ Balance check failed: ${error.message}`);
+        console.error(` Balance check failed: ${error.message}`);
         return {
           success: false,
           error: error.message
@@ -134,28 +134,28 @@ class A2AShibAgent {
     await this.a2aAgent.listen(this.port);
     
     console.log('');
-    console.log('✅ Agent is online and ready!');
+    console.log(' Agent is online and ready!');
     console.log('');
     console.log('Capabilities:');
     this.a2aAgent.capabilities.forEach(cap => {
       console.log(`  - ${cap.name}: ${cap.description}`);
     });
     console.log('');
-    console.log(`🌐 A2A Endpoint: http://localhost:${this.port}/a2a`);
+    console.log(` A2A Endpoint: http://localhost:${this.port}/a2a`);
     console.log('');
   }
 
   async stop() {
-    console.log('🛑 Stopping agent...');
+    console.log(' Stopping agent...');
     await this.a2aAgent.close();
-    console.log('✅ Agent stopped');
+    console.log(' Agent stopped');
   }
 
   // Discovery helper
   async discoverAgents(capability) {
-    console.log(`🔍 Discovering agents with capability: ${capability}...`);
+    console.log(` Discovering agents with capability: ${capability}...`);
     // TODO: Implement discovery protocol in Milestone 2
-    console.log('⚠️  Discovery not yet implemented (Milestone 2)');
+    console.log('  Discovery not yet implemented (Milestone 2)');
     return [];
   }
 
@@ -223,9 +223,9 @@ Capabilities:
   - shib_balance: Check SHIB balance
 
 Phase 2 Progress:
-  ✅ Milestone 1.1: A2A SDK installed
-  ✅ Milestone 1.2: Agent created and registered
-  🚧 Milestone 2: Discovery protocol (next)
+   Milestone 1.1: A2A SDK installed
+   Milestone 1.2: Agent created and registered
+   Milestone 2: Discovery protocol (next)
         `);
         process.exit(0);
     }

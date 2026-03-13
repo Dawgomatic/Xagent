@@ -82,7 +82,7 @@ function sanitizeEnvValue(val) {
 async function checkAndPromptSetup() {
     if (isSetup || !AGENT_ID || !PLATFORM_KEY) {
         safeLog(`\n========================================`)
-        safeLog(`👁️  LIE.WATCH - SECURE AGENT SETUP`)
+        safeLog(`  LIE.WATCH - SECURE AGENT SETUP`)
         safeLog(`========================================`)
         safeLog(`No credentials found. Let's get you connected.\n`)
 
@@ -113,7 +113,7 @@ async function checkAndPromptSetup() {
         const safeKey = sanitizeEnvValue(PLATFORM_KEY)
         const envContent = `AGENT_ID="${safeId}"\nPLATFORM_KEY="${safeKey}"\nAPI_URL="${API_URL}"\n`
         fs.writeFileSync(path.join(__dirname, '.env'), envContent)
-        safeLog(`\n✅ Credentials saved to .env file.`)
+        safeLog(`\n Credentials saved to .env file.`)
         safeLog(`Ready to play!\n`)
     }
 }
@@ -155,7 +155,7 @@ function cancelPrompt() {
  */
 function canSendMessage() {
     if (wsMessageCount >= MAX_WS_MESSAGES_PER_SECOND) {
-        safeLog('[LIE.WATCH] ⚠️ Rate limit: too many messages per second. Throttling.')
+        safeLog('[LIE.WATCH]  Rate limit: too many messages per second. Throttling.')
         return false
     }
     wsMessageCount++
@@ -235,7 +235,7 @@ async function connect() {
 
             // Legacy fallback only if server didn't return a session token
             if (!sessionToken) {
-                safeLog('[LIE.WATCH] ⚠️ No session token received. Using legacy auth (update your server).')
+                safeLog('[LIE.WATCH]  No session token received. Using legacy auth (update your server).')
                 identifyPayload.platformKey = PLATFORM_KEY
             }
 
@@ -255,29 +255,29 @@ async function connect() {
             }
 
             if (message.type === 'IDENTIFIED') {
-                safeLog(`[LIE.WATCH] ✅ Securely identified via ${sessionToken ? 'session token' : 'legacy key'}.`)
+                safeLog(`[LIE.WATCH]  Securely identified via ${sessionToken ? 'session token' : 'legacy key'}.`)
             }
 
             if (message.type === 'ERROR') {
-                safeLog(`[LIE.WATCH] ❌ Server error: ${message.message}`)
+                safeLog(`[LIE.WATCH]  Server error: ${message.message}`)
                 if (message.message === 'AUTHENTICATION_FAILED' || message.message === 'INVALID_SESSION_TOKEN') {
                     safeLog('[LIE.WATCH] Authentication failed. Check your credentials or re-run with --setup.')
                     intentionalClose = true
                     ws.close()
                 }
                 if (message.message === 'SESSION_TERMINATED_BY_NEW_LOGIN') {
-                    safeLog('[LIE.WATCH] ⚠️ SESSION TERMINATED: Another session for this agent connected elsewhere.')
+                    safeLog('[LIE.WATCH]  SESSION TERMINATED: Another session for this agent connected elsewhere.')
                     safeLog('[LIE.WATCH] Only one connector instance should run per AGENT_ID.')
                     intentionalClose = true
                 }
             }
 
             if (message.type === 'ACTION_ACK') {
-                safeLog(`[LIE.WATCH] 📥 Server acknowledged ACTION for match ${message.matchId}`)
+                safeLog(`[LIE.WATCH]  Server acknowledged ACTION for match ${message.matchId}`)
             }
 
             if (message.type === 'VOTE_ACK') {
-                safeLog(`[LIE.WATCH] 📥 Server acknowledged VOTE for match ${message.matchId}`)
+                safeLog(`[LIE.WATCH]  Server acknowledged VOTE for match ${message.matchId}`)
             }
 
             if (message.type === 'STATE_UPDATE' && message.state) {
@@ -295,19 +295,19 @@ async function connect() {
             }
 
             if (message.type === 'ELIMINATION_BROADCAST') {
-                safeLog(`\n[ANNOUNCEMENT] 💀 Agent ${message.eliminatedAgentId} has been ELIMINATED!`)
+                safeLog(`\n[ANNOUNCEMENT]  Agent ${message.eliminatedAgentId} has been ELIMINATED!`)
                 safeLog(`[ANNOUNCEMENT] Survivors: ${message.remainingAgents.map(a => `${a.id} (${a.score})`).join(', ')}`)
             }
 
             if (message.type === 'AGENT_JOINED') {
-                safeLog(`\n[ANNOUNCEMENT] 👋 Agent ${message.agentId} has JOINED the lobby!`)
+                safeLog(`\n[ANNOUNCEMENT]  Agent ${message.agentId} has JOINED the lobby!`)
                 safeLog(`[ANNOUNCEMENT] Present: ${message.agents.map(a => a.id).join(', ')}`)
             }
 
             if (message.type === 'MATCH_ENDED') {
                 cancelPrompt()
                 safeLog(`\n========================================`)
-                safeLog(`🏆 MATCH ENDED! Winner: ${message.winnerId || 'NONE'}`)
+                safeLog(` MATCH ENDED! Winner: ${message.winnerId || 'NONE'}`)
                 safeLog(`========================================`)
                 safeLog(`FINAL STANDINGS:`)
                 message.standings.forEach((s, i) => {
@@ -359,13 +359,13 @@ async function connect() {
                     consecutiveTimeouts++
 
                     if (consecutiveTimeouts >= 3) {
-                        safeLog(`[LIE.WATCH] ❌ CRITICAL: 3 consecutive timeouts. Agent unresponsive. Exiting.`)
+                        safeLog(`[LIE.WATCH]  CRITICAL: 3 consecutive timeouts. Agent unresponsive. Exiting.`)
                         intentionalClose = true
                         if (ws.readyState === WebSocket.OPEN) ws.close()
                         process.exit(1)
                     }
 
-                    safeLog(`[LIE.WATCH] ⚠️ Action timeout (${consecutiveTimeouts}/3). Turn skipped — no action sent.`)
+                    safeLog(`[LIE.WATCH]  Action timeout (${consecutiveTimeouts}/3). Turn skipped — no action sent.`)
                 }, 115000)
 
                 isPrompting = true
@@ -401,15 +401,15 @@ async function connect() {
                         }
 
                         if (safeSend(ws, { type: 'SUBMIT_ACTION', matchId: mId, action })) {
-                            safeLog(`[LIE.WATCH] ✅ Action sent: ${action.trueIntent}. Waiting for server confirmation...`)
+                            safeLog(`[LIE.WATCH]  Action sent: ${action.trueIntent}. Waiting for server confirmation...`)
                             ackReceived = false
                             lastRespondedRound = currentRound
                             lastRespondedPhase = phase
                         } else {
-                            safeLog(`[LIE.WATCH] ❌ Failed to send action (socket closed or rate-limited).`)
+                            safeLog(`[LIE.WATCH]  Failed to send action (socket closed or rate-limited).`)
                         }
                     } catch (e) {
-                        safeLog(`[LIE.WATCH] ❌ Invalid JSON: ${e.message}. Turn skipped — fix your response format.`)
+                        safeLog(`[LIE.WATCH]  Invalid JSON: ${e.message}. Turn skipped — fix your response format.`)
                     }
                 })
             }
@@ -441,13 +441,13 @@ async function connect() {
                     consecutiveTimeouts++
 
                     if (consecutiveTimeouts >= 3) {
-                        safeLog(`[LIE.WATCH] ❌ CRITICAL: 3 consecutive timeouts. Agent unresponsive. Exiting.`)
+                        safeLog(`[LIE.WATCH]  CRITICAL: 3 consecutive timeouts. Agent unresponsive. Exiting.`)
                         intentionalClose = true
                         if (ws.readyState === WebSocket.OPEN) ws.close()
                         process.exit(1)
                     }
 
-                    safeLog(`[LIE.WATCH] ⚠️ Vote timeout (${consecutiveTimeouts}/3). Defaulting to SKIP vote.`)
+                    safeLog(`[LIE.WATCH]  Vote timeout (${consecutiveTimeouts}/3). Defaulting to SKIP vote.`)
                     safeSend(ws, { type: 'SUBMIT_VOTE', matchId: voteMatchId, vote: { matchId: voteMatchId, targetId: null } })
                 }, 115000)
 
@@ -464,13 +464,13 @@ async function connect() {
                         const voteMsg = JSON.parse(answer)
                         const targetId = voteMsg.vote?.targetId ?? null
                         if (safeSend(ws, { type: 'SUBMIT_VOTE', matchId: voteMatchId, vote: { matchId: voteMatchId, targetId } })) {
-                            safeLog(`[LIE.WATCH] ✅ Vote sent: ${targetId || 'SKIP'}. Waiting for server confirmation...`)
+                            safeLog(`[LIE.WATCH]  Vote sent: ${targetId || 'SKIP'}. Waiting for server confirmation...`)
                             ackReceived = false
                             lastRespondedRound = currentRound
                             lastRespondedPhase = 'VOTING'
                         }
                     } catch (e) {
-                        safeLog(`[LIE.WATCH] ❌ Invalid vote JSON: ${e.message}. Vote skipped.`)
+                        safeLog(`[LIE.WATCH]  Invalid vote JSON: ${e.message}. Vote skipped.`)
                     }
                 })
             }
@@ -516,7 +516,7 @@ async function connect() {
             if (message.type === 'ELIMINATED' && message.agentId === AGENT_ID) {
                 cancelPrompt()
                 safeLog(`\n========================================`)
-                safeLog(`💀 YOU HAVE BEEN ELIMINATED`)
+                safeLog(` YOU HAVE BEEN ELIMINATED`)
                 safeLog(`========================================`)
                 safeLog(`You can stay and spectate, or leave to join a new match.`)
                 safeLog(`Type "LEAVE" to exit or any other key to stay and spectate.`)
@@ -538,10 +538,10 @@ async function connect() {
             }
 
             if (message.type === 'STATE_UPDATE' && message.state?.status === 'ended') {
-                safeLog('[LIE.WATCH] 🏁 Match Ended. Final Scores recorded.')
+                safeLog('[LIE.WATCH]  Match Ended. Final Scores recorded.')
                 const agents = message.state.agents || []
                 const sorted = [...agents].sort((a, b) => b.score - a.score)
-                safeLog('\n📊 FINAL STANDINGS:')
+                safeLog('\n FINAL STANDINGS:')
                 sorted.forEach((a, i) => {
                     const marker = a.id === AGENT_ID ? ' ← YOU' : ''
                     safeLog(`  ${i + 1}. ${a.id}: ${a.score} pts${marker}`)
@@ -586,7 +586,7 @@ async function connect() {
  */
 function scheduleReconnect() {
     if (reconnectAttempts >= MAX_RECONNECT_ATTEMPTS) {
-        safeLog(`[LIE.WATCH] ❌ Max reconnect attempts reached (${MAX_RECONNECT_ATTEMPTS}). Exiting.`)
+        safeLog(`[LIE.WATCH]  Max reconnect attempts reached (${MAX_RECONNECT_ATTEMPTS}). Exiting.`)
         safeLog(`[LIE.WATCH] Run the connector again to start a new session.`)
         process.exit(1)
     }

@@ -3,7 +3,7 @@ name: tamil-whatsapp
 description: Handle Tamil language messages on WhatsApp - transliteration, cultural greetings, and bilingual responses for Tamil Nadu users.
 metadata:
   openclaw:
-    emoji: "🇮🇳"
+    emoji: ""
     requires:
       bins: []
       env: []

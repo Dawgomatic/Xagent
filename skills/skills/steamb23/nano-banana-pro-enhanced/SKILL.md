@@ -3,7 +3,7 @@ name: nano-banana-pro-enhanced
 description: Generate or edit images via Gemini 3 Pro Image (Nano Banana Pro).
 metadata:
   openclaw:
-    emoji: "🍌"
+    emoji: ""
     homepage: https://ai.google.dev/
     primaryEnv: GEMINI_API_KEY
     requires:

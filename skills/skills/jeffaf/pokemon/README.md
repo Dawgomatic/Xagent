@@ -1,4 +1,4 @@
-# pokemon-skill ⚡
+# pokemon-skill 
 
 CLI for AI agents to lookup Pokémon info for their humans. Uses [PokéAPI](https://pokeapi.co). No auth required.
 
@@ -42,7 +42,7 @@ pokemon ability levitate
 
 **Info:**
 ```
-⚡ Pikachu [#25]
+ Pikachu [#25]
    Types: Electric
    Height: 0.4m | Weight: 6kg
    Base Stats:
@@ -53,13 +53,13 @@ pokemon ability levitate
 
 **Type:**
 ```
-🔥 Type: Fire
+ Type: Fire
 
-⚔️ Offensive:
+ Offensive:
    2x damage to: Grass, Ice, Bug, Steel
    ½x damage to: Fire, Water, Rock, Dragon
 
-🛡️ Defensive:
+ Defensive:
    2x damage from: Water, Ground, Rock
    ½x damage from: Fire, Grass, Ice, Bug, Steel, Fairy
 ```

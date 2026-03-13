@@ -7,11 +7,11 @@ OpenClaw Skill for GitHub automation - Issues, PRs, and Releases made easy.
 
 ## Features
 
-- 🐛 **Issue Automation** - Create, list, and update issues with labels and assignees
-- 🔍 **PR Analysis** - Get insights on PR size, risk, and suggestions
-- 📝 **Review Assistant** - Generate review checklists for pull requests
-- 🏷️ **Release Management** - Auto-generate release notes and publish releases
-- 📊 **Repo Analytics** - Get repository stats and health assessments
+-  **Issue Automation** - Create, list, and update issues with labels and assignees
+-  **PR Analysis** - Get insights on PR size, risk, and suggestions
+-  **Review Assistant** - Generate review checklists for pull requests
+-  **Release Management** - Auto-generate release notes and publish releases
+-  **Repo Analytics** - Get repository stats and health assessments
 
 ## Quick Start
 
@@ -59,4 +59,4 @@ This skill uses several design patterns:
 
 ## License
 
-MIT © SkillForge
+MIT  SkillForge

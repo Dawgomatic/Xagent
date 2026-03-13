@@ -43,22 +43,22 @@ vd.generateAudio(text, 'josh', {
 }).then(audioPath => {
   const dest = fs.realpathSync(process.env.HOME + '/Desktop/Devotional-Trust-Today.mp3');
   fs.copyFileSync(audioPath, dest);
-  console.log('✅ Saved to Desktop');
+  console.log(' Saved to Desktop');
   
   // Play in QuickTime
   const { exec } = require('child_process');
   exec('open -a "QuickTime Player" "' + dest + '"');
-  console.log('▶️  Playing in QuickTime...');
-  console.log('🙏 Psalm 46: Be still, and know that I am God');
+  console.log('  Playing in QuickTime...');
+  console.log(' Psalm 46: Be still, and know that I am God');
   
   // Auto-delete after 6 minutes
   setTimeout(() => {
     if (fs.existsSync(dest)) {
       fs.unlinkSync(dest);
-      console.log('🗑️  Cleaned up');
+      console.log('  Cleaned up');
     }
   }, 360000);
 }).catch(err => {
-  console.error('❌', err.message);
+  console.error('', err.message);
   process.exit(1);
 });

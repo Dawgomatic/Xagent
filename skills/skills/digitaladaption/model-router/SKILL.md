@@ -10,7 +10,7 @@ version: 1.1.0
 
 Automatically select the best model for any task based on complexity, type, and your preferences. Support for 6 major AI providers with secure API key management and interactive configuration.
 
-## 🎯 What It Does
+##  What It Does
 
 - **Analyzes tasks** and classifies them by type (coding, research, creative, simple, etc.)
 - **Routes to optimal models** from your configured providers
@@ -18,7 +18,7 @@ Automatically select the best model for any task based on complexity, type, and 
 - **Secures API keys** with file permissions (600) and isolated storage
 - **Provides recommendations** with confidence scoring and reasoning
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Step 1: Run the Setup Wizard
 
@@ -55,7 +55,7 @@ sessions_spawn --task "Debug this memory leak" --model claude-sonnet
 sessions_spawn --task "What's the weather?" --model haiku
 ```
 
-## 📊 Supported Providers
+##  Supported Providers
 
 | Provider | Models | Best For | Key Format |
 |----------|--------|----------|------------|
@@ -66,7 +66,7 @@ sessions_spawn --task "What's the weather?" --model haiku
 | **Z.ai** | glm-4.5-air, glm-4.7 | Cheapest, fast | Various |
 | **GLM** | glm-4-flash, glm-4-plus, glm-4-0520 | Chinese, coding | `ID.secret` |
 
-## 🎛️ Task Type Mappings
+##  Task Type Mappings
 
 Default routing (customizable via wizard):
 
@@ -81,7 +81,7 @@ Default routing (customizable via wizard):
 | `chinese` | glm-4.7 | Optimized for Chinese |
 | `long_context` | gemini-1.5-pro | Up to 2M tokens |
 
-## 💰 Cost Optimization
+##  Cost Optimization
 
 ### Aggressive Mode
 Always uses the cheapest capable model:
@@ -100,7 +100,7 @@ Considers cost vs quality:
 ### Quality Mode
 Always uses the best model regardless of cost
 
-## 🔒 Security
+##  Security
 
 ### API Key Storage
 ```
@@ -121,7 +121,7 @@ Always uses the best model regardless of cost
 3. **Rotate keys** regularly via the wizard
 4. **Audit access** with `ls -la ~/.model-router/`
 
-## 📖 Usage Examples
+##  Usage Examples
 
 ### Example 1: Cost-Optimized Workflow
 
@@ -163,7 +163,7 @@ wait
 sessions_spawn --task "Analyze these 100 images" --model gemini-1.5-pro
 ```
 
-## 🛠️ Configuration Files
+##  Configuration Files
 
 ### `~/.model-router/config.json`
 ```json
@@ -200,20 +200,20 @@ OPENAI_API_KEY=sk-proj-...
 GEMINI_API_KEY=AIza...
 ```
 
-## 🔄 Version 1.1 Changes
+##  Version 1.1 Changes
 
 ### New Features
-- ✅ **Interactive setup wizard** for guided configuration
-- ✅ **Secure API key storage** with file permissions
-- ✅ **Task-to-model mapping** customization
-- ✅ **Multi-provider support** (6 providers)
-- ✅ **Cost optimization levels** (aggressive/balanced/quality)
+-  **Interactive setup wizard** for guided configuration
+-  **Secure API key storage** with file permissions
+-  **Task-to-model mapping** customization
+-  **Multi-provider support** (6 providers)
+-  **Cost optimization levels** (aggressive/balanced/quality)
 
 ### Improvements
-- ✅ Better task classification with confidence scores
-- ✅ Provider-specific model recommendations
-- ✅ Enhanced security with isolated storage
-- ✅ Comprehensive documentation
+-  Better task classification with confidence scores
+-  Provider-specific model recommendations
+-  Enhanced security with isolated storage
+-  Comprehensive documentation
 
 ### Migration from 1.0
 Run the setup wizard to reconfigure:
@@ -221,7 +221,7 @@ Run the setup wizard to reconfigure:
 python3 scripts/setup-wizard.py
 ```
 
-## 📚 Command Reference
+##  Command Reference
 
 ### Setup Wizard
 ```bash
@@ -242,7 +242,7 @@ python3 scripts/setup-wizard.py --list
 ```
 Show all available models and their status.
 
-## 🤝 Integration with Other Skills
+##  Integration with Other Skills
 
 | Skill | Integration |
 |-------|-------------|
@@ -250,7 +250,7 @@ Show all available models and their status.
 | **sessions_spawn** | Primary tool for model delegation |
 | **session_status** | Check current model and usage |
 
-## ⚡ Performance Tips
+##  Performance Tips
 
 1. **Start simple** - Try cheap models first
 2. **Batch tasks** - Combine multiple simple tasks
@@ -258,7 +258,7 @@ Show all available models and their status.
 4. **Set timeouts** - Prevent runaway sub-agents
 5. **Monitor usage** - Track costs per provider
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### "No suitable model found"
 - Run setup wizard to configure providers
@@ -275,7 +275,7 @@ pip3 install -r requirements.txt  # if needed
 2. Use explicit model in `sessions_spawn --model`
 3. Adjust cost optimization preference
 
-## 📖 Additional Resources
+##  Additional Resources
 
 - **Provider Docs:**
   - [Anthropic](https://docs.anthropic.com)

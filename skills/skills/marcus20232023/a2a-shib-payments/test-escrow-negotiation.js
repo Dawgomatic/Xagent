@@ -8,7 +8,7 @@
 const { EscrowSystem } = require('./escrow.js');
 const { PaymentNegotiationSystem } = require('./payment-negotiation.js');
 
-console.log('🦪 Escrow & Payment Negotiation Test Suite\n');
+console.log(' Escrow & Payment Negotiation Test Suite\n');
 console.log('='.repeat(70));
 
 // Initialize systems
@@ -208,7 +208,7 @@ console.log(`  Active negotiations: ${negStats.activeNegotiations}`);
 console.log(`  Avg negotiation time: ${Math.round(negStats.avgNegotiationTimeMs)}ms`);
 
 console.log('\n' + '='.repeat(70));
-console.log('\n✅ All Scenarios Complete!\n');
+console.log('\n All Scenarios Complete!\n');
 
 console.log('Key Features Demonstrated:');
 console.log('  ✓ Time-locked escrows');

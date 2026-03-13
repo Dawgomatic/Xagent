@@ -227,7 +227,7 @@ python scripts/screen.py \
 
 ## Risk Warnings
 
-⚠️ **Important:**
+ **Important:**
 - These strategies are templates, not trading advice
 - Always backtest before live trading
 - Use proper risk management

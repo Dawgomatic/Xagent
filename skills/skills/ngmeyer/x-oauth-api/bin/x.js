@@ -12,7 +12,7 @@ function initializeClient() {
   const accessTokenSecret = process.env.X_ACCESS_TOKEN_SECRET;
 
   if (!apiKey || !apiSecret || !accessToken || !accessTokenSecret) {
-    console.error('❌ Missing X API credentials. Set these environment variables:');
+    console.error(' Missing X API credentials. Set these environment variables:');
     console.error('  X_API_KEY');
     console.error('  X_API_SECRET');
     console.error('  X_ACCESS_TOKEN');
@@ -65,11 +65,11 @@ program
 
       const tweet = await client.v2.tweet(payload);
       
-      console.log('✅ Tweet posted');
+      console.log(' Tweet posted');
       console.log(`ID: ${tweet.data.id}`);
       console.log(`URL: https://x.com/i/status/${tweet.data.id}`);
     } catch (error) {
-      console.error('❌ Failed to post tweet:', error.message);
+      console.error(' Failed to post tweet:', error.message);
       process.exit(1);
     }
   });
@@ -103,13 +103,13 @@ program
         await new Promise(resolve => setTimeout(resolve, 500));
       }
 
-      console.log('✅ Thread posted');
+      console.log(' Thread posted');
       threadTweets.forEach((tweet, i) => {
         console.log(`  ${i + 1}. ${tweet.text}`);
         console.log(`     https://x.com/i/status/${tweet.id}`);
       });
     } catch (error) {
-      console.error('❌ Failed to post thread:', error.message);
+      console.error(' Failed to post thread:', error.message);
       process.exit(1);
     }
   });
@@ -145,7 +145,7 @@ program
       if (options.format === 'json') {
         console.log(JSON.stringify(mentions.data || [], null, 2));
       } else {
-        console.log(`📬 Recent mentions of @${user.username} (${mentions.data?.length || 0}):`);
+        console.log(` Recent mentions of @${user.username} (${mentions.data?.length || 0}):`);
         (mentions.data || []).forEach(tweet => {
           console.log(`  @${tweet.author_id}: ${tweet.text}`);
           console.log(`    ${new Date(tweet.created_at).toLocaleDateString()}`);
@@ -154,11 +154,11 @@ program
       }
     } catch (error) {
       if (error.message.includes('400')) {
-        console.error('❌ Mentions failed: This endpoint requires a paid X API tier (Basic+).');
+        console.error(' Mentions failed: This endpoint requires a paid X API tier (Basic+).');
         console.error('   Free tier only supports posting tweets and account lookup.');
         console.error('   Error:', error.message);
       } else {
-        console.error('❌ Failed to fetch mentions:', error.message);
+        console.error(' Failed to fetch mentions:', error.message);
       }
       process.exit(1);
     }
@@ -183,20 +183,20 @@ program
       if (options.format === 'json') {
         console.log(JSON.stringify(results.data || [], null, 2));
       } else {
-        console.log(`🔍 Search results for "${query}" (${results.data?.length || 0}):`);
+        console.log(` Search results for "${query}" (${results.data?.length || 0}):`);
         (results.data || []).forEach(tweet => {
           console.log(`  ${tweet.text}`);
-          console.log(`    ❤️  ${tweet.public_metrics.like_count} | 🔄 ${tweet.public_metrics.retweet_count}`);
+          console.log(`      ${tweet.public_metrics.like_count} |  ${tweet.public_metrics.retweet_count}`);
           console.log();
         });
       }
     } catch (error) {
       if (error.message.includes('400')) {
-        console.error('❌ Search failed: This endpoint may require a paid X API tier.');
+        console.error(' Search failed: This endpoint may require a paid X API tier.');
         console.error('   Free tier only supports posting tweets and account lookup.');
         console.error('   Error:', error.message);
       } else {
-        console.error('❌ Failed to search:', error.message);
+        console.error(' Failed to search:', error.message);
       }
       process.exit(1);
     }
@@ -212,9 +212,9 @@ program
       
       await client.v2.deleteTweet(id);
       
-      console.log('✅ Tweet deleted');
+      console.log(' Tweet deleted');
     } catch (error) {
-      console.error('❌ Failed to delete tweet:', error.message);
+      console.error(' Failed to delete tweet:', error.message);
       process.exit(1);
     }
   });
@@ -229,7 +229,7 @@ program
       
       const user = await getCurrentUser(client);
       
-      console.log('👤 Account Info:');
+      console.log(' Account Info:');
       console.log(`  Name: ${user.name}`);
       console.log(`  Username: @${user.username}`);
       console.log(`  ID: ${user.id}`);
@@ -241,7 +241,7 @@ program
       }
       console.log(`\n  X_USER_ID=${user.id} (add this to your .env for faster mentions)`);
     } catch (error) {
-      console.error('❌ Failed to fetch account info:', error.message);
+      console.error(' Failed to fetch account info:', error.message);
       process.exit(1);
     }
   });

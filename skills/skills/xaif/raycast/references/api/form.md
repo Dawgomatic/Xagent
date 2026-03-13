@@ -735,9 +735,9 @@ export default function Command() {
       }
     >
       <Form.Dropdown id="emoji" title="Favorite Emoji" defaultValue="lol">
-        <Form.Dropdown.Item value="poop" title="Pile of poop" icon="💩" />
-        <Form.Dropdown.Item value="rocket" title="Rocket" icon="🚀" />
-        <Form.Dropdown.Item value="lol" title="Rolling on the floor laughing face" icon="🤣" />
+        <Form.Dropdown.Item value="poop" title="Pile of poop" icon="" />
+        <Form.Dropdown.Item value="rocket" title="Rocket" icon="" />
+        <Form.Dropdown.Item value="lol" title="Rolling on the floor laughing face" icon="" />
       </Form.Dropdown>
     </Form>
   );
@@ -870,12 +870,12 @@ export default function Command() {
     >
       <Form.Dropdown id="food" title="Favorite Food">
         <Form.Dropdown.Section title="Fruits">
-          <Form.Dropdown.Item value="apple" title="Apple" icon="🍎" />
-          <Form.Dropdown.Item value="banana" title="Banana" icon="🍌" />
+          <Form.Dropdown.Item value="apple" title="Apple" icon="" />
+          <Form.Dropdown.Item value="banana" title="Banana" icon="" />
         </Form.Dropdown.Section>
         <Form.Dropdown.Section title="Vegetables">
-          <Form.Dropdown.Item value="broccoli" title="Broccoli" icon="🥦" />
-          <Form.Dropdown.Item value="carrot" title="Carrot" icon="🥕" />
+          <Form.Dropdown.Item value="broccoli" title="Broccoli" icon="" />
+          <Form.Dropdown.Item value="carrot" title="Carrot" icon="" />
         </Form.Dropdown.Section>
       </Form.Dropdown>
     </Form>
@@ -914,9 +914,9 @@ export default function Command() {
       }
     >
       <Form.TagPicker id="sports" title="Favorite Sports" defaultValue={["football"]}>
-        <Form.TagPicker.Item value="basketball" title="Basketball" icon="🏀" />
-        <Form.TagPicker.Item value="football" title="Football" icon="⚽️" />
-        <Form.TagPicker.Item value="tennis" title="Tennis" icon="🎾" />
+        <Form.TagPicker.Item value="basketball" title="Basketball" icon="" />
+        <Form.TagPicker.Item value="football" title="Football" icon="" />
+        <Form.TagPicker.Item value="tennis" title="Tennis" icon="" />
       </Form.TagPicker>
     </Form>
   );
@@ -943,13 +943,13 @@ export default function Command() {
       }
     >
       <Form.TagPicker id="countries" title="Visited Countries" value={countries} onChange={setCountries}>
-        <Form.TagPicker.Item value="ger" title="Germany" icon="🇩🇪" />
-        <Form.TagPicker.Item value="ind" title="India" icon="🇮🇳" />
-        <Form.TagPicker.Item value="ned" title="Netherlands" icon="🇳🇱" />
-        <Form.TagPicker.Item value="nor" title="Norway" icon="🇳🇴" />
-        <Form.TagPicker.Item value="pol" title="Poland" icon="🇵🇱" />
-        <Form.TagPicker.Item value="rus" title="Russia" icon="🇷🇺" />
-        <Form.TagPicker.Item value="sco" title="Scotland" icon="🏴󠁧󠁢󠁳󠁣󠁴󠁿" />
+        <Form.TagPicker.Item value="ger" title="Germany" icon="" />
+        <Form.TagPicker.Item value="ind" title="India" icon="" />
+        <Form.TagPicker.Item value="ned" title="Netherlands" icon="" />
+        <Form.TagPicker.Item value="nor" title="Norway" icon="" />
+        <Form.TagPicker.Item value="pol" title="Poland" icon="" />
+        <Form.TagPicker.Item value="rus" title="Russia" icon="" />
+        <Form.TagPicker.Item value="sco" title="Scotland" icon="" />
       </Form.TagPicker>
     </Form>
   );

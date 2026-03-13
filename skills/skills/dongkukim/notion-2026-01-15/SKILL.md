@@ -5,7 +5,7 @@ Here is the complete `SKILL.md` file updated for the January 15, 2026 API state.
 name: notion api 202601 15
 description: Notion API updated to 2026 01 15 changes for creating, moving, and managing pages, data sources, and blocks.
 homepage: https://developers.notion.com
-metadata: {"clawdbot":{"emoji":"📝"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # notion

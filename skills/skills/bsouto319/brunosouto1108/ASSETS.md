@@ -1,4 +1,4 @@
-# 🎨 Icon & Badge Assets
+#  Icon & Badge Assets
 
 This document describes the visual assets needed for the ClawHub listing.
 

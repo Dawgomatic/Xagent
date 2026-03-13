@@ -60,11 +60,11 @@ For a light theme, swap the color scheme:
 Replace the logo icon emoji:
 
 ```html
-<div class="logo-icon">🚀</div>
+<div class="logo-icon"></div>
 ```
 
 Options:
-- Different emoji: `🎯`, `⚡`, `🔮`, `💫`, `🌟`
+- Different emoji: ``, ``, ``, ``, ``
 - SVG icon: Replace the emoji with an `<svg>` element
 - Image: Use an `<img>` tag
 
@@ -85,7 +85,7 @@ Add a new card to the grid:
 ```html
 <div class="card">
     <div class="card-header">
-        <span class="icon">🎯</span>
+        <span class="icon"></span>
         <h2>Custom Section</h2>
     </div>
     <div id="custom-section">
@@ -135,7 +135,7 @@ Delete or comment out the card HTML. For example, to remove Products:
 <!-- Remove this entire card -->
 <div class="card">
     <div class="card-header">
-        <span class="icon">📊</span>
+        <span class="icon"></span>
         <h2>Products</h2>
     </div>
     <div class="product-grid" id="products-grid"></div>
@@ -232,7 +232,7 @@ Add a canvas:
 ```html
 <div class="card">
     <div class="card-header">
-        <span class="icon">📈</span>
+        <span class="icon"></span>
         <h2>Traffic</h2>
     </div>
     <canvas id="traffic-chart"></canvas>

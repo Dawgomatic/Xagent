@@ -361,9 +361,9 @@ async function main() {
 
     const success = manager.add(ticker, market, notes, alertThreshold);
     if (success) {
-      console.log(`✅ Added ${ticker} to watchlist (${market} market)`);
+      console.log(` Added ${ticker} to watchlist (${market} market)`);
     } else {
-      console.log(`⚠️  ${ticker} is already in watchlist`);
+      console.log(`  ${ticker} is already in watchlist`);
     }
   } else if (command === "remove") {
     const ticker = args[1];
@@ -382,9 +382,9 @@ async function main() {
 
     const success = manager.remove(ticker, market);
     if (success) {
-      console.log(`✅ Removed ${ticker} from watchlist`);
+      console.log(` Removed ${ticker} from watchlist`);
     } else {
-      console.log(`⚠️  ${ticker} not found in watchlist`);
+      console.log(`  ${ticker} not found in watchlist`);
     }
   } else if (command === "list") {
     let market: Market | undefined;
@@ -398,11 +398,11 @@ async function main() {
     const stocks = market ? manager.getByMarket(market) : manager.getAll();
 
     if (stocks.length === 0) {
-      console.log("📭 Watchlist is empty");
+      console.log(" Watchlist is empty");
       return;
     }
 
-    console.log(`📋 Watchlist (${stocks.length} stocks):\n`);
+    console.log(` Watchlist (${stocks.length} stocks):\n`);
     console.log("Ticker     | Market | Added");
     console.log("-----------|--------|-------------------");
     for (const stock of stocks) {
@@ -411,7 +411,7 @@ async function main() {
     }
   } else if (command === "--help" || command === "-h" || !command) {
     console.log(`
-📊 Watchlist Manager
+ Watchlist Manager
 
 Usage:
   bun run src/watchList.ts add <ticker> [options]

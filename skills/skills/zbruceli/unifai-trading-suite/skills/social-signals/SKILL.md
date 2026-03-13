@@ -3,7 +3,7 @@ name: social-signals
 description: Analyze crypto social signals - KOL mentions, sentiment, trending tokens, and news
 homepage: https://github.com/your-repo/trading
 user-invocable: true
-metadata: {"moltbot":{"emoji":"📡","requires":{"env":["UNIFAI_AGENT_API_KEY","GOOGLE_API_KEY"]},"primaryEnv":"UNIFAI_AGENT_API_KEY"}}
+metadata: {"moltbot":{"emoji":"","requires":{"env":["UNIFAI_AGENT_API_KEY","GOOGLE_API_KEY"]},"primaryEnv":"UNIFAI_AGENT_API_KEY"}}
 ---
 
 # Social Signals

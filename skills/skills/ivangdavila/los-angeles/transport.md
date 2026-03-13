@@ -81,13 +81,13 @@
 ### Metro Reality Check
 
 **Good for:**
-- DTLA ↔ Hollywood ↔ Universal Studios
-- DTLA ↔ Santa Monica (E Line)
+- DTLA  Hollywood  Universal Studios
+- DTLA  Santa Monica (E Line)
 - Getting to events (SoFi, Crypto.com Arena)
 
 **NOT good for:**
 - Most commutes (limited coverage)
-- Valley ↔ Westside (no direct line)
+- Valley  Westside (no direct line)
 - Anywhere not near a station
 
 **Safety:** Generally fine during day. More cautious late night.
@@ -149,7 +149,7 @@
 ### Biking
 
 - **NOT a commuter city** for bikes (dangerous roads)
-- **Beach bike path:** Excellent (Santa Monica ↔ Palos Verdes)
+- **Beach bike path:** Excellent (Santa Monica  Palos Verdes)
 - **Metro Bike Share:** $1.75/ride, limited coverage
 - **E-bikes:** Popular in beach cities
 

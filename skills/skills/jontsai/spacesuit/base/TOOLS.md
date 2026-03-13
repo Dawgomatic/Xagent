@@ -21,7 +21,7 @@ Things like:
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
 
-## 🔑 Credentials Search Order
+##  Credentials Search Order
 
 When looking for API keys, tokens, or credentials:
 

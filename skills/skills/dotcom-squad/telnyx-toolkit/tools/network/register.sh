@@ -50,14 +50,14 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ -z "$NODE_NAME" ]]; then
-    echo "❌ --name is required"
+    echo " --name is required"
     echo "Usage: register.sh --name <name>"
     exit 1
 fi
 
 # Check telnyx CLI
 if ! command -v telnyx &> /dev/null; then
-    echo "❌ Telnyx CLI not found. Install with: npm install -g @telnyx/api-cli"
+    echo " Telnyx CLI not found. Install with: npm install -g @telnyx/api-cli"
     exit 1
 fi
 
@@ -75,7 +75,7 @@ if command -v wg &> /dev/null; then
 fi
 
 if [[ -z "$WG_IP" ]]; then
-    echo "⚠️  Could not detect WireGuard IP. Is the mesh running?"
+    echo "  Could not detect WireGuard IP. Is the mesh running?"
     echo "   Run: scripts/join.sh --name $NODE_NAME --apply"
     exit 1
 fi
@@ -95,14 +95,14 @@ REG_JSON=$(cat <<EOF
 EOF
 )
 
-echo "🔄 Registering node on mesh..."
+echo " Registering node on mesh..."
 echo "   Name: $NODE_NAME"
 echo "   IP: $WG_IP"
 echo "   Bucket: $BUCKET"
 
 # Ensure bucket exists
 if ! telnyx storage bucket list 2>/dev/null | grep -q "$BUCKET"; then
-    echo "📦 Creating registry bucket: $BUCKET"
+    echo " Creating registry bucket: $BUCKET"
     telnyx storage bucket create "$BUCKET" > /dev/null
 fi
 
@@ -113,7 +113,7 @@ telnyx storage object put "$BUCKET" "$TEMP_FILE" -k "nodes/$NODE_NAME.json" > /d
 rm "$TEMP_FILE"
 
 echo ""
-echo "✅ Node registered!"
+echo " Node registered!"
 echo ""
 echo "Other nodes can discover you with:"
 echo "   scripts/discover.sh"

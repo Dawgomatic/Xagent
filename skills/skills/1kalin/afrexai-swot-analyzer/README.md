@@ -1,4 +1,4 @@
-# SWOT Analyzer 🖤💛
+# SWOT Analyzer 
 
 Structured SWOT analysis for your AI agent. Drop it in and get prioritized strategic assessments with scored impact matrices and actionable recommendations.
 

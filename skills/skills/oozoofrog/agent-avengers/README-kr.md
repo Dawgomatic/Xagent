@@ -1,6 +1,6 @@
 # Agent Avengers
 
-🦸 **올인원 멀티에이전트 오케스트레이션**
+ **올인원 멀티에이전트 오케스트레이션**
 
 ## 설치
 
@@ -30,12 +30,12 @@
 
 | 타입 | 역할 |
 |------|------|
-| 🔬 Researcher | 조사, 데이터 수집 |
-| 🔍 Analyst | 분석, 패턴 발견 |
-| 🖊️ Writer | 문서 작성 |
-| 💻 Coder | 코드 구현 |
-| ✅ Reviewer | 품질 검토 |
-| 🔧 Integrator | 결과 통합 |
+|  Researcher | 조사, 데이터 수집 |
+|  Analyst | 분석, 패턴 발견 |
+|  Writer | 문서 작성 |
+|  Coder | 코드 구현 |
+|  Reviewer | 품질 검토 |
+|  Integrator | 결과 통합 |
 
 ## 설정
 

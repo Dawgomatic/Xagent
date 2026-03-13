@@ -121,11 +121,11 @@ def output_pretty(limits, file_path):
     print("           CODEX RATE LIMIT STATUS         ")
     print("═══════════════════════════════════════════")
     print()
-    print(f"📊 Primary ({format_window(primary['window_minutes'])} window)")
+    print(f" Primary ({format_window(primary['window_minutes'])} window)")
     print(f"   {progress_bar(primary['used_percent'])} {primary['used_percent']:.1f}%")
     print(f"   Resets: {format_reset_time(primary['resets_at'])}")
     print()
-    print(f"📈 Secondary ({format_window(secondary['window_minutes'])} window)")
+    print(f" Secondary ({format_window(secondary['window_minutes'])} window)")
     print(f"   {progress_bar(secondary['used_percent'])} {secondary['used_percent']:.1f}%")
     print(f"   Resets: {format_reset_time(secondary['resets_at'])}")
     print()
@@ -136,7 +136,7 @@ def output_pretty(limits, file_path):
 def ping_codex():
     """Ping Codex to get fresh rate limit data."""
     import subprocess
-    print("🔄 Pinging Codex for fresh rate limit data...")
+    print(" Pinging Codex for fresh rate limit data...")
     
     try:
         subprocess.run(
@@ -146,7 +146,7 @@ def ping_codex():
             timeout=60
         )
     except Exception as e:
-        print(f"⚠️  Failed to ping Codex: {e}")
+        print(f"  Failed to ping Codex: {e}")
     
     import time
     time.sleep(0.5)
@@ -192,7 +192,7 @@ def switch_account(name):
 def update_all_accounts(want_json=False):
     """Update quota for all accounts and store in /tmp.
 
-    ⚠️ This temporarily overwrites ~/.codex/auth.json to switch accounts.
+     This temporarily overwrites ~/.codex/auth.json to switch accounts.
     We restore the original auth.json bytes at the end (best-effort).
     """
     import time
@@ -202,7 +202,7 @@ def update_all_accounts(want_json=False):
         if want_json:
             print('{"error": "No accounts found"}')
         else:
-            print("❌ No accounts found in ~/.codex/accounts/")
+            print(" No accounts found in ~/.codex/accounts/")
         return
 
     auth_file = Path.home() / ".codex" / "auth.json"
@@ -211,7 +211,7 @@ def update_all_accounts(want_json=False):
     results = {}
     
     if not want_json:
-        print(f"🔄 Updating quota for {len(accounts)} account(s)...")
+        print(f" Updating quota for {len(accounts)} account(s)...")
         print()
     
     for account in accounts:
@@ -220,7 +220,7 @@ def update_all_accounts(want_json=False):
         
         if not switch_account(account):
             if not want_json:
-                print("❌ switch failed")
+                print(" switch failed")
             results[account] = {"error": "switch failed"}
             continue
         
@@ -229,7 +229,7 @@ def update_all_accounts(want_json=False):
         
         if not session_file:
             if not want_json:
-                print("❌ no session")
+                print(" no session")
             results[account] = {"error": "no session file"}
             continue
         
@@ -237,7 +237,7 @@ def update_all_accounts(want_json=False):
         
         if not limits:
             if not want_json:
-                print("❌ no limits")
+                print(" no limits")
             results[account] = {"error": "no rate limits"}
             continue
         
@@ -284,7 +284,7 @@ def update_all_accounts(want_json=False):
         print(json.dumps(output_data, indent=2))
     else:
         print()
-        print(f"💾 Saved to {output_file}")
+        print(f" Saved to {output_file}")
         print()
         
         # Summary table
@@ -323,7 +323,7 @@ By default, uses the most recent session file (cached data).""")
     
     if want_all:
         if not want_yes:
-            print("⚠️  --all switches between Codex accounts to check each one's quota.")
+            print("  --all switches between Codex accounts to check each one's quota.")
             print("   Pass --yes to confirm: codex-quota --all --yes")
             sys.exit(1)
         update_all_accounts(want_json)
@@ -338,7 +338,7 @@ By default, uses the most recent session file (cached data).""")
         if want_json:
             print('{"error": "No session files found"}')
         else:
-            print("❌ No session files found")
+            print(" No session files found")
         sys.exit(1)
     
     limits = extract_rate_limits(session_file)
@@ -347,7 +347,7 @@ By default, uses the most recent session file (cached data).""")
         if want_json:
             print('{"error": "Could not extract rate limits"}')
         else:
-            print("❌ Could not extract rate limits from session file")
+            print(" Could not extract rate limits from session file")
             print(f"   File: {session_file}")
         sys.exit(1)
     

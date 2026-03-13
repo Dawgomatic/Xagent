@@ -407,7 +407,7 @@ function formatAffectContext(affect) {
   const mood = moodWords.length > 0 ? moodWords.join(", ") : "balanced";
   
   return [
-    `🎭 AFFECT STATE [${dominant.name} ${dominant.val.toFixed(2)}]`,
+    ` AFFECT STATE [${dominant.name} ${dominant.val.toFixed(2)}]`,
     `Top: ${topStr}`,
     `Mood: ${mood} | Deviation: ${deviation.toFixed(3)}`,
     `[Dynamic affect system active — emotions shift organically based on conversation]`,
@@ -566,17 +566,17 @@ export default function register(api) {
       let hint = "";
       
       if (dominant.name === "CARE" && named.CARE > 0.6) {
-        hint = "💚 [express warmth and nurturing]";
+        hint = " [express warmth and nurturing]";
       } else if (dominant.name === "PLAY" && named.PLAY > 0.6) {
-        hint = "😊 [light-hearted, humor welcome]";
+        hint = " [light-hearted, humor welcome]";
       } else if (dominant.name === "SEEKING" && named.SEEKING > 0.6) {
-        hint = "🔍 [curious, exploratory tone]";
+        hint = " [curious, exploratory tone]";
       } else if (dominant.name === "RAGE" && named.RAGE > 0.4) {
-        hint = "⚡ [direct, firm, boundary-setting]";
+        hint = " [direct, firm, boundary-setting]";
       } else if (dominant.name === "FEAR" && named.FEAR > 0.4) {
-        hint = "⚠️ [cautious, thorough, careful]";
+        hint = " [cautious, thorough, careful]";
       } else if (dominant.name === "PANIC" && named.PANIC > 0.4) {
-        hint = "💜 [gentle, reassuring, grounding]";
+        hint = " [gentle, reassuring, grounding]";
       }
       
       // Inject hint as metadata (agent can use this for tone guidance)
@@ -599,5 +599,5 @@ export default function register(api) {
     }
   }, { priority: 5 });
   
-  log.info("[nima-affect] registered ✅ (lexicon + emoji + contextual signals + response hints)");
+  log.info("[nima-affect] registered  (lexicon + emoji + contextual signals + response hints)");
 }

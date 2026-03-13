@@ -5,7 +5,7 @@
 ### Always Use Batch for >100 Objects
 
 ```python
-# ✅ Correct: dynamic batching with error handling
+#  Correct: dynamic batching with error handling
 failed_objects = []
 
 with client.batch.dynamic() as batch:
@@ -82,7 +82,7 @@ collection.query.hybrid(
 ### Apply BEFORE Vector Search
 
 ```python
-# ✅ Correct: filter reduces search space first
+#  Correct: filter reduces search space first
 from weaviate.classes.query import Filter
 
 collection.query.near_text(

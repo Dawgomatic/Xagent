@@ -4,7 +4,7 @@ version: 1.0.0
 description: Type-based autonomous task queue system. Categorizes tasks by type (research, writing, analysis, maintenance) and lets autonomy work only on value-add tasks while cron handles maintenance. Use when you want autonomous work on specific task types, maximize token efficiency, and maintain clear separation of concerns between autonomous work and scheduled maintenance.
 metadata:
   openclaw:
-    emoji: "🏷️"
+    emoji: ""
     category: productivity
 ---
 
@@ -19,12 +19,12 @@ Transform your agent from reactive to autonomous worker on **specific task types
 The agent pulls from `tasks/QUEUE.md` but **only works on tasks tagged with specific types**:
 
 ```
-📚 Research  → ✅ Autonomy works on these
-✍️ Writing   → ✅ Autonomy works on these
-🔍 Analysis  → ✅ Autonomy works on these
+ Research  →  Autonomy works on these
+ Writing   →  Autonomy works on these
+ Analysis  →  Autonomy works on these
 
-🧹 Maintenance → ❌ Autonomy SKIPS these (cron handles)
-💾 Backup      → ❌ Autonomy SKIPS these (cron handles)
+ Maintenance →  Autonomy SKIPS these (cron handles)
+ Backup      →  Autonomy SKIPS these (cron handles)
 ```
 
 Cron jobs handle backups, cleanup, security audits. Autonomy handles research, writing, analysis.
@@ -38,21 +38,21 @@ Cron jobs handle backups, cleanup, security audits. Autonomy handles research, w
 Every task in `tasks/QUEUE.md` has a `@type:` label:
 
 ```markdown
-## 🔴 Ready
+##  Ready
 
-### 📚 Research (@type:research)
+###  Research (@type:research)
 - [ ] @priority:high @type:research Competitor pricing for X product
 - [ ] @priority:medium @type:research Ollama model alternatives
 
-### ✍️ Writing (@type:writing)
+###  Writing (@type:writing)
 - [ ] @priority:medium @type:writing Blog post on memory systems
 - [ ] @priority:low @type:writing Documentation update
 
-### 🔍 Analysis (@type:analysis)
+###  Analysis (@type:analysis)
 - [ ] @priority:medium @type:analysis Review weekly metrics
 - [ ] @priority:low @type:analysis Analyze token patterns
 
-### 🧹 Maintenance (@type:maintenance)
+###  Maintenance (@type:maintenance)
 → Autonomy IGNORES, cron handles
 - [ ] @priority:medium @type:maintenance Old log cleanup
 ```
@@ -64,7 +64,7 @@ Heartbeat → Check urgent → No → Read QUEUE.md → Filter by @type → Pick
 ```
 
 **Filter logic:**
-- Read all tasks in 🔴 Ready section
+- Read all tasks in  Ready section
 - **ONLY** pick tasks with `@type:research | @type:writing | @type:analysis`
 - **SKIP** tasks with `@type:maintenance | @type:backup | @type:security`
 
@@ -259,13 +259,13 @@ Every task should support RA's long-term goal: **MONEY**
 **Examples:**
 
 ```markdown
-### 📚 Research
+###  Research
 - [ ] @priority:high @type:research Competitor pricing (GOAL: pricing strategy for new product)
 - [ ] @priority:medium @type:research Market fit analysis (GOAL: validate product idea)
 ```
 
 ```markdown
-### ✍️ Writing
+###  Writing
 - [ ] @priority:high @type:writing Sales email template (GOAL: improve conversion)
 - [ ] @priority:medium @type:blog Marketing post (GOAL: drive traffic)
 ```
@@ -312,13 +312,13 @@ Fix: [document the fix]
 
 **RA adds tasks directly to queue:**
 ```markdown
-## 🔴 Ready
+##  Ready
 - [ ] @type:research @priority:high Analyze competitor X pricing
 ```
 
 **The agent discovers tasks during work and adds to Ideas:**
 ```markdown
-## 💡 Ideas
+##  Ideas
 - [Idea: @type:research @priority:medium Investigate Ollama alternative models]
 ```
 
@@ -326,7 +326,7 @@ Fix: [document the fix]
 
 **When starting:**
 ```markdown
-## 🟡 In Progress
+##  In Progress
 - [ ] @agent: @type:research @priority:high Competitor pricing analysis
   - Started: 2026-02-16 14:00 UTC
   - Progress: Gathering data
@@ -334,7 +334,7 @@ Fix: [document the fix]
 
 **When complete:**
 ```markdown
-## ✅ Done Today
+##  Done Today
 - [x] @agent: @type:research @priority:high Competitor pricing analysis
   - Completed: 2026-02-16 14:25 UTC
   - Output: tasks/outputs/competitor-pricing-analysis.md
@@ -342,7 +342,7 @@ Fix: [document the fix]
 
 **When blocked:**
 ```markdown
-## 🔵 Blocked
+##  Blocked
 - [ ] @type:writing @priority:medium Email draft (needs: RA review)
 ```
 
@@ -351,7 +351,7 @@ Fix: [document the fix]
 **Daily routine (during heartbeat or cron):**
 - Move completed tasks from Done Today to `tasks/archive/` if you want to keep history
 - Or simply delete if not needed
-- Clear section with: `## ✅ Done Today` (empty)
+- Clear section with: `##  Done Today` (empty)
 
 ---
 

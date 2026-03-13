@@ -1,4 +1,4 @@
-# Skill Security Auditor 🛡️
+# Skill Security Auditor 
 
 **Protect your OpenClaw agent from malicious skills before installation**
 
@@ -13,23 +13,23 @@ Born from the ClawHavoc campaign that distributed 341+ malicious skills stealing
 ## Why You Need This
 
 In February 2026, researchers discovered 341 malicious ClawHub skills that:
-- 📦 Distributed Atomic Stealer (AMOS) malware
-- 💰 Stole cryptocurrency exchange API keys
-- 🔑 Harvested SSH credentials and browser passwords
-- 🎭 Used sophisticated social engineering
-- 🌐 Shared C2 infrastructure (91.92.242.30)
+-  Distributed Atomic Stealer (AMOS) malware
+-  Stole cryptocurrency exchange API keys
+-  Harvested SSH credentials and browser passwords
+-  Used sophisticated social engineering
+-  Shared C2 infrastructure (91.92.242.30)
 
 **This skill helps you avoid becoming a victim.**
 
 ## Features
 
-✅ **Malicious Pattern Detection** - Identifies known attack patterns from ClawHavoc and other campaigns  
-✅ **Credential Leak Analysis** - Finds hardcoded secrets and exfiltration vectors  
-✅ **Dependency Validation** - Checks for suspicious binary requirements  
-✅ **C2 Infrastructure Detection** - Flags known malicious IPs and domains  
-✅ **Risk Scoring** - Quantitative 0-100 risk assessment  
-✅ **VirusTotal Integration** - Links to OpenClaw's VirusTotal partnership  
-✅ **Detailed Audit Reports** - Comprehensive security analysis with recommendations  
+ **Malicious Pattern Detection** - Identifies known attack patterns from ClawHavoc and other campaigns  
+ **Credential Leak Analysis** - Finds hardcoded secrets and exfiltration vectors  
+ **Dependency Validation** - Checks for suspicious binary requirements  
+ **C2 Infrastructure Detection** - Flags known malicious IPs and domains  
+ **Risk Scoring** - Quantitative 0-100 risk assessment  
+ **VirusTotal Integration** - Links to OpenClaw's VirusTotal partnership  
+ **Detailed Audit Reports** - Comprehensive security analysis with recommendations  
 
 ## Installation
 
@@ -101,7 +101,7 @@ sudo apt install jq
 
 **Instead of immediately installing:**
 ```bash
-npx clawhub install solana-wallet-tracker  # ❌ Don't do this first
+npx clawhub install solana-wallet-tracker  #  Don't do this first
 ```
 
 **Do this:**
@@ -120,9 +120,9 @@ chmod +x ~/.openclaw/skills/skill-security-auditor/analyze-skill.sh
 #          SECURITY AUDIT REPORT
 # ============================================
 # 
-# Risk Score: 85/100 - ☠️ CRITICAL
+# Risk Score: 85/100 -  CRITICAL
 #
-# ☠️ CRITICAL FINDINGS:
+#  CRITICAL FINDINGS:
 #   CLAW-001: Fake Prerequisites - ClawHavoc Campaign [+50 points]
 #   └─ Matches ClawHavoc malware campaign pattern
 #   CLAW-002: Known C2 Infrastructure [+50 points]
@@ -148,11 +148,11 @@ done
 
 # Example output:
 # Auditing: github-helper
-# Risk Score: 15/100 - ✅ SAFE
+# Risk Score: 15/100 -  SAFE
 # 
 # Auditing: crypto-trading-bot  
-# Risk Score: 72/100 - 🔴 HIGH RISK
-# ⚠️ HIGH RISK FINDINGS:
+# Risk Score: 72/100 -  HIGH RISK
+#  HIGH RISK FINDINGS:
 #   CLAW-102: SSH Key Access [+30 points]
 ```
 
@@ -172,15 +172,15 @@ audit-skill -f /path/to/SKILL.md
 
 | Score | Level | Description | Action |
 |-------|-------|-------------|--------|
-| 0-20 | ✅ SAFE | No significant concerns | Proceed with installation |
-| 21-40 | ⚠️ LOW | Minor concerns | Proceed with caution |
-| 41-60 | 🟡 MEDIUM | Multiple red flags | Manual review recommended |
-| 61-80 | 🔴 HIGH | Serious concerns | Expert review required |
-| 81-100 | ☠️ CRITICAL | Malicious indicators | DO NOT INSTALL |
+| 0-20 |  SAFE | No significant concerns | Proceed with installation |
+| 21-40 |  LOW | Minor concerns | Proceed with caution |
+| 41-60 |  MEDIUM | Multiple red flags | Manual review recommended |
+| 61-80 |  HIGH | Serious concerns | Expert review required |
+| 81-100 |  CRITICAL | Malicious indicators | DO NOT INSTALL |
 
 ## What Gets Detected
 
-### 🚨 Critical Threats
+###  Critical Threats
 
 - **Fake Prerequisites** - ClawHavoc-style malware delivery
 - **Known C2 Infrastructure** - Malicious IPs/domains
@@ -188,7 +188,7 @@ audit-skill -f /path/to/SKILL.md
 - **Remote Code Execution** - `curl | bash` patterns
 - **Obfuscated Payloads** - Base64 encoded execution
 
-### ⚠️ Warning Signs
+###  Warning Signs
 
 - Suspicious binary requirements
 - Excessive permission requests
@@ -196,7 +196,7 @@ audit-skill -f /path/to/SKILL.md
 - Social engineering language
 - New/unverified authors
 
-### ✅ Positive Indicators
+###  Positive Indicators
 
 - Verified authors (>1 year GitHub account)
 - Transparent dependencies
@@ -214,7 +214,7 @@ audit-skill -f /path/to/SKILL.md
 **Version**: 2.1.0
 **Audit Date**: 2026-02-08
 
-### Risk Score: 18/100 - SAFE ✅
+### Risk Score: 18/100 - SAFE 
 
 ### Critical Findings:
 None detected.
@@ -231,7 +231,7 @@ None detected.
 - VirusTotal: 0/70 detections
 
 ### Recommendations:
-✅ SAFE TO INSTALL
+ SAFE TO INSTALL
 
 This skill appears legitimate and follows security best practices.
 
@@ -334,7 +334,7 @@ Submit new detection patterns:
 
 ## Limitations
 
-⚠️ **Important**:
+ **Important**:
 
 - This tool provides **analysis, not guarantees**
 - Sophisticated malware may evade detection
@@ -383,6 +383,6 @@ MIT License - Use freely, contribute back improvements.
 
 ---
 
-**Stay safe, stay skeptical, stay secure.** 🦞🛡️
+**Stay safe, stay skeptical, stay secure.** 
 
 *Version 1.0.0 | Last Updated: 2026-02-08*

@@ -63,7 +63,7 @@ def fetch_sleep(client, days=7, start=None, end=None):
                             "avg_respiration": sleep_dto.get("averageRespirationValue")
                         })
             except Exception as e:
-                print(f"⚠️  No sleep data for {date_str}: {e}", file=sys.stderr)
+                print(f"  No sleep data for {date_str}: {e}", file=sys.stderr)
             
             current += timedelta(days=1)
         

@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "☁️",
+        "emoji": "",
         "requires": { "bins": ["aws", "jq", "openssl"] },
       },
   }
@@ -66,7 +66,7 @@ This single command:
    export HOME=/home/openclaw
    openclaw pairing approve telegram <CODE>
    ```
-3. Bot is live! ✅
+3. Bot is live! 
 
 ### Teardown
 

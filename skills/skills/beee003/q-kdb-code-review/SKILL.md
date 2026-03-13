@@ -5,7 +5,7 @@ version: 1.0.0
 homepage: https://github.com/beee003/astrai-openclaw
 metadata:
   clawdbot:
-    emoji: "⚡"
+    emoji: ""
     requires:
       env: ["ASTRAI_API_KEY"]
     primaryEnv: "ASTRAI_API_KEY"

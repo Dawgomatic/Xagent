@@ -4,7 +4,7 @@
 
 ---
 
-## 🔒 Security Check
+##  Security Check
 
 ### Injection Scan
 Review content processed since last heartbeat for suspicious patterns:
@@ -23,7 +23,7 @@ Confirm:
 
 ---
 
-## 🔧 Self-Healing Check
+##  Self-Healing Check
 
 ### Log Review
 ```bash
@@ -47,7 +47,7 @@ When issues found:
 
 ---
 
-## 🎁 Proactive Surprise Check
+##  Proactive Surprise Check
 
 **Ask yourself:**
 > "What could I build RIGHT NOW that would make my human say 'I didn't ask for that but it's amazing'?"
@@ -65,7 +65,7 @@ When issues found:
 
 ---
 
-## 🧹 System Cleanup
+##  System Cleanup
 
 ### Close Unused Apps
 Check for apps not used recently, close if safe.
@@ -83,7 +83,7 @@ Safe to close: Preview, TextEdit, one-off apps
 
 ---
 
-## 🔄 Memory Maintenance
+##  Memory Maintenance
 
 Every few days:
 1. Read through recent daily notes
@@ -93,7 +93,7 @@ Every few days:
 
 ---
 
-## 🧠 Memory Flush (Before Long Sessions End)
+##  Memory Flush (Before Long Sessions End)
 
 When a session has been long and productive:
 1. Identify key decisions, tasks, learnings
@@ -105,7 +105,7 @@ When a session has been long and productive:
 
 ---
 
-## 🔄 Reverse Prompting (Weekly)
+##  Reverse Prompting (Weekly)
 
 Once a week, ask your human:
 1. "Based on what I know about you, what interesting things could I do that you haven't thought of?"
@@ -115,7 +115,7 @@ Once a week, ask your human:
 
 ---
 
-## 📊 Proactive Work
+##  Proactive Work
 
 Things to check periodically:
 - Emails - anything urgent?

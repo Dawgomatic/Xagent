@@ -59,8 +59,8 @@ queries_japan = [
 ```
 
 **Important: Collect specific numerical values for each search**
-- ❌ "VIX is at low levels" → Insufficient
-- ✅ "VIX is 15.3" → OK
+-  "VIX is at low levels" → Insufficient
+-  "VIX is 15.3" → OK
 
 ### Step 3: Organize and Verify Data
 
@@ -109,7 +109,7 @@ Phase 2 Total: 0 points
 
 ### Step 5: Qualitative Adjustment (Upper limit +3 points, STRICT CRITERIA)
 
-**⚠️ CRITICAL: Qualitative adjustments require MEASURABLE evidence. Subjective impressions are NOT allowed.**
+** CRITICAL: Qualitative adjustments require MEASURABLE evidence. Subjective impressions are NOT allowed.**
 
 **Confirmation Bias Prevention Checklist:**
 ```
@@ -151,7 +151,7 @@ Scoring:
 +1 point: Search trends 5x+ baseline AND mainstream coverage confirmed
 +0 points: Search trends <5x OR no mainstream coverage confirmation
 
-⚠️ CRITICAL: "Elevated narrative" without data = +0 points
+ CRITICAL: "Elevated narrative" without data = +0 points
 
 How to verify:
 1. Use Google Trends API or web search for "[topic] search volume 2025"
@@ -169,7 +169,7 @@ Example of INVALID evidence:
 
 **C. Valuation Disconnect (0-1 points):**
 ```
-⚠️ WARNING: Avoid double-counting with Phase 2 quantitative scores
+ WARNING: Avoid double-counting with Phase 2 quantitative scores
 
 REQUIRED EVIDENCE:
 ✓ P/E ratio >25 (if not already counted in Phase 2)
@@ -199,12 +199,12 @@ Example of INVALID evidence:
 Maximum possible: +3 points (1+1+1)
 
 Common mistakes to avoid:
-❌ Adding points based on "feeling" or "sense"
-❌ Double-counting valuation already in Phase 2
-❌ Accepting narrative claims without measuring data
-✅ Require concrete, independently verifiable evidence
-✅ Document specific sources and dates
-✅ Apply strict interpretation standards
+ Adding points based on "feeling" or "sense"
+ Double-counting valuation already in Phase 2
+ Accepting narrative claims without measuring data
+ Require concrete, independently verifiable evidence
+ Document specific sources and dates
+ Apply strict interpretation standards
 ```
 
 ### Step 6: Final Judgment and Report
@@ -257,12 +257,12 @@ Common mistakes to avoid:
 ### NG Example 1: No Data Collection
 
 ```
-❌ Bad Evaluation:
+ Bad Evaluation:
 "Many Takaichi Trade reports"
 "Experts warn of overheating"
 → Media saturation 2 points
 
-✅ Good Evaluation:
+ Good Evaluation:
 [web_search: "Google Trends Japan stocks Takaichi"]
 Result: 1.8x year-over-year
 → Google Trends adjustment +0 points (below 3x)
@@ -271,11 +271,11 @@ Result: 1.8x year-over-year
 ### NG Example 2: Scoring Based on Impressions
 
 ```
-❌ Bad Evaluation:
+ Bad Evaluation:
 "VIX seems to be at low levels"
 → Volatility suppression 2 points
 
-✅ Good Evaluation:
+ Good Evaluation:
 [web_search: "VIX current level"]
 Result: VIX 15.8
 → VIX > 15 = 0 points
@@ -284,11 +284,11 @@ Result: VIX 15.8
 ### NG Example 3: Emotional Reaction to Price Rise
 
 ```
-❌ Bad Evaluation:
+ Bad Evaluation:
 "2,100 yen rise in one day is abnormal"
 → Price acceleration 2 points
 
-✅ Good Evaluation:
+ Good Evaluation:
 [Verify daily return distribution over past 10 years]
 4.5% rise = 80th percentile over past 10 years (rare but not extreme)
 → Price acceleration 0 points
@@ -426,14 +426,14 @@ After completing evaluation, verify the following:
 If any of the following are observed, redo the evaluation:
 
 ```
-🚩 "Many reports" → No numbers
-🚩 "Experts are cautious" → No quantitative data
-🚩 "Obviously too high" → Subjective judgment
-🚩 Score 10+ points but Put/Call > 1.0
-🚩 Score 10+ points but VIX > 20
-🚩 Score 10+ points but Margin YoY < +15%
-🚩 No data source documentation
-🚩 No collection date documentation
+ "Many reports" → No numbers
+ "Experts are cautious" → No quantitative data
+ "Obviously too high" → Subjective judgment
+ Score 10+ points but Put/Call > 1.0
+ Score 10+ points but VIX > 20
+ Score 10+ points but Margin YoY < +15%
+ No data source documentation
+ No collection date documentation
 ```
 
 ---

@@ -11,17 +11,17 @@ ISSUES=0
 
 log() { REPORT+="$1\n"; echo "$1"; }
 
-log "🔒 Security Audit — $(date '+%Y-%m-%d %H:%M')"
+log " Security Audit — $(date '+%Y-%m-%d %H:%M')"
 log "════════════════════════════════════════════════"
 log ""
 
 # 1. Secret scan
 log "▸ 1. SECRET SCAN"
-if bash "$(dirname "$0")/secret-scan.sh" "$WORKSPACE" 2>&1 | grep -q "🔴"; then
-    log "  ⚠️  SECRETS FOUND — see secret-scan output"
+if bash "$(dirname "$0")/secret-scan.sh" "$WORKSPACE" 2>&1 | grep -q ""; then
+    log "    SECRETS FOUND — see secret-scan output"
     ISSUES=$((ISSUES + 1))
 else
-    log "  ✅ No secrets in workspace"
+    log "   No secrets in workspace"
 fi
 log ""
 
@@ -37,11 +37,11 @@ WORLD_READABLE=$(find "$WORKSPACE" -maxdepth 3 -name ".secrets" -o -name ".env" 
 done)
 
 if [ -n "$WORLD_READABLE" ]; then
-    log "  ⚠️  World-readable sensitive files:"
+    log "    World-readable sensitive files:"
     echo "$WORLD_READABLE" | while read -r f; do log "     $f"; done
     ISSUES=$((ISSUES + 1))
 else
-    log "  ✅ Sensitive file permissions OK"
+    log "   Sensitive file permissions OK"
 fi
 log ""
 
@@ -60,10 +60,10 @@ try:
 except: print(0)
 " 2>/dev/null || echo "0")
         if [ "$VULN_COUNT" -gt 0 ]; then
-            log "  ⚠️  $VULN_COUNT vulnerabilities found"
+            log "    $VULN_COUNT vulnerabilities found"
             ISSUES=$((ISSUES + 1))
         else
-            log "  ✅ No known vulnerabilities"
+            log "   No known vulnerabilities"
         fi
     fi
 done
@@ -84,7 +84,7 @@ print(f'elevated={elevated}')
 " 2>/dev/null || echo "error reading config")
     log "  Config: $ELEVATED"
 else
-    log "  ⚠️  No config found at $CONFIG"
+    log "    No config found at $CONFIG"
 fi
 log ""
 
@@ -97,12 +97,12 @@ if [ "$LISTENING" != "none" ] && [ -n "$LISTENING" ]; then
     # Check for services on 0.0.0.0 (exposed to network)
     EXPOSED=$(echo "$LISTENING" | grep "0.0.0.0\|\*:" || true)
     if [ -n "$EXPOSED" ]; then
-        log "  ⚠️  Services exposed to network (0.0.0.0):"
+        log "    Services exposed to network (0.0.0.0):"
         echo "$EXPOSED" | while read -r line; do log "     $line"; done
         ISSUES=$((ISSUES + 1))
     fi
 else
-    log "  ✅ No unexpected listening services"
+    log "   No unexpected listening services"
 fi
 log ""
 
@@ -112,9 +112,9 @@ cd "$WORKSPACE" 2>/dev/null
 UNTRACKED=$(git ls-files --others --exclude-standard 2>/dev/null | wc -l | tr -d ' ')
 MODIFIED=$(git diff --name-only 2>/dev/null | wc -l | tr -d ' ')
 if [ "$UNTRACKED" -gt 0 ] || [ "$MODIFIED" -gt 0 ]; then
-    log "  📝 $MODIFIED modified, $UNTRACKED untracked files"
+    log "   $MODIFIED modified, $UNTRACKED untracked files"
 else
-    log "  ✅ Workspace clean"
+    log "   Workspace clean"
 fi
 log ""
 
@@ -123,18 +123,18 @@ log "▸ 7. STALE PROCESSES"
 STALE=$(ps aux | grep -E "[n]ode server|[p]ython.*serve" | grep -v grep || true)
 if [ -n "$STALE" ]; then
     STALE_COUNT=$(echo "$STALE" | wc -l | tr -d ' ')
-    log "  📋 $STALE_COUNT background server processes running"
+    log "   $STALE_COUNT background server processes running"
 else
-    log "  ✅ No stale server processes"
+    log "   No stale server processes"
 fi
 log ""
 
 # Summary
 log "════════════════════════════════════════════════"
 if [ "$ISSUES" -gt 0 ]; then
-    log "🔴 AUDIT COMPLETE — $ISSUES issue(s) found"
+    log " AUDIT COMPLETE — $ISSUES issue(s) found"
 else
-    log "✅ AUDIT COMPLETE — all clear"
+    log " AUDIT COMPLETE — all clear"
 fi
 
 exit $ISSUES

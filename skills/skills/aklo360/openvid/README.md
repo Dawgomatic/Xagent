@@ -75,8 +75,8 @@ For agent-to-agent commerce:
 | 3min | $60 |
 
 **Payment methods:**
-- 🔵 USDC on Base
-- 🟣 SOL on Solana
+-  USDC on Base
+-  SOL on Solana
 
 ---
 
@@ -125,10 +125,10 @@ GET /v1/jobs/{jobId}
 
 ## Links
 
-- 🌐 **Website:** [openvid.app](https://openvid.app)
-- 🎬 **Create:** [openvid.app/create](https://openvid.app/create)
-- 📡 **API:** [gateway.openvid.app](https://gateway.openvid.app)
-- 📦 **ClawHub:** `clawhub install openvid`
+-  **Website:** [openvid.app](https://openvid.app)
+-  **Create:** [openvid.app/create](https://openvid.app/create)
+-  **API:** [gateway.openvid.app](https://gateway.openvid.app)
+-  **ClawHub:** `clawhub install openvid`
 
 ---
 

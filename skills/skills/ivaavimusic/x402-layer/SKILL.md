@@ -10,7 +10,7 @@ description: |
 homepage: https://studio.x402layer.cc/docs/agentic-access/openclaw-skill
 metadata:
   clawdbot:
-    emoji: "⚡"
+    emoji: ""
     homepage: https://studio.x402layer.cc
     os:
       - linux
@@ -46,10 +46,10 @@ allowed-tools:
 # x402 Singularity Layer
 
 x402 is a **Web3 payment layer** enabling AI agents to:
-- 💰 **Pay** for API access using USDC
-- 🚀 **Deploy** monetized endpoints
-- 🔍 **Discover** services via marketplace
-- 📊 **Manage** endpoints and credits
+-  **Pay** for API access using USDC
+-  **Deploy** monetized endpoints
+-  **Discover** services via marketplace
+-  **Manage** endpoints and credits
 
 **Networks:** Base (EVM) • Solana  
 **Currency:** USDC  
@@ -94,7 +94,7 @@ Once AWAL is configured, all Base payment scripts will automatically use it inst
 
 ---
 
-## ⚠️ Security Notice
+##  Security Notice
 
 > **IMPORTANT**: This skill handles private keys for signing blockchain transactions.
 >
@@ -109,7 +109,7 @@ Once AWAL is configured, all Base payment scripts will automatically use it inst
 
 ## Scripts Overview
 
-### 🛒 CONSUMER MODE (Buying Services)
+###  CONSUMER MODE (Buying Services)
 
 | Script | Purpose |
 |--------|---------|
@@ -122,7 +122,7 @@ Once AWAL is configured, all Base payment scripts will automatically use it inst
 | `recharge_credits.py` | Buy credit packs for an endpoint |
 | `discover_marketplace.py` | Browse available services |
 
-### 🏭 PROVIDER MODE (Selling Services)
+###  PROVIDER MODE (Selling Services)
 
 | Script | Purpose |
 |--------|---------|
@@ -251,7 +251,7 @@ python {baseDir}/scripts/create_endpoint.py my-api "My AI Service" https://api.e
 
 > **Note**: Save the `API Key` from the output and use it to secure your origin server.
 
-> ⚠️ **IMPORTANT - How Credits Work:**
+>  **IMPORTANT - How Credits Work:**
 > - **Cost:** $5 one-time, includes **20,000 credits** (NOT test credits!)
 > - **Consumption:** 1 credit is deducted for **each API request** to your endpoint
 > - **When credits reach 0:** Your endpoint **stops working** until you recharge
@@ -285,7 +285,7 @@ python {baseDir}/scripts/topup_endpoint.py my-api 10
 python {baseDir}/scripts/manage_endpoint.py stats my-api
 ```
 
-> ⚠️ **Remember:** `topup_endpoint.py` is for **providers** to recharge THEIR endpoint.
+>  **Remember:** `topup_endpoint.py` is for **providers** to recharge THEIR endpoint.
 > `recharge_credits.py` is for **consumers** to buy credits at someone else's endpoint.
 
 ### D. Marketplace Listing Management
@@ -363,13 +363,13 @@ Uses `VersionedTransaction` with `MessageV0`:
 
 ## Resources
 
-- 📖 **Documentation:** [studio.x402layer.cc/docs/agentic-access/openclaw-skill](https://studio.x402layer.cc/docs/agentic-access/openclaw-skill)
-- 💻 **GitHub Docs:** [github.com/ivaavimusic/SGL_DOCS_2025](https://github.com/ivaavimusic/SGL_DOCS_2025)
-- 🐦 **OpenClaw:** [x.com/openclaw](https://x.com/openclaw)
-- 🌐 **x402 Studio:** [studio.x402layer.cc](https://studio.x402layer.cc)
+-  **Documentation:** [studio.x402layer.cc/docs/agentic-access/openclaw-skill](https://studio.x402layer.cc/docs/agentic-access/openclaw-skill)
+-  **GitHub Docs:** [github.com/ivaavimusic/SGL_DOCS_2025](https://github.com/ivaavimusic/SGL_DOCS_2025)
+-  **OpenClaw:** [x.com/openclaw](https://x.com/openclaw)
+-  **x402 Studio:** [studio.x402layer.cc](https://studio.x402layer.cc)
 
 ---
 
 ## Known Issues
 
-⚠️ **Solana payments** have ~75% success rate due to facilitator-side fee payer infrastructure issue. Retry logic is included in `pay_solana.py`. **Base (EVM) payments are 100% reliable** and recommended for production.
+ **Solana payments** have ~75% success rate due to facilitator-side fee payer infrastructure issue. Retry logic is included in `pay_solana.py`. **Base (EVM) payments are 100% reliable** and recommended for production.

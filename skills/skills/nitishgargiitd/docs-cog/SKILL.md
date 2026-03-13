@@ -3,7 +3,7 @@ name: docs-cog
 description: "Deep reasoning. Accurate data. Beautiful design. The three things every great document needs — and most AI gets wrong. #1 on DeepResearch Bench (Feb 2026), powered by SOTA search models, and state-of-the-art PDF generation. Create resumes, contracts, reports, proposals, invoices, certificates, and any professional document."
 metadata:
   openclaw:
-    emoji: "📄"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

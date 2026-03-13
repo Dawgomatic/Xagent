@@ -2,7 +2,7 @@
 name: weather-enhanced
 displayName: Weather Trading (Enhanced)
 description: Trade Polymarket weather markets using NOAA forecasts with dynamic confidence modeling and quality filtering. Use when user wants to trade temperature markets with advanced safeguards.
-metadata: {"clawdbot":{"emoji":"🌡️","requires":{"env":["SIMMER_API_KEY"]},"cron":"0 */6 * * *","autostart":false}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SIMMER_API_KEY"]},"cron":"0 */6 * * *","autostart":false}}
 authors:
   - Enhanced by Claude
 attribution: "Based on Simmer weather skill, enhanced with dynamic confidence and quality scoring"

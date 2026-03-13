@@ -30,14 +30,14 @@ This creates:
 
 ## Your Permissions
 
-✅ **Can do:**
+ **Can do:**
 - Write to `drafts/`
 - Read all content directories
 - Revise drafts based on feedback
 - Move revised files to `revised/`
 - Run `content list` to see pending content
 
-❌ **Cannot do:**
+ **Cannot do:**
 - Move files to `approved/` (only the human can approve)
 - Post content
 - Set `status: approved`
@@ -134,10 +134,10 @@ content thread <file>           # Add a note to the feedback thread
 
 The security model separates drafting (AI) from approval/posting (human):
 
-- ✅ Agent drafts content
-- ✅ Agent revises based on feedback  
-- ❌ Agent cannot approve (human approves via `content review`)
-- ❌ Agent cannot post
+-  Agent drafts content
+-  Agent revises based on feedback  
+-  Agent cannot approve (human approves via `content review`)
+-  Agent cannot post
 
 Posting is handled manually via CLI — never by the agent directly.
 
@@ -145,7 +145,7 @@ Posting is handled manually via CLI — never by the agent directly.
 
 | Platform | Auth Storage | Encrypted? | Password Required? |
 |----------|--------------|------------|-------------------|
-| LinkedIn | Browser profile | ✅ Yes | ✅ Yes |
-| X/Twitter | Firefox tokens | ✅ Yes | ✅ Yes |
+| LinkedIn | Browser profile |  Yes |  Yes |
+| X/Twitter | Firefox tokens |  Yes |  Yes |
 
 Both platforms require password to post. Tokens are extracted from Firefox and encrypted locally.

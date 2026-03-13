@@ -6,7 +6,7 @@ Keep a living `PROJECT_STATE.md` updated after each commit, so any agent (or fut
 
 ```
 ┌─────────────┐     ┌──────────────────┐     ┌─────────────────────┐
-│ Git Commit  │ ──▶ │ Post-commit Hook │ ──▶ │ PROJECT_STATE.md    │
+│ Git Commit  │ ── │ Post-commit Hook │ ── │ PROJECT_STATE.md    │
 │             │     │                  │     │ (auto-updated)      │
 └─────────────┘     └──────────────────┘     └─────────────────────┘
 ```

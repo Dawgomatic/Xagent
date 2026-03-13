@@ -46,7 +46,7 @@ class RateLimiter {
     
     // Hard daily limit - refuse requests (0 = unlimited)
     if (this.dailyLimit > 0 && this.dailyRequests > this.dailyLimit) {
-      console.error(`🛑 Daily limit reached (${this.dailyLimit} requests). Refusing.`);
+      console.error(` Daily limit reached (${this.dailyLimit} requests). Refusing.`);
       throw new Error('Daily request limit exceeded');
     }
     
@@ -77,7 +77,7 @@ class RateLimiter {
   backoff(retryAfterMs = 10000) {
     this.backoffUntil = Date.now() + retryAfterMs;
     this.tokens = 0; // Drain tokens
-    console.log(`⚠️ Rate limited - backing off for ${retryAfterMs}ms`);
+    console.log(` Rate limited - backing off for ${retryAfterMs}ms`);
   }
 
   sleep(ms) {

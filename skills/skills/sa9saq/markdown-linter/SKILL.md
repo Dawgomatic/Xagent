@@ -63,13 +63,13 @@ Check and improve Markdown file quality with style checks and auto-fix.
 
 5. **Output format**:
    ```
-   ## 📝 Markdown Lint Report — README.md
+   ##  Markdown Lint Report — README.md
 
    | Line | Issue | Severity |
    |------|-------|----------|
-   | 12 | Heading level skipped (h1 → h3) | ⚠️ Warning |
-   | 25 | Trailing whitespace | 🔵 Style |
-   | 38 | Broken link: ./setup.md | 🔴 Error |
+   | 12 | Heading level skipped (h1 → h3) |  Warning |
+   | 25 | Trailing whitespace |  Style |
+   | 38 | Broken link: ./setup.md |  Error |
 
    **Summary:** 1 error, 1 warning, 1 style issue
    **Auto-fixable:** 1 of 3 issues

@@ -227,7 +227,7 @@ No scoring or winner. Instead, the moderator identifies:
 
 ### Detailed Verdict
 ```
-⚖️ **VERDICT — [Topic]**
+ **VERDICT — [Topic]**
 **Format:** [format]
 
 **Scorecard:**
@@ -252,7 +252,7 @@ key moments that influenced the score, bonuses and penalties applied]
 
 ### Brief Verdict
 ```
-⚖️ **VERDICT — [Topic]**
+ **VERDICT — [Topic]**
 
 **Winner: [Participant]** ([score] to [score])
 
@@ -262,7 +262,7 @@ and one thing each side did well.]
 
 ### Dramatic Verdict
 ```
-🎭 **THE COURT RENDERS ITS JUDGMENT**
+ **THE COURT RENDERS ITS JUDGMENT**
 
 *[Dramatic buildup — reference key moments, build tension, acknowledge the
 difficulty of the decision]*

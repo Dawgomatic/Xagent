@@ -103,7 +103,7 @@ function parseRecoveryOutput(output) {
   
   const hadDeath = output.includes('Context death detected') || 
                    output.includes('died') || 
-                   output.includes('⚠️');
+                   output.includes('');
   
   let workingOn = null;
   if (hadDeath) {

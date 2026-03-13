@@ -147,7 +147,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
     <div class="header">
-        <h1>🏋️ {title}</h1>
+        <h1> {title}</h1>
         <p>{subtitle}</p>
     </div>
     {stats_html}

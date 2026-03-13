@@ -14,19 +14,19 @@ Common AI SDK UI errors with actionable solutions.
 
 **Solution**:
 ```typescript
-// ✅ CORRECT (App Router)
+//  CORRECT (App Router)
 export async function POST(req: Request) {
   const result = streamText({ /* ... */ });
   return result.toDataStreamResponse();  // Correct method
 }
 
-// ✅ CORRECT (Pages Router)
+//  CORRECT (Pages Router)
 export default async function handler(req, res) {
   const result = streamText({ /* ... */ });
   return result.pipeDataStreamToResponse(res);  // Correct method
 }
 
-// ❌ WRONG
+//  WRONG
 return new Response(result.textStream);  // Missing stream protocol
 ```
 
@@ -60,13 +60,13 @@ export async function POST(req: Request) {
 
 **Solution**:
 ```typescript
-// ✅ GOOD: SDK handles closing automatically
+//  GOOD: SDK handles closing automatically
 export async function POST(req: Request) {
   const result = streamText({ model: openai('gpt-5'), messages });
   return result.toDataStreamResponse();
 }
 
-// ❌ BAD: Manual stream handling (error-prone)
+//  BAD: Manual stream handling (error-prone)
 const encoder = new TextEncoder();
 const stream = new ReadableStream({
   async start(controller) {
@@ -129,10 +129,10 @@ location /api/ {
 
 **Solution**:
 ```tsx
-// ✅ CORRECT: Use useChat hook
+//  CORRECT: Use useChat hook
 const { messages } = useChat({ api: '/api/chat' });
 
-// ❌ WRONG: Consuming stream directly
+//  WRONG: Consuming stream directly
 const response = await fetch('/api/chat');
 const reader = response.body.getReader();  // Don't do this!
 ```
@@ -154,7 +154,7 @@ const { messages, sendMessage } = useChat();
 
 sendMessage({
   content: input,
-  data: { userId },  // ✅ Fresh value on each send
+  data: { userId },  //  Fresh value on each send
 });
 ```
 
@@ -165,7 +165,7 @@ bodyRef.current = body; // Update on each render
 
 useChat({
   transport: new DefaultChatTransport({
-    body: () => bodyRef.current, // ✅ Always fresh
+    body: () => bodyRef.current, //  Always fresh
   }),
 });
 ```
@@ -178,7 +178,7 @@ useChat({
 });
 ```
 
-**Maintainer Note**: "We are aware that this is a problem. We just couldn't prioritize it yet, sorry. At least there is a workaround, albeit gross 😁" - @gr2m
+**Maintainer Note**: "We are aware that this is a problem. We just couldn't prioritize it yet, sorry. At least there is a workaround, albeit gross " - @gr2m
 
 **Related Issues**: [#11686](https://github.com/vercel/ai/issues/11686) (stale closures in onData/onFinish), [#8956](https://github.com/vercel/ai/issues/8956) (transport doesn't update)
 
@@ -190,7 +190,7 @@ useChat({
 
 **Solution**:
 ```tsx
-// ✅ CORRECT
+//  CORRECT
 const { messages } = useChat({
   headers: {
     'Authorization': `Bearer ${token}`,
@@ -222,14 +222,14 @@ const { messages } = useChat({
 
 **Solution**:
 ```tsx
-// ❌ BAD: Infinite loop
+//  BAD: Infinite loop
 const saveMessages = (messages) => { /* ... */ };
 
 useEffect(() => {
   saveMessages(messages);
 }, [messages, saveMessages]);  // saveMessages changes every render!
 
-// ✅ GOOD: Only depend on messages
+//  GOOD: Only depend on messages
 useEffect(() => {
   localStorage.setItem('messages', JSON.stringify(messages));
 }, [messages]);  // saveMessages not needed in deps
@@ -243,14 +243,14 @@ useEffect(() => {
 
 **Solution**:
 ```tsx
-// ❌ BAD: Calling sendMessage multiple times
+//  BAD: Calling sendMessage multiple times
 const handleSubmit = (e) => {
   e.preventDefault();
   sendMessage({ content: input });
   sendMessage({ content: input });  // Duplicate!
 };
 
-// ✅ GOOD: Single call
+//  GOOD: Single call
 const handleSubmit = (e) => {
   e.preventDefault();
   if (!input.trim()) return;  // Guard
@@ -291,7 +291,7 @@ const handleStop = () => {
 
 **Solution**:
 ```tsx
-// ✅ CORRECT (v5)
+//  CORRECT (v5)
 messages.map(message => {
   // Use content for simple messages
   if (message.content) {
@@ -308,7 +308,7 @@ messages.map(message => {
   }
 });
 
-// ❌ WRONG (v4 style)
+//  WRONG (v4 style)
 message.toolCalls  // Doesn't exist in v5
 ```
 
@@ -347,7 +347,7 @@ try {
   };
   // ... rest of makeRequest
 } finally {
-  if (activeResponse) { // ✅ Check before accessing
+  if (activeResponse) { //  Check before accessing
     this.onFinish?.call(this, {
       message: activeResponse.state.message,
       // ...
@@ -374,7 +374,7 @@ const { sendMessage, isLoading } = useChat();
 
 // Rapid double-click or programmatic double-send
 sendMessage({ content: 'First' });
-sendMessage({ content: 'Second' }); // ❌ Overwrites activeResponse
+sendMessage({ content: 'Second' }); //  Overwrites activeResponse
 ```
 
 **Solution**: Guard against concurrent sends
@@ -382,7 +382,7 @@ sendMessage({ content: 'Second' }); // ❌ Overwrites activeResponse
 const [isSending, setIsSending] = useState(false);
 
 const handleSend = async (content: string) => {
-  if (isSending) return; // ✅ Block concurrent calls
+  if (isSending) return; //  Block concurrent calls
   setIsSending(true);
   try {
     await sendMessage({ content });
@@ -408,10 +408,10 @@ const handleSend = async (content: string) => {
 ```tsx
 const { sendMessage, regenerate } = useChat({
   onFinish: () => {
-    void sendMessage({ content: 'Continue...' }); // ❌ Breaks
+    void sendMessage({ content: 'Continue...' }); //  Breaks
   },
   onError: () => {
-    void regenerate(); // ❌ Breaks
+    void regenerate(); //  Breaks
   },
 });
 ```
@@ -421,7 +421,7 @@ const { sendMessage, regenerate } = useChat({
 const { sendMessage } = useChat({
   onFinish: () => {
     queueMicrotask(() => {
-      void sendMessage({ content: 'Continue...' }); // ✅ Works
+      void sendMessage({ content: 'Continue...' }); //  Works
     });
   },
 });
@@ -444,7 +444,7 @@ const { messages, stop } = useChat({
 });
 
 // User stops immediately after sending
-stop(); // ❌ ZodError if no parts generated yet
+stop(); //  ZodError if no parts generated yet
 ```
 
 **Solution**: Filter out empty messages before validation
@@ -471,7 +471,7 @@ const validMessages = validateUIMessages(filteredMessages);
 const tools = { myTool };
 const convertedMessages = convertToModelMessages(messages, { tools });
 
-// ❌ Error: no tool invocation found for tool call toolu_123
+//  Error: no tool invocation found for tool call toolu_123
 // Message structure:
 // - tool-call part
 // - tool-approval-request part
@@ -496,13 +496,13 @@ const convertedMessages = convertToModelMessages(messages, { tools });
 **Reproduction**:
 ```tsx
 const chatId = someCondition ? 'chat-123' : undefined;
-useChat({ id: chatId }); // ❌ Infinite loop if undefined
+useChat({ id: chatId }); //  Infinite loop if undefined
 ```
 
 **Solution**: Always provide a stable id
 ```tsx
 const chatId = someCondition ? 'chat-123' : 'default';
-useChat({ id: chatId }); // ✅
+useChat({ id: chatId }); // 
 ```
 
 **Verification**: Single report, matches expected behavior of useRef with undefined key.

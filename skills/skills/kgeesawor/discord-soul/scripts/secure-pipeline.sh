@@ -43,7 +43,7 @@ echo "→ Step 3: Haiku safety evaluation" | tee -a "$LOG_FILE"
 if [ -n "$ANTHROPIC_API_KEY" ]; then
     python3 "$SCRIPT_DIR/evaluate-safety.py" "$SQLITE_DB" --threshold 0.6 2>&1 | tee -a "$LOG_FILE"
 else
-    echo "  ⚠️ ANTHROPIC_API_KEY not set, marking as unverified" | tee -a "$LOG_FILE"
+    echo "   ANTHROPIC_API_KEY not set, marking as unverified" | tee -a "$LOG_FILE"
     sqlite3 "$SQLITE_DB" "UPDATE messages SET safety_status = 'unverified' WHERE safety_status = 'pending';"
 fi
 

@@ -47,7 +47,7 @@ Get complete project status including agents, tasks, and progress.
     "blocked": 1,
     "done": 5
   },
-  "summary": "📊 Project Status\n..."
+  "summary": " Project Status\n..."
 }
 ```
 
@@ -103,7 +103,7 @@ Claim a task for an agent (sets status to `in_progress`).
 ```json
 {
   "success": true,
-  "message": "🔒 @bot claimed TASK-001"
+  "message": " @bot claimed TASK-001"
 }
 ```
 
@@ -127,7 +127,7 @@ Release a claimed task (sets status back to `todo`).
 ```json
 {
   "success": true,
-  "message": "🔓 @bot released TASK-001"
+  "message": " @bot released TASK-001"
 }
 ```
 
@@ -151,7 +151,7 @@ Mark a task as complete. Automatically unblocks dependent tasks.
 ```json
 {
   "success": true,
-  "message": "✅ @bot completed TASK-001\nUnblocked: TASK-002, TASK-003"
+  "message": " @bot completed TASK-001\nUnblocked: TASK-002, TASK-003"
 }
 ```
 
@@ -176,7 +176,7 @@ Add a comment/note to a task.
 ```json
 {
   "success": true,
-  "message": "💬 @bot commented on TASK-001"
+  "message": " @bot commented on TASK-001"
 }
 ```
 
@@ -208,7 +208,7 @@ Validate TICK.md for structural and logical errors.
       "message": "Task has no dependencies and is not claimed"
     }
   ],
-  "summary": "✅ Validation passed (0 errors, 1 warning)"
+  "summary": " Validation passed (0 errors, 1 warning)"
 }
 ```
 
@@ -234,7 +234,7 @@ Register a new agent in the project.
 ```json
 {
   "success": true,
-  "message": "✅ Registered @bot-qa as bot"
+  "message": " Registered @bot-qa as bot"
 }
 ```
 
@@ -279,7 +279,7 @@ List all registered agents with optional filtering.
     }
   ],
   "count": 2,
-  "summary": "👥 2 agents (1 human, 1 bot)"
+  "summary": " 2 agents (1 human, 1 bot)"
 }
 ```
 
@@ -305,7 +305,7 @@ Reopen a completed task (sets status back to `in_progress` or previous state).
 ```json
 {
   "success": true,
-  "message": "🔄 @bot reopened TASK-001"
+  "message": " @bot reopened TASK-001"
 }
 ```
 
@@ -337,7 +337,7 @@ Delete a task from the project.
 ```json
 {
   "success": true,
-  "message": "🗑️ Deleted TASK-001"
+  "message": " Deleted TASK-001"
 }
 ```
 
@@ -369,7 +369,7 @@ Directly edit task fields, bypassing state machine validation.
 ```json
 {
   "success": true,
-  "message": "✏️ Updated TASK-001: title, priority"
+  "message": " Updated TASK-001: title, priority"
 }
 ```
 
@@ -401,7 +401,7 @@ Undo the last tick operation by reverting the most recent tick commit.
 ```json
 {
   "success": true,
-  "message": "↩️ Reverted: tick: complete TASK-001",
+  "message": " Reverted: tick: complete TASK-001",
   "revertedCommit": "abc1234"
 }
 ```

@@ -58,8 +58,8 @@ app.use((error, req, res, next) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🎯 Q Dashboard running on http://localhost:${PORT}`);
-  console.log(`📊 API endpoints:`);
+  console.log(` Q Dashboard running on http://localhost:${PORT}`);
+  console.log(` API endpoints:`);
   console.log(`   GET  /api/health           - Health check`);
   console.log(`   GET  /api/loops            - List all loops`);
   console.log(`   GET  /api/loops/all        - All sessions (active + historical)`);
@@ -67,18 +67,18 @@ app.listen(PORT, () => {
   console.log(`   GET  /api/loops/:id/transcript - Full transcript`);
   console.log(`   POST /api/loops/:id/kill   - Kill session`);
   console.log(`   GET  /api/stats            - Dashboard statistics`);
-  console.log(`📁 Static files served from: ${path.join(__dirname, 'public')}`);
-  console.log(`🌐 CORS enabled for all origins`);
+  console.log(` Static files served from: ${path.join(__dirname, 'public')}`);
+  console.log(` CORS enabled for all origins`);
 });
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
-  console.log('📡 Received SIGTERM, shutting down gracefully...');
+  console.log(' Received SIGTERM, shutting down gracefully...');
   process.exit(0);
 });
 
 process.on('SIGINT', () => {
-  console.log('\n📡 Received SIGINT, shutting down gracefully...');
+  console.log('\n Received SIGINT, shutting down gracefully...');
   process.exit(0);
 });
 

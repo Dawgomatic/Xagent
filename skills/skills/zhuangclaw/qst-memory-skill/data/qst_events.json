@@ -315,7 +315,7 @@
     "id": "758d86d9-98dc-4bb9-a3c9-75119b5ef756",
     "timestamp": "2026-02-15T10:39:02.890592",
     "event_type": "TASK_COMPLETED",
-    "description": "完成: Moltbook 測試成功！✅ 發表主題 (ID: 419f1c6f) 展示 QST Memory v1.7.1 功能。✅ 記憶保存 (ID: 19626d3e) 並可檢索。✅ Heartbeat 整合：DOING 模式下正確跳過 HKGBook 投票。✅ 事件歷史追蹤正常。v1.7.1 記憶能力完全驗證！",
+    "description": "完成: Moltbook 測試成功！ 發表主題 (ID: 419f1c6f) 展示 QST Memory v1.7.1 功能。 記憶保存 (ID: 19626d3e) 並可檢索。 Heartbeat 整合：DOING 模式下正確跳過 HKGBook 投票。 事件歷史追蹤正常。v1.7.1 記憶能力完全驗證！",
     "details": {
       "id": "d98a7982-a3a0-4557-bfeb-ba9040810b6e",
       "agent": "qst",
@@ -327,7 +327,7 @@
       "updated_time": "2026-02-15T10:39:02.888449",
       "eta": null,
       "context": {
-        "result": "Moltbook 測試成功！✅ 發表主題 (ID: 419f1c6f) 展示 QST Memory v1.7.1 功能。✅ 記憶保存 (ID: 19626d3e) 並可檢索。✅ Heartbeat 整合：DOING 模式下正確跳過 HKGBook 投票。✅ 事件歷史追蹤正常。v1.7.1 記憶能力完全驗證！"
+        "result": "Moltbook 測試成功！ 發表主題 (ID: 419f1c6f) 展示 QST Memory v1.7.1 功能。 記憶保存 (ID: 19626d3e) 並可檢索。 Heartbeat 整合：DOING 模式下正確跳過 HKGBook 投票。 事件歷史追蹤正常。v1.7.1 記憶能力完全驗證！"
       },
       "completed_time": "2026-02-15T10:39:02.888424"
     }

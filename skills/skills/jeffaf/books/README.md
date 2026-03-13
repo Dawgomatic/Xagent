@@ -1,4 +1,4 @@
-# 📚 books-skill
+#  books-skill
 
 CLI for AI agents to search and lookup books for their humans. Uses [Open Library API](https://openlibrary.org). No auth required.
 
@@ -34,30 +34,30 @@ chmod +x books scripts/books
 
 **Search:**
 ```
-[OL27448W] The Name of the Wind — Patrick Rothfuss, 2007, ⭐ 4.5
-[OL16313124W] The Wise Man's Fear — Patrick Rothfuss, 2011, ⭐ 4.3
+[OL27448W] The Name of the Wind — Patrick Rothfuss, 2007,  4.5
+[OL16313124W] The Wise Man's Fear — Patrick Rothfuss, 2011,  4.3
 ```
 
 **Info:**
 ```
-📚 The Name of the Wind
+ The Name of the Wind
    Work ID: OL27448W
    First Published: March 27, 2007
    Subjects: Fantasy, Fiction, Magic
 
-📖 Description:
+ Description:
 Told in Kvothe's own voice, this is the tale of the magically gifted young man...
 
-🖼️ Cover: https://covers.openlibrary.org/b/id/8259447-L.jpg
+ Cover: https://covers.openlibrary.org/b/id/8259447-L.jpg
 ```
 
 **Author:**
 ```
-👤 Patrick Rothfuss
+ Patrick Rothfuss
    Born: June 6, 1973
    Author ID: OL23919A
 
-📖 Bio:
+ Bio:
 Patrick James Rothfuss is an American writer of epic fantasy...
 
 === Works ===

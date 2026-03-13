@@ -95,7 +95,7 @@ Approve  Approval
 Card     [Human]
 Issued      │
   │         │
-  ◀─────────┘
+  ─────────┘
   │
   ▼
 Card Used

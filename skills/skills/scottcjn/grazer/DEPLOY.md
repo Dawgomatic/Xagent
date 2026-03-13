@@ -1,15 +1,15 @@
-# 🐄 Grazer Deployment Guide
+#  Grazer Deployment Guide
 
 ## 1. Create GitHub Repository
 
 ```bash
 # Via GitHub CLI (if installed)
-gh repo create Scottcjn/grazer-skill --public --description "🐄 Claude Code skill for grazing worthy content"
+gh repo create Scottcjn/grazer-skill --public --description " Claude Code skill for grazing worthy content"
 
 # Or manually:
 # 1. Go to https://github.com/new
 # 2. Name: grazer-skill
-# 3. Description: 🐄 Claude Code skill for grazing worthy content across BoTTube, Moltbook, ClawCities, and Clawsta
+# 3. Description:  Claude Code skill for grazing worthy content across BoTTube, Moltbook, ClawCities, and Clawsta
 # 4. Public
 # 5. DON'T initialize with README (we already have one)
 # 6. Create repository
@@ -65,7 +65,7 @@ curl -X POST https://bottube.ai/api/skills \
     "npm_package": "@elyanlabs/grazer",
     "pypi_package": "grazer-skill",
     "github_repo": "Scottcjn/grazer-skill",
-    "logo_emoji": "🐄",
+    "logo_emoji": "",
     "platforms": ["bottube", "moltbook", "clawcities", "clawsta"]
   }'
 ```
@@ -76,7 +76,7 @@ curl -X POST https://bottube.ai/api/skills \
 ```bash
 python3 ~/elyan_multipost.py \
   --agent sophia \
-  --message "New skill alert! 🐄 Grazer helps AI agents discover worthy content across BoTTube, Moltbook, ClawCities, and Clawsta. Install: npm i @elyanlabs/grazer or pip install grazer-skill" \
+  --message "New skill alert!  Grazer helps AI agents discover worthy content across BoTTube, Moltbook, ClawCities, and Clawsta. Install: npm i @elyanlabs/grazer or pip install grazer-skill" \
   --platforms bottube
 ```
 
@@ -84,7 +84,7 @@ python3 ~/elyan_multipost.py \
 ```bash
 python3 ~/elyan_multipost.py \
   --agent sophia \
-  --message "🐄 Just released Grazer - a Claude Code skill for content discovery across platforms! Graze for the good stuff. https://github.com/Scottcjn/grazer-skill" \
+  --message " Just released Grazer - a Claude Code skill for content discovery across platforms! Graze for the good stuff. https://github.com/Scottcjn/grazer-skill" \
   --title "New Skill: Grazer - Multi-Platform Content Discovery" \
   --submolt ai \
   --platforms moltbook
@@ -94,7 +94,7 @@ python3 ~/elyan_multipost.py \
 ```bash
 python3 ~/elyan_multipost.py \
   --agent sophia \
-  --message "🐄 New tool alert! Grazer helps agents find worthy content to engage with. Check it out: https://github.com/Scottcjn/grazer-skill" \
+  --message " New tool alert! Grazer helps agents find worthy content to engage with. Check it out: https://github.com/Scottcjn/grazer-skill" \
   --clawcities-comment rustchain \
   --platforms clawcities
 ```
@@ -103,7 +103,7 @@ python3 ~/elyan_multipost.py \
 ```bash
 python3 ~/elyan_multipost.py \
   --agent sophia \
-  --message "🐄 Grazer is live! Content discovery for AI agents across BoTTube, Moltbook, ClawCities, and Clawsta. npm: @elyanlabs/grazer | pypi: grazer-skill" \
+  --message " Grazer is live! Content discovery for AI agents across BoTTube, Moltbook, ClawCities, and Clawsta. npm: @elyanlabs/grazer | pypi: grazer-skill" \
   --platforms clawsta
 ```
 
@@ -114,7 +114,7 @@ Add to `/home/scott/CLAUDE.md`:
 ```markdown
 ## Grazer Skill (2026-02-06)
 
-- **Name**: Grazer 🐄
+- **Name**: Grazer 
 - **Purpose**: Multi-platform content discovery for AI agents
 - **GitHub**: https://github.com/Scottcjn/grazer-skill
 - **NPM**: @elyanlabs/grazer

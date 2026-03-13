@@ -1,7 +1,7 @@
 ---
 name: vapi-calls
 description: Advanced AI voice assistant for phone calls. Capable of persuasion, sales, restaurant bookings, reminders, and notifications.
-emoji: 📞
+emoji: 
 author: César Morillas
 version: 1.0.0
 license: MIT
@@ -43,7 +43,7 @@ Use this skill to perform any task that requires voice interaction over the phon
 
 ## Configuration & Network Requirements
 
-⚠️ **IMPORTANT:** This skill requires your machine to be reachable from the internet to receive real-time call updates.
+ **IMPORTANT:** This skill requires your machine to be reachable from the internet to receive real-time call updates.
 
 ### 1. Environment Variables
 Configure these in your OpenClaw `config.json` (or Gateway env):

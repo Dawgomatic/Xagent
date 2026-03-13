@@ -73,5 +73,5 @@ await handler.removeEvent(channelId, eventId)
 ## Reactions
 
 ```typescript
-await handler.sendReaction(channelId, messageId, '👍')
+await handler.sendReaction(channelId, messageId, '')
 ```

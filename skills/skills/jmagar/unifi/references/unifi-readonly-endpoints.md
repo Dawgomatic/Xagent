@@ -95,39 +95,39 @@ Tested against your UniFi OS gateway on `10.1.0.1` using the UniFi OS login + `/
 
 | Group | Path | HTTP | OK | Note |
 |---|---|---:|:--:|---|
-| console | `/status` | 200 | ✅ | 200 |
-| console | `/api/users/self` | 200 | ✅ | 200 |
-| console | `/api/self/sites` | 404 | ❌ | http 404 |
-| console | `/api/stat/sites` | 404 | ❌ | http 404 |
-| console | `/api/stat/admin` | 404 | ❌ | http 404 |
-| network | `/api/s/default/self` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/sysinfo` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/ccode` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/current-channel` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/health` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/event` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/alarm` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/sta` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/rest/user` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/device-basic` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/device` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/routing` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/dynamicdns` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/rogueap` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/spectrumscan` | 404 | ❌ | api.err.NotFound |
-| network | `/api/s/default/stat/sitedpi` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/stat/stadpi` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/rest/portforward` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/rest/setting` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/rest/networkconf` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/rest/wlanconf` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/rest/firewallrule` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/rest/firewallgroup` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/rest/routing` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/rest/dynamicdns` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/rest/portconf` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/rest/radiusprofile` | 200 | ✅ | meta.rc=ok |
-| network | `/api/s/default/rest/account` | 200 | ✅ | meta.rc=ok |
+| console | `/status` | 200 |  | 200 |
+| console | `/api/users/self` | 200 |  | 200 |
+| console | `/api/self/sites` | 404 |  | http 404 |
+| console | `/api/stat/sites` | 404 |  | http 404 |
+| console | `/api/stat/admin` | 404 |  | http 404 |
+| network | `/api/s/default/self` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/sysinfo` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/ccode` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/current-channel` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/health` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/event` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/alarm` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/sta` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/rest/user` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/device-basic` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/device` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/routing` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/dynamicdns` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/rogueap` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/spectrumscan` | 404 |  | api.err.NotFound |
+| network | `/api/s/default/stat/sitedpi` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/stat/stadpi` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/rest/portforward` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/rest/setting` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/rest/networkconf` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/rest/wlanconf` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/rest/firewallrule` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/rest/firewallgroup` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/rest/routing` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/rest/dynamicdns` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/rest/portconf` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/rest/radiusprofile` | 200 |  | meta.rc=ok |
+| network | `/api/s/default/rest/account` | 200 |  | meta.rc=ok |
 
 ## Source
 - Community reverse-engineered list (includes UniFi OS notes): https://ubntwiki.com/products/software/unifi-controller/api

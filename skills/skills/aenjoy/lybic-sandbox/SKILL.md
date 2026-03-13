@@ -4,7 +4,7 @@ description: Lybic Sandbox is a cloud sandbox built for agents and automation wo
 homepage: https://lybic.ai
 metadata: {
     "openclaw": {
-        "emoji": "🧫",
+        "emoji": "",
         "requires": {
             "bins": [
                 "pip3",

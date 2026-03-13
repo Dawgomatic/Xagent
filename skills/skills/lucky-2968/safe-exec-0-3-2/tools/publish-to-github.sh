@@ -8,19 +8,19 @@ REPO_NAME="safe-exec"
 VERSION="0.2.0"
 GITHUB_USER="${GITHUB_USER:-yourusername}"
 
-echo "🚀 SafeExec GitHub 发布助手 v$VERSION"
+echo " SafeExec GitHub 发布助手 v$VERSION"
 echo "======================================"
 echo ""
 
 # 检查是否在 Git 仓库中
 if [[ ! -d .git ]]; then
-    echo "❌ 错误：不在 Git 仓库中"
+    echo " 错误：不在 Git 仓库中"
     exit 1
 fi
 
 # 检查工作区状态
 if [[ -n $(git status --porcelain) ]]; then
-    echo "⚠️  检测到未提交的更改"
+    echo "  检测到未提交的更改"
     git status --short
     echo ""
     read -p "是否先提交这些更改？(y/n) " -n 1 -r
@@ -31,7 +31,7 @@ if [[ -n $(git status --porcelain) ]]; then
     fi
 fi
 
-echo "📋 发布前检查"
+echo " 发布前检查"
 echo "============"
 echo ""
 echo "当前分支: $(git branch --show-current)"
@@ -40,7 +40,7 @@ echo "提交数: $(git rev-list --count HEAD)"
 echo "文件数: $(git ls-files | wc -l)"
 echo ""
 
-echo "🌐 GitHub 仓库创建指南"
+echo " GitHub 仓库创建指南"
 echo "======================"
 echo ""
 echo "步骤 1: 创建 GitHub 仓库"
@@ -50,8 +50,8 @@ echo ""
 echo "2. 填写仓库信息:"
 echo "   Repository name: $REPO_NAME"
 echo "   Description: AI Agent 安全防护层 - 拦截危险命令，保护你的系统"
-echo "   Public: ☑️ (公开仓库)"
-echo "   Initialize: ❌ (不勾选任何选项)"
+echo "   Public:  (公开仓库)"
+echo "   Initialize:  (不勾选任何选项)"
 echo ""
 echo "3. 点击 'Create repository'"
 echo ""
@@ -92,7 +92,7 @@ cat > push-to-github.sh <<'EOF'
 REPO_NAME="safe-exec"
 GITHUB_USER="${1:-yourusername}"
 
-echo "📤 推送 SafeExec 到 GitHub"
+echo " 推送 SafeExec 到 GitHub"
 echo "=========================="
 echo ""
 echo "仓库: git@github.com:$GITHUB_USER/$REPO_NAME.git"
@@ -100,18 +100,18 @@ echo ""
 
 # 添加远程仓库
 if git remote get-url origin &>/dev/null; then
-    echo "⚠️  远程仓库已存在"
+    echo "  远程仓库已存在"
     git remote -v | grep origin
     echo ""
     read -p "是否更新远程仓库 URL？(y/n) " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         git remote set-url origin "git@github.com:$GITHUB_USER/$REPO_NAME.git"
-        echo "✅ 远程仓库已更新"
+        echo " 远程仓库已更新"
     fi
 else
     git remote add origin "git@github.com:$GITHUB_USER/$REPO_NAME.git"
-    echo "✅ 远程仓库已添加"
+    echo " 远程仓库已添加"
 fi
 
 echo ""
@@ -124,14 +124,14 @@ echo "推送所有标签..."
 git push origin --tags
 
 echo ""
-echo "✅ 推送完成！"
+echo " 推送完成！"
 echo ""
 echo "查看仓库: https://github.com/$GITHUB_USER/$REPO_NAME"
 EOF
 
 chmod +x push-to-github.sh
 
-echo "📝 已生成推送脚本: push-to-github.sh"
+echo " 已生成推送脚本: push-to-github.sh"
 echo ""
 echo "创建仓库后，运行:"
 echo "   ./push-to-github.sh <你的GitHub用户名>"
@@ -141,32 +141,32 @@ echo "   git remote add origin git@github.com:<你的用户名>/$REPO_NAME.git"
 echo "   git push -u origin master"
 echo "   git push origin --tags"
 echo ""
-echo "🎯 发布检查清单"
+echo " 发布检查清单"
 echo "==============="
 echo ""
 echo "发布前:"
-echo "  ✅ 代码已提交"
-echo "  ✅ 文档已完善"
-echo "  ✅ 标签已创建"
-echo "  ✅ README.md 完整"
-echo "  ✅ LICENSE 已添加"
+echo "   代码已提交"
+echo "   文档已完善"
+echo "   标签已创建"
+echo "   README.md 完整"
+echo "   LICENSE 已添加"
 echo ""
 echo "发布中:"
-echo "  ⏳ 创建 GitHub 仓库"
-echo "  ⏳ 推送代码"
-echo "  ⏳ 推送标签"
-echo "  ⏳ 创建 Release"
+echo "   创建 GitHub 仓库"
+echo "   推送代码"
+echo "   推送标签"
+echo "   创建 Release"
 echo ""
 echo "发布后:"
-echo "  ⏳ 发布博客 (Dev.to)"
-echo "  ⏳ 社区分享 (Discord)"
-echo "  ⏳ 提交到 ClawdHub"
+echo "   发布博客 (Dev.to)"
+echo "   社区分享 (Discord)"
+echo "   提交到 ClawdHub"
 echo ""
-echo "📚 相关文档"
+echo " 相关文档"
 echo "=========="
 echo "  - RELEASE_v0.2.0.md: 版本发布报告"
 echo "  - RELEASE_NOTES.md: 发布说明"
 echo "  - BLOG.md: 宣传博客"
 echo "  - README.md: 项目主页"
 echo ""
-echo "🚀 祝发布顺利！"
+echo " 祝发布顺利！"

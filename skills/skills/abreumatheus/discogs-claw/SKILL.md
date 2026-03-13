@@ -1,7 +1,7 @@
 ---
 name: discogs-claw
 description: Search for vinyl record prices on Discogs using curl. Retrieves Low, Median, and High price suggestions based on condition.
-metadata: {"clawdbot":{"emoji":"💿","requires":{"bins":["jq","curl"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["jq","curl"]}}}
 ---
 
 # Discogs Claw

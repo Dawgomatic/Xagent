@@ -29,7 +29,7 @@ mkdir -p "$OUTPUT_DIR" "$FILTERED_DIR"
 ###############################################################################
 # 步骤1: 收集数据
 ###############################################################################
-log "📡 步骤1: 收集数据..."
+log " 步骤1: 收集数据..."
 
 cd "$PIPELINE_DIR"
 
@@ -40,33 +40,33 @@ log "   - 收集 HN + TechCrunch..."
 # 统计
 if [[ -f "$OUTPUT_DIR/raw-content.json" ]]; then
     HN_TC_COUNT=$(jq '[.sources[].items | length] | add // 0' "$OUTPUT_DIR/raw-content.json")
-    log "   ✅ 收集到 $HN_TC_COUNT 条 (HN+TC)"
+    log "    收集到 $HN_TC_COUNT 条 (HN+TC)"
 else
     HN_TC_COUNT=0
-    log "   ⚠️ HN/TC收集可能失败"
+    log "    HN/TC收集可能失败"
 fi
 
 ###############################################################################
 # 步骤2: 生成分析报告
 ###############################################################################
 log ""
-log "🤖 步骤2: AI分析..."
+log " 步骤2: AI分析..."
 
 # 这里会由OpenClaw agent执行AI分析
 # 生成完整的TOP10报告
 
 # 检查是否有分析报告生成
 if [[ -f "$REPORT_FILE" ]]; then
-    log "   ✅ 分析报告已存在"
+    log "    分析报告已存在"
 else
-    log "   ⏳ 等待AI分析完成..."
+    log "    等待AI分析完成..."
     # 创建一个占位报告
     cat > "$REPORT_FILE" << EOF
-# 📋 今日AI选题推荐 - $DATE
+#  今日AI选题推荐 - $DATE
 
-> ⏰ 收集时间: $TIME  
-> 📊 数据来源: Hacker News + TechCrunch  
-> 🤖 AI智能筛选: 分析中...
+>  收集时间: $TIME  
+>  数据来源: Hacker News + TechCrunch  
+>  AI智能筛选: 分析中...
 
 ---
 
@@ -78,7 +78,7 @@ else
 
 ---
 
-⏳ AI正在分析内容，请稍候...
+ AI正在分析内容，请稍候...
 
 分析报告将包含:
 - TOP 10推荐选题
@@ -96,7 +96,7 @@ fi
 # 步骤3: 发送飞书消息
 ###############################################################################
 log ""
-log "📱 步骤3: 发送飞书消息..."
+log " 步骤3: 发送飞书消息..."
 
 # 读取报告内容
 if [[ -f "$REPORT_FILE" ]]; then
@@ -107,9 +107,9 @@ if [[ -f "$REPORT_FILE" ]]; then
     
     # 使用message工具发送
     # 注意: 这里由OpenClaw agent执行时调用
-    log "   ✅ 消息已准备发送"
+    log "    消息已准备发送"
 else
-    log "   ❌ 报告文件不存在"
+    log "    报告文件不存在"
 fi
 
 ###############################################################################
@@ -119,7 +119,7 @@ log ""
 log "========== 任务完成 =========="
 log "报告文件: $REPORT_FILE"
 log ""
-log "📋 任务总结:"
+log " 任务总结:"
 log "   - 收集: $HN_TC_COUNT 条 (HN+TC)"
 log "   - Twitter: 需手动/browser收集"
 log "   - 报告: $REPORT_FILE"

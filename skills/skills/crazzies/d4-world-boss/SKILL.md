@@ -21,28 +21,28 @@ cd ~/.openclaw/skills/d4-world-boss && python3 scripts/fetch_boss.py
 
 **BOSS 即将刷新时**：
 ```
-🔥 暗黑4 世界BOSS
+ 暗黑4 世界BOSS
 
 【当前BOSS】"诅咒之金"贪魔
-【状态】🔄 刷新倒计时
+【状态】 刷新倒计时
 【倒计时】30分19秒
 
-📊 数据来源: https://map.caimogu.cc/d4.html
+ 数据来源: https://map.caimogu.cc/d4.html
 
-💡 需要设置刷新提醒吗？
+ 需要设置刷新提醒吗？
 ```
 
 **BOSS 正在出现时**：
 ```
-🔥 暗黑4 世界BOSS
+ 暗黑4 世界BOSS
 
 【当前BOSS】"诅咒之金"贪魔
-【状态】⚔️ BOSS已出现，战斗中
+【状态】 BOSS已出现，战斗中
 【倒计时】12分12秒
 
-📊 数据来源: https://map.caimogu.cc/d4.html
+ 数据来源: https://map.caimogu.cc/d4.html
 
-⚠️ BOSS正在出现中，无需设置提醒
+ BOSS正在出现中，无需设置提醒
 ```
 
 ## 定时提醒逻辑
@@ -56,4 +56,4 @@ cd ~/.openclaw/skills/d4-world-boss && python3 scripts/fetch_boss.py
 查询后询问用户是否需要设置定时提醒。如果需要，使用 cron 工具在刷新前提醒：
 
 - 提醒时间：预计刷新前 15 分钟
-- 消息示例："🔥 暗黑4 世界BOSS 即将刷新！预计时间：2026-02-09 14:30"
+- 消息示例：" 暗黑4 世界BOSS 即将刷新！预计时间：2026-02-09 14:30"

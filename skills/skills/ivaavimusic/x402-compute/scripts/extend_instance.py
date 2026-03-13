@@ -101,7 +101,7 @@ def extend_instance(instance_id: str, hours: int = 720, network: str = "base") -
 
         order = result.get("order", {}) if isinstance(result, dict) else {}
         if order:
-            print("✅ Instance extended!")
+            print(" Instance extended!")
             print(f"   New Expiry: {order.get('expires_at', 'N/A')}")
         return result
 
@@ -132,7 +132,7 @@ def extend_instance(instance_id: str, hours: int = 720, network: str = "base") -
     if response.status_code == 200:
         data = response.json()
         order = data.get("order", {})
-        print(f"✅ Instance extended!")
+        print(f" Instance extended!")
         print(f"   New Expiry: {order.get('expires_at', 'N/A')}")
         if data.get("tx_hash"):
             print(f"   TX: {data['tx_hash']}")

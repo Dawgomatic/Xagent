@@ -15,7 +15,7 @@ Write one or more follow-up emails based on the meeting items. Guidelines:
 
 Format each email like this:
 ```
-### 📧 Follow-Up Email: [recipient description]
+###  Follow-Up Email: [recipient description]
 
 **To:** [names]
 **Subject:** [subject line]
@@ -34,7 +34,7 @@ For each action item, generate a ticket/issue draft suitable for Jira, Linear, G
 
 Format:
 ```
-### 🎫 Ticket Drafts
+###  Ticket Drafts
 
 #### Ticket 1: [title]
 - **Assignee:** [name]

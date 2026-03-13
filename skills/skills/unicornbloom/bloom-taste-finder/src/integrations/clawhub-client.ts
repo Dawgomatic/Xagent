@@ -42,7 +42,7 @@ export class ClawHubClient {
   async searchSkills(options: ClawHubSearchOptions): Promise<ClawHubSkill[]> {
     const { query, limit = 10 } = options;
 
-    console.log(`🔍 Searching ClawHub for: "${query}"...`);
+    console.log(` Searching ClawHub for: "${query}"...`);
 
     try {
       // Call ClawHub search API
@@ -57,11 +57,11 @@ export class ClawHubClient {
 
       // Parse API response
       const skills = this.parseApiResponse(data);
-      console.log(`✅ Found ${skills.length} skills`);
+      console.log(` Found ${skills.length} skills`);
 
       return skills;
     } catch (error) {
-      console.error('❌ ClawHub search failed:', error);
+      console.error(' ClawHub search failed:', error);
       return [];
     }
   }
@@ -70,7 +70,7 @@ export class ClawHubClient {
    * Search multiple categories and merge results (parallel execution for speed)
    */
   async searchMultipleCategories(categories: string[], limitPerCategory: number = 3): Promise<ClawHubSkill[]> {
-    console.log(`🔍 Searching ${categories.length} categories in parallel...`);
+    console.log(` Searching ${categories.length} categories in parallel...`);
 
     // Execute all searches in parallel for better performance
     const searchPromises = categories.map(category =>
@@ -117,7 +117,7 @@ export class ClawHubClient {
       const data = await response.json();
       return this.parseSkillObject(data);
     } catch (error) {
-      console.error(`❌ Failed to get skill details for ${slug}:`, error);
+      console.error(` Failed to get skill details for ${slug}:`, error);
       return null;
     }
   }
@@ -207,7 +207,7 @@ export class ClawHubClient {
   }): Promise<ClawHubSkill[]> {
     const { mainCategories, subCategories, limit = 10 } = options;
 
-    console.log(`🎯 Getting recommendations for categories: ${mainCategories.join(', ')}`);
+    console.log(` Getting recommendations for categories: ${mainCategories.join(', ')}`);
 
     // Search main categories (higher priority)
     const mainResults = await this.searchMultipleCategories(mainCategories, 4);

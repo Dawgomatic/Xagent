@@ -4,7 +4,7 @@ description: >-
   Web search via Querit.ai API. Use when you need to search the web for
   documentation, current events, facts, or any web content. Returns
   structured results with titles, URLs, and snippets.
-metadata: {"openclaw":{"emoji":"🔎","requires":{"env":["QUERIT_API_KEY"]},"primaryEnv":"QUERIT_API_KEY","install":[{"id":"node","kind":"node","label":"Install npm dependencies"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["QUERIT_API_KEY"]},"primaryEnv":"QUERIT_API_KEY","install":[{"id":"node","kind":"node","label":"Install npm dependencies"}]}}
 ---
 
 # Querit Search

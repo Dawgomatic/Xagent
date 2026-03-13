@@ -20,7 +20,7 @@ Dubai is one of the **safest cities in the world**. It ranked **#5 out of 431 ci
 
 ---
 
-## 📞 Emergency Numbers
+##  Emergency Numbers
 
 | Service | Number | Notes |
 |---------|--------|-------|
@@ -47,11 +47,11 @@ Dubai is one of the **safest cities in the world**. It ranked **#5 out of 431 ci
 
 ---
 
-## ⚖️ Laws You MUST Know
+##  Laws You MUST Know
 
 Dubai follows **UAE federal law** with strong Islamic (Sharia) influences. Ignorance is **NOT** an excuse.
 
-### 🚨 Serious Offenses
+###  Serious Offenses
 
 | Offense | Penalty |
 |---------|---------|
@@ -109,7 +109,7 @@ Dubai follows **UAE federal law** with strong Islamic (Sharia) influences. Ignor
 | **Sharing rumors online** | Cybercrime offense |
 | **Drones** | Require permit from DCAA |
 
-**⚠️ Real cases:** People have been jailed for posting negative Facebook reviews of businesses.
+** Real cases:** People have been jailed for posting negative Facebook reviews of businesses.
 
 ### Medication Rules
 
@@ -128,7 +128,7 @@ Dubai follows **UAE federal law** with strong Islamic (Sharia) influences. Ignor
 
 ---
 
-## 🚗 Traffic & Road Safety
+##  Traffic & Road Safety
 
 Dubai has high traffic accident rates due to:
 - Speeding (common)
@@ -166,7 +166,7 @@ Dubai has high traffic accident rates due to:
 
 ---
 
-## 🕵️ Common Scams & Crimes
+##  Common Scams & Crimes
 
 ### Tourist Scams
 
@@ -203,7 +203,7 @@ Dubai has high traffic accident rates due to:
 
 ---
 
-## 👩 Women's Safety
+##  Women's Safety
 
 Dubai is generally safe for women, including solo travelers.
 
@@ -230,7 +230,7 @@ Dubai is generally safe for women, including solo travelers.
 
 ---
 
-## 🏳️‍🌈 LGBTQ+ Travelers
+##  LGBTQ+ Travelers
 
 **Important:** Same-sex relations are **illegal** in UAE.
 
@@ -250,7 +250,7 @@ Dubai is generally safe for women, including solo travelers.
 
 ---
 
-## 🏖️ Beach & Water Safety
+##  Beach & Water Safety
 
 | Hazard | Prevention |
 |--------|------------|
@@ -268,7 +268,7 @@ Dubai is generally safe for women, including solo travelers.
 
 ---
 
-## 🌡️ Health & Environmental Safety
+##  Health & Environmental Safety
 
 ### Heat-Related Illness (Summer)
 
@@ -289,7 +289,7 @@ Dubai is generally safe for women, including solo travelers.
 
 ---
 
-## 🛡️ Areas & Safety by Location
+##  Areas & Safety by Location
 
 ### Very Safe
 
@@ -315,7 +315,7 @@ Dubai is generally safe for women, including solo travelers.
 
 ---
 
-## 🔒 Cybersecurity
+##  Cybersecurity
 
 | Rule | Details |
 |------|---------|
@@ -332,7 +332,7 @@ Dubai is generally safe for women, including solo travelers.
 
 ---
 
-## 📋 Safety Checklist
+##  Safety Checklist
 
 ### Before You Go
 - [ ] Check medication legality
@@ -359,7 +359,7 @@ Dubai is generally safe for women, including solo travelers.
 
 ---
 
-## 🆘 Embassy Contacts
+##  Embassy Contacts
 
 | Country | Phone | Emergency |
 |---------|-------|-----------|
@@ -371,7 +371,7 @@ Dubai is generally safe for women, including solo travelers.
 
 ---
 
-## ⚠️ Key Takeaways
+##  Key Takeaways
 
 1. **Dubai is very safe** for tourists who follow the rules
 2. **Laws are strict** – don't assume Western norms apply

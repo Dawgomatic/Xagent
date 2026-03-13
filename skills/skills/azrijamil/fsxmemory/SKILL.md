@@ -132,11 +132,11 @@ fsxmemory migrate --from openclaw --vault /path/to/vault --dry-run
 fsxmemory migrate --from openclaw --vault /path/to/vault --backup
 
 # The migration:
-# ✅ Adds YAML frontmatter to all markdown files
-# ✅ Renames directories (procedural→procedures, semantic→knowledge, episodic→episodes)
-# ✅ Creates .fsxmemory.json config file
-# ✅ Preserves all content and custom categories
-# ✅ Creates timestamped backup for rollback
+#  Adds YAML frontmatter to all markdown files
+#  Renames directories (procedural→procedures, semantic→knowledge, episodic→episodes)
+#  Creates .fsxmemory.json config file
+#  Preserves all content and custom categories
+#  Creates timestamped backup for rollback
 ```
 
 ### Rollback if Needed
@@ -176,7 +176,7 @@ fsxmemory stats --vault ~/.openclaw/workspace/memory
 fsxmemory doctor --vault ~/.openclaw/workspace/memory
 ```
 
-**Migration Speed**: ~53 files in 0.07 seconds ⚡
+**Migration Speed**: ~53 files in 0.07 seconds 
 
 ## Auto-linking
 
@@ -299,14 +299,14 @@ fsxmemory checkpoint --working-on "task"
 ```
 
 **Use .env when:**
-- ✅ **Isolating workspace memory** — Each project has its own separate vault
-- ✅ **Per-project configuration** — Different agents in different workspaces use different vaults
-- ✅ **Portable** — Workspace agents automatically use the right vault
-- ✅ **Git-safe** — Add `.env` to `.gitignore` to protect paths
+-  **Isolating workspace memory** — Each project has its own separate vault
+-  **Per-project configuration** — Different agents in different workspaces use different vaults
+-  **Portable** — Workspace agents automatically use the right vault
+-  **Git-safe** — Add `.env` to `.gitignore` to protect paths
 
 **Use global export when:**
-- ✅ **Sharing memory across workspaces** — All agents everywhere use one vault
-- ✅ **Centralized knowledge** — One source of truth for all projects
+-  **Sharing memory across workspaces** — All agents everywhere use one vault
+-  **Centralized knowledge** — One source of truth for all projects
 
 **Environment Variables:**
 - `FSXMEMORY_PATH` — Vault path (can be set in shell or `.env` file)

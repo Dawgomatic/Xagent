@@ -97,9 +97,9 @@ if (!scenario) {
 if (scenario === 'clear') {
   try {
     fs.unlinkSync(TEST_OVERRIDE_FILE);
-    console.log('✅ Test overrides cleared');
+    console.log(' Test overrides cleared');
   } catch (e) {
-    console.log('✅ No test overrides to clear');
+    console.log(' No test overrides to clear');
   }
   process.exit(0);
 }
@@ -135,7 +135,7 @@ override._expiresAt = new Date(Date.now() + 3600000).toISOString(); // 1 hour
 
 fs.writeFileSync(TEST_OVERRIDE_FILE, JSON.stringify(override, null, 2));
 
-console.log(`✅ Test scenario '${scenario}' injected`);
+console.log(` Test scenario '${scenario}' injected`);
 console.log('');
 console.log('Override file:', TEST_OVERRIDE_FILE);
 console.log('Expires:', override._expiresAt);

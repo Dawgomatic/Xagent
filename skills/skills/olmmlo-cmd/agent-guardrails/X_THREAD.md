@@ -10,7 +10,7 @@ We spent 3 days solving a problem that keeps happening with AI agents:
 
 They build features perfectly... then forget to connect them to production.
 
-Here's how we built mechanical enforcement to stop it — and discovered something meta. 🧵
+Here's how we built mechanical enforcement to stop it — and discovered something meta. 
 
 ---
 
@@ -23,7 +23,7 @@ Feb 2, 2026. Our agent built:
 
 User: "Why are my reports still incomplete?"
 
-The agent forgot to update the CRON job. 😤
+The agent forgot to update the CRON job. 
 
 Code was perfect. Integration was missing.
 
@@ -45,11 +45,11 @@ Time for a different approach.
 
 We discovered enforcement has reliability layers:
 
-🟢 Code hooks (100%) - Pre-commit blocks bad commits
-🟡 Architecture (95%) - Import registries enforce reuse
-🟠 Self-verification (80%) - Agent checks own work
-🔴 Prompt rules (60-70%) - AGENTS.md guidelines
-⚫ Markdown (40-50%) - Degrades with context
+ Code hooks (100%) - Pre-commit blocks bad commits
+ Architecture (95%) - Import registries enforce reuse
+ Self-verification (80%) - Agent checks own work
+ Prompt rules (60-70%) - AGENTS.md guidelines
+ Markdown (40-50%) - Degrades with context
 
 Rule: Move UP the stack.
 
@@ -59,8 +59,8 @@ Rule: Move UP the stack.
 
 Agent writes "quick version" instead of importing validated code.
 
-❌ Markdown rule: "Don't reimplement"
-✅ Code hook: Blocks commits containing "quick version"
+ Markdown rule: "Don't reimplement"
+ Code hook: Blocks commits containing "quick version"
 
 Result: 100% enforcement. Can't commit without review.
 
@@ -70,8 +70,8 @@ Result: 100% enforcement. Can't commit without review.
 
 Agent hardcodes API keys instead of using env vars.
 
-❌ Markdown rule: "Use environment variables"
-✅ Code hook: Scans for patterns, blocks on detection
+ Markdown rule: "Use environment variables"
+ Code hook: Scans for patterns, blocks on detection
 
 One dev leaked a token once. Never again.
 
@@ -92,11 +92,11 @@ This is what broke us.
 
 Before ANY commit:
 ```bash
-✅ Run actual production flow
-✅ Verify output exists
-✅ Check output format
-✅ Test ALL integration points
-❌ Block if any test fails
+ Run actual production flow
+ Verify output exists
+ Check output format
+ Test ALL integration points
+ Block if any test fails
 ```
 
 Git hook makes it impossible to "forget."
@@ -109,7 +109,7 @@ We built deployment verification. Committed it.
 
 Then realized: "We forgot to update the agent-guardrails SKILL itself."
 
-😅 We just discovered a META failure mode.
+ We just discovered a META failure mode.
 
 ---
 
@@ -122,7 +122,7 @@ Project A builds enforcement improvement.
 
 We needed enforcement FOR enforcement improvements.
 
-Meta-enforcement. 🤯
+Meta-enforcement. 
 
 ---
 
@@ -159,10 +159,10 @@ After that? Self-hosting. The system detects its own improvements.
 
 All of this is now packaged as "Agent Guardrails":
 
-📦 Scripts for all 4 failure modes
-📖 Full documentation
-🔧 One-command installation
-🔄 Self-updating feedback loop
+ Scripts for all 4 failure modes
+ Full documentation
+ One-command installation
+ Self-updating feedback loop
 
 Open source: github.com/jzOcb/agent-guardrails
 
@@ -190,7 +190,7 @@ bash agent-guardrails/scripts/install.sh .
 
 Or on Claude: [skill link TBD]
 
-Share your enforcement challenges below! 👇
+Share your enforcement challenges below! 
 
 ---
 

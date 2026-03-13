@@ -1,5 +1,5 @@
 /**
- * 💉 Prompt Injection Detector
+ *  Prompt Injection Detector
  * 
  * Detects potential prompt injection patterns in workspace files,
  * skills, and user-provided content

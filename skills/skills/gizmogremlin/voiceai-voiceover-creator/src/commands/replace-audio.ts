@@ -84,7 +84,7 @@ export async function replaceAudioCommand(opts: ReplaceAudioOptions): Promise<vo
 
     if (result.success) {
       console.log(
-        chalk.bold('\n✅ Done!') + chalk.gray(` → ${result.outputPath}`),
+        chalk.bold('\n Done!') + chalk.gray(` → ${result.outputPath}`),
       );
     } else {
       console.error(chalk.red('\n✗ Mux failed. Check the report for details.'));
@@ -92,14 +92,14 @@ export async function replaceAudioCommand(opts: ReplaceAudioOptions): Promise<vo
     }
   } else {
     console.log(
-      chalk.yellow('\n⚠ ffmpeg not found — cannot mux directly.') +
+      chalk.yellow('\n ffmpeg not found — cannot mux directly.') +
         chalk.gray('\n   Generating helper scripts instead…'),
     );
 
     const scriptDir = dirname(outputPath);
     await generateMuxScripts(videoPath, audioPath, outputPath, syncPolicy, scriptDir);
 
-    console.log(chalk.green('\n   ✅ Helper scripts generated:'));
+    console.log(chalk.green('\n    Helper scripts generated:'));
     console.log(chalk.gray(`      ${join(scriptDir, 'ffmpeg', 'replace-audio.sh')}`));
     console.log(chalk.gray(`      ${join(scriptDir, 'ffmpeg', 'replace-audio.ps1')}`));
     console.log(

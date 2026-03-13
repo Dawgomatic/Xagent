@@ -2,9 +2,9 @@
 
 Complete index of all documentation for the MCP Integration plugin.
 
-## 📚 Core Documentation
+##  Core Documentation
 
-### ✅ [REAL_EXAMPLE_KR_LEGAL.md](REAL_EXAMPLE_KR_LEGAL.md) (5.2KB) ⭐ START HERE!
+###  [REAL_EXAMPLE_KR_LEGAL.md](REAL_EXAMPLE_KR_LEGAL.md) (5.2KB)  START HERE!
 **Real working configuration** - kr-legal-search example (NO API KEY REQUIRED)
 - Actual working setup
 - Step-by-step verification
@@ -13,7 +13,7 @@ Complete index of all documentation for the MCP Integration plugin.
 
 **This is the easiest way to see the plugin working!**
 
-### 📖 [README.md](../README.md) (17KB)
+###  [README.md](../README.md) (17KB)
 **Main documentation** - Start here!
 - Overview and features
 - Installation instructions
@@ -26,7 +26,7 @@ Complete index of all documentation for the MCP Integration plugin.
 
 **Read this first** to understand what the plugin does and how to get started.
 
-### ⚙️ [CONFIGURATION.md](CONFIGURATION.md) (6.8KB)
+###  [CONFIGURATION.md](CONFIGURATION.md) (6.8KB)
 **Complete configuration guide**
 - Configuration file structure
 - All configuration options explained
@@ -38,7 +38,7 @@ Complete index of all documentation for the MCP Integration plugin.
 
 **Use this** when setting up or modifying your plugin configuration.
 
-### 🔧 [API.md](API.md) (8.3KB)
+###  [API.md](API.md) (8.3KB)
 **API reference documentation**
 - `mcp` tool specification
 - `list` action reference
@@ -50,7 +50,7 @@ Complete index of all documentation for the MCP Integration plugin.
 
 **Use this** when developing integrations or understanding the internal API.
 
-### 💡 [EXAMPLES.md](EXAMPLES.md) (11KB)
+###  [EXAMPLES.md](EXAMPLES.md) (11KB)
 **Practical usage examples**
 - Basic usage (listing tools, calling tools)
 - Legal research workflows
@@ -61,7 +61,7 @@ Complete index of all documentation for the MCP Integration plugin.
 
 **Use this** to see real-world usage patterns and copy-paste examples.
 
-### 🐛 [TROUBLESHOOTING.md](TROUBLESHOOTING.md) (9.2KB)
+###  [TROUBLESHOOTING.md](TROUBLESHOOTING.md) (9.2KB)
 **Problem-solving guide**
 - Common issues and solutions
 - Diagnostic commands
@@ -73,7 +73,7 @@ Complete index of all documentation for the MCP Integration plugin.
 
 **Use this** when something isn't working as expected.
 
-### 🤝 [CONTRIBUTING.md](CONTRIBUTING.md) (7.0KB)
+###  [CONTRIBUTING.md](CONTRIBUTING.md) (7.0KB)
 **Contributor guidelines**
 - Development setup
 - Code style guide
@@ -85,7 +85,7 @@ Complete index of all documentation for the MCP Integration plugin.
 
 **Use this** if you want to contribute to the plugin.
 
-### 📝 [CHANGELOG.md](CHANGELOG.md) (2.5KB)
+###  [CHANGELOG.md](CHANGELOG.md) (2.5KB)
 **Version history and changes**
 - Release notes
 - New features
@@ -95,7 +95,7 @@ Complete index of all documentation for the MCP Integration plugin.
 
 **Use this** to track what's changed between versions.
 
-## 🗂️ Quick Reference
+##  Quick Reference
 
 ### By Use Case
 
@@ -128,7 +128,7 @@ Complete index of all documentation for the MCP Integration plugin.
 2. Review source code (`index.js`, `http-transport.js`)
 3. Read [CONTRIBUTING.md](CONTRIBUTING.md) to contribute
 
-## 📋 Documentation Statistics
+##  Documentation Statistics
 
 | File | Size | Purpose |
 |------|------|---------|
@@ -141,7 +141,7 @@ Complete index of all documentation for the MCP Integration plugin.
 | CHANGELOG.md | 2.5KB | Version history |
 | **Total** | **61.8KB** | **7 documents** |
 
-## 🔍 Search Guide
+##  Search Guide
 
 ### Finding Information
 
@@ -165,7 +165,7 @@ Complete index of all documentation for the MCP Integration plugin.
 - API reference → [API.md](API.md)
 - Contributing → [CONTRIBUTING.md](CONTRIBUTING.md)
 
-## 🔗 External Resources
+##  External Resources
 
 ### Official Documentation
 - [OpenClaw Documentation](https://docs.openclaw.ai)
@@ -177,13 +177,13 @@ Complete index of all documentation for the MCP Integration plugin.
 - [GitHub Issues](https://github.com/yourorg/mcp-integration/issues)
 - [GitHub Discussions](https://github.com/yourorg/mcp-integration/discussions)
 
-## 📊 Documentation Versions
+##  Documentation Versions
 
 | Version | Date | Changes |
 |---------|------|---------|
 | 0.1.0 | 2026-02-01 | Initial documentation |
 
-## ✅ Documentation Checklist
+##  Documentation Checklist
 
 For new contributors or maintainers:
 
@@ -197,7 +197,7 @@ For new contributors or maintainers:
 - [ ] Code examples use correct syntax
 - [ ] All claims are accurate
 
-## 🆘 Getting Help
+##  Getting Help
 
 Can't find what you're looking for?
 
@@ -208,6 +208,6 @@ Can't find what you're looking for?
 
 ---
 
-**Documentation maintained by:** Lob 🦞  
+**Documentation maintained by:** Lob   
 **Last updated:** 2026-02-01  
 **Plugin version:** 0.1.0

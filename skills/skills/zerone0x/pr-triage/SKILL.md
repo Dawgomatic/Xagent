@@ -151,22 +151,22 @@ Output a Markdown report:
 **PRs Analyzed:** 127
 **Duplicates Found:** 12 groups
 
-## 🔴 Duplicate Groups (Action Required)
+##  Duplicate Groups (Action Required)
 
 ### Group 1: Fix login validation
 **Issue:** #456
 | PR | Title | Author | Quality | Recommendation |
 |----|-------|--------|---------|----------------|
-| #789 | Fix login validation bug | @alice | A | ✅ Keep |
-| #801 | Login fix | @bob | C | ❌ Close |
-| #812 | Fix #456 login issue | @charlie | B | ❌ Close |
+| #789 | Fix login validation bug | @alice | A |  Keep |
+| #801 | Login fix | @bob | C |  Close |
+| #812 | Fix #456 login issue | @charlie | B |  Close |
 
 **Recommendation:** Keep #789 (most complete, has tests)
 
 ### Group 2: Update dependencies
 ...
 
-## 📊 Quality Summary
+##  Quality Summary
 
 | Grade | Count | PRs |
 |-------|-------|-----|
@@ -175,11 +175,11 @@ Output a Markdown report:
 | C | 58 | ... |
 | D | 12 | ... |
 
-## ⚠️ Stale PRs (>30 days no activity)
+##  Stale PRs (>30 days no activity)
 - #234: "Add feature X" (45 days, no response to review)
 - #345: "Fix Y" (62 days, waiting on author)
 
-## 🚀 Ready to Merge (High Quality + No Duplicates)
+##  Ready to Merge (High Quality + No Duplicates)
 - #567: "Add dark mode" (Grade A, 3 approvals)
 - #678: "Fix memory leak" (Grade A, tests passing)
 ```
@@ -209,11 +209,11 @@ env -u GH_TOKEN -u GITHUB_TOKEN gh pr edit <NUMBER> --add-label "needs-review"
 - Suggest which duplicate to keep
 
 ### Will NOT:
-- ❌ Close PRs automatically (only suggest)
-- ❌ Merge PRs
-- ❌ Read full diff content (too expensive)
-- ❌ Make subjective judgments on code quality
-- ❌ Comment without explicit `--action` flag
+-  Close PRs automatically (only suggest)
+-  Merge PRs
+-  Read full diff content (too expensive)
+-  Make subjective judgments on code quality
+-  Comment without explicit `--action` flag
 
 ## Token Optimization
 

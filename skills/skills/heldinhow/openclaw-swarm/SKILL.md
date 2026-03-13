@@ -122,7 +122,7 @@ Run multiple subagents in parallel:
 
 Subagents automatically announce completion:
 ```
-✅ Sub-agent completed: label
+ Sub-agent completed: label
    task: ...
    result: ...
    runtime: Xs

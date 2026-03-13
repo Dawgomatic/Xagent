@@ -143,7 +143,7 @@ async def execute_tools_parallel(tool_calls: list):
 
 ## Anti-Patterns to Avoid
 
-### ❌ Infinite Loop Risk
+###  Infinite Loop Risk
 ```python
 # BAD: No termination condition
 while True:
@@ -159,7 +159,7 @@ for turn in range(MAX_TURNS):
         break
 ```
 
-### ❌ Unbounded Context Growth
+###  Unbounded Context Growth
 ```python
 # BAD: Context grows forever
 messages.append(new_message)
@@ -172,7 +172,7 @@ if len(messages) > 50:
     messages = [system_message(summary)] + messages[-10:]
 ```
 
-### ❌ Silent Tool Failures
+###  Silent Tool Failures
 ```python
 # BAD: Swallow errors
 result = tool.execute() or "Error"

@@ -60,7 +60,7 @@ This decodes to:
 ### Enable Notification Types
 
 Under **Notification Types**, enable:
-- ✅ **Media Available**
+-  **Media Available**
 
 You can optionally enable other types if you want notifications for:
 - Media Requested

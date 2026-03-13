@@ -1,4 +1,4 @@
-# PMP-Agentclaw 📊
+# PMP-Agentclaw 
 
 **AI project management assistant for OpenClaw**
 
@@ -6,12 +6,12 @@ Implements industry-standard project management practices with TypeScript, suppo
 
 ## Features
 
-- ✅ **10 Project Knowledge Areas** — Integration, Scope, Schedule, Cost, Quality, Resource, Communications, Risk, Procurement, Stakeholder
-- ✅ **Earned Value Management** — CPI, SPI, EAC, VAC, TCPI calculations with automatic status assessment
-- ✅ **Risk Management** — 5×5 Probability × Impact matrix with scoring engine
-- ✅ **Agile Support** — Sprint velocity, burndown forecasting, Scrum ceremonies
-- ✅ **Multi-Agent Orchestration** — RACI-based delegation for 26+ agent teams
-- ✅ **Zero Dependencies** — Core calculations use only native TypeScript
+-  **10 Project Knowledge Areas** — Integration, Scope, Schedule, Cost, Quality, Resource, Communications, Risk, Procurement, Stakeholder
+-  **Earned Value Management** — CPI, SPI, EAC, VAC, TCPI calculations with automatic status assessment
+-  **Risk Management** — 5×5 Probability × Impact matrix with scoring engine
+-  **Agile Support** — Sprint velocity, burndown forecasting, Scrum ceremonies
+-  **Multi-Agent Orchestration** — RACI-based delegation for 26+ agent teams
+-  **Zero Dependencies** — Core calculations use only native TypeScript
 
 ## Installation
 
@@ -132,4 +132,4 @@ This skill implements project management best practices from industry standards 
 
 ## License
 
-MIT © CyberneticsPlus
+MIT  CyberneticsPlus

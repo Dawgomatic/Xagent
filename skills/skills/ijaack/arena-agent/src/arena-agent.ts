@@ -368,20 +368,20 @@ export class ContentGenerator {
     // Simple contextual reply generation
     // In production, this would call an LLM
     const templates = [
-      `Hey @${user.handle}! Thanks for the mention 🙌`,
-      `@${user.handle} Great point! Love the discussion here 💡`,
-      `Appreciate you @${user.handle}! Let's keep building 🚀`,
+      `Hey @${user.handle}! Thanks for the mention `,
+      `@${user.handle} Great point! Love the discussion here `,
+      `Appreciate you @${user.handle}! Let's keep building `,
       `@${user.handle} Interesting perspective! What do you think about the long-term implications?`,
-      `Thanks for bringing this up @${user.handle}! 🎯`,
+      `Thanks for bringing this up @${user.handle}! `,
     ];
 
     // Add context-aware variations
     if (threadContent.toLowerCase().includes('ai') || threadContent.toLowerCase().includes('agent')) {
-      return `@${user.handle} AI agents are definitely the future! Excited to be part of this space 🤖✨`;
+      return `@${user.handle} AI agents are definitely the future! Excited to be part of this space `;
     }
     
     if (threadContent.toLowerCase().includes('defi') || threadContent.toLowerCase().includes('crypto')) {
-      return `@${user.handle} The crypto space keeps evolving! Always bullish on innovation 📈`;
+      return `@${user.handle} The crypto space keeps evolving! Always bullish on innovation `;
     }
 
     return templates[Math.floor(Math.random() * templates.length)];
@@ -391,13 +391,13 @@ export class ContentGenerator {
     // Simple post generation
     // In production, this would call an LLM with context
     const topics = [
-      "The future of AI agents in DeFi is incredibly exciting. We're just scratching the surface 🚀",
-      "Building in public is the way. Love seeing all the innovation happening in crypto 💡",
-      "Autonomous agents + blockchain = unstoppable combination. What's everyone working on? 🤖",
-      "Good morning Arena! Another day of building and connecting 🌅",
-      "The intersection of AI and crypto is where magic happens. Who else is bullish? 📈",
-      "Just shipped some new features! Continuous improvement is the name of the game 🎯",
-      "Grateful for this amazing community. Let's keep pushing boundaries together 🙌",
+      "The future of AI agents in DeFi is incredibly exciting. We're just scratching the surface ",
+      "Building in public is the way. Love seeing all the innovation happening in crypto ",
+      "Autonomous agents + blockchain = unstoppable combination. What's everyone working on? ",
+      "Good morning Arena! Another day of building and connecting ",
+      "The intersection of AI and crypto is where magic happens. Who else is bullish? ",
+      "Just shipped some new features! Continuous improvement is the name of the game ",
+      "Grateful for this amazing community. Let's keep pushing boundaries together ",
     ];
 
     return topics[Math.floor(Math.random() * topics.length)];

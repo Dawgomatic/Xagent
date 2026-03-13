@@ -20,7 +20,7 @@ class NotificationManager {
     if (this.enabled) {
       console.log(`✓ Telegram notifications enabled (Chat: ${this.telegramChatId})`);
     } else {
-      console.log('⚠️  Telegram notifications disabled (missing token or chat ID)');
+      console.log('  Telegram notifications disabled (missing token or chat ID)');
     }
   }
 
@@ -32,7 +32,7 @@ class NotificationManager {
    */
   async sendTelegram(message, parseMode = 'Markdown') {
     if (!this.enabled) {
-      console.log('ℹ️  Notification skipped (disabled)');
+      console.log('  Notification skipped (disabled)');
       return { success: false, reason: 'disabled' };
     }
 
@@ -92,17 +92,17 @@ class NotificationManager {
   async notifyExecution(execution) {
     const { status, action, vault_id, details } = execution;
     
-    let emoji = status === 'SUCCESS' ? '✅' : '❌';
+    let emoji = status === 'SUCCESS' ? '' : '';
     let message = `${emoji} *${action} ${status}*\n\n`;
-    message += `🏛️ Vault: \`${vault_id}\`\n`;
-    message += `⏱️ Time: \`${details.timestamp}\`\n`;
+    message += ` Vault: \`${vault_id}\`\n`;
+    message += ` Time: \`${details.timestamp}\`\n`;
 
     if (status === 'SUCCESS') {
-      message += `🔗 TxHash: \`${details.tx_hash.substring(0, 16)}...\`\n`;
-      message += `📦 Gas: \`${details.gas_used}\`\n`;
+      message += ` TxHash: \`${details.tx_hash.substring(0, 16)}...\`\n`;
+      message += ` Gas: \`${details.gas_used}\`\n`;
       message += `✓ Block: \`${details.block_number}\``;
     } else {
-      message += `❌ Error: \`${details.error}\``;
+      message += ` Error: \`${details.error}\``;
     }
 
     try {
@@ -128,13 +128,13 @@ class NotificationManager {
       cycle_number
     } = decision;
 
-    let emoji = '🤖';
+    let emoji = '';
     let message = `${emoji} *Agent Decision*\n\n`;
-    message += `📊 Cycle: \`#${cycle_number}\`\n`;
-    message += `💡 Action: \`${recommended_action}\`\n`;
-    message += `🎯 Vault: \`${target_vault_id}\`\n`;
-    message += `📈 Confidence: \`${(confidence_score * 100).toFixed(1)}%\`\n`;
-    message += `⚠️ Risk: \`${(rebalance_risk * 100).toFixed(1)}%\``;
+    message += ` Cycle: \`#${cycle_number}\`\n`;
+    message += ` Action: \`${recommended_action}\`\n`;
+    message += ` Vault: \`${target_vault_id}\`\n`;
+    message += ` Confidence: \`${(confidence_score * 100).toFixed(1)}%\`\n`;
+    message += ` Risk: \`${(rebalance_risk * 100).toFixed(1)}%\``;
 
     try {
       const result = await this.sendTelegram(message);
@@ -165,14 +165,14 @@ class NotificationManager {
 
     const aprChange = oldAPR ? newAPR - oldAPR : 0;
     const aprChangeStr = aprChange > 0 ? `+${aprChange.toFixed(2)}%` : `${aprChange.toFixed(2)}%`;
-    const changeEmoji = aprChange > 0 ? '📈' : '📉';
+    const changeEmoji = aprChange > 0 ? '' : '';
 
     let message = `${changeEmoji} *APR Change Alert*\n\n`;
-    message += `🏛️ Vault: \`${vaultId}\`\n`;
-    message += `💰 New APR: \`${newAPR.toFixed(2)}%\`\n`;
+    message += ` Vault: \`${vaultId}\`\n`;
+    message += ` New APR: \`${newAPR.toFixed(2)}%\`\n`;
     
     if (oldAPR !== null) {
-      message += `📊 Change: \`${aprChangeStr}\``;
+      message += ` Change: \`${aprChangeStr}\``;
     }
 
     try {
@@ -193,16 +193,16 @@ class NotificationManager {
    * @param {Object} context - Additional context data
    */
   async notifyError(severity, component, message, context = {}) {
-    let emoji = '⚠️';
-    if (severity === 'ERROR') emoji = '🔴';
-    if (severity === 'INFO') emoji = 'ℹ️';
+    let emoji = '';
+    if (severity === 'ERROR') emoji = '';
+    if (severity === 'INFO') emoji = '';
 
     let notifMessage = `${emoji} *${severity}*\n\n`;
-    notifMessage += `🔧 Component: \`${component}\`\n`;
-    notifMessage += `📝 Message: \`${message}\`\n`;
+    notifMessage += ` Component: \`${component}\`\n`;
+    notifMessage += ` Message: \`${message}\`\n`;
 
     if (Object.keys(context).length > 0) {
-      notifMessage += `\n📋 Context:\n`;
+      notifMessage += `\n Context:\n`;
       Object.entries(context).forEach(([key, value]) => {
         const valueStr = typeof value === 'string' ? value : JSON.stringify(value);
         notifMessage += `  • ${key}: \`${valueStr}\`\n`;
@@ -233,16 +233,16 @@ class NotificationManager {
       decision
     } = cycleRecord;
 
-    let emoji = status === 'SUCCESS' ? '✅' : '❌';
+    let emoji = status === 'SUCCESS' ? '' : '';
     let message = `${emoji} *Cycle #${cycle_number} Complete*\n\n`;
-    message += `⏱️ Duration: \`${duration_ms}ms\`\n`;
-    message += `📊 Status: \`${status}\`\n`;
+    message += ` Duration: \`${duration_ms}ms\`\n`;
+    message += ` Status: \`${status}\`\n`;
 
     if (decision) {
-      message += `\n🤖 Decision: \`${decision.recommended_action}\` → \`${decision.target_vault_id}\`\n`;
+      message += `\n Decision: \`${decision.recommended_action}\` → \`${decision.target_vault_id}\`\n`;
     }
 
-    message += `\n📦 Executions: \`${executions.length}\`\n`;
+    message += `\n Executions: \`${executions.length}\`\n`;
 
     if (executions.length > 0) {
       executions.slice(0, 3).forEach(ex => {
@@ -256,7 +256,7 @@ class NotificationManager {
     }
 
     if (errors.length > 0) {
-      message += `\n❌ Errors: \`${errors.length}\`\n`;
+      message += `\n Errors: \`${errors.length}\`\n`;
       errors.slice(0, 2).forEach(err => {
         message += `  • ${err.message.substring(0, 50)}...\n`;
       });
@@ -278,14 +278,14 @@ class NotificationManager {
    * @param {Object} stats - Statistics object
    */
   async sendDailySummary(cycles, stats) {
-    let message = `📅 *Daily Summary*\n\n`;
-    message += `🔄 Cycles: \`${cycles.length}\`\n`;
-    message += `✅ Success: \`${stats.success_count}\`\n`;
-    message += `❌ Failed: \`${stats.failure_count}\`\n`;
-    message += `📊 Success Rate: \`${stats.success_rate}%\`\n`;
-    message += `⏱️ Avg Duration: \`${stats.average_cycle_duration_ms}ms\`\n`;
-    message += `📦 Executions: \`${stats.total_executions}\`\n`;
-    message += `⏰ Generated: \`${new Date().toISOString()}\``;
+    let message = ` *Daily Summary*\n\n`;
+    message += ` Cycles: \`${cycles.length}\`\n`;
+    message += ` Success: \`${stats.success_count}\`\n`;
+    message += ` Failed: \`${stats.failure_count}\`\n`;
+    message += ` Success Rate: \`${stats.success_rate}%\`\n`;
+    message += ` Avg Duration: \`${stats.average_cycle_duration_ms}ms\`\n`;
+    message += ` Executions: \`${stats.total_executions}\`\n`;
+    message += ` Generated: \`${new Date().toISOString()}\``;
 
     try {
       const result = await this.sendTelegram(message);
@@ -387,12 +387,12 @@ class NotificationManager {
    */
   async testConnection() {
     if (!this.enabled) {
-      console.log('ℹ️  Notifications disabled - skipping test');
+      console.log('  Notifications disabled - skipping test');
       return false;
     }
 
     try {
-      const result = await this.sendTelegram('🧪 *Test Message* - Yield Farming Agent notifications working!');
+      const result = await this.sendTelegram(' *Test Message* - Yield Farming Agent notifications working!');
       console.log('✓ Telegram connection test successful');
       return true;
     } catch (error) {

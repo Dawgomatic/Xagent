@@ -25,31 +25,31 @@ def handle_taskline_request(user_request: str) -> None:
             user_request
         ], check=True)
     except subprocess.CalledProcessError as e:
-        print(f"❌ Taskline processing failed with exit code {e.returncode}")
+        print(f" Taskline processing failed with exit code {e.returncode}")
         sys.exit(1)
     except FileNotFoundError:
-        print("❌ Taskline AI dispatcher not found. Please check installation.")
+        print(" Taskline AI dispatcher not found. Please check installation.")
         sys.exit(1)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("🤖 Taskline - AI-Powered Task Management")
+        print(" Taskline - AI-Powered Task Management")
         print()
         print("Usage: python taskline.py 'natural language request'")
         print()
-        print("✨ Examples:")
+        print(" Examples:")
         print("  'Add high priority task for Mobile project: fix login by Friday'")
         print("  'Ask Sarah to review the API docs by next Monday'") 
         print("  'What tasks are overdue?'")
         print("  'Show my in-progress tasks'")
         print("  'Mark the authentication task as done'")
         print()
-        print("🧠 AI Features:")
-        print("  📅 Smart dates: tomorrow, Friday, next week, end of week")
-        print("  🏗️  Auto project creation and assignment") 
-        print("  👥 People detection and executor assignment")
-        print("  🔥 Priority intelligence: urgent, high, medium, low")
-        print("  🤖 Intent detection: create, update, query")
+        print(" AI Features:")
+        print("   Smart dates: tomorrow, Friday, next week, end of week")
+        print("    Auto project creation and assignment") 
+        print("   People detection and executor assignment")
+        print("   Priority intelligence: urgent, high, medium, low")
+        print("   Intent detection: create, update, query")
         sys.exit(1)
     
     # Process the natural language request

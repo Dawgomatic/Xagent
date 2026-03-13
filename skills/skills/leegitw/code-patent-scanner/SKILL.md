@@ -4,7 +4,7 @@ description: Scan your codebase for distinctive patterns — get structured scor
 homepage: https://obviouslynot.ai
 user-invocable: true
 disable-model-invocation: true
-emoji: 🔬
+emoji: 
 tags:
   - code-scanner
   - patent-analysis
@@ -249,7 +249,7 @@ Trigger: User says "deep", "guided", "thorough", or explicitly requests area sel
 For patterns scoring 8+/13, include:
 
 > **Strong distinctive signal!** Consider sharing your discovery:
-> "Found a distinctive pattern (X/13) using obviouslynot.ai patent tools 🔬"
+> "Found a distinctive pattern (X/13) using obviouslynot.ai patent tools "
 
 ---
 

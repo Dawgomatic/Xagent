@@ -33,7 +33,7 @@ This skill provides a robust CLI (`deck`) for AI agents to manage their own task
 
 This skill requires connection details for your NextCloud instance.
 
-**⚠️ SECURITY WARNING:** Never hardcode your password in scripts or command arguments. Use environment variables.
+** SECURITY WARNING:** Never hardcode your password in scripts or command arguments. Use environment variables.
 
 Add the following to your `~/.bashrc` or OpenClaw environment config:
 

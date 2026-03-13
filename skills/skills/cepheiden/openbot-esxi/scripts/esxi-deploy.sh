@@ -340,7 +340,7 @@ while [ $ELAPSED -lt $MAX_WAIT ]; do
             kill $SERIAL_PID 2>/dev/null; rm -f "$SERIAL_LOG"
             echo ""
             echo "============================================"
-            echo "  ✅ VM $HOSTNAME is ready!"
+            echo "   VM $HOSTNAME is ready!"
             echo "============================================"
             echo "  IP:       $VM_IP"
             echo "  SSH:      ssh root@${VM_IP}"
@@ -391,7 +391,7 @@ while [ $ELAPSED -lt $MAX_WAIT ]; do
             
             echo ""
             echo "============================================"
-            echo "  🎉 DEPLOY COMPLETE"
+            echo "   DEPLOY COMPLETE"
             echo "============================================"
             echo "  VM:       $HOSTNAME"
             echo "  IP:       ${NEW_IP:-$VM_IP}"
@@ -414,5 +414,5 @@ while [ $ELAPSED -lt $MAX_WAIT ]; do
 done
 
 kill $SERIAL_PID 2>/dev/null; rm -f "$SERIAL_LOG"
-echo "❌ Timeout after ${MAX_WAIT}s — check serial console: telnet $ESXI_HOST $SERIAL_PORT"
+echo " Timeout after ${MAX_WAIT}s — check serial console: telnet $ESXI_HOST $SERIAL_PORT"
 exit 1

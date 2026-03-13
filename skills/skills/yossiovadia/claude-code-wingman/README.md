@@ -1,4 +1,4 @@
-# Claude Code Wingman 🦅
+# Claude Code Wingman 
 
 Run Claude Code as a Clawdbot skill. Control it from WhatsApp, track progress, and approve actions - all without leaving your chat.
 

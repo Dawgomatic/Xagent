@@ -1,4 +1,4 @@
-# Technical SEO Mastery 🔍
+# Technical SEO Mastery 
 
 Complete technical SEO audit, fix, and monitoring system for AI agents. From crawlability to Core Web Vitals to international SEO.
 
@@ -38,7 +38,7 @@ Most SEO skills are either surface-level checklists or tool wrappers requiring A
 
 ---
 
-⚡ **Level up your AI agent's business intelligence:**
+ **Level up your AI agent's business intelligence:**
 
 | Pack | Best For | Link |
 |------|----------|------|
@@ -46,7 +46,7 @@ Most SEO skills are either surface-level checklists or tool wrappers requiring A
 | Ecommerce Context Pack | Product page + category SEO | [Get it →](https://afrexai-cto.github.io/context-packs/) |
 | Professional Services Pack | Service page + local SEO | [Get it →](https://afrexai-cto.github.io/context-packs/) |
 
-🔗 **More free skills by AfrexAI:**
+ **More free skills by AfrexAI:**
 - `afrexai-seo-content-engine` — Content SEO & article optimization
 - `afrexai-web-performance-engine` — Deep web performance optimization
 - `afrexai-conversion-copywriter` — High-converting copy frameworks

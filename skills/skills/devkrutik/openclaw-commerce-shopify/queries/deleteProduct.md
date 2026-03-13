@@ -82,7 +82,7 @@ When a user requests to delete products or manage product data removal, follow t
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Deletes product with excessive return fields
+   #  HIGH COST - Deletes product with excessive return fields
    mutation productDelete($input: ProductDeleteInput!) {
      productDelete(input: $input) {
        deletedProductId
@@ -91,7 +91,7 @@ When a user requests to delete products or manage product data removal, follow t
      }
    }
    
-   # ✅ LOW COST - Deletes product with essential fields only
+   #  LOW COST - Deletes product with essential fields only
    mutation productDelete($input: ProductDeleteInput!) {
      productDelete(input: $input) {
        deletedProductId
@@ -195,7 +195,7 @@ When generating a product delete mutation for the user:
 ```
 I'll help you delete a product from your store.
 
-**⚠️ IMPORTANT WARNING**: This will permanently delete the product and all associated data. This action cannot be undone.
+** IMPORTANT WARNING**: This will permanently delete the product and all associated data. This action cannot be undone.
 
 **Mutation:**
 ```graphql

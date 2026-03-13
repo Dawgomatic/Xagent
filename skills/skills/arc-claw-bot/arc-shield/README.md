@@ -1,4 +1,4 @@
-# 🛡️ arc-shield
+#  arc-shield
 
 **Output sanitization for AI agents** — Catches leaked secrets before they escape.
 
@@ -39,7 +39,7 @@ Sometimes it accidentally includes these in responses when:
 
 ## What Gets Detected
 
-### 🔴 CRITICAL (blocks in `--strict` mode)
+###  CRITICAL (blocks in `--strict` mode)
 - 1Password tokens (`ops_*`)
 - GitHub PATs (`ghp_*`)
 - OpenAI keys (`sk-*`)
@@ -51,11 +51,11 @@ Sometimes it accidentally includes these in responses when:
 - Wallet mnemonics (12/24 words)
 - SSNs, credit cards
 
-### 🟠 HIGH (warns loudly)
+###  HIGH (warns loudly)
 - High-entropy strings (Shannon entropy > 4.5)
 - Base64 credentials
 
-### 🟡 WARN (informational)
+###  WARN (informational)
 - Secret file paths (`~/.secrets/*`)
 - Environment variable exports
 - Database URLs with credentials
@@ -169,7 +169,7 @@ send_message() {
     
     # Sanitize with arc-shield
     if ! echo "$message" | arc-shield.sh --strict 2>/dev/null; then
-        echo "⚠️ Message blocked: contains secrets" >&2
+        echo " Message blocked: contains secrets" >&2
         return 1
     fi
     
@@ -214,11 +214,11 @@ Fast enough to run on every outbound message.
 
 ## Best Practices
 
-1. ✅ **Always use `--strict` for external messages**
-2. ✅ **Use `--redact` for logs you review**
-3. ✅ **Run tests after adding patterns**
-4. ✅ **Combine bash + Python for max coverage**
-5. ✅ **Train your agent to avoid secrets in responses**
+1.  **Always use `--strict` for external messages**
+2.  **Use `--redact` for logs you review**
+3.  **Run tests after adding patterns**
+4.  **Combine bash + Python for max coverage**
+5.  **Train your agent to avoid secrets in responses**
 
 ## Files
 

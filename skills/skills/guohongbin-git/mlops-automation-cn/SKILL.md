@@ -5,13 +5,13 @@ description: Task automation, containerization, CI/CD, and experiment tracking
 license: MIT
 ---
 
-# MLOps Automation 🤖
+# MLOps Automation 
 
 Automate tasks, containers, CI/CD, and ML experiments.
 
 ## Features
 
-### 1. Task Runner (just) ⚡
+### 1. Task Runner (just) 
 
 Copy justfile:
 
@@ -26,7 +26,7 @@ Tasks:
 - `just clean` - Remove artifacts
 - `just train` - Run training
 
-### 2. Docker 🐳
+### 2. Docker 
 
 Multi-stage build:
 
@@ -41,7 +41,7 @@ Optimizations:
 - Minimal runtime image
 - Non-root user
 
-### 3. CI/CD (GitHub Actions) 🔄
+### 3. CI/CD (GitHub Actions) 
 
 Automated pipeline:
 

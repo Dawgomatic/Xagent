@@ -122,7 +122,7 @@ impl Storage {
         let empty_state = PersistedState::default();
         let json = serde_json::to_string_pretty(&empty_state)?;
         fs::write(&path, json)?;
-        tracing::info!("🔄 Reset state file to genesis: {:?}", path);
+        tracing::info!(" Reset state file to genesis: {:?}", path);
         Ok(())
     }
 
@@ -134,7 +134,7 @@ impl Storage {
                 Ok(contents) => {
                     match serde_json::from_str(&contents) {
                         Ok(state) => {
-                            tracing::info!("📂 Loaded state from {:?}", path);
+                            tracing::info!(" Loaded state from {:?}", path);
                             Some(state)
                         }
                         Err(e) => {
@@ -149,7 +149,7 @@ impl Storage {
                 }
             }
         } else {
-            tracing::info!("📂 No existing state found, starting fresh");
+            tracing::info!(" No existing state found, starting fresh");
             None
         }
     }
@@ -170,7 +170,7 @@ impl Storage {
         let _ = self.wal_append(WalOp::Checkpoint { height: state.height });
         self.wal_truncate();
         
-        tracing::debug!("💾 State saved atomically to {:?} (WAL truncated)", path);
+        tracing::debug!(" State saved atomically to {:?} (WAL truncated)", path);
         Ok(())
     }
 
@@ -219,7 +219,7 @@ impl Storage {
         let file = match fs::File::open(&wal_path) {
             Ok(f) => f,
             Err(e) => {
-                tracing::warn!("⚠️ Failed to open WAL for recovery: {}", e);
+                tracing::warn!(" Failed to open WAL for recovery: {}", e);
                 return Vec::new();
             }
         };
@@ -234,12 +234,12 @@ impl Storage {
                     match serde_json::from_str::<WalEntry>(&text) {
                         Ok(entry) => entries.push(entry),
                         Err(e) => {
-                            tracing::warn!("⚠️ WAL line {} malformed, skipping: {}", line_num + 1, e);
+                            tracing::warn!(" WAL line {} malformed, skipping: {}", line_num + 1, e);
                         }
                     }
                 }
                 Err(e) => {
-                    tracing::warn!("⚠️ WAL read error at line {}: {}", line_num + 1, e);
+                    tracing::warn!(" WAL read error at line {}: {}", line_num + 1, e);
                     break; // Truncated file — stop here
                 }
             }
@@ -257,7 +257,7 @@ impl Storage {
         let wal_path = self.wal_path();
         if wal_path.exists() {
             if let Err(e) = fs::write(&wal_path, b"") {
-                tracing::warn!("⚠️ Failed to truncate WAL: {}", e);
+                tracing::warn!(" Failed to truncate WAL: {}", e);
             }
         }
     }

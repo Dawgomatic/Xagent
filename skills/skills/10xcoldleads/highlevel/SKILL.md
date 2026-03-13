@@ -9,7 +9,7 @@ metadata:
   author: Ty Shane
   version: "1.2.0"
   clawdbot:
-    emoji: 🦞
+    emoji: 
     homepage: "https://launchmyopenclaw.com"
     requires:
       env:
@@ -23,7 +23,7 @@ compatibility: "Requires Python 3.6+ (stdlib only, no pip installs). Requires tw
 > **Turn your AI assistant into a GoHighLevel command center.** Search contacts, send messages, book appointments, manage pipelines, create invoices, schedule social posts — across all 39 GHL API v2 endpoint groups, using plain English.
 
 **Don't have GoHighLevel yet?** Start with the free 5-Day AI Employee Challenge and build a fully automated system:
-👉 [**Start the 5-Day AI Employee Challenge**](https://gohighlevel.com/5-day-challenge?fp_ref=369ai)
+ [**Start the 5-Day AI Employee Challenge**](https://gohighlevel.com/5-day-challenge?fp_ref=369ai)
 
 ## Requirements
 
@@ -243,8 +243,8 @@ Docs: https://marketplace.gohighlevel.com/docs/webhook/WebhookIntegrationGuide
 
 ### Built by Ty Shane
 
-[🌐 LaunchMyOpenClaw.com](https://launchmyopenclaw.com) • [🌐 MyFBLeads.com](https://myfbleads.com)
-[▶️ YouTube @10xcoldleads](https://youtube.com/@10xcoldleads) • [📘 Facebook](https://facebook.com/ty.shane.howell.2025) • [💼 LinkedIn](https://linkedin.com/in/ty-shane/)
-📧 ty@10xcoldleads.com
+[ LaunchMyOpenClaw.com](https://launchmyopenclaw.com) • [ MyFBLeads.com](https://myfbleads.com)
+[ YouTube @10xcoldleads](https://youtube.com/@10xcoldleads) • [ Facebook](https://facebook.com/ty.shane.howell.2025) • [ LinkedIn](https://linkedin.com/in/ty-shane/)
+ ty@10xcoldleads.com
 
 **No GoHighLevel account yet?** → [Start the free 5-Day AI Employee Challenge](https://gohighlevel.com/5-day-challenge?fp_ref=369ai)

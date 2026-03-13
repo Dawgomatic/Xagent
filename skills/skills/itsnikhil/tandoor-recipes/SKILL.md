@@ -1,7 +1,7 @@
 ---
 name: tandoor-recipes
 description: Manage recipes, meal plans, and shopping lists in Tandoor Recipe Manager. Use when the user wants to create recipes, plan meals, search for recipes, or manage their shopping list.
-metadata: { "openclaw": { "emoji": "🍽️", "requires": { "bins": ["node"], "env": ["TANDOOR_URL", "TANDOOR_API_TOKEN"] }, "primaryEnv": "TANDOOR_API_TOKEN" } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["node"], "env": ["TANDOOR_URL", "TANDOOR_API_TOKEN"] }, "primaryEnv": "TANDOOR_API_TOKEN" } }
 ---
 
 # Tandoor Recipe Manager
@@ -20,7 +20,7 @@ node ./scripts/tandoor.js <command> [args...]
 
 ## What You Can Do
 
-### 🔍 Find Recipes
+###  Find Recipes
 
 **Search by name:**
 ```bash
@@ -35,7 +35,7 @@ node ./scripts/tandoor.js get-recipe 42
 
 ---
 
-### 📅 Meal Planning
+###  Meal Planning
 
 **See available meal types (Breakfast, Lunch, Dinner, etc.):**
 ```bash
@@ -56,7 +56,7 @@ node ./scripts/tandoor.js get-meal-plans "2025-02-08" "2025-02-14"
 
 ---
 
-### 🛒 Shopping List
+###  Shopping List
 
 **View current shopping list:**
 ```bash
@@ -84,7 +84,7 @@ node ./scripts/tandoor.js remove-shopping-item <item_id>
 
 ---
 
-### ➕ Create New Recipes
+###  Create New Recipes
 
 ```bash
 node ./scripts/tandoor.js create-recipe "<name>" "<ingredients>" "<instructions>" [servings]
@@ -104,7 +104,7 @@ node ./scripts/tandoor.js create-recipe "Grilled Cheese" \
 
 ---
 
-### 📚 Browse Reference Data
+###  Browse Reference Data
 
 ```bash
 node ./scripts/tandoor.js get-keywords          # all keywords

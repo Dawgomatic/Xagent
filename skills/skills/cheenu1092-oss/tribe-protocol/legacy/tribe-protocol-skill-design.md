@@ -91,7 +91,7 @@ tribe init
 
 **Output:**
 ```
-✅ Identity initialized
+ Identity initialized
    DID: did:tribe:cheenu:abc123
    Public Key: z6MkpTHz...
    
@@ -118,7 +118,7 @@ tribe create --name "DiscClawd Core"
 
 **Output:**
 ```
-✅ Tribe created: DiscClawd Core
+ Tribe created: DiscClawd Core
    Tribe ID: tribe:discclawd-core:xyz789
    Public Key: z6MkTribe...
    
@@ -167,7 +167,7 @@ Waiting for founder approval...
 *The AI (me) sees the join request in Discord and prompts Nag:*
 
 ```
-📬 Tribe join request received:
+ Tribe join request received:
    Name: Yajat
    DID: did:tribe:yajat:xyz789
    Public Key: z6MkYajat...
@@ -187,7 +187,7 @@ tribe approve --did did:tribe:yajat:xyz789 --tier 3 --tribe-id tribe:discclawd-c
 **What happens:**
 - Challenge-response initiated with Yajat
 - Yajat proves ownership of private key
-- If valid ✅, tribe key transferred (encrypted with Yajat's public key)
+- If valid , tribe key transferred (encrypted with Yajat's public key)
 - Yajat added to tribe member list
 - Announcement broadcast to existing tribe members
 
@@ -196,19 +196,19 @@ tribe approve --did did:tribe:yajat:xyz789 --tier 3 --tribe-id tribe:discclawd-c
 Initiating handshake with did:tribe:yajat:xyz789...
   Challenge sent: abc123def456...
   Response received: [signature]
-  ✅ Signature valid
+   Signature valid
   
 Transferring tribe key (encrypted)...
-  ✅ Key transfer complete
+   Key transfer complete
   
-✅ Yajat added to DiscClawd Core (Tier 3)
+ Yajat added to DiscClawd Core (Tier 3)
    - Updated TRIBE.md
    - Notified existing members
 ```
 
 **Output (Yajat's side):**
 ```
-✅ Handshake complete!
+ Handshake complete!
    Joined tribe: DiscClawd Core
    Your tier: 3 (Tribe Member)
    
@@ -467,7 +467,7 @@ AI reads updated TRIBE.md:
   - Now sees Yajat in Tier 3 list
   
 AI responds:
-  "✅ Yajat added to tribe (Tier 3). Handshake complete."
+  " Yajat added to tribe (Tier 3). Handshake complete."
 ```
 
 ---
@@ -579,7 +579,7 @@ clawdhub install tribe-protocol
 
 **Post-install:**
 ```
-✅ Tribe Protocol installed
+ Tribe Protocol installed
 
 Next steps:
 1. Initialize your identity: tribe init
@@ -615,26 +615,26 @@ Documentation: skills/tribe-protocol/references/
 
 ## Security Properties
 
-### ✅ Key Isolation
+###  Key Isolation
 - Private keys stored in `~/.clawdbot/` (not workspace)
 - Permissions: 0600 (owner read/write only)
 - Never committed to git
 
-### ✅ Read-Only TRIBE.md
+###  Read-Only TRIBE.md
 - AI can read, never write directly
 - Only CLI scripts modify it
 - Prevents accidental data corruption
 
-### ✅ Atomic Updates
+###  Atomic Updates
 - All CLI operations are atomic
 - Tribe member list consistency guaranteed
 - Session key management thread-safe
 
-### ✅ Forward Secrecy
+###  Forward Secrecy
 - Session keys rotated every 24h
 - Old sessions can't decrypt new messages
 
-### ✅ Auditability
+###  Auditability
 - All handshakes logged
 - Member additions/removals tracked
 - Signature verification on every message

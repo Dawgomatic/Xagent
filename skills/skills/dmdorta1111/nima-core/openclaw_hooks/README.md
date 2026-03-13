@@ -60,14 +60,14 @@ SQLite graph at `~/.nima/memory/graph.sqlite`:
 
 ## Security (Hardened Feb 13, 2026)
 
-- ✅ No SQL injection — data passed via temp JSON files
-- ✅ Bounded traversal — 500-node cap, iterative BFS
-- ✅ Transaction wrapping — atomic multi-insert
-- ✅ LIKE wildcard escaping
-- ✅ FTS5 query sanitization
-- ✅ Content length limits (3000 chars text, 300 chars summary)
-- ✅ Error logging (no silent failures)
-- ✅ Init retry on failure
+-  No SQL injection — data passed via temp JSON files
+-  Bounded traversal — 500-node cap, iterative BFS
+-  Transaction wrapping — atomic multi-insert
+-  LIKE wildcard escaping
+-  FTS5 query sanitization
+-  Content length limits (3000 chars text, 300 chars summary)
+-  Error logging (no silent failures)
+-  Init retry on failure
 
 ---
 
@@ -170,7 +170,7 @@ rm -rf ~/.openclaw/hooks/nima-bootstrap
 rm -rf /path/to/nima-core/openclaw_plugin
 ```
 
-#### ⚠️ CRITICAL: Remove old heartbeat capture service
+####  CRITICAL: Remove old heartbeat capture service
 
 If you previously used `lilu_core/services/heartbeat.py` (or any standalone
 heartbeat capture script), **you MUST stop and remove it**. The old heartbeat

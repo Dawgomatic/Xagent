@@ -177,7 +177,7 @@ app.get('/', (req, res) => {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🤖 Task Monitor</title>
+  <title> Task Monitor</title>
   <style>
     * {
       margin: 0;
@@ -316,12 +316,12 @@ app.get('/', (req, res) => {
 <body>
   <div class="container">
     <header>
-      <h1>🤖 OpenClaw Task Monitor</h1>
+      <h1> OpenClaw Task Monitor</h1>
       <div class="timestamp" id="timestamp">Loading...</div>
     </header>
     
     <div id="content">
-      <div class="loading">⏳ Loading status...</div>
+      <div class="loading"> Loading status...</div>
     </div>
   </div>
 
@@ -333,7 +333,7 @@ app.get('/', (req, res) => {
         renderDashboard(data);
       } catch (error) {
         document.getElementById('content').innerHTML = 
-          '<div class="card"><h2>❌ Error</h2><p>' + error.message + '</p></div>';
+          '<div class="card"><h2> Error</h2><p>' + error.message + '</p></div>';
       }
     }
 
@@ -356,7 +356,7 @@ app.get('/', (req, res) => {
         const age = formatAge(data.main.ageMs);
         html += \`
           <div class="card">
-            <h2>💻 Main Session</h2>
+            <h2> Main Session</h2>
             <div class="stat">
               <div class="stat-label">Model</div>
               <div class="stat-value">\${data.main.model}</div>
@@ -378,7 +378,7 @@ app.get('/', (req, res) => {
         const age = formatAge(data.discord.ageMs);
         html += \`
           <div class="card">
-            <h2>💬 Discord Session</h2>
+            <h2> Discord Session</h2>
             <div class="stat">
               <div class="stat-label">Model</div>
               <div class="stat-value">\${data.discord.model}</div>
@@ -398,7 +398,7 @@ app.get('/', (req, res) => {
       // Summary Card
       html += \`
         <div class="card">
-          <h2>📊 Summary</h2>
+          <h2> Summary</h2>
           <div class="stat">
             <div class="stat-label">Total Sessions</div>
             <div class="stat-value">\${data.totalSessions}</div>
@@ -418,7 +418,7 @@ app.get('/', (req, res) => {
 
       // Background Tasks
       html += '<div class="card">';
-      html += '<h2>🛠️ Background Tasks</h2>';
+      html += '<h2> Background Tasks</h2>';
       if (data.subagents.length > 0) {
         data.subagents.forEach(task => {
           const age = formatAge(task.ageMs);
@@ -444,7 +444,7 @@ app.get('/', (req, res) => {
 
       // Recent Cron Jobs
       html += '<div class="card">';
-      html += '<h2>🕒 Recent Cron Jobs</h2>';
+      html += '<h2> Recent Cron Jobs</h2>';
       if (data.recentCrons.length > 0) {
         data.recentCrons.forEach(cron => {
           const lastRun = new Date(cron.updatedAt).toLocaleString();
@@ -541,7 +541,7 @@ function getTaskDescription(sessionId) {
 
 // Start server
 app.listen(PORT, HOST, async () => {
-  console.log(`🤖 Task Monitor running at http://${HOST}:${PORT}`);
+  console.log(` Task Monitor running at http://${HOST}:${PORT}`);
   console.log(`Local access: http://localhost:${PORT}`);
   console.log(`LAN access: http://<your-ip>:${PORT}`);
   

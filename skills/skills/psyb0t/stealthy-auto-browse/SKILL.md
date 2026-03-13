@@ -4,7 +4,7 @@ description: Browser automation that passes CreepJS, BrowserScan, Pixelscan, and
 homepage: https://github.com/psyb0t/docker-stealthy-auto-browse
 user-invocable: true
 metadata:
-  { "openclaw": { "emoji": "🕵️", "primaryEnv": "STEALTHY_AUTO_BROWSE_URL", "requires": { "bins": ["docker", "curl"] } } }
+  { "openclaw": { "emoji": "", "primaryEnv": "STEALTHY_AUTO_BROWSE_URL", "requires": { "bins": ["docker", "curl"] } } }
 ---
 
 # stealthy-auto-browse

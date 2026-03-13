@@ -2,16 +2,16 @@
 name: us-stock-analyst
 description: "Professional US stock analysis with financial data, news, social sentiment, and multi-model AI. Comprehensive reports at $0.02-0.10 per analysis."
 homepage: https://openclaw.ai
-metadata: {"openclaw":{"emoji":"📈","requires":{"bins":["curl","python3"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","python3"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
 ---
 
-# US Stock Analyst 📈
+# US Stock Analyst 
 
 **Professional equity analysis powered by AIsa's unified API platform.**
 
 One API key. Complete market intelligence. AI-powered insights.
 
-## 🔥 What Can You Do?
+##  What Can You Do?
 
 ### Investment Research
 ```
@@ -52,7 +52,7 @@ export AISA_API_KEY="your-key"
 
 ## Core Capabilities
 
-### 📊 Financial Data (MarketPulse APIs)
+###  Financial Data (MarketPulse APIs)
 
 **Real-time Financial Metrics**
 ```bash
@@ -110,7 +110,7 @@ curl "https://api.aisa.one/apis/v1/financial/sec/filings?ticker=AAPL" \
 
 ---
 
-### 📰 News & Research
+###  News & Research
 
 **Company News**
 ```bash
@@ -132,7 +132,7 @@ curl -X POST "https://api.aisa.one/apis/v1/scholar/search/scholar?query=semicond
 
 ---
 
-### 🐦 Social Sentiment
+###  Social Sentiment
 
 **Twitter Search**
 ```bash
@@ -142,7 +142,7 @@ curl "https://api.aisa.one/apis/v1/twitter/tweet/advanced_search?query=\$AAPL&qu
 
 ---
 
-### 📺 Video Content
+###  Video Content
 
 **YouTube Search (Earnings Calls, Analysis)**
 ```bash
@@ -152,7 +152,7 @@ curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=AAPL+earnings
 
 ---
 
-### 🤖 AI Analysis (Multi-Model)
+###  AI Analysis (Multi-Model)
 
 **LLM Gateway (OpenAI Compatible)**
 ```bash
@@ -294,7 +294,7 @@ Every response includes `usage.cost` and `usage.credits_remaining`.
 - Bloomberg Terminal: $2,000/month
 - FactSet: $1,000/month
 - Traditional Analyst Report: $50-500 each
-- **AIsa Stock Analyst: $0.02-0.10 each** ✨
+- **AIsa Stock Analyst: $0.02-0.10 each** 
 
 **Cost Breakdown:**
 ```

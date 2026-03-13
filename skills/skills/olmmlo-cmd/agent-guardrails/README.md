@@ -1,6 +1,6 @@
-# Agent Guardrails 🛡️
+# Agent Guardrails 
 
-[🇨🇳 中文文档](./references/SKILL_CN.md)
+[ 中文文档](./references/SKILL_CN.md)
 
 [![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-8A2BE2)](https://github.com/topics/claude-code-skill)
 [![Clawdbot Skill](https://img.shields.io/badge/Clawdbot-Skill-blue)](https://clawdhub.com)
@@ -13,7 +13,7 @@
 
 > Rules in markdown are suggestions. Code hooks are laws.
 
-🚨 **Stop production incidents before they happen** — Born from real crashes, token leaks, and silent bypasses
+ **Stop production incidents before they happen** — Born from real crashes, token leaks, and silent bypasses
 
 ## The Problem
 
@@ -21,10 +21,10 @@ You spend hours building validation pipelines, scoring systems, and verification
 
 ### Real Production Incidents (February 2026)
 
-**🔥 Server Crash:** Bad config edit → service crash loop → server down all night  
-**🔑 Token Leak:** Notion token hardcoded in code, nearly pushed to public GitHub  
-**🔄 Code Rewrite:** Agent rewrote validated scoring logic instead of importing it, sent unverified predictions  
-**🚀 Deployment Gap:** Built new features but forgot to wire them into production, users got incomplete output  
+** Server Crash:** Bad config edit → service crash loop → server down all night  
+** Token Leak:** Notion token hardcoded in code, nearly pushed to public GitHub  
+** Code Rewrite:** Agent rewrote validated scoring logic instead of importing it, sent unverified predictions  
+** Deployment Gap:** Built new features but forgot to wire them into production, users got incomplete output  
 
 This isn't a prompting problem — it's an enforcement problem. More markdown rules won't fix it. You need mechanical enforcement that **actually works**.
 
@@ -36,7 +36,7 @@ This isn't a prompting problem — it's an enforcement problem. More markdown ru
 | 2 | **Architectural constraints** (import registries) | 95% |
 | 3 | **Self-verification loops** | 80% |
 | 4 | **Prompt rules** (AGENTS.md) | 60-70% |
-| 5 | **Markdown documentation** | 40-50% ⚠️ |
+| 5 | **Markdown documentation** | 40-50%  |
 
 This toolkit focuses on levels 1-2: the ones that actually work.
 
@@ -71,13 +71,13 @@ clawdhub install agent-guardrails
 bash /path/to/agent-guardrails/scripts/install.sh /path/to/your/project
 ```
 
-📖 [Claude Code detailed guide](./CLAUDE_CODE_INSTALL.md)
+ [Claude Code detailed guide](./CLAUDE_CODE_INSTALL.md)
 
 This will:
-- ✅ Install git pre-commit hook (blocks bypass patterns + hardcoded secrets)
-- ✅ Create `__init__.py` registry template  
-- ✅ Copy check scripts to your project
-- ✅ Add enforcement rules to your AGENTS.md
+-  Install git pre-commit hook (blocks bypass patterns + hardcoded secrets)
+-  Create `__init__.py` registry template  
+-  Copy check scripts to your project
+-  Add enforcement rules to your AGENTS.md
 
 ## Usage
 

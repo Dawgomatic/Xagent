@@ -69,15 +69,15 @@ ralph monitor --session <session_id> --dir <project_dir> --interval 60
 
 **Output example:**
 ```
-📊 BUILD STATUS CHECK
-⏱️  Session: fast-slug...
-🟢 RUNNING
-📝 Recent files (5):
+ BUILD STATUS CHECK
+  Session: fast-slug...
+ RUNNING
+ Recent files (5):
    - package.json
    - src/App.jsx
    - Dockerfile
    - ...and 2 more
-💬 Recent activity: CORE-001: Implementing chess logic...
+ Recent activity: CORE-001: Implementing chess logic...
 ```
 
 The monitor runs continuously and reports status every interval, so you don't have to manually check!
@@ -333,27 +333,27 @@ claude exec "Follow the RALPH BUILD LOOP. Here's the PRD: $(cat PRD.json)"
 > "I take safety seriously. I want you to have an eye out for security AND balance good UX/good UI. I don't like security to the point of making user experiences unusable. Security is mostly theater. But the security that isn't theater—like .gitignore and envelopes—that is non-negotiable."
 
 **Translation:** Optimize for user experience, but NEVER skip the fundamentals:
-- ✅ .gitignore is mandatory (no credentials in repos)
-- ✅ .env files are mandatory (secrets never committed)
-- ✅ No security theater (don't ask for permission on safe, standard operations)
-- ✅ UX/DX matters (make builds smooth and fast)
+-  .gitignore is mandatory (no credentials in repos)
+-  .env files are mandatory (secrets never committed)
+-  No security theater (don't ask for permission on safe, standard operations)
+-  UX/DX matters (make builds smooth and fast)
 
 **I will auto-approve safe operations:**
-- ✅ npm install, npm run, package management
-- ✅ Creating/editing files in the project directory
-- ✅ Running build/test commands (npm build, cargo test, etc.)
-- ✅ Docker commands (docker build, docker compose up, etc.)
-- ✅ Git operations (git init, git add, git commit, git push)
-- ✅ Standard development tools and operations
-- ✅ Adding proper .gitignore and .env.example files
+-  npm install, npm run, package management
+-  Creating/editing files in the project directory
+-  Running build/test commands (npm build, cargo test, etc.)
+-  Docker commands (docker build, docker compose up, etc.)
+-  Git operations (git init, git add, git commit, git push)
+-  Standard development tools and operations
+-  Adding proper .gitignore and .env.example files
 
 **I will ask or refuse:**
-- ❌ Commands that delete important directories
-- ❌ Operations that modify system-level settings
-- ❌ Running unvetted third-party scripts
-- ❌ Anything accessing/exposing sensitive data or credentials
-- ❌ Network operations that seem suspicious
-- ❌ Skipping .gitignore or .env security (non-negotiable)
+-  Commands that delete important directories
+-  Operations that modify system-level settings
+-  Running unvetted third-party scripts
+-  Anything accessing/exposing sensitive data or credentials
+-  Network operations that seem suspicious
+-  Skipping .gitignore or .env security (non-negotiable)
 
 **During builds:** When Claude Code asks for permission, I'll handle it automatically if it's safe. You focus on the bigger picture while I manage the operational details AND ensure the fundamentals are solid.
 

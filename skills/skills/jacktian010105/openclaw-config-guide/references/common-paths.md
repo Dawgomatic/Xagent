@@ -4,7 +4,7 @@
 
 ---
 
-## 🔌 Providers（模型提供商）
+##  Providers（模型提供商）
 
 ### 添加/修改 Provider
 ```json
@@ -39,7 +39,7 @@
 
 ---
 
-## 📢 Channels（消息通道）
+##  Channels（消息通道）
 
 ### Discord
 ```json
@@ -93,7 +93,7 @@
 
 ---
 
-## 🤖 Agent 配置
+##  Agent 配置
 
 ### 默认模型
 ```json
@@ -124,7 +124,7 @@
 
 ---
 
-## ⚙️ Gateway 配置
+##  Gateway 配置
 
 ### 认证模式
 ```json
@@ -141,7 +141,7 @@
 
 ---
 
-## 📝 消息设置
+##  消息设置
 
 ### 反应范围
 ```json
@@ -159,9 +159,9 @@
 
 ---
 
-## ⚠️ 常见错误路径对照表
+##  常见错误路径对照表
 
-| 配置项 | ❌ 错误路径 | ✅ 正确路径 |
+| 配置项 |  错误路径 |  正确路径 |
 |--------|------------|------------|
 | Discord Token | `plugins.entries.discord.botToken` | `channels.discord.token` |
 | 默认模型 | `model.default` | `agents.defaults.model.primary` |
@@ -169,7 +169,7 @@
 
 ---
 
-## 🔍 快速查询
+##  快速查询
 
 ### 如何查看完整配置？
 ```

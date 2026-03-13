@@ -66,7 +66,7 @@ async function handler(event) {
 
     // Log results
     if (removed.length > 0) {
-        console.log(`[token-context] 📉 ${currentFileNames.length} → ${filteredFiles.length} files`);
+        console.log(`[token-context]  ${currentFileNames.length} → ${filteredFiles.length} files`);
         console.log(`[token-context]    Removed: ${removed.join(', ')}`);
     } else {
         console.log(`[token-context] ✓ ${filteredFiles.length} files (${classification.level})`);

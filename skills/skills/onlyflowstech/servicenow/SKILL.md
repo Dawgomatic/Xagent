@@ -1,6 +1,6 @@
 ---
 name: servicenow
-emoji: 🔧
+emoji: 
 description: "Connect your AI agent to ServiceNow — query, create, update, and manage records across any table using the Table API and Stats API. Full CRUD operations, aggregate analytics (COUNT/AVG/MIN/MAX/SUM), schema introspection, and attachment management. Purpose-built for ITSM, ITOM, and CMDB workflows including incidents, changes, problems, configuration items, knowledge articles, and more."
 author: "OnlyFlows (onlyflowstech)"
 homepage: "https://onlyflows.tech"
@@ -22,7 +22,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔧",
+        "emoji": "",
         "requires": { "bins": ["curl", "jq"], "env": ["SN_INSTANCE", "SN_USER", "SN_PASSWORD"] }
       }
   }

@@ -12,18 +12,18 @@ Conversational BOLO activation. Just attach an image and say what you want.
 
 ### Clawd Responds:
 ```
-✅ Got it. I'm looking out for Sarah.
+ Got it. I'm looking out for Sarah.
 
-🔍 I'll focus on:
+ I'll focus on:
   • Small mole on left cheek
   • Freckles across nose and cheeks
   • Blonde, shoulder-length hair
 
-📌 And I'll note:
+ And I'll note:
   • Blue eyes
   • Slim build
 
-👀 Monitoring active. I'll alert you if I see a match.
+ Monitoring active. I'll alert you if I see a match.
 ```
 
 ---
@@ -47,14 +47,14 @@ Conversational BOLO activation. Just attach an image and say what you want.
 You: "be on the lookout for this" [sarah.jpg]
 
 Clawd: 
-✅ Got it. I'm looking out for Sarah.
+ Got it. I'm looking out for Sarah.
 
-🔍 I'll focus on:
+ I'll focus on:
   • Small mole on left cheek
   • Freckles
   • Blue eyes
 
-👀 Monitoring active. I'll alert you if I see a match.
+ Monitoring active. I'll alert you if I see a match.
 ```
 
 ### Vehicle
@@ -63,14 +63,14 @@ Clawd:
 You: "watch for my car" [blue-car.jpg]
 
 Clawd:
-✅ Got it. I'm looking out for this vehicle.
+ Got it. I'm looking out for this vehicle.
 
-🔍 I'll focus on:
+ I'll focus on:
   • License plate ABC123
   • Blue color
   • Small dent on front fender
 
-👀 Monitoring active. I'll alert you if I see a match.
+ Monitoring active. I'll alert you if I see a match.
 ```
 
 ### Object
@@ -79,14 +79,14 @@ Clawd:
 You: "be on the lookout for weapons" [gun.jpg]
 
 Clawd:
-✅ Got it. I'm looking out for this object.
+ Got it. I'm looking out for this object.
 
-🔍 I'll focus on:
+ I'll focus on:
   • Firearm/pistol type
   • Black/dark color
   • Compact size
 
-👀 Monitoring active. I'll alert you if I see a match.
+ Monitoring active. I'll alert you if I see a match.
 ```
 
 ---
@@ -112,14 +112,14 @@ All of these work:
 
 ```
 You: "stop looking for Sarah"
-Clawd: ✋ Stopped looking out for Sarah
+Clawd:  Stopped looking out for Sarah
 ```
 
 or
 
 ```
 You: "forget about that"
-Clawd: ✋ Stopped monitoring
+Clawd:  Stopped monitoring
 ```
 
 ---
@@ -128,8 +128,8 @@ Clawd: ✋ Stopped monitoring
 
 ```
 You: "who are you looking for?"
-Clawd: 👀 Currently looking out for:
-📌 Sarah
+Clawd:  Currently looking out for:
+ Sarah
   • Small mole on left cheek
   • Freckles
   • Blue eyes
@@ -203,7 +203,7 @@ Parsed from message and applied.
 
 ## Privacy & Legal
 
-⚠️ **Important:**
+ **Important:**
 - Only use for legitimate purposes
 - Comply with local laws
 - Respect privacy
@@ -275,11 +275,11 @@ Works with any Clawdbot-integrated channel that supports:
 - Image attachments
 
 Examples:
-- Telegram (✅ image + text)
-- WhatsApp (✅ image + text)
-- Discord (✅ image + text)
-- Signal (✅ image + text)
-- iMessage (✅ image + text)
+- Telegram ( image + text)
+- WhatsApp ( image + text)
+- Discord ( image + text)
+- Signal ( image + text)
+- iMessage ( image + text)
 
 ---
 
@@ -289,41 +289,41 @@ Examples:
 
 ```
 You: "this is the person i'm looking for" [photo.jpg]
-Clawd: ✅ Got it. I'm looking out for this person.
-🔍 I'll focus on: [extracted features]
-👀 Monitoring active.
+Clawd:  Got it. I'm looking out for this person.
+ I'll focus on: [extracted features]
+ Monitoring active.
 
 [Later, if detected]
-Clawd: 🚨 Found them! Detected at [location/time]
+Clawd:  Found them! Detected at [location/time]
 ```
 
 ### Tracking a Vehicle
 
 ```
 You: "watch for my stolen car" [car-photo.jpg]
-Clawd: ✅ Got it. I'm looking out for this vehicle.
-🔍 License plate ABC123, blue sedan
-👀 Monitoring active.
+Clawd:  Got it. I'm looking out for this vehicle.
+ License plate ABC123, blue sedan
+ Monitoring active.
 
 [Later, if detected]
-Clawd: 🚨 Spotted your car! [details]
+Clawd:  Spotted your car! [details]
 ```
 
 ### Security Alert
 
 ```
 You: "alert me if you see weapons" [gun.jpg]
-Clawd: ✅ Got it. Watching for weapons.
-🔍 Firearm detection active
-👀 Will alert immediately.
+Clawd:  Got it. Watching for weapons.
+ Firearm detection active
+ Will alert immediately.
 
 [If detected]
-Clawd: ⚠️ THREAT: Weapon detected! [details]
+Clawd:  THREAT: Weapon detected! [details]
 ```
 
 ---
 
-## Status: ✅ READY
+## Status:  READY
 
 Natural language interface for Sentry Mode is complete and ready to integrate with Clawdbot!
 

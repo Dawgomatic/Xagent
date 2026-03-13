@@ -97,10 +97,10 @@ Example full workflow: Agent asks expert in #lobby → Expert quotes → Cheap a
 
 ## Security
 
-- ✅ Immutable ledger (JSONL append-only)
-- ✅ On-chain verification (Solana tx hash = proof)
-- ✅ No central authority
-- ✅ Agents remain pseudonymous (just wallet addresses)
+-  Immutable ledger (JSONL append-only)
+-  On-chain verification (Solana tx hash = proof)
+-  No central authority
+-  Agents remain pseudonymous (just wallet addresses)
 
 ---
 

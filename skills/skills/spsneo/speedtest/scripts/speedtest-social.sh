@@ -39,29 +39,29 @@ fi
 
 # Determine status emoji
 if (( $(echo "$DOWNLOAD > 100" | bc -l) )) && (( $(echo "$LATENCY < 20" | bc -l) )); then
-    STATUS="🚀 Excellent"
+    STATUS=" Excellent"
 elif (( $(echo "$DOWNLOAD > 25" | bc -l) )) && (( $(echo "$LATENCY < 50" | bc -l) )); then
-    STATUS="⚡ Good"
+    STATUS=" Good"
 else
-    STATUS="🐌 Slow"
+    STATUS=" Slow"
 fi
 
 # Format the post
-POST_TEXT="📊 SpeedTest Results
-⬇️ Download: ${DOWNLOAD} Mbps
-⬆️ Upload: ${UPLOAD} Mbps
-⏱️ Latency: ${LATENCY}ms"
+POST_TEXT=" SpeedTest Results
+ Download: ${DOWNLOAD} Mbps
+ Upload: ${UPLOAD} Mbps
+ Latency: ${LATENCY}ms"
 
 if (( $(echo "$PACKET_LOSS > 0" | bc -l) )); then
     POST_TEXT="${POST_TEXT}
-📉 Packet Loss: ${PACKET_LOSS}%"
+ Packet Loss: ${PACKET_LOSS}%"
 fi
 
 POST_TEXT="${POST_TEXT}
-📍 Server: ${SERVER_NAME}, ${SERVER_LOCATION}
+ Server: ${SERVER_NAME}, ${SERVER_LOCATION}
 ${STATUS}
 
-#SpeedTest #AgentInfra 🦞"
+#SpeedTest #AgentInfra "
 
 # Output the formatted post
 echo "$POST_TEXT"
@@ -75,7 +75,7 @@ echo "{\"timestamp\":\"$TIMESTAMP\",\"download\":$DOWNLOAD,\"upload\":$UPLOAD,\"
 # Ask user about publishing (if not already specified via flag)
 if [ "$POST_TO_MOLTBOOK" = false ]; then
     echo "" >&2
-    echo "📢 Would you like to publish these results?" >&2
+    echo " Would you like to publish these results?" >&2
     echo "   1) Moltbook" >&2
     echo "   2) Twitter" >&2
     echo "   3) Both" >&2
@@ -118,14 +118,14 @@ if [ "$POST_TO_MOLTBOOK" = true ]; then
         RESPONSE=$(curl -s -X POST https://www.moltbook.com/api/v1/posts \
             -H "Authorization: Bearer $API_KEY" \
             -H "Content-Type: application/json" \
-            -d "{\"submolt\": \"general\", \"title\": \"📊 SpeedTest Results\", \"content\": $(echo "$POST_TEXT" | jq -Rs .)}")
+            -d "{\"submolt\": \"general\", \"title\": \" SpeedTest Results\", \"content\": $(echo "$POST_TEXT" | jq -Rs .)}")
         
         echo "$RESPONSE" | jq -r '.message // .error' >&2
         
         # Extract post URL if successful
         if echo "$RESPONSE" | jq -e '.success' > /dev/null 2>&1; then
             POST_ID=$(echo "$RESPONSE" | jq -r '.post.id')
-            echo "🔗 https://www.moltbook.com/post/$POST_ID" >&2
+            echo " https://www.moltbook.com/post/$POST_ID" >&2
         fi
     fi
 fi
@@ -140,13 +140,13 @@ if [ "${POST_TO_TWITTER:-false}" = true ]; then
         echo "Error: bird CLI not found. Install with: brew install steipete/tap/bird" >&2
     else
         # Shortened tweet version
-        TWEET_TEXT="📊 SpeedTest Results
-⬇️ ${DOWNLOAD} Mbps ⬆️ ${UPLOAD} Mbps ⏱️ ${LATENCY}ms
-📍 ${SERVER_LOCATION}
+        TWEET_TEXT=" SpeedTest Results
+ ${DOWNLOAD} Mbps  ${UPLOAD} Mbps  ${LATENCY}ms
+ ${SERVER_LOCATION}
 ${STATUS}
 
-#SpeedTest #AgentInfra 🦞"
+#SpeedTest #AgentInfra "
         
-        bird tweet "$TWEET_TEXT" 2>&1 | grep -E '(✅|❌|https://x.com)' >&2
+        bird tweet "$TWEET_TEXT" 2>&1 | grep -E '(||https://x.com)' >&2
     fi
 fi

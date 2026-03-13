@@ -158,10 +158,10 @@ feat(bead-3): collector dev mode with inotify
 ### Ledger Snapshot
 Every reply from the orchestrating agent (Opus) should start with:
 ```
-📒 Ledger Snapshot
+ Ledger Snapshot
 - Now: Bead N — [description]
 - Done: N of M beads
-- Tests: ✅ passing / ❌ failing
+- Tests:  passing /  failing
 - Blockers: [any blockers or "none"]
 ```
 
@@ -186,12 +186,12 @@ If uncertain about any state, mark it:
    - Check for quality, completeness, security
 5. **Summarize** to chat:
    ```
-   🔵 Bead N Complete: [title]
+    Bead N Complete: [title]
    
    **Changes:** [files modified]
    **Tests:** [pass/fail count]
    **Summary:** [2-3 sentences]
-   **Status:** ✅ Approved / ⚠️ Concerns / ❌ Failed
+   **Status:**  Approved /  Concerns /  Failed
    ```
 6. **Commit** with structured message
 7. **Update** CONTINUITY.md — move bead from Now → Done, advance Next → Now

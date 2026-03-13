@@ -1,4 +1,4 @@
-# Jasper Recall 🦊
+# Jasper Recall 
 
 Local RAG (Retrieval-Augmented Generation) system for AI agent memory. Gives your agent the ability to remember and search past conversations using ChromaDB and sentence-transformers.
 
@@ -75,19 +75,19 @@ By default, indexes markdown files from `~/.openclaw/workspace/memory/`:
 
 ```
 ┌────────────────┐     ┌──────────────┐     ┌───────────┐
-│ Session Logs   │────▶│ digest-      │────▶│ Markdown  │
+│ Session Logs   │────│ digest-      │────│ Markdown  │
 │ (.jsonl)       │     │ sessions     │     │ Digests   │
 └────────────────┘     └──────────────┘     └─────┬─────┘
                                                   │
                                                   ▼
 ┌────────────────┐     ┌──────────────┐     ┌───────────┐
-│ Memory Files   │────▶│ index-       │────▶│ ChromaDB  │
+│ Memory Files   │────│ index-       │────│ ChromaDB  │
 │ (*.md)         │     │ digests      │     │ Vectors   │
 └────────────────┘     └──────────────┘     └─────┬─────┘
                                                   │
                                                   ▼
                        ┌──────────────┐     ┌───────────┐
-                       │ recall       │◀────│ Query     │
+                       │ recall       │────│ Query     │
                        │ "query"      │     │           │
                        └──────────────┘     └───────────┘
 ```
@@ -161,9 +161,9 @@ npx jasper-recall doctor --dry-run    # Verbose mode, show exact commands
 ```
 
 **Default mode** (no flags):
-- Shows ✅/⚠️/❌ status for all checks
+- Shows // status for all checks
 - For issues found, suggests what `--fix` would do
-- Example: `❌ ChromaDB not installed → run with --fix to install`
+- Example: ` ChromaDB not installed → run with --fix to install`
 
 **Fix mode** (`--fix`):
 - Automatically repairs fixable issues:
@@ -172,8 +172,8 @@ npx jasper-recall doctor --dry-run    # Verbose mode, show exact commands
   - Installs sentence-transformers: `pip install sentence-transformers`
   - Creates required directories (chroma-db, memory)
   - Runs initial index if no collections exist
-- Shows what it fixed: `🔧 Installed ChromaDB via pip`
-- Non-fixable issues show manual instructions: `❌ Node.js <18 — please upgrade manually`
+- Shows what it fixed: ` Installed ChromaDB via pip`
+- Non-fixable issues show manual instructions: ` Node.js <18 — please upgrade manually`
 
 **Dry-run mode** (`--dry-run`):
 - Same as default, but more verbose

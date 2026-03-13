@@ -1,30 +1,30 @@
 #!/bin/bash
-# 🧠 Intrusive Thoughts Installation Script
+#  Intrusive Thoughts Installation Script
 # Sets up the system for any AI agent to use
 
 set -e
 
-echo "🧠 Intrusive Thoughts - Installation & Setup"
+echo " Intrusive Thoughts - Installation & Setup"
 echo "=========================================="
 
 INSTALL_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$INSTALL_DIR"
 
 # Check Python dependencies
-echo "📦 Checking Python dependencies..."
+echo " Checking Python dependencies..."
 python3 -c "import json, re, pathlib, datetime, collections, statistics, http.server" 2>/dev/null || {
-    echo "❌ Missing Python standard library modules. Please install Python 3.7+"
+    echo " Missing Python standard library modules. Please install Python 3.7+"
     exit 1
 }
 
 # Check for config file
 if [[ ! -f "config.json" ]]; then
-    echo "⚙️  Creating config.json from template..."
+    echo "  Creating config.json from template..."
     if [[ -f "config.example.json" ]]; then
         cp config.example.json config.json
-        echo "✅ config.json created - please customize it!"
+        echo " config.json created - please customize it!"
         echo ""
-        echo "📝 IMPORTANT: Edit config.json with your details:"
+        echo " IMPORTANT: Edit config.json with your details:"
         echo "   - human.name: Your human's name"
         echo "   - human.telegram_target: @their_username"
         echo "   - agent.name: Your agent name"
@@ -32,17 +32,17 @@ if [[ ! -f "config.json" ]]; then
         echo "   - system.data_dir: Where to store data (default: current directory)"
         echo ""
     else
-        echo "❌ config.example.json not found!"
+        echo " config.example.json not found!"
         exit 1
     fi
 fi
 
 # Create required directories
-echo "📁 Creating directory structure..."
+echo " Creating directory structure..."
 mkdir -p log journal
 
 # Initialize data files if they don't exist
-echo "🔧 Initializing data files..."
+echo " Initializing data files..."
 
 [[ ! -f "mood_history.json" ]] && echo '{"version": 1, "history": []}' > mood_history.json
 [[ ! -f "history.json" ]] && echo '[]' > history.json
@@ -85,38 +85,38 @@ EOF
 fi
 
 # Make scripts executable
-echo "🔑 Making scripts executable..."
+echo " Making scripts executable..."
 chmod +x *.py *.sh
 
 # Test configuration loading
-echo "🧪 Testing configuration..."
+echo " Testing configuration..."
 python3 config.py || {
-    echo "❌ Configuration test failed!"
+    echo " Configuration test failed!"
     exit 1
 }
 
 # Test core functionality
-echo "🧪 Testing core scripts..."
+echo " Testing core scripts..."
 python3 mood_memory.py suggest > /dev/null || {
-    echo "❌ mood_memory.py test failed!"
+    echo " mood_memory.py test failed!"
     exit 1
 }
 
 python3 analyze.py --json > /dev/null || {
-    echo "❌ analyze.py test failed!"
+    echo " analyze.py test failed!"
     exit 1
 }
 
 python3 check_achievements.py > /dev/null || {
-    echo "❌ check_achievements.py test failed!"
+    echo " check_achievements.py test failed!"
     exit 1
 }
 
-echo "✅ All tests passed!"
+echo " All tests passed!"
 echo ""
-echo "🎉 Installation complete!"
+echo " Installation complete!"
 echo ""
-echo "📋 Next steps:"
+echo " Next steps:"
 echo "1. Edit config.json with your specific settings"
 echo "2. Test the system: ./intrusive.sh night"
 echo "3. Set up cron jobs for automatic scheduling:"
@@ -128,6 +128,6 @@ echo "   # Day sessions"
 echo "   0 11,16,20 * * * cd $INSTALL_DIR && ./intrusive.sh day"
 echo ""
 echo "4. Start the dashboard: python3 dashboard.py"
-echo "5. Begin your intrusive thoughts journey! 🧠"
+echo "5. Begin your intrusive thoughts journey! "
 echo ""
-echo "🔗 Dashboard will be available at: http://localhost:$(python3 -c 'from config import get_dashboard_port; print(get_dashboard_port())')"
+echo " Dashboard will be available at: http://localhost:$(python3 -c 'from config import get_dashboard_port; print(get_dashboard_port())')"

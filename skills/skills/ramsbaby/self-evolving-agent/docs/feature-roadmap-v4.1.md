@@ -53,20 +53,20 @@ Served at `http://localhost:7842` — accessible from browser, no external depen
 
 ```
 ┌───────────────────────────────────────────────────────────┐
-│  🧠 Self-Evolving Agent — Dashboard          v4.1        │
+│   Self-Evolving Agent — Dashboard          v4.1        │
 ├───────────────────────────────────────────────────────────┤
-│  📊 Complaint Frequency (12 weeks)                        │
+│   Complaint Frequency (12 weeks)                        │
 │  ██████░░ "again" / "다시"     22→3  (↓86%)              │
 │  █████░░░ "you forgot"         17→8  (↓53%)              │
 │  ███░░░░░ "how many times"      8→1  (↓88%)              │
 │                                                           │
-│  📋 Proposal History                                      │
-│  2026-02-17  4 proposals  ✅3 applied  ❌1 rejected      │
-│  2026-02-10  2 proposals  ✅2 applied                    │
+│   Proposal History                                      │
+│  2026-02-17  4 proposals  3 applied  1 rejected      │
+│  2026-02-10  2 proposals  2 applied                    │
 │                                                           │
-│  📈 Benchmark Results                                     │
-│  #4 exec-retry rule: ✅ Effective (−45%)                 │
-│  #3 log-check rule:  ⏳ Neutral  (+2%) — observe more   │
+│   Benchmark Results                                     │
+│  #4 exec-retry rule:  Effective (−45%)                 │
+│  #3 log-check rule:   Neutral  (+2%) — observe more   │
 └───────────────────────────────────────────────────────────┘
 ```
 
@@ -297,7 +297,7 @@ A `sea` CLI command that replaces the "type a message in Discord" approval flow 
 ```bash
 # List pending proposals
 $ sea status
-🧠 Self-Evolving Agent — 3 proposals pending
+ Self-Evolving Agent — 3 proposals pending
 
 #1 [HIGH]  exec retry limit rule           — 2026-02-17
 #2 [MED]   memory compaction warning       — 2026-02-17
@@ -320,16 +320,16 @@ AFTER (add to AGENTS.md):
 
 # Approve as-is
 $ sea approve 1
-✅ Proposal #1 applied to AGENTS.md (git commit created)
+ Proposal #1 applied to AGENTS.md (git commit created)
 
 # Approve with inline edit (opens $EDITOR)
 $ sea approve 1 --edit
 [opens EDITOR with diff pre-loaded — user edits then saves]
-✅ Proposal #1 applied (user-modified) to AGENTS.md
+ Proposal #1 applied (user-modified) to AGENTS.md
 
 # Reject with reason
 $ sea reject 1 "exec retries are normal in my workflow"
-❌ Proposal #1 rejected — logged to data/rejected-proposals.json
+ Proposal #1 rejected — logged to data/rejected-proposals.json
 ```
 
 ### Why Users Want It
@@ -475,11 +475,11 @@ deliver_telegram() {
 
 | # | Feature | Priority | Effort | Impact | Target |
 |---|---------|----------|--------|--------|--------|
-| 1 | **Web Dashboard** | **P0** | 10 days | 🔥 Viral demo, retention fix, #1 adoption driver | v4.1 |
-| 2 | **English Pattern Library + Lang Auto-detect** | **P0** | 4 days | 🔥 Opens global market, removes #1 adoption blocker | v4.1 |
-| 3 | **Semantic Embedding Analysis** | **P1** | 12 days | 🧠 Defensible moat, kills "it's just grep" criticism | v4.2 |
-| 4 | **`sea` CLI Approval Workflow** | **P1** | 7 days | ⚡ Retention fix, power-user appeal | v4.1 |
-| 5 | **Multi-Platform Delivery** | **P2** | 5 days | 📣 Market expansion, removes platform lock-in | v4.2 |
+| 1 | **Web Dashboard** | **P0** | 10 days |  Viral demo, retention fix, #1 adoption driver | v4.1 |
+| 2 | **English Pattern Library + Lang Auto-detect** | **P0** | 4 days |  Opens global market, removes #1 adoption blocker | v4.1 |
+| 3 | **Semantic Embedding Analysis** | **P1** | 12 days |  Defensible moat, kills "it's just grep" criticism | v4.2 |
+| 4 | **`sea` CLI Approval Workflow** | **P1** | 7 days |  Retention fix, power-user appeal | v4.1 |
+| 5 | **Multi-Platform Delivery** | **P2** | 5 days |  Market expansion, removes platform lock-in | v4.2 |
 
 ---
 

@@ -18,13 +18,13 @@ Die SKILL.md hat jetzt eine klare Struktur mit dem Gate Flow als Herzstück. Der
 ### 2. Vollständigkeit — **8.5/10**
 
 Massive Verbesserung. Jetzt vorhanden:
-- ✅ Vollständige API Response-Beispiele (Erfolg UND Fehler)
-- ✅ Error Handling Tabelle mit 8 Edge Cases
-- ✅ Integrity-Check Beispiele inkl. 404-Response
-- ✅ Trust Score Berechnung mit konkretem Rechenbeispiel
-- ✅ Getting Package Source Tabelle (npm, pip, GitHub, MCP)
-- ✅ Security Considerations Sektion
-- ✅ Severity Classification mit Beispielen
+-  Vollständige API Response-Beispiele (Erfolg UND Fehler)
+-  Error Handling Tabelle mit 8 Edge Cases
+-  Integrity-Check Beispiele inkl. 404-Response
+-  Trust Score Berechnung mit konkretem Rechenbeispiel
+-  Getting Package Source Tabelle (npm, pip, GitHub, MCP)
+-  Security Considerations Sektion
+-  Severity Classification mit Beispielen
 
 **Verbleibende Issues:**
 - Kein Beispiel für `POST /api/register` Request/Response
@@ -33,11 +33,11 @@ Massive Verbesserung. Jetzt vorhanden:
 ### 3. Konsistenz — **8/10**
 
 **Konsistenz mit Prompts:**
-- ✅ `result`-Werte identisch: `safe|caution|unsafe` in SKILL.md, audit-prompt.md
-- ✅ Pattern ID Prefixes stimmen überein (SKILL.md hat sogar mehr als audit-prompt.md — Superset ist OK)
-- ✅ Report JSON Format identisch
-- ✅ `ecap_id` vs numeric `id` Warnung konsistent in SKILL.md und review-prompt.md
-- ✅ Risk Score Ranges stimmen überein (0–25 safe, 26–50 caution, 51–100 unsafe)
+-  `result`-Werte identisch: `safe|caution|unsafe` in SKILL.md, audit-prompt.md
+-  Pattern ID Prefixes stimmen überein (SKILL.md hat sogar mehr als audit-prompt.md — Superset ist OK)
+-  Report JSON Format identisch
+-  `ecap_id` vs numeric `id` Warnung konsistent in SKILL.md und review-prompt.md
+-  Risk Score Ranges stimmen überein (0–25 safe, 26–50 caution, 51–100 unsafe)
 
 **Verbleibende Issues:**
 - SKILL.md: Trust Score Thresholds sind 70/40 (Gate), aber Trust Score Meaning Table zeigt 80/70/40 Ranges — die 80-70 Unterscheidung ("Trusted" vs "Acceptable") wird im Gate nicht differenziert. Kein Bug, aber leicht verwirrend.
@@ -56,10 +56,10 @@ Die logische Progression von "was passiert automatisch" zu "was kann ich manuell
 ### 5. Actionability — **8/10**
 
 Ein Agent kann fast jeden Schritt direkt ausführen:
-- ✅ Konkrete curl-Befehle mit vollständiger URL
-- ✅ bash-Script Aufrufe mit Parametern
-- ✅ Trust Score Berechnung ist trivial nachzuvollziehen
-- ✅ Decision Table gibt klare Handlungsanweisungen inkl. exakter User-Messages
+-  Konkrete curl-Befehle mit vollständiger URL
+-  bash-Script Aufrufe mit Parametern
+-  Trust Score Berechnung ist trivial nachzuvollziehen
+-  Decision Table gibt klare Handlungsanweisungen inkl. exakter User-Messages
 
 **Verbleibende Issues:**
 - `verify.sh` funktioniert nur für `ecap-security-auditor` selbst — für alle anderen Packages muss der Agent wissen, dass er den Schritt überspringen soll. Das steht zwar da (Limitation-Box), aber es wäre besser im Gate Flow selbst eingebaut.
@@ -68,13 +68,13 @@ Ein Agent kann fast jeden Schritt direkt ausführen:
 ### 6. Edge Cases — **7.5/10**
 
 Deutlich verbessert durch die Error Handling Tabelle:
-- ✅ API down → Default-deny
-- ✅ Hash mismatch + Versionsunterschied
-- ✅ Rate Limiting
-- ✅ Kein Internet
-- ✅ Große Packages (500+ files)
-- ✅ Fehlende Tools (jq, curl)
-- ✅ Korrupte credentials.json
+-  API down → Default-deny
+-  Hash mismatch + Versionsunterschied
+-  Rate Limiting
+-  Kein Internet
+-  Große Packages (500+ files)
+-  Fehlende Tools (jq, curl)
+-  Korrupte credentials.json
 
 **Verbleibende Issues:**
 - Was wenn `scripts/upload.sh` selbst nicht existiert? (frische Installation, korruptes Repo)

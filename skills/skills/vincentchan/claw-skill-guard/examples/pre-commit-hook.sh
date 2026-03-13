@@ -11,12 +11,12 @@
 SCANNER="skills/claw-skill-guard/scripts/scanner.py"
 
 if [ ! -f "$SCANNER" ]; then
-    echo "⚠️  claw-skill-guard not found at $SCANNER"
+    echo "  claw-skill-guard not found at $SCANNER"
     echo "   Skipping security scan. Consider installing the skill."
     exit 0
 fi
 
-echo "🔍 Scanning modified skills for security issues..."
+echo " Scanning modified skills for security issues..."
 echo
 
 # Find modified skill directories
@@ -44,7 +44,7 @@ done
 
 if [ $MAX_RISK -eq 2 ]; then
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "❌ COMMIT BLOCKED: Critical security issues detected"
+    echo " COMMIT BLOCKED: Critical security issues detected"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo
     echo "Review the findings above and fix the issues before committing."
@@ -54,7 +54,7 @@ if [ $MAX_RISK -eq 2 ]; then
     exit 1
 elif [ $MAX_RISK -eq 1 ]; then
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "⚠️  WARNING: High-risk patterns detected"
+    echo "  WARNING: High-risk patterns detected"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo
     echo "Review the findings above. Commit will proceed, but exercise caution."

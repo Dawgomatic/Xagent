@@ -48,7 +48,7 @@ async function main() {
   const signingKey = keyData.address;
 
   if (!opts.json && !opts.yes) {
-    console.log('📝 Registration Details:');
+    console.log(' Registration Details:');
     console.log(`  Name: ${opts.name}`);
     console.log(`  Signing Key: ${signingKey}`);
     console.log(`  Stake: ${opts.stake} USDC`);
@@ -133,7 +133,7 @@ async function main() {
     output(result, true);
   } else {
     console.log('');
-    console.log('✅ Identity registered!');
+    console.log(' Identity registered!');
     console.log('');
     console.log(`Name: ${opts.name}`);
     console.log(`Identity Hash: ${identityHash}`);

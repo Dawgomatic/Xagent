@@ -1,7 +1,7 @@
 ---
 name: Growth Engine
 description: Design, execute, and measure growth systems — from North Star definition through viral loops, experimentation, and scaling. Complete AARRR+ framework with templates, scoring rubrics, and playbooks.
-metadata: {"clawdbot":{"emoji":"📈","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Growth Engine — Complete System
@@ -273,11 +273,11 @@ referral_program:
 ```
 
 **Referral timing rules:**
-- ✅ Ask AFTER user achieves success (completed project, got result, hit milestone)
-- ✅ Ask when user gives positive feedback (NPS 9-10, support thank you)
-- ❌ Never ask during onboarding (they haven't gotten value yet)
-- ❌ Never ask immediately after payment (feels extractive)
-- ✅ Ask when user invites a team member (they're already sharing)
+-  Ask AFTER user achieves success (completed project, got result, hit milestone)
+-  Ask when user gives positive feedback (NPS 9-10, support thank you)
+-  Never ask during onboarding (they haven't gotten value yet)
+-  Never ask immediately after payment (feels extractive)
+-  Ask when user invites a team member (they're already sharing)
 
 ---
 

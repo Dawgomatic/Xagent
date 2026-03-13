@@ -128,10 +128,10 @@ Perfect for:
 ## Quality Assurance
 
 This prompt has been:
-- ✅ Manually designed and curated
-- ✅ Optimized for real-world e-commerce scenarios
-- ✅ Tested for AI video/image generation tools
-- ✅ Reviewed for clarity and effectiveness
+-  Manually designed and curated
+-  Optimized for real-world e-commerce scenarios
+-  Tested for AI video/image generation tools
+-  Reviewed for clarity and effectiveness
 
 ## Feedback
 

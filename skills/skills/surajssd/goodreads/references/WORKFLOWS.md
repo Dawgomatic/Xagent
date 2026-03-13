@@ -2,37 +2,37 @@
 
 Reusable step-by-step browser interaction sequences. All steps use the `browser` tool.
 
-## ⚠️ Common Mistakes — Quick Reference
+##  Common Mistakes — Quick Reference
 
 Before starting any workflow, review these patterns:
 
 **Stale refs — always re-snapshot after navigation:**
 ```
-WRONG: snapshot → navigate → act (using old ref)        ❌
-RIGHT: snapshot → navigate → snapshot → act (new ref)   ✅
+WRONG: snapshot → navigate → act (using old ref)        
+RIGHT: snapshot → navigate → snapshot → act (new ref)   
 ```
 
 **Missing parameters — every browser action needs its required params:**
 ```
-WRONG: browser → navigate (no targetUrl!)               ❌
-RIGHT: browser → navigate → https://www.goodreads.com/… ✅
+WRONG: browser → navigate (no targetUrl!)               
+RIGHT: browser → navigate → https://www.goodreads.com/… 
 
-WRONG: browser → act (no ref, or ref from old snapshot!) ❌
-RIGHT: browser → snapshot → act (ref from THAT snapshot) ✅
+WRONG: browser → act (no ref, or ref from old snapshot!) 
+RIGHT: browser → snapshot → act (ref from THAT snapshot) 
 ```
 
 **Over-navigation — don't leave and come back when you can just re-snapshot:**
 ```
-WRONG: Already on book page → navigate away → navigate back → snapshot  ❌
+WRONG: Already on book page → navigate away → navigate back → snapshot  
        (risks ERR_BLOCKED_BY_RESPONSE)
-RIGHT: Already on book page → snapshot (get fresh refs for current page) ✅
+RIGHT: Already on book page → snapshot (get fresh refs for current page) 
 ```
 
 **Wrapped errors — read the INNER error before giving up:**
 ```
-WRONG: See "Can't reach browser control service" → tell user to restart  ❌
+WRONG: See "Can't reach browser control service" → tell user to restart  
        (the inner error says "Element not found...Run a new snapshot")
-RIGHT: Read inner error → recognize stale ref → re-snapshot → retry      ✅
+RIGHT: Read inner error → recognize stale ref → re-snapshot → retry      
 ```
 
 ---

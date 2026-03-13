@@ -28,7 +28,7 @@
     "url": "https://github.com/VintLin/llm-cost-monitor"
   },
   "openclaw": {
-    "emoji": "💰",
+    "emoji": "",
     "os": ["darwin", "linux"],
     "requires": {
       "bins": ["python3"]

@@ -8,19 +8,19 @@ Longbridge OpenAPI Skill is an AI skill package integrated with Longbridge Secur
 
 ## Core Features
 
-### 📊 Market Data
+###  Market Data
 - **Real-time Market Subscription**: Subscribe to real-time market feeds for Hong Kong stocks, US stocks, and A-shares
 - **Stock Quote Query**: Get real-time data such as latest price, volume, price change, etc.
 - **Candlestick Data**: Support multiple periods including minute, day, week, month, and year
 - **Static Information**: Query basic information such as stock name, exchange, currency, lot size, etc.
 
-### 💰 Trading Features
+###  Trading Features
 - **Smart Order Placement**: Support various order types including limit order, market order, enhanced limit order, etc.
 - **Order Management**: Cancel orders, modify orders
 - **Order Query**: View today's orders, historical orders, and trade records
 - **Multi-market Support**: Coverage of Hong Kong stocks, US stocks, and A-shares
 
-### 💼 Account Management
+###  Account Management
 - **Fund Query**: View account balance, buying power, and net assets in real-time
 - **Position Management**: Query current positions, cost price, market value, and other information
 - **Multi-currency Support**: Support multiple currencies including HKD, USD, CNY, etc.
@@ -29,9 +29,9 @@ Longbridge OpenAPI Skill is an AI skill package integrated with Longbridge Secur
 
 | Market | Code Format | Examples |
 |--------|------------|----------|
-| 🇭🇰 Hong Kong | `XXX.HK` | `700.HK` (Tencent), `9988.HK` (Alibaba) |
-| 🇺🇸 US Stocks | `XXX.US` | `AAPL.US` (Apple), `TSLA.US` (Tesla) |
-| 🇨🇳 A-Shares | `XXX.SH/SZ` | `000001.SZ` (Ping An Bank), `600519.SH` (Moutai) |
+|  Hong Kong | `XXX.HK` | `700.HK` (Tencent), `9988.HK` (Alibaba) |
+|  US Stocks | `XXX.US` | `AAPL.US` (Apple), `TSLA.US` (Tesla) |
+|  A-Shares | `XXX.SH/SZ` | `000001.SZ` (Ping An Bank), `600519.SH` (Moutai) |
 
 ## Configuration Guide
 
@@ -128,7 +128,7 @@ Buy 100 shares of Tencent at 320 HKD
 
 **Response:**
 ```
-✅ Order submitted successfully
+ Order submitted successfully
 Order ID: 123456789
 Stock: Tencent Holdings (700.HK)
 Side: Buy
@@ -149,7 +149,7 @@ What is my account balance?
 
 **Response:**
 ```
-💰 Account Fund Status
+ Account Fund Status
 
 HKD Account
 Cash: 50,000.00 HKD
@@ -174,7 +174,7 @@ What stocks do I hold?
 
 **Response:**
 ```
-📊 Current Positions
+ Current Positions
 
 1. Tencent Holdings (700.HK)
    Quantity: 500 shares | Available: 500 shares
@@ -230,12 +230,12 @@ What stocks do I hold?
 
 ## Security Precautions
 
-### ⚠️ Risk Warnings
+###  Risk Warnings
 1. **Investment Risks**: Stock trading involves market risks, users are responsible for their own investment decisions
 2. **For Learning Only**: This skill is for technical learning and research only, does not constitute investment advice
 3. **Use with Caution**: Do not use directly in production environment without thorough testing
 
-### 🔒 Security Recommendations
+###  Security Recommendations
 1. **Protect Keys**: Keep API keys secure, do not leak to others or commit to code repositories
 2. **Test with Demo**: Recommend testing with Longbridge demo account first
 3. **Order Confirmation**: All trading operations should be confirmed manually before execution
@@ -300,20 +300,20 @@ The SDK outputs logs internally. You can configure Python's logging module to vi
 ## Changelog
 
 ### v1.0.0 (2026-02-02)
-- ✨ Initial release
-- ✅ Support real-time market query and subscription
-- ✅ Support order submission, cancellation, and modification
-- ✅ Support account fund and position queries
-- ✅ Support historical candlestick data retrieval
-- ✅ Full coverage of Hong Kong, US, and A-share markets
+-  Initial release
+-  Support real-time market query and subscription
+-  Support order submission, cancellation, and modification
+-  Support account fund and position queries
+-  Support historical candlestick data retrieval
+-  Full coverage of Hong Kong, US, and A-share markets
 
 ## References
 
-- 📖 [Longbridge OpenAPI Official Documentation](https://open.longbridge.com/docs)
-- 🐍 [Python SDK Documentation](https://longbridge.readthedocs.io/en/latest/)
-- 💻 [GitHub Source Repository](https://github.com/longportapp/openapi)
-- 📦 [PyPI Package](https://pypi.org/project/longbridge/)
-- 🌐 [Open Platform Homepage](https://open.longportapp.com/)
+-  [Longbridge OpenAPI Official Documentation](https://open.longbridge.com/docs)
+-  [Python SDK Documentation](https://longbridge.readthedocs.io/en/latest/)
+-  [GitHub Source Repository](https://github.com/longportapp/openapi)
+-  [PyPI Package](https://pypi.org/project/longbridge/)
+-  [Open Platform Homepage](https://open.longportapp.com/)
 
 ## License
 

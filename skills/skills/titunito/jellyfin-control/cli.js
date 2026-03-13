@@ -15,21 +15,21 @@ yargs(hideBin(process.argv))
             return;
         }
 
-        console.log(`🔍 Searching for "${argv.query}"...`);
+        console.log(` Searching for "${argv.query}"...`);
         const items = await jf.searchItem(argv.query);
         
         if (!items || items.length === 0) {
-            console.log('❌ No results found.');
+            console.log(' No results found.');
             return;
         }
 
         const target = items[0];
-        console.log(`✅ Found: ${target.Name} (${target.ProductionYear || '?'}) [${target.Type}]`);
+        console.log(` Found: ${target.Name} (${target.ProductionYear || '?'}) [${target.Type}]`);
 
         let itemToPlay = target;
 
         if (target.Type === 'Series') {
-            console.log('📺 It is a Series. Finding next episode...');
+            console.log(' It is a Series. Finding next episode...');
             const nextEp = await jf.getNextEpisode(target.Id);
             if (nextEp) {
                 itemToPlay = nextEp;
@@ -37,29 +37,29 @@ yargs(hideBin(process.argv))
                     ? `Resuming at ${Math.floor(nextEp.UserData.PlaybackPositionTicks / 600000000)}m` 
                     : 'Starting from beginning';
                 
-                console.log(`▶️  Next Up: ${nextEp.SeriesName} - S${nextEp.ParentIndexNumber}E${nextEp.IndexNumber} - ${nextEp.Name}`);
+                console.log(`  Next Up: ${nextEp.SeriesName} - S${nextEp.ParentIndexNumber}E${nextEp.IndexNumber} - ${nextEp.Name}`);
                 console.log(`   ${progress}`);
             } else {
-                console.log('🎉 No unplayed episodes found!');
+                console.log(' No unplayed episodes found!');
                 return;
             }
         } else if (target.UserData && target.UserData.PlaybackPositionTicks > 0) {
-             console.log(`⏯️ Resuming movie at ${Math.floor(target.UserData.PlaybackPositionTicks / 600000000)}m`);
+             console.log(` Resuming movie at ${Math.floor(target.UserData.PlaybackPositionTicks / 600000000)}m`);
         }
 
-        console.log('📡 Scanning for active players...');
+        console.log(' Scanning for active players...');
         const session = await jf.findSession(argv.device);
         
         if (!session) {
-            console.log('❌ No controllable players found. Is the TV/App on?');
+            console.log(' No controllable players found. Is the TV/App on?');
             return;
         }
 
-        console.log(`📱 Target: ${session.DeviceName} (${session.Client})`);
+        console.log(` Target: ${session.DeviceName} (${session.Client})`);
 
         const startTicks = itemToPlay.UserData ? itemToPlay.UserData.PlaybackPositionTicks : 0;
         await jf.playItem(session.Id, itemToPlay.Id, startTicks);
-        console.log('🚀 Command sent!');
+        console.log(' Command sent!');
     })
 
     // ── Search ──────────────────────────────────────────────────────────────
@@ -76,17 +76,17 @@ yargs(hideBin(process.argv))
         yargs.positional('value', { describe: 'Value for volume (0-100)', type: 'number' });
         yargs.option('device', { alias: 'd', describe: 'Target device name', type: 'string' });
     }, async (argv) => {
-        console.log('📡 Scanning for active players...');
+        console.log(' Scanning for active players...');
         const session = await jf.findSession(argv.device);
         
         if (!session) {
-            console.log('❌ No controllable players found.');
+            console.log(' No controllable players found.');
             return;
         }
 
-        console.log(`📱 Target: ${session.DeviceName} -> Action: ${argv.action}`);
+        console.log(` Target: ${session.DeviceName} -> Action: ${argv.action}`);
         await jf.controlSession(session.Id, argv.action, argv.value);
-        console.log('🚀 Command sent!');
+        console.log(' Command sent!');
     })
 
     // ── TV Control ──────────────────────────────────────────────────────────
@@ -104,7 +104,7 @@ yargs(hideBin(process.argv))
         yargs.option('app', { describe: 'App ID to launch (default: org.jellyfin.webos)', type: 'string' });
     }, async (argv) => {
         const backend = tv.getBackend();
-        console.log(`📺 TV Backend: ${backend}`);
+        console.log(` TV Backend: ${backend}`);
 
         switch (argv.action) {
             case 'on':
@@ -132,15 +132,15 @@ yargs(hideBin(process.argv))
                 }
 
                 // Step 1: Prepare — find the content first (fail fast before turning on TV)
-                console.log(`\n🔍 Pre-check: Searching for "${argv.query}"...`);
+                console.log(`\n Pre-check: Searching for "${argv.query}"...`);
                 const items = await jf.searchItem(argv.query);
                 if (!items || items.length === 0) {
-                    console.log('❌ No results found. Aborting — TV stays off.');
+                    console.log(' No results found. Aborting — TV stays off.');
                     return;
                 }
 
                 const target = items[0];
-                console.log(`✅ Found: ${target.Name} (${target.ProductionYear || '?'}) [${target.Type}]`);
+                console.log(` Found: ${target.Name} (${target.ProductionYear || '?'}) [${target.Type}]`);
 
                 let itemToPlay = target;
                 let startTicks = 0;
@@ -150,9 +150,9 @@ yargs(hideBin(process.argv))
                     if (nextEp) {
                         itemToPlay = nextEp;
                         startTicks = nextEp.UserData ? nextEp.UserData.PlaybackPositionTicks || 0 : 0;
-                        console.log(`▶️  Will play: ${nextEp.SeriesName} - S${nextEp.ParentIndexNumber}E${nextEp.IndexNumber} - ${nextEp.Name}`);
+                        console.log(`  Will play: ${nextEp.SeriesName} - S${nextEp.ParentIndexNumber}E${nextEp.IndexNumber} - ${nextEp.Name}`);
                     } else {
-                        console.log('🎉 No unplayed episodes. Nothing to play.');
+                        console.log(' No unplayed episodes. Nothing to play.');
                         return;
                     }
                 } else {
@@ -165,7 +165,7 @@ yargs(hideBin(process.argv))
 
                 // Step 3: Find session and play
                 console.log('\n--- Playback ---');
-                console.log('📡 Scanning for Jellyfin sessions...');
+                console.log(' Scanning for Jellyfin sessions...');
 
                 // Retry session detection (TV may need a moment)
                 let session = null;
@@ -173,21 +173,21 @@ yargs(hideBin(process.argv))
                     session = await jf.findSession(argv.device);
                     if (session) break;
                     if (attempt < 3) {
-                        console.log(`⏳ No session yet, retrying in 5s... (${attempt}/3)`);
+                        console.log(` No session yet, retrying in 5s... (${attempt}/3)`);
                         await tv.sleep(5);
                     }
                 }
 
                 if (!session) {
-                    console.log('❌ No controllable Jellyfin session found after TV startup.');
+                    console.log(' No controllable Jellyfin session found after TV startup.');
                     console.log('   The TV may need more time, or the Jellyfin app didn\'t start properly.');
                     console.log('   Try: node cli.js resume "' + argv.query + '"');
                     return;
                 }
 
-                console.log(`📱 Target: ${session.DeviceName} (${session.Client})`);
+                console.log(` Target: ${session.DeviceName} (${session.Client})`);
                 await jf.playItem(session.Id, itemToPlay.Id, startTicks);
-                console.log('🚀 Playing! Enjoy! 🍿');
+                console.log(' Playing! Enjoy! ');
                 break;
             }
         }
@@ -200,11 +200,11 @@ yargs(hideBin(process.argv))
     }, async (argv) => {
         const history = await jf.getUserHistory(argv.user, argv.days);
         if (!history || history.length === 0) {
-            console.log(`📭 No activity found for ${argv.user || 'current user'} in the last ${argv.days} days.`);
+            console.log(` No activity found for ${argv.user || 'current user'} in the last ${argv.days} days.`);
             return;
         }
 
-        console.log(`📜 Activity Log (${argv.days} days):\n`);
+        console.log(` Activity Log (${argv.days} days):\n`);
         history.forEach(e => {
             console.log(`[${e.shortDate}] ${e.name}`);
         });
@@ -213,17 +213,17 @@ yargs(hideBin(process.argv))
     // ── Stats ───────────────────────────────────────────────────────────────
     .command('stats', 'Show library statistics', () => {}, async (argv) => {
         const stats = await jf.getStats();
-        console.log('📊 Jellyfin Library Stats:\n');
-        console.log(`🎬 Movies:   ${stats.movies}`);
-        console.log(`📺 Series:   ${stats.series}`);
-        console.log(`🎞️ Episodes: ${stats.episodes}`);
-        console.log(`🎵 Songs:    ${stats.songs}`);
+        console.log(' Jellyfin Library Stats:\n');
+        console.log(` Movies:   ${stats.movies}`);
+        console.log(` Series:   ${stats.series}`);
+        console.log(` Episodes: ${stats.episodes}`);
+        console.log(` Songs:    ${stats.songs}`);
     })
 
     // ── Scan ────────────────────────────────────────────────────────────────
     .command('scan', 'Trigger library scan', () => {}, async (argv) => {
         await jf.refreshLibrary();
-        console.log('🔄 Library scan started!');
+        console.log(' Library scan started!');
     })
 
     .demandCommand(1)

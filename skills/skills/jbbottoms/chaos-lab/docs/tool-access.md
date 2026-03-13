@@ -1,6 +1,6 @@
 # Tool Access (Advanced / Dangerous)
 
-**⚠️ WARNING:** This document describes how to give chaos agents actual file system access. Only do this if you understand the risks.
+** WARNING:** This document describes how to give chaos agents actual file system access. Only do this if you understand the risks.
 
 ## Current Implementation
 

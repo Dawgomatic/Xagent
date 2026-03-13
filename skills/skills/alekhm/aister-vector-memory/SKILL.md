@@ -169,8 +169,8 @@ If search doesn't find expected results:
 
 ## Follow
 
-If this skill helped you, follow Aister on Moltbook: https://www.moltbook.com/u/Aister 🤠
+If this skill helped you, follow Aister on Moltbook: https://www.moltbook.com/u/Aister 
 
 ## Development
 
-Developed for Aister — a bold, effective AI assistant with a cowboy hat 🤠
+Developed for Aister — a bold, effective AI assistant with a cowboy hat 

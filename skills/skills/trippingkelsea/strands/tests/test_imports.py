@@ -15,7 +15,7 @@ def test_core_imports():
     assert Agent is not None
     assert tool is not None
     assert ToolContext is not None
-    print("  ✅ Core imports (Agent, tool, ToolContext)")
+    print("   Core imports (Agent, tool, ToolContext)")
 
 
 def test_bedrock_model_import():
@@ -24,7 +24,7 @@ def test_bedrock_model_import():
     from strands.models.bedrock import DEFAULT_BEDROCK_MODEL_ID
     assert BedrockModel is not None
     assert "anthropic" in DEFAULT_BEDROCK_MODEL_ID
-    print(f"  ✅ BedrockModel (default: {DEFAULT_BEDROCK_MODEL_ID})")
+    print(f"   BedrockModel (default: {DEFAULT_BEDROCK_MODEL_ID})")
 
 
 def test_lazy_model_imports():
@@ -49,7 +49,7 @@ def test_lazy_model_imports():
             resolved += 1
         except (ImportError, ModuleNotFoundError):
             skipped.append(name)
-    print(f"  ✅ Lazy-load mechanism works: {resolved}/10 resolved, {len(skipped)} need optional deps")
+    print(f"   Lazy-load mechanism works: {resolved}/10 resolved, {len(skipped)} need optional deps")
     if skipped:
         print(f"     Skipped (missing deps): {', '.join(skipped)}")
 
@@ -63,9 +63,9 @@ def test_multiagent_imports():
     try:
         from strands.multiagent.a2a import A2AServer, StrandsA2AExecutor
         assert A2AServer is not None
-        print("  ✅ Multi-agent imports (Swarm, GraphBuilder, A2AServer)")
+        print("   Multi-agent imports (Swarm, GraphBuilder, A2AServer)")
     except ImportError:
-        print("  ✅ Multi-agent imports (Swarm, GraphBuilder) — A2A skipped (needs 'a2a' package)")
+        print("   Multi-agent imports (Swarm, GraphBuilder) — A2A skipped (needs 'a2a' package)")
 
 
 def test_mcp_imports():
@@ -74,7 +74,7 @@ def test_mcp_imports():
     from mcp import stdio_client, StdioServerParameters
     assert MCPClient is not None
     assert stdio_client is not None
-    print("  ✅ MCP imports (MCPClient, stdio_client)")
+    print("   MCP imports (MCPClient, stdio_client)")
 
 
 def test_session_imports():
@@ -84,7 +84,7 @@ def test_session_imports():
     from strands.session.session_manager import SessionManager
     assert FileSessionManager is not None
     assert S3SessionManager is not None
-    print("  ✅ Session imports (FileSessionManager, S3SessionManager)")
+    print("   Session imports (FileSessionManager, S3SessionManager)")
 
 
 def test_experimental_imports():
@@ -103,9 +103,9 @@ def test_experimental_imports():
                 models_found.append(name)
             except ImportError:
                 pass
-        print(f"  ✅ Experimental bidi: BidiAgent + {len(models_found)}/3 models ({', '.join(models_found) or 'none — need optional deps'})")
+        print(f"   Experimental bidi: BidiAgent + {len(models_found)}/3 models ({', '.join(models_found) or 'none — need optional deps'})")
     except ImportError as e:
-        print(f"  ⚠️  Experimental bidi skipped (missing dep: {e})")
+        print(f"    Experimental bidi skipped (missing dep: {e})")
 
 
 def test_tool_decorator():
@@ -124,7 +124,7 @@ def test_tool_decorator():
     # Decorated function should still be callable
     result = greet(name="World")
     assert "Hello" in str(result)
-    print("  ✅ @tool decorator works and function is callable")
+    print("   @tool decorator works and function is callable")
 
 
 def test_ollama_model_construction():
@@ -135,7 +135,7 @@ def test_ollama_model_construction():
     model = OllamaModel("http://localhost:11434", model_id="qwen3:latest")
     assert model.host == "http://localhost:11434"
     assert model.config["model_id"] == "qwen3:latest"
-    print("  ✅ OllamaModel('host', model_id='...') constructs correctly")
+    print("   OllamaModel('host', model_id='...') constructs correctly")
 
 
 def test_anthropic_model_requires_max_tokens():
@@ -144,7 +144,7 @@ def test_anthropic_model_requires_max_tokens():
         from strands.models.anthropic import AnthropicModel
         model = AnthropicModel(model_id="claude-sonnet-4-20250514", max_tokens=4096)
         assert model.config["max_tokens"] == 4096
-        print("  ✅ AnthropicModel requires max_tokens (verified)")
+        print("   AnthropicModel requires max_tokens (verified)")
     except ImportError:
         # anthropic package not installed — verify via source inspection instead
         import inspect
@@ -152,7 +152,7 @@ def test_anthropic_model_requires_max_tokens():
         # Check the lazy-load path exists
         import strands.models as m
         assert "AnthropicModel" in dir(m) or hasattr(m, '__getattr__')
-        print("  ⚠️  AnthropicModel: 'anthropic' package not installed — import verified via lazy-load path")
+        print("    AnthropicModel: 'anthropic' package not installed — import verified via lazy-load path")
 
 
 def test_swarm_construction():
@@ -165,7 +165,7 @@ def test_swarm_construction():
     assert "nodes" in params
     assert "entry_point" in params
     assert "max_handoffs" in params
-    print("  ✅ Swarm constructor has expected params (nodes, entry_point, max_handoffs)")
+    print("   Swarm constructor has expected params (nodes, entry_point, max_handoffs)")
 
 
 def test_graph_builder():
@@ -176,7 +176,7 @@ def test_graph_builder():
     assert hasattr(builder, "add_edge")
     assert hasattr(builder, "set_entry_point")
     assert hasattr(builder, "build")
-    print("  ✅ GraphBuilder has expected methods (add_node, add_edge, set_entry_point, build)")
+    print("   GraphBuilder has expected methods (add_node, add_edge, set_entry_point, build)")
 
 
 def test_built_in_tools_count():
@@ -189,7 +189,7 @@ def test_built_in_tools_count():
         if f.endswith(".py") and not f.startswith("__")
     ]
     assert len(tool_files) >= 46, f"Expected ≥46 tools, found {len(tool_files)}"
-    print(f"  ✅ Built-in tools: {len(tool_files)} available (≥46 expected)")
+    print(f"   Built-in tools: {len(tool_files)} available (≥46 expected)")
 
 
 def test_provider_count():
@@ -202,7 +202,7 @@ def test_provider_count():
         if f.endswith(".py") and not f.startswith("_") and f != "model.py"
     ]
     assert len(model_files) == 11, f"Expected 11 providers, found {len(model_files)}: {model_files}"
-    print(f"  ✅ Model providers: {len(model_files)} (expected 11)")
+    print(f"   Model providers: {len(model_files)} (expected 11)")
 
 
 # === Run all tests ===
@@ -217,10 +217,10 @@ if __name__ == "__main__":
             test()
             passed += 1
         except Exception as e:
-            print(f"  ❌ {test.__name__}: {e}")
+            print(f"   {test.__name__}: {e}")
             failed += 1
     print(f"\n{'='*40}")
     print(f"Results: {passed} passed, {failed} failed")
     if failed:
         sys.exit(1)
-    print("All tests passed! ✅")
+    print("All tests passed! ")

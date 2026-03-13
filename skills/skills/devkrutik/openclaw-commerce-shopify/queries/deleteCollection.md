@@ -73,7 +73,7 @@ When a user requests to delete collections or remove products from collections, 
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Deletes collection with excessive return fields
+   #  HIGH COST - Deletes collection with excessive return fields
    mutation collectionDelete($input: CollectionDeleteInput!) {
      collectionDelete(input: $input) {
        deletedCollectionId
@@ -82,7 +82,7 @@ When a user requests to delete collections or remove products from collections, 
      }
    }
    
-   # ✅ LOW COST - Deletes collection with essential fields only
+   #  LOW COST - Deletes collection with essential fields only
    mutation collectionDelete($input: CollectionDeleteInput!) {
      collectionDelete(input: $input) {
        deletedCollectionId
@@ -164,7 +164,7 @@ When generating a collection delete mutation for the user:
 ```
 I'll help you delete a collection from your store.
 
-**⚠️ IMPORTANT WARNING**: This will permanently delete the collection and all associated data. This action cannot be undone.
+** IMPORTANT WARNING**: This will permanently delete the collection and all associated data. This action cannot be undone.
 
 **Mutation:**
 ```graphql

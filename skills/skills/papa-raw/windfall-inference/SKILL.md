@@ -3,7 +3,7 @@ name: windfall-inference
 description: Spatially-routed LLM inference at $0.004/req. Routes to cheapest, greenest energy. 200+ models. OpenAI-compatible. Onchain attestations on Base.
 homepage: https://windfall.ecofrontiers.xyz
 user-invocable: true
-metadata: {"openclaw":{"emoji":"⚡","requires":{"env":["WINDFALL_API_KEY"]},"primaryEnv":"WINDFALL_API_KEY","os":["darwin","linux","win32"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["WINDFALL_API_KEY"]},"primaryEnv":"WINDFALL_API_KEY","os":["darwin","linux","win32"]}}
 ---
 
 # Windfall Inference

@@ -1,4 +1,4 @@
-# 🛡️ MaclawPro Security - OpenClaw Skill
+#  MaclawPro Security - OpenClaw Skill
 
 **Comprehensive macOS security monitoring for OpenClaw**
 
@@ -6,21 +6,21 @@ Created by certified cybersecurity experts.
 
 ---
 
-## 🎯 **What is this?**
+##  **What is this?**
 
 MaclawPro Security brings **52+ professional macOS security tasks** to OpenClaw, enabling you to monitor and protect your Mac through simple commands.
 
 **Use cases:**
-- 📹 Monitor camera/microphone access in real-time
-- 🔥 Check firewall status and open ports
-- 🌐 Verify VPN connection and DNS security
-- 📡 Scan WiFi networks for security risks
-- 🛑 Block malicious apps instantly
-- 🔐 Audit system permissions and encryption
+-  Monitor camera/microphone access in real-time
+-  Check firewall status and open ports
+-  Verify VPN connection and DNS security
+-  Scan WiFi networks for security risks
+-  Block malicious apps instantly
+-  Audit system permissions and encryption
 
 ---
 
-## 🚀 **Installation**
+##  **Installation**
 
 ```bash
 # Via npm
@@ -32,7 +32,7 @@ openclaw skill install openclaw-macos-security
 
 ---
 
-## 💬 **Usage**
+##  **Usage**
 
 ### **Basic Commands**
 
@@ -50,22 +50,22 @@ openclaw skill install openclaw-macos-security
 
 ```
 User: /camera-status
-MaclawPro: 🔴 CAMERA ACTIVE
+MaclawPro:  CAMERA ACTIVE
            Zoom is using your camera right now
            [Block] [Revoke Permission]
 
 User: /firewall-status
-MaclawPro: ✅ FIREWALL ENABLED
+MaclawPro:  FIREWALL ENABLED
            Your Mac is protected!
 
 User: /block-app Malware
-MaclawPro: 🚨 BLOCKED
+MaclawPro:  BLOCKED
            Malware.app moved to Trash
 ```
 
 ---
 
-## 📋 **Full Command List**
+##  **Full Command List**
 
 ### **Monitoring (Real-Time)**
 - `camera-status` - Active camera usage
@@ -106,7 +106,7 @@ MaclawPro: 🚨 BLOCKED
 
 ---
 
-## 🔒 **Security & Privacy**
+##  **Security & Privacy**
 
 **This skill requires the following permissions:**
 - `exec` - Run macOS security commands (lsof, ps, etc.)
@@ -117,29 +117,29 @@ MaclawPro: 🚨 BLOCKED
 
 ---
 
-## 🎓 **About MaclawPro**
+##  **About MaclawPro**
 
 MaclawPro is developed by certified cybersecurity experts with:
-- 🏅 Professional wireless network security certification
-- 💼 Years of Mac security experience
-- 🌐 Serving businesses and individuals worldwide
+-  Professional wireless network security certification
+-  Years of Mac security experience
+-  Serving businesses and individuals worldwide
 
 **Learn more:**
-- 🌐 [maclawpro.com](https://maclawpro.com) - Full standalone version
+-  [maclawpro.com](https://maclawpro.com) - Full standalone version
 
 ---
 
-## ⭐ **Upgrade to MaclawPro Standalone**
+##  **Upgrade to MaclawPro Standalone**
 
 This OpenClaw skill provides **basic monitoring**. For advanced features:
 
 **MaclawPro Full Version includes:**
-- ✅ Real-time alerts (Telegram, Email, Slack)
-- ✅ Web dashboard with analytics
-- ✅ Multi-channel notifications
-- ✅ Alert history and reports
-- ✅ Automated threat blocking
-- ✅ 24/7 background monitoring
+-  Real-time alerts (Telegram, Email, Slack)
+-  Web dashboard with analytics
+-  Multi-channel notifications
+-  Alert history and reports
+-  Automated threat blocking
+-  24/7 background monitoring
 
 **Pricing:**
 - Free: Basic monitoring
@@ -150,17 +150,17 @@ This OpenClaw skill provides **basic monitoring**. For advanced features:
 
 ---
 
-## 🤝 **Support**
+##  **Support**
 
-- 🌐 Website: [maclawpro.com](https://maclawpro.com)
-- 🐛 Issues: [GitHub Issues](https://github.com/drg3nz0/maclaw-openclaw-skill/issues)
-- 💬 Discord: [OpenClaw Community](https://discord.gg/openclaw)
+-  Website: [maclawpro.com](https://maclawpro.com)
+-  Issues: [GitHub Issues](https://github.com/drg3nz0/maclaw-openclaw-skill/issues)
+-  Discord: [OpenClaw Community](https://discord.gg/openclaw)
 
 ---
 
-## 📄 **License**
+##  **License**
 
-MIT © MaclawPro
+MIT  MaclawPro
 
 ---
 

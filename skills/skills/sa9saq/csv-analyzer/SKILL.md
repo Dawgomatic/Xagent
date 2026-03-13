@@ -18,7 +18,7 @@ Analyze CSV/TSV files: statistics, data profiling, and visualizations.
 
 4. **Summary report**:
    ```
-   📊 CSV Analysis — data.csv
+    CSV Analysis — data.csv
    Rows: 10,432 | Columns: 8 | Size: 2.1 MB
 
    | Column    | Type    | Non-null | Unique | Summary            |

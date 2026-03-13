@@ -1,7 +1,7 @@
 ---
 name: warren-nft
 description: Deploy NFT collections permanently on MegaETH mainnet. Images are stored on-chain via SSTORE2, then published through WarrenContainer and WarrenLaunchedNFT.
-metadata: {"openclaw":{"emoji":"🖼️","homepage":"https://thewarren.app","source":"https://github.com/planetai87/onchain-loader","requires":{"anyBins":["node"],"env":["PRIVATE_KEY"]},"primaryEnv":"PRIVATE_KEY"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://thewarren.app","source":"https://github.com/planetai87/onchain-loader","requires":{"anyBins":["node"],"env":["PRIVATE_KEY"]},"primaryEnv":"PRIVATE_KEY"}}
 user-invocable: true
 ---
 
@@ -143,7 +143,7 @@ PRIVATE_KEY=0x... node deploy-nft.js \
 ## Output
 
 ```
-🎉 NFT Collection Deployed!
+ NFT Collection Deployed!
 ============================================================
 NFT Contract:  0xABC...
 Container ID:  15
@@ -151,8 +151,8 @@ Image Count:   10
 Max Supply:    100
 Public Price:  0 ETH (Free)
 
-📋 Management: https://thewarren.app/launchpad/0xABC.../
-🎨 Mint Page:  https://thewarren.app/launchpad/0xABC.../mint
+ Management: https://thewarren.app/launchpad/0xABC.../
+ Mint Page:  https://thewarren.app/launchpad/0xABC.../mint
 ============================================================
 ```
 

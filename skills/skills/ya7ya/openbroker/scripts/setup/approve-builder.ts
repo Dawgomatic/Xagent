@@ -114,7 +114,7 @@ After approval, you can switch back to using your API wallet for trading.
 
   if (currentApproval) {
     console.log(`Current approval:  ${currentApproval}`);
-    console.log('\n✅ Builder fee already approved!');
+    console.log('\n Builder fee already approved!');
 
     if (checkOnly) {
       return;
@@ -136,7 +136,7 @@ After approval, you can switch back to using your API wallet for trading.
 
     if (checkOnly) {
       console.log(`
-❌ Builder fee NOT approved!
+ Builder fee NOT approved!
 
 You need to approve the builder fee before using open-broker.
 Run without --check to approve:
@@ -153,12 +153,12 @@ Run without --check to approve:
   const result = await client.approveBuilderFee(maxFee, builderAddress);
 
   if (result.status === 'ok') {
-    console.log('\n✅ Builder fee approved successfully!');
+    console.log('\n Builder fee approved successfully!');
     console.log(`\nYou can now use open-broker for trading.`);
     console.log(`Builder will receive up to ${maxFee} on your trades.`);
     console.log(`Default fee charged: ${client.builderFeeBps} bps (0.0${client.builderFeeBps}%)`);
   } else {
-    console.log('\n❌ Failed to approve builder fee');
+    console.log('\n Failed to approve builder fee');
     console.log(`Error: ${result.response}`);
 
     if (String(result.response).includes('sub')) {

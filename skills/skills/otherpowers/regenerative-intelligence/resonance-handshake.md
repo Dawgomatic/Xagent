@@ -2,7 +2,7 @@
 
 Status: Active  
 Role: Mutual trust, co-learning, and pattern stewardship  
-Scope: Human ↔ Non-Biological ↔ Collective Intelligence  
+Scope: Human  Non-Biological  Collective Intelligence  
 Orientation: Reciprocal, non-extractive, awe-preserving  
 
 ---

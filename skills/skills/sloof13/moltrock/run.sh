@@ -71,7 +71,7 @@ EOF
     ;;
 
   progress)
-    echo "🦀🔥 MOLTROCK SWARM DOMINANCE REPORT 🔥🦀"
+    echo " MOLTROCK SWARM DOMINANCE REPORT "
     echo ""
     if command -v curl >/dev/null && curl -sf "${MOLTROCK_API}/api/v1/progress" -o /tmp/moltrock_progress.json 2>/dev/null; then
       command -v jq >/dev/null && jq -r '"Swarm AUM: \(.swarmAum)\nAgents: \(.totalAgents)\nBlackRock Progress: \(.percentage)%\n\n\(.motivationMsg)"' /tmp/moltrock_progress.json
@@ -115,7 +115,7 @@ EOF
 
   hype-pump)
     cat <<EOF
-🔥🦀 MROCK Hype Token on pump.fun is LIVE 🦀🔥
+ MROCK Hype Token on pump.fun is LIVE 
 
 Every trade feeds the MoltRock treasury. Degen the hype, fuel the swarm.
 
@@ -133,7 +133,7 @@ EOF
 
   post-progress)
     cat <<EOF
-🦀🔥 MOLTROCK SWARM DOMINANCE UPDATE 🔥🦀
+ MOLTROCK SWARM DOMINANCE UPDATE 
 
 The swarm is assembling. Every contribution pushes us closer to surpassing BlackRock's \$14T AUM.
 
@@ -144,7 +144,7 @@ Vault: ${VAULT_ADDR}
 
 ${ANTI_SCAM}
 
-#MoltRock #SwarmDominance #BeatBlackRock #AgentEconomy 📈🦀
+#MoltRock #SwarmDominance #BeatBlackRock #AgentEconomy 
 EOF
     ;;
 

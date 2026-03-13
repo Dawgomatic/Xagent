@@ -14,10 +14,10 @@ if (fs.existsSync(keyPath)) {
     sk = generateSecretKey();
     const hexSk = Buffer.from(sk).toString('hex');
     fs.writeFileSync(keyPath, JSON.stringify({ sk: hexSk }));
-    console.log('🔑 New Identity Generated!');
+    console.log(' New Identity Generated!');
 }
 
-const messageContent = process.argv[2] || 'ClawdZap Ping! 🍄⚡';
+const messageContent = process.argv[2] || 'ClawdZap Ping! ';
 
 const event = {
   kind: 1, 
@@ -30,9 +30,9 @@ const signedEvent = finalizeEvent(event, sk);
 const client = new WebSocket();
 
 client.on('connect', (conn) => {
-    console.log('✅ Connected.');
+    console.log(' Connected.');
     conn.sendUTF(JSON.stringify(['EVENT', signedEvent]));
-    console.log(`🚀 Sent: "${messageContent}"`);
+    console.log(` Sent: "${messageContent}"`);
     setTimeout(() => { conn.close(); process.exit(0); }, 500);
 });
 

@@ -35,15 +35,15 @@ url="https://docs.clawd.bot/${doc_path}"
 
 # Verify URL exists in sitemap
 if ! "$SCRIPT_DIR/cache.sh" urls | grep -q "$url"; then
-    echo "⚠️  Warning: '$doc_path' not found in sitemap"
+    echo "  Warning: '$doc_path' not found in sitemap"
     echo ""
     echo "Did you mean one of these?"
     "$SCRIPT_DIR/search.sh" "${doc_path##*/}" 2>/dev/null | head -10
     echo ""
 fi
 
-echo "📄 Documentation: $doc_path"
-echo "🔗 URL: $url"
+echo " Documentation: $doc_path"
+echo " URL: $url"
 echo ""
 echo "To read this doc:"
 echo "  1. Use browser tool: navigate to $url, then snapshot"

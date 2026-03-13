@@ -11,9 +11,9 @@ API Documentation: [`https://aisa.mintlify.app/api-reference/introduction`](http
 
 | Resolution | AIsa (Contract) | AIsa (Official) | Bailian (Official) | OpenRouter |
 |------------|-----------------|-----------------|-------------------|------------|
-| 720P | $0.06/sec | ~$0.08 | ~$0.10 | ❌ |
-| 1080P | $0.09/sec | ~$0.12 | ~$0.15 | ❌ |
-| Pro/Animate | $0.108–0.156 | ~$0.18 | ~$0.25 | ❌ |
+| 720P | $0.06/sec | ~$0.08 | ~$0.10 |  |
+| 1080P | $0.09/sec | ~$0.12 | ~$0.15 |  |
+| Pro/Animate | $0.108–0.156 | ~$0.18 | ~$0.25 |  |
 
 **Competitive Advantage**: AIsa offers the lowest pricing for WAN video generation with contract rates, and remains competitive even at official pricing. OpenRouter does not currently support video generation.
 

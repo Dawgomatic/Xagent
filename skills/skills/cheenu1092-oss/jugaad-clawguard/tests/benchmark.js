@@ -13,7 +13,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 async function benchmark() {
-    console.log('🏁 OSBS Performance Benchmark\n');
+    console.log(' OSBS Performance Benchmark\n');
     console.log('═'.repeat(50));
 
     // Initialize
@@ -55,7 +55,7 @@ async function benchmark() {
 
         results.push({ name: test.name, avgMs, totalMs: duration });
         
-        const status = avgMs < 1 ? '✅' : avgMs < 10 ? '⚠️' : '❌';
+        const status = avgMs < 1 ? '' : avgMs < 10 ? '' : '';
         console.log(`${status} ${test.name.padEnd(30)} ${avgMs.toFixed(3)}ms avg (${iterations} iterations)`);
     }
 
@@ -65,21 +65,21 @@ async function benchmark() {
     const exactLookups = results.filter(r => r.name.includes('Exact'));
     const avgExact = exactLookups.reduce((a, b) => a + b.avgMs, 0) / exactLookups.length;
     
-    console.log('\n📊 Summary:');
-    console.log(`   Avg exact lookup: ${avgExact.toFixed(3)}ms ${avgExact < 1 ? '✅' : '❌'} (target: <1ms)`);
+    console.log('\n Summary:');
+    console.log(`   Avg exact lookup: ${avgExact.toFixed(3)}ms ${avgExact < 1 ? '' : ''} (target: <1ms)`);
     
     const patternChecks = results.filter(r => r.name.includes('pattern') || r.name.includes('Message'));
     const avgPattern = patternChecks.reduce((a, b) => a + b.avgMs, 0) / patternChecks.length;
-    console.log(`   Avg pattern match: ${avgPattern.toFixed(3)}ms ${avgPattern < 100 ? '✅' : '❌'} (target: <100ms)`);
+    console.log(`   Avg pattern match: ${avgPattern.toFixed(3)}ms ${avgPattern < 100 ? '' : ''} (target: <100ms)`);
 
     // Database stats
     const stats = db.getStats();
-    console.log(`\n📁 Database:`);
+    console.log(`\n Database:`);
     console.log(`   Threats: ${stats.total_threats}`);
     console.log(`   Indicators: ${stats.total_indicators}`);
 
     closeDatabase();
-    console.log('\n✅ Benchmark complete!\n');
+    console.log('\n Benchmark complete!\n');
 }
 
 benchmark().catch(err => {

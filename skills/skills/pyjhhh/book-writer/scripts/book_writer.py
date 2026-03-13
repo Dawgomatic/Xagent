@@ -559,14 +559,14 @@ def main():
 
     if args.action == "outline":
         if not args.prompt:
-            print("❌ 错误: 生成大纲需要提供 --prompt 参数")
+            print(" 错误: 生成大纲需要提供 --prompt 参数")
             return
 
-        print(f"📖 正在为 '{args.prompt}' 生成书籍大纲...")
+        print(f" 正在为 '{args.prompt}' 生成书籍大纲...")
         outline = writer.generate_outline(args.prompt, args.max_chapters)
         
-        print(f"✅ 大纲生成完成！共 {len(outline.chapters)} 章")
-        print(f"📚 书籍标题: {outline.title}")
+        print(f" 大纲生成完成！共 {len(outline.chapters)} 章")
+        print(f" 书籍标题: {outline.title}")
         
         # 保存大纲
         output_name = args.output or outline.title.replace(" ", "_").replace("/", "_")
@@ -583,19 +583,19 @@ def main():
         with open(outline_path / "outline.json", 'w', encoding='utf-8') as f:
             json.dump(outline_data, f, ensure_ascii=False, indent=2)
         
-        print(f"💾 大纲已保存到: {outline_path}/outline.json")
+        print(f" 大纲已保存到: {outline_path}/outline.json")
 
     elif args.action == "expand":
         if not args.book_path:
-            print("❌ 错误: 扩写内容需要提供 --book-path 参数")
+            print(" 错误: 扩写内容需要提供 --book-path 参数")
             return
             
         if not args.prompt:
-            print("❌ 错误: 扩写内容需要提供 --prompt 参数（用于重新生成大纲）")
+            print(" 错误: 扩写内容需要提供 --prompt 参数（用于重新生成大纲）")
             # 我们将从现有的大纲文件加载
             outline_path = Path(writer.output_dir) / args.book_path / "outline.json"
             if not outline_path.exists():
-                print(f"❌ 错误: 未找到大纲文件 {outline_path}")
+                print(f" 错误: 未找到大纲文件 {outline_path}")
                 return
             with open(outline_path, 'r', encoding='utf-8') as f:
                 outline_data = json.load(f)
@@ -608,39 +608,39 @@ def main():
             )
         else:
             # 生成新大纲
-            print(f"📖 正在为 '{args.prompt}' 生成书籍大纲...")
+            print(f" 正在为 '{args.prompt}' 生成书籍大纲...")
             outline = writer.generate_outline(args.prompt, args.max_chapters)
 
-        print(f"✍️  正在扩写书籍内容...")
+        print(f"  正在扩写书籍内容...")
         selected_chapters = [int(x.strip()) for x in args.chapters.split(",")]
         max_chap = max(selected_chapters) if selected_chapters else args.max_chapters
         book = writer.expand_book(outline, max_chap)
         
-        print(f"✅ 内容扩写完成！")
+        print(f" 内容扩写完成！")
         
         # 保存完整书籍
         output_name = args.output or args.book_path
         writer.save_book(book, output_name)
         
-        print(f"💾 书籍已保存到: {writer.output_dir}/{output_name}")
+        print(f" 书籍已保存到: {writer.output_dir}/{output_name}")
 
     elif args.action == "full":
         if not args.prompt:
-            print("❌ 错误: 全流程操作需要提供 --prompt 参数")
+            print(" 错误: 全流程操作需要提供 --prompt 参数")
             return
 
-        print(f"📖 正在为 '{args.prompt}' 生成书籍大纲...")
+        print(f" 正在为 '{args.prompt}' 生成书籍大纲...")
         outline = writer.generate_outline(args.prompt, args.max_chapters)
         
-        print(f"✍️  正在扩写书籍内容...")
+        print(f"  正在扩写书籍内容...")
         book = writer.expand_book(outline, args.max_chapters)
         
         output_name = args.output or outline.title.replace(" ", "_").replace("/", "_")
         writer.save_book(book, output_name)
         
-        print(f"🎉 书籍生成完成！")
-        print(f"📚 书籍标题: {book.title}")
-        print(f"💾 保存位置: {writer.output_dir}/{output_name}")
+        print(f" 书籍生成完成！")
+        print(f" 书籍标题: {book.title}")
+        print(f" 保存位置: {writer.output_dir}/{output_name}")
 
 if __name__ == "__main__":
     main()

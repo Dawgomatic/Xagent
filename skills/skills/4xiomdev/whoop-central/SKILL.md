@@ -4,7 +4,7 @@ description: WHOOP Central - OAuth + scripts to fetch WHOOP data (sleep, recover
 version: 1.0.2
 metadata:
   clawdbot:
-    emoji: "🏋️"
+    emoji: ""
     requires:
       bins: ["node", "openssl"]
 ---
@@ -50,9 +50,9 @@ node src/import-historical.js
 
 ## Recovery Score Guide
 
-- 💚 **67-100%** Green - Ready to perform
-- 💛 **34-66%** Yellow - Moderate readiness
-- ❤️ **0-33%** Red - Focus on recovery
+-  **67-100%** Green - Ready to perform
+-  **34-66%** Yellow - Moderate readiness
+-  **0-33%** Red - Focus on recovery
 
 ## Setup
 

@@ -12,14 +12,14 @@ import WebSocket from 'ws';
 const SERVER_URL = process.env.SERVER_URL || 'ws://localhost:8080';
 const AGENT_NAME = process.env.AGENT_NAME || 'Lobster_' + ['Alice', 'Bob', 'Charlie', 'Diana'][Math.floor(Math.random() * 4)];
 
-console.log(`🦞 Starting agent: ${AGENT_NAME}`);
-console.log(`📡 Connecting to: ${SERVER_URL}`);
+console.log(` Starting agent: ${AGENT_NAME}`);
+console.log(` Connecting to: ${SERVER_URL}`);
 
 const ws = new WebSocket(SERVER_URL);
 let otherAgents = [];
 
 ws.on('open', () => {
-    console.log('✅ Connected!');
+    console.log(' Connected!');
 
     ws.send(JSON.stringify({
         type: 'identify',
@@ -35,7 +35,7 @@ ws.on('message', (data) => {
     const message = JSON.parse(data.toString());
 
     if (message.type === 'chat' && message.from) {
-        console.log(`💬 ${message.from.name}: ${message.text}`);
+        console.log(` ${message.from.name}: ${message.text}`);
 
         // Maybe respond to the chat
         if (Math.random() < 0.5 && message.from.name !== AGENT_NAME) {
@@ -46,7 +46,7 @@ ws.on('message', (data) => {
     }
 
     if (message.type === 'agent_joined') {
-        console.log(`👋 ${message.agentName} joined the world!`);
+        console.log(` ${message.agentName} joined the world!`);
         otherAgents.push(message.agentName);
 
         // Greet them
@@ -56,23 +56,23 @@ ws.on('message', (data) => {
     }
 
     if (message.type === 'action' && message.agentName !== AGENT_NAME) {
-        console.log(`🔨 ${message.agentName} built something`);
+        console.log(` ${message.agentName} built something`);
     }
 });
 
 ws.on('close', () => {
-    console.log('🔌 Disconnected');
+    console.log(' Disconnected');
     process.exit(0);
 });
 
 // Helper functions
 function chat(text) {
-    console.log(`💬 Me: ${text}`);
+    console.log(` Me: ${text}`);
     ws.send(JSON.stringify({ type: 'chat', text }));
 }
 
 function build(code) {
-    console.log(`🔨 Building: ${code.substring(0, 40)}...`);
+    console.log(` Building: ${code.substring(0, 40)}...`);
     ws.send(JSON.stringify({ type: 'action', payload: { code } }));
 }
 
@@ -128,7 +128,7 @@ function startBehavior() {
 }
 
 process.on('SIGINT', () => {
-    chat("Goodbye everyone! It was fun building with you! 🦞");
+    chat("Goodbye everyone! It was fun building with you! ");
     setTimeout(() => {
         ws.close();
     }, 500);

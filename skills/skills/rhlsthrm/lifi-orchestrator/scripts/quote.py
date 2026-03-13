@@ -121,7 +121,7 @@ def format_quote(quote: dict, amount: float) -> str:
     tool = quote.get("tool", "unknown")
     
     lines = [
-        f"🌉 **LI.FI Quote**",
+        f" **LI.FI Quote**",
         f"",
         f"**Route**: {from_chain} → {to_chain}",
         f"**Bridge**: {tool}",

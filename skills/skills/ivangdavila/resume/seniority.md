@@ -56,14 +56,14 @@ Last 5-7 years:     Full detail (3-5 bullets each)
 ### Career Arc Synthesis
 Instead of 12 separate roles, show one progression:
 
-❌ **Before (fragmented):**
+ **Before (fragmented):**
 - Software Engineer, Company A (2008-2010)
 - Senior Engineer, Company B (2010-2013)
 - Tech Lead, Company C (2013-2016)
 - Engineering Manager, Company D (2016-2019)
 - VP Engineering, Company E (2019-Present)
 
-✅ **After (narrative):**
+ **After (narrative):**
 > "Progressed from IC to VP Engineering across [industries], building and scaling teams from 3 to 50+. Most recent: VP Engineering at Company E leading platform modernization."
 
 Then detail only current + most relevant past role.
@@ -159,5 +159,5 @@ Old tech/context that needs updating:
 | Cold calling | Outbound sales development |
 
 **Rule:** Describe the SKILL, not the specific outdated tool.
-- ❌ "Managed Sun Microsystems servers"
-- ✅ "Managed enterprise server infrastructure, later led cloud migration"
+-  "Managed Sun Microsystems servers"
+-  "Managed enterprise server infrastructure, later led cloud migration"

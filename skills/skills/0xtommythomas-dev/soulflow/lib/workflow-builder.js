@@ -19,13 +19,13 @@ function question(query) {
 }
 
 async function main() {
-  console.log('\n🌊 SoulFlow Workflow Builder\n');
+  console.log('\n SoulFlow Workflow Builder\n');
   
   const id = await question('Workflow ID (lowercase-with-dashes): ');
   const name = await question('Workflow Name (human-readable): ');
   const description = await question('Description: ');
   
-  console.log('\n📋 Define Steps\n');
+  console.log('\n Define Steps\n');
   console.log('For each step, provide:');
   console.log('- ID: step identifier (e.g. "research", "draft", "edit")');
   console.log('- Name: human-readable name');
@@ -83,7 +83,7 @@ async function main() {
   
   fs.writeFileSync(filePath, JSON.stringify(workflow, null, 2));
   
-  console.log(`\n✅ Workflow saved to: ${filePath}\n`);
+  console.log(`\n Workflow saved to: ${filePath}\n`);
   console.log(`Run it with: node soulflow.js run ${id} "your task description"\n`);
   
   rl.close();

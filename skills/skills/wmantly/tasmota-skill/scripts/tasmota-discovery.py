@@ -113,16 +113,16 @@ def ping_scan(ip):
 
 def discover_tasmota():
     """Main discovery function"""
-    print(f"🔍 Scanning network for Tasmota devices...")
-    print(f"📍 Local subnet: {SUBNET}")
+    print(f" Scanning network for Tasmota devices...")
+    print(f" Local subnet: {SUBNET}")
 
     ips = get_subnet_ips()
-    print(f"📡 Checking {len(ips)} IP addresses...")
+    print(f" Checking {len(ips)} IP addresses...")
 
     tasmota_devices = []
 
     # First, quick ping sweep to find live hosts
-    print("\n1️⃣  Ping sweep (finding live hosts)...")
+    print("\n  Ping sweep (finding live hosts)...")
     live_hosts = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
         future_to_ip = {executor.submit(ping_scan, ip): ip for ip in ips}
@@ -130,10 +130,10 @@ def discover_tasmota():
             ip = future_to_ip[future]
             if future.result():
                 live_hosts.append(ip)
-                print(f"  ✅ {ip}")
+                print(f"   {ip}")
 
-    print(f"\n📍 Found {len(live_hosts)} live hosts")
-    print(f"\n2️⃣  Scanning for Tasmota (HTTP) on live hosts...")
+    print(f"\n Found {len(live_hosts)} live hosts")
+    print(f"\n  Scanning for Tasmota (HTTP) on live hosts...")
 
     # Then check HTTP on live hosts
     with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
@@ -150,9 +150,9 @@ if __name__ == "__main__":
 
     print(f"\n{'='*60}")
     if devices:
-        print(f"✅ Found {len(devices)} Tasmota device(s):\n")
+        print(f" Found {len(devices)} Tasmota device(s):\n")
         for i, device in enumerate(devices, 1):
-            print(f"🔌 Device {i}:")
+            print(f" Device {i}:")
             print(f"   IP: {device['ip']}:{device['port']}")
             print(f"   Title: {device['title']}")
             print(f"   Server: {device['server']}")
@@ -162,5 +162,5 @@ if __name__ == "__main__":
             print(f"   Response time: {device['elapsed']:.3f}s")
             print()
     else:
-        print("❌ No Tasmota devices found")
+        print(" No Tasmota devices found")
     print(f"{'='*60}")

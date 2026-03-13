@@ -264,14 +264,14 @@ START: What is your primary use case?
 
 | Criterion | SQL | NewSQL | Document | Key-Value | Column-Family | Graph | Time-Series |
 |-----------|-----|--------|----------|-----------|---------------|-------|-------------|
-| ACID Guarantees | ✅ Strong | ✅ Strong | ⚠️ Eventual | ⚠️ Eventual | ⚠️ Tunable | ⚠️ Varies | ⚠️ Varies |
-| Horizontal Scaling | ❌ Limited | ✅ Native | ✅ Native | ✅ Native | ✅ Native | ⚠️ Limited | ✅ Native |
-| Query Flexibility | ✅ High | ✅ High | ⚠️ Moderate | ❌ Low | ❌ Low | ✅ High | ⚠️ Specialized |
-| Schema Flexibility | ❌ Rigid | ❌ Rigid | ✅ High | ✅ High | ⚠️ Moderate | ✅ High | ⚠️ Structured |
-| Performance (Reads) | ⚠️ Good | ⚠️ Good | ✅ Excellent | ✅ Excellent | ✅ Excellent | ⚠️ Good | ✅ Excellent |
-| Performance (Writes) | ⚠️ Good | ⚠️ Good | ✅ Excellent | ✅ Excellent | ✅ Excellent | ⚠️ Good | ✅ Excellent |
-| Operational Complexity | ✅ Low | ❌ High | ⚠️ Moderate | ✅ Low | ❌ High | ⚠️ Moderate | ⚠️ Moderate |
-| Ecosystem Maturity | ✅ Mature | ⚠️ Growing | ✅ Mature | ✅ Mature | ✅ Mature | ✅ Mature | ⚠️ Growing |
+| ACID Guarantees |  Strong |  Strong |  Eventual |  Eventual |  Tunable |  Varies |  Varies |
+| Horizontal Scaling |  Limited |  Native |  Native |  Native |  Native |  Limited |  Native |
+| Query Flexibility |  High |  High |  Moderate |  Low |  Low |  High |  Specialized |
+| Schema Flexibility |  Rigid |  Rigid |  High |  High |  Moderate |  High |  Structured |
+| Performance (Reads) |  Good |  Good |  Excellent |  Excellent |  Excellent |  Good |  Excellent |
+| Performance (Writes) |  Good |  Good |  Excellent |  Excellent |  Excellent |  Good |  Excellent |
+| Operational Complexity |  Low |  High |  Moderate |  Low |  High |  Moderate |  Moderate |
+| Ecosystem Maturity |  Mature |  Growing |  Mature |  Mature |  Mature |  Mature |  Growing |
 
 ## Decision Checklist
 

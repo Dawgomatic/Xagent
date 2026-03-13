@@ -9,7 +9,7 @@ Use protein structure tools when:
 2. Getting AlphaFold predictions for proteins without crystal structures
 3. Analyzing binding sites and protein-ligand interactions
 4. Finding structurally similar proteins
-5. Mapping between databases (PDB ↔ UniProt)
+5. Mapping between databases (PDB  UniProt)
 
 ## Decision Tree
 
@@ -64,34 +64,34 @@ Need protein structure?
 
 ### Wrong: Using AlphaFold for everything
 ```
-❌ Get AlphaFold prediction for well-studied protein like EGFR
+ Get AlphaFold prediction for well-studied protein like EGFR
 ```
 **Why wrong**: EGFR has 100+ crystal structures with ligands. AlphaFold won't show ligand-induced conformations.
 
 ```
-✅ First check: get_best_structures_for_uniprot_id
+ First check: get_best_structures_for_uniprot_id
    If no good structures → get_alphafold_prediction
 ```
 
 ### Wrong: Ignoring resolution
 ```
-❌ Using 4.5 Å structure for binding site analysis
+ Using 4.5 Å structure for binding site analysis
 ```
 **Why wrong**: At > 3.5 Å, side chain positions are unreliable.
 
 ```
-✅ Filter by resolution in search:
+ Filter by resolution in search:
    search_for_attributes with resolution_max: 2.5
 ```
 
 ### Wrong: Not checking chain coverage
 ```
-❌ Assuming PDB structure covers full protein
+ Assuming PDB structure covers full protein
 ```
 **Why wrong**: Many structures are fragments or domains only.
 
 ```
-✅ Check polymer_entities in fetch_pdb_metadata response
+ Check polymer_entities in fetch_pdb_metadata response
    Compare residue range to UniProt full length
 ```
 

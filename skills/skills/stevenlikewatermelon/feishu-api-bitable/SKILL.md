@@ -1,7 +1,7 @@
 ---
 name: feishu-bitable
 description: 飞书多维表格(Bitable)API技能。用于创建、读取、更新和删除飞书多维表格的数据表、记录和字段。
-metadata: {"clawdbot":{"emoji":"📊","requires":{"env":["FEISHU_APP_ID","FEISHU_APP_SECRET"]},"primaryEnv":"FEISHU_APP_ID"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["FEISHU_APP_ID","FEISHU_APP_SECRET"]},"primaryEnv":"FEISHU_APP_ID"}}
 ---
 
 # 飞书多维表格(Bitable)技能
@@ -10,11 +10,11 @@ metadata: {"clawdbot":{"emoji":"📊","requires":{"env":["FEISHU_APP_ID","FEISHU
 
 ## 功能特性
 
-- ✅ 数据表管理（创建、列表、获取、删除）
-- ✅ 记录管理（创建、读取、更新、删除、批量操作）
-- ✅ 字段管理（创建、列表、更新）
-- ✅ 视图管理（列表、获取）
-- ✅ 应用管理（获取应用信息）
+-  数据表管理（创建、列表、获取、删除）
+-  记录管理（创建、读取、更新、删除、批量操作）
+-  字段管理（创建、列表、更新）
+-  视图管理（列表、获取）
+-  应用管理（获取应用信息）
 
 ## 环境变量配置
 

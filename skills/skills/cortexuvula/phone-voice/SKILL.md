@@ -10,14 +10,14 @@ author: Fred (@FredMolty)
 Turn your OpenClaw into a phone-callable assistant with ElevenLabs Agents + Twilio.
 
 **What you get:**
-- 📞 Call your bot from any phone
-- 🔐 Caller ID authentication + voice PIN security
-- 🛡️ Call screening (whitelist-based)
-- 🧠 Full memory context (loads MEMORY.md, USER.md)
-- 💰 Cost tracking per call
-- 📝 Call transcripts with summaries
-- ⏱️ Rate limiting
-- 🌐 Permanent tunnel (Cloudflare) or temporary (ngrok)
+-  Call your bot from any phone
+-  Caller ID authentication + voice PIN security
+-  Call screening (whitelist-based)
+-  Full memory context (loads MEMORY.md, USER.md)
+-  Cost tracking per call
+-  Call transcripts with summaries
+-  Rate limiting
+-  Permanent tunnel (Cloudflare) or temporary (ngrok)
 
 ## Architecture
 
@@ -307,21 +307,21 @@ Use rate limiting and call screening to control costs.
 ## Comparison: This vs Basic Tutorial
 
 **ElevenLabs official tutorial:**
-- ✅ Basic integration
-- ❌ No security
-- ❌ No memory persistence
-- ❌ No cost tracking
-- ❌ Temporary ngrok URL
+-  Basic integration
+-  No security
+-  No memory persistence
+-  No cost tracking
+-  Temporary ngrok URL
 
 **This skill (Phone Voice v2.0):**
-- ✅ All of the above
-- ✅ Caller ID + PIN security
-- ✅ Cross-call memory
-- ✅ Cost tracking & analytics
-- ✅ Permanent tunnel (Cloudflare)
-- ✅ Rate limiting
-- ✅ Call screening
-- ✅ Transcript logging
+-  All of the above
+-  Caller ID + PIN security
+-  Cross-call memory
+-  Cost tracking & analytics
+-  Permanent tunnel (Cloudflare)
+-  Rate limiting
+-  Call screening
+-  Transcript logging
 
 ## Links
 

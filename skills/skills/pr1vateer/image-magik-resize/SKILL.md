@@ -4,7 +4,7 @@ version: 0.1.0
 author: Stenkil <you@example.com>
 description: Resize images using ImageMagick (CLI). Entrypoint is a Bash script.
 entrypoint: scripts/resize.sh
-metadata: { "openclaw": { "emoji": "🖼️", "requires": { "bins": ["bash"], "anyBins": ["magick","convert"] }, "install": [ { "id": "brew", "kind": "brew", "formula": "imagemagick", "bins": ["magick","convert"], "label": "Install ImageMagick (brew)" } ] } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["bash"], "anyBins": ["magick","convert"] }, "install": [ { "id": "brew", "kind": "brew", "formula": "imagemagick", "bins": ["magick","convert"], "label": "Install ImageMagick (brew)" } ] } }
 user-invocable: true
 command-dispatch: tool
 command-tool: resize

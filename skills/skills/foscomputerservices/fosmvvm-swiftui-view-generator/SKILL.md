@@ -2,7 +2,7 @@
 name: fosmvvm-swiftui-view-generator
 description: Generate SwiftUI views that render FOSMVVM ViewModels. Scaffolds ViewModelView pattern with binding, loading states, and previews.
 homepage: https://github.com/foscomputerservices/FOSUtilities
-metadata: {"clawdbot": {"emoji": "📱", "os": ["darwin"]}}
+metadata: {"clawdbot": {"emoji": "", "os": ["darwin"]}}
 ---
 
 # FOSMVVM SwiftUI View Generator
@@ -606,18 +606,18 @@ public struct TaskResultView: ViewModelView {
 
 **IMPORTANT:** `ViewModelId` controls SwiftUI's view identity system via the `.id(vmId)` modifier. Incorrect initialization causes SwiftUI to treat different data as the same view, breaking updates.
 
-**❌ WRONG - Never use this:**
+** WRONG - Never use this:**
 ```swift
 public var vmId: ViewModelId = .init()  // NO! Generic identity
 ```
 
-**✅ MINIMUM - Use type-based identity:**
+** MINIMUM - Use type-based identity:**
 ```swift
 public var vmId: ViewModelId = .init(type: Self.self)
 ```
 This ensures views of the same type get unique identities.
 
-**✅ IDEAL - Use data-based identity when available:**
+** IDEAL - Use data-based identity when available:**
 ```swift
 public struct TaskViewModel {
     public let id: ModelIdType
@@ -660,12 +660,12 @@ Sources/{ViewsTarget}/
 ### Computing Data in Views
 
 ```swift
-// ❌ BAD - View is transforming data
+//  BAD - View is transforming data
 var body: some View {
     Text("\(viewModel.firstName) \(viewModel.lastName)")
 }
 
-// ✅ GOOD - ViewModel provides shaped result
+//  GOOD - ViewModel provides shaped result
 var body: some View {
     Text(viewModel.fullName)  // via @LocalizedCompoundString
 }
@@ -674,13 +674,13 @@ var body: some View {
 ### Forgetting to Call toggleRepaint()
 
 ```swift
-// ❌ BAD - Test infrastructure won't work
+//  BAD - Test infrastructure won't work
 private func submit() {
     operations.submit()
     // Missing toggleRepaint()!
 }
 
-// ✅ GOOD - Always call after operations
+//  GOOD - Always call after operations
 private func submit() {
     operations.submit()
     toggleRepaint()
@@ -690,14 +690,14 @@ private func submit() {
 ### Using Computed Properties for Display
 
 ```swift
-// ❌ BAD - View is computing
+//  BAD - View is computing
 var body: some View {
     if !viewModel.items.isEmpty {
         Text("You have \(viewModel.items.count) items")
     }
 }
 
-// ✅ GOOD - ViewModel provides the state
+//  GOOD - ViewModel provides the state
 var body: some View {
     if viewModel.hasItems {
         Text(viewModel.itemCountMessage)
@@ -708,12 +708,12 @@ var body: some View {
 ### Hardcoding Text
 
 ```swift
-// ❌ BAD - Not localizable
+//  BAD - Not localizable
 Button(action: submit) {
     Text("Submit")
 }
 
-// ✅ GOOD - ViewModel provides localized text
+//  GOOD - ViewModel provides localized text
 Button(action: submit) {
     Text(viewModel.submitButtonLabel)
 }
@@ -722,12 +722,12 @@ Button(action: submit) {
 ### Missing Error Binding
 
 ```swift
-// ❌ BAD - Errors not handled
+//  BAD - Errors not handled
 Button(action: submit) {
     Text(viewModel.submitLabel)
 }
 
-// ✅ GOOD - Error binding for async actions
+//  GOOD - Error binding for async actions
 Button(errorBinding: $error, asyncAction: submit) {
     Text(viewModel.submitLabel)
 }
@@ -736,7 +736,7 @@ Button(errorBinding: $error, asyncAction: submit) {
 ### Storing Operations in Body Instead of Init
 
 ```swift
-// ❌ BAD - Recomputed on every render
+//  BAD - Recomputed on every render
 public var body: some View {
     let operations = viewModel.operations
     Button(action: { operations.submit() }) {
@@ -744,7 +744,7 @@ public var body: some View {
     }
 }
 
-// ✅ GOOD - Store in init
+//  GOOD - Store in init
 private let operations: MyOperations
 
 public init(viewModel: MyViewModel) {
@@ -756,11 +756,11 @@ public init(viewModel: MyViewModel) {
 ### Mismatched Filenames
 
 ```
-// ❌ BAD - Filename doesn't match ViewModel
+//  BAD - Filename doesn't match ViewModel
 ViewModel: TaskListViewModel
 View:      TasksView.swift
 
-// ✅ GOOD - Aligned names
+//  GOOD - Aligned names
 ViewModel: TaskListViewModel
 View:      TaskListView.swift
 ```
@@ -768,13 +768,13 @@ View:      TaskListView.swift
 ### Incorrect ViewModelId Initialization
 
 ```swift
-// ❌ BAD - Generic identity, views won't update correctly
+//  BAD - Generic identity, views won't update correctly
 public var vmId: ViewModelId = .init()
 
-// ✅ MINIMUM - Type-based identity
+//  MINIMUM - Type-based identity
 public var vmId: ViewModelId = .init(type: Self.self)
 
-// ✅ IDEAL - Data-based identity (when id available)
+//  IDEAL - Data-based identity (when id available)
 public init(id: ModelIdType) {
     self.id = id
     self.vmId = .init(id: id)
@@ -784,13 +784,13 @@ public init(id: ModelIdType) {
 ### Force-Unwrapping Localizable Strings
 
 ```swift
-// ❌ BAD - Force-unwrapping to work around missing overload
+//  BAD - Force-unwrapping to work around missing overload
 import SwiftUI
 
 Text(try! viewModel.title.localizedString)  // Anti-pattern - don't do this!
 Label(try! viewModel.label.localizedString, systemImage: "star")
 
-// ✅ GOOD - Request the proper SwiftUI overload instead
+//  GOOD - Request the proper SwiftUI overload instead
 // The correct solution is to add an init extension like this:
 extension Text {
     public init(_ localizable: Localizable) {

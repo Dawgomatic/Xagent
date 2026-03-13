@@ -11,7 +11,7 @@
 **변경을 적용하지 않고** 분석 결과와 수정 계획만 보여줍니다:
 
 ```
-🩺 Osori Doctor
+ Osori Doctor
 Registry: ~/.openclaw/osori.json
 Counts: ERROR=0 WARN=2 INFO=0
 
@@ -20,15 +20,15 @@ Counts: ERROR=0 WARN=2 INFO=0
 [WARN] project.duplicate_name: duplicate project name 'my-app' at indices [0, 3]
   ↳ fix: Keep one canonical entry and remove duplicates.
 
-📋 Fix Plan:
-  1. 🟢 [LOW] Migrate legacy array format → versioned schema v2
+ Fix Plan:
+  1.  [LOW] Migrate legacy array format → versioned schema v2
      → 5 project(s)
-  2. 🟡 [MEDIUM] Remove 1 duplicate(s) of 'my-app'
+  2.  [MEDIUM] Remove 1 duplicate(s) of 'my-app'
      → indices: [0, 3]
 
-Risk summary: 🟢 low=1  🟡 medium=1  🔴 high=0
+Risk summary:  low=1   medium=1   high=0
 
-ℹ️  Preview only — no changes applied.
+  Preview only — no changes applied.
    Run with --fix to apply, or --dry-run to confirm preview.
 ```
 
@@ -36,9 +36,9 @@ Risk summary: 🟢 low=1  🟡 medium=1  🔴 high=0
 
 | 등급 | 아이콘 | 설명 | 예시 |
 |---|---|---|---|
-| **low** | 🟢 | 스키마/버전 정규화 | 마이그레이션, 필드 추가 |
-| **medium** | 🟡 | 데이터 변경 (복구 가능) | 중복 제거, root 참조 수정 |
-| **high** | 🔴 | 파괴적 변경 | 깨진 레지스트리 초기화 |
+| **low** |  | 스키마/버전 정규화 | 마이그레이션, 필드 추가 |
+| **medium** |  | 데이터 변경 (복구 가능) | 중복 제거, root 참조 수정 |
+| **high** |  | 파괴적 변경 | 깨진 레지스트리 초기화 |
 
 ## 수정 적용
 

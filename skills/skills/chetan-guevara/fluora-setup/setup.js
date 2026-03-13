@@ -65,7 +65,7 @@ function warn(message) {
 
 function header() {
   log('\n╔════════════════════════════════════════╗', colors.cyan);
-  log('║    Fluora Setup Wizard (GitHub) 🔧    ║', colors.cyan);
+  log('║    Fluora Setup Wizard (GitHub)     ║', colors.cyan);
   log('╚════════════════════════════════════════╝\n', colors.cyan);
 }
 
@@ -203,7 +203,7 @@ async function showFundingInstructions(walletAddress) {
   section('Step 5: Fund your wallet');
   
   log('\n═══════════════════════════════════════════', colors.bright);
-  log('    💰 WALLET FUNDING REQUIRED', colors.bright);
+  log('     WALLET FUNDING REQUIRED', colors.bright);
   log('═══════════════════════════════════════════\n', colors.bright);
   
   info('Your Fluora Wallet Address:');
@@ -213,7 +213,7 @@ async function showFundingInstructions(walletAddress) {
   warn('To fund your wallet:');
   warn('1. Open Coinbase, Binance, or your preferred exchange');
   warn('2. Send $5-10 USDC to the address above');
-  error('3. ⚠️  IMPORTANT: Select "Base" network (NOT Ethereum mainnet)');
+  error('3.   IMPORTANT: Select "Base" network (NOT Ethereum mainnet)');
   warn('4. Also send ~$0.50 ETH for gas fees');
   warn('5. Wait ~1 minute for confirmation');
   log('');
@@ -239,7 +239,7 @@ async function showFundingInstructions(walletAddress) {
 function configureMcporter() {
   section('Step 6: Configure mcporter');
   
-  info('\n⚙️  Configuring mcporter...');
+  info('\n  Configuring mcporter...');
   
   // Determine which config file to use
   let configPath = MCPORTER_WORKSPACE_CONFIG;
@@ -283,7 +283,7 @@ function configureMcporter() {
 function verifySetup() {
   section('Step 7: Verify setup');
   
-  info('\n🔍 Verifying setup...');
+  info('\n Verifying setup...');
   
   // Check fluora-mcp directory
   if (fs.existsSync(FLUORA_DIR)) {
@@ -329,9 +329,9 @@ function verifySetup() {
 }
 
 function showNextSteps(walletAddress, funded) {
-  log('\n✨ Setup complete!', colors.green);
+  log('\n Setup complete!', colors.green);
   
-  warn('\n📋 Next steps:');
+  warn('\n Next steps:');
   
   if (!funded) {
     warn('  1. Fund your wallet with $5-10 USDC + $0.50 ETH on Base');
@@ -397,7 +397,7 @@ async function main() {
     console.log('\nSetup result:', result);
     
   } catch (err) {
-    error(`\n❌ Setup failed: ${err.message}`);
+    error(`\n Setup failed: ${err.message}`);
     console.error(err.stack);
     process.exit(1);
   }

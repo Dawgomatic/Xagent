@@ -74,7 +74,7 @@ For dynamic amounts (tips, donations, invoices), skip products and use `type: 'A
 
 Deploy to Vercel (Next.js) or Replit. Ensure `MDK_ACCESS_TOKEN` and `MDK_MNEMONIC` are set in the production environment.
 
-⚠️ Use `printf` not `echo` when piping env vars — trailing newlines cause silent auth failures.
+ Use `printf` not `echo` when piping env vars — trailing newlines cause silent auth failures.
 
 ## Checkout types
 
@@ -117,7 +117,7 @@ If the [moneydevkit MCP server](https://mcp.moneydevkit.com/mcp/account/) is con
 
 ## Security
 
-⚠️ **MDK_MNEMONIC is a wallet seed phrase** — treat it like a private key.
+ **MDK_MNEMONIC is a wallet seed phrase** — treat it like a private key.
 
 - **Never commit** it to git or share in chat messages
 - **Never log** it in application output or error handlers

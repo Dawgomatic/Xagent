@@ -1,8 +1,8 @@
-# OpenClaw Exa MCP Skill 🔍
+# OpenClaw Exa MCP Skill 
 
 [OpenClaw](https://github.com/openclaw/openclaw) skill for Exa MCP integration — advanced web search, code context, company research, and more.
 
-## 🌐 Live Demo
+##  Live Demo
 
 **Documentation Site:** https://claireaicodes.github.io/openclaw-skill-exa-tool/
 
@@ -10,11 +10,11 @@
 
 ## Features
 
-- ✅ **8 Exa MCP tools** in one unified interface
-- ✅ **SSE streaming** handled automatically
-- ✅ **Clean JSON output** for easy parsing
-- ✅ **Agent-ready** — call from any OpenClaw agent
-- ✅ **Secure** — API key managed via OpenClaw config
+-  **8 Exa MCP tools** in one unified interface
+-  **SSE streaming** handled automatically
+-  **Clean JSON output** for easy parsing
+-  **Agent-ready** — call from any OpenClaw agent
+-  **Secure** — API key managed via OpenClaw config
 
 ## Quick Start
 
@@ -185,4 +185,4 @@ MIT — see [LICENSE](LICENSE) for details.
 
 ---
 
-**Made with ❤️ for OpenClaw agents**
+**Made with  for OpenClaw agents**

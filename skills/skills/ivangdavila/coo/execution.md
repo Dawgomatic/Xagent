@@ -52,8 +52,8 @@ Objective: Qualitative, inspiring goal
 
 | Dependency | Owner | Blocker | Due Date | Status |
 |------------|-------|---------|----------|--------|
-| API integration | Team A | Team B | Mar 15 | 🟡 At risk |
-| Design assets | Design | None | Mar 10 | 🟢 On track |
+| API integration | Team A | Team B | Mar 15 |  At risk |
+| Design assets | Design | None | Mar 10 |  On track |
 
 ### Reducing Dependencies
 

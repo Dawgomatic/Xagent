@@ -1,4 +1,4 @@
-# 🎤 Local Whisper
+#  Local Whisper
 
 [![ClawdHub](https://img.shields.io/badge/ClawdHub-whisper--mlx--local-orange)](https://clawdhub.com/skills/whisper-mlx-local)
 [![GitHub](https://img.shields.io/badge/GitHub-ImpKind%2Flocal--whisper-blue?logo=github)](https://github.com/ImpKind/local-whisper)
@@ -9,10 +9,10 @@
 
 Voice transcription APIs charge per minute. This skill does the same thing **for free** — runs Whisper directly on your Mac's Apple Silicon.
 
-- ✅ **Free** — no API costs, ever
-- ✅ **Private** — audio stays on your machine
-- ✅ **Fast** — ~1 second per voice message
-- ✅ **Offline** — works without internet
+-  **Free** — no API costs, ever
+-  **Private** — audio stays on your machine
+-  **Fast** — ~1 second per voice message
+-  **Offline** — works without internet
 
 ## Install
 

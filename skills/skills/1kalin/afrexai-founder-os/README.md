@@ -1,4 +1,4 @@
-# Founder OS — Complete Startup Operating System 🚀
+# Founder OS — Complete Startup Operating System 
 
 Your AI startup advisor — from idea validation to Series A and beyond.
 
@@ -42,13 +42,13 @@ Other founder skills give you bullet-point advice. This gives you:
 - Compensation bands and equity allocation tables
 - Scenario planning templates for your runway
 
-## ⚡ Level Up
+##  Level Up
 
 Get the complete **SaaS Context Pack** ($47) — includes agent memory files for SaaS metrics, competitive positioning, growth playbooks, and more:
 
-🛒 [Browse all context packs](https://afrexai-cto.github.io/context-packs/)
+ [Browse all context packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-sales-playbook](https://clawhub.com/skills/afrexai-sales-playbook) — Complete B2B sales system
 - [afrexai-pricing-strategy](https://clawhub.com/skills/afrexai-pricing-strategy) — Value-based pricing framework
@@ -58,4 +58,4 @@ Get the complete **SaaS Context Pack** ($47) — includes agent memory files for
 
 ---
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

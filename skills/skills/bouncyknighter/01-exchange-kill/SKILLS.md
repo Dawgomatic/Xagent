@@ -93,9 +93,9 @@ These are opinionated defaults. Adjust for your specific use case.
 
 | Use Case | Recommended Approach | Auth Required |
 |----------|---------------------|---------------|
-| Market data (prices, orderbook) | Direct HTTP to public endpoints | ❌ No |
-| Account data (positions, balances) | Local API or Nord SDK | ✅ Yes |
-| Order placement | Local API with user confirmation | ✅ Yes |
+| Market data (prices, orderbook) | Direct HTTP to public endpoints |  No |
+| Account data (positions, balances) | Local API or Nord SDK |  Yes |
+| Order placement | Local API with user confirmation |  Yes |
 
 ### 2. SDK Selection
 
@@ -114,10 +114,10 @@ These are opinionated defaults. Adjust for your specific use case.
 
 ### 4. Development Priority
 
-1. **Read-only monitoring** ✅ — Start here, safe for all users
-2. **Account health tracking** ✅ — Requires wallet address only
-3. **Paper trading simulation** ⚠️ — Test strategies without real funds
-4. **Live trading** ⚠️ — Requires local API + explicit user consent
+1. **Read-only monitoring**  — Start here, safe for all users
+2. **Account health tracking**  — Requires wallet address only
+3. **Paper trading simulation**  — Test strategies without real funds
+4. **Live trading**  — Requires local API + explicit user consent
 
 ## Operating Procedure
 
@@ -173,12 +173,12 @@ Read these files when the topic comes up:
 
 | File | Read When | Safety Level |
 |------|-----------|--------------|
-| [safety-first.md](safety-first.md) | **FIRST — before anything else** | ⚠️ Mandatory |
-| [monitoring-guide.md](monitoring-guide.md) | Getting market data, checking prices | ✅ Safe |
-| [risk-management.md](risk-management.md) | Managing leverage, liquidation risk | ✅ Read-only |
-| [trading-basics.md](trading-basics.md) | Understanding order types, markets | ⚠️ Gated |
-| [sdk-reference.md](sdk-reference.md) | Setting up Nord.ts SDK | ✅ Documentation |
-| [README.md](README.md) | Project overview, installation | ✅ General |
+| [safety-first.md](safety-first.md) | **FIRST — before anything else** |  Mandatory |
+| [monitoring-guide.md](monitoring-guide.md) | Getting market data, checking prices |  Safe |
+| [risk-management.md](risk-management.md) | Managing leverage, liquidation risk |  Read-only |
+| [trading-basics.md](trading-basics.md) | Understanding order types, markets |  Gated |
+| [sdk-reference.md](sdk-reference.md) | Setting up Nord.ts SDK |  Documentation |
+| [README.md](README.md) | Project overview, installation |  General |
 
 ### Examples Directory
 

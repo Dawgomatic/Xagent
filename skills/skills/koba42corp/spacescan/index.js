@@ -15,7 +15,7 @@ async function handleCommand(input) {
 
   // Check API key
   if (!api.hasApiKey()) {
-    return '❌ Spacescan API key required.\n\n' +
+    return ' Spacescan API key required.\n\n' +
            'Set environment variable:\n' +
            'export SPACESCAN_API_KEY=your_key_here\n\n' +
            'Get your key at: https://www.spacescan.io/apis';
@@ -95,7 +95,7 @@ async function handleCommand(input) {
       if (command && command.length > 10) {
         return await search(input);
       }
-      return `❌ Unknown command: ${command}\n\nTry 'scan help' for usage.`;
+      return ` Unknown command: ${command}\n\nTry 'scan help' for usage.`;
   }
 }
 
@@ -104,7 +104,7 @@ async function handleCommand(input) {
 async function getLatestBlock() {
   const block = await api.getLatestBlock();
   
-  let output = `🧱 Latest Block\n\n`;
+  let output = ` Latest Block\n\n`;
   output += `Height: ${block.height?.toLocaleString()}\n`;
   output += `Hash: ${block.header_hash}\n`;
   output += `Timestamp: ${new Date(block.timestamp * 1000).toLocaleString()}\n`;
@@ -115,11 +115,11 @@ async function getLatestBlock() {
 }
 
 async function getBlock(heightOrHash) {
-  if (!heightOrHash) return '❌ Please provide a block height or hash';
+  if (!heightOrHash) return ' Please provide a block height or hash';
   
   const block = await api.getBlock(heightOrHash);
   
-  let output = `🧱 Block ${block.height}\n\n`;
+  let output = ` Block ${block.height}\n\n`;
   output += `Hash: ${block.header_hash}\n`;
   output += `Timestamp: ${new Date(block.timestamp * 1000).toLocaleString()}\n`;
   output += `Transactions: ${block.tx_count || 0}\n`;
@@ -133,11 +133,11 @@ async function getBlock(heightOrHash) {
 }
 
 async function getBlockRange(start, end) {
-  if (!start || !end) return '❌ Please provide start and end heights';
+  if (!start || !end) return ' Please provide start and end heights';
   
   const blocks = await api.getBlockRange(start, end);
   
-  let output = `🧱 Blocks ${start} to ${end}:\n\n`;
+  let output = ` Blocks ${start} to ${end}:\n\n`;
   
   if (blocks.length > 0) {
     blocks.forEach(block => {
@@ -146,15 +146,15 @@ async function getBlockRange(start, end) {
     return output;
   }
   
-  return '❌ No blocks found';
+  return ' No blocks found';
 }
 
 async function getTransaction(txId) {
-  if (!txId) return '❌ Please provide a transaction ID';
+  if (!txId) return ' Please provide a transaction ID';
   
   const tx = await api.getTransaction(txId);
   
-  let output = `💸 Transaction\n\n`;
+  let output = ` Transaction\n\n`;
   output += `ID: ${tx.id}\n`;
   output += `Block: ${tx.block_height}\n`;
   output += `Timestamp: ${new Date(tx.timestamp * 1000).toLocaleString()}\n`;
@@ -165,11 +165,11 @@ async function getTransaction(txId) {
 }
 
 async function getAddress(address) {
-  if (!address) return '❌ Please provide an address';
+  if (!address) return ' Please provide an address';
   
   const addr = await api.getAddress(address);
   
-  let output = `👤 Address\n\n`;
+  let output = ` Address\n\n`;
   output += `${address}\n\n`;
   output += `Balance: ${formatXCH(addr.balance)}\n`;
   output += `Transactions: ${addr.tx_count || 0}\n`;
@@ -178,22 +178,22 @@ async function getAddress(address) {
 }
 
 async function getAddressBalance(address) {
-  if (!address) return '❌ Please provide an address';
+  if (!address) return ' Please provide an address';
   
   const balance = await api.getAddressBalance(address);
   
-  let output = `💰 Balance\n\n`;
+  let output = ` Balance\n\n`;
   output += `${formatXCH(balance.balance)}\n`;
   
   return output;
 }
 
 async function getAddressTransactions(address) {
-  if (!address) return '❌ Please provide an address';
+  if (!address) return ' Please provide an address';
   
   const result = await api.getAddressTransactions(address, { limit: 20 });
   
-  let output = `💸 Recent Transactions:\n\n`;
+  let output = ` Recent Transactions:\n\n`;
   
   if (result.transactions?.length > 0) {
     result.transactions.forEach((tx, i) => {
@@ -204,15 +204,15 @@ async function getAddressTransactions(address) {
     return output;
   }
   
-  return '❌ No transactions found';
+  return ' No transactions found';
 }
 
 async function getCoin(coinId) {
-  if (!coinId) return '❌ Please provide a coin ID';
+  if (!coinId) return ' Please provide a coin ID';
   
   const coin = await api.getCoin(coinId);
   
-  let output = `🪙 Coin\n\n`;
+  let output = ` Coin\n\n`;
   output += `ID: ${coin.coin_name}\n`;
   output += `Amount: ${formatXCH(coin.amount)}\n`;
   output += `Puzzlehash: ${coin.puzzle_hash}\n`;
@@ -225,7 +225,7 @@ async function getCoin(coinId) {
 async function getNetworkStats() {
   const stats = await api.getNetworkStats();
   
-  let output = `📊 Network Statistics\n\n`;
+  let output = ` Network Statistics\n\n`;
   output += `Peak Height: ${stats.peak_height?.toLocaleString()}\n`;
   output += `Network Space: ${formatNetworkSpace(stats.network_space)}\n`;
   output += `Total Supply: ${formatXCH(stats.total_supply)}\n`;
@@ -241,7 +241,7 @@ async function getNetworkStats() {
 async function getNetworkInfo() {
   const info = await api.getNetworkInfo();
   
-  let output = `🌐 Network Info\n\n`;
+  let output = ` Network Info\n\n`;
   output += `Network: ${info.network_name}\n`;
   output += `Version: ${info.version}\n`;
   output += `Peak: ${info.peak_height?.toLocaleString()}\n`;
@@ -252,7 +252,7 @@ async function getNetworkInfo() {
 async function getNetworkSpace() {
   const space = await api.getNetworkSpace();
   
-  let output = `💾 Network Space\n\n`;
+  let output = ` Network Space\n\n`;
   output += `${formatNetworkSpace(space.space)}\n`;
   
   return output;
@@ -261,7 +261,7 @@ async function getNetworkSpace() {
 async function getMempool() {
   const mempool = await api.getMempool();
   
-  let output = `⏳ Mempool\n\n`;
+  let output = ` Mempool\n\n`;
   output += `Pending Transactions: ${mempool.count || 0}\n`;
   output += `Total Fees: ${formatXCH(mempool.total_fees)}\n`;
   
@@ -271,7 +271,7 @@ async function getMempool() {
 async function getXCHPrice() {
   const price = await api.getXCHPrice();
   
-  let output = `💰 XCH Price\n\n`;
+  let output = ` XCH Price\n\n`;
   output += `$${price.usd?.toFixed(2) || 'N/A'}\n`;
   
   if (price.btc) {
@@ -282,11 +282,11 @@ async function getXCHPrice() {
 }
 
 async function search(query) {
-  if (!query) return '❌ Please provide a search query';
+  if (!query) return ' Please provide a search query';
   
   const result = await api.search(query);
   
-  let output = `🔍 Search Results:\n\n`;
+  let output = ` Search Results:\n\n`;
   
   if (result.type === 'block') {
     output += `Block: ${result.data.height}\n`;
@@ -306,7 +306,7 @@ async function search(query) {
 async function getCATList() {
   const result = await api.getCATList({ limit: 30 });
   
-  let output = `🪙 CAT Tokens:\n\n`;
+  let output = ` CAT Tokens:\n\n`;
   
   if (result.cats?.length > 0) {
     result.cats.forEach((cat, i) => {
@@ -316,15 +316,15 @@ async function getCATList() {
     return output;
   }
   
-  return '❌ No CATs found';
+  return ' No CATs found';
 }
 
 async function getCAT(assetId) {
-  if (!assetId) return '❌ Please provide a CAT asset ID';
+  if (!assetId) return ' Please provide a CAT asset ID';
   
   const cat = await api.getCAT(assetId);
   
-  let output = `🪙 ${cat.name || 'Unknown CAT'}\n\n`;
+  let output = ` ${cat.name || 'Unknown CAT'}\n\n`;
   output += `Code: ${cat.code}\n`;
   output += `Asset ID: ${cat.asset_id}\n`;
   
@@ -336,11 +336,11 @@ async function getCAT(assetId) {
 }
 
 async function getNFT(nftId) {
-  if (!nftId) return '❌ Please provide an NFT ID';
+  if (!nftId) return ' Please provide an NFT ID';
   
   const nft = await api.getNFT(nftId);
   
-  let output = `🖼️  ${nft.name || 'Unnamed NFT'}\n\n`;
+  let output = `  ${nft.name || 'Unnamed NFT'}\n\n`;
   output += `ID: ${nft.nft_id}\n`;
   output += `Collection: ${nft.collection_name || 'None'}\n`;
   output += `Owner: ${nft.owner_address}\n`;

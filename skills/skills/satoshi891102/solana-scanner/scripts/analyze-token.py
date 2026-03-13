@@ -125,16 +125,16 @@ def analyze(data: dict) -> dict:
     
     if score >= 80:
         recommendation = "RELATIVELY_SAFE"
-        emoji = "🟢"
+        emoji = ""
     elif score >= 60:
         recommendation = "CAUTION"
-        emoji = "🟡"
+        emoji = ""
     elif score >= 40:
         recommendation = "HIGH_RISK"
-        emoji = "🟠"
+        emoji = ""
     else:
         recommendation = "AVOID"
-        emoji = "🔴"
+        emoji = ""
     
     return {
         "mint": mint,
@@ -189,7 +189,7 @@ def format_report(result: dict) -> str:
         lines.append("")
         lines.append(f"Flags ({r['flag_count']}):")
         for f in r["flags"]:
-            lines.append(f"  ⚠️  {f}")
+            lines.append(f"    {f}")
     else:
         lines.append("  No red flags detected.")
     

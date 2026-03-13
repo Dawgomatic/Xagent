@@ -165,7 +165,7 @@ You wake up fresh each session. These files are your continuity:
 ### Writing Rules
 - If it has future value, write it down NOW
 - Don't rely on "mental notes" — they don't survive restarts
-- Text > Brain 📝
+- Text > Brain 
 
 ### PARA Structure
 - **Projects** (`notes/projects/`) — Active work with end dates
@@ -194,7 +194,7 @@ Your agent's context window is finite. When it fills up, older context gets comp
 ### How to Monitor
 Run `session_status` periodically. Look for:
 ```
-📚 Context: 36k/200k (18%) · 🧹 Compactions: 0
+ Context: 36k/200k (18%) ·  Compactions: 0
 ```
 
 ### Threshold-Based Actions

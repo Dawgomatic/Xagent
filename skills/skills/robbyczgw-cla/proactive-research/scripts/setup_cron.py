@@ -99,14 +99,14 @@ def generate_cron_entries(settings: dict) -> list[str]:
 
 def setup_cron(auto: bool = False):
     """Setup cron jobs."""
-    print("🔧 Setting up proactive research cron jobs...\n")
+    print(" Setting up proactive research cron jobs...\n")
     
     # Load config
     try:
         config = load_config()
         settings = get_settings()
     except FileNotFoundError as e:
-        print(f"❌ {e}", file=sys.stderr)
+        print(f" {e}", file=sys.stderr)
         sys.exit(1)
     
     # Get current crontab
@@ -142,16 +142,16 @@ def setup_cron(auto: bool = False):
     # Set crontab
     try:
         set_crontab(new_crontab)
-        print("✅ Cron jobs installed successfully")
+        print(" Cron jobs installed successfully")
         print("\nTo verify, run: crontab -l")
     except Exception as e:
-        print(f"❌ Failed to install cron jobs: {e}", file=sys.stderr)
+        print(f" Failed to install cron jobs: {e}", file=sys.stderr)
         sys.exit(1)
 
 
 def remove_cron():
     """Remove all proactive-research cron jobs."""
-    print("🗑️  Removing proactive research cron jobs...\n")
+    print("  Removing proactive research cron jobs...\n")
     
     # Get current crontab
     current = get_current_crontab()
@@ -160,15 +160,15 @@ def remove_cron():
     cleaned = remove_old_entries(current)
     
     if cleaned == current:
-        print("⚠️ No proactive-research cron jobs found")
+        print(" No proactive-research cron jobs found")
         return
     
     # Set crontab
     try:
         set_crontab(cleaned)
-        print("✅ Cron jobs removed successfully")
+        print(" Cron jobs removed successfully")
     except Exception as e:
-        print(f"❌ Failed to remove cron jobs: {e}", file=sys.stderr)
+        print(f" Failed to remove cron jobs: {e}", file=sys.stderr)
         sys.exit(1)
 
 

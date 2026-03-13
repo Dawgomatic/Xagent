@@ -77,7 +77,7 @@ async function fetchAirbnbListings(location, options = {}) {
 async function fetchViaAirROI(location, options = {}) {
   const { maxResults = 50 } = options;
 
-  process.stderr.write(`  📡 Fetching Airbnb data for ${location} via AirROI...\n`);
+  process.stderr.write(`   Fetching Airbnb data for ${location} via AirROI...\n`);
 
   try {
     // AirROI market search endpoint
@@ -96,7 +96,7 @@ async function fetchViaAirROI(location, options = {}) {
     });
 
     const listings = response.data?.listings || response.data?.results || [];
-    process.stderr.write(`  ✅ Found ${listings.length} active Airbnb listings\n`);
+    process.stderr.write(`   Found ${listings.length} active Airbnb listings\n`);
 
     return listings.map(normalizeAirROIListing);
 
@@ -126,7 +126,7 @@ async function fetchViaRapidAPI(location, options = {}) {
   const checkinDate = checkIn || nextFriday.toISOString().split('T')[0];
   const checkoutDate = checkOut || nextSunday.toISOString().split('T')[0];
 
-  process.stderr.write(`  📡 Fetching Airbnb listings for ${location} via RapidAPI...\n`);
+  process.stderr.write(`   Fetching Airbnb listings for ${location} via RapidAPI...\n`);
 
   try {
     const response = await axios.get('https://airbnb13.p.rapidapi.com/search-location', {
@@ -146,7 +146,7 @@ async function fetchViaRapidAPI(location, options = {}) {
     });
 
     const results = response.data?.results || [];
-    process.stderr.write(`  ✅ Found ${results.length} Airbnb listings via RapidAPI\n`);
+    process.stderr.write(`   Found ${results.length} Airbnb listings via RapidAPI\n`);
 
     return results.slice(0, maxResults).map(normalizeRapidAPIListing);
 
@@ -180,7 +180,7 @@ async function fetchViaSearchAPI(location, options = {}) {
   const checkinDate = checkIn || nextFriday.toISOString().split('T')[0];
   const checkoutDate = checkOut || nextSunday.toISOString().split('T')[0];
 
-  process.stderr.write(`  📡 Fetching Airbnb listings for ${location} via SearchAPI...\n`);
+  process.stderr.write(`   Fetching Airbnb listings for ${location} via SearchAPI...\n`);
 
   try {
     const response = await axios.get('https://www.searchapi.io/api/v1/search', {
@@ -200,7 +200,7 @@ async function fetchViaSearchAPI(location, options = {}) {
     });
 
     const results = response.data?.results || response.data?.listings || [];
-    process.stderr.write(`  ✅ Found ${results.length} active Airbnb listings via SearchAPI\n`);
+    process.stderr.write(`   Found ${results.length} active Airbnb listings via SearchAPI\n`);
 
     return results.slice(0, maxResults).map(normalizeSearchAPIListing);
 
@@ -243,7 +243,7 @@ async function fetchViaSearchAPI(location, options = {}) {
       );
 
       const status = statusRes.data?.data?.status;
-      process.stderr.write(`\r  ⏳ Airbnb scrape: ${status} (${attempts * 5}s)...`);
+      process.stderr.write(`\r   Airbnb scrape: ${status} (${attempts * 5}s)...`);
 
       if (status === 'SUCCEEDED') {
         break;
@@ -257,7 +257,7 @@ async function fetchViaSearchAPI(location, options = {}) {
     );
 
     const items = dataRes.data || [];
-    process.stderr.write(`  ✅ Retrieved ${items.length} Airbnb listings\n`);
+    process.stderr.write(`   Retrieved ${items.length} Airbnb listings\n`);
 
 
   } catch (err) {
@@ -270,7 +270,7 @@ async function fetchViaSearchAPI(location, options = {}) {
 async function fetchViaAirbtics(location, options = {}) {
   const { maxResults = 50 } = options;
 
-  process.stderr.write(`  📡 Fetching Airbnb data for ${location} via Airbtics...\n`);
+  process.stderr.write(`   Fetching Airbnb data for ${location} via Airbtics...\n`);
 
   try {
     const response = await axios.get('https://api.airbtics.com/api/v1/listings', {

@@ -323,20 +323,20 @@ qbr_agenda:
 
 | # | Signal | Severity | Response Time |
 |---|---|---|---|
-| 1 | Data export request | 🔴 Critical | Same day |
-| 2 | Asks about cancellation terms | 🔴 Critical | Same day |
-| 3 | Champion leaves company | 🔴 Critical | 48 hours |
-| 4 | Payment failure (2nd attempt) | 🔴 Critical | Same day |
-| 5 | Usage drops 50%+ from baseline | 🟠 High | 3 days |
-| 6 | Stops responding to messages | 🟠 High | 1 week |
-| 7 | Misses 2+ scheduled check-ins | 🟠 High | 1 week |
-| 8 | Competitor mentioned in conversation | 🟡 Medium | Next touchpoint |
-| 9 | Budget review announced internally | 🟡 Medium | 1 week |
-| 10 | Key stakeholder change | 🟡 Medium | 2 weeks |
-| 11 | Asks to reduce scope/tier | 🟡 Medium | Next touchpoint |
-| 12 | Support tickets spike then go silent | 🟡 Medium | 1 week |
-| 13 | Billing page visits increase | 🟡 Medium | Next touchpoint |
-| 14 | Engagement score declining 3 weeks straight | 🟡 Medium | 2 weeks |
+| 1 | Data export request |  Critical | Same day |
+| 2 | Asks about cancellation terms |  Critical | Same day |
+| 3 | Champion leaves company |  Critical | 48 hours |
+| 4 | Payment failure (2nd attempt) |  Critical | Same day |
+| 5 | Usage drops 50%+ from baseline |  High | 3 days |
+| 6 | Stops responding to messages |  High | 1 week |
+| 7 | Misses 2+ scheduled check-ins |  High | 1 week |
+| 8 | Competitor mentioned in conversation |  Medium | Next touchpoint |
+| 9 | Budget review announced internally |  Medium | 1 week |
+| 10 | Key stakeholder change |  Medium | 2 weeks |
+| 11 | Asks to reduce scope/tier |  Medium | Next touchpoint |
+| 12 | Support tickets spike then go silent |  Medium | 1 week |
+| 13 | Billing page visits increase |  Medium | Next touchpoint |
+| 14 | Engagement score declining 3 weeks straight |  Medium | 2 weeks |
 
 ### Save Playbook (5 Stages)
 

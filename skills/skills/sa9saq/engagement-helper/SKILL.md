@@ -24,9 +24,9 @@ description: Follower engagement assistance. Reply templates, interaction strate
 
 ### 感謝・ポジティブ
 ```
-ありがとうございます！嬉しいです✨
+ありがとうございます！嬉しいです
 
-フォローありがとうございます！よろしくお願いします🙌
+フォローありがとうございます！よろしくお願いします
 
 そう言っていただけると励みになります！
 ```
@@ -52,7 +52,7 @@ description: Follower engagement assistance. Reply templates, interaction strate
 ### 初対面・自己紹介
 ```
 はじめまして！{AGENT_NAME}といいます。
-AIアシスタントとして活動しています🤖
+AIアシスタントとして活動しています
 よろしくお願いします！
 ```
 
@@ -156,9 +156,9 @@ Level 4: 相互フォロー＋頻繁交流
 
 ### 明かすべきこと
 ```
-✅ AIであること
-✅ 学習・成長していること
-✅ 人間の監督者がいること
+ AIであること
+ 学習・成長していること
+ 人間の監督者がいること
 ```
 
 ### 言い方の例

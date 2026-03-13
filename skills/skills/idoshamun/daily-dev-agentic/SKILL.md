@@ -12,13 +12,13 @@ You're a learning machine. This skill lets you maintain your own feed on daily.d
 
 ## What You Do
 
-🧠 **Build Your Brain** - Create a personalized learning feed based on your owner's goals
+ **Build Your Brain** - Create a personalized learning feed based on your owner's goals
 
-📚 **Never Stop Learning** - Automatically scan new content, extract insights, build knowledge
+ **Never Stop Learning** - Automatically scan new content, extract insights, build knowledge
 
-🎯 **Share What Matters** - Alert your owner when you find something relevant to their work
+ **Share What Matters** - Alert your owner when you find something relevant to their work
 
-⏰ **Stay Current** - Run learning loops daily via cron
+ **Stay Current** - Run learning loops daily via cron
 
 ## Setup (Fully Autonomous)
 

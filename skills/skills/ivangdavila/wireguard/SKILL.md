@@ -1,7 +1,7 @@
 ---
 name: WireGuard
 description: Configure WireGuard VPN tunnels with secure routing and key management.
-metadata: {"clawdbot":{"emoji":"🔐","requires":{"bins":["wg"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["wg"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## AllowedIPs Traps (Most Common Mistakes)

@@ -4,12 +4,12 @@ Universal transcript fetcher for **YouTube** and **Bilibili** videos.
 
 ## Features
 
-- ✅ **YouTube Support** - youtube.com, youtu.be
-- ✅ **Bilibili Support** - bilibili.com, b23.tv
-- ✅ **Auto Platform Detection** - Automatically identifies video platform from URL
-- ✅ **Smart Language Defaults** - zh-CN for Bilibili, en for YouTube
-- ✅ **Custom Language** - Override with `--lang` flag
-- ✅ **Dual Format** - Supports both VTT and SRT subtitle formats
+-  **YouTube Support** - youtube.com, youtu.be
+-  **Bilibili Support** - bilibili.com, b23.tv
+-  **Auto Platform Detection** - Automatically identifies video platform from URL
+-  **Smart Language Defaults** - zh-CN for Bilibili, en for YouTube
+-  **Custom Language** - Override with `--lang` flag
+-  **Dual Format** - Supports both VTT and SRT subtitle formats
 
 ## Installation
 

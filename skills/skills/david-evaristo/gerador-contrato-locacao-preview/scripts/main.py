@@ -41,7 +41,7 @@ def validate_required(dados: Dict):
 
 
 def build_confirmation_summary(dados: Dict) -> str:
-    lines = ["📄 Resumo do contrato de locação:", ""]
+    lines = [" Resumo do contrato de locação:", ""]
     mapping = {
         "nome": "Nome",
         "email": "E-mail",

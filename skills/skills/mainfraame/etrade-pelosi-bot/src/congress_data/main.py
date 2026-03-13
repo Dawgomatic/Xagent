@@ -171,7 +171,7 @@ class CongressDataApp:
             print("CONGRESSIONAL DATA COLLECTION STATISTICS")
             print("="*60)
             
-            print(f"\n📊 SCHEDULER STATS:")
+            print(f"\n SCHEDULER STATS:")
             print(f"  Runs: {scheduler_stats['runs']}")
             print(f"  Successful: {scheduler_stats['successful_runs']}")
             print(f"  Failed: {scheduler_stats['failed_runs']}")
@@ -180,21 +180,21 @@ class CongressDataApp:
             print(f"  Last Run: {scheduler_stats.get('last_run', 'Never')}")
             print(f"  Last Success: {scheduler_stats.get('last_success', 'Never')}")
             
-            print(f"\n📈 COLLECTION STATS:")
+            print(f"\n COLLECTION STATS:")
             print(f"  Total Trades Collected: {scheduler_stats['total_trades_collected']}")
             print(f"  Total Alerts Sent: {scheduler_stats['total_alerts_sent']}")
             print(f"  Failed Sources: {', '.join(collection_stats.get('failed_sources', [])) or 'None'}")
             
-            print(f"\n🔔 ALERT STATS:")
+            print(f"\n ALERT STATS:")
             print(f"  Alerting Enabled: {alert_stats['alerting_enabled']}")
             print(f"  Total Alerts Sent: {alert_stats['total_alerts_sent']}")
             print(f"  Minimum Trade Size: ${alert_stats['thresholds']['minimum_trade_size']:,.0f}")
             print(f"  Channels:")
-            print(f"    - Telegram: {'✅' if alert_stats['channels']['telegram'] else '❌'}")
-            print(f"    - Email: {'✅' if alert_stats['channels']['email'] else '❌'}")
-            print(f"    - E*TRADE Integration: {'✅' if alert_stats['channels']['etrade_integration'] else '❌'}")
+            print(f"    - Telegram: {'' if alert_stats['channels']['telegram'] else ''}")
+            print(f"    - Email: {'' if alert_stats['channels']['email'] else ''}")
+            print(f"    - E*TRADE Integration: {'' if alert_stats['channels']['etrade_integration'] else ''}")
             
-            print(f"\n⚙️  CONFIGURATION:")
+            print(f"\n  CONFIGURATION:")
             cron_config = self.config.get_cron_config()
             print(f"  Schedule: {cron_config.get('schedule', 'N/A')}")
             print(f"  Timezone: {cron_config.get('timezone', 'N/A')}")
@@ -254,32 +254,32 @@ class CongressDataApp:
                 
                 # Send test alerts
                 message = self.alert_manager.format_alert_message(sample_trade)
-                print(f"\n📨 TEST ALERT MESSAGE:\n{message}\n")
+                print(f"\n TEST ALERT MESSAGE:\n{message}\n")
                 
                 # Test Telegram
                 if self.alert_manager.alert_config.get("telegram_bot_token"):
                     logger.info("Testing Telegram alert...")
                     if self.alert_manager.send_telegram_alert("[TEST] " + message):
-                        print("✅ Telegram alert sent successfully")
+                        print(" Telegram alert sent successfully")
                     else:
-                        print("❌ Telegram alert failed")
+                        print(" Telegram alert failed")
                 
                 # Test email
                 if self.alert_manager.alert_config.get("email_alerts", False):
                     logger.info("Testing email alert...")
                     if self.alert_manager.send_email_alert("[TEST] " + message, "[TEST] Congressional Trade Alert"):
-                        print("✅ Email alert sent successfully")
+                        print(" Email alert sent successfully")
                     else:
-                        print("❌ Email alert failed")
+                        print(" Email alert failed")
                 
                 # Test E*TRADE integration
                 logger.info("Testing E*TRADE integration...")
                 if self.alert_manager.send_etrade_integration_alert(sample_trade):
-                    print("✅ E*TRADE integration alert saved")
+                    print(" E*TRADE integration alert saved")
                 else:
-                    print("❌ E*TRADE integration alert failed")
+                    print(" E*TRADE integration alert failed")
                 
-                print("\n✅ Alert system test completed")
+                print("\n Alert system test completed")
                 return True
             else:
                 logger.warning("Sample trade would not trigger alert (check thresholds)")

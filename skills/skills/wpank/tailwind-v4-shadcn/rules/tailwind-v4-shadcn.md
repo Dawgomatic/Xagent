@@ -15,21 +15,21 @@ Claude's training may reference Tailwind v3 patterns. This project uses **Tailwi
 
 ### CSS Syntax
 ```css
-/* ❌ v3 (Claude may suggest this) */
+/*  v3 (Claude may suggest this) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ✅ v4 (use this) */
+/*  v4 (use this) */
 @import "tailwindcss";
 ```
 
 ### Theme Configuration
 ```css
-/* ❌ v3 - tailwind.config.ts */
+/*  v3 - tailwind.config.ts */
 theme: { colors: { primary: '#3b82f6' } }
 
-/* ✅ v4 - in CSS file */
+/*  v4 - in CSS file */
 @theme inline {
   --color-primary: var(--primary);
   --color-background: var(--background);
@@ -38,34 +38,34 @@ theme: { colors: { primary: '#3b82f6' } }
 
 ### Animations Package
 ```bash
-# ❌ v3 package (deprecated for v4)
+#  v3 package (deprecated for v4)
 pnpm add tailwindcss-animate
 
-# ✅ v4 package
+#  v4 package
 pnpm add -D tw-animate-css
 ```
 
 ```css
-/* ✅ v4 import */
+/*  v4 import */
 @import "tailwindcss";
 @import "tw-animate-css";
 ```
 
 ### Plugins
 ```css
-/* ❌ v3 - require() in config */
+/*  v3 - require() in config */
 plugins: [require('@tailwindcss/typography')]
 
-/* ✅ v4 - @plugin directive in CSS */
+/*  v4 - @plugin directive in CSS */
 @plugin "@tailwindcss/typography";
 ```
 
 ### @apply Directive
 ```css
-/* ❌ Deprecated in v4 */
+/*  Deprecated in v4 */
 .btn { @apply px-4 py-2 bg-primary; }
 
-/* ✅ Use direct classes or CSS */
+/*  Use direct classes or CSS */
 .btn { padding: 0.5rem 1rem; background-color: var(--primary); }
 ```
 

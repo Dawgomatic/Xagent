@@ -62,7 +62,7 @@ function assertEqual(actual, expected, description) {
 }
 
 // --- normalizeId ---
-console.log('\n📋 normalizeId');
+console.log('\n normalizeId');
 
 assertEqual(
   normalizeId('abc12345-6789-0123-4567-890abcdef012'),
@@ -95,7 +95,7 @@ assertEqual(
 );
 
 // --- parseRichText ---
-console.log('\n📋 parseRichText (plain text → Notion rich_text)');
+console.log('\n parseRichText (plain text → Notion rich_text)');
 
 {
   const result = parseRichText('Hello world');
@@ -125,7 +125,7 @@ console.log('\n📋 parseRichText (plain text → Notion rich_text)');
 }
 
 // --- parseMarkdownRichText ---
-console.log('\n📋 parseMarkdownRichText (markdown → Notion rich_text)');
+console.log('\n parseMarkdownRichText (markdown → Notion rich_text)');
 
 {
   const result = parseMarkdownRichText('**bold text**');
@@ -164,7 +164,7 @@ console.log('\n📋 parseMarkdownRichText (markdown → Notion rich_text)');
 }
 
 // --- parseMarkdownToBlocks ---
-console.log('\n📋 parseMarkdownToBlocks');
+console.log('\n parseMarkdownToBlocks');
 
 {
   const blocks = parseMarkdownToBlocks('# Heading 1');
@@ -226,7 +226,7 @@ console.log('\n📋 parseMarkdownToBlocks');
 }
 
 // --- blocksToMarkdown ---
-console.log('\n📋 blocksToMarkdown');
+console.log('\n blocksToMarkdown');
 
 {
   const blocks = [
@@ -247,11 +247,11 @@ console.log('\n📋 blocksToMarkdown');
 {
   const blocks = [
     { type: 'quote', quote: { rich_text: [{ plain_text: 'Wisdom' }] } },
-    { type: 'callout', callout: { icon: { emoji: '💡' }, rich_text: [{ plain_text: 'Note' }] } },
+    { type: 'callout', callout: { icon: { emoji: '' }, rich_text: [{ plain_text: 'Note' }] } },
   ];
   const md = blocksToMarkdown(blocks);
   assert(md.includes('> Wisdom'), 'Quote rendered');
-  assert(md.includes('💡 Note'), 'Callout rendered');
+  assert(md.includes(' Note'), 'Callout rendered');
 }
 
 {
@@ -261,7 +261,7 @@ console.log('\n📋 blocksToMarkdown');
 }
 
 // --- richTextToMarkdown ---
-console.log('\n📋 richTextToMarkdown');
+console.log('\n richTextToMarkdown');
 
 {
   const rt = [
@@ -294,7 +294,7 @@ console.log('\n📋 richTextToMarkdown');
 }
 
 // --- richTextToPlain ---
-console.log('\n📋 richTextToPlain');
+console.log('\n richTextToPlain');
 
 {
   const rt = [{ plain_text: 'Hello ' }, { plain_text: 'world' }];
@@ -305,7 +305,7 @@ assertEqual(richTextToPlain([]), '', 'Empty array');
 assertEqual(richTextToPlain(null), '', 'Null input');
 
 // --- formatPropertyValue ---
-console.log('\n📋 formatPropertyValue');
+console.log('\n formatPropertyValue');
 
 assertEqual(
   formatPropertyValue('select', 'Done'),
@@ -398,7 +398,7 @@ assertEqual(
 }
 
 // --- extractPropertyValue ---
-console.log('\n📋 extractPropertyValue');
+console.log('\n extractPropertyValue');
 
 assertEqual(
   extractPropertyValue({ type: 'title', title: [{ plain_text: 'Test' }] }),
@@ -461,7 +461,7 @@ assertEqual(
 );
 
 // --- extractTitle ---
-console.log('\n📋 extractTitle');
+console.log('\n extractTitle');
 
 assertEqual(
   extractTitle({ object: 'page', properties: { Name: { type: 'title', title: [{ plain_text: 'My Page' }] } } }),
@@ -488,7 +488,7 @@ assertEqual(
 );
 
 // --- createDetailedError ---
-console.log('\n📋 createDetailedError');
+console.log('\n createDetailedError');
 
 {
   const err = createDetailedError(401, '{}');
@@ -521,7 +521,7 @@ console.log('\n📋 createDetailedError');
 }
 
 // --- hasJsonFlag ---
-console.log('\n📋 hasJsonFlag');
+console.log('\n hasJsonFlag');
 
 {
   const originalArgv = process.argv.slice();
@@ -552,7 +552,7 @@ console.log('\n📋 hasJsonFlag');
 }
 
 // --- stripTokenArg ---
-console.log('\n📋 stripTokenArg');
+console.log('\n stripTokenArg');
 
 assertEqual(
   stripTokenArg(['--token-file', '/path/to/token', 'query']),
@@ -598,7 +598,7 @@ assertEqual(
 
 
 // --- token resolution and path expansion ---
-console.log('\n📋 token resolution and path expansion');
+console.log('\n token resolution and path expansion');
 
 {
   const originalHomedir = os.homedir;
@@ -638,7 +638,7 @@ console.log('\n📋 token resolution and path expansion');
 }
 
 // --- error message formatting ---
-console.log('\n📋 friendly error messages');
+console.log('\n friendly error messages');
 
 {
   const err401 = createDetailedError(401, '{}');
@@ -656,7 +656,7 @@ console.log('\n📋 friendly error messages');
 }
 
 // --- watch-notion --state-file parsing ---
-console.log('\n📋 watch-notion --state-file parsing');
+console.log('\n watch-notion --state-file parsing');
 
 {
   const originalHomedir = os.homedir;
@@ -671,7 +671,7 @@ console.log('\n📋 watch-notion --state-file parsing');
 }
 
 // --- batch-update argument parsing ---
-console.log('\n📋 batch-update argument parsing');
+console.log('\n batch-update argument parsing');
 
 {
   const parsed = parseBatchUpdateArgs([

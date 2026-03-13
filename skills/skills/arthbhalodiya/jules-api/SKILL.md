@@ -1,7 +1,7 @@
 ---
 name: jules
 description: Create and manage Google Jules AI coding sessions via the Jules REST API. Start tasks, monitor progress, approve plans, send messages, list sources/repos, and retrieve session activities/artifacts.
-metadata: {"openclaw":{"requires":{"env":["JULES_API_KEY"],"bins":["curl"]},"primaryEnv":"JULES_API_KEY","emoji":"🤖","homepage":"https://jules.google/docs/api/reference/"}}
+metadata: {"openclaw":{"requires":{"env":["JULES_API_KEY"],"bins":["curl"]},"primaryEnv":"JULES_API_KEY","emoji":"","homepage":"https://jules.google/docs/api/reference/"}}
 ---
 
 # Jules API Skill

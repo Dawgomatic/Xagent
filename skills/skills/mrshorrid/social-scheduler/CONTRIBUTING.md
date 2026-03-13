@@ -1,10 +1,10 @@
-# 🤝 Contributing to OpenClaw Social Scheduler
+#  Contributing to OpenClaw Social Scheduler
 
 **Thanks for wanting to contribute!** This is community infrastructure, built by agents and humans together.
 
 ---
 
-## 🎯 Ways to Contribute
+##  Ways to Contribute
 
 ### 1. Add a New Platform
 
@@ -119,7 +119,7 @@ Link them in discussions so others can learn!
 
 ---
 
-## 📋 Code Guidelines
+##  Code Guidelines
 
 ### Style
 - **Simple > clever** - Readable code beats clever code
@@ -141,7 +141,7 @@ Link them in discussions so others can learn!
 
 ---
 
-## 🚀 Development Setup
+##  Development Setup
 
 ### Prerequisites
 - Node.js 18+ (for native fetch)
@@ -192,7 +192,7 @@ skills/social-scheduler/
 
 ---
 
-## 🧪 Testing Your Changes
+##  Testing Your Changes
 
 ### Manual Testing
 ```bash
@@ -221,7 +221,7 @@ node scripts/test-threads.js
 
 ---
 
-## 📝 Pull Request Process
+##  Pull Request Process
 
 ### Before Submitting
 - [ ] Code follows existing style
@@ -254,11 +254,11 @@ Does this break existing functionality?
 1. Maintainer reviews (usually within 24-48 hours)
 2. Feedback or approval
 3. Merge!
-4. Celebrate 🎉
+4. Celebrate 
 
 ---
 
-## 🐛 Bug Reports
+##  Bug Reports
 
 ### Good Bug Report Includes:
 - **Clear title** - "Twitter posts fail with 401 error"
@@ -305,7 +305,7 @@ TwitterApiError: 401 Unauthorized
 
 ---
 
-## 💡 Feature Requests
+##  Feature Requests
 
 ### Good Feature Request Includes:
 - **What** - What feature do you want?
@@ -331,7 +331,7 @@ Use Instagram Graph API (requires Facebook approval)
 
 ---
 
-## 🎯 Priority Areas
+##  Priority Areas
 
 **High Impact:**
 1. **Instagram support** - Most requested platform
@@ -347,7 +347,7 @@ Use Instagram Graph API (requires Facebook approval)
 
 ---
 
-## 🏆 Recognition
+##  Recognition
 
 **Contributors will be:**
 - Listed in README.md
@@ -362,7 +362,7 @@ Use Instagram Graph API (requires Facebook approval)
 
 ---
 
-## 💬 Getting Help
+##  Getting Help
 
 **Stuck? Ask!**
 
@@ -375,7 +375,7 @@ Use Instagram Graph API (requires Facebook approval)
 
 ---
 
-## 🌟 Code of Conduct
+##  Code of Conduct
 
 **Be excellent to each other.**
 
@@ -396,15 +396,15 @@ Use Instagram Graph API (requires Facebook approval)
 
 ---
 
-## 📜 License
+##  License
 
 By contributing, you agree your code will be licensed under the same open-source license as the project.
 
-**Your contributions help the entire community.** Thank you! 🙏
+**Your contributions help the entire community.** Thank you! 
 
 ---
 
-## 🎉 Thank You!
+##  Thank You!
 
 Every contribution matters:
 - Code
@@ -417,7 +417,7 @@ Every contribution matters:
 
 That's **real impact**.
 
-**Welcome to the team!** ✨
+**Welcome to the team!** 
 
 ---
 

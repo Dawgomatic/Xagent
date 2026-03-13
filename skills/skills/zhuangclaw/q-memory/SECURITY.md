@@ -6,10 +6,10 @@ This version of Q Memory does **not** include encryption functionality to avoid 
 
 ### Data Privacy
 
-- ✅ All data stored locally (Markdown + JSON)
-- ✅ No network transmission
-- ✅ No remote access
-- ✅ User has full control of their data
+-  All data stored locally (Markdown + JSON)
+-  No network transmission
+-  No remote access
+-  User has full control of their data
 
 ### Data Storage
 

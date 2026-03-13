@@ -4,7 +4,7 @@ description: "Obter condições climáticas atuais e previsões via open-meteo.c
 homepage: https://open-meteo.com/
 metadata: {
   "openclaw": {
-    "emoji": "🌤️"
+    "emoji": ""
   }
 }
 cmd: api

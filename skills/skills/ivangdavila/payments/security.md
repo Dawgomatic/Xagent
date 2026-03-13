@@ -16,19 +16,19 @@
 
 ### What You Must Never Do
 
-❌ Store CVV/CVC (ever, anywhere, for any reason)
-❌ Log full card numbers
-❌ Store unencrypted card data
-❌ Transmit card data without TLS
-❌ Give developers access to production card data
+ Store CVV/CVC (ever, anywhere, for any reason)
+ Log full card numbers
+ Store unencrypted card data
+ Transmit card data without TLS
+ Give developers access to production card data
 
 ### What You Should Do
 
-✅ Use provider's hosted fields or checkout
-✅ Tokenize immediately (card → token → charge token)
-✅ Serve payment pages over HTTPS only
-✅ Monitor for suspicious patterns
-✅ Keep payment logic isolated from main codebase
+ Use provider's hosted fields or checkout
+ Tokenize immediately (card → token → charge token)
+ Serve payment pages over HTTPS only
+ Monitor for suspicious patterns
+ Keep payment logic isolated from main codebase
 
 ---
 
@@ -130,18 +130,18 @@ Win rates vary: ~30% for physical goods, ~50% for digital with good evidence.
 
 ### What to Store
 
-✅ Customer ID (provider's, not yours)
-✅ Subscription status
-✅ Payment method type (last 4 digits okay for display)
-✅ Invoice/receipt links
+ Customer ID (provider's, not yours)
+ Subscription status
+ Payment method type (last 4 digits okay for display)
+ Invoice/receipt links
 
 ### What Never to Store
 
-❌ Full card numbers
-❌ CVV/CVC
-❌ Expiration dates (if not tokenized)
-❌ PIN numbers
-❌ Sensitive authentication data
+ Full card numbers
+ CVV/CVC
+ Expiration dates (if not tokenized)
+ PIN numbers
+ Sensitive authentication data
 
 ### Encryption
 

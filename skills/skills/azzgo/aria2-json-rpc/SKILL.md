@@ -19,11 +19,11 @@ This skill enables you to control aria2 download manager through natural languag
 
 ## How to Use (For AI Agents)
 
-**⚠️ CRITICAL: DO NOT manually construct JSON-RPC requests.**
+** CRITICAL: DO NOT manually construct JSON-RPC requests.**
 
-**✅ ALWAYS use the Python scripts in the `scripts/` directory.**
+** ALWAYS use the Python scripts in the `scripts/` directory.**
 
-**⚠️ IMPORTANT: Use `python3` command, NOT `python`** (especially on macOS where `python` symlink doesn't exist)
+** IMPORTANT: Use `python3` command, NOT `python`** (especially on macOS where `python` symlink doesn't exist)
 
 ### Workflow (MUST FOLLOW)
 
@@ -134,12 +134,12 @@ Scripts automatically load configuration from multiple sources with the followin
 2. **Skill Directory Config** (project-specific configuration)
    - Location: `skills/aria2-json-rpc/config.json`
    - Best for: Project-specific settings, local testing, development
-   - ⚠️ **Warning**: Lost when running `npx skills add` to update the skill
+   -  **Warning**: Lost when running `npx skills add` to update the skill
 
-3. **User Config Directory** (global fallback, update-safe) 🆕
+3. **User Config Directory** (global fallback, update-safe) 
    - Location: `~/.config/aria2-skill/config.json`
    - Best for: Personal default settings across all projects
-   - ✅ **Safe**: Survives skill updates via `npx skills add`
+   -  **Safe**: Survives skill updates via `npx skills add`
 
 4. **Defaults** (localhost:6800)
    - Zero-configuration fallback for local development

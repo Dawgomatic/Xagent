@@ -52,11 +52,11 @@ London is one of the safest major cities globally. Violent crime against tourist
 
 | Safety | Areas |
 |--------|-------|
-| ⭐⭐⭐⭐⭐ Very Safe | Kensington, Chelsea, Mayfair, Marylebone, Hampstead, Richmond |
-| ⭐⭐⭐⭐ Safe | Westminster, South Bank, Covent Garden, Bloomsbury, Islington, Greenwich |
-| ⭐⭐⭐ Generally Safe | Shoreditch (busy times), Camden, Brixton (main areas), Stratford |
-| ⭐⭐ Caution Advised | Elephant & Castle (night), parts of Tottenham, outer Hackney |
-| ⭐ Avoid (Tourist) | Industrial estates, isolated areas late night |
+|  Very Safe | Kensington, Chelsea, Mayfair, Marylebone, Hampstead, Richmond |
+|  Safe | Westminster, South Bank, Covent Garden, Bloomsbury, Islington, Greenwich |
+|  Generally Safe | Shoreditch (busy times), Camden, Brixton (main areas), Stratford |
+|  Caution Advised | Elephant & Castle (night), parts of Tottenham, outer Hackney |
+|  Avoid (Tourist) | Industrial estates, isolated areas late night |
 
 **Note:** Even "caution" areas are fine during daytime. Issues arise late night, away from main streets.
 

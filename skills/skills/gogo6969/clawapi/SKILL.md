@@ -3,7 +3,7 @@ name: clawapi
 description: Switch AI models and manage API keys for OpenClaw with a native macOS app. Supports 16 providers including OpenAI, Anthropic, xAI, Google, Groq, Ollama, LM Studio, and more.
 homepage: https://github.com/Gogo6969/clawapi
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🔑","requires":{"bins":["curl"],"config":["skills.entries.clawapi"]},"install":[{"kind":"script","command":"curl -fsSL https://raw.githubusercontent.com/Gogo6969/clawapi/main/install.sh | bash"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl"],"config":["skills.entries.clawapi"]},"install":[{"kind":"script","command":"curl -fsSL https://raw.githubusercontent.com/Gogo6969/clawapi/main/install.sh | bash"}]}}
 ---
 
 # ClawAPI — Model Switcher & Key Vault for OpenClaw

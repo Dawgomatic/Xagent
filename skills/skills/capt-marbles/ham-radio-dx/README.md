@@ -13,9 +13,9 @@ Monitor DX clusters for rare station spots and get daily digests.
 ```
 
 This installs:
-- ✅ DX spot monitoring every 5 minutes
-- ✅ Daily digest at 9am
-- ✅ Automatic logging
+-  DX spot monitoring every 5 minutes
+-  Daily digest at 9am
+-  Automatic logging
 
 ## Manual Usage
 
@@ -62,4 +62,4 @@ python3 skills/ham-radio-dx/dx-monitor.py watch --cluster om0rx --callsign YOUR_
 3. Daily digest has band activity stats
 4. Adjust cron timing if needed
 
-73! 📻
+73! 

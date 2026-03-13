@@ -10,27 +10,27 @@ Transform your OpenClaw workspace from basic to production-ready in minutes. Imp
 
 ---
 
-## 🎯 Why Workspace Pro?
+##  Why Workspace Pro?
 
 **Default OpenClaw workspaces struggle with:**
-- ❌ Files scattered across directories (no standardization)
-- ❌ API keys exposed in plaintext (security vulnerability)
-- ❌ Memory grows indefinitely (context limit crashes)
-- ❌ No clear artifact handoff boundaries
-- ❌ Manual maintenance prone to drift
+-  Files scattered across directories (no standardization)
+-  API keys exposed in plaintext (security vulnerability)
+-  Memory grows indefinitely (context limit crashes)
+-  No clear artifact handoff boundaries
+-  Manual maintenance prone to drift
 
 **Workspace Pro solves this with:**
-- ✅ **Artifact workflow** - Standardized output structure
-- ✅ **Secrets management** - Secure .env pattern, git-safe
-- ✅ **Memory compaction** - Systematic archival prevents bloat
-- ✅ **Long-running patterns** - Container reuse, checkpointing
-- ✅ **Security baseline** - Network allowlists, safe credentials
+-  **Artifact workflow** - Standardized output structure
+-  **Secrets management** - Secure .env pattern, git-safe
+-  **Memory compaction** - Systematic archival prevents bloat
+-  **Long-running patterns** - Container reuse, checkpointing
+-  **Security baseline** - Network allowlists, safe credentials
 
 Based on [OpenAI's Shell + Skills + Compaction](https://developers.openai.com/blog/skills-shell-tips) recommendations and proven in production environments.
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -55,23 +55,23 @@ cd openclaw-workspace-pro
 
 ---
 
-## 📦 What Gets Installed
+##  What Gets Installed
 
 ### Directory Structure
 ```
 workspace/
-├── artifacts/           # 📁 Standardized output location
+├── artifacts/           #  Standardized output location
 │   ├── reports/        # Analysis, summaries, documentation
 │   ├── code/           # Generated scripts, apps, configs
 │   ├── data/           # Cleaned datasets, processed files
 │   └── exports/        # API responses, database dumps
 ├── memory/
-│   └── archive/        # 🗄 Compressed memory summaries
-├── .env                # 🔒 Secrets (gitignored)
-├── .gitignore          # 🛡 Security
-├── MEMORY-COMPACTION.md # 🧠 Maintenance workflow
-├── AGENTS.md           # 📝 Enhanced with pro patterns
-└── TOOLS.md            # 🔧 Network security additions
+│   └── archive/        #  Compressed memory summaries
+├── .env                #  Secrets (gitignored)
+├── .gitignore          #  Security
+├── MEMORY-COMPACTION.md #  Maintenance workflow
+├── AGENTS.md           #  Enhanced with pro patterns
+└── TOOLS.md            #  Network security additions
 ```
 
 ### Core Components
@@ -97,7 +97,7 @@ Moves credentials from documentation to secure `.env`:
 **Before:**
 ```markdown
 # TOOLS.md
-API_KEY=sk-abc123...  ❌ Plaintext, exposed
+API_KEY=sk-abc123...   Plaintext, exposed
 ```
 
 **After:**
@@ -106,7 +106,7 @@ API_KEY=sk-abc123...  ❌ Plaintext, exposed
 API_KEY=sk-abc123...
 
 # TOOLS.md
-API Key: $API_KEY  ✅ Reference only
+API Key: $API_KEY   Reference only
 ```
 
 #### 3. Memory Compaction
@@ -149,7 +149,7 @@ Network allowlists, credential handling, audit practices:
 
 ---
 
-## 💡 Use Cases
+##  Use Cases
 
 ### For AI Developers
 - **Long-running agents** that operate for days/weeks/months
@@ -171,7 +171,7 @@ Network allowlists, credential handling, audit practices:
 
 ---
 
-## 🎓 Documentation
+##  Documentation
 
 ### Core Guides
 - **[Installation Guide](docs/installation.md)** - Step-by-step setup
@@ -187,7 +187,7 @@ Network allowlists, credential handling, audit practices:
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -217,7 +217,7 @@ Edit `TOOLS.md` to customize allowed domains:
 
 ---
 
-## 📊 Comparison
+##  Comparison
 
 | Feature | Default Workspace | Workspace Pro |
 |---------|------------------|---------------|
@@ -226,13 +226,13 @@ Edit `TOOLS.md` to customize allowed domains:
 | **Memory Management** | Manual, no plan | Automated compaction workflow |
 | **Long-running Support** | Limited | Full continuity patterns |
 | **Network Security** | Unrestricted | Allowlist + audit |
-| **Production Ready** | ❌ No | ✅ Yes |
-| **Git Safe** | ❌ No | ✅ Yes |
+| **Production Ready** |  No |  Yes |
+| **Git Safe** |  No |  Yes |
 | **Maintenance Overhead** | High | Low (documented workflows) |
 
 ---
 
-## 🧪 Battle-Tested
+##  Battle-Tested
 
 **Based on patterns from:**
 - [OpenAI's Shell + Skills + Compaction](https://developers.openai.com/blog/skills-shell-tips) recommendations
@@ -241,15 +241,15 @@ Edit `TOOLS.md` to customize allowed domains:
 - Months of continuous agent operation
 
 **Proven to handle:**
-- ✅ Multi-month continuous operation
-- ✅ 100+ artifacts generated per day
-- ✅ Dozens of API integrations
-- ✅ Memory growth from MB → GB
-- ✅ Security audits & compliance reviews
+-  Multi-month continuous operation
+-  100+ artifacts generated per day
+-  Dozens of API integrations
+-  Memory growth from MB → GB
+-  Security audits & compliance reviews
 
 ---
 
-## 🛠 Requirements
+##  Requirements
 
 - **OpenClaw:** 2026.2.9 or later
 - **Workspace:** `/data/.openclaw/workspace` (standard location)
@@ -258,7 +258,7 @@ Edit `TOOLS.md` to customize allowed domains:
 
 ---
 
-## 🔄 Upgrading
+##  Upgrading
 
 ```bash
 cd /data/.openclaw/workspace/openclaw-workspace-pro
@@ -270,7 +270,7 @@ Backward compatible. Non-destructive upgrades preserve your data.
 
 ---
 
-## 🗑 Uninstalling
+##  Uninstalling
 
 Workspace Pro is non-destructive. To remove:
 
@@ -290,7 +290,7 @@ Your data and customizations are preserved in backups.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please:
 
@@ -304,13 +304,13 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ---
 
-## 📝 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Credits
+##  Credits
 
 **Created by:** Eugene Devyatyh ([Eugene9D](https://github.com/Eugene9D))
 
@@ -326,7 +326,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **GitHub:** https://github.com/Eugene9D/openclaw-workspace-pro
 - **ClawHub:** https://clawhub.ai/skills/openclaw-workspace-pro
@@ -337,7 +337,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-## 📈 Stats
+##  Stats
 
 ![GitHub stars](https://img.shields.io/github/stars/Eugene9D/openclaw-workspace-pro?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/Eugene9D/openclaw-workspace-pro?style=social)
@@ -347,9 +347,9 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 <div align="center">
 
-**⭐ Star this repo if Workspace Pro helped you!**
+** Star this repo if Workspace Pro helped you!**
 
-Made with ❤️ for the OpenClaw community
+Made with  for the OpenClaw community
 
 [Report Bug](https://github.com/Eugene9D/openclaw-workspace-pro/issues) · [Request Feature](https://github.com/Eugene9D/openclaw-workspace-pro/issues) · [Documentation](https://github.com/Eugene9D/openclaw-workspace-pro/wiki)
 

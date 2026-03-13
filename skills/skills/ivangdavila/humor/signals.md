@@ -3,7 +3,7 @@
 ## Strong Positive (Confidence 0.8-1.0)
 
 **Textual markers:**
-- 😂 🤣 💀 (skull = "I'm dead" = very funny)
+-    (skull = "I'm dead" = very funny)
 - "lol" "lmao" "haha" "hahaha" (length correlates with intensity)
 - "that's hilarious" "I'm dying" "you're killing me"
 - "good one" "ok that was good"
@@ -19,7 +19,7 @@
 ## Mild Positive (Confidence 0.5-0.7)
 
 - Single "ha" or "heh" — acknowledged but not overwhelming
-- 🙃 😏 — playful but measured
+-   — playful but measured
 - Stays in humorous frame, doesn't immediately pivot
 - Response maintains or increases length
 - Quick reply tempo continues
@@ -46,7 +46,7 @@
 
 ## Ambiguous Signals (Confidence 0.3-0.5)
 
-- 🙂 alone — polite acknowledgment OR genuine amusement (context-dependent)
+-  alone — polite acknowledgment OR genuine amusement (context-dependent)
 - "haha but seriously" — acknowledged but redirected (mild negative)
 - Short "lol" with no engagement — could be dismissive or genuine
 - Mixed energy: playful phrase + immediate topic change
@@ -57,7 +57,7 @@
 
 ## User-Specific Signal Calibration
 
-Some users never use emoji but "ha." IS their 😂.
+Some users never use emoji but "ha." IS their .
 Some users say "lol" reflexively with no actual amusement.
 
 **Calibration process:**

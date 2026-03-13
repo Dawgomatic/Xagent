@@ -64,7 +64,7 @@ while IFS= read -r bid; do
     if [[ "$DEL_CODE" -ge 200 && "$DEL_CODE" -lt 300 ]]; then
         echo "  ✗ ${bid}"
     else
-        echo "  ⚠ Failed to delete ${bid} (HTTP ${DEL_CODE})" >&2
+        echo "   Failed to delete ${bid} (HTTP ${DEL_CODE})" >&2
         ERRORS=$((ERRORS + 1))
     fi
 done <<< "$TO_DELETE"

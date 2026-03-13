@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🌐",
+        "emoji": "",
         "requires": { "bins": ["uv"], "env": ["NOVA_ACT_API_KEY"] },
         "primaryEnv": "NOVA_ACT_API_KEY",
         "install":

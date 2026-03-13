@@ -33,7 +33,7 @@ def get_task_result(api_key, task_id):
     response = requests.get(url, headers=headers)
     
     if response.status_code != 200:
-        print(f"❌ Error: {response.text}")
+        print(f" Error: {response.text}")
         sys.exit(1)
     
     return response.json()
@@ -65,20 +65,20 @@ def main():
     
     status = task.get("status", "unknown")
     if status != "completed":
-        print(f"⚠️ Task not completed yet. Status: {status}")
+        print(f" Task not completed yet. Status: {status}")
         print(f"Check: https://manus.im/app/{task_id}")
         sys.exit(1)
     
     result = extract_result(task)
     
-    print("📝 RESULT")
+    print(" RESULT")
     print("=" * 60)
     print(result)
     print("=" * 60)
     
     credit_usage = task.get("credit_usage", 0)
-    print(f"\n💰 Credit usage: {credit_usage}")
-    print(f"🔗 Full result: https://manus.im/app/{task_id}")
+    print(f"\n Credit usage: {credit_usage}")
+    print(f" Full result: https://manus.im/app/{task_id}")
 
 if __name__ == "__main__":
     main()

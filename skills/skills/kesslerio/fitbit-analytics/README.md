@@ -1,4 +1,4 @@
-# Fitbit Analytics Skill for OpenClaw 🦞
+# Fitbit Analytics Skill for OpenClaw 
 
 [![OpenClaw Community Skill](https://img.shields.io/badge/openclaw-community%20skill-blue)](https://github.com/openclaw/openclaw)
 [![ClawdHub Listed](https://img.shields.io/badge/clawdhub-listed-green)](https://clawdhub.com/skills/fitbit-analytics)
@@ -87,9 +87,9 @@ python scripts/fitbit_briefing.py --format json
 
 **Example brief output:**
 ```
-📊 8,543 steps • 2,340 cal
-❤️ Resting HR: 58 • 💤 7.2h sleep
-🏃 Moderate • ↑ 12% vs avg
+ 8,543 steps • 2,340 cal
+ Resting HR: 58 •  7.2h sleep
+ Moderate • ↑ 12% vs avg
 ```
 
 **Example JSON output:**

@@ -34,12 +34,12 @@
 
 | Attraction | Verdict | Notes |
 |------------|---------|-------|
-| **Exploratorium** | ✅ Great for kids/curious adults | Book ahead on weekends |
-| **de Young Museum** | ✅ Worth it | Tower has free views |
-| **Academy of Sciences** | ✅ Excellent | Planetarium, aquarium, rainforest |
-| **Ghirardelli Square** | ⚠️ Quick visit | Free chocolate sample, then leave |
-| **Coit Tower** | ⚠️ Nice views | Murals inside, not essential |
-| **Painted Ladies** | ⚠️ Photo op | 5 minutes is enough |
+| **Exploratorium** |  Great for kids/curious adults | Book ahead on weekends |
+| **de Young Museum** |  Worth it | Tower has free views |
+| **Academy of Sciences** |  Excellent | Planetarium, aquarium, rainforest |
+| **Ghirardelli Square** |  Quick visit | Free chocolate sample, then leave |
+| **Coit Tower** |  Nice views | Murals inside, not essential |
+| **Painted Ladies** |  Photo op | 5 minutes is enough |
 
 ---
 

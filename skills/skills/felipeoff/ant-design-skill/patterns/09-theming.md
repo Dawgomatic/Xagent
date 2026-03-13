@@ -101,8 +101,8 @@ const ThemeToggle = () => {
     <Switch
       checked={isDark}
       onChange={setIsDark}
-      checkedChildren="🌙"
-      unCheckedChildren="☀️"
+      checkedChildren=""
+      unCheckedChildren=""
     />
   );
 };
@@ -149,8 +149,8 @@ function ThemedApp() {
         <Switch
           checked={isDark}
           onChange={setIsDark}
-          checkedChildren="🌙"
-          unCheckedChildren="☀️"
+          checkedChildren=""
+          unCheckedChildren=""
         />
         <Button type="primary" style={{ marginLeft: 16 }}>
           Primary Button

@@ -127,11 +127,11 @@ Required packages:
   );
 
   if (result.success) {
-    console.log("✅ Transaction successful!");
+    console.log(" Transaction successful!");
     console.log(`   Hash:     ${result.hash}`);
     console.log(`   Explorer: ${result.explorerUrl}`);
   } else {
-    console.error(`❌ Transaction failed: ${result.error}`);
+    console.error(` Transaction failed: ${result.error}`);
     process.exit(1);
   }
 }

@@ -60,7 +60,7 @@ That's it. The script handles everything: waking the screen, unlocking, keeping 
 
 ## What Can It Do?
 
-### 📱 Daily Life
+###  Daily Life
 ```bash
 python scripts/run-task.py "Order an Uber to the airport"
 python scripts/run-task.py "Set an alarm for 6 AM tomorrow"
@@ -68,32 +68,32 @@ python scripts/run-task.py "Check my bank balance on PhonePe"
 python scripts/run-task.py "Open Google Maps and navigate to the nearest coffee shop"
 ```
 
-### 💬 Messaging
+###  Messaging
 ```bash
 python scripts/run-task.py "Send a WhatsApp message to Mom saying I'll be late"
 python scripts/run-task.py "Read my latest SMS messages"
 python scripts/run-task.py "Open Telegram and check unread messages"
 ```
 
-### 🛒 Shopping
+###  Shopping
 ```bash
 python scripts/run-task.py "Open Amazon and search for wireless earbuds under 2000 rupees"
 python scripts/run-task.py "Add milk and bread to my Instamart cart"
 ```
 
-### 📅 Productivity
+###  Productivity
 ```bash
 python scripts/run-task.py "Open Google Calendar and check my schedule for tomorrow"
 python scripts/run-task.py "Create a new note in Google Keep: Buy groceries"
 ```
 
-### 🎵 Entertainment
+###  Entertainment
 ```bash
 python scripts/run-task.py "Play my Discover Weekly playlist on Spotify"
 python scripts/run-task.py "Open YouTube and search for lo-fi study music"
 ```
 
-### ⚙️ Settings & Setup
+###  Settings & Setup
 ```bash
 python scripts/run-task.py "Turn on Dark Mode"
 python scripts/run-task.py "Connect to my home WiFi network"
@@ -101,7 +101,7 @@ python scripts/run-task.py "Enable Do Not Disturb mode"
 python scripts/run-task.py "Turn off Bluetooth"
 ```
 
-### 📸 Utilities
+###  Utilities
 ```bash
 python scripts/run-task.py "Take a screenshot"
 python scripts/run-task.py "Open the camera and take a photo"
@@ -234,12 +234,12 @@ python scripts/run-task.py --screenshot --serial 127.0.0.1:15555 --screenshot-pa
 ```bash
 ./scripts/status.sh
 # Output:
-# 📱 Device: Samsung Galaxy A03 (SM-A035F)
-# 🤖 Android: 11 (API 30)
-# 🔋 Battery: 87%
-# 📺 Screen: ON (unlocked)
-# 🔌 Connection: USB
-# 📦 DroidRun Portal: installed (v0.5.5)
+#  Device: Samsung Galaxy A03 (SM-A035F)
+#  Android: 11 (API 30)
+#  Battery: 87%
+#  Screen: ON (unlocked)
+#  Connection: USB
+#  DroidRun Portal: installed (v0.5.5)
 ```
 
 ## Troubleshooting
@@ -295,7 +295,7 @@ python scripts/run-task.py --screenshot --serial 127.0.0.1:15555 --screenshot-pa
 - OpenAI API key (GPT-4o for vision capabilities)
 - USB data cable (not charge-only)
 
-## ⚠️ Security Notes
+##  Security Notes
 
 **Use a dedicated test device, not your primary phone.**
 

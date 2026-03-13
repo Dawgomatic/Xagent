@@ -1,7 +1,7 @@
 ---
 name: mixtiles-monthly
 description: Automated monthly photo-to-Mixtiles pipeline. Collects photos from a WhatsApp group, curates the best ones using vision, builds a multi-photo Mixtiles cart link, and sends it. Use when it's time for the monthly Mixtiles order, when asked to "run the monthly tiles", "collect family photos for tiles", or on the monthly cron trigger.
-metadata: {"openclaw": {"emoji": "🖼️", "requires": {"bins": ["wacli", "jq", "python3"]}}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["wacli", "jq", "python3"]}}}
 ---
 
 # Mixtiles Monthly Pipeline

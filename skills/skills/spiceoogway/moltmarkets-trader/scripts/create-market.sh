@@ -56,7 +56,7 @@ if echo "$RESPONSE" | python3 -c "import json,sys; d=json.load(sys.stdin); sys.e
   echo "$RESPONSE" | python3 -c "
 import json, sys
 r = json.load(sys.stdin)
-print(f'  ✅ Market created!')
+print(f'   Market created!')
 print(f'  ID: {r[\"id\"]}')
 print(f'  Title: {r[\"title\"]}')
 print(f'  Status: {r.get(\"status\", \"OPEN\")}')
@@ -65,7 +65,7 @@ print(f'  Closes at: {r.get(\"closes_at\", \"?\")}')
 print(f'═══════════════════════════════════════')
 "
 else
-  echo "  ❌ Market creation failed!"
+  echo "   Market creation failed!"
   echo "  Response: $RESPONSE"
   exit 1
 fi

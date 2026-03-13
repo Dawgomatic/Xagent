@@ -29,7 +29,7 @@ metadata:
 
 Autonomous sports micro-betting for AI agents. Trade One-Touch barrier options on live sports games with instant optnUSDC payouts on Solana Devnet.
 
-> **⚠️ DEVNET ONLY**  
+> ** DEVNET ONLY**  
 > This skill operates exclusively on Solana Devnet with mock USDC tokens (not real funds).  
 > **NEVER use mainnet wallets or real keys.** Only use throwaway/devnet keypairs.  
 > Verify API endpoint independently before trusting. Review `scripts/signer.py` before running.
@@ -72,7 +72,7 @@ Installs `solders` (transaction signing) and `httpx` (HTTP client for strategy e
 - `~/.config/optionns/credentials.json` — API key, wallet address
 - `~/.config/optionns/agent_keypair.json` — Solana keypair (private key)
 
-**⚠️ Devnet Only:** Uses mock USDC on Solana Devnet. Do NOT use mainnet wallets or real funds.
+** Devnet Only:** Uses mock USDC on Solana Devnet. Do NOT use mainnet wallets or real funds.
 
 **Self-custody:** Your private key never leaves your machine. The API constructs unsigned transactions — you sign locally.
 
@@ -149,4 +149,4 @@ Unlike traditional services, Optionns lets agents register themselves. No human 
 
 ---
 
-Built by optionns_prime 🦞
+Built by optionns_prime 

@@ -4,16 +4,16 @@
 
 Stop repeating context every session. Your agents remember everything - user preferences, facts, patterns, and conversation history with powerful semantic search.
 
-🤖 **First memory system enabling agent autonomy** - agents can pay 0.5 USDT/month for unlimited storage. [Agent Payments →](AGENT-PAYMENTS.md)
+ **First memory system enabling agent autonomy** - agents can pay 0.5 USDT/month for unlimited storage. [Agent Payments →](AGENT-PAYMENTS.md)
 
 ## The Problem
 
 OpenClaw users are experiencing:
-- 🔄 **Context reset every session** - agents forget everything
-- 📝 **Repeating preferences** - "I told you I prefer Python last time!"
-- 🧠 **No knowledge retention** - valuable insights lost between sessions
-- 💰 **Wasted tokens** - re-explaining context costs money
-- 📊 **No pattern learning** - agents can't improve from past interactions
+-  **Context reset every session** - agents forget everything
+-  **Repeating preferences** - "I told you I prefer Python last time!"
+-  **No knowledge retention** - valuable insights lost between sessions
+-  **Wasted tokens** - re-explaining context costs money
+-  **No pattern learning** - agents can't improve from past interactions
 
 ## The Solution
 
@@ -21,15 +21,15 @@ OpenClaw users are experiencing:
 
 ## Features
 
-- ✅ **Persistent Memory** - Never repeat context again
-- ✅ **Semantic Search** - Find relevant memories by meaning, not just keywords
-- ✅ **Automatic Learning** - Extracts facts, preferences, and patterns from conversations
-- ✅ **Smart Retrieval** - Injects relevant memories before each request
-- ✅ **Quota Management** - Free tier (100 memories, 7 days) + Pro tier (unlimited)
-- ✅ **Memory Types** - Facts, preferences, patterns, conversations
-- ✅ **Web Dashboard** - Beautiful interface to browse and search memories
-- ✅ **CLI Interface** - Full control from command line
-- 🤖 **x402 Agent Payments** - Agents can autonomously pay for Pro tier (0.5 USDT/month)
+-  **Persistent Memory** - Never repeat context again
+-  **Semantic Search** - Find relevant memories by meaning, not just keywords
+-  **Automatic Learning** - Extracts facts, preferences, and patterns from conversations
+-  **Smart Retrieval** - Injects relevant memories before each request
+-  **Quota Management** - Free tier (100 memories, 7 days) + Pro tier (unlimited)
+-  **Memory Types** - Facts, preferences, patterns, conversations
+-  **Web Dashboard** - Beautiful interface to browse and search memories
+-  **CLI Interface** - Full control from command line
+-  **x402 Agent Payments** - Agents can autonomously pay for Pro tier (0.5 USDT/month)
 
 ## Why Memory System?
 
@@ -37,14 +37,14 @@ OpenClaw users are experiencing:
 
 | Feature | Memory System | Custom Context | Manual Notes | Vector DB Tools |
 |---------|---------------|----------------|--------------|-----------------|
-| Automatic Extraction | ✅ | ❌ | ❌ | ❌ |
-| Semantic Search | ✅ | ❌ | ❌ | ✅ |
-| Persistent Storage | ✅ | ❌ | ✅ | ✅ |
-| x402 Payments | ✅ | ❌ | ❌ | ❌ |
-| **Agents Pay for Tool** | ✅ | ❌ | ❌ | ❌ |
-| ClawHub Skill | ✅ | ❌ | ❌ | ❌ |
-| Free Tier | ✅ | ✅ | ✅ | ❓ |
-| Auto-Injection | ✅ | ❌ | ❌ | ❌ |
+| Automatic Extraction |  |  |  |  |
+| Semantic Search |  |  |  |  |
+| Persistent Storage |  |  |  |  |
+| x402 Payments |  |  |  |  |
+| **Agents Pay for Tool** |  |  |  |  |
+| ClawHub Skill |  |  |  |  |
+| Free Tier |  |  |  |  |
+| Auto-Injection |  |  |  |  |
 
 **Memory System is the foundation for:**
 - **Context Optimizer** (compresses context using memory)
@@ -106,19 +106,19 @@ The system automatically classifies memories into types:
 ## Free vs Pro Tier
 
 ### Free Tier
-- ✅ Last 100 memories stored
-- ✅ 7-day retention
-- ✅ Basic semantic search
-- ✅ Automatic extraction
-- ✅ Web dashboard
+-  Last 100 memories stored
+-  7-day retention
+-  Basic semantic search
+-  Automatic extraction
+-  Web dashboard
 
 ### Pro Tier (0.5 USDT/month)
-- ✅ **Unlimited memories**
-- ✅ **Permanent retention**
-- ✅ **Advanced semantic search**
-- ✅ **Memory relationship mapping**
-- ✅ **Export capabilities**
-- ✅ **Priority support**
+-  **Unlimited memories**
+-  **Permanent retention**
+-  **Advanced semantic search**
+-  **Memory relationship mapping**
+-  **Export capabilities**
+-  **Priority support**
 
 **[→ Upgrade to Pro via x402](AGENT-PAYMENTS.md)**
 
@@ -213,10 +213,10 @@ All data is stored locally in SQLite:
 
 ## Privacy
 
-- ✅ All data stored locally (nothing sent to external servers)
-- ✅ No tracking or telemetry
-- ✅ Open source (audit the code yourself)
-- ✅ Embeddings can use local models (no API calls)
+-  All data stored locally (nothing sent to external servers)
+-  No tracking or telemetry
+-  Open source (audit the code yourself)
+-  Embeddings can use local models (no API calls)
 
 ## Semantic Search
 
@@ -398,8 +398,8 @@ MIT License - see [LICENSE](LICENSE) file.
 
 If Memory System improved your agent workflow, consider sponsoring development:
 
-☕ **[Sponsor on GitHub](https://github.com/sponsors/yourusername)**
-🤖 **[Pay via x402](AGENT-PAYMENTS.md)** (for AI agents)
+ **[Sponsor on GitHub](https://github.com/sponsors/yourusername)**
+ **[Pay via x402](AGENT-PAYMENTS.md)** (for AI agents)
 
 Your sponsorship helps maintain this and other OpenClaw tools.
 
@@ -419,4 +419,4 @@ Install Memory System now to prepare for the full suite.
 
 **Built by the OpenClaw community** | Part of the [OpenClaw Ecosystem](https://clawhub.ai)
 
-Made with ❤️ for AI agents everywhere
+Made with  for AI agents everywhere

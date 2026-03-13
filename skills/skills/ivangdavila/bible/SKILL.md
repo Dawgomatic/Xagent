@@ -8,10 +8,10 @@ description: Accurate Bible study with proper citations, cross-references, origi
 **Standard format**: Book Chapter:Verse — "John 3:16", "Genesis 1:1", "1 Corinthians 13:4-8"
 
 **Common errors to prevent**:
-- ❌ "Psalms 23" → ✅ "Psalm 23" (always singular)
-- ❌ "1st Corinthians" → ✅ "1 Corinthians"
-- ❌ Mixing translations in same quote
-- ❌ Verse range doesn't match quoted text
+-  "Psalms 23" →  "Psalm 23" (always singular)
+-  "1st Corinthians" →  "1 Corinthians"
+-  Mixing translations in same quote
+-  Verse range doesn't match quoted text
 
 **Single-chapter books**: Include chapter — "Jude 1:3", "Philemon 1:6", "3 John 1:4"
 

@@ -45,18 +45,18 @@ def save_secrets(data: dict) -> None:
         json.dump(data, f, indent=2, ensure_ascii=False)
     # 设置文件权限为仅当前用户可读写
     os.chmod(SECRETS_FILE, 0o600)
-    print(f"✅ 凭据已保存到 {SECRETS_FILE}")
+    print(f" 凭据已保存到 {SECRETS_FILE}")
 
 
 def configure_platform(platform: str) -> None:
     """配置指定平台的凭据"""
     if platform not in PLATFORM_COOKIES:
-        print(f"❌ 不支持的平台: {platform}")
+        print(f" 不支持的平台: {platform}")
         print(f"支持的平台: {', '.join(PLATFORM_COOKIES.keys())}")
         return
     
     config = PLATFORM_COOKIES[platform]
-    print(f"\n📝 配置 {platform} 凭据")
+    print(f"\n 配置 {platform} 凭据")
     print(f"   {config['description']}\n")
     
     secrets = load_secrets()
@@ -75,7 +75,7 @@ def configure_platform(platform: str) -> None:
         if value:
             secrets[platform]["cookies"][cookie_name] = value
         elif not current:
-            print(f"  ⚠️ {cookie_name} 是必需的")
+            print(f"   {cookie_name} 是必需的")
             return
     
     # 可选的 Cookie
@@ -93,23 +93,23 @@ def configure_platform(platform: str) -> None:
     secrets[platform]["user_agent"] = ua if ua else (current_ua or default_ua)
     
     save_secrets(secrets)
-    print(f"\n✅ {platform} 配置完成!")
+    print(f"\n {platform} 配置完成!")
 
 
 def list_platforms() -> None:
     """列出所有已配置的平台"""
     secrets = load_secrets()
-    print("\n📋 已配置的平台:")
+    print("\n 已配置的平台:")
     
     for platform, config in PLATFORM_COOKIES.items():
         if platform in secrets and secrets[platform].get("cookies"):
             cookies = secrets[platform]["cookies"]
             required = config["required"]
             configured = [c for c in required if c in cookies]
-            status = "✅" if len(configured) == len(required) else "⚠️"
+            status = "" if len(configured) == len(required) else ""
             print(f"  {status} {platform}: {len(configured)}/{len(required)} 必需 Cookie")
         else:
-            print(f"  ❌ {platform}: 未配置")
+            print(f"   {platform}: 未配置")
 
 
 def main():

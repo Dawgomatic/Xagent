@@ -40,7 +40,7 @@ payload=$(cat <<EOF
 EOF
 )
 
-echo "🔍 Searching for developers in '$location'..."
+echo " Searching for developers in '$location'..."
 [ -n "$skills" ] && echo "   Skills: $skills"
 echo ""
 
@@ -52,7 +52,7 @@ response=$(curl -s -X POST "$API_URL/rank/users" \
 
 # Check if response is valid JSON
 if ! echo "$response" | jq . >/dev/null 2>&1; then
-  echo "❌ API error or invalid response"
+  echo " API error or invalid response"
   echo "$response"
   exit 1
 fi
@@ -62,14 +62,14 @@ echo "$response" | jq -r '
   "Found \(.totalCount // .results | length) developers:\n",
   (.results[:20] | .[] | 
     "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-    "👤 \(.name // .login) (@\(.login))",
-    "📍 \(.location // "Unknown")",
-    "⭐ Score: \(.score // "N/A")/100",
-    "🏢 \(.company // "—")",
-    "📧 \(.email // "—")",
-    "💼 Hireable: \(if .isHireable then "Yes ✓" else "—" end)",
-    "🔧 \((.technologies // .languages // [])[:5] | join(", "))",
-    "🔗 https://github.com/\(.login)",
+    " \(.name // .login) (@\(.login))",
+    " \(.location // "Unknown")",
+    " Score: \(.score // "N/A")/100",
+    " \(.company // "—")",
+    " \(.email // "—")",
+    " Hireable: \(if .isHireable then "Yes ✓" else "—" end)",
+    " \((.technologies // .languages // [])[:5] | join(", "))",
+    " https://github.com/\(.login)",
     ""
   )
 '

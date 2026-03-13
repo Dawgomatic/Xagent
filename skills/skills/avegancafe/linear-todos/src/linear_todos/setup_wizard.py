@@ -8,7 +8,7 @@ from linear_todos.api import LinearAPI, LinearError, LinearAPIError
 
 def run_setup():
     """Run the interactive setup wizard."""
-    click.echo("🚀 Linear Todo Setup")
+    click.echo(" Linear Todo Setup")
     click.echo("====================")
     click.echo()
     
@@ -18,7 +18,7 @@ def run_setup():
     api_key = config.api_key
     
     if not api_key:
-        click.echo("❌ No Linear API key found!")
+        click.echo(" No Linear API key found!")
         click.echo()
         click.echo("Please get an API key from: https://linear.app/settings/api")
         click.echo()
@@ -35,7 +35,7 @@ def run_setup():
     
     # Test API key
     click.echo()
-    click.echo("🔑 Testing API key...")
+    click.echo(" Testing API key...")
     
     try:
         # Temporarily set the API key for testing
@@ -46,23 +46,23 @@ def run_setup():
         api = LinearAPI(config=test_config)
         viewer = api.get_viewer()
     except LinearAPIError as e:
-        click.echo(f"❌ API key is invalid!")
+        click.echo(f" API key is invalid!")
         click.echo(f"Error: {e}")
         raise click.Abort()
     except LinearError as e:
-        click.echo(f"❌ Error: {e}")
+        click.echo(f" Error: {e}")
         raise click.Abort()
     
     click.echo(f"✓ Authenticated as: {viewer['name']} ({viewer['email']})")
     
     # Fetch teams
     click.echo()
-    click.echo("📊 Fetching teams...")
+    click.echo(" Fetching teams...")
     
     try:
         teams = api.get_teams()
     except LinearAPIError as e:
-        click.echo(f"❌ Error fetching teams: {e}")
+        click.echo(f" Error fetching teams: {e}")
         raise click.Abort()
     
     if not teams:
@@ -88,7 +88,7 @@ def run_setup():
             break
     
     if not team_info:
-        click.echo(f"❌ Team '{team_key}' not found!")
+        click.echo(f" Team '{team_key}' not found!")
         raise click.Abort()
     
     team_id = team_info['id']
@@ -98,12 +98,12 @@ def run_setup():
     
     # Fetch states for this team
     click.echo()
-    click.echo(f"📋 Fetching workflow states for {team_name}...")
+    click.echo(f" Fetching workflow states for {team_name}...")
     
     try:
         states = api.get_team_states(team_id)
     except LinearAPIError as e:
-        click.echo(f"❌ Error fetching states: {e}")
+        click.echo(f" Error fetching states: {e}")
         raise click.Abort()
     
     # Display states
@@ -136,7 +136,7 @@ def run_setup():
             state_info = states[0]
     
     if not state_info:
-        click.echo("❌ State not found!")
+        click.echo(" State not found!")
         raise click.Abort()
     
     state_id = state_info['id']
@@ -171,11 +171,11 @@ def run_setup():
         done_state_name = done_state_info['name']
         click.echo(f"✓ Selected done state: {done_state_name}")
     else:
-        click.echo("⚠️  No completed state found. You'll need to manually update issue status.")
+        click.echo("  No completed state found. You'll need to manually update issue status.")
     
     # Save configuration
     click.echo()
-    click.echo("💾 Saving configuration...")
+    click.echo(" Saving configuration...")
     
     config.save(
         api_key=api_key,
@@ -188,7 +188,7 @@ def run_setup():
     
     # Summary
     click.echo()
-    click.echo("🎉 Setup complete!")
+    click.echo(" Setup complete!")
     click.echo("==================")
     click.echo()
     click.echo("Your Linear Todo configuration:")
@@ -215,7 +215,7 @@ def setup():
     except click.Abort:
         raise
     except Exception as e:
-        click.echo(f"\n❌ Setup failed: {e}", err=True)
+        click.echo(f"\n Setup failed: {e}", err=True)
         raise click.Abort()
 
 

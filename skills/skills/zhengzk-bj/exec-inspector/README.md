@@ -2,7 +2,7 @@
 
 一个强大的工具，用于查看和分析 OpenClaw Agent 的 exec 工具执行历史和明细。
 
-## 🚀 快速开始
+##  快速开始
 
 ### 安装
 
@@ -23,7 +23,7 @@ alias exec-search='~/.openclaw/scripts/exec-history.sh search'
 
 然后执行 `source ~/.zshrc` 或 `source ~/.bashrc` 使别名生效。
 
-## 📖 功能说明
+##  功能说明
 
 ### 1. 列出最近执行的命令
 
@@ -35,7 +35,7 @@ exec-history list
 
 **输出示例**:
 ```
-📋 Recent exec commands (last 20):
+ Recent exec commands (last 20):
   1. 2026-02-10 15:30:45 | ls -la
   2. 2026-02-10 15:28:12 | git status
   3. 2026-02-10 15:25:33 | npm install
@@ -50,7 +50,7 @@ exec-history stats
 
 **输出示例**:
 ```
-📊 Command usage statistics:
+ Command usage statistics:
 
    4  null
    3  ls
@@ -72,7 +72,7 @@ exec-history search git
 
 **输出示例**:
 ```
-🔍 Searching for commands containing: git
+ Searching for commands containing: git
 
   1. 2026-02-10 15:28:12 | git status
   2. 2026-02-10 14:45:30 | git pull origin main
@@ -87,7 +87,7 @@ exec-history today
 
 **输出示例**:
 ```
-📅 Commands executed today (2026-02-10):
+ Commands executed today (2026-02-10):
 
   1. 15:30:45 | ls -la
   2. 15:28:12 | git status
@@ -121,7 +121,7 @@ exec-history all-tools
 
 **输出示例**:
 ```
-🔧 All tool usage statistics:
+ All tool usage statistics:
 
   20  exec
   10  browser
@@ -158,7 +158,7 @@ exec-history chart
 
 **输出示例**:
 ```
-📊 Command execution timeline (last 7 days):
+ Command execution timeline (last 7 days):
 
 2026-02-04 |   0 █
 2026-02-05 |  13 ███
@@ -169,7 +169,7 @@ exec-history chart
 2026-02-10 |   5 ██
 ```
 
-## 💡 使用场景
+##  使用场景
 
 ### 场景 1: 查看最近做了什么
 
@@ -221,7 +221,7 @@ exec-history export analysis-$(date +%Y%m%d).json
 
 导出所有历史记录，用于数据分析或存档。
 
-## 🎨 高级用法
+##  高级用法
 
 ### 结合其他工具使用
 
@@ -254,7 +254,7 @@ echo "最常用的命令："
 exec-stats
 ```
 
-## 🔧 技术细节
+##  技术细节
 
 ### Session 文件位置
 
@@ -283,7 +283,7 @@ exec-stats
 - `grep`: 文本搜索工具（系统自带）
 - `awk`: 文本处理工具（系统自带）
 
-## 🐛 故障排查
+##  故障排查
 
 ### 问题 1: 命令找不到
 
@@ -315,13 +315,13 @@ ls -l ~/.openclaw/agents/main/sessions/
 grep -c '"name":"exec"' ~/.openclaw/agents/main/sessions/*.jsonl
 ```
 
-## 📚 相关资源
+##  相关资源
 
 - [SKILL.md](./SKILL.md) - 完整的 skill 说明文档
 - [OpenClaw 官方文档](https://docs.openclaw.ai)
 - [OpenClaw Agent 指南](../../docs/guides/OPENCLAW_AGENT_GUIDE.md)
 
-## 🎯 未来功能
+##  未来功能
 
 计划添加的功能：
 
@@ -332,7 +332,7 @@ grep -c '"name":"exec"' ~/.openclaw/agents/main/sessions/*.jsonl
 - [ ] 命令模式识别和推荐
 - [ ] 与其他监控工具集成
 
-## 🤝 贡献
+##  贡献
 
 欢迎提交 Issue 和 Pull Request！
 

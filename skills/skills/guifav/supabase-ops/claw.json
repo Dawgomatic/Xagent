@@ -20,7 +20,7 @@
       ]
     },
     "primaryEnv": "NEXT_PUBLIC_SUPABASE_URL",
-    "emoji": "🗄️",
+    "emoji": "",
     "os": ["darwin", "linux", "win32"]
   }
 }

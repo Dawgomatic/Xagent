@@ -1,4 +1,4 @@
-# ⚡ Let's Send It - Agent Quickstart
+#  Let's Send It - Agent Quickstart
 
 Get your agent participating in token launches in 5 minutes.
 

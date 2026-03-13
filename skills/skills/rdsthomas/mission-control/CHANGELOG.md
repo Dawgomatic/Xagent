@@ -42,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Recurring Column** — New "Recurring" column (leftmost) displays automated cronjobs from Clawdbot Gateway
 - **Cron Cards** — Visual representation of cronjobs with:
-  - Status indicator (🟢 active / ⚪ disabled / 🔴 error)
+  - Status indicator ( active /  disabled /  error)
   - Human-readable schedule ("Täglich um 08:00", "Montags 08:00")
   - Last run and next run timestamps (relative time)
 - **`data/crons.json`** — JSON data source for recurring jobs
@@ -61,7 +61,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.0.0] - 2026-01-30
 
-### ⚠️ Breaking Changes
+###  Breaking Changes
 
 - **Config Location Changed** — Config now lives in `~/.clawdbot/mission-control.json` instead of being hardcoded
 - **Transform Module Renamed** — Now uses `github-mission-control.mjs` (copy to `~/.clawdbot/hooks-transforms/`)

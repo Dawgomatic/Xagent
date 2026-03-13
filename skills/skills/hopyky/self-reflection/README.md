@@ -1,4 +1,4 @@
-# 🪞 Self-Reflection
+#  Self-Reflection
 
 A continuous self-improvement skill for AI agents. Track mistakes, log lessons learned, and build institutional memory over time.
 

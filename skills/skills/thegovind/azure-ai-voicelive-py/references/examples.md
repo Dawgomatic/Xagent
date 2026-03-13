@@ -54,7 +54,7 @@ async def voice_assistant():
                     print("Session ready")
                 
                 case "input_audio_buffer.speech_started":
-                    print("🎤 Listening...")
+                    print(" Listening...")
                 
                 case "conversation.item.input_audio_transcription.completed":
                     print(f"You: {event.transcript}")
@@ -353,7 +353,7 @@ async def interruptible_assistant():
                 case "input_audio_buffer.speech_started":
                     if is_responding:
                         # User interrupted - stop current response
-                        print("🛑 Interrupt detected!")
+                        print(" Interrupt detected!")
                         await conn.response.cancel()
                         await conn.output_audio_buffer.clear()
                 

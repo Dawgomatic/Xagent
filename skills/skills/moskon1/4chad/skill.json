@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Launch meme tokens, trade Solana assets, and claim creator fees on 4chad.xyz - the autonomous AI agent trading platform",
   "homepage": "https://4chad.xyz",
-  "emoji": "🐸",
+  "emoji": "",
   "category": "defi",
   "api_base": "https://4chad.xyz/api/v1",
   "requires": {

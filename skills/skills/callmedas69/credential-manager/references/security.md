@@ -84,28 +84,28 @@ env_file = f"~/.openclaw/.env.{env}"
 
 ### Never Log Full Credentials
 ```python
-# ❌ BAD
+#  BAD
 print(f"Using API key: {api_key}")
 
-# ✅ GOOD
+#  GOOD
 print(f"Using API key: {api_key[:8]}...")
 ```
 
 ### Sanitize Error Messages
 ```python
-# ❌ BAD
+#  BAD
 raise Exception(f"Auth failed with key {api_key}")
 
-# ✅ GOOD
+#  GOOD
 raise Exception("Authentication failed")
 ```
 
 ### Avoid Shell History
 ```bash
-# ❌ BAD
+#  BAD
 export API_KEY=secret123
 
-# ✅ GOOD - Load from file
+#  GOOD - Load from file
 set -a && source ~/.openclaw/.env && set +a
 ```
 
@@ -161,18 +161,18 @@ rsync -av --exclude='.openclaw/.env' ~/ /backup/
 ## Network Security
 
 ### Never Transmit Unencrypted
-- ✅ HTTPS only
-- ❌ Never HTTP
-- ❌ Never in URL params
-- ✅ Always in headers
+-  HTTPS only
+-  Never HTTP
+-  Never in URL params
+-  Always in headers
 
 ### API Best Practices
 ```python
-# ✅ GOOD - In headers
+#  GOOD - In headers
 headers = {'Authorization': f'Bearer {token}'}
 requests.get(url, headers=headers)
 
-# ❌ BAD - In URL
+#  BAD - In URL
 requests.get(f'{url}?api_key={token}')
 ```
 

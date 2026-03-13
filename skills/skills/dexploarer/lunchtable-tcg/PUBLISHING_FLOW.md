@@ -28,7 +28,7 @@ You → ./publish.sh → ClawHub → Users Download
        │         • Validate YAML frontmatter
        │         • Validate JSON syntax
        ▼         • Check version consistency
-   ✅ Passed
+    Passed
        │
        │
 ┌──────┴──────┐
@@ -38,7 +38,7 @@ You → ./publish.sh → ClawHub → Users Download
        │         • Install if missing
        │         • Verify version
        ▼
-   ✅ Ready
+    Ready
        │
        │
 ┌──────┴──────┐
@@ -48,7 +48,7 @@ You → ./publish.sh → ClawHub → Users Download
        │         • Prompt for login if needed
        │         • Verify user identity
        ▼
-   ✅ Logged In
+    Logged In
        │
        │
 ┌──────┴──────┐
@@ -60,10 +60,10 @@ You → ./publish.sh → ClawHub → Users Download
        │
        ├─────────► User confirms? [y/N]
        │                 │
-       │                 ├─ No ──► Abort ❌
+       │                 ├─ No ──► Abort 
        │                 │
        ▼                 └─ Yes
-   ✅ Confirmed               │
+    Confirmed               │
        │                      │
        │◄─────────────────────┘
        │
@@ -74,7 +74,7 @@ You → ./publish.sh → ClawHub → Users Download
        │         • Create submission
        │         • Generate submission ID
        ▼
-   ✅ Submitted
+    Submitted
        │
        │
 ┌──────┴──────┐
@@ -84,13 +84,13 @@ You → ./publish.sh → ClawHub → Users Download
        │         • Publish to npm registry
        │         • Link to ClawHub entry
        ▼
-   ✅ Complete
+    Complete
        │
        │
        ▼
 ┌─────────────────────────────────────┐
 │                                     │
-│   ✅ PUBLISHING COMPLETE!           │
+│    PUBLISHING COMPLETE!           │
 │                                     │
 │   Next steps:                       │
 │   • Track: clawhub status SKILL     │
@@ -112,7 +112,7 @@ You → ./publish.sh → ClawHub → Users Download
        │         • YAML validation
        │         • Required fields check
        ▼
-   ✅ Valid
+    Valid
        │
        │
 ┌──────┴──────┐
@@ -123,7 +123,7 @@ You → ./publish.sh → ClawHub → Users Download
        │         • License compatibility
        │         • Example testing
        ▼
-   ✅ Secure
+    Secure
        │
        │
 ┌──────┴──────┐
@@ -139,7 +139,7 @@ You → ./publish.sh → ClawHub → Users Download
        │                ├─ No ──► Feedback ──► Fix Issues ──┐
        │                │                                    │
        ▼                └─ Yes                               │
-   ✅ Approved                                               │
+    Approved                                               │
        │                                                     │
        │                                                     │
        │◄────────────────────────────────────────────────────┘
@@ -151,7 +151,7 @@ You → ./publish.sh → ClawHub → Users Download
        │         • Enable installation
        │         • Send notification
        ▼
-   ✅ Published
+    Published
 
 ═══════════════════════════════════════════════════════════════
                          USERS INSTALL
@@ -161,7 +161,7 @@ You → ./publish.sh → ClawHub → Users Download
 
    $ openclaw skill install lunchtable-tcg
 
-   ✅ Skill installed and ready to use!
+    Skill installed and ready to use!
 
 ```
 
@@ -187,7 +187,7 @@ Developer
        │         • Setup Node.js
        │         • Validate structure
        ▼
-   ✅ Validated
+    Validated
        │
        │
 ┌──────┴──────┐
@@ -196,7 +196,7 @@ Developer
 └──────┬──────┘  • npm install -g @clawhub/cli
        │         • Authenticate with token
        ▼
-   ✅ Ready
+    Ready
        │
        │
 ┌──────┴──────┐
@@ -205,7 +205,7 @@ Developer
 └──────┬──────┘  • clawhub submit .
        │         • Capture submission ID
        ▼
-   ✅ Submitted
+    Submitted
        │
        │
 ┌──────┴──────┐
@@ -214,7 +214,7 @@ Developer
 └──────┬──────┘  • npm publish --access public
        │         • Link registries
        ▼
-   ✅ Published
+    Published
        │
        │
 ┌──────┴──────┐
@@ -224,13 +224,13 @@ Developer
        │         • Link to ClawHub
        │         • Attach artifacts
        ▼
-   ✅ Complete
+    Complete
        │
        │
        ▼
    Notification sent to developer
 
-   ✅ v1.0.0 published successfully!
+    v1.0.0 published successfully!
 ```
 
 ---
@@ -308,7 +308,7 @@ After submission:
        │       │
        │       ├─ "pending" ───► Wait
        │       ├─ "reviewing" ─► Wait
-       │       ├─ "approved" ──► ✅ Done!
+       │       ├─ "approved" ──►  Done!
        │       └─ "rejected" ──► Read feedback, fix, resubmit
        │
        ├─► clawhub logs lunchtable-tcg
@@ -399,25 +399,25 @@ cd skills/lunchtable/lunchtable-tcg
   ▼
 ./publish.sh
   │
-  ├─ Validation ✅
-  ├─ CLI Check ✅
-  ├─ Auth Check ✅
-  ├─ Confirm [y] ✅
-  ├─ Submit ✅
-  └─ npm? [n] ✅
+  ├─ Validation 
+  ├─ CLI Check 
+  ├─ Auth Check 
+  ├─ Confirm [y] 
+  ├─ Submit 
+  └─ npm? [n] 
   │
   ▼
 Wait 1-3 days
   │
   ▼
-Approved! ✅
+Approved! 
   │
   ▼
 Users install:
 openclaw skill install lunchtable-tcg
   │
   ▼
-Success! 🎉
+Success! 
 ```
 
 ---
@@ -477,4 +477,4 @@ git push origin v1.0.0
 
 ---
 
-That's the complete publishing flow! 🎴
+That's the complete publishing flow! 

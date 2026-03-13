@@ -66,7 +66,7 @@ const tests = [
       if (repo.full_name !== TEST_REPO) {
         throw new Error(`Repo mismatch: expected ${TEST_REPO}, got ${repo.full_name}`);
       }
-      console.log(`  Repo: ${repo.full_name} (⭐ ${repo.stargazers_count})`);
+      console.log(`  Repo: ${repo.full_name} ( ${repo.stargazers_count})`);
       return true;
     }
   },
@@ -117,38 +117,38 @@ const tests = [
 
 // Run tests
 async function runTests() {
-  console.log('🧪 OpenClaw GitHub Skill - Test Suite\n');
+  console.log(' OpenClaw GitHub Skill - Test Suite\n');
   console.log('=' .repeat(50));
   
   let passed = 0;
   let failed = 0;
   
   for (const { name, test } of tests) {
-    process.stdout.write(`\n🔍 ${name}... `);
+    process.stdout.write(`\n ${name}... `);
     
     try {
       const result = await test();
       if (result) {
-        console.log('✅ PASS');
+        console.log(' PASS');
         passed++;
       } else {
-        console.log('❌ FAIL');
+        console.log(' FAIL');
         failed++;
       }
     } catch (error) {
-      console.log(`❌ FAIL: ${error.message}`);
+      console.log(` FAIL: ${error.message}`);
       failed++;
     }
   }
   
   console.log('\n' + '=' .repeat(50));
-  console.log(`\n📊 Results: ${passed} passed, ${failed} failed\n`);
+  console.log(`\n Results: ${passed} passed, ${failed} failed\n`);
   
   if (failed > 0) {
-    console.log('❌ Some tests failed. Check your configuration.');
+    console.log(' Some tests failed. Check your configuration.');
     process.exit(1);
   } else {
-    console.log('✅ All tests passed! Your GitHub skill is working correctly.');
+    console.log(' All tests passed! Your GitHub skill is working correctly.');
     process.exit(0);
   }
 }

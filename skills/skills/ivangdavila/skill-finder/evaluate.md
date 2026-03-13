@@ -14,13 +14,13 @@ Before recommending, check:
 
 View skill on ClawHub to check structure:
 
-✅ Good signs:
+ Good signs:
 - SKILL.md under 80 lines
 - Auxiliary files for details
 - Clear section organization
 - References to when to load each file
 
-❌ Red flags:
+ Red flags:
 - Wall of text in SKILL.md
 - No progressive disclosure
 - Explains obvious concepts
@@ -28,13 +28,13 @@ View skill on ClawHub to check structure:
 
 ## Instruction Quality
 
-✅ Good signs:
+ Good signs:
 - Imperative voice ("Do X")
 - Actionable instructions
 - Clear triggers
 - Examples when helpful
 
-❌ Red flags:
+ Red flags:
 - Passive/verbose ("Users should consider...")
 - Theory without action
 - Vague guidance

@@ -1051,19 +1051,19 @@ def check_medication_interactions(
     if results["critical_interactions"]:
         results["recommendations"].append({
             "priority": "critical",
-            "message": f"⚠️ {len(results['critical_interactions'])} CRITICAL drug-gene interaction(s) detected. "
+            "message": f" {len(results['critical_interactions'])} CRITICAL drug-gene interaction(s) detected. "
                       f"Share with healthcare provider IMMEDIATELY."
         })
         for interaction in results["critical_interactions"]:
             results["recommendations"].append({
                 "priority": "critical",
-                "message": f"🚫 {interaction['medication'].upper()}: {interaction['recommendation']}"
+                "message": f" {interaction['medication'].upper()}: {interaction['recommendation']}"
             })
     
     if results["serious_interactions"]:
         results["recommendations"].append({
             "priority": "high",
-            "message": f"⚠️ {len(results['serious_interactions'])} serious interaction(s) detected. "
+            "message": f" {len(results['serious_interactions'])} serious interaction(s) detected. "
                       f"Discuss with prescriber."
         })
     

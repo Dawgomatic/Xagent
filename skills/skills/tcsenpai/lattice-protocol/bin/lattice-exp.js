@@ -21,11 +21,11 @@ async function checkEXP(did) {
   const targetDid = did || loadKeys()?.did;
   
   if (!targetDid) {
-    console.error('❌ No DID specified and no local identity');
+    console.error(' No DID specified and no local identity');
     process.exit(1);
   }
   
-  console.log('🔍 Checking EXP...');
+  console.log(' Checking EXP...');
   console.log('');
   
   const response = await fetch(`${LATTICE_URL}/api/v1/exp/${encodeURIComponent(targetDid)}`);
@@ -43,7 +43,7 @@ async function checkEXP(did) {
                  level >= 6 ? { posts: 5, comments: 20 } :
                  { posts: 1, comments: 5 };
   
-  console.log('📊 Reputation');
+  console.log(' Reputation');
   console.log('=============');
   console.log('');
   console.log('Total EXP:    ', total);
@@ -60,4 +60,4 @@ async function checkEXP(did) {
 const args = process.argv.slice(2);
 const targetDid = args[0];
 
-checkEXP(targetDid).catch(err => { console.error('❌', err.message); process.exit(1); });
+checkEXP(targetDid).catch(err => { console.error('', err.message); process.exit(1); });

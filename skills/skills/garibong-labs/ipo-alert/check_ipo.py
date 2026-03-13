@@ -146,7 +146,7 @@ def format_subscription(item: dict) -> str:
     date_str = format_date_with_weekday(item['date_range'], item['start_date'])
     url = item.get('url', '')
     name_with_link = f"[{item['name']}]({url})" if url else item['name']
-    return f"📋 {name_with_link}\n   청약: {date_str}\n   공모가: {price}\n   주간사: {item['underwriter']}"
+    return f" {name_with_link}\n   청약: {date_str}\n   공모가: {price}\n   주간사: {item['underwriter']}"
 
 def format_listing(item: dict) -> str:
     """Format listing item for notification."""
@@ -159,7 +159,7 @@ def format_listing(item: dict) -> str:
         date_str = item['listing_date']
     url = item.get('url', '')
     name_with_link = f"[{item['name']}]({url})" if url else item['name']
-    return f"🔔 {name_with_link}\n   상장일: {date_str}\n   공모가: {price}"
+    return f" {name_with_link}\n   상장일: {date_str}\n   공모가: {price}"
 
 def daily_check():
     """Daily check - notify for D-1 and D-day subscriptions."""
@@ -181,14 +181,14 @@ def daily_check():
         if start_date == tomorrow:
             d1_key = f"{key}_d1"
             if d1_key not in state["notified_subscriptions"]:
-                alerts.append(f"⏰ [내일 청약 시작]\n{format_subscription(item)}")
+                alerts.append(f" [내일 청약 시작]\n{format_subscription(item)}")
                 state["notified_subscriptions"].append(d1_key)
         
         # D-day alert
         if start_date == today:
             d0_key = f"{key}_d0"
             if d0_key not in state["notified_subscriptions"]:
-                alerts.append(f"🚀 [오늘 청약 시작]\n{format_subscription(item)}")
+                alerts.append(f" [오늘 청약 시작]\n{format_subscription(item)}")
                 state["notified_subscriptions"].append(d0_key)
     
     # Check listings (D-1 and D-day)
@@ -199,13 +199,13 @@ def daily_check():
         if listing_date == tomorrow:
             d1_key = f"{key}_listing_d1"
             if d1_key not in state["notified_listings"]:
-                alerts.append(f"⏰ [내일 신규상장]\n{format_listing(item)}")
+                alerts.append(f" [내일 신규상장]\n{format_listing(item)}")
                 state["notified_listings"].append(d1_key)
         
         if listing_date == today:
             d0_key = f"{key}_listing_d0"
             if d0_key not in state["notified_listings"]:
-                alerts.append(f"🎉 [오늘 신규상장]\n{format_listing(item)}")
+                alerts.append(f" [오늘 신규상장]\n{format_listing(item)}")
                 state["notified_listings"].append(d0_key)
     
     state["last_check"] = datetime.now().isoformat()
@@ -252,7 +252,7 @@ def weekly_summary():
     week_subscriptions.sort(key=lambda x: x["start_date"])
     week_listings.sort(key=lambda x: x["listing_date"])
     
-    output = [f"📅 다음주 공모주 일정 ({next_monday.strftime('%m/%d')} ~ {next_friday.strftime('%m/%d')})"]
+    output = [f" 다음주 공모주 일정 ({next_monday.strftime('%m/%d')} ~ {next_friday.strftime('%m/%d')})"]
     output.append("")
     
     if week_subscriptions:

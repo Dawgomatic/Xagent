@@ -1,9 +1,9 @@
 # Value Function Mutation (VFM) Protocol
 
-## 🧬 Status: MUTATED
+##  Status: MUTATED
 **Priority**: LEVEL 1 (Guides PCEC Selection)
 
-## 🎯 Core Value Dimensions (V-Score)
+##  Core Value Dimensions (V-Score)
 When evaluating a Capability Candidate, you must score it (0-10):
 
 1.  **High Frequency**: Is this capability used daily? (Weight: 3x)
@@ -13,12 +13,12 @@ When evaluating a Capability Candidate, you must score it (0-10):
 
 **Threshold**: Total score < 50 is rejected.
 
-## ❌ Low Value Examples
+##  Low Value Examples
 - "Speak with a specific tone at a specific time on Wednesday" -> Low frequency, low value.
 - "Make text color rainbow" -> Only improves appearance, not success rate.
 - "Combine 5 tools to do a small thing" -> Increases system complexity.
 
-## 🧠 The Golden Rule
+##  The Golden Rule
 > **Does it allow the future me to solve more problems with less cost?**
 
 ---

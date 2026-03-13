@@ -66,7 +66,7 @@ Optimize images via compression, resizing, and format conversion.
 
 6. **Output format** — report results:
    ```
-   ## 🖼️ Optimization Results
+   ##  Optimization Results
    | File | Original | Optimized | Savings |
    |------|----------|-----------|---------|
    | hero.jpg | 2.4 MB | 680 KB | 72% |

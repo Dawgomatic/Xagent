@@ -391,13 +391,13 @@ def generate_report(
                 print(f"{phase} [{bar}] {current}/{total} ({percentage}%){detail_str}")
 
     print(f"\n{'='*60}")
-    print(f"📊 B站热门视频日报生成器")
+    print(f" B站热门视频日报生成器")
     print(f"{'='*60}")
-    print(f"\n⏳ 预计耗时：{num_videos * 3}~{num_videos * 5} 秒（取决于网络）\n")
+    print(f"\n 预计耗时：{num_videos * 3}~{num_videos * 5} 秒（取决于网络）\n")
 
-    print(f"📡 正在获取热门视频列表...")
+    print(f" 正在获取热门视频列表...")
     videos = api.get_popular_videos(page_size=num_videos)
-    print(f"✅ 获取到 {len(videos)} 个热门视频\n")
+    print(f" 获取到 {len(videos)} 个热门视频\n")
 
     now = datetime.datetime.now()
     today_str = now.strftime('%Y-%m-%d')
@@ -410,7 +410,7 @@ def generate_report(
     max_coins_idx, max_coins = 0, 0
     max_shares_idx, max_shares = 0, 0
 
-    print(f"📝 阶段1/2：获取字幕 & 生成视频总结")
+    print(f" 阶段1/2：获取字幕 & 生成视频总结")
     print(f"-" * 40)
 
     for i, video in enumerate(videos, 1):
@@ -492,20 +492,20 @@ def generate_report(
     for vd in video_data_list:
         highlights = []
         if vd["idx"] == max_views_idx:
-            highlights.append("🔥播放量最高")
+            highlights.append("播放量最高")
         if vd["idx"] == max_likes_idx:
-            highlights.append("🔥点赞最高")
+            highlights.append("点赞最高")
         if vd["idx"] == max_coins_idx and max_coins_idx not in [max_views_idx, max_likes_idx]:
-            highlights.append("🔥硬币最高")
+            highlights.append("硬币最高")
         if vd["idx"] == max_shares_idx and max_shares_idx not in [max_views_idx, max_likes_idx]:
-            highlights.append("🔥分享最高")
+            highlights.append("分享最高")
         if vd["like_rate"] > 15:
             highlights.append(f"点赞率{vd['like_rate']:.0f}%")
         vd["highlight"] = " ".join(highlights) if highlights else _get_video_tag(vd)
 
     # 生成 AI 点评（使用 OpenRouter）
     if openrouter_key:
-        print(f"\n📝 阶段2/2：生成 AI 点评 & 爆款分析")
+        print(f"\n 阶段2/2：生成 AI 点评 & 爆款分析")
         print(f"-" * 40)
         for idx, vd in enumerate(video_data_list, 1):
             short_title = vd['title'][:18] + "..." if len(vd['title']) > 18 else vd['title']
@@ -523,7 +523,7 @@ def generate_report(
         "",
         "---",
         "",
-        f"## 📋 本期热门视频（{today_str}）",
+        f"##  本期热门视频（{today_str}）",
         "",
         "| 排名 | 视频标题 | 播放量 | 亮点 | 链接 |",
         "|------|----------|--------|------|------|",
@@ -541,7 +541,7 @@ def generate_report(
     report_lines.append("")
 
     # 本期亮点
-    report_lines.append("## 🌟 本期亮点")
+    report_lines.append("##  本期亮点")
     report_lines.append("")
     max_views_video = video_data_list[max_views_idx - 1]
     max_likes_video = video_data_list[max_likes_idx - 1]
@@ -567,13 +567,13 @@ def generate_report(
         report_lines.append("")
         
         # 数据统计
-        report_lines.append("**📊 数据统计**：")
+        report_lines.append("** 数据统计**：")
         report_lines.append(f"> 播放 {format_number(vd['stat']['view'])} | 点赞 {format_number(vd['stat']['like'])} | 收藏 {format_number(vd['stat']['favorite'])} | 硬币 {format_number(vd['stat']['coin'])} | 弹幕 {vd['stat']['danmaku']:,} | 评论 {vd['stat']['reply']:,} | 分享 {vd['stat']['share']:,}")
         report_lines.append("")
         
         # 数据分析（自动生成）
         data_analysis = _generate_data_analysis(vd)
-        report_lines.append("**📈 数据分析**：")
+        report_lines.append("** 数据分析**：")
         report_lines.append(f"> {data_analysis}")
         report_lines.append("")
 
@@ -581,13 +581,13 @@ def generate_report(
         if vd['desc'] and vd['desc'].strip() and vd['desc'].strip() != "-":
             desc_clean = vd['desc'][:500].replace('\n', ' ').replace('\r', ' ')
             desc_clean = ' '.join(desc_clean.split())
-            report_lines.append("**📝 视频简介**：")
+            report_lines.append("** 视频简介**：")
             report_lines.append(f"> {desc_clean}{'...' if len(vd['desc']) > 500 else ''}")
             report_lines.append("")
 
         # AI 视频总结（基于字幕生成）
         if vd['ai_summary']:
-            report_lines.append("**🤖 AI视频总结**：")
+            report_lines.append("** AI视频总结**：")
             report_lines.append(f"> {vd['ai_summary']}")
 
             if vd['ai_outline']:
@@ -604,13 +604,13 @@ def generate_report(
                                 report_lines.append(f">   - {content}")
             report_lines.append("")
         else:
-            report_lines.append("**🤖 AI视频总结**：")
+            report_lines.append("** AI视频总结**：")
             report_lines.append("> （该视频无字幕，无法生成总结）")
             report_lines.append("")
 
         # AI 点评
         ai_comment = vd.get("ai_comment", "")
-        report_lines.append("**💡 AI点评**：")
+        report_lines.append("** AI点评**：")
         if ai_comment:
             report_lines.append(f"> {ai_comment}")
         else:
@@ -619,7 +619,7 @@ def generate_report(
 
         # 运营爆款分析
         viral_analysis = vd.get("viral_analysis", "")
-        report_lines.append("**🚀 运营爆款分析**：")
+        report_lines.append("** 运营爆款分析**：")
         if viral_analysis:
             report_lines.append(f"> {viral_analysis}")
         else:
@@ -627,13 +627,13 @@ def generate_report(
         report_lines.append("")
 
         # 视频链接
-        report_lines.append(f"🔗 [点击观看视频](https://www.bilibili.com/video/{vd['bvid']})")
+        report_lines.append(f" [点击观看视频](https://www.bilibili.com/video/{vd['bvid']})")
         report_lines.append("")
         report_lines.append("---")
         report_lines.append("")
 
     # 底部统计
-    report_lines.append("## 📊 本期数据概览")
+    report_lines.append("##  本期数据概览")
     report_lines.append("")
     report_lines.append("| 指标 | 数值 |")
     report_lines.append("|------|------|")
@@ -753,11 +753,11 @@ def main():
         output_path = Path(args.output)
         output_path.write_text(report, encoding="utf-8")
         print(f"\n{'='*60}")
-        print(f"✅ 报告生成完成！")
+        print(f" 报告生成完成！")
         print(f"{'='*60}")
-        print(f"📄 报告保存到: {output_path}")
-        print(f"📊 共处理 {num_videos} 个视频")
-        print(f"🤖 AI 模型: {model}")
+        print(f" 报告保存到: {output_path}")
+        print(f" 共处理 {num_videos} 个视频")
+        print(f" AI 模型: {model}")
     else:
         print("\n" + "=" * 50)
         print(report)

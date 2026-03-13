@@ -101,11 +101,11 @@ parse_args() {
 
 parse_args "$@"
 
-echo -e "${BLUE}🔄 开始 ${BACKUP_TYPE} 备份...${NC}"
+echo -e "${BLUE} 开始 ${BACKUP_TYPE} 备份...${NC}"
 
 if [ ! -d "$BACKUP_DIR" ]; then
   if [ "$BACKUP_TYPE" == "skills" ] && [ -n "$OPENCLAW_SKILLS_GITHUB_URL" ]; then
-    echo -e "${YELLOW}⚠️  Skills 目录不存在，尝试克隆...${NC}"
+    echo -e "${YELLOW}  Skills 目录不存在，尝试克隆...${NC}"
     mkdir -p "$(dirname "$SKILLS_DIR")"
     git clone "$OPENCLAW_SKILLS_GITHUB_URL" "$SKILLS_DIR"
   else
@@ -125,7 +125,7 @@ if ! git remote get-url "$GIT_REMOTE" >/dev/null 2>&1; then
   GIT_REMOTE="$(git remote | head -n1)"
 fi
 if [ -z "$GIT_REMOTE" ]; then
-  echo -e "${YELLOW}⚠️  未找到 Git 远端${NC}"
+  echo -e "${YELLOW}  未找到 Git 远端${NC}"
 fi
 
 REPO_URL=""
@@ -134,32 +134,32 @@ if [ -n "$GIT_REMOTE" ]; then
 fi
 CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || true)"
 
-echo -e "${BLUE}🔄 开始 ${BACKUP_TYPE} 备份...${NC}"
+echo -e "${BLUE} 开始 ${BACKUP_TYPE} 备份...${NC}"
 
 if [ "$PULL_BEFORE" -eq 1 ]; then
   if git diff --quiet && git diff --staged --quiet; then
-    echo -e "${BLUE}⬇️  拉取最新代码...${NC}"
-    git pull --rebase || echo -e "${YELLOW}⚠️  git pull 失败，请手动处理${NC}"
+    echo -e "${BLUE}  拉取最新代码...${NC}"
+    git pull --rebase || echo -e "${YELLOW}  git pull 失败，请手动处理${NC}"
   else
-    echo -e "${YELLOW}⚠️  工作区有未提交变更，跳过 git pull${NC}"
+    echo -e "${YELLOW}  工作区有未提交变更，跳过 git pull${NC}"
   fi
 fi
 
 # 检查是否有更改
 if [ -z "$(git status --porcelain)" ]; then
-  echo -e "${YELLOW}⚠️  没有需要备份的更改${NC}"
+  echo -e "${YELLOW}  没有需要备份的更改${NC}"
   exit 0
 fi
 
 if [ "$DRY_RUN" -eq 1 ]; then
-  echo -e "${BLUE}📄 变更预览:${NC}"
+  echo -e "${BLUE} 变更预览:${NC}"
   git status --short
   exit 0
 fi
 
 # 统计更改的文件
 CHANGED_FILES=$(git status --short | wc -l | tr -d ' ')
-echo -e "${BLUE}📁 发现 ${CHANGED_FILES} 个文件有更改${NC}"
+echo -e "${BLUE} 发现 ${CHANGED_FILES} 个文件有更改${NC}"
 
 # 默认提交信息
 if [ -z "$COMMIT_MSG" ]; then
@@ -172,16 +172,16 @@ if [ -z "$COMMIT_MSG" ]; then
 fi
 
 # 添加所有更改
-echo -e "${BLUE}➕ 添加更改到暂存区...${NC}"
+echo -e "${BLUE} 添加更改到暂存区...${NC}"
 git add -A
 
 # 提交
-echo -e "${BLUE}💾 提交更改...${NC}"
+echo -e "${BLUE} 提交更改...${NC}"
 git commit -m "$COMMIT_MSG"
 
 # 推送到 GitHub
 if [ "$NO_PUSH" -eq 0 ]; then
-  echo -e "${BLUE}☁️  推送到 GitHub...${NC}"
+  echo -e "${BLUE}  推送到 GitHub...${NC}"
   if [ -n "$GIT_REMOTE" ] && [ -n "$CURRENT_BRANCH" ]; then
     if ! git push "$GIT_REMOTE" "$CURRENT_BRANCH"; then
       echo -e "${RED}✗ 推送失败：可能需要先 git pull --rebase${NC}"
@@ -194,14 +194,14 @@ if [ "$NO_PUSH" -eq 0 ]; then
     fi
   fi
 else
-  echo -e "${YELLOW}⚠️  跳过推送（--no-push）${NC}"
+  echo -e "${YELLOW}  跳过推送（--no-push）${NC}"
 fi
 
-echo -e "${GREEN}✅ 备份完成！${NC}"
-echo -e "${BLUE}📦 仓库地址: ${REPO_URL:-N/A}${NC}"
+echo -e "${GREEN} 备份完成！${NC}"
+echo -e "${BLUE} 仓库地址: ${REPO_URL:-N/A}${NC}"
 if [ -n "$CURRENT_BRANCH" ]; then
-  echo -e "${BLUE}🌿 分支: ${GIT_REMOTE:-?}/${CURRENT_BRANCH}${NC}"
+  echo -e "${BLUE} 分支: ${GIT_REMOTE:-?}/${CURRENT_BRANCH}${NC}"
 fi
-echo -e "${BLUE}📝 提交信息: ${COMMIT_MSG}${NC}"
+echo -e "${BLUE} 提交信息: ${COMMIT_MSG}${NC}"
 echo ""
-echo -e "${YELLOW}💡 提示: 可以设置定时自动备份${NC}"
+echo -e "${YELLOW} 提示: 可以设置定时自动备份${NC}"

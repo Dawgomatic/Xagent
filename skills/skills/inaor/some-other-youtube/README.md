@@ -1,8 +1,8 @@
-# 📹 YouTube Transcript Fetcher (APIFY)
+#  YouTube Transcript Fetcher (APIFY)
 
 Fetch YouTube video transcripts from anywhere — even cloud servers where YouTube blocks direct access.
 
-## ✨ Features
+##  Features
 
 - Works from cloud IPs (AWS, GCP, VPS, etc.)
 - Bypasses YouTube bot detection via APIFY proxies
@@ -10,13 +10,13 @@ Fetch YouTube video transcripts from anywhere — even cloud servers where YouTu
 - Language preference support
 - Simple Python script, no SDK needed
 
-## 💰 Free Tier
+##  Free Tier
 
 APIFY offers **$5/month free credits** — that's approximately **714 videos per month** at $0.007 each!
 
 No credit card required. [Sign up here](https://apify.com/)
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # 1. Set your API token
@@ -26,22 +26,22 @@ export APIFY_API_TOKEN="apify_api_YOUR_TOKEN"
 python3 scripts/fetch_transcript.py "https://youtube.com/watch?v=VIDEO_ID"
 ```
 
-## 📖 Documentation
+##  Documentation
 
 See [SKILL.md](SKILL.md) for full documentation, setup instructions, and usage examples.
 
-## 🔗 Links
+##  Links
 
 - [APIFY Free Tier](https://apify.com/pricing) - $5/month free
 - [Get API Key](https://console.apify.com/account/integrations)
 - [YouTube Transcripts Actor](https://apify.com/karamelo/youtube-transcripts)
 
-## ⚙️ Requirements
+##  Requirements
 
 - Python 3.6+
 - `requests` library (`pip install requests`)
 - APIFY API token (free)
 
-## 📄 License
+##  License
 
 MIT

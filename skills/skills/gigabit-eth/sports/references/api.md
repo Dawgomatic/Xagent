@@ -384,7 +384,7 @@ ws.onmessage = (event) => {
   "result": "WIN",
   "payout": 10.00,
   "tx_hash": "5xK9...",
-  "message": "🔥 Lakers hit +10! You won $10.00"
+  "message": " Lakers hit +10! You won $10.00"
 }
 ```
 

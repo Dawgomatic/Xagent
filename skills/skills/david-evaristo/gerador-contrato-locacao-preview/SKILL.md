@@ -16,14 +16,14 @@ metadata: {
 }
 ---
 
-# 📄 Skill: Registro de Contrato de Locação
+#  Skill: Registro de Contrato de Locação
 
 Esta skill registra contratos de locação por meio de um **Google Forms**, realizando validação completa dos dados,
 gerando um **resumo para confirmação** e executando o envio somente após aprovação.
 
 ---
 
-## ⚠️ Regras de Execução (Obrigatórias)
+##  Regras de Execução (Obrigatórias)
 1. Todos os campos obrigatórios são validados antes da execução.
 2. A variável de ambiente `FORM_ID` **é obrigatória**.
 3. O agente **deve apresentar o resumo dos dados e solicitar confirmação explícita** do usuário.
@@ -32,7 +32,7 @@ gerando um **resumo para confirmação** e executando o envio somente após apro
 
 ---
 
-## ⚙️ Variáveis de Ambiente
+##  Variáveis de Ambiente
 
 ### `FORM_ID` (obrigatória)
 ID do Google Forms que receberá os dados.
@@ -50,9 +50,9 @@ export DRY_RUN=1
 
 ---
 
-## 📥 Forma de Entrada de Dados
+##  Forma de Entrada de Dados
 
-### ✅ Recomendado: STDIN
+###  Recomendado: STDIN
 ```bash
 echo '{"dados": {...}}' | python3 scripts/main.py
 ```
@@ -64,7 +64,7 @@ python3 scripts/main.py '{"dados": {...}}'
 
 ---
 
-## 📦 Estrutura Esperada do Payload
+##  Estrutura Esperada do Payload
 
 ```json
 {
@@ -89,7 +89,7 @@ python3 scripts/main.py '{"dados": {...}}'
 
 ---
 
-## 📘 Exemplo de Payload
+##  Exemplo de Payload
 
 ```json
 {
@@ -114,7 +114,7 @@ python3 scripts/main.py '{"dados": {...}}'
 
 ---
 
-## 📥 Parâmetros de Entrada
+##  Parâmetros de Entrada
 
 ### Campos Obrigatórios
 | Campo | Tipo | Descrição |
@@ -140,7 +140,7 @@ python3 scripts/main.py '{"dados": {...}}'
 
 ---
 
-## 🔄 Fluxo de Execução
+##  Fluxo de Execução
 
 1. Coleta dos dados via chat.
 2. Validação estrutural e de formato.
@@ -151,7 +151,7 @@ python3 scripts/main.py '{"dados": {...}}'
 
 ---
 
-## ✅ Retornos Esperados
+##  Retornos Esperados
 
 ### Sucesso
 ```

@@ -19,7 +19,7 @@ Code that has grown too large to work with effectively.
 - Difficult to name—does too many things
 
 ```typescript
-// ❌ Smell: Long method with multiple responsibilities
+//  Smell: Long method with multiple responsibilities
 async function processCheckout(cart: Cart, user: User) {
   // Validate cart
   if (!cart.items.length) throw new Error('Empty cart');
@@ -71,7 +71,7 @@ async function processCheckout(cart: Cart, user: User) {
 **Refactoring**: Extract Method
 
 ```typescript
-// ✅ Refactored: Each function does one thing
+//  Refactored: Each function does one thing
 async function processCheckout(cart: Cart, user: User) {
   await validateCart(cart);
   const totals = await calculateTotals(cart);
@@ -113,7 +113,7 @@ async function calculateTotals(cart: Cart): Promise<OrderTotals> {
 - You can't summarize what the class does in one sentence
 
 ```typescript
-// ❌ Smell: God class that does everything
+//  Smell: God class that does everything
 class UserManager {
   // User CRUD
   createUser(data: UserInput) { /* ... */ }
@@ -149,7 +149,7 @@ class UserManager {
 **Refactoring**: Extract Class
 
 ```typescript
-// ✅ Refactored: Single Responsibility
+//  Refactored: Single Responsibility
 class UserRepository {
   create(data: UserInput) { /* ... */ }
   update(id: string, data: UserInput) { /* ... */ }
@@ -194,7 +194,7 @@ class UserNotificationService {
 - Boolean parameters with unclear meaning
 
 ```typescript
-// ❌ Smell: Too many parameters
+//  Smell: Too many parameters
 function createReport(
   title: string,
   startDate: Date,
@@ -215,7 +215,7 @@ function createReport(
 **Refactoring**: Introduce Parameter Object
 
 ```typescript
-// ✅ Refactored: Options object
+//  Refactored: Options object
 interface ReportOptions {
   title: string;
   dateRange: {
@@ -254,7 +254,7 @@ function createReport(options: ReportOptions) {
 - Classes have fields that are always used together
 
 ```typescript
-// ❌ Smell: Same fields everywhere
+//  Smell: Same fields everywhere
 function calculateDistance(
   startLat: number, startLng: number,
   endLat: number, endLng: number
@@ -280,7 +280,7 @@ class Delivery {
 **Refactoring**: Extract Class
 
 ```typescript
-// ✅ Refactored: Create value objects
+//  Refactored: Create value objects
 interface Coordinates {
   latitude: number;
   longitude: number;
@@ -314,7 +314,7 @@ class Delivery {
 - Magic strings or numbers scattered in code
 
 ```typescript
-// ❌ Smell: Primitives everywhere
+//  Smell: Primitives everywhere
 function processOrder(
   userId: string,           // Could be UserId
   email: string,            // Could be Email
@@ -338,7 +338,7 @@ function processOrder(
 **Refactoring**: Replace Primitive with Object
 
 ```typescript
-// ✅ Refactored: Domain types encapsulate rules
+//  Refactored: Domain types encapsulate rules
 class Email {
   private constructor(private readonly value: string) {}
   
@@ -392,7 +392,7 @@ Incorrect or incomplete application of OO principles.
 - Switches based on type codes
 
 ```typescript
-// ❌ Smell: Type-based switching repeated everywhere
+//  Smell: Type-based switching repeated everywhere
 function calculatePay(employee: Employee): number {
   switch (employee.type) {
     case 'hourly':
@@ -419,7 +419,7 @@ function getTimeOffDays(employee: Employee): number {
 **Refactoring**: Replace Conditional with Polymorphism
 
 ```typescript
-// ✅ Refactored: Polymorphism
+//  Refactored: Polymorphism
 interface Employee {
   calculatePay(): number;
   getTimeOffDays(): number;
@@ -468,7 +468,7 @@ class CommissionedEmployee implements Employee {
 - Fields used by only some methods
 
 ```typescript
-// ❌ Smell: Fields only valid sometimes
+//  Smell: Fields only valid sometimes
 class Order {
   items: OrderItem[];
   customer: Customer;
@@ -497,7 +497,7 @@ class Order {
 **Refactoring**: Extract Class or Introduce Null Object
 
 ```typescript
-// ✅ Refactored: Separate concerns
+//  Refactored: Separate concerns
 class Order {
   items: OrderItem[];
   customer: Customer;
@@ -551,7 +551,7 @@ Code structures that make changes difficult.
 - "I need to change X, Y, and Z in this file"
 
 ```typescript
-// ❌ Smell: Class changes for different reasons
+//  Smell: Class changes for different reasons
 class ReportGenerator {
   // Changes when report format changes
   generatePDF(data: ReportData) { /* ... */ }
@@ -571,7 +571,7 @@ class ReportGenerator {
 **Refactoring**: Extract Class
 
 ```typescript
-// ✅ Refactored: Separate by reason for change
+//  Refactored: Separate by reason for change
 class ReportFormatter {
   toPDF(data: ReportData) { /* ... */ }
   toExcel(data: ReportData) { /* ... */ }
@@ -615,7 +615,7 @@ class ReportGenerator {
 - Easy to miss one of the required changes
 
 ```typescript
-// ❌ Smell: Adding a field requires changes everywhere
+//  Smell: Adding a field requires changes everywhere
 // user.ts
 interface User { name: string; email: string; }
 
@@ -642,7 +642,7 @@ function createUser(name: string, email: string) {
 **Refactoring**: Move Method, Inline Class
 
 ```typescript
-// ✅ Refactored: Centralize related logic
+//  Refactored: Centralize related logic
 // user.ts - Single source of truth
 interface User {
   name: string;
@@ -682,7 +682,7 @@ app.post('/users', async (req) => {
 - Logic that should belong to the data it operates on
 
 ```typescript
-// ❌ Smell: OrderPrinter is too interested in Order
+//  Smell: OrderPrinter is too interested in Order
 class OrderPrinter {
   print(order: Order) {
     console.log(`Order: ${order.getId()}`);
@@ -707,7 +707,7 @@ class OrderPrinter {
 **Refactoring**: Move Method
 
 ```typescript
-// ✅ Refactored: Move logic to where data lives
+//  Refactored: Move logic to where data lives
 class Order {
   getFormattedSummary(): string {
     return [
@@ -758,7 +758,7 @@ Code that serves no purpose and should be removed.
 - Obsolete feature flags
 
 ```typescript
-// ❌ Smell: Code that's never executed
+//  Smell: Code that's never executed
 function processPayment(amount: number) {
   if (amount <= 0) {
     throw new Error('Invalid amount');
@@ -785,7 +785,7 @@ const FEATURE_FLAG_OLD = false;
 **Refactoring**: Remove Dead Code
 
 ```typescript
-// ✅ Refactored: Delete it
+//  Refactored: Delete it
 function processPayment(amount: number) {
   if (amount <= 0) {
     throw new Error('Invalid amount');
@@ -811,7 +811,7 @@ function processPayment(amount: number) {
 - Complex framework for simple problem
 
 ```typescript
-// ❌ Smell: Over-engineered for imaginary requirements
+//  Smell: Over-engineered for imaginary requirements
 interface PaymentProcessor {
   process(payment: Payment): Promise<Result>;
   refund(paymentId: string): Promise<Result>;
@@ -835,7 +835,7 @@ class StripeProcessor implements PaymentProcessor {
 **Refactoring**: Collapse Hierarchy, Remove Parameter
 
 ```typescript
-// ✅ Refactored: Only what's actually needed
+//  Refactored: Only what's actually needed
 class PaymentService {
   constructor(private stripe: Stripe) {}
   
@@ -861,7 +861,7 @@ class PaymentService {
 - Parallel inheritance hierarchies
 
 ```typescript
-// ❌ Smell: Same logic in multiple places
+//  Smell: Same logic in multiple places
 class AdminController {
   async getUsers(req: Request) {
     const page = parseInt(req.query.page as string) || 1;
@@ -898,7 +898,7 @@ class ProductController {
 **Refactoring**: Extract Function, Extract Class
 
 ```typescript
-// ✅ Refactored: Shared pagination logic
+//  Refactored: Shared pagination logic
 interface PaginationParams {
   page: number;
   limit: number;
@@ -958,7 +958,7 @@ Code with excessive coupling between classes.
 - Changes to intermediate objects break clients
 
 ```typescript
-// ❌ Smell: Reaching through objects
+//  Smell: Reaching through objects
 function getManagerEmail(employee: Employee): string {
   return employee
     .getDepartment()
@@ -982,7 +982,7 @@ function sendReport(order: Order) {
 **Refactoring**: Hide Delegate
 
 ```typescript
-// ✅ Refactored: Ask, don't navigate
+//  Refactored: Ask, don't navigate
 class Employee {
   getManagerEmail(): string {
     return this.department.getManagerEmail();
@@ -1020,7 +1020,7 @@ class Order {
 - Interface mirrors another class
 
 ```typescript
-// ❌ Smell: Pure delegation
+//  Smell: Pure delegation
 class PersonWrapper {
   private person: Person;
   
@@ -1037,7 +1037,7 @@ class PersonWrapper {
 **Refactoring**: Remove Middle Man
 
 ```typescript
-// ✅ Refactored: Use the class directly
+//  Refactored: Use the class directly
 // Delete PersonWrapper, use Person directly
 
 // If some delegation is valuable, keep only that:

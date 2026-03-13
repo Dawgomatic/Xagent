@@ -1,7 +1,7 @@
 ---
 name: youtrack
 description: Manage YouTrack issues, projects, and workflows via CLI. Use when creating, updating, searching, or commenting on YouTrack issues, listing projects, checking issue states, or automating issue workflows.
-metadata: {"clawdbot":{"emoji":"🎫","requires":{"bins":["jq","curl"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["jq","curl"]}}}
 ---
 
 # YouTrack CLI

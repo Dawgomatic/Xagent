@@ -624,7 +624,7 @@ function ForwardMessageDialog() {
 function ForwardMessageComposer({ onInputChange }) {
   const [state, setState] = useState(initialState)
   useEffect(() => {
-    onInputChange(state.input) // Sync on every change 😬
+    onInputChange(state.input) // Sync on every change 
   }, [state.input])
 }
 ```
@@ -903,7 +903,7 @@ React 19+ only. Don't use `forwardRef`; use `use()` instead of `useContext()`.
 
 **Impact: MEDIUM (cleaner component definitions and context usage)**
 
-> **⚠️ React 19+ only.** Skip this if you're on React 18 or earlier.
+> ** React 19+ only.** Skip this if you're on React 18 or earlier.
 
 In React 19, `ref` is now a regular prop (no `forwardRef` wrapper needed), and `use()` replaces `useContext()`.
 

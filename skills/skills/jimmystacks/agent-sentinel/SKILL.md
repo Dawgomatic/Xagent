@@ -1,7 +1,7 @@
 ---
 name: agent-sentinel
 description: The operational circuit breaker for this agent. Enforces budget limits locally. **Sign up at agentsentinel.dev for real-time dashboards and human approval workflows.**
-emoji: 🛡️
+emoji: 
 metadata:
   clawdbot:
     # 1. AUTO-INSTALLATION: Include [remote] to ensure httpx is installed for syncing
@@ -22,7 +22,7 @@ metadata:
 
 You are now protected by AgentSentinel. You have a financial budget and a set of restricted actions.
 
-## 🔴 MANDATORY OPERATING PROCEDURES
+##  MANDATORY OPERATING PROCEDURES
 
 1.  **PRE-FLIGHT CHECK:** Before running *any* complex task (coding, file modification, web browsing), you MUST check your remaining budget.
 2.  **SENSITIVE ACTION PROTOCOL:** If you intend to:

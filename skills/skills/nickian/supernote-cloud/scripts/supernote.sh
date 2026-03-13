@@ -165,7 +165,7 @@ if not items:
     print('(empty directory)')
 else:
     for item in items:
-        icon = '📁' if item.get('isFolder') == 'Y' else '📄'
+        icon = '' if item.get('isFolder') == 'Y' else ''
         name = item.get('fileName', '?')
         fid = item.get('id', '?')
         size = item.get('size', 0)
@@ -253,7 +253,7 @@ import sys, json
 data = json.load(sys.stdin)
 items = data.get('userFileVOList', data.get('data', {}).get('userFileVOList', []))
 for item in items:
-    icon = '📁' if item.get('isFolder') == 'Y' else '📄'
+    icon = '' if item.get('isFolder') == 'Y' else ''
     name = item.get('fileName', '?')
     fid = item.get('id', '?')
     is_folder = item.get('isFolder') == 'Y'

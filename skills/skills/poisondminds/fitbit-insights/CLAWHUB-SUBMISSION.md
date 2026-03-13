@@ -17,12 +17,12 @@ AI-powered Fitbit insights with natural language Q&A - ask about your fitness, g
 Fitbit Fitness Insights brings AI-powered analysis to your fitness data. Instead of checking graphs and numbers in the Fitbit app, simply ask questions and get conversational insights.
 
 **Key Features:**
-- 🤖 Natural language Q&A - "How did I sleep?" "Did I hit my goals?"
-- 📊 Activity insights - Steps, calories, active minutes, distance
-- 💓 Heart rate analysis - Resting HR, zones, workout intensity
-- 😴 Sleep tracking - Duration, efficiency, wake-ups, sleep stages
-- 🏃 Workout analysis - Logged activities, duration, calories
-- 📈 Trend detection - Week-over-week, patterns, achievements
+-  Natural language Q&A - "How did I sleep?" "Did I hit my goals?"
+-  Activity insights - Steps, calories, active minutes, distance
+-  Heart rate analysis - Resting HR, zones, workout intensity
+-  Sleep tracking - Duration, efficiency, wake-ups, sleep stages
+-  Workout analysis - Logged activities, duration, calories
+-  Trend detection - Week-over-week, patterns, achievements
 
 **How It Works:**
 1. Ask your AI assistant fitness questions
@@ -33,10 +33,10 @@ Fitbit Fitness Insights brings AI-powered analysis to your fitness data. Instead
 **Example Conversations:**
 
 *"How did I sleep last night?"*
-→ "You slept 7.9 hours with 96% efficiency. Only woke up twice for 2 minutes total. That's excellent sleep quality! 😴"
+→ "You slept 7.9 hours with 96% efficiency. Only woke up twice for 2 minutes total. That's excellent sleep quality! "
 
 *"How active was I this week?"*
-→ "You averaged 8,234 steps/day (up 12% from last week!). Hit your 10k goal 4/7 days. CrossFit 3x with 156 very active minutes. Solid week! 💪"
+→ "You averaged 8,234 steps/day (up 12% from last week!). Hit your 10k goal 4/7 days. CrossFit 3x with 156 very active minutes. Solid week! "
 
 **Perfect for:**
 - Fitness enthusiasts who want deeper insights
@@ -124,7 +124,7 @@ The Fitbit app shows data, but no AI analysis. This skill:
 - Provides motivation via insights
 - No app checking needed - just ask!
 
-**Result:** Smarter fitness tracking with AI-powered insights! 🏋️✨
+**Result:** Smarter fitness tracking with AI-powered insights! 
 
 ---
 
@@ -140,4 +140,4 @@ The Fitbit app shows data, but no AI analysis. This skill:
 - [x] No sensitive data in package
 - [x] Tested and working
 
-**Status:** Ready to submit! ✅
+**Status:** Ready to submit! 

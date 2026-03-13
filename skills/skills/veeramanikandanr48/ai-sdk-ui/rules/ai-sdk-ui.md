@@ -9,11 +9,11 @@ Claude's training may reference AI SDK v4 UI patterns. This project uses **AI SD
 ## Hook Import Changes
 
 ```typescript
-/* ❌ v4 imports */
+/*  v4 imports */
 import { useChat, useCompletion } from 'ai/react'
 import { useActions, useUIState } from 'ai/rsc'
 
-/* ✅ v5 imports */
+/*  v5 imports */
 import { useChat, useCompletion } from '@ai-sdk/react'
 import { useActions, useUIState } from '@ai-sdk/rsc'
 ```
@@ -21,14 +21,14 @@ import { useActions, useUIState } from '@ai-sdk/rsc'
 ## useChat Options
 
 ```typescript
-/* ❌ v4 options */
+/*  v4 options */
 const { messages, input, handleSubmit } = useChat({
   api: '/api/chat',
   initialMessages: [],
   body: { model: 'gpt-4' },
 })
 
-/* ✅ v5 options */
+/*  v5 options */
 const { messages, input, handleSubmit } = useChat({
   api: '/api/chat',
   initialMessages: [],
@@ -40,11 +40,11 @@ const { messages, input, handleSubmit } = useChat({
 ## Message Types
 
 ```typescript
-/* ❌ v4 message type */
+/*  v4 message type */
 import type { Message } from 'ai'
 const msgs: Message[] = []
 
-/* ✅ v5 message type */
+/*  v5 message type */
 import type { UIMessage } from '@ai-sdk/react'
 const msgs: UIMessage[] = []
 ```
@@ -52,11 +52,11 @@ const msgs: UIMessage[] = []
 ## Streaming Text
 
 ```typescript
-/* ❌ v4 streaming */
+/*  v4 streaming */
 import { StreamingTextResponse } from 'ai'
 return new StreamingTextResponse(stream)
 
-/* ✅ v5 streaming */
+/*  v5 streaming */
 import { pipeTextStreamToResponse } from 'ai'
 return pipeTextStreamToResponse(result.toTextStream(), response)
 
@@ -67,14 +67,14 @@ return result.toDataStreamResponse()
 ## Tool Results in UI
 
 ```typescript
-/* ❌ v4 tool results */
+/*  v4 tool results */
 {messages.map((m) => (
   m.toolInvocations?.map((t) => (
     <ToolResult key={t.toolCallId} result={t.result} />
   ))
 ))}
 
-/* ✅ v5 tool results (check state) */
+/*  v5 tool results (check state) */
 {messages.map((m) => (
   m.toolInvocations?.map((t) => (
     t.state === 'result' && (

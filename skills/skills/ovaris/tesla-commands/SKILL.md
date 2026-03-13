@@ -4,7 +4,7 @@ description: Control your Tesla via MyTeslaMate API. Supports multi-vehicle acco
 metadata: {"tags": ["tesla", "myteslamate", "ev", "car-control", "automation"]}
 ---
 
-# Tesla Commands Skill 🚗
+# Tesla Commands Skill 
 
 This skill allows you to monitor and control your Tesla vehicle using the MyTeslaMate API.
 

@@ -196,7 +196,7 @@ const handler: HookHandler = async (event) => {
             if (shouldBlock(finalAction)) {
               // Block the tool call
               throw new Error(
-                `🚫 Tool Call Blocked: Security threats detected in ${toolName}\n\n` +
+                ` Tool Call Blocked: Security threats detected in ${toolName}\n\n` +
                 `Severity: ${maxSeverity}\n` +
                 `Findings:\n` +
                 allFindings
@@ -208,7 +208,7 @@ const handler: HookHandler = async (event) => {
             } else {
               // Warn but allow
               console.warn(
-                `⚠️  Security Notice: Potential issues detected in ${toolName}\n` +
+                `  Security Notice: Potential issues detected in ${toolName}\n` +
                 `The call will be allowed but logged for review.`
               );
             }
@@ -217,7 +217,7 @@ const handler: HookHandler = async (event) => {
           // Allow the tool call to proceed
         } catch (error) {
           // On error, log but allow the request (fail-open)
-          if (error instanceof Error && error.message.includes("🚫 Tool Call Blocked")) {
+          if (error instanceof Error && error.message.includes(" Tool Call Blocked")) {
             // This is our blocking error, re-throw it
             throw error;
           }

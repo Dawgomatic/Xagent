@@ -3,7 +3,7 @@ name: seedance-cog
 description: "Seedance × CellCog. ByteDance's #1 video model meets the frontier of multi-agent coordination — CellCog orchestrates Seedance with scripting, voice synthesis, lipsync, scoring, and editing to produce complete videos from a single prompt. Cinematic 1080p, smooth motion, multi-shot narratives. Seedance AI, ByteDance video, AI video generator."
 metadata:
   openclaw:
-    emoji: "🌱"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

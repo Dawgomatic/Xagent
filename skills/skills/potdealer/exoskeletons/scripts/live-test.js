@@ -103,7 +103,7 @@ async function main() {
   // ─── WRITE TESTS (require Bankr) ──────────────────────────
 
   if (!BANKR_API_KEY) {
-    console.log("\n⚠ Skipping write tests (BANKR_API_KEY not set)");
+    console.log("\n Skipping write tests (BANKR_API_KEY not set)");
   } else {
     console.log("\n=== WRITE TESTS ===\n");
 

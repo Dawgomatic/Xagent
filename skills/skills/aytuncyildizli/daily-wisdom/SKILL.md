@@ -6,7 +6,7 @@ description: |
   Don't use when: one-off trivia (just answer directly), news digests, social media posts.
   Outputs: A rich daily message with original-language quote, story, and modern connection. Writes to history file to prevent repeats.
 metadata:
-  emoji: 📜
+  emoji: 
   category: content
   tags: [wisdom, history, culture, cron, daily, anecdote, stoic, turkish, mythology]
 ---
@@ -91,12 +91,12 @@ RULES:
 4. WRITE RICHLY. This is not a tweet. This is a mini-essay. Minimum 500 words, ideally 700-900.
 5. Format:
 
-📜 **[Title — Person/Source, Era]**
+ **[Title — Person/Source, Era]**
 
 > *"[Original language quote]"*
 > — [Attribution]
 
-🌍 [English translation if quote is in another language]
+ [English translation if quote is in another language]
 
 ---
 
@@ -113,7 +113,7 @@ This section should be 300-500 words minimum. Tell the FULL story, not a summary
 
 ---
 
-💡 **Modern Connection:**
+ **Modern Connection:**
 
 [Don't just say "this is relevant today." Show the specific, surprising parallel. Use concrete examples — name companies, people, technologies. Make connections the reader wouldn't have made themselves. If the connection feels forced, pick a different angle. 100-200 words minimum.]
 

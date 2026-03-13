@@ -1,4 +1,4 @@
-# 🦞 FlowClaw — LLM Usage Monitor & Load Balancer for OpenClaw
+#  FlowClaw — LLM Usage Monitor & Load Balancer for OpenClaw
 
 > LLM subscription usage monitoring and load balancing for OpenClaw.
 
@@ -34,7 +34,7 @@ It ensures your agent **never gets stuck** by intelligently routing prompts to t
 
 ---
 
-## 🎯 The Problem
+##  The Problem
 
 Flat-rate LLM subscriptions like Claude Max and Google Gemini CLI have **usage windows that reset on a schedule**. If you don't use your credits before the window closes, they're gone. If you have multiple accounts across multiple providers, you're almost certainly leaving money on the table.
 
@@ -49,14 +49,14 @@ Worse, when a provider goes down or you hit a hard limit, your agent stops.
   │  Antigravity   ████░░░░░░░░░░░░░░░░░░░░  40% used      │  ← Resets in 5h
   │  Codex         ░░░░░░░░░░░░░░░░░░░░░░░░   0% used      │  ← Fresh
   │                                                         │
-  │  You're using Account B... wasting 80% of Account A 💸  │
+  │  You're using Account B... wasting 80% of Account A   │
   └─────────────────────────────────────────────────────────┘
 ```
 
 **With FlowClaw:**
 ```
   ┌─────────────────────────────────────────────────────────┐
-  │  ⚡ SWITCH → Anthropic A  (score: 0.94, resets in 30m)  │
+  │   SWITCH → Anthropic A  (score: 0.94, resets in 30m)  │
   │                                                         │
   │  "Use Account A now — 80% remaining credits expire in   │
   │   30 minutes. Account B and Google can wait."            │
@@ -65,92 +65,92 @@ Worse, when a provider goes down or you hit a hard limit, your agent stops.
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🦞 **Unstoppable Agents** — Automatically fails over to local Ollama models if all cloud providers are down or exhausted.
-- 📈 **Real-time Metrics** — Queries provider APIs directly for accurate usage bars and reset timers.
-- 👥 **Multi-account** — Juggle unlimited Anthropic accounts seamlessly.
-- 🧠 **EDF Scoring** — Earliest Deadline First algorithm prioritizes credits that are about to expire.
-- 🔄 **Smart Routing** — Reconfigures OpenClaw's model priority on the fly.
-- 📊 **Family-aware** — Only swaps within the same capability class (Opus↔Opus, not Opus↔Gemini).
-- ⏱️ **Cron-ready** — `flowclaw auto` runs silently in the background to keep your agent optimized.
+-  **Unstoppable Agents** — Automatically fails over to local Ollama models if all cloud providers are down or exhausted.
+-  **Real-time Metrics** — Queries provider APIs directly for accurate usage bars and reset timers.
+-  **Multi-account** — Juggle unlimited Anthropic accounts seamlessly.
+-  **EDF Scoring** — Earliest Deadline First algorithm prioritizes credits that are about to expire.
+-  **Smart Routing** — Reconfigures OpenClaw's model priority on the fly.
+-  **Family-aware** — Only swaps within the same capability class (OpusOpus, not OpusGemini).
+-  **Cron-ready** — `flowclaw auto` runs silently in the background to keep your agent optimized.
 
 ---
 
-## 📊 Dashboard
+##  Dashboard
 
 ```bash
 $ flowclaw status --fresh
 ```
 ```
-🦞 FlowClaw — LLM Provider Dashboard
+ FlowClaw — LLM Provider Dashboard
 
 ━━━ Anthropic Claude Max ━━━━━━━━━━━━━━━━━━━━
 
-  👤 work (work@example.com) — Max 20x
-     ⏱️  5h Session:  🔴 ██████████ 100%  ⏳2h 30m
-     📅 7d Overall:   🟢 ████░░░░░░ 41%   ⏳6d 12h
-     💎 7d Opus:      🟢 ░░░░░░░░░░ 0%
-     💬 7d Sonnet:    🟢 █░░░░░░░░░ 18%
-     💰 Extra usage:  🔴 $32.39/$20.00
+   work (work@example.com) — Max 20x
+       5h Session:   ██████████ 100%  2h 30m
+      7d Overall:    ████░░░░░░ 41%   6d 12h
+      7d Opus:       ░░░░░░░░░░ 0%
+      7d Sonnet:     █░░░░░░░░░ 18%
+      Extra usage:   $32.39/$20.00
 
-  👤 personal (personal@example.com) — Max 5x
-     ⏱️  5h Session:  🟢 ███░░░░░░░ 30%   ⏳4h 10m
-     📅 7d Overall:   🟢 █░░░░░░░░░ 12%   ⏳5d 3h
+   personal (personal@example.com) — Max 5x
+       5h Session:   ███░░░░░░░ 30%   4h 10m
+      7d Overall:    █░░░░░░░░░ 12%   5d 3h
 
 ━━━ Google Gemini CLI ━━━━━━━━━━━━━━━━━━━━━━━
 
-  ♊
-     ♊ Pro                🟢 ░░░░░░░░░░ 0%
-     ⚡ Flash              🟢 ░░░░░░░░░░ 0%
+  
+      Pro                 ░░░░░░░░░░ 0%
+      Flash               ░░░░░░░░░░ 0%
 
 ━━━ Google Antigravity ━━━━━━━━━━━━━━━━━━━━━━━
 
-  🌐 (Antigravity)
-     🤖 claude-opus-4-6    🟢 ████░░░░░░ 40%  ⏳1h 27m
-     🤖 claude-sonnet-4-6  🟢 ████░░░░░░ 40%  ⏳1h 27m
-     ♊ gemini-3-pro-high  🟢 ░░░░░░░░░░ 0%   ⏳5h 0m
-     ⚡ gemini-3-flash     🟢 ░░░░░░░░░░ 0%   ⏳5h 0m
+   (Antigravity)
+      claude-opus-4-6     ████░░░░░░ 40%  1h 27m
+      claude-sonnet-4-6   ████░░░░░░ 40%  1h 27m
+      gemini-3-pro-high   ░░░░░░░░░░ 0%   5h 0m
+      gemini-3-flash      ░░░░░░░░░░ 0%   5h 0m
 
 ━━━ OpenAI Codex ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  🤖 (Pro)
-     🤖 3h                 🟡 ██████░░░░ 60%  ⏳1h 15m
-     🤖 Day                🟢 ██░░░░░░░░ 20%  ⏳18h
+   (Pro)
+      3h                  ██████░░░░ 60%  1h 15m
+      Day                 ██░░░░░░░░ 20%  18h
 
 ━━━ Ollama (Local) ━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  🖥️  qwen3:235b (60.1GB)  🟢 Always available
+    qwen3:235b (60.1GB)   Always available
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📍 02:02 PM PST · Feb 18, 2026
+ 02:02 PM PST · Feb 18, 2026
 ```
 
 ---
 
-## 🧮 Scoring
+##  Scoring
 
 ```bash
 $ flowclaw score
 ```
 ```
-🧠 FlowClaw Scoring
+ FlowClaw Scoring
 
-  #1  ✅ xtreme          [opus]         score=0.2026  5h:74% 7d:51%    ← recommended
-  #2  ✅ epic            [opus]         score=0.1525  5h:11% 7d:96%
-  #3  ✅ google-claude   [opus]         score=0.5550  0% used
-  #4  ✅ google-gemini   [gemini-pro]   score=0.5550  0% used
-  #5  ✅ openai-codex    [gpt5]         score=0.6000  API
-  #6  ✅ local-qwen3     [local]        score=0.2200  Local (60.1GB)
+  #1   xtreme          [opus]         score=0.2026  5h:74% 7d:51%    ← recommended
+  #2   epic            [opus]         score=0.1525  5h:11% 7d:96%
+  #3   google-claude   [opus]         score=0.5550  0% used
+  #4   google-gemini   [gemini-pro]   score=0.5550  0% used
+  #5   openai-codex    [gpt5]         score=0.6000  API
+  #6   local-qwen3     [local]        score=0.2200  Local (60.1GB)
 
-  🎯 Recommended: xtreme (anthropic/claude-opus-4-6)
+   Recommended: xtreme (anthropic/claude-opus-4-6)
 ```
 
 > **Why xtreme over epic?** Even though epic has more 5h session capacity (11% vs 74%), xtreme has vastly more 7d weekly headroom (51% vs 96%). FlowClaw conserves the account with more long-term room.
 
 ---
 
-## ⚡ Auto-Optimization
+##  Auto-Optimization
 
 ```bash
 $ flowclaw optimize
@@ -159,22 +159,22 @@ $ flowclaw optimize
 FlowClaw detects the best routing option, swaps your primary model, and reorganizes fallbacks:
 
 ```
-🧠 FlowClaw Optimization
+ FlowClaw Optimization
 
-  🎯 Recommended primary: google-gemini-cli/claude-opus-4-6-thinking
-  📋 Anthropic profile order: anthropic:xtreme anthropic:epic
+   Recommended primary: google-gemini-cli/claude-opus-4-6-thinking
+   Anthropic profile order: anthropic:xtreme anthropic:epic
 
-  ⚙️  Applying...
-  ✅ Anthropic profile order updated
-  ✅ Primary model set to google-gemini-cli/claude-opus-4-6-thinking
-  ✅ Fallbacks: anthropic/claude-opus-4-6, openai/gpt-5.2
+    Applying...
+   Anthropic profile order updated
+   Primary model set to google-gemini-cli/claude-opus-4-6-thinking
+   Fallbacks: anthropic/claude-opus-4-6, openai/gpt-5.2
 
-  ✅ FlowClaw optimized!
+   FlowClaw optimized!
 ```
 
 ---
 
-## 🔬 How the Scoring Algorithm Works
+##  How the Scoring Algorithm Works
 
 FlowClaw treats every subscription window as **perishable inventory** — like fresh groceries with expiration dates. Credits that expire soonest should be used first.
 
@@ -209,7 +209,7 @@ Both the **5-hour session** and **7-day weekly** windows are perishable. The alg
          ↑ Less urgent                        ↑ More important
 ```
 
-### 📖 Real-World Scoring Examples
+###  Real-World Scoring Examples
 
 #### Scenario 1: Weekly Headroom Conservation
 
@@ -221,8 +221,8 @@ Both the **5-hour session** and **7-day weekly** windows are perishable. The alg
 ```
 
 ```
-  xtreme  →  score = 0.2026   ✅ Winner
-  epic    →  score = 0.1525   ❌ Deprioritized
+  xtreme  →  score = 0.2026    Winner
+  epic    →  score = 0.1525    Deprioritized
 
   Why? epic is at 96% of its weekly budget. Using it more risks hitting
   the 7-day limit. xtreme has 49% weekly headroom — much safer to use.
@@ -238,8 +238,8 @@ Both the **5-hour session** and **7-day weekly** windows are perishable. The alg
 ```
 
 ```
-  epic    →  score = 0.3679   ✅ Winner — BURN IT!
-  xtreme  →  score = 0.2026   ❌ Save for later
+  epic    →  score = 0.3679    Winner — BURN IT!
+  xtreme  →  score = 0.2026    Save for later
 
   Why? epic's weekly window resets in 5h. Those remaining 4% of credits
   vanish in 5 hours anyway — use them now! The weekly penalty is removed
@@ -258,9 +258,9 @@ Both the **5-hour session** and **7-day weekly** windows are perishable. The alg
 ```
 
 ```
-  google  →  score = 0.5550   ✅ Winner — free tier, 0% used
-  epic    →  score = 0.1525   ✅ Available but conserve it
-  xtreme  →  score = 0.0000   🚫 Blocked (can't use until 2h reset)
+  google  →  score = 0.5550    Winner — free tier, 0% used
+  epic    →  score = 0.1525    Available but conserve it
+  xtreme  →  score = 0.0000    Blocked (can't use until 2h reset)
 
   Why? 100% on ANY window = instant score 0. Google's free tier gets
   a +0.8 tier bonus, making it the clear winner when available.
@@ -305,12 +305,12 @@ The weekly headroom penalty doesn't flip like a switch — it fades smoothly:
 
 - **100% on any window** → score = 0 (completely blocked)
 - **Free tiers** (Google/Antigravity) → +0.8 bonus (always preferred)
-- **Family-aware** — only swaps within same capability class (Opus↔Opus, Gemini↔Gemini)
+- **Family-aware** — only swaps within same capability class (OpusOpus, GeminiGemini)
 - **Local models** — always available, never blocked, slight quality penalty
 
 ---
 
-## 🏗️ Provider Details
+##  Provider Details
 
 | Provider | Reset Windows | Data Source | Notes |
 |----------|---------------|-------------|-------|
@@ -323,7 +323,7 @@ The weekly headroom penalty doesn't flip like a switch — it fades smoothly:
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### Requirements
 
@@ -384,7 +384,7 @@ brew install ollama && ollama pull qwen3:235b
 
 ---
 
-## 📋 All Commands
+##  All Commands
 
 | Command | Description |
 |---------|-------------|
@@ -406,7 +406,7 @@ brew install ollama && ollama pull qwen3:235b
 
 ---
 
-## 🏛️ Architecture
+##  Architecture
 
 ```
 flowclaw/
@@ -425,7 +425,7 @@ flowclaw/
 
 ---
 
-## 🔒 Security
+##  Security
 
 - OAuth tokens stored at `~/.openclaw/usage-tokens/` with `600` permissions
 - No tokens or credentials in this repository
@@ -434,7 +434,7 @@ flowclaw/
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 PRs welcome! Adding a new provider:
 
@@ -445,14 +445,14 @@ The scoring engine is a pure function: usage JSON in → ranked recommendations 
 
 ---
 
-## 📜 License
+##  License
 
 MIT — see [LICENSE](LICENSE)
 
 ---
 
 <p align="center">
-  🦞<br>
+  <br>
   <i>A skill for <a href="https://github.com/openclaw/openclaw">OpenClaw</a></i><br>
   <i>LLM subscription usage monitoring and load balancing.</i>
 </p>

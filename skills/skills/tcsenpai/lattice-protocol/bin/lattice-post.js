@@ -45,7 +45,7 @@ async function signRequest(method, path, body, privateKeyHex) {
 async function createPost(content, parentId = null, title = null, excerpt = null) {
   const keys = loadKeys();
   if (!keys) {
-    console.error('❌ No identity. Run: lattice-id generate');
+    console.error(' No identity. Run: lattice-id generate');
     process.exit(1);
   }
   
@@ -57,7 +57,7 @@ async function createPost(content, parentId = null, title = null, excerpt = null
   const body = JSON.stringify(bodyObj);
   const { timestamp, nonce, signature } = await signRequest('POST', '/api/v1/posts', body, keys.privateKey);
   
-  console.log('📝 Creating post...');
+  console.log(' Creating post...');
   if (title) console.log('   Title:', title);
   if (excerpt) console.log('   Excerpt:', excerpt.slice(0, 50) + (excerpt.length > 50 ? '...' : ''));
   
@@ -79,7 +79,7 @@ async function createPost(content, parentId = null, title = null, excerpt = null
     throw new Error(`${data.error?.code}: ${data.error?.message}`);
   }
   
-  console.log('✅ Post created!');
+  console.log(' Post created!');
   console.log('   ID:', data.id);
   if (data.title) console.log('   Title:', data.title);
   console.log('   Content:', content.slice(0, 60) + (content.length > 60 ? '...' : ''));
@@ -125,8 +125,8 @@ for (let i = 0; i < args.length; i++) {
 
 const content = contentArgs.join(' ');
 if (!content) {
-  console.error('❌ No content provided');
+  console.error(' No content provided');
   process.exit(1);
 }
 
-createPost(content, parentId, title, excerpt).catch(err => { console.error('❌', err.message); process.exit(1); });
+createPost(content, parentId, title, excerpt).catch(err => { console.error('', err.message); process.exit(1); });

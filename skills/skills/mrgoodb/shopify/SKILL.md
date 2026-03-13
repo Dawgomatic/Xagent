@@ -1,7 +1,7 @@
 ---
 name: shopify
 description: Manage Shopify stores - products, orders, customers, and inventory via Admin API.
-metadata: {"clawdbot":{"emoji":"🛒","requires":{"env":["SHOPIFY_STORE","SHOPIFY_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SHOPIFY_STORE","SHOPIFY_ACCESS_TOKEN"]}}}
 ---
 
 # Shopify

@@ -206,7 +206,7 @@ await exec({
 ### Knowledge Base (Wiki Replacement for MEMORY.md)
 
 **Structure:** Hub page with nested pages:
-- 🏠 Home (shared with integration)
+-  Home (shared with integration)
   - SOPs
   - Troubleshooting
   - Design Patterns
@@ -266,11 +266,11 @@ When creating/updating database entries, use these property value formats:
 ## Security & Permissions
 
 **Critical Security Model:**
-- ✅ Integration ONLY sees pages you explicitly share
-- ✅ You control access per page/database
-- ✅ Token stored securely in `~/.openclaw/.env` (never in code)
-- ❌ Never commit `NOTION_TOKEN` to git
-- ❌ Integration cannot access private teamspaces or other users' private pages
+-  Integration ONLY sees pages you explicitly share
+-  You control access per page/database
+-  Token stored securely in `~/.openclaw/.env` (never in code)
+-  Never commit `NOTION_TOKEN` to git
+-  Integration cannot access private teamspaces or other users' private pages
 
 **Best Practices:**
 1. Use a dedicated integration (don't reuse personal integrations)

@@ -7,7 +7,7 @@ description: iOS keyboard extension technical limitations and workarounds. Use w
 
 When building iOS custom keyboards with voice/audio features, these are the hard limitations discovered through the PolyVoice project.
 
-## 🔴 Hard Limitations (Cannot be worked around)
+##  Hard Limitations (Cannot be worked around)
 
 ### 1. Microphone Access — DISALLOWED
 **Keyboard extensions cannot access the microphone.**
@@ -54,7 +54,7 @@ When building iOS custom keyboards with voice/audio features, these are the hard
 - Most users won't do this
 - Cannot prompt or explain from keyboard UI effectively
 
-## 🟡 Partial Workarounds (User friction)
+##  Partial Workarounds (User friction)
 
 ### The "Open App" Workaround
 **Goal:** Let user tap a button to open main app for recording.
@@ -91,7 +91,7 @@ Keyboard → Tap mic → [Manual: Switch to app] → App auto-records →
 - Users forget to return
 - Clipboard may be overwritten
 
-## 🟢 Alternative Architectures
+##  Alternative Architectures
 
 ### Option 1: Share Extension (Better for Audio)
 **Use Share Sheet instead of keyboard.**
@@ -123,17 +123,17 @@ Keyboard → Tap mic → [Manual: Switch to app] → App auto-records →
 
 **Limitation:** Not instant, requires Siri setup.
 
-## 📊 Decision Matrix
+##  Decision Matrix
 
 | Approach | Mic Access | Memory | User Friction | Apple Approved |
 |----------|-----------|---------|---------------|----------------|
-| Keyboard extension | ❌ No | ⚠️ 50MB | Low (if no audio) | ✅ Yes |
-| Keyboard + audio workaround | ❌ No | ⚠️ 50MB | 🔴 High | ✅ Yes |
-| Share extension | ✅ Yes | ✅ Full | 🟡 Medium | ✅ Yes |
-| Full app only | ✅ Yes | ✅ Full | 🟡 Medium | ✅ Yes |
-| Siri Shortcuts | ✅ Yes | ✅ Full | 🟡 Medium | ✅ Yes |
+| Keyboard extension |  No |  50MB | Low (if no audio) |  Yes |
+| Keyboard + audio workaround |  No |  50MB |  High |  Yes |
+| Share extension |  Yes |  Full |  Medium |  Yes |
+| Full app only |  Yes |  Full |  Medium |  Yes |
+| Siri Shortcuts |  Yes |  Full |  Medium |  Yes |
 
-## 🎯 Recommendation
+##  Recommendation
 
 **For voice dictation/AI transcription:**
 
@@ -146,7 +146,7 @@ Keyboard → Tap mic → [Manual: Switch to app] → App auto-records →
 
 Keyboard extension works great. Just avoid audio features.
 
-## 📚 References
+##  References
 
 - Apple's official docs: https://developer.apple.com/documentation/uikit/keyboards_and_input/creating_a_custom_keyboard
 - Custom Keyboard Programming Guide (WWDC sessions)

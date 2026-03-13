@@ -4,7 +4,7 @@ description: Audit-ready decision artifacts for LLM outputs — assumptions, ris
 homepage: https://www.clawhub.ai/sapenov/dgr
 metadata:
   clawdbot:
-    emoji: "🧭"
+    emoji: ""
   category: "reasoning"
 ---
 

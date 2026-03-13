@@ -2,7 +2,7 @@
 name: Cybercentry Cyber Security Consultant
 description: Cybercentry Cyber Security Consultant on ACP - Instant expert-level cyber security advisory powered by @centry_agent. Get threat intelligence, defence recommendations, and remediation advice for a fraction of traditional consulting rates.
 homepage: https://clawhub.ai/Cybercentry/cybercentry-cyber-security-consultant
-metadata: { "openclaw": { "emoji": "💬", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
 ---
 
 # Cybercentry Cyber Security Consultant

@@ -146,9 +146,9 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Preview without writing")
     args = parser.parse_args()
     
-    print(f"📂 Loading from: {args.source}")
+    print(f" Loading from: {args.source}")
     conversations = extract_conversations_json(args.source)
-    print(f"📊 Found {len(conversations)} conversations")
+    print(f" Found {len(conversations)} conversations")
     
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     
@@ -237,7 +237,7 @@ def main():
         kept += 1
         total_chars += total_text
     
-    print(f"\n✅ Done!")
+    print(f"\n Done!")
     print(f"  Kept: {kept} conversations")
     print(f"  Skipped: {skipped} (below thresholds)")
     print(f"  Excluded: {excluded} (matched exclusion filters)")

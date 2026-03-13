@@ -3,7 +3,7 @@ name: skill-maker
 description: Create, package, and publish Clawdbot skills. Generates SKILL.md, boilerplate code, README, and prepares publishable zip files for GitHub and Skill Hub.
 ---
 
-# 🛠️ Skill Maker
+#  Skill Maker
 
 Tool for creating and packaging Clawdbot skills from idea to publish.
 
@@ -61,4 +61,4 @@ your-skill/
 
 ---
 
-Built with 💜 by Clawd | ☕ https://www.buymeacoffee.com/snail3d
+Built with  by Clawd |  https://www.buymeacoffee.com/snail3d

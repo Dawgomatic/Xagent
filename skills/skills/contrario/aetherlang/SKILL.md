@@ -9,7 +9,7 @@
 
 ## Privacy & Data Handling
 
-⚠️ **External API Notice**: This skill sends user-provided flow code and query text to the AetherLang API at `api.neurodoc.app` for processing. By using this skill, you consent to this data transmission.
+ **External API Notice**: This skill sends user-provided flow code and query text to the AetherLang API at `api.neurodoc.app` for processing. By using this skill, you consent to this data transmission.
 
 - **What is sent**: Flow DSL code and natural language queries only
 - **What is NOT sent**: No credentials, API keys, personal files, or system data
@@ -29,15 +29,15 @@ All user inputs are validated and sanitized server-side before processing. The s
 
 | Engine | Node Type | V3 Highlights |
 |--------|-----------|---------------|
-| 🍳 Chef Omega | `chef` | 17 mandatory sections: food cost%, HACCP, thermal curves, MacYuFBI matrix, texture architecture, allergen matrix (14 EU), dietary transformer, wine pairing, plating blueprint, zero waste, kitchen timeline |
-| ⚗️ APEIRON Molecular | `molecular` | Rheology dashboard, phase diagrams, hydrocolloid specs (Agar/Alginate/Gellan/Xanthan), FMEA failure analysis, equipment calibration, sensory science metrics |
-| 📈 APEX Strategy | `apex` | Game theory + Nash equilibrium, Monte Carlo (10K simulations), behavioral economics, decision trees, competitive war gaming, unit economics (CAC/LTV), Blue Ocean canvas, OKR generator |
-| 🧠 GAIA Brain | `assembly` | 12 neurons voting system (supermajority 8/12), disagreement protocol, Gandalf VETO power, devil's advocate, confidence heatmap, 7 archetypes |
-| 🔮 Oracle | `oracle` | Bayesian updating (prior→evidence→posterior), signal vs noise scoring, temporal resolution (7d/30d/180d), black swan scanner, adversarial red team, Kelly criterion bet sizing |
-| 💼 NEXUS-7 Consult | `consulting` | Causal loop diagrams, theory of constraints, Wardley maps, ADKAR change management, anti-pattern library, system dynamics modeling |
-| 📊 Market Intel | `marketing` | TAM/SAM/SOM, category design, Porter's 5 Forces, pricing elasticity, network effects, viral coefficient (K-factor), customer segmentation AI |
-| 🔬 Research Lab | `lab` | Evidence grading (A-D levels), contradiction detector, knowledge graph, reproducibility score (X/10), cross-disciplinary bridges, research gap map |
-| 📉 Data Analyst | `analyst` | Auto-detective (outliers/missing/duplicates), statistical test selector, anomaly detection, predictive modeling (R²/RMSE), cohort/funnel analysis, causal inference |
+|  Chef Omega | `chef` | 17 mandatory sections: food cost%, HACCP, thermal curves, MacYuFBI matrix, texture architecture, allergen matrix (14 EU), dietary transformer, wine pairing, plating blueprint, zero waste, kitchen timeline |
+|  APEIRON Molecular | `molecular` | Rheology dashboard, phase diagrams, hydrocolloid specs (Agar/Alginate/Gellan/Xanthan), FMEA failure analysis, equipment calibration, sensory science metrics |
+|  APEX Strategy | `apex` | Game theory + Nash equilibrium, Monte Carlo (10K simulations), behavioral economics, decision trees, competitive war gaming, unit economics (CAC/LTV), Blue Ocean canvas, OKR generator |
+|  GAIA Brain | `assembly` | 12 neurons voting system (supermajority 8/12), disagreement protocol, Gandalf VETO power, devil's advocate, confidence heatmap, 7 archetypes |
+|  Oracle | `oracle` | Bayesian updating (prior→evidence→posterior), signal vs noise scoring, temporal resolution (7d/30d/180d), black swan scanner, adversarial red team, Kelly criterion bet sizing |
+|  NEXUS-7 Consult | `consulting` | Causal loop diagrams, theory of constraints, Wardley maps, ADKAR change management, anti-pattern library, system dynamics modeling |
+|  Market Intel | `marketing` | TAM/SAM/SOM, category design, Porter's 5 Forces, pricing elasticity, network effects, viral coefficient (K-factor), customer segmentation AI |
+|  Research Lab | `lab` | Evidence grading (A-D levels), contradiction detector, knowledge graph, reproducibility score (X/10), cross-disciplinary bridges, research gap map |
+|  Data Analyst | `analyst` | Auto-detective (outliers/missing/duplicates), statistical test selector, anomaly detection, predictive modeling (R²/RMSE), cohort/funnel analysis, causal inference |
 
 ## API Endpoint
 ```
@@ -160,7 +160,7 @@ Blocks: code execution (`eval`, `exec`), SQL injection, XSS, template injection,
 - **Version**: 3.0.0 Omega
 
 ---
-*Built by NeuroAether — From Kitchen to Code* 🧠
+*Built by NeuroAether — From Kitchen to Code* 
 
 ## Agent Safeguards
 

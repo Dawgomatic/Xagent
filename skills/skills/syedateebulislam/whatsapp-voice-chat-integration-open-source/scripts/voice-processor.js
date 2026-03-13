@@ -60,7 +60,7 @@ async function transcribeVoiceNote(audioFilePath) {
       return null;
     }
     
-    console.log(`[VOICE] ✅ Transcribed: "${text}"`);
+    console.log(`[VOICE]  Transcribed: "${text}"`);
     return text;
     
   } catch (e) {

@@ -1,7 +1,7 @@
 ---
 name: youtube-pro
 description: Advanced YouTube analysis, transcripts, and metadata extraction.
-metadata: {"clawdbot":{"emoji":"📺"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # YouTube Pro (Miss Kim Edition)

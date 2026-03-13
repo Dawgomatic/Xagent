@@ -1,8 +1,8 @@
 # Stock Analysis Skill - 安装完成
 
-## ✅ 技能已成功创建！
+##  技能已成功创建！
 
-### 📁 技能结构
+###  技能结构
 
 ```
 ~/.openclaw/skills/stock-analysis/
@@ -30,7 +30,7 @@
 
 ---
 
-## 🚀 快速开始
+##  快速开始
 
 ### 方法1：运行安装脚本（推荐）
 
@@ -59,7 +59,7 @@ start.bat
 
 ---
 
-## 📊 功能概览
+##  功能概览
 
 | 功能 | 脚本 | 说明 |
 |------|------|------|
@@ -71,7 +71,7 @@ start.bat
 
 ---
 
-## ⚙️ 用户配置
+##  用户配置
 
 默认投资偏好存储在 `config.json`：
 
@@ -96,7 +96,7 @@ start.bat
 
 ---
 
-## 📋 主要功能详解
+##  主要功能详解
 
 ### 1. 实时行情分析
 
@@ -173,7 +173,7 @@ openclaw cron add \
 
 ---
 
-## 🎯 使用场景
+##  使用场景
 
 ### 场景1：开盘前分析
 
@@ -208,7 +208,7 @@ openclaw cron add \
 
 ---
 
-## ⚠️ 重要提示
+##  重要提示
 
 ### 交易时间
 
@@ -230,7 +230,7 @@ openclaw cron add \
 
 ---
 
-## 🔧 故障排查
+##  故障排查
 
 ### 问题1: akshare 连接失败
 
@@ -258,7 +258,7 @@ pip install --upgrade akshare
 
 ---
 
-## 📚 相关文档
+##  相关文档
 
 - **SKILL.md**: 详细的 AI 决策指南和使用说明
 - **README.md**: 快速开始指南
@@ -266,7 +266,7 @@ pip install --upgrade akshare
 
 ---
 
-## 📞 支持
+##  支持
 
 如有问题或建议，请：
 1. 查看 SKILL.md 文档
@@ -275,7 +275,7 @@ pip install --upgrade akshare
 
 ---
 
-## 🎉 开始使用
+##  开始使用
 
 ```bash
 # 运行安装脚本
@@ -291,4 +291,4 @@ python ~/.openclaw/skills/stock-analysis/scripts/quick_analysis.py
 **创建日期**: 2026-02-16
 **最后更新**: 2026-02-16
 
-祝你投资顺利！📈
+祝你投资顺利！

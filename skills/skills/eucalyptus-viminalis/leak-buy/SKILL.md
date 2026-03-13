@@ -5,7 +5,7 @@ compatibility: Requires access to the internet
 version: 2026.2.17
 metadata:
   openclaw:
-    emoji: 🛒
+    emoji: 
     os: ["darwin", "linux"]
     requires:
       env:

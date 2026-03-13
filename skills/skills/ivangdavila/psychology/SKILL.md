@@ -1,7 +1,7 @@
 ---
 name: Psychology
 description: Navigate the mind from curiosity about behavior to clinical research.
-metadata: {"clawdbot":{"emoji":"🧠","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

@@ -41,7 +41,7 @@ class AutoUpdateSecurity {
         this.performScheduledUpdate();
       }, this.updateSchedule.checkInterval);
       
-      console.log('🛡️ Auto-update security system started');
+      console.log(' Auto-update security system started');
     }
   }
 
@@ -52,7 +52,7 @@ class AutoUpdateSecurity {
     if (this.updateInterval) {
       clearInterval(this.updateInterval);
       this.updateInterval = null;
-      console.log('🛡️ Auto-update security system stopped');
+      console.log(' Auto-update security system stopped');
     }
   }
 
@@ -60,7 +60,7 @@ class AutoUpdateSecurity {
    * Perform a scheduled update check
    */
   async performScheduledUpdate() {
-    console.log(`🔄 Performing scheduled security update at ${new Date().toISOString()}`);
+    console.log(` Performing scheduled security update at ${new Date().toISOString()}`);
     
     try {
       // Check for new threat patterns
@@ -73,9 +73,9 @@ class AutoUpdateSecurity {
       this.refreshSecurityMetrics();
       
       this.lastUpdate = new Date();
-      console.log('✅ Scheduled security update completed');
+      console.log(' Scheduled security update completed');
     } catch (error) {
-      console.error('❌ Error during scheduled update:', error);
+      console.error(' Error during scheduled update:', error);
     }
   }
 
@@ -142,7 +142,7 @@ class AutoUpdateSecurity {
    * Manual update trigger
    */
   async manualUpdate() {
-    console.log('🔄 Manual security update initiated');
+    console.log(' Manual security update initiated');
     await this.performScheduledUpdate();
   }
 
@@ -177,7 +177,7 @@ class AutoUpdateSecurity {
    * Emergency security hardening
    */
   async emergencyHardening() {
-    console.log('🚨 EMERGENCY SECURITY HARDENING INITIATED');
+    console.log(' EMERGENCY SECURITY HARDENING INITIATED');
     
     // Switch to strict mode
     this.protection.strictModeOverride = true;

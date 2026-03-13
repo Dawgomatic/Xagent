@@ -44,7 +44,7 @@ infsh app run x/post-tweet --input '{"text": "Hello from inference.sh!"}'
 ### Post a Tweet
 
 ```bash
-infsh app run x/post-tweet --input '{"text": "Just shipped a new feature! 🚀"}'
+infsh app run x/post-tweet --input '{"text": "Just shipped a new feature! "}'
 ```
 
 ### Post with Media
@@ -114,7 +114,7 @@ infsh app run falai/flux-dev-lora --input '{"prompt": "sunset over mountains"}' 
 
 # 2. Post to Twitter with the image URL
 infsh app run x/post-create --input '{
-  "text": "AI-generated art of a sunset 🌅",
+  "text": "AI-generated art of a sunset ",
   "media_url": "<image-url-from-step-1>"
 }'
 ```
@@ -127,7 +127,7 @@ infsh app run google/veo-3-1-fast --input '{"prompt": "waves on a beach"}' > vid
 
 # 2. Post to Twitter
 infsh app run x/post-create --input '{
-  "text": "AI-generated video 🎬",
+  "text": "AI-generated video ",
   "media_url": "<video-url-from-step-1>"
 }'
 ```

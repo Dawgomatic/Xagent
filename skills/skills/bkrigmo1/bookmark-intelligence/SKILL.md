@@ -1,4 +1,4 @@
-# 🔖 Bookmark Intelligence
+#  Bookmark Intelligence
 
 **Turn your X (Twitter) bookmarks into actionable insights, automatically.**
 
@@ -6,11 +6,11 @@ Bookmark Intelligence watches your X bookmarks, fetches the full content from li
 
 ---
 
-## 💎 Pricing & Tiers
+##  Pricing & Tiers
 
 Bookmark Intelligence offers three tiers to fit your needs:
 
-### 🆓 Free Tier
+###  Free Tier
 **Perfect for trying it out**
 - **Price:** $0/month
 - **10 bookmarks** per month
@@ -19,7 +19,7 @@ Bookmark Intelligence offers three tiers to fit your needs:
 - No notifications
 - Rate limited: 1 run per hour
 
-### ⭐ Pro Tier - $9/month
+###  Pro Tier - $9/month
 **Best for individuals**
 - **Unlimited bookmarks**
 - Automated monitoring (background daemon)
@@ -27,7 +27,7 @@ Bookmark Intelligence offers three tiers to fit your needs:
 - Telegram notifications
 - Priority support
 
-### 🚀 Enterprise Tier - $29/month
+###  Enterprise Tier - $29/month
 **For teams and power users**
 - Everything in Pro, plus:
 - Team sharing & collaboration
@@ -62,7 +62,7 @@ Bookmark Intelligence offers three tiers to fit your needs:
 
 ---
 
-## 📋 Quick Start
+##  Quick Start
 
 **Total setup time: ~5 minutes**
 
@@ -73,11 +73,11 @@ Bookmark Intelligence offers three tiers to fit your needs:
    ```
 
 2. **The wizard will:**
-   - ✅ Check if you have the required tools installed
-   - 🍪 Guide you through getting your X cookies (step-by-step)
-   - 🎯 Ask about your active projects & interests
-   - ⚙️ Configure notification preferences
-   - 🧪 Test your credentials
+   -  Check if you have the required tools installed
+   -  Guide you through getting your X cookies (step-by-step)
+   -  Ask about your active projects & interests
+   -  Configure notification preferences
+   -  Test your credentials
 
 3. **Run it once to process your current bookmarks:**
    ```bash
@@ -89,11 +89,11 @@ Bookmark Intelligence offers three tiers to fit your needs:
    npm run daemon
    ```
 
-That's it! You're done. 🎉
+That's it! You're done. 
 
 ---
 
-## 🎯 What It Does
+##  What It Does
 
 ### The Problem
 You bookmark tons of great content on X, but:
@@ -125,7 +125,7 @@ See [examples/sample-analysis.json](examples/sample-analysis.json) for a full ex
 
 ---
 
-## 🍪 Getting Your X Cookies (Step-by-Step)
+##  Getting Your X Cookies (Step-by-Step)
 
 You need two cookies from X.com. Don't worry, this is safe and takes 2 minutes.
 
@@ -148,7 +148,7 @@ You need two cookies from X.com. Don't worry, this is safe and takes 2 minutes.
 ├─────────────────────────────────────────┤
 │ ▼ Storage                               │
 │   ▼ Cookies                             │
-│     ▶ https://x.com      ← Click this   │
+│      https://x.com      ← Click this   │
 │                                         │
 │ Name          Value                     │
 │ auth_token    abc123...  ← Copy this    │
@@ -174,7 +174,7 @@ You need two cookies from X.com. Don't worry, this is safe and takes 2 minutes.
 4. Storage tab → Cookies → x.com
 5. Copy `auth_token` and `ct0`
 
-### ⚠️ Important Security Notes
+###  Important Security Notes
 
 - **These cookies are like your password** - they give full access to your X account
 - **Never share them with anyone**
@@ -190,7 +190,7 @@ CT0=your_other_token_here
 
 ---
 
-## 🛠️ Requirements
+##  Requirements
 
 ### Required
 - **Node.js** v16+ ([download here](https://nodejs.org))
@@ -209,7 +209,7 @@ The setup wizard checks all of this automatically!
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 After running `npm run setup`, you'll have two files:
 
@@ -246,7 +246,7 @@ You can edit `config.json` anytime. Changes take effect on next run.
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 ### Run Once (Process Current Bookmarks)
 ```bash
@@ -278,7 +278,7 @@ pm2 delete bookmark-intelligence   # Remove it completely
 
 ---
 
-## 📂 Where Does Everything Go?
+##  Where Does Everything Go?
 
 ```
 skills/bookmark-intelligence/
@@ -307,7 +307,7 @@ Each analyzed bookmark becomes a JSON file with:
 
 ---
 
-## 🔔 Notifications (OpenClaw Integration)
+##  Notifications (OpenClaw Integration)
 
 If you're running this inside OpenClaw (not standalone), you can get Telegram notifications for high-value insights.
 
@@ -316,17 +316,17 @@ If you're running this inside OpenClaw (not standalone), you can get Telegram no
 - `hasActionableInsights: true`
 
 **What you get:**
-- 📚 Summary of the content
-- 🎯 List of actionable items
-- 💡 Key concepts
-- 🔨 Implementation suggestions for your projects
-- 🔗 Link to the original tweet
+-  Summary of the content
+-  List of actionable items
+-  Key concepts
+-  Implementation suggestions for your projects
+-  Link to the original tweet
 
 See [examples/sample-notification.md](examples/sample-notification.md) for a full example.
 
 ---
 
-## 🧹 Uninstalling
+##  Uninstalling
 
 ```bash
 npm run uninstall
@@ -343,7 +343,7 @@ To reinstall later, just run `npm run setup` again.
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### "Missing Twitter credentials" error
 
@@ -422,7 +422,7 @@ The more specific you are, the better the AI can relate insights to your work!
 
 ---
 
-## 🔐 Privacy & Data
+##  Privacy & Data
 
 **Where is your data stored?**
 - Credentials: `.env` (local file, permissions: 600)
@@ -446,7 +446,7 @@ The more specific you are, the better the AI can relate insights to your work!
 
 ---
 
-## 🎨 Customization Ideas
+##  Customization Ideas
 
 Once you're comfortable with the basics, you can customize:
 
@@ -476,7 +476,7 @@ Add your own export script in `scripts/export-to-notion.js` - each bookmark is a
 
 ---
 
-## 📚 Examples
+##  Examples
 
 See the `examples/` folder:
 - **sample-analysis.json** - What a full analysis looks like
@@ -484,7 +484,7 @@ See the `examples/` folder:
 
 ---
 
-## 🐛 Found a Bug?
+##  Found a Bug?
 
 Open an issue on ClawHub or submit a PR!
 
@@ -495,13 +495,13 @@ Common issues:
 
 ---
 
-## 📜 License
+##  License
 
 MIT - Do whatever you want with it!
 
 ---
 
-## 💳 Payment & Licensing
+##  Payment & Licensing
 
 ### Accepted Payment Methods
 
@@ -566,7 +566,7 @@ npm run license:check
 
 ---
 
-## ❓ Frequently Asked Questions
+##  Frequently Asked Questions
 
 ### General
 
@@ -629,7 +629,7 @@ A: Run `npm run admin:revenue` to see stats.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Pull requests welcome! Areas for improvement:
 - Better content extraction (handle paywalls, PDFs, etc.)
@@ -640,6 +640,6 @@ Pull requests welcome! Areas for improvement:
 
 ---
 
-**Made with ❤️ for OpenClaw**
+**Made with  for OpenClaw**
 
 Questions? Check the troubleshooting section above or ask in the OpenClaw community!

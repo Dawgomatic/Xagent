@@ -1,7 +1,7 @@
 ---
 name: Neo4j
 description: Write Cypher queries with proper patterns for merging, traversal, and performance.
-metadata: {"clawdbot":{"emoji":"🕸️","requires":{"anyBins":["cypher-shell","neo4j"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["cypher-shell","neo4j"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## MERGE Trap

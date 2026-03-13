@@ -8,7 +8,7 @@ set -euo pipefail
 TARGET="${1:-$HOME/.openclaw/workspace}"
 FOUND=0
 
-echo "🔍 Scanning for secrets in: $TARGET"
+echo " Scanning for secrets in: $TARGET"
 echo "─────────────────────────────────────"
 
 # Patterns to search for
@@ -53,12 +53,12 @@ for i in "${!PATTERNS[@]}"; do
     matches=$(grep -rn $EXCLUDE -E "$pattern" "$TARGET" 2>/dev/null || true)
     
     if [ -n "$matches" ]; then
-        echo "⚠️  Possible $desc found:"
+        echo "  Possible $desc found:"
         echo "$matches" | head -5 | while read -r line; do
             # Mask the actual secret value
             file=$(echo "$line" | cut -d: -f1)
             lineno=$(echo "$line" | cut -d: -f2)
-            echo "   📄 $file:$lineno"
+            echo "    $file:$lineno"
         done
         count=$(echo "$matches" | wc -l | tr -d ' ')
         if [ "$count" -gt 5 ]; then
@@ -70,16 +70,16 @@ for i in "${!PATTERNS[@]}"; do
 done
 
 # Check for common secret file patterns
-echo "📁 Checking for sensitive files..."
+echo " Checking for sensitive files..."
 sensitive_files=$(find "$TARGET" -maxdepth 4 \
     \( -name ".env" -o -name ".env.local" -o -name "*.pem" -o -name "*.key" \
     -o -name "id_rsa" -o -name "id_ed25519" -o -name "credentials.json" \) \
     -not -path "*/node_modules/*" -not -path "*/.git/*" 2>/dev/null || true)
 
 if [ -n "$sensitive_files" ]; then
-    echo "⚠️  Sensitive files found:"
+    echo "  Sensitive files found:"
     echo "$sensitive_files" | while read -r f; do
-        echo "   📄 $f"
+        echo "    $f"
     done
     echo ""
     FOUND=1
@@ -87,9 +87,9 @@ fi
 
 echo "─────────────────────────────────────"
 if [ "$FOUND" -eq 1 ]; then
-    echo "🔴 Secrets detected — review and clean up!"
+    echo " Secrets detected — review and clean up!"
     exit 1
 else
-    echo "✅ No secrets found — workspace is clean"
+    echo " No secrets found — workspace is clean"
     exit 0
 fi

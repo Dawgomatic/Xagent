@@ -1,7 +1,7 @@
 ---
 name: microsoft-ads-mcp
 description: Create and manage Microsoft Advertising campaigns (Bing Ads / DuckDuckGo Ads) via MCP server - campaigns, ad groups, keywords, ads, and reporting
-metadata: {"clawdbot":{"emoji":"📢","requires":{"commands":["mcporter"]},"homepage":"https://github.com/Duartemartins/microsoft-ads-mcp-server"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"commands":["mcporter"]},"homepage":"https://github.com/Duartemartins/microsoft-ads-mcp-server"}}
 ---
 
 # Microsoft Ads MCP Server

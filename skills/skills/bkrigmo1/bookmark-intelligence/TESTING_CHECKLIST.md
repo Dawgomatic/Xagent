@@ -1,4 +1,4 @@
-# 🧪 Testing Checklist for ClawHub Release
+#  Testing Checklist for ClawHub Release
 
 ## Pre-Release Testing
 
@@ -27,10 +27,10 @@ ls -l .env  # Should show -rw------- (600)
 ```
 
 **Expected:**
-- ✅ Setup completes without errors
-- ✅ `.env` created with 600 permissions
-- ✅ `config.json` created with user's projects
-- ✅ Helpful, clear prompts throughout
+-  Setup completes without errors
+-  `.env` created with 600 permissions
+-  `config.json` created with user's projects
+-  Helpful, clear prompts throughout
 
 ---
 
@@ -50,10 +50,10 @@ npm run setup
 ```
 
 **Expected:**
-- ✅ Warns about missing required deps (bird)
-- ✅ Notes optional deps (pm2) are optional
-- ✅ Provides install commands
-- ✅ Allows continuing if user accepts risk
+-  Warns about missing required deps (bird)
+-  Notes optional deps (pm2) are optional
+-  Provides install commands
+-  Allows continuing if user accepts risk
 
 ---
 
@@ -70,9 +70,9 @@ npm run setup
 ```
 
 **Expected:**
-- ✅ Rejects credentials that are too short
-- ✅ Offers to retry
-- ✅ Provides helpful error messages
+-  Rejects credentials that are too short
+-  Offers to retry
+-  Provides helpful error messages
 
 ---
 
@@ -86,10 +86,10 @@ npm test
 ```
 
 **Expected:**
-- ✅ Shows what would be processed
-- ✅ Doesn't create bookmarks.json
-- ✅ Doesn't modify state
-- ✅ No errors
+-  Shows what would be processed
+-  Doesn't create bookmarks.json
+-  Doesn't modify state
+-  No errors
 
 ---
 
@@ -103,11 +103,11 @@ npm start
 ```
 
 **Expected:**
-- ✅ Fetches bookmarks successfully
-- ✅ Creates `bookmarks.json` state file
-- ✅ Analyzes at least one bookmark (if you have any)
-- ✅ Saves results to `../../life/resources/bookmarks/`
-- ✅ Valid JSON output files
+-  Fetches bookmarks successfully
+-  Creates `bookmarks.json` state file
+-  Analyzes at least one bookmark (if you have any)
+-  Saves results to `../../life/resources/bookmarks/`
+-  Valid JSON output files
 
 **Verify output:**
 ```bash
@@ -143,10 +143,10 @@ pm2 delete bookmark-intelligence
 ```
 
 **Expected:**
-- ✅ Daemon starts without errors
-- ✅ Shows as "online" in pm2 status
-- ✅ Logs show periodic checks
-- ✅ All pm2 commands work
+-  Daemon starts without errors
+-  Shows as "online" in pm2 status
+-  Logs show periodic checks
+-  All pm2 commands work
 
 ---
 
@@ -167,13 +167,13 @@ npm run uninstall
 ```
 
 **Expected:**
-- ✅ Stops PM2 daemon
-- ✅ Removes `.env`
-- ✅ Removes `config.json`
-- ✅ Removes `bookmarks.json`
-- ✅ Asks about keeping analyzed bookmarks
-- ✅ Respects user choice
-- ✅ Shows summary of what was removed
+-  Stops PM2 daemon
+-  Removes `.env`
+-  Removes `config.json`
+-  Removes `bookmarks.json`
+-  Asks about keeping analyzed bookmarks
+-  Respects user choice
+-  Shows summary of what was removed
 
 **Verify:**
 ```bash
@@ -196,9 +196,9 @@ npm start
 ```
 
 **Expected:**
-- ✅ Setup works normally
-- ✅ Doesn't have leftover state from previous install
-- ✅ Works as if fresh install
+-  Setup works normally
+-  Doesn't have leftover state from previous install
+-  Works as if fresh install
 
 ---
 
@@ -214,11 +214,11 @@ npm start
 5. Verify troubleshooting solutions work
 
 **Expected:**
-- ✅ No broken links
-- ✅ All commands work as documented
-- ✅ File paths are correct
-- ✅ Examples match actual output
-- ✅ Beginner-friendly language
+-  No broken links
+-  All commands work as documented
+-  File paths are correct
+-  Examples match actual output
+-  Beginner-friendly language
 
 ---
 
@@ -235,10 +235,10 @@ git status  # Verify .env not staged
 ```
 
 **Expected:**
-- ✅ `.env` has 600 permissions (owner only)
-- ✅ `.env` in `.gitignore`
-- ✅ Git doesn't track `.env`
-- ✅ `config.json` NOT in .gitignore (it's safe to share)
+-  `.env` has 600 permissions (owner only)
+-  `.env` in `.gitignore`
+-  Git doesn't track `.env`
+-  `config.json` NOT in .gitignore (it's safe to share)
 
 ---
 
@@ -259,9 +259,9 @@ cat examples/sample-analysis.json
 ```
 
 **Expected:**
-- ✅ Example JSON structure matches actual output
-- ✅ All fields in example exist in real output
-- ✅ Example is realistic and helpful
+-  Example JSON structure matches actual output
+-  All fields in example exist in real output
+-  Example is realistic and helpful
 
 ---
 
@@ -276,28 +276,28 @@ cat examples/sample-analysis.json
 # Edit .env with garbage
 npm start
 ```
-Expected: ✅ Clear error message, suggests fixing .env
+Expected:  Clear error message, suggests fixing .env
 
 **B. No internet:**
 ```bash
 # Disconnect network
 npm start
 ```
-Expected: ✅ Doesn't crash, reports network error
+Expected:  Doesn't crash, reports network error
 
 **C. No bookmarks:**
 ```bash
 # With account that has 0 bookmarks
 npm start
 ```
-Expected: ✅ Reports "No bookmarks found", exits gracefully
+Expected:  Reports "No bookmarks found", exits gracefully
 
 **D. Malformed config.json:**
 ```bash
 echo "{invalid json" > config.json
 npm start
 ```
-Expected: ✅ Reports config error, doesn't crash mysteriously
+Expected:  Reports config error, doesn't crash mysteriously
 
 ---
 
@@ -315,9 +315,9 @@ npm start
 ```
 
 **Expected:**
-- ✅ Works on all platforms
-- ✅ File paths resolve correctly
-- ✅ Permissions work correctly
+-  Works on all platforms
+-  File paths resolve correctly
+-  Permissions work correctly
 
 ---
 
@@ -333,10 +333,10 @@ npm start
 3. Only use documented commands
 
 **Expected:**
-- ✅ Can complete setup without confusion
-- ✅ Understands what's happening at each step
-- ✅ Gets working skill at the end
-- ✅ Knows how to use it daily
+-  Can complete setup without confusion
+-  Understands what's happening at each step
+-  Gets working skill at the end
+-  Knows how to use it daily
 
 ---
 
@@ -390,10 +390,10 @@ These should be in SKILL.md troubleshooting!
 ## Success Criteria
 
 The skill is ready for ClawHub when:
-- ✅ Fresh install works without ANY manual file editing
-- ✅ A non-technical user can set it up in under 10 minutes
-- ✅ All documented commands work
-- ✅ Error messages are helpful, not cryptic
-- ✅ Examples match reality
-- ✅ Security is solid (credentials protected)
-- ✅ Uninstall is clean
+-  Fresh install works without ANY manual file editing
+-  A non-technical user can set it up in under 10 minutes
+-  All documented commands work
+-  Error messages are helpful, not cryptic
+-  Examples match reality
+-  Security is solid (credentials protected)
+-  Uninstall is clean

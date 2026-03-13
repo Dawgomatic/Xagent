@@ -4,7 +4,7 @@ description: "Monitor and manage Rollbar error tracking. List recent items, get 
 homepage: https://github.com/vittor1o/rollbar-openclaw-skill
 metadata:
   openclaw:
-    emoji: "🐛"
+    emoji: ""
     requires:
       env:
         - ROLLBAR_ACCESS_TOKEN
@@ -25,7 +25,7 @@ Set your Rollbar access token as an environment variable:
 export ROLLBAR_ACCESS_TOKEN=your-token
 ```
 
-> **⚠️ Security:** Store tokens in environment variables or a secure secret manager — never commit them to repository files.
+> ** Security:** Store tokens in environment variables or a secure secret manager — never commit them to repository files.
 
 **Two token types are supported:**
 

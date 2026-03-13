@@ -12,7 +12,7 @@ if [ -z "$CONVERSATION_NAME" ] || [ -z "$MESSAGE_TEXT" ]; then
     exit 1
 fi
 
-echo "💬 Sending message to: $CONVERSATION_NAME"
+echo " Sending message to: $CONVERSATION_NAME"
 
 # Ensure we're on LinkedIn messaging
 CURRENT_URL=$(peekaboo see --app "Google Chrome" --json 2>/dev/null | jq -r '.url // empty' || echo "")
@@ -52,4 +52,4 @@ echo "Sending..."
 peekaboo press return --app "Google Chrome"
 sleep 1
 
-echo "✅ Message sent to $CONVERSATION_NAME"
+echo " Message sent to $CONVERSATION_NAME"

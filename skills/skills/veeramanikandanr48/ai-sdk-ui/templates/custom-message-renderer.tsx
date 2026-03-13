@@ -160,7 +160,7 @@ export default function ChatWithCustomRenderer() {
         {messages.length === 0 && (
           <div className="flex items-center justify-center h-full text-center">
             <div>
-              <div className="text-6xl mb-4">✨</div>
+              <div className="text-6xl mb-4"></div>
               <h2 className="text-xl font-semibold text-gray-700">
                 Try asking for code examples
               </h2>

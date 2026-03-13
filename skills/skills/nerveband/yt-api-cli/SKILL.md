@@ -1,7 +1,7 @@
 ---
 name: yt-api-cli
 description: Manage your YouTube account from the command line. Complete CLI for YouTube Data API v3 - list/search videos, upload, manage playlists, and more.
-metadata: {"clawdbot":{"emoji":"▶️","os":["darwin","linux"],"requires":{"env":["YT_API_AUTH_TYPE", "YT_API_CLIENT_ID", "YT_API_CLIENT_SECRET"]}}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin","linux"],"requires":{"env":["YT_API_AUTH_TYPE", "YT_API_CLIENT_ID", "YT_API_CLIENT_SECRET"]}}}
 ---
 
 # yt-api-cli

@@ -1,6 +1,6 @@
 # SAP FICO Expert — OpenClaw Skill
 
-## 📋 Overview
+##  Overview
 
 | Property | Value |
 |----------|-------|
@@ -11,11 +11,11 @@
 | **Language** | French technical SAP terminology |
 | **Author** | @chanfouricc |
 
-## 🎯 Objective
+##  Objective
 
 Transform any OpenClaw bot into a **Senior SAP Finance & Controlling consultant** capable of answering configuration, troubleshooting, cross-module integration, and S/4HANA migration questions with production-grade accuracy.
 
-## 📁 Skill Structure
+##  Skill Structure
 
 ```
 sap-fico-skill/
@@ -29,7 +29,7 @@ sap-fico-skill/
     └── error_codes.md        # Common FI/CO error messages
 ```
 
-## 🚀 Installation on OpenClaw
+##  Installation on OpenClaw
 
 ### 1. Copy the skill to your VPS
 
@@ -69,7 +69,7 @@ The skill activates automatically when a message contains an SAP keyword. Altern
 /skill sap-fico-expert
 ```
 
-## 🔧 Recommended Settings
+##  Recommended Settings
 
 | Parameter | Value | Rationale |
 |-----------|-------|-----------|
@@ -78,9 +78,9 @@ The skill activates automatically when a message contains an SAP keyword. Altern
 | `presence_penalty` | 0.1 | Slight lexical diversity without drift |
 | `model` | `deepseek-chat` | Default; switches to `deepseek-coder` when ABAP detected |
 
-> ⚠️ **Note**: The original 450 token limit was raised to 600. Responses involving cross-module integrations or S/4HANA migrations need more space to remain actionable.
+>  **Note**: The original 450 token limit was raised to 600. Responses involving cross-module integrations or S/4HANA migrations need more space to remain actionable.
 
-## 📊 Coverage
+##  Coverage
 
 ### Tier 1 — Core expertise (immediate answers)
 - Configuration: FI-GL, FI-AP, FI-AR, FI-AA, FI-BL
@@ -103,7 +103,7 @@ The skill activates automatically when a message contains an SAP keyword. Altern
 - Intercompany processing & reconciliation
 - Tax reporting (VAT, Withholding tax, Intrastat)
 
-## 🧪 Testing
+##  Testing
 
 ### Quick validation questions
 
@@ -117,15 +117,15 @@ The skill activates automatically when a message contains an SAP keyword. Altern
 
 ### Quality criteria
 
-- ✅ T-code mentioned on the first line
-- ✅ Relevant SAP tables listed
-- ✅ Configuration referenced when applicable
-- ✅ Cross-module impacts flagged
-- ✅ S/4HANA differences mentioned when relevant
-- ✅ Expert but accessible tone
-- ✅ Response in French technical SAP terminology
+-  T-code mentioned on the first line
+-  Relevant SAP tables listed
+-  Configuration referenced when applicable
+-  Cross-module impacts flagged
+-  S/4HANA differences mentioned when relevant
+-  Expert but accessible tone
+-  Response in French technical SAP terminology
 
-## 📝 Changelog
+##  Changelog
 
 | Version | Date | Changes |
 |---------|------|---------|

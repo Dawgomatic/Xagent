@@ -3,7 +3,7 @@ name: Agency
 slug: agency
 version: 1.0.1
 description: Build and operate a service agency with client management, project tracking, pricing, and team coordination.
-metadata: {"clawdbot":{"emoji":"🏢","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

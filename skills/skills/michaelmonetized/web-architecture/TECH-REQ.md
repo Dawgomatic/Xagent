@@ -397,8 +397,8 @@ export async function sendWelcomeEmail(email: string, name: string) {
 import { PiRocketLight, PiUserLight, PiChartLineUpLight } from 'react-icons/pi';
 
 // Never use other weights
-// ❌ PiRocket, PiRocketBold, PiRocketFill, PiRocketDuotone
-// ✅ PiRocketLight
+//  PiRocket, PiRocketBold, PiRocketFill, PiRocketDuotone
+//  PiRocketLight
 ```
 
 **Icon Categories**:

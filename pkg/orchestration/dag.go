@@ -182,14 +182,14 @@ func (dag *TaskDAG) Summary() string {
 	sb.WriteString(fmt.Sprintf("## Task DAG: %s\n\n", dag.Goal))
 
 	for _, node := range dag.Nodes {
-		marker := "⬜"
+		marker := ""
 		switch node.Status {
 		case "completed":
-			marker = "✅"
+			marker = ""
 		case "running":
-			marker = "🔄"
+			marker = ""
 		case "failed":
-			marker = "❌"
+			marker = ""
 		}
 
 		deps := ""

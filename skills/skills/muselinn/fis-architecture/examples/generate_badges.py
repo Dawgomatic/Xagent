@@ -12,13 +12,13 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from subagent_lifecycle import SubAgentLifecycleManager, SubAgentRole
 
 def main():
-    print("🎫 FIS 3.1 Lite - 工卡图片生成")
+    print(" FIS 3.1 Lite - 工卡图片生成")
     print("=" * 50)
     
     manager = SubAgentLifecycleManager("cybermao")
     
     # 场景1: 创建并生成单张工卡
-    print("\n📋 场景1: 创建 Worker 并生成工卡图片")
+    print("\n 场景1: 创建 Worker 并生成工卡图片")
     print("-" * 40)
     
     worker = manager.spawn(
@@ -31,11 +31,11 @@ def main():
     
     # 生成工卡图片
     image_path = manager.generate_badge_image(worker['employee_id'])
-    print(f"✅ 工号: {worker['employee_id']}")
-    print(f"✅ 工卡图片: {image_path}")
+    print(f" 工号: {worker['employee_id']}")
+    print(f" 工卡图片: {image_path}")
     
     # 场景2: 批量生成多张工卡（平铺布局）
-    print("\n📋 场景2: 批量生成工卡图片（避免消息轰炸）")
+    print("\n 场景2: 批量生成工卡图片（避免消息轰炸）")
     print("-" * 40)
     
     # 创建更多子代理
@@ -62,23 +62,23 @@ def main():
         researcher['employee_id']
     ])
     
-    print(f"✅ 批量工卡图片: {multi_path}")
+    print(f" 批量工卡图片: {multi_path}")
     print(f"   包含: Worker + Reviewer + Researcher (3合1)")
     
     # 场景3: 获取所有活跃子代理并生成总览
-    print("\n📋 场景3: 生成团队总览图片")
+    print("\n 场景3: 生成团队总览图片")
     print("-" * 40)
     
     active = manager.list_active()
     if len(active) > 1:
         # 最多4张平铺 (2x2 网格)
         team_image = manager.generate_multi_badge_image()
-        print(f"✅ 团队总览: {team_image}")
+        print(f" 团队总览: {team_image}")
         print(f"   包含 {len(active)} 个活跃子代理")
     
     # 输出使用建议
     print("\n" + "=" * 50)
-    print("💡 使用建议")
+    print(" 使用建议")
     print("=" * 50)
     print("""
 在 WhatsApp/Feishu 发送工卡:

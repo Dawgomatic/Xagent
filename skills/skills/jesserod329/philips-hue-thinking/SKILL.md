@@ -2,7 +2,7 @@
 name: philips-hue-thinking
 description: Visual AI activity indicator using Philips Hue lights. Pulse red when thinking, green when done.
 homepage: https://github.com/yourusername/philips-hue-thinking
-metadata: {"clawdbot":{"emoji":"🚦","requires":{"bins":["hue"]},"install":[{"id":"manual","kind":"manual","label":"Copy hue script to PATH"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["hue"]},"install":[{"id":"manual","kind":"manual","label":"Copy hue script to PATH"}]}}
 ---
 
 # Philips Hue Thinking Indicator
@@ -17,9 +17,9 @@ Turns a Philips Hue light into an **AI activity indicator**:
 
 | Light State | Meaning |
 |-------------|---------|
-| 🟢 **Green** | Ready / Done / Idle |
-| 🔴 **Pulsing Red** | AI is thinking, analyzing, or planning |
-| 🔴 **Solid Red** | AI is actively building/working |
+|  **Green** | Ready / Done / Idle |
+|  **Pulsing Red** | AI is thinking, analyzing, or planning |
+|  **Solid Red** | AI is actively building/working |
 
 ## Why Use This?
 
@@ -46,9 +46,9 @@ hue setup 192.168.1.100
 hue lights
 
 # Output:
-#   2: Bed room 1 💡 ON
-#   3: Bedroom 2 ⚫ OFF
-#   5: Front door 💡 ON  ← Use this one
+#   2: Bed room 1  ON
+#   3: Bedroom 2  OFF
+#   5: Front door  ON  ← Use this one
 ```
 
 ### 3. Use It
@@ -133,13 +133,13 @@ hue pulse 5 --color red
 **Planning Mode:**
 ```
 User: "Planning mode — I want to build a website"
-AI:  [runs 'hue thinking 5'] 🔴 Pulsing...
+AI:  [runs 'hue thinking 5']  Pulsing...
      "Here are my questions..."
 User: [answers]
-AI:  [runs 'hue done 5'] ✅ Green
+AI:  [runs 'hue done 5']  Green
      "Starting build now..."
-     [runs 'hue thinking 5'] 🔴 Solid red while building
-AI:  [runs 'hue done 5'] ✅ Green
+     [runs 'hue thinking 5']  Solid red while building
+AI:  [runs 'hue done 5']  Green
      "Done!"
 ```
 

@@ -1,7 +1,7 @@
 ---
 name: sentinel
 description: Transform an Android phone with IP Webcam into an intelligent Edge AI security system with OpenClaw.
-metadata: {"clawdbot":{"emoji":"🛡️","requires":{"bins":["compare","curl","awk"]},"install":[{"id":"apt","kind":"apt","packages":["imagemagick"],"bins":["compare"],"label":"Install ImageMagick (apt)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["compare","curl","awk"]},"install":[{"id":"apt","kind":"apt","packages":["imagemagick"],"bins":["compare"],"label":"Install ImageMagick (apt)"}]}}
 ---
 
 # Security monitoring over IP Camera Android app

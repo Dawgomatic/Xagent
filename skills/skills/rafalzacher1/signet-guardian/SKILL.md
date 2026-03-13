@@ -1,7 +1,7 @@
 ---
 name: signet-guardian
 description: "Payment guard middleware for AI agents. Use whenever any skill is about to initiate a payment. Runs a preflight check against the user's policy (payments enabled, per-transaction limit, monthly cap). Returns ALLOW, DENY, or CONFIRM_REQUIRED. Other payment-capable skills must call signet-preflight before proceeding and signet-record after a successful payment."
-metadata: {"openclaw":{"emoji":"🛡️","homepage":"https://getsignet.xyz"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://getsignet.xyz"}}
 ---
 
 # Signet Guardian — Payment Guard Middleware

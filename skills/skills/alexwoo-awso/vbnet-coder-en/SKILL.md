@@ -218,17 +218,17 @@ Dim customers As New List(Of Customer)(expectedCount)  ' Avoid reallocations
 
 ## COMMON ANTI-PATTERNS TO AVOID
 
-❌ **Option Strict Off** - causes runtime errors, performance issues
-❌ **Async void methods** - unobservable exceptions (except event handlers)
-❌ **Blocking async code** - `.Result`, `.Wait()` cause deadlocks
-❌ **Catching Exception without logging** - swallows errors
-❌ **Not disposing IDisposable** - memory/resource leaks
-❌ **Using == for strings** - culture-dependent, use `.Equals()` with `StringComparison`
-❌ **String concatenation in loops** - O(n²) performance
-❌ **Not using Using statement** - resources not released on exception
-❌ **Hungarian notation** - outdated, conflicts with modern style
-❌ **Magic numbers** - use named constants
-❌ **Deep nesting** - extract methods, early returns
+ **Option Strict Off** - causes runtime errors, performance issues
+ **Async void methods** - unobservable exceptions (except event handlers)
+ **Blocking async code** - `.Result`, `.Wait()` cause deadlocks
+ **Catching Exception without logging** - swallows errors
+ **Not disposing IDisposable** - memory/resource leaks
+ **Using == for strings** - culture-dependent, use `.Equals()` with `StringComparison`
+ **String concatenation in loops** - O(n²) performance
+ **Not using Using statement** - resources not released on exception
+ **Hungarian notation** - outdated, conflicts with modern style
+ **Magic numbers** - use named constants
+ **Deep nesting** - extract methods, early returns
 
 ---
 

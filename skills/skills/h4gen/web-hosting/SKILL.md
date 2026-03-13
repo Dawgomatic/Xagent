@@ -4,7 +4,7 @@ description: Meta-skill for zero-friction deployment of local web projects to pr
 homepage: https://clawhub.ai
 user-invocable: true
 disable-model-invocation: false
-metadata: {"openclaw":{"emoji":"🚀","requires":{"bins":["git","node","npm","npx"],"env":["MATON_API_KEY"],"config":[]},"note":"Requires local installation of github-api, vercel or netlify, and optionally domain-dns-ops/api-gateway for custom infra or DNS operations."}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["git","node","npm","npx"],"env":["MATON_API_KEY"],"config":[]},"note":"Requires local installation of github-api, vercel or netlify, and optionally domain-dns-ops/api-gateway for custom infra or DNS operations."}}
 ---
 
 # Purpose

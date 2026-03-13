@@ -139,8 +139,8 @@ async function main() {
     options.screenshot = args[screenshotIdx + 1];
   }
   
-  console.error(`🌐 Browsing: ${url}`);
-  if (options.proxy) console.error('🔒 Using Smartproxy');
+  console.error(` Browsing: ${url}`);
+  if (options.proxy) console.error(' Using Smartproxy');
   
   const result = await browse(url, options);
   

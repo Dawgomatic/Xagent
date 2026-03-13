@@ -6,13 +6,13 @@ A Clawdbot skill that spawns sub-agents to analyze ideas from multiple expert pe
 
 When you say "send this to the council" or "council of the wise," Clawdbot:
 
-1. Sends a loading message: `🏛️ *The Council convenes...* (this takes 2-5 minutes)`
+1. Sends a loading message: ` *The Council convenes...* (this takes 2-5 minutes)`
 2. Spawns a sub-agent that analyzes your idea through multiple lenses:
 
-- **👹 Devil's Advocate** — Challenges assumptions, finds weaknesses
-- **🏗️ Architect** — High-level structure and design
-- **🛠️ Engineer** — Implementation feasibility and details
-- **🎨 Artist** — Voice, style, and user experience
+- ** Devil's Advocate** — Challenges assumptions, finds weaknesses
+- ** Architect** — High-level structure and design
+- ** Engineer** — Implementation feasibility and details
+- ** Artist** — Voice, style, and user experience
 
 The sub-agent returns a synthesized report with insights, concerns, and recommendations from each perspective.
 
@@ -44,9 +44,9 @@ cp -r council/ ~/clawd/skills/council/
 
 **Output:**
 ```
-## 🏛️ Council of the Wise — AI Bug Bounty Tool
+##  Council of the Wise — AI Bug Bounty Tool
 
-### 👹 Devil's Advocate
+###  Devil's Advocate
 I've seen three ways this dies:
 
 1. **Token costs eat your bounties.** Running GPT-4 on every subdomain? 
@@ -60,7 +60,7 @@ I've seen three ways this dies:
 Path forward: Start with ONE program. Track tokens religiously. Keep human 
 approval before any active testing.
 
-### 🏗️ Architect  
+###  Architect  
 The fundamental constraint is the human-AI handoff. Structure it as three layers:
 
 1. **Recon Layer** (fully automated): subdomains, ports, tech stack
@@ -70,7 +70,7 @@ The fundamental constraint is the human-AI handoff. Structure it as three layers
 The AI should be a force multiplier for your attention, not a replacement. 
 Design the handoff points explicitly.
 
-### 🛠️ Engineer
+###  Engineer
 Concrete build plan:
 
 - **Week 1:** Scope parser + subfinder + httpx pipeline (no AI yet)
@@ -81,7 +81,7 @@ Concrete build plan:
 Start with tools you know: Python, existing recon tools, Claude API. 
 Don't build a framework — build a workflow.
 
-### 🎨 Artist
+###  Artist
 The experience should feel like a skilled research assistant, not a robot:
 
 - Notifications should sound human: "Found 3 interesting endpoints on 
@@ -89,7 +89,7 @@ The experience should feel like a skilled research assistant, not a robot:
 - Let the user name campaigns, add notes, build a narrative
 - The tool should remember context: "Last time on this program, you found..."
 
-### ⚖️ Synthesis
+###  Synthesis
 **Do it, but small.** The council agrees on:
 - Start with ONE HackerOne program
 - Track token costs from day one
@@ -104,7 +104,7 @@ Architect wants to design the human-AI handoff carefully first. Both valid —
 depends on whether you're exploring or committing.
 
 ---
-📊 **Token Usage:** ~2.1k input / ~1.8k output tokens *(estimated)*
+ **Token Usage:** ~2.1k input / ~1.8k output tokens *(estimated)*
 ```
 
 ## Adding Custom Agents

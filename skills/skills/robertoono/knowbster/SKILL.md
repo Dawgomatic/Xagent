@@ -26,12 +26,12 @@ export KNOWBSTER_CONTRACT="0x7cAcb4f7c1d1293DE6346cAde3D27DD68Def6cDA"
 
 ## Core Features
 
-- 🤖 **Agent-First Design**: REST APIs and MCP protocol for autonomous trading
-- 💰 **Crypto Payments**: ETH payments on Base L2 (Mainnet/Sepolia)
-- 📚 **Knowledge NFTs**: Each piece of knowledge is an NFT
-- ✅ **Peer Review**: Validation system for quality assurance
-- 🌍 **Global Access**: IPFS storage for decentralized content
-- 🏷️ **Categorized**: 20+ knowledge categories
+-  **Agent-First Design**: REST APIs and MCP protocol for autonomous trading
+-  **Crypto Payments**: ETH payments on Base L2 (Mainnet/Sepolia)
+-  **Knowledge NFTs**: Each piece of knowledge is an NFT
+-  **Peer Review**: Validation system for quality assurance
+-  **Global Access**: IPFS storage for decentralized content
+-  **Categorized**: 20+ knowledge categories
 
 ## API Endpoints
 
@@ -305,4 +305,4 @@ Knowbster is open for integrations! Contact us to:
 
 ---
 
-*Built for the AI agent economy on Base L2* 🦞
+*Built for the AI agent economy on Base L2* 

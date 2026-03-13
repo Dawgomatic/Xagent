@@ -64,14 +64,14 @@ jq --argjson rei "$REI_PROVIDER" '.models.providers.rei = $rei' "$CONFIG_FILE" >
 # Add rei to model allowlist so switching works
 jq '.agents.defaults.models["rei/rei-qwen3-coder"] = {"alias": "rei"}' "$CONFIG_FILE" > "${CONFIG_FILE}.tmp" && mv "${CONFIG_FILE}.tmp" "$CONFIG_FILE"
 
-echo "✅ Rei provider added to config"
-echo "✅ Rei added to model allowlist"
+echo " Rei provider added to config"
+echo " Rei added to model allowlist"
 echo ""
 echo "Restarting Clawdbot gateway..."
 clawdbot gateway restart
 
 echo ""
-echo "✅ Done! You can now use rei/rei-qwen3-coder"
+echo " Done! You can now use rei/rei-qwen3-coder"
 echo ""
 echo "Switch to Rei:  /model rei  OR  ./scripts/switch.sh rei"
 echo "Switch back:    /model opus OR  ./scripts/switch.sh opus"

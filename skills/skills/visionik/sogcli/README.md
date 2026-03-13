@@ -1,4 +1,4 @@
-# 📬 sog — Standards Ops Gadget
+#  sog — Standards Ops Gadget
 
 > **CLI for Open Standards** — Mail, Calendar, Contacts, Tasks, Files via IMAP/SMTP/CalDAV/CardDAV/WebDAV
 
@@ -9,25 +9,25 @@ The **open-standards** counterpart to [gog](https://github.com/steipete/gog) (Go
 
 ---
 
-## ✨ Features
+##  Features
 
 | Module | Protocol | Description |
 |--------|----------|-------------|
-| 📧 **Mail** | IMAP/SMTP | Search, send, reply, forward, folders, drafts |
-| 📅 **Calendar** | CalDAV | Events, create, update, search, today, week |
-| 👥 **Contacts** | CardDAV | List, search, create, update, delete |
-| ✅ **Tasks** | CalDAV VTODO | Add, complete, due dates, priorities, clear |
-| 📁 **Files** | WebDAV | List, upload, download, move, copy, delete |
-| 📨 **Invites** | iTIP/iMIP | Send, reply, cancel meeting invitations |
+|  **Mail** | IMAP/SMTP | Search, send, reply, forward, folders, drafts |
+|  **Calendar** | CalDAV | Events, create, update, search, today, week |
+|  **Contacts** | CardDAV | List, search, create, update, delete |
+|  **Tasks** | CalDAV VTODO | Add, complete, due dates, priorities, clear |
+|  **Files** | WebDAV | List, upload, download, move, copy, delete |
+|  **Invites** | iTIP/iMIP | Send, reply, cancel meeting invitations |
 
 **Extras:**
-- 🤖 **AI-friendly** — `--ai-help` outputs comprehensive docs for LLMs
-- 🔄 **gog/mog-compatible** — Same flags and patterns for muscle memory
-- 🔐 **Secure** — Passwords stored in system keychain
+-  **AI-friendly** — `--ai-help` outputs comprehensive docs for LLMs
+-  **gog/mog-compatible** — Same flags and patterns for muscle memory
+-  **Secure** — Passwords stored in system keychain
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Install
@@ -61,7 +61,7 @@ sog invite send "Project Kickoff" alice@example.com bob@example.com \
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 # Go install (recommended)
@@ -75,7 +75,7 @@ go build -o sog ./cmd/sog
 
 ---
 
-## ⚙️ Setup
+##  Setup
 
 ### 1. Add Account
 
@@ -110,7 +110,7 @@ sog auth password you@example.com \
 
 ---
 
-## 📖 Command Reference
+##  Command Reference
 
 ### Global Options
 
@@ -126,7 +126,7 @@ sog auth password you@example.com \
 
 ---
 
-### 📧 Mail
+###  Mail
 
 ```bash
 sog mail list [folder]               # List messages
@@ -159,7 +159,7 @@ sog drafts send <uid>
 
 ---
 
-### 📅 Calendar
+###  Calendar
 
 ```bash
 sog cal list                         # Upcoming events
@@ -182,7 +182,7 @@ sog cal calendars                    # List calendars
 
 ---
 
-### 📁 Files (WebDAV)
+###  Files (WebDAV)
 
 ```bash
 sog drive ls                         # Root folder
@@ -203,7 +203,7 @@ sog drive delete /file.pdf
 
 ---
 
-### ✅ Tasks
+###  Tasks
 
 ```bash
 sog tasks lists                      # List task lists
@@ -229,7 +229,7 @@ sog tasks clear                      # Clear completed
 
 ---
 
-### 👥 Contacts
+###  Contacts
 
 ```bash
 sog contacts list
@@ -247,7 +247,7 @@ sog contacts books                   # List address books
 
 ---
 
-### 📨 Meeting Invites
+###  Meeting Invites
 
 ```bash
 # Send invitation
@@ -273,7 +273,7 @@ sog invite preview "Meeting" alice@example.com --start "2025-01-15T10:00"
 
 ---
 
-### 🔔 IMAP IDLE
+###  IMAP IDLE
 
 ```bash
 sog idle                             # Watch INBOX for new mail
@@ -283,7 +283,7 @@ sog idle --timeout 300               # 5-minute timeout
 
 ---
 
-## 🤖 AI-Friendly
+##  AI-Friendly
 
 Run `sog --ai-help` for comprehensive documentation including:
 
@@ -294,7 +294,7 @@ Run `sog --ai-help` for comprehensive documentation including:
 
 ---
 
-## 🔄 gog/mog Compatibility
+##  gog/mog Compatibility
 
 sog follows [gog](https://github.com/steipete/gog) and [mog](https://github.com/visionik/mogcli) patterns:
 
@@ -307,7 +307,7 @@ sog follows [gog](https://github.com/steipete/gog) and [mog](https://github.com/
 
 ---
 
-## 🗂️ Configuration
+##  Configuration
 
 | File | Purpose |
 |------|---------|
@@ -322,22 +322,22 @@ sog follows [gog](https://github.com/steipete/gog) and [mog](https://github.com/
 
 ---
 
-## ✅ Tested Providers
+##  Tested Providers
 
 | Provider | IMAP/SMTP | CalDAV | CardDAV | WebDAV |
 |----------|-----------|--------|---------|--------|
-| **Fastmail** | ✅ | ✅ | ✅ | ✅ |
+| **Fastmail** |  |  |  |  |
 
 *Other standards-compliant providers should work but have not been tested yet.*
 
 ---
 
-## 📄 License
+##  License
 
 MIT
 
 ---
 
-## 👨‍💻 Developed By
+##  Developed By
 
-**[visionik](mailto:visionik@pobox.com)** and **Vinston 🐺** ([Clawdbot](https://github.com/clawdbot/clawdbot)) using the visionik.md framework/skill.
+**[visionik](mailto:visionik@pobox.com)** and **Vinston ** ([Clawdbot](https://github.com/clawdbot/clawdbot)) using the visionik.md framework/skill.

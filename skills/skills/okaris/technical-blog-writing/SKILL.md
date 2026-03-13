@@ -124,13 +124,13 @@ Structure:
 ### What Developers Hate
 
 ```
-❌ "In today's fast-paced world of technology..." (filler)
-❌ "As we all know..." (if we all know, why are you writing it?)
-❌ "Simply do X" (nothing is simple if you're reading a tutorial)
-❌ "It's easy to..." (dismissive of reader's experience)
-❌ "Obviously..." (if it's obvious, don't write it)
-❌ Marketing language in technical content
-❌ Burying the lede under 3 paragraphs of context
+ "In today's fast-paced world of technology..." (filler)
+ "As we all know..." (if we all know, why are you writing it?)
+ "Simply do X" (nothing is simple if you're reading a tutorial)
+ "It's easy to..." (dismissive of reader's experience)
+ "Obviously..." (if it's obvious, don't write it)
+ Marketing language in technical content
+ Burying the lede under 3 paragraphs of context
 ```
 
 ### Code Examples

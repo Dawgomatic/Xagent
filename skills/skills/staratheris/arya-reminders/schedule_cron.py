@@ -25,7 +25,7 @@ def main():
       "kind": "agentTurn",
       "message": (
         "Envía este recordatorio por Telegram. No hagas preguntas. "
-        f"Texto: ⏰ Recordatorio: {args.message}"
+        f"Texto:  Recordatorio: {args.message}"
       ),
       "timeoutSeconds": 60,
       "deliver": True,

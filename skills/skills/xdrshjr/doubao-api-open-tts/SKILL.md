@@ -15,12 +15,12 @@ Text-to-Speech (TTS) service using Doubao (Volcano Engine) API V1 interface to c
 
 ## Features
 
-- 🎙️ **200+ Voice Options** - Default: Shiny (灿灿) for general scenarios
-- 🔊 **Multiple Audio Formats** - Supports mp3, pcm, wav
-- ⚡ **Adjustable Parameters** - Speed and volume control
-- 📦 **Dual Interface** - Command-line tool + Python API
-- 🎯 **Voice Categorization** - Browse voices by category
-- 🔐 **Mandatory API Configuration** - Requires API credentials; stops and prompts user if not configured (default voice only available with explicit user confirmation)
+-  **200+ Voice Options** - Default: Shiny (灿灿) for general scenarios
+-  **Multiple Audio Formats** - Supports mp3, pcm, wav
+-  **Adjustable Parameters** - Speed and volume control
+-  **Dual Interface** - Command-line tool + Python API
+-  **Voice Categorization** - Browse voices by category
+-  **Mandatory API Configuration** - Requires API credentials; stops and prompts user if not configured (default voice only available with explicit user confirmation)
 
 ## Quick Start for Agents
 
@@ -40,7 +40,7 @@ config = check_api_config()
 if not config:
     # API not configured, MUST stop and ask user
     # DO NOT proceed with default voice
-    print("⚠️ API credentials not found. Cannot proceed without API configuration.")
+    print(" API credentials not found. Cannot proceed without API configuration.")
     # ... ask user for credentials or if they want to use default
 ```
 
@@ -71,14 +71,14 @@ Agent: Please enter your Secret Key:
 User: Dfta36aYgcdqY-ylHoh9FQyqiERS5iTv
 
 Agent: [Saves credentials to .env file]
-       ✅ API configuration saved successfully!
+        API configuration saved successfully!
 ```
 
 **用户选择**: 如果用户不想配置API但坚持使用默认音色:
 ```
 User: 我不想配置API，就用默认音色吧
 
-Agent: ⚠️ 确认使用默认音色吗？这将使用内置的默认音色生成音频。
+Agent:  确认使用默认音色吗？这将使用内置的默认音色生成音频。
        输入 'yes' 确认使用默认音色，或提供API凭证以获得更好的体验。
 
 User: yes
@@ -130,7 +130,7 @@ setup_api_config(
     voice_type="zh_female_cancan_mars_bigtts"  # optional
 )
 
-print("✅ Configuration saved to .env file")
+print(" Configuration saved to .env file")
 ```
 
 ### Complete Agent Workflow Example
@@ -150,13 +150,13 @@ def synthesize_with_auto_config(text, output_file="output.mp3", use_default_voic
     
     if not config:
         # Step 2: STOP and ask user - DO NOT proceed automatically
-        print("🔐 API Configuration Required")
+        print(" API Configuration Required")
         print("=" * 50)
-        print("\n⚠️ No API credentials found. You have two options:")
+        print("\n No API credentials found. You have two options:")
         print("\nOption 1: Configure API (Recommended)")
         print("  Please visit https://console.volcengine.com/ to get your credentials")
         print("\nOption 2: Use Default Voice")
-        print("  ⚠️ Only available if you explicitly confirm")
+        print("   Only available if you explicitly confirm")
         
         # Ask user what they want to do
         choice = input("\nEnter '1' to configure API, or '2' to use default voice: ").strip()
@@ -169,23 +169,23 @@ def synthesize_with_auto_config(text, output_file="output.mp3", use_default_voic
             secret_key = input("3. Enter your Secret Key: ").strip()
             
             # Optional: ask for preferred voice
-            print("\n🎙️ Optional: Select a default voice (press Enter to use Shiny)")
+            print("\n Optional: Select a default voice (press Enter to use Shiny)")
             voice_type = input("Voice type (or voice name): ").strip()
             
             # Save configuration
             setup_api_config(app_id, access_token, secret_key, voice_type or None)
-            print("\n✅ Configuration saved!")
+            print("\n Configuration saved!")
             
         elif choice == '2':
             # User explicitly chose to use default voice
-            confirm = input("\n⚠️ Are you sure you want to use the default voice? (yes/no): ").strip().lower()
+            confirm = input("\n Are you sure you want to use the default voice? (yes/no): ").strip().lower()
             if confirm != 'yes':
-                print("❌ Cancelled. Please configure API to proceed.")
+                print(" Cancelled. Please configure API to proceed.")
                 return None
             use_default_voice = True
-            print("\n⚠️ Using default voice as requested...")
+            print("\n Using default voice as requested...")
         else:
-            print("❌ Invalid choice. Please configure API to proceed.")
+            print(" Invalid choice. Please configure API to proceed.")
             return None
     
     # Step 3: Use the service
@@ -326,7 +326,7 @@ from scripts.tts import (
 # Step 0: Check API configuration FIRST
 config = check_api_config()
 if not config:
-    print("⚠️ API credentials not found. Please configure API first.")
+    print(" API credentials not found. Please configure API first.")
     print("Visit: https://console.volcengine.com/")
     # STOP here and ask user to configure API
     # DO NOT proceed with voice selection until API is configured
@@ -370,7 +370,7 @@ else:
 ### Example Agent-User Conversation
 
 ```
-Agent: 🎙️ Please select a voice for text-to-speech synthesis:
+Agent:  Please select a voice for text-to-speech synthesis:
 
 Here are our recommended voices by category:
 
@@ -389,20 +389,20 @@ Here are our recommended voices by category:
   • 熊二 (Chinese) -> voice_type: zh_male_xionger_mars_bigtts
   • 佩奇猪 (Chinese) -> voice_type: zh_female_peiqi_mars_bigtts
 
-💡 Tips:
+ Tips:
   • You can say the voice name (e.g., 'Shiny', '猴哥', '霸道总裁')
   • Or provide the voice_type directly
   • Type 'list all' to see all 200+ available voices
   • Press Enter to use the default voice (Shiny) - **only if API is configured**
 
-⚠️ **Note**: Voice selection requires API credentials. If not configured, you must configure API first or explicitly confirm to use default voice.
+ **Note**: Voice selection requires API credentials. If not configured, you must configure API first or explicitly confirm to use default voice.
 
 Which voice would you like to use?
 
 User: I want to use 猴哥
 
 Agent: [Calls skill with voice_type="zh_male_sunwukong_mars_bigtts"]
-       ✅ Generated audio with voice: 猴哥
+        Generated audio with voice: 猴哥
 ```
 
 ### Supported Input Formats
@@ -459,7 +459,7 @@ Supported emotions: happy, sad, angry, surprised, fear, hate, excited, coldness,
 
 | voice_type | Voice Name | Language |
 |------------|------------|----------|
-| **zh_female_cancan_mars_bigtts** | **Shiny (灿灿)** ⭐Default | **Chinese/American English** |
+| **zh_female_cancan_mars_bigtts** | **Shiny (灿灿)** Default | **Chinese/American English** |
 | zh_female_qinqienvsheng_moon_bigtts | Friendly Female | Chinese |
 | zh_male_xudong_conversation_wvae_bigtts | Happy Xiaodong | Chinese |
 | zh_female_shuangkuaisisi_moon_bigtts | Cheerful Sisi/Skye | Chinese/American English |

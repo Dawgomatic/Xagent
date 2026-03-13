@@ -74,7 +74,7 @@ When user can't install smart thermostat:
 - Write down schedule on sticky note near thermostat
 
 **Portable solutions:**
-- Smart plug + space heater for zone heating (⚠️ safety: never unattended)
+- Smart plug + space heater for zone heating ( safety: never unattended)
 - Weatherstripping (removable)
 - Thermal curtains (close at night, open for solar gain)
 

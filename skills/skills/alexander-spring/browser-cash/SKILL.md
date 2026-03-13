@@ -2,7 +2,7 @@
 name: browser-cash
 description: Spin up unblocked browser sessions via Browser.cash for web automation. Sessions bypass anti-bot protections (Cloudflare, DataDome, etc.) making them ideal for scraping and automation.
 homepage: https://browser.cash
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"bins":["curl","jq"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq"]}}}
 ---
 
 # browser-cash

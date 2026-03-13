@@ -2,7 +2,7 @@
 name: zentao
 description: Use the zentao CLI to login and query ZenTao products and bugs. ZENTAO_URL usually includes /zentao.
 homepage: https://www.npmjs.com/package/@leeguoo/zentao-mcp
-metadata: {"openclaw":{"emoji":"🐞","install":[{"id":"node","kind":"node","package":"@leeguoo/zentao-mcp","bins":["zentao"],"label":"Install zentao CLI (node)"}]}}
+metadata: {"openclaw":{"emoji":"","install":[{"id":"node","kind":"node","package":"@leeguoo/zentao-mcp","bins":["zentao"],"label":"Install zentao CLI (node)"}]}}
 ---
 
 # zentao (ZenTao CLI)

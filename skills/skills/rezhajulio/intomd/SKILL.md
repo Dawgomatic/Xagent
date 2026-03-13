@@ -2,7 +2,7 @@
 name: intomd
 version: 1.0.0
 description: Fetch and convert any documentation URL to Markdown using into.md service.
-metadata: {"clawdbot":{"emoji":"📄","requires":{"bins":["curl"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
 # intomd

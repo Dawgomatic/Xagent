@@ -7,7 +7,7 @@ set -euo pipefail
 SERIAL="${1:-${ANDROID_SERIAL:-}}"
 
 if ! command -v adb &>/dev/null; then
-    echo "❌ ADB not found."
+    echo " ADB not found."
     exit 1
 fi
 
@@ -17,13 +17,13 @@ if [ -z "$SERIAL" ]; then
 fi
 
 if [ -z "$SERIAL" ]; then
-    echo "❌ No device found. Connect a phone or set ANDROID_SERIAL."
+    echo " No device found. Connect a phone or set ANDROID_SERIAL."
     exit 1
 fi
 
 # Check device is reachable
 if ! adb -s "$SERIAL" shell echo ok &>/dev/null; then
-    echo "❌ Device ${SERIAL} not reachable."
+    echo " Device ${SERIAL} not reachable."
     exit 1
 fi
 
@@ -67,9 +67,9 @@ if adb -s "$SERIAL" shell pm list packages 2>/dev/null | grep -q "droidrun"; the
     PORTAL="v${PORTAL_VER}"
 fi
 
-echo "📱 Device:     ${BRAND} ${MODEL}"
-echo "🤖 Android:    ${ANDROID} (API ${API})"
-echo "🔋 Battery:    ${BATTERY}% (AC: ${CHARGING})"
-echo "📺 Screen:     ${SCREEN_STATE} (${LOCK_STATE})"
-echo "🔌 Connection: ${CONN_TYPE} (${SERIAL})"
-echo "📦 Portal:     ${PORTAL}"
+echo " Device:     ${BRAND} ${MODEL}"
+echo " Android:    ${ANDROID} (API ${API})"
+echo " Battery:    ${BATTERY}% (AC: ${CHARGING})"
+echo " Screen:     ${SCREEN_STATE} (${LOCK_STATE})"
+echo " Connection: ${CONN_TYPE} (${SERIAL})"
+echo " Portal:     ${PORTAL}"

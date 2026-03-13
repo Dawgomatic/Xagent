@@ -1,7 +1,7 @@
 ---
 name: comfy-cli
 description: Install, manage, and run ComfyUI instances. Use when setting up ComfyUI, launching servers, installing/updating/debugging custom nodes, downloading models from CivitAI/HuggingFace, managing workspaces, running API workflows, or troubleshooting node conflicts with bisect.
-metadata: {"clawdbot":{"emoji":"🎨","requires":{"bins":["comfy"]},"install":[{"id":"uv","kind":"uv","package":"comfy-cli","bins":["comfy"],"label":"Install comfy-cli (uv)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["comfy"]},"install":[{"id":"uv","kind":"uv","package":"comfy-cli","bins":["comfy"],"label":"Install comfy-cli (uv)"}]}}
 ---
 
 # comfy-cli

@@ -6,7 +6,7 @@ A browser-based Instagram profile discovery and scraping tool.
 ---
 name: instagram-scraper
 description: Discover and scrape Instagram profiles from your browser.
-emoji: 📸
+emoji: 
 version: 1.0.3
 author: influenza
 tags:
@@ -41,13 +41,13 @@ This skill provides a two-phase Instagram scraping system:
 
 ## Features
 
-- 🔍  - Discover Instagram profiles by location and category
-- 🌐  - Full browser simulation for accurate scraping
-- 🛡️  - Browser fingerprinting, human behavior simulation, and stealth scripts
-- 📊  - Profile info, stats, images, and engagement data
-- 💾  - JSON/CSV export with downloaded thumbnails
-- 🔄  - Resume interrupted scraping sessions
-- ⚡  - Auto-skip private accounts, low followers, empty profiles
+-   - Discover Instagram profiles by location and category
+-   - Full browser simulation for accurate scraping
+-   - Browser fingerprinting, human behavior simulation, and stealth scripts
+-   - Profile info, stats, images, and engagement data
+-   - JSON/CSV export with downloaded thumbnails
+-   - Resume interrupted scraping sessions
+-   - Auto-skip private accounts, low followers, empty profiles
 
 
 
@@ -150,11 +150,11 @@ Edit `config/scraper_config.json`:
 
 The scraper automatically filters out:
 
-- ❌ Private accounts
-- ❌ Accounts with < 1,000 followers (configurable)
-- ❌ Accounts with no posts
-- ❌ Non-existent/removed accounts
-- ❌ Already scraped accounts (deduplication)
+-  Private accounts
+-  Accounts with < 1,000 followers (configurable)
+-  Accounts with no posts
+-  Non-existent/removed accounts
+-  Already scraped accounts (deduplication)
 
 ## Troubleshooting
 

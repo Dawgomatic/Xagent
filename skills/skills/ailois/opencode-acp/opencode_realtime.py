@@ -11,9 +11,9 @@ from venv_utils import ensure_local_skill_venv
 def run_opencode_with_realtime_output(project_dir: str, task: str, timeout: int = 900):
     """运行 OpenCode 并实时显示输出"""
     
-    print(f"🚀 启动 OpenCode 任务...")
-    print(f"📁 项目: {project_dir}")
-    print(f"📝 任务: {task[:100]}...")
+    print(f" 启动 OpenCode 任务...")
+    print(f" 项目: {project_dir}")
+    print(f" 任务: {task[:100]}...")
     print()
     
     cmd = build_client_command(project_dir=project_dir, task=task, timeout=timeout)
@@ -36,9 +36,9 @@ def run_opencode_with_realtime_output(project_dir: str, task: str, timeout: int 
     
     print()
     if returncode == 0:
-        print("✅ OpenCode 任务完成！")
+        print(" OpenCode 任务完成！")
     else:
-        print(f"❌ OpenCode 任务失败（退出码: {returncode}）")
+        print(f" OpenCode 任务失败（退出码: {returncode}）")
     
     return returncode == 0
 

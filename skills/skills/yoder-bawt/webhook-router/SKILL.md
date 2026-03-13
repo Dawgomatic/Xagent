@@ -165,7 +165,7 @@ vault write "webhooks/$SOURCE/$EVENT_TYPE" \
 
 # Alert on important events
 if [[ "$EVENT_TYPE" == "critical" ]]; then
-  alert "🚨 Critical event from $SOURCE" "$field"
+  alert " Critical event from $SOURCE" "$field"
 fi
 ```
 

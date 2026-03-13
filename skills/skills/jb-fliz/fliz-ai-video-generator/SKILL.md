@@ -18,7 +18,7 @@ homepage: https://fliz.ai
 tags: [video, ai, fliz, content-creation, automation, api]
 metadata:
   clawdbot:
-    emoji: "🎬"
+    emoji: ""
     primaryEnv: FLIZ_API_KEY
 ---
 
@@ -90,9 +90,9 @@ Poll this endpoint to track video generation progress. Check the `step` field:
 | Step | Status |
 |------|--------|
 | `pending` → `scrapping` → `script` → `image_*` → `speech` → `video_rendering` | Processing |
-| `complete` | ✅ Ready - `url` field contains MP4 |
-| `failed` / `failed_unrecoverable` | ❌ Error - check `error` field |
-| `user_action` | ⚠️ Requires manual intervention |
+| `complete` |  Ready - `url` field contains MP4 |
+| `failed` / `failed_unrecoverable` |  Error - check `error` field |
+| `user_action` |  Requires manual intervention |
 
 ### 3. List Videos
 

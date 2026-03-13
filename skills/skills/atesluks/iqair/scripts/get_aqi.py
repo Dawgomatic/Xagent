@@ -21,17 +21,17 @@ import urllib.error
 def get_emoji_and_level(aqi):
     """Convert AQI value to emoji and level description."""
     if aqi <= 50:
-        return "🟢", "Good"
+        return "", "Good"
     elif aqi <= 100:
-        return "🟡", "Moderate"
+        return "", "Moderate"
     elif aqi <= 150:
-        return "🟠", "Unhealthy for Sensitive Groups"
+        return "", "Unhealthy for Sensitive Groups"
     elif aqi <= 200:
-        return "🔴", "Unhealthy"
+        return "", "Unhealthy"
     elif aqi <= 300:
-        return "🟣", "Very Unhealthy"
+        return "", "Very Unhealthy"
     else:
-        return "🟤", "Hazardous"
+        return "", "Hazardous"
 
 
 def fetch_aqi(endpoint, params):

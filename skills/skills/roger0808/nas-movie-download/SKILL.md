@@ -7,7 +7,7 @@ description: Search and download movies via Jackett and qBittorrent. Use when us
 
 Automated movie downloading system using Jackett for torrent search and qBittorrent for download management.
 
-**新功能：自动字幕下载支持！** 🎬
+**新功能：自动字幕下载支持！** 
 
 ## Configuration
 
@@ -55,7 +55,7 @@ scripts/jackett-search.sh -q "The Matrix"
 scripts/jackett-search.sh -q "死期将至"  # Chinese movie names supported
 ```
 
-### Download with Automatic Subtitles 🆕
+### Download with Automatic Subtitles 
 
 One-click download with automatic subtitle fetching:
 
@@ -175,7 +175,7 @@ scripts/download-movie.sh -q "The Matrix"
 scripts/download-movie.sh -q "Young Sheldon" -s -w -l zh-cn,en
 ```
 
-### subtitle-download.sh 🆕
+### subtitle-download.sh 
 
 Download subtitles for video files using OpenSubtitles API.
 
@@ -264,8 +264,8 @@ apt-get install curl jq bc
 ## Changelog
 
 ### v2.0 - 2025-02-17
-- ✅ Added automatic subtitle download support
-- ✅ New `subtitle-download.sh` script
-- ✅ Updated `download-movie.sh` with `-s` and `-w` flags
-- ✅ Support for OpenSubtitles API
-- ✅ Multi-language subtitle support (zh-cn, en, ja, ko, etc.)
+-  Added automatic subtitle download support
+-  New `subtitle-download.sh` script
+-  Updated `download-movie.sh` with `-s` and `-w` flags
+-  Support for OpenSubtitles API
+-  Multi-language subtitle support (zh-cn, en, ja, ko, etc.)

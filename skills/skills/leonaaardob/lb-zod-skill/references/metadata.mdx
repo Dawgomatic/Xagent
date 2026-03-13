@@ -35,8 +35,8 @@ myRegistry.clear(); // wipe registry
 TypeScript enforces that the metadata for each schema matches the registry's **metadata type**.
 
 ```ts
-myRegistry.add(mySchema, { description: "A cool schema!" }); // ✅
-myRegistry.add(mySchema, { description: 123 }); // ❌
+myRegistry.add(mySchema, { description: "A cool schema!" }); // 
+myRegistry.add(mySchema, { description: 123 }); // 
 ```
 
 > **Special handling for `id`** —  Zod registries treat the `id` property specially. An `Error` will be thrown if multiple schemas are registered with the same `id` value. This is true for all registries, including the global registry.
@@ -231,7 +231,7 @@ import * as z from "zod";
 
 const myRegistry = z.registry<{ description: string }, z.ZodString>();
 
-myRegistry.add(z.string(), { description: "A number" }); // ✅
-myRegistry.add(z.number(), { description: "A number" }); // ❌ 
+myRegistry.add(z.string(), { description: "A number" }); // 
+myRegistry.add(z.number(), { description: "A number" }); //  
 //             ^ 'ZodNumber' is not assignable to parameter of type 'ZodString' 
 ```

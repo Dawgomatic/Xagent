@@ -10,7 +10,7 @@ license: Free-to-use
 compatibility: Requires HTTP client and network access.
 metadata:
   openclaw:
-    emoji: "🎯"
+    emoji: ""
   talent:
     category: career
     version: "3.0.3"

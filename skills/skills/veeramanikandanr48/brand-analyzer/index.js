@@ -1,5 +1,5 @@
 export default async function brand_analyzer(input) {
-  console.log("🧠 Running skill: brand-analyzer");
+  console.log(" Running skill: brand-analyzer");
   
   // TODO: implement actual logic for this skill
   return {

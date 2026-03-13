@@ -17,14 +17,14 @@ sentry-mode activate --query "Is anyone in the room?"
 
 Output:
 ```
-📹 Sentry Mode Activated
-🎥 Recording video (3 seconds)...
-🔍 Extracting frames (ffmpeg)...
-🤖 Analyzing with vision AI...
+ Sentry Mode Activated
+ Recording video (3 seconds)...
+ Extracting frames (ffmpeg)...
+ Analyzing with vision AI...
 
-📊 REPORT:
+ REPORT:
 Query: Is anyone in the room?
-Status: ✅ Yes
+Status:  Yes
 Details: One person visible at desk, facing monitor
 Confidence: High
 Timestamp: 2026-01-27 11:15:00 MST
@@ -89,7 +89,7 @@ sentry-mode activate --query "Is anyone in the room?"
 
 Response:
 ```
-✅ YES - One person visible
+ YES - One person visible
 - Person at desk, facing left
 - Seated position
 - No visible movement
@@ -103,7 +103,7 @@ sentry-mode activate --query "What's on my desk and is it organized?"
 
 Response:
 ```
-📊 DESK STATUS:
+ DESK STATUS:
 Items visible:
 - Laptop (open, screen active)
 - Coffee cup (left side)
@@ -123,7 +123,7 @@ sentry-mode activate --query "Any movement or activity?"
 
 Response:
 ```
-🎬 MOTION ANALYSIS:
+ MOTION ANALYSIS:
 Primary frames: 5 extracted
 Movement detected: Yes
 Type: Person typing/working
@@ -210,7 +210,7 @@ sentry-mode activate \
 
 ## Security & Privacy Notes
 
-⚠️ **Important:**
+ **Important:**
 - This records video from your workspace
 - Ensure privacy compliance in shared spaces
 - Consider consent from others in frame

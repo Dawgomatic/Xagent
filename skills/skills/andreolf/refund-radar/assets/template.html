@@ -526,16 +526,16 @@
     <div class="container">
         <header>
             <div class="logo">
-                <span class="logo-icon">📡</span>
+                <span class="logo-icon"></span>
                 <h1>Refund Radar<span class="month-badge">{{MONTH}}</span></h1>
             </div>
             <div class="controls">
                 <button class="btn" onclick="togglePrivacy()" id="privacyBtn">
-                    <span class="btn-icon">👁</span>
+                    <span class="btn-icon"></span>
                     <span id="privacyLabel">Hide Names</span>
                 </button>
                 <button class="btn" onclick="toggleTheme()">
-                    <span class="btn-icon" id="themeIcon">☀️</span>
+                    <span class="btn-icon" id="themeIcon"></span>
                     <span id="themeLabel">Light</span>
                 </button>
             </div>
@@ -565,7 +565,7 @@
         <div class="section {{RECURRING_HIDDEN}}" id="recurring-section">
             <div class="section-header" onclick="toggleSection('recurring-section')">
                 <div class="section-title">
-                    <span>🔄</span>
+                    <span></span>
                     Recurring Charges
                     <span class="section-count">{{RECURRING_COUNT}}</span>
                 </div>
@@ -593,7 +593,7 @@
         <div class="section {{UNEXPECTED_HIDDEN}}" id="unexpected-section">
             <div class="section-header" onclick="toggleSection('unexpected-section')">
                 <div class="section-title">
-                    <span>⚠️</span>
+                    <span></span>
                     Unexpected Charges
                     <span class="section-count">{{UNEXPECTED_COUNT}}</span>
                 </div>
@@ -622,7 +622,7 @@
         <div class="section {{DUPLICATES_HIDDEN}}" id="duplicates-section">
             <div class="section-header" onclick="toggleSection('duplicates-section')">
                 <div class="section-title">
-                    <span>📋</span>
+                    <span></span>
                     Duplicates
                     <span class="section-count">{{DUPLICATES_COUNT}}</span>
                 </div>
@@ -650,7 +650,7 @@
         <div class="section {{FEES_HIDDEN}}" id="fees-section">
             <div class="section-header" onclick="toggleSection('fees-section')">
                 <div class="section-title">
-                    <span>💸</span>
+                    <span></span>
                     Fee-like Charges
                     <span class="section-count">{{FEES_COUNT}}</span>
                 </div>
@@ -678,7 +678,7 @@
         <div class="section {{TEMPLATES_HIDDEN}}" id="templates-section">
             <div class="section-header" onclick="toggleSection('templates-section')">
                 <div class="section-title">
-                    <span>✉️</span>
+                    <span></span>
                     Refund Request Templates
                     <span class="section-count">{{TEMPLATES_COUNT}}</span>
                 </div>
@@ -693,7 +693,7 @@
         <div class="section {{REVIEW_HIDDEN}}" id="review-section">
             <div class="section-header" onclick="toggleSection('review-section')">
                 <div class="section-title">
-                    <span>🔍</span>
+                    <span></span>
                     Needs Review
                     <span class="section-count">{{REVIEW_COUNT}}</span>
                 </div>
@@ -739,7 +739,7 @@
         function toggleTheme() {
             document.body.classList.toggle('light-mode');
             const isLight = document.body.classList.contains('light-mode');
-            document.getElementById('themeIcon').textContent = isLight ? '🌙' : '☀️';
+            document.getElementById('themeIcon').textContent = isLight ? '' : '';
             document.getElementById('themeLabel').textContent = isLight ? 'Dark' : 'Light';
             localStorage.setItem('refund-radar-theme', isLight ? 'light' : 'dark');
         }
@@ -747,7 +747,7 @@
         // Load saved theme
         if (localStorage.getItem('refund-radar-theme') === 'light') {
             document.body.classList.add('light-mode');
-            document.getElementById('themeIcon').textContent = '🌙';
+            document.getElementById('themeIcon').textContent = '';
             document.getElementById('themeLabel').textContent = 'Dark';
         }
 
@@ -764,7 +764,7 @@
                 btn.innerHTML = '✓ Copied';
                 setTimeout(() => {
                     btn.classList.remove('copied');
-                    btn.innerHTML = '📋 Copy';
+                    btn.innerHTML = ' Copy';
                 }, 2000);
             });
         }
@@ -788,7 +788,7 @@ Thank you.`;
                 btn.innerHTML = '✓';
                 setTimeout(() => {
                     btn.classList.remove('copied');
-                    btn.innerHTML = '📋';
+                    btn.innerHTML = '';
                 }, 2000);
             });
         }

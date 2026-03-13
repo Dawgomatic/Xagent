@@ -11,7 +11,7 @@ Keep your Claude account logged in 24/7 by automatically refreshing OAuth tokens
 
 ---
 
-## ⚠️ Requirements
+##  Requirements
 
 This skill is **macOS-only** and requires:
 
@@ -32,9 +32,9 @@ This skill is **macOS-only** and requires:
 - **Monitors** your Claude CLI token expiration
 - **Refreshes** tokens automatically before they expire (default: 30 min buffer)
 - **Notifies** you with three notification types:
-  - 🔄 Start: "Refreshing Claude token..." 
-  - ✅ Success: "Claude token refreshed!"
-  - ❌ Failure: Detailed error with troubleshooting steps
+  -  Start: "Refreshing Claude token..." 
+  -  Success: "Claude token refreshed!"
+  -  Failure: Detailed error with troubleshooting steps
 - **Logs** all refresh attempts for debugging
 
 ---
@@ -69,14 +69,14 @@ During installation, you'll be prompted:
 
 ```
 Configure Notifications:
-💡 Recommendation: Keep all enabled for the first run to verify it works.
+ Recommendation: Keep all enabled for the first run to verify it works.
    You can disable them later by:
    1. Editing ~/clawd/claude-oauth-refresh-config.json
    2. Asking Clawdbot: "disable Claude refresh notifications"
 
-Enable "🔄 Refreshing token..." notification? [Y/n]: 
-Enable "✅ Token refreshed!" notification? [Y/n]: 
-Enable "❌ Refresh failed" notification? [Y/n]: 
+Enable " Refreshing token..." notification? [Y/n]: 
+Enable " Token refreshed!" notification? [Y/n]: 
+Enable " Refresh failed" notification? [Y/n]: 
 ```
 
 **Recommendation:** Keep all enabled initially to verify everything works, then disable start/success notifications once you're confident.
@@ -324,25 +324,25 @@ clawdbot message imessage thread list --limit 10
 |--------|------|---------|-------------|
 | `refresh_buffer_minutes` | number | `30` | Refresh tokens this many minutes before expiry |
 | `log_file` | string | `~/clawd/logs/claude-oauth-refresh.log` | Where to write logs |
-| `notifications.on_start` | boolean | `true` | Send "🔄 Refreshing token..." notification |
-| `notifications.on_success` | boolean | `true` | Send "✅ Token refreshed!" notification |
-| `notifications.on_failure` | boolean | `true` | Send "❌ Refresh failed" notification with details |
+| `notifications.on_start` | boolean | `true` | Send " Refreshing token..." notification |
+| `notifications.on_success` | boolean | `true` | Send " Token refreshed!" notification |
+| `notifications.on_failure` | boolean | `true` | Send " Refresh failed" notification with details |
 | `notification_channel` | string | `telegram` | Channel to use (see above for options) |
 | `notification_target` | string | `YOUR_CHAT_ID` | Target ID (see "Finding Your Target ID") |
 
 ### Notification Types Explained
 
-**🔄 Start (`on_start`)**
+** Start (`on_start`)**
 - Sent when refresh process begins
 - Useful for debugging or knowing when refresh runs
 - **Recommendation:** Disable once you verify it works (can be noisy)
 
-**✅ Success (`on_success`)**
+** Success (`on_success`)**
 - Sent when token successfully refreshed
 - Includes validity duration (e.g., "valid for 24h")
 - **Recommendation:** Disable once you trust the setup (can be noisy)
 
-**❌ Failure (`on_failure`)**
+** Failure (`on_failure`)**
 - Sent when refresh fails with detailed error info
 - Includes troubleshooting steps based on error type
 - **Recommendation:** Keep enabled! You want to know about failures.
@@ -396,7 +396,7 @@ When a refresh fails, you'll receive a detailed notification with:
 ### Example Failure Notification
 
 ```
-❌ Claude token refresh failed
+ Claude token refresh failed
 
 Error: Network timeout connecting to auth.anthropic.com
 Details: Connection timed out after 30s

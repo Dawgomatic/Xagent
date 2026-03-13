@@ -23,14 +23,14 @@ def test_skill_files():
     for file_path in required_files:
         full_path = os.path.join(skill_dir, file_path)
         if os.path.exists(full_path):
-            print(f"✅ {file_path} 存在")
+            print(f" {file_path} 存在")
             # 检查文件是否有内容
             if os.path.getsize(full_path) > 0:
                 print(f"   大小: {os.path.getsize(full_path)} 字节")
             else:
-                print(f"⚠️  {file_path} 是空文件")
+                print(f"  {file_path} 是空文件")
         else:
-            print(f"❌ {file_path} 不存在")
+            print(f" {file_path} 不存在")
             all_exist = False
     
     print()
@@ -45,11 +45,11 @@ def test_script_import():
         sys.path.append('/root/.openclaw/workspace/skills/ai-research-scraper/scripts')
         import scraper
         
-        print("✅ 脚本导入成功")
+        print(" 脚本导入成功")
         print()
         
         # 测试配置加载
-        print("📄 配置测试:")
+        print(" 配置测试:")
         websites = scraper.read_websites()
         print(f"   网站列表中有 {len(websites)} 个网站")
         
@@ -58,12 +58,12 @@ def test_script_import():
         
         # 测试文本处理函数
         print()
-        print("📝 文本处理测试:")
+        print(" 文本处理测试:")
         test_text = "OpenAI has announced a new feature for their platform that allows users to customize chatbots with specific knowledge bases. This update will make it easier for developers to create specialized AI assistants for various applications."
         
         # 测试关键词检测
         is_product = scraper.is_related_to_product_development("New Feature Announcement", test_text)
-        print(f"   关键词检测: {'✅ 包含产品相关关键词' if is_product else '❌ 不包含'}")
+        print(f"   关键词检测: {' 包含产品相关关键词' if is_product else ' 不包含'}")
         
         # 测试文本截断
         truncated = scraper.truncate_text(test_text, 20)
@@ -72,7 +72,7 @@ def test_script_import():
         return True
         
     except Exception as e:
-        print(f"❌ 脚本导入失败: {str(e)}")
+        print(f" 脚本导入失败: {str(e)}")
         import traceback
         print(traceback.format_exc())
         return False
@@ -125,11 +125,11 @@ def test_websites_list():
         }
     ]
     
-    print("✅ 网站列表包含以下AI领域的知名网站:")
+    print(" 网站列表包含以下AI领域的知名网站:")
     for site in websites:
         print(f"   - {site['name']}")
     
-    print(f"\n🎯 共 {len(websites)} 个网站")
+    print(f"\n 共 {len(websites)} 个网站")
     
     return True
 
@@ -153,13 +153,13 @@ def main():
     print("\n" + "=" * 50)
     
     if all_tests_pass:
-        print("\n✅ 技能测试通过")
-        print("\n📋 使用说明:")
+        print("\n 技能测试通过")
+        print("\n 使用说明:")
         print("   运行技能: python3 scripts/scraper.py --max-tokens 300")
         print("   自定义网站: 编辑 references/websites.txt")
         print("   配置: 查看 references/api_reference.md")
     else:
-        print("\n❌ 部分测试失败")
+        print("\n 部分测试失败")
     
     return all_tests_pass
 

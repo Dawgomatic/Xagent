@@ -491,7 +491,7 @@ console.log(`CoV: ${cov.cov.toFixed(1)}%`);
 
 // 3. If both are low, likely AI
 if (burst.burstiness < 0.3 && cov.cov < 40) {
-  console.log("⚠️ Statistical signals suggest AI writing");
+  console.log(" Statistical signals suggest AI writing");
 }
 ```
 
@@ -509,7 +509,7 @@ console.log(`  Trigrams: ${(analysis.metrics.trigram.value * 100).toFixed(1)}%`)
 console.log(`  Readability: ${analysis.metrics.readability.value.toFixed(0)}`);
 
 if (analysis.compositeScore > 60) {
-  console.log("⚠️ High probability of AI generation");
+  console.log(" High probability of AI generation");
 }
 ```
 

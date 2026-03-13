@@ -64,7 +64,7 @@ private async collectConversationMemory(userId: string): Promise<ConversationMem
 **After**:
 ```typescript
 private async collectConversationMemory(userId: string): Promise<ConversationMemory> {
-  // ✅ Read actual session history
+  //  Read actual session history
   const { createSessionReader } = await import('../integrations/openclaw-session-reader');
   const sessionReader = createSessionReader();
   const analysis = await sessionReader.readSessionHistory(userId);
@@ -79,9 +79,9 @@ private async collectConversationMemory(userId: string): Promise<ConversationMem
 ```
 
 **影響**:
-- ✅ 不再使用 mock data
-- ✅ 讀取真實對話內容
-- ✅ Graceful error handling
+-  不再使用 mock data
+-  讀取真實對話內容
+-  Graceful error handling
 
 #### `src/bloom-identity-skill-v2.ts`
 **Before** (Line 162):
@@ -91,7 +91,7 @@ mainCategories: this.categoryMapper.getMainCategories(analysis.personalityType)
 
 **After**:
 ```typescript
-// ⭐ Use detected categories from actual conversation data
+//  Use detected categories from actual conversation data
 // Priority: What they talk about > personality-based defaults
 mainCategories: analysis.detectedCategories.length > 0
   ? analysis.detectedCategories
@@ -99,9 +99,9 @@ mainCategories: analysis.detectedCategories.length > 0
 ```
 
 **影響**:
-- ✅ 優先使用從對話中檢測到的類別
-- ✅ 只在無對話數據時才使用 personality-based fallback
-- ✅ 符合「what they like mainly + personality」的邏輯
+-  優先使用從對話中檢測到的類別
+-  只在無對話數據時才使用 personality-based fallback
+-  符合「what they like mainly + personality」的邏輯
 
 #### `package.json`
 **新增 script**:
@@ -153,9 +153,9 @@ Recommendation = f(personality_type) → fixed_categories → skills
 ```
 
 **問題**:
-- ❌ 忽略用戶實際興趣
-- ❌ 過度依賴個性類型
-- ❌ 無法反映對話內容
+-  忽略用戶實際興趣
+-  過度依賴個性類型
+-  無法反映對話內容
 
 ### After
 ```
@@ -168,10 +168,10 @@ Score = 30 * category_match     // What they need
 ```
 
 **優點**:
-- ✅ 主要基於實際興趣
-- ✅ 次要考慮個性風格
-- ✅ 反映對話內容
-- ✅ 符合原始設計目標
+-  主要基於實際興趣
+-  次要考慮個性風格
+-  反映對話內容
+-  符合原始設計目標
 
 ## Session File 格式
 
@@ -207,11 +207,11 @@ npm run test:conversation
 ```
 
 **檢查點**:
-- ✅ Session files 讀取
-- ✅ Conversation 分析
-- ✅ Category 檢測
-- ✅ Personality metrics
-- ✅ Recommendation 數據
+-  Session files 讀取
+-  Conversation 分析
+-  Category 檢測
+-  Personality metrics
+-  Recommendation 數據
 
 ### 2. 整合測試
 ```bash
@@ -239,7 +239,7 @@ npm start
 ## 兼容性
 
 ### Backward Compatibility
-- ✅ 如果無法讀取 session，系統會 fallback 到：
+-  如果無法讀取 session，系統會 fallback 到：
   1. 使用 personality-based categories
   2. Manual Q&A mode
 

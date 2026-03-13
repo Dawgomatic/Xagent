@@ -67,7 +67,7 @@ Browse products, optionally filtered by category.
 | `cart` | Show current cart contents and total |
 | `cart add <variant_id>` | Add product variant to cart |
 | `cart remove <variant_id>` | Remove product from cart |
-| `cart clear` | Empty entire cart ⚠️ |
+| `cart clear` | Empty entire cart  |
 | `cart checkout` | Open browser for checkout (user completes purchase) |
 
 Note: `variant_id` comes from `product` command output (each product may have multiple variants/sizes).

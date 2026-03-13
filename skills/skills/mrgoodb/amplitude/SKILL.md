@@ -1,7 +1,7 @@
 ---
 name: amplitude
 description: Track events and analyze product usage via Amplitude API. Query user behavior, cohorts, and funnels.
-metadata: {"clawdbot":{"emoji":"📈","requires":{"env":["AMPLITUDE_API_KEY","AMPLITUDE_SECRET_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["AMPLITUDE_API_KEY","AMPLITUDE_SECRET_KEY"]}}}
 ---
 
 # Amplitude

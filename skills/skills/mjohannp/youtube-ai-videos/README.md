@@ -1,4 +1,4 @@
-# YouTube AI Videos 🎬
+# YouTube AI Videos 
 
 Fetch latest AI-related videos from YouTube channels with keyword filtering using YouTube Data API v3.
 
@@ -6,27 +6,27 @@ Fetch latest AI-related videos from YouTube channels with keyword filtering usin
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Python](https://img.shields.io/badge/python-3.8+-yellow)
 
-## ⚠️ Requirement
+##  Requirement
 
 **This skill requires a YouTube Data API v3 key to function.** The YouTube RSS feeds have been disabled, so this skill exclusively uses the YouTube Data API v3.
 
-## ✨ Features
+##  Features
 
-- 🔍 **Keyword Filtering** — Only videos matching your keywords
-- 📅 **Age Filter** — Configurable maximum video age (default: 3 days)
-- 🎯 **Channel Selection** — Curated AI-focused YouTube channels
-- 🔐 **Secure API Key** — Multiple storage options (env var, secrets file)
-- 🏷️ **Keyword Highlighting** — Matches are highlighted in output
-- 📊 **Configurable** — Channels, keywords, max videos, age limits
-- 🚀 **Fast** — Uses YouTube Data API v3 for efficient fetching
+-  **Keyword Filtering** — Only videos matching your keywords
+-  **Age Filter** — Configurable maximum video age (default: 3 days)
+-  **Channel Selection** — Curated AI-focused YouTube channels
+-  **Secure API Key** — Multiple storage options (env var, secrets file)
+-  **Keyword Highlighting** — Matches are highlighted in output
+-  **Configurable** — Channels, keywords, max videos, age limits
+-  **Fast** — Uses YouTube Data API v3 for efficient fetching
 
-## 📋 What it Does
+##  What it Does
 
 This skill fetches recent videos from your favorite AI-focused YouTube channels using the YouTube Data API v3 and filters them by keywords like "OpenClaw", "LLM", "Agent", "Claude Code", etc.
 
 Perfect for staying up-to-date with the latest AI developments, agent tools, and coding assistants!
 
-## 🚀 Installation
+##  Installation
 
 ### Option 1: Install via ClawHub (Recommended)
 
@@ -46,7 +46,7 @@ git clone https://github.com/your-username/youtube-ai-videos.git ~/.openclaw/wor
 python3 --version
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Step 1: Get YouTube Data API Key (REQUIRED!)
 
@@ -64,7 +64,7 @@ This skill **requires** a YouTube Data API v3 key. Without it, the skill will no
 
 Choose one of these methods (ordered by priority):
 
-#### Option A: Secrets File (Recommended ✅)
+#### Option A: Secrets File (Recommended )
 
 Store your API key securely:
 
@@ -86,7 +86,7 @@ echo 'export YOUTUBE_API_KEY="YOUR_YOUTUBE_API_KEY"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-#### Option C: Config File (Fallback ⚠️)
+#### Option C: Config File (Fallback )
 
 Edit `config.json` and replace the placeholder:
 
@@ -96,7 +96,7 @@ Edit `config.json` and replace the placeholder:
 }
 ```
 
-**⚠️ Security Warning:** The API key in `config.json` is visible in plain text. Use options A or B instead!
+** Security Warning:** The API key in `config.json` is visible in plain text. Use options A or B instead!
 
 ### Step 3: Configure Channels and Keywords
 
@@ -132,7 +132,7 @@ Edit `config.json` to customize:
 | `maxAgeDays` | Maximum age of videos in days | 3 |
 | `youtubeApiKey` | Fallback API key (use secrets instead) | `YOUR_API_KEY_HERE` |
 
-## 🎯 Usage
+##  Usage
 
 ### Command Line
 
@@ -151,7 +151,7 @@ youtube-ai
 ### Output Format
 
 ```
-🎬 Fetching AI videos (last 3 days)
+ Fetching AI videos (last 3 days)
 Keywords: openclaw, llm, agent, claude code, opencode, rag
 Channels: 13
 
@@ -165,10 +165,10 @@ Fetching from @EverlastAI...
 2. [1h ago] [An **LLM** in Just 200 Lines of Python?! (microGPT)](https://www.youtube.com/watch?v=...)
    by @Better Stack
 
-✅ Found 15 videos (from 13 channels)
+ Found 15 videos (from 13 channels)
 ```
 
-## 🔧 Advanced Configuration
+##  Advanced Configuration
 
 ### Adding More Channels
 
@@ -211,7 +211,7 @@ Or show only today's videos:
 "maxAgeDays": 1  // Show only today's videos
 ```
 
-## 📊 API Quota
+##  API Quota
 
 The YouTube Data API v3 free tier includes:
 
@@ -225,12 +225,12 @@ The YouTube Data API v3 free tier includes:
 - Fetching video details ≈ 1-3 units
 - **Daily usage ≈ 20-50 units** (well within limits!)
 
-## 🛠️ Troubleshooting
+##  Troubleshooting
 
 ### API Key Not Found
 
 ```
-❌ YouTube Data API key is required!
+ YouTube Data API key is required!
 ```
 
 **Solution:** Make sure your API key is set via:
@@ -241,7 +241,7 @@ The YouTube Data API v3 free tier includes:
 ### No Matching Videos
 
 ```
-❌ No matching videos found.
+ No matching videos found.
 ```
 
 **Possible causes:**
@@ -267,7 +267,7 @@ Error: quotaExceeded
 2. Reduce number of channels
 3. Increase `maxAgeDays` to reduce refresh frequency
 
-## 📦 Skill Structure
+##  Skill Structure
 
 ```
 youtube-ai-videos/
@@ -279,17 +279,17 @@ youtube-ai-videos/
     └── find_channel_id.py        # Channel ID finder utility
 ```
 
-## 📞 Support
+##  Support
 
 - **OpenClaw Docs:** https://docs.openclaw.ai
 - **ClawHub:** https://clawhub.com
 - **Community:** https://discord.com/invite/clawd
 
-## 📜 License
+##  License
 
 MIT License - feel free to use, modify, and distribute!
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Feel free to:
 - Add more AI-focused channels
@@ -297,7 +297,7 @@ Contributions are welcome! Feel free to:
 - Add more output formats
 - Fix bugs
 
-## 🙏 Credits
+##  Credits
 
 - Built for OpenClaw users
 - Uses YouTube Data API v3
@@ -305,4 +305,4 @@ Contributions are welcome! Feel free to:
 
 ---
 
-Made with ❤️ by the OpenClaw community
+Made with  by the OpenClaw community

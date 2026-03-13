@@ -288,21 +288,21 @@ if __name__ == "__main__":
     
     result = auto_classify(content)
     
-    print(f"\n📊 Auto Classification Result")
+    print(f"\n Auto Classification Result")
     print(f"{'='*50}")
-    print(f"🏷️ Suggested: {result['suggested_category']}")
-    print(f"📈 Confidence: {result['confidence']}")
-    print(f"🎯 Score: {result['primary_score']}")
-    print(f"💡 Reasoning: {result['reasoning']}")
+    print(f" Suggested: {result['suggested_category']}")
+    print(f" Confidence: {result['confidence']}")
+    print(f" Score: {result['primary_score']}")
+    print(f" Reasoning: {result['reasoning']}")
     
-    print(f"\n🔑 Keywords: {', '.join(result['keywords'][:10])}")
+    print(f"\n Keywords: {', '.join(result['keywords'][:10])}")
     
     if result['alternatives']:
-        print(f"\n🔄 Alternatives:")
+        print(f"\n Alternatives:")
         for alt in result['alternatives']:
             print(f"  • {alt['category']} ({alt['score']}) - {alt['confidence']}")
     
     if args.verbose:
-        print(f"\n📋 All Suggestions:")
+        print(f"\n All Suggestions:")
         for s in result['all_suggestions']:
             print(f"  • {s['category']}: {s['score']} ({s['confidence']}) - {s['reasoning']}")

@@ -108,10 +108,10 @@ def check_and_approve(w3: Web3, account, token_address: str, spender: str, amoun
     allowance = token.functions.allowance(account.address, Web3.to_checksum_address(spender)).call()
     
     if allowance >= amount:
-        print(f"✅ Already approved")
+        print(f" Already approved")
         return None
     
-    print(f"🔐 Approving token spend...")
+    print(f" Approving token spend...")
     max_uint = 2**256 - 1
     tx = token.functions.approve(Web3.to_checksum_address(spender), max_uint).build_transaction({
         'from': account.address,
@@ -126,10 +126,10 @@ def check_and_approve(w3: Web3, account, token_address: str, spender: str, amoun
     
     receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
     if receipt['status'] != 1:
-        print("❌ Approval failed")
+        print(" Approval failed")
         sys.exit(1)
     
-    print(f"✅ Approved")
+    print(f" Approved")
     return tx_hash.hex()
 
 
@@ -147,11 +147,11 @@ def execute_bridge(quote: dict, private_key: str, rpc_url: str = None):
     
     w3 = Web3(Web3.HTTPProvider(rpc_url))
     if not w3.is_connected():
-        print(f"❌ Cannot connect to RPC: {rpc_url}")
+        print(f" Cannot connect to RPC: {rpc_url}")
         sys.exit(1)
     
     account = Account.from_key(private_key)
-    print(f"🔑 Wallet: {account.address}")
+    print(f" Wallet: {account.address}")
     
     # Check and approve if needed
     from_token = action.get("fromToken", {}).get("address", "0x0000000000000000000000000000000000000000")
@@ -164,7 +164,7 @@ def execute_bridge(quote: dict, private_key: str, rpc_url: str = None):
         check_and_approve(w3, account, from_token, spender, from_amount)
     
     # Build and send bridge transaction
-    print(f"🌉 Executing bridge...")
+    print(f" Executing bridge...")
     
     tx = {
         'from': account.address,
@@ -180,16 +180,16 @@ def execute_bridge(quote: dict, private_key: str, rpc_url: str = None):
     signed = account.sign_transaction(tx)
     tx_hash = w3.eth.send_raw_transaction(signed.raw_transaction)
     
-    print(f"📤 Tx sent: {tx_hash.hex()}")
-    print(f"⏳ Waiting for confirmation...")
+    print(f" Tx sent: {tx_hash.hex()}")
+    print(f" Waiting for confirmation...")
     
     receipt = w3.eth.wait_for_transaction_receipt(tx_hash, timeout=300)
     
     if receipt['status'] == 1:
-        print(f"✅ Bridge initiated!")
-        print(f"🔗 Track at: https://scan.li.fi/tx/{tx_hash.hex()}")
+        print(f" Bridge initiated!")
+        print(f" Track at: https://scan.li.fi/tx/{tx_hash.hex()}")
     else:
-        print(f"❌ Transaction failed")
+        print(f" Transaction failed")
         sys.exit(1)
     
     return tx_hash.hex()
@@ -221,7 +221,7 @@ def main():
     else:
         from_address = "0x0000000000000000000000000000000000000000"
     
-    print(f"📊 Getting quote...")
+    print(f" Getting quote...")
     quote = get_quote(
         from_chain=args.from_chain,
         to_chain=args.to_chain,
@@ -237,8 +237,8 @@ def main():
     to_token = estimate.get("toToken", {})
     to_amount = int(estimate.get("toAmount", 0)) / (10 ** to_token.get("decimals", 18))
     
-    print(f"💰 {args.amount} {from_token.get('symbol')} → ~{to_amount:.6f} {to_token.get('symbol')}")
-    print(f"🛤️  Via: {quote.get('tool')}")
+    print(f" {args.amount} {from_token.get('symbol')} → ~{to_amount:.6f} {to_token.get('symbol')}")
+    print(f"  Via: {quote.get('tool')}")
     
     if args.dry_run:
         print("\n[Dry run - not executing]")
@@ -246,7 +246,7 @@ def main():
         return
     
     tx_hash = execute_bridge(quote, private_key, args.rpc)
-    print(f"\n✅ Bridge transaction: {tx_hash}")
+    print(f"\n Bridge transaction: {tx_hash}")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-# 📦 Inventory & Supply Chain Manager
+#  Inventory & Supply Chain Manager
 
 Complete inventory management, demand forecasting, supplier evaluation, and supply chain optimization — built for real businesses, not home closet organizing.
 
@@ -36,17 +36,17 @@ Any business that buys, stocks, and sells physical products — ecommerce, manuf
 
 ---
 
-## ⚡ Level Up
+##  Level Up
 
 This free skill gives you the operational framework. For industry-specific inventory strategies with vendor landscapes, compliance requirements, and market context:
 
-- 🏭 [**Manufacturing Context Pack**](https://afrexai-cto.github.io/context-packs/) — Production scheduling, MRP, lean manufacturing inventory
-- 🛒 [**Ecommerce Context Pack**](https://afrexai-cto.github.io/context-packs/) — FBA inventory, marketplace stock sync, seasonal planning
-- 🏗️ [**Construction Context Pack**](https://afrexai-cto.github.io/context-packs/) — Material procurement, site logistics, waste tracking
+-  [**Manufacturing Context Pack**](https://afrexai-cto.github.io/context-packs/) — Production scheduling, MRP, lean manufacturing inventory
+-  [**Ecommerce Context Pack**](https://afrexai-cto.github.io/context-packs/) — FBA inventory, marketplace stock sync, seasonal planning
+-  [**Construction Context Pack**](https://afrexai-cto.github.io/context-packs/) — Material procurement, site logistics, waste tracking
 
 **$47 each** — instant download, plug into any AI agent.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [`afrexai-budget-tracker`](https://clawhub.com/skills/afrexai-budget-tracker) — Financial tracking & health scoring
 - [`afrexai-business-automation`](https://clawhub.com/skills/afrexai-business-automation) — Workflow automation frameworks
@@ -54,4 +54,4 @@ This free skill gives you the operational framework. For industry-specific inven
 - [`afrexai-data-analyst`](https://clawhub.com/skills/afrexai-data-analyst) — Analysis frameworks & dashboards
 - [`afrexai-invoice-engine`](https://clawhub.com/skills/afrexai-invoice-engine) — Invoicing & accounts receivable
 
-👉 [**Browse all AfrexAI skills & packs**](https://afrexai-cto.github.io/context-packs/)
+ [**Browse all AfrexAI skills & packs**](https://afrexai-cto.github.io/context-packs/)

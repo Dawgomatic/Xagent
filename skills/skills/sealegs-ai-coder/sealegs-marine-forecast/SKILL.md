@@ -2,7 +2,7 @@
 name: sealegs-marine-forecast
 description: Get AI-powered marine weather forecasts for any location worldwide
 homepage: https://developer.sealegs.ai
-metadata: {"openclaw": {"requires": {"env": ["SEALEGS_API_KEY"], "bins": ["curl"]}, "primaryEnv": "SEALEGS_API_KEY"}, "emoji": "⛵", "tags": ["weather", "marine", "forecast", "boating", "sailing", "ocean", "waves", "wind"]}
+metadata: {"openclaw": {"requires": {"env": ["SEALEGS_API_KEY"], "bins": ["curl"]}, "primaryEnv": "SEALEGS_API_KEY"}, "emoji": "", "tags": ["weather", "marine", "forecast", "boating", "sailing", "ocean", "waves", "wind"]}
 ---
 
 # SeaLegs AI Marine Forecast API

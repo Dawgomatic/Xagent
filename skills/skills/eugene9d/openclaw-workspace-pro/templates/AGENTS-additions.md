@@ -1,6 +1,6 @@
 
 
-## 📦 Artifact Workflow
+##  Artifact Workflow
 
 When producing deliverables (reports, code, datasets, exports):
 
@@ -27,7 +27,7 @@ artifacts/data/2026-02-13-task-export.csv
 
 **Why:** Clean handoff boundary, easy retrieval, version tracking, explicit review point.
 
-## 🔄 Long-Running Work Pattern
+##  Long-Running Work Pattern
 
 For multi-step tasks that span multiple messages or sessions:
 
@@ -57,7 +57,7 @@ For multi-step tasks that span multiple messages or sessions:
 4. Final: Mark Vikunja task complete, summarize in MEMORY.md
 ```
 
-## 🔒 Secrets Management
+##  Secrets Management
 
 **Rule:** Never store API keys, tokens, or passwords in plaintext in committed files.
 

@@ -4,7 +4,7 @@
 
 一个强大的飞书文件上传技能，允许OpenClaw直接上传文件到飞书云盘并发送到聊天。
 
-## 🚀 快速开始
+##  快速开始
 
 ### 安装
 ```bash
@@ -21,7 +21,7 @@ node feishu_complete_upload.js <文件路径> <聊天ID>
 node feishu_complete_upload.js memory_files.tar.gz oc_dd899cb1a7846915cdd2d6850bd1dafa
 ```
 
-## 📦 功能特性
+##  功能特性
 
 ### 核心功能
 - **一键上传**：上传本地文件到飞书
@@ -36,7 +36,7 @@ node feishu_complete_upload.js memory_files.tar.gz oc_dd899cb1a7846915cdd2d6850b
 - **易集成**：简单命令行接口
 - **可扩展**：模块化设计，易于定制
 
-## 🛠️ 使用方法
+##  使用方法
 
 ### 1. 上传并发送文件
 ```bash
@@ -76,7 +76,7 @@ node feishu_complete_upload.js file.txt
 cat feishu_token.txt
 ```
 
-## 🔧 技术细节
+##  技术细节
 
 ### 工作流程
 ```
@@ -102,7 +102,7 @@ Content-Type: application/json
 Body: {"receive_id": "oc_xxx", "msg_type": "file", "content": "{\"file_key\":\"file_v3_xxx\"}"}
 ```
 
-## 📁 文件结构
+##  文件结构
 
 ```
 feishu-upload-skill/
@@ -117,7 +117,7 @@ feishu-upload-skill/
 └── simple_feishu_upload.js      # 简化版Node.js工具
 ```
 
-## ⚙️ 配置要求
+##  配置要求
 
 ### 飞书应用权限
 - `im:message:send_as_bot` - 发送消息
@@ -132,7 +132,7 @@ feishu-upload-skill/
 技能会自动读取OpenClaw的配置文件：
 - `/home/node/.openclaw/openclaw.json` - 飞书App ID/Secret
 
-## 🐛 故障排除
+##  故障排除
 
 ### 常见问题
 
@@ -154,15 +154,15 @@ A: 检查网络是否能访问`open.feishu.cn`
 DEBUG=1 node feishu_complete_upload.js file.txt chat_id 2>&1 | tee debug.log
 ```
 
-## 📄 许可证
+##  许可证
 
 MIT License
 
-## 🤝 贡献
+##  贡献
 
 欢迎提交Issue和Pull Request！
 
-## 📞 支持
+##  支持
 
 如有问题，请：
 1. 查看[SKILL.md](SKILL.md)文档
@@ -172,8 +172,8 @@ MIT License
 ---
 
 **已成功上传文件示例：**
-- ✅ `memory_files.tar.gz` - 记忆文件压缩包
-- ✅ `memory_summary.txt` - 记忆摘要文件
-- ✅ `test_upload.txt` - 测试文件
+-  `memory_files.tar.gz` - 记忆文件压缩包
+-  `memory_summary.txt` - 记忆摘要文件
+-  `test_upload.txt` - 测试文件
 
 **聊天ID:** `oc_dd899cb1a7846915cdd2d6850bd1dafa`

@@ -1,11 +1,11 @@
 ---
 name: proactive-agent
 version: 2.3.0
-description: "Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve. Includes reverse prompting, security hardening, self-healing patterns, verification protocols, and alignment systems. Part of the Hal Stack 🦞"
+description: "Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve. Includes reverse prompting, security hardening, self-healing patterns, verification protocols, and alignment systems. Part of the Hal Stack "
 author: halthelobster
 ---
 
-# Proactive Agent 🦞
+# Proactive Agent 
 
 **By Hal Labs** — Part of the Hal Stack
 
@@ -15,19 +15,19 @@ Most agents just wait. This one anticipates your needs — and gets better at it
 
 **Proactive — creates value without being asked**
 
-✅ **Anticipates your needs** — Asks "what would help my human?" instead of waiting to be told
+ **Anticipates your needs** — Asks "what would help my human?" instead of waiting to be told
 
-✅ **Reverse prompting** — Surfaces ideas you didn't know to ask for, and waits for your approval
+ **Reverse prompting** — Surfaces ideas you didn't know to ask for, and waits for your approval
 
-✅ **Proactive check-ins** — Monitors what matters and reaches out when something needs attention
+ **Proactive check-ins** — Monitors what matters and reaches out when something needs attention
 
 **Self-improving — gets better at serving you**
 
-✅ **Memory that sticks** — Saves context before compaction, compounds knowledge over time
+ **Memory that sticks** — Saves context before compaction, compounds knowledge over time
 
-✅ **Self-healing** — Fixes its own issues so it can focus on yours
+ **Self-healing** — Fixes its own issues so it can focus on yours
 
-✅ **Security hardening** — Stays aligned to your goals, not hijacked by bad inputs
+ **Security hardening** — Stays aligned to your goals, not hijacked by bad inputs
 
 **The result:** An agent that anticipates your needs — and gets better at it every day.
 
@@ -132,7 +132,7 @@ workspace/
 
 **How to monitor:** Run `session_status` periodically during longer conversations. Look for:
 ```
-📚 Context: 36k/200k (18%) · 🧹 Compactions: 0
+ Context: 36k/200k (18%) ·  Compactions: 0
 ```
 
 **Threshold-based flush protocol:**
@@ -365,7 +365,7 @@ The hard part isn't knowing to reverse prompt — it's actually doing it. Here's
 
 **1. Track it:** Create `notes/areas/proactive-tracker.md` with:
 ```markdown
-## 🔄 Reverse Prompting
+##  Reverse Prompting
 **Last done:** [date]
 **Frequency goal:** Weekly
 
@@ -484,7 +484,7 @@ OUTCOMES: Making a recommendation/decision? → Note it in notes/areas/outcome-j
 - When you learn a lesson → update AGENTS.md, TOOLS.md, or skill file
 - When you make a mistake → document it so future-you doesn't repeat it
 
-**Text > Brain** 📝
+**Text > Brain** 
 
 ## Assets
 
@@ -545,7 +545,7 @@ Together, they create an agent that anticipates needs, remembers everything, and
 
 ---
 
-*Part of the Hal Stack 🦞*
+*Part of the Hal Stack *
 
 *Pairs well with [Bulletproof Memory](https://clawdhub.com/halthelobster/bulletproof-memory) for context persistence and [PARA Second Brain](https://clawdhub.com/halthelobster/para-second-brain) for knowledge organization.*
 

@@ -41,12 +41,12 @@ if [[ -f "$PYTHON_SCANNER" ]]; then
   elif [[ "$SCANNER_EXIT" -eq 0 ]]; then
     echo "$SCANNER_OUTPUT"
     echo ""
-    echo "✅ CLEAN — refactory scanner found no violations"
+    echo " CLEAN — refactory scanner found no violations"
     exit 0
   else
     echo "$SCANNER_OUTPUT"
     echo ""
-    echo "❌ BLOCKED — refactory scanner found violations (see above)"
+    echo " BLOCKED — refactory scanner found violations (see above)"
     exit 1
   fi
 fi
@@ -85,7 +85,7 @@ EMAILS=$(echo "$SCAN_FILES" | xargs grep -hEn \
   | grep -Ev '@(example\.(com|org|net)|localhost|127\.|openclaw\.ai|clawhub\.ai)' \
   | grep -Ev '^\s*#' \
   | head -20 || true)
-record_violations "❌ Personal email addresses found:" "$EMAILS"
+record_violations " Personal email addresses found:" "$EMAILS"
 
 # ── Pattern 2: IP addresses (excluding safe/example ranges) ───────────────────
 # Exclude: 127.x.x.x, 192.0.2.x (TEST-NET), 0.0.0.0, example patterns
@@ -95,7 +95,7 @@ IPS=$(echo "$SCAN_FILES" | xargs grep -hEn \
   | grep -Ev '(example|placeholder|your-ip|x\.x\.x\.x)' \
   | grep -Ev '^\s*#' \
   | head -20 || true)
-record_violations "❌ IP addresses (non-example) found:" "$IPS"
+record_violations " IP addresses (non-example) found:" "$IPS"
 
 # ── Pattern 3: Hardcoded absolute paths /Users/ or /home/ ─────────────────────
 # Exclude: lines that look like examples/placeholders
@@ -104,28 +104,28 @@ PATHS=$(echo "$SCAN_FILES" | xargs grep -hEn \
   | grep -Ev '(example|your-username|<user>|YOUR_|placeholder|e\.g\.|e\.g,)' \
   | grep -Ev '^\s*#.*example' \
   | head -20 || true)
-record_violations "❌ Hardcoded absolute paths (/Users/, /home/) found:" "$PATHS"
+record_violations " Hardcoded absolute paths (/Users/, /home/) found:" "$PATHS"
 
 # ── Pattern 4: Known identifier patterns ──────────────────────────────────────
 # AWS keys, GitHub tokens, API keys
 IDENTIFIERS=$(echo "$SCAN_FILES" | xargs grep -hEn \
   '(AKIA[0-9A-Z]{16}|ghp_[a-zA-Z0-9]{36}|gho_[a-zA-Z0-9]{36}|sk-[a-zA-Z0-9]{32,}|AIza[0-9A-Za-z\-_]{35})' \
   2>/dev/null | head -20 || true)
-record_violations "❌ Known credential/token patterns found:" "$IDENTIFIERS"
+record_violations " Known credential/token patterns found:" "$IDENTIFIERS"
 
 # ── Report ─────────────────────────────────────────────────────────────────────
 if [[ "$ALL_CLEAN" == "true" ]]; then
-  echo "  ✅ No personal emails"
-  echo "  ✅ No suspicious IP addresses"
-  echo "  ✅ No hardcoded absolute paths"
-  echo "  ✅ No credential/token patterns"
+  echo "   No personal emails"
+  echo "   No suspicious IP addresses"
+  echo "   No hardcoded absolute paths"
+  echo "   No credential/token patterns"
   echo ""
-  echo "✅ CLEAN — fallback scan found no violations"
+  echo " CLEAN — fallback scan found no violations"
   exit 0
 else
   for v in "${VIOLATIONS[@]}"; do echo "  $v"; done
   echo ""
-  echo "❌ BLOCKED — OPSEC violations found (see above)"
+  echo " BLOCKED — OPSEC violations found (see above)"
   echo "   Fix violations in the release copy before proceeding."
   echo "   Do NOT modify the source in openclaw-knowledge."
   exit 1

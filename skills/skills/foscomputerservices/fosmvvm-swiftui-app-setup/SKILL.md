@@ -2,7 +2,7 @@
 name: fosmvvm-swiftui-app-setup
 description: Set up the @main App struct for FOSMVVM SwiftUI apps. Configures MVVMEnvironment, deployment URLs, and test infrastructure.
 homepage: https://github.com/foscomputerservices/FOSUtilities
-metadata: {"clawdbot": {"emoji": "🚀", "os": ["darwin"]}}
+metadata: {"clawdbot": {"emoji": "", "os": ["darwin"]}}
 ---
 
 # FOSMVVM SwiftUI App Setup

@@ -40,7 +40,7 @@ Support these patterns:
 
 ### Monthly Summary
 ```
-📊 February 2026 Summary
+ February 2026 Summary
 
 Total invoices: 23
 Total amount: €2,847.50
@@ -58,7 +58,7 @@ Payment status:
 
 ### Quarterly Tax Report
 ```
-📋 Q1 2026 Tax Summary (Spain - Modelo 303)
+ Q1 2026 Tax Summary (Spain - Modelo 303)
 
 Base imponible: €12,450.00
 IVA soportado:
@@ -67,13 +67,13 @@ IVA soportado:
 • 4%: €15.00
 Total IVA: €2,315.00
 
-⚠️ Missing invoices for deduction:
+ Missing invoices for deduction:
 • February telecom (usually €45)
 ```
 
 ### Provider Analysis
 ```
-📈 Hetzner - 12 months
+ Hetzner - 12 months
 
 Total spend: €1,068.00
 Monthly average: €89.00
@@ -87,7 +87,7 @@ Invoices:
 
 ### Annual Summary (for accountant)
 ```
-📁 2025 Annual Export
+ 2025 Annual Export
 
 Generating:
 • invoices_2025.csv (147 records)

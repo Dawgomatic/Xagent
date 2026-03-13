@@ -1,4 +1,4 @@
-# Fix Your Entire Life in 1 Day 🧠
+# Fix Your Entire Life in 1 Day 
 
 > 10 psychological sessions based on Dan Koe's viral article.
 
@@ -8,9 +8,9 @@ A [Clawdbot](https://github.com/clawdbot/clawdbot) skill that guides you through
 
 ## Credits
 
-- 📝 **Dan Koe** ([@thedankoe](https://x.com/thedankoe)) — Original article and framework
-- 🔧 **Alex Prompter** ([@alex_prompter](https://x.com/alex_prompter)) — 10 AI prompts reverse-engineered from Dan's article
-- ⚡ **Chip** ([@chip1cr](https://x.com/chip1cr)) — Clawdbot skill implementation
+-  **Dan Koe** ([@thedankoe](https://x.com/thedankoe)) — Original article and framework
+-  **Alex Prompter** ([@alex_prompter](https://x.com/alex_prompter)) — 10 AI prompts reverse-engineered from Dan's article
+-  **Chip** ([@chip1cr](https://x.com/chip1cr)) — Clawdbot skill implementation
 
 ## The 10 Sessions
 
@@ -72,8 +72,8 @@ After completing all 10 sessions:
 
 ## Languages
 
-- 🇬🇧 English (default)
-- 🇷🇺 Russian (full translation)
+-  English (default)
+-  Russian (full translation)
 
 ## Requirements
 

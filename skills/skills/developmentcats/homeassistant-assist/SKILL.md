@@ -4,7 +4,7 @@ description: Control Home Assistant smart home devices using the Assist (Convers
 homepage: https://github.com/DevelopmentCats/homeassistant-assist
 metadata:
   openclaw:
-    emoji: "🏠"
+    emoji: ""
     requires:
       bins: ["curl"]
       env: ["HASS_SERVER", "HASS_TOKEN"]

@@ -9,7 +9,7 @@ const { AuthSystem } = require('./auth.js');
 const { RateLimiter } = require('./rate-limiter.js');
 const { AuditLogger } = require('./audit-logger.js');
 
-console.log('🦪 OpenClaw SHIB Payment Agent - Security Test Suite\n');
+console.log(' OpenClaw SHIB Payment Agent - Security Test Suite\n');
 
 // Test 1: Authentication
 console.log('=== Test 1: Authentication System ===');
@@ -47,15 +47,15 @@ const rateLimiter = new RateLimiter({
 console.log('Simulating 6 rapid requests:');
 for (let i = 1; i <= 6; i++) {
   const check = rateLimiter.checkRequest('test-agent');
-  console.log(`  Request ${i}: ${check.allowed ? '✅ Allowed' : '❌ Rate limited'} (${check.remaining} remaining)`);
+  console.log(`  Request ${i}: ${check.allowed ? ' Allowed' : ' Rate limited'} (${check.remaining} remaining)`);
 }
 
 // Simulate payments
 console.log('\nSimulating payment rate limit:');
-console.log('  Payment 1 (100 SHIB):', rateLimiter.checkPayment('test-agent', 100).allowed ? '✅' : '❌');
-console.log('  Payment 2 (200 SHIB):', rateLimiter.checkPayment('test-agent', 200).allowed ? '✅' : '❌');
-console.log('  Payment 3 (150 SHIB):', rateLimiter.checkPayment('test-agent', 150).allowed ? '✅' : '❌');
-console.log('  Payment 4 (100 SHIB):', rateLimiter.checkPayment('test-agent', 100).allowed ? '✅ (should fail)' : '❌ Volume limit');
+console.log('  Payment 1 (100 SHIB):', rateLimiter.checkPayment('test-agent', 100).allowed ? '' : '');
+console.log('  Payment 2 (200 SHIB):', rateLimiter.checkPayment('test-agent', 200).allowed ? '' : '');
+console.log('  Payment 3 (150 SHIB):', rateLimiter.checkPayment('test-agent', 150).allowed ? '' : '');
+console.log('  Payment 4 (100 SHIB):', rateLimiter.checkPayment('test-agent', 100).allowed ? ' (should fail)' : ' Volume limit');
 
 const stats = rateLimiter.getStats('test-agent');
 console.log(`\n✓ Stats: ${stats.payments.count} payments, ${stats.payments.totalValue} SHIB sent`);
@@ -82,7 +82,7 @@ recentLogs.forEach(entry => {
 
 // Verify integrity
 const verification = logger.verify();
-console.log(`\n✓ Integrity Check: ${verification.valid ? '✅ VALID' : '❌ INVALID'}`);
+console.log(`\n✓ Integrity Check: ${verification.valid ? ' VALID' : ' INVALID'}`);
 console.log(`  Total entries: ${verification.totalEntries}`);
 console.log(`  Last hash: ${verification.lastHash?.substring(0, 16)}...`);
 
@@ -97,7 +97,7 @@ Object.entries(logStats.byEvent).forEach(([event, count]) => {
 });
 
 console.log('\n' + '='.repeat(60));
-console.log('✅ All Security Systems Operational!');
+console.log(' All Security Systems Operational!');
 console.log('='.repeat(60));
 console.log('\nProduction-Ready Features:');
 console.log('  ✓ API Key Authentication');

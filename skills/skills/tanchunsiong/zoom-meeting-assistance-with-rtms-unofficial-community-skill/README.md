@@ -58,9 +58,9 @@ The service listens on port 4048 (configurable) for webhook events forwarded by 
 
 | Variable | Required | Default | Description |
 |---|---|---|---|
-| `ZOOM_SECRET_TOKEN` | ✅ | — | Zoom webhook secret token |
-| `ZOOM_CLIENT_ID` | ✅ | — | Zoom app Client ID |
-| `ZOOM_CLIENT_SECRET` | ✅ | — | Zoom app Client Secret |
+| `ZOOM_SECRET_TOKEN` |  | — | Zoom webhook secret token |
+| `ZOOM_CLIENT_ID` |  | — | Zoom app Client ID |
+| `ZOOM_CLIENT_SECRET` |  | — | Zoom app Client Secret |
 | `PORT` | — | `3000` | Express server port |
 | `WEBHOOK_PATH` | — | `/webhook` | Webhook endpoint path |
 | `AI_PROCESSING_INTERVAL_MS` | — | `30000` | AI analysis frequency (ms) |
@@ -166,7 +166,7 @@ Edit these files to change AI behavior:
 ## Bug Reports & Contributing
 
 Found a bug? Please raise an issue at:
-👉 https://github.com/tanchunsiong/zoom-meeting-assistance-with-rtms-unofficial-community-skill/issues
+ https://github.com/tanchunsiong/zoom-meeting-assistance-with-rtms-unofficial-community-skill/issues
 
 Pull requests are also welcome!
 

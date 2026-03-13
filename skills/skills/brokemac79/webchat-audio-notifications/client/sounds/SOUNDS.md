@@ -54,10 +54,10 @@ We provide 5 notification sounds at different intensity levels:
 ## License
 
 These sounds are used under the Mixkit Free License which allows:
-- ✅ Commercial use
-- ✅ Personal projects
-- ✅ No attribution required (but appreciated)
-- ✅ Modification allowed
+-  Commercial use
+-  Personal projects
+-  No attribution required (but appreciated)
+-  Modification allowed
 
 Full license: https://mixkit.co/license/#sfxFree
 

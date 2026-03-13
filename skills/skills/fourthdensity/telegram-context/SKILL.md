@@ -4,7 +4,7 @@ description: Toggle-enabled skill that fetches Telegram message history at sessi
 homepage: https://github.com/openclaw/skills
 metadata:
   openclaw:
-    emoji: "💬"
+    emoji: ""
     requires:
       bins: []
       env: []

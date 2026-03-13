@@ -4,12 +4,12 @@ A professional skill for OpenClaw that automatically generates structured CTF wr
 
 ## Features
 
-- 🎯 **Automatic Flag Detection**: Recognizes common CTF flag formats (CTF{}, HTB{}, SHAASTRA{}, etc.)
-- 📂 **Smart Categorization**: Auto-categorizes challenges (Web, Binary, Crypto, Forensics, etc.)
-- 📝 **Professional Formatting**: Generates markdown with proper syntax highlighting
-- 🛠️ **Tool Recognition**: Identifies and documents tools used during the solve
-- 🎨 **Multiple Templates**: Academic, speedrun, tutorial, and portfolio styles
-- 📤 **Export Options**: Markdown, PDF, HTML formats
+-  **Automatic Flag Detection**: Recognizes common CTF flag formats (CTF{}, HTB{}, SHAASTRA{}, etc.)
+-  **Smart Categorization**: Auto-categorizes challenges (Web, Binary, Crypto, Forensics, etc.)
+-  **Professional Formatting**: Generates markdown with proper syntax highlighting
+-  **Tool Recognition**: Identifies and documents tools used during the solve
+-  **Multiple Templates**: Academic, speedrun, tutorial, and portfolio styles
+-  **Export Options**: Markdown, PDF, HTML formats
 
 ## Installation
 
@@ -144,11 +144,11 @@ Generated writeups include:
 
 ## Security & Ethics
 
-- ⚠️ Never include real credentials or API keys
-- ⚠️ Respect competition rules (don't publish during active CTFs)
-- ⚠️ Add spoiler warnings for recent challenges
-- ⚠️ Verify flag sharing is allowed by the platform
-- ⚠️ Sanitize paths that reveal sensitive system info
+-  Never include real credentials or API keys
+-  Respect competition rules (don't publish during active CTFs)
+-  Add spoiler warnings for recent challenges
+-  Verify flag sharing is allowed by the platform
+-  Sanitize paths that reveal sensitive system info
 
 ## Dependencies
 
@@ -231,4 +231,4 @@ Built for the cybersecurity education and CTF community. Special thanks to:
 
 ---
 
-**Star this skill on ClawHub if you find it useful!** ⭐
+**Star this skill on ClawHub if you find it useful!** 

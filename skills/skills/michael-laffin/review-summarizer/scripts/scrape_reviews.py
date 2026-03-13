@@ -114,11 +114,11 @@ def generate_summary(reviews: List[Dict]) -> Dict:
 
     # Generate recommendation
     if avg_rating >= 4.0 and avg_sentiment >= 0.3:
-        recommendation = "✅ **Recommended** - Strong positive sentiment with high customer satisfaction."
+        recommendation = " **Recommended** - Strong positive sentiment with high customer satisfaction."
     elif avg_rating >= 3.0 and avg_sentiment >= 0.0:
-        recommendation = "⚠️ **Conditionally Recommended** - Good overall but consider your specific needs."
+        recommendation = " **Conditionally Recommended** - Good overall but consider your specific needs."
     else:
-        recommendation = "❌ **Not Recommended** - Low satisfaction and negative sentiment."
+        recommendation = " **Not Recommended** - Low satisfaction and negative sentiment."
 
     return {
         "overview": {
@@ -233,7 +233,7 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(output)
 
-    print(f"✅ Summary generated: {args.output}")
+    print(f" Summary generated: {args.output}")
     print(f"   Reviews analyzed: {summary.get('overview', {}).get('total_reviews', 0)}")
 
 

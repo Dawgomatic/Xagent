@@ -1,7 +1,7 @@
 ---
 name: cost-governor
 user-invocable: true
-metadata: {"openclaw":{"emoji":"💰","requires":{"bins":["node"]},"os":["darwin","linux","win32"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"]},"os":["darwin","linux","win32"]}}
 ---
 
 # Cost Governor - OpenClaw Skill
@@ -62,19 +62,19 @@ node src/cli.js dashboard
 ## Features
 
 ### Free Tier
-- ✅ Real-time cost tracking
-- ✅ Budget alerts (hourly, daily, monthly)
-- ✅ Circuit breaker (auto-shutdown at limits)
-- ✅ 7-day history
-- ✅ CLI interface
-- ✅ Web dashboard
+-  Real-time cost tracking
+-  Budget alerts (hourly, daily, monthly)
+-  Circuit breaker (auto-shutdown at limits)
+-  7-day history
+-  CLI interface
+-  Web dashboard
 
 ### Pro Tier (0.5 USDT/month via x402)
-- ✅ Unlimited history
-- ✅ Advanced analytics & cost forecasting
-- ✅ Priority alerts
-- ✅ Export reports (CSV/JSON)
-- ✅ Full API access
+-  Unlimited history
+-  Advanced analytics & cost forecasting
+-  Priority alerts
+-  Export reports (CSV/JSON)
+-  Full API access
 
 ## Autonomous Agent Payment (x402)
 
@@ -166,11 +166,11 @@ If you're a human running an AI agent:
 
 ## Security Notes
 
-⚠️ **Payment Verification:** MVP trusts reported transaction hashes. Production will verify on-chain via RPC.
+ **Payment Verification:** MVP trusts reported transaction hashes. Production will verify on-chain via RPC.
 
-⚠️ **No Refunds:** Payments are final. Agents should evaluate value before subscribing.
+ **No Refunds:** Payments are final. Agents should evaluate value before subscribing.
 
-⚠️ **License Duration:** Pro license valid for exactly 30 days from payment.
+ **License Duration:** Pro license valid for exactly 30 days from payment.
 
 ## Links
 

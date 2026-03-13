@@ -5,7 +5,7 @@ description: Generate images **and videos** using Sogni AI's decentralized netwo
 homepage: https://sogni.ai
 metadata:
   clawdbot:
-    emoji: "🎨"
+    emoji: ""
     os: ["darwin", "linux", "win32"]
     requires:
       bins: ["node"]

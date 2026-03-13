@@ -132,8 +132,8 @@ export function DebugOverlay({
     { label: 'Safe Bottom', value: insets.device.bottom },
     { label: 'Content Top', value: insets.content.top },
     { label: 'Content Bottom', value: insets.content.bottom },
-    { label: '⚡ Total Top', value: insets.totalTop },
-    { label: '⚡ Total Bottom', value: insets.totalBottom },
+    { label: ' Total Top', value: insets.totalTop },
+    { label: ' Total Bottom', value: insets.totalBottom },
   ];
 
   const handleCopy = async (label: string, value: any) => {
@@ -167,7 +167,7 @@ export function DebugOverlay({
           cursor: 'pointer',
         }}
       >
-        {isOpen ? '✕' : '🐛'}
+        {isOpen ? '✕' : ''}
       </button>
 
       {isOpen && (

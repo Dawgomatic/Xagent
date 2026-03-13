@@ -1,4 +1,4 @@
-# OpenClaw LLM Router 🧠
+# OpenClaw LLM Router 
 
 **Unified LLM Gateway for autonomous agents. Powered by AIsa.**
 

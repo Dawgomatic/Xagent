@@ -53,8 +53,8 @@ def send_notification(title, media_type, channel='telegram', chat_id=None):
     import json
     from pathlib import Path
     
-    media_icon = "🎬" if media_type == "movie" else "📺"
-    message = f"{media_icon} **{title} is now available!**\n\nYour requested {'movie' if media_type == 'movie' else 'TV show'} is ready to watch on Plex/Jellyfin. Enjoy! 🥚"
+    media_icon = "" if media_type == "movie" else ""
+    message = f"{media_icon} **{title} is now available!**\n\nYour requested {'movie' if media_type == 'movie' else 'TV show'} is ready to watch on Plex/Jellyfin. Enjoy! "
     
     # Print for logging
     print(f"NOTIFY: {message}")

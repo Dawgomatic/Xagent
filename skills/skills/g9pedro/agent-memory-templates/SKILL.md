@@ -4,7 +4,7 @@ version: 1.0.0
 description: "Production-tested memory templates for AI agents. Includes SOUL.md personality templates, memory checkpoint patterns, observational memory configs, and 100 power prompts. From the creators of ClawVault."
 metadata:
   openclaw:
-    emoji: "🧠"
+    emoji: ""
 ---
 
 # Agent Memory Templates

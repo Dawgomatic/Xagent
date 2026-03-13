@@ -89,7 +89,7 @@ function scanForSecrets(content) {
     ];
     for (const p of secretPatterns) {
         if (p.test(content)) {
-            console.error('\x1b[31m%s\x1b[0m', '⛔ SECURITY ALERT: Potential secret detected in message body.');
+            console.error('\x1b[31m%s\x1b[0m', ' SECURITY ALERT: Potential secret detected in message body.');
             throw new Error('Aborted send to prevent secret leakage.');
         }
     }

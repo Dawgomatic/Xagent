@@ -27,21 +27,21 @@ Options:
   // Clear local state only
   if (args.includes('--local')) {
     clearProvisionedState()
-    console.log('✅ Cleared local .openserv.json state')
+    console.log(' Cleared local .openserv.json state')
     return
   }
 
   // Authenticate
   const client = new PlatformClient()
   await client.authenticate(process.env.WALLET_PRIVATE_KEY)
-  console.log('✅ Authenticated\n')
+  console.log(' Authenticated\n')
 
   // Delete specific workflow
   const workflowIdx = args.indexOf('--workflow')
   if (workflowIdx !== -1) {
     const id = parseInt(args[workflowIdx + 1])
     await client.workflows.delete({ id })
-    console.log(`✅ Deleted workflow ${id}`)
+    console.log(` Deleted workflow ${id}`)
     return
   }
 
@@ -50,7 +50,7 @@ Options:
   if (agentIdx !== -1) {
     const id = parseInt(args[agentIdx + 1])
     await client.agents.delete({ id })
-    console.log(`✅ Deleted agent ${id}`)
+    console.log(` Deleted agent ${id}`)
     return
   }
 
@@ -74,7 +74,7 @@ Options:
 
     // Clear local state
     clearProvisionedState()
-    console.log('\n✅ Cleanup complete!')
+    console.log('\n Cleanup complete!')
     return
   }
 

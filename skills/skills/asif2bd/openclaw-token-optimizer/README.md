@@ -11,7 +11,7 @@ An OpenClaw skill for smart model routing, lazy context loading, optimized heart
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### Option 1: ClawHub (recommended)
 ```bash
@@ -41,7 +41,7 @@ Then add to `openclaw.json`:
 
 ---
 
-## ✨ What's New in v1.4.x (OpenClaw 2026.2.15)
+##  What's New in v1.4.x (OpenClaw 2026.2.15)
 
 Three **native config patches** that work today with zero external dependencies:
 
@@ -72,7 +72,7 @@ python3 scripts/heartbeat_optimizer.py cache-ttl
 
 ---
 
-## 🛠️ Quick Start
+##  Quick Start
 
 **1. Context optimization (biggest win):**
 ```bash
@@ -107,7 +107,7 @@ python3 scripts/heartbeat_optimizer.py cache-ttl
 
 ---
 
-## 🔍 Native OpenClaw Diagnostics (2026.2.15+)
+##  Native OpenClaw Diagnostics (2026.2.15+)
 
 ```
 /context list    → per-file token breakdown (use before applying bootstrap limits)
@@ -118,7 +118,7 @@ python3 scripts/heartbeat_optimizer.py cache-ttl
 
 ---
 
-## 📁 Skill Structure
+##  Skill Structure
 
 ```
 openclaw-token-optimizer/
@@ -143,7 +143,7 @@ openclaw-token-optimizer/
 
 ---
 
-## 📊 Expected Savings
+##  Expected Savings
 
 | Strategy | Context | Model | Monthly (100K tok/day) | Savings |
 |---|---|---|---|---|
@@ -154,7 +154,7 @@ openclaw-token-optimizer/
 
 ---
 
-## 🔒 Security
+##  Security
 
 All scripts are **local-only** — no network calls, no subprocess spawning, no system modifications. See [SECURITY.md](SECURITY.md) for full per-script audit.
 
@@ -171,7 +171,7 @@ grep -r "urllib\|requests\|socket\|subprocess\|curl\|wget" scripts/
 
 ---
 
-## 📜 Changelog
+##  Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for full version history.
 
@@ -183,7 +183,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full version history.
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **ClawHub:** https://clawhub.ai/Asif2BD/openclaw-token-optimizer
 - **GitHub:** https://github.com/Asif2BD/OpenClaw-Token-Optimizer

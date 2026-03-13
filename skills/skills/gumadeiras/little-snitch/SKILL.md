@@ -13,7 +13,7 @@ Enable CLI access in **Little Snitch → Preferences → Security → Allow acce
 
 Once enabled, the `littlesnitch` command is available in Terminal.
 
-⚠️ **Security Warning:** The littlesnitch command is very powerful and can potentially be misused by malware. When access is enabled, you must take precautions that untrusted processes cannot gain root privileges.
+ **Security Warning:** The littlesnitch command is very powerful and can potentially be misused by malware. When access is enabled, you must take precautions that untrusted processes cannot gain root privileges.
 
 Reference: https://help.obdev.at/littlesnitch5/adv-commandline
 

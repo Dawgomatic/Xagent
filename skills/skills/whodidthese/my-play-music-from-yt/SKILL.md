@@ -9,7 +9,7 @@ description: |
   (4) control playback — next, pause, resume, stop, skip ad, change song, close the player. 
   Also handles song/artist name corrections from voice transcription errors.
 allowed-tools: Bash(playwright-cli:*)
-metadata: {"openclaw": {"requires": {"bins": ["playwright-cli"]}, "emoji": "🎵"}}
+metadata: {"openclaw": {"requires": {"bins": ["playwright-cli"]}, "emoji": ""}}
 ---
 
 # Play Music from YouTube — Clear, Stable, High SNR Instruction Set

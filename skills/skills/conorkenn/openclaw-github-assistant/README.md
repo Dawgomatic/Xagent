@@ -4,13 +4,13 @@ A skill that lets your AI assistant query and manage GitHub repositories.
 
 ## Features
 
-- 📋 **List Repos** — View your repositories with filters
-- 📊 **Get Repo Details** — Stars, forks, language, last updated
-- 🔄 **Check CI Status** — Monitor CI/CD pipelines
-- 📝 **Create Issues** — Open issues from conversation
-- 📁 **Create Repos** — Create new repositories
-- 🔍 **Search Repos** — Find repos by name/query
-- 📊 **Recent Activity** — View recent commits
+-  **List Repos** — View your repositories with filters
+-  **Get Repo Details** — Stars, forks, language, last updated
+-  **Check CI Status** — Monitor CI/CD pipelines
+-  **Create Issues** — Open issues from conversation
+-  **Create Repos** — Create new repositories
+-  **Search Repos** — Find repos by name/query
+-  **Recent Activity** — View recent commits
 
 ## Prerequisites
 
@@ -104,17 +104,17 @@ openclaw-github-skill/
 
 ## Security
 
-⚠️ **IMPORTANT: Protect Your GitHub Token!**
+ **IMPORTANT: Protect Your GitHub Token!**
 
 **Do:**
-- ✅ Use environment variables or OpenClaw config
-- ✅ Use minimal required scopes (`repo` or `public_repo`)
-- ✅ Rotate tokens if compromised
+-  Use environment variables or OpenClaw config
+-  Use minimal required scopes (`repo` or `public_repo`)
+-  Rotate tokens if compromised
 
 **Don't:**
-- ❌ Commit tokens to git
-- ❌ Share tokens in code or public repos
-- ❌ Store tokens in unprotected files
+-  Commit tokens to git
+-  Share tokens in code or public repos
+-  Store tokens in unprotected files
 
 **Best Practices:**
 - For local development: Environment variables are acceptable

@@ -1,6 +1,6 @@
 # Persona Evolution
 
-🎭 Dynamic personality evolution for OpenClaw agents. Create rich, personalized AI companions that learn and grow with your relationship.
+ Dynamic personality evolution for OpenClaw agents. Create rich, personalized AI companions that learn and grow with your relationship.
 
 ## Features
 

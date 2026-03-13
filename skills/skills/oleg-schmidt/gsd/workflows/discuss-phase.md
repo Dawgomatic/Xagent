@@ -193,7 +193,7 @@ Offer next steps:
 **Phase {N}: {Name}**
 Context: ${PHASE_DIR}/${PADDED_PHASE}-CONTEXT.md
 
-**▶ Next Up**
+** Next Up**
 
 `/gsd plan-phase {N}` — create execution plans
 

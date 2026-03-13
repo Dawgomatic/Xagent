@@ -121,8 +121,8 @@ def get_commitments(content):
             in_priorities = True
             continue
         if in_priorities and stripped.startswith(("1.", "2.", "3.", "- [", "- ")):
-            done = "[x]" in stripped.lower() or "✅" in stripped
-            text = stripped.lstrip("123.-[] x✅").strip()
+            done = "[x]" in stripped.lower() or "" in stripped
+            text = stripped.lstrip("123.-[] x").strip()
             if text:
                 commitments.append({"text": text, "done": done})
         if in_priorities and stripped == "" and commitments:
@@ -147,7 +147,7 @@ def cmd_morning(args):
             total = len(commitments)
             yesterday_recap = f"Yesterday: {done}/{total} commitments completed ({done/total*100:.0f}%)\n"
             for c in commitments:
-                status = "✅" if c["done"] else "❌"
+                status = "" if c["done"] else ""
                 yesterday_recap += f"  {status} {c['text']}\n"
 
     # Generate personalized prompt if LLM available
@@ -157,9 +157,9 @@ def cmd_morning(args):
             f"Based on this founder's yesterday journal, give ONE sharp insight or challenge for today (2-3 sentences max):\n\n{yesterday_entry[:1000]}"
         )
         if ai_response:
-            ai_insight = f"\n### 🤖 AI Coach Says\n{ai_response}\n"
+            ai_insight = f"\n###  AI Coach Says\n{ai_response}\n"
 
-    brief = f"""## 🌅 Morning Brief — {now.strftime('%A, %B %d, %Y')}
+    brief = f"""##  Morning Brief — {now.strftime('%A, %B %d, %Y')}
 
 {yesterday_recap}
 ### Today's Top 3 Priorities
@@ -167,7 +167,7 @@ def cmd_morning(args):
 2. [ ] 
 3. [ ] 
 
-### 🎯 AI Founder Question
+###  AI Founder Question
 > {question}
 
 {ai_insight}---
@@ -176,7 +176,7 @@ def cmd_morning(args):
 
     path = append_entry(brief)
     print(brief)
-    print(f"\n📝 Saved to: {path}")
+    print(f"\n Saved to: {path}")
 
 
 def cmd_evening(args):
@@ -195,7 +195,7 @@ def cmd_evening(args):
                 commitment_review += f"{i}. [ ] {c['text']} — completed? notes:\n"
             commitment_review += "\n"
 
-    reflection = f"""## 🌙 Evening Reflection — {now.strftime('%A, %B %d, %Y')}
+    reflection = f"""##  Evening Reflection — {now.strftime('%A, %B %d, %Y')}
 
 {commitment_review}### Wins
 - 
@@ -223,7 +223,7 @@ def cmd_evening(args):
 
     path = append_entry(reflection)
     print(reflection)
-    print(f"\n📝 Saved to: {path}")
+    print(f"\n Saved to: {path}")
 
 
 def cmd_weekly(args):
@@ -251,9 +251,9 @@ def cmd_weekly(args):
             f"Summarize this founder's week in 3-4 bullet points. Identify patterns, wins, and one area to improve:\n\n{combined[:3000]}"
         )
         if ai_response:
-            ai_summary = f"\n### 🤖 AI Weekly Analysis\n{ai_response}\n"
+            ai_summary = f"\n###  AI Weekly Analysis\n{ai_response}\n"
 
-    review = f"""## 📊 Weekly Review — Week {week_num} ({now.strftime('%Y')})
+    review = f"""##  Weekly Review — Week {week_num} ({now.strftime('%Y')})
 
 ### Performance
 - Commitments made: {total_commitments}
@@ -289,7 +289,7 @@ def cmd_weekly(args):
         f.write(review)
 
     print(review)
-    print(f"\n📝 Saved to: {weekly_path}")
+    print(f"\n Saved to: {weekly_path}")
 
 
 def cmd_stats(args):
@@ -324,13 +324,13 @@ def cmd_stats(args):
     print(f"Consistency: {total_entries}/30 days ({total_entries/30*100:.0f}%)")
 
     if rate >= 90:
-        print("Rating: 🟢 Crushing it (or setting easy goals?)")
+        print("Rating:  Crushing it (or setting easy goals?)")
     elif rate >= 70:
-        print("Rating: 🟡 Healthy stretch zone")
+        print("Rating:  Healthy stretch zone")
     elif rate >= 50:
-        print("Rating: 🟠 Overcommitting — focus on fewer things")
+        print("Rating:  Overcommitting — focus on fewer things")
     else:
-        print("Rating: 🔴 Reset — commit to 1-2 things only")
+        print("Rating:  Reset — commit to 1-2 things only")
 
     if weekly:
         print("\nWeekly Breakdown:")

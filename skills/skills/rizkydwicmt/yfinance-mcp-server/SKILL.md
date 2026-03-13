@@ -167,13 +167,13 @@ chmod +x install.sh
 ```
 
 The installer will:
-1. ✅ Check for `pyproject.toml` in the project directory
-2. ✅ Install `uv` if not already present
-3. ✅ Create a Python 3.12 virtual environment
-4. ✅ Install `yfinance-mcp-server` + all dependencies
-5. ✅ Verify all 12 tools load correctly
-6. ✅ Add `yfinance` to your mcporter config (auto-detected)
-7. ✅ Install `SKILL.md` to OpenClaw skills directory
+1.  Check for `pyproject.toml` in the project directory
+2.  Install `uv` if not already present
+3.  Create a Python 3.12 virtual environment
+4.  Install `yfinance-mcp-server` + all dependencies
+5.  Verify all 12 tools load correctly
+6.  Add `yfinance` to your mcporter config (auto-detected)
+7.  Install `SKILL.md` to OpenClaw skills directory
 
 ### Environment Variables
 

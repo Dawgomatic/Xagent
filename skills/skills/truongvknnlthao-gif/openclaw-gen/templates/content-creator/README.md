@@ -7,28 +7,28 @@ Your AI-powered content creation partner. From blog posts to video scripts, this
 ## Features
 
 ### Article Writing
-- 📝 SEO-optimized blog posts
-- 📊 Research-backed content
-- 🎯 Audience-targeted writing
-- ✨ Grammar and style refinement
+-  SEO-optimized blog posts
+-  Research-backed content
+-  Audience-targeted writing
+-  Grammar and style refinement
 
 ### Video Scripting
-- 🎬 Engaging video concepts
-- 📹 Structured scripts
-- 🎣 Attention-grabbing hooks
-- 📈 Retention-optimized pacing
+-  Engaging video concepts
+-  Structured scripts
+-  Attention-grabbing hooks
+-  Retention-optimized pacing
 
 ### Social Media
-- 📱 Platform-optimized posts
-- #️⃣ Hashtag strategy
-- 💬 Engaging captions
-- 🔄 Content repurposing
+-  Platform-optimized posts
+-  Hashtag strategy
+-  Engaging captions
+-  Content repurposing
 
 ### Content Strategy
-- 📅 Weekly content planning
-- 📈 Performance analysis
-- 🎯 Trend identification
-- 🔄 Content iteration
+-  Weekly content planning
+-  Performance analysis
+-  Trend identification
+-  Content iteration
 
 ## Quick Start
 

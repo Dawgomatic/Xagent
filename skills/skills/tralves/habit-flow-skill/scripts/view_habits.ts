@@ -78,8 +78,8 @@ function formatAsMarkdown(habits: Habit[]): string {
 
   for (const habit of habits) {
     const target = `${habit.targetCount} ${habit.targetUnit || 'session'}`;
-    const status = habit.isActive ? '✅ Active' : '📦 Archived';
-    output += `| ${habit.name} | ${habit.category} | ${habit.frequency} | ${target} | 🔥 ${habit.currentStreak} | ${status} |\n`;
+    const status = habit.isActive ? ' Active' : ' Archived';
+    output += `| ${habit.name} | ${habit.category} | ${habit.frequency} | ${target} |  ${habit.currentStreak} | ${status} |\n`;
   }
 
   return output;

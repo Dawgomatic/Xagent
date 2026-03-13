@@ -72,7 +72,7 @@ async function createZipArchive(sourceDir, excludePatterns) {
   const sourcePath = path.resolve(sourceDir);
   const zipPath = path.join(process.cwd(), 'static-app-deploy.zip');
   
-  console.log(`📦 Creating zip archive from ${sourcePath}...`);
+  console.log(` Creating zip archive from ${sourcePath}...`);
   
   return new Promise((resolve, reject) => {
     const output = fs.createWriteStream(zipPath);
@@ -80,7 +80,7 @@ async function createZipArchive(sourceDir, excludePatterns) {
 
     output.on('close', () => {
       const size = archive.pointer();
-      console.log(`📦 Archive created: ${size.toLocaleString()} bytes`);
+      console.log(` Archive created: ${size.toLocaleString()} bytes`);
       resolve(zipPath);
     });
 
@@ -90,7 +90,7 @@ async function createZipArchive(sourceDir, excludePatterns) {
 
     archive.on('warning', (err) => {
       if (err.code === 'ENOENT') {
-        console.warn(`⚠️  Warning: ${err.message}`);
+        console.warn(`  Warning: ${err.message}`);
       } else {
         reject(err);
       }
@@ -126,7 +126,7 @@ async function createZipArchive(sourceDir, excludePatterns) {
 }
 
 async function deploy(apiKey, zipPath, pid) {
-  console.log(`🚀 Uploading to Static.app...`);
+  console.log(` Uploading to Static.app...`);
   
   const form = new FormData();
   // Read file into buffer to handle redirects properly
@@ -175,7 +175,7 @@ async function main() {
   const options = parseArgs();
   
   if (!options.apiKey) {
-    console.error('❌ Error: API key required. Provide --api-key or set STATIC_APP_API_KEY env var.');
+    console.error(' Error: API key required. Provide --api-key or set STATIC_APP_API_KEY env var.');
     console.error('   Get your API key at: https://static.app/account/api');
     process.exit(1);
   }
@@ -196,16 +196,16 @@ async function main() {
     // Clean up
     if (!options.keepZip) {
       fs.unlinkSync(zipPath);
-      console.log(`🧹 Cleaned up temporary archive`);
+      console.log(` Cleaned up temporary archive`);
     } else {
-      console.log(`💾 Kept archive: ${zipPath}`);
+      console.log(` Kept archive: ${zipPath}`);
     }
     
     // Output results
-    console.log(`\n✅ Deployment successful!`);
-    console.log(`🌐 Site URL: ${result.siteUrl}`);
+    console.log(`\n Deployment successful!`);
+    console.log(` Site URL: ${result.siteUrl}`);
     if (result.sitePid) {
-      console.log(`📋 PID: ${result.sitePid}`);
+      console.log(` PID: ${result.sitePid}`);
     }
     
     // Output for OpenClaw to capture
@@ -213,7 +213,7 @@ async function main() {
     console.log(`STATIC_APP_PID=${result.sitePid}`);
     
   } catch (error) {
-    console.error(`❌ Deployment failed: ${error.message}`);
+    console.error(` Deployment failed: ${error.message}`);
     process.exit(1);
   }
 }

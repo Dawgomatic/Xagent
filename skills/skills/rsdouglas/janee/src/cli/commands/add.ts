@@ -10,7 +10,7 @@ export async function addCommand(
   try {
     // Check for YAML config
     if (!hasYAMLConfig()) {
-      console.error('❌ No config found. Run `janee init` first.');
+      console.error(' No config found. Run `janee init` first.');
       process.exit(1);
     }
 
@@ -23,7 +23,7 @@ export async function addCommand(
     }
 
     if (!serviceName) {
-      console.error('❌ Service name is required');
+      console.error(' Service name is required');
       rl.close();
       process.exit(1);
     }
@@ -32,7 +32,7 @@ export async function addCommand(
 
     // Check if service already exists
     if (config.services[serviceName]) {
-      console.error(`❌ Service "${serviceName}" already exists`);
+      console.error(` Service "${serviceName}" already exists`);
       rl.close();
       process.exit(1);
     }
@@ -45,7 +45,7 @@ export async function addCommand(
     }
 
     if (!baseUrl || !baseUrl.startsWith('http')) {
-      console.error('❌ Invalid base URL. Must start with http:// or https://');
+      console.error(' Invalid base URL. Must start with http:// or https://');
       rl.close();
       process.exit(1);
     }
@@ -55,7 +55,7 @@ export async function addCommand(
     const authType = authTypeInput.trim().toLowerCase() as 'bearer' | 'hmac' | 'headers';
 
     if (!['bearer', 'hmac', 'headers'].includes(authType)) {
-      console.error('❌ Invalid auth type. Must be bearer, hmac, or headers');
+      console.error(' Invalid auth type. Must be bearer, hmac, or headers');
       rl.close();
       process.exit(1);
     }
@@ -71,7 +71,7 @@ export async function addCommand(
       }
 
       if (!apiKey) {
-        console.error('❌ API key is required');
+        console.error(' API key is required');
         rl.close();
         process.exit(1);
       }
@@ -85,7 +85,7 @@ export async function addCommand(
       const apiSecret = await rl.question('API secret: ');
 
       if (!apiKey || !apiSecret) {
-        console.error('❌ API key and secret are required for HMAC');
+        console.error(' API key and secret are required for HMAC');
         rl.close();
         process.exit(1);
       }
@@ -113,7 +113,7 @@ export async function addCommand(
       }
 
       if (Object.keys(headers).length === 0) {
-        console.error('❌ At least one header is required');
+        console.error(' At least one header is required');
         rl.close();
         process.exit(1);
       }
@@ -132,7 +132,7 @@ export async function addCommand(
 
     saveYAMLConfig(config);
 
-    console.log(`✅ Added service "${serviceName}"`);
+    console.log(` Added service "${serviceName}"`);
     console.log();
 
     // Ask about capability
@@ -146,7 +146,7 @@ export async function addCommand(
 
       // Check if capability already exists
       if (config.capabilities[capName]) {
-        console.error(`❌ Capability "${capName}" already exists`);
+        console.error(` Capability "${capName}" already exists`);
         rl.close();
         process.exit(1);
       }
@@ -170,7 +170,7 @@ export async function addCommand(
 
       saveYAMLConfig(config);
 
-      console.log(`✅ Added capability "${capName}"`);
+      console.log(` Added capability "${capName}"`);
       console.log();
     }
 
@@ -180,9 +180,9 @@ export async function addCommand(
 
   } catch (error) {
     if (error instanceof Error) {
-      console.error('❌ Error:', error.message);
+      console.error(' Error:', error.message);
     } else {
-      console.error('❌ Unknown error occurred');
+      console.error(' Unknown error occurred');
     }
     process.exit(1);
   }

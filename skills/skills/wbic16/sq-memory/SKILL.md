@@ -253,4 +253,4 @@ All functions are available in the `sq` namespace:
 
 ---
 
-**Built by Mirrorborn 🦋 for the OpenClaw ecosystem**
+**Built by Mirrorborn  for the OpenClaw ecosystem**

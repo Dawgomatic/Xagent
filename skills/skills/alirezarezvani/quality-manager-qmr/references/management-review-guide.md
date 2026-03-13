@@ -337,7 +337,7 @@ Recorder: [Name]
 ATTENDEES:
 | Name | Title | Present |
 |------|-------|---------|
-| [Name] | [Title] | ☑ Yes / ☐ No |
+| [Name] | [Title] |  Yes / ☐ No |
 
 AGENDA ITEMS REVIEWED:
 

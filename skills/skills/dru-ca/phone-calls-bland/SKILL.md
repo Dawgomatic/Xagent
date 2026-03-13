@@ -1,7 +1,7 @@
 ---
 name: phone-calls
 description: Make AI-powered phone calls via Bland AI - book restaurants, make appointments, inquire about services. The AI calls on your behalf and reports back with transcripts.
-metadata: {"clawdbot":{"emoji":"📞","requires":{"env":["BLAND_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["BLAND_API_KEY"]}}}
 ---
 
 # Phone Calls Skill

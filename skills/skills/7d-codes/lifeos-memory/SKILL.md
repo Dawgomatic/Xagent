@@ -9,13 +9,13 @@ Transform your OpenClaw into an organized, milestone-driven productivity system 
 
 ## What You Get
 
-✅ **Milestone-Driven Projects** — Projects broken into milestones, each with tasks. Dashboard shows progress at milestone level.  
-✅ **Prompt Engineering** — Simple task descriptions get expanded into detailed agent instructions (role, context, format, examples, constraints).  
-✅ **Agent-First Tasks** — All tasks go to specialized agents; main claw stays lean for quick decisions only.  
-✅ **Smart Priority System** — High/Medium/Low (no "urgent"). High = time-critical, Medium = deadlines, Low = research/exploration.  
-✅ **Fact Backlog** — Daily notes collect everything; cron job extracts universal facts vs one-time details.  
-✅ **Obsidian Compatible** — Use `[[note]]` wiki-links that work in both dashboard and Obsidian.  
-✅ **Optional Overnight Reviews** — Suggest 3AM automated reviews that validate structure and suggest work.
+ **Milestone-Driven Projects** — Projects broken into milestones, each with tasks. Dashboard shows progress at milestone level.  
+ **Prompt Engineering** — Simple task descriptions get expanded into detailed agent instructions (role, context, format, examples, constraints).  
+ **Agent-First Tasks** — All tasks go to specialized agents; main claw stays lean for quick decisions only.  
+ **Smart Priority System** — High/Medium/Low (no "urgent"). High = time-critical, Medium = deadlines, Low = research/exploration.  
+ **Fact Backlog** — Daily notes collect everything; cron job extracts universal facts vs one-time details.  
+ **Obsidian Compatible** — Use `[[note]]` wiki-links that work in both dashboard and Obsidian.  
+ **Optional Overnight Reviews** — Suggest 3AM automated reviews that validate structure and suggest work.
 
 ---
 

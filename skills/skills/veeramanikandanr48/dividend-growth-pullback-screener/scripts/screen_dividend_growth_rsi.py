@@ -86,7 +86,7 @@ class FINVIZClient:
                     if ticker:
                         symbols.add(ticker)
 
-                print(f"✅ FINVIZ returned {len(symbols)} pre-screened stocks", file=sys.stderr)
+                print(f" FINVIZ returned {len(symbols)} pre-screened stocks", file=sys.stderr)
                 return symbols
 
             elif response.status_code == 401 or response.status_code == 403:
@@ -659,7 +659,7 @@ def screen_dividend_growth_pullbacks(
                 candidates.append(stock_data)
 
             if client.rate_limit_reached:
-                print(f"⚠️  FMP rate limit reached while fetching quotes. Using {len(candidates)} symbols.", file=sys.stderr)
+                print(f"  FMP rate limit reached while fetching quotes. Using {len(candidates)} symbols.", file=sys.stderr)
                 break
 
         print(f"Retrieved quote and profile data for {len(candidates)} symbols from FMP", file=sys.stderr)
@@ -690,14 +690,14 @@ def screen_dividend_growth_pullbacks(
 
         # Check rate limit
         if client.rate_limit_reached:
-            print(f"\n⚠️  API rate limit reached after analyzing {i-1} stocks.", file=sys.stderr)
+            print(f"\n  API rate limit reached after analyzing {i-1} stocks.", file=sys.stderr)
             print(f"Returning results collected so far: {len(results)} qualified stocks", file=sys.stderr)
             break
 
         # Get current price
         current_price = stock.get('price', 0)
         if current_price <= 0:
-            print(f"  ⚠️  No valid price data", file=sys.stderr)
+            print(f"    No valid price data", file=sys.stderr)
             continue
 
         # Fetch dividend history
@@ -706,24 +706,24 @@ def screen_dividend_growth_pullbacks(
             break
 
         if not dividend_history:
-            print(f"  ⚠️  No dividend history", file=sys.stderr)
+            print(f"    No dividend history", file=sys.stderr)
             continue
 
         # Analyze dividend growth
         div_cagr, div_consistent, annual_dividend, div_years_of_growth = analyzer.analyze_dividend_growth(dividend_history)
         if not div_cagr or div_cagr < min_div_growth:
-            print(f"  ⚠️  Dividend CAGR {div_cagr}% < {min_div_growth}%", file=sys.stderr)
+            print(f"    Dividend CAGR {div_cagr}% < {min_div_growth}%", file=sys.stderr)
             continue
 
         if not annual_dividend:
-            print(f"  ⚠️  Cannot determine annual dividend", file=sys.stderr)
+            print(f"    Cannot determine annual dividend", file=sys.stderr)
             continue
 
         # Calculate actual dividend yield
         actual_dividend_yield = (annual_dividend / current_price) * 100
 
         if actual_dividend_yield < min_yield:
-            print(f"  ⚠️  Dividend yield {actual_dividend_yield:.2f}% < {min_yield}%", file=sys.stderr)
+            print(f"    Dividend yield {actual_dividend_yield:.2f}% < {min_yield}%", file=sys.stderr)
             continue
 
         print(f"  ✓ Dividend: {actual_dividend_yield:.2f}% yield, {div_cagr}% CAGR", file=sys.stderr)
@@ -734,7 +734,7 @@ def screen_dividend_growth_pullbacks(
             break
 
         if not historical_prices or len(historical_prices) < 20:
-            print(f"  ⚠️  Insufficient price data for RSI calculation", file=sys.stderr)
+            print(f"    Insufficient price data for RSI calculation", file=sys.stderr)
             continue
 
         # Calculate RSI
@@ -742,11 +742,11 @@ def screen_dividend_growth_pullbacks(
         rsi = rsi_calc.calculate_rsi(prices, period=14)
 
         if rsi is None:
-            print(f"  ⚠️  RSI calculation failed", file=sys.stderr)
+            print(f"    RSI calculation failed", file=sys.stderr)
             continue
 
         if rsi > rsi_max:
-            print(f"  ⚠️  RSI {rsi} > {rsi_max}", file=sys.stderr)
+            print(f"    RSI {rsi} > {rsi_max}", file=sys.stderr)
             continue
 
         print(f"  ✓ RSI: {rsi} (oversold)", file=sys.stderr)
@@ -776,18 +776,18 @@ def screen_dividend_growth_pullbacks(
         eps_cagr = growth_metrics.get('eps_cagr_3y')
 
         if revenue_cagr is not None and revenue_cagr < 0:
-            print(f"  ⚠️  Negative revenue growth", file=sys.stderr)
+            print(f"    Negative revenue growth", file=sys.stderr)
             continue
 
         if eps_cagr is not None and eps_cagr < 0:
-            print(f"  ⚠️  Negative EPS growth", file=sys.stderr)
+            print(f"    Negative EPS growth", file=sys.stderr)
             continue
 
         # Analyze financial health
         health_metrics = analyzer.analyze_financial_health(balance_sheet if balance_sheet else [])
 
         if not health_metrics.get('financially_healthy', False):
-            print(f"  ⚠️  Financial health concerns", file=sys.stderr)
+            print(f"    Financial health concerns", file=sys.stderr)
             continue
 
         # Extract additional metrics
@@ -849,7 +849,7 @@ def screen_dividend_growth_pullbacks(
         result['composite_score'] = analyzer.calculate_composite_score(result)
 
         results.append(result)
-        print(f"  ✅ QUALIFIED - Score: {result['composite_score']}", file=sys.stderr)
+        print(f"   QUALIFIED - Score: {result['composite_score']}", file=sys.stderr)
 
     # Sort by composite score
     results.sort(key=lambda x: x['composite_score'], reverse=True)
@@ -919,11 +919,11 @@ def generate_markdown_report(results: List[Dict], criteria: Dict, output_path: s
 
 | Metric | Value | Assessment |
 |--------|-------|------------|
-| Dividend Yield | **{stock['dividend_yield']:.2f}%** | {'✓ Above 2%' if stock['dividend_yield'] >= 2 else '⚠ Below 2%'} |
+| Dividend Yield | **{stock['dividend_yield']:.2f}%** | {'✓ Above 2%' if stock['dividend_yield'] >= 2 else ' Below 2%'} |
 | Annual Dividend | ${stock['annual_dividend']:.2f} | |
-| 3Y Dividend CAGR | **{stock['dividend_cagr_3y']:.2f}%** | {'🔥 Exceptional' if stock['dividend_cagr_3y'] >= 20 else '✓ Excellent' if stock['dividend_cagr_3y'] >= 15 else '✓ Strong'} |
-| Dividend Consistency | {'Yes' if stock['dividend_consistent'] else 'No'} | {'✓' if stock['dividend_consistent'] else '⚠'} |
-| Payout Ratio | {f"{stock['payout_ratio']:.1f}%" if stock['payout_ratio'] else 'N/A'} | {'✓ Sustainable' if stock['payout_ratio'] and stock['payout_ratio'] < 70 else '⚠ High' if stock['payout_ratio'] and stock['payout_ratio'] < 100 else '❌ Risk' if stock['payout_ratio'] else 'N/A'} |
+| 3Y Dividend CAGR | **{stock['dividend_cagr_3y']:.2f}%** | {' Exceptional' if stock['dividend_cagr_3y'] >= 20 else '✓ Excellent' if stock['dividend_cagr_3y'] >= 15 else '✓ Strong'} |
+| Dividend Consistency | {'Yes' if stock['dividend_consistent'] else 'No'} | {'✓' if stock['dividend_consistent'] else ''} |
+| Payout Ratio | {f"{stock['payout_ratio']:.1f}%" if stock['payout_ratio'] else 'N/A'} | {'✓ Sustainable' if stock['payout_ratio'] and stock['payout_ratio'] < 70 else ' High' if stock['payout_ratio'] and stock['payout_ratio'] < 100 else ' Risk' if stock['payout_ratio'] else 'N/A'} |
 
 ### Technical Setup
 
@@ -943,17 +943,17 @@ def generate_markdown_report(results: List[Dict], criteria: Dict, output_path: s
 
 | Metric | Value | Status |
 |--------|-------|--------|
-| Revenue CAGR (3Y) | {f"{stock['revenue_cagr_3y']:.2f}%" if stock['revenue_cagr_3y'] else 'N/A'} | {'✓' if stock['revenue_cagr_3y'] and stock['revenue_cagr_3y'] > 0 else '⚠'} |
-| EPS CAGR (3Y) | {f"{stock['eps_cagr_3y']:.2f}%" if stock['eps_cagr_3y'] else 'N/A'} | {'✓' if stock['eps_cagr_3y'] and stock['eps_cagr_3y'] > 0 else '⚠'} |
-| ROE | {f"{stock['roe']:.1f}%" if stock['roe'] else 'N/A'} | {'✓ Excellent' if stock['roe'] and stock['roe'] >= 20 else '✓ Good' if stock['roe'] and stock['roe'] >= 15 else '⚠ Moderate' if stock['roe'] else 'N/A'} |
-| Net Profit Margin | {f"{stock['profit_margin']:.1f}%" if stock['profit_margin'] else 'N/A'} | {'✓' if stock['profit_margin'] and stock['profit_margin'] >= 10 else '⚠'} |
+| Revenue CAGR (3Y) | {f"{stock['revenue_cagr_3y']:.2f}%" if stock['revenue_cagr_3y'] else 'N/A'} | {'✓' if stock['revenue_cagr_3y'] and stock['revenue_cagr_3y'] > 0 else ''} |
+| EPS CAGR (3Y) | {f"{stock['eps_cagr_3y']:.2f}%" if stock['eps_cagr_3y'] else 'N/A'} | {'✓' if stock['eps_cagr_3y'] and stock['eps_cagr_3y'] > 0 else ''} |
+| ROE | {f"{stock['roe']:.1f}%" if stock['roe'] else 'N/A'} | {'✓ Excellent' if stock['roe'] and stock['roe'] >= 20 else '✓ Good' if stock['roe'] and stock['roe'] >= 15 else ' Moderate' if stock['roe'] else 'N/A'} |
+| Net Profit Margin | {f"{stock['profit_margin']:.1f}%" if stock['profit_margin'] else 'N/A'} | {'✓' if stock['profit_margin'] and stock['profit_margin'] >= 10 else ''} |
 
 ### Financial Health
 
 | Metric | Value | Status |
 |--------|-------|--------|
-| Debt-to-Equity | {f"{stock['debt_to_equity']:.2f}" if stock['debt_to_equity'] is not None else 'N/A'} | {'✓ Very Low' if stock['debt_to_equity'] and stock['debt_to_equity'] < 0.5 else '✓ Low' if stock['debt_to_equity'] and stock['debt_to_equity'] < 1.0 else '⚠ Moderate' if stock['debt_to_equity'] else 'N/A'} |
-| Current Ratio | {f"{stock['current_ratio']:.2f}" if stock['current_ratio'] else 'N/A'} | {'✓ Healthy' if stock['current_ratio'] and stock['current_ratio'] > 1.2 else '⚠ Adequate' if stock['current_ratio'] else 'N/A'} |
+| Debt-to-Equity | {f"{stock['debt_to_equity']:.2f}" if stock['debt_to_equity'] is not None else 'N/A'} | {'✓ Very Low' if stock['debt_to_equity'] and stock['debt_to_equity'] < 0.5 else '✓ Low' if stock['debt_to_equity'] and stock['debt_to_equity'] < 1.0 else ' Moderate' if stock['debt_to_equity'] else 'N/A'} |
+| Current Ratio | {f"{stock['current_ratio']:.2f}" if stock['current_ratio'] else 'N/A'} | {'✓ Healthy' if stock['current_ratio'] and stock['current_ratio'] > 1.2 else ' Adequate' if stock['current_ratio'] else 'N/A'} |
 
 ### Investment Thesis
 
@@ -1001,7 +1001,7 @@ High dividend growth stocks (12%+ CAGR) compound wealth through rising dividends
     with open(output_path, 'w') as f:
         f.write(report)
 
-    print(f"✅ Markdown report saved: {output_path}", file=sys.stderr)
+    print(f" Markdown report saved: {output_path}", file=sys.stderr)
 
 
 def main():
@@ -1140,7 +1140,7 @@ Environment Variables:
     with open(json_path, 'w') as f:
         json.dump(json_output, f, indent=2)
 
-    print(f"✅ JSON results saved: {json_path}", file=sys.stderr)
+    print(f" JSON results saved: {json_path}", file=sys.stderr)
 
     # Markdown report
     md_path = os.path.join(logs_dir, f'dividend_growth_pullback_screening_{today}.md')

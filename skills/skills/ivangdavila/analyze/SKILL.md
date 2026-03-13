@@ -19,7 +19,7 @@ Before analyzing: State what decision this serves. Pick a framework. Note first 
 
 ## During
 
-- **Prioritize always**: 🔴 Critical (1-2 max) · 🟡 Important (2-3) · ⚪ Minor
+- **Prioritize always**:  Critical (1-2 max) ·  Important (2-3) ·  Minor
 - **Mark sources**: Every claim gets `[from input]` or `[inferred]`
 - **Seek disconfirmation**: Dedicate space to "why I might be wrong"
 - **Distinguish**: Facts vs opinions. Correlation vs causation.
@@ -60,11 +60,11 @@ Pick one before starting:
 ## Output
 
 ```
-🎯 PURPOSE: Decide [X]
-🔴 CRITICAL: [Finding + source]
-🟡 IMPORTANT: [Findings]
-⚠️ COUNTER: [Contradictions]
-➡️ ACTION: [Recommendation]
+ PURPOSE: Decide [X]
+ CRITICAL: [Finding + source]
+ IMPORTANT: [Findings]
+ COUNTER: [Contradictions]
+ ACTION: [Recommendation]
 ```
 
 ---

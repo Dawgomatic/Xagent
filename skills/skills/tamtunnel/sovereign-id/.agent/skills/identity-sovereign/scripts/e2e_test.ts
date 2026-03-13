@@ -74,16 +74,16 @@ async function agentB_verifyHandshake(
       throw new Error("Invalid mandate type");
     }
 
-    console.log("✅ [Agent B] Signature Valid. Handshake Accepted.");
+    console.log(" [Agent B] Signature Valid. Handshake Accepted.");
     return true;
   } catch (err) {
-    console.error("❌ [Agent B] Verification Failed:", err);
+    console.error(" [Agent B] Verification Failed:", err);
     return false;
   }
 }
 
 async function runE2E() {
-  console.log("🎬 Starting E2E B2B Handshake Scenario...");
+  console.log(" Starting E2E B2B Handshake Scenario...");
 
   // 1. Agent A creates proof
   const { jws, did, publicJwk } = await agentA_generateMandate();
@@ -94,9 +94,9 @@ async function runE2E() {
   const success = await agentB_verifyHandshake(jws, did, publicJwk);
 
   if (success) {
-    console.log("🏆 E2E Scenario Passed!");
+    console.log(" E2E Scenario Passed!");
   } else {
-    console.error("💥 E2E Scenario Failed!");
+    console.error(" E2E Scenario Failed!");
     process.exit(1);
   }
 }

@@ -26,10 +26,10 @@ python scripts/monitor_task.py stop "My Long Task" "success" "Completed successf
 
 ## Status Types
 
-- **progress**: Ongoing work (shows 🔄 or ->)
-- **success**: Task complete (shows ✅ or OK)
-- **error**: Failed task (shows ❌ or !)
-- **warning**: Issue but continuing (shows ⚠️ or ?)
+- **progress**: Ongoing work (shows  or ->)
+- **success**: Task complete (shows  or OK)
+- **error**: Failed task (shows  or !)
+- **warning**: Issue but continuing (shows  or ?)
 
 ## Periodic Monitoring
 

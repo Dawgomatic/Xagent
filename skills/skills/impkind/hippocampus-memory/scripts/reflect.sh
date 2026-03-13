@@ -9,7 +9,7 @@ SKILL_DIR="${SKILL_DIR:-$WORKSPACE/skills/hippocampus}"
 MEMORY_DIR="$WORKSPACE/memory"
 PROMPTS_FILE="$SKILL_DIR/prompts/self-reflect.md"
 
-echo "🧠 Self-Reflection Time"
+echo " Self-Reflection Time"
 echo "======================"
 echo ""
 

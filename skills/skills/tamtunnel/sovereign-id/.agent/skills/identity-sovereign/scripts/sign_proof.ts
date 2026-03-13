@@ -36,7 +36,7 @@ async function main() {
   const password = process.env.CLAW_PASSWORD;
   if (!password) {
     console.error(
-      "❌ ERROR: CLAW_PASSWORD environment variable is required to sign mandates.",
+      " ERROR: CLAW_PASSWORD environment variable is required to sign mandates.",
     );
     process.exit(1);
   }
@@ -47,7 +47,7 @@ async function main() {
 
   if (!encryptedKeyRaw || !did) {
     console.error(
-      "❌ No identity found. Run 'npx tsx scripts/onboard.ts' first.",
+      " No identity found. Run 'npx tsx scripts/onboard.ts' first.",
     );
     process.exit(1);
   }
@@ -60,10 +60,10 @@ async function main() {
     privateKey = await jose.importPKCS8(privateKeyPem, "EdDSA", {
       extractable: true,
     });
-    console.log("🔓 Identity Unlocked.");
+    console.log(" Identity Unlocked.");
   } catch (err) {
     console.error(
-      "❌ Critical Security Failure: Incorrect Password or Corrupted Key.",
+      " Critical Security Failure: Incorrect Password or Corrupted Key.",
       err,
     );
     process.exit(1);

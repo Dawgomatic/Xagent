@@ -8,7 +8,7 @@
 
 ---
 
-## 🔐 Security-First Design
+##  Security-First Design
 
 **JWT authentication is always required and cannot be disabled.**
 

@@ -1,7 +1,7 @@
 ---
 name: Gradio
 description: Build and deploy ML demo interfaces with proper state management, queuing, and production patterns.
-metadata: {"clawdbot":{"emoji":"🎨","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Gradio Patterns

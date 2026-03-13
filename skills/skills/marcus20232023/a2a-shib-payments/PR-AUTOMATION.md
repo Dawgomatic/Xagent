@@ -4,9 +4,9 @@ Complete automation for handling Pull Requests on a2a-shib-payments.
 
 ---
 
-## ✅ What's Automated
+##  What's Automated
 
-### 1. 🎉 First-Time Contributor Welcome
+### 1.  First-Time Contributor Welcome
 **Trigger:** When someone opens their first PR
 
 **What happens:**
@@ -17,9 +17,9 @@ Complete automation for handling Pull Requests on a2a-shib-payments.
 
 **Example:**
 ```
-👋 Welcome and thank you for your first contribution to the A2A SHIB Payment System!
+ Welcome and thank you for your first contribution to the A2A SHIB Payment System!
 
-We're excited to have you in the community! 🎉
+We're excited to have you in the community! 
 
 What happens next:
 1. A maintainer will review your PR soon (usually within 24-48 hours)
@@ -29,7 +29,7 @@ What happens next:
 
 ---
 
-### 2. 🏷️ Auto-Labeling
+### 2.  Auto-Labeling
 **Trigger:** On PR open, edit, or sync
 
 **Labels applied based on files changed:**
@@ -49,7 +49,7 @@ What happens next:
 
 ---
 
-### 3. 👀 Auto-Request Reviews
+### 3.  Auto-Request Reviews
 **Trigger:** When PR is opened or marked ready for review
 
 **What happens:**
@@ -64,7 +64,7 @@ What happens next:
 
 ---
 
-### 4. 🔍 PR Analysis
+### 4.  PR Analysis
 **Trigger:** On PR open
 
 **Analyzes:**
@@ -74,9 +74,9 @@ What happens next:
 
 **Adds checklist comment:**
 ```
-## 🤖 PR Analysis
+##  PR Analysis
 
-⚠️ Code changes detected without tests. Consider adding tests to test-*.js files.
+ Code changes detected without tests. Consider adding tests to test-*.js files.
 
 **Checklist:**
 - [ ] Tests included
@@ -89,7 +89,7 @@ What happens next:
 
 ---
 
-### 5. 📢 Maintainer Notifications
+### 5.  Maintainer Notifications
 
 **Two notification systems:**
 
@@ -111,14 +111,14 @@ What happens next:
 
 **Example Telegram notification:**
 ```
-🔔 GitHub Activity Alert
+ GitHub Activity Alert
 
-🎉 +1 new PR(s)! Total: 1
+ +1 new PR(s)! Total: 1
   PR #5: "Add USDC token support" by @contributor
-  📊 Changes: 3 files, +127/-45
-  🔗 https://github.com/marcus20232023/a2a-shib-payments/pull/5
+   Changes: 3 files, +127/-45
+   https://github.com/marcus20232023/a2a-shib-payments/pull/5
   
-  ✅ Suggested Actions:
+   Suggested Actions:
   1. Review the code changes
   2. Check if tests are included
   3. Test locally if needed
@@ -127,7 +127,7 @@ What happens next:
 
 ---
 
-## 📁 Files
+##  Files
 
 ### GitHub Actions Workflows
 - `.github/workflows/pr-automation.yml` - Main PR automation (welcome, label, analyze)
@@ -148,7 +148,7 @@ What happens next:
 
 ---
 
-## 🎯 Handling PRs - Quick Guide
+##  Handling PRs - Quick Guide
 
 ### When You Get a Notification
 
@@ -201,7 +201,7 @@ What happens next:
 
 ---
 
-## 🔧 Customization
+##  Customization
 
 ### Add More Labels
 
@@ -232,7 +232,7 @@ Edit `.github/CODEOWNERS`:
 
 ---
 
-## 📊 Monitoring Status
+##  Monitoring Status
 
 **Cron job:** Active  
 **Check frequency:** Every 10 minutes  
@@ -256,18 +256,18 @@ openclaw cron remove <job-id>
 
 ---
 
-## 🎉 Benefits
+##  Benefits
 
-✅ **Never miss a PR** - Instant notifications  
-✅ **Welcoming community** - Auto-greet new contributors  
-✅ **Organized** - Auto-labeled PRs  
-✅ **Quality** - Analysis warns about missing tests  
-✅ **Efficient** - Suggested actions save time  
-✅ **Professional** - Shows well-maintained project  
+ **Never miss a PR** - Instant notifications  
+ **Welcoming community** - Auto-greet new contributors  
+ **Organized** - Auto-labeled PRs  
+ **Quality** - Analysis warns about missing tests  
+ **Efficient** - Suggested actions save time  
+ **Professional** - Shows well-maintained project  
 
 ---
 
-## 🔗 Related
+##  Related
 
 - [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
 - [PROMOTION-TRACKER.md](PROMOTION-TRACKER.md) - Launch tracking
@@ -275,4 +275,4 @@ openclaw cron remove <job-id>
 
 ---
 
-**All automation is active and running!** 🚀
+**All automation is active and running!** 

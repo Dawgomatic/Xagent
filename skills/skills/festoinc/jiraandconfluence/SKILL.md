@@ -3,7 +3,7 @@ name: jira-ai
 version: 1.0.0
 description: CLI tool for interacting with Atlassian Jira and Confluence
 homepage: https://github.com/festoinc/jira-ai
-metadata: {"moltbot":{"emoji":"🎫","category":"productivity","api_base":"https://github.com/festoinc/jira-ai"}}
+metadata: {"moltbot":{"emoji":"","category":"productivity","api_base":"https://github.com/festoinc/jira-ai"}}
 ---
 
 # Jira-AI Skill

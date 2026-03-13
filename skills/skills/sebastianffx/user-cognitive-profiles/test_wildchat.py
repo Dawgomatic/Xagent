@@ -42,11 +42,11 @@ def load_wildchat_streaming(num_users: int = 4, convs_per_user: int = 5, min_arc
     try:
         from datasets import load_dataset
     except ImportError:
-        print("❌ Error: 'datasets' library not installed.")
+        print(" Error: 'datasets' library not installed.")
         print("   Install with: pip install datasets")
         sys.exit(1)
     
-    print("🌊 Loading WildChat-1M dataset in streaming mode...")
+    print(" Loading WildChat-1M dataset in streaming mode...")
     print("   (This saves RAM by not loading the full 1M conversations)\n")
     
     # Load dataset in streaming mode
@@ -61,13 +61,13 @@ def load_wildchat_streaming(num_users: int = 4, convs_per_user: int = 5, min_arc
     # Ensure we collect enough for clustering
     target_convs = max(convs_per_user, min_archetypes)
     
-    print(f"📊 Collecting ~{target_convs}+ conversations from {num_users} unique users...")
+    print(f" Collecting ~{target_convs}+ conversations from {num_users} unique users...")
     print(f"   (Each user needs at least {min_archetypes} conversations for clustering)\n")
     
     for i, conv in enumerate(dataset):
         # Safety limit
         if i > max_iterations:
-            print(f"   ⚠️  Reached iteration limit ({max_iterations}), stopping")
+            print(f"     Reached iteration limit ({max_iterations}), stopping")
             break
         
         # Stop entirely if we have enough complete users
@@ -107,10 +107,10 @@ def load_wildchat_streaming(num_users: int = 4, convs_per_user: int = 5, min_arc
         if hashed_ip in users_complete and len(convs) >= min_archetypes:
             result[hashed_ip] = convs[:convs_per_user]  # Limit to requested number
     
-    print(f"\n✅ Collected {len(result)} complete users with {sum(len(c) for c in result.values())} total conversations")
+    print(f"\n Collected {len(result)} complete users with {sum(len(c) for c in result.values())} total conversations")
     
     if len(result) < num_users:
-        print(f"   ⚠️  Warning: Only found {len(result)}/{num_users} users with sufficient data")
+        print(f"     Warning: Only found {len(result)}/{num_users} users with sufficient data")
     
     return result
 
@@ -187,12 +187,12 @@ def analyze_user_profile(hashed_ip: str, conversations: List[Dict],
     Returns:
         Cognitive profile for the user, or None if insufficient data
     """
-    print(f"\n🔍 Analyzing user: {hashed_ip[:16]}...")
+    print(f"\n Analyzing user: {hashed_ip[:16]}...")
     print(f"   Conversations: {len(conversations)}")
     
     # Validate we have enough conversations for clustering
     if len(conversations) < num_archetypes:
-        print(f"   ⚠️  Skipping: Only {len(conversations)} conversations, need at least {num_archetypes} for clustering")
+        print(f"     Skipping: Only {len(conversations)} conversations, need at least {num_archetypes} for clustering")
         return None
     
     # Create profiler
@@ -202,7 +202,7 @@ def analyze_user_profile(hashed_ip: str, conversations: List[Dict],
     try:
         profile = profiler.generate_profile(conversations)
     except ValueError as e:
-        print(f"   ⚠️  Analysis failed: {e}")
+        print(f"     Analysis failed: {e}")
         return None
     
     # Add user identifier
@@ -225,7 +225,7 @@ def compare_users(profiles: List[Dict[str, Any]]):
         profiles: List of user profiles
     """
     print("\n" + "="*60)
-    print("📊 COMPARATIVE ANALYSIS")
+    print(" COMPARATIVE ANALYSIS")
     print("="*60)
     
     # Collect archetype distribution
@@ -234,13 +234,13 @@ def compare_users(profiles: List[Dict[str, Any]]):
         primary = profile['insights']['primary_mode']
         archetype_counts[primary] += 1
     
-    print("\n🏷️  Archetype Distribution:")
+    print("\n  Archetype Distribution:")
     for archetype, count in sorted(archetype_counts.items(), key=lambda x: x[1], reverse=True):
         pct = (count / len(profiles)) * 100
         print(f"   {archetype}: {count}/{len(profiles)} users ({pct:.0f}%)")
     
     # Compare metrics
-    print("\n📏 Communication Patterns:")
+    print("\n Communication Patterns:")
     for profile in profiles:
         user_id = profile['user_id']
         primary = profile['insights']['primary_mode']
@@ -255,7 +255,7 @@ def compare_users(profiles: List[Dict[str, Any]]):
             print(f"      Code blocks: {metrics['code_block_ratio']:.2f}")
     
     # Context switching analysis
-    print("\n🔄 Context Switching:")
+    print("\n Context Switching:")
     for profile in profiles:
         user_id = profile['user_id']
         switching = profile['insights']['context_switching']
@@ -290,7 +290,7 @@ Examples:
     args = parser.parse_args()
     
     print("="*60)
-    print("🤖🤝🧠 WildChat User Cognitive Profile Tester")
+    print(" WildChat User Cognitive Profile Tester")
     print("="*60)
     print(f"\nConfiguration:")
     print(f"   Users to analyze: {args.users}")
@@ -305,12 +305,12 @@ Examples:
     )
     
     if not user_conversations:
-        print("❌ No conversations loaded!")
+        print(" No conversations loaded!")
         sys.exit(1)
     
     # Analyze each user
     print("\n" + "="*60)
-    print("🧠 GENERATING COGNITIVE PROFILES")
+    print(" GENERATING COGNITIVE PROFILES")
     print("="*60)
     
     profiles = []
@@ -320,13 +320,13 @@ Examples:
             profiles.append(profile)
     
     if not profiles:
-        print("\n❌ No profiles could be generated. Try:")
+        print("\n No profiles could be generated. Try:")
         print("   - Reducing --archetypes (must be <= conversations per user)")
         print("   - Increasing --conversations")
         print("   - Using a smaller --users count")
         sys.exit(1)
     
-    print(f"\n✅ Successfully generated {len(profiles)} profiles")
+    print(f"\n Successfully generated {len(profiles)} profiles")
     
     # Comparative analysis
     if args.compare and len(profiles) > 1:
@@ -334,7 +334,7 @@ Examples:
     
     # Summary
     print("\n" + "="*60)
-    print("📋 SUMMARY")
+    print(" SUMMARY")
     print("="*60)
     
     for profile in profiles:
@@ -343,7 +343,7 @@ Examples:
         confidence = profile['insights']['primary_confidence']
         switching = profile['insights']['context_switching']
         
-        print(f"\n👤 User {user_id}:")
+        print(f"\n User {user_id}:")
         print(f"   Primary: {primary} ({confidence:.0%} confidence)")
         print(f"   Context switching: {switching}")
         print(f"   Preferences:")
@@ -365,10 +365,10 @@ Examples:
         with open(args.output, 'w', encoding='utf-8') as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
         
-        print(f"\n💾 Results saved to: {args.output}")
+        print(f"\n Results saved to: {args.output}")
     
     print("\n" + "="*60)
-    print("✅ Analysis complete!")
+    print(" Analysis complete!")
     print("="*60)
 
 

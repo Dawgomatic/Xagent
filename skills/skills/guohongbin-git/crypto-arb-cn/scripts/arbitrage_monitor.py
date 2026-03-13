@@ -163,7 +163,7 @@ class ArbitrageMonitor:
         if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
             return
 
-        message = f"""💰 发现套利机会！
+        message = f""" 发现套利机会！
 
 交易对: {opp['symbol']}
 方向: {opp['direction']}
@@ -196,7 +196,7 @@ class ArbitrageMonitor:
     def print_opportunities(self, opportunities: List[dict]):
         """Print opportunities"""
         if opportunities:
-            print(f"\n💰 发现 {len(opportunities)} 个套利机会:")
+            print(f"\n 发现 {len(opportunities)} 个套利机会:")
             for opp in opportunities[:5]:
                 print(f"  {opp['symbol']} | {opp['direction']} | 利润: {opp['profit_percent']}%")
         else:
@@ -212,12 +212,12 @@ class ArbitrageMonitor:
 
     async def run(self, interval: int = 30):
         """Continuous monitoring"""
-        print(f"🔍 套利监控器启动")
+        print(f" 套利监控器启动")
         print(f"   交易对: {', '.join(SYMBOLS)}")
         print(f"   最小利润阈值: {MIN_PROFIT_PERCENT}%")
         print(f"   检查间隔: {interval}秒")
         if TELEGRAM_BOT_TOKEN:
-            print(f"   Telegram 通知: ✅ 已启用")
+            print(f"   Telegram 通知:  已启用")
         print("-" * 50)
 
         while True:

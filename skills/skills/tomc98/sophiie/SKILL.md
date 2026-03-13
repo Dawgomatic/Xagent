@@ -10,7 +10,7 @@ metadata:
         - curl
         - jq
     primaryEnv: SOPHIIE_API_KEY
-    emoji: "📞"
+    emoji: ""
     homepage: https://docs.sophiie.ai
     files:
       - SKILL.md

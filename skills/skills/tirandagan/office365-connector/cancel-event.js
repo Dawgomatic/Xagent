@@ -84,9 +84,9 @@ if (require.main === module) {
   }
   
   cancelEvent(eventId, comment, accountName).then(() => {
-    console.log('✅ Event cancelled successfully');
+    console.log(' Event cancelled successfully');
   }).catch(err => {
-    console.error('❌ Error:', err.message);
+    console.error(' Error:', err.message);
     process.exit(1);
   });
 }

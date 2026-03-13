@@ -340,7 +340,7 @@ Current (not yet due):     $XX,XXX  ([N] invoices)
 1-15 days overdue:         $XX,XXX  ([N] invoices)
 16-30 days overdue:        $XX,XXX  ([N] invoices)
 31-60 days overdue:        $XX,XXX  ([N] invoices)
-60+ days overdue:          $XX,XXX  ([N] invoices) ⚠️
+60+ days overdue:          $XX,XXX  ([N] invoices) 
 
 ═══ MONTHLY TREND ═══
 Jan: $XX,XXX ████████████

@@ -331,10 +331,10 @@ function addToDailyNote(userText) {
     structure.updatedAt = timestamp;
     fs.writeFileSync(structurePath, JSON.stringify(structure, null, 2));
 
-    console.log(`✅ Added bullet to ${todayDocName}: "${userText}"`);
+    console.log(` Added bullet to ${todayDocName}: "${userText}"`);
     return { success: true, documentName: todayDocName, nodeId };
   } catch (error) {
-    console.error("❌ Error adding to daily note:", error.message);
+    console.error(" Error adding to daily note:", error.message);
     return { success: false, error: error.message };
   }
 }
@@ -359,7 +359,7 @@ module.exports = { addToDailyNote };
 node add-to-daily-note.js "Finished the OpenClaw skill implementation"
 ```
 
-**Output:** ✅ Added bullet to 2026-02-11: "Finished the OpenClaw skill implementation"
+**Output:**  Added bullet to 2026-02-11: "Finished the OpenClaw skill implementation"
 
 ---
 

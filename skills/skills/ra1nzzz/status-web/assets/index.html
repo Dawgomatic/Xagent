@@ -456,7 +456,7 @@
                 html += `<div class="health-row">
                     <span class="health-label">模型状态:</span>
                     <span class="health-value ${health.model_status && health.model_status !== 'unknown' ? 'status-good' : 'status-warning'}">
-                        ${health.model_status && health.model_status !== 'unknown' ? '✓ ' + health.model_status : '⚠️ 未知'}
+                        ${health.model_status && health.model_status !== 'unknown' ? '✓ ' + health.model_status : ' 未知'}
                     </span>
                 </div>`;
                 
@@ -482,7 +482,7 @@
                     const cacheData = await response.json();
                     displayData(cacheData);
                     document.getElementById('last-updated').textContent = 
-                        `✅ 静态缓存已加载 (更新时间: ${new Date(cacheData.last_updated).toLocaleString('zh-CN')})`;
+                        ` 静态缓存已加载 (更新时间: ${new Date(cacheData.last_updated).toLocaleString('zh-CN')})`;
                     return true;
                 }
             } catch (error) {
@@ -499,7 +499,7 @@
                 const data = await response.json();
                 displayData(data);
                 document.getElementById('last-updated').textContent = 
-                    `🔄 实时数据已加载 (更新时间: ${new Date(data.last_updated).toLocaleString('zh-CN')})`;
+                    ` 实时数据已加载 (更新时间: ${new Date(data.last_updated).toLocaleString('zh-CN')})`;
                 return true;
             } catch (error) {
                 console.error('加载数据失败:', error);
@@ -530,7 +530,7 @@
                         if (document.visibilityState === 'visible') {
                             displayData(freshData);
                             document.getElementById('last-updated').textContent = 
-                                `🔄 数据已刷新 (更新时间: ${new Date(freshData.last_updated).toLocaleString('zh-CN')})`;
+                                ` 数据已刷新 (更新时间: ${new Date(freshData.last_updated).toLocaleString('zh-CN')})`;
                         }
                     }
                 } catch (error) {

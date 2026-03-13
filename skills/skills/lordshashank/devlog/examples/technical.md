@@ -55,7 +55,7 @@ flowchart TD
     D -->|Client| F[refresh_v3 issued to client]
     E --> G[Client tries refresh_v2]
     F --> H[Attacker tries refresh_v2]
-    G --> I[⚠ REUSE DETECTED]
+    G --> I[ REUSE DETECTED]
     H --> I
     I --> J[Entire family abc-123 revoked]
     J --> K[Both parties must re-authenticate]

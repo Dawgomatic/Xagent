@@ -1,4 +1,4 @@
-# 🍳 Gousto Agent Skill
+#  Gousto Agent Skill
 
 A recipe skill for AI agents to search and retrieve cooking instructions from Gousto's 9,000+ recipe database.
 

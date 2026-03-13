@@ -14,14 +14,14 @@ import { loadConfig } from './config.js';
  */
 function formatApprovalMessage(input, type, threat) {
     const emoji = {
-        url: '🔗',
-        command: '⚡',
-        skill: '🧩',
-        message: '💬'
+        url: '',
+        command: '',
+        skill: '',
+        message: ''
     };
     
-    let message = `⚠️ **ClawGuard Warning - Approval Required**\n\n`;
-    message += `${emoji[type] || '🔍'} **Type:** ${type.toUpperCase()}\n`;
+    let message = ` **ClawGuard Warning - Approval Required**\n\n`;
+    message += `${emoji[type] || ''} **Type:** ${type.toUpperCase()}\n`;
     message += `**Input:** \`${input.substring(0, 200)}${input.length > 200 ? '...' : ''}\`\n\n`;
     
     if (threat) {
@@ -35,7 +35,7 @@ function formatApprovalMessage(input, type, threat) {
     }
     
     message += `**Do you want to proceed?**\n`;
-    message += `React with ✅ to approve or ❌ to deny (timeout: ${Math.floor((loadConfig().discord.timeout || 60000) / 1000)}s)`;
+    message += `React with  to approve or  to deny (timeout: ${Math.floor((loadConfig().discord.timeout || 60000) / 1000)}s)`;
     
     return message;
 }

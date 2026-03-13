@@ -1,7 +1,7 @@
 ---
 name: mindmap-generator
 description: Generates visual mindmap images from conversations, goals, decisions, and daily priorities — delivered as PNG images viewable directly in Telegram. Use when asked to visualize, map out, or break down topics, priorities, decisions, meeting notes, or weekly reviews.
-metadata: {"openclaw": {"emoji": "🗺️", "requires": {"bins": ["node", "npx"]}}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["node", "npx"]}}}
 ---
 
 # Mindmap Generator Skill
@@ -66,11 +66,11 @@ mindmap
 - Plain text = default — use for **details and notes**
 
 #### Status Markers
-- Prefix with ✅ for completed items
-- Prefix with ⏳ for pending/in-progress items  
-- Prefix with ❌ for blocked items
-- Prefix with ⚠️ for risks or warnings
-- Prefix with 💡 for ideas or suggestions
+- Prefix with  for completed items
+- Prefix with  for pending/in-progress items  
+- Prefix with  for blocked items
+- Prefix with  for risks or warnings
+- Prefix with  for ideas or suggestions
 
 ### Step 3: Render to PNG
 
@@ -91,7 +91,7 @@ The script uses `mmdc` (mermaid-cli) with a custom theme configured for readabil
 After rendering, send the PNG image to the user's Telegram chat:
 
 ```bash
-./scripts/send_telegram_photo.sh /tmp/mindmap_output.png "Here's your mindmap 🗺️" "$CHAT_ID"
+./scripts/send_telegram_photo.sh /tmp/mindmap_output.png "Here's your mindmap " "$CHAT_ID"
 ```
 
 The image will appear **inline in the Telegram conversation** — no downloads, no links, no HTML files.
@@ -105,7 +105,7 @@ The image will appear **inline in the Telegram conversation** — no downloads, 
 3. **Max 7 branches** from root — group if more
 4. **Short labels** — max 5-6 words per node. Details go in sub-nodes, not long labels
 5. **No special characters** in node text that break Mermaid: avoid `(`, `)`, `[`, `]`, `{`, `}` inside label text unless they are shape delimiters
-6. **Use status markers** (✅ ⏳ ❌) when the content involves tasks or progress
+6. **Use status markers** (  ) when the content involves tasks or progress
 7. **No Markdown inside nodes** — Mermaid mindmap doesn't support bold/italic inside nodes
 
 ---
@@ -118,15 +118,15 @@ The image will appear **inline in the Telegram conversation** — no downloads, 
 - If rendering fails, fall back to a **text-based tree** using Unicode box-drawing characters:
 
 ```
-📊 Today's Priorities
-├── 🔴 Client Proposal (due 2pm)
+ Today's Priorities
+├──  Client Proposal (due 2pm)
 │   ├── Review pricing section
 │   └── Add case studies
-├── 🟡 Team Standup (11am)
+├──  Team Standup (11am)
 │   └── Prep sprint update
-├── 🟢 Follow up with Rajesh
+├──  Follow up with Rajesh
 │   └── Send updated timeline
-└── 📋 Admin
+└──  Admin
     ├── Expense report
     └── Update project tracker
 ```
@@ -149,18 +149,18 @@ mindmap
       [2pm - Client Review]
       [4pm - 1:1 with Priya]
     (Tasks)
-      ))⚠️ Proposal due today((
-      [⏳ Review PR #342]
-      [⏳ Update roadmap doc]
+      )) Proposal due today((
+      [ Review PR #342]
+      [ Update roadmap doc]
     (Follow-ups)
-      [❌ Rajesh - SOW overdue 3 days]
-      [⏳ Ankit - waiting on pricing]
+      [ Rajesh - SOW overdue 3 days]
+      [ Ankit - waiting on pricing]
     )Open Questions(
       )Timeline for Phase 2(
       )Budget approval status(
 ```
 
-Send with message: "Good morning! Here's your Wednesday mapped out. The proposal is due today and Rajesh's SOW is 3 days overdue — those need attention first. 🗺️"
+Send with message: "Good morning! Here's your Wednesday mapped out. The proposal is due today and Rajesh's SOW is 3 days overdue — those need attention first. "
 
 ### Scenario 2: Decision Analysis
 
@@ -219,17 +219,17 @@ mindmap
 ```
 mindmap
   root((Week 7 Review))
-    (✅ Completed - 5)
-      ✅ Client proposal submitted
-      ✅ Sprint planning done
-      ✅ Hired frontend dev
-      ✅ Updated investor deck
-      ✅ Fixed auth bug
-    (⏳ Carried Forward - 2)
-      ⏳ Blog post draft
-      ⏳ Vendor evaluation
-    (❌ Dropped - 1)
-      ❌ Office space tour - deprioritized
+    ( Completed - 5)
+       Client proposal submitted
+       Sprint planning done
+       Hired frontend dev
+       Updated investor deck
+       Fixed auth bug
+    ( Carried Forward - 2)
+       Blog post draft
+       Vendor evaluation
+    ( Dropped - 1)
+       Office space tour - deprioritized
     (Key Wins)
       Client signed 6-month extension
       New dev starts Monday

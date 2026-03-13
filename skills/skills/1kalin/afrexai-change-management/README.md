@@ -31,8 +31,8 @@ Install via ClawHub, then describe your change initiative to your agent. It hand
 
 This is one skill in a larger toolkit. For complete industry-specific AI context packs:
 
-- 🛒 [Browse all packs](https://afrexai-cto.github.io/context-packs/) — $47 each, 10 industries covered
-- 🧮 [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — find where you're losing money to manual work
-- 🧙 [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — configure your AI agent stack in minutes
+-  [Browse all packs](https://afrexai-cto.github.io/context-packs/) — $47 each, 10 industries covered
+-  [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — find where you're losing money to manual work
+-  [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — configure your AI agent stack in minutes
 
 Built by AfrexAI — turning operational knowledge into agent intelligence.

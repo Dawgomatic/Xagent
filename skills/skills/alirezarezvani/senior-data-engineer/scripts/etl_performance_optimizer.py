@@ -1278,11 +1278,11 @@ class ReportGenerator:
 
             for i, rec in enumerate(recommendations, 1):
                 severity_icon = {
-                    'critical': '🔴',
-                    'high': '🟠',
-                    'medium': '🟡',
-                    'low': '🟢'
-                }.get(rec.severity, '⚪')
+                    'critical': '',
+                    'high': '',
+                    'medium': '',
+                    'low': ''
+                }.get(rec.severity, '')
 
                 lines.append(f"\n{i}. {severity_icon} [{rec.severity.upper()}] {rec.title}")
                 lines.append(f"   Category: {rec.category}")
@@ -1293,7 +1293,7 @@ class ReportGenerator:
                 for impl_line in rec.implementation.strip().split('\n'):
                     lines.append(f"   {impl_line}")
         else:
-            lines.append("\n✅ No optimization issues detected")
+            lines.append("\n No optimization issues detected")
 
         lines.append("\n" + "=" * 80)
 

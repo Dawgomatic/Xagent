@@ -92,7 +92,7 @@ def save_daily_context(context: dict, summary: dict):
     
     # Append or create daily memory entry
     whoop_entry = f"""
-## 🏃‍♀️ WHOOP Morning Check ({datetime.now().strftime('%H:%M')})
+##  WHOOP Morning Check ({datetime.now().strftime('%H:%M')})
 
 **Sleep Performance:** {summary['sleep_performance']}% ({summary['status'].upper()})
 **Recovery Score:** {summary['recovery_score']}
@@ -135,8 +135,8 @@ def save_daily_context(context: dict, summary: dict):
     with open(context_file, 'w') as f:
         json.dump(context_data, f, indent=2)
     
-    print(f"✅ Daily context saved to {daily_file}")
-    print(f"✅ Behavior context saved to {context_file}")
+    print(f" Daily context saved to {daily_file}")
+    print(f" Behavior context saved to {context_file}")
 
 def load_behavior_context() -> dict:
     """Load current behavior context (for other scripts to use)"""
@@ -159,7 +159,7 @@ def load_behavior_context() -> dict:
 
 def main():
     """Main morning check routine"""
-    print(f"🌅 WHOOP Morning Check - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print(f" WHOOP Morning Check - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print("=" * 50)
     
     # Initialize client and get data
@@ -167,11 +167,11 @@ def main():
     summary = client.get_sleep_performance_summary()
     
     if summary['sleep_performance'] is None:
-        print("❌ No recent sleep data available")
+        print(" No recent sleep data available")
         return False
     
     # Display summary
-    print(f"\n📊 Sleep Summary:")
+    print(f"\n Sleep Summary:")
     print(f"Performance: {summary['sleep_performance']}% ({summary['status'].upper()})")
     print(f"Duration: {summary['sleep_duration_hours']}h")
     print(f"Recovery: {summary['recovery_score']}")
@@ -180,14 +180,14 @@ def main():
     # Create behavior context
     context = create_behavior_context(summary)
     
-    print(f"\n🤖 Behavior Adjustments:")
+    print(f"\n Behavior Adjustments:")
     print(f"Mode: {context['behavior_mode']}")
     print(f"Communication: {context['communication_style']}")
     print(f"Energy: {context['energy_level']}")
     print(f"Task Complexity: {context['task_complexity']}")
     
     if context['recommendations']:
-        print(f"\n💡 Recommendations:")
+        print(f"\n Recommendations:")
         for rec in context['recommendations']:
             print(f"- {rec}")
     
@@ -200,7 +200,7 @@ if __name__ == "__main__":
     success = main()
     
     if success:
-        print(f"\n✅ Morning check complete!")
+        print(f"\n Morning check complete!")
     else:
-        print(f"\n❌ Morning check failed!")
+        print(f"\n Morning check failed!")
         sys.exit(1)

@@ -50,7 +50,7 @@ fi
 
 API_KEY=$(get_api_key)
 if [ -z "$API_KEY" ]; then
-    echo "❌ No API key. Run ./scripts/setup.sh first."
+    echo " No API key. Run ./scripts/setup.sh first."
     exit 1
 fi
 
@@ -64,9 +64,9 @@ BODY=$(echo "$RESPONSE" | sed '$d')
 
 if [ "$HTTP_CODE" != "200" ]; then
     if [ "$HTTP_CODE" = "404" ]; then
-        echo "❌ Recording $RECORDING_ID not found"
+        echo " Recording $RECORDING_ID not found"
     else
-        echo "❌ Error (HTTP $HTTP_CODE)"
+        echo " Error (HTTP $HTTP_CODE)"
         echo "$BODY" | jq -r '.error // .' 2>/dev/null || echo "$BODY"
     fi
     exit 1

@@ -824,47 +824,47 @@ For the top 3-5 candidates, perform **full single stock evaluation**:
 
 ### Analysis Pitfalls
 
-**❌ Anchoring bias**: Don't fixate on current price
+** Anchoring bias**: Don't fixate on current price
 - Evaluate based on intrinsic value, not price paid or current quote
 
-**❌ Recency bias**: Don't overweight recent quarters
+** Recency bias**: Don't overweight recent quarters
 - Look at 5-10 year trends, not just last quarter
 
-**❌ Confirmation bias**: Don't seek only supporting evidence
+** Confirmation bias**: Don't seek only supporting evidence
 - Actively seek contrary evidence and risks
 
-**❌ Complexity bias**: Don't assume complex = better
+** Complexity bias**: Don't assume complex = better
 - Simple businesses often best investments
 
-**❌ Precision illusion**: Don't confuse precision with accuracy
+** Precision illusion**: Don't confuse precision with accuracy
 - Better approximately right than precisely wrong
 
 ### Valuation Pitfalls
 
-**❌ Single method reliance**: Don't use only DCF or only P/E
+** Single method reliance**: Don't use only DCF or only P/E
 - Use multiple methods and synthesize
 
-**❌ Heroic assumptions**: Don't project 30% growth forever
+** Heroic assumptions**: Don't project 30% growth forever
 - Use conservative, realistic assumptions
 
-**❌ Ignoring margin of safety**: Don't buy at fair value
+** Ignoring margin of safety**: Don't buy at fair value
 - Require minimum 15% margin of safety
 
-**❌ Paying for hope**: Don't overpay for growth that may not materialize
+** Paying for hope**: Don't overpay for growth that may not materialize
 - Growth must be probable, not just possible
 
 ### Recommendation Pitfalls
 
-**❌ Vague recommendations**: Don't say "interesting opportunity"
+** Vague recommendations**: Don't say "interesting opportunity"
 - Say BUY at €X.XX or below, position size X%
 
-**❌ Missing downside**: Don't present only bull case
+** Missing downside**: Don't present only bull case
 - Always show what could go wrong
 
-**❌ No risk management**: Don't recommend buying without stop loss
+** No risk management**: Don't recommend buying without stop loss
 - Define clear exit conditions
 
-**❌ Ignoring portfolio context**: Don't recommend in vacuum
+** Ignoring portfolio context**: Don't recommend in vacuum
 - Consider sector concentration and diversification
 
 ---

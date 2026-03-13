@@ -197,7 +197,7 @@ function isLowQualityContent(title) {
   if (t.length < 15) return true;
   if (/^@\w+\s*[\p{Emoji}\s]*$/u.test(t)) return true;
   if (/^[\p{Emoji}\s]+$/u.test(t)) return true;
-  if (/^(Yes|No|Yup|Nope|Exactly|True|False|💯|😂|👍|🔥)\s*$/i.test(t)) return true;
+  if (/^(Yes|No|Yup|Nope|Exactly|True|False||||)\s*$/i.test(t)) return true;
   if (t.startsWith("@") && t.length < 30 && !t.includes(" ")) return true;
   return false;
 }

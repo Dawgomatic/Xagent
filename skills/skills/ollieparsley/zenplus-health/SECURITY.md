@@ -26,11 +26,11 @@ API keys for this skill are **read-only** with limited scopes:
 
 | Scope | Access | Can Modify? |
 |-------|--------|-------------|
-| `user:restricted` | View limited profile data | ❌ No |
-| `timeline:read` | View activity history | ❌ No |
-| `notification:read` | View notifications | ❌ No |
-| `catalog:read` | Browse task catalogue | ❌ No |
-| `working_hours:read` | View working hours | ❌ No |
+| `user:restricted` | View limited profile data |  No |
+| `timeline:read` | View activity history |  No |
+| `notification:read` | View notifications |  No |
+| `catalog:read` | Browse task catalogue |  No |
+| `working_hours:read` | View working hours |  No |
 
 **This skill cannot**:
 - Modify your profile
@@ -41,7 +41,7 @@ API keys for this skill are **read-only** with limited scopes:
 
 ## Best Practices
 
-### ✅ Do
+###  Do
 
 - Store API keys in environment variables (`ZEN_API_KEY`)
 - Use separate API keys for different integrations
@@ -49,7 +49,7 @@ API keys for this skill are **read-only** with limited scopes:
 - Monitor API key usage in your Zen+ Health settings
 - Use the minimum required scopes
 
-### ❌ Don't
+###  Don't
 
 - Hardcode API keys in scripts or code
 - Share API keys in chat logs or screenshots
@@ -96,18 +96,18 @@ X-RateLimit-Reset: 1707824400
 
 ### What Zen+ Health Protects
 
-✅ API keys are secure
-✅ HTTPS enforced for all API requests  
-✅ API keys are single-user scoped  
-✅ API keys have no access to change data
-✅ Audit logs for all API requests
+ API keys are secure
+ HTTPS enforced for all API requests  
+ API keys are single-user scoped  
+ API keys have no access to change data
+ Audit logs for all API requests
 
 ### What You Must Protect
 
-🔐 Keep `ZEN_API_KEY` environment variable secure  
-🔐 Don't share keys between users  
-🔐 Revoke keys when no longer needed  
-🔐 Use separate keys for dev/staging/production
+ Keep `ZEN_API_KEY` environment variable secure  
+ Don't share keys between users  
+ Revoke keys when no longer needed  
+ Use separate keys for dev/staging/production
 
 ## Privacy Considerations
 

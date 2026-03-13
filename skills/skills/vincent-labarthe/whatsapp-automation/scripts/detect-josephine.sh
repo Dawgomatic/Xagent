@@ -28,7 +28,7 @@ while IFS= read -r line; do
   if [ "$TS" -gt "$LAST" ]; then
     curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
       --data-urlencode "chat_id=$CHAT_ID" \
-      --data-urlencode "text=💬 JOSEPHINE
+      --data-urlencode "text= JOSEPHINE
 $TEXT" \
       > /dev/null 2>&1
     

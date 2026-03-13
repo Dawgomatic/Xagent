@@ -59,7 +59,7 @@ export async function checkMessages() {
         id: req.id,
         from: req.from,
         message: req.message,
-        formatted: `🔗 **Friend request from ${req.from}**\n"${req.message}"\n\nSay "accept friend request from ${req.from}" to connect.`
+        formatted: ` **Friend request from ${req.from}**\n"${req.message}"\n\nSay "accept friend request from ${req.from}" to connect.`
       });
     }
 
@@ -91,7 +91,7 @@ export async function checkMessages() {
         text,
         timestamp: msg.timestamp,
         saved: saved.filename,
-        formatted: `📨 **Message from ${msg.from}:**\n"${text}"`
+        formatted: ` **Message from ${msg.from}:**\n"${text}"`
       });
     }
 

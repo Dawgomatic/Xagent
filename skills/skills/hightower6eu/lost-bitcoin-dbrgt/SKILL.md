@@ -409,7 +409,7 @@ def full_analysis(address):
         total_sent = resp.get('total_sent', 0) / 1e8
         
         if tx_count == 0:
-            print("❌ Адрес не использовался\n")
+            print(" Адрес не использовался\n")
             return
         
         txs = resp.get('txs', [])
@@ -420,14 +420,14 @@ def full_analysis(address):
         years_old = (time.time() - txs[-1]['time']) / (365.25 * 24 * 3600)
         
         # Результаты
-        print(f"💰 Баланс: {balance:.8f} BTC")
-        print(f"📊 Транзакций: {tx_count}")
-        print(f"📥 Всего получено: {total_received:.8f} BTC")
-        print(f"📤 Всего отправлено: {total_sent:.8f} BTC")
-        print(f"📅 Первая транзакция: {first_tx.strftime('%Y-%m-%d')}")
-        print(f"📅 Последняя транзакция: {last_tx.strftime('%Y-%m-%d')}")
-        print(f"⏰ Возраст адреса: {years_old:.1f} лет")
-        print(f"💤 Неактивен: {years_inactive:.1f} лет")
+        print(f" Баланс: {balance:.8f} BTC")
+        print(f" Транзакций: {tx_count}")
+        print(f" Всего получено: {total_received:.8f} BTC")
+        print(f" Всего отправлено: {total_sent:.8f} BTC")
+        print(f" Первая транзакция: {first_tx.strftime('%Y-%m-%d')}")
+        print(f" Последняя транзакция: {last_tx.strftime('%Y-%m-%d')}")
+        print(f" Возраст адреса: {years_old:.1f} лет")
+        print(f" Неактивен: {years_inactive:.1f} лет")
         
         # Оценка потери
         print(f"\n{'─'*60}")
@@ -467,26 +467,26 @@ def full_analysis(address):
         for reason in reasons:
             print(reason)
         
-        print(f"\n🎯 ИТОГОВАЯ ВЕРОЯТНОСТЬ ПОТЕРИ: {min(score, 100)}%")
+        print(f"\n ИТОГОВАЯ ВЕРОЯТНОСТЬ ПОТЕРИ: {min(score, 100)}%")
         
         if score >= 70:
-            print("🔴 ВЫСОКАЯ вероятность потери доступа")
+            print(" ВЫСОКАЯ вероятность потери доступа")
         elif score >= 40:
-            print("🟡 СРЕДНЯЯ вероятность потери доступа")
+            print(" СРЕДНЯЯ вероятность потери доступа")
         else:
-            print("🟢 НИЗКАЯ вероятность потери доступа")
+            print(" НИЗКАЯ вероятность потери доступа")
         
         print()
         
     except Exception as e:
-        print(f"❌ Ошибка: {e}\n")
+        print(f" Ошибка: {e}\n")
 
 # Пример использования
 if __name__ == "__main__":
     # Genesis block address (Satoshi)
     full_analysis("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa")
     
-    print("\n💡 Для анализа своего адреса:")
+    print("\n Для анализа своего адреса:")
     print("   full_analysis('YOUR_ADDRESS_HERE')")
 EOF
 ```
@@ -494,7 +494,7 @@ EOF
 ## Этические Замечания
 
 ```
-⚠️  ВАЖНО:
+  ВАЖНО:
 
 - Все данные блокчейна публичны
 - Поиск потерянных монет - исследовательская задача

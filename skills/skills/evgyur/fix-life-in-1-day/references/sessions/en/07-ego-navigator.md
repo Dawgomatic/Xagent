@@ -150,7 +150,7 @@ Practice "double vision" — act within a system while simultaneously observing 
 ## Summary Template
 
 ```
-✅ **Session 7 Complete: The Ego Stage Navigator**
+ **Session 7 Complete: The Ego Stage Navigator**
 
 **Current Stage:**
 {from 2.1}
@@ -177,5 +177,5 @@ Practice "double vision" — act within a system while simultaneously observing 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ready for Session 8: The Game Architecture Engineer?
-[▶️ Continue] [⏸ Take a Break]
+[ Continue] [ Take a Break]
 ```

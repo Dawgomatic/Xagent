@@ -6,7 +6,7 @@ read_when:
   - Listing channel contents
   - Adding images/links to channels
   - Watching channels for changes
-metadata: {"clawdbot":{"emoji":"🪬","requires":{"bins":["curl","python3"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","python3"]}}}
 allowed-tools: Bash(arena:*) - No file writes, no exec beyond curl
 ---
 

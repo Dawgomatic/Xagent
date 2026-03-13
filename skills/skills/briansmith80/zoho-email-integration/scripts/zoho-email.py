@@ -1958,7 +1958,7 @@ if __name__ == "__main__":
             print(json.dumps(status, indent=2))
             
             if status['status'] == 'expired':
-                print("\n⚠️  Token has expired. Run 'python3 zoho-email.py oauth-login' to refresh.", file=sys.stderr)
+                print("\n  Token has expired. Run 'python3 zoho-email.py oauth-login' to refresh.", file=sys.stderr)
                 sys.exit(1)
             elif status['status'] == 'valid':
                 print(f"\n✓ Token is valid (expires in {status['expires_in_seconds']}s)", file=sys.stderr)
@@ -2141,7 +2141,7 @@ if __name__ == "__main__":
             email_ids = sys.argv[3:]
             
             # Safety confirmation for deletions
-            print(f"⚠️  WARNING: About to delete {len(email_ids)} emails from '{folder}'", file=sys.stderr)
+            print(f"  WARNING: About to delete {len(email_ids)} emails from '{folder}'", file=sys.stderr)
             print("Emails will be moved to Trash. Continue? (y/N): ", file=sys.stderr, end='')
             confirmation = input().strip().lower()
             
@@ -2180,16 +2180,16 @@ if __name__ == "__main__":
             dry_run = ('--dry-run' in sys.argv) or (not execute)
 
             if dry_run:
-                print("🔍 DRY RUN: Will delete ALL emails in folder 'Spam'", file=sys.stderr)
+                print(" DRY RUN: Will delete ALL emails in folder 'Spam'", file=sys.stderr)
                 print("   Tip: run with --execute to perform the deletion.", file=sys.stderr)
             else:
-                print("⚠️  EXECUTING: Deleting ALL emails in folder 'Spam'", file=sys.stderr)
+                print("  EXECUTING: Deleting ALL emails in folder 'Spam'", file=sys.stderr)
 
             result = zoho.bulk_action("ALL", "delete", folder="Spam", dry_run=dry_run)
             print(json.dumps(result, indent=2))
 
             if dry_run and result.get("to_process", 0) > 0:
-                print("\n💡 To execute, re-run with: python3 zoho-email.py empty-spam --execute", file=sys.stderr)
+                print("\n To execute, re-run with: python3 zoho-email.py empty-spam --execute", file=sys.stderr)
             elif not dry_run and result.get("failed"):
                 print(f"\nWarning: {len(result['failed'])} emails failed to delete", file=sys.stderr)
 
@@ -2200,16 +2200,16 @@ if __name__ == "__main__":
             dry_run = ('--dry-run' in sys.argv) or (not execute)
 
             if dry_run:
-                print("🔍 DRY RUN: Will delete ALL emails in folder 'Trash'", file=sys.stderr)
+                print(" DRY RUN: Will delete ALL emails in folder 'Trash'", file=sys.stderr)
                 print("   Tip: run with --execute to perform the deletion.", file=sys.stderr)
             else:
-                print("⚠️  EXECUTING: Deleting ALL emails in folder 'Trash'", file=sys.stderr)
+                print("  EXECUTING: Deleting ALL emails in folder 'Trash'", file=sys.stderr)
 
             result = zoho.bulk_action("ALL", "delete", folder="Trash", dry_run=dry_run)
             print(json.dumps(result, indent=2))
 
             if dry_run and result.get("to_process", 0) > 0:
-                print("\n💡 To execute, re-run with: python3 zoho-email.py empty-trash --execute", file=sys.stderr)
+                print("\n To execute, re-run with: python3 zoho-email.py empty-trash --execute", file=sys.stderr)
             elif not dry_run and result.get("failed"):
                 print(f"\nWarning: {len(result['failed'])} emails failed to delete", file=sys.stderr)
 
@@ -2245,7 +2245,7 @@ if __name__ == "__main__":
                 sys.exit(1)
             
             if dry_run:
-                print(f"🔍 DRY RUN: Searching '{folder}' for emails matching: {search_query}", file=sys.stderr)
+                print(f" DRY RUN: Searching '{folder}' for emails matching: {search_query}", file=sys.stderr)
             else:
                 print(f"Executing bulk action '{action}' on '{folder}' for query: {search_query}", file=sys.stderr)
             
@@ -2253,7 +2253,7 @@ if __name__ == "__main__":
             print(json.dumps(result, indent=2))
             
             if dry_run and result.get("to_process", 0) > 0:
-                print(f"\n💡 To execute, remove --dry-run flag", file=sys.stderr)
+                print(f"\n To execute, remove --dry-run flag", file=sys.stderr)
             elif not dry_run and result.get("failed"):
                 print(f"\nWarning: {len(result['failed'])} emails failed to process", file=sys.stderr)
 

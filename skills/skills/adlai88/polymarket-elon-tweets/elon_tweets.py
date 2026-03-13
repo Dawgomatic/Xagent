@@ -262,7 +262,7 @@ def get_portfolio():
     try:
         return get_client().get_portfolio()
     except Exception as e:
-        print(f"  ⚠️  Portfolio fetch failed: {e}")
+        print(f"    Portfolio fetch failed: {e}")
         return None
 
 
@@ -403,7 +403,7 @@ def calculate_position_size(default_size, smart_sizing):
         return default_size
     smart_size = min(balance * SMART_SIZING_PCT, MAX_POSITION_USD)
     smart_size = max(smart_size, MIN_POSITION_USD)
-    print(f"  💡 Smart sizing: ${smart_size:.2f} ({SMART_SIZING_PCT:.0%} of ${balance:.2f})")
+    print(f"   Smart sizing: ${smart_size:.2f} ({SMART_SIZING_PCT:.0%} of ${balance:.2f})")
     return smart_size
 
 
@@ -491,7 +491,7 @@ def check_exit_opportunities(dry_run=True, use_safeguards=True):
     if not tweet_positions:
         return 0, 0
 
-    print(f"\n📈 Checking {len(tweet_positions)} tweet positions for exit...")
+    print(f"\n Checking {len(tweet_positions)} tweet positions for exit...")
 
     exits_found = 0
     exits_executed = 0
@@ -507,14 +507,14 @@ def check_exit_opportunities(dry_run=True, use_safeguards=True):
 
         if current_price >= EXIT_THRESHOLD:
             exits_found += 1
-            print(f"  📤 {question}...")
+            print(f"   {question}...")
             print(f"     Price ${current_price:.2f} >= exit threshold ${EXIT_THRESHOLD:.2f}")
 
             if use_safeguards:
                 context = get_market_context(market_id)
                 should_trade, reasons = check_context_safeguards(context)
                 if not should_trade:
-                    print(f"     ⏭️  Skipped: {'; '.join(reasons)}")
+                    print(f"       Skipped: {'; '.join(reasons)}")
                     continue
 
             if dry_run:
@@ -525,7 +525,7 @@ def check_exit_opportunities(dry_run=True, use_safeguards=True):
                 if result.get("success"):
                     exits_executed += 1
                     trade_id = result.get("trade_id")
-                    print(f"     ✅ Sold {shares:.1f} shares @ ${current_price:.2f}")
+                    print(f"      Sold {shares:.1f} shares @ ${current_price:.2f}")
                     if trade_id and JOURNAL_AVAILABLE:
                         log_trade(
                             trade_id=trade_id,
@@ -534,9 +534,9 @@ def check_exit_opportunities(dry_run=True, use_safeguards=True):
                             action="sell",
                         )
                 else:
-                    print(f"     ❌ Sell failed: {result.get('error', 'Unknown')}")
+                    print(f"      Sell failed: {result.get('error', 'Unknown')}")
         else:
-            print(f"  📊 {question}...")
+            print(f"   {question}...")
             print(f"     Price ${current_price:.2f} < exit ${EXIT_THRESHOLD:.2f} - hold")
 
     return exits_found, exits_executed
@@ -554,13 +554,13 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
         if not quiet or force:
             print(msg)
 
-    log("🐦 Simmer Elon Tweet Trader")
+    log(" Simmer Elon Tweet Trader")
     log("=" * 50)
 
     if dry_run:
         log("\n  [DRY RUN] No trades will be executed. Use --live to enable trading.")
 
-    log(f"\n⚙️  Configuration:")
+    log(f"\n  Configuration:")
     log(f"  Max bucket sum:  ${MAX_BUCKET_SUM:.2f} (buy cluster if total < this)")
     log(f"  Max position:    ${MAX_POSITION_USD:.2f} per bucket")
     log(f"  Bucket spread:   ±{BUCKET_SPREAD} (buy {2*BUCKET_SPREAD+1} adjacent buckets)")
@@ -580,7 +580,7 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
     get_client()
 
     if positions_only:
-        log("\n📊 Current Tweet Positions:")
+        log("\n Current Tweet Positions:")
         positions = get_positions()
         tweet_pos = [p for p in positions if TRADE_SOURCE in (p.sources or [])
                      or ("elon" in (p.question or "").lower() and "tweet" in (p.question or "").lower())]
@@ -594,11 +594,11 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
         return
 
     # Step 1: Get XTracker data
-    log("\n📡 Fetching XTracker data...")
+    log("\n Fetching XTracker data...")
     trackings = get_xtracker_trackings()
 
     if not trackings:
-        log("  ⚠️  No active tracking periods found on XTracker")
+        log("    No active tracking periods found on XTracker")
         return
 
     log(f"  Found {len(trackings)} active tracking periods")
@@ -618,7 +618,7 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
                 "percent_complete": stats["stats"].get("percentComplete", 0),
             }
             s = tracking_stats[t["id"]]
-            log(f"\n  📊 {s['title'][:60]}")
+            log(f"\n   {s['title'][:60]}")
             log(f"     Posts so far: {s['total']} | Projected: {s['pace']} | {s['percent_complete']}% complete")
             log(f"     Days remaining: {s['days_remaining']}")
 
@@ -626,11 +626,11 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
         return
 
     if not tracking_stats:
-        log("  ⚠️  No tracking stats available")
+        log("    No tracking stats available")
         return
 
     # Step 2: Search Simmer for Elon tweet markets
-    log("\n📡 Searching for Elon tweet markets on Simmer...")
+    log("\n Searching for Elon tweet markets on Simmer...")
     markets = search_markets("elon musk tweets")
 
     # Group by event
@@ -668,7 +668,7 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
             result = import_event(pm_url)
             if isinstance(result, dict) and result.get("success"):
                 imported_count = result.get("markets_imported", 0)
-                log(f"  ✅ Imported {imported_count} markets")
+                log(f"   Imported {imported_count} markets")
                 event_id = result.get("event_id")
                 if event_id and result.get("markets"):
                     events[event_id] = {
@@ -693,10 +693,10 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
                         }
                         log(f"  Found {len(mkt_list)} existing markets via search")
                     else:
-                        log(f"  ⚠️  Could not retrieve existing markets")
+                        log(f"    Could not retrieve existing markets")
             else:
                 error = result.get("error") if isinstance(result, dict) else str(result)
-                log(f"  ⚠️  Import failed: {error}")
+                log(f"    Import failed: {error}")
 
     if not events:
         log("\n  No Elon tweet markets available to trade.")
@@ -709,7 +709,7 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
     if smart_sizing:
         portfolio = get_portfolio()
         if portfolio:
-            log(f"\n💰 Balance: ${portfolio.get('balance_usdc', 0):.2f}")
+            log(f"\n Balance: ${portfolio.get('balance_usdc', 0):.2f}")
 
     for event_id, event_data in events.items():
         event_name = event_data["name"]
@@ -723,7 +723,7 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
                 break
 
         if not matched_stats:
-            log(f"\n  ⚠️  No XTracker data for: {event_name[:50]}")
+            log(f"\n    No XTracker data for: {event_name[:50]}")
             continue
 
         projected_count = matched_stats["pace"]
@@ -731,19 +731,19 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
         pct_complete = matched_stats["percent_complete"]
         days_remaining = matched_stats["days_remaining"]
 
-        log(f"\n🎯 {event_name[:60]}")
+        log(f"\n {event_name[:60]}")
         log(f"   Current: {current_count} posts | Projected: {projected_count} | {pct_complete}% done")
         log(f"   Markets: {len(event_markets)}")
 
         # Skip future events where pace projection is unreliable
         if current_count == 0 and days_remaining > 2:
-            log(f"   ⏸️  Event hasn't started yet ({current_count} posts, {days_remaining} days remaining) - projection unreliable, skipping")
+            log(f"     Event hasn't started yet ({current_count} posts, {days_remaining} days remaining) - projection unreliable, skipping")
             continue
 
         # Find target buckets around projection
         targets = find_target_buckets(event_markets, projected_count)
         if not targets:
-            log(f"   ⚠️  Could not find matching buckets for projection {projected_count}")
+            log(f"     Could not find matching buckets for projection {projected_count}")
             continue
 
         # Evaluate cluster profitability
@@ -754,9 +754,9 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
         log(f"   Cluster cost: ${total_cost:.2f} (threshold: ${MAX_BUCKET_SUM:.2f})")
 
         if is_profitable:
-            log(f"   ✅ +EV opportunity! Expected profit: ${expected_profit:.2f} per $1 resolved")
+            log(f"    +EV opportunity! Expected profit: ${expected_profit:.2f} per $1 resolved")
         else:
-            log(f"   ⏸️  Cluster too expensive (${total_cost:.2f} >= ${MAX_BUCKET_SUM:.2f}) - skip")
+            log(f"     Cluster too expensive (${total_cost:.2f} >= ${MAX_BUCKET_SUM:.2f}) - skip")
             continue
 
         # Trade each bucket in the cluster
@@ -770,10 +770,10 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
                 continue
 
             if price < MIN_TICK_SIZE:
-                log(f"   ⏸️  {bucket_label}: price ${price:.4f} below min tick - skip")
+                log(f"     {bucket_label}: price ${price:.4f} below min tick - skip")
                 continue
             if price > (1 - MIN_TICK_SIZE):
-                log(f"   ⏸️  {bucket_label}: price ${price:.4f} too high - skip")
+                log(f"     {bucket_label}: price ${price:.4f} too high - skip")
                 continue
 
             # Check safeguards
@@ -784,20 +784,20 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
                 context = get_market_context(market_id, my_probability=my_prob)
                 should_trade, reasons = check_context_safeguards(context)
                 if not should_trade:
-                    log(f"   ⏭️  {bucket_label}: {'; '.join(reasons)}")
+                    log(f"     {bucket_label}: {'; '.join(reasons)}")
                     continue
                 if reasons:
-                    log(f"   ⚠️  {bucket_label}: {'; '.join(reasons)}")
+                    log(f"     {bucket_label}: {'; '.join(reasons)}")
 
             position_size = calculate_position_size(MAX_POSITION_USD, smart_sizing)
 
             min_cost = MIN_SHARES_PER_ORDER * price
             if min_cost > position_size:
-                log(f"   ⚠️  {bucket_label}: position ${position_size:.2f} too small for min shares at ${price:.2f}")
+                log(f"     {bucket_label}: position ${position_size:.2f} too small for min shares at ${price:.2f}")
                 continue
 
             if trades_executed >= MAX_TRADES_PER_RUN:
-                log(f"   ⏸️  Max trades per run ({MAX_TRADES_PER_RUN}) reached")
+                log(f"     Max trades per run ({MAX_TRADES_PER_RUN}) reached")
                 break
 
             opportunities_found += 1
@@ -813,7 +813,7 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
                     trades_executed += 1
                     shares = result.get("shares_bought") or result.get("shares") or 0
                     trade_id = result.get("trade_id")
-                    log(f"   ✅ Bought {shares:.1f} shares of {bucket_label} @ ${price:.2f}", force=True)
+                    log(f"    Bought {shares:.1f} shares of {bucket_label} @ ${price:.2f}", force=True)
 
                     if trade_id and JOURNAL_AVAILABLE:
                         log_trade(
@@ -826,7 +826,7 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
                             current_count=current_count,
                         )
                 else:
-                    log(f"   ❌ Trade failed: {result.get('error', 'Unknown')}", force=True)
+                    log(f"    Trade failed: {result.get('error', 'Unknown')}", force=True)
 
     # Check exits
     exits_found, exits_executed = check_exit_opportunities(dry_run, use_safeguards)
@@ -836,7 +836,7 @@ def run_strategy(dry_run=True, positions_only=False, show_config=False,
     total_trades = trades_executed + exits_executed
     show_summary = not quiet or total_trades > 0
     if show_summary:
-        print("📊 Summary:")
+        print(" Summary:")
         print(f"  Events analyzed:     {len(events)}")
         print(f"  Entry opportunities: {opportunities_found}")
         print(f"  Exit opportunities:  {exits_found}")
@@ -879,7 +879,7 @@ if __name__ == "__main__":
         if updates:
             update_config(updates, __file__)
             _reload_config_globals()
-            print(f"✅ Config updated: {updates}")
+            print(f" Config updated: {updates}")
             print(f"   Saved to: {get_config_path(__file__)}")
 
     dry_run = not args.live

@@ -5,7 +5,7 @@ class ContextOptimizerLogger {
   constructor(options = {}) {
     this.logToChat = options.logToChat !== false;
     this.logLevel = options.chatLogLevel || 'brief';
-    this.logFormat = options.chatLogFormat || '📊 {action}: {details}';
+    this.logFormat = options.chatLogFormat || ' {action}: {details}';
     
     // Default log handler
     this.onLog = options.onLog || this.defaultLogHandler;
@@ -88,7 +88,7 @@ function runDemo() {
   const logger = new ContextOptimizerLogger({
     logToChat: true,
     chatLogLevel: 'brief',
-    chatLogFormat: '🧠 {action}: {details}'
+    chatLogFormat: ' {action}: {details}'
   });
   
   console.log('=== Context Optimizer Chat Log Demo ===\n');

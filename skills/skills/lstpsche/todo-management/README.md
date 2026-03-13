@@ -2,10 +2,10 @@
 
 A simple, **per-workspace** todo manager for OpenClaw that stores everything in a local **SQLite** DB (`./todo.db`) and is controlled via a single script (`todo.sh`).
 
-* ✅ Groups (default: `Inbox`)
-* ✅ Task statuses: `pending`, `in_progress`, `done`, `skipped`
-* ✅ Deterministic CLI (no “creative” file writing)
-* ✅ Designed to keep agent replies short (no auto-pasting the full list)
+*  Groups (default: `Inbox`)
+*  Task statuses: `pending`, `in_progress`, `done`, `skipped`
+*  Deterministic CLI (no “creative” file writing)
+*  Designed to keep agent replies short (no auto-pasting the full list)
 
 ---
 

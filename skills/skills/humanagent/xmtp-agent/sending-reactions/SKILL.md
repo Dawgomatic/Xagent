@@ -45,7 +45,7 @@ Reference these guidelines when:
 await ctx.conversation.sendReaction({
   reference: ctx.message.id,
   action: "added",
-  content: "👍",
+  content: "",
   schema: "unicode",
 });
 
@@ -53,7 +53,7 @@ await ctx.conversation.sendReaction({
 await ctx.conversation.sendReaction({
   reference: ctx.message.id,
   action: "added",
-  content: "⏳",
+  content: "",
   schema: "unicode",
 });
 
@@ -62,7 +62,7 @@ await ctx.conversation.sendReaction({
 await ctx.conversation.sendReaction({
   reference: ctx.message.id,
   action: "removed",
-  content: "⏳",
+  content: "",
   schema: "unicode",
 });
 ```

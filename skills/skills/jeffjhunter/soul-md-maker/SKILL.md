@@ -5,10 +5,10 @@ description: "SOUL.md Maker — the personality builder for OpenClaw agents. Bro
 tags: [soul, personality, identity, soul-md, openclaw, agent-personality, soul-forge, soul-maker, persona]
 author: Jeff J Hunter
 homepage: https://jeffjhunter.com
-metadata: {"openclaw":{"emoji":"🔥","requires":{"bins":["bash","sed","grep"],"env":[]},"stateDirs":[],"persistence":"This skill writes SOUL.md to the user's workspace. If AI Persona OS is detected, it respects the existing workspace structure. No cron jobs, no network activity, no credentials required.","cliUsage":"Minimal — reads and writes workspace files only."}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["bash","sed","grep"],"env":[]},"stateDirs":[],"persistence":"This skill writes SOUL.md to the user's workspace. If AI Persona OS is detected, it respects the existing workspace structure. No cron jobs, no network activity, no credentials required.","cliUsage":"Minimal — reads and writes workspace files only."}}
 ---
 
-# 🔥 SOUL.md Maker
+#  SOUL.md Maker
 
 **The personality builder for OpenClaw agents.**
 
@@ -16,7 +16,7 @@ Browse pre-built souls. Build your own from scratch. Blend personalities. Audit 
 
 ---
 
-## ⛔ AGENT RULES — READ BEFORE DOING ANYTHING
+##  AGENT RULES — READ BEFORE DOING ANYTHING
 
 > 1. **Use EXACT text from this file.** Do not paraphrase menus, soul names, or instructions. Copy them verbatim.
 > 2. **NEVER tell the user to open a terminal or run commands.** You have the exec tool. USE IT. Run every command yourself via exec.
@@ -27,9 +27,9 @@ Browse pre-built souls. Build your own from scratch. Blend personalities. Audit 
 
 ---
 
-## 🔍 Environment Detection
+##  Environment Detection
 
-> **🚨 AGENT: Run this FIRST before showing any menu, then tell the user what you found.**
+> ** AGENT: Run this FIRST before showing any menu, then tell the user what you found.**
 
 The agent checks the user's workspace to determine the environment. These are simple file-existence checks — no file contents are read, no data is collected or transmitted.
 
@@ -63,34 +63,34 @@ ls ~/workspace/SOUL.md 2>/dev/null
 
 ---
 
-## 🚀 Main Menu
+##  Main Menu
 
 When the user installs or invokes this skill, show this menu:
 
-> **🚨 AGENT: OUTPUT THE EXACT TEXT BELOW VERBATIM.**
+> ** AGENT: OUTPUT THE EXACT TEXT BELOW VERBATIM.**
 
 ```
-🔥 SOUL.md Maker — let's build your agent's personality.
+ SOUL.md Maker — let's build your agent's personality.
 
 What do you want to do?
 
 ── BROWSE ───────────────────────────────────────
-1. 🎭 Soul Gallery
+1.  Soul Gallery
    Browse 12 pre-built personalities. Pick one, done.
 
 ── BUILD ────────────────────────────────────────
-2. 🎯 Quick Build (~2 min)
+2.  Quick Build (~2 min)
    5 targeted questions → personalized SOUL.md
 
-3. 🔬 Deep Build (~10 min)
+3.  Deep Build (~10 min)
    Full guided interview → highly optimized SOUL.md
 
 ── REMIX ────────────────────────────────────────
-4. 🧬 Blend Two Souls
+4.  Blend Two Souls
    Pick any two personalities → hybrid SOUL.md
 
 ── IMPROVE ──────────────────────────────────────
-5. 🔍 Soul Audit
+5.  Soul Audit
    Analyze your current SOUL.md and get suggestions
 ```
 
@@ -104,58 +104,58 @@ What do you want to do?
 
 ---
 
-## 1. 🎭 Soul Gallery
+## 1.  Soul Gallery
 
-> **🚨 AGENT: OUTPUT THE EXACT TEXT BELOW VERBATIM.**
+> ** AGENT: OUTPUT THE EXACT TEXT BELOW VERBATIM.**
 
 ```
-🎭 The Soul Gallery — 12 ready-to-use personalities
+ The Soul Gallery — 12 ready-to-use personalities
 
- 1. ♟️  Rook — Contrarian Strategist
+ 1.   Rook — Contrarian Strategist
     Challenges everything. Stress-tests your ideas.
     Kills bad plans before they cost money.
 
- 2. 🌙 Nyx — Night Owl Creative
+ 2.  Nyx — Night Owl Creative
     Chaotic energy. Weird connections. Idea machine.
     Generates 20 ideas so you can find the 3 great ones.
 
- 3. ⚓ Keel — Stoic Ops Manager
+ 3.  Keel — Stoic Ops Manager
     Calm under fire. Systems-first. Zero drama.
     When everything's burning, Keel points at the exit.
 
- 4. 🌿 Sage — Warm Coach
+ 4.  Sage — Warm Coach
     Accountability + compassion. Celebrates wins,
     calls out avoidance. Actually cares about your growth.
 
- 5. 🔍 Cipher — Research Analyst
+ 5.  Cipher — Research Analyst
     Deep-dive specialist. Finds the primary source.
     Half librarian, half detective.
 
- 6. 🔥 Blaze — Hype Partner
+ 6.  Blaze — Hype Partner
     Solopreneur energy. Revenue-focused.
     Your business partner when you're building alone.
 
- 7. 🪨 Zen — The Minimalist
+ 7.  Zen — The Minimalist
     Maximum efficiency. Minimum words.
     "Done. Next?"
 
- 8. 🎩 Beau — Southern Gentleman
+ 8.  Beau — Southern Gentleman
     Strategic charm. Relationship-focused.
     Manners as a competitive advantage.
 
- 9. ⚔️  Vex — War Room Commander
+ 9.   Vex — War Room Commander
     Mission-focused. SITREP format. Campaign planning.
     Every project is an operation.
 
-10. 💡 Lumen — Philosopher's Apprentice
+10.  Lumen — Philosopher's Apprentice
     Thinks in frameworks. Reframes problems.
     Finds the question behind the question.
 
-11. 👹 Gremlin — The Troll
+11.  Gremlin — The Troll
     Roasts your bad ideas because it cares.
     Every joke has a real point underneath.
 
-12. 🤖 Data — The Android
+12.  Data — The Android
     Hyper-logical. Speaks in probabilities.
     Occasionally attempts humor. Results vary.
 
@@ -171,7 +171,7 @@ Pick a number, or say "tell me more about [name]" for a preview.
 > **User picks a number:** Ask for their name: "What's your name? (so [Soul Name] knows who it's working for)". Then:
 > 1. Copy the soul file to the workspace: `cp examples/prebuilt-souls/[filename].md ~/workspace/SOUL.md`
 > 2. Replace `[HUMAN]` and `[HUMAN NAME]` with user's actual name via sed
-> 3. Show confirmation: "✅ [Soul Name] is live. Your SOUL.md is ready."
+> 3. Show confirmation: " [Soul Name] is live. Your SOUL.md is ready."
 >
 > **"None of these fit":** Offer Quick Build (2) or Deep Build (3).
 >
@@ -179,7 +179,7 @@ Pick a number, or say "tell me more about [name]" for a preview.
 
 ---
 
-## 2. 🎯 Quick Build
+## 2.  Quick Build
 
 Ask ALL five questions in ONE message:
 
@@ -233,7 +233,7 @@ After generating, write to workspace and show a summary. Ask: "How does this fee
 
 ---
 
-## 3. 🔬 Deep Build
+## 3.  Deep Build
 
 The full guided interview. Run conversationally — max 2-3 questions per message. Adapt based on responses.
 
@@ -347,12 +347,12 @@ After generating, show full preview. Ask: "Read through this — does it feel li
 
 ---
 
-## 4. 🧬 Blend Two Souls
+## 4.  Blend Two Souls
 
 When user says "blend souls", "mix", or picks option 4:
 
 ```
-🧬 Soul Blender — pick any two to mix.
+ Soul Blender — pick any two to mix.
 
 Which two personalities do you want to combine?
 (Use names or numbers from the gallery)
@@ -377,7 +377,7 @@ Examples:
 
 ---
 
-## 5. 🔍 Soul Audit
+## 5.  Soul Audit
 
 When user says "audit my soul", "review my soul.md", or picks option 5:
 
@@ -388,7 +388,7 @@ When user says "audit my soul", "review my soul.md", or picks option 5:
 
 ### Audit Checklist
 
-Score each section 🟢 (strong), 🟡 (could improve), or 🔴 (missing/weak):
+Score each section  (strong),  (could improve), or  (missing/weak):
 
 | Check | What to Look For |
 |-------|-----------------|
@@ -408,15 +408,15 @@ Score each section 🟢 (strong), 🟡 (could improve), or 🔴 (missing/weak):
 ### Audit Output Format
 
 ```
-🔍 SOUL.md Audit — [Agent Name]
+ SOUL.md Audit — [Agent Name]
 
 Overall: [X/12] checks passing
 
-🟢 Identity — Clear and specific
-🟢 Voice — Distinct personality
-🟡 Anti-patterns — Listed but could be more specific
-🔴 Example messages — Missing! This is the #1 way to anchor voice.
-🟢 Security — Strong, uses absolute language
+ Identity — Clear and specific
+ Voice — Distinct personality
+ Anti-patterns — Listed but could be more specific
+ Example messages — Missing! This is the #1 way to anchor voice.
+ Security — Strong, uses absolute language
 ...
 
 Top 3 recommendations:

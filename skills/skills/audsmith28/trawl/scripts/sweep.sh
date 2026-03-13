@@ -39,7 +39,7 @@ if [ ! -f "$SEEN_POSTS" ]; then
 fi
 
 if [ ! -f "$CONFIG" ]; then
-  echo "❌ Config not found at $CONFIG. Run setup.sh first."
+  echo " Config not found at $CONFIG. Run setup.sh first."
   exit 1
 fi
 
@@ -53,7 +53,7 @@ MAX_RESULTS=$(jq -r '.sources.moltbook.max_results_per_query' "$CONFIG")
 MAX_NEW_DMS=$(jq -r '.sweep.max_new_dms_per_sweep // 3' "$CONFIG")
 
 if [ "$DRY_RUN" = false ] && [ -z "$API_KEY" ]; then
-  echo "❌ $API_KEY_ENV not set. Add to ~/.clawdbot/secrets.env or use --dry-run"
+  echo " $API_KEY_ENV not set. Add to ~/.clawdbot/secrets.env or use --dry-run"
   exit 1
 fi
 
@@ -373,7 +373,7 @@ score_profile() {
 
 # ─── MAIN SWEEP ──────────────────────────────────────────────────────────
 
-echo "🎯 Trawl Sweep $(date '+%Y-%m-%d %H:%M:%S')"
+echo " Trawl Sweep $(date '+%Y-%m-%d %H:%M:%S')"
 if [ "$DRY_RUN" = true ]; then echo "   (DRY RUN — using mock data)"; fi
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
@@ -388,7 +388,7 @@ SWEEP_RESULTS="[]"
 SIGNALS=$(jq -c '.signals[]' "$CONFIG")
 SIGNAL_COUNT=$(echo "$SIGNALS" | wc -l | tr -d ' ')
 
-echo "📡 Searching $SIGNAL_COUNT signals..."
+echo " Searching $SIGNAL_COUNT signals..."
 echo ""
 
 # Process each signal
@@ -404,7 +404,7 @@ while IFS= read -r signal; do
     continue
   fi
 
-  echo "  🔍 Signal: $signal_id"
+  echo "   Signal: $signal_id"
   log "     Query: $signal_query"
 
   # Search
@@ -428,7 +428,7 @@ while IFS= read -r signal; do
     # Check if post already seen in a previous sweep
     already_seen=$(jq -r --arg pid "$result_id" '.posts[$pid] // empty' "$SEEN_POSTS")
     if [ -n "$already_seen" ]; then
-      log "     ⏭ Post $result_id already seen"
+      log "      Post $result_id already seen"
       continue
     fi
 
@@ -439,14 +439,14 @@ while IFS= read -r signal; do
     # Check if agent already known as a lead
     existing=$(jq -r --arg key "moltbook:$author_name" '.leads[$key] // empty' "$LEADS_FILE")
     if [ -n "$existing" ]; then
-      log "     ⏭ $author_name already tracked"
+      log "      $author_name already tracked"
       continue
     fi
 
     # Check minimum confidence
     meets_min=$(echo "$similarity >= $MIN_CONFIDENCE" | bc -l 2>/dev/null || echo 0)
     if [ "$meets_min" != "1" ]; then
-      log "     ⏭ $author_name below threshold ($similarity < $MIN_CONFIDENCE)"
+      log "      $author_name below threshold ($similarity < $MIN_CONFIDENCE)"
       continue
     fi
 
@@ -456,7 +456,7 @@ while IFS= read -r signal; do
     profile=$(api_profile "$author_name")
     profile_success=$(echo "$profile" | jq -r '.success')
     if [ "$profile_success" != "true" ]; then
-      log "     ⚠ Could not fetch profile for $author_name"
+      log "      Could not fetch profile for $author_name"
       continue
     fi
 
@@ -471,7 +471,7 @@ while IFS= read -r signal; do
     agent_desc=$(echo "$profile" | jq -r '.agent.description // ""')
     karma=$(echo "$profile" | jq -r '.agent.karma // 0')
 
-    echo "     ✨ $author_name — score: $final_score (sim: $similarity + boost: $profile_boost)"
+    echo "      $author_name — score: $final_score (sim: $similarity + boost: $profile_boost)"
     echo "        Human: $owner_name (@$owner_handle)"
     if [ -n "$owner_bio" ]; then
       echo "        Bio: ${owner_bio:0:80}"
@@ -546,7 +546,7 @@ done <<< "$SIGNALS"
 
 INBOUND_LEADS=0
 
-echo "📬 Checking DM activity..."
+echo " Checking DM activity..."
 dm_activity=$(api_dm_check)
 has_activity=$(echo "$dm_activity" | jq -r '.has_activity')
 if [ "$has_activity" = "true" ]; then
@@ -557,7 +557,7 @@ if [ "$has_activity" = "true" ]; then
   req_count=$(echo "$dm_activity" | jq -r '.requests.count // 0')
   if [ "$req_count" -gt 0 ]; then
     echo ""
-    echo "📥 Processing $req_count inbound DM request(s)..."
+    echo " Processing $req_count inbound DM request(s)..."
 
     # Fetch full request details
     dm_requests=$(api_dm_requests)
@@ -572,11 +572,11 @@ if [ "$has_activity" = "true" ]; then
       # Check if already tracked
       existing=$(jq -r --arg key "moltbook:$from_name" '.leads[$key] // empty' "$LEADS_FILE")
       if [ -n "$existing" ]; then
-        log "     ⏭ $from_name already tracked"
+        log "      $from_name already tracked"
         continue
       fi
 
-      echo "   📨 Inbound from: $from_name"
+      echo "    Inbound from: $from_name"
       echo "      Message: ${from_msg:0:100}"
 
       # Get their profile for scoring
@@ -596,7 +596,7 @@ if [ "$has_activity" = "true" ]; then
         inbound_similarity="0.80"
         final_score=$(echo "$inbound_similarity + $profile_boost" | bc -l 2>/dev/null || echo "$inbound_similarity")
 
-        echo "      ✨ Score: $final_score (inbound base: $inbound_similarity + boost: $profile_boost)"
+        echo "       Score: $final_score (inbound base: $inbound_similarity + boost: $profile_boost)"
         echo "      Human: $owner_name (@$owner_handle)"
         if [ -n "$owner_bio" ]; then
           echo "      Bio: ${owner_bio:0:80}"
@@ -611,7 +611,7 @@ if [ "$has_activity" = "true" ]; then
         profile_boost=0
         inbound_similarity="0.80"
         final_score="0.80"
-        echo "      ⚠ Could not fetch full profile, using request data"
+        echo "       Could not fetch full profile, using request data"
       fi
 
       # Determine state — inbound leads skip straight to QUALIFYING if auto-approve
@@ -623,7 +623,7 @@ if [ "$has_activity" = "true" ]; then
         echo "      ✓ Auto-approved DM request"
       else
         LEAD_STATE="INBOUND_PENDING"
-        echo "      ⏳ Awaiting your approval (set auto_approve_inbound: true to auto-accept)"
+        echo "       Awaiting your approval (set auto_approve_inbound: true to auto-accept)"
       fi
 
       # Create inbound lead
@@ -687,7 +687,7 @@ echo ""
 
 # ─── INITIATE DMs FOR HIGH-SCORE LEADS ──────────────────────────────────
 
-echo "💬 Checking for leads to DM..."
+echo " Checking for leads to DM..."
 HUMAN_NAME=$(jq -r '.identity.human.name' "$CONFIG")
 HEADLINE=$(jq -r '.identity.headline' "$CONFIG")
 
@@ -752,7 +752,7 @@ jq --argjson entry "$sweep_entry" '.sweeps += [$entry]' "$SWEEP_LOG" > "$SWEEP_L
 
 # ─── SUMMARY ─────────────────────────────────────────────────────────────
 
-echo "📊 Sweep Summary"
+echo " Sweep Summary"
 echo "━━━━━━━━━━━━━━━━"
 echo "  Signals searched: $SIGNAL_COUNT"
 echo "  Matches found:    $TOTAL_MATCHES"
@@ -789,5 +789,5 @@ jq -n \
     leads: $leads
   }' > "$REPORT_FILE"
 
-echo "📄 Report saved to $REPORT_FILE"
+echo " Report saved to $REPORT_FILE"
 echo "   Run report.sh to format and send"

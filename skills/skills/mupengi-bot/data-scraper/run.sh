@@ -23,7 +23,7 @@ while [[ $# -gt 0 ]]; do
       shift 2
       ;;
     *)
-      echo "❌ 알 수 없는 옵션: $1"
+      echo " 알 수 없는 옵션: $1"
       echo "사용법: run.sh --url URL [--format text|html]"
       exit 1
       ;;
@@ -32,17 +32,17 @@ done
 
 # URL 필수 체크
 if [ -z "$URL" ]; then
-  echo "❌ URL이 필요합니다."
+  echo " URL이 필요합니다."
   echo "사용법: run.sh --url URL [--format text|html]"
   exit 1
 fi
 
-echo "🔍 스크래핑 시작: $URL"
+echo " 스크래핑 시작: $URL"
 
 # curl로 페이지 다운로드
 TMP_FILE=$(mktemp)
 if ! curl -s -L -A "Mozilla/5.0" "$URL" > "$TMP_FILE"; then
-  echo "❌ URL 접근 실패: $URL"
+  echo " URL 접근 실패: $URL"
   rm -f "$TMP_FILE"
   exit 1
 fi
@@ -90,6 +90,6 @@ cat > "$EVENT_FILE" <<EOF
 EOF
 
 echo "" >&2
-echo "✅ 이벤트 생성: $EVENT_FILE" >&2
+echo " 이벤트 생성: $EVENT_FILE" >&2
 
 exit 0

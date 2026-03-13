@@ -59,16 +59,16 @@ DEFAULT_MAX_AGE_SECONDS = 300
 
 # Event type emoji mapping
 EVENT_EMOJI = {
-    "delivered": "✅",
-    "open": "👀",
-    "click": "🔗",
-    "bounce": "⚠️",
-    "dropped": "🚫",
-    "deferred": "⏳",
-    "unsubscribe": "🔕",
-    "group_unsubscribe": "🔕",
-    "spamreport": "🚨",
-    "processed": "📤",
+    "delivered": "",
+    "open": "",
+    "click": "",
+    "bounce": "",
+    "dropped": "",
+    "deferred": "",
+    "unsubscribe": "",
+    "group_unsubscribe": "",
+    "spamreport": "",
+    "processed": "",
 }
 
 # Configuration holder
@@ -157,7 +157,7 @@ def verify_signature(payload: bytes, signature: str, timestamp: str, public_key:
 def format_event_message(event: Dict[str, Any]) -> str:
     """Format a SendGrid event as a Discord message."""
     event_type = event.get("event", "unknown")
-    emoji = EVENT_EMOJI.get(event_type, "📧")
+    emoji = EVENT_EMOJI.get(event_type, "")
     recipient = event.get("email", "unknown")
     timestamp = event.get("timestamp")
     
@@ -185,19 +185,19 @@ def format_event_message(event: Dict[str, Any]) -> str:
     
     if event_type == "click":
         url = event.get("url", "N/A")
-        lines.append(f"🔗 {url[:80]}..." if len(url) > 80 else f"🔗 {url}")
+        lines.append(f" {url[:80]}..." if len(url) > 80 else f" {url}")
     
     if event_type == "bounce":
         reason = event.get("reason", "Unknown")
         bounce_type = event.get("type", "unknown")
-        lines.append(f"⚠️ {bounce_type}: {reason[:100]}")
+        lines.append(f" {bounce_type}: {reason[:100]}")
     
     if event_type in ("unsubscribe", "group_unsubscribe"):
         asm_group = event.get("asm_group_id", "N/A")
-        lines.append(f"🔕 Group: {asm_group}")
+        lines.append(f" Group: {asm_group}")
     
     if event_type == "spamreport":
-        lines.append("🚨 Marked as spam!")
+        lines.append(" Marked as spam!")
     
     if time_str:
         lines[0] += f" | {time_str}"

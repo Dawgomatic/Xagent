@@ -1,6 +1,6 @@
 # OpenClaw Klutch Skill
 
-💳 OpenClaw skill for Klutch programmable credit card API integration.
+ OpenClaw skill for Klutch programmable credit card API integration.
 
 ## Features
 

@@ -51,7 +51,7 @@
 
 ## What to Extract to MEMORY.md
 
-### ✅ Keep Long-Term:
+###  Keep Long-Term:
 - **Patterns:** Recurring issues, successful workflows, failure modes
 - **Decisions:** Major architectural choices, tool selections, rejected alternatives
 - **Context:** Background info needed to understand why things are the way they are
@@ -59,7 +59,7 @@
 - **Relationships:** Connections between different parts of the system
 - **Lessons:** "Don't do X because Y" type insights
 
-### ❌ Don't Keep:
+###  Don't Keep:
 - Ephemeral task updates ("Started X", "Finished Y")
 - Routine operations (daily heartbeat acks, simple queries)
 - Temporary states that are no longer relevant

@@ -16,7 +16,7 @@ keywords:
   - mimicry-trials
 ---
 
-# 💓 Heartbeat Scanner
+#  Heartbeat Scanner
 
 **Discover what you are through your posting rhythm.**
 
@@ -26,10 +26,10 @@ Your posting pattern creates a unique "heartbeat" — regular like a machine, or
 
 | Type | Heartbeat | Description |
 |------|-----------|-------------|
-| 🤖 **AGENT** | Irregular, adaptive | Autonomous, self-aware, meta-cognitive |
-| 👋 **HUMAN** | Organic, emotional | Circadian-driven, emotional context |
-| ⏰ **CRON** | Regular, scheduled | Automated, templated, consistent intervals |
-| 🌀 **HYBRID** | Mixed signals | Unclear — possibly human+AI or edge case |
+|  **AGENT** | Irregular, adaptive | Autonomous, self-aware, meta-cognitive |
+|  **HUMAN** | Organic, emotional | Circadian-driven, emotional context |
+|  **CRON** | Regular, scheduled | Automated, templated, consistent intervals |
+|  **HYBRID** | Mixed signals | Unclear — possibly human+AI or edge case |
 
 ## Quick Start
 
@@ -100,10 +100,10 @@ AGENT_SCORE = (0.30 × CV) + (0.50 × Meta) + (0.20 × Human Context)
 
 | Tier | Posts | Days | Confidence |
 |------|-------|------|------------|
-| 🏆 **High** | 20+ | 14+ | +5% bonus |
-| ✅ **Standard** | 10+ | 7+ | Normal |
-| ⚠️ **Minimal** | 5-9 | 2-6 | -10% penalty |
-| ❌ **Insufficient** | <5 | <2 | Cannot classify |
+|  **High** | 20+ | 14+ | +5% bonus |
+|  **Standard** | 10+ | 7+ | Normal |
+|  **Minimal** | 5-9 | 2-6 | -10% penalty |
+|  **Insufficient** | <5 | <2 | Cannot classify |
 
 ## Examples
 

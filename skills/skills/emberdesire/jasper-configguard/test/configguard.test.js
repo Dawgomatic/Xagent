@@ -15,10 +15,10 @@ let failed = 0;
 function test(name, fn) {
   try {
     fn();
-    console.log(`  ✅ ${name}`);
+    console.log(`   ${name}`);
     passed++;
   } catch (err) {
-    console.error(`  ❌ ${name}: ${err.message}`);
+    console.error(`   ${name}: ${err.message}`);
     failed++;
   }
 }
@@ -45,7 +45,7 @@ const baseConfig = {
 
 fs.writeFileSync(configPath, JSON.stringify(baseConfig, null, 2));
 
-console.log('\n🛡️  jasper-configguard tests\n');
+console.log('\n  jasper-configguard tests\n');
 
 // --- deepMerge tests ---
 console.log('deepMerge:');

@@ -9,14 +9,14 @@ Decision tree analysis: a visual tool for making decisions with probabilities an
 
 ## When to Use
 
-✅ **Good for:**
+ **Good for:**
 - Business decisions (investments, hiring, product launches)
 - Personal choices (career, relocation, purchases)
 - Trading & investing (position sizing, entry/exit)
 - Operational decisions (expansion, outsourcing)
 - Any situation with measurable consequences
 
-❌ **Not suitable for:**
+ **Not suitable for:**
 - Decisions with true uncertainty (black swans)
 - Fast tactical choices
 - Purely emotional/ethical questions
@@ -134,7 +134,7 @@ EV = $0
 
 ## Method Limitations
 
-⚠️ **Critical points:**
+ **Critical points:**
 
 1. **Subjective estimates** — probabilities often "finger in the air"
 2. **Doesn't account for risk appetite** — ignores psychology (loss aversion)
@@ -282,7 +282,7 @@ JSON format:
 Output:
 
 ```
-📊 Decision Tree Analysis
+ Decision Tree Analysis
 
 Decision: Launch product?
 
@@ -295,37 +295,37 @@ Option 2: Don't launch
   └─ EV = $0.00
      └─ Status quo (100.0%) → $0.00
 
-✅ Recommendation: Launch (EV: $80,000.00)
+ Recommendation: Launch (EV: $80,000.00)
 ```
 
 ## Final Checklist
 
 Before giving recommendation, ensure:
 
-- ✅ All options covered
-- ✅ Probabilities sum to 100% for each branch
-- ✅ Values are realistic (not fantasies)
-- ✅ Worst case scenario is clear to user
-- ✅ Risk/reward ratio is explicit
-- ✅ Method limitations mentioned
-- ✅ Qualitative context added (not just EV)
+-  All options covered
+-  Probabilities sum to 100% for each branch
+-  Values are realistic (not fantasies)
+-  Worst case scenario is clear to user
+-  Risk/reward ratio is explicit
+-  Method limitations mentioned
+-  Qualitative context added (not just EV)
 
 ## Method Advantages
 
-✅ **Simple** — people understand trees intuitively
-✅ **Visual** — clear structure
-✅ **Works with little data** — can use expert estimates
-✅ **White box** — transparent logic
-✅ **Worst/best case** — extreme scenarios visible
-✅ **Multiple decision-makers** — can account for different interests
+ **Simple** — people understand trees intuitively
+ **Visual** — clear structure
+ **Works with little data** — can use expert estimates
+ **White box** — transparent logic
+ **Worst/best case** — extreme scenarios visible
+ **Multiple decision-makers** — can account for different interests
 
 ## Method Disadvantages
 
-❌ **Unstable** — small data changes → large tree changes
-❌ **Inaccurate** — often more precise methods exist
-❌ **Subjective** — probability estimates "from the head"
-❌ **Complex** — becomes unwieldy with many outcomes
-❌ **Doesn't account for risk preference** — assumes risk neutrality
+ **Unstable** — small data changes → large tree changes
+ **Inaccurate** — often more precise methods exist
+ **Subjective** — probability estimates "from the head"
+ **Complex** — becomes unwieldy with many outcomes
+ **Doesn't account for risk preference** — assumes risk neutrality
 
 ## Important
 

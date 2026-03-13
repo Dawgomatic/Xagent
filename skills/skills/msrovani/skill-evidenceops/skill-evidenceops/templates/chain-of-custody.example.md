@@ -91,9 +91,9 @@
 
 | Evidence ID | File | Hash | Last Verified | Status |
 |-------------|------|------|---------------|--------|
-| ev-example001 | incident_photo.jpg | e3b0c442... | 2026-02-17T11:25:00Z | ✅ VERIFIED |
-| ev-example002 | recorded_audio.mp3 | cf80cd8a... | - | ⏳ PENDING |
-| ev-example003 | document.pdf | 7d865e95... | - | ⏳ PENDING |
+| ev-example001 | incident_photo.jpg | e3b0c442... | 2026-02-17T11:25:00Z |  VERIFIED |
+| ev-example002 | recorded_audio.mp3 | cf80cd8a... | - |  PENDING |
+| ev-example003 | document.pdf | 7d865e95... | - |  PENDING |
 
 ---
 

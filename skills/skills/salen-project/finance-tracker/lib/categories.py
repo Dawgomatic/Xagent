@@ -6,7 +6,7 @@ Professional expense categorization with smart keyword detection
 CATEGORIES = {
     # Food & Dining
     "food": {
-        "emoji": "🍔",
+        "emoji": "",
         "name": "Food & Dining",
         "keywords": [
             "food", "lunch", "dinner", "breakfast", "meal", "restaurant", 
@@ -18,7 +18,7 @@ CATEGORIES = {
     
     # Transportation
     "transport": {
-        "emoji": "🚗",
+        "emoji": "",
         "name": "Transportation",
         "keywords": [
             "taxi", "uber", "yandex", "bus", "metro", "subway", "train",
@@ -29,7 +29,7 @@ CATEGORIES = {
     
     # Shopping & Clothes
     "shopping": {
-        "emoji": "🛍️",
+        "emoji": "",
         "name": "Shopping",
         "keywords": [
             "clothes", "clothing", "shirt", "pants", "jeans", "shoes", 
@@ -40,7 +40,7 @@ CATEGORIES = {
     
     # Technology
     "tech": {
-        "emoji": "📱",
+        "emoji": "",
         "name": "Technology",
         "keywords": [
             "phone", "laptop", "computer", "headphones", "earbuds", "cable",
@@ -51,7 +51,7 @@ CATEGORIES = {
     
     # Entertainment
     "entertainment": {
-        "emoji": "🎮",
+        "emoji": "",
         "name": "Entertainment",
         "keywords": [
             "movie", "movies", "cinema", "game", "games", "gaming", "concert",
@@ -62,7 +62,7 @@ CATEGORIES = {
     
     # Education
     "education": {
-        "emoji": "📚",
+        "emoji": "",
         "name": "Education",
         "keywords": [
             "book", "books", "course", "courses", "school", "university",
@@ -74,7 +74,7 @@ CATEGORIES = {
     
     # Health & Medical
     "health": {
-        "emoji": "💊",
+        "emoji": "",
         "name": "Health & Medical",
         "keywords": [
             "medicine", "pharmacy", "doctor", "hospital", "clinic", "health",
@@ -85,7 +85,7 @@ CATEGORIES = {
     
     # Home & Utilities
     "home": {
-        "emoji": "🏠",
+        "emoji": "",
         "name": "Home & Utilities",
         "keywords": [
             "rent", "utility", "utilities", "electricity", "water", "gas",
@@ -97,7 +97,7 @@ CATEGORIES = {
     
     # Personal Care
     "personal": {
-        "emoji": "💇",
+        "emoji": "",
         "name": "Personal Care",
         "keywords": [
             "haircut", "barber", "salon", "spa", "massage", "grooming",
@@ -108,7 +108,7 @@ CATEGORIES = {
     
     # Gifts & Donations
     "gifts": {
-        "emoji": "🎁",
+        "emoji": "",
         "name": "Gifts & Donations",
         "keywords": [
             "gift", "gifts", "present", "birthday", "wedding", "donation",
@@ -118,7 +118,7 @@ CATEGORIES = {
     
     # Subscriptions
     "subscriptions": {
-        "emoji": "🔄",
+        "emoji": "",
         "name": "Subscriptions",
         "keywords": [
             "subscription", "monthly", "annual", "yearly", "membership",
@@ -128,7 +128,7 @@ CATEGORIES = {
     
     # Communication
     "communication": {
-        "emoji": "📞",
+        "emoji": "",
         "name": "Communication",
         "keywords": [
             "phone bill", "mobile", "sim", "data", "minutes", "sms",
@@ -138,7 +138,7 @@ CATEGORIES = {
     
     # Travel
     "travel": {
-        "emoji": "✈️",
+        "emoji": "",
         "name": "Travel",
         "keywords": [
             "travel", "trip", "flight", "hotel", "hostel", "airbnb",
@@ -149,7 +149,7 @@ CATEGORIES = {
     
     # Finance & Banking
     "finance": {
-        "emoji": "🏦",
+        "emoji": "",
         "name": "Finance & Banking",
         "keywords": [
             "bank", "fee", "fees", "transfer", "atm", "commission",
@@ -159,7 +159,7 @@ CATEGORIES = {
     
     # Other
     "other": {
-        "emoji": "❓",
+        "emoji": "",
         "name": "Other",
         "keywords": []  # Default category
     }
@@ -197,7 +197,7 @@ def get_name(category: str) -> str:
 
 def list_categories() -> str:
     """Return formatted list of all categories."""
-    lines = ["📋 Available Categories:", ""]
+    lines = [" Available Categories:", ""]
     for key, data in CATEGORIES.items():
         lines.append(f"  {data['emoji']} {data['name']} ({key})")
     return "\n".join(lines)

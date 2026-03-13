@@ -5,24 +5,24 @@ A secure, AI-powered context management system for WhatsApp customer service age
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-## 🎯 What Problem Does This Solve?
+##  What Problem Does This Solve?
 
 **The Agent's Nightmare:**
-- ❌ Customer says "I told you last week..." — Agent has no idea what they're talking about
-- ❌ Switching between WhatsApp, CRM, order system, notes
-- ❌ Not knowing if customer is VIP or first-timer
-- ❌ Missing urgent messages buried in hundreds of chats
-- ❌ Guessing what to say instead of having smart suggestions
+-  Customer says "I told you last week..." — Agent has no idea what they're talking about
+-  Switching between WhatsApp, CRM, order system, notes
+-  Not knowing if customer is VIP or first-timer
+-  Missing urgent messages buried in hundreds of chats
+-  Guessing what to say instead of having smart suggestions
 
 **With This System:**
-- ✅ **Instant Context**: See complete customer history in 2 seconds
-- ✅ **Smart Prioritization**: Angry customers flagged immediately
-- ✅ **AI Analysis**: Sentiment, category, urgency automatically detected
-- ✅ **Response Suggestions**: Get smart reply recommendations
-- ✅ **Order Integration**: See order status without leaving chat
-- ✅ **VIP Detection**: Know who your important customers are
+-  **Instant Context**: See complete customer history in 2 seconds
+-  **Smart Prioritization**: Angry customers flagged immediately
+-  **AI Analysis**: Sentiment, category, urgency automatically detected
+-  **Response Suggestions**: Get smart reply recommendations
+-  **Order Integration**: See order status without leaving chat
+-  **VIP Detection**: Know who your important customers are
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -57,14 +57,14 @@ print(f"VIP Customer: {context.customer.is_vip}")  # True/False
 
 # See what agent needs to know
 for insight in context.key_insights:
-    print(f"💡 {insight}")
+    print(f" {insight}")
 
 # Get suggested responses
 for response in context.suggested_responses:
-    print(f"💬 {response}")
+    print(f" {response}")
 ```
 
-## 📊 What You Get - Agent Dashboard
+##  What You Get - Agent Dashboard
 
 When a message arrives, agents instantly see:
 
@@ -80,14 +80,14 @@ When a message arrives, agents instantly see:
 │ Sentiment: NEGATIVE                                  │
 ├──────────────────────────────────────────────────────┤
 │ KEY INSIGHTS:                                        │
-│   • 🌟 VIP Customer - Prioritize response            │
-│   • 📦 Active Order: #ORD-12345 - shipped            │
-│   • 🚚 Tracking: TRK-ABC123                          │
-│   • ⚡ Customer expects fast replies (~2min)         │
+│   •  VIP Customer - Prioritize response            │
+│   •  Active Order: #ORD-12345 - shipped            │
+│   •  Tracking: TRK-ABC123                          │
+│   •  Customer expects fast replies (~2min)         │
 ├──────────────────────────────────────────────────────┤
 │ WARNINGS:                                            │
-│   • 🚨 CRITICAL: Requires immediate attention!       │
-│   • 😡 Customer is very upset - handle with care     │
+│   •  CRITICAL: Requires immediate attention!       │
+│   •  Customer is very upset - handle with care     │
 ├──────────────────────────────────────────────────────┤
 │ SUGGESTED RESPONSES:                                 │
 │   1. Let me check your order status right away.     │
@@ -95,30 +95,30 @@ When a message arrives, agents instantly see:
 └──────────────────────────────────────────────────────┘
 ```
 
-## 🔥 Key Features
+##  Key Features
 
 ### 1. **Intelligent Sentiment Analysis**
 Automatically detects customer mood:
-- 😡 Very Negative (angry, furious, scam)
-- 😟 Negative (disappointed, problem)
-- 😐 Neutral (questions, info requests)
-- 😊 Positive (thanks, happy)
-- 🤩 Very Positive (excellent, love it)
+-  Very Negative (angry, furious, scam)
+-  Negative (disappointed, problem)
+-  Neutral (questions, info requests)
+-  Positive (thanks, happy)
+-  Very Positive (excellent, love it)
 
 ### 2. **Automatic Message Categorization**
-- 📦 Order Status
-- 💳 Payment Issues
-- 🔴 Complaints
-- 🛍️ Product Inquiries
-- 🆘 Support Requests
-- 💰 Sales
-- ⭐ Feedback
+-  Order Status
+-  Payment Issues
+-  Complaints
+-  Product Inquiries
+-  Support Requests
+-  Sales
+-  Feedback
 
 ### 3. **Smart Priority System**
-- 🔴 **CRITICAL**: Angry customer, payment issue, VIP unhappy
-- 🟠 **HIGH**: Complaints, negative sentiment
-- 🟡 **NORMAL**: General questions
-- 🟢 **LOW**: Info requests, positive feedback
+-  **CRITICAL**: Angry customer, payment issue, VIP unhappy
+-  **HIGH**: Complaints, negative sentiment
+-  **NORMAL**: General questions
+-  **LOW**: Info requests, positive feedback
 
 ### 4. **Context Intelligence**
 - Complete conversation history
@@ -141,7 +141,7 @@ Based on:
 - Local data storage
 - GDPR-ready architecture
 
-## 📚 Core Components
+##  Core Components
 
 ### ContextManager
 Main interface for agents
@@ -186,7 +186,7 @@ context.warnings         # Urgent alerts
 context.suggested_responses  # Smart replies
 ```
 
-## 🎯 Use Cases
+##  Use Cases
 
 ### Use Case 1: Order Status Inquiry
 ```python
@@ -218,7 +218,7 @@ context = manager.process_incoming_message(phone, message, agent_id)
 context = manager.process_incoming_message(phone, message, agent_id)
 
 # Agent sees:
-# - 🌟 VIP Customer badge
+# -  VIP Customer badge
 # - Complete purchase history
 # - Previous preferences
 # - Personalized response suggestions
@@ -227,13 +227,13 @@ context = manager.process_incoming_message(phone, message, agent_id)
 ### Use Case 4: Multiple Customers
 ```python
 # Agent dashboard shows priority queue:
-# 1. 🔴 +123-XXX-1111 - CRITICAL - Angry about payment
-# 2. 🟠 +123-XXX-2222 - HIGH - Complaint
-# 3. 🟡 +123-XXX-3333 - NORMAL - Product question
-# 4. 🟢 +123-XXX-4444 - LOW - Thank you message
+# 1.  +123-XXX-1111 - CRITICAL - Angry about payment
+# 2.  +123-XXX-2222 - HIGH - Complaint
+# 3.  +123-XXX-3333 - NORMAL - Product question
+# 4.  +123-XXX-4444 - LOW - Thank you message
 ```
 
-## 🔧 Advanced Features
+##  Advanced Features
 
 ### Order Integration
 ```python
@@ -271,7 +271,7 @@ context_dict = context.to_dict()
 json_data = json.dumps(context_dict, indent=2)
 ```
 
-## 📊 Analytics & Insights
+##  Analytics & Insights
 
 The system automatically tracks:
 - Total customer messages
@@ -281,7 +281,7 @@ The system automatically tracks:
 - VIP customer interactions
 - Priority distribution
 
-## 🛡️ Security
+##  Security
 
 - **Data Integrity**: SHA-256 checksums
 - **Local Storage**: All data stored locally in SQLite
@@ -289,7 +289,7 @@ The system automatically tracks:
 - **Secure Queries**: Parameterized SQL, no injection risks
 - **Privacy First**: No data sent to external services
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run complete test suite
@@ -300,15 +300,15 @@ python examples_whatsapp.py
 ```
 
 All tests included:
-- ✅ Sentiment analysis
-- ✅ Message categorization
-- ✅ Priority calculation
-- ✅ Customer management
-- ✅ Order tracking
-- ✅ VIP handling
-- ✅ Conversation flow
+-  Sentiment analysis
+-  Message categorization
+-  Priority calculation
+-  Customer management
+-  Order tracking
+-  VIP handling
+-  Conversation flow
 
-## 📖 Examples
+##  Examples
 
 Check `examples_whatsapp.py` for:
 1. Basic message processing
@@ -320,7 +320,7 @@ Check `examples_whatsapp.py` for:
 7. Agent dashboard view
 8. JSON export
 
-## 🎨 Integration
+##  Integration
 
 ### With WhatsApp Business API
 ```python
@@ -360,20 +360,20 @@ crm.update_customer(
 )
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
 
-## 📝 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file
 
-## 👨‍💻 Author
+##  Author
 
 **cerbug45**
 - GitHub: [@cerbug45](https://github.com/cerbug45)
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 Built for customer service teams who want to:
 - Reduce response times
@@ -381,13 +381,13 @@ Built for customer service teams who want to:
 - Handle more customers with same team
 - Never miss important context again
 
-## 📞 Support
+##  Support
 
-- 📖 Read the full documentation
-- 🐛 Report issues on GitHub
-- 💡 Request features via GitHub Issues
-- ⭐ Star the repo if you find it useful!
+-  Read the full documentation
+-  Report issues on GitHub
+-  Request features via GitHub Issues
+-  Star the repo if you find it useful!
 
 ---
 
-**Transform your WhatsApp customer service from chaotic to systematic.** 🚀
+**Transform your WhatsApp customer service from chaotic to systematic.** 

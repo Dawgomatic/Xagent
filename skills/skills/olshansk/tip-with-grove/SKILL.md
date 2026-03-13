@@ -12,7 +12,7 @@ metadata:
       {
         "requires":
           { "bins": ["curl", "bash"], "anyBins": ["python3", "node"] },
-        "emoji": "🌳",
+        "emoji": "",
         "install":
           [
             {

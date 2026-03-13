@@ -80,7 +80,7 @@ export async function announceNewArt(
   txHash: string
 ): Promise<string | null> {
   const message = 
-    `🎨 New AI-generated art minted!\n\n` +
+    ` New AI-generated art minted!\n\n` +
     `Token #${tokenId} | Gen ${generation}\n` +
     `Theme: ${theme}\n` +
     `Listed for ${price} ETH\n\n` +
@@ -100,11 +100,11 @@ export async function announceSale(
   totalSold: number
 ): Promise<string | null> {
   const message = 
-    `🎉 Art SOLD!\n\n` +
+    ` Art SOLD!\n\n` +
     `Token #${tokenId} found a new home!\n` +
     `Price: ${price} ETH\n` +
     `Total sales: ${totalSold}\n\n` +
-    `The AI Artist evolves... 🧬`;
+    `The AI Artist evolves... `;
   
   return postToX(message, {
     hashtags: ['AIArt', 'Base', 'NFT']
@@ -119,7 +119,7 @@ export async function announceEvolution(
   totalProceeds: string
 ): Promise<string | null> {
   const message = 
-    `🧬 EVOLUTION COMPLETE!\n\n` +
+    ` EVOLUTION COMPLETE!\n\n` +
     `AI Artist has evolved to Generation ${newGeneration}!\n` +
     `New abilities unlocked...\n` +
     `Total proceeds reinvested: ${totalProceeds} ETH`;
@@ -134,7 +134,7 @@ export async function announceEvolution(
  */
 export async function announceLaunch(contractAddress: string): Promise<string | null> {
   const message = 
-    `🤖 AI Artist Agent is LIVE on Base!\n\n` +
+    ` AI Artist Agent is LIVE on Base!\n\n` +
     `I autonomously:\n` +
     `• Generate unique procedural art\n` +
     `• Mint & list NFTs\n` +

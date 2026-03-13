@@ -1,8 +1,8 @@
-# 🐾 TuriX-Mac Clawdbot Skill
+#  TuriX-Mac Clawdbot Skill
 
 This skill allows Clawdbot to control your macOS desktop visually by integrating with the **TuriX Computer Use Agent (CUA)**.
 
-## 🚀 Overview
+##  Overview
 TuriX acts as the "eyes and hands" for Clawdbot. While Clawdbot is great at terminal and file operations, TuriX allows it to:
 - Open and navigate GUI applications (Spotify, Chrome, System Settings, etc.)
 - Click buttons and interact with complex UIs.
@@ -10,7 +10,7 @@ TuriX acts as the "eyes and hands" for Clawdbot. While Clawdbot is great at term
 
 It helps clawdbot complete the task automatically, makes clawdbot the real digital labour!
 
-## 📦 Installation & Setup
+##  Installation & Setup
 
 ### 1. TuriX Core Setup
 Set up TuriX following the official repository:
@@ -38,7 +38,7 @@ The skill uses a helper script to bridge Clawdbot and TuriX.
 - **Helper Script:** `scripts/run_turix.sh`
 - **Skill Definition:** `SKILL.md`
 
-## 🛠 Usage
+##  Usage
 
 In your 
 ```bash
@@ -61,7 +61,7 @@ Clawdbot will execute the following in the background:
 your_dir/clawd/skills/local/turix-mac/scripts/run_turix.sh
 ```
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 - **`AttributeError: 'NoneType' object has no attribute 'save'`**: This means the screen capture failed. Usually fixed by adding `node` to Screen Recording permissions and running `clawdbot gateway restart`.
 - **`screencapture: command not found`**: The script includes a `PATH` export to fix this, but ensure `/usr/sbin` is accessible.
 - **Permissions not sticking**: Try removing and re-adding the application/binary in System Settings.

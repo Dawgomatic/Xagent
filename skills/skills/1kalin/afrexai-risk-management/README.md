@@ -46,15 +46,15 @@ clawhub install afrexai-risk-management
 | Governance | Three Lines of Defense, risk culture assessment, annual calendar |
 | Advanced | Quantitative analysis, bow-tie method, risk-adjusted decisions |
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific risk registers, KRIs, and compliance checklists pre-built for your sector?
 
 **AfrexAI Context Packs** — $47 each with deep risk frameworks for Healthcare, Fintech, Legal, Construction, SaaS, Manufacturing, and more.
 
-👉 [Browse Context Packs](https://afrexai-cto.github.io/context-packs/)
+ [Browse Context Packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - `afrexai-contract-review` — Legal contract review with risk scoring
 - `afrexai-competitive-intel` — Competitive intelligence system
@@ -62,4 +62,4 @@ Want industry-specific risk registers, KRIs, and compliance checklists pre-built
 - `afrexai-founder-os` — Startup operating system
 - `afrexai-customer-success` — Customer success & retention
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

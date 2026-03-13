@@ -22,7 +22,7 @@ function assertEqual(actual, expected, msg) {
 }
 
 // Test: Tools categorization
-console.log('\n📁 Tools Category Tests');
+console.log('\n Tools Category Tests');
 test('GitHub repo URL', () => {
   assertEqual(categorize('https://github.com/user/repo'), 'tools');
 });
@@ -37,7 +37,7 @@ test('Vercel deployment', () => {
 });
 
 // Test: Articles categorization
-console.log('\n📄 Articles Category Tests');
+console.log('\n Articles Category Tests');
 test('Medium article', () => {
   assertEqual(categorize('https://medium.com/@user/article'), 'articles');
 });
@@ -55,7 +55,7 @@ test('Blog subdomain', () => {
 });
 
 // Test: Videos categorization
-console.log('\n🎬 Videos Category Tests');
+console.log('\n Videos Category Tests');
 test('YouTube video', () => {
   assertEqual(categorize('https://youtube.com/watch?v=123'), 'videos');
 });
@@ -67,7 +67,7 @@ test('Vimeo', () => {
 });
 
 // Test: Research categorization
-console.log('\n🔬 Research Category Tests');
+console.log('\n Research Category Tests');
 test('arXiv paper', () => {
   assertEqual(categorize('https://arxiv.org/abs/1234.5678'), 'research');
 });
@@ -76,7 +76,7 @@ test('Papers With Code', () => {
 });
 
 // Test: News categorization
-console.log('\n📰 News Category Tests');
+console.log('\n News Category Tests');
 test('TechCrunch', () => {
   assertEqual(categorize('https://techcrunch.com/2024/01/01/article'), 'news');
 });
@@ -85,7 +85,7 @@ test('Hacker News', () => {
 });
 
 // Test: Fallback
-console.log('\n📌 Fallback Tests');
+console.log('\n Fallback Tests');
 test('Unknown domain falls back to bookmarks', () => {
   assertEqual(categorize('https://random-unknown-site.com/page'), 'bookmarks');
 });
@@ -94,7 +94,7 @@ test('Empty string falls back', () => {
 });
 
 // Test: Case insensitivity
-console.log('\n🔤 Case Insensitivity Tests');
+console.log('\n Case Insensitivity Tests');
 test('Uppercase GitHub', () => {
   assertEqual(categorize('https://GITHUB.COM/user/repo'), 'tools');
 });
@@ -103,7 +103,7 @@ test('Mixed case YouTube', () => {
 });
 
 // Test: getCategories
-console.log('\n📋 Category List Test');
+console.log('\n Category List Test');
 test('getCategories returns all categories', () => {
   const cats = getCategories();
   if (!cats.includes('tools')) throw new Error('Missing tools');
@@ -111,4 +111,4 @@ test('getCategories returns all categories', () => {
   if (!cats.includes('bookmarks')) throw new Error('Missing bookmarks');
 });
 
-console.log('\n' + (process.exitCode ? '❌ Some tests failed' : '✅ All tests passed'));
+console.log('\n' + (process.exitCode ? ' Some tests failed' : ' All tests passed'));

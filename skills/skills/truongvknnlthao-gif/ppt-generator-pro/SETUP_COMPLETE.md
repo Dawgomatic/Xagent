@@ -1,6 +1,6 @@
 # 环境配置完成！
 
-## ✅ 已完成的配置
+##  已完成的配置
 
 ### 1. Python依赖安装 ✓
 - google-genai (1.57.0)
@@ -15,7 +15,7 @@
 ### 3. 便捷脚本创建 ✓
 - run.sh: 自动激活虚拟环境和设置API密钥的启动脚本
 
-## 🚀 现在可以使用了！
+##  现在可以使用了！
 
 ### 方式1: 使用便捷脚本（推荐）
 
@@ -47,7 +47,7 @@ python generate_ppt.py --plan ../test_slides_plan.json --style styles/gradient-g
 
 Claude会自动处理所有步骤。
 
-## 🧪 快速测试
+##  快速测试
 
 我已经为您创建了一个测试规划文件 `test_slides_plan.json`，包含5页关于"莫伊兰箭"的PPT内容。
 
@@ -70,7 +70,7 @@ cd /Users/guohao/Documents/code/ppt/ppt-generator
 open outputs/TIMESTAMP/index.html
 ```
 
-## 📁 项目文件说明
+##  项目文件说明
 
 ```
 ppt-generator/
@@ -89,18 +89,18 @@ ppt-generator/
 └── outputs/                 # 生成结果（自动创建）
 ```
 
-## ⚙️ 环境变量
+##  环境变量
 
 API密钥已配置在：
 1. **run.sh** - 启动脚本中自动加载
 2. **.env** - 环境变量文件
 
 **重要提醒**：
-- ⚠️ 不要将 .env 文件提交到公共代码仓库
-- ⚠️ API密钥已包含在 .gitignore 中
-- ⚠️ 如需分享项目，删除 .env 文件中的密钥
+-  不要将 .env 文件提交到公共代码仓库
+-  API密钥已包含在 .gitignore 中
+-  如需分享项目，删除 .env 文件中的密钥
 
-## 🎯 下一步
+##  下一步
 
 ### 选项1: 立即测试
 ```bash
@@ -117,7 +117,7 @@ API密钥已配置在：
 - `QUICKSTART.md` - 快速上手指南
 - `ppt-generator.md` - 详细技术文档
 
-## 💡 使用技巧
+##  使用技巧
 
 ### 分辨率选择：
 - **2K (2752x1536)**: 日常使用，快速生成
@@ -137,7 +137,7 @@ API密钥已配置在：
 - `ESC`: 全屏切换
 - `H`: 隐藏/显示控件
 
-## 🆘 遇到问题？
+##  遇到问题？
 
 ### 环境问题
 ```bash
@@ -163,7 +163,7 @@ export GEMINI_API_KEY="your-key"
 3. 降低分辨率重试
 4. 查看详细错误信息
 
-## 🎉 准备就绪！
+##  准备就绪！
 
 您的PPT生成器已经完全配置好了，可以开始使用了！
 
@@ -173,4 +173,4 @@ export GEMINI_API_KEY="your-key"
 ./run.sh --plan ../test_slides_plan.json --style styles/gradient-glass.md --resolution 2K
 ```
 
-祝您使用愉快！🚀
+祝您使用愉快！

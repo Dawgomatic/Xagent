@@ -46,7 +46,7 @@ def format_result(result) -> str:
     """Format extraction result for display."""
     output = []
     
-    output.append(f"📄 Extract ID: {result.extract_id}")
+    output.append(f" Extract ID: {result.extract_id}")
     output.append("")
     
     for i, item in enumerate(result.results, 1):
@@ -121,7 +121,7 @@ def main():
             print(format_result(result))
             
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

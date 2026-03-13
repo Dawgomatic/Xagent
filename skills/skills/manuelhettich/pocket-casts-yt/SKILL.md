@@ -89,7 +89,7 @@ Or with a custom title:
 - Max file size depends on your Pocket Casts subscription (~2GB for Plus)
 - Cookies may need refreshing if YouTube blocks requests
 
-## ⚠️ Legal Disclaimer
+##  Legal Disclaimer
 
 **This skill is provided for personal, fair-use purposes only.**
 

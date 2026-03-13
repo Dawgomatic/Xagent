@@ -13,7 +13,7 @@ if [[ -z "$TASK" ]]; then
     exit 1
 fi
 
-echo "🐝 Phase 1: Spawning 3 agents..."
+echo " Phase 1: Spawning 3 agents..."
 echo "Task: $TASK"
 
 # Create workspace directories
@@ -157,4 +157,4 @@ for agent in a b c; do
     fi
 done
 
-echo "✅ Phase 1 complete: 3 agents spawned and validated"
+echo " Phase 1 complete: 3 agents spawned and validated"

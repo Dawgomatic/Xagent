@@ -24,7 +24,7 @@ async function loadCredentials() {
     const content = await fs.readFile(CREDENTIALS_PATH, 'utf8');
     return JSON.parse(content);
   } catch (err) {
-    console.error(`❌ Error: credentials.json not found at ${CREDENTIALS_PATH}`);
+    console.error(` Error: credentials.json not found at ${CREDENTIALS_PATH}`);
     console.error('Please place your OAuth credentials file there first.');
     process.exit(1);
   }
@@ -41,7 +41,7 @@ async function loadToken() {
 
 async function saveToken(token) {
   await fs.writeFile(TOKEN_PATH, JSON.stringify(token, null, 2));
-  console.log(`✅ Token saved to ${TOKEN_PATH}`);
+  console.log(` Token saved to ${TOKEN_PATH}`);
 }
 
 async function getNewToken(oauth2Client) {
@@ -57,7 +57,7 @@ async function getNewToken(oauth2Client) {
         const code = qs.get('code');
         
         if (code) {
-          res.end('✅ Authentication successful! You can close this window.');
+          res.end(' Authentication successful! You can close this window.');
           server.close();
           
           const { tokens } = await oauth2Client.getToken(code);
@@ -68,7 +68,7 @@ async function getNewToken(oauth2Client) {
         reject(e);
       }
     }).listen(3000, () => {
-      console.log('🌐 Opening browser for authentication...');
+      console.log(' Opening browser for authentication...');
       console.log(`If browser doesn't open, visit: ${authUrl}`);
       open(authUrl);
     });
@@ -98,13 +98,13 @@ async function authenticate() {
       try {
         const { credentials: newToken } = await oauth2Client.refreshAccessToken();
         await saveToken(newToken);
-        console.log('✅ Token refreshed successfully!');
+        console.log(' Token refreshed successfully!');
         return;
       } catch (err) {
-        console.log('⚠️  Failed to refresh token, starting new authentication flow...');
+        console.log('  Failed to refresh token, starting new authentication flow...');
       }
     } else {
-      console.log('✅ Valid token already exists!');
+      console.log(' Valid token already exists!');
       return;
     }
   }
@@ -113,16 +113,16 @@ async function authenticate() {
   console.log('Starting OAuth authentication flow...');
   const newToken = await getNewToken(oauth2Client);
   await saveToken(newToken);
-  console.log('✅ Authentication successful!');
+  console.log(' Authentication successful!');
 }
 
 // Main
 authenticate()
   .then(() => {
-    console.log('\n✨ You can now use the bash scripts to manage your tasks!');
+    console.log('\n You can now use the bash scripts to manage your tasks!');
     process.exit(0);
   })
   .catch((err) => {
-    console.error('\n❌ Authentication failed:', err.message);
+    console.error('\n Authentication failed:', err.message);
     process.exit(1);
   });

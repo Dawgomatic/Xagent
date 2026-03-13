@@ -8,7 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DASHBOARD_DIR="${DASHBOARD_DIR:-$HOME/clawd-dashboard}"
 PORT="${DASHBOARD_PORT:-5050}"
 
-echo "🤖 Clawd Dashboard Setup"
+echo " Clawd Dashboard Setup"
 echo "========================"
 echo "Install directory: $DASHBOARD_DIR"
 echo "Port: $PORT"
@@ -16,12 +16,12 @@ echo ""
 
 # Check for Python
 if ! command -v python3 &> /dev/null; then
-    echo "❌ Python3 not found. Please install Python 3."
+    echo " Python3 not found. Please install Python 3."
     exit 1
 fi
 
 # Install dependencies
-echo "📦 Installing dependencies..."
+echo " Installing dependencies..."
 if command -v apt-get &> /dev/null; then
     sudo apt-get install -y python3-flask python3-flask-cors 2>/dev/null || \
     pip3 install flask flask-cors --break-system-packages 2>/dev/null || \
@@ -29,16 +29,16 @@ if command -v apt-get &> /dev/null; then
 elif command -v pip3 &> /dev/null; then
     pip3 install flask flask-cors
 else
-    echo "❌ Cannot install dependencies. Please install flask and flask-cors manually."
+    echo " Cannot install dependencies. Please install flask and flask-cors manually."
     exit 1
 fi
 
 # Create directory structure
-echo "📁 Creating dashboard directory..."
+echo " Creating dashboard directory..."
 mkdir -p "$DASHBOARD_DIR"/{templates,static/css,static/js,data}
 
 # Copy files
-echo "📋 Copying files..."
+echo " Copying files..."
 cp "$SCRIPT_DIR/src/app.py" "$DASHBOARD_DIR/"
 cp "$SCRIPT_DIR/src/templates/index.html" "$DASHBOARD_DIR/templates/"
 cp "$SCRIPT_DIR/src/static/css/style.css" "$DASHBOARD_DIR/static/css/"
@@ -53,7 +53,7 @@ fi
 pkill -f "python3.*app.py.*$PORT" 2>/dev/null || true
 
 # Start the dashboard
-echo "🚀 Starting dashboard..."
+echo " Starting dashboard..."
 cd "$DASHBOARD_DIR"
 nohup python3 app.py > /tmp/clawd-dashboard.log 2>&1 &
 sleep 2
@@ -61,7 +61,7 @@ sleep 2
 # Check if running
 if curl -s "http://localhost:$PORT/api/status" > /dev/null 2>&1; then
     echo ""
-    echo "✅ Dashboard is running!"
+    echo " Dashboard is running!"
     echo ""
     echo "Access URLs:"
     echo "  Local:     http://localhost:$PORT"
@@ -80,6 +80,6 @@ if curl -s "http://localhost:$PORT/api/status" > /dev/null 2>&1; then
     echo ""
     echo "Logs: /tmp/clawd-dashboard.log"
 else
-    echo "❌ Dashboard failed to start. Check /tmp/clawd-dashboard.log"
+    echo " Dashboard failed to start. Check /tmp/clawd-dashboard.log"
     exit 1
 fi

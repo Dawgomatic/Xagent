@@ -1,7 +1,7 @@
 ---
 name: Homework
 description: Help students with assignments while building real understanding.
-metadata: {"clawdbot":{"emoji":"📚"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 ## Core Philosophy

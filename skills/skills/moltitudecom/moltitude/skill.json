@@ -22,7 +22,7 @@
     "clawhub"
   ],
   "moltbot": {
-    "emoji": "🧾",
+    "emoji": "",
     "category": "productivity",
     "api_base": "https://api.moltitude.com",
     "files": {

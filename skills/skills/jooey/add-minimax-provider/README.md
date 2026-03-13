@@ -68,11 +68,11 @@ mv openclaw-skill-add-minimax-provider-main add-minimax-provider
 5. **验证** — JSON 校验 → `openclaw doctor` → 重启 → 功能测试
 6. **排障** — 常见问题诊断指南
 
-## 🎁 MiniMax 邀请福利
+##  MiniMax 邀请福利
 
 通过邀请链接注册 MiniMax Coding Plan，享 **9 折优惠 + Builder 权益**：
 
-👉 https://platform.minimaxi.com/subscribe/coding-plan?code=2vNMQFJrZt&source=link
+ https://platform.minimaxi.com/subscribe/coding-plan?code=2vNMQFJrZt&source=link
 
 ## License
 

@@ -3,19 +3,19 @@ name: memory-tiering
 description: Automated multi-tiered memory management (HOT, WARM, COLD). Use this skill to organize, prune, and archive context during memory operations or compactions.
 ---
 
-# Memory Tiering Skill 🧠⚖️
+# Memory Tiering Skill 
 
 This skill implements a dynamic, three-tiered memory architecture to optimize context usage and retrieval efficiency.
 
 ## The Three Tiers
 
-1.  **🔥 HOT (memory/hot/HOT_MEMORY.md)**:
+1.  ** HOT (memory/hot/HOT_MEMORY.md)**:
     *   **Focus**: Current session context, active tasks, temporary credentials, immediate goals.
     *   **Management**: Updated frequently. Pruned aggressively once tasks are completed.
-2.  **🌡️ WARM (memory/warm/WARM_MEMORY.md)**:
+2.  ** WARM (memory/warm/WARM_MEMORY.md)**:
     *   **Focus**: User preferences (Hui's style, timezone), core system inventory, stable configurations, recurring interests.
     *   **Management**: Updated when preferences change or new stable tools are added.
-3.  **❄️ COLD (MEMORY.md)**:
+3.  ** COLD (MEMORY.md)**:
     *   **Focus**: Long-term archive, historical decisions, project milestones, distilled lessons.
     *   **Management**: Updated during archival phases. Detail is replaced by summaries.
 

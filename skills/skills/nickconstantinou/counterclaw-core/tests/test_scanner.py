@@ -83,4 +83,4 @@ if __name__ == "__main__":
     test_pii_masking()
     test_admin_check()
     test_no_admin_all_allowed()
-    print("✅ All CounterClaw tests passed!")
+    print(" All CounterClaw tests passed!")

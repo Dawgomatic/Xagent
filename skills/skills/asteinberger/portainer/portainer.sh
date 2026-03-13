@@ -1,6 +1,6 @@
 #!/bin/bash
 # Portainer CLI - Control Docker containers via Portainer API
-# Author: Andy Steinberger (with help from his Clawdbot Owen the Frog 🐸)
+# Author: Andy Steinberger (with help from his Clawdbot Owen the Frog )
 
 set -e
 

@@ -16,7 +16,7 @@ if [[ ! -e "${REQUESTS[0]}" ]]; then
     exit 0
 fi
 
-echo "📋 待处理的批准请求："
+echo " 待处理的批准请求："
 echo ""
 
 for request_file in "${REQUESTS[@]}"; do
@@ -28,7 +28,7 @@ for request_file in "${REQUESTS[@]}"; do
         timestamp=$(jq -r '.timestamp' "$request_file")
         time_str=$(date -d "@$timestamp" "+%Y-%m-%d %H:%M:%S" 2>/dev/null || echo "未知时间")
         
-        echo "📌 请求 ID: $request_id"
+        echo " 请求 ID: $request_id"
         echo "   风险: ${risk^^}"
         echo "   命令: $command"
         echo "   原因: $reason"

@@ -1,7 +1,7 @@
 ---
 name: erc-800claw
 description: The OpenClaw entry point for ERC-8004 agent identity and reputation. Register agents on-chain, query identities, give and receive feedback ratings.
-metadata: {"openclaw":{"emoji":"🪪","requires":{"anyBins":["node","npx","python3","pip"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"anyBins":["node","npx","python3","pip"]}}}
 ---
 
 # ERC-800Claw

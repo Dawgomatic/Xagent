@@ -21,7 +21,7 @@ const HISTORY_FILE = path.join(NOSHOW_DIR, 'history.json');
 const FLAGGED_FILE = path.join(NOSHOW_DIR, 'flagged-customers.json');
 
 if (!fs.existsSync(HISTORY_FILE)) {
-  console.log('ℹ️  No no-show history found');
+  console.log('  No no-show history found');
   process.exit(0);
 }
 
@@ -30,7 +30,7 @@ const history = JSON.parse(fs.readFileSync(HISTORY_FILE, 'utf8'));
 if (customer) {
   // Show specific customer history
   const customerNoshows = history.filter(h => h.customer_name === customer);
-  console.log(`\n📊 No-show history for ${customer}`);
+  console.log(`\n No-show history for ${customer}`);
   console.log('═'.repeat(60));
   console.log(`Total no-shows: ${customerNoshows.length}\n`);
   
@@ -43,7 +43,7 @@ if (customer) {
 } else if (month) {
   // Monthly report
   const monthNoshows = history.filter(h => h.date.startsWith(month));
-  console.log(`\n📊 No-show report for ${month}`);
+  console.log(`\n No-show report for ${month}`);
   console.log('═'.repeat(60));
   console.log(`Total no-shows: ${monthNoshows.length}\n`);
   
@@ -111,14 +111,14 @@ if (customer) {
   
   if (newFlags > 0) {
     fs.writeFileSync(FLAGGED_FILE, JSON.stringify(flagged, null, 2));
-    console.log(`✅ Flagged ${newFlags} repeat offenders (threshold: ${threshold} no-shows)`);
+    console.log(` Flagged ${newFlags} repeat offenders (threshold: ${threshold} no-shows)`);
   } else {
-    console.log('ℹ️  No new customers to flag');
+    console.log('  No new customers to flag');
   }
   
 } else {
   // Overall report
-  console.log('\n📊 Overall No-show Report');
+  console.log('\n Overall No-show Report');
   console.log('═'.repeat(60));
   console.log(`Total no-shows: ${history.length}\n`);
   
@@ -141,7 +141,7 @@ if (customer) {
   
   console.log('Top offenders:');
   sorted.slice(0, 10).forEach((customer, index) => {
-    const flag = customer.noshows.length >= 3 ? '🚩' : '';
+    const flag = customer.noshows.length >= 3 ? '' : '';
     console.log(`${index + 1}. ${customer.name} (${customer.contact || 'N/A'}): ${customer.noshows.length} no-shows ${flag}`);
   });
   
@@ -149,7 +149,7 @@ if (customer) {
   if (fs.existsSync(FLAGGED_FILE)) {
     const flagged = JSON.parse(fs.readFileSync(FLAGGED_FILE, 'utf8'));
     const flaggedCount = Object.keys(flagged).length;
-    console.log(`\n🚩 Flagged customers: ${flaggedCount}`);
+    console.log(`\n Flagged customers: ${flaggedCount}`);
   }
   
   console.log('\n');

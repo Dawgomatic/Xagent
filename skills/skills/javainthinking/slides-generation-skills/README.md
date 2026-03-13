@@ -4,11 +4,11 @@ AI-powered presentation generation using the [2slides API](https://2slides.com).
 
 ## Important Links
 
-**🌐 [2slides Website](https://2slides.com)** - Learn about 2slides features, pricing, and create presentations online
+** [2slides Website](https://2slides.com)** - Learn about 2slides features, pricing, and create presentations online
 
-**🔑 [Get API Access](https://2slides.com/api)** - Sign up for API access, get your API key, and view API documentation
+** [Get API Access](https://2slides.com/api)** - Sign up for API access, get your API key, and view API documentation
 
-**📚 [API Documentation](https://2slides.com/api)** - Complete API reference with endpoints, parameters, and examples
+** [API Documentation](https://2slides.com/api)** - Complete API reference with endpoints, parameters, and examples
 
 > **New to 2slides?** Start at [2slides.com](https://2slides.com) to explore features, then visit [2slides.com/api](https://2slides.com/api) to get your API key and enable this skill.
 

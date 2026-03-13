@@ -3,11 +3,11 @@
 **Category**: Game Development | Asset Optimization  
 **Tech Stack**: Rust (Macroquad, Bevy), Godot 4.x  
 **Created**: 2026-02-06  
-**Status**: ✅ Complete
+**Status**:  Complete
 
 ---
 
-## 📋 Overview
+##  Overview
 
 Sprite sheets (texture atlases) are essential for efficient game asset management, reducing draw calls, memory usage, and load times by packing multiple sprites into a single texture.
 
@@ -19,7 +19,7 @@ Sprite sheets (texture atlases) are essential for efficient game asset managemen
 
 ---
 
-## 🎯 Core Concepts
+##  Core Concepts
 
 ### Sprite Sheet vs Texture Atlas
 - **Sprite Sheet**: Uniformly-sized frames (e.g., 16×16 grid for animations)
@@ -42,7 +42,7 @@ sprite-sheet.png (2048×2048)
 
 ---
 
-## 🛠️ Framework Implementations
+##  Framework Implementations
 
 ### 1. Rust + Macroquad (WASM-Ready)
 
@@ -240,7 +240,7 @@ func _process(delta):
 
 ---
 
-## 🎨 Sprite Sheet Creation Tools
+##  Sprite Sheet Creation Tools
 
 | Tool | Platform | Price | Best For | Export Formats |
 |------|----------|-------|----------|----------------|
@@ -259,7 +259,7 @@ func _process(delta):
 
 ---
 
-## 📦 Working with Existing Assets
+##  Working with Existing Assets
 
 ### Kenney.nl (CC0, Recommended)
 - **Status**: Pre-packed sprite sheets with XML/JSON metadata
@@ -267,7 +267,7 @@ func _process(delta):
 - **Usage**: Load directly, parse XML for coordinates
 - **Rust parsing**: Use `quick-xml` or `serde_json` crate
 
-### Unity Asset Store (⚠️ Avoid for Public Games)
+### Unity Asset Store ( Avoid for Public Games)
 **Extraction Script** (Unity Editor C#):
 ```csharp
 using UnityEngine;
@@ -297,11 +297,11 @@ public class SpriteSheetExporter : EditorWindow {
     }
 }
 ```
-**⚠️ Legal Note**: Most Unity Asset Store licenses prohibit redistribution. Use only for private projects or local testing.
+** Legal Note**: Most Unity Asset Store licenses prohibit redistribution. Use only for private projects or local testing.
 
 ---
 
-## 🎯 Best Practices
+##  Best Practices
 
 ### 1. Texture Sizing
 - **Power of 2**: 512, 1024, 2048 (GPU-friendly, though not strictly required on modern hardware)
@@ -334,7 +334,7 @@ public class SpriteSheetExporter : EditorWindow {
 
 ---
 
-## 📚 Additional Resources
+##  Additional Resources
 
 ### Official Documentation
 - [Macroquad Texture Docs](https://docs.rs/macroquad/latest/macroquad/texture/)
@@ -352,7 +352,7 @@ public class SpriteSheetExporter : EditorWindow {
 
 ---
 
-## ✅ Checklist for Implementation
+##  Checklist for Implementation
 
 - [ ] Choose sprite sheet tool based on workflow
 - [ ] Set texture filter mode (Nearest for pixel art)
@@ -365,7 +365,7 @@ public class SpriteSheetExporter : EditorWindow {
 
 ---
 
-## 🔗 See Also
+##  See Also
 - `game-dev-rust-godot/` - Main tech stack documentation
 - `AGENTS.md` - Asset license policy (Kenney.nl CC0 only for public games)
 - `/Volumes/workspace/Asset Store-5.x/` - Local Unity assets (private use only)

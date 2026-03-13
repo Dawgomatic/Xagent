@@ -67,9 +67,9 @@ const testFindings = await scanDir("tests");
 console.log("=== Security Scan ===\n");
 
 if (findings.length === 0) {
-  console.log("✅ No security issues found in src/\n");
+  console.log(" No security issues found in src/\n");
 } else {
-  console.log(`❌ ${findings.length} issues found in src/:\n`);
+  console.log(` ${findings.length} issues found in src/:\n`);
   for (const f of findings) {
     console.log(`  [${f.severity}] ${f.pattern} — ${f.file}:${f.line}`);
     console.log(`    Match: ${f.match}`);
@@ -78,7 +78,7 @@ if (findings.length === 0) {
 }
 
 if (testFindings.length > 0) {
-  console.log(`ℹ ${testFindings.length} findings in tests/ (informational):`);
+  console.log(` ${testFindings.length} findings in tests/ (informational):`);
   for (const f of testFindings) {
     console.log(`  [${f.severity}] ${f.pattern} — ${f.file}:${f.line}`);
   }

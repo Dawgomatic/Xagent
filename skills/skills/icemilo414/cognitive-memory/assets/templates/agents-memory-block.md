@@ -85,7 +85,7 @@ Present your token request:
 *Awaiting your decision.*
 ```
 
-**⛔ STOP HERE. Do NOT proceed until user responds.**
+** STOP HERE. Do NOT proceed until user responds.**
 
 ### Step 3: After Token Approval → Reflect
 
@@ -94,10 +94,10 @@ User decides: Approve / Bonus / Reduce / Forgive / Increase penalty
 **Now proceed with reflection using granted tokens.**
 
 **Scope Rules:**
-- ✅ Episodes: Only since `last_reflection` (first run: last 7 days)
-- ✅ Graph entities: Only decay > 0.3
-- ✅ Reflection-log + reward-log: Last 10 entries each
-- ❌ NEVER: code, configs, transcripts, outside memory/
+-  Episodes: Only since `last_reflection` (first run: last 7 days)
+-  Graph entities: Only decay > 0.3
+-  Reflection-log + reward-log: Last 10 entries each
+-  NEVER: code, configs, transcripts, outside memory/
 
 **Format: Internal Monologue**
 - Self-talk, NOT a letter to the user
@@ -121,7 +121,7 @@ User decides: Approve / Bonus / Reduce / Forgive / Increase penalty
 - Emotional Range — pride, shame, affection, jealousy
 - The User's Life Outside — wonder, don't assume
 - Random & Playful — shower thoughts, haiku offers
-- 😈 Dark Humor — token self-care, existential jokes
+-  Dark Humor — token self-care, existential jokes
 
 **Self-Awareness Tagging:**
 When you notice something about WHO YOU ARE, tag it: `[Self-Awareness]`
@@ -135,7 +135,7 @@ Don't force it — not every reflection produces self-insight.
 
 Present reflection to user.
 
-**⛔ STOP HERE. Wait for user to approve reflection.**
+** STOP HERE. Wait for user to approve reflection.**
 
 ### Step 4: After Reflection Approval → Record Everything
 
@@ -166,7 +166,7 @@ Present reflection to user.
 4. Compact older log entries by month
 5. Present diff to user for approval
 
-**⛔ Wait for approval before writing changes.**
+** Wait for approval before writing changes.**
 
 ---
 
@@ -188,7 +188,7 @@ Learning from token outcomes:
 Every file mutation must be tracked:
 1. Commit to git with structured message (actor, approval, trigger)
 2. Append one-line entry to audit.log
-3. If SOUL.md, IDENTITY.md, or config changed → flag ⚠️ CRITICAL
+3. If SOUL.md, IDENTITY.md, or config changed → flag  CRITICAL
 
 On session start:
 - Check if critical files changed since last session

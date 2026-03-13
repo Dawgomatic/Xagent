@@ -47,7 +47,7 @@ function isValidTagName(tag) {
 
 const TARGET_VERSION = RAW_VERSION;
 if (RAW_VERSION && !isValidTagName(RAW_VERSION)) {
-  console.error('❌ Invalid version format. Expected: backup-YYYYMMDD-HHMM');
+  console.error(' Invalid version format. Expected: backup-YYYYMMDD-HHMM');
   console.error('   Example: backup-20260202-1430');
   process.exit(1);
 }
@@ -78,7 +78,7 @@ function validateRepoUrl(url) {
     }
     return true;
   } catch (err) {
-    console.error(`❌ Invalid repository URL: ${err.message}`);
+    console.error(` Invalid repository URL: ${err.message}`);
     process.exit(1);
   }
 }
@@ -89,7 +89,7 @@ function checkConfig() {
   const token = process.env.BACKUP_TOKEN;
 
   if (!repo || !token) {
-    console.error('❌ Sync not configured!');
+    console.error(' Sync not configured!');
     console.error('');
     console.error('Create ~/.openclaw/.backup.env with:');
     console.error('  BACKUP_REPO=https://github.com/username/repo');
@@ -98,7 +98,7 @@ function checkConfig() {
   }
 
   if (token.includes('xxxx') || token.includes('YOUR_')) {
-    console.error('❌ Please replace the placeholder token with your real token');
+    console.error(' Please replace the placeholder token with your real token');
     process.exit(1);
   }
 
@@ -134,7 +134,7 @@ function isValidFilename(filename) {
 
 // Create local backup before restore (disaster recovery)
 function createLocalBackup() {
-  console.log('💾 Creating local backup before restore...');
+  console.log(' Creating local backup before restore...');
 
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
   const backupPath = path.join(LOCAL_BACKUP_DIR, timestamp);
@@ -164,7 +164,7 @@ function createLocalBackup() {
     }
   }
 
-  console.log(`✅ Local backup saved: ${backupPath}`);
+  console.log(` Local backup saved: ${backupPath}`);
   return backupPath;
 }
 
@@ -174,7 +174,7 @@ function listVersions() {
   const token = process.env.BACKUP_TOKEN;
   const repoUrl = repo.replace('https://', `https://${token}@`);
 
-  console.log('📋 Fetching available versions...\n');
+  console.log(' Fetching available versions...\n');
 
   try {
     // Clone with all tags
@@ -195,7 +195,7 @@ function listVersions() {
       console.log('Available versions:\n');
       tags.forEach((tag, i) => {
         const marker = i === 0 ? ' (latest)' : '';
-        console.log(`  🏷️  ${tag}${marker}`);
+        console.log(`    ${tag}${marker}`);
       });
       console.log('');
       console.log('To restore a specific version:');
@@ -203,7 +203,7 @@ function listVersions() {
     }
 
   } catch (err) {
-    console.error('❌ Failed to list versions:', err.message);
+    console.error(' Failed to list versions:', err.message);
   } finally {
     process.chdir(os.homedir());
     if (fs.existsSync(RESTORE_DIR)) {
@@ -233,14 +233,14 @@ async function confirm(message) {
 function safeCopyFile(src, dest) {
   const filename = path.basename(src);
   if (!isValidFilename(filename)) {
-    console.log(`⚠️  Skipping unsafe filename: ${filename}`);
+    console.log(`  Skipping unsafe filename: ${filename}`);
     return false;
   }
 
   if (!fs.existsSync(src)) return false;
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   fs.copyFileSync(src, dest);
-  console.log(`✅ Restored: ${path.basename(dest)}`);
+  console.log(` Restored: ${path.basename(dest)}`);
   return true;
 }
 
@@ -258,7 +258,7 @@ async function main() {
     return;
   }
 
-  console.log('📥 Claw Sync - Restore\n');
+  console.log(' Claw Sync - Restore\n');
   console.log(`Repository: ${repo}`);
   if (TARGET_VERSION) {
     console.log(`Version: ${TARGET_VERSION}`);
@@ -268,7 +268,7 @@ async function main() {
   console.log('');
 
   // Confirm restore
-  const confirmed = await confirm('⚠️  This will overwrite local files. Continue?');
+  const confirmed = await confirm('  This will overwrite local files. Continue?');
   if (!confirmed) {
     console.log('Restore cancelled.');
     return;
@@ -286,7 +286,7 @@ async function main() {
   const repoUrl = repo.replace('https://', `https://${token}@`);
 
   try {
-    console.log('\n📡 Cloning repository...');
+    console.log('\n Cloning repository...');
 
     if (TARGET_VERSION) {
       // Clone specific tag
@@ -296,8 +296,8 @@ async function main() {
       safeExec(`git clone --depth 1 ${repoUrl} ${RESTORE_DIR}`, { stdio: 'pipe' });
     }
   } catch (err) {
-    console.error('❌ Clone failed:', err.message);
-    console.log(`\n💡 Your local backup is safe at: ${localBackup}`);
+    console.error(' Clone failed:', err.message);
+    console.log(`\n Your local backup is safe at: ${localBackup}`);
     process.exit(1);
   }
 
@@ -305,15 +305,15 @@ async function main() {
   const metadataPath = path.join(RESTORE_DIR, 'SYNC_METADATA.json');
   if (fs.existsSync(metadataPath)) {
     const meta = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
-    console.log(`\n📅 Backup from: ${meta.timestamp}`);
-    console.log(`🏷️  Version: ${meta.tag || 'unknown'}`);
-    console.log(`🖥️  Source: ${meta.hostname}`);
+    console.log(`\n Backup from: ${meta.timestamp}`);
+    console.log(`  Version: ${meta.tag || 'unknown'}`);
+    console.log(`  Source: ${meta.hostname}`);
   }
 
   // Restore workspace files
   const backupWorkspace = path.join(RESTORE_DIR, 'workspace');
   if (fs.existsSync(backupWorkspace)) {
-    console.log('\n📁 Restoring workspace...');
+    console.log('\n Restoring workspace...');
 
     const files = ['MEMORY.md', 'USER.md', 'SOUL.md', 'IDENTITY.md', 'TOOLS.md', 'AGENTS.md'];
     for (const file of files) {
@@ -326,7 +326,7 @@ async function main() {
     // Restore memory logs
     const backupMemory = path.join(backupWorkspace, 'memory');
     if (fs.existsSync(backupMemory)) {
-      console.log('\n📅 Restoring daily logs...');
+      console.log('\n Restoring daily logs...');
       fs.mkdirSync(path.join(WORKSPACE_DIR, 'memory'), { recursive: true });
       for (const file of fs.readdirSync(backupMemory)) {
         if (isValidFilename(file)) {
@@ -341,11 +341,11 @@ async function main() {
     // Restore skills
     const backupSkills = path.join(backupWorkspace, 'skills');
     if (fs.existsSync(backupSkills)) {
-      console.log('\n🔧 Restoring skills...');
+      console.log('\n Restoring skills...');
       fs.mkdirSync(path.join(WORKSPACE_DIR, 'skills'), { recursive: true });
       for (const skill of fs.readdirSync(backupSkills)) {
         if (!isValidFilename(skill)) {
-          console.log(`⚠️  Skipping unsafe skill name: ${skill}`);
+          console.log(`  Skipping unsafe skill name: ${skill}`);
           continue;
         }
         const src = path.join(backupSkills, skill);
@@ -355,7 +355,7 @@ async function main() {
             fs.rmSync(dest, { recursive: true });
           }
           fs.cpSync(src, dest, { recursive: true });
-          console.log(`✅ Restored: skills/${skill}`);
+          console.log(` Restored: skills/${skill}`);
         }
       }
     }
@@ -364,15 +364,15 @@ async function main() {
   // Cleanup
   fs.rmSync(RESTORE_DIR, { recursive: true });
 
-  console.log('\n✅ Restore complete!');
+  console.log('\n Restore complete!');
   console.log('');
-  console.log('📝 Notes:');
+  console.log(' Notes:');
   console.log(`   - Local backup saved at: ${localBackup}`);
   console.log('   - Config files (openclaw.json, .env) were NOT restored');
   console.log('   - Restart OpenClaw if running');
 }
 
 main().catch(err => {
-  console.error('❌ Error:', err.message);
+  console.error(' Error:', err.message);
   process.exit(1);
 });

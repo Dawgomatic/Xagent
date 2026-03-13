@@ -128,7 +128,7 @@ Source: OpenClaw docs (`/docs/concepts/agent-workspace.md`, `/docs/concepts/memo
 
 ## Git Conventions
 
-**⚠️ IMPORTANT: This workspace is PRIVATE. Never push to GitHub or any public remote.**
+** IMPORTANT: This workspace is PRIVATE. Never push to GitHub or any public remote.**
 
 The workspace contains personal memory, identity, and potentially sensitive context. Git is for LOCAL version control and backup only.
 

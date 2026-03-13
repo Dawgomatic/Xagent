@@ -4,7 +4,7 @@ Thank you for your interest in contributing! Security is a community effort, and
 
 ## Ways to Contribute
 
-### 🔍 Report New Threats
+###  Report New Threats
 Found a new attack pattern that evades detection?
 
 1. **Check existing patterns** in `skills/security/patterns.json`
@@ -14,7 +14,7 @@ Found a new attack pattern that evades detection?
    - Expected vs actual behavior
    - Impact assessment
 
-### 🛡️ Submit Detection Patterns
+###  Submit Detection Patterns
 Add new security patterns:
 
 1. **Fork the repository**
@@ -23,7 +23,7 @@ Add new security patterns:
 4. **Update documentation** if needed
 5. **Submit PR** with clear description
 
-### 📚 Improve Documentation
+###  Improve Documentation
 Help make security more accessible:
 
 - Fix typos or unclear instructions
@@ -31,13 +31,13 @@ Help make security more accessible:
 - Translate documentation
 - Create video tutorials or blog posts
 
-### 🧪 Testing & QA
+###  Testing & QA
 - Test on different platforms
 - Performance benchmarking
 - Edge case discovery
 - Integration testing with various Clawdbot setups
 
-### 💡 Feature Requests
+###  Feature Requests
 - Additional threat detection categories
 - New integration methods
 - Performance improvements
@@ -90,15 +90,15 @@ Security patterns are organized by threat type:
 ### Pattern Guidelines
 
 **Good patterns:**
-- ✅ Specific enough to avoid false positives
-- ✅ General enough to catch variations
-- ✅ Based on real attack examples
-- ✅ Tested with both malicious and benign inputs
+-  Specific enough to avoid false positives
+-  General enough to catch variations
+-  Based on real attack examples
+-  Tested with both malicious and benign inputs
 
 **Avoid:**
-- ❌ Overly broad patterns (high false positive rate)
-- ❌ Patterns that break legitimate use cases
-- ❌ Untested regex (can cause performance issues)
+-  Overly broad patterns (high false positive rate)
+-  Patterns that break legitimate use cases
+-  Untested regex (can cause performance issues)
 
 ### Testing Patterns
 
@@ -220,4 +220,4 @@ Contributors are recognized in:
 **Security concerns**: [gt@lexpertai.com](mailto:gt@lexpertai.com)  
 **General updates**: [@LexpertAI](https://x.com/LexpertAI)  
 
-Thank you for helping secure the AI agent ecosystem! 🔒
+Thank you for helping secure the AI agent ecosystem! 

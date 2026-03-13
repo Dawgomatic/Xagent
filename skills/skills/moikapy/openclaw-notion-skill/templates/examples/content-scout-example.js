@@ -11,7 +11,7 @@ const { exec } = require('../../src/index');
 const CONTENT_DB_ID = process.env.CONTENT_DB_ID || 'YOUR_DATABASE_ID_HERE';
 
 async function researchAndAddContentIdeas() {
-  console.log('🔍 Starting research scout...');
+  console.log(' Starting research scout...');
   
   // Step 1: Research (using web_search if available, or manual sources)
   // In a real implementation, you'd search for trends here
@@ -56,13 +56,13 @@ async function researchAndAddContentIdeas() {
           --properties '${JSON.stringify(properties)}'`
       });
       
-      console.log('✅ Added to Notion:', result);
+      console.log(' Added to Notion:', result);
     } catch (err) {
-      console.error('❌ Failed to add:', err);
+      console.error(' Failed to add:', err);
     }
   }
   
-  console.log(`\n🎉 Added ${findings.length} ideas to Content Pipeline!`);
+  console.log(`\n Added ${findings.length} ideas to Content Pipeline!`);
 }
 
 // Run if executed directly

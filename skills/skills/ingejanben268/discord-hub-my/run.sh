@@ -11,7 +11,7 @@ if [ -f "$DIR/.env" ]; then
 fi
 
 # 默认消息
-MSG="${1:-OpenClaw test ✅}"
+MSG="${1:-OpenClaw test }"
 
 # 调用你之前做的发送脚本
 "$DIR/discord_send.sh" "$MSG"

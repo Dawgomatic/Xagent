@@ -89,7 +89,7 @@ Add to "Roadmap Evolution" section:
 **{description}**
 Directory: .planning/phases/{PADDED}-{slug}/
 
-**▶ Next:** `/gsd plan-phase {N}`
+** Next:** `/gsd plan-phase {N}`
 
 ---
 ```

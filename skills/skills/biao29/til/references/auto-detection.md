@@ -97,7 +97,7 @@ Append the suggestion at the end of your normal response. Never interrupt the wo
 
 **Template:**
 ```
-💡 TIL: [concise title of the insight]
+ TIL: [concise title of the insight]
    Tags: [tag1, tag2] · Capture? (yes/no)
 ```
 
@@ -105,7 +105,7 @@ Append the suggestion at the end of your normal response. Never interrupt the wo
 ```
 ...so the memory leak was caused by the goroutine holding a reference to the entire request body.
 
-💡 TIL: Goroutine closures can silently retain large objects, causing memory leaks
+ TIL: Goroutine closures can silently retain large objects, causing memory leaks
    Tags: go, concurrency · Capture? (yes/no)
 ```
 
@@ -113,7 +113,7 @@ Append the suggestion at the end of your normal response. Never interrupt the wo
 ```
 ...the compound index on (user_id, created_at) reduced the query from 2.3s to 12ms.
 
-💡 TIL: Compound indexes with the right column order can yield 100x+ query speedups
+ TIL: Compound indexes with the right column order can yield 100x+ query speedups
    Tags: postgresql, indexing · Capture? (yes/no)
 ```
 
@@ -121,7 +121,7 @@ Append the suggestion at the end of your normal response. Never interrupt the wo
 ```
 ...Ruby 3.2 changed Struct keyword arguments to be required by default.
 
-💡 TIL: Ruby 3.2 makes Struct keyword args required by default, silently breaking existing code
+ TIL: Ruby 3.2 makes Struct keyword args required by default, silently breaking existing code
    Tags: ruby, migration · Capture? (yes/no)
 ```
 
@@ -130,7 +130,7 @@ Append the suggestion at the end of your normal response. Never interrupt the wo
 ```
 Agent: [normal response content]
 
-       💡 TIL: [concise title]
+        TIL: [concise title]
           Tags: [tags] · Capture? (yes/no)
 
 User:  yes / y / ok / sure

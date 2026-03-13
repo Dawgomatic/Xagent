@@ -121,7 +121,7 @@ async function runInitiative() {
     `).all();
 
     if (blacklistedTitles.length > 0) {
-      console.log(`[INITIATIVE] 🚫 ${blacklistedTitles.length} blacklisted topic(s)`);
+      console.log(`[INITIATIVE]  ${blacklistedTitles.length} blacklisted topic(s)`);
     }
 
     // === PROJECTS CONTEXT ===
@@ -131,7 +131,7 @@ async function runInitiative() {
       activeProjects = getProjects('active');
       completedProjects = getProjects('completed');
       if (activeProjects.length > 0) {
-        console.log(`[INITIATIVE] 📦 ${activeProjects.length} active project(s), ${completedProjects.length} completed`);
+        console.log(`[INITIATIVE]  ${activeProjects.length} active project(s), ${completedProjects.length} completed`);
       }
     } catch { /* table might not exist yet */ }
 
@@ -163,7 +163,7 @@ async function runInitiative() {
           tier: 'longterm',
         });
         if (archiveContext.length > 0) {
-          console.log(`[INITIATIVE] 📚 ${archiveContext.length} archive hit(s) for context`);
+          console.log(`[INITIATIVE]  ${archiveContext.length} archive hit(s) for context`);
         }
       } catch (err) {
         console.warn(`[INITIATIVE] Archive retrieval failed: ${err.message}`);
@@ -172,9 +172,9 @@ async function runInitiative() {
 
     console.log('[INITIATIVE] Analyzing...');
     if (staleFrustrations.length > 0)
-      console.log(`[INITIATIVE] 🎭 ${staleFrustrations.length} stale frustration(s) detected`);
+      console.log(`[INITIATIVE]  ${staleFrustrations.length} stale frustration(s) detected`);
     if (upcomingEvents.length > 0)
-      console.log(`[INITIATIVE] 📅 ${upcomingEvents.length} upcoming event(s)`);
+      console.log(`[INITIATIVE]  ${upcomingEvents.length} upcoming event(s)`);
 
     // === LLM ANALYSIS ===
     const suggestions = await generateInitiative({
@@ -254,7 +254,7 @@ async function runInitiative() {
       });
 
       if (isBlacklisted) {
-        console.log(`[INITIATIVE] 🚫 Blacklist hit: "${s.title}" – skipped`);
+        console.log(`[INITIATIVE]  Blacklist hit: "${s.title}" – skipped`);
         continue;
       }
 
@@ -265,7 +265,7 @@ async function runInitiative() {
       }, config);
 
       if (dedupResult.isDuplicate) {
-        const icon = dedupResult.method === 'hash' ? '🔗' : '🧠';
+        const icon = dedupResult.method === 'hash' ? '' : '';
         console.log(`[INITIATIVE] ${icon} Dedup (${dedupResult.method}): "${s.title}" → ${dedupResult.action} (matched #${dedupResult.matchedId})`);
 
         if (dedupResult.action === 'nudge' && dedupResult.message) {
@@ -295,7 +295,7 @@ async function runInitiative() {
 
       inserted++;
 
-      const icon = s.type === 'social' ? '🎭' : s.type === 'follow_up' ? '📚' : '💡';
+      const icon = s.type === 'social' ? '' : s.type === 'follow_up' ? '' : '';
       console.log(`[INITIATIVE] ${icon} ${s.priority?.toUpperCase()}: ${s.title}`);
     }
 
@@ -360,7 +360,7 @@ async function runReminders(db, config) {
         // Max nudges reached → auto-dead
         db.prepare("UPDATE proposals SET status = 'dead' WHERE id = ?").run(p.id);
         logProposalEvent(p.id, 'dead', `Max ${maxNudges} nudges reached – auto-archived`);
-        console.log(`[REMINDER] 💀 #${p.id} "${p.title}" → dead (max nudges)`);
+        console.log(`[REMINDER]  #${p.id} "${p.title}" → dead (max nudges)`);
         continue;
       }
 
@@ -370,7 +370,7 @@ async function runReminders(db, config) {
         title: p.title,
         message: `Du hattest das verschoben – immer noch relevant?`,
       });
-      console.log(`[REMINDER] 🔔 #${p.id} "${p.title}" → nudge (${p.nudge_count + 1}/${maxNudges})`);
+      console.log(`[REMINDER]  #${p.id} "${p.title}" → nudge (${p.nudge_count + 1}/${maxNudges})`);
     }
   } catch (err) {
     console.warn(`[REMINDER] Deferred check failed: ${err.message}`);
@@ -396,7 +396,7 @@ async function runReminders(db, config) {
         title: p.title,
         message: `Hey, die Sache mit "${p.title}" – brauchst du Hilfe oder soll ich's droppen?`,
       });
-      console.log(`[REMINDER] ⏳ #${p.id} "${p.title}" → stalled reminder`);
+      console.log(`[REMINDER]  #${p.id} "${p.title}" → stalled reminder`);
     }
   } catch (err) {
     console.warn(`[REMINDER] Stalled check failed: ${err.message}`);
@@ -413,7 +413,7 @@ async function runReminders(db, config) {
     for (const p of ignored) {
       db.prepare("UPDATE proposals SET status = 'dead' WHERE id = ?").run(p.id);
       logProposalEvent(p.id, 'dead', 'Ignored 2+ times – auto-archived');
-      console.log(`[REMINDER] 👻 #${p.id} "${p.title}" → dead (ignored 2x)`);
+      console.log(`[REMINDER]  #${p.id} "${p.title}" → dead (ignored 2x)`);
     }
   } catch (err) {
     console.warn(`[REMINDER] Ignored check failed: ${err.message}`);

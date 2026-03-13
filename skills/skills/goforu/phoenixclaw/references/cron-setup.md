@@ -91,7 +91,7 @@ done |
 ls -la ~/PhoenixClaw/Journal/assets/$(date +%Y-%m-%d)/ 2>/dev/null || echo "No assets dir"
 
 # 3. Check Ledger plugin ran (if installed)
-grep -q "财务\|Finance\|💰" ~/PhoenixClaw/Journal/daily/$(date +%Y-%m-%d).md && echo "Ledger OK" || echo "Ledger section missing"
+grep -q "财务\|Finance\|" ~/PhoenixClaw/Journal/daily/$(date +%Y-%m-%d).md && echo "Ledger OK" || echo "Ledger section missing"
 
 # 4. Check journal contains callout sections
 grep -c "\[!" ~/PhoenixClaw/Journal/daily/$(date +%Y-%m-%d).md

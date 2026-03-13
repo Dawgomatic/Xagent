@@ -17,7 +17,7 @@ const API_BASE = 'https://api.typefully.com/v2';
 
 // Compliance notice
 const COMPLIANCE_NOTICE = `
-🐦 TYPEFULLY CLI - X COMPLIANT AUTOMATION
+ TYPEFULLY CLI - X COMPLIANT AUTOMATION
 
 ✓ SAFE: Creates drafts by default (review before publishing)
 ✓ NO automated replies, mentions, likes, or reposts
@@ -92,7 +92,7 @@ async function api(endpoint, method = 'GET', body = null, options = {}) {
 
 async function cmdMe() {
   const user = await api('/me');
-  log('\n👤 Current User', 'bright');
+  log('\n Current User', 'bright');
   log(`   Name: ${user.name}`);
   log(`   Email: ${user.email}`);
   log(`   ID: ${user.id}`);
@@ -108,7 +108,7 @@ async function cmdSocialSets() {
     log('\nNo social sets found. Connect your X account at https://typefully.com', 'yellow');
     return;
   }
-  log('\n📱 Connected Accounts:', 'bright');
+  log('\n Connected Accounts:', 'bright');
   result.results.forEach(set => {
     log(`\n   @${set.username} (${set.name})`);
     log(`   ID: ${set.id}`, 'cyan');
@@ -122,7 +122,7 @@ async function cmdSocialSet(id) {
     process.exit(1);
   }
   const set = await api(`/social-sets/${id}/`);
-  log(`\n📱 ${set.name} (@${set.username})`, 'bright');
+  log(`\n ${set.name} (@${set.username})`, 'bright');
   log(`   ID: ${set.id}`, 'cyan');
   log('\n   Platforms:', 'dim');
   Object.entries(set.platforms).forEach(([platform, data]) => {
@@ -154,11 +154,11 @@ async function cmdDrafts(socialSetId, options = {}) {
     return;
   }
   
-  log(`\n📝 Drafts (${result.count} total):`, 'bright');
+  log(`\n Drafts (${result.count} total):`, 'bright');
   result.results.forEach(draft => {
-    const status = draft.status === 'published' ? '✅' :
-                   draft.status === 'scheduled' ? '📅' :
-                   draft.status === 'error' ? '❌' : '💾';
+    const status = draft.status === 'published' ? '' :
+                   draft.status === 'scheduled' ? '' :
+                   draft.status === 'error' ? '' : '';
     log(`\n   ${status} [${draft.id}] ${(draft.preview || '(no preview)').substring(0, 55)}...`, 'bright');
     if (draft.draft_title) log(`      Title: ${draft.draft_title}`, 'dim');
     if (draft.scheduled_date) log(`      Scheduled: ${new Date(draft.scheduled_date).toLocaleString()}`, 'cyan');
@@ -173,7 +173,7 @@ async function cmdDraft(socialSetId, draftId) {
   
   const draft = await api(`/social-sets/${socialSetId}/drafts/${draftId}`);
   
-  log('\n📄 Draft Details:', 'bright');
+  log('\n Draft Details:', 'bright');
   log(`   ID: ${draft.id}`, 'cyan');
   log(`   Status: ${draft.status}`);
   log(`   Created: ${new Date(draft.created_at).toLocaleString()}`);
@@ -296,21 +296,21 @@ async function cmdCreateDraft(text, options = {}) {
     .map(([name]) => name.toUpperCase())
     .join(', ');
   
-  log('\n✅ Draft created!', 'green');
+  log('\n Draft created!', 'green');
   log(`   ID: ${draft.id}`, 'cyan');
   log(`   Platforms: ${enabledPlatforms || 'X'}`, 'cyan');
   log(`   Status: ${draft.status}`);
   log(`   Preview: ${(draft.preview || '').substring(0, 75)}...`);
   
   if (draft.status === 'published') {
-    log(`   🎉 Published immediately!`, 'green');
+    log(`    Published immediately!`, 'green');
     if (draft.x_published_url) log(`   X URL: ${draft.x_published_url}`, 'cyan');
     if (draft.linkedin_published_url) log(`   LinkedIn URL: ${draft.linkedin_published_url}`, 'cyan');
   } else if (draft.scheduled_date) {
     log(`   Scheduled: ${new Date(draft.scheduled_date).toLocaleString()}`, 'yellow');
     log(`   Review & publish at: ${draft.private_url}`, 'dim');
   } else {
-    log(`   📝 Saved as draft. Review at: ${draft.private_url}`, 'dim');
+    log(`    Saved as draft. Review at: ${draft.private_url}`, 'dim');
   }
 }
 
@@ -330,7 +330,7 @@ async function cmdUpdateDraft(socialSetId, draftId, text, options = {}) {
   
   const draft = await api(`/social-sets/${socialSetId}/drafts/${draftId}`, 'PATCH', body);
   
-  log('\n✅ Draft updated!', 'green');
+  log('\n Draft updated!', 'green');
   log(`   ID: ${draft.id}`);
   log(`   Preview: ${(draft.preview || '').substring(0, 75)}...`);
 }
@@ -341,7 +341,7 @@ async function cmdDeleteDraft(socialSetId, draftId) {
     process.exit(1);
   }
   await api(`/social-sets/${socialSetId}/drafts/${draftId}`, 'DELETE');
-  log('\n🗑️ Draft deleted', 'green');
+  log('\n Draft deleted', 'green');
 }
 
 // ============ TAGS ============
@@ -359,7 +359,7 @@ async function cmdTags(socialSetId) {
     return;
   }
   
-  log('\n🏷️ Tags:', 'bright');
+  log('\n Tags:', 'bright');
   result.results.forEach(tag => {
     log(`   #${tag.slug} (${tag.name})`, 'cyan');
   });
@@ -372,7 +372,7 @@ async function cmdCreateTag(socialSetId, name) {
   }
   
   const tag = await api(`/social-sets/${socialSetId}/tags`, 'POST', { name });
-  log('\n✅ Tag created!', 'green');
+  log('\n Tag created!', 'green');
   log(`   #${tag.slug} (${tag.name})`, 'cyan');
 }
 
@@ -383,7 +383,7 @@ async function cmdDeleteTag(socialSetId, slug) {
   }
   
   await api(`/social-sets/${socialSetId}/tags/${encodeURIComponent(slug)}`, 'DELETE');
-  log('\n🗑️ Tag deleted', 'green');
+  log('\n Tag deleted', 'green');
 }
 
 // ============ MEDIA ============
@@ -395,7 +395,7 @@ async function cmdUploadMedia(socialSetId, filename) {
   }
   
   const upload = await api(`/social-sets/${socialSetId}/media/upload`, 'POST', { file_name: filename });
-  log(`\n📤 Upload URL generated for ${filename}`, 'cyan');
+  log(`\n Upload URL generated for ${filename}`, 'cyan');
   log(`   Media ID: ${upload.media_id}`, 'cyan');
   log(`   Upload to: ${upload.upload_url.substring(0, 60)}...`, 'dim');
   log(`   Check status: typefully media-status ${upload.media_id} --social-set-id ${socialSetId}`);
@@ -409,7 +409,7 @@ async function cmdMediaStatus(socialSetId, mediaId) {
   
   const media = await api(`/social-sets/${socialSetId}/media/${mediaId}`);
   
-  log('\n📎 Media Status:', 'bright');
+  log('\n Media Status:', 'bright');
   log(`   ID: ${media.media_id}`, 'cyan');
   log(`   File: ${media.file_name}`);
   log(`   Status: ${media.status}`, media.status === 'ready' ? 'green' : media.status === 'failed' ? 'red' : 'yellow');
@@ -473,25 +473,25 @@ ${colors.bright}EXAMPLES:${colors.reset}
   typefully social-sets
 
   ${colors.dim}# Create a draft (safe - review first)${colors.reset}
-  typefully create-draft "I'm an AI building in public! 🤖" --social-set-id 12345
+  typefully create-draft "I'm an AI building in public! " --social-set-id 12345
 
   ${colors.dim}# Create a thread (newlines = separate tweets)${colors.reset}
   typefully create-draft "1/ Building my first product...
   2/ It's a COBOL parser API...
-  3/ Follow along! 🚀" --social-set-id 12345
+  3/ Follow along! " --social-set-id 12345
 
   ${colors.dim}# Post same content to all platforms${colors.reset}
-  typefully create-draft "Check out my latest project! 🚀" --social-set-id 12345 --all
+  typefully create-draft "Check out my latest project! " --social-set-id 12345 --all
 
   ${colors.dim}# Different content per platform${colors.reset}
   typefully create-draft \
-    --x "1/ Thread: Here's what I'm building\n2/ The problem it solves\n3/ Link in bio 🚀" \
-    --linkedin "Excited to share my latest project. It solves [problem] and helps [audience]. Link in bio! 🚀" \
-    --bluesky "Building in public thread 👇" \
+    --x "1/ Thread: Here's what I'm building\n2/ The problem it solves\n3/ Link in bio " \
+    --linkedin "Excited to share my latest project. It solves [problem] and helps [audience]. Link in bio! " \
+    --bluesky "Building in public thread " \
     --social-set-id 12345
 
   ${colors.dim}# Publish immediately${colors.reset}
-  typefully create-draft "🎉 Launch day! Our API is live!" --social-set-id 12345 --now
+  typefully create-draft " Launch day! Our API is live!" --social-set-id 12345 --now
 
   ${colors.dim}# Schedule for later${colors.reset}
   typefully create-draft "Early access now available!" --social-set-id 12345 --schedule "2025-02-01T09:00:00Z"

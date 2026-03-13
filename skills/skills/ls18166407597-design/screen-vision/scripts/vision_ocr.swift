@@ -15,7 +15,7 @@ func run() {
     guard let imageData = try? Data(contentsOf: URL(fileURLWithPath: tempPath)),
           let image = NSImage(data: imageData),
           let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
-        print("❌ 无法读取截图，请检查权限。")
+        print(" 无法读取截图，请检查权限。")
         return
     }
 
@@ -28,11 +28,11 @@ func run() {
     do {
         try handler.perform([request])
         guard let results = request.results else { 
-            print("❌ 无结果。")
+            print(" 无结果。")
             return 
         }
         
-        print("\n--- 🎯 本地 OCR 识别成功！(前 30 条) ---")
+        print("\n---  本地 OCR 识别成功！(前 30 条) ---")
         if results.isEmpty {
             print("(未发现任何文字，请确保 Telegram 窗口未被遮挡)")
         } else {
@@ -48,7 +48,7 @@ func run() {
         }
         print("------------------------------------------\n")
     } catch {
-        print("❌ 识别出错: \(error)")
+        print(" 识别出错: \(error)")
     }
 }
 

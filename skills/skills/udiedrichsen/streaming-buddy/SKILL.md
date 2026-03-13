@@ -6,7 +6,7 @@ author: clawdbot
 license: MIT
 metadata:
   clawdbot:
-    emoji: "📺"
+    emoji: ""
     triggers: ["/stream"]
     requires:
       bins: ["jq", "curl"]
@@ -14,7 +14,7 @@ metadata:
   tags: ["streaming", "movies", "tv-shows", "recommendations", "entertainment", "learning", "preferences"]
 ---
 
-# Streaming Buddy 📺
+# Streaming Buddy 
 
 Personal streaming assistant that learns your taste, tracks your watching habits, and suggests what to watch next.
 
@@ -156,29 +156,29 @@ All data stored in `$WORKSPACE/memory/streaming-buddy/`:
 **Mood-based search:**
 ```
 User: I want something exciting tonight
-Bot: 🎬 Exciting picks for you:
-     1. Reacher S3 (Prime) ⭐8.5
-     2. Jack Ryan (Prime) ⭐8.1
+Bot:  Exciting picks for you:
+     1. Reacher S3 (Prime) 8.5
+     2. Jack Ryan (Prime) 8.1
      ...
 ```
 
 **Learning from feedback:**
 ```
 User: /stream done 5
-Bot: ✅ Severance marked as done (⭐5)
-     📚 Learned: +Drama, +Mystery, +Sci-Fi
+Bot:  Severance marked as done (5)
+      Learned: +Drama, +Mystery, +Sci-Fi
      Actors: Adam Scott, Britt Lower saved to favorites
 ```
 
 **Explaining recommendations:**
 ```
 User: /stream why 95396
-Bot: 🎯 Why Severance matches you:
+Bot:  Why Severance matches you:
      ✓ Genre "Drama" (you like this, +2)
      ✓ Genre "Mystery" (you like this, +2)
      ✓ Theme "office" in your preferences
      ✓ With Adam Scott (your favorite)
-     Similar to: Fallout ⭐5
+     Similar to: Fallout 5
 ```
 
 ## Language Support

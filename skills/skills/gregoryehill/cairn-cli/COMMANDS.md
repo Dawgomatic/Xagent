@@ -66,14 +66,14 @@ cairn my
 
 Output:
 ```
-📋 My Tasks (pagoda)
+ My Tasks (pagoda)
 
-🚀 In Progress
+ In Progress
   implement-auth
     launch-app
     Build OAuth2 authentication flow
 
-⚠️  Blocked
+  Blocked
   deploy-api
     launch-app
     Need production credentials
@@ -97,7 +97,7 @@ cairn status
 
 Output:
 ```
-📊 Workspace Status
+ Workspace Status
 
 All Tasks
   Pending:      29

@@ -1,4 +1,4 @@
-# ML & AI Engineering System by AfrexAI ⚡
+# ML & AI Engineering System by AfrexAI 
 
 Complete methodology for building, deploying, and operating production ML/AI systems — from problem framing to monitoring at scale.
 
@@ -35,7 +35,7 @@ Tell your agent: "Frame an ML problem for predicting customer churn" — it will
 - "Set up monitoring" — drift detection + auto-retraining
 - "Score ML system" — 100-point quality rubric
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific ML applications with vertical-tuned prompts, evaluation frameworks, and deployment patterns?
 
@@ -45,7 +45,7 @@ Want industry-specific ML applications with vertical-tuned prompts, evaluation f
 - **Healthcare Pack** — Clinical NLP, diagnostic AI, patient risk
 - **SaaS Pack** — Churn prediction, usage analytics, recommendation engines
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-data-analyst](https://clawhub.com/afrexai-cto/afrexai-data-analyst) — Data analysis methodology
 - [afrexai-data-engineering](https://clawhub.com/afrexai-cto/afrexai-data-engineering) — Data pipelines & modeling

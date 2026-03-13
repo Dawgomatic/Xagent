@@ -9,14 +9,14 @@ A secure and comprehensive OpenClaw skill for managing multiple NEAR Protocol ac
 
 ## What It Does
 
-- 🔐 **Secure Credential Storage** - Encrypted storage for multiple NEAR account private keys using AES-256-CBC
-- 🔄 **Account Switching** - Quickly set and switch between active accounts for seamless operations
-- 💰 **Balance Management** - Check balances for individual accounts or all accounts at once
-- 💸 **NEAR Transfers** - Transfer NEAR between accounts with a single command
-- 📊 **Account Summaries** - Get comprehensive overviews of all managed accounts including total holdings
-- 📜 **Transaction Tracking** - View account information and transaction history via NEAR explorer
-- 📤 **Export/Import** - Backup and restore account information (private keys excluded for security)
-- 🗑️ **Account Management** - Add, remove, and manage accounts with confirmation safeguards
+-  **Secure Credential Storage** - Encrypted storage for multiple NEAR account private keys using AES-256-CBC
+-  **Account Switching** - Quickly set and switch between active accounts for seamless operations
+-  **Balance Management** - Check balances for individual accounts or all accounts at once
+-  **NEAR Transfers** - Transfer NEAR between accounts with a single command
+-  **Account Summaries** - Get comprehensive overviews of all managed accounts including total holdings
+-  **Transaction Tracking** - View account information and transaction history via NEAR explorer
+-  **Export/Import** - Backup and restore account information (private keys excluded for security)
+-  **Account Management** - Add, remove, and manage accounts with confirmation safeguards
 
 ## Use Cases
 

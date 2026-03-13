@@ -27,7 +27,7 @@ class RSIStrategyExample:
         self.entry_price = 0
         self.trade_history = []
         
-        print(f"🎯 RSI Strategy Example - {self.symbol}")
+        print(f" RSI Strategy Example - {self.symbol}")
         print(f"   RSI Period: {self.rsi_period} periods")
         print(f"   Oversold: RSI < {self.oversold} (Buy signal)")
         print(f"   Overbought: RSI > {self.overbought} (Sell signal)")
@@ -149,7 +149,7 @@ class RSIStrategyExample:
                 self.entry_price = price
                 
                 trade_type = "ENTER LONG" if signal['position'] >= 0 else "EXIT SHORT"
-                print(f"  📈 {trade_type}: {quantity} {self.symbol} @ ${price:.4f}")
+                print(f"   {trade_type}: {quantity} {self.symbol} @ ${price:.4f}")
                 print(f"     RSI: {rsi}, Reason: {signal['reason']}")
                 
                 self.trade_history.append({
@@ -167,7 +167,7 @@ class RSIStrategyExample:
                 self.entry_price = price
                 
                 trade_type = "EXIT LONG" if signal['position'] > 0 else "ENTER SHORT"
-                print(f"  📉 {trade_type}: {quantity} {self.symbol} @ ${price:.4f}")
+                print(f"   {trade_type}: {quantity} {self.symbol} @ ${price:.4f}")
                 print(f"     RSI: {rsi}, Reason: {signal['reason']}")
                 
                 self.trade_history.append({
@@ -193,19 +193,19 @@ class RSIStrategyExample:
     def run_example_simulation(self):
         """Run a complete RSI strategy simulation."""
         print("\n" + "="*60)
-        print("🚀 STARTING RSI STRATEGY SIMULATION")
+        print(" STARTING RSI STRATEGY SIMULATION")
         print("="*60)
         
         # Generate price data
-        print("\n📊 Generating market data...")
+        print("\n Generating market data...")
         prices = self.generate_price_data(base_price=30.0, count=100)
         
-        print(f"📈 Price range: ${min(prices):.2f} - ${max(prices):.2f}")
-        print(f"📉 Initial price: ${prices[0]:.2f}")
-        print(f"📈 Final price: ${prices[-1]:.2f}")
+        print(f" Price range: ${min(prices):.2f} - ${max(prices):.2f}")
+        print(f" Initial price: ${prices[0]:.2f}")
+        print(f" Final price: ${prices[-1]:.2f}")
         
         # Run simulation
-        print("\n🔄 Running RSI strategy...")
+        print("\n Running RSI strategy...")
         
         for i in range(self.rsi_period, len(prices)):
             current_price = prices[i]
@@ -215,13 +215,13 @@ class RSIStrategyExample:
             signal = self.check_rsi_signals(price_history, current_price)
             
             # Display status
-            print(f"\n📊 Step {i+1}/{len(prices)}:")
+            print(f"\n Step {i+1}/{len(prices)}:")
             print(f"   Price: ${current_price:.4f}")
             print(f"   RSI: {signal['rsi']:.1f}")
             print(f"   Position: {self.position} {self.symbol}")
             
             pnl = self.calculate_pnl(current_price)
-            pnl_color = "🟢" if pnl > 0 else "🔴"
+            pnl_color = "" if pnl > 0 else ""
             print(f"   P&L: {pnl_color} ${pnl:+.2f}")
             
             # Execute trade if signal
@@ -232,7 +232,7 @@ class RSIStrategyExample:
         
         # Final summary
         print("\n" + "="*60)
-        print("📈 RSI STRATEGY SIMULATION COMPLETE")
+        print(" RSI STRATEGY SIMULATION COMPLETE")
         print("="*60)
         
         final_pnl = self.calculate_pnl(prices[-1])
@@ -250,14 +250,14 @@ class RSIStrategyExample:
             win_rate = (winning_trades / total_trades) * 100
             print(f"Win Rate: {win_rate:.1f}%")
             
-            print("\n📋 Trade History:")
+            print("\n Trade History:")
             for trade in self.trade_history[-5:]:  # Last 5 trades
                 print(f"  {trade['timestamp']} - {trade['type']}: "
                       f"{trade['quantity']} @ ${trade['price']:.4f} (RSI: {trade['rsi']:.1f})")
 
 def main():
     """Run the RSI strategy example."""
-    print("📚 RSI (RELATIVE STRENGTH INDEX) STRATEGY EXAMPLE")
+    print(" RSI (RELATIVE STRENGTH INDEX) STRATEGY EXAMPLE")
     print("This example demonstrates how RSI-based mean reversion works:")
     print("• RSI measures speed and change of price movements")
     print("• Values range from 0 to 100")
@@ -271,7 +271,7 @@ def main():
     strategy.run_example_simulation()
     
     print("\n" + "="*60)
-    print("💡 KEY CONCEPTS DEMONSTRATED:")
+    print(" KEY CONCEPTS DEMONSTRATED:")
     print("1. RSI Calculation: Based on average gains vs losses")
     print("2. Oversold Signals: RSI < 30 suggests buying opportunity")
     print("3. Overbought Signals: RSI > 70 suggests selling opportunity")
@@ -279,7 +279,7 @@ def main():
     print("5. Position Management: Enter/exit based on RSI levels")
     print("="*60)
     
-    print("\n🔧 RSI STRATEGY PARAMETERS TO EXPERIMENT WITH:")
+    print("\n RSI STRATEGY PARAMETERS TO EXPERIMENT WITH:")
     print("• RSI Period: Shorter (7-10) = more sensitive, Longer (20-25) = smoother")
     print("• Oversold Threshold: Lower (20-25) = fewer but stronger signals")
     print("• Overbought Threshold: Higher (75-80) = fewer but stronger signals")

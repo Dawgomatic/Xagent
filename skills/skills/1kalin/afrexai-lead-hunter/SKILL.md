@@ -16,7 +16,7 @@ license: MIT
 ## Architecture
 
 ```
-DEFINE ICP ──▶ DISCOVER ──▶ ENRICH ──▶ SCORE ──▶ SEGMENT ──▶ OUTREACH ──▶ CRM
+DEFINE ICP ── DISCOVER ── ENRICH ── SCORE ── SEGMENT ── OUTREACH ── CRM
     │              │            │          │          │            │          │
     ▼              ▼            ▼          ▼          ▼            ▼          ▼
  Persona      Multi-source  Email+Phone  ICP fit   Tier A/B/C  Sequences  Pipeline

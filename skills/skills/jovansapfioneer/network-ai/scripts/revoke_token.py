@@ -191,12 +191,12 @@ def main():
         else:
             expired = result.get("expired_tokens", [])
             if expired:
-                print(f"⏰ Found {len(expired)} expired token(s):")
+                print(f" Found {len(expired)} expired token(s):")
                 for t in expired:
                     print(f"   • {t['token'][:20]}... ({t['agent']} → {t['resource']})")
                     print(f"     Expired: {t['expired_at']}")
             else:
-                print("✅ No expired tokens found")
+                print(" No expired tokens found")
             print(f"\n   Total grants: {result.get('total_grants', 0)}")
         sys.exit(0)
     
@@ -208,12 +208,12 @@ def main():
         else:
             cleaned = result.get("cleaned", 0)
             if cleaned > 0:
-                print(f"🧹 TTL Cleanup Complete")
+                print(f" TTL Cleanup Complete")
                 print(f"   Removed: {cleaned} expired token(s)")
                 for t in result.get("expired_tokens", []):
                     print(f"   • {t['token'][:20]}... ({t['agent']})")
             else:
-                print("✅ No expired tokens to clean")
+                print(" No expired tokens to clean")
             print(f"   Remaining active grants: {result.get('remaining', 0)}")
         sys.exit(0)
     
@@ -229,11 +229,11 @@ def main():
     else:
         if result["revoked"]:
             grant = result["grant"]
-            print("✅ Token REVOKED")
+            print(" Token REVOKED")
             print(f"   Agent: {grant.get('agent_id')}")
             print(f"   Resource: {grant.get('resource_type')}")
         else:
-            print("❌ Revocation FAILED")
+            print(" Revocation FAILED")
             print(f"   Reason: {result.get('reason')}")
     
     sys.exit(0 if result.get("revoked") or result.get("cleaned", 0) >= 0 else 1)

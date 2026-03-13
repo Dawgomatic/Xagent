@@ -324,7 +324,7 @@ async function main() {
         }
 
         const result = await api.createRecord(domain, record);
-        console.log(`✅ Record created successfully!`);
+        console.log(` Record created successfully!`);
         console.log(`   ID: ${result.id}`);
         break;
       }
@@ -351,7 +351,7 @@ async function main() {
         }
 
         await api.editRecord(domain, id, record);
-        console.log(`✅ Record ${id} updated successfully!`);
+        console.log(` Record ${id} updated successfully!`);
         break;
       }
 
@@ -380,7 +380,7 @@ async function main() {
         }
 
         await api.editRecordByNameType(domain, type, record, name);
-        console.log(`✅ Records for ${domain}${name ? `/${name}` : ''} (${type}) updated successfully!`);
+        console.log(` Records for ${domain}${name ? `/${name}` : ''} (${type}) updated successfully!`);
         break;
       }
 
@@ -393,7 +393,7 @@ async function main() {
         }
 
         await api.deleteRecord(domain, id);
-        console.log(`✅ Record ${id} deleted successfully!`);
+        console.log(` Record ${id} deleted successfully!`);
         break;
       }
 
@@ -406,7 +406,7 @@ async function main() {
         }
 
         await api.deleteRecordByNameType(domain, type, name);
-        console.log(`✅ Records for ${domain}${name ? `/${name}` : ''} (${type}) deleted successfully!`);
+        console.log(` Records for ${domain}${name ? `/${name}` : ''} (${type}) deleted successfully!`);
         break;
       }
 
@@ -416,7 +416,7 @@ async function main() {
         process.exit(1);
     }
   } catch (error) {
-    console.error(`❌ Error: ${error.message}`);
+    console.error(` Error: ${error.message}`);
     process.exit(1);
   }
 }

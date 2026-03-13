@@ -16,7 +16,7 @@ FORCE_UPDATE="${FORCE_UPDATE:-false}"
 
 # Logging functions (all to stderr so they don't pollute function return values)
 log_info() {
-  echo -e "${BLUE}ℹ${NC} $1" >&2
+  echo -e "${BLUE}${NC} $1" >&2
 }
 
 log_success() {
@@ -24,7 +24,7 @@ log_success() {
 }
 
 log_warning() {
-  echo -e "${YELLOW}⚠${NC} $1" >&2
+  echo -e "${YELLOW}${NC} $1" >&2
 }
 
 log_error() {

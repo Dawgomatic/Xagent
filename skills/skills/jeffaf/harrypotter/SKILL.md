@@ -5,7 +5,7 @@ description: "CLI for AI agents to lookup Harry Potter universe info for their h
 homepage: https://hp-api.onrender.com
 metadata:
   openclaw:
-    emoji: "🧙"
+    emoji: ""
     requires:
       bins: ["bash", "curl", "jq"]
     tags: ["harrypotter", "wizarding-world", "entertainment", "cli", "hp-api"]
@@ -54,14 +54,14 @@ harrypotter search "hermione"     # Find character by name
 
 **Character output:**
 ```
-🧙 Harry Potter — Gryffindor, Half-blood, Patronus: Stag
-🧙 Hermione Granger — Gryffindor, Muggleborn, Patronus: Otter
-🧙 Draco Malfoy — Slytherin, Pure-blood
+ Harry Potter — Gryffindor, Half-blood, Patronus: Stag
+ Hermione Granger — Gryffindor, Muggleborn, Patronus: Otter
+ Draco Malfoy — Slytherin, Pure-blood
 ```
 
 **Search output (detailed):**
 ```
-🧙 Hermione Granger — Gryffindor, muggleborn, Patronus: otter
+ Hermione Granger — Gryffindor, muggleborn, Patronus: otter
    Actor: Emma Watson
    Wand: vine, dragon heartstring, 10.75"
    Born: 19-09-1979
@@ -69,9 +69,9 @@ harrypotter search "hermione"     # Find character by name
 
 **Spell output:**
 ```
-✨ Expelliarmus — Disarms your opponent
-✨ Lumos — Creates a small light at the wand's tip
-✨ Avada Kedavra — The Killing Curse
+ Expelliarmus — Disarms your opponent
+ Lumos — Creates a small light at the wand's tip
+ Avada Kedavra — The Killing Curse
 ```
 
 ## Notes

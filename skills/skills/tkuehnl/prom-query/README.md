@@ -28,10 +28,10 @@ Works with any Prometheus-compatible API:
 
 | Backend | Supported |
 |---------|-----------|
-| **Prometheus** | ✅ |
-| **Thanos** | ✅ |
-| **Grafana Mimir** | ✅ |
-| **VictoriaMetrics** | ✅ |
+| **Prometheus** |  |
+| **Thanos** |  |
+| **Grafana Mimir** |  |
+| **VictoriaMetrics** |  |
 
 ## Install
 
@@ -57,7 +57,7 @@ You: Are there any alerts firing?
 Agent: Let me check your Prometheus alerts.
        [runs: prom-query alerts --state=firing]
 
-       🔴 2 alerts are currently firing:
+        2 alerts are currently firing:
 
        CRITICAL — HighErrorRate
          Service: payments-api
@@ -78,7 +78,7 @@ You: Yes, show me the error rate trend
 
 Agent: [runs: prom-query range 'rate(http_requests_total{service="payments-api",code=~"5.."}[5m])' --start=-1h --step=1m]
 
-       📈 Error rate for payments-api (last hour):
+        Error rate for payments-api (last hour):
 
        The error rate was stable at ~0.1% until 14 minutes ago when it
        spiked to 8.3%. The spike correlates exactly with the alert firing time.
@@ -106,13 +106,13 @@ Agent: [runs: prom-query range 'rate(http_requests_total{service="payments-api",
 
 ## Features
 
-- **🧠 Natural Language → PromQL:** SKILL.md teaches the agent common PromQL patterns for error rates, latency percentiles, CPU, memory, disk, and Kubernetes metrics.
-- **📊 Smart Downsampling:** Range queries with thousands of data points are automatically downsampled to stay within LLM context limits.
-- **🔍 Metric Explorer:** Don't know the metric name? `explore` searches all available metrics with descriptions.
-- **🚨 Alert Triage:** Alerts grouped by severity with firing duration and recommended next steps.
-- **🎯 Target Health:** Instantly see which scrape targets are down and why.
-- **🔒 Read-Only:** Never modifies your Prometheus. Zero write operations.
-- **🔐 Secure:** Tokens never appear in output. URL validation. No injection patterns.
+- ** Natural Language → PromQL:** SKILL.md teaches the agent common PromQL patterns for error rates, latency percentiles, CPU, memory, disk, and Kubernetes metrics.
+- ** Smart Downsampling:** Range queries with thousands of data points are automatically downsampled to stay within LLM context limits.
+- ** Metric Explorer:** Don't know the metric name? `explore` searches all available metrics with descriptions.
+- ** Alert Triage:** Alerts grouped by severity with firing duration and recommended next steps.
+- ** Target Health:** Instantly see which scrape targets are down and why.
+- ** Read-Only:** Never modifies your Prometheus. Zero write operations.
+- ** Secure:** Tokens never appear in output. URL validation. No injection patterns.
 
 ## OpenClaw Discord v2 Ready
 

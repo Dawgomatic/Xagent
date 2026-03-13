@@ -2,14 +2,14 @@
 
 A comprehensive guide for writing secure smart contracts. Based on patterns from Trail of Bits, OpenZeppelin, Consensys, and real-world audits.
 
-## 🔴 Critical: Must Follow
+##  Critical: Must Follow
 
 ### 1. Reentrancy Protection
 
 **Problem:** External calls can re-enter your contract before state is updated.
 
 ```solidity
-// ❌ VULNERABLE
+//  VULNERABLE
 function withdraw() external {
     uint256 amount = balances[msg.sender];
     (bool success, ) = msg.sender.call{value: amount}("");
@@ -17,7 +17,7 @@ function withdraw() external {
     balances[msg.sender] = 0;  // State updated AFTER external call
 }
 
-// ✅ SECURE
+//  SECURE
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 function withdraw() external nonReentrant {
@@ -39,12 +39,12 @@ function withdraw() external nonReentrant {
 **Problem:** Sensitive functions accessible by anyone.
 
 ```solidity
-// ❌ VULNERABLE
+//  VULNERABLE
 function setPrice(uint256 newPrice) external {
     price = newPrice;  // Anyone can call!
 }
 
-// ✅ SECURE
+//  SECURE
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 function setPrice(uint256 newPrice) external onlyOwner {
@@ -61,12 +61,12 @@ function setPrice(uint256 newPrice) external onlyOwner {
 ### 3. Input Validation
 
 ```solidity
-// ❌ VULNERABLE
+//  VULNERABLE
 function setRecipient(address _recipient) external onlyOwner {
     recipient = _recipient;  // Could be set to zero address!
 }
 
-// ✅ SECURE
+//  SECURE
 function setRecipient(address _recipient) external onlyOwner {
     require(_recipient != address(0), "Zero address");
     recipient = _recipient;
@@ -79,15 +79,15 @@ function setRecipient(address _recipient) external onlyOwner {
 - Validate amounts are within expected ranges
 - Use SafeERC20 for token transfers
 
-## 🟠 High: Should Follow
+##  High: Should Follow
 
 ### 4. Safe External Calls
 
 ```solidity
-// ❌ RISKY - Some tokens don't return bool
+//  RISKY - Some tokens don't return bool
 token.transfer(recipient, amount);
 
-// ✅ SAFE
+//  SAFE
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 using SafeERC20 for IERC20;
 
@@ -98,39 +98,39 @@ token.safeTransfer(recipient, amount);
 
 ```solidity
 // For Solidity < 0.8.0
-// ❌ VULNERABLE
+//  VULNERABLE
 uint256 result = a + b;  // Can overflow!
 
-// ✅ SAFE
+//  SAFE
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 using SafeMath for uint256;
 uint256 result = a.add(b);
 
 // For Solidity >= 0.8.0
-// ✅ Built-in overflow checks
+//  Built-in overflow checks
 uint256 result = a + b;  // Reverts on overflow
 ```
 
 ### 6. Avoid tx.origin
 
 ```solidity
-// ❌ VULNERABLE - Phishing attack vector
+//  VULNERABLE - Phishing attack vector
 require(tx.origin == owner, "Not owner");
 
-// ✅ SECURE
+//  SECURE
 require(msg.sender == owner, "Not owner");
 ```
 
 ### 7. Secure Randomness
 
 ```solidity
-// ❌ VULNERABLE - Predictable/manipulable
+//  VULNERABLE - Predictable/manipulable
 uint256 random = uint256(keccak256(abi.encodePacked(
     block.timestamp, 
     block.difficulty
 )));
 
-// ✅ SECURE - Use Chainlink VRF
+//  SECURE - Use Chainlink VRF
 import "@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
 
 function getRandomNumber() internal returns (bytes32 requestId) {
@@ -138,25 +138,25 @@ function getRandomNumber() internal returns (bytes32 requestId) {
 }
 ```
 
-## 🟡 Medium: Consider Following
+##  Medium: Consider Following
 
 ### 8. Pin Pragma Version
 
 ```solidity
-// ❌ RISKY - Different compiler versions
+//  RISKY - Different compiler versions
 pragma solidity ^0.8.0;
 
-// ✅ BETTER - Pinned version
+//  BETTER - Pinned version
 pragma solidity 0.8.20;
 ```
 
 ### 9. Timestamp Considerations
 
 ```solidity
-// ⚠️ ACCEPTABLE for coarse timing (days, hours)
+//  ACCEPTABLE for coarse timing (days, hours)
 require(block.timestamp >= unlockTime, "Locked");
 
-// ❌ RISKY for fine-grained timing or randomness
+//  RISKY for fine-grained timing or randomness
 uint256 random = block.timestamp % 10;
 ```
 
@@ -165,14 +165,14 @@ Miners can manipulate `block.timestamp` by ~15 seconds. Acceptable for subscript
 ### 10. Avoid Loops with External Calls
 
 ```solidity
-// ❌ VULNERABLE - DoS if one transfer fails
+//  VULNERABLE - DoS if one transfer fails
 function distributeRewards(address[] calldata users) external {
     for (uint i = 0; i < users.length; i++) {
         payable(users[i]).transfer(rewards[users[i]]);
     }
 }
 
-// ✅ SECURE - Pull pattern
+//  SECURE - Pull pattern
 mapping(address => uint256) public pendingRewards;
 
 function claimReward() external {
@@ -182,7 +182,7 @@ function claimReward() external {
 }
 ```
 
-## 🔵 Low: Best Practices
+##  Low: Best Practices
 
 ### 11. Emit Events
 
@@ -199,10 +199,10 @@ function setPrice(uint256 newPrice) external onlyOwner {
 ### 12. Use Named Constants
 
 ```solidity
-// ❌ UNCLEAR
+//  UNCLEAR
 uint256 fee = amount * 25 / 10000;
 
-// ✅ CLEAR
+//  CLEAR
 uint256 constant FEE_BPS = 25;
 uint256 constant BPS_DENOMINATOR = 10000;
 uint256 fee = amount * FEE_BPS / BPS_DENOMINATOR;
@@ -211,10 +211,10 @@ uint256 fee = amount * FEE_BPS / BPS_DENOMINATOR;
 ### 13. Explicit Visibility
 
 ```solidity
-// ❌ IMPLICIT
+//  IMPLICIT
 function _internalHelper() { }
 
-// ✅ EXPLICIT
+//  EXPLICIT
 function _internalHelper() internal { }
 ```
 
@@ -233,7 +233,7 @@ function transfer(address recipient, uint256 amount)
 }
 ```
 
-## 📋 Pre-Deployment Checklist
+##  Pre-Deployment Checklist
 
 ### Security
 - [ ] All external/public functions reviewed for access control
@@ -263,7 +263,7 @@ function transfer(address recipient, uint256 amount)
 - [ ] Manual review by second developer
 - [ ] Consider professional audit for high-value contracts
 
-## 📚 Resources
+##  Resources
 
 - [Trail of Bits - Building Secure Contracts](https://github.com/crytic/building-secure-contracts)
 - [OpenZeppelin Contracts](https://docs.openzeppelin.com/contracts)
@@ -274,4 +274,4 @@ function transfer(address recipient, uint256 amount)
 
 ---
 
-*Security is not a feature, it's a requirement.* 🔐
+*Security is not a feature, it's a requirement.* 

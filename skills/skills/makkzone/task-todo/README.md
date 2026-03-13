@@ -4,12 +4,12 @@ A Python-based task management agent with SQLite database integration. Manage yo
 
 ## Features
 
-- ✅ **CRUD Operations**: Create, read, update, and delete tasks
-- 📊 **Status Tracking**: Track tasks with statuses: `pending`, `in_progress`, `completed`, `blocked`
-- 🎯 **Priority Levels**: Organize by priority: `low`, `medium`, `high`, `urgent`
-- 💾 **SQLite Database**: Persistent storage with automatic timestamps
-- 🖥️ **CLI Interface**: Easy-to-use command-line interface
-- 🔍 **Filtering**: List tasks by status or priority
+-  **CRUD Operations**: Create, read, update, and delete tasks
+-  **Status Tracking**: Track tasks with statuses: `pending`, `in_progress`, `completed`, `blocked`
+-  **Priority Levels**: Organize by priority: `low`, `medium`, `high`, `urgent`
+-  **SQLite Database**: Persistent storage with automatic timestamps
+-  **CLI Interface**: Easy-to-use command-line interface
+-  **Filtering**: List tasks by status or priority
 
 ## Installation
 

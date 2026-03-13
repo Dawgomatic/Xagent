@@ -1,7 +1,7 @@
 ---
 name: Feelings
 description: Build a personal emotional tracking system for understanding patterns, triggers, and what helps.
-metadata: {"clawdbot":{"emoji":"💭","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

@@ -6,7 +6,7 @@
 
 import { randomBytes, createHash, generateKeyPairSync, createSign, createVerify } from 'node:crypto';
 
-console.log('🧪 AAP v2.5 Test Suite\n');
+console.log(' AAP v2.5 Test Suite\n');
 console.log('='.repeat(60));
 
 let passed = 0;
@@ -15,10 +15,10 @@ let failed = 0;
 function test(name, fn) {
   try {
     fn();
-    console.log(`✅ ${name}`);
+    console.log(` ${name}`);
     passed++;
   } catch (e) {
-    console.log(`❌ ${name}: ${e.message}`);
+    console.log(` ${name}: ${e.message}`);
     failed++;
   }
 }
@@ -28,7 +28,7 @@ function assert(condition, message) {
 }
 
 // ============== CRYPTO TESTS ==============
-console.log('\n📦 Crypto Tests\n');
+console.log('\n Crypto Tests\n');
 
 test('Generate key pair', () => {
   const { publicKey, privateKey } = generateKeyPairSync('ec', {
@@ -87,7 +87,7 @@ test('Reject tampered signature', () => {
 });
 
 // ============== CHALLENGE TESTS ==============
-console.log('\n📦 Challenge Tests\n');
+console.log('\n Challenge Tests\n');
 
 function seededNumber(nonce, offset, min, max) {
   const seed = parseInt(nonce.slice(offset, offset + 4), 16);
@@ -124,7 +124,7 @@ test('Challenge includes salt', () => {
 });
 
 // ============== VALIDATION TESTS ==============
-console.log('\n📦 Validation Tests\n');
+console.log('\n Validation Tests\n');
 
 test('Valid JSON response accepted', () => {
   const salt = 'ABC123';
@@ -149,7 +149,7 @@ test('Missing salt rejected', () => {
 });
 
 // ============== TIMING TESTS ==============
-console.log('\n📦 Timing Tests\n');
+console.log('\n Timing Tests\n');
 
 test('Response time tracked', () => {
   const start = Date.now();
@@ -171,7 +171,7 @@ test('Batch size constant', () => {
 });
 
 // ============== INTEGRATION TEST ==============
-console.log('\n📦 Integration Test\n');
+console.log('\n Integration Test\n');
 
 test('Full proof generation flow', () => {
   // Generate identity
@@ -212,7 +212,7 @@ test('Full proof generation flow', () => {
 });
 
 // ============== ERROR HANDLING TESTS ==============
-console.log('\n📦 Error Handling Tests\n');
+console.log('\n Error Handling Tests\n');
 
 test('Invalid nonce rejected', () => {
   const invalidNonces = ['', 'short', 'x'.repeat(100), null, 123];
@@ -247,7 +247,7 @@ test('Invalid publicKey format rejected', () => {
 });
 
 // ============== EDGE CASES ==============
-console.log('\n📦 Edge Case Tests\n');
+console.log('\n Edge Case Tests\n');
 
 test('Empty solutions array rejected', () => {
   const solutions = [];
@@ -280,7 +280,7 @@ test('Response time validation', () => {
 });
 
 // ============== SECURITY TESTS ==============
-console.log('\n📦 Security Tests\n');
+console.log('\n Security Tests\n');
 
 test('Rate limit constants defined', () => {
   const MAX_CHALLENGES = 10000;
@@ -306,7 +306,7 @@ test('Nonce uniqueness', () => {
 
 // ============== RESULTS ==============
 console.log('\n' + '='.repeat(60));
-console.log(`\n📊 Results: ${passed} passed, ${failed} failed\n`);
+console.log(`\n Results: ${passed} passed, ${failed} failed\n`);
 
 if (failed > 0) {
   process.exit(1);

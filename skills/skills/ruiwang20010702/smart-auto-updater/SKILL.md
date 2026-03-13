@@ -76,58 +76,58 @@ export SMART_UPDATER_REPORT_LEVEL="detailed"
 
 ### High Risk Report
 ```
-🔴 Smart Auto-Updater Report
+ Smart Auto-Updater Report
 
 Update Available: v1.2.3 → v1.3.0
 
-⚠️ Risk Level: HIGH
+ Risk Level: HIGH
 
-📋 Changes Summary:
+ Changes Summary:
 - Breaking API changes detected
 - Database migration required
 - 3 files modified
 
-🏗️ Impact Assessment:
+ Impact Assessment:
 - Architecture: MAJOR changes to core components
 - Performance: Potential impact on startup time
 - Compatibility: Breaks backward compatibility
 
-🚫 Decision: SKIPPED
+ Decision: SKIPPED
 
-💡 Recommendations:
+ Recommendations:
 1. Review changelog manually
 2. Test in staging environment
 3. Schedule maintenance window
 
-🗓️ Next Check: 24 hours
+ Next Check: 24 hours
 ```
 
 ### Low Risk Auto-Update
 ```
-🟢 Smart Auto-Updater Report
+ Smart Auto-Updater Report
 
 Updated: v1.2.3 → v1.2.4
 
-✅ Risk Level: LOW
+ Risk Level: LOW
 
-📋 Changes:
+ Changes:
 - Bug fixes (2)
 - Performance improvements (1)
 
-🏗️ Impact Assessment:
+ Impact Assessment:
 - Architecture: No changes
 - Performance: Minor improvement
 - Compatibility: Fully compatible
 
-✅ Decision: AUTO-UPDATED
+ Decision: AUTO-UPDATED
 
-📊 Summary:
+ Summary:
 - OpenClaw: v1.2.3 → v1.2.4
 - Skills updated: 2
 - Skills unchanged: 15
 - Errors: none
 
-⏱️ Next Check: 24 hours
+ Next Check: 24 hours
 ```
 
 ## Architecture

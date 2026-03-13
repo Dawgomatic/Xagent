@@ -30,12 +30,12 @@ def copy_html_to_clipboard(html_content):
             result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
             
             if result.returncode == 0:
-                print("✅ Formatted content copied to clipboard as HTML")
-                print("📋 Ready to paste into Substack editor")
-                print("💡 Bold/italic/headers will be preserved automatically")
+                print(" Formatted content copied to clipboard as HTML")
+                print(" Ready to paste into Substack editor")
+                print(" Bold/italic/headers will be preserved automatically")
                 return True
             else:
-                print(f"❌ Error copying to clipboard: {result.stderr}")
+                print(f" Error copying to clipboard: {result.stderr}")
                 return False
                 
         finally:
@@ -43,7 +43,7 @@ def copy_html_to_clipboard(html_content):
             os.unlink(temp_file)
             
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         return False
 
 def check_dependencies():
@@ -53,7 +53,7 @@ def check_dependencies():
         subprocess.run(['which', 'xclip'], capture_output=True, check=True)
         return True
     except subprocess.CalledProcessError:
-        print("❌ xclip not found. Install with:")
+        print(" xclip not found. Install with:")
         print("   Ubuntu/Debian: sudo apt install xclip")
         print("   Arch: sudo pacman -S xclip")
         print("   macOS: Use pbcopy instead (different implementation needed)")
@@ -74,7 +74,7 @@ def copy_with_pandoc(markdown_content):
                                      capture_output=True, text=True)
         
         if pandoc_result.returncode != 0:
-            print(f"❌ Pandoc error: {pandoc_result.stderr}")
+            print(f" Pandoc error: {pandoc_result.stderr}")
             return False
         
         html_content = pandoc_result.stdout
@@ -85,15 +85,15 @@ def copy_with_pandoc(markdown_content):
                                     capture_output=True, text=True)
         
         if xclip_result.returncode == 0:
-            print("✅ Markdown converted to HTML and copied to clipboard")
-            print("📋 Ready to paste into Substack editor")
+            print(" Markdown converted to HTML and copied to clipboard")
+            print(" Ready to paste into Substack editor")
             return True
         else:
-            print(f"❌ Error copying to clipboard: {xclip_result.stderr}")
+            print(f" Error copying to clipboard: {xclip_result.stderr}")
             return False
             
     except subprocess.CalledProcessError:
-        print("❌ pandoc not found. Install with:")
+        print(" pandoc not found. Install with:")
         print("   Ubuntu/Debian: sudo apt install pandoc")
         print("   Arch: sudo pacman -S pandoc") 
         print("   macOS: brew install pandoc")
@@ -105,16 +105,16 @@ def verify_clipboard():
         result = subprocess.run(['xclip', '-selection', 'clipboard', '-o'], 
                               capture_output=True, text=True)
         if result.returncode == 0:
-            print("\n📄 Current clipboard contents:")
+            print("\n Current clipboard contents:")
             print("-" * 40)
             print(result.stdout[:500])  # First 500 chars
             if len(result.stdout) > 500:
                 print("... (truncated)")
             print("-" * 40)
         else:
-            print("❌ Could not read clipboard")
+            print(" Could not read clipboard")
     except Exception as e:
-        print(f"❌ Error reading clipboard: {e}")
+        print(f" Error reading clipboard: {e}")
 
 def main():
     if len(sys.argv) < 2:
@@ -141,13 +141,13 @@ def main():
         verify_clipboard()
     
     if success:
-        print("\n🎯 Next steps:")
+        print("\n Next steps:")
         print("1. Go to Substack editor")
         print("2. Click in the content area") 
         print("3. Paste (Ctrl+V or Cmd+V)")
         print("4. Formatting should be preserved!")
     else:
-        print("\n💡 Alternative: Copy the HTML output manually and paste into Substack")
+        print("\n Alternative: Copy the HTML output manually and paste into Substack")
 
 if __name__ == "__main__":
     main()

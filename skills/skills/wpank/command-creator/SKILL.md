@@ -105,20 +105,20 @@ Iterate based on feedback.
 ## Writing Guidelines
 
 **Imperative form (verb-first)**:
-- ✅ "Run git status"
-- ❌ "You should run git status"
+-  "Run git status"
+-  "You should run git status"
 
 **Specific, not vague**:
-- ✅ "Run `make lint` to check for errors"
-- ❌ "Check for errors"
+-  "Run `make lint` to check for errors"
+-  "Check for errors"
 
 **Include outcomes**:
-- ✅ "Run `git status` - should show modified files"
-- ❌ "Run git status"
+-  "Run `git status` - should show modified files"
+-  "Run git status"
 
 **Realistic examples**:
-- ✅ `git commit -m "Add OAuth2 authentication"`
-- ❌ `git commit -m "foo bar"`
+-  `git commit -m "Add OAuth2 authentication"`
+-  `git commit -m "foo bar"`
 
 ---
 

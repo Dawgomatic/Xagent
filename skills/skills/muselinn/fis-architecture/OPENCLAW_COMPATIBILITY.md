@@ -8,9 +8,9 @@
 
 | OpenClaw Version | FIS Version | Compatibility | Notes |
 |-----------------|-------------|---------------|-------|
-| 2026.2.15+ | 3.2.0-lite | ✅ Fully Compatible | Simplified architecture |
-| 2026.2.15 | 3.1.3 | ✅ Compatible | Legacy |
-| 2026.2.12 | 3.0.x | ⚠️ Deprecated | Upgrade recommended |
+| 2026.2.15+ | 3.2.0-lite |  Fully Compatible | Simplified architecture |
+| 2026.2.15 | 3.1.3 |  Compatible | Legacy |
+| 2026.2.12 | 3.0.x |  Deprecated | Upgrade recommended |
 
 ---
 
@@ -26,14 +26,14 @@
 | Memory/Search | memory_manager.py | **QMD** | QMD |
 | Skill Discovery | skill_registry.py | **SKILL.md + QMD** | QMD |
 | Knowledge Graph | experimental/kg/ | **QMD** | QMD |
-| Badge Generation | ✅ Python | ✅ Python | FIS |
+| Badge Generation |  Python |  Python | FIS |
 
 ### Benefits
 
-- ✅ **No Python setup required** for core functionality
-- ✅ **File-first** — tickets are simple JSON
-- ✅ **QMD integration** — semantic search built-in
-- ✅ **Git-friendly** — all files are text
+-  **No Python setup required** for core functionality
+-  **File-first** — tickets are simple JSON
+-  **QMD integration** — semantic search built-in
+-  **Git-friendly** — all files are text
 
 ---
 
@@ -41,7 +41,7 @@
 
 ### 1. Nested SubAgents (2026.2.15+)
 
-**Status:** ✅ Compatible
+**Status:**  Compatible
 
 FIS 3.2 ticket system works with OpenClaw's native nesting:
 
@@ -54,7 +54,7 @@ FIS 3.2 ticket system works with OpenClaw's native nesting:
 
 ### 2. Sessions Spawn (Native)
 
-**Status:** ✅ Recommended over FIS subagents
+**Status:**  Recommended over FIS subagents
 
 For new projects, consider OpenClaw's native `sessions_spawn`:
 
@@ -78,7 +78,7 @@ FIS tickets can track these native spawns:
 
 ### 3. Memory Search (QMD)
 
-**Status:** ✅ Primary content retrieval
+**Status:**  Primary content retrieval
 
 Use OpenClaw's memory search instead of custom registries:
 
@@ -133,9 +133,9 @@ mkdir -p ~/.openclaw/my-project/{tickets/active,tickets/completed,knowledge}
 
 | FIS Version | OpenClaw Min | Status |
 |-------------|--------------|--------|
-| 3.2.0-lite | 2026.2.15 | ✅ Current |
-| 3.1.3 | 2026.2.15 | ⚠️ Legacy |
-| 3.0.x | 2026.2.12 | ❌ Deprecated |
+| 3.2.0-lite | 2026.2.15 |  Current |
+| 3.1.3 | 2026.2.15 |  Legacy |
+| 3.0.x | 2026.2.12 |  Deprecated |
 
 ---
 
@@ -153,4 +153,4 @@ mkdir -p ~/.openclaw/my-project/{tickets/active,tickets/completed,knowledge}
 
 ---
 
-*FIS 3.2.0-lite — Evolving with OpenClaw 🐱⚡*
+*FIS 3.2.0-lite — Evolving with OpenClaw *

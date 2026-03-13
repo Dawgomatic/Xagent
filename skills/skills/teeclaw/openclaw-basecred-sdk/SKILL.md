@@ -30,10 +30,10 @@ The SDK is designed to make reputation data **observable without turning it into
 **This skill uses secure, hardcoded credential loading** — see [SECURITY.md](./SECURITY.md) for full audit details.
 
 **TL;DR:**
-- ✅ Credentials loaded from `~/.openclaw/.env` (hardcoded path, no directory traversal)
-- ✅ Upstream package `@basecred/sdk@0.6.2` audited and clean (MIT licensed, minimal deps)
-- ✅ No secrets logged or written to disk
-- ✅ Read-only API access (public reputation data)
+-  Credentials loaded from `~/.openclaw/.env` (hardcoded path, no directory traversal)
+-  Upstream package `@basecred/sdk@0.6.2` audited and clean (MIT licensed, minimal deps)
+-  No secrets logged or written to disk
+-  Read-only API access (public reputation data)
 
 ## Prerequisites
 
@@ -140,23 +140,23 @@ npm install
 
 Output:
 ```
-📊 Reputation Summary for 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
-⏰ 2026-02-10T07:00:00.000Z
+ Reputation Summary for 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
+ 2026-02-10T07:00:00.000Z
 
-📡 Data Sources:
-   🔍 ethos: not_found
-   ✅ talent: available
-   ✅ farcaster: available
+ Data Sources:
+    ethos: not_found
+    talent: available
+    farcaster: available
 
-🛠️  Talent Protocol:
+  Talent Protocol:
    Builder: 86 (Practitioner) - Rank #8648
    Creator: 103 (Established)
 
-🎭 Farcaster:
+ Farcaster:
    Quality Score: 1
-   Passes Threshold: ✅
+   Passes Threshold: 
 
-📅 Recency: recent
+ Recency: recent
 ```
 
 **Full profile with all data:**

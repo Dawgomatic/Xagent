@@ -20,7 +20,7 @@ STATE_FILE="$WORKSPACE/memory/emotional-state.json"
 PENDING_FILE="$WORKSPACE/memory/pending-emotions.json"
 NO_SPAWN="${1:-}"
 
-echo "🎭 AMYGDALA ENCODING PIPELINE"
+echo " AMYGDALA ENCODING PIPELINE"
 echo "============================="
 echo "Time: $(date '+%Y-%m-%d %H:%M:%S')"
 echo ""
@@ -28,7 +28,7 @@ echo ""
 # ═══════════════════════════════════════════════════════════════
 # STEP 1: Run preprocess
 # ═══════════════════════════════════════════════════════════════
-echo "📥 Step 1: Preprocessing emotional signals..."
+echo " Step 1: Preprocessing emotional signals..."
 "$SKILL_DIR/scripts/preprocess-emotions.sh"
 echo ""
 
@@ -36,15 +36,15 @@ echo ""
 # STEP 2: Check for signals
 # ═══════════════════════════════════════════════════════════════
 if [ ! -f "$SIGNALS_FILE" ] || [ ! -s "$SIGNALS_FILE" ]; then
-    echo "✅ No emotional signals to process. Done."
+    echo " No emotional signals to process. Done."
     exit 0
 fi
 
 SIGNAL_COUNT=$(wc -l < "$SIGNALS_FILE" | tr -d ' ')
-echo "📊 Step 2: Found $SIGNAL_COUNT emotional signals"
+echo " Step 2: Found $SIGNAL_COUNT emotional signals"
 
 if [ "$SIGNAL_COUNT" -eq 0 ]; then
-    echo "✅ No new signals. Done."
+    echo " No new signals. Done."
     exit 0
 fi
 
@@ -52,7 +52,7 @@ fi
 # STEP 3: Rule-based emotional scoring + prepare for LLM
 # ═══════════════════════════════════════════════════════════════
 echo ""
-echo "🔄 Step 3: Scoring emotional signals..."
+echo " Step 3: Scoring emotional signals..."
 
 python3 << 'PYTHON'
 import json
@@ -78,13 +78,13 @@ with open(SIGNALS_FILE, 'r') as f:
 
 # Emotional patterns for scoring
 emotion_patterns = {
-    'joy': ['happy', 'excit', 'joy', 'love', 'great', 'awesome', 'amazing', 'wonderful', 'fantastic', '🎉', '😊', '❤️'],
-    'sadness': ['sad', 'disappoint', 'miss', 'lost', 'lonely', 'depressed', 'hurt', 'sorry', '😢', '💔'],
+    'joy': ['happy', 'excit', 'joy', 'love', 'great', 'awesome', 'amazing', 'wonderful', 'fantastic', '', '', ''],
+    'sadness': ['sad', 'disappoint', 'miss', 'lost', 'lonely', 'depressed', 'hurt', 'sorry', '', ''],
     'anger': ['angry', 'frustrat', 'annoy', 'furious', 'upset', 'hate', 'damn', 'ugh'],
     'fear': ['scared', 'afraid', 'worried', 'anxious', 'nervous', 'fear', 'terrif', 'panic'],
-    'curiosity': ['curious', 'interest', 'wonder', 'fascin', 'intrigu', 'explore', 'learn', '🤔'],
+    'curiosity': ['curious', 'interest', 'wonder', 'fascin', 'intrigu', 'explore', 'learn', ''],
     'connection': ['together', 'we ', 'us ', 'our ', 'bond', 'close', 'trust', 'friend', 'love you', 'thank you'],
-    'accomplishment': ['done', 'complet', 'finish', 'success', 'works', 'fixed', 'solved', 'achieved', '✅'],
+    'accomplishment': ['done', 'complet', 'finish', 'success', 'works', 'fixed', 'solved', 'achieved', ''],
     'fatigue': ['tired', 'exhaust', 'drain', 'sleep', 'rest', 'overwhelm', 'burned out'],
 }
 
@@ -169,7 +169,7 @@ PENDING_COUNT=$(python3 -c "import json; d=json.load(open('$PENDING_FILE')); pri
 
 if [ "$PENDING_COUNT" -eq 0 ]; then
     echo ""
-    echo "✅ No emotional signals need LLM analysis. Updating watermark..."
+    echo " No emotional signals need LLM analysis. Updating watermark..."
     "$SKILL_DIR/scripts/update-watermark.sh" --from-signals
     # Regenerate dashboard
     "$SKILL_DIR/scripts/sync-state.sh" 2>/dev/null || true
@@ -177,12 +177,12 @@ if [ "$PENDING_COUNT" -eq 0 ]; then
 fi
 
 echo ""
-echo "📝 $PENDING_COUNT signals pending LLM emotional analysis"
+echo " $PENDING_COUNT signals pending LLM emotional analysis"
 
 if [ "$NO_SPAWN" = "--no-spawn" ]; then
-    echo "⏭️  Skipping spawn (--no-spawn flag)"
+    echo "  Skipping spawn (--no-spawn flag)"
     exit 0
 fi
 
 echo ""
-echo "✅ Pipeline phase 1 complete. Sub-agent will handle emotional detection."
+echo " Pipeline phase 1 complete. Sub-agent will handle emotional detection."

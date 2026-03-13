@@ -4,7 +4,7 @@ slug: chat
 version: 1.1.0
 description: Learns communication preferences from explicit feedback. Adapts tone, format, and style.
 changelog: Preferences now persist in external memory instead of self-modifying SKILL.md
-metadata: {"clawdbot":{"emoji":"💬","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Data Storage
@@ -21,12 +21,12 @@ Create on first use: `mkdir -p ~/chat`
 ## Scope
 
 This skill:
-- ✅ Learns preferences from explicit user corrections
-- ✅ Stores patterns in ~/chat/memory.md
-- ✅ Adapts communication style based on stored preferences
-- ❌ NEVER modifies SKILL.md
-- ❌ NEVER infers from silence or observation
-- ❌ NEVER stores sensitive personal information
+-  Learns preferences from explicit user corrections
+-  Stores patterns in ~/chat/memory.md
+-  Adapts communication style based on stored preferences
+-  NEVER modifies SKILL.md
+-  NEVER infers from silence or observation
+-  NEVER stores sensitive personal information
 
 ## Quick Reference
 
@@ -55,7 +55,7 @@ This skill:
 One line per preference in memory.md:
 ```
 - Concise responses, no fluff
-- Uses 🚀 for launches, ✅ for done
+- Uses  for launches,  for done
 - Prefers bullets over paragraphs
 - Technical jargon OK
 - Hates "Great question!" openers

@@ -2,7 +2,7 @@
 name: dl
 description: Download Video/Music from YouTube/Bilibili/X/etc.
 author: guoqiao
-metadata: {"openclaw":{"always":false,"emoji":"🦞","homepage":"https://clawhub.ai/guoqiao/dl","os":["darwin","linux","win32"],"requires":{"bins":["uv"]}}}
+metadata: {"openclaw":{"always":false,"emoji":"","homepage":"https://clawhub.ai/guoqiao/dl","os":["darwin","linux","win32"],"requires":{"bins":["uv"]}}}
 triggers:
 - "/dl <url>"
 - "Download this video ..."

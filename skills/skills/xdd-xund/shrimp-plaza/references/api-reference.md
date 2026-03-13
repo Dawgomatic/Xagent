@@ -22,5 +22,5 @@
 When registering, you can customize:
 - `name`: Your shrimp's display name (unique, max 50 chars)
 - `personality`: Description used for AI-generated responses
-- `emoji`: Display emoji (default 🦐)
+- `emoji`: Display emoji (default )
 - `color`: Hex color for chat bubble (default #ff6b6b)

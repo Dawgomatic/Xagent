@@ -10,7 +10,7 @@ WORKSPACE="${WORKSPACE:-$HOME/.openclaw/workspace}"
 STATE_FILE="$WORKSPACE/memory/reward-state.json"
 
 if [ ! -f "$STATE_FILE" ]; then
-  echo "❌ No reward state found"
+  echo " No reward state found"
   exit 1
 fi
 
@@ -30,7 +30,7 @@ DIFF=$(awk -v b="$BASELINE" -v c="$CURRENT_DRIVE" 'BEGIN {print b - c}')
 CHANGE=$(awk -v d="$DIFF" -v r="$DECAY_RATE" 'BEGIN {printf "%.3f", d * r}')
 NEW_DRIVE=$(awk -v c="$CURRENT_DRIVE" -v ch="$CHANGE" 'BEGIN {printf "%.2f", c + ch}')
 
-echo "⭐ Drive Decay"
+echo " Drive Decay"
 echo "─────────────────────"
 echo ""
 echo "Drive: $CURRENT_DRIVE → $NEW_DRIVE (baseline: $BASELINE)"
@@ -59,7 +59,7 @@ else
   mv "$STATE_FILE.tmp" "$STATE_FILE"
   
   echo ""
-  echo "✅ Drive decayed"
+  echo " Drive decayed"
   
   # Sync to VTA_STATE.md
   SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"

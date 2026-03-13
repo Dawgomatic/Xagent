@@ -2,7 +2,7 @@
 name: readwise
 description: Access Readwise highlights and Reader saved articles
 homepage: https://readwise.io
-metadata: {"clawdbot":{"emoji":"📚","requires":{"bins":["node"],"env":["READWISE_TOKEN"]},"primaryEnv":"READWISE_TOKEN"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"],"env":["READWISE_TOKEN"]},"primaryEnv":"READWISE_TOKEN"}}
 ---
 
 # Readwise & Reader Skill

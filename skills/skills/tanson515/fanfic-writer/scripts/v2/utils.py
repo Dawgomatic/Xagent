@@ -138,12 +138,12 @@ def sanitize_filename(text: str, max_length: int = 80) -> str:
 def sanitize_chapter_filename(chapter_num: int, title: str, is_forced: bool = False) -> str:
     """
     Generate chapter filename
-    Format: 第###章_{title}.txt or ⚠️_第###章_{title}_FORCED.txt
+    Format: 第###章_{title}.txt or _第###章_{title}_FORCED.txt
     """
     safe_title = sanitize_filename(title, max_length=60)
     
     if is_forced:
-        return f"⚠️_第{chapter_num:03d}章_{safe_title}_FORCED.txt"
+        return f"_第{chapter_num:03d}章_{safe_title}_FORCED.txt"
     return f"第{chapter_num:03d}章_{safe_title}.txt"
 
 

@@ -2,7 +2,7 @@
 name: clawdbites
 description: Extract recipes from Instagram reels. Use when a user sends an Instagram reel link and wants to get the recipe from the caption. Parses ingredients, instructions, and macros into a clean format.
 homepage: https://github.com/kylelol/ClawdBites
-metadata: {"clawdbot":{"emoji":"🦞","os":["darwin","linux"],"requires":{"bins":["yt-dlp","ffmpeg","whisper"]},"install":[{"id":"yt-dlp","kind":"brew","formula":"yt-dlp","bins":["yt-dlp"],"label":"Install yt-dlp via Homebrew"},{"id":"ffmpeg","kind":"brew","formula":"ffmpeg","bins":["ffmpeg"],"label":"Install ffmpeg via Homebrew"},{"id":"whisper","kind":"shell","command":"pip3 install --user openai-whisper","label":"Install Whisper (local, no API key)"}]}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin","linux"],"requires":{"bins":["yt-dlp","ffmpeg","whisper"]},"install":[{"id":"yt-dlp","kind":"brew","formula":"yt-dlp","bins":["yt-dlp"],"label":"Install yt-dlp via Homebrew"},{"id":"ffmpeg","kind":"brew","formula":"ffmpeg","bins":["ffmpeg"],"label":"Install ffmpeg via Homebrew"},{"id":"whisper","kind":"shell","command":"pip3 install --user openai-whisper","label":"Install Whisper (local, no API key)"}]}}
 ---
 
 # Instagram Recipe Extractor
@@ -28,8 +28,8 @@ No Instagram login required. Works on public reels.
 2. Extract metadata using yt-dlp (`--dump-json`)
 3. Parse the caption for recipe details
 4. **Check completeness:** Does caption have BOTH ingredients AND instructions?
-   - ✅ **YES:** Present the recipe
-   - ❌ **NO (missing instructions or incomplete):** **Automatically proceed to audio transcription** — do NOT stop or ask the user
+   -  **YES:** Present the recipe
+   -  **NO (missing instructions or incomplete):** **Automatically proceed to audio transcription** — do NOT stop or ask the user
 5. If audio transcription needed:
    - Download video: `yt-dlp -o "/tmp/reel.mp4" "URL"`
    - Extract audio: `ffmpeg -y -i /tmp/reel.mp4 -vn -acodec pcm_s16le -ar 16000 -ac 1 /tmp/reel.wav`
@@ -67,7 +67,7 @@ Look for these patterns in the caption:
 **Ingredients:**
 - Lines starting with quantities (1 cup, 2 tbsp, 24oz)
 - Lines with measurement units
-- Emoji bullet points (🥩 🌽 🧀 etc.)
+- Emoji bullet points (   etc.)
 
 **Sections:**
 - "For the [component]:"
@@ -276,12 +276,12 @@ Mark inferred quantities with *(estimated)* so user knows what came from the sou
 ```
 1. TRY CAPTION (instant)
    └── yt-dlp --dump-json → parse description
-   └── Recipe found? → DONE ✅
+   └── Recipe found? → DONE 
    └── Check for "pinned" / "in comments" / "check comments" → FLAG
    
 2. IF FLAGGED: CHECK FOR CREATOR COMMENT
    └── Look through comments for creator's username
-   └── If creator comment found with recipe → DONE ✅
+   └── If creator comment found with recipe → DONE 
    └── If not found → continue + notify user
 
 3. TRY AUDIO (30-60 sec)
@@ -290,7 +290,7 @@ Mark inferred quantities with *(estimated)* so user knows what came from the sou
    └── Transcribe with Whisper (base model)
    └── Parse transcript for recipe
    └── Infer missing measurements
-   └── Recipe found? → DONE ✅
+   └── Recipe found? → DONE 
 
 4. PRESENT RESULTS + PROMPT IF NEEDED
    └── Show what was extracted from audio

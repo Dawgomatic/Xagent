@@ -1,4 +1,4 @@
-# Feast 🍽️
+# Feast 
 
 A comprehensive meal planning skill for [OpenClaw](https://openclaw.ai) that transforms weekly cooking into a cultural experience.
 

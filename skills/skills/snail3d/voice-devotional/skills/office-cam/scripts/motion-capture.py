@@ -70,9 +70,9 @@ def main():
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
     
-    print("🎥 Motion detection started")
-    print(f"📁 Captures saved to: {CAPTURE_DIR}")
-    print(f"⏱️  Cooldown: {COOLDOWN_SECONDS}s between captures")
+    print(" Motion detection started")
+    print(f" Captures saved to: {CAPTURE_DIR}")
+    print(f"  Cooldown: {COOLDOWN_SECONDS}s between captures")
     print("Press Ctrl+C to stop\n")
     
     # Read initial frames
@@ -104,13 +104,13 @@ def main():
                     # Capture using current frame
                     if capture_image(cap, filename):
                         size = os.path.getsize(filename)
-                        print(f"📸 MOTION DETECTED! ({area}px)")
+                        print(f" MOTION DETECTED! ({area}px)")
                         print(f"   Saved: {filename} ({size//1024}KB)")
                         last_capture = now
                     else:
-                        print("❌ Capture failed")
+                        print(" Capture failed")
                 else:
-                    print(f"⏳ Motion detected (cooldown: {COOLDOWN_SECONDS - int(now - last_capture)}s)")
+                    print(f" Motion detected (cooldown: {COOLDOWN_SECONDS - int(now - last_capture)}s)")
             
             # Update frames
             frame1 = frame2
@@ -124,8 +124,8 @@ def main():
             time.sleep(0.1)
             
     except KeyboardInterrupt:
-        print(f"\n\n✅ Stopped. {motion_count} motion events detected.")
-        print(f"📁 Captures in: {CAPTURE_DIR}")
+        print(f"\n\n Stopped. {motion_count} motion events detected.")
+        print(f" Captures in: {CAPTURE_DIR}")
     
     cap.release()
 

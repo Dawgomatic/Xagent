@@ -264,10 +264,10 @@ function generateExposureRecommendations(ports, tailscaleActive, openclawBind, d
   
   // Check dashboard bindings
   if (dashboardBindings.kanban === 'public') {
-    recs.push('⚠️ Kanban board exposed publicly - bind to 127.0.0.1 in server.js');
+    recs.push(' Kanban board exposed publicly - bind to 127.0.0.1 in server.js');
   }
   if (dashboardBindings.security === 'public') {
-    recs.push('⚠️ Security dashboard exposed publicly - bind to 127.0.0.1 in server.js');
+    recs.push(' Security dashboard exposed publicly - bind to 127.0.0.1 in server.js');
   }
   
   if (internalServices.length > 0 && !tailscaleActive) {
@@ -284,7 +284,7 @@ function generateExposureRecommendations(ports, tailscaleActive, openclawBind, d
   }
   
   if (recs.length === 0) {
-    recs.push('✅ Configuration looks good!');
+    recs.push(' Configuration looks good!');
   }
   
   return recs;

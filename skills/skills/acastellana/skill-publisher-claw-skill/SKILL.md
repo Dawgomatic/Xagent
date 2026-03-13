@@ -71,10 +71,10 @@ One-line description of what this skill does.
 - Consider load order (what gets read first?)
 
 ### Anti-patterns
-❌ Single massive file with everything  
-❌ Cryptic filenames (`data1.md`, `stuff.md`)  
-❌ Circular dependencies between files  
-❌ Missing SKILL.md entry point  
+ Single massive file with everything  
+ Cryptic filenames (`data1.md`, `stuff.md`)  
+ Circular dependencies between files  
+ Missing SKILL.md entry point  
 
 ---
 
@@ -364,7 +364,7 @@ set -e
 SKILL_DIR="${1:-.}"
 cd "$SKILL_DIR"
 
-echo "🔍 Auditing skill in: $SKILL_DIR"
+echo " Auditing skill in: $SKILL_DIR"
 echo ""
 
 # 1. Structure
@@ -400,7 +400,7 @@ echo ""
 # 4. Quality
 echo "=== QUALITY ==="
 if grep -rniE "(TODO|FIXME|XXX)" . --include="*.md" 2>/dev/null; then
-    echo "⚠ TODOs found (review these)"
+    echo " TODOs found (review these)"
 else
     echo "✓ No TODOs"
 fi
@@ -408,11 +408,11 @@ echo ""
 
 # 5. Git
 echo "=== GIT ==="
-[ -f ".gitignore" ] && echo "✓ .gitignore exists" || echo "⚠ No .gitignore"
+[ -f ".gitignore" ] && echo "✓ .gitignore exists" || echo " No .gitignore"
 [ -d ".git" ] && echo "✓ Git initialized" || echo "✗ Not a git repo"
 echo ""
 
-echo "🏁 Audit complete"
+echo " Audit complete"
 ```
 
 ---

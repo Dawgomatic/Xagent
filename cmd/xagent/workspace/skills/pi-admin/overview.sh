@@ -1,7 +1,7 @@
 #!/bin/bash
 # Quick system overview
 
-echo "🥧 Raspberry Pi Quick Overview"
+echo " Raspberry Pi Quick Overview"
 echo "================================"
 echo ""
 echo "Hostname: $(hostname)"

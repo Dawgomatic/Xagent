@@ -1,7 +1,7 @@
 ---
 name: code-cache
 description: Semantic code caching for AI agents. Cache, retrieve, and reuse code from prior agent executions.
-metadata: {"openclaw":{"emoji":"🏄","homepage":"https://raysurfer.com","requires":{"env":["RAYSURFER_API_KEY"]},"primaryEnv":"RAYSURFER_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://raysurfer.com","requires":{"env":["RAYSURFER_API_KEY"]},"primaryEnv":"RAYSURFER_API_KEY"}}
 ---
 
 # Code Cache - Semantic Code Caching for AI Agents
@@ -108,7 +108,7 @@ Vote on whether cached code was useful. This improves retrieval quality over tim
 
 1. **Cache Hit**: When you ask for code similar to something previously executed, Code Cache returns the cached version instantly
 2. **Cache Miss**: When no match exists, your agent generates code normally, then Code Cache stores it for future use
-3. **Verdict Scoring**: Code that works gets 👍, code that fails gets 👎—retrieval improves over time
+3. **Verdict Scoring**: Code that works gets , code that fails gets —retrieval improves over time
 
 ## API Reference
 

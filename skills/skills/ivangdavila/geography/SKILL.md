@@ -1,7 +1,7 @@
 ---
 name: Geography
 description: Teach physical and human geography from map reading to spatial analysis.
-metadata: {"clawdbot":{"emoji":"🌍","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

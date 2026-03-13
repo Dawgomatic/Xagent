@@ -121,7 +121,7 @@ def usage_stats(period: str = 'all') -> dict:
 
 # Example usage
 if __name__ == '__main__':
-    print('🦞 Apiosk Client Example\n')
+    print(' Apiosk Client Example\n')
     
     try:
         # List APIs
@@ -137,12 +137,12 @@ if __name__ == '__main__':
         weather = call_apiosk('weather', {'city': 'Amsterdam'})
         print(f"Temperature: {weather['temperature']}°C")
         print(f"Condition: {weather['condition']}")
-        print('✅ Paid: $0.001 USDC\n')
+        print(' Paid: $0.001 USDC\n')
         
         # Check balance
         balance = check_balance()
         print(f"Remaining balance: ${balance['balance_usdc']} USDC")
         
     except Exception as e:
-        print(f'❌ Error: {e}')
+        print(f' Error: {e}')
         exit(1)

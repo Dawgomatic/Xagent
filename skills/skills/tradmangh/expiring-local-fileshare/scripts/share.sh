@@ -15,13 +15,13 @@ fi
 
 # Max 24h
 if [[ "$HOURS" -gt 24 ]]; then
-    echo "⚠️  Max validity is 24h, capping at 24h"
+    echo "  Max validity is 24h, capping at 24h"
     HOURS=24
 fi
 
 # Find next available port if default is in use
 while lsof -i:"$PORT" >/dev/null 2>&1; do
-    echo "⚠️  Port $PORT in use, trying $((PORT+1))"
+    echo "  Port $PORT in use, trying $((PORT+1))"
     PORT=$((PORT+1))
 done
 
@@ -47,11 +47,11 @@ if [[ -f /tmp/share-$PORT.log ]]; then
     WORKSPACE_PATH="${HOME}/.openclaw/workspace"
     REL_PATH="${FULL_PATH#$WORKSPACE_PATH/}"
     
-    echo "📂 $REL_PATH"
-    echo "🔗 $LINK"
+    echo " $REL_PATH"
+    echo " $LINK"
     echo ""
     echo "Server PID: $PID | Stop: kill $PID"
 else
-    echo "❌ Failed to start share server (see /tmp/share-$PORT.log)"
+    echo " Failed to start share server (see /tmp/share-$PORT.log)"
     exit 1
 fi

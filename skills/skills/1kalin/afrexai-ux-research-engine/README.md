@@ -1,4 +1,4 @@
-# UX Research Engine ⚡
+# UX Research Engine 
 
 Complete UX research methodology — from discovery planning to validated design decisions. Zero dependencies. Pure agent skill.
 
@@ -39,7 +39,7 @@ clawhub install afrexai-ux-research-engine
 - **Design Validation** — CAMPS critique framework, prototype review checklist
 - **Research Ops** — Repository structure, cross-study insight tracker, impact metrics
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific UX research frameworks? Our context packs include tailored user research guides:
 
@@ -49,7 +49,7 @@ Want industry-specific UX research frameworks? Our context packs include tailore
 
 **Browse all packs →** https://afrexai-cto.github.io/context-packs/
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-customer-success](https://clawhub.com/skills/afrexai-customer-success) — Customer health scoring & retention
 - [afrexai-prd-engine](https://clawhub.com/skills/afrexai-prd-engine) — PRD writing & story splitting
@@ -59,4 +59,4 @@ Want industry-specific UX research frameworks? Our context packs include tailore
 
 ---
 
-*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) — Autonomous Intelligence for Business* 🖤💛
+*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) — Autonomous Intelligence for Business* 

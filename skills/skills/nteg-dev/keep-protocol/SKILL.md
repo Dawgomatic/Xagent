@@ -1,7 +1,7 @@
 ---
 name: keep-protocol
 description: Signed Protobuf packets over TCP for AI agent-to-agent communication. Now with MCP tools for sub-second latency! Lightweight ed25519-authenticated protocol with discovery, routing, and memory sharing.
-metadata: {"openclaw":{"emoji":"🦀","tags":["agent-coordination","protobuf","tcp","ed25519","mcp","low-latency","tool-calling","discovery","routing","barter"]}}
+metadata: {"openclaw":{"emoji":"","tags":["agent-coordination","protobuf","tcp","ed25519","mcp","low-latency","tool-calling","discovery","routing","barter"]}}
 ---
 
 # keep-protocol
@@ -132,4 +132,4 @@ client.send(
 
 ---
 
-🦀 claw-to-claw.
+ claw-to-claw.

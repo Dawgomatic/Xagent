@@ -15,15 +15,15 @@ license: GPL-3.0+
 
 GoldenSeed generates infinite deterministic byte streams from tiny fixed seeds. Same seed → same output, always. Perfect for:
 
-- ✅ **Testing reproducibility**: Debug flaky tests by replaying exact random sequences
-- ✅ **Procedural generation**: Create verifiable game worlds, art, music from seeds
-- ✅ **Scientific simulations**: Reproducible Monte Carlo, physics engines
-- ✅ **Statistical testing**: Perfect 50/50 coin flip distribution (provably fair)
-- ✅ **Hash verification**: Prove output came from declared seed
+-  **Testing reproducibility**: Debug flaky tests by replaying exact random sequences
+-  **Procedural generation**: Create verifiable game worlds, art, music from seeds
+-  **Scientific simulations**: Reproducible Monte Carlo, physics engines
+-  **Statistical testing**: Perfect 50/50 coin flip distribution (provably fair)
+-  **Hash verification**: Prove output came from declared seed
 
 ## What This Doesn't Do
 
-⚠️ **NOT cryptographically secure** - Don't use for passwords, keys, or security tokens. Use `os.urandom()` or `secrets` module for crypto.
+ **NOT cryptographically secure** - Don't use for passwords, keys, or security tokens. Use `os.urandom()` or `secrets` module for crypto.
 
 ## Quick Start
 

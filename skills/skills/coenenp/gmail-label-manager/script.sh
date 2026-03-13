@@ -282,8 +282,8 @@ send_telegram() {
   local emoji=""
   case "$priority" in
     critical) emoji="" ;;
-    high) emoji="⚠️" ;;
-    normal) emoji="ℹ️" ;;
+    high) emoji="" ;;
+    normal) emoji="" ;;
     low) emoji="" ;;
   esac
 
@@ -828,7 +828,7 @@ handle_attendance() {
 <b>Date:</b> ${attendance_date:-$(date '+%Y-%m-%d')}
 <b>Reason:</b> ${reason:-See email}
 
-⚠️ Review attendance notification from School"
+ Review attendance notification from School"
 
   send_telegram "$telegram_message" "high"
 
@@ -866,7 +866,7 @@ handle_permission_slip() {
 <b>Event Date:</b> ${event_date:-TBD}
 <b>Deadline:</b> ${deadline:-ASAP}
 
-⚠️ <b>ACTION REQUIRED:</b> Sign and return permission slip"
+ <b>ACTION REQUIRED:</b> Sign and return permission slip"
 
   send_telegram "$telegram_message" "critical"
 
@@ -969,7 +969,7 @@ handle_discipline() {
 <b>Date:</b> ${incident_date:-$(date '+%Y-%m-%d')}
 <b>Description:</b> ${description:-See email}
 
-⚠️ <b>URGENT:</b> Review immediately and discuss with ${child_name}"
+ <b>URGENT:</b> Review immediately and discuss with ${child_name}"
 
   send_telegram "$telegram_message" "critical"
 
@@ -998,7 +998,7 @@ handle_work_travel() {
   travel_dates=$(extract_date "$email_content")
   purpose=$(echo "$email_content" | grep -oiP "(purpose|reason)[: ]*\K[^.\n]{10,100}" | head -n 1 | xargs)
 
-  local telegram_message="<b>✈️ Work Travel Notification</b>
+  local telegram_message="<b> Work Travel Notification</b>
 
 <b>Destination:</b> ${destination:-See email}
 <b>Dates:</b> ${travel_dates:-TBD}
@@ -1094,7 +1094,7 @@ handle_visa_passport() {
 <b>Status:</b> ${status:-See email}
 <b>Expiry:</b> ${expiry_date:-TBD}
 
-⚠️ Keep track of travel document status"
+ Keep track of travel document status"
 
   send_telegram "$telegram_message" "high"
 
@@ -1282,7 +1282,7 @@ handle_invoice() {
 <b>Amount:</b> ₩${amount:-Unknown}
 <b>Due Date:</b> ${due_date:-Not specified}
 
-⚠️ Remember to pay before due date!"
+ Remember to pay before due date!"
 
   send_telegram "$telegram_message" "medium"
 
@@ -1424,7 +1424,7 @@ handle_delivery() {
   delivery_location=$(echo "$email_content" | grep -oiP "delivered (to|at)[: ]*\K[^.\n]{3,50}" | head -n 1 | xargs)
   delivery_time=$(extract_time "$email_content")
 
-  local telegram_message="<b>✅ Package Delivered</b>
+  local telegram_message="<b> Package Delivered</b>
 
 <b>Order #:</b> ${order_number:-Unknown}
 <b>Location:</b> ${delivery_location:-Your address}
@@ -1463,7 +1463,7 @@ handle_delivery_schedule() {
 <b>Date:</b> ${delivery_date:-TBD}
 <b>Time Window:</b> ${delivery_time_window:-All day}
 
-⏰ Be available to receive package!"
+ Be available to receive package!"
 
   send_telegram "$telegram_message" "medium"
 
@@ -1507,7 +1507,7 @@ handle_absence_notification() {
 <b>Date:</b> ${absence_date}
 <b>Reason:</b> ${reason:-Not specified}
 
-⚠️ <b>Action Required:</b> Provide excusal note on ManageBac"
+ <b>Action Required:</b> Provide excusal note on ManageBac"
 
   send_telegram "$telegram_message" "critical"
 
@@ -1653,7 +1653,7 @@ handle_homework() {
 <b>Student:</b> ${student_name:-Unknown}
 <b>Due:</b> ${due_date:-ASAP}
 
-✏️ Help ${student_name:-your child} complete on time"
+ Help ${student_name:-your child} complete on time"
 
   send_telegram "$telegram_message" "low"
 
@@ -1731,7 +1731,7 @@ handle_event_reminder() {
 <b>Date:</b> ${event_date:-Soon}
 <b>Time:</b> ${event_time:-TBD}
 
-⏰ Don't forget!"
+ Don't forget!"
 
   send_telegram "$telegram_message" "medium"
 
@@ -1887,14 +1887,14 @@ handle_vip_email() {
   local preview
   preview=$(echo "$email_content" | head -c 200)
 
-  local telegram_message="<b>⭐ VIP Email</b>
+  local telegram_message="<b> VIP Email</b>
 
 <b>From:</b> ${sender_name}
 <b>Subject:</b> ${subject}
 
 <b>Preview:</b> ${preview}...
 
-⚠️ <b>Important:</b> Respond promptly"
+ <b>Important:</b> Respond promptly"
 
   send_telegram "$telegram_message" "high"
 
@@ -2093,7 +2093,7 @@ handle_lab_results() {
 <b>Test:</b> ${test_type:-See email}
 <b>Date:</b> ${result_date:-$(date '+%Y-%m-%d')}
 
-⚠️ <b>IMPORTANT:</b> Review results immediately and consult doctor if needed"
+ <b>IMPORTANT:</b> Review results immediately and consult doctor if needed"
 
   send_telegram "$telegram_message" "critical"
 
@@ -2124,7 +2124,7 @@ handle_flight_booking() {
   airline=$(echo "$email_content" | grep -oiP "(airline|carrier|operated by)[: ]*\K[^.\n]{3,50}" | head -n 1 | xargs)
   route=$(echo "$email_content" | grep -oiP "from [A-Z]{3} to [A-Z]{3}" | head -n 1)
 
-  local telegram_message="<b>✈️ Flight Booking Confirmed</b>
+  local telegram_message="<b> Flight Booking Confirmed</b>
 
 <b>Confirmation:</b> ${confirmation_number:-See email}
 <b>Airline:</b> ${airline:-Unknown}
@@ -2132,7 +2132,7 @@ handle_flight_booking() {
 <b>Date:</b> ${flight_date:-TBD}
 <b>Departure:</b> ${departure_time:-TBD}
 
-✅ Check in 24 hours before departure"
+ Check in 24 hours before departure"
 
   send_telegram "$telegram_message" "high"
 
@@ -2208,7 +2208,7 @@ handle_travel_itinerary() {
   start_date=$(extract_date "$email_content" | head -n 1)
   destination=$(echo "$email_content" | grep -oiP "(destination|traveling to|visiting)[: ]*\K[^.\n]{3,50}" | head -n 1 | xargs)
 
-  local telegram_message="<b>️ Travel Itinerary</b>
+  local telegram_message="<b> Travel Itinerary</b>
 
 <b>Trip:</b> ${trip_name}
 <b>Destination:</b> ${destination:-See email}
@@ -2249,7 +2249,7 @@ handle_security_alert() {
 <b>Alert:</b> ${alert_type}
 <b>Date:</b> ${alert_date:-$(date '+%Y-%m-%d %H:%M')}
 
-⚠️ <b>URGENT:</b> Review immediately and take action if unauthorized!"
+ <b>URGENT:</b> Review immediately and take action if unauthorized!"
 
   send_telegram "$telegram_message" "critical"
 
@@ -2280,7 +2280,7 @@ handle_password_reset() {
 <b>Service:</b> ${service}
 <b>Time:</b> ${request_time:-$(date '+%Y-%m-%d %H:%M')}
 
-⚠️ If you didn't request this, secure your account immediately!"
+ If you didn't request this, secure your account immediately!"
 
   send_telegram "$telegram_message" "high"
 
@@ -2314,7 +2314,7 @@ handle_login_notification() {
 <b>Device:</b> ${device:-Unknown}
 <b>Time:</b> ${login_time:-$(date '+%Y-%m-%d %H:%M')}
 
-ℹ️ If this wasn't you, secure your account"
+ If this wasn't you, secure your account"
 
   send_telegram "$telegram_message" "medium"
 

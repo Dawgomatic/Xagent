@@ -63,6 +63,6 @@ if [[ -f "$YESTERDAY_FILE" ]]; then
   YESTERDAY_SALES=$(grep -o '"recent_sales_30d":[0-9]*' "$YESTERDAY_FILE" | cut -d':' -f2)
   if [[ -n "$YESTERDAY_SALES" && "$RECENT_SALES" -gt "$YESTERDAY_SALES" ]]; then
     DIFF=$((RECENT_SALES - YESTERDAY_SALES))
-    echo "  📈 +$DIFF new sales since yesterday!"
+    echo "   +$DIFF new sales since yesterday!"
   fi
 fi

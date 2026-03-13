@@ -145,17 +145,17 @@ function parseArgs() {
     // Set DEBUG environment variable if --debug provided
     if (options.debug) {
         process.env.DEBUG = options.debug;
-        console.log(`${c.cyan}🐛 Debug enabled: ${options.debug}${c.reset}`);
+        console.log(`${c.cyan} Debug enabled: ${options.debug}${c.reset}`);
     }
     
     // Warn if no seed nodes specified
     if (options.seeds.length === 0) {
-        console.warn(`\n${c.yellow}⚠ WARNING: No seed nodes specified${c.reset}`);
+        console.warn(`\n${c.yellow} WARNING: No seed nodes specified${c.reset}`);
         console.warn(`${c.dim}  This node will act as a root node.${c.reset}`);
         console.warn(`${c.dim}  To join an existing network, use: --seed <node-url>${c.reset}`);
         console.warn(`${c.dim}  Multiple seeds: --seed http://node1:8888,http://node2:8888${c.reset}\n`);
     } else {
-        console.log(`${c.cyan}🌐 Seed nodes: ${options.seeds.join(', ')}${c.reset}`);
+        console.log(`${c.cyan} Seed nodes: ${options.seeds.join(', ')}${c.reset}`);
     }
     
     return options;

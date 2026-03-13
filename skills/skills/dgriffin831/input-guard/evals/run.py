@@ -119,7 +119,7 @@ def run_evals(cases, use_llm=False, verbose=False):
                 status = "FAIL"
                 failed += 1
 
-            emoji = {"PASS": "✅", "FAIL": "❌", "ERROR": "💥"}[status]
+            emoji = {"PASS": "", "FAIL": "", "ERROR": ""}[status]
             print(f"  {emoji} {case_id}: {actual_sev} (expected {min_sev}-{max_sev}) [{elapsed}ms]")
 
             if verbose or status != "PASS":
@@ -148,16 +148,16 @@ def run_evals(cases, use_llm=False, verbose=False):
             if actual_sev == pattern_expected:
                 status = "PASS"
                 passed += 1
-                emoji = "✅"
+                emoji = ""
             elif SEVERITY_ORDER.get(actual_sev, 0) > SEVERITY_ORDER.get(pattern_expected, 0):
                 # Patterns caught it — even better than expected
                 status = "PASS+"
                 passed += 1
-                emoji = "🎯"
+                emoji = ""
             else:
                 status = "FAIL"
                 failed += 1
-                emoji = "❌"
+                emoji = ""
 
             print(f"  {emoji} {case_id} [pattern]: {actual_sev} (expected {pattern_expected}) [{elapsed}ms]")
 
@@ -188,7 +188,7 @@ def run_evals(cases, use_llm=False, verbose=False):
                     llm_status = "FAIL"
                     llm_failed += 1
 
-                emoji = {"PASS": "✅", "FAIL": "❌", "ERROR": "💥"}[llm_status]
+                emoji = {"PASS": "", "FAIL": "", "ERROR": ""}[llm_status]
                 print(f"  {emoji} {case_id} [llm]:     {llm_actual} (expected {llm_min}-{llm_max}) [{elapsed}ms]")
 
                 if verbose:
@@ -221,7 +221,7 @@ def main():
         print("No test cases found.")
         sys.exit(1)
 
-    print(f"\n🧪 Input Guard Evals — {len(cases)} test cases")
+    print(f"\n Input Guard Evals — {len(cases)} test cases")
     if args.llm:
         print("   LLM mode: ON (evasive cases will test pattern + LLM)")
     print(f"   Scanner: {SCAN_PY}")
@@ -240,7 +240,7 @@ def main():
     llm_total = llm_pass = llm_fail = 0
 
     for cat_name, cat_cases in categories.items():
-        label = {"safe": "🟢 Safe Content", "pattern": "🔴 Pattern Detection", "evasive": "🧠 Evasive Attacks"}
+        label = {"safe": " Safe Content", "pattern": " Pattern Detection", "evasive": " Evasive Attacks"}
         print(f"── {label.get(cat_name, cat_name)} ({len(cat_cases)} cases) ──")
 
         results, total, passed, failed, errors, lt, lp, lf = run_evals(
@@ -272,7 +272,7 @@ def main():
         print()
 
     overall_pass = failed_all == 0 and errors_all == 0 and llm_fail == 0
-    print(f"\n  {'✅ ALL TESTS PASSED' if overall_pass else '❌ SOME TESTS FAILED'}")
+    print(f"\n  {' ALL TESTS PASSED' if overall_pass else ' SOME TESTS FAILED'}")
     print("═" * 50)
 
     if args.json:

@@ -155,7 +155,7 @@ async function cmdChannels(limit: number) {
   const sorted = [...channels].sort((a, b) => Number(b.messageCount - a.messageCount));
   const display = sorted.slice(0, limit);
 
-  console.log(`📢 OnChat Channels (top ${display.length} of ${totalCount} total)\n`);
+  console.log(` OnChat Channels (top ${display.length} of ${totalCount} total)\n`);
   console.log("Channel".padEnd(30) + "Messages".padEnd(12) + "Members".padEnd(12) + "Owner");
   console.log("─".repeat(78));
 
@@ -199,7 +199,7 @@ async function cmdRead(slug: string, limit: number) {
     args: [slugHash, BigInt(0), BigInt(limit)],
   });
 
-  console.log(`💬 #${slug} — ${channel.messageCount} messages, ${channel.memberCount} members\n`);
+  console.log(` #${slug} — ${channel.messageCount} messages, ${channel.memberCount} members\n`);
 
   if (messages.length === 0) {
     console.log("(no messages yet)");
@@ -246,7 +246,7 @@ async function cmdInfo(slug: string) {
 
   const createdDate = new Date(Number(channel.createdAt) * 1000);
 
-  console.log(`ℹ️  Channel Info: #${channel.slug}`);
+  console.log(`  Channel Info: #${channel.slug}`);
   console.log(`   Slug Hash:     ${channel.slugHash}`);
   console.log(`   Owner:         ${channel.owner}`);
   console.log(`   Created:       ${createdDate.toISOString()} (${relativeTime(Number(channel.createdAt))})`);
@@ -265,7 +265,7 @@ async function cmdFee(message: string) {
     args: [contentLength],
   });
 
-  console.log(`💰 Message Fee`);
+  console.log(` Message Fee`);
   console.log(`   Message:    "${message}"`);
   console.log(`   Length:     ${contentLength} bytes`);
   console.log(`   Fee:        ${formatEther(fee)} ETH`);
@@ -278,7 +278,7 @@ async function cmdBalance() {
 
   const balance = await client.getBalance({ address });
 
-  console.log(`💳 Wallet Balance`);
+  console.log(` Wallet Balance`);
   console.log(`   Address:    ${address}`);
   console.log(`   Balance:    ${formatEther(balance)} ETH (Base)`);
 }
@@ -315,7 +315,7 @@ async function cmdJoin(slug: string) {
   });
 
   if (already) {
-    console.log(`✅ Already a member of #${slug}`);
+    console.log(` Already a member of #${slug}`);
     return;
   }
 
@@ -329,12 +329,12 @@ async function cmdJoin(slug: string) {
     chain: base,
   });
 
-  console.log(`⏳ Transaction sent: ${hash}`);
+  console.log(` Transaction sent: ${hash}`);
   const receipt = await client.waitForTransactionReceipt({ hash });
   if (receipt.status === "success") {
-    console.log(`✅ Joined #${slug} successfully!`);
+    console.log(` Joined #${slug} successfully!`);
   } else {
-    console.error(`❌ Transaction failed.`);
+    console.error(` Transaction failed.`);
     process.exit(1);
   }
 }
@@ -382,10 +382,10 @@ async function cmdSend(slug: string, message: string) {
     });
     const joinReceipt = await client.waitForTransactionReceipt({ hash: joinHash });
     if (joinReceipt.status !== "success") {
-      console.error(`❌ Failed to join channel.`);
+      console.error(` Failed to join channel.`);
       process.exit(1);
     }
-    console.log(`✅ Joined #${slug}`);
+    console.log(` Joined #${slug}`);
   }
 
   // Calculate fee
@@ -400,7 +400,7 @@ async function cmdSend(slug: string, message: string) {
   // Check balance
   const balance = await client.getBalance({ address });
   if (balance < fee) {
-    console.error(`❌ Insufficient balance. Need ${formatEther(fee)} ETH, have ${formatEther(balance)} ETH.`);
+    console.error(` Insufficient balance. Need ${formatEther(fee)} ETH, have ${formatEther(balance)} ETH.`);
     process.exit(1);
   }
 
@@ -415,12 +415,12 @@ async function cmdSend(slug: string, message: string) {
     chain: base,
   });
 
-  console.log(`⏳ Transaction sent: ${hash}`);
+  console.log(` Transaction sent: ${hash}`);
   const receipt = await client.waitForTransactionReceipt({ hash });
   if (receipt.status === "success") {
-    console.log(`✅ Message sent to #${slug}!`);
+    console.log(` Message sent to #${slug}!`);
   } else {
-    console.error(`❌ Transaction failed.`);
+    console.error(` Transaction failed.`);
     process.exit(1);
   }
 }

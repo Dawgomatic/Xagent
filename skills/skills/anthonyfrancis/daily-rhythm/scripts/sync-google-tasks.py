@@ -32,7 +32,7 @@ def get_credentials():
             creds.refresh(Request())
         else:
             if not os.path.exists(creds_path):
-                print(f"❌ Credentials not found at {creds_path}")
+                print(f" Credentials not found at {creds_path}")
                 print("Please set up Google Tasks API first")
                 return None
             flow = InstalledAppFlow.from_client_secrets_file(creds_path, SCOPES)
@@ -100,11 +100,11 @@ def sync_tasks():
             json.dump(all_data, f, indent=2)
         
         total_tasks = sum(tl['task_count'] for tl in all_data['tasklists'])
-        print(f"✅ Synced {total_tasks} tasks to {output_path}")
+        print(f" Synced {total_tasks} tasks to {output_path}")
         return True
         
     except Exception as e:
-        print(f"❌ Error syncing tasks: {e}")
+        print(f" Error syncing tasks: {e}")
         return False
 
 if __name__ == '__main__':

@@ -8,11 +8,11 @@ import path from 'path';
 const router = Router();
 
 const SKILL_EMOJI = {
-  whisper: '🎤', 'x-api': '🐦', gog: '📧', gmail: '📧', calendar: '📅',
-  weather: '🌤️', nordvpn: '🔐', github: '🐙', gemini: '✨', imsg: '💬',
-  healthcheck: '🛡️', 'azure-anthropic': '☁️', meditation: '🧘',
-  'video-frames': '🎬', 'skill-creator': '🛠️', slack: '💼', discord: '🎮',
-  spotify: '🎵', notion: '📝', obsidian: '📓', trello: '📋',
+  whisper: '', 'x-api': '', gog: '', gmail: '', calendar: '',
+  weather: '', nordvpn: '', github: '', gemini: '', imsg: '',
+  healthcheck: '', 'azure-anthropic': '', meditation: '',
+  'video-frames': '', 'skill-creator': '', slack: '', discord: '',
+  spotify: '', notion: '', obsidian: '', trello: '',
 };
 
 async function findGlobalSkillsDir() {
@@ -58,7 +58,7 @@ router.get('/skills', async (req, res) => {
       const meta = await parseSkillMd(path.join(userDir, entry.name, 'SKILL.md'));
       skills.push({
         name: meta.name || entry.name, slug: entry.name,
-        description: meta.description || '', emoji: SKILL_EMOJI[entry.name] || '📦',
+        description: meta.description || '', emoji: SKILL_EMOJI[entry.name] || '',
         source: 'workspace', path: path.join(userDir, entry.name),
       });
       seen.add(entry.name);
@@ -74,7 +74,7 @@ router.get('/skills', async (req, res) => {
         const meta = await parseSkillMd(path.join(globalDir, entry.name, 'SKILL.md'));
         skills.push({
           name: meta.name || entry.name, slug: entry.name,
-          description: meta.description || '', emoji: SKILL_EMOJI[entry.name] || '📦',
+          description: meta.description || '', emoji: SKILL_EMOJI[entry.name] || '',
           source: 'global', path: path.join(globalDir, entry.name),
         });
       }

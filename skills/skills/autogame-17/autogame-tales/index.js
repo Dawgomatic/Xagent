@@ -62,7 +62,7 @@ async function generateStory(genre) {
         if (target) {
             await sendCard({
                 target,
-                title: `👻 AutoGame Tales: ${genre.toUpperCase()}`,
+                title: ` AutoGame Tales: ${genre.toUpperCase()}`,
                 text: story,
                 color: 'purple'
             });

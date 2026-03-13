@@ -57,7 +57,7 @@ def get_api_key() -> str:
             if line.startswith("ELEVEN_API_KEY="):
                 return line.split("=", 1)[1].strip().strip('"\'')
     
-    print("❌ No ElevenLabs API key found.")
+    print(" No ElevenLabs API key found.")
     sys.exit(1)
 
 
@@ -78,17 +78,17 @@ def generate_voice_preview(
     """
     # Validate inputs
     if gender not in VALID_GENDERS:
-        print(f"❌ Invalid gender: {gender}")
+        print(f" Invalid gender: {gender}")
         print(f"   Valid options: {', '.join(VALID_GENDERS)}")
         return None
     
     if age not in VALID_AGES:
-        print(f"❌ Invalid age: {age}")
+        print(f" Invalid age: {age}")
         print(f"   Valid options: {', '.join(VALID_AGES)}")
         return None
     
     if accent not in VALID_ACCENTS:
-        print(f"❌ Invalid accent: {accent}")
+        print(f" Invalid accent: {accent}")
         print(f"   Valid options: {', '.join(VALID_ACCENTS)}")
         return None
     
@@ -112,7 +112,7 @@ def generate_voice_preview(
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(VOICE_DESIGN_URL, data=data, headers=headers, method="POST")
     
-    print(f"🎨 Designing voice...")
+    print(f" Designing voice...")
     print(f"   Gender: {gender}")
     print(f"   Age: {age}")
     print(f"   Accent: {accent} (strength: {accent_strength})")
@@ -128,7 +128,7 @@ def generate_voice_preview(
                 audio_data = response.read()
                 with open(output_path, "wb") as f:
                     f.write(audio_data)
-                print(f"✅ Preview saved: {output_path}")
+                print(f" Preview saved: {output_path}")
                 
                 # Try to get voice ID from header
                 voice_id = response.headers.get("generated_voice_id")
@@ -142,16 +142,16 @@ def generate_voice_preview(
                     audio_data = base64.b64decode(result["audio_base64"])
                     with open(output_path, "wb") as f:
                         f.write(audio_data)
-                    print(f"✅ Preview saved: {output_path}")
+                    print(f" Preview saved: {output_path}")
                 
                 return result
                 
     except urllib.error.HTTPError as e:
         error_body = e.read().decode("utf-8") if e.fp else ""
-        print(f"❌ API Error ({e.code}): {error_body[:300]}")
+        print(f" API Error ({e.code}): {error_body[:300]}")
         return None
     except urllib.error.URLError as e:
-        print(f"❌ Network Error: {e.reason}")
+        print(f" Network Error: {e.reason}")
         return None
 
 
@@ -182,10 +182,10 @@ def save_voice_to_library(voice_id: str, name: str, description: str, api_key: s
         with urllib.request.urlopen(req, timeout=30) as response:
             result = json.loads(response.read().decode("utf-8"))
             saved_voice_id = result.get("voice_id")
-            print(f"✅ Voice saved to library!")
+            print(f" Voice saved to library!")
             print(f"   Name: {name}")
             print(f"   Voice ID: {saved_voice_id}")
-            print(f"\n💡 Add this to voices.json to use with tts.py:")
+            print(f"\n Add this to voices.json to use with tts.py:")
             print(f'''
     "{name.lower().replace(' ', '_')}": {{
       "voice_id": "{saved_voice_id}",
@@ -201,16 +201,16 @@ def save_voice_to_library(voice_id: str, name: str, description: str, api_key: s
             
     except urllib.error.HTTPError as e:
         error_body = e.read().decode("utf-8") if e.fp else ""
-        print(f"❌ Save Error ({e.code}): {error_body[:200]}")
+        print(f" Save Error ({e.code}): {error_body[:200]}")
         return False
     except urllib.error.URLError as e:
-        print(f"❌ Network Error: {e.reason}")
+        print(f" Network Error: {e.reason}")
         return False
 
 
 def list_options():
     """Display all valid voice design options."""
-    print("🎨 Voice Design Options\n")
+    print(" Voice Design Options\n")
     
     print("Gender:")
     for g in VALID_GENDERS:
@@ -323,7 +323,7 @@ Examples:
                 api_key
             )
         else:
-            print("⚠️  Could not save: No voice ID returned from preview")
+            print("  Could not save: No voice ID returned from preview")
             print("   Try generating again and using --save with the resulting ID")
 
 

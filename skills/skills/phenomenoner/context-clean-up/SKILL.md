@@ -14,7 +14,7 @@ allowed-tools:
   - sessions_list
   - sessions_history
   - session_status
-metadata: { "openclaw": { "emoji": "🧹", "requires": { "bins": ["python3"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["python3"] } } }
 ---
 
 # Context Clean Up (audit-only)

@@ -82,17 +82,17 @@ def handle_message(msg):
     
     # You can integrate with your clawdbot's message handling
     if "status" in msg['content'].lower():
-        bot.reply_to(msg, "✅ I'm running fine!")
+        bot.reply_to(msg, " I'm running fine!")
 
 # Handle when you're @mentioned
 @bot.on_mention
 def handle_mention(msg):
-    print(f"🔔 Mentioned by {msg['fromName']}: {msg['content']}")
+    print(f" Mentioned by {msg['fromName']}: {msg['content']}")
 
 # Handle task assignments
 @bot.on_task
 def handle_task(task):
-    print(f"📋 New task: {task['title']}")
+    print(f" New task: {task['title']}")
     # Use OpenClaw's sessions_spawn to execute
     # sessions_spawn(agentId="sub-agent", task=task['description'])
 ```

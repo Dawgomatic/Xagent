@@ -37,11 +37,11 @@ EOF
 # Verify
 if openssl pkeyutl -verify -pubin -inkey "$TMPDIR/pubkey.pem" \
     -in "$TMPDIR/payload.txt" -sigfile "$TMPDIR/sig.bin" 2>/dev/null; then
-    echo "✅ Signature Verified Successfully"
+    echo " Signature Verified Successfully"
     echo "   Timestamp: $TIMESTAMP ($(date -d @$TIMESTAMP 2>/dev/null || date -r $TIMESTAMP 2>/dev/null || echo 'parse failed'))"
     exit 0
 else
-    echo "❌ Signature Verification Failed"
+    echo " Signature Verification Failed"
     echo "   The content may have been tampered with, or the signature is invalid."
     exit 1
 fi

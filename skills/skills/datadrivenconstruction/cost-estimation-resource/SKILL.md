@@ -2,7 +2,7 @@
 name: "cost-estimation-resource"
 description: "Calculate construction costs using resource-based method. Estimate project costs from work items, physical resource norms, and current prices."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw":{"emoji":"🧮","os":["darwin","linux","win32"],"homepage":"https://datadrivenconstruction.io","requires":{"bins":["python3"]}}}
+metadata: {"openclaw":{"emoji":"","os":["darwin","linux","win32"],"homepage":"https://datadrivenconstruction.io","requires":{"bins":["python3"]}}}
 ---
 
 # Cost Estimation - Resource Method

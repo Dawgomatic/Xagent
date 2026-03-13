@@ -152,7 +152,7 @@ trigger price in the multiple of tick size for this
    if time.time() - ws.last_tick_time > 10:
        ws.state = "DEGRADED"
        # Stop new trades
-       # Show ⚠ WebSocket lagging
+       # Show  WebSocket lagging
    ```
 
 2. **Graceful degradation:**
@@ -294,7 +294,7 @@ class DataManager:
 ### 3.1 Signal Quality Metrics Tracked
 
 **Win Rate Evolution:**
-- Initial: 33.3% (2/6 trades) ❌
+- Initial: 33.3% (2/6 trades) 
 - After filtering: 52.6% (10/9 over 15 days)
 - Target: 65-70%
 
@@ -485,9 +485,9 @@ def rebalance(force=False):
 ```
 
 **Frequency optimization:**
-- Daily: ❌ Too expensive
+- Daily:  Too expensive
 - Weekly: ✓ Good balance
-- Monthly: ⚠ Misses regime shifts
+- Monthly:  Misses regime shifts
 
 **Transaction cost modeling:**
 ```python
@@ -879,11 +879,11 @@ df = df.with_columns([
 
 **Ranked by impact:**
 
-1. **Parquet caching (28x faster)** ⭐⭐⭐⭐⭐
-2. **Polars instead of Pandas (5-10x faster)** ⭐⭐⭐⭐
-3. **Vectorized indicator calculations (30x faster)** ⭐⭐⭐⭐
-4. **API batching (3x fewer calls)** ⭐⭐⭐
-5. **Precomputed EMA/ATR (2x faster)** ⭐⭐
+1. **Parquet caching (28x faster)** 
+2. **Polars instead of Pandas (5-10x faster)** 
+3. **Vectorized indicator calculations (30x faster)** 
+4. **API batching (3x fewer calls)** 
+5. **Precomputed EMA/ATR (2x faster)** 
 
 **Key Learning:**
 > "Alright now think like a seasoned algo developer with abilities in performance engineering"
@@ -1743,16 +1743,16 @@ min_mtf_alignment = 0.50  # For largecap (stricter)
 ## SUMMARY OF KEY TAKEAWAYS
 
 ### Critical Success Factors:
-1. ✅ Tick size rounding prevents 90% of order rejections
-2. ✅ Position reconciliation on startup prevents double-positions
-3. ✅ Parquet caching gives 28x speed improvement
-4. ✅ Symbol cooldown prevents revenge trading
-5. ✅ Multi-indicator confirmation increases win rate from 33% → 52%+
-6. ✅ Weekly rebalancing vs daily saves transaction costs
-7. ✅ Session-aware parameters (morning vs afternoon) matter
-8. ✅ Stop-loss lifecycle tracking prevents naked positions
-9. ✅ Graceful degradation (WebSocket → REST) ensures continuity
-10. ✅ Structured logging enables debugging production issues
+1.  Tick size rounding prevents 90% of order rejections
+2.  Position reconciliation on startup prevents double-positions
+3.  Parquet caching gives 28x speed improvement
+4.  Symbol cooldown prevents revenge trading
+5.  Multi-indicator confirmation increases win rate from 33% → 52%+
+6.  Weekly rebalancing vs daily saves transaction costs
+7.  Session-aware parameters (morning vs afternoon) matter
+8.  Stop-loss lifecycle tracking prevents naked positions
+9.  Graceful degradation (WebSocket → REST) ensures continuity
+10.  Structured logging enables debugging production issues
 
 ### What Cost the Most Learning:
 - SL order management edge cases

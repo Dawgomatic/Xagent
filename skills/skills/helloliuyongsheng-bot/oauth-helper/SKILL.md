@@ -19,13 +19,13 @@ Automate OAuth login with Telegram confirmation. Supports 7 major providers.
 
 | Provider | Status | Detection Domain |
 |----------|--------|------------------|
-| Google | ✅ | accounts.google.com |
-| Apple | ✅ | appleid.apple.com |
-| Microsoft | ✅ | login.microsoftonline.com, login.live.com |
-| GitHub | ✅ | github.com/login/oauth |
-| Discord | ✅ | discord.com/oauth2 |
-| WeChat | ✅ | open.weixin.qq.com |
-| QQ | ✅ | graph.qq.com |
+| Google |  | accounts.google.com |
+| Apple |  | appleid.apple.com |
+| Microsoft |  | login.microsoftonline.com, login.live.com |
+| GitHub |  | github.com/login/oauth |
+| Discord |  | discord.com/oauth2 |
+| WeChat |  | open.weixin.qq.com |
+| QQ |  | graph.qq.com |
 
 ## Prerequisites
 
@@ -42,10 +42,10 @@ When user requests to login to a website:
 1. Open website login page
 2. Scan page for available OAuth buttons
 3. Send Telegram message:
-   "🔐 [Site] supports these login methods:
-    1️⃣ Google
-    2️⃣ Apple  
-    3️⃣ GitHub
+   " [Site] supports these login methods:
+     Google
+     Apple  
+     GitHub
     Reply with number to choose"
 4. Wait for user reply (60s timeout)
 5. Click the selected OAuth button
@@ -59,11 +59,11 @@ When on an OAuth provider's page:
 ```
 1. Detect OAuth page type (by URL)
 2. Extract target site info
-3. Send Telegram: "🔐 [Site] requests [Provider] login. Confirm? Reply yes"
+3. Send Telegram: " [Site] requests [Provider] login. Confirm? Reply yes"
 4. Wait for "yes" (60s timeout)
 5. Execute provider-specific click sequence
 6. Wait for redirect back to original site
-7. Send: "✅ Login successful!"
+7. Send: " Login successful!"
 ```
 
 ## Detection Patterns
@@ -235,18 +235,18 @@ User: Login to Kaggle for me
 Agent:
 1. Navigate to kaggle.com/account/login
 2. Detect Google/Facebook/Yahoo options
-3. Send: "🔐 Kaggle supports:
-   1️⃣ Google
-   2️⃣ Facebook
-   3️⃣ Yahoo
+3. Send: " Kaggle supports:
+    Google
+    Facebook
+    Yahoo
    Reply number to choose"
 4. User replies: 1
 5. Click Google login
 6. Detect Google OAuth page
-7. Send: "🔐 Kaggle requests Google login. Confirm? Reply yes"
+7. Send: " Kaggle requests Google login. Confirm? Reply yes"
 8. User replies: yes
 9. Select account, click Continue
-10. Send: "✅ Logged into Kaggle!"
+10. Send: " Logged into Kaggle!"
 ```
 
 ## Version History

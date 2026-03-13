@@ -276,12 +276,12 @@ def chat(
     mdl  = model or _resolve_model(prov)
     fn   = _CHAT_FN.get(prov)
     if fn is None:
-        print(f"[raon_llm] ⚠️ 알 수 없는 프로바이더: {prov}", file=sys.stderr)
+        print(f"[raon_llm]  알 수 없는 프로바이더: {prov}", file=sys.stderr)
         return None
     try:
         return fn(messages, mdl, system)
     except Exception as e:
-        print(f"[raon_llm] ⚠️ {prov}/{mdl} 호출 실패: {e}", file=sys.stderr)
+        print(f"[raon_llm]  {prov}/{mdl} 호출 실패: {e}", file=sys.stderr)
         return None
 
 
@@ -341,19 +341,19 @@ def embed(text: str) -> list:
         try:
             return _embed_gemini(text)
         except Exception as e:
-            print(f"[raon_llm] ⚠️ Gemini embed 실패: {e}", file=sys.stderr)
+            print(f"[raon_llm]  Gemini embed 실패: {e}", file=sys.stderr)
 
     if _key("OPENAI_API_KEY"):
         try:
             return _embed_openai(text)
         except Exception as e:
-            print(f"[raon_llm] ⚠️ OpenAI embed 실패: {e}", file=sys.stderr)
+            print(f"[raon_llm]  OpenAI embed 실패: {e}", file=sys.stderr)
 
     if _ollama_available():
         try:
             return _embed_ollama(text)
         except Exception as e:
-            print(f"[raon_llm] ⚠️ Ollama embed 실패: {e}", file=sys.stderr)
+            print(f"[raon_llm]  Ollama embed 실패: {e}", file=sys.stderr)
 
     return []
 
@@ -390,8 +390,8 @@ if __name__ == "__main__":
     prov  = detect_provider()
     eprov = detect_embed_provider()
     mdl   = args.model or _resolve_model(prov)
-    print(f"✅ Chat  프로바이더 : {prov}  (모델: {mdl})")
-    print(f"✅ Embed 프로바이더 : {eprov}")
+    print(f" Chat  프로바이더 : {prov}  (모델: {mdl})")
+    print(f" Embed 프로바이더 : {eprov}")
 
     if args.detect:
         sys.exit(0)
@@ -399,10 +399,10 @@ if __name__ == "__main__":
     if args.embed_text:
         vec = embed(args.embed_text)
         if vec:
-            print(f"\n✅ 임베딩 성공: 차원={len(vec)}, "
+            print(f"\n 임베딩 성공: 차원={len(vec)}, "
                   f"첫 5값={[round(x, 4) for x in vec[:5]]}")
         else:
-            print("\n⚠️ 임베딩 실패 — BM25 모드로 동작합니다")
+            print("\n 임베딩 실패 — BM25 모드로 동작합니다")
 
     elif args.prompt:
         result = chat(
@@ -413,7 +413,7 @@ if __name__ == "__main__":
         if result:
             print(f"\n{result}")
         else:
-            print("\n⚠️ LLM 호출 실패")
+            print("\n LLM 호출 실패")
 
     else:
         parser.print_help()

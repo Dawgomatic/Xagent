@@ -196,26 +196,26 @@ func get_save_path() -> String:
 
 ---
 
-## ⚠️ AI PITFALL：平台特定 API
+##  AI PITFALL：平台特定 API
 
 ```gdscript
-# ❌ WRONG - 未檢查平台就調用特定 API
+#  WRONG - 未檢查平台就調用特定 API
 Input.vibrate_handheld(50)  # 桌面會失敗
 
-# ✅ CORRECT - 先檢查平台
+#  CORRECT - 先檢查平台
 if OS.has_feature("mobile"):
     Input.vibrate_handheld(50)
 ```
 
 ---
 
-## ⚠️ AI PITFALL：路徑分隔符
+##  AI PITFALL：路徑分隔符
 
 ```gdscript
-# ❌ WRONG - 硬編碼路徑分隔符
+#  WRONG - 硬編碼路徑分隔符
 var path = "saves\\game.sav"  # Windows 特定
 
-# ✅ CORRECT - 使用 res:// 或 user://
+#  CORRECT - 使用 res:// 或 user://
 var path = "user://saves/game.sav"  # Godot 會自動處理
 ```
 

@@ -6,12 +6,12 @@ A Clawdbot skill that checks whether a new skill is compatible with your system 
 
 ## Features
 
-- ✅ **Conflict Detection** — Name, CLI command, and port conflicts with existing skills
-- ✅ **System Checks** — OS, architecture, and Node.js version compatibility
-- ✅ **Dependency Audit** — Missing CLI tools, API keys, Clawdbot versions
-- ✅ **Security Scan** — Automated vulnerability scan via security-scanner-skill
-- ✅ **Clear Readiness** — GO / CAUTION / BLOCKED with detailed next steps
-- ✅ **Multiple Outputs** — Human-readable text and JSON for CI/CD
+-  **Conflict Detection** — Name, CLI command, and port conflicts with existing skills
+-  **System Checks** — OS, architecture, and Node.js version compatibility
+-  **Dependency Audit** — Missing CLI tools, API keys, Clawdbot versions
+-  **Security Scan** — Automated vulnerability scan via security-scanner-skill
+-  **Clear Readiness** — GO / CAUTION / BLOCKED with detailed next steps
+-  **Multiple Outputs** — Human-readable text and JSON for CI/CD
 
 ## Installation
 
@@ -43,37 +43,37 @@ skill-compatibility-checker --help
 
 ## Understanding the Verdict
 
-### 🟢 GO
+###  GO
 **Safe to install.** No blocking issues.
 
 ```bash
 $ skill-compatibility-checker ~/clawd/my-skill
-✅ GO - Safe to install
+ GO - Safe to install
 ```
 
 Next step: `npm install && clawdbot skill install`
 
-### 🟡 CAUTION
+###  CAUTION
 **Installable with caveats.** Review and fix issues first.
 
 ```
-⚠️  CAUTION - Review issues before installation
+  CAUTION - Review issues before installation
 
 Missing CLI Tools:
-❌ ffmpeg
+ ffmpeg
    Install: brew install ffmpeg
 
 Missing API Keys:
-⚠️  groq - configure in TOOLS.md
+  groq - configure in TOOLS.md
 ```
 
 Fix the issues (install tools, configure keys), then install.
 
-### 🔴 BLOCKED
+###  BLOCKED
 **Cannot install on this system.**
 
 ```
-❌ BLOCKED - Do not install
+ BLOCKED - Do not install
 
 Issues preventing installation:
 • System requirements not met (OS/arch/Node version)
@@ -172,16 +172,16 @@ Skill: my-skill
 Path:  /Users/ericwoodard/clawd/my-skill
 
 ┌─ INSTALLATION READINESS ─────────────────────────────────────────────────┐
-│ ✅ GO - Safe to install
+│  GO - Safe to install
 └────────────────────────────────────────────────────────────────────────────┘
 
 ┌─ SYSTEM REQUIREMENTS ────────────────────────────────────────────────────┐
 │ Your System: darwin / arm64 / Node 25.4.0
-│ ✅ System requirements met
+│  System requirements met
 └────────────────────────────────────────────────────────────────────────────┘
 
 ┌─ RECOMMENDATION ─────────────────────────────────────────────────────────┐
-│ ✅ Ready to install. No blocking issues detected.
+│  Ready to install. No blocking issues detected.
 └────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -371,6 +371,6 @@ MIT — Use freely, modify, share.
 
 ---
 
-**Happy skill hunting!** 🚀
+**Happy skill hunting!** 
 
 Got a cool skill you want to install? Run it through the compatibility checker first!

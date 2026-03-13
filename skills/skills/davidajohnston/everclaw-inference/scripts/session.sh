@@ -32,7 +32,7 @@ declare -A MODEL_IDS=(
 # Read auth cookie
 get_auth() {
   if [[ ! -f "$MORPHEUS_DIR/.cookie" ]]; then
-    echo "❌ .cookie file not found. Is the proxy-router running?" >&2
+    echo " .cookie file not found. Is the proxy-router running?" >&2
     exit 1
   fi
   COOKIE_PASS=$(cat "$MORPHEUS_DIR/.cookie" | cut -d: -f2)
@@ -50,7 +50,7 @@ resolve_model() {
 
   local model_id="${MODEL_IDS[$model_name]:-}"
   if [[ -z "$model_id" ]]; then
-    echo "❌ Unknown model: $model_name" >&2
+    echo " Unknown model: $model_name" >&2
     echo "   Available models:" >&2
     for key in "${!MODEL_IDS[@]}"; do
       echo "     $key" >&2
@@ -69,7 +69,7 @@ cmd_open() {
   local model_id
   model_id=$(resolve_model "$model_name")
 
-  echo "🦋 Opening session for $model_name (${duration}s)..."
+  echo " Opening session for $model_name (${duration}s)..."
   echo "   Model ID: $model_id"
 
   RESPONSE=$(curl -s -u "admin:$COOKIE_PASS" -X POST \
@@ -83,7 +83,7 @@ cmd_open() {
   SESSION_ID=$(echo "$RESPONSE" | jq -r '.sessionId // .SessionID // empty' 2>/dev/null || true)
   if [[ -n "$SESSION_ID" ]]; then
     echo ""
-    echo "✅ Session opened: $SESSION_ID"
+    echo " Session opened: $SESSION_ID"
     echo "   Duration: ${duration}s"
     echo "   Model: $model_name"
   fi
@@ -95,21 +95,21 @@ cmd_close() {
 
   get_auth
 
-  echo "🦋 Closing session $session_id..."
+  echo " Closing session $session_id..."
 
   RESPONSE=$(curl -s -u "admin:$COOKIE_PASS" -X POST \
     "${API_BASE}/blockchain/sessions/${session_id}/close")
 
   echo "$RESPONSE" | jq . 2>/dev/null || echo "$RESPONSE"
   echo ""
-  echo "✅ Session close initiated. MOR will be returned to your wallet."
+  echo " Session close initiated. MOR will be returned to your wallet."
 }
 
 # List active sessions
 cmd_list() {
   get_auth
 
-  echo "🦋 Active sessions:"
+  echo " Active sessions:"
   echo ""
 
   RESPONSE=$(curl -s -u "admin:$COOKIE_PASS" "${API_BASE}/blockchain/sessions")
@@ -133,7 +133,7 @@ case "$ACTION" in
     cmd_list
     ;;
   *)
-    echo "🦋 Morpheus Session Manager"
+    echo " Morpheus Session Manager"
     echo ""
     echo "Usage:"
     echo "  session.sh open <model_name> [duration_seconds]   Open a new session"

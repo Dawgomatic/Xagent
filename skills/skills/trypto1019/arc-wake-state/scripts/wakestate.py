@@ -216,10 +216,10 @@ def cmd_crash_check(args):
 
     if gap > HEARTBEAT_TIMEOUT_SECONDS:
         minutes = int(gap / 60)
-        print(f"⚠️  CRASH DETECTED — Last heartbeat was {minutes} minutes ago ({hb['last_beat']})")
+        print(f"  CRASH DETECTED — Last heartbeat was {minutes} minutes ago ({hb['last_beat']})")
         print(f"The previous session likely crashed or was killed.")
     else:
-        print(f"✅ Clean restart — Last heartbeat {int(gap)}s ago ({hb['last_beat']})")
+        print(f" Clean restart — Last heartbeat {int(gap)}s ago ({hb['last_beat']})")
 
 
 def cmd_set(args):

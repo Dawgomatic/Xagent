@@ -196,12 +196,12 @@ kill <PID>
 
 ## General Debugging Checklist
 
-1. ✅ Is the proxy-router running? `pgrep -f proxy-router`
-2. ✅ Is the health check passing? `curl -s -u "admin:$(cat ~/morpheus/.cookie | cut -d: -f2)" http://localhost:8082/healthcheck`
-3. ✅ Is `ETH_NODE_ADDRESS` set? `grep ETH_NODE_ADDRESS ~/morpheus/.env`
-4. ✅ Is `models-config.json` populated? `cat ~/morpheus/models-config.json | jq 'keys'`
-5. ✅ Do you have MOR? `bash skills/everclaw/scripts/balance.sh`
-6. ✅ Do you have ETH for gas? (check balance output)
-7. ✅ Is there an active session for your model? `bash skills/everclaw/scripts/session.sh list`
-8. ✅ Are you using HTTP headers (not body) for session_id/model_id?
-9. ✅ Check router logs: `tail -50 ~/morpheus/data/logs/router-stdout.log`
+1.  Is the proxy-router running? `pgrep -f proxy-router`
+2.  Is the health check passing? `curl -s -u "admin:$(cat ~/morpheus/.cookie | cut -d: -f2)" http://localhost:8082/healthcheck`
+3.  Is `ETH_NODE_ADDRESS` set? `grep ETH_NODE_ADDRESS ~/morpheus/.env`
+4.  Is `models-config.json` populated? `cat ~/morpheus/models-config.json | jq 'keys'`
+5.  Do you have MOR? `bash skills/everclaw/scripts/balance.sh`
+6.  Do you have ETH for gas? (check balance output)
+7.  Is there an active session for your model? `bash skills/everclaw/scripts/session.sh list`
+8.  Are you using HTTP headers (not body) for session_id/model_id?
+9.  Check router logs: `tail -50 ~/morpheus/data/logs/router-stdout.log`

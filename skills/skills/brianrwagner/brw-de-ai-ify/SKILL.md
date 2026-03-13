@@ -124,8 +124,8 @@ CHANGES MADE:
 ✓ Shortened 8 sentences (>40 words → 15-25 words)
 
 FLAGS FOR MANUAL REVIEW:
-⚠ Paragraph 3: Still uses "various" - suggest specific companies
-⚠ Paragraph 7: Transition feels abrupt - consider adding context
+ Paragraph 3: Still uses "various" - suggest specific companies
+ Paragraph 7: Transition feels abrupt - consider adding context
 
 FILE SAVED: example-HUMAN.md
 ```

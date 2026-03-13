@@ -139,7 +139,7 @@ def main():
         if args.json:
             print(json.dumps(summary, indent=2))
         else:
-            print(f"\n📊 Expense Summary - {year_month}")
+            print(f"\n Expense Summary - {year_month}")
             print(f"   Total: {summary['total']:,.0f} VND")
             print(f"   Transactions: {summary['count']}")
             print(f"\n   By Category:")

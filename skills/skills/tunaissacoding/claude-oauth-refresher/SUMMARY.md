@@ -11,7 +11,7 @@ A **single-purpose, bulletproof OAuth token refresher** for Claude Code CLI on m
 ├── README.md                    # Quick start guide
 ├── SKILL.md                     # Complete documentation (8+ KB)
 ├── config.example.json          # Config template
-├── detect-notification-config.sh # Auto-detect notification settings ⭐ NEW
+├── detect-notification-config.sh # Auto-detect notification settings  NEW
 ├── verify-setup.sh              # Pre-flight checks (updated)
 ├── refresh-token.sh             # Core refresh logic (5.8 KB)
 ├── install.sh                   # One-shot setup (updated with auto-detection)
@@ -23,7 +23,7 @@ A **single-purpose, bulletproof OAuth token refresher** for Claude Code CLI on m
 
 ## Key Features
 
-### ✅ Auto-Detection (Smart Defaults) ⭐ NEW
+###  Auto-Detection (Smart Defaults)  NEW
 **Reads `~/.clawdbot/clawdbot.json` to auto-configure notifications:**
 - Detects enabled channels (Telegram, Slack, Discord, WhatsApp, iMessage, Signal)
 - Extracts your chat ID, user ID, or phone number
@@ -36,15 +36,15 @@ A **single-purpose, bulletproof OAuth token refresher** for Claude Code CLI on m
 3. Prioritize Telegram (most common)
 4. Show detected values during install
 
-**Result:** One less thing to configure! 🎉
+**Result:** One less thing to configure! 
 
-### ✅ Requirements Section (CLEAR)
+###  Requirements Section (CLEAR)
 - **macOS requirement** stated upfront (Keychain dependency)
 - Claude CLI must be installed
 - Must be authenticated via `claude auth`
 - Clawdbot must be installed
 
-### ✅ Pre-Flight Verification
+###  Pre-Flight Verification
 **`verify-setup.sh` checks:**
 1. OS is macOS (with version)
 2. Claude CLI installed (with version)
@@ -59,7 +59,7 @@ A **single-purpose, bulletproof OAuth token refresher** for Claude Code CLI on m
 
 **Output:** Color-coded results with actionable error messages
 
-### ✅ Finding Target ID (SKILL.md)
+###  Finding Target ID (SKILL.md)
 Comprehensive section showing **exact commands** for each channel:
 - **Telegram:** Chat ID examples + 3 methods to find it
 - **Slack:** `user:` and `channel:` formats with CLI examples
@@ -73,7 +73,7 @@ Each has:
 - How to find the ID (CLI commands or UI steps)
 - Example config snippet
 
-### ✅ Core Refresh Logic (`refresh-token.sh`)
+###  Core Refresh Logic (`refresh-token.sh`)
 **Simplified, Claude-only:**
 - No multi-provider complexity
 - Reads from `~/.config/claude/auth-profiles.json`
@@ -90,7 +90,7 @@ Each has:
 - Only errors/success logged
 - Keychain for secure storage
 
-### ✅ One-Shot Install (`install.sh`)
+###  One-Shot Install (`install.sh`)
 **Interactive, guided setup:**
 1. Runs `verify-setup.sh` (fails fast)
 2. Creates/updates config with prompt
@@ -106,7 +106,7 @@ Each has:
 - Prompts for overwrite decisions
 - Clear next steps
 
-### ✅ Clean Uninstall (`uninstall.sh`)
+###  Clean Uninstall (`uninstall.sh`)
 **Thoughtful removal:**
 1. Stops launchd service
 2. Removes plist files
@@ -183,11 +183,11 @@ Error: Keychain query failed
 
 ## Testing Performed
 
-✅ All scripts pass `bash -n` syntax check
-✅ File structure verified
-✅ Scripts are executable
-✅ Config example is valid JSON
-✅ Documentation cross-references are correct
+ All scripts pass `bash -n` syntax check
+ File structure verified
+ Scripts are executable
+ Config example is valid JSON
+ Documentation cross-references are correct
 
 ---
 
@@ -198,7 +198,7 @@ Error: Keychain query failed
 ./install.sh
 # Output:
 #   Created config.json from example
-#   ⚠ notification_target needs to be updated
+#    notification_target needs to be updated
 #   → Edit: config.json
 #   → See SKILL.md section: 'Finding Your Target ID'
 #   Press Enter when ready...
@@ -211,7 +211,7 @@ Error: Keychain query failed
 # 5. Resume install
 ```
 
-### After (Auto-Detection) ⭐
+### After (Auto-Detection) 
 ```bash
 ./install.sh
 # Output:
@@ -246,7 +246,7 @@ tail -f ~/clawd/logs/claude-oauth-refresh.log
 | Original | New |
 |----------|-----|
 | Multi-provider (complex) | **Claude-only (focused)** |
-| Manual notification config | **⭐ Auto-detects from Clawdbot config** |
+| Manual notification config | ** Auto-detects from Clawdbot config** |
 | Generic target IDs | **Channel-specific examples** |
 | No verification script | **✓ Pre-flight checks (11 checks)** |
 | Manual install only | **✓ One-shot installer + auto-config** |
@@ -266,16 +266,16 @@ claude-oauth-refresher/
 ├── SUMMARY.md (7.8 KB)               # This file
 ├── DETECTION-EXAMPLES.md (3.0 KB)    # Auto-detection reference
 ├── config.example.json (310 B)       # Config template
-├── detect-notification-config.sh (3.7 KB) ⭐ Auto-detection script
-├── test-detection.sh (2.7 KB)        ⭐ Test detection preview
+├── detect-notification-config.sh (3.7 KB)  Auto-detection script
+├── test-detection.sh (2.7 KB)         Test detection preview
 ├── verify-setup.sh (6.5 KB)          # Pre-flight checks (11 checks)
-├── install.sh (7.0 KB)               ⭐ One-shot installer with auto-config
+├── install.sh (7.0 KB)                One-shot installer with auto-config
 ├── refresh-token.sh (5.8 KB)         # Core OAuth refresh logic
 ├── uninstall.sh (3.5 KB)             # Clean removal
 └── .gitignore (155 B)                # Protect sensitive files
 
 Total: ~53 KB (scripts + docs)
-⭐ = Enhanced with auto-detection features
+ = Enhanced with auto-detection features
 ```
 
 ---
@@ -296,4 +296,4 @@ Total: ~53 KB (scripts + docs)
 
 ---
 
-**Status:** ✅ Complete and ready for first-time users
+**Status:**  Complete and ready for first-time users

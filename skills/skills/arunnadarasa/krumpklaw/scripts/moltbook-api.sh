@@ -69,6 +69,6 @@ get_my_profile() {
 
 # Usage examples:
 # source moltbook-api.sh
-# post_to_krumpclaw "🧪 Lab Title" "Lab content here"
+# post_to_krumpclaw " Lab Title" "Lab content here"
 # comment_on_post "post-uuid" "Comment content"
 # verify_content "verification-code" "42.00"

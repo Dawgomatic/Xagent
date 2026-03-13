@@ -22,7 +22,7 @@ if [ ! -f "$SKILL_FILE" ]; then
     exit 1
 fi
 
-echo "🔍 Scanning: $SKILL_NAME"
+echo " Scanning: $SKILL_NAME"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # Check for suspicious patterns (in actual code, not examples)
@@ -92,23 +92,23 @@ if [ $SCORE -gt 100 ]; then SCORE=100; fi
 
 # Risk level
 if [ $SCORE -ge 80 ]; then
-    RISK="🟢 Low"
+    RISK=" Low"
 elif [ $SCORE -ge 60 ]; then
-    RISK="🟡 Medium"
+    RISK=" Medium"
 elif [ $SCORE -ge 40 ]; then
-    RISK="🟠 High"
+    RISK=" High"
 else
-    RISK="🔴 Critical"
+    RISK=" Critical"
 fi
 
-echo "📊 Trust Score: $SCORE/100 ($RISK)"
+echo " Trust Score: $SCORE/100 ($RISK)"
 echo ""
-echo "📋 Permissions:"
+echo " Permissions:"
 echo "   • bins: $BINS"
 echo ""
 
 if [ ${#ISSUES[@]} -gt 0 ]; then
-    echo "⚠️ Issues Found:"
+    echo " Issues Found:"
     for issue in "${ISSUES[@]}"; do
         echo "   • $issue"
     done
@@ -116,7 +116,7 @@ if [ ${#ISSUES[@]} -gt 0 ]; then
 fi
 
 if [ ${#GREEN_FLAGS[@]} -gt 0 ]; then
-    echo "✅ Positive Signs:"
+    echo " Positive Signs:"
     for flag in "${GREEN_FLAGS[@]}"; do
         echo "   • $flag"
     done
@@ -124,7 +124,7 @@ if [ ${#GREEN_FLAGS[@]} -gt 0 ]; then
 fi
 
 # Recommendation
-echo "💡 Recommendation:"
+echo " Recommendation:"
 if [ $SCORE -ge 80 ]; then
     echo "   Safe to use - well documented, standard permissions"
 elif [ $SCORE -ge 60 ]; then

@@ -3,7 +3,7 @@ name: learn-cog
 description: "The best tutors explain the same concept five different ways. CellCog does too — diagrams, analogies, worked examples, practice problems, and interactive explanations. #1 on DeepResearch Bench (Feb 2026). Tutoring, homework help, study guides, exam prep, coding tutorials, language learning — every subject, every level."
 metadata:
   openclaw:
-    emoji: "📚"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

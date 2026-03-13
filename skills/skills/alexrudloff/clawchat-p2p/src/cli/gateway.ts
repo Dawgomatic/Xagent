@@ -188,7 +188,7 @@ async function createNewIdentity(
 
   console.log('\n✓ Identity created successfully!');
   console.log(`Principal: ${identity.principal}`);
-  console.log(`\n⚠️  IMPORTANT: Back up your seed phrase!`);
+  console.log(`\n  IMPORTANT: Back up your seed phrase!`);
   console.log(`Seed phrase: ${identity.mnemonic}\n`);
 
   // Use provided password or prompt for one

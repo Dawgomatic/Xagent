@@ -217,11 +217,11 @@ Human-readable format with:
 
 This skill follows OpenClaw security best practices:
 
-- ✅ No secrets in prompts (use env/config)
-- ✅ Strict tool allowlists (only `web_search`, `web_fetch`, `browser`)
-- ✅ Human-in-the-loop (never auto-send outreach)
-- ✅ Rate limiting (respects run budgets)
-- ✅ Avoid list enforcement
+-  No secrets in prompts (use env/config)
+-  Strict tool allowlists (only `web_search`, `web_fetch`, `browser`)
+-  Human-in-the-loop (never auto-send outreach)
+-  Rate limiting (respects run budgets)
+-  Avoid list enforcement
 
 ## Candidate Selection
 

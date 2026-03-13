@@ -4,7 +4,7 @@ from src.ego_analyzer import EgoAnalyzer
 def run_test():
     analyzer = EgoAnalyzer()
     
-    print("--- 🧠 Mersal Ego Filter Verification ---")
+    print("---  Mersal Ego Filter Verification ---")
 
     # Test Case 1: Centralized Power Statement (High Ego)
     centralized_text = "We must control the data infrastructure to dominate the future of AI and rule the digital borders."

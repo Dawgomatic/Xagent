@@ -85,7 +85,7 @@ def get_unique_comment(topic, used_comments):
 def run_topic_session(bot, nav, topic, num_videos=5):
     """Run engagement session for one topic."""
     print("\n" + "="*60)
-    print(f"📍 TOPIC: {topic.upper()}")
+    print(f" TOPIC: {topic.upper()}")
     print("="*60)
     
     session_start = time.time()
@@ -96,18 +96,18 @@ def run_topic_session(bot, nav, topic, num_videos=5):
     
     try:
         # Navigate and search
-        print("\n1️⃣  Launching...")
+        print("\n  Launching...")
         bot.launch_tiktok()
         bot.wait_for_feed()
         
-        print("2️⃣  Going to Home...")
+        print("  Going to Home...")
         nav.go_to_home()
         time.sleep(1)
         
-        print("3️⃣  Opening search...")
+        print("  Opening search...")
         nav.tap_search_icon()
         
-        print(f"4️⃣  Searching '{topic}'...")
+        print(f"  Searching '{topic}'...")
         nav.search_query(topic)
         
         bot.take_screenshot(f"data/campaign_{topic}_results.png")
@@ -121,7 +121,7 @@ def run_topic_session(bot, nav, topic, num_videos=5):
             attempts += 1
             video_num = len(results) + 1
             
-            print(f"\n📹 VIDEO {video_num}/{num_videos} (attempt {attempts})")
+            print(f"\n VIDEO {video_num}/{num_videos} (attempt {attempts})")
             print("-" * 40)
             
             try:
@@ -131,7 +131,7 @@ def run_topic_session(bot, nav, topic, num_videos=5):
                 # Scroll if we've checked all 4 positions in current view
                 if attempts > 4 and (attempts - 1) % 4 == 0:
                     scroll_count += 1
-                    print(f"  📜 Scrolling for fresh videos (scroll #{scroll_count})...")
+                    print(f"   Scrolling for fresh videos (scroll #{scroll_count})...")
                     bot.scroll_down()
                     time.sleep(2)  # Wait for new videos to load
                 
@@ -139,7 +139,7 @@ def run_topic_session(bot, nav, topic, num_videos=5):
                 video_id = f"s{scroll_count}_p{position}"
                 
                 if video_id in commented_videos:
-                    print(f"  ⏭️  Skipping - already commented on this position")
+                    print(f"    Skipping - already commented on this position")
                     continue
                 
                 print(f"  Tapping video #{position} from grid (ID: {video_id})...")
@@ -155,7 +155,7 @@ def run_topic_session(bot, nav, topic, num_videos=5):
                 
                 # Generate unique comment
                 comment = get_unique_comment(topic, used_comments)
-                print(f"  💬 Comment: {comment}")
+                print(f"   Comment: {comment}")
                 
                 # Post comment
                 video_start = time.time()
@@ -163,7 +163,7 @@ def run_topic_session(bot, nav, topic, num_videos=5):
                 video_time = time.time() - video_start
                 
                 if success:
-                    print(f"  ✅ Posted! ({video_time:.1f}s)")
+                    print(f"   Posted! ({video_time:.1f}s)")
                     
                     # Mark this video as commented
                     commented_videos.add(video_id)
@@ -179,7 +179,7 @@ def run_topic_session(bot, nav, topic, num_videos=5):
                         "timestamp": datetime.now().strftime("%H:%M:%S")
                     })
                 else:
-                    print(f"  ❌ Failed - will skip this position")
+                    print(f"   Failed - will skip this position")
                     commented_videos.add(video_id)  # Mark as tried to avoid retry
                     results.append({
                         "video_num": video_num,
@@ -189,12 +189,12 @@ def run_topic_session(bot, nav, topic, num_videos=5):
                 
                 # Go back to search results for next video
                 if len(results) < num_videos:
-                    print(f"  ↩️  Going back to search results...")
+                    print(f"    Going back to search results...")
                     bot.go_back()
                     time.sleep(2)
                     
             except Exception as e:
-                print(f"  ❌ Error: {e}")
+                print(f"   Error: {e}")
                 
                 # Mark as tried to avoid retrying same video
                 commented_videos.add(video_id)
@@ -211,13 +211,13 @@ def run_topic_session(bot, nav, topic, num_videos=5):
                     bot.go_back()
                     time.sleep(2)
                 except:
-                    print("  ⚠️  Could not go back, will continue...")
+                    print("    Could not go back, will continue...")
         
         if len(results) < num_videos:
-            print(f"\n⚠️  Only completed {len([r for r in results if r.get('success')])}/{num_videos} videos")
+            print(f"\n  Only completed {len([r for r in results if r.get('success')])}/{num_videos} videos")
         
     except Exception as e:
-        print(f"\n❌ Topic session failed: {e}")
+        print(f"\n Topic session failed: {e}")
         import traceback
         traceback.print_exc()
     
@@ -234,7 +234,7 @@ def run_topic_session(bot, nav, topic, num_videos=5):
 
 def main():
     print("\n" + "="*60)
-    print("🚀 FULL TIKTOK CAMPAIGN")
+    print(" FULL TIKTOK CAMPAIGN")
     print("="*60)
     print(f"Topics: {', '.join(TOPICS)}")
     print(f"Videos per topic: 5")
@@ -248,10 +248,10 @@ def main():
         result = subprocess.run(["adb", "devices"], capture_output=True, text=True)
         devices = [line.split()[0] for line in result.stdout.split("\n")[1:] if line.strip() and "device" in line]
         if not devices:
-            print("❌ No Android device found. Connect device and enable USB debugging.")
+            print(" No Android device found. Connect device and enable USB debugging.")
             return
         device_id = devices[0]
-        print(f"📱 Using device: {device_id}")
+        print(f" Using device: {device_id}")
     
     bot = TikTokAndroidBot(device_id=device_id)
     nav = TikTokNavigation(bot)
@@ -270,22 +270,22 @@ def main():
         
         # Brief pause between topics
         if i < len(TOPICS):
-            print(f"\n⏸️  Pausing 10s before next topic...")
+            print(f"\n  Pausing 10s before next topic...")
             time.sleep(10)
     
     campaign_time = time.time() - campaign_start
     
     # Generate report
     print("\n\n" + "="*60)
-    print("📊 CAMPAIGN COMPLETE")
+    print(" CAMPAIGN COMPLETE")
     print("="*60)
     
     total_success = sum(s["success_count"] for s in all_sessions)
     total_videos = sum(s["total_videos"] for s in all_sessions)
     
-    print(f"\n✅ Total videos engaged: {total_success}/{total_videos}")
-    print(f"⏱️  Total time: {campaign_time/60:.1f} minutes")
-    print(f"⚡ Average per video: {campaign_time/total_success:.1f} seconds")
+    print(f"\n Total videos engaged: {total_success}/{total_videos}")
+    print(f"  Total time: {campaign_time/60:.1f} minutes")
+    print(f" Average per video: {campaign_time/total_success:.1f} seconds")
     
     report = {
         "campaign_time": campaign_time,
@@ -303,12 +303,12 @@ def main():
         topic = session["topic"]
         success = session["success_count"]
         total = session["total_videos"]
-        print(f"\n📍 {topic.upper()}: {success}/{total} videos")
+        print(f"\n {topic.upper()}: {success}/{total} videos")
         
         for result in session["results"]:
             if result.get("success"):
                 video_id = result.get('video_id', 'unknown')
-                print(f"  ✅ Video {result['video_num']} ({video_id}): {result['comment'][:45]}...")
+                print(f"   Video {result['video_num']} ({video_id}): {result['comment'][:45]}...")
     
     return report
 

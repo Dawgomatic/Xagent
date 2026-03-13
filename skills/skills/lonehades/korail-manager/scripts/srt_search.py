@@ -20,7 +20,7 @@ def main():
     SRT_PW = os.environ.get("SRT_PW")
 
     if not SRT_ID or not SRT_PW:
-        print("❌ 오류: SRT_ID, SRT_PW 환경 변수가 설정되지 않았습니다.")
+        print(" 오류: SRT_ID, SRT_PW 환경 변수가 설정되지 않았습니다.")
         sys.exit(1)
 
     try:
@@ -29,7 +29,7 @@ def main():
         for t in trains:
             print(t)
     except Exception as e:
-        print(f"❌ 오류: {e}")
+        print(f" 오류: {e}")
 
 if __name__ == "__main__":
     main()

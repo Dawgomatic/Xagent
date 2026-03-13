@@ -311,7 +311,7 @@ Summary: .planning/phases/{phase-dir}/{phase}-{plan}-SUMMARY.md
 
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **{phase}-{next-plan}: [Plan Name]** — [objective]
 
@@ -333,7 +333,7 @@ All {Y} plans finished.
 
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **Phase {Z+1}: {Next Phase Name}** — {Goal}
 
@@ -347,13 +347,13 @@ All {Y} plans finished.
 **Route C: Milestone complete**
 
 ```
-🎉 MILESTONE COMPLETE!
+ MILESTONE COMPLETE!
 
 All {N} phases complete! Milestone is 100% done.
 
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **Complete Milestone** — archive and prepare for next
 

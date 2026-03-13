@@ -149,7 +149,7 @@ PYTHON
 # Create a daily research script: daily_research.sh
 cat > daily_research.sh << 'EOF'
 #!/bin/bash
-echo "📚 Daily Research Skimming"
+echo " Daily Research Skimming"
 echo "==========================="
 
 # Today's research topic
@@ -171,7 +171,7 @@ if [[ "$response" == "yes" ]]; then
     zotcli add-note "$paper_query"
 fi
 
-echo "Daily research complete! 🎯"
+echo "Daily research complete! "
 EOF
 
 chmod +x daily_research.sh
@@ -398,7 +398,7 @@ cat > research_dashboard.sh << 'EOF'
 
 clear
 echo "================================================"
-echo "           📊 Research Dashboard                "
+echo "            Research Dashboard                "
 echo "================================================"
 echo ""
 
@@ -698,4 +698,4 @@ Check the main documentation:
 
 ---
 
-**Happy researching! 🎓📚**
+**Happy researching! **

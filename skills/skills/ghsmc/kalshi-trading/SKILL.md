@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📈",
+        "emoji": "",
         "requires": { "bins": ["node"], "env": ["KALSHI_API_KEY_ID", "KALSHI_PRIVATE_KEY_PATH"] },
         "primaryEnv": "KALSHI_API_KEY_ID",
       },

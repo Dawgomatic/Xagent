@@ -4,16 +4,16 @@ description: Generate, decode, and beautify QR codes with customizable colors, l
 openclaw:
   homepage: https://github.com/zouyawen/openclaw-qrcode
   user-invocable: true
-  emoji: "📱"
+  emoji: ""
 ---
 
 # QR Code Skill
 
-**⚠️ This skill requires the companion plugin to function!**
+** This skill requires the companion plugin to function!**
 
-## 🚀 Quick Start
+##  Quick Start
 
-### 💎 **Recommended: Full Feature Installation**
+###  **Recommended: Full Feature Installation**
 For the complete experience with **rounded dots, gradient colors, logo integration, and natural language support**, install from GitHub:
 
 ```bash
@@ -21,7 +21,7 @@ curl -s https://raw.githubusercontent.com/zouyawen/openclaw-qrcode/main/install.
 openclaw gateway restart
 ```
 
-### ⚡ **Basic Installation (from ClawHub)**
+###  **Basic Installation (from ClawHub)**
 This provides basic QR code functionality only:
 
 ```bash
@@ -30,7 +30,7 @@ mkdir -p ~/.openclaw/skills/qr-code
 openclaw gateway restart
 ```
 
-> **💡 Pro Tip**: The GitHub installation includes advanced features like rounded dots, color gradients, and logo embedding that aren't available through ClawHub alone!
+> ** Pro Tip**: The GitHub installation includes advanced features like rounded dots, color gradients, and logo embedding that aren't available through ClawHub alone!
 
 ## Features
 - **Generate**: Create QR codes with custom colors, background, size, logo overlay, and format (PNG, JPG, SVG)

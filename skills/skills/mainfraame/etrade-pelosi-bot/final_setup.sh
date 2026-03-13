@@ -5,7 +5,7 @@
 
 set -e
 
-echo "🚀 COMPLETE CONGRESSIONAL TRADING SYSTEM SETUP"
+echo " COMPLETE CONGRESSIONAL TRADING SYSTEM SETUP"
 echo "================================================"
 echo "Features:"
 echo "• Senate + House data collection"
@@ -52,7 +52,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     read -p "Enter Telegram Chat ID (from @userinfobot): " TELEGRAM_CHAT_ID
     
     if [ -z "$TELEGRAM_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
-        echo -e "${YELLOW}⚠ Telegram not configured. You can add later.${NC}"
+        echo -e "${YELLOW} Telegram not configured. You can add later.${NC}"
         TELEGRAM_TOKEN=""
         TELEGRAM_CHAT_ID=""
     else
@@ -187,7 +187,7 @@ try:
     from src.backtester import Backtester
     print('✓ Backtester available')
 except ImportError as e:
-    print(f'⚠ Backtester not available: {e}')
+    print(f' Backtester not available: {e}')
 "
 
 echo -e "${GREEN}✓ System tests completed${NC}"
@@ -209,24 +209,24 @@ cat > monitor.sh << 'EOF'
 
 # Congressional Trading System Monitor
 
-echo "📊 CONGRESSIONAL TRADING SYSTEM MONITOR"
+echo " CONGRESSIONAL TRADING SYSTEM MONITOR"
 echo "========================================"
 echo ""
 
 # System status
-echo "🖥️ SYSTEM STATUS:"
+echo " SYSTEM STATUS:"
 if pgrep -f "run_bot.sh" > /dev/null; then
-    echo "✅ Bot is running"
+    echo " Bot is running"
     PROCESSES=$(pgrep -f "run_bot.sh" | wc -l)
     echo "   Processes: $PROCESSES"
 else
-    echo "❌ Bot is stopped"
+    echo " Bot is stopped"
 fi
 
 echo ""
 
 # Database stats
-echo "🗄️ DATABASE STATS:"
+echo " DATABASE STATS:"
 if [ -f "data/trading.db" ]; then
     python3 -c "
 import sqlite3
@@ -250,7 +250,7 @@ fi
 echo ""
 
 # Recent logs
-echo "📝 RECENT ACTIVITY:"
+echo " RECENT ACTIVITY:"
 if [ -f "logs/trading.log" ]; then
     tail -5 logs/trading.log | while read line; do
         echo "  $line"
@@ -262,14 +262,14 @@ fi
 echo ""
 
 # Cron jobs
-echo "⏰ SCHEDULED JOBS:"
+echo " SCHEDULED JOBS:"
 if crontab -l 2>/dev/null | grep -q "congressional_trading"; then
-    echo "✅ Cron jobs active"
+    echo " Cron jobs active"
     crontab -l 2>/dev/null | grep "congressional_trading" | while read job; do
         echo "  $job"
     done
 else
-    echo "❌ No cron jobs found"
+    echo " No cron jobs found"
 fi
 
 echo ""
@@ -293,7 +293,7 @@ cat > start_trading.sh << 'EOF'
 
 # Start Congressional Trading System
 
-echo "🤖 STARTING CONGRESSIONAL TRADING SYSTEM"
+echo " STARTING CONGRESSIONAL TRADING SYSTEM"
 echo "========================================"
 
 source venv/bin/activate
@@ -320,7 +320,7 @@ cat > stop_trading.sh << 'EOF'
 
 # Stop Congressional Trading System
 
-echo "🛑 STOPPING CONGRESSIONAL TRADING SYSTEM"
+echo " STOPPING CONGRESSIONAL TRADING SYSTEM"
 echo "========================================"
 
 # Find and kill processes
@@ -349,7 +349,7 @@ chat_id = config['notifications']['telegram']['chatId']
 
 if token and chat_id:
     url = f"https://api.telegram.org/bot{token}/sendMessage"
-    message = "✅ Congressional Trading System Test\\n\\nSystem is online and ready for automated trading!"
+    message = " Congressional Trading System Test\\n\\nSystem is online and ready for automated trading!"
     
     payload = {
         "chat_id": chat_id,
@@ -374,50 +374,50 @@ EOF
 fi
 
 # Step 10: Final instructions
-echo -e "\n${GREEN}✅ SETUP COMPLETE!${NC}"
+echo -e "\n${GREEN} SETUP COMPLETE!${NC}"
 echo -e "\n${YELLOW}=== NEXT STEPS ===${NC}"
 echo ""
-echo "1. 🔐 AUTHENTICATE WITH E*TRADE:"
+echo "1.  AUTHENTICATE WITH E*TRADE:"
 echo "   source venv/bin/activate"
 echo "   python3 src/main.py interactive"
 echo "   Select option 1 to authenticate"
 echo ""
-echo "2. 🧪 TEST THE SYSTEM:"
+echo "2.  TEST THE SYSTEM:"
 echo "   ./scripts/run_bot.sh check    # Check for trades"
 echo "   ./scripts/run_bot.sh monitor  # Test stop-loss"
 echo "   ./monitor.sh                  # View system status"
 echo ""
-echo "3. 🚀 START AUTOMATED TRADING:"
+echo "3.  START AUTOMATED TRADING:"
 echo "   ./start_trading.sh            # Start background trading"
 echo "   OR"
 echo "   Let cron jobs handle it (already scheduled)"
 echo ""
-echo "4. 📱 TELEGRAM NOTIFICATIONS:"
+echo "4.  TELEGRAM NOTIFICATIONS:"
 if [ -n "$TELEGRAM_TOKEN" ]; then
-    echo "   ✅ Configured - you'll receive alerts for:"
+    echo "    Configured - you'll receive alerts for:"
     echo "     • New congressional trades"
     echo "     • Trade executions"
     echo "     • Stop-loss triggers"
     echo "     • Daily summaries"
 else
-    echo "   ⚠ Not configured - edit config/config.json to add:"
+    echo "    Not configured - edit config/config.json to add:"
     echo "     'botToken': 'YOUR_TOKEN',"
     echo "     'chatId': 'YOUR_CHAT_ID'"
 fi
 echo ""
-echo "5. 📊 MONITOR PERFORMANCE:"
+echo "5.  MONITOR PERFORMANCE:"
 echo "   ./monitor.sh                  # System dashboard"
 echo "   tail -f logs/trading.log      # Live logs"
 echo "   python3 src/main.py interactive  # Manual control"
 echo ""
-echo "6. ⚙️ CRON SCHEDULE:"
+echo "6.  CRON SCHEDULE:"
 echo "   8 AM Mon-Fri: Morning trade check"
 echo "   6 PM Mon-Fri: Evening trade check"
 echo "   10AM-4PM hourly: Stop-loss monitoring"
 echo ""
 echo "${GREEN}Your automated congressional trading system is ready!${NC}"
 echo ""
-echo "📖 For more details:"
+echo " For more details:"
 echo "   • Run backtests: python3 src/backtester.py"
 echo "   • View strategy: config/config.json"
 echo "   • Check logs: logs/trading.log"

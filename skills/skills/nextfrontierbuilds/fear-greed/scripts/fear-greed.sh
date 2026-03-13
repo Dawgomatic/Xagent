@@ -22,26 +22,26 @@ BAR=$(printf '█%.0s' $(seq 1 $BAR_FILLED))$(printf '░%.0s' $(seq 1 $BAR_EMPT
 
 # Emoji based on value
 if [ "$VALUE" -le 25 ]; then
-  EMOJI="😱"
+  EMOJI=""
   COLOR="Extreme Fear"
 elif [ "$VALUE" -le 45 ]; then
-  EMOJI="😰"
+  EMOJI=""
   COLOR="Fear"
 elif [ "$VALUE" -le 55 ]; then
-  EMOJI="😐"
+  EMOJI=""
   COLOR="Neutral"
 elif [ "$VALUE" -le 75 ]; then
-  EMOJI="😀"
+  EMOJI=""
   COLOR="Greed"
 else
-  EMOJI="🤑"
+  EMOJI=""
   COLOR="Extreme Greed"
 fi
 
 # Pretty print
 cat << EOF
 
-📊 Crypto Fear & Greed Index
+ Crypto Fear & Greed Index
 
    ┌─────────────────────┐
    │                     │

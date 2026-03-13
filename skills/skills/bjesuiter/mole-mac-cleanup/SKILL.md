@@ -4,7 +4,7 @@ description: Mac cleanup & optimization tool combining CleanMyMac, AppCleaner, D
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
 metadata:
   clawdbot:
-    emoji: "🧹"
+    emoji: ""
     os: ["darwin"]
     requires:
       bins: ["mo"]
@@ -22,7 +22,7 @@ metadata:
 **Command:** `mo` (not `mole`!)
 **Install:** `brew install mole`
 
-> **Note for humans:** `mo` without params opens an interactive TUI mode. Not useful for agents, but you might wanna try it manually! 😉
+> **Note for humans:** `mo` without params opens an interactive TUI mode. Not useful for agents, but you might wanna try it manually! 
 
 ## What It Does
 

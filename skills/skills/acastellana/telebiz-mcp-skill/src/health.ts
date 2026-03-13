@@ -156,10 +156,10 @@ async function listToolsQuick(): Promise<number> {
  */
 export function formatStatus(status: DetailedStatus): string {
   const lines: string[] = [
-    '📱 Telebiz MCP Status',
+    ' Telebiz MCP Status',
     '─'.repeat(20),
-    `Relay: ${status.relay === 'up' ? '✅ Running' : '❌ Down'}`,
-    `Executor: ${status.executor === 'connected' ? '✅ Connected' : '⚠️ Not connected'}`,
+    `Relay: ${status.relay === 'up' ? ' Running' : ' Down'}`,
+    `Executor: ${status.executor === 'connected' ? ' Connected' : ' Not connected'}`,
   ];
 
   if (status.tools !== undefined) {

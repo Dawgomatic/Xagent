@@ -8,12 +8,12 @@ This document summarizes all the automation created for ClawHub publishing.
 **Location**: `./publish.sh`
 
 **What it does:**
-- ✅ Validates skill structure
-- ✅ Checks/installs ClawHub CLI
-- ✅ Verifies authentication
-- ✅ Shows pre-flight summary
-- ✅ Submits to ClawHub
-- ✅ Optionally publishes to npm
+-  Validates skill structure
+-  Checks/installs ClawHub CLI
+-  Verifies authentication
+-  Shows pre-flight summary
+-  Submits to ClawHub
+-  Optionally publishes to npm
 
 **Usage:**
 ```bash
@@ -74,14 +74,14 @@ This document summarizes all the automation created for ClawHub publishing.
 - Manual workflow dispatch
 
 **What it does:**
-1. ✅ Checks out code
-2. ✅ Sets up Node.js
-3. ✅ Validates skill structure
-4. ✅ Installs ClawHub CLI
-5. ✅ Authenticates with token
-6. ✅ Submits to ClawHub
-7. ✅ Publishes to npm (optional)
-8. ✅ Creates GitHub release
+1.  Checks out code
+2.  Sets up Node.js
+3.  Validates skill structure
+4.  Installs ClawHub CLI
+5.  Authenticates with token
+6.  Submits to ClawHub
+7.  Publishes to npm (optional)
+8.  Creates GitHub release
 
 **Setup required:**
 - Add `CLAWHUB_TOKEN` to GitHub Secrets
@@ -116,7 +116,7 @@ This document summarizes all the automation created for ClawHub publishing.
 
 ```
 skills/lunchtable/lunchtable-tcg/
-├── publish.sh                      # ⭐ Main automation script
+├── publish.sh                      #  Main automation script
 ├── PUBLISH.md                      # Complete guide
 ├── QUICKSTART_PUBLISH.md          # TL;DR version
 ├── PUBLISHING_SUMMARY.md          # This file
@@ -258,10 +258,10 @@ git push origin v1.0.0
 ### Successful Publish
 
 ```
-🎴 Publishing LunchTable-TCG to ClawHub...
+ Publishing LunchTable-TCG to ClawHub...
 
 Step 1/6: Validating skill format...
-✅ Validation passed!
+ Validation passed!
 
 Step 2/6: Checking ClawHub CLI...
 ✓ ClawHub CLI found
@@ -279,10 +279,10 @@ Step 5/6: Submitting to ClawHub...
 ✓ Successfully submitted to ClawHub
 
 Step 6/6: Publish to npm (optional)...
-📦 Also publish to npm? [y/N] n
+ Also publish to npm? [y/N] n
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Publishing complete!
+ Publishing complete!
 
 Next steps:
   • Track submission: clawhub status lunchtable-tcg

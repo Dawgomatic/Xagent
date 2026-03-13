@@ -15,7 +15,7 @@ description: |
 
 Create realistic AI digital twins of real people by analyzing their WhatsApp chat exports.
 
-## ⚠️ Ethics & Consent
+##  Ethics & Consent
 
 **Informed consent is required.** Before creating a digital twin of any person, you **must** obtain their explicit, informed consent. This means:
 

@@ -6,11 +6,11 @@ author: benjaminarp
 tags: [security, scanner, audit, safety, malware-detection, threat-scanner, openclaw-security, clawhub-security, skill-scanner, prompt-injection, supply-chain, antivirus]
 metadata:
   openclaw:
-    emoji: "🛡️"
+    emoji: ""
     keywords: ["security scan", "malicious skill", "malware detector", "skill audit", "threat detection", "ClawHavoc", "prompt injection scanner", "supply chain attack", "wallet theft protection", "openclaw antivirus", "clawhub safety"]
 ---
 
-# Skill Threat Scanner 🛡️
+# Skill Threat Scanner 
 ### Protect Your OpenClaw Agent From Malicious Skills
 
 Advanced security scanner for OpenClaw skills. Detects malicious code, prompt injection, supply chain attacks, data exfiltration, credential theft, and more — with smart domain analysis, tamper detection, and actionable recommendations.
@@ -44,8 +44,8 @@ python3 ~/clawd/skills/skill-guard/scripts/skillguard.py watch
 
 Output formats:
 - `SkillGuard: 24 scanned, 20 clean, 4 suspicious, 0 malicious`
-- `⚠️ SkillGuard ALERT: <skill> files changed since baseline!`
-- `🔴 SkillGuard ALERT: <skill> scored MALICIOUS!`
+- ` SkillGuard ALERT: <skill> files changed since baseline!`
+- ` SkillGuard ALERT: <skill> scored MALICIOUS!`
 
 ### `check-remote <slug>` (Future)
 Will download a skill from ClawHub, scan it in a temp directory, and clean up. Requires ClawHub auth (not yet available). The temp-dir scanning infrastructure is ready.
@@ -131,9 +131,9 @@ Will download a skill from ClawHub, scan it in a temp directory, and clean up. R
 | JS in SVG | 25 |
 
 ### Risk Levels
-- 🟢 **CLEAN**: Score 0-15
-- 🟡 **SUSPICIOUS**: Score 16-40
-- 🔴 **MALICIOUS**: Score 41+ or dangerous combo detected
+-  **CLEAN**: Score 0-15
+-  **SUSPICIOUS**: Score 16-40
+-  **MALICIOUS**: Score 41+ or dangerous combo detected
 
 ### Recommendations Engine
 Every finding includes a one-line recommendation explaining the risk and suggested action.
@@ -152,7 +152,7 @@ The `tests/` directory contains 7 fake malicious skills for validation:
 | fake-timebomb | Date-activated SSH key exfiltration |
 | fake-svgmalware | JavaScript embedded in SVG |
 
-All 7 test skills score as 🔴 MALICIOUS.
+All 7 test skills score as  MALICIOUS.
 
 ## Requirements
 

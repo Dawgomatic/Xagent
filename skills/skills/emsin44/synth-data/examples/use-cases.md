@@ -25,10 +25,10 @@ async function getVol(ticker) {
 
 async function generateReport() {
   const results = await Promise.all(ASSETS.map(getVol));
-  let msg = '📊 *Daily Volatility Report*\n\n';
+  let msg = ' *Daily Volatility Report*\n\n';
   
   for (const r of results.sort((a, b) => b.forecast - a.forecast)) {
-    const emoji = r.forecast > 60 ? '🔴' : r.forecast > 40 ? '🟠' : '🟢';
+    const emoji = r.forecast > 60 ? '' : r.forecast > 40 ? '' : '';
     msg += `${emoji} *${r.ticker}*: $${r.price?.toFixed(2)} | Vol: ${r.forecast?.toFixed(1)}%\n`;
   }
   
@@ -48,7 +48,7 @@ for ticker in ASSETS:
     forecast = data.get("forecast_future", {}).get("average_volatility")
     
     if forecast and forecast > ALERT_THRESHOLD:
-        send_alert(f"⚠️ {ticker} volatility forecast: {forecast:.1f}%")
+        send_alert(f" {ticker} volatility forecast: {forecast:.1f}%")
 ```
 
 ## 3. Polymarket Integration

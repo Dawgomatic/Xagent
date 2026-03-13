@@ -131,16 +131,16 @@ class IndustryHot:
         Returns:
             格式化的行业选择文本
         """
-        options_text = "🏭 **请选择您关注的行业**\n\n"
+        options_text = " **请选择您关注的行业**\n\n"
         
         for i, (industry, info) in enumerate(INDUSTRIES.items(), 1):
             platforms_count = len(info["platforms"])
             options_text += f"{i}. **{industry}**\n"
-            options_text += f"   📋 包含 {platforms_count} 个平台\n"
-            options_text += f"   🔗 {info['description']}\n\n"
+            options_text += f"    包含 {platforms_count} 个平台\n"
+            options_text += f"    {info['description']}\n\n"
         
         options_text += "-" * 50 + "\n"
-        options_text += "💡 您可以输入行业名称或数字编号，支持多选（如：1,3或汽车+金融）"
+        options_text += " 您可以输入行业名称或数字编号，支持多选（如：1,3或汽车+金融）"
         return options_text
     
     def parse_industries_from_input(self, user_input: str) -> List[str]:
@@ -277,17 +277,17 @@ class IndustryHot:
             格式化的响应文本
         """
         if not hot_data.get("items"):
-            return "❌ 暂无行业热榜数据"
+            return " 暂无行业热榜数据"
         
         industries = hot_data["industries"]
         items = hot_data["items"]
         
-        response = f"🏭 **行业热榜 - {', '.join(industries)}**\n\n"
+        response = f" **行业热榜 - {', '.join(industries)}**\n\n"
         
         # 显示行业描述
         for industry in industries:
             desc = hot_data["industry_descriptions"].get(industry, "")
-            response += f"📌 **{industry}**: {desc}\n"
+            response += f" **{industry}**: {desc}\n"
         
         response += "-" * 50 + "\n"
         response += f"共 {hot_data['total_items']} 条热榜\n\n"
@@ -301,7 +301,7 @@ class IndustryHot:
             items_by_industry[industry].append(item)
         
         for industry, ind_items in items_by_industry.items():
-            response += f"\n📊 **{industry}**\n"
+            response += f"\n **{industry}**\n"
             for i, item in enumerate(ind_items[:5], 1):  # 每个行业显示5条
                 title = item.get("title", "无标题")
                 hot = item.get("hot", item.get("score", ""))
@@ -309,9 +309,9 @@ class IndustryHot:
                 
                 response += f"{i}. {title}\n"
                 if hot:
-                    response += f"   🔥 {hot}"
+                    response += f"    {hot}"
                 if platform:
-                    response += f" | 📱 {platform}"
+                    response += f" |  {platform}"
                 response += "\n"
         
         return response

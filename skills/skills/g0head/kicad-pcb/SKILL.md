@@ -8,7 +8,7 @@ keywords: [pcb, kicad, electronics, gerber, schematic, circuit, pcbway, manufact
 triggers: ["pcb design", "kicad", "circuit board", "schematic", "gerber", "pcbway", "electronics project"]
 ---
 
-# 🔧 KiCad PCB Automation
+#  KiCad PCB Automation
 
 **Design → Prototype → Manufacture**
 
@@ -242,9 +242,9 @@ PCBWay typical pricing (2-layer, 100x100mm, qty 5):
 
 ## Safety Notes
 
-⚠️ **High Voltage Warning**: This skill does not validate electrical safety. For mains-connected circuits, consult a qualified engineer.
+ **High Voltage Warning**: This skill does not validate electrical safety. For mains-connected circuits, consult a qualified engineer.
 
-⚠️ **No Auto-Order (Yet)**: Cart placement requires your explicit confirmation.
+ **No Auto-Order (Yet)**: Cart placement requires your explicit confirmation.
 
 ## Changelog
 

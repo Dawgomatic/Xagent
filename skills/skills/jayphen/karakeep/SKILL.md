@@ -1,7 +1,7 @@
 ---
 name: karakeep
 description: Manage bookmarks and links in a Karakeep instance. Use when the user wants to save links, list recent bookmarks, or search their collection. Triggers on phrases like "hoard this link", "save to karakeep", or "search my bookmarks".
-metadata: {"clawdbot":{"emoji":"📦","requires":{"bins":["uv"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["uv"]}}}
 ---
 
 # Karakeep Skill

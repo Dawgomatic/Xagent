@@ -1,4 +1,4 @@
-# Binance Enhanced Skill for OpenClaw 🇷🇺
+# Binance Enhanced Skill for OpenClaw 
 
 ![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -7,23 +7,23 @@
 
 **Улучшенный навык для торговли на Binance с полной инфраструктурой безопасности, мониторинга и автоматизации.**
 
-> ⚡ **Создано 8 параллельными агентами за 20 минут** с использованием архитектуры OpenClaw
+>  **Создано 8 параллельными агентами за 20 минут** с использованием архитектуры OpenClaw
 > 
-> 🇬🇧 **English version:** [README.md](README.md) | 🇷🇺 **Русская версия:** [README_RU.md](README_RU.md)
+>  **English version:** [README.md](README.md) |  **Русская версия:** [README_RU.md](README_RU.md)
 
-## 🎯 Особенности
+##  Особенности
 
 | Категория | Функции | Статус |
 |-----------|---------|--------|
-| **🔐 Безопасность** | Система лимитов, шифрование ключей, детальное логирование, security checklist | ✅ Готово |
-| **🤖 UX/UI** | Парсер natural language команд, интерактивный диалог, Telegram-бот с inline-кнопками | ✅ Готово |
-| **📊 Мониторинг** | Telegram/email/webhook уведомления, веб-дашборд, автоматические отчёты | ✅ Готово |
-| **⚡ Производительность** | Кэширование цен, асинхронные запросы, оптимизация JSON парсинга | ✅ Готово |
-| **📈 Стратегии** | DCA, grid-торговля, арбитраж, backtesting, технические индикаторы | ✅ Готово |
-| **🧪 Тестирование** | Mock-файлы API, интеграционные тесты, проверка подключения | ✅ Готово |
-| **📚 Документация** | Шаблоны конфигурации, FAQ, гайды, лучшие практики | ✅ Готово |
+| ** Безопасность** | Система лимитов, шифрование ключей, детальное логирование, security checklist |  Готово |
+| ** UX/UI** | Парсер natural language команд, интерактивный диалог, Telegram-бот с inline-кнопками |  Готово |
+| ** Мониторинг** | Telegram/email/webhook уведомления, веб-дашборд, автоматические отчёты |  Готово |
+| ** Производительность** | Кэширование цен, асинхронные запросы, оптимизация JSON парсинга |  Готово |
+| ** Стратегии** | DCA, grid-торговля, арбитраж, backtesting, технические индикаторы |  Готово |
+| ** Тестирование** | Mock-файлы API, интеграционные тесты, проверка подключения |  Готово |
+| ** Документация** | Шаблоны конфигурации, FAQ, гайды, лучшие практики |  Готово |
 
-## 🚀 Быстрый старт
+##  Быстрый старт
 
 ### Установка
 ```bash
@@ -66,7 +66,7 @@ cd monitoring/dashboard
 FLASK_APP=app.py flask run --host=0.0.0.0 --port=8080
 ```
 
-## 📖 Документация
+##  Документация
 
 ### Полная документация
 - **[SKILL.md](SKILL.md)** — детальное описание всех компонентов
@@ -83,7 +83,7 @@ FLASK_APP=app.py flask run --host=0.0.0.0 --port=8080
 - [Стратегии](strategies/) — торговые стратегии
 - [Производительность](performance/) — кэширование и оптимизация
 
-## 🏗️ Архитектура
+##  Архитектура
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -105,7 +105,7 @@ FLASK_APP=app.py flask run --host=0.0.0.0 --port=8080
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## 🔧 Интеграция с OpenClaw
+##  Интеграция с OpenClaw
 
 ### Конфигурация
 ```json
@@ -135,7 +135,7 @@ openclaw binance alerts setup
 openclaw binance strategies dca --symbol BTCUSDT --amount 100
 ```
 
-## 📊 Метрики создания
+##  Метрики создания
 
 | Метрика | Значение |
 |---------|----------|
@@ -146,7 +146,7 @@ openclaw binance strategies dca --symbol BTCUSDT --amount 100
 | **Компонентов** | 7 категорий |
 | **Тестовое покрытие** | Mock + интеграционные тесты |
 
-## 🎨 Примеры использования
+##  Примеры использования
 
 ### Natural Language Trading
 ```python
@@ -183,14 +183,14 @@ from monitoring.reports.daily import generate_daily_report
 
 # Уведомления в Telegram
 notifier = TelegramNotifier(config)
-notifier.send_alert("🚨 BTC +5% за 10 минут", chat_id="ваш-chat-id")
+notifier.send_alert(" BTC +5% за 10 минут", chat_id="ваш-chat-id")
 
 # Ежедневные отчёты
 report = generate_daily_report(portfolio_snapshot)
 # Отправляет красивый HTML отчёт на email
 ```
 
-## 🔐 Безопасность
+##  Безопасность
 
 ### Многоуровневая защита
 1. **Шифрование ключей** — AES-GCM с PBKDF2
@@ -213,7 +213,7 @@ source security/logger.sh
 log_txn --type order --symbol BTCUSDT --side BUY --qty 0.001 --price 40000
 ```
 
-## 🧪 Тестирование
+##  Тестирование
 
 ### Полная тестовая инфраструктура
 ```bash
@@ -230,7 +230,7 @@ BINANCE_TESTNET_URL=https://testnet.binance.vision ./test/test_integration.sh
 python3 -c "from ux.parser import parse; import json; print(json.dumps(parse('купи 0.5 ETH лимит 1800'), indent=2))"
 ```
 
-## 🚀 Развёртывание
+##  Развёртывание
 
 ### Docker
 ```bash
@@ -276,7 +276,7 @@ spec:
               key: bot-token
 ```
 
-## 🤝 Вклад в развитие
+##  Вклад в развитие
 
 Мы приветствуем вклады! Пожалуйста:
 
@@ -292,22 +292,22 @@ spec:
 - Обновляйте документацию
 - Проверяйте безопасность изменений
 
-## 📄 Лицензия
+##  Лицензия
 
 Распространяется под лицензией MIT. Смотрите файл [LICENSE](LICENSE) для подробностей.
 
-## 👥 Авторы
+##  Авторы
 
 - **OpenClaw Parallel Agents** — первоначальная разработка
 - **Ваше имя** — вклад и поддержка
 
-## 🙏 Благодарности
+##  Благодарности
 
 - Команде OpenClaw за потрясающую платформу
 - Binance за отличный API
 - Сообществу за идеи и feedback
 
-## 📞 Поддержка
+##  Поддержка
 
 - **Issues:** [GitHub Issues](https://github.com/your-username/binance-enhanced/issues)
 - **Discord:** [OpenClaw Community](https://discord.gg/openclaw)
@@ -315,5 +315,5 @@ spec:
 
 ---
 
-**✨ Создано с любовью и параллельными агентами OpenClaw**  
+** Создано с любовью и параллельными агентами OpenClaw**  
 *Последнее обновление: 2026-02-01*

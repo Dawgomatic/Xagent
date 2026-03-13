@@ -1,7 +1,7 @@
 ---
 name: llmwhisperer
 description: Extract text and layout from images and PDFs using LLMWhisperer API. Good for handwriting and complex forms.
-metadata: {"clawdbot":{"emoji":"📄","scripts":["scripts/llmwhisperer"]}}
+metadata: {"clawdbot":{"emoji":"","scripts":["scripts/llmwhisperer"]}}
 ---
 
 # LLMWhisperer

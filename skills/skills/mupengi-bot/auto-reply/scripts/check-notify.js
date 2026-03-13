@@ -6,7 +6,7 @@
  * cron의 systemEvent로 세션에 주입하면 알아서 처리.
  * 
  * 출력:
- *   새 메시지 있을 때: "📩 인스타 DM 알림: [username] '메시지 미리보기...'"
+ *   새 메시지 있을 때: " 인스타 DM 알림: [username] '메시지 미리보기...'"
  *   없을 때: "no_new"
  */
 
@@ -137,7 +137,7 @@ async function main() {
     const lines = newMessages.map(m => 
       `• ${m.fullName || m.username} (@${m.username}): "${m.text}"`
     );
-    console.log(`📩 인스타 새 DM ${newMessages.length}건:\n${lines.join('\n')}`);
+    console.log(` 인스타 새 DM ${newMessages.length}건:\n${lines.join('\n')}`);
     
   } catch (e) {
     // 브라우저 꺼져있거나 인스타 탭 없으면 조용히

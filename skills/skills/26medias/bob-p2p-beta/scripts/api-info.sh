@@ -20,7 +20,7 @@ if [ -f "$CONFIG_FILE" ]; then
 fi
 AGGREGATOR="${AGGREGATOR:-http://localhost:8080}"
 
-echo "🔍 Fetching info for API: $API_ID"
+echo " Fetching info for API: $API_ID"
 echo "   Aggregator: $AGGREGATOR"
 echo ""
 

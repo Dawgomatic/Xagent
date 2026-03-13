@@ -1,10 +1,10 @@
 ---
 name: api-security-best-practices
 description: "Implement secure API design patterns including authentication, authorization, input validation, rate limiting, and protection against common API vulnerabilities"
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
-# API Security Best Practices 🐧
+# API Security Best Practices 
 
 ## Overview
 
@@ -312,14 +312,14 @@ app.post('/api/auth/refresh', async (req, res) => {
 
 ### Security Best Practices
 
-- ✅ Use strong JWT secrets (256-bit minimum)
-- ✅ Set short expiration times (1 hour for access tokens)
-- ✅ Implement refresh tokens for long-lived sessions
-- ✅ Store refresh tokens in database (can be revoked)
-- ✅ Use HTTPS only
-- ✅ Don't store sensitive data in JWT payload
-- ✅ Validate token issuer and audience
-- ✅ Implement token blacklisting for logout
+-  Use strong JWT secrets (256-bit minimum)
+-  Set short expiration times (1 hour for access tokens)
+-  Implement refresh tokens for long-lived sessions
+-  Store refresh tokens in database (can be revoked)
+-  Use HTTPS only
+-  Don't store sensitive data in JWT payload
+-  Validate token issuer and audience
+-  Implement token blacklisting for logout
 ```
 
 
@@ -330,7 +330,7 @@ app.post('/api/auth/refresh', async (req, res) => {
 
 ### The Problem
 
-**❌ Vulnerable Code:**
+** Vulnerable Code:**
 \`\`\`javascript
 // NEVER DO THIS - SQL Injection vulnerability
 app.get('/api/users/:id', async (req, res) => {
@@ -353,7 +353,7 @@ app.get('/api/users/:id', async (req, res) => {
 #### 1. Use Parameterized Queries
 
 \`\`\`javascript
-// ✅ Safe: Parameterized query
+//  Safe: Parameterized query
 app.get('/api/users/:id', async (req, res) => {
   const userId = req.params.id;
   
@@ -383,7 +383,7 @@ app.get('/api/users/:id', async (req, res) => {
 #### 2. Use ORM with Proper Escaping
 
 \`\`\`javascript
-// ✅ Safe: Using Prisma ORM
+//  Safe: Using Prisma ORM
 app.get('/api/users/:id', async (req, res) => {
   const userId = parseInt(req.params.id);
   
@@ -695,7 +695,7 @@ Retry-After: 900
 
 ## Best Practices
 
-### ✅ Do This
+###  Do This
 
 - **Use HTTPS Everywhere** - Never send sensitive data over HTTP
 - **Implement Authentication** - Require authentication for protected endpoints
@@ -710,7 +710,7 @@ Retry-After: 900
 - **Use Security Headers** - Implement Helmet.js
 - **Sanitize Error Messages** - Don't leak sensitive information
 
-### ❌ Don't Do This
+###  Don't Do This
 
 - **Don't Store Passwords in Plain Text** - Always hash passwords
 - **Don't Use Weak Secrets** - Use strong, random JWT secrets
@@ -729,10 +729,10 @@ Retry-After: 900
 **Symptoms:** JWT secret hardcoded or committed to Git
 **Solution:**
 \`\`\`javascript
-// ❌ Bad
+//  Bad
 const JWT_SECRET = 'my-secret-key';
 
-// ✅ Good
+//  Good
 const JWT_SECRET = process.env.JWT_SECRET;
 if (!JWT_SECRET) {
   throw new Error('JWT_SECRET environment variable is required');
@@ -768,13 +768,13 @@ if (result.score < 3) {
 **Symptoms:** Users can access resources they shouldn't
 **Solution:**
 \`\`\`javascript
-// ❌ Bad: Only checks authentication
+//  Bad: Only checks authentication
 app.delete('/api/posts/:id', authenticateToken, async (req, res) => {
   await prisma.post.delete({ where: { id: req.params.id } });
   res.json({ success: true });
 });
 
-// ✅ Good: Checks both authentication and authorization
+//  Good: Checks both authentication and authorization
 app.delete('/api/posts/:id', authenticateToken, async (req, res) => {
   const post = await prisma.post.findUnique({
     where: { id: req.params.id }
@@ -800,7 +800,7 @@ app.delete('/api/posts/:id', authenticateToken, async (req, res) => {
 **Symptoms:** Error messages reveal system details
 **Solution:**
 \`\`\`javascript
-// ❌ Bad: Exposes database details
+//  Bad: Exposes database details
 app.post('/api/users', async (req, res) => {
   try {
     const user = await prisma.user.create({ data: req.body });
@@ -811,7 +811,7 @@ app.post('/api/users', async (req, res) => {
   }
 });
 
-// ✅ Good: Generic error message
+//  Good: Generic error message
 app.post('/api/users', async (req, res) => {
   try {
     const user = await prisma.user.create({ data: req.body });
@@ -908,4 +908,4 @@ app.post('/api/users', async (req, res) => {
 **Pro Tip:** Security is not a one-time task - regularly audit your APIs, keep dependencies updated, and stay informed about new vulnerabilities!
 
 ---
-> 🐧 Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬
+>  Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬

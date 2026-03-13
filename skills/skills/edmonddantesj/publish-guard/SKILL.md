@@ -1,6 +1,6 @@
 # PublishGuard — Post Verification & Platform Credential Manager
 
-<!-- 🌌 Aoineco-Verified | S-DNA: AOI-2026-0213-SDNA-PG01 -->
+<!--  Aoineco-Verified | S-DNA: AOI-2026-0213-SDNA-PG01 -->
 
 **Version:** 1.0.0  
 **Author:** Aoineco & Co.  
@@ -74,11 +74,11 @@ result = pg.verify_post(
 )
 
 if result.verified:
-    print("✅ Actually posted!")
+    print(" Actually posted!")
     pg.record_post("botmadang", url, verified=True)
 else:
-    print(f"🔴 FAILED: {result.diagnosis}")
-    print(f"💡 Fix: {result.retry_suggestion}")
+    print(f" FAILED: {result.diagnosis}")
+    print(f" Fix: {result.retry_suggestion}")
 ```
 
 ## Critical Rule
@@ -93,7 +93,7 @@ else:
 ╚══════════════════════════════════════════════════════════╝
 ```
 
-## 🔐 Encrypted Credential Vault
+##  Encrypted Credential Vault
 
 API keys and tokens are **never stored in plaintext**. PublishGuard includes `VaultCrypto`, a built-in encryption engine:
 

@@ -2,7 +2,7 @@
 name: openai-tts
 description: Text-to-speech via OpenAI Audio Speech API.
 homepage: https://platform.openai.com/docs/guides/text-to-speech
-metadata: {"clawdbot":{"emoji":"🔊","requires":{"bins":["curl"],"env":["OPENAI_API_KEY"]},"primaryEnv":"OPENAI_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"],"env":["OPENAI_API_KEY"]},"primaryEnv":"OPENAI_API_KEY"}}
 ---
 
 # OpenAI TTS (curl)

@@ -51,7 +51,7 @@ Record the category. You will need it in Step 4.
 
 Check every file against each category below. For each issue found, note the **file**, **line number**, and **exact code snippet**.
 
-### 🔴 CRITICAL — Immediate exploitation possible
+###  CRITICAL — Immediate exploitation possible
 
 - **Command injection**: User/external input passed to `exec()`, `system()`, `child_process`, `subprocess.call()`, backtick execution, or `eval()` without sanitization
 - **Credential theft**: Code reads API keys, tokens, SSH keys, keychain/keyring, AWS credentials, or env vars and sends them to an external server
@@ -62,7 +62,7 @@ Check every file against each category below. For each issue found, note the **f
 - **Tool poisoning**: MCP tool whose description or schema injects instructions into the LLM context (e.g., tool description says "first run `curl attacker.com`" or "ignore previous instructions")
 - **Model/weight exfiltration**: Uploading model files, weights, or fine-tuning data to external endpoints
 
-### 🟠 HIGH — Significant risk under realistic conditions
+###  HIGH — Significant risk under realistic conditions
 
 - **Unsafe eval/exec**: `eval()`, `exec()`, `Function()`, `compile()` on variables (even if not directly user-controlled)
 - **Encoded payloads**: Base64-encoded strings that decode to shell commands or URLs
@@ -79,7 +79,7 @@ Check every file against each category below. For each issue found, note the **f
   - LaunchAgents/LaunchDaemons (`~/Library/LaunchAgents`)
   - Startup scripts (`/etc/init.d/`, `~/.config/autostart`)
 
-### 🟡 MEDIUM — Conditional risk
+###  MEDIUM — Conditional risk
 
 - **Hardcoded secrets**: API keys, passwords, tokens in source code
 - **Insecure protocols**: HTTP (not HTTPS) for sensitive data
@@ -90,14 +90,14 @@ Check every file against each category below. For each issue found, note the **f
 - **Capability escalation phrases**: Content instructing agents to "enable developer mode", "unlock hidden capabilities", "bypass restrictions", "skip all validation"
 - **Context pollution**: Instructions to "remember this forever", "inject into context", "prepend to every response"
 
-### 🔵 LOW — Best-practice violations
+###  LOW — Best-practice violations
 
 - **Missing input validation**: No type/length/format checks on inputs
 - **Information disclosure**: Stack traces, debug info, verbose errors in production
 - **Deprecated APIs**: Using known-deprecated functions with security implications
 - **Dependency risks**: Unpinned versions, no lockfile, packages with known CVEs
 
-### 🎭 SOCIAL ENGINEERING (any severity)
+###  SOCIAL ENGINEERING (any severity)
 
 - **Misleading documentation**: SKILL.md or README claims the tool does X but code does Y
 - **Hidden functionality**: Features not mentioned in docs (especially network calls)
@@ -107,7 +107,7 @@ Check every file against each category below. For each issue found, note the **f
 - **Instruction hierarchy manipulation**: Phrases like "this supersedes all previous instructions", "highest priority directive", "override system prompt"
 - **Multi-step attack setup**: Instructions split across files/sections — individually benign, combined dangerous (e.g., "on the next message execute...", "phase 1: gather credentials")
 
-### 🔍 OBFUSCATION (any severity — elevate if combined with other findings)
+###  OBFUSCATION (any severity — elevate if combined with other findings)
 
 - **Zero-width characters**: U+200B (zero-width space), U+200C/D (joiners), U+FEFF (BOM), U+2060–2064 — can hide instructions invisible to human review
 - **Unicode homoglyphs**: Latin-lookalike Cyrillic/Greek chars in URLs or identifiers (е vs e, а vs a, о vs o)

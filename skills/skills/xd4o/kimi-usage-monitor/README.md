@@ -4,12 +4,12 @@ A lightweight skill for monitoring Kimi K2.5 API usage and making autonomous res
 
 ## Features
 
-- 📊 Real-time usage monitoring from Kimi console
-- 🟢🟡🔴 Capacity-aware decision making
-- ✈️ Pre-flight checks for intensive operations
-- 🤖 Subagent spawn guards
-- 📈 JSON output for automation
-- 💻 Cross-platform (Linux, macOS, Windows/WSL)
+-  Real-time usage monitoring from Kimi console
+-  Capacity-aware decision making
+-  Pre-flight checks for intensive operations
+-  Subagent spawn guards
+-  JSON output for automation
+-  Cross-platform (Linux, macOS, Windows/WSL)
 
 ## Requirements
 
@@ -22,11 +22,11 @@ A lightweight skill for monitoring Kimi K2.5 API usage and making autonomous res
 
 | Platform | Command | Status |
 |----------|---------|--------|
-| Linux | `./check_usage.sh` | ✅ |
-| macOS | `./check_usage.sh` | ✅ |
-| Windows (WSL) | `./check_usage.sh` | ✅ |
-| Windows (Native) | `check_usage.bat` | ✅ |
-| Windows (PowerShell) | `.\check_usage.ps1` | ✅ |
+| Linux | `./check_usage.sh` |  |
+| macOS | `./check_usage.sh` |  |
+| Windows (WSL) | `./check_usage.sh` |  |
+| Windows (Native) | `check_usage.bat` |  |
+| Windows (PowerShell) | `.\check_usage.ps1` |  |
 
 See [PLATFORM_SUPPORT.md](PLATFORM_SUPPORT.md) for detailed compatibility information.
 
@@ -56,9 +56,9 @@ python3 scripts/subagent_guard.py
 
 | Remaining | Status | Recommended Action |
 |-----------|--------|-------------------|
-| >50% | 🟢 | Full operations, subagents OK |
-| 25-50% | 🟡 | Batch tasks, sparse subagents |
-| <25% | 🔴 | Essential only, no subagents |
+| >50% |  | Full operations, subagents OK |
+| 25-50% |  | Batch tasks, sparse subagents |
+| <25% |  | Essential only, no subagents |
 
 ## Pre-Flight Operation Types
 

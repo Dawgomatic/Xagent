@@ -6,7 +6,7 @@ author: dias
 tags: [news, turkey, rss, turkish]
 ---
 
-# 🇹🇷 Turkey News
+#  Turkey News
 
 Türkiye'deki önemli haberleri takip eder ve özetler.
 

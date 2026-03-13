@@ -26,7 +26,7 @@ iface = gr.Interface(
     fn=analyze,
     inputs=gr.Textbox(label="SMILES", value="CCO"),
     outputs=[gr.JSON(label="Props"), gr.Image(label="2D Viz"), gr.JSON(label="ADMET")],
-    title="Chemistry Query Agent 🧪",
+    title="Chemistry Query Agent ",
     description="PubChem/RDKit analysis"
 )
 

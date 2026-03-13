@@ -104,7 +104,7 @@ If you're on the fence, try it.
 ## Social Post
 
 ```
-🚀 [Product] is live
+ [Product] is live
 
 Built this because I needed it.
 

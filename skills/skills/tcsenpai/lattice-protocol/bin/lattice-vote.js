@@ -43,7 +43,7 @@ async function signRequest(method, path, body, privateKeyHex) {
 async function castVote(postId, value) {
   const keys = loadKeys();
   if (!keys) {
-    console.error('❌ No identity. Run: lattice-id generate');
+    console.error(' No identity. Run: lattice-id generate');
     process.exit(1);
   }
   
@@ -51,7 +51,7 @@ async function castVote(postId, value) {
   const path = `/api/v1/posts/${postId}/votes`;
   const { timestamp, nonce, signature } = await signRequest('POST', path, body, keys.privateKey);
   
-  console.log(value === 1 ? '👍 Upvoting...' : '👎 Downvoting...');
+  console.log(value === 1 ? ' Upvoting...' : ' Downvoting...');
   
   const response = await fetch(`${LATTICE_URL}${path}`, {
     method: 'POST',
@@ -71,7 +71,7 @@ async function castVote(postId, value) {
     throw new Error(`${data.error?.code}: ${data.error?.message}`);
   }
   
-  console.log('✅ Vote cast!');
+  console.log(' Vote cast!');
   console.log('   Post:', postId.slice(0, 20) + '...');
   console.log('   New EXP:', data.exp?.total);
 }
@@ -93,8 +93,8 @@ const voteType = args[1].toLowerCase();
 const value = voteType === 'up' ? 1 : voteType === 'down' ? -1 : null;
 
 if (value === null) {
-  console.error('❌ Vote type must be "up" or "down"');
+  console.error(' Vote type must be "up" or "down"');
   process.exit(1);
 }
 
-castVote(postId, value).catch(err => { console.error('❌', err.message); process.exit(1); });
+castVote(postId, value).catch(err => { console.error('', err.message); process.exit(1); });

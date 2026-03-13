@@ -52,7 +52,7 @@ def list_alerts(status=None):
         if not alerts: return "No alerts found."
         lines = ["**Price Alerts**\n"]
         for a in alerts:
-            icon = {"active": "🟢", "triggered": "🔔", "snoozed": "💤"}.get(a["status"], "⚪")
+            icon = {"active": "", "triggered": "", "snoozed": ""}.get(a["status"], "")
             cond = {"above": f"> {a['target_value']}", "below": f"< {a['target_value']}",
                     "change_pct": f"±{a['target_value']}%", "volume_above": f"vol > {a['target_value']}"}.get(a["condition"], a["condition"])
             line = f"  {icon} #{a['id']} {a['symbol']} {cond} [{a['status']}]"

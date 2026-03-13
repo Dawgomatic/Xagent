@@ -124,7 +124,7 @@ async function setup() {
         body: 'Based on the analysis, write a professional intelligence report. Include: market summary, key trends, whale activity analysis, probability assessment, and strategic insights.'
       }
     ],
-    // ⚠️ CRITICAL: Edges define the workflow execution path
+    //  CRITICAL: Edges define the workflow execution path
     edges: [
       { from: 'trigger:webhook', to: 'task:fetch' },
       { from: 'task:fetch', to: 'task:analyze' },

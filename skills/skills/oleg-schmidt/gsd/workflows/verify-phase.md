@@ -156,7 +156,7 @@ grep -r "$artifact_name" src/ --include="*.ts" --include="*.tsx" | grep -v "impo
 | Exists | Substantive | Wired | Status |
 |--------|-------------|-------|--------|
 | ✓ | ✓ | ✓ | ✓ VERIFIED |
-| ✓ | ✓ | ✗ | ⚠️ ORPHANED |
+| ✓ | ✓ | ✗ |  ORPHANED |
 | ✓ | ✗ | - | ✗ STUB |
 | ✗ | - | - | ✗ MISSING |
 
@@ -205,9 +205,9 @@ Run anti-pattern detection:
 - Console.log only implementations
 
 Categorize findings:
-- 🛑 Blocker: Prevents goal achievement
-- ⚠️ Warning: Indicates incomplete
-- ℹ️ Info: Notable but not problematic
+-  Blocker: Prevents goal achievement
+-  Warning: Indicates incomplete
+-  Info: Notable but not problematic
 
 ## Phase 8: Identify Human Verification
 

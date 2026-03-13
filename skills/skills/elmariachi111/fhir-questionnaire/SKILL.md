@@ -7,7 +7,7 @@ metadata:
 
 # FHIR Questionnaire Skill
 
-## ⚠️ CRITICAL RULES - READ FIRST
+##  CRITICAL RULES - READ FIRST
 
 **NEVER suggest LOINC or SNOMED CT codes from memory or training data. ALWAYS use the search and query scripts in this skill.**
 

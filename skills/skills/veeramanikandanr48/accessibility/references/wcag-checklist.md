@@ -78,16 +78,16 @@ Audio description for all video content.
 Information, structure, and relationships can be programmatically determined.
 
 ```html
-<!-- ✅ Proper heading hierarchy -->
+<!--  Proper heading hierarchy -->
 <h1>Main Page Title</h1>
   <h2>Section Title</h2>
     <h3>Subsection</h3>
 
-<!-- ✅ Proper form labels -->
+<!--  Proper form labels -->
 <label for="email">Email</label>
 <input type="email" id="email">
 
-<!-- ✅ Proper table headers -->
+<!--  Proper table headers -->
 <table>
   <thead>
     <tr>
@@ -97,7 +97,7 @@ Information, structure, and relationships can be programmatically determined.
   </thead>
 </table>
 
-<!-- ❌ WRONG - skipped heading -->
+<!--  WRONG - skipped heading -->
 <h1>Title</h1>
 <h3>Subsection</h3>  <!-- Skipped h2 -->
 ```
@@ -119,10 +119,10 @@ Reading and navigation order is logical.
 Instructions don't rely solely on sensory characteristics.
 
 ```html
-<!-- ❌ WRONG -->
+<!--  WRONG -->
 <p>Click the round button on the right</p>
 
-<!-- ✅ CORRECT -->
+<!--  CORRECT -->
 <p>Click the Submit button</p>
 <button>Submit</button>
 ```
@@ -155,10 +155,10 @@ Input purpose can be programmatically determined.
 Color is not the only visual means of conveying information.
 
 ```html
-<!-- ❌ WRONG - red text only -->
+<!--  WRONG - red text only -->
 <span style="color: red;">Error</span>
 
-<!-- ✅ CORRECT - icon + text -->
+<!--  CORRECT - icon + text -->
 <span class="error">
   <svg><!-- Error icon --></svg>
   Error: Invalid email
@@ -183,13 +183,13 @@ Mechanism to pause/stop/control audio that plays >3 seconds.
 - UI components: 3:1
 
 ```css
-/* ✅ PASS - 4.6:1 contrast */
+/*  PASS - 4.6:1 contrast */
 .text {
   color: #595959;
   background: #ffffff;
 }
 
-/* ❌ FAIL - 2.8:1 contrast */
+/*  FAIL - 2.8:1 contrast */
 .text {
   color: #999999;
   background: #ffffff;
@@ -213,10 +213,10 @@ max-width: 60ch;  /* Not fixed px */
 Use real text instead of images of text (unless essential).
 
 ```html
-<!-- ❌ Avoid -->
+<!--  Avoid -->
 <img src="heading.png" alt="Welcome">
 
-<!-- ✅ Use real text -->
+<!--  Use real text -->
 <h1>Welcome</h1>
 ```
 
@@ -282,11 +282,11 @@ User interface components and navigation must be operable.
 All functionality available via keyboard.
 
 ```html
-<!-- ✅ CORRECT -->
+<!--  CORRECT -->
 <button onclick="doThing()">Click me</button>
 <a href="/page">Link</a>
 
-<!-- ❌ WRONG -->
+<!--  WRONG -->
 <div onclick="doThing()">Click me</div>  <!-- Not keyboard accessible -->
 ```
 
@@ -295,7 +295,7 @@ All functionality available via keyboard.
 Keyboard focus can move away from any component.
 
 ```javascript
-// ✅ Dialog with Escape key to close
+//  Dialog with Escape key to close
 function Dialog() {
   useEffect(() => {
     const handleEscape = (e) => {
@@ -333,7 +333,7 @@ Moving, blinking, or scrolling content can be paused.
 
 ```html
 <div class="carousel">
-  <button aria-label="Pause carousel">⏸</button>
+  <button aria-label="Pause carousel"></button>
   <!-- Carousel content -->
 </div>
 ```
@@ -386,13 +386,13 @@ Focusable components receive focus in logical order.
 Purpose of each link can be determined from link text or context.
 
 ```html
-<!-- ❌ WRONG -->
+<!--  WRONG -->
 <a href="/article">Click here</a>
 
-<!-- ✅ CORRECT -->
+<!--  CORRECT -->
 <a href="/article">Read our accessibility guide</a>
 
-<!-- ✅ CORRECT - aria-label adds context -->
+<!--  CORRECT - aria-label adds context -->
 <a href="/article" aria-label="Read our accessibility guide">Read more</a>
 ```
 
@@ -420,7 +420,7 @@ Keyboard focus indicator is visible.
   outline-offset: 2px;
 }
 
-/* ❌ WRONG */
+/*  WRONG */
 *:focus {
   outline: none;  /* Never do this without replacement */
 }
@@ -444,9 +444,9 @@ For components with labels, the accessible name contains the visible text.
 
 ```html
 <!-- Visible label: "Submit" -->
-<button>Submit</button>  <!-- Accessible name: "Submit" ✅ -->
+<button>Submit</button>  <!-- Accessible name: "Submit"  -->
 
-<!-- ❌ WRONG -->
+<!--  WRONG -->
 <button aria-label="Send form">Submit</button>  <!-- Accessible name doesn't match -->
 ```
 
@@ -487,10 +487,10 @@ Language of each passage is programmatically determined.
 Receiving focus doesn't initiate change of context.
 
 ```html
-<!-- ❌ WRONG - opens new page on focus -->
+<!--  WRONG - opens new page on focus -->
 <input onfocus="window.location='/new-page'">
 
-<!-- ✅ CORRECT - user must activate -->
+<!--  CORRECT - user must activate -->
 <button onclick="window.location='/new-page'">Go to page</button>
 ```
 
@@ -499,10 +499,10 @@ Receiving focus doesn't initiate change of context.
 Changing setting doesn't automatically cause change of context.
 
 ```html
-<!-- ❌ WRONG - auto-submit on change -->
+<!--  WRONG - auto-submit on change -->
 <select onchange="this.form.submit()">
 
-<!-- ✅ CORRECT - explicit submit -->
+<!--  CORRECT - explicit submit -->
 <select name="category"></select>
 <button type="submit">Apply filter</button>
 ```
@@ -590,13 +590,13 @@ Content must be robust enough to be interpreted by a wide variety of user agents
 HTML is valid (no duplicate IDs, proper nesting).
 
 ```html
-<!-- ✅ Valid HTML -->
+<!--  Valid HTML -->
 <ul>
   <li>Item 1</li>
   <li>Item 2</li>
 </ul>
 
-<!-- ❌ WRONG - invalid nesting -->
+<!--  WRONG - invalid nesting -->
 <ul>
   <div>Not allowed here</div>
 </ul>

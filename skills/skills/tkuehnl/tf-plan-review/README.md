@@ -18,10 +18,10 @@ Every resource change is classified:
 
 | Level | Meaning | Examples |
 |-------|---------|----------|
-| 🔴 **Critical** | Data loss, security breach, or service outage risk | Destroy RDS, modify IAM policies, delete security groups |
-| 🟠 **Dangerous** | Downtime or manual recovery likely | Replace EC2 instances, destroy load balancers, delete VPCs |
-| 🟡 **Moderate** | Capacity or config changes worth reviewing | Update autoscaling, modify monitoring rules |
-| 🟢 **Safe** | Low-risk changes | Create new resources, tag updates |
+|  **Critical** | Data loss, security breach, or service outage risk | Destroy RDS, modify IAM policies, delete security groups |
+|  **Dangerous** | Downtime or manual recovery likely | Replace EC2 instances, destroy load balancers, delete VPCs |
+|  **Moderate** | Capacity or config changes worth reviewing | Update autoscaling, modify monitoring rules |
+|  **Safe** | Low-risk changes | Create new resources, tag updates |
 
 ### Features
 
@@ -86,30 +86,30 @@ The skill produces:
 ### Sample Risk Report
 
 ```
-# 🔍 Terraform Plan Risk Assessment
+#  Terraform Plan Risk Assessment
 
-**Overall Risk:** 🔴 CRITICAL
+**Overall Risk:**  CRITICAL
 
-## 📊 Change Summary
+##  Change Summary
 | Action | Count |
 |--------|-------|
-| ➕ Create | 3 |
-| ✏️ Update | 2 |
-| 💥 Destroy | 1 |
+|  Create | 3 |
+|  Update | 2 |
+|  Destroy | 1 |
 | **Total** | **6** |
 
-## 🚨 HIGH-RISK CHANGES — REVIEW CAREFULLY
+##  HIGH-RISK CHANGES — REVIEW CAREFULLY
 | Risk | Action | Resource |
 |------|--------|----------|
-| 🔴 CRITICAL | delete | `aws_db_instance.production` |
-| 🟠 DANGEROUS | replace | `aws_instance.api_server` |
+|  CRITICAL | delete | `aws_db_instance.production` |
+|  DANGEROUS | replace | `aws_instance.api_server` |
 
-## 💀 RESOURCES BEING DESTROYED
-- ⛔ `aws_db_instance.production` — delete
+##  RESOURCES BEING DESTROYED
+-  `aws_db_instance.production` — delete
 
-> ⚠️ Destruction is irreversible. Verify backups exist.
+>  Destruction is irreversible. Verify backups exist.
 
-## ✅ Pre-Apply Checklist
+##  Pre-Apply Checklist
 - [ ] Backups verified for all resources being destroyed
 - [ ] Change reviewed by at least one other team member
 - [ ] Rollback plan documented

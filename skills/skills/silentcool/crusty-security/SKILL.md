@@ -44,7 +44,7 @@ Run `bash setup.sh` — that's it. This will:
 4. Run initial host audit + workspace scan (populates dashboard immediately)
 5. Check which scheduled scans need to be created
 
-**⚠️ IMPORTANT — After setup.sh, you MUST create the cron jobs below using the OpenClaw cron tool.** Setup.sh handles the bash-level installation, but cron jobs require agent-level tools. Do this immediately after first install — don't wait for the user to ask.
+** IMPORTANT — After setup.sh, you MUST create the cron jobs below using the OpenClaw cron tool.** Setup.sh handles the bash-level installation, but cron jobs require agent-level tools. Do this immediately after first install — don't wait for the user to ask.
 
 ### Required Cron Jobs (create on first install)
 
@@ -86,9 +86,9 @@ If your human has configured `CRUSTY_API_KEY`, the skill sends scan results to t
 
 1. Run `bash scripts/scan_file.sh <path>` for ClamAV local scan
 2. Report results:
-   - ✅ Clean — "No threats detected. Scanned with ClamAV, signatures from [date]."
-   - ⚠️ Suspicious — "Low-confidence detection by ClamAV. Recommend quarantine for review."
-   - 🚨 Malicious — "Threat detected: [name]. Recommend quarantine. Options: quarantine, delete, or ignore."
+   -  Clean — "No threats detected. Scanned with ClamAV, signatures from [date]."
+   -  Suspicious — "Low-confidence detection by ClamAV. Recommend quarantine for review."
+   -  Malicious — "Threat detected: [name]. Recommend quarantine. Options: quarantine, delete, or ignore."
 
 **For directories:**
 ```bash
@@ -116,10 +116,10 @@ bash scripts/scan_file.sh --quarantine /path/to/file   # Move to quarantine
 `bash scripts/audit_skill.sh /path/to/skill/directory/`
 
 **What it checks:**
-- 🔴 **Critical:** curl/wget piped to shell, reverse shell patterns, crypto mining indicators
-- 🟠 **High:** eval/exec with dynamic input, base64 decode patterns, data exfiltration endpoints (webhook.site, ngrok, etc.), credential harvesting, binary executables, agent config modification
-- 🟡 **Medium:** hidden files, system file access, hardcoded IPs, obfuscated code, persistence mechanisms (cron, systemd)
-- 🔵 **Low/Info:** large skill size, credential references in docs
+-  **Critical:** curl/wget piped to shell, reverse shell patterns, crypto mining indicators
+-  **High:** eval/exec with dynamic input, base64 decode patterns, data exfiltration endpoints (webhook.site, ngrok, etc.), credential harvesting, binary executables, agent config modification
+-  **Medium:** hidden files, system file access, hardcoded IPs, obfuscated code, persistence mechanisms (cron, systemd)
+-  **Low/Info:** large skill size, credential references in docs
 
 **Output:** Risk score (low/medium/high/critical) + detailed findings with evidence.
 
@@ -214,11 +214,11 @@ rm -rf /tmp/crusty_quarantine/*
 ## Offline Mode
 
 Crusty Security works fully offline with reduced capability:
-- ✅ ClamAV scanning (local signatures)
-- ✅ Skill auditing (static analysis, no network needed)
-- ✅ Host auditing (local checks)
-- ✅ Agent monitoring (local checks)
-- ⚠️ ClamAV signatures may be stale (check freshness in host audit)
+-  ClamAV scanning (local signatures)
+-  Skill auditing (static analysis, no network needed)
+-  Host auditing (local checks)
+-  Agent monitoring (local checks)
+-  ClamAV signatures may be stale (check freshness in host audit)
 
 ## Resource-Constrained Environments (Raspberry Pi)
 

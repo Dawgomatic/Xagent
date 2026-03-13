@@ -15,16 +15,16 @@
 ## Marketplace Platforms
 
 **Fiverr/Upwork:**
-- ✅ Fast, cheap, good for testing
-- ❌ Quality varies wildly
-- ❌ Limited revisions, rushed process
+-  Fast, cheap, good for testing
+-  Quality varies wildly
+-  Limited revisions, rushed process
 - Best for: Placeholder logos, testing concepts
 
 **Crowdsourcing (99designs, DesignCrowd):**
-- ✅ Multiple concepts from different designers
-- ✅ Money-back guarantee
-- ❌ Spec work concerns (designers work for free unless chosen)
-- ❌ Designers spread thin, limited attention
+-  Multiple concepts from different designers
+-  Money-back guarantee
+-  Spec work concerns (designers work for free unless chosen)
+-  Designers spread thin, limited attention
 - Best for: When you don't know what you want
 
 ---

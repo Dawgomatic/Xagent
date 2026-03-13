@@ -304,7 +304,7 @@ echo ""
 echo -e "${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
 
 if [[ $ISSUES -gt 0 ]]; then
-    echo -e "${RED}${BOLD}⚠ SUSPICIOUS — ${ISSUES} issue(s) found${RESET}"
+    echo -e "${RED}${BOLD} SUSPICIOUS — ${ISSUES} issue(s) found${RESET}"
     echo -e "${DIM}Review the findings above before installing this skill.${RESET}"
     echo ""
     exit 1

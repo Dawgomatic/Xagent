@@ -49,11 +49,11 @@ Unlike FIS 3.1, **3.2 requires no initialization**:
 
 | Task | FIS 3.1 | FIS 3.2 |
 |------|---------|---------|
-| Run init script | ✅ Required | ❌ Not needed |
-| Create registries | ✅ Required | ❌ Not needed |
-| Set Python path | ✅ Required | ❌ Not needed |
-| Create complex structure | ✅ Required | ❌ Not needed |
-| Create ticket files | ✅ Via API | ✅ Direct JSON |
+| Run init script |  Required |  Not needed |
+| Create registries |  Required |  Not needed |
+| Set Python path |  Required |  Not needed |
+| Create complex structure |  Required |  Not needed |
+| Create ticket files |  Via API |  Direct JSON |
 
 ---
 
@@ -66,7 +66,7 @@ If `fis-hub/` doesn't exist:
 mkdir -p ~/.openclaw/fis-hub/{tickets/active,tickets/completed,knowledge,results,.fis3.1}
 echo '{}' > ~/.openclaw/fis-hub/.fis3.1/notifications.json
 
-echo "✅ FIS 3.2 structure ready"
+echo " FIS 3.2 structure ready"
 ```
 
 ---
@@ -75,11 +75,11 @@ echo "✅ FIS 3.2 structure ready"
 
 ### What FIS Touches
 
-- ✅ Creates: Ticket JSON files
-- ✅ Creates: Knowledge Markdown files
-- ✅ Creates: Result outputs
-- ❌ Never touches: Other agents' Core Files (MEMORY.md, HEARTBEAT.md)
-- ❌ Never modifies: OpenClaw configuration files
+-  Creates: Ticket JSON files
+-  Creates: Knowledge Markdown files
+-  Creates: Result outputs
+-  Never touches: Other agents' Core Files (MEMORY.md, HEARTBEAT.md)
+-  Never modifies: OpenClaw configuration files
 
 ### Cleanup Behavior
 
@@ -134,7 +134,7 @@ cat ~/.openclaw/fis-hub/tickets/active/TEST.json
 mv ~/.openclaw/fis-hub/tickets/active/TEST.json \
    ~/.openclaw/fis-hub/tickets/completed/
 
-echo "✅ FIS 3.2 working correctly"
+echo " FIS 3.2 working correctly"
 ```
 
 ---
@@ -149,4 +149,4 @@ echo "✅ FIS 3.2 working correctly"
 
 ---
 
-*FIS 3.2.0-lite — Simple by design 🐱⚡*
+*FIS 3.2.0-lite — Simple by design *

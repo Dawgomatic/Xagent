@@ -74,14 +74,14 @@ PROMPT_PROFILES = [
 # │ 04_Evaluation       │ Validate purchase decision. Trust anchors, proof, authority.     │
 # │                     │ Reviews, certifications, quality signals.                         │
 # │ 05_Conversion       │ Trigger purchase action. Clean, minimal, CTA-dominant.           │
-# │                     │ ⚠️ WARNING: Produces minimal/sterile visuals by design.           │
+# │                     │  WARNING: Produces minimal/sterile visuals by design.           │
 # │ 06_Retention        │ Post-purchase confidence. "You made the right choice."           │
 # │                     │ Gentle guidance, onboarding feel.                                │
 # │ 07_Loyalty          │ Emotional bond over time. Lifestyle, identity, belonging.        │
 # │                     │ Editorial and aspirational.                                       │
 # │ 08_Advocacy         │ Turn customers into ambassadors. Share-worthy, community,        │
 # │                     │ signal belonging. Organic, social-native feel.                    │
-# │ 09_Morfeo_Creative  │ 🎨 CREATIVE MODE. Cinematic, narrative-rich, slightly surreal.   │
+# │ 09_Morfeo_Creative  │  CREATIVE MODE. Cinematic, narrative-rich, slightly surreal.   │
 # │                     │ Best for visually striking ads. NEVER white backgrounds.          │
 # │                     │ Think: movie stills + magical realism + high fashion.             │
 # └─────────────────────┴──────────────────────────────────────────────────────────────────┘
@@ -180,7 +180,7 @@ def fetch_product_image(client: httpx.Client, product_url: str, dest: Path) -> b
     try:
         from bs4 import BeautifulSoup
     except ImportError:
-        print("  ⚠ beautifulsoup4 not available for product image extraction", flush=True)
+        print("   beautifulsoup4 not available for product image extraction", flush=True)
         return False
 
     print("  Fetching product page for main image...", flush=True)
@@ -258,7 +258,7 @@ def fetch_brand_logo(client: httpx.Client, brand_name: str, dest: Path) -> bool:
         if download_to_file(client, url, dest):
             return True
 
-    print(f"  ⚠ Could not auto-download logo for '{brand_name}'", flush=True)
+    print(f"   Could not auto-download logo for '{brand_name}'", flush=True)
     print(f"    → Please provide --logo manually (download from brand website)", flush=True)
     return False
 
@@ -304,7 +304,7 @@ def poll_run(client: httpx.Client, api_key: str, run_id: str, timeout: int = 600
         dots += 1
         if dots % 6 == 0:
             elapsed = time.time() - start
-            print(f"  ⏳ {status}... ({elapsed:.0f}s)", flush=True)
+            print(f"   {status}... ({elapsed:.0f}s)", flush=True)
         time.sleep(5)
     raise TimeoutError(f"Timed out after {timeout}s")
 
@@ -336,10 +336,10 @@ def validate_inputs(args) -> list[str]:
     warnings = []
 
     if args.brand_profile == "No Brand":
-        warnings.append("⚠️  brand-profile is 'No Brand'. If a brand is known, always specify it!")
+        warnings.append("  brand-profile is 'No Brand'. If a brand is known, always specify it!")
 
     if not args.product_image and not args.auto_fetch:
-        warnings.append("⚠️  No --product-image provided. Scraping is fragile — provide one for best results.")
+        warnings.append("  No --product-image provided. Scraping is fragile — provide one for best results.")
 
     return warnings
 
@@ -415,7 +415,7 @@ Examples:
     # Show warnings
     warnings = validate_inputs(args)
     if warnings:
-        print("\n⚠️  Input warnings:", flush=True)
+        print("\n  Input warnings:", flush=True)
         for w in warnings:
             print(f"  {w}", flush=True)
         print("", flush=True)
@@ -432,7 +432,7 @@ Examples:
 
         # --- Auto-fetch if enabled ---
         if args.auto_fetch:
-            print("\n📥 Auto-fetching assets...", flush=True)
+            print("\n Auto-fetching assets...", flush=True)
             tmp = Path("/tmp/ad-ready")
             tmp.mkdir(exist_ok=True)
 
@@ -449,12 +449,12 @@ Examples:
                     args.logo = str(logo_dest)
 
         # --- Resolve and upload images ---
-        print("\n📤 Uploading assets to ComfyDeploy...", flush=True)
+        print("\n Uploading assets to ComfyDeploy...", flush=True)
 
         if args.product_image:
             producto_url = resolve_image(client, api_key, args.product_image)
         else:
-            print("  ⚠ No product image — relying on scraper (less reliable)", flush=True)
+            print("   No product image — relying on scraper (less reliable)", flush=True)
 
         if args.model:
             model_url = resolve_image(client, api_key, args.model)
@@ -482,7 +482,7 @@ Examples:
         if args.creative_brief:
             inputs["creative_brief"] = args.creative_brief
 
-        print(f"\n🎯 Generation Settings:", flush=True)
+        print(f"\n Generation Settings:", flush=True)
         print(f"  Product URL:  {args.product_url[:70]}{'...' if len(args.product_url) > 70 else ''}", flush=True)
         print(f"  Brand:        {args.brand_profile}", flush=True)
         print(f"  Funnel Stage: {args.prompt_profile.split('_')[-1]}", flush=True)
@@ -503,24 +503,24 @@ Examples:
             missing_critical.append("brand profile")
 
         if missing_critical:
-            print(f"\n⚠️  Missing: {', '.join(missing_critical)}", flush=True)
+            print(f"\n  Missing: {', '.join(missing_critical)}", flush=True)
             print(f"  Proceeding anyway, but output quality may be lower.", flush=True)
 
-        print(f"\n🚀 Queuing generation...", flush=True)
+        print(f"\n Queuing generation...", flush=True)
         run_id = queue_run(client, api_key, inputs)
 
-        print(f"⏳ Waiting for completion...", flush=True)
+        print(f" Waiting for completion...", flush=True)
         result = poll_run(client, api_key, run_id, timeout=600)
 
         image_urls = find_output_images(result)
         if not image_urls:
-            print("\n❌ No output images found!", file=sys.stderr)
+            print("\n No output images found!", file=sys.stderr)
             outputs = result.get("outputs", [])
             if outputs:
                 print(f"Raw outputs: {json.dumps(outputs, indent=2)[:2000]}", file=sys.stderr)
             sys.exit(1)
 
-        print(f"\n📸 Found {len(image_urls)} output image(s)", flush=True)
+        print(f"\n Found {len(image_urls)} output image(s)", flush=True)
 
         # Download the last image (typically the final processed one)
         download_image(client, image_urls[-1], args.output)
@@ -532,7 +532,7 @@ Examples:
                 extra_path = base.parent / f"{base.stem}_v{i+1}{base.suffix}"
                 download_image(client, url, str(extra_path))
 
-        print(f"\n✅ Done! Output: {args.output}", flush=True)
+        print(f"\n Done! Output: {args.output}", flush=True)
 
 
 if __name__ == "__main__":

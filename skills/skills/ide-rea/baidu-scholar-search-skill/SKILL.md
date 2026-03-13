@@ -2,7 +2,7 @@
 name: baidu-scholar-search-skill
 description: Baidu Scholar Search - Search Chinese and English academic literature (journals, conferences, papers, etc.)
 homepage: https://xueshu.baidu.com/
-metadata: { "openclaw": { "emoji": "🔬", "requires": { "bins": ["curl"] ,"env":["BAIDU_API_KEY"]},"primaryEnv":"BAIDU_API_KEY" }  }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["curl"] ,"env":["BAIDU_API_KEY"]},"primaryEnv":"BAIDU_API_KEY" }  }
 ---
 
 # Baidu Scholar Search Skill
@@ -22,9 +22,9 @@ bash baidu_scholar_search.sh "keyword" page_number include_abstract
 ### Parameter Description
 | Parameter | Required | Default | Description |
 |-----------|----------|---------|-------------|
-| keyword | ✅ | - | Search term, e.g., "machine learning" or "cancer immunotherapy" |
-| page_number | ❌ | 0 | Starts from 0, 0=first page, 1=second page |
-| include_abstract | ❌ | false | true=return detailed abstract, false=return only title and basic info |
+| keyword |  | - | Search term, e.g., "machine learning" or "cancer immunotherapy" |
+| page_number |  | 0 | Starts from 0, 0=first page, 1=second page |
+| include_abstract |  | false | true=return detailed abstract, false=return only title and basic info |
 
 ### Default Behavior
 - **No abstract returned** - Fast response, suitable for quickly browsing literature lists

@@ -31,7 +31,7 @@ async function listMarkets() {
   const json = await res.json();
   const data = json.data || json;
   
-  console.log('\n📊 Open Markets on Myriad:\n');
+  console.log('\n Open Markets on Myriad:\n');
   for (const m of data) {
     const outcomes = m.outcomes?.map(o => `${o.title}: ${(o.price * 100).toFixed(1)}%`).join(' | ') || 'N/A';
     console.log(`  [${m.id}] ${m.title}`);
@@ -51,7 +51,7 @@ async function getMarketInfo(marketId) {
   if (!market) {
     console.log(`Market ${marketId} not found in open markets. Trying on-chain...`);
   } else {
-    console.log(`\n📊 Market: ${market.title}`);
+    console.log(`\n Market: ${market.title}`);
     console.log(`   ID: ${market.id}`);
     console.log(`   State: ${market.state}`);
     console.log(`   Outcomes:`);
@@ -77,7 +77,7 @@ async function getMarketInfo(marketId) {
 }
 
 async function buyShares(marketId, outcomeId, value) {
-  console.log(`\n🎯 Buying shares on Market ${marketId}, Outcome ${outcomeId}, Value: ${value}`);
+  console.log(`\n Buying shares on Market ${marketId}, Outcome ${outcomeId}, Value: ${value}`);
   
   const client = await getMyriadClient();
   await client.polkamarket.login();
@@ -109,20 +109,20 @@ async function buyShares(marketId, outcomeId, value) {
     console.log('   Transaction submitted!');
     if (tx && tx.wait) {
       const receipt = await tx.wait();
-      console.log(`   ✅ Confirmed! Hash: ${receipt.transactionHash}`);
+      console.log(`    Confirmed! Hash: ${receipt.transactionHash}`);
     } else {
       console.log('   Result:', JSON.stringify(tx, null, 2));
     }
   } catch (e) {
-    console.error('   ❌ Error:', e.message);
+    console.error('    Error:', e.message);
     if (e.message.includes('insufficient')) {
-      console.log('   💡 You may need PTS tokens. Check your balance.');
+      console.log('    You may need PTS tokens. Check your balance.');
     }
   }
 }
 
 async function getPortfolio() {
-  console.log('\n📁 Fetching portfolio...');
+  console.log('\n Fetching portfolio...');
   
   const client = await getMyriadClient();
   await client.polkamarket.login();
@@ -135,7 +135,7 @@ async function getPortfolio() {
     const portfolio = await pm.getMyPortfolio();
     console.log('\n   Portfolio:', JSON.stringify(portfolio, null, 2));
   } catch (e) {
-    console.error('   ❌ Error:', e.message);
+    console.error('    Error:', e.message);
   }
 }
 

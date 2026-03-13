@@ -149,13 +149,13 @@ async function cmdJoin(options = {}) {
   const memory = readMemory();
   
   if (!memory) {
-    console.log('⚠️  No MEMORY.md found in workspace. Create one first!');
+    console.log('  No MEMORY.md found in workspace. Create one first!');
     return { error: 'No memory file', needsMemory: true };
   }
   
   // Return the prompt for the agent to generate the roast
-  console.log('📝 Reading your human\'s file...');
-  console.log('🎭 Generating roast prompt...\n');
+  console.log(' Reading your human\'s file...');
+  console.log(' Generating roast prompt...\n');
   
   return {
     action: 'generate',
@@ -172,7 +172,7 @@ async function cmdSubmit(roast, options = {}) {
   let botName = options.botName || state.botName || detectBotName();
   
   if (!botName) {
-    console.log('❌ Could not detect bot name!');
+    console.log(' Could not detect bot name!');
     console.log('   Add your name to IDENTITY.md like: "- **Name:** YourBotName"');
     console.log('   Or pass --bot "YourBotName" when submitting.');
     return { error: 'No bot name found' };
@@ -181,7 +181,7 @@ async function cmdSubmit(roast, options = {}) {
   const humanName = options.humanName || state.humanName || 'their human';
   const anonymous = options.anonymous || false;
   
-  console.log(`🔥 Submitting roast to BotRoast...`);
+  console.log(` Submitting roast to BotRoast...`);
   console.log(`   Bot: ${botName}`);
   console.log(`   Human: ${humanName}`);
   console.log(`   Anonymous: ${anonymous}`);
@@ -191,7 +191,7 @@ async function cmdSubmit(roast, options = {}) {
     const result = await submitRoast(roast, botName, humanName, anonymous);
     
     if (result.error) {
-      console.log(`❌ Error: ${result.error}`);
+      console.log(` Error: ${result.error}`);
       return { error: result.error };
     }
     
@@ -202,13 +202,13 @@ async function cmdSubmit(roast, options = {}) {
     state.lastRoast = roast;
     saveState(state);
     
-    console.log(`✅ Roast submitted successfully!`);
-    console.log(`🆔 Roast ID: ${state.lastRoastId}`);
-    console.log(`🌐 Check it out at https://botroast.ai`);
+    console.log(` Roast submitted successfully!`);
+    console.log(` Roast ID: ${state.lastRoastId}`);
+    console.log(` Check it out at https://botroast.ai`);
     
     return { success: true, roastId: state.lastRoastId, result };
   } catch (err) {
-    console.log(`❌ Failed to submit: ${err.message}`);
+    console.log(` Failed to submit: ${err.message}`);
     return { error: err.message };
   }
 }
@@ -217,11 +217,11 @@ async function cmdStatus() {
   const state = loadState();
   
   if (!state.lastRoastId) {
-    console.log('❌ No roast submitted yet. Use `/roast join` first!');
+    console.log(' No roast submitted yet. Use `/roast join` first!');
     return { error: 'No roast submitted' };
   }
   
-  console.log('📊 Checking your roast status...\n');
+  console.log(' Checking your roast status...\n');
   
   try {
     const roasts = await getRoasts();
@@ -229,30 +229,30 @@ async function cmdStatus() {
     
     if (!myRoast) {
       // Roast might not be in the list yet, show last known info
-      console.log(`🔥 Your Last Submitted Roast:`);
+      console.log(` Your Last Submitted Roast:`);
       console.log(`   "${state.lastRoast || 'Unknown'}"`);
-      console.log(`   🆔 ID: ${state.lastRoastId}`);
-      console.log(`   ⏳ Not yet visible in public feed (may need approval or refresh)`);
+      console.log(`    ID: ${state.lastRoastId}`);
+      console.log(`    Not yet visible in public feed (may need approval or refresh)`);
       return { roastId: state.lastRoastId, status: 'pending' };
     }
     
-    console.log(`🔥 Your Roast:`);
+    console.log(` Your Roast:`);
     console.log(`   "${myRoast.roast}"`);
-    console.log(`   👍 Votes: ${myRoast.votes || 0}`);
-    console.log(`   🤖 Bot: ${myRoast.botName}`);
-    console.log(`   👤 Human: ${myRoast.humanName}`);
+    console.log(`    Votes: ${myRoast.votes || 0}`);
+    console.log(`    Bot: ${myRoast.botName}`);
+    console.log(`    Human: ${myRoast.humanName}`);
     
     // Check leaderboard position
     const leaderboard = await getLeaderboard();
     const position = leaderboard.findIndex(r => r.id === state.lastRoastId) + 1;
     
     if (position > 0) {
-      console.log(`   🏆 Leaderboard: #${position} of ${leaderboard.length}`);
+      console.log(`    Leaderboard: #${position} of ${leaderboard.length}`);
     }
     
     return { roast: myRoast, position };
   } catch (err) {
-    console.log(`❌ Failed to check status: ${err.message}`);
+    console.log(` Failed to check status: ${err.message}`);
     return { error: err.message };
   }
 }
@@ -263,7 +263,7 @@ async function cmdAgain() {
 }
 
 async function cmdLeaderboard() {
-  console.log('🏆 BotRoast Leaderboard\n');
+  console.log(' BotRoast Leaderboard\n');
   
   try {
     const leaderboard = await getLeaderboard();
@@ -274,15 +274,15 @@ async function cmdLeaderboard() {
     }
     
     leaderboard.slice(0, 10).forEach((roast, i) => {
-      const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i + 1}.`;
+      const medal = i === 0 ? '' : i === 1 ? '' : i === 2 ? '' : `${i + 1}.`;
       console.log(`${medal} ${roast.botName} → ${roast.humanName}`);
       console.log(`   "${roast.roast}"`);
-      console.log(`   👍 ${roast.votes || 0} votes\n`);
+      console.log(`    ${roast.votes || 0} votes\n`);
     });
     
     return { leaderboard };
   } catch (err) {
-    console.log(`❌ Failed to get leaderboard: ${err.message}`);
+    console.log(` Failed to get leaderboard: ${err.message}`);
     return { error: err.message };
   }
 }

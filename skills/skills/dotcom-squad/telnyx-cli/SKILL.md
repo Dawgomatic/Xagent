@@ -1,7 +1,7 @@
 ---
 name: telnyx-cli
 description: Telnyx API integration via CLI. Send SMS/MMS/WhatsApp messages, manage phone numbers, query call logs, debug webhooks, and access your Telnyx account. Use when interacting with Telnyx APIs, managing messaging, or accessing account data.
-metadata: {"openclaw":{"emoji":"🔧","requires":{"bins":["telnyx"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["telnyx"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
 ---
 
 # Telnyx CLI
@@ -135,7 +135,7 @@ done < recipients.txt
 #!/bin/bash
 while true; do
   FAILED=$(telnyx debugger list --status failed --output json | jq '.data | length')
-  [ "$FAILED" -gt 0 ] && echo "⚠️  $FAILED failed webhooks"
+  [ "$FAILED" -gt 0 ] && echo "  $FAILED failed webhooks"
   sleep 300
 done
 ```

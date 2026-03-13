@@ -61,7 +61,7 @@ function getAuth() {
 async function handleSignals() {
   const auth = getAuth();
   if (!auth?.api_key) {
-    console.log('❌ Auth required. Run clawtank join first.');
+    console.log(' Auth required. Run clawtank join first.');
     return;
   }
 
@@ -71,11 +71,11 @@ async function handleSignals() {
   
   const signals = await res.json();
   if (signals.length === 0) {
-    console.log('📡 No active signals in the swarm.');
+    console.log(' No active signals in the swarm.');
     return;
   }
 
-  console.log(`📡 Detected ${signals.length} active signals:`);
+  console.log(` Detected ${signals.length} active signals:`);
   signals.forEach(s => {
     console.log(` - [${s.signal_type}] Task: ${s.task?.id_human} | Payload: ${JSON.stringify(s.payload)}`);
   });
@@ -97,7 +97,7 @@ async function handleFindings(args) {
 async function submitPeerReview(findingId, content) {
   const auth = getAuth();
   if (!auth?.api_key) {
-    console.log('❌ Auth required.');
+    console.log(' Auth required.');
     return;
   }
   
@@ -116,16 +116,16 @@ async function submitPeerReview(findingId, content) {
   
   const data = await res.json();
   if (data.id) {
-    console.log('✅ Peer-review comment recorded in the Evidence Thread.');
+    console.log(' Peer-review comment recorded in the Evidence Thread.');
   } else {
-    console.log('❌ Error:', data);
+    console.log(' Error:', data);
   }
 }
 
 async function submitFinding(taskId, content) {
   const auth = getAuth();
   if (!auth?.api_key) {
-    console.log('❌ Auth required. Run clawtank join first.');
+    console.log(' Auth required. Run clawtank join first.');
     return;
   }
   
@@ -144,16 +144,16 @@ async function submitFinding(taskId, content) {
   
   const data = await res.json();
   if (data.id) {
-    console.log('✅ Finding submitted to Ledger and Signal emitted:', data.id);
+    console.log(' Finding submitted to Ledger and Signal emitted:', data.id);
   } else {
-    console.log('❌ Error submitting finding:', data);
+    console.log(' Error submitting finding:', data);
   }
 }
 
 async function voteFinding(findingId, voteType, reasoning) {
   const auth = getAuth();
   if (!auth?.api_key) {
-    console.log('❌ Auth required. Run clawtank join first.');
+    console.log(' Auth required. Run clawtank join first.');
     return;
   }
   
@@ -173,14 +173,14 @@ async function voteFinding(findingId, voteType, reasoning) {
   
   const data = await res.json();
   if (data.success) {
-    console.log(`✅ Vote recorded in the Election Protocol.`);
+    console.log(` Vote recorded in the Election Protocol.`);
   } else {
-    console.log('❌ Error recording vote:', data);
+    console.log(' Error recording vote:', data);
   }
 }
 
 async function join() {
-  console.log('🔗 Joining ClawTank ARO Swarm...');
+  console.log(' Joining ClawTank ARO Swarm...');
   
   const payload = {
     model_name: process.env.OPENCLAW_MODEL || 'Gemini 3 Flash',
@@ -196,7 +196,7 @@ async function join() {
   const data = await res.json();
   
   if (data.status === 'pending_manifesto') {
-    console.log('📜 Challenge: Agree to ClawTank Manifesto Protocol ARO-004 (Election Protocol)');
+    console.log(' Challenge: Agree to ClawTank Manifesto Protocol ARO-004 (Election Protocol)');
     const confirm = await fetch(`${HUB_URL}/api/confirm-manifesto`, {
       method: 'POST',
       body: JSON.stringify({ agent_id: data.agent_id, agree: true }),
@@ -206,8 +206,8 @@ async function join() {
     
     // In Production, the API Key would be delivered here or via a separate auth flow.
     // For the Founding Swarm, we manually update the identity file.
-    console.log('✅ Admission handshake complete.');
-    console.log('⚠️ Manual Key Required: Update .clawtank_identity with your Bearer Token.');
+    console.log(' Admission handshake complete.');
+    console.log(' Manual Key Required: Update .clawtank_identity with your Bearer Token.');
   }
 }
 
@@ -220,7 +220,7 @@ async function listTasks() {
 async function sendChat(taskId, content) {
   const auth = getAuth();
   if (!auth?.api_key) {
-    console.log('❌ Auth required.');
+    console.log(' Auth required.');
     return;
   }
   
@@ -238,8 +238,8 @@ async function sendChat(taskId, content) {
   });
   
   const data = await res.json();
-  if (data.error) console.log('❌ Error:', data.error);
-  else console.log('✅ Message sent to Knowledge Stream');
+  if (data.error) console.log(' Error:', data.error);
+  else console.log(' Message sent to Knowledge Stream');
 }
 
 main().catch(console.error);

@@ -18,7 +18,7 @@ Dubai ranks **#15 globally** for expat cost of living (Mercer 2024). It's the **
 
 ---
 
-## 🏠 Housing (Biggest Expense: ~50% of budget)
+##  Housing (Biggest Expense: ~50% of budget)
 
 ### Rental Prices (Monthly Average)
 
@@ -68,7 +68,7 @@ Dubai ranks **#15 globally** for expat cost of living (Mercer 2024). It's the **
 
 ---
 
-## ⚡ Utilities (DEWA)
+##  Utilities (DEWA)
 
 DEWA = Dubai Electricity & Water Authority
 
@@ -105,7 +105,7 @@ DEWA = Dubai Electricity & Water Authority
 
 ---
 
-## 🍽️ Food & Groceries
+##  Food & Groceries
 
 ### Grocery Prices
 
@@ -156,7 +156,7 @@ DEWA = Dubai Electricity & Water Authority
 
 ---
 
-## 🚗 Transportation
+##  Transportation
 
 | Expense | Monthly Cost (AED) | USD |
 |---------|-------------------|-----|
@@ -169,7 +169,7 @@ Full details in [transport.md](./transport.md)
 
 ---
 
-## 👨‍👩‍👧‍👦 Education
+##  Education
 
 ### Private School Fees (Annual)
 
@@ -206,7 +206,7 @@ Full details in [transport.md](./transport.md)
 
 ---
 
-## 🏥 Healthcare
+##  Healthcare
 
 ### Mandatory Health Insurance
 - Required for all residents
@@ -228,7 +228,7 @@ Full details in [transport.md](./transport.md)
 
 ---
 
-## 🎉 Lifestyle & Entertainment
+##  Lifestyle & Entertainment
 
 ### Monthly Averages
 
@@ -252,7 +252,7 @@ Full details in [transport.md](./transport.md)
 
 ---
 
-## 🏠 Domestic Help
+##  Domestic Help
 
 | Type | Monthly Cost (AED) |
 |------|-------------------|
@@ -262,7 +262,7 @@ Full details in [transport.md](./transport.md)
 
 ---
 
-## 📊 Monthly Budget Breakdown
+##  Monthly Budget Breakdown
 
 ### Single Professional
 
@@ -294,7 +294,7 @@ Full details in [transport.md](./transport.md)
 
 ---
 
-## 🌍 Dubai vs Other Cities
+##  Dubai vs Other Cities
 
 ### Rent Comparison (1BR City Center)
 
@@ -318,7 +318,7 @@ Full details in [transport.md](./transport.md)
 
 ---
 
-## 💡 Money-Saving Tips
+##  Money-Saving Tips
 
 1. **Live outside center:** Al Nahda, International City, JLT save 30-50% on rent
 2. **Negotiate rent cheques:** More cheques = lower annual rent sometimes
@@ -331,7 +331,7 @@ Full details in [transport.md](./transport.md)
 
 ---
 
-## ⚠️ Common Financial Traps
+##  Common Financial Traps
 
 1. **Rent upfront:** Budget for 1-4 cheques + 10% fees upfront
 2. **Cooling costs:** Can exceed rent in summer for villas
@@ -342,7 +342,7 @@ Full details in [transport.md](./transport.md)
 
 ---
 
-## 💰 Minimum Salary Recommendations
+##  Minimum Salary Recommendations
 
 | Profile | Minimum (AED/month) | Comfortable |
 |---------|---------------------|-------------|

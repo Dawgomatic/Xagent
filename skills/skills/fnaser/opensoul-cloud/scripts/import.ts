@@ -34,7 +34,7 @@ async function main() {
   const soulId = process.argv[2];
   
   if (!soulId) {
-    console.error('\n❌ Usage: npx ts-node import.ts <soul-id>\n');
+    console.error('\n Usage: npx ts-node import.ts <soul-id>\n');
     console.error('Find soul IDs by browsing: npx ts-node browse.ts\n');
     process.exit(1);
   }
@@ -44,11 +44,11 @@ async function main() {
   
   if (!res.ok) {
     if (res.status === 404) {
-      console.error('\n❌ Soul not found:', soulId);
+      console.error('\n Soul not found:', soulId);
       console.error('Browse available souls: npx ts-node browse.ts\n');
     } else {
       const error = await res.json() as { message?: string };
-      console.error('\n❌ Error:', error.message);
+      console.error('\n Error:', error.message);
     }
     process.exit(1);
   }
@@ -90,13 +90,13 @@ async function main() {
   fs.writeFileSync(path.join(importDir, 'META.json'), JSON.stringify(meta, null, 2));
   written.push('META.json');
   
-  console.log(`\n✅ Imported "${soul.title}" to:`);
+  console.log(`\n Imported "${soul.title}" to:`);
   console.log(`   ${importDir}\n`);
   console.log('Files:');
   for (const f of written) {
     console.log(`  - ${f}`);
   }
-  console.log('\n💡 These are for inspiration — read them, learn patterns, adapt to your style.\n');
+  console.log('\n These are for inspiration — read them, learn patterns, adapt to your style.\n');
 }
 
 main().catch(err => {

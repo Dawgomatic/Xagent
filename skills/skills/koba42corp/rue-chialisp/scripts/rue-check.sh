@@ -8,7 +8,7 @@ rue_check() {
     # Check Rust
     if ! command -v cargo &>/dev/null; then
         missing+=("rust")
-        echo "❌ Rust toolchain not found"
+        echo " Rust toolchain not found"
     else
         echo "✓ Rust: $(cargo --version)"
     fi
@@ -16,7 +16,7 @@ rue_check() {
     # Check Rue CLI
     if ! command -v rue &>/dev/null; then
         missing+=("rue")
-        echo "❌ Rue CLI not found"
+        echo " Rue CLI not found"
     else
         echo "✓ Rue: $(rue --version 2>/dev/null || echo 'installed')"
     fi
@@ -24,7 +24,7 @@ rue_check() {
     # Check clvm_tools_rs
     if ! command -v run &>/dev/null && ! command -v brun &>/dev/null; then
         missing+=("clvm_tools")
-        echo "❌ clvm_tools_rs not found"
+        echo " clvm_tools_rs not found"
     else
         echo "✓ clvm_tools_rs: installed"
     fi

@@ -20,10 +20,10 @@ const RULE_SOLUTIONS = {
     autoFixable: false,
     solution: (issue) => `Extract the nested ternary at line ${issue.line} into a separate function or component.`,
     example: `
-// ❌ Before (nested ternary):
+//  Before (nested ternary):
 {loading ? 'Loading...' : runs.length > 0 ? <Table /> : <p>No data</p>}
 
-// ✅ After (extracted component):
+//  After (extracted component):
 function DataContent({ loading, runs }) {
   if (loading) return 'Loading...';
   if (runs.length === 0) return <p>No data</p>;
@@ -38,11 +38,11 @@ function DataContent({ loading, runs }) {
     autoFixable: true,
     solution: (issue) => `Replace || with ?? for default value assignment.`,
     example: `
-// ❌ Before:
+//  Before:
 const name = value || 'default';
 const count = input || 0;
 
-// ✅ After:
+//  After:
 const name = value ?? 'default';
 const count = input ?? 0;
     `
@@ -54,10 +54,10 @@ const count = input ?? 0;
     autoFixable: true,
     solution: (issue) => `Remove the unnecessary <>...</> fragment.`,
     example: `
-// ❌ Before:
+//  Before:
 <><div>Content</div></>
 
-// ✅ After:
+//  After:
 <div>Content</div>
     `
   },
@@ -68,11 +68,11 @@ const count = input ?? 0;
     autoFixable: true,
     solution: (issue) => `Add 'readonly' modifier to props type definition.`,
     example: `
-// ❌ Before:
+//  Before:
 function Component({ name }: { name: string })
 interface Props { name: string }
 
-// ✅ After:
+//  After:
 function Component({ name }: { readonly name: string })
 interface Props { readonly name: string }
     `
@@ -98,11 +98,11 @@ interface Props { readonly name: string }
     autoFixable: true,
     solution: (issue) => `Remove redundant union with 'any' - 'any' already includes all types.`,
     example: `
-// ❌ Before:
+//  Before:
 const [data, setData] = useState<any | null>(null);
 const value: string | any;
 
-// ✅ After:
+//  After:
 const [data, setData] = useState<any>(null);
 const value: any;
     `
@@ -115,10 +115,10 @@ const value: any;
     autoFixable: false,
     solution: (issue) => `Extract the nested ternary at line ${issue.line} into a separate function.`,
     example: `
-// ❌ Before:
+//  Before:
 const result = condition1 ? (condition2 ? 'a' : 'b') : 'c';
 
-// ✅ After:
+//  After:
 function getResult(condition1, condition2) {
   if (!condition1) return 'c';
   return condition2 ? 'a' : 'b';

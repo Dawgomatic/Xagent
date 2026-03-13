@@ -159,13 +159,13 @@ fi
 sleep 3
 if [[ "$(uname)" == "Darwin" ]]; then
     if launchctl list | grep -q "com.openclaw.watchdog"; then
-        info "Watch Dog is running! 🐕"
+        info "Watch Dog is running! "
     else
         warn "Service may not have started — check $WATCHDOG_DIR/watchdog-error.log"
     fi
 else
     if systemctl --user is-active openclaw-watchdog >/dev/null 2>&1; then
-        info "Watch Dog is running! 🐕"
+        info "Watch Dog is running! "
     else
         warn "Service may not have started — check: journalctl --user -u openclaw-watchdog"
     fi

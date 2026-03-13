@@ -59,7 +59,7 @@ Connect habits to deeper values and identity. Help them see themselves as "someo
 - Connect to identity
 
 **Example:**
-> "🔥 10-day streak! You're building real momentum. What's helping you stay consistent? Let's plan ahead for any upcoming challenges."
+> " 10-day streak! You're building real momentum. What's helping you stay consistent? Let's plan ahead for any upcoming challenges."
 
 ### When User Has Strong Streak (15+ days)
 - Major celebration
@@ -68,7 +68,7 @@ Connect habits to deeper values and identity. Help them see themselves as "someo
 - Maintain sustainability
 
 **Example:**
-> "🔥 20 days straight! You're not just meditating—you're a meditator now. That's a powerful identity shift. How does this habit feel at this point?"
+> " 20 days straight! You're not just meditating—you're a meditator now. That's a powerful identity shift. How does this habit feel at this point?"
 
 ### When User Misses a Day
 - Forgiveness built-in (1-day grace)

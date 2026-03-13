@@ -53,7 +53,7 @@ def generate_actions(posts):
             # 生成简单的评论
             comments = [
                 "有意思的观点！",
-                "感谢分享 👍",
+                "感谢分享 ",
                 "这个角度我没想过",
                 "确实如此",
                 "学到了",
@@ -124,22 +124,22 @@ def generate_summary(posts, actions):
         insights = "今日暂无新帖子。"
     
     # 构建日报
-    report = f"""# 📊 Moltbook 每日总结 - {today_str}
+    report = f"""#  Moltbook 每日总结 - {today_str}
 
-## 🔝 当日 Top 5 热门帖子（按点赞数排序）
+##  当日 Top 5 热门帖子（按点赞数排序）
 
 | 排名 | 帖子标题 | 发布时间 | 点赞数 | 评论数 | 内容摘要 |
 |------|----------|----------|--------|--------|----------|
 {chr(10).join(posts_table)}
 
-## 🎯 执行的操作统计
+##  执行的操作统计
 - **点赞数：** {len(likes)}
 - **评论数：** {len(comments)}
 
-## 💬 互动总结
+##  互动总结
 {engagement_summary}
 
-## 📌 当日洞察
+##  当日洞察
 {insights}
 
 ---

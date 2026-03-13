@@ -75,7 +75,7 @@ WorkflowName/
 6. **No nested buttons** — React/HTML forbids `<button>` inside `<button>`. Use `<div onClick>` for outer clickable containers.
 7. **Local imports only** — You CAN import from local `./ui/` sub-components. You CANNOT import from npm packages.
 
-## ⚠️ CRITICAL: Imports & Globals
+##  CRITICAL: Imports & Globals
 
 This is the #1 source of bugs. Get this wrong and the workflow won't open.
 
@@ -97,22 +97,22 @@ import { ServerLauncher } from './ui/ServerLauncher/ServerLauncher';
 import { MyTab } from './ui/MyTab';
 ```
 
-### ❌ WRONG - Common Bugs That Break Workflows
+###  WRONG - Common Bugs That Break Workflows
 
 ```tsx
-// ❌ NEVER - window.ContextUI is not reliably defined
+//  NEVER - window.ContextUI is not reliably defined
 const { React, Card, Button } = window.ContextUI;
 
-// ❌ NEVER - no npm/node_modules imports
+//  NEVER - no npm/node_modules imports
 import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
-// ❌ NEVER - styled-components is NOT available
+//  NEVER - styled-components is NOT available
 const Container = styled.div`...`;
 ```
 
-### ✅ CORRECT Patterns
+###  CORRECT Patterns
 
 Both hook access styles work — pick one and be consistent:
 
@@ -414,10 +414,10 @@ All workflows with Python backends **MUST** use the ServerLauncher pattern:
 3. **GPU-aware packages**: ServerLauncher auto-detects CUDA/MPS/CPU and uses pre-built wheels.
 
 ```typescript
-// ✅ Correct
+//  Correct
 packages: ['fastapi', 'uvicorn[standard]', 'torch', 'llama-cpp-python']
 
-// ❌ Wrong — WebSockets will fail, GPU builds may fail
+//  Wrong — WebSockets will fail, GPU builds may fail
 packages: ['fastapi', 'uvicorn', 'torch', 'llama-cpp-python']
 ```
 

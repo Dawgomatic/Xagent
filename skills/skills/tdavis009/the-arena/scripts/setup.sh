@@ -38,7 +38,7 @@ done
 mkdir -p "$OUTPUT_DIR"
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "  🎙️  DEBATE MODERATOR — SETUP WIZARD"
+echo "    DEBATE MODERATOR — SETUP WIZARD"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -380,7 +380,7 @@ fi
 # ── Summary ───────────────────────────────────────
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "  ✅ SETUP COMPLETE"
+echo "   SETUP COMPLETE"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 echo "  Generated files:"

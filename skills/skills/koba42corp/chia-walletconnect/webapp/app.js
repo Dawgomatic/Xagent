@@ -63,19 +63,19 @@ async function initWalletConnect() {
       }
     });
     
-    console.log('✅ WalletConnect initialized');
+    console.log(' WalletConnect initialized');
     
     // Check for existing sessions
     const sessions = signClient.session.getAll();
     if (sessions.length > 0) {
-      console.log('📱 Found existing session, reconnecting...');
+      console.log(' Found existing session, reconnecting...');
       currentSession = sessions[0];
       await handleSessionConnected(currentSession);
     }
     
     hideLoading();
   } catch (error) {
-    console.error('❌ WalletConnect init failed:', error);
+    console.error(' WalletConnect init failed:', error);
     showError('Failed to initialize WalletConnect: ' + error.message);
     hideLoading();
   }
@@ -103,7 +103,7 @@ async function connectWallet() {
     });
     
     if (uri) {
-      console.log('🔗 WalletConnect URI:', uri);
+      console.log(' WalletConnect URI:', uri);
       
       // Display URI for manual connection (QR code alternative)
       // In production, you'd use WalletConnect modal or deep link
@@ -118,13 +118,13 @@ async function connectWallet() {
     
     // Wait for session approval
     const session = await approval();
-    console.log('✅ Session approved:', session);
+    console.log(' Session approved:', session);
     
     currentSession = session;
     await handleSessionConnected(session);
     
   } catch (error) {
-    console.error('❌ Connection failed:', error);
+    console.error(' Connection failed:', error);
     showError('Failed to connect wallet: ' + error.message);
     setStatus('disconnected', 'Disconnected');
     hideLoading();
@@ -146,7 +146,7 @@ async function handleSessionConnected(session) {
     const accountString = accounts[0];
     currentAddress = accountString.split(':')[2];
     
-    console.log('💼 Wallet address:', currentAddress);
+    console.log(' Wallet address:', currentAddress);
     
     // Get public key using CHIP-0002
     try {
@@ -164,10 +164,10 @@ async function handleSessionConnected(session) {
       
       if (pubKeyResult && pubKeyResult.length > 0) {
         currentPublicKey = pubKeyResult[0];
-        console.log('🔑 Public key:', currentPublicKey);
+        console.log(' Public key:', currentPublicKey);
       }
     } catch (pkError) {
-      console.warn('⚠️ Could not fetch public key:', pkError);
+      console.warn(' Could not fetch public key:', pkError);
       // Continue without public key
     }
     
@@ -184,7 +184,7 @@ async function handleSessionConnected(session) {
     
     hideLoading();
   } catch (error) {
-    console.error('❌ Failed to handle session:', error);
+    console.error(' Failed to handle session:', error);
     showError('Failed to process wallet connection: ' + error.message);
     hideLoading();
   }
@@ -209,7 +209,7 @@ function generateChallenge() {
   elements.challengeMessage.textContent = message;
   elements.challengeSection.classList.remove('hidden');
   
-  console.log('📝 Challenge generated:', challengeData);
+  console.log(' Challenge generated:', challengeData);
 }
 
 // Sign challenge
@@ -234,13 +234,13 @@ async function signChallenge() {
       }
     });
     
-    console.log('✍️ Signature received:', signature);
+    console.log(' Signature received:', signature);
     
     // Verify signature
     await verifySignature(signature);
     
   } catch (error) {
-    console.error('❌ Signing failed:', error);
+    console.error(' Signing failed:', error);
     showError('Failed to sign message: ' + error.message);
     elements.signBtn.disabled = false;
     hideLoading();
@@ -279,7 +279,7 @@ async function verifySignature(signature) {
     }, 3000);
     
   } catch (error) {
-    console.error('❌ Verification failed:', error);
+    console.error(' Verification failed:', error);
     showError('Verification failed: ' + error.message);
     hideLoading();
   }
@@ -312,10 +312,10 @@ function showResult(result) {
   
   if (result.verified) {
     elements.resultCard.classList.add('success');
-    elements.resultIcon.textContent = '✅';
+    elements.resultIcon.textContent = '';
   } else {
     elements.resultCard.classList.add('error');
-    elements.resultIcon.textContent = '❌';
+    elements.resultIcon.textContent = '';
   }
   
   elements.resultMessage.textContent = result.message;

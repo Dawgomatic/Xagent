@@ -23,11 +23,11 @@ timestamp=$(date "+%Y-%m-%d %H:%M")
 
 # Generate report
 cat << EOF
-📊 **NOFX Market Report | $timestamp**
+ **NOFX Market Report | $timestamp**
 
 ---
 
-🤖 **AI500 High Potential Signals**
+ **AI500 High Potential Signals**
 EOF
 
 echo "$ai500" | jq -r '
@@ -41,7 +41,7 @@ cat << EOF
 
 ---
 
-💰 **Institutional Inflow TOP10** (1h)
+ **Institutional Inflow TOP10** (1h)
 EOF
 
 echo "$flow_in" | jq -r '
@@ -54,7 +54,7 @@ cat << EOF
 
 ---
 
-🚀 **1h Gainers TOP10**
+ **1h Gainers TOP10**
 EOF
 
 echo "$price" | jq -r '
@@ -67,7 +67,7 @@ cat << EOF
 
 ---
 
-📈 **1h OI Increase TOP10**
+ **1h OI Increase TOP10**
 EOF
 
 echo "$oi_up" | jq -r '
@@ -80,7 +80,7 @@ cat << EOF
 
 ---
 
-📉 **1h OI Decrease TOP10**
+ **1h OI Decrease TOP10**
 EOF
 
 echo "$oi_down" | jq -r '
@@ -96,9 +96,9 @@ cat << EOF
 
 ---
 
-⚠️ **Drop Alert**
+ **Drop Alert**
 EOF
-echo "$losers" | jq -r '.[] | "- 🔴 \(.symbol) \((.price_delta * 100) | . * 100 | floor / 100)%"' 2>/dev/null
+echo "$losers" | jq -r '.[] | "-  \(.symbol) \((.price_delta * 100) | . * 100 | floor / 100)%"' 2>/dev/null
 fi
 
 echo ""

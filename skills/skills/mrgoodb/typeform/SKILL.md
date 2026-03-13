@@ -1,7 +1,7 @@
 ---
 name: typeform
 description: Create and manage forms, surveys, and quizzes via Typeform API. Retrieve responses and analytics.
-metadata: {"clawdbot":{"emoji":"📝","requires":{"env":["TYPEFORM_API_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["TYPEFORM_API_TOKEN"]}}}
 ---
 
 # Typeform

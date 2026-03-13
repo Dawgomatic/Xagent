@@ -1,4 +1,4 @@
-# 🐾 AI Cost Tracker — Know What You Spend
+#  AI Cost Tracker — Know What You Spend
 
 > by Odin's Eye Enterprises — Ancient Wisdom. Modern Intelligence.
 
@@ -54,4 +54,4 @@ python report.py --by-model
 To check spending: `python report.py`
 To log usage from other tools: `from tracker import log_usage`
 
-<!-- 🐾 Odin's ravens count every coin -->
+<!--  Odin's ravens count every coin -->

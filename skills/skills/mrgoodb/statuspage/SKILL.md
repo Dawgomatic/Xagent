@@ -1,7 +1,7 @@
 ---
 name: statuspage
 description: Manage Statuspage incidents and components via API. Update status and communicate outages.
-metadata: {"clawdbot":{"emoji":"📟","requires":{"env":["STATUSPAGE_API_KEY","STATUSPAGE_PAGE_ID"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["STATUSPAGE_API_KEY","STATUSPAGE_PAGE_ID"]}}}
 ---
 # Statuspage
 Status communication.

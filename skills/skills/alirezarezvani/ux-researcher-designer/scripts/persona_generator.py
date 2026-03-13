@@ -487,39 +487,39 @@ class PersonaGenerator:
         output.append("=" * 60)
         output.append(f"PERSONA: {persona['name']}")
         output.append("=" * 60)
-        output.append(f"\n📝 {persona['tagline']}\n")
+        output.append(f"\n {persona['tagline']}\n")
         
         output.append(f"Archetype: {persona['archetype'].replace('_', ' ').title()}")
         output.append(f"Quote: \"{persona['quote']}\"\n")
         
-        output.append("👤 Demographics:")
+        output.append(" Demographics:")
         for key, value in persona['demographics'].items():
             if value:
                 output.append(f"  • {key.replace('_', ' ').title()}: {value}")
         
-        output.append("\n🧠 Psychographics:")
+        output.append("\n Psychographics:")
         if persona['psychographics']['motivations']:
             output.append(f"  Motivations: {', '.join(persona['psychographics']['motivations'])}")
         if persona['psychographics']['values']:
             output.append(f"  Values: {', '.join(persona['psychographics']['values'])}")
         
-        output.append("\n🎯 Goals & Needs:")
+        output.append("\n Goals & Needs:")
         for goal in persona['needs_and_goals'].get('primary_goals', [])[:3]:
             output.append(f"  • {goal}")
         
-        output.append("\n😤 Frustrations:")
+        output.append("\n Frustrations:")
         for frustration in persona['frustrations'][:3]:
             output.append(f"  • {frustration}")
         
-        output.append("\n📊 Behaviors:")
+        output.append("\n Behaviors:")
         for pref in persona['behaviors'].get('feature_preferences', [])[:3]:
             output.append(f"  • Frequently uses: {pref}")
         
-        output.append("\n💡 Design Implications:")
+        output.append("\n Design Implications:")
         for implication in persona['design_implications']:
             output.append(f"  → {implication}")
         
-        output.append(f"\n📈 Data: Based on {persona['data_points']['sample_size']} users")
+        output.append(f"\n Data: Based on {persona['data_points']['sample_size']} users")
         output.append(f"    Confidence: {persona['data_points']['confidence_level']}")
         
         return "\n".join(output)

@@ -49,26 +49,26 @@ Analyze git repository statistics and generate visual reports.
 
 3. **Output format**:
    ```
-   ## 📊 Git Repository Stats
+   ##  Git Repository Stats
    **Repo:** <name> | **Period:** <first> → <last> | **Age:** X months
 
-   ### 👥 Top Contributors
+   ###  Top Contributors
    | # | Author | Commits | % |
    |---|--------|---------|---|
    | 1 | Alice  | 342     | 45% |
    | 2 | Bob    | 210     | 28% |
 
-   ### 📅 Activity Patterns
+   ###  Activity Patterns
    - Busiest day: Wednesday (avg 4.2 commits)
    - Busiest hour: 14:00-15:00
    - Longest streak: 23 consecutive days
 
-   ### 🔥 Hotspot Files (most changed)
+   ###  Hotspot Files (most changed)
    | File | Changes | Last Modified |
    |------|---------|--------------|
    | src/main.ts | 89 | 2025-01-10 |
 
-   ### 📈 Monthly Trend
+   ###  Monthly Trend
    | Month | Commits |
    |-------|---------|
    | 2025-01 | ████████ 42 |

@@ -111,7 +111,7 @@ class Model3DGenerator:
             filename = f"{self.name}.stl"
         
         if not self.meshes:
-            print("❌ Erreur: Aucun mesh à exporter")
+            print(" Erreur: Aucun mesh à exporter")
             return None
         
         print(f"Fusion de {len(self.meshes)} composants...")
@@ -127,14 +127,14 @@ class Model3DGenerator:
             
             # Vérifier que c'est manifold (étanche)
             if not combined.is_watertight:
-                print("⚠️  Attention: Le mesh n'est pas étanche (non-manifold)")
+                print("  Attention: Le mesh n'est pas étanche (non-manifold)")
         
         # Export
         os.makedirs(EXPORT_DIR, exist_ok=True)
         filepath = os.path.join(EXPORT_DIR, filename)
         combined.export(filepath)
         
-        print(f"\n✅ Exporté: {filepath}")
+        print(f"\n Exporté: {filepath}")
         print(f"   Triangles: {len(combined.faces):,}")
         print(f"   Volume: {combined.volume/1000:.1f} cm³")
         print(f"   Dimensions: {combined.extents}")
@@ -149,7 +149,7 @@ def create_advanced_space_station():
     gen = Model3DGenerator("advanced_space_station")
     gen.set_detail_level("high")
     
-    print("🚀 Génération station spatiale avancée...\n")
+    print(" Génération station spatiale avancée...\n")
     
     # Sphère centrale
     print("  → Sphère centrale")

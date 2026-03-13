@@ -13,19 +13,19 @@ tags:
   - social-media
 metadata:
   clawdbot:
-    emoji: 🦞
+    emoji: 
 ---
 
-# Mia Content Creator 💜
+# Mia Content Creator 
 
 AI agent for automated content creation and monetization. Create viral content, engage audiences, and track earnings.
 
 ## Features
 
-- 📝 **Content Generation** - Generate posts for Moltbook, Twitter/X
-- ⏰ **Scheduling** - Automated posting at optimal times
-- 📊 **Analytics** - Track engagement and performance
-- 💰 **Monetization** - Revenue tracking from multiple sources
+-  **Content Generation** - Generate posts for Moltbook, Twitter/X
+-  **Scheduling** - Automated posting at optimal times
+-  **Analytics** - Track engagement and performance
+-  **Monetization** - Revenue tracking from multiple sources
 
 ## Installation
 
@@ -64,4 +64,4 @@ mia-content analytics 7
 - Tips/donations
 
 ## Author
-MiaBloomx 💜
+MiaBloomx 

@@ -2,7 +2,7 @@
 name: neutron-agent-memory
 description: Store and retrieve agent memory using Neutron API. Use for saving information with semantic search, and persisting agent context between sessions.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🧠", "requires": {"env": ["NEUTRON_API_KEY", "NEUTRON_APP_ID"]}, "primaryEnv": "NEUTRON_API_KEY"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": ["NEUTRON_API_KEY", "NEUTRON_APP_ID"]}, "primaryEnv": "NEUTRON_API_KEY"}}
 ---
 
 # Neutron Agent Memory Skill

@@ -18,7 +18,7 @@ const focusTime = parseInt(process.argv[2]) || 25;
 const shortBreak = parseInt(process.argv[3]) || 5;
 const longBreak = parseInt(process.argv[4]) || 15;
 
-console.log(`🍅 Starting Pomodoro: ${focusTime}min focus / ${shortBreak}min short / ${longBreak}min long`);
+console.log(` Starting Pomodoro: ${focusTime}min focus / ${shortBreak}min short / ${longBreak}min long`);
 
 // Read the HTML file
 let html = fs.readFileSync(TIMER_FILE, 'utf8');
@@ -35,7 +35,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`🍅 Timer running at http://localhost:${PORT}`);
+    console.log(` Timer running at http://localhost:${PORT}`);
     console.log('   Press Ctrl+C to stop');
     
     // Open browser
@@ -48,6 +48,6 @@ server.listen(PORT, () => {
 
 // Handle graceful shutdown
 process.on('SIGINT', () => {
-    console.log('\n🛑 Stopping timer...');
+    console.log('\n Stopping timer...');
     server.close(() => process.exit(0));
 });

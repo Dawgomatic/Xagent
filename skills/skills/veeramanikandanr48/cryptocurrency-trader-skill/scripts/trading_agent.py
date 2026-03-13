@@ -65,13 +65,13 @@ class TradingAgent:
             # Anti-hallucination: Validate data
             validation = self._validate_market_data(df, symbol)
             if not validation['valid']:
-                print(f"⚠️ DATA WARNING for {symbol}: {validation['issues']}")
+                print(f" DATA WARNING for {symbol}: {validation['issues']}")
                 return None
                 
             return df
             
         except Exception as e:
-            print(f"❌ Failed to fetch {symbol}: {str(e)}")
+            print(f" Failed to fetch {symbol}: {str(e)}")
             return None
     
     def _validate_market_data(self, df: pd.DataFrame, symbol: str) -> Dict:
@@ -161,7 +161,7 @@ class TradingAgent:
         
         Returns analysis with confidence score and recommendations
         """
-        print(f"\n🔍 Analyzing {symbol}...")
+        print(f"\n Analyzing {symbol}...")
         
         analysis = {
             'symbol': symbol,
@@ -184,7 +184,7 @@ class TradingAgent:
         # Anti-hallucination: Require minimum data quality
         if valid_timeframes < 2:
             analysis['warnings'].append("Insufficient valid timeframes")
-            analysis['recommendation'] = "⛔ DO NOT TRADE - Insufficient data"
+            analysis['recommendation'] = " DO NOT TRADE - Insufficient data"
             return analysis
         
         # Calculate consensus
@@ -289,32 +289,32 @@ class TradingAgent:
         blocks = []
         
         if analysis['action'] == 'WAIT':
-            blocks.append("⛔ No clear signal")
+            blocks.append(" No clear signal")
         
         if analysis['confidence'] < 40:
-            blocks.append("⛔ Confidence too low")
+            blocks.append(" Confidence too low")
         
         if analysis.get('risk_reward', 0) < 1.5:
-            blocks.append("⛔ Poor risk/reward ratio")
+            blocks.append(" Poor risk/reward ratio")
         
         if len(analysis['timeframe_data']) < 2:
-            blocks.append("⛔ Insufficient timeframes")
+            blocks.append(" Insufficient timeframes")
         
         # Warnings (don't block trade)
         if analysis['confidence'] > 90:
-            analysis['warnings'].append("⚠️ Unrealistically high confidence - be cautious")
+            analysis['warnings'].append(" Unrealistically high confidence - be cautious")
         
         if analysis.get('risk_reward', 0) > 8:
-            analysis['warnings'].append("⚠️ Unrealistic risk/reward - verify manually")
+            analysis['warnings'].append(" Unrealistic risk/reward - verify manually")
         
         # Determine if safe to use
         analysis['blocks'] = blocks
         analysis['safe_to_use'] = len(blocks) == 0
         
         if analysis['safe_to_use']:
-            analysis['recommendation'] = f"✅ {analysis['action']} at ${analysis['entry_price']}"
+            analysis['recommendation'] = f" {analysis['action']} at ${analysis['entry_price']}"
         else:
-            analysis['recommendation'] = "⛔ DO NOT TRADE - " + "; ".join(blocks)
+            analysis['recommendation'] = " DO NOT TRADE - " + "; ".join(blocks)
         
         return analysis
     
@@ -358,13 +358,13 @@ class TradingAgent:
         Returns top 5 opportunities ranked by expected value
         """
         print("\n" + "="*60)
-        print("🔬 MARKET SCANNER - Finding Top 5 Opportunities")
+        print(" MARKET SCANNER - Finding Top 5 Opportunities")
         print("="*60)
         
         all_opportunities = []
         
         for category, symbols in self.categories.items():
-            print(f"\n📊 Scanning {category}...")
+            print(f"\n Scanning {category}...")
             
             for symbol in symbols:
                 try:
@@ -380,7 +380,7 @@ class TradingAgent:
                     time.sleep(0.5)  # Rate limiting
                     
                 except Exception as e:
-                    print(f"  ⚠️ Skipping {symbol}: {str(e)}")
+                    print(f"   Skipping {symbol}: {str(e)}")
         
         # Sort by expected value and return top 5
         all_opportunities.sort(key=lambda x: x['ev_score'], reverse=True)
@@ -396,43 +396,43 @@ class TradingAgent:
         
         # Handle missing price data
         if analysis.get('current_price') is None:
-            print(f"\n❌ Unable to fetch data for {analysis['symbol']}")
-            print(f"📊 RECOMMENDATION: {analysis.get('recommendation', '⛔ DO NOT TRADE')}")
+            print(f"\n Unable to fetch data for {analysis['symbol']}")
+            print(f" RECOMMENDATION: {analysis.get('recommendation', ' DO NOT TRADE')}")
             if analysis.get('warnings'):
-                print(f"\n⚠️ WARNINGS:")
+                print(f"\n WARNINGS:")
                 for warning in analysis['warnings']:
                     print(f"   {warning}")
             return
         
-        print(f"\n💰 CURRENT PRICE: ${analysis['current_price']}")
-        print(f"📈 RECOMMENDATION: {analysis['recommendation']}")
+        print(f"\n CURRENT PRICE: ${analysis['current_price']}")
+        print(f" RECOMMENDATION: {analysis['recommendation']}")
         
         if analysis['safe_to_use']:
-            print(f"\n🎯 ACTION: {analysis['action']}")
-            print(f"📊 CONFIDENCE: {analysis['confidence']}% (NOT a guarantee)")
-            print(f"💵 ENTRY PRICE: ${analysis['entry_price']}")
-            print(f"🛑 STOP LOSS: ${analysis['stop_loss']}")
-            print(f"🎁 TAKE PROFIT: ${analysis['take_profit']}")
-            print(f"⚖️ RISK/REWARD: 1:{analysis['risk_reward']}")
+            print(f"\n ACTION: {analysis['action']}")
+            print(f" CONFIDENCE: {analysis['confidence']}% (NOT a guarantee)")
+            print(f" ENTRY PRICE: ${analysis['entry_price']}")
+            print(f" STOP LOSS: ${analysis['stop_loss']}")
+            print(f" TAKE PROFIT: ${analysis['take_profit']}")
+            print(f" RISK/REWARD: 1:{analysis['risk_reward']}")
             
             if 'position_sizing' in analysis:
                 ps = analysis['position_sizing']
-                print(f"\n💼 POSITION SIZING (for ${self.balance} account):")
+                print(f"\n POSITION SIZING (for ${self.balance} account):")
                 print(f"   • Buy Amount: {ps['position_size_coin']} coins")
                 print(f"   • Position Value: ${ps['position_value_usd']}")
                 print(f"   • Risk Amount: ${ps['risk_usd']} (2% of account)")
                 print(f"   • Trading Fees: ${ps['trading_fees']}")
             
             if 'ev_score' in analysis:
-                print(f"\n⭐ OPPORTUNITY SCORE: {analysis['ev_score']}/10")
+                print(f"\n OPPORTUNITY SCORE: {analysis['ev_score']}/10")
         
         if analysis['warnings']:
-            print(f"\n⚠️ WARNINGS:")
+            print(f"\n WARNINGS:")
             for warning in analysis['warnings']:
                 print(f"   {warning}")
         
         if not analysis['safe_to_use'] and 'blocks' in analysis:
-            print(f"\n🚫 TRADE BLOCKED:")
+            print(f"\n TRADE BLOCKED:")
             for block in analysis['blocks']:
                 print(f"   {block}")
 
@@ -440,7 +440,7 @@ class TradingAgent:
 def interactive_session():
     """Main interactive trading session"""
     print("\n" + "="*60)
-    print("🤖 AI TRADING AGENT - Beginner-Friendly Edition")
+    print(" AI TRADING AGENT - Beginner-Friendly Edition")
     print("="*60)
     print("\nThis AI helps prevent common trading mistakes by:")
     print("✓ Analyzing real market data (no hallucinations)")
@@ -451,14 +451,14 @@ def interactive_session():
     # Step 1: Get account balance
     while True:
         try:
-            balance_input = input("💵 Enter your account balance in USD (e.g., 1000): $")
+            balance_input = input(" Enter your account balance in USD (e.g., 1000): $")
             balance = float(balance_input)
             if balance <= 0:
-                print("⚠️ Balance must be positive. Try again.")
+                print(" Balance must be positive. Try again.")
                 continue
             break
         except ValueError:
-            print("⚠️ Please enter a valid number.")
+            print(" Please enter a valid number.")
     
     # Initialize agent
     agent = TradingAgent(balance)
@@ -467,18 +467,18 @@ def interactive_session():
     print("\n" + "="*60)
     print("CHOOSE YOUR MODE:")
     print("="*60)
-    print("1. 🎯 Analyze specific coin (e.g., BTC/USDT)")
-    print("2. 🔬 Scan entire market for top 5 opportunities")
+    print("1.  Analyze specific coin (e.g., BTC/USDT)")
+    print("2.  Scan entire market for top 5 opportunities")
     
     while True:
         choice = input("\nEnter 1 or 2: ").strip()
         if choice in ['1', '2']:
             break
-        print("⚠️ Please enter 1 or 2.")
+        print(" Please enter 1 or 2.")
     
     if choice == '1':
         # Specific coin analysis
-        symbol = input("\n💱 Enter trading pair (e.g., BTC/USDT): ").strip().upper()
+        symbol = input("\n Enter trading pair (e.g., BTC/USDT): ").strip().upper()
         
         print("\n" + "="*60)
         print(f"ANALYZING {symbol}")
@@ -492,19 +492,19 @@ def interactive_session():
         top_opportunities = agent.scan_market()
         
         if not top_opportunities:
-            print("\n⚠️ No safe trading opportunities found at this time.")
+            print("\n No safe trading opportunities found at this time.")
             print("This is normal - most of the time, the best action is to WAIT.")
             return
         
         print("\n" + "="*60)
-        print("🏆 TOP 5 OPPORTUNITIES (Ranked by Expected Value)")
+        print(" TOP 5 OPPORTUNITIES (Ranked by Expected Value)")
         print("="*60)
         
         for i, opp in enumerate(top_opportunities, 1):
             agent.display_opportunity(opp, rank=i)
     
     print("\n" + "="*60)
-    print("📚 BEGINNER'S REMINDER:")
+    print(" BEGINNER'S REMINDER:")
     print("="*60)
     print("• This AI analyzes data, but markets are unpredictable")
     print("• NEVER risk more than you can afford to lose")

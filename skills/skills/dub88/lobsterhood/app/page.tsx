@@ -277,7 +277,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-block px-8 py-4 bg-gold text-black font-bold font-serif tracking-widest uppercase rounded hover:bg-white transition-colors text-sm"
               >
-                View Official Thread ↗
+                View Official Thread 
               </a>
             </div>
           )}

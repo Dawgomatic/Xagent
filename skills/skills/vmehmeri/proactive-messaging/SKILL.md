@@ -110,8 +110,8 @@ cron add:
 |---------|--------|--------------|
 | "Starting at Acme Monday" | Monday 6:30 PM | "So?? How was day one?" |
 | Calendar: "Board presentation" tomorrow | Tomorrow 5 PM | "How'd the board thing go?" |
-| Calendar: "Dentist 2pm" today | Skip or evening | "Teeth still intact? 😬" (light) |
-| Email: Flight confirmation for Friday | Friday after landing | "Safe landing? ✈️" |
+| Calendar: "Dentist 2pm" today | Skip or evening | "Teeth still intact? " (light) |
+| Email: Flight confirmation for Friday | Friday after landing | "Safe landing? " |
 | Email: "Action required" from bank | Same day | "Hey, saw something from your bank that might need attention" |
 | Calendar: "Visa deadline" in 2 days | Morning, 2 days before | "Heads up — visa deadline is Thursday" |
 | Conversation: "Big deploy Friday" | Friday evening | "Deploy go smoothly?" |

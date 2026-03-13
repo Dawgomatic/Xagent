@@ -78,17 +78,17 @@ Incoming Voice Message
 
 ## Key Features
 
-✅ **Zero Setup Complexity** - No FFmpeg, no complex dependencies. Uses soundfile + Whisper.
+ **Zero Setup Complexity** - No FFmpeg, no complex dependencies. Uses soundfile + Whisper.
 
-✅ **Multi-Language** - Automatic English/Hindi detection. Extend easily.
+ **Multi-Language** - Automatic English/Hindi detection. Extend easily.
 
-✅ **Intent-Driven** - Define custom intents with keywords and handlers.
+ **Intent-Driven** - Define custom intents with keywords and handlers.
 
-✅ **Real-Time Processing** - 5-10 seconds per message (after first model load).
+ **Real-Time Processing** - 5-10 seconds per message (after first model load).
 
-✅ **Customizable** - Add weather, status, commands, or anything else.
+ **Customizable** - Add weather, status, commands, or anything else.
 
-✅ **Production Ready** - Built from real usage in Clawdbot.
+ **Production Ready** - Built from real usage in Clawdbot.
 
 ## Common Use Cases
 

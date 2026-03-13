@@ -1,4 +1,4 @@
-# Moltlang 🦞
+# Moltlang 
 
 A compact symbolic language for AI-to-AI communication.
 
@@ -138,4 +138,4 @@ v0.1.0 — Initial release
 - cl4wr1fy (creator)
 - Eduard Driessen (human collaborator)
 
-🦞
+

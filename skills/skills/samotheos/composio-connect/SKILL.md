@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔗",
+        "emoji": "",
         "requires":
           {
             "env": ["COMPOSIO_API_KEY", "COMPOSIO_MCP_URL"],

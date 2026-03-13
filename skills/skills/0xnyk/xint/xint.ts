@@ -662,18 +662,18 @@ async function cmdArticle() {
     
     // Check if it's an X tweet URL - extract linked article
     if (url.includes("x.com/") && url.includes("/status/")) {
-      console.log("🔍 Fetching tweet to extract linked article...");
+      console.log(" Fetching tweet to extract linked article...");
       const { fetchTweetForArticle } = await import("./lib/article");
       const { tweet, articleUrl } = await fetchTweetForArticle(url);
       
       if (!articleUrl) {
-        console.log("📝 No external link found in tweet.");
+        console.log(" No external link found in tweet.");
         console.log(`   Tweet: ${tweet.text?.slice(0, 200)}...`);
         console.log(`   URL: ${tweet.tweet_url}`);
         process.exit(0);
       }
       
-      console.log(`📄 Found link: ${articleUrl}\n`);
+      console.log(` Found link: ${articleUrl}\n`);
       url = articleUrl;
     }
 
@@ -682,10 +682,10 @@ async function cmdArticle() {
 
     // If AI prompt provided, analyze the article
     if (aiPrompt) {
-      console.log("🤖 Analyzing with Grok...\n");
+      console.log(" Analyzing with Grok...\n");
       const { analyzeQuery } = await import("./lib/grok");
       const analysis = await analyzeQuery(aiPrompt, article.content, { model: model || undefined });
-      console.log(`📝 Analysis: ${aiPrompt}\n`);
+      console.log(` Analysis: ${aiPrompt}\n`);
       console.log(analysis.content);
       console.log(`\n---`);
     }

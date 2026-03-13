@@ -8,7 +8,7 @@
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Deploy to a Node (One-Time)
 
@@ -37,7 +37,7 @@ await nodes.invoke({
 
 ---
 
-## 📦 Package Contents
+##  Package Contents
 
 | File | Description |
 |------|-------------|
@@ -52,7 +52,7 @@ await nodes.invoke({
 
 ---
 
-## 📊 Performance
+##  Performance
 
 | Metric | Base64 Transfer | node-transfer | Speedup |
 |--------|-----------------|---------------|---------|
@@ -62,7 +62,7 @@ await nodes.invoke({
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 - **[SKILL.md](./SKILL.md)** - Complete usage guide, API reference, troubleshooting
 - **[CONTRIBUTING_PROPOSAL.md](./CONTRIBUTING_PROPOSAL.md)** - Proposal for core integration
@@ -70,7 +70,7 @@ await nodes.invoke({
 
 ---
 
-## 🔧 Requirements
+##  Requirements
 
 - Node.js 14.0.0 or higher
 - Network connectivity between nodes
@@ -78,7 +78,7 @@ await nodes.invoke({
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 See [CONTRIBUTING_PROPOSAL.md](./CONTRIBUTING_PROPOSAL.md) for information on integrating this into OpenClaw core.
 

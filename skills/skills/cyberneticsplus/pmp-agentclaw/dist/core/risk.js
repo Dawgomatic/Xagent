@@ -95,11 +95,11 @@ function getRiskMatrixTable(matrix) {
         let row = `| **${prob.label} (${p})** |`;
         for (let i = 1; i <= 5; i++) {
             const score = p * i;
-            let emoji = '🟢';
+            let emoji = '';
             if (score >= 15)
-                emoji = '🔴';
+                emoji = '';
             else if (score >= 5)
-                emoji = '🟡';
+                emoji = '';
             row += ` ${score} ${emoji} |`;
         }
         table += row + '\n';

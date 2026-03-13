@@ -9,7 +9,7 @@ metadata:
   author: maton
   version: "1.0"
   clawdbot:
-    emoji: 🧠
+    emoji: 
     homepage: https://maton.ai
     requires:
       env:

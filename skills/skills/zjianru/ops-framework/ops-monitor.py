@@ -668,7 +668,7 @@ def build_section(job: JobConfig, status: JobStatus, *, anomaly: bool, autorun_n
     lines: list[str] = []
     lines.append(f"• {job.name} ({job.id}, {job.kind})")
     if status.completed:
-        lines.append("- 状态: completed ✅")
+        lines.append("- 状态: completed ")
     elif status.running:
         pid_part = f" (pid={status.pid})" if status.pid else ""
         lines.append(f"- 状态: running{pid_part}")
@@ -749,7 +749,7 @@ def tick(
             last_ts = 0.0
         if now - last_ts >= 3600:
             state["lastConfigErrorAt"] = float(now)
-            msg = f"🛠️ Ops 快报\n\n• ALERT: ops-jobs config invalid\n- path: {config_path}\n- error: {e}"
+            msg = f" Ops 快报\n\n• ALERT: ops-jobs config invalid\n- path: {config_path}\n- error: {e}"
             if print_only:
                 print(msg)
             else:
@@ -941,7 +941,7 @@ def tick(
         }
 
     if sections:
-        header = f"🛠️ Ops 快报（{datetime.fromtimestamp(now).strftime('%H:%M:%S')}）"
+        header = f" Ops 快报（{datetime.fromtimestamp(now).strftime('%H:%M:%S')}）"
         report = header + "\n\n" + "\n\n".join(sections)
         if print_only:
             print(report)

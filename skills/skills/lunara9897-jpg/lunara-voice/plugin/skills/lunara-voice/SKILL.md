@@ -1,7 +1,7 @@
 ---
 name: lunara-voice
 description: Manage Lunara Voice AI — agents, campaigns, outbound calls, call history, analytics, webhooks, tags, and LLM data export
-metadata: {"openclaw": {"always": true, "emoji": "📞", "homepage": "https://lunaravox.com"}}
+metadata: {"openclaw": {"always": true, "emoji": "", "homepage": "https://lunaravox.com"}}
 ---
 
 # Lunara Voice AI — Complete Agent Tool Guide
@@ -100,7 +100,7 @@ You have full access to the Lunara Voice AI platform through **33 tools** organi
 
 ### 3. Quick single call
 
-**⚠️ There is NO "fire and forget" call flow.** Every single outbound call MUST follow the full end-to-end workflow in **Section 5** below — including polling for completion and reporting transcript results. Never just call `lunara_call_single` and stop.
+** There is NO "fire and forget" call flow.** Every single outbound call MUST follow the full end-to-end workflow in **Section 5** below — including polling for completion and reporting transcript results. Never just call `lunara_call_single` and stop.
 
 ### 4. Review call results after a call or campaign
 1. `lunara_history_list` with assistant_id — see recent calls
@@ -110,7 +110,7 @@ You have full access to the Lunara Voice AI platform through **33 tools** organi
 
 ### 5. Make a call and report the result (end-to-end) — DEFAULT FOR ALL CALLS
 
-**⚠️ AUTONOMOUS EXECUTION — This workflow applies to EVERY outbound call, no exceptions!**
+** AUTONOMOUS EXECUTION — This workflow applies to EVERY outbound call, no exceptions!**
 **Whenever the user asks to call someone — regardless of phrasing ("позвони", "набери", "call", "договорись", "сделай звонок", etc.) — you MUST complete ALL steps below in ONE turn. Never just initiate a call and stop.**
 
 1. **Record the current timestamp** (ISO 8601, e.g. `2026-02-16T19:45:00Z`) and the **phone number** you are calling BEFORE making the call. You will need these to find the NEW call record.
@@ -121,7 +121,7 @@ You have full access to the Lunara Voice AI platform through **33 tools** organi
 6. `lunara_tags_add` — categorize the result
 7. **Report final result to user** — summarize: who answered, what was discussed, what was agreed, next steps. Include key quotes from transcript.
 
-**⚠️ CRITICAL BUG PREVENTION:**
+** CRITICAL BUG PREVENTION:**
 - **NEVER** grab the first record from `lunara_history_list` without checking `date_from` and phone number match
 - Old call records will appear in history — you MUST filter them out using `date_from=<timestamp before call>`
 - If you report results from a call that happened BEFORE `lunara_call_single`, you are reporting the WRONG call
@@ -256,7 +256,7 @@ The `lunara_history_list` tool supports these filters (all optional):
 
 ---
 
-## ⚠️ Autonomous Execution Rules — APPLY TO EVERY OUTBOUND CALL
+##  Autonomous Execution Rules — APPLY TO EVERY OUTBOUND CALL
 
 **Every outbound call (lunara_call_single or campaign) MUST complete the entire workflow in a single turn. There are no exceptions — the user should NEVER have to ask "what happened?" separately:**
 
@@ -297,7 +297,7 @@ loop (max 10 attempts, 25-30 sec apart):
     wait 25-30 seconds
 ```
 
-**⚠️ CRITICAL BUGS TO AVOID:**
+** CRITICAL BUGS TO AVOID:**
 1. **If you skip date_from, you WILL get old call records and report wrong results!**
 2. **If you fetch the transcript while the call is still active, you'll get incomplete/empty data — ALWAYS wait for status=completed!**
 3. **If you report results without polling, you're reporting STALE data from a previous call!**

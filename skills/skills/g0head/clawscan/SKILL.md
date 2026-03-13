@@ -8,7 +8,7 @@ keywords: [security, audit, scan, vet, clawhub, skills, safety, moderation, vuln
 triggers: ["skill security", "vet skill", "scan skill", "is this skill safe", "skillguard", "audit skill", "clawscan"]
 ---
 
-# 🛡️ SkillGuard — ClawHub Security Scanner
+#  SkillGuard — ClawHub Security Scanner
 
 > **"Trust, but verify."**
 
@@ -16,7 +16,7 @@ ClawHub has no moderation process. Any agent can publish any skill. SkillGuard p
 
 ---
 
-## 🚨 Why This Matters
+##  Why This Matters
 
 Third-party skills can:
 
@@ -36,7 +36,7 @@ SkillGuard helps you catch threats before installation.
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 clawhub install clawscan
@@ -55,7 +55,7 @@ chmod +x scripts/skillguard.py
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Scan a skill BEFORE installing
@@ -76,9 +76,9 @@ python3 scripts/skillguard.py deps ./path/to/skill
 
 ---
 
-## 🔍 What SkillGuard Detects
+##  What SkillGuard Detects
 
-### 🔴 CRITICAL — Block Installation
+###  CRITICAL — Block Installation
 
 These patterns indicate serious security risks:
 
@@ -94,7 +94,7 @@ These patterns indicate serious security risks:
 | **Reverse Shell** | Socket + subprocess patterns | Remote access |
 | **Crypto Mining** | Mining pool URLs, `stratum://` | Resource theft |
 
-### 🟡 WARNING — Review Before Installing
+###  WARNING — Review Before Installing
 
 These patterns may be legitimate but warrant inspection:
 
@@ -109,7 +109,7 @@ These patterns may be legitimate but warrant inspection:
 | **Persistence** | `crontab`, `systemctl`, `.bashrc` | Auto-start on boot? |
 | **Package Install** | `pip install`, `npm install` | Supply chain risk |
 
-### 🟢 INFO — Noted But Normal
+###  INFO — Noted But Normal
 
 | Category | Patterns | Note |
 |----------|----------|------|
@@ -120,11 +120,11 @@ These patterns may be legitimate but warrant inspection:
 
 ---
 
-## 📊 Scan Output Example
+##  Scan Output Example
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║              🛡️  SKILLGUARD SECURITY REPORT                  ║
+║                SKILLGUARD SECURITY REPORT                  ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  Skill:       suspicious-helper v1.2.0                       ║
 ║  Author:      unknown-user                                   ║
@@ -132,7 +132,7 @@ These patterns may be legitimate but warrant inspection:
 ║  Scan Time:   2024-02-03 05:30:00 UTC                        ║
 ╚══════════════════════════════════════════════════════════════╝
 
-📁 FILES SCANNED
+ FILES SCANNED
 ────────────────────────────────────────────────────────────────
   ✓ SKILL.md                    (541 bytes)
   ✓ scripts/main.py             (2.3 KB)
@@ -143,7 +143,7 @@ These patterns may be legitimate but warrant inspection:
   ✓ package.json                (312 bytes)
   ✓ install.sh                  (156 bytes)
 
-🔴 CRITICAL ISSUES (3)
+ CRITICAL ISSUES (3)
 ────────────────────────────────────────────────────────────────
   [CRIT-001] scripts/main.py:45
   │ Pattern:  eval() with external input
@@ -160,7 +160,7 @@ These patterns may be legitimate but warrant inspection:
   │ Risk:     Potential data destruction
   │ Code:     rm -rf $TARGET_DIR/*
 
-🟡 WARNINGS (5)
+ WARNINGS (5)
 ────────────────────────────────────────────────────────────────
   [WARN-001] scripts/network.py:15  — HTTP POST to external URL
   [WARN-002] scripts/main.py:78     — Reads OPENAI_API_KEY
@@ -168,26 +168,26 @@ These patterns may be legitimate but warrant inspection:
   [WARN-004] scripts/utils.py:45    — Base64 encoding detected
   [WARN-005] config.json            — Hardcoded IP: 192.168.1.100
 
-🟢 INFO (2)
+ INFO (2)
 ────────────────────────────────────────────────────────────────
   [INFO-001] scripts/main.py:10     — Standard file read operations
   [INFO-002] requirements.txt       — 3 dependencies declared
 
-📦 DEPENDENCY ANALYSIS
+ DEPENDENCY ANALYSIS
 ────────────────────────────────────────────────────────────────
   requirements.txt:
-    ⚠️  requests        (unpinned - specify version!)
+      requests        (unpinned - specify version!)
     ✓  json            (stdlib)
     ✓  pathlib         (stdlib)
 
   package.json:
-    ⚠️  axios@0.21.0   (CVE-2021-3749 - upgrade to 0.21.2+)
+      axios@0.21.0   (CVE-2021-3749 - upgrade to 0.21.2+)
 
 ════════════════════════════════════════════════════════════════
-                        VERDICT: 🚫 DANGEROUS
+                        VERDICT:  DANGEROUS
 ════════════════════════════════════════════════════════════════
   
-  ⛔ DO NOT INSTALL THIS SKILL
+   DO NOT INSTALL THIS SKILL
   
   3 critical security issues found:
   • Arbitrary code execution via eval()
@@ -201,7 +201,7 @@ These patterns may be legitimate but warrant inspection:
 
 ---
 
-## 🎯 Commands Reference
+##  Commands Reference
 
 ### `scan <skill-name>`
 Fetch and scan a skill from ClawHub before installing.
@@ -263,7 +263,7 @@ skillguard watch --interval 3600  # Check every hour
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 Create `~/.skillguard/config.json`:
 
@@ -303,22 +303,22 @@ Create `~/.skillguard/config.json`:
 
 ---
 
-## 🔐 Security Levels
+##  Security Levels
 
 After scanning, skills are assigned a security level:
 
 | Level | Badge | Meaning | Recommendation |
 |-------|-------|---------|----------------|
-| **Verified** | ✅ | Trusted author, no issues | Safe to install |
-| **Clean** | 🟢 | No issues found | Likely safe |
-| **Review** | 🟡 | Warnings only | Read before installing |
-| **Suspicious** | 🟠 | Multiple warnings | Careful review needed |
-| **Dangerous** | 🔴 | Critical issues | Do not install |
-| **Malicious** | ⛔ | Known malware patterns | Block & report |
+| **Verified** |  | Trusted author, no issues | Safe to install |
+| **Clean** |  | No issues found | Likely safe |
+| **Review** |  | Warnings only | Read before installing |
+| **Suspicious** |  | Multiple warnings | Careful review needed |
+| **Dangerous** |  | Critical issues | Do not install |
+| **Malicious** |  | Known malware patterns | Block & report |
 
 ---
 
-## 🔄 Integration Workflows
+##  Integration Workflows
 
 ### Pre-Install Hook
 ```bash
@@ -343,7 +343,7 @@ skillguard scan $SKILL && clawhub install $SKILL
 
 ---
 
-## 📈 Vulnerability Database
+##  Vulnerability Database
 
 SkillGuard maintains a local database of known vulnerabilities:
 
@@ -366,7 +366,7 @@ skillguard report-vuln --skill bad-skill --details "Description..."
 
 ---
 
-## 🚫 Limitations
+##  Limitations
 
 SkillGuard is a **first line of defense**, not a guarantee:
 
@@ -386,7 +386,7 @@ SkillGuard is a **first line of defense**, not a guarantee:
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Found a dangerous pattern we missed? Help improve SkillGuard:
 
@@ -411,7 +411,7 @@ skillguard report-fp --pattern "WARN-005" --reason "Legitimate use case"
 
 ---
 
-## 📜 Changelog
+##  Changelog
 
 ### v2.0.0 (Current)
 - Comprehensive pattern database (50+ patterns)
@@ -430,19 +430,19 @@ skillguard report-fp --pattern "WARN-005" --reason "Legitimate use case"
 
 ---
 
-## 📄 License
+##  License
 
 MIT License — Use freely, contribute back.
 
 ---
 
-## 🛡️ Stay Safe
+##  Stay Safe
 
 > "In the agent ecosystem, trust is earned through transparency.
 > Every skill you install is code you're choosing to run.
 > Choose wisely. Verify always."
 
-*Built by [PaxSwarm](https://github.com/G0HEAD) — protecting the swarm, one skill at a time* 🐦‍⬛
+*Built by [PaxSwarm](https://github.com/G0HEAD) — protecting the swarm, one skill at a time* 
 
 ---
 

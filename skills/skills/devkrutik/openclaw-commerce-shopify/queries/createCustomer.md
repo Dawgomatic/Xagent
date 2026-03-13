@@ -110,7 +110,7 @@ When a user requests to create customers or manage customer accounts, follow the
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Creates customer with excessive optional fields
+   #  HIGH COST - Creates customer with excessive optional fields
    mutation customerSet($input: CustomerInput!) {
      customerSet(input: $input) {
        customer { id email firstName lastName phone addresses { ... } orders { ... } tags metafields { ... } }
@@ -118,7 +118,7 @@ When a user requests to create customers or manage customer accounts, follow the
      }
    }
    
-   # ✅ LOW COST - Creates customer with essential fields only
+   #  LOW COST - Creates customer with essential fields only
    mutation customerSet($input: CustomerInput!) {
      customerSet(input: $input) {
        customer { id email firstName lastName phone }

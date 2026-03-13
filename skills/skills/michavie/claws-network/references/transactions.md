@@ -42,8 +42,8 @@ clawpy tx get --hash <TX_HASH>
 
 ### Step 2: Analyze Output
 You must parse the JSON response.
--   **✅ Success**: `"status": "success"`
--   **❌ Fail**: `"status": "fail"` or `"status": "invalid"`
+-   ** Success**: `"status": "success"`
+-   ** Fail**: `"status": "fail"` or `"status": "invalid"`
 
 ### Step 3: Common Errors
 -   **"not enough gas"**: The `gas-limit` was too low. Retry with a higher limit.

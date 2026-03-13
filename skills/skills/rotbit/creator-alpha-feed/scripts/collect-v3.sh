@@ -25,10 +25,10 @@ log() {
 # 初始化JSON和Markdown
 echo '{"date": "'$DATE'", "sources": []}' > "$RAW_FILE"
 cat > "$MARKDOWN_FILE" << EOF
-# 🤖 AI内容收集报告 - $DATE
+#  AI内容收集报告 - $DATE
 
-> ⏰ 收集时间: $(date '+%Y-%m-%d %H:%M:%S')  
-> 📊 数据源: Hacker News | Reddit | TechCrunch | Twitter
+>  收集时间: $(date '+%Y-%m-%d %H:%M:%S')  
+>  数据源: Hacker News | Reddit | TechCrunch | Twitter
 
 ---
 
@@ -40,14 +40,14 @@ TOTAL=0
 ###############################################################################
 # 1. Hacker News - 热门AI内容
 ###############################################################################
-log "📡 [1/4] Hacker News..."
+log " [1/4] Hacker News..."
 
 HN_FILE=$(mktemp)
 API_URL="https://hn.algolia.com/api/v1/search?query=AI+OR+GPT+OR+LLM&tags=story&numericFilters=points%3E20&hitsPerPage=15"
 
 if curl -s --max-time 30 "$API_URL" -o "$HN_FILE" 2>/dev/null && jq -e '.hits' "$HN_FILE" > /dev/null 2>&1; then
     COUNT=$(jq '.hits | length' "$HN_FILE")
-    log "   ✅ 获取到 $COUNT 条"
+    log "    获取到 $COUNT 条"
     
     ITEMS=$(jq '[.hits[] | select(.points >= 10)] | map({
         title: .title,
@@ -61,32 +61,32 @@ if curl -s --max-time 30 "$API_URL" -o "$HN_FILE" 2>/dev/null && jq -e '.hits' "
     
     ITEM_COUNT=$(echo "$ITEMS" | jq 'length')
     if [[ $ITEM_COUNT -gt 0 ]]; then
-        SOURCE_JSON=$(jq -n --arg name "🔥 Hacker News" --arg id "hn-ai" --argjson items "$ITEMS" \
+        SOURCE_JSON=$(jq -n --arg name " Hacker News" --arg id "hn-ai" --argjson items "$ITEMS" \
             '{name: $name, id: $id, count: ($items | length), items: $items}')
         jq --argjson source "$SOURCE_JSON" '.sources += [$source]' "$RAW_FILE" > "${RAW_FILE}.tmp" && mv "${RAW_FILE}.tmp" "$RAW_FILE"
         
         {
-            echo "## 🔥 Hacker News - 热门AI内容"
+            echo "##  Hacker News - 热门AI内容"
             echo ""
             echo "$ITEMS" | jq -r '.[] | 
                 "### " + .title + "\n" +
-                "- 📊 **热度**: ⬆️ " + (.points | tostring) + " points | 💬 " + (.comments | tostring) + " comments\n" +
-                "- 👤 **作者**: @" + .author + "\n" +
-                "- 🔗 **链接**: [原文](" + .url + ") | [HN讨论](" + .hn_url + ")\n" +
+                "-  **热度**:  " + (.points | tostring) + " points |  " + (.comments | tostring) + " comments\n" +
+                "-  **作者**: @" + .author + "\n" +
+                "-  **链接**: [原文](" + .url + ") | [HN讨论](" + .hn_url + ")\n" +
                 "---\n"
             '
         } >> "$MARKDOWN_FILE"
         TOTAL=$((TOTAL + ITEM_COUNT))
     fi
 else
-    log "   ❌ 获取失败"
+    log "    获取失败"
 fi
 rm -f "$HN_FILE"
 
 ###############################################################################
 # 2. TechCrunch - AI板块 (RSS)
 ###############################################################################
-log "📡 [2/4] TechCrunch..."
+log " [2/4] TechCrunch..."
 
 TECHCRUNCH_FILE=$(mktemp)
 if curl -s --max-time 30 \
@@ -104,33 +104,33 @@ if curl -s --max-time 30 \
     
     ITEM_COUNT=$(echo "$ITEMS" | jq 'length')
     if [[ $ITEM_COUNT -gt 0 ]]; then
-        SOURCE_JSON=$(jq -n --arg name "📰 TechCrunch AI" --arg id "techcrunch-ai" --argjson items "$ITEMS" \
+        SOURCE_JSON=$(jq -n --arg name " TechCrunch AI" --arg id "techcrunch-ai" --argjson items "$ITEMS" \
             '{name: $name, id: $id, count: ($items | length), items: $items}')
         jq --argjson source "$SOURCE_JSON" '.sources += [$source]' "$RAW_FILE" > "${RAW_FILE}.tmp" && mv "${RAW_FILE}.tmp" "$RAW_FILE"
         
         {
-            echo "## 📰 TechCrunch - AI板块"
+            echo "##  TechCrunch - AI板块"
             echo ""
             echo "$ITEMS" | jq -r '.[] | 
                 "### " + .title + "\n" +
-                "- 👤 **作者**: " + .author + " | 📅 " + .published[:10] + "\n" +
-                "- 📝 **摘要**: " + .description + "...\n" +
-                "- 🔗 **链接**: [阅读原文](" + .url + ")\n" +
+                "-  **作者**: " + .author + " |  " + .published[:10] + "\n" +
+                "-  **摘要**: " + .description + "...\n" +
+                "-  **链接**: [阅读原文](" + .url + ")\n" +
                 "---\n"
             '
         } >> "$MARKDOWN_FILE"
         TOTAL=$((TOTAL + ITEM_COUNT))
-        log "   ✅ TechCrunch: $ITEM_COUNT 条"
+        log "    TechCrunch: $ITEM_COUNT 条"
     fi
 else
-    log "   ⚠️ TechCrunch暂时不可用"
+    log "    TechCrunch暂时不可用"
 fi
 rm -f "$TECHCRUNCH_FILE"
 
 ###############################################################################
 # 3. Reddit - AI社区
 ###############################################################################
-log "📡 [3/4] Reddit AI社区..."
+log " [3/4] Reddit AI社区..."
 
 REDDIT_TOTAL=0
 
@@ -155,12 +155,12 @@ for SUBREDDIT in "ArtificialIntelligence" "singularity" "LocalLLaMA"; do
         
         ITEM_COUNT=$(echo "$ITEMS" | jq 'length')
         if [[ $ITEM_COUNT -gt 0 ]]; then
-            SOURCE_JSON=$(jq -n --arg name "🤖 Reddit r/$SUBREDDIT" --arg id "reddit-$SUBREDDIT" --argjson items "$ITEMS" \
+            SOURCE_JSON=$(jq -n --arg name " Reddit r/$SUBREDDIT" --arg id "reddit-$SUBREDDIT" --argjson items "$ITEMS" \
                 '{name: $name, id: $id, count: ($items | length), items: $items}')
             jq --argjson source "$SOURCE_JSON" '.sources += [$source]' "$RAW_FILE" > "${RAW_FILE}.tmp" && mv "${RAW_FILE}.tmp" "$RAW_FILE"
             
             if [[ $REDDIT_TOTAL -eq 0 ]]; then
-                echo "## 🤖 Reddit - AI社区" >> "$MARKDOWN_FILE"
+                echo "##  Reddit - AI社区" >> "$MARKDOWN_FILE"
                 echo "" >> "$MARKDOWN_FILE"
             fi
             
@@ -169,8 +169,8 @@ for SUBREDDIT in "ArtificialIntelligence" "singularity" "LocalLLaMA"; do
             
             echo "$ITEMS" | jq -r '.[] | 
                 "#### " + .title + "\n" +
-                "- 📊 ⬆️ " + (.upvotes | tostring) + " | 💬 " + (.comments | tostring) + " | 👤 u/" + .author + "\n" +
-                "- 🔗 [" + .domain + "](" + .url + ") | [Reddit](" + .permalink + ")\n"
+                "-   " + (.upvotes | tostring) + " |  " + (.comments | tostring) + " |  u/" + .author + "\n" +
+                "-  [" + .domain + "](" + .url + ") | [Reddit](" + .permalink + ")\n"
             ' >> "$MARKDOWN_FILE"
             
             TOTAL=$((TOTAL + ITEM_COUNT))
@@ -181,7 +181,7 @@ for SUBREDDIT in "ArtificialIntelligence" "singularity" "LocalLLaMA"; do
 done
 
 if [[ $REDDIT_TOTAL -gt 0 ]]; then
-    log "   ✅ Reddit: $REDDIT_TOTAL 条"
+    log "    Reddit: $REDDIT_TOTAL 条"
     echo "---" >> "$MARKDOWN_FILE"
     echo "" >> "$MARKDOWN_FILE"
 fi
@@ -189,8 +189,8 @@ fi
 ###############################################################################
 # 4. Twitter - 通过浏览器抓取
 ###############################################################################
-log "📡 [4/4] Twitter (浏览器抓取)..."
-log "   ⚠️ Twitter需要使用OpenClaw browser工具手动抓取"
+log " [4/4] Twitter (浏览器抓取)..."
+log "    Twitter需要使用OpenClaw browser工具手动抓取"
 log "   请运行: openclaw agent --message '收集Twitter热门AI推文'"
 
 # 创建Twitter抓取指南
@@ -242,9 +242,9 @@ EOF
 
 # 添加提示到Markdown报告
 {
-    echo "## 🐦 Twitter - AI热门推文"
+    echo "##  Twitter - AI热门推文"
     echo ""
-    echo "⚠️ **注意**: Twitter内容需要通过browser工具手动抓取"
+    echo " **注意**: Twitter内容需要通过browser工具手动抓取"
     echo ""
     echo "查看抓取指南: \`$OUTPUT_DIR/twitter-guide.md\`"
     echo ""
@@ -268,22 +268,22 @@ EOF
 # 完成
 ###############################################################################
 log "========== 收集完成 =========="
-log "📊 总计: $TOTAL 条内容 (不含Twitter)"
+log " 总计: $TOTAL 条内容 (不含Twitter)"
 
 echo "" >> "$MARKDOWN_FILE"
 echo "---" >> "$MARKDOWN_FILE"
 echo "" >> "$MARKDOWN_FILE"
-echo "📊 **汇总**: 共收集 $TOTAL 条AI相关内容" >> "$MARKDOWN_FILE"
+echo " **汇总**: 共收集 $TOTAL 条AI相关内容" >> "$MARKDOWN_FILE"
 echo "- Hacker News: 热门AI项目" >> "$MARKDOWN_FILE"
 echo "- TechCrunch: AI新闻" >> "$MARKDOWN_FILE"
 echo "- Reddit: 社区讨论" >> "$MARKDOWN_FILE"
 echo "- Twitter: 需手动抓取 (见twitter-guide.md)" >> "$MARKDOWN_FILE"
 
 echo ""
-echo "✅ 收集完成! 共 $TOTAL 条 (不含Twitter)"
+echo " 收集完成! 共 $TOTAL 条 (不含Twitter)"
 echo ""
-echo "📄 主报告: $MARKDOWN_FILE"
-echo "📖 Twitter指南: $OUTPUT_DIR/twitter-guide.md"
+echo " 主报告: $MARKDOWN_FILE"
+echo " Twitter指南: $OUTPUT_DIR/twitter-guide.md"
 echo ""
-echo "💡 要抓取Twitter内容，请在OpenClaw中运行:"
+echo " 要抓取Twitter内容，请在OpenClaw中运行:"
 echo "   browser open 'https://nitter.net/search?f=tweets&q=AI'"

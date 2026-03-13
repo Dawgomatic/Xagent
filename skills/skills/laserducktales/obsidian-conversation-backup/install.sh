@@ -1,7 +1,7 @@
 #!/bin/bash
 # Installation script for Obsidian Conversation Backup skill
 
-echo "🦞 Obsidian Conversation Backup - Installation"
+echo " Obsidian Conversation Backup - Installation"
 echo "=============================================="
 echo ""
 
@@ -57,4 +57,4 @@ echo "   crontab -e"
 echo "   # Add this line:"
 echo "   0 * * * * $(pwd)/scripts/monitor_and_save.sh"
 echo ""
-echo "Installation complete! 🎉"
+echo "Installation complete! "

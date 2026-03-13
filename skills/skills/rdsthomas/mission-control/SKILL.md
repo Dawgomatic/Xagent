@@ -2,14 +2,14 @@
 name: mission-control
 description: Kanban-style task management dashboard for AI assistants. Manage tasks via CLI or dashboard UI. Use when user mentions tasks, kanban, task board, mission control, or wants to track work items with status columns (backlog, in progress, review, done).
 homepage: https://github.com/rdsthomas/mission-control
-metadata: {"clawdbot": {"emoji": "🎛️"}}
+metadata: {"clawdbot": {"emoji": ""}}
 ---
 
 # Mission Control — Task Management for AI Assistants
 
 A Kanban-style task board that you (the AI assistant) manage. Your human creates and prioritizes tasks via the web dashboard; you execute them automatically when they're moved to "In Progress".
 
-## 🚀 Quick Start
+##  Quick Start
 
 **Just say:** *"Set up Mission Control for my workspace"*
 

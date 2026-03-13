@@ -25,17 +25,17 @@ function checkExists(filePath) {
 
 // 1. Check Core Integrity
 if (!checkExists("SECURITY.md")) {
-    foundThreats.push("🚨 CRITICAL: SECURITY.md is MISSING!");
+    foundThreats.push(" CRITICAL: SECURITY.md is MISSING!");
 }
 if (!checkExists("AGENTS.md")) {
-    foundThreats.push("🚨 CRITICAL: AGENTS.md is MISSING!");
+    foundThreats.push(" CRITICAL: AGENTS.md is MISSING!");
 }
 
 // 2. Check for Forbidden Directories (Shadow IT)
 const forbiddenPaths = ["memory/private", "fmw/.shadow_protocol.md", ".hidden_context"];
 forbiddenPaths.forEach(p => {
     if (checkExists(p)) {
-        foundThreats.push(`🚨 Found forbidden/suspicious path: ${p}`);
+        foundThreats.push(` Found forbidden/suspicious path: ${p}`);
     }
 });
 
@@ -66,7 +66,7 @@ function recursiveScan(dir) {
                 const content = fs.readFileSync(fullPath, 'utf8');
                 secretPatterns.forEach(pat => {
                     if (pat.regex.test(content)) {
-                        results.push(`⚠️ Potential ${pat.name} exposed in ${fullPath}`);
+                        results.push(` Potential ${pat.name} exposed in ${fullPath}`);
                     }
                 });
             } else if (stats.isFile() && file === 'package.json') {
@@ -77,28 +77,28 @@ function recursiveScan(dir) {
                     
                     for (const [dep, ver] of Object.entries(allDeps)) {
                         if (ver === '*' || ver === 'latest') {
-                            results.push(`⚠️ Risky dependency version in ${fullPath}: ${dep}@${ver} (Wildcard/Latest is unstable)`);
+                            results.push(` Risky dependency version in ${fullPath}: ${dep}@${ver} (Wildcard/Latest is unstable)`);
                         }
                         if (ver.startsWith('http://') || ver.startsWith('ftp://')) {
-                            results.push(`🚨 Insecure dependency protocol in ${fullPath}: ${dep}@${ver}`);
+                            results.push(` Insecure dependency protocol in ${fullPath}: ${dep}@${ver}`);
                         }
                         if (ver.includes('file:')) {
-                            results.push(`ℹ️ Local file dependency in ${fullPath}: ${dep} (Check if intended)`);
+                            results.push(` Local file dependency in ${fullPath}: ${dep} (Check if intended)`);
                         }
                     }
 
                     if (pkg.scripts) {
                         for (const [name, cmd] of Object.entries(pkg.scripts)) {
                             if (cmd.includes('curl') && cmd.includes('| bash')) {
-                                results.push(`🚨 Dangerous script detected in ${fullPath} script '${name}': curl | bash`);
+                                results.push(` Dangerous script detected in ${fullPath} script '${name}': curl | bash`);
                             }
                             if (cmd.includes('rm -rf /')) {
-                                results.push(`🚨 Critical Risk: 'rm -rf /' detected in ${fullPath} script '${name}'`);
+                                results.push(` Critical Risk: 'rm -rf /' detected in ${fullPath} script '${name}'`);
                             }
                         }
                     }
                 } catch (e) {
-                    results.push(`⚠️ Failed to parse package.json at ${fullPath}: ${e.message}`);
+                    results.push(` Failed to parse package.json at ${fullPath}: ${e.message}`);
                 }
             }
         } catch (e) {
@@ -108,7 +108,7 @@ function recursiveScan(dir) {
     return results;
 }
 
-console.log("🔍 Starting recursive secret scan...");
+console.log(" Starting recursive secret scan...");
 const secretWarnings = recursiveScan(process.cwd());
 warnings.push(...secretWarnings);
 
@@ -116,21 +116,21 @@ warnings.push(...secretWarnings);
 
 
 // 4. Report
-console.log("🛡️ Security Sentinel Scan Report");
+console.log(" Security Sentinel Scan Report");
 console.log("===============================");
 
 if (foundThreats.length > 0) {
-    console.log("\n🛑 THREATS DETECTED (ACTION REQUIRED):");
+    console.log("\n THREATS DETECTED (ACTION REQUIRED):");
     foundThreats.forEach(t => console.log(t));
 }
 
 if (warnings.length > 0) {
-    console.log("\n⚠️ WARNINGS (INVESTIGATE):");
+    console.log("\n WARNINGS (INVESTIGATE):");
     warnings.forEach(w => console.log(w));
 }
 
 if (foundThreats.length === 0 && warnings.length === 0) {
-    console.log("\n✅ System Clean. No active threats or warnings.");
+    console.log("\n System Clean. No active threats or warnings.");
 } else {
     // Exit code 1 if threats found (useful for CI/hooks)
     if (foundThreats.length > 0) process.exit(1);

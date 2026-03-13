@@ -537,7 +537,7 @@ function ReasonAboutQuery(query: string, context: string) -> ReasoningChain {
 
 ### When to Use BAML in LangGraph
 
-**✅ Use BAML for**:
+** Use BAML for**:
 - Any LLM call requiring structured output
 - Tool selection/routing decisions (union types)
 - State parsing and updates
@@ -545,7 +545,7 @@ function ReasonAboutQuery(query: string, context: string) -> ReasoningChain {
 - Data extraction with complex schemas
 - Classification and categorization tasks
 
-**⚠️ Keep in LangGraph**:
+** Keep in LangGraph**:
 - Simple string responses (no structure needed)
 - State management (TypedDict containers)
 - Conditional routing logic (Python `isinstance` checks)
@@ -717,7 +717,7 @@ def smart_node(state: AgentState) -> AgentState:
 7. **Version Prompts** - Keep prompts in `baml_src/` under version control
 8. **Use TypeBuilder** - Leverage dynamic schemas for adaptive agents
 9. **Async First** - Use async/await for better concurrency in graphs
-10. **Handle Boundaries** - Convert Pydantic ↔ dict at LangGraph/BAML boundaries
+10. **Handle Boundaries** - Convert Pydantic  dict at LangGraph/BAML boundaries
 
 ---
 

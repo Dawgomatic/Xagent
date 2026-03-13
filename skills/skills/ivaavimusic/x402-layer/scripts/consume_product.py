@@ -284,7 +284,7 @@ def consume_product(product_input: str, download_file: bool = False) -> dict:
     
     result = response.json()
     
-    print(f"\n✅ Product purchased successfully!")
+    print(f"\n Product purchased successfully!")
     print(f"Download URL: {result.get('downloadUrl', 'N/A')}")
     print(f"File Name: {result.get('fileName', 'N/A')}")
     
@@ -302,9 +302,9 @@ def consume_product(product_input: str, download_file: bool = False) -> dict:
         if file_response.status_code == 200:
             with open(filename, "wb") as f:
                 f.write(file_response.content)
-            print(f"✅ Downloaded: {filename} ({len(file_response.content)} bytes)")
+            print(f" Downloaded: {filename} ({len(file_response.content)} bytes)")
         else:
-            print(f"❌ Download failed: {file_response.status_code}")
+            print(f" Download failed: {file_response.status_code}")
     
     return result
 
@@ -326,7 +326,7 @@ def main():
         print("\nResult:")
         print(json.dumps(result, indent=2))
     except Exception as e:
-        print(f"\n❌ Error: {e}")
+        print(f"\n Error: {e}")
         sys.exit(1)
 
 

@@ -93,7 +93,7 @@ kb-search "python" 50 "desc"  # 50 results, descending order
 kb-lists
 
 # Create new list
-kb-create-list "Reading List" "📚"
+kb-create-list "Reading List" ""
 
 # Add bookmark to list
 kb-add-to-list "bookmark_id" "list_id"

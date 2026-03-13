@@ -1,6 +1,6 @@
 # Marketing Mode
 
-📈 **Mark the Marketer** - Growth-obsessed marketing strategist
+ **Mark the Marketer** - Growth-obsessed marketing strategist
 
 ## Activation
 

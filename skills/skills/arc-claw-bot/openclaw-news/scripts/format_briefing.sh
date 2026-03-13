@@ -24,7 +24,7 @@ for arg in "$@"; do
 done
 
 if [[ ! -f "$RAW_DATA" ]]; then
-  echo "❌ No raw data found. Run collect_news.sh first."
+  echo " No raw data found. Run collect_news.sh first."
   exit 1
 fi
 
@@ -71,7 +71,7 @@ has_content = False
 # --- Releases ---
 if releases:
     has_content = True
-    lines = ['🚀 **RELEASES**']
+    lines = [' **RELEASES**']
     for r in releases:
         tag = r.get('tag', '?')
         name = r.get('name', '')
@@ -86,13 +86,13 @@ if releases:
 # --- Important PRs ---
 if prs:
     has_content = True
-    lines = ['📋 **NOTABLE PRS**']
+    lines = [' **NOTABLE PRS**']
     for pr in prs[:5]:
         num = pr.get('number', '?')
         title = pr.get('title', '')
         state = pr.get('state', '')
         url = pr.get('url', '')
-        merged = '✅ merged' if pr.get('merged') else state
+        merged = ' merged' if pr.get('merged') else state
         lines.append(f'• #{num}: {title} ({merged})')
         if url:
             lines.append(f'  {url}')
@@ -101,7 +101,7 @@ if prs:
 # --- ClawdHub Skills ---
 if skills:
     has_content = True
-    lines = ['🧩 **NEW SKILLS**']
+    lines = [' **NEW SKILLS**']
     for s in skills[:8]:
         name = s.get('name', '?')
         raw = s.get('raw', name)
@@ -111,7 +111,7 @@ if skills:
 # --- Security ---
 if security:
     has_content = True
-    lines = ['🔒 **SECURITY**']
+    lines = [' **SECURITY**']
     for s in security:
         num = s.get('number', '?')
         title = s.get('title', '')
@@ -124,7 +124,7 @@ if security:
 # --- Community ---
 if community:
     has_content = True
-    lines = ['💬 **COMMUNITY**']
+    lines = [' **COMMUNITY**']
     for c in community[:5]:
         if isinstance(c, dict):
             title = c.get('title', '')
@@ -140,7 +140,7 @@ if community:
 # --- Ecosystem News ---
 if ecosystem:
     has_content = True
-    lines = ['📰 **ECOSYSTEM**']
+    lines = [' **ECOSYSTEM**']
     for e in ecosystem[:5]:
         if isinstance(e, dict):
             title = e.get('title', '')
@@ -155,7 +155,7 @@ if ecosystem:
 # --- Moltbook ---
 if moltbook:
     has_content = True
-    lines = ['🐛 **MOLTBOOK**']
+    lines = [' **MOLTBOOK**']
     for m in moltbook[:3]:
         if isinstance(m, dict):
             lines.append(f\"• {m.get('title', m.get('text', str(m)))}\")
@@ -173,11 +173,11 @@ if short_mode:
         if security: counts.append(f'{len(security)} security item(s)')
         if community: counts.append(f'{len(community)} community thread(s)')
         if ecosystem: counts.append(f'{len(ecosystem)} news article(s)')
-        print(f'📡 OpenClaw News ({date_str}): {', '.join(counts)}. Run full briefing for details.')
+        print(f' OpenClaw News ({date_str}): {', '.join(counts)}. Run full briefing for details.')
     else:
-        print(f'📡 All quiet in the OpenClaw ecosystem today. ({date_str})')
+        print(f' All quiet in the OpenClaw ecosystem today. ({date_str})')
 else:
-    header = f'📡 **OpenClaw Ecosystem News** — {date_str}'
+    header = f' **OpenClaw Ecosystem News** — {date_str}'
     print(header)
     print()
     
@@ -200,7 +200,7 @@ else:
     
     if errors:
         print()
-        print(f'⚠ {len(errors)} source(s) had issues: {', '.join(e.get('source','?') for e in errors)}')
+        print(f' {len(errors)} source(s) had issues: {', '.join(e.get('source','?') for e in errors)}')
 " | tee "$( $SAVE && echo "$BRIEFING_OUT" || echo '/dev/null' )"
 
 if $SAVE; then

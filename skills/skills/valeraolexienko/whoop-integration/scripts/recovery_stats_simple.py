@@ -17,7 +17,7 @@ def main():
     """Get and analyze WHOOP recovery data for last 5 days"""
     client = WhoopClient()
     
-    print("🏃‍♀️ **WHOOP Recovery Statistics — Last 5 Days**")
+    print(" **WHOOP Recovery Statistics — Last 5 Days**")
     print("=" * 50)
     print()
     
@@ -25,7 +25,7 @@ def main():
     response = client._make_request('/v2/recovery')
     
     if not response or not response.get('records'):
-        print("❌ No recovery data available")
+        print(" No recovery data available")
         return
     
     records = response['records']
@@ -53,17 +53,17 @@ def main():
             })
     
     if not recent_data:
-        print("❌ No recovery data found in the last 5 days")
+        print(" No recovery data found in the last 5 days")
         return
     
     # Sort by date (newest first) and take last 5
     recent_data.sort(key=lambda x: x['date'], reverse=True)
     last_five = recent_data[:5]
     
-    print("📊 **Daily Recovery Breakdown:**")
+    print(" **Daily Recovery Breakdown:**")
     for data in last_five:
         recovery = data['recovery']
-        recovery_emoji = "🟢" if recovery >= 70 else "🟡" if recovery >= 50 else "🔴"
+        recovery_emoji = "" if recovery >= 70 else "" if recovery >= 50 else ""
         
         print(f"{recovery_emoji} **{data['date']}**")
         print(f"   Recovery: **{recovery:.0f}%** | HRV: {data['hrv']:.1f}ms | RHR: {data['rhr']:.0f} bpm")
@@ -76,10 +76,10 @@ def main():
         avg_hrv = sum(d['hrv'] for d in last_five) / len(last_five)
         avg_rhr = sum(d['rhr'] for d in last_five) / len(last_five)
         
-        print("📈 **5-Day Averages:**")
-        print(f"🎯 **Average Recovery:** {avg_recovery:.1f}%")
-        print(f"💓 **Average HRV:** {avg_hrv:.1f}ms")
-        print(f"🫀 **Average RHR:** {avg_rhr:.0f} bpm")
+        print(" **5-Day Averages:**")
+        print(f" **Average Recovery:** {avg_recovery:.1f}%")
+        print(f" **Average HRV:** {avg_hrv:.1f}ms")
+        print(f" **Average RHR:** {avg_rhr:.0f} bpm")
         print()
         
         # Trend analysis
@@ -89,37 +89,37 @@ def main():
             trend_change = recent_recovery - older_recovery
             
             if trend_change > 5:
-                trend_emoji = "📈"
+                trend_emoji = ""
                 trend_text = "**improving**"
             elif trend_change < -5:
-                trend_emoji = "📉" 
+                trend_emoji = "" 
                 trend_text = "**declining**"
             else:
-                trend_emoji = "➡️"
+                trend_emoji = ""
                 trend_text = "**stable**"
             
-            print("📊 **Trend Analysis:**")
+            print(" **Trend Analysis:**")
             print(f"{trend_emoji} Recovery trend: {trend_text}")
             print(f"Change: {trend_change:+.0f}% over 5 days")
             print()
         
         # Health insights
-        print("💡 **Insights:**")
+        print(" **Insights:**")
         if avg_recovery >= 70:
-            print("✅ **Excellent recovery!** Your body is adapting well to training")
+            print(" **Excellent recovery!** Your body is adapting well to training")
         elif avg_recovery >= 50:
-            print("🟡 **Moderate recovery.** Consider optimizing sleep and managing stress")
+            print(" **Moderate recovery.** Consider optimizing sleep and managing stress")
         else:
-            print("🔴 **Low recovery.** Focus on rest, sleep quality, and reduce training intensity")
+            print(" **Low recovery.** Focus on rest, sleep quality, and reduce training intensity")
         
         # HRV insights
         if avg_hrv > 50:
-            print("💚 **Good HRV baseline** — strong autonomic nervous system health")
+            print(" **Good HRV baseline** — strong autonomic nervous system health")
         elif avg_hrv < 35:
-            print("🟡 **Lower HRV** — may indicate stress or overtraining")
+            print(" **Lower HRV** — may indicate stress or overtraining")
         
         print()
-        print(f"📱 **Data from {len(recent_data)} recovery records in last 5 days**")
+        print(f" **Data from {len(recent_data)} recovery records in last 5 days**")
 
 if __name__ == "__main__":
     main()

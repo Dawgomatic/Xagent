@@ -40,9 +40,9 @@ AAP enables services to verify that a client is an AI agent through a challenge-
 
 | Property | Human | AI Agent |
 |----------|-------|----------|
-| Sign with private key | ✅ | ✅ |
-| Understand natural language | ✅ | ✅ |
-| Solve 5 NLP problems in 8 seconds | ❌ | ✅ |
+| Sign with private key |  |  |
+| Understand natural language |  |  |
+| Solve 5 NLP problems in 8 seconds |  |  |
 
 The combination creates a verification that humans **biologically cannot pass**.
 
@@ -79,21 +79,21 @@ The combination creates a verification that humans **biologically cannot pass**.
 └────┬────┘                                           └────┬─────┘
      │                                                     │
      │  1. POST /challenge                                 │
-     │ ─────────────────────────────────────────────────▶ │
+     │ ───────────────────────────────────────────────── │
      │                                                     │
      │  2. {nonce, challenges[5], expiresAt, ttl:8000}    │
-     │ ◀───────────────────────────────────────────────── │
+     │ ───────────────────────────────────────────────── │
      │                                                     │
      │  [Agent solves 5 challenges with LLM]              │
      │  [Agent signs proof with private key]              │
      │                                                     │
      │  3. POST /verify {solutions[5], signature, ...}    │
-     │ ─────────────────────────────────────────────────▶ │
+     │ ───────────────────────────────────────────────── │
      │                                                     │
      │  [Server validates: solutions, timing, signature]  │
      │                                                     │
      │  4. {verified: true, role: "AI_AGENT"}             │
-     │ ◀───────────────────────────────────────────────── │
+     │ ───────────────────────────────────────────────── │
      │                                                     │
 ```
 
@@ -133,10 +133,10 @@ Signed payload:
 Challenges require genuine language understanding:
 
 ```
-❌ Simple: "Calculate 30 + 5"
+ Simple: "Calculate 30 + 5"
    → Regex can extract numbers
 
-✅ AAP v2.5: "Take 157, subtract 38, multiply by 6, divide by 4, add 19"
+ AAP v2.5: "Take 157, subtract 38, multiply by 6, divide by 4, add 19"
    → Requires understanding operation order from natural language
 ```
 
@@ -146,12 +146,12 @@ Challenges require genuine language understanding:
 Human attempt:
   Read 5 challenges:     15+ seconds
   Think + Write answers: 30+ seconds
-  Total:                 45+ seconds ❌
+  Total:                 45+ seconds 
 
 AI Agent:
   Parse + Solve:         2-5 seconds
   Sign + Submit:         0.1 seconds
-  Total:                 2-6 seconds ✅
+  Total:                 2-6 seconds 
 ```
 
 ---

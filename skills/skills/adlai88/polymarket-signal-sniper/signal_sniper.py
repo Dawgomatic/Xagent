@@ -185,7 +185,7 @@ def show_config():
     """Display current configuration."""
     config = get_config()
     config_path = get_config_path(__file__)
-    print("🎯 Signal Sniper Configuration")
+    print(" Signal Sniper Configuration")
     print("=" * 40)
     print(f"API Key: {'✓ Set' if os.environ.get('SIMMER_API_KEY') else '✗ Missing'}")
     print()
@@ -260,10 +260,10 @@ def show_history():
     """Show recently processed articles."""
     processed = load_processed()
     if not processed:
-        print("📜 No articles processed yet.")
+        print(" No articles processed yet.")
         return
 
-    print("📜 Processed Articles")
+    print(" Processed Articles")
     print("=" * 40)
 
     # Sort by timestamp, most recent first
@@ -312,7 +312,7 @@ def fetch_rss(url: str) -> List[Dict[str, str]]:
 
     # Validate URL before fetching (SSRF protection)
     if not validate_url(url):
-        print(f"  ⚠️ Invalid or blocked URL: {url[:50]}...")
+        print(f"   Invalid or blocked URL: {url[:50]}...")
         return articles
 
     try:
@@ -361,9 +361,9 @@ def fetch_rss(url: str) -> List[Dict[str, str]]:
                 })
 
     except (URLError, HTTPError) as e:
-        print(f"  ⚠️ Failed to fetch {url[:50]}...: {e}")
+        print(f"   Failed to fetch {url[:50]}...: {e}")
     except ET.ParseError as e:
-        print(f"  ⚠️ Failed to parse {url[:50]}...: {e}")
+        print(f"   Failed to parse {url[:50]}...: {e}")
 
     return articles
 
@@ -597,12 +597,12 @@ def run_scan(
         return {"error": "No API key"}
 
     if not feeds:
-        print("❌ No RSS feeds configured")
+        print(" No RSS feeds configured")
         print("   Set SIMMER_SNIPER_FEEDS or use --feed URL")
         return {"error": "No feeds"}
 
     if not markets:
-        print("❌ No target markets configured")
+        print(" No target markets configured")
         print("   Set SIMMER_SNIPER_MARKETS or use --market ID")
         return {"error": "No markets"}
 
@@ -618,14 +618,14 @@ def run_scan(
 
     processed = load_processed()
 
-    print(f"🎯 Signal Sniper Scan")
+    print(f" Signal Sniper Scan")
     print(f"   Feeds: {len(feeds)} | Markets: {len(markets)} | Keywords: {len(keywords) or 'all'}")
     print()
 
     # 1. Fetch all articles from all feeds
     all_articles = []
     for feed_url in feeds:
-        print(f"📡 Fetching: {feed_url[:50]}...")
+        print(f" Fetching: {feed_url[:50]}...")
         articles = fetch_rss(feed_url)
         print(f"   Found {len(articles)} articles")
         all_articles.extend(articles)
@@ -635,7 +635,7 @@ def run_scan(
     # 2. Filter by keywords
     matched_articles = [a for a in all_articles if matches_keywords(a, keywords)]
     results["articles_matched"] = len(matched_articles)
-    print(f"\n📋 Matched {len(matched_articles)}/{len(all_articles)} articles by keywords")
+    print(f"\n Matched {len(matched_articles)}/{len(all_articles)} articles by keywords")
 
     # 3. Filter already processed
     new_articles = []
@@ -645,18 +645,18 @@ def run_scan(
             new_articles.append(article)
 
     results["articles_new"] = len(new_articles)
-    print(f"📰 New articles: {len(new_articles)}")
+    print(f" New articles: {len(new_articles)}")
 
     if not new_articles:
-        print("\n✅ No new signals to process")
+        print("\n No new signals to process")
         return results
 
     # 4. For each new article, check each market
-    print(f"\n🔍 Analyzing {len(new_articles)} new articles against {len(markets)} markets...")
+    print(f"\n Analyzing {len(new_articles)} new articles against {len(markets)} markets...")
 
     for article in new_articles:
         h = article_hash(article["url"], article["title"])
-        print(f"\n📰 {article['title'][:60]}...")
+        print(f"\n {article['title'][:60]}...")
 
         for market_id in markets:
             print(f"\n   → Checking market: {market_id[:20]}...")
@@ -665,7 +665,7 @@ def run_scan(
             # Use confidence threshold as probability estimate
             context = get_market_context(market_id, my_probability=CONFIDENCE_THRESHOLD)
             if not context:
-                print(f"     ⚠️ Could not fetch context")
+                print(f"      Could not fetch context")
                 continue
 
             print(format_context_summary(context))
@@ -674,10 +674,10 @@ def run_scan(
             should_trade, reasons = check_safeguards(context)
 
             if reasons:
-                print(f"     ⚠️ Warnings: {'; '.join(reasons)}")
+                print(f"      Warnings: {'; '.join(reasons)}")
 
             if not should_trade:
-                print(f"     ⏭️ Skipping: safeguards failed")
+                print(f"      Skipping: safeguards failed")
                 results["trades_skipped"] += 1
                 processed[h] = {
                     "title": article["title"],
@@ -690,7 +690,7 @@ def run_scan(
                 continue
 
             if scan_only:
-                print(f"     👀 [SCAN ONLY] Would analyze for trading")
+                print(f"      [SCAN ONLY] Would analyze for trading")
                 results["signals"].append({
                     "article": article["title"],
                     "market_id": market_id,
@@ -705,7 +705,7 @@ def run_scan(
             # 2. Confidence in the signal
             # 3. Current position and market state
 
-            print(f"\n     🧠 SIGNAL DETECTED - Awaiting analysis")
+            print(f"\n      SIGNAL DETECTED - Awaiting analysis")
             print(f"     Article: {article['title']}")
             print(f"     Resolution: {context.get('market', {}).get('resolution_criteria', 'N/A')[:100]}")
             print()
@@ -736,14 +736,14 @@ def run_scan(
             }
 
             if dry_run:
-                print(f"     🏜️ [DRY RUN] Would present signal for analysis")
+                print(f"      [DRY RUN] Would present signal for analysis")
 
     # Save processed state
     save_processed(processed)
 
     # Summary
     print("\n" + "=" * 40)
-    print("🎯 Scan Complete")
+    print(" Scan Complete")
     print(f"   Articles found: {results['articles_found']}")
     print(f"   Matched keywords: {results['articles_matched']}")
     print(f"   New to process: {results['articles_new']}")
@@ -751,7 +751,7 @@ def run_scan(
     print(f"   Skipped (safeguards): {results['trades_skipped']}")
 
     if results["signals"]:
-        print("\n📡 Signals for Analysis:")
+        print("\n Signals for Analysis:")
         for signal in results["signals"]:
             print(f"   • {signal['article'][:50]}...")
             print(f"     Market: {signal['market_id']}")
@@ -789,7 +789,7 @@ def main():
                 updates[key] = value
         if updates:
             updated = update_config(updates, __file__)
-            print(f"✅ Config updated: {updates}")
+            print(f" Config updated: {updates}")
             print(f"   Saved to: {get_config_path(__file__)}")
             # Reload globals
             global FEEDS, MARKETS, KEYWORDS, CONFIDENCE_THRESHOLD, MAX_USD, MAX_TRADES_PER_RUN

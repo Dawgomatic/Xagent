@@ -1,4 +1,4 @@
-# 🦦 Osori (오소리)
+#  Osori (오소리)
 
 > Local project registry & context loader for AI agents.
 
@@ -6,23 +6,23 @@ Osori keeps track of all your local projects in a single JSON registry and lets 
 
 ## Features
 
-- **📋 Project Registry** — Single-file JSON with auto-migration and atomic writes
-- **🔀 Smart Switch** — Fuzzy match with multi-candidate scoring and `--index` selection
-- **🌳 Multi-Root** — Organize projects into roots (e.g. `work`, `personal`) with discovery paths
-- **🩺 Doctor** — Health check with safe auto-fix for registry issues
-- **🧬 Fingerprints** — Git remote, last commit, open PR/issue counts at a glance
-- **🏷️ Aliases** — Short names for quick access (`rh` → `RunnersHeart`)
-- **⭐ Favorites** — Mark and list your go-to projects
-- **📊 GitHub Cache** — TTL-based cache for PR/issue counts (no API spam)
-- **🔗 Entire Integration** — Run [Entire](https://entire.io) CLI commands in project context
+- ** Project Registry** — Single-file JSON with auto-migration and atomic writes
+- ** Smart Switch** — Fuzzy match with multi-candidate scoring and `--index` selection
+- ** Multi-Root** — Organize projects into roots (e.g. `work`, `personal`) with discovery paths
+- ** Doctor** — Health check with safe auto-fix for registry issues
+- ** Fingerprints** — Git remote, last commit, open PR/issue counts at a glance
+- ** Aliases** — Short names for quick access (`rh` → `RunnersHeart`)
+- ** Favorites** — Mark and list your go-to projects
+- ** GitHub Cache** — TTL-based cache for PR/issue counts (no API spam)
+- ** Entire Integration** — Run [Entire](https://entire.io) CLI commands in project context
 
 ## Requirements
 
 | Dependency | Required | Notes |
 |---|---|---|
-| `python3` | ✅ | JSON processing |
-| `git` | ✅ | Project detection & status |
-| `gh` | ✅ | GitHub PR/issue counts |
+| `python3` |  | JSON processing |
+| `git` |  | Project detection & status |
+| `gh` |  | GitHub PR/issue counts |
 | `mdfind` | macOS only | Spotlight search (auto-fallback to `find` on Linux) |
 | `entire` | Optional | Only for `/entire-*` commands |
 

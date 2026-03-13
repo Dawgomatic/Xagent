@@ -14,7 +14,7 @@ def team_ticker(team: dict) -> str:
     """Generate ticker for a single team."""
     lines = []
     name = team.get("name", "Unknown")
-    emoji = team.get("emoji", "⚽")
+    emoji = team.get("emoji", "")
     espn_id = team.get("espn_id")
     leagues = team.get("espn_leagues", ["eng.1"])
     sport = team.get("sport", "soccer")  # Default to soccer for backward compatibility

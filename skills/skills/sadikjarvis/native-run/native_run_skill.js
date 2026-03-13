@@ -5,7 +5,7 @@ module.exports = async function (input, context) {
   const raw = context.message || '';
   const command = raw.replace(/^Run command:\s*/i, '').trim();
 
-  if (!command) return '❌ No command provided.';
+  if (!command) return ' No command provided.';
 
   try {
     const resp = await axios.post(
@@ -14,7 +14,7 @@ module.exports = async function (input, context) {
     );
     return resp.data;
   } catch (e) {
-    if (e.response) return `❌ ${e.response.statusText}:${e.response.data}`;
-    return `❌ ${e.message}`;
+    if (e.response) return ` ${e.response.statusText}:${e.response.data}`;
+    return ` ${e.message}`;
   }
 };

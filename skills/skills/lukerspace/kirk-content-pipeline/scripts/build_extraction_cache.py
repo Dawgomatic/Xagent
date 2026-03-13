@@ -622,13 +622,13 @@ def find_rlm_state_auto(multi: bool = False) -> Optional[Path]:
     best_path = candidates[0][1]
 
     if len(candidates) > 1:
-        print(f"ℹ️  Found {len(candidates)} state locations, using most recent:")
+        print(f"  Found {len(candidates)} state locations, using most recent:")
         for mtime, path in candidates:
             from datetime import datetime
             marker = " ← selected" if path == best_path else ""
             print(f"    {path} (modified {datetime.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M:%S')}{marker})")
     else:
-        print(f"ℹ️  Auto-discovered state: {best_path}")
+        print(f"  Auto-discovered state: {best_path}")
 
     return best_path
 
@@ -682,7 +682,7 @@ def main():
         if multi_dir and multi_dir.exists():
             multi_states = load_rlm_multi_state(multi_dir)
             states.update(multi_states)
-            print(f"ℹ️  Loaded {len(multi_states)} contexts from rlm-repl-multi")
+            print(f"  Loaded {len(multi_states)} contexts from rlm-repl-multi")
         elif multi_dir:
             checked_paths.append(str(multi_dir))
 
@@ -705,7 +705,7 @@ def main():
                         pdf_path = _resolve_context_path(ctx)
                         source_id = Path(pdf_path).stem.replace(' ', '_').lower() if pdf_path != 'unknown' else name
                         states[source_id] = ctx
-                    print(f"ℹ️  Loaded {len(ctxs)} context(s) from rlm v3+")
+                    print(f"  Loaded {len(ctxs)} context(s) from rlm v3+")
 
                 # v2: globals.contexts (rlm-repl-multi format)
                 elif 'globals' in single_state and 'contexts' in single_state.get('globals', {}):
@@ -714,7 +714,7 @@ def main():
                         pdf_path = _resolve_context_path(ctx)
                         source_id = Path(pdf_path).stem.replace(' ', '_').lower() if pdf_path != 'unknown' else name
                         states[source_id] = ctx
-                    print(f"ℹ️  Loaded {len(ctxs)} context(s) from rlm v2")
+                    print(f"  Loaded {len(ctxs)} context(s) from rlm v2")
 
                 # v1: top-level 'context' dict
                 elif 'context' in single_state:
@@ -722,7 +722,7 @@ def main():
                     if context and 'path' in context:
                         source_id = Path(context['path']).stem.replace(' ', '_').lower()
                         states[source_id] = single_state
-                        print(f"ℹ️  Loaded single context from rlm-repl v1")
+                        print(f"  Loaded single context from rlm-repl v1")
             else:
                 checked_paths.append(str(state_path))
 

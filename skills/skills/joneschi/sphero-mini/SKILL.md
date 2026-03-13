@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "⚽",
+        "emoji": "",
         "requires": { "bins": ["python3"], "packages": ["bleak"] },
         "install":
           [
@@ -27,13 +27,13 @@ Control your Sphero Mini robot ball via Bluetooth Low Energy using Python and bl
 
 ## Features
 
-- 🎨 **LED Control** - Change main LED color and back LED intensity
-- 🎯 **Movement** - Roll in any direction at variable speeds
-- 🎲 **Random Mode** - Cat play mode with unpredictable movements
-- 📐 **Draw Shapes** - Squares, stars, circles with programmable patterns
-- 🔋 **Power Management** - Wake, sleep, and check battery status
-- 🧭 **Heading Control** - Reset and control orientation
-- 🖥️ **Cross-platform** - Works on macOS, Windows, and Linux (uses bleak, not bluepy)
+-  **LED Control** - Change main LED color and back LED intensity
+-  **Movement** - Roll in any direction at variable speeds
+-  **Random Mode** - Cat play mode with unpredictable movements
+-  **Draw Shapes** - Squares, stars, circles with programmable patterns
+-  **Power Management** - Wake, sleep, and check battery status
+-  **Heading Control** - Reset and control orientation
+-  **Cross-platform** - Works on macOS, Windows, and Linux (uses bleak, not bluepy)
 
 ## Setup
 
@@ -110,7 +110,7 @@ asyncio.run(roll_forward())
 
 ## Pre-built Scripts
 
-### 🐱 Cat Play Mode (Random Movement)
+###  Cat Play Mode (Random Movement)
 
 ```bash
 python3 scripts/cat_play.py
@@ -118,7 +118,7 @@ python3 scripts/cat_play.py
 
 Makes Sphero move randomly for 1 minute with color changes - perfect for playing with cats!
 
-### 📐 Draw Shapes
+###  Draw Shapes
 
 ```bash
 # Draw a square
@@ -128,7 +128,7 @@ python3 scripts/draw_square.py
 python3 scripts/draw_star.py
 ```
 
-### 🎨 Color Control
+###  Color Control
 
 ```bash
 # Set specific color
@@ -190,7 +190,7 @@ The cat play mode script makes Sphero:
 - Run for exactly 1 minute
 - End with white color so you can find it
 
-Perfect for entertaining cats! 🐱
+Perfect for entertaining cats! 
 
 ## Troubleshooting
 

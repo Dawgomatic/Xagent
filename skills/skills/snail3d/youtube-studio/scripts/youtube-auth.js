@@ -34,12 +34,12 @@ async function authenticate() {
 
       if (query.code) {
         res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end('<h1>✅ Auth Successful!</h1><p>You can close this window.</p>');
+        res.end('<h1> Auth Successful!</h1><p>You can close this window.</p>');
         server.close();
         resolve(query.code);
       } else if (query.error) {
         res.writeHead(400, { 'Content-Type': 'text/html' });
-        res.end(`<h1>❌ Auth Failed: ${query.error}</h1>`);
+        res.end(`<h1> Auth Failed: ${query.error}</h1>`);
         server.close();
         reject(new Error(query.error));
       }
@@ -56,7 +56,7 @@ async function authenticate() {
 
   const { tokens } = await oauth2Client.getToken(code);
   fs.writeFileSync(TOKENS_FILE, JSON.stringify(tokens, null, 2));
-  console.log('✅ Tokens saved!');
+  console.log(' Tokens saved!');
   return tokens;
 }
 

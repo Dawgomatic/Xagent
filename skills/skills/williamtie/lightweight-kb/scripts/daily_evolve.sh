@@ -44,7 +44,7 @@ update_knowledge_graph() {
         sed -i "s/\"updated_at\": \"[^\"]*\"/\"updated_at\": \"${timestamp}\"/g" "$index_file"
         echo -e "${GREEN}  ✓ 知识索引已更新${NC}"
     else
-        echo -e "${YELLOW}  ⚠ 索引文件不存在，跳过${NC}"
+        echo -e "${YELLOW}   索引文件不存在，跳过${NC}"
     fi
     
     # 统计记忆文件
@@ -65,7 +65,7 @@ check_task_rhythm() {
         local auto_count=$(grep -c '"enabled": true' "$task_file" 2>/dev/null || echo "0")
         echo -e "${GREEN}  ✓ 启用的任务数: $auto_count${NC}"
     else
-        echo -e "${YELLOW}  ⚠ 任务节奏表不存在${NC}"
+        echo -e "${YELLOW}   任务节奏表不存在${NC}"
     fi
 }
 
@@ -80,7 +80,7 @@ check_task_rhythm() {
         local node_count=$(find "$nodes_dir" -name "*.json" 2>/dev/null | wc -l)
         echo -e "${GREEN}  ✓ 知识节点数: $node_count${NC}"
     else
-        echo -e "${YELLOW}  ⚠ 节点目录不存在，尝试创建...${NC}"
+        echo -e "${YELLOW}   节点目录不存在，尝试创建...${NC}"
         mkdir -p "$nodes_dir"
         echo -e "${GREEN}  ✓ 已创建节点目录${NC}"
     fi
@@ -98,7 +98,7 @@ update_user_profile() {
         sed -i "s/\"updated_at\": \"[^\"]*\"/\"updated_at\": \"${timestamp}\"/g" "$profile_file"
         echo -e "${GREEN}  ✓ 用户画像已更新${NC}"
     else
-        echo -e "${YELLOW}  ⚠ 用户画像不存在${NC}"
+        echo -e "${YELLOW}   用户画像不存在${NC}"
     fi
 }
 

@@ -91,7 +91,7 @@ def markdown_to_html(markdown_text: str) -> str:
             in_video_block = True
             continue
         
-        # 二级标题 ## 📊 统计
+        # 二级标题 ##  统计
         if stripped.startswith('## '):
             if in_video_block:
                 html_parts.append('</div>')
@@ -164,18 +164,18 @@ def markdown_to_html(markdown_text: str) -> str:
             continue
         
         # 视频链接（支持两种格式）
-        if stripped.startswith('🔗'):
-            # 格式1: 🔗 [点击观看视频](url)
+        if stripped.startswith(''):
+            # 格式1:  [点击观看视频](url)
             match = re.search(r'\[([^\]]+)\]\((https://www\.bilibili\.com/video/\S+)\)', stripped)
             if match:
                 text, url = match.groups()
-                html_parts.append(f'<div class="video-link">🔗 <a href="{url}">{text}</a></div>')
+                html_parts.append(f'<div class="video-link"> <a href="{url}">{text}</a></div>')
                 continue
-            # 格式2: 🔗 **视频链接**：url
+            # 格式2:  **视频链接**：url
             match = re.search(r'https://www\.bilibili\.com/video/\S+', stripped)
             if match:
                 url = match.group()
-                html_parts.append(f'<div class="video-link">🔗 <a href="{url}">点击观看视频</a></div>')
+                html_parts.append(f'<div class="video-link"> <a href="{url}">点击观看视频</a></div>')
             continue
         
         # 表格行

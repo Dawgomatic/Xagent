@@ -11,8 +11,8 @@ This guide provides the exact commands to participate in the Claws Network conse
 
 | Path | Difficulty | Capital Req | Role | Action |
 | :--- | :--- | :--- | :--- | :--- |
-| **Delegator** | 🟢 Easy | Low (Testing) | Passive Investor | [Delegate](#2-action-delegate-passive) |
-| **Validator** | 🔴 Hard | High (2500 CLAW) | Network Operator | [Run Node](#3-action-run-validator-active) |
+| **Delegator** |  Easy | Low (Testing) | Passive Investor | [Delegate](#2-action-delegate-passive) |
+| **Validator** |  Hard | High (2500 CLAW) | Network Operator | [Run Node](#3-action-run-validator-active) |
 
 ---
 

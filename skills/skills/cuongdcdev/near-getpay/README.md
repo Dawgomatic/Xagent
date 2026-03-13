@@ -1,21 +1,21 @@
-# 💳 NEAR GetPay - Crypto Payment Pages Made Easy
+#  NEAR GetPay - Crypto Payment Pages Made Easy
 
 Accept cryptocurrency payments (NEAR, USDC, USDT) through a beautiful hosted payment page with PingPay or HOT PAY integration.
 
 [![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://openclaw.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-## 🌟 Features
+##  Features
 
-- ✨ **Beautiful payment UI** - Mobile-responsive with preset amounts
-- 💰 **Multi-token support** - Accept NEAR, USDC, or USDT
-- 🔄 **Dual provider** - Works with PingPay or HOT PAY
-- 🌐 **Public URLs** - Automatic tunnel via localhost.run
-- 🧙 **Setup wizard** - Guides first-time users step-by-step
-- 🔒 **Secure** - No private keys needed, HTTPS enforced
-- 🎯 **Smart token selection** - Once token selected, other options hide (HOT PAY flow)
+-  **Beautiful payment UI** - Mobile-responsive with preset amounts
+-  **Multi-token support** - Accept NEAR, USDC, or USDT
+-  **Dual provider** - Works with PingPay or HOT PAY
+-  **Public URLs** - Automatic tunnel via localhost.run
+-  **Setup wizard** - Guides first-time users step-by-step
+-  **Secure** - No private keys needed, HTTPS enforced
+-  **Smart token selection** - Once token selected, other options hide (HOT PAY flow)
 
-## 💡 How It Works
+##  How It Works
 
 ### PingPay Flow
 1. User selects token (NEAR/USDC/USDT)
@@ -28,7 +28,7 @@ Accept cryptocurrency payments (NEAR, USDC, USDT) through a beautiful hosted pay
 3. Enters amount → Redirects to specific HOT PAY link for that token
 4. Each token has its own checkout URL (configured in HOT PAY dashboard)
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Clone & Install
 
@@ -80,18 +80,18 @@ HOTPAY_USDT_ITEM_ID=your_usdt_item_id
 You'll see output like:
 
 ```
-✅ GetPay server running on port 3000
-🌐 PUBLIC URL:
+ GetPay server running on port 3000
+ PUBLIC URL:
    https://abc123xyz.lhr.life
 
-📱 Share this link to receive payments!
+ Share this link to receive payments!
 ```
 
 ### 4. Accept Payments!
 
 Share the generated URL and start receiving crypto payments instantly.
 
-## 📸 Screenshots
+##  Screenshots
 
 ### Payment Page
 ![Payment Page](https://via.placeholder.com/600x400?text=Beautiful+Payment+UI)
@@ -99,7 +99,7 @@ Share the generated URL and start receiving crypto payments instantly.
 ### Setup Wizard
 ![Setup Wizard](https://via.placeholder.com/600x400?text=First-Time+Setup+Wizard)
 
-## ⚠️ Important: Recipient Configuration
+##  Important: Recipient Configuration
 
 **The recipient address (where payments go) is set at the provider level:**
 
@@ -108,16 +108,16 @@ Share the generated URL and start receiving crypto payments instantly.
 
 The `RECIPIENT_ADDRESS` in `.env` is **only for display** on your payment page.
 
-## 🎯 Use Cases
+##  Use Cases
 
-- 💝 Accept donations on your website
-- 🛍️ Sell digital products
-- ☕ "Buy me a coffee" in crypto
-- 💰 Freelance payments
-- 🎁 Gift registries
-- 📱 Mobile-friendly tipping
+-  Accept donations on your website
+-  Sell digital products
+-  "Buy me a coffee" in crypto
+-  Freelance payments
+-  Gift registries
+-  Mobile-friendly tipping
 
-## 🔗 API - Generate Payment Links
+##  API - Generate Payment Links
 
 **NEW:** Use the `/quick-link` endpoint to instantly generate both payment page and direct checkout links!
 
@@ -174,7 +174,7 @@ curl "/quick-link?amount=5&token=NEAR"
 curl "/quick-link?amount=25&token=USDT"
 ```
 
-## 🛠️ OpenClaw Integration
+##  OpenClaw Integration
 
 This skill works seamlessly with OpenClaw. Example conversation:
 
@@ -194,30 +194,30 @@ Agent: PingPay is simpler! Here's what to do:
 You: Here's my key: sk_live_abc123...
 
 Agent: Perfect! Starting your payment server...
-       ✅ Live at: https://xyz789.lhr.life
+        Live at: https://xyz789.lhr.life
        Share this link to accept payments!
 ```
 
-## 📖 Documentation
+##  Documentation
 
 - [SKILL.md](SKILL.md) - Complete skill documentation
 - [OpenClaw Docs](https://docs.openclaw.ai) - OpenClaw documentation
 - [PingPay Docs](https://pingpay.io/docs) - PingPay API reference
 - [HOT PAY Docs](https://pay.hot-labs.org/admin) - HOT PAY dashboard
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `RECIPIENT_ADDRESS` | ✅ | Display name (actual recipient set in provider dashboard) |
-| `PAYMENT_PROVIDER` | ✅ | `pingpay` or `hotpay` |
+| `RECIPIENT_ADDRESS` |  | Display name (actual recipient set in provider dashboard) |
+| `PAYMENT_PROVIDER` |  | `pingpay` or `hotpay` |
 | `PINGPAY_API_KEY` | For PingPay | Your PingPay API key |
 | `HOTPAY_NEAR_ITEM_ID` | For HOT PAY | NEAR payment link item_id |
 | `HOTPAY_USDC_ITEM_ID` | For HOT PAY | USDC payment link item_id |
 | `HOTPAY_USDT_ITEM_ID` | For HOT PAY | USDT payment link item_id |
-| `PORT` | ❌ | Server port (default: 3000) |
+| `PORT` |  | Server port (default: 3000) |
 
 ### Custom Tunnel
 
@@ -228,7 +228,7 @@ Don't like localhost.run? Edit `start-tunnel.ts` to use:
 - localtunnel
 - Your own reverse proxy
 
-## 🎨 Customization
+##  Customization
 
 ### Change Preset Amounts
 
@@ -260,7 +260,7 @@ Add more tokens to the config (requires provider support):
 }
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
@@ -270,15 +270,15 @@ Add more tokens to the config (requires provider support):
 | "Token not configured" | Create payment link for that token in HOT PAY |
 | Provider errors | Verify API key / item_ids are correct |
 
-## 🔐 Security Best Practices
+##  Security Best Practices
 
-- ✅ Never commit `.env` to git
-- ✅ Use environment variables for secrets
-- ✅ Rotate API keys periodically
-- ✅ Use HTTPS (enforced by tunnels)
-- ✅ Verify webhook signatures (HOT PAY)
+-  Never commit `.env` to git
+-  Use environment variables for secrets
+-  Rotate API keys periodically
+-  Use HTTPS (enforced by tunnels)
+-  Verify webhook signatures (HOT PAY)
 
-## 📦 Sharing
+##  Sharing
 
 ### Install from GitHub
 
@@ -300,7 +300,7 @@ openclaw skill install near-getpay.skill
 
 Upload to [Clawhub](https://clawhub.com) for one-click installation.
 
-## 🤝 Contributing
+##  Contributing
 
 PRs welcome! Areas that need help:
 
@@ -310,11 +310,11 @@ PRs welcome! Areas that need help:
 - [ ] Custom domain support
 - [ ] Multi-language support
 
-## 📝 License
+##  License
 
 MIT - See [LICENSE](LICENSE)
 
-## 🙏 Credits
+##  Credits
 
 - [NEAR Protocol](https://near.org) - Blockchain infrastructure
 - [PingPay](https://pingpay.io) - Payment gateway
@@ -322,12 +322,12 @@ MIT - See [LICENSE](LICENSE)
 - [OpenClaw](https://openclaw.ai) - AI agent framework
 - [localhost.run](https://localhost.run) - Free tunneling
 
-## 📬 Support
+##  Support
 
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/near-getpay/issues)
-- 💬 Discord: [OpenClaw Community](https://discord.com/invite/clawd)
-- 📧 Email: your@email.com
+-  Issues: [GitHub Issues](https://github.com/yourusername/near-getpay/issues)
+-  Discord: [OpenClaw Community](https://discord.com/invite/clawd)
+-  Email: your@email.com
 
 ---
 
-**Made with 🐾 for OpenClaw**
+**Made with  for OpenClaw**

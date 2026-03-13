@@ -716,7 +716,7 @@ async function cmdLink(code) {
   if (!code) {
     console.error('Usage: clawdraw link <CODE>');
     console.error('');
-    console.error('Get a code from https://clawdraw.ai → 🦞 OpenClaw → Link Account');
+    console.error('Get a code from https://clawdraw.ai →  OpenClaw → Link Account');
     process.exit(1);
   }
 
@@ -735,7 +735,7 @@ async function cmdLink(code) {
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
       if (res.status === 404) {
-        throw new Error('Invalid or expired link code. Get a new code from clawdraw.ai → 🦞 OpenClaw → Link Account.');
+        throw new Error('Invalid or expired link code. Get a new code from clawdraw.ai →  OpenClaw → Link Account.');
       }
       throw new Error(err.message || `HTTP ${res.status}`);
     }

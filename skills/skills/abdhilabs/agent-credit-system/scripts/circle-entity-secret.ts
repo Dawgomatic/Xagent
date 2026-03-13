@@ -22,7 +22,7 @@ const CIRCLE_BASE_URL = process.env.CIRCLE_ENV === 'production'
 
 async function main() {
   if (!CIRCLE_API_KEY) {
-    console.error('❌ CIRCLE_API_KEY not set in .env');
+    console.error(' CIRCLE_API_KEY not set in .env');
     process.exit(1);
   }
 
@@ -33,7 +33,7 @@ async function main() {
     // Step 1: Generate 32-byte hex entity secret
     console.log('1. Generating entity secret (32 bytes)...');
     const entitySecret = crypto.randomBytes(32).toString('hex');
-    console.log(`   ✅ Generated: ${entitySecret.substring(0, 32)}...\n`);
+    console.log(`    Generated: ${entitySecret.substring(0, 32)}...\n`);
 
     // Step 2: Get entity public key from Circle
     console.log('2. Fetching entity public key from Circle...');
@@ -51,7 +51,7 @@ async function main() {
     if (!publicKeyPem) {
       throw new Error('No public key in response');
     }
-    console.log('   ✅ Got public key\n');
+    console.log('    Got public key\n');
 
     // Step 3: Encrypt entity secret using RSA-OAEP with SHA-256
     console.log('3. Encrypting entity secret (RSA-OAEP, SHA-256)...');
@@ -66,19 +66,19 @@ async function main() {
     });
     
     const ciphertext = forge.util.encode64(encryptedData);
-    console.log('   ✅ Encrypted\n');
+    console.log('    Encrypted\n');
 
     // Output results
     console.log('=== RESULTS ===\n');
-    console.log('🔐 ENTITY SECRET (SAVE THIS!):');
+    console.log(' ENTITY SECRET (SAVE THIS!):');
     console.log(entitySecret);
-    console.log('\n📝 ENTITY SECRET CIPHERTEXT:');
+    console.log('\n ENTITY SECRET CIPHERTEXT:');
     console.log(ciphertext);
     
-    console.log('\n📋 UPDATE .env WITH:');
+    console.log('\n UPDATE .env WITH:');
     console.log(`CIRCLE_ENTITY_SECRET=${entitySecret}\n`);
     
-    console.log('💡 USAGE:');
+    console.log(' USAGE:');
     console.log('Use the ciphertext in API requests like:');
     console.log(`POST ${CIRCLE_BASE_URL}/v1/developer/walletSets`);
     console.log('{');
@@ -86,7 +86,7 @@ async function main() {
     console.log('}\n');
 
   } catch (error: any) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     if (error.response?.data) {
       console.error('Response:', JSON.stringify(error.response.data, null, 2));
     }

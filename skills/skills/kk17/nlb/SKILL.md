@@ -3,7 +3,7 @@ name: nlb
 description: check loans and search resources from the National Library Board of Singapore
 homepage: https://www.nlb.gov.sg
 metadata:
-  { "clawdbot": { "emoji": "📚", "requires": { "bins": [] }, "install": [] } }
+  { "clawdbot": { "emoji": "", "requires": { "bins": [] }, "install": [] } }
 ---
 
 # NLB Skill

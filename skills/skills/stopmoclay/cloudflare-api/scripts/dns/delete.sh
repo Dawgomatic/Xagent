@@ -41,13 +41,13 @@ fi
 
 TOKEN=$(get_token)
 if [ -z "$TOKEN" ]; then
-    echo "❌ No API token. Run ./scripts/setup.sh first." >&2
+    echo " No API token. Run ./scripts/setup.sh first." >&2
     exit 1
 fi
 
 ZONE_ID=$(get_zone_id "$DOMAIN")
 if [ -z "$ZONE_ID" ]; then
-    echo "❌ Zone '$DOMAIN' not found"
+    echo " Zone '$DOMAIN' not found"
     exit 1
 fi
 
@@ -60,7 +60,7 @@ RECORD_ID=$(echo "$RECORDS" | jq -r '.result[0].id // empty')
 CONTENT=$(echo "$RECORDS" | jq -r '.result[0].content // empty')
 
 if [ -z "$RECORD_ID" ]; then
-    echo "❌ Record not found: $FULL_NAME ($TYPE)"
+    echo " Record not found: $FULL_NAME ($TYPE)"
     exit 1
 fi
 
@@ -78,7 +78,7 @@ fi
 RESPONSE=$(cf_delete "/zones/$ZONE_ID/dns_records/$RECORD_ID")
 
 if check_error "$RESPONSE"; then
-    echo "✅ Record deleted!"
+    echo " Record deleted!"
 else
     exit 1
 fi

@@ -1,4 +1,4 @@
-# 🌌 Hitchhiker's Guide AI Adventure
+#  Hitchhiker's Guide AI Adventure
 
 > "Don't Panic." — *The Hitchhiker's Guide to the Galaxy*
 
@@ -6,7 +6,7 @@ An AI-powered text adventure game engine inspired by the 1984 Infocom classic an
 
 ---
 
-## 🚀 Features
+##  Features
 
 - **Dynamic AI Narrator**: Experience a unique story every time, delivered in the dry, British, and absurdist style of Douglas Adams.
 - **Infinite Improbability Drive**: A core mechanic where reality itself can shift. High improbability might result in you becoming a sofa or a sperm whale appearing in mid-air.
@@ -14,7 +14,7 @@ An AI-powered text adventure game engine inspired by the 1984 Infocom classic an
 - **Roguelike Reconstitution**: Death isn't the end; it's a learning experience. Just remember: DON'T PANIC.
 - **Persistency**: The game state is saved locally and can be reloaded anytime. The **Guide** entries are persistent and can be updated and expanded upon.
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 .
@@ -28,7 +28,7 @@ An AI-powered text adventure game engine inspired by the 1984 Infocom classic an
 └── SKILL.md                    # Agent instructions and core workflow
 ```
 
-## 🛠️ State Management (CLI)
+##  State Management (CLI)
 
 The game uses a specialized `game_manager.py` to handle all state transitions. This ensures that the AI Agent doesn't have to manually manipulate complex JSON strings.
 
@@ -48,7 +48,7 @@ The game uses a specialized `game_manager.py` to handle all state transitions. T
   - `python scripts/game_manager.py set_flag has_headache false`
 - **Roll a dice**: `python scripts/game_manager.py roll_a_dice`
 
-## 🧠 How it Works (For AI Agents)
+##  How it Works (For AI Agents)
 
 This project is designed to be used by an AI Agent. The Agent acts as the GM, following the workflow defined in `SKILL.md`:
 
@@ -56,7 +56,7 @@ This project is designed to be used by an AI Agent. The Agent acts as the GM, fo
 2.  **Narrate**: Provide descriptive, witty text based on the user's current location and improbable events.
 3.  **Commit**: Use the atomic CLI commands to save progress after every turn.
 
-## 🛠️ Requirements
+##  Requirements
 
 - Python 3.x
 - Any terminal capable of running `python` scripts.

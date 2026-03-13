@@ -8,7 +8,7 @@ read_when:
   - User wants to list their Cloudflare zones
 metadata:
   clawdbot:
-    emoji: "☁️"
+    emoji: ""
     requires:
       bins: ["curl", "jq"]
 ---

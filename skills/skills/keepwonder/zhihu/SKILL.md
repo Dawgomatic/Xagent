@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🧠",
+        "emoji": "",
         "requires": { "env": ["ZHIHU_APP_KEY", "ZHIHU_APP_SECRET"] },
         "primaryEnv": "ZHIHU_APP_KEY",
       },

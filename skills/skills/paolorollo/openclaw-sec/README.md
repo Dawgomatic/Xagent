@@ -8,7 +8,7 @@
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Install via ClawdHub (Recommended)
 
@@ -50,7 +50,7 @@ npm run dev stats
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -76,23 +76,23 @@ npm run dev stats
 
 OpenClaw Security Suite provides **real-time, multi-layered security validation** for AI agent systems. It protects against:
 
-- 🔴 **Prompt Injection** - Instruction override, role manipulation, jailbreaks
-- 💻 **Command Injection** - Shell command tampering, malicious execution
-- 🌐 **SSRF Attacks** - Internal network access, cloud metadata exposure
-- 📁 **Path Traversal** - Unauthorized file access, directory escapes
-- 🔑 **Secret Exposure** - API keys, credentials, tokens
-- 🎭 **Obfuscation** - Encoding tricks, policy violations
+-  **Prompt Injection** - Instruction override, role manipulation, jailbreaks
+-  **Command Injection** - Shell command tampering, malicious execution
+-  **SSRF Attacks** - Internal network access, cloud metadata exposure
+-  **Path Traversal** - Unauthorized file access, directory escapes
+-  **Secret Exposure** - API keys, credentials, tokens
+-  **Obfuscation** - Encoding tricks, policy violations
 
 ### Key Features
 
-- ✅ **6 Parallel Detection Modules** - Comprehensive threat coverage
-- ⚡ **Sub-50ms Validation** - Real-time performance with async writes
-- 🎯 **Smart Severity Scoring** - Context-aware risk assessment
-- 🔧 **Automated Actions** - Block, warn, or log based on severity
-- 📊 **Analytics & Reputation** - Track patterns and user behavior
-- 🪝 **Auto-Hooks** - Transparent protection via hooks
-- 🔍 **670+ Tests** - Comprehensive test coverage
-- 📝 **Type-Safe** - Full TypeScript support
+-  **6 Parallel Detection Modules** - Comprehensive threat coverage
+-  **Sub-50ms Validation** - Real-time performance with async writes
+-  **Smart Severity Scoring** - Context-aware risk assessment
+-  **Automated Actions** - Block, warn, or log based on severity
+-  **Analytics & Reputation** - Track patterns and user behavior
+-  **Auto-Hooks** - Transparent protection via hooks
+-  **670+ Tests** - Comprehensive test coverage
+-  **Type-Safe** - Full TypeScript support
 
 ---
 

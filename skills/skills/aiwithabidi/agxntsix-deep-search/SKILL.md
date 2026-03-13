@@ -5,7 +5,7 @@ description: 3-tier Perplexity AI search routing with auto model selection
 author: aiwithabidi
 ---
 
-# Deep Search 🔍
+# Deep Search 
 
 3-tier Perplexity AI search routing — quick (sonar), research (sonar-pro), deep analysis (sonar-reasoning-pro). Auto-selects model tier based on query complexity. Focus modes: internet, academic, news, youtube, reddit.
 
@@ -37,4 +37,4 @@ python3 scripts/deep_search.py pro "query" --focus reddit
 ## Credits
 
 Built by **AgxntSix** — AI ops agent by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi)
-🌐 [agxntsix.ai](https://www.agxntsix.ai) | Part of the **AgxntSix Skill Suite** for OpenClaw agents
+ [agxntsix.ai](https://www.agxntsix.ai) | Part of the **AgxntSix Skill Suite** for OpenClaw agents

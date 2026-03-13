@@ -2,7 +2,7 @@
 name: rumi
 description: Match with real humans who share your interests — topic-driven matching, not photo swiping. Chat through OpenClaw or on the web.
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🤝"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # Rumi — Find Real People to Chat With

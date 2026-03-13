@@ -104,7 +104,7 @@ def run_benchmark(output_path: str | None = None):
     print(f"Perfect retrieval (all refs found): {perfect_retrieval}/{len(results)}")
 
     for r in results:
-        status = "✅" if r["retrieval_score"] == 1.0 else "⚠️" if r["retrieval_score"] > 0 else "❌"
+        status = "" if r["retrieval_score"] == 1.0 else "" if r["retrieval_score"] > 0 else ""
         print(f"  {status} Q{r['id']}: {r['retrieval_score']:.0%} — {r['question'][:50]}...")
         if r.get("refs_missing"):
             print(f"      Missing: {', '.join(r['refs_missing'])}")

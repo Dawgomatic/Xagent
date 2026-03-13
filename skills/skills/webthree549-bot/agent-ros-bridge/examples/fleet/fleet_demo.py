@@ -88,13 +88,13 @@ async def main():
     
     # Set up callbacks
     def on_task_assigned(task, robot):
-        logger.info(f"✅ Task {task.id[:8]} assigned to {robot.name}")
+        logger.info(f" Task {task.id[:8]} assigned to {robot.name}")
     
     def on_task_completed(task, robot):
-        logger.info(f"🎉 Task {task.id[:8]} completed by {robot.name}")
+        logger.info(f" Task {task.id[:8]} completed by {robot.name}")
     
     def on_task_failed(task, error):
-        logger.error(f"❌ Task {task.id[:8]} failed: {error}")
+        logger.error(f" Task {task.id[:8]} failed: {error}")
     
     orchestrator.on_task_assigned = on_task_assigned
     orchestrator.on_task_completed = on_task_completed
@@ -171,7 +171,7 @@ async def main():
     ]
     
     print("=" * 70)
-    print("🚛 FLEET ORCHESTRATOR DEMO")
+    print(" FLEET ORCHESTRATOR DEMO")
     print("=" * 70)
     print("")
     print("Fleet Composition:")
@@ -201,7 +201,7 @@ async def main():
         while True:
             await asyncio.sleep(10)
             metrics = orchestrator.get_metrics()
-            print(f"\n📊 Fleet: {metrics.active_robots}/{metrics.total_robots} robots active, "
+            print(f"\n Fleet: {metrics.active_robots}/{metrics.total_robots} robots active, "
                   f"{metrics.tasks_pending} pending, {metrics.tasks_executing} executing")
     
     status_task = asyncio.create_task(print_status())
@@ -210,7 +210,7 @@ async def main():
         while True:
             await asyncio.sleep(1)
     except KeyboardInterrupt:
-        print('\n⏹️  Stopping...')
+        print('\n  Stopping...')
         status_task.cancel()
         await orchestrator.stop()
         await bridge.stop()

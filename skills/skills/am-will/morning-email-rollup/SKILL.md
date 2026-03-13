@@ -1,7 +1,7 @@
 ---
 name: morning-email-rollup
 description: Daily morning rollup of important emails and calendar events at 8am with AI-generated summaries
-metadata: {"clawdbot":{"emoji":"📧","requires":{"bins":["gog","gemini","jq","date"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["gog","gemini","jq","date"]}}}
 ---
 
 # Morning Email Rollup
@@ -24,8 +24,8 @@ Or edit the script directly to set the default.
 - Searches for emails marked as **important** or **starred** from the last 24 hours
 - Uses AI (Gemini CLI) to generate natural language summaries of each email
 - Shows up to 20 most important emails with:
-  - 🔴 Unread indicator (red)
-  - 🟢 Read indicator (green)
+  -  Unread indicator (red)
+  -  Read indicator (green)
   - Sender name/email
   - Subject line
   - **AI-generated 1-sentence summary** (natural language, not scraped content)
@@ -89,14 +89,14 @@ Each email is summarized using the Gemini CLI (`gemini`):
 
 **Example output:**
 ```
-🔴 **William Ryan: Invitation to team meeting**
+ **William Ryan: Invitation to team meeting**
    The email invites you to a team meeting tomorrow at 2pm to discuss the Q1 roadmap and assign tasks for the upcoming sprint.
 ```
 
 ## Read/Unread Indicators
 
-- 🔴 Red dot = Unread email
-- 🟢 Green dot = Read email
+-  Red dot = Unread email
+-  Green dot = Read email
 
 All emails show one of these markers for visual consistency.
 
@@ -230,6 +230,6 @@ $HOME/clawd/morning-email-rollup-log.md
 
 Format:
 ```markdown
-- [2026-01-15 08:00:00] 🔄 Starting morning email rollup
-- [2026-01-15 08:00:02] ✅ Rollup complete: 15 emails
+- [2026-01-15 08:00:00]  Starting morning email rollup
+- [2026-01-15 08:00:02]  Rollup complete: 15 emails
 ```

@@ -1,7 +1,7 @@
 ---
 name: plaid
 description: plaid-cli a cli for interacting with the plaid finance platform. link accounts from various institutions, query balances, and transactions by date range listing accounts/balances.
-metadata: {"clawdis":{"emoji":"💳","requires":{"bins":["plaid-cli"]},"install":[{"id":"go","kind":"go","module":"github.com/jverdi/plaid-cli@0.0.2","bins":["plaid-cli"],"label":"Install plaid-cli (go)"}]}}
+metadata: {"clawdis":{"emoji":"","requires":{"bins":["plaid-cli"]},"install":[{"id":"go","kind":"go","module":"github.com/jverdi/plaid-cli@0.0.2","bins":["plaid-cli"],"label":"Install plaid-cli (go)"}]}}
 ---
 
 # Plaid

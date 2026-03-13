@@ -1054,25 +1054,25 @@ Format as JSON:
     const protagonist = context?.characters.find(c => c.role === 'protagonist')?.name || 'The Hero';
     
     return {
-      title: `${protagonist}'s Cursed Adventure 😂 | Epic Comedy Short`,
-      description: `🎬 Welcome to an epic tale of ${protagonist}, a lovable character from ${context?.era || 'ancient'} ${context?.location || 'lands'}!
+      title: `${protagonist}'s Cursed Adventure  | Epic Comedy Short`,
+      description: ` Welcome to an epic tale of ${protagonist}, a lovable character from ${context?.era || 'ancient'} ${context?.location || 'lands'}!
 
 When a mischievous curse turns every bad deed into accidental good, chaos and comedy ensue! Watch as ${protagonist} discovers that being a hero might not be so bad after all.
 
-🎨 Created with love using AI-powered storytelling
-📍 Setting: ${context?.location || 'Mystical Realm'}
-⏱️ Duration: ~1 minute
+ Created with love using AI-powered storytelling
+ Setting: ${context?.location || 'Mystical Realm'}
+ Duration: ~1 minute
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎭 CHARACTERS:
+ CHARACTERS:
 ${context?.characters.map(c => `• ${c.name} - ${c.role}`).join('\n') || '• Our Hero - Protagonist'}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎵 MUSIC & SFX:
+ MUSIC & SFX:
 Traditional ${context?.era || 'Ancient'} instrumentation meets modern cinematic scoring
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📱 FOLLOW FOR MORE:
+ FOLLOW FOR MORE:
 New animated shorts every week!
 
 #${context?.era?.replace(/\s+/g, '') || 'Ancient'} #Animation #Comedy #ShortFilm`,

@@ -3,13 +3,13 @@ name: stealth-browser
 description: Anti-bot browser automation using Camoufox and Nodriver. Bypasses Cloudflare Turnstile, Datadome, and aggressive anti-bot on sites like Airbnb and Yelp. Use when standard Playwright/Selenium gets blocked.
 metadata:
   openclaw:
-    emoji: "🥷"
+    emoji: ""
     requires:
       bins: ["distrobox"]
       env: []
 ---
 
-# Stealth Browser Skill 🥷
+# Stealth Browser Skill 
 
 Anti-bot browser automation that bypasses Cloudflare Turnstile, Datadome, and aggressive fingerprinting.
 
@@ -31,7 +31,7 @@ Anti-bot browser automation that bypasses Cloudflare Turnstile, Datadome, and ag
 
 All scripts run in `pybox` distrobox for isolation.
 
-⚠️ **Use `python3.14` explicitly** - pybox may have multiple Python versions with different packages installed.
+ **Use `python3.14` explicitly** - pybox may have multiple Python versions with different packages installed.
 
 ### 1. Setup (First Time)
 
@@ -108,7 +108,7 @@ Sites like Airbnb/Yelp use behavioral analysis. To avoid detection:
 
 ## Headless Mode Warning
 
-⚠️ Old `--headless` flag is DETECTED. Options:
+ Old `--headless` flag is DETECTED. Options:
 
 1. **New Headless:** Use `headless="new"` (Chrome 109+)
 2. **Xvfb:** Run headed browser in virtual display
@@ -236,7 +236,7 @@ The script detects session expiry using multiple signals:
 
 If detected during `--headless` mode, you'll see:
 ```
-🔒 Login wall signals: url-path, password-form
+ Login wall signals: url-path, password-form
 ```
 
 Re-run with `--login` to refresh the session.
@@ -270,7 +270,7 @@ distrobox-enter pybox -- python3.14 scripts/camoufox-session.py \
 
 ### Security Notes
 
-⚠️ **Cookies are credentials.** Treat profile directories like passwords:
+ **Cookies are credentials.** Treat profile directories like passwords:
 - Profile dirs have `chmod 700` (owner only)
 - Cookie exports have `chmod 600`
 - Don't share profiles or exported cookies over insecure channels

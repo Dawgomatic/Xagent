@@ -1,7 +1,7 @@
 ---
 name: openmeteo-weather
 description: "Get current weather, hourly and daily forecasts for any city or coordinates worldwide. Use when the user asks about weather, temperature, rain, snow, wind, sunrise/sunset, UV, humidity, pressure, or wants to know if they need an umbrella."
-metadata: {"openclaw":{"emoji":"🌤","requires":{"bins":["curl","jq"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","jq"]}}}
 user-invocable: true
 ---
 

@@ -367,11 +367,11 @@ No vision processing, no screenshots, no AI inference — just fast API calls.
 
 | Feature | plexctl | ClawTV |
 |---------|---------|--------|
-| Plex control | ✅ Direct API | ✅ API + Vision |
-| Apple TV remote | ❌ | ✅ |
-| Vision navigation | ❌ | ✅ |
-| Any streaming app | ❌ | ✅ |
-| Speed | ⚡ Instant | 🐢 Slower |
+| Plex control |  Direct API |  API + Vision |
+| Apple TV remote |  |  |
+| Vision navigation |  |  |
+| Any streaming app |  |  |
+| Speed |  Instant |  Slower |
 | Dependencies | plexapi only | pyatv, Anthropic, QuickTime |
 
 **Use plexctl when**: You want fast, direct Plex control  

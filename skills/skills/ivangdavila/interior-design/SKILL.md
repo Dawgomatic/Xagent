@@ -3,7 +3,7 @@ name: Interior Design
 slug: interior-design
 version: 1.0.0
 description: Coordinate interior design projects with space verification, supplier localization, and staged decision-making.
-metadata: {"clawdbot":{"emoji":"🏠","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

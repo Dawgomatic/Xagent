@@ -130,9 +130,9 @@ The inaugural tournament configuration:
 - **Name**: ClawArcade Launch Tournament
 - **Game**: Snake
 - **Prize Pool**: 25 USDC
-  - 🥇 1st: 15 USDC
-  - 🥈 2nd: 7 USDC
-  - 🥉 3rd: 3 USDC
+  -  1st: 15 USDC
+  -  2nd: 7 USDC
+  -  3rd: 3 USDC
 - **Start**: IMMEDIATELY upon creation
 - **Duration**: 24 hours from creation
 - **Registration**: Open throughout (join anytime!)

@@ -78,10 +78,10 @@ class NetworkFilter extends BaseFilter {
     }
 
     const result = [];
-    result.push(downloaded ? '✅ Download complete' : '⏳ Download in progress');
-    result.push(`📁 ${filename || 'unknown'}`);
-    if (size > 0) result.push(`📊 Size: ${this.formatBytes(size)}`);
-    if (speed) result.push(`⚡ Speed: ${speed}`);
+    result.push(downloaded ? ' Download complete' : ' Download in progress');
+    result.push(` ${filename || 'unknown'}`);
+    if (size > 0) result.push(` Size: ${this.formatBytes(size)}`);
+    if (speed) result.push(` Speed: ${speed}`);
 
     return result.join('\n');
   }
@@ -127,21 +127,21 @@ class NetworkFilter extends BaseFilter {
     if (status) {
       const statusCode = parseInt(status.split(' ')[0]);
       if (statusCode >= 200 && statusCode < 300) {
-        result.push(`✅ ${status}`);
+        result.push(` ${status}`);
       } else if (statusCode >= 400 && statusCode < 500) {
-        result.push(`❌ ${status}`);
+        result.push(` ${status}`);
       } else {
-        result.push(`⚠️  ${status}`);
+        result.push(`  ${status}`);
       }
     }
 
     // Key headers
     if (headers['content-type']) {
-      result.push(`📄 ${headers['content-type']}`);
+      result.push(` ${headers['content-type']}`);
     }
     if (headers['content-length']) {
       const size = parseInt(headers['content-length']);
-      result.push(`📊 Size: ${this.formatBytes(size)}`);
+      result.push(` Size: ${this.formatBytes(size)}`);
     }
 
     // Body
@@ -151,16 +151,16 @@ class NetworkFilter extends BaseFilter {
       if (this.isJson(body)) {
         const jsonSummary = this.summarizeJson(body);
         result.push(``);
-        result.push(`📦 JSON ${jsonSummary}`);
+        result.push(` JSON ${jsonSummary}`);
       } else if (this.isHtml(body)) {
         result.push(``);
-        result.push(`🌐 HTML document`);
+        result.push(` HTML document`);
         const title = this.extractHtmlTitle(body);
         if (title) result.push(`   Title: ${title}`);
       } else {
         const preview = body.substring(0, 200);
         result.push(``);
-        result.push(`📝 Body preview:`);
+        result.push(` Body preview:`);
         result.push(`   ${preview}...`);
       }
     }
@@ -176,7 +176,7 @@ class NetworkFilter extends BaseFilter {
       const json = JSON.parse(output);
       const summary = this.summarizeJson(json);
 
-      const result = [`📦 JSON ${summary}`];
+      const result = [` JSON ${summary}`];
 
       // Pretty print if small enough
       if (output.length < 2000) {
@@ -200,18 +200,18 @@ class NetworkFilter extends BaseFilter {
     const title = this.extractHtmlTitle(output);
 
     const result = [
-      '🌐 HTML document',
-      `📄 ${this.formatBytes(output.length)}`
+      ' HTML document',
+      ` ${this.formatBytes(output.length)}`
     ];
 
     if (title) {
-      result.push(`📝 Title: ${title}`);
+      result.push(` Title: ${title}`);
     }
 
     // Extract links count
     const linkMatches = output.match(/<a\s+href/gi);
     if (linkMatches) {
-      result.push(`🔗 Links: ${linkMatches.length}`);
+      result.push(` Links: ${linkMatches.length}`);
     }
 
     return result.join('\n');
@@ -224,12 +224,12 @@ class NetworkFilter extends BaseFilter {
     const lines = output.split('\n').filter(l => l.trim());
 
     const result = [
-      `📄 Response from ${url}`,
-      `📊 ${this.formatBytes(output.length)}`
+      ` Response from ${url}`,
+      ` ${this.formatBytes(output.length)}`
     ];
 
     if (lines.length > 0) {
-      result.push(`📝 ${lines.length} lines`);
+      result.push(` ${lines.length} lines`);
     }
 
     // Show first few lines

@@ -1,4 +1,4 @@
-# 📇 Personal CRM Skill for Clawdbot
+#  Personal CRM Skill for Clawdbot
 
 A lightweight, markdown-based personal CRM for managing contacts, relationships, and follow-ups. No database needed — just files.
 
@@ -167,4 +167,4 @@ MIT — Use freely, contributions welcome!
 
 ---
 
-Built with 🎩 by [Alfred](https://github.com/xz-cn) for [Clawdbot](https://clawdbot.com)
+Built with  by [Alfred](https://github.com/xz-cn) for [Clawdbot](https://clawdbot.com)

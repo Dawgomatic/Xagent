@@ -111,7 +111,7 @@ pass-cli vault update --vault-name "Old Name" --name "New Name"
 
 ### Delete vault
 
-⚠️ **Warning:** Permanently deletes vault and all items.
+ **Warning:** Permanently deletes vault and all items.
 
 ```bash
 # By share ID
@@ -396,7 +396,7 @@ pass-cli item update \
 
 ### Delete item
 
-⚠️ **Warning:** Permanent deletion.
+ **Warning:** Permanent deletion.
 
 ```bash
 pass-cli item delete --share-id "abc123def" --item-id "item456"
@@ -995,7 +995,7 @@ pass-cli login
 - D-Bus unavailable in headless environments
 - Filesystem storage is the only option
 
-⚠️ **Security note:** Key stored side-by-side with encrypted data. Secure your container environment.
+ **Security note:** Key stored side-by-side with encrypted data. Secure your container environment.
 
 ## Troubleshooting
 
@@ -1098,7 +1098,7 @@ Uses OS secure storage:
 
 #### 2. Filesystem storage
 
-⚠️ **Warning:** Less secure - key stored side-by-side with encrypted data.
+ **Warning:** Less secure - key stored side-by-side with encrypted data.
 
 ```bash
 export PROTON_PASS_KEY_PROVIDER=fs
@@ -1118,7 +1118,7 @@ Stores key in `<session-dir>/local.key` with permissions `0600`.
 
 #### 3. Environment variable storage
 
-⚠️ **Warning:** Key visible to other processes in same session.
+ **Warning:** Key visible to other processes in same session.
 
 ```bash
 export PROTON_PASS_KEY_PROVIDER=env

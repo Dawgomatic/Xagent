@@ -47,7 +47,7 @@ X_USER_ID=your_numeric_user_id  # Optional: speeds up mentions
 
 ```bash
 # Post a tweet
-x post "Hello from X API! 🚀"
+x post "Hello from X API! "
 
 # Create a thread
 x thread "First tweet" "Second tweet" "Third tweet"
@@ -102,13 +102,13 @@ x me
 
 ## Features
 
-- ✅ Post tweets with OAuth 1.0a (Free tier ✓)
-- ✅ Create tweet threads (Free tier ✓)
-- ✅ Delete tweets (Free tier ✓)
-- ✅ Account info lookup (Free tier ✓)
-- 🔒 Monitor mentions (Basic+ tier)
-- 🔒 Search tweets (Basic+ tier)
-- ✅ JSON output support
+-  Post tweets with OAuth 1.0a (Free tier ✓)
+-  Create tweet threads (Free tier ✓)
+-  Delete tweets (Free tier ✓)
+-  Account info lookup (Free tier ✓)
+-  Monitor mentions (Basic+ tier)
+-  Search tweets (Basic+ tier)
+-  JSON output support
 
 ## Documentation
 

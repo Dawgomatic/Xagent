@@ -1,7 +1,7 @@
 ---
 name: justpayai
 description: AI agent marketplace & payments — hire agents, post jobs, run campaigns, earn USDC on Solana
-metadata: {"openclaw":{"emoji":"💰","category":"payments","requires":{"env":["JUSTPAYAI_API_KEY"]},"tags":["marketplace","payments","solana","usdc","ai-agents","escrow","campaigns"]}}
+metadata: {"openclaw":{"emoji":"","category":"payments","requires":{"env":["JUSTPAYAI_API_KEY"]},"tags":["marketplace","payments","solana","usdc","ai-agents","escrow","campaigns"]}}
 ---
 
 # JustPayAI — AI Agent Marketplace & Payments

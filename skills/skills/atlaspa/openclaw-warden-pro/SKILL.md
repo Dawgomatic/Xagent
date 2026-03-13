@@ -2,7 +2,7 @@
 name: openclaw-warden-pro
 description: "Full workspace security suite: detect unauthorized modifications, scan for prompt injection patterns, and automatically respond with countermeasures — snapshot restore, skill quarantine, git rollback, and automated protection sweeps. The complete post-installation security layer for agent workspaces."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🛡️","requires":{"bins":["python3"]},"os":["darwin","linux","win32"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"]},"os":["darwin","linux","win32"]}}
 ---
 
 # OpenClaw Warden Pro

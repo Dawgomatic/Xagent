@@ -4,7 +4,7 @@ description: Meta-skill for secure network tunnel setup, geo-access diagnostics,
 homepage: https://clawhub.ai
 user-invocable: true
 disable-model-invocation: false
-metadata: {"openclaw":{"emoji":"🔐","requires":{"bins":["bash","curl"],"anyBins":["nordvpn","mullvad","expressvpn","wg","tailscale"],"env":[],"config":[]},"note":"Requires at least one tunnel path (provider CLI, WireGuard, or Tailscale exit node). Optional security/geo enrichment: MoltGuard and IPinfo."}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["bash","curl"],"anyBins":["nordvpn","mullvad","expressvpn","wg","tailscale"],"env":[],"config":[]},"note":"Requires at least one tunnel path (provider CLI, WireGuard, or Tailscale exit node). Optional security/geo enrichment: MoltGuard and IPinfo."}}
 ---
 
 # Purpose

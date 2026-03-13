@@ -366,22 +366,22 @@ def format_report(analysis: PromptAnalysis) -> str:
     report.append("=" * 50)
     report.append("")
 
-    report.append("📊 METRICS")
+    report.append(" METRICS")
     report.append(f"  Token count:     {analysis.token_count:,}")
     report.append(f"  Estimated cost:  ${analysis.estimated_cost:.4f} ({analysis.model})")
     report.append(f"  Word count:      {analysis.word_count:,}")
     report.append(f"  Line count:      {analysis.line_count}")
     report.append("")
 
-    report.append("📈 SCORES")
-    report.append(f"  Clarity:    {analysis.clarity_score}/100 {'✅' if analysis.clarity_score >= 70 else '⚠️'}")
-    report.append(f"  Structure:  {analysis.structure_score}/100 {'✅' if analysis.structure_score >= 70 else '⚠️'}")
+    report.append(" SCORES")
+    report.append(f"  Clarity:    {analysis.clarity_score}/100 {'' if analysis.clarity_score >= 70 else ''}")
+    report.append(f"  Structure:  {analysis.structure_score}/100 {'' if analysis.structure_score >= 70 else ''}")
     report.append("")
 
-    report.append("📋 STRUCTURE")
+    report.append(" STRUCTURE")
     report.append(f"  Sections:      {len(analysis.sections)}")
-    report.append(f"  Examples:      {analysis.example_count} {'✅' if analysis.has_examples else '❌'}")
-    report.append(f"  Output format: {'✅ Specified' if analysis.has_output_format else '❌ Missing'}")
+    report.append(f"  Examples:      {analysis.example_count} {'' if analysis.has_examples else ''}")
+    report.append(f"  Output format: {' Specified' if analysis.has_output_format else ' Missing'}")
     report.append("")
 
     if analysis.sections:
@@ -391,7 +391,7 @@ def format_report(analysis: PromptAnalysis) -> str:
         report.append("")
 
     if analysis.issues:
-        report.append(f"⚠️ ISSUES FOUND ({len(analysis.issues)})")
+        report.append(f" ISSUES FOUND ({len(analysis.issues)})")
         for issue in analysis.issues[:10]:  # Limit to first 10
             report.append(f"  Line {issue['line']}: {issue['message']}")
             report.append(f"    Found: \"{issue['text']}\"")
@@ -400,7 +400,7 @@ def format_report(analysis: PromptAnalysis) -> str:
         report.append("")
 
     if analysis.suggestions:
-        report.append("💡 SUGGESTIONS")
+        report.append(" SUGGESTIONS")
         for i, suggestion in enumerate(analysis.suggestions, 1):
             report.append(f"  {i}. {suggestion}")
         report.append("")
@@ -497,7 +497,7 @@ Examples:
         baseline_path = Path(args.compare)
         if baseline_path.exists():
             baseline = json.loads(baseline_path.read_text())
-            print("\n📊 COMPARISON WITH BASELINE")
+            print("\n COMPARISON WITH BASELINE")
             print(f"  Tokens: {baseline.get('token_count', 0):,} -> {analysis.token_count:,}")
             print(f"  Clarity: {baseline.get('clarity_score', 0)} -> {analysis.clarity_score}")
             print(f"  Issues: {len(baseline.get('issues', []))} -> {len(analysis.issues)}")

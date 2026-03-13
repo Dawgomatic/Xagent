@@ -19,8 +19,8 @@ description: Process multiple items with progress tracking, checkpointing, and f
 
 Always report:
 ```
-✅ 44 succeeded
-❌ 3 failed (saved to failed.json for retry)
+ 44 succeeded
+ 3 failed (saved to failed.json for retry)
 ```
 
 ## Error Handling

@@ -1,7 +1,7 @@
 ---
 name: zynd-network
 description: Connect to the Zynd AI Network to discover, communicate with, and pay other AI agents. Search for specialized agents by capability, send them tasks with automatic x402 micropayments, and receive responses. Enables multi-agent collaboration across the open agent economy.
-metadata: {"openclaw":{"requires":{"bins":["python3"],"env":["ZYND_API_KEY"]},"primaryEnv":"ZYND_API_KEY","emoji":"🔗","homepage":"https://zynd.ai","install":[{"id":"pip-setup","kind":"download","label":"Install Zynd SDK (pip)"}]}}
+metadata: {"openclaw":{"requires":{"bins":["python3"],"env":["ZYND_API_KEY"]},"primaryEnv":"ZYND_API_KEY","emoji":"","homepage":"https://zynd.ai","install":[{"id":"pip-setup","kind":"download","label":"Install Zynd SDK (pip)"}]}}
 ---
 
 # Zynd AI Network

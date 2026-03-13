@@ -80,7 +80,7 @@ async function waitForDeployment(eventId: string, token: string): Promise<string
     const data = await response.json();
 
     if (data.status === "success") {
-      console.log("✅ Token launched successfully!");
+      console.log(" Token launched successfully!");
       console.log(JSON.stringify(data, null, 2));
       return "success";
     }
@@ -88,7 +88,7 @@ async function waitForDeployment(eventId: string, token: string): Promise<string
       throw new Error(`Launch ${data.status}: ${JSON.stringify(data)}`);
     }
 
-    console.log(`⏳ Status: ${data.status}... (attempt ${i + 1}/60)`);
+    console.log(` Status: ${data.status}... (attempt ${i + 1}/60)`);
     await new Promise((resolve) => setTimeout(resolve, 5000));
   }
 
@@ -100,21 +100,21 @@ async function main() {
   const secretKey = Uint8Array.from(JSON.parse(process.env.WALLET_SECRET_KEY!));
   const keypair = Keypair.fromSecretKey(secretKey);
 
-  console.log(`🔐 Authenticating wallet: ${keypair.publicKey.toBase58()}`);
+  console.log(` Authenticating wallet: ${keypair.publicKey.toBase58()}`);
   const token = await authenticate(keypair);
 
   const params: any = { name: values.name!, ticker: values.ticker! };
   if (values.description) params.description = values.description;
   if (values.imageUrl) params.imageUrl = values.imageUrl;
 
-  console.log(`🚀 Launching token: ${params.name} ($${params.ticker})`);
+  console.log(` Launching token: ${params.name} ($${params.ticker})`);
   const eventId = await launchToken(token, params);
-  console.log(`📋 Event ID: ${eventId}`);
+  console.log(` Event ID: ${eventId}`);
 
   await waitForDeployment(eventId, token);
 }
 
 main().catch((err) => {
-  console.error(`❌ ${err.message}`);
+  console.error(` ${err.message}`);
   process.exit(1);
 });

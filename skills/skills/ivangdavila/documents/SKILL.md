@@ -1,7 +1,7 @@
 ---
 name: Documents
 description: Build a personal document system for instant access to IDs, contracts, certificates, and important files.
-metadata: {"clawdbot":{"emoji":"📄","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

@@ -4,7 +4,7 @@ description: A modular super-skill combining developer and web capabilities. Use
 license: Complete terms in LICENSE.txt
 ---
 
-# OpenClaw+ 🚀
+# OpenClaw+ 
 
 A modular super-skill that combines essential developer tools and web capabilities into a unified, powerful workflow.
 
@@ -890,10 +890,10 @@ call_api(url, method="GET", auth_token="token")
 OpenClaw+ provides a unified, powerful toolkit for development and web automation workflows. By combining Python execution, package management, git operations, and web capabilities, it enables complex multi-step workflows with a single cohesive skill.
 
 **Key strengths:**
-- ✅ Modular design - use only what you need
-- ✅ Error handling - robust failure recovery
-- ✅ Workflow composition - chain operations easily
-- ✅ Production-ready - follows best practices
-- ✅ Well-documented - clear examples and patterns
+-  Modular design - use only what you need
+-  Error handling - robust failure recovery
+-  Workflow composition - chain operations easily
+-  Production-ready - follows best practices
+-  Well-documented - clear examples and patterns
 
 Use OpenClaw+ whenever your task involves code execution, package management, version control, or web interactions - or any combination thereof!

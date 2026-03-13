@@ -94,7 +94,7 @@ const result = await compressor.compress(verbose, 'summarization', {
 
 | Strategy | Use When | Compression | Quality |
 |----------|----------|-------------|---------|
-| `'hybrid'` ⭐ | Default choice | 40-60% | Good |
+| `'hybrid'`  | Default choice | 40-60% | Good |
 | `'deduplication'` | Repeated info | 10-20% | Excellent |
 | `'pruning'` | Conversational fluff | 10-30% | Good |
 | `'summarization'` | Verbose text | 40-60% | Fair |

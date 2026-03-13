@@ -457,7 +457,7 @@ class ResumeGenerator:
         
         # Build PDF
         doc.build(self.story)
-        print(f"✅ Resume generated: {self.output_path}")
+        print(f" Resume generated: {self.output_path}")
         return self.output_path
 
 

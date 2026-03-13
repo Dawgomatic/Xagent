@@ -1,10 +1,10 @@
-# 🌐 Web Pilot — OpenClaw Skill
+#  Web Pilot — OpenClaw Skill
 
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20this%20project-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/liranudi)
 
 A web search, page reading, and browser automation skill for [OpenClaw](https://github.com/openclaw/openclaw). No API keys required.
 
-## ♿ Accessibility
+##  Accessibility
 
 This skill enables AI agents to **read, navigate, and interact with the web on behalf of users** — making it a powerful accessibility tool for people with visual impairments, motor disabilities, or cognitive challenges.
 
@@ -220,7 +220,7 @@ For PDFs, returns `extracted_text` if `pdfplumber` or `PyPDF2` is installed.
 
 ## Support
 
-If this project is useful to you, consider [buying me a coffee](https://ko-fi.com/liranudi) ☕
+If this project is useful to you, consider [buying me a coffee](https://ko-fi.com/liranudi) 
 
 ## License
 

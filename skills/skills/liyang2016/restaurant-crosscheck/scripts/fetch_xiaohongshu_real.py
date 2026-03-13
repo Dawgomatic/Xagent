@@ -99,11 +99,11 @@ class XiaohongshuRealFetcher:
                     if post and self._is_restaurant_post(post):
                         posts.append(post)
                 except Exception as e:
-                    print(f"⚠️ 解析笔记失败: {e}")
+                    print(f" 解析笔记失败: {e}")
                     continue
 
         except Exception as e:
-            print(f"⚠️ 提取笔记列表失败: {e}")
+            print(f" 提取笔记列表失败: {e}")
             # Return empty list on failure
             return []
 
@@ -155,7 +155,7 @@ class XiaohongshuRealFetcher:
             )
 
         except Exception as e:
-            print(f"⚠️ 解析笔记详情失败: {e}")
+            print(f" 解析笔记详情失败: {e}")
             return None
 
     def _parse_count(self, count_text: str) -> int:
@@ -179,7 +179,7 @@ class XiaohongshuRealFetcher:
         patterns_to_remove = [
             r'^.{0,5}(在|去|打卡|探店)',
             r'(太好吃了|超赞|推荐|必吃).{0,10}$',
-            r'[💕🔥✨🌟📍]'
+            r'[]'
         ]
 
         for pattern in patterns_to_remove:

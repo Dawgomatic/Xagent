@@ -7,5 +7,5 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
-| #2156 | 2:12 AM | ✅ | Pre-review skill plugin extracted to local filesystem | ~289 |
+| #2156 | 2:12 AM |  | Pre-review skill plugin extracted to local filesystem | ~289 |
 </claude-mem-context>

@@ -143,13 +143,13 @@ function evaluate(user, action, resource, context) {
 **Pattern:** Check at resource fetch, not just route.
 
 ```typescript
-// ❌ Bad — only route protection
+//  Bad — only route protection
 app.get('/documents/:id', requireAuth, async (req, res) => {
   const doc = await Document.findById(req.params.id);
   res.json(doc); // Anyone authenticated can see any doc!
 });
 
-// ✅ Good — resource-level check
+//  Good — resource-level check
 app.get('/documents/:id', requireAuth, async (req, res) => {
   const doc = await Document.findById(req.params.id);
   

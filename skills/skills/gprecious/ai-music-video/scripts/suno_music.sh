@@ -80,17 +80,17 @@ AUTH="Authorization: Bearer $SUNO_API_KEY"
 CT="Content-Type: application/json"
 
 # Check credits (may not be supported by all sunoapi instances)
-echo "🔍 Checking Suno credits..."
+echo " Checking Suno credits..."
 CREDITS_RESP=$(curl -s -H "$AUTH" "${API_BASE}/get-credits" 2>/dev/null)
 CREDITS=$(echo "$CREDITS_RESP" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('data',0))" 2>/dev/null || echo "unknown")
 if [[ "$CREDITS" == "unknown" || "$CREDITS" == "0" ]]; then
   CREDITS="N/A (credit API not available)"
 fi
-echo "💰 Credits: $CREDITS"
+echo " Credits: $CREDITS"
 
 # Cost estimate
 echo ""
-echo "📊 Cost Estimate"
+echo " Cost Estimate"
 echo "━━━━━━━━━━━━━━━━━━━"
 echo "  Model: $MODEL"
 echo "  Mode: $([ "$CUSTOM_MODE" = true ] && echo 'Custom' || echo 'Simple')"
@@ -157,7 +157,7 @@ print(json.dumps(body, ensure_ascii=False))
 rm -f "$PROMPT_FILE" "$STYLE_FILE" "$TITLE_FILE" "$NEGTAGS_FILE"
 
 echo ""
-echo "🎵 Generating music..."
+echo " Generating music..."
 GEN_RESP=$(curl -s -X POST "${API_BASE}/generate" \
   -H "$AUTH" -H "$CT" \
   -d "$BODY")
@@ -208,7 +208,7 @@ fi
 
 # Extract results and download
 echo ""
-echo "✅ Generation complete! Downloading..."
+echo " Generation complete! Downloading..."
 
 # Save poll response to temp file for safe parsing
 RESP_FILE=$(mktemp)
@@ -244,7 +244,7 @@ for i, track in enumerate(tracks):
     if audio_url:
         fname = f'track_{i}_{track_id}.mp3'
         fpath = os.path.join(outdir, fname)
-        print(f'  ⬇ Downloading {title} ({duration:.0f}s)...')
+        print(f'   Downloading {title} ({duration:.0f}s)...')
         try:
             req = urllib.request.Request(audio_url, headers={
                 'User-Agent': 'Mozilla/5.0 (compatible; MusicBot/1.0)',
@@ -255,7 +255,7 @@ for i, track in enumerate(tracks):
                     out.write(resp_dl.read())
             print(f'    Saved: {fpath}')
         except Exception as e:
-            print(f'    ❌ Download failed ({e}): {audio_url}', file=sys.stderr)
+            print(f'     Download failed ({e}): {audio_url}', file=sys.stderr)
             fname = ''
             fpath = ''
     else:
@@ -293,8 +293,8 @@ for i, track in enumerate(tracks):
 meta_path = os.path.join(outdir, 'music_meta.json')
 with open(meta_path, 'w') as f:
     json.dump(meta, f, indent=2, ensure_ascii=False)
-print(f'\n📄 Metadata: {meta_path}')
-print(f'🎵 Tracks: {len(meta[\"tracks\"])}')
+print(f'\n Metadata: {meta_path}')
+print(f' Tracks: {len(meta[\"tracks\"])}')
 for t in meta['tracks']:
     dur = t['duration']
     print(f'   • {t[\"title\"]} ({dur:.0f}s) — {t[\"tags\"]}')
@@ -305,7 +305,7 @@ rm -f "$RESP_FILE"
 # 비instrumental 트랙인 경우 자동으로 가사 타임스탬프를 가져와 SRT로 저장
 if [[ "$INSTRUMENTAL" != true ]]; then
   echo ""
-  echo "📝 Fetching timestamped lyrics..."
+  echo " Fetching timestamped lyrics..."
 
   # music_meta.json에서 첫 번째 트랙의 audioId 추출
   AUDIO_ID=$(python3 -c "
@@ -335,14 +335,14 @@ resp = json.loads('''$(echo "$LYRICS_RESP" | python3 -c "import sys; print(sys.s
 outdir = '$OUTDIR'
 
 if resp.get('code') != 200:
-    print(f'  ⚠ Lyrics API returned: {resp.get(\"msg\", \"unknown error\")}', file=sys.stderr)
+    print(f'   Lyrics API returned: {resp.get(\"msg\", \"unknown error\")}', file=sys.stderr)
     sys.exit(0)
 
 data = resp.get('data', {})
 lyrics_data = data.get('lyrics', [])
 
 if not lyrics_data:
-    print('  ⚠ No lyrics data returned (might be instrumental)')
+    print('   No lyrics data returned (might be instrumental)')
     sys.exit(0)
 
 # Convert to SRT format
@@ -370,19 +370,19 @@ if srt_lines:
     srt_path = os.path.join(outdir, 'lyrics.srt')
     with open(srt_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(srt_lines))
-    print(f'  ✅ Lyrics saved: {srt_path} ({len([l for l in srt_lines if l.strip() and not l.strip().isdigit() and \"-->\" not in l])} lines)')
+    print(f'   Lyrics saved: {srt_path} ({len([l for l in srt_lines if l.strip() and not l.strip().isdigit() and \"-->\" not in l])} lines)')
 else:
-    print('  ⚠ No lyric lines to save')
-" || echo "  ⚠ Lyrics fetch failed (non-fatal)"
+    print('   No lyric lines to save')
+" || echo "   Lyrics fetch failed (non-fatal)"
   else
-    echo "  ⚠ No audio ID found, skipping lyrics"
+    echo "   No audio ID found, skipping lyrics"
   fi
 fi
 
 # ── Suno Native Music Video ──
 if [[ "$MUSIC_VIDEO" = true ]]; then
   echo ""
-  echo "🎬 Requesting Suno native music video..."
+  echo " Requesting Suno native music video..."
 
   AUDIO_ID=$(python3 -c "
 import json, os
@@ -395,7 +395,7 @@ else:
 ")
 
   if [[ -z "$AUDIO_ID" ]]; then
-    echo "  ❌ No audio ID found, cannot create music video" >&2
+    echo "   No audio ID found, cannot create music video" >&2
   else
     MV_BODY=$(python3 -c "
 import json
@@ -413,10 +413,10 @@ print(json.dumps({
 
     if [[ "$MV_CODE" != "200" ]]; then
       MV_MSG=$(echo "$MV_RESP" | python3 -c "import sys,json; print(json.load(sys.stdin).get('msg','unknown'))" 2>/dev/null || echo "unknown")
-      echo "  ❌ Music video request failed: $MV_MSG" >&2
+      echo "   Music video request failed: $MV_MSG" >&2
     else
-      echo "  ✅ Music video generation started"
-      echo "  ⏳ Polling for music video completion..."
+      echo "   Music video generation started"
+      echo "   Polling for music video completion..."
 
       # Poll for music video using /mp4/record-info
       MV_TASK_ID=$(echo "$MV_RESP" | python3 -c "import sys,json; print(json.load(sys.stdin).get('data',{}).get('taskId',''))" 2>/dev/null || echo "")
@@ -429,7 +429,7 @@ print(json.dumps({
         MV_NOW=$(date +%s)
         MV_ELAPSED=$((MV_NOW - MV_START))
         if [[ $MV_ELAPSED -ge $TIMEOUT ]]; then
-          echo "  ❌ Music video timeout after ${TIMEOUT}s" >&2
+          echo "   Music video timeout after ${TIMEOUT}s" >&2
           break
         fi
         sleep 20
@@ -457,11 +457,11 @@ print(url)
       # Download the music video
       if [[ -n "${MV_VIDEO_URL:-}" ]]; then
         MV_OUTPUT="$OUTDIR/suno_music_video.mp4"
-        echo "  ⬇ Downloading music video..."
+        echo "   Downloading music video..."
         if curl -sL -o "$MV_OUTPUT" "$MV_VIDEO_URL" && [[ -f "$MV_OUTPUT" ]] && [[ $(stat -c%s "$MV_OUTPUT" 2>/dev/null || echo 0) -gt 1000 ]]; then
-          echo "  ✅ Suno music video saved: $MV_OUTPUT"
+          echo "   Suno music video saved: $MV_OUTPUT"
         else
-          echo "  ❌ Music video download failed" >&2
+          echo "   Music video download failed" >&2
         fi
       fi
     fi
@@ -471,7 +471,7 @@ fi
 # ── Create Persona ──
 if [[ "$CREATE_PERSONA" = true ]]; then
   echo ""
-  echo "🎭 Creating Persona from generated track..."
+  echo " Creating Persona from generated track..."
 
   AUDIO_ID_P=$(python3 -c "
 import json, os
@@ -484,7 +484,7 @@ else:
 ")
 
   if [[ -z "$AUDIO_ID_P" ]]; then
-    echo "  ❌ No audio ID found, cannot create persona" >&2
+    echo "   No audio ID found, cannot create persona" >&2
   else
     # 기본값: 이름과 설명이 없으면 프롬프트/스타일에서 유추
     P_NAME="${PERSONA_NAME:-$(echo "$TITLE" | head -c 50)}"
@@ -522,8 +522,8 @@ pid = d.get('personaId', d.get('id', 'unknown'))
 print(pid)
 " 2>/dev/null || echo "unknown")
 
-      echo "  ✅ Persona created! ID: $PERSONA_DATA"
-      echo "  💡 다음 생성 시 --persona-id $PERSONA_DATA 로 일관된 스타일 유지 가능"
+      echo "   Persona created! ID: $PERSONA_DATA"
+      echo "   다음 생성 시 --persona-id $PERSONA_DATA 로 일관된 스타일 유지 가능"
 
       # Save persona info
       python3 -c "
@@ -539,15 +539,15 @@ persona = {
 path = os.path.join('$OUTDIR', 'persona.json')
 with open(path, 'w') as f:
     json.dump(persona, f, indent=2, ensure_ascii=False)
-print(f'  📄 Persona info: {path}')
+print(f'   Persona info: {path}')
 "
     else
       PERSONA_MSG=$(echo "$PERSONA_RESP" | python3 -c "import sys,json; print(json.load(sys.stdin).get('msg','unknown'))" 2>/dev/null || echo "unknown")
-      echo "  ❌ Persona creation failed: $PERSONA_MSG" >&2
+      echo "   Persona creation failed: $PERSONA_MSG" >&2
     fi
   fi
 fi
 
 # Done
 echo ""
-echo "🎵 Music generation complete!"
+echo " Music generation complete!"

@@ -70,7 +70,7 @@ Planner → (Builder ∥ Validator ∥ Critic) → Lead Merge → Validator Gate
 ### 3. iterative-review — Build-Critique Loop
 
 ```
-Planner → Builder ↔ Critic (max N rounds) → Validator → Lead Synthesis
+Planner → Builder  Critic (max N rounds) → Validator → Lead Synthesis
 ```
 
 **Use when:** Quality requires iteration between creator and reviewer.

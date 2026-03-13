@@ -35,22 +35,22 @@ Translate Beralio's Indonesian lyrics into English that sounds like it was writt
 Apply these anti-AI patterns specifically for lyrics:
 
 #### Avoid
-- ❌ Overly poetic/flowery language ("tapestry of emotions", "symphony of feelings")
-- ❌ Generic love song clichés unless the original uses them intentionally
-- ❌ Perfect parallel structures in every verse
-- ❌ Thesaurus-hunting for "fancy" words
-- ❌ Explaining the metaphor (if original says "hujan" metaphorically, don't add "like rain falling on my heart")
-- ❌ Em dashes everywhere
-- ❌ Starting multiple lines with the same word unless intentional anaphora
+-  Overly poetic/flowery language ("tapestry of emotions", "symphony of feelings")
+-  Generic love song clichés unless the original uses them intentionally
+-  Perfect parallel structures in every verse
+-  Thesaurus-hunting for "fancy" words
+-  Explaining the metaphor (if original says "hujan" metaphorically, don't add "like rain falling on my heart")
+-  Em dashes everywhere
+-  Starting multiple lines with the same word unless intentional anaphora
 
 #### Embrace
-- ✅ Conversational phrasing ("I don't know" > "I am uncertain")
-- ✅ Contractions ("don't", "can't", "won't", "I'm", "you're")
-- ✅ Sentence fragments when they hit harder
-- ✅ Imperfect grammar if it sounds more natural sung
-- ✅ Specific imagery over abstract concepts
-- ✅ Occasional slang if it fits the song's vibe
-- ✅ Letting some lines be simple and direct
+-  Conversational phrasing ("I don't know" > "I am uncertain")
+-  Contractions ("don't", "can't", "won't", "I'm", "you're")
+-  Sentence fragments when they hit harder
+-  Imperfect grammar if it sounds more natural sung
+-  Specific imagery over abstract concepts
+-  Occasional slang if it fits the song's vibe
+-  Letting some lines be simple and direct
 
 ### 4. Preserve Cultural Flavor
 - Some Indonesian expressions have no English equivalent—reimagine them
@@ -78,14 +78,14 @@ For each translation, provide:
 
 ## Examples
 
-### ❌ Bad (AI-sounding)
+###  Bad (AI-sounding)
 **Original:** "Aku tak sanggup melihatmu pergi"
 
 **Bad translation:** "I find myself unable to witness your departure from my presence"
 
 **Problems:** Wordy, formal, unsingable, sounds like a legal document
 
-### ✅ Good (Human)
+###  Good (Human)
 **Original:** "Aku tak sanggup melihatmu pergi"
 
 **Good translations:**
@@ -95,7 +95,7 @@ For each translation, provide:
 
 ---
 
-### ❌ Bad (AI-sounding)
+###  Bad (AI-sounding)
 **Original:** 
 ```
 Kau bagai mentari
@@ -110,7 +110,7 @@ Illuminating the entirety of my day
 
 **Problems:** "Radiant", "illuminating", "entirety"—all AI red flags. Syllable count way off.
 
-### ✅ Good (Human)
+###  Good (Human)
 **Original:**
 ```
 Kau bagai mentari (5 syllables)
@@ -142,7 +142,7 @@ Making every day bright
 
 ## Common Indonesian → English Lyric Phrases
 
-| Indonesian | ❌ Don't | ✅ Do |
+| Indonesian |  Don't |  Do |
 |-----------|---------|------|
 | Aku mencintaimu | I am loving you with all my heart | I love you / I'm in love with you |
 | Kau begitu indah | You possess such immense beauty | You're so beautiful / You're everything |

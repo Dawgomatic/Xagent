@@ -30,7 +30,7 @@ export CRAFT_ENDPOINT="https://connect.craft.do/links/YOUR_LINK/api/v1"
 
 ## API Capabilities
 
-### ✅ What Works
+###  What Works
 
 #### List Folders
 ```bash
@@ -178,7 +178,7 @@ curl -X PUT \
 
 Note: Can only move to `unsorted`, `templates`, or custom folder IDs. Cannot move directly to `trash`.
 
-### ❌ Limitations
+###  Limitations
 
 - **No Collections API** - Collections (databases) not accessible via API
 - **No task deletion** - Can only create/update tasks, not delete

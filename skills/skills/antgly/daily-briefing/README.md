@@ -1,6 +1,6 @@
 # daily-briefing
 
-🌅 Generates a warm, compact daily briefing with weather, calendar, reminders, birthdays, and important emails for cron or chat delivery.
+ Generates a warm, compact daily briefing with weather, calendar, reminders, birthdays, and important emails for cron or chat delivery.
 
 ## Features
 
@@ -178,20 +178,20 @@ Example cron setup:
 ```
 Good morning - Today is Saturday, February 3, 2024. Partly cloudy skies, around 45°F this afternoon, with a low around 32°F.
 
-🎂 **Birthdays:**
+ **Birthdays:**
 • Today: Jane Doe
 • Feb 5: John Smith
 
-📅 **Today's schedule:**
+ **Today's schedule:**
 • All-day: Doctor appointment
 • 9:00 AM: Team standup
 • 2:00 PM: Coffee with Alex
 
-✅ **Reminders:**
+ **Reminders:**
 • Pick up prescription
 • Call mom
 
-📧 **Emails needing attention:**
+ **Emails needing attention:**
 • Amazon: Your order has shipped
 • Chase: Payment received
 • Google Drive: Document shared with you

@@ -43,18 +43,18 @@ We use strict TypeScript. The `tsconfig.json` must include:
 | `type` | Unions, intersections, mapped types, primitives |
 
 ```typescript
-// ✅ Interface for props and object shapes
+//  Interface for props and object shapes
 interface UserProps {
   id: string;
   name: string;
   email: string;
 }
 
-// ✅ Type for unions and computed types
+//  Type for unions and computed types
 type Status = "pending" | "active" | "archived";
 type UserWithStatus = UserProps & { status: Status };
 
-// ✅ Interface for extension
+//  Interface for extension
 interface AdminProps extends UserProps {
   permissions: string[];
 }
@@ -63,7 +63,7 @@ interface AdminProps extends UserProps {
 ### Generic Patterns
 
 ```typescript
-// ✅ Constrained generics with meaningful names
+//  Constrained generics with meaningful names
 function getProperty<TObj, TKey extends keyof TObj>(
   obj: TObj,
   key: TKey
@@ -71,14 +71,14 @@ function getProperty<TObj, TKey extends keyof TObj>(
   return obj[key];
 }
 
-// ✅ Default generic types
+//  Default generic types
 interface ApiResponse<TData = unknown> {
   data: TData;
   error: string | null;
   status: number;
 }
 
-// ✅ Generic React components
+//  Generic React components
 interface ListProps<TItem> {
   items: TItem[];
   renderItem: (item: TItem, index: number) => React.ReactNode;
@@ -99,21 +99,21 @@ function List<TItem>({ items, renderItem, keyExtractor }: ListProps<TItem>) {
 ### Utility Types Usage
 
 ```typescript
-// ✅ Prefer built-in utility types
+//  Prefer built-in utility types
 type PartialUser = Partial<User>;
 type RequiredUser = Required<User>;
 type ReadonlyUser = Readonly<User>;
 type UserName = Pick<User, "firstName" | "lastName">;
 type UserWithoutId = Omit<User, "id">;
 
-// ✅ Record for dictionaries
+//  Record for dictionaries
 type UserMap = Record<string, User>;
 
-// ✅ Extract and Exclude for union manipulation
+//  Extract and Exclude for union manipulation
 type ActiveStatus = Extract<Status, "active" | "pending">;
 type InactiveStatus = Exclude<Status, "active">;
 
-// ✅ ReturnType and Parameters for function types
+//  ReturnType and Parameters for function types
 type FetchUserReturn = ReturnType<typeof fetchUser>;
 type FetchUserParams = Parameters<typeof fetchUser>;
 ```
@@ -123,7 +123,7 @@ type FetchUserParams = Parameters<typeof fetchUser>;
 ```typescript
 import { z } from "zod";
 
-// ✅ Define schemas in lib/validations/
+//  Define schemas in lib/validations/
 // File: lib/validations/user.ts
 
 export const userSchema = z.object({
@@ -134,17 +134,17 @@ export const userSchema = z.object({
   createdAt: z.date(),
 });
 
-// ✅ Infer types from schemas
+//  Infer types from schemas
 export type User = z.infer<typeof userSchema>;
 
-// ✅ Create partial/pick schemas for forms
+//  Create partial/pick schemas for forms
 export const createUserSchema = userSchema.omit({ id: true, createdAt: true });
 export type CreateUserInput = z.infer<typeof createUserSchema>;
 
 export const updateUserSchema = userSchema.partial().required({ id: true });
 export type UpdateUserInput = z.infer<typeof updateUserSchema>;
 
-// ✅ Reusable field schemas
+//  Reusable field schemas
 export const emailSchema = z.string().email("Invalid email");
 export const passwordSchema = z
   .string()
@@ -152,7 +152,7 @@ export const passwordSchema = z
   .regex(/[A-Z]/, "Password must contain an uppercase letter")
   .regex(/[0-9]/, "Password must contain a number");
 
-// ✅ Use with react-hook-form
+//  Use with react-hook-form
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
@@ -200,7 +200,7 @@ function CreateUserForm() {
 | Static content | Interactive UI |
 
 ```typescript
-// ✅ Server Component (default) - app/users/page.tsx
+//  Server Component (default) - app/users/page.tsx
 import { api } from "@/convex/_generated/api";
 import { fetchQuery } from "convex/nextjs";
 
@@ -209,7 +209,7 @@ export default async function UsersPage() {
   return <UserList users={users} />;
 }
 
-// ✅ Client Component - components/users/user-form.tsx
+//  Client Component - components/users/user-form.tsx
 "use client";
 
 import { useState } from "react";
@@ -263,13 +263,13 @@ components/
 ### Custom Hooks Patterns
 
 ```typescript
-// ✅ Location: hooks/use-user.ts or components/users/use-user.ts
+//  Location: hooks/use-user.ts or components/users/use-user.ts
 
 import { useQuery, useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useCallback, useMemo } from "react";
 
-// ✅ Encapsulate related Convex operations
+//  Encapsulate related Convex operations
 export function useUser(userId: string) {
   const user = useQuery(api.users.get, { id: userId });
   const updateUser = useMutation(api.users.update);
@@ -296,7 +296,7 @@ export function useUser(userId: string) {
   };
 }
 
-// ✅ Hooks for complex state logic
+//  Hooks for complex state logic
 export function useToggle(initialValue = false) {
   const [value, setValue] = useState(initialValue);
 
@@ -307,7 +307,7 @@ export function useToggle(initialValue = false) {
   return [value, { toggle, setTrue, setFalse }] as const;
 }
 
-// ✅ Hooks for side effects
+//  Hooks for side effects
 export function useDebounce<T>(value: T, delay: number): T {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
@@ -353,7 +353,7 @@ export function useDebounce<T>(value: T, delay: number): T {
 ### Data Fetching Patterns (Convex)
 
 ```typescript
-// ✅ Server Component fetching
+//  Server Component fetching
 import { fetchQuery } from "convex/nextjs";
 import { api } from "@/convex/_generated/api";
 
@@ -362,7 +362,7 @@ export default async function Page() {
   return <PostList initialPosts={data} />;
 }
 
-// ✅ Client Component real-time subscription
+//  Client Component real-time subscription
 "use client";
 
 import { useQuery } from "convex/react";
@@ -374,13 +374,13 @@ export function PostList({ initialPosts }: { initialPosts: Post[] }) {
   return <>{posts.map((post) => <PostCard key={post._id} post={post} />)}</>;
 }
 
-// ✅ Conditional queries
+//  Conditional queries
 const user = useQuery(
   api.users.get,
   userId ? { id: userId } : "skip"
 );
 
-// ✅ Mutations with optimistic updates
+//  Mutations with optimistic updates
 const createPost = useMutation(api.posts.create);
 
 async function handleSubmit(data: CreatePostInput) {
@@ -397,7 +397,7 @@ async function handleSubmit(data: CreatePostInput) {
 
 **Don't rely on nested `layout.tsx` files for page chrome.** Use a composable Layout component instead.
 
-❌ **Anti-pattern:**
+ **Anti-pattern:**
 ```typescript
 // app/(dashboard)/layout.tsx
 // Complex conditionals bleeding into every child page
@@ -411,7 +411,7 @@ export default function Layout({ children }) {
 }
 ```
 
-✅ **Correct pattern:**
+ **Correct pattern:**
 
 ```typescript
 // components/layout/layout.tsx
@@ -502,7 +502,7 @@ export default function OnboardingPage() {
 
 **Don't nest providers directly in layout.tsx.** Use a `/providers` folder with a single composed export.
 
-❌ **Anti-pattern:**
+ **Anti-pattern:**
 ```typescript
 // app/layout.tsx — messy nesting
 export default function RootLayout({ children }) {
@@ -527,7 +527,7 @@ export default function RootLayout({ children }) {
 }
 ```
 
-✅ **Correct pattern:**
+ **Correct pattern:**
 
 ```
 providers/
@@ -878,16 +878,16 @@ export function PostList() {
 ### Real-time Subscription Patterns
 
 ```typescript
-// ✅ Basic subscription
+//  Basic subscription
 const posts = useQuery(api.posts.list);
 
-// ✅ Conditional subscription (skip when no userId)
+//  Conditional subscription (skip when no userId)
 const user = useQuery(
   api.users.get,
   userId ? { id: userId } : "skip"
 );
 
-// ✅ Subscription with loading state
+//  Subscription with loading state
 function UserProfile({ userId }: { userId: string }) {
   const user = useQuery(api.users.get, { id: userId });
 
@@ -902,7 +902,7 @@ function UserProfile({ userId }: { userId: string }) {
   return <ProfileCard user={user} />;
 }
 
-// ✅ Multiple subscriptions
+//  Multiple subscriptions
 function Dashboard() {
   const user = useQuery(api.users.getCurrent);
   const projects = useQuery(api.projects.listByUser, 
@@ -987,20 +987,20 @@ async function handleUpdate(data: UpdatePostInput) {
 ### Props Interface Naming
 
 ```typescript
-// ✅ Component props: {ComponentName}Props
+//  Component props: {ComponentName}Props
 interface ButtonProps {
   variant?: "primary" | "secondary";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
 }
 
-// ✅ For extending HTML elements
+//  For extending HTML elements
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
   size?: "sm" | "md" | "lg";
 }
 
-// ✅ For extending other components
+//  For extending other components
 interface IconButtonProps extends ButtonProps {
   icon: React.ReactNode;
 }
@@ -1009,7 +1009,7 @@ interface IconButtonProps extends ButtonProps {
 ### Default Props
 
 ```typescript
-// ✅ Use default parameters (not defaultProps)
+//  Use default parameters (not defaultProps)
 interface CardProps {
   title: string;
   variant?: "default" | "outlined";
@@ -1028,7 +1028,7 @@ function Card({
   );
 }
 
-// ✅ With destructuring and rest props
+//  With destructuring and rest props
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
 }
@@ -1088,7 +1088,7 @@ export { Input };
 ### Composition Patterns
 
 ```typescript
-// ✅ Compound components pattern
+//  Compound components pattern
 import { createContext, useContext } from "react";
 
 interface CardContextValue {
@@ -1148,7 +1148,7 @@ export { Card };
 ```
 
 ```typescript
-// ✅ Render props pattern (when needed)
+//  Render props pattern (when needed)
 interface DataLoaderProps<T> {
   query: () => T | undefined;
   loading: React.ReactNode;
@@ -1186,7 +1186,7 @@ function DataLoader<T>({
 ```
 
 ```typescript
-// ✅ Slot pattern (using Radix Slot)
+//  Slot pattern (using Radix Slot)
 import { Slot } from "@radix-ui/react-slot";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -1211,7 +1211,7 @@ function Button({ asChild, ...props }: ButtonProps) {
 ### Try/Catch Patterns
 
 ```typescript
-// ✅ Async function error handling
+//  Async function error handling
 async function handleSubmit(data: FormData) {
   try {
     await createUser(data);
@@ -1238,7 +1238,7 @@ async function handleSubmit(data: FormData) {
   }
 }
 
-// ✅ Query error handling
+//  Query error handling
 function UserProfile({ userId }: { userId: string }) {
   const user = useQuery(api.users.get, { id: userId });
 
@@ -1722,12 +1722,12 @@ hotfix/prod-login-crash
 
 ## Type of Change
 
-- [ ] 🚀 Feature
-- [ ] 🐛 Bug fix
-- [ ] 📝 Documentation
-- [ ] 🔧 Refactor
-- [ ] ✅ Tests
-- [ ] 🔒 Security
+- [ ]  Feature
+- [ ]  Bug fix
+- [ ]  Documentation
+- [ ]  Refactor
+- [ ]  Tests
+- [ ]  Security
 
 ## Related Issues
 

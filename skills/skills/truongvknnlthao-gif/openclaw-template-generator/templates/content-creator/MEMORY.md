@@ -12,11 +12,11 @@
 - **Formatting:** [Bullet points/Paragraphs/Mixed]
 
 ### Do's and Don'ts
-- ✅ Use active voice
-- ✅ Include examples and stories
-- ✅ Be conversational
-- ❌ Use jargon without explanation
-- ❌ Be overly formal
+-  Use active voice
+-  Include examples and stories
+-  Be conversational
+-  Use jargon without explanation
+-  Be overly formal
 
 ## Content Calendar
 

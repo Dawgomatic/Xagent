@@ -42,7 +42,7 @@ warning = {k: v for k, v in active.items() if v.get('severity') == 'warning'}
 normal = {k: v for k, v in active.items() if v.get('severity') not in ('critical', 'warning')}
 
 if critical:
-    lines.append("## 🔴 REPEATED ERRORS — Act on these!")
+    lines.append("##  REPEATED ERRORS — Act on these!")
     lines.append("")
     lines.append("| Pattern | Count | Last | Mitigation |")
     lines.append("|---------|-------|------|------------|")
@@ -50,12 +50,12 @@ if critical:
         count = data.get('count', 0)
         last = data.get('lastSeen', 'unknown')[:10]
         mitigation = data.get('mitigation', 'be careful')
-        regression = " ⚠️ REGRESSION" if data.get('regression') else ""
+        regression = "  REGRESSION" if data.get('regression') else ""
         lines.append(f"| {name}{regression} | {count}x | {last} | {mitigation} |")
     lines.append("")
 
 if warning:
-    lines.append("## ⚠️ Emerging Patterns (2x)")
+    lines.append("##  Emerging Patterns (2x)")
     lines.append("")
     lines.append("| Pattern | Count | Last | Watch for |")
     lines.append("|---------|-------|------|-----------|")
@@ -67,7 +67,7 @@ if warning:
     lines.append("")
 
 if normal:
-    lines.append("## 📝 Recent Errors (1x)")
+    lines.append("##  Recent Errors (1x)")
     lines.append("")
     for name, data in normal.items():
         last = data.get('lastSeen', 'unknown')[:10]
@@ -76,7 +76,7 @@ if normal:
     lines.append("")
 
 if resolved:
-    lines.append("## ✅ Resolved — Lessons Learned")
+    lines.append("##  Resolved — Lessons Learned")
     lines.append("")
     for name, data in resolved.items():
         was_count = data.get('count', 0)
@@ -106,7 +106,7 @@ if resolved:
             lines.append("")
 
 if not active and not resolved:
-    lines.append("## ✨ Clean Slate")
+    lines.append("##  Clean Slate")
     lines.append("")
     lines.append("No error patterns detected yet. This will populate as the daily analysis runs.")
     lines.append("")
@@ -119,5 +119,5 @@ lines.append(f"*Total errors logged: {stats.get('totalErrorsLogged', 0)} | Resol
 with open(state_md, 'w') as f:
     f.write('\n'.join(lines))
 
-print(f"✅ ACC_STATE.md updated")
+print(f" ACC_STATE.md updated")
 PYTHON

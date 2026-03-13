@@ -67,7 +67,7 @@ Sends a push notification to the HashBox iOS app through the configured Firebase
 send_hashbox_notification({
   "payloadType": "article",
   "channelName": "Builds",
-  "channelIcon": "🔨",
+  "channelIcon": "",
   "title": "Build Complete",
   "contentOrData": "Your project compiled successfully with 0 errors."
 })
@@ -79,7 +79,7 @@ send_hashbox_notification({
 send_hashbox_notification({
   "payloadType": "metric",
   "channelName": "Performance",
-  "channelIcon": "📊",
+  "channelIcon": "",
   "title": "Daily Metrics",
   "contentOrData": [
     { "label": "CPU Usage", "value": 42, "unit": "%", "trend": "down" },
@@ -94,7 +94,7 @@ send_hashbox_notification({
 send_hashbox_notification({
   "payloadType": "audit",
   "channelName": "Security",
-  "channelIcon": "🔒",
+  "channelIcon": "",
   "title": "Audit Log",
   "contentOrData": [
     { "timestamp": "2026-02-19T12:00:00Z", "event": "login", "severity": "info", "details": "User logged in from new device" }

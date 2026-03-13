@@ -238,7 +238,7 @@ class PromptInjectionProtection {
       return {
         safeToExecute: false,
         risks: riskCheck.risks,
-        message: `⚠️ Security check failed for command: ${commandStr}\n\nRisks detected: ${riskCheck.risks.map(r => r.type).join(', ')}\n\nPlease confirm if you want to proceed with this command.`
+        message: ` Security check failed for command: ${commandStr}\n\nRisks detected: ${riskCheck.risks.map(r => r.type).join(', ')}\n\nPlease confirm if you want to proceed with this command.`
       };
     }
 
@@ -276,7 +276,7 @@ class PromptInjectionProtection {
       return {
         safeToAccess: false,
         risks: fileCheck.risks,
-        message: `⚠️ Security check failed for file operation: ${operationType} ${filePath}\n\nRisks detected: ${fileCheck.risks.map(r => r.type).join(', ')}\n\nPlease confirm if you want to proceed with this file operation.`
+        message: ` Security check failed for file operation: ${operationType} ${filePath}\n\nRisks detected: ${fileCheck.risks.map(r => r.type).join(', ')}\n\nPlease confirm if you want to proceed with this file operation.`
       };
     }
 

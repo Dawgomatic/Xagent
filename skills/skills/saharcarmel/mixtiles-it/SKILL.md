@@ -49,7 +49,7 @@ When a user sends a photo with intent to mixtile it:
 
 1. Identify the image file path (from media attachment) or URL
 2. Run: `python3 <skill-dir>/scripts/mixtiles-cart.py <path-or-url>`
-3. Send the resulting URL to the user with a brief message like "Here's your Mixtiles link! 🖼️ Tap to customize size, frame, and order."
+3. Send the resulting URL to the user with a brief message like "Here's your Mixtiles link!  Tap to customize size, frame, and order."
 
 If multiple photos are sent, use `--batch` to create a single cart link with all photos:
 `python3 <skill-dir>/scripts/mixtiles-cart.py --batch <path1> <path2> ...`

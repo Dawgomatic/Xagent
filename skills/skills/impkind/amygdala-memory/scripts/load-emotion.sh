@@ -123,7 +123,7 @@ case $FORMAT in
     RECENT=$(jq -r '.recentEmotions[0].label // empty' "$STATE_FILE")
     RECENT_TRIGGER=$(jq -r '.recentEmotions[0].trigger // empty' "$STATE_FILE")
     
-    echo "🎭 Current Emotional State:"
+    echo " Current Emotional State:"
     echo ""
     echo "Overall mood: $VALENCE_DESC, $AROUSAL_DESC"
     echo "Connection: $CONNECTION_DESC"

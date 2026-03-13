@@ -33,18 +33,18 @@ class DockerFilter extends BaseFilter {
    */
   filterPs(output) {
     const lines = output.split('\n').filter(l => l.trim());
-    if (lines.length <= 1) return '🐳 No containers running';
+    if (lines.length <= 1) return ' No containers running';
 
     const containers = lines.slice(1).map(line => {
       const parts = line.split(/\s{2,}/);
       const id = parts[0]?.substring(0, 12) || '?';
       const image = parts[1]?.split(':')[0] || '?';
-      const status = parts[4]?.includes('Up') ? '✅' : '❌';
+      const status = parts[4]?.includes('Up') ? '' : '';
       const name = parts[parts.length - 1] || '?';
       return `${status} ${name} (${image})`;
     });
 
-    return `🐳 ${containers.length} container(s):\n${containers.join('\n')}`;
+    return ` ${containers.length} container(s):\n${containers.join('\n')}`;
   }
 
   /**
@@ -52,7 +52,7 @@ class DockerFilter extends BaseFilter {
    */
   filterImages(output) {
     const lines = output.split('\n').filter(l => l.trim());
-    if (lines.length <= 1) return '📦 No images';
+    if (lines.length <= 1) return ' No images';
 
     const images = lines.slice(1).map(line => {
       const parts = line.split(/\s{2,}/);
@@ -62,7 +62,7 @@ class DockerFilter extends BaseFilter {
       return `  ${repo}:${tag} (${size})`;
     });
 
-    return `📦 ${images.length} image(s):\n${images.slice(0, 10).join('\n')}${images.length > 10 ? `\n  ... +${images.length - 10} more` : ''}`;
+    return ` ${images.length} image(s):\n${images.slice(0, 10).join('\n')}${images.length > 10 ? `\n  ... +${images.length - 10} more` : ''}`;
   }
 
   /**
@@ -70,16 +70,16 @@ class DockerFilter extends BaseFilter {
    */
   filterLogs(output) {
     const lines = output.split('\n').filter(l => l.trim());
-    if (lines.length === 0) return '📜 No logs';
+    if (lines.length === 0) return ' No logs';
 
     // Show last 10 lines
     const lastLines = lines.slice(-10);
     const errors = lines.filter(l => /error|exception|fail/i.test(l)).length;
     const warnings = lines.filter(l => /warn/i.test(l)).length;
 
-    const result = [`📜 ${lines.length} log lines`];
-    if (errors > 0) result.push(`❌ ${errors} errors`);
-    if (warnings > 0) result.push(`⚠️  ${warnings} warnings`);
+    const result = [` ${lines.length} log lines`];
+    if (errors > 0) result.push(` ${errors} errors`);
+    if (warnings > 0) result.push(`  ${warnings} warnings`);
     result.push('');
     result.push('Last 10 lines:');
     result.push(...lastLines.map(l => l.substring(0, 100)));
@@ -101,15 +101,15 @@ class DockerFilter extends BaseFilter {
 
     const result = [];
     if (success) {
-      result.push('✅ Build successful');
-      if (tag) result.push(`🏷️  ${tag}`);
-      if (imageId) result.push(`🆔 ${imageId.substring(0, 12)}`);
+      result.push(' Build successful');
+      if (tag) result.push(`  ${tag}`);
+      if (imageId) result.push(` ${imageId.substring(0, 12)}`);
     } else {
-      result.push('❌ Build failed');
+      result.push(' Build failed');
       // Show last few lines for error context
       result.push(...lines.slice(-5));
     }
-    result.push(`📊 ${steps.length} steps`);
+    result.push(` ${steps.length} steps`);
 
     return result.join('\n');
   }
@@ -124,10 +124,10 @@ class DockerFilter extends BaseFilter {
     const started = lines.filter(l => /started|running/i.test(l)).length;
     const stopped = lines.filter(l => /stopped|exited/i.test(l)).length;
 
-    const result = ['🐳 Docker Compose'];
-    if (created > 0) result.push(`  ➕ Created: ${created}`);
-    if (started > 0) result.push(`  ✅ Running: ${started}`);
-    if (stopped > 0) result.push(`  ⏹️  Stopped: ${stopped}`);
+    const result = [' Docker Compose'];
+    if (created > 0) result.push(`   Created: ${created}`);
+    if (started > 0) result.push(`   Running: ${started}`);
+    if (stopped > 0) result.push(`    Stopped: ${stopped}`);
 
     return result.join('\n');
   }

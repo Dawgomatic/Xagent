@@ -5,7 +5,7 @@ metadata:
   openclaw:
     requires:
       bins: ["docker", "git", "make", "node"]
-    emoji: "❤️"
+    emoji: ""
 ---
 
 # ClawHealth Deployer

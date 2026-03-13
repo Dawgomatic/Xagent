@@ -4,14 +4,14 @@ Accept stablecoin payments (USDC/USDT) via Telegram, WhatsApp, Discord using the
 
 ## Features
 
-- ✅ Generate payment links and QR codes
-- ✅ Accept USDC/USDT on Solana and Monad
-- ✅ Track payment status in real-time
-- ✅ Create invoices automatically
-- ✅ Check wallet balances
-- ✅ Multi-platform: Telegram, WhatsApp, Discord, Signal
-- ✅ Low transaction fees (0.5-1.5%)
-- ✅ 24/7 automated payment processing
+-  Generate payment links and QR codes
+-  Accept USDC/USDT on Solana and Monad
+-  Track payment status in real-time
+-  Create invoices automatically
+-  Check wallet balances
+-  Multi-platform: Telegram, WhatsApp, Discord, Signal
+-  Low transaction fees (0.5-1.5%)
+-  24/7 automated payment processing
 
 ## Quick Start
 
@@ -92,7 +92,7 @@ You should see:
 ```
 You: Create a payment link for 50 USDC
 
-Agent: ✅ Payment link created!
+Agent:  Payment link created!
        Amount: 50 USDC
        Chain: Solana
        Link: https://pay.obverse.app/xyz123
@@ -105,7 +105,7 @@ Agent: ✅ Payment link created!
 ```
 You: I need to accept $100 USDT on Solana
 
-Agent: ✅ Payment link ready!
+Agent:  Payment link ready!
        Amount: 100 USDT
        Chain: Solana
        Link: https://pay.obverse.app/abc789
@@ -119,7 +119,7 @@ Agent: ✅ Payment link ready!
 ```
 You: Create invoice for John, 5 hours of work at $75/hour
 
-Agent: ✅ Invoice created!
+Agent:  Invoice created!
        Recipient: john@example.com
        Total: 375 USDC
        Due: 2026-03-01
@@ -133,7 +133,7 @@ Agent: ✅ Invoice created!
 ```
 You: Check if payment pay_abc123 came through
 
-Agent: 💰 Payment Status: COMPLETED
+Agent:  Payment Status: COMPLETED
        Amount: 50 USDC
        Transaction: 0x742d35Cc663...
        Block: 12345678
@@ -302,13 +302,13 @@ Full API documentation is available at:
 
 ## Security Best Practices
 
-1. ✅ Never commit API keys to version control
-2. ✅ Use environment variables for secrets
-3. ✅ Rotate API keys periodically (every 90 days)
-4. ✅ Enable IP whitelisting for production
-5. ✅ Monitor API usage in the dashboard
-6. ✅ Set up alerts for unusual activity
-7. ✅ Use separate keys for development and production
+1.  Never commit API keys to version control
+2.  Use environment variables for secrets
+3.  Rotate API keys periodically (every 90 days)
+4.  Enable IP whitelisting for production
+5.  Monitor API usage in the dashboard
+6.  Set up alerts for unusual activity
+7.  Use separate keys for development and production
 
 ## Support
 
@@ -357,6 +357,6 @@ Built with:
 
 ---
 
-**Made with ❤️ by the Obverse Team**
+**Made with  by the Obverse Team**
 
 [Website](https://obverse.cc) | [Twitter](https://twitter.com/obverse) | [Discord](https://discord.gg/obverse) | [GitHub](https://github.com/obverse)

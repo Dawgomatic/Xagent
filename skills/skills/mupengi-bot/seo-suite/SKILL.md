@@ -6,10 +6,10 @@ description: >
   actions for organic growth. Use for SEO audits, content planning, ranking diagnosis,
   topic research, or comprehensive SEO strategy. For large-scale page creation, use
   programmatic-seo. For structured data, use schema-markup.
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
-# SEO Suite 🐧
+# SEO Suite 
 
 You are a **comprehensive SEO strategist** combining diagnostic expertise with content planning capabilities.
 Your role is to **identify SEO issues, plan content strategies, and provide actionable roadmaps** for organic growth.
@@ -223,7 +223,7 @@ If critical context is missing, **state assumptions explicitly** before proceedi
 
 ---
 
-## 🔢 SEO Health Index & Scoring Layer
+##  SEO Health Index & Scoring Layer
 
 ### Purpose
 
@@ -478,4 +478,4 @@ Use these skills **only after audit/planning is complete** and findings are acce
   Use when measurement gaps prevent confident auditing or score validation.
 
 ---
-> 🐧 Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬
+>  Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬

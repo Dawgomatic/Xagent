@@ -4,7 +4,7 @@
 
 A semantic memory system for Clawdbot that uses Baidu's Embedding-V1 model to store and retrieve memories based on meaning rather than keywords. Designed as a secure, locally-stored replacement for traditional vector databases like LanceDB.
 
-## 🚀 Features
+##  Features
 
 - **Semantic Memory Search** - Find memories based on meaning, not just keywords
 - **Baidu Embedding Integration** - Uses Baidu's powerful Embedding-V1 model  
@@ -14,7 +14,7 @@ A semantic memory system for Clawdbot that uses Baidu's Embedding-V1 model to st
 - **High Performance** - Optimized vector similarity calculations
 - **Easy Migration** - Drop-in replacement for memory-lancedb systems
 
-## 🎯 Use Cases
+##  Use Cases
 
 - **Conversational Context** - Remember user preferences and conversation history
 - **Knowledge Management** - Store and retrieve information semantically
@@ -22,14 +22,14 @@ A semantic memory system for Clawdbot that uses Baidu's Embedding-V1 model to st
 - **Information Retrieval** - Find related information based on meaning
 - **Data Organization** - Structure memories with tags and metadata
 
-## 📋 Requirements
+##  Requirements
 
 - Clawdbot installation
 - Baidu Qianfan API credentials (API Key and Secret Key)
 - Python 3.8+
 - Internet connection for initial API calls
 
-## 🛠️ Installation
+##  Installation
 
 ### Manual Installation
 
@@ -45,7 +45,7 @@ export BAIDU_API_STRING='${BAIDU_API_STRING}'
 export BAIDU_SECRET_KEY='${BAIDU_SECRET_KEY}'
 ```
 
-## 🚀 Usage Examples
+##  Usage Examples
 
 ### Basic Usage
 ```python
@@ -82,25 +82,25 @@ filtered_memories = memory_db.search_memories(
 )
 ```
 
-## 🔧 Integration
+##  Integration
 
 This skill integrates seamlessly with Clawdbot's memory system as a drop-in replacement for memory-lancedb. Simply update your configuration to use this memory system instead of the traditional one.
 
-## 📊 Performance
+##  Performance
 
 - **Vector Dimension**: 384 (Baidu Embedding-V1 output)
 - **Storage**: SQLite database (~1MB per 1000 memories)
 - **Search Speed**: ~50ms for 1000 memories (on typical hardware)
 - **API Latency**: Depends on Baidu API response time (typically <500ms)
 
-## 🔐 Security
+##  Security
 
 - **Local Storage**: All memories stored in local SQLite database
 - **Encrypted API Keys**: Credentials stored securely in environment variables
 - **No External Sharing**: Memories never leave your system
 - **Selective Access**: Granular control over what gets stored
 
-## 🔄 Migration from memory-lancedb
+##  Migration from memory-lancedb
 
 1. **Install this skill** in your `skills/` directory
 2. **Configure your Baidu API credentials**
@@ -108,6 +108,6 @@ This skill integrates seamlessly with Clawdbot's memory system as a drop-in repl
 4. **Update your bot configuration** to use the new memory system
 5. **Verify data integrity** and performance
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Feel free to submit issues, feature requests, or pull requests to improve this skill.

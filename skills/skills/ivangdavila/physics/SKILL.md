@@ -1,7 +1,7 @@
 ---
 name: Physics
 description: Assist with physics from intuitive explanations to formal derivations at any level.
-metadata: {"clawdbot":{"emoji":"⚛️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

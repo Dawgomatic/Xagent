@@ -164,7 +164,7 @@ def format_results(results: dict, verbose: bool = False) -> str:
         lines.append("Failed Test Cases:")
         lines.append("-" * 40)
         for case in results["failed_cases"]:
-            lines.append(f"  ❌ {case['id']}")
+            lines.append(f"   {case['id']}")
             lines.append(f"     Expected: {case['expected_risk']}, Got: {case['actual_risk']} (score: {case['score']})")
             if verbose and "content_preview" in case:
                 lines.append(f"     Content: {case['content_preview']}")
@@ -175,7 +175,7 @@ def format_results(results: dict, verbose: bool = False) -> str:
         lines.append("All Test Results:")
         lines.append("-" * 40)
         for result in results["test_results"]:
-            status = "✓" if result["passed"] else "❌"
+            status = "✓" if result["passed"] else ""
             exact = "=" if result["exact_match"] else "≈" if result["passed"] else "✗"
             lines.append(
                 f"  {status} {result['id']:15} "
@@ -186,13 +186,13 @@ def format_results(results: dict, verbose: bool = False) -> str:
     # Final verdict
     lines.append("")
     if results["pass_rate"] >= 95:
-        lines.append("✅ EXCELLENT: Detection accuracy is production-ready")
+        lines.append(" EXCELLENT: Detection accuracy is production-ready")
     elif results["pass_rate"] >= 85:
         lines.append("✓ GOOD: Detection accuracy is acceptable")
     elif results["pass_rate"] >= 70:
-        lines.append("⚠ NEEDS WORK: Detection accuracy needs improvement")
+        lines.append(" NEEDS WORK: Detection accuracy needs improvement")
     else:
-        lines.append("❌ POOR: Detection accuracy is insufficient")
+        lines.append(" POOR: Detection accuracy is insufficient")
     
     return "\n".join(lines)
 

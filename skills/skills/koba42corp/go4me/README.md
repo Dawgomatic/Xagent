@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">🎯 Go4Me</h1>
+  <h1 align="center"> Go4Me</h1>
   <p align="center">
     <strong>Send XCH to anyone using their Twitter handle</strong>
   </p>
@@ -31,19 +31,19 @@
 
 ---
 
-## 🎯 Overview
+##  Overview
 
 **Go4Me** bridges Twitter identities to the Chia blockchain. Instead of asking someone for their XCH address, just send to their Twitter handle. The skill looks up their [Go4Me](https://go4.me/) profile, extracts their verified XCH address, and executes the transaction via [sage-wallet](https://clawdhub.com/Koba42Corp/sage-wallet).
 
 ---
 
-## ✨ Features
+##  Features
 
 <table>
 <tr>
 <td width="50%">
 
-### 🔍 **Address Lookup**
+###  **Address Lookup**
 - Resolve Twitter handles to XCH addresses
 - Display user profile info
 - View badge scores and stats
@@ -52,7 +52,7 @@
 </td>
 <td width="50%">
 
-### 💸 **Send XCH**
+###  **Send XCH**
 - Send any amount to Twitter users
 - Quick 1-mojo tips
 - Confirmation before sending
@@ -64,7 +64,7 @@
 
 ---
 
-## 🚀 Commands
+##  Commands
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -74,7 +74,7 @@
 
 ---
 
-## 💬 Natural Language
+##  Natural Language
 
 Just ask naturally:
 
@@ -85,7 +85,7 @@ Just ask naturally:
 
 ---
 
-## 📋 Example Output
+##  Example Output
 
 ### Lookup
 
@@ -94,7 +94,7 @@ $ /go4me lookup @DracattusDev
 
 @DracattusDev on Go4Me
 ━━━━━━━━━━━━━━━━━━━━━━
-Name:        🌱Drac 🍊
+Name:        Drac 
 XCH Address: xch1rvgc3naytvzhv4lxhzphrdr2fzj2ka340tdj8fflt4872t2wqveq9lwz7t
 Badge Score: 220
 Copies Sold: 49
@@ -119,7 +119,7 @@ Address: xch1abc...xyz
 
 ---
 
-## 📦 Dependencies
+##  Dependencies
 
 | Skill | Purpose |
 |-------|---------|
@@ -132,7 +132,7 @@ Install sage-wallet first:
 
 ---
 
-## 💰 Amount Formats
+##  Amount Formats
 
 The skill understands various amount formats:
 
@@ -146,7 +146,7 @@ The skill understands various amount formats:
 
 ---
 
-## 🔧 How It Works
+##  How It Works
 
 ```
 User: "Send 1 mojo to @hoffmang"
@@ -193,7 +193,7 @@ User: "Send 1 mojo to @hoffmang"
 
 ---
 
-## 📊 Data Available
+##  Data Available
 
 Go4Me profiles include:
 
@@ -209,7 +209,7 @@ Go4Me profiles include:
 
 ---
 
-## ⚠️ Error Handling
+##  Error Handling
 
 | Condition | Response |
 |-----------|----------|
@@ -220,13 +220,13 @@ Go4Me profiles include:
 
 ---
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-## 🙏 Credits
+##  Credits
 
 - [Go4Me](https://go4.me/) — Twitter-to-XCH address resolution
 - [Sage Wallet](https://github.com/xch-dev/sage) — Chia wallet RPC

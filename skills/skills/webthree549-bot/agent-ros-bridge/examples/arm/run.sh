@@ -3,17 +3,17 @@
 
 set -e
 
-echo "🦾 Starting Arm Robot Demo"
+echo " Starting Arm Robot Demo"
 echo "==========================="
 echo ""
 
 if ! command -v python3 &> /dev/null; then
-    echo "❌ Python 3 not found"
+    echo " Python 3 not found"
     exit 1
 fi
 
 if [ ! -f "arm_demo.py" ]; then
-    echo "❌ Run this script from the arm/ directory"
+    echo " Run this script from the arm/ directory"
     exit 1
 fi
 

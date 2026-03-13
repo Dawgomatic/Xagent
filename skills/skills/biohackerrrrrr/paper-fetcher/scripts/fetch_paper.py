@@ -30,7 +30,7 @@ def fetch_paper(doi, output_dir=".", sci_hub_domain="https://www.sci-hub.su"):
         Path to downloaded PDF file, or None if failed
     """
     doi = clean_doi(doi)
-    print(f"🔍 Fetching paper: {doi}")
+    print(f" Fetching paper: {doi}")
     
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
@@ -55,14 +55,14 @@ def fetch_paper(doi, output_dir=".", sci_hub_domain="https://www.sci-hub.su"):
     try:
         subprocess.run(curl_cmd, check=True, capture_output=True)
     except subprocess.CalledProcessError as e:
-        print(f"❌ Failed to fetch Sci-Hub page: {e}")
+        print(f" Failed to fetch Sci-Hub page: {e}")
         return None
     
     # Step 2: Extract PDF URL from HTML
     try:
         html_content = temp_html.read_text()
     except Exception as e:
-        print(f"❌ Failed to read HTML: {e}")
+        print(f" Failed to read HTML: {e}")
         return None
     
     # Look for PDF path in the HTML (Sci-Hub uses fetch('/storage/...pdf'))
@@ -73,7 +73,7 @@ def fetch_paper(doi, output_dir=".", sci_hub_domain="https://www.sci-hub.su"):
         pdf_match = re.search(r'src="(/storage/[^"]+\.pdf)"', html_content)
     
     if not pdf_match:
-        print(f"❌ Could not find PDF link in Sci-Hub page")
+        print(f" Could not find PDF link in Sci-Hub page")
         print(f"   Check manually: {sci_hub_url}")
         temp_html.unlink()
         return None
@@ -94,7 +94,7 @@ def fetch_paper(doi, output_dir=".", sci_hub_domain="https://www.sci-hub.su"):
     try:
         subprocess.run(curl_cmd, check=True, capture_output=True)
     except subprocess.CalledProcessError as e:
-        print(f"❌ Failed to download PDF: {e}")
+        print(f" Failed to download PDF: {e}")
         temp_html.unlink()
         return None
     
@@ -104,10 +104,10 @@ def fetch_paper(doi, output_dir=".", sci_hub_domain="https://www.sci-hub.su"):
     # Verify PDF was downloaded
     if pdf_path.exists() and pdf_path.stat().st_size > 0:
         size_kb = pdf_path.stat().st_size / 1024
-        print(f"✅ Downloaded: {pdf_filename} ({size_kb:.1f} KB)")
+        print(f" Downloaded: {pdf_filename} ({size_kb:.1f} KB)")
         return pdf_path
     else:
-        print(f"❌ Download failed or file is empty")
+        print(f" Download failed or file is empty")
         return None
 
 if __name__ == "__main__":
@@ -124,7 +124,7 @@ if __name__ == "__main__":
     result = fetch_paper(doi, output_dir)
     
     if result:
-        print(f"\n📁 Saved to: {result}")
+        print(f"\n Saved to: {result}")
         sys.exit(0)
     else:
         sys.exit(1)

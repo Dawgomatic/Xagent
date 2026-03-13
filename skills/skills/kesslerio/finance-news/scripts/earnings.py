@@ -145,7 +145,7 @@ def fetch_all_earnings_finnhub(days_ahead: int = 60) -> dict:
                     }
             return earnings_by_symbol
     except Exception as e:
-        print(f"❌ Finnhub error: {e}", file=sys.stderr)
+        print(f" Finnhub error: {e}", file=sys.stderr)
         return {}
 
 
@@ -198,7 +198,7 @@ def refresh_earnings(portfolio: list[dict], force: bool = False) -> dict:
     """Refresh earnings data for all portfolio stocks."""
     finnhub_key = get_finnhub_key()
     if not finnhub_key:
-        print("❌ FINNHUB_API_KEY not found", file=sys.stderr)
+        print(" FINNHUB_API_KEY not found", file=sys.stderr)
         return {}
     
     cache = load_earnings_cache()
@@ -208,12 +208,12 @@ def refresh_earnings(portfolio: list[dict], force: bool = False) -> dict:
         try:
             last = datetime.fromisoformat(cache["last_updated"])
             if datetime.now() - last < timedelta(hours=6):
-                print(f"📦 Using cached data (updated {last.strftime('%H:%M')})")
+                print(f" Using cached data (updated {last.strftime('%H:%M')})")
                 return cache
         except Exception:
             pass
     
-    print(f"🔄 Fetching earnings calendar from Finnhub...")
+    print(f" Fetching earnings calendar from Finnhub...")
     
     # Use bulk fetch - much more efficient
     earnings = fetch_earnings_for_portfolio(portfolio)
@@ -221,14 +221,14 @@ def refresh_earnings(portfolio: list[dict], force: bool = False) -> dict:
     # Merge manual earnings (for JP stocks not in Finnhub)
     manual = load_manual_earnings()
     if manual:
-        print(f"📝 Merging {len(manual)} manual entries...")
+        print(f" Merging {len(manual)} manual entries...")
         for ticker, data in manual.items():
             if ticker not in earnings:  # Manual data fills gaps
                 earnings[ticker] = data
     
     found = len(earnings)
     total = len(portfolio)
-    print(f"✅ Found earnings data for {found}/{total} stocks")
+    print(f" Found earnings data for {found}/{total} stocks")
     
     if earnings:
         for ticker, data in sorted(earnings.items(), key=lambda x: x[1].get("date", "")):
@@ -247,14 +247,14 @@ def list_earnings(args):
     """List all upcoming earnings for portfolio."""
     portfolio = load_portfolio()
     if not portfolio:
-        print("📂 Portfolio empty")
+        print(" Portfolio empty")
         return
     
     cache = refresh_earnings(portfolio, force=args.refresh)
     earnings = cache.get("earnings", {})
     
     if not earnings:
-        print("\n❌ No earnings dates found")
+        print("\n No earnings dates found")
         return
     
     # Sort by date
@@ -263,7 +263,7 @@ def list_earnings(args):
         key=lambda x: x[1]["date"]
     )
     
-    print(f"\n📅 Upcoming Earnings ({len(sorted_earnings)} stocks)\n")
+    print(f"\n Upcoming Earnings ({len(sorted_earnings)} stocks)\n")
     
     today = datetime.now().date()
     
@@ -275,19 +275,19 @@ def list_earnings(args):
             
             # Emoji based on timing
             if days_until < 0:
-                emoji = "✅"  # Past
+                emoji = ""  # Past
                 timing = f"{-days_until}d ago"
             elif days_until == 0:
-                emoji = "🔴"  # Today!
+                emoji = ""  # Today!
                 timing = "TODAY"
             elif days_until == 1:
-                emoji = "🟡"  # Tomorrow
+                emoji = ""  # Tomorrow
                 timing = "TOMORROW"
             elif days_until <= 7:
-                emoji = "🟠"  # This week
+                emoji = ""  # This week
                 timing = f"in {days_until}d"
             else:
-                emoji = "⚪"  # Later
+                emoji = ""  # Later
                 timing = f"in {days_until}d"
             
             # Time of day
@@ -308,7 +308,7 @@ def list_earnings(args):
             print(f"{emoji} {date_str} ({timing}): **{ticker}** — {stock_name}{time_str}{eps_str}")
             
         except ValueError:
-            print(f"⚪ {date_str}: {ticker}")
+            print(f" {date_str}: {ticker}")
     
     print()
 
@@ -468,7 +468,7 @@ def check_earnings(args):
 
     # Daily mode: show today's earnings
     if not week_only and today_list:
-        output.append(f"📅 {labels['today']} — {date_str}\n")
+        output.append(f" {labels['today']} — {date_str}\n")
         for e in sorted(today_list, key=lambda x: x.get("time", "zzz")):
             time_str = f" ({labels['pre']})" if e["time"] == "bmo" else f" ({labels['post']})" if e["time"] == "amc" else ""
             eps_str = f" — {labels['est']}: ${e['eps_estimate']:.2f}" if e.get("eps_estimate") else ""
@@ -481,9 +481,9 @@ def check_earnings(args):
         if week_only:
             # Show date range for weekly preview
             week_range = f"{week_start.strftime('%b %d')} - {week_end.strftime('%b %d')}"
-            output.append(f"📅 {week_label} ({week_range})\n")
+            output.append(f" {week_label} ({week_range})\n")
         else:
-            output.append(f"📅 {week_label}\n")
+            output.append(f" {week_label}\n")
         for e in sorted(week_list, key=lambda x: x["date"]):
             day_name = e["date"].strftime("%a %d.%m")
             time_str = f" ({labels['pre_short']})" if e["time"] == "bmo" else f" ({labels['post_short']})" if e["time"] == "amc" else ""
@@ -495,7 +495,7 @@ def check_earnings(args):
     else:
         if args.verbose:
             no_earnings_label = labels['none_week'] if week_only else labels['none']
-            print(f"📅 {no_earnings_label}")
+            print(f" {no_earnings_label}")
 
 
 def get_briefing_section() -> str:

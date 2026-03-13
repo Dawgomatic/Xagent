@@ -459,7 +459,7 @@ if __name__ == "__main__":
             else:
                 adj_str = ""
                 
-            status = "✓ FAVORABLE" if is_fav else "⚠ CHALLENGING"
+            status = "✓ FAVORABLE" if is_fav else " CHALLENGING"
             print(f"\n{strategy.upper()}: {status}{adj_str}")
             print(f"  → {explanation}")
         

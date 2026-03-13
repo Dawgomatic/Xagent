@@ -2821,7 +2821,7 @@ wait_stack() {
         for service in "${!services_status[@]}"; do
             if docker service ls --filter "name=$service" | grep -q "1/1"; then
                 if [ "${services_status["$service"]}" != "ativo" ]; then
-                    echo -e "🟢 O serviço \e[32m$service\e[0m está online."
+                    echo -e " O serviço \e[32m$service\e[0m está online."
                     services_status["$service"]="ativo"
                 fi
             else
@@ -3268,7 +3268,7 @@ By: OrionDesign"
              --server "$host_teste" --port "$porta_teste" \
              --auth LOGIN --auth-user "$user_teste" \
              --auth-password "$senha_teste" --tls \
-             --header "Subject: ✅ Teste de SMTP - OrionDesign" \
+             --header "Subject:  Teste de SMTP - OrionDesign" \
              --header "Content-Type: text/plain; charset=UTF-8" \
              --body "$msg"; then
 
@@ -4088,10 +4088,10 @@ services:
     #  - 5432:5432
 
     environment:
-      ## 🔑 Senha do Postgres 
+      ##  Senha do Postgres 
       - POSTGRES_PASSWORD=$senha_postgres
 
-      ## 🌎 Timezone
+      ##  Timezone
       - TZ=America/Sao_Paulo
 
     deploy:
@@ -4224,10 +4224,10 @@ services:
     #  - 5432:5432
 
     environment:
-      ## 🔑 Senha do Postgres 
+      ##  Senha do Postgres 
       - POSTGRES_PASSWORD=$senha_postgres
 
-      ## 🌎 Timezone
+      ##  Timezone
       - TZ=America/Sao_Paulo
 
     deploy:
@@ -4364,10 +4364,10 @@ services:
     #  - 5433:5432
 
     environment:
-      ## 🔑 Senha do Postgres 
+      ##  Senha do Postgres 
       - POSTGRES_PASSWORD=$senha_pgvector
 
-      ## 🌎 Timezone
+      ##  Timezone
       - TZ=America/Sao_Paulo
 
     deploy:
@@ -4501,10 +4501,10 @@ services:
     #  - 5433:5432
 
     environment:
-      ## 🔑 Senha do Postgres 
+      ##  Senha do Postgres 
       - POSTGRES_PASSWORD=$senha_pgvector
 
-      ## 🌎 Timezone
+      ##  Timezone
       - TZ=America/Sao_Paulo
 
     deploy:
@@ -4906,10 +4906,10 @@ services:
     #  - 3306:3306
 
     environment:
-    ## 🔑 Senha do MYSQL
+    ##  Senha do MYSQL
       - MYSQL_ROOT_PASSWORD=$senha_mysql
 
-    ## 🌎 TimeZone
+    ##  TimeZone
       - TZ=America/Sao_Paulo
 
     deploy:
@@ -5046,10 +5046,10 @@ services:
     #  - 3306:3306
 
     environment:
-    ## 🔑 Senha do MYSQL
+    ##  Senha do MYSQL
       - MYSQL_ROOT_PASSWORD=$senha_mysql
 
-    ## 🌎 TimeZone
+    ##  TimeZone
       - TZ=America/Sao_Paulo
 
     deploy:
@@ -5350,44 +5350,44 @@ services:
       - $nome_rede_interna ## Nome da rede interna
     
     environment:
-    ## 🌐 Qualquer Url com # no final
+    ##  Qualquer Url com # no final
       #- CHATWOOT_HUB_URL=https://oriondesign.art.br/setup#
 
-    ## 🏢 Nome da Empresa
+    ##  Nome da Empresa
       - INSTALLATION_NAME=$nome_empresa_chatwoot
 
-    ## 🔐 Secret key
+    ##  Secret key
       - SECRET_KEY_BASE=$encryption_key
 
-    ## 💬 Url Chatwoot
+    ##  Url Chatwoot
       - FRONTEND_URL=https://$url_chatwoot
       - FORCE_SSL=true
 
-    ## 🌍 Idioma/Localização padrão
+    ##  Idioma/Localização padrão
       - DEFAULT_LOCALE=pt_BR
       - TZ=America/Sao_Paulo
 
-    ## ☁️ Google Cloud - Modifique de acordo com os seus dados
+    ##  Google Cloud - Modifique de acordo com os seus dados
       #- GOOGLE_OAUTH_CLIENT_ID=369777777777-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
       #- GOOGLE_OAUTH_CLIENT_SECRET=ABCDEF-GHijklmnoPqrstuvwX-yz1234567
       #- GOOGLE_OAUTH_CALLBACK_URL=https://<your-server-domain>/omniauth/google_oauth2/callback
 
-    ## 🔐 Facebook e Instagram
+    ##  Facebook e Instagram
       #- IG_VERIFY_TOKEN=
       #- FB_VERIFY_TOKEN=
       #- FB_APP_SECRET=
       #- FB_APP_ID=
 
-    ## 🧑‍💻 Dados do Redis
+    ##  Dados do Redis
       - REDIS_URL=redis://chatwoot${1:+_$1}_redis:6379
 
-    ## 🗄️ Dados do Postgres
+    ##  Dados do Postgres
       - POSTGRES_HOST=pgvector
       - POSTGRES_USERNAME=postgres
       - POSTGRES_PASSWORD=$senha_pgvector ## Senha do postgres
       - POSTGRES_DATABASE=chatwoot${1:+_$1}
 
-    ## 🏠 Armazenamento
+    ##  Armazenamento
       - ACTIVE_STORAGE_SERVICE=local ## use s3_compatible para MinIO
       #- STORAGE_BUCKET_NAME=chatwoot${1:+_$1}
       #- STORAGE_ACCESS_KEY_ID=ACCESS_KEY_MINIO
@@ -5396,7 +5396,7 @@ services:
       #- STORAGE_ENDPOINT=https://s3.DOMINIO.COM
       #- STORAGE_FORCE_PATH_STYLE=true
 
-    ## 📧 Dados do SMTP
+    ##  Dados do SMTP
       - MAILER_SENDER_EMAIL=$email_admin_chatwoot <$email_admin_chatwoot> ## Email SMTP
       - SMTP_DOMAIN=$dominio_smtp_chatwoot ## Dominio do email
       - SMTP_ADDRESS=$smtp_email_chatwoot ## Host SMTP
@@ -5409,14 +5409,14 @@ services:
       - SMTP_OPENSSL_VERIFY_MODE=peer
       - MAILER_INBOUND_EMAIL_DOMAIN=$email_admin_chatwoot ## Email SMTP
 
-    ## ⚙️ Melhorias
+    ##  Melhorias
       - SIDEKIQ_CONCURRENCY=10
       - RACK_TIMEOUT_SERVICE_TIMEOUT=0
       - RAILS_MAX_THREADS=5
       - WEB_CONCURRENCY=2
       - ENABLE_RACK_ATTACK=false
 
-    ## ⚡ Outras configurações
+    ##  Outras configurações
       - NODE_ENV=production
       - RAILS_ENV=production
       - INSTALLATION_ENV=docker
@@ -5462,44 +5462,44 @@ services:
       - $nome_rede_interna ## Nome da rede interna
 
     environment:
-    ## 🌐 Qualquer Url com # no final
+    ##  Qualquer Url com # no final
       #- CHATWOOT_HUB_URL=https://oriondesign.art.br/setup#
 
-    ## 🏢 Nome da Empresa
+    ##  Nome da Empresa
       - INSTALLATION_NAME=$nome_empresa_chatwoot
 
-    ## 🔐 Secret key
+    ##  Secret key
       - SECRET_KEY_BASE=$encryption_key
 
-    ## 💬 Url Chatwoot
+    ##  Url Chatwoot
       - FRONTEND_URL=https://$url_chatwoot
       - FORCE_SSL=true
 
-    ## 🌍 Idioma/Localização padrão
+    ##  Idioma/Localização padrão
       - DEFAULT_LOCALE=pt_BR
       - TZ=America/Sao_Paulo
 
-    ## ☁️ Google Cloud - Modifique de acordo com os seus dados
+    ##  Google Cloud - Modifique de acordo com os seus dados
       #- GOOGLE_OAUTH_CLIENT_ID=369777777777-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
       #- GOOGLE_OAUTH_CLIENT_SECRET=ABCDEF-GHijklmnoPqrstuvwX-yz1234567
       #- GOOGLE_OAUTH_CALLBACK_URL=https://<your-server-domain>/omniauth/google_oauth2/callback
 
-    ## 🔐 Facebook e Instagram
+    ##  Facebook e Instagram
       #- IG_VERIFY_TOKEN=
       #- FB_VERIFY_TOKEN=
       #- FB_APP_SECRET=
       #- FB_APP_ID=
 
-    ## 🧑‍💻 Dados do Redis
+    ##  Dados do Redis
       - REDIS_URL=redis://chatwoot${1:+_$1}_redis:6379
 
-    ## 🗄️ Dados do Postgres
+    ##  Dados do Postgres
       - POSTGRES_HOST=pgvector
       - POSTGRES_USERNAME=postgres
       - POSTGRES_PASSWORD=$senha_pgvector ## Senha do postgres
       - POSTGRES_DATABASE=chatwoot${1:+_$1}
 
-    ## 🏠 Armazenamento
+    ##  Armazenamento
       - ACTIVE_STORAGE_SERVICE=local ## use s3_compatible para MinIO
       #- STORAGE_BUCKET_NAME=chatwoot${1:+_$1}
       #- STORAGE_ACCESS_KEY_ID=ACCESS_KEY_MINIO
@@ -5508,7 +5508,7 @@ services:
       #- STORAGE_ENDPOINT=https://s3.DOMINIO.COM
       #- STORAGE_FORCE_PATH_STYLE=true
 
-    ## 📧 Dados do SMTP
+    ##  Dados do SMTP
       - MAILER_SENDER_EMAIL=$email_admin_chatwoot <$email_admin_chatwoot> ## Email SMTP
       - SMTP_DOMAIN=$dominio_smtp_chatwoot ## Dominio do email
       - SMTP_ADDRESS=$smtp_email_chatwoot ## Host SMTP
@@ -5521,14 +5521,14 @@ services:
       - SMTP_OPENSSL_VERIFY_MODE=peer
       - MAILER_INBOUND_EMAIL_DOMAIN=$email_admin_chatwoot ## Email SMTP
 
-    ## ⚙️ Melhorias
+    ##  Melhorias
       - SIDEKIQ_CONCURRENCY=10
       - RACK_TIMEOUT_SERVICE_TIMEOUT=0
       - RAILS_MAX_THREADS=5
       - WEB_CONCURRENCY=2
       - ENABLE_RACK_ATTACK=false
 
-    ## ⚡ Outras configurações
+    ##  Outras configurações
       - NODE_ENV=production
       - RAILS_ENV=production
       - INSTALLATION_ENV=docker
@@ -5880,7 +5880,7 @@ services:
       - $nome_rede_interna ## Nome da rede interna
 
     environment:
-    ## ⚙️ Configurações Gerais
+    ##  Configurações Gerais
       - SERVER_URL=https://$url_evolution
       - AUTHENTICATION_API_KEY=$apikeyglobal
       - AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES=true
@@ -5888,13 +5888,13 @@ services:
       - QRCODE_LIMIT=1902
       - LANGUAGE=pt-BR
       
-    ## 📱 Configuração do Cliente
+    ##  Configuração do Cliente
     ## Pegue a versão em: https://web.whatsapp.com/sw.js
       #- CONFIG_SESSION_PHONE_VERSION=2.3000.1025815458
       - CONFIG_SESSION_PHONE_CLIENT=OrionDesign
       - CONFIG_SESSION_PHONE_NAME=Chrome
       
-    ## 🗄️ Configuração do Banco de Dados
+    ##  Configuração do Banco de Dados
       - DATABASE_ENABLED=true
       - DATABASE_PROVIDER=postgresql
       - DATABASE_CONNECTION_URI=postgresql://postgres:$senha_postgres@postgres:5432/evolution${1:+_$1}
@@ -5907,37 +5907,37 @@ services:
       - DATABASE_SAVE_DATA_LABELS=true
       - DATABASE_SAVE_DATA_HISTORIC=true
 
-    ## 🤖 Integração com N8N
+    ##  Integração com N8N
       - N8N_ENABLED=true
 
-    ## 🤖 Integração com EvoAI
+    ##  Integração com EvoAI
       - EVOAI_ENABLED=true
       
-    ## 🤖 Integração com OpenAI
+    ##  Integração com OpenAI
       - OPENAI_ENABLED=true
       
-    ## 🌐 Integração com Dify
+    ##  Integração com Dify
       - DIFY_ENABLED=true
       
-    ## 💬 Integração com Typebot
+    ##  Integração com Typebot
       - TYPEBOT_ENABLED=true
       - TYPEBOT_API_VERSION=latest
       
-    ## 🗣️ Integração com Chatwoot
+    ##  Integração com Chatwoot
       - CHATWOOT_ENABLED=true
       - CHATWOOT_MESSAGE_READ=true
       - CHATWOOT_MESSAGE_DELETE=true
       - CHATWOOT_IMPORT_DATABASE_CONNECTION_URI=postgresql://postgres:SENHA_DO_PGVECTOR@pgvector:5432/chatwoot?sslmode=disable
       - CHATWOOT_IMPORT_PLACEHOLDER_MEDIA_MESSAGE=false
       
-    ## 🧊 Configuração do Cache
+    ##  Configuração do Cache
       - CACHE_REDIS_ENABLED=true
       - CACHE_REDIS_URI=redis://evolution${1:+_$1}_redis:6379/1
       - CACHE_REDIS_PREFIX_KEY=evolution
       - CACHE_REDIS_SAVE_INSTANCES=false
       - CACHE_LOCAL_ENABLED=false
       
-    ## ☁️ Configuração do S3
+    ##  Configuração do S3
       - S3_ENABLED=false
       - S3_ACCESS_KEY=
       - S3_SECRET_KEY=
@@ -5947,28 +5947,28 @@ services:
       - S3_USE_SSL=true
       #- S3_REGION=eu-south
 
-    ## 💼 Configuração do WhatsApp Business
+    ##  Configuração do WhatsApp Business
       - WA_BUSINESS_TOKEN_WEBHOOK=evolution${1:+_$1}
       - WA_BUSINESS_URL=https://graph.facebook.com
       - WA_BUSINESS_VERSION=v23.0
       - WA_BUSINESS_LANGUAGE=pt_BR
 
-    ## 📊 Telemetria
+    ##  Telemetria
       - TELEMETRY=false
       - TELEMETRY_URL=
 
-    ## 🌐 Configuração do WebSocket
+    ##  Configuração do WebSocket
       - WEBSOCKET_ENABLED=false
       - WEBSOCKET_GLOBAL_EVENTS=false
 
-    ## 📨 Configuração do SQS
+    ##  Configuração do SQS
       - SQS_ENABLED=false
       - SQS_ACCESS_KEY_ID=
       - SQS_SECRET_ACCESS_KEY=
       - SQS_ACCOUNT_ID=
       - SQS_REGION=
 
-    ## 🐇 Configuração do RabbitMQ
+    ##  Configuração do RabbitMQ
       - RABBITMQ_ENABLED=false
       - RABBITMQ_FRAME_MAX=8192
       - RABBITMQ_URI=amqp://USER:PASS@rabbitmq:5672/evolution${1:+_$1}
@@ -6001,7 +6001,7 @@ services:
       - RABBITMQ_EVENTS_TYPEBOT_START=false
       - RABBITMQ_EVENTS_TYPEBOT_CHANGE_STATUS=false
 
-    ## 🌐 Configuração do Webhook
+    ##  Configuração do Webhook
       - WEBHOOK_GLOBAL_ENABLED=false
       - WEBHOOK_GLOBAL_URL=
       - WEBHOOK_GLOBAL_WEBHOOK_BY_EVENTS=false
@@ -6041,7 +6041,7 @@ services:
       - WEBHOOK_RETRY_JITTER_FACTOR=0.2
       - WEBHOOK_RETRY_NON_RETRYABLE_STATUS_CODES=400,401,403,404,422
 
-    ## 🔌 Configuração do Provider
+    ##  Configuração do Provider
       - PROVIDER_ENABLED=false
       - PROVIDER_HOST=127.0.0.1
       - PROVIDER_PORT=5656
@@ -6330,7 +6330,7 @@ services:
       - $nome_rede_interna ## Nome da rede interna
 
     environment:
-    ## ⚙️ Configurações Gerais
+    ##  Configurações Gerais
       - SERVER_URL=https://$url_evolution
       - AUTHENTICATION_API_KEY=$apikeyglobal
       - AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES=true
@@ -6338,13 +6338,13 @@ services:
       - QRCODE_LIMIT=1902
       - LANGUAGE=pt-BR
       
-    ## 📱 Configuração do Cliente
+    ##  Configuração do Cliente
     ## Pegue a versão em: https://web.whatsapp.com/sw.js
       - CONFIG_SESSION_PHONE_VERSION=2.3000.1025815458
       - CONFIG_SESSION_PHONE_CLIENT=OrionDesign
       - CONFIG_SESSION_PHONE_NAME=Chrome
       
-    ## 🗄️ Configuração do Banco de Dados
+    ##  Configuração do Banco de Dados
       - DATABASE_ENABLED=true
       - DATABASE_PROVIDER=postgresql
       - DATABASE_CONNECTION_URI=postgresql://postgres:$senha_postgres@postgres:5432/evolution${1:+_$1}_lite
@@ -6357,14 +6357,14 @@ services:
       - DATABASE_SAVE_DATA_LABELS=true
       - DATABASE_SAVE_DATA_HISTORIC=true
       
-    ## 🧊 Configuração do Cache
+    ##  Configuração do Cache
       - CACHE_REDIS_ENABLED=true
       - CACHE_REDIS_URI=redis://evolution${1:+_$1}_lite_redis:6379/8
       - CACHE_REDIS_PREFIX_KEY=evolution
       - CACHE_REDIS_SAVE_INSTANCES=false
       - CACHE_LOCAL_ENABLED=false
       
-    ## ☁️ Configuração do S3
+    ##  Configuração do S3
       - S3_ENABLED=false
       - S3_ACCESS_KEY=
       - S3_SECRET_KEY=
@@ -6374,28 +6374,28 @@ services:
       - S3_USE_SSL=true
       #- S3_REGION=eu-south
 
-    ## 💼 Configuração do WhatsApp Business
+    ##  Configuração do WhatsApp Business
       - WA_BUSINESS_TOKEN_WEBHOOK=evolution
       - WA_BUSINESS_URL=https://graph.facebook.com
       - WA_BUSINESS_VERSION=v20.0
       - WA_BUSINESS_LANGUAGE=pt_BR
 
-    ## 📊 Telemetria
+    ##  Telemetria
       - TELEMETRY=false
       - TELEMETRY_URL=
 
-    ## 🌐 Configuração do WebSocket
+    ##  Configuração do WebSocket
       - WEBSOCKET_ENABLED=false
       - WEBSOCKET_GLOBAL_EVENTS=false
 
-    ## 📨 Configuração do SQS
+    ##  Configuração do SQS
       - SQS_ENABLED=false
       - SQS_ACCESS_KEY_ID=
       - SQS_SECRET_ACCESS_KEY=
       - SQS_ACCOUNT_ID=
       - SQS_REGION=
 
-    ## 🐇 Configuração do RabbitMQ
+    ##  Configuração do RabbitMQ
       - RABBITMQ_ENABLED=false
       - RABBITMQ_URI=amqp://USER:PASS@rabbitmq:5672/evolution${1:+_$1}
       - RABBITMQ_EXCHANGE_NAME=evolution
@@ -6426,7 +6426,7 @@ services:
       - RABBITMQ_EVENTS_TYPEBOT_START=false
       - RABBITMQ_EVENTS_TYPEBOT_CHANGE_STATUS=false
 
-    ## 🌐 Configuração do Webhook
+    ##  Configuração do Webhook
       - WEBHOOK_GLOBAL_ENABLED=false
       - WEBHOOK_GLOBAL_URL=
       - WEBHOOK_GLOBAL_WEBHOOK_BY_EVENTS=false
@@ -6458,7 +6458,7 @@ services:
       - WEBHOOK_EVENTS_ERRORS=false
       - WEBHOOK_EVENTS_ERRORS_WEBHOOK=
 
-    ## 🔌 Configuração do Provider
+    ##  Configuração do Provider
       - PROVIDER_ENABLED=false
       - PROVIDER_HOST=127.0.0.1
       - PROVIDER_PORT=5656
@@ -6725,31 +6725,31 @@ services:
       - $nome_rede_interna ## Nome da rede interna
 
     environment:
-    ## 🌐 Url da Evolution API
+    ##  Url da Evolution API
       - SERVER_URL=https://$url_evolution ## Url da aplicação
 
-    ## 🔐 Dados de Autenticação
+    ##  Dados de Autenticação
       - AUTHENTICATION_TYPE=apikey
       - AUTHENTICATION_API_KEY=$apikeyglobal ## GLOBAL API KEY
       - AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES=true
 
-    ## ⚙️ Configurações
+    ##  Configurações
       - CONFIG_SESSION_PHONE_CLIENT=OrionDesign ## Nome que aparece no celular
       - CONFIG_SESSION_PHONE_NAME=chrome
 
-    ## 📱 Definir versão do Whatsapp Web
+    ##  Definir versão do Whatsapp Web
     ## pegue a versão em: https://web.whatsapp.com/check-update?version=0&platform=web
       - CONFIG_SESSION_PHONE_VERSION=2,3000,1015901307
 
-    ## 🖼️ Sobre os QR-Codes
+    ##  Sobre os QR-Codes
       - QRCODE_LIMIT=1902
       - QRCODE_COLOR=#000000
 
-    ## 🐰 Ativar o RabbitMQ
+    ##  Ativar o RabbitMQ
       - RABBITMQ_ENABLED=false ## Colocar true se quiser usar | Recomendado | Necessário instalar RabbitMQ antes
       - RABBITMQ_URI=amqp://USER:PASS@rabbitmq:5672
 
-    ## 🗄️ Ativar Banco de Dados MongoDB
+    ##  Ativar Banco de Dados MongoDB
       - DATABASE_ENABLED=false ## Colocar true se quiser usar | Necessário instalar MongoDB antes
       - DATABASE_CONNECTION_URI=mongodb://USUARIO:SENHA@IP_VPS:27017/?authSource=admin&readPreference=primary&ssl=false&directConnection=true ## Colocar a URL do MongoDB
       - DATABASE_CONNECTION_DB_PREFIX_NAME=evolution${1:+_$1}
@@ -6759,11 +6759,11 @@ services:
       - DATABASE_SAVE_DATA_CONTACTS=true
       - DATABASE_SAVE_DATA_CHATS=true
 
-    ## 🧑‍💻 Ativar o Redis
+    ##  Ativar o Redis
       - REDIS_ENABLED=false ## Colocar true se quiser usar | Não recomendado
       - REDIS_URI=redis://redis:6379
 
-    ## 💾 Ativar o Cache Redis (Em testes)
+    ##  Ativar o Cache Redis (Em testes)
       - CACHE_REDIS_ENABLED=false
       - CACHE_REDIS_URI=redis://redis:6379
       - CACHE_REDIS_PREFIX_KEY=evolution${1:+_$1}
@@ -6772,20 +6772,20 @@ services:
       - CACHE_LOCAL_ENABLED=false
       - CACHE_LOCAL_TTL=604800
 
-    ## 🤖 Novas variáveis para o Typebot
+    ##  Novas variáveis para o Typebot
       - TYPEBOT_KEEP_OPEN=true
       - TYPEBOT_API_VERSION=latest
 
-    ## 💬 Novas variáveis para o Chatwoot
+    ##  Novas variáveis para o Chatwoot
       - CHATWOOT_MESSAGE_DELETE=true
       - CHATWOOT_MESSAGE_READ=true
 
-    ## 📨 Importar mensagens para o Chatwoot | Descomente para usar
+    ##  Importar mensagens para o Chatwoot | Descomente para usar
     ## Se estiver usando Chatwoot do Nestor mude o a parte "chatwoot" para "chatwoot_nestor"
       #- CHATWOOT_IMPORT_DATABASE_CONNECTION_URI=postgresql://postgres:$senha_do_postgres@postgres:5432/chatwoot?sslmode=disable
       #- CHATWOOT_IMPORT_DATABASE_PLACEHOLDER_MEDIA_MESSAGE=false ## true = Importar mídia | false = Não importar mídia 
 
-    ## 🔔 Informações do Webhook
+    ##  Informações do Webhook
       - WEBHOOK_GLOBAL_ENABLED=false
       - WEBHOOK_GLOBAL_URL=
       - WEBHOOK_GLOBAL_WEBHOOK_BY_EVENTS=false
@@ -6807,7 +6807,7 @@ services:
       - WEBHOOK_EVENTS_GROUP_PARTICIPANTS_UPDATE=true
       - WEBHOOK_EVENTS_CONNECTION_UPDATE=true
 
-    ## ⚙️ Sobre as instâncias
+    ##  Sobre as instâncias
       - DEL_INSTANCE=false
       - DEL_TEMP_INSTANCES=false
       - STORE_MESSAGES=true
@@ -6820,7 +6820,7 @@ services:
       - CLEAN_STORE_CONTACTS=true
       - CLEAN_STORE_CHATS=true
 
-    ## 🗃️ Outros dados
+    ##  Outros dados
       - DOCKER_ENV=true
       - LOG_LEVEL=ERROR
 
@@ -7070,7 +7070,7 @@ services:
       - $nome_rede_interna ## Nome da rede interna
 
     environment:
-    ## ⚙️ Configurações Gerais
+    ##  Configurações Gerais
       - SERVER_URL=https://$url_evolution
       - AUTHENTICATION_API_KEY=$apikeyglobal
       - AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES=true
@@ -7078,13 +7078,13 @@ services:
       - QRCODE_LIMIT=1902
       - LANGUAGE=pt-BR
       
-    ## 📱 Configuração do Cliente
+    ##  Configuração do Cliente
     ## Pegue a versão em: https://web.whatsapp.com/sw.js
       #- CONFIG_SESSION_PHONE_VERSION=2.3000.1025815458
       - CONFIG_SESSION_PHONE_CLIENT=OrionDesign
       - CONFIG_SESSION_PHONE_NAME=Chrome
       
-    ## 🗄️ Configuração do Banco de Dados
+    ##  Configuração do Banco de Dados
       - DATABASE_ENABLED=true
       - DATABASE_PROVIDER=postgresql
       - DATABASE_CONNECTION_URI=postgresql://postgres:$senha_postgres@postgres:5432/evolution${1:+_$1}_v2
@@ -7097,37 +7097,37 @@ services:
       - DATABASE_SAVE_DATA_LABELS=true
       - DATABASE_SAVE_DATA_HISTORIC=true
 
-    ## 🤖 Integração com N8N
+    ##  Integração com N8N
       - N8N_ENABLED=true
 
-    ## 🤖 Integração com EvoAI
+    ##  Integração com EvoAI
       - EVOAI_ENABLED=true
       
-    ## 🤖 Integração com OpenAI
+    ##  Integração com OpenAI
       - OPENAI_ENABLED=true
       
-    ## 🌐 Integração com Dify
+    ##  Integração com Dify
       - DIFY_ENABLED=true
       
-    ## 💬 Integração com Typebot
+    ##  Integração com Typebot
       - TYPEBOT_ENABLED=true
       - TYPEBOT_API_VERSION=latest
       
-    ## 🗣️ Integração com Chatwoot
+    ##  Integração com Chatwoot
       - CHATWOOT_ENABLED=true
       - CHATWOOT_MESSAGE_READ=true
       - CHATWOOT_MESSAGE_DELETE=true
       - CHATWOOT_IMPORT_DATABASE_CONNECTION_URI=postgresql://postgres:SENHA_DO_PGVECTOR@pgvector:5432/chatwoot?sslmode=disable
       - CHATWOOT_IMPORT_PLACEHOLDER_MEDIA_MESSAGE=false
       
-    ## 🧊 Configuração do Cache
+    ##  Configuração do Cache
       - CACHE_REDIS_ENABLED=true
       - CACHE_REDIS_URI=redis://evolution${1:+_$1}_v2_redis:6379/1
       - CACHE_REDIS_PREFIX_KEY=evolution
       - CACHE_REDIS_SAVE_INSTANCES=false
       - CACHE_LOCAL_ENABLED=false
       
-    ## ☁️ Configuração do S3
+    ##  Configuração do S3
       - S3_ENABLED=false
       - S3_ACCESS_KEY=
       - S3_SECRET_KEY=
@@ -7137,28 +7137,28 @@ services:
       - S3_USE_SSL=true
       #- S3_REGION=eu-south
 
-    ## 💼 Configuração do WhatsApp Business
+    ##  Configuração do WhatsApp Business
       - WA_BUSINESS_TOKEN_WEBHOOK=evolution${1:+_$1}
       - WA_BUSINESS_URL=https://graph.facebook.com
       - WA_BUSINESS_VERSION=v23.0
       - WA_BUSINESS_LANGUAGE=pt_BR
 
-    ## 📊 Telemetria
+    ##  Telemetria
       - TELEMETRY=false
       - TELEMETRY_URL=
 
-    ## 🌐 Configuração do WebSocket
+    ##  Configuração do WebSocket
       - WEBSOCKET_ENABLED=false
       - WEBSOCKET_GLOBAL_EVENTS=false
 
-    ## 📨 Configuração do SQS
+    ##  Configuração do SQS
       - SQS_ENABLED=false
       - SQS_ACCESS_KEY_ID=
       - SQS_SECRET_ACCESS_KEY=
       - SQS_ACCOUNT_ID=
       - SQS_REGION=
 
-    ## 🐇 Configuração do RabbitMQ
+    ##  Configuração do RabbitMQ
       - RABBITMQ_ENABLED=false
       - RABBITMQ_FRAME_MAX=8192
       - RABBITMQ_URI=amqp://USER:PASS@rabbitmq:5672/evolution${1:+_$1}
@@ -7191,7 +7191,7 @@ services:
       - RABBITMQ_EVENTS_TYPEBOT_START=false
       - RABBITMQ_EVENTS_TYPEBOT_CHANGE_STATUS=false
 
-    ## 🌐 Configuração do Webhook
+    ##  Configuração do Webhook
       - WEBHOOK_GLOBAL_ENABLED=false
       - WEBHOOK_GLOBAL_URL=
       - WEBHOOK_GLOBAL_WEBHOOK_BY_EVENTS=false
@@ -7231,7 +7231,7 @@ services:
       - WEBHOOK_RETRY_JITTER_FACTOR=0.2
       - WEBHOOK_RETRY_NON_RETRYABLE_STATUS_CODES=400,401,403,404,422
 
-    ## 🔌 Configuração do Provider
+    ##  Configuração do Provider
       - PROVIDER_ENABLED=false
       - PROVIDER_HOST=127.0.0.1
       - PROVIDER_PORT=5656
@@ -7511,15 +7511,15 @@ services:
       - $nome_rede_interna ## Nome da rede interna
 
     environment:
-    ## 🔑 Dados de acesso
+    ##  Dados de acesso
       - MINIO_ROOT_USER=$user_minio
       - MINIO_ROOT_PASSWORD=$senha_minio
 
-    ## 🌐 URL do MinIO
+    ##  URL do MinIO
       - MINIO_BROWSER_REDIRECT_URL=https://$url_minio ## Url do minio
       - MINIO_SERVER_URL=https://$url_s3 ## Url do s3 | Comente esta linha caso tiver erro ao fazer login
 
-    ## 📍 Região
+    ##  Região
       - MINIO_REGION_NAME=eu-south
 
     deploy:
@@ -7858,25 +7858,25 @@ services:
       - $nome_rede_interna ## Nome da rede interna
 
     environment:
-    ## 🗄️ Dados do Postgres
+    ##  Dados do Postgres
       - DATABASE_URL=postgresql://postgres:$senha_postgres@postgres:5432/typebot${1:+_$1}
 
-    ## 🔐 Encryption key
+    ##  Encryption key
       - ENCRYPTION_SECRET=$key_typebot
       - AUTH_TRUST_HOST=https://$url_typebot
 
-    ## 📦 Plano Padrão (das novas contas)
+    ##  Plano Padrão (das novas contas)
       - DEFAULT_WORKSPACE_PLAN=UNLIMITED ## FREE, STARTER, PRO, LIFETIME ou UNLIMITED
 
-    ## 🌐 Urls do typebot
+    ##  Urls do typebot
       - NEXTAUTH_URL=https://$url_typebot ## URL Builder
       - NEXT_PUBLIC_VIEWER_URL=https://$url_viewer ## URL Viewer
       - NEXTAUTH_URL_INTERNAL=http://localhost:3000
 
-    ## 🚫 Desativar/ativar novos cadastros
+    ##  Desativar/ativar novos cadastros
       - DISABLE_SIGNUP=false
 
-    ## 📧 Dados do SMTP
+    ##  Dados do SMTP
       - ADMIN_EMAIL=$email_typebot ## Email SMTP
       - NEXT_PUBLIC_SMTP_FROM='Suporte' <$email_typebot>
       - SMTP_AUTH_DISABLED=false
@@ -7886,14 +7886,14 @@ services:
       - SMTP_PORT=$porta_smtp_typebot
       - SMTP_SECURE=$smtp_secure_typebot
 
-    ## ☁️ Dados Google Cloud
+    ##  Dados Google Cloud
       #- GOOGLE_AUTH_CLIENT_ID=
       #- GOOGLE_SHEETS_CLIENT_ID=
       #- GOOGLE_AUTH_CLIENT_SECRET=
       #- GOOGLE_SHEETS_CLIENT_SECRET=
       #- NEXT_PUBLIC_GOOGLE_SHEETS_API_KEY=
 
-    ## 🗃️ Dados do Minio/S3
+    ##  Dados do Minio/S3
       - S3_ACCESS_KEY=$S3_ACCESS_KEY
       - S3_SECRET_KEY=$S3_SECRET_KEY
       - S3_BUCKET=typebot${1:+-$1}
@@ -7930,25 +7930,25 @@ services:
       - $nome_rede_interna ## Nome da rede interna
 
     environment:
-    ## 🗄️ Dados do Postgres
+    ##  Dados do Postgres
       - DATABASE_URL=postgresql://postgres:$senha_postgres@postgres:5432/typebot${1:+_$1}
 
-    ## 🔐 Encryption key
+    ##  Encryption key
       - ENCRYPTION_SECRET=$key_typebot
       - AUTH_TRUST_HOST=https://$url_typebot
 
-    ## 📦 Plano Padrão (das novas contas)
+    ##  Plano Padrão (das novas contas)
       - DEFAULT_WORKSPACE_PLAN=UNLIMITED ## FREE, STARTER, PRO, LIFETIME ou UNLIMITED
 
-    ## 🌐 Urls do typebot
+    ##  Urls do typebot
       - NEXTAUTH_URL=https://$url_typebot ## URL Builder
       - NEXT_PUBLIC_VIEWER_URL=https://$url_viewer ## URL Viewer
       - NEXTAUTH_URL_INTERNAL=http://localhost:3000
 
-    ## 🚫 Desativar/ativar novos cadastros
+    ##  Desativar/ativar novos cadastros
       - DISABLE_SIGNUP=false
 
-    ## 📧 Dados do SMTP
+    ##  Dados do SMTP
       - ADMIN_EMAIL=$email_typebot ## Email SMTP
       - NEXT_PUBLIC_SMTP_FROM='Suporte' <$email_typebot>
       - SMTP_AUTH_DISABLED=false
@@ -7958,14 +7958,14 @@ services:
       - SMTP_PORT=$porta_smtp_typebot
       - SMTP_SECURE=$smtp_secure_typebot
 
-    ## ☁️ Dados Google Cloud
+    ##  Dados Google Cloud
       #- GOOGLE_AUTH_CLIENT_ID=
       #- GOOGLE_SHEETS_CLIENT_ID=
       #- GOOGLE_AUTH_CLIENT_SECRET=
       #- GOOGLE_SHEETS_CLIENT_SECRET=
       #- NEXT_PUBLIC_GOOGLE_SHEETS_API_KEY=
 
-    ## 🗃️ Dados do Minio/S3
+    ##  Dados do Minio/S3
       - S3_ACCESS_KEY=$S3_ACCESS_KEY
       - S3_SECRET_KEY=$S3_SECRET_KEY
       - S3_BUCKET=typebot${1:+-$1}
@@ -8267,7 +8267,7 @@ services:
       - $nome_rede_interna ## Nome da rede interna
 
     environment:
-    ## 🗄️ Banco de Dados (PostgreSQL)
+    ##  Banco de Dados (PostgreSQL)
       - N8N_FIX_MIGRATIONS=true 
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_DATABASE=n8n_queue${1:+_$1}
@@ -8276,17 +8276,17 @@ services:
       - DB_POSTGRESDB_USER=postgres
       - DB_POSTGRESDB_PASSWORD=$senha_postgres
 
-    ## 🔐 Criptografia
+    ##  Criptografia
       - N8N_ENCRYPTION_KEY=$encryption_key
 
-    ## 🌐 URLs e Configurações de Acesso
+    ##  URLs e Configurações de Acesso
       - N8N_HOST=$url_editorn8n
       - N8N_EDITOR_BASE_URL=https://$url_editorn8n/
       - WEBHOOK_URL=https://$url_webhookn8n/
       - N8N_PROTOCOL=https
       - N8N_ONBOARDING_FLOW_DISABLED=true
 
-    ## ⚙️ Ambiente de Execução
+    ##  Ambiente de Execução
       - NODE_ENV=production
       - EXECUTIONS_MODE=queue
       - EXECUTIONS_TIMEOUT=3600
@@ -8296,13 +8296,13 @@ services:
       - N8N_RUNNERS_MODE=internal
       - N8N_RUNNERS_MAX_CONCURRENCY=5
 
-    ## 📦 Pacotes e Nós Comunitários
+    ##  Pacotes e Nós Comunitários
       - N8N_REINSTALL_MISSING_PACKAGES=true
       - N8N_COMMUNITY_PACKAGES_ENABLED=true
       - N8N_NODE_PATH=/home/node/.n8n/nodes
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 
-    ## 📧 SMTP (Envio de E-mails)
+    ##  SMTP (Envio de E-mails)
       - N8N_SMTP_SENDER=$email_smtp_n8n
       - N8N_SMTP_USER=$usuario_smtp_n8n
       - N8N_SMTP_PASS=$senha_smtp_n8n
@@ -8310,28 +8310,28 @@ services:
       - N8N_SMTP_PORT=$porta_smtp_n8n
       - N8N_SMTP_SSL=$smtp_secure_smtp_n8n
 
-    ## 🔁 Redis (Fila de Execução)
+    ##  Redis (Fila de Execução)
       - QUEUE_BULL_REDIS_HOST=n8n${1:+_$1}_redis
       - QUEUE_BULL_REDIS_PORT=6379
       - QUEUE_BULL_REDIS_DB=1
 
-    ## 📊 Métricas
+    ##  Métricas
       - N8N_METRICS=true
 
-    ## ⏱️ Execuções e Limpeza
+    ##  Execuções e Limpeza
       - EXECUTIONS_DATA_PRUNE=true
       - EXECUTIONS_DATA_MAX_AGE=336
 
-    ## 🧠 Recursos de IA
+    ##  Recursos de IA
       - N8N_AI_ENABLED=false
       - N8N_AI_PROVIDER=openai
       - N8N_AI_OPENAI_API_KEY=
 
-    ## 🧰 Permissões em Funções Personalizadas
+    ##  Permissões em Funções Personalizadas
       - NODE_FUNCTION_ALLOW_BUILTIN=*
       - NODE_FUNCTION_ALLOW_EXTERNAL=moment,lodash
 
-    ## 🕒 Fuso Horário
+    ##  Fuso Horário
       - GENERIC_TIMEZONE=America/Sao_Paulo
       - TZ=America/Sao_Paulo
       #- N8N_DEFAULT_LOCALE=pt-BR
@@ -8366,7 +8366,7 @@ services:
       - $nome_rede_interna ## Nome da rede interna
 
     environment:
-      ## 🗄️ Banco de Dados (PostgreSQL)
+      ##  Banco de Dados (PostgreSQL)
       - N8N_FIX_MIGRATIONS=true 
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_DATABASE=n8n_queue${1:+_$1}
@@ -8375,17 +8375,17 @@ services:
       - DB_POSTGRESDB_USER=postgres
       - DB_POSTGRESDB_PASSWORD=$senha_postgres
 
-      ## 🔐 Criptografia
+      ##  Criptografia
       - N8N_ENCRYPTION_KEY=$encryption_key
 
-      ## 🌐 URLs e Configurações de Acesso
+      ##  URLs e Configurações de Acesso
       - N8N_HOST=$url_editorn8n
       - N8N_EDITOR_BASE_URL=https://$url_editorn8n/
       - WEBHOOK_URL=https://$url_webhookn8n/
       - N8N_PROTOCOL=https
       - N8N_ONBOARDING_FLOW_DISABLED=true
 
-      ## ⚙️ Ambiente de Execução
+      ##  Ambiente de Execução
       - NODE_ENV=production
       - EXECUTIONS_MODE=queue
       - EXECUTIONS_TIMEOUT=3600
@@ -8394,13 +8394,13 @@ services:
       - N8N_RUNNERS_ENABLED=true
       - N8N_RUNNERS_MODE=internal
 
-      ## 📦 Pacotes e Nós Comunitários
+      ##  Pacotes e Nós Comunitários
       - N8N_REINSTALL_MISSING_PACKAGES=true
       - N8N_COMMUNITY_PACKAGES_ENABLED=true
       - N8N_NODE_PATH=/home/node/.n8n/nodes
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 
-      ## 📧 SMTP (Envio de E-mails)
+      ##  SMTP (Envio de E-mails)
       - N8N_SMTP_SENDER=$email_smtp_n8n
       - N8N_SMTP_USER=$usuario_smtp_n8n
       - N8N_SMTP_PASS=$senha_smtp_n8n
@@ -8408,28 +8408,28 @@ services:
       - N8N_SMTP_PORT=$porta_smtp_n8n
       - N8N_SMTP_SSL=$smtp_secure_smtp_n8n
 
-      ## 🔁 Redis (Fila de Execução)
+      ##  Redis (Fila de Execução)
       - QUEUE_BULL_REDIS_HOST=n8n${1:+_$1}_redis
       - QUEUE_BULL_REDIS_PORT=6379
       - QUEUE_BULL_REDIS_DB=1
 
-      ## 📊 Métricas
+      ##  Métricas
       - N8N_METRICS=true
 
-      ## ⏱️ Execuções e Limpeza
+      ##  Execuções e Limpeza
       - EXECUTIONS_DATA_PRUNE=true
       - EXECUTIONS_DATA_MAX_AGE=336
 
-      ## 🧠 Recursos de IA
+      ##  Recursos de IA
       - N8N_AI_ENABLED=false
       - N8N_AI_PROVIDER=openai
       - N8N_AI_OPENAI_API_KEY=
 
-      ## 🧰 Permissões em Funções Personalizadas
+      ##  Permissões em Funções Personalizadas
       - NODE_FUNCTION_ALLOW_BUILTIN=*
       - NODE_FUNCTION_ALLOW_EXTERNAL=moment,lodash
 
-      ## 🕒 Fuso Horário
+      ##  Fuso Horário
       - GENERIC_TIMEZONE=America/Sao_Paulo
       - TZ=America/Sao_Paulo
       #- N8N_DEFAULT_LOCALE=pt-BR
@@ -8464,7 +8464,7 @@ services:
       - $nome_rede_interna ## Nome da rede interna
 
     environment:
-      ## 🗄️ Banco de Dados (PostgreSQL)
+      ##  Banco de Dados (PostgreSQL)
       - N8N_FIX_MIGRATIONS=true 
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_DATABASE=n8n_queue${1:+_$1}
@@ -8473,17 +8473,17 @@ services:
       - DB_POSTGRESDB_USER=postgres
       - DB_POSTGRESDB_PASSWORD=$senha_postgres
 
-      ## 🔐 Criptografia
+      ##  Criptografia
       - N8N_ENCRYPTION_KEY=$encryption_key
 
-      ## 🌐 URLs e Configurações de Acesso
+      ##  URLs e Configurações de Acesso
       - N8N_HOST=$url_editorn8n
       - N8N_EDITOR_BASE_URL=https://$url_editorn8n/
       - WEBHOOK_URL=https://$url_webhookn8n/
       - N8N_PROTOCOL=https
       - N8N_ONBOARDING_FLOW_DISABLED=true
 
-      ## ⚙️ Ambiente de Execução
+      ##  Ambiente de Execução
       - NODE_ENV=production
       - EXECUTIONS_MODE=queue
       - EXECUTIONS_TIMEOUT=3600
@@ -8492,13 +8492,13 @@ services:
       - N8N_RUNNERS_ENABLED=true
       - N8N_RUNNERS_MODE=internal
 
-      ## 📦 Pacotes e Nós Comunitários
+      ##  Pacotes e Nós Comunitários
       - N8N_REINSTALL_MISSING_PACKAGES=true
       - N8N_COMMUNITY_PACKAGES_ENABLED=true
       - N8N_NODE_PATH=/home/node/.n8n/nodes
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 
-      ## 📧 SMTP (Envio de E-mails)
+      ##  SMTP (Envio de E-mails)
       - N8N_SMTP_SENDER=$email_smtp_n8n
       - N8N_SMTP_USER=$usuario_smtp_n8n
       - N8N_SMTP_PASS=$senha_smtp_n8n
@@ -8506,28 +8506,28 @@ services:
       - N8N_SMTP_PORT=$porta_smtp_n8n
       - N8N_SMTP_SSL=$smtp_secure_smtp_n8n
 
-      ## 🔁 Redis (Fila de Execução)
+      ##  Redis (Fila de Execução)
       - QUEUE_BULL_REDIS_HOST=n8n${1:+_$1}_redis
       - QUEUE_BULL_REDIS_PORT=6379
       - QUEUE_BULL_REDIS_DB=1
 
-      ## 📊 Métricas
+      ##  Métricas
       - N8N_METRICS=true
 
-      ## ⏱️ Execuções e Limpeza
+      ##  Execuções e Limpeza
       - EXECUTIONS_DATA_PRUNE=true
       - EXECUTIONS_DATA_MAX_AGE=336
 
-      ## 🧠 Recursos de IA
+      ##  Recursos de IA
       - N8N_AI_ENABLED=false
       - N8N_AI_PROVIDER=openai
       - N8N_AI_OPENAI_API_KEY=
 
-      ## 🧰 Permissões em Funções Personalizadas
+      ##  Permissões em Funções Personalizadas
       - NODE_FUNCTION_ALLOW_BUILTIN=*
       - NODE_FUNCTION_ALLOW_EXTERNAL=moment,lodash
 
-      ## 🕒 Fuso Horário
+      ##  Fuso Horário
       - GENERIC_TIMEZONE=America/Sao_Paulo
       - TZ=America/Sao_Paulo
       #- N8N_DEFAULT_LOCALE=pt-BR
@@ -15443,11 +15443,11 @@ services:
       - C8Q_QUEPASA_HOST=https://$dominio_quepasa
       - C8Q_QP_HOST=https://$dominio_quepasa
       - C8Q_MSGFOR_UNKNOWN_CONTENT=! "Algum EMOJI" ou "Alguma Reação que o sistema não entende ainda ..."
-      - C8Q_MSGFOR_EDITED_CONTENT=⚠️ **Essa mensagem foi editada !**
+      - C8Q_MSGFOR_EDITED_CONTENT= **Essa mensagem foi editada !**
       - C8Q_MSGFOR_ATTACHERROR_CONTENT=** Falha ao baixar anexo !
       - C8Q_MSGFOR_LOCALIZATION_CONTENT=* Localização *
-      - C8Q_MSGFOR_REVOKED_CONTENT=❌ Essa mensagem foi apagada !!!
-      - C8Q_MSGFOR_CALL_CONTENT=⚠️ O usuário requisitou uma chamada de voz !
+      - C8Q_MSGFOR_REVOKED_CONTENT= Essa mensagem foi apagada !!!
+      - C8Q_MSGFOR_CALL_CONTENT= O usuário requisitou uma chamada de voz !
       - C8Q_MSGFOR_REJECT_CALL=Não aceitamos Ligação - MSG configurada na Stack
       - C8Q_QP_DEFAULT_CALL=true
 
@@ -15557,11 +15557,11 @@ services:
       - C8Q_QUEPASA_HOST=https://$dominio_quepasa
       - C8Q_QP_HOST=https://$dominio_quepasa
       - C8Q_MSGFOR_UNKNOWN_CONTENT=! "Algum EMOJI" ou "Alguma Reação que o sistema não entende ainda ..."
-      - C8Q_MSGFOR_EDITED_CONTENT=⚠️ **Essa mensagem foi editada !**
+      - C8Q_MSGFOR_EDITED_CONTENT= **Essa mensagem foi editada !**
       - C8Q_MSGFOR_ATTACHERROR_CONTENT=** Falha ao baixar anexo !
       - C8Q_MSGFOR_LOCALIZATION_CONTENT=* Localização *
-      - C8Q_MSGFOR_REVOKED_CONTENT=❌ Essa mensagem foi apagada !!!
-      - C8Q_MSGFOR_CALL_CONTENT=⚠️ O usuário requisitou uma chamada de voz !
+      - C8Q_MSGFOR_REVOKED_CONTENT= Essa mensagem foi apagada !!!
+      - C8Q_MSGFOR_CALL_CONTENT= O usuário requisitou uma chamada de voz !
       - C8Q_MSGFOR_REJECT_CALL=Não aceitamos Ligação - MSG configurada na Stack
       - C8Q_QP_DEFAULT_CALL=true
 
@@ -15671,11 +15671,11 @@ services:
       - C8Q_QUEPASA_HOST=https://$dominio_quepasa
       - C8Q_QP_HOST=https://$dominio_quepasa
       - C8Q_MSGFOR_UNKNOWN_CONTENT=! "Algum EMOJI" ou "Alguma Reação que o sistema não entende ainda ..."
-      - C8Q_MSGFOR_EDITED_CONTENT=⚠️ **Essa mensagem foi editada !**
+      - C8Q_MSGFOR_EDITED_CONTENT= **Essa mensagem foi editada !**
       - C8Q_MSGFOR_ATTACHERROR_CONTENT=** Falha ao baixar anexo !
       - C8Q_MSGFOR_LOCALIZATION_CONTENT=* Localização *
-      - C8Q_MSGFOR_REVOKED_CONTENT=❌ Essa mensagem foi apagada !!!
-      - C8Q_MSGFOR_CALL_CONTENT=⚠️ O usuário requisitou uma chamada de voz !
+      - C8Q_MSGFOR_REVOKED_CONTENT= Essa mensagem foi apagada !!!
+      - C8Q_MSGFOR_CALL_CONTENT= O usuário requisitou uma chamada de voz !
       - C8Q_MSGFOR_REJECT_CALL=Não aceitamos Ligação - MSG configurada na Stack
       - C8Q_QP_DEFAULT_CALL=true
 
@@ -30824,17 +30824,17 @@ services:
 
     environment:
   
-    ## 🔗 Informações da API
+    ##  Informações da API
       - API_URL=https://$url_evoai_api
 
-    ## 🔗 Informações do Front
+    ##  Informações do Front
       - APP_URL=https://$url_evoai_front
       
-    ## 🧪 Dados do Admin
+    ##  Dados do Admin
       - ADMIN_EMAIL=$email_evoai
       - ADMIN_INITIAL_PASSWORD=$pass_evoai
 
-    ## 📧 Configuração de SMTP
+    ##  Configuração de SMTP
       - EMAIL_PROVIDER=smtp
       - SMTP_FROM=$smtp_email_evoai
       - SMTP_USER=$smtp_user_evoai
@@ -30844,10 +30844,10 @@ services:
       - SMTP_USE_TLS=$SMTP_USE_TLS
       - SMTP_USE_SSL=$SMTP_USE_SSL
 
-    ## 🛢️ Configuração do Postgres
+    ##  Configuração do Postgres
       - POSTGRES_CONNECTION_STRING=postgresql://postgres:$senha_postgres@postgres:5432/evoai${1:+_$1}
 
-    ## ⚡ Configuração do Redis
+    ##  Configuração do Redis
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_DB=9
@@ -30856,13 +30856,13 @@ services:
       - REDIS_TTL=3600
       - TOOLS_CACHE_TTL=3600
 
-    ## 🔐 Encriptação e JWT
+    ##  Encriptação e JWT
       - ENCRYPTION_KEY=$EVO_AI_ENCRYPTION_KEY
       - JWT_SECRET_KEY=$EVO_AI_JWT_SECRET_KEY
       - JWT_ALGORITHM=HS256
       - JWT_EXPIRATION_TIME=3600
 
-    ## 🧾 Logs
+    ##  Logs
       - LOG_LEVEL=INFO
       - LOG_DIR=logs
     
@@ -33680,7 +33680,7 @@ services:
       - $nome_rede_interna ## Nome da rede interna
 
     environment:
-      ## 🗄️ Banco de Dados (PostgreSQL)
+      ##  Banco de Dados (PostgreSQL)
       - N8N_FIX_MIGRATIONS=true 
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_DATABASE=n8n_queue${1:+_$1}
@@ -33689,16 +33689,16 @@ services:
       - DB_POSTGRESDB_USER=postgres
       - DB_POSTGRESDB_PASSWORD=$DB_PASSWORD
 
-      ## 🔐 Criptografia
+      ##  Criptografia
       - N8N_ENCRYPTION_KEY=$ENCRYPTION_KEY
 
-      ## 🌐 URLs e Configurações de Acesso
+      ##  URLs e Configurações de Acesso
       - N8N_HOST=$N8N_HOST
       - N8N_EDITOR_BASE_URL=$EDITOR_BASE_URL
       - WEBHOOK_URL=$WEBHOOK_URL
       - N8N_PROTOCOL=https
 
-      ## ⚙️ Ambiente de Execução
+      ##  Ambiente de Execução
       - NODE_ENV=production
       - EXECUTIONS_MODE=queue
       - EXECUTIONS_TIMEOUT=3600
@@ -33707,13 +33707,13 @@ services:
       - N8N_RUNNERS_ENABLED=true
       - N8N_RUNNERS_MODE=internal
 
-      ## 📦 Pacotes e Nós Comunitários
+      ##  Pacotes e Nós Comunitários
       - N8N_REINSTALL_MISSING_PACKAGES=true
       - N8N_COMMUNITY_PACKAGES_ENABLED=true
       - N8N_NODE_PATH=/home/node/.n8n/nodes
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 
-      ## 📧 SMTP (Envio de E-mails)
+      ##  SMTP (Envio de E-mails)
       - N8N_SMTP_SENDER=$SMTP_SENDER
       - N8N_SMTP_USER=$SMTP_USER
       - N8N_SMTP_PASS=$SMTP_PASS
@@ -33721,28 +33721,28 @@ services:
       - N8N_SMTP_PORT=$SMTP_PORT
       - N8N_SMTP_SSL=$SMTP_SSL
 
-      ## 🔁 Redis (Fila de Execução)
+      ##  Redis (Fila de Execução)
       - QUEUE_BULL_REDIS_HOST=redis
       - QUEUE_BULL_REDIS_PORT=6379
       - QUEUE_BULL_REDIS_DB=2
 
-      ## 📊 Métricas
+      ##  Métricas
       - N8N_METRICS=true
 
-      ## ⏱️ Execuções e Limpeza
+      ##  Execuções e Limpeza
       - EXECUTIONS_DATA_PRUNE=true
       - EXECUTIONS_DATA_MAX_AGE=336
 
-      ## 🧠 Recursos de IA
+      ##  Recursos de IA
       - N8N_AI_ENABLED=false
       - N8N_AI_PROVIDER=openai
       - N8N_AI_OPENAI_API_KEY=
 
-      ## 🧰 Permissões em Funções Personalizadas
+      ##  Permissões em Funções Personalizadas
       - NODE_FUNCTION_ALLOW_BUILTIN=*
       - NODE_FUNCTION_ALLOW_EXTERNAL=moment,lodash
 
-      ## 🕒 Fuso Horário
+      ##  Fuso Horário
       - GENERIC_TIMEZONE=America/Sao_Paulo
       - TZ=America/Sao_Paulo
       
@@ -35038,13 +35038,13 @@ minio.bucket() {
   BUCKET_NAME="$1"
 
   if [ -z "$BUCKET_NAME" ]; then
-    echo "❌ Você precisa informar o nome do bucket. Exemplo: minio.bucket dify"
+    echo " Você precisa informar o nome do bucket. Exemplo: minio.bucket dify"
     return 1
   fi
 
   MINIO_CONTAINER=$(docker ps --filter "name=minio" -q | head -n1)
   if [ -z "$MINIO_CONTAINER" ]; then
-    echo "❌ Container MinIO não encontrado!"
+    echo " Container MinIO não encontrado!"
     return 1
   fi
 
@@ -35055,54 +35055,54 @@ minio.bucket() {
   for endpoint in "${ENDPOINTS[@]}"; do
     if $MC_CMD alias set admin "$endpoint" "$ADMIN_USER" "$ADMIN_PASS" >/dev/null 2>&1; then
       S3_ENDPOINT="$endpoint"
-      echo "✅ Conectado com sucesso ao MinIO via $S3_ENDPOINT"
+      echo " Conectado com sucesso ao MinIO via $S3_ENDPOINT"
       break
     fi
   done
 
   if [ -z "$S3_ENDPOINT" ]; then
-    echo -e "\n❌ Falha ao conectar com os endpoints padrão (minio, localhost)."
-    echo -en "\e[33m👉 Digite manualmente o endpoint (ex: http://ip:9000): \e[0m"
+    echo -e "\n Falha ao conectar com os endpoints padrão (minio, localhost)."
+    echo -en "\e[33m Digite manualmente o endpoint (ex: http://ip:9000): \e[0m"
     read -r S3_ENDPOINT
     $MC_CMD alias set admin "$S3_ENDPOINT" "$ADMIN_USER" "$ADMIN_PASS" || {
-      echo "❌ Ainda não foi possível conectar. Verifique o endpoint e tente novamente."
+      echo " Ainda não foi possível conectar. Verifique o endpoint e tente novamente."
       return 1
     }
-    echo "✅ Conectado com sucesso ao MinIO via $S3_ENDPOINT"
+    echo " Conectado com sucesso ao MinIO via $S3_ENDPOINT"
   fi
 
   if $MC_CMD mb admin/"$BUCKET_NAME"; then
-    echo "✅ Bucket '$BUCKET_NAME' criado com sucesso!"
+    echo " Bucket '$BUCKET_NAME' criado com sucesso!"
   else
-    echo "⚠️  Não foi possível criar o bucket '$BUCKET_NAME'. Ele já pode existir."
+    echo "  Não foi possível criar o bucket '$BUCKET_NAME'. Ele já pode existir."
   fi
 
   if $MC_CMD anonymous set public admin/"$BUCKET_NAME"; then
-    echo "✅ Política 'public' aplicada ao bucket '$BUCKET_NAME'"
+    echo " Política 'public' aplicada ao bucket '$BUCKET_NAME'"
   else
-    echo "⚠️  Falha ao aplicar política pública ao bucket '$BUCKET_NAME'"
+    echo "  Falha ao aplicar política pública ao bucket '$BUCKET_NAME'"
   fi
 
   S3_ACCESS_KEY=$(head /dev/urandom | tr -dc A-Z0-9 | head -c 20)
   S3_SECRET_KEY=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 40)
 
   if $MC_CMD admin user add admin "$S3_ACCESS_KEY" "$S3_SECRET_KEY"; then
-    echo "✅ Usuário criado com sucesso:"
+    echo " Usuário criado com sucesso:"
     echo "Access Key: $S3_ACCESS_KEY"
     echo "Secret Key: $S3_SECRET_KEY"
   else
-    echo "❌ Falha ao criar usuário no MinIO"
+    echo " Falha ao criar usuário no MinIO"
     return 1
   fi
 
   if $MC_CMD admin policy attach admin readwrite --user "$S3_ACCESS_KEY"; then
-    echo "✅ Política 'readwrite' anexada ao usuário $S3_ACCESS_KEY"
+    echo " Política 'readwrite' anexada ao usuário $S3_ACCESS_KEY"
   else
-    echo "⚠️  Falha ao anexar política ao usuário $S3_ACCESS_KEY"
+    echo "  Falha ao anexar política ao usuário $S3_ACCESS_KEY"
   fi
 
 
-  $MC_CMD ls admin || echo "⚠️  Falha ao listar buckets no MinIO"
+  $MC_CMD ls admin || echo "  Falha ao listar buckets no MinIO"
 
   export S3_ENDPOINT
   export S3_ACCESS_KEY
@@ -35118,7 +35118,7 @@ minio.bucket.setup() {
 
   MINIO_CONTAINER=$(docker ps --filter "name=minio" -q | head -n1)
   if [ -z "$MINIO_CONTAINER" ]; then
-    echo "❌ Container MinIO não encontrado!"
+    echo " Container MinIO não encontrado!"
     exit 1
   fi
 
@@ -35129,21 +35129,21 @@ minio.bucket.setup() {
   for endpoint in "${ENDPOINTS[@]}"; do
     if $MC_CMD alias set admin "$endpoint" "$ADMIN_USER" "$ADMIN_PASS" >/dev/null 2>&1; then
       S3_ENDPOINT="$endpoint"
-      echo "✅ Conectado com sucesso ao MinIO via $S3_ENDPOINT"
+      echo " Conectado com sucesso ao MinIO via $S3_ENDPOINT"
       break
     fi
   done
 
   if [ -z "$S3_ENDPOINT" ]; then
-    echo -e "\n❌ Falha ao conectar com os endpoints padrão (minio, localhost)."
-    echo -en "\e[33m👉 Digite manualmente o endpoint (ex: http://ip:9000): \e[0m"
+    echo -e "\n Falha ao conectar com os endpoints padrão (minio, localhost)."
+    echo -en "\e[33m Digite manualmente o endpoint (ex: http://ip:9000): \e[0m"
     read -r S3_ENDPOINT
 
     $MC_CMD alias set admin "$S3_ENDPOINT" "$ADMIN_USER" "$ADMIN_PASS" || {
-      echo "❌ Ainda não foi possível conectar. Verifique o endpoint e tente novamente."
+      echo " Ainda não foi possível conectar. Verifique o endpoint e tente novamente."
       exit 1
     }
-    echo "✅ Conectado com sucesso ao MinIO via $S3_ENDPOINT"
+    echo " Conectado com sucesso ao MinIO via $S3_ENDPOINT"
   fi
 
   echo -e "\n\e[97mPasso$amarelo 1/1\e[0m"
@@ -35153,20 +35153,20 @@ minio.bucket.setup() {
 
 
   if $MC_CMD ls admin/"$BUCKET" >/dev/null 2>&1; then
-    echo "⚠️ Bucket '$BUCKET' já existe, continuando..."
+    echo " Bucket '$BUCKET' já existe, continuando..."
   else
     if $MC_CMD mb admin/"$BUCKET"; then
-      echo "✅ Bucket '$BUCKET' criado com sucesso!"
+      echo " Bucket '$BUCKET' criado com sucesso!"
     else
-      echo "⚠️ Falha ao criar bucket '$BUCKET', mas continuando..."
+      echo " Falha ao criar bucket '$BUCKET', mas continuando..."
     fi
   fi
 
 
   if $MC_CMD anonymous set public admin/"$BUCKET"; then
-    echo "✅ Política 'public' aplicada ao bucket '$BUCKET'"
+    echo " Política 'public' aplicada ao bucket '$BUCKET'"
   else
-    echo "⚠️ Falha ao aplicar política pública ao bucket '$BUCKET'"
+    echo " Falha ao aplicar política pública ao bucket '$BUCKET'"
   fi
 
 
@@ -35174,20 +35174,20 @@ minio.bucket.setup() {
   S3_SECRET_KEY=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 40)
 
   if $MC_CMD admin user add admin "$S3_ACCESS_KEY" "$S3_SECRET_KEY"; then
-    echo "✅ Usuário criado com sucesso!"
+    echo " Usuário criado com sucesso!"
   else
-    echo "❌ Erro ao criar usuário"
+    echo " Erro ao criar usuário"
     exit 1
   fi
 
   if $MC_CMD admin policy attach admin readwrite --user "$S3_ACCESS_KEY"; then
-    echo "✅ Política 'readwrite' anexada ao usuário $S3_ACCESS_KEY"
+    echo " Política 'readwrite' anexada ao usuário $S3_ACCESS_KEY"
   else
-    echo "⚠️ Falha ao anexar política ao usuário"
+    echo " Falha ao anexar política ao usuário"
   fi
 
   $MC_CMD alias set myminio "$S3_ENDPOINT" "$S3_ACCESS_KEY" "$S3_SECRET_KEY"
-  $MC_CMD ls myminio/"$BUCKET" || echo "⚠️ Falha ao listar bucket"
+  $MC_CMD ls myminio/"$BUCKET" || echo " Falha ao listar bucket"
 
    echo ""
    echo -e "\e[32m[ BUCKET $BUCKET ]\e[0m"
@@ -35206,7 +35206,7 @@ minio.bucket.setup() {
 
 
 minio.bucket.delete() {
-  echo -en "\e[33m👉 Digite o nome da Bucket que deseja remover (ex: arquivos): \e[0m"
+  echo -en "\e[33m Digite o nome da Bucket que deseja remover (ex: arquivos): \e[0m"
   read -r BUCKET
 
   POLICY_NAME="publicread-$BUCKET"
@@ -35214,40 +35214,40 @@ minio.bucket.delete() {
   # Descobre o container do MinIO
   MINIO_CONTAINER=$(docker ps --filter "name=minio" -q | head -n1)
   if [ -z "$MINIO_CONTAINER" ]; then
-    echo "❌ Container MinIO não encontrado!"
+    echo " Container MinIO não encontrado!"
     exit 1
   fi
 
   MC_CMD="docker exec -i $MINIO_CONTAINER mc"
 
-  echo -e "\n🔍 Buscando usuário vinculado à política $POLICY_NAME..."
+  echo -e "\n Buscando usuário vinculado à política $POLICY_NAME..."
   USER_ACCESS_KEY=$($MC_CMD admin policy entities admin "$POLICY_NAME" 2>/dev/null | grep -oP '(?<=user\s)[^\s]+')
 
   if [ -z "$USER_ACCESS_KEY" ]; then
-    echo "❌ Não foi possível encontrar o usuário com a política '$POLICY_NAME'."
+    echo " Não foi possível encontrar o usuário com a política '$POLICY_NAME'."
     exit 1
   fi
 
-  echo "🔸 Usuário identificado: $USER_ACCESS_KEY"
+  echo " Usuário identificado: $USER_ACCESS_KEY"
 
-  echo -e "\n🧹 Limpando bucket, política e usuário..."
+  echo -e "\n Limpando bucket, política e usuário..."
 
   # Remove acesso anônimo
-  $MC_CMD anonymous set download admin/"$BUCKET" >/dev/null 2>&1 || echo "⚠️ Falha ao remover acesso anônimo"
+  $MC_CMD anonymous set download admin/"$BUCKET" >/dev/null 2>&1 || echo " Falha ao remover acesso anônimo"
 
   # Remove o usuário
-  $MC_CMD admin user remove admin "$USER_ACCESS_KEY" >/dev/null 2>&1 || echo "⚠️ Falha ao remover usuário"
+  $MC_CMD admin user remove admin "$USER_ACCESS_KEY" >/dev/null 2>&1 || echo " Falha ao remover usuário"
 
   # Remove a política
-  $MC_CMD admin policy remove admin "$POLICY_NAME" >/dev/null 2>&1 || echo "⚠️ Falha ao remover política"
+  $MC_CMD admin policy remove admin "$POLICY_NAME" >/dev/null 2>&1 || echo " Falha ao remover política"
 
   # Remove a bucket com todos os objetos
   $MC_CMD rb --force admin/"$BUCKET" >/dev/null 2>&1 || {
-    echo "❌ Falha ao remover a bucket. Verifique se ela existe e está vazia."
+    echo " Falha ao remover a bucket. Verifique se ela existe e está vazia."
     exit 1
   }
 
-  echo -e "\n✅ \e[32mBucket '$BUCKET' e recursos associados removidos com sucesso!\e[0m"
+  echo -e "\n \e[32mBucket '$BUCKET' e recursos associados removidos com sucesso!\e[0m"
 }
 
 

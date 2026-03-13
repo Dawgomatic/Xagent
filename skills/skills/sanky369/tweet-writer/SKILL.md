@@ -202,7 +202,7 @@ Step 3: [Action]
 **Tweet 1 (Hook)**:
 - Most compelling insight or result
 - Include specific numbers
-- Signal it's a thread: "🧵" or "(thread)"
+- Signal it's a thread: "" or "(thread)"
 
 **Tweet 2 (Context)**:
 - Expand on the hook

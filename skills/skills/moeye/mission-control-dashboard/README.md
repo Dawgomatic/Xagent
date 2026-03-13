@@ -1,4 +1,4 @@
-# 🎛️ Mission Control Dashboard
+#  Mission Control Dashboard
 
 **Professional AI agent management dashboard with department-based hierarchy**
 
@@ -73,12 +73,12 @@ TUNNEL_URL=https://your-tunnel.trycloudflare.com
   "departments": {
     "BOT": {
       "name": "Trading Bots",
-      "emoji": "🤖",
+      "emoji": "",
       "agents": [
         {
           "id": "strategy-researcher",
           "name": "Strategy Researcher",
-          "emoji": "🔬",
+          "emoji": "",
           "status": "active"
         }
       ]
@@ -127,7 +127,7 @@ Edit `agents/agents.json`:
   "departments": {
     "YOUR_DEPT": {
       "name": "Your Department Name",
-      "emoji": "🎯",
+      "emoji": "",
       "description": "What this department does",
       "agents": []
     }
@@ -158,7 +158,7 @@ Each department can have sub-agents in `agents.json`:
     {
       "id": "sub-agent-id",
       "name": "Sub-Agent Name",
-      "emoji": "🔬",
+      "emoji": "",
       "status": "active",
       "tasks": [
         { "name": "Task 1", "status": "in-progress" }
@@ -266,4 +266,4 @@ MIT License - Use freely in personal and commercial projects
 
 ---
 
-**Built by Momo 🍑** | For OpenClaw AI agents
+**Built by Momo ** | For OpenClaw AI agents

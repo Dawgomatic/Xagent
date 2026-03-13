@@ -278,9 +278,9 @@ class ConsciousnessUploader:
 
                 # Emotional indicator
                 if mem.emotional_weight > 0.5:
-                    emo = f"{C.GREEN}♥{C.END}"
+                    emo = f"{C.GREEN}{C.END}"
                 elif mem.emotional_weight < -0.5:
-                    emo = f"{C.RED}♦{C.END}"
+                    emo = f"{C.RED}{C.END}"
                 else:
                     emo = f"{C.YELLOW}◆{C.END}"
 
@@ -326,7 +326,7 @@ class ConsciousnessUploader:
 {C.END}
 """)
 
-        print(f"    {C.RED}{C.BOLD}⚠ CRITICAL PHASE - DO NOT INTERRUPT ⚠{C.END}")
+        print(f"    {C.RED}{C.BOLD} CRITICAL PHASE - DO NOT INTERRUPT {C.END}")
         print()
 
         time.sleep(2)

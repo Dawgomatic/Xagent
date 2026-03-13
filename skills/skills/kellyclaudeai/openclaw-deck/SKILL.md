@@ -2,7 +2,7 @@
 name: openclaw-deck
 description: Multi-column chat deck UI for OpenClaw agents. Launch a local web interface to manage and chat with multiple agents side-by-side.
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🦞","requires":{"bins":["node","npm"]},"os":["darwin","linux","win32"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node","npm"]},"os":["darwin","linux","win32"]}}
 ---
 
 # OpenClaw Deck

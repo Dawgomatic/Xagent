@@ -6,7 +6,7 @@ set -e
 BIN_DIR="$HOME/.local/bin"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-echo "🦊 Installing Jasper Recall Multi-Agent Mesh..."
+echo " Installing Jasper Recall Multi-Agent Mesh..."
 echo ""
 
 # Ensure bin directory exists

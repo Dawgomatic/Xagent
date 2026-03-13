@@ -215,7 +215,7 @@ def cmd_sign(args):
     with open(chain_path, "w") as f:
         json.dump(chain, f, indent=2)
 
-    print(f"✅ Signed {len(manifest)} files in {folder.name}/")
+    print(f" Signed {len(manifest)} files in {folder.name}/")
     print(f"   Signer: {fp}")
     print(f"   Signature: {sig_dir / 'signature.bin'}")
 
@@ -226,7 +226,7 @@ def cmd_verify(args):
     sig_dir = folder / SKILLSIG_DIR
 
     if not sig_dir.exists():
-        print(f"❌ No signature found in {folder.name}/")
+        print(f" No signature found in {folder.name}/")
         sys.exit(1)
 
     # Load signer info
@@ -253,7 +253,7 @@ def cmd_verify(args):
     }
 
     if added or removed or modified:
-        print(f"❌ TAMPERED — Files changed since signing:")
+        print(f" TAMPERED — Files changed since signing:")
         for f in sorted(added):
             print(f"   + {f} (added)")
         for f in sorted(removed):
@@ -269,14 +269,14 @@ def cmd_verify(args):
     try:
         pub_key.verify(signature, data)
     except InvalidSignature:
-        print(f"❌ INVALID SIGNATURE — manifest matches but signature is forged.")
+        print(f" INVALID SIGNATURE — manifest matches but signature is forged.")
         sys.exit(1)
 
     # Check revocation
     fp = signer["fingerprint"]
     revoked, rev_info = is_revoked_at(fp, signer.get("signed_at", ""))
     if revoked:
-        print(f"🔴 REVOKED — Signer {fp} was revoked.")
+        print(f" REVOKED — Signer {fp} was revoked.")
         print(f"   Revoked at: {rev_info['revoked_at']}")
         print(f"   Reason: {rev_info['reason']}")
         print(f"   Signed at: {signer.get('signed_at', 'unknown')}")
@@ -287,15 +287,15 @@ def cmd_verify(args):
     trusted = is_trusted(fp)
     trust_label = "TRUSTED" if trusted else "UNTRUSTED"
 
-    print(f"✅ Verified — {len(stored_manifest)} files intact.")
+    print(f" Verified — {len(stored_manifest)} files intact.")
     print(f"   Signer: {fp} [{trust_label}]")
     print(f"   Signed at: {signer['signed_at']}")
 
     if rev_info and not revoked:
-        print(f"   ⚠️  Signer was later revoked ({rev_info['revoked_at']}), but this signature predates revocation.")
+        print(f"     Signer was later revoked ({rev_info['revoked_at']}), but this signature predates revocation.")
 
     if not trusted:
-        print(f"\n   ⚠️  Signer is not in your trusted authors list.")
+        print(f"\n     Signer is not in your trusted authors list.")
         print(f"   Run: skillsign trust <pubkey-file> to add them.")
 
 
@@ -346,7 +346,7 @@ def cmd_trust(args):
     with open(dest, "wb") as f:
         f.write(pub_data)
 
-    print(f"✅ Trusted: {fp}")
+    print(f" Trusted: {fp}")
     print(f"   Stored: {dest}")
 
 
@@ -468,7 +468,7 @@ def cmd_revoke(args):
         trusted_path.unlink()
         print(f"   Removed from trusted authors.")
 
-    print(f"🔴 Revoked: {fp}")
+    print(f" Revoked: {fp}")
     print(f"   Reason: {reason}")
     print(f"   Time: {revoked_at}")
     print(f"   Signatures made after this timestamp will fail verification.")

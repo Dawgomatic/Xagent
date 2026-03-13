@@ -10,7 +10,7 @@ read_when:
   - Managing multiple browser tabs
 metadata:
   clawdbot:
-    emoji: "🦞"
+    emoji: ""
     requires:
       bins: ["python3", "pip"]
 allowed-tools: Bash(python:*), Bash(pip:*)
@@ -76,12 +76,12 @@ By default, OpenClaw gateway uses the **Brave Search API** for web search, which
 - Cannot interact with authenticated web apps
 
 **openclaw-browser** solves this by providing:
-- ✅ No API keys required
-- ✅ Click, type, login, scrape
-- ✅ Persistent cookies & multi-site sessions
-- ✅ JavaScript execution
-- ✅ Screenshot capture
-- ✅ Works with Perplexity, Claude, ChatGPT, Grok
+-  No API keys required
+-  Click, type, login, scrape
+-  Persistent cookies & multi-site sessions
+-  JavaScript execution
+-  Screenshot capture
+-  Works with Perplexity, Claude, ChatGPT, Grok
 
 ### Disable Built-in Web Tools (Recommended)
 

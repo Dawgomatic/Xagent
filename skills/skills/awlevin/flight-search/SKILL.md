@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "✈️",
+        "emoji": "",
         "requires": { "bins": ["uvx"] },
         "install":
           [
@@ -75,23 +75,23 @@ flight-search ORD CDG --date 2026-05-01 --output json
 ## Example Output
 
 ```
-✈️  DEN → LAX
+  DEN → LAX
    One way · 2026-03-01
    Prices are currently: typical
 
 ──────────────────────────────────────────────────
-   Frontier ⭐ BEST
-   🕐 10:43 PM → 12:30 AM +1
-   ⏱️  2 hr 47 min
-   ✅ Nonstop
-   💰 $84
+   Frontier  BEST
+    10:43 PM → 12:30 AM +1
+     2 hr 47 min
+    Nonstop
+    $84
 
 ──────────────────────────────────────────────────
-   United ⭐ BEST
-   🕐 5:33 PM → 7:13 PM
-   ⏱️  2 hr 40 min
-   ✅ Nonstop
-   💰 $139
+   United  BEST
+    5:33 PM → 7:13 PM
+     2 hr 40 min
+    Nonstop
+    $139
 ```
 
 ## JSON Output

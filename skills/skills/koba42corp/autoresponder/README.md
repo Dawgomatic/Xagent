@@ -1,4 +1,4 @@
-# 📱 iMessage Auto-Responder
+#  iMessage Auto-Responder
 
 > Automatically respond to iMessages and SMS from specific contacts using AI-generated replies that match your voice and conversation context.
 
@@ -8,34 +8,34 @@
 
 ---
 
-## ✨ Features
+##  Features
 
 | Feature | Description |
 |---------|-------------|
-| 🤖 **AI-Powered** | OpenAI GPT-4 generates contextual, natural responses |
-| 📱 **Contact-Based Prompts** | Different AI personality per contact |
-| ⏱️ **Rate Limiting** | Configurable delays between auto-responses |
-| 💬 **Context-Aware** | AI sees recent conversation history for better replies |
-| 📊 **Telegram Management** | Full control via slash commands or natural language |
-| 🔄 **Background Monitoring** | Runs continuously via polling (5-second intervals) |
-| 📝 **Activity Logging** | Track what was sent and when |
-| 🔧 **Auto-Cleanup** | Clears stale processing locks on restart |
-| 🧪 **Test Mode** | Preview AI responses without sending |
-| ⏰ **Time Windows** | Only respond during specific hours (e.g., 9 AM - 10 PM) |
-| 🔑 **Keyword Triggers** | Only respond if message contains specific keywords |
-| 📊 **Statistics Tracking** | Track total responses, daily counts, averages |
-| 🚦 **Daily Reply Cap** | Limit max replies per day per contact (safety feature) |
+|  **AI-Powered** | OpenAI GPT-4 generates contextual, natural responses |
+|  **Contact-Based Prompts** | Different AI personality per contact |
+|  **Rate Limiting** | Configurable delays between auto-responses |
+|  **Context-Aware** | AI sees recent conversation history for better replies |
+|  **Telegram Management** | Full control via slash commands or natural language |
+|  **Background Monitoring** | Runs continuously via polling (5-second intervals) |
+|  **Activity Logging** | Track what was sent and when |
+|  **Auto-Cleanup** | Clears stale processing locks on restart |
+|  **Test Mode** | Preview AI responses without sending |
+|  **Time Windows** | Only respond during specific hours (e.g., 9 AM - 10 PM) |
+|  **Keyword Triggers** | Only respond if message contains specific keywords |
+|  **Statistics Tracking** | Track total responses, daily counts, averages |
+|  **Daily Reply Cap** | Limit max replies per day per contact (safety feature) |
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 ### System Requirements
 
-- ✅ **macOS** with Messages.app signed in to iMessage
-- ✅ **Node.js** v14+ (included with Clawdbot)
-- ✅ **Full Disk Access** for Terminal/iTerm
-- ✅ **Messages automation permission** (macOS prompts on first use)
+-  **macOS** with Messages.app signed in to iMessage
+-  **Node.js** v14+ (included with Clawdbot)
+-  **Full Disk Access** for Terminal/iTerm
+-  **Messages automation permission** (macOS prompts on first use)
 
 ### Dependencies
 
@@ -59,7 +59,7 @@ Add to your Clawdbot config (`~/.clawdbot/clawdbot.json`):
 }
 ```
 
-🔗 Get your API key: https://platform.openai.com/api-keys
+ Get your API key: https://platform.openai.com/api-keys
 
 #### 3. macOS Permissions
 
@@ -74,7 +74,7 @@ Grant the following permissions:
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -94,7 +94,7 @@ clawdhub install imsg-autoresponder
 
 ### Setup
 
-#### 1️⃣ Add Your First Contact
+####  Add Your First Contact
 
 **Via Telegram:**
 ```
@@ -106,7 +106,7 @@ clawdhub install imsg-autoresponder
 Add +15551234567 to the auto-responder with name "Best Friend" and prompt "Reply with sarcastic humor"
 ```
 
-#### 2️⃣ Start the Watcher
+####  Start the Watcher
 
 ```bash
 cd ~/clawd/imsg-autoresponder/scripts
@@ -118,13 +118,13 @@ cd ~/clawd/imsg-autoresponder/scripts
 /autorespond_restart
 ```
 
-#### 3️⃣ Test It!
+####  Test It!
 
 Have the contact text you. The auto-responder will reply within 5 seconds (default polling interval).
 
 ---
 
-## 💬 Usage
+##  Usage
 
 ### Telegram Commands
 
@@ -216,7 +216,7 @@ Just ask your Clawdbot agent naturally:
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Time Windows
 
@@ -235,10 +235,10 @@ Restrict auto-responses to specific hours per contact:
 ```
 
 **Use Cases:**
-- ✅ Respect work hours (only respond 9-5)
-- ✅ Avoid late night texts (cutoff at 10 PM)
-- ✅ Weekend-only responses
-- ✅ Different hours per contact
+-  Respect work hours (only respond 9-5)
+-  Avoid late night texts (cutoff at 10 PM)
+-  Weekend-only responses
+-  Different hours per contact
 
 ### Keyword Triggers
 
@@ -260,10 +260,10 @@ Only respond when messages contain specific keywords:
 ```
 
 **Use Cases:**
-- ✅ Only respond to urgent/important messages
-- ✅ Filter casual vs. serious conversations
-- ✅ Require explicit trigger words ("help", "question", "emergency")
-- ✅ Different keywords per contact
+-  Only respond to urgent/important messages
+-  Filter casual vs. serious conversations
+-  Require explicit trigger words ("help", "question", "emergency")
+-  Different keywords per contact
 
 ### Statistics Tracking
 
@@ -296,10 +296,10 @@ Limit auto-replies per contact per day:
 ```
 
 **Use Cases:**
-- ✅ Prevent spam if someone texts repeatedly
-- ✅ Safety cap during testing
-- ✅ Different limits per contact
-- ✅ Protects against runaway conversations
+-  Prevent spam if someone texts repeatedly
+-  Safety cap during testing
+-  Different limits per contact
+-  Protects against runaway conversations
 
 ### Prompt Engineering
 
@@ -333,7 +333,7 @@ Control reply frequency:
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Watcher Not Responding
 
@@ -354,7 +354,7 @@ tail -f ~/clawd/logs/imsg-autoresponder.log
 
 ### Common Issues
 
-#### ❌ "OPENAI_API_KEY not found"
+####  "OPENAI_API_KEY not found"
 
 **Solution:** Add API key to `~/.clawdbot/clawdbot.json`:
 ```json
@@ -368,7 +368,7 @@ tail -f ~/clawd/logs/imsg-autoresponder.log
 ```
 Restart watcher after adding.
 
-#### ❌ "Permission denied" / "Operation not permitted"
+####  "Permission denied" / "Operation not permitted"
 
 **Solution:** 
 1. Grant Full Disk Access to Terminal
@@ -376,14 +376,14 @@ Restart watcher after adding.
 3. Add Terminal.app
 4. Restart Terminal
 
-#### ❌ Messages not being detected
+####  Messages not being detected
 
 **Solution:**
 1. Verify `imsg watch --json` works manually
 2. Check Messages.app is signed in
 3. Confirm contact is in watch list: `/autorespond_list`
 
-#### ❌ Responses are too long/verbose
+####  Responses are too long/verbose
 
 **Solution:** Edit prompt to emphasize brevity:
 ```
@@ -398,11 +398,11 @@ Preview real AI responses without sending:
 /autorespond_test +15551234567 Hey what's up?
 ```
 
-Perfect for testing new prompts before going live! ✅
+Perfect for testing new prompts before going live! 
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Components
 
@@ -448,21 +448,21 @@ graph LR
 
 ---
 
-## 🛡️ Safety Features
+##  Safety Features
 
-- ✅ **Rate limiting** prevents spam (configurable per contact)
-- ✅ **Processing locks** prevent duplicate sends
-- ✅ **Manual override** - disable any contact instantly
-- ✅ **System toggle** - pause all auto-responses
-- ✅ **Full logging** - review everything that was sent
-- ✅ **Test mode** - preview responses before enabling
-- ✅ **Daily caps** - limit max replies per day
-- ✅ **Time windows** - only respond during specific hours
-- ✅ **Keyword triggers** - require specific words to respond
+-  **Rate limiting** prevents spam (configurable per contact)
+-  **Processing locks** prevent duplicate sends
+-  **Manual override** - disable any contact instantly
+-  **System toggle** - pause all auto-responses
+-  **Full logging** - review everything that was sent
+-  **Test mode** - preview responses before enabling
+-  **Daily caps** - limit max replies per day
+-  **Time windows** - only respond during specific hours
+-  **Keyword triggers** - require specific words to respond
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
 - [x] Time windows (only respond during certain hours) - **v1.1**
 - [x] Keyword triggers (only respond if message contains specific words) - **v1.1**
@@ -477,23 +477,23 @@ graph LR
 
 ---
 
-## ⚠️ Privacy & Ethics
+##  Privacy & Ethics
 
 > **Important:** This tool sends messages on your behalf automatically. Use responsibly.
 
 ### Guidelines
 
-- ✅ Only add contacts who know they're texting an AI or won't mind
-- ✅ Be transparent about AI usage when appropriate
-- ✅ Review responses regularly via `/autorespond_history`
-- ❌ Don't use for deceptive purposes
-- ❌ Don't impersonate someone without their knowledge
-- ✅ Respect the boundaries of others
-- ✅ Disable auto-responses for sensitive conversations
+-  Only add contacts who know they're texting an AI or won't mind
+-  Be transparent about AI usage when appropriate
+-  Review responses regularly via `/autorespond_history`
+-  Don't use for deceptive purposes
+-  Don't impersonate someone without their knowledge
+-  Respect the boundaries of others
+-  Disable auto-responses for sensitive conversations
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Found a bug? Have a feature idea?
 
@@ -503,15 +503,15 @@ Found a bug? Have a feature idea?
 
 ---
 
-## 📄 License
+##  License
 
 MIT License - see Clawdbot repository for full license text.
 
 ---
 
-## 🙏 Credits
+##  Credits
 
-Built with ❤️ by the Clawdbot community.
+Built with  by the Clawdbot community.
 
 **Powered by:**
 - [imsg](https://imsg.to) by Peter Steinberger
@@ -521,5 +521,5 @@ Built with ❤️ by the Clawdbot community.
 ---
 
 <p align="center">
-  <strong>Made with 🤖 + ☕ by the Clawdbot community</strong>
+  <strong>Made with  +  by the Clawdbot community</strong>
 </p>

@@ -81,7 +81,7 @@ class XiaohongshuFetcher:
                 "data": comments
             }, f, ensure_ascii=False, indent=2)
         
-        print(f"✅ 已保存 {len(comments)} 条小红书评论到 {output_path}")
+        print(f" 已保存 {len(comments)} 条小红书评论到 {output_path}")
 
 def main():
     parser = argparse.ArgumentParser(description='抓取小红书评论数据')

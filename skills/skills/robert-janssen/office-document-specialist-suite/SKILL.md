@@ -4,7 +4,7 @@ description: Advanced suite for creating, editing, and analyzing Microsoft Offic
 metadata:
   {
     "openclaw": {
-      "emoji": "📄",
+      "emoji": "",
       "requires": { "bins": ["python3"], "pip": ["python-docx", "openpyxl", "python-pptx"] }
     }
   }

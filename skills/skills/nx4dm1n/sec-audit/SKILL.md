@@ -48,10 +48,10 @@ node tools/security-audit.js --module env,auth,skills,ioc
 
 ## 输出说明
 
-- 🔴 **CRITICAL** — 严重安全问题，需立即修复
-- 🟠 **HIGH** — 高危问题，建议 48 小时内修复
-- 🟡 **MEDIUM** — 中危问题，建议 1 周内修复
-- 🟢 **LOW/PASS** — 低危或检测通过
+-  **CRITICAL** — 严重安全问题，需立即修复
+-  **HIGH** — 高危问题，建议 48 小时内修复
+-  **MEDIUM** — 中危问题，建议 1 周内修复
+-  **LOW/PASS** — 低危或检测通过
 
 ## 注意事项
 

@@ -106,9 +106,9 @@ async function swapExactETHForTokens(tokenOut: string, ethAmount: string) {
     });
     
     const received = balanceAfter - balanceBefore;
-    console.log(`✅ Received: ${formatUnits(received, 18)} tokens`);
+    console.log(` Received: ${formatUnits(received, 18)} tokens`);
   } else {
-    console.log("❌ Swap failed");
+    console.log(" Swap failed");
   }
 }
 

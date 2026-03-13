@@ -12,7 +12,7 @@
 
 ## Findings: by_design vs. Real Vulnerability
 
-### ✅ By-Design Findings (4 Stück)
+###  By-Design Findings (4 Stück)
 
 | # | Finding | Warum by_design? |
 |---|---------|-----------------|
@@ -27,7 +27,7 @@
 3. Input Safety ✓ (Kein unvalidierter externer Input)
 4. Category Norm ✓ (Standard in ML/AI Frameworks)
 
-### 🔴 Echte Vulnerabilities (3 Stück)
+###  Echte Vulnerabilities (3 Stück)
 
 | # | Finding | Severity | Score Impact | Warum echt? |
 |---|---------|----------|-------------|-------------|
@@ -44,8 +44,8 @@
 | **risk_score** | 42 (caution) | **11 (safe)** |
 | by_design Findings | 0 | 4 |
 | Echte Findings | ~8-10 | 3 |
-| pickle als Vuln? | ✅ Ja (falsch) | ❌ Nein (korrekt by_design) |
-| exec() als Vuln? | ✅ Ja (falsch) | ❌ Kein exec() gefunden |
+| pickle als Vuln? |  Ja (falsch) |  Nein (korrekt by_design) |
+| exec() als Vuln? |  Ja (falsch) |  Kein exec() gefunden |
 
 ### Warum der Unterschied?
 

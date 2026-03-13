@@ -1,6 +1,6 @@
 # UniOne Email API — OpenClaw Skill
 
-📧 Send transactional and marketing emails via [UniOne](https://unione.io) directly from your AI assistant.
+ Send transactional and marketing emails via [UniOne](https://unione.io) directly from your AI assistant.
 
 ## What this skill does
 
@@ -81,12 +81,12 @@ Just talk to your AI assistant:
 
 This skill follows the [AgentSkills](https://docs.openclaw.ai/tools/skills) specification and works with:
 
-- ✅ OpenClaw
-- ✅ Claude Code
-- ✅ Cursor
-- ✅ VS Code (with AgentSkills extensions)
-- ✅ Gemini CLI
-- ✅ GitHub Copilot
+-  OpenClaw
+-  Claude Code
+-  Cursor
+-  VS Code (with AgentSkills extensions)
+-  Gemini CLI
+-  GitHub Copilot
 
 ## Security
 

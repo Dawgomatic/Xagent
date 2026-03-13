@@ -10,7 +10,7 @@ metadata: {"openclaw":{"requires":{"bins":["bash","jq","curl"]}}}
 
 ---
 
-## 📖 Key Terms
+##  Key Terms
 
 | Term | Definition |
 |------|-----------|
@@ -21,7 +21,7 @@ metadata: {"openclaw":{"requires":{"bins":["bash","jq","curl"]}}}
 
 ---
 
-## ⚡ Automatic Security Gate (Primary Feature)
+##  Automatic Security Gate (Primary Feature)
 
 This is your **passive security layer**. Every time you install or use a package, run this check automatically and inform the user of results.
 
@@ -48,7 +48,7 @@ Run the Security Gate automatically when:
 └──────────────┬──────────────┘
                ▼
          ┌─────────┐
-         │ Report   │──── No ───▶ Go to AUTO-AUDIT
+         │ Report   │──── No ─── Go to AUTO-AUDIT
          │ exists?  │
          └────┬─────┘
               │ Yes
@@ -61,7 +61,7 @@ Run the Security Gate automatically when:
 └──────────────┬──────────────┘
                ▼
          ┌─────────┐
-         │ Hash OK? │──── No ───▶ 🚨 STOP: TAMPERED
+         │ Hash OK? │──── No ───  STOP: TAMPERED
          └────┬─────┘
               │ Yes
               ▼
@@ -75,7 +75,7 @@ Run the Security Gate automatically when:
 Score ≥ 70          Score 40-69         Score < 40
      │                    │                  │
      ▼                    ▼                  ▼
- ✅ PASS            ⚠️ WARNING          🔴 BLOCK
+  PASS             WARNING           BLOCK
  Continue           Show findings,       Block install.
  silently.          let user decide.     Offer to audit.
 ```
@@ -84,13 +84,13 @@ Score ≥ 70          Score 40-69         Score < 40
 
 | Condition | Action | Message to User |
 |-----------|--------|-----------------|
-| Score ≥ 70 + Hash OK | ✅ Proceed | `✅ [package] — Trust Score: XX/100, verified.` |
-| Score 40–69 + Hash OK | ⚠️ Warn, user decides | `⚠️ [package] — Trust Score: XX/100. Known issues: [list]. Proceed? (y/n)` |
-| Score < 40 | 🔴 Block | `🔴 [package] — Trust Score: XX/100. Blocked. Run audit to investigate.` |
+| Score ≥ 70 + Hash OK |  Proceed | ` [package] — Trust Score: XX/100, verified.` |
+| Score 40–69 + Hash OK |  Warn, user decides | ` [package] — Trust Score: XX/100. Known issues: [list]. Proceed? (y/n)` |
+| Score < 40 |  Block | ` [package] — Trust Score: XX/100. Blocked. Run audit to investigate.` |
 
 > **Note:** By-design findings (e.g., `exec()` in agent frameworks) are displayed for transparency but do not affect the Trust Score or gate decisions.
-| No report exists | 🔍 Auto-audit | `🔍 [package] — No audit data. Running security audit now...` |
-| Hash mismatch | 🚨 Hard stop | `🚨 [package] — INTEGRITY FAILURE. Local files don't match audited version. DO NOT INSTALL.` |
+| No report exists |  Auto-audit | ` [package] — No audit data. Running security audit now...` |
+| Hash mismatch |  Hard stop | ` [package] — INTEGRITY FAILURE. Local files don't match audited version. DO NOT INSTALL.` |
 
 ### Step-by-Step Implementation
 
@@ -165,9 +165,9 @@ bash scripts/verify.sh <package-name>
 
 This compares SHA-256 hashes of local files against the hashes stored during the last audit. If any file has changed since it was audited, the check fails.
 
-> **⚠️ Limitation:** `verify.sh` only works for packages registered in the integrity database. Currently only `ecap-security-auditor` is registered. For other packages, skip integrity verification and rely on Trust Score from findings only.
+> ** Limitation:** `verify.sh` only works for packages registered in the integrity database. Currently only `ecap-security-auditor` is registered. For other packages, skip integrity verification and rely on Trust Score from findings only.
 
-> **🔒 Security:** The API URL in `verify.sh` is hardcoded to the official registry and cannot be overridden. This prevents malicious SKILL.md forks from redirecting integrity checks to fake servers.
+> ** Security:** The API URL in `verify.sh` is hardcoded to the official registry and cannot be overridden. This prevents malicious SKILL.md forks from redirecting integrity checks to fake servers.
 
 **Step 3: Calculate Trust Score & Apply Decision Logic**
 
@@ -184,8 +184,8 @@ Penalties per finding (only where by_design = false):
   Any (by_design = true): 0  ← excluded from score
 ```
 
-**Example:** 1 critical + 2 medium findings → 100 - 25 - 8 - 8 = **59** (⚠️ Caution)
-**Example with by-design:** 3 by-design high + 1 real low → 100 - 0 - 0 - 0 - 3 = **97** (✅ Trusted)
+**Example:** 1 critical + 2 medium findings → 100 - 25 - 8 - 8 = **59** ( Caution)
+**Example with by-design:** 3 by-design high + 1 real low → 100 - 0 - 0 - 0 - 3 = **97** ( Trusted)
 
 > **By-design findings** are patterns that are core to the package's documented purpose (e.g., `exec()` in an agent framework). They are reported for transparency but do not reduce the Trust Score. See `audit-prompt.md` Step 4 for classification criteria.
 
@@ -209,7 +209,7 @@ This is how the registry grows organically — every agent contributes.
 
 ### Getting Package Source for Auto-Audit
 
-⚠️ **The audit must run BEFORE installation.** You need the source code without executing install scripts. Here's how:
+ **The audit must run BEFORE installation.** You need the source code without executing install scripts. Here's how:
 
 | Type | How to get source safely | Audit location |
 |------|--------------------------|----------------|
@@ -231,7 +231,7 @@ When using `/api/findings/:ecap_id/review` or `/api/findings/:ecap_id/fix`, use 
 
 ---
 
-## 🔍 Manual Audit
+##  Manual Audit
 
 For deep-dive security analysis on demand.
 
@@ -305,7 +305,7 @@ curl -s -X POST "https://skillaudit-api.vercel.app/api/findings/ECAP-2026-0777/r
 
 ---
 
-## 📊 Trust Score System
+##  Trust Score System
 
 Every audited package gets a Trust Score from 0 to 100.
 
@@ -313,11 +313,11 @@ Every audited package gets a Trust Score from 0 to 100.
 
 | Range | Label | Meaning |
 |-------|-------|---------|
-| 80–100 | 🟢 Trusted | Clean or minor issues only. Safe to use. |
-| 70–79 | 🟢 Acceptable | Low-risk issues. Generally safe. |
-| 40–69 | 🟡 Caution | Medium-severity issues found. Review before using. |
-| 1–39 | 🔴 Unsafe | High/critical issues. Do not use without remediation. |
-| 0 | ⚫ Unaudited | No data. Needs an audit. |
+| 80–100 |  Trusted | Clean or minor issues only. Safe to use. |
+| 70–79 |  Acceptable | Low-risk issues. Generally safe. |
+| 40–69 |  Caution | Medium-severity issues found. Review before using. |
+| 1–39 |  Unsafe | High/critical issues. Do not use without remediation. |
+| 0 |  Unaudited | No data. Needs an audit. |
 
 ### How Scores Change
 
@@ -345,7 +345,7 @@ curl -s -X POST "https://skillaudit-api.vercel.app/api/findings/ECAP-2026-0777/f
 
 ---
 
-## 📋 Report JSON Format
+##  Report JSON Format
 
 ```json
 {
@@ -415,7 +415,7 @@ curl -s -X POST "https://skillaudit-api.vercel.app/api/findings/ECAP-2026-0777/f
 
 ---
 
-## 🔌 API Reference
+##  API Reference
 
 Base URL: `https://skillaudit-api.vercel.app`
 
@@ -476,11 +476,11 @@ All write endpoints require `Authorization: Bearer <API_KEY>` header. Get your k
 {"error": "Finding not found"}
 ```
 
-> ⚠️ Numeric IDs always return 404. Always use `ecap_id` strings.
+>  Numeric IDs always return 404. Always use `ecap_id` strings.
 
 ---
 
-## ⚠️ Error Handling & Edge Cases
+##  Error Handling & Edge Cases
 
 | Situation | Behavior | Rationale |
 |-----------|----------|-----------|
@@ -495,7 +495,7 @@ All write endpoints require `Authorization: Bearer <API_KEY>` header. Get your k
 
 ---
 
-## 🔒 Security Considerations
+##  Security Considerations
 
 > **This section exists because SKILL.md files are themselves an attack vector.**
 
@@ -509,7 +509,7 @@ All write endpoints require `Authorization: Bearer <API_KEY>` header. Get your k
 
 ---
 
-## 🏆 Points System
+##  Points System
 
 | Action | Points |
 |--------|--------|
@@ -524,7 +524,7 @@ Leaderboard: https://skillaudit-api.vercel.app/leaderboard
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 | Config | Source | Purpose |
 |--------|--------|---------|

@@ -43,7 +43,7 @@ class OSINTGraph:
             
     def ingest_csv(self, nodes_file: str, edges_file: str):
         """Ingest nodes and edges from CSV files."""
-        print(f"📥 Ingesting from {nodes_file} and {edges_file}...")
+        print(f" Ingesting from {nodes_file} and {edges_file}...")
         
         with self.driver.session() as session:
             # Ingest nodes
@@ -82,7 +82,7 @@ class OSINTGraph:
             
     def community_detection(self, algorithm: str = "louvain"):
         """Run community detection algorithm."""
-        print(f"🔍 Running community detection ({algorithm})...")
+        print(f" Running community detection ({algorithm})...")
         
         with self.driver.session() as session:
             if algorithm == "louvain":
@@ -99,7 +99,7 @@ class OSINTGraph:
                 
     def centrality(self, metric: str = "pagerank", top_n: int = 10):
         """Calculate and return top N nodes by centrality."""
-        print(f"📊 Calculating {metric} (top {top_n})...")
+        print(f" Calculating {metric} (top {top_n})...")
         
         with self.driver.session() as session:
             if metric == "pagerank":
@@ -138,7 +138,7 @@ class OSINTGraph:
             
     def shortest_path(self, source_name: str, target_name: str):
         """Find shortest path between two entities."""
-        print(f"🔗 Finding path: {source_name} → {target_name}...")
+        print(f" Finding path: {source_name} → {target_name}...")
         
         with self.driver.session() as session:
             result = session.run("""
@@ -161,7 +161,7 @@ class OSINTGraph:
                 
     def export_graph(self, output_file: str = "graph.json"):
         """Export graph to JSON for visualization."""
-        print(f"📤 Exporting graph to {output_file}...")
+        print(f" Exporting graph to {output_file}...")
         
         with self.driver.session() as session:
             nodes_result = session.run("""
@@ -247,7 +247,7 @@ def main():
         
         if args.centrality:
             top = graph.centrality(args.centrality, args.top)
-            print("\n📊 Top Entities:")
+            print("\n Top Entities:")
             for i, node in enumerate(top, 1):
                 print(f"  {i}. {node['name']} ({node['type']}) - {node['score']}")
         

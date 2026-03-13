@@ -24,7 +24,7 @@ Trails is cross-chain infrastructure that enables:
 
 Before using Trails, you'll need an API key:
 
-👉 **Visit [https://dashboard.trails.build](https://dashboard.trails.build)** to create an account and generate your key.
+ **Visit [https://dashboard.trails.build](https://dashboard.trails.build)** to create an account and generate your key.
 
 Then set it as an environment variable:
 ```bash

@@ -71,7 +71,7 @@ All stake positions across all subnets.
 
 **Key Fields**:
 - `netuid`, `hotkey.ss58`, `hotkey_name`
-- `balance_as_tao` - ⚠️ IN RAO (divide by 1e9)
+- `balance_as_tao` -  IN RAO (divide by 1e9)
 - `price`, `price_change_1_day`
 - `root_prop` - Per-position root proportion
 
@@ -290,7 +290,7 @@ python3 skills/taostats/balance_history.py --days 90 --export
 
 **Output:**
 ```
-📊 Portfolio History (30 records):
+ Portfolio History (30 records):
 --------------------------------------------------------------------------------
 Date         Free τ    Staked τ    Total τ    Daily Δ
 --------------------------------------------------------------------------------
@@ -472,9 +472,9 @@ taostats_stake_balance $COLDKEY | jq -r '.data[] |
   "\(.netuid)|\(.balance_as_tao)|\(.root_prop)"' | while IFS='|' read netuid balance root_prop; do
   BALANCE_TAO=$(echo "$balance / 1000000000" | bc -l)
   if (( $(echo "$root_prop > 0.50" | bc -l) )); then
-    printf "⚠️ SN%-3s: %6.3f TAO | HIGH root_prop: %.2f - Consider exit\n" "$netuid" "$BALANCE_TAO" "$root_prop"
+    printf " SN%-3s: %6.3f TAO | HIGH root_prop: %.2f - Consider exit\n" "$netuid" "$BALANCE_TAO" "$root_prop"
   else
-    printf "✅ SN%-3s: %6.3f TAO | OK root_prop: %.2f\n" "$netuid" "$BALANCE_TAO" "$root_prop"
+    printf " SN%-3s: %6.3f TAO | OK root_prop: %.2f\n" "$netuid" "$BALANCE_TAO" "$root_prop"
   fi
 done
 ```

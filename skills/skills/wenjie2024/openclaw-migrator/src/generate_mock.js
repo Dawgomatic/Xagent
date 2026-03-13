@@ -31,7 +31,7 @@ async function generateMock() {
   await fs.writeJson(CONFIG_PATH, mockConfig, { spaces: 2 });
   await fs.writeFile(MEMORY_PATH, mockMemory);
 
-  console.log(`✅ Mock data generated at ${TEST_DIR}`);
+  console.log(` Mock data generated at ${TEST_DIR}`);
 }
 
 generateMock().catch(console.error);

@@ -50,7 +50,7 @@ def summarize_topic(topic):
     for note in notes["notes"]:
         tags.extend(note.get("tags", []))
     
-    print(f"\n📊 Summary: {topic}")
+    print(f"\n Summary: {topic}")
     print("-" * 60)
     print(f"Notes: {note_count}")
     print(f"Words: {word_count}")
@@ -61,7 +61,7 @@ def summarize_topic(topic):
     # Tags summary
     if tags:
         tag_counts = Counter(tags)
-        print("🏷️  Top Tags:")
+        print("  Top Tags:")
         for tag, count in tag_counts.most_common(5):
             print(f"   {tag}: {count}")
         print()
@@ -78,13 +78,13 @@ def summarize_topic(topic):
                 key_points.append(sentence.strip())
     
     if key_points:
-        print("💡 Key Points:")
+        print(" Key Points:")
         for i, point in enumerate(key_points[:5], 1):
             print(f"   {i}. {point[:100]}...")
         print()
     
     # Recent notes
-    print("📝 Recent Notes:")
+    print(" Recent Notes:")
     for note in notes["notes"][-3:]:
         ts = note["timestamp"][:19].replace("T", " ")
         preview = note["content"][:80] + "..." if len(note["content"]) > 80 else note["content"]
@@ -113,7 +113,7 @@ def extract_keywords(topic):
     keywords = [w for w in words if w not in stop_words]
     keyword_counts = Counter(keywords)
     
-    print(f"\n🔤 Keywords: {topic}")
+    print(f"\n Keywords: {topic}")
     print("-" * 60)
     print(f"Total unique keywords: {len(keyword_counts)}")
     print()
@@ -140,7 +140,7 @@ def search_topic(topic, keyword):
         print(f"No matches for '{keyword}' in topic '{topic}'")
         return
     
-    print(f"\n🔍 Search Results: '{keyword}' in {topic}")
+    print(f"\n Search Results: '{keyword}' in {topic}")
     print("-" * 60)
     print(f"Found {len(matches)} match(es)\n")
     
@@ -166,7 +166,7 @@ def list_topics():
         print("No research topics yet.")
         return
     
-    print(f"\n📚 Research Topics ({len(db)})")
+    print(f"\n Research Topics ({len(db)})")
     print("-" * 60)
     
     for topic, data in sorted(db.items(), key=lambda x: x[1]["last_updated"], reverse=True):

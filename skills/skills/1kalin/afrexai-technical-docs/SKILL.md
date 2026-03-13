@@ -217,7 +217,7 @@ For each endpoint or function:
 
 | Name | Location | Type | Required | Default | Description |
 |------|----------|------|----------|---------|-------------|
-| `id` | path | string | ✅ | — | [what it identifies] |
+| `id` | path | string |  | — | [what it identifies] |
 | `limit` | query | integer | — | 20 | [what it controls, valid range] |
 | `filter` | query | string | — | — | [format, allowed values] |
 
@@ -309,7 +309,7 @@ curl -X POST https://api.example.com/v1/users \
 [ASCII diagram of components and data flow]
 
 ┌──────────┐     ┌──────────┐     ┌──────────┐
-│  Client  │────▶│   API    │────▶│    DB    │
+│  Client  │────│   API    │────│    DB    │
 └──────────┘     │ Gateway  │     └──────────┘
                  └────┬─────┘
                       │
@@ -608,7 +608,7 @@ style:
   formatting:
     - "Use code blocks for ALL commands, paths, config values"
     - "Use tables for structured comparisons"
-    - "Use admonitions (>, ⚠️, 💡) sparingly — max 2 per page"
+    - "Use admonitions (>, , ) sparingly — max 2 per page"
     - "Use numbered lists for sequential steps"
     - "Use bullet lists for unordered items"
     - "One topic per heading — if you need two headings, split the page"
@@ -1099,7 +1099,7 @@ doc_debt:
 
 When removing or replacing documentation:
 
-1. **Mark deprecated** — add banner: "⚠️ This document is deprecated. See [new doc] instead."
+1. **Mark deprecated** — add banner: " This document is deprecated. See [new doc] instead."
 2. **Redirect** — set up URL redirect from old to new
 3. **Wait** — keep deprecated doc live for 2 major versions or 6 months
 4. **Archive** — move to `/docs/archive/`, remove from navigation

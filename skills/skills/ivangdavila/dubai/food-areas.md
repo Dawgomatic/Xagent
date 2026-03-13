@@ -72,10 +72,10 @@
 
 | Restaurant | Stars | Price (2 pax) |
 |------------|-------|---------------|
-| FZN | ⭐⭐⭐ | AED 2,500-4,000 |
-| Dinner by Heston | ⭐ | AED 1,000-1,500 |
-| Nobu | ⭐ | AED 700-1,200 |
-| Ossiano | ⭐ | AED 1,000-1,500 |
+| FZN |  | AED 2,500-4,000 |
+| Dinner by Heston |  | AED 1,000-1,500 |
+| Nobu |  | AED 700-1,200 |
+| Ossiano |  | AED 1,000-1,500 |
 | Bread Street Kitchen | - | AED 500-800 |
 | Hakkasan | - | AED 600-900 |
 
@@ -83,7 +83,7 @@
 
 | Restaurant | Location | Price (2 pax) | Notes |
 |------------|----------|---------------|-------|
-| **STAY** ⭐⭐ | One&Only | AED 1,500-2,500 | French fine dining |
+| **STAY**  | One&Only | AED 1,500-2,500 | French fine dining |
 | **Torno Subito** | W Dubai | AED 500-800 | Italian, fun |
 | **Akira Back** | W Dubai | AED 400-650 | Brunch favorite |
 | **Ibn Al Bahr** | Club Vista Mare | AED 400-600 | Lebanese seafood |

@@ -9,7 +9,7 @@ description: >
   support/resistance, strategy builder, trade journal, watchlist, how's BTC, how's the market.
 metadata:
   clawdbot:
-    emoji: "📊"
+    emoji: ""
     requires:
       bins: ["curl", "jq"]
 ---
@@ -129,7 +129,7 @@ Backtests are async — POST triggers, then poll GET until complete.
 
 ## Symbol Activation (Required After Creation)
 
-> ⚠️ **IMPORTANT:** Creating a custom event or strategy does **NOT** automatically activate it for any symbols. After creation, you **MUST** ask the user which symbols to activate it for, then call the enable endpoint. Without this step, the event/strategy will **not fire or generate signals**.
+>  **IMPORTANT:** Creating a custom event or strategy does **NOT** automatically activate it for any symbols. After creation, you **MUST** ask the user which symbols to activate it for, then call the enable endpoint. Without this step, the event/strategy will **not fire or generate signals**.
 
 ### Workflow: Custom Events
 1. Create the event → `POST /custom-events`

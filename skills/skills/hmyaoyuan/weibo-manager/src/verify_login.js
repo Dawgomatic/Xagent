@@ -49,7 +49,7 @@ const TARGET_CHAT_ID = process.argv[2];
             
             const msg = JSON.stringify({
                 zh_cn: {
-                    title: "登录验证失败 ❌",
+                    title: "登录验证失败 ",
                     content: [[{ tag: "text", text: "虽然保存了Cookie，但似乎未登录成功。请看截图：" }],
                               [{ tag: "img", image_key: imageKey }]]
                 }
@@ -74,7 +74,7 @@ const TARGET_CHAT_ID = process.argv[2];
         // Let's just confirm login for now.
         const msg = JSON.stringify({
             zh_cn: {
-                title: "微博登录验证成功 ✅",
+                title: "微博登录验证成功 ",
                 content: [[{ tag: "text", text: `成功进入微博首页！标题：${title}` }]]
             }
         });

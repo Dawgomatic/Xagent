@@ -7,7 +7,7 @@ description: Send LinkedIn connection requests to a list of people via browser a
 
 Automates sending LinkedIn connection requests from a list and tracks results in a data file.
 
-## ⚠️ Pre-flight Checklist — Confirm Before Starting
+##  Pre-flight Checklist — Confirm Before Starting
 
 **Before doing anything else**, confirm all of the following with the user. Do not proceed until each item is confirmed.
 
@@ -36,8 +36,8 @@ Confirm which option they've set up. Default to **Option A (Chrome Relay)** if t
 
 ### 3. Ready Check
 Only proceed once the user says:
-- ✅ File is ready and accessible
-- ✅ Browser is open with LinkedIn logged in (and relay is attached if Option A)
+-  File is ready and accessible
+-  Browser is open with LinkedIn logged in (and relay is attached if Option A)
 
 ---
 
@@ -74,8 +74,8 @@ Always try in this order. Move to the next tier only if the current one fails.
 
 ### Tier 1 — Direct LinkedIn URL (fastest, zero ambiguity)
 Navigate directly to the LinkedIn profile URL from the data file.
-- ✅ URL loads → correct profile, proceed to connect
-- ❌ Returns 404 → escalate to Tier 2
+-  URL loads → correct profile, proceed to connect
+-  Returns 404 → escalate to Tier 2
 - Skip Tier 1 if no URL is in the data file for this person
 
 ### Tier 2 — Google Search (reliable fallback, preserves accuracy)
@@ -83,14 +83,14 @@ Search Google for `"Founder Name" "Brand/Company" linkedin`.
 - Navigate to: `https://www.google.com/search?q=<Name>+<Company>+linkedin`
 - Find the LinkedIn profile link in results (usually first result), click it
 - Once on the profile, proceed to Connect step
-- ⚠️ Only escalate to Tier 3 if Google can't find the right person or returns no LinkedIn result
+-  Only escalate to Tier 3 if Google can't find the right person or returns no LinkedIn result
 
 ### Tier 3 — LinkedIn People Search (last resort)
 Run a LinkedIn people search for the founder + brand directly inside LinkedIn.
 - Navigate to: `https://www.linkedin.com/search/results/people/?keywords=<Name>+<Company>`
 - Look for inline `Connect` buttons first; otherwise open the profile from search results
 - Confirm name + headline/company match before connecting
-- ❌ No trustworthy match → mark `Profile Not Found`
+-  No trustworthy match → mark `Profile Not Found`
 
 See `references/browser-workflow.md` for detailed browser steps for each tier.
 
@@ -124,7 +124,7 @@ Founder1Slug: Request Sent | Founder2Slug: Already Connected
 
 ## Rate Limiting & Anti-Detection
 
-> ⚠️ LinkedIn flags accounts that jump directly between profile URLs. Always visit the feed between profiles — no exceptions.
+>  LinkedIn flags accounts that jump directly between profile URLs. Always visit the feed between profiles — no exceptions.
 
 - **Navigate to `/feed/` before every single profile**, without exception. See `references/browser-workflow.md` for the exact call. This is the primary anti-detection measure.
 - Add a short natural pause (2–4 seconds) after loading the feed before navigating to the next profile.

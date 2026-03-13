@@ -20,7 +20,7 @@ async function collectNaver(config, date) {
     return null;
   }
   
-  console.log('📦 네이버 스마트스토어 데이터 수집 중...');
+  console.log(' 네이버 스마트스토어 데이터 수집 중...');
   
   const clientId = config.sources.naver.clientId;
   const clientSecret = config.sources.naver.clientSecret;
@@ -95,7 +95,7 @@ async function collectCoupang(config, date) {
     return null;
   }
   
-  console.log('📦 쿠팡 데이터 수집 중...');
+  console.log(' 쿠팡 데이터 수집 중...');
   
   const crypto = require('crypto');
   const axios = require('axios');
@@ -164,7 +164,7 @@ async function collectBaemin(config, date) {
     return null;
   }
   
-  console.log('📦 배민셀러 데이터 수집 중...');
+  console.log(' 배민셀러 데이터 수집 중...');
   
   const axios = require('axios');
   const apiKey = config.sources.baemin.apiKey;
@@ -203,7 +203,7 @@ async function collectPOS(config, date) {
     return null;
   }
   
-  console.log('📦 POS 시스템 데이터 수집 중...');
+  console.log(' POS 시스템 데이터 수집 중...');
   
   const axios = require('axios');
   const endpoint = config.sources.pos.endpoint;
@@ -275,7 +275,7 @@ async function collectNaver(config, date) {
   }
   
   try {
-    console.log('📦 네이버 스마트스토어 데이터 수집 중...');
+    console.log(' 네이버 스마트스토어 데이터 수집 중...');
     
     // API 호출 로직...
     
@@ -288,7 +288,7 @@ async function collectNaver(config, date) {
     };
     
   } catch (error) {
-    console.error('❌ 네이버 API 에러:', error.message);
+    console.error(' 네이버 API 에러:', error.message);
     
     // 부분 실패 허용 (다른 소스는 계속 수집)
     return null;
@@ -310,7 +310,7 @@ async function apiCallWithRetry(fn, retries = 3, delay = 1000) {
       return await fn();
     } catch (error) {
       if (error.response?.status === 429 && i < retries - 1) {
-        console.log(`⏳ 레이트 리밋 초과. ${delay}ms 대기 후 재시도...`);
+        console.log(` 레이트 리밋 초과. ${delay}ms 대기 후 재시도...`);
         await new Promise(resolve => setTimeout(resolve, delay));
         delay *= 2; // 지수 백오프
       } else {

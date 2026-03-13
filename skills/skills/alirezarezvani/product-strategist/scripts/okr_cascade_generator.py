@@ -257,33 +257,33 @@ class OKRGenerator:
 
         # Company OKRs
         if 'company' in all_okrs:
-            dashboard.append("\n🏢 COMPANY OKRS\n")
+            dashboard.append("\n COMPANY OKRS\n")
             for obj in all_okrs['company']['objectives']:
-                dashboard.append(f"📌 {obj['id']}: {obj['title']}")
+                dashboard.append(f" {obj['id']}: {obj['title']}")
                 for kr in obj['key_results']:
                     dashboard.append(f"   └─ {kr['id']}: {kr['title']}")
 
         # Product OKRs
         if 'product' in all_okrs:
-            dashboard.append("\n🚀 PRODUCT OKRS\n")
+            dashboard.append("\n PRODUCT OKRS\n")
             for obj in all_okrs['product']['objectives']:
-                dashboard.append(f"📌 {obj['id']}: {obj['title']}")
+                dashboard.append(f" {obj['id']}: {obj['title']}")
                 dashboard.append(f"   ↳ Supports: {obj.get('parent_objective', 'N/A')}")
                 for kr in obj['key_results']:
                     dashboard.append(f"   └─ {kr['id']}: {kr['title']}")
 
         # Team OKRs
         if 'teams' in all_okrs:
-            dashboard.append("\n👥 TEAM OKRS\n")
+            dashboard.append("\n TEAM OKRS\n")
             for team_okr in all_okrs['teams']:
                 dashboard.append(f"\n{team_okr['team']} Team:")
                 for obj in team_okr['objectives']:
-                    dashboard.append(f"  📌 {obj['id']}: {obj['title']}")
+                    dashboard.append(f"   {obj['id']}: {obj['title']}")
                     for kr in obj['key_results']:
                         dashboard.append(f"     └─ {kr['id']}: {kr['title']}")
 
         # Alignment Matrix
-        dashboard.append("\n\n📊 ALIGNMENT MATRIX\n")
+        dashboard.append("\n\n ALIGNMENT MATRIX\n")
         dashboard.append("Company → Product → Teams")
         dashboard.append("-" * 40)
 
@@ -574,18 +574,18 @@ Examples:
         dashboard = generator.generate_okr_dashboard(all_okrs)
         print(dashboard)
 
-        print("\n\n🎯 ALIGNMENT SCORES")
+        print("\n\n ALIGNMENT SCORES")
         print("-" * 40)
         for metric, score in alignment.items():
             status = "✓" if score >= 80 else "!" if score >= 60 else "✗"
             print(f"{status} {metric.replace('_', ' ').title()}: {score}%")
 
         if alignment['overall'] >= 80:
-            print("\n✅ Overall alignment is GOOD (≥80%)")
+            print("\n Overall alignment is GOOD (≥80%)")
         elif alignment['overall'] >= 60:
-            print("\n⚠️  Overall alignment NEEDS ATTENTION (60-80%)")
+            print("\n  Overall alignment NEEDS ATTENTION (60-80%)")
         else:
-            print("\n❌ Overall alignment is POOR (<60%)")
+            print("\n Overall alignment is POOR (<60%)")
 
 
 if __name__ == "__main__":

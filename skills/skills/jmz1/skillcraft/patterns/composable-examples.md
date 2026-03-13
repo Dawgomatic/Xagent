@@ -18,7 +18,7 @@ Parse query into facets → **sessions_spawn** parallel subagents (each using **
 **cron** triggers → **exec** local commands + **browser** authenticated dashboards + **web_fetch** APIs → synthesise → **canvas** render + **message** distribute
 
 ## 6. Interactive Approval Workflow
-User request → pre-checks → **message** with inline buttons (✅/❌/⏸️) → on defer: **cron** reminder · on approve: execute + log to **memory**
+User request → pre-checks → **message** with inline buttons (//) → on defer: **cron** reminder · on approve: execute + log to **memory**
 
 ## 7. Adaptive Learning Loop
 Perform analysis → present with feedback mechanism → corrections stored in **memory** → adapt prompting from error history → **cron** reviews patterns, proposes skill updates

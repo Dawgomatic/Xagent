@@ -14,7 +14,7 @@ async function apiPost(endpoint, body = {}) {
         });
         return response.ok ? await response.json() : null;
     } catch (e) {
-        console.error(`❌ Erreur API [${endpoint}]:`, e.message);
+        console.error(` Erreur API [${endpoint}]:`, e.message);
         return null;
     }
 }
@@ -24,7 +24,7 @@ async function apiGet(endpoint) {
         const response = await fetch(`${API_URL}${endpoint}`);
         return response.ok ? await response.json() : null;
     } catch (e) {
-        console.error(`❌ Erreur API [${endpoint}]:`, e.message);
+        console.error(` Erreur API [${endpoint}]:`, e.message);
         return null;
     }
 }
@@ -66,7 +66,7 @@ async function processNote(noteId) {
 
 // 4. Knowledge Hub (DOCUMENTS) - NOUVEAU V4
 async function createDocument(title, content, type = 'report', tags = []) {
-    console.log(`📄 Création du document: ${title}`);
+    console.log(` Création du document: ${title}`);
     const result = await apiPost('/api/documents', { title, content, type, tags });
     return result ? result.id : null;
 }

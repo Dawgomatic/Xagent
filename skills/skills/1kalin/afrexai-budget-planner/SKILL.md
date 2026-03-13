@@ -25,9 +25,9 @@ Total: $X,XXX
 
 | Category | Allocated | Spent | Remaining | Status |
 |----------|-----------|-------|-----------|--------|
-| Rent | $1,500 | $1,500 | $0 | ✅ On track |
-| Food | $600 | $450 | $150 | ✅ Under |
-| Transport | $200 | $280 | -$80 | 🔴 Over |
+| Rent | $1,500 | $1,500 | $0 |  On track |
+| Food | $600 | $450 | $150 |  Under |
+| Transport | $200 | $280 | -$80 |  Over |
 ```
 
 ### Track Spending
@@ -40,9 +40,9 @@ Tell your agent: "Log $45 under Food" or "I spent $280 on transport this month"
 
 ### Alert Thresholds
 Default alerts:
-- ⚠️ **Warning** at 80% of category allocation
-- 🔴 **Over budget** when exceeded
-- 📊 **Weekly digest** if enabled
+-  **Warning** at 80% of category allocation
+-  **Over budget** when exceeded
+-  **Weekly digest** if enabled
 
 ## Tips
 - Start with broad categories, refine over time

@@ -1,7 +1,7 @@
 ---
 name: agentmail-cli
 description: Manage email inboxes and messages via AgentMail API. Create disposable inboxes, send/receive emails, and list messages. Use when the agent needs to send or receive email, create temporary inboxes, or check for incoming messages.
-metadata: {"openclaw":{"emoji":"📧","requires":{"bins":["agentmail"],"env":["AGENTMAIL_API_KEY"]},"primaryEnv":"AGENTMAIL_API_KEY","install":[{"id":"npm","kind":"node","package":"@stepandel/agentmail-cli","bins":["agentmail"],"label":"Install agentmail-cli via npm"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["agentmail"],"env":["AGENTMAIL_API_KEY"]},"primaryEnv":"AGENTMAIL_API_KEY","install":[{"id":"npm","kind":"node","package":"@stepandel/agentmail-cli","bins":["agentmail"],"label":"Install agentmail-cli via npm"}]}}
 homepage: https://github.com/stepandel/agentmail-cli
 ---
 

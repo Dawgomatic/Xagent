@@ -35,7 +35,7 @@ def save_config(config):
     with open(CONFIG_FILE, "w") as f:
         json.dump(config, f, indent=2)
     os.chmod(CONFIG_FILE, 0o600)  # Secure permissions
-    print(f"✅ Config saved to {CONFIG_FILE}")
+    print(f" Config saved to {CONFIG_FILE}")
 
 def get_credentials():
     """Get Supabase credentials from config or env."""
@@ -45,7 +45,7 @@ def get_credentials():
     key = os.environ.get("SUPABASE_SERVICE_KEY") or config.get("service_key")
     
     if not url or not key:
-        print("❌ Supabase credentials not configured.")
+        print(" Supabase credentials not configured.")
         print("Run: python3 supabase.py auth")
         sys.exit(1)
     
@@ -75,10 +75,10 @@ def get_headers(key: str) -> dict:
 
 def auth():
     """Interactive auth setup."""
-    print("🔐 Supabase Authentication Setup")
+    print(" Supabase Authentication Setup")
     print("=" * 40)
     
-    print("\n📍 Where to find your credentials:")
+    print("\n Where to find your credentials:")
     print("   Supabase Dashboard → Project Settings → API")
     print("   (Under 'Legacy anon, service_role API keys' tab)")
     print()
@@ -87,33 +87,33 @@ def auth():
     if not url.startswith("https://"):
         url = f"https://{url}"
     if not url.endswith(".supabase.co"):
-        print("⚠️  URL should end with .supabase.co")
+        print("  URL should end with .supabase.co")
     
-    print("\n🔑 Key options:")
+    print("\n Key options:")
     print("   • service_role JWT (eyJ...) - RECOMMENDED, full access")
     print("   • sb_secret_... - Limited, can't list users")
     print()
     
     key = input("Service Role Key: ").strip()
     if key.startswith("eyJ"):
-        print("✅ Using JWT service_role key (full access)")
+        print(" Using JWT service_role key (full access)")
     elif key.startswith("sb_secret_"):
-        print("⚠️  Using new secret key (limited - can't access admin APIs)")
+        print("  Using new secret key (limited - can't access admin APIs)")
         print("   For full functionality, use the JWT key from 'Legacy' tab")
     else:
-        print("⚠️  Unrecognized key format")
+        print("  Unrecognized key format")
     
     # Test connection
-    print("\n🔄 Testing connection...")
+    print("\n Testing connection...")
     try:
         headers = get_headers(key)
         resp = requests.get(f"{url}/rest/v1/", headers=headers, timeout=10)
         if resp.status_code in [200, 404, 400]:
-            print("✅ Connection successful!")
+            print(" Connection successful!")
         else:
-            print(f"⚠️  Got status {resp.status_code}, but saving anyway...")
+            print(f"  Got status {resp.status_code}, but saving anyway...")
     except Exception as e:
-        print(f"⚠️  Connection test failed: {e}")
+        print(f"  Connection test failed: {e}")
         print("Saving credentials anyway...")
     
     save_config({"url": url, "service_key": key})
@@ -123,7 +123,7 @@ def list_users(limit: int = 10, time_filter: str = None):
     url, key = get_credentials()
     
     if not is_jwt_key(key):
-        print("❌ list-users requires a JWT service_role key (eyJ...)")
+        print(" list-users requires a JWT service_role key (eyJ...)")
         print("   The sb_secret_ keys don't have admin API access.")
         print("   Get the JWT key from: Project Settings → API → Legacy tab → service_role")
         return None
@@ -184,7 +184,7 @@ def count_users(time_filter: str = None):
     url, key = get_credentials()
     
     if not is_jwt_key(key):
-        print("❌ count requires a JWT service_role key (eyJ...)")
+        print(" count requires a JWT service_role key (eyJ...)")
         return None
     
     headers = get_headers(key)
@@ -248,7 +248,7 @@ def run_query(sql: str):
         )
         
         if resp.status_code == 404:
-            print("❌ Custom SQL queries require an RPC function.")
+            print(" Custom SQL queries require an RPC function.")
             print("   Create one in Supabase SQL Editor, or use list-users/users commands.")
             return None
         
@@ -338,7 +338,7 @@ def main():
     elif cmd == "info":
         result = project_info()
         if result:
-            print(f"⚡ Supabase Project")
+            print(f" Supabase Project")
             print(f"   URL: {result['project_url']}")
             print(f"   Ref: {result['project_ref']}")
             print(f"   Key: {result['key_type']}")
@@ -347,17 +347,17 @@ def main():
     elif cmd == "users":
         result = count_users()
         if result:
-            print(f"👥 Total users: {result.get('count', 'unknown')}")
+            print(f" Total users: {result.get('count', 'unknown')}")
     
     elif cmd == "users-today":
         result = count_users("today")
         if result:
-            print(f"📈 New users (24h): {result.get('count', 'unknown')}")
+            print(f" New users (24h): {result.get('count', 'unknown')}")
     
     elif cmd == "users-week":
         result = count_users("week")
         if result:
-            print(f"📊 New users (7 days): {result.get('count', 'unknown')}")
+            print(f" New users (7 days): {result.get('count', 'unknown')}")
     
     elif cmd == "list-users":
         result = list_users(limit=args.limit)
@@ -365,7 +365,7 @@ def main():
             if args.json:
                 print(json.dumps(result, indent=2))
             else:
-                print(f"👥 Users ({result['total']} total, showing {len(result['users'])}):\n")
+                print(f" Users ({result['total']} total, showing {len(result['users'])}):\n")
                 for u in result["users"]:
                     print(f"  • {format_user(u)}")
     
@@ -375,7 +375,7 @@ def main():
             if args.json:
                 print(json.dumps(result, indent=2))
             else:
-                print(f"📈 New users in last 24h ({result['total']} total):\n")
+                print(f" New users in last 24h ({result['total']} total):\n")
                 for u in result["users"]:
                     print(f"  • {format_user(u)}")
     
@@ -384,11 +384,11 @@ def main():
         if result:
             tables = result.get("tables", [])
             if tables:
-                print("📋 Tables exposed via REST API:")
+                print(" Tables exposed via REST API:")
                 for t in tables:
                     print(f"  • {t}")
             else:
-                print("📋 No tables exposed via REST API")
+                print(" No tables exposed via REST API")
                 print("   (auth.users is internal, use list-users command)")
     
     elif cmd == "query":

@@ -11,7 +11,7 @@ SCRIPT_DIR = os.environ.get("SCRIPT_DIR", ".")
 HISTORY_FILE = os.path.join(SCRIPT_DIR, "history.json")
 PICKS_LOG = os.path.join(SCRIPT_DIR, "log", "picks.log")
 
-print("🧠 INTRUSIVE THOUGHTS — STATS")
+print(" INTRUSIVE THOUGHTS — STATS")
 print("=" * 50)
 
 try:
@@ -25,11 +25,11 @@ try:
         thought_counts[parts.get("thought", "?")] += 1
         mood_counts[parts.get("mood", "?")] += 1
     
-    print(f"\n📊 Total picks: {len(lines)}")
-    print(f"\n🌙 Night sessions: {mood_counts.get('night', 0)}")
-    print(f"☀️  Day sessions:   {mood_counts.get('day', 0)}")
+    print(f"\n Total picks: {len(lines)}")
+    print(f"\n Night sessions: {mood_counts.get('night', 0)}")
+    print(f"  Day sessions:   {mood_counts.get('day', 0)}")
     
-    print(f"\n🎯 Most picked thoughts:")
+    print(f"\n Most picked thoughts:")
     for thought, count in thought_counts.most_common(10):
         bar = "█" * count
         print(f"  {thought:20s} {count:3d} {bar}")
@@ -41,8 +41,8 @@ try:
         history = json.load(f)
     
     if history:
-        print(f"\n📝 Completed activities: {len(history)}")
-        print(f"\n🕐 Recent activity:")
+        print(f"\n Completed activities: {len(history)}")
+        print(f"\n Recent activity:")
         for entry in history[-5:]:
             ts = entry['timestamp'][:16].replace('T', ' ')
             print(f"  [{ts}] {entry['mood']}/{entry['thought_id']}")

@@ -85,7 +85,7 @@ When a user requests to fetch discount data, follow these steps:
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Fetches all discounts with excessive fields
+   #  HIGH COST - Fetches all discounts with excessive fields
    query {
      discountNodes(first: 50) {
        edges {
@@ -98,7 +98,7 @@ When a user requests to fetch discount data, follow these steps:
      }
    }
    
-   # ✅ LOW COST - Fetches discounts with essential fields only
+   #  LOW COST - Fetches discounts with essential fields only
    query {
      discountNodes(first: 10, query:"status:ACTIVE") {
        edges {

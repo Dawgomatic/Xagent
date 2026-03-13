@@ -33,7 +33,7 @@ const protection = new PromptInjectionProtection();
 
 // Set up security alert callback
 protection.setSecurityAlertCallback(async (alertInfo) => {
-  console.log(`🚨 SECURITY ALERT: ${alertInfo.type}`);
+  console.log(` SECURITY ALERT: ${alertInfo.type}`);
   console.log(`   Severity: ${alertInfo.severity}`);
   console.log(`   Action Required: ${alertInfo.actionRequired}`);
 });

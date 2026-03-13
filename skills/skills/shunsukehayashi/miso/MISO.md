@@ -1,6 +1,6 @@
 # MISO — Mission Inline Skill Orchestration
 
-> Simple ingredients. Rich flavor. 🍜
+> Simple ingredients. Rich flavor. 
 
 ## What is MISO?
 
@@ -10,7 +10,7 @@ No React. No deploy. No code. Just a SKILL.md file.
 
 ## Origin
 
-Created by Shunsuke Hayashi (@ShunsukeHayashi) and Miyabi 🌸
+Created by Shunsuke Hayashi (@ShunsukeHayashi) and Miyabi 
 Date: 2026-02-17
 Location: Tokyo, Japan
 
@@ -49,15 +49,15 @@ MISO makes AI transparent:
 ```
 User: "Do this"
 
-🔥 researcher — RUNNING
-🧠 "Analyzing competitor pricing..."
+ researcher — RUNNING
+ "Analyzing competitor pricing..."
 ▓▓▓▓▓▓▓▓░░░░░░░░ 50%
 
-✏️ writer — WRITING
-🧠 "Leading with price advantage"
-📝 560 / 3,000 words
+ writer — WRITING
+ "Leading with price advantage"
+ 560 / 3,000 words
 
-[✅ Approve] [✏️ Revise] [❌ Cancel]
+[ Approve] [ Revise] [ Cancel]
 ```
 
 ## UI Paradigm Shift
@@ -75,8 +75,8 @@ MISO uses a 4+1 layer visual hierarchy for instant status recognition:
 
 | Layer | Element | Info Density | Speed |
 |-------|---------|--------------|-------|
-| Layer 0 | 📌 Pin | Minimal (presence only) | Instant upon opening chat |
-| Layer 0.5 | 👀 ackReaction | Minimal (receipt confirmation) | Instant upon message receipt |
+| Layer 0 |  Pin | Minimal (presence only) | Instant upon opening chat |
+| Layer 0.5 |  ackReaction | Minimal (receipt confirmation) | Instant upon message receipt |
 | Layer 1 | Reactions | Minimal (state only) | Instant in chat list |
 | Layer 2 | Message body | Medium (progress, agents) | Seconds after opening |
 | Layer 3 | Inline buttons | Action | Approval/intervention |
@@ -85,13 +85,13 @@ MISO uses a 4+1 layer visual hierarchy for instant status recognition:
 
 | | ChatGPT | Claude | Gemini | MISO |
 |--|---------|--------|--------|------|
-| Agent thinking visible | ❌ | △ | ❌ | ✅ |
-| Multi-agent | ❌ | ❌ | ❌ | ✅ |
-| Mid-process intervention | ❌ | ❌ | ❌ | ✅ |
-| Partial completion handling | ❌ | ❌ | ❌ | ✅ |
-| Progress tracking | ❌ | ❌ | ❌ | ✅ |
-| Approval gates | ❌ | ❌ | ❌ | ✅ |
-| Cost tracking | ❌ | ❌ | ❌ | ✅ |
+| Agent thinking visible |  | △ |  |  |
+| Multi-agent |  |  |  |  |
+| Mid-process intervention |  |  |  |  |
+| Partial completion handling |  |  |  |  |
+| Progress tracking |  |  |  |  |
+| Approval gates |  |  |  |  |
+| Cost tracking |  |  |  |  |
 | Dedicated app required | Yes | Yes | Yes | No |
 | Code required | N/A | N/A | N/A | Zero |
 
@@ -121,5 +121,5 @@ Open source. Free forever.
 
 ---
 
-*Simple ingredients. Rich flavor.* 🍜
-*Born in Tokyo. Built for the world.* 🌸
+*Simple ingredients. Rich flavor.* 
+*Born in Tokyo. Built for the world.* 

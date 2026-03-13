@@ -6,7 +6,7 @@ description: "Bidirectional transformations with encode and decode"
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { ThemedImage } from "@/components/themed-image";
 
-> ✨ **New** — Introduced in `zod@4.1`
+>  **New** — Introduced in `zod@4.1`
 
 All Zod schemas can process inputs in both the forward and backward direction: 
 
@@ -118,10 +118,10 @@ stringToDate.parse(12345);
 // no complaints from TypeScript (fails at runtime)
 
 stringToDate.decode(12345); 
-// ❌ TypeScript error: Argument of type 'number' is not assignable to parameter of type 'string'.
+//  TypeScript error: Argument of type 'number' is not assignable to parameter of type 'string'.
 
 stringToDate.encode(12345); 
-// ❌ TypeScript error: Argument of type 'number' is not assignable to parameter of type 'Date'.
+//  TypeScript error: Argument of type 'number' is not assignable to parameter of type 'Date'.
 ```
 
 Why the difference? Encoding and decoding imply *transformation*. In many cases, the inputs to these methods are already strongly typed in application code, so z.decode/z.encode accept strongly typed inputs to surface mistakes at compile time.
@@ -203,7 +203,7 @@ schema.encode(new Date("2000-01-01"));
 // => Date
 
 schema.encode(new Date("1999-01-01"));
-// => ❌ ZodError: [
+// =>  ZodError: [
 //   {
 //     "code": "custom",
 //     "path": [],
@@ -282,13 +282,13 @@ stringbool.encode(false);   // => "no"
 
 ### Transforms
 
-⚠️ — The `.transform()` API implements a *unidirectional* transformation. If any `.transform()` exists anywhere in your schema, attempting a `z.encode()` operation will throw a *runtime error* (not a `ZodError`). 
+ — The `.transform()` API implements a *unidirectional* transformation. If any `.transform()` exists anywhere in your schema, attempting a `z.encode()` operation will throw a *runtime error* (not a `ZodError`). 
 
 ```ts
 const schema = z.string().transform(val => val.length);
 
 schema.encode(1234); 
-// ❌ Error: Encountered unidirectional transform during encode: ZodTransform
+//  Error: Encountered unidirectional transform during encode: ZodTransform
 ```
 
 {/* ### Success
@@ -302,7 +302,7 @@ z.decode(successSchema, "hello");
 // => true
 
 z.encode(successSchema, true);    
-// ❌ Error: Encountered unidirectional transform during encode: ZodSuccess
+//  Error: Encountered unidirectional transform during encode: ZodSuccess
 ``` */}
 
 

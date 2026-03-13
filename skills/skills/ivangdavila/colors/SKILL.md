@@ -1,7 +1,7 @@
 ---
 name: Colors
 description: Build accessible color palettes with proper contrast ratios and semantic tokens.
-metadata: {"clawdbot":{"emoji":"🎨","requires":{},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{},"os":["linux","darwin","win32"]}}
 ---
 
 ## Contrast Ratios (WCAG)
@@ -12,25 +12,25 @@ metadata: {"clawdbot":{"emoji":"🎨","requires":{},"os":["linux","darwin","win3
 | AAA (enhanced) | ≥ 7:1 | ≥ 4.5:1 | — |
 
 Critical thresholds on white background:
-- `#767676` → 4.54:1 ✅ barely passes
-- `#777777` → 4.47:1 ❌ fails (cannot round up)
-- `#757575` → 4.6:1 ✅ safe minimum gray
+- `#767676` → 4.54:1  barely passes
+- `#777777` → 4.47:1  fails (cannot round up)
+- `#757575` → 4.6:1  safe minimum gray
 
 Pure colors on white:
-- Red `#FF0000` → 4:1 ❌ fails for normal text
-- Green `#00FF00` → 1.4:1 ❌ always fails (never use for text)
-- Blue `#0000FF` → 8.6:1 ✅ passes AAA
+- Red `#FF0000` → 4:1  fails for normal text
+- Green `#00FF00` → 1.4:1  always fails (never use for text)
+- Blue `#0000FF` → 8.6:1  passes AAA
 
 ## Color-Only Information
 
 Never rely on color alone to convey meaning. 8% of men have color vision deficiency.
 
 ```html
-<!-- ❌ Bad: only color differentiates states -->
+<!--  Bad: only color differentiates states -->
 <span class="text-green-500">Active</span>
 <span class="text-red-500">Inactive</span>
 
-<!-- ✅ Good: icon + text + color -->
+<!--  Good: icon + text + color -->
 <span class="text-green-500">✓ Active</span>
 <span class="text-red-500">✗ Inactive</span>
 ```

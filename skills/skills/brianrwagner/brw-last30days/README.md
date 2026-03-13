@@ -20,12 +20,12 @@ You need to know what's working NOW:
 
 ### What You Get
 
-✅ **30-day recency** - Only recent content, not 2023 blog posts  
-✅ **Multi-platform synthesis** - Reddit (discussions) + X (signals) + Web (articles) in one pass  
-✅ **Pattern detection** - Highlights themes mentioned 3+ times  
-✅ **Sentiment analysis** - Community vibe (hype, skepticism, working)  
-✅ **Copy-paste outputs** - Ready prompts and action ideas  
-✅ **7-minute reports** - vs 2-3 hours manual research  
+ **30-day recency** - Only recent content, not 2023 blog posts  
+ **Multi-platform synthesis** - Reddit (discussions) + X (signals) + Web (articles) in one pass  
+ **Pattern detection** - Highlights themes mentioned 3+ times  
+ **Sentiment analysis** - Community vibe (hype, skepticism, working)  
+ **Copy-paste outputs** - Ready prompts and action ideas  
+ **7-minute reports** - vs 2-3 hours manual research  
 
 ### Why This vs Alternatives?
 
@@ -63,9 +63,9 @@ cp -r last30days $HOME/.openclaw/skills/
 ```
 
 Should show:
-- ✅ Brave Search: Available
-- ✅ Bird CLI: Available (for X)
-- ✅ Reddit Insights: Available or fallback
+-  Brave Search: Available
+-  Bird CLI: Available (for X)
+-  Reddit Insights: Available or fallback
 
 ### Use
 
@@ -129,8 +129,8 @@ Think step-by-step before answering.
 
 | Subreddit | Sentiment | Key Insight |
 |-----------|-----------|-------------|
-| r/programming | 🟢 Positive on Cursor | "Cursor's context awareness is unmatched" |
-| r/vscode | 🟡 Mixed | "Copilot cheaper, Cursor smarter" |
+| r/programming |  Positive on Cursor | "Cursor's context awareness is unmatched" |
+| r/vscode |  Mixed | "Copilot cheaper, Cursor smarter" |
 
 ## Action Ideas
 
@@ -254,11 +254,11 @@ Every report includes:
 
 ## Who This Is For
 
-✅ **Marketers** - Content trends, messaging, positioning  
-✅ **Product managers** - User pain points, competitive intel  
-✅ **Founders** - Market validation, strategy signals  
-✅ **Content creators** - What's resonating, fresh angles  
-✅ **Strategists** - Current tactics, community sentiment  
+ **Marketers** - Content trends, messaging, positioning  
+ **Product managers** - User pain points, competitive intel  
+ **Founders** - Market validation, strategy signals  
+ **Content creators** - What's resonating, fresh angles  
+ **Strategists** - Current tactics, community sentiment  
 
 ## Requirements
 
@@ -270,11 +270,11 @@ Verify with: `/last30days --check-setup`
 
 ## What You'll Notice After Using This
 
-- ✅ Decisions based on current data, not guesses
-- ✅ Pattern recognition you'd miss reading manually
-- ✅ Research time cut by 85% (2+ hours → 7 minutes)
-- ✅ Copy-paste-ready outputs (no further synthesis needed)
-- ✅ Team starts asking you for trend intelligence
+-  Decisions based on current data, not guesses
+-  Pattern recognition you'd miss reading manually
+-  Research time cut by 85% (2+ hours → 7 minutes)
+-  Copy-paste-ready outputs (no further synthesis needed)
+-  Team starts asking you for trend intelligence
 
 ## Limitations
 

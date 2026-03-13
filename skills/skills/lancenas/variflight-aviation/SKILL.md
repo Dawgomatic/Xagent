@@ -7,7 +7,7 @@ license: MIT
 
 metadata:
   openclaw:
-    emoji: "✈️"
+    emoji: ""
     category: "travel"
     tags: ["flight", "aviation", "travel", "weather", "transport", "mcp", "variflight"]
 
@@ -72,7 +72,7 @@ export VARIFLIGHT_API_KEY="your_api_key_here"
 }
 ```
 
-⚠️ 注意：请勿将包含真实 API Key 的 config.local.json 提交到 Git！
+ 注意：请勿将包含真实 API Key 的 config.local.json 提交到 Git！
 
 ## 可用命令
 
@@ -268,4 +268,4 @@ export VARIFLIGHT_API_KEY="your_api_key_here"
 
 ## 许可证
 
-MIT License © 2026 lixiao
+MIT License  2026 lixiao

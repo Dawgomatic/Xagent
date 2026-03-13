@@ -112,7 +112,7 @@ if [ "$APPLY" = false ]; then
     echo "Current version: $CURRENT_TAG"
     echo "Latest version:  $LATEST_TAG"
     if [ "$UPDATE_AVAILABLE" = true ]; then
-        echo "Status: ⬆️  UPDATE AVAILABLE"
+        echo "Status:   UPDATE AVAILABLE"
         echo ""
         if [ -n "$CHANGES" ]; then
             echo "Changes ($CURRENT_TAG → $LATEST_TAG):"
@@ -128,7 +128,7 @@ if [ "$APPLY" = false ]; then
         echo ""
         echo "Run with --apply to update."
     else
-        echo "Status: ✅ Up to date"
+        echo "Status:  Up to date"
     fi
     echo "═════════════════════════════"
     exit 0
@@ -203,9 +203,9 @@ else
     echo "═══ Update Applied ═══"
     echo "Updated: $ROLLBACK_TAG → $LATEST_TAG"
     if [ "$HEALTHY" = true ]; then
-        echo "Status: ✅ Healthy"
+        echo "Status:  Healthy"
     else
-        echo "Status: ⚠️  Health check inconclusive — verify manually"
+        echo "Status:   Health check inconclusive — verify manually"
     fi
     echo ""
     echo "Rollback instructions (if needed):"

@@ -1,7 +1,7 @@
 ---
 name: Engineering
 description: Support engineering understanding from DIY projects to professional practice and research.
-metadata: {"clawdbot":{"emoji":"⚙️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

@@ -268,7 +268,7 @@ const rules = [
         const entries = fs.readdirSync(resolved, { withFileTypes: true });
         const formatted = entries
           .slice(0, 50) // Cap at 50 entries to prevent context bloat
-          .map((e) => (e.isDirectory() ? `📁 ${e.name}/` : `  ${e.name}`))
+          .map((e) => (e.isDirectory() ? ` ${e.name}/` : `  ${e.name}`))
           .join("\n");
         const total = entries.length;
         const suffix = total > 50 ? `\n... and ${total - 50} more` : "";

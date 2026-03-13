@@ -24,7 +24,7 @@ async function startSession(prompt: string): Promise<string> {
   for await (const message of response) {
     if (message.type === 'system' && message.subtype === 'init') {
       sessionId = message.session_id;
-      console.log(`✨ Session started: ${sessionId}`);
+      console.log(` Session started: ${sessionId}`);
     } else if (message.type === 'assistant') {
       console.log('Assistant:', message.content);
     }
@@ -47,7 +47,7 @@ async function resumeSession(sessionId: string, prompt: string): Promise<void> {
     }
   });
 
-  console.log(`\n↪️  Resuming session: ${sessionId}`);
+  console.log(`\n  Resuming session: ${sessionId}`);
 
   for await (const message of response) {
     if (message.type === 'assistant') {
@@ -67,7 +67,7 @@ async function forkSession(sessionId: string, prompt: string): Promise<void> {
     }
   });
 
-  console.log(`\n🔀 Forking session: ${sessionId}`);
+  console.log(`\n Forking session: ${sessionId}`);
 
   for await (const message of response) {
     if (message.type === 'system' && message.subtype === 'init') {
@@ -80,7 +80,7 @@ async function forkSession(sessionId: string, prompt: string): Promise<void> {
 
 // Pattern 1: Sequential Development
 async function sequentialDevelopment() {
-  console.log("🚀 Sequential Development Pattern\n");
+  console.log(" Sequential Development Pattern\n");
 
   // Step 1: Initial implementation
   let session = await startSession("Create a user authentication system with JWT");
@@ -94,12 +94,12 @@ async function sequentialDevelopment() {
   // Step 4: Deploy
   await resumeSession(session, "Deploy to production with monitoring");
 
-  console.log("\n✅ Sequential development complete");
+  console.log("\n Sequential development complete");
 }
 
 // Pattern 2: Exploration & Decision
 async function explorationAndDecision() {
-  console.log("🔍 Exploration & Decision Pattern\n");
+  console.log(" Exploration & Decision Pattern\n");
 
   // Start main conversation
   let mainSession = await startSession("Design a payment processing system");
@@ -116,12 +116,12 @@ async function explorationAndDecision() {
   console.log("\n--- Chosen: Stripe ---");
   await resumeSession(mainSession, "Implement the Stripe integration with webhooks");
 
-  console.log("\n✅ Exploration complete");
+  console.log("\n Exploration complete");
 }
 
 // Pattern 3: Multi-User Collaboration
 async function multiUserCollaboration() {
-  console.log("👥 Multi-User Collaboration Pattern\n");
+  console.log(" Multi-User Collaboration Pattern\n");
 
   // Developer A starts work
   let sessionA = await startSession("Implement user profile page with avatar, bio, and settings");
@@ -133,7 +133,7 @@ async function multiUserCollaboration() {
   await forkSession(sessionA, "Implement search functionality with filters and sorting");
 
   // All developers can work independently without interfering
-  console.log("\n✅ Multi-user collaboration setup complete");
+  console.log("\n Multi-user collaboration setup complete");
 }
 
 // Run examples

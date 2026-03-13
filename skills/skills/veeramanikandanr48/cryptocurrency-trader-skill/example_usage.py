@@ -31,7 +31,7 @@ def example_basic_analysis():
 
     # Display key results
     rec = analysis.get('final_recommendation', {})
-    print(f"\n✅ Analysis Complete:")
+    print(f"\n Analysis Complete:")
     print(f"   Action: {rec.get('action', 'N/A')}")
     print(f"   Confidence: {rec.get('confidence', 0)}%")
     print(f"   Entry Price: ${rec.get('entry_price', 0):,.2f}")
@@ -71,7 +71,7 @@ def example_pattern_recognition():
 
         # Display patterns found
         patterns = analysis.get('patterns_detected', [])
-        print(f"\n✅ Found {len(patterns)} patterns:")
+        print(f"\n Found {len(patterns)} patterns:")
         for p in patterns[:5]:  # Show first 5
             print(f"   - {p.get('pattern')}: {p.get('bias')} "
                   f"({p.get('confidence', 0)}% confidence)")
@@ -121,7 +121,7 @@ def example_risk_analysis():
         print("\nCalculating risk metrics...")
         var, cvar = analytics.calculate_var_cvar(returns, position_value, confidence_level=0.95)
 
-        print(f"\n✅ Risk Metrics:")
+        print(f"\n Risk Metrics:")
         print(f"   Value at Risk (95%): ${var:.2f}")
         print(f"   Conditional VaR (95%): ${cvar:.2f}")
 
@@ -156,7 +156,7 @@ def example_market_scan():
         )
 
         if opportunities:
-            print(f"\n✅ Found {len(opportunities)} opportunities:")
+            print(f"\n Found {len(opportunities)} opportunities:")
             for i, opp in enumerate(opportunities, 1):
                 rec = opp.get('final_recommendation', {})
                 print(f"\n{i}. {opp.get('symbol')}")
@@ -166,9 +166,9 @@ def example_market_scan():
 
             return opportunities
         else:
-            print("\n⚠️  No execution-ready opportunities found")
+            print("\n  No execution-ready opportunities found")
     else:
-        print("\n⚠️  Market scanner not available in this agent version")
+        print("\n  Market scanner not available in this agent version")
 
     return []
 
@@ -254,13 +254,13 @@ def main():
         example_component_usage()
 
         print("\n" + "="*80)
-        print("✅ All examples completed successfully!")
+        print(" All examples completed successfully!")
         print("="*80)
         print("\nYou can now use these patterns in your own code.")
         print("See CLAUDE_CODE_USAGE.md for more details.\n")
 
     except Exception as e:
-        print(f"\n❌ Error running examples: {e}")
+        print(f"\n Error running examples: {e}")
         import traceback
         traceback.print_exc()
 

@@ -1,4 +1,4 @@
-# 🎥 Video Analyzer — OpenClaw Skill
+#  Video Analyzer — OpenClaw Skill
 
 > Drop any TikTok, YouTube, or Instagram link → ask anything about the video → get instant answers.
 
@@ -19,7 +19,7 @@ You can also **save transcripts** to your personal library and ask follow-up que
 
 ---
 
-## 🔒 Security & Privacy
+##  Security & Privacy
 
 **Your data never leaves your machine.** Here's exactly what happens:
 

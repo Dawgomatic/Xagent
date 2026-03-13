@@ -31,7 +31,7 @@ done
 # Default workspace is two levels up (skills/spacesuit/ → workspace root)
 WORKSPACE="${WORKSPACE:-$(cd "$SPACESUIT_DIR/../.." && pwd)}"
 
-echo "🔄 Spacesuit Upgrade v${VERSION}"
+echo " Spacesuit Upgrade v${VERSION}"
 echo "   Workspace: $WORKSPACE"
 if $DRY_RUN; then
   echo "   Mode: DRY RUN (no changes will be made)"
@@ -69,13 +69,13 @@ upgrade_section() {
   local target_file="$WORKSPACE/${TARGET_MAP[$section]}"
 
   if [[ ! -f "$base_file" ]]; then
-    echo "  ⚠️  Base file for $section not found — skipping"
+    echo "    Base file for $section not found — skipping"
     SKIPPED=$((SKIPPED + 1))
     return 0
   fi
 
   if [[ ! -f "$target_file" ]]; then
-    echo "  ⚠️  Target ${TARGET_MAP[$section]} not found — skipping (run install.sh first)"
+    echo "    Target ${TARGET_MAP[$section]} not found — skipping (run install.sh first)"
     SKIPPED=$((SKIPPED + 1))
     return 0
   fi
@@ -120,28 +120,28 @@ upgrade_section() {
 
     # Check if anything changed
     if diff -q "$target_file" "$tmp_file" > /dev/null 2>&1; then
-      echo "  ✅ ${TARGET_MAP[$section]} — already up to date"
+      echo "   ${TARGET_MAP[$section]} — already up to date"
       rm -f "$tmp_file"
       return 0
     fi
 
     # Show diff
-    echo "  📝 ${TARGET_MAP[$section]} — changes detected:"
+    echo "   ${TARGET_MAP[$section]} — changes detected:"
     diff --unified=3 "$target_file" "$tmp_file" | head -40 || true
     echo ""
 
     if ! $DRY_RUN; then
       cp "$tmp_file" "$target_file"
-      echo "  ✅ ${TARGET_MAP[$section]} — updated"
+      echo "   ${TARGET_MAP[$section]} — updated"
     else
-      echo "  🔍 ${TARGET_MAP[$section]} — would update (dry run)"
+      echo "   ${TARGET_MAP[$section]} — would update (dry run)"
     fi
 
     rm -f "$tmp_file"
     CHANGED=$((CHANGED + 1))
   else
     # No markers — prepend base content with markers at top
-    echo "  📌 ${TARGET_MAP[$section]} — no markers found, prepending framework section"
+    echo "   ${TARGET_MAP[$section]} — no markers found, prepending framework section"
 
     local tmp_file
     tmp_file="$(mktemp)"
@@ -156,9 +156,9 @@ upgrade_section() {
 
     if ! $DRY_RUN; then
       cp "$tmp_file" "$target_file"
-      echo "  ✅ ${TARGET_MAP[$section]} — markers added + content prepended"
+      echo "   ${TARGET_MAP[$section]} — markers added + content prepended"
     else
-      echo "  🔍 ${TARGET_MAP[$section]} — would prepend (dry run)"
+      echo "   ${TARGET_MAP[$section]} — would prepend (dry run)"
     fi
 
     rm -f "$tmp_file"
@@ -166,7 +166,7 @@ upgrade_section() {
   fi
 }
 
-echo "📄 Upgrading workspace files..."
+echo " Upgrading workspace files..."
 echo ""
 
 for section in "${!SECTION_MAP[@]}"; do
@@ -188,6 +188,6 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 
 if $DRY_RUN; then
   echo ""
-  echo "🔍 Dry run complete. No files were modified."
+  echo " Dry run complete. No files were modified."
   echo "   Run without --dry-run to apply changes."
 fi

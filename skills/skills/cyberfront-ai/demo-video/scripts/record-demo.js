@@ -83,7 +83,7 @@ const DEMO_SEQUENCES = [
 // ============== RECORDING ENGINE ==============
 
 async function recordDemo() {
-  console.log('🎬 Starting demo recording...\n');
+  console.log(' Starting demo recording...\n');
   
   // Connect to browser
   const browser = await chromium.connectOverCDP(CONFIG.cdpEndpoint);
@@ -95,7 +95,7 @@ async function recordDemo() {
     ? pages.find(p => p.url().includes(CONFIG.targetUrlPattern)) || pages[0]
     : pages[0];
   
-  console.log(`📍 Recording page: ${page.url()}\n`);
+  console.log(` Recording page: ${page.url()}\n`);
   
   // Start screencast
   const client = await page.context().newCDPSession(page);
@@ -113,17 +113,17 @@ async function recordDemo() {
   
   // Execute demo sequences
   for (const sequence of DEMO_SEQUENCES) {
-    console.log(`▶️  ${sequence.name}...`);
+    console.log(`  ${sequence.name}...`);
     try {
       await sequence.steps(page);
     } catch (err) {
-      console.warn(`   ⚠️  Error: ${err.message}`);
+      console.warn(`     Error: ${err.message}`);
     }
   }
   
   // Stop recording
   await client.send('Page.stopScreencast');
-  console.log(`\n📸 Captured ${frames.length} raw frames`);
+  console.log(`\n Captured ${frames.length} raw frames`);
   
   // Save frames (with skip)
   const outputDir = path.resolve(CONFIG.outputDir);
@@ -139,8 +139,8 @@ async function recordDemo() {
     savedCount++;
   }
   
-  console.log(`💾 Saved ${savedCount} frames to ${outputDir}`);
-  console.log('\n✅ Recording complete!');
+  console.log(` Saved ${savedCount} frames to ${outputDir}`);
+  console.log('\n Recording complete!');
   console.log(`\nNext: Run frames-to-video.sh to encode:\n  ./scripts/frames-to-video.sh ${CONFIG.outputDir} demo mp4`);
 }
 

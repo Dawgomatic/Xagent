@@ -20,12 +20,12 @@ You start every day reacting:
 
 ### What You Get
 
-✅ **Top 3 Priority framework** - Focus on what actually moves the needle  
-✅ **Energy-optimized scheduling** - Hard work in peak hours, admin in low-energy windows  
-✅ **Built-in buffers** - Only schedule 80% of time (20% for reality)  
-✅ **Break enforcement** - 15-min breaks every 90 minutes (backed by research)  
-✅ **Evening reflection** - Track what works, improve over time  
-✅ **2-minute planning** - Faster than writing your own plan, more consistent  
+ **Top 3 Priority framework** - Focus on what actually moves the needle  
+ **Energy-optimized scheduling** - Hard work in peak hours, admin in low-energy windows  
+ **Built-in buffers** - Only schedule 80% of time (20% for reality)  
+ **Break enforcement** - 15-min breaks every 90 minutes (backed by research)  
+ **Evening reflection** - Track what works, improve over time  
+ **2-minute planning** - Faster than writing your own plan, more consistent  
 
 ### Why This vs Just Asking ChatGPT?
 
@@ -78,7 +78,7 @@ cp -r plan-my-day $HOME/.openclaw/skills/
 3. Sprint planning with team - DONE by 5:00
 
 ## Schedule:
-9:00-11:30: Deep Work → Launch copy (Priority #1) 🎯
+9:00-11:30: Deep Work → Launch copy (Priority #1) 
 12:30-2:45: Partner demo (Priority #2)
 3:00-4:45: Sprint planning (Priority #3)
 5:00-5:30: Admin/wrap-up
@@ -140,7 +140,7 @@ Protections:
 
 **Top 3:** Auth refactor PR, debug prod issue, API docs
 
-**Result:** ✓ PR merged, ✓ Issue fixed, ⭐ Docs 90% done
+**Result:** ✓ PR merged, ✓ Issue fixed,  Docs 90% done
 
 **Key:** Zero meetings. Slack paused. 6+ hours flow state.
 
@@ -166,10 +166,10 @@ Protections:
 
 ## Who This Is For
 
-✅ **Founders/Executives** - Protect focus time amid coordination demands  
-✅ **Managers** - Balance team needs with your own priorities  
-✅ **Individual Contributors** - Maximize deep work, minimize interruptions  
-✅ **Anyone** who wants to execute on priorities instead of reacting  
+ **Founders/Executives** - Protect focus time amid coordination demands  
+ **Managers** - Balance team needs with your own priorities  
+ **Individual Contributors** - Maximize deep work, minimize interruptions  
+ **Anyone** who wants to execute on priorities instead of reacting  
 
 ## How It Works
 
@@ -206,11 +206,11 @@ Protections:
 
 ## Common Mistakes
 
-❌ **Planning 100% of your time** - Always leave 20% buffer or you'll fail  
-❌ **Hard work at 4pm** - You're tired. Schedule strategically.  
-❌ **Skipping breaks** - Performance drops without recovery  
-❌ **No evening reflection** - Can't improve without feedback  
-❌ **Changing Top 3 mid-day** - Stick to morning priorities unless genuinely urgent  
+ **Planning 100% of your time** - Always leave 20% buffer or you'll fail  
+ **Hard work at 4pm** - You're tired. Schedule strategically.  
+ **Skipping breaks** - Performance drops without recovery  
+ **No evening reflection** - Can't improve without feedback  
+ **Changing Top 3 mid-day** - Stick to morning priorities unless genuinely urgent  
 
 ## Research Foundation
 
@@ -238,11 +238,11 @@ cp -r plan-my-day $HOME/.openclaw/skills/
 
 ## What You'll Notice After 2 Weeks
 
-- ✅ Priorities actually get done (not just "busy work")
-- ✅ Less decision fatigue (plan once, execute)
-- ✅ Protected focus time becomes habit
-- ✅ Evening closure replaces work guilt
-- ✅ Better energy management (work with your body, not against it)
+-  Priorities actually get done (not just "busy work")
+-  Less decision fatigue (plan once, execute)
+-  Protected focus time becomes habit
+-  Evening closure replaces work guilt
+-  Better energy management (work with your body, not against it)
 
 ## Coming Soon
 

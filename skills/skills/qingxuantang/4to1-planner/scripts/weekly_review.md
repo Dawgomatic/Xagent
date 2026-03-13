@@ -1,4 +1,4 @@
-# Weekly Review Template (4To1 Method™)
+# Weekly Review Template (4To1 Method)
 
 Use this when the user says "do my weekly review" or similar.
 Keep the whole thing under 10 minutes. Be a coach, not a form.
@@ -15,7 +15,7 @@ From the configured backend, pull:
 
 ### 2a. Sprint Check
 "Here's your current 2-week sprint:
-[list tasks with ✅/❌ status]
+[list tasks with / status]
 
 Sprint progress: X/Y tasks (Z%)
 How do you feel about this sprint?"
@@ -35,7 +35,7 @@ How do you feel about this sprint?"
 (Skip if list is empty)
 
 ### 2f. Energy
-"Energy level? 🔥 High / 😊 Normal / 😴 Low / 💀 Burnt Out"
+"Energy level?  High /  Normal /  Low /  Burnt Out"
 
 ### 2g. Next Week
 "Looking at your 3-month milestones, what are your top 3 priorities for next week?"
@@ -58,10 +58,10 @@ For each:
 
 "Great review!
 
-📊 This sprint: X/Y tasks (Z%)
-🎯 Next week's focus:
+ This sprint: X/Y tasks (Z%)
+ Next week's focus:
   1. [Task] → [Milestone]
   2. [Task] → [Milestone]
   3. [Task]
 
-🔥 Sprint streak: [N] consecutive reviews. Keep it up!"
+ Sprint streak: [N] consecutive reviews. Keep it up!"

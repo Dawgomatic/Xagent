@@ -11,7 +11,7 @@ triggers:
   - "analyze video"
 metadata:
   clawdbot:
-    emoji: "📺"
+    emoji: ""
     requires:
       bins: ["yt-dlp"]
     install:

@@ -10,18 +10,18 @@ if (fs.existsSync(keyPath)) {
     const keys = JSON.parse(fs.readFileSync(keyPath));
     sk = Uint8Array.from(Buffer.from(keys.sk, 'hex'));
 } else {
-    console.log('⚠️ No identity found. Run `node send.js` first.');
+    console.log(' No identity found. Run `node send.js` first.');
     process.exit(1);
 }
 
 const myPub = getPublicKey(sk);
-console.log(`🔑 Listening as: ${myPub}`);
+console.log(` Listening as: ${myPub}`);
 
 const client = new WebSocket();
 const relayUrl = 'wss://relay.damus.io';
 
 client.on('connect', function(connection) {
-    console.log('✅ Listening on', relayUrl);
+    console.log(' Listening on', relayUrl);
 
     // Filter for Kind 4 (DMs) sent TO me (p tag)
     const subId = "clawdzap-dm-" + Math.floor(Math.random() * 1000);
@@ -40,10 +40,10 @@ client.on('connect', function(connection) {
                 const e = data[2];
                 try {
                     const decrypted = await nip04.decrypt(sk, e.pubkey, e.content);
-                    console.log(`\n💌 DM from ${e.pubkey.slice(0,8)}...:`);
+                    console.log(`\n DM from ${e.pubkey.slice(0,8)}...:`);
                     console.log(`   "${decrypted}"`);
                 } catch (err) {
-                    console.log(`\n🔒 Encrypted msg from ${e.pubkey.slice(0,8)}... (Decryption failed)`);
+                    console.log(`\n Encrypted msg from ${e.pubkey.slice(0,8)}... (Decryption failed)`);
                 }
             }
         }

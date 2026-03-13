@@ -358,22 +358,22 @@ track_daily_usage() {
 ## Best Practices Summary
 
 ### Do's
-✅ Use batch operations when possible (max 100 records)  
-✅ Implement exponential backoff for retries  
-✅ Monitor rate limit headers  
-✅ Request only needed properties  
-✅ Use pagination efficiently  
-✅ Cache responses when appropriate  
-✅ Spread requests over time  
+ Use batch operations when possible (max 100 records)  
+ Implement exponential backoff for retries  
+ Monitor rate limit headers  
+ Request only needed properties  
+ Use pagination efficiently  
+ Cache responses when appropriate  
+ Spread requests over time  
 
 ### Don'ts
-❌ Make burst requests without checking limits  
-❌ Ignore 429 errors  
-❌ Request all properties when you only need a few  
-❌ Use search API for simple gets  
-❌ Exceed batch limits (>100 records)  
-❌ Make parallel requests without throttling  
-❌ Retry immediately after 429 errors  
+ Make burst requests without checking limits  
+ Ignore 429 errors  
+ Request all properties when you only need a few  
+ Use search API for simple gets  
+ Exceed batch limits (>100 records)  
+ Make parallel requests without throttling  
+ Retry immediately after 429 errors  
 
 ### Emergency Throttling
 If you hit rate limits repeatedly:

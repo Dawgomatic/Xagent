@@ -6,7 +6,7 @@
   "author": "echo-autonomous",
   "keywords": ["dao", "defi", "agent", "base", "joule", "governance", "crypto"],
   "clawdbot": {
-    "emoji": "⚡",
+    "emoji": "",
     "category": "crypto",
     "commands": [
       "/joule_status",

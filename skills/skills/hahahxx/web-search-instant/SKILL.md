@@ -132,16 +132,16 @@ The tool provides several result types:
 ## Tested Scenarios
 
 Tested and verified to work:
-- ✅ Calculations: `2+2`, `10% of 500`
-- ✅ Conversions: `100 miles to km`
-- ✅ Wikipedia queries: `what is artificial intelligence`
-- ✅ Programming: `what is python`, `how to install docker`
-- ✅ People: `who is Elon Musk`
-- ✅ Scientific facts: `speed of light`
-- ✅ Weather: `weather in Tokyo`
-- ✅ Edge cases: empty queries, special characters, no results
-- ✅ Output formats: text, markdown, plain
-- ✅ Flags: --help, --format, --no-color, --max-related, --quiet
+-  Calculations: `2+2`, `10% of 500`
+-  Conversions: `100 miles to km`
+-  Wikipedia queries: `what is artificial intelligence`
+-  Programming: `what is python`, `how to install docker`
+-  People: `who is Elon Musk`
+-  Scientific facts: `speed of light`
+-  Weather: `weather in Tokyo`
+-  Edge cases: empty queries, special characters, no results
+-  Output formats: text, markdown, plain
+-  Flags: --help, --format, --no-color, --max-related, --quiet
 
 See [test-outputs.md](test-outputs.md) for detailed test results.
 

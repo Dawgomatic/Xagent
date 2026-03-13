@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ok() { printf '✔ %s\n' "$*"; }
-warn() { printf '⚠ %s\n' "$*"; }
+ok() { printf ' %s\n' "$*"; }
+warn() { printf ' %s\n' "$*"; }
 
 if command -v clawhub >/dev/null 2>&1; then
   ok "clawhub found: $(clawhub --cli-version 2>/dev/null || echo 'unknown version')"

@@ -57,10 +57,10 @@ Define characteristics (aria-label, aria-labelledby, aria-describedby)
 #### Button
 
 ```html
-<!-- ✅ Prefer native -->
+<!--  Prefer native -->
 <button>Click me</button>
 
-<!-- ⚠️ Only if you must use div -->
+<!--  Only if you must use div -->
 <div role="button" tabindex="0" onclick="..." onkeydown="handleEnterSpace">
   Click me
 </div>
@@ -71,10 +71,10 @@ Define characteristics (aria-label, aria-labelledby, aria-describedby)
 #### Checkbox
 
 ```html
-<!-- ✅ Prefer native -->
+<!--  Prefer native -->
 <input type="checkbox" id="agree">
 
-<!-- ⚠️ Custom (requires full implementation) -->
+<!--  Custom (requires full implementation) -->
 <div
   role="checkbox"
   aria-checked="false"
@@ -535,23 +535,23 @@ axe https://example.com
 
 ## Common ARIA Mistakes
 
-### ❌ ARIA on native elements
+###  ARIA on native elements
 
 ```html
-<!-- ❌ WRONG - button already has role -->
+<!--  WRONG - button already has role -->
 <button role="button">Click</button>
 
-<!-- ✅ CORRECT -->
+<!--  CORRECT -->
 <button>Click</button>
 ```
 
-### ❌ ARIA without keyboard support
+###  ARIA without keyboard support
 
 ```html
-<!-- ❌ WRONG - role doesn't add keyboard -->
+<!--  WRONG - role doesn't add keyboard -->
 <div role="button" onclick="doThing()">Click</div>
 
-<!-- ✅ CORRECT - must handle keyboard -->
+<!--  CORRECT - must handle keyboard -->
 <div
   role="button"
   tabindex="0"
@@ -561,30 +561,30 @@ axe https://example.com
   Click
 </div>
 
-<!-- ✅ BETTER - use native element -->
+<!--  BETTER - use native element -->
 <button onclick="doThing()">Click</button>
 ```
 
-### ❌ aria-hidden on focusable elements
+###  aria-hidden on focusable elements
 
 ```html
-<!-- ❌ WRONG - hidden but focusable -->
+<!--  WRONG - hidden but focusable -->
 <button aria-hidden="true">Click</button>
 
-<!-- ✅ CORRECT - use hidden attribute -->
+<!--  CORRECT - use hidden attribute -->
 <button hidden>Click</button>
 ```
 
-### ❌ Empty aria-label
+###  Empty aria-label
 
 ```html
-<!-- ❌ WRONG - removes accessible name -->
+<!--  WRONG - removes accessible name -->
 <button aria-label="">
   <svg><!-- Icon --></svg>
   Save
 </button>
 
-<!-- ✅ CORRECT - omit aria-label to use visible text -->
+<!--  CORRECT - omit aria-label to use visible text -->
 <button>
   <svg aria-hidden="true"><!-- Icon --></svg>
   Save

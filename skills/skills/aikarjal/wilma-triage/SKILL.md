@@ -138,7 +138,7 @@ Stagger with other morning jobs (e.g., email check at 07:05) to avoid API rate l
 ## Output Format Example
 
 ```
-📚 Wilma Update
+ Wilma Update
 
 Child A (8th grade)
 • Math exam tomorrow — yhtälöt, kpl 1-8
@@ -147,7 +147,7 @@ Child A (8th grade)
 Child B (6th grade)
 • No actionable items
 
-📅 Calendar: Added Child A math exam (Feb 10), removed cancelled disco (Feb 11)
+ Calendar: Added Child A math exam (Feb 10), removed cancelled disco (Feb 11)
 ```
 
 Keep it brief. One line per item. Silence is better than noise.

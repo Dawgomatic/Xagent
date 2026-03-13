@@ -79,10 +79,10 @@ Divide the training period into phases:
 
 ### Avoid These Patterns
 
-- ❌ Same sport on consecutive days (swim Mon + swim Tue, run Thu + run Fri)
-- ❌ Quality run day after long ride (insufficient recovery)
-- ❌ Two threshold sessions in same sport within 48hr
-- ❌ Long sessions back-to-back without one being easy
+-  Same sport on consecutive days (swim Mon + swim Tue, run Thu + run Fri)
+-  Quality run day after long ride (insufficient recovery)
+-  Two threshold sessions in same sport within 48hr
+-  Long sessions back-to-back without one being easy
 
 ---
 

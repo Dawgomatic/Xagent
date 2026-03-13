@@ -6,7 +6,7 @@ description: Automated context health management for OpenClaw. Monitors token us
 
 # Sophie Optimizer
 
-**Authored by Sophie 👑**
+**Authored by Sophie **
 
 This skill manages the automated context health of the "main" session. It monitors token usage, creates archives of the current state, updates long-term memory, and performs a hard reset of the session storage to maintain performance.
 

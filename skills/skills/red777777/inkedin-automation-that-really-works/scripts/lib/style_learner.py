@@ -173,7 +173,7 @@ def learn_profile(post_count=15):
         # Detect formality (exclamation marks, questions, casual markers)
         exclamation_count = sum(p.count("!") for p in all_content)
         question_count = sum(p.count("?") for p in all_content)
-        casual_markers = sum(1 for p in all_content for m in ["😄", "😂", "🤣", "lol", "haha", "😜", "💪", "🔥", "🚀"] if m.lower() in p.lower())
+        casual_markers = sum(1 for p in all_content for m in ["", "", "", "lol", "haha", "", "", "", ""] if m.lower() in p.lower())
         
         # Build style profile
         style = {

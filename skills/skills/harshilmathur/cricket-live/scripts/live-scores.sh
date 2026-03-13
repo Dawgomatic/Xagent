@@ -20,13 +20,13 @@ matches=$(echo "$response" | jq -r '.data // []')
 count=$(echo "$matches" | jq 'length')
 
 if [[ "$count" -eq 0 ]] || [[ "$matches" == "[]" ]]; then
-    echo "🏏 No live matches right now"
+    echo " No live matches right now"
     echo ""
     echo "Check upcoming matches: bash scripts/upcoming-matches.sh"
     exit 0
 fi
 
-echo "🔴 *LIVE CRICKET SCORES*"
+echo " *LIVE CRICKET SCORES*"
 echo "━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -47,8 +47,8 @@ echo "$matches" | jq -c '.[]' | while read -r match; do
     e1=$(team_emoji "$t1")
     e2=$(team_emoji "$t2")
     
-    echo "🏏 *${t1} vs ${t2}*"
-    [[ -n "$match_type" ]] && echo "   📋 $match_type"
+    echo " *${t1} vs ${t2}*"
+    [[ -n "$match_type" ]] && echo "    $match_type"
     
     # Display scores
     echo "$score" | jq -c '.[]' 2>/dev/null | while read -r s; do
@@ -56,14 +56,14 @@ echo "$matches" | jq -c '.[]' | while read -r match; do
         runs=$(echo "$s" | jq -r '.r // 0')
         wickets=$(echo "$s" | jq -r '.w // 0')
         overs=$(echo "$s" | jq -r '.o // 0')
-        echo "   📊 ${inning}: ${runs}/${wickets} (${overs} ov)"
+        echo "    ${inning}: ${runs}/${wickets} (${overs} ov)"
     done
     
     echo "   $(format_status "$status")"
-    [[ -n "$venue" ]] && echo "   📍 $venue"
-    [[ -n "$id" ]] && echo "   🔗 ID: $id"
+    [[ -n "$venue" ]] && echo "    $venue"
+    [[ -n "$id" ]] && echo "    ID: $id"
     echo ""
 done
 
 echo "━━━━━━━━━━━━━━━━━━━━━"
-echo "📋 Details: bash scripts/match-details.sh <match-id>"
+echo " Details: bash scripts/match-details.sh <match-id>"

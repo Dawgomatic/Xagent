@@ -40,7 +40,7 @@ def get_daily_balances(days: int = 30):
     try:
         history = api.get_balance_history(COLDKEY, start_timestamp, end_timestamp)
         
-        print(f"\n📊 Portfolio History ({len(history)} records):")
+        print(f"\n Portfolio History ({len(history)} records):")
         print("-" * 80)
         print(f"{'Date':<12} {'Free τ':>12} {'Staked τ':>12} {'Total τ':>12} {'Daily Δ':>10}")
         print("-" * 80)
@@ -102,7 +102,7 @@ def export_to_csv(history: list, filename: str = None):
             f.write(f"{date},{free:.6f},{staked:.6f},{total:.6f},{delta:.6f}\n")
             prev_total = total
     
-    print(f"\n✅ Exported to: {filepath}")
+    print(f"\n Exported to: {filepath}")
 
 if __name__ == "__main__":
     import argparse

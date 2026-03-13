@@ -281,7 +281,7 @@ See skills/r2-upload/example-config.yml for a template.`,
           content: [
             {
               type: 'text',
-              text: `✅ Uploaded: ${fileName}\n📦 Bucket: ${bucketName}\n🔑 Key: ${objectKey}\n🔗 URL: ${url}\n⏰ Expires: ${isPublic ? 'Never (public)' : expires}`,
+              text: ` Uploaded: ${fileName}\n Bucket: ${bucketName}\n Key: ${objectKey}\n URL: ${url}\n Expires: ${isPublic ? 'Never (public)' : expires}`,
             },
           ],
         };
@@ -315,7 +315,7 @@ See skills/r2-upload/example-config.yml for a template.`,
           };
         }
         
-        const lines = [`📦 Bucket: ${bucketName}\n`];
+        const lines = [` Bucket: ${bucketName}\n`];
         for (const obj of response.Contents) {
           const size = formatSize(obj.Size || 0);
           const modified = obj.LastModified?.toISOString().replace('T', ' ').substring(0, 19) || 'unknown';
@@ -354,7 +354,7 @@ See skills/r2-upload/example-config.yml for a template.`,
         );
         
         return {
-          content: [{ type: 'text', text: `✅ Deleted: ${key} from bucket '${bucketName}'` }],
+          content: [{ type: 'text', text: ` Deleted: ${key} from bucket '${bucketName}'` }],
         };
       }
       
@@ -379,7 +379,7 @@ See skills/r2-upload/example-config.yml for a template.`,
         const url = await getSignedUrl(s3, command, { expiresIn: parseExpires(expires) });
         
         return {
-          content: [{ type: 'text', text: `🔗 URL: ${url}\n⏰ Expires: ${expires}` }],
+          content: [{ type: 'text', text: ` URL: ${url}\n Expires: ${expires}` }],
         };
       }
       

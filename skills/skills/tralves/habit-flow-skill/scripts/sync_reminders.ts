@@ -92,7 +92,7 @@ program
 
             // Build the reminder message with completion check
             const customMessage = habit.reminderSettings.message;
-            const defaultReminderText = `🎯 Reminder: Time for your ${habit.name}\n\nTarget: ${habit.targetCount} ${habit.targetUnit || 'session'}\n\nQuick log: Reply 'done', 'skipped', or 'missed'`;
+            const defaultReminderText = ` Reminder: Time for your ${habit.name}\n\nTarget: ${habit.targetCount} ${habit.targetUnit || 'session'}\n\nQuick log: Reply 'done', 'skipped', or 'missed'`;
             
             // Message includes a check to skip if habit already completed today
             const message = `Before sending the reminder, check if the habit was already completed today:

@@ -3,7 +3,7 @@ name: sourdough-starter-manager
 description: Manage sourdough starters with feeding schedules, hydration calculations, health tracking, and baking preparation. Use when the user wants to maintain a sourdough starter, plan feedings, calculate ratios, troubleshoot starter problems, or prepare for baking.
 metadata:
   openclaw:
-    emoji: "🍞"
+    emoji: ""
     version: "1.0.0"
     author: "AM"
     tags: ["baking", "sourdough", "cooking", "food", "fermentation"]

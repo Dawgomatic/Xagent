@@ -246,8 +246,8 @@ export async function fetchTweetForArticle(tweetUrl: string): Promise<{ tweet: a
  * Format article for terminal display.
  */
 export function formatArticle(article: Article): string {
-  let out = `📰 ${article.title}\n`;
-  if (article.author) out += `✍️  ${article.author}`;
+  let out = ` ${article.title}\n`;
+  if (article.author) out += `  ${article.author}`;
   if (article.published) {
     const date = article.published.includes("T")
       ? article.published.split("T")[0]
@@ -256,8 +256,8 @@ export function formatArticle(article: Article): string {
     out += `${date}`;
   }
   if (article.author || article.published) out += "\n";
-  out += `🔗 ${article.url}\n`;
-  out += `📊 ${article.wordCount} words · ${article.ttr} min read\n`;
+  out += ` ${article.url}\n`;
+  out += ` ${article.wordCount} words · ${article.ttr} min read\n`;
   if (article.description) {
     out += `\n${article.description}\n`;
   }
@@ -271,7 +271,7 @@ export function formatArticle(article: Article): string {
 export function formatArticleWithTweet(article: Article, tweet: any): string {
   const tweetUrl = tweet.tweet_url || `https://x.com/${tweet.username}/status/${tweet.id}`;
   
-  let out = `📝 Tweet: ${tweetUrl}\n`;
+  let out = ` Tweet: ${tweetUrl}\n`;
   out += `   ${tweet.text?.slice(0, 200)}${tweet.text?.length > 200 ? "..." : ""}\n\n`;
   out += formatArticle(article);
   

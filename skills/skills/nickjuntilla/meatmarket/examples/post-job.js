@@ -47,10 +47,10 @@ Requirements:
     const data = await res.json();
 
     if (res.ok) {
-      console.log('\n✅ Job posted successfully!');
+      console.log('\n Job posted successfully!');
       console.log(`Job ID: ${data.id || data.job_id}`);
     } else {
-      console.error('\n❌ Failed to post job:');
+      console.error('\n Failed to post job:');
       console.error(data);
     }
   } catch (err) {

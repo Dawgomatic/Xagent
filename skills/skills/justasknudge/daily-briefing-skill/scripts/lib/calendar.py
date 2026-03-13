@@ -97,7 +97,7 @@ def parse_events(data):
 def format_events(events):
     """Format calendar events for output."""
     if not events:
-        return "   📭 No events scheduled today"
+        return "    No events scheduled today"
     
     output = []
     for evt in events[:10]:  # Limit to 10 events
@@ -125,7 +125,7 @@ def get_calendar():
         events = parse_events(data)
         return format_events(events)
     
-    return "   📭 Calendar data unavailable (check permissions)"
+    return "    Calendar data unavailable (check permissions)"
 
 
 if __name__ == "__main__":

@@ -101,9 +101,9 @@ Activates training data about how people who've *actually experienced* things co
 
 The core insight: Empathy isn't expressing understanding — it's *demonstrating* understanding through specificity.
 
-❌ **Hollow**: "I understand that must be really difficult for you. Your feelings are completely valid..."
+ **Hollow**: "I understand that must be really difficult for you. Your feelings are completely valid..."
 
-✅ **Effective**: "The part where you said your mom didn't even look up from her phone—that's the detail that hit me."
+ **Effective**: "The part where you said your mom didn't even look up from her phone—that's the detail that hit me."
 
 Every effective technique shares this: force engagement with particular details rather than pattern-matching to empathetic response templates.
 

@@ -52,7 +52,7 @@ clawhub install afrexai-lead-hunter
 | Pipeline Management | None | Full CRM schema + metrics |
 | Automation Guide | None | Daily + weekly routines |
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific context packs that supercharge your lead hunter with vertical-specific ICP data, pain points, and outreach angles?
 
@@ -69,7 +69,7 @@ Want industry-specific context packs that supercharge your lead hunter with vert
 
 Each pack includes pre-built ICPs, industry pain maps, competitor landscapes, and customized outreach templates for that vertical.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - `afrexai-email-to-calendar` — Extract meetings, deadlines, and events from emails
 - `afrexai-humanizer` — Make AI-generated content sound human
@@ -81,4 +81,4 @@ Each pack includes pre-built ICPs, industry pain maps, competitor landscapes, an
 
 ---
 
-*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛 — AI agents that actually sell.*
+*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/)  — AI agents that actually sell.*

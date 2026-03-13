@@ -7,7 +7,7 @@
  *   node create-wallet.js --env              # Output as env var (recommended)
  *   node create-wallet.js --managed [name]   # Save to file (opt-in)
  * 
- * ⚠️ SECURITY: By default, private key is only shown once and NOT saved to file.
+ *  SECURITY: By default, private key is only shown once and NOT saved to file.
  *    Use --managed only if you understand the risks.
  */
 
@@ -37,7 +37,7 @@ function logAudit(action, details = {}) {
 }
 
 function showHelp() {
-  console.log('🔐 Base Wallet Creator');
+  console.log(' Base Wallet Creator');
   console.log('═'.repeat(50));
   console.log('');
   console.log('Usage: node create-wallet.js [options]');
@@ -51,7 +51,7 @@ function showHelp() {
   console.log('  node create-wallet.js --env');
   console.log('  # Then set the output as environment variable');
   console.log('');
-  console.log('⚠️  SECURITY:');
+  console.log('  SECURITY:');
   console.log('   • Private keys are shown ONCE and not stored');
   console.log('   • Copy the key immediately and store securely');
   console.log('   • --managed stores keys in files (use with caution)');
@@ -96,7 +96,7 @@ async function main() {
   
   // Mode: --env (recommended)
   if (isEnv) {
-    console.log('# 🔐 New Wallet Created');
+    console.log('#  New Wallet Created');
     console.log('# Copy these lines to your shell or .env file:');
     console.log('');
     console.log(`export WALLET_ADDRESS="${wallet.address}"`);
@@ -105,7 +105,7 @@ async function main() {
     console.log('# Mnemonic (backup phrase) - store offline securely:');
     console.log(`# ${wallet.mnemonic.phrase}`);
     console.log('');
-    console.log('# ⚠️ This is shown ONCE. Copy now!');
+    console.log('#  This is shown ONCE. Copy now!');
     
     logAudit('wallet_created', { address: wallet.address, mode: 'env' });
     return;
@@ -120,7 +120,7 @@ async function main() {
       createdAt: new Date().toISOString(),
     }, null, 2));
     
-    console.error('# ⚠️ Private key shown above. Store securely!');
+    console.error('#  Private key shown above. Store securely!');
     
     logAudit('wallet_created', { address: wallet.address, mode: 'json' });
     return;
@@ -128,10 +128,10 @@ async function main() {
   
   // Mode: --managed (stores to file)
   if (isManaged) {
-    console.log('🔐 Base Wallet Creator (Managed Mode)');
+    console.log(' Base Wallet Creator (Managed Mode)');
     console.log('═'.repeat(50));
     console.log('');
-    console.log('⚠️ WARNING: This will save private key to a file.');
+    console.log(' WARNING: This will save private key to a file.');
     console.log('   File location: ~/.openclaw/wallets/' + walletName + '.json');
     console.log('   Permissions: 600 (owner read/write only)');
     console.log('');
@@ -167,7 +167,7 @@ async function main() {
     
     // Check if exists
     if (fs.existsSync(filepath)) {
-      const overwrite = await prompt(`\n⚠️ Wallet "${walletName}" already exists. Overwrite? (yes/no): `);
+      const overwrite = await prompt(`\n Wallet "${walletName}" already exists. Overwrite? (yes/no): `);
       if (overwrite !== 'yes') {
         console.log('Cancelled.');
         process.exit(0);
@@ -177,20 +177,20 @@ async function main() {
     // Save with restricted permissions
     fs.writeFileSync(filepath, JSON.stringify(walletData, null, 2), { mode: 0o600 });
     
-    console.log('\n💾 Wallet saved to:', filepath);
-    console.log('🔒 File permissions: 600');
+    console.log('\n Wallet saved to:', filepath);
+    console.log(' File permissions: 600');
     
     // Also save mnemonic separately (read-only backup)
     const mnemonicPath = filepath.replace('.json', '.mnemonic');
     fs.writeFileSync(mnemonicPath, wallet.mnemonic.phrase, { mode: 0o400 });
-    console.log('📝 Mnemonic backup:', mnemonicPath, '(read-only)');
+    console.log(' Mnemonic backup:', mnemonicPath, '(read-only)');
     
-    console.log('\n⚠️ SECURITY REMINDERS:');
+    console.log('\n SECURITY REMINDERS:');
     console.log('   • Back up the mnemonic file offline and delete it');
     console.log('   • Never share your private key or mnemonic');
     console.log('   • Add wallet files to .gitignore');
     
-    console.log('\n📧 To get a BaseMail email, run:');
+    console.log('\n To get a BaseMail email, run:');
     console.log(`   node basemail-register.js ${walletName}`);
     
     logAudit('wallet_created', { address: wallet.address, mode: 'managed' });

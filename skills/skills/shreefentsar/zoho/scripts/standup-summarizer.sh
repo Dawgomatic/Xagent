@@ -35,8 +35,8 @@ fi
 TARGET_START_MS=$(TZ="Africa/Cairo" date -d "${TARGET_DATE} 00:00:00" +%s)000
 TARGET_END_MS=$(TZ="Africa/Cairo" date -d "${TARGET_DATE} 23:59:59" +%s)999
 
-echo "📅 Target date: ${TARGET_DATE} (Cairo)"
-echo "⏰ Range: ${TARGET_START_MS} - ${TARGET_END_MS}"
+echo " Target date: ${TARGET_DATE} (Cairo)"
+echo " Range: ${TARGET_START_MS} - ${TARGET_END_MS}"
 
 # ── Ensure dirs ──────────────────────────────────────────────────────
 mkdir -p "$TMP_DIR" "$(dirname "$PROCESSED_FILE")"
@@ -51,7 +51,7 @@ get_token() {
 }
 
 # ── Fetch recordings ────────────────────────────────────────────────
-echo "🔍 Fetching recordings from Zoho Meeting..."
+echo " Fetching recordings from Zoho Meeting..."
 TOKEN=$(get_token)
 RECORDINGS=$(curl -s -X GET \
   "https://meeting.zoho.com/meeting/api/v2/${ZOHO_MEETING_ORG_ID}/recordings.json" \
@@ -65,7 +65,7 @@ if echo "$RECORDINGS" | jq -e '.error' &>/dev/null; then
 fi
 
 # ── Filter today's recordings ───────────────────────────────────────
-echo "🔎 Filtering for date: ${TARGET_DATE}..."
+echo " Filtering for date: ${TARGET_DATE}..."
 
 if [[ -n "$FORCE_ID" ]]; then
   TODAY_RECORDINGS=$(echo "$RECORDINGS" | jq --arg fid "$FORCE_ID" \
@@ -76,7 +76,7 @@ else
 fi
 
 RECORDING_COUNT=$(echo "$TODAY_RECORDINGS" | jq 'length')
-echo "📊 Found ${RECORDING_COUNT} recording(s) for ${TARGET_DATE}"
+echo " Found ${RECORDING_COUNT} recording(s) for ${TARGET_DATE}"
 
 if [[ "$RECORDING_COUNT" -eq 0 ]]; then
   echo '{"status":"no_recordings","date":"'"${TARGET_DATE}"'","count":0}'
@@ -96,18 +96,18 @@ for i in $(seq 0 $((RECORDING_COUNT - 1))); do
   
   echo ""
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-  echo "📹 Recording: ${TOPIC}"
+  echo " Recording: ${TOPIC}"
   echo "   Duration: ${DURATION_MINS} min | Size: ${FILE_SIZE}"
   echo "   ID: ${EREC_ID}"
   
   # Check if already processed
   if jq -e --arg id "$EREC_ID" '.[] | select(. == $id)' "$PROCESSED_FILE" &>/dev/null; then
-    echo "   ⏭️  Already processed, skipping"
+    echo "     Already processed, skipping"
     continue
   fi
   
   # Download recording
-  echo "   ⬇️  Downloading..."
+  echo "     Downloading..."
   TOKEN=$(get_token)
   MP4_FILE="${TMP_DIR}/recording_${i}.mp4"
   HTTP_CODE=$(curl -s -w "%{http_code}" -o "$MP4_FILE" -L \
@@ -115,44 +115,44 @@ for i in $(seq 0 $((RECORDING_COUNT - 1))); do
     "$DOWNLOAD_URL")
   
   if [[ "$HTTP_CODE" != "200" ]] || [[ ! -s "$MP4_FILE" ]]; then
-    echo "   ❌ Download failed (HTTP ${HTTP_CODE})"
+    echo "    Download failed (HTTP ${HTTP_CODE})"
     # Try public download URL if different
     PUB_URL=$(echo "$REC" | jq -r '.publicDownloadUrl // empty')
     if [[ -n "$PUB_URL" && "$PUB_URL" != "$DOWNLOAD_URL" ]]; then
-      echo "   🔄 Trying public URL..."
+      echo "    Trying public URL..."
       HTTP_CODE=$(curl -s -w "%{http_code}" -o "$MP4_FILE" -L "$PUB_URL")
     fi
     if [[ "$HTTP_CODE" != "200" ]] || [[ ! -s "$MP4_FILE" ]]; then
-      echo "   ❌ Download failed completely"
+      echo "    Download failed completely"
       continue
     fi
   fi
   
   ACTUAL_SIZE=$(du -h "$MP4_FILE" | cut -f1)
-  echo "   ✅ Downloaded: ${ACTUAL_SIZE}"
+  echo "    Downloaded: ${ACTUAL_SIZE}"
   
   # Extract audio
-  echo "   🎵 Extracting audio..."
+  echo "    Extracting audio..."
   WAV_FILE="${TMP_DIR}/audio_${i}.wav"
   ffmpeg -i "$MP4_FILE" -vn -acodec pcm_s16le -ar 16000 -ac 1 "$WAV_FILE" -y -loglevel error 2>&1
   
   if [[ ! -s "$WAV_FILE" ]]; then
-    echo "   ❌ Audio extraction failed"
+    echo "    Audio extraction failed"
     continue
   fi
   
   WAV_SIZE=$(du -h "$WAV_FILE" | cut -f1)
-  echo "   ✅ Audio extracted: ${WAV_SIZE}"
+  echo "    Audio extracted: ${WAV_SIZE}"
   
   # Check if audio is too large for Gemini inline (20MB limit for audio)
   WAV_BYTES=$(stat -c%s "$WAV_FILE")
   
   # Transcribe via Gemini Flash
-  echo "   🧠 Transcribing via Gemini Flash..."
+  echo "    Transcribing via Gemini Flash..."
   
   if [[ "$WAV_BYTES" -gt 20000000 ]]; then
     # Large file: upload via File API first
-    echo "   📤 Large file — uploading to Gemini File API..."
+    echo "    Large file — uploading to Gemini File API..."
     UPLOAD_RESP=$(curl -s -X POST \
       "https://generativelanguage.googleapis.com/upload/v1beta/files?key=${GEMINI_API_KEY}" \
       -H "X-Goog-Upload-Command: start, upload, finalize" \
@@ -163,10 +163,10 @@ for i in $(seq 0 $((RECORDING_COUNT - 1))); do
     
     FILE_URI=$(echo "$UPLOAD_RESP" | jq -r '.file.uri // empty')
     if [[ -z "$FILE_URI" ]]; then
-      echo "   ❌ File upload failed: $(echo "$UPLOAD_RESP" | jq -r '.error.message // "unknown"')"
+      echo "    File upload failed: $(echo "$UPLOAD_RESP" | jq -r '.error.message // "unknown"')"
       continue
     fi
-    echo "   ✅ Uploaded: ${FILE_URI}"
+    echo "    Uploaded: ${FILE_URI}"
     
     GEMINI_BODY=$(jq -n \
       --arg uri "$FILE_URI" \
@@ -208,9 +208,9 @@ for i in $(seq 0 $((RECORDING_COUNT - 1))); do
   TRANSCRIPT=$(echo "$GEMINI_RESP" | jq -r '.candidates[0].content.parts[0].text // empty')
   
   if [[ -z "$TRANSCRIPT" ]]; then
-    echo "   ❌ Transcription failed: $(echo "$GEMINI_RESP" | jq -r '.error.message // "unknown"')"
+    echo "    Transcription failed: $(echo "$GEMINI_RESP" | jq -r '.error.message // "unknown"')"
     # Try with gemini-2.5-flash as fallback
-    echo "   🔄 Retrying with gemini-2.5-flash..."
+    echo "    Retrying with gemini-2.5-flash..."
     GEMINI_BODY_FILE="${TMP_DIR}/gemini_body_${i}.json"
     echo "$GEMINI_BODY" > "$GEMINI_BODY_FILE"
     GEMINI_RESP=$(curl -s -X POST \
@@ -220,13 +220,13 @@ for i in $(seq 0 $((RECORDING_COUNT - 1))); do
     rm -f "$GEMINI_BODY_FILE"
     TRANSCRIPT=$(echo "$GEMINI_RESP" | jq -r '.candidates[0].content.parts[0].text // empty')
     if [[ -z "$TRANSCRIPT" ]]; then
-      echo "   ❌ Transcription failed on both models"
+      echo "    Transcription failed on both models"
       continue
     fi
   fi
   
   TRANSCRIPT_LEN=${#TRANSCRIPT}
-  echo "   ✅ Transcribed: ${TRANSCRIPT_LEN} chars"
+  echo "    Transcribed: ${TRANSCRIPT_LEN} chars"
   
   # Save transcript
   TRANSCRIPT_FILE="${TMP_DIR}/transcript_${i}.txt"
@@ -255,7 +255,7 @@ for i in $(seq 0 $((RECORDING_COUNT - 1))); do
   jq --arg id "$EREC_ID" '. + [$id]' "$PROCESSED_FILE" > "${PROCESSED_FILE}.tmp"
   mv "${PROCESSED_FILE}.tmp" "$PROCESSED_FILE"
   
-  echo "   ✅ Done processing"
+  echo "    Done processing"
   
   # Clean up large files immediately to save disk
   rm -f "$MP4_FILE" "$WAV_FILE"
@@ -265,7 +265,7 @@ done
 RESULT_COUNT=$(echo "$RESULTS" | jq 'length')
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "✅ Processed ${RESULT_COUNT} recording(s)"
+echo " Processed ${RESULT_COUNT} recording(s)"
 
 if [[ "$RESULT_COUNT" -eq 0 ]]; then
   echo '{"status":"nothing_new","date":"'"${TARGET_DATE}"'","count":0}'

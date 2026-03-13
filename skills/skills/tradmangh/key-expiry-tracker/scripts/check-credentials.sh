@@ -15,18 +15,18 @@ YELLOW='\033[1;33m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-echo "🔐 Credential Tracker Check"
+echo " Credential Tracker Check"
 echo "============================"
 
 if [[ ! -f "$CREDENTIALS_FILE" ]]; then
-    echo "❌ No credentials file found: $CREDENTIALS_FILE"
+    echo " No credentials file found: $CREDENTIALS_FILE"
     echo "   Create it from SKILL.md template"
     exit 1
 fi
 
 # Check if credentials array exists
 if ! jq -e '.credentials' "$CREDENTIALS_FILE" >/dev/null 2>&1; then
-    echo "❌ Invalid format: missing 'credentials' array"
+    echo " Invalid format: missing 'credentials' array"
     exit 1
 fi
 
@@ -90,7 +90,7 @@ echo "Summary: $TOTAL total, $COUNT_EXPIRED expired, $COUNT_CRITICAL critical, $
 # Output for cron (empty = all OK)
 if [[ ${#ALERTS[@]} -gt 0 ]]; then
     echo ""
-    echo "🚨 ALERTS:"
+    echo " ALERTS:"
     for alert in "${ALERTS[@]}"; do
         echo "  - $alert"
     done
@@ -99,6 +99,6 @@ if [[ ${#ALERTS[@]} -gt 0 ]]; then
     exit 1
 else
     echo ""
-    echo "✅ All credentials OK"
+    echo " All credentials OK"
     exit 0
 fi

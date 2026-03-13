@@ -37,27 +37,27 @@ async function getBalance(network, address) {
 
 async function main() {
   if (!existsSync(WALLET_FILE)) {
-    console.error("❌ No wallet found. Run setup.sh first.");
+    console.error(" No wallet found. Run setup.sh first.");
     process.exit(1);
   }
 
   const wallet = JSON.parse(readFileSync(WALLET_FILE, "utf-8"));
 
-  console.log(`👛 Balance for ${wallet.address}`);
+  console.log(` Balance for ${wallet.address}`);
   console.log("=".repeat(50));
 
   try {
     const mainnetBalance = await getBalance("base-mainnet", wallet.address);
     console.log(`   Base Mainnet:  $${mainnetBalance} USDC`);
   } catch (e) {
-    console.log(`   Base Mainnet:  ⚠️ Error: ${e.message}`);
+    console.log(`   Base Mainnet:   Error: ${e.message}`);
   }
 
   try {
     const testnetBalance = await getBalance("base-sepolia", wallet.address);
     console.log(`   Base Sepolia:  $${testnetBalance} USDC (testnet)`);
   } catch (e) {
-    console.log(`   Base Sepolia:  ⚠️ Error: ${e.message}`);
+    console.log(`   Base Sepolia:   Error: ${e.message}`);
   }
 
   // Also check ETH for gas

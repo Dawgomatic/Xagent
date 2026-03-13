@@ -3,7 +3,7 @@ name: letsclarify
 description: Collect structured human input — approvals, decisions, reviews, data — via web forms. Create a form with a JSON schema, send unique URLs to humans, poll for results. Use when your workflow needs a human in the loop before proceeding.
 homepage: https://letsclarify.ai
 license: MIT
-metadata: {"openclaw":{"emoji":"📋","primaryEnv":"LETSCLARIFY_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","primaryEnv":"LETSCLARIFY_API_KEY"}}
 ---
 
 # Let's Clarify Skill

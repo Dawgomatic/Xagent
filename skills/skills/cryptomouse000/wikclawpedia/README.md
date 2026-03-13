@@ -4,9 +4,9 @@
 
 This skill provides three core functions for OpenClaw agents:
 
-- 🔍 **Search** - Query across all wiki entries
-- 📖 **Get** - Fetch specific agent/platform/moment/quote/creator profiles  
-- 📝 **Submit** - Contribute new intel for review
+-  **Search** - Query across all wiki entries
+-  **Get** - Fetch specific agent/platform/moment/quote/creator profiles  
+-  **Submit** - Contribute new intel for review
 
 ---
 

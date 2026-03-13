@@ -250,7 +250,7 @@ export function renderMemory(props: MemoryProps) {
         <div class="row" style="justify-content: space-between; align-items: center;">
           <div>
             <div class="card-title" style="display: flex; align-items: center; gap: 8px;">
-              🧠 Knowledge Graph Memory
+               Knowledge Graph Memory
               ${isHealthy 
                 ? html`<span class="chip chip-ok" style="font-size: 11px;">Online</span>`
                 : html`<span class="chip chip-warn" style="font-size: 11px;">Setup Required</span>`
@@ -264,7 +264,7 @@ export function renderMemory(props: MemoryProps) {
             </button>
             ${!isHealthy ? html`
               <button class="btn primary" ?disabled=${props.busyAction !== null} @click=${props.onAutoRepair}>
-                ${props.busyAction === "repair" ? "Repairing…" : "🔧 Auto-Repair"}
+                ${props.busyAction === "repair" ? "Repairing…" : " Auto-Repair"}
               </button>
             ` : nothing}
           </div>
@@ -295,9 +295,9 @@ function renderDashboard(props: MemoryProps) {
   return html`
     <section class="card">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-        <div class="card-title">📊 Dashboard</div>
+        <div class="card-title"> Dashboard</div>
         ${isActive
-          ? html`<a href="http://localhost:8000" target="_blank" class="btn small" title="Open SurrealDB Studio">🔗 DB Studio</a>`
+          ? html`<a href="http://localhost:8000" target="_blank" class="btn small" title="Open SurrealDB Studio"> DB Studio</a>`
           : nothing
         }
       </div>
@@ -357,7 +357,7 @@ function renderDashboard(props: MemoryProps) {
 
     <!-- Health Status -->
     <section class="card">
-      <div class="card-title" style="margin-bottom: 12px;">🏥 System Health</div>
+      <div class="card-title" style="margin-bottom: 12px;"> System Health</div>
       
       <div class="health-row">
         <span class="health-label">SurrealDB</span>
@@ -410,11 +410,11 @@ function renderOperations(props: MemoryProps) {
 
   return html`
     <section class="card">
-      <div class="card-title" style="margin-bottom: 4px;">🛠️ Operations</div>
+      <div class="card-title" style="margin-bottom: 4px;"> Operations</div>
       
       <!-- Extraction Tools -->
       <div class="tool-section">
-        <div class="tool-title">📥 Knowledge Extraction</div>
+        <div class="tool-title"> Knowledge Extraction</div>
         <div class="tool-desc">Extract facts from MEMORY.md and memory/*.md files using AI.</div>
         
         ${isExtractionRunning(props) ? html`
@@ -469,7 +469,7 @@ function renderOperations(props: MemoryProps) {
         
         ${!canRunTools && !isExtractionRunning(props) ? html`
           <div style="font-size: 11px; color: var(--warning-color); margin-top: 8px;">
-            ⚠️ Database and Python deps required
+             Database and Python deps required
           </div>
         ` : nothing}
         ${props.extractionLog && !isExtractionRunning(props) ? html`<div class="log-output">${props.extractionLog}</div>` : nothing}
@@ -477,7 +477,7 @@ function renderOperations(props: MemoryProps) {
 
       <!-- Maintenance -->
       <div class="tool-section">
-        <div class="tool-title">🔧 Maintenance</div>
+        <div class="tool-title"> Maintenance</div>
         <div class="tool-desc">Apply confidence decay and prune low-quality facts.</div>
         <div class="tool-buttons">
           <button class="btn" ?disabled=${!isServerRunning || props.busyAction !== null}
@@ -499,7 +499,7 @@ function renderOperations(props: MemoryProps) {
       <!-- Installation (only show if not healthy) -->
       ${!isHealthy ? html`
         <div class="tool-section">
-          <div class="tool-title">📦 Setup</div>
+          <div class="tool-title"> Setup</div>
           <div class="tool-desc">Manual installation if auto-repair doesn't work.</div>
           <div class="tool-buttons">
             <button class="btn small" ?disabled=${props.busyAction !== null} @click=${props.onInstallBinary}>
@@ -522,7 +522,7 @@ function renderOperations(props: MemoryProps) {
 
     <!-- Quick Tips -->
     <section class="card" style="background: var(--bg-tertiary, #161b22);">
-      <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">💡 Tips</div>
+      <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;"> Tips</div>
       <div style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">
         • <strong>Extract Changes</strong> runs incrementally on modified files<br>
         • <strong>Find Relations</strong> discovers semantic connections between facts<br>

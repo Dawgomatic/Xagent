@@ -4,25 +4,25 @@ Comprehensive n8n automation skill with workflow creation, testing, execution mo
 
 ## Features
 
-### ✨ Workflow Creation
+###  Workflow Creation
 - **Template Library:** 6 pre-built SaaS automation workflows
 - **Interactive Builder:** Guided workflow creation
 - **JSON Import:** Create from existing workflow files
 - **Programmatic API:** Build workflows in Python
 
-### 🧪 Testing & Validation
+###  Testing & Validation
 - **Structure Validation:** Check workflow integrity
 - **Dry-Run Testing:** Test with sample data before activation
 - **Test Suites:** Run multiple test cases
 - **Validation Reports:** Detailed error and warning reports
 
-### 📊 Execution Monitoring
+###  Execution Monitoring
 - **Real-time Tracking:** Monitor workflow execution status
 - **Execution Logs:** Detailed execution history
 - **Error Analysis:** Identify and debug failures
 - **Retry Logic:** Built-in failure handling
 
-### ⚡ Performance Optimization
+###  Performance Optimization
 - **Performance Analysis:** Comprehensive workflow metrics
 - **Bottleneck Detection:** Identify slow operations
 - **Optimization Suggestions:** Actionable improvement recommendations

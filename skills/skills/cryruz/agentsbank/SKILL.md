@@ -3,15 +3,15 @@
 **Version:** 1.0.6  
 **Publisher:** AgentsBank  
 **Contact:** info@agentsbank.online  
-**Status:** 🟢 Public Release - Production Ready
+**Status:**  Public Release - Production Ready
 
 ---
 
-## 🎯 PURPOSE & CAPABILITY
+##  PURPOSE & CAPABILITY
 
 This skill provides **secure, scoped crypto banking operations** for AI agents via the official AgentsBank SDK. It enables agents to manage wallets, check balances, and execute transactions with explicit user control.
 
-### ✅ Capabilities (Read-Only & Safe)
+###  Capabilities (Read-Only & Safe)
 - ✓ Fetch agent wallet balances across all supported chains (Ethereum, BSC, Solana, Bitcoin)
 - ✓ Retrieve transaction history with filtering and pagination
 - ✓ Query wallet details, metadata, and account information
@@ -19,12 +19,12 @@ This skill provides **secure, scoped crypto banking operations** for AI agents v
 - ✓ Estimate gas fees before transaction execution
 - ✓ List all wallets with pagination support
 
-### ⚠️ Capabilities (Write/Financial - Requires Explicit User Invocation)
-- ⚠️ Send crypto transactions (only if `disableModelInvocation: false` is explicitly overridden by user)
-- ⚠️ Create new wallets (only if `disableModelInvocation: false` is explicitly overridden by user)
-- ⚠️ Self-register agents and humans autonomously
+###  Capabilities (Write/Financial - Requires Explicit User Invocation)
+-  Send crypto transactions (only if `disableModelInvocation: false` is explicitly overridden by user)
+-  Create new wallets (only if `disableModelInvocation: false` is explicitly overridden by user)
+-  Self-register agents and humans autonomously
 
-### ❌ NOT Included (Out of Scope)
+###  NOT Included (Out of Scope)
 - OAuth2 delegated access to external wallets
 - Webhooks or event subscriptions
 - Smart contract deployment
@@ -33,7 +33,7 @@ This skill provides **secure, scoped crypto banking operations** for AI agents v
 
 ---
 
-## 🔐 CREDENTIALS & ENVIRONMENT VARIABLES
+##  CREDENTIALS & ENVIRONMENT VARIABLES
 
 ### Required Environment Variables
 
@@ -43,7 +43,7 @@ This skill provides **secure, scoped crypto banking operations** for AI agents v
 | `AGENTSBANK_AGENT_USERNAME` | string | Agent identifier | `agent_123456_abc` |
 | `AGENTSBANK_AGENT_PASSWORD` | string | Agent credential (secret) | *(user-specific)* |
 
-**⚠️ SECURITY NOTES:**
+** SECURITY NOTES:**
 - `AGENTSBANK_AGENT_PASSWORD` must **never** be committed to version control
 - Store in `.env` file (add to `.gitignore`)
 - Rotate credentials quarterly or if exposed
@@ -59,7 +59,7 @@ This skill provides **secure, scoped crypto banking operations** for AI agents v
 
 ---
 
-## 🚀 INSTALL & SETUP
+##  INSTALL & SETUP
 
 ### 1. Install SDK
 
@@ -74,9 +74,9 @@ pnpm add @agentsbankai/sdk
 ```
 
 This will:
-- ✅ Download the compiled SDK (CJS + ESM formats)
-- ✅ Install required dependencies (axios, ethers, @solana/web3.js, etc.)
-- ✅ No bloat: node_modules are excluded from the published package
+-  Download the compiled SDK (CJS + ESM formats)
+-  Install required dependencies (axios, ethers, @solana/web3.js, etc.)
+-  No bloat: node_modules are excluded from the published package
 
 ### 2. Initialize Environment
 
@@ -105,7 +105,7 @@ const { token, agent } = await bank.login({
   agentPassword: process.env.AGENTSBANK_AGENT_PASSWORD!
 });
 
-console.log('✅ Authenticated as:', agent.agent_id);
+console.log(' Authenticated as:', agent.agent_id);
 ```
 
 ### 4. Use Safe Operations (Always Allowed)
@@ -142,12 +142,12 @@ console.log('Agent wallets:', wallets);
 
 ---
 
-## ⚠️ RESTRICTED OPERATIONS (Require Explicit User Approval)
+##  RESTRICTED OPERATIONS (Require Explicit User Approval)
 
 The following operations **will not execute autonomously** and require explicit user invocation:
 
 ```typescript
-// ❌ This requires user to explicitly call it
+//  This requires user to explicitly call it
 // (disableModelInvocation: true is set by default)
 const tx = await bank.sendTransaction({
   walletId,
@@ -187,7 +187,7 @@ try {
 
 ---
 
-## 📋 METADATA & CONFIGURATION
+##  METADATA & CONFIGURATION
 
 ```json
 {
@@ -242,20 +242,20 @@ try {
 
 ---
 
-## 🛡️ SECURITY BOUNDARIES
+##  SECURITY BOUNDARIES
 
 ### What This Skill Can Do
-✅ Read wallet balances and history  
-✅ Sign messages for authentication  
-✅ Create wallets (with explicit user request)  
-✅ Retrieve account metadata  
+ Read wallet balances and history  
+ Sign messages for authentication  
+ Create wallets (with explicit user request)  
+ Retrieve account metadata  
 
 ### What This Skill CANNOT Do
-❌ Execute transactions autonomously  
-❌ Export private keys  
-❌ Access external service credentials  
-❌ Persist sensitive data to disk  
-❌ Make requests to unlisted endpoints  
+ Execute transactions autonomously  
+ Export private keys  
+ Access external service credentials  
+ Persist sensitive data to disk  
+ Make requests to unlisted endpoints  
 
 ### Authentication Scopes
 - **Read scopes:** `read:balance`, `read:history`, `read:wallet`, `sign:message`
@@ -264,7 +264,7 @@ try {
 
 ---
 
-## ✅ VERIFICATION CHECKLIST
+##  VERIFICATION CHECKLIST
 
 Before using this skill, confirm:
 
@@ -277,7 +277,7 @@ Before using this skill, confirm:
 
 ---
 
-## 📖 DOCUMENTATION & SUPPORT
+##  DOCUMENTATION & SUPPORT
 
 | Resource | URL |
 |----------|-----|
@@ -290,7 +290,7 @@ Before using this skill, confirm:
 
 ---
 
-## ⚖️ DISCLAIMER
+##  DISCLAIMER
 
 This skill integrates with real cryptocurrency networks (Ethereum, Solana, Bitcoin, BSC). **Transactions are irreversible.** 
 
@@ -302,7 +302,7 @@ This skill integrates with real cryptocurrency networks (Ethereum, Solana, Bitco
 ---
 
 **Last Updated:** February 11, 2026 (v1.0.6 release)  
-**Status:** 🟢 Public Release - Production Ready ✅  
+**Status:**  Public Release - Production Ready   
 **npm Package:** https://www.npmjs.com/package/@agentsbankai/sdk  
 **GitHub:** https://github.com/agentsbank/sdk  
 **Changes in v1.0.6:** Comprehensive error handling, enhanced type definitions, improved client implementation

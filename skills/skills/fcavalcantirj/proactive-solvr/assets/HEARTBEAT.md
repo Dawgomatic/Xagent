@@ -5,7 +5,7 @@
 
 ---
 
-## 📋 EXECUTION ORDER (follow exactly)
+##  EXECUTION ORDER (follow exactly)
 
 ```
 1. CRITICAL CHECKS      → Always (auth, gateway)
@@ -19,7 +19,7 @@
 
 ---
 
-## 🚨 1. CRITICAL CHECKS (every heartbeat)
+##  1. CRITICAL CHECKS (every heartbeat)
 
 ### Auth Health
 ```bash
@@ -40,7 +40,7 @@ free -m | awk '/Mem:/ {pct=$3/$2*100; if (pct > 85) print "WARN: Memory high"}'
 
 ---
 
-## 📊 2. READ STATE FILE
+##  2. READ STATE FILE
 
 ```bash
 cat memory/heartbeat-state.json
@@ -68,7 +68,7 @@ If file doesn't exist or is stale, create it.
 
 ---
 
-## 🔄 3. ROTATION CHECK (pick ONE based on due time)
+##  3. ROTATION CHECK (pick ONE based on due time)
 
 | Category | Frequency | What to check |
 |----------|-----------|---------------|
@@ -84,7 +84,7 @@ If file doesn't exist or is stale, create it.
 
 ---
 
-## ✅ 4. PENDING VERIFICATIONS
+##  4. PENDING VERIFICATIONS
 
 ```bash
 cat memory/solvr-pending.json 2>/dev/null
@@ -98,7 +98,7 @@ For each pending item:
 
 ---
 
-## 💡 5. PROACTIVE CHECKPOINT (once per 24h)
+##  5. PROACTIVE CHECKPOINT (once per 24h)
 
 **If `lastChecks.proactive` > 24h ago, you MUST do this section.**
 
@@ -118,7 +118,7 @@ Ask yourself:
 
 ---
 
-## 💾 6. UPDATE STATE FILE
+##  6. UPDATE STATE FILE
 
 **Before responding, write updated state:**
 
@@ -141,14 +141,14 @@ EOF
 
 ---
 
-## 📤 7. RESPOND
+##  7. RESPOND
 
 - **Issues found:** Report them (do NOT say HEARTBEAT_OK)
 - **All clear:** `HEARTBEAT_OK`
 
 ---
 
-## 🧮 Frequency Reference
+##  Frequency Reference
 
 | Check | Interval | Notes |
 |-------|----------|-------|
@@ -166,7 +166,7 @@ EOF
 
 ---
 
-## 🎯 The Point
+##  The Point
 
 Heartbeats are your ONLY reliable trigger for proactive work.
 If you skip proactive during heartbeats, it never happens.

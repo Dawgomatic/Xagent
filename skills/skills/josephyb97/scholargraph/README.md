@@ -1,4 +1,4 @@
-# 📚 ScholarGraph - Academic Literature Intelligence Toolkit
+#  ScholarGraph - Academic Literature Intelligence Toolkit
 
 <div align="center">
 
@@ -12,23 +12,23 @@
 
 ---
 
-## 🎯 Project Goals
+##  Project Goals
 
 This toolkit addresses core challenges in academic research and knowledge acquisition:
 
 | Problem | Solution |
 |------|----------|
-| 📚 Information overload | AI-powered multi-source filtering |
-| 🧩 Fragmented knowledge | Automated knowledge graph construction |
-| 🔄 Hard-to-track progress | Real-time monitoring with reports |
-| 🙈 Invisible knowledge gaps | Proactive gap detection |
-| 🆕 Complex concept learning | One-click concept cards |
+|  Information overload | AI-powered multi-source filtering |
+|  Fragmented knowledge | Automated knowledge graph construction |
+|  Hard-to-track progress | Real-time monitoring with reports |
+|  Invisible knowledge gaps | Proactive gap detection |
+|  Complex concept learning | One-click concept cards |
 
 ---
 
-## ✨ Core Features
+##  Core Features
 
-### 1. 🔍 Literature Search Engine
+### 1.  Literature Search Engine
 
 Multi-source academic paper discovery across arXiv, Semantic Scholar, and web sources.
 
@@ -47,7 +47,7 @@ const results = await searcher.search("large language models", {
 });
 ```
 
-### 2. 📖 Concept Learner
+### 2.  Concept Learner
 
 Rapid knowledge framework construction with structured learning cards.
 
@@ -66,7 +66,7 @@ const card = await learner.learn("Transformer", {
 });
 ```
 
-### 3. 🔎 Knowledge Gap Detector
+### 3.  Knowledge Gap Detector
 
 Proactively identifies blind spots in your understanding.
 
@@ -85,7 +85,7 @@ const report = await detector.detect({
 });
 ```
 
-### 4. 📊 Progress Tracker
+### 4.  Progress Tracker
 
 Real-time field monitoring with automated reporting.
 
@@ -105,7 +105,7 @@ await tracker.addWatch({
 const updates = await tracker.getUpdates();
 ```
 
-### 5. 📄 Paper Analyzer
+### 5.  Paper Analyzer
 
 Deep paper analysis extracting key contributions and insights.
 
@@ -123,7 +123,7 @@ const analysis = await analyzer.analyze({
 });
 ```
 
-### 6. 🔗 Knowledge Graph Builder
+### 6.  Knowledge Graph Builder
 
 Visualizes concept relationships through interactive graphs.
 
@@ -141,7 +141,7 @@ console.log(builder.toMermaid(graph));
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 # Clone repository
@@ -157,7 +157,7 @@ bun run skills/cli.ts config init
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Literature Search
 
@@ -185,7 +185,7 @@ bun run skills/cli.ts analyze "https://arxiv.org/abs/1706.03762" --output paper-
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 skills/
@@ -230,7 +230,7 @@ skills/
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 Configuration file `scholargraph-config.json`:
 
@@ -261,7 +261,7 @@ Configuration file `scholargraph-config.json`:
 
 ---
 
-## 💡 Usage Scenarios
+##  Usage Scenarios
 
 ### Scenario 1: Rapid Field Onboarding
 
@@ -301,7 +301,7 @@ lit graph "Chain of Thought" "Prompt Engineering" "Few-shot Learning"
 
 ---
 
-## 🛠️ Development Guide
+##  Development Guide
 
 ### Adding New Skills
 
@@ -326,7 +326,7 @@ bun test
 
 ---
 
-## 📝 Output Formats
+##  Output Formats
 
 ### Markdown Reports
 
@@ -353,7 +353,7 @@ interface SearchResult {
 
 ---
 
-## 🤝 Contribution Guidelines
+##  Contribution Guidelines
 
 Contributions are welcome!
 
@@ -365,13 +365,13 @@ Contributions are welcome!
 
 ---
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgements
+##  Acknowledgements
 
 - [arXiv](https://arxiv.org/) - Open-access paper repository
 - [Semantic Scholar](https://www.semanticscholar.org/) - Academic search engine
@@ -381,6 +381,6 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 <div align="center">
 
-**⭐ If you find this project helpful, please give it a Star! ⭐**
+** If you find this project helpful, please give it a Star! **
 
 </div>

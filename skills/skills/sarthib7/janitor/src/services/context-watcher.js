@@ -43,7 +43,7 @@ class ContextWatcher {
       return;
     }
 
-    console.log(`🔍 Starting context watcher (checking every ${this.config.intervalMinutes} minutes)...`);
+    console.log(` Starting context watcher (checking every ${this.config.intervalMinutes} minutes)...`);
 
     this.isRunning = true;
 
@@ -56,7 +56,7 @@ class ContextWatcher {
       this._performCheck();
     }, intervalMs);
 
-    console.log('✅ Context watcher started');
+    console.log(' Context watcher started');
   }
 
   /**
@@ -74,7 +74,7 @@ class ContextWatcher {
     }
 
     this.isRunning = false;
-    console.log('⏹️  Context watcher stopped');
+    console.log('  Context watcher stopped');
   }
 
   /**
@@ -95,26 +95,26 @@ class ContextWatcher {
 
       // Check if cleanup is needed
       if (usage.utilizationPercent >= this.config.emergencyThreshold) {
-        console.log(`\n  🚨 CRITICAL: Emergency cleanup required!`);
+        console.log(`\n   CRITICAL: Emergency cleanup required!`);
 
         if (this.config.autoCleanup) {
           await this._triggerEmergencyCleanup();
         } else {
-          console.log(`  ℹ️  Auto-cleanup is disabled. Manual intervention required.`);
+          console.log(`    Auto-cleanup is disabled. Manual intervention required.`);
         }
       } else if (usage.utilizationPercent >= this.config.alertThreshold) {
-        console.log(`\n  ⚠️  WARNING: High usage detected, cleanup recommended`);
+        console.log(`\n    WARNING: High usage detected, cleanup recommended`);
 
         if (this.config.autoCleanup) {
           await this._triggerRoutineCleanup(usage.utilizationPercent);
         } else {
-          console.log(`  ℹ️  Auto-cleanup is disabled. Run 'janitor context clean' manually.`);
+          console.log(`    Auto-cleanup is disabled. Run 'janitor context clean' manually.`);
         }
       } else {
-        console.log(`  ✅ Usage is within normal range`);
+        console.log(`   Usage is within normal range`);
       }
     } catch (error) {
-      console.error(`❌ Context check failed:`, error.message);
+      console.error(` Context check failed:`, error.message);
     }
   }
 
@@ -124,7 +124,7 @@ class ContextWatcher {
    */
   async _triggerRoutineCleanup(utilizationPercent) {
     try {
-      console.log(`\n🧹 Triggering routine cleanup...`);
+      console.log(`\n Triggering routine cleanup...`);
 
       const strategy = this.pruner.getRecommendedStrategy(utilizationPercent);
 
@@ -147,22 +147,22 @@ class ContextWatcher {
       const toPrune = sessionsToPrune.slice(0, pruneCount);
 
       if (toPrune.length === 0) {
-        console.log(`  ℹ️  No sessions available to prune (all are protected)`);
+        console.log(`    No sessions available to prune (all are protected)`);
         return;
       }
 
       // Archive before pruning
-      console.log(`  📦 Archiving ${toPrune.length} sessions...`);
+      console.log(`   Archiving ${toPrune.length} sessions...`);
       const archiveResult = await this.archiver.archiveSessions(toPrune, 'auto-cleanup');
 
       // Prune sessions
-      console.log(`  🗑️  Pruning ${toPrune.length} sessions...`);
+      console.log(`    Pruning ${toPrune.length} sessions...`);
       const pruneResult = await this.pruner.prune(strategy);
 
       // Verify results
       const afterUsage = await this.monitor.getContextUsage();
 
-      console.log(`\n  ✅ Cleanup complete:`);
+      console.log(`\n   Cleanup complete:`);
       console.log(`     - Archived: ${archiveResult.archived} sessions`);
       console.log(`     - Pruned: ${pruneResult.sessionsPruned} sessions`);
       console.log(`     - Freed: ${this.monitor.formatTokens(pruneResult.tokensFreed)} tokens`);
@@ -171,7 +171,7 @@ class ContextWatcher {
       this.cleanupCount++;
       this.lastCleanup = new Date();
     } catch (error) {
-      console.error(`  ❌ Routine cleanup failed:`, error.message);
+      console.error(`   Routine cleanup failed:`, error.message);
     }
   }
 
@@ -181,24 +181,24 @@ class ContextWatcher {
    */
   async _triggerEmergencyCleanup() {
     try {
-      console.log(`\n🚨 Triggering EMERGENCY cleanup...`);
+      console.log(`\n Triggering EMERGENCY cleanup...`);
 
       const result = await this.emergency.execute();
 
       if (result.success) {
-        console.log(`\n  ✅ Emergency cleanup successful!`);
+        console.log(`\n   Emergency cleanup successful!`);
         console.log(`     - Before: ${result.beforeUsage.percent.toFixed(1)}% (${result.beforeUsage.sessions} sessions)`);
         console.log(`     - After: ${result.afterUsage.percent.toFixed(1)}% (${result.afterUsage.sessions} sessions)`);
         console.log(`     - Duration: ${result.duration}ms`);
       } else {
-        console.log(`\n  ❌ Emergency cleanup failed!`);
+        console.log(`\n   Emergency cleanup failed!`);
         console.log(`     Error: ${result.error || 'Unknown error'}`);
       }
 
       this.cleanupCount++;
       this.lastCleanup = new Date();
     } catch (error) {
-      console.error(`  ❌ Emergency cleanup failed:`, error.message);
+      console.error(`   Emergency cleanup failed:`, error.message);
     }
   }
 
@@ -259,7 +259,7 @@ class ContextWatcher {
    * Perform immediate check (manual trigger)
    */
   async checkNow() {
-    console.log('🔍 Performing immediate context check...');
+    console.log(' Performing immediate context check...');
     await this._performCheck();
   }
 
@@ -272,7 +272,7 @@ class ContextWatcher {
       ...newConfig
     };
 
-    console.log('⚙️  Configuration updated');
+    console.log('  Configuration updated');
 
     // Restart if running to apply new interval
     if (this.isRunning && newConfig.intervalMinutes) {

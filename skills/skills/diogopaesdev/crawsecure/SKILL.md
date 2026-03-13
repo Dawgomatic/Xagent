@@ -8,7 +8,7 @@ It promotes safer usage, transparency, and awareness when working with third-par
 
 ---
 
-## 🔍 What CrawSecure does
+##  What CrawSecure does
 
 - Analyzes skill-related files locally
 - Detects potentially dangerous patterns
@@ -17,7 +17,7 @@ It promotes safer usage, transparency, and awareness when working with third-par
 
 ---
 
-## 🚨 Risk Signals Analyzed
+##  Risk Signals Analyzed
 
 - Dangerous command patterns (e.g. destructive or execution-related behavior)
 - References to sensitive files or credentials
@@ -25,7 +25,7 @@ It promotes safer usage, transparency, and awareness when working with third-par
 
 ---
 
-## 🔒 Security Philosophy
+##  Security Philosophy
 
 - Read-only analysis
 - No network access
@@ -36,7 +36,7 @@ CrawSecure exists to **increase trust** inside the ClawHub ecosystem.
 
 ---
 
-## ⚙️ Execution Model
+##  Execution Model
 
 CrawSecure does **NOT** execute or install any third-party code.
 

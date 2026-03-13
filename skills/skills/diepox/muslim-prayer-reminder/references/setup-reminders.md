@@ -143,15 +143,15 @@ The check script looks for three reminder windows:
 
 1. **Before (9-11 minutes)**
    - Triggers: 10 minutes before prayer time (±1 min buffer)
-   - Message: "🕌 Salat approaching: Asr in 10 minutes (16:43)"
+   - Message: " Salat approaching: Asr in 10 minutes (16:43)"
 
 2. **Now (-1 to +2 minutes)**
    - Triggers: At prayer time (±2 min buffer)
-   - Message: "🕌 Salat First: Asr time is now (16:43)"
+   - Message: " Salat First: Asr time is now (16:43)"
 
 3. **After (-6 to -4 minutes)**
    - Triggers: 5 minutes after prayer started (±1 min buffer)
-   - Message: "🕌 Salat reminder: Asr started 5 minutes ago (16:43)"
+   - Message: " Salat reminder: Asr started 5 minutes ago (16:43)"
 
 ### Why These Windows?
 

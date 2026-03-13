@@ -5,7 +5,7 @@ version: 1.5.0
 homepage: https://github.com/odrobnik/tesla-fleet-api-skill
 metadata:
   openclaw:
-    emoji: "🚗"
+    emoji: ""
     requires:
       bins: ["python3", "openssl"]
       env: ["TESLA_CLIENT_ID", "TESLA_CLIENT_SECRET"]
@@ -307,10 +307,10 @@ vehicle_data.py -c --json
 ### Sample Output
 
 ```
-🚗 My Tesla (online)
+ My Tesla (online)
    VIN: 5YJ... (redacted)
 
-⚡ Charge State
+ Charge State
 ────────────────────────────────────────
   Battery:    [███████████████░░░░░] 78%
   Limit:      80%
@@ -321,7 +321,7 @@ vehicle_data.py -c --json
   Range:      438 km (272 mi)
   Cable:      IEC
 
-🌡️  Climate State
+  Climate State
 ────────────────────────────────────────
   Inside:     11.9°C
   Outside:    6.0°C
@@ -420,10 +420,10 @@ python3 scripts/tesla_fleet.py vehicles --json
 ### Sample Output
 
 ```
-🚗 Name:   My Tesla
-🔖 VIN:    5YJ... (redacted)
-🟢 Status: Online
-👤 Access: Owner
+ Name:   My Tesla
+ VIN:    5YJ... (redacted)
+ Status: Online
+ Access: Owner
 ```
 
 ---

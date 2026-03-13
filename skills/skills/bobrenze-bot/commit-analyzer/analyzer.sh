@@ -26,7 +26,7 @@ MAX_WARNING_GAP=6
 
 show_help() {
     cat << 'EOF'
-📊 Commit Analyzer - Git Health Monitor
+ Commit Analyzer - Git Health Monitor
 
 USAGE:
     analyzer.sh <command> [param] [--json]
@@ -85,16 +85,16 @@ health_check() {
     
     # Determine status
     local status="HEALTHY"
-    local status_icon="✅"
+    local status_icon=""
     local cph_int=${cph%.*}
     [[ -z "$cph_int" ]] && cph_int=0
     
     if [[ $cph_int -lt $WARNING_CPH ]]; then
         status="CRITICAL"
-        status_icon="🔴"
+        status_icon=""
     elif [[ $cph_int -lt $HEALTHY_CPH ]]; then
         status="WARNING"
-        status_icon="⚠️"
+        status_icon=""
     fi
     
     if [[ -n "$JSON_MODE" ]]; then
@@ -110,7 +110,7 @@ health_check() {
 EOF
     else
         echo ""
-        echo -e "${BOLD}📊 Git Health Report (last 24h)${NC}"
+        echo -e "${BOLD} Git Health Report (last 24h)${NC}"
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         echo -e "Total commits: ${BOLD}$commits_24h${NC}"
         echo -e "Commits/hour: ${BOLD}$cph${NC}"
@@ -123,11 +123,11 @@ EOF
         echo ""
         
         if [[ "$status" == "CRITICAL" ]]; then
-            echo -e "${RED}⚡ Action: Check for blockers or waiting mode${NC}"
+            echo -e "${RED} Action: Check for blockers or waiting mode${NC}"
         elif [[ "$status" == "WARNING" ]]; then
-            echo -e "${YELLOW}💡 Recommendation: Review task queue${NC}"
+            echo -e "${YELLOW} Recommendation: Review task queue${NC}"
         else
-            echo -e "${GREEN}👍 Autonomous operation healthy${NC}"
+            echo -e "${GREEN} Autonomous operation healthy${NC}"
         fi
     fi
 }
@@ -140,7 +140,7 @@ full_report() {
     local daily_avg=$(echo "scale=1; $total / $days" | bc 2>/dev/null || echo "0")
     
     echo ""
-    echo -e "${BOLD}📊 Full Git Analysis (last ${days} days)${NC}"
+    echo -e "${BOLD} Full Git Analysis (last ${days} days)${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     echo -e "${BOLD}Overview${NC}"
@@ -170,18 +170,18 @@ full_report() {
     
     echo -e "${BOLD}Health Assessment${NC}"
     if [[ $cph_int -ge $HEALTHY_CPH ]]; then
-        echo -e "  ${GREEN}✅ Autonomous operation healthy${NC}"
+        echo -e "  ${GREEN} Autonomous operation healthy${NC}"
     elif [[ $cph_int -ge $WARNING_CPH ]]; then
-        echo -e "  ${YELLOW}⚠️ Below optimal velocity${NC}"
+        echo -e "  ${YELLOW} Below optimal velocity${NC}"
     else
-        echo -e "  ${RED}🔴 Low activity - check for blockers${NC}"
+        echo -e "  ${RED} Low activity - check for blockers${NC}"
     fi
 }
 
 show_hourly() {
     local days=$PARAM
     echo ""
-    echo -e "${BOLD}📊 Commits by Hour (last ${days} days)${NC}"
+    echo -e "${BOLD} Commits by Hour (last ${days} days)${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     
@@ -209,7 +209,7 @@ show_categories() {
     
     if [[ -z "$prefix" ]]; then
         echo ""
-        echo -e "${BOLD}📊 Commit Categories (last ${days} days)${NC}"
+        echo -e "${BOLD} Commit Categories (last ${days} days)${NC}"
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         echo ""
     fi
@@ -243,7 +243,7 @@ show_categories() {
 detect_waiting() {
     local hours=${PARAM:-48}
     echo ""
-    echo -e "${BOLD}📊 Idle Period Detection (last ${hours}h)${NC}"
+    echo -e "${BOLD} Idle Period Detection (last ${hours}h)${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     
@@ -263,9 +263,9 @@ detect_waiting() {
             local curr_time=$(date -r $ts "+%Y-%m-%d %H:%M" 2>/dev/null || date -d "@$ts" "+%Y-%m-%d %H:%M" 2>/dev/null)
             
             if [[ $gap -ge $MAX_WARNING_GAP ]]; then
-                echo -e "  ${RED}🔴 ${gap}h gap${NC}: $prev_time → $curr_time"
+                echo -e "  ${RED} ${gap}h gap${NC}: $prev_time → $curr_time"
             else
-                echo -e "  ${YELLOW}⚠️ ${gap}h gap${NC}: $prev_time → $curr_time"
+                echo -e "  ${YELLOW} ${gap}h gap${NC}: $prev_time → $curr_time"
             fi
             idle_periods=$((idle_periods + 1))
         fi
@@ -273,7 +273,7 @@ detect_waiting() {
     done
     
     if [[ $idle_periods -eq 0 ]]; then
-        echo -e "  ${GREEN}✅ No significant idle periods detected${NC}"
+        echo -e "  ${GREEN} No significant idle periods detected${NC}"
     else
         echo ""
         echo "Found $idle_periods idle period(s) >= ${MAX_HEALTHY_GAP}h"

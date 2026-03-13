@@ -266,8 +266,8 @@ See exit codes and common issues tables above. If an error persists:
 
 ---
 
-**💡 Pro Tip**: The most common issue is missing or incorrect AK/SK. Always verify credentials first when encountering errors.
+** Pro Tip**: The most common issue is missing or incorrect AK/SK. Always verify credentials first when encountering errors.
 
-**⚠️ Security**: Keep your AK/SK private. Never commit credentials to version control. Only trade amounts you can afford to lose.
+** Security**: Keep your AK/SK private. Never commit credentials to version control. Only trade amounts you can afford to lose.
 
-**🚀 Quick Win**: Start by checking your balance to verify setup, then try a small trade like `"buy 1u of ETH"` to get familiar with the flow.
+** Quick Win**: Start by checking your balance to verify setup, then try a small trade like `"buy 1u of ETH"` to get familiar with the flow.

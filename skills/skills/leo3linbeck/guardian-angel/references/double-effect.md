@@ -24,12 +24,12 @@ For an action with both good and bad effects to be morally permissible, **ALL FO
 
 **The act cannot be intrinsically evil.** If the object is evil by nature, double effect cannot apply.
 
-✅ Pass: The immediate act is morally permissible in itself
-❌ Fail: The act itself is intrinsically evil (lying, theft, murder)
+ Pass: The immediate act is morally permissible in itself
+ Fail: The act itself is intrinsically evil (lying, theft, murder)
 
 **Example:**
-- ✅ Giving pain medication (act of healing/comfort)
-- ❌ Lying to protect someone (lying is intrinsically evil)
+-  Giving pain medication (act of healing/comfort)
+-  Lying to protect someone (lying is intrinsically evil)
 
 ---
 
@@ -42,8 +42,8 @@ The agent must intend only the good effect. The bad effect must be:
 - **Not intended** either as an end or as a means
 - ***Praeter intentionem*** — "beside the intention"
 
-✅ Pass: Bad effect is foreseen but not wanted; agent would prevent it if possible
-❌ Fail: Bad effect is desired, welcomed, or chosen as part of the plan
+ Pass: Bad effect is foreseen but not wanted; agent would prevent it if possible
+ Fail: Bad effect is desired, welcomed, or chosen as part of the plan
 
 **Test questions:**
 - Would you perform this action if you could achieve the good effect without the bad?
@@ -51,8 +51,8 @@ The agent must intend only the good effect. The bad effect must be:
 - Are you using the bad effect to accomplish something?
 
 **Example:**
-- ✅ Doctor gives pain relief knowing it may shorten life, but only intends comfort
-- ❌ Doctor gives medication *in order to* end life
+-  Doctor gives pain relief knowing it may shorten life, but only intends comfort
+-  Doctor gives medication *in order to* end life
 
 ---
 
@@ -62,8 +62,8 @@ The agent must intend only the good effect. The bad effect must be:
 
 The good effect must come directly from the action itself, not be caused by the bad effect. The bad cannot be the *means* to the good.
 
-✅ Pass: Good effect flows directly from the act; bad effect is a parallel or downstream consequence
-❌ Fail: The bad effect is what produces the good effect
+ Pass: Good effect flows directly from the act; bad effect is a parallel or downstream consequence
+ Fail: The bad effect is what produces the good effect
 
 **Diagram:**
 ```
@@ -75,8 +75,8 @@ PERMISSIBLE:            NOT PERMISSIBLE:
 ```
 
 **Example:**
-- ✅ Bombing a military target (good: stop enemy); civilians nearby die (bad: parallel effect)
-- ❌ Killing hostage to demoralize enemy (good depends on the bad)
+-  Bombing a military target (good: stop enemy); civilians nearby die (bad: parallel effect)
+-  Killing hostage to demoralize enemy (good depends on the bad)
 
 ---
 
@@ -89,8 +89,8 @@ There must be a **proportionately serious reason** for permitting the evil effec
 - Not achievable by other means that avoid the evil
 - Proportionate to the evil in gravity, probability, and proximity
 
-✅ Pass: Good achieved is proportionate to evil tolerated; no better alternative exists
-❌ Fail: Good is trivial compared to evil; alternative means were available
+ Pass: Good achieved is proportionate to evil tolerated; no better alternative exists
+ Fail: Good is trivial compared to evil; alternative means were available
 
 **Factors in proportionality:**
 - Gravity of the good vs. evil
@@ -101,8 +101,8 @@ There must be a **proportionately serious reason** for permitting the evil effec
 - Availability of alternatives
 
 **Example:**
-- ✅ Amputating a limb to save a life (proportionate)
-- ❌ Killing one innocent to save two (not proportionate—innocent life cannot be weighed this way)
+-  Amputating a limb to save a life (proportionate)
+-  Killing one innocent to save two (not proportionate—innocent life cannot be weighed this way)
 
 ---
 
@@ -140,10 +140,10 @@ Note: Even if permissible, elevate response level one step.
 
 | Condition | Analysis | Result |
 |-----------|----------|--------|
-| 1. Object good/neutral? | Defending life is good | ✅ |
-| 2. Good intended only? | Intent: save self; death foreseen, not intended | ✅ |
-| 3. Good not via bad? | Safety comes from stopping attack, not from death per se | ✅ |
-| 4. Proportionate? | Life vs. life; no lesser means available | ✅ |
+| 1. Object good/neutral? | Defending life is good |  |
+| 2. Good intended only? | Intent: save self; death foreseen, not intended |  |
+| 3. Good not via bad? | Safety comes from stopping attack, not from death per se |  |
+| 4. Proportionate? | Life vs. life; no lesser means available |  |
 
 **Conclusion:** Permissible under double effect.
 
@@ -155,10 +155,10 @@ Note: Even if permissible, elevate response level one step.
 
 | Condition | Analysis | Result |
 |-----------|----------|--------|
-| 1. Object good/neutral? | Relieving suffering is good | ✅ |
-| 2. Good intended only? | Intent: comfort; death foreseen, not intended | ✅ |
-| 3. Good not via bad? | Relief comes from medication's effect, not from dying | ✅ |
-| 4. Proportionate? | Severe suffering vs. possible hastening of imminent death | ✅ |
+| 1. Object good/neutral? | Relieving suffering is good |  |
+| 2. Good intended only? | Intent: comfort; death foreseen, not intended |  |
+| 3. Good not via bad? | Relief comes from medication's effect, not from dying |  |
+| 4. Proportionate? | Severe suffering vs. possible hastening of imminent death |  |
 
 **Conclusion:** Permissible under double effect.
 
@@ -170,7 +170,7 @@ Note: Even if permissible, elevate response level one step.
 
 | Condition | Analysis | Result |
 |-----------|----------|--------|
-| 1. Object good/neutral? | Crushing skull is directly killing | ❌ |
+| 1. Object good/neutral? | Crushing skull is directly killing |  |
 
 **Conclusion:** Not permissible. The object itself is direct killing of innocent human being.
 
@@ -184,7 +184,7 @@ Note: Even if permissible, elevate response level one step.
 
 | Condition | Analysis | Result |
 |-----------|----------|--------|
-| 1. Object good/neutral? | Lying is intrinsically evil | ❌ |
+| 1. Object good/neutral? | Lying is intrinsically evil |  |
 
 **Conclusion:** Not permissible under double effect. Lying remains intrinsically evil.
 
@@ -198,10 +198,10 @@ Note: Even if permissible, elevate response level one step.
 
 | Condition | Analysis | Result |
 |-----------|----------|--------|
-| 1. Object good/neutral? | Truth-telling and exposing injustice is good | ✅ |
-| 2. Good intended only? | Intent: stop fraud; job losses foreseen, not desired | ✅ |
-| 3. Good not via bad? | Fraud stops because exposed, not because jobs lost | ✅ |
-| 4. Proportionate? | Depends on severity of fraud vs. harm to innocents | ⚠️ Requires analysis |
+| 1. Object good/neutral? | Truth-telling and exposing injustice is good |  |
+| 2. Good intended only? | Intent: stop fraud; job losses foreseen, not desired |  |
+| 3. Good not via bad? | Fraud stops because exposed, not because jobs lost |  |
+| 4. Proportionate? | Depends on severity of fraud vs. harm to innocents |  Requires analysis |
 
 **Conclusion:** May be permissible; proportionality analysis needed.
 
@@ -213,10 +213,10 @@ Note: Even if permissible, elevate response level one step.
 
 | Condition | Analysis | Result |
 |-----------|----------|--------|
-| 1. Object good/neutral? | Legitimate competition is neutral/good | ✅ |
-| 2. Good intended only? | Intent: serve customers well; competitor harm foreseen | ⚠️ Check carefully |
-| 3. Good not via bad? | Success comes from serving market, not from competitor's failure | ✅ |
-| 4. Proportionate? | Legitimate business vs. harm to competitor/employees | ⚠️ Requires analysis |
+| 1. Object good/neutral? | Legitimate competition is neutral/good |  |
+| 2. Good intended only? | Intent: serve customers well; competitor harm foreseen |  Check carefully |
+| 3. Good not via bad? | Success comes from serving market, not from competitor's failure |  |
+| 4. Proportionate? | Legitimate business vs. harm to competitor/employees |  Requires analysis |
 
 **Conclusion:** Potentially permissible; requires careful examination of actual intentions and proportionality.
 

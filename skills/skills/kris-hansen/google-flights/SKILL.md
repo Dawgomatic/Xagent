@@ -57,13 +57,13 @@ Flight data in link elements:
 ### Full Mode Output
 
 ```
-✈️ YYC → LAX | Fri Feb 20
+ YYC → LAX | Fri Feb 20
 
 1. Air Canada | 6:25 AM → 11:48 AM | 6h 23m | 1 stop (YVR) | CA$737
 2. United | 6:15 AM → 11:31 AM | 6h 16m | 1 stop (DEN) | CA$744
-3. WestJet | 9:00 AM → 11:27 AM | 3h 27m | Nonstop | CA$1,047 ⭐
+3. WestJet | 9:00 AM → 11:27 AM | 3h 27m | Nonstop | CA$1,047 
 
-🔗 Book on Google Flights: [link]
+ Book on Google Flights: [link]
 ```
 
 ## Setup (Quick Mode)

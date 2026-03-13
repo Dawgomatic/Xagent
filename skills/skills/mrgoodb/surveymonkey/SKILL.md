@@ -1,7 +1,7 @@
 ---
 name: surveymonkey
 description: Create surveys and collect responses via SurveyMonkey API. Manage surveys, view results, and export data.
-metadata: {"clawdbot":{"emoji":"📋","requires":{"env":["SURVEYMONKEY_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SURVEYMONKEY_ACCESS_TOKEN"]}}}
 ---
 
 # SurveyMonkey

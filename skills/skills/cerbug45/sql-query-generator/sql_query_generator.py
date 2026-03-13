@@ -648,7 +648,7 @@ def main():
         if warnings:
             print("Security Warnings:")
             for warning in warnings:
-                print(f"  ⚠ {warning}")
+                print(f"   {warning}")
         else:
             print("✓ No security issues detected")
         print()

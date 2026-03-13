@@ -57,7 +57,7 @@ Good references = Better AI results
 
 ## What Makes a Good Reference Image
 
-### ✅ Good References
+###  Good References
 
 **Pose Characteristics**:
 - Clear, visible pose (arms, legs, head position)
@@ -89,7 +89,7 @@ Good references = Better AI results
 - Professional quality
 - Consistent with your other content
 
-### ❌ Bad References
+###  Bad References
 
 **Avoid**:
 - Extremely complex poses (hard for AI to replicate)
@@ -243,22 +243,22 @@ When selecting a reference, check:
 
 ## Common Mistakes to Avoid
 
-### ❌ Mistake 1: Choosing Too Complex Poses
+###  Mistake 1: Choosing Too Complex Poses
 **Problem**: Acrobatic, extreme, or highly stylized poses
 **Result**: AI fails to replicate, unnatural output
 **Solution**: Choose simple, natural poses first
 
-### ❌ Mistake 2: Ignoring Lighting
+###  Mistake 2: Ignoring Lighting
 **Problem**: Selecting reference without analyzing lighting
 **Result**: Generated image doesn't match reference style
 **Solution**: Note lighting direction (studio, natural, dramatic)
 
-### ❌ Mistake 3: Mismatched Brand Aesthetic
+###  Mistake 3: Mismatched Brand Aesthetic
 **Problem**: Choosing trendy/edgy reference for minimalist brand
 **Result**: Inconsistent brand identity
 **Solution**: Always align with brand style
 
-### ❌ Mistake 4: Low-Quality References
+###  Mistake 4: Low-Quality References
 **Problem**: Saving blurry or small images
 **Result**: AI quality limited by reference quality
 **Solution**: Always choose high-resolution, professional pins
@@ -290,7 +290,7 @@ When selecting a reference, check:
 ## Quick Reference Card
 
 ```
-✅ GOOD REFERENCE CHECKLIST:
+ GOOD REFERENCE CHECKLIST:
    • Clear, natural pose
    • Professional lighting
    • Appropriate angle for product
@@ -299,7 +299,7 @@ When selecting a reference, check:
    • No text or distractions
    • Reusable for similar products
 
-❌ AVOID:
+ AVOID:
    • Overly complex poses
    • Extreme angles
    • Poor lighting

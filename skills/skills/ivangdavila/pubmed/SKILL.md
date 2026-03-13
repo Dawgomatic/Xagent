@@ -1,7 +1,7 @@
 ---
 name: PubMed
 description: Search and evaluate biomedical literature with effective queries, filters, and critical appraisal.
-metadata: {"clawdbot":{"emoji":"🔬","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # PubMed Research Rules

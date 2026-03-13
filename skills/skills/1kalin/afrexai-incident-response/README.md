@@ -28,4 +28,4 @@ Install via ClawHub, then describe your incident to your agent. It handles triag
 - [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Configure your AI agent stack in minutes
 - [Industry Context Packs](https://afrexai-cto.github.io/context-packs/) — Pre-built agent knowledge for SaaS, Legal, Healthcare, and 7 more verticals ($47/pack)
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

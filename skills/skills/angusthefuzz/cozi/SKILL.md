@@ -3,7 +3,7 @@ name: cozi
 description: Interact with Cozi Family Organizer (shopping lists, todo lists, item management). Unofficial API client for family organization.
 metadata:
   openclaw:
-    emoji: 📋
+    emoji: 
     requires:
       bins: [node]
       env: [COZI_EMAIL, COZI_PASSWORD]
@@ -13,7 +13,7 @@ metadata:
 
 Unofficial client for Cozi Family Organizer API. Manage shopping lists and todo lists.
 
-⚠️ **Important:** This uses an unofficial API (reverse-engineered). Cozi may change it at any time.
+ **Important:** This uses an unofficial API (reverse-engineered). Cozi may change it at any time.
 
 ## Environment Variables
 

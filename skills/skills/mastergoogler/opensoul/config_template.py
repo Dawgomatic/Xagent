@@ -204,7 +204,7 @@ def validate_config():
         issues.append(f"Backup directory does not exist: {BACKUP_DIR}")
     
     if issues:
-        print("⚠️  Configuration issues detected:")
+        print("  Configuration issues detected:")
         for issue in issues:
             print(f"   - {issue}")
         return False

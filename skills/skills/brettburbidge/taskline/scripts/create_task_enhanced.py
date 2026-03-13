@@ -63,7 +63,7 @@ def find_or_create_project(project_name: str) -> Dict:
             return project
     
     # Create new project
-    print(f"📁 Creating new project: {project_name}")
+    print(f" Creating new project: {project_name}")
     return api_request("POST", "projects", {
         "name": project_name,
         "description": f"Auto-created project for {project_name}",
@@ -83,7 +83,7 @@ def find_or_create_person(name: str) -> Dict:
     
     # Create new person
     handle = re.sub(r'[^a-z0-9]', '', name.lower())[:20]  # Clean handle
-    print(f"👤 Creating new person: {name}")
+    print(f" Creating new person: {name}")
     return api_request("POST", "people", {
         "handle": handle,
         "displayName": name,
@@ -338,7 +338,7 @@ def create_enhanced_task(parsed_task: Dict) -> Dict:
     
     # Handle stakeholders (informational for now - may need API extension)
     if parsed_task['stakeholder_names']:
-        print(f"👥 Stakeholders identified: {', '.join(parsed_task['stakeholder_names'])}")
+        print(f" Stakeholders identified: {', '.join(parsed_task['stakeholder_names'])}")
         # Note: Stakeholder assignment may require additional API endpoint or task update
         # For now, we'll just log them - you may want to add this to the task description
         # or implement stakeholder assignment via a separate API call
@@ -347,43 +347,43 @@ def create_enhanced_task(parsed_task: Dict) -> Dict:
 
 def format_enhanced_task_summary(task: Dict, parsed: Dict) -> str:
     """Format comprehensive task creation summary."""
-    lines = [f"✅ Created task: {task['title']}"]
+    lines = [f" Created task: {task['title']}"]
     
     if task.get('description'):
-        lines.append(f"   📝 Description: {task['description']}")
+        lines.append(f"    Description: {task['description']}")
     if task.get('priority'):
-        priority_emoji = {'urgent': '🔥', 'high': '⬆️', 'medium': '➡️', 'low': '⬇️'}.get(task['priority'], '')
+        priority_emoji = {'urgent': '', 'high': '', 'medium': '', 'low': ''}.get(task['priority'], '')
         lines.append(f"   {priority_emoji} Priority: {task['priority']}")
     if task.get('dueAt'):
-        lines.append(f"   📅 Due: {task['dueAt']}")
+        lines.append(f"    Due: {task['dueAt']}")
     if task.get('project'):
-        lines.append(f"   📁 Project: {task['project']['name']}")
+        lines.append(f"    Project: {task['project']['name']}")
     if task.get('executorPerson') and task['executorPerson']['handle'] != 'me':
-        lines.append(f"   👤 Executor: {task['executorPerson']['displayName']}")
+        lines.append(f"    Executor: {task['executorPerson']['displayName']}")
     
     return "\n".join(lines)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python create_task_enhanced.py 'natural language task description'")
-        print("\n🧠 Enhanced Examples:")
+        print("\n Enhanced Examples:")
         print("  'High priority task for Mobile project: fix login bug by Friday'")
         print("  'Ask Sarah to review the FreeMySoul docs by next Monday with John and Mike'") 
         print("  'Create urgent task for Taskline project: add stakeholder management API'")
         print("  'Deploy API updates to Production project tomorrow'")
         print("  'Get Jennifer to handle the Platform project documentation by end of week'")
-        print("\n📅 Date Intelligence: today, tomorrow, Friday, next Monday, in 2 weeks, by EOW")
-        print("🏗️  Project Intelligence: Auto-detects and creates projects")
-        print("👥 People Intelligence: Identifies executors and stakeholders")
-        print("🔥 Priority Intelligence: urgent, high, medium, low")
+        print("\n Date Intelligence: today, tomorrow, Friday, next Monday, in 2 weeks, by EOW")
+        print("  Project Intelligence: Auto-detects and creates projects")
+        print(" People Intelligence: Identifies executors and stakeholders")
+        print(" Priority Intelligence: urgent, high, medium, low")
         sys.exit(1)
     
     # Parse the fully enhanced natural language request
     request_text = " ".join(sys.argv[1:])
     parsed_task = parse_enhanced_task(request_text)
     
-    print(f"🧠 Parsing: '{request_text}'")
-    print(f"📝 Extracted: {json.dumps(parsed_task, indent=2)}")
+    print(f" Parsing: '{request_text}'")
+    print(f" Extracted: {json.dumps(parsed_task, indent=2)}")
     print()
     
     # Create the task with full intelligence
@@ -392,4 +392,4 @@ if __name__ == "__main__":
     # Display comprehensive result
     print(format_enhanced_task_summary(task, parsed_task))
     print()
-    print(f"🔗 Task ID: {task['id']}")
+    print(f" Task ID: {task['id']}")

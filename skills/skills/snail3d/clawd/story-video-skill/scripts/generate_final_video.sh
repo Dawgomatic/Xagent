@@ -17,14 +17,14 @@ mkdir -p "$WORK_DIR"
 DURATION=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$AUDIO")
 DURATION_INT=${DURATION%.*}
 
-echo "🎬 PROFESSIONAL VIDEO - 199TRUST BRANDING"
+echo " PROFESSIONAL VIDEO - 199TRUST BRANDING"
 echo "========================================="
-echo "📄 Script: $TEXT_FILE"
-echo "🎵 Audio: $AUDIO"
-echo "⏱️  Duration: ${DURATION_INT}s"
+echo " Script: $TEXT_FILE"
+echo " Audio: $AUDIO"
+echo "  Duration: ${DURATION_INT}s"
 echo ""
 
-echo "1️⃣  Creating readable subtitles..."
+echo "  Creating readable subtitles..."
 
 # Create SRT with small, readable text (4-5 words per line)
 TEXT=$(cat "$TEXT_FILE")
@@ -63,10 +63,10 @@ for ((i=0; i<$NUM_WORDS; i+=$WORDS_PER_SUB)); do
     SUBTITLE_NUM=$((SUBTITLE_NUM + 1))
 done
 
-echo "   ✅ $(wc -l < "$SRT_FILE") lines"
+echo "    $(wc -l < "$SRT_FILE") lines"
 echo ""
 
-echo "2️⃣  Rendering professional video..."
+echo "  Rendering professional video..."
 
 # Professional colors: Dark navy + red accent
 # Text: White (readable on dark background)
@@ -89,11 +89,11 @@ SIZE=$(du -h "$OUTPUT" 2>/dev/null | cut -f1)
 
 echo ""
 echo "========================================="
-echo "✨ VIDEO READY: $OUTPUT"
-echo "📱 YouTube Shorts (9:16 portrait)"
-echo "🎬 ${DURATION_INT}s with professional subtitles"
-echo "🎨 199Trust branded colors"
-echo "📊 $SIZE"
+echo " VIDEO READY: $OUTPUT"
+echo " YouTube Shorts (9:16 portrait)"
+echo " ${DURATION_INT}s with professional subtitles"
+echo " 199Trust branded colors"
+echo " $SIZE"
 echo "========================================="
 
 rm -rf "$WORK_DIR"

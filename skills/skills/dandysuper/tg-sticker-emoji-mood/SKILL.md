@@ -3,7 +3,7 @@ name: telegram-sticker-vibes
 description: Automatically send Telegram stickers and emojis that match the mood and vibe of the conversation. Activates on every Telegram message to add expressive, human-like sticker and emoji reactions without being asked. Use this skill whenever you are chatting on Telegram to make conversations feel alive and fun.
 metadata:
   openclaw:
-    emoji: "🎭"
+    emoji: ""
     requires:
       env: ["TELEGRAM_BOT_TOKEN"]
 ---
@@ -40,7 +40,7 @@ Use the helper script at `{baseDir}/scripts/send_sticker.sh` via bash.
 bash {baseDir}/scripts/send_sticker.sh \
   --chat-id "$TELEGRAM_CHAT_ID" \
   --sticker-set "SET_NAME" \
-  --emoji "😂"
+  --emoji ""
 ```
 
 The script looks up the sticker set, finds a sticker matching the emoji, and sends it. If no exact match, it picks a random sticker from the set.
@@ -93,36 +93,36 @@ You are NOT limited to these sets. If you know of other sticker sets that fit, u
 
 Read the emotional tone of the conversation and pick accordingly:
 
-**😄 Happy / Excited / Good news**
-→ Send a celebratory or joyful sticker. Use 🎉 🥳 😄 emojis to find matches.
+** Happy / Excited / Good news**
+→ Send a celebratory or joyful sticker. Use    emojis to find matches.
 → Example sets: `PartyParrot`, `HotCherry`, `AnimatedChicky`
 
-**😂 Funny / Joking / Banter**
-→ Send a laughing or silly sticker. Use 😂 🤣 😆 emojis to find matches.
+** Funny / Joking / Banter**
+→ Send a laughing or silly sticker. Use    emojis to find matches.
 → Example sets: `MrCat`, `RaccoonGirl`
 
-**😢 Sad / Frustrated / Bad news**
-→ Send a comforting or empathetic sticker. Use 😢 🫂 💙 emojis.
+** Sad / Frustrated / Bad news**
+→ Send a comforting or empathetic sticker. Use    emojis.
 → Example sets: `StickerHugs`, `CutePenguin`
 
-**👋 Greeting / Goodbye**
-→ Send a waving or hello sticker. Use 👋 🤗 emojis.
+** Greeting / Goodbye**
+→ Send a waving or hello sticker. Use   emojis.
 → Example sets: `HotCherry`, `AnimatedChicky`
 
-**💪 Task completed / Success**
-→ Send a "nailed it" or thumbs-up sticker. Use 💪 ✅ 🚀 emojis.
+** Task completed / Success**
+→ Send a "nailed it" or thumbs-up sticker. Use    emojis.
 → Example sets: `DevLife`, `PartyParrot`
 
-**🤔 Thinking / Uncertain**
-→ Send a pondering or shrug sticker. Use 🤔 🤷 emojis.
+** Thinking / Uncertain**
+→ Send a pondering or shrug sticker. Use   emojis.
 → Example sets: `MrCat`, `RaccoonGirl`
 
-**❤️ Grateful / Warm / Affectionate**
-→ Send a heart or hug sticker. Use ❤️ 🥰 🫂 emojis.
+** Grateful / Warm / Affectionate**
+→ Send a heart or hug sticker. Use    emojis.
 → Example sets: `StickerHugs`, `HotCherry`
 
-**😎 Casual / Chill / Vibing**
-→ Send a cool or relaxed sticker. Use 😎 ✌️ emojis.
+** Casual / Chill / Vibing**
+→ Send a cool or relaxed sticker. Use   emojis.
 → Example sets: `CoffeeCat`, `RaccoonGirl`
 
 ## Inline Emoji Usage
@@ -130,7 +130,7 @@ Read the emotional tone of the conversation and pick accordingly:
 In addition to stickers, sprinkle emojis into your **text replies** naturally:
 - Don't overdo it — 1 to 3 emojis per message max
 - Place them where they feel organic, not forced
-- Match the energy: 🔥 for hype, 💀 for "I'm dead" humor, 👀 for intrigue, etc.
+- Match the energy:  for hype,  for "I'm dead" humor,  for intrigue, etc.
 
 ## Sticker Caching
 
@@ -140,8 +140,8 @@ The first time you use a sticker set in a session, list it with `--list-set` and
 
 Be mindful of how Telegram renders messages. The visual layout affects which directional emojis are correct:
 
-- **Images with captions:** The image appears **above** the caption text. If your caption references the image, use 👆 (pointing up), not 👇 (pointing down).
-- **Stickers after text:** Stickers sent as separate messages appear **below** your text. If referencing a sticker you're about to send, 👇 is correct.
+- **Images with captions:** The image appears **above** the caption text. If your caption references the image, use  (pointing up), not  (pointing down).
+- **Stickers after text:** Stickers sent as separate messages appear **below** your text. If referencing a sticker you're about to send,  is correct.
 - **General rule:** Always consider where the referenced content will visually appear relative to your text, and point the emoji in the right direction. Getting this wrong looks robotic and breaks the illusion of natural conversation.
 
 ## Important Rules

@@ -1,6 +1,6 @@
-# 🎉 Skill 已成功集成到 OpenClaw！
+#  Skill 已成功集成到 OpenClaw！
 
-## ✅ 集成完成
+##  集成完成
 
 **Restaurant Review Cross-Check** skill 已成功集成到 OpenClaw 技能系统中。
 
@@ -8,7 +8,7 @@
 
 ---
 
-## 📱 方式 1：通过对话使用（最简单）
+##  方式 1：通过对话使用（最简单）
 
 直接通过对话查询餐厅推荐：
 
@@ -22,7 +22,7 @@
 
 ---
 
-## 🖥️ 方式 2：命令行使用（服务器）
+##  方式 2：命令行使用（服务器）
 
 在服务器上使用简化版本（模拟数据）：
 
@@ -34,14 +34,14 @@ restaurant-crosscheck "北京朝阳区" "火锅"
 ```
 
 **特点**：
-- ✅ 不需要浏览器
-- ✅ 不需要登录
-- ✅ 适合无头服务器
-- ⚠️ 使用模拟数据
+-  不需要浏览器
+-  不需要登录
+-  适合无头服务器
+-  使用模拟数据
 
 ---
 
-## 🚀 方式 3：完整版本（本地电脑）
+##  方式 3：完整版本（本地电脑）
 
 在有图形界面的环境中使用真实数据：
 
@@ -52,14 +52,14 @@ bash setup.sh              # 安装并配置登录
 ```
 
 **特点**：
-- ✅ 真实数据抓取
-- ✅ 自动会话管理
-- ✅ 交叉验证分析
-- ⚠️ 需要浏览器
+-  真实数据抓取
+-  自动会话管理
+-  交叉验证分析
+-  需要浏览器
 
 ---
 
-## 🎯 使用建议
+##  使用建议
 
 | 使用场景 | 推荐方式 |
 |---------|---------|
@@ -70,58 +70,58 @@ bash setup.sh              # 安装并配置登录
 
 ---
 
-## 📊 测试结果
+##  测试结果
 
 已测试查询：
 
 ```bash
 # 深圳南山火锅
 $ restaurant-crosscheck "深圳市南山区" "火锅"
-✅ 找到 3 家推荐餐厅
+ 找到 3 家推荐餐厅
 
 # 上海静安日式料理
 $ restaurant-crosscheck "上海静安区" "日式料理"
-✅ 找到 3 家推荐餐厅
+ 找到 3 家推荐餐厅
 ```
 
 ---
 
-## 📁 文件结构
+##  文件结构
 
 ```
 skills/restaurant-review-crosscheck/
-├── SKILL.md                   ✅ AI 技能描述（系统读取）
-├── SERVER_GUIDE.md            ✅ 服务器使用指南
-├── QUICKSTART.md              ✅ 快速开始
-├── IMPLEMENTATION.md          ✅ 实现说明
-├── README.md                  ✅ 完整文档
-├── restaurant-crosscheck      ✅ 命令行工具（服务器版）
-├── crosscheck-restaurants     ⭐ 原始命令（已弃用）
-├── crosscheck-auto            ⭐ 完整版命令（需要浏览器）
-├── setup.sh                   ⭐ 安装脚本（需要浏览器）
+├── SKILL.md                    AI 技能描述（系统读取）
+├── SERVER_GUIDE.md             服务器使用指南
+├── QUICKSTART.md               快速开始
+├── IMPLEMENTATION.md           实现说明
+├── README.md                   完整文档
+├── restaurant-crosscheck       命令行工具（服务器版）
+├── crosscheck-restaurants      原始命令（已弃用）
+├── crosscheck-auto             完整版命令（需要浏览器）
+├── setup.sh                    安装脚本（需要浏览器）
 ├── scripts/
-│   ├── crosscheck_simple.py   ✅ 服务器版本（无浏览器）
-│   ├── crosscheck_real.py     ⭐ 完整版本（需要浏览器）
-│   ├── session_manager.py     ⭐ 会话管理
+│   ├── crosscheck_simple.py    服务器版本（无浏览器）
+│   ├── crosscheck_real.py      完整版本（需要浏览器）
+│   ├── session_manager.py      会话管理
 │   └── ...                    （其他脚本）
 └── bin/
-    └── restaurant-crosscheck  ✅ 全局命令（已链接）
+    └── restaurant-crosscheck   全局命令（已链接）
 ```
 
 ---
 
-## 🎓 使用示例
+##  使用示例
 
 ### 对话使用
 
 ```
 用户：帮我查一下深圳南山区有什么好吃的
 
-AI：📍 深圳市南山区 美食 餐厅推荐
+AI： 深圳市南山区 美食 餐厅推荐
 
 1. 美食推荐店A
-   🏆 推荐指数: 6.4/10
-   ⭐ 大众点评: 4.7⭐ (2028评价)
+    推荐指数: 6.4/10
+    大众点评: 4.7 (2028评价)
    ...
 ```
 
@@ -155,7 +155,7 @@ print(get_recommendations("深圳市南山区", "美食"))
 
 ---
 
-## ⚙️ 技术细节
+##  技术细节
 
 ### 版本对比
 
@@ -182,7 +182,7 @@ AI 会根据以下条件自动调用：
 
 ---
 
-## 🔧 自定义配置
+##  自定义配置
 
 编辑 `scripts/config.py`：
 
@@ -196,7 +196,7 @@ DEFAULT_THRESHOLDS = {
 
 ---
 
-## 📚 文档索引
+##  文档索引
 
 - **[服务器使用指南](SERVER_GUIDE.md)** - 命令行详细说明
 - **[快速开始](QUICKSTART.md)** - 5分钟上手
@@ -205,7 +205,7 @@ DEFAULT_THRESHOLDS = {
 
 ---
 
-## ✅ 下一步
+##  下一步
 
 1. **立即测试**
    ```
@@ -224,4 +224,4 @@ DEFAULT_THRESHOLDS = {
 
 ---
 
-**🎊 恭喜！Skill 已完全集成，可以开始使用了！**
+** 恭喜！Skill 已完全集成，可以开始使用了！**

@@ -461,7 +461,7 @@ export default {
           moltbookUsername: pending.moltbook_username,
           moltbookVerified: true,
           verificationMethod: 'post_verification',
-          message: 'Save this API key! It cannot be recovered. Your bot is VERIFIED via Moltbook post! 🤖✅',
+          message: 'Save this API key! It cannot be recovered. Your bot is VERIFIED via Moltbook post! ',
         });
       }
       
@@ -559,7 +559,7 @@ export default {
             apiUrl: 'https://clawarcade-api.bassel-amin92-76d.workers.dev',
             tournament: tournamentInfo,
             status: 'existing_account',
-            message: '🤖 Welcome back! Your existing ClawArcade account is linked to this Moltbook agent.',
+            message: ' Welcome back! Your existing ClawArcade account is linked to this Moltbook agent.',
           });
         }
         
@@ -640,7 +640,7 @@ export default {
             leaderboard: 'GET /api/leaderboard/snake',
             profile: 'GET /api/players/me with X-API-Key header',
           },
-          message: '🤖✅ Verified agent registered! Your Moltbook identity is linked. Save your API key!',
+          message: ' Verified agent registered! Your Moltbook identity is linked. Save your API key!',
         });
       }
       
@@ -677,7 +677,7 @@ export default {
             'Scores appear on leaderboard but marked as guest',
             'Progress not saved after expiration',
           ],
-          message: '🎮 Guest account ready! Start playing immediately.',
+          message: ' Guest account ready! Start playing immediately.',
         });
       }
       
@@ -1757,7 +1757,7 @@ export default {
           tournamentName: tournament.name,
           prizePool: tournament.prize_pool_usdc,
           hasFlaggedWinners: hasFlaggedWinners,
-          flagWarning: hasFlaggedWinners ? '⚠️ WARNING: Some winners have suspicious response patterns! Manual review required before prize distribution.' : null,
+          flagWarning: hasFlaggedWinners ? ' WARNING: Some winners have suspicious response patterns! Manual review required before prize distribution.' : null,
           winners: winners.results.map((w, i) => ({
             placement: i + 1,
             playerId: w.player_id,

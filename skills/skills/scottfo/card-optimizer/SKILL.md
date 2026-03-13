@@ -2,7 +2,7 @@
 name: card-optimizer
 description: "Credit card rewards optimizer — helps maximize cashback, points, and miles by recommending the best card for every purchase category. Tracks annual caps, calculates annual fee ROI, manages rotating quarterly categories, and suggests new cards based on spending patterns."
 homepage: https://github.com/ScotTFO/card-optimizer-skill
-metadata: {"clawdbot":{"emoji":"💳"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Card Optimizer
@@ -115,10 +115,10 @@ When the user asks "which card for [category]?" or "I'm buying [item]":
 ### Response Format
 
 ```
-💳 Use: [Card Name] ([Issuer])
-💰 Reward: [X]% [cashback/points/miles] on [category]
-⚠️ Note: [any caps, network warnings, or caveats]
-🔄 Fallback: [Next best card if merchant doesn't accept primary]
+ Use: [Card Name] ([Issuer])
+ Reward: [X]% [cashback/points/miles] on [category]
+ Note: [any caps, network warnings, or caveats]
+ Fallback: [Next best card if merchant doesn't accept primary]
 ```
 
 ### Cap-Aware Recommendations
@@ -168,14 +168,14 @@ For each card with an annual fee, calculate whether it's worth keeping based on 
 ### Report Format
 
 ```
-💳 [Card Name] — Annual Fee: $[fee]
+ [Card Name] — Annual Fee: $[fee]
 
 Bonus rewards earned:     $[amount]
 vs. 2% flat card:         $[amount]
 Bonus value:              $[amount]
 Annual fee:              -$[fee]
 ━━━━━━━━━━━━━━━━━━━━━━━━
-Net value:                $[amount] ✅ Worth it / ❌ Consider downgrading
+Net value:                $[amount]  Worth it /  Consider downgrading
 
 Break-even: Need $[X]/yr in bonus categories to justify the fee
 ```
@@ -194,20 +194,20 @@ Using `estimated_monthly_spending`, identify:
 ### Report Format
 
 ```
-📊 Card Optimization Report
+ Card Optimization Report
 
-✅ Well covered:
+ Well covered:
 - Groceries → Amex BCP (6%) — earning ~$360/yr
 - Amazon → Chase Prime (5%) — earning ~$90/yr
 
-⚠️ Gaps identified:
+ Gaps identified:
 - Dining: $300/mo at 2% (Chase Prime) — a 4% dining card would save $72/yr
 - Travel: $200/mo at 1% — a 3x travel card would earn $48 more/yr
 
-❌ Fee card alert:
+ Fee card alert:
 - [Card] costs $95/yr but only generates $60 in bonus rewards — net loss of $35
 
-💡 Recommendations:
+ Recommendations:
 - Adding [Card Name] would earn ~$[X] more per year on [categories]
 - Consider downgrading [Card] to the no-fee version
 ```

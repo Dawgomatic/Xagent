@@ -166,7 +166,7 @@ matter_management:
 ```markdown
 # Executive Summary: Master Services Agreement
 
-**Parties:** Acme Corp (Client) ↔ TechVendor Inc (Provider)
+**Parties:** Acme Corp (Client)  TechVendor Inc (Provider)
 **Effective Date:** January 1, 2026
 **Term:** 3 years with auto-renewal
 
@@ -176,9 +176,9 @@ matter_management:
 - **Termination:** 90-day notice for convenience
 
 ## Risk Assessment
-🔴 **High Risk:** Unlimited liability for data breaches
-🟡 **Medium Risk:** Broad IP assignment clause
-🟢 **Low Risk:** Standard force majeure provisions
+ **High Risk:** Unlimited liability for data breaches
+ **Medium Risk:** Broad IP assignment clause
+ **Low Risk:** Standard force majeure provisions
 
 ## Critical Deadlines
 - First payment due: February 1, 2026

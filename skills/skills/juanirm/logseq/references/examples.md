@@ -285,7 +285,7 @@ async function completeTask(uuid) {
     .replace(/^DOING\s+/, 'DONE ');
   
   await logseq.Editor.updateBlock(uuid, updated);
-  logseq.UI.showMsg('✅ Task completed!', 'success');
+  logseq.UI.showMsg(' Task completed!', 'success');
 }
 
 await completeTask('task-uuid-here');
@@ -328,7 +328,7 @@ async function createDailyTasks() {
     sibling: false
   });
   
-  logseq.UI.showMsg('📝 Daily tasks created!');
+  logseq.UI.showMsg(' Daily tasks created!');
 }
 
 await createDailyTasks();
@@ -442,7 +442,7 @@ async function archiveCompletedTasks() {
     });
   }
   
-  logseq.UI.showMsg(`📦 Archived ${done.length} completed tasks`);
+  logseq.UI.showMsg(` Archived ${done.length} completed tasks`);
 }
 ```
 
@@ -533,7 +533,7 @@ logseq.Editor.registerSlashCommand('Insert Current Time', async ({ uuid }) => {
 
 ```javascript
 logseq.Editor.registerBlockContextMenuItem(
-  '📋 Copy Block Link',
+  ' Copy Block Link',
   async ({ uuid }) => {
     const block = await logseq.Editor.getBlock(uuid);
     const page = await logseq.Editor.getPage(block.page.id);
@@ -543,7 +543,7 @@ logseq.Editor.registerBlockContextMenuItem(
     // Copy to clipboard (browser API)
     await navigator.clipboard.writeText(link);
     
-    logseq.UI.showMsg('📋 Block link copied!', 'success');
+    logseq.UI.showMsg(' Block link copied!', 'success');
   }
 );
 ```
@@ -571,7 +571,7 @@ logseq.App.registerUIItem('toolbar', {
   key: 'quick-note',
   template: `
     <a class="button" data-on-click="createQuickNote">
-      📝 Quick Note
+       Quick Note
     </a>
   `
 });
@@ -588,7 +588,7 @@ logseq.provideModel({
       sibling: false
     });
     
-    logseq.UI.showMsg('📝 Note added!');
+    logseq.UI.showMsg(' Note added!');
   }
 });
 ```
@@ -605,14 +605,14 @@ async function safeGetBlock(uuid) {
     const block = await logseq.Editor.getBlock(uuid);
     
     if (!block) {
-      logseq.UI.showMsg('❌ Block not found', 'error');
+      logseq.UI.showMsg(' Block not found', 'error');
       return null;
     }
     
     return block;
   } catch (error) {
     console.error('Error fetching block:', error);
-    logseq.UI.showMsg('❌ Error: ' + error.message, 'error');
+    logseq.UI.showMsg(' Error: ' + error.message, 'error');
     return null;
   }
 }

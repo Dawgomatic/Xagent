@@ -26,7 +26,7 @@ API_BASE = "https://prim.iledefrance-mobilites.fr/marketplace"
 def get_api_key():
     key = os.environ.get("IDFM_API_KEY")
     if not key:
-        print("❌ Variable d'environnement IDFM_API_KEY non définie.", file=sys.stderr)
+        print(" Variable d'environnement IDFM_API_KEY non définie.", file=sys.stderr)
         print("   Inscris-toi gratuitement sur https://prim.iledefrance-mobilites.fr", file=sys.stderr)
         print("   Puis : export IDFM_API_KEY=ta-clé", file=sys.stderr)
         sys.exit(1)
@@ -57,13 +57,13 @@ def api_call(endpoint, params=None, accept="application/json"):
             return {"_raw": content}
     except urllib.error.HTTPError as e:
         if e.code == 401:
-            print("❌ Clé API invalide. Vérifie IDFM_API_KEY.", file=sys.stderr)
+            print(" Clé API invalide. Vérifie IDFM_API_KEY.", file=sys.stderr)
         else:
             body = e.read().decode() if e.fp else ""
-            print(f"❌ Erreur API ({e.code}): {body[:200]}", file=sys.stderr)
+            print(f" Erreur API ({e.code}): {body[:200]}", file=sys.stderr)
         sys.exit(1)
     except urllib.error.URLError as e:
-        print(f"❌ Erreur réseau : {e}", file=sys.stderr)
+        print(f" Erreur réseau : {e}", file=sys.stderr)
         sys.exit(1)
 
 
@@ -203,12 +203,12 @@ def cmd_traffic(args):
 
         if not disruptions:
             if args.line:
-                print(f"✅ Pas de perturbation signalée sur {args.line}.")
+                print(f" Pas de perturbation signalée sur {args.line}.")
             else:
-                print("✅ Trafic normal sur l'ensemble du réseau.")
+                print(" Trafic normal sur l'ensemble du réseau.")
             return
 
-        print(f"🚇 État du trafic{' — ' + args.line if args.line else ''}")
+        print(f" État du trafic{' — ' + args.line if args.line else ''}")
         print("=" * 50)
 
         for d in disruptions[:20]:
@@ -217,11 +217,11 @@ def cmd_traffic(args):
             desc = d.get("description", "")
             lines = d.get("lines", [])
 
-            severity_icon = "⚠️"
+            severity_icon = ""
             if severity.lower() in ("normal", "noimpact"):
-                severity_icon = "ℹ️"
+                severity_icon = ""
             elif severity.lower() in ("veryslight", "slight"):
-                severity_icon = "⚡"
+                severity_icon = ""
 
             line_str = f" [{', '.join(lines[:3])}]" if lines else ""
             print(f"\n  {severity_icon}{line_str} {summary}")
@@ -263,12 +263,12 @@ def cmd_traffic(args):
 
         if not messages:
             if args.line:
-                print(f"✅ Pas de perturbation signalée sur {args.line}.")
+                print(f" Pas de perturbation signalée sur {args.line}.")
             else:
-                print("✅ Trafic normal sur l'ensemble du réseau.")
+                print(" Trafic normal sur l'ensemble du réseau.")
             return
 
-        print(f"🚇 État du trafic{' — ' + args.line if args.line else ''}")
+        print(f" État du trafic{' — ' + args.line if args.line else ''}")
         print("=" * 50)
 
         for msg in messages[:20]:
@@ -308,9 +308,9 @@ def cmd_traffic(args):
                 text_clean = re.sub(r'<[^>]+>', '', text).strip()
                 if len(text_clean) > 200:
                     text_clean = text_clean[:200] + "…"
-                print(f"\n  ⚠️{line_str} {text_clean}")
+                print(f"\n  {line_str} {text_clean}")
     else:
-        print("❌ Format de réponse inattendu.", file=sys.stderr)
+        print(" Format de réponse inattendu.", file=sys.stderr)
 
 
 def cmd_next(args):
@@ -335,18 +335,18 @@ def cmd_next(args):
             search_data = json.loads(resp.read().decode())
     except urllib.error.HTTPError as e:
         if e.code == 404:
-            print(f"❌ Arrêt introuvable : {stop_name}", file=sys.stderr)
+            print(f" Arrêt introuvable : {stop_name}", file=sys.stderr)
         else:
             body = e.read().decode() if e.fp else ""
-            print(f"❌ Erreur recherche ({e.code}): {body[:200]}", file=sys.stderr)
+            print(f" Erreur recherche ({e.code}): {body[:200]}", file=sys.stderr)
         sys.exit(1)
     except urllib.error.URLError as e:
-        print(f"❌ Erreur réseau : {e}", file=sys.stderr)
+        print(f" Erreur réseau : {e}", file=sys.stderr)
         sys.exit(1)
 
     places = search_data.get("places", [])
     if not places:
-        print(f"❌ Arrêt introuvable : {stop_name}", file=sys.stderr)
+        print(f" Arrêt introuvable : {stop_name}", file=sys.stderr)
         sys.exit(1)
 
     stop = places[0]
@@ -369,10 +369,10 @@ def cmd_next(args):
             dep_data = json.loads(resp.read().decode())
     except urllib.error.HTTPError as e:
         body = e.read().decode() if e.fp else ""
-        print(f"❌ Erreur ({e.code}): {body[:200]}", file=sys.stderr)
+        print(f" Erreur ({e.code}): {body[:200]}", file=sys.stderr)
         sys.exit(1)
     except urllib.error.URLError as e:
-        print(f"❌ Erreur réseau : {e}", file=sys.stderr)
+        print(f" Erreur réseau : {e}", file=sys.stderr)
         sys.exit(1)
 
     if args.json:
@@ -381,10 +381,10 @@ def cmd_next(args):
 
     departures = dep_data.get("departures", [])
     if not departures:
-        print(f"❌ Aucun passage trouvé pour {stop_label}.")
+        print(f" Aucun passage trouvé pour {stop_label}.")
         return
 
-    print(f"🚇 Prochains passages — {stop_label}")
+    print(f" Prochains passages — {stop_label}")
     print("=" * 50)
 
     for dep in departures:
@@ -417,7 +417,7 @@ def cmd_next(args):
         if base_time and dep_time and base_time != dep_time:
             try:
                 base_dt = datetime.strptime(base_time, "%Y%m%dT%H%M%S")
-                delay = f" ⚠️ (prévu {base_dt.strftime('%H:%M')})"
+                delay = f"  (prévu {base_dt.strftime('%H:%M')})"
             except ValueError:
                 pass
 

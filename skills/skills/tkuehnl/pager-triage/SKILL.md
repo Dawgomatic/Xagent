@@ -248,7 +248,7 @@ pager-triage recent --service PSVC123 --since 30d
 
 ---
 
-### Write Operations (⚠️ require `--confirm`)
+### Write Operations ( require `--confirm`)
 
 These operations modify state in PagerDuty. They **require** the `--confirm` flag AND `PAGERDUTY_EMAIL` to be set. Without `--confirm`, the tool displays what it *would* do and exits.
 
@@ -266,7 +266,7 @@ Without `--confirm`, displays:
 ```json
 {
   "error": "confirmation_required",
-  "message": "⚠️ ACKNOWLEDGE INCIDENT — --confirm flag is required to proceed.",
+  "message": " ACKNOWLEDGE INCIDENT — --confirm flag is required to proceed.",
   "incident": { "id": "P123ABC", "title": "High CPU on prod-web-03", "urgency": "high" },
   "hint": "Re-run with --confirm to acknowledge this incident."
 }

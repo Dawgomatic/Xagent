@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📺",
+        "emoji": "",
         "requires": { "bins": ["python3"], "env": ["ANTHROPIC_API_KEY"] },
         "primaryEnv": "ANTHROPIC_API_KEY",
         "configPaths": ["~/.clawtv/config.json"],
@@ -378,9 +378,9 @@ python3 ~/Developer/clawtv/clawtv.py screenshot [--method auto|quicktime|lookout
 
 | Method | Speed | DRM Apps | Requires |
 |--------|-------|----------|----------|
-| **QuickTime** (default) | ~0.6s | ❌ Kills mirror (DRM) | QuickTime Player, pyobjc-framework-Quartz |
-| **Lookout** | ~0.1s | ❌ Only captures Lookout app | [Lookout tvOS app](https://github.com/akivasolutions/lookout-tvos) running on Apple TV |
-| **Xcode** (legacy) | ~2.5s | ✅ Works with all apps | Xcode Devices window open |
+| **QuickTime** (default) | ~0.6s |  Kills mirror (DRM) | QuickTime Player, pyobjc-framework-Quartz |
+| **Lookout** | ~0.1s |  Only captures Lookout app | [Lookout tvOS app](https://github.com/akivasolutions/lookout-tvos) running on Apple TV |
+| **Xcode** (legacy) | ~2.5s |  Works with all apps | Xcode Devices window open |
 
 **DRM apps (YouTube, Netflix, Disney+, HBO Max)** enforce HDCP and terminate the QuickTime AirPlay mirror entirely. Use Xcode method for these apps, or use Lookout for its own UI.
 

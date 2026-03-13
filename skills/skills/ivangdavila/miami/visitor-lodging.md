@@ -2,7 +2,7 @@
 
 ## By Budget & Vibe
 
-### 💰 Budget ($100-200/night)
+###  Budget ($100-200/night)
 | Area | Pros | Cons | Best For |
 |------|------|------|----------|
 | **North Beach** | Beach access, quiet, cheaper than SoBe | Fewer restaurants, need Uber | Budget beach vacation |
@@ -14,7 +14,7 @@
 - The Standard Spa Miami Beach — Often deals on Standard rooms
 - Airbnb in Mid-Beach or North Beach
 
-### 💰💰 Mid-Range ($200-400/night)
+###  Mid-Range ($200-400/night)
 | Area | Pros | Cons | Best For |
 |------|------|------|----------|
 | **South Beach (South of 5th)** | Beach + restaurants + walkable | Pricey parking | First-timers |
@@ -26,7 +26,7 @@
 - SLS Brickell — Trendy, rooftop pool
 - Arlo Wynwood — New, walkable to galleries
 
-### 💰💰💰 Luxury ($400-800/night)
+###  Luxury ($400-800/night)
 | Area | Pros | Cons | Best For |
 |------|------|------|----------|
 | **Miami Beach (Collins Ave)** | Iconic hotels, full service | Tourist crowds | Classic Miami luxury |
@@ -38,7 +38,7 @@
 - The Setai — Minimalist Asian luxury
 - Ritz-Carlton Key Biscayne — Family-friendly resort
 
-### 💰💰💰💰 Ultra-Luxury ($800+/night)
+###  Ultra-Luxury ($800+/night)
 | Hotel | Vibe | Starting Price |
 |-------|------|----------------|
 | **Four Seasons Surf Club** | Old Hollywood glamour + modern | $900+ |

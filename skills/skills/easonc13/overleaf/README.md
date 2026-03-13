@@ -4,10 +4,10 @@ AI-powered Overleaf integration for [OpenClaw](https://github.com/openclaw/openc
 
 ## Features
 
-- 📄 Read/write LaTeX files directly from Overleaf
-- 🔄 Sync local .tex files with Overleaf projects
-- 📦 Download entire projects as zip
-- 🔐 Authenticate via browser cookies (no API key needed)
+-  Read/write LaTeX files directly from Overleaf
+-  Sync local .tex files with Overleaf projects
+-  Download entire projects as zip
+-  Authenticate via browser cookies (no API key needed)
 
 ## Installation
 

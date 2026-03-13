@@ -161,7 +161,7 @@ def http_json(
 
 def format_charge_state(data: Dict[str, Any]) -> str:
     lines = []
-    lines.append("⚡ Charge State")
+    lines.append(" Charge State")
     lines.append("─" * 40)
     
     level = data.get("battery_level", "?")
@@ -212,7 +212,7 @@ def format_charge_state(data: Dict[str, Any]) -> str:
 
 def format_climate_state(data: Dict[str, Any]) -> str:
     lines = []
-    lines.append("🌡️  Climate State")
+    lines.append("  Climate State")
     lines.append("─" * 40)
     
     inside = data.get("inside_temp")
@@ -251,7 +251,7 @@ def format_climate_state(data: Dict[str, Any]) -> str:
 
 def format_drive_state(data: Dict[str, Any]) -> str:
     lines = []
-    lines.append("🚗 Drive State")
+    lines.append(" Drive State")
     lines.append("─" * 40)
     
     shift = data.get("shift_state") or "P"
@@ -275,7 +275,7 @@ def format_drive_state(data: Dict[str, Any]) -> str:
 
 def format_location(data: Dict[str, Any]) -> str:
     lines = []
-    lines.append("📍 Location")
+    lines.append(" Location")
     lines.append("─" * 40)
     
     lat = data.get("latitude")
@@ -291,7 +291,7 @@ def format_location(data: Dict[str, Any]) -> str:
 
 def format_vehicle_state(data: Dict[str, Any]) -> str:
     lines = []
-    lines.append("🔒 Vehicle State")
+    lines.append(" Vehicle State")
     lines.append("─" * 40)
     
     locked = data.get("locked", False)
@@ -330,7 +330,7 @@ def format_vehicle_state(data: Dict[str, Any]) -> str:
 
 def format_gui_settings(data: Dict[str, Any]) -> str:
     lines = []
-    lines.append("⚙️  GUI Settings")
+    lines.append("  GUI Settings")
     lines.append("─" * 40)
     
     lines.append(f"  Distance:   {data.get('gui_distance_units', '?')}")
@@ -344,7 +344,7 @@ def format_gui_settings(data: Dict[str, Any]) -> str:
 
 def format_vehicle_config(data: Dict[str, Any]) -> str:
     lines = []
-    lines.append("🚙 Vehicle Config")
+    lines.append(" Vehicle Config")
     lines.append("─" * 40)
     
     lines.append(f"  Model:      {data.get('car_type', '?')}")
@@ -366,7 +366,7 @@ def format_response(response: Dict[str, Any], requested: List[str]) -> str:
     display_name = response.get("display_name")
     state = response.get("state", "unknown")
     vin = response.get("vin", "")
-    sections.append(f"🚗 {display_name} ({state})")
+    sections.append(f" {display_name} ({state})")
     sections.append(f"   VIN: {vin}")
     sections.append("")
     

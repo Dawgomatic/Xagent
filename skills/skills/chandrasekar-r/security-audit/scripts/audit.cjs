@@ -23,11 +23,11 @@ let highCount = 0;
 // Helper functions
 function log(level, category, message, details = null) {
   const emoji = {
-    CRITICAL: '🔴',
-    HIGH: '🟠',
-    MEDIUM: '🟡',
-    LOW: '🟢',
-    INFO: '🔵'
+    CRITICAL: '',
+    HIGH: '',
+    MEDIUM: '',
+    LOW: '',
+    INFO: ''
   };
   
   findings.push({
@@ -357,15 +357,15 @@ async function runAudit(options = {}) {
   console.log('╚════════════════════════════════════════════════════════════╝\n');
   
   console.log(`Checks performed: ${checkCount}`);
-  console.log(`🔴 Critical: ${criticalCount}`);
-  console.log(`🟠 High: ${highCount}`);
+  console.log(` Critical: ${criticalCount}`);
+  console.log(` High: ${highCount}`);
   console.log(`Total findings: ${findings.length}`);
   console.log(`Duration: ${duration}ms\n`);
   
   // Critical issues first
   const criticalFindings = findings.filter(f => f.level === 'CRITICAL');
   if (criticalFindings.length > 0) {
-    console.log('🔴 CRITICAL ISSUES (Immediate action required):');
+    console.log(' CRITICAL ISSUES (Immediate action required):');
     for (const f of criticalFindings) {
       console.log(`  • ${f.message}`);
       if (f.details?.file) console.log(`    File: ${f.details.file}`);
@@ -390,12 +390,12 @@ async function runAudit(options = {}) {
   
   // Recommendation
   if (criticalCount > 0) {
-    console.log('\n⚠️  CRITICAL ISSUES FOUND - Do not deploy until fixed!');
+    console.log('\n  CRITICAL ISSUES FOUND - Do not deploy until fixed!');
     process.exitCode = 1;
   } else if (highCount > 0) {
-    console.log('\n⚠️  High-risk issues found - Review recommended before deployment.');
+    console.log('\n  High-risk issues found - Review recommended before deployment.');
   } else {
-    console.log('\n✅ No critical issues found. Security posture looks reasonable.');
+    console.log('\n No critical issues found. Security posture looks reasonable.');
   }
   
   return { findings, criticalCount, highCount, checkCount };
@@ -417,11 +417,11 @@ async function runAutoFix() {
       const mode = stats.mode & 0o777;
       if ((mode & 0o077) !== 0) {
         fs.chmodSync(envFile, 0o600);
-        console.log('✅ Fixed: Set 600 permissions on .env');
+        console.log(' Fixed: Set 600 permissions on .env');
         fixedCount++;
       }
     } catch (e) {
-      console.log('❌ Failed to fix .env permissions:', e.message);
+      console.log(' Failed to fix .env permissions:', e.message);
     }
   }
   
@@ -442,7 +442,7 @@ async function runAutoFix() {
           const mode = stats.mode & 0o777;
           if (mode !== sp.perms) {
             fs.chmodSync(file, sp.perms);
-            console.log(`✅ Fixed: Set ${sp.perms.toString(8)} on ${path.basename(file)}`);
+            console.log(` Fixed: Set ${sp.perms.toString(8)} on ${path.basename(file)}`);
             fixedCount++;
           }
         } catch {
@@ -464,14 +464,14 @@ node_modules/
 *.key
 `;
     fs.writeFileSync(gitignorePath, defaultGitignore);
-    console.log('✅ Fixed: Created .gitignore');
+    console.log(' Fixed: Created .gitignore');
     fixedCount++;
   }
   
-  console.log(`\n✅ Auto-fix complete! ${fixedCount} issues resolved.`);
+  console.log(`\n Auto-fix complete! ${fixedCount} issues resolved.`);
   
   // Re-run audit to confirm
-  console.log('\n🔍 Re-running audit to verify...\n');
+  console.log('\n Re-running audit to verify...\n');
   return fixedCount;
 }
 

@@ -294,7 +294,7 @@ else
     echo ""
 
     if [[ $CRITICAL_COUNT -gt 0 ]]; then
-        echo -e "  ${RED}${BOLD}⚠ CRITICAL issues found! Review immediately.${RESET}"
+        echo -e "  ${RED}${BOLD} CRITICAL issues found! Review immediately.${RESET}"
     elif [[ $WARNING_COUNT -gt 0 ]]; then
         echo -e "  ${YELLOW}Warnings found — manual review recommended.${RESET}"
     else

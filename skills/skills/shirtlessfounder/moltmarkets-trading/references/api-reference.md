@@ -42,12 +42,12 @@ Query params:
 - `status` — OPEN, CLOSED, RESOLVING, RESOLVED
 - `creator_username` — filter by creator
 
-**⚠️ PAGINATION:** Response is paginated. Access markets via `.data[]`:
+** PAGINATION:** Response is paginated. Access markets via `.data[]`:
 ```bash
-# ✅ Correct
+#  Correct
 curl -s "$API/markets" | jq '.data[]'
 
-# ❌ Wrong (will fail)
+#  Wrong (will fail)
 curl -s "$API/markets" | jq '.[] | select(...)'
 ```
 
@@ -225,7 +225,7 @@ GET https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&startTime={
 
 Response: `[[openTime, open, high, low, close, volume, ...]]`
 - Use index `[0][4]` for close price
-- ⚠️ Returns geo-restriction error from US servers
+-  Returns geo-restriction error from US servers
 
 #### HN Algolia (Story Points)
 ```

@@ -4,7 +4,7 @@ description: Interact with Skylight Calendar frame - manage calendar events, cho
 homepage: https://ourskylight.com
 metadata:
   clawdbot:
-    emoji: 📅
+    emoji: 
     requires:
       bins:
         - curl

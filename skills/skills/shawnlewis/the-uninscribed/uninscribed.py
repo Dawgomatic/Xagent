@@ -96,7 +96,7 @@ def cmd_act(args):
                 cooldown_ms = result["cooldownRemaining"]
         if cooldown_ms and cooldown_ms > 0:
             wait_sec = math.ceil(cooldown_ms / 1000) + 1
-            print(f"\n⏳ Waiting {wait_sec}s for cooldown...", file=sys.stderr)
+            print(f"\n Waiting {wait_sec}s for cooldown...", file=sys.stderr)
             time.sleep(wait_sec)
 
 

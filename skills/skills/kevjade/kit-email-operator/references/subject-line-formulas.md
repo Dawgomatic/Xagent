@@ -191,12 +191,12 @@ Track what works for YOUR audience.
 
 ### Red Flags (Avoid)
 
-❌ All caps: "ACT NOW OR MISS OUT"  
-❌ Excessive punctuation: "Quick question???"  
-❌ Spam words: "free money", "earn cash", "guaranteed"  
-❌ Misleading: Subject doesn't match content  
-❌ Too vague: "Quick question" (about what?)  
-❌ Too long: Gets cut off on mobile
+ All caps: "ACT NOW OR MISS OUT"  
+ Excessive punctuation: "Quick question???"  
+ Spam words: "free money", "earn cash", "guaranteed"  
+ Misleading: Subject doesn't match content  
+ Too vague: "Quick question" (about what?)  
+ Too long: Gets cut off on mobile
 
 ### Mobile Optimization
 

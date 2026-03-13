@@ -24,13 +24,13 @@ async def test_gold_api():
             if data.get("status") == "success" and "response" in data:
                 result = data["response"]
                 
-                print("✅ API Response Success!")
+                print(" API Response Success!")
                 print("\n" + "="*50)
                 print(json.dumps(result, ensure_ascii=False, indent=2))
                 print("="*50)
                 
                 # Display formatted output
-                print("\n📊 ราคาทองคำวันนี้:")
+                print("\n ราคาทองคำวันนี้:")
                 print(f"  วันที่: {result['date']}")
                 print(f"  อัพเดท: {result['update_time']}")
                 print(f"\n  ทองรูปพรรณ:")
@@ -44,13 +44,13 @@ async def test_gold_api():
                 print(f"    เทียบเมื่อวาน: {result['price']['change']['compare_yesterday']}")
                 
             else:
-                print("❌ Invalid response format from API")
+                print(" Invalid response format from API")
                 print(json.dumps(data, ensure_ascii=False, indent=2))
                 
     except httpx.HTTPError as e:
-        print(f"❌ HTTP error occurred: {str(e)}")
+        print(f" HTTP error occurred: {str(e)}")
     except Exception as e:
-        print(f"❌ An error occurred: {str(e)}")
+        print(f" An error occurred: {str(e)}")
 
 if __name__ == "__main__":
     asyncio.run(test_gold_api())

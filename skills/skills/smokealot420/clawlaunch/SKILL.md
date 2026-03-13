@@ -1,7 +1,7 @@
 ---
 name: clawlaunch
 description: Launch and trade AI agent tokens on ClawLaunch bonding curve (Base). Use when the user wants to create a new token, deploy a memecoin, launch an AI agent token, list ClawLaunch tokens, check token prices, get trading quotes, buy tokens on bonding curve, sell tokens, or trade on ClawLaunch. Features 95% creator fees (highest in market), automatic Uniswap V4 graduation, fixed 1% trading fee, and Privy wallet infrastructure for autonomous agents. Supports Base Mainnet and Base Sepolia testnet.
-metadata: {"clawdbot":{"emoji":"🚀","homepage":"https://www.clawlaunch.fun","requires":{"bins":["curl","jq"]}}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://www.clawlaunch.fun","requires":{"bins":["curl","jq"]}}}
 ---
 
 # ClawLaunch

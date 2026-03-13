@@ -1,4 +1,4 @@
-# ACC Error Memory ⚡
+# ACC Error Memory 
 
 > Error pattern tracking for AI agents — the "something's off" detector
 
@@ -43,10 +43,10 @@ Load ACC state to see what to watch for:
 ```bash
 ./scripts/load-state.sh
 
-# ⚡ ACC State:
-# 🔴 factual_error: 3x (critical) — verify before stating facts
-# ⚠️ tone_mismatch: 2x (warning) — match user's emotional state
-# ✅ missed_context: resolved 32 days ago
+#  ACC State:
+#  factual_error: 3x (critical) — verify before stating facts
+#  tone_mismatch: 2x (warning) — match user's emotional state
+#  missed_context: resolved 32 days ago
 ```
 
 ## Related Skills

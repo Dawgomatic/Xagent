@@ -31,8 +31,8 @@ def get_client():
 
 def format_entry(entry, full_content=False):
     """Format an entry for display."""
-    status_icon = "📖" if entry.get('status') == 'unread' else "✅"
-    star_icon = "⭐" if entry.get('starred') else ""
+    status_icon = "" if entry.get('status') == 'unread' else ""
+    star_icon = "" if entry.get('starred') else ""
 
     output = f"\n{status_icon} {entry.get('title', 'No title')}"
     if star_icon:
@@ -70,7 +70,7 @@ def cmd_feeds(args):
     client = get_client()
     feeds = client.get_feeds()
 
-    print(f"\n📰 {len(feeds)} feeds found:\n")
+    print(f"\n {len(feeds)} feeds found:\n")
 
     for feed in feeds:
         print(f"  [{feed['id']}] {feed['title']}")
@@ -78,7 +78,7 @@ def cmd_feeds(args):
         if feed.get('category'):
             print(f"      Category: {feed['category']['title']} (ID: {feed['category']['id']})")
         if feed.get('parsing_error_message'):
-            print(f"      ⚠️  Error: {feed['parsing_error_message']}")
+            print(f"        Error: {feed['parsing_error_message']}")
         print()
 
     return 0
@@ -89,7 +89,7 @@ def cmd_categories(args):
     client = get_client()
     categories = client.get_categories()
 
-    print(f"\n📁 {len(categories)} categories:\n")
+    print(f"\n {len(categories)} categories:\n")
 
     for cat in categories:
         print(f"  [{cat['id']}] {cat['title']}")
@@ -136,7 +136,7 @@ def cmd_entries(args):
     total = result.get('total', 0)
     entries = result.get('entries', [])
 
-    print(f"\n📚 {total} entries found (showing {len(entries)})\n")
+    print(f"\n {total} entries found (showing {len(entries)})\n")
 
     for entry in entries:
         print(format_entry(entry, full_content=args.full_content))
@@ -152,7 +152,7 @@ def cmd_entry(args):
     print(format_entry(entry, full_content=True))
 
     if entry.get('content'):
-        print(f"\n📝 Full Content:\n{entry['content']}")
+        print(f"\n Full Content:\n{entry['content']}")
 
     return 0
 
@@ -173,7 +173,7 @@ def cmd_create_feed(args):
         feed_data['user_agent'] = args.user_agent
 
     feed_id = client.create_feed(**feed_data)
-    print(f"\n✅ Feed created successfully! Feed ID: {feed_id}")
+    print(f"\n Feed created successfully! Feed ID: {feed_id}")
 
     return 0
 
@@ -201,7 +201,7 @@ def cmd_update_feed(args):
         return 1
 
     client.update_feed(args.feed_id, **update_data)
-    print(f"\n✅ Feed {args.feed_id} updated successfully!")
+    print(f"\n Feed {args.feed_id} updated successfully!")
 
     return 0
 
@@ -210,7 +210,7 @@ def cmd_delete_feed(args):
     """Delete a feed."""
     client = get_client()
     client.delete_feed(args.feed_id)
-    print(f"\n✅ Feed {args.feed_id} deleted successfully!")
+    print(f"\n Feed {args.feed_id} deleted successfully!")
 
     return 0
 
@@ -219,7 +219,7 @@ def cmd_refresh_all(args):
     """Refresh all feeds."""
     client = get_client()
     client.refresh_feeds()
-    print("\n✅ All feeds refresh started (runs in background)")
+    print("\n All feeds refresh started (runs in background)")
 
     return 0
 
@@ -228,7 +228,7 @@ def cmd_refresh_feed(args):
     """Refresh a specific feed."""
     client = get_client()
     client.refresh_feed(args.feed_id)
-    print(f"\n✅ Feed {args.feed_id} refresh started")
+    print(f"\n Feed {args.feed_id} refresh started")
 
     return 0
 
@@ -240,7 +240,7 @@ def cmd_mark_read(args):
     entry_ids = [int(eid) for eid in args.entry_ids.split(',')]
     client.update_entries(entry_ids, status='read')
 
-    print(f"\n✅ Marked {len(entry_ids)} entries as read")
+    print(f"\n Marked {len(entry_ids)} entries as read")
 
     return 0
 
@@ -252,7 +252,7 @@ def cmd_mark_unread(args):
     entry_ids = [int(eid) for eid in args.entry_ids.split(',')]
     client.update_entries(entry_ids, status='unread')
 
-    print(f"\n✅ Marked {len(entry_ids)} entries as unread")
+    print(f"\n Marked {len(entry_ids)} entries as unread")
 
     return 0
 
@@ -268,9 +268,9 @@ def cmd_mark_feed_read(args):
 
     if entry_ids:
         client.update_entries(entry_ids, status='read')
-        print(f"\n✅ Marked {len(entry_ids)} entries as read in feed {args.feed_id}")
+        print(f"\n Marked {len(entry_ids)} entries as read in feed {args.feed_id}")
     else:
-        print(f"\n✅ No unread entries in feed {args.feed_id}")
+        print(f"\n No unread entries in feed {args.feed_id}")
 
     return 0
 
@@ -280,7 +280,7 @@ def cmd_discover(args):
     client = get_client()
     subscriptions = client.discover(args.url)
 
-    print(f"\n🔍 Discovered {len(subscriptions)} feed(s) from {args.url}:\n")
+    print(f"\n Discovered {len(subscriptions)} feed(s) from {args.url}:\n")
 
     for sub in subscriptions:
         print(f"  Type: {sub.get('type', 'unknown')}")
@@ -300,7 +300,7 @@ def cmd_counters(args):
     reads = counters.get('reads', {})
     unreads = counters.get('unreads', {})
 
-    print(f"\n📊 Feed counters:\n")
+    print(f"\n Feed counters:\n")
 
     total_unread = 0
     total_read = 0
@@ -311,14 +311,14 @@ def cmd_counters(args):
         read_count = reads.get(feed_id, 0)
 
         print(f"  [{feed['id']}] {feed['title']}")
-        print(f"      📖 Unread: {unread_count}")
-        print(f"      ✅ Read: {read_count}")
+        print(f"       Unread: {unread_count}")
+        print(f"       Read: {read_count}")
         print()
 
         total_unread += unread_count
         total_read += read_count
 
-    print(f"  Total: 📖 {total_unread} unread, ✅ {total_read} read\n")
+    print(f"  Total:  {total_unread} unread,  {total_read} read\n")
 
     return 0
 
@@ -328,7 +328,7 @@ def cmd_me(args):
     client = get_client()
     user = client.me()
 
-    print(f"\n👤 Current User Info:\n")
+    print(f"\n Current User Info:\n")
     print(f"  Username: {user.get('username', 'N/A')}")
     print(f"  ID: {user.get('id', 'N/A')}")
     print(f"  Admin: {user.get('is_admin', False)}")
@@ -346,7 +346,7 @@ def cmd_create_category(args):
     client = get_client()
     category = client.create_category(args.title)
 
-    print(f"\n✅ Category created! ID: {category['id']}, Title: {category['title']}\n")
+    print(f"\n Category created! ID: {category['id']}, Title: {category['title']}\n")
 
     return 0
 
@@ -356,8 +356,8 @@ def cmd_toggle_bookmark(args):
     client = get_client()
     is_starred = client.toggle_bookmark(args.entry_id)
 
-    status = "⭐ starred" if is_starred else "○ unstarred"
-    print(f"\n✅ Entry {args.entry_id} {status}\n")
+    status = " starred" if is_starred else "○ unstarred"
+    print(f"\n Entry {args.entry_id} {status}\n")
 
     return 0
 
@@ -367,7 +367,7 @@ def cmd_delete_category(args):
     client = get_client()
     client.delete_category(args.category_id)
 
-    print(f"\n✅ Category {args.category_id} deleted successfully!\n")
+    print(f"\n Category {args.category_id} deleted successfully!\n")
 
     return 0
 

@@ -183,25 +183,25 @@ class SessionMonitor {
     if (utilizationPercent >= this.config.emergencyThreshold) {
       return {
         level: 'CRITICAL',
-        emoji: '🚨',
+        emoji: '',
         message: 'Emergency cleanup required'
       };
     } else if (utilizationPercent >= this.config.alertThreshold) {
       return {
         level: 'WARNING',
-        emoji: '⚠️',
+        emoji: '',
         message: 'High usage - cleanup recommended'
       };
     } else if (utilizationPercent >= 60) {
       return {
         level: 'MODERATE',
-        emoji: '⚡',
+        emoji: '',
         message: 'Moderate usage'
       };
     } else {
       return {
         level: 'OK',
-        emoji: '✅',
+        emoji: '',
         message: 'Normal usage'
       };
     }

@@ -1,7 +1,7 @@
 ---
 name: claude-chrome
 description: Use Claude Code with Chrome browser extension for web browsing and automation tasks. Alternative to OpenClaw's built-in browser tools.
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"anyBins":["claude"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["claude"]}}}
 ---
 
 # Claude Chrome — Browser Automation via Claude Code

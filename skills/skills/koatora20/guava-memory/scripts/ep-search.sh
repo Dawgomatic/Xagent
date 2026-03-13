@@ -15,15 +15,15 @@ if [ -z "$QUERY" ]; then
 fi
 
 if [ ! -f "$INDEX" ]; then
-  echo "❌ index.json not found. Run ep-record.sh first."
+  echo " index.json not found. Run ep-record.sh first."
   exit 1
 fi
 
-echo "🔍 Searching episodes for: $QUERY"
+echo " Searching episodes for: $QUERY"
 echo "---"
 
 # index.jsonからQ-valueでソートして表示
 cat "$INDEX" | jq -r '.episodes | sort_by(-.q_value) | .[] | select(.status == "active") | "Q:\(.q_value) | \(.feel) | \(.intent) → \(.file)"'
 
 echo "---"
-echo "📊 Stats: $(cat "$INDEX" | jq -r '.stats | "Total: \(.total) | Avg Q: \(.avg_q_value) | Promotions: \(.promotions)"')"
+echo " Stats: $(cat "$INDEX" | jq -r '.stats | "Total: \(.total) | Avg Q: \(.avg_q_value) | Promotions: \(.promotions)"')"

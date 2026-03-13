@@ -7,7 +7,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🧹",
+        "emoji": "",
         "requires": { "env": ["VIRUSTOTAL_API_KEY"], "bin": ["openclaw"] },
         "category": "security",
       },

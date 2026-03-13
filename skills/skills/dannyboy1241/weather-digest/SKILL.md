@@ -2,7 +2,7 @@
 name: weather-intelligence-digest
 description: Generate daily Weather Intelligence Digest using NOAA/NWS data with customizable locations and alert monitoring.
 homepage: https://api.weather.gov
-metadata: { "openclaw": { "emoji": "🌦️", "requires": { "bins": ["python3", "pip"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["python3", "pip"] } } }
 ---
 
 # Weather Intelligence Digest

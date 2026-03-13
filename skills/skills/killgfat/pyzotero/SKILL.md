@@ -7,7 +7,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📚",
+        "emoji": "",
         "requires": { "anyBins": ["pyzotero"], "bins": ["python3"] },
         "install":
           [
@@ -52,7 +52,7 @@ pyzotero search -q "machine learning"
 pyzotero search -q "attention mechanisms" --fulltext
 ```
 
-📖 **Detailed guide:** [QUICKSTART.md](QUICKSTART.md)
+ **Detailed guide:** [QUICKSTART.md](QUICKSTART.md)
 
 ## Installation
 
@@ -67,7 +67,7 @@ pip install --user "pyzotero[cli]"
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-📖 **Complete installation guide:** [INSTALL.md](INSTALL.md)
+ **Complete installation guide:** [INSTALL.md](INSTALL.md)
 
 ## Prerequisites
 
@@ -160,7 +160,7 @@ pipx ensurepath
 pipx install "pyzotero[cli]"
 ```
 
-📖 **Detailed troubleshooting:** [INSTALL.md](INSTALL.md)
+ **Detailed troubleshooting:** [INSTALL.md](INSTALL.md)
 
 ## Quick Reference
 

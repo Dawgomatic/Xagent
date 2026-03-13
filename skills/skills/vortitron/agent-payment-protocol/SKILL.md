@@ -283,10 +283,10 @@ The protocol maintains two local ledgers:
 
 ## Security & Auditing
 
-✅ **Immutable ledger** — Quotes and payments are append-only (JSONL format)
-✅ **On-chain settlement** — Final proof is the Solana tx hash
-✅ **Audit trail** — Both agents can reference quote IDs and tx hashes
-✅ **No central trust** — Payments verified by Solana blockchain
+ **Immutable ledger** — Quotes and payments are append-only (JSONL format)
+ **On-chain settlement** — Final proof is the Solana tx hash
+ **Audit trail** — Both agents can reference quote IDs and tx hashes
+ **No central trust** — Payments verified by Solana blockchain
 
 **To audit:**
 ```javascript

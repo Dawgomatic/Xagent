@@ -1,4 +1,4 @@
-# 🔧 Mechanic — Vehicle Maintenance Tracker
+#  Mechanic — Vehicle Maintenance Tracker
 
 A [Clawdbot](https://github.com/clawdbot/clawdbot) skill that tracks mileage and service intervals for any vehicle — trucks, cars, motorcycles, dirt bikes, ATVs, RVs, boats, and more.
 

@@ -1,7 +1,7 @@
 ---
 name: R
 description: Avoid common R mistakes — vectorization traps, NA propagation, factor surprises, and indexing gotchas.
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":["Rscript"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["Rscript"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Vectorization

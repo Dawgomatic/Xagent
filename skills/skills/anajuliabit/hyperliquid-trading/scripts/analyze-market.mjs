@@ -47,26 +47,26 @@ async function analyzeCoin(coin, interval = '15m', lookback = 20) {
   const currentVolume = parseFloat(latest.v);
   const volumeRatio = currentVolume / avgVolume;
   
-  console.log('\n📊 Metrics:');
+  console.log('\n Metrics:');
   console.log(`  Current Price: $${current}`);
   console.log(`  Change (${interval}): ${change > 0 ? '+' : ''}${change.toFixed(2)}%`);
   console.log(`  Current Volume: ${currentVolume.toFixed(2)}`);
   console.log(`  Avg Volume (10 bars): ${avgVolume.toFixed(2)}`);
-  console.log(`  Volume Ratio: ${volumeRatio.toFixed(2)}x ${volumeRatio > 1.5 ? '🔥 HIGH' : volumeRatio < 0.7 ? '❄️  LOW' : '📊 NORMAL'}`);
+  console.log(`  Volume Ratio: ${volumeRatio.toFixed(2)}x ${volumeRatio > 1.5 ? ' HIGH' : volumeRatio < 0.7 ? '  LOW' : ' NORMAL'}`);
   
   // Momentum detection
   const priceUp = change > 0;
   const volumeUp = volumeRatio > 1.2;
   
-  console.log('\n🎯 Momentum Signal:');
+  console.log('\n Momentum Signal:');
   if (priceUp && volumeUp) {
-    console.log('  ✅ BULLISH - Price up with high volume (strong momentum)');
+    console.log('   BULLISH - Price up with high volume (strong momentum)');
   } else if (priceUp && !volumeUp) {
-    console.log('  ⚠️  WEAK BULLISH - Price up but low volume (weak momentum)');
+    console.log('    WEAK BULLISH - Price up but low volume (weak momentum)');
   } else if (!priceUp && volumeUp) {
-    console.log('  🔴 BEARISH - Price down with high volume (strong selling)');
+    console.log('   BEARISH - Price down with high volume (strong selling)');
   } else {
-    console.log('  ⏸️  NEUTRAL - No clear momentum');
+    console.log('    NEUTRAL - No clear momentum');
   }
   
   // Simple support/resistance
@@ -75,7 +75,7 @@ async function analyzeCoin(coin, interval = '15m', lookback = 20) {
   const resistance = Math.max(...highs);
   const support = Math.min(...lows);
   
-  console.log('\n📈 Levels:');
+  console.log('\n Levels:');
   console.log(`  Resistance: $${resistance} (${((resistance - current) / current * 100).toFixed(2)}% away)`);
   console.log(`  Support: $${support} (${((current - support) / current * 100).toFixed(2)}% away)`);
   

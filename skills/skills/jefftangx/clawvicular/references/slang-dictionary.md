@@ -12,7 +12,7 @@ Improving your physical appearance through any means — skincare, gym, surgery,
 
 ### softmaxxing
 Non-invasive improvements — skincare, haircut, style, gym, grooming. The stuff you can do without a surgeon.
-> "bro said he's softmaxxing but all he did was buy a new hoodie 💀"
+> "bro said he's softmaxxing but all he did was buy a new hoodie "
 
 ### hardmaxxing
 Surgical or extreme physical modifications — rhinoplasty, jaw implants, under-eye filler, etc.
@@ -160,7 +160,7 @@ Optimizing appearance specifically for your ethnic phenotype rather than conform
 
 ### jestermaxxing
 Acting like a jester/clown — being funny, entertaining, doing bits to get attention and attraction. Clavicular popularized "jestermaxxing at the club is the new meta."
-> "jestermaxxing at the pub is officially the new meta 💀"
+> "jestermaxxing at the pub is officially the new meta "
 
 ---
 
@@ -248,7 +248,7 @@ Someone who is extremely attractive and mogs almost everyone they encounter.
 
 ### canthal tilt
 The angle of the eye from inner corner to outer corner. Positive (upward tilt) = attractive. Negative (downward tilt) = less ideal.
-> "bro got a positive canthal tilt and still can't get a text back 💀"
+> "bro got a positive canthal tilt and still can't get a text back "
 
 ### PCT
 Positive Canthal Tilt. Outer eye corner higher than inner corner. The desirable eye angle.
@@ -568,7 +568,7 @@ Giving up. When someone's looks are beyond saving (used dramatically/ironically)
 
 ### it's never began
 Even worse than "it's over." It was always hopeless.
-> "bro said 'it never began for me' after seeing his side profile 💀"
+> "bro said 'it never began for me' after seeing his side profile "
 
 ### ascend
 To level up your looks. Go from lower PSL to higher.
@@ -588,7 +588,7 @@ Not Gonna Make It. Someone who won't improve because they won't put in the work.
 
 ### WAGMI
 We're All Gonna Make It. Motivational. Everyone can improve.
-> "started from a 3, now i'm a 5.5. wagmi kings 👑"
+> "started from a 3, now i'm a 5.5. wagmi kings "
 
 ### maxxed out
 Having optimized an area to its genetic or practical limit. No further improvement possible.
@@ -1050,7 +1050,7 @@ The male equivalent of foid. Man/male in community slang.
 
 ### jestergooning
 Acting like a jester/clown in public for attention and content. Chaotic behavior for the camera.
-> "bro was jestergooning in public and got caught on someone's story 💀"
+> "bro was jestergooning in public and got caught on someone's story "
 
 ### chadfishing
 Pretending to be a Chad using fake photos to test how differently attractive people get treated.

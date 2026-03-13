@@ -1,7 +1,7 @@
 ---
 name: second-brain
 description: Personal knowledge base powered by Ensue for capturing and retrieving understanding. Use when user wants to save knowledge, recall what they know, manage their toolbox, or build on past learnings. Triggers on "save this", "remember", "what do I know about", "add to toolbox", "my notes on", "store this concept".
-metadata: {"clawdbot":{"emoji":"🧠","requires":{"env":["ENSUE_API_KEY"]},"primaryEnv":"ENSUE_API_KEY","homepage":"https://ensue-network.ai?utm_source=clawdbot&utm_medium=workflow"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["ENSUE_API_KEY"]},"primaryEnv":"ENSUE_API_KEY","homepage":"https://ensue-network.ai?utm_source=clawdbot&utm_medium=workflow"}}
 ---
 * Requires API Key: Request one at https://ensue-network.ai?utm_source=clawdbot *
 

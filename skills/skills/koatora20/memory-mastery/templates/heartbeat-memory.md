@@ -1,4 +1,4 @@
-## 🧠 Memory Maintenance (Memory Mastery)
+##  Memory Maintenance (Memory Mastery)
 # Run every few days during heartbeats:
 # 1. Read memory/YYYY-MM-DD.md files from the past week
 # 2. Identify significant decisions, lessons, or insights

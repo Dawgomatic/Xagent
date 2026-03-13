@@ -1,7 +1,7 @@
 ---
 name: Clients
 description: Build a personal client system for tracking relationships, projects, documents, and history.
-metadata: {"clawdbot":{"emoji":"💼","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

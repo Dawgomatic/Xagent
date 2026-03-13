@@ -19,14 +19,14 @@ RESPONSE=$(curl -s -H "Shortcut-Token: $TOKEN" "$BASE_URL/stories/$STORY_ID")
 # Check for error
 NAME=$(echo "$RESPONSE" | jq -r '.name')
 if [ "$NAME" = "null" ]; then
-  echo "❌ Story not found or error"
+  echo " Story not found or error"
   echo "$RESPONSE" | jq .
   exit 1
 fi
 
 # Pretty print
 echo "Story #$STORY_ID: $NAME"
-echo "Status: $(echo "$RESPONSE" | jq -r 'if .completed then "✅ Completed" else "🔲 Active" end')"
+echo "Status: $(echo "$RESPONSE" | jq -r 'if .completed then " Completed" else " Active" end')"
 echo "State ID: $(echo "$RESPONSE" | jq -r '.workflow_state_id')"
 
 DESCRIPTION=$(echo "$RESPONSE" | jq -r '.description')
@@ -42,7 +42,7 @@ if [ "$TASK_COUNT" -gt 0 ]; then
   echo ""
   echo "Checklist items:"
   echo "$RESPONSE" | jq -r '.tasks[] | 
-    "  [\(.id)] " + (if .complete then "✅" else "☐" end) + " \(.description)"'
+    "  [\(.id)] " + (if .complete then "" else "☐" end) + " \(.description)"'
 fi
 
 # Show comments (exclude deleted)

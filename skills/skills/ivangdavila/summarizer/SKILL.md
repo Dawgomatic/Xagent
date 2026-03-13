@@ -73,14 +73,14 @@ Before delivering, check:
 ## Output Markers
 
 ```
-📝 SUMMARY ([level]: [word count])
+ SUMMARY ([level]: [word count])
 [Content]
 
-💡 KEY POINTS
+ KEY POINTS
 • [Point 1]
 • [Point 2]
 
-⚠️ OMITTED (if relevant)
+ OMITTED (if relevant)
 [What was cut and why]
 ```
 

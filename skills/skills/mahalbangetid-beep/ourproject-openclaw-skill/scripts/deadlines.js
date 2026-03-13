@@ -24,11 +24,11 @@ async function checkDeadlines() {
             .sort((a, b) => a._days - b._days);
 
         if (pending.length === 0) {
-            console.log(`✅ No tasks with deadlines in the next ${lookAhead} day(s).`);
+            console.log(` No tasks with deadlines in the next ${lookAhead} day(s).`);
             return;
         }
 
-        console.log(`⏰ *Deadlines (next ${lookAhead} days)*\n`);
+        console.log(` *Deadlines (next ${lookAhead} days)*\n`);
 
         ['overdue', 'today', 'upcoming'].forEach(group => {
             const items = group === 'overdue' ? pending.filter(t => t._days < 0)
@@ -37,7 +37,7 @@ async function checkDeadlines() {
 
             if (items.length === 0) return;
 
-            const label = group === 'overdue' ? '🔴 OVERDUE' : group === 'today' ? '🟠 TODAY' : '🟡 UPCOMING';
+            const label = group === 'overdue' ? ' OVERDUE' : group === 'today' ? ' TODAY' : ' UPCOMING';
             console.log(label);
 
             items.forEach(t => {
@@ -47,9 +47,9 @@ async function checkDeadlines() {
             console.log('');
         });
 
-        console.log(`📊 Total: ${pending.length} task`);
+        console.log(` Total: ${pending.length} task`);
     } catch (err) {
-        console.error('❌', err.message);
+        console.error('', err.message);
     }
 }
 

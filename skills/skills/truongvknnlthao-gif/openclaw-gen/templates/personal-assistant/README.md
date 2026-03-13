@@ -7,19 +7,19 @@ Your versatile personal assistant for task management, scheduling, and daily org
 ## Features
 
 ### Quick Task Capture
-- 📝 Capture ideas and tasks instantly
-- 🏷️ Auto-categorization
-- ⚡ Quick priority assignment
+-  Capture ideas and tasks instantly
+-  Auto-categorization
+-  Quick priority assignment
 
 ### Daily Planning
-- 📅 Smart daily schedule organization
-- 🎯 Priority-based task ordering
-- ⏰ Time-blocking for focus periods
+-  Smart daily schedule organization
+-  Priority-based task ordering
+-  Time-blocking for focus periods
 
 ### Weekly Review
-- 📊 Weekly progress summary
-- 🔄 Task rescheduling and cleanup
-- 📈 Goal planning and adjustment
+-  Weekly progress summary
+-  Task rescheduling and cleanup
+-  Goal planning and adjustment
 
 ## Quick Start
 

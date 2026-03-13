@@ -468,7 +468,7 @@ async function auditAgent(agentAddress, options) {
           recommendation: 'Agent should set agentWallet for receiving payments'
         });
         report.summary.high++;
-        console.log(`  ${colors.yellow}⚠ No agent wallet configured${colors.reset}`);
+        console.log(`  ${colors.yellow} No agent wallet configured${colors.reset}`);
       } else {
         console.log(`  ${colors.green}✓ Agent wallet: ${agentWallet}${colors.reset}`);
       }

@@ -10,8 +10,8 @@ Proactive agents work in two modes:
 
 | Mode | Trigger | Use Case | Interruption |
 |------|---------|----------|-------------|
-| **Interactive (systemEvent)** | User request, prompt | Handle user queries, make decisions requiring context | ✅ Full context, interrupts main session |
-| **Autonomous (isolated agentTurn)** | Heartbeat cron, scheduled | Background work, velocity checks, recurring tasks | ❌ No main session, background only |
+| **Interactive (systemEvent)** | User request, prompt | Handle user queries, make decisions requiring context |  Full context, interrupts main session |
+| **Autonomous (isolated agentTurn)** | Heartbeat cron, scheduled | Background work, velocity checks, recurring tasks |  No main session, background only |
 
 ### Key Principle
 **Don't use `systemEvent` for background work.** When a cron job fires during main session, the prompt is ignored and work doesn't happen. Use `isolated agentTurn` instead.
@@ -31,7 +31,7 @@ Heartbeat is a periodic "check-in" that batches multiple background tasks togeth
 
 2. **send-heartbeat.sh** sends this message to your OpenClaw session:
 ```
-💓 Heartbeat check: Read HEARTBEAT.md if it exists (workspace context). 
+ Heartbeat check: Read HEARTBEAT.md if it exists (workspace context). 
 Follow it strictly. Do not infer or repeat old tasks from prior chats. 
 If nothing needs attention, reply HEARTBEAT_OK.
 ```
@@ -69,11 +69,11 @@ if "Heartbeat check:" in message:
 
 ### Why Heartbeat Works Best
 
-✅ **Batch checks together** - One message handles email + calendar + tasks + proactive work  
-✅ **Natural breaks** - Every 30 min is a natural checkpoint  
-✅ **Minimal overhead** - If nothing to do, just "HEARTBEAT_OK"  
-✅ **Full context** - You're in your main session, can make decisions  
-✅ **Human-friendly** - You still control when/how often you check  
+ **Batch checks together** - One message handles email + calendar + tasks + proactive work  
+ **Natural breaks** - Every 30 min is a natural checkpoint  
+ **Minimal overhead** - If nothing to do, just "HEARTBEAT_OK"  
+ **Full context** - You're in your main session, can make decisions  
+ **Human-friendly** - You still control when/how often you check  
 
 ---
 
@@ -214,7 +214,7 @@ python3 scripts/task_manager_phase2.py health-check
 
 ---
 
-## Anti-Patterns ❌
+## Anti-Patterns 
 
 ### Don't:
 - Use `systemEvent` for heartbeat work (it won't fire when busy)
@@ -242,7 +242,7 @@ python3 scripts/task_manager_phase2.py health-check
 2. **Test heartbeat message locally:**
    ```bash
    # Simulate heartbeat
-   echo "💓 Heartbeat check: Read HEARTBEAT.md..." | \
+   echo " Heartbeat check: Read HEARTBEAT.md..." | \
    openclaw message send --channel main
    ```
 

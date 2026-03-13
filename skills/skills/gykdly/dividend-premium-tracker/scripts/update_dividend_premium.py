@@ -170,7 +170,7 @@ def update_today():
     
     save_data(data)
     generate_excel()
-    print(f"  ✅ 已保存!")
+    print(f"   已保存!")
 
 def backfill_history(start_date, end_date):
     """补录历史数据"""

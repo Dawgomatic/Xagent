@@ -62,7 +62,7 @@ class MCPRegistry:
         self._init_db()
         
         # Load embedding model for semantic search
-        print("🧠 Loading semantic search model...")
+        print(" Loading semantic search model...")
         self.model = SentenceTransformer('all-MiniLM-L6-v2')
         
     def _init_db(self):
@@ -85,7 +85,7 @@ class MCPRegistry:
         
     def discover_github(self, limit: int = 50) -> List[MCPServer]:
         """Discover MCP servers from GitHub."""
-        print(f"🔍 Discovering from GitHub...")
+        print(f" Discovering from GitHub...")
         servers = []
         
         try:
@@ -171,7 +171,7 @@ class MCPRegistry:
     
     def semantic_search(self, query: str, top_k: int = 5) -> List[Dict]:
         """Search servers using semantic similarity."""
-        print(f"🔎 Semantic search: '{query}'...")
+        print(f" Semantic search: '{query}'...")
         
         cursor = self.conn.cursor()
         cursor.execute("SELECT id, name, description FROM servers")
@@ -304,7 +304,7 @@ def main():
         
         if args.search:
             results = registry.semantic_search(args.search, args.top)
-            print(f"\n🔎 Results for '{args.search}':\n")
+            print(f"\n Results for '{args.search}':\n")
             for i, result in enumerate(results, 1):
                 print(f"{i}. {result['name']} (Quality: {result['quality_score']})")
                 print(f"   Category: {result['category']}")
@@ -319,7 +319,7 @@ def main():
             row = cursor.fetchone()
             if row:
                 name, quality = row
-                print(f"📊 Quality Score for {name}: {quality}/1.0")
+                print(f" Quality Score for {name}: {quality}/1.0")
             else:
                 print(f"✗ Server not found: {args.score}")
         
@@ -331,7 +331,7 @@ def main():
         
         if args.list:
             servers = registry.list_servers(installed_only=args.installed, sort_by=args.sort)
-            print(f"\n📋 MCP Servers ({len(servers)} total):\n")
+            print(f"\n MCP Servers ({len(servers)} total):\n")
             for server in servers:
                 status = "[INSTALLED]" if server['installed'] else ""
                 print(f"• {server['name']} (Quality: {server['quality_score']}) {status}")

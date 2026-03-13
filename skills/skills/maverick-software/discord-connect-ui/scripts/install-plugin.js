@@ -132,7 +132,7 @@ function copyFile(src, dest) {
   }
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   fs.copyFileSync(src, dest);
-  log(`  ✅ Copied: ${path.basename(dest)}`);
+  log(`   Copied: ${path.basename(dest)}`);
 }
 
 function writeFile(filepath, content) {
@@ -141,7 +141,7 @@ function writeFile(filepath, content) {
     return;
   }
   fs.writeFileSync(filepath, content);
-  log(`  ✅ Updated: ${path.basename(filepath)}`);
+  log(`   Updated: ${path.basename(filepath)}`);
 }
 
 function removeFile(filepath) {
@@ -151,35 +151,35 @@ function removeFile(filepath) {
   }
   if (fs.existsSync(filepath)) {
     fs.unlinkSync(filepath);
-    log(`  🗑️  Removed: ${path.basename(filepath)}`);
+    log(`    Removed: ${path.basename(filepath)}`);
   }
 }
 
 // Main installation
 async function install() {
-  log("🎮 Discord Connect Hub - Installation");
+  log(" Discord Connect Hub - Installation");
   log("");
 
   const gatewayPath = findGatewayPath();
   const uiPath = path.join(gatewayPath, "ui");
 
-  log(`📁 Gateway path: ${gatewayPath}`);
-  log(`📁 UI path: ${uiPath}`);
+  log(` Gateway path: ${gatewayPath}`);
+  log(` UI path: ${uiPath}`);
   log("");
 
   if (options.dryRun) {
-    log("⚡ Dry run mode - no changes will be made");
+    log(" Dry run mode - no changes will be made");
     log("");
   }
 
   // 1. Install backend handlers
-  log("📦 Installing backend handlers...");
+  log(" Installing backend handlers...");
   const backendSrc = path.join(ASSETS_PATH, "discord-backend.ts");
   const backendDest = path.join(gatewayPath, "src/gateway/server-methods/discord-connect.ts");
   copyFile(backendSrc, backendDest);
 
   // 2. Register handlers in server-methods.ts
-  log("📝 Registering RPC handlers...");
+  log(" Registering RPC handlers...");
   const serverMethodsPath = path.join(gatewayPath, "src/gateway/server-methods.ts");
   let serverMethods = fs.readFileSync(serverMethodsPath, "utf-8");
 
@@ -204,17 +204,17 @@ async function install() {
 
     writeFile(serverMethodsPath, serverMethods);
   } else {
-    log("  ⏭️  Already registered");
+    log("    Already registered");
   }
 
   // 3. Install UI view
-  log("📦 Installing UI components...");
+  log(" Installing UI components...");
   const viewSrc = path.join(ASSETS_PATH, "discord-views.ts");
   const viewDest = path.join(uiPath, "src/ui/views/discord.ts");
   copyFile(viewSrc, viewDest);
 
   // 4. Update navigation.ts
-  log("📝 Updating navigation...");
+  log(" Updating navigation...");
   const navPath = path.join(uiPath, "src/ui/navigation.ts");
   let navContent = fs.readFileSync(navPath, "utf-8");
 
@@ -237,10 +237,10 @@ async function install() {
     }
 
     // Add to TAB_ICONS
-    if (!navContent.includes('discord:') || !navContent.includes('🎮')) {
+    if (!navContent.includes('discord:') || !navContent.includes('')) {
       navContent = navContent.replace(
         /(export const TAB_ICONS[^}]+)(};)/,
-        '$1  discord: "🎮",\n$2'
+        '$1  discord: "",\n$2'
       );
     }
 
@@ -276,11 +276,11 @@ async function install() {
 
     writeFile(navPath, navContent);
   } else {
-    log("  ⏭️  Already configured");
+    log("    Already configured");
   }
 
   // 5. Update app-render.ts
-  log("📝 Updating render logic...");
+  log(" Updating render logic...");
   const renderPath = path.join(uiPath, "src/ui/app-render.ts");
   let renderContent = fs.readFileSync(renderPath, "utf-8");
 
@@ -307,19 +307,19 @@ async function install() {
 
     writeFile(renderPath, renderContent);
   } else {
-    log("  ⏭️  Already configured");
+    log("    Already configured");
   }
 
   // 6. Build
   if (!options.skipBuild && !options.dryRun) {
     log("");
-    log("🔨 Building...");
+    log(" Building...");
     try {
       execSync("pnpm build", { cwd: gatewayPath, stdio: "inherit" });
       execSync("pnpm ui:build", { cwd: gatewayPath, stdio: "inherit" });
-      log("  ✅ Build complete");
+      log("   Build complete");
     } catch (err) {
-      log("  ⚠️  Build failed - run manually:");
+      log("    Build failed - run manually:");
       log(`     cd ${gatewayPath} && pnpm build && pnpm ui:build`);
     }
   }
@@ -327,17 +327,17 @@ async function install() {
   // 7. Restart gateway
   if (!options.skipRestart && !options.dryRun) {
     log("");
-    log("🔄 Restarting gateway...");
+    log(" Restarting gateway...");
     try {
       execSync("clawdbot gateway restart", { stdio: "inherit" });
-      log("  ✅ Gateway restarted");
+      log("   Gateway restarted");
     } catch {
-      log("  💡 Restart manually: clawdbot gateway restart");
+      log("   Restart manually: clawdbot gateway restart");
     }
   }
 
   log("");
-  log("✨ Installation complete!");
+  log(" Installation complete!");
   log("");
   log("Next steps:");
   log("  1. Open Control Dashboard → Channels → Discord");
@@ -347,19 +347,19 @@ async function install() {
 
 // Uninstallation
 async function uninstall() {
-  log("🎮 Discord Connect Hub - Uninstallation");
+  log(" Discord Connect Hub - Uninstallation");
   log("");
 
   const gatewayPath = findGatewayPath();
   const uiPath = path.join(gatewayPath, "ui");
 
   if (options.dryRun) {
-    log("⚡ Dry run mode - no changes will be made");
+    log(" Dry run mode - no changes will be made");
     log("");
   }
 
   // Remove files
-  log("🗑️  Removing files...");
+  log("  Removing files...");
   removeFile(path.join(gatewayPath, "src/gateway/server-methods/discord-connect.ts"));
   removeFile(path.join(uiPath, "src/ui/views/discord.ts"));
 
@@ -367,7 +367,7 @@ async function uninstall() {
   // navigation.ts, and app-render.ts as it's safer to do manually
 
   log("");
-  log("⚠️  Manual cleanup required:");
+  log("  Manual cleanup required:");
   log("  1. Remove Discord import from src/gateway/server-methods.ts");
   log("  2. Remove Discord entries from ui/src/ui/navigation.ts");
   log("  3. Remove Discord case from ui/src/ui/app-render.ts");
@@ -383,6 +383,6 @@ try {
     await install();
   }
 } catch (err) {
-  console.error("❌ Error:", err.message);
+  console.error(" Error:", err.message);
   process.exit(1);
 }

@@ -11,16 +11,16 @@ const client = twilio(apiSid, apiKey, { accountSid });
 async function verify() {
   try {
     const account = await client.api.accounts(accountSid).fetch();
-    console.log('✅ Account authenticated!');
+    console.log(' Account authenticated!');
     console.log(`Account Name: ${account.friendlyName}`);
     console.log(`Account SID: ${account.sid}`);
     console.log(`Status: ${account.status}`);
     
     // List phone numbers
-    console.log('\n📞 Incoming Phone Numbers:');
+    console.log('\n Incoming Phone Numbers:');
     const numbers = await client.incomingPhoneNumbers.list({ limit: 20 });
     if (numbers.length === 0) {
-      console.log('❌ No phone numbers found!');
+      console.log(' No phone numbers found!');
     } else {
       numbers.forEach(num => {
         console.log(`  ${num.phoneNumber} - ${num.friendlyName}`);
@@ -28,7 +28,7 @@ async function verify() {
     }
     
   } catch (err) {
-    console.error(`❌ Auth Error:`, err.message);
+    console.error(` Auth Error:`, err.message);
   }
 }
 

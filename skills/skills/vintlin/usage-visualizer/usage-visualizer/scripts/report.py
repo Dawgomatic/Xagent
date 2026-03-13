@@ -104,32 +104,32 @@ def print_report(period: str, config: Dict):
     
     date_label = {"today": "Today", "yesterday": "Yesterday", "week": "This Week", "month": "This Month"}.get(period, period)
     
-    print(f"\n💰 LLM Cost Report - {date_label}")
+    print(f"\n LLM Cost Report - {date_label}")
     print("=" * 50)
     print(f"Period: {start_date} to {end_date}")
     print(f"\nTotal Cost: {fmt_cost(total_cost)}")
     print(f"Total Tokens: {fmt_tokens(tokens_summary['total_tokens'])}")
     
     # Token breakdown
-    print(f"\n📊 Token Breakdown:")
+    print(f"\n Token Breakdown:")
     print(f"   Input:  {fmt_tokens(tokens_summary['input_tokens'])}")
     print(f"   Output: {fmt_tokens(tokens_summary['output_tokens'])}")
     
     if tokens_summary.get("cache_read_tokens", 0) > 0 or tokens_summary.get("cache_creation_tokens", 0) > 0:
         print(f"   Cache R: {fmt_tokens(tokens_summary.get('cache_read_tokens', 0))}")
         print(f"   Cache W: {fmt_tokens(tokens_summary.get('cache_creation_tokens', 0))}")
-        print(f"   💡 Cache Savings: {fmt_cost(cache_savings['total_savings'])}")
+        print(f"    Cache Savings: {fmt_cost(cache_savings['total_savings'])}")
     
     # By provider
     if by_provider:
-        print(f"\n📊 By Provider:")
+        print(f"\n By Provider:")
         for provider, cost in sorted(by_provider.items(), key=lambda x: x[1], reverse=True):
             pct = (cost / total_cost * 100) if total_cost > 0 else 0
             print(f"  • {provider}: {fmt_cost(cost)} ({pct:.0f}%)")
     
     # By model
     if by_model:
-        print(f"\n📈 By Model (Top 10):")
+        print(f"\n By Model (Top 10):")
         for model, cost in sorted(by_model.items(), key=lambda x: x[1], reverse=True)[:10]:
             pct = (cost / total_cost * 100) if total_cost > 0 else 0
             print(f"  • {model}: {fmt_cost(cost)} ({pct:.0f}%)")
@@ -137,13 +137,13 @@ def print_report(period: str, config: Dict):
     # Budget
     if budget_limit > 0:
         pct = (total_cost / budget_limit * 100) if budget_limit > 0 else 0
-        status = "✅" if pct < 80 else "⚠️" if pct < 100 else "🔴"
-        print(f"\n🎯 Budget: {fmt_cost(total_cost)} / {fmt_cost(budget_limit)} ({pct:.0f}%) {status}")
+        status = "" if pct < 80 else "" if pct < 100 else ""
+        print(f"\n Budget: {fmt_cost(total_cost)} / {fmt_cost(budget_limit)} ({pct:.0f}%) {status}")
     
     # Unknown models
     unknown = [m for m in by_model.keys() if get_pricing(m) is None]
     if unknown:
-        print(f"\n⚠️ Note: Showing real cost from sessions (no local pricing): {', '.join(unknown)}")
+        print(f"\n Note: Showing real cost from sessions (no local pricing): {', '.join(unknown)}")
     
     print()
 

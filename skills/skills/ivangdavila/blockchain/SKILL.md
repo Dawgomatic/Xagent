@@ -42,9 +42,9 @@ For full patterns, see `dev.md`.
 
 ## When to Use Blockchain
 
-✅ **Use when:** Multiple parties need shared truth, no trusted authority exists, immutability is critical, settlement costs are high.
+ **Use when:** Multiple parties need shared truth, no trusted authority exists, immutability is critical, settlement costs are high.
 
-❌ **Don't use when:** Single org controls data, you trust a central authority, data needs deletion (GDPR), or a database solves it.
+ **Don't use when:** Single org controls data, you trust a central authority, data needs deletion (GDPR), or a database solves it.
 
 > **The Database Test:** Would PostgreSQL with audit logs solve this? If yes, skip blockchain.
 

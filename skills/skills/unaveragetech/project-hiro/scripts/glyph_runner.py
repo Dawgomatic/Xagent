@@ -51,7 +51,7 @@ Glyph Runner serves as the "interpreter" for hieroglyphic-encoded files:
    - Executes code entirely in memory using exec()
    - No temporary files or disk artifacts created
    - Supports interactive and long-running programs
-   - ⚠️ SECURITY RISK: Allows arbitrary code execution - only run trusted .glyph files!
+   -  SECURITY RISK: Allows arbitrary code execution - only run trusted .glyph files!
 
 ADDON SYSTEM
 -----------

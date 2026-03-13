@@ -1,7 +1,7 @@
 ---
 name: Domains
 description: Register, manage, and protect domain names with practical DNS and security guidance.
-metadata: {"clawdbot":{"emoji":"🌐","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Domain Management Rules

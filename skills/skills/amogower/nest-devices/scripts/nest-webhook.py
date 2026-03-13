@@ -33,11 +33,11 @@ _nest_creds = {}
 _access_token = {'token': None, 'expires': 0}
 
 EVENT_TYPES = {
-    'sdm.devices.events.DoorbellChime.Chime': '🔔 Doorbell rang!',
-    'sdm.devices.events.CameraMotion.Motion': '📹 Motion detected',
-    'sdm.devices.events.CameraPerson.Person': '🚶 Person detected',
-    'sdm.devices.events.CameraSound.Sound': '🔊 Sound detected',
-    'sdm.devices.events.CameraClipPreview.ClipPreview': '🎬 Clip ready',
+    'sdm.devices.events.DoorbellChime.Chime': ' Doorbell rang!',
+    'sdm.devices.events.CameraMotion.Motion': ' Motion detected',
+    'sdm.devices.events.CameraPerson.Person': ' Person detected',
+    'sdm.devices.events.CameraSound.Sound': ' Sound detected',
+    'sdm.devices.events.CameraClipPreview.ClipPreview': ' Clip ready',
 }
 
 
@@ -388,7 +388,7 @@ class NestWebhookHandler(BaseHTTPRequestHandler):
 
             # For doorbell/person events with an eventId, try to get an image
             if event_id and ('Doorbell' in event_type or 'Camera' in event_type):
-                caption = f"{description}\n🕐 {timestamp}"
+                caption = f"{description}\n {timestamp}"
 
                 # Try GenerateImage first (fast), fall back to RTSP
                 image_data = generate_event_image(device_id, event_id)
@@ -400,10 +400,10 @@ class NestWebhookHandler(BaseHTTPRequestHandler):
                     send_telegram_photo(image_data, caption)
                 else:
                     # No image available, send text alert
-                    send_telegram_message(f"{description}\n🕐 {timestamp}\n⚠️ Could not capture image")
+                    send_telegram_message(f"{description}\n {timestamp}\n Could not capture image")
             else:
                 # Non-camera event, just text
-                send_telegram_message(f"{description}\n🕐 {timestamp}")
+                send_telegram_message(f"{description}\n {timestamp}")
 
             # Notify Clawdbot for awareness (non-blocking)
             send_clawdbot_hook(description)

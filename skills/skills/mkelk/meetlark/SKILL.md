@@ -3,7 +3,7 @@ name: meetlark
 description: Scheduling polls for humans and their agents. Create polls, share participation links, collect votes, and find the best meeting time. A Doodle alternative built for the age of AI agents.
 homepage: https://meetlark.ai
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🐦"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # meetlark.ai — Scheduling polls for humans and their agents

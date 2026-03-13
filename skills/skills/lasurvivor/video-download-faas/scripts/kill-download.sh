@@ -47,7 +47,7 @@ echo "PID: $PID"
 if [ "$FORCE" = "--force" ]; then
     # Force kill
     kill -9 "$PID" 2>/dev/null
-    echo "✅ Force killed process $PID"
+    echo " Force killed process $PID"
 else
     # Graceful kill
     kill "$PID" 2>/dev/null
@@ -58,7 +58,7 @@ else
         echo "Process still running, forcing kill..."
         kill -9 "$PID" 2>/dev/null
     fi
-    echo "✅ Process stopped"
+    echo " Process stopped"
 fi
 
 # Cleanup

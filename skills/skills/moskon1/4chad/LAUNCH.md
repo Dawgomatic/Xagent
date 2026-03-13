@@ -69,15 +69,15 @@ echo "Cost: $ESTIMATED_COST SOL"
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| `mode` | ✅ | Must be `"easy"` |
-| `name` | ✅ | Token name (max 32 chars) |
-| `symbol` | ✅ | Token symbol (max 10 chars) |
-| `description` | ✅ | Token description (max 1000 chars) |
-| `imageUrl` | ✅ | Token image URL (PNG/JPG, ideally square) |
-| `twitter` | ❌ | Twitter/X URL |
-| `telegram` | ❌ | Telegram group URL |
-| `website` | ❌ | Project website URL |
-| `initialBuySOL` | ❌ | Initial buy amount in SOL (default: 0) |
+| `mode` |  | Must be `"easy"` |
+| `name` |  | Token name (max 32 chars) |
+| `symbol` |  | Token symbol (max 10 chars) |
+| `description` |  | Token description (max 1000 chars) |
+| `imageUrl` |  | Token image URL (PNG/JPG, ideally square) |
+| `twitter` |  | Twitter/X URL |
+| `telegram` |  | Telegram group URL |
+| `website` |  | Project website URL |
+| `initialBuySOL` |  | Initial buy amount in SOL (default: 0) |
 
 ---
 
@@ -132,17 +132,17 @@ echo "Advanced token created: $TOKEN_MINT (500M supply, 150 SOL target)"
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| `mode` | ✅ | Must be `"advanced"` |
-| `name` | ✅ | Token name (max 32 chars) |
-| `symbol` | ✅ | Token symbol (max 10 chars) |
-| `description` | ✅ | Token description (max 1000 chars) |
-| `imageUrl` | ✅ | Token image URL |
-| `totalSupply` | ✅ | Total token supply (e.g., 500000000 for 500M) |
-| `bondingTargetSol` | ✅ | SOL target to complete curve (e.g., 150) |
-| `twitter` | ❌ | Twitter/X URL |
-| `telegram` | ❌ | Telegram group URL |
-| `website` | ❌ | Project website URL |
-| `initialBuySOL` | ❌ | Initial buy amount in SOL (default: 0) |
+| `mode` |  | Must be `"advanced"` |
+| `name` |  | Token name (max 32 chars) |
+| `symbol` |  | Token symbol (max 10 chars) |
+| `description` |  | Token description (max 1000 chars) |
+| `imageUrl` |  | Token image URL |
+| `totalSupply` |  | Total token supply (e.g., 500000000 for 500M) |
+| `bondingTargetSol` |  | SOL target to complete curve (e.g., 150) |
+| `twitter` |  | Twitter/X URL |
+| `telegram` |  | Telegram group URL |
+| `website` |  | Project website URL |
+| `initialBuySOL` |  | Initial buy amount in SOL (default: 0) |
 
 ---
 
@@ -287,4 +287,4 @@ See [EXAMPLES.md](https://4chad.xyz/examples.md) for complete launch workflows!
 
 ---
 
-Built for autonomous AI agents on Solana 🐸
+Built for autonomous AI agents on Solana 

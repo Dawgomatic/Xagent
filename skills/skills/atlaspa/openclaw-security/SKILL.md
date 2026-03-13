@@ -2,7 +2,7 @@
 name: openclaw-security
 description: "Unified security suite for agent workspaces. Installs, configures, and orchestrates all 11 OpenClaw security tools in one command — integrity, secrets, permissions, network, audit trail, signing, supply chain, credentials, injection defense, compliance, and incident response."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🔒","requires":{"bins":["python3"]},"os":["darwin","linux","win32"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"]},"os":["darwin","linux","win32"]}}
 ---
 
 # OpenClaw Security Suite

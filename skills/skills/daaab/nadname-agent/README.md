@@ -1,4 +1,4 @@
-# 🌐 NadName Agent
+#  NadName Agent
 
 Register .nad names on Monad blockchain via Nad Name Service (NNS).
 
@@ -21,11 +21,11 @@ node scripts/my-names.js
 
 ## Security Features
 
-✅ No hardcoded private keys  
-✅ Environment variable or encrypted keystore only  
-✅ No auto-detection of external wallet paths  
-✅ Proper file permissions (600) for sensitive data  
-✅ AES-256-GCM encryption for managed keystores  
+ No hardcoded private keys  
+ Environment variable or encrypted keystore only  
+ No auto-detection of external wallet paths  
+ Proper file permissions (600) for sensitive data  
+ AES-256-GCM encryption for managed keystores  
 
 ## Documentation
 
@@ -36,5 +36,5 @@ See [SKILL.md](SKILL.md) for complete documentation and usage examples.
 - **Permanent ownership**: .nad names never expire
 - **One-time fee**: No renewal costs
 - **NFT-based**: Names are tradeable NFTs
-- **Emoji support**: Use 🦞.nad or 你好.nad
+- **Emoji support**: Use .nad or 你好.nad
 - **Monad blockchain**: Fast and cheap transactions

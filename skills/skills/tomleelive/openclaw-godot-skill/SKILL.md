@@ -165,14 +165,14 @@ console.getLogs {type: "error"}       # Errors only
 console.getLogs {type: "warning"}     # Warnings only
 ```
 
-## 🔐 Security: Model Invocation Setting
+##  Security: Model Invocation Setting
 
 When publishing to ClawHub, you can configure `disableModelInvocation`:
 
 | Setting | AI Auto-Invoke | User Explicit Request |
 |---------|---------------|----------------------|
-| `false` (default) | ✅ Allowed | ✅ Allowed |
-| `true` | ❌ Blocked | ✅ Allowed |
+| `false` (default) |  Allowed |  Allowed |
+| `true` |  Blocked |  Allowed |
 
 ### Recommendation: **`true`**
 

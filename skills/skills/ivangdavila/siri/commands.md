@@ -60,16 +60,16 @@
 ## Tips for Natural Commands
 
 **Being Specific Helps:**
-- ❌ "Text John" → Which John?
-- ✅ "Text John Smith"
+-  "Text John" → Which John?
+-  "Text John Smith"
 
 **Add Context:**
-- ❌ "Set an alarm"
-- ✅ "Set an alarm for 7 AM tomorrow"
+-  "Set an alarm"
+-  "Set an alarm for 7 AM tomorrow"
 
 **Chaining Usually Fails:**
-- ❌ "Turn off lights and play music and lock the door"
-- ✅ Create a Shortcut for multi-step sequences
+-  "Turn off lights and play music and lock the door"
+-  Create a Shortcut for multi-step sequences
 
 ---
 

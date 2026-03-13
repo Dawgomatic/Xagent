@@ -1,7 +1,7 @@
 ---
 name: CRM
 description: Guide users building a personal CRM from simple files to structured database.
-metadata: {"clawdbot":{"emoji":"🤝","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## First Interaction

@@ -68,7 +68,7 @@ def github_webhook():
     event = request.headers.get('X-GitHub-Event')
     payload = request.get_json()
     
-    print(f"📦 GitHub event: {event}")
+    print(f" GitHub event: {event}")
     
     # Обрабатываем push события
     if event == 'push':
@@ -85,7 +85,7 @@ def github_webhook():
             
             # Логируем успех
             commit_message = payload['head_commit']['message'] if 'head_commit' in payload else 'N/A'
-            print(f"✅ Updated skill '{skill_name}' from {repo_url} ({branch})")
+            print(f" Updated skill '{skill_name}' from {repo_url} ({branch})")
             print(f"   Commit: {commit_message}")
             
             return jsonify({
@@ -97,7 +97,7 @@ def github_webhook():
             })
             
         except subprocess.CalledProcessError as e:
-            print(f"❌ Failed to update skill: {e}")
+            print(f" Failed to update skill: {e}")
             return jsonify({'error': str(e)}), 500
     
     # Обрабатываем release события
@@ -105,7 +105,7 @@ def github_webhook():
         repo_name = payload['repository']['name']
         release_tag = payload['release']['tag_name']
         
-        print(f"🎉 New release: {repo_name} {release_tag}")
+        print(f" New release: {repo_name} {release_tag}")
         
         return jsonify({
             'status': 'success',
@@ -126,8 +126,8 @@ if __name__ == '__main__':
     port = int(os.getenv('PORT', 3000))
     debug = os.getenv('FLASK_DEBUG', 'false').lower() == 'true'
     
-    print(f"🚀 Starting GitHub webhook handler on port {port}")
-    print(f"📁 Skills directory: {SKILLS_DIR}")
-    print(f"🔧 OpenClaw path: {OPENCLAW_PATH}")
+    print(f" Starting GitHub webhook handler on port {port}")
+    print(f" Skills directory: {SKILLS_DIR}")
+    print(f" OpenClaw path: {OPENCLAW_PATH}")
     
     app.run(host='0.0.0.0', port=port, debug=debug)

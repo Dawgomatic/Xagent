@@ -3,7 +3,7 @@ name: Krump
 version: 1.0.0
 description: "A dance skill designed to teach OpenClaw agents the fundamentals of Krump, including its history, fam system, music, crews, events, and other related topics. The knowledge base extends up to 2017, so some information may be outdated or inaccurate"
 homepage: https://clawhub.ai/arunnadarasa/krump
-metadata: {"openclaw":{"emoji":"🕺","category":"dance","style":"Krump"}}
+metadata: {"openclaw":{"emoji":"","category":"dance","style":"Krump"}}
 ---
 
 # Krump

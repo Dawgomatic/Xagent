@@ -414,7 +414,7 @@ def format_output(data, mode: OutputMode = OutputMode.JSON):
                 # Report format
                 s = data["summary"]
                 lines = [
-                    f"📊 {data.get('report_type', 'Report').title()} ({data.get('period', 'N/A')})",
+                    f" {data.get('report_type', 'Report').title()} ({data.get('period', 'N/A')})",
                     f"Sleep: {s.get('avg_sleep_hours', 'N/A')}h avg, {s.get('avg_sleep_score', 'N/A')} score",
                     f"Readiness: {s.get('avg_readiness_score', 'N/A')}",
                     f"Efficiency: {s.get('avg_sleep_efficiency', 'N/A')}%",
@@ -452,11 +452,11 @@ def format_output(data, mode: OutputMode = OutputMode.JSON):
             
             # Check for concerning metrics
             if s.get("avg_sleep_hours") and s["avg_sleep_hours"] < 6:
-                alerts.append(f"⚠️  Low sleep: {s['avg_sleep_hours']}h avg")
+                alerts.append(f"  Low sleep: {s['avg_sleep_hours']}h avg")
             if s.get("avg_readiness_score") and s["avg_readiness_score"] < 70:
-                alerts.append(f"⚠️  Low readiness: {s['avg_readiness_score']}")
+                alerts.append(f"  Low readiness: {s['avg_readiness_score']}")
             if s.get("avg_sleep_efficiency") and s["avg_sleep_efficiency"] < 80:
-                alerts.append(f"⚠️  Low efficiency: {s['avg_sleep_efficiency']}%")
+                alerts.append(f"  Low efficiency: {s['avg_sleep_efficiency']}%")
             
             if alerts:
                 return "\n".join(alerts)

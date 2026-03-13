@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://github.com/LooperRobotics/OpenClaw-Robotics">
 <meta property="og:type" content="project">
 
-<h1 align="center">🤖 OpenClaw Robotics Skill</h1>
+<h1 align="center"> OpenClaw Robotics Skill</h1>
 
 ---
 
@@ -44,7 +44,7 @@ You (WhatsApp/WeChat/DingTalk)
 
 ---
 
-## 🎯 What We Do
+##  What We Do
 
 | Goal | How We Achieve It |
 |------|-------------------|
@@ -55,7 +55,7 @@ You (WhatsApp/WeChat/DingTalk)
 
 ---
 
-## ✅ What's Working Now
+##  What's Working Now
 
 ### Supported Robot Types
 
@@ -86,22 +86,22 @@ go to 5,3         → Robot navigates to position
 
 ---
 
-## 🔜 What's Coming
+##  What's Coming
 
 We're building the most comprehensive robot control skill:
 
 | Feature | Status | Description |
 |---------|--------|-------------|
-| **Insight9 Camera** | 🔜 | Looper AI Stereo Camera for VSLAM |
-| **TinyNav** | 🔜 | Open-source navigation library |
-| **Wheeled Robots** | 🔜 | Indoor/outdoor platforms |
-| **Aerial Robots** | 🔜 | Drones and UAVs |
-| **Surface Vehicles** | 🔜 | Boats, rovers |
-| **Multi-Robot** | 🔜 | Coordinate multiple robots |
+| **Insight9 Camera** |  | Looper AI Stereo Camera for VSLAM |
+| **TinyNav** |  | Open-source navigation library |
+| **Wheeled Robots** |  | Indoor/outdoor platforms |
+| **Aerial Robots** |  | Drones and UAVs |
+| **Surface Vehicles** |  | Boats, rovers |
+| **Multi-Robot** |  | Coordinate multiple robots |
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Install (One Command)
 
@@ -142,7 +142,7 @@ print(status)
 
 ---
 
-## 📖 Command Reference
+##  Command Reference
 
 ### Movement
 
@@ -179,7 +179,7 @@ print(status)
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -209,7 +209,7 @@ print(status)
 
 ---
 
-## 🔧 Add Your Own Robot
+##  Add Your Own Robot
 
 We designed this to be extensible. Adding a new robot takes minutes:
 
@@ -244,10 +244,10 @@ execute("mydrobot_x1", "forward 1m")
 
 ---
 
-## 📊 Roadmap
+##  Roadmap
 
 ```
-2026 Q1 ───────────────────────────────────▶
+2026 Q1 ───────────────────────────────────
 │
 ├─ Insight9 Camera Support
 │  └─ VSLAM with RGB-Depth
@@ -258,7 +258,7 @@ execute("mydrobot_x1", "forward 1m")
 └─ Wheeled Robot Framework
    └─ First wheeled adapter
 
-2026 Q2 ───────────────────────────────────▶
+2026 Q2 ───────────────────────────────────
 │
 ├─ TinyNav Integration
 │  └─ A* + DWA obstacle avoidance
@@ -269,7 +269,7 @@ execute("mydrobot_x1", "forward 1m")
 └─ Aerial Robot Framework
    └─ Drone adapter
 
-2026 Q3+ ──────────────────────────────────▶
+2026 Q3+ ──────────────────────────────────
 │
 ├─ Surface Vehicles
 ├─ Advanced SLAM
@@ -278,11 +278,11 @@ execute("mydrobot_x1", "forward 1m")
 
 ---
 
-## 🤝 Want to Contribute?
+##  Want to Contribute?
 
 We welcome contributors! Here's how:
 
-1. **Star us** ⭐ - Helps discoverability
+1. **Star us**  - Helps discoverability
 2. **Fork** - Make your own version  
 3. **PR** - Submit improvements
 4. **Issue** - Report bugs or request features
@@ -292,7 +292,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ---
 
-## 📚 Resources
+##  Resources
 
 - [Documentation](docs/) - Detailed guides
 - [Examples](examples/) - Usage examples
@@ -300,7 +300,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ---
 
-## 📝 Citation
+##  Citation
 
 ```bibtex
 @software{OpenClaw-Robotics,
@@ -314,7 +314,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ---
 
-## ⭐ Let's Connect
+##  Let's Connect
 
 - **GitHub**: https://github.com/LooperRobotics
 - **Website**: https://www.looper-robotics.com
@@ -323,6 +323,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 ---
 
 <p align="center">
-  <strong>Built with ❤️ by <a href="https://github.com/LooperRobotics">LooperRobotics</a></strong><br>
+  <strong>Built with  by <a href="https://github.com/LooperRobotics">LooperRobotics</a></strong><br>
   <sub>Making robots accessible to everyone, one message at a time.</sub>
 </p>

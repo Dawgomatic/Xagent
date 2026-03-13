@@ -78,7 +78,7 @@ Descriptions on nad.fun should be punchy (under 280 chars recommended) but infor
 > "The official [Utility/Meme] token for [Project Name]. [Value Prop]. Powered by [Tech Stack] on Monad."
 
 **Example:**
-> "The official automation token for TokenBroker. Deploy agents instantly and mine launches on nad.fun. Powered by OpenClaw on Monad. 🦞"
+> "The official automation token for TokenBroker. Deploy agents instantly and mine launches on nad.fun. Powered by OpenClaw on Monad. "
 
 ## 3. Metadata Structure
 

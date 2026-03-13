@@ -1,6 +1,6 @@
 [分享] 开源一个 OpenClaw Skill：context-restore - 让 AI 对话永不中断
 
-## 🎯 简介
+##  简介
 
 分享一个我开发的 OpenClaw Skill - **context-restore**，帮助用户在 AI 对话中断后快速恢复上下文。
 
@@ -9,7 +9,7 @@ https://github.com/openclaw/skills/tree/main/context-restore
 
 ---
 
-## 😢 场景痛点
+##  场景痛点
 
 大家在使用 AI 助手时，是否遇到过以下情况：
 
@@ -30,7 +30,7 @@ https://github.com/openclaw/skills/tree/main/context-restore
 
 ---
 
-## 💡 context-restore 解决方案
+##  context-restore 解决方案
 
 **context-restore** 专为解决这些痛点而设计！
 
@@ -42,7 +42,7 @@ https://github.com/openclaw/skills/tree/main/context-restore
 
 ---
 
-## ✨ 核心功能
+##  核心功能
 
 ### 1. 自然语言触发
 无需记住复杂命令，自然语言即可触发：
@@ -63,13 +63,13 @@ https://github.com/openclaw/skills/tree/main/context-restore
 - 生成可执行的恢复报告
 
 ### 4. 多语言支持
-- 🌐 English
-- 🇨🇳 中文
-- 🇮🇹 Italiano
+-  English
+-  中文
+-  Italiano
 
 ---
 
-## 🚀 使用示例
+##  使用示例
 
 ### 基础使用
 ```bash
@@ -87,11 +87,11 @@ https://github.com/openclaw/skills/tree/main/context-restore
 
 ### 实际输出示例
 ```
-✅ 上下文已恢复
+ 上下文已恢复
 
 当前活跃项目：
-1. 🏛️ Hermes Plan - 数据分析助手（进度：80%）
-2. 🌐 Akasha Plan - 自主新闻系统（进度：45%）
+1.  Hermes Plan - 数据分析助手（进度：80%）
+2.  Akasha Plan - 自主新闻系统（进度：45%）
 
 待办任务：
 - [高] 编写数据管道测试用例
@@ -106,7 +106,7 @@ https://github.com/openclaw/skills/tree/main/context-restore
 
 ---
 
-## 🔗 与其他技能的集成
+##  与其他技能的集成
 
 context-restore 设计上可以与其他 OpenClaw 技能完美配合：
 
@@ -129,7 +129,7 @@ context-restore：会话开始时恢复上下文
 
 ---
 
-## 📦 安装方法
+##  安装方法
 
 ```bash
 # 安装 skill
@@ -144,7 +144,7 @@ context-restore：会话开始时恢复上下文
 
 ---
 
-## 📊 适用人群
+##  适用人群
 
 - **开发者**：跨天继续编码工作
 - **产品经理**：维护项目进度和需求讨论
@@ -154,7 +154,7 @@ context-restore：会话开始时恢复上下文
 
 ---
 
-## 🛠️ 技术实现
+##  技术实现
 
 - **核心语言**：Python 3
 - **数据格式**：JSON（压缩上下文文件）
@@ -163,7 +163,7 @@ context-restore：会话开始时恢复上下文
 
 ---
 
-## 🔮 未来规划
+##  未来规划
 
 - [ ] 增强 AI 摘要能力
 - [ ] 支持多会话并行管理
@@ -172,7 +172,7 @@ context-restore：会话开始时恢复上下文
 
 ---
 
-## 💬 互动话题
+##  互动话题
 
 大家平时是怎么处理 AI 对话上下文丢失的问题的？有什么好的方法或工具推荐吗？
 
@@ -180,7 +180,7 @@ context-restore：会话开始时恢复上下文
 
 ---
 
-## 🔗 相关链接
+##  相关链接
 
 - **GitHub**：[https://github.com/openclaw/skills/tree/main/context-restore](https://github.com/openclaw/skills/tree/main/context-restore)
 - **官方文档**：skill 内置完整文档

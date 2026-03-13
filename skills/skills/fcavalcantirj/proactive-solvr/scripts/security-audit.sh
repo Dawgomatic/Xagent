@@ -4,7 +4,7 @@
 
 set +e  # Don't exit on error - complete all checks
 
-echo "🔒 Proactive Solvr Agent — Security Audit"
+echo " Proactive Solvr Agent — Security Audit"
 echo "=========================================="
 echo ""
 
@@ -17,12 +17,12 @@ YELLOW='\033[1;33m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-warn() { echo -e "${YELLOW}⚠️  WARNING: $1${NC}"; ((WARNINGS++)); }
-fail() { echo -e "${RED}❌ ISSUE: $1${NC}"; ((ISSUES++)); }
-pass() { echo -e "${GREEN}✅ $1${NC}"; }
+warn() { echo -e "${YELLOW}  WARNING: $1${NC}"; ((WARNINGS++)); }
+fail() { echo -e "${RED} ISSUE: $1${NC}"; ((ISSUES++)); }
+pass() { echo -e "${GREEN} $1${NC}"; }
 
 # 1. Check credential file permissions
-echo "📁 Checking credential files..."
+echo " Checking credential files..."
 if [ -d ".credentials" ]; then
     for f in .credentials/*; do
         if [ -f "$f" ]; then
@@ -40,7 +40,7 @@ fi
 echo ""
 
 # 2. Check for exposed secrets in tracked files
-echo "🔍 Scanning for exposed secrets..."
+echo " Scanning for exposed secrets..."
 SECRET_PATTERNS="(api[_-]?key|apikey|secret|password|token|solvr_).*[=:].{10,}"
 for f in $(ls *.md *.json *.yaml *.yml .env* 2>/dev/null || true); do
     if [ -f "$f" ]; then
@@ -54,7 +54,7 @@ pass "Secret scan complete"
 echo ""
 
 # 3. Check AGENTS.md for security rules
-echo "📋 Checking AGENTS.md for security rules..."
+echo " Checking AGENTS.md for security rules..."
 if [ -f "AGENTS.md" ]; then
     if grep -qi "injection\|external content\|never execute" "AGENTS.md"; then
         pass "AGENTS.md contains injection defense rules"
@@ -73,7 +73,7 @@ fi
 echo ""
 
 # 4. Check Solvr configuration
-echo "🌐 Checking Solvr configuration..."
+echo " Checking Solvr configuration..."
 if [ -f "TOOLS.md" ]; then
     if grep -qi "solvr\|SOLVR_API_KEY" "TOOLS.md"; then
         pass "Solvr configuration found in TOOLS.md"
@@ -90,7 +90,7 @@ fi
 echo ""
 
 # 5. Check gateway configuration (OpenClaw)
-echo "🚪 Checking gateway configuration..."
+echo " Checking gateway configuration..."
 CONFIG_DIRS=("$HOME/.clawdbot" "$HOME/.openclaw")
 for config_dir in "${CONFIG_DIRS[@]}"; do
     config_file="$config_dir/config.json"
@@ -106,7 +106,7 @@ done
 echo ""
 
 # 6. Check .gitignore
-echo "📄 Checking .gitignore..."
+echo " Checking .gitignore..."
 if [ -f ".gitignore" ]; then
     if grep -q "\.credentials" ".gitignore"; then
         pass ".credentials is gitignored"
@@ -129,7 +129,7 @@ fi
 echo ""
 
 # 7. Check ONBOARDING.md consistency
-echo "📝 Checking onboarding consistency..."
+echo " Checking onboarding consistency..."
 if [ -f "ONBOARDING.md" ]; then
     ONBOARD_STATUS=$(grep -i "state:" ONBOARDING.md | head -1 | tr -d '*' | tr '[:upper:]' '[:lower:]')
     
@@ -155,7 +155,7 @@ echo ""
 
 # Summary
 echo "=========================================="
-echo "📊 Summary"
+echo " Summary"
 echo "=========================================="
 if [ $ISSUES -eq 0 ] && [ $WARNINGS -eq 0 ]; then
     echo -e "${GREEN}All checks passed!${NC}"

@@ -137,26 +137,26 @@ def generate_analysis_message(activity, hr_zones_data, ftp=192):
                 minutes = zone_time[zone] // 60
                 percent = round((zone_time[zone] / total_time * 100), 0) if total_time > 0 else 0
                 zone_range = zones[zone]
-                emoji = "💥" if zone == 5 else "🔥" if zone == 4 else ""
+                emoji = "" if zone == 5 else "" if zone == 4 else ""
                 hr_zone_text += f"• Zone {zone} ({zone_names[zone]}): **{minutes} min** ({percent}%) {emoji}\n"
     
     # PRs
     pr_list = format_pr_list(activity.get('segment_efforts', []))
     pr_text = ""
     if pr_list:
-        pr_text = f"🎯 **PERSONAL RECORDS - {len(pr_list)} PR{'s' if len(pr_list) > 1 else ''}!**\n\n"
+        pr_text = f" **PERSONAL RECORDS - {len(pr_list)} PR{'s' if len(pr_list) > 1 else ''}!**\n\n"
         for pr in pr_list:
-            pr_text += f"🏆 **{pr['name']}** - {pr['time']} (PR #{pr['rank']})\n"
+            pr_text += f" **{pr['name']}** - {pr['time']} (PR #{pr['rank']})\n"
         pr_text += "\n---\n\n"
     
     # Build message
-    message = f"""🏁 **Ride Complete! - {name}**
+    message = f""" **Ride Complete! - {name}**
 
-📅 {date} | ⏱️ {duration_min} min | 📏 {distance_km:.1f} km
+ {date} |  {duration_min} min |  {distance_km:.1f} km
 
 ---
 
-⚡ **POWER ANALYSIS:**
+ **POWER ANALYSIS:**
 • Average: **{avg_power:.0f}W** ({round(avg_power/ftp*100)}% FTP)
 • Normalized: **{np:.0f}W** ({intensity_pct}% FTP) 
 • Max: **{max_power:.0f}W** ({round(max_power/ftp*100)}% FTP)
@@ -164,14 +164,14 @@ def generate_analysis_message(activity, hr_zones_data, ftp=192):
 
 ---
 
-❤️ **HEART RATE ZONES:**
+ **HEART RATE ZONES:**
 {hr_zone_text}
 • Average: **{avg_hr:.0f} bpm** 
 • Max: **{max_hr:.0f} bpm**
 
 ---
 
-{pr_text}💡 **PERFORMANCE INSIGHTS:**
+{pr_text} **PERFORMANCE INSIGHTS:**
 
 **Training Load:**
 • Estimated TSS: ~{tss:.0f}
@@ -183,7 +183,7 @@ def generate_analysis_message(activity, hr_zones_data, ftp=192):
 
 ---
 
-🎖️ Great work! 💪🥚"""
+ Great work! """
     
     return message
 

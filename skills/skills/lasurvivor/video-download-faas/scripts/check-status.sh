@@ -14,9 +14,9 @@ if [ -z "$SESSION_ID" ]; then
             if [ -f "/tmp/${SESSION_NAME}.pid" ]; then
                 PID=$(cat "/tmp/${SESSION_NAME}.pid")
                 if kill -0 "$PID" 2>/dev/null; then
-                    echo "✅ $SESSION_NAME (PID: $PID) - Running"
+                    echo " $SESSION_NAME (PID: $PID) - Running"
                 else
-                    echo "✅ $SESSION_NAME - Completed"
+                    echo " $SESSION_NAME - Completed"
                 fi
             fi
         fi
@@ -44,7 +44,7 @@ STARTED_AT=$(grep '"started_at"' "$SESSION_FILE" | sed 's/.*"started_at": "\([^"
 if [ -f "$PID_FILE" ]; then
     PID=$(cat "$PID_FILE")
     if kill -0 "$PID" 2>/dev/null; then
-        STATUS="🟢 RUNNING"
+        STATUS=" RUNNING"
         
         # Show progress from log
         if [ -f "$LOG_FILE" ]; then
@@ -60,7 +60,7 @@ if [ -f "$PID_FILE" ]; then
             tail -5 "$LOG_FILE" | grep -E "(download|progress|ETA)" || tail -3 "$LOG_FILE"
         fi
     else
-        STATUS="✅ COMPLETED"
+        STATUS=" COMPLETED"
         echo "$STATUS"
         echo "============"
         echo "Session: $SESSION_ID"
@@ -77,5 +77,5 @@ if [ -f "$PID_FILE" ]; then
         rm -f "$SESSION_FILE" "$PID_FILE" "$LOG_FILE"
     fi
 else
-    echo "⚠️  Session info incomplete"
+    echo "  Session info incomplete"
 fi

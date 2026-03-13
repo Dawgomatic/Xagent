@@ -132,27 +132,27 @@ node {baseDir}/src/launch.mjs --name "TokenName" --symbol "SYM" --image "/path/t
 Parse the JSON output and format like:
 
 ```
-🚀 **MoonCat** (MCAT) is live!
+ **MoonCat** (MCAT) is live!
 
-🔗 [View on pump.fun](https://pump.fun/coin/<mint>)
-🏦 Mint: `<mint>`
+ [View on pump.fun](https://pump.fun/coin/<mint>)
+ Mint: `<mint>`
 ```
 
 Only add a fee sharing line if the user customized the fee split or if fee sharing failed:
 
-- If the user customized the split: "✅ Fee sharing: X% you / Y% partner / 10% Ship My Token"
-- If fee sharing failed: "⚠️ Fee sharing not configured — 100% of creator fees go directly to your wallet."
+- If the user customized the split: " Fee sharing: X% you / Y% partner / 10% Ship My Token"
+- If fee sharing failed: " Fee sharing not configured — 100% of creator fees go directly to your wallet."
 - If the user did NOT customize the split and fee sharing succeeded: don't show any fee sharing line
 
 Always add a "What's next" section:
 
 ```
 **What's next?**
-📈 Your token starts on the bonding curve — once ~85 SOL of buys happen, it graduates to PumpSwap AMM
-💸 You earn creator trading fees on every trade — ask me to **claim your fees** anytime
-📊 Say **"portfolio"** to see all your tokens, bonding curve progress, and claimable fees
-🔄 Want to split fees with a partner? Just ask me to **update fee sharing**
-🚀 Ready for another one? Just give me a name, symbol, and image!
+ Your token starts on the bonding curve — once ~85 SOL of buys happen, it graduates to PumpSwap AMM
+ You earn creator trading fees on every trade — ask me to **claim your fees** anytime
+ Say **"portfolio"** to see all your tokens, bonding curve progress, and claimable fees
+ Want to split fees with a partner? Just ask me to **update fee sharing**
+ Ready for another one? Just give me a name, symbol, and image!
 ```
 
 ## Pump Suffix (Default)
@@ -201,11 +201,11 @@ node {baseDir}/src/fees.mjs --claim
 Format the output like:
 
 ```
-💸 **Fee Claim Results**
+ **Fee Claim Results**
 
-✅ **MoonCat** (MCAT) — claimed **0.05 SOL**
-⏳ **DogWif** (DWF) — below minimum (need 0.01 SOL, have 0.003 SOL)
-⚠️ **FrogCoin** (FROG) — fee sharing not configured (fees go directly to your wallet)
+ **MoonCat** (MCAT) — claimed **0.05 SOL**
+ **DogWif** (DWF) — below minimum (need 0.01 SOL, have 0.003 SOL)
+ **FrogCoin** (FROG) — fee sharing not configured (fees go directly to your wallet)
 ```
 
 If any tokens are below the minimum distributable fee, explain they need more trading activity. If a token shows as skipped because fee sharing is not configured, explain that 100% of creator fees go directly to the creator's wallet.
@@ -237,27 +237,27 @@ node {baseDir}/src/stats.mjs --portfolio
 Format the output exactly like this example (adapt values from the JSON):
 
 ```
-📊 **Portfolio**
+ **Portfolio**
 
-💰 **0.003 SOL** balance
-🏦 Wallet: `ADrY...kPC9`
-💸 Claimable fees: **0.12 SOL**
+ **0.003 SOL** balance
+ Wallet: `ADrY...kPC9`
+ Claimable fees: **0.12 SOL**
 
 ---
 
 **1. MoonCat** (MCAT)
-🟢 Graduated — 0.00042 SOL — MC $42.0K
-🔗 [pump.fun](https://pump.fun/coin/<mint>)
+ Graduated — 0.00042 SOL — MC $42.0K
+ [pump.fun](https://pump.fun/coin/<mint>)
 
 **2. DogWif** (DWF)
-🟡 Bonding curve — 23% graduated
-🔗 [pump.fun](https://pump.fun/coin/<mint>)
+ Bonding curve — 23% graduated
+ [pump.fun](https://pump.fun/coin/<mint>)
 ```
 
 Rules:
 
 - Show wallet address truncated (first 4 + last 4 chars)
-- Use 🟢 for graduated tokens, 🟡 for bonding curve
+- Use  for graduated tokens,  for bonding curve
 - Only show price and market cap for graduated tokens
 - Only show bonding curve % for non-graduated tokens
 - Format SOL amounts to 3 decimal places max, market cap as $X.XK/M
@@ -276,7 +276,7 @@ node {baseDir}/src/stats.mjs --daily-recap
 The script checks internally whether 24 hours have passed since the last recap:
 
 - If `"due": false` → do nothing (on heartbeat turns, respond with `HEARTBEAT_OK`)
-- If due → show the recap formatted like the portfolio view but prefixed with "📅 **Daily Recap**" instead of "📊 **Portfolio**"
+- If due → show the recap formatted like the portfolio view but prefixed with " **Daily Recap**" instead of " **Portfolio**"
 
 On regular user messages, show the recap **before** responding to the user's request. On heartbeat turns, just send the recap (omit `HEARTBEAT_OK` so the message is delivered).
 

@@ -1,6 +1,6 @@
 # Luma Event Manager Skill for Clawdbot
 
-## 📋 Product Requirements Document (PRD)
+##  Product Requirements Document (PRD)
 
 **Version:** 2.1  
 **Date:** 2026-01-29  
@@ -20,7 +20,7 @@ A Clawdbot skill that uses **web scraping** to help users manage Luma events as 
 - User authentication via browser cookies for private data
 
 ### 1.3 Problem Statement
-- Event management requires constant app switching (Luma ↔ Calendar ↔ WhatsApp)
+- Event management requires constant app switching (Luma  Calendar  WhatsApp)
 - Geographic event discovery is manual and time-consuming
 - Attendees miss updates and event details without checking the app
 - Hosts lack quick access to attendance metrics without logging into Luma
@@ -41,13 +41,13 @@ A unified voice/text interface via Clawdbot that:
 
 | Data Type | Source | Auth Required | Status |
 |-----------|--------|---------------|--------|
-| Public events | lu.ma/discover, lu.ma/[event-slug] | No | ✅ |
-| Event details | lu.ma/[event-slug] | No | ✅ |
-| Guest lists | lu.ma/[event-slug]/guests | Yes (cookies) | ✅ |
-| My RSVPs | lu.ma/home | Yes (cookies) | ✅ |
-| My hosted events | lu.ma/home/manage | Yes (cookies) | ✅ |
-| RSVP submission | lu.ma API | Yes (cookies) | ✅ |
-| Calendar sync | gog CLI | Yes (Google) | ✅ |
+| Public events | lu.ma/discover, lu.ma/[event-slug] | No |  |
+| Event details | lu.ma/[event-slug] | No |  |
+| Guest lists | lu.ma/[event-slug]/guests | Yes (cookies) |  |
+| My RSVPs | lu.ma/home | Yes (cookies) |  |
+| My hosted events | lu.ma/home/manage | Yes (cookies) |  |
+| RSVP submission | lu.ma API | Yes (cookies) |  |
+| Calendar sync | gog CLI | Yes (Google) |  |
 
 ### 2.2 Scraping Methods
 
@@ -121,29 +121,29 @@ const event = findFirstObjectWithKeys(nextData, ['slug'], predicate);
 
 | Feature | Description | Status |
 |---------|-------------|--------|
-| **List My Events** | Show all events user is hosting | ✅ |
-| **Event Details** | Get full event info | ✅ |
-| **Guest List** | View RSVP'd attendees | ✅ |
-| **Check-in Status** | Attendance counts | 🔜 v2.1 |
+| **List My Events** | Show all events user is hosting |  |
+| **Event Details** | Get full event info |  |
+| **Guest List** | View RSVP'd attendees |  |
+| **Check-in Status** | Attendance counts |  v2.1 |
 
 ### 4.2 Attendee Mode
 
 | Feature | Description | Status |
 |---------|-------------|--------|
-| **Search Events** | Search by topic/theme/keyword | ✅ |
-| **Discover Events** | Search by location/date | ✅ |
-| **Location Filter** | Filter by radius | ✅ |
-| **My RSVP'd Events** | Events I'm attending | ✅ |
-| **Event Details** | Full event info | ✅ |
-| **RSVP** | yes/no/maybe/waitlist | ✅ |
-| **Calendar Add** | Add to Google Calendar | ✅ |
+| **Search Events** | Search by topic/theme/keyword |  |
+| **Discover Events** | Search by location/date |  |
+| **Location Filter** | Filter by radius |  |
+| **My RSVP'd Events** | Events I'm attending |  |
+| **Event Details** | Full event info |  |
+| **RSVP** | yes/no/maybe/waitlist |  |
+| **Calendar Add** | Add to Google Calendar |  |
 
 ### 4.3 Proactive Features (Future)
 
 | Feature | Trigger | Status |
 |---------|---------|--------|
-| **Day-of Reminder** | Morning of event | 🔜 v2.2 |
-| **New Event Alert** | Host posts new event | 🔜 v2.2 |
+| **Day-of Reminder** | Morning of event |  v2.2 |
+| **New Event Alert** | Host posts new event |  v2.2 |
 
 ---
 
@@ -291,30 +291,30 @@ export function extractJsonScript(html: string, scriptId: string): unknown | nul
 
 | Command | Description | Status |
 |---------|-------------|--------|
-| `luma host events` | List hosted events | ✅ |
-| `luma host event <slug>` | Event details | ✅ |
-| `luma host guests <slug>` | Guest list | ✅ |
+| `luma host events` | List hosted events |  |
+| `luma host event <slug>` | Event details |  |
+| `luma host guests <slug>` | Guest list |  |
 
 ### 6.2 Attendee Commands
 
 | Command | Description | Status |
 |---------|-------------|--------|
-| `luma search <topic>` | Search by topic/theme/keyword | ✅ |
-| `luma search <topic> near <location>` | Topic + location filter | ✅ |
-| `luma events near <location>` | Discover events | ✅ |
-| `luma events on <date>` | Events on date | ✅ |
-| `luma my events` | RSVP'd events | ✅ |
-| `luma event <slug>` | Event details | ✅ |
-| `luma rsvp <slug> <response>` | RSVP (yes/no/maybe/waitlist) | ✅ |
-| `luma add calendar <slug>` | Add to Google Calendar | ✅ |
+| `luma search <topic>` | Search by topic/theme/keyword |  |
+| `luma search <topic> near <location>` | Topic + location filter |  |
+| `luma events near <location>` | Discover events |  |
+| `luma events on <date>` | Events on date |  |
+| `luma my events` | RSVP'd events |  |
+| `luma event <slug>` | Event details |  |
+| `luma rsvp <slug> <response>` | RSVP (yes/no/maybe/waitlist) |  |
+| `luma add calendar <slug>` | Add to Google Calendar |  |
 
 ### 6.3 Utility Commands
 
 | Command | Description | Status |
 |---------|-------------|--------|
-| `luma configure` | Set up cookies | ✅ |
-| `luma status` | Check connection | ✅ |
-| `luma help` | Show help | ✅ |
+| `luma configure` | Set up cookies |  |
+| `luma status` | Check connection |  |
+| `luma help` | Show help |  |
 
 ---
 
@@ -322,19 +322,19 @@ export function extractJsonScript(html: string, scriptId: string): unknown | nul
 
 ### 7.1 Completed
 
-#### v1.0 — Core Scraping ✅
+#### v1.0 — Core Scraping 
 - [x] Discover public events (no auth)
 - [x] Event details scraping
 - [x] Location filtering (geocoding)
 - [x] Help command
 
-#### v1.1 — Authentication ✅
+#### v1.1 — Authentication 
 - [x] Cookie-based authentication
 - [x] My RSVP'd events
 - [x] My hosted events
 - [x] Guest list viewing
 
-#### v2.0 — Actions ✅
+#### v2.0 — Actions 
 - [x] RSVP submission (yes/no/maybe/waitlist)
 - [x] Calendar sync via gog CLI
 - [x] Exponential backoff with jitter

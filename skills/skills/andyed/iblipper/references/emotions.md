@@ -14,7 +14,7 @@ The default. Text animates smoothly without any personality effects. Good baseli
 - When you're not sure what to pick
 - Serious but not urgent content
 
-**Live demo:** [▶️ Test neutral](https://andyed.github.io/iblipper2025/#text=This+is+neutral&emotion=neutral&dark=true&share=yes)
+**Live demo:** [ Test neutral](https://andyed.github.io/iblipper2025/#text=This+is+neutral&emotion=neutral&dark=true&share=yes)
 
 ---
 
@@ -29,7 +29,7 @@ Text feels weighty and important. Strong presence without being frantic.
 - "Listen up" moments
 - Signature phrases
 
-**Live demo:** [▶️ Test emphatic](https://andyed.github.io/iblipper2025/#text=IMPORTANT&emotion=emphatic&dark=true&share=yes)
+**Live demo:** [ Test emphatic](https://andyed.github.io/iblipper2025/#text=IMPORTANT&emotion=emphatic&dark=true&share=yes)
 
 ---
 
@@ -44,7 +44,7 @@ Speed increases, text leans forward like it's rushing. Creates genuine urgency.
 - Breaking news
 - Deadlines
 
-**Live demo:** [▶️ Test hurry](https://andyed.github.io/iblipper2025/#text=Right+NOW&emotion=hurry&dark=true&share=yes)
+**Live demo:** [ Test hurry](https://andyed.github.io/iblipper2025/#text=Right+NOW&emotion=hurry&dark=true&share=yes)
 
 ---
 
@@ -59,7 +59,7 @@ Text bounces with enthusiasm. Infectious positive energy.
 - Achievements
 - Hype moments
 
-**Live demo:** [▶️ Test excited](https://andyed.github.io/iblipper2025/#text=AMAZING!&emotion=excited&dark=true&share=yes)
+**Live demo:** [ Test excited](https://andyed.github.io/iblipper2025/#text=AMAZING!&emotion=excited&dark=true&share=yes)
 
 ---
 
@@ -74,7 +74,7 @@ Similar to excited but more casual — like a friend nudging you.
 - Lighthearted teasing
 - "Hey check this out"
 
-**Live demo:** [▶️ Test playful](https://andyed.github.io/iblipper2025/#text=hehe&emotion=playful&dark=true&share=yes)
+**Live demo:** [ Test playful](https://andyed.github.io/iblipper2025/#text=hehe&emotion=playful&dark=true&share=yes)
 
 ---
 
@@ -89,7 +89,7 @@ Text feels personal, like a note scribbled on paper. Warm and approachable.
 - Informal sign-offs
 - "Just chatting" vibes
 
-**Live demo:** [▶️ Test casual](https://andyed.github.io/iblipper2025/#text=Hey+there&emotion=casual&dark=true&share=yes)
+**Live demo:** [ Test casual](https://andyed.github.io/iblipper2025/#text=Hey+there&emotion=casual&dark=true&share=yes)
 
 ---
 
@@ -104,7 +104,7 @@ Text floats gently. Creates space for contemplation.
 - Philosophical moments
 - "Take your time"
 
-**Live demo:** [▶️ Test idyllic](https://andyed.github.io/iblipper2025/#text=Breathe&emotion=idyllic&dark=true&share=yes)
+**Live demo:** [ Test idyllic](https://andyed.github.io/iblipper2025/#text=Breathe&emotion=idyllic&dark=true&share=yes)
 
 ---
 
@@ -119,7 +119,7 @@ Text tilts like a head cocking to the side. Invites response.
 - "Hmm..." moments
 - Engagement prompts
 
-**Live demo:** [▶️ Test question](https://andyed.github.io/iblipper2025/#text=Why+though?&emotion=question&dark=true&share=yes)
+**Live demo:** [ Test question](https://andyed.github.io/iblipper2025/#text=Why+though?&emotion=question&dark=true&share=yes)
 
 ---
 
@@ -134,7 +134,7 @@ Text pulses insistently. Hard to ignore.
 - Critical decisions needed
 - Use sparingly!
 
-**Live demo:** [▶️ Test response_required](https://andyed.github.io/iblipper2025/#text=REPLY+NOW&emotion=response_required&dark=true&share=yes)
+**Live demo:** [ Test response_required](https://andyed.github.io/iblipper2025/#text=REPLY+NOW&emotion=response_required&dark=true&share=yes)
 
 ---
 
@@ -149,7 +149,7 @@ Text fragments with color separation. Tech/hacker aesthetic.
 - Glitch art vibes
 - "The future is now"
 
-**Live demo:** [▶️ Test electric](https://andyed.github.io/iblipper2025/#text=SYSTEM+ONLINE&emotion=electric&dark=true&share=yes)
+**Live demo:** [ Test electric](https://andyed.github.io/iblipper2025/#text=SYSTEM+ONLINE&emotion=electric&dark=true&share=yes)
 
 ---
 
@@ -164,7 +164,7 @@ Text wobbles like jello. Impossible to take seriously (that's the point).
 - "I'm melting"
 - Comic relief
 
-**Live demo:** [▶️ Test wobbly](https://andyed.github.io/iblipper2025/#text=bloop&emotion=wobbly&dark=true&share=yes)
+**Live demo:** [ Test wobbly](https://andyed.github.io/iblipper2025/#text=bloop&emotion=wobbly&dark=true&share=yes)
 
 ---
 

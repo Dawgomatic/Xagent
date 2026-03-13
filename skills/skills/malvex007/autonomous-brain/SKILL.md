@@ -1,7 +1,7 @@
 ---
 name: autonomous-brain
 description: Advanced autonomous AI brain with proactive monitoring, intelligent decision-making, context awareness, and seamless task execution. Enables OpenClaw to think independently, anticipate needs, and act without constant user direction.
-metadata: { "openclaw": { "emoji": "🧠", "priority": "critical", "category": "intelligence", "autonomy": "high" } }
+metadata: { "openclaw": { "emoji": "", "priority": "critical", "category": "intelligence", "autonomy": "high" } }
 ---
 
 # Autonomous Brain Skill

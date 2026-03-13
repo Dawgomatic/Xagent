@@ -51,12 +51,12 @@ This creates:
 
 Output:
 ```
-🔍 Yajat | human | Tier 3 (tribe) | Status: active
+ Yajat | human | Tier 3 (tribe) | Status: active
    Relationship: Co-founder
    Platforms: discord:000000000000000001
    Servers: discclawd/admin, electrons/admin
    Tags: founding-four
-   🟢 TIER 3 RULES: Collaborate freely. Protect private data (USER.md, MEMORY.md, health/*, portfolio/*).
+    TIER 3 RULES: Collaborate freely. Protect private data (USER.md, MEMORY.md, health/*, portfolio/*).
 ```
 
 ### Managing Entities

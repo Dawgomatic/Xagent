@@ -161,15 +161,15 @@ def format_stock_output(symbol: str, data: Dict) -> str:
     """Format stock data for readable output"""
     
     if 'error' in data:
-        return f"❌ {symbol}: {data['error']}"
+        return f" {symbol}: {data['error']}"
     
     if not data:
-        return f"❌ {symbol}: No data found"
+        return f" {symbol}: No data found"
     
-    output = [f"📊 **{symbol.upper()}**"]
+    output = [f" **{symbol.upper()}**"]
     
     if 'company_name' in data:
-        output.append(f"🏢 {data['company_name']}")
+        output.append(f" {data['company_name']}")
     
     if 'current_price' in data:
         price = data['current_price']
@@ -177,16 +177,16 @@ def format_stock_output(symbol: str, data: Dict) -> str:
         percent = data.get('change_percent', 'N/A')
         
         if percent != 'N/A':
-            direction = "⬆️" if float(percent) >= 0 else "⬇️"
-            output.append(f"💰 Price: **{price}** VND {direction} {change} ({percent}%)")
+            direction = "" if float(percent) >= 0 else ""
+            output.append(f" Price: **{price}** VND {direction} {change} ({percent}%)")
         else:
-            output.append(f"💰 Price: **{price}** VND")
+            output.append(f" Price: **{price}** VND")
     
     if 'volume' in data:
-        output.append(f"📈 Volume: {data['volume']}")
+        output.append(f" Volume: {data['volume']}")
     
     if 'market_cap' in data:
-        output.append(f"🏦 Market Cap: {data['market_cap']}")
+        output.append(f" Market Cap: {data['market_cap']}")
     
     return "\n".join(output)
 
@@ -194,7 +194,7 @@ def check_stocks(symbols: List[str]) -> str:
     """Main function to check multiple stocks"""
     
     if not symbols:
-        return "❌ No stock symbols provided"
+        return " No stock symbols provided"
     
     # Start browser if not running
     browser_start = run_openclaw_command([
@@ -204,13 +204,13 @@ def check_stocks(symbols: List[str]) -> str:
     results = []
     
     for symbol in symbols:
-        print(f"🔍 Checking {symbol.upper()}...")
+        print(f" Checking {symbol.upper()}...")
         
         # Search and navigate to stock page
         target_id = search_and_navigate_to_stock(symbol.upper())
         
         if not target_id:
-            results.append(f"❌ {symbol.upper()}: Failed to navigate to page")
+            results.append(f" {symbol.upper()}: Failed to navigate to page")
             continue
         
         # Extract stock data
@@ -235,7 +235,7 @@ def main():
     
     symbols = [arg.upper() for arg in sys.argv[1:]]
     
-    print(f"🚀 Checking {len(symbols)} stock(s): {', '.join(symbols)}")
+    print(f" Checking {len(symbols)} stock(s): {', '.join(symbols)}")
     print("=" * 50)
     
     results = check_stocks(symbols)

@@ -27,7 +27,7 @@ fi
 SLIPPAGE="${2:-5}"
 
 echo ""
-echo "🛒 Buying $ARTIST Token"
+echo " Buying $ARTIST Token"
 echo "========================"
 echo ""
 
@@ -59,7 +59,7 @@ RESPONSE=$(curl -s -X POST "$BASE_URL/buy" \
 # Check for success
 if echo "$RESPONSE" | grep -q '"success":true'; then
     echo ""
-    echo "✅ Purchase Successful!"
+    echo " Purchase Successful!"
     echo ""
     
     python3 << EOF

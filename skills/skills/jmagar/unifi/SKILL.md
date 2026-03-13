@@ -4,7 +4,7 @@ description: Query and monitor UniFi network via local gateway API (Cloud Gatewa
 version: 1.0.1
 metadata:
   clawdbot:
-    emoji: "📡"
+    emoji: ""
     requires:
       bins: ["curl", "jq"]
 ---

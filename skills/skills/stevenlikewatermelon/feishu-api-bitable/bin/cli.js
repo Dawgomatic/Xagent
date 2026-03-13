@@ -26,15 +26,15 @@ program
       const result = await api.testConnection();
       
       if (result.success) {
-        console.log('✅ 连接测试成功');
+        console.log(' 连接测试成功');
         console.log(`应用ID: ${result.appId}`);
         console.log(`令牌有效: ${result.tokenValid ? '是' : '否'}`);
       } else {
-        console.error('❌ 连接测试失败:', result.message);
+        console.error(' 连接测试失败:', result.message);
         process.exit(1);
       }
     } catch (error) {
-      console.error('❌ 连接测试失败:', error.message);
+      console.error(' 连接测试失败:', error.message);
       process.exit(1);
     }
   });
@@ -52,7 +52,7 @@ program
       
       console.log(JSON.stringify(result, null, 2));
     } catch (error) {
-      console.error('❌ 获取应用信息失败:', error.message);
+      console.error(' 获取应用信息失败:', error.message);
       process.exit(1);
     }
   });
@@ -76,7 +76,7 @@ program
       const result = await api.listTables(options.appToken, params);
       console.log(JSON.stringify(result, null, 2));
     } catch (error) {
-      console.error('❌ 列出数据表失败:', error.message);
+      console.error(' 列出数据表失败:', error.message);
       process.exit(1);
     }
   });
@@ -104,7 +104,7 @@ program
       const result = await api.createTable(options.appToken, tableData);
       console.log(JSON.stringify(result, null, 2));
     } catch (error) {
-      console.error('❌ 创建数据表失败:', error.message);
+      console.error(' 创建数据表失败:', error.message);
       process.exit(1);
     }
   });
@@ -133,7 +133,7 @@ program
       const result = await api.listRecords(options.appToken, options.tableId, params);
       console.log(JSON.stringify(result, null, 2));
     } catch (error) {
-      console.error('❌ 列出记录失败:', error.message);
+      console.error(' 列出记录失败:', error.message);
       process.exit(1);
     }
   });
@@ -154,7 +154,7 @@ program
       const result = await api.createRecord(options.appToken, options.tableId, recordData);
       console.log(JSON.stringify(result, null, 2));
     } catch (error) {
-      console.error('❌ 创建记录失败:', error.message);
+      console.error(' 创建记录失败:', error.message);
       process.exit(1);
     }
   });
@@ -179,7 +179,7 @@ program
       const result = await api.batchCreateRecords(options.appToken, options.tableId, records);
       console.log(JSON.stringify(result, null, 2));
     } catch (error) {
-      console.error('❌ 批量创建记录失败:', error.message);
+      console.error(' 批量创建记录失败:', error.message);
       process.exit(1);
     }
   });
@@ -201,7 +201,7 @@ program
       const result = await api.updateRecord(options.appToken, options.tableId, options.recordId, recordData);
       console.log(JSON.stringify(result, null, 2));
     } catch (error) {
-      console.error('❌ 更新记录失败:', error.message);
+      console.error(' 更新记录失败:', error.message);
       process.exit(1);
     }
   });
@@ -221,7 +221,7 @@ program
       const result = await api.deleteRecord(options.appToken, options.tableId, options.recordId);
       console.log(JSON.stringify(result, null, 2));
     } catch (error) {
-      console.error('❌ 删除记录失败:', error.message);
+      console.error(' 删除记录失败:', error.message);
       process.exit(1);
     }
   });
@@ -246,7 +246,7 @@ program
       const result = await api.listFields(options.appToken, options.tableId, params);
       console.log(JSON.stringify(result, null, 2));
     } catch (error) {
-      console.error('❌ 列出字段失败:', error.message);
+      console.error(' 列出字段失败:', error.message);
       process.exit(1);
     }
   });
@@ -271,7 +271,7 @@ program
       const result = await api.listViews(options.appToken, options.tableId, params);
       console.log(JSON.stringify(result, null, 2));
     } catch (error) {
-      console.error('❌ 列出视图失败:', error.message);
+      console.error(' 列出视图失败:', error.message);
       process.exit(1);
     }
   });

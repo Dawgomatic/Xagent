@@ -68,7 +68,7 @@ fi
 
 # Pretty print
 echo "$RESPONSE" | jq -r '.[] | 
-  "[\(.id)] \(if .completed then "✅" else "  " end) \(.name)" + 
+  "[\(.id)] \(if .completed then "" else "  " end) \(.name)" + 
   (if .workflow_state_id then " (state: \(.workflow_state_id))" else "" end)'
 
 echo ""

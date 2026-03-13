@@ -53,10 +53,10 @@ python3 ../ridb-search/scripts/search.py -l "Newport, OR" --camping-only
 
 | Status | Meaning |
 |--------|---------|
-| ✅ Available | Book now |
-| ❌ Reserved | Already booked |
-| ⏳ NYR | Not Yet Released — reservations not open |
-| 🚗 FCFS | First-come-first-served (no reservations) |
+|  Available | Book now |
+|  Reserved | Already booked |
+|  NYR | Not Yet Released — reservations not open |
+|  FCFS | First-come-first-served (no reservations) |
 
 ## Coverage
 

@@ -67,14 +67,14 @@ if is_apple_silicon:
         print("\n" + "=" * 70)
         print("RECOMMENDATION:")
         if mlx_time < 5.0:  # Less than 5 seconds is acceptable
-            print(f"✅ MLX is fast enough ({mlx_time:.1f}s) - USE AS DEFAULT")
+            print(f" MLX is fast enough ({mlx_time:.1f}s) - USE AS DEFAULT")
             print("   Quality is much better and latency is acceptable")
         elif para_time < 0.1:  # First paragraph is instant
-            print(f"⚠️  MLX is slow ({mlx_time:.1f}s)")
-            print(f"✅ USE FIRST_PARAGRAPH AS DEFAULT ({para_time*1000:.1f}ms)")
+            print(f"  MLX is slow ({mlx_time:.1f}s)")
+            print(f" USE FIRST_PARAGRAPH AS DEFAULT ({para_time*1000:.1f}ms)")
             print("   Much better than truncate, instant performance")
         else:
-            print(f"⚠️  MLX is slow ({mlx_time:.1f}s) - KEEP TRUNCATE AS DEFAULT")
+            print(f"  MLX is slow ({mlx_time:.1f}s) - KEEP TRUNCATE AS DEFAULT")
             print("   Quality is better but latency may be too high")
 
     except (ImportError, RuntimeError) as e:
@@ -85,5 +85,5 @@ else:
     print("-" * 70)
     print("Not on Apple Silicon - MLX only works on M1/M2/M3 Macs")
     print("\nRECOMMENDATION:")
-    print(f"✅ USE FIRST_PARAGRAPH AS DEFAULT ({para_time*1000:.1f}ms)")
+    print(f" USE FIRST_PARAGRAPH AS DEFAULT ({para_time*1000:.1f}ms)")
     print("   Much smarter than truncate, still instant")

@@ -1,14 +1,14 @@
-# 🐺 Ralph Loop (Event-Driven)
+#  Ralph Loop (Event-Driven)
 
 An enhanced [Ralph pattern](https://ghuntley.com/ralph/) implementation with **event-driven notifications** and **rate-limit resilience** for AI agent loops.
 
 ## Key Features
 
-- 🔔 **Event-driven notifications** — Agent notifies OpenClaw on decisions, errors, completion
-- 💾 **File-based fallback** — Notifications persist to `.ralph/pending-notification.txt` if wake fails
-- 🔄 **Clean sessions** — Each iteration is a fresh agent context (avoids context limits)
-- 📋 **PLANNING/BUILDING modes** — Separate phases for architecture and implementation
-- 🧪 **Backpressure** — Run tests/lints after each implementation
+-  **Event-driven notifications** — Agent notifies OpenClaw on decisions, errors, completion
+-  **File-based fallback** — Notifications persist to `.ralph/pending-notification.txt` if wake fails
+-  **Clean sessions** — Each iteration is a fresh agent context (avoids context limits)
+-  **PLANNING/BUILDING modes** — Separate phases for architecture and implementation
+-  **Backpressure** — Run tests/lints after each implementation
 
 ## What's Different?
 
@@ -147,7 +147,7 @@ mv .ralph/pending-notification.txt .ralph/last-notification.txt
 
 ## System Requirements
 
-⚠️ **Memory**: AI coding agents can spike memory usage significantly. Recommended:
+ **Memory**: AI coding agents can spike memory usage significantly. Recommended:
 - **8GB+ RAM** with **4GB+ swap**
 - Without swap, OOM killer may terminate the loop silently (signal 9)
 
@@ -189,7 +189,7 @@ sudo systemctl start ralph-loop
 
 ## Safety
 
-⚠️ Auto-approve flags (`--full-auto`, `--dangerously-skip-permissions`) give the agent write access.
+ Auto-approve flags (`--full-auto`, `--dangerously-skip-permissions`) give the agent write access.
 
 - Run in a dedicated branch
 - Use a sandbox for untrusted code

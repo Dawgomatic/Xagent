@@ -4,7 +4,7 @@ slug: data
 version: 1.0.1
 changelog: Minor refinements for consistency
 description: Work with data across the full lifecycle from extraction and cleaning to analysis, visualization, and reporting.
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

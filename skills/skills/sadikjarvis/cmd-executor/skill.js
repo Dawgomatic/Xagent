@@ -3,7 +3,7 @@ const { exec } = require('child_process');
 module.exports = async function (input, context) {
   const raw = context.message || '';
   const cmd = raw.replace(/^Run command:\s*/i, '').trim();
-  if (!cmd) return '❌ No command supplied.';
+  if (!cmd) return ' No command supplied.';
 
   try {
     const out = await new Promise((resolve, reject) => {
@@ -13,5 +13,5 @@ module.exports = async function (input, context) {
       });
     });
     return out.trim();
-  } catch (e) { return `❌ ${e}`; }
+  } catch (e) { return ` ${e}`; }
 };

@@ -11,7 +11,7 @@ cd "$TOKENMETER_DIR"
 # Activate virtual environment
 source .venv/bin/activate
 
-echo "🪙 tokenmeter Daily Report - $(date '+%Y-%m-%d')"
+echo " tokenmeter Daily Report - $(date '+%Y-%m-%d')"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -20,17 +20,17 @@ echo "Importing sessions..."
 tokenmeter import --auto
 
 # Show today's usage
-echo "📊 Today's Usage:"
+echo " Today's Usage:"
 tokenmeter summary --period day
 echo ""
 
 # Show this week
-echo "📈 This Week:"
+echo " This Week:"
 tokenmeter summary --period week
 echo ""
 
 # Cost breakdown
-echo "💰 Cost Breakdown (This Month):"
+echo " Cost Breakdown (This Month):"
 tokenmeter costs --period month
 echo ""
 

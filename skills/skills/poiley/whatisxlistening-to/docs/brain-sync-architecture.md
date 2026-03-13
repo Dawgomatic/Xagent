@@ -196,4 +196,4 @@ mount -t smbfs //poile@castor.rinzler.cloud/services ~/mnt/services
 - **Initial Setup:** 2026-01-25
 - **CouchDB Deployed:** K3s cluster on Rinzler
 - **LiveSync Configured:** Mac Mini + iOS
-- **Documented by:** Clawdbot 🦞
+- **Documented by:** Clawdbot 

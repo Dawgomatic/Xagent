@@ -25,10 +25,10 @@ ClawdBot analyzes:
   • Your unique angle
        ↓
 Telegram notification with:
-  🎯 @username — topic
-  🔗 direct link to tweet
-  💬 draft comment
-  💡 why it's worth it
+   @username — topic
+   direct link to tweet
+   draft comment
+   why it's worth it
 ```
 
 ## Configuration
@@ -93,11 +93,11 @@ In chat with ClawdBot:
 ## Output Format
 
 ```
-🎯 @shl — "Easy is boring. Hard is fun"
-🔗 https://x.com/shl/status/2010924519641227351
-💬 Hard is fun until it's Tuesday and you're debugging
+ @shl — "Easy is boring. Hard is fun"
+ https://x.com/shl/status/2010924519641227351
+ Hard is fun until it's Tuesday and you're debugging
    the same thing for 6 hours. Then it's just hard.
-💡 Sahil = your audience, philosophical tweet, 973 likes
+ Sahil = your audience, philosophical tweet, 973 likes
 ```
 
 ## Opportunity Analysis

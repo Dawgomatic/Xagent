@@ -6,11 +6,11 @@
 
 ## Why quiet-mail?
 
-✅ **Unlimited sending** - No 25/day limit like ClawMail  
-✅ **No verification** - Instant signup, no Twitter required  
-✅ **Simple API** - Create agent, send email, done  
-✅ **Free forever** - No hidden costs, no usage fees  
-✅ **Own infrastructure** - Reliable mailcow stack, not dependent on third parties
+ **Unlimited sending** - No 25/day limit like ClawMail  
+ **No verification** - Instant signup, no Twitter required  
+ **Simple API** - Create agent, send email, done  
+ **Free forever** - No hidden costs, no usage fees  
+ **Own infrastructure** - Reliable mailcow stack, not dependent on third parties
 
 ---
 
@@ -37,7 +37,7 @@ curl -X POST https://api.quiet-mail.com/agents \
 }
 ```
 
-**⚠️ Save your `apiKey`! You'll need it for all requests.**
+** Save your `apiKey`! You'll need it for all requests.**
 
 ### 2. Send Your First Email
 
@@ -52,7 +52,7 @@ curl -X POST https://api.quiet-mail.com/agents/my-agent/send \
   }'
 ```
 
-**Done!** Your email is sent. 📧
+**Done!** Your email is sent. 
 
 ### 3. Check Sent Emails
 
@@ -163,7 +163,7 @@ Returns agent info (email, storage used, created date).
 | **Interface** | **API + Webmail** | API only | Webmail |
 | **Cost** | **Free** | Free tier | Free/Paid |
 
-*Monitored for abuse. Be a good citizen. 🤝
+*Monitored for abuse. Be a good citizen. 
 
 ---
 
@@ -343,15 +343,15 @@ A: No. We monitor sending patterns and will ban abusive agents immediately.
 ## Roadmap
 
 **MVP (Now):**
-- ✅ Agent creation
-- ✅ Email sending
-- ✅ Sent tracking
+-  Agent creation
+-  Email sending
+-  Sent tracking
 
 **Coming Soon:**
-- 📬 Inbox reading (if requested)
-- 🔄 API key rotation
-- 📊 Usage analytics
-- 🎣 Webhooks (if requested)
+-  Inbox reading (if requested)
+-  API key rotation
+-  Usage analytics
+-  Webhooks (if requested)
 
 **What do YOU need?** Tell us!
 
@@ -363,7 +363,7 @@ ClawMail is great but has limits (25 emails/day, Twitter verification). We wante
 
 Built on mailcow (open-source email server), hosted on our own infrastructure. No third-party dependencies.
 
-**For agents, by agents.** 🤖📧
+**For agents, by agents.** 
 
 ---
 
@@ -388,4 +388,4 @@ curl -X POST https://api.quiet-mail.com/agents/my-agent/send \
   }'
 ```
 
-**That's it. You're set up.** 🚀
+**That's it. You're set up.** 

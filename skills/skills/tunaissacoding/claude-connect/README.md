@@ -1,4 +1,4 @@
-# ⚠️ DEPRECATED — Clawdbot Handles This Natively
+#  DEPRECATED — Clawdbot Handles This Natively
 
 **This skill is no longer needed.**
 

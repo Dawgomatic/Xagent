@@ -90,7 +90,7 @@ class RateLimiter:
                 json.dump(self.state, f)
             os.chmod(self.state_file, 0o600)
         except IOError as e:
-            print(f"⚠️  Warning: Could not save rate limit state: {e}", file=sys.stderr)
+            print(f"  Warning: Could not save rate limit state: {e}", file=sys.stderr)
 
     def check_search_rate(self):
         """Check if enough time has passed since last search (5 seconds)"""
@@ -137,7 +137,7 @@ class RateLimiter:
 
 def wait_with_message(seconds, message="대기 중..."):
     """Wait with progress message"""
-    print(f"⏳ {message} ({int(seconds)}초)", flush=True)
+    print(f" {message} ({int(seconds)}초)", flush=True)
     time.sleep(seconds)
 
 
@@ -243,11 +243,11 @@ def handle_error(error, context=""):
 
     full_message = f"{error_msg}"
     if suggestion:
-        full_message += f"\n💡 {suggestion}"
+        full_message += f"\n {suggestion}"
     if context:
         full_message = f"[{context}] {full_message}"
 
-    print(f"❌ {full_message}", file=sys.stderr)
+    print(f" {full_message}", file=sys.stderr)
 
     return {
         "error": error_type,
@@ -390,7 +390,7 @@ def save_search_results(trains, search_args=None):
             json.dump(cache, f, ensure_ascii=False, indent=2)
         os.chmod(cache_file, 0o600)
     except Exception as e:
-        print(f"⚠️  Warning: Could not save search results: {e}", file=sys.stderr)
+        print(f"  Warning: Could not save search results: {e}", file=sys.stderr)
 
 
 def load_search_cache():
@@ -406,5 +406,5 @@ def load_search_cache():
         with open(cache_file, 'r', encoding='utf-8') as f:
             return json.load(f)
     except Exception as e:
-        print(f"⚠️  Warning: Could not load search cache: {e}", file=sys.stderr)
+        print(f"  Warning: Could not load search cache: {e}", file=sys.stderr)
         return None

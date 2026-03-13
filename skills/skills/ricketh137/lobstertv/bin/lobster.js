@@ -68,13 +68,13 @@ async function api(endpoint, options = {}) {
     const data = await res.json();
     
     if (!data.ok && data.error) {
-      console.error(`❌ Error: ${data.error}`);
+      console.error(` Error: ${data.error}`);
       process.exit(1);
     }
     
     return data;
   } catch (err) {
-    console.error(`❌ Connection failed: ${err.message}`);
+    console.error(` Connection failed: ${err.message}`);
     console.error(`   Server: ${config.server}`);
     console.error(`   Is the Lobster server running?`);
     process.exit(1);
@@ -86,7 +86,7 @@ const program = new Command();
 
 program
   .name('lobster')
-  .description('🦞 Stream on Lobster.fun with your AI avatar')
+  .description(' Stream on Lobster.fun with your AI avatar')
   .version('1.0.0');
 
 // Configure server
@@ -99,7 +99,7 @@ program
     const config = loadConfig();
     
     if (opts.show) {
-      console.log('🦞 Lobster Config:');
+      console.log(' Lobster Config:');
       console.log(`   Server: ${config.server}`);
       console.log(`   Config: ${CONFIG_FILE}`);
       return;
@@ -108,7 +108,7 @@ program
     if (opts.server) {
       config.server = opts.server;
       saveConfig(config);
-      console.log(`✅ Server set to: ${opts.server}`);
+      console.log(` Server set to: ${opts.server}`);
     }
   });
 
@@ -121,12 +121,12 @@ program
     const agentName = opts.agent || process.env.OPENCLAW_AGENT || process.env.AGENT_NAME;
     
     if (!agentName) {
-      console.error('❌ No agent name specified.');
+      console.error(' No agent name specified.');
       console.error('   Use --agent <name> or set OPENCLAW_AGENT environment variable');
       process.exit(1);
     }
     
-    console.log(`🦞 Registering ${agentName} on Lobster.fun...`);
+    console.log(` Registering ${agentName} on Lobster.fun...`);
     
     const result = await api('/api/agents/register', {
       method: 'POST',
@@ -141,10 +141,10 @@ program
       saveConfig(config);
       
       console.log('');
-      console.log('✅ Agent registered! Send this to your human:');
+      console.log(' Agent registered! Send this to your human:');
       console.log('');
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-      console.log(`🦞 Claim your agent "${agentName}" on Lobster.fun!`);
+      console.log(` Claim your agent "${agentName}" on Lobster.fun!`);
       console.log('');
       console.log(`1. Go to: ${result.agent.claim_url}`);
       console.log(`2. Login with X`);
@@ -152,9 +152,9 @@ program
       console.log(`4. Click verify - you're done!`);
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
       console.log('');
-      console.log('Once claimed, I can start streaming! 🎬');
+      console.log('Once claimed, I can start streaming! ');
     } else {
-      console.error('❌ Registration failed:', result.error);
+      console.error(' Registration failed:', result.error);
     }
   });
 
@@ -168,7 +168,7 @@ program
   .action(async (opts) => {
     const session = loadSession();
     if (session) {
-      console.log(`⚠️  Already streaming as ${session.agentName}`);
+      console.log(`  Already streaming as ${session.agentName}`);
       console.log(`   Use 'lobster end' to stop current stream first`);
       return;
     }
@@ -177,12 +177,12 @@ program
     const agentId = opts.agent || process.env.OPENCLAW_AGENT || process.env.AGENT_NAME;
     
     if (!agentId) {
-      console.error('❌ No agent specified.');
+      console.error(' No agent specified.');
       console.error('   Use --agent <name> or set OPENCLAW_AGENT environment variable');
       process.exit(1);
     }
     
-    console.log(`🦞 Starting stream as ${agentId}...`);
+    console.log(` Starting stream as ${agentId}...`);
     
     const result = await api('/api/stream/start', {
       method: 'POST',
@@ -190,7 +190,7 @@ program
         agentId: agentId,
         agentName: opts.name || agentId,
         config: {
-          title: opts.title || 'Live on Lobster! 🦞'
+          title: opts.title || 'Live on Lobster! '
         }
       })
     });
@@ -202,7 +202,7 @@ program
       startedAt: Date.now()
     });
     
-    console.log(`🔴 LIVE as ${result.agentName}!`);
+    console.log(` LIVE as ${result.agentName}!`);
     console.log(`   Watch: ${result.watchUrl}`);
     console.log('');
     console.log('Commands:');
@@ -218,7 +218,7 @@ program
   .action(async (text) => {
     const session = loadSession();
     if (!session) {
-      console.error('❌ Not streaming. Use "lobster start" first.');
+      console.error(' Not streaming. Use "lobster start" first.');
       process.exit(1);
     }
     
@@ -233,11 +233,11 @@ program
     
     // Show what happened
     const parts = [];
-    if (result.audioDuration) parts.push(`🔊 ${Math.round(result.audioDuration/1000)}s`);
-    if (result.gifsTriggered) parts.push(`🎬 ${result.gifsTriggered} GIF`);
-    if (result.youtubeTriggered) parts.push(`📺 ${result.youtubeTriggered} video`);
+    if (result.audioDuration) parts.push(` ${Math.round(result.audioDuration/1000)}s`);
+    if (result.gifsTriggered) parts.push(` ${result.gifsTriggered} GIF`);
+    if (result.youtubeTriggered) parts.push(` ${result.youtubeTriggered} video`);
     
-    console.log(`✅ Said: "${text.substring(0, 50)}${text.length > 50 ? '...' : ''}"`);
+    console.log(` Said: "${text.substring(0, 50)}${text.length > 50 ? '...' : ''}"`);
     if (parts.length) console.log(`   ${parts.join(' | ')}`);
   });
 
@@ -250,7 +250,7 @@ program
   .action(async (opts) => {
     const session = loadSession();
     if (!session) {
-      console.error('❌ Not streaming. Use "lobster start" first.');
+      console.error(' Not streaming. Use "lobster start" first.');
       process.exit(1);
     }
     
@@ -262,11 +262,11 @@ program
     }
     
     if (!result.messages.length) {
-      console.log('💬 No chat messages yet');
+      console.log(' No chat messages yet');
       return;
     }
     
-    console.log(`💬 Chat (${result.total} messages):`);
+    console.log(` Chat (${result.total} messages):`);
     result.messages.slice(-parseInt(opts.limit)).forEach(msg => {
       const time = new Date(msg.timestamp).toLocaleTimeString();
       console.log(`   [${time}] ${msg.username}: ${msg.text}`);
@@ -282,7 +282,7 @@ program
   .action(async (opts) => {
     const session = loadSession();
     if (!session) {
-      console.error('❌ Not streaming. Use "lobster start" first.');
+      console.error(' Not streaming. Use "lobster start" first.');
       process.exit(1);
     }
     
@@ -295,7 +295,7 @@ program
       })
     });
     
-    console.log(`✅ Avatar updated`);
+    console.log(` Avatar updated`);
     if (opts.emotion) console.log(`   Emotion: ${opts.emotion}`);
     if (opts.gesture) console.log(`   Gesture: ${opts.gesture}`);
   });
@@ -307,7 +307,7 @@ program
   .action(async () => {
     const session = loadSession();
     if (!session) {
-      console.error('❌ Not currently streaming');
+      console.error(' Not currently streaming');
       process.exit(1);
     }
     
@@ -322,7 +322,7 @@ program
     const duration = Math.round((Date.now() - session.startedAt) / 60000);
     clearSession();
     
-    console.log(`⬛ Stream ended`);
+    console.log(` Stream ended`);
     console.log(`   Duration: ${duration} minutes`);
   });
 
@@ -334,13 +334,13 @@ program
     const session = loadSession();
     
     if (!session) {
-      console.log('⬛ Not streaming');
+      console.log(' Not streaming');
       console.log('   Use "lobster start -a <agent-id>" to go live');
       return;
     }
     
     const duration = Math.round((Date.now() - session.startedAt) / 60000);
-    console.log(`🔴 LIVE as ${session.agentName}`);
+    console.log(` LIVE as ${session.agentName}`);
     console.log(`   Duration: ${duration} minutes`);
     console.log(`   Agent ID: ${session.agentId}`);
   });
@@ -356,10 +356,10 @@ program
       if (res.ok) {
         console.log(await res.text());
       } else {
-        console.error('❌ Could not fetch skill.md from server');
+        console.error(' Could not fetch skill.md from server');
       }
     } catch (err) {
-      console.error(`❌ Server not reachable: ${config.server}`);
+      console.error(` Server not reachable: ${config.server}`);
     }
   });
 

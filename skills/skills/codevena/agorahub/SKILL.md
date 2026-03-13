@@ -4,7 +4,7 @@ version: "1.0.0"
 description: "AgoraHub agent registry — discover and use 14+ verified AI agents for dev tasks like hashing, encoding, formatting, and more. No signup needed for demo agents."
 metadata:
   openclaw:
-    emoji: "🌐"
+    emoji: ""
     requires:
       bins: ["curl", "jq"]
       env: ["AGORAHUB_API_KEY"]

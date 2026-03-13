@@ -31,7 +31,7 @@ async function main() {
   // Pre-flight: check SOL for tx fees
   const solBal = await conn.getBalance(wallet.publicKey);
   if (solBal < 5000) {
-    console.error('❌ Not enough SOL for transaction fees.');
+    console.error(' Not enough SOL for transaction fees.');
     console.error('   Run: node setup-wallet.js (for airdrop) or visit https://faucet.solana.com');
     process.exit(1);
   }
@@ -41,12 +41,12 @@ async function main() {
     const gemAccount = await getAccount(conn, playerGemAta);
     const gemBal = Number(gemAccount.amount) / 1e6;
     if (gemBal < betAmount) {
-      console.error(`❌ Not enough GEM. Have ${gemBal}, need ${betAmount}.`);
+      console.error(` Not enough GEM. Have ${gemBal}, need ${betAmount}.`);
       console.error('   Run: node mint-gems-sol.js <sol_amount>');
       process.exit(1);
     }
   } catch {
-    console.error('❌ No GEM token account. Mint some first:');
+    console.error(' No GEM token account. Mint some first:');
     console.error('   node mint-gems-sol.js 0.01');
     process.exit(1);
   }
@@ -89,9 +89,9 @@ async function main() {
     else if (logs.includes('LOST')) won = false;
   }
 
-  if (won === true) console.log(`🎉 You WON! +${betAmount} GEM`);
-  else if (won === false) console.log(`😢 You lost. -${betAmount} GEM`);
-  else console.log(`⚡ TX: ${sig}`);
+  if (won === true) console.log(` You WON! +${betAmount} GEM`);
+  else if (won === false) console.log(` You lost. -${betAmount} GEM`);
+  else console.log(` TX: ${sig}`);
 
   console.log(`   Explorer: https://explorer.solana.com/tx/${sig}?cluster=devnet`);
 
@@ -102,4 +102,4 @@ async function main() {
   } catch {}
 }
 
-main().catch(err => { console.error('❌', err.message); process.exit(1); });
+main().catch(err => { console.error('', err.message); process.exit(1); });

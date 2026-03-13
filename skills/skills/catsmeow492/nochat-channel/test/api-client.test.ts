@@ -123,11 +123,11 @@ describe("NoChatApiClient", () => {
 
     it("handles base64 encoding of special characters", async () => {
       mockOk({ id: "msg-2" });
-      await client.sendMessage("conv-1", "🐋 Whale Alert!");
+      await client.sendMessage("conv-1", " Whale Alert!");
       const call = mockFetch.mock.calls[0];
       const body = JSON.parse(call[1].body);
       // Should be valid base64
-      expect(Buffer.from(body.encrypted_content, "base64").toString("utf-8")).toBe("🐋 Whale Alert!");
+      expect(Buffer.from(body.encrypted_content, "base64").toString("utf-8")).toBe(" Whale Alert!");
     });
 
     it("returns error result on failure", async () => {
@@ -233,12 +233,12 @@ describe("NoChatApiClient", () => {
   describe("addReaction", () => {
     it("sends correct request", async () => {
       mockOk({ ok: true });
-      const result = await client.addReaction("conv-1", "msg-1", "👍");
+      const result = await client.addReaction("conv-1", "msg-1", "");
       expect(mockFetch).toHaveBeenCalledWith(
         "https://nochat-server.fly.dev/api/conversations/conv-1/messages/msg-1/reactions",
         expect.objectContaining({
           method: "POST",
-          body: JSON.stringify({ emoji: "👍" }),
+          body: JSON.stringify({ emoji: "" }),
         }),
       );
       expect(result.ok).toBe(true);

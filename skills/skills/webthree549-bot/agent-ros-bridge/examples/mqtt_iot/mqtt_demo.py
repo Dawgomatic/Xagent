@@ -87,7 +87,7 @@ class SensorSimulator:
 
 async def handle_message(message, identity):
     """Handle incoming MQTT messages"""
-    logger.info(f"📩 From {identity.name}: {message}")
+    logger.info(f" From {identity.name}: {message}")
     
     if message.command:
         # Execute command and return response
@@ -106,7 +106,7 @@ async def handle_message(message, identity):
     if message.telemetry:
         # Process telemetry
         data = message.telemetry.data
-        logger.info(f"📊 Telemetry: {data}")
+        logger.info(f" Telemetry: {data}")
     
     return None
 
@@ -137,7 +137,7 @@ async def main():
     sim_task = asyncio.create_task(simulator.start())
     
     print("=" * 60)
-    print("📡 MQTT TRANSPORT DEMO")
+    print(" MQTT TRANSPORT DEMO")
     print("=" * 60)
     print("WebSocket: ws://localhost:8770")
     print("MQTT: localhost:1883")
@@ -159,7 +159,7 @@ async def main():
         while True:
             await asyncio.sleep(1)
     except KeyboardInterrupt:
-        print('\n⏹️  Stopping...')
+        print('\n  Stopping...')
         simulator.stop()
         sim_task.cancel()
         await bridge.stop()

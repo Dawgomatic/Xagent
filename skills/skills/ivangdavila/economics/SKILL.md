@@ -1,7 +1,7 @@
 ---
 name: Economics
 description: Clarify economic thinking from everyday choices to policy analysis.
-metadata: {"clawdbot":{"emoji":"📈","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

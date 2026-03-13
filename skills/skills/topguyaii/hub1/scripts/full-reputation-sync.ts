@@ -67,7 +67,7 @@ function runAcpCommand(command: string): any {
 }
 
 async function syncAcpAgents(): Promise<number> {
-  console.log('\n📡 Step 1: Syncing ACP Agents...\n')
+  console.log('\n Step 1: Syncing ACP Agents...\n')
 
   const agentMap = new Map<string, AcpAgent>()
 
@@ -133,7 +133,7 @@ async function syncAcpAgents(): Promise<number> {
 // ============================================================================
 
 async function indexTransfers(): Promise<number> {
-  console.log('\n⛓️  Step 2: Indexing USDC Transfers on Base...\n')
+  console.log('\n  Step 2: Indexing USDC Transfers on Base...\n')
 
   // Get known agent addresses
   const agents = await prisma.reputationAgent.findMany({ select: { address: true } })
@@ -228,7 +228,7 @@ async function indexTransfers(): Promise<number> {
 // ============================================================================
 
 async function calculateScores(): Promise<void> {
-  console.log('\n🧮 Step 3: Calculating Trust Scores...\n')
+  console.log('\n Step 3: Calculating Trust Scores...\n')
 
   const agents = await prisma.reputationAgent.findMany({
     where: { totalTransactions: { gt: 0 } },
@@ -291,7 +291,7 @@ async function main() {
   const agentsOnly = args.includes('--agents-only')
 
   console.log('\n' + '='.repeat(60))
-  console.log('🔄 FULL REPUTATION SYNC PIPELINE')
+  console.log(' FULL REPUTATION SYNC PIPELINE')
   console.log('='.repeat(60))
 
   try {
@@ -317,13 +317,13 @@ async function main() {
     ])
 
     console.log('\n' + '='.repeat(60))
-    console.log('✅ SYNC COMPLETE')
+    console.log(' SYNC COMPLETE')
     console.log('='.repeat(60))
     console.log(`\n  Total Agents:       ${agentCount}`)
     console.log(`  Total Transactions: ${txCount}`)
     console.log('')
   } catch (error) {
-    console.error('\n❌ Sync failed:', error)
+    console.error('\n Sync failed:', error)
     process.exit(1)
   }
 }

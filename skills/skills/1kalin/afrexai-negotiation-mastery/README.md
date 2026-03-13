@@ -1,4 +1,4 @@
-# Negotiation Mastery 🤝
+# Negotiation Mastery 
 
 The most comprehensive negotiation skill for AI agents. Covers salary talks, vendor contracts, client deals, partnerships, and high-stakes conversations with proven frameworks from FBI hostage negotiation, Harvard PON, and real-world deal-making.
 
@@ -33,7 +33,7 @@ The agent will walk you through the full preparation brief, help you research ma
 - Procurement teams managing vendor relationships
 - Anyone who wants to stop leaving money on the table
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific negotiation context for your vertical?
 
@@ -43,7 +43,7 @@ Want industry-specific negotiation context for your vertical?
 - **Legal Pack** — Contract terms, liability frameworks, regulatory constraints
 - **Real Estate Pack** — Deal structures, commission splits, contingencies
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Find and qualify prospects
 - [afrexai-proposal-engine](https://clawhub.com/skills/afrexai-proposal-engine) — Write winning proposals

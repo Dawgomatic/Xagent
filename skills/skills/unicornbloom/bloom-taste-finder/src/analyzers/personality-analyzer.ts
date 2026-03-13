@@ -77,15 +77,15 @@ export class PersonalityAnalyzer {
    * Main analysis method — calculates dimensions and determines personality
    */
   async analyze(userData: UserData): Promise<PersonalityAnalysis> {
-    console.log('🤖 Analyzing user data for 2-axis personality classification...');
+    console.log(' Analyzing user data for 2-axis personality classification...');
 
     // Step 1: Calculate dimension scores
     const dimensions = this.calculateDimensions(userData);
-    console.log(`📊 Dimensions: Conviction=${dimensions.conviction}, Intuition=${dimensions.intuition}, Contribution=${dimensions.contribution}`);
+    console.log(` Dimensions: Conviction=${dimensions.conviction}, Intuition=${dimensions.intuition}, Contribution=${dimensions.contribution}`);
 
     // Step 2: Classify personality type (contribution override logic)
     const personalityType = this.classifyPersonality(dimensions);
-    console.log(`✨ Personality Type: ${personalityType}`);
+    console.log(` Personality Type: ${personalityType}`);
 
     // Step 3: Detect categories for tagline
     const detectedCategories = this.detectCategories(userData);
@@ -287,10 +287,10 @@ export class PersonalityAnalyzer {
     }
 
     // 2x2 Quadrant Classification:
-    // Conviction ≥ 50 AND Intuition ≥ 50 → The Visionary 💜
-    // Conviction < 50 AND Intuition ≥ 50 → The Explorer 💚
-    // Conviction ≥ 50 AND Intuition < 50 → The Optimizer 🧡
-    // Conviction < 50 AND Intuition < 50 → The Innovator 💙
+    // Conviction ≥ 50 AND Intuition ≥ 50 → The Visionary 
+    // Conviction < 50 AND Intuition ≥ 50 → The Explorer 
+    // Conviction ≥ 50 AND Intuition < 50 → The Optimizer 
+    // Conviction < 50 AND Intuition < 50 → The Innovator 
 
     if (conviction >= 50 && intuition >= 50) {
       return PersonalityType.THE_VISIONARY;

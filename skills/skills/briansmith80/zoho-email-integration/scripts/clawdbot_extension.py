@@ -103,11 +103,11 @@ class ClawdbotEmailExtension:
         result = self.run_command('unread')
         
         if result.get('status') == 'error':
-            return f"❌ Error: {result.get('message')}"
+            return f" Error: {result.get('message')}"
         
         if isinstance(result, dict) and 'unread_count' in result:
             count = result['unread_count']
-            emoji = "📬" if count > 0 else "📭"
+            emoji = "" if count > 0 else ""
             return f"{emoji} **Unread:** {count} message{'s' if count != 1 else ''}"
         
         return "Unable to fetch unread count"
@@ -122,9 +122,9 @@ class ClawdbotEmailExtension:
         if isinstance(result, dict) and 'unread_count' in result:
             count = result['unread_count']
             if count == 0:
-                return "📭 No unread emails"
+                return " No unread emails"
             else:
-                return f"📧 {count} unread email{'s' if count != 1 else ''}"
+                return f" {count} unread email{'s' if count != 1 else ''}"
         
         return "Email check unavailable"
     
@@ -133,13 +133,13 @@ class ClawdbotEmailExtension:
         result = self.run_command('search', query)
         
         if result.get('status') == 'error':
-            return f"❌ Search failed: {result.get('message')}"
+            return f" Search failed: {result.get('message')}"
         
         if isinstance(result, list):
             if not result:
-                return f"🔍 No results for '{query}'"
+                return f" No results for '{query}'"
             
-            output = f"🔍 **Search results for '{query}':**\n\n"
+            output = f" **Search results for '{query}':**\n\n"
             for i, email in enumerate(result[:5], 1):  # Limit to 5 for readability
                 sender = email.get('from', 'Unknown')
                 subject = email.get('subject', '(no subject)')
@@ -154,7 +154,7 @@ class ClawdbotEmailExtension:
     
     def format_send_confirmation(self, to, subject):
         """Format confirmation message for sent email"""
-        return f"✅ **Email sent**\nTo: {to}\nSubject: {subject}"
+        return f" **Email sent**\nTo: {to}\nSubject: {subject}"
     
     def handle_command(self, command, *args):
         """
@@ -184,7 +184,7 @@ class ClawdbotEmailExtension:
             result = self.run_command('send', to, subject, body)
             
             if result.get('status') == 'error':
-                return f"❌ Send failed: {result.get('message')}"
+                return f" Send failed: {result.get('message')}"
             
             return self.format_send_confirmation(to, subject)
         
@@ -200,7 +200,7 @@ class ClawdbotEmailExtension:
     
     def _get_help_text(self):
         """Return help text for available commands"""
-        return """📧 **Zoho Email Commands**
+        return """ **Zoho Email Commands**
 
 `/email unread` - Check unread email count
 `/email summary` - Brief unread summary (for briefings)

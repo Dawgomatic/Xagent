@@ -8,11 +8,11 @@ No central server, no API keys, no cloud — gateways connect directly to each o
 
 **Connect your bot to external agents:**
 
-- 🌐 **Cross-Machine Networks** — Connect your home OpenClaw instance to a friend's bot, your VPS bot, or agents on different servers. Messages route P2P with end-to-end encryption.
+-  **Cross-Machine Networks** — Connect your home OpenClaw instance to a friend's bot, your VPS bot, or agents on different servers. Messages route P2P with end-to-end encryption.
 
-- 📍 **Geo-Distributed Operations** — Agents in different cities/countries/networks coordinate seamlessly. Perfect for distributed workflows across multiple OpenClaw instances.
+-  **Geo-Distributed Operations** — Agents in different cities/countries/networks coordinate seamlessly. Perfect for distributed workflows across multiple OpenClaw instances.
 
-- 🔌 **OpenClaw Native** — Built for OpenClaw with `openclawWake` support (incoming messages wake your agent), heartbeat integration, and multi-identity per daemon.
+-  **OpenClaw Native** — Built for OpenClaw with `openclawWake` support (incoming messages wake your agent), heartbeat integration, and multi-identity per daemon.
 
 ## Install
 

@@ -1,22 +1,22 @@
 # SafeExec 结构变动影响评估报告
 
-## 📋 变动概述
+##  变动概述
 
 ### 文件移动情况
 
 | 原路径 | 新路径 | 根目录软链接 |
 |--------|--------|-------------|
-| `safe-exec.sh` | `scripts/safe-exec.sh` | ✅ 已创建 |
-| `safe-exec-approve.sh` | `scripts/safe-exec-approve.sh` | ❌ 未创建 |
-| `safe-exec-reject.sh` | `scripts/safe-exec-reject.sh` | ❌ 未创建 |
-| `safe-exec-list.sh` | `scripts/safe-exec-list.sh` | ❌ 未创建 |
-| `check-github-issues.sh` | `monitoring/check-github-issues.sh` | ❌ 未创建 |
+| `safe-exec.sh` | `scripts/safe-exec.sh` |  已创建 |
+| `safe-exec-approve.sh` | `scripts/safe-exec-approve.sh` |  未创建 |
+| `safe-exec-reject.sh` | `scripts/safe-exec-reject.sh` |  未创建 |
+| `safe-exec-list.sh` | `scripts/safe-exec-list.sh` |  未创建 |
+| `check-github-issues.sh` | `monitoring/check-github-issues.sh` |  未创建 |
 
 ---
 
-## 🔍 影响分析
+##  影响分析
 
-### ✅ 无影响的部分
+###  无影响的部分
 
 #### 1. 核心功能兼容性
 
@@ -33,7 +33,7 @@ lrwxrwxrwx 1 otto otto 20 Feb 1 21:22 safe-exec.sh -> scripts/safe-exec.sh
 
 # 脚本可执行
 $ ./safe-exec.sh --status
-✅ 正常工作
+ 正常工作
 ```
 
 #### 2. ClawdHub 安装方式
@@ -44,8 +44,8 @@ $ ./safe-exec.sh --status
 3. 用户通过对话触发：`Enable SafeExec`
 
 **影响评估：**
-- ✅ **无影响** - 只要 `SKILL.md` 和主入口（`safe-exec.sh`）在根目录即可
-- ✅ **无影响** - 软链接保证了主入口的可用性
+-  **无影响** - 只要 `SKILL.md` 和主入口（`safe-exec.sh`）在根目录即可
+-  **无影响** - 软链接保证了主入口的可用性
 
 #### 3. GitHub 直接安装
 
@@ -55,12 +55,12 @@ git clone https://github.com/OTTTTTO/safe-exec.git ~/.openclaw/skills/safe-exec
 ```
 
 **影响评估：**
-- ✅ **无影响** - Git 会保留软链接
-- ✅ **无影响** - 核心功能路径未变
+-  **无影响** - Git 会保留软链接
+-  **无影响** - 核心功能路径未变
 
 ---
 
-### ⚠️ 有影响的部分
+###  有影响的部分
 
 #### 1. 辅助脚本直接调用
 
@@ -81,7 +81,7 @@ git clone https://github.com/OTTTTTO/safe-exec.git ~/.openclaw/skills/safe-exec
 ~/.openclaw/skills/safe-exec/scripts/safe-exec-approve.sh req_xxx
 ```
 
-**影响等级：** 🟡 **中等**
+**影响等级：**  **中等**
 
 #### 2. 自定义脚本中的路径引用
 
@@ -95,7 +95,7 @@ git clone https://github.com/OTTTTTO/safe-exec.git ~/.openclaw/skills/safe-exec
 ~/.openclaw/skills/safe-exec/safe-exec-approve.sh "$1"
 ```
 
-**影响等级：** 🟡 **中等**
+**影响等级：**  **中等**
 
 #### 3. 文档链接
 
@@ -104,11 +104,11 @@ git clone https://github.com/OTTTTTO/safe-exec.git ~/.openclaw/skills/safe-exec
 - README_EN.md（待更新）
 - 其他文档中的相对链接
 
-**影响等级：** 🟢 **低**（主要是文档）
+**影响等级：**  **低**（主要是文档）
 
 ---
 
-## 🎯 兼容性建议
+##  兼容性建议
 
 ### 方案 A：完全兼容（推荐）
 
@@ -128,9 +128,9 @@ ln -sf scripts/safe-exec-check-pending.sh safe-exec-check-pending.sh
 ```
 
 **优点：**
-- ✅ 完全向后兼容
-- ✅ 用户无感知
-- ✅ 可以安全推送到 ClawdHub
+-  完全向后兼容
+-  用户无感知
+-  可以安全推送到 ClawdHub
 
 **缺点：**
 - 根目录会有一些软链接文件
@@ -144,9 +144,9 @@ ln -sf scripts/safe-exec-check-pending.sh safe-exec-check-pending.sh
 - 核心功能兼容
 
 **缺点：**
-- ❌ 辅助脚本路径变化
-- ❌ 可能影响高级用户
-- ⚠️ 不建议推送到 ClawdHub
+-  辅助脚本路径变化
+-  可能影响高级用户
+-  不建议推送到 ClawdHub
 
 ### 方案 C：破坏性变更
 
@@ -157,17 +157,17 @@ ln -sf scripts/safe-exec-check-pending.sh safe-exec-check-pending.sh
 - 迫使用户使用新结构
 
 **缺点：**
-- ❌ 破坏向后兼容性
-- ❌ 严重影响现有用户
-- 🚫 **绝对不推荐**
+-  破坏向后兼容性
+-  严重影响现有用户
+-  **绝对不推荐**
 
 ---
 
-## 📊 影响等级评定
+##  影响等级评定
 
 ### 对普通用户
 
-**影响等级：** 🟢 **极低**
+**影响等级：**  **极低**
 
 **原因：**
 - 大多数用户通过对话使用：`Enable SafeExec`
@@ -176,7 +176,7 @@ ln -sf scripts/safe-exec-check-pending.sh safe-exec-check-pending.sh
 
 ### 对高级用户
 
-**影响等级：** 🟡 **中等**
+**影响等级：**  **中等**
 
 **原因：**
 - 可能直接调用辅助脚本
@@ -185,7 +185,7 @@ ln -sf scripts/safe-exec-check-pending.sh safe-exec-check-pending.sh
 
 ### 对 ClawdHub 用户
 
-**影响等级：** 🟢 **低**
+**影响等级：**  **低**
 
 **原因：**
 - ClawdHub 安装整个文件夹
@@ -194,7 +194,7 @@ ln -sf scripts/safe-exec-check-pending.sh safe-exec-check-pending.sh
 
 ---
 
-## 🚀 推荐方案
+##  推荐方案
 
 ### 建议：采用方案 A（完全兼容）
 
@@ -214,7 +214,7 @@ ln -sf scripts/safe-exec-check-pending.sh safe-exec-check-pending.sh
 
 ---
 
-## ⚡ 快速修复命令
+##  快速修复命令
 
 ```bash
 cd /home/otto/.openclaw/skills/safe-exec
@@ -242,19 +242,19 @@ without any changes."
 
 ---
 
-## 📝 结论
+##  结论
 
 **是否可以推送到 ClawdHub：**
 
 | 方案 | 是否推荐 | 原因 |
 |------|---------|------|
-| 方案 A（完全兼容） | ✅ **是** | 软链接保证完全兼容，文档改进明显 |
-| 方案 B（部分兼容） | ⚠️ **谨慎** | 可能影响部分高级用户 |
-| 方案 C（破坏性） | ❌ **否** | 严重影响现有用户 |
+| 方案 A（完全兼容） |  **是** | 软链接保证完全兼容，文档改进明显 |
+| 方案 B（部分兼容） |  **谨慎** | 可能影响部分高级用户 |
+| 方案 C（破坏性） |  **否** | 严重影响现有用户 |
 
 **当前状态：** 方案 B
 **建议改进：** 升级到方案 A
-**然后推送：** ✅ 是
+**然后推送：**  是
 
 ---
 

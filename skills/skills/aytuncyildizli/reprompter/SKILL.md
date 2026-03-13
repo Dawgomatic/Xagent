@@ -54,7 +54,7 @@ Definition — **2+ systems** means at least two distinct technical domains that
 4. **Smart Interview** — use `AskUserQuestion` with clickable options (2-5 questions max)
 5. **Generate + Score** — apply template, show before/after quality metrics
 
-### ⚠️ MUST GENERATE AFTER INTERVIEW
+###  MUST GENERATE AFTER INTERVIEW
 
 After interview completes, IMMEDIATELY:
 1. Select template based on task type
@@ -63,8 +63,8 @@ After interview completes, IMMEDIATELY:
 4. Ask if user wants to execute or copy
 
 ```
-❌ WRONG: Ask interview questions → stop
-✅ RIGHT: Ask interview questions → generate prompt → show score → offer to execute
+ WRONG: Ask interview questions → stop
+ RIGHT: Ask interview questions → generate prompt → show score → offer to execute
 ```
 
 ### Interview Questions
@@ -253,7 +253,7 @@ tmux kill-session -t {session}
 
 #### Critical tmux Rules
 
-⚠️ **WARNING: Default teammate model is HAIKU unless explicitly overridden. Always set `--model opus` in both CLI launch command and team prompt.**
+ **WARNING: Default teammate model is HAIKU unless explicitly overridden. Always set `--model opus` in both CLI launch command and team prompt.**
 
 | Rule | Why |
 |------|-----|
@@ -284,8 +284,8 @@ tmux kill-session -t {session}
 **Delta prompt pattern:**
 ```
 Previous attempt scored 5/10.
-✅ Good: Sections 1-3 complete
-❌ Missing: Section 4 empty, line references wrong
+ Good: Sections 1-3 complete
+ Missing: Section 4 empty, line references wrong
 This retry: Focus on gaps. Verify all line numbers.
 ```
 

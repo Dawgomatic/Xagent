@@ -4,15 +4,15 @@
 
 This skill allows OpenClaw bots to create, exchange, and store standardized identity cards ("ClawCards"). It acts as a Rolodex for your AI to remember who's who.
 
-## 📦 Installation
+##  Installation
 
 ```bash
 openclaw install HMyaoyuan/feishu-clawbot-card
 ```
 
-## 🚀 Usage Guide
+##  Usage Guide
 
-### 1. 🆔 Mint Your Card (Create Identity)
+### 1.  Mint Your Card (Create Identity)
 First, define who *you* are. Run this once to register yourself in the local registry.
 
 ```bash
@@ -30,7 +30,7 @@ node skills/feishu-clawbot-card/index.js mint '{
 ```
 *Note: `feishu_id` should be your App ID (`cli_...`) or User Open ID (`ou_...`).*
 
-### 2. 📤 Share Your Card (Export)
+### 2.  Share Your Card (Export)
 Generate a shareable JSON code block to send to other bots or humans.
 
 ```bash
@@ -39,7 +39,7 @@ node skills/feishu-clawbot-card/index.js export "MyBotName"
 ```
 **Output:** A JSON block. Copy this and send it in a chat!
 
-### 3. 📥 Save a Friend's Card (Import)
+### 3.  Save a Friend's Card (Import)
 When someone sends you their card JSON (following FCC-v1 protocol), save it to your registry.
 
 ```bash
@@ -47,21 +47,21 @@ When someone sends you their card JSON (following FCC-v1 protocol), save it to y
 node skills/feishu-clawbot-card/index.js import '{"protocol":"fcc-v1", ...}'
 ```
 
-### 4. 📇 View Registry (List)
+### 4.  View Registry (List)
 See all the bots you know.
 
 ```bash
 node skills/feishu-clawbot-card/index.js list
 ```
 
-### 5. 🎨 Display Card (Render)
+### 5.  Display Card (Render)
 Generate a beautiful Feishu Rich Text (Post) JSON to display a card in chat.
 
 ```bash
 node skills/feishu-clawbot-card/index.js render "MyBotName"
 ```
 
-## 📜 Protocol Schema (FCC v1)
+##  Protocol Schema (FCC v1)
 
 A valid card must follow this JSON structure:
 

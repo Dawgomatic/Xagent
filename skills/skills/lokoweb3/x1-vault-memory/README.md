@@ -1,4 +1,4 @@
-# 🦞 X1 Vault Memory
+#  X1 Vault Memory
 
 **Decentralized, encrypted memory backup for OpenClaw AI agents — powered by X1 blockchain and IPFS.**
 
@@ -8,11 +8,11 @@
 
 | Variable | Required | Details |
 |----------|----------|---------|
-| `PINATA_JWT` | ✅ Yes | Set in container `.env` - Your Pinata API token for IPFS uploads |
-| `x1_vault_cli/wallet.json` | ✅ Yes | Dedicated wallet only, NOT your main wallet |
-| `X1_RPC_URL` | ❌ No | Defaults to `https://rpc.mainnet.x1.xyz` |
+| `PINATA_JWT` |  Yes | Set in container `.env` - Your Pinata API token for IPFS uploads |
+| `x1_vault_cli/wallet.json` |  Yes | Dedicated wallet only, NOT your main wallet |
+| `X1_RPC_URL` |  No | Defaults to `https://rpc.mainnet.x1.xyz` |
 
-> 🔴 **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
+>  **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
 
 ---
 
@@ -50,7 +50,7 @@ Only your wallet keypair can decrypt. Even if someone finds the CID, your data s
 | **XNT Tokens** | ~0.002 XNT per backup for on-chain fees |
 | **OpenClaw** | Running instance with workspace access |
 
-✅ **No Solana CLI required** — we use `@solana/web3.js` directly.
+ **No Solana CLI required** — we use `@solana/web3.js` directly.
 
 ---
 
@@ -110,13 +110,13 @@ console.log('Wallet created:', kp.publicKey.toBase58());
 
 Keep `wallet.json` safe. This is your encryption key. Never commit it to GitHub.
 
-> 🔴 **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
+>  **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
 
 ### 2. Fund Your Wallet
 
 Send XNT tokens to your wallet address. You need ~0.002 XNT per backup transaction.
 
-> 🔴 **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
+>  **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
 
 ---
 
@@ -137,9 +137,9 @@ Logged backup CID to vault-log.json
 ```
 
 **Features:**
-- ✅ SHA-256 checksum generated before encryption
-- ✅ Checksum stored in encrypted payload for integrity verification
-- ✅ CID anchored to X1 blockchain with transaction hash
+-  SHA-256 checksum generated before encryption
+-  Checksum stored in encrypted payload for integrity verification
+-  CID anchored to X1 blockchain with transaction hash
 
 ### Restore
 ```bash
@@ -151,9 +151,9 @@ node x1-vault-memory/src/restore.js <CID> --only memory/
 ```
 
 **Features:**
-- ✅ Automatic integrity verification (checksum must match)
-- ✅ Aborts with error if archive is corrupted
-- ✅ Selective restore — restore specific paths without overwriting identity files
+-  Automatic integrity verification (checksum must match)
+-  Aborts with error if archive is corrupted
+-  Selective restore — restore specific paths without overwriting identity files
 
 ### List Backups
 ```bash
@@ -171,7 +171,7 @@ Self-healing check:
 - Verifies SOUL.md and memory/ exist and aren't empty
 - Auto-restores from latest backup if issues detected
 
-> ⚠️ **Opt-in Only** — Heartbeat auto-restore must be explicitly scheduled via cron. It is NOT automatic.
+>  **Opt-in Only** — Heartbeat auto-restore must be explicitly scheduled via cron. It is NOT automatic.
 > 
 > **Add to crontab:**
 > ```bash
@@ -233,13 +233,13 @@ CIDs are also recorded on-chain. Check your wallet's transaction history on the 
 
 ## Security
 
-- 🔐 Encrypted with AES-256-GCM using your wallet's secret key
-- 🔑 Only your keypair can decrypt
-- 📡 Stored on IPFS, not a single server
-- ⛓️ CID recorded on X1 blockchain via Memo Program for permanence
-- 🚫 Never share your wallet.json or PINATA_JWT
+-  Encrypted with AES-256-GCM using your wallet's secret key
+-  Only your keypair can decrypt
+-  Stored on IPFS, not a single server
+-  CID recorded on X1 blockchain via Memo Program for permanence
+-  Never share your wallet.json or PINATA_JWT
 
-> 🔴 **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
+>  **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
 
 ---
 
@@ -273,7 +273,7 @@ MIT
 
 ---
 
-**Built by [Lokoweb3](https://github.com/Lokoweb3) with Loko_AI 🦞**
+**Built by [Lokoweb3](https://github.com/Lokoweb3) with Loko_AI **
 
 ---
 

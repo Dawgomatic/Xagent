@@ -1,7 +1,7 @@
 ---
 name: notion
 description: Manage Notion notes, pages, and data sources with a JSON-first CLI for search, read/export, write/import, append, and move operations. Use when working with Notion, organising notes, moving pages, triaging an inbox, or reading/writing page content.
-metadata: {"openclaw":{"emoji":"🗂️","requires":{"bins":["node"],"env":["NOTION_API_KEY"]},"primaryEnv":"NOTION_API_KEY","homepage":"https://developers.notion.com/reference/intro"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"],"env":["NOTION_API_KEY"]},"primaryEnv":"NOTION_API_KEY","homepage":"https://developers.notion.com/reference/intro"}}
 user-invocable: true
 ---
 

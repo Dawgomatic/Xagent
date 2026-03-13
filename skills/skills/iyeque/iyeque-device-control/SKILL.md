@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎛️",
+        "emoji": "",
         "requires": { "bins": ["node"] },
         "version": "1.1.0",
       },
@@ -58,11 +58,11 @@ node skills/device-control/ctl.js --action close_app --app "firefox"
 
 | Action | Linux | macOS | Windows | WSL |
 |--------|-------|-------|---------|-----|
-| set_volume | ✅ (pactl/amixer) | ✅ (osascript) | ✅ (nircmd) | ✅ (nircmd) |
-| change_volume | ✅ | ✅ | ❌ | ❌ |
-| set_brightness | ✅ (brightnessctl) | ⚠️ (requires brightness CLI) | ✅ (WMI) | ✅ (WMI) |
-| open_app | ✅ | ✅ | ✅ | ✅ |
-| close_app | ✅ (pkill) | ✅ (pkill) | ✅ (taskkill) | ✅ (taskkill) |
+| set_volume |  (pactl/amixer) |  (osascript) |  (nircmd) |  (nircmd) |
+| change_volume |  |  |  |  |
+| set_brightness |  (brightnessctl) |  (requires brightness CLI) |  (WMI) |  (WMI) |
+| open_app |  |  |  |  |
+| close_app |  (pkill) |  (pkill) |  (taskkill) |  (taskkill) |
 
 ## Requirements
 

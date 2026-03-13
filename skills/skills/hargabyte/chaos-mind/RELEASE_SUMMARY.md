@@ -2,7 +2,7 @@
 
 ## Critical Fixes for ClawHub Release
 
-### 1. Database Configuration ✅
+### 1. Database Configuration 
 **Issue:** Consolidator was writing to SaaS database (port 3306) instead of local (port 3307)
 
 **Fix:**
@@ -15,7 +15,7 @@
 - `skill/config/chaos-consolidator.service.template` (NEW)
 - `skill/install.sh` (UPDATED)
 
-### 2. Category Schema Flexibility ✅
+### 2. Category Schema Flexibility 
 **Issue:** Qwen extracted categories like "decision", "research" but SaaS DB only accepts strict enum
 
 **Fix:**
@@ -25,7 +25,7 @@
 
 **Impact:** Auto-capture can now store any category without errors
 
-### 3. Systemd Service Support ✅
+### 3. Systemd Service Support 
 **Issue:** No automatic restart on failure, manual process management required
 
 **Fix:**
@@ -37,7 +37,7 @@
 - `skill/config/chaos-consolidator.service.template`
 - `skill/scripts/setup-service.sh`
 
-### 4. Installation Documentation ✅
+### 4. Installation Documentation 
 **Issue:** Users didn't know how to configure auto-capture paths
 
 **Fix:**
@@ -114,14 +114,14 @@ curl -fsSL https://raw.githubusercontent.com/hargabyte/chaos-memory/main/skill/i
 
 ### Before Fix
 ```
-⚠️ Failed to store memory: MCP error: failed to store memory: 
+ Failed to store memory: MCP error: failed to store memory: 
 Error 1105: value decision|core|semantic|research is not valid for this Enum
 ```
 
 ### After Fix
 ```
-✅ Extracted 10 memories from session.jsonl
-🔁 Deduplicated: 11 → 10 memories
+ Extracted 10 memories from session.jsonl
+ Deduplicated: 11 → 10 memories
 ```
 
 ## Deployment Steps

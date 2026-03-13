@@ -47,7 +47,7 @@ function getTweetUrl(t: Tweet): string {
 export function formatTweetTelegram(t: Tweet, index?: number, opts?: { full?: boolean }): string {
   const prefix = index !== undefined ? `${index + 1}. ` : "";
   const metrics = getMetrics(t);
-  const engagement = `${compactNumber(metrics.likes)}❤️ ${compactNumber(metrics.impressions)}👁`;
+  const engagement = `${compactNumber(metrics.likes)} ${compactNumber(metrics.impressions)}`;
   const time = timeAgo(t.created_at);
 
   // Truncate text to 200 chars for summary view, full text for single tweet/thread
@@ -60,10 +60,10 @@ export function formatTweetTelegram(t: Tweet, index?: number, opts?: { full?: bo
   if ((t.urls || []).length > 0) {
     const u = t.urls[0];
     if (u.title) {
-      out += `\n📰 "${u.title}"`;
+      out += `\n "${u.title}"`;
       if (u.description) out += ` — ${u.description.slice(0, 120)}`;
     }
-    out += `\n🔗 ${u.url}`;
+    out += `\n ${u.url}`;
   }
   out += `\n${getTweetUrl(t)}`;
 
@@ -82,7 +82,7 @@ export function formatResultsTelegram(
 
   let out = "";
   if (opts.query) {
-    out += `🔍 "${opts.query}" — ${tweets.length} results\n\n`;
+    out += ` "${opts.query}" — ${tweets.length} results\n\n`;
   }
 
   if (shown.length === 0) {
@@ -179,7 +179,7 @@ export function formatResearchMarkdown(
  */
 export function formatProfileTelegram(user: any, tweets: Tweet[]): string {
   const m = user.public_metrics || {};
-  let out = `👤 @${user.username} — ${user.name}\n`;
+  let out = ` @${user.username} — ${user.name}\n`;
   out += `${compactNumber(m.followers_count || 0)} followers · ${compactNumber(m.tweet_count || 0)} tweets\n`;
   if (user.description) {
     out += `${user.description.slice(0, 150)}\n`;

@@ -4,7 +4,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│ 🚨 CRITICAL INSIGHT FOR NEW BUILDERS 🚨                         │
+│  CRITICAL INSIGHT FOR NEW BUILDERS                          │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
 │ SMART CONTRACTS CANNOT EXECUTE THEMSELVES.                      │
@@ -82,8 +82,8 @@ function claimRewards() external {
     pendingRewards[msg.sender] = 0;
     rewardToken.transfer(msg.sender, reward);
 }
-// ✅ Incentive: User gets tokens they're owed
-// ✅ Will be called: Yes, users want their money
+//  Incentive: User gets tokens they're owed
+//  Will be called: Yes, users want their money
 ```
 
 ```solidity
@@ -93,8 +93,8 @@ function withdraw(uint256 amount) external {
     deposits[msg.sender] -= amount;
     payable(msg.sender).transfer(amount);
 }
-// ✅ Incentive: User gets their money back
-// ✅ Will be called: Yes, when users need funds
+//  Incentive: User gets their money back
+//  Will be called: Yes, when users need funds
 ```
 
 ### Pattern 2: Caller Rewards (Keeper Incentives)
@@ -120,8 +120,8 @@ function liquidate(address user) external {
     userDebt[user] = 0;
     userCollateral[user] = 0;
 }
-// ✅ Incentive: Liquidator profits from the bonus
-// ✅ Will be called: Yes, bots compete to liquidate
+//  Incentive: Liquidator profits from the bonus
+//  Will be called: Yes, bots compete to liquidate
 ```
 
 ```solidity
@@ -136,8 +136,8 @@ function harvest() external {
     // Rest goes to vault
     rewardToken.transfer(address(vault), yield - callerReward);
 }
-// ✅ Incentive: Caller gets 1% of harvested yield
-// ✅ Will be called: Yes, profitable for harvesters
+//  Incentive: Caller gets 1% of harvested yield
+//  Will be called: Yes, profitable for harvesters
 ```
 
 ### Pattern 3: MEV Opportunities
@@ -155,8 +155,8 @@ function rebalance() external {
         // Arbitrageur profits from difference
     }
 }
-// ✅ Incentive: Arbitrage profit
-// ✅ Will be called: Yes, MEV bots are always watching
+//  Incentive: Arbitrage profit
+//  Will be called: Yes, MEV bots are always watching
 ```
 
 ### Pattern 4: Conditional Execution with Rewards
@@ -186,8 +186,8 @@ function executeOrder(uint256 orderId) external {
     
     delete orders[orderId];
 }
-// ✅ Incentive: Executor earns the reward bounty
-// ✅ Will be called: Yes, when price target hit
+//  Incentive: Executor earns the reward bounty
+//  Will be called: Yes, when price target hit
 ```
 
 ## Real-World Examples
@@ -244,7 +244,7 @@ Result: Bots compete to compound, users get auto-compounding
 
 ## Anti-Patterns: What NOT To Do
 
-### ❌ Expecting Automatic Execution
+###  Expecting Automatic Execution
 ```solidity
 // BAD: This will NEVER run automatically!
 function dailyDistribution() external {
@@ -253,7 +253,7 @@ function dailyDistribution() external {
 }
 ```
 
-### ❌ No Incentive to Call
+###  No Incentive to Call
 ```solidity
 // BAD: Why would anyone pay gas to call this?
 function updateGlobalState() external {
@@ -263,7 +263,7 @@ function updateGlobalState() external {
 // Nobody will call this. Gas costs money.
 ```
 
-### ❌ Admin-Only Critical Functions
+###  Admin-Only Critical Functions
 ```solidity
 // BAD: Single point of failure
 function processExpiredPositions() external onlyOwner {

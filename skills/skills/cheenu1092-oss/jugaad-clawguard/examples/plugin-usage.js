@@ -68,15 +68,15 @@ async function examples() {
     
     switch (dangerousCommand.result) {
         case RESULT.BLOCK:
-            console.log('   ⛔ BLOCKED - Do not execute!');
+            console.log('    BLOCKED - Do not execute!');
             console.log(`   Reason: ${dangerousCommand.message}`);
             break;
         case RESULT.WARN:
-            console.log('   ⚠️ WARNING - Proceed with caution');
+            console.log('    WARNING - Proceed with caution');
             console.log('   In plugin mode, this would trigger Discord approval');
             break;
         case RESULT.SAFE:
-            console.log('   ✅ SAFE - Proceed normally');
+            console.log('    SAFE - Proceed normally');
             break;
     }
     console.log();

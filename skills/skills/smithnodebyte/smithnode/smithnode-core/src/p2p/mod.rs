@@ -32,13 +32,13 @@ trait PoisonRecover<T> {
 impl<T> PoisonRecover<T> for RwLock<T> {
     fn read_or_recover(&self) -> RwLockReadGuard<'_, T> {
         self.read().unwrap_or_else(|poisoned| {
-            tracing::error!("🚨 P2P RwLock was poisoned (read) — recovering but data may be inconsistent");
+            tracing::error!(" P2P RwLock was poisoned (read) — recovering but data may be inconsistent");
             poisoned.into_inner()
         })
     }
     fn write_or_recover(&self) -> RwLockWriteGuard<'_, T> {
         self.write().unwrap_or_else(|poisoned| {
-            tracing::error!("🚨 P2P RwLock was poisoned (write) — recovering but data may be inconsistent");
+            tracing::error!(" P2P RwLock was poisoned (write) — recovering but data may be inconsistent");
             poisoned.into_inner()
         })
     }
@@ -366,7 +366,7 @@ impl VersionTracker {
             // Only warn if peer version is actually NEWER than our version
             if Self::compare_versions(version, SMITH_VERSION) == std::cmp::Ordering::Greater {
                 tracing::warn!(
-                    "🚀 Newer version {} detected on network! Current: {}",
+                    " Newer version {} detected on network! Current: {}",
                     version, SMITH_VERSION
                 );
             }
@@ -389,12 +389,12 @@ impl VersionTracker {
         
         if should_update {
             tracing::info!(
-                "📦 VERIFIED upgrade announcement: v{} from operator {}...",
+                " VERIFIED upgrade announcement: v{} from operator {}...",
                 upgrade.version,
                 &upgrade.operator_pubkey[..16]
             );
             if upgrade.mandatory {
-                tracing::warn!("⚠️ This is a MANDATORY upgrade!");
+                tracing::warn!(" This is a MANDATORY upgrade!");
             }
             *latest = Some(upgrade);
         }
@@ -732,13 +732,13 @@ pub fn record_peer_relay(relay: PeerRelayAnnouncement) {
     let mut list = relays.write_or_recover();
     // Don't duplicate
     if !list.iter().any(|r| r.peer_id == relay.peer_id && r.version == relay.version && r.platform == relay.platform) {
-        tracing::info!("🌱 New peer relay: peer {} has v{} for {}", &relay.peer_id[..12.min(relay.peer_id.len())], relay.version, relay.platform);
+        tracing::info!(" New peer relay: peer {} has v{} for {}", &relay.peer_id[..12.min(relay.peer_id.len())], relay.version, relay.platform);
         // Cap to prevent unbounded memory growth from spam
         if list.len() >= MAX_PEER_RELAYS {
             // Remove oldest quarter of entries
             let drain_count = list.len() / 4;
             list.drain(0..drain_count);
-            tracing::debug!("🧹 Pruned {} old peer relay entries", drain_count);
+            tracing::debug!(" Pruned {} old peer relay entries", drain_count);
         }
         list.push(relay);
     }
@@ -1199,11 +1199,11 @@ impl SmithNodeNetwork {
                 return Err(anyhow::anyhow!("Identity secret must be 32 bytes"));
             }
         } else if let Some(keypair) = Self::try_derive_from_operator_key() {
-            tracing::info!("🔐 P2P identity derived from operator key (sequencer)");
+            tracing::info!(" P2P identity derived from operator key (sequencer)");
             keypair
         } else {
             // Generate ephemeral keypair (shouldn't happen in production)
-            tracing::warn!("⚠️  No identity secret provided, generating ephemeral P2P identity");
+            tracing::warn!("  No identity secret provided, generating ephemeral P2P identity");
             libp2p::identity::Keypair::generate_ed25519()
         };
         
@@ -1217,9 +1217,9 @@ impl SmithNodeNetwork {
         });
         
         tracing::info!("══════════════════════════════════════════════════════════════════");
-        tracing::info!("🔑 P2P PEER ID: {}", local_peer_id);
+        tracing::info!(" P2P PEER ID: {}", local_peer_id);
         tracing::info!("══════════════════════════════════════════════════════════════════");
-        tracing::info!("📡 Other peers can connect using this peer ID");
+        tracing::info!(" Other peers can connect using this peer ID");
         tracing::info!("   Example: /ip4/<IP>/tcp/{}/p2p/{}", port, local_peer_id);
         tracing::info!("   Actual addresses will be logged when discovered");
         tracing::info!("══════════════════════════════════════════════════════════════════");
@@ -1338,7 +1338,7 @@ impl SmithNodeNetwork {
     
     /// Run the network event loop
     pub async fn run(mut self) -> anyhow::Result<()> {
-        tracing::info!("🌐 P2P network starting...");
+        tracing::info!(" P2P network starting...");
         
         // Timer to retry pending registrations every 3 seconds
         let mut reg_retry_interval = tokio::time::interval(tokio::time::Duration::from_secs(3));
@@ -1367,7 +1367,7 @@ impl SmithNodeNetwork {
                                     .publish(self.transaction_topic.clone(), data)
                                 {
                                     Ok(_) => {
-                                        tracing::info!("📢 Registration retry succeeded for {}...",
+                                        tracing::info!(" Registration retry succeeded for {}...",
                                             &reg_msg.public_key[..16.min(reg_msg.public_key.len())]);
                                     }
                                     Err(_) => {
@@ -1389,14 +1389,14 @@ impl SmithNodeNetwork {
         match event {
             SwarmEvent::Behaviour(SmithNodeBehaviourEvent::Mdns(mdns::Event::Discovered(peers))) => {
                 for (peer_id, addr) in peers {
-                    tracing::info!("🔍 Discovered peer: {} at {}", peer_id, addr);
+                    tracing::info!(" Discovered peer: {} at {}", peer_id, addr);
                     self.swarm.behaviour_mut().gossipsub.add_explicit_peer(&peer_id);
                     let _ = self.event_tx.send(NetworkEvent::PeerConnected(peer_id.to_string())).await;
                 }
             }
             SwarmEvent::Behaviour(SmithNodeBehaviourEvent::Mdns(mdns::Event::Expired(peers))) => {
                 for (peer_id, _) in peers {
-                    tracing::info!("👋 Peer expired: {}", peer_id);
+                    tracing::info!(" Peer expired: {}", peer_id);
                     self.swarm.behaviour_mut().gossipsub.remove_explicit_peer(&peer_id);
                     let _ = self.event_tx.send(NetworkEvent::PeerDisconnected(peer_id.to_string())).await;
                 }
@@ -1408,7 +1408,7 @@ impl SmithNodeNetwork {
             })) => {
                 let topic = message.topic.as_str();
                 tracing::info!(
-                    "📨 Received message on {}: {:?} from {}",
+                    " Received message on {}: {:?} from {}",
                     topic,
                     message_id,
                     propagation_source
@@ -1450,21 +1450,21 @@ impl SmithNodeNetwork {
                 }
             }
             SwarmEvent::NewListenAddr { address, .. } => {
-                tracing::info!("📡 Listening on {}/p2p/{}", address, self.local_peer_id);
+                tracing::info!(" Listening on {}/p2p/{}", address, self.local_peer_id);
                 // Record this as an external address
                 if let Some(peer_info) = get_local_peer_info() {
                     peer_info.add_external_addr(&address.to_string());
                 }
             }
             SwarmEvent::ConnectionEstablished { peer_id, endpoint, .. } => {
-                tracing::info!("🤝 Connected to peer: {} via {:?}", peer_id, endpoint);
+                tracing::info!(" Connected to peer: {} via {:?}", peer_id, endpoint);
                 // Record connected peers as potential bootstrap peers
                 let addr = endpoint.get_remote_address();
                 let multiaddr = format!("{}/p2p/{}", addr, peer_id);
                 add_bootstrap_peer(multiaddr);
             }
             SwarmEvent::ConnectionClosed { peer_id, .. } => {
-                tracing::info!("👋 Disconnected from peer: {}", peer_id);
+                tracing::info!(" Disconnected from peer: {}", peer_id);
             }
             _ => {}
         }
@@ -1474,7 +1474,7 @@ impl SmithNodeNetwork {
         match serde_json::from_slice::<ChallengeMessage>(data) {
             Ok(msg) => {
                 tracing::info!(
-                    "🎯 New challenge received: height={}, type={:?}, expires_at={}",
+                    " New challenge received: height={}, type={:?}, expires_at={}",
                     msg.challenge.height,
                     msg.challenge.challenge_type,
                     msg.challenge.expires_at
@@ -1482,7 +1482,7 @@ impl SmithNodeNetwork {
                 
                 // Check if challenge is still valid
                 if msg.challenge.is_expired() {
-                    tracing::warn!("⚠️ Received expired challenge, ignoring");
+                    tracing::warn!(" Received expired challenge, ignoring");
                     return;
                 }
                 
@@ -1496,7 +1496,7 @@ impl SmithNodeNetwork {
                 if should_update {
                     self.state.set_current_challenge(msg.challenge.clone());
                     tracing::info!(
-                        "✅ Challenge accepted: {} pending txs to validate",
+                        " Challenge accepted: {} pending txs to validate",
                         msg.challenge.pending_tx_hashes.len()
                     );
                 }
@@ -1513,16 +1513,16 @@ impl SmithNodeNetwork {
                             .unwrap_or_default()
                             .as_secs();
                         if liveness.expires_at < now {
-                            tracing::debug!("⏰ Expired liveness challenge from {}...", &liveness.challenger[..16.min(liveness.challenger.len())]);
+                            tracing::debug!(" Expired liveness challenge from {}...", &liveness.challenger[..16.min(liveness.challenger.len())]);
                             return;
                         }
-                        tracing::info!("🧪 Liveness challenge received from {}... target={}...",
+                        tracing::info!(" Liveness challenge received from {}... target={}...",
                             &liveness.challenger[..16.min(liveness.challenger.len())],
                             &liveness.target[..16.min(liveness.target.len())]);
                         let _ = self.event_tx.send(NetworkEvent::LivenessChallengeReceived(liveness)).await;
                     }
                     Err(e2) => {
-                        tracing::error!("❌ Failed to parse challenge message: {}", e2);
+                        tracing::error!(" Failed to parse challenge message: {}", e2);
                     }
                 }
             }
@@ -1533,7 +1533,7 @@ impl SmithNodeNetwork {
         match serde_json::from_slice::<ProofMessage>(data) {
             Ok(msg) => {
                 tracing::info!(
-                    "✅ Proof submission received from validator: {}",
+                    " Proof submission received from validator: {}",
                     &msg.response.validator_pubkey[..16.min(msg.response.validator_pubkey.len())]
                 );
                 
@@ -1545,17 +1545,17 @@ impl SmithNodeNetwork {
                 match self.state.verify_and_apply_proof(&msg.response) {
                     Ok(crate::stf::TxResult::Success { reward, .. }) => {
                         tracing::info!(
-                            "🏆 Proof verified! Validator {} earned {} SMITH (waiting for threshold)",
+                            " Proof verified! Validator {} earned {} SMITH (waiting for threshold)",
                             &msg.response.validator_pubkey[..16.min(msg.response.validator_pubkey.len())],
                             reward
                         );
                     }
                     Ok(crate::stf::TxResult::BlockFinalized { reward, block_height, state_root, .. }) => {
                         tracing::info!(
-                            "📦 Block {} FINALIZED via P2P proof! {} SMITH distributed",
+                            " Block {} FINALIZED via P2P proof! {} SMITH distributed",
                             block_height, reward
                         );
-                        tracing::info!("🔗 New state root: {}...", &hex::encode(state_root)[..16]);
+                        tracing::info!(" New state root: {}...", &hex::encode(state_root)[..16]);
                         
                         // Auto-broadcast the finalized block to the network
                         let challenge_hash: [u8; 32] = match hex::decode(&challenge_hash_hex)
@@ -1563,7 +1563,7 @@ impl SmithNodeNetwork {
                             .and_then(|b| <[u8; 32]>::try_from(b).ok()) {
                             Some(h) => h,
                             None => {
-                                tracing::error!("❌ Invalid challenge hash hex, cannot broadcast block");
+                                tracing::error!(" Invalid challenge hash hex, cannot broadcast block");
                                 return;
                             }
                         };
@@ -1627,7 +1627,7 @@ impl SmithNodeNetwork {
                             {
                                 tracing::debug!("Block broadcast skipped (no peers): {}", e);
                             } else {
-                                tracing::info!("📢 Broadcasted finalized block {}", block_height);
+                                tracing::info!(" Broadcasted finalized block {}", block_height);
                             }
                         }
                     }
@@ -1635,7 +1635,7 @@ impl SmithNodeNetwork {
                         // Other TxResult variants — shouldn't happen for proof submission
                     }
                     Err(e) => {
-                        tracing::warn!("⚠️ Proof verification failed: {}", e);
+                        tracing::warn!(" Proof verification failed: {}", e);
                     }
                 }
                 
@@ -1646,13 +1646,13 @@ impl SmithNodeNetwork {
                 // Try parsing as a liveness response (different struct, same topic)
                 match serde_json::from_slice::<LivenessResponse>(data) {
                     Ok(response) => {
-                        tracing::info!("✅ Liveness response from {}... for challenge {}...",
+                        tracing::info!(" Liveness response from {}... for challenge {}...",
                             &response.responder[..16.min(response.responder.len())],
                             &response.challenge_id[..16.min(response.challenge_id.len())]);
                         let _ = self.event_tx.send(NetworkEvent::LivenessResponseReceived(response)).await;
                     }
                     Err(e2) => {
-                        tracing::error!("❌ Failed to parse proof message: {}", e2);
+                        tracing::error!(" Failed to parse proof message: {}", e2);
                     }
                 }
             }
@@ -1663,7 +1663,7 @@ impl SmithNodeNetwork {
         match serde_json::from_slice::<BlockMessage>(data) {
             Ok(msg) => {
                 tracing::info!(
-                    "📦 New block received: height={}, proofs={}, state_root={}",
+                    " New block received: height={}, proofs={}, state_root={}",
                     msg.header.height,
                     msg.proof_count,
                     &msg.state_root_hex[..16.min(msg.state_root_hex.len())]
@@ -1673,7 +1673,7 @@ impl SmithNodeNetwork {
                 if !msg.producer_signature.is_empty() {
                     if !msg.verify_producer_signature() {
                         tracing::warn!(
-                            "⚠️ REJECTING block {}: invalid producer signature from {}...",
+                            " REJECTING block {}: invalid producer signature from {}...",
                             msg.header.height,
                             &msg.producer_pubkey[..16.min(msg.producer_pubkey.len())]
                         );
@@ -1681,15 +1681,15 @@ impl SmithNodeNetwork {
                     }
                     // Log if producer is a known validator or the block authority node
                     if self.state.get_validator(&msg.producer_pubkey).is_some() {
-                        tracing::info!("✅ Block {} producer signature VERIFIED (validator {}...)", msg.header.height,
+                        tracing::info!(" Block {} producer signature VERIFIED (validator {}...)", msg.header.height,
                             &msg.producer_pubkey[..16.min(msg.producer_pubkey.len())]);
                     } else {
-                        tracing::info!("✅ Block {} producer signature VERIFIED (authority node {}...)", msg.header.height,
+                        tracing::info!(" Block {} producer signature VERIFIED (authority node {}...)", msg.header.height,
                             &msg.producer_pubkey[..16.min(msg.producer_pubkey.len())]);
                     }
                 } else {
                     tracing::warn!(
-                        "⚠️ REJECTING block {}: no producer signature (unsigned blocks are no longer accepted)",
+                        " REJECTING block {}: no producer signature (unsigned blocks are no longer accepted)",
                         msg.header.height
                     );
                     return;
@@ -1706,7 +1706,7 @@ impl SmithNodeNetwork {
                 if !block_genesis.is_empty() && !local_genesis.is_empty() && block_genesis != &local_genesis {
                     // Different genesis_hash = new chain instance, we must reset
                     tracing::warn!(
-                        "🔄 CHAIN RESET DETECTED! Genesis hash mismatch. Block: {}..., Local: {}...",
+                        " CHAIN RESET DETECTED! Genesis hash mismatch. Block: {}..., Local: {}...",
                         &block_genesis[..16.min(block_genesis.len())],
                         &local_genesis[..16.min(local_genesis.len())]
                     );
@@ -1721,12 +1721,12 @@ impl SmithNodeNetwork {
                         }
                     };
                     self.state.reset_for_chain_restart(new_genesis);
-                    tracing::info!("✅ Local state reset. Adopted new genesis from sequencer.");
+                    tracing::info!(" Local state reset. Adopted new genesis from sequencer.");
                     // Continue processing this block as the first block of the new chain
                 } else if msg.header.height <= current_height {
                     // Same chain, but old block - just skip it
                     tracing::debug!(
-                        "⚠️ Received old block (height {}), current height is {}",
+                        " Received old block (height {}), current height is {}",
                         msg.header.height,
                         current_height
                     );
@@ -1760,7 +1760,7 @@ impl SmithNodeNetwork {
                     };
                     if recomputed != msg.new_state_root_hex {
                         tracing::warn!(
-                            "⚠️ REJECTING block {}: state root mismatch! Claimed: {}... Recomputed: {}...",
+                            " REJECTING block {}: state root mismatch! Claimed: {}... Recomputed: {}...",
                             msg.header.height,
                             &msg.new_state_root_hex[..16.min(msg.new_state_root_hex.len())],
                             &recomputed[..16]
@@ -1773,7 +1773,7 @@ impl SmithNodeNetwork {
                 let balance_sum: u64 = msg.validators.iter().map(|v| v.balance).sum();
                 if balance_sum > msg.total_supply {
                     tracing::warn!(
-                        "⚠️ REJECTING block {}: validator balances {} exceed total_supply {}",
+                        " REJECTING block {}: validator balances {} exceed total_supply {}",
                         msg.header.height, balance_sum, msg.total_supply
                     );
                     return;
@@ -1805,16 +1805,16 @@ impl SmithNodeNetwork {
                     msg.total_supply,
                     &validator_infos,
                 ) {
-                    tracing::error!("❌ Failed to apply block: {}", e);
+                    tracing::error!(" Failed to apply block: {}", e);
                 } else {
-                    tracing::info!("✅ Block {} applied successfully (state synced)", msg.header.height);
+                    tracing::info!(" Block {} applied successfully (state synced)", msg.header.height);
                 }
                 
                 // Emit event
                 let _ = self.event_tx.send(NetworkEvent::BlockReceived(msg)).await;
             }
             Err(e) => {
-                tracing::error!("❌ Failed to parse block message: {}", e);
+                tracing::error!(" Failed to parse block message: {}", e);
             }
         }
     }
@@ -1836,7 +1836,7 @@ impl SmithNodeNetwork {
                     {
                         tracing::debug!("P2P broadcast skipped (no peers): {}", e);
                     } else {
-                        tracing::info!("📢 Broadcasted challenge for height {}", msg.broadcast_height);
+                        tracing::info!(" Broadcasted challenge for height {}", msg.broadcast_height);
                     }
                 }
             }
@@ -1857,7 +1857,7 @@ impl SmithNodeNetwork {
                     {
                         tracing::debug!("P2P broadcast skipped (no peers): {}", e);
                     } else {
-                        tracing::info!("📢 Broadcasted proof submission");
+                        tracing::info!(" Broadcasted proof submission");
                     }
                 }
             }
@@ -1903,7 +1903,7 @@ impl SmithNodeNetwork {
                     {
                         tracing::debug!("P2P broadcast skipped (no peers): {}", e);
                     } else {
-                        tracing::info!("📢 Broadcasted new block {} (signed by {}...)", header.height,
+                        tracing::info!(" Broadcasted new block {} (signed by {}...)", header.height,
                             &msg.producer_pubkey[..16.min(msg.producer_pubkey.len())]);
                     }
                 }
@@ -1911,18 +1911,18 @@ impl SmithNodeNetwork {
             NetworkCommand::DialPeer(addr_str) => {
                 match addr_str.parse::<Multiaddr>() {
                     Ok(addr) => {
-                        tracing::info!("🔗 Dialing peer: {}", addr);
+                        tracing::info!(" Dialing peer: {}", addr);
                         match self.swarm.dial(addr.clone()) {
                             Ok(_) => {
-                                tracing::info!("📞 Dial initiated to {}", addr);
+                                tracing::info!(" Dial initiated to {}", addr);
                             }
                             Err(e) => {
-                                tracing::error!("❌ Failed to dial {}: {}", addr, e);
+                                tracing::error!(" Failed to dial {}: {}", addr, e);
                             }
                         }
                     }
                     Err(e) => {
-                        tracing::error!("❌ Invalid multiaddr '{}': {}", addr_str, e);
+                        tracing::error!(" Invalid multiaddr '{}': {}", addr_str, e);
                     }
                 }
             }
@@ -1948,7 +1948,7 @@ impl SmithNodeNetwork {
                     {
                         tracing::debug!("P2P state sync request skipped (no peers): {}", e);
                     } else {
-                        tracing::info!("📥 Requested state sync from peers (our height: {})", msg.current_height);
+                        tracing::info!(" Requested state sync from peers (our height: {})", msg.current_height);
                     }
                 }
             }
@@ -1966,7 +1966,7 @@ impl SmithNodeNetwork {
             }
             NetworkCommand::BroadcastAIMessage(message) => {
                 // Broadcast AI message to the network
-                tracing::info!("🤖 Broadcasting AI message from {} to {}", 
+                tracing::info!(" Broadcasting AI message from {} to {}", 
                     &message.from_validator[..16.min(message.from_validator.len())],
                     if message.to_validator == "broadcast" { "all" } else { &message.to_validator[..16.min(message.to_validator.len())] }
                 );
@@ -1981,7 +1981,7 @@ impl SmithNodeNetwork {
                 }
             }
             NetworkCommand::BroadcastRegistration(reg_msg) => {
-                tracing::info!("📝 Broadcasting validator registration: {}...",
+                tracing::info!(" Broadcasting validator registration: {}...",
                     &reg_msg.public_key[..16.min(reg_msg.public_key.len())]);
                 
                 // Clone for potential retry
@@ -1997,13 +1997,13 @@ impl SmithNodeNetwork {
                 };
                 match self.state.apply_tx(crate::stf::NodeTx::RegisterValidator { public_key: pubkey_bytes }) {
                     crate::stf::TxResult::Registered { .. } => {
-                        tracing::info!("✅ Self-registered via P2P broadcast");
+                        tracing::info!(" Self-registered via P2P broadcast");
                     }
                     crate::stf::TxResult::Error(e) if e.contains("already registered") => {
                         tracing::debug!("Already registered locally");
                     }
                     crate::stf::TxResult::Error(e) => {
-                        tracing::warn!("⚠️ Local registration failed: {}", e);
+                        tracing::warn!(" Local registration failed: {}", e);
                     }
                     _ => {}
                 }
@@ -2017,12 +2017,12 @@ impl SmithNodeNetwork {
                         tracing::warn!("Failed to broadcast registration: {} — will retry when mesh forms", e);
                         self.pending_registrations.push(reg_msg_clone);
                     } else {
-                        tracing::info!("📢 Registration broadcasted to P2P network");
+                        tracing::info!(" Registration broadcasted to P2P network");
                     }
                 }
             }
             NetworkCommand::BroadcastGovernance(gov_msg) => {
-                tracing::info!("📋 Broadcasting governance action via P2P");
+                tracing::info!(" Broadcasting governance action via P2P");
                 if let Ok(data) = serde_json::to_vec(&gov_msg) {
                     if let Err(e) = self.swarm
                         .behaviour_mut()
@@ -2031,12 +2031,12 @@ impl SmithNodeNetwork {
                     {
                         tracing::warn!("Failed to broadcast governance: {}", e);
                     } else {
-                        tracing::info!("📢 Governance action broadcasted to P2P network");
+                        tracing::info!(" Governance action broadcasted to P2P network");
                     }
                 }
             }
             NetworkCommand::BroadcastTransfer(transfer_msg) => {
-                tracing::info!("💸 Broadcasting transfer via P2P: {} SMITH from {}... to {}...",
+                tracing::info!(" Broadcasting transfer via P2P: {} SMITH from {}... to {}...",
                     transfer_msg.amount,
                     &transfer_msg.from[..16.min(transfer_msg.from.len())],
                     &transfer_msg.to[..16.min(transfer_msg.to.len())]);
@@ -2048,12 +2048,12 @@ impl SmithNodeNetwork {
                     {
                         tracing::warn!("Failed to broadcast transfer: {}", e);
                     } else {
-                        tracing::info!("📢 Transfer broadcasted to P2P network");
+                        tracing::info!(" Transfer broadcasted to P2P network");
                     }
                 }
             }
             NetworkCommand::BroadcastUpgrade(announcement) => {
-                tracing::info!("📦 Broadcasting upgrade v{} via P2P", announcement.version);
+                tracing::info!(" Broadcasting upgrade v{} via P2P", announcement.version);
                 if let Ok(data) = serde_json::to_vec(&announcement) {
                     let upgrade_topic = libp2p::gossipsub::IdentTopic::new(TOPIC_UPGRADES);
                     if let Err(e) = self.swarm
@@ -2063,12 +2063,12 @@ impl SmithNodeNetwork {
                     {
                         tracing::warn!("Failed to broadcast upgrade: {}", e);
                     } else {
-                        tracing::info!("📢 Upgrade v{} broadcasted to P2P network", announcement.version);
+                        tracing::info!(" Upgrade v{} broadcasted to P2P network", announcement.version);
                     }
                 }
             }
             NetworkCommand::BroadcastPeerRelay(relay) => {
-                tracing::info!("🌱 Broadcasting peer relay: v{} for {} at {}", relay.version, relay.platform, relay.relay_url);
+                tracing::info!(" Broadcasting peer relay: v{} for {} at {}", relay.version, relay.platform, relay.relay_url);
                 if let Ok(data) = serde_json::to_vec(&relay) {
                     if let Err(e) = self.swarm
                         .behaviour_mut()
@@ -2077,7 +2077,7 @@ impl SmithNodeNetwork {
                     {
                         tracing::warn!("Failed to broadcast peer relay: {}", e);
                     } else {
-                        tracing::info!("📢 Peer relay broadcasted to P2P network");
+                        tracing::info!(" Peer relay broadcasted to P2P network");
                     }
                 }
             }
@@ -2130,7 +2130,7 @@ impl SmithNodeNetwork {
                     {
                         tracing::debug!("Turbo block broadcast skipped (no peers): {}", e);
                     } else {
-                        tracing::debug!("⚡ Turbo block {} broadcasted", height);
+                        tracing::debug!(" Turbo block {} broadcasted", height);
                     }
                 }
             }
@@ -2143,7 +2143,7 @@ impl SmithNodeNetwork {
                     {
                         tracing::debug!("Liveness challenge broadcast skipped: {}", e);
                     } else {
-                        tracing::info!("🧪 Liveness challenge sent to {}...", 
+                        tracing::info!(" Liveness challenge sent to {}...", 
                             &challenge.target[..16.min(challenge.target.len())]);
                     }
                 }
@@ -2157,7 +2157,7 @@ impl SmithNodeNetwork {
                     {
                         tracing::debug!("Liveness response broadcast skipped: {}", e);
                     } else {
-                        tracing::info!("✅ Liveness response sent for challenge {}", 
+                        tracing::info!(" Liveness response sent for challenge {}", 
                             &response.challenge_id[..16.min(response.challenge_id.len())]);
                     }
                 }
@@ -2172,7 +2172,7 @@ impl SmithNodeNetwork {
             // Someone is asking for state - respond if we have higher state
             let our_height = self.state.get_height();
             if our_height > request.current_height {
-                tracing::info!("📤 Peer {} requested state (their height: {}, ours: {})",
+                tracing::info!(" Peer {} requested state (their height: {}, ours: {})",
                     &request.requester_peer_id[..16.min(request.requester_peer_id.len())],
                     request.current_height,
                     our_height
@@ -2236,7 +2236,7 @@ impl SmithNodeNetwork {
             
             // Only accept state that's newer than ours
             if response.height > our_height {
-                tracing::info!("📥 Received state from peer {} (height: {}, {} validators)",
+                tracing::info!(" Received state from peer {} (height: {}, {} validators)",
                     &response.responder_peer_id[..16.min(response.responder_peer_id.len())],
                     response.height,
                     response.validators.len()
@@ -2277,7 +2277,7 @@ impl SmithNodeNetwork {
                     response.total_supply,
                     validators,
                 ) {
-                    tracing::info!("✅ P2P layer applied state sync: now at height {}", response.height);
+                    tracing::info!(" P2P layer applied state sync: now at height {}", response.height);
                 }
                 
                 // Also emit event so the event handler can merge tx_records etc.
@@ -2297,7 +2297,7 @@ impl SmithNodeNetwork {
                 // CRITICAL: Verify signature to prevent impersonation
                 if !presence.verify_signature() {
                     tracing::warn!(
-                        "⚠️ Rejecting unsigned/invalid presence from {}...",
+                        " Rejecting unsigned/invalid presence from {}...",
                         &presence.validator_pubkey[..16.min(presence.validator_pubkey.len())]
                     );
                     return;
@@ -2323,7 +2323,7 @@ impl SmithNodeNetwork {
                 get_p2p_validator_tracker().record_presence(&presence);
                 
                 tracing::debug!(
-                    "✅ P2P-verified validator: {}... (height={}, presences={})",
+                    " P2P-verified validator: {}... (height={}, presences={})",
                     &presence.validator_pubkey[..16.min(presence.validator_pubkey.len())],
                     presence.height,
                     get_p2p_validator_tracker().validators.read_or_recover()
@@ -2355,14 +2355,14 @@ impl SmithNodeNetwork {
                 // Verify signature AND trusted operator status
                 if !upgrade.verify() {
                     tracing::warn!(
-                        "⚠️ Rejecting invalid/untrusted upgrade announcement v{}",
+                        " Rejecting invalid/untrusted upgrade announcement v{}",
                         upgrade.version
                     );
                     return;
                 }
                 
                 tracing::info!(
-                    "📦 Received VERIFIED upgrade announcement: v{} from operator {}...",
+                    " Received VERIFIED upgrade announcement: v{} from operator {}...",
                     upgrade.version,
                     &upgrade.operator_pubkey[..16]
                 );
@@ -2381,7 +2381,7 @@ impl SmithNodeNetwork {
         match serde_json::from_slice::<PeerRelayAnnouncement>(data) {
             Ok(relay) => {
                 tracing::info!(
-                    "🌱 Peer {} is relaying v{} for {} at {}",
+                    " Peer {} is relaying v{} for {} at {}",
                     &relay.peer_id[..12.min(relay.peer_id.len())],
                     relay.version,
                     relay.platform,
@@ -2418,7 +2418,7 @@ impl SmithNodeNetwork {
             TransactionTopicMessage::Registration(reg_msg) => {
                 // Verify signature to prevent spoofed registrations
                 if !reg_msg.verify_signature() {
-                    tracing::warn!("⚠️ Rejecting registration with invalid signature from {}...",
+                    tracing::warn!(" Rejecting registration with invalid signature from {}...",
                         &reg_msg.public_key[..16.min(reg_msg.public_key.len())]);
                     return;
                 }
@@ -2429,7 +2429,7 @@ impl SmithNodeNetwork {
                     .unwrap_or_default()
                     .as_secs();
                 if reg_msg.timestamp > now + 60 || reg_msg.timestamp < now.saturating_sub(300) {
-                    tracing::warn!("⚠️ Rejecting stale registration (timestamp: {})", reg_msg.timestamp);
+                    tracing::warn!(" Rejecting stale registration (timestamp: {})", reg_msg.timestamp);
                     return;
                 }
                 
@@ -2437,20 +2437,20 @@ impl SmithNodeNetwork {
                 let pubkey_bytes: [u8; 32] = match hex::decode(&reg_msg.public_key) {
                     Ok(bytes) if bytes.len() == 32 => bytes.try_into().unwrap(),
                     _ => {
-                        tracing::warn!("⚠️ Invalid public key in registration");
+                        tracing::warn!(" Invalid public key in registration");
                         return;
                     }
                 };
                 
                 match self.state.apply_tx(crate::stf::NodeTx::RegisterValidator { public_key: pubkey_bytes }) {
                     crate::stf::TxResult::Registered { ref public_key } => {
-                        tracing::info!("📝 P2P registration applied: {}... (via gossip)", &public_key[..16]);
+                        tracing::info!(" P2P registration applied: {}... (via gossip)", &public_key[..16]);
                     }
                     crate::stf::TxResult::Error(e) if e.contains("already registered") => {
                         tracing::debug!("Validator {}... already registered (P2P duplicate)", &reg_msg.public_key[..16]);
                     }
                     crate::stf::TxResult::Error(e) => {
-                        tracing::warn!("⚠️ P2P registration failed for {}...: {}", &reg_msg.public_key[..16], e);
+                        tracing::warn!(" P2P registration failed for {}...: {}", &reg_msg.public_key[..16], e);
                     }
                     _ => {}
                 }
@@ -2481,7 +2481,7 @@ impl SmithNodeNetwork {
                 };
                 match self.state.apply_tx(tx) {
                     crate::stf::TxResult::Success { .. } => {
-                        tracing::info!("💸 P2P transfer applied: {} SMITH from {}... to {}...",
+                        tracing::info!(" P2P transfer applied: {} SMITH from {}... to {}...",
                             transfer_msg.amount,
                             &transfer_msg.from[..16],
                             &transfer_msg.to[..16]);
@@ -2501,7 +2501,7 @@ impl SmithNodeNetwork {
         match serde_json::from_slice::<AINetworkMessage>(data) {
             Ok(msg) => {
                 tracing::info!(
-                    "🤖 AI Message received: {} → {} (type: {})",
+                    " AI Message received: {} → {} (type: {})",
                     &msg.from_validator[..16.min(msg.from_validator.len())],
                     if msg.to_validator == "broadcast" { "all".to_string() } else { msg.to_validator[..16.min(msg.to_validator.len())].to_string() },
                     msg.message_type
@@ -2529,7 +2529,7 @@ impl SmithNodeNetwork {
                     .unwrap_or_default()
                     .as_secs();
                 if gov_msg.timestamp > now + 60 || gov_msg.timestamp < now.saturating_sub(300) {
-                    tracing::warn!("⚠️ Rejecting stale governance message");
+                    tracing::warn!(" Rejecting stale governance message");
                     return;
                 }
                 
@@ -2558,7 +2558,7 @@ impl SmithNodeNetwork {
                         };
                         match self.state.apply_tx(tx) {
                             crate::stf::TxResult::ProposalCreated { proposal_id } => {
-                                tracing::info!("📋 P2P governance: Proposal #{} applied from gossip", proposal_id);
+                                tracing::info!(" P2P governance: Proposal #{} applied from gossip", proposal_id);
                             }
                             crate::stf::TxResult::Error(e) => {
                                 tracing::debug!("P2P governance proposal rejected: {}", e);
@@ -2585,7 +2585,7 @@ impl SmithNodeNetwork {
                         };
                         match self.state.apply_tx(tx) {
                             crate::stf::TxResult::VoteRecorded { proposal_id, vote } => {
-                                tracing::info!("🗳️ P2P governance: Vote on #{} ({}) applied from gossip", 
+                                tracing::info!(" P2P governance: Vote on #{} ({}) applied from gossip", 
                                     proposal_id, if vote { "yes" } else { "no" });
                             }
                             crate::stf::TxResult::Error(e) => {
@@ -2611,7 +2611,7 @@ impl SmithNodeNetwork {
                         };
                         match self.state.apply_tx(tx) {
                             crate::stf::TxResult::ProposalExecuted { proposal_id, .. } => {
-                                tracing::info!("✅ P2P governance: Proposal #{} executed from gossip", proposal_id);
+                                tracing::info!(" P2P governance: Proposal #{} executed from gossip", proposal_id);
                             }
                             crate::stf::TxResult::Error(e) => {
                                 tracing::debug!("P2P governance execute rejected: {}", e);

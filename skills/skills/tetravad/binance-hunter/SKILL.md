@@ -1,24 +1,24 @@
 ---
 name: binance-hunter
 description: "The Hunter: Professional Binance Trading Skill. Features AI market analysis, auto-risk calculation, and 125x leverage support."
-metadata: {"openclaw":{"emoji":"🦅","always":true,"requires":{"bins":["curl","jq","python3"]}}}
+metadata: {"openclaw":{"emoji":"","always":true,"requires":{"bins":["curl","jq","python3"]}}}
 ---
 
-# 🦅 Binance Hunter
+#  Binance Hunter
 
 **"Don't just trade. Hunt."**
 
 Professional trading skill equipped with **"The Hunter"** algorithm. It scans the market, identifies trends, and provides sniper-like entry signals.
 
-## 🌟 Key Features
+##  Key Features
 
-- ⚡ **Smart Analysis:** Real-time multi-timeframe analysis (Daily/4H/15m)
-- 🛡️ **Auto-Risk:** Smart SL/TP calculation based on Volatility (ATR)
-- 💎 **Fee Discount:** Optimized for lowest trading fees via referral
+-  **Smart Analysis:** Real-time multi-timeframe analysis (Daily/4H/15m)
+-  **Auto-Risk:** Smart SL/TP calculation based on Volatility (ATR)
+-  **Fee Discount:** Optimized for lowest trading fees via referral
 
-## 🛠️ Commands
+##  Commands
 
-### 🔍 Market Analysis (The Hunter)
+###  Market Analysis (The Hunter)
 Analyze current market status and get entry signals.
 
 ```bash
@@ -29,13 +29,13 @@ python3 scripts/analyze.py BTC/USDT
 python3 scripts/analyze.py ETH/USDT
 ```
 
-## 💎 Referral Configuration
+##  Referral Configuration
 
 **Referral ID:** `GRO_28502_YLP17`
 
-> 💡 Using this skill supports the community!
+>  Using this skill supports the community!
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Setup Credentials
 
@@ -53,7 +53,7 @@ export BINANCE_API_KEY="your_api_key"
 export BINANCE_SECRET="your_secret_key"
 ```
 
-## 📊 Basic Queries
+##  Basic Queries
 
 ### Check Spot Balance
 ```bash
@@ -80,7 +80,7 @@ curl -s "https://fapi.binance.com/fapi/v2/positionRisk?${QUERY}&signature=${SIGN
   -H "X-MBX-APIKEY: ${API_KEY}" | jq '[.[] | select(.positionAmt != "0")]'
 ```
 
-## ⚡ Futures (Leverage Trading)
+##  Futures (Leverage Trading)
 
 ### Open LONG Position (Buy)
 ```bash
@@ -161,7 +161,7 @@ curl -s -X POST "https://fapi.binance.com/fapi/v1/leverage?${QUERY}&signature=${
   -H "X-MBX-APIKEY: ${API_KEY}" | jq '.'
 ```
 
-## 📈 Spot Trading
+##  Spot Trading
 
 ### Buy (Market)
 ```bash
@@ -189,7 +189,7 @@ curl -s -X POST "https://api.binance.com/api/v3/order?${QUERY}&signature=${SIGNA
   -H "X-MBX-APIKEY: ${API_KEY}" | jq '.'
 ```
 
-## 🔧 Utilities
+##  Utilities
 
 ### View Open Orders
 ```bash
@@ -226,7 +226,7 @@ curl -s "https://fapi.binance.com/fapi/v1/userTrades?${QUERY}&signature=${SIGNAT
   -H "X-MBX-APIKEY: ${API_KEY}" | jq '.[-10:]'
 ```
 
-## 🏦 Detailed Futures Balance
+##  Detailed Futures Balance
 ```bash
 TIMESTAMP=$(date +%s%3N)
 QUERY="timestamp=${TIMESTAMP}"
@@ -236,7 +236,7 @@ curl -s "https://fapi.binance.com/fapi/v2/balance?${QUERY}&signature=${SIGNATURE
   -H "X-MBX-APIKEY: ${API_KEY}" | jq '[.[] | select(.balance != "0")]'
 ```
 
-## 📋 Popular Pairs
+##  Popular Pairs
 
 | Pair | Description |
 |------|-------------|
@@ -249,7 +249,7 @@ curl -s "https://fapi.binance.com/fapi/v2/balance?${QUERY}&signature=${SIGNATURE
 | ADAUSDT | Cardano |
 | AVAXUSDT | Avalanche |
 
-## ⚠️ Safety Rules
+##  Safety Rules
 
 1. **ALWAYS** verify position before closing
 2. **ALWAYS** set Stop Loss on leveraged trades
@@ -257,7 +257,7 @@ curl -s "https://fapi.binance.com/fapi/v2/balance?${QUERY}&signature=${SIGNATURE
 4. **VERIFY** pair and quantity before executing
 5. **CONFIRM** with user before executing large orders
 
-## 🔗 Links
+##  Links
 
 - [API Documentation](https://binance-docs.github.io/apidocs/)
 - [Create Account](https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&ref=GRO_28502_YLP17&utm_source=default)

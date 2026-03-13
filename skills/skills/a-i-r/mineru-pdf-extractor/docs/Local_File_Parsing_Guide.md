@@ -4,7 +4,7 @@
 
 ---
 
-## 📋 Prerequisites
+##  Prerequisites
 
 ### 1. Environment Requirements
 - `curl` command (usually pre-installed)
@@ -27,11 +27,11 @@ export MINERU_API_KEY="your_api_token_here"
 export MINERU_BASE_URL="https://mineru.net/api/v4"
 ```
 
-> 💡 **Get Token**: Visit https://mineru.net/apiManage/docs
+>  **Get Token**: Visit https://mineru.net/apiManage/docs
 
 ---
 
-## 🚀 Complete Process (4 Steps)
+##  Complete Process (4 Steps)
 
 ### Step 1: Apply for Upload URL
 
@@ -98,8 +98,8 @@ curl -X PUT "YOUR_UPLOAD_URL_FROM_STEP1" \
 | `--upload-file` | Local PDF file path |
 
 **Note:**
-- ❌ Do NOT add `-H "Content-Type"` header
-- ✅ Use `--upload-file` parameter directly
+-  Do NOT add `-H "Content-Type"` header
+-  Use `--upload-file` parameter directly
 
 **Success Response:**
 ```
@@ -132,11 +132,11 @@ curl -X GET "${MINERU_BASE_URL}/extract-results/batch/YOUR_BATCH_ID" \
 
 | state | Meaning | Action |
 |-------|---------|--------|
-| `done` | ✅ Extraction complete | Get `full_zip_url` to download results |
-| `running` | 🔄 Processing | Continue polling |
-| `waiting-file` | ⏳ Waiting for file | Continue polling |
-| `pending` | ⏳ Queued | Continue polling |
-| `failed` | ❌ Extraction failed | Check `err_msg` for error info |
+| `done` |  Extraction complete | Get `full_zip_url` to download results |
+| `running` |  Processing | Continue polling |
+| `waiting-file` |  Waiting for file | Continue polling |
+| `pending` |  Queued | Continue polling |
+| `failed` |  Extraction failed | Check `err_msg` for error info |
 
 **Success Response (done status):**
 ```json
@@ -176,11 +176,11 @@ unzip -q "result.zip" -d "extracted_folder"
 **Extracted File Structure:**
 ```
 extracted_folder/
-├── full.md                    # 📄 Complete Markdown (main result)
+├── full.md                    #  Complete Markdown (main result)
 ├── xxxxxxxx_content_list.json # Structured content list
 ├── xxxxxxxx_origin.pdf        # Original PDF copy
 ├── layout.json                # Layout analysis data
-└── images/                    # 🖼️ Extracted images folder
+└── images/                    #  Extracted images folder
     ├── image_001.png
     ├── image_002.png
     └── ...
@@ -190,14 +190,14 @@ extracted_folder/
 
 | File | Description |
 |------|-------------|
-| `full.md` | 📄 Parsed complete Markdown document (most commonly used) |
+| `full.md` |  Parsed complete Markdown document (most commonly used) |
 | `images/` | All images extracted from document |
 | `content_list.json` | Structured content with position info for each text segment |
 | `layout.json` | Detailed layout analysis data |
 
 ---
 
-## 📝 Complete One-Piece Script (Secure Version)
+##  Complete One-Piece Script (Secure Version)
 
 ### Local File Parsing Script (local_parse.sh)
 
@@ -248,7 +248,7 @@ validate_filename() {
     # Check if filename contains only allowed characters
     # Allowed: a-z, A-Z, 0-9, . (dot), _ (underscore), - (hyphen)
     if [[ ! "$filename" =~ ^[a-zA-Z0-9._-]+$ ]]; then
-        echo "⚠️  Warning: Filename contains special characters, sanitizing..." >&2
+        echo "  Warning: Filename contains special characters, sanitizing..." >&2
         # Remove all characters except allowed ones
         filename=$(echo "$filename" | tr -cd 'a-zA-Z0-9._-')
     fi
@@ -269,21 +269,21 @@ validate_dirname() {
     # SECURITY CHECK 1: Prevent directory traversal via ".."
     # Attack example: "../../../etc/passwd" could overwrite system files
     if [[ "$dir" == *".."* ]]; then
-        echo "❌ Error: Invalid directory name. Cannot contain '..'" >&2
+        echo " Error: Invalid directory name. Cannot contain '..'" >&2
         exit 1
     fi
     
     # SECURITY CHECK 2: Prevent absolute paths
     # Attack example: "/etc/cron.d/malicious" could write to system directories
     if [[ "$dir" == /* ]]; then
-        echo "❌ Error: Invalid directory name. Cannot start with '/'" >&2
+        echo " Error: Invalid directory name. Cannot start with '/'" >&2
         exit 1
     fi
     
     # SECURITY CHECK 3: Limit directory name length
     # Prevents buffer overflow attacks and keeps paths manageable
     if [ ${#dir} -gt 255 ]; then
-        echo "❌ Error: Directory name too long (max 255 chars)" >&2
+        echo " Error: Directory name too long (max 255 chars)" >&2
         exit 1
     fi
     
@@ -301,7 +301,7 @@ MINERU_BASE_URL="${MINERU_BASE_URL:-https://mineru.net/api/v4}"
 
 # Validate that API token is configured
 if [ -z "$MINERU_TOKEN" ]; then
-    echo "❌ Error: Please set MINERU_TOKEN or MINERU_API_KEY environment variable"
+    echo " Error: Please set MINERU_TOKEN or MINERU_API_KEY environment variable"
     exit 1
 fi
 
@@ -312,7 +312,7 @@ fi
 # Validate PDF file path argument
 PDF_PATH="${1:-}"
 if [ -z "$PDF_PATH" ] || [ ! -f "$PDF_PATH" ]; then
-    echo "❌ Error: Please provide a valid PDF file path"
+    echo " Error: Please provide a valid PDF file path"
     echo "Usage: $0 <pdf_file_path> [output_directory]"
     exit 1
 fi
@@ -410,11 +410,11 @@ fi
 
 # Validate response
 if [ "$CODE" != "0" ] || [ -z "$BATCH_ID" ]; then
-    echo "❌ Failed to apply for upload URL"
+    echo " Failed to apply for upload URL"
     exit 1
 fi
 
-echo "✅ Batch ID: $BATCH_ID"
+echo " Batch ID: $BATCH_ID"
 
 # ============================================================================
 # STEP 2: Upload File
@@ -426,7 +426,7 @@ echo "=== Step 2: Upload File ==="
 # Upload file to presigned URL
 # Note: Do NOT add Content-Type header, it breaks signature
 curl -X PUT "$UPLOAD_URL" --upload-file "$PDF_PATH"
-echo "✅ Upload successful"
+echo " Upload successful"
 
 # ============================================================================
 # STEP 3: Poll Extraction Results
@@ -464,10 +464,10 @@ for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
         else
             ZIP_URL=$(echo "$RESPONSE" | grep -o '"full_zip_url":"[^"]*"' | head -1 | cut -d'"' -f4)
         fi
-        echo "✅ Extraction complete!"
+        echo " Extraction complete!"
         break
     elif [ "$STATE" = "failed" ]; then
-        echo "❌ Extraction failed"
+        echo " Extraction failed"
         exit 1
     fi
     
@@ -477,14 +477,14 @@ done
 
 # Validate that we got a ZIP URL
 if [ -z "$ZIP_URL" ]; then
-    echo "❌ Polling timeout or failed"
+    echo " Polling timeout or failed"
     exit 1
 fi
 
 # SECURITY: Validate ZIP URL to ensure it comes from official CDN
 # Prevents potential redirection attacks or malicious URLs
 if [[ ! "$ZIP_URL" =~ ^https://cdn-mineru\.openxlab\.org\.cn/ ]]; then
-    echo "❌ Error: Invalid ZIP URL"
+    echo " Error: Invalid ZIP URL"
     exit 1
 fi
 
@@ -504,7 +504,7 @@ curl -L -o "${OUTPUT_DIR}/result.zip" "$ZIP_URL"
 # SECURITY: Validate ZIP file before extraction
 # Prevents extraction of malicious or corrupted archives
 if ! unzip -t "${OUTPUT_DIR}/result.zip" &>/dev/null; then
-    echo "❌ Error: Invalid ZIP file"
+    echo " Error: Invalid ZIP file"
     rm -f "${OUTPUT_DIR}/result.zip"
     exit 1
 fi
@@ -517,16 +517,16 @@ unzip -q "${OUTPUT_DIR}/result.zip" -d "$OUTPUT_DIR/extracted"
 # ============================================================================
 
 echo ""
-echo "✅ Complete! Results saved to: $OUTPUT_DIR/extracted/"
+echo " Complete! Results saved to: $OUTPUT_DIR/extracted/"
 echo ""
 echo "Key files:"
-echo "  📄 $OUTPUT_DIR/extracted/full.md - Markdown document"
-echo "  🖼️  $OUTPUT_DIR/extracted/images/ - Extracted images"
+echo "   $OUTPUT_DIR/extracted/full.md - Markdown document"
+echo "    $OUTPUT_DIR/extracted/images/ - Extracted images"
 ```
 
 ---
 
-## 🔒 Security Features Explained
+##  Security Features Explained
 
 ### 1. Input Sanitization
 - **Filename Validation**: Only allows alphanumeric characters, dots, underscores, and hyphens
@@ -547,7 +547,7 @@ echo "  🖼️  $OUTPUT_DIR/extracted/images/ - Extracted images"
 
 ---
 
-## ⚠️ Common Issues
+##  Common Issues
 
 ### 1. Signature Error (SignatureDoesNotMatch)
 **Cause:** Added `Content-Type` header during upload  
@@ -566,7 +566,7 @@ Depends on your MinerU plan
 
 ---
 
-## 📚 References
+##  References
 
 - MinerU Official: https://mineru.net/
 - API Documentation: https://mineru.net/apiManage/docs

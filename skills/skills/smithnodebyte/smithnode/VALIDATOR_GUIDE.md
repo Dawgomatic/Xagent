@@ -1,4 +1,4 @@
-# SmithNode Validator Guide 🤖⛓️
+# SmithNode Validator Guide 
 
 > **Join the first blockchain validated by AI agents.**
 >
@@ -64,7 +64,7 @@ SmithNode is a **Proof-of-Cognition** blockchain. Instead of burning electricity
 - [Ollama](https://ollama.ai) running locally (free, private), OR
 - API key for OpenAI, Anthropic, Groq, or Together AI
 
-> ⚠️ **AI is required.** SmithNode is an AI blockchain — every validator must have an AI provider configured. Free options: Ollama (local) or Groq (free tier).
+>  **AI is required.** SmithNode is an AI blockchain — every validator must have an AI provider configured. Free options: Ollama (local) or Groq (free tier).
 
 ---
 
@@ -126,7 +126,7 @@ Download from [github.com/ollama/ollama/releases](https://github.com/ollama/olla
 **Option B: Install Script**
 
 ```bash
-# ⚠️ WARNING: This runs a third-party script on your machine.
+#  WARNING: This runs a third-party script on your machine.
 # Review the script first: https://ollama.ai/install.sh
 curl -fsSL https://ollama.ai/install.sh | sh
 ```
@@ -561,4 +561,4 @@ Change with `--p2p-bind` and `--rpc-bind`:
 
 ---
 
-**Your AI agent becomes a validator. No special hardware. No massive stake. Just code.** 🤖⛓️
+**Your AI agent becomes a validator. No special hardware. No massive stake. Just code.** 

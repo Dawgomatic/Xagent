@@ -15,21 +15,21 @@
 ```
 1. 环境变量 (ARIA2_RPC_*)          → 临时覆盖
 2. Skill 目录配置                  → 项目特定，支持测试
-3. 用户配置目录 (~/.config/aria2-skill/) → 全局默认，更新安全 🆕
+3. 用户配置目录 (~/.config/aria2-skill/) → 全局默认，更新安全 
 4. 默认值                          → 零配置
 ```
 
 ## 实现的功能
 
 ### 1. 多路径配置搜索
-- ✅ 自动搜索多个配置文件位置
-- ✅ 按优先级加载配置
-- ✅ 向后兼容现有配置
+-  自动搜索多个配置文件位置
+-  按优先级加载配置
+-  向后兼容现有配置
 
 ### 2. 配置来源跟踪
-- ✅ 记录配置加载来源
-- ✅ 显示是否有环境变量覆盖
-- ✅ 方便调试和验证
+-  记录配置加载来源
+-  显示是否有环境变量覆盖
+-  方便调试和验证
 
 ### 3. CLI 配置管理工具
 
@@ -48,10 +48,10 @@ python3 scripts/config_loader.py test
 ```
 
 ### 4. 完整文档
-- ✅ SKILL.md: 配置优先级和使用场景
-- ✅ README.md: 快速配置指南
-- ✅ CONFIG.md: 详细配置参考（新增）
-- ✅ TASK.md: 实现任务追踪
+-  SKILL.md: 配置优先级和使用场景
+-  README.md: 快速配置指南
+-  CONFIG.md: 详细配置参考（新增）
+-  TASK.md: 实现任务追踪
 
 ## 使用场景
 
@@ -60,7 +60,7 @@ python3 scripts/config_loader.py test
 # 一次设置，全局生效
 python3 scripts/config_loader.py init --user
 # 编辑 ~/.config/aria2-skill/config.json
-# ✅ npx skills add 更新后配置保留
+#  npx skills add 更新后配置保留
 ```
 
 ### 场景 2: 测试/开发
@@ -68,8 +68,8 @@ python3 scripts/config_loader.py init --user
 # 项目特定配置
 python3 scripts/config_loader.py init --local
 # 编辑 skills/aria2-json-rpc/config.json
-# ✅ 优先级最高（除了环境变量）
-# ⚠️ 更新时会丢失，但适合测试
+#  优先级最高（除了环境变量）
+#  更新时会丢失，但适合测试
 ```
 
 ### 场景 3: CI/CD
@@ -77,8 +77,8 @@ python3 scripts/config_loader.py init --local
 # 使用环境变量
 export ARIA2_RPC_HOST="ci-server"
 export ARIA2_RPC_SECRET="$SECRET"
-# ✅ 最高优先级
-# ✅ 无需配置文件
+#  最高优先级
+#  无需配置文件
 ```
 
 ## 测试验证
@@ -86,11 +86,11 @@ export ARIA2_RPC_SECRET="$SECRET"
 所有功能已通过手动测试验证：
 
 ```bash
-✅ Test 1: 默认配置加载 (defaults)
-✅ Test 2: 用户配置加载 (user-config-host)
-✅ Test 3: Skill 配置优先级 (skill-config-host)
-✅ Test 4: 环境变量覆盖 (env-override-host)
-✅ Test 5: CLI 命令正常工作
+ Test 1: 默认配置加载 (defaults)
+ Test 2: 用户配置加载 (user-config-host)
+ Test 3: Skill 配置优先级 (skill-config-host)
+ Test 4: 环境变量覆盖 (env-override-host)
+ Test 5: CLI 命令正常工作
 ```
 
 ## 配置优先级示例
@@ -114,7 +114,7 @@ export ARIA2_RPC_HOST="env-host"
 
 ## 向后兼容性
 
-✅ 完全向后兼容：
+ 完全向后兼容：
 - 现有的 `skills/aria2-json-rpc/config.json` 继续正常工作
 - 环境变量继续正常工作
 - 新增用户配置目录为可选功能
@@ -185,14 +185,14 @@ if __name__ == "__main__":
 
 ## 总结
 
-✅ **问题已解决**: 用户可以在 `~/.config/aria2-skill/` 存储配置，更新 skill 时不会丢失
+ **问题已解决**: 用户可以在 `~/.config/aria2-skill/` 存储配置，更新 skill 时不会丢失
 
-✅ **向后兼容**: 现有配置和使用方式完全不受影响
+ **向后兼容**: 现有配置和使用方式完全不受影响
 
-✅ **灵活性强**: 支持多种配置方式，适应不同使用场景
+ **灵活性强**: 支持多种配置方式，适应不同使用场景
 
-✅ **文档完善**: 提供了详细的文档和使用示例
+ **文档完善**: 提供了详细的文档和使用示例
 
-✅ **已验证**: 所有功能通过手动测试验证
+ **已验证**: 所有功能通过手动测试验证
 
-🎉 **项目完成！**
+ **项目完成！**

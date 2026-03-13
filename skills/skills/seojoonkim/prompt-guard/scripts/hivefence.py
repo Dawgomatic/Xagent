@@ -301,7 +301,7 @@ if __name__ == "__main__":
         if args.json:
             print(json.dumps(stats, indent=2))
         else:
-            print(f"🐝 HiveFence Network Stats")
+            print(f" HiveFence Network Stats")
             print(f"   Total patterns: {stats.get('patterns', {}).get('total', 0)}")
             print(f"   Approved: {stats.get('patterns', {}).get('approved', 0)}")
             print(f"   Pending: {stats.get('patterns', {}).get('pending', 0)}")
@@ -311,7 +311,7 @@ if __name__ == "__main__":
         if args.json:
             print(json.dumps([{"id": p.id, "category": p.category, "severity": p.severity} for p in patterns], indent=2))
         else:
-            print(f"🛡️ Latest {len(patterns)} approved patterns:")
+            print(f" Latest {len(patterns)} approved patterns:")
             for p in patterns[:10]:
                 print(f"   [{p.severity}/5] {p.category}: {p.description or p.pattern_hash[:20]}")
     
@@ -320,26 +320,26 @@ if __name__ == "__main__":
         if args.json:
             print(json.dumps([{"id": p.id, "category": p.category, "votes_up": p.votes_up, "votes_down": p.votes_down} for p in patterns], indent=2))
         else:
-            print(f"⏳ {len(patterns)} patterns pending validation:")
+            print(f" {len(patterns)} patterns pending validation:")
             for p in patterns[:10]:
-                print(f"   {p.id[:8]}... [{p.category}] 👍{p.votes_up} 👎{p.votes_down}")
+                print(f"   {p.id[:8]}... [{p.category}] {p.votes_up} {p.votes_down}")
     
     elif args.command == "report":
         if not args.pattern:
-            print("❌ --pattern required")
+            print(" --pattern required")
             exit(1)
         result = client.report_threat(args.pattern, args.category, args.severity)
         if result.success:
-            print(f"✅ Reported: {result.pattern_id}")
+            print(f" Reported: {result.pattern_id}")
         else:
-            print(f"❌ Failed: {result.error}")
+            print(f" Failed: {result.error}")
     
     elif args.command == "vote":
         if not args.id:
-            print("❌ --id required")
+            print(" --id required")
             exit(1)
         if not args.approve and not args.reject:
-            print("❌ --approve or --reject required")
+            print(" --approve or --reject required")
             exit(1)
         success = client.vote(args.id, args.approve)
-        print("✅ Vote recorded" if success else "❌ Vote failed")
+        print(" Vote recorded" if success else " Vote failed")

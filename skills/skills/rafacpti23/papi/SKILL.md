@@ -1,7 +1,7 @@
 ---
 name: papi
 description: Complete WhatsApp automation API with microservices architecture. Send messages, interactive buttons, lists, carousels, polls, manage instances, groups, catalogs and webhooks. Features Admin Panel (free), Phone Calls, RCS Messaging, SMS, Virtual Numbers (Pro).
-metadata: {"openclaw":{"emoji":"📱","homepage":"https://papi.api.br","tags":["p-api","papi","whatsapp","automation","messaging","api"]}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://papi.api.br","tags":["p-api","papi","whatsapp","automation","messaging","api"]}}
 ---
 
 # PAPI - WhatsApp Connections Hub
@@ -12,12 +12,12 @@ metadata: {"openclaw":{"emoji":"📱","homepage":"https://papi.api.br","tags":["
 
 Complete redesign with microservices architecture — modular, scalable, and independent.
 
-🌐 **Official Website:** https://papi.api.br  
-🤝 **Partner:** [Mundo Automatik](https://mundoautomatik.com/)
+ **Official Website:** https://papi.api.br  
+ **Partner:** [Mundo Automatik](https://mundoautomatik.com/)
 
 ---
 
-## 📑 Table of Contents
+##  Table of Contents
 
 1. [Features](#-features)
 2. [Configuration](#%EF%B8%8F-configuration)
@@ -28,28 +28,28 @@ Complete redesign with microservices architecture — modular, scalable, and ind
 
 ---
 
-## ✨ Features
+##  Features
 
-### 📊 Admin Panel (Free)
+###  Admin Panel (Free)
 - Multi-language interface (PT-BR, EN, ES)
 - Instance management
 - Real-time monitoring
 - Behavior configuration
 - Usage statistics
 
-### 🔥 Pro Features
+###  Pro Features
 
 | Feature | Capabilities |
 |---------|--------------|
-| 📞 **Phone Calls** | Chip-based calls, WhatsApp calls, Extension system, Call management |
-| 💬 **RCS Messaging** | Rich media sending, Buttons & carousels, Read receipts, Typing indicator |
-| 📱 **Call Center** | Chip rotation (30 ports), Bulk SMS sending, Configurable rate limiting |
-| ✉️ **Professional SMS** | Individual/bulk sending, Smart chip rotation, Port configuration |
-| 🔢 **Virtual Numbers** | Instant purchase, Auto activation, Full management |
+|  **Phone Calls** | Chip-based calls, WhatsApp calls, Extension system, Call management |
+|  **RCS Messaging** | Rich media sending, Buttons & carousels, Read receipts, Typing indicator |
+|  **Call Center** | Chip rotation (30 ports), Bulk SMS sending, Configurable rate limiting |
+|  **Professional SMS** | Individual/bulk sending, Smart chip rotation, Port configuration |
+|  **Virtual Numbers** | Instant purchase, Auto activation, Full management |
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 Before using, configure in TOOLS.md:
 
@@ -60,7 +60,7 @@ Before using, configure in TOOLS.md:
 - Default Instance: instance-name
 ```
 
-## 🔐 Authentication
+##  Authentication
 
 All requests require the `x-api-key` header:
 
@@ -71,7 +71,7 @@ curl -X GET "https://your-server.com/api/instances" \
 
 ---
 
-## 📡 Main Endpoints
+##  Main Endpoints
 
 ### Instances
 | Method | Endpoint | Description |
@@ -128,7 +128,7 @@ POST /api/instances/:id/webhook
 
 ---
 
-## 📚 Detailed References
+##  Detailed References
 
 | File | Content |
 |------|---------|
@@ -139,7 +139,7 @@ POST /api/instances/:id/webhook
 
 ---
 
-## 👥 Credits
+##  Credits
 
 **Developed by:** Pastorini  
 **Website:** https://papi.api.br  

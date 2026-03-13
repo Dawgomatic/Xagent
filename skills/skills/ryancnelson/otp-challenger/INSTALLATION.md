@@ -26,18 +26,18 @@ cd otp
 
 ## Installation Status Summary
 
-### ✅ **COMPLETED COMPONENTS**
+###  **COMPLETED COMPONENTS**
 
 | Component | Status | Description |
 |-----------|--------|-------------|
-| **Core Scripts** | ✅ Complete | All verification and status checking scripts installed |
-| **Security Hardening** | ✅ Complete | Production-ready with comprehensive security improvements |
-| **Configuration Templates** | ✅ Complete | YAML and environment variable templates provided |
-| **Memory System** | ✅ Complete | Secure state management directory configured |
-| **Documentation** | ✅ Complete | User guide, skill documentation, and examples ready |
-| **Cross-Platform Support** | ✅ Complete | Linux and macOS compatibility verified |
+| **Core Scripts** |  Complete | All verification and status checking scripts installed |
+| **Security Hardening** |  Complete | Production-ready with comprehensive security improvements |
+| **Configuration Templates** |  Complete | YAML and environment variable templates provided |
+| **Memory System** |  Complete | Secure state management directory configured |
+| **Documentation** |  Complete | User guide, skill documentation, and examples ready |
+| **Cross-Platform Support** |  Complete | Linux and macOS compatibility verified |
 
-### 📋 **INSTALLATION FILES**
+###  **INSTALLATION FILES**
 
 ```
 ~/.openclaw/skills/otp/
@@ -69,12 +69,12 @@ cd ~/.openclaw/skills/otp
 **Manual Verification:**
 ```bash
 # Check core dependencies
-which jq && echo "✅ jq available" || echo "❌ Install: brew install jq (macOS) or apt install jq (Linux)"
-which python3 && echo "✅ python3 available" || echo "❌ Install python3"
-python3 -c "import yaml" 2>/dev/null && echo "✅ python3 yaml available" || echo "❌ Install: pip3 install PyYAML"
+which jq && echo " jq available" || echo " Install: brew install jq (macOS) or apt install jq (Linux)"
+which python3 && echo " python3 available" || echo " Install python3"
+python3 -c "import yaml" 2>/dev/null && echo " python3 yaml available" || echo " Install: pip3 install PyYAML"
 
 # Optional but recommended
-which oathtool && echo "✅ oathtool available" || echo "ℹ️  Optional: brew install oath-toolkit (macOS) or apt install oathtool (Linux)"
+which oathtool && echo " oathtool available" || echo "  Optional: brew install oath-toolkit (macOS) or apt install oathtool (Linux)"
 ```
 
 ### Dependency Installation
@@ -174,11 +174,11 @@ cd ~/.openclaw/skills/otp
 # Then verify it works (replace 123456 with actual code)
 ./verify.sh "testuser" "123456"
 
-# Should show: ✅ OTP verified for testuser (valid for 24 hours)
+# Should show:  OTP verified for testuser (valid for 24 hours)
 
 # Check verification status
 ./check-status.sh "testuser"
-# Should show: ✅ Valid for XX more hours
+# Should show:  Valid for XX more hours
 ```
 
 ---
@@ -221,7 +221,7 @@ export YUBIKEY_SECRET_KEY="your-base64-secret-key"
 ```bash
 # Touch your YubiKey when ready, then paste the output
 ./verify.sh "testuser" "cccccccccccc..."
-# Should show: ✅ YubiKey verified for testuser (valid for 24 hours)
+# Should show:  YubiKey verified for testuser (valid for 24 hours)
 ```
 
 ### Dual Setup (TOTP + YubiKey)
@@ -302,12 +302,12 @@ OTP_CODE="$2"
 
 # Challenge user for identity verification
 if ! ~/.openclaw/skills/otp/verify.sh "$USER_ID" "$OTP_CODE"; then
-  echo "🔒 This action requires identity verification"
+  echo " This action requires identity verification"
   echo "Please provide your OTP code: /otp <6-digit-code>"
   exit 1
 fi
 
-echo "✅ Identity verified. Proceeding with sensitive operation..."
+echo " Identity verified. Proceeding with sensitive operation..."
 # Your sensitive operation here
 ```
 
@@ -317,10 +317,10 @@ echo "✅ Identity verified. Proceeding with sensitive operation..."
 USER_ID="$1"
 
 if ~/.openclaw/skills/otp/check-status.sh "$USER_ID"; then
-  echo "✅ User recently verified, proceeding..."
+  echo " User recently verified, proceeding..."
   # Perform action
 else
-  echo "⚠️ Verification required. Please verify with: /otp <code>"
+  echo " Verification required. Please verify with: /otp <code>"
   exit 1
 fi
 ```
@@ -330,17 +330,17 @@ fi
 **Deploy Command with OTP:**
 ```
 User: deploy to production
-Agent: 🔒 Production deployment requires identity verification. Please provide your OTP code.
+Agent:  Production deployment requires identity verification. Please provide your OTP code.
 User: /otp 123456
-Agent: ✅ Identity verified. Deploying to production...
+Agent:  Identity verified. Deploying to production...
 ```
 
 **Financial Operation:**
 ```
 User: transfer $10000 to account 12345
-Agent: 💳 Large transfer requires fresh identity verification (last verified 25 hours ago)
+Agent:  Large transfer requires fresh identity verification (last verified 25 hours ago)
 User: /otp 654321
-Agent: ✅ Identity verified. Processing $10,000 transfer to account 12345...
+Agent:  Identity verified. Processing $10,000 transfer to account 12345...
 ```
 
 ---
@@ -452,24 +452,24 @@ journalctl -f | grep -i otp
 
 ### What This Protects Against
 
-✅ **Session hijacking**: Physical device required
-✅ **Unauthorized actions**: Cryptographic proof of intent
-✅ **Replay attacks**: Time-based codes expire quickly
-✅ **Brute force**: Rate limiting prevents attacks
-✅ **Command injection**: Input validation and secure parsing
-✅ **Race conditions**: Atomic file operations
+ **Session hijacking**: Physical device required
+ **Unauthorized actions**: Cryptographic proof of intent
+ **Replay attacks**: Time-based codes expire quickly
+ **Brute force**: Rate limiting prevents attacks
+ **Command injection**: Input validation and secure parsing
+ **Race conditions**: Atomic file operations
 
 ### What This Doesn't Protect Against
 
-❌ **Compromised OpenClaw instance**: Secrets stored externally by design
-❌ **Phishing attacks**: User education required
-❌ **Physical device theft**: Multi-factor authentication nature
+ **Compromised OpenClaw instance**: Secrets stored externally by design
+ **Phishing attacks**: User education required
+ **Physical device theft**: Multi-factor authentication nature
 
 ---
 
 ## Next Steps
 
-### ✅ Installation Complete
+###  Installation Complete
 
 Your OpenClaw OTP Challenger skill is now installed and ready for use. The installation includes:
 
@@ -486,7 +486,7 @@ To use OTP verification in your existing skills:
 1. **Call the verification script** before sensitive operations:
    ```bash
    if ! ~/.openclaw/skills/otp/verify.sh "$USER_ID" "$OTP_CODE"; then
-     echo "🔒 OTP verification required"
+     echo " OTP verification required"
      exit 1
    fi
    ```
@@ -511,7 +511,7 @@ To use OTP verification in your existing skills:
 
 ## Installation Summary
 
-**Status**: ✅ **PRODUCTION READY**
+**Status**:  **PRODUCTION READY**
 
 The OpenClaw OTP Challenger skill has been successfully installed with:
 - **52 automated tests** passing (security, functionality, edge cases)

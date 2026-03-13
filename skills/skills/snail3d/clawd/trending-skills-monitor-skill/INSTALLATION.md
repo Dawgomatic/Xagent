@@ -24,7 +24,7 @@ If you see the help output, you're good to go!
 pip install requests
 
 # Verify installation
-python3 -c "import requests; print('✅ requests installed')"
+python3 -c "import requests; print(' requests installed')"
 ```
 
 ### 3. Verify Scripts
@@ -98,7 +98,7 @@ trending-skills-monitor
 You should see output like:
 
 ```
-🔥 Trending Skills Report
+ Trending Skills Report
 ============================================================
 ...
 ```
@@ -181,7 +181,7 @@ Send daily digest:
 # Create script ~/bin/mail-skills.sh
 REPORT=$(trending-skills-monitor --days 1 --format markdown)
 
-echo "$REPORT" | mail -s "🔥 Skills Report $(date +%Y-%m-%d)" you@example.com
+echo "$REPORT" | mail -s " Skills Report $(date +%Y-%m-%d)" you@example.com
 ```
 
 Add to crontab:
@@ -202,7 +202,7 @@ curl -X POST https://hooks.slack.com/services/YOUR/WEBHOOK/HERE \
   -H 'Content-Type: application/json' \
   -d @- << EOF
 {
-  "text": "🔥 Trending Skills This Week",
+  "text": " Trending Skills This Week",
   "blocks": [
     {
       "type": "section",
@@ -303,7 +303,7 @@ trending-skills-monitor --interests "security"
 ls ~/.cache/trending-skills-monitor/
 ```
 
-All good? You're ready to start monitoring! 🚀
+All good? You're ready to start monitoring! 
 
 ## Getting Help
 
@@ -316,4 +316,4 @@ For issues or questions:
 
 ---
 
-**Happy skill hunting!** 🔥
+**Happy skill hunting!** 

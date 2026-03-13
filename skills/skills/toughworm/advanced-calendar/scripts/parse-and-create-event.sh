@@ -30,17 +30,17 @@ reminder=""
 # Check if we can detect common patterns
 if [[ $input =~ ([0-9]{4}-[0-9]{2}-[0-9]{2}) ]]; then
     date="${BASH_REMATCH[1]}"
-    echo "📅 检测到日期: $date"
+    echo " 检测到日期: $date"
 else
-    echo -n "📅 请输入事件日期 (YYYY-MM-DD): "
+    echo -n " 请输入事件日期 (YYYY-MM-DD): "
     read date
 fi
 
 if [[ $input =~ ([0-9]{1,2}:[0-9]{2}) ]]; then
     time="${BASH_REMATCH[1]}"
-    echo "🕐 检测到时间: $time"
+    echo " 检测到时间: $time"
 else
-    echo -n "🕐 请输入事件时间 (HH:MM): "
+    echo -n " 请输入事件时间 (HH:MM): "
     read time
 fi
 
@@ -62,7 +62,7 @@ if [[ ${#title} -gt 50 ]]; then
     title=$(echo $cleaned_input | cut -d' ' -f1-4)
 fi
 
-echo "🏷️  建议的事件标题: $title"
+echo "  建议的事件标题: $title"
 echo -n "是否使用此标题? (回车确认, 或输入新标题): "
 read new_title
 if [ -n "$new_title" ]; then
@@ -72,11 +72,11 @@ fi
 # Check for location in input
 if [[ $input =~ (会议室|办公室|家里|公司|zoom|线上|在线) ]]; then
     location=$(echo $input | grep -oE "(会议室|办公室|家里|公司|zoom|线上|在线)[^ ,.]*")
-    echo "📍 检测到地点: $location"
+    echo " 检测到地点: $location"
 fi
 
 if [ -z "$location" ]; then
-    echo -n "📍 请输入事件地点 (可选): "
+    echo -n " 请输入事件地点 (可选): "
     read location
 fi
 
@@ -84,14 +84,14 @@ fi
 if [[ $input =~ ([0-9]+.{0,1}[小时|h|小时]) ]]; then
     dur_num=$(echo "${BASH_REMATCH[1]}" | grep -oE '[0-9]+')
     duration=$((dur_num * 60))
-    echo "⏱️  检测到持续时间: ${dur_num}小时 (${duration}分钟)"
+    echo "  检测到持续时间: ${dur_num}小时 (${duration}分钟)"
 elif [[ $input =~ ([0-9]+.{0,1}[分钟|min]) ]]; then
     duration=$(echo "${BASH_REMATCH[1]}" | grep -oE '[0-9]+')
-    echo "⏱️  检测到持续时间: ${duration}分钟"
+    echo "  检测到持续时间: ${duration}分钟"
 fi
 
 if [ $duration -eq 60 ]; then
-    echo -n "⏱️  请输入持续时间 (分钟, 默认60): "
+    echo -n "  请输入持续时间 (分钟, 默认60): "
     read dur_input
     if [ -n "$dur_input" ]; then
         duration="$dur_input"
@@ -101,7 +101,7 @@ fi
 # Check for reminder in input
 if [[ $input =~ ([0-9]+.{0,1}[小时|天|分]) ]]; then
     reminder_text="${BASH_REMATCH[1]}"
-    echo "🔔 检测到可能的提醒设置: $reminder_text"
+    echo " 检测到可能的提醒设置: $reminder_text"
     
     # Convert to minutes
     if [[ $reminder_text =~ [0-9]+ ]]; then
@@ -113,13 +113,13 @@ if [[ $input =~ ([0-9]+.{0,1}[小时|天|分]) ]]; then
         else
             reminder=$num             # assume minutes
         fi
-        echo "🔔 解析出的提醒时间: $reminder 分钟前"
+        echo " 解析出的提醒时间: $reminder 分钟前"
     fi
 fi
 
 if [ -z "$reminder" ]; then
     echo ""
-    echo "🔔 提醒设置"
+    echo " 提醒设置"
     echo "============"
     echo "您希望提前多久收到提醒?"
     echo "1) 5分钟"
@@ -159,7 +159,7 @@ fi
 description="$input"
 
 echo ""
-echo "📋 摘要:"
+echo " 摘要:"
 echo "标题: $title"
 echo "日期: $date"
 echo "时间: $time"
@@ -184,7 +184,7 @@ if [[ $confirm =~ ^[Yy]$ ]]; then
     echo "正在创建事件..."
     eval $cmd
     echo ""
-    echo "✅ 事件创建成功！"
+    echo " 事件创建成功！"
 else
     echo "已取消创建事件。"
 fi

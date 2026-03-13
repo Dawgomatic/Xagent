@@ -82,7 +82,7 @@ When a user requests to delete customers or customer addresses, follow these ste
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Deletes customer with excessive return fields
+   #  HIGH COST - Deletes customer with excessive return fields
    mutation customerDelete($input: CustomerDeleteInput!) {
      customerDelete(input: $input) {
        deletedCustomerId
@@ -91,7 +91,7 @@ When a user requests to delete customers or customer addresses, follow these ste
      }
    }
    
-   # ✅ LOW COST - Deletes customer with essential fields only
+   #  LOW COST - Deletes customer with essential fields only
    mutation customerDelete($input: CustomerDeleteInput!) {
      customerDelete(input: $input) {
        deletedCustomerId
@@ -171,7 +171,7 @@ When generating a customer delete mutation for the user:
 ```
 I'll help you delete a customer from your store.
 
-**⚠️ IMPORTANT WARNING**: This will permanently delete the customer account and all associated data. This action cannot be undone.
+** IMPORTANT WARNING**: This will permanently delete the customer account and all associated data. This action cannot be undone.
 
 **Mutation:**
 ```graphql

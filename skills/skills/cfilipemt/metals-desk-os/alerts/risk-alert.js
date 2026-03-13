@@ -16,33 +16,33 @@ class RiskAlert {
   start() {
     // Critical risk events → both channels immediately
     bus.on(EVENTS.RISK_HALT, (data) => {
-      this._dispatch('critical', `🛑 RISK HALT\nReason: ${data.reason}\nDaily PnL: ${data.dailyPnL}\nConsecutive Losses: ${data.consecutiveLosses}`);
+      this._dispatch('critical', ` RISK HALT\nReason: ${data.reason}\nDaily PnL: ${data.dailyPnL}\nConsecutive Losses: ${data.consecutiveLosses}`);
     });
 
     bus.on(EVENTS.RISK_DAILY_LIMIT, (data) => {
-      this._dispatch('critical', `⛔ DAILY LIMIT REACHED\nPnL: $${data.dailyPnL?.toFixed(2)}\nPercent: ${(data.percent * 100).toFixed(1)}%`);
+      this._dispatch('critical', ` DAILY LIMIT REACHED\nPnL: $${data.dailyPnL?.toFixed(2)}\nPercent: ${(data.percent * 100).toFixed(1)}%`);
     });
 
     bus.on(EVENTS.RISK_DRAWDOWN_WARN, (data) => {
-      this._dispatch('warning', `⚠️ DRAWDOWN WARNING\nCurrent: ${data.drawdown}%\nPeak: $${data.peak}\nEquity: $${data.current}`);
+      this._dispatch('warning', ` DRAWDOWN WARNING\nCurrent: ${data.drawdown}%\nPeak: $${data.peak}\nEquity: $${data.current}`);
     });
 
     bus.on(EVENTS.VOLATILITY_SPIKE, (data) => {
       if (data.severity === 'extreme') {
-        this._dispatch('warning', `⚡ EXTREME VOLATILITY\n${data.symbol} ${data.timeframe}\nRange Ratio: ${data.rangeRatio}x ATR`);
+        this._dispatch('warning', ` EXTREME VOLATILITY\n${data.symbol} ${data.timeframe}\nRange Ratio: ${data.rangeRatio}x ATR`);
       }
     });
 
     bus.on(EVENTS.MACRO_NEWS_BLOCK, (data) => {
-      this._dispatch('info', `📰 NEWS BLOCK ACTIVE\nEvent: ${data.event}\n${data.reason}`);
+      this._dispatch('info', ` NEWS BLOCK ACTIVE\nEvent: ${data.event}\n${data.reason}`);
     });
 
     bus.on(EVENTS.ORDER_ERROR, (data) => {
-      this._dispatch('warning', `❌ ORDER ERROR\n${data.error}\nAction: ${data.action}`);
+      this._dispatch('warning', ` ORDER ERROR\n${data.error}\nAction: ${data.action}`);
     });
 
     bus.on(EVENTS.SYSTEM_ERROR, (data) => {
-      this._dispatch('critical', `💥 SYSTEM ERROR\nEngine: ${data.engine}\n${data.error}`);
+      this._dispatch('critical', ` SYSTEM ERROR\nEngine: ${data.engine}\n${data.error}`);
     });
 
     console.log('[RISK-ALERT] Started');

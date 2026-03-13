@@ -568,11 +568,11 @@ impl GovernanceState {
                         p.execution_tx_hash = Some(exec_tx_hash);
                     }
                     
-                    tracing::info!("🔄 Auto-executed proposal #{}: {} → {}", id, param_info.0, param_info.2);
+                    tracing::info!(" Auto-executed proposal #{}: {} → {}", id, param_info.0, param_info.2);
                     auto_executed.push((id, param_info.0, param_info.1, param_info.2));
                 }
                 Err(e) => {
-                    tracing::warn!("⚠️ Failed to auto-execute proposal #{}: {} — marking as Failed", id, e);
+                    tracing::warn!(" Failed to auto-execute proposal #{}: {} — marking as Failed", id, e);
                     // Mark as Failed to prevent infinite retry loop
                     if let Some(proposal) = self.proposals.iter_mut().find(|p| p.id == id) {
                         proposal.status = ProposalStatus::Failed;
@@ -616,7 +616,7 @@ impl GovernanceState {
                 }
             });
             if removed > 0 {
-                tracing::debug!("🧹 Pruned {} old completed proposals (kept {})", removed, self.proposals.len());
+                tracing::debug!(" Pruned {} old completed proposals (kept {})", removed, self.proposals.len());
             }
         }
         
@@ -624,7 +624,7 @@ impl GovernanceState {
         if self.param_history.len() > MAX_PARAM_HISTORY {
             let excess = self.param_history.len() - MAX_PARAM_HISTORY;
             self.param_history.drain(..excess);
-            tracing::debug!("🧹 Pruned {} old param_history entries", excess);
+            tracing::debug!(" Pruned {} old param_history entries", excess);
         }
     }
     

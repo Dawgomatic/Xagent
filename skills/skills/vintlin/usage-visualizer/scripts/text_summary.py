@@ -40,7 +40,7 @@ def main():
         if m not in by_model_tokens: by_model_tokens[m] = 0
         by_model_tokens[m] += r['input_tokens'] + r['output_tokens']
 
-    print(f"📊 本月用量报告 ({start_date} ~ {end_date})")
+    print(f" 本月用量报告 ({start_date} ~ {end_date})")
     print(f"总消耗: {fmt_cost(total_cost)} (约 {fmt_tokens(total_tokens)} tokens)")
     print("-" * 20)
     print("模型分布 (Top 5):")

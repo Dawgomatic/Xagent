@@ -192,16 +192,16 @@ newman run collection.json --ssl-extra-ca-certs ca.pem
 
 ## Best Practices
 
-1. ✅ **Version Control**: Store collections in Git
-2. ✅ **Security**: Use env vars, never commit secrets
-3. ✅ **Separation**: dev/staging/prod environments
-4. ✅ **Assertions**: Comprehensive test scripts
-5. ✅ **CI Integration**: Run in every pipeline
-6. ✅ **Reports**: Archive for historical analysis
-7. ✅ **Timeouts**: Set reasonable values
-8. ✅ **Modular**: Split collections by feature
-9. ✅ **Documentation**: Use Postman descriptions
-10. ✅ **Security Audit**: Run before deployment
+1.  **Version Control**: Store collections in Git
+2.  **Security**: Use env vars, never commit secrets
+3.  **Separation**: dev/staging/prod environments
+4.  **Assertions**: Comprehensive test scripts
+5.  **CI Integration**: Run in every pipeline
+6.  **Reports**: Archive for historical analysis
+7.  **Timeouts**: Set reasonable values
+8.  **Modular**: Split collections by feature
+9.  **Documentation**: Use Postman descriptions
+10.  **Security Audit**: Run before deployment
 
 ## Support
 

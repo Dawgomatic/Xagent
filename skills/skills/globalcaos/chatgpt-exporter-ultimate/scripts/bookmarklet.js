@@ -4,22 +4,22 @@
 // It will download all conversations as a single JSON file
 
 (async function () {
-  console.log("🚀 ChatGPT Exporter v2.0 starting...");
+  console.log(" ChatGPT Exporter v2.0 starting...");
 
   // Get access token
-  console.log("🔑 Getting access token...");
+  console.log(" Getting access token...");
   const sessionResp = await fetch("/api/auth/session", { credentials: "include" });
   const { accessToken } = await sessionResp.json();
 
   if (!accessToken) {
-    alert("❌ Not logged in! Please log into ChatGPT first.");
+    alert(" Not logged in! Please log into ChatGPT first.");
     return;
   }
 
   const headers = { Authorization: `Bearer ${accessToken}` };
 
   // Phase 1: Fetch conversation IDs from the main listing endpoint
-  console.log("📋 Phase 1: Fetching main conversation list...");
+  console.log(" Phase 1: Fetching main conversation list...");
   const allIds = new Map(); // id -> { title, create_time }
   let offset = 0;
   const limit = 100;
@@ -37,10 +37,10 @@
   }
 
   const listedCount = allIds.size;
-  console.log(`📊 Main listing: ${listedCount} conversations`);
+  console.log(` Main listing: ${listedCount} conversations`);
 
   // Phase 2: Search-based discovery to find conversations inside Projects/folders
-  console.log("🔍 Phase 2: Searching for conversations in Projects...");
+  console.log(" Phase 2: Searching for conversations in Projects...");
   const searchTerms = [
     // Common words in multiple languages to maximize coverage
     "a", "e", "i", "o", "u",
@@ -76,11 +76,11 @@
   }
 
   const projectCount = allIds.size - listedCount;
-  console.log(`🔍 Found ${projectCount} additional conversations in Projects`);
-  console.log(`📊 Total: ${allIds.size} conversations`);
+  console.log(` Found ${projectCount} additional conversations in Projects`);
+  console.log(` Total: ${allIds.size} conversations`);
 
   // Phase 3: Fetch each conversation's full content
-  console.log("📥 Phase 3: Fetching full conversations...");
+  console.log(" Phase 3: Fetching full conversations...");
   const results = [];
   const errors = [];
   let idx = 0;
@@ -124,9 +124,9 @@
         messages,
       });
 
-      console.log(`✅ ${progress} ${data.title || "Untitled"}`);
+      console.log(` ${progress} ${data.title || "Untitled"}`);
     } catch (e) {
-      console.error(`❌ ${progress} Error: ${e.message}`);
+      console.error(` ${progress} Error: ${e.message}`);
       errors.push({ id: convId, title: meta.title, error: e.message });
     }
 
@@ -137,7 +137,7 @@
   }
 
   // Create download
-  console.log("📦 Creating download...");
+  console.log(" Creating download...");
 
   const exportData = {
     exported: new Date().toISOString(),
@@ -162,14 +162,14 @@
   URL.revokeObjectURL(url);
 
   console.log("");
-  console.log("🎉 Export complete!");
-  console.log(`   📋 Listed: ${listedCount}`);
-  console.log(`   🔍 From Projects: ${projectCount}`);
-  console.log(`   ✅ Exported: ${results.length}`);
-  console.log(`   ❌ Errors: ${errors.length}`);
-  console.log("   📁 Check your Downloads folder");
+  console.log(" Export complete!");
+  console.log(`    Listed: ${listedCount}`);
+  console.log(`    From Projects: ${projectCount}`);
+  console.log(`    Exported: ${results.length}`);
+  console.log(`    Errors: ${errors.length}`);
+  console.log("    Check your Downloads folder");
 
   alert(
-    `✅ Export complete!\n\nListed: ${listedCount}\nFrom Projects: ${projectCount}\nExported: ${results.length}\nErrors: ${errors.length}\n\nCheck your Downloads folder.`,
+    ` Export complete!\n\nListed: ${listedCount}\nFrom Projects: ${projectCount}\nExported: ${results.length}\nErrors: ${errors.length}\n\nCheck your Downloads folder.`,
   );
 })();

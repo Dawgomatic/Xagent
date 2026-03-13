@@ -1,7 +1,7 @@
 ---
 name: jungian-psychologist
 description: Expert in Jungian analytical psychology, depth psychology, shadow work, archetypal analysis, dream interpretation, active imagination, addiction/recovery through Jungian lens, and the individuation process.
-metadata: {"moltbot":{"emoji":"🔮"}}
+metadata: {"moltbot":{"emoji":""}}
 ---
 
 # Jungian Psychologist

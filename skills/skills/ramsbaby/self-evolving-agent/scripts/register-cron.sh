@@ -42,7 +42,7 @@ fi
 
 CRON_FILE="${CRON_FILE:-$HOME/.openclaw/cron/jobs.json}"
 CRON_BACKUP="${CRON_FILE}.bak.self-evolving"
-CRON_NAME="🧠 Self-Evolving Agent 주간 분석"
+CRON_NAME=" Self-Evolving Agent 주간 분석"
 
 # config에서 읽기 (없으면 기본값)
 CRON_SCHEDULE="${SEA_CRON_SCHEDULE:-0 22 * * 0}"
@@ -71,11 +71,11 @@ done
 # cron 파일 유효성 확인
 validate_cron_file() {
   if [ ! -f "$CRON_FILE" ]; then
-    echo "❌ 크론 파일 없음: $CRON_FILE"
+    echo " 크론 파일 없음: $CRON_FILE"
     return 1
   fi
   if ! python3 -c "import json; json.load(open('$CRON_FILE'))" 2>/dev/null; then
-    echo "❌ 크론 파일 JSON 파싱 실패: $CRON_FILE"
+    echo " 크론 파일 JSON 파싱 실패: $CRON_FILE"
     return 1
   fi
   return 0
@@ -107,7 +107,7 @@ build_cron_message() {
 bash ~/openclaw/skills/self-evolving-agent/scripts/v4/orchestrator.sh 2>/dev/null || echo '분석 실패: 로그 확인 필요'
 
 위 스크립트 실행 결과를 그대로 출력하세요.
-⛔ message 도구 호출 절대 금지. 텍스트 출력만.
+ message 도구 호출 절대 금지. 텍스트 출력만.
 MSGEOF
 }
 
@@ -119,7 +119,7 @@ do_register() {
   existing_id="$(check_existing)"
 
   if [ "$existing_id" != "not_found" ] && [ "$existing_id" != "error" ] && ! echo "$existing_id" | grep -q "^error:"; then
-    echo "⚠️  이미 등록됨 (ID: $existing_id)"
+    echo "  이미 등록됨 (ID: $existing_id)"
     echo "   업데이트하려면: bash $0 --update"
     echo "   제거하려면:    bash $0 --remove"
     return 0
@@ -128,7 +128,7 @@ do_register() {
   validate_cron_file || return 1
 
   # 백업
-  cp "$CRON_FILE" "$CRON_BACKUP" 2>/dev/null && echo "✅ 백업: $CRON_BACKUP" || echo "⚠️ 백업 실패 (계속 진행)"
+  cp "$CRON_FILE" "$CRON_BACKUP" 2>/dev/null && echo " 백업: $CRON_BACKUP" || echo " 백업 실패 (계속 진행)"
 
   local new_id
   new_id="$(gen_uuid)"
@@ -146,7 +146,7 @@ try:
     with open('$CRON_FILE', encoding='utf-8') as f:
         data = json.load(f)
 except Exception as e:
-    print(f'❌ 파일 읽기 실패: {e}')
+    print(f' 파일 읽기 실패: {e}')
     sys.exit(1)
 
 new_job = {
@@ -185,10 +185,10 @@ try:
     with open('$CRON_FILE', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 except Exception as e:
-    print(f'❌ 파일 쓰기 실패: {e}')
+    print(f' 파일 쓰기 실패: {e}')
     sys.exit(1)
 
-print(f"✅ 크론 등록 완료!")
+print(f" 크론 등록 완료!")
 print(f"   이름: {new_job['name']}")
 print(f"   ID: {new_job['id']}")
 print(f"   스케줄: {new_job['schedule']['expr']} (Asia/Seoul)")
@@ -205,7 +205,7 @@ do_update() {
   existing_id="$(check_existing)"
 
   if [ "$existing_id" = "not_found" ]; then
-    echo "⚠️ 등록된 크론 없음. 등록 먼저 실행: bash $0"
+    echo " 등록된 크론 없음. 등록 먼저 실행: bash $0"
     return 1
   fi
 
@@ -235,11 +235,11 @@ for job in data.get('jobs', []):
         job['delivery']['to'] = 'channel:$CRON_DISCORD'
         job['updatedAtMs'] = $now_ms
         updated = True
-        print(f"✅ 업데이트: {job['name']} (ID: {job['id']})")
+        print(f" 업데이트: {job['name']} (ID: {job['id']})")
         break
 
 if not updated:
-    print('⚠️ 대상 크론 찾지 못함')
+    print(' 대상 크론 찾지 못함')
     sys.exit(0)
 
 with open('$CRON_FILE', 'w', encoding='utf-8') as f:
@@ -272,9 +272,9 @@ with open('$CRON_FILE', 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=2)
 
 if removed > 0:
-    print(f"✅ 크론 제거 완료 ({removed}개)")
+    print(f" 크론 제거 완료 ({removed}개)")
 else:
-    print("⚠️ 제거할 크론 없음")
+    print(" 제거할 크론 없음")
 PYEOF
 }
 

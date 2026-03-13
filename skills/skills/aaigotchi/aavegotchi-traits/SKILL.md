@@ -29,7 +29,7 @@ The skill includes **The Graph subgraph integration** for instant name lookups:
 
 ### Current Status (Feb 2026)
 
-⚠️ **No Base subgraph available yet.** Aavegotchi migrated to Base in July 2025, but an official subgraph hasn't been deployed. The script automatically falls back to on-chain scanning.
+ **No Base subgraph available yet.** Aavegotchi migrated to Base in July 2025, but an official subgraph hasn't been deployed. The script automatically falls back to on-chain scanning.
 
 ### When Subgraph Becomes Available
 
@@ -73,12 +73,12 @@ For any Aavegotchi token ID, the script retrieves:
 - Level
 
 **Traits (6 numeric values):**
-- ⚡ Energy (NRG)
-- 💥 Aggression (AGG)
-- 👻 Spookiness (SPK)
-- 🧠 Brain Size (BRN)
-- 👁️ Eye Shape (EYS)
-- 🎨 Eye Color (EYC)
+-  Energy (NRG)
+-  Aggression (AGG)
+-  Spookiness (SPK)
+-  Brain Size (BRN)
+-  Eye Shape (EYS)
+-  Eye Color (EYC)
 
 Each trait shows both base and modified (with wearables) values.
 
@@ -117,10 +117,10 @@ cd scripts && node get-gotchi.js "XIBOT"
 ```
 
 **Performance:**
-- With subgraph (when available): **Instant** ⚡
+- With subgraph (when available): **Instant** 
 - Without subgraph (current): **30-60 seconds** (on-chain scan of all gotchis)
 
-💡 **Tip:** Use gotchi ID when possible for guaranteed instant results.
+ **Tip:** Use gotchi ID when possible for guaranteed instant results.
 
 ## Example Output
 
@@ -140,12 +140,12 @@ SCORES:
   Experience: 2960
 
 TRAITS:
-  ⚡ Energy: 0
-  💥 Aggression: 66
-  👻 Spookiness: 99
-  🧠 Brain Size: 76
-  👁️ Eye Shape: 41
-  🎨 Eye Color: 28
+   Energy: 0
+   Aggression: 66
+   Spookiness: 99
+   Brain Size: 76
+   Eye Shape: 41
+   Eye Color: 28
 
 WEARABLES:
   Equipped (1):
@@ -213,8 +213,8 @@ Dependencies and data files are pre-installed in the skill's scripts directory.
 ## Future Enhancements
 
 Potential additions:
-- ✅ **The Graph subgraph support** (implemented, awaiting Base subgraph deployment)
-- ✅ **Wearable name resolution** (implemented: 400+ wearables mapped)
+-  **The Graph subgraph support** (implemented, awaiting Base subgraph deployment)
+-  **Wearable name resolution** (implemented: 400+ wearables mapped)
 - Batch queries for multiple gotchis
 - Historical trait/kinship tracking
 - Wearable rarity/stats display

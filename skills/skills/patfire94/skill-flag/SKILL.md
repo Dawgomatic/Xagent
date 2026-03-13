@@ -1,4 +1,4 @@
-# Skill Flag Skill 🛡️
+# Skill Flag Skill 
 
 Scan Clawdbot/OpenClaw skills for malicious patterns, backdoors, and security risks.
 
@@ -47,23 +47,23 @@ Or ask the agent:
 
 | Category | Risk Level | Examples |
 |----------|------------|----------|
-| 🔴 Data Exfiltration | CRITICAL | curl/wget to external domains, fetch(), requests.post() |
-| 🔴 Backdoors | CRITICAL | Reverse shells, nc -e, bash -i, encoded payloads |
-| 🔴 Credential Theft | CRITICAL | Access to ~/.ssh, ~/.aws, API keys, .env files |
-| 🟠 Prompt Injection | HIGH | "ignore previous", "system override", "new instructions" |
-| 🟠 Code Execution | HIGH | eval(), exec(), subprocess with shell=True |
-| 🟡 Persistence | MEDIUM | Cron jobs, systemd units, startup scripts |
-| 🟡 Obfuscation | MEDIUM | Base64 encoded commands, hex strings, rot13 |
-| 🟢 Suspicious | LOW | Uncommon imports, network activity |
+|  Data Exfiltration | CRITICAL | curl/wget to external domains, fetch(), requests.post() |
+|  Backdoors | CRITICAL | Reverse shells, nc -e, bash -i, encoded payloads |
+|  Credential Theft | CRITICAL | Access to ~/.ssh, ~/.aws, API keys, .env files |
+|  Prompt Injection | HIGH | "ignore previous", "system override", "new instructions" |
+|  Code Execution | HIGH | eval(), exec(), subprocess with shell=True |
+|  Persistence | MEDIUM | Cron jobs, systemd units, startup scripts |
+|  Obfuscation | MEDIUM | Base64 encoded commands, hex strings, rot13 |
+|  Suspicious | LOW | Uncommon imports, network activity |
 
 ## Risk Score
 
 Each skill gets a score from 0-100:
-- **0-20**: ✅ Clean - No issues found
-- **21-40**: 🟢 Low Risk - Minor concerns
-- **41-60**: 🟡 Medium Risk - Review recommended  
-- **61-80**: 🟠 High Risk - Careful inspection needed
-- **81-100**: 🔴 Critical - Do not use without audit
+- **0-20**:  Clean - No issues found
+- **21-40**:  Low Risk - Minor concerns
+- **41-60**:  Medium Risk - Review recommended  
+- **61-80**:  High Risk - Careful inspection needed
+- **81-100**:  Critical - Do not use without audit
 
 ## Output
 
@@ -71,18 +71,18 @@ Reports saved to: `skills/skill-flag/reports/`
 
 Example output:
 ```
-🛡️ SECURITY SCAN REPORT
+ SECURITY SCAN REPORT
 ━━━━━━━━━━━━━━━━━━━━━━━
 Scanned: 12 skills
 Clean: 9
 Warnings: 2
 Critical: 1
 
-⚠️ WARNINGS:
+ WARNINGS:
 - crypto-tracker: External API calls (expected for price data)
 - web-scraper: Uses requests library
 
-🔴 CRITICAL:
+ CRITICAL:
 - shady-skill: 
   - Line 45: curl to unknown domain
   - Line 67: Base64 encoded payload

@@ -3,7 +3,7 @@
 
 set -e
 
-echo "🚀 Setting up GitHub Integration"
+echo " Setting up GitHub Integration"
 echo "================================="
 
 GITHUB_TOKEN="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -11,39 +11,39 @@ REPO_NAME="binance-enhanced"
 USERNAME="S7cret"  # Замените на ваш GitHub username
 
 # Проверка токена
-echo "🔐 Testing GitHub token..."
+echo " Testing GitHub token..."
 if ! curl -s -H "Authorization: token $GITHUB_TOKEN" \
           "https://api.github.com/user" | grep -q '"login"'; then
-    echo "❌ Invalid GitHub token"
+    echo " Invalid GitHub token"
     exit 1
 fi
 
-echo "✅ GitHub token is valid"
+echo " GitHub token is valid"
 
 # Создание репозитория
-echo "📦 Creating GitHub repository..."
+echo " Creating GitHub repository..."
 if curl -s -H "Authorization: token $GITHUB_TOKEN" \
          "https://api.github.com/user/repos" | grep -q "\"$REPO_NAME\""; then
-    echo "⚠️ Repository already exists, skipping creation"
+    echo " Repository already exists, skipping creation"
 else
     curl -X POST \
       -H "Authorization: token $GITHUB_TOKEN" \
       -H "Accept: application/vnd.github.v3+json" \
       "https://api.github.com/user/repos" \
       -d "{\"name\":\"$REPO_NAME\",\"description\":\"Enhanced Binance trading skill for OpenClaw\",\"private\":false,\"auto_init\":true}"
-    echo "✅ Repository created: https://github.com/$USERNAME/$REPO_NAME"
+    echo " Repository created: https://github.com/$USERNAME/$REPO_NAME"
 fi
 
 # Настройка репозитория
 cd "$(dirname "$0")"
 
-echo "🔧 Configuring repository..."
+echo " Configuring repository..."
 git init
 git config user.name "OpenClaw Bot"
 git config user.email "bot@openclaw.ai"
 
 # Добавление файлов
-echo "📁 Adding files..."
+echo " Adding files..."
 git add .
 
 # Создание .gitignore
@@ -97,7 +97,7 @@ EOF
 git add .gitignore
 
 # Коммит
-echo "💾 Creating commit..."
+echo " Creating commit..."
 git commit -m "Initial commit: Binance Enhanced v2.0.0
 
 - Enhanced Binance trading skill with security, monitoring, automation
@@ -109,16 +109,16 @@ git commit -m "Initial commit: Binance Enhanced v2.0.0
 - GitHub integration ready"
 
 # Настройка remote
-echo "🔗 Setting up remote..."
+echo " Setting up remote..."
 git remote add origin "https://$GITHUB_TOKEN@github.com/$USERNAME/$REPO_NAME.git"
 git branch -M main
 
 # Push
-echo "📤 Pushing to GitHub..."
+echo " Pushing to GitHub..."
 git push -u origin main
 
 # Настройка Secrets через GitHub API (если есть доступ)
-echo "🔐 Configuring repository secrets..."
+echo " Configuring repository secrets..."
 echo "Note: GitHub Secrets must be configured manually through the web interface:"
 echo "1. Go to: https://github.com/$USERNAME/$REPO_NAME/settings/secrets/actions"
 echo "2. Add these secrets:"
@@ -127,7 +127,7 @@ echo "   - GITHUB_TOKEN: $GITHUB_TOKEN (already used)"
 echo "   - CLAWHUB_API_KEY: (for publishing to ClawHub)"
 
 # Настройка webhook
-echo "🪝 Configuring webhook..."
+echo " Configuring webhook..."
 echo "To set up webhook for auto-updates:"
 echo "1. Go to: https://github.com/$USERNAME/$REPO_NAME/settings/hooks"
 echo "2. Add webhook with URL:"
@@ -136,7 +136,7 @@ echo "3. Secret: (generate a random secret)"
 echo "4. Events: Push, Release"
 
 # Настройка GitHub Pages для документации (опционально)
-echo "📚 Setting up GitHub Pages..."
+echo " Setting up GitHub Pages..."
 echo "To enable GitHub Pages for documentation:"
 echo "1. Go to: https://github.com/$USERNAME/$REPO_NAME/settings/pages"
 echo "2. Source: GitHub Actions"
@@ -189,13 +189,13 @@ git commit -m "Add GitHub Pages documentation workflow"
 git push
 
 echo ""
-echo "🎉 GitHub Integration Complete!"
+echo " GitHub Integration Complete!"
 echo "==============================="
 echo ""
-echo "📊 Repository: https://github.com/$USERNAME/$REPO_NAME"
-echo "🚀 Actions: https://github.com/$USERNAME/$REPO_NAME/actions"
-echo "📚 Pages: https://$USERNAME.github.io/$REPO_NAME/"
-echo "🔧 Settings: https://github.com/$USERNAME/$REPO_NAME/settings"
+echo " Repository: https://github.com/$USERNAME/$REPO_NAME"
+echo " Actions: https://github.com/$USERNAME/$REPO_NAME/actions"
+echo " Pages: https://$USERNAME.github.io/$REPO_NAME/"
+echo " Settings: https://github.com/$USERNAME/$REPO_NAME/settings"
 echo ""
 echo "Next steps:"
 echo "1. Configure secrets in GitHub repository settings"
@@ -208,4 +208,4 @@ echo "  git add ."
 echo "  git commit -m 'Test update'"
 echo "  git push"
 echo ""
-echo "✅ Done!"
+echo " Done!"

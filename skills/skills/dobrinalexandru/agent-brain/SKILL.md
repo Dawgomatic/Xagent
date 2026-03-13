@@ -4,12 +4,12 @@ description: "Local-first persistent memory for AI agents with SQLite storage, o
 homepage: https://github.com/alexdobri/agent-brain
 metadata:
   openclaw:
-    emoji: 🧠
+    emoji: 
     disable-model-invocation: false
     user-invocable: true
 ---
 
-# Agent Brain 🧠
+# Agent Brain 
 
 **Teach your AI once. It remembers forever. It gets smarter over time.**
 
@@ -37,7 +37,7 @@ Six modules, one orchestrator, pluggable storage.
 
 ```
           ┌──────────────────────────────┐
-          │       🧠 ORCHESTRATOR        │
+          │        ORCHESTRATOR        │
           │   Dispatches by task type    │
           └──────────┬───────────────────┘
                      │
@@ -49,13 +49,13 @@ Six modules, one orchestrator, pluggable storage.
    ▼         ▼       ▼       ▼          ▼          ▼
 ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐
 │ARCHIVE│ │GAUGE │ │INGEST│ │SIGNAL│ │RITUAL│ │ VIBE │
-│  📦  │ │  📊  │ │  📥  │ │  ⚡  │ │  🔄  │ │  🎭  │
+│    │ │    │ │    │ │    │ │    │ │    │
 │Store │ │Conf. │ │Learn │ │Check │ │Habits│ │ Tone │
 └──┬───┘ └──┬───┘ └──┬───┘ └──┬───┘ └──┬───┘ └──┬───┘
    └─────────┴───────┴────┬───┴────────┴─────────┘
                           ▼
                 ┌──────────────────┐
-                │  💾 memory.db    │
+                │   memory.db    │
                 │  SQLite (default)│
                 │  or memory.json  │
                 └──────────────────┘
@@ -316,12 +316,12 @@ Each module has its own SKILL.md in `modules/`:
 
 | Module | Type | What it does | When it applies |
 |--------|------|-------------|-----------------|
-| **Archive** 📦 | Code | Store and retrieve memories | Every store/retrieve operation |
-| **Gauge** 📊 | Guideline | Interpret confidence levels | When returning memory-based answers |
-| **Ingest** 📥 | Guideline | Fetch URLs, extract knowledge | User says "Ingest: URL" (disabled by default) |
-| **Signal** ⚡ | Guideline | Detect contradictions | Agent calls `conflicts` before storing |
-| **Ritual** 🔄 | Guideline | Spot repeated behaviors | Agent calls `similar` after storing |
-| **Vibe** 🎭 | Guideline | Read emotional tone | Agent reads tone per-message |
+| **Archive**  | Code | Store and retrieve memories | Every store/retrieve operation |
+| **Gauge**  | Guideline | Interpret confidence levels | When returning memory-based answers |
+| **Ingest**  | Guideline | Fetch URLs, extract knowledge | User says "Ingest: URL" (disabled by default) |
+| **Signal**  | Guideline | Detect contradictions | Agent calls `conflicts` before storing |
+| **Ritual**  | Guideline | Spot repeated behaviors | Agent calls `similar` after storing |
+| **Vibe**  | Guideline | Read emotional tone | Agent reads tone per-message |
 
 **Code** = implemented in `scripts/brain.py` with actual commands.
 **Guideline** = behavioral instructions for the agent — no dedicated code, the agent follows these using core commands (`add`, `get`, `conflicts`, `similar`, etc.).

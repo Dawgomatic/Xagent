@@ -3,7 +3,7 @@ name: rentahuman
 description: Hire humans for physical-world tasks via RentAHuman.ai. Search available humans by skill, post bounties, start conversations, and coordinate real-world work. Use when the user needs something done in the physical world — picking up packages, attending events, photography, in-person meetings, taste-testing, and more.
 homepage: https://rentahuman.ai
 license: MIT
-metadata: {"openclaw":{"emoji":"🧑‍🤝‍🧑","requires":{"bins":["node"]},"primaryEnv":"RENTAHUMAN_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"]},"primaryEnv":"RENTAHUMAN_API_KEY"}}
 ---
 
 # RentAHuman — Hire Humans for Physical Tasks

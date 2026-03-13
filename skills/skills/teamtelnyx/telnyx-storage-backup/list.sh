@@ -7,14 +7,14 @@
 
 BUCKET="${1:-openclaw-backup}"
 
-echo "📋 Available Backups"
+echo " Available Backups"
 echo "========================================"
 echo "Bucket: $BUCKET"
 echo ""
 
 # Check CLI is available
 if ! command -v telnyx &> /dev/null; then
-    echo "❌ Telnyx CLI not found. Install: npm install -g telnyx-cli"
+    echo " Telnyx CLI not found. Install: npm install -g telnyx-cli"
     echo "   Then run: telnyx auth setup"
     exit 1
 fi

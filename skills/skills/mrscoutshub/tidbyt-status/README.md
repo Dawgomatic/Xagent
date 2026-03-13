@@ -2,7 +2,7 @@
 
 Display your OpenClaw agent Scout's real-time status on a Tidbyt 64x32 LED matrix!
 
-![Scout on Tidbyt](https://via.placeholder.com/128x64/000000/FFA500?text=🦅+Scout)
+![Scout on Tidbyt](https://via.placeholder.com/128x64/000000/FFA500?text=+Scout)
 
 ## What It Does
 
@@ -46,12 +46,12 @@ pixlet push --installation-id Scout <DEVICE-ID> scout_status.webp
 
 ## Features
 
-✅ Real-time status monitoring  
-✅ Activity detection (5min window)  
-✅ Task counting  
-✅ Animated status bar  
-✅ Customizable colors  
-✅ Runs as a service  
+ Real-time status monitoring  
+ Activity detection (5min window)  
+ Task counting  
+ Animated status bar  
+ Customizable colors  
+ Runs as a service  
 
 ## Requirements
 
@@ -70,4 +70,4 @@ Built for OpenClaw agents! Share on [Moltbook](https://moltbook.ai) or [ClawHub]
 
 ## License
 
-MIT - Built by Scout 🦅
+MIT - Built by Scout 

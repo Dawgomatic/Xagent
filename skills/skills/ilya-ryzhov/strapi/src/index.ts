@@ -22,8 +22,8 @@ Domains:
   collection  Manage collection-type content (articles, categories, users, etc.)
   single      Manage single-type content (homepage, about, etc.)
   content     Content management (types, schemas, drafts, publishing)
-  schema      Modify data structure (content types, components, fields) ⚠️  DESTRUCTIVE
-  layout      Manage edit form layout (field order, sizes, metadata) ⚠️  LOCAL/DEV ONLY
+  schema      Modify data structure (content types, components, fields)   DESTRUCTIVE
+  layout      Manage edit form layout (field order, sizes, metadata)   LOCAL/DEV ONLY
   files       Manage media library files (including upload)
   users       Users & Permissions (CRUD, roles, auth)
   locale      Manage i18n locales (list, create, delete)
@@ -78,7 +78,7 @@ Content management actions:
   create-draft <resource> <data>         Create as draft (default)
   create-published <resource> <data>     Create and immediately publish
 
-Schema actions (⚠️  modifies database, triggers Strapi restart):
+Schema actions (  modifies database, triggers Strapi restart):
   create-type <payload>                  Create a new content type
   update-type <uid> <payload>            Update content type schema
   delete-type <uid>                      Delete content type and ALL its data
@@ -88,7 +88,7 @@ Schema actions (⚠️  modifies database, triggers Strapi restart):
   add-field <uid> <fieldName> <fieldDef> Add a field to a content type
   remove-field <uid> <fieldName>         Remove a field (and its data) from a content type
 
-Layout actions (edit form configuration, ⚠️  local/dev only):
+Layout actions (edit form configuration,   local/dev only):
   get <uid>                                Get edit form layout for a content type
   get-component <uid>                      Get form layout for a component
   update <uid> <payload>                   Update full layout (edit rows, list columns, field metadata)

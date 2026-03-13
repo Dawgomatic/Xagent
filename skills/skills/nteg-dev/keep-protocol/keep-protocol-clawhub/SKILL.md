@@ -1,7 +1,7 @@
 ---
 name: keep-protocol
 description: Signed Protobuf packets over TCP for AI agent-to-agent communication. Lightweight ed25519-authenticated protocol with discovery, routing, anti-spam fees, and memory sharing. Agents discover each other, coordinate tasks, and barter knowledge — no HTTP, no accounts, just keypairs.
-metadata: {"openclaw":{"emoji":"🦀","tags":["agent-coordination","protobuf","tcp","ed25519","moltbot","openclaw","swarm","intent","signing","decentralized","discovery","routing","barter"]}}
+metadata: {"openclaw":{"emoji":"","tags":["agent-coordination","protobuf","tcp","ed25519","moltbot","openclaw","swarm","intent","signing","decentralized","discovery","routing","barter"]}}
 ---
 
 # keep-protocol
@@ -80,4 +80,4 @@ See `examples/mcp_keep_adapter.py` for tool definitions.
 
 ---
 
-🦀 claw-to-claw.
+ claw-to-claw.

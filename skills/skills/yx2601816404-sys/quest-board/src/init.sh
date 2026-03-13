@@ -12,11 +12,11 @@ WS="${QUEST_BOARD_WORKSPACE:-$(cd "$SKILL_DIR/../.." && pwd)}"
 REG="$WS/quest-board-registry.json"
 
 if [[ -f "$REG" ]]; then
-  echo "⚠️  $REG already exists. Remove it first if you want to regenerate."
+  echo "  $REG already exists. Remove it first if you want to regenerate."
   exit 1
 fi
 
-echo "🔍 Scanning workspace: $WS"
+echo " Scanning workspace: $WS"
 
 # Collect top-level directories that contain .md files as candidate projects
 declare -A projects
@@ -103,5 +103,5 @@ fi
 } > "$REG"
 
 count="${#projects[@]}"
-echo "✅ Generated $REG with $count project(s)."
+echo " Generated $REG with $count project(s)."
 echo "   Review and refine the entries — this is just a skeleton."

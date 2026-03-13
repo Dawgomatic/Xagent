@@ -244,7 +244,7 @@ async function runWizard() {
     config.astAnalysis = true;
     log('✓ AST analysis already enabled!', colors.green);
   } else if (!python.available) {
-    log('⚠ Python not found. Install Python 3.8+ to enable this feature.', colors.yellow);
+    log(' Python not found. Install Python 3.8+ to enable this feature.', colors.yellow);
   }
   
   log('\n─────────────────────────────────────────────────────────────\n');
@@ -286,7 +286,7 @@ async function runWizard() {
     log(`\n✓ Auto-scan enabled!`, colors.green);
     log(`  Threshold: ${config.autoScanSeverityThreshold} and above`, colors.cyan);
     
-    log('\n📝 To activate, add this alias to your shell:', colors.yellow);
+    log('\n To activate, add this alias to your shell:', colors.yellow);
     if (process.platform === 'win32') {
       log(`\n   In PowerShell profile (~\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1):`, colors.dim);
       log(`   function clawhub-safe { clawhub install $args[0]; & "${hookPath}" $args[0] }`, colors.bright);

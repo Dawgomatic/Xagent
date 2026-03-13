@@ -107,20 +107,20 @@ OLLAMA_UP=$(echo "$HEALTH" | python3 -c "import sys,json; print(json.load(sys.st
 
 # Threshold alerts (no LLM needed)
 if [ "$DISK_USED" -gt 80 ]; then
-    add_alert "🔴 Disk usage at ${DISK_USED}%"
+    add_alert " Disk usage at ${DISK_USED}%"
 fi
 
 RAM_FREE_INT=$(echo "$RAM_FREE" | cut -d. -f1)
 if [ "$RAM_FREE_INT" -lt 2 ]; then
-    add_alert "🔴 RAM critically low: ${RAM_FREE}GB free"
+    add_alert " RAM critically low: ${RAM_FREE}GB free"
 fi
 
 if [ "$OLLAMA_UP" = "False" ]; then
-    add_alert "🟡 Ollama is not running"
+    add_alert " Ollama is not running"
 fi
 
 if [ "$UNCOMMITTED" -gt 20 ]; then
-    add_alert "🟡 ${UNCOMMITTED} uncommitted files in workspace"
+    add_alert " ${UNCOMMITTED} uncommitted files in workspace"
 fi
 
 update_state "health"
@@ -132,7 +132,7 @@ HOURS_SINCE_SECRET=$(hours_since "$LAST_SECRET")
 
 if [ "$HOURS_SINCE_SECRET" -ge 24 ]; then
     if ! bash "${SCRIPT_DIR}/secret-scan.sh" "$WORKSPACE" > /dev/null 2>&1; then
-        add_alert "🔴 Secret scan found exposed credentials — run security-audit.sh"
+        add_alert " Secret scan found exposed credentials — run security-audit.sh"
     fi
     update_state "secretScan"
 fi
@@ -160,7 +160,7 @@ except Exception as e:
         # Use Reef to triage — is any email urgent?
         TRIAGE=$(reef_triage "You are an email triage bot. There are $EMAIL_COUNT emails in the inbox. Reply with only: URGENT, CHECK, or SKIP. If count is 0, say SKIP.")
         if echo "$TRIAGE" | grep -qi "URGENT"; then
-            add_alert "📧 Urgent email detected — $EMAIL_COUNT message(s) in inbox"
+            add_alert " Urgent email detected — $EMAIL_COUNT message(s) in inbox"
         fi
     fi
     update_state "email"
@@ -172,7 +172,7 @@ LAST_GIT=$(get_last_check "gitCommit")
 HOURS_SINCE_GIT=$(hours_since "$LAST_GIT")
 
 if [ "$HOURS_SINCE_GIT" -ge 8 ] && [ "$UNCOMMITTED" -gt 5 ]; then
-    add_alert "📝 ${UNCOMMITTED} uncommitted files — consider committing"
+    add_alert " ${UNCOMMITTED} uncommitted files — consider committing"
     update_state "gitCommit"
 fi
 
@@ -182,7 +182,7 @@ LAST_MEMORY=$(get_last_check "memoryMaintenance")
 HOURS_SINCE_MEMORY=$(hours_since "$LAST_MEMORY")
 
 if [ "$HOURS_SINCE_MEMORY" -ge 48 ]; then
-    add_alert "🧠 Memory maintenance overdue — review daily logs, update MEMORY.md"
+    add_alert " Memory maintenance overdue — review daily logs, update MEMORY.md"
     update_state "memoryMaintenance"
 fi
 
@@ -192,7 +192,7 @@ LAST_PG=$(get_last_check "promptGuardUpdate")
 HOURS_SINCE_PG=$(hours_since "$LAST_PG")
 
 if [ "$HOURS_SINCE_PG" -ge 168 ]; then
-    add_alert "🛡️ Prompt-guard patterns review overdue (weekly)"
+    add_alert " Prompt-guard patterns review overdue (weekly)"
     update_state "promptGuardUpdate"
 fi
 

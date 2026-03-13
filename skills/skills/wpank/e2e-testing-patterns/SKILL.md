@@ -195,14 +195,14 @@ test("user can update profile", async ({ page, testUser }) => {
 Never use fixed timeouts. Wait for specific conditions.
 
 ```typescript
-// ❌ FLAKY: Fixed timeout
+//  FLAKY: Fixed timeout
 await page.waitForTimeout(3000);
 
-// ✅ STABLE: Wait for conditions
+//  STABLE: Wait for conditions
 await page.waitForLoadState("networkidle");
 await page.waitForURL("/dashboard");
 
-// ✅ BEST: Auto-waiting assertions
+//  BEST: Auto-waiting assertions
 await expect(page.getByText("Welcome")).toBeVisible();
 await expect(page.getByRole("button", { name: "Submit" })).toBeEnabled();
 
@@ -301,15 +301,15 @@ cy.get('[data-testid="user-list"]').children().should("have.length", 1);
 | 2 | **Label** | `getByLabel("Email address")` | Accessible, semantic |
 | 3 | **data-testid** | `getByTestId("checkout-form")` | Stable, explicit for testing |
 | 4 | **Text content** | `getByText("Welcome back")` | User-facing |
-| ❌ | CSS classes | `.btn-primary` | Breaks on styling changes |
-| ❌ | DOM structure | `div > form > input:nth-child(2)` | Breaks on any restructure |
+|  | CSS classes | `.btn-primary` | Breaks on styling changes |
+|  | DOM structure | `div > form > input:nth-child(2)` | Breaks on any restructure |
 
 ```typescript
-// ❌ BAD: Brittle selectors
+//  BAD: Brittle selectors
 cy.get(".btn.btn-primary.submit-button").click();
 cy.get("div > form > div:nth-child(2) > input").type("text");
 
-// ✅ GOOD: Stable selectors
+//  GOOD: Stable selectors
 page.getByRole("button", { name: "Submit" }).click();
 page.getByLabel("Email address").fill("user@example.com");
 page.getByTestId("email-input").fill("user@example.com");

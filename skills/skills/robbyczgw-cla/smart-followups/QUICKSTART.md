@@ -1,13 +1,13 @@
-# 🚀 Quick Start Guide
+#  Quick Start Guide
 
 Get Smart Follow-ups running in under 5 minutes.
 
-## 1⃣ Prerequisites
+##  Prerequisites
 
 - Node.js 18+ installed
 - Anthropic API key ([get one here](https://console.anthropic.com/))
 
-## 2⃣ Installation
+##  Installation
 
 ```bash
 cd /path/to/workspace/skills/smart-followups/
@@ -15,7 +15,7 @@ npm install
 chmod +x cli/followups-cli.js test.sh
 ```
 
-## 3⃣ Set API Key
+##  Set API Key
 
 ```bash
 export ANTHROPIC_API_KEY="sk-ant-your-key-here"
@@ -28,7 +28,7 @@ echo 'export ANTHROPIC_API_KEY="sk-ant-your-key-here"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## 4⃣ Test It!
+##  Test It!
 
 ### Quick Test
 ```bash
@@ -58,20 +58,20 @@ echo '[{"user":"What is Rust?","assistant":"Rust is a systems programming langua
   node cli/followups-cli.js --mode text
 ```
 
-## 5⃣ Expected Output
+##  Expected Output
 
 **Text mode** should look like:
 
 ```
-💡 Smart Follow-up Suggestions
+ Smart Follow-up Suggestions
 
-⚡ Quick
+ Quick
 1. What are containers vs VMs?
 
-🧠 Deep Dive
+ Deep Dive
 2. Explain Docker's architecture
 
-🔗 Related
+ Related
 3. What about Kubernetes?
 
 Reply with a number (1-3) to ask that question.
@@ -87,7 +87,7 @@ Reply with a number (1-3) to ask that question.
 }
 ```
 
-## 6⃣ Integrate with OpenClaw
+##  Integrate with OpenClaw
 
 See [SKILL.md](./SKILL.md) for full integration guide.
 
@@ -108,7 +108,7 @@ See [SKILL.md](./SKILL.md) for full integration guide.
 3. Restart OpenClaw
 4. Use `/followups` in any conversation
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### "ANTHROPIC_API_KEY environment variable is required"
 
@@ -133,21 +133,21 @@ See [SKILL.md](./SKILL.md) for full integration guide.
 DEBUG=* node cli/followups-cli.js ...
 ```
 
-## 📚 Next Steps
+##  Next Steps
 
 - Read [README.md](./README.md) for feature overview
 - Check [examples.md](./examples.md) for channel-specific outputs
 - Review [SKILL.md](./SKILL.md) for OpenClaw integration
 - Explore [INTERNAL.md](./INTERNAL.md) for architecture details
 
-## 💡 Tips
+##  Tips
 
 1. **Use Haiku**: Default model, fastest and cheapest
 2. **Manual trigger**: Start with `/followups` command, not auto-mode
 3. **Test locally**: Verify CLI works before integrating with OpenClaw
 4. **Monitor costs**: ~$0.0001 per generation with Haiku
 
-## ✅ Checklist
+##  Checklist
 
 - [ ] Node.js 18+ installed
 - [ ] API key set as environment variable

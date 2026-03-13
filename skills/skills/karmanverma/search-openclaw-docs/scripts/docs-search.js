@@ -56,7 +56,7 @@ async function main() {
       console.log(formatResults(results, searchQuery));
     }
   } catch (e) {
-    console.error(`❌ Error: ${e.message}`);
+    console.error(` Error: ${e.message}`);
     process.exit(1);
   }
 }

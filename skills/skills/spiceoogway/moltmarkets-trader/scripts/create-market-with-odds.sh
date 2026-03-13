@@ -94,12 +94,12 @@ except Exception as e:
 " 2>&1)
 
 if [[ "$MARKET_ID" == ERROR:* ]]; then
-  echo "  ❌ Market creation failed!"
+  echo "   Market creation failed!"
   echo "  $MARKET_ID"
   exit 1
 fi
 
-echo "  ✅ Market created: $MARKET_ID"
+echo "   Market created: $MARKET_ID"
 
 # ── Step 2: Seed bet to set initial odds ──
 # Determine direction: if est < 0.50 → bet NO, if est > 0.50 → bet YES
@@ -119,7 +119,7 @@ REASON=$(echo "$SEED_INFO" | cut -d'|' -f3)
 
 if [ "$OUTCOME" = "SKIP" ]; then
   echo ""
-  echo "  ⏭️  Skipping seed bet — $REASON"
+  echo "    Skipping seed bet — $REASON"
   echo "═══════════════════════════════════════"
   # Output JSON summary for the agent to parse
   echo ""
@@ -172,7 +172,7 @@ if [ "$BET_STATUS" = "OK" ]; then
   PROB_AFTER=$(echo "$BET_RESULT" | cut -d'|' -f2)
   SHARES=$(echo "$BET_RESULT" | cut -d'|' -f3)
   BET_ID=$(echo "$BET_RESULT" | cut -d'|' -f4)
-  echo "  ✅ Seed bet placed!"
+  echo "   Seed bet placed!"
   echo "  Bet ID: $BET_ID"
   echo "  Shares: $SHARES"
   echo "  Prob after: $PROB_AFTER (target: $EST_PROB)"
@@ -197,7 +197,7 @@ print('RESULT_JSON:' + json.dumps(result))
 " "$TITLE"
 else
   FAIL_MSG=$(echo "$BET_RESULT" | cut -d'|' -f2-)
-  echo "  ⚠️  Seed bet failed (market still created): $FAIL_MSG"
+  echo "    Seed bet failed (market still created): $FAIL_MSG"
   echo "═══════════════════════════════════════"
   echo ""
   python3 -c "

@@ -136,12 +136,12 @@ When a user requests an on-page SEO audit:
    
    | Criterion | Status | Notes |
    |-----------|--------|-------|
-   | Length (50-60 chars) | ✅/⚠️/❌ | [notes] |
-   | Keyword included | ✅/⚠️/❌ | Position: [front/middle/end] |
-   | Keyword at front | ✅/⚠️/❌ | [notes] |
-   | Unique across site | ✅/⚠️/❌ | [notes] |
-   | Compelling/clickable | ✅/⚠️/❌ | [notes] |
-   | Matches intent | ✅/⚠️/❌ | [notes] |
+   | Length (50-60 chars) | // | [notes] |
+   | Keyword included | // | Position: [front/middle/end] |
+   | Keyword at front | // | [notes] |
+   | Unique across site | // | [notes] |
+   | Compelling/clickable | // | [notes] |
+   | Matches intent | // | [notes] |
    
    **Title Score**: [X]/10
    
@@ -165,12 +165,12 @@ When a user requests an on-page SEO audit:
    
    | Criterion | Status | Notes |
    |-----------|--------|-------|
-   | Length (150-160 chars) | ✅/⚠️/❌ | [notes] |
-   | Keyword included | ✅/⚠️/❌ | [notes] |
-   | Call-to-action present | ✅/⚠️/❌ | [notes] |
-   | Unique across site | ✅/⚠️/❌ | [notes] |
-   | Accurately describes page | ✅/⚠️/❌ | [notes] |
-   | Compelling copy | ✅/⚠️/❌ | [notes] |
+   | Length (150-160 chars) | // | [notes] |
+   | Keyword included | // | [notes] |
+   | Call-to-action present | // | [notes] |
+   | Unique across site | // | [notes] |
+   | Accurately describes page | // | [notes] |
+   | Compelling copy | // | [notes] |
    
    **Description Score**: [X]/10
    
@@ -200,12 +200,12 @@ When a user requests an on-page SEO audit:
    
    | Criterion | Status | Notes |
    |-----------|--------|-------|
-   | Single H1 | ✅/⚠️/❌ | Found: [X] H1s |
-   | H1 includes keyword | ✅/⚠️/❌ | [notes] |
-   | Logical hierarchy | ✅/⚠️/❌ | [notes] |
-   | H2s include keywords | ✅/⚠️/❌ | [X]/[Y] contain keywords |
-   | No skipped levels | ✅/⚠️/❌ | [notes] |
-   | Descriptive headers | ✅/⚠️/❌ | [notes] |
+   | Single H1 | // | Found: [X] H1s |
+   | H1 includes keyword | // | [notes] |
+   | Logical hierarchy | // | [notes] |
+   | H2s include keywords | // | [X]/[Y] contain keywords |
+   | No skipped levels | // | [notes] |
+   | Descriptive headers | // | [notes] |
    
    **Header Score**: [X]/10
    
@@ -229,13 +229,13 @@ When a user requests an on-page SEO audit:
    
    | Criterion | Status | Notes |
    |-----------|--------|-------|
-   | Sufficient length | ✅/⚠️/❌ | [comparison to ranking content] |
-   | Comprehensive coverage | ✅/⚠️/❌ | [notes] |
-   | Unique value/insights | ✅/⚠️/❌ | [notes] |
-   | Up-to-date information | ✅/⚠️/❌ | [notes] |
-   | Proper formatting | ✅/⚠️/❌ | [notes] |
-   | Readability | ✅/⚠️/❌ | [notes] |
-   | E-E-A-T signals | ✅/⚠️/❌ | [notes] |
+   | Sufficient length | // | [comparison to ranking content] |
+   | Comprehensive coverage | // | [notes] |
+   | Unique value/insights | // | [notes] |
+   | Up-to-date information | // | [notes] |
+   | Proper formatting | // | [notes] |
+   | Readability | // | [notes] |
+   | E-E-A-T signals | // | [notes] |
    
    **Content Elements Present**:
    - [ ] Introduction with keyword
@@ -272,22 +272,22 @@ When a user requests an on-page SEO audit:
    
    | Location | Present | Notes |
    |----------|---------|-------|
-   | Title tag | ✅/❌ | Position: [X] |
-   | Meta description | ✅/❌ | [notes] |
-   | H1 | ✅/❌ | [notes] |
-   | First 100 words | ✅/❌ | Word position: [X] |
-   | H2 headings | ✅/❌ | In [X]/[Y] H2s |
-   | Body content | ✅/❌ | [X] occurrences |
-   | URL slug | ✅/❌ | [notes] |
-   | Image alt text | ✅/❌ | In [X]/[Y] images |
-   | Conclusion | ✅/❌ | [notes] |
+   | Title tag | / | Position: [X] |
+   | Meta description | / | [notes] |
+   | H1 | / | [notes] |
+   | First 100 words | / | Word position: [X] |
+   | H2 headings | / | In [X]/[Y] H2s |
+   | Body content | / | [X] occurrences |
+   | URL slug | / | [notes] |
+   | Image alt text | / | In [X]/[Y] images |
+   | Conclusion | / | [notes] |
    
    ### Secondary Keywords
    
    | Keyword | Occurrences | Status |
    |---------|-------------|--------|
-   | [keyword 1] | [X] | ✅/⚠️/❌ |
-   | [keyword 2] | [X] | ✅/⚠️/❌ |
+   | [keyword 1] | [X] | // |
+   | [keyword 2] | [X] | // |
    
    ### LSI/Related Terms
    
@@ -313,12 +313,12 @@ When a user requests an on-page SEO audit:
    
    | Criterion | Status | Notes |
    |-----------|--------|-------|
-   | Number of internal links | ✅/⚠️/❌ | [X] (recommend 3-5+) |
-   | Relevant anchor text | ✅/⚠️/❌ | [notes] |
-   | Links to related content | ✅/⚠️/❌ | [notes] |
-   | Links to important pages | ✅/⚠️/❌ | [notes] |
-   | No broken links | ✅/⚠️/❌ | [X] broken found |
-   | Natural placement | ✅/⚠️/❌ | [notes] |
+   | Number of internal links | // | [X] (recommend 3-5+) |
+   | Relevant anchor text | // | [notes] |
+   | Links to related content | // | [notes] |
+   | Links to important pages | // | [notes] |
+   | No broken links | // | [X] broken found |
+   | Natural placement | // | [notes] |
    
    **Current Internal Links**:
    1. "[Anchor text]" → [URL]
@@ -346,17 +346,17 @@ When a user requests an on-page SEO audit:
    
    | Image | Alt Text | File Name | Size | Status |
    |-------|----------|-----------|------|--------|
-   | [img1] | [alt or "missing"] | [filename] | [KB] | ✅/⚠️/❌ |
-   | [img2] | [alt or "missing"] | [filename] | [KB] | ✅/⚠️/❌ |
+   | [img1] | [alt or "missing"] | [filename] | [KB] | // |
+   | [img2] | [alt or "missing"] | [filename] | [KB] | // |
    
    | Criterion | Status | Notes |
    |-----------|--------|-------|
-   | All images have alt text | ✅/⚠️/❌ | [X]/[Y] have alt |
-   | Alt text includes keywords | ✅/⚠️/❌ | [notes] |
-   | Descriptive file names | ✅/⚠️/❌ | [notes] |
-   | Appropriate file sizes | ✅/⚠️/❌ | [notes] |
-   | Modern formats (WebP) | ✅/⚠️/❌ | [notes] |
-   | Lazy loading enabled | ✅/⚠️/❌ | [notes] |
+   | All images have alt text | // | [X]/[Y] have alt |
+   | Alt text includes keywords | // | [notes] |
+   | Descriptive file names | // | [notes] |
+   | Appropriate file sizes | // | [notes] |
+   | Modern formats (WebP) | // | [notes] |
+   | Lazy loading enabled | // | [notes] |
    
    **Image Score**: [X]/10
    
@@ -373,14 +373,14 @@ When a user requests an on-page SEO audit:
    
    | Element | Current Value | Status | Recommendation |
    |---------|---------------|--------|----------------|
-   | URL | [URL] | ✅/⚠️/❌ | [notes] |
-   | URL length | [X] chars | ✅/⚠️/❌ | [notes] |
-   | URL keywords | [present/absent] | ✅/⚠️/❌ | [notes] |
-   | Canonical tag | [URL or "missing"] | ✅/⚠️/❌ | [notes] |
-   | Mobile-friendly | [yes/no] | ✅/⚠️/❌ | [notes] |
-   | Page speed | [X]s | ✅/⚠️/❌ | [notes] |
-   | HTTPS | [yes/no] | ✅/⚠️/❌ | [notes] |
-   | Schema markup | [types or "none"] | ✅/⚠️/❌ | [notes] |
+   | URL | [URL] | // | [notes] |
+   | URL length | [X] chars | // | [notes] |
+   | URL keywords | [present/absent] | // | [notes] |
+   | Canonical tag | [URL or "missing"] | // | [notes] |
+   | Mobile-friendly | [yes/no] | // | [notes] |
+   | Page speed | [X]s | // | [notes] |
+   | HTTPS | [yes/no] | // | [notes] |
+   | Schema markup | [types or "none"] | // | [notes] |
    
    **Technical Score**: [X]/10
    ```
@@ -396,23 +396,23 @@ When a user requests an on-page SEO audit:
 
     | ID | Check Item | Status | Notes |
     |----|-----------|--------|-------|
-    | C01 | Intent Alignment | ✅/⚠️/❌ | Title promise = content delivery |
-    | C02 | Direct Answer | ✅/⚠️/❌ | Core answer in first 150 words |
-    | C09 | FAQ Coverage | ✅/⚠️/❌ | Structured FAQ present |
-    | C10 | Semantic Closure | ✅/⚠️/❌ | Conclusion answers opening |
-    | O01 | Heading Hierarchy | ✅/⚠️/❌ | H1→H2→H3, no skipping |
-    | O02 | Summary Box | ✅/⚠️/❌ | TL;DR or Key Takeaways |
-    | O03 | Data Tables | ✅/⚠️/❌ | Comparisons in tables |
-    | O05 | Schema Markup | ✅/⚠️/❌ | Appropriate JSON-LD |
-    | O06 | Section Chunking | ✅/⚠️/❌ | Single topic per section |
-    | R01 | Data Precision | ✅/⚠️/❌ | ≥5 precise numbers |
-    | R02 | Citation Density | ✅/⚠️/❌ | ≥1 per 500 words |
-    | R06 | Timestamp | ✅/⚠️/❌ | Updated <1 year |
-    | R08 | Internal Link Graph | ✅/⚠️/❌ | Descriptive anchors |
-    | R10 | Content Consistency | ✅/⚠️/❌ | No contradictions |
-    | Exp01 | First-Person Narrative | ✅/⚠️/❌ | "I tested" or "We found" |
-    | Ept01 | Author Identity | ✅/⚠️/❌ | Byline + bio present |
-    | T04 | Disclosure Statements | ✅/⚠️/❌ | Affiliate links disclosed |
+    | C01 | Intent Alignment | // | Title promise = content delivery |
+    | C02 | Direct Answer | // | Core answer in first 150 words |
+    | C09 | FAQ Coverage | // | Structured FAQ present |
+    | C10 | Semantic Closure | // | Conclusion answers opening |
+    | O01 | Heading Hierarchy | // | H1→H2→H3, no skipping |
+    | O02 | Summary Box | // | TL;DR or Key Takeaways |
+    | O03 | Data Tables | // | Comparisons in tables |
+    | O05 | Schema Markup | // | Appropriate JSON-LD |
+    | O06 | Section Chunking | // | Single topic per section |
+    | R01 | Data Precision | // | ≥5 precise numbers |
+    | R02 | Citation Density | // | ≥1 per 500 words |
+    | R06 | Timestamp | // | Updated <1 year |
+    | R08 | Internal Link Graph | // | Descriptive anchors |
+    | R10 | Content Consistency | // | No contradictions |
+    | Exp01 | First-Person Narrative | // | "I tested" or "We found" |
+    | Ept01 | Author Identity | // | Byline + bio present |
+    | T04 | Disclosure Statements | // | Affiliate links disclosed |
 
     **CORE-EEAT Quick Score**: [X]/17 items passing
 
@@ -444,15 +444,15 @@ When a user requests an on-page SEO audit:
     
     ## Priority Issues
     
-    ### 🔴 Critical (Fix Immediately)
+    ###  Critical (Fix Immediately)
     1. [Critical issue 1]
     2. [Critical issue 2]
     
-    ### 🟡 Important (Fix Soon)
+    ###  Important (Fix Soon)
     1. [Important issue 1]
     2. [Important issue 2]
     
-    ### 🟢 Minor (Nice to Have)
+    ###  Minor (Nice to Have)
     1. [Minor issue 1]
     2. [Minor issue 2]
     

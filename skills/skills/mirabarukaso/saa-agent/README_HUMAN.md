@@ -116,7 +116,7 @@ python saa-agent.py \
 
 ### High-Resolution Fix (HiResFix)
 
-**⚠️ Warning:** HiResFix significantly increases generation time. Only use if you have sufficient GPU performance.
+** Warning:** HiResFix significantly increases generation time. Only use if you have sufficient GPU performance.
 
 - `--hifix`: Enable high-resolution fix
 - `--hifix-scale`: Upscale factor (default: 2.0)
@@ -173,7 +173,7 @@ python saa-agent.py \
   --output "my_image.png"
 ```
 
-**⚠️ Important:**
+** Important:**
 - Only use when you're certain the backend is stuck
 - Do NOT use if another user/process is actively generating
 - Use this feature sparingly as it forcefully terminates backend locks

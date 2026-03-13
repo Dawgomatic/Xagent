@@ -43,9 +43,9 @@ npx tsx scripts/init_skill.ts
 ```
 
 This will:
-- ✅ Create the data directory
-- ✅ Set up cron jobs for proactive coaching
-- ✅ Save the installed version
+-  Create the data directory
+-  Set up cron jobs for proactive coaching
+-  Save the installed version
 
 ### 2. Manual Cron Setup (if needed)
 
@@ -106,26 +106,26 @@ When a cron job runs with `--message` and `--deliver`:
 The script outputs messages in this format:
 
 ```
-📤 COACHING MESSAGES FOR DELIVERY
+ COACHING MESSAGES FOR DELIVERY
 
 ============================================================
-🎉 7-Day Streak!
+ 7-Day Streak!
 
 You've maintained meditation for 7 consecutive days—your longest streak yet.
 
 Data shows perfect quality (forgiveness not used). The compound effect is beginning.
 
-📊 Your Progress:
+ Your Progress:
 - Current streak: 7 days
 - Quality: PERFECT
 - New personal record
 
 Next target: 14 days. One week at a time.
 
-📎 Attachments to send: /tmp/streak-h_abc123-1234567890.png
+ Attachments to send: /tmp/streak-h_abc123-1234567890.png
 ============================================================
 
-✅ Generated 1 coaching message(s)
+ Generated 1 coaching message(s)
 ```
 
 ### Delivery Channels
@@ -248,7 +248,7 @@ clawdbot cron list | grep HabitFlow
 
 You can still use manual coaching by chatting with your agent.
 
-## Image Attachments ✅
+## Image Attachments 
 
 The system now delivers coaching messages with Canvas dashboard visualizations!
 
@@ -259,10 +259,10 @@ The system now delivers coaching messages with Canvas dashboard visualizations!
 4. **Complete delivery** - Agent formats message with text + images, delivered via --deliver
 
 **Visualizations included:**
-- 📊 **Milestone messages**: Streak chart showing progress
-- ⚠️ **Risk warnings**: Heatmap showing completion patterns
-- 📈 **Weekly check-ins**: Trends chart + heatmap
-- 🔍 **Pattern insights**: Relevant chart based on insight type
+-  **Milestone messages**: Streak chart showing progress
+-  **Risk warnings**: Heatmap showing completion patterns
+-  **Weekly check-ins**: Trends chart + heatmap
+-  **Pattern insights**: Relevant chart based on insight type
 
 **Testing:**
 ```bash

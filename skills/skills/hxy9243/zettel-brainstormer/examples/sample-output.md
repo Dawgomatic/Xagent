@@ -19,7 +19,7 @@ Use the following templates and style guide:
 - Prioritize clarity over rhetorical flourish.
 
 ## Append format
-Always append under `## 🧠 Brainstorming (YYYY-MM-DD)` with a provenance line.
+Always append under `##  Brainstorming (YYYY-MM-DD)` with a provenance line.
 
 
 IMPORTANT: Focus on the core idea presented in the outline.

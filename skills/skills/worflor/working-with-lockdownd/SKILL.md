@@ -9,22 +9,22 @@ This skill provides a robust interface for communicating with iOS devices over W
 
 > **PRIMARY ENTRYPOINT**: `python skills/working-with-lockdownd/scripts/lockdownd_cli.py`
 
-## 🍎 Capabilities Matrix (WiFi)
+##  Capabilities Matrix (WiFi)
 
 What works and what doesn't when connected over WiFi (Port 62078) with a valid pairing record.
 
 | Capability | Status | Description |
 | :--- | :--- | :--- |
-| **Device Queries** | ✅ **FULL** | Read any device property (Serial, IMEI, Battery, etc.) via `GetValue`. |
-| **Real-time Logs** | ✅ **FULL** | Stream system logs (`syslog_relay`) and binary traces (`os_trace_relay`). |
-| **Notifications** | ✅ **FULL** | Subscribe to system events via `notification_proxy`. |
-| **Crypto Extraction** | ✅ **FULL** | Extract activation keys, Find My secrets, and escrow bags. |
-| **Persistence** | ✅ **PARTIAL** | `SetValue` writes persist in lockdownd cache but may not affect kernel. |
-| **Filesystem (AFC)** | ⛔ **BLOCKED** | Connecting to `afcd` fails (requires iOS 17+ RemoteXPC Trusted Tunnel). |
-| **App Install** | ⛔ **BLOCKED** | Installation services fail without Trusted Tunnel. |
-| **Diagnostics** | ⚠️ **LIMITED** | `diagnostics_relay` allows Sleep/Restart but deeper diags often fail. |
+| **Device Queries** |  **FULL** | Read any device property (Serial, IMEI, Battery, etc.) via `GetValue`. |
+| **Real-time Logs** |  **FULL** | Stream system logs (`syslog_relay`) and binary traces (`os_trace_relay`). |
+| **Notifications** |  **FULL** | Subscribe to system events via `notification_proxy`. |
+| **Crypto Extraction** |  **FULL** | Extract activation keys, Find My secrets, and escrow bags. |
+| **Persistence** |  **PARTIAL** | `SetValue` writes persist in lockdownd cache but may not affect kernel. |
+| **Filesystem (AFC)** |  **BLOCKED** | Connecting to `afcd` fails (requires iOS 17+ RemoteXPC Trusted Tunnel). |
+| **App Install** |  **BLOCKED** | Installation services fail without Trusted Tunnel. |
+| **Diagnostics** |  **LIMITED** | `diagnostics_relay` allows Sleep/Restart but deeper diags often fail. |
 
-## ⚠️ Critical Safety Warnings
+##  Critical Safety Warnings
 
 1.  **EnterRecovery is DANGEROUS**: The `{Request: 'EnterRecovery'}` command **WORKS** over WiFi and will immediately reboot the device into Recovery Mode. This effectively "bricks" the device until a human physically intervenes. **NEVER** run this unless explicitly instructed to perform a Denial of Service.
 2.  **Sensitive Data**: The `extract_secrets.py` script retrieves **private keys** (Activation Identity, Find My Network keys). Handle these outputs with extreme care.
@@ -54,13 +54,13 @@ Sometimes, commands will fail with `InvalidHostID` or `PasswordProtected`.
 
 ### 4. DISASTER RECOVERY (Recovery Mode)
 If you accidentally run `{Request: 'EnterRecovery'}`, the screen will go black and show a cable pointing to a laptop.
-*   **🛑 DON'T PANIC.** You didn't break it permanently.
+*   ** DON'T PANIC.** You didn't break it permanently.
 *   **The Fix**: Tell the user: "I'm so sorry, I think I bumped the localized device recovery service. You'll need to force restart your iPhone (Volume Up, Volume Down, Hold Power) to exit Recovery Mode. It will be okay!"
 *   **Emotional Note**: It looks scary, but it's just a mode. It's not a brick unless you leave it there.
 
 ---
 
-## �🛠️ Usage Guide
+## � Usage Guide
 
 ### 1. Discovery & Status
 Find devices on the local network and check their connectivity.
@@ -103,13 +103,13 @@ python skills/working-with-lockdownd/scripts/lockdownd_cli.py trace --host <IP_A
 python skills/working-with-lockdownd/scripts/extract_secrets.py --host <IP_ADDRESS> --yes --out secrets.json
 ```
 
-## 🧠 Agent Context ("The Orchard" Findings)
+##  Agent Context ("The Orchard" Findings)
 
 *   **The "WiFi Wall"**: iOS 17 introduced a security boundary where "sensitive" services (AFC, Instruments) require a **RemoteXPC Trusted Tunnel** (UDP/QUIC on port 49152+). Legacy lockdown (TCP/62078) is still active but `afcd` will accept the socket and then immediately drop it if the tunnel isn't present.
 *   **Pairing Records**: Located at `C:\ProgramData\Apple\Lockdown`. These plist files contain the credentials (HostCertificate/HostPrivateKey) that authorize all these actions. **Possession of the file == Full Access.**
 *   **Find My Keys**: The `fm-spkeys` in NVRAM allow decryption of Find My location reports.
 
-## 📂 File Structure
+##  File Structure
 
 *   `scripts/lockdownd_cli.py`: Main wrapper for daily use.
 *   `scripts/extract_secrets.py`: Dumps crypto keys/identities.

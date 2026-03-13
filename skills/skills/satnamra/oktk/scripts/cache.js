@@ -52,7 +52,7 @@ class Cache {
       // Check if expired
       if (Date.now() - cached.timestamp > this.ttl * 1000) {
         if (this.debug) {
-          console.log(`🗑️  Cache expired for ${key}`);
+          console.log(`  Cache expired for ${key}`);
         }
         await this.delete(key);
         return null;
@@ -60,7 +60,7 @@ class Cache {
 
       if (this.debug) {
         const age = Math.round((Date.now() - cached.timestamp) / 1000);
-        console.log(`✅ Cache hit for ${key} (${age}s old)`);
+        console.log(` Cache hit for ${key} (${age}s old)`);
       }
 
       return cached;
@@ -69,7 +69,7 @@ class Cache {
       if (error.code === 'ENOENT') {
         // Cache miss
         if (this.debug) {
-          console.log(`❌ Cache miss for ${key}`);
+          console.log(` Cache miss for ${key}`);
         }
         return null;
       }
@@ -102,7 +102,7 @@ class Cache {
       );
 
       if (this.debug) {
-        console.log(`💾 Cached ${key}`);
+        console.log(` Cached ${key}`);
       }
 
       return true;
@@ -161,7 +161,7 @@ class Cache {
       }
 
       if (this.debug) {
-        console.log(`🗑️  Cleared ${deleted} cache file(s)`);
+        console.log(`  Cleared ${deleted} cache file(s)`);
       }
 
       return deleted;
@@ -253,7 +253,7 @@ class Cache {
       }
 
       if (this.debug && cleaned > 0) {
-        console.log(`🧹 Cleaned ${cleaned} expired cache entries`);
+        console.log(` Cleaned ${cleaned} expired cache entries`);
       }
 
       return cleaned;

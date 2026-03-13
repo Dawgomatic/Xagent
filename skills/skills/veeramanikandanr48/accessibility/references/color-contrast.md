@@ -59,27 +59,27 @@ WCAG 2.1 requires specific contrast ratios to ensure text and UI components are 
 /* Black on white */
 color: #000000;
 background: #ffffff;
-/* Ratio: 21:1 ✅ AAA */
+/* Ratio: 21:1  AAA */
 
 /* Dark gray on white */
 color: #595959;
 background: #ffffff;
-/* Ratio: 4.6:1 ✅ AA */
+/* Ratio: 4.6:1  AA */
 
 /* White on dark blue */
 color: #ffffff;
 background: #0066cc;
-/* Ratio: 5.7:1 ✅ AA */
+/* Ratio: 5.7:1  AA */
 
 /* White on black */
 color: #ffffff;
 background: #000000;
-/* Ratio: 21:1 ✅ AAA */
+/* Ratio: 21:1  AAA */
 
 /* Dark text on light gray */
 color: #1a1a1a;
 background: #f5f5f5;
-/* Ratio: 14.8:1 ✅ AAA */
+/* Ratio: 14.8:1  AAA */
 ```
 
 ### Failing Combinations (under 4.5:1)
@@ -88,18 +88,18 @@ background: #f5f5f5;
 /* Light gray on white */
 color: #999999;
 background: #ffffff;
-/* Ratio: 2.8:1 ❌ FAIL */
+/* Ratio: 2.8:1  FAIL */
 
 /* Medium gray on light gray */
 color: #666666;
 background: #f0f0f0;
-/* Ratio: 3.4:1 ❌ FAIL (AA normal text) */
-/* ✅ PASS for large text (3:1+) */
+/* Ratio: 3.4:1  FAIL (AA normal text) */
+/*  PASS for large text (3:1+) */
 
 /* Blue on white */
 color: #4d90fe;
 background: #ffffff;
-/* Ratio: 2.9:1 ❌ FAIL */
+/* Ratio: 2.9:1  FAIL */
 ```
 
 ---
@@ -137,26 +137,26 @@ background: #ffffff;
 :root {
   /* Primary (brand) */
   --primary: #0066cc;         /* Base (might not pass on white) */
-  --primary-dark: #004080;    /* 6.5:1 on white ✅ */
+  --primary-dark: #004080;    /* 6.5:1 on white  */
   --primary-light: #3399ff;   /* Use only on dark backgrounds */
 
   /* Success */
-  --success: #10b981;         /* 2.7:1 on white ❌ */
-  --success-dark: #059669;    /* 4.6:1 on white ✅ */
+  --success: #10b981;         /* 2.7:1 on white  */
+  --success-dark: #059669;    /* 4.6:1 on white  */
 
   /* Warning */
-  --warning: #f59e0b;         /* 2.2:1 on white ❌ */
+  --warning: #f59e0b;         /* 2.2:1 on white  */
   --warning-dark: #d97706;    /* 3.9:1 on white - use large only */
 
   /* Error */
-  --error: #ef4444;           /* 3.3:1 on white ❌ */
-  --error-dark: #b91c1c;      /* 6.2:1 on white ✅ */
+  --error: #ef4444;           /* 3.3:1 on white  */
+  --error-dark: #b91c1c;      /* 6.2:1 on white  */
 }
 
 /* Usage */
 .button-primary {
   background: var(--primary);
-  color: white;  /* White on #0066cc = 5.7:1 ✅ */
+  color: white;  /* White on #0066cc = 5.7:1  */
 }
 
 .text-success {
@@ -204,7 +204,7 @@ background: #ffffff;
 /* Primary button */
 .button-primary {
   background: #0066cc;
-  color: #ffffff;       /* 5.7:1 ✅ */
+  color: #ffffff;       /* 5.7:1  */
   border: 2px solid #0066cc;
 }
 
@@ -214,14 +214,14 @@ background: #ffffff;
 
 .button-primary:focus-visible {
   outline: 2px solid #0066cc;
-  outline-offset: 2px;  /* 3:1 against page background ✅ */
+  outline-offset: 2px;  /* 3:1 against page background  */
 }
 
 /* Secondary button */
 .button-secondary {
   background: transparent;
-  color: #004080;       /* 6.5:1 on white ✅ */
-  border: 2px solid #737373;  /* 4.7:1 on white ✅ */
+  color: #004080;       /* 6.5:1 on white  */
+  border: 2px solid #737373;  /* 4.7:1 on white  */
 }
 ```
 
@@ -230,18 +230,18 @@ background: #ffffff;
 ```css
 input, textarea, select {
   background: #ffffff;
-  color: #1a1a1a;       /* 16.1:1 ✅ */
-  border: 1px solid #737373;  /* 4.7:1 ✅ */
+  color: #1a1a1a;       /* 16.1:1  */
+  border: 1px solid #737373;  /* 4.7:1  */
 }
 
 input:focus {
   border-color: #0066cc;
   box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.25);
-  /* Visible focus indicator ✅ */
+  /* Visible focus indicator  */
 }
 
 input::placeholder {
-  color: #737373;       /* 4.7:1 - borderline ⚠️ */
+  color: #737373;       /* 4.7:1 - borderline  */
   /* Consider darker for AA compliance */
 }
 ```
@@ -250,15 +250,15 @@ input::placeholder {
 
 ```css
 .error {
-  color: #b91c1c;       /* 6.2:1 on white ✅ */
+  color: #b91c1c;       /* 6.2:1 on white  */
 }
 
 .input-error {
-  border-color: #dc2626;  /* 4.5:1 on white ✅ */
+  border-color: #dc2626;  /* 4.5:1 on white  */
 }
 
 .error-message {
-  color: #991b1b;       /* 7.5:1 on white ✅ */
+  color: #991b1b;       /* 7.5:1 on white  */
   background: #fef2f2;
 }
 ```
@@ -267,16 +267,16 @@ input::placeholder {
 
 ```css
 a {
-  color: #0066cc;       /* 5.7:1 on white ✅ */
+  color: #0066cc;       /* 5.7:1 on white  */
   text-decoration: underline;  /* Not just color */
 }
 
 a:visited {
-  color: #551a8b;       /* 7.7:1 on white ✅ */
+  color: #551a8b;       /* 7.7:1 on white  */
 }
 
 a:hover, a:focus {
-  color: #004080;       /* 6.5:1 on white ✅ */
+  color: #004080;       /* 6.5:1 on white  */
   text-decoration: none;
 }
 ```
@@ -320,7 +320,7 @@ Very high contrast (white on black) can be harsh. Slightly reduce:
   --text: #f5f5f5;
 }
 
-/* Both pass 4.5:1 ✅ */
+/* Both pass 4.5:1  */
 ```
 
 ---
@@ -330,10 +330,10 @@ Very high contrast (white on black) can be harsh. Slightly reduce:
 ### Don't Rely on Color Alone
 
 ```html
-<!-- ❌ WRONG - red text only -->
+<!--  WRONG - red text only -->
 <span style="color: red;">Error</span>
 
-<!-- ✅ CORRECT - icon + text -->
+<!--  CORRECT - icon + text -->
 <span class="error">
   <svg aria-hidden="true"><!-- Error icon --></svg>
   Error: Invalid email
@@ -362,8 +362,8 @@ Very high contrast (white on black) can be harsh. Slightly reduce:
 1. **Pick foreground color**
 2. **Pick background color**
 3. **Test in contrast checker**:
-   - Is ratio ≥ 4.5:1 for normal text? ✅
-   - Is ratio ≥ 3:1 for large text/UI? ✅
+   - Is ratio ≥ 4.5:1 for normal text? 
+   - Is ratio ≥ 3:1 for large text/UI? 
 4. **Adjust if needed**:
    - Darken foreground OR lighten background
    - Test again
@@ -377,11 +377,11 @@ Very high contrast (white on black) can be harsh. Slightly reduce:
 
 | Failure | Ratio | Fix |
 |---------|-------|-----|
-| Light gray (#999) on white | 2.8:1 ❌ | Darken to #595959 (4.6:1 ✅) |
-| Blue (#4d90fe) on white | 2.9:1 ❌ | Darken to #0066cc (5.7:1 ✅) |
-| Green (#10b981) on white | 2.7:1 ❌ | Darken to #059669 (4.6:1 ✅) |
-| Orange (#f59e0b) on white | 2.2:1 ❌ | Darken to #d97706 (3.9:1, large only) or #b45309 (5.0:1 ✅) |
-| White on yellow (#fbbf24) | 1.4:1 ❌ | Use black text instead (13.6:1 ✅) |
+| Light gray (#999) on white | 2.8:1  | Darken to #595959 (4.6:1 ) |
+| Blue (#4d90fe) on white | 2.9:1  | Darken to #0066cc (5.7:1 ) |
+| Green (#10b981) on white | 2.7:1  | Darken to #059669 (4.6:1 ) |
+| Orange (#f59e0b) on white | 2.2:1  | Darken to #d97706 (3.9:1, large only) or #b45309 (5.0:1 ) |
+| White on yellow (#fbbf24) | 1.4:1  | Use black text instead (13.6:1 ) |
 
 ---
 

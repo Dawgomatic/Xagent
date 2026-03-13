@@ -2,7 +2,7 @@
 name: telegram-bot
 description: Build and manage Telegram bots via the Telegram Bot API. Create bots, send messages, handle webhooks, manage groups and channels.
 homepage: https://core.telegram.org/bots/api
-metadata: {"clawdbot":{"emoji":"🤖","requires":{"bins":["jq","curl"],"env":["TELEGRAM_BOT_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["jq","curl"],"env":["TELEGRAM_BOT_TOKEN"]}}}
 ---
 
 # Telegram Bot Builder Skill

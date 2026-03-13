@@ -1,8 +1,8 @@
-# The Orchard Project 🍎
+# The Orchard Project 
 
 **iOS WiFi Sync Security Research**
 
-> ⚠️ **WARNING**: Some lockdown commands have immediate device effects!
+>  **WARNING**: Some lockdown commands have immediate device effects!
 > `EnterRecovery` works over WiFi and WILL brick your device until physically recovered. This was discovered the hard way, let's not do it again.
 > Always use read-only probing first.
 
@@ -14,13 +14,13 @@ Using only an existing pairing record (from previous iTunes/Finder sync), we can
 
 | Capability | Status | Notes |
 |------------|--------|-------|
-| Device fingerprint | ✅ Full | UDID, serial, IMEI, MACs, carrier info |
-| Crypto key extraction | ✅ Full | Activation keys, Find My keys, escrow |
-| System log streaming | ✅ Real-time | syslog_relay, os_trace_relay |
-| Event subscription | ✅ Works | notification_proxy |
-| Filesystem access | ❌ Blocked | AFC requires iOS 17 trusted tunnel |
-| App installation | ❌ Blocked | Requires trusted tunnel |
-| Screenshots | ❌ Blocked | Requires trusted tunnel |
+| Device fingerprint |  Full | UDID, serial, IMEI, MACs, carrier info |
+| Crypto key extraction |  Full | Activation keys, Find My keys, escrow |
+| System log streaming |  Real-time | syslog_relay, os_trace_relay |
+| Event subscription |  Works | notification_proxy |
+| Filesystem access |  Blocked | AFC requires iOS 17 trusted tunnel |
+| App installation |  Blocked | Requires trusted tunnel |
+| Screenshots |  Blocked | Requires trusted tunnel |
 
 ## The iOS 17 Wall
 
@@ -60,8 +60,8 @@ WiFi Connection (us)          USB Connection
 | `os_trace_analysis.md` | Real-time monitoring analysis |
 | `extracted_secrets.json` | Extracted cryptographic material |
 | `deep_results.json` | Full probe results |
-| `activation_private.pem` | ⚠️ Device activation private key |
-| `fm_spkeys.bin` | ⚠️ Find My network keys |
+| `activation_private.pem` |  Device activation private key |
+| `fm_spkeys.bin` |  Find My network keys |
 | `*.py` | Probe scripts |
 
 ## Key Discoveries

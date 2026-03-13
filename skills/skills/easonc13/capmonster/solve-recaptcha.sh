@@ -20,7 +20,7 @@ if [ -z "$WEBSITE_URL" ] || [ -z "$SITEKEY" ]; then
 fi
 
 # Create task
-echo "🔄 Creating task for: $WEBSITE_URL"
+echo " Creating task for: $WEBSITE_URL"
 RESPONSE=$(curl -s -X POST https://api.capmonster.cloud/createTask \
   -H "Content-Type: application/json" \
   -d "{
@@ -36,14 +36,14 @@ TASK_ID=$(echo "$RESPONSE" | jq -r .taskId)
 ERROR_ID=$(echo "$RESPONSE" | jq -r .errorId)
 
 if [ "$ERROR_ID" != "0" ]; then
-  echo "❌ Error: $(echo "$RESPONSE" | jq -r .errorDescription)"
+  echo " Error: $(echo "$RESPONSE" | jq -r .errorDescription)"
   exit 1
 fi
 
-echo "📋 Task ID: $TASK_ID"
+echo " Task ID: $TASK_ID"
 
 # Poll for result
-echo -n "⏳ Waiting for solution"
+echo -n " Waiting for solution"
 for i in {1..60}; do
   RESULT=$(curl -s -X POST https://api.capmonster.cloud/getTaskResult \
     -H "Content-Type: application/json" \
@@ -54,7 +54,7 @@ for i in {1..60}; do
   
   if [ "$ERROR_ID" != "0" ]; then
     echo ""
-    echo "❌ Error: $(echo "$RESULT" | jq -r .errorDescription)"
+    echo " Error: $(echo "$RESULT" | jq -r .errorDescription)"
     exit 1
   fi
   
@@ -62,7 +62,7 @@ for i in {1..60}; do
     TOKEN=$(echo "$RESULT" | jq -r '.solution.gRecaptchaResponse')
     COST=$(echo "$RESULT" | jq -r '.cost')
     echo ""
-    echo "✅ Solved! Cost: \$$COST"
+    echo " Solved! Cost: \$$COST"
     echo ""
     echo "=== TOKEN ==="
     echo "$TOKEN"
@@ -75,5 +75,5 @@ for i in {1..60}; do
 done
 
 echo ""
-echo "❌ Timeout after 120 seconds"
+echo " Timeout after 120 seconds"
 exit 1

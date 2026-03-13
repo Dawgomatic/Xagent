@@ -15,7 +15,7 @@ execution: "python"
 intellectual_property:
   license: "MIT"
   license_file: "LICENSE.md"
-  copyright: "© 2026 UnisAI Community"
+  copyright: " 2026 UnisAI Community"
   distribution: "clawhub-and-forks-allowed"
   source_code_access: "included"
   modification: "allowed"
@@ -148,13 +148,13 @@ restrictions:
 
 changelog:
   "1.2.3":
-    - "✨ Initial release — TokenWatch"
-    - "✨ Pricing table for 11 models across 5 providers (Feb 2026)"
-    - "✨ Budget alerts: daily, weekly, monthly, per-call"
-    - "✨ Model comparison and cost estimation"
-    - "✨ Optimization suggestions with estimated savings"
-    - "✨ Auto-hooks for Anthropic and OpenAI response objects"
-    - "✨ Local-only storage, zero dependencies, MIT licensed"
+    - " Initial release — TokenWatch"
+    - " Pricing table for 11 models across 5 providers (Feb 2026)"
+    - " Budget alerts: daily, weekly, monthly, per-call"
+    - " Model comparison and cost estimation"
+    - " Optimization suggestions with estimated savings"
+    - " Auto-hooks for Anthropic and OpenAI response objects"
+    - " Local-only storage, zero dependencies, MIT licensed"
 
 metadata:
   status: "active"

@@ -219,15 +219,15 @@ function isMajorNews(result) {
 async function sendMajorNewsDirect(majorNewsList) {
   if (majorNewsList.length === 0) return;
   
-  let message = `🔥🔥🔥 重大新闻实时推送\n\n`;
+  let message = ` 重大新闻实时推送\n\n`;
   
   for (let i = 0; i < majorNewsList.length; i++) {
     const news = majorNewsList[i];
     message += `${i + 1}. **${news.title}**\n`;
-    message += `   📝 概述：${news.summary}\n`;
-    message += `   🕐 时间：${news.time}\n`;
-    message += `   💡 影响：${news.impact}\n`;
-    message += `   🔗 链接：${news.url}\n\n`;
+    message += `    概述：${news.summary}\n`;
+    message += `    时间：${news.time}\n`;
+    message += `    影响：${news.impact}\n`;
+    message += `    链接：${news.url}\n\n`;
   }
   
   message += `推送时间：${new Date().toLocaleString('zh-CN')}`;
@@ -253,7 +253,7 @@ async function sendScheduledSummary(webhook, title, channelData, isMajor = false
     
     elements.push({
       tag: 'div',
-      text: { tag: 'lark_md', content: `**📡 ${channelName}**` }
+      text: { tag: 'lark_md', content: `** ${channelName}**` }
     });
     
     elements.push({
@@ -334,7 +334,7 @@ async function monitorMajorNews() {
           impact: `【重大】${check.reason}`,
           url: result.specificUrl || result.url
         });
-        console.log(`  🔥 发现重大新闻: ${result.title} (${check.reason})`);
+        console.log(`   发现重大新闻: ${result.title} (${check.reason})`);
       }
     }
   }
@@ -376,7 +376,7 @@ async function runScheduledPush() {
   // 发送市场趋势
   await sendScheduledSummary(
     WEBHOOK_MARKET,
-    '📊 市场趋势监控 | 定时汇总',
+    ' 市场趋势监控 | 定时汇总',
     allData,
     false
   );

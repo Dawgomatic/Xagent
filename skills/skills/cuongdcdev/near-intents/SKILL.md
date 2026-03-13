@@ -5,7 +5,7 @@ description: Universal cross-chain swap & bridge skill for OpenClaw using the NE
 
 # NEAR Intents Skill — 1Click SDK
 
-## 📋 TL;DR
+##  TL;DR
 
 **What it does**: Universal cross-chain swap & bridge tool powered by the [1Click API](https://docs.near-intents.org/near-intents/integration/distribution-channels/1click-api) and the [`@defuse-protocol/one-click-sdk-typescript`](https://github.com/defuse-protocol/one-click-sdk-typescript) SDK.
 
@@ -58,15 +58,15 @@ const result = await executeIntent({
 
 | Parameter   | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-| `assetIn`   | string | ✅ | Origin asset symbol (e.g., `'NEAR'`, `'base:USDC'`, `'arb:ARB'`) |
-| `assetOut`  | string | ✅ | Destination asset symbol |
-| `amount`    | string | ✅ | Human-readable amount (e.g., `'1.0'`, `'0.5'`) |
-| `recipient` | string | ❌ | Destination address. Required for cross-chain. Defaults to NEAR account |
-| `refundAddress` | string | ⚠️ | **REQUIRED for non-NEAR origins**. Address on origin chain for refunds if swap fails. **CRITICAL for fund safety!** |
-| `mode`      | string | ❌ | `'auto'` sends deposit automatically from NEAR account. `'manual'` returns quote + deposit address for user to send manually |
-| `swapType`  | string | ❌ | `'EXACT_INPUT'` (amount = input), `'EXACT_OUTPUT'` (amount = desired output) |
+| `assetIn`   | string |  | Origin asset symbol (e.g., `'NEAR'`, `'base:USDC'`, `'arb:ARB'`) |
+| `assetOut`  | string |  | Destination asset symbol |
+| `amount`    | string |  | Human-readable amount (e.g., `'1.0'`, `'0.5'`) |
+| `recipient` | string |  | Destination address. Required for cross-chain. Defaults to NEAR account |
+| `refundAddress` | string |  | **REQUIRED for non-NEAR origins**. Address on origin chain for refunds if swap fails. **CRITICAL for fund safety!** |
+| `mode`      | string |  | `'auto'` sends deposit automatically from NEAR account. `'manual'` returns quote + deposit address for user to send manually |
+| `swapType`  | string |  | `'EXACT_INPUT'` (amount = input), `'EXACT_OUTPUT'` (amount = desired output) |
 
-### ⚠️ CRITICAL: Refund Address Safety
+###  CRITICAL: Refund Address Safety
 
 **When `assetIn` is on a non-NEAR chain** (e.g., `'base:USDC'`, `'arb:ARB'`, `'btc:BTC'`):
 
@@ -77,7 +77,7 @@ const result = await executeIntent({
 
 **Example**:
 ```typescript
-// ❌ WRONG - Missing refundAddress for non-NEAR origin
+//  WRONG - Missing refundAddress for non-NEAR origin
 await executeIntent({
   assetIn: 'base:USDC',  // Base origin
   assetOut: 'NEAR',
@@ -87,7 +87,7 @@ await executeIntent({
 });
 // → Error: Cross-chain swap from base:USDC requires refundAddress parameter
 
-// ✅ CORRECT - User's Base wallet address provided
+//  CORRECT - User's Base wallet address provided
 await executeIntent({
   assetIn: 'base:USDC',
   assetOut: 'NEAR',
@@ -255,7 +255,7 @@ ONE_CLICK_JWT=optional_jwt_token
 - `ONE_CLICK_JWT`: Register at [partners.near-intents.org](https://partners.near-intents.org/) to avoid the 0.2% fee.
 - Skip `.env` entirely if only using manual mode for non-NEAR-origin swaps.
 
-⚠️ **Never commit `.env` to version control!**
+ **Never commit `.env` to version control!**
 
 ---
 

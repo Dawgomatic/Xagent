@@ -69,7 +69,7 @@ Birdfolio turns bird photos into a personal life list. Users photograph birds in
 
 6. Reply with a welcome message and checklist preview:
    ```
-   🦅 Birdfolio is set up for {region}!
+    Birdfolio is set up for {region}!
 
    Your checklist:
    Common (10):  American Robin, House Sparrow, ...
@@ -122,9 +122,9 @@ Search You.com:
 Classify using these signals:
 | Tier | Script value | Signals |
 |------|-------------|---------|
-| Common 🟢 | `common` | "abundant", "widespread", "year-round resident", >50% of checklists |
-| Rare 🟡 | `rare` | "uncommon", "seasonal", "migratory", "occasional", 5–50% of checklists |
-| Super Rare 🔴 | `superRare` | "rare", "vagrant", "accidental", "endangered", <5% of checklists |
+| Common  | `common` | "abundant", "widespread", "year-round resident", >50% of checklists |
+| Rare  | `rare` | "uncommon", "seasonal", "migratory", "occasional", 5–50% of checklists |
+| Super Rare  | `superRare` | "rare", "vagrant", "accidental", "endangered", <5% of checklists |
 
 When unsure → default to **`rare`**. Always use the script value (e.g. `superRare`, not `Super Rare`) when passing `--rarity` to any script.
 
@@ -220,10 +220,10 @@ message(action="send", media="<pngPath>")
 ### Step 7 — Reply
 
 - If `isLifer` is true:
-  *"🎉 New lifer! That's your first ever [commonName]! Bird #[totalSpecies] in your Birdfolio."*
+  *" New lifer! That's your first ever [commonName]! Bird #[totalSpecies] in your Birdfolio."*
 
   **If `totalSpecies == 1` (this is their very first bird ever):** also send their personal PWA link:
-  *"🦅 Your Birdfolio is live! Bookmark this link to see your life list:
+  *" Your Birdfolio is live! Bookmark this link to see your life list:
   https://birdfolio.tonbistudio.com/app/[telegram_id]"*
 
   The `telegram_id` is the sender's Telegram ID from the inbound message metadata (`sender_id`). This is also stored in `birdfolio/config.json` after init.
@@ -235,11 +235,11 @@ Include: rarity badge emoji, the fun fact, checklist status (if species was on c
 
 **Fallback if screenshot fails:** Send a formatted text card:
 ```
-🦅 [RARITY_EMOJI] [Common Name]
+ [RARITY_EMOJI] [Common Name]
 Scientific: [Scientific Name]
 Region: [Region] | Spotted: [Date]
 Rarity: [Rarity]
-💡 [Fun Fact]
+ [Fun Fact]
 Bird #[N] in your Birdfolio
 ```
 
@@ -257,18 +257,18 @@ exec: python {baseDir}/scripts/get_stats.py \
 Format response using `checklistProgress` from output:
 
 ```
-📋 {region} Checklist
+ {region} Checklist
 
-Common     ✅✅✅⬜⬜⬜⬜⬜⬜⬜  3/10
-Rare       ✅⬜⬜⬜⬜              1/5
-Super Rare ⬜                      0/1
+Common       3/10
+Rare                     1/5
+Super Rare                       0/1
 
-🐦 {totalSpecies} species | {totalSightings} total sightings
-📍 Last spotted: {mostRecentSighting.commonName} on {date}
-🏆 Rarest find: {rarestBird.commonName} ({rarity})
+ {totalSpecies} species | {totalSightings} total sightings
+ Last spotted: {mostRecentSighting.commonName} on {date}
+ Rarest find: {rarestBird.commonName} ({rarity})
 ```
 
-Use ✅ for found, ⬜ for not found. One box per species.
+Use  for found,  for not found. One box per species.
 
 **Optional visual checklist card:** Generate a visual HTML checklist card and screenshot it:
 ```

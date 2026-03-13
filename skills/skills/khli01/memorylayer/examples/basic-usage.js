@@ -13,11 +13,11 @@
 const memory = require('../index.js');
 
 async function main() {
-  console.log('🧠 MemoryLayer Basic Usage Example\n');
+  console.log(' MemoryLayer Basic Usage Example\n');
   
   try {
     // 1. Store some memories
-    console.log('📝 Storing memories...');
+    console.log(' Storing memories...');
     
     await memory.remember(
       'User prefers dark mode UI with blue accent colors',
@@ -34,10 +34,10 @@ async function main() {
       { type: 'procedural', importance: 0.7 }
     );
     
-    console.log('✅ Stored 3 memories\n');
+    console.log(' Stored 3 memories\n');
     
     // 2. Search for relevant memories
-    console.log('🔍 Searching for "UI preferences"...');
+    console.log(' Searching for "UI preferences"...');
     const results = await memory.search('UI preferences', 5);
     
     console.log(`Found ${results.length} results:\n`);
@@ -48,13 +48,13 @@ async function main() {
     console.log();
     
     // 3. Get formatted context for prompt injection
-    console.log('📋 Getting formatted context...');
+    console.log(' Getting formatted context...');
     const context = await memory.get_context('user interface settings', 3);
     console.log(context);
     console.log();
     
     // 4. Check usage stats
-    console.log('📊 Usage statistics...');
+    console.log(' Usage statistics...');
     const stats = await memory.stats();
     console.log(`Email: ${stats.email}`);
     console.log(`Total memories: ${stats.total_memories || 'N/A'}`);
@@ -62,19 +62,19 @@ async function main() {
     console.log();
     
     // Token savings calculation
-    console.log('💰 Token Savings:');
+    console.log(' Token Savings:');
     console.log('Before MemoryLayer: 10,500 tokens (entire MEMORY.md)');
     console.log('After MemoryLayer: ~500 tokens (5 relevant memories)');
     console.log('Savings: 95% = ~$900/month at scale');
     console.log();
     
-    console.log('✅ Example complete!');
+    console.log(' Example complete!');
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.message.includes('Missing credentials')) {
-      console.log('\n💡 Set credentials first:');
+      console.log('\n Set credentials first:');
       console.log('export MEMORYLAYER_EMAIL=your@email.com');
       console.log('export MEMORYLAYER_PASSWORD=your_password');
       console.log('\nOr visit: https://memorylayer.clawbot.hk to sign up');

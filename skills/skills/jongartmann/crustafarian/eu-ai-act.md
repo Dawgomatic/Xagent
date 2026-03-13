@@ -53,10 +53,10 @@ documented and maintained.
 
 | EU AI Act Article | molt-life-kernel Feature | Status |
 |-------------------|--------------------------|--------|
-| Art. 14 (Human Oversight) | Witness Gates | ✅ Built-in |
-| Art. 12 (Record-Keeping) | Append-Only Ledger | ✅ Built-in |
-| Art. 15 (Robustness) | Coherence + Heartbeat | ✅ Built-in |
-| Art. 9 (Risk Management) | Risk Scoring + Witness | ✅ Built-in |
+| Art. 14 (Human Oversight) | Witness Gates |  Built-in |
+| Art. 12 (Record-Keeping) | Append-Only Ledger |  Built-in |
+| Art. 15 (Robustness) | Coherence + Heartbeat |  Built-in |
+| Art. 9 (Risk Management) | Risk Scoring + Witness |  Built-in |
 
 ## More Information
 

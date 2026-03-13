@@ -60,7 +60,7 @@ function confirm(message) {
 
 // List snapshots
 async function listAction() {
-  console.log(`📸 Snapshots for ${domain}`);
+  console.log(` Snapshots for ${domain}`);
   console.log('');
   
   try {
@@ -69,7 +69,7 @@ async function listAction() {
     if (!snapshots || snapshots.length === 0) {
       console.log('No snapshots found.');
       console.log('');
-      console.log('💡 Create a snapshot with:');
+      console.log(' Create a snapshot with:');
       console.log(`   node manage-snapshots.js ${domain} create "My snapshot"`);
       return;
     }
@@ -90,11 +90,11 @@ async function listAction() {
       console.log('');
     });
     
-    console.log('💡 To restore a snapshot:');
+    console.log(' To restore a snapshot:');
     console.log(`   node manage-snapshots.js ${domain} restore <snapshot-id> --confirm`);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     if (error.statusCode === 404) {
       console.error('Domain not found or not using Gandi LiveDNS.');
     }
@@ -105,25 +105,25 @@ async function listAction() {
 // Create snapshot
 async function createAction(name) {
   if (!name) {
-    console.error('❌ Error: Snapshot name required');
+    console.error(' Error: Snapshot name required');
     console.error('Usage: node manage-snapshots.js <domain> create <name>');
     process.exit(1);
   }
   
-  console.log(`📸 Creating snapshot for ${domain}`);
+  console.log(` Creating snapshot for ${domain}`);
   console.log(`   Name: ${name}`);
   console.log('');
   
   try {
     const snapshot = await createSnapshot(domain, name);
-    console.log('✅ Snapshot created successfully!');
+    console.log(' Snapshot created successfully!');
     console.log(`   ID: ${snapshot.id || snapshot.uuid || 'N/A'}`);
     console.log('');
-    console.log('💡 To restore this snapshot later:');
+    console.log(' To restore this snapshot later:');
     console.log(`   node manage-snapshots.js ${domain} restore ${snapshot.id || snapshot.uuid} --confirm`);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     if (error.statusCode === 403) {
       console.error('Permission denied. Ensure your API token has LiveDNS: write scope.');
     } else if (error.statusCode === 404) {
@@ -136,27 +136,27 @@ async function createAction(name) {
 // Restore snapshot
 async function restoreAction(snapshotId, autoConfirm) {
   if (!snapshotId) {
-    console.error('❌ Error: Snapshot ID required');
+    console.error(' Error: Snapshot ID required');
     console.error('Usage: node manage-snapshots.js <domain> restore <snapshot-id> [--confirm]');
     console.error('');
-    console.error('💡 List available snapshots:');
+    console.error(' List available snapshots:');
     console.error(`   node manage-snapshots.js ${domain} list`);
     process.exit(1);
   }
   
-  console.log(`🔄 Restoring ${domain} from snapshot`);
+  console.log(` Restoring ${domain} from snapshot`);
   console.log(`   Snapshot ID: ${snapshotId}`);
   console.log('');
   
   try {
     // Show current DNS records
-    console.log('📋 Current DNS records will be replaced...');
+    console.log(' Current DNS records will be replaced...');
     const currentRecords = await listDnsRecords(domain);
     console.log(`   Currently: ${currentRecords.length} record(s)`);
     console.log('');
     
     // Warn about replacement
-    console.log('⚠️  WARNING: This will REPLACE all current DNS records!');
+    console.log('  WARNING: This will REPLACE all current DNS records!');
     console.log('All changes made after the snapshot was created will be lost.');
     console.log('');
     
@@ -165,28 +165,28 @@ async function restoreAction(snapshotId, autoConfirm) {
       const confirmed = await confirm('Are you sure you want to restore this snapshot? (yes/no): ');
       
       if (!confirmed) {
-        console.log('❌ Restore cancelled.');
+        console.log(' Restore cancelled.');
         process.exit(0);
       }
       console.log('');
     }
     
     // Restore the snapshot
-    console.log('🔄 Restoring...');
+    console.log(' Restoring...');
     await restoreSnapshot(domain, snapshotId);
     
-    console.log('✅ Snapshot restored successfully!');
+    console.log(' Snapshot restored successfully!');
     console.log('');
-    console.log('⏱️  DNS Propagation:');
+    console.log('  DNS Propagation:');
     console.log('   - Gandi nameservers: immediate');
     console.log('   - Local cache: ~5 minutes');
     console.log('   - Global: 24-48 hours (worst case)');
     console.log('');
-    console.log('🔍 Verify your DNS records:');
+    console.log(' Verify your DNS records:');
     console.log(`   node list-dns.js ${domain}`);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     if (error.statusCode === 403) {
       console.error('Permission denied. Ensure your API token has LiveDNS: write scope.');
     } else if (error.statusCode === 404) {
@@ -216,13 +216,13 @@ async function main() {
         break;
         
       default:
-        console.error(`❌ Unknown action: ${action}`);
+        console.error(` Unknown action: ${action}`);
         console.error('Valid actions: list, create, restore');
         process.exit(1);
     }
     
   } catch (error) {
-    console.error('❌ Unexpected error:', error.message);
+    console.error(' Unexpected error:', error.message);
     process.exit(1);
   }
 }

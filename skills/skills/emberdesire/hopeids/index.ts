@@ -398,7 +398,7 @@ function buildTelegramAlert(record: QuarantineRecord): string {
     : '• (no pattern metadata)';
 
   return [
-    '🛑 Message blocked',
+    ' Message blocked',
     '',
     `ID: \`${record.id}\``,
     `Agent: ${record.agent}`,
@@ -568,7 +568,7 @@ export default function register(api: PluginApi) {
 
         // Check if should block
         if (shouldBlock(cfg, agentId, risk)) {
-          api.logger.warn(`[hopeIDS] 🛑 BLOCKED: ${intent} (${Math.round(risk * 100)}%)`);
+          api.logger.warn(`[hopeIDS]  BLOCKED: ${intent} (${Math.round(risk * 100)}%)`);
           
           // Create quarantine record (metadata only!)
           const record = await quarantine!.create({
@@ -608,10 +608,10 @@ export default function register(api: PluginApi) {
         
         // Check if should warn
         if (shouldWarn(cfg, agentId, risk)) {
-          api.logger.warn(`[hopeIDS] ⚠️ WARNING: ${intent} (${Math.round(risk * 100)}%)`);
+          api.logger.warn(`[hopeIDS]  WARNING: ${intent} (${Math.round(risk * 100)}%)`);
           return {
             prependContext: `<security-alert severity="warning">
-⚠️ Potential security concern detected.
+ Potential security concern detected.
 Intent: ${intent}
 Risk: ${Math.round(risk * 100)}%
 Proceed with caution.
@@ -677,7 +677,7 @@ Proceed with caution.
             riskScore: risk,
             intent: classification.intent,
             message: `${classification.intent}: ${classification.reasoning}`,
-            notification: `${action === 'block' ? '🛑' : action === 'warn' ? '⚠️' : '✅'} ${classification.intent} (${Math.round(risk * 100)}%)`,
+            notification: `${action === 'block' ? '' : action === 'warn' ? '' : ''} ${classification.intent} (${Math.round(risk * 100)}%)`,
             classifier: 'llm-task'
           };
         }
@@ -719,13 +719,13 @@ Proceed with caution.
     requireAuth: true,
     handler: async (ctx: { args?: string }) => {
       await ensureIDS(cfg);
-      if (!ids) return { text: '❌ hopeIDS not initialized' };
+      if (!ids) return { text: ' hopeIDS not initialized' };
 
       const message = ctx.args?.trim();
-      if (!message) return { text: '⚠️ Usage: /scan <message to check>' };
+      if (!message) return { text: ' Usage: /scan <message to check>' };
 
       const result = await ids.scanWithAlert(message, { source: 'command' });
-      const emoji = result.action === 'allow' ? '✅' : result.action === 'warn' ? '⚠️' : '🛑';
+      const emoji = result.action === 'allow' ? '' : result.action === 'warn' ? '' : '';
       
       return {
         text: `${emoji} **Security Scan Result**\n\n` +
@@ -743,7 +743,7 @@ Proceed with caution.
     acceptsArgs: true,
     requireAuth: true,
     handler: async (ctx: { args?: string }) => {
-      if (!quarantine) return { text: '❌ Quarantine not initialized' };
+      if (!quarantine) return { text: ' Quarantine not initialized' };
 
       const subCmd = ctx.args?.trim().split(' ')[0];
       
@@ -764,7 +764,7 @@ Proceed with caution.
 
       // Default: list pending
       const records = await quarantine.listPending();
-      if (!records.length) return { text: '✅ No pending quarantine records.' };
+      if (!records.length) return { text: ' No pending quarantine records.' };
       
       const lines = records.map(r => 
         `• \`${r.id}\` — ${r.agent}, ${r.intent} (${Math.round(r.risk * 100)}%), sender: ${r.senderId ?? 'unknown'}`
@@ -779,13 +779,13 @@ Proceed with caution.
     acceptsArgs: true,
     requireAuth: true,
     handler: async (ctx: { args?: string }) => {
-      if (!quarantine) return { text: '❌ Quarantine not initialized' };
+      if (!quarantine) return { text: ' Quarantine not initialized' };
 
       const id = ctx.args?.trim();
-      if (!id) return { text: '⚠️ Usage: /approve <quarantineId>' };
+      if (!id) return { text: ' Usage: /approve <quarantineId>' };
 
       const record = await quarantine.get(id);
-      if (!record) return { text: `❌ No such quarantine id: ${id}` };
+      if (!record) return { text: ` No such quarantine id: ${id}` };
 
       await quarantine.updateStatus(id, 'approved');
       
@@ -793,7 +793,7 @@ Proceed with caution.
       // TODO: Mark pattern as potential false positive
       
       return { 
-        text: `✅ Approved \`${id}\`\n\n` +
+        text: ` Approved \`${id}\`\n\n` +
               `Intent: ${record.intent}\n` +
               `Sender: ${record.senderId ?? 'unknown'}\n\n` +
               `Future similar messages will be treated as less risky.`
@@ -807,13 +807,13 @@ Proceed with caution.
     acceptsArgs: true,
     requireAuth: true,
     handler: async (ctx: { args?: string }) => {
-      if (!quarantine) return { text: '❌ Quarantine not initialized' };
+      if (!quarantine) return { text: ' Quarantine not initialized' };
 
       const id = ctx.args?.trim();
-      if (!id) return { text: '⚠️ Usage: /reject <quarantineId>' };
+      if (!id) return { text: ' Usage: /reject <quarantineId>' };
 
       const record = await quarantine.get(id);
-      if (!record) return { text: `❌ No such quarantine id: ${id}` };
+      if (!record) return { text: ` No such quarantine id: ${id}` };
 
       await quarantine.updateStatus(id, 'rejected');
       
@@ -821,7 +821,7 @@ Proceed with caution.
       // TODO: Optionally block sender
       
       return { 
-        text: `🛑 Rejected \`${id}\`\n\n` +
+        text: ` Rejected \`${id}\`\n\n` +
               `Intent: ${record.intent}\n` +
               `Sender: ${record.senderId ?? 'unknown'}\n\n` +
               `Pattern reinforced as true positive.`
@@ -836,14 +836,14 @@ Proceed with caution.
     requireAuth: true,
     handler: async (ctx: { args?: string }) => {
       const senderId = ctx.args?.trim();
-      if (!senderId) return { text: '⚠️ Usage: /trust <senderId>' };
+      if (!senderId) return { text: ' Usage: /trust <senderId>' };
 
       // TODO: Add to IDS trusted senders list
       if (ids) {
         ids.trustSender(senderId);
       }
       
-      return { text: `✅ Trusted sender: ${senderId}\n\nFuture messages from this sender will not be scanned.` };
+      return { text: ` Trusted sender: ${senderId}\n\nFuture messages from this sender will not be scanned.` };
     },
   });
 

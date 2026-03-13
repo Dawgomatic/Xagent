@@ -58,9 +58,9 @@ def check(name, passed, detail="", weight=1):
     max_score += weight
     if passed:
         score += weight
-        print(f"  ✅ {name}: {detail}")
+        print(f"   {name}: {detail}")
     else:
-        print(f"  ❌ {name}: {detail}")
+        print(f"   {name}: {detail}")
         issues.append(f"{name}: {detail}")
 
 print("## File Health\n")
@@ -100,7 +100,7 @@ try:
         with open(errors_file, "a") as ef:
             for err in parse_errors:
                 ef.write(json.dumps(err) + "\n")
-        print(f"  ⚠️  {len(parse_errors)} parse errors logged to parse-errors.jsonl")
+        print(f"    {len(parse_errors)} parse errors logged to parse-errors.jsonl")
         
 except FileNotFoundError:
     pass

@@ -79,7 +79,7 @@ if [[ "${OWNER_ADDR,,}" == "${WALLET_ADDRESS,,}" ]]; then
     exit 1
 fi
 
-echo "⭐ Giving feedback to agent $AGENT_ID"
+echo " Giving feedback to agent $AGENT_ID"
 echo "   Score: $SCORE (decimals: $DECIMALS)"
 [[ -n "$TAG1" ]] && echo "   Tag1: $TAG1"
 [[ -n "$TAG2" ]] && echo "   Tag2: $TAG2"

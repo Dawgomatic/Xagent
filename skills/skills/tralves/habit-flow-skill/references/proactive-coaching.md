@@ -40,13 +40,13 @@ The Proactive Coaching system automatically initiates coaching interactions at o
 
 **Example Message (Flex):**
 ```
-🎉 Milestone Alert: 7-Day Streak
+ Milestone Alert: 7-Day Streak
 
 You've maintained meditation for 7 consecutive days—your longest streak yet.
 
 Data shows perfect quality (forgiveness not used). The compound effect is beginning.
 
-📊 Your Progress:
+ Your Progress:
 - Current streak: 7 days
 - Quality: PERFECT
 - New personal record
@@ -70,23 +70,23 @@ Next target: 14 days. One week at a time.
 
 **Example Message (Coach Blaze):**
 ```
-⚠️ HEADS UP, WARRIOR!
+ HEADS UP, WARRIOR!
 
 I've been watching your meditation data, and we need to TALK!
 
-🚨 Risk factors:
+ Risk factors:
 • Missed yesterday
 • Sunday is historically difficult (30% success)
 • Weekend ahead—routine disruption
 
 You're on a 12-day streak! We're NOT letting this die!
 
-🛡️ BATTLE PLAN:
+ BATTLE PLAN:
 • Use 2-minute rule—just show up
 • Set a specific time and location for tomorrow
 • Plan weekend habit first thing in morning
 
-You got this! LOCK IN and EXECUTE! 💪
+You got this! LOCK IN and EXECUTE! 
 ```
 
 **Attachments:** Heatmap
@@ -105,7 +105,7 @@ You got this! LOCK IN and EXECUTE! 💪
 
 **Example Message (Luna):**
 ```
-☀️ Your Weekly Reflection
+ Your Weekly Reflection
 
 This week, you showed up for meditation 6 out of 7 days—a 85% expression of your commitment.
 
@@ -132,7 +132,7 @@ Let's hold space for what this journey means to you.
 
 **Example Message (Flex):**
 ```
-🔍 Pattern Detection: Meditation
+ Pattern Detection: Meditation
 
 Analysis reveals: Your Monday success rate (45%) is much higher than Saturday (15%)
 

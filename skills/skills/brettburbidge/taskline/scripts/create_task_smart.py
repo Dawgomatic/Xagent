@@ -57,7 +57,7 @@ def get_projects() -> List[Dict]:
     """Get all projects (with fallback)."""
     result = api_request("GET", "projects")
     if result is None:
-        print("ℹ️  Projects API not yet available - using project report fallback")
+        print("  Projects API not yet available - using project report fallback")
         # Fallback to by-project report
         report = api_request("GET", "reports/by-project", fallback_on_404=False)
         return report.get("projects", [])
@@ -67,7 +67,7 @@ def get_people() -> List[Dict]:
     """Get all people (with fallback)."""
     result = api_request("GET", "people")
     if result is None:
-        print("ℹ️  People API not yet available - using basic assignment")
+        print("  People API not yet available - using basic assignment")
         return []
     return result.get("data", [])
 
@@ -88,10 +88,10 @@ def find_or_create_project(project_name: str) -> Optional[str]:
     })
     
     if new_project:
-        print(f"📁 Created new project: {project_name}")
+        print(f" Created new project: {project_name}")
         return new_project["id"]
     else:
-        print(f"⚠️  Cannot create project '{project_name}' - API not available yet")
+        print(f"  Cannot create project '{project_name}' - API not available yet")
         return None
 
 def parse_enhanced_date(text: str) -> Optional[str]:
@@ -299,14 +299,14 @@ def create_smart_task(parsed_task: Dict) -> Dict:
     
     # Handle people mentions (informational for now)
     if parsed_task['people_mentions']:
-        print(f"👥 People mentioned: {', '.join(parsed_task['people_mentions'])}")
+        print(f" People mentioned: {', '.join(parsed_task['people_mentions'])}")
         print("   (Full people management will be available when People API is deployed)")
     
     return task
 
 def format_smart_task_summary(task: Dict, parsed: Dict) -> str:
     """Format task creation summary."""
-    lines = [f"✅ Created task: {task['title']}"]
+    lines = [f" Created task: {task['title']}"]
     
     if task.get('description'):
         lines.append(f"   Description: {task['description']}")
@@ -333,8 +333,8 @@ if __name__ == "__main__":
     request_text = " ".join(sys.argv[1:])
     parsed_task = parse_smart_task(request_text)
     
-    print(f"🧠 Parsing: '{request_text}'")
-    print(f"📝 Extracted: {parsed_task}")
+    print(f" Parsing: '{request_text}'")
+    print(f" Extracted: {parsed_task}")
     print()
     
     # Create the task

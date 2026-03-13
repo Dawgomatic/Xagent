@@ -1,7 +1,7 @@
 ---
 name: monzo
 description: Access Monzo bank account - check balance, view transactions, manage pots, send feed notifications. For personal finance queries and banking automation.
-metadata: {"openclaw":{"emoji":"🏦","requires":{"env":["MONZO_KEYRING_PASSWORD"],"bins":["curl","jq","openssl","bc"]},"primaryEnv":"MONZO_KEYRING_PASSWORD"}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["MONZO_KEYRING_PASSWORD"],"bins":["curl","jq","openssl","bc"]},"primaryEnv":"MONZO_KEYRING_PASSWORD"}}
 ---
 
 # Monzo Banking Skill
@@ -104,7 +104,7 @@ Use your preferred secrets tool to inject the env var at runtime. Any method tha
    - **Logo URL**: *(leave blank)*
    - **Redirect URLs**: `http://localhost` ← exactly this, no trailing slash
    - **Description**: *(leave blank)*
-   - **Confidentiality**: **Confidential** ← ⚠️ Important! Enables refresh tokens
+   - **Confidentiality**: **Confidential** ←  Important! Enables refresh tokens
 4. Click **Submit**
 5. Note your **Client ID** (`oauth2client_...`) and **Client Secret** (`mnzconf....`)
 
@@ -131,7 +131,7 @@ scripts/setup.sh --non-interactive \
 
 ### Step 4: Approve in Monzo App (SCA)
 
-⚠️ **This step is required!** Monzo requires Strong Customer Authentication.
+ **This step is required!** Monzo requires Strong Customer Authentication.
 
 1. Open the **Monzo app** on your phone
 2. Look for a notification about "API access" or a new connection
@@ -156,7 +156,7 @@ scripts/whoami.sh
 scripts/balance.sh
 ```
 
-You should see your account info and current balance. You're done! 🎉
+You should see your account info and current balance. You're done! 
 
 ---
 

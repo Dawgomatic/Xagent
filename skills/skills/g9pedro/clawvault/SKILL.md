@@ -7,13 +7,13 @@ repository: https://github.com/Versatly/clawvault
 homepage: https://clawvault.dev
 user-invocable: true
 always: false
-openclaw: {"emoji":"🐘","requires":{"bins":["clawvault","qmd"]}}
+openclaw: {"emoji":"","requires":{"bins":["clawvault","qmd"]}}
 requires: {"bins":["clawvault","qmd"],"env_optional":["CLAWVAULT_PATH","OPENCLAW_HOME","OPENCLAW_STATE_DIR","GEMINI_API_KEY"]}
 install: [{"id":"node","kind":"node","package":"clawvault","bins":["clawvault"],"label":"Install ClawVault CLI (npm)"},{"id":"qmd","kind":"node","package":"github:tobi/qmd","bins":["qmd"],"label":"Install qmd backend (required for query/context workflows)"}]
-metadata: {"openclaw":{"emoji":"🐘","requires":{"bins":["clawvault","qmd"]},"install":[{"id":"node","kind":"node","package":"clawvault","bins":["clawvault"],"label":"Install ClawVault CLI (npm)"},{"id":"qmd","kind":"node","package":"github:tobi/qmd","bins":["qmd"],"label":"Install qmd backend (required for query/context workflows)"}],"env_optional":["CLAWVAULT_PATH","OPENCLAW_HOME","OPENCLAW_STATE_DIR","GEMINI_API_KEY"],"homepage":"https://clawvault.dev"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["clawvault","qmd"]},"install":[{"id":"node","kind":"node","package":"clawvault","bins":["clawvault"],"label":"Install ClawVault CLI (npm)"},{"id":"qmd","kind":"node","package":"github:tobi/qmd","bins":["qmd"],"label":"Install qmd backend (required for query/context workflows)"}],"env_optional":["CLAWVAULT_PATH","OPENCLAW_HOME","OPENCLAW_STATE_DIR","GEMINI_API_KEY"],"homepage":"https://clawvault.dev"}}
 ---
 
-# ClawVault 🐘
+# ClawVault 
 
 An elephant never forgets. Structured memory for OpenClaw agents.
 

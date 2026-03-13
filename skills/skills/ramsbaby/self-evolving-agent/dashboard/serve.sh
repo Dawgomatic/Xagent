@@ -12,12 +12,12 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 # Rebuild index before serving so data is fresh
-echo "📦 Building data index..."
+echo " Building data index..."
 bash "$SCRIPT_DIR/build-index.sh" 2>&1 | sed 's/^/   /'
 
 echo ""
 echo "╔══════════════════════════════════════════════════════╗"
-echo "║  🧠 Self-Evolving Agent Dashboard                    ║"
+echo "║   Self-Evolving Agent Dashboard                    ║"
 echo "╠══════════════════════════════════════════════════════╣"
 echo "║  URL:  http://localhost:${PORT}/dashboard/           ║"
 echo "║  Stop: Ctrl+C                                        ║"

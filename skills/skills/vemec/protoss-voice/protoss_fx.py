@@ -29,7 +29,7 @@ def check_dependencies():
         missing.append("sox")
 
     if missing:
-        print(f"❌ Error: Missing required dependencies: {', '.join(missing)}")
+        print(f" Error: Missing required dependencies: {', '.join(missing)}")
         print("Please install them using brew:")
         print(f"  brew install {' '.join(missing)}")
         return False
@@ -46,7 +46,7 @@ def apply_protoss_effect(input_path, output_path):
     if not check_dependencies():
         return
 
-    print(f"🔮 Channeling Protoss Psionic Energy to: {input_path}")
+    print(f" Channeling Protoss Psionic Energy to: {input_path}")
 
     # Define temporary file paths using absolute paths to avoid confusion
     work_dir = os.path.dirname(os.path.abspath(output_path))
@@ -108,12 +108,12 @@ def apply_protoss_effect(input_path, output_path):
             stderr=subprocess.DEVNULL
         )
 
-        print(f"✨ Psionic Entity Stabilized: {output_path}")
+        print(f" Psionic Entity Stabilized: {output_path}")
 
     except subprocess.CalledProcessError as e:
-        print(f"❌ Disruption in the Khala (Processing Error): {e}")
+        print(f" Disruption in the Khala (Processing Error): {e}")
     except Exception as e:
-        print(f"❌ Unknown Error: {e}")
+        print(f" Unknown Error: {e}")
     finally:
         # Cleanup temporary artifacts
         for temp_file in [temp_wav_in, temp_wav_psi, temp_wav_mix]:

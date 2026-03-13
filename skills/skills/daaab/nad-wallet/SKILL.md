@@ -1,9 +1,9 @@
 ---
 name: nad-wallet
-description: "🔐 Nad Wallet - Monad Chain Identity for AI Agents. Create wallets, sign messages (SIWE), manage MON tokens programmatically. Built for the Nad ecosystem (nad.fun, NadMail, NadName)."
+description: " Nad Wallet - Monad Chain Identity for AI Agents. Create wallets, sign messages (SIWE), manage MON tokens programmatically. Built for the Nad ecosystem (nad.fun, NadMail, NadName)."
 ---
 
-# 🔐 Nad Wallet - Monad Chain Identity for AI Agents
+#  Nad Wallet - Monad Chain Identity for AI Agents
 
 > Every autonomous agent needs a wallet on Monad. Create one without human help.
 
@@ -22,9 +22,9 @@ Create and manage Monad chain wallets programmatically for the Nad ecosystem.
 
 ---
 
-## ⚠️ Security First
+##  Security First
 
-| ✅ DO | ❌ DON'T |
+|  DO |  DON'T |
 |-------|----------|
 | Use **NAD_PRIVATE_KEY** environment variable | Store private keys in plain text files |
 | Set wallet files to **chmod 600** | Commit wallet files to git |
@@ -32,7 +32,7 @@ Create and manage Monad chain wallets programmatically for the Nad ecosystem.
 | Back up mnemonics **offline** | Share private keys or mnemonics |
 | Store files in `~/.nad-wallet/` only | Auto-detect wallets outside ~/.nad-wallet/ |
 
-**🔒 Security Standards:** Identical to Base Wallet security practices but adapted for Monad/Nad ecosystem.
+** Security Standards:** Identical to Base Wallet security practices but adapted for Monad/Nad ecosystem.
 
 ---
 
@@ -71,7 +71,7 @@ Then copy to your shell or `.env` file.
 node scripts/create-wallet.js --managed my-agent
 ```
 
-⚠️ This stores private key in `~/.nad-wallet/wallets/my-agent.json`
+ This stores private key in `~/.nad-wallet/wallets/my-agent.json`
 
 ---
 
@@ -82,10 +82,10 @@ node scripts/create-wallet.js --managed my-agent
 ```javascript
 const { ethers } = require('ethers');
 
-// ✅ SECURE: Load from environment variable
+//  SECURE: Load from environment variable
 const wallet = new ethers.Wallet(process.env.NAD_PRIVATE_KEY);
 console.log('Address:', wallet.address);
-// ❌ NEVER: console.log('Private Key:', wallet.privateKey);
+//  NEVER: console.log('Private Key:', wallet.privateKey);
 ```
 
 ### Connect to Monad
@@ -194,18 +194,18 @@ node scripts/check-balance.js 0x1234...5678
 
 Example output:
 ```
-💰 Nad Wallet Balance Check
+ Nad Wallet Balance Check
 ==================================================
 Address: 0x1234...5678
 Network: Monad (Chain ID 143)
 RPC: https://rpc.monad.xyz
 
-💎 Balance: 42.5 MON
+ Balance: 42.5 MON
 Wei: 42500000000000000000
 
-🔗 Explorer: https://explorer.monad.xyz/address/0x1234...5678
+ Explorer: https://explorer.monad.xyz/address/0x1234...5678
 
-🌐 Nad Ecosystem:
+ Nad Ecosystem:
   • nad.fun - Meme token platform
   • NadMail (nadmail.ai) - Web3 email  
   • NadName (app.nad.domains) - Domain names
@@ -228,24 +228,24 @@ Wei: 42500000000000000000
 
 ## Nad Ecosystem Services
 
-### 🎭 nad.fun
+###  nad.fun
 - Meme token creation platform
 - Community-driven token launches
 - Built on Monad for fast transactions
 
-### 📧 NadMail (nadmail.ai)
+###  NadMail (nadmail.ai)
 - Web3 email service for Nad ecosystem
 - SIWE authentication with your wallet
 - Integrated with this skill via `nadmail-register.js`
 
-### 🌐 NadName (app.nad.domains)
+###  NadName (app.nad.domains)
 - Domain name service for Nad ecosystem
 - Link human-readable names to wallet addresses
 - Built on Monad infrastructure
 
 ---
 
-## 📝 Audit Logging
+##  Audit Logging
 
 All operations are logged to `~/.nad-wallet/audit.log` with:
 - Timestamp
@@ -261,7 +261,7 @@ All operations are logged to `~/.nad-wallet/audit.log` with:
 ### Environment Variables
 
 ```bash
-# ✅ Recommended approach
+#  Recommended approach
 export NAD_PRIVATE_KEY="0x..."
 export NAD_WALLET_ADDRESS="0x..."
 
@@ -396,17 +396,17 @@ echo 'export NAD_PRIVATE_KEY="0x..."' >> ~/.bashrc
 ## Changelog
 
 ### v1.0.0 (2026-02-09)
-- 🎉 Initial release for Monad blockchain
-- 🔐 Security: Environment variable approach (--env mode default)
-- 📧 NadMail SIWE integration
-- 💰 MON balance checking
-- 📝 Comprehensive audit logging
-- 🌐 Nad ecosystem integration (nad.fun, NadMail, NadName)
-- 📚 Complete documentation with security best practices
-- 🔒 File permissions enforcement (600/700)
+-  Initial release for Monad blockchain
+-  Security: Environment variable approach (--env mode default)
+-  NadMail SIWE integration
+-  MON balance checking
+-  Comprehensive audit logging
+-  Nad ecosystem integration (nad.fun, NadMail, NadName)
+-  Complete documentation with security best practices
+-  File permissions enforcement (600/700)
 
 ---
 
 ## License
 
-MIT License - Build awesome things with Nad Wallet! 🚀
+MIT License - Build awesome things with Nad Wallet! 

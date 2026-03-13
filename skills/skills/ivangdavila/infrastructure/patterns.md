@@ -28,7 +28,7 @@
 ```
 ┌─────────────┐     ┌─────────────┐
 │  App Server │     │  DB Server  │
-│  (Docker)   │────▶│ (Managed or │
+│  (Docker)   │────│ (Managed or │
 │  + Caddy    │     │  dedicated) │
 └─────────────┘     └─────────────┘
        │

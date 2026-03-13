@@ -26,7 +26,7 @@ fi
 
 # Validate hostname
 if [[ -z "$1" ]]; then
-  echo "❌ Error: Hostname required"
+  echo " Error: Hostname required"
   echo "Usage: $0 <hostname> [webhook-url]"
   exit 1
 fi
@@ -34,17 +34,17 @@ fi
 HOSTNAME="$1"
 WEBHOOK_URL="$2"
 
-echo "🔍 Verifying Inbound Parse setup for: $HOSTNAME"
+echo " Verifying Inbound Parse setup for: $HOSTNAME"
 echo ""
 
 # Check if dig is available
 if ! command -v dig &> /dev/null; then
-  echo "⚠️  Warning: 'dig' command not found, using 'nslookup' instead"
+  echo "  Warning: 'dig' command not found, using 'nslookup' instead"
   USE_NSLOOKUP=1
 fi
 
 # Check MX record
-echo "📝 Checking MX record..."
+echo " Checking MX record..."
 if [[ -n "$USE_NSLOOKUP" ]]; then
   MX_RECORDS=$(nslookup -type=MX "$HOSTNAME" 2>&1 | grep "mail exchanger" || true)
 else
@@ -52,7 +52,7 @@ else
 fi
 
 if [[ -z "$MX_RECORDS" ]]; then
-  echo "❌ Error: No MX records found for $HOSTNAME"
+  echo " Error: No MX records found for $HOSTNAME"
   echo ""
   echo "Expected MX record:"
   echo "  Type: MX"
@@ -64,15 +64,15 @@ if [[ -z "$MX_RECORDS" ]]; then
   exit 1
 fi
 
-echo "✅ MX records found:"
+echo " MX records found:"
 echo "$MX_RECORDS"
 echo ""
 
 # Check if mx.sendgrid.net is in records
 if echo "$MX_RECORDS" | grep -q "mx.sendgrid.net"; then
-  echo "✅ MX record correctly points to mx.sendgrid.net"
+  echo " MX record correctly points to mx.sendgrid.net"
 else
-  echo "⚠️  Warning: MX record does not point to mx.sendgrid.net"
+  echo "  Warning: MX record does not point to mx.sendgrid.net"
   echo ""
   echo "Expected: mx.sendgrid.net"
   echo "Found: $MX_RECORDS"
@@ -89,7 +89,7 @@ echo ""
 
 # Test webhook if provided
 if [[ -n "$WEBHOOK_URL" ]]; then
-  echo "🌐 Testing webhook endpoint..."
+  echo " Testing webhook endpoint..."
   echo "URL: $WEBHOOK_URL"
   echo ""
   
@@ -102,7 +102,7 @@ if [[ -n "$WEBHOOK_URL" ]]; then
     2>&1 || echo "000")
   
   if [[ "$HTTP_CODE" == "000" ]]; then
-    echo "❌ Error: Could not connect to webhook endpoint"
+    echo " Error: Could not connect to webhook endpoint"
     echo ""
     echo "Check:"
     echo "  - URL is correct and publicly accessible"
@@ -110,22 +110,22 @@ if [[ -n "$WEBHOOK_URL" ]]; then
     echo "  - Server is running and listening on correct port"
     exit 1
   elif [[ "$HTTP_CODE" =~ ^2 ]]; then
-    echo "✅ Webhook endpoint accessible (HTTP $HTTP_CODE)"
+    echo " Webhook endpoint accessible (HTTP $HTTP_CODE)"
   elif [[ "$HTTP_CODE" == "401" ]]; then
-    echo "✅ Webhook endpoint accessible but requires auth (HTTP $HTTP_CODE)"
+    echo " Webhook endpoint accessible but requires auth (HTTP $HTTP_CODE)"
     echo "   This is expected if you've configured basic auth"
   else
-    echo "⚠️  Webhook returned HTTP $HTTP_CODE"
+    echo "  Webhook returned HTTP $HTTP_CODE"
     echo "   Endpoint is accessible but may need configuration"
   fi
   echo ""
 fi
 
 # Summary
-echo "📋 Summary:"
-echo "  ✅ MX record configured correctly"
+echo " Summary:"
+echo "   MX record configured correctly"
 if [[ -n "$WEBHOOK_URL" ]]; then
-  echo "  ✅ Webhook endpoint tested"
+  echo "   Webhook endpoint tested"
 fi
 echo ""
 echo "Next steps:"

@@ -1,6 +1,6 @@
 # Agent Avengers
 
-🦸 **All-in-One Multi-Agent Orchestration**
+ **All-in-One Multi-Agent Orchestration**
 
 > [한국어 README](./README-kr.md)
 
@@ -43,36 +43,36 @@ Avengers assemble! Build a full-stack todo app with React frontend and Node.js b
 
 | Type | Role |
 |------|------|
-| 🔬 Researcher | Investigation, data collection |
-| 🔍 Analyst | Analysis, pattern discovery |
-| 🖊️ Writer | Documentation, content creation |
-| 💻 Coder | Code implementation |
-| ✅ Reviewer | Quality review |
-| 🔧 Integrator | Result consolidation |
+|  Researcher | Investigation, data collection |
+|  Analyst | Analysis, pattern discovery |
+|  Writer | Documentation, content creation |
+|  Coder | Code implementation |
+|  Reviewer | Quality review |
+|  Integrator | Result consolidation |
 
 ## Agent Modes
 
 | Mode | Description |
 |------|-------------|
-| 🔷 Existing | Use registered agents (watson, picasso, etc.) |
-| 🔶 Spawned | Create one-off sub-agents on demand |
-| 🟣 Multi-Profile | Involve other OpenClaw bot instances |
-| 🔷🔶🟣 Hybrid | Combine all modes (recommended) |
+|  Existing | Use registered agents (watson, picasso, etc.) |
+|  Spawned | Create one-off sub-agents on demand |
+|  Multi-Profile | Involve other OpenClaw bot instances |
+|  Hybrid | Combine all modes (recommended) |
 
 ## Emergent Collaboration Patterns
 
-- 🗳️ **Competitive Draft** — Multiple agents work independently, best solution wins
-- 🎭 **Role Rotation** — Agents swap roles each round
-- ⚔️ **Adversarial Collaboration** — Creator vs Critic iterations
-- 🧬 **Evolutionary Selection** — Solutions crossbreed and evolve
-- 🐝 **Swarm Intelligence** — Many micro-agents tackle small chunks
-- 🔗 **Chain Relay** — Output → Input chaining
-- 💭 **Consensus Protocol** — Unanimous agreement required
-- 🎪 **Cross-Domain Jam** — Combine different expertise areas
-- 🪞 **Meta Observer** — Agent watches and coaches the team
-- ⏰ **Temporal Split** — Short/mid/long-term parallel approaches
-- 🎰 **Task Auction** — Confidence-based bidding
-- 🧠 **Shared Memory** — Real-time discovery sharing
+-  **Competitive Draft** — Multiple agents work independently, best solution wins
+-  **Role Rotation** — Agents swap roles each round
+-  **Adversarial Collaboration** — Creator vs Critic iterations
+-  **Evolutionary Selection** — Solutions crossbreed and evolve
+-  **Swarm Intelligence** — Many micro-agents tackle small chunks
+-  **Chain Relay** — Output → Input chaining
+-  **Consensus Protocol** — Unanimous agreement required
+-  **Cross-Domain Jam** — Combine different expertise areas
+-  **Meta Observer** — Agent watches and coaches the team
+-  **Temporal Split** — Short/mid/long-term parallel approaches
+-  **Task Auction** — Confidence-based bidding
+-  **Shared Memory** — Real-time discovery sharing
 
 ## Configuration
 

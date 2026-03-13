@@ -34,15 +34,15 @@ for (const scene of SCENES) {
             execSync(cmd, { stdio: 'inherit' });
             
             if (fs.existsSync(filename)) {
-                console.log(`✅ Saved to ${filename}`);
+                console.log(` Saved to ${filename}`);
                 break;
             } else {
                 throw new Error("File not created");
             }
         } catch (e) {
-            console.error(`⚠️ Attempt failed for ${scene.name}. Retries left: ${retries - 1}`);
+            console.error(` Attempt failed for ${scene.name}. Retries left: ${retries - 1}`);
             retries--;
-            if (retries === 0) console.error(`❌ Finally failed: ${scene.name}`);
+            if (retries === 0) console.error(` Finally failed: ${scene.name}`);
             // Wait 5s before retry
             execSync('sleep 5');
         }

@@ -34,7 +34,7 @@ echo "✓ Detected: $DISTRO_NAME ($PKG_MANAGER)"
 
 if [ "$TESTED" = "false" ]; then
     echo ""
-    echo "⚠ WARNING: $DISTRO_NAME support is UNTESTED"
+    echo " WARNING: $DISTRO_NAME support is UNTESTED"
     echo "  Only Ubuntu has been tested end-to-end"
     echo "  Update commands for $DISTRO_NAME are based on documentation"
     echo "  Proceed with caution and verify results"
@@ -77,16 +77,16 @@ echo ""
 # Check for reboot requirement (best-effort, varies by distro)
 echo "Checking if reboot is required..."
 if ssh "$HOST" "[ -f /var/run/reboot-required ]" 2>/dev/null; then
-    echo "⚠ REBOOT REQUIRED (Kernel or critical libraries updated)"
+    echo " REBOOT REQUIRED (Kernel or critical libraries updated)"
 elif ssh "$HOST" "[ -f /boot/vmlinuz-\$(uname -r) ]" 2>/dev/null; then
     # Check if running kernel matches latest installed
     RUNNING_KERNEL=$(ssh "$HOST" "uname -r")
     LATEST_KERNEL=$(ssh "$HOST" "ls -t /boot/vmlinuz-* 2>/dev/null | head -n1 | sed 's|/boot/vmlinuz-||'")
     if [ "$RUNNING_KERNEL" != "$LATEST_KERNEL" ]; then
-        echo "⚠ REBOOT RECOMMENDED (Kernel updated: $RUNNING_KERNEL → $LATEST_KERNEL)"
+        echo " REBOOT RECOMMENDED (Kernel updated: $RUNNING_KERNEL → $LATEST_KERNEL)"
     else
         echo "✓ No reboot required"
     fi
 else
-    echo "ℹ Could not determine reboot status (check manually if kernel was updated)"
+    echo " Could not determine reboot status (check manually if kernel was updated)"
 fi

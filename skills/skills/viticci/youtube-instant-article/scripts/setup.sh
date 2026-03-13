@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-echo "🔧 YouTube Instant Article Setup"
+echo " YouTube Instant Article Setup"
 echo "================================"
 echo ""
 
@@ -18,7 +18,7 @@ command -v curl &>/dev/null || missing+=("curl")
 command -v ffmpeg &>/dev/null || missing+=("ffmpeg (brew install ffmpeg)")
 
 if [[ ${#missing[@]} -gt 0 ]]; then
-    echo "❌ Missing dependencies:"
+    echo " Missing dependencies:"
     for dep in "${missing[@]}"; do
         echo "   - $dep"
     done
@@ -27,7 +27,7 @@ if [[ ${#missing[@]} -gt 0 ]]; then
     exit 1
 fi
 
-echo "✅ All dependencies installed"
+echo " All dependencies installed"
 echo ""
 
 # Get user info for Telegraph account
@@ -50,7 +50,7 @@ if echo "$RESPONSE" | jq -e '.ok' >/dev/null 2>&1; then
     AUTH_URL=$(echo "$RESPONSE" | jq -r '.result.auth_url')
     
     echo ""
-    echo "✅ Telegraph account created!"
+    echo " Telegraph account created!"
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "YOUR TELEGRAPH TOKEN (save this!):"
@@ -71,7 +71,7 @@ if echo "$RESPONSE" | jq -e '.ok' >/dev/null 2>&1; then
     echo "  $AUTH_URL"
     echo ""
 else
-    echo "❌ Failed to create account:"
+    echo " Failed to create account:"
     echo "$RESPONSE" | jq -r '.error // "Unknown error"'
     exit 1
 fi

@@ -29,10 +29,10 @@ const api = axios.create({
 
 const handleErr = (context, err) => {
     if (err.response) {
-        console.error(`❌ [${context}] Error ${err.response.status}: ${err.response.statusText}`);
+        console.error(` [${context}] Error ${err.response.status}: ${err.response.statusText}`);
         if (err.response.data) console.error('Details:', JSON.stringify(err.response.data));
     } else {
-        console.error(`❌ [${context}] Error: ${err.message}`);
+        console.error(` [${context}] Error: ${err.message}`);
     }
     process.exit(1);
 };
@@ -52,10 +52,10 @@ async function login() {
         sessionToken = res.data.AccessToken;
         CONFIG.userId = res.data.User.Id;
         api.defaults.headers['X-Emby-Token'] = sessionToken; // Upgrade headers
-        // console.log('🔑 Logged in via User/Pass');
+        // console.log(' Logged in via User/Pass');
         return sessionToken;
     } catch (e) {
-        // console.warn('⚠️ Login failed, staying with API Key.');
+        // console.warn(' Login failed, staying with API Key.');
         return CONFIG.apiKey;
     }
 }
@@ -71,7 +71,7 @@ async function getUserId(targetUsername) {
             const res = await api.get('/Users');
             const u = res.data.find(u => u.Name.toLowerCase() === targetUsername.toLowerCase());
             if (u) return u.Id;
-            console.error(`❌ User '${targetUsername}' not found.`);
+            console.error(` User '${targetUsername}' not found.`);
             process.exit(1);
         } catch (e) { handleErr('getUserId (search)', e); }
     }
@@ -87,7 +87,7 @@ async function getUserId(targetUsername) {
         }
     } catch (e) {}
 
-    console.error('❌ Could not determine User ID.');
+    console.error(' Could not determine User ID.');
     process.exit(1);
 }
 
@@ -193,7 +193,7 @@ async function playItem(sessionId, itemId, startTicks = 0) {
             await api.post(`/Sessions/${sessionId}/Playing/Seek`, null, {
                 params: { SeekPositionTicks: startTicks }
             });
-            console.log(`⏱️ Enforced seek to ${Math.floor(startTicks/10000000)}s`);
+            console.log(` Enforced seek to ${Math.floor(startTicks/10000000)}s`);
         }
         return true;
     } catch (e) { handleErr('playItem', e); }

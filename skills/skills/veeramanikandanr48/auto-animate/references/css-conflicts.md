@@ -22,7 +22,7 @@ export function BrokenList() {
 
   return (
     <div className="flex">
-      <ul ref={parent} className="flex-1"> {/* ❌ flex-1 breaks animation */}
+      <ul ref={parent} className="flex-1"> {/*  flex-1 breaks animation */}
         {items.map(item => <li key={item.id}>{item.text}</li>)}
       </ul>
     </div>
@@ -40,7 +40,7 @@ export function FixedList() {
 
   return (
     <div className="flex">
-      <ul ref={parent} className="w-96"> {/* ✅ Explicit width */}
+      <ul ref={parent} className="w-96"> {/*  Explicit width */}
         {items.map(item => <li key={item.id}>{item.text}</li>)}
       </ul>
     </div>
@@ -51,13 +51,13 @@ export function FixedList() {
 **Or use percentage:**
 
 ```tsx
-<ul ref={parent} className="w-1/2"> {/* ✅ 50% width */}
+<ul ref={parent} className="w-1/2"> {/*  50% width */}
 ```
 
 **Or use min-width:**
 
 ```tsx
-<ul ref={parent} className="flex-1 min-w-0"> {/* ✅ Fallback width */}
+<ul ref={parent} className="flex-1 min-w-0"> {/*  Fallback width */}
 ```
 
 ### Alternative: Apply AutoAnimate to Flex Children
@@ -67,9 +67,9 @@ export function FlexChildrenList() {
   const [parent] = useAutoAnimate();
 
   return (
-    <ul ref={parent} className="flex flex-col gap-2"> {/* ✅ Flex on parent */}
+    <ul ref={parent} className="flex flex-col gap-2"> {/*  Flex on parent */}
       {items.map(item => (
-        <li key={item.id} className="w-full"> {/* ✅ Explicit width on children */}
+        <li key={item.id} className="w-full"> {/*  Explicit width on children */}
           {item.text}
         </li>
       ))}
@@ -98,7 +98,7 @@ export function BrokenTable() {
 
   return (
     <table>
-      <tbody ref={parent}> {/* ❌ Animating <tr> directly breaks layout */}
+      <tbody ref={parent}> {/*  Animating <tr> directly breaks layout */}
         {items.map(item => (
           <tr key={item.id}>
             <td>{item.name}</td>
@@ -127,7 +127,7 @@ export function FixedTable() {
           <th>Value</th>
         </tr>
       </thead>
-      <tbody ref={parent}> {/* ✅ Animate tbody, not individual rows */}
+      <tbody ref={parent}> {/*  Animate tbody, not individual rows */}
         {items.map(item => (
           <tr key={item.id}>
             <td>{item.name}</td>
@@ -156,7 +156,7 @@ export function DivTable() {
           <div className="table-cell font-bold">Value</div>
         </div>
       </div>
-      <div ref={parent} className="table-row-group"> {/* ✅ Works perfectly */}
+      <div ref={parent} className="table-row-group"> {/*  Works perfectly */}
         {items.map(item => (
           <div key={item.id} className="table-row">
             <div className="table-cell">{item.name}</div>
@@ -223,7 +223,7 @@ export function BrokenLayout() {
   return (
     <div className="flex items-center"> {/* Parent uses flexbox */}
       <button>Back</button>
-      <ul ref={parent}> {/* ❌ Gets position: relative, breaks flex alignment */}
+      <ul ref={parent}> {/*  Gets position: relative, breaks flex alignment */}
         {items.map(item => <li key={item.id}>{item.text}</li>)}
       </ul>
     </div>
@@ -240,9 +240,9 @@ export function FixedLayout() {
   const [parent] = useAutoAnimate();
 
   return (
-    <div className="flex items-start"> {/* ✅ Change alignment */}
+    <div className="flex items-start"> {/*  Change alignment */}
       <button>Back</button>
-      <ul ref={parent} className="relative"> {/* ✅ Explicit position */}
+      <ul ref={parent} className="relative"> {/*  Explicit position */}
         {items.map(item => <li key={item.id}>{item.text}</li>)}
       </ul>
     </div>
@@ -259,7 +259,7 @@ export function WrappedLayout() {
   return (
     <div className="flex items-center">
       <button>Back</button>
-      <div> {/* ✅ Wrapper absorbs position: relative */}
+      <div> {/*  Wrapper absorbs position: relative */}
         <ul ref={parent}>
           {items.map(item => <li key={item.id}>{item.text}</li>)}
         </ul>
@@ -276,7 +276,7 @@ export function CSSOverride() {
   const [parent] = useAutoAnimate();
 
   return (
-    <ul ref={parent} style={{ position: 'static' }}> {/* ✅ Force static */}
+    <ul ref={parent} style={{ position: 'static' }}> {/*  Force static */}
       {items.map(item => <li key={item.id}>{item.text}</li>)}
     </ul>
   );
@@ -306,7 +306,7 @@ export function BrokenAbsolute() {
   return (
     <div ref={parent} className="relative">
       {items.map(item => (
-        <div key={item.id} className="absolute top-0 left-0"> {/* ❌ Doesn't animate */}
+        <div key={item.id} className="absolute top-0 left-0"> {/*  Doesn't animate */}
           {item.text}
         </div>
       ))}
@@ -324,9 +324,9 @@ export function FixedAbsolute() {
   const [parent] = useAutoAnimate();
 
   return (
-    <div ref={parent} className="space-y-2"> {/* ✅ Normal flow */}
+    <div ref={parent} className="space-y-2"> {/*  Normal flow */}
       {items.map(item => (
-        <div key={item.id} className="relative"> {/* ✅ Relative for internal positioning */}
+        <div key={item.id} className="relative"> {/*  Relative for internal positioning */}
           {item.text}
         </div>
       ))}
@@ -342,12 +342,12 @@ export function StackedAbsolute() {
   const [parent] = useAutoAnimate();
 
   return (
-    <div ref={parent} className="relative h-96"> {/* ✅ Fixed height */}
+    <div ref={parent} className="relative h-96"> {/*  Fixed height */}
       {items.map((item, index) => (
         <div
           key={item.id}
           className="absolute left-0"
-          style={{ top: `${index * 80}px` }} {/* ✅ Calculate position */}
+          style={{ top: `${index * 80}px` }} {/*  Calculate position */}
         >
           {item.text}
         </div>
@@ -376,7 +376,7 @@ export function BrokenFixedHeight() {
   const [parent] = useAutoAnimate();
 
   return (
-    <ul ref={parent} className="h-64 overflow-hidden"> {/* ❌ Clips animations */}
+    <ul ref={parent} className="h-64 overflow-hidden"> {/*  Clips animations */}
       {items.map(item => <li key={item.id}>{item.text}</li>)}
     </ul>
   );
@@ -392,7 +392,7 @@ export function FixedVisible() {
   const [parent] = useAutoAnimate();
 
   return (
-    <ul ref={parent} className="h-64 overflow-visible"> {/* ✅ Allow overflow */}
+    <ul ref={parent} className="h-64 overflow-visible"> {/*  Allow overflow */}
       {items.map(item => <li key={item.id}>{item.text}</li>)}
     </ul>
   );
@@ -406,7 +406,7 @@ export function MinHeight() {
   const [parent] = useAutoAnimate();
 
   return (
-    <ul ref={parent} className="min-h-64 overflow-hidden"> {/* ✅ Grows as needed */}
+    <ul ref={parent} className="min-h-64 overflow-hidden"> {/*  Grows as needed */}
       {items.map(item => <li key={item.id}>{item.text}</li>)}
     </ul>
   );
@@ -420,7 +420,7 @@ export function Scrollable() {
   const [parent] = useAutoAnimate();
 
   return (
-    <div className="h-64 overflow-auto"> {/* ✅ Scroll if too many items */}
+    <div className="h-64 overflow-auto"> {/*  Scroll if too many items */}
       <ul ref={parent}>
         {items.map(item => <li key={item.id}>{item.text}</li>)}
       </ul>
@@ -452,7 +452,7 @@ export function BrokenTransition() {
       {items.map(item => (
         <li
           key={item.id}
-          className="transition-all duration-500" {/* ❌ Conflicts with AutoAnimate */}
+          className="transition-all duration-500" {/*  Conflicts with AutoAnimate */}
         >
           {item.text}
         </li>
@@ -473,7 +473,7 @@ export function FixedTransition() {
   return (
     <ul ref={parent}>
       {items.map(item => (
-        <li key={item.id}> {/* ✅ No transition on children */}
+        <li key={item.id}> {/*  No transition on children */}
           {item.text}
         </li>
       ))}
@@ -493,7 +493,7 @@ export function SelectiveTransition() {
       {items.map(item => (
         <li
           key={item.id}
-          className="transition-colors duration-200" {/* ✅ Only color transitions */}
+          className="transition-colors duration-200" {/*  Only color transitions */}
         >
           {item.text}
         </li>

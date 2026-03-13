@@ -123,7 +123,7 @@ def markdown_to_safe_html(md_content: str) -> str:
             continue
         
         # Stats/footer line
-        if stripped.startswith('📊') or stripped.startswith('🤖'):
+        if stripped.startswith('') or stripped.startswith(''):
             text = _process_inline(stripped)
             html_parts.append(f'<p style="font-size:12px;color:#888">{text}</p>')
             continue

@@ -135,10 +135,10 @@ Error: locator.click: Error: strict mode violation
 **Fix:** Selector matches multiple elements. Be more specific:
 
 ```javascript
-// ❌ Matches multiple buttons
+//  Matches multiple buttons
 await page.click('button');
 
-// ✅ More specific
+//  More specific
 await page.click('button[type="submit"]');
 await page.click('text=Submit order');
 await page.click('button:has-text("Add")');
@@ -174,7 +174,7 @@ npx playwright codegen https://example.com
 This opens:
 1. Browser window you can interact with
 2. Inspector showing generated code
-3. Selector picker tool (🔍 icon)
+3. Selector picker tool ( icon)
 
 ## Trace Viewer (Advanced)
 

@@ -57,14 +57,14 @@ tail -f ~/.chaos/consolidator.log
 
 **Expected output:**
 ```
-📂 Found 302 files matching ...
-📖 Processing transcript: ...
-✅ Extracted 10 memories from <file>
+ Found 302 files matching ...
+ Processing transcript: ...
+ Extracted 10 memories from <file>
 ```
 
 **Should NOT see:**
 ```
-⚠️ Failed to store memory: Error 1105: value ... is not valid for this Enum
+ Failed to store memory: Error 1105: value ... is not valid for this Enum
 ```
 
 ### 6. Set Up Systemd Service (Optional)

@@ -31,7 +31,7 @@ export async function onLLMError(
 
   // Notify users
   await ctx.notify.all(
-    `⚠️ Cloud LLM rate limit detected.\n` +
+    ` Cloud LLM rate limit detected.\n` +
     `Switched main agent to **local model (${cfg.localModel})**.\n` +
     `Chat is unaffected. Code actions will require confirmation.`
   );

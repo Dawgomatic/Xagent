@@ -48,7 +48,7 @@ app.get('/', async (req, res) => {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>⚡ Drift Funding Scanner</title>
+  <title> Drift Funding Scanner</title>
   <meta http-equiv="refresh" content="30">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -119,14 +119,14 @@ app.get('/', async (req, res) => {
 </head>
 <body>
   <div class="header">
-    <h1>⚡ DRIFT FUNDING SCANNER</h1>
+    <h1> DRIFT FUNDING SCANNER</h1>
     <div class="subtitle">Real-time funding rate arbitrage opportunities</div>
     <div class="subtitle">Last update: ${data.lastUpdate} (auto-refresh: 30s)</div>
   </div>
   
   <div class="grid">
     <div class="card">
-      <h2>🔥 TOP FUNDING RATES</h2>
+      <h2> TOP FUNDING RATES</h2>
       <table>
         <thead>
           <tr>
@@ -150,7 +150,7 @@ app.get('/', async (req, res) => {
                 <td>$${priceStr}</td>
                 <td class="${opp.fundingRate > 0 ? 'positive' : 'negative'}">${opp.fundingRate.toFixed(2)}%</td>
                 <td class="${apyClass} ${opp.fundingApy > 0 ? 'positive' : 'negative'}">${opp.fundingApy.toFixed(0)}%</td>
-                <td>${opp.direction === 'long_pays' ? '🔴 SHORT' : '🟢 LONG'}</td>
+                <td>${opp.direction === 'long_pays' ? ' SHORT' : ' LONG'}</td>
               </tr>
             `;
           }).join('')}
@@ -159,7 +159,7 @@ app.get('/', async (req, res) => {
     </div>
     
     <div class="card">
-      <h2>🎯 DELTA-NEUTRAL STRATEGIES</h2>
+      <h2> DELTA-NEUTRAL STRATEGIES</h2>
       ${data.pairs.slice(0, 5).map((pair: any) => `
         <div class="pair-card">
           <div class="pair-title">${pair.strategy}</div>
@@ -183,7 +183,7 @@ app.get('/', async (req, res) => {
   </div>
   
   <div class="warning">
-    ⚠️ <strong>DYOR!</strong> Extreme funding rates often indicate:
+     <strong>DYOR!</strong> Extreme funding rates often indicate:
     <ul style="margin-left: 20px; margin-top: 10px;">
       <li>Low liquidity - hard to enter/exit positions</li>
       <li>High volatility - liquidation risk</li>
@@ -208,7 +208,7 @@ app.get('/', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`
 ╔════════════════════════════════════════════════╗
-║  ⚡ DRIFT FUNDING SCANNER                       ║
+║   DRIFT FUNDING SCANNER                       ║
 ║                                                ║
 ║  Dashboard: http://localhost:${PORT}              ║
 ║  API:       http://localhost:${PORT}/api/funding  ║

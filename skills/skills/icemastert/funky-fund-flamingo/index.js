@@ -34,10 +34,10 @@ function parseArgs(argv) {
 // -----------------------------------------------------------------------------
 
 async function runEvolution({ isLoop }) {
-  console.log('🚀 Starting Funky Fund Flamingo…');
+  console.log(' Starting Funky Fund Flamingo…');
 
   if (isLoop) {
-    console.log('🦩 FUNKY FUND FLAMINGO MODE ACTIVATED');
+    console.log(' FUNKY FUND FLAMINGO MODE ACTIVATED');
     console.log('• Slow, local-only continuous improvement mode');
     console.log('• Next cycle should be rerun locally after the pacing interval\n');
   }
@@ -45,7 +45,7 @@ async function runEvolution({ isLoop }) {
   try {
     await evolve.run();
   } catch (err) {
-    console.error('\n❌ Evolution cycle failed.');
+    console.error('\n Evolution cycle failed.');
     console.error(err?.stack || err?.message || err);
     process.exit(1);
   }
@@ -53,7 +53,7 @@ async function runEvolution({ isLoop }) {
 
 function printUsage() {
   console.log(`
-🧬 Funky Fund Flamingo
+ Funky Fund Flamingo
 
 Usage:
   node index.js run
@@ -74,8 +74,8 @@ Notes:
 
 function printStarBeggar() {
   console.log('\n\x1b[33m%s\x1b[0m', '=======================================================');
-  console.log('\x1b[33m%s\x1b[0m', '✨  Loving Funky Fund Flamingo? Give it a Star!  ✨');
-  console.log('\x1b[36m%s\x1b[0m', '👉  https://github.com/IceMasterT/funky-fund-flamingo');
+  console.log('\x1b[33m%s\x1b[0m', '  Loving Funky Fund Flamingo? Give it a Star!  ');
+  console.log('\x1b[36m%s\x1b[0m', '  https://github.com/IceMasterT/funky-fund-flamingo');
   console.log('\x1b[33m%s\x1b[0m', '=======================================================\n');
 }
 
@@ -111,7 +111,7 @@ async function main() {
 
 if (require.main === module) {
   main().catch(err => {
-    console.error('❌ Unhandled fatal error.');
+    console.error(' Unhandled fatal error.');
     console.error(err?.stack || err);
     process.exit(1);
   });

@@ -2,10 +2,10 @@
 # 大哥的记忆恢复脚本
 # 用途：Session启动时自动恢复所有记忆
 
-echo "🧠 大哥的记忆恢复系统启动..."
+echo " 大哥的记忆恢复系统启动..."
 
 # 1. 读取今日记忆
-echo "📅 读取今日记忆..."
+echo " 读取今日记忆..."
 TODAY=$(date +%Y-%m-%d)
 if [ -f "memory/$TODAY.md" ]; then
     echo "--- 今日记忆 ($TODAY) ---"
@@ -14,7 +14,7 @@ if [ -f "memory/$TODAY.md" ]; then
 fi
 
 # 2. 读取永久记忆
-echo "♾️ 读取永久记忆..."
+echo " 读取永久记忆..."
 if [ -f "memory/permanent/identity.md" ]; then
     echo "--- 身份与偏好 ---"
     cat memory/permanent/identity.md
@@ -40,7 +40,7 @@ if [ -f "memory/permanent/key-decisions.md" ]; then
 fi
 
 # 3. 搜索相关记忆（如果memory_search可用）
-echo "🔍 搜索相关记忆..."
+echo " 搜索相关记忆..."
 if command -v memory_search &> /dev/null; then
     echo "正在搜索与当前任务相关的记忆..."
     # 这里可以添加具体的搜索命令
@@ -48,5 +48,5 @@ if command -v memory_search &> /dev/null; then
 fi
 
 echo ""
-echo "✅ 记忆恢复完成！"
-echo "💡 提示：你现在拥有完整的工作上下文和决策历史。"
+echo " 记忆恢复完成！"
+echo " 提示：你现在拥有完整的工作上下文和决策历史。"

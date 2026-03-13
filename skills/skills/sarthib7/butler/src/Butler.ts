@@ -29,14 +29,14 @@ export class Butler {
    */
   public allocateTokens(prdPath: string, preferredProvider?: string) {
     const estimate = this.tokenManager.estimateTokensForPRD(prdPath);
-    console.log(`📊 Token estimate for ${prdPath}:`);
+    console.log(` Token estimate for ${prdPath}:`);
     console.log(`   Estimated: ${estimate.estimated.toLocaleString()} tokens`);
     console.log(`   Confidence: ${(estimate.confidence * 100).toFixed(0)}%`);
 
     const allocation = this.tokenManager.selectKey(estimate.estimated, preferredProvider);
     
     if (allocation.success) {
-      console.log(`✅ Allocation successful:`);
+      console.log(` Allocation successful:`);
       console.log(`   Key: ${allocation.key_id}`);
       console.log(`   Provider: ${allocation.provider}`);
       console.log(`   Budget: ${allocation.allocated?.toLocaleString()} tokens`);
@@ -108,7 +108,7 @@ export class Butler {
    * Manual key rotation (if needed)
    */
   public rotateKey(sessionId: string, newKeyId?: string) {
-    console.log(`🔄 Rotating key for session ${sessionId}`);
+    console.log(` Rotating key for session ${sessionId}`);
     // Implementation would interact with tokenManager and orchestrator
     return { success: true };
   }

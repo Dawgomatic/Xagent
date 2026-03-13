@@ -157,4 +157,4 @@ Contributors will be:
 - Mentioned in release notes
 - Acknowledged in documentation
 
-Thank you for contributing! 🎉
+Thank you for contributing! 

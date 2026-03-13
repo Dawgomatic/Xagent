@@ -1,4 +1,4 @@
-# Claude Code Mastery 🧑‍💻
+# Claude Code Mastery 
 
 A comprehensive skill for mastering Claude Code with setup scripts, dev team subagents, and automated maintenance.
 
@@ -26,7 +26,7 @@ cd ~/clawd/skills/claude-code-mastery/scripts
 
 ## What's Included
 
-### 🤖 Dev Team Subagents
+###  Dev Team Subagents
 
 **Starter Pack (default):**
 | Agent | Purpose |
@@ -49,7 +49,7 @@ cd ~/clawd/skills/claude-code-mastery/scripts
 
 Each agent includes a **"Learn More"** section with curated links to official docs, tutorials, and best practices.
 
-### 📜 Scripts
+###  Scripts
 
 | Script | Purpose |
 |--------|---------|
@@ -63,7 +63,7 @@ Each agent includes a **"Learn More"** section with curated links to official do
 | `08-troubleshoot.sh` | Comprehensive troubleshooting |
 | `uninstall.sh` | Clean removal of all components |
 
-### 📚 Documentation
+###  Documentation
 
 - **SKILL.md** - Complete usage guide
 - **docs/best-practices.md** - Context management, verification tips
@@ -72,7 +72,7 @@ Each agent includes a **"Learn More"** section with curated links to official do
 - **docs/tips-and-tricks.md** - 30 pro tips from heavy users
 - **docs/troubleshooting.md** - Common issues and fixes
 
-### ⚙️ Configuration
+###  Configuration
 
 Edit `config.sh` to customize:
 - `VALID_MODELS` — Add new models as Anthropic releases them

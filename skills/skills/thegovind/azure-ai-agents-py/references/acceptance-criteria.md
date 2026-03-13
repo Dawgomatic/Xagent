@@ -11,25 +11,25 @@
 
 ### 1.1 Client Imports
 
-#### ✅ CORRECT: Sync Client via AIProjectClient (Recommended)
+####  CORRECT: Sync Client via AIProjectClient (Recommended)
 ```python
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
 ```
 
-#### ✅ CORRECT: Async Client via AIProjectClient
+####  CORRECT: Async Client via AIProjectClient
 ```python
 from azure.ai.projects.aio import AIProjectClient
 from azure.identity.aio import DefaultAzureCredential
 ```
 
-#### ✅ CORRECT: Direct AgentsClient (Alternative)
+####  CORRECT: Direct AgentsClient (Alternative)
 ```python
 from azure.ai.agents import AgentsClient
 from azure.identity import DefaultAzureCredential
 ```
 
-#### ✅ CORRECT: Direct Async AgentsClient
+####  CORRECT: Direct Async AgentsClient
 ```python
 from azure.ai.agents.aio import AgentsClient
 from azure.identity.aio import DefaultAzureCredential
@@ -37,7 +37,7 @@ from azure.identity.aio import DefaultAzureCredential
 
 ### 1.2 Model Imports
 
-#### ✅ CORRECT: Tool Classes
+####  CORRECT: Tool Classes
 ```python
 from azure.ai.agents.models import (
     FunctionTool,
@@ -60,7 +60,7 @@ from azure.ai.agents.models import (
 )
 ```
 
-#### ✅ CORRECT: Options & Enums
+####  CORRECT: Options & Enums
 ```python
 from azure.ai.agents.models import (
     AgentThreadCreationOptions,
@@ -72,7 +72,7 @@ from azure.ai.agents.models import (
 )
 ```
 
-#### ✅ CORRECT: Function Calling Models
+####  CORRECT: Function Calling Models
 ```python
 from azure.ai.agents.models import (
     RequiredFunctionToolCall,
@@ -82,7 +82,7 @@ from azure.ai.agents.models import (
 )
 ```
 
-#### ✅ CORRECT: Streaming Models
+####  CORRECT: Streaming Models
 ```python
 from azure.ai.agents.models import (
     AgentEventHandler,
@@ -95,7 +95,7 @@ from azure.ai.agents.models import (
 )
 ```
 
-#### ✅ CORRECT: MCP Tool Models
+####  CORRECT: MCP Tool Models
 ```python
 from azure.ai.agents.models import (
     McpTool,
@@ -107,7 +107,7 @@ from azure.ai.agents.models import (
 
 ### 1.3 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Importing from wrong module
+####  INCORRECT: Importing from wrong module
 ```python
 # WRONG - FunctionTool is not in azure.ai.agents directly
 from azure.ai.agents import FunctionTool
@@ -120,7 +120,7 @@ from azure.ai.agents.tools import FunctionTool
 from azure.ai.projects.agents import AgentsClient
 ```
 
-#### ❌ INCORRECT: Using deprecated/non-existent classes
+####  INCORRECT: Using deprecated/non-existent classes
 ```python
 # WRONG - These don't exist
 from azure.ai.agents.models import Agent, Thread, Message, Run
@@ -133,7 +133,7 @@ from azure.ai.agents.models import Agent, Thread, Message, Run
 
 ## 2. Client Creation Patterns
 
-### 2.1 ✅ CORRECT: Via AIProjectClient (Recommended)
+### 2.1  CORRECT: Via AIProjectClient (Recommended)
 ```python
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
@@ -148,7 +148,7 @@ with project_client:
     # Use agents_client for all operations
 ```
 
-### 2.2 ✅ CORRECT: Async with AIProjectClient
+### 2.2  CORRECT: Async with AIProjectClient
 ```python
 from azure.ai.projects.aio import AIProjectClient
 from azure.identity.aio import DefaultAzureCredential
@@ -163,7 +163,7 @@ async with project_client:
     agent = await agents_client.create_agent(...)
 ```
 
-### 2.3 ✅ CORRECT: Direct AgentsClient
+### 2.3  CORRECT: Direct AgentsClient
 ```python
 from azure.ai.agents import AgentsClient
 from azure.identity import DefaultAzureCredential
@@ -179,7 +179,7 @@ with agents_client:
 
 ### 2.4 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Wrong parameter names
+####  INCORRECT: Wrong parameter names
 ```python
 # WRONG - using 'url' instead of 'endpoint'
 client = AIProjectClient(url=endpoint, credential=cred)
@@ -188,7 +188,7 @@ client = AIProjectClient(url=endpoint, credential=cred)
 client = AIProjectClient(project_endpoint=endpoint, credential=cred)
 ```
 
-#### ❌ INCORRECT: Not using context manager
+####  INCORRECT: Not using context manager
 ```python
 # WRONG - client should be used with context manager or explicitly closed
 client = AIProjectClient(endpoint=endpoint, credential=credential)
@@ -197,7 +197,7 @@ agent = agents_client.create_agent(...)
 # Missing: client.close() or using 'with' statement
 ```
 
-#### ❌ INCORRECT: Mixing sync and async
+####  INCORRECT: Mixing sync and async
 ```python
 # WRONG - using sync credential with async client
 from azure.ai.projects.aio import AIProjectClient
@@ -211,7 +211,7 @@ async with AIProjectClient(endpoint=endpoint, credential=DefaultAzureCredential(
 
 ## 3. Agent Creation Patterns
 
-### 3.1 ✅ CORRECT: Basic Agent
+### 3.1  CORRECT: Basic Agent
 ```python
 agent = agents_client.create_agent(
     model=os.environ["MODEL_DEPLOYMENT_NAME"],
@@ -220,7 +220,7 @@ agent = agents_client.create_agent(
 )
 ```
 
-### 3.2 ✅ CORRECT: Agent with Function Tools
+### 3.2  CORRECT: Agent with Function Tools
 ```python
 from azure.ai.agents.models import FunctionTool
 
@@ -242,7 +242,7 @@ agent = agents_client.create_agent(
 )
 ```
 
-### 3.3 ✅ CORRECT: Agent with ToolSet
+### 3.3  CORRECT: Agent with ToolSet
 ```python
 from azure.ai.agents.models import FunctionTool, CodeInterpreterTool, ToolSet
 
@@ -261,7 +261,7 @@ agent = agents_client.create_agent(
 )
 ```
 
-### 3.4 ✅ CORRECT: Agent with Code Interpreter
+### 3.4  CORRECT: Agent with Code Interpreter
 ```python
 from azure.ai.agents.models import CodeInterpreterTool, FilePurpose
 
@@ -282,7 +282,7 @@ agent = agents_client.create_agent(
 )
 ```
 
-### 3.5 ✅ CORRECT: Agent with File Search
+### 3.5  CORRECT: Agent with File Search
 ```python
 from azure.ai.agents.models import FileSearchTool, FilePurpose
 
@@ -307,7 +307,7 @@ agent = agents_client.create_agent(
 )
 ```
 
-### 3.6 ✅ CORRECT: Agent with Azure AI Search
+### 3.6  CORRECT: Agent with Azure AI Search
 ```python
 from azure.ai.agents.models import AzureAISearchTool, AzureAISearchQueryType
 from azure.ai.projects.models import ConnectionType
@@ -332,7 +332,7 @@ agent = agents_client.create_agent(
 )
 ```
 
-### 3.7 ✅ CORRECT: Agent with Bing Grounding
+### 3.7  CORRECT: Agent with Bing Grounding
 ```python
 from azure.ai.agents.models import BingGroundingTool
 
@@ -348,7 +348,7 @@ agent = agents_client.create_agent(
 )
 ```
 
-### 3.8 ✅ CORRECT: Agent with MCP Tool
+### 3.8  CORRECT: Agent with MCP Tool
 ```python
 from azure.ai.agents.models import McpTool
 
@@ -370,7 +370,7 @@ agent = agents_client.create_agent(
 )
 ```
 
-### 3.9 ✅ CORRECT: Agent with OpenAPI Tool
+### 3.9  CORRECT: Agent with OpenAPI Tool
 ```python
 from azure.ai.agents.models import OpenApiTool, OpenApiAnonymousAuthDetails
 import jsonref
@@ -403,7 +403,7 @@ agent = agents_client.create_agent(
 )
 ```
 
-### 3.10 ✅ CORRECT: Agent with Connected Agent
+### 3.10  CORRECT: Agent with Connected Agent
 ```python
 from azure.ai.agents.models import ConnectedAgentTool
 
@@ -432,7 +432,7 @@ main_agent = agents_client.create_agent(
 
 ### 3.11 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Passing FunctionTool directly instead of definitions
+####  INCORRECT: Passing FunctionTool directly instead of definitions
 ```python
 # WRONG
 functions = FunctionTool({my_func})
@@ -448,7 +448,7 @@ agent = agents_client.create_agent(
 )
 ```
 
-#### ❌ INCORRECT: Missing tool_resources for file-based tools
+####  INCORRECT: Missing tool_resources for file-based tools
 ```python
 # WRONG - code interpreter needs tool_resources
 code_interpreter = CodeInterpreterTool(file_ids=[file.id])
@@ -459,7 +459,7 @@ agent = agents_client.create_agent(
 )
 ```
 
-#### ❌ INCORRECT: Wrong function signature for FunctionTool
+####  INCORRECT: Wrong function signature for FunctionTool
 ```python
 # WRONG - functions must return JSON strings
 def bad_function(param: str) -> dict:  # Should return str
@@ -483,7 +483,7 @@ def good_function(param: str) -> str:
 
 ## 4. Thread & Message Patterns
 
-### 4.1 ✅ CORRECT: Create Thread and Message
+### 4.1  CORRECT: Create Thread and Message
 ```python
 thread = agents_client.threads.create()
 
@@ -494,7 +494,7 @@ message = agents_client.messages.create(
 )
 ```
 
-### 4.2 ✅ CORRECT: Async Thread and Message
+### 4.2  CORRECT: Async Thread and Message
 ```python
 thread = await agents_client.threads.create()
 
@@ -505,7 +505,7 @@ message = await agents_client.messages.create(
 )
 ```
 
-### 4.3 ✅ CORRECT: List Messages
+### 4.3  CORRECT: List Messages
 ```python
 from azure.ai.agents.models import ListSortOrder
 
@@ -520,7 +520,7 @@ for msg in messages:
         print(f"{msg.role}: {last_text.text.value}")
 ```
 
-### 4.4 ✅ CORRECT: Get Last Message by Role
+### 4.4  CORRECT: Get Last Message by Role
 ```python
 from azure.ai.agents.models import MessageRole
 
@@ -541,7 +541,7 @@ response_message = agents_client.messages.get_last_message_by_role(
 
 ### 4.5 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Wrong role values
+####  INCORRECT: Wrong role values
 ```python
 # WRONG - role should be "user" or "assistant" or MessageRole enum
 message = agents_client.messages.create(
@@ -551,7 +551,7 @@ message = agents_client.messages.create(
 )
 ```
 
-#### ❌ INCORRECT: Accessing message content directly
+####  INCORRECT: Accessing message content directly
 ```python
 # WRONG - messages have structured content
 for msg in messages:
@@ -568,7 +568,7 @@ for msg in messages:
 
 ## 5. Run Execution Patterns
 
-### 5.1 ✅ CORRECT: Manual Polling
+### 5.1  CORRECT: Manual Polling
 ```python
 import time
 
@@ -584,7 +584,7 @@ elif run.status == "completed":
     print("Run completed successfully")
 ```
 
-### 5.2 ✅ CORRECT: Auto-Polling with create_and_process
+### 5.2  CORRECT: Auto-Polling with create_and_process
 ```python
 run = agents_client.runs.create_and_process(
     thread_id=thread.id,
@@ -595,7 +595,7 @@ if run.status == "failed":
     print(f"Run failed: {run.last_error}")
 ```
 
-### 5.3 ✅ CORRECT: Combined Thread and Run
+### 5.3  CORRECT: Combined Thread and Run
 ```python
 from azure.ai.agents.models import AgentThreadCreationOptions, ThreadMessageOptions
 
@@ -612,7 +612,7 @@ run = agents_client.create_thread_and_process_run(
 thread_id = run.thread_id
 ```
 
-### 5.4 ✅ CORRECT: Enable Auto Function Calls
+### 5.4  CORRECT: Enable Auto Function Calls
 ```python
 from azure.ai.agents.models import FunctionTool
 
@@ -634,7 +634,7 @@ agent = agents_client.create_agent(
 run = agents_client.runs.create_and_process(thread_id=thread.id, agent_id=agent.id)
 ```
 
-### 5.5 ✅ CORRECT: Manual Tool Output Submission
+### 5.5  CORRECT: Manual Tool Output Submission
 ```python
 from azure.ai.agents.models import (
     RequiredFunctionToolCall,
@@ -670,7 +670,7 @@ while run.status in ["queued", "in_progress", "requires_action"]:
             )
 ```
 
-### 5.6 ✅ CORRECT: MCP Tool Approval Handling
+### 5.6  CORRECT: MCP Tool Approval Handling
 ```python
 from azure.ai.agents.models import (
     McpTool,
@@ -715,7 +715,7 @@ while run.status in ["queued", "in_progress", "requires_action"]:
 
 ### 5.7 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Not checking run status
+####  INCORRECT: Not checking run status
 ```python
 # WRONG - not handling failure
 run = agents_client.runs.create_and_process(thread_id=thread.id, agent_id=agent.id)
@@ -729,7 +729,7 @@ else:
     messages = agents_client.messages.list(thread_id=thread.id)
 ```
 
-#### ❌ INCORRECT: Wrong status values in polling
+####  INCORRECT: Wrong status values in polling
 ```python
 # WRONG - missing "requires_action"
 while run.status in ["queued", "in_progress"]:  # Missing requires_action
@@ -741,7 +741,7 @@ while run.status in ["queued", "in_progress", "requires_action"]:
     ...
 ```
 
-#### ❌ INCORRECT: Not handling tool calls when requires_action
+####  INCORRECT: Not handling tool calls when requires_action
 ```python
 # WRONG - polling without handling requires_action
 while run.status in ["queued", "in_progress", "requires_action"]:
@@ -754,7 +754,7 @@ while run.status in ["queued", "in_progress", "requires_action"]:
 
 ## 6. Streaming Patterns
 
-### 6.1 ✅ CORRECT: Basic Streaming with Context Manager
+### 6.1  CORRECT: Basic Streaming with Context Manager
 ```python
 with agents_client.runs.stream(thread_id=thread.id, agent_id=agent.id) as stream:
     for event_type, event_data, func_return in stream:
@@ -764,7 +764,7 @@ with agents_client.runs.stream(thread_id=thread.id, agent_id=agent.id) as stream
             print(f"Status: {event_data.status}")
 ```
 
-### 6.2 ✅ CORRECT: Streaming with Event Handler
+### 6.2  CORRECT: Streaming with Event Handler
 ```python
 from azure.ai.agents.models import (
     AgentEventHandler,
@@ -804,7 +804,7 @@ with agents_client.runs.stream(
             print(func_return)
 ```
 
-### 6.3 ✅ CORRECT: Streaming with Function Tool Handling
+### 6.3  CORRECT: Streaming with Function Tool Handling
 ```python
 from azure.ai.agents.models import (
     AgentStreamEvent,
@@ -852,7 +852,7 @@ with agents_client.runs.stream(thread_id=thread.id, agent_id=agent.id) as stream
 
 ### 6.4 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Not using context manager for streaming
+####  INCORRECT: Not using context manager for streaming
 ```python
 # WRONG - stream should be used with context manager
 stream = agents_client.runs.stream(thread_id=thread.id, agent_id=agent.id)
@@ -866,7 +866,7 @@ with agents_client.runs.stream(...) as stream:
         print(event_data)
 ```
 
-#### ❌ INCORRECT: Wrong event handler method signatures
+####  INCORRECT: Wrong event handler method signatures
 ```python
 # WRONG - methods must return Optional[T] where T is the type parameter
 class BadHandler(AgentEventHandler[str]):
@@ -878,12 +878,12 @@ class BadHandler(AgentEventHandler[str]):
 
 ## 7. Cleanup Patterns
 
-### 7.1 ✅ CORRECT: Delete Agent
+### 7.1  CORRECT: Delete Agent
 ```python
 agents_client.delete_agent(agent.id)
 ```
 
-### 7.2 ✅ CORRECT: Full Cleanup
+### 7.2  CORRECT: Full Cleanup
 ```python
 # Delete vector store if created
 agents_client.vector_stores.delete(vector_store.id)
@@ -898,7 +898,7 @@ agents_client.delete_agent(agent.id)
 agents_client.delete_agent(sub_agent.id)
 ```
 
-### 7.3 ✅ CORRECT: Save Generated Files
+### 7.3  CORRECT: Save Generated Files
 ```python
 from pathlib import Path
 
@@ -920,7 +920,7 @@ for msg in messages:
 
 ## 8. Async Patterns
 
-### 8.1 ✅ CORRECT: Full Async Example
+### 8.1  CORRECT: Full Async Example
 ```python
 import asyncio
 from azure.ai.projects.aio import AIProjectClient
@@ -975,7 +975,7 @@ if __name__ == "__main__":
 
 ### 8.2 Anti-Patterns (ERRORS)
 
-#### ❌ INCORRECT: Missing await
+####  INCORRECT: Missing await
 ```python
 # WRONG - missing await for async operations
 async def bad_example():
@@ -983,7 +983,7 @@ async def bad_example():
     thread = agents_client.threads.create()  # Missing await
 ```
 
-#### ❌ INCORRECT: Wrong credential type
+####  INCORRECT: Wrong credential type
 ```python
 # WRONG - using sync credential with async client
 from azure.ai.projects.aio import AIProjectClient
@@ -994,7 +994,7 @@ from azure.ai.projects.aio import AIProjectClient
 from azure.identity.aio import DefaultAzureCredential
 ```
 
-#### ❌ INCORRECT: Not using async iteration
+####  INCORRECT: Not using async iteration
 ```python
 # WRONG - messages.list returns async iterator in async mode
 messages = agents_client.messages.list(thread_id=thread.id)
@@ -1041,7 +1041,7 @@ if run.status == "failed":
 
 ## 10. Function Definition Requirements
 
-### ✅ CORRECT: Properly Documented Function
+###  CORRECT: Properly Documented Function
 ```python
 def my_function(param1: str, param2: int, optional_param: Optional[str] = None) -> str:
     """Brief description of what this function does.
@@ -1064,7 +1064,7 @@ def my_function(param1: str, param2: int, optional_param: Optional[str] = None) 
 3. **Type hints required** - SDK uses them for parameter types
 4. **`:param` format** - Use `:param name: description` for parameter docs
 
-### ❌ INCORRECT Patterns:
+###  INCORRECT Patterns:
 ```python
 # WRONG - returns dict instead of str
 def bad_return(x: str) -> dict:

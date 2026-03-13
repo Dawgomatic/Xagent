@@ -311,7 +311,7 @@ Check your `agent-registry.json`:
 
 ---
 
-**Setup complete!** 🎉
+**Setup complete!** 
 
 Run your first project:
 

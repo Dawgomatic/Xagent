@@ -95,11 +95,11 @@ class DianpingRealFetcher:
                     if restaurant:
                         restaurants.append(restaurant)
                 except Exception as e:
-                    print(f"⚠️ 解析餐厅失败: {e}")
+                    print(f" 解析餐厅失败: {e}")
                     continue
 
         except Exception as e:
-            print(f"⚠️ 提取餐厅列表失败: {e}")
+            print(f" 提取餐厅列表失败: {e}")
             # Fallback to mock data for testing
             return self._get_fallback_data(location="", cuisine="")
 
@@ -155,7 +155,7 @@ class DianpingRealFetcher:
             )
 
         except Exception as e:
-            print(f"⚠️ 解析餐厅详情失败: {e}")
+            print(f" 解析餐厅详情失败: {e}")
             return None
 
     def _parse_rating(self, rating_text: str) -> float:

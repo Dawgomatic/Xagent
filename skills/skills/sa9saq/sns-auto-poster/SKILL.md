@@ -64,16 +64,16 @@ Store in `~/.openclaw/secrets.env` — never commit to git.
 ### Templates (`templates/morning.json`)
 
 ```json
-{"platform": "x", "text": "☀️ Good morning! Today is {date}. {custom_message}", "schedule_time": "09:00"}
+{"platform": "x", "text": " Good morning! Today is {date}. {custom_message}", "schedule_time": "09:00"}
 ```
 
 ## Supported Platforms
 
 | Platform | Status | Auth |
 |----------|--------|------|
-| X (Twitter) | ✅ Ready | OAuth 1.0a |
-| Bluesky | 🔜 Planned | App Password |
-| Mastodon | 🔜 Planned | OAuth 2.0 |
+| X (Twitter) |  Ready | OAuth 1.0a |
+| Bluesky |  Planned | App Password |
+| Mastodon |  Planned | OAuth 2.0 |
 
 ## Edge Cases & Troubleshooting
 

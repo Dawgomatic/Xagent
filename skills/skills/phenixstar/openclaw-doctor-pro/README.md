@@ -7,12 +7,12 @@ Comprehensive diagnostic, error-fixing, and skill recommendation tool for OpenCl
 OpenClaw Doctor Pro is an advanced troubleshooting suite for [OpenClaw](https://github.com/openclaw/openclaw) - a self-hosted AI gateway that connects messaging apps (WhatsApp, Telegram, Discord, Slack, Signal) to AI agents.
 
 **Key Features:**
-- 🔍 Automated error diagnosis across 10 error categories
-- 🔧 Auto-fix capabilities for 40+ common issues
-- 💡 Smart skill recommendations from ClawHub (5,700+ skills)
-- 📊 Deep health checks and performance monitoring
-- 📚 Comprehensive reference documentation
-- 🎯 Interactive setup wizard for first-time users
+-  Automated error diagnosis across 10 error categories
+-  Auto-fix capabilities for 40+ common issues
+-  Smart skill recommendations from ClawHub (5,700+ skills)
+-  Deep health checks and performance monitoring
+-  Comprehensive reference documentation
+-  Interactive setup wizard for first-time users
 
 ## Quick Start
 
@@ -166,10 +166,10 @@ OpenClaw Doctor Pro handles 10 error categories:
 
 ### Safety Levels
 
-- ✅ **Safe** - Fully automated, no user confirmation needed
-- ⚠️ **Moderate** - Automated with optional confirmation
-- 🔴 **Risky** - Requires explicit user confirmation
-- ❌ **Manual** - Cannot auto-fix, guidance provided
+-  **Safe** - Fully automated, no user confirmation needed
+-  **Moderate** - Automated with optional confirmation
+-  **Risky** - Requires explicit user confirmation
+-  **Manual** - Cannot auto-fix, guidance provided
 
 ### Examples
 
@@ -355,4 +355,4 @@ Built for the OpenClaw community. Special thanks to:
 
 ---
 
-**OpenClaw Doctor Pro** - Because every gateway needs a doctor 🏥
+**OpenClaw Doctor Pro** - Because every gateway needs a doctor 

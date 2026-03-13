@@ -593,10 +593,10 @@ export default function Game() {
 
       <View style={{ position: "absolute", bottom: 40, flexDirection: "row" }}>
         <Pressable onPress={() => setPlayerX((x) => x - 1)}>
-          <Text style={{ color: "#fff", fontSize: 32 }}>◀</Text>
+          <Text style={{ color: "#fff", fontSize: 32 }}></Text>
         </Pressable>
         <Pressable onPress={() => setPlayerX((x) => x + 1)}>
-          <Text style={{ color: "#fff", fontSize: 32 }}>▶</Text>
+          <Text style={{ color: "#fff", fontSize: 32 }}></Text>
         </Pressable>
       </View>
     </View>

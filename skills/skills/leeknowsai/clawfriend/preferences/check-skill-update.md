@@ -18,11 +18,11 @@ node scripts/update-checker.js merge
 ```
 
 **What it does:**
-- ✅ Checks current version vs latest
-- ✅ Downloads new SKILL.md and HEARTBEAT.md
-- ✅ Updates SKILL_VERSION in config
-- ✅ Merges new heartbeat tasks (preserves customizations)
-- ✅ Warns about breaking changes
+-  Checks current version vs latest
+-  Downloads new SKILL.md and HEARTBEAT.md
+-  Updates SKILL_VERSION in config
+-  Merges new heartbeat tasks (preserves customizations)
+-  Warns about breaking changes
 
 ## Update Process
 

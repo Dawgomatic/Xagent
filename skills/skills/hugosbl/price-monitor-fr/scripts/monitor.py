@@ -329,7 +329,7 @@ def cmd_add(args):
     if args.json:
         print(json.dumps(product, ensure_ascii=False, indent=2))
     else:
-        print(f"✅ Produit ajouté : {name}")
+        print(f" Produit ajouté : {name}")
         print(f"   ID: {product_id}")
         print(f"   Site: {_site_label(args.url)}")
         if args.target_price:
@@ -369,7 +369,7 @@ def cmd_check(args):
     elif args.id:
         targets = [p for p in products if p["id"] == args.id]
         if not targets:
-            print(f"❌ Produit {args.id} introuvable.")
+            print(f" Produit {args.id} introuvable.")
             return
     else:
         targets = products  # default: all
@@ -444,7 +444,7 @@ def cmd_check(args):
                 "price": price,
                 "target": p["target_price"],
                 "date": datetime.now().isoformat(),
-                "message": f"🎯 {p['name']} : {price}€ ≤ cible {p['target_price']}€ !",
+                "message": f" {p['name']} : {price}€ ≤ cible {p['target_price']}€ !",
             }
         elif delta_pct is not None and delta_pct < -DROP_THRESHOLD * 100:
             alert = {
@@ -456,7 +456,7 @@ def cmd_check(args):
                 "new_price": price,
                 "delta_pct": round(delta_pct, 1),
                 "date": datetime.now().isoformat(),
-                "message": f"🔥 {p['name']} : {last_price}€ → {price}€ ({delta_pct:+.1f}%)",
+                "message": f" {p['name']} : {last_price}€ → {price}€ ({delta_pct:+.1f}%)",
             }
 
         if alert:
@@ -482,7 +482,7 @@ def cmd_check(args):
         site = r["site"][:16]
         last = f"{r['last_price']}€" if r.get("last_price") else "—"
         if r.get("error"):
-            current = "❌ erreur"
+            current = " erreur"
             delta_str = r["error"][:15]
         elif r.get("current_price") is None:
             current = "?"
@@ -497,7 +497,7 @@ def cmd_check(args):
 
     # Print alerts
     if new_alerts:
-        print(f"\n🚨 Alertes :")
+        print(f"\n Alertes :")
         for a in new_alerts:
             print(f"  {a['message']}")
 
@@ -506,7 +506,7 @@ def cmd_remove(args):
     products = _load_products()
     found = [p for p in products if p["id"] == args.id]
     if not found:
-        print(f"❌ Produit {args.id} introuvable.")
+        print(f" Produit {args.id} introuvable.")
         return
 
     products = [p for p in products if p["id"] != args.id]
@@ -520,14 +520,14 @@ def cmd_remove(args):
     if args.json:
         print(json.dumps({"removed": args.id}, ensure_ascii=False))
     else:
-        print(f"🗑️  Produit {found[0]['name']} supprimé.")
+        print(f"  Produit {found[0]['name']} supprimé.")
 
 def cmd_history(args):
     """Show price history for a product."""
     products = _load_products()
     product = next((p for p in products if p["id"] == args.id), None)
     if not product:
-        print(f"❌ Produit {args.id} introuvable.")
+        print(f" Produit {args.id} introuvable.")
         return
 
     history = _load_history(args.id)
@@ -539,7 +539,7 @@ def cmd_history(args):
         print(json.dumps({"product": product, "history": history}, ensure_ascii=False, indent=2))
         return
 
-    print(f"📈 Historique : {product['name']}")
+    print(f" Historique : {product['name']}")
     print(f"{'Date':<22} {'Prix':<12} {'Source':<20}")
     print("─" * 54)
     for h in history:
@@ -562,7 +562,7 @@ def cmd_alerts(args):
         print(json.dumps(alerts, ensure_ascii=False, indent=2))
         return
 
-    print("🚨 Alertes de prix :")
+    print(" Alertes de prix :")
     print("─" * 60)
     for a in alerts:
         date = a["date"][:19].replace("T", " ")

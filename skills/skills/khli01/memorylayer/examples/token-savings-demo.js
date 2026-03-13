@@ -17,12 +17,12 @@ function estimateTokens(text) {
 }
 
 async function main() {
-  console.log('💰 MemoryLayer Token Savings Demo\n');
+  console.log(' MemoryLayer Token Savings Demo\n');
   console.log('=' .repeat(60));
   
   try {
     // Simulate storing a lot of memories (like MEMORY.md would have)
-    console.log('\n📝 Setting up test memories...');
+    console.log('\n Setting up test memories...');
     
     const testMemories = [
       'User prefers dark mode UI with blue accent colors',
@@ -49,11 +49,11 @@ async function main() {
       });
     }
     
-    console.log(`✅ Stored ${testMemories.length} test memories\n`);
+    console.log(` Stored ${testMemories.length} test memories\n`);
     
     // === BEFORE: Loading entire memory file ===
     console.log('='.repeat(60));
-    console.log('📊 BEFORE: Traditional Approach (Loading entire MEMORY.md)');
+    console.log(' BEFORE: Traditional Approach (Loading entire MEMORY.md)');
     console.log('='.repeat(60));
     
     // Simulate a typical MEMORY.md file
@@ -101,11 +101,11 @@ and 10,000+ tokens as the agent learns more about the user.
 `.trim();
     
     const beforeTokens = estimateTokens(fullMemoryContent);
-    console.log(`\n📄 Full MEMORY.md file size: ${fullMemoryContent.length} characters`);
-    console.log(`🎯 Estimated tokens: ${beforeTokens.toLocaleString()}`);
-    console.log(`💵 Cost per 1M tokens (GPT-4): ~$30`);
-    console.log(`💰 Cost per prompt: $${((beforeTokens / 1000000) * 30).toFixed(4)}`);
-    console.log(`\n❌ Problems:`);
+    console.log(`\n Full MEMORY.md file size: ${fullMemoryContent.length} characters`);
+    console.log(` Estimated tokens: ${beforeTokens.toLocaleString()}`);
+    console.log(` Cost per 1M tokens (GPT-4): ~$30`);
+    console.log(` Cost per prompt: $${((beforeTokens / 1000000) * 30).toFixed(4)}`);
+    console.log(`\n Problems:`);
     console.log(`   - Loads ALL memories every time (90% irrelevant)`);
     console.log(`   - Slow as memory file grows`);
     console.log(`   - Context window fills up quickly`);
@@ -113,36 +113,36 @@ and 10,000+ tokens as the agent learns more about the user.
     
     // === AFTER: Using MemoryLayer ===
     console.log('\n' + '='.repeat(60));
-    console.log('📊 AFTER: MemoryLayer Approach (Semantic Search)');
+    console.log(' AFTER: MemoryLayer Approach (Semantic Search)');
     console.log('='.repeat(60));
     
     const query = "What are the user's UI preferences?";
-    console.log(`\n🔍 Query: "${query}"`);
+    console.log(`\n Query: "${query}"`);
     
     const context = await memory.get_context(query, 5);
     
     const afterTokens = estimateTokens(context);
-    console.log(`\n📄 Retrieved context size: ${context.length} characters`);
-    console.log(`🎯 Estimated tokens: ${afterTokens.toLocaleString()}`);
-    console.log(`💵 Cost per 1M tokens (GPT-4): ~$30`);
-    console.log(`💰 Cost per prompt: $${((afterTokens / 1000000) * 30).toFixed(4)}`);
+    console.log(`\n Retrieved context size: ${context.length} characters`);
+    console.log(` Estimated tokens: ${afterTokens.toLocaleString()}`);
+    console.log(` Cost per 1M tokens (GPT-4): ~$30`);
+    console.log(` Cost per prompt: $${((afterTokens / 1000000) * 30).toFixed(4)}`);
     
-    console.log(`\n✅ Benefits:`);
+    console.log(`\n Benefits:`);
     console.log(`   - Only loads relevant memories (5 out of ${testMemories.length})`);
     console.log(`   - Sub-200ms retrieval time`);
     console.log(`   - Context window stays clean`);
     console.log(`   - Scales to millions of memories`);
     
     console.log('\n' + '='.repeat(60));
-    console.log('💰 SAVINGS CALCULATION');
+    console.log(' SAVINGS CALCULATION');
     console.log('='.repeat(60));
     
     const tokenSavings = beforeTokens - afterTokens;
     const percentSavings = ((tokenSavings / beforeTokens) * 100).toFixed(1);
     const costSavingsPerPrompt = ((tokenSavings / 1000000) * 30).toFixed(4);
     
-    console.log(`\n📉 Token reduction: ${tokenSavings.toLocaleString()} tokens (${percentSavings}%)`);
-    console.log(`💵 Cost savings per prompt: $${costSavingsPerPrompt}`);
+    console.log(`\n Token reduction: ${tokenSavings.toLocaleString()} tokens (${percentSavings}%)`);
+    console.log(` Cost savings per prompt: $${costSavingsPerPrompt}`);
     
     // Calculate monthly savings at scale
     const promptsPerDay = 1000;
@@ -150,27 +150,27 @@ and 10,000+ tokens as the agent learns more about the user.
     const monthlyPrompts = promptsPerDay * daysPerMonth;
     const monthlySavings = ((tokenSavings / 1000000) * 30 * monthlyPrompts).toFixed(2);
     
-    console.log(`\n📊 At scale (${promptsPerDay.toLocaleString()} prompts/day):`);
+    console.log(`\n At scale (${promptsPerDay.toLocaleString()} prompts/day):`);
     console.log(`   Monthly prompts: ${monthlyPrompts.toLocaleString()}`);
     console.log(`   Monthly savings: $${monthlySavings}`);
     console.log(`   Annual savings: $${(monthlySavings * 12).toLocaleString()}`);
     
-    console.log('\n✨ Retrieved context:');
+    console.log('\n Retrieved context:');
     console.log('─'.repeat(60));
     console.log(context);
     console.log('─'.repeat(60));
     
-    console.log('\n✅ Demo complete!');
-    console.log('\n💡 Key Takeaway:');
+    console.log('\n Demo complete!');
+    console.log('\n Key Takeaway:');
     console.log('   MemoryLayer reduces tokens by ~95% while maintaining');
     console.log('   full context relevance. This is the difference between');
     console.log('   paying $1,000/month and $50/month at scale.');
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.message.includes('Missing credentials')) {
-      console.log('\n💡 Set credentials first:');
+      console.log('\n Set credentials first:');
       console.log('export MEMORYLAYER_EMAIL=your@email.com');
       console.log('export MEMORYLAYER_PASSWORD=your_password');
       console.log('\nOr visit: https://memorylayer.clawbot.hk to sign up');

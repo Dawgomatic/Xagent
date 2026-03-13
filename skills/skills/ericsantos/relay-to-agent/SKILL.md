@@ -2,7 +2,7 @@
 name: relay-to-agent
 description: "Relay messages to AI agents on any OpenAI-compatible API. Supports multi-turn conversations with session management. List agents, send messages, reset sessions."
 homepage: https://platform.openai.com/docs/api-reference/chat
-metadata: {"clawdbot":{"emoji":"🤖","requires":{"bins":["node"]},"primaryEnv":"RELAY_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]},"primaryEnv":"RELAY_API_KEY"}}
 ---
 
 # Relay To Agent

@@ -183,20 +183,20 @@ Key considerations:
 
 | Feature | RevenueCat | Adapty | Qonversion | Superwall |
 |---------|------------|--------|------------|-----------|
-| iOS SDK | ✅ | ✅ | ✅ | ✅ |
-| Android SDK | ✅ | ✅ | ✅ | ✅ |
-| Flutter SDK | ✅ | ✅ | ✅ | ✅ |
-| React Native | ✅ | ✅ | ✅ | ✅ |
-| Web SDK | ✅ | ✅ | ❌ | ❌ |
-| Receipt validation | ✅ | ✅ | ✅ | ❌ |
-| Webhooks | ✅ | ✅ | ✅ | ✅ |
-| REST API | ✅ | ✅ | ✅ | ✅ |
-| Native paywalls | ✅ | ✅ | ❌ | ✅ |
-| Visual paywall builder | ⚠️ Basic | ✅ | ❌ | ✅ |
-| A/B experiments | ✅ | ✅ | ✅ | ✅ |
-| Promo codes | ✅ | ✅ | ✅ | ❌ |
+| iOS SDK |  |  |  |  |
+| Android SDK |  |  |  |  |
+| Flutter SDK |  |  |  |  |
+| React Native |  |  |  |  |
+| Web SDK |  |  |  |  |
+| Receipt validation |  |  |  |  |
+| Webhooks |  |  |  |  |
+| REST API |  |  |  |  |
+| Native paywalls |  |  |  |  |
+| Visual paywall builder |  Basic |  |  |  |
+| A/B experiments |  |  |  |  |
+| Promo codes |  |  |  |  |
 | Integrations | 30+ | 15+ | 10+ | 10+ |
-| Customer Center | ✅ | ❌ | ❌ | ❌ |
+| Customer Center |  |  |  |  |
 
 ## Pricing Calculator
 

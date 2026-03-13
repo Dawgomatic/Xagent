@@ -39,7 +39,7 @@ def test_basic_facts():
         fact = mem.get_fact(fact_id)
         assert fact is None
         
-        print("✅ Basic facts test passed")
+        print(" Basic facts test passed")
     finally:
         os.unlink(db_path)
 
@@ -74,7 +74,7 @@ def test_lessons():
         negative = mem.get_lessons(outcome="negative")
         assert len(negative) == 0
         
-        print("✅ Lessons test passed")
+        print(" Lessons test passed")
     finally:
         os.unlink(db_path)
 
@@ -106,7 +106,7 @@ def test_entities():
         entity = mem.get_entity("TestPerson", "person")
         assert entity.attributes["role"] == "senior tester"
         
-        print("✅ Entities test passed")
+        print(" Entities test passed")
     finally:
         os.unlink(db_path)
 
@@ -135,7 +135,7 @@ def test_supersede():
         assert "New fact" in contents
         # Old fact shouldn't appear in results (superseded)
         
-        print("✅ Supersede test passed")
+        print(" Supersede test passed")
     finally:
         os.unlink(db_path)
 
@@ -158,7 +158,7 @@ def test_stats():
         assert stats["lessons"] == 1
         assert stats["entities"] == 1
         
-        print("✅ Stats test passed")
+        print(" Stats test passed")
     finally:
         os.unlink(db_path)
 
@@ -182,7 +182,7 @@ def test_export():
         assert len(data["lessons"]) >= 1
         assert len(data["entities"]) >= 1
         
-        print("✅ Export test passed")
+        print(" Export test passed")
     finally:
         os.unlink(db_path)
 
@@ -194,4 +194,4 @@ if __name__ == "__main__":
     test_supersede()
     test_stats()
     test_export()
-    print("\n🎉 All tests passed!")
+    print("\n All tests passed!")

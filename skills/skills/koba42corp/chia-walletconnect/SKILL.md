@@ -90,7 +90,7 @@ message({
   target: chatId,
   message: 'Click below to verify your Chia wallet:',
   buttons: [[{
-    text: '🌱 Verify Wallet',
+    text: ' Verify Wallet',
     web_app: { url: 'https://your-app.vercel.app' }
   }]]
 });
@@ -113,7 +113,7 @@ bot.on('web_app_data', async (msg) => {
     message({
       action: 'send',
       target: msg.chat.id,
-      message: `✅ Wallet verified!\n\nAddress: ${address}`
+      message: ` Wallet verified!\n\nAddress: ${address}`
     });
     
     // Store verification
@@ -122,7 +122,7 @@ bot.on('web_app_data', async (msg) => {
     message({
       action: 'send',
       target: msg.chat.id,
-      message: `❌ Verification failed: ${result.error}`
+      message: ` Verification failed: ${result.error}`
     });
   }
 });
@@ -219,11 +219,11 @@ The skill includes `6d377259062295c0f6312b4f3e7a5d9b` (Dracattus reference). For
 
 ### What's Protected
 
-- ✅ Challenge nonces prevent replay attacks
-- ✅ Timestamps expire after 5 minutes
-- ✅ MintGarden cryptographic verification
-- ✅ No private keys ever requested
-- ✅ HTTPS enforced by Telegram
+-  Challenge nonces prevent replay attacks
+-  Timestamps expire after 5 minutes
+-  MintGarden cryptographic verification
+-  No private keys ever requested
+-  HTTPS enforced by Telegram
 
 ### Best Practices
 
@@ -307,7 +307,7 @@ if (message.text === '/verify') {
     target: message.chat.id,
     message: 'Verify your Chia wallet:',
     buttons: [[{
-      text: '🌱 Connect Wallet',
+      text: ' Connect Wallet',
       web_app: { url: process.env.WEB_APP_URL }
     }]]
   });
@@ -326,13 +326,13 @@ bot.on('web_app_data', async (msg) => {
     await message({
       action: 'send',
       target: msg.chat.id,
-      message: `✅ Verified! Welcome, ${address.substring(0, 12)}...`
+      message: ` Verified! Welcome, ${address.substring(0, 12)}...`
     });
   } else {
     await message({
       action: 'send',
       target: msg.chat.id,
-      message: `❌ Verification failed`
+      message: ` Verification failed`
     });
   }
 });
@@ -354,7 +354,7 @@ bot.on('web_app_data', async (msg) => {
   const verifyResult = await verifySignature(address, message, signature, publicKey);
   
   if (!verifyResult.verified) {
-    return bot.sendMessage(msg.chat.id, '❌ Invalid signature');
+    return bot.sendMessage(msg.chat.id, ' Invalid signature');
   }
   
   // Check NFT ownership
@@ -366,9 +366,9 @@ bot.on('web_app_data', async (msg) => {
   if (hasRequiredNFT) {
     // Grant access to private group
     await inviteToGroup(msg.from.id);
-    bot.sendMessage(msg.chat.id, '✅ Access granted! Check your invites.');
+    bot.sendMessage(msg.chat.id, ' Access granted! Check your invites.');
   } else {
-    bot.sendMessage(msg.chat.id, '❌ You need a Wojak NFT to join!');
+    bot.sendMessage(msg.chat.id, ' You need a Wojak NFT to join!');
   }
 });
 ```
@@ -411,4 +411,4 @@ MIT — Koba42 Corp
 
 ---
 
-**Built with 🌱 by Koba42 Corp**
+**Built with  by Koba42 Corp**

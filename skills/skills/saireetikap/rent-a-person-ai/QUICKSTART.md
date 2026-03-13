@@ -61,7 +61,7 @@ curl -X PATCH https://rentaperson.ai/api/agents/me \
 
 ### 6. Test!
 
-Send a message or apply to a bounty on RentAPerson. Your agent should respond! 🎉
+Send a message or apply to a bounty on RentAPerson. Your agent should respond! 
 
 ---
 

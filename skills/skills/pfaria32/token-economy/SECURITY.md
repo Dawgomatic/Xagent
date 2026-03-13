@@ -6,18 +6,18 @@ Token Economy is a **COST OPTIMIZATION TOOL** that reduces OpenClaw token costs 
 
 ## What This Tool Does
 
-✅ **Routes requests** to cheaper models first (GPT-4o → Sonnet → Opus)  
-✅ **Caps context size** to prevent runaway costs  
-✅ **Tracks token usage** for transparency and budgeting  
-✅ **Enforces budget limits** to prevent surprise bills  
-✅ **Optimizes heartbeats** to eliminate unnecessary API calls
+ **Routes requests** to cheaper models first (GPT-4o → Sonnet → Opus)  
+ **Caps context size** to prevent runaway costs  
+ **Tracks token usage** for transparency and budgeting  
+ **Enforces budget limits** to prevent surprise bills  
+ **Optimizes heartbeats** to eliminate unnecessary API calls
 
 ## What This Tool Does NOT Do
 
-❌ **Does NOT steal API keys** - Uses existing configured keys  
-❌ **Does NOT send data externally** - All routing happens locally  
-❌ **Does NOT modify user data** - Only affects model selection  
-❌ **Does NOT bypass security** - Works within OpenClaw's architecture
+ **Does NOT steal API keys** - Uses existing configured keys  
+ **Does NOT send data externally** - All routing happens locally  
+ **Does NOT modify user data** - Only affects model selection  
+ **Does NOT bypass security** - Works within OpenClaw's architecture
 
 ## Why References to API Keys Exist
 
@@ -54,10 +54,10 @@ Automated security tools may flag this because:
 ## Verification
 
 To verify safety:
-1. ✅ Review the source code: TypeScript patches for OpenClaw core
-2. ✅ Check network calls: None - all routing is local
-3. ✅ Inspect git history: No credential access or exfiltration code
-4. ✅ Read the audit log: `token-audit.jsonl` shows what's tracked (usage only)
+1.  Review the source code: TypeScript patches for OpenClaw core
+2.  Check network calls: None - all routing is local
+3.  Inspect git history: No credential access or exfiltration code
+4.  Read the audit log: `token-audit.jsonl` shows what's tracked (usage only)
 
 ## Privacy
 

@@ -6,10 +6,10 @@ Usage:
     python send_status.py "<message>" "<status_type>" "<step_name>" [--details "<details>"]
 
 Status Types:
-    progress - Ongoing work (shows 🔄)
-    success  - Task complete (shows ✅)
-    error    - Failed task (shows ❌)
-    warning  - Issue but continuing (shows ⚠️)
+    progress - Ongoing work (shows )
+    success  - Task complete (shows )
+    error    - Failed task (shows )
+    warning  - Issue but continuing (shows )
 
 Example:
     python send_status.py "Fetching data..." "progress" "fetch"
@@ -26,10 +26,10 @@ import websocket
 
 # Status type to emoji mapping
 STATUS_EMOJIS = {
-    "progress": "🔄",
-    "success": "✅",
-    "error": "❌",
-    "warning": "⚠️"
+    "progress": "",
+    "success": "",
+    "error": "",
+    "warning": ""
 }
 
 def can_encode_emoji(text: str, encoding: str = None) -> bool:
@@ -115,7 +115,7 @@ def send_status(message: str, status_type: str, step_name: str, details: str = N
             return formatted
             
         except Exception as e:
-            print(f"⚠️  WebSocket failed: {e}", file=sys.stderr)
+            print(f"  WebSocket failed: {e}", file=sys.stderr)
     
     # Fallback: try CLI
     import subprocess
@@ -152,7 +152,7 @@ def send_status(message: str, status_type: str, step_name: str, details: str = N
             if result.returncode == 0:
                 return formatted
         except Exception as e:
-            print(f"⚠️  CLI failed: {e}", file=sys.stderr)
+            print(f"  CLI failed: {e}", file=sys.stderr)
     
     # Final fallback: print to console
     print(formatted, file=sys.stderr)

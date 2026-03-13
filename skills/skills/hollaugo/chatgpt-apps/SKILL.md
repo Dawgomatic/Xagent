@@ -565,10 +565,10 @@ const { data } = await supabase
      "passed": 42,
      "failed": 3,
      "categories": {
-       "mcp": "✅",
-       "schema": "✅",
-       "widgets": "✅",
-       "prompts": "⚠️ 3 failures"
+       "mcp": "",
+       "schema": "",
+       "widgets": "",
+       "prompts": " 3 failures"
      },
      "timing": "2.3s"
    }
@@ -589,10 +589,10 @@ For each failure, explain:
 
 ### Prerequisites
 
-- ✅ Validation passed
-- ✅ Tests passed
-- ✅ Git repository clean
-- ✅ Environment variables ready
+-  Validation passed
+-  Tests passed
+-  Git repository clean
+-  Environment variables ready
 
 ### Workflow
 

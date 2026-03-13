@@ -283,7 +283,7 @@ def _write_index(out_dir: str, items: list[dict]) -> None:
         ".meta{margin:8px 0;color:#666;font-size:14px}",
         "h3{margin:0 0 8px 0;font-size:16px;color:#333}",
         "</style>",
-        "<h1>🎮 Game Character Generator</h1>",
+        "<h1> Game Character Generator</h1>",
     ]
     for it in items:
         html.append("<div class='card'>")

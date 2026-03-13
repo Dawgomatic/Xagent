@@ -2,7 +2,7 @@
 name: pinata-api
 description: Pinata IPFS API for file storage, groups, gateways, signatures, x402 payments, and file vectorization.
 homepage: https://pinata.cloud
-metadata: {"openclaw": {"emoji": "📌", "requires": {"env": ["PINATA_JWT", "GATEWAY_URL"]}, "primaryEnv": "PINATA_JWT"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": ["PINATA_JWT", "GATEWAY_URL"]}, "primaryEnv": "PINATA_JWT"}}
 ---
 
 # Pinata API

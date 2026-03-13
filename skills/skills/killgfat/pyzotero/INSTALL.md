@@ -278,7 +278,7 @@ The pyzotero CLI requires access to your **local Zotero database**. You must ena
 5. Click **OK** or **Apply**
 6. **Restart Zotero**
 
-⚠️ **Important:** Zotero must be running for the CLI to work. The CLI connects to your local Zotero database, not the online API.
+ **Important:** Zotero must be running for the CLI to work. The CLI connects to your local Zotero database, not the online API.
 
 ### 2. Verify Installation
 
@@ -338,11 +338,11 @@ source venv/bin/activate
 pip install "pyzotero[cli]"
 ```
 
-4. **Force system installation (⚠️ dangerous):**
+4. **Force system installation ( dangerous):**
 ```bash
 sudo python3 -m pip install --break-system-packages "pyzotero[cli]"
 ```
-⚠️ **Warning:** This can break your system Python installation!
+ **Warning:** This can break your system Python installation!
 
 ---
 

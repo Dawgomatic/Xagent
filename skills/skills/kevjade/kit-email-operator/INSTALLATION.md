@@ -10,12 +10,12 @@
 
 This skill transforms your OpenClaw agent into an expert email marketing operator with:
 
-✅ **AI-powered email generation** (subject lines, body copy, CTAs)  
-✅ **Direct Kit API integration** (create, schedule, analyze campaigns)  
-✅ **Brand voice learning** (writes like YOU, not generic AI)  
-✅ **Strategic guidance** (asks clarifying questions, follows best practices)  
-✅ **Campaign analytics** (performance tracking with insights)  
-✅ **Security-first** (encrypted credentials, compliance built-in)
+ **AI-powered email generation** (subject lines, body copy, CTAs)  
+ **Direct Kit API integration** (create, schedule, analyze campaigns)  
+ **Brand voice learning** (writes like YOU, not generic AI)  
+ **Strategic guidance** (asks clarifying questions, follows best practices)  
+ **Campaign analytics** (performance tracking with insights)  
+ **Security-first** (encrypted credentials, compliance built-in)
 
 ---
 
@@ -327,10 +327,10 @@ Tell agent: "Train my voice"
 
 ### What DOESN'T Get Stored
 
-❌ **No subscriber data** - Always fetched from Kit API  
-❌ **No email content** - Created on-demand  
-❌ **No personal info** - This is a generic skill (no Kevin-specific data)  
-❌ **No external services** - Everything runs locally or via Kit API
+ **No subscriber data** - Always fetched from Kit API  
+ **No email content** - Created on-demand  
+ **No personal info** - This is a generic skill (no Kevin-specific data)  
+ **No external services** - Everything runs locally or via Kit API
 
 ---
 
@@ -344,12 +344,12 @@ Tell agent: "Train my voice"
 
 ### Credential Safety
 
-✅ **DO:**
+ **DO:**
 - Store credentials via provided scripts
 - Keep backup of API credentials in password manager
 - Regenerate if compromised
 
-❌ **DON'T:**
+ **DON'T:**
 - Commit credentials to git
 - Share credentials files
 - Display credentials in plain text
@@ -450,10 +450,10 @@ Tell your agent: "Help with Kit email marketing"
 
 ### After Installation
 
-1. ✅ Complete setup wizard
-2. ✅ Train your brand voice
-3. ✅ Create your first email
-4. ✅ Review campaign analytics
+1.  Complete setup wizard
+2.  Train your brand voice
+3.  Create your first email
+4.  Review campaign analytics
 
 ### Advanced Features
 
@@ -469,10 +469,10 @@ Tell your agent: "Help with Kit email marketing"
 **Distribution:** Private ClawHub (Premium Skool Members Only)
 
 **Usage Rights:**
-- ✅ Use for your own email marketing
-- ✅ Customize for your needs
-- ❌ Do not redistribute publicly
-- ❌ Do not resell or commercialize
+-  Use for your own email marketing
+-  Customize for your needs
+-  Do not redistribute publicly
+-  Do not resell or commercialize
 
 **Support:** Available exclusively in Skool community
 
@@ -488,7 +488,7 @@ Tell your agent: "Help with Kit email marketing"
 
 ---
 
-**Ready to transform your email marketing with AI?** 🚀
+**Ready to transform your email marketing with AI?** 
 
 Run the setup wizard and let your OpenClaw agent become your email marketing expert!
 

@@ -177,7 +177,7 @@ class OpenClawBot extends OlvidClient {
         // onReplyStart: async () => {
           // if (!robot) {
           //   // add "typing" reaction
-          //   await message.react(this, "🤖");
+          //   await message.react(this, "");
           //   robot = true;
           //   this.logger?.info("added typing reaction")
           // }
@@ -201,7 +201,7 @@ class OpenClawBot extends OlvidClient {
           // // remove "typing" reaction from this message
           // await message.react(this, "");
           // // remove "typing" reaction from messages older than this one
-          // for await (const m of this.messageList({filter: new datatypes.MessageFilter({reactionsFilter: [new datatypes.ReactionFilter({reaction: "🤖"})], maxTimestamp: message.timestamp})})) {
+          // for await (const m of this.messageList({filter: new datatypes.MessageFilter({reactionsFilter: [new datatypes.ReactionFilter({reaction: ""})], maxTimestamp: message.timestamp})})) {
           //   await m.react(this, "");
           // }
         },

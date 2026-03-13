@@ -34,7 +34,7 @@ When invoked by a cron job (automated recurring sync), follow these guidelines f
    - Audit findings: report but don't act
 2. **Compact output** — use the summary format, not full verbose report:
    ```
-   🍴 Fork Sync Complete — <repo>
+    Fork Sync Complete — <repo>
    Main: synced N commits (old_sha → new_sha)
    PRs: X open, Y changed state
    - Rebased: A/B clean (C conflicts)
@@ -281,10 +281,10 @@ Para cada PR fechado, apresentar:
 - **O fix ainda é relevante pra nós?** Análise: <o que o patch faz e se upstream resolve>
 
 **Opções:**
-1. 🗑️ **Drop** — remover completamente (branch local + remote)
-2. 📌 **Keep as local patch** — mover para `localPatches`, manter na production branch
-3. 🔄 **Resubmit** — retrabalhar e abrir novo PR com abordagem diferente
-4. ⏸️ **Defer** — manter no limbo por agora, revisitar depois
+1.  **Drop** — remover completamente (branch local + remote)
+2.  **Keep as local patch** — mover para `localPatches`, manter na production branch
+3.  **Resubmit** — retrabalhar e abrir novo PR com abordagem diferente
+4.  **Defer** — manter no limbo por agora, revisitar depois
 ```
 
 #### 7.4. Executar a decisão
@@ -386,23 +386,23 @@ Para cada par com overlap de arquivos:
 #### Possivelmente resolvidos upstream
 | # | Titulo | Arquivos em comum | Status |
 |---|--------|-------------------|--------|
-| 123 | fix(foo): bar | foo.ts (changed upstream 3 days ago) | ⚠️ Verificar |
+| 123 | fix(foo): bar | foo.ts (changed upstream 3 days ago) |  Verificar |
 
 #### Possíveis duplicatas externas
 | Nosso PR | PR externo | Overlap | Recomendação |
 |----------|-----------|---------|--------------|
-| #123 | #456 (@user) | foo.ts, bar.ts | ⚠️ Mesmo issue, verificar |
+| #123 | #456 (@user) | foo.ts, bar.ts |  Mesmo issue, verificar |
 
 #### Self-duplicates (nossos PRs que se sobrepõem)
 | PR A | PR B | Arquivos em comum | Recomendação |
 |------|------|-------------------|--------------|
-| #6471 | #8386 | skills/refresh.ts | 🗑️ Fechar #6471 (duplicata) |
+| #6471 | #8386 | skills/refresh.ts |  Fechar #6471 (duplicata) |
 
 **Opções por PR flagged:**
-1. 🗑️ **Close** — fechar o PR no upstream e drop
-2. ✅ **Keep** — falso positivo, manter aberto
-3. 🔄 **Merge into** — combinar com outro PR
-4. ⏸️ **Defer** — revisitar depois
+1.  **Close** — fechar o PR no upstream e drop
+2.  **Keep** — falso positivo, manter aberto
+3.  **Merge into** — combinar com outro PR
+4.  **Defer** — revisitar depois
 ```
 
 ## Comandos do Agente
@@ -461,8 +461,8 @@ Ao comparar a lista do GitHub (`gh pr list --state open`) com o config local, de
 | Cenário | Condição | Ação |
 |---------|----------|------|
 | **PR novo** | No GitHub mas não em `openPRs`, `localPatches`, nem `notes` | Adicionar a `openPRs` + `prBranches` normalmente |
-| **PR reaberto (dropped)** | No GitHub como open, encontrado em `notes.closedWithoutMerge` ou `notes.droppedPatches` | **Restaurar**: mover de volta para `openPRs` + `prBranches`, remover da seção `notes`. Fetch da branch: `git fetch <originRemote> <branch>`. Logar no relatório como "🔄 Reopened" |
-| **PR reaberto (local patch)** | No GitHub como open, encontrado em `localPatches` (via campo `originalPR`) | **Promover**: mover de `localPatches` para `openPRs` + `prBranches`. Logar no relatório como "🔄 Reopened (was local patch)" |
+| **PR reaberto (dropped)** | No GitHub como open, encontrado em `notes.closedWithoutMerge` ou `notes.droppedPatches` | **Restaurar**: mover de volta para `openPRs` + `prBranches`, remover da seção `notes`. Fetch da branch: `git fetch <originRemote> <branch>`. Logar no relatório como " Reopened" |
+| **PR reaberto (local patch)** | No GitHub como open, encontrado em `localPatches` (via campo `originalPR`) | **Promover**: mover de `localPatches` para `openPRs` + `prBranches`. Logar no relatório como " Reopened (was local patch)" |
 
 **Implementação:**
 
@@ -487,7 +487,7 @@ cd <localPath>
 git fetch <upstreamRemote>
 git fetch <originRemote>
 
-# ⚠️ SEMPRE preservar arquivos não-commitados antes de trocar de branch
+#  SEMPRE preservar arquivos não-commitados antes de trocar de branch
 if [ -n "$(git status --porcelain)" ]; then
   git stash push --include-untracked -m "fork-manager: pre-build-production $(date -u +%Y%m%dT%H%M%S)"
   STASHED=1
@@ -577,7 +577,7 @@ Para cada entry em `localPatches` cuja `reviewDate` já passou:
 Após qualquer operação, gerar relatório:
 
 ```markdown
-## 🍴 Fork Status: <repo>
+##  Fork Status: <repo>
 
 ### Upstream Sync
 
@@ -588,9 +588,9 @@ Após qualquer operação, gerar relatório:
 
 | #   | Branch        | Status           | Action Needed     |
 | --- | ------------- | ---------------- | ----------------- |
-| 123 | fix/issue-123 | ✅ Up to date    | None              |
-| 456 | feat/feature  | ⚠️ Needs rebase  | Run rebase        |
-| 789 | fix/bug       | ❌ Has conflicts | Manual resolution |
+| 123 | fix/issue-123 |  Up to date    | None              |
+| 456 | feat/feature  |  Needs rebase  | Run rebase        |
+| 789 | fix/bug       |  Has conflicts | Manual resolution |
 
 ### Local Patches (Z total)
 
@@ -603,16 +603,16 @@ Após qualquer operação, gerar relatório:
 
 | #   | Título           | Flag                | Detalhe                          |
 | --- | ---------------- | ------------------- | -------------------------------- |
-| 123 | fix(foo): bar    | ⚠️ resolved_upstream | upstream changed foo.ts 3d ago   |
-| 456 | fix(baz): qux    | ⚠️ duplicate_external | similar to #789 by @user         |
-| 111 | fix(a): b        | ⚠️ self_duplicate    | overlaps with our #222           |
+| 123 | fix(foo): bar    |  resolved_upstream | upstream changed foo.ts 3d ago   |
+| 456 | fix(baz): qux    |  duplicate_external | similar to #789 by @user         |
+| 111 | fix(a): b        |  self_duplicate    | overlaps with our #222           |
 
 ### PRs Reabertos (restaurados automaticamente)
 
 | #   | Título           | Origem              | Ação                    |
 | --- | ---------------- | ------------------- | ----------------------- |
-| 777 | fix(foo): bar    | notes.droppedPatches | 🔄 Restored to openPRs |
-| 888 | feat(baz): qux   | localPatches         | 🔄 Promoted to openPRs |
+| 777 | fix(foo): bar    | notes.droppedPatches |  Restored to openPRs |
+| 888 | feat(baz): qux   | localPatches         |  Promoted to openPRs |
 
 _Seção presente apenas quando há PRs reabertos no ciclo atual._
 
@@ -620,14 +620,14 @@ _Seção presente apenas quando há PRs reabertos no ciclo atual._
 
 | #   | Título           | Fechado em | Motivo              | Recomendação     |
 | --- | ---------------- | ---------- | ------------------- | ---------------- |
-| 999 | fix(foo): bar    | 2026-02-05 | resolved_upstream   | 🗑️ Drop          |
-| 888 | feat(baz): qux   | 2026-02-06 | rejected_need       | 📌 Local patch   |
+| 999 | fix(foo): bar    | 2026-02-05 | resolved_upstream   |  Drop          |
+| 888 | feat(baz): qux   | 2026-02-06 | rejected_need       |  Local patch   |
 
 ### Production Branch
 
 - **Branch:** main-with-all-prs
 - **Contains:** PRs #123, #456 + Local patches: local/my-fix, local/custom-tweak
-- **Status:** ✅ Up to date / ⚠️ Needs rebuild
+- **Status:**  Up to date /  Needs rebuild
 
 ### Recommended Actions
 
@@ -646,7 +646,7 @@ _Seção presente apenas quando há PRs reabertos no ciclo atual._
 - **Review dates em local patches:** ao criar um local patch, definir uma data de revisão (default: 30 dias). No `full-sync`, patches com review vencida são apresentados ao usuário para reavaliação
 - **Naming convention para local patches:** prefixo `local/` para distinguir de branches de PR (ex: `local/my-custom-fix`). A branch original pode ser renomeada ou mantida — o importante é que o config rastreie a branch correta
 
-### ⚠️ Proteger arquivos não-commitados antes de operações destrutivas
+###  Proteger arquivos não-commitados antes de operações destrutivas
 
 Antes de qualquer operação que troca de branch ou deleta/recria branches (especialmente `build-production` e `full-sync`), **sempre** verificar e preservar arquivos unstaged, untracked e staged:
 

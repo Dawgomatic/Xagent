@@ -40,12 +40,12 @@ Most portfolio tools require paid API subscriptions or only work with specific b
 
 ---
 
-⚡ **Level up your financial AI agent:**
+ **Level up your financial AI agent:**
 
 - [Fintech AI Context Pack ($47)](https://afrexai-cto.github.io/context-packs/) — Complete fintech agent context: compliance frameworks, risk models, regulatory intelligence
 - [SaaS Context Pack ($47)](https://afrexai-cto.github.io/context-packs/) — Unit economics, pricing strategy, SaaS metrics
 
-🔗 **More free skills by AfrexAI:**
+ **More free skills by AfrexAI:**
 
 - `afrexai-budget-tracker` — Personal & business budget management
 - `afrexai-data-analyst` — Complete data analysis methodology (DICE framework)
@@ -53,4 +53,4 @@ Most portfolio tools require paid API subscriptions or only work with specific b
 - `afrexai-pricing-strategy` — Full pricing system with Van Westendorp research
 - `afrexai-negotiation-mastery` — 7-phase negotiation system
 
-📦 [Browse all AfrexAI context packs →](https://afrexai-cto.github.io/context-packs/)
+ [Browse all AfrexAI context packs →](https://afrexai-cto.github.io/context-packs/)

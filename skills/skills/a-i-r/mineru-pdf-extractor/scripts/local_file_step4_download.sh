@@ -9,12 +9,12 @@ validate_dirname() {
     local dir="$1"
     # Prevent directory traversal - disallow .. and absolute paths
     if [[ "$dir" == *".."* ]] || [[ "$dir" == /* ]]; then
-        echo "❌ Error: Invalid directory name. Cannot contain '..' or start with '/'"
+        echo " Error: Invalid directory name. Cannot contain '..' or start with '/'"
         exit 1
     fi
     # Limit length
     if [ ${#dir} -gt 255 ]; then
-        echo "❌ Error: Directory name too long (max 255 chars)"
+        echo " Error: Directory name too long (max 255 chars)"
         exit 1
     fi
     echo "$dir"
@@ -33,13 +33,13 @@ sanitize_filename() {
 
 ZIP_URL="${1:-}"
 if [ -z "$ZIP_URL" ]; then
-    echo "❌ Error: Please provide ZIP download URL"
+    echo " Error: Please provide ZIP download URL"
     exit 1
 fi
 
 # Validate URL format
 if [[ ! "$ZIP_URL" =~ ^https://cdn-mineru\.openxlab\.org\.cn/ ]]; then
-    echo "❌ Error: Invalid ZIP URL. Must be from cdn-mineru.openxlab.org.cn"
+    echo " Error: Invalid ZIP URL. Must be from cdn-mineru.openxlab.org.cn"
     exit 1
 fi
 
@@ -62,52 +62,52 @@ EXTRACT_PATH="$WORK_DIR/$EXTRACT_DIR"
 
 # Ensure directory is within working directory
 if [[ ! "$EXTRACT_PATH" =~ ^"$WORK_DIR" ]]; then
-    echo "❌ Error: Extract path escapes working directory"
+    echo " Error: Extract path escapes working directory"
     exit 1
 fi
 
 # Download ZIP
-echo "📥 Downloading..."
+echo " Downloading..."
 curl -L -o "$ZIP_FILENAME" "$ZIP_URL"
 
 if [ ! -f "$ZIP_FILENAME" ]; then
-    echo "❌ Download failed"
+    echo " Download failed"
     exit 1
 fi
 
 # Validate ZIP file
 if ! unzip -t "$ZIP_FILENAME" &>/dev/null; then
-    echo "❌ Error: Invalid ZIP file"
+    echo " Error: Invalid ZIP file"
     rm -f "$ZIP_FILENAME"
     exit 1
 fi
 
-echo "✅ Download complete: $ZIP_FILENAME ($(du -h "$ZIP_FILENAME" | cut -f1))"
+echo " Download complete: $ZIP_FILENAME ($(du -h "$ZIP_FILENAME" | cut -f1))"
 echo ""
 
 # Extract
-echo "📦 Extracting..."
+echo " Extracting..."
 mkdir -p "$EXTRACT_DIR"
 unzip -q "$ZIP_FILENAME" -d "$EXTRACT_DIR"
 
 # Verify extraction result
 if [ ! -d "$EXTRACT_DIR" ]; then
-    echo "❌ Extraction failed"
+    echo " Extraction failed"
     exit 1
 fi
 
-echo "✅ Extraction complete: $EXTRACT_DIR/"
+echo " Extraction complete: $EXTRACT_DIR/"
 echo ""
 
 # Show contents
-echo "📁 Extracted files:"
+echo " Extracted files:"
 ls -lh "$EXTRACT_DIR/"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "🎉 All Complete!"
+echo " All Complete!"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 echo "Key files:"
-echo "  📄 $EXTRACT_DIR/full.md - Markdown document"
-echo "  🖼️  $EXTRACT_DIR/images/ - Extracted images"
+echo "   $EXTRACT_DIR/full.md - Markdown document"
+echo "    $EXTRACT_DIR/images/ - Extracted images"

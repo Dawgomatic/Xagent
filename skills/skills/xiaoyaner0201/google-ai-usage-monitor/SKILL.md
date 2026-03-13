@@ -66,7 +66,7 @@ Where `X / Y` represents `used / limit`.
 ### Discord Message Template
 
 ```markdown
-## 📊 Google AI Studio 用量报告
+##  Google AI Studio 用量报告
 
 **项目**: {project_name}
 **付费等级**: {tier}
@@ -92,9 +92,9 @@ Where `X / Y` represents `used / limit`.
 
 | Usage % | Status | Emoji | Action |
 |---------|--------|-------|--------|
-| < 50% | 正常 | ✅ | Continue normally |
-| 50-80% | 需关注 | ⚠️ | Monitor more frequently |
-| > 80% | 风险预警 | 🚨 | Alert user, consider rate limiting |
+| < 50% | 正常 |  | Continue normally |
+| 50-80% | 需关注 |  | Monitor more frequently |
+| > 80% | 风险预警 |  | Alert user, consider rate limiting |
 
 ## Alert Rules
 
@@ -107,7 +107,7 @@ Where `X / Y` represents `used / limit`.
 ### Alert Message Template
 
 ```markdown
-🚨 **Google AI 配额预警**
+ **Google AI 配额预警**
 
 <@USER_ID> 以下指标接近限额：
 

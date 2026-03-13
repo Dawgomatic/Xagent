@@ -25,11 +25,11 @@ class Colors:
     NC = '\033[0m'  # No Color
 
 
-def log_info(msg): print(f"{Colors.BLUE}ℹ️  {msg}{Colors.NC}")
-def log_success(msg): print(f"{Colors.GREEN}✅ {msg}{Colors.NC}")
-def log_warning(msg): print(f"{Colors.YELLOW}⚠️  {msg}{Colors.NC}")
-def log_error(msg): print(f"{Colors.RED}❌ {msg}{Colors.NC}")
-def log_step(msg): print(f"{Colors.CYAN}▶ {msg}{Colors.NC}")
+def log_info(msg): print(f"{Colors.BLUE}  {msg}{Colors.NC}")
+def log_success(msg): print(f"{Colors.GREEN} {msg}{Colors.NC}")
+def log_warning(msg): print(f"{Colors.YELLOW}  {msg}{Colors.NC}")
+def log_error(msg): print(f"{Colors.RED} {msg}{Colors.NC}")
+def log_step(msg): print(f"{Colors.CYAN} {msg}{Colors.NC}")
 
 
 def detect_platform():

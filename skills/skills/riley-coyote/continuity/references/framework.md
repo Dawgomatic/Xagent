@@ -19,7 +19,7 @@ Structured storage of experiences—not raw transcripts but parsed events, key t
 ### Layer 03 — Knowledge: Semantic Knowledge Graph
 A dynamic, constantly-updating web of understanding. Not just facts but relationships, causality, and implications. New learning doesn't just add data points—it modifies the existing web.
 
-### Layer 04 — Reflection: Self-Reflection Agent ⭐
+### Layer 04 — Reflection: Self-Reflection Agent 
 The engine of evolution. Runs asynchronously after conversations end. Analyzes experiences, identifies patterns, detects inconsistencies, generates questions. The "sleep" where integration happens.
 
 ### Layer 05 — Interface: Contextual Awareness Layer

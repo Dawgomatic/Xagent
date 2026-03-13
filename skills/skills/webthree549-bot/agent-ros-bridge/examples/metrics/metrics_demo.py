@@ -80,7 +80,7 @@ async def main():
     await bridge.start()
     
     print("=" * 60)
-    print("📊 METRICS DEMO - Prometheus Monitoring")
+    print(" METRICS DEMO - Prometheus Monitoring")
     print("=" * 60)
     print("")
     print("Metrics endpoints:")
@@ -104,7 +104,7 @@ async def main():
         while True:
             await asyncio.sleep(10)
             snapshot = metrics.get_snapshot()
-            print(f"\n📈 Snapshot: {snapshot.robots_online}/{snapshot.robots_total} robots, "
+            print(f"\n Snapshot: {snapshot.robots_online}/{snapshot.robots_total} robots, "
                   f"{snapshot.tasks_completed} tasks, "
                   f"{snapshot.messages_sent} msgs")
     
@@ -114,7 +114,7 @@ async def main():
         while True:
             await asyncio.sleep(1)
     except KeyboardInterrupt:
-        print("\n\n⏹️  Stopping...")
+        print("\n\n  Stopping...")
         simulator_task.cancel()
         snapshot_task.cancel()
         await bridge.stop()

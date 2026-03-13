@@ -3,7 +3,7 @@ name: Patent Validator
 description: Turn your concept analysis into search queries — research the landscape before consulting an attorney. NOT legal advice.
 homepage: https://github.com/Obviously-Not/patent-skills/tree/main/patent-validator
 user-invocable: true
-emoji: 🔎
+emoji: 
 tags:
   - patent-validator
   - search-strategy

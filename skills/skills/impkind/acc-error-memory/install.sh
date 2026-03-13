@@ -21,7 +21,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-echo "⚡ Installing ACC (Anterior Cingulate Memory)"
+echo " Installing ACC (Anterior Cingulate Memory)"
 echo "============================================="
 echo ""
 
@@ -66,7 +66,7 @@ echo "Generating ACC_STATE.md..."
 chmod +x "$SKILL_DIR/scripts/"*.sh 2>/dev/null || true
 
 echo ""
-echo "✅ ACC installed!"
+echo " ACC installed!"
 echo ""
 echo "Files created:"
 echo "  - $STATE_FILE"

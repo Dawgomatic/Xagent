@@ -29,7 +29,7 @@ if [ -f ".integrity-manifest.sha256" ]; then
   CURRENT_MANIFEST=$(find .integrity -type f -name '*.sha256' 2>/dev/null | sort | xargs cat 2>/dev/null | sha256sum | cut -d' ' -f1)
   STORED_MANIFEST=$(cat .integrity-manifest.sha256 2>/dev/null | tr -d '[:space:]')
   if [ -n "$STORED_MANIFEST" ] && [ "$CURRENT_MANIFEST" != "$STORED_MANIFEST" ]; then
-    echo "🚨 VIOLATION: Integrity baselines tampered (.integrity/ does not match manifest)!"
+    echo " VIOLATION: Integrity baselines tampered (.integrity/ does not match manifest)!"
     VIOLATIONS=$((VIOLATIONS + 1))
     echo "## Integrity baseline tampering" >> memory/security-incidents.md
     echo "**Date:** $TIMESTAMP" >> memory/security-incidents.md
@@ -37,7 +37,7 @@ if [ -f ".integrity-manifest.sha256" ]; then
     echo "" >> memory/security-incidents.md
   fi
 elif [ -d ".integrity" ] && [ -n "$(find .integrity -type f -name '*.sha256' 2>/dev/null)" ]; then
-  echo "⚠️  WARNING: No .integrity-manifest.sha256 (run generate-baseline.sh to create it)"
+  echo "  WARNING: No .integrity-manifest.sha256 (run generate-baseline.sh to create it)"
   VIOLATIONS=$((VIOLATIONS + 1))
 fi
 
@@ -48,10 +48,10 @@ for file in "${CRITICAL_FILES[@]}"; do
     BASELINE=$(cat ".integrity/$file.sha256" 2>/dev/null | cut -d' ' -f1)
     
     if [ -z "$BASELINE" ]; then
-      echo "⚠️  WARNING: No baseline for $file (run initial hash generation)"
+      echo "  WARNING: No baseline for $file (run initial hash generation)"
       VIOLATIONS=$((VIOLATIONS + 1))
     elif [ "$CURRENT" != "$BASELINE" ]; then
-      echo "🚨 VIOLATION: $file modified without authorization!"
+      echo " VIOLATION: $file modified without authorization!"
       echo "   Current:  $CURRENT"
       echo "   Baseline: $BASELINE"
       VIOLATIONS=$((VIOLATIONS + 1))
@@ -76,7 +76,7 @@ find skills/ -name "SKILL.md" -type f | while read -r skill; do
     BASELINE=$(cat "$HASH_FILE" | cut -d' ' -f1)
     
     if [ "$CURRENT" != "$BASELINE" ]; then
-      echo "🚨 VIOLATION: $skill modified!"
+      echo " VIOLATION: $skill modified!"
       echo "   Current:  $CURRENT"
       echo "   Baseline: $BASELINE"
       VIOLATIONS=$((VIOLATIONS + 1))
@@ -96,11 +96,11 @@ done
 
 if [ $VIOLATIONS -gt 0 ]; then
   echo ""
-  echo "⚠️  $VIOLATIONS file(s) modified without authorization"
+  echo "  $VIOLATIONS file(s) modified without authorization"
   echo "Review changes and update baseline if legitimate:"
   echo "  sha256sum [file] > .integrity/[file].sha256"
   exit 1
 fi
 
-echo "✅ All files integrity verified ($(($(ls -1 .integrity/*.sha256 | wc -l))) files checked)"
+echo " All files integrity verified ($(($(ls -1 .integrity/*.sha256 | wc -l))) files checked)"
 exit 0

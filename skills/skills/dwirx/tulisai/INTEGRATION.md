@@ -2,7 +2,7 @@
 
 Complete integration guide untuk skill dengan BangunAI Blog (Digital Garden + Obsidian-like features).
 
-## 🌿 Content Structure
+##  Content Structure
 
 ```
 src/content/
@@ -15,7 +15,7 @@ src/content/
 └── index.ts     Auto-import loader
 ```
 
-## 📝 Frontmatter Formats
+##  Frontmatter Formats
 
 ### A. Standard (writing, articles, daily)
 - **Required:** title, slug, summary, type, category, tags, date, readingTime
@@ -31,7 +31,7 @@ src/content/
 - **Required:** title only
 - **Content:** Full MDX support
 
-## 🧩 Obsidian-Like Features
+##  Obsidian-Like Features
 
 | Feature | Implementation | Component |
 |---------|----------------|-----------|
@@ -45,7 +45,7 @@ src/content/
 | Syntax Highlight | Shiki + copy | ` ```lang ... ``` ` |
 | GFM | Tables, tasks | Standard Markdown |
 
-## 🔧 8 Workflows
+##  8 Workflows
 
 1. **daily** - Create daily note with rollover tasks
 2. **fetch_last** - Style reference (supports about/now)
@@ -56,7 +56,7 @@ src/content/
 7. **update_now** - Update now.mdx (auto-date)
 8. **verify_index** - Content statistics
 
-## 🎨 Design System
+##  Design System
 
 ### Color Tokens (HSL)
 - Dark Mode: Navy (#1A1A2E) + Cream (#F5E6D3)
@@ -74,7 +74,7 @@ src/content/
 <div className="glass glass-hover">...</div>
 ```
 
-## 🚀 Auto-Import System
+##  Auto-Import System
 
 `src/content/index.ts` uses `import.meta.glob`:
 
@@ -84,7 +84,7 @@ const writingModules = import.meta.glob("./writing/*.mdx", { eager: true });
 
 **Result:** Create file → Auto-detected → Available immediately
 
-## ✅ Best Practices
+##  Best Practices
 
 ### Frontmatter
 - Use ISO timestamps with time
@@ -111,7 +111,7 @@ git mv old.mdx new.mdx    # Preserve history
 git rm unwanted.mdx        # Track deletion
 ```
 
-## 📊 Current Statistics
+##  Current Statistics
 
 ```
 Writing: 11 posts
@@ -122,46 +122,46 @@ Special: 2 pages (about, now)
 Total: 26 content files
 ```
 
-## 🔗 Key URLs
+##  Key URLs
 
 - **Repo:** https://github.com/dwirx/BangunAI-Blog
 - **Local:** http://localhost:8080
 - **Routes:** `/`, `/writing`, `/artikel`, `/read`, `/tags`, `/graph`, `/now`, `/about`
 
-## 📚 Documentation
+##  Documentation
 
 - `SKILL.md` - Complete workflow guide (600+ lines)
 - `README.md` - Quick reference
 - `EXAMPLES.md` - Copy-paste examples
 - `INTEGRATION.md` - This file
 
-## 🎯 Migration Notes
+##  Migration Notes
 
 ### From Obsidian (ObsBlog)
 
 **Changes:**
-- ✅ Path: `/home/hades/ObsBlog` → `/home/hades/BangunAI-Blog`
-- ✅ Format: `.md` → `.mdx`
-- ✅ Frontmatter: Obsidian → BangunAI (more structured)
-- ✅ Components: Obsidian callouts → React MDX components
-- ✅ Features: Full Obsidian-like support (callouts, mermaid, LaTeX, wikilinks, backlinks, graph)
+-  Path: `/home/hades/ObsBlog` → `/home/hades/BangunAI-Blog`
+-  Format: `.md` → `.mdx`
+-  Frontmatter: Obsidian → BangunAI (more structured)
+-  Components: Obsidian callouts → React MDX components
+-  Features: Full Obsidian-like support (callouts, mermaid, LaTeX, wikilinks, backlinks, graph)
 
 **Preserved:**
-- ✅ Daily workflow (rollover tasks)
-- ✅ Fetch style workflow
-- ✅ Write workflow
-- ✅ Log workflow
-- ✅ Read workflow
+-  Daily workflow (rollover tasks)
+-  Fetch style workflow
+-  Write workflow
+-  Log workflow
+-  Read workflow
 
 **New:**
-- ✅ 3 additional workflows (update_about, update_now, verify_index)
-- ✅ MDX components (Callout, Mermaid, WikiLink, YouTube, etc.)
-- ✅ Auto-import system
-- ✅ Design system tokens
-- ✅ Multiple content types (note/essay/article)
-- ✅ 6 category options
+-  3 additional workflows (update_about, update_now, verify_index)
+-  MDX components (Callout, Mermaid, WikiLink, YouTube, etc.)
+-  Auto-import system
+-  Design system tokens
+-  Multiple content types (note/essay/article)
+-  6 category options
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Content not showing
 - Check frontmatter required fields
@@ -183,16 +183,16 @@ Total: 26 content files
 - Proper delimiters `$` or `$$`
 - Escape special characters
 
-## 🎉 Status
+##  Status
 
-✅ **Fully integrated** with BangunAI Blog
-✅ **8 workflows** production-ready
-✅ **3 frontmatter formats** supported
-✅ **14 callout types** available
-✅ **9+ diagram types** via Mermaid
-✅ **LaTeX math** via KaTeX
-✅ **Auto-import** via import.meta.glob
-✅ **Design system** documented
-✅ **Best practices** established
+ **Fully integrated** with BangunAI Blog
+ **8 workflows** production-ready
+ **3 frontmatter formats** supported
+ **14 callout types** available
+ **9+ diagram types** via Mermaid
+ **LaTeX math** via KaTeX
+ **Auto-import** via import.meta.glob
+ **Design system** documented
+ **Best practices** established
 
-**Ready for production use!** 🚀
+**Ready for production use!** 

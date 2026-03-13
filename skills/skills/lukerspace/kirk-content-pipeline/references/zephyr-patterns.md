@@ -31,7 +31,7 @@ Track: ticker, entry, current price, % gain.
 
 ### Quick Reaction (50% of posts)
 ```
-[Short reaction: WOW / Interesting / 🫡🫡🫡]
+[Short reaction: WOW / Interesting / ]
 ```
 
 ### QT with Context
@@ -68,6 +68,6 @@ Did u listen to me, anon??
 
 ## Emoji Usage
 Heavy but purposeful:
-- 🫡🫡🫡🫡 (salute/respect)
-- 🤣🤣🤣🤣 (laughing at bad takes)
-- 😢😢😢 (disappointment)
+-  (salute/respect)
+-  (laughing at bad takes)
+-  (disappointment)

@@ -11,13 +11,13 @@ Powered by [SearXNG](https://github.com/searxng/searxng). No Google. No tracking
 
 ## What melt Does
 
-### 🔍 She Searches (Privately)
+###  She Searches (Privately)
 ```bash
 searx "best password managers 2026" 5
 ```
 melt queries DuckDuckGo, Brave, Startpage, and friends. Google and Bing are blocked at the door.
 
-### 🔬 She Researches (Deeply)
+###  She Researches (Deeply)
 ```bash
 deep-research "zero knowledge proofs practical applications"
 ```
@@ -32,7 +32,7 @@ melt doesn't just search once and call it a day. She:
 
 Like Perplexity, but she doesn't sell your soul to investors.
 
-### 🛡️ She Protects (Always)
+###  She Protects (Always)
 
 | What Big Tech Does | What melt Does |
 |--------------------|----------------|
@@ -177,13 +177,13 @@ Closed-source "privacy" tools ask you to trust them. melt asks you to verify.
 
 ## Engines melt Trusts
 
-✅ **Enabled:**
+ **Enabled:**
 - DuckDuckGo, Brave Search, Startpage
 - Qwant, Mojeek
 - Wikipedia, GitHub, StackOverflow, Reddit, arXiv
 - Piped, Invidious (YouTube without YouTube)
 
-❌ **Blocked:**
+ **Blocked:**
 - Google (all of it)
 - Bing (all of it)
 - Anything that tracks you
@@ -237,4 +237,4 @@ MIT — Do whatever you want. Just don't be evil.
 *"The best search history is no search history."*
 — melt
 
-**[SearXNG](https://searxng.org)** 🛡️
+**[SearXNG](https://searxng.org)** 

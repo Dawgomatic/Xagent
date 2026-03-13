@@ -5,7 +5,7 @@ homepage: https://github.com/Hogar23/home-assistant-control
 metadata:
   {
     "openclaw": {
-      "emoji": "🏠",
+      "emoji": "",
       "requires": {
         "bins": ["bash", "curl", "jq"],
         "env": ["HA_TOKEN", "HA_URL_PUBLIC"]

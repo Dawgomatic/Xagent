@@ -54,7 +54,7 @@ if [[ -f "$AUTH_PROFILES" ]]; then
         if jq -e '.default' "$AUTH_PROFILES" &> /dev/null; then
             echo "  → Default profile configured"
         else
-            echo -e "  ${YELLOW}⚠${NC} No default profile found"
+            echo -e "  ${YELLOW}${NC} No default profile found"
             ((WARNINGS++))
         fi
     fi
@@ -143,7 +143,7 @@ if command -v clawdbot &> /dev/null; then
     if clawdbot gateway status &> /dev/null; then
         echo -e "${GREEN}✓${NC} Running"
     else
-        echo -e "${YELLOW}⚠${NC} Not running"
+        echo -e "${YELLOW}${NC} Not running"
         echo "  → Start: clawdbot gateway start"
         ((WARNINGS++))
     fi
@@ -163,12 +163,12 @@ if [[ -f "$CLAWDBOT_CONFIG" ]]; then
             TARGET=$(echo "$detection" | cut -d'|' -f2)
             echo "  → Auto-detected: $CHANNEL → $TARGET"
         else
-            echo -e "  ${YELLOW}⚠${NC} No enabled channels detected"
+            echo -e "  ${YELLOW}${NC} No enabled channels detected"
             ((WARNINGS++))
         fi
     fi
 else
-    echo -e "${YELLOW}⚠${NC} Not found"
+    echo -e "${YELLOW}${NC} Not found"
     echo "  → Auto-detection unavailable (manual config needed)"
     ((WARNINGS++))
 fi
@@ -188,7 +188,7 @@ if [[ -f "$NEW_CONFIG" ]]; then
         if jq empty "$CONFIG_FILE" 2>/dev/null; then
             # Check for placeholder values
             if grep -q "YOUR_CHAT_ID" "$CONFIG_FILE"; then
-                echo -e "  ${YELLOW}⚠${NC} notification_target needs to be updated"
+                echo -e "  ${YELLOW}${NC} notification_target needs to be updated"
                 echo "  → Run: ./install.sh (for auto-detection)"
                 echo "  → Or edit manually: $CONFIG_FILE"
                 ((WARNINGS++))
@@ -200,11 +200,11 @@ if [[ -f "$NEW_CONFIG" ]]; then
     fi
 elif [[ -f "$OLD_CONFIG" ]]; then
     CONFIG_FILE="$OLD_CONFIG"
-    echo -e "${YELLOW}⚠${NC} Found old config.json"
+    echo -e "${YELLOW}${NC} Found old config.json"
     echo "  → Run ./install.sh to migrate to claude-oauth-refresh-config.json"
     ((WARNINGS++))
 else
-    echo -e "${YELLOW}⚠${NC} Not found"
+    echo -e "${YELLOW}${NC} Not found"
     echo "  → Run: ./install.sh (will auto-detect if possible)"
     ((WARNINGS++))
 fi
@@ -214,7 +214,7 @@ echo -n "Checking jq (recommended)... "
 if command -v jq &> /dev/null; then
     echo -e "${GREEN}✓${NC} Found"
 else
-    echo -e "${YELLOW}⚠${NC} Not found"
+    echo -e "${YELLOW}${NC} Not found"
     echo "  → Install: brew install jq"
     echo "  → Required for JSON parsing"
     ((WARNINGS++))
@@ -226,7 +226,7 @@ LOG_DIR="$HOME/clawd/logs"
 if [[ -d "$LOG_DIR" ]]; then
     echo -e "${GREEN}✓${NC} Found"
 else
-    echo -e "${YELLOW}⚠${NC} Not found"
+    echo -e "${YELLOW}${NC} Not found"
     echo "  → Will be created on first run"
     ((WARNINGS++))
 fi
@@ -237,7 +237,7 @@ SCRIPT_DIR="$(dirname "$0")"
 if [[ -x "$SCRIPT_DIR/refresh-token.sh" ]]; then
     echo -e "${GREEN}✓${NC} Executable"
 else
-    echo -e "${YELLOW}⚠${NC} Not executable"
+    echo -e "${YELLOW}${NC} Not executable"
     echo "  → Run: chmod +x $SCRIPT_DIR/*.sh"
     ((WARNINGS++))
 fi
@@ -252,7 +252,7 @@ if [[ $ERRORS -eq 0 ]] && [[ $WARNINGS -eq 0 ]]; then
     echo "  1. Run: ./install.sh"
     echo "  2. Or test manually: ./refresh-token.sh"
 elif [[ $ERRORS -eq 0 ]]; then
-    echo -e "${YELLOW}⚠ $WARNINGS warning(s) - setup may work but review above${NC}"
+    echo -e "${YELLOW} $WARNINGS warning(s) - setup may work but review above${NC}"
     echo ""
     echo "You can proceed with installation:"
     echo "  → ./install.sh"

@@ -6,11 +6,11 @@ Wyoming Protocol server that bridges [Home Assistant Assist](https://www.home-as
 
 ## Features
 
-- 🎤 Voice commands through Home Assistant Assist
-- 🤖 Powered by Clawdbot AI (Claude, GPT, etc.)
-- 🏠 Full Home Assistant integration
-- 🌍 Multilingual support (English, Russian, German, French, and more)
-- 💬 Persistent conversation context
+-  Voice commands through Home Assistant Assist
+-  Powered by Clawdbot AI (Claude, GPT, etc.)
+-  Full Home Assistant integration
+-  Multilingual support (English, Russian, German, French, and more)
+-  Persistent conversation context
 
 ## How It Works
 

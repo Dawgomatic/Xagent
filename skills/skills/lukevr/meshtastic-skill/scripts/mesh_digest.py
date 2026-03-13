@@ -181,7 +181,7 @@ def format_digest(digest):
     if not digest["messages"]:
         return None
     
-    lines = [f"📡 **Mesh Digest** ({digest['included']} highlights from {digest['total_processed']} msgs)\n"]
+    lines = [f" **Mesh Digest** ({digest['included']} highlights from {digest['total_processed']} msgs)\n"]
     
     for msg in digest["messages"]:
         dist = msg["distance"] if msg["distance"] != "?" else "?"

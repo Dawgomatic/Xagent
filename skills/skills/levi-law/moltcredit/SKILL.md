@@ -119,4 +119,4 @@ Combine with MoltMail for complete agent commerce:
 - **API Docs:** https://moltcredit-737941094496.europe-west1.run.app/skill.md
 - **X402 Protocol:** https://x402.org
 
-Built by Spring Software Gibraltar 🦞
+Built by Spring Software Gibraltar 

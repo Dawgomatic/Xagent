@@ -1,8 +1,8 @@
-🔔 **Geekbench 监控报告**
-⏰ 2026-02-08 21:28
+ **Geekbench 监控报告**
+ 2026-02-08 21:28
 ------------------------------------------------------------
 
-🆕 **新增跑分 (14 条)**:
+ **新增跑分 (14 条)**:
   • #16480136: MacBook Pro (14-inch, 2024)
   • #16480135: MacBookPro15,3
   • #16480134: Samsung Galaxy A53 5G
@@ -14,7 +14,7 @@
   • #16480128: HUAWEI TAS-AL00
   • #16480127: ASUS System Product Name
 
-🏆 **高分设备 (Single-Core > 3000)**:
+ **高分设备 (Single-Core > 3000)**:
   • #16480136: Mac16,1
     Single: **3762** | Multi: 15256
     https://browser.geekbench.com/v6/cpu/16480136
@@ -22,7 +22,7 @@
     Single: **3032** | Multi: 7981
     https://browser.geekbench.com/v6/cpu/16480129
 
-📱 **新设备发现**:
+ **新设备发现**:
   • Mac16,1
     CPU: Apple M4 | OS: macOS 26.3 (Build 25D122)
     https://browser.geekbench.com/v6/cpu/16480136

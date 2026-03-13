@@ -1,12 +1,12 @@
 ---
 name: claude-usage-cli
 description: Query Claude API usage and cost reports from the command line. Secure macOS Keychain storage for Admin API key. Table/JSON output.
-metadata: {"clawdbot":{"emoji":"📊","os":["macos"],"requires":{"bins":["claude-usage","node"]},"install":[{"id":"npm","kind":"shell","command":"npm install -g claude-usage-cli","bins":["claude-usage"],"label":"Install claude-usage-cli via npm"}],"source":"https://github.com/cyberash-dev/claude-usage-cli"}}
+metadata: {"clawdbot":{"emoji":"","os":["macos"],"requires":{"bins":["claude-usage","node"]},"install":[{"id":"npm","kind":"shell","command":"npm install -g claude-usage-cli","bins":["claude-usage"],"label":"Install claude-usage-cli via npm"}],"source":"https://github.com/cyberash-dev/claude-usage-cli"}}
 ---
 
 # claude-usage-cli
 
-⚠️ **DEPRECATED** — This skill is no longer maintained. Please use [`claude-cost-cli`](https://clawhub.com/skills/claude-cost-cli) instead, which provides the same functionality with active support.
+ **DEPRECATED** — This skill is no longer maintained. Please use [`claude-cost-cli`](https://clawhub.com/skills/claude-cost-cli) instead, which provides the same functionality with active support.
 
 ---
 

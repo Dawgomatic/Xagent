@@ -16,7 +16,7 @@
   ],
   "clawdbot": {
     "type": "channel-ui-plugin",
-    "emoji": "🎮",
+    "emoji": "",
     "category": "channels",
     "tags": [
       "discord",
@@ -39,7 +39,7 @@
         "navigation": {
           "group": "channels",
           "path": "/discord",
-          "icon": "🎮",
+          "icon": "",
           "title": "Discord",
           "subtitle": "Bot connection & servers"
         }

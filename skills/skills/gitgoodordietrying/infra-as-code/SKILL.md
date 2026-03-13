@@ -1,7 +1,7 @@
 ---
 name: infra-as-code
 description: Define and manage cloud infrastructure with code. Use when writing Terraform, CloudFormation, or Pulumi configs, managing state, planning deployments, setting up networking/compute/storage resources, or debugging infrastructure drift.
-metadata: {"clawdbot":{"emoji":"🏗️","requires":{"anyBins":["terraform","aws","pulumi"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["terraform","aws","pulumi"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Infrastructure as Code

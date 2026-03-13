@@ -198,4 +198,4 @@ await router.create(tokenParams, fee, toll, tradingAmt, { value: deployFee });
 
 ---
 
-*Built for the agentic future.* 🦞
+*Built for the agentic future.* 

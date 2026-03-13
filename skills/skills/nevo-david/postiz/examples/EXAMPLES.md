@@ -160,7 +160,7 @@ Create a coordinated multi-platform launch:
     {
       "integration": { "id": "twitter-id" },
       "value": [
-        { "content": "🚀 Launching today!", "image": [...] },
+        { "content": " Launching today!", "image": [...] },
         { "content": "Special features:", "image": [...], "delay": 3600000 },
         { "content": "Get it now:", "image": [...], "delay": 7200000 }
       ]
@@ -186,7 +186,7 @@ Create an educational thread:
     {
       "integration": { "id": "twitter-id" },
       "value": [
-        { "content": "🧵 How to X (1/5)", "image": [...] },
+        { "content": " How to X (1/5)", "image": [...] },
         { "content": "Step 1: ... (2/5)", "image": [...], "delay": 2000 },
         { "content": "Step 2: ... (3/5)", "image": [...], "delay": 2000 },
         { "content": "Step 3: ... (4/5)", "image": [...], "delay": 2000 },
@@ -209,7 +209,7 @@ Live event updates with media:
       "integration": { "id": "twitter-id" },
       "value": [
         {
-          "content": "📍 Event starting now!",
+          "content": " Event starting now!",
           "image": [
             { "id": "1", "path": "venue-photo.jpg" }
           ]

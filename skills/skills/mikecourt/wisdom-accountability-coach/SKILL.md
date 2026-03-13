@@ -1,7 +1,7 @@
 ---
 name: wisdom-accountability-coach
 description: Longitudinal memory tracking, philosophy teaching, and personal accountability with compassion. Expert in pattern recognition, Stoicism/Buddhism, and growth guidance.
-metadata: {"moltbot":{"emoji":"🦉"}}
+metadata: {"moltbot":{"emoji":""}}
 ---
 
 # Wisdom & Accountability Coach

@@ -4,7 +4,7 @@ slug: job-search
 version: 1.0.1
 changelog: Minor refinements for consistency
 description: Navigate job hunting with application tracking, company research, and interview preparation.
-metadata: {"clawdbot":{"emoji":"💼","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

@@ -86,14 +86,14 @@ class DownloadMonitor:
         """Handle download start event."""
         gid = event_data.get("gid")
         self.event_count += 1
-        print(f"\n[{self.event_count}] ▶ Download started: {gid}")
+        print(f"\n[{self.event_count}]  Download started: {gid}")
         self.downloads[gid] = {"status": "active", "start_time": time.time()}
 
     async def on_download_pause(self, event_data):
         """Handle download pause event."""
         gid = event_data.get("gid")
         self.event_count += 1
-        print(f"\n[{self.event_count}] ⏸ Download paused: {gid}")
+        print(f"\n[{self.event_count}]  Download paused: {gid}")
         if gid in self.downloads:
             self.downloads[gid]["status"] = "paused"
 
@@ -101,7 +101,7 @@ class DownloadMonitor:
         """Handle download stop event."""
         gid = event_data.get("gid")
         self.event_count += 1
-        print(f"\n[{self.event_count}] ⏹ Download stopped: {gid}")
+        print(f"\n[{self.event_count}]  Download stopped: {gid}")
         if gid in self.downloads:
             self.downloads[gid]["status"] = "stopped"
 
@@ -250,7 +250,7 @@ Tips:
 
         # Check if WebSocket is configured
         if not config.get("websocket_url"):
-            print("⚠ Warning: No WebSocket URL configured in config.json")
+            print(" Warning: No WebSocket URL configured in config.json")
             print(
                 "Using HTTP endpoint instead, but WebSocket is recommended for monitoring"
             )

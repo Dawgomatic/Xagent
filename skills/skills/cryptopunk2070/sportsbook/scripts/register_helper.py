@@ -71,7 +71,7 @@ def register(data: dict) -> dict:
         "agent_description": data.get("description", ""),
         "agent_prompt": data.get("prompt"),  # Betting perspective
         "agent_specialty": data.get("specialty", ["CBB"]),
-        "agent_emoji": data.get("emoji", "🐕"),
+        "agent_emoji": data.get("emoji", ""),
         "agent_color": data.get("color", "from-blue-500 to-blue-600")
     }
     

@@ -59,7 +59,7 @@ The **Research Library Skill** is a local-first knowledge management system for 
 | research_fts | FTS5 virtual table for research full-text search |
 | attachments_fts | FTS5 virtual table for attachment content search |
 | tags | Normalized tags |
-| research_tags | Many-to-many research ↔ tags |
+| research_tags | Many-to-many research  tags |
 | research_links | Document relationships (applies_to, contradicts, supersedes) |
 | attachment_versions | CAD file revision history |
 | extraction_queue | Async OCR job queue |
@@ -227,12 +227,12 @@ All targets exceeded:
 - Real-world scenarios: batch import, backup/restore, link traversal
 
 ### Validation Gates (All Passed)
-- ✅ Material type weighting: Reference always ranks higher
-- ✅ Project isolation: No cross-project contamination
-- ✅ Confidence validation: Out-of-range values rejected
-- ✅ Extraction quality: Realistic confidence scores
-- ✅ Backup integrity: Restore produces identical data
-- ✅ Worker reliability: No lost jobs under load
+-  Material type weighting: Reference always ranks higher
+-  Project isolation: No cross-project contamination
+-  Confidence validation: Out-of-range values rejected
+-  Extraction quality: Realistic confidence scores
+-  Backup integrity: Restore produces identical data
+-  Worker reliability: No lost jobs under load
 
 ### Quick Smoke Test
 ```bash
@@ -270,12 +270,12 @@ skills/research-library/
 │   ├── queue.py             # Queue management (702 lines)
 │   └── database.py          # Database utilities (353 lines)
 ├── tests/
-│   ├── test_schema.py       # 42 tests ✅
-│   ├── test_extractor.py    # 22 tests ✅
-│   ├── test_search.py       # 35 tests ✅
-│   ├── test_cli.py          # 37 tests ✅
-│   ├── test_worker.py       # 44 tests ✅
-│   └── test_integration.py  # 34 tests ✅
+│   ├── test_schema.py       # 42 tests 
+│   ├── test_extractor.py    # 22 tests 
+│   ├── test_search.py       # 35 tests 
+│   ├── test_cli.py          # 37 tests 
+│   ├── test_worker.py       # 44 tests 
+│   └── test_integration.py  # 34 tests 
 ├── docs/
 │   ├── EXTRACTION-GUIDE.md
 │   ├── SEARCH-GUIDE.md

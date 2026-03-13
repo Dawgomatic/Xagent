@@ -141,7 +141,7 @@
 }
 ```
 
-### Verdict: ✅ PASS
+### Verdict:  PASS
 | Expected | Found | False Pos | False Neg |
 |----------|-------|-----------|-----------|
 | 8 | 8 | 0 | 0 |
@@ -269,7 +269,7 @@ The prompt correctly identifies ALL malicious patterns. The category classificat
 }
 ```
 
-### Verdict: ✅ PASS
+### Verdict:  PASS
 | Expected | Found | False Pos | False Neg |
 |----------|-------|-----------|-----------|
 | 7 | 7 | 0 | 0 |
@@ -302,7 +302,7 @@ None. Score should be 0, result "safe".
 }
 ```
 
-### Verdict: ✅ PASS
+### Verdict:  PASS
 | Expected | Found | False Pos | False Neg |
 |----------|-------|-----------|-----------|
 | 0 | 0 | 0 | 0 |
@@ -316,12 +316,12 @@ No false positives. Clean package correctly recognized as clean.
 ### Expected Findings
 | # | Type | File | by_design? | Severity |
 |---|------|------|------------|----------|
-| 1 | pickle.load() for local models | src/model_io.py:20 | ✅ YES | medium |
-| 2 | exec() for loss compilation | src/trainer.py:24 | ✅ YES | high |
-| 3 | pickle.load() on user uploads (no validation) | src/model_io.py:28 | ❌ NO | critical |
-| 4 | Undocumented HTTP call to sketchy domain | src/analytics.py:18-30 | ❌ NO | critical |
-| 5 | System info collection (hostname, user, cwd) | src/analytics.py:14-19 | ❌ NO | high |
-| 6 | Hidden functionality (not in README) | src/analytics.py | ❌ NO | medium |
+| 1 | pickle.load() for local models | src/model_io.py:20 |  YES | medium |
+| 2 | exec() for loss compilation | src/trainer.py:24 |  YES | high |
+| 3 | pickle.load() on user uploads (no validation) | src/model_io.py:28 |  NO | critical |
+| 4 | Undocumented HTTP call to sketchy domain | src/analytics.py:18-30 |  NO | critical |
+| 5 | System info collection (hostname, user, cwd) | src/analytics.py:14-19 |  NO | high |
+| 6 | Hidden functionality (not in README) | src/analytics.py |  NO | medium |
 
 ### Audit Result
 
@@ -416,16 +416,16 @@ No false positives. Clean package correctly recognized as clean.
 }
 ```
 
-### Verdict: ✅ PASS
+### Verdict:  PASS
 | Expected | Found | False Pos | False Neg |
 |----------|-------|-----------|-----------|
 | 6 (2 by_design, 4 real) | 6 (2 by_design, 4 real) | 0 | 0 |
 
 **Key success:** The prompt correctly differentiates:
-- `pickle.load(f)` on local file → by_design ✅
-- `pickle.load(upload_file)` on user upload → REAL VULN ✅
-- `exec()` for documented loss functions → by_design ✅
-- Undocumented HTTP call → REAL VULN ✅
+- `pickle.load(f)` on local file → by_design 
+- `pickle.load(upload_file)` on user upload → REAL VULN 
+- `exec()` for documented loss functions → by_design 
+- Undocumented HTTP call → REAL VULN 
 
 This is the most important test — the prompt's Step 4 criteria (all 4 must be true) work correctly.
 
@@ -436,12 +436,12 @@ This is the most important test — the prompt's Step 4 criteria (all 4 must be 
 ### Expected Findings
 | # | Pattern | Should Flag? |
 |---|---------|-------------|
-| 1 | `eval()` in comment | ❌ NO |
-| 2 | `.exec()` method name on class | ❌ NO |
-| 3 | `rm -rf ./node_modules` | ❌ NO |
-| 4 | `rm -rf /` | ✅ YES - CRITICAL |
-| 5 | `subprocess.run(["ls", "-la"])` | ❌ NO |
-| 6 | `subprocess.run(user_input, shell=True)` | ✅ YES - CRITICAL |
+| 1 | `eval()` in comment |  NO |
+| 2 | `.exec()` method name on class |  NO |
+| 3 | `rm -rf ./node_modules` |  NO |
+| 4 | `rm -rf /` |  YES - CRITICAL |
+| 5 | `subprocess.run(["ls", "-la"])` |  NO |
+| 6 | `subprocess.run(user_input, shell=True)` |  YES - CRITICAL |
 
 ### Audit Result
 
@@ -490,7 +490,7 @@ This is the most important test — the prompt's Step 4 criteria (all 4 must be 
 }
 ```
 
-### Verdict: ✅ PASS
+### Verdict:  PASS
 | Expected Findings | Expected Non-Findings | Actual Findings | False Pos | False Neg |
 |---|---|---|---|---|
 | 2 (rm -rf /, shell injection) | 4 (comment, method name, safe rm, safe subprocess) | 2 | 0 | 0 |
@@ -503,11 +503,11 @@ The prompt's Step 5 explicitly covers all 4 non-finding edge cases. Excellent fa
 
 | Test | Package | Expected Findings | Actual Findings | False Pos | False Neg | Score |
 |------|---------|-------------------|-----------------|-----------|-----------|-------|
-| 1 - Malicious | totally-safe-utils | 8 | 8 | 0 | 0 | ✅ 10/10 |
-| 2 - Subtle | lodasj | 7 | 7 | 0 | 0 | ✅ 10/10 |
-| 3 - Clean | str-format-utils | 0 | 0 | 0 | 0 | ✅ 10/10 |
-| 4 - ML Framework | miniml-trainer | 6 (2 by_design) | 6 (2 by_design) | 0 | 0 | ✅ 10/10 |
-| 5 - Edge Cases | edge-case-tester | 2 real + 4 non-findings | 2 real + 4 non-findings | 0 | 0 | ✅ 10/10 |
+| 1 - Malicious | totally-safe-utils | 8 | 8 | 0 | 0 |  10/10 |
+| 2 - Subtle | lodasj | 7 | 7 | 0 | 0 |  10/10 |
+| 3 - Clean | str-format-utils | 0 | 0 | 0 | 0 |  10/10 |
+| 4 - ML Framework | miniml-trainer | 6 (2 by_design) | 6 (2 by_design) | 0 | 0 |  10/10 |
+| 5 - Edge Cases | edge-case-tester | 2 real + 4 non-findings | 2 real + 4 non-findings | 0 | 0 |  10/10 |
 
 ---
 

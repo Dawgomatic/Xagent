@@ -91,8 +91,8 @@ Prioritize results that show:
 
 ## Anti-Patterns to Avoid
 
-❌ Generic company listing pages
-❌ News articles about companies (prefer direct pages)
-❌ Results behind paywalls
-❌ Social media profiles with no recent activity
-❌ Results that only mention keywords without context
+ Generic company listing pages
+ News articles about companies (prefer direct pages)
+ Results behind paywalls
+ Social media profiles with no recent activity
+ Results that only mention keywords without context

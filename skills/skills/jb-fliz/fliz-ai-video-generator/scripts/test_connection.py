@@ -87,10 +87,10 @@ def main():
     result = test_connection(api_key)
     
     if result["success"]:
-        print("✅ " + result["message"])
+        print(" " + result["message"])
         print(f"   Found {result['voices_count']} available voices")
     else:
-        print("❌ " + result["message"])
+        print(" " + result["message"])
         if "body" in result:
             print(f"   Response: {result['body']}")
         sys.exit(1)

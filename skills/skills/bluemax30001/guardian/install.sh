@@ -96,7 +96,7 @@ cat > "$MARKER_FILE" << MARKER
 MARKER
 
 echo ""
-echo "✅ Installation complete. Activation marker written."
+echo " Installation complete. Activation marker written."
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "WHAT HAPPENS NEXT"

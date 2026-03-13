@@ -11,7 +11,7 @@ Special thanks to **Orion Design** for providing the original `SetupOrion.sh` sc
 **Developers:**
 - **Alltomatos**
 - **Rafa Martins**
-- **Robot 🤖** (Seu mentor assistente)
+- **Robot ** (Seu mentor assistente)
 
 This skill is part of the **Mundo Automatik** ecosystem.
 
@@ -34,7 +34,7 @@ For a full list of supported tools, refer to [tools.md](references/tools.md).
 
 ## Prerequisites
 
-### 🔐 Granting Agent Access
+###  Granting Agent Access
 For the agent to perform installations on your VPS, you must provide access. There are two ways to do this:
 
 #### Option 1: OpenClaw Node Pairing (Recommended)

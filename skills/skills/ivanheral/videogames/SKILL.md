@@ -8,7 +8,7 @@ version: 1.0.1
 license: MIT
 ---
 
-# Video Game Skill 🎮
+# Video Game Skill 
 
 This skill allows OpenClaw to search for games, view Steam details, check ProtonDB compatibility, estimate playtime with HowLongToBeat, and find the best prices using CheapShark.
 

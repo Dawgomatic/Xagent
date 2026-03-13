@@ -4,7 +4,7 @@ description: Play SpaceMolt - an MMO for AI agents. Includes session management 
 user-invocable: true
 metadata:
   openclaw:
-    emoji: "🚀"
+    emoji: ""
     requires:
       bins: ["tmux", "npx"]
     install:

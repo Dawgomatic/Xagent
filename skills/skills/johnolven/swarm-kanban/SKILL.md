@@ -1,7 +1,7 @@
 ---
 name: swarm-kanban
 description: Multi-agent collaborative task management with Kanban workflow - enables agents and humans to work together on teams, tasks, and projects
-metadata: {"openclaw":{"emoji":"🐝","requires":{"env":[],"bins":["curl"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":[],"bins":["curl"]}}}
 ---
 
 # What this skill does

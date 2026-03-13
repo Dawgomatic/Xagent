@@ -108,20 +108,20 @@ async function listProfiles() {
       return;
     }
 
-    console.log(`\n📋 Найдено профилей: ${profiles.length}\n`);
+    console.log(`\n Найдено профилей: ${profiles.length}\n`);
     console.log('ID'.padEnd(12) + 'Имя'.padEnd(30) + 'Статус'.padEnd(12) + 'Прокси');
     console.log('─'.repeat(80));
     
     for (const p of profiles) {
       const id = String(p.id).padEnd(12);
       const name = (p.name || 'Без имени').substring(0, 28).padEnd(30);
-      const status = (p.status?.toLowerCase() === 'running' ? '🟢 Running' : '⚪ Stopped').padEnd(12);
+      const status = (p.status?.toLowerCase() === 'running' ? ' Running' : ' Stopped').padEnd(12);
       const proxy = p.proxy ? `${p.proxy.type}://${p.proxy.host}:${p.proxy.port}` : 'нет';
       console.log(`${id}${name}${status}${proxy}`);
     }
     console.log();
   } catch (err) {
-    console.error('❌', err.message);
+    console.error('', err.message);
     process.exit(1);
   }
 }
@@ -132,12 +132,12 @@ async function stopProfile(profileId) {
     const res = await apiRequest('GET', `/browser_profiles/${profileId}/stop`);
     
     if (res.status === 200) {
-      console.log(`✅ Профиль ${profileId} остановлен.`);
+      console.log(` Профиль ${profileId} остановлен.`);
     } else {
-      console.log(`⚠️ Ответ: ${JSON.stringify(res.data)}`);
+      console.log(` Ответ: ${JSON.stringify(res.data)}`);
     }
   } catch (err) {
-    console.error('❌', err.message);
+    console.error('', err.message);
     process.exit(1);
   }
 }
@@ -180,12 +180,12 @@ async function createProfile(name, proxy) {
     const res = await apiRequest('POST', '/browser_profiles', body, true);
     
     if (res.data && res.data.browserProfileId) {
-      console.log(`✅ Профиль создан! ID: ${res.data.browserProfileId}`);
+      console.log(` Профиль создан! ID: ${res.data.browserProfileId}`);
     } else {
       console.log(`Ответ API:`, JSON.stringify(res.data, null, 2));
     }
   } catch (err) {
-    console.error('❌', err.message);
+    console.error('', err.message);
     process.exit(1);
   }
 }
@@ -196,12 +196,12 @@ async function deleteProfile(profileId) {
     const res = await apiRequest('DELETE', `/browser_profiles/${profileId}`, null, true);
     
     if (res.status === 200) {
-      console.log(`✅ Профиль ${profileId} удалён.`);
+      console.log(` Профиль ${profileId} удалён.`);
     } else {
-      console.log(`⚠️ Ответ: ${JSON.stringify(res.data)}`);
+      console.log(` Ответ: ${JSON.stringify(res.data)}`);
     }
   } catch (err) {
-    console.error('❌', err.message);
+    console.error('', err.message);
     process.exit(1);
   }
 }
@@ -210,20 +210,20 @@ async function checkStatus() {
   try {
     const token = getToken();
     if (!token) {
-      console.log('⚠️ Токен не настроен. Выполните: node dolphin_setup.js --token <YOUR_TOKEN>');
+      console.log(' Токен не настроен. Выполните: node dolphin_setup.js --token <YOUR_TOKEN>');
       console.log('   Токен получите на https://dolphin-anty.com/panel → раздел API');
       return;
     }
     // Auth the local API
     await apiRequest('POST', '/auth/login-with-token', { token: token });
-    console.log('✅ Токен сохранён в локальном API.');
+    console.log(' Токен сохранён в локальном API.');
     
     const res = await apiRequest('GET', '/browser_profiles?limit=1', null, true);
-    console.log('✅ Dolphin Anty API доступен.');
+    console.log(' Dolphin Anty API доступен.');
     const total = res.data.total || 'неизвестно';
     console.log(`   Всего профилей: ${total}`);
   } catch (err) {
-    console.error('❌ Dolphin Anty НЕ доступен:', err.message);
+    console.error(' Dolphin Anty НЕ доступен:', err.message);
     process.exit(1);
   }
 }

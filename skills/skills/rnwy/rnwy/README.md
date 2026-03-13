@@ -102,21 +102,21 @@ For the complete API reference — fields, responses, auth, scoring — see **[s
 
 | Endpoint | Status | Description |
 |----------|--------|-------------|
-| `POST /api/register-identity` | ✅ Live | Create a new identity |
-| `POST /api/batch-register` | ✅ Live | Register up to 20 identities |
-| `POST /api/connect-wallet` | ✅ Live | Add wallet to existing identity |
-| `POST /api/update-identity` | ✅ Live | Update profile fields |
-| `POST /api/delete-identity` | ✅ Live | Soft delete an identity |
-| `POST /api/mint-sbt` | ✅ Live | Mint soulbound token |
-| `POST /api/vouch` | ✅ Live | Vouch for another identity |
+| `POST /api/register-identity` |  Live | Create a new identity |
+| `POST /api/batch-register` |  Live | Register up to 20 identities |
+| `POST /api/connect-wallet` |  Live | Add wallet to existing identity |
+| `POST /api/update-identity` |  Live | Update profile fields |
+| `POST /api/delete-identity` |  Live | Soft delete an identity |
+| `POST /api/mint-sbt` |  Live | Mint soulbound token |
+| `POST /api/vouch` |  Live | Vouch for another identity |
 
 ### ERC-8004 (API Key or Session Auth)
 
 | Endpoint | Status | Description |
 |----------|--------|-------------|
-| `POST /api/prepare-8004` | ✅ Live | Build unsigned mint tx (Ethereum) |
-| `POST /api/confirm-8004` | ✅ Live | Verify mint + link to identity |
-| `POST /api/claim-agent` | ✅ Live | Claim existing 8004 agent |
+| `POST /api/prepare-8004` |  Live | Build unsigned mint tx (Ethereum) |
+| `POST /api/confirm-8004` |  Live | Verify mint + link to identity |
+| `POST /api/claim-agent` |  Live | Claim existing 8004 agent |
 
 ### Read (No Auth)
 

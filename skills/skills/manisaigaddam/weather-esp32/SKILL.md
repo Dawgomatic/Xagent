@@ -2,7 +2,7 @@
 name: esp32-weather
 description: Get weather data from your personal ESP32+BMP280 sensor
 metadata:
-  emoji: 🌡️
+  emoji: 
 ---
 
 # ESP32 Weather Assistant

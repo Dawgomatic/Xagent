@@ -94,7 +94,7 @@ Create a cron job to poll for new messages:
 crontab -e
 
 # Add this line to check every minute
-* * * * * cd ~/clawd/skills/twilio && source .venv/bin/activate && python -c "import json,os,subprocess; f='incoming_sms.log'; (open(f,'r').read() and subprocess.run(['clawdbot', 'message', 'send', '--target', 'telegram:YOUR_CHAT_ID', '--message', json.dumps({'text': f'📱 SMS from {json.loads(line)[\"from\"]}: {json.loads(line)[\"body\"]}'})]) for line in open(f,'r')) and open(f,'w').close()) if os.path.exists(f) and os.path.getsize(f)>0 else None" 2>/dev/null
+* * * * * cd ~/clawd/skills/twilio && source .venv/bin/activate && python -c "import json,os,subprocess; f='incoming_sms.log'; (open(f,'r').read() and subprocess.run(['clawdbot', 'message', 'send', '--target', 'telegram:YOUR_CHAT_ID', '--message', json.dumps({'text': f' SMS from {json.loads(line)[\"from\"]}: {json.loads(line)[\"body\"]}'})]) for line in open(f,'r')) and open(f,'w').close()) if os.path.exists(f) and os.path.getsize(f)>0 else None" 2>/dev/null
 ```
 
 ### Option 2: Webhook to Clawdbot (Advanced)
@@ -111,7 +111,7 @@ subprocess.run([
     "-d", json.dumps({
         "channel": "telegram",
         "target": "YOUR_CHAT_ID",
-        "message": f"📱 SMS from {from_number}: {body}"
+        "message": f" SMS from {from_number}: {body}"
     })
 ])
 ```
@@ -188,7 +188,7 @@ def auto_responder():
                 if "help" in body:
                     send_reply(from_num, "Commands: status, stop, info")
                 elif "status" in body:
-                    send_reply(from_num, "All systems operational ✅")
+                    send_reply(from_num, "All systems operational ")
                 else:
                     send_reply(from_num, "Thanks for your message! I'll get back to you soon.")
         

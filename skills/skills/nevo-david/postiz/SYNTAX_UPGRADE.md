@@ -1,4 +1,4 @@
-# Postiz CLI - Improved Syntax! 🎉
+# Postiz CLI - Improved Syntax! 
 
 ## What Changed
 
@@ -18,7 +18,7 @@ postiz posts:create \
 
 ## The Problem We Solved
 
-### ❌ Old Approach (Problematic)
+###  Old Approach (Problematic)
 
 ```bash
 postiz posts:create \
@@ -28,12 +28,12 @@ postiz posts:create \
 ```
 
 **Issues:**
-1. ❌ Can't use semicolons in comment text
-2. ❌ Comments can't have their own media
-3. ❌ Less intuitive syntax
-4. ❌ Limited flexibility
+1.  Can't use semicolons in comment text
+2.  Comments can't have their own media
+3.  Less intuitive syntax
+4.  Limited flexibility
 
-### ✅ New Approach (Better!)
+###  New Approach (Better!)
 
 ```bash
 postiz posts:create \
@@ -45,10 +45,10 @@ postiz posts:create \
 ```
 
 **Benefits:**
-1. ✅ Semicolons work fine in content
-2. ✅ Each comment can have different media
-3. ✅ More readable and intuitive
-4. ✅ Fully flexible
+1.  Semicolons work fine in content
+2.  Each comment can have different media
+3.  More readable and intuitive
+4.  Fully flexible
 
 ## How It Works
 
@@ -103,11 +103,11 @@ Result:
 
 ```bash
 postiz posts:create \
-  -c "🚀 Launching ProductX today!" \
+  -c " Launching ProductX today!" \
   -m "hero.jpg,features.jpg" \
-  -c "⭐ Key features you'll love..." \
+  -c " Key features you'll love..." \
   -m "features-detail.jpg" \
-  -c "💰 Special offer: 50% off!" \
+  -c " Special offer: 50% off!" \
   -m "discount.jpg" \
   -i "twitter-123,linkedin-456"
 ```
@@ -116,7 +116,7 @@ postiz posts:create \
 
 ```bash
 postiz posts:create \
-  -c "🧵 Thread: How to X (1/5)" -m "intro.jpg" \
+  -c " Thread: How to X (1/5)" -m "intro.jpg" \
   -c "Step 1: ... (2/5)" -m "step1.jpg" \
   -c "Step 2: ... (3/5)" -m "step2.jpg" \
   -c "Step 3: ... (4/5)" -m "step3.jpg" \
@@ -129,13 +129,13 @@ postiz posts:create \
 
 ```bash
 postiz posts:create \
-  -c "Tutorial: Feature X 📖" \
+  -c "Tutorial: Feature X " \
   -m "tutorial-cover.jpg" \
   -c "1. Open settings" \
   -m "settings-screenshot.jpg" \
   -c "2. Enable feature X" \
   -m "enable-screenshot.jpg" \
-  -c "3. You're done! 🎉" \
+  -c "3. You're done! " \
   -m "success-screenshot.jpg" \
   -i "twitter-123"
 ```
@@ -157,13 +157,13 @@ postiz posts:create \
 
 | Option | Alias | Multiple? | Description |
 |--------|-------|-----------|-------------|
-| `--content` | `-c` | ✅ Yes | Post/comment content |
-| `--media` | `-m` | ✅ Yes | Comma-separated media URLs |
-| `--integrations` | `-i` | ❌ No | Integration IDs |
-| `--schedule` | `-s` | ❌ No | ISO 8601 date |
-| `--delay` | `-d` | ❌ No | Delay between comments (minutes, default: 0) |
-| `--shortLink` | - | ❌ No | Use URL shortener (default: true) |
-| `--json` | `-j` | ❌ No | Load from JSON file |
+| `--content` | `-c` |  Yes | Post/comment content |
+| `--media` | `-m` |  Yes | Comma-separated media URLs |
+| `--integrations` | `-i` |  No | Integration IDs |
+| `--schedule` | `-s` |  No | ISO 8601 date |
+| `--delay` | `-d` |  No | Delay between comments (minutes, default: 0) |
+| `--shortLink` | - |  No | Use URL shortener (default: true) |
+| `--json` | `-j` |  No | Load from JSON file |
 
 ## Delay Between Comments
 
@@ -183,16 +183,16 @@ postiz posts:create \
 ## Command Line vs JSON
 
 ### Use Command Line When:
-- ✅ Quick posts
-- ✅ Same content for all platforms
-- ✅ Simple structure
-- ✅ Dynamic/scripted content
+-  Quick posts
+-  Same content for all platforms
+-  Simple structure
+-  Dynamic/scripted content
 
 ### Use JSON When:
-- ✅ Different content per platform
-- ✅ Very complex structures
-- ✅ Reusable templates
-- ✅ Integration with other tools
+-  Different content per platform
+-  Very complex structures
+-  Reusable templates
+-  Integration with other tools
 
 ## For AI Agents
 
@@ -243,7 +243,7 @@ See these files for more details:
 
 ## Summary
 
-### ✅ You Can Now:
+###  You Can Now:
 
 1. **Use multiple `-c` flags** for main post + comments
 2. **Use multiple `-m` flags** to pair media with each `-c`
@@ -252,7 +252,7 @@ See these files for more details:
 5. **Each comment has its own media** array
 6. **More intuitive syntax** overall
 
-### 🎯 Perfect For:
+###  Perfect For:
 
 - Twitter threads
 - Product launches with follow-ups
@@ -261,4 +261,4 @@ See these files for more details:
 - Multi-step announcements
 - Any post with comments that need their own media!
 
-**The CLI is now much more powerful and user-friendly!** 🚀
+**The CLI is now much more powerful and user-friendly!** 

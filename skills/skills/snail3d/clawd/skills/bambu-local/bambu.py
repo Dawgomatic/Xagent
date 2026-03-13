@@ -20,7 +20,7 @@ if os.path.exists(CONFIG_PATH):
     SERIAL = config.get("serial", "")
     PRINTER_NAME = config.get("printer_name", "Printer")
 else:
-    print("❌ config.json manquant. Crée-le avec tes infos imprimante.")
+    print(" config.json manquant. Crée-le avec tes infos imprimante.")
     sys.exit(1)
 
 status_data = {}
@@ -69,51 +69,51 @@ def get_status():
     client.loop_stop()
     client.disconnect()
     
-    print(f"🖨️  {PRINTER_NAME} (Bambu Lab)")
+    print(f"  {PRINTER_NAME} (Bambu Lab)")
     print(f"   IP: {PRINTER_IP}")
     print(f"   Serial: {SERIAL}")
     print(f"   ─────────────────────────")
-    print(f"   🌡️  Lit: {status_data.get('bed_temper', 'N/A')}°C / {status_data.get('bed_target_temper', 0)}°C")
-    print(f"   🌡️  Buse: {status_data.get('nozzle_temper', 'N/A')}°C / {status_data.get('nozzle_target_temper', 0)}°C")
-    print(f"   📶 WiFi: {status_data.get('wifi_signal', 'N/A')}")
-    print(f"   ⚙️  État: {status_data.get('gcode_state', 'IDLE')}")
+    print(f"     Lit: {status_data.get('bed_temper', 'N/A')}°C / {status_data.get('bed_target_temper', 0)}°C")
+    print(f"     Buse: {status_data.get('nozzle_temper', 'N/A')}°C / {status_data.get('nozzle_target_temper', 0)}°C")
+    print(f"    WiFi: {status_data.get('wifi_signal', 'N/A')}")
+    print(f"     État: {status_data.get('gcode_state', 'IDLE')}")
     
     if status_data.get('gcode_state') == 'RUNNING':
-        print(f"   📊 Progression: {status_data.get('mc_percent', 0)}%")
+        print(f"    Progression: {status_data.get('mc_percent', 0)}%")
         remaining = status_data.get('mc_remaining_time', 0)
         if remaining:
-            print(f"   ⏱️  Restant: {remaining // 60}h{remaining % 60}m")
-        print(f"   🎯 Couche: {status_data.get('layer_num', 0)}/{status_data.get('total_layer_num', 0)}")
+            print(f"     Restant: {remaining // 60}h{remaining % 60}m")
+        print(f"    Couche: {status_data.get('layer_num', 0)}/{status_data.get('total_layer_num', 0)}")
 
 def light_control(state):
     cmd = {"system": {"command": "ledctrl", "led_node": "chamber_light", "led_mode": "on" if state else "off"}}
     send_command(cmd)
-    print(f"💡 Lumière {'allumée' if state else 'éteinte'}")
+    print(f" Lumière {'allumée' if state else 'éteinte'}")
 
 def print_control(action):
     cmd = {"print": {"command": action}}
     send_command(cmd)
     actions_fr = {"pause": "en pause", "resume": "reprise", "stop": "arrêtée"}
-    print(f"🖨️  Impression {actions_fr.get(action, action)}")
+    print(f"  Impression {actions_fr.get(action, action)}")
 
 def set_speed(level):
     cmd = {"print": {"command": "print_speed", "param": str(level)}}
     send_command(cmd)
     speeds = {1: "Silencieux", 2: "Standard", 3: "Sport", 4: "Ludicrous"}
-    print(f"⚡ Vitesse: {speeds.get(level, level)}")
+    print(f" Vitesse: {speeds.get(level, level)}")
 
 def set_temps(bed=None, nozzle=None):
     if bed is not None:
         send_command({"print": {"command": "gcode_line", "param": f"M140 S{bed}"}})
-        print(f"🌡️  Lit: {bed}°C")
+        print(f"  Lit: {bed}°C")
     if nozzle is not None:
         send_command({"print": {"command": "gcode_line", "param": f"M104 S{nozzle}"}})
-        print(f"🌡️  Buse: {nozzle}°C")
+        print(f"  Buse: {nozzle}°C")
 
 def send_gcode(gcode):
     cmd = {"print": {"command": "gcode_line", "param": gcode}}
     send_command(cmd)
-    print(f"📤 G-code: {gcode}")
+    print(f" G-code: {gcode}")
 
 def main():
     parser = argparse.ArgumentParser(description=f"Contrôle {PRINTER_NAME}")

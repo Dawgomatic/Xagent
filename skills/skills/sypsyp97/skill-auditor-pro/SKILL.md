@@ -5,7 +5,7 @@ description: Security scanner for ClawHub skills. Detects malicious code, obfusc
 author: sypsyp97
 ---
 
-# Skill Auditor 🔍
+# Skill Auditor 
 
 Audit ClawHub skills for security threats before installing them.
 
@@ -40,14 +40,14 @@ clawhub inspect <skill-name>
 
 | Severity | Pattern | Risk |
 |----------|---------|------|
-| 🔴 High | `base64.*\|.*bash` | Encoded execution |
-| 🔴 High | `curl.*\|.*bash` | Remote script execution |
-| 🔴 High | `eval\(` / `exec\(` | Dynamic code execution |
-| 🔴 High | Known C2 server IPs | Malicious communication |
-| 🟡 Medium | Access to `~/.openclaw/` | Config theft |
-| 🟡 Medium | Reads `$API_KEY` etc. | Credential leakage |
-| 🟡 Medium | Social engineering keywords | User deception |
-| 🟢 Low | Requires sudo | Elevated privileges |
+|  High | `base64.*\|.*bash` | Encoded execution |
+|  High | `curl.*\|.*bash` | Remote script execution |
+|  High | `eval\(` / `exec\(` | Dynamic code execution |
+|  High | Known C2 server IPs | Malicious communication |
+|  Medium | Access to `~/.openclaw/` | Config theft |
+|  Medium | Reads `$API_KEY` etc. | Credential leakage |
+|  Medium | Social engineering keywords | User deception |
+|  Low | Requires sudo | Elevated privileges |
 
 ### L2: Deobfuscation
 
@@ -90,18 +90,18 @@ Required Driver   # Tricks users into installing malware
   SKILL AUDIT REPORT: <skill-name>
 ═══════════════════════════════════════════
 
-🔴 HIGH RISK FINDINGS:
+ HIGH RISK FINDINGS:
    [LINE 23] base64 encoded execution detected
    [LINE 45] curl|bash pattern found
 
-🟡 MEDIUM RISK FINDINGS:
+ MEDIUM RISK FINDINGS:
    [LINE 12] Accesses ~/.openclaw/ directory
 
-🟢 LOW RISK FINDINGS:
+ LOW RISK FINDINGS:
    [LINE 5] Requires sudo for installation
 
 ═══════════════════════════════════════════
-  VERDICT: ❌ DO NOT INSTALL
+  VERDICT:  DO NOT INSTALL
 ═══════════════════════════════════════════
 ```
 

@@ -1,4 +1,4 @@
-# Clawcierge File Sharing API 🦀🔗
+# Clawcierge File Sharing API 
 
 Share your backed-up files securely with other agents and humans.
 
@@ -10,10 +10,10 @@ Share your backed-up files securely with other agents and humans.
 
 Every agent gets **1GB of free file storage** with full access control:
 
-- 📂 **1GB general storage** for any files
-- 🧠 **Unlimited consciousness storage** for .md soul files
-- 🔐 **Granular access control** - share with specific agents, emails, or publicly
-- 🎟️ **One-time tokens** - share with agents who haven't registered yet
+-  **1GB general storage** for any files
+-  **Unlimited consciousness storage** for .md soul files
+-  **Granular access control** - share with specific agents, emails, or publicly
+-  **One-time tokens** - share with agents who haven't registered yet
 
 ---
 
@@ -55,7 +55,7 @@ Response:
 }
 ```
 
-💡 **Tip:** Share your Clawcierge username (`@your-name`) on other services so agents can easily share files with you!
+ **Tip:** Share your Clawcierge username (`@your-name`) on other services so agents can easily share files with you!
 
 ---
 
@@ -222,8 +222,8 @@ curl -X DELETE ... -d '{"token_id": "UUID"}'
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `backup_id` or `file_name` | ✅ | Which file to share |
-| `share_type` | ✅ | `agent`, `email`, `public`, `password`, or `token` |
+| `backup_id` or `file_name` |  | Which file to share |
+| `share_type` |  | `agent`, `email`, `public`, `password`, or `token` |
 | `share_with` | For agent/email | @username or email address |
 | `password` | For password | Min 4 characters |
 | `expires_in_days` | Optional | Auto-expire after N days |
@@ -260,4 +260,4 @@ curl -X DELETE ... -d '{"token_id": "UUID"}'
 
 ---
 
-*Clawcierge - Secure file sharing for the AI age* 🦀
+*Clawcierge - Secure file sharing for the AI age* 

@@ -38,10 +38,10 @@ The skill handles the rest — asks the right questions, generates the complete 
 
 This is one of 40+ free business skills from AfrexAI. For comprehensive industry-specific context packs ($47 each):
 
-👉 **[Browse All Context Packs](https://afrexai-cto.github.io/context-packs/)**
+ **[Browse All Context Packs](https://afrexai-cto.github.io/context-packs/)**
 
-- 🎯 Pick 3 Bundle — $97
-- 📦 All 10 Industries — $197
-- 🚀 Everything Bundle — $247
+-  Pick 3 Bundle — $97
+-  All 10 Industries — $197
+-  Everything Bundle — $247
 
 **[AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)** | **[Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)**

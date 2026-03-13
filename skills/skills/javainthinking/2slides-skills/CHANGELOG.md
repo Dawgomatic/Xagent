@@ -181,11 +181,11 @@ No migration needed. All new features are additive. Existing scripts and workflo
 ### Testing
 
 All scripts tested and verified:
-- ✅ `create_pdf_slides.py --help` - Working
-- ✅ `generate_narration.py --list-voices` - Working (30 voices listed)
-- ✅ `download_slides_pages_voices.py --help` - Working
-- ✅ All scripts executable with proper permissions
-- ✅ Help output formatted correctly
+-  `create_pdf_slides.py --help` - Working
+-  `generate_narration.py --list-voices` - Working (30 voices listed)
+-  `download_slides_pages_voices.py --help` - Working
+-  All scripts executable with proper permissions
+-  Help output formatted correctly
 
 ### Next Steps
 

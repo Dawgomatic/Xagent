@@ -20,17 +20,17 @@ Master-planned city centered around Aventura Mall (one of America's largest). Hi
 - Mix of young families and retirees
 
 ### Pros
-✅ **Aventura Mall** — World-class shopping
-✅ **Family-friendly** — Good schools, safe
-✅ **Country club access** — Turnberry, golf
-✅ **Near Gulfstream Park** — Casino, outlets
-✅ **Brightline access** — Train station
+ **Aventura Mall** — World-class shopping
+ **Family-friendly** — Good schools, safe
+ **Country club access** — Turnberry, golf
+ **Near Gulfstream Park** — Casino, outlets
+ **Brightline access** — Train station
 
 ### Cons
-❌ **Far from Miami proper** — 30+ min to Brickell
-❌ **Suburban** — Need car
-❌ **Mall-dependent** — Not much else
-❌ **Traffic** — Biscayne Blvd congestion
+ **Far from Miami proper** — 30+ min to Brickell
+ **Suburban** — Need car
+ **Mall-dependent** — Not much else
+ **Traffic** — Biscayne Blvd congestion
 
 ### Best For
 - Families wanting suburban life with urban amenities
@@ -65,17 +65,17 @@ Master-planned city centered around Aventura Mall (one of America's largest). Hi
 - High-rise dominated
 
 ### Pros
-✅ **Beach access** — Wide, less crowded than SoBe
-✅ **Luxury buildings** — New construction, amenities
-✅ **International community**
-✅ **Good Russian/Eastern European food**
-✅ **Near Aventura Mall**
+ **Beach access** — Wide, less crowded than SoBe
+ **Luxury buildings** — New construction, amenities
+ **International community**
+ **Good Russian/Eastern European food**
+ **Near Aventura Mall**
 
 ### Cons
-❌ **Transient feel** — Many part-time residents
-❌ **Far from Miami** — 40+ min to Brickell
-❌ **Construction noise** — Always building
-❌ **Limited walkability** — High-rises along highway
+ **Transient feel** — Many part-time residents
+ **Far from Miami** — 40+ min to Brickell
+ **Construction noise** — Always building
+ **Limited walkability** — High-rises along highway
 
 ### Best For
 - International buyers/renters
@@ -105,17 +105,17 @@ Suburban city west of Miami. Known as "Doralzuela" for its large Venezuelan popu
 - New development, planned communities
 
 ### Pros
-✅ **Affordable** — Best value for space
-✅ **Venezuelan/Latin culture** — Authentic food, community
-✅ **Near airport** — 10 min to MIA
-✅ **New construction** — Modern amenities
-✅ **Good schools**
+ **Affordable** — Best value for space
+ **Venezuelan/Latin culture** — Authentic food, community
+ **Near airport** — 10 min to MIA
+ **New construction** — Modern amenities
+ **Good schools**
 
 ### Cons
-❌ **Far from beach** — 40+ min
-❌ **Suburban sprawl** — Not walkable
-❌ **Traffic** — Rush hour brutal
-❌ **No nightlife** — Drive to Miami
+ **Far from beach** — 40+ min
+ **Suburban sprawl** — Not walkable
+ **Traffic** — Rush hour brutal
+ **No nightlife** — Drive to Miami
 
 ### Best For
 - Families wanting affordable space
@@ -146,17 +146,17 @@ Working-class city with deep Cuban roots. One of the most Cuban cities outside C
 - Authentic Cuban restaurants, bakeries
 
 ### Pros
-✅ **Affordable** — Cheapest rents in metro
-✅ **Authentic Cuban culture**
-✅ **Great Cuban food** — Cheaper than Little Havana
-✅ **Metrorail access** — Connection to downtown
+ **Affordable** — Cheapest rents in metro
+ **Authentic Cuban culture**
+ **Great Cuban food** — Cheaper than Little Havana
+ **Metrorail access** — Connection to downtown
 
 ### Cons
-❌ **Far from beach** — 45+ min
-❌ **Crime pockets** — Research specific areas
-❌ **Industrial** — Not pretty
-❌ **Limited English** — Spanish essential
-❌ **No walkability**
+ **Far from beach** — 45+ min
+ **Crime pockets** — Research specific areas
+ **Industrial** — Not pretty
+ **Limited English** — Spanish essential
+ **No walkability**
 
 ### Best For
 - Budget-conscious renters

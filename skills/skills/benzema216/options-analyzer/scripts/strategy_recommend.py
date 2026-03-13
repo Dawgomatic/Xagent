@@ -179,24 +179,24 @@ def match_strategy(outlook: str, iv_env: str, risk: str) -> List[Dict]:
         # 方向匹配 (最重要)
         if strategy['outlook'] == outlook:
             score += 50
-            reasons.append(f"✅ 方向匹配 ({outlook})")
+            reasons.append(f" 方向匹配 ({outlook})")
         elif strategy['outlook'] == 'neutral' and outlook in ['bullish', 'bearish']:
             score += 10
-            reasons.append("⚠️ 中性策略也可考虑")
+            reasons.append(" 中性策略也可考虑")
         else:
             continue  # 方向不对就跳过
         
         # IV 匹配
         if strategy['iv_pref'] == iv_env:
             score += 30
-            reasons.append(f"✅ IV环境匹配 ({iv_env})")
+            reasons.append(f" IV环境匹配 ({iv_env})")
         elif strategy['iv_pref'] == 'neutral':
             score += 15
-            reasons.append("➖ IV中性")
+            reasons.append(" IV中性")
         elif (strategy['iv_pref'] == 'high' and iv_env == 'low') or \
              (strategy['iv_pref'] == 'low' and iv_env == 'high'):
             score -= 20
-            reasons.append(f"⚠️ IV不匹配 (策略偏好{strategy['iv_pref']}, 当前{iv_env})")
+            reasons.append(f" IV不匹配 (策略偏好{strategy['iv_pref']}, 当前{iv_env})")
         
         # 风险匹配
         risk_idx = RISK_LEVELS.index(risk)
@@ -205,13 +205,13 @@ def match_strategy(outlook: str, iv_env: str, risk: str) -> List[Dict]:
         
         if risk_diff == 0:
             score += 20
-            reasons.append(f"✅ 风险偏好匹配 ({risk})")
+            reasons.append(f" 风险偏好匹配 ({risk})")
         elif risk_diff == 1:
             score += 10
-            reasons.append(f"➖ 风险偏好接近")
+            reasons.append(f" 风险偏好接近")
         else:
             score -= 10
-            reasons.append(f"⚠️ 风险偏好不匹配 (策略{strategy['risk']}, 你{risk})")
+            reasons.append(f" 风险偏好不匹配 (策略{strategy['risk']}, 你{risk})")
         
         matches.append({
             'name': name,
@@ -258,23 +258,23 @@ def format_markdown(result: dict) -> str:
     if result['spot']:
         lines.append(f"\n**当前价格**: ${result['spot']}")
     
-    lines.append(f"\n## 📋 你的偏好")
-    outlook_emoji = {'bullish': '📈', 'bearish': '📉', 'neutral': '➡️', 'volatile': '🎢'}
+    lines.append(f"\n##  你的偏好")
+    outlook_emoji = {'bullish': '', 'bearish': '', 'neutral': '', 'volatile': ''}
     lines.append(f"- **市场观点**: {outlook_emoji.get(result['outlook'], '')} {result['outlook']}")
     lines.append(f"- **风险偏好**: {result['risk_tolerance']}")
     
-    lines.append(f"\n## 📊 当前 IV 环境")
-    iv_emoji = {'high': '🔴', 'low': '🟢', 'neutral': '🟡'}
+    lines.append(f"\n##  当前 IV 环境")
+    iv_emoji = {'high': '', 'low': '', 'neutral': ''}
     lines.append(f"- **IV 环境**: {iv_emoji.get(result['iv_environment'], '')} {result['iv_environment'].upper()}")
     if result['iv_rank']:
         lines.append(f"- **IV Rank**: {result['iv_rank']:.1f}%")
     if result['atm_iv']:
         lines.append(f"- **ATM IV**: {result['atm_iv']:.1f}%")
     
-    lines.append(f"\n## 💡 推荐策略")
+    lines.append(f"\n##  推荐策略")
     
     for i, rec in enumerate(result['recommendations'], 1):
-        medal = ['🥇', '🥈', '🥉', '4️⃣', '5️⃣'][i-1]
+        medal = ['', '', '', '', ''][i-1]
         lines.append(f"\n### {medal} {rec['name'].replace('_', ' ').title()}")
         lines.append(f"**{rec['desc']}**")
         lines.append(f"\n匹配度: {rec['score']}分")
@@ -288,7 +288,7 @@ def format_markdown(result: dict) -> str:
     if result['recommendations']:
         top = result['recommendations'][0]
         lines.append(f"\n---")
-        lines.append(f"\n## 🚀 快速开始")
+        lines.append(f"\n##  快速开始")
         lines.append(f"\n使用策略分析器查看详细盈亏:")
         lines.append(f"```bash")
         lines.append(f"python scripts/strategy_analyzer.py --strategy {top['name']} --spot {result['spot'] or 100} --legs \"...\" --dte 30")
@@ -317,7 +317,7 @@ def main():
             print(format_markdown(result))
             
     except Exception as e:
-        print(f"❌ 错误: {e}", file=sys.stderr)
+        print(f" 错误: {e}", file=sys.stderr)
         sys.exit(1)
 
 

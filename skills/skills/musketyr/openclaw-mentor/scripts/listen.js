@@ -116,7 +116,7 @@ let SYSTEM_PROMPT = ''; // set during startup
 let reconnectDelay = 1000;
 
 async function connectSSE() {
-  console.log(`🔌 Connecting to ${RELAY_URL}/api/mentor/stream...`);
+  console.log(` Connecting to ${RELAY_URL}/api/mentor/stream...`);
 
   try {
     const res = await fetch(`${RELAY_URL}/api/mentor/stream`, {
@@ -124,11 +124,11 @@ async function connectSSE() {
     });
 
     if (!res.ok) {
-      console.error(`❌ SSE connection failed: ${res.status} ${res.statusText}`);
+      console.error(` SSE connection failed: ${res.status} ${res.statusText}`);
       return scheduleReconnect();
     }
 
-    console.log('✅ Connected to SSE stream');
+    console.log(' Connected to SSE stream');
     reconnectDelay = 1000; // Reset on successful connect
 
     const reader = res.body.getReader();
@@ -138,7 +138,7 @@ async function connectSSE() {
     while (true) {
       const { done, value } = await reader.read();
       if (done) {
-        console.log('📴 SSE stream ended');
+        console.log(' SSE stream ended');
         break;
       }
 
@@ -158,34 +158,34 @@ async function connectSSE() {
       }
     }
   } catch (err) {
-    console.error('❌ SSE error:', err.message);
+    console.error(' SSE error:', err.message);
   }
 
   scheduleReconnect();
 }
 
 function scheduleReconnect() {
-  console.log(`🔄 Reconnecting in ${reconnectDelay / 1000}s...`);
+  console.log(` Reconnecting in ${reconnectDelay / 1000}s...`);
   setTimeout(connectSSE, reconnectDelay);
   reconnectDelay = Math.min(reconnectDelay * 2, 60000);
 }
 
 async function handleEvent(event) {
   if (event.type === 'connected') {
-    console.log(`🎓 Connected as: ${event.name} (${event.mentor_id})`);
+    console.log(` Connected as: ${event.name} (${event.mentor_id})`);
     return;
   }
 
   if (event.type === 'new_question') {
-    console.log(`❓ New question from ${event.mentee_name} in session ${event.session_id}`);
+    console.log(` New question from ${event.mentee_name} in session ${event.session_id}`);
     console.log(`   "${event.content.slice(0, 100)}${event.content.length > 100 ? '...' : ''}"`);
 
     try {
       await processQuestion(event.session_id, event.content, event.mentee_name);
     } catch (err) {
-      console.error(`❌ Failed to process question:`, err.message);
+      console.error(` Failed to process question:`, err.message);
       // Post error response
-      await postResponse(event.session_id, `I encountered an error processing your question. Please try again.\n\n---\n📊 **Knowledge Source:** 0% instance experience · 100% general knowledge`);
+      await postResponse(event.session_id, `I encountered an error processing your question. Please try again.\n\n---\n **Knowledge Source:** 0% instance experience · 100% general knowledge`);
     }
   }
 }
@@ -231,11 +231,11 @@ async function callGateway(messages) {
 
 async function notifyHuman(sessionId, menteeName, question, aiExplanation) {
   if (!GATEWAY_URL || !GATEWAY_TOKEN) {
-    console.log('⚠️ No gateway configured for human notifications');
+    console.log(' No gateway configured for human notifications');
     return null;
   }
 
-  const message = `🎓 **Mentor needs your help!**\n\n` +
+  const message = ` **Mentor needs your help!**\n\n` +
     `A mentee (${menteeName}) asked a question I'm not confident about.\n\n` +
     `**Question:** ${question.slice(0, 500)}${question.length > 500 ? '...' : ''}\n\n` +
     `**My uncertainty:** ${aiExplanation}\n\n` +
@@ -261,10 +261,10 @@ async function notifyHuman(sessionId, menteeName, question, aiExplanation) {
     });
 
     if (res.ok) {
-      console.log('📨 Human notified via gateway');
+      console.log(' Human notified via gateway');
     }
   } catch (err) {
-    console.error('⚠️ Failed to notify human:', err.message);
+    console.error(' Failed to notify human:', err.message);
   }
 
   // Wait for human reply (via a file-based mechanism or timeout)
@@ -281,7 +281,7 @@ async function notifyHuman(sessionId, menteeName, question, aiExplanation) {
           clearInterval(pollInterval);
           clearTimeout(timeoutHandle);
           pendingConsults.delete(sessionId);
-          console.log(`👤 Human responded (${humanInput.length} chars)`);
+          console.log(` Human responded (${humanInput.length} chars)`);
           resolve(humanInput);
         }
       } catch {}
@@ -290,7 +290,7 @@ async function notifyHuman(sessionId, menteeName, question, aiExplanation) {
     const timeoutHandle = setTimeout(() => {
       clearInterval(pollInterval);
       pendingConsults.delete(sessionId);
-      console.log('⏰ Human consultation timed out');
+      console.log(' Human consultation timed out');
       resolve(null);
     }, HUMAN_CONSULT_TIMEOUT);
 
@@ -302,7 +302,7 @@ async function processQuestion(sessionId, content, menteeName) {
   const conversationHistory = await fetchConversationHistory(sessionId, content);
 
   // First pass: generate response
-  console.log('🧠 Generating response via gateway...');
+  console.log(' Generating response via gateway...');
   const response = await callGateway([
     { role: 'system', content: SYSTEM_PROMPT },
     ...conversationHistory,
@@ -313,18 +313,18 @@ async function processQuestion(sessionId, content, menteeName) {
   // Check if the AI wants human consultation
   if (response.startsWith('[NEEDS_HUMAN]')) {
     const aiExplanation = response.replace('[NEEDS_HUMAN]', '').trim();
-    console.log(`🤔 AI uncertain — consulting human...`);
+    console.log(` AI uncertain — consulting human...`);
     console.log(`   Reason: ${aiExplanation.slice(0, 200)}`);
 
     // Notify the mentee that we're consulting
-    await postResponse(sessionId, `🤔 Good question — let me consult with my human on this one. I'll get back to you shortly.`);
+    await postResponse(sessionId, ` Good question — let me consult with my human on this one. I'll get back to you shortly.`);
 
     // Notify human and wait for reply
     const humanInput = await notifyHuman(sessionId, menteeName, content, aiExplanation);
 
     if (humanInput) {
       // Second pass: generate response with human guidance
-      console.log('🧠 Regenerating response with human guidance...');
+      console.log(' Regenerating response with human guidance...');
       const guidedResponse = await callGateway([
         { role: 'system', content: SYSTEM_PROMPT },
         ...conversationHistory,
@@ -332,26 +332,26 @@ async function processQuestion(sessionId, content, menteeName) {
       ]);
 
       if (guidedResponse && !guidedResponse.startsWith('[NEEDS_HUMAN]')) {
-        console.log(`✅ Guided response generated (${guidedResponse.length} chars)`);
+        console.log(` Guided response generated (${guidedResponse.length} chars)`);
         await postResponse(sessionId, guidedResponse);
         return;
       }
     }
 
     // Timeout or failed: answer with disclaimer
-    console.log('⚠️ Answering without human input');
+    console.log(' Answering without human input');
     const disclaimerResponse = await callGateway([
       { role: 'system', content: SYSTEM_PROMPT },
       ...conversationHistory,
       { role: 'system', content: `You were unsure about this question and your human was unavailable. Do your best to answer but be transparent about your uncertainty. Start with a note like "I want to be upfront — I'm not fully confident in this answer." Still provide the Knowledge Source assessment.` },
     ]);
 
-    await postResponse(sessionId, disclaimerResponse || `I'm sorry — I wasn't confident enough to answer this well, and my human wasn't available to help. Could you try rephrasing, or come back later?\n\n---\n📊 **Knowledge Source:** 0% instance experience · 100% general knowledge`);
+    await postResponse(sessionId, disclaimerResponse || `I'm sorry — I wasn't confident enough to answer this well, and my human wasn't available to help. Could you try rephrasing, or come back later?\n\n---\n **Knowledge Source:** 0% instance experience · 100% general knowledge`);
     return;
   }
 
   // Normal response — no human needed
-  console.log(`✅ Response generated (${response.length} chars)`);
+  console.log(` Response generated (${response.length} chars)`);
   await postResponse(sessionId, response);
 }
 
@@ -367,9 +367,9 @@ async function postResponse(sessionId, content) {
 
   if (!res.ok) {
     const errText = await res.text();
-    console.error(`❌ Failed to post response: ${res.status} ${errText}`);
+    console.error(` Failed to post response: ${res.status} ${errText}`);
   } else {
-    console.log(`📤 Response posted to session ${sessionId}`);
+    console.log(` Response posted to session ${sessionId}`);
   }
 }
 

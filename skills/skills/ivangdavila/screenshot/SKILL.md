@@ -1,7 +1,7 @@
 ---
 name: Screenshot
 description: Capture screens, windows, and regions across platforms with the right tools.
-metadata: {"clawdbot":{"emoji":"📸","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## macOS

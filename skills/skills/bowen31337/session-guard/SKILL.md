@@ -145,7 +145,7 @@ python3 hydrate.py --workspace /path    # explicit workspace (default: auto-dete
 3. python3 skills/session-guard/scripts/update_session_id.py <CURRENT_ID>
 
 4. Notify user (via message tool in isolated sessions):
-   "🔄 Session reset detected — context reloaded. [brief summary of key projects/state]"
+   " Session reset detected — context reloaded. [brief summary of key projects/state]"
 ```
 
 ## Scripts

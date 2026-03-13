@@ -43,7 +43,7 @@ print_error() {
 print_banner() {
     echo ""
     echo -e "${BLUE}╔═══════════════════════════════════════╗${NC}"
-    echo -e "${BLUE}║     🔌 Ecto Connection Setup 🔌       ║${NC}"
+    echo -e "${BLUE}║      Ecto Connection Setup        ║${NC}"
     echo -e "${BLUE}╚═══════════════════════════════════════╝${NC}"
     echo ""
 }
@@ -267,7 +267,7 @@ restart_gateway() {
 print_summary() {
     echo ""
     echo -e "${GREEN}╔═══════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${GREEN}║                    🎉 Setup Complete! 🎉                      ║${NC}"
+    echo -e "${GREEN}║                     Setup Complete!                       ║${NC}"
     echo -e "${GREEN}╚═══════════════════════════════════════════════════════════════╝${NC}"
     echo ""
     echo -e "${BLUE}Your OpenClaw API is now publicly accessible:${NC}"

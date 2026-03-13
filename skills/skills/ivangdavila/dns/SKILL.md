@@ -1,7 +1,7 @@
 ---
 name: DNS
 description: Configure DNS records correctly with proper TTLs, email authentication, and migration strategies.
-metadata: {"clawdbot":{"emoji":"🌍","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Pre-Migration TTL

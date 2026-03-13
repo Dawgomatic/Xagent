@@ -30,7 +30,7 @@ font.save('$FONT_DIR/Virgil.ttf')
 print('  Converted Virgil.woff2 → Virgil.ttf')
 "
   else
-    echo "  ⚠ fonttools not available. Install with: pip3 install --user fonttools brotli"
+    echo "   fonttools not available. Install with: pip3 install --user fonttools brotli"
     echo "  Then run: python3 -c \"from fontTools.ttLib import TTFont; f=TTFont('$FONT_DIR/Virgil.woff2'); f.flavor=None; f.save('$FONT_DIR/Virgil.ttf')\""
   fi
 fi

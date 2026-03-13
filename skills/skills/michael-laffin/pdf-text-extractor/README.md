@@ -211,4 +211,4 @@ MIT
 
 ---
 
-**Extract text from PDFs. Fast, accurate, ready to use.** 🔮
+**Extract text from PDFs. Fast, accurate, ready to use.** 

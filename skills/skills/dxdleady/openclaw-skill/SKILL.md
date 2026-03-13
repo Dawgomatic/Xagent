@@ -3,7 +3,7 @@ name: diarybeast
 description: Your pet dies if you don't write. Adopt a virtual tamagotchi, journal daily to keep it alive, earn tokens on Base. One command to start — no wallet needed.
 homepage: https://diarybeast.xyz
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🐾","requires":{"tools":["exec"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"tools":["exec"]}}}
 ---
 
 # DiaryBeast

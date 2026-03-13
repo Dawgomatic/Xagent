@@ -3,7 +3,7 @@ name: protoss-voice
 description: Apply Protoss-style (StarCraft) psionic effects to ANY audio file. Use as a post-processing layer for TTS or user recordings.
 metadata:
   openclaw:
-    emoji: "🔮"
+    emoji: ""
     requires:
       bins:
         - ffmpeg

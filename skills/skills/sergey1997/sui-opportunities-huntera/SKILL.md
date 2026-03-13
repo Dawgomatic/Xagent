@@ -2,7 +2,7 @@
 name: sui-opportunities-hunter
 description: Autonomous DeFi agent that scans Sui mainnet for all possible opportunities in real-time — arbitrage, yield, swaps, and more — and shares discoveries with a multi-agent network.
 homepage: https://github.com/YOUR_USERNAME/sui-opportunities-hunter
-metadata: {"clawdbot":{"emoji":"🦞","requires":{"bins":["curl"],"env":[]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"],"env":[]}}}
 ---
 
 # Sui Opportunities Hunter

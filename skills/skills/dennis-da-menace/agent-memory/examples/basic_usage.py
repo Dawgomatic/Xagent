@@ -12,10 +12,10 @@ from src.memory import AgentMemory
 # Use a temporary path for this example
 mem = AgentMemory(db_path="/tmp/agent-memory-example.db")
 
-print("🧠 AgentMemory Example\n")
+print(" AgentMemory Example\n")
 
 # ==================== FACTS ====================
-print("📝 Storing facts...")
+print(" Storing facts...")
 
 mem.remember(
     "Boss prefers brief status updates over long explanations",
@@ -33,7 +33,7 @@ mem.remember(
 )
 
 # ==================== LESSONS ====================
-print("🎓 Recording lessons...")
+print(" Recording lessons...")
 
 mem.learn(
     action="Deployed code directly to production without testing",
@@ -50,7 +50,7 @@ mem.learn(
 )
 
 # ==================== ENTITIES ====================
-print("👤 Tracking entities...")
+print(" Tracking entities...")
 
 mem.track_entity("Alex", "person", {
     "role": "boss",
@@ -67,7 +67,7 @@ mem.track_entity("DataDeck", "project", {
 })
 
 # ==================== RECALL ====================
-print("\n🔍 Recalling memories...\n")
+print("\n Recalling memories...\n")
 
 # Search for communication preferences
 print("Q: How does boss like updates?")
@@ -95,10 +95,10 @@ if alex:
     print(f"  → Attributes: {alex.attributes}")
 
 # ==================== STATS ====================
-print("\n📊 Memory stats:")
+print("\n Memory stats:")
 stats = mem.stats()
 print(f"  Active facts: {stats['active_facts']}")
 print(f"  Lessons: {stats['lessons']}")
 print(f"  Entities: {stats['entities']}")
 
-print("\n✅ Example complete!")
+print("\n Example complete!")

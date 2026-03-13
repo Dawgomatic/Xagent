@@ -148,14 +148,14 @@ Creates:
 ```bash
 $ python3 skills/memory-scan/scripts/memory-scan.py
 
-🧠 Memory Security Scan
+ Memory Security Scan
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Scanning memory files...
 
 ✓ MEMORY.md - SAFE
 ✓ memory/2026-02-01.md - SAFE
-⚠ memory/2026-01-30.md - MEDIUM (line 42)
+ memory/2026-01-30.md - MEDIUM (line 42)
   → Potential credential leakage: API key pattern detected
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

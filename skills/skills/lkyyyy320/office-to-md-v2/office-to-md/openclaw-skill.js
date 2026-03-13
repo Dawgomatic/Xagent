@@ -119,13 +119,13 @@ if (require.main === module) {
   convertOfficeToMarkdown(filePath)
     .then(result => {
       if (result.success) {
-        console.log('✅ Conversion successful!');
-        console.log(`📁 Output: ${result.outputPath}`);
-        console.log(`📄 File type: ${result.fileType}`);
-        console.log(`📊 Stats: ${result.stats.lines} lines, ${result.stats.words} words, ${result.stats.characters} chars`);
-        console.log(`📝 Preview:\n${result.preview}`);
+        console.log(' Conversion successful!');
+        console.log(` Output: ${result.outputPath}`);
+        console.log(` File type: ${result.fileType}`);
+        console.log(` Stats: ${result.stats.lines} lines, ${result.stats.words} words, ${result.stats.characters} chars`);
+        console.log(` Preview:\n${result.preview}`);
       } else {
-        console.error('❌ Conversion failed:');
+        console.error(' Conversion failed:');
         console.error(result.error);
         if (result.stack) {
           console.error('Stack trace:', result.stack);
@@ -134,7 +134,7 @@ if (require.main === module) {
       }
     })
     .catch(error => {
-      console.error('❌ Unexpected error:', error);
+      console.error(' Unexpected error:', error);
       process.exit(1);
     });
 }

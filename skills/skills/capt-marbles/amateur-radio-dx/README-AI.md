@@ -1,14 +1,14 @@
-# 🤖 AI-Enhanced DX Monitor
+#  AI-Enhanced DX Monitor
 
 AI-powered propagation prediction and DXCC filtering for ham-radio-dx!
 
 ## New Features
 
-✨ **Propagation Prediction** - ML-based scoring of spot workability  
-🎯 **DXCC Filtering** - Only show DX you actually need  
-📊 **Smart Scoring** - Combines rarity, workability, and your needs  
-🚨 **Priority Alerts** - High-score spots flagged automatically  
-⚙️ **Personalized** - Configured for your QTH, power, antenna  
+ **Propagation Prediction** - ML-based scoring of spot workability  
+ **DXCC Filtering** - Only show DX you actually need  
+ **Smart Scoring** - Combines rarity, workability, and your needs  
+ **Priority Alerts** - High-score spots flagged automatically  
+ **Personalized** - Configured for your QTH, power, antenna  
 
 ---
 
@@ -37,31 +37,31 @@ python3 dx-ai-enhanced.py watch
 
 **Output:**
 ```
-🤖 AI-Enhanced DX Monitor
+ AI-Enhanced DX Monitor
 ============================================================
-📍 QTH: Fort Worth, TX (EM12)
-📡 Station: 100W
-🎯 Needed DXCC: VP8, VK0, 3Y0, ZL, VK...
-⚡ Min Workability: 50%
+ QTH: Fort Worth, TX (EM12)
+ Station: 100W
+ Needed DXCC: VP8, VK0, 3Y0, ZL, VK...
+ Min Workability: 50%
 ============================================================
 
-☀️  Solar: SFI=150 A=10 K=2 (fair)
+  Solar: SFI=150 A=10 K=2 (fair)
 
-🎯 Top Workable DX (sorted by score):
+ Top Workable DX (sorted by score):
 
 Score  Call         Band   Mode   Dist     Work%  Status
 ----------------------------------------------------------------------
-0.92   VP8/G3XYZ    40m    CW     9234km    87%   🔥 📡
-0.85   ZL2ABC       20m    FT8    11450km   82%   🔥 📡
-0.78   VK6DX        17m    FT4    14230km   76%   🔥
+0.92   VP8/G3XYZ    40m    CW     9234km    87%    
+0.85   ZL2ABC       20m    FT8    11450km   82%    
+0.78   VK6DX        17m    FT4    14230km   76%   
 0.65   ZS1ABC       15m    SSB    13100km   61%   
 0.55   K1XYZ        20m    CW      2100km   70%   ✓
 
-Legend: 🔥 = Needed  ✓ = Already worked  📡 = Excellent propagation
+Legend:  = Needed  ✓ = Already worked   = Excellent propagation
 
-🚨 HIGH PRIORITY ALERTS:
-   📻 VP8/G3XYZ on 40m CW - 87% workable, 9234km - NEEDED!
-   📻 ZL2ABC on 20m FT8 - 82% workable, 11450km - NEEDED!
+ HIGH PRIORITY ALERTS:
+    VP8/G3XYZ on 40m CW - 87% workable, 9234km - NEEDED!
+    ZL2ABC on 20m FT8 - 82% workable, 11450km - NEEDED!
 ```
 
 ---
@@ -185,7 +185,7 @@ cd skills/ham-radio-dx && python3 dx-ai-enhanced.py watch
 # Check every 30 minutes, alert on high-priority spots
 */30 * * * * cd /Users/awalker/clawd/skills/ham-radio-dx && \
   python3 dx-ai-enhanced.py watch 2>&1 | \
-  grep "🚨 HIGH PRIORITY" && \
+  grep " HIGH PRIORITY" && \
   # Send Telegram notification via OpenClaw
 ```
 
@@ -194,13 +194,13 @@ cd skills/ham-radio-dx && python3 dx-ai-enhanced.py watch
 ## Future Enhancements
 
 **Next Steps:**
-1. ✅ Propagation prediction (DONE)
-2. ✅ DXCC filtering (DONE)
-3. ⏳ Real solar data API integration
-4. ⏳ ML model trained on historical QSO data
-5. ⏳ Logbook integration (auto-populate worked_dxcc)
-6. ⏳ FT8 PSK Reporter integration
-7. ⏳ Auto-alerts to Telegram/Discord
+1.  Propagation prediction (DONE)
+2.  DXCC filtering (DONE)
+3.  Real solar data API integration
+4.  ML model trained on historical QSO data
+5.  Logbook integration (auto-populate worked_dxcc)
+6.  FT8 PSK Reporter integration
+7.  Auto-alerts to Telegram/Discord
 
 **Production ML Model:**
 - Train on millions of QSOs from LOTW/ClubLog
@@ -294,4 +294,4 @@ Placeholder currently returns moderate conditions. Production:
 
 ---
 
-73 and good DX! 📻🤖
+73 and good DX! 

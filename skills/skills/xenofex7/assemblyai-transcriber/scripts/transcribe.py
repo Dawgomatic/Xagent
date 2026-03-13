@@ -100,13 +100,13 @@ def transcribe(audio_source, speaker_labels=True, api_key=None):
     
     # Check if local file or URL
     if os.path.exists(audio_source):
-        print(f"📤 Uploading file: {audio_source}", file=sys.stderr)
+        print(f" Uploading file: {audio_source}", file=sys.stderr)
         audio_url = upload_file(audio_source, api_key)
     else:
         audio_url = audio_source
     
     # Start transcription
-    print("🎙️ Starting transcription...", file=sys.stderr)
+    print(" Starting transcription...", file=sys.stderr)
     
     transcript_request = {
         "audio_url": audio_url,
@@ -124,12 +124,12 @@ def transcribe(audio_source, speaker_labels=True, api_key=None):
         status = result["status"]
         
         if status == "completed":
-            print("✅ Transcription complete!", file=sys.stderr)
+            print(" Transcription complete!", file=sys.stderr)
             return result
         elif status == "error":
             raise Exception(f"Transcription failed: {result.get('error', 'Unknown error')}")
         else:
-            print(f"⏳ Status: {status}...", file=sys.stderr)
+            print(f" Status: {status}...", file=sys.stderr)
             time.sleep(2)
 
 
@@ -198,7 +198,7 @@ def main():
             print(format_transcript(result))
             
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

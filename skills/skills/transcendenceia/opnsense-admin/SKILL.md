@@ -5,7 +5,7 @@ description: Manage OPNsense firewall, DNS, IDS/IPS, and network configuration v
 
 # OPNsense Admin
 
-> ⚠️ **DISCLAIMER**
+>  **DISCLAIMER**
 >
 > This tool grants **HIGH PRIVILEGE** access to your firewall and network.
 > It can modify firewall rules, block traffic, and restart critical services.
@@ -23,13 +23,13 @@ Complete OPNsense firewall administration via API and SSH. Automate backups, mon
 
 ## Features
 
-- 🔥 **Firewall Management** - Rules, NAT, aliases, and diagnostics
-- 🛡️ **IDS/IPS (Suricata)** - Monitor and manage intrusion detection/prevention
-- 🌐 **DNS (Unbound)** - DNS resolver, blocklists, forwarding, DNS over TLS
-- 📊 **Monitoring** - Service status, traffic analysis, system health
-- 💾 **Automated Backups** - Scheduled configuration backups with retention
-- 🔧 **Service Control** - Start/stop/restart services via SSH
-- 🔌 **API Integration** - RESTful API wrapper for automation
+-  **Firewall Management** - Rules, NAT, aliases, and diagnostics
+-  **IDS/IPS (Suricata)** - Monitor and manage intrusion detection/prevention
+-  **DNS (Unbound)** - DNS resolver, blocklists, forwarding, DNS over TLS
+-  **Monitoring** - Service status, traffic analysis, system health
+-  **Automated Backups** - Scheduled configuration backups with retention
+-  **Service Control** - Start/stop/restart services via SSH
+-  **API Integration** - RESTful API wrapper for automation
 
 ## Installation
 
@@ -218,9 +218,9 @@ ssh -p 22 root@opnsense "echo OK"
 
 | OPNsense Version | Skill Version | Status |
 |------------------|---------------|--------|
-| 26.1+ | 1.x | ✅ Supported |
-| 25.x | 1.x | ⚠️ May work |
-| 24.x | 1.x | ❌ Not tested |
+| 26.1+ | 1.x |  Supported |
+| 25.x | 1.x |  May work |
+| 24.x | 1.x |  Not tested |
 
 ## Reference Documentation
 

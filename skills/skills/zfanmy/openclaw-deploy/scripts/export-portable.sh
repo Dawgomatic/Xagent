@@ -13,7 +13,7 @@ echo "=========================================="
 
 # 检查源目录
 if [ ! -d "$PORTABLE_DIR" ]; then
-    echo "❌ 错误: 便携版目录不存在: $PORTABLE_DIR"
+    echo " 错误: 便携版目录不存在: $PORTABLE_DIR"
     echo "   请先运行 build-portable.sh"
     exit 1
 fi
@@ -22,22 +22,22 @@ mkdir -p "$OUTPUT_DIR"
 
 # Create clean package
 echo ""
-echo "📦 Packaging clean version..."
+echo " Packaging clean version..."
 if [ -d "$PORTABLE_DIR/clean" ]; then
     tar -czf "$OUTPUT_DIR/openclaw-clean-portable.tar.gz" -C "$PORTABLE_DIR" clean/
-    echo "✅ Clean: openclaw-clean-portable.tar.gz ($(du -h $OUTPUT_DIR/openclaw-clean-portable.tar.gz | cut -f1))"
+    echo " Clean: openclaw-clean-portable.tar.gz ($(du -h $OUTPUT_DIR/openclaw-clean-portable.tar.gz | cut -f1))"
 else
-    echo "⚠️  Clean version not found, skipping"
+    echo "  Clean version not found, skipping"
 fi
 
 # Create full package
 echo ""
-echo "📦 Packaging full version..."
+echo " Packaging full version..."
 if [ -d "$PORTABLE_DIR/full" ]; then
     tar -czf "$OUTPUT_DIR/openclaw-full-portable.tar.gz" -C "$PORTABLE_DIR" full/
-    echo "✅ Full: openclaw-full-portable.tar.gz ($(du -h $OUTPUT_DIR/openclaw-full-portable.tar.gz | cut -f1))"
+    echo " Full: openclaw-full-portable.tar.gz ($(du -h $OUTPUT_DIR/openclaw-full-portable.tar.gz | cut -f1))"
 else
-    echo "⚠️  Full version not found, skipping"
+    echo "  Full version not found, skipping"
 fi
 
 # Create deployment script

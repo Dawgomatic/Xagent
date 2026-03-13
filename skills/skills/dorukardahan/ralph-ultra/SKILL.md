@@ -1,7 +1,7 @@
 ---
 name: ralph-ultra
 description: "Deep-dive security audit with 1,000 iterations (~4-8 hours). Use when user says 'deep security audit', 'ralph ultra', 'compliance audit prep', 'thorough security review', 'before major release', or 'security incident investigation'. Covers OWASP deep dive, supply chain, compliance, business logic, 4 expert personas."
-metadata: { "openclaw": { "emoji": "⚔️" }, "author": "dorukardahan", "version": "2.0.0", "category": "security", "tags": ["security", "audit", "deep-dive", "compliance", "owasp"] }
+metadata: { "openclaw": { "emoji": "" }, "author": "dorukardahan", "version": "2.0.0", "category": "security", "tags": ["security", "audit", "deep-dive", "compliance", "owasp"] }
 ---
 
 # Ralph Ultra — 1,000 Iterations (~4-8 hours)

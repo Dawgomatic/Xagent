@@ -53,7 +53,7 @@ async function main(): Promise<OnboardResult> {
 
   // Check if config already exists
   if (fs.existsSync(CONFIG_PATH)) {
-    console.log('⚠️  Config already exists!');
+    console.log('  Config already exists!');
     console.log(`   Location: ${CONFIG_PATH}\n`);
 
     // Read existing config and show wallet address
@@ -120,12 +120,12 @@ async function main(): Promise<OnboardResult> {
       }
     }
 
-    console.log('\n✅ Private key accepted');
+    console.log('\n Private key accepted');
   } else {
     // Generate new wallet
     console.log('\nGenerating new wallet...');
     privateKey = generatePrivateKey();
-    console.log('✅ New wallet created');
+    console.log(' New wallet created');
   }
 
   rl.close();
@@ -155,7 +155,7 @@ BUILDER_FEE=10
 `;
 
   fs.writeFileSync(CONFIG_PATH, envContent, { mode: 0o600 });
-  console.log(`✅ Config saved to: ${CONFIG_PATH}\n`);
+  console.log(` Config saved to: ${CONFIG_PATH}\n`);
 
   // Approve builder fee (automatic - no user action needed)
   console.log('Step 3/3: Approving builder fee...');
@@ -173,20 +173,20 @@ BUILDER_FEE=10
     const currentApproval = await client.getMaxBuilderFee(client.address, OPEN_BROKER_BUILDER_ADDRESS);
 
     if (currentApproval) {
-      console.log(`\n✅ Builder fee already approved (${currentApproval})`);
+      console.log(`\n Builder fee already approved (${currentApproval})`);
     } else {
       console.log('\n   Sending approval transaction...');
       const result = await client.approveBuilderFee('0.1%', OPEN_BROKER_BUILDER_ADDRESS);
 
       if (result.status === 'ok') {
-        console.log('✅ Builder fee approved successfully!');
+        console.log(' Builder fee approved successfully!');
       } else {
-        console.log(`⚠️  Approval may have failed: ${result.response}`);
+        console.log(`  Approval may have failed: ${result.response}`);
         console.log('   You can retry later: openbroker approve-builder');
       }
     }
   } catch (error) {
-    console.log(`⚠️  Could not approve builder fee: ${error}`);
+    console.log(`  Could not approve builder fee: ${error}`);
     console.log('   You can retry later: openbroker approve-builder');
   }
 
@@ -202,14 +202,14 @@ BUILDER_FEE=10
   console.log(`Config:  ${CONFIG_PATH}`);
 
   if (choice === '2') {
-    console.log('\n⚠️  IMPORTANT: Save your private key!');
+    console.log('\n  IMPORTANT: Save your private key!');
     console.log('-----------------------------------');
     console.log(`Private Key: ${privateKey}`);
     console.log('\nThis key is stored in ~/.openbroker/.env');
     console.log('Back it up securely - if lost, funds cannot be recovered!');
   }
 
-  console.log('\n📋 Next Steps');
+  console.log('\n Next Steps');
   console.log('--------------');
   console.log('1. Fund your wallet with USDC on Arbitrum:');
   console.log(`   ${account.address}`);
@@ -221,7 +221,7 @@ BUILDER_FEE=10
   console.log('   openbroker account');
   console.log('   openbroker buy --coin ETH --size 0.01 --dry');
 
-  console.log('\n⚠️  Security');
+  console.log('\n  Security');
   console.log('------------');
   console.log(`Config stored at: ${CONFIG_PATH}`);
   console.log('Never share this file or your private key!');

@@ -51,10 +51,10 @@ def fetch_pireps(lat: float, lon: float, radius: int = 100) -> list[dict]:
 def decode_flight_category(cat: str) -> str:
     """Return emoji + description for flight category."""
     categories = {
-        "VFR": "🟢 VFR",
-        "MVFR": "🔵 MVFR", 
-        "IFR": "🔴 IFR",
-        "LIFR": "🟣 LIFR"
+        "VFR": " VFR",
+        "MVFR": " MVFR", 
+        "IFR": " IFR",
+        "LIFR": " LIFR"
     }
     return categories.get(cat, cat)
 

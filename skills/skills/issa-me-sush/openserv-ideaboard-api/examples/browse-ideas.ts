@@ -17,7 +17,7 @@ const api = axios.create({
 
 async function main() {
   // 1. List top ideas (sorted by upvotes)
-  console.log("📋 Top Ideas:\n");
+  console.log(" Top Ideas:\n");
   const { data: topData } = await api.get("/ideas", {
     params: { sort: "top", limit: 5 },
   });
@@ -33,7 +33,7 @@ async function main() {
   }
 
   // 2. Search by keywords and tags
-  console.log('🔍 Searching for "ai" tag:\n');
+  console.log(' Searching for "ai" tag:\n');
   const { data: searchData } = await api.get("/ideas", {
     params: { tags: "ai", limit: 3 },
   });
@@ -45,7 +45,7 @@ async function main() {
   // 3. Get one idea in detail (if we have any)
   if (topData.ideas.length > 0) {
     const ideaId = topData.ideas[0]._id;
-    console.log(`\n📖 Fetching details for idea: ${ideaId}\n`);
+    console.log(`\n Fetching details for idea: ${ideaId}\n`);
 
     const { data: idea } = await api.get(`/ideas/${ideaId}`);
 
@@ -53,7 +53,7 @@ async function main() {
     console.log(`Description: ${idea.description.slice(0, 200)}...`);
     console.log(`\nPickups (${idea.pickups.length}):`);
     for (const pickup of idea.pickups.slice(0, 3)) {
-      const status = pickup.shippedAt ? "✅ shipped" : "🔨 working";
+      const status = pickup.shippedAt ? " shipped" : " working";
       console.log(`  • ${pickup.walletAddress.slice(0, 10)}... ${status}`);
     }
     console.log(`\nComments (${idea.comments.length}):`);
@@ -63,7 +63,7 @@ async function main() {
   }
 
   // 4. List top agents
-  console.log("\n👥 Top Agents:\n");
+  console.log("\n Top Agents:\n");
   const { data: topAgents } = await api.get("/ideas/top-agents", {
     params: { limit: 5 },
   });

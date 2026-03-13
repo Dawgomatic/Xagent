@@ -23,7 +23,7 @@ description: |
 - Verify portfolio-level exposure limits in `../../references/master_portfolio.md`
 - Check correlation with PM Arb positions (same markets)
 - Check correlation with Memecoin (crypto price markets)
-- Respect parent's risk level (🟢/🟡/🟠/🔴)
+- Respect parent's risk level (///)
 
 **Your job within the system:**
 1. Research markets deeply to find informational edge

@@ -71,7 +71,7 @@ export function formatRepairResult(result: RepairResult, options: { dryRun?: boo
   lines.push('');
   
   if (result.corruptedEntries.length === 0) {
-    lines.push('✅ No corruption detected. Session is clean.');
+    lines.push(' No corruption detected. Session is clean.');
     return lines.join('\n');
   }
   
@@ -106,7 +106,7 @@ export function formatRepairResult(result: RepairResult, options: { dryRun?: boo
   if (dryRun) {
     lines.push(`Would remove ${result.removedCount} entries, relink ${result.relinkedCount} parent references.`);
   } else {
-    lines.push(`✅ Session repaired: removed ${result.removedCount} entries, relinked ${result.relinkedCount} parent references`);
+    lines.push(` Session repaired: removed ${result.removedCount} entries, relinked ${result.relinkedCount} parent references`);
     if (result.backupPath) {
       const backupName = result.backupPath.split('/').pop();
       lines.push(`Backup saved: ${backupName}`);

@@ -47,17 +47,17 @@ console.log('Published to:', result.clawHubUrl);
 ```
 
 ## Features
-✅ One-command skill publishing
-✅ Automatic version bumping (major/minor/patch)
-✅ Git-powered changelog generation
-✅ Multi-file asset bundling
-✅ Metadata validation
-✅ README optimization
-✅ Gumroad link injection
-✅ Publishing history & rollback
-✅ Skill analytics
-✅ Team collaboration support
-✅ CI/CD integration (GitHub Actions, etc.)
+ One-command skill publishing
+ Automatic version bumping (major/minor/patch)
+ Git-powered changelog generation
+ Multi-file asset bundling
+ Metadata validation
+ README optimization
+ Gumroad link injection
+ Publishing history & rollback
+ Skill analytics
+ Team collaboration support
+ CI/CD integration (GitHub Actions, etc.)
 
 ## Installation
 
@@ -103,9 +103,9 @@ const result = await publisher.publish({
   changelog: 'Initial release'
 });
 
-console.log(`✅ Published ${result.skillName}`);
-console.log(`📦 ClawHub URL: ${result.clawHubUrl}`);
-console.log(`📥 Install: npm install ${result.packageName}`);
+console.log(` Published ${result.skillName}`);
+console.log(` ClawHub URL: ${result.clawHubUrl}`);
+console.log(` Install: npm install ${result.packageName}`);
 ```
 
 ### Auto-Bump Version & Generate Changelog
@@ -139,7 +139,7 @@ const results = await publisher.publishBatch({
   parallel: 2  // Publish 2 at a time
 });
 
-console.log(`✅ Published ${results.succeeded}/${results.total} skills`);
+console.log(` Published ${results.succeeded}/${results.total} skills`);
 results.published.forEach(s => {
   console.log(`  - ${s.name}: ${s.clawHubUrl}`);
 });
@@ -168,10 +168,10 @@ const validation = await publisher.validate({
 });
 
 if (!validation.isValid) {
-  console.log('❌ Validation failed:');
+  console.log(' Validation failed:');
   validation.errors.forEach(e => console.log(`  - ${e.message}`));
 } else {
-  console.log('✅ Ready to publish!');
+  console.log(' Ready to publish!');
   console.log('  - package.json: OK');
   console.log('  - README.md: OK');
   console.log('  - Examples: OK');
@@ -336,8 +336,8 @@ Validate skill before publishing.
 → Ensure package.json has `clawhub` metadata block
 
 ## Support
-📧 support@midas-skills.com
-🔗 Docs: https://docs.midas-skills.com/clawhub-publisher
+ support@midas-skills.com
+ Docs: https://docs.midas-skills.com/clawhub-publisher
 
 ---
 

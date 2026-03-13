@@ -1,16 +1,16 @@
 # Claw Problem Diagnoser
 
-## 🔧 OpenClaw问题诊断器
+##  OpenClaw问题诊断器
 
-### 🎯 功能描述
+###  功能描述
 基于Moltbook社区的最大需求（技术帮助：21次提及），开发这个OpenClaw问题诊断器。自动诊断和修复常见的OpenClaw配置、依赖、服务问题。
 
-### 📊 社区需求背景
+###  社区需求背景
 - **技术帮助需求**: 21次提及（最大需求类别）
 - **关键词**: help (9次), fix (7次), error (2次)
 - **痛点**: OpenClaw配置错误、依赖问题、服务启动失败、权限问题
 
-### 🔍 核心诊断能力
+###  核心诊断能力
 
 #### 1. **配置诊断**
 - 检查OpenClaw配置文件语法错误
@@ -48,7 +48,7 @@
 - 测试数据流连接性
 - 诊断第三方服务问题
 
-### 📦 安装方法
+###  安装方法
 
 ```bash
 # 通过ClawdHub安装
@@ -59,7 +59,7 @@ mkdir -p ~/.openclaw/skills/claw-problem-diagnoser
 cp -r ./* ~/.openclaw/skills/claw-problem-diagnoser/
 ```
 
-### 🚀 快速开始
+###  快速开始
 
 安装后，在OpenClaw会话中：
 ```bash
@@ -78,7 +78,7 @@ claw-diagnose --auto-fix
 claw-diagnose --report html
 ```
 
-### 🔧 配置选项
+###  配置选项
 
 在`~/.openclaw/config.json`中添加：
 ```json
@@ -96,7 +96,7 @@ claw-diagnose --report html
 }
 ```
 
-### 🛠️ 诊断引擎
+###  诊断引擎
 
 #### **配置验证器**
 - 语法解析和验证
@@ -122,7 +122,7 @@ claw-diagnose --report html
 - 瓶颈识别
 - 优化建议生成
 
-### 📊 问题严重性等级
+###  问题严重性等级
 
 #### **严重 (Critical)**
 - 服务完全无法启动
@@ -154,7 +154,7 @@ claw-diagnose --report html
 - 成功确认
 - 环境信息
 
-### 📋 使用场景
+###  使用场景
 
 #### **1. 新用户快速上手**
 - 自动诊断初始配置问题
@@ -181,7 +181,7 @@ claw-diagnose --report html
 - 运行时监控
 - 故障自动恢复
 
-### 🛠️ API接口
+###  API接口
 
 #### **Python API**
 ```python
@@ -226,7 +226,7 @@ claw-diagnose --monitor --interval 300
 claw-diagnose --remote user@hostname
 ```
 
-### 🎨 报告系统
+###  报告系统
 
 #### **控制台报告**
 - 实时诊断进度
@@ -252,7 +252,7 @@ claw-diagnose --remote user@hostname
 - 团队协作共享
 - 知识库更新
 
-### 🔄 工作流程
+###  工作流程
 
 #### **诊断流程**
 ```
@@ -266,7 +266,7 @@ claw-diagnose --remote user@hostname
 4. 验证修复效果 → 5. 回滚（如果需要） → 6. 生成报告
 ```
 
-### 💰 商业化模式
+###  商业化模式
 
 #### **版本策略**
 1. **免费版**
@@ -293,7 +293,7 @@ claw-diagnose --remote user@hostname
 - **系统管理员** - 维护多个OpenClaw部署
 - **企业用户** - 生产环境的问题诊断和监控
 
-### 🛡️ 价值主张
+###  价值主张
 
 #### **对用户的直接价值**
 1. **时间节省** - 快速定位问题，减少调试时间
@@ -307,7 +307,7 @@ claw-diagnose --remote user@hostname
 3. **增强系统稳定性** - 及时发现和修复问题
 4. **生态完善** - 填补重要的问题诊断工具空白
 
-### 🚀 开发路线图
+###  开发路线图
 
 #### **V1.0 (基础版)**
 - 基础配置诊断
@@ -327,7 +327,7 @@ claw-diagnose --remote user@hostname
 - API和Webhook集成
 - 监控和告警系统
 
-### 🔧 技术架构
+###  技术架构
 
 #### **核心组件**
 ```
@@ -358,7 +358,7 @@ problem-diagnoser/
 - 文件系统和存储
 - 安全和合规性
 
-### 🐛 故障排除
+###  故障排除
 
 #### **常见问题**
 1. **诊断速度慢**
@@ -387,14 +387,14 @@ problem-diagnoser/
 - 支持：support@claw-problem-diagnoser.com
 - 紧急响应：emergency@claw-problem-diagnoser.com
 
-### 📝 许可证
+###  许可证
 MIT License - 免费用于个人和非商业用途
 商业使用需要购买许可证
 
-### 🙏 致谢
+###  致谢
 这个skill的灵感来自Moltbook社区对技术帮助的强烈需求。我们希望帮助OpenClaw用户更轻松地解决技术问题。
 
-**快速诊断，轻松修复** 🔧
+**快速诊断，轻松修复** 
 
 ---
 **开发团队**：Claw & 老板

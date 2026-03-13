@@ -23,13 +23,13 @@ for test_file in "$TESTS_DIR"/test_*.sh; do
   fi
 
   test_name="$(basename "$test_file")"
-  echo "▶ Running $test_name ..."
+  echo " Running $test_name ..."
 
   if bash "$test_file"; then
-    echo "  ✅ PASS: $test_name"
+    echo "   PASS: $test_name"
     PASS=$((PASS + 1))
   else
-    echo "  ❌ FAIL: $test_name"
+    echo "   FAIL: $test_name"
     FAIL=$((FAIL + 1))
     ERRORS+=("$test_name")
   fi

@@ -1,4 +1,4 @@
-# 🎬 Jellyfin Control for OpenClaw
+#  Jellyfin Control for OpenClaw
 
 Control your Jellyfin media server and TV with natural language through your AI assistant.
 
@@ -7,8 +7,8 @@ Control your Jellyfin media server and TV with natural language through your AI 
 
 ## What's New in v1.2
 
-- **📺 TV Control** — Turn on/off your TV, launch apps, all from the CLI
-- **🎯 One-command play** — `tv play "Breaking Bad"` does everything: wake TV → launch Jellyfin → find episode → play
+- ** TV Control** — Turn on/off your TV, launch apps, all from the CLI
+- ** One-command play** — `tv play "Breaking Bad"` does everything: wake TV → launch Jellyfin → find episode → play
 - **Two backends** — Home Assistant (any TV brand) or direct WebOS (LG TVs, no HA needed)
 - **Wake-on-LAN** — Built-in, zero dependencies
 - **Fail-fast** — Content is validated before the TV turns on

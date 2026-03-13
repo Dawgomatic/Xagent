@@ -307,20 +307,20 @@ if __name__ == "__main__":
     
     result = hybrid_search(args.query, methods=methods, context=context)
     
-    print(f"\n🔍 Hybrid Search Result")
+    print(f"\n Hybrid Search Result")
     print(f"{'='*50}")
     print(f"Query: {result['query']}")
     print(f"Methods: {', '.join(result['methods_used'])}")
     
     if result.get('primary_category'):
-        print(f"\n🎯 Primary: {result['primary_category']}")
-        print(f"📁 Path: {' → '.join(result.get('path', []))}")
+        print(f"\n Primary: {result['primary_category']}")
+        print(f" Path: {' → '.join(result.get('path', []))}")
     
     if result.get('categories'):
-        print(f"\n🔗 Selection Categories ({len(result['categories'])}):")
+        print(f"\n Selection Categories ({len(result['categories'])}):")
         print(f"  {', '.join(sorted(result['categories']))}")
     
-    print(f"\n📊 Stats:")
+    print(f"\n Stats:")
     print(f"  Tree matches: {result['stats']['tree_matches']}")
     print(f"  Selection expansion: {result['stats']['selection_expansion']}")
     print(f"  Semantic matches: {result['stats']['semantic_matches']}")

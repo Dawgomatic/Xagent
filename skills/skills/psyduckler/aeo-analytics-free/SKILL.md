@@ -108,7 +108,7 @@ For each tracked prompt, show:
    Scans: [total] (since [first scan date])
    Mentioned: [count]/[total] ([%]) — [trend arrow] [trend description]
    Cited: [count]/[total] ([%])
-   Latest: [✅/❌ Mentioned] + [✅/❌ Cited]
+   Latest: [/ Mentioned] + [/ Cited]
    Sentiment: [positive/neutral/negative]
    Competitors mentioned: [list]
 ```

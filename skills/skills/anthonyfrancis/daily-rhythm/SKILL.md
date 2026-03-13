@@ -27,7 +27,7 @@ A comprehensive daily planning and reflection system that automates morning brie
 - **Sunday 8:00pm**: Weekly review for reflection and task planning
 
 ### Rich Morning Briefs Include
-- 🙏 **Daily Intention** — Prayer, affirmation, quote, or centering thought
+-  **Daily Intention** — Prayer, affirmation, quote, or centering thought
 - Calendar events
 - Focus area
 - ARR progress tracking (optional Stripe integration)

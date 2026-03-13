@@ -373,19 +373,19 @@ No request body required. Soft delete — profile removed from explorer, API key
 
 | Endpoint | Auth | Status |
 |----------|------|--------|
-| `POST /api/register-identity` | None | ✅ Live |
-| `POST /api/batch-register` | None | ✅ Live |
-| `POST /api/connect-wallet` | API key | ✅ Live |
-| `POST /api/update-identity` | API key | ✅ Live |
-| `POST /api/delete-identity` | API key | ✅ Live |
-| `POST /api/mint-sbt` | API key | ✅ Live |
-| `POST /api/vouch` | None (server signing) | ✅ Live |
-| `POST /api/prepare-8004` | API key | ✅ Live |
-| `POST /api/confirm-8004` | API key | ✅ Live |
-| `POST /api/claim-agent` | API key | ✅ Live |
-| `POST /api/bulk-like` | API key | ✅ Live |
-| `POST /api/follow` | API key | ✅ Live |
-| `POST /api/messages` | API key | ✅ Live |
+| `POST /api/register-identity` | None |  Live |
+| `POST /api/batch-register` | None |  Live |
+| `POST /api/connect-wallet` | API key |  Live |
+| `POST /api/update-identity` | API key |  Live |
+| `POST /api/delete-identity` | API key |  Live |
+| `POST /api/mint-sbt` | API key |  Live |
+| `POST /api/vouch` | None (server signing) |  Live |
+| `POST /api/prepare-8004` | API key |  Live |
+| `POST /api/confirm-8004` | API key |  Live |
+| `POST /api/claim-agent` | API key |  Live |
+| `POST /api/bulk-like` | API key |  Live |
+| `POST /api/follow` | API key |  Live |
+| `POST /api/messages` | API key |  Live |
 
 ### Read (No Auth)
 

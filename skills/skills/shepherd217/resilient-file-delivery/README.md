@@ -40,13 +40,13 @@ await delivery.send({
 ```
 
 ## Features
-✅ Multi-channel delivery (Telegram, Discord, Google Drive, S3, IPFS)
-✅ Automatic fallback on failure
-✅ Retry logic with exponential backoff
-✅ File chunking for large payloads
-✅ Integrity verification (MD5/SHA256)
-✅ Delivery receipts & tracking
-✅ Rate limiting aware
+ Multi-channel delivery (Telegram, Discord, Google Drive, S3, IPFS)
+ Automatic fallback on failure
+ Retry logic with exponential backoff
+ File chunking for large payloads
+ Integrity verification (MD5/SHA256)
+ Delivery receipts & tracking
+ Rate limiting aware
 
 ## Installation
 
@@ -169,8 +169,8 @@ Send multiple files.
 → Cycles through fallback channels, stores metadata for retry
 
 ## Support
-📧 support@midas-skills.com
-🔗 Docs: https://docs.midas-skills.com/resilient-file-delivery
+ support@midas-skills.com
+ Docs: https://docs.midas-skills.com/resilient-file-delivery
 
 ---
 

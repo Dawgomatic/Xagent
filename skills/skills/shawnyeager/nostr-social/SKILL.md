@@ -34,7 +34,7 @@ When skill is installed (user pastes ClawHub link), run this flow:
 bash {SKILL_DIR}/install.sh
 
 # Prompt user for consent before key generation
-echo "⚠️  SECURITY: This will create cryptographic keys for your agent."
+echo "  SECURITY: This will create cryptographic keys for your agent."
 echo "   - Nostr identity keypair: ~/.nostr/secret.key"  
 echo "   - Cashu wallet seed: ~/.cocod/config.json"
 echo "   - You MUST backup your seed phrase"
@@ -65,14 +65,14 @@ Reply to user:
 
 ---
 
-⚡ **Nostr identity ready!**
+ **Nostr identity ready!**
 
 **npub:** `npub1...`
 **Lightning address:** `npub1...@npubx.cash`
 
 ---
 
-⚠️ **IMPORTANT: Back up your recovery phrase**
+ **IMPORTANT: Back up your recovery phrase**
 
 Your 24-word mnemonic is stored in:
 ```
@@ -143,7 +143,7 @@ node {SKILL_DIR}/scripts/nostr.js profile-set '{"picture":"'$AVATAR'","banner":"
 
 Tell me what to post, or say "skip".
 
-Suggestion: "Hello Nostr! ⚡"
+Suggestion: "Hello Nostr! "
 
 ---
 
@@ -156,7 +156,7 @@ echo "<user's message>" | node {SKILL_DIR}/scripts/nostr.js post -
 
 ---
 
-✅ **All set!**
+ **All set!**
 
 - Following you ✓
 - First post live ✓ (if not skipped)
@@ -172,7 +172,7 @@ Try: "check my mentions" or "post <message>"
 # Use stdin for content (prevents shell injection)
 echo "message" | node {SKILL_DIR}/scripts/nostr.js post -
 echo "reply text" | node {SKILL_DIR}/scripts/nostr.js reply <note1...> -
-node {SKILL_DIR}/scripts/nostr.js react <note1...> 🔥
+node {SKILL_DIR}/scripts/nostr.js react <note1...> 
 node {SKILL_DIR}/scripts/nostr.js repost <note1...>
 node {SKILL_DIR}/scripts/nostr.js delete <note1...>
 ```

@@ -1,7 +1,7 @@
 /**
  * Email Verification Helper (IMAP)
  * 
- * ⚠️ USER MUST PROVIDE THEIR OWN EMAIL CREDENTIALS
+ *  USER MUST PROVIDE THEIR OWN EMAIL CREDENTIALS
  * 
  * Recommended: Create a dedicated email for directory submissions
  * e.g., submissions@yourdomain.com or yourproduct.submissions@gmail.com

@@ -157,7 +157,7 @@ class ROS2ActionClient(BaseActionClient):
                 return False
             
             self._connected = True
-            logger.info(f"✅ Connected to ROS2 action: {self.action_name}")
+            logger.info(f" Connected to ROS2 action: {self.action_name}")
             return True
             
         except ImportError:
@@ -218,7 +218,7 @@ class ROS2ActionClient(BaseActionClient):
                 )
             
             self.status = ActionStatus.ACTIVE
-            logger.info(f"▶️  Action goal accepted: {goal_id}")
+            logger.info(f"  Action goal accepted: {goal_id}")
             
             # Wait for result with timeout
             result_future = self._goal_handle.get_result_async()
@@ -347,7 +347,7 @@ class SimulatedActionClient(BaseActionClient):
     async def connect(self) -> bool:
         """Simulated connect"""
         self._connected = True
-        logger.info(f"✅ Simulated action client: {self.action_name}")
+        logger.info(f" Simulated action client: {self.action_name}")
         return True
     
     async def disconnect(self):
@@ -369,7 +369,7 @@ class SimulatedActionClient(BaseActionClient):
         self.status = ActionStatus.ACTIVE
         self._start_time = datetime.utcnow()
         
-        logger.info(f"▶️  Simulated action: {self.action_name} goal {goal_id}")
+        logger.info(f"  Simulated action: {self.action_name} goal {goal_id}")
         
         # Simulate execution with feedback
         steps = 10
@@ -400,7 +400,7 @@ class SimulatedActionClient(BaseActionClient):
         )
         
         self._notify_result(result)
-        logger.info(f"✅ Simulated action completed: {goal_id}")
+        logger.info(f" Simulated action completed: {goal_id}")
         
         return result
     

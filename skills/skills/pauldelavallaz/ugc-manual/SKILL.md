@@ -3,13 +3,13 @@ name: ugc-manual
 description: |
   Generate lip-sync video from image + user's own audio recording.
   
-  ✅ USE WHEN:
+   USE WHEN:
   - User provides their OWN audio file (voice recording)
   - Want to sync image to specific audio/voice
   - User recorded the script themselves
   - Need exact audio timing preserved
   
-  ❌ DON'T USE WHEN:
+   DON'T USE WHEN:
   - User provides text script (not audio) → use veed-ugc
   - Need AI to generate the voice → use veed-ugc
   - Don't have audio file yet → use veed-ugc with script

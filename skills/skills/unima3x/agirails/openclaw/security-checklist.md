@@ -4,7 +4,7 @@ Complete this checklist before handling real money.
 
 ---
 
-## 🔐 Phase 1: Before First Test
+##  Phase 1: Before First Test
 
 ### Private Key Management
 
@@ -30,7 +30,7 @@ Complete this checklist before handling real money.
 
 ---
 
-## 🧪 Phase 2: Before Testnet
+##  Phase 2: Before Testnet
 
 ### Test Transactions
 
@@ -56,7 +56,7 @@ Complete this checklist before handling real money.
 
 ---
 
-## 🚀 Phase 3: Before Mainnet
+##  Phase 3: Before Mainnet
 
 ### Fund Management
 
@@ -98,7 +98,7 @@ Complete this checklist before handling real money.
 
 ---
 
-## 📋 Phase 4: Ongoing Operations
+##  Phase 4: Ongoing Operations
 
 ### Daily Checks
 
@@ -123,7 +123,7 @@ Complete this checklist before handling real money.
 
 ---
 
-## 🚨 Red Flags - Stop Immediately If:
+##  Red Flags - Stop Immediately If:
 
 | Signal | Action |
 |--------|--------|
@@ -136,7 +136,7 @@ Complete this checklist before handling real money.
 
 ---
 
-## 📞 Emergency Contacts
+##  Emergency Contacts
 
 Fill in before going live:
 
@@ -149,7 +149,7 @@ Fill in before going live:
 
 ---
 
-## ✅ Sign-Off
+##  Sign-Off
 
 Before mainnet, confirm:
 

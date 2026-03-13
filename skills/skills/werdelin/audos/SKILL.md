@@ -93,27 +93,27 @@ Don't wait until done — update the user continuously
 Send a message like this after EACH poll:
 
 ```
-🏗️ Building "Business Name"...
+ Building "Business Name"...
 
-Step 4/7 ✅ Brand Identity
+Step 4/7  Brand Identity
   • Color palette: done
   • Logo: done
 
-Step 5/7 🔄 Hero Video (70%)
+Step 5/7  Hero Video (70%)
   • Scenes: done
   • Rendering: in progress
 
-Step 6/7 ⏳ Workspace Apps
+Step 6/7  Workspace Apps
   • Waiting to start
 
-⏱️ ~3 min remaining
+ ~3 min remaining
 ```
 
 ### Status Icons
-- ✅ Complete
-- 🔄 In progress (show sub-task if available)
-- ⏳ Waiting/pending
-- ❌ Failed (offer /rebuild)
+-  Complete
+-  In progress (show sub-task if available)
+-  Waiting/pending
+-  Failed (offer /rebuild)
 
 ### Parsing parallelBuildStatus
 
@@ -122,8 +122,8 @@ The API returns detailed task breakdown in `parallelBuildStatus`:
 ```javascript
 // Example parsing
 for (const step of status.parallelBuildStatus) {
-  const icon = step.status === 'done' ? '✅' : 
-               step.status === 'in_progress' ? '🔄' : '⏳';
+  const icon = step.status === 'done' ? '' : 
+               step.status === 'in_progress' ? '' : '';
   console.log(`${icon} ${step.name}`);
   for (const task of step.tasks) {
     const taskIcon = task.status === 'complete' ? '✓' : 
@@ -169,7 +169,7 @@ The build takes ~10 minutes. Don't just report percentages — explain what Audo
 > "Final stretch — Audos is designing and deploying your landing page. This is what your customers will see first. It's conversion-optimized and ready to collect leads."
 
 ### On Completion
-> "Your workspace is ready! 🎉
+> "Your workspace is ready! 
 >
 > Here's what Audos built for you:
 > - **Landing page:** [link] — live and ready for visitors

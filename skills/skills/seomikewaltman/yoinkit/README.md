@@ -117,19 +117,19 @@ Just ask your assistant naturally:
 
 | Platform | Content | Transcript | Search | Trending | User Feed |
 |----------|:-------:|:----------:|:------:|:--------:|:---------:|
-| YouTube | ✅ | ✅ | ✅ | ✅ | ✅ |
-| TikTok | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Instagram | ✅ | ✅ | ✅ | — | ✅ |
-| Twitter/X | ✅ | ✅ | — | — | ✅ |
-| Facebook | ✅ | ✅ | — | — | ✅ |
-| LinkedIn | ✅ | — | — | — | — |
-| Reddit | ✅ | — | ✅ | — | — |
-| Pinterest | ✅ | — | ✅ | — | — |
-| Threads | ✅ | — | — | — | ✅ |
-| Bluesky | ✅ | — | — | — | ✅ |
-| Truth Social | ✅ | — | — | — | ✅ |
-| Twitch | ✅ | — | — | — | — |
-| Kick | ✅ | — | — | — | — |
+| YouTube |  |  |  |  |  |
+| TikTok |  |  |  |  |  |
+| Instagram |  |  |  | — |  |
+| Twitter/X |  |  | — | — |  |
+| Facebook |  |  | — | — |  |
+| LinkedIn |  | — | — | — | — |
+| Reddit |  | — |  | — | — |
+| Pinterest |  | — |  | — | — |
+| Threads |  | — | — | — |  |
+| Bluesky |  | — | — | — |  |
+| Truth Social |  | — | — | — |  |
+| Twitch |  | — | — | — | — |
+| Kick |  | — | — | — | — |
 
 ## Cron Examples
 

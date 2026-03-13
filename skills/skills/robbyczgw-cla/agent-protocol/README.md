@@ -361,4 +361,4 @@ MIT
 
 ---
 
-**Built with 🦎 for Clawdbot**
+**Built with  for Clawdbot**

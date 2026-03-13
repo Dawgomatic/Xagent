@@ -144,7 +144,7 @@ inputs:
     exclusive: true
     description: |
       Exact search ID.
-      ⚠️ If provided, all other parameters are ignored
+       If provided, all other parameters are ignored
 
   page_num:
     type: number
@@ -167,7 +167,7 @@ inputs:
     required: false
     description: |
       Extended parameters (e.g. need_workflow).
-      ⚠️ Workflow work items do not allow need_workflow=true
+       Workflow work items do not allow need_workflow=true
 
 outputs:
   data:
@@ -294,7 +294,7 @@ inputs:
       - watchers
       - issue_operator
       - issue_reporter
-      ⚠️ user_keys must be present
+       user_keys must be present
     schema:
       field_key: string
       user_keys:
@@ -395,7 +395,7 @@ inputs:
     required: false
     description: |
       Extended parameters (e.g. need_workflow).
-      ⚠️ Workflow work items do not allow need_workflow=true
+       Workflow work items do not allow need_workflow=true
 
 outputs:
   data:

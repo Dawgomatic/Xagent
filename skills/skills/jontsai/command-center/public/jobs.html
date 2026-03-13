@@ -869,10 +869,10 @@
     <div class="main-wrapper" id="main-wrapper">
       <header>
         <div class="header-left">
-          <h1 class="page-title">🤖 AI Jobs Dashboard</h1>
+          <h1 class="page-title"> AI Jobs Dashboard</h1>
         </div>
         <div class="header-actions">
-          <button class="job-action-btn" onclick="refreshJobs()" title="Refresh">🔄 Refresh</button>
+          <button class="job-action-btn" onclick="refreshJobs()" title="Refresh"> Refresh</button>
         </div>
       </header>
 
@@ -911,13 +911,13 @@
             All <span class="filter-count" id="filter-all-count">0</span>
           </button>
           <button class="filter-btn" data-filter="active" onclick="setFilter('active')">
-            🟢 Active <span class="filter-count" id="filter-active-count">0</span>
+             Active <span class="filter-count" id="filter-active-count">0</span>
           </button>
           <button class="filter-btn" data-filter="paused" onclick="setFilter('paused')">
-            ⏸️ Paused <span class="filter-count" id="filter-paused-count">0</span>
+             Paused <span class="filter-count" id="filter-paused-count">0</span>
           </button>
           <button class="filter-btn" data-filter="failed" onclick="setFilter('failed')">
-            🔴 Failed <span class="filter-count" id="filter-failed-count">0</span>
+             Failed <span class="filter-count" id="filter-failed-count">0</span>
           </button>
         </div>
 
@@ -929,7 +929,7 @@
           </div>
 
           <div id="jobs-empty" class="empty-state" style="display: none">
-            <div class="empty-state-icon">⚙️</div>
+            <div class="empty-state-icon"></div>
             <div class="empty-state-text">No jobs found</div>
             <div class="empty-state-hint">
               Job definitions are loaded from $OPENCLAW_JOBS_DIR/definitions/
@@ -967,7 +967,7 @@
             <tbody id="history-tbody"></tbody>
           </table>
           <div id="history-empty" class="empty-state" style="display: none">
-            <div class="empty-state-icon">📭</div>
+            <div class="empty-state-icon"></div>
             <div class="empty-state-text">No run history yet</div>
           </div>
         </div>
@@ -1003,9 +1003,9 @@
       // Get job icon
       function getJobIcon(job) {
         const status = getJobStatus(job);
-        if (status === "paused") return "⏸️";
-        if (status === "failed") return "⚠️";
-        return "⚙️";
+        if (status === "paused") return "";
+        if (status === "failed") return "";
+        return "";
       }
 
       // Render a single job card
@@ -1032,13 +1032,13 @@
                     </div>
                     
                     <div class="job-schedule">
-                        <span class="schedule-icon">📅</span>
+                        <span class="schedule-icon"></span>
                         <span class="schedule-cron">${escapeHtml(formatSchedule(job.schedule))}</span>
                         <span class="schedule-next">Next: ${job.nextRunRelative || "—"}</span>
                     </div>
                     
                     <div class="job-tags">
-                        <span class="job-tag lane">🛤️ ${job.lane || "medium"}</span>
+                        <span class="job-tag lane"> ${job.lane || "medium"}</span>
                         ${(job.tags || []).map((t) => `<span class="job-tag">${escapeHtml(t)}</span>`).join("")}
                     </div>
                     
@@ -1070,15 +1070,15 @@
                     
                     <div class="job-actions">
                         <button class="job-action-btn primary" onclick="runJob('${job.id}')" ${job.paused ? "disabled" : ""}>
-                            ▶️ Run
+                             Run
                         </button>
                         ${
                           job.paused
-                            ? `<button class="job-action-btn" onclick="resumeJob('${job.id}')">▶️ Resume</button>`
-                            : `<button class="job-action-btn" onclick="pauseJob('${job.id}')">⏸️ Pause</button>`
+                            ? `<button class="job-action-btn" onclick="resumeJob('${job.id}')"> Resume</button>`
+                            : `<button class="job-action-btn" onclick="pauseJob('${job.id}')"> Pause</button>`
                         }
                         <button class="job-action-btn" onclick="showHistory('${job.id}', '${escapeHtml(job.name)}')">
-                            📜 History
+                             History
                         </button>
                     </div>
                 </div>
@@ -1273,7 +1273,7 @@
                     <tr>
                         <td>
                             <span class="run-status ${run.status}">
-                                ${run.status === "success" ? "✅" : run.status === "failed" ? "❌" : "⏳"}
+                                ${run.status === "success" ? "" : run.status === "failed" ? "" : ""}
                                 ${run.status}
                             </span>
                         </td>
@@ -1304,7 +1304,7 @@
         const toast = document.createElement("div");
         toast.className = `toast ${type}`;
         toast.innerHTML = `
-                <span class="toast-icon">${type === "success" ? "✅" : type === "error" ? "❌" : "ℹ️"}</span>
+                <span class="toast-icon">${type === "success" ? "" : type === "error" ? "" : ""}</span>
                 <span>${escapeHtml(message)}</span>
             `;
         container.appendChild(toast);

@@ -304,7 +304,7 @@ def fetch_feed_with_retry(source: Dict[str, Any], cutoff: datetime, no_cache: bo
                     content = resp.read().decode("utf-8", errors="replace")
             except URLError as e:
                 if hasattr(e, 'code') and e.code == 304:
-                    logging.info(f"⏭ {name}: not modified (304)")
+                    logging.info(f" {name}: not modified (304)")
                     return {
                         "source_id": source_id,
                         "source_type": "rss",
@@ -329,7 +329,7 @@ def fetch_feed_with_retry(source: Dict[str, Any], cutoff: datetime, no_cache: bo
                 if validate_article_domain(article.get("link", ""), source):
                     validated_articles.append(article)
                 else:
-                    logging.warning(f"⚠️ {name}: rejected article with unexpected domain: {article.get('link', '')}")
+                    logging.warning(f" {name}: rejected article with unexpected domain: {article.get('link', '')}")
             articles = validated_articles
             
             return {
@@ -505,9 +505,9 @@ Examples:
                 results.append(result)
                 
                 if result["status"] == "ok":
-                    logger.debug(f"✅ {result['name']}: {result['count']} articles")
+                    logger.debug(f" {result['name']}: {result['count']} articles")
                 else:
-                    logger.debug(f"❌ {result['name']}: {result['error']}")
+                    logger.debug(f" {result['name']}: {result['error']}")
 
         # Flush conditional request cache
         _flush_rss_cache()
@@ -536,13 +536,13 @@ Examples:
         with open(args.output, "w", encoding='utf-8') as f:
             f.write(json_str)
 
-        logger.info(f"✅ Done: {ok_count}/{len(results)} feeds ok, "
+        logger.info(f" Done: {ok_count}/{len(results)} feeds ok, "
                    f"{total_articles} articles → {args.output}")
         
         return 0
         
     except Exception as e:
-        logger.error(f"💥 RSS fetch failed: {e}")
+        logger.error(f" RSS fetch failed: {e}")
         return 1
 
 

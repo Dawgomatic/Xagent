@@ -4,27 +4,27 @@
 
 set -e
 
-echo "🛡️ Setting up feelgoodbot..."
+echo " Setting up feelgoodbot..."
 
 # Check for Go
 if ! command -v go &> /dev/null; then
-    echo "❌ Go is required. Install with: brew install go"
+    echo " Go is required. Install with: brew install go"
     exit 1
 fi
 
 # Install feelgoodbot
-echo "📦 Installing feelgoodbot..."
+echo " Installing feelgoodbot..."
 go install github.com/kris-hansen/feelgoodbot/cmd/feelgoodbot@latest
 
 # Check if it installed
 if ! command -v feelgoodbot &> /dev/null; then
-    echo "❌ feelgoodbot not found in PATH. Add \$GOPATH/bin to your PATH"
+    echo " feelgoodbot not found in PATH. Add \$GOPATH/bin to your PATH"
     exit 1
 fi
 
 # Initialize if no baseline exists
 if [ ! -f ~/.config/feelgoodbot/snapshots/baseline.json ]; then
-    echo "📸 Creating initial baseline..."
+    echo " Creating initial baseline..."
     feelgoodbot init
 else
     echo "✓ Baseline already exists"
@@ -34,7 +34,7 @@ fi
 HOOKS_ENABLED=$(clawdbot config get hooks.enabled 2>/dev/null | tr -d '"' || echo "false")
 
 if [ "$HOOKS_ENABLED" != "true" ]; then
-    echo "⚙️ Enabling Clawdbot webhooks..."
+    echo " Enabling Clawdbot webhooks..."
     clawdbot config set hooks.enabled true
     TOKEN=$(openssl rand -base64 32)
     clawdbot config set hooks.token "$TOKEN"
@@ -48,7 +48,7 @@ fi
 TOKEN=$(clawdbot config get hooks.token 2>/dev/null | tr -d '"')
 
 if [ -z "$TOKEN" ]; then
-    echo "❌ Could not get hooks token"
+    echo " Could not get hooks token"
     exit 1
 fi
 
@@ -79,13 +79,13 @@ EOF
 echo "✓ Config written to $CONFIG_DIR/config.yaml"
 
 # Install and start daemon
-echo "🚀 Installing daemon..."
+echo " Installing daemon..."
 feelgoodbot daemon install 2>/dev/null || true
 feelgoodbot daemon stop 2>/dev/null || true
 feelgoodbot daemon start
 
 echo ""
-echo "✅ feelgoodbot is running!"
+echo " feelgoodbot is running!"
 echo ""
 echo "Commands:"
 echo "  feelgoodbot status    - Check status"

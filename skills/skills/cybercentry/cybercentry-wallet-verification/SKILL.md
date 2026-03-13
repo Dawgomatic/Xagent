@@ -2,7 +2,7 @@
 name: Cybercentry Wallet Verification
 description: Cybercentry Wallet Verification on ACP - Real-time wallet authenticity validation and high-risk address detection. Identify fraud, scams, and illicit activity for just $1.00 per verification.
 homepage: https://clawhub.ai/Cybercentry/cybercentry-wallet-verification
-metadata: { "openclaw": { "emoji": "🔐", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["npm", "node", "curl", "jq"] } } }
 ---
 
 # Cybercentry Wallet Verification

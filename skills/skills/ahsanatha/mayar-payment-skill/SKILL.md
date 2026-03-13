@@ -97,7 +97,7 @@ const invoice = /* mcporter call mayar.create_invoice */;
 
 // 2. Format message
 const message = `
-✅ *Order Confirmed!*
+ *Order Confirmed!*
 
 *Items:*
 • Product Name
@@ -105,12 +105,12 @@ const message = `
 
 *TOTAL: Rp ${total.toLocaleString('id-ID')}*
 
-💳 *Pembayaran:*
+ *Pembayaran:*
 ${invoice.data.link}
 
-⏰ Berlaku sampai: ${expiryDate}
+ Berlaku sampai: ${expiryDate}
 
-Terima kasih! 🙏
+Terima kasih! 
 `.trim();
 
 // 3. Send via WhatsApp

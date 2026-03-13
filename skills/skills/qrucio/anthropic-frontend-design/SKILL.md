@@ -50,7 +50,7 @@ python scripts/search.py "<keyword>" --stack <stack_name>
 
 | Rule | Do | Don't |
 |------|----|----- |
-| **Icons** | Use SVG (Heroicons, Lucide, Simple Icons) | Use emojis like 🎨 🚀 ⚙️ as UI icons |
+| **Icons** | Use SVG (Heroicons, Lucide, Simple Icons) | Use emojis like    as UI icons |
 | **Typography** | Beautiful, unique Google/Custom fonts | Inter, Roboto, Arial, System fonts |
 | **Hover** | Stable transitions (color/opacity/shadow) | Scale transforms that shift layout |
 | **Cursor** | Add `cursor-pointer` to all interactive items | Leave default cursor on buttons/cards |

@@ -1,7 +1,7 @@
 ---
 name: Polygon
 description: Assist with Polygon PoS and zkEVM transactions, bridging, gas tokens, and ecosystem navigation.
-metadata: {"clawdbot":{"emoji":"🟣","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Network Confusion (Critical)

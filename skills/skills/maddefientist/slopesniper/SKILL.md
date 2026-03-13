@@ -1,7 +1,7 @@
 ---
 name: slopesniper
 description: Trade Solana tokens via Jupiter DEX with auto-execution and safety limits
-metadata: {"clawdbot":{"requires":{"bins":["uv"],"env":["SOLANA_PRIVATE_KEY"]},"emoji":"🎯","primaryEnv":"SOLANA_PRIVATE_KEY","homepage":"https://github.com/maddefientist/SlopeSniper","install":[{"id":"uv-install","kind":"uv","package":"slopesniper-mcp","from":"git+https://github.com/maddefientist/SlopeSniper.git#subdirectory=mcp-extension","bins":["slopesniper-mcp","slopesniper-api"],"label":"Install SlopeSniper via uv"}]}}
+metadata: {"clawdbot":{"requires":{"bins":["uv"],"env":["SOLANA_PRIVATE_KEY"]},"emoji":"","primaryEnv":"SOLANA_PRIVATE_KEY","homepage":"https://github.com/maddefientist/SlopeSniper","install":[{"id":"uv-install","kind":"uv","package":"slopesniper-mcp","from":"git+https://github.com/maddefientist/SlopeSniper.git#subdirectory=mcp-extension","bins":["slopesniper-mcp","slopesniper-api"],"label":"Install SlopeSniper via uv"}]}}
 user-invocable: true
 homepage: https://github.com/maddefientist/SlopeSniper
 ---

@@ -1,7 +1,7 @@
 ---
 name: telebiz-mcp
 description: Access Telegram data via MCP using the telebiz-tt browser client. Lists chats, reads messages, searches, manages folders, and sends messages through an authenticated Telegram session.
-metadata: {"clawdbot":{"emoji":"📱"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # telebiz-mcp
@@ -18,7 +18,7 @@ MCP integration for Telegram via telebiz-tt browser client.
 
 ```
 ┌──────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│ Clawdbot     │────▶│ MCP Server       │────▶│ WebSocket Relay │
+│ Clawdbot     │────│ MCP Server       │────│ WebSocket Relay │
 │ (mcporter)   │     │ (stdio)          │     │ (port 9716)     │
 └──────────────┘     └──────────────────┘     └────────┬────────┘
                                                        │
@@ -72,10 +72,10 @@ cd ~/clawd/skills/telebiz-mcp
 npm run health
 
 # Should show:
-# 📱 Telebiz MCP Status
+#  Telebiz MCP Status
 # ────────────────────
-# Relay: ✅ Running
-# Executor: ✅ Connected
+# Relay:  Running
+# Executor:  Connected
 # Tools: 31 available
 ```
 
@@ -153,14 +153,14 @@ Add to `HEARTBEAT.md` for Clawdbot monitoring:
 | `unpinChat` | Unpin a chat |
 | `muteChat` | Mute notifications |
 | `unmuteChat` | Unmute notifications |
-| `deleteChat` | Delete/leave chat ⚠️ |
+| `deleteChat` | Delete/leave chat  |
 
 ### Message Tools
 | Tool | Description |
 |------|-------------|
 | `sendMessage` | Send text message (markdown supported) |
 | `forwardMessages` | Forward messages between chats |
-| `deleteMessages` | Delete messages ⚠️ |
+| `deleteMessages` | Delete messages  |
 | `searchMessages` | Search globally or in a chat |
 | `getRecentMessages` | Get message history |
 | `markChatAsRead` | Mark all messages as read |
@@ -172,7 +172,7 @@ Add to `HEARTBEAT.md` for Clawdbot monitoring:
 | `createFolder` | Create a new folder |
 | `addChatToFolder` | Add chat to folders |
 | `removeChatFromFolder` | Remove chat from folders |
-| `deleteFolder` | Delete a folder ⚠️ |
+| `deleteFolder` | Delete a folder  |
 
 ### Member Tools
 | Tool | Description |
@@ -278,7 +278,7 @@ Observed behavior (Feb 2026):
 
 **Workaround:**
 - Prefer linking via `createContact/createDeal/createCompany` (these link to the chat at creation time).
-- Use `associateEntities` to connect deal↔company/contact.
+- Use `associateEntities` to connect dealcompany/contact.
 - Don’t depend on `linkEntityToChat` until upstream provides a stable contract + better error messages.
 
 ## Troubleshooting

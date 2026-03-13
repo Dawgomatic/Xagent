@@ -48,9 +48,9 @@ journalctl -u openclaw-gateway -n 50 --no-pager
 **Symptoms:** Agent doesn't respond in expected channel.
 
 **Causes:**
-1. ❌ Wrong binding structure (missing `peer`, wrong fields)
-2. ❌ Channel not in allowed list
-3. ❌ Agent not restarted after config change
+1.  Wrong binding structure (missing `peer`, wrong fields)
+2.  Channel not in allowed list
+3.  Agent not restarted after config change
 
 **Fix:**
 
@@ -69,7 +69,7 @@ openclaw gateway restart
 
 **Symptoms:** Messages still arrive from supposedly disabled channel.
 
-**Cause:** ❌ Channel omitted from config instead of `allow: false`.
+**Cause:**  Channel omitted from config instead of `allow: false`.
 
 **Fix:**
 
@@ -94,7 +94,7 @@ openclaw gateway config.patch --note "Disable decorly Discord channel"
 
 **Symptoms:** Sessions still reset at old interval.
 
-**Cause:** ❌ Forgot `resetByChannel`, only changed global `reset`.
+**Cause:**  Forgot `resetByChannel`, only changed global `reset`.
 
 **Fix:**
 
@@ -118,7 +118,7 @@ openclaw gateway config.patch --note "Disable decorly Discord channel"
 
 **Symptoms:** Patch didn't remove something, or removed too much.
 
-**Cause:** ❌ Misunderstanding `config.patch` vs `config.apply`.
+**Cause:**  Misunderstanding `config.patch` vs `config.apply`.
 
 **Rules:**
 - `config.patch` **merges** deeply
@@ -249,9 +249,9 @@ openclaw gateway config.get | jq '.agents.list[] | select(.id=="gilfoyle")'
 ## OpenClaw 2026.2.9+ Changes
 
 **New in 2026.2.9:**
-1. ✅ Bindings refresh without restart (live updates)
-2. ✅ Post-compaction memory preserved
-3. ✅ Context overflow handling
+1.  Bindings refresh without restart (live updates)
+2.  Post-compaction memory preserved
+3.  Context overflow handling
 
 **Still required:**
 - Gateway restart for most config changes

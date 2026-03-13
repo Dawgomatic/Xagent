@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "💼",
+        "emoji": "",
         "requires": { "bins": ["pdauth"], "skills": ["pdauth"] },
         "install": [
           {
@@ -41,7 +41,7 @@ pdauth status --user telegram:5439689035
 # 3. Post to LinkedIn
 pdauth call linkedin.linkedin-create-text-post-user \
   --user telegram:5439689035 \
-  --args '{"instruction": "Create a post: Excited to announce our new product launch! 🚀"}'
+  --args '{"instruction": "Create a post: Excited to announce our new product launch! "}'
 ```
 
 ## OAuth Flow
@@ -63,7 +63,7 @@ pdauth status --user USER_ID
 
 ## Available Tools (19 total)
 
-### ✅ Working via MCP (pdauth call)
+###  Working via MCP (pdauth call)
 
 | Tool | Purpose |
 |------|---------|
@@ -78,7 +78,7 @@ pdauth status --user USER_ID
 | `linkedin-retrieve-comments-shares` | Get comments on a post |
 | `linkedin-delete-post` | Delete your post |
 
-### ⚠️ Broken via MCP (requires workaround)
+###  Broken via MCP (requires workaround)
 
 | Tool | Issue | Workaround |
 |------|-------|------------|
@@ -94,7 +94,7 @@ pdauth status --user USER_ID
 ```bash
 pdauth call linkedin.linkedin-create-text-post-user \
   --user telegram:5439689035 \
-  --args '{"instruction": "Create a post: Your post content here. Use emojis 🎉 and hashtags #AI #Tech"}'
+  --args '{"instruction": "Create a post: Your post content here. Use emojis  and hashtags #AI #Tech"}'
 ```
 
 **Tips:**
@@ -225,7 +225,7 @@ async function postAsOrg(orgId, text) {
 }
 
 // Example usage
-postAsOrg('105382747', 'Hello from Versatly! 🚀');
+postAsOrg('105382747', 'Hello from Versatly! ');
 ```
 
 Run with:
@@ -271,7 +271,7 @@ node org-post.mjs
 # Post
 pdauth call linkedin.linkedin-create-text-post-user \
   --user telegram:5439689035 \
-  --args '{"instruction": "Create post: Just shipped a new feature! 🎉"}'
+  --args '{"instruction": "Create post: Just shipped a new feature! "}'
 
 # The response includes the post URN - save it for later
 ```
@@ -364,7 +364,7 @@ pdauth call linkedin.linkedin-get-org-member-access \
 # 3. Post personal announcement
 pdauth call linkedin.linkedin-create-text-post-user \
   --user telegram:5439689035 \
-  --args '{"instruction": "Create post: Thrilled to share that Versatly just launched our new AI assistant! 🤖 #AI #Startup"}'
+  --args '{"instruction": "Create post: Thrilled to share that Versatly just launched our new AI assistant!  #AI #Startup"}'
 
 # 4. Post as organization (use SDK workaround)
 # → Run org-post.mjs script

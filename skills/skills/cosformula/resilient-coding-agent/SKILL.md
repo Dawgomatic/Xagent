@@ -3,7 +3,7 @@ name: resilient-coding-agent
 description: "Run long-running coding agents (Codex, Claude Code, etc.) in tmux sessions that survive orchestrator restarts, with automatic resume on interruption."
 metadata:
   openclaw:
-    emoji: "🛡️"
+    emoji: ""
     requires:
       bins: [tmux]
       anyBins: [codex, claude, opencode, pi]

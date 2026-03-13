@@ -74,14 +74,14 @@ async function main() {
         return;
       }
 
-      console.log("🖥️  **System Status**\n");
+      console.log("  **System Status**\n");
       
       for (const sys of systems.items) {
         const info = sys.info || {};
         const cpu = info.cpu?.toFixed(1) + '%' || '?';
         const ram = info.mp?.toFixed(1) + '%' || '?';
         const disk = info.dp?.toFixed(1) + '%' || '?';
-        const status = sys.status === 'up' ? '🟢 UP' : '🔴 DOWN';
+        const status = sys.status === 'up' ? ' UP' : ' DOWN';
         
         console.log(`**${sys.name}** (${status})`);
         console.log(`- CPU: ${cpu}`);
@@ -106,7 +106,7 @@ async function main() {
       // Sort by CPU usage descending
       containers.sort((a, b) => b.c - a.c);
 
-      console.log("📦 **Top Containers (by CPU)**\n");
+      console.log(" **Top Containers (by CPU)**\n");
       
       // Show top 10 or all if requested
       const limit = showAll ? containers.length : 10;

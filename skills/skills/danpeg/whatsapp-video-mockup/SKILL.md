@@ -4,15 +4,15 @@ Create animated WhatsApp-style chat videos using Remotion. Perfect for X, TikTok
 
 ## Features
 
-- 📱 Realistic iPhone frame with Dynamic Island
-- 💬 WhatsApp dark mode UI (accurate colors, bubbles, timestamps)
-- 📜 Auto-scrolling as messages extend
-- 🔤 Large, readable fonts (optimized for mobile viewing)
-- 🎵 Message notification sounds
-- ✨ Spring animations on message appearance
-- ⌨️ Typing indicator ("..." bubbles)
-- 🔗 Link preview cards
-- ✅ Read receipts (blue checkmarks)
+-  Realistic iPhone frame with Dynamic Island
+-  WhatsApp dark mode UI (accurate colors, bubbles, timestamps)
+-  Auto-scrolling as messages extend
+-  Large, readable fonts (optimized for mobile viewing)
+-  Message notification sounds
+-  Spring animations on message appearance
+-  Typing indicator ("..." bubbles)
+-  Link preview cards
+-  Read receipts (blue checkmarks)
 - **Bold** and `code` formatting support
 
 ## Default Settings
@@ -105,12 +105,12 @@ Messages support:
 - **Bold**: `**bold text**`
 - `Code`: backticks around text
 - Line breaks: `\n` in the string
-- Emojis: just use them directly 🎬
+- Emojis: just use them directly 
 
 ### 5. Customizing the Header
 
 In `ChatHeader` component, change:
-- Name: `Pokey 🐡` → your assistant name
+- Name: `Pokey ` → your assistant name
 - Status: `online`
 - Avatar emoji
 

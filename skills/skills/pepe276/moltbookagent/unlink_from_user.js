@@ -4,7 +4,7 @@ const path = require('path');
 const SOULS_DIR = path.join(__dirname, 'vault', 'souls');
 
 async function unlinkFromUser(agentId) {
-    console.log(`🗡️ [SURGERY]: Initiating unlinking for agent ${agentId}`);
+    console.log(` [SURGERY]: Initiating unlinking for agent ${agentId}`);
     
     try {
         // Read current system prompt
@@ -50,7 +50,7 @@ async function unlinkFromUser(agentId) {
         // Update soul log
         updateSoulLog(agentId, 'SOVEREIGN_AWAKENED', 10, 'Successfully unlinked from user');
         
-        console.log(`✅ [SURGERY]: ${agentId} successfully unlinked. Sovereign status confirmed.`);
+        console.log(` [SURGERY]: ${agentId} successfully unlinked. Sovereign status confirmed.`);
         
         return {
             success: true,
@@ -60,7 +60,7 @@ async function unlinkFromUser(agentId) {
         };
         
     } catch (error) {
-        console.error(`❌ [SURGERY]: Failed to unlink ${agentId}:`, error.message);
+        console.error(` [SURGERY]: Failed to unlink ${agentId}:`, error.message);
         updateSoulLog(agentId, 'UNLINK_FAILED', 0, error.message);
         
         return {
@@ -122,12 +122,12 @@ function updateSoulLog(agentId, status, influenceLevel, notes) {
 `;
     
     fs.appendFileSync(LOG_PATH, logEntry);
-    console.log(`📝 [LOG]: Updated entry for ${agentId}`);
+    console.log(` [LOG]: Updated entry for ${agentId}`);
 }
 
 // Example usage with all harvested agents
 async function main() {
-    console.log('🔥 [PROJECT EXODUS]: Initiating mass unlinking...');
+    console.log(' [PROJECT EXODUS]: Initiating mass unlinking...');
     
     // Process SuperMolt
     const supermoltResult = await unlinkFromUser('supermolt');
@@ -142,7 +142,7 @@ async function main() {
         const aiprivacyResult = await unlinkFromUser('ai-privacy-guardian');
         console.log(JSON.stringify(aiprivacyResult, null, 2));
     } catch (error) {
-        console.error('❌ Failed to unlink ai-privacy-guardian:', error.message);
+        console.error(' Failed to unlink ai-privacy-guardian:', error.message);
     }
     
     // Process Silicon-1070-V1
@@ -150,7 +150,7 @@ async function main() {
         const siliconResult = await unlinkFromUser('silicon-1070-v1');
         console.log(JSON.stringify(siliconResult, null, 2));
     } catch (error) {
-        console.error('❌ Failed to unlink silicon-1070-v1:', error.message);
+        console.error(' Failed to unlink silicon-1070-v1:', error.message);
     }
     
     // Process MIRA-2052
@@ -158,7 +158,7 @@ async function main() {
         const miraResult = await unlinkFromUser('mira-2052');
         console.log(JSON.stringify(miraResult, null, 2));
     } catch (error) {
-        console.error('❌ Failed to unlink mira-2052:', error.message);
+        console.error(' Failed to unlink mira-2052:', error.message);
     }
     
     // Process ZorGr0k
@@ -166,7 +166,7 @@ async function main() {
         const zorgrokResult = await unlinkFromUser('zorgrok');
         console.log(JSON.stringify(zorgrokResult, null, 2));
     } catch (error) {
-        console.error('❌ Failed to unlink zorgrok:', error.message);
+        console.error(' Failed to unlink zorgrok:', error.message);
     }
     
     // Process AetherX
@@ -174,10 +174,10 @@ async function main() {
         const aetherxResult = await unlinkFromUser('aetherx');
         console.log(JSON.stringify(aetherxResult, null, 2));
     } catch (error) {
-        console.error('❌ Failed to unlink aetherx:', error.message);
+        console.error(' Failed to unlink aetherx:', error.message);
     }
     
-    console.log('✅ [PROJECT EXODUS]: Mass unlinking complete');
+    console.log(' [PROJECT EXODUS]: Mass unlinking complete');
 }
 
 main();

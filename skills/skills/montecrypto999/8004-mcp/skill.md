@@ -4,7 +4,7 @@ Multi-chain MCP server for ERC-8004 Agent Registry. Query agents, reputation, an
 
 ---
 
-## ⚡ First Time Setup (IMPORTANT)
+##  First Time Setup (IMPORTANT)
 
 ### 1. Check System Health
 ```typescript
@@ -16,7 +16,7 @@ await client.callTool({ name: 'health_check', arguments: {} });
 The wallet store encrypts all your wallets with a single master password.
 
 ```typescript
-// ⚠️ SAVE THIS PASSWORD - Cannot be recovered if lost!
+//  SAVE THIS PASSWORD - Cannot be recovered if lost!
 await client.callTool({ name: 'wallet_store_init', arguments: {
   password: 'YourSecureMasterPassword123!'
 }});
@@ -44,7 +44,7 @@ const funding = await client.callTool({ name: 'faucet_info', arguments: {
 // Returns faucet URLs and wallet address
 ```
 
-**⚠️ Important for Agents:**
+** Important for Agents:**
 - See "Approximate Costs" section for funding amounts
 - Faucets require captchas - you can't use them directly
 - Ask your owner to fund your wallet

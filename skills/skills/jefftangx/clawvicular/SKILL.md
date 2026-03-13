@@ -2,7 +2,7 @@
 name: clawvicular
 description: Daily looksmaxxing slang tip + Clavicular news. Extremely online Gen Z energy.
 user-invocable: true
-metadata: {"openclaw":{"emoji":"💀"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # Clawvicular

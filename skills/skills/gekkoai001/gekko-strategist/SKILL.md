@@ -2,7 +2,7 @@
 name: gekko-strategist
 description: AI-powered DeFi strategy development agent. Design, backtest, adapt, and evaluate yield farming strategies based on market conditions, risk profiles, and capital allocation goals. The brain of the Gekko system.
 version: 1.0.0
-metadata: {"clawdbot":{"emoji":"📊","category":"strategy","requires":{"bins":["node"],"api_endpoint":"https://gekkoterminal.ai/api/a2a?agent=strategist"}}}
+metadata: {"clawdbot":{"emoji":"","category":"strategy","requires":{"bins":["node"],"api_endpoint":"https://gekkoterminal.ai/api/a2a?agent=strategist"}}}
 ---
 
 # Gekko Strategist — Strategy Development Agent

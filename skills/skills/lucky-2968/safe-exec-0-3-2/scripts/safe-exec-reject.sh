@@ -16,7 +16,7 @@ fi
 REQUEST_FILE="$PENDING_DIR/$REQUEST_ID.json"
 
 if [[ ! -f "$REQUEST_FILE" ]]; then
-    echo "❌ 请求 $REQUEST_ID 不存在"
+    echo " 请求 $REQUEST_ID 不存在"
     exit 1
 fi
 
@@ -26,7 +26,7 @@ COMMAND=$(jq -r '.command' "$REQUEST_FILE")
 # 标记为已拒绝
 jq '.status = "rejected"' "$REQUEST_FILE" > "$REQUEST_FILE.tmp" && mv "$REQUEST_FILE.tmp" "$REQUEST_FILE"
 
-echo "❌ 命令已拒绝: $COMMAND"
+echo " 命令已拒绝: $COMMAND"
 
 # 记录到审计日志
 AUDIT_LOG="$HOME/.openclaw/safe-exec-audit.log"

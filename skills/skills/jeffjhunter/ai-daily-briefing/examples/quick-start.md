@@ -26,14 +26,14 @@ You'll see:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-☀️ DAILY BRIEFING — [Today's Date]
+ DAILY BRIEFING — [Today's Date]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-⚠️ OVERDUE — [items past due]
-📅 TODAY'S PRIORITIES — [what to focus on]
-📆 CALENDAR — [today's schedule]
-💡 CONTEXT — [relevant background]
-🎯 FOCUS — [the ONE thing]
+ OVERDUE — [items past due]
+ TODAY'S PRIORITIES — [what to focus on]
+ CALENDAR — [today's schedule]
+ CONTEXT — [relevant background]
+ FOCUS — [the ONE thing]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```

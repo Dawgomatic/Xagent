@@ -154,7 +154,7 @@ async function resolveConflicts(targetBranch) {
         return false;
     }
     
-    console.log("⚠️ Merge conflicts detected. Attempting AI resolution...");
+    console.log(" Merge conflicts detected. Attempting AI resolution...");
     
     // Get list of conflicted files
     const diffRes = run('git diff --name-only --diff-filter=U', true);
@@ -223,22 +223,22 @@ function performMerge(prNumber) {
     const attempt1 = run(`gh pr merge ${prNumber} --merge --auto --delete-branch`, true);
     
     if (attempt1.success) {
-        console.log('🎉 PR marked for auto-merge successfully!');
+        console.log(' PR marked for auto-merge successfully!');
         return true;
     }
     
-    console.warn("⚠️ Auto-merge failed. Likely no branch protection or checks pending.");
+    console.warn(" Auto-merge failed. Likely no branch protection or checks pending.");
     console.warn(`Stderr: ${attempt1.output}`);
     console.log("Attempting immediate merge...");
     
     // Fallback to immediate merge
     const attempt2 = run(`gh pr merge ${prNumber} --merge --delete-branch`, true);
     if (attempt2.success) {
-        console.log('🎉 PR merged successfully (immediate)!');
+        console.log(' PR merged successfully (immediate)!');
         return true;
     }
     
-    console.error('❌ Failed to merge PR.');
+    console.error(' Failed to merge PR.');
     console.error(attempt2.output);
     return false;
 }
@@ -277,11 +277,11 @@ async function main() {
     const testRes = run(testCommand, true);
 
     if (testRes.success) {
-      console.log('✅ Tests passed!');
+      console.log(' Tests passed!');
       testsPassed = true;
       break;
     } else {
-      console.log('❌ Tests failed.');
+      console.log(' Tests failed.');
       console.log('--- Test Output (Tail) ---');
       const outputTail = testRes.output.slice(-2000);
       console.log(outputTail);
@@ -321,7 +321,7 @@ async function main() {
 
         attempt++;
       } else {
-        console.error('\n❌ Max retries reached. Tests still failing.');
+        console.error('\n Max retries reached. Tests still failing.');
         break;
       }
     }
@@ -335,7 +335,7 @@ async function main() {
         process.exit(1);
     }
   } else {
-    console.log('\n⛔ Workflow failed. PR not merged.');
+    console.log('\n Workflow failed. PR not merged.');
     process.exit(1);
   }
 }

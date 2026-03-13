@@ -24,7 +24,7 @@ if [ -z "$COMPOSIO_API_KEY" ]; then
   exit 1
 fi
 
-echo "🚀 Executing Composio action..."
+echo " Executing Composio action..."
 echo "App: $APP"
 echo "Action: $ACTION"
 echo ""
@@ -37,12 +37,12 @@ RESPONSE=$(curl -s -X POST "https://backend.composio.dev/api/v1/actions/$ACTION/
 
 # Check for errors
 if echo "$RESPONSE" | jq -e '.error' >/dev/null 2>&1; then
-  echo "❌ Error:"
+  echo " Error:"
   echo "$RESPONSE" | jq -r '.error'
   exit 1
 fi
 
 # Display result
-echo "✅ Success!"
+echo " Success!"
 echo ""
 echo "$RESPONSE" | jq '.'

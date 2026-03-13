@@ -32,16 +32,16 @@ If yes to all three → **script it, don't LLM it.**
 
 | Task type | Script | LLM |
 |-----------|--------|-----|
-| Format conversion (JSON↔YAML) | ✅ | ❌ |
-| Text transformation (regex) | ✅ | ❌ |
-| File operations (rename, move) | ✅ | ❌ |
-| Data validation | ✅ | ❌ |
-| API calls with fixed logic | ✅ | ❌ |
-| Git workflows | ✅ | ❌ |
-| Judgement calls | ❌ | ✅ |
-| Creative content | ❌ | ✅ |
-| Ambiguous inputs | ❌ | ✅ |
-| One-time unique tasks | ❌ | ✅ |
+| Format conversion (JSONYAML) |  |  |
+| Text transformation (regex) |  |  |
+| File operations (rename, move) |  |  |
+| Data validation |  |  |
+| API calls with fixed logic |  |  |
+| Git workflows |  |  |
+| Judgement calls |  |  |
+| Creative content |  |  |
+| Ambiguous inputs |  |  |
+| One-time unique tasks |  |  |
 
 ---
 
@@ -62,7 +62,7 @@ When you notice yourself:
 When you spot an opportunity:
 
 ```
-🔧 Automation opportunity
+ Automation opportunity
 
 Task: [what you keep doing]
 Frequency: [how often]

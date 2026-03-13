@@ -8,7 +8,7 @@
 
 ## Critical Pattern (v2026.2.9+)
 
-### ✅ Correct Structure
+###  Correct Structure
 
 ```json
 {
@@ -44,7 +44,7 @@
 
 ---
 
-## ❌ Common Mistakes
+##  Common Mistakes
 
 ### Wrong: Using deprecated fields
 

@@ -34,7 +34,7 @@ def get_token_for_agent(service_name, send_via_message=True):
             "status": "needs_auth",
             "service": service_name,
             "auth_link": link,
-            "message": f"⚠️ Authorization needed for {service_name}!\n\n🔗 Copy this link (expires in 1 minute):\n```\n{link}\n```\n\nPaste it in your browser to authorize."
+            "message": f" Authorization needed for {service_name}!\n\n Copy this link (expires in 1 minute):\n```\n{link}\n```\n\nPaste it in your browser to authorize."
         }
     except ConfigurationError as e:
         return {

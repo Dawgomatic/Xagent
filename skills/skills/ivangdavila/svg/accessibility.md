@@ -31,11 +31,11 @@
 IDs must be unique across **all** inline SVGs on page:
 
 ```html
-<!-- ❌ Breaks when both icons on same page -->
+<!--  Breaks when both icons on same page -->
 <svg><title id="icon">Home</title>...</svg>
 <svg><title id="icon">Settings</title>...</svg>
 
-<!-- ✅ Unique IDs -->
+<!--  Unique IDs -->
 <svg><title id="icon-home">Home</title>...</svg>
 <svg><title id="icon-settings">Settings</title>...</svg>
 ```
@@ -54,10 +54,10 @@ For charts/diagrams, add `<desc>` with detailed description:
 ## img Tag Trap
 
 ```html
-<!-- ❌ Screen readers may announce filename -->
+<!--  Screen readers may announce filename -->
 <img src="chart.svg">
 
-<!-- ✅ Proper alt text -->
+<!--  Proper alt text -->
 <img src="chart.svg" alt="Sales chart showing 25% growth">
 ```
 

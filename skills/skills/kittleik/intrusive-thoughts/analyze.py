@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""📊 Productivity Correlation — Analyze which moods and times produce best outcomes."""
+""" Productivity Correlation — Analyze which moods and times produce best outcomes."""
 
 import json
 from pathlib import Path
@@ -201,23 +201,23 @@ def generate_insights():
     # Best mood insight
     if mood_analysis:
         best_mood = max(mood_analysis.items(), key=lambda x: x[1]["average_score"])
-        insights.append(f"🔥 Best mood: {best_mood[0]} (avg score: {best_mood[1]['average_score']}) - {best_mood[1]['high_energy_rate']}% high-energy outcomes")
+        insights.append(f" Best mood: {best_mood[0]} (avg score: {best_mood[1]['average_score']}) - {best_mood[1]['high_energy_rate']}% high-energy outcomes")
     
     # Best time insight
     if time_analysis:
         best_time = max(time_analysis.items(), key=lambda x: x[1]["average_score"])
-        insights.append(f"⏰ Best time slot: {best_time[0]} (avg score: {best_time[1]['average_score']})")
+        insights.append(f" Best time slot: {best_time[0]} (avg score: {best_time[1]['average_score']})")
     
     # Best activity insight
     if activity_analysis:
         best_activity = max(activity_analysis.items(), key=lambda x: x[1]["average_score"])
-        insights.append(f"🎯 Best activity: {best_activity[0]} (avg score: {best_activity[1]['average_score']}, {best_activity[1]['success_rate']}% success rate)")
+        insights.append(f" Best activity: {best_activity[0]} (avg score: {best_activity[1]['average_score']}, {best_activity[1]['success_rate']}% success rate)")
     
     # Low performers
     if mood_analysis:
         low_moods = [mood for mood, data in mood_analysis.items() if data["average_score"] < 4]
         if low_moods:
-            insights.append(f"⚠️ Challenging moods: {', '.join(low_moods)} - might need different strategies")
+            insights.append(f" Challenging moods: {', '.join(low_moods)} - might need different strategies")
     
     return insights
 
@@ -238,25 +238,25 @@ def main():
         return
     
     # Human-readable output
-    print("📊 PRODUCTIVITY CORRELATION ANALYSIS")
+    print(" PRODUCTIVITY CORRELATION ANALYSIS")
     print("=" * 50)
     
-    print("\n🧠 MOOD PRODUCTIVITY:")
+    print("\n MOOD PRODUCTIVITY:")
     mood_results = analyze_mood_productivity()
     for mood, data in sorted(mood_results.items(), key=lambda x: x[1]["average_score"], reverse=True):
         print(f"  {mood:15} | {data['productivity_grade']:2} | {data['average_score']:4.1f} avg | {data['high_energy_rate']:4.1f}% high-energy | {data['positive_vibe_rate']:4.1f}% positive")
     
-    print("\n⏰ TIME SLOT PRODUCTIVITY:")
+    print("\n TIME SLOT PRODUCTIVITY:")
     time_results = analyze_time_productivity()
     for slot, data in sorted(time_results.items(), key=lambda x: x[1]["average_score"], reverse=True):
         print(f"  {slot:15} | {data['productivity_grade']:2} | {data['average_score']:4.1f} avg | {data['total_activities']:3} activities")
     
-    print("\n🎯 ACTIVITY SUCCESS RATES:")
+    print("\n ACTIVITY SUCCESS RATES:")
     activity_results = analyze_activity_success()
     for activity, data in sorted(activity_results.items(), key=lambda x: x[1]["average_score"], reverse=True):
         print(f"  {activity:20} | {data['productivity_grade']:2} | {data['average_score']:4.1f} avg | {data['success_rate']:4.1f}% success")
     
-    print("\n💡 KEY INSIGHTS:")
+    print("\n KEY INSIGHTS:")
     insights = generate_insights()
     for insight in insights:
         print(f"  • {insight}")

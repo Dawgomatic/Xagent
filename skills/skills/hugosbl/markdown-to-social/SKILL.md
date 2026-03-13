@@ -24,7 +24,7 @@ python3 scripts/md2social.py convert --text "Direct text" --platform twitter
 ## Platform Rules
 
 ### Twitter
-- Hook tweet with 🧵 + numbered thread (1/N, 2/N...)
+- Hook tweet with  + numbered thread (1/N, 2/N...)
 - Each tweet strictly < 280 chars
 - Smart sentence splitting (no mid-sentence cuts)
 - 6-8 tweets max, CTA at the end

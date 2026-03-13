@@ -391,7 +391,7 @@ cmd_ack() {
 
     jq -n --argjson detail "$detail" '{
       error: "confirmation_required",
-      message: "⚠️ ACKNOWLEDGE INCIDENT — --confirm flag is required to proceed.",
+      message: " ACKNOWLEDGE INCIDENT — --confirm flag is required to proceed.",
       incident: $detail,
       hint: "Re-run with --confirm to acknowledge this incident. This will stop escalation."
     }' >&2
@@ -453,7 +453,7 @@ cmd_resolve() {
 
     jq -n --argjson detail "$detail" '{
       error: "confirmation_required",
-      message: "⚠️ RESOLVE INCIDENT — --confirm flag is required to proceed.",
+      message: " RESOLVE INCIDENT — --confirm flag is required to proceed.",
       incident: $detail,
       hint: "Re-run with --confirm to resolve this incident. This marks it as fixed."
     }' >&2
@@ -520,7 +520,7 @@ cmd_note() {
   if [[ "$confirm" != "true" ]]; then
     jq -n --arg id "$incident_id" --arg content "$content" '{
       error: "confirmation_required",
-      message: ("⚠️ ADD NOTE TO INCIDENT " + $id + " — --confirm flag is required to proceed."),
+      message: (" ADD NOTE TO INCIDENT " + $id + " — --confirm flag is required to proceed."),
       incident_id: $id,
       note_preview: $content,
       hint: "Re-run with --confirm to add this note. Notes are permanent records on the incident."

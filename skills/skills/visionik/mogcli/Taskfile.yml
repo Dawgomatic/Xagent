@@ -73,10 +73,10 @@ tasks:
         echo "Average (unit-testable code): ${AVG}%"
         
         if [ $(echo "$AVG < {{.COVERAGE_MIN}}" | bc -l) -eq 1 ]; then
-          echo "❌ Coverage ${AVG}% < {{.COVERAGE_MIN}}% required"
+          echo " Coverage ${AVG}% < {{.COVERAGE_MIN}}% required"
           exit 1
         fi
-        echo "✅ Coverage meets minimum ({{.COVERAGE_MIN}}%)"
+        echo " Coverage meets minimum ({{.COVERAGE_MIN}}%)"
         echo ""
         echo "Note: CLI/HTTP tested via integration (task test:integration)"
 

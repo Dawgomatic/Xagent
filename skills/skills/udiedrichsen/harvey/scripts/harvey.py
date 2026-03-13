@@ -25,28 +25,28 @@ SESSION_TIMEOUT_HOURS = 2
 MODES = {
     "bored": {
         "name": "Langeweile-Modus",
-        "emoji": "🎭",
+        "emoji": "",
         "response_delay": 0,
         "message_length": "medium",
         "depth": "medium"
     },
     "restaurant": {
         "name": "Restaurant-Modus", 
-        "emoji": "🍽️",
+        "emoji": "",
         "response_delay": 45,  # seconds
         "message_length": "short",
         "depth": "light"
     },
     "waiting": {
         "name": "Warte-Modus",
-        "emoji": "⏳",
+        "emoji": "",
         "response_delay": 0,
         "message_length": "short", 
         "depth": "light"
     },
     "walk": {
         "name": "Begleiter-Modus",
-        "emoji": "🚶",
+        "emoji": "",
         "response_delay": 0,
         "message_length": "long",
         "depth": "deep"
@@ -257,7 +257,7 @@ def get_game_stats() -> dict:
     if not history:
         return {
             "games_played": 0,
-            "message": "Noch keine Spiele gespielt! 🎮"
+            "message": "Noch keine Spiele gespielt! "
         }
     
     total_games = len(history)
@@ -278,7 +278,7 @@ def get_game_stats() -> dict:
         "total_questions": total_questions,
         "average_score": round(avg_score, 1),
         "favorite_game": favorite,
-        "message": f"🎮 {total_games} Spiele | ⭐ {avg_score:.0f}% avg | 🏆 Favorit: {favorite}"
+        "message": f" {total_games} Spiele |  {avg_score:.0f}% avg |  Favorit: {favorite}"
     }
 
 
@@ -337,7 +337,7 @@ def get_status() -> dict:
     if not state.get("active"):
         return {
             "active": False,
-            "message": "Harvey schläft gerade. Sag 'Hey Harvey' um ihn zu wecken! 🐰💤"
+            "message": "Harvey schläft gerade. Sag 'Hey Harvey' um ihn zu wecken! "
         }
     
     mode_info = MODES.get(state.get("mode", "bored"), MODES["bored"])
@@ -385,10 +385,10 @@ def main():
     
     if args.action == "start":
         result = start_session(args.mode)
-        msg = f"🐰 Harvey ist wach! Modus: {MODES[args.mode]['name']} {MODES[args.mode]['emoji']}"
+        msg = f" Harvey ist wach! Modus: {MODES[args.mode]['name']} {MODES[args.mode]['emoji']}"
     elif args.action == "end":
         result = end_session(args.reason)
-        msg = "🐰💤 Harvey schläft jetzt. Bis später!"
+        msg = " Harvey schläft jetzt. Bis später!"
     elif args.action == "status":
         result = get_status()
         msg = result.get("message", "")
@@ -402,16 +402,16 @@ def main():
     elif args.action == "game-start":
         game_type = args.game_type or "trivia"
         result = start_game(game_type, args.difficulty)
-        msg = f"🎮 Spiel gestartet: {game_type} ({args.difficulty})"
+        msg = f" Spiel gestartet: {game_type} ({args.difficulty})"
     elif args.action == "game-score":
         result = update_game_score(args.correct, args.hint)
         correct = result.get("correct_answers", 0)
         total = result.get("questions_asked", 0)
-        msg = f"📊 Score: {correct}/{total}"
+        msg = f" Score: {correct}/{total}"
     elif args.action == "game-end":
         result = end_game()
         if "error" not in result:
-            msg = f"🏁 Spiel beendet! Score: {result.get('final_score', 0):.0f}% ({result.get('accuracy', '?')})"
+            msg = f" Spiel beendet! Score: {result.get('final_score', 0):.0f}% ({result.get('accuracy', '?')})"
         else:
             msg = result["error"]
     elif args.action == "game-stats":
@@ -419,7 +419,7 @@ def main():
         msg = result.get("message", "")
     elif args.action == "difficulty":
         result = adjust_difficulty(args.direction)
-        msg = f"🎚️ Schwierigkeit: {result}"
+        msg = f" Schwierigkeit: {result}"
     else:
         result = {"error": "Unknown action"}
         msg = "Unbekannte Aktion"

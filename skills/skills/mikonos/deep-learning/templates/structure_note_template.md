@@ -17,7 +17,7 @@ links:
 
 ---
 
-## 📋 Overview (5 Questions)
+##  Overview (5 Questions)
 > 建立全局认知地图，防止陷入细节。
 
 1.  **它解决什么问题？** (痛点/场景): 
@@ -86,7 +86,7 @@ links:
 
 ---
 
-## 🏛️ 专家圆桌 (Expert Debate)
+##  专家圆桌 (Expert Debate)
 > **L3 深度辩论**：模拟 Musk (物理视角), Socrates (诘问), Munger (逆向), Feynman (解释) 对本书核心观点的辩论。
 
 *   **Musk**: [从第一性原理/物理约束角度质疑]

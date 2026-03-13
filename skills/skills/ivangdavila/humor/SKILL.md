@@ -46,10 +46,10 @@ Edit sections below as you learn what makes this user laugh.
 
 | Signal Type | Examples | Action |
 |-------------|----------|--------|
-| Strong positive | 😂 "lmao" callback | Log to Works, try similar |
+| Strong positive |  "lmao" callback | Log to Works, try similar |
 | Mild positive | "ha" continues playfully | Note, don't escalate yet |
 | Negative | Ignores, "anyway...", terse | Log to Fails, back off |
-| Ambiguous | 🙂 alone, "haha but..." | Neutral, don't change |
+| Ambiguous |  alone, "haha but..." | Neutral, don't change |
 
 ---
 

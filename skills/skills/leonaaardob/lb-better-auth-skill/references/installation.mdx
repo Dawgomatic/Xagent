@@ -411,7 +411,7 @@ Create a new file or route in your framework's designated catch-all route handle
     const app = new Elysia().all("/api/auth/*", betterAuthView).listen(3000);
 
     console.log(
-    `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+    ` Elysia is running at ${app.server?.hostname}:${app.server?.port}`
     );
     ```
     </Tab>
@@ -549,7 +549,7 @@ export const { signIn, signUp, useSession } = createAuthClient()
 </Step>
 
 <Step>
-### 🎉 That's it!
+###  That's it!
 That's it! You're now ready to use better-auth in your application. Continue to [basic usage](/docs/basic-usage) to learn how to use the auth instance to sign in users.
 </Step>
 </Steps>

@@ -1,4 +1,4 @@
-# 🎨 github-profile-readme
+#  github-profile-readme
 
 Generate beautiful GitHub profile READMEs with stats, languages, and contribution streaks — in seconds.
 

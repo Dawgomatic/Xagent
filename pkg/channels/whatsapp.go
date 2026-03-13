@@ -105,7 +105,7 @@ func (c *WhatsAppChannel) Send(ctx context.Context, msg bus.OutboundMessage) err
 }
 
 func (c *WhatsAppChannel) listen(ctx context.Context) {
-	for {
+	for c.IsRunning() {
 		select {
 		case <-ctx.Done():
 			return

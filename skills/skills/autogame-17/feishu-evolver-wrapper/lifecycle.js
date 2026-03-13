@@ -513,7 +513,7 @@ function status(json = false) {
       
       const lines = buffer.toString().trim().split('\n');
       
-      // Parse: 🧬 [ISO_TIMESTAMP] MSG...
+      // Parse:  [ISO_TIMESTAMP] MSG...
       let match = null;
       let line = '';
       
@@ -523,7 +523,7 @@ function status(json = false) {
           line = lines[i].trim();
           if (!line) continue;
           
-          // Match standard format: 🧬 [ISO] Msg
+          // Match standard format:  [ISO] Msg
           match = line.match(/\[(.*?)\] (.*)/);
           if (match) break;
           
@@ -588,7 +588,7 @@ function status(json = false) {
     }));
   } else {
     if (pid) {
-      console.log(`✅ Evolver wrapper is RUNNING (PID ${pid})`);
+      console.log(` Evolver wrapper is RUNNING (PID ${pid})`);
       const daemonPid = fs.existsSync(DAEMON_PID_FILE) ? fs.readFileSync(DAEMON_PID_FILE, 'utf8').trim() : null;
       if (daemonPid) {
           try { process.kill(daemonPid, 0); console.log(`   Daemon: Active (PID ${daemonPid})`); } 
@@ -607,13 +607,13 @@ function status(json = false) {
              const statusText = `PID: ${pid}\nCycle: #${cycle}\nLast Activity: ${lastActivity}\nAction: ${lastAction}`;
              if (sendReport) {
                  sendReport({
-                     title: "🧬 Evolver Status Check",
+                     title: " Evolver Status Check",
                      status: `Status: [RUNNING] wrapper is active.\n${statusText}`,
                      color: "green"
                  }).catch(e => console.error('Failed to send status report:', e.message));
              } else {
                  const reportScript = path.resolve(__dirname, 'report.js');
-                 const cmd = `node "${reportScript}" --title "🧬 Evolver Status Check" --status "Status: [RUNNING] wrapper is active.\n${statusText}" --color "green"`;
+                 const cmd = `node "${reportScript}" --title " Evolver Status Check" --status "Status: [RUNNING] wrapper is active.\n${statusText}" --color "green"`;
                  execSync(cmd, { stdio: 'inherit' });
              }
          } catch(e) {
@@ -622,7 +622,7 @@ function status(json = false) {
       }
 
     } else {
-      console.log('❌ Evolver wrapper is STOPPED');
+      console.log(' Evolver wrapper is STOPPED');
       console.log(`   Last Known Cycle: #${cycle}`);
       console.log(`   Last Activity: ${lastActivity}`);
 
@@ -631,13 +631,13 @@ function status(json = false) {
              const statusText = `Last Known Cycle: #${cycle}\nLast Activity: ${lastActivity}`;
              if (sendReport) {
                  sendReport({
-                     title: "🚨 Evolver Status Check",
+                     title: " Evolver Status Check",
                      status: `Status: [STOPPED] wrapper is NOT running.\n${statusText}`,
                      color: "red"
                  }).catch(e => console.error('Failed to send status report:', e.message));
              } else {
                  const reportScript = path.resolve(__dirname, 'report.js');
-                 const cmd = `node "${reportScript}" --title "🚨 Evolver Status Check" --status "Status: [STOPPED] wrapper is NOT running.\n${statusText}" --color "red"`;
+                 const cmd = `node "${reportScript}" --title " Evolver Status Check" --status "Status: [STOPPED] wrapper is NOT running.\n${statusText}" --color "red"`;
                  execSync(cmd, { stdio: 'inherit' });
              }
          } catch(e) {
@@ -727,7 +727,7 @@ switch (action) {
         
         // INNOVATION: Report stuck restart event
         safeSendReport({
-            title: "🚨 Evolver Watchdog Alert",
+            title: " Evolver Watchdog Alert",
             status: "Status: [RESTARTING] Process was stuck (logs stale). Restart triggered.",
             color: "red"
         });
@@ -753,14 +753,14 @@ switch (action) {
                 if (sendReport) {
                     const issueText = health.checks.filter(c => c.ok === false).map(c => `- ${c.name}: ${c.error || c.status}`).join('\n');
                     sendReport({
-                        title: "🚨 Evolver Self-Healing Triggered",
+                        title: " Evolver Self-Healing Triggered",
                         status: `Status: [HEALTH_FAIL] System detected critical failure.\n${issueText}`,
                         color: "red"
                     }).catch(e => {});
                 } else {
                     const reportScript = path.resolve(__dirname, 'report.js');
                     const issueText = health.checks.filter(c => c.ok === false).map(c => `- ${c.name}: ${c.error || c.status}`).join('\n');
-                    const cmd = `node "${reportScript}" --title "🚨 Evolver Self-Healing Triggered" --status "Status: [HEALTH_FAIL] System detected critical failure.\n${issueText}" --color "red"`;
+                    const cmd = `node "${reportScript}" --title " Evolver Self-Healing Triggered" --status "Status: [HEALTH_FAIL] System detected critical failure.\n${issueText}" --color "red"`;
                     execSync(cmd, { stdio: 'ignore' });
                 }
             } catch(e) {}
@@ -807,7 +807,7 @@ switch (action) {
       }
       // INNOVATION: Auto-report dashboard on successful restart via ensure
       safeSendReport({
-          title: "🧬 Evolver Auto-Repair",
+          title: " Evolver Auto-Repair",
           status: "Status: [RESTARTED] Watchdog restarted the wrapper.",
           color: "orange"
       });

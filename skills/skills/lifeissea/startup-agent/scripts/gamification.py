@@ -29,21 +29,21 @@ XP_TABLE = {
 
 # 레벨 테이블
 LEVELS = [
-    (0, "🌱 예비창업자"),
-    (100, "🌿 초기창업자"),
-    (300, "🌳 성장기업"),
-    (600, "🚀 스케일업"),
-    (1000, "⭐ 유니콘"),
+    (0, " 예비창업자"),
+    (100, " 초기창업자"),
+    (300, " 성장기업"),
+    (600, " 스케일업"),
+    (1000, " 유니콘"),
 ]
 
 # 뱃지
 BADGES = {
-    "first_eval": {"name": "🏆 첫 평가", "desc": "첫 사업계획서 평가 완료"},
-    "growth_king": {"name": "📈 성장왕", "desc": "재평가로 20점 이상 향상"},
-    "match_master": {"name": "🎯 매칭 마스터", "desc": "3개 프로그램 매칭"},
-    "draft_artisan": {"name": "📝 지원서 장인", "desc": "지원서 3개 생성"},
-    "streak_7": {"name": "🔥 7일 연속", "desc": "일주일 연속 사용"},
-    "club_90": {"name": "💎 90점 클럽", "desc": "평가 90점 이상 달성"},
+    "first_eval": {"name": " 첫 평가", "desc": "첫 사업계획서 평가 완료"},
+    "growth_king": {"name": " 성장왕", "desc": "재평가로 20점 이상 향상"},
+    "match_master": {"name": " 매칭 마스터", "desc": "3개 프로그램 매칭"},
+    "draft_artisan": {"name": " 지원서 장인", "desc": "지원서 3개 생성"},
+    "streak_7": {"name": " 7일 연속", "desc": "일주일 연속 사용"},
+    "club_90": {"name": " 90점 클럽", "desc": "평가 90점 이상 달성"},
 }
 
 
@@ -51,7 +51,7 @@ def _default_profile():
     return {
         "xp": 0,
         "level": 1,
-        "title": "🌱 예비창업자",
+        "title": " 예비창업자",
         "badges": [],
         "stats": {"evaluate": 0, "improve": 0, "match": 0, "draft": 0, "checklist": 0, "valuation": 0, "idea": 0},
         "scores": [],
@@ -247,7 +247,7 @@ def format_profile(profile):
     next_xp = get_next_level_xp(xp)
 
     lines = []
-    lines.append("🌅 라온 프로필")
+    lines.append(" 라온 프로필")
     lines.append("=" * 40)
     lines.append(f"  칭호: {title}")
     lines.append(f"  레벨: {level}")
@@ -255,17 +255,17 @@ def format_profile(profile):
     if next_xp:
         lines.append(f"  다음 레벨까지: {next_xp - xp} XP")
     else:
-        lines.append("  🎉 최고 레벨 달성!")
+        lines.append("   최고 레벨 달성!")
 
     badges = profile.get("badges", [])
     if badges:
         badge_names = [BADGES[b]["name"] for b in badges if b in BADGES]
-        lines.append(f"\n  🏅 뱃지: {', '.join(badge_names)}")
+        lines.append(f"\n   뱃지: {', '.join(badge_names)}")
     else:
-        lines.append("\n  🏅 뱃지: (아직 없음)")
+        lines.append("\n   뱃지: (아직 없음)")
 
     stats = profile.get("stats", {})
-    lines.append("\n  📊 통계:")
+    lines.append("\n   통계:")
     lines.append(f"    평가: {stats.get('evaluate', 0)}회")
     lines.append(f"    매칭: {stats.get('match', 0)}회")
     lines.append(f"    지원서: {stats.get('draft', 0)}회")
@@ -288,11 +288,11 @@ def format_profile(profile):
                         streak += 1
                     else:
                         break
-    lines.append(f"\n  🔥 연속 접속: {streak}일")
+    lines.append(f"\n   연속 접속: {streak}일")
 
     scores = profile.get("scores", [])
     if scores:
-        lines.append(f"  📈 최근 점수: {scores[-1]}점 (최고: {max(scores)}점)")
+        lines.append(f"   최근 점수: {scores[-1]}점 (최고: {max(scores)}점)")
 
     return "\n".join(lines)
 
@@ -301,12 +301,12 @@ def format_xp_gain(xp_gained, new_badges=None, leveled_up=False, title=None):
     """Format XP gain result for CLI output."""
     lines = []
     if xp_gained > 0:
-        lines.append(f"\n  ✨ +{xp_gained} XP 획득!")
+        lines.append(f"\n   +{xp_gained} XP 획득!")
     if leveled_up and title:
-        lines.append(f"  🎉 레벨 업! → {title}")
+        lines.append(f"   레벨 업! → {title}")
     if new_badges:
         for b in new_badges:
-            lines.append(f"  🏅 새 뱃지: {b}")
+            lines.append(f"   새 뱃지: {b}")
     return "\n".join(lines)
 
 
@@ -326,7 +326,7 @@ if __name__ == "__main__":
             print(format_profile(profile))
     elif args[0] == "reset":
         save_profile(_default_profile())
-        print("✅ 프로필 초기화 완료")
+        print(" 프로필 초기화 완료")
     else:
         print(f"Unknown command: {args[0]}")
         sys.exit(1)

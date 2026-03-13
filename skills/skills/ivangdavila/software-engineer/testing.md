@@ -63,12 +63,12 @@ Every function should test:
 - Data structures
 
 ```typescript
-// ✅ Mock external service
+//  Mock external service
 const mockPaymentService = {
   charge: jest.fn().mockResolvedValue({ success: true })
 };
 
-// ❌ Don't mock your own functions
+//  Don't mock your own functions
 const mockCalculateTotal = jest.fn(); // Test the real one
 ```
 
@@ -107,11 +107,11 @@ describe('POST /users', () => {
 ## Assertions
 
 ```
-❌ expect(result).toBeTruthy()     // Too vague
-❌ expect(result).toBeDefined()    // Doesn't check value
-✅ expect(result).toBe(42)         // Exact value
-✅ expect(result).toEqual({ ... }) // Object equality
-✅ expect(fn).toThrow(CustomError) // Specific error type
+ expect(result).toBeTruthy()     // Too vague
+ expect(result).toBeDefined()    // Doesn't check value
+ expect(result).toBe(42)         // Exact value
+ expect(result).toEqual({ ... }) // Object equality
+ expect(fn).toThrow(CustomError) // Specific error type
 ```
 
 ## Test Cleanup

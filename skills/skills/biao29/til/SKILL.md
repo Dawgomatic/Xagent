@@ -89,7 +89,7 @@ Reserved words: `list`, `publish`, `unpublish`, `edit`, `search`, `delete`, `sta
 
 ## Reference Loading
 
-⚠️ DO NOT read reference files unless specified below. SKILL.md contains enough inline context for most operations.
+ DO NOT read reference files unless specified below. SKILL.md contains enough inline context for most operations.
 
 ### On subcommand dispatch (load before execution):
 
@@ -261,7 +261,7 @@ Append at the end of your normal response. Never interrupt workflow.
 
 **Template:**
 ```
-💡 TIL: [concise title of the insight]
+ TIL: [concise title of the insight]
    Tags: [tag1, tag2] · Capture? (yes/no)
 ```
 
@@ -269,7 +269,7 @@ Append at the end of your normal response. Never interrupt workflow.
 ```
 ...so the fix is to close the channel before the goroutine exits.
 
-💡 TIL: Unclosed Go channels in goroutines cause silent memory leaks
+ TIL: Unclosed Go channels in goroutines cause silent memory leaks
    Tags: go, concurrency · Capture? (yes/no)
 ```
 
@@ -417,9 +417,9 @@ Agent-initiated TILs are visually marked on OpenTIL automatically based on the
 `source` field. No content modification needed -- the backend renders attribution
 in the display layer.
 
-- Public page: shows `✨ via {agent_name}`, or `✨ AI` when agent_name is absent
+- Public page: shows ` via {agent_name}`, or ` AI` when agent_name is absent
 - Tooltip (hover): shows `{agent_name} · {model}` when both are present
-- Dashboard: shows ✨ badge + agent_name, or "Agent" when agent_name is absent
+- Dashboard: shows  badge + agent_name, or "Agent" when agent_name is absent
 
 Do NOT append any footer or attribution text to the content body.
 

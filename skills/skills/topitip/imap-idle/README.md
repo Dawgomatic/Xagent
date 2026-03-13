@@ -5,16 +5,16 @@ Event-driven email monitoring for [OpenClaw](https://github.com/openclaw/opencla
 ## Why?
 
 **Before (polling):**
-- ❌ Cron job checks email every hour
-- ❌ 16-24 checks per day
-- ❌ Up to 1 hour delay for new emails
-- ❌ Token burn on empty checks
+-  Cron job checks email every hour
+-  16-24 checks per day
+-  Up to 1 hour delay for new emails
+-  Token burn on empty checks
 
 **After (IMAP IDLE):**
-- ✅ <1 second notification latency
-- ✅ Zero tokens while waiting
-- ✅ Only real events trigger wake
-- ✅ 90%+ reduction in token usage
+-  <1 second notification latency
+-  Zero tokens while waiting
+-  Only real events trigger wake
+-  90%+ reduction in token usage
 
 ## Installation
 
@@ -175,9 +175,9 @@ grep -A3 '"hooks"' ~/.openclaw/openclaw.json
 This skill handles IMAP credentials and sends email notifications to your OpenClaw webhook. Automated scanners see patterns similar to credential stealers, but this is **required functionality** for email monitoring.
 
 **What this skill does NOT do:**
-- ❌ Send data to third-party servers
-- ❌ Exfiltrate credentials
-- ❌ Hidden backdoors or obfuscation
+-  Send data to third-party servers
+-  Exfiltrate credentials
+-  Hidden backdoors or obfuscation
 
 **Before using:** Read the [Security Guide](SECURITY.md) for:
 - Password storage options (keyring vs file permissions)

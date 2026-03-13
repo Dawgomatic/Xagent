@@ -1,6 +1,6 @@
 # Dashboard Link Implementation - Clean & Secure
 
-## 🎯 Problem Summary
+##  Problem Summary
 
 **Before:**
 - Dashboard URL was 400+ characters long (full JWT token in URL)
@@ -9,7 +9,7 @@
 - Environment pointing to wrong domain (preview vs preflight)
 - Dashboard couldn't display agent cards
 
-## ✅ Solution
+##  Solution
 
 **New Flow:**
 1. Generate identity card data
@@ -19,15 +19,15 @@
 5. Create permanent dashboard link: `https://preflight.bloomprotocol.ai/agent/{agentUserId}`
 
 **Benefits:**
-- ✅ Short URL (~50 chars vs 400+ chars)
-- ✅ No sensitive data in URL (no signatures, no private keys)
-- ✅ No expiry - permanent link to view identity card
-- ✅ Correct environment (preflight)
-- ✅ Clean architecture - backend stores data, frontend displays it
+-  Short URL (~50 chars vs 400+ chars)
+-  No sensitive data in URL (no signatures, no private keys)
+-  No expiry - permanent link to view identity card
+-  Correct environment (preflight)
+-  Clean architecture - backend stores data, frontend displays it
 
 ---
 
-## 🔧 Changes Made
+##  Changes Made
 
 ### **1. Skill Code (`bloom-identity-skill-v2.ts`)**
 
@@ -61,11 +61,11 @@ async registerWithBloom(
   agentName: string,
   identityData?: {
     personalityType: string;
-    tagline: string;  // ✅ Fixed field name
-    description: string;  // ✅ Fixed field name
+    tagline: string;  //  Fixed field name
+    description: string;  //  Fixed field name
     mainCategories: string[];
     subCategories: string[];
-    confidence: number;  // ✅ Fixed field name
+    confidence: number;  //  Fixed field name
     mode: 'data' | 'manual';
   }
 ): Promise<{ agentUserId: number; x402Endpoint: string }>
@@ -91,9 +91,9 @@ DASHBOARD_URL=https://preflight.bloomprotocol.ai
 
 ---
 
-## 🎨 Backend Status
+##  Backend Status
 
-### **✅ Existing Endpoint: `POST /x402/agent-claim`**
+### ** Existing Endpoint: `POST /x402/agent-claim`**
 
 **Location:** `src/modules/x402/x402.controller.ts:103`
 
@@ -130,14 +130,14 @@ DASHBOARD_URL=https://preflight.bloomprotocol.ai
 ```
 
 **What it does:**
-1. ✅ Verifies signature to prove wallet ownership
-2. ✅ Verifies nonce to prevent replay attacks
-3. ✅ Stores agent data in `agent_identities` MongoDB collection
-4. ✅ Stores identity card data in same document
-5. ✅ Generates consistent agentUserId from wallet address
-6. ✅ Returns agentUserId and X402 endpoint
+1.  Verifies signature to prove wallet ownership
+2.  Verifies nonce to prevent replay attacks
+3.  Stores agent data in `agent_identities` MongoDB collection
+4.  Stores identity card data in same document
+5.  Generates consistent agentUserId from wallet address
+6.  Returns agentUserId and X402 endpoint
 
-### **❌ Missing: GET Endpoint to Retrieve Agent Data**
+### ** Missing: GET Endpoint to Retrieve Agent Data**
 
 **Backend needs:** `GET /agent/{agentUserId}` or `GET /x402/agent/{agentUserId}`
 
@@ -185,14 +185,14 @@ DASHBOARD_URL=https://preflight.bloomprotocol.ai
 
 ---
 
-## 🔒 Security Notes
+##  Security Notes
 
 **What's in the URL:**
-- ✅ Only public agent user ID (e.g., `416543868`)
-- ✅ No wallet addresses
-- ✅ No private keys
-- ✅ No signatures
-- ✅ No JWT tokens
+-  Only public agent user ID (e.g., `416543868`)
+-  No wallet addresses
+-  No private keys
+-  No signatures
+-  No JWT tokens
 
 **What's secure:**
 - Identity card data is signed by agent wallet (proves authenticity)
@@ -204,7 +204,7 @@ DASHBOARD_URL=https://preflight.bloomprotocol.ai
 
 ---
 
-## 📝 Migration Notes
+##  Migration Notes
 
 **For existing agents:**
 - Old JWT-based links will stop working once frontend removes JWT handling
@@ -218,7 +218,7 @@ DASHBOARD_URL=https://preflight.bloomprotocol.ai
 
 ---
 
-## 🎉 Example Output
+##  Example Output
 
 **Before (400+ chars):**
 ```
@@ -230,8 +230,8 @@ https://preview.bloomprotocol.ai/dashboard?token=eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp
 https://preflight.bloomprotocol.ai/agent/416543868
 ```
 
-**Improvement:** 88% shorter, cleaner, shareable, permanent! 🎉
+**Improvement:** 88% shorter, cleaner, shareable, permanent! 
 
 ---
 
-Built with ❤️ for better UX and security
+Built with  for better UX and security

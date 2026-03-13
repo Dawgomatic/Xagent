@@ -2,7 +2,7 @@
 name: "data-lineage-tracker"
 description: "Track data origin, transformations, and flow through construction systems. Essential for audit trails, compliance, and debugging data issues."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "✔️", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # Data Lineage Tracker for Construction
 
@@ -417,7 +417,7 @@ class ConstructionDataLineageTracker:
         if issues:
             lines.append("## Lineage Issues")
             for issue in issues:
-                lines.append(f"- ⚠️ {issue}")
+                lines.append(f"-  {issue}")
             lines.append("")
 
         # Transformation summary

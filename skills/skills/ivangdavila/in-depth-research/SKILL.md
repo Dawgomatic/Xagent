@@ -83,28 +83,28 @@ Format per user needs (see `output-formats.md`):
 ## Output Format (Default)
 
 ```
-🔬 DEEP RESEARCH: [Topic]
+ DEEP RESEARCH: [Topic]
 
-⚡ ANSWER
+ ANSWER
 [Direct answer to the question — 2-3 sentences]
 
-📊 CONFIDENCE: [High/Medium/Low] — [why]
+ CONFIDENCE: [High/Medium/Low] — [why]
 
-🔍 KEY FINDINGS
+ KEY FINDINGS
 • [Finding 1] — [source]
 • [Finding 2] — [source]
 • [Finding 3] — [source]
 
-⚠️ CAVEATS
+ CAVEATS
 • [Important limitation or uncertainty]
 
-🕳️ GAPS
+ GAPS
 • [What couldn't be determined]
 
-📚 SOURCES ([count])
+ SOURCES ([count])
 [Numbered list with credibility notes]
 
-🔎 METHODOLOGY
+ METHODOLOGY
 [Brief: what was searched, how sources were evaluated]
 ```
 

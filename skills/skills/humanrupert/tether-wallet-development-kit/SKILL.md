@@ -98,7 +98,7 @@ All packages are under the `@tetherto` scope. **Always** `npm view <pkg> version
 | Package | npm |
 |---------|-----|
 | `@tetherto/wdk-protocol-swap-velora-evm` | [npmjs.com/package/@tetherto/wdk-protocol-swap-velora-evm](https://www.npmjs.com/package/@tetherto/wdk-protocol-swap-velora-evm) |
-| `@tetherto/wdk-protocol-swap-stonfi-ton` | ⚠️ Not yet published to npm |
+| `@tetherto/wdk-protocol-swap-stonfi-ton` |  Not yet published to npm |
 | `@tetherto/wdk-protocol-bridge-usdt0-evm` | [npmjs.com/package/@tetherto/wdk-protocol-bridge-usdt0-evm](https://www.npmjs.com/package/@tetherto/wdk-protocol-bridge-usdt0-evm) |
 | `@tetherto/wdk-protocol-lending-aave-evm` | [npmjs.com/package/@tetherto/wdk-protocol-lending-aave-evm](https://www.npmjs.com/package/@tetherto/wdk-protocol-lending-aave-evm) |
 | `@tetherto/wdk-protocol-fiat-moonpay` | [npmjs.com/package/@tetherto/wdk-protocol-fiat-moonpay](https://www.npmjs.com/package/@tetherto/wdk-protocol-fiat-moonpay) |
@@ -161,13 +161,13 @@ All wallet accounts implement `IWalletAccount`:
 | `verify(message, signature)` | `Promise<boolean>` | Verify signature |
 | `dispose()` | `void` | Clear private keys from memory |
 
-Properties: `index`, `path`, `keyPair` (⚠️ sensitive — never log or expose)
+Properties: `index`, `path`, `keyPair` ( sensitive — never log or expose)
 
 
 ---
 
 
-## 🛡️ Security
+##  Security
 
 **CRITICAL: This SDK controls real funds. Mistakes are irreversible. Read this section in full.**
 

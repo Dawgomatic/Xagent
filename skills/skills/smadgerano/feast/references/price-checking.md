@@ -102,25 +102,25 @@ Consider:
 When presenting the shopping list, integrate price guidance:
 
 ```markdown
-## 🥩 Proteins
+##  Proteins
 
 - [ ] Chicken thighs, 500g — **~£3.50**  
-  💰 *Best: Aldi (£2.99) or Tesco Clubcard (£3.00)*
+   *Best: Aldi (£2.99) or Tesco Clubcard (£3.00)*
   
 - [ ] Salmon fillets, 2x — **~£5.00**  
-  ⭐ *Deal: Sainsbury's 2-for-£8 this week*
+   *Deal: Sainsbury's 2-for-£8 this week*
 
-## 🥬 Vegetables
+##  Vegetables
 
 - [ ] Broccoli, 1 head — ~£1.00
 - [ ] Peppers, 3 pack — ~£1.50  
-  💰 *Cheaper loose at Aldi*
+   *Cheaper loose at Aldi*
 ```
 
 Use icons sparingly:
-- 💰 = Notable saving available
-- ⭐ = Deal/offer worth grabbing
-- ⚠️ = Stock warning (Lidl/Aldi offers)
+-  = Notable saving available
+-  = Deal/offer worth grabbing
+-  = Stock warning (Lidl/Aldi offers)
 
 ## Price Data Limitations
 

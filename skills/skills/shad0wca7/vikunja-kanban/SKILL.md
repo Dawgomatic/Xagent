@@ -22,13 +22,13 @@ All scripts use a **long-lived API token** (expires 2030-01-01). No JWT login ne
 
 | ID | Name | Purpose |
 |----|------|---------|
-| 1 | 🔴 Urgent | Needs immediate attention |
-| 2 | ⏳ Waiting On | Sent/requested, awaiting reply |
-| 7 | ⚠️ System Issues | Infra/system problems |
-| 8 | 🚧 Active Projects | In progress |
-| 9 | 📅 Upcoming | Scheduled/future |
-| 10 | 📥 Inbox | New items, untriaged |
-| 3 | ✅ Done | Completed |
+| 1 |  Urgent | Needs immediate attention |
+| 2 |  Waiting On | Sent/requested, awaiting reply |
+| 7 |  System Issues | Infra/system problems |
+| 8 |  Active Projects | In progress |
+| 9 |  Upcoming | Scheduled/future |
+| 10 |  Inbox | New items, untriaged |
+| 3 |  Done | Completed |
 
 ## Scripts
 
@@ -64,7 +64,7 @@ The heartbeat cron reads from Vikunja:
 ```bash
 bash scripts/vikunja-status.sh
 ```
-- Check 🔴 Urgent for items aging >1h
+- Check  Urgent for items aging >1h
 - If Vikunja unreachable, fall back to `scripts/nc-status-board.sh read`
 
 ## Email Triage Integration

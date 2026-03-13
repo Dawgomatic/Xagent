@@ -64,7 +64,7 @@ const server = http.createServer((req, res) => {
 const LOOPBACK_ADDRESSES = new Set(['127.0.0.1', '::1', 'localhost']);
 if (!LOOPBACK_ADDRESSES.has(args.host)) {
   console.warn('');
-  console.warn('⚠️  WARNING: Dashboard is binding to a non-loopback address (' + args.host + ').');
+  console.warn('  WARNING: Dashboard is binding to a non-loopback address (' + args.host + ').');
   console.warn('   This exposes call logs and transcripts to the network.');
   console.warn('   Use --host 127.0.0.1 (default) unless you explicitly need remote access.');
   console.warn('');

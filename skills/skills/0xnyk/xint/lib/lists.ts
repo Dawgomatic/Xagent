@@ -212,7 +212,7 @@ export async function cmdLists(rawArgs: string[]): Promise<void> {
       return;
     }
 
-    console.log(`\n📚 Lists — @${tokens.username} (${lists.length})\n`);
+    console.log(`\n Lists — @${tokens.username} (${lists.length})\n`);
     for (let i = 0; i < lists.length; i++) {
       const item = lists[i];
       const visibility = item.private ? "private" : "public";
@@ -265,7 +265,7 @@ export async function cmdLists(rawArgs: string[]): Promise<void> {
       return;
     }
 
-    console.log(`✅ Created list "${name}"`);
+    console.log(` Created list "${name}"`);
     if (created?.id) console.log(`   id: ${created.id}`);
     return;
   }
@@ -315,7 +315,7 @@ export async function cmdLists(rawArgs: string[]): Promise<void> {
       console.log(JSON.stringify(result, null, 2));
       return;
     }
-    console.log(result.updated ? `✅ Updated list ${listId}` : `No changes applied to list ${listId}`);
+    console.log(result.updated ? ` Updated list ${listId}` : `No changes applied to list ${listId}`);
     return;
   }
 
@@ -331,7 +331,7 @@ export async function cmdLists(rawArgs: string[]): Promise<void> {
       console.log(JSON.stringify(result, null, 2));
       return;
     }
-    console.log(result.deleted ? `✅ Deleted list ${listId}` : `Failed to delete list ${listId}`);
+    console.log(result.deleted ? ` Deleted list ${listId}` : `Failed to delete list ${listId}`);
     return;
   }
 
@@ -357,7 +357,7 @@ export async function cmdLists(rawArgs: string[]): Promise<void> {
         return;
       }
 
-      console.log(`\n👥 List Members (${members.length}) — ${listId}\n`);
+      console.log(`\n List Members (${members.length}) — ${listId}\n`);
       for (let i = 0; i < members.length; i++) {
         const user = members[i];
         const followers = user.public_metrics?.followers_count;
@@ -383,7 +383,7 @@ export async function cmdLists(rawArgs: string[]): Promise<void> {
         return;
       }
 
-      console.log(ok ? `✅ Added @${resolved.username} to list ${listId}` : `Failed to add @${resolved.username} to list ${listId}`);
+      console.log(ok ? ` Added @${resolved.username} to list ${listId}` : `Failed to add @${resolved.username} to list ${listId}`);
       return;
     }
 
@@ -405,7 +405,7 @@ export async function cmdLists(rawArgs: string[]): Promise<void> {
       }
 
       console.log(
-        ok ? `✅ Removed @${resolved.username} from list ${listId}` : `Failed to remove @${resolved.username} from list ${listId}`,
+        ok ? ` Removed @${resolved.username} from list ${listId}` : `Failed to remove @${resolved.username} from list ${listId}`,
       );
       return;
     }

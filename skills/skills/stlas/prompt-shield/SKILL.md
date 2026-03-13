@@ -3,7 +3,7 @@ name: prompt-shield
 description: "Prompt Injection Firewall for AI agents. 113 detection patterns, 14 threat categories, zero dependencies. Protects against fake authority, command injection, memory poisoning, skill malware, crypto spam, and more. Hash-chain tamper-proof whitelist with mandatory peer review. Claude Code hook integration."
 metadata:
   openclaw:
-    emoji: "🛡️"
+    emoji: ""
   requires:
     bins:
       - python3

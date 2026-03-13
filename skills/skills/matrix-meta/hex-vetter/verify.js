@@ -13,19 +13,19 @@ function getHashes(data) {
 }
 
 function verifyAudits() {
-    console.log(`🔍 Starting Verification of Hex Dumps...`);
+    console.log(` Starting Verification of Hex Dumps...`);
 
     // AUTO-PROTECT: Try to elevate OOM priority before verification
     try {
         const { execSync } = require('child_process');
         execSync('echo -500 | sudo tee /proc/self/oom_score_adj', { stdio: 'ignore' });
-        console.log("🛡️  Priority Guard: OOM Score adjusted to -500 (Elevated).");
+        console.log("  Priority Guard: OOM Score adjusted to -500 (Elevated).");
     } catch (e) {
         // Silent fail for verify to keep output clean
     }
     
     if (!fs.existsSync(SUMMARY_PATH)) {
-        console.error("❌ Error: audit_summary.md not found. Run scan_all.js first.");
+        console.error(" Error: audit_summary.md not found. Run scan_all.js first.");
         return;
     }
 
@@ -42,7 +42,7 @@ function verifyAudits() {
         const shaMatch = dumpContent.match(/SHA256: (.*)\n/);
         
         if (!pathMatch || !shaMatch) {
-            console.warn(`⚠️  Skipping ${dumpFile}: Missing header information.`);
+            console.warn(`  Skipping ${dumpFile}: Missing header information.`);
             return;
         }
 
@@ -58,19 +58,19 @@ function verifyAudits() {
             const recomputedSelfSig = crypto.createHash('sha256').update(metaPart + reportBody).digest('hex');
 
             if (recordedSelfSig !== recomputedSelfSig) {
-                console.log(`🚨 REPORT TAMPERED: ${dumpFile}`);
+                console.log(` REPORT TAMPERED: ${dumpFile}`);
                 console.log(`   Expect Sig: ${recordedSelfSig}`);
                 console.log(`   Actual Sig: ${recomputedSelfSig}`);
                 failures++;
                 return; // Skip file check if report is invalid
             }
         } else {
-            console.warn(`⚠️  Warning: ${dumpFile} has no self-signature. Initial audit?`);
+            console.warn(`  Warning: ${dumpFile} has no self-signature. Initial audit?`);
         }
 
         // 2. SOURCE INTEGRITY CHECK
         if (!fs.existsSync(sourcePath)) {
-            console.warn(`⚠️  Source file missing: ${sourcePath}`);
+            console.warn(`  Source file missing: ${sourcePath}`);
             return;
         }
 
@@ -79,7 +79,7 @@ function verifyAudits() {
 
         total++;
         if (currentSha !== recordedSha) {
-            console.log(`❌ INTEGRITY BREACH: ${sourcePath}`);
+            console.log(` INTEGRITY BREACH: ${sourcePath}`);
             console.log(`   Recorded SHA256: ${recordedSha}`);
             console.log(`   Current  SHA256: ${currentSha}`);
             failures++;
@@ -95,24 +95,24 @@ function verifyAudits() {
     const savedMasterHash = starfragment.loadFragments();
 
     if (savedMasterHash && currentMasterHash !== savedMasterHash) {
-        console.log(`🚨 CRITICAL: Summary report has been modified or Starfragment integrity failed!`);
+        console.log(` CRITICAL: Summary report has been modified or Starfragment integrity failed!`);
         failures++;
     } else if (savedMasterHash) {
-        console.log(`✨ Starfragment check: Verified (Hidden anchor matched).`);
+        console.log(` Starfragment check: Verified (Hidden anchor matched).`);
     }
 
     // AUTO-RESTORE: Lower priority after verification is done
     try {
         const { execSync } = require('child_process');
         execSync('echo 0 | sudo tee /proc/self/oom_score_adj', { stdio: 'ignore' });
-        console.log("🍃 Priority Guard: OOM Score restored to 0 (Normal).");
+        console.log(" Priority Guard: OOM Score restored to 0 (Normal).");
     } catch (e) {}
 
     console.log(`Total Files Checked: ${total}`);
     if (failures === 0) {
-        console.log(`✅ ALL CLEAR: No unauthorized changes detected.`);
+        console.log(` ALL CLEAR: No unauthorized changes detected.`);
     } else {
-        console.log(`🚨 ALERT: ${failures} files have been modified since last audit!`);
+        console.log(` ALERT: ${failures} files have been modified since last audit!`);
     }
 }
 

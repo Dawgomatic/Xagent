@@ -283,7 +283,7 @@ status abc12345-...
         if status in ['new', 'pending', 'awaiting_payment']:
             payment = data.get('payment', {})
             lines = [
-                f"**Order Status:** ⏳ Awaiting Payment\n",
+                f"**Order Status:**  Awaiting Payment\n",
                 f"**Order ID:** `{order_uuid}`",
             ]
             
@@ -301,7 +301,7 @@ status abc12345-...
         
         # Payment expired
         if status == 'expired':
-            return f"**Order Status:** ❌ Expired\n\nOrder `{order_uuid}` has expired. Please create a new order."
+            return f"**Order Status:**  Expired\n\nOrder `{order_uuid}` has expired. Please create a new order."
         
         # eSIM ready
         if order_type == 'esim_order' and 'esim' in data:
@@ -309,7 +309,7 @@ status abc12345-...
             order_info = data.get('order', {})
             
             lines = [
-                f"**Order Status:** ✅ Complete\n",
+                f"**Order Status:**  Complete\n",
                 f"**Plan:** {order_info.get('plan_name')}",
                 f"**Data:** {order_info.get('data_remaining_mb', 0)} MB remaining",
                 f"**Status:** {status.title()}\n",

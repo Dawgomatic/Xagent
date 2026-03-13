@@ -14,10 +14,10 @@
 Hybrid search memory system for AI agents with auto-capture.
 
 ## Features
-- 🔍 Hybrid search (BM25 + Vector + Graph + Heat)
-- 🤖 Auto-capture from session transcripts
-- 📊 Progressive disclosure (index/summary/full modes)
-- ⚡ 43x faster extraction with Qwen3-1.7B
+-  Hybrid search (BM25 + Vector + Graph + Heat)
+-  Auto-capture from session transcripts
+-  Progressive disclosure (index/summary/full modes)
+-  43x faster extraction with Qwen3-1.7B
 
 ## Installation
 ```bash
@@ -36,10 +36,10 @@ curl -fsSL https://raw.githubusercontent.com/hargabyte/Chaos-mind/main/install.s
 - 16GB RAM recommended
 
 ## Fixed in This Release
-- ✅ Database port defaults to 3307 (avoids conflicts)
-- ✅ Flexible category schema (VARCHAR, not enum)
-- ✅ Systemd service with auto-restart
-- ✅ Comprehensive documentation
+-  Database port defaults to 3307 (avoids conflicts)
+-  Flexible category schema (VARCHAR, not enum)
+-  Systemd service with auto-restart
+-  Comprehensive documentation
 
 ## Documentation
 - [Installation Guide](https://github.com/hargabyte/Chaos-mind/blob/main/INSTALL_NOTES.md)

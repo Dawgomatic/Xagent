@@ -387,7 +387,7 @@ export function authStatus(): void {
   const tokens = loadTokens();
 
   if (!tokens) {
-    console.log("❌ No OAuth tokens found.");
+    console.log(" No OAuth tokens found.");
     console.log("Run: xint auth setup [--manual]");
     return;
   }
@@ -397,7 +397,7 @@ export function authStatus(): void {
     ? `${Math.round(expiresIn / 60_000)} minutes`
     : "EXPIRED";
 
-  console.log(`✅ Authenticated as @${tokens.username} (ID: ${tokens.user_id})`);
+  console.log(` Authenticated as @${tokens.username} (ID: ${tokens.user_id})`);
   console.log(`   Scopes: ${tokens.scope}`);
   console.log(`   Access token: ${expiresStr}`);
   console.log(`   Created: ${tokens.created_at}`);
@@ -416,6 +416,6 @@ export async function authRefresh(): Promise<void> {
   console.error("Refreshing tokens...");
   const refreshed = await refreshTokens(tokens);
   const expiresIn = Math.round((refreshed.expires_at - Date.now()) / 60_000);
-  console.log(`✅ Token refreshed for @${refreshed.username}`);
+  console.log(` Token refreshed for @${refreshed.username}`);
   console.log(`   New token expires in ${expiresIn} minutes`);
 }

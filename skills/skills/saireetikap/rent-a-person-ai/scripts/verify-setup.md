@@ -80,8 +80,8 @@ After sending the test webhook:
 
 ## Expected Flow
 
-1. ✅ ngrok receives webhook → forwards to local port
-2. ✅ Bridge/gateway receives webhook → processes it
-3. ✅ API key injected → message enhanced
-4. ✅ OpenClaw session receives → agent can see key
-5. ✅ Agent responds → via RentAPerson API
+1.  ngrok receives webhook → forwards to local port
+2.  Bridge/gateway receives webhook → processes it
+3.  API key injected → message enhanced
+4.  OpenClaw session receives → agent can see key
+5.  Agent responds → via RentAPerson API

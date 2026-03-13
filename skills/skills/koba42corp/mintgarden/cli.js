@@ -19,13 +19,13 @@ const api = new MintGardenAPI();
     const output = await handleCommand(input);
     console.log(output);
   } catch (error) {
-    console.error(`❌ Error: ${error.message}`);
+    console.error(` Error: ${error.message}`);
     process.exit(1);
   }
 })();
 
 function showHelp() {
-  return `🌱 MintGarden API Client
+  return ` MintGarden API Client
 
 SEARCH
   mg search <query>              Search everything

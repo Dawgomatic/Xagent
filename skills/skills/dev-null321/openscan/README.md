@@ -146,7 +146,7 @@ async function recommendTool(toolPath) {
   const result = await scanFile(toolPath);
   
   if (result.threatScore > 40) {
-    return `⚠️ Warning: ${toolPath} has suspicious characteristics:\n${result.findings.join('\n')}`;
+    return ` Warning: ${toolPath} has suspicious characteristics:\n${result.findings.join('\n')}`;
   }
   
   return `✓ ${toolPath} appears safe (score: ${result.threatScore}/100)`;

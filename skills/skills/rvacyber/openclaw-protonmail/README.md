@@ -7,7 +7,7 @@
 
 Connect your OpenClaw agent to ProtonMail via Proton Mail Bridge for secure email management.
 
-> ⚠️ **Beta Software**: This skill is in active development with limited production testing. Core functionality (read, send, search) is working, but edge cases and real-world usage patterns are still being validated. We're actively seeking feedback from early adopters to identify issues and improve reliability before a stable 1.0 release. Please report bugs and share your experience!
+>  **Beta Software**: This skill is in active development with limited production testing. Core functionality (read, send, search) is working, but edge cases and real-world usage patterns are still being validated. We're actively seeking feedback from early adopters to identify issues and improve reliability before a stable 1.0 release. Please report bugs and share your experience!
 
 ---
 
@@ -33,12 +33,12 @@ This skill enables OpenClaw to read, send, and manage emails through your Proton
 
 ## Features
 
-- ✉️ Read emails (inbox, sent, folders)
-- 📤 Send emails (plain text and HTML)
-- 💬 Reply to emails
-- 🔍 Search emails (from, subject, body, date filters)
-- 📎 Read attachments (sending attachments: coming soon)
-- 🔒 Secure: Uses official Proton Bridge, credentials stored locally
+-  Read emails (inbox, sent, folders)
+-  Send emails (plain text and HTML)
+-  Reply to emails
+-  Search emails (from, subject, body, date filters)
+-  Read attachments (sending attachments: coming soon)
+-  Secure: Uses official Proton Bridge, credentials stored locally
 
 ## Requirements
 
@@ -222,10 +222,10 @@ Inspired by the [gog](https://github.com/steipete/gog) skill for Google Workspac
 
 ## Support
 
-- 🐛 **Issues:** https://github.com/rvacyber/openclaw-protonmail-skill/issues
-- 💬 **Discussions:** https://github.com/openclaw/openclaw/discussions
-- 📖 **OpenClaw Docs:** https://docs.openclaw.ai
+-  **Issues:** https://github.com/rvacyber/openclaw-protonmail-skill/issues
+-  **Discussions:** https://github.com/openclaw/openclaw/discussions
+-  **OpenClaw Docs:** https://docs.openclaw.ai
 
 ---
 
-**Made with 🔐 for the OpenClaw community**
+**Made with  for the OpenClaw community**

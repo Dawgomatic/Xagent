@@ -42,7 +42,7 @@ function formatMarket(market, verbose = false) {
   const prices = parsePrice(market.outcomePrices);
   const odds = outcomes.map((o, i) => `${o}: ${prices[i] || '?'}`).join(' | ');
   
-  let out = `📊 ${market.question}\n`;
+  let out = ` ${market.question}\n`;
   out += `   ${odds}\n`;
   out += `   Volume: $${(market.volumeNum || 0).toLocaleString()}`;
   if (market.liquidity) out += ` | Liquidity: $${parseFloat(market.liquidity).toLocaleString()}`;
@@ -54,7 +54,7 @@ function formatMarket(market, verbose = false) {
 }
 
 function formatEvent(event, verbose = false) {
-  let out = `\n🎯 ${event.title}\n`;
+  let out = `\n ${event.title}\n`;
   if (event.description && verbose) {
     out += `   ${event.description.slice(0, 200)}${event.description.length > 200 ? '...' : ''}\n`;
   }

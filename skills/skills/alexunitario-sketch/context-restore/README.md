@@ -108,15 +108,15 @@ python3 skills/context-restore/scripts/restore_context.py --help
 CONTEXT RESTORE REPORT (Minimal)
 ============================================================
 
-📊 Context Status:
+ Context Status:
    Messages: 45 → 12
 
-🚀 Key Projects (3)
+ Key Projects (3)
    • Hermes Plan
    • Akasha Plan
    • Morning Brief
 
-📋 Ongoing Tasks (3)
+ Ongoing Tasks (3)
    • Isolated Sessions
    • Cron Tasks
    • Main Session
@@ -131,20 +131,20 @@ CONTEXT RESTORE REPORT (Minimal)
 CONTEXT RESTORE REPORT (Normal)
 ============================================================
 
-📊 Context Compression Info:
+ Context Compression Info:
    Original messages: 45
    Compressed messages: 12
    Timestamp: 2026-02-06T23:30:00.000
    Compression ratio: 26.7%
 
-🔄 Recent Operations (4)
+ Recent Operations (4)
    • Context restoration performed
    • 11 cron tasks converted to isolated mode
    ...
 
-🚀 Key Projects
+ Key Projects
 
-   📁 Hermes Plan
+    Hermes Plan
       Description: Data analysis assistant for Excel, documents, and reports
       Status: Active
 
@@ -289,7 +289,7 @@ This skill is designed to work with OpenClaw's context compression system:
 
 **user:** 继续之前的工作...
 
-**assistant:** ✅ 上下文已恢复
+**assistant:**  上下文已恢复
 ...
 ```
 

@@ -394,7 +394,7 @@ Examples:
     # Check blocklist first
     is_blocked, block_reason = is_network_blocklisted(cidr, config)
     if is_blocked:
-        print(f"❌ BLOCKED: {cidr} is blocklisted", file=sys.stderr)
+        print(f" BLOCKED: {cidr} is blocklisted", file=sys.stderr)
         print(f"   Reason: {block_reason}", file=sys.stderr)
         print(f"   Edit {args.config} to remove from blocklist if this is intentional.", file=sys.stderr)
         sys.exit(1)
@@ -403,7 +403,7 @@ Examples:
     if not trusted_network:
         is_safe, route_reason = check_route_is_private(cidr)
         if not is_safe:
-            print(f"❌ BLOCKED: Cannot safely scan {cidr}", file=sys.stderr)
+            print(f" BLOCKED: Cannot safely scan {cidr}", file=sys.stderr)
             print(f"   {route_reason}", file=sys.stderr)
             print(f"", file=sys.stderr)
             print(f"   To scan this network, either:", file=sys.stderr)

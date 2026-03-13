@@ -7,7 +7,7 @@
 import { randomBytes } from 'node:crypto';
 import { generateBatch, generate, CHALLENGE_TYPES, getTypes } from '../packages/server/challenges.js';
 
-console.log('🧪 AAP Challenge Type Tests\n');
+console.log(' AAP Challenge Type Tests\n');
 console.log('='.repeat(60));
 
 let passed = 0;
@@ -16,10 +16,10 @@ let failed = 0;
 function test(name, fn) {
   try {
     fn();
-    console.log(`✅ ${name}`);
+    console.log(` ${name}`);
     passed++;
   } catch (e) {
-    console.log(`❌ ${name}: ${e.message}`);
+    console.log(` ${name}: ${e.message}`);
     failed++;
   }
 }
@@ -31,7 +31,7 @@ function assert(condition, message) {
 // ============== CHALLENGE TYPE TESTS ==============
 
 const types = getTypes();
-console.log(`\n📦 Testing ${types.length} Challenge Types\n`);
+console.log(`\n Testing ${types.length} Challenge Types\n`);
 
 for (const type of types) {
   test(`${type}: generates valid challenge`, () => {
@@ -100,7 +100,7 @@ for (const type of types) {
 }
 
 // ============== BATCH TESTS ==============
-console.log('\n📦 Batch Challenge Tests\n');
+console.log('\n Batch Challenge Tests\n');
 
 test('Batch generates 7 challenges', () => {
   const nonce = randomBytes(16).toString('hex');
@@ -146,7 +146,7 @@ test('Batch is deterministic with same nonce', () => {
 
 // ============== RESULTS ==============
 console.log('\n' + '='.repeat(60));
-console.log(`\n📊 Results: ${passed} passed, ${failed} failed\n`);
+console.log(`\n Results: ${passed} passed, ${failed} failed\n`);
 
 if (failed > 0) {
   process.exit(1);

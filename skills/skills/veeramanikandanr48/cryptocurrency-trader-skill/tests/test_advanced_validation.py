@@ -393,11 +393,11 @@ def run_tests():
 
     if result.wasSuccessful():
         print()
-        print("✅ All validation tests passed!")
+        print(" All validation tests passed!")
         return 0
     else:
         print()
-        print("❌ Some tests failed")
+        print(" Some tests failed")
         return 1
 
 

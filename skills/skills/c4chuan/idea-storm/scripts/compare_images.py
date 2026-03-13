@@ -113,7 +113,7 @@ def main():
         if scores:
             avg = sum(scores) / len(scores)
             passed = avg >= args.threshold
-            print(f"\n平均 SSIM: {avg:.4f} | 阈值: {args.threshold} | {'✅ 达标' if passed else '❌ 未达标'}")
+            print(f"\n平均 SSIM: {avg:.4f} | 阈值: {args.threshold} | {' 达标' if passed else ' 未达标'}")
             sys.exit(0 if passed else 1)
 
 

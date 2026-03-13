@@ -45,11 +45,11 @@ London was named the world's best food city. Its strength lies in extraordinary 
 
 | Restaurant | Stars | Price | Notes |
 |------------|-------|-------|-------|
-| **Restaurant Gordon Ramsay** | ⭐⭐⭐ | £150-250 | Chelsea, classic French |
-| **Core by Clare Smyth** | ⭐⭐⭐ | £150-200 | Notting Hill |
-| **Gymkhana** | ⭐ | £80-120 | Mayfair, Indian |
-| **Ikoyi** | ⭐⭐ | £150-200 | West African |
-| **Da Terra** | ⭐⭐ | £150-200 | Brazilian-Italian |
+| **Restaurant Gordon Ramsay** |  | £150-250 | Chelsea, classic French |
+| **Core by Clare Smyth** |  | £150-200 | Notting Hill |
+| **Gymkhana** |  | £80-120 | Mayfair, Indian |
+| **Ikoyi** |  | £150-200 | West African |
+| **Da Terra** |  | £150-200 | Brazilian-Italian |
 
 **Booking tips:**
 - Book 2-3 months ahead for top spots

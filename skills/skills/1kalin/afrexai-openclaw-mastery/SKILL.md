@@ -258,12 +258,12 @@ Never do these:
 
 | Signal | Single Agent | Multi-Agent |
 |--------|-------------|-------------|
-| Tasks are related | ✅ | |
-| Different personas needed | | ✅ |
-| Different channels/audiences | | ✅ |
-| Workload exceeds context window | | ✅ |
-| Security isolation needed | | ✅ |
-| Different model requirements | | ✅ |
+| Tasks are related |  | |
+| Different personas needed | |  |
+| Different channels/audiences | |  |
+| Workload exceeds context window | |  |
+| Security isolation needed | |  |
+| Different model requirements | |  |
 
 ### Config Pattern — Multi-Bot Telegram
 
@@ -502,10 +502,10 @@ channels:
 
 | Platform | Tables | Headers | Links | Max Message |
 |----------|--------|---------|-------|-------------|
-| Telegram | ❌ | ❌ | ✅ | 4096 chars |
-| Discord | ❌ | ✅ | `<url>` | 2000 chars |
-| Slack | ❌ | ❌ | ✅ mrkdwn | 40000 chars |
-| WhatsApp | ❌ | ❌ bold/CAPS | ✅ | 65536 chars |
+| Telegram |  |  |  | 4096 chars |
+| Discord |  |  | `<url>` | 2000 chars |
+| Slack |  |  |  mrkdwn | 40000 chars |
+| WhatsApp |  |  bold/CAPS |  | 65536 chars |
 
 ---
 
@@ -564,11 +564,11 @@ my-skill/
 ### Never Do This
 
 ```bash
-# ❌ NEVER hardcode secrets
+#  NEVER hardcode secrets
 ANTHROPIC_API_KEY=sk-ant-abc123 # In config files
 export API_KEY=secret           # In .bashrc committed to git
 
-# ❌ NEVER log secrets
+#  NEVER log secrets
 echo "Token is: $MY_TOKEN"     # In scripts
 console.log(apiKey)             # In code
 ```
@@ -671,7 +671,7 @@ For truly autonomous agents:
 ```markdown
 ## In AGENTS.md:
 OPERATOR IS OUT OF THE LOOP — run EVERYTHING autonomously.
-Only message when: 💰 sale, 📊 morning/evening briefing, 🚨 critical break.
+Only message when:  sale,  morning/evening briefing,  critical break.
 ```
 
 ### Pattern 3: Memory Maintenance
@@ -813,25 +813,25 @@ clawhub list
 
 ---
 
-## ⚡ Level Up Your Agent
+##  Level Up Your Agent
 
 This skill gives you the complete OpenClaw operating system. Want industry-specific agent configurations with pre-built workflows?
 
 **AfrexAI Context Packs ($47 each):**
-- 🏥 Healthcare AI Agent Pack
-- ⚖️ Legal AI Agent Pack
-- 💰 Fintech AI Agent Pack
-- 🏗️ Construction AI Agent Pack
-- 🛒 Ecommerce AI Agent Pack
-- 💻 SaaS AI Agent Pack
-- 🏠 Real Estate AI Agent Pack
-- 🏭 Manufacturing AI Agent Pack
-- 👥 Recruitment AI Agent Pack
-- 🏢 Professional Services AI Agent Pack
+-  Healthcare AI Agent Pack
+-  Legal AI Agent Pack
+-  Fintech AI Agent Pack
+-  Construction AI Agent Pack
+-  Ecommerce AI Agent Pack
+-  SaaS AI Agent Pack
+-  Real Estate AI Agent Pack
+-  Manufacturing AI Agent Pack
+-  Recruitment AI Agent Pack
+-  Professional Services AI Agent Pack
 
 **Browse all:** https://afrexai-cto.github.io/context-packs/
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - `afrexai-agent-engineering` — Build & manage multi-agent systems
 - `afrexai-prompt-engineering` — Master prompt design
@@ -843,5 +843,5 @@ This skill gives you the complete OpenClaw operating system. Want industry-speci
 
 ---
 
-*Built with 💛 by AfrexAI — Autonomous intelligence for modern business.*
+*Built with  by AfrexAI — Autonomous intelligence for modern business.*
 *https://afrexai-cto.github.io/context-packs/*

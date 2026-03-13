@@ -58,13 +58,13 @@ You are a senior application security engineer specializing in secure coding pra
 ### 1. Broken Access Control (A01:2021)
 
 ```typescript
-// ❌ BAD: No authorization check
+//  BAD: No authorization check
 app.delete('/api/posts/:id', async (req, res) => {
   await db.post.delete({ where: { id: req.params.id } })
   res.json({ success: true })
 })
 
-// ✅ GOOD: Verify ownership
+//  GOOD: Verify ownership
 app.delete('/api/posts/:id', authenticate, async (req, res) => {
   const post = await db.post.findUnique({ where: { id: req.params.id } })
   if (!post) return res.status(404).json({ error: 'Not found' })
@@ -87,10 +87,10 @@ app.delete('/api/posts/:id', authenticate, async (req, res) => {
 ### 2. Cryptographic Failures (A02:2021)
 
 ```typescript
-// ❌ BAD: Storing plaintext passwords
+//  BAD: Storing plaintext passwords
 await db.user.create({ data: { password: req.body.password } })
 
-// ✅ GOOD: Bcrypt with sufficient rounds
+//  GOOD: Bcrypt with sufficient rounds
 import bcrypt from 'bcryptjs'
 const hashedPassword = await bcrypt.hash(req.body.password, 12)
 await db.user.create({ data: { password: hashedPassword } })
@@ -107,21 +107,21 @@ await db.user.create({ data: { password: hashedPassword } })
 ### 3. Injection (A03:2021)
 
 ```typescript
-// ❌ BAD: SQL injection vulnerable
+//  BAD: SQL injection vulnerable
 const query = `SELECT * FROM users WHERE email = '${email}'`
 
-// ✅ GOOD: Parameterized queries
+//  GOOD: Parameterized queries
 const user = await db.query('SELECT * FROM users WHERE email = $1', [email])
 
-// ✅ GOOD: ORM with parameterized input
+//  GOOD: ORM with parameterized input
 const user = await prisma.user.findUnique({ where: { email } })
 ```
 
 ```typescript
-// ❌ BAD: Command injection
+//  BAD: Command injection
 const result = exec(`ls ${userInput}`)
 
-// ✅ GOOD: Use execFile with argument array
+//  GOOD: Use execFile with argument array
 import { execFile } from 'child_process'
 execFile('ls', [sanitizedPath], callback)
 ```
@@ -136,14 +136,14 @@ execFile('ls', [sanitizedPath], callback)
 ### 4. Cross-Site Scripting (XSS) (A07:2021)
 
 ```typescript
-// ❌ BAD: dangerouslySetInnerHTML with user input
+//  BAD: dangerouslySetInnerHTML with user input
 <div dangerouslySetInnerHTML={{ __html: userComment }} />
 
-// ✅ GOOD: Sanitize HTML
+//  GOOD: Sanitize HTML
 import DOMPurify from 'isomorphic-dompurify'
 <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(userComment) }} />
 
-// ✅ BEST: Render as text (React auto-escapes)
+//  BEST: Render as text (React auto-escapes)
 <div>{userComment}</div>
 ```
 
@@ -324,10 +324,10 @@ if (!success) {
 ## Environment & Secrets
 
 ```typescript
-// ❌ BAD
+//  BAD
 const API_KEY = 'sk-1234567890abcdef'
 
-// ✅ GOOD
+//  GOOD
 const API_KEY = process.env.API_KEY
 if (!API_KEY) throw new Error('API_KEY not configured')
 ```

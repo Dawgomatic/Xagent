@@ -139,11 +139,11 @@ void setup() {
 
 | Library | Arduino AVR | ESP32 | RP2040 |
 |---------|-------------|-------|--------|
-| Servo.h | ✅ | ❌ | ✅ |
-| ESP32Servo | ❌ | ✅ | ❌ |
-| Wire.h | ✅ | ✅ | ✅ |
-| SPI.h | ✅ | ✅ | ✅ |
-| analogWrite() | ✅ | ❌ | ✅ |
+| Servo.h |  |  |  |
+| ESP32Servo |  |  |  |
+| Wire.h |  |  |  |
+| SPI.h |  |  |  |
+| analogWrite() |  |  |  |
 
 ## Step 4: Code Logic Debug
 
@@ -226,10 +226,10 @@ void changeState(State newState) {
 ## When to Ask for Help
 
 After verifying:
-1. ✅ Power is correct and stable
-2. ✅ Wiring matches schematic
-3. ✅ Correct library for board
-4. ✅ Serial debug shows expected flow
+1.  Power is correct and stable
+2.  Wiring matches schematic
+3.  Correct library for board
+4.  Serial debug shows expected flow
 
 Provide:
 - Exact board model and core version

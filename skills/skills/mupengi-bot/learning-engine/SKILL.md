@@ -1,7 +1,7 @@
 ---
 name: learning-engine
 description: Auto-analyze mistake and success patterns and reflect in skills
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
 # learning-engine
@@ -95,17 +95,17 @@ Auto-add learned rules to relevant skill SKILL.md:
 ## Learned Lessons
 
 ### Image Processing
-- ✅ Always convert to JPG (PNG causes errors)
-- ✅ 1:1 ratio required (1024x1024 recommended)
-- ✅ File size < 8MB
+-  Always convert to JPG (PNG causes errors)
+-  1:1 ratio required (1024x1024 recommended)
+-  File size < 8MB
 
 ### Timing
-- ✅ Posts at 19:00-21:00 get +30% engagement
-- ❌ Avoid early morning posts
+-  Posts at 19:00-21:00 get +30% engagement
+-  Avoid early morning posts
 
 ### Automation
-- ✅ Call API via exec (0 snapshots)
-- ❌ Minimize browser automation
+-  Call API via exec (0 snapshots)
+-  Minimize browser automation
 ```
 
 ## Weekly Learning Report
@@ -245,4 +245,4 @@ learning-engine itself also learns:
 
 ---
 
-> 🐧 Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill
+>  Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill

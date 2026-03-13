@@ -11,14 +11,14 @@ echo "╚═══════════════════════�
 echo ""
 
 if [ ! -d "$CLIENT_DIR" ]; then
-    echo "❌ Bob P2P client not installed."
+    echo " Bob P2P client not installed."
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     echo "   Run: bash $SCRIPT_DIR/setup.sh"
     exit 1
 fi
 
 if [ ! -f "$CONFIG_FILE" ]; then
-    echo "❌ Config file not found. Running setup..."
+    echo " Config file not found. Running setup..."
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     bash "$SCRIPT_DIR/setup.sh"
     exit 0
@@ -33,7 +33,7 @@ if [ -n "$CURRENT_WALLET" ] && [ "$CURRENT_WALLET" != "YOUR_SOLANA_WALLET_ADDRES
     MASKED="${CURRENT_WALLET:0:6}...${CURRENT_WALLET: -4}"
     echo "Current wallet: $MASKED"
 else
-    echo "Current wallet: ⚠ Not configured"
+    echo "Current wallet:  Not configured"
 fi
 
 echo ""
@@ -88,7 +88,7 @@ CONFIGEOF
             echo ""
             echo "✓ Wallet updated!"
         else
-            echo "❌ Invalid input - both address and key required"
+            echo " Invalid input - both address and key required"
         fi
         ;;
     2)

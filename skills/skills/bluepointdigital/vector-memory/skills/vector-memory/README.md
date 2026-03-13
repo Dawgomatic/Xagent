@@ -2,7 +2,7 @@
 
 Smart memory search with **zero configuration**. Automatically uses semantic vector embeddings when available, falls back to built-in search otherwise.
 
-## 🎯 How It Works
+##  How It Works
 
 ```
 ┌─────────────────┐
@@ -30,7 +30,7 @@ Smart memory search with **zero configuration**. Automatically uses semantic vec
 
 **No setup required.** Install the skill and `memory_search` immediately works—just better when you sync.
 
-## 🚀 Installation
+##  Installation
 
 ### From ClawHub
 ```bash
@@ -48,7 +48,7 @@ git clone https://github.com/YOUR_USERNAME/vector-memory-openclaw.git
 cd vector-memory-openclaw/vector-memory && npm install
 ```
 
-## ✨ What You Get
+##  What You Get
 
 ### Immediate (No Sync Required)
 - `memory_search` works with built-in keyword search
@@ -64,7 +64,7 @@ node vector-memory/smart_memory.js --sync
 - **Concept matching** - "values" finds "principles"
 - **Better relevance** - Neural embeddings understand meaning
 
-## 🛠️ Tools
+##  Tools
 
 ### memory_search
 **Automatically selects best method**
@@ -106,17 +106,17 @@ Check which method is active.
 node vector-memory/smart_memory.js --status
 ```
 
-## 📊 Comparison
+##  Comparison
 
 | Query | Before (Built-in) | After (Vector) |
 |-------|------------------|----------------|
-| "James principles" | ⚠️ Weak matches | ✅ "What He Values" section |
-| "Nyx origin" | ⚠️ Literal match | ✅ "The Transfer" section |
-| "values beliefs" | ⚠️ Weak match | ✅ Strong semantic match |
+| "James principles" |  Weak matches |  "What He Values" section |
+| "Nyx origin" |  Literal match |  "The Transfer" section |
+| "values beliefs" |  Weak match |  Strong semantic match |
 
 **Same function call. Better results after sync.**
 
-## 🔧 How to Use
+##  How to Use
 
 ### In OpenClaw
 Just use `memory_search` normally:
@@ -138,7 +138,7 @@ node vector-memory/smart_memory.js --status
 node vector-memory/smart_memory.js --sync
 ```
 
-## 🔄 Auto-Sync (Optional)
+##  Auto-Sync (Optional)
 
 Add to `HEARTBEAT.md`:
 ```bash
@@ -149,7 +149,7 @@ if [ -n "$(find memory MEMORY.md -newer vector-memory/.last_sync 2>/dev/null)" ]
 fi
 ```
 
-## 📁 File Structure
+##  File Structure
 
 ```
 vector-memory/
@@ -161,7 +161,7 @@ vector-memory/
 
 **You only need to call `smart_memory.js`** - it handles everything.
 
-## 🎯 Zero-Config Philosophy
+##  Zero-Config Philosophy
 
 1. **Install** → Works immediately (built-in fallback)
 2. **Sync** → Gets better (vector embeddings)
@@ -169,7 +169,7 @@ vector-memory/
 
 No configuration files. No environment variables. No manual switching.
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 **"Vector not ready" in status**
 - Normal on first install. Run `--sync` to index.
@@ -183,28 +183,28 @@ No configuration files. No environment variables. No manual switching.
 **Want to force built-in search?**
 - Just don't sync. Built-in is always available as fallback.
 
-## 📈 Performance
+##  Performance
 
 | Method | Quality | Speed | Requirements |
 |--------|---------|-------|--------------|
-| Vector | ⭐⭐⭐⭐⭐ | ~100ms | Synced index |
-| Built-in | ⭐⭐⭐ | ~10ms | None (fallback) |
+| Vector |  | ~100ms | Synced index |
+| Built-in |  | ~10ms | None (fallback) |
 
 Vector is used automatically when available. Built-in is instant fallback.
 
-## 📝 Version History
+##  Version History
 
 - **v2.1.0** - Smart wrapper with automatic fallback
 - **v2.0.0** - 100% local embeddings
 - **v1.0.0** - Initial release
 
-## 🤝 Contributing
+##  Contributing
 
 PRs welcome! Particularly:
 - Better fallback algorithms
 - Additional storage backends
 - Framework integrations
 
-## 📜 License
+##  License
 
 MIT

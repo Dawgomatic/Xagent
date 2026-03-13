@@ -79,39 +79,39 @@ Add to `TOOLS.md` or `HEARTBEAT.md`:
 ## Example Output
 
 ```
-🌅 Morning Briefing - Monday, Feb 13, 2026
+ Morning Briefing - Monday, Feb 13, 2026
 
-📍 San Francisco, CA
-☀️ Partly Cloudy, 58°F → 67°F
-☔ 10% chance of rain
+ San Francisco, CA
+ Partly Cloudy, 58°F → 67°F
+ 10% chance of rain
 
-📅 TODAY'S SCHEDULE
+ TODAY'S SCHEDULE
 • 9:00 AM - Team standup (30 min)
 • 11:00 AM - Client call: Acme Corp (1 hr)
 • 2:00 PM - Product review (45 min)
 • 4:30 PM - 1:1 with Sarah (30 min)
 
-📅 TOMORROW PREVIEW
+ TOMORROW PREVIEW
 • 10:00 AM - Investor update call
 • 3:00 PM - Design review
 
-📧 URGENT EMAILS (2)
+ URGENT EMAILS (2)
 • From: boss@company.com - "Q1 targets due Friday"
 • From: client@acme.com - "Can we reschedule?"
 
-🔥 TRENDING IN AI/TECH
+ TRENDING IN AI/TECH
 • OpenAI announces GPT-5
 • Apple Vision Pro sales exceed expectations
 • New Claude model released
 • AI regulation updates in EU
 • Startup funding trends
 
-✅ PRIORITY TASKS
+ PRIORITY TASKS
 • [ ] Finalize Q1 presentation
 • [ ] Review contractor invoices
 • [ ] Send proposal to Acme Corp
 
-😴 SLEEP SCORE: 72/100
+ SLEEP SCORE: 72/100
 Feeling rested. Good day for deep work.
 
 ---

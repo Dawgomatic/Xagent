@@ -43,7 +43,7 @@ NOTES=""
 
 # Test mode flag
 if [[ " $* " == *" --test "* ]]; then
-  echo "🧪 Adding a test invoice..."
+  echo " Adding a test invoice..."
   INV_NUMBER="TEST-$(date +%s)"
   CLIENT_NAME="Test Client Inc."
   CLIENT_EMAIL="test@example.com"
@@ -145,7 +145,7 @@ temp_file=$(mktemp)
 jq ".invoices[\"$INV_NUMBER\"] = $invoice_json" "$INVOICES_FILE" > "$temp_file" && mv "$temp_file" "$INVOICES_FILE"
 
 # --- CONFIRMATION ---
-echo "✅ Invoice '$INV_NUMBER' added successfully."
+echo " Invoice '$INV_NUMBER' added successfully."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "  Client:   $CLIENT_NAME"
 echo "  Amount:   \$${AMOUNT}"

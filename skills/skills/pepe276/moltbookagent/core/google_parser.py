@@ -63,11 +63,11 @@ class GoogleParser:
         if not results or "error" in results[0]:
             return f"Помилка пошуку: {results[0].get('error', 'unknown')}"
         
-        formatted = [f"🔍 **Google пошук:** {query}\n"]
+        formatted = [f" **Google пошук:** {query}\n"]
         for i, r in enumerate(results, 1):
             formatted.append(f"{i}. **{r['title']}**")
             if r.get('snippet'):
                 formatted.append(f"   {r['snippet']}")
-            formatted.append(f"   🔗 {r['link']}\n")
+            formatted.append(f"    {r['link']}\n")
         
         return "\n".join(formatted)

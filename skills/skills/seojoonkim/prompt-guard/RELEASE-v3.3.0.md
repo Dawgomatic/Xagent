@@ -2,7 +2,7 @@
 
 **Release Date:** 2026-02-17
 
-## 🛡️ New Critical Pattern: `agent_payment_hijack`
+##  New Critical Pattern: `agent_payment_hijack`
 
 Added 3 CRITICAL patterns to detect Agent Payment Redirect Injection attacks — previously undetected (returned SAFE for fund theft vectors).
 

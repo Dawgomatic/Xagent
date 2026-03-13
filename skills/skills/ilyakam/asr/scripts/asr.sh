@@ -8,7 +8,7 @@ UPLOAD_BASE="https://upload.speechischeap.com/v2"
 
 # 1. Check for API Key
 if [ -z "$SIC_API_KEY" ]; then
-    echo "❌ Error: SIC_API_KEY environment variable is not set."
+    echo " Error: SIC_API_KEY environment variable is not set."
     echo "--------------------------------------------------------"
     echo "To use this skill, you need a Speech is Cheap API key."
     echo "1. Sign up at: https://speechischeap.com"

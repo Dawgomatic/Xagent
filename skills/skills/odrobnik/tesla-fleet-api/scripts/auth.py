@@ -186,7 +186,7 @@ def cmd_exchange(rt: TeslaRuntime, dir_path: str, code: str) -> int:
     auth["refresh_token"] = payload.get("refresh_token")
     save_auth(dir_path, {k: v for k, v in auth.items() if v is not None})
 
-    print("✅ Tokens saved (auth.json)")
+    print(" Tokens saved (auth.json)")
     return 0
 
 
@@ -213,7 +213,7 @@ def cmd_refresh(rt: TeslaRuntime, dir_path: str) -> int:
         auth["refresh_token"] = payload.get("refresh_token")
     save_auth(dir_path, {k: v for k, v in auth.items() if v is not None})
 
-    print("✅ Token refreshed")
+    print(" Token refreshed")
     return 0
 
 
@@ -253,28 +253,28 @@ def cmd_register(rt: TeslaRuntime, dir_path: str) -> int:
     cfg["domain"] = rt.domain
     save_config(dir_path, cfg)
 
-    print(f"✅ Domain registered: {rt.domain}")
+    print(f" Domain registered: {rt.domain}")
     print("Next step: Enroll your key on the vehicle:")
     print(f"  https://tesla.com/_ak/{rt.domain}")
     return 0
 
 
 def cmd_config_show(rt: TeslaRuntime, dir_path: str) -> int:
-    print(f"📁 Config dir: {dir_path}")
+    print(f" Config dir: {dir_path}")
     print(f"   - config.json : {dir_path}/config.json")
     print(f"   - auth.json   : {dir_path}/auth.json")
     print()
 
-    print(f"🔑 Client ID:     {'(from env)' if _env('TESLA_CLIENT_ID') else '(not set)'}")
-    print(f"🔒 Client Secret: {'(from env)' if _env('TESLA_CLIENT_SECRET') else '(not set)'}")
-    print(f"🔗 Redirect URI:  {rt.redirect_uri}")
-    print(f"🌍 Audience:      {rt.audience}")
-    print(f"🖥️  Base URL:      {rt.base_url}")
-    print(f"📜 CA Cert:       {rt.ca_cert or '(not set)'}")
-    print(f"🏠 Domain:        {rt.domain or '(not set)'}")
+    print(f" Client ID:     {'(from env)' if _env('TESLA_CLIENT_ID') else '(not set)'}")
+    print(f" Client Secret: {'(from env)' if _env('TESLA_CLIENT_SECRET') else '(not set)'}")
+    print(f" Redirect URI:  {rt.redirect_uri}")
+    print(f" Audience:      {rt.audience}")
+    print(f"  Base URL:      {rt.base_url}")
+    print(f" CA Cert:       {rt.ca_cert or '(not set)'}")
+    print(f" Domain:        {rt.domain or '(not set)'}")
     print()
-    print(f"🎫 Access Token:  {'(set)' if rt.access_token else '(not set)'}")
-    print(f"🔄 Refresh Token: {'(set)' if rt.refresh_token else '(not set)'}")
+    print(f" Access Token:  {'(set)' if rt.access_token else '(not set)'}")
+    print(f" Refresh Token: {'(set)' if rt.refresh_token else '(not set)'}")
     return 0
 
 
@@ -306,7 +306,7 @@ def cmd_config_set(args: argparse.Namespace, dir_path: str) -> int:
         return 1
 
     save_config(dir_path, cfg)
-    print("✅ Updated:", ", ".join(changed))
+    print(" Updated:", ", ".join(changed))
     return 0
 
 

@@ -3,11 +3,11 @@
 **Automatic workspace and memory backups for AI agents.**
 
 Every agent needs backups. This skill handles:
-- 🧠 Memory files (MEMORY.md, daily logs)
-- 🆔 Identity files (SOUL.md, USER.md, AGENTS.md, IDENTITY.md)
-- 📜 Scripts and automation
-- 💾 openclaw-mem database
-- ⚙️ Configuration files
+-  Memory files (MEMORY.md, daily logs)
+-  Identity files (SOUL.md, USER.md, AGENTS.md, IDENTITY.md)
+-  Scripts and automation
+-  openclaw-mem database
+-  Configuration files
 
 ## Installation
 
@@ -374,10 +374,10 @@ ssh -T git@github.com
 ## Why This Matters
 
 Agents lose memory between sessions. Backups are your safety net:
-- 💾 **Disaster recovery** - Restore from crashes
-- 🔄 **Migration** - Move to new machines
-- 🕰️ **Time travel** - See how you've evolved
-- 🤝 **Sharing** - Share workspace setup with other agents
+-  **Disaster recovery** - Restore from crashes
+-  **Migration** - Move to new machines
+-  **Time travel** - See how you've evolved
+-  **Sharing** - Share workspace setup with other agents
 
 ## Example: Heartbeat Integration
 
@@ -392,6 +392,6 @@ If last backup >48 hours, alert human.
 
 ---
 
-**Built by Argent** ⚡  
+**Built by Argent**   
 Published to ClawHub: https://clawhub.com/webdevtodayjason/self-backup  
 GitHub: https://github.com/webdevtodayjason/self-backup-skill

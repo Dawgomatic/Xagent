@@ -12,18 +12,18 @@
 
 | 检查项 | 设计 requirement | 代码实现 | 状态 |
 |--------|-----------------|----------|------|
-| `prompts/` (v1/v2_addons) | 必须存在，只读资源 | ✅ 已创建13个模板 | ✅ PASS |
-| `logs/prompts/` | Prompt审计日志目录 | ✅ PromptAuditor创建 | ✅ PASS |
-| `logs/token-report.jsonl` | Token事件日志 | ✅ atomic_append_jsonl | ✅ PASS |
-| `logs/cost-report.jsonl` | 人民币成本日志 | ⚠️ 基础支持，需price_table | ⚠️ PARTIAL |
-| `logs/rescue.jsonl` | Auto-Rescue日志 | ✅ AutoRescue类实现 | ✅ PASS |
-| `final/quality-report.md` | 质量报告 | ✅ FinalIntegration | ✅ PASS |
-| `final/auto_abort_report.md` | 中止报告 | ✅ AutoAbortGuardrail | ✅ PASS |
-| `final/auto_rescue_report.md` | 救援报告 | ✅ AutoRescue.generate_rescue_report | ✅ PASS |
-| `archive/snapshots/` | 快照目录，含run_id | ✅ SnapshotManager | ✅ PASS |
-| 禁止越界写入 | 所有写入必须在workspace_root | ✅ validate_path_in_workspace | ✅ PASS |
+| `prompts/` (v1/v2_addons) | 必须存在，只读资源 |  已创建13个模板 |  PASS |
+| `logs/prompts/` | Prompt审计日志目录 |  PromptAuditor创建 |  PASS |
+| `logs/token-report.jsonl` | Token事件日志 |  atomic_append_jsonl |  PASS |
+| `logs/cost-report.jsonl` | 人民币成本日志 |  基础支持，需price_table |  PARTIAL |
+| `logs/rescue.jsonl` | Auto-Rescue日志 |  AutoRescue类实现 |  PASS |
+| `final/quality-report.md` | 质量报告 |  FinalIntegration |  PASS |
+| `final/auto_abort_report.md` | 中止报告 |  AutoAbortGuardrail |  PASS |
+| `final/auto_rescue_report.md` | 救援报告 |  AutoRescue.generate_rescue_report |  PASS |
+| `archive/snapshots/` | 快照目录，含run_id |  SnapshotManager |  PASS |
+| 禁止越界写入 | 所有写入必须在workspace_root |  validate_path_in_workspace |  PASS |
 
-**评分**: 9/10 ✅ (cost-report需price_table完善)
+**评分**: 9/10  (cost-report需price_table完善)
 
 ---
 
@@ -31,13 +31,13 @@
 
 | 检查项 | 设计 requirement | 代码实现 | 状态 |
 |--------|-----------------|----------|------|
-| `book_uid` 生成并固化 | 6-10位hash，用于目录隔离 | ✅ generate_book_uid | ✅ PASS |
-| `run_id` 与目录强绑定 | YYYYMMDD_HHMMSS_RAND6 | ✅ generate_run_id, 目录名一致 | ✅ PASS |
-| `event_id` 跨日志一致 | token/cost/rescue共享 | ⚠️ 生成函数存在，需验证对齐 | ⚠️ PARTIAL |
-| `ending_state` 枚举 | not_ready/ready_to_end/ended | ❌ 未在writing-state中明确定义 | ❌ MISSING |
-| Attempt状态机门槛 | >=85/75-84/<75 | ✅ QCStatus枚举 + thresholds | ✅ PASS |
+| `book_uid` 生成并固化 | 6-10位hash，用于目录隔离 |  generate_book_uid |  PASS |
+| `run_id` 与目录强绑定 | YYYYMMDD_HHMMSS_RAND6 |  generate_run_id, 目录名一致 |  PASS |
+| `event_id` 跨日志一致 | token/cost/rescue共享 |  生成函数存在，需验证对齐 |  PARTIAL |
+| `ending_state` 枚举 | not_ready/ready_to_end/ended |  未在writing-state中明确定义 |  MISSING |
+| Attempt状态机门槛 | >=85/75-84/<75 |  QCStatus枚举 + thresholds |  PASS |
 
-**评分**: 4/5 ⚠️ (ending_state缺失)
+**评分**: 4/5  (ending_state缺失)
 
 ---
 
@@ -45,13 +45,13 @@
 
 | 检查项 | 设计 requirement | 代码实现 | 状态 |
 |--------|-----------------|----------|------|
-| Auto模式chapter_outline来自v1 | 必须使用prompts/v1/ | ✅ PromptRegistry.VALIDATE_FOR_AUTO | ✅ PASS |
-| Auto模式chapter_draft来自v1 | 必须使用prompts/v1/ | ✅ REQUIRED_TEMPLATES检查 | ✅ PASS |
-| 每次调用落盘最终Prompt | `logs/prompts/{phase}_{chapter}_{event_id}.md` | ✅ PromptAuditor.log_prompt | ✅ PASS |
-| prompt_registry.json | 指向的模板存在且可读 | ✅ initialize时验证 | ✅ PASS |
-| 审计链缺失= fatal | 必须停机 | ⚠️ 返回错误，未强制停机 | ⚠️ PARTIAL |
+| Auto模式chapter_outline来自v1 | 必须使用prompts/v1/ |  PromptRegistry.VALIDATE_FOR_AUTO |  PASS |
+| Auto模式chapter_draft来自v1 | 必须使用prompts/v1/ |  REQUIRED_TEMPLATES检查 |  PASS |
+| 每次调用落盘最终Prompt | `logs/prompts/{phase}_{chapter}_{event_id}.md` |  PromptAuditor.log_prompt |  PASS |
+| prompt_registry.json | 指向的模板存在且可读 |  initialize时验证 |  PASS |
+| 审计链缺失= fatal | 必须停机 |  返回错误，未强制停机 |  PARTIAL |
 
-**评分**: 4.5/5 ⚠️
+**评分**: 4.5/5 
 
 ---
 
@@ -59,13 +59,13 @@
 
 | 检查项 | 设计 requirement | 代码实现 | 状态 |
 |--------|-----------------|----------|------|
-| Auto-Rescue开关与最大轮次 | auto_rescue_enabled/max_rounds | ✅ AutoRescue类 | ✅ PASS |
-| Recoverable vs Fatal分级 | 明确分级，Fatal硬停 | ✅ should_rescue区分 | ✅ PASS |
-| Auto Abort Guardrail | 卡死判定+abort报告 | ✅ AutoAbortGuardrail类 | ✅ PASS |
-| Forced streak熔断 | >=2时暂停 | ✅ state_commit检查 | ✅ PASS |
-| 完结交付包 | 文本+报告+状态归档 | ⚠️ Phase 8/9基础实现 | ⚠️ PARTIAL |
+| Auto-Rescue开关与最大轮次 | auto_rescue_enabled/max_rounds |  AutoRescue类 |  PASS |
+| Recoverable vs Fatal分级 | 明确分级，Fatal硬停 |  should_rescue区分 |  PASS |
+| Auto Abort Guardrail | 卡死判定+abort报告 |  AutoAbortGuardrail类 |  PASS |
+| Forced streak熔断 | >=2时暂停 |  state_commit检查 |  PASS |
+| 完结交付包 | 文本+报告+状态归档 |  Phase 8/9基础实现 |  PARTIAL |
 
-**评分**: 4.5/5 ⚠️
+**评分**: 4.5/5 
 
 ---
 
@@ -73,12 +73,12 @@
 
 | 检查项 | 设计 requirement | 代码实现 | 状态 |
 |--------|-----------------|----------|------|
-| `price-table.json` | 版本化，含updated_at/source/usd_cny_rate | ❌ 未实现 | ❌ MISSING |
-| `cost-report.jsonl` | 含price_table_version和RMB估算 | ⚠️ 占位，需price_table | ⚠️ PARTIAL |
-| usd_cny_rate固化 | run启动时固化并落盘 | ❌ 未实现 | ❌ MISSING |
-| 热更新费率表 | 保留旧版本+切换时间 | ❌ 未实现 | ❌ MISSING |
+| `price-table.json` | 版本化，含updated_at/source/usd_cny_rate |  未实现 |  MISSING |
+| `cost-report.jsonl` | 含price_table_version和RMB估算 |  占位，需price_table |  PARTIAL |
+| usd_cny_rate固化 | run启动时固化并落盘 |  未实现 |  MISSING |
+| 热更新费率表 | 保留旧版本+切换时间 |  未实现 |  MISSING |
 
-**评分**: 0.5/4 ❌ (重大缺失)
+**评分**: 0.5/4  (重大缺失)
 
 ---
 
@@ -88,10 +88,10 @@
 
 | 检查点 | 状态 | 说明 |
 |--------|------|------|
-| `novels/{book_title_slug}__{book_uid}/runs/{run_id}/` | ✅ | workspace.py实现 |
-| book_uid派生workspace_root | ✅ | 自动生成 |
-| 手动指定workspace_root限制 | ⚠️ | 代码有预留，未完整实现resume逻辑 |
-| 两本书目录隔离 | ✅ | 目录结构保证 |
+| `novels/{book_title_slug}__{book_uid}/runs/{run_id}/` |  | workspace.py实现 |
+| book_uid派生workspace_root |  | 自动生成 |
+| 手动指定workspace_root限制 |  | 代码有预留，未完整实现resume逻辑 |
+| 两本书目录隔离 |  | 目录结构保证 |
 
 ### 2. Event ID总表
 
@@ -103,9 +103,9 @@
 - `CP-*` Cost/Pricing事件
 
 **代码实现**: 
-- ✅ event_id生成函数存在
-- ⚠️ 具体Event ID常量未定义
-- ⚠️ RS/BP/AR事件未完整实现
+-  event_id生成函数存在
+-  具体Event ID常量未定义
+-  RS/BP/AR事件未完整实现
 
 ### 3. Attempt状态机表
 
@@ -116,7 +116,7 @@
 | Attempt 3 | Attempt2未达标 | 全量重写 | <75 → FORCED |
 | FORCED | Attempt3且<75 | 最小可行稿 | forced_streak+=1 |
 
-**代码实现**: ✅ writing_loop.py中attempt_cycle完整实现
+**代码实现**:  writing_loop.py中attempt_cycle完整实现
 
 ### 4. Price Table Schema
 
@@ -130,7 +130,7 @@
 
 ## 三、关键功能缺失清单
 
-### 🔴 缺失功能（必须实现）
+###  缺失功能（必须实现）
 
 1. **price_table.py 模块**
    - 费率表版本化
@@ -156,7 +156,7 @@
    - 参数优先级固化
    - alias映射记录
 
-### 🟡 部分实现（需要完善）
+###  部分实现（需要完善）
 
 6. **cost-report.jsonl**
    - 需要与price_table集成
@@ -227,19 +227,19 @@
 
 ## 六、结论
 
-**当前状态**: ⚠️ **基本可用，但有关键缺失**
+**当前状态**:  **基本可用，但有关键缺失**
 
 **已实现** (~75%):
-- ✅ 核心架构（目录结构、状态面板）
-- ✅ Phase 1-6基础流程
-- ✅ 原子I/O和快照
-- ✅ 基础安全机制（Auto-Rescue/Abort框架）
-- ✅ 提示词审计
+-  核心架构（目录结构、状态面板）
+-  Phase 1-6基础流程
+-  原子I/O和快照
+-  基础安全机制（Auto-Rescue/Abort框架）
+-  提示词审计
 
 **关键缺失** (~25%):
-- ❌ price_table/cost管理
-- ❌ ending_state/终止条件
-- ❌ 完整resume机制
-- ❌ 排他锁
+-  price_table/cost管理
+-  ending_state/终止条件
+-  完整resume机制
+-  排他锁
 
 **建议**: 完成P0和P1修复后，可达到生产可用状态。

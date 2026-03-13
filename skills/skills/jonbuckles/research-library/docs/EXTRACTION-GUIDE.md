@@ -8,7 +8,7 @@ The Research Library extraction pipeline converts documents, images, and code fi
 
 ```
 ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-│   DETECT    │───▶│   EXTRACT   │───▶│    SCORE    │
+│   DETECT    │───│   EXTRACT   │───│    SCORE    │
 │  File Type  │    │    Text     │    │  Confidence │
 └─────────────┘    └─────────────┘    └─────────────┘
 ```

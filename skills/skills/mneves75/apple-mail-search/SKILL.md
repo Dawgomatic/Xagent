@@ -2,7 +2,7 @@
 name: apple-mail-search
 description: Fast Apple Mail search via SQLite on macOS. Search emails by subject, sender, date, attachments - results in ~50ms vs 8+ minutes with AppleScript. Use when asked to find, search, or list emails.
 homepage: https://github.com/steipete/clawdbot
-metadata: {"clawdbot":{"emoji":"📬","os":["darwin"],"requires":{"bins":["sqlite3"]}}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin"],"requires":{"bins":["sqlite3"]}}}
 ---
 
 # Apple Mail Search

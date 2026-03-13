@@ -10,39 +10,39 @@ Full-featured Ahrefs API integration covering Site Explorer, Keywords Explorer, 
 ## Features
 
 ### Site Explorer
-- 📊 Domain metrics (DR, UR, traffic, keywords)
-- 🔗 Backlinks analysis with geographic filtering
-- 📈 Organic keyword research with position filtering
-- 🏆 Competitor analysis and comparisons
-- 🌏 Country-specific filtering (Advanced/Enterprise)
+-  Domain metrics (DR, UR, traffic, keywords)
+-  Backlinks analysis with geographic filtering
+-  Organic keyword research with position filtering
+-  Competitor analysis and comparisons
+-  Country-specific filtering (Advanced/Enterprise)
 
 ### Keywords Explorer
-- 🔍 Search volume & keyword difficulty
-- 💰 CPC estimates & traffic potential
-- 🎯 Related keywords & questions
-- 📋 SERP analysis & features
-- 🔄 Batch keyword processing (up to 100)
+-  Search volume & keyword difficulty
+-  CPC estimates & traffic potential
+-  Related keywords & questions
+-  SERP analysis & features
+-  Batch keyword processing (up to 100)
 
 ### Rank Tracker
-- 📍 Position tracking & monitoring
-- 📊 Historical ranking data
-- 🥊 Competitor rankings comparison
-- 📢 Share of voice metrics
-- 🎯 SERP feature tracking
+-  Position tracking & monitoring
+-  Historical ranking data
+-  Competitor rankings comparison
+-  Share of voice metrics
+-  SERP feature tracking
 
 ### Site Audit
-- ✅ Site health scoring
-- 🐛 Technical SEO issue detection
-- 🔗 Internal link analysis
-- ⚡ Page performance metrics
-- 📋 Duplicate content detection
+-  Site health scoring
+-  Technical SEO issue detection
+-  Internal link analysis
+-  Page performance metrics
+-  Duplicate content detection
 
 ### Advanced Features
-- 📦 Batch analysis (up to 100 targets)
-- 📡 Brand mention monitoring
-- 🎯 Unlinked mention discovery
-- 💬 Share of voice comparison
-- 💵 API unit cost optimization
+-  Batch analysis (up to 100 targets)
+-  Brand mention monitoring
+-  Unlinked mention discovery
+-  Share of voice comparison
+-  API unit cost optimization
 
 ## Prerequisites
 

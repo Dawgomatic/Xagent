@@ -196,31 +196,31 @@ def strategy(client: IBKRClient):
 
 
 def main():
-    print("🏦 IBKR Trading Bot")
+    print(" IBKR Trading Bot")
     print("=" * 40)
     
     client = IBKRClient()
     
     if not client.is_authenticated():
-        print("❌ Not authenticated. Run authenticate.sh first.")
+        print(" Not authenticated. Run authenticate.sh first.")
         return
     
-    print("✅ Authenticated")
+    print(" Authenticated")
     
     # Get account info
     accounts = client.get_accounts()
     if accounts:
         client.account_id = accounts[0]["accountId"]
-        print(f"📊 Account: {client.account_id}")
+        print(f" Account: {client.account_id}")
     
     # Get balance
     balance = client.get_balance()
     cash = balance.get("totalcashvalue", {}).get("amount", 0)
-    print(f"💰 Cash: ${cash:,.2f}")
+    print(f" Cash: ${cash:,.2f}")
     
     # Get positions
     positions = client.get_positions()
-    print(f"📈 Positions: {len(positions)}")
+    print(f" Positions: {len(positions)}")
     for p in positions:
         print(f"   {p.symbol}: {p.quantity} @ ${p.avg_cost:.2f} (P&L: ${p.unrealized_pnl:.2f})")
     

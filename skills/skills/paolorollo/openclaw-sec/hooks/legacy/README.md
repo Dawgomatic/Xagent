@@ -8,8 +8,8 @@ This directory contains the legacy Claude Code hook implementations. These hooks
 
 ```
 hooks/
-├── user-prompt-submit-hook.ts   # ❌ Deprecated
-└── tool-call-hook.ts             # ❌ Deprecated
+├── user-prompt-submit-hook.ts   #  Deprecated
+└── tool-call-hook.ts             #  Deprecated
 ```
 
 **Installation:** `~/.claude-code/hooks/`
@@ -24,10 +24,10 @@ hooks/
 
 ```
 hooks/
-├── security-input-validator/     # ✅ Use this
+├── security-input-validator/     #  Use this
 │   ├── HOOK.md
 │   └── handler.ts
-└── security-tool-validator/      # ✅ Use this
+└── security-tool-validator/      #  Use this
     ├── HOOK.md
     └── handler.ts
 ```
@@ -103,7 +103,7 @@ name: security-input-validator
 description: "..."
 metadata:
   openclaw:
-    emoji: "🛡️"
+    emoji: ""
     events: ["command:new"]
 ---
 ```

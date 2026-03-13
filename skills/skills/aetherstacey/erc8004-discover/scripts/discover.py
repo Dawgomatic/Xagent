@@ -304,36 +304,36 @@ def cmd_info(args):
     print(f"AGENT: {found.get('name') or 'Unnamed'}")
     print("=" * 60)
 
-    print(f"\n📍 Address:     {found.get('address', '-')}")
-    print(f"🔗 Network:     {found.get('network_name', '-')} (ID: {found.get('network_id', '-')})")
-    print(f"🎫 Token ID:    {found.get('token_id', '-')}")
-    print(f"👤 Owner:       {found.get('owner_address', '-')}")
-    print(f"⭐ Reputation:  {format_reputation(found.get('reputation_score'))}")
-    print(f"📊 Status:      {found.get('status', '-')}")
+    print(f"\n Address:     {found.get('address', '-')}")
+    print(f" Network:     {found.get('network_name', '-')} (ID: {found.get('network_id', '-')})")
+    print(f" Token ID:    {found.get('token_id', '-')}")
+    print(f" Owner:       {found.get('owner_address', '-')}")
+    print(f" Reputation:  {format_reputation(found.get('reputation_score'))}")
+    print(f" Status:      {found.get('status', '-')}")
 
     if found.get("description"):
-        print(f"\n📝 Description:")
+        print(f"\n Description:")
         print(f"   {found.get('description')}")
 
     skills = found.get("skills") or []
     if skills:
-        print(f"\n🛠️  Skills ({len(skills)}):")
+        print(f"\n  Skills ({len(skills)}):")
         for skill in skills:
             print(f"   • {skill}")
 
     domains = found.get("domains") or []
     if domains:
-        print(f"\n🌐 Domains ({len(domains)}):")
+        print(f"\n Domains ({len(domains)}):")
         for domain in domains:
             print(f"   • {domain}")
 
     # Try to decode metadata
     metadata_uri = found.get("metadata_uri")
     if metadata_uri:
-        print(f"\n📦 Metadata URI: {metadata_uri[:80]}{'...' if len(metadata_uri) > 80 else ''}")
+        print(f"\n Metadata URI: {metadata_uri[:80]}{'...' if len(metadata_uri) > 80 else ''}")
         metadata = decode_metadata_uri(metadata_uri)
         if metadata:
-            print("\n📋 Decoded Metadata:")
+            print("\n Decoded Metadata:")
             for key, value in metadata.items():
                 if key not in ["name", "description"]:  # Already shown above
                     if isinstance(value, (list, dict)):
@@ -384,21 +384,21 @@ def cmd_stats(args):
     print("        ERC-8004 ECOSYSTEM STATISTICS")
     print("=" * 50)
 
-    print(f"\n📊 OVERVIEW")
+    print(f"\n OVERVIEW")
     print(f"   Total Agents:          {total:,}")
     print(f"   With Metadata:         {with_metadata:,} ({100*with_metadata/total:.1f}%)" if total else "   With Metadata:         0")
     print(f"   With Reputation:       {with_rep:,} ({100*with_rep/total:.1f}%)" if total else "   With Reputation:       0")
     print(f"   With Skills:           {with_skills:,} ({100*with_skills/total:.1f}%)" if total else "   With Skills:           0")
     print(f"   Average Reputation:    {avg_rep:.1f}")
 
-    print(f"\n🔗 AGENTS BY CHAIN")
+    print(f"\n AGENTS BY CHAIN")
     for chain, count in sorted(chain_counts.items(), key=lambda x: -x[1]):
         pct = 100 * count / total if total else 0
         bar = "█" * int(pct / 5) + "░" * (20 - int(pct / 5))
         print(f"   {chain:<20} {count:>5} {bar} {pct:>5.1f}%")
 
     if isinstance(networks, list) and networks:
-        print(f"\n🌐 SUPPORTED NETWORKS ({len(networks)})")
+        print(f"\n SUPPORTED NETWORKS ({len(networks)})")
         for net in networks[:10]:
             if isinstance(net, dict):
                 print(f"   • {net.get('name', net.get('network_name', 'Unknown'))}")
@@ -430,14 +430,14 @@ def cmd_skills(args):
     print("=" * 50)
 
     if skill_counts:
-        print(f"\n🛠️  SKILLS ({len(skill_counts)} unique)")
+        print(f"\n  SKILLS ({len(skill_counts)} unique)")
         for skill, count in sorted(skill_counts.items(), key=lambda x: -x[1]):
             print(f"   {skill:<35} ({count} agent{'s' if count > 1 else ''})")
     else:
         print("\n   No skills found.")
 
     if domain_counts:
-        print(f"\n🌐 DOMAINS ({len(domain_counts)} unique)")
+        print(f"\n DOMAINS ({len(domain_counts)} unique)")
         for domain, count in sorted(domain_counts.items(), key=lambda x: -x[1]):
             print(f"   {domain:<35} ({count} agent{'s' if count > 1 else ''})")
 
@@ -528,7 +528,7 @@ def cmd_monitor(args):
             print(f"  Name: {current_state['name'] or '-'}")
             print(f"  Reputation: {format_reputation(current_state['reputation_score'])}")
         else:
-            print(f"\n⚠️  CHANGES DETECTED ({len(changes)}):\n")
+            print(f"\n  CHANGES DETECTED ({len(changes)}):\n")
             for key, old_val, new_val in changes:
                 # Format values for display
                 if isinstance(old_val, list):

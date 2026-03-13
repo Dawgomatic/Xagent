@@ -4,12 +4,12 @@ A custom Telegram command that displays comprehensive session usage statistics i
 
 ## Features
 
-✅ **Quota Remaining** - Shows percentage of API quota left (provider-specific)  
-✅ **Session Time** - Displays time remaining before session resets  
-✅ **Token Usage** - Shows input and output tokens used in session  
-✅ **Context Window** - Displays current context window usage  
-✅ **Visual Indicators** - Color-coded emoji for quick status check  
-✅ **Single Message** - All info in one clean Telegram message  
+ **Quota Remaining** - Shows percentage of API quota left (provider-specific)  
+ **Session Time** - Displays time remaining before session resets  
+ **Token Usage** - Shows input and output tokens used in session  
+ **Context Window** - Displays current context window usage  
+ **Visual Indicators** - Color-coded emoji for quick status check  
+ **Single Message** - All info in one clean Telegram message  
 
 ## Installation
 
@@ -87,23 +87,23 @@ Send any of these:
 ### Output Example
 
 ```
-📊 Session Usage Report
+ Session Usage Report
 
-🔋 Quota Remaining
-🟢 82% of API quota available
+ Quota Remaining
+ 82% of API quota available
 Provider: anthropic
 
-⏱️ Session Time
+ Session Time
 3 hours 40 minutes remaining
 (resets daily at 4:00 AM)
 
-🎯 Tokens Used
+ Tokens Used
 4,370 total tokens
 ├─ Input: 2,847
 └─ Output: 1,523
 
-📦 Context Window
-🟢 45% used
+ Context Window
+ 45% used
 1,856 / 4,096 tokens
 
 Model: Claude 3.5 Haiku
@@ -130,10 +130,10 @@ The default session reset is 4:00 AM. Configure in `~/.clawdbot/clawdbot.json`:
 
 ## Color Indicators
 
-- 🟢 **Green** — Good (75%+ remaining)
-- 🟡 **Yellow** — Warning (50-75% remaining)
-- 🟠 **Orange** — Low (25-50% remaining)
-- 🔴 **Red** — Critical (<25% remaining)
+-  **Green** — Good (75%+ remaining)
+-  **Yellow** — Warning (50-75% remaining)
+-  **Orange** — Low (25-50% remaining)
+-  **Red** — Critical (<25% remaining)
 
 ## How It Works
 

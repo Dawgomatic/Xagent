@@ -168,7 +168,7 @@ Popupsmart offers the most comprehensive popup library:
 ```
 ┌─────────────────────────────────────────┐
 │                                         │
-│     🎡 SPIN TO WIN! 🎡                 │
+│      SPIN TO WIN!                  │
 │                                         │
 │      [Spinning Wheel]                   │
 │   5% | 10% | 15% | 20% | Free Ship     │
@@ -176,7 +176,7 @@ Popupsmart offers the most comprehensive popup library:
 │   Enter your email to spin:             │
 │   [email@example.com____________]       │
 │                                         │
-│   [🎰 SPIN THE WHEEL]                  │
+│   [ SPIN THE WHEEL]                  │
 │                                         │
 └─────────────────────────────────────────┘
 
@@ -191,7 +191,7 @@ Results:
 ```
 ┌─────────────────────────────────────────┐
 │                                         │
-│   🎱 TRY YOUR LUCK! 🎱                 │
+│    TRY YOUR LUCK!                  │
 │                                         │
 │      [Lottery Ball Animation]           │
 │                                         │

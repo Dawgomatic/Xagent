@@ -147,7 +147,7 @@ SLIPPAGE_MAX_PCT = 0.15
 TIME_TO_RESOLUTION_MIN_HOURS = 2
 PRICE_DROP_THRESHOLD = 0.10
 
-# 🆕 NOAA Forecast Accuracy Model (based on lead time)
+#  NOAA Forecast Accuracy Model (based on lead time)
 NOAA_ACCURACY_MODEL = {
     0: 0.90,   # Same day: 90%
     1: 0.88,   # 1 day out: 88%
@@ -169,7 +169,7 @@ DEFAULT_LOCATIONS = {
     "Miami": {"lat": 25.7959, "lon": -80.2870, "name": "Miami (MIA)"},
 }
 
-# 🆕 Runtime location cache (for geocoding)
+#  Runtime location cache (for geocoding)
 LOCATION_CACHE = DEFAULT_LOCATIONS.copy()
 
 _locations_str = _config["locations"]
@@ -180,7 +180,7 @@ else:
     ACTIVE_LOCATIONS = [loc.strip().upper() for loc in _locations_str.split(",") if loc.strip()]
 
 # =============================================================================
-# 🆕 Enhanced Geocoding with Nominatim Fallback
+#  Enhanced Geocoding with Nominatim Fallback
 # =============================================================================
 
 def fetch_json(url, headers=None, retries=3):
@@ -193,7 +193,7 @@ def fetch_json(url, headers=None, retries=3):
         except HTTPError as e:
             if e.code == 429:  # Rate limit
                 wait_time = 2 ** attempt
-                print(f"  ⏳ Rate limited, waiting {wait_time}s...")
+                print(f"   Rate limited, waiting {wait_time}s...")
                 time.sleep(wait_time)
                 continue
             print(f"  HTTP Error {e.code}: {url}")
@@ -217,7 +217,7 @@ def geocode_location(location_name: str) -> tuple:
         loc = LOCATION_CACHE[location_name]
         return (loc["lat"], loc["lon"])
 
-    print(f"  🌍 Geocoding {location_name} via Nominatim...")
+    print(f"   Geocoding {location_name} via Nominatim...")
 
     # Add "airport" to query for better weather station matching
     query = f"{location_name} airport USA"
@@ -249,7 +249,7 @@ def geocode_location(location_name: str) -> tuple:
 
 
 # =============================================================================
-# 🆕 Enhanced NOAA API with Better Error Handling
+#  Enhanced NOAA API with Better Error Handling
 # =============================================================================
 
 def get_noaa_forecast(location: str) -> dict:
@@ -321,7 +321,7 @@ def get_noaa_forecast(location: str) -> dict:
 
 
 # =============================================================================
-# 🆕 Enhanced Temperature Bucket Parsing
+#  Enhanced Temperature Bucket Parsing
 # =============================================================================
 
 def parse_temperature_bucket(outcome_name: str) -> tuple:
@@ -371,7 +371,7 @@ def parse_temperature_bucket(outcome_name: str) -> tuple:
 
 
 # =============================================================================
-# 🆕 Dynamic Forecast Confidence Model
+#  Dynamic Forecast Confidence Model
 # =============================================================================
 
 def calculate_forecast_confidence(target_date_str: str, forecast_temp: float,
@@ -428,7 +428,7 @@ def calculate_forecast_confidence(target_date_str: str, forecast_temp: float,
 
 
 # =============================================================================
-# 🆕 Market Quality Scoring
+#  Market Quality Scoring
 # =============================================================================
 
 def calculate_market_quality_score(market: dict, context: dict = None) -> float:
@@ -602,7 +602,7 @@ def sdk_request(api_key: str, method: str, endpoint: str, data: dict = None) -> 
 def get_portfolio(api_key: str) -> dict:
     result = sdk_request(api_key, "GET", "/api/sdk/portfolio")
     if "error" in result:
-        print(f"  ⚠️  Portfolio fetch failed: {result['error']}")
+        print(f"    Portfolio fetch failed: {result['error']}")
         return None
     return result
 
@@ -777,7 +777,7 @@ def check_exit_opportunities(api_key: str, dry_run: bool = False, use_safeguards
                 context = get_market_context(api_key, market_id)
                 should_trade, reasons = check_context_safeguards(context)
                 if not should_trade:
-                    print(f"      ⏭ Skipped: {'; '.join(reasons)}")
+                    print(f"       Skipped: {'; '.join(reasons)}")
                     continue
                 if reasons:
                     print(f"     Warnings: {'; '.join(reasons)}")
@@ -799,7 +799,7 @@ def check_exit_opportunities(api_key: str, dry_run: bool = False, use_safeguards
                         )
                 else:
                     error = result.get("error", "Unknown error")
-                    print(f"     ❌ Sell failed: {error}")
+                    print(f"      Sell failed: {error}")
         else:
             print(f"   {question}...")
             print(f"     Price ${current_price:.2f} < exit ${EXIT_THRESHOLD:.2f} - hold")
@@ -859,7 +859,7 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
                 print(f"    YES: {pos.get('shares_yes', 0):.1f} | P&L: ${pos.get('pnl', 0):.2f}")
         return
 
-    print("\n📡 Fetching weather markets...")
+    print("\n Fetching weather markets...")
     markets = fetch_weather_markets()
     print(f"  Found {len(markets)} weather markets")
 
@@ -935,11 +935,11 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
         markets_analyzed += 1
 
         print(f"   Matched: {outcome_name} @ ${price:.2f}")
-        # 🆕 Calculate dynamic confidence
+        #  Calculate dynamic confidence
         confidence = calculate_forecast_confidence(date_str, forecast_temp, bucket, metric)
         print(f"   Confidence: {confidence:.0%} (dynamic model)")
 
-        # 🆕 Calculate market quality score
+        #  Calculate market quality score
         context_for_quality = None
         if use_safeguards:
             context_for_quality = get_market_context(api_key, market_id, my_probability=confidence)
@@ -952,14 +952,14 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
             continue
 
         if price < MIN_TICK_SIZE or price > (1 - MIN_TICK_SIZE):
-            print(f"  ⏸  Price at extreme - skip")
+            print(f"    Price at extreme - skip")
             continue
 
         # Check safeguards with confidence
         if use_safeguards and context_for_quality:
             should_trade, reasons = check_context_safeguards(context_for_quality)
             if not should_trade:
-                print(f"  ⏭️  Blocked: {'; '.join(reasons)}")
+                print(f"    Blocked: {'; '.join(reasons)}")
                 continue
             if reasons:
                 print(f"   {'; '.join(reasons)}")
@@ -979,26 +979,26 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
             min_cost = MIN_SHARES_PER_ORDER * price
 
             if min_cost > position_size:
-                print(f"  ⚠️  Position ${position_size:.2f} too small")
+                print(f"    Position ${position_size:.2f} too small")
                 continue
 
             opportunities_found += 1
             print(f"   BUY opportunity!{trend_bonus}")
 
             if trades_executed >= MAX_TRADES_PER_RUN:
-                print(f"  ⏸️  Max trades reached - skip")
+                print(f"    Max trades reached - skip")
                 continue
 
             if dry_run:
                 print(f"  [DRY RUN] Would buy ${position_size:.2f} (~{position_size/price:.1f} shares)")
             else:
-                print(f"  💰 Executing trade...")
+                print(f"   Executing trade...")
                 result = execute_trade(api_key, market_id, "yes", position_size)
                 if result.get("success"):
                     trades_executed += 1
                     shares = result.get("shares_bought") or result.get("shares") or 0
                     trade_id = result.get("trade_id")
-                    print(f"  ✅ Bought {shares:.1f} shares @ ${price:.2f}")
+                    print(f"   Bought {shares:.1f} shares @ ${price:.2f}")
                     if trade_id and JOURNAL_AVAILABLE:
                         log_trade(
                             trade_id=trade_id,
@@ -1012,14 +1012,14 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
                             quality_score=round(quality_score, 2),
                         )
                 else:
-                    print(f"  ❌ Failed: {result.get('error')}")
+                    print(f"   Failed: {result.get('error')}")
         else:
-            print(f"  ⏸️  Price ${price:.2f} > threshold ${ENTRY_THRESHOLD:.2f}")
+            print(f"    Price ${price:.2f} > threshold ${ENTRY_THRESHOLD:.2f}")
 
     exits_found, exits_executed = check_exit_opportunities(api_key, dry_run, use_safeguards)
 
     print("\n" + "=" * 60)
-    print("📊 Summary:")
+    print(" Summary:")
     print(f"  Events scanned:          {len(events)}")
     print(f"  Markets analyzed:        {markets_analyzed}")
     print(f"  Filtered (low quality):  {markets_filtered_quality}")
@@ -1060,7 +1060,7 @@ if __name__ == "__main__":
                 updates[key] = value
         if updates:
             updated = update_config(updates, __file__)
-            print(f"✅ Config updated: {updates}")
+            print(f" Config updated: {updates}")
             _config = load_config(CONFIG_SCHEMA, __file__)
             globals()["ENTRY_THRESHOLD"] = _config["entry_threshold"]
             globals()["EXIT_THRESHOLD"] = _config["exit_threshold"]

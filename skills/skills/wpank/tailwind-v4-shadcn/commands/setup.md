@@ -167,23 +167,23 @@ npx shadcn@latest add card
 ### 10. Provide Next Steps
 
 ```
-✅ Tailwind v4 + shadcn/ui configured!
+ Tailwind v4 + shadcn/ui configured!
 
-📁 Added:
+ Added:
    - @tailwindcss/vite plugin
    - src/components/ui/     (shadcn components)
    - src/lib/utils.ts       (cn utility)
    - Theme provider         (dark/light/system)
 
-🎨 Add components:
+ Add components:
    npx shadcn@latest add <component>
    npx shadcn@latest add button card input
 
-⚠️ Critical Rules:
+ Critical Rules:
    - Use semantic colors: bg-primary, text-foreground
    - Never use raw Tailwind colors: bg-blue-500
 
-📚 Skill loaded: tailwind-v4-shadcn
+ Skill loaded: tailwind-v4-shadcn
    - v3→v4 syntax corrections
    - Semantic color system
    - Theme provider included

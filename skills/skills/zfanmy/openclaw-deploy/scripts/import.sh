@@ -12,16 +12,16 @@ echo "=========================================="
 
 if [ -f "$SCRIPT_DIR/openclaw-clean.tar.gz" ]; then
     echo ""
-    echo "📦 Importing openclaw:clean..."
+    echo " Importing openclaw:clean..."
     gunzip -c "$SCRIPT_DIR/openclaw-clean.tar.gz" | docker load
-    echo "✅ Imported: openclaw:clean"
+    echo " Imported: openclaw:clean"
 fi
 
 if [ -f "$SCRIPT_DIR/openclaw-full.tar.gz" ]; then
     echo ""
-    echo "📦 Importing openclaw:full..."
+    echo " Importing openclaw:full..."
     gunzip -c "$SCRIPT_DIR/openclaw-full.tar.gz" | docker load
-    echo "✅ Imported: openclaw:full"
+    echo " Imported: openclaw:full"
 fi
 
 echo ""

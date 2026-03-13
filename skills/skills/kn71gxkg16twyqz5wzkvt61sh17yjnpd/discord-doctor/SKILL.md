@@ -1,7 +1,7 @@
 ---
 name: discord-doctor
 description: Quick diagnosis and repair for Discord bot, Gateway, OAuth token, and legacy config issues. Checks connectivity, token expiration, and cleans up old Clawdis artifacts.
-metadata: {"clawdbot":{"emoji":"🩺","os":["darwin","linux"],"requires":{"bins":["node","curl"]}}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin","linux"],"requires":{"bins":["node","curl"]}}}
 ---
 
 # Discord Doctor

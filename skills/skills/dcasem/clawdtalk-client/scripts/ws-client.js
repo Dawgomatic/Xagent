@@ -887,35 +887,35 @@ class ClawdTalkClient {
     
     // Build human-readable summary
     var summary = '';
-    var emoji = '📞';
+    var emoji = '';
     
     if (direction === 'outbound') {
       var target = toNumber ? toNumber.replace(/(\+\d{1})(\d{3})(\d{3})(\d{4})/, '$1 ($2) $3-$4') : 'unknown number';
       
       if (outcome === 'voicemail') {
-        emoji = '📬';
+        emoji = '';
         summary = emoji + ' **Voicemail left** for ' + target;
         if (voicemailMessage) {
           summary += '\n> "' + voicemailMessage.substring(0, 200) + (voicemailMessage.length > 200 ? '...' : '') + '"';
         }
       } else if (outcome === 'voicemail_failed') {
-        emoji = '📵';
+        emoji = '';
         summary = emoji + ' Call to ' + target + ' went to voicemail but couldn\'t leave message (no beep detected)';
       } else if (outcome === 'no_answer' || reason === 'amd_silence') {
-        emoji = '📵';
+        emoji = '';
         summary = emoji + ' Call to ' + target + ' - no answer (silence detected)';
       } else if (outcome === 'fax') {
-        emoji = '📠';
+        emoji = '';
         summary = emoji + ' Call to ' + target + ' - fax machine detected, call ended';
       } else if (reason === 'user_hangup') {
-        emoji = '✅';
+        emoji = '';
         summary = emoji + ' Call to ' + target + ' completed (' + this.formatDuration(duration) + ')';
       } else {
         summary = emoji + ' Call to ' + target + ' ended: ' + reason + ' (' + this.formatDuration(duration) + ')';
       }
       
       if (purpose && outcome !== 'voicemail') {
-        summary += '\n📋 Purpose: ' + purpose.substring(0, 100);
+        summary += '\n Purpose: ' + purpose.substring(0, 100);
       }
     } else if (direction === 'inbound') {
       summary = emoji + ' Inbound call ended (' + this.formatDuration(duration) + ')';

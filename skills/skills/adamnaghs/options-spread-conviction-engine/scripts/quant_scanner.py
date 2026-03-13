@@ -568,7 +568,7 @@ class QuantScanner:
             change_pct = quote.get('regularMarketChangePercent', 0)
             print(f"Change: ${change:+.2f} ({change_pct:+.2f}%)")
             if market_state not in ('REGULAR',):
-                print(f"  ⚠ Market: {market_state} — bid/ask may be stale/wider than during market hours")
+                print(f"   Market: {market_state} — bid/ask may be stale/wider than during market hours")
         
         # Fetch multiple expiration chains
         chains = self.fetcher.fetch_multiple_expirations(
@@ -699,16 +699,16 @@ class QuantScanner:
         print(f"Timestamp: {result['timestamp']}")
         
         # Market Regime
-        print(f"\n📊 MARKET REGIME")
+        print(f"\n MARKET REGIME")
         print(f"  Current: {result['regime']['current_regime']}")
         print(f"  Confidence: {result['regime']['confidence']:.1%}")
         print(f"  VIX Level: {result['regime']['vix_level']}")
         print(f"  VIX Percentile: {result['regime']['vix_percentile']}%")
-        print(f"  Favorable for strategy: {'✅ Yes' if result['regime']['is_favorable'] else '⚠️ No'}")
+        print(f"  Favorable for strategy: {' Yes' if result['regime']['is_favorable'] else ' No'}")
         
         # Volatility Analysis
         vol = result['volatility']
-        print(f"\n📈 VOLATILITY ANALYSIS")
+        print(f"\n VOLATILITY ANALYSIS")
         if vol['garch_fitted']:
             print(f"  Current IV: {vol['current_iv']:.1f}%")
             print(f"  Forecast RV: {vol['forecast_rv']:.1f}%")
@@ -719,7 +719,7 @@ class QuantScanner:
         
         # Conviction Scoring
         conv = result['conviction']
-        print(f"\n🎯 CONVICTION SCORING")
+        print(f"\n CONVICTION SCORING")
         print(f"  Base Score: {conv['base_score']:.1f}/100")
         print(f"  Regime Adjusted: {conv['regime_adjusted']:.1f}/100")
         print(f"  Final Score: {conv['final_score']:.1f}/100")
@@ -729,7 +729,7 @@ class QuantScanner:
         
         # Position Sizing
         pos = result['position']
-        print(f"\n💰 POSITION SIZING")
+        print(f"\n POSITION SIZING")
         print(f"  Contracts: {pos['contracts']}")
         print(f"  Total Risk: ${pos['total_risk']:.2f}")
         print(f"  Kelly Fraction: {pos['kelly_fraction']:.2%}")
@@ -738,7 +738,7 @@ class QuantScanner:
         
         # Final Recommendation
         rec = result['recommendation']
-        print(f"\n🚦 FINAL RECOMMENDATION: {rec['action']}")
+        print(f"\n FINAL RECOMMENDATION: {rec['action']}")
         for rationale in rec['rationale']:
             print(f"  • {rationale}")
         

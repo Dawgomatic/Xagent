@@ -3,7 +3,7 @@ name: search-openclaw-docs
 description: MANDATORY before any openclaw.json changes. Prevents config breakage via embedded anti-patterns and correct patterns. Use when configuring OpenClaw (bindings, channels, sessions, cron, heartbeat) or troubleshooting config issues.
 metadata:
   openclaw:
-    emoji: "📚"
+    emoji: ""
     homepage: https://github.com/karmanverma/search-openclaw-docs
     requires:
       bins: ["node"]
@@ -25,7 +25,7 @@ metadata:
 
 ---
 
-## 🚨 CRITICAL: Read AGENTS.md First
+##  CRITICAL: Read AGENTS.md First
 
 Before using this skill:
 
@@ -72,8 +72,8 @@ cat ~/.openclaw/skills/search-openclaw-docs/AGENTS.md
 - `migration-2026-2-9.md` - Version updates (MEDIUM)
 
 **Each reference contains:**
-- ✅ Correct pattern
-- ❌ Common anti-patterns
+-  Correct pattern
+-  Common anti-patterns
 - Why it breaks
 - Examples
 
@@ -83,12 +83,12 @@ cat ~/.openclaw/skills/search-openclaw-docs/AGENTS.md
 
 | Scenario | Action |
 |----------|--------|
-| Before editing `openclaw.json` | ✅ Read relevant reference first |
-| Config changes not working | ✅ Read troubleshooting reference |
-| Learning OpenClaw config | ✅ Read best practices reference |
-| Personal memory/context | ❌ Use `memory_search` instead |
-| Supabase/database work | ❌ Use `supabase-postgres-best-practices` |
-| Next.js code patterns | ❌ Use `next-best-practices` |
+| Before editing `openclaw.json` |  Read relevant reference first |
+| Config changes not working |  Read troubleshooting reference |
+| Learning OpenClaw config |  Read best practices reference |
+| Personal memory/context |  Use `memory_search` instead |
+| Supabase/database work |  Use `supabase-postgres-best-practices` |
+| Next.js code patterns |  Use `next-best-practices` |
 
 ---
 
@@ -126,18 +126,18 @@ node scripts/docs-search.js "heartbeat" --json
 ## Output Format
 
 ```
-🔍 Query: discord only respond when mentioned
+ Query: discord only respond when mentioned
 
-🎯 Best match:
+ Best match:
    channels/discord.md
    "Discord (Bot API)"
    Keywords: discord, requiremention
    Score: 0.70
 
-📄 Also relevant:
+ Also relevant:
    concepts/groups.md (0.66)
 
-💡 Read with:
+ Read with:
    cat /usr/lib/node_modules/openclaw/docs/channels/discord.md
 ```
 

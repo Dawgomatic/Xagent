@@ -21,7 +21,7 @@ The agent builds a week-by-week forecast table showing:
 - Cash out (by category)
 - Net change
 - Closing balance
-- Buffer status (✅ above minimum / ⚠️ within 20% / 🔴 below)
+- Buffer status ( above minimum /  within 20% /  below)
 
 ## Prompt
 

@@ -115,9 +115,9 @@ def main():
             break
         time.sleep(0.2)
 
-    print(f"✅ Requested: {want_name}")
-    print(f"🔗 URI: {want_uri}")
-    print(f"🎵 Now playing: {cur or '(unknown)'}")
+    print(f" Requested: {want_name}")
+    print(f" URI: {want_uri}")
+    print(f" Now playing: {cur or '(unknown)'}")
 
 if __name__ == "__main__":
     main()

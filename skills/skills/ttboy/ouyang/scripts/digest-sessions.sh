@@ -35,7 +35,7 @@ fi
 
 # Check if sessions dir exists
 if [[ ! -d "$SESSIONS_DIR" ]]; then
-    echo "⚠ Sessions directory not found: $SESSIONS_DIR"
+    echo " Sessions directory not found: $SESSIONS_DIR"
     exit 0
 fi
 
@@ -72,7 +72,7 @@ if [[ -z "$(echo $new_sessions | tr -d ' ')" ]]; then
     exit 0
 fi
 
-echo "🦊 Jasper Recall — Session Digester"
+echo " Jasper Recall — Session Digester"
 echo "=" * 40
 echo "Sessions to process: $(echo $new_sessions | wc -w)"
 echo ""

@@ -31,7 +31,7 @@ async function main() {
 
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
-  console.log('🏋️  WHOOP Central Setup\n');
+  console.log('  WHOOP Central Setup\n');
   console.log(`This will write:\n- ${CREDENTIALS_PATH}\n- ${TOKEN_PATH} (optional)\n`);
 
   const redirectDefault = 'https://localhost:3000/callback';
@@ -42,13 +42,13 @@ async function main() {
 
   if (!clientId || !clientSecret) {
     rl.close();
-    console.error('\n❌ Missing client id/secret. Aborting.');
+    console.error('\n Missing client id/secret. Aborting.');
     process.exit(1);
   }
 
   const creds = { client_id: clientId, client_secret: clientSecret };
   fs.writeFileSync(CREDENTIALS_PATH, JSON.stringify(creds, null, 2) + '\n');
-  console.log(`\n✅ Saved credentials: ${CREDENTIALS_PATH}`);
+  console.log(`\n Saved credentials: ${CREDENTIALS_PATH}`);
 
   const hasTokens = (await rlQuestion(rl, '\nDo you already have tokens (from Postman) to paste now? [y/N]: '))
     .trim()
@@ -77,7 +77,7 @@ async function main() {
 
   if (!accessToken || !refreshToken || !Number.isFinite(expiresIn)) {
     rl.close();
-    console.error('\n❌ Missing/invalid token fields. Aborting.');
+    console.error('\n Missing/invalid token fields. Aborting.');
     process.exit(1);
   }
 
@@ -94,14 +94,14 @@ async function main() {
   fs.writeFileSync(TOKEN_PATH, JSON.stringify(token, null, 2) + '\n');
   rl.close();
 
-  console.log(`\n✅ Saved token: ${TOKEN_PATH}`);
+  console.log(`\n Saved token: ${TOKEN_PATH}`);
   console.log('\nVerify:');
   console.log(`  WHOOP_REDIRECT_URI='${redirectUri}' node src/verify.js`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(err => {
-    console.error(`❌ ${err.message}`);
+    console.error(` ${err.message}`);
     process.exit(1);
   });
 }

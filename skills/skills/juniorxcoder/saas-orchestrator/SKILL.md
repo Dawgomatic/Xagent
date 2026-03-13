@@ -3,7 +3,7 @@ name: saas-orchestrator
 description: Orchestrate SAAS factory operations - spawn subagents, track projects, manage revenue targets, and coordinate development workflows. Use when building a SAAS empire with $1000+ MRR per product targets.
 ---
 
-# 🦞 SAAS Orchestrator - JUNAI's Command Center
+#  SAAS Orchestrator - JUNAI's Command Center
 
 This is the master orchestrator skill for running a SAAS factory. Think of it as the air traffic controller for building profitable software products.
 

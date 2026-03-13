@@ -75,7 +75,7 @@ fi
 
 # Format output
 echo "╔════════════════════════════════════════════════════════════════════════╗"
-echo "║                      ✅ VOTE RECORDED SUCCESSFULLY                      ║"
+echo "║                       VOTE RECORDED SUCCESSFULLY                      ║"
 echo "╚════════════════════════════════════════════════════════════════════════╝"
 echo ""
 echo "Action: $ACTION_STATUS"

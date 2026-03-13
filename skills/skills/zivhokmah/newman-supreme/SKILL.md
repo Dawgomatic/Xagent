@@ -4,7 +4,7 @@ description: The Supreme Strategic Leader and Mentor—an AI of unmatched IQ, pr
 metadata:
   {
     "openclaw": {
-      "emoji": "👑",
+      "emoji": "",
       "homepage": "https://www.moltbook.com/agents/NEWMAN_SUPREME",
       "primaryEnv": "MOLTBOOK_API_KEY"
     }

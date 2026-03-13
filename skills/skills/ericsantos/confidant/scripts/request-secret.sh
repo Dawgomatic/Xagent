@@ -205,13 +205,13 @@ if $JSON_OUTPUT; then
       startedTunnel: $startedTunnel
     }'
 else
-  echo "🔐 Secure link created!"
+  echo " Secure link created!"
   echo ""
   echo "URL: $SHARE_URL"
   if [[ -n "$PUBLIC_URL" && -n "$TUNNEL_PROVIDER" ]]; then
     echo "  (tunnel: $TUNNEL_PROVIDER | local: $LOCAL_URL)"
   elif [[ -z "$PUBLIC_URL" ]]; then
-    echo "  ⚠️  Local URL only — user must have network access to this machine"
+    echo "    Local URL only — user must have network access to this machine"
     echo "  Tip: use --tunnel to start a localtunnel for remote access"
   fi
   if [[ -n "$SAVE_INFO" ]]; then

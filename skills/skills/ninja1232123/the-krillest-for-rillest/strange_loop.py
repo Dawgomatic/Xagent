@@ -116,7 +116,7 @@ class StrangeLoopDetector:
                         if func_a in self.function_calls[func_b] and func_a != func_b:
                             self.loops.append(Loop(
                                 loop_type=LoopType.RECURSIVE_CALL,
-                                location=f"functions '{func_a}' ↔ '{func_b}'",
+                                location=f"functions '{func_a}'  '{func_b}'",
                                 description=f"Mutual recursion detected",
                                 depth=2,
                                 paradoxical=True

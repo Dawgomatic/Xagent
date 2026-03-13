@@ -69,11 +69,11 @@ python3 -m pytest tests/test_wechat_search.py::test_edge_cases -v
 ```
 
 ### Test Coverage
-- ✅ **Success Cases**: Valid searches with expected results
-- ✅ **Failure Cases**: Invalid inputs, network errors, empty results
-- ✅ **Edge Cases**: Boundary conditions, special characters, large inputs
-- ✅ **Integration Tests**: Real OpenClaw tool integration
-- ✅ **Compliance Tests**: robots.txt respect, rate limiting validation
+-  **Success Cases**: Valid searches with expected results
+-  **Failure Cases**: Invalid inputs, network errors, empty results
+-  **Edge Cases**: Boundary conditions, special characters, large inputs
+-  **Integration Tests**: Real OpenClaw tool integration
+-  **Compliance Tests**: robots.txt respect, rate limiting validation
 
 ### Test Requirements
 ```bash

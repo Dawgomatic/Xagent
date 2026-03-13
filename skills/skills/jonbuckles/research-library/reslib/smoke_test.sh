@@ -220,13 +220,13 @@ echo ""
 if [ "$TESTS_FAILED" -eq 0 ]; then
     echo -e "${GREEN}All $TESTS_PASSED tests passed!${NC}"
     echo ""
-    echo "✅ SMOKE TEST PASSED"
+    echo " SMOKE TEST PASSED"
     echo ""
     exit 0
 else
     echo -e "${RED}$TESTS_FAILED test(s) failed${NC}, ${GREEN}$TESTS_PASSED passed${NC}"
     echo ""
-    echo "❌ SMOKE TEST FAILED"
+    echo " SMOKE TEST FAILED"
     echo ""
     exit 1
 fi

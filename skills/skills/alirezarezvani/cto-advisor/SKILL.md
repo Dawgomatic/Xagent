@@ -383,19 +383,19 @@ Detailed metrics attached.
 
 ## Success Indicators
 
-✅ **Technical Excellence**
+ **Technical Excellence**
 - System uptime >99.9%
 - Deploy multiple times daily
 - Technical debt <10% capacity
 - Security incidents = 0
 
-✅ **Team Success**
+ **Team Success**
 - Team satisfaction >8/10
 - Attrition <10%
 - Filled positions >90%
 - Diversity improving
 
-✅ **Business Impact**
+ **Business Impact**
 - Features on-time >80%
 - Engineering enables revenue
 - Cost per transaction decreasing
@@ -403,11 +403,11 @@ Detailed metrics attached.
 
 ## Red Flags to Watch
 
-⚠️ Increasing technical debt  
-⚠️ Rising attrition rate  
-⚠️ Slowing velocity  
-⚠️ Growing incidents  
-⚠️ Team morale declining  
-⚠️ Budget overruns  
-⚠️ Vendor dependencies  
-⚠️ Security vulnerabilities
+ Increasing technical debt  
+ Rising attrition rate  
+ Slowing velocity  
+ Growing incidents  
+ Team morale declining  
+ Budget overruns  
+ Vendor dependencies  
+ Security vulnerabilities

@@ -38,7 +38,7 @@ for ots_file in "${files[@]}"; do
         echo "  ✓ $output"
         ((confirmed++))
     elif echo "$output" | grep -q "Pending"; then
-        echo "  ⏳ Pending Bitcoin confirmation"
+        echo "   Pending Bitcoin confirmation"
         ((pending++))
     else
         echo "  ✗ $output"

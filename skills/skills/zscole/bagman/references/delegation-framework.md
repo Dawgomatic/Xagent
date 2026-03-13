@@ -383,10 +383,10 @@ safeCaveats[4] = Caveat(nonceEnforcer, currentNonce);
 
 ### What NOT to Do
 
-❌ **Don't create delegations without caveats** - Default is full access
-❌ **Don't use long expiries** - 24 hours max for autonomous agents
-❌ **Don't skip AllowedTargetsEnforcer** - Agent could call any contract
-❌ **Don't trust input validation alone** - On-chain enforcement is the backstop
+ **Don't create delegations without caveats** - Default is full access
+ **Don't use long expiries** - 24 hours max for autonomous agents
+ **Don't skip AllowedTargetsEnforcer** - Agent could call any contract
+ **Don't trust input validation alone** - On-chain enforcement is the backstop
 
 ## Open Delegations
 

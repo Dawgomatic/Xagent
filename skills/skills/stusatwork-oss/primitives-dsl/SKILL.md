@@ -1,6 +1,6 @@
 ---
 name: primitives-dsl
-description: "Universal game architecture DSL with six primitives (LOOP, TILEGRID, CONTROLBLOCK, POOL, EVENT, DISPATCHER). Use when: (1) designing portable game/sim loops, (2) translating between architectures (68K ↔ Cell ↔ CUDA ↔ ECS), (3) explaining engine structure to AI agents, (4) refactoring chaos into explicit state + flow. Invocation produces: Primitive Map, Dataflow Sketch, Worked Example, Portability Notes."
+description: "Universal game architecture DSL with six primitives (LOOP, TILEGRID, CONTROLBLOCK, POOL, EVENT, DISPATCHER). Use when: (1) designing portable game/sim loops, (2) translating between architectures (68K  Cell  CUDA  ECS), (3) explaining engine structure to AI agents, (4) refactoring chaos into explicit state + flow. Invocation produces: Primitive Map, Dataflow Sketch, Worked Example, Portability Notes."
 ---
 
 # primitives-dsl — Universal Game Architecture Patterns
@@ -13,7 +13,7 @@ Primitives: **LOOP** · **TILEGRID** · **CONTROLBLOCK** · **POOL** · **EVENT*
 
 Use this skill to:
 - Design a game/sim loop that ports cleanly across platforms
-- Translate between architectures (68K ↔ Cell ↔ CUDA ↔ ECS)
+- Translate between architectures (68K  Cell  CUDA  ECS)
 - Explain engine structure to AI agents with minimal ambiguity
 - Produce "worked examples" using the same primitive vocabulary every time
 

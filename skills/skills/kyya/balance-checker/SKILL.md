@@ -50,24 +50,24 @@ export VOLCENGINE_SECRET_KEY=xxx
 ## 输出示例
 
 ```
-🔍 正在查询 API 余额...
+ 正在查询 API 余额...
 
-💰 DeepSeek 余额
+ DeepSeek 余额
 - 总余额: 304.54 CNY
 - 赠金余额: 0.00 CNY
 - 充值余额: 304.54 CNY
-- 状态: 可用 ✅
+- 状态: 可用 
 
-🌙 Moonshot/Kimi 余额
+ Moonshot/Kimi 余额
 - 可用余额: 450.79 CNY
 - 现金余额: 450.79 CNY
 - 代金券余额: 0 CNY
 
-🌋 火山引擎余额
+ 火山引擎余额
 - 可用余额: 86.68 CNY
 - 现金余额: 86.68 CNY
 
-✅ 余额查询完成
+ 余额查询完成
 ```
 
 ## 文件结构

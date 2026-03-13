@@ -19,10 +19,10 @@ function generateHumanReport() {
     const entries = content.split('---').map(e => e.trim()).filter(e => e.length > 0);
 
     const categories = {
-        '🛡️ Security & Stability': [],
-        '⚡ Performance & Optimization': [],
-        '🛠️ Tooling & Features': [],
-        '📝 Documentation & Process': []
+        ' Security & Stability': [],
+        ' Performance & Optimization': [],
+        ' Tooling & Features': [],
+        ' Documentation & Process': []
     };
 
     const componentMap = {}; // Component -> Change List
@@ -38,7 +38,7 @@ function generateHumanReport() {
         const time = dateStr.split(' ')[1] || ''; // HH:mm:ss
 
         // Classify
-        let category = '🛠️ Tooling & Features';
+        let category = ' Tooling & Features';
         let component = 'System';
         let summary = '';
 
@@ -55,11 +55,11 @@ function generateHumanReport() {
 
         // Detect Category
         if (lowerBody.includes('security') || lowerBody.includes('permission') || lowerBody.includes('auth') || lowerBody.includes('harden')) {
-            category = '🛡️ Security & Stability';
+            category = ' Security & Stability';
         } else if (lowerBody.includes('optimiz') || lowerBody.includes('performance') || lowerBody.includes('memory') || lowerBody.includes('fast')) {
-            category = '⚡ Performance & Optimization';
+            category = ' Performance & Optimization';
         } else if (lowerBody.includes('doc') || lowerBody.includes('readme')) {
-            category = '📝 Documentation & Process';
+            category = ' Documentation & Process';
         }
 
         // Extract Human Summary (First meaningful line that isn't Status/Action/Date)
@@ -92,11 +92,11 @@ function generateHumanReport() {
     });
 
     // --- Generate Markdown ---
-    let md = `# 🧬 Evolution Summary: The Day in Review (2026-02-02)\n\n`;
+    let md = `#  Evolution Summary: The Day in Review (2026-02-02)\n\n`;
     md += `> **Overview**: Today's evolution focused heavily on hardening the system against edge cases (race conditions, permissions) and optimizing performance for scale (log rotation, tail-reads).\n\n`;
 
     // Section 1: By Theme (Evolution Direction)
-    md += `## 1. 🎯 Evolution Direction\n`;
+    md += `## 1.  Evolution Direction\n`;
     
     for (const [cat, items] of Object.entries(categories)) {
         if (items.length === 0) continue;
@@ -119,7 +119,7 @@ function generateHumanReport() {
     }
 
     // Section 2: By Timeline (High Level)
-    md += `## 2. ⏳ Timeline of Critical Events\n`;
+    md += `## 2.  Timeline of Critical Events\n`;
     // Flatten and sort all items by time
     const allItems = [];
     Object.values(categories).forEach(list => allItems.push(...list));
@@ -138,7 +138,7 @@ function generateHumanReport() {
     });
 
     // Section 3: Package Adjustments
-    md += `\n## 3. 📦 Package & Documentation Adjustments\n`;
+    md += `\n## 3.  Package & Documentation Adjustments\n`;
     const comps = Object.keys(componentMap).sort();
     comps.forEach(comp => {
         const count = new Set(componentMap[comp]).size;

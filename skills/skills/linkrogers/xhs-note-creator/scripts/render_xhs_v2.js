@@ -264,7 +264,7 @@ function convertMarkdownToHtml(mdContent, style = STYLES.purple) {
 function generateCoverHtml(metadata, styleKey = 'purple') {
     const style = STYLES[styleKey] || STYLES.purple;
     
-    const emoji = metadata.emoji || '📝';
+    const emoji = metadata.emoji || '';
     let title = metadata.title || '标题';
     let subtitle = metadata.subtitle || '';
     
@@ -573,15 +573,15 @@ async function renderHtmlToImage(page, htmlContent, outputPath) {
         type: 'png'
     });
     
-    console.log(`  ✅ 已生成: ${outputPath}`);
+    console.log(`   已生成: ${outputPath}`);
 }
 
 /**
  * 主渲染函数
  */
 async function renderMarkdownToCards(mdFile, outputDir, styleKey = 'purple') {
-    console.log(`\n🎨 开始渲染: ${mdFile}`);
-    console.log(`🎨 使用样式: ${STYLES[styleKey].name}`);
+    console.log(`\n 开始渲染: ${mdFile}`);
+    console.log(` 使用样式: ${STYLES[styleKey].name}`);
     
     if (!fs.existsSync(outputDir)) {
         fs.mkdirSync(outputDir, { recursive: true });
@@ -591,15 +591,15 @@ async function renderMarkdownToCards(mdFile, outputDir, styleKey = 'purple') {
     const { metadata, body } = data;
     
     const cardContents = splitContentBySeparator(body);
-    console.log(`  📄 检测到 ${cardContents.length} 个内容块`);
+    console.log(`   检测到 ${cardContents.length} 个内容块`);
     
-    console.log('  🔍 分析内容高度并智能分页...');
+    console.log('   分析内容高度并智能分页...');
     const processedCards = await processAndRenderCards(cardContents, outputDir, styleKey);
     const totalCards = processedCards.length;
-    console.log(`  📄 将生成 ${totalCards} 张卡片`);
+    console.log(`   将生成 ${totalCards} 张卡片`);
     
     if (metadata.emoji || metadata.title) {
-        console.log('  📷 生成封面...');
+        console.log('   生成封面...');
         const coverHtml = generateCoverHtml(metadata, styleKey);
         
         const browser = await chromium.launch();
@@ -618,7 +618,7 @@ async function renderMarkdownToCards(mdFile, outputDir, styleKey = 'purple') {
     try {
         for (let i = 0; i < processedCards.length; i++) {
             const pageNum = i + 1;
-            console.log(`  📷 生成卡片 ${pageNum}/${totalCards}...`);
+            console.log(`   生成卡片 ${pageNum}/${totalCards}...`);
             
             const cardHtml = generateCardHtml(processedCards[i], pageNum, totalCards, styleKey);
             const cardPath = path.join(outputDir, `card_${pageNum}.png`);
@@ -629,7 +629,7 @@ async function renderMarkdownToCards(mdFile, outputDir, styleKey = 'purple') {
         await browser.close();
     }
     
-    console.log(`\n✨ 渲染完成！共生成 ${totalCards} 张卡片，保存到: ${outputDir}`);
+    console.log(`\n 渲染完成！共生成 ${totalCards} 张卡片，保存到: ${outputDir}`);
     return totalCards;
 }
 
@@ -637,7 +637,7 @@ async function renderMarkdownToCards(mdFile, outputDir, styleKey = 'purple') {
  * 列出所有样式
  */
 function listStyles() {
-    console.log('\n📋 可用样式列表：');
+    console.log('\n 可用样式列表：');
     console.log('-'.repeat(40));
     for (const [key, style] of Object.entries(STYLES)) {
         console.log(`  ${key.padEnd(12)} - ${style.name}`);
@@ -688,7 +688,7 @@ function parseArgs() {
             if (STYLES[args[i + 1]]) {
                 style = args[i + 1];
             } else {
-                console.error(`❌ 无效样式: ${args[i + 1]}`);
+                console.error(` 无效样式: ${args[i + 1]}`);
                 console.log('可用样式:', Object.keys(STYLES).join(', '));
                 process.exit(1);
             }
@@ -699,12 +699,12 @@ function parseArgs() {
     }
     
     if (!markdownFile) {
-        console.error('❌ 错误: 请指定 Markdown 文件');
+        console.error(' 错误: 请指定 Markdown 文件');
         process.exit(1);
     }
     
     if (!fs.existsSync(markdownFile)) {
-        console.error(`❌ 错误: 文件不存在 - ${markdownFile}`);
+        console.error(` 错误: 文件不存在 - ${markdownFile}`);
         process.exit(1);
     }
     
@@ -718,6 +718,6 @@ async function main() {
 }
 
 main().catch(error => {
-    console.error('❌ 渲染失败:', error.message);
+    console.error(' 渲染失败:', error.message);
     process.exit(1);
 });

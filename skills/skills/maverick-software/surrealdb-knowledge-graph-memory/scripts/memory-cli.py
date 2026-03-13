@@ -282,7 +282,7 @@ class MemoryDB:
                     "old": sim_fact["id"],
                     "strength": contradiction_strength,
                 })
-                print(f"  ⚠️  Contradicts: {sim_fact['content'][:50]}...")
+                print(f"    Contradicts: {sim_fact['content'][:50]}...")
         
         # Extract and link entities
         entities = extract_entities(content)

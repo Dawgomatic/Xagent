@@ -15,13 +15,13 @@ from pathlib import Path
 CHARS_PER_TOKEN = 4
 
 WORKSPACE_FILES = [
-    ("AGENTS.md", "📋", "AGENTS.md"),
-    ("SOUL.md", "👻", "SOUL.md"),
-    ("USER.md", "👤", "USER.md"),
-    ("TOOLS.md", "🔧", "TOOLS.md"),
-    ("HEARTBEAT.md", "💓", "HEARTBEAT.md"),
-    ("MEMORY.md", "🧠", "MEMORY.md"),
-    ("IDENTITY.md", "🪪", "IDENTITY.md"),
+    ("AGENTS.md", "", "AGENTS.md"),
+    ("SOUL.md", "", "SOUL.md"),
+    ("USER.md", "", "USER.md"),
+    ("TOOLS.md", "", "TOOLS.md"),
+    ("HEARTBEAT.md", "", "HEARTBEAT.md"),
+    ("MEMORY.md", "", "MEMORY.md"),
+    ("IDENTITY.md", "", "IDENTITY.md"),
 ]
 
 def estimate_tokens(text: str) -> int:

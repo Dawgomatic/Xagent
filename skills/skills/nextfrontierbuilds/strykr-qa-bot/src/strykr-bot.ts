@@ -177,11 +177,11 @@ export class StrykrQABot {
 
   private getStatusIcon(status: string): string {
     switch (status) {
-      case 'pass': return '✅';
-      case 'fail': return '❌';
-      case 'skip': return '⏭️';
-      case 'known-issue': return '⚠️';
-      default: return '❓';
+      case 'pass': return '';
+      case 'fail': return '';
+      case 'skip': return '';
+      case 'known-issue': return '';
+      default: return '';
     }
   }
 }

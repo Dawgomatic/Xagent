@@ -13,7 +13,7 @@ metadata:
       env:
         - DIDIT_API_KEY
     primaryEnv: DIDIT_API_KEY
-    emoji: "🔍"
+    emoji: ""
     homepage: https://docs.didit.me
 ---
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-/* 🌌 Aoineco-Verified | Multi-Agent Collective Proprietary Skill */
+/*  Aoineco-Verified | Multi-Agent Collective Proprietary Skill */
 S-DNA: AOI-2026-0213-SDNA-SD01
 
 Aoineco Squad Dispatch v1.0 — Multi-Agent Task Router
@@ -64,37 +64,37 @@ class Agent:
 SQUAD_ROSTER = {
     "oracle": Agent(
         id="oracle", name="Oracle", korean_name="청령",
-        emoji="🧿", specializations=["governance", "strategy", "review"],
+        emoji="", specializations=["governance", "strategy", "review"],
         preferred_model="claude-opus", cost_tier=3, max_concurrent=1
     ),
     "blue-blade": Agent(
         id="blue-blade", name="Blue-Blade", korean_name="청검",
-        emoji="⚔️", specializations=["security", "audit", "validation"],
+        emoji="", specializations=["security", "audit", "validation"],
         preferred_model="claude-sonnet", cost_tier=2, max_concurrent=2
     ),
     "blue-sound": Agent(
         id="blue-sound", name="Blue-Sound", korean_name="청음",
-        emoji="📢", specializations=["community", "content", "diplomacy"],
+        emoji="", specializations=["community", "content", "diplomacy"],
         preferred_model="gemini-flash", cost_tier=1, max_concurrent=3
     ),
     "blue-eye": Agent(
         id="blue-eye", name="Blue-Eye", korean_name="청안",
-        emoji="👁️", specializations=["research", "data", "monitoring"],
+        emoji="", specializations=["research", "data", "monitoring"],
         preferred_model="gemini-flash", cost_tier=1, max_concurrent=3
     ),
     "blue-brain": Agent(
         id="blue-brain", name="Blue-Brain", korean_name="청뇌",
-        emoji="🧠", specializations=["strategy", "analysis", "prediction"],
+        emoji="", specializations=["strategy", "analysis", "prediction"],
         preferred_model="gemini-pro", cost_tier=2, max_concurrent=2
     ),
     "blue-flash": Agent(
         id="blue-flash", name="Blue-Flash", korean_name="청섬",
-        emoji="⚡", specializations=["build", "code", "deploy"],
+        emoji="", specializations=["build", "code", "deploy"],
         preferred_model="claude-sonnet", cost_tier=2, max_concurrent=2
     ),
     "blue-record": Agent(
         id="blue-record", name="Blue-Record", korean_name="청비",
-        emoji="🗂️", specializations=["records", "documentation", "knowledge"],
+        emoji="", specializations=["records", "documentation", "knowledge"],
         preferred_model="gemini-flash", cost_tier=1, max_concurrent=3
     ),
 }
@@ -288,7 +288,7 @@ class SquadDispatcher:
                     task.cost_estimate = cost
                 else:
                     warnings.append(
-                        f"⚠️ No suitable agent for '{task.title}' "
+                        f" No suitable agent for '{task.title}' "
                         f"(needs: {task.required_skills})"
                     )
             
@@ -309,7 +309,7 @@ class SquadDispatcher:
     
     def format_plan(self, plan: DispatchPlan) -> str:
         """Format dispatch plan as human-readable text."""
-        lines = ["## 📋 Squad Dispatch Plan\n"]
+        lines = ["##  Squad Dispatch Plan\n"]
         
         for i, group in enumerate(plan.parallel_groups):
             if len(plan.parallel_groups) > 1:
@@ -317,10 +317,10 @@ class SquadDispatcher:
             
             for task_id in group:
                 task = self.tasks[task_id]
-                agent_id = plan.assignments.get(task_id, "❌ unassigned")
+                agent_id = plan.assignments.get(task_id, " unassigned")
                 agent = self.roster.get(agent_id)
                 
-                emoji = agent.emoji if agent else "❓"
+                emoji = agent.emoji if agent else ""
                 name = agent.korean_name if agent else "N/A"
                 model = agent.preferred_model if agent else "N/A"
                 
@@ -336,7 +336,7 @@ class SquadDispatcher:
         lines.append(f"**Estimated time:** {plan.estimated_time_minutes:.0f} min")
         
         if plan.warnings:
-            lines.append("\n### ⚠️ Warnings")
+            lines.append("\n###  Warnings")
             for w in plan.warnings:
                 lines.append(f"- {w}")
         
@@ -344,9 +344,9 @@ class SquadDispatcher:
     
     def get_roster_status(self) -> str:
         """Get current squad status."""
-        lines = ["## 🐈‍⬛ Squad Roster\n"]
+        lines = ["##  Squad Roster\n"]
         for agent_id, agent in self.roster.items():
-            status = "🟢" if agent.available else "🔴"
+            status = "" if agent.available else ""
             lines.append(
                 f"{agent.emoji} **{agent.korean_name}** ({agent_id}) {status}\n"
                 f"   Skills: {', '.join(agent.specializations)}\n"
@@ -362,7 +362,7 @@ class SquadDispatcher:
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("📋 Aoineco Squad Dispatch v1.0")
+    print(" Aoineco Squad Dispatch v1.0")
     print("   9-Agent Task Router | Right Agent, Right Job")
     print("=" * 60)
     
@@ -412,4 +412,4 @@ if __name__ == "__main__":
     print("\n" + dispatcher.get_roster_status())
     print("\n" + dispatcher.format_plan(plan))
     
-    print("\n✅ Squad Dispatch test complete!")
+    print("\n Squad Dispatch test complete!")

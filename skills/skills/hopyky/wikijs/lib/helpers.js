@@ -209,7 +209,7 @@ export function renderTree(items, options = {}) {
     // Render directory name
     if (name) {
       const connector = isLast ? '└── ' : '├── ';
-      const dirIcon = noColorMode ? '[D]' : chalk.blue('📁');
+      const dirIcon = noColorMode ? '[D]' : chalk.blue('');
       lines.push(`${prefix}${connector}${dirIcon} ${name}/`);
     }
 
@@ -220,7 +220,7 @@ export function renderTree(items, options = {}) {
     node.items.forEach((item, idx) => {
       const isLastItem = idx === node.items.length - 1 && children.length === 0;
       const connector = isLastItem ? '└── ' : '├── ';
-      const pageIcon = noColorMode ? '[P]' : chalk.green('📄');
+      const pageIcon = noColorMode ? '[P]' : chalk.green('');
       const label = getLabel(item);
       const id = getId(item);
       const idStr = noColorMode ? `(${id})` : chalk.gray(`(${id})`);

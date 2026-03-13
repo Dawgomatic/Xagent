@@ -45,12 +45,12 @@ Set these environment variables or the script auto-detects from the current git 
 
 | Category | Icon | Examples |
 |----------|------|----------|
-| Security | 🔴 | Hardcoded credentials, AWS keys, secrets in code |
-| Error Handling | 🟡 | Discarded errors (Go `_ :=`), bare `except:` (Python), unchecked `Close()` |
-| Risk | 🟠 | `panic()` calls, `process.exit()` |
-| Style | 🔵 | `fmt.Print`/`print()`/`console.log` in prod, very long lines |
-| TODOs | 📝 | TODO, FIXME, HACK, XXX markers |
-| Test Coverage | 📊 | Source files changed without corresponding test changes |
+| Security |  | Hardcoded credentials, AWS keys, secrets in code |
+| Error Handling |  | Discarded errors (Go `_ :=`), bare `except:` (Python), unchecked `Close()` |
+| Risk |  | `panic()` calls, `process.exit()` |
+| Style |  | `fmt.Print`/`print()`/`console.log` in prod, very long lines |
+| TODOs |  | TODO, FIXME, HACK, XXX markers |
+| Test Coverage |  | Source files changed without corresponding test changes |
 
 ## Smart Re-Review
 
@@ -66,7 +66,7 @@ Reports are saved as markdown files in the output directory. Each report include
 - Automated diff findings with file, line, category, and context
 - Test coverage analysis
 - Local lint results (when repo is checked out locally)
-- Summary verdict: 🔴 SECURITY / 🟡 NEEDS ATTENTION / 🔵 MINOR NOTES / ✅ LOOKS GOOD
+- Summary verdict:  SECURITY /  NEEDS ATTENTION /  MINOR NOTES /  LOOKS GOOD
 
 ## Heartbeat/Cron Integration
 

@@ -39,10 +39,10 @@ Set up and manage Git hooks for any repository.
 STAGED=$(git diff --cached --name-only --diff-filter=ACM)
 # JavaScript/TypeScript
 echo "$STAGED" | grep -E '\.(js|ts|jsx|tsx)$' | xargs -r npx eslint --quiet 2>/dev/null
-[ $? -ne 0 ] && echo "❌ ESLint failed" && exit 1
+[ $? -ne 0 ] && echo " ESLint failed" && exit 1
 # Python
 echo "$STAGED" | grep -E '\.py$' | xargs -r python3 -m py_compile 2>&1
-[ $? -ne 0 ] && echo "❌ Python syntax check failed" && exit 1
+[ $? -ne 0 ] && echo " Python syntax check failed" && exit 1
 exit 0
 ```
 
@@ -59,7 +59,7 @@ exit $?
 #!/bin/sh
 MSG=$(cat "$1")
 if ! echo "$MSG" | grep -qE '^(feat|fix|docs|style|refactor|test|chore|ci|perf|build)(\(.+\))?: .+'; then
-  echo "❌ Commit message must follow Conventional Commits format"
+  echo " Commit message must follow Conventional Commits format"
   echo "   Example: feat(auth): add login page"
   exit 1
 fi
@@ -70,7 +70,7 @@ fi
 #!/bin/sh
 STAGED=$(git diff --cached --diff-filter=ACM -p)
 if echo "$STAGED" | grep -qEi '(api[_-]?key|secret|password|token)\s*[=:]\s*["\x27][^\s]+'; then
-  echo "❌ Potential secret detected in staged changes!"
+  echo " Potential secret detected in staged changes!"
   echo "   Review your changes and use environment variables instead."
   exit 1
 fi

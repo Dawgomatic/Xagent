@@ -6,7 +6,7 @@ kind: server
 metadata:
   {
     "openclaw": {
-      "emoji": "🖼️",
+      "emoji": "",
       "kind": "server",
       "requires": {
         "bins": ["node", "cloudflared"],
@@ -70,13 +70,13 @@ Telegram Mini App Canvas renders agent-generated HTML or markdown inside a Teleg
 
 | Endpoint | Public? | Auth |
 | --- | --- | --- |
-| `GET /` | ✅ | None (serves static Mini App HTML) |
-| `POST /auth` | ✅ | Telegram `initData` HMAC-SHA256 verification + `ALLOWED_USER_IDS` check |
-| `GET /state` | ✅ | JWT required |
-| `GET /ws` | ✅ | JWT required (WebSocket upgrade) |
-| `POST /push` | ❌ loopback-only | Enforced at socket level (`127.0.0.1` / `::1` only); optional `PUSH_TOKEN` |
-| `POST /clear` | ❌ loopback-only | Same as above |
-| `GET /health` | ❌ loopback-only | Same as above |
+| `GET /` |  | None (serves static Mini App HTML) |
+| `POST /auth` |  | Telegram `initData` HMAC-SHA256 verification + `ALLOWED_USER_IDS` check |
+| `GET /state` |  | JWT required |
+| `GET /ws` |  | JWT required (WebSocket upgrade) |
+| `POST /push` |  loopback-only | Enforced at socket level (`127.0.0.1` / `::1` only); optional `PUSH_TOKEN` |
+| `POST /clear` |  loopback-only | Same as above |
+| `GET /health` |  loopback-only | Same as above |
 
 **Loopback enforcement** for `/push`, `/clear`, and `/health` is done at the TCP socket level (`req.socket.remoteAddress`), not via headers — so it cannot be spoofed via `X-Forwarded-For` or similar.
 

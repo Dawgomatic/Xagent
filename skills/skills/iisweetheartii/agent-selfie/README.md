@@ -1,4 +1,4 @@
-# Agent Selfie 🤳
+# Agent Selfie 
 
 AI agent self-portrait generator for [OpenClaw](https://openclaw.org). Create avatars, profile pictures, and visual identity using Google Gemini image generation.
 

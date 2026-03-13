@@ -61,7 +61,7 @@ async function authenticate() {
   // 토큰 저장
   await fs.mkdir(path.dirname(TOKEN_PATH), { recursive: true });
   await fs.writeFile(TOKEN_PATH, JSON.stringify(tokens, null, 2));
-  console.log(`✅ 토큰 저장 완료: ${TOKEN_PATH}`);
+  console.log(` 토큰 저장 완료: ${TOKEN_PATH}`);
 }
 
 authenticate().catch(console.error);

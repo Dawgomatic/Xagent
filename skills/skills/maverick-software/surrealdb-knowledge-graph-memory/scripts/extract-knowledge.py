@@ -482,7 +482,7 @@ def run_extraction(full: bool = False, verbose: bool = False):
                 f"Processing file {file_idx + 1}/{len(changed)}",
                 rel_path
             )
-            print(f"\n📄 {rel_path}")
+            print(f"\n {rel_path}")
             stats = extract_from_file(db, file_path, verbose, file_idx, len(changed))
             
             # Update file hash
@@ -510,7 +510,7 @@ def run_extraction(full: bool = False, verbose: bool = False):
     write_progress("complete", len(changed), len(changed), "Extraction complete", 
                    f"{total_stats['facts_new']} new, {total_stats['facts_updated']} updated")
     
-    print(f"\n✅ Extraction complete:")
+    print(f"\n Extraction complete:")
     print(f"   Files: {total_stats['files']}")
     print(f"   New facts: {total_stats['facts_new']}")
     print(f"   Updated: {total_stats['facts_updated']}")
@@ -604,7 +604,7 @@ def run_reconcile(verbose: bool = False):
                 AND confidence > 0.1
         """)
         stats["decayed"] = len(decay_result[0]) if decay_result and decay_result[0] else 0
-        print(f"  📉 Decayed {stats['decayed']} stale facts")
+        print(f"   Decayed {stats['decayed']} stale facts")
         
         # 2. Prune very low confidence facts
         write_progress("reconcile", 2, 4, "Pruning low-confidence facts", "Removing facts below threshold...")
@@ -614,7 +614,7 @@ def run_reconcile(verbose: bool = False):
                 AND last_confirmed < time::now() - 30d
         """)
         stats["pruned"] = len(prune_result[0]) if prune_result and prune_result[0] else 0
-        print(f"  🗑️  Pruned {stats['pruned']} low-confidence facts")
+        print(f"    Pruned {stats['pruned']} low-confidence facts")
         
         # 3. Clean orphaned edges
         write_progress("reconcile", 3, 4, "Cleaning orphaned edges", "Removing broken relationships...")
@@ -629,7 +629,7 @@ def run_reconcile(verbose: bool = False):
                 AND created_at < time::now() - 30d
         """)
         stats["orphans_cleaned"] = len(orphan_result[0]) if orphan_result and orphan_result[0] else 0
-        print(f"  🧹 Cleaned {stats['orphans_cleaned']} orphaned entities")
+        print(f"   Cleaned {stats['orphans_cleaned']} orphaned entities")
     
     finally:
         try:
@@ -646,7 +646,7 @@ def run_reconcile(verbose: bool = False):
                    f"Decayed: {stats['decayed']}, Pruned: {stats['pruned']}, Orphans: {stats['orphans_cleaned']}")
     clear_progress()
     
-    print(f"\n✅ Reconciliation complete")
+    print(f"\n Reconciliation complete")
     return {"success": True, **stats}
 
 
@@ -654,7 +654,7 @@ def show_status():
     """Show extraction status."""
     state = load_state()
     
-    print("📊 Knowledge Extraction Status")
+    print(" Knowledge Extraction Status")
     print("=" * 40)
     
     last = state.get("last_extraction")
@@ -677,13 +677,13 @@ def show_status():
     
     print()
     if changed:
-        print(f"⚠️  {len(changed)} file(s) changed since last extraction:")
+        print(f"  {len(changed)} file(s) changed since last extraction:")
         for f in changed[:5]:
             print(f"   - {f.relative_to(WORKSPACE_DIR)}")
         if len(changed) > 5:
             print(f"   ... and {len(changed) - 5} more")
     else:
-        print("✅ All files up to date")
+        print(" All files up to date")
     
     return state
 
@@ -895,7 +895,7 @@ def run_relation_discovery(batch_size: int = 20, verbose: bool = False):
                    f"Found {stats['relations_found']} new relations")
     clear_progress()
     
-    print(f"\n✅ Relationship discovery complete:")
+    print(f"\n Relationship discovery complete:")
     print(f"   Facts analyzed: {stats['analyzed']}")
     print(f"   New relations: {stats['relations_found']}")
     print(f"   - supports: {stats['supports']}")
@@ -1076,7 +1076,7 @@ def run_rebuild_links():
             if (i + 1) % 20 == 0:
                 print(f"  Processed {i + 1}/{len(facts)} facts...")
         
-        print(f"\n✅ Created {links_created} entity links")
+        print(f"\n Created {links_created} entity links")
         return {"success": True, "links_created": links_created}
     
     except Exception as e:

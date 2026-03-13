@@ -45,12 +45,12 @@ Fail any? Research more OR caveat explicitly.
 ### 5. Present
 
 ```
-🆚 [A] vs [B]
-📊 CRITERIA: [ranked by weight]
-📈 SCORES: [table + confidence per row]
-🎯 RESULT: [Winner] by [margin]
-⚠️ CAVEATS: [imbalances]
-💡 IF [X] MATTERS MORE: [alt winner]
+ [A] vs [B]
+ CRITERIA: [ranked by weight]
+ SCORES: [table + confidence per row]
+ RESULT: [Winner] by [margin]
+ CAVEATS: [imbalances]
+ IF [X] MATTERS MORE: [alt winner]
 ```
 
 ## After

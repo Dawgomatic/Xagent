@@ -8,6 +8,6 @@
 # It will read answers from completed decision files.
 #
 
-echo "🚧 arbiter get - Not yet implemented"
+echo " arbiter get - Not yet implemented"
 echo "This will retrieve answers from ~/.arbiter/queue/completed/"
 exit 1

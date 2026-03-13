@@ -90,12 +90,12 @@ class RadarrSonarrSkill:
     def _download_movie(self, request: MovieRequest) -> str:
         """Download/add a movie."""
         if not self.radarr:
-            return "❌ Radarr is not configured. Please set RADARR_URL and RADARR_API_KEY."
+            return " Radarr is not configured. Please set RADARR_URL and RADARR_API_KEY."
 
         # Search for the movie
         results = self.radarr.search(request.title)
         if not results:
-            return f"❌ Movie not found: {request.title}"
+            return f" Movie not found: {request.title}"
 
         movie = results[0]
         tmdb_id = movie.get('tmdbId')
@@ -105,9 +105,9 @@ class RadarrSonarrSkill:
         # Add to Radarr
         result = self.radarr.add(tmdb_id)
         if "error" in result:
-            return f"❌ Error adding movie: {result['error']}"
+            return f" Error adding movie: {result['error']}"
 
-        response = f"✅ Added to download queue: {title} ({year})\n"
+        response = f" Added to download queue: {title} ({year})\n"
         response += f"   Quality: {request.quality}\n"
         response += f"   Language: {request.language}\n"
         response += "   Radarr will search and download the best available quality."
@@ -116,12 +116,12 @@ class RadarrSonarrSkill:
     def _download_series(self, request: SeriesRequest) -> str:
         """Download/add a TV series."""
         if not self.sonarr:
-            return "❌ Sonarr is not configured. Please set SONARR_URL and SONARR_API_KEY."
+            return " Sonarr is not configured. Please set SONARR_URL and SONARR_API_KEY."
 
         # Search for the series
         results = self.sonarr.search(request.title)
         if not results:
-            return f"❌ Series not found: {request.title}"
+            return f" Series not found: {request.title}"
 
         series = results[0]
         tvdb_id = series.get('tvdbId')
@@ -131,9 +131,9 @@ class RadarrSonarrSkill:
         # Add to Sonarr
         result = self.sonarr.add(tvdb_id)
         if "error" in result:
-            return f"❌ Error adding series: {result['error']}"
+            return f" Error adding series: {result['error']}"
 
-        response = f"✅ Added to download queue: {title} ({year})\n"
+        response = f" Added to download queue: {title} ({year})\n"
         response += f"   Quality: {request.quality}\n"
         response += f"   Language: {request.language}\n"
         if request.season:
@@ -146,17 +146,17 @@ class RadarrSonarrSkill:
     def _radarr_status(self) -> str:
         """Get Radarr status and queue."""
         if not self.radarr:
-            return "❌ Radarr is not configured."
+            return " Radarr is not configured."
 
         queue = self.radarr.get_queue()
         if "error" in queue:
-            return f"❌ Error fetching queue: {queue['error']}"
+            return f" Error fetching queue: {queue['error']}"
 
         records = queue.get("records", [])
         if not records:
-            return "📥 Radarr queue is empty. 🎉"
+            return " Radarr queue is empty. "
 
-        response = "📥 Radarr Download Queue:\n\n"
+        response = " Radarr Download Queue:\n\n"
         for item in records[:5]:
             title = item.get('title', 'Unknown')
             status = item.get('status', 'N/A')
@@ -172,17 +172,17 @@ class RadarrSonarrSkill:
     def _sonarr_status(self) -> str:
         """Get Sonarr status and queue."""
         if not self.sonarr:
-            return "❌ Sonarr is not configured."
+            return " Sonarr is not configured."
 
         queue = self.sonarr.get_queue()
         if "error" in queue:
-            return f"❌ Error fetching queue: {queue['error']}"
+            return f" Error fetching queue: {queue['error']}"
 
         records = queue.get("records", [])
         if not records:
-            return "📥 Sonarr queue is empty. 🎉"
+            return " Sonarr queue is empty. "
 
-        response = "📥 Sonarr Download Queue:\n\n"
+        response = " Sonarr Download Queue:\n\n"
         for item in records[:5]:
             title = item.get('title', 'Unknown')
             status = item.get('status', 'N/A')
@@ -205,17 +205,17 @@ class RadarrSonarrSkill:
     def _radarr_wanted(self) -> str:
         """Get wanted/missing Radarr movies."""
         if not self.radarr:
-            return "❌ Radarr is not configured."
+            return " Radarr is not configured."
 
         wanted = self.radarr.get_wanted()
         if "error" in wanted:
-            return f"❌ Error fetching wanted: {wanted['error']}"
+            return f" Error fetching wanted: {wanted['error']}"
 
         records = wanted.get("records", [])
         if not records:
-            return "🎉 No wanted movies! Everything is downloaded."
+            return " No wanted movies! Everything is downloaded."
 
-        response = "🎬 Wanted/Missing Movies:\n\n"
+        response = " Wanted/Missing Movies:\n\n"
         for movie in records[:5]:
             title = movie.get('title', 'Unknown')
             year = movie.get('year', '')
@@ -229,17 +229,17 @@ class RadarrSonarrSkill:
     def _sonarr_wanted(self) -> str:
         """Get wanted/missing Sonarr episodes."""
         if not self.sonarr:
-            return "❌ Sonarr is not configured."
+            return " Sonarr is not configured."
 
         wanted = self.sonarr.get_wanted()
         if "error" in wanted:
-            return f"❌ Error fetching wanted: {wanted['error']}"
+            return f" Error fetching wanted: {wanted['error']}"
 
         records = wanted.get("records", [])
         if not records:
-            return "🎉 No wanted episodes! Everything is downloaded."
+            return " No wanted episodes! Everything is downloaded."
 
-        response = "📺 Wanted/Missing Episodes:\n\n"
+        response = " Wanted/Missing Episodes:\n\n"
         for ep in records[:5]:
             title = ep.get('title', 'Unknown')
             season = ep.get('seasonNumber', 0)

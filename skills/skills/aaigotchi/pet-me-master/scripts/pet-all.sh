@@ -15,16 +15,16 @@ RPC_URL=$(jq -r ".rpcUrl" "$CONFIG_FILE")
 GOTCHI_IDS=$(jq -r ".gotchiIds[]" "$CONFIG_FILE")
 
 if [ -z "$GOTCHI_IDS" ]; then
-  echo "❌ Error: No gotchis configured"
+  echo " Error: No gotchis configured"
   exit 1
 fi
 
 if [ ! -f "$BANKR_SCRIPT" ]; then
-  echo "❌ Error: Bankr script not found at $BANKR_SCRIPT"
+  echo " Error: Bankr script not found at $BANKR_SCRIPT"
   exit 1
 fi
 
-echo "👻 Checking all gotchis..."
+echo " Checking all gotchis..."
 echo ""
 
 READY_IDS=()
@@ -39,15 +39,15 @@ for GOTCHI_ID in $GOTCHI_IDS; do
   TIME_LEFT=$(echo "$STATUS" | cut -d: -f2)
   
   if [ "$STATE" = "ready" ]; then
-    echo "  ✅ #${GOTCHI_ID} ready"
+    echo "   #${GOTCHI_ID} ready"
     READY_IDS+=("$GOTCHI_ID")
   elif [ "$STATE" = "waiting" ]; then
     HOURS_LEFT=$((TIME_LEFT / 3600))
     MINS_LEFT=$(((TIME_LEFT % 3600) / 60))
-    echo "  ⏰ #${GOTCHI_ID} wait ${HOURS_LEFT}h ${MINS_LEFT}m"
+    echo "   #${GOTCHI_ID} wait ${HOURS_LEFT}h ${MINS_LEFT}m"
     WAITING_IDS+=("$GOTCHI_ID")
   else
-    echo "  ❌ #${GOTCHI_ID} error checking status"
+    echo "   #${GOTCHI_ID} error checking status"
     ERROR_IDS+=("$GOTCHI_ID")
   fi
 done
@@ -64,9 +64,9 @@ TOTAL_COUNT=$((READY_COUNT + WAITING_COUNT + ERROR_COUNT))
 
 # Handle errors
 if [ $ERROR_COUNT -gt 0 ]; then
-  echo "⚠️ Warning: Failed to check ${ERROR_COUNT} gotchi(s)"
+  echo " Warning: Failed to check ${ERROR_COUNT} gotchi(s)"
   if [ $ERROR_COUNT -eq $TOTAL_COUNT ]; then
-    echo "❌ All cooldown checks failed. Please verify:"
+    echo " All cooldown checks failed. Please verify:"
     echo "  - RPC connection (${RPC_URL})"
     echo "  - Gotchi IDs are valid"
     echo "  - Foundry cast is installed"
@@ -77,18 +77,18 @@ fi
 # No ready gotchis
 if [ $READY_COUNT -eq 0 ]; then
   if [ $WAITING_COUNT -gt 0 ]; then
-    echo "⏰ No gotchis ready to pet yet!"
-    echo "All are still on cooldown. Check back later! 👻💜"
+    echo " No gotchis ready to pet yet!"
+    echo "All are still on cooldown. Check back later! "
   else
-    echo "❌ No valid gotchis to check"
+    echo " No valid gotchis to check"
   fi
   exit 0
 fi
 
 if [ $ERROR_COUNT -gt 0 ]; then
-  echo "📝 Summary: ${READY_COUNT} ready, ${WAITING_COUNT} waiting, ${ERROR_COUNT} errors"
+  echo " Summary: ${READY_COUNT} ready, ${WAITING_COUNT} waiting, ${ERROR_COUNT} errors"
 else
-  echo "📝 Summary: ${READY_COUNT} ready, ${WAITING_COUNT} waiting"
+  echo " Summary: ${READY_COUNT} ready, ${WAITING_COUNT} waiting"
 fi
 echo ""
 
@@ -123,7 +123,7 @@ for ID in "${READY_IDS[@]}"; do
   fi
 done
 
-echo "🦞 Petting gotchis: $READY_LIST"
+echo " Petting gotchis: $READY_LIST"
 echo ""
 
 # Build transaction prompt for Bankr
@@ -133,7 +133,7 @@ PROMPT="Submit this transaction to pet multiple gotchis ($READY_LIST): {\"to\": 
 "$BANKR_SCRIPT" "$PROMPT"
 
 echo ""
-echo "✅ Batch pet complete!"
+echo " Batch pet complete!"
 echo "Petted: ${READY_COUNT} gotchis"
 if [ $WAITING_COUNT -gt 0 ]; then
   echo "Skipped: ${WAITING_COUNT} (still on cooldown)"

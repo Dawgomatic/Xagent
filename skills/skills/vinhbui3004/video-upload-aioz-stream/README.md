@@ -4,14 +4,14 @@ This skill enables quick video uploads to W3Stream API with custom encoding conf
 
 ## Features
 
-- ✅ Default upload (quick, title only)
-- ✅ Custom upload (full encoding control)
-- ✅ Multi-part upload for large files
-- ✅ Multiple quality presets (240p - 8K)
-- ✅ H.264 and H.265 codec support
-- ✅ HLS and DASH streaming formats
-- ✅ Thumbnail upload
-- ✅ Transcode cost calculation
+-  Default upload (quick, title only)
+-  Custom upload (full encoding control)
+-  Multi-part upload for large files
+-  Multiple quality presets (240p - 8K)
+-  H.264 and H.265 codec support
+-  HLS and DASH streaming formats
+-  Thumbnail upload
+-  Transcode cost calculation
 
 ## Scripts
 

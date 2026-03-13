@@ -1,4 +1,4 @@
-# Reader Deep Dive 🤿
+# Reader Deep Dive 
 
 **Your reading list shouldn't be a write-only memory.**
 
@@ -19,7 +19,7 @@ Every afternoon (or on-demand), it runs a comprehensive research pass:
 
 You get a high-signal WhatsApp message formatted for mobile readability:
 
-> *TOPIC: AI AGENTS* 🎯
+> *TOPIC: AI AGENTS* 
 >
 > *CURRENT FOCUS*
 > * *Why OpenClaw feels alive* (tweet) by *claire vo* (Saved: Today)

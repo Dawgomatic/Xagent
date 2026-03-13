@@ -221,7 +221,7 @@ commit_msg=$(cat $commit_msg_file)
 
 # Simple validation (more sophisticated validation available in commitlint)
 if ! echo "$commit_msg" | grep -qE "^(feat|fix|docs|style|refactor|test|chore|perf|ci|build)(\(.+\))?(!)?:"; then
-    echo "❌ Commit message doesn't follow conventional commits format"
+    echo " Commit message doesn't follow conventional commits format"
     echo "Expected: type(scope): description"
     echo "Examples:"
     echo "  feat(auth): add OAuth2 integration"
@@ -230,7 +230,7 @@ if ! echo "$commit_msg" | grep -qE "^(feat|fix|docs|style|refactor|test|chore|pe
     exit 1
 fi
 
-echo "✅ Commit message format is valid"
+echo " Commit message format is valid"
 ```
 
 ### Release Planning Automation
@@ -357,11 +357,11 @@ def get_release_status():
 # Usage in CI/CD
 status = get_release_status()
 if status["assessment"]["overall_status"] == "blocked":
-    message = f"🚫 Release {status['version']} is BLOCKED\n"
+    message = f" Release {status['version']} is BLOCKED\n"
     message += f"Issues: {', '.join(status['assessment']['blocking_issues'])}"
     send_slack_notification(SLACK_WEBHOOK_URL, message)
 elif status["assessment"]["overall_status"] == "ready":
-    message = f"✅ Release {status['version']} is READY for deployment!"
+    message = f" Release {status['version']} is READY for deployment!"
     send_slack_notification(SLACK_WEBHOOK_URL, message)
 ```
 

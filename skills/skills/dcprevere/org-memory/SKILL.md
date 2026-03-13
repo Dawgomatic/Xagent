@@ -1,7 +1,7 @@
 ---
 name: org-memory
 description: "Structured knowledge base and task management using org-mode files. Query, mutate, link, and search org files and org-roam databases with the `org` CLI."
-metadata: {"openclaw":{"emoji":"🦄","requires":{"bins":["org"]},"install":[{"id":"github-release","kind":"manual","label":"Download from GitHub releases: https://github.com/dcprevere/org-cli/releases"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["org"]},"install":[{"id":"github-release","kind":"manual","label":"Download from GitHub releases: https://github.com/dcprevere/org-cli/releases"}]}}
 ---
 
 # org-memory
@@ -68,7 +68,7 @@ The response includes the node's ID, file path, title, and tags. Use these value
 
 This section applies when `ORG_MEMORY_USE_FOR_AGENT` is `true`.
 
-### ⚠️ Always search before creating
+###  Always search before creating
 
 Before creating a node or link, check if the entity already exists:
 

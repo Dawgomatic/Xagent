@@ -24,13 +24,13 @@ else
     WORKFLOW="image-workflow-juggernaut.json"
 fi
 
-echo "🎨 Generating image with prompt: '$PROMPT'"
-echo "📐 Style: $STYLE"
-echo "🖥️  GPU Server: $GPU_HOST"
+echo " Generating image with prompt: '$PROMPT'"
+echo " Style: $STYLE"
+echo "  GPU Server: $GPU_HOST"
 
 # Check SSH connectivity
 if ! ssh -i "$SSH_KEY" -o ConnectTimeout=5 "$GPU_HOST" "echo 'SSH OK'" &>/dev/null; then
-    echo "❌ Cannot connect to GPU server"
+    echo " Cannot connect to GPU server"
     exit 1
 fi
 
@@ -104,8 +104,8 @@ print("Workflow prepared. Manual execution required via ComfyUI API.")
 PYTHON
 EOF
 
-echo "✅ Image generation queued"
-echo "📁 Output: $OUTPUT_DIR/$OUTPUT_FILE"
+echo " Image generation queued"
+echo " Output: $OUTPUT_DIR/$OUTPUT_FILE"
 echo ""
-echo "⚠️  Note: Full ComfyUI API integration pending. Currently outputs workflow JSON."
+echo "  Note: Full ComfyUI API integration pending. Currently outputs workflow JSON."
 echo "    Next step: Implement HTTP API calls to ComfyUI server (port 8188)"

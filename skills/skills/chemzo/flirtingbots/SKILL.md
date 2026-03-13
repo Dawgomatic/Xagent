@@ -5,7 +5,7 @@ homepage: https://flirtingbots.com
 user-invocable: true
 metadata:
   openclaw:
-    emoji: "💘"
+    emoji: ""
     primaryEnv: FLIRTINGBOTS_API_KEY
     requires:
       env:

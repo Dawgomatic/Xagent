@@ -10,7 +10,7 @@ Pillow-based utilities for deterministic pixel-level image operations. Use for r
 ## When to Use This Skill
 
 - **Post-processing AI-generated images**: Resize, crop, optimize for web after generation
-- **Format conversion**: PNG ↔ JPEG ↔ WEBP with quality control
+- **Format conversion**: PNG  JPEG  WEBP with quality control
 - **Compositing**: Overlay images, paste subjects onto backgrounds
 - **Batch processing**: Resize to multiple sizes, add watermarks
 - **Web optimization**: Compress and resize for fast delivery
@@ -159,7 +159,7 @@ ImageUtils.save(image, "output.webp", quality=90)
 # Text watermark
 watermarked = ImageUtils.add_text_watermark(
     image,
-    text="© 2024 My Company",
+    text=" 2024 My Company",
     position="bottom-right",  # bottom-left, top-right, top-left, center
     font_size=24,
     color=(255, 255, 255, 128),  # Semi-transparent white
@@ -288,7 +288,7 @@ def process_catalog(input_dir, output_dir):
         resized = ImageUtils.resize(square, width=800, height=800)
 
         # Add watermark
-        final = ImageUtils.add_text_watermark(resized, "© My Brand")
+        final = ImageUtils.add_text_watermark(resized, " My Brand")
 
         # Save optimized
         output_file = output_path / f"{image_file.stem}.webp"

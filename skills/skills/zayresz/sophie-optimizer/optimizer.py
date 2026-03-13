@@ -156,7 +156,7 @@ def main():
     
     # Notify Start
     try:
-        subprocess.run(["openclaw", "message", "send", "--message", f"🔄 Iniciando otimização de contexto ({args.tokens} tokens)..."], check=False)
+        subprocess.run(["openclaw", "message", "send", "--message", f" Iniciando otimização de contexto ({args.tokens} tokens)..."], check=False)
     except Exception:
         pass
 
@@ -169,7 +169,7 @@ def main():
     
     # Notify Progress
     try:
-        subprocess.run(["openclaw", "message", "send", "--message", f"✅ Contexto arquivado em {os.path.basename(filepath)}. Memória atualizada."], check=False)
+        subprocess.run(["openclaw", "message", "send", "--message", f" Contexto arquivado em {os.path.basename(filepath)}. Memória atualizada."], check=False)
     except Exception:
         pass
 
@@ -177,7 +177,7 @@ def main():
         print("Triggering reset script...")
         # Notify Reset
         try:
-            subprocess.run(["openclaw", "message", "send", "--message", "⚠️ Reiniciando sistema para limpeza de sessão. Volto já! 👑"], check=False)
+            subprocess.run(["openclaw", "message", "send", "--message", " Reiniciando sistema para limpeza de sessão. Volto já! "], check=False)
         except Exception:
             pass
             

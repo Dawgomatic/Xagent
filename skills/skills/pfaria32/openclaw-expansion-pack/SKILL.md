@@ -121,10 +121,10 @@ bash projects/openclaw-expansion-pack/setup.sh
 ## Deployment Status
 
 These skills are **production-tested** on a live OpenClaw instance:
-- ✅ OpenClaw Shield: Daily scans + ClamAV integration
-- ✅ Token Economy: Deployed Feb 13, 2026 (DIY fork)
-- ✅ Recursive Self-Improvement: Phase 1 & 2 complete
-- ✅ Capability Awareness: Skills-first approach active
+-  OpenClaw Shield: Daily scans + ClamAV integration
+-  Token Economy: Deployed Feb 13, 2026 (DIY fork)
+-  Recursive Self-Improvement: Phase 1 & 2 complete
+-  Capability Awareness: Skills-first approach active
 
 ## Coming Soon (BETA)
 

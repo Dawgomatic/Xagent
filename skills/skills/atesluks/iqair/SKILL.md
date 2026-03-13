@@ -56,8 +56,8 @@ User: "How good is air in Riga?"
 Response process:
 - Location: Riga, Latvia
 - Run: `python scripts/get_aqi.py Riga Latvia`
-- Output: `🟢 19 - Good\nRiga, Latvia`
-- Reply: "Air quality in Riga is currently excellent! 🟢 19 (Good)"
+- Output: ` 19 - Good\nRiga, Latvia`
+- Reply: "Air quality in Riga is currently excellent!  19 (Good)"
 
 ## Handling Location Names
 
@@ -77,17 +77,17 @@ Response process:
 
 The script returns a concise, formatted string:
 ```
-🟢 45 - Good
+ 45 - Good
 Riga, Latvia
 ```
 
 Customize your response based on the AQI level:
-- **0-50 (🟢 Good)**: "Excellent", "Perfect for outdoor activities"
-- **51-100 (🟡 Moderate)**: "Acceptable", "Sensitive people should limit prolonged outdoor exertion"
-- **101-150 (🟠 USG)**: "Unhealthy for sensitive groups", "Children and people with respiratory issues should reduce outdoor exertion"
-- **151-200 (🔴 Unhealthy)**: "Everyone may experience health effects", "Reduce outdoor activities"
-- **201-300 (🟣 Very Unhealthy)**: "Health alert", "Avoid outdoor activities"
-- **301+ (🟤 Hazardous)**: "Emergency conditions", "Stay indoors"
+- **0-50 ( Good)**: "Excellent", "Perfect for outdoor activities"
+- **51-100 ( Moderate)**: "Acceptable", "Sensitive people should limit prolonged outdoor exertion"
+- **101-150 ( USG)**: "Unhealthy for sensitive groups", "Children and people with respiratory issues should reduce outdoor exertion"
+- **151-200 ( Unhealthy)**: "Everyone may experience health effects", "Reduce outdoor activities"
+- **201-300 ( Very Unhealthy)**: "Health alert", "Avoid outdoor activities"
+- **301+ ( Hazardous)**: "Emergency conditions", "Stay indoors"
 
 ## Technical Details
 

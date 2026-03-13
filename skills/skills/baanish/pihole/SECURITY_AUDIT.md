@@ -8,7 +8,7 @@ The Pi-hole skill has been audited and refactored to support Pi-hole v6 API with
 
 ## Critical Issues Fixed
 
-### 1. ✅ API Version Mismatch (RESOLVED)
+### 1.  API Version Mismatch (RESOLVED)
 **Issue:** Script used Pi-hole v5 API endpoints (`/admin/api.php`) which are deprecated in v6.
 
 **Fix:** Updated to use v6 API endpoints:
@@ -19,7 +19,7 @@ The Pi-hole skill has been audited and refactored to support Pi-hole v6 API with
 
 ---
 
-### 2. ✅ Session Authentication (RESOLVED)
+### 2.  Session Authentication (RESOLVED)
 **Issue:** Script attempted direct API token authentication which fails in v6.
 
 **Fix:** Implemented proper session flow:
@@ -30,7 +30,7 @@ The Pi-hole skill has been audited and refactored to support Pi-hole v6 API with
 
 ---
 
-### 3. ✅ SSL Certificate Handling (RESOLVED)
+### 3.  SSL Certificate Handling (RESOLVED)
 **Issue:** Self-signed certificates would cause curl failures.
 
 **Fix:** Added `insecure` flag support:
@@ -45,7 +45,7 @@ The Pi-hole skill has been audited and refactored to support Pi-hole v6 API with
 
 ---
 
-### 4. ✅ Error Handling (RESOLVED)
+### 4.  Error Handling (RESOLVED)
 **Issue:** `set -euo pipefail` causes silent exits on errors.
 
 **Fix:** Changed to `set -o pipefail` only and added proper error checking:
@@ -55,7 +55,7 @@ The Pi-hole skill has been audited and refactored to support Pi-hole v6 API with
 
 ---
 
-### 5. ✅ Token Exposure (MITIGATED)
+### 5.  Token Exposure (MITIGATED)
 **Issue:** API token visible in process list via curl command arguments.
 
 **Fix:** Token passed via environment variable and JSON body, not CLI args:
@@ -69,7 +69,7 @@ curl -d "{\"password\":\"$TOKEN\"}"
 
 ---
 
-### 6. ✅ Input Validation (MAINTAINED & IMPROVED)
+### 6.  Input Validation (MAINTAINED & IMPROVED)
 **Maintained validations:**
 - Numeric input validation (duration, limits)
 - Domain format validation (regex)
@@ -134,11 +134,11 @@ curl -d "{\"password\":\"$TOKEN\"}"
 4. **Session header:** `sid:` header used for subsequent calls
 
 ### Security Considerations
-- ✅ Token not in URL (in body)
-- ✅ HTTPS encrypts traffic (if configured)
-- ✅ Session tokens expire
-- ⚠️  Password in config file (standard for this use case)
-- ⚠️  No rate limiting (relies on Pi-hole's built-in limits)
+-  Token not in URL (in body)
+-  HTTPS encrypts traffic (if configured)
+-  Session tokens expire
+-   Password in config file (standard for this use case)
+-   No rate limiting (relies on Pi-hole's built-in limits)
 
 ---
 
@@ -186,28 +186,28 @@ curl -d "{\"password\":\"$TOKEN\"}"
 
 ## Testing Checklist
 
-- ✅ Status check (enabled/disabled)
-- ✅ Enable blocking
-- ✅ Disable blocking
-- ✅ Disable with timer (5 minutes, custom duration)
-- ✅ Show blocked queries
-- ✅ Show statistics
-- ✅ HTTPS with valid certificates
-- ✅ HTTPS with self-signed certificates (insecure mode)
-- ✅ Error handling (invalid token, network errors)
-- ✅ Input validation (invalid duration, domain format)
+-  Status check (enabled/disabled)
+-  Enable blocking
+-  Disable blocking
+-  Disable with timer (5 minutes, custom duration)
+-  Show blocked queries
+-  Show statistics
+-  HTTPS with valid certificates
+-  HTTPS with self-signed certificates (insecure mode)
+-  Error handling (invalid token, network errors)
+-  Input validation (invalid duration, domain format)
 
 ---
 
 ## Conclusion
 
 The Pi-hole skill is **production-ready** with:
-- ✅ All critical security issues resolved
-- ✅ Pi-hole v6 API support
-- ✅ Proper error handling and validation
-- ✅ Self-signed certificate support
-- ✅ Session-based authentication
-- ✅ No known vulnerabilities
+-  All critical security issues resolved
+-  Pi-hole v6 API support
+-  Proper error handling and validation
+-  Self-signed certificate support
+-  Session-based authentication
+-  No known vulnerabilities
 
 **Status:** Ready for publishing to ClawdHub.
 
@@ -217,10 +217,10 @@ The Pi-hole skill is **production-ready** with:
 
 | Feature | v5 API | v6 API | Status |
 |---------|----------|----------|--------|
-| Auth | Query param token | Session-based | ✅ Updated |
-| Status | `?status` | `/api/dns/blocking` | ✅ Updated |
-| Enable | `?enable` | POST `/dns/blocking` | ✅ Updated |
-| Disable | `?disable=N` | POST `/dns/blocking` | ✅ Updated |
-| Stats | `?summaryRaw` | `/api/stats/summary` | ✅ Updated |
-| Blocked | `?recentBlocked` | `/api/queries` | ✅ Updated |
-| Whitelist | `?add=...` | Not available | ⚠️  Removed (API limitation) |
+| Auth | Query param token | Session-based |  Updated |
+| Status | `?status` | `/api/dns/blocking` |  Updated |
+| Enable | `?enable` | POST `/dns/blocking` |  Updated |
+| Disable | `?disable=N` | POST `/dns/blocking` |  Updated |
+| Stats | `?summaryRaw` | `/api/stats/summary` |  Updated |
+| Blocked | `?recentBlocked` | `/api/queries` |  Updated |
+| Whitelist | `?add=...` | Not available |   Removed (API limitation) |

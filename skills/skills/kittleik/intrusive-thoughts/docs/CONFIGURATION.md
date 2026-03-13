@@ -18,7 +18,7 @@ All configuration lives in `config.json`. Use `config.example.json` as a templat
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `name` | string | "Agent" | Agent's display name |
-| `emoji` | string | "🦞" | Signature emoji |
+| `emoji` | string | "" | Signature emoji |
 | `git_email` | string | "agent@openclaw.local" | Git commit email |
 | `git_name` | string | "Agent" | Git commit name |
 

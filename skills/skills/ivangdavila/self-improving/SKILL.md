@@ -3,7 +3,7 @@ name: Self-Improving
 slug: self-improving
 version: 1.0.0
 description: Build compound knowledge over time with structured memory, correction learning, and graceful scaling across projects and years.
-metadata: {"clawdbot":{"emoji":"🧠","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Architecture

@@ -1,7 +1,7 @@
 ---
 name: google-sheets
 description: Read and write Google Sheets data. Create spreadsheets, update cells, and manage worksheets via Sheets API.
-metadata: {"clawdbot":{"emoji":"📊","requires":{"env":["GOOGLE_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["GOOGLE_ACCESS_TOKEN"]}}}
 ---
 
 # Google Sheets

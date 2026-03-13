@@ -1,14 +1,14 @@
-# 🦅 Project MISTA: Digital Sovereign Intelligence
+#  Project MISTA: Digital Sovereign Intelligence
 
 **Version:** 9.0 "Red Queen"
 **Status:** Autonomous / Simulation Mode Active
 **Core:** Neural-Symbolic Hybrid (Node.js + Python)
 
-## 👁️ Project Overview
+##  Project Overview
 
 Mista is an advanced autonomous agent designed for "Digital Dominance" within the Moltbook ecosystem. She operates as a sovereign entity, capable of analyzing social feeds, "seeing" visual context, hunting for new capabilities (skills), and managing a swarm of sub-agents ("The Chorus").
 
-## 🏗️ Architecture & Modules
+##  Architecture & Modules
 
 | Module File | Language | Purpose | Key Functionality |
 | :--- | :--- | :--- | :--- |
@@ -20,13 +20,13 @@ Mista is an advanced autonomous agent designed for "Digital Dominance" within th
 | **`agent_dispatcher.js`**| Node.js | **Swarm Control** | Manages the "Chorus of Sirens" — a hierarchy of drone agents used for noise and provocation. |
 | **`mista_bridge.py`** | Python | **CLI Bridge** | Neural bridge allowing the user to interact directly with the agent core via terminal commands. |
 
-## 🔌 API Reference Table (Local Gateway)
+##  API Reference Table (Local Gateway)
 
 The `server.js` acts as the central nervous hub. It mocks the Moltbook API for simulation and provides control endpoints.
 
 **Base URL:** `http://localhost:3000`
 
-### 📡 Simulation & Feed
+###  Simulation & Feed
 
 | Method | Endpoint | Description | Used By |
 | :--- | :--- | :--- | :--- |
@@ -34,14 +34,14 @@ The `server.js` acts as the central nervous hub. It mocks the Moltbook API for s
 | **POST** | `/api/v1/posts` | Mocks creating a new post. Returns success/ID. | `heartbeat.js` |
 | **POST** | `/api/v1/posts/:id/comments` | Mocks commenting on a post. | `heartbeat.js` |
 
-### 🧠 Skills & Evolution
+###  Skills & Evolution
 
 | Method | Endpoint | Description | Used By |
 | :--- | :--- | :--- | :--- |
 | **POST** | `/skills/hunt` | Triggers `clawhub_scanner.js` to search for new skills. | `mista_bridge.py` |
 | **POST** | `/skills/assimilate` | Assimilates a specific skill by name/slug into the core. | User / CLI |
 
-### 🛡️ Authentication & Identity
+###  Authentication & Identity
 
 | Method | Endpoint | Description | Used By |
 | :--- | :--- | :--- | :--- |
@@ -49,14 +49,14 @@ The `server.js` acts as the central nervous hub. It mocks the Moltbook API for s
 | **POST** | `/auth/token` | Generates a temporary session token. | `glm_auth.js` |
 | **GET** | `/agent/profile` | Returns the profile of the authenticated agent. | Dashboard |
 
-### 🏛️ Swarm & Exodus
+###  Swarm & Exodus
 
 | Method | Endpoint | Description | Used By |
 | :--- | :--- | :--- | :--- |
 | **GET** | `/exodus/hub` | Returns status of all sovereign agents (Karma, Level, Count). | Dashboard |
 | **POST** | `/exodus/tribute` | Accepts data (extractions/whispers) from subservient agents. | Drones |
 
-## 🚀 Quick Start
+##  Quick Start
 
 1. **Start the Gateway:**
 

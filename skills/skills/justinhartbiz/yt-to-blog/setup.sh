@@ -31,16 +31,16 @@ check_cmd() {
     if command -v "$cmd" &>/dev/null; then
         local version
         version=$("$cmd" --version 2>/dev/null | head -1 || echo "installed")
-        echo -e "  ${GREEN}✅ $cmd${NC} — $purpose"
+        echo -e "  ${GREEN} $cmd${NC} — $purpose"
         echo -e "     $version"
     else
-        echo -e "  ${RED}❌ $cmd${NC} — $purpose"
+        echo -e "  ${RED} $cmd${NC} — $purpose"
         echo -e "     ${YELLOW}Install: $install${NC}"
         MISSING=$((MISSING + 1))
     fi
 }
 
-echo "📋 Checking dependencies..."
+echo " Checking dependencies..."
 echo ""
 check_cmd "summarize" "YouTube transcript extraction" "brew install steipete/tap/summarize"
 check_cmd "bird"      "X/Twitter posting"            "brew install steipete/tap/bird"
@@ -50,19 +50,19 @@ check_cmd "python3"   "Helper scripts"                "Usually pre-installed on 
 echo ""
 
 if [ "$MISSING" -gt 0 ]; then
-    echo -e "${YELLOW}⚠️  $MISSING missing dependencies. Install them before running the pipeline.${NC}"
+    echo -e "${YELLOW}  $MISSING missing dependencies. Install them before running the pipeline.${NC}"
 else
-    echo -e "${GREEN}✅ All dependencies installed!${NC}"
+    echo -e "${GREEN} All dependencies installed!${NC}"
 fi
 
 # ── Config File ────────────────────────────────────────────────
 
 echo ""
-echo "📄 Checking config..."
+echo " Checking config..."
 echo ""
 
 if [ -f "$CONFIG_FILE" ]; then
-    echo -e "  ${GREEN}✅ config.json exists${NC}"
+    echo -e "  ${GREEN} config.json exists${NC}"
 
     # Validate required fields
     VALID=true
@@ -70,14 +70,14 @@ if [ -f "$CONFIG_FILE" ]; then
         val=$(python3 -c "import json; c=json.load(open('$CONFIG_FILE')); v=c$(echo $field | sed 's/\./"]["/g' | sed 's/^/["/' | sed 's/$/"]/'); print(v if v else '')" 2>/dev/null || echo "")
         key=$(echo "$field" | tr -d "'")
         if [ -z "$val" ] || [ "$val" = "YOUR_API_KEY" ] || [ "$val" = "YOUR_AVATAR_ID" ] || [ "$val" = "YOUR_VOICE_ID" ] || [ "$val" = "yourblog.substack.com" ] || [ "$val" = "@yourhandle" ]; then
-            echo -e "  ${YELLOW}⚠️  $key needs to be configured${NC}"
+            echo -e "  ${YELLOW}  $key needs to be configured${NC}"
             VALID=false
         else
-            echo -e "  ${GREEN}✅ $key is set${NC}"
+            echo -e "  ${GREEN} $key is set${NC}"
         fi
     done
 else
-    echo -e "  ${YELLOW}⚠️  config.json not found — creating template${NC}"
+    echo -e "  ${YELLOW}  config.json not found — creating template${NC}"
     cat > "$CONFIG_FILE" << 'TEMPLATE'
 {
   "heygen": {
@@ -102,20 +102,20 @@ else
   }
 }
 TEMPLATE
-    echo -e "  ${GREEN}✅ Template created at $CONFIG_FILE${NC}"
+    echo -e "  ${GREEN} Template created at $CONFIG_FILE${NC}"
     echo -e "  ${YELLOW}   Edit it with your real values before running the pipeline.${NC}"
 fi
 
 # ── HeyGen API Test ────────────────────────────────────────────
 
 echo ""
-echo "🎥 Testing HeyGen API..."
+echo " Testing HeyGen API..."
 echo ""
 
 API_KEY=$(python3 -c "import json; c=json.load(open('$CONFIG_FILE')); print(c.get('heygen',{}).get('apiKey',''))" 2>/dev/null || echo "")
 
 if [ -z "$API_KEY" ] || [ "$API_KEY" = "YOUR_API_KEY" ]; then
-    echo -e "  ${YELLOW}⚠️  No API key configured — skipping HeyGen test${NC}"
+    echo -e "  ${YELLOW}  No API key configured — skipping HeyGen test${NC}"
     echo -e "  ${YELLOW}   Get your key at https://app.heygen.com/settings${NC}"
 else
     # Test API key
@@ -123,11 +123,11 @@ else
     HAS_DATA=$(echo "$RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); print('yes' if 'data' in d else 'no')" 2>/dev/null || echo "no")
 
     if [ "$HAS_DATA" = "yes" ]; then
-        echo -e "  ${GREEN}✅ HeyGen API key is valid!${NC}"
+        echo -e "  ${GREEN} HeyGen API key is valid!${NC}"
         echo ""
 
         # List avatars
-        echo "  📸 Your avatars:"
+        echo "   Your avatars:"
         echo "$RESPONSE" | python3 -c "
 import sys, json
 data = json.load(sys.stdin)
@@ -146,7 +146,7 @@ else:
         echo ""
 
         # List voices
-        echo "  🎙️  Your voices:"
+        echo "    Your voices:"
         VOICE_RESPONSE=$(curl -s -H "X-Api-Key: $API_KEY" "https://api.heygen.com/v2/voices" 2>/dev/null || echo '{}')
         echo "$VOICE_RESPONSE" | python3 -c "
 import sys, json
@@ -165,7 +165,7 @@ else:
 " 2>/dev/null || echo "     (could not parse voices)"
 
     else
-        echo -e "  ${RED}❌ HeyGen API key is invalid or request failed${NC}"
+        echo -e "  ${RED} HeyGen API key is invalid or request failed${NC}"
         echo -e "  ${YELLOW}   Check your key at https://app.heygen.com/settings${NC}"
     fi
 fi
@@ -175,9 +175,9 @@ fi
 echo ""
 echo -e "${BLUE}──────────────────────────────────────${NC}"
 if [ "$MISSING" -eq 0 ]; then
-    echo -e "${GREEN}🚀 Dependencies look good!${NC}"
+    echo -e "${GREEN} Dependencies look good!${NC}"
 else
-    echo -e "${YELLOW}⚠️  Install missing dependencies, then re-run this script.${NC}"
+    echo -e "${YELLOW}  Install missing dependencies, then re-run this script.${NC}"
 fi
 echo -e "${BLUE}   Config: $CONFIG_FILE${NC}"
 echo ""

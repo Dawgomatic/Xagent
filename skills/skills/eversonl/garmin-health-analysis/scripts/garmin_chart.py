@@ -495,10 +495,10 @@ def main():
     # Get authenticated client
     client = get_client()
     if not client:
-        print("❌ Not authenticated. Run: python3 scripts/garmin_auth.py login", file=sys.stderr)
+        print(" Not authenticated. Run: python3 scripts/garmin_auth.py login", file=sys.stderr)
         sys.exit(1)
     
-    print(f"📊 Fetching {args.days} days of data...", file=sys.stderr)
+    print(f" Fetching {args.days} days of data...", file=sys.stderr)
     
     # Prepare chart data
     charts_data = {"stats": {}, "charts": []}
@@ -544,7 +544,7 @@ def main():
     if args.output:
         output_path = Path(args.output).expanduser()
         output_path.write_text(html)
-        print(f"✅ Chart saved to {output_path}", file=sys.stderr)
+        print(f" Chart saved to {output_path}", file=sys.stderr)
     else:
         # Save to temp file and open
         import tempfile
@@ -552,7 +552,7 @@ def main():
             f.write(html)
             temp_path = f.name
         
-        print(f"✅ Opening chart in browser...", file=sys.stderr)
+        print(f" Opening chart in browser...", file=sys.stderr)
         webbrowser.open(f"file://{temp_path}")
 
 

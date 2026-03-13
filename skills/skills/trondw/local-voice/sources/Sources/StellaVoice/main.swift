@@ -76,21 +76,21 @@ struct SynthesizeRequest: Codable {
 @main
 struct StellaVoice {
     static func main() async throws {
-        print("🚀 StellaVoice starting (TTS + STT)...")
+        print(" StellaVoice starting (TTS + STT)...")
         
         // Initialize TTS
-        print("📦 Loading TTS model (Kokoro af_sky)...")
+        print(" Loading TTS model (Kokoro af_sky)...")
         let ttsStart = Date()
         let tts = TTSService(voice: "af_sky")
         try await tts.initialize()
-        print("✅ TTS loaded in \(String(format: "%.2f", Date().timeIntervalSince(ttsStart)))s")
+        print(" TTS loaded in \(String(format: "%.2f", Date().timeIntervalSince(ttsStart)))s")
         
         // Initialize STT
-        print("📦 Loading STT model (Parakeet v3)...")
+        print(" Loading STT model (Parakeet v3)...")
         let sttStart = Date()
         let stt = STTService()
         try await stt.initialize()
-        print("✅ STT loaded in \(String(format: "%.2f", Date().timeIntervalSince(sttStart)))s")
+        print(" STT loaded in \(String(format: "%.2f", Date().timeIntervalSince(sttStart)))s")
         
         // Create HTTP server
         let router = Router()
@@ -115,7 +115,7 @@ struct StellaVoice {
             let audio = try await tts.synthesize(text: text, speed: speed, deEss: deEss)
             let elapsed = Date().timeIntervalSince(start)
             
-            print("🎤 TTS: \(text.count) chars in \(String(format: "%.3f", elapsed))s")
+            print(" TTS: \(text.count) chars in \(String(format: "%.3f", elapsed))s")
             
             return Response(
                 status: .ok,
@@ -135,7 +135,7 @@ struct StellaVoice {
             let audio = try await tts.synthesize(text: req.text, speed: req.speed ?? 1.0, deEss: req.deEss ?? true)
             let elapsed = Date().timeIntervalSince(start)
             
-            print("🎤 TTS: \(req.text.count) chars in \(String(format: "%.3f", elapsed))s")
+            print(" TTS: \(req.text.count) chars in \(String(format: "%.3f", elapsed))s")
             
             return Response(
                 status: .ok,
@@ -158,7 +158,7 @@ struct StellaVoice {
             let text = try await stt.transcribe(audioData: audioData)
             let elapsed = Date().timeIntervalSince(start)
             
-            print("👂 STT: \(String(format: "%.3f", elapsed))s -> \"\(text.prefix(50))...\"")
+            print(" STT: \(String(format: "%.3f", elapsed))s -> \"\(text.prefix(50))...\"")
             
             // Return JSON with transcript
             let response = ["text": text]
@@ -176,7 +176,7 @@ struct StellaVoice {
             configuration: .init(address: .hostname("127.0.0.1", port: 18790))
         )
         
-        print("🎧 StellaVoice listening on http://127.0.0.1:18790")
+        print(" StellaVoice listening on http://127.0.0.1:18790")
         print("   TTS:")
         print("     POST /synthesize         - text body -> WAV")
         print("     POST /synthesize/json    - {text, speed?, deEss?} -> WAV")

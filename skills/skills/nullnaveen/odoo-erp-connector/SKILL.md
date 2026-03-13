@@ -8,7 +8,7 @@ repository: https://github.com/NullNaveen/openclaw-odoo-skill
 
 Full-featured Odoo 19 ERP integration for OpenClaw. Control your entire business via natural language chat commands.
 
-**📦 Full Source Code:** https://github.com/NullNaveen/openclaw-odoo-skill
+** Full Source Code:** https://github.com/NullNaveen/openclaw-odoo-skill
 
 ## Quick Install
 
@@ -569,7 +569,7 @@ OpenClaw → OdooClient (smart action):
   3. Create quotation with both
   4. Return summary
 
-Result: "✅ Created quotation QT-001 for Acme Corp with 10 × Widgets at $50"
+Result: " Created quotation QT-001 for Acme Corp with 10 × Widgets at $50"
 ```
 
 ### Pipeline Status Check

@@ -39,7 +39,7 @@ case "$cmd" in
   cancel)
     subscription_id="${1:?subscriptionId required}"
     file="${2:-}"
-    echo "⚠️  WARNING: This will cancel subscription ${subscription_id}." >&2
+    echo "  WARNING: This will cancel subscription ${subscription_id}." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     if [[ -n "$file" ]]; then
       [[ -f "$file" ]] || { echo "Error: File not found: $file" >&2; exit 1; }

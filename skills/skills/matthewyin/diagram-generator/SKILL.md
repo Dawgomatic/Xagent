@@ -405,7 +405,7 @@ If MCP server returns validation error:
 ### Directory Not Found
 
 **Old behavior**: Error if directory doesn't exist
-**New behavior**: Directory is created automatically ✅
+**New behavior**: Directory is created automatically 
 
 If you still see directory errors:
 1. Check write permissions for the project directory

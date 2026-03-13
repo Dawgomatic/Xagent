@@ -2,10 +2,10 @@
 name: update-plus
 description: Full backup, update, and restore for OpenClaw - config, workspace, and skills with auto-rollback
 version: 4.0.3
-metadata: {"openclaw":{"emoji":"🔄","requires":{"bins":["git","jq","rsync"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["git","jq","rsync"]}}}
 ---
 
-# 🔄 Update Plus
+#  Update Plus
 
 A comprehensive backup, update, and restore tool for your OpenClaw environment. Protect your config, workspace, and skills with automatic rollback, encrypted backups, and cloud sync.
 

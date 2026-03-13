@@ -82,14 +82,14 @@ WEB_ONLY_MESSAGES = [
 # Promo message for users without API keys
 PROMO_MESSAGE = f"""
 {Colors.YELLOW}{Colors.BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{Colors.RESET}
-{Colors.YELLOW}⚡ UNLOCK THE FULL POWER OF /last30days{Colors.RESET}
+{Colors.YELLOW} UNLOCK THE FULL POWER OF /last30days{Colors.RESET}
 
 {Colors.DIM}Right now you're using web search only. Add API keys to unlock:{Colors.RESET}
 
-  {Colors.YELLOW}🟠 Reddit{Colors.RESET} - Real upvotes, comments, and community insights
+  {Colors.YELLOW} Reddit{Colors.RESET} - Real upvotes, comments, and community insights
      └─ Add OPENAI_API_KEY (uses OpenAI's web_search for Reddit)
 
-  {Colors.CYAN}🔵 X (Twitter){Colors.RESET} - Real-time posts, likes, reposts from creators
+  {Colors.CYAN} X (Twitter){Colors.RESET} - Real-time posts, likes, reposts from creators
      └─ Add XAI_API_KEY (uses xAI's live X search)
 
 {Colors.DIM}Setup:{Colors.RESET} Edit {Colors.BOLD}~/.config/last30days/.env{Colors.RESET}
@@ -98,14 +98,14 @@ PROMO_MESSAGE = f"""
 
 PROMO_MESSAGE_PLAIN = """
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚡ UNLOCK THE FULL POWER OF /last30days
+ UNLOCK THE FULL POWER OF /last30days
 
 Right now you're using web search only. Add API keys to unlock:
 
-  🟠 Reddit - Real upvotes, comments, and community insights
+   Reddit - Real upvotes, comments, and community insights
      └─ Add OPENAI_API_KEY (uses OpenAI's web_search for Reddit)
 
-  🔵 X (Twitter) - Real-time posts, likes, reposts from creators
+   X (Twitter) - Real-time posts, likes, reposts from creators
      └─ Add XAI_API_KEY (uses xAI's live X search)
 
 Setup: Edit ~/.config/last30days/.env
@@ -115,16 +115,16 @@ Setup: Edit ~/.config/last30days/.env
 # Shorter promo for single missing key
 PROMO_SINGLE_KEY = {
     "reddit": f"""
-{Colors.DIM}💡 Tip: Add {Colors.YELLOW}OPENAI_API_KEY{Colors.RESET}{Colors.DIM} to ~/.config/last30days/.env for Reddit data with real engagement metrics!{Colors.RESET}
+{Colors.DIM} Tip: Add {Colors.YELLOW}OPENAI_API_KEY{Colors.RESET}{Colors.DIM} to ~/.config/last30days/.env for Reddit data with real engagement metrics!{Colors.RESET}
 """,
     "x": f"""
-{Colors.DIM}💡 Tip: Add {Colors.CYAN}XAI_API_KEY{Colors.RESET}{Colors.DIM} to ~/.config/last30days/.env for X/Twitter data with real likes & reposts!{Colors.RESET}
+{Colors.DIM} Tip: Add {Colors.CYAN}XAI_API_KEY{Colors.RESET}{Colors.DIM} to ~/.config/last30days/.env for X/Twitter data with real likes & reposts!{Colors.RESET}
 """,
 }
 
 PROMO_SINGLE_KEY_PLAIN = {
-    "reddit": "\n💡 Tip: Add OPENAI_API_KEY to ~/.config/last30days/.env for Reddit data with real engagement metrics!\n",
-    "x": "\n💡 Tip: Add XAI_API_KEY to ~/.config/last30days/.env for X/Twitter data with real likes & reposts!\n",
+    "reddit": "\n Tip: Add OPENAI_API_KEY to ~/.config/last30days/.env for Reddit data with real engagement metrics!\n",
+    "x": "\n Tip: Add XAI_API_KEY to ~/.config/last30days/.env for X/Twitter data with real likes & reposts!\n",
 }
 
 # Spinner frames
@@ -160,7 +160,7 @@ class Spinner:
         else:
             # Not a TTY (Claude Code) - just print once
             if not self.shown_static:
-                sys.stderr.write(f"⏳ {self.message}\n")
+                sys.stderr.write(f" {self.message}\n")
                 sys.stderr.flush()
                 self.shown_static = True
 
@@ -168,7 +168,7 @@ class Spinner:
         self.message = message
         if not IS_TTY and not self.shown_static:
             # Print update in non-TTY mode
-            sys.stderr.write(f"⏳ {message}\n")
+            sys.stderr.write(f" {message}\n")
             sys.stderr.flush()
 
     def stop(self, final_message: str = ""):
@@ -262,7 +262,7 @@ class ProgressDisplay:
             age_str = f" ({age_hours:.1f}h old)"
         else:
             age_str = ""
-        sys.stderr.write(f"{Colors.GREEN}⚡{Colors.RESET} {Colors.DIM}Using cached results{age_str} - use --refresh for fresh data{Colors.RESET}\n\n")
+        sys.stderr.write(f"{Colors.GREEN}{Colors.RESET} {Colors.DIM}Using cached results{age_str} - use --refresh for fresh data{Colors.RESET}\n\n")
         sys.stderr.flush()
 
     def show_error(self, message: str):

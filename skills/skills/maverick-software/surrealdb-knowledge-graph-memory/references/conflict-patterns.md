@@ -26,16 +26,16 @@ Strength: 0.9
 ### Antonym Pairs
 ```
 Pairs:
-  likes ↔ dislikes
-  prefers ↔ avoids
-  always ↔ never
-  loves ↔ hates
-  good ↔ bad
-  yes ↔ no
-  true ↔ false
-  can ↔ cannot
-  will ↔ won't
-  should ↔ shouldn't
+  likes  dislikes
+  prefers  avoids
+  always  never
+  loves  hates
+  good  bad
+  yes  no
+  true  false
+  can  cannot
+  will  won't
+  should  shouldn't
 
 Example:
   - "Charles likes verbose explanations"
@@ -46,10 +46,10 @@ Strength: 0.8
 ### Quantifier Conflicts
 ```
 Conflicts:
-  all ↔ none
-  always ↔ never
-  everyone ↔ no one
-  everything ↔ nothing
+  all  none
+  always  never
+  everyone  no one
+  everything  nothing
   
 Example:
   - "Charles always responds quickly"
@@ -159,22 +159,22 @@ New Fact Arrives
          │
          ▼ (similarity > 0.85)
 ┌─────────────────┐
-│ Pattern Check   │ ─── No Match ───▶ Store Fact
+│ Pattern Check   │ ─── No Match ─── Store Fact
 └────────┬────────┘
          │ Match
          ▼
 ┌─────────────────┐
-│ Sentiment Check │ ─── No Conflict ─▶ Store Fact
+│ Sentiment Check │ ─── No Conflict ─ Store Fact
 └────────┬────────┘
          │ Conflict
          ▼
 ┌─────────────────┐
-│ Both High Conf? │ ─── No ──────────▶ Create Edge, Drain Old
+│ Both High Conf? │ ─── No ────────── Create Edge, Drain Old
 └────────┬────────┘
          │ Yes
          ▼
 ┌─────────────────┐
-│ LLM Verify      │ ─── Not Conflict ─▶ Store Fact
+│ LLM Verify      │ ─── Not Conflict ─ Store Fact
 └────────┬────────┘
          │ Confirmed
          ▼

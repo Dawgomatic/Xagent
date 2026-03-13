@@ -8,7 +8,7 @@ description: >
 compatibility: "Requires yt-dlp, ffmpeg, and GEMINI_API_KEY environment variable. Python 3.10+ with uv."
 metadata:
   openclaw:
-    emoji: "🎬"
+    emoji: ""
     requires:
       bins: ["yt-dlp", "ffmpeg"]
       env: ["GEMINI_API_KEY"]

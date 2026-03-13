@@ -174,17 +174,17 @@ I used these lessons to successfully implement our next project (the payment sys
 
 ## Common Mistakes to Avoid
 
-❌ **Too vague**: "I worked hard and we succeeded"
-✅ **Specific**: "I implemented automated testing, which reduced bugs by 40%"
+ **Too vague**: "I worked hard and we succeeded"
+ **Specific**: "I implemented automated testing, which reduced bugs by 40%"
 
-❌ **Focus on team**: "We decided to..."
-✅ **Focus on self**: "I proposed and led the initiative to..."
+ **Focus on team**: "We decided to..."
+ **Focus on self**: "I proposed and led the initiative to..."
 
-❌ **No metrics**: "It improved things"
-✅ **With metrics**: "Customer satisfaction increased from 75% to 92%"
+ **No metrics**: "It improved things"
+ **With metrics**: "Customer satisfaction increased from 75% to 92%"
 
-❌ **Situation too long**: Spent 3 minutes setting context
-✅ **Balanced**: Situation is 15-20 seconds, then move to action
+ **Situation too long**: Spent 3 minutes setting context
+ **Balanced**: Situation is 15-20 seconds, then move to action
 
-❌ **Negative result only**: "It was a disaster"
-✅ **Learning-focused**: "It didn't go well, but I learned X and Y"
+ **Negative result only**: "It was a disaster"
+ **Learning-focused**: "It didn't go well, but I learned X and Y"

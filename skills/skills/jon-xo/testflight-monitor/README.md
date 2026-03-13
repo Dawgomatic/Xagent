@@ -7,12 +7,12 @@
 
 ## Features
 
-- 🔍 **Smart Lookups** - Maps cryptic TestFlight codes → readable app names
-- 🔕 **Silent by Default** - Only alerts when slots actually open (no spam)
-- 📦 **Batch Monitoring** - Check multiple apps in one run
-- 📊 **State Tracking** - Detects status changes (full → available)
-- ⚙️ **Configurable** - CLI-based config, customizable intervals
-- 🎯 **Community Data** - Uses 800+ app names from awesome-testflight-link
+-  **Smart Lookups** - Maps cryptic TestFlight codes → readable app names
+-  **Silent by Default** - Only alerts when slots actually open (no spam)
+-  **Batch Monitoring** - Check multiple apps in one run
+-  **State Tracking** - Detects status changes (full → available)
+-  **Configurable** - CLI-based config, customizable intervals
+-  **Community Data** - Uses 800+ app names from awesome-testflight-link
 
 ## Quick Start
 
@@ -62,7 +62,7 @@ openclaw cron add \
 ./testflight-monitor.sh batch
 # → SILENT: No status changes detected.
 # OR
-# → 🎉 **OpenClaw iOS** beta now has open slots! https://...
+# →  **OpenClaw iOS** beta now has open slots! https://...
 
 # List monitored apps
 ./testflight-monitor.sh list
@@ -83,10 +83,10 @@ openclaw cron add \
 ## Why This Exists
 
 TestFlight betas fill up **fast**. You need:
-- ✅ Automated monitoring (not manual checking)
-- ✅ Smart notifications (only when slots open)
-- ✅ Readable app names (not `BnjD4BEf`)
-- ✅ Batch efficiency (one job for many apps)
+-  Automated monitoring (not manual checking)
+-  Smart notifications (only when slots open)
+-  Readable app names (not `BnjD4BEf`)
+-  Batch efficiency (one job for many apps)
 
 This skill does all that.
 
@@ -169,4 +169,4 @@ MIT License - see [LICENSE](LICENSE) file
 
 ---
 
-Made with ❤️ for the OpenClaw community
+Made with  for the OpenClaw community

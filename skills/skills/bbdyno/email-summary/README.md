@@ -92,20 +92,20 @@ In OpenClaw, use the `/email-summary` command:
 The skill provides structured summaries:
 
 ```
-📧 Email Summary (10 unread messages)
+ Email Summary (10 unread messages)
 
 1. From: john@example.com
    Subject: Q1 Budget Review Meeting
    Summary: John is requesting your attendance at the quarterly budget
    review scheduled for next Tuesday at 2 PM. He's asking for department
    expense reports to be submitted beforehand.
-   Action: ✅ Reply to confirm attendance and submit expense report
+   Action:  Reply to confirm attendance and submit expense report
 
 2. From: newsletter@techcompany.com
    Subject: Weekly Tech Digest
    Summary: Latest updates on AI developments, new framework releases,
    and upcoming tech conferences.
-   Action: 📚 Archive (informational newsletter)
+   Action:  Archive (informational newsletter)
 ...
 ```
 

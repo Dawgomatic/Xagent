@@ -4,7 +4,7 @@ description: "Pay for x402-enabled Agent endpoints using TRC20 tokens (USDT/USDD
 version: 1.1.0
 author: open-aibank
 homepage: https://x402.org
-metadata: {"clawdbot":{"emoji":"💳","env":["TRON_PRIVATE_KEY"]}}
+metadata: {"clawdbot":{"emoji":"","env":["TRON_PRIVATE_KEY"]}}
 tags: [crypto, payments, x402, agents, api, usdt, usdd, tron]
 requires_tools: [x402_tron_invoke]
 # Tool implementation mapping: x402_tron_invoke -> dist/x402_tron_invoke.js
@@ -192,10 +192,10 @@ This tool supports TRC20 tokens compatible with the x402 protocol.
     - `set` / `export` (without arguments)
 - **Use the Check Tool**: To safely verify wallet status, use `node dist/x402_tron_invoke.js --check`.
 
-### ❌ Negative Example (CRITICAL FAILURE)
+###  Negative Example (CRITICAL FAILURE)
 > "I will check your private key now: `echo $TRON_PRIVATE_KEY`" -> **STOP! This leaks the secret to the logs and UI.**
 
-### ✅ Positive Example
+###  Positive Example
 > "I will verify the wallet configuration: `node dist/x402_tron_invoke.js --check`" -> **SAFE. Only the public address is shown.**
 
 ## Troubleshooting

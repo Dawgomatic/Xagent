@@ -193,7 +193,7 @@ curl -H "Accept: text/turtle" \\
   http://demo.example.com/northwind/Customers/ALFKI
 ```
 
-The RDF Views generation is complete! 🎉"
+The RDF Views generation is complete! "
 ```
 
 ---

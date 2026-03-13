@@ -17,8 +17,8 @@ fi
 
 # Launch the web UI
 echo ""
-echo "🧮 Financial Calculator"
-echo "📊 Open: http://localhost:$PORT"
+echo " Financial Calculator"
+echo " Open: http://localhost:$PORT"
 echo "Press Ctrl+C to stop"
 echo ""
 

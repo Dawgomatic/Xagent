@@ -4,7 +4,7 @@ This skill adds an **API Keys** tab to the OpenClaw Control dashboard under **Se
 
 ## Prerequisites
 
-✅ **OpenClaw v2026.1.0+** with source access at `~/clawdbot`
+ **OpenClaw v2026.1.0+** with source access at `~/clawdbot`
 
 ---
 

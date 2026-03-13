@@ -17,7 +17,7 @@
 
 → `/Users/yuki/.openclaw/workspace/voice-ui/index.html` を編集してください！
 
-## ⚠️ 変更後は必ずGitコミット！
+##  変更後は必ずGitコミット！
 
 UIやコードを編集したら、必ず以下を実行：
 ```bash

@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎙️",
+        "emoji": "",
         "requires":
           {
             "bins": ["sag", "ffmpeg"],
@@ -96,7 +96,7 @@ sag voices
 sag -v "YOUR_VOICE_NAME" -o /tmp/test.mp3 "早安，這是一個語音測試。"
 ```
 
-⚠️ `sag` 所有指令都需要 `ELEVENLABS_API_KEY` 環境變數。如果沒有，請先設定。
+ `sag` 所有指令都需要 `ELEVENLABS_API_KEY` 環境變數。如果沒有，請先設定。
 
 #### 沒有 ElevenLabs？用內建 tts 替代
 
@@ -117,7 +117,7 @@ tts({ text: "早安！今天想分享 Steve Jobs 的一句話..." })
 - **LINE**：需要 `CHANNEL_ACCESS_TOKEN` + `USER_ID / GROUP_ID`
 - 其他（Telegram / Discord / WhatsApp 等）：使用 `message` tool 或 `tts` tool
 
-#### 📱 LINE 媒體格式要求（重要！）
+####  LINE 媒體格式要求（重要！）
 
 LINE 對語音和影片的格式有嚴格限制，格式不對會無法在聊天裡直接點開播放！
 
@@ -127,8 +127,8 @@ LINE 對語音和影片的格式有嚴格限制，格式不對會無法在聊天
 | 格式 | **M4A**（`.m4a`）— AAC 編碼 |
 | 來源 | 必須是 **HTTPS 公開 URL**（不接受本地檔案路徑） |
 | duration | 必須提供毫秒數（如 `21000` = 21 秒） |
-| ❌ 不行 | MP3 直接發送（LINE 不支援 audio type 用 MP3） |
-| ✅ 轉換 | `ffmpeg -i input.mp3 -c:a aac -b:a 128k output.m4a -y` |
+|  不行 | MP3 直接發送（LINE 不支援 audio type 用 MP3） |
+|  轉換 | `ffmpeg -i input.mp3 -c:a aac -b:a 128k output.m4a -y` |
 
 **影片訊息（video message）：**
 | 項目 | 要求 |
@@ -136,8 +136,8 @@ LINE 對語音和影片的格式有嚴格限制，格式不對會無法在聊天
 | 格式 | **MP4**（`.mp4`）— H.264 視訊 + AAC 音訊 |
 | 來源 | 必須是 **HTTPS 公開 URL**（支援 Range requests） |
 | previewImageUrl | 必須提供影片預覽圖 URL（JPEG/PNG） |
-| ❌ 不行 | ngrok + Python SimpleHTTPServer（不支援 Range requests，LINE 無法播放） |
-| ✅ 可行 | ngrok + Node.js static server、HeyGen CDN URL、任何支援 Range requests 的 CDN |
+|  不行 | ngrok + Python SimpleHTTPServer（不支援 Range requests，LINE 無法播放） |
+|  可行 | ngrok + Node.js static server、HeyGen CDN URL、任何支援 Range requests 的 CDN |
 
 **公開 URL 方案：**
 - **最簡單**：把檔案放到支援 Range requests 的靜態檔案伺服器 + ngrok/cloudflare tunnel
@@ -183,7 +183,7 @@ curl -s -X POST https://api.line.me/v2/bot/message/push \
 
 - **非節日**：按照 `day_of_year % 20` 取固定清單
 - **節日**：選主題與節日呼應的**真實名人名言**
-  - ⚠️ 必須是「名人 + 名言」，不是祝賀詞 / 成語 / 諺語
+  -  必須是「名人 + 名言」，不是祝賀詞 / 成語 / 諺語
   - 語音稿開頭可加節日問候
 - **極端天氣**：僅颱風 / 暴雨 / 暴雪 / 極端高溫才加提醒
 
@@ -226,11 +226,11 @@ ffprobe -v error -show_entries format=duration \
 # → 乘以 1000 得到毫秒數
 ```
 
-> 📱 **LINE 用戶注意**：語音必須是 **M4A 格式**（AAC 編碼）才能在聊天裡直接點開播放。MP3 不行！詳見上方「LINE 媒體格式要求」。
+>  **LINE 用戶注意**：語音必須是 **M4A 格式**（AAC 編碼）才能在聊天裡直接點開播放。MP3 不行！詳見上方「LINE 媒體格式要求」。
 
 ### Part 2：封面圖靜態影片
 
-> ⚠️ **超重要：`--input-image` 是讓 AI 重新生成新照片，不是去背剪貼！**
+>  **超重要：`--input-image` 是讓 AI 重新生成新照片，不是去背剪貼！**
 
 **好的 prompt 範例：**
 ```
@@ -269,7 +269,7 @@ ffmpeg -loop 1 -i /tmp/daily-quote-cover.png -i /tmp/daily-quote.mp3 \
 ffmpeg -i /tmp/daily-quote-static.mp4 -vframes 1 -q:v 2 /tmp/daily-quote-preview.jpg -y
 ```
 
-> 📱 **LINE 用戶注意**：影片必須是 **MP4 格式**（H.264 視訊 + AAC 音訊），且需要透過支援 Range requests 的 HTTPS URL 提供，LINE 才能在聊天裡直接點開播放。同時必須提供預覽圖 URL。詳見上方「LINE 媒體格式要求」。
+>  **LINE 用戶注意**：影片必須是 **MP4 格式**（H.264 視訊 + AAC 音訊），且需要透過支援 Range requests 的 HTTPS URL 提供，LINE 才能在聊天裡直接點開播放。同時必須提供預覽圖 URL。詳見上方「LINE 媒體格式要求」。
 
 ### Part 3：HeyGen 數位人影片（選配）
 

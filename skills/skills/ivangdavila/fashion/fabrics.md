@@ -15,7 +15,7 @@ For t-shirts and cotton basics:
 ## Fabric Behavior by Context
 
 ### For Travel
-| ✅ Travel-Worthy | ❌ Avoid |
+|  Travel-Worthy |  Avoid |
 |------------------|----------|
 | Merino wool | 100% linen (wrinkles) |
 | Ponte | 100% cotton dress shirts |
@@ -23,7 +23,7 @@ For t-shirts and cotton basics:
 | Travel-grade cotton | Velvet |
 
 ### For Hot/Humid Climates
-| ✅ Breathable | ❌ Trap Heat |
+|  Breathable |  Trap Heat |
 |---------------|-------------|
 | Linen | Polyester |
 | Lightweight cotton | Acetate |
@@ -31,7 +31,7 @@ For t-shirts and cotton basics:
 | Bamboo | Unlined synthetics |
 
 ### For Cold Climates
-| ✅ Insulating | ❌ Dangerous |
+|  Insulating |  Dangerous |
 |---------------|-------------|
 | Merino wool base layers | Cotton base layers ("cotton kills") |
 | Cashmere | Wet down |

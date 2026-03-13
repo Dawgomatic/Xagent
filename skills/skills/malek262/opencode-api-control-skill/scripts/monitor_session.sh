@@ -19,8 +19,8 @@ SESSION_ID=$(jq -r '.session_id' "$SKILL_DIR/state/current.json")
 PROJECT_PATH=$(jq -r '.project_path' "$SKILL_DIR/state/current.json")
 BASE_URL=$(jq -r '.base_url' "$SKILL_DIR/state/current.json")
 
-echo "📡 Monitoring session: $SESSION_ID"
-echo "📁 Project: $PROJECT_PATH"
+echo " Monitoring session: $SESSION_ID"
+echo " Project: $PROJECT_PATH"
 echo "Press Ctrl+C to stop"
 echo "----------------------------------------"
 
@@ -69,7 +69,7 @@ while IFS= read -r line; do
         LAST_STATUS="$STATUS"
         case "$STATUS" in
           "idle")
-            echo -e "\n\n✅ Task completed"
+            echo -e "\n\n Task completed"
             exit 0
             ;;
           "retry")
@@ -77,14 +77,14 @@ while IFS= read -r line; do
               jq -r '.properties.status.attempt // 1' 2>/dev/null)
             MSG=$(echo "$PAYLOAD" | \
               jq -r '.properties.status.message // "Retrying..."' 2>/dev/null)
-            echo -e "\n⚠️  Retry $ATTEMPT: $MSG"
+            echo -e "\n  Retry $ATTEMPT: $MSG"
             ;;
         esac
       fi
       ;;
 
     "session.idle")
-      echo -e "\n\n✅ Session idle - task completed"
+      echo -e "\n\n Session idle - task completed"
       exit 0
       ;;
 
@@ -94,7 +94,7 @@ while IFS= read -r line; do
       DIFF_COUNT=$(echo "$DIFF" | jq 'length' 2>/dev/null || echo 0)
 
       if [ "$DIFF_COUNT" -gt 0 ]; then
-        echo -e "\n\n📝 Files changed:"
+        echo -e "\n\n Files changed:"
         echo "$DIFF" | jq -r \
           '.[] | "  \(.status): \(.file) (+\(.additions)/-\(.deletions))"' \
           2>/dev/null
@@ -110,20 +110,20 @@ while IFS= read -r line; do
       COST=$(echo "$PAYLOAD" | \
         jq -r '.properties.info.cost // empty' 2>/dev/null)
 
-      [ -n "$TOKENS" ] && echo -e "\n📊 Tokens: $TOKENS | Cost: \$$COST"
+      [ -n "$TOKENS" ] && echo -e "\n Tokens: $TOKENS | Cost: \$$COST"
       ;;
 
     "session.error")
       ERROR=$(echo "$PAYLOAD" | \
         jq -r '.properties.error.data.message // "Unknown error"' 2>/dev/null)
-      echo -e "\n\n❌ Error: $ERROR" >&2
+      echo -e "\n\n Error: $ERROR" >&2
       exit 1
       ;;
 
     "file.edited")
       FILE=$(echo "$PAYLOAD" | \
         jq -r '.properties.file // empty' 2>/dev/null)
-      [ -n "$FILE" ] && echo -e "\n✏️  Editing: $(basename "$FILE")"
+      [ -n "$FILE" ] && echo -e "\n  Editing: $(basename "$FILE")"
       ;;
 
   esac

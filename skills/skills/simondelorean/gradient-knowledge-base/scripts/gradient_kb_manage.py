@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🦞 Gradient AI — Knowledge Base Management
+ Gradient AI — Knowledge Base Management
 
 Create, list, and manage DigitalOcean Gradient Knowledge Bases
 and their data sources. Full CRUD via the DO API.
@@ -161,7 +161,7 @@ def delete_knowledge_base(
 ) -> dict:
     """Delete a Knowledge Base.
 
-    ⚠️ This permanently deletes the KB and all its indexed data.
+     This permanently deletes the KB and all its indexed data.
 
     Args:
         kb_uuid: Knowledge Base UUID.
@@ -328,7 +328,7 @@ def trigger_reindex(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🦞 Manage Gradient Knowledge Bases"
+        description=" Manage Gradient Knowledge Bases"
     )
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--list", action="store_true", help="List all Knowledge Bases")
@@ -391,21 +391,21 @@ def main():
             print(json.dumps(result, indent=2, default=str))
         else:
             if result["success"]:
-                print(f"✅ {result['message']}")
+                print(f" {result['message']}")
                 # Print KBs if listing
                 if "knowledge_bases" in result:
                     for kb in result["knowledge_bases"]:
                         name = kb.get("name", "unnamed")
                         uuid = kb.get("uuid", "?")
-                        print(f"  📦 {name} ({uuid})")
+                        print(f"   {name} ({uuid})")
                 # Print data sources if listing
                 if "data_sources" in result:
                     for ds in result["data_sources"]:
                         ds_type = ds.get("type", "unknown")
                         uuid = ds.get("uuid", "?")
-                        print(f"  📁 {ds_type} ({uuid})")
+                        print(f"   {ds_type} ({uuid})")
             else:
-                print(f"❌ {result['message']}", file=sys.stderr)
+                print(f" {result['message']}", file=sys.stderr)
                 sys.exit(1)
 
 

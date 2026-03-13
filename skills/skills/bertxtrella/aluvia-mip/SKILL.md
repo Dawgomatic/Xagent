@@ -7,7 +7,7 @@ read_when:
   - Scraping or extracting data from protected websites
   - Running browser automation through residential proxies
   - Need a CDP URL for browser tools
-metadata: { 'clawdbot': { 'emoji': '🛡️', 'requires': { 'bins': ['node', 'npx'] } } }
+metadata: { 'clawdbot': { 'emoji': '', 'requires': { 'bins': ['node', 'npx'] } } }
 allowed-tools: Bash(aluvia-sdk:*)
 ---
 

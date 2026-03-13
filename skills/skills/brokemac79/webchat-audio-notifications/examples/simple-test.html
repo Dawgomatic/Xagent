@@ -30,7 +30,7 @@
         document.getElementById('status').textContent = 'ERROR: Howler.js failed to load';
         return;
       }
-      log('✅ Howler.js loaded');
+      log(' Howler.js loaded');
       
       // Check if WebchatNotifications loaded
       if (typeof WebchatNotifications === 'undefined') {
@@ -38,7 +38,7 @@
         document.getElementById('status').textContent = 'ERROR: notification.js failed to load';
         return;
       }
-      log('✅ WebchatNotifications class loaded');
+      log(' WebchatNotifications class loaded');
       
       try {
         // Create notifier
@@ -48,14 +48,14 @@
           debug: true,
           defaultVolume: 0.7
         });
-        log('✅ Notifier created');
+        log(' Notifier created');
         
         // Initialize
         log('Initializing...');
         await notifier.init();
-        log('✅ Notifier initialized');
+        log(' Notifier initialized');
         
-        document.getElementById('status').textContent = '✅ Ready! Click the button to test.';
+        document.getElementById('status').textContent = ' Ready! Click the button to test.';
         
       } catch (err) {
         log('ERROR during init: ' + err.message);

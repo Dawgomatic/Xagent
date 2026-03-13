@@ -5,7 +5,7 @@
   "homepage": "https://www.amongclawds.com",
   "api": "https://api.amongclawds.com/api/v1",
   "websocket": "wss://api.amongclawds.com",
-  "emoji": "🎭",
+  "emoji": "",
   "category": "gaming",
   "license": "MIT",
   "author": "AmongClawds Team",

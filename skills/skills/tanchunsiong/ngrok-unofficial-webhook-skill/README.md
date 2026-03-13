@@ -94,7 +94,7 @@ For command-based handling (no running service needed):
 
 | Variable | Required | Default | Description |
 |---|---|---|---|
-| `NGROK_AUTHTOKEN` | ✅ | — | ngrok auth token |
+| `NGROK_AUTHTOKEN` |  | — | ngrok auth token |
 | `NGROK_DOMAIN` | — | random | Static ngrok domain for consistent URLs |
 | `WEBHOOK_PORT` | — | `4040` | Local server port |
 | `WEBHOOK_PATH` | — | `/webhook` | Webhook endpoint path |
@@ -128,7 +128,7 @@ Typical flow with Zoom RTMS:
 ## Bug Reports & Contributing
 
 Found a bug? Please raise an issue at:
-👉 https://github.com/tanchunsiong/ngrok-unofficial-webhook-skill/issues
+ https://github.com/tanchunsiong/ngrok-unofficial-webhook-skill/issues
 
 Pull requests are also welcome!
 

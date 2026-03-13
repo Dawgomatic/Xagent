@@ -1,7 +1,7 @@
 ---
 name: safety-checker
 description: "Find 24-hour businesses, well-lit public areas, transit stations, police stations, and hospitals near any location for late night safety awareness."
-metadata: {"clawdbot":{"emoji":"🔦","requires":{"env":["CAMINO_API_KEY"]},"primaryEnv":"CAMINO_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["CAMINO_API_KEY"]},"primaryEnv":"CAMINO_API_KEY"}}
 ---
 
 ## Installation

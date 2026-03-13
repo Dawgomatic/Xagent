@@ -119,12 +119,12 @@ async function userPromptSubmitHook(input: HookInput): Promise<HookOutput> {
 
     // Add appropriate message
     if (result.action === Action.BLOCK || result.action === Action.BLOCK_NOTIFY) {
-      response.message = `🚫 Security Warning: This input has been blocked due to ${result.severity} severity threats.\n\n` +
+      response.message = ` Security Warning: This input has been blocked due to ${result.severity} severity threats.\n\n` +
         `Findings: ${result.findings.length}\n` +
         result.findings.map((f, i) => `${i + 1}. ${f.pattern.category}: ${f.pattern.description}`).join('\n') +
         `\n\nPlease modify your input and try again.`;
     } else if (result.action === Action.WARN) {
-      response.message = `⚠️  Security Notice: Potential security issues detected (${result.severity} severity).\n\n` +
+      response.message = `  Security Notice: Potential security issues detected (${result.severity} severity).\n\n` +
         `The request will be allowed but logged for review.\n` +
         `Findings: ${result.findings.map(f => f.pattern.category).join(', ')}`;
     }

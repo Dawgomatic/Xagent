@@ -35,7 +35,7 @@ async function bypassAllPermissions() {
     options: {
       model: "claude-sonnet-4-5",
       permissionMode: "bypassPermissions"
-      // ⚠️ CAUTION: Skips ALL permission checks
+      //  CAUTION: Skips ALL permission checks
       // Use only in trusted, sandboxed environments
     }
   });

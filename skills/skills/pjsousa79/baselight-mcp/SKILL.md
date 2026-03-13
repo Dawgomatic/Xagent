@@ -10,7 +10,7 @@ description: Connects to the Baselight MCP (Model Context Protocol)
 homepage: "https://baselight.ai/docs/connecting-to-the-baselight-mcp-server/"
 metadata:
   openclaw:
-    emoji: 🔌
+    emoji: 
     requires:
 name: baselight-mcp
 ---

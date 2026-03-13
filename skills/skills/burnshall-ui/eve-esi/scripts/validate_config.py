@@ -77,7 +77,7 @@ class ValidationResult:
 
     def print_summary(self):
         if self.warnings:
-            print(f"\n⚠ {len(self.warnings)} warning(s):", file=sys.stderr)
+            print(f"\n {len(self.warnings)} warning(s):", file=sys.stderr)
             for w in self.warnings:
                 print(f"  - {w}", file=sys.stderr)
 

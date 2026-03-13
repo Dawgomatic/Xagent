@@ -25,13 +25,13 @@ commandArgMode: json
 
 # Dify Knowledge Base Search Skill
 
-🔍 **Search your Dify Knowledge Base to get accurate, contextual answers**
+ **Search your Dify Knowledge Base to get accurate, contextual answers**
 
 This skill enables AI agents to query Dify datasets for RAG (Retrieval-Augmented Generation) context retrieval. Perfect for knowledge base Q&A, documentation search, and contextual AI responses.
 
 ![Dify Knowledge Base](https://dify.ai/favicon.ico)
 
-## ✨ Features
+##  Features
 
 - **List Knowledge Bases** - Discover all available Dify datasets
 - **Smart Search** - Query datasets with hybrid, semantic, or keyword search
@@ -40,7 +40,7 @@ This skill enables AI agents to query Dify datasets for RAG (Retrieval-Augmented
 - **Error Handling** - Graceful error messages for debugging
 - **Zero Hardcoding** - All configuration via environment variables
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Configure Environment Variables
 
@@ -61,8 +61,8 @@ Set up in `openclaw.json`:
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `DIFY_API_KEY` | ✅ Yes | - | Your Dify API Key (from Settings → API) |
-| `DIFY_BASE_URL` | ❌ No | `http://localhost/v1` | Your Dify instance base URL |
+| `DIFY_API_KEY` |  Yes | - | Your Dify API Key (from Settings → API) |
+| `DIFY_BASE_URL` |  No | `http://localhost/v1` | Your Dify instance base URL |
 
 ### 2. Install Dependencies
 
@@ -70,7 +70,7 @@ Set up in `openclaw.json`:
 pip3 install requests
 ```
 
-## 🛠️ Tools
+##  Tools
 
 ### dify_list
 
@@ -115,11 +115,11 @@ Searches a Dify Dataset for relevant context chunks.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `query` | string | ✅ Yes | - | Search query or question |
-| `dataset_id` | string | ❌ No | Auto-discover | Specific dataset ID to search |
-| `top_k` | integer | ❌ No | 3 | Number of results to return |
-| `search_method` | string | ❌ No | `hybrid_search` | Search strategy |
-| `reranking_enable` | boolean | ❌ No | `false` | Enable reranking for better results |
+| `query` | string |  Yes | - | Search query or question |
+| `dataset_id` | string |  No | Auto-discover | Specific dataset ID to search |
+| `top_k` | integer |  No | 3 | Number of results to return |
+| `search_method` | string |  No | `hybrid_search` | Search strategy |
+| `reranking_enable` | boolean |  No | `false` | Enable reranking for better results |
 
 **Search Methods:**
 
@@ -169,7 +169,7 @@ Searches a Dify Dataset for relevant context chunks.
 }
 ```
 
-## 📋 Complete Workflow Example
+##  Complete Workflow Example
 
 ```json
 [
@@ -188,7 +188,7 @@ Searches a Dify Dataset for relevant context chunks.
 ]
 ```
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Common Errors
 
@@ -207,7 +207,7 @@ Run manually to see detailed errors:
 DIFY_API_KEY=your-key python3 scripts/search.py <<< '{"query":"test"}'
 ```
 
-## 📚 Integration Tips
+##  Integration Tips
 
 ### RAG Pipeline Integration
 
@@ -231,13 +231,13 @@ For searching across multiple datasets, loop through them:
 
 Then query another dataset separately.
 
-## 🔒 Security
+##  Security
 
 - **Never commit API keys** - Use environment variables or `.env` files
 - **Rotate keys regularly** - Generate new keys in Dify Settings
 - **Restrict access** - Limit API key permissions where possible
 
-## 📖 Implementation Details
+##  Implementation Details
 
 This skill uses the Dify Dataset API:
 
@@ -246,15 +246,15 @@ This skill uses the Dify Dataset API:
 
 For API documentation, see: https://docs.dify.ai/reference/api-reference
 
-## 📝 Changelog
+##  Changelog
 
 **v1.1.0** (2026-02-08):
-- ✅ Added search method selection (hybrid/semantic/keyword)
-- ✅ Added reranking support
-- ✅ Auto-discovery of datasets
-- ✅ Improved error handling
-- ✅ Removed hardcoded URLs (fully configurable)
-- ✅ Added detailed logging
+-  Added search method selection (hybrid/semantic/keyword)
+-  Added reranking support
+-  Auto-discovery of datasets
+-  Improved error handling
+-  Removed hardcoded URLs (fully configurable)
+-  Added detailed logging
 
 **v1.0.0** (2026-02-06):
 - Initial release

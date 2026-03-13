@@ -19,7 +19,7 @@ metadata:
   }
 ---
 
-# ResearchVault 🦞
+# ResearchVault 
 
 Autonomous state manager for agentic research.
 

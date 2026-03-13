@@ -39,7 +39,7 @@ def get_options_chain(symbol: str, expiry: Optional[str] = None, strike_range: f
         if expiry not in expirations:
             expiry_date = datetime.strptime(expiry, '%Y-%m-%d')
             closest = min(expirations, key=lambda x: abs(datetime.strptime(x, '%Y-%m-%d') - expiry_date))
-            print(f"⚠️ 指定到期日 {expiry} 不可用，使用最接近的: {closest}", file=sys.stderr)
+            print(f" 指定到期日 {expiry} 不可用，使用最接近的: {closest}", file=sys.stderr)
             expiry = closest
     else:
         expiry = expirations[0]
@@ -99,19 +99,19 @@ def format_markdown(data: dict) -> str:
     lines.append(f"**可用到期日**: {', '.join(data['available_expiries'][:5])}...")
     
     if data['calls']:
-        lines.append("\n## 📈 看涨期权 (Calls)")
+        lines.append("\n##  看涨期权 (Calls)")
         lines.append("| Strike | Bid | Ask | Last | Volume | OI | IV% | ITM |")
         lines.append("|--------|-----|-----|------|--------|-----|-----|-----|")
         for c in data['calls']:
-            itm = "✅" if c['ITM'] else ""
+            itm = "" if c['ITM'] else ""
             lines.append(f"| {c['Strike']} | {c['Bid']:.2f} | {c['Ask']:.2f} | {c['Last']:.2f} | {c['Volume']} | {c['OI']} | {c['IV']:.1f} | {itm} |")
     
     if data['puts']:
-        lines.append("\n## 📉 看跌期权 (Puts)")
+        lines.append("\n##  看跌期权 (Puts)")
         lines.append("| Strike | Bid | Ask | Last | Volume | OI | IV% | ITM |")
         lines.append("|--------|-----|-----|------|--------|-----|-----|-----|")
         for p in data['puts']:
-            itm = "✅" if p['ITM'] else ""
+            itm = "" if p['ITM'] else ""
             lines.append(f"| {p['Strike']} | {p['Bid']:.2f} | {p['Ask']:.2f} | {p['Last']:.2f} | {p['Volume']} | {p['OI']} | {p['IV']:.1f} | {itm} |")
     
     return '\n'.join(lines)
@@ -135,7 +135,7 @@ def main():
             print(format_markdown(data))
             
     except Exception as e:
-        print(f"❌ 错误: {e}", file=sys.stderr)
+        print(f" 错误: {e}", file=sys.stderr)
         sys.exit(1)
 
 

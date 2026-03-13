@@ -13,7 +13,7 @@ Topic Monitor transforms your assistant from reactive to proactive by continuous
 
 ---
 
-## ⚡ Quick Start (New in v1.2.0!)
+##  Quick Start (New in v1.2.0!)
 
 **Just want to monitor one topic? One command:**
 
@@ -51,7 +51,7 @@ python3 scripts/quick.py "Team Updates" --channel discord
 
 | Feature | Quick Start | Full Setup |
 |---------|-------------|------------|
-| Speed | ⚡ 1 command | 📝 Wizard |
+| Speed |  1 command |  Wizard |
 | Defaults | Smart | Customizable |
 | Use case | Single topic | Multiple topics |
 | Configuration | Minimal | Full control |
@@ -95,7 +95,7 @@ The wizard creates `config.json` with your preferences. You can always edit it l
 
 **Example session:**
 ```
-🔍 Topic Monitor - Setup Wizard
+ Topic Monitor - Setup Wizard
 
 What topics do you want to monitor?
   > AI Model Releases
@@ -117,7 +117,7 @@ How often should I check for updates?
   2. daily *
   3. weekly
 
-✅ Setup Complete!
+ Setup Complete!
 ```
 
 ## Quick Start
@@ -276,12 +276,12 @@ Output format:
 ```markdown
 # Weekly Research Digest - [Date Range]
 
-## 🔥 Highlights
+##  Highlights
 
 - **AI Models**: Claude 4.5 released with improved reasoning
 - **Security**: Critical CVE patched in popular framework
 
-## 📊 By Topic
+##  By Topic
 
 ### AI Model Releases
 - [3 findings this week]
@@ -289,7 +289,7 @@ Output format:
 ### Security Vulnerabilities
 - [1 finding this week]
 
-## 💡 Recommendations
+##  Recommendations
 
 Based on your interests, you might want to monitor:
 - "Kubernetes security" (mentioned 3x this week)
@@ -364,7 +364,7 @@ Learning data stored in `.learning_data.json` (privacy-safe, never shared).
 Topic Monitor connects to your conversation history:
 
 **Example alert:**
-> 🔔 **Dirac Live Update**
+>  **Dirac Live Update**
 > 
 > Version 3.8 released with the room correction improvements you asked about last week.
 > 
@@ -414,8 +414,8 @@ Requires OpenClaw message tool:
     "chat_id": "@your_username",
     "silent": false,
     "effects": {
-      "high_importance": "🔥",
-      "medium_importance": "📌"
+      "high_importance": "",
+      "medium_importance": ""
     }
   }
 }

@@ -1,4 +1,4 @@
-# 🦞 Scrask Bot
+#  Scrask Bot
 
 **OpenClaw Skill** — Send a screenshot to Telegram. Scrask saves it to Google Calendar or Tasks automatically.
 

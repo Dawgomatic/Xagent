@@ -4,7 +4,7 @@ description: 从可抓取信息源（新浪科技、IT之家等）拉取当日�
 description_en: "Fetch daily tech headlines from configurable sources (Sina Tech, IT Home). No API Key. Use for cron or when user asks for daily tech broadcast / tech news digest."
 metadata:
   clawdbot:
-    emoji: "📰"
+    emoji: ""
     requires:
       bins: ["python3.11"]
     primaryEnv: null

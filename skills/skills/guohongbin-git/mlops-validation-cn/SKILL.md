@@ -5,13 +5,13 @@ description: Rigorous validation with typing, linting, testing, and security
 license: MIT
 ---
 
-# MLOps Validation ✅
+# MLOps Validation 
 
 Automated quality and security checks.
 
 ## Features
 
-### 1. Pre-commit Hooks 🔧
+### 1. Pre-commit Hooks 
 
 Setup automated checks:
 
@@ -26,7 +26,7 @@ Runs on every commit:
 - MyPy (type checking)
 - Bandit (security)
 
-### 2. Test Fixtures 🧪
+### 2. Test Fixtures 
 
 Shared pytest setup:
 

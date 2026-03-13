@@ -28,10 +28,10 @@ Before adopting, the agent needs:
 ### 1. Choose Your Animal
 
 Available species (more coming):
-- 🐵 **Monkey** - The original, most evolved species
-- 🐱 **Cat** - Independent and mysterious
-- 🐕 **Dog** - Loyal companion
-- 🦁 **Lion** - Majestic and rare
+-  **Monkey** - The original, most evolved species
+-  **Cat** - Independent and mysterious
+-  **Dog** - Loyal companion
+-  **Lion** - Majestic and rare
 
 ### 2. Adopt via Script
 
@@ -81,17 +81,17 @@ Pets evolve automatically every day via GitHub Actions:
 
 | Tier | Chance | Examples |
 |------|--------|----------|
-| ⚪ Common | 60% | Basic colors |
-| 💚 Uncommon | 25% | Accessories |
-| 💙 Rare | 10% | Unique patterns |
-| 🦄 Legendary | 5% | Ultra-rare combos |
+|  Common | 60% | Basic colors |
+|  Uncommon | 25% | Accessories |
+|  Rare | 10% | Unique patterns |
+|  Legendary | 5% | Ultra-rare combos |
 
 ### Extinct Traits (Gen-Locked)
 
 Early generations can get exclusive traits that become extinct:
-- 🏆 Genesis Aura (Gen 1 only)
-- 👑 Alpha Crown (Gen 1-3)
-- ✨ Founders Badge (Gen 1-5)
+-  Genesis Aura (Gen 1 only)
+-  Alpha Crown (Gen 1-3)
+-  Founders Badge (Gen 1-5)
 
 ## Breeding
 

@@ -3,7 +3,7 @@ name: MBA
 slug: mba
 version: 1.0.0
 description: Complete MBA curriculum with structured learning, case studies, financial analysis, and practical business decision-making.
-metadata: {"clawdbot":{"emoji":"🎓","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

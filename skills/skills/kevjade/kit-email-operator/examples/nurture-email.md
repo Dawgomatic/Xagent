@@ -98,13 +98,13 @@ The Productivity Lab | 123 Main St, San Francisco, CA 94102
 
 ### Why This Works
 
-✅ **Addresses real pain:** Context switching is relatable  
-✅ **Backed by research:** UC Irvine study adds credibility  
-✅ **Specific solution:** 3 steps to implement  
-✅ **Quick win:** Can try tomorrow  
-✅ **CTA provides more value:** Template is helpful, not salesy  
-✅ **Preview of next email:** Keeps them engaged  
-✅ **Conversational tone:** Feels like advice from a friend  
+ **Addresses real pain:** Context switching is relatable  
+ **Backed by research:** UC Irvine study adds credibility  
+ **Specific solution:** 3 steps to implement  
+ **Quick win:** Can try tomorrow  
+ **CTA provides more value:** Template is helpful, not salesy  
+ **Preview of next email:** Keeps them engaged  
+ **Conversational tone:** Feels like advice from a friend  
 
 ---
 
@@ -167,10 +167,10 @@ They used [Product Name] to create automatic routing rules:
 
 **The Results (First Month):**
 
-• ⏱️ 15 hours/week saved (no more manual triaging)
-• 📈 Response time dropped from 4 hours → 45 minutes
-• 😊 Customer satisfaction up 23%
-• 💰 $39,000/year in labor savings
+•  15 hours/week saved (no more manual triaging)
+•  Response time dropped from 4 hours → 45 minutes
+•  Customer satisfaction up 23%
+•  $39,000/year in labor savings
 
 **Here's what Sarah (Head of Support) said:**
 
@@ -206,12 +206,12 @@ P.S. — TechCorp started with one automation. Now they have 47 rules handling 8
 
 ### Why This Works
 
-✅ **Quantified results:** Specific hours and dollars saved  
-✅ **Relatable challenge:** Every team has email overload  
-✅ **Clear before/after:** Easy to visualize transformation  
-✅ **Testimonial quote:** Adds authenticity  
-✅ **Actionable resource:** Playbook provides immediate value  
-✅ **Soft upsell in P.S.:** "Custom recommendation" = sales call entry point  
+ **Quantified results:** Specific hours and dollars saved  
+ **Relatable challenge:** Every team has email overload  
+ **Clear before/after:** Easy to visualize transformation  
+ **Testimonial quote:** Adds authenticity  
+ **Actionable resource:** Playbook provides immediate value  
+ **Soft upsell in P.S.:** "Custom recommendation" = sales call entry point  
 
 ---
 
@@ -324,13 +324,13 @@ The Creative Misfit | marcuslee.com
 
 ### Why This Works
 
-✅ **Vulnerable opening:** "I almost quit" = immediate hook  
-✅ **Relatable struggle:** Every creator has felt this  
-✅ **Mindset shift:** "Measure depth, not size" is valuable advice  
-✅ **Specific numbers:** Transparency builds trust  
-✅ **Actionable takeaway:** 4 steps to implement  
-✅ **Engagement prompt:** "Tell me what you're building"  
-✅ **No hard sell:** Pure value, no pitch  
+ **Vulnerable opening:** "I almost quit" = immediate hook  
+ **Relatable struggle:** Every creator has felt this  
+ **Mindset shift:** "Measure depth, not size" is valuable advice  
+ **Specific numbers:** Transparency builds trust  
+ **Actionable takeaway:** 4 steps to implement  
+ **Engagement prompt:** "Tell me what you're building"  
+ **No hard sell:** Pure value, no pitch  
 
 ---
 
@@ -370,10 +370,10 @@ I've seen what works. And more importantly, what doesn't.
 
 **Mistake #1: Asking for too much, too soon**
 
-❌ **What founders do:**
+ **What founders do:**
 30-field signup form. "Tell us about your company, team size, use case, budget..."
 
-✅ **What works:**
+ **What works:**
 Email + password. That's it. Get them IN, THEN ask for details.
 
 **Why:** Every field you add reduces signups by 10-20%. Get the email first. You can always ask for more later.
@@ -384,10 +384,10 @@ Email + password. That's it. Get them IN, THEN ask for details.
 
 **Mistake #2: Feature dumping in the first session**
 
-❌ **What founders do:**
+ **What founders do:**
 "Here are all 47 features! Let me show you everything!"
 
-✅ **What works:**
+ **What works:**
 One feature. One "aha moment." One quick win.
 
 **Why:** Overwhelmed users churn. Focus on the ONE thing that makes them say "wow, this is useful."
@@ -398,10 +398,10 @@ One feature. One "aha moment." One quick win.
 
 **Mistake #3: No follow-up after trial starts**
 
-❌ **What founders do:**
+ **What founders do:**
 User signs up. Crickets. Check back in 2 weeks: "Trial expiring soon!"
 
-✅ **What works:**
+ **What works:**
 Email sequence triggered on Day 1, 3, 7, 10, 13:
 • Day 1: Welcome + quick win
 • Day 3: Use case inspiration
@@ -452,13 +452,13 @@ Jordan Mitchell Consulting | jordan@example.com
 
 ### Why This Works
 
-✅ **Authority established:** "100+ SaaS founders"  
-✅ **Pattern recognition:** Shows expertise through trends  
-✅ **Specific examples:** Real numbers from real clients  
-✅ **Clear structure:** 3 mistakes = scannable  
-✅ **Actionable advice:** Can implement immediately  
-✅ **Free resource:** Audit checklist provides value  
-✅ **Preview next email:** Keeps engagement high  
+ **Authority established:** "100+ SaaS founders"  
+ **Pattern recognition:** Shows expertise through trends  
+ **Specific examples:** Real numbers from real clients  
+ **Clear structure:** 3 mistakes = scannable  
+ **Actionable advice:** Can implement immediately  
+ **Free resource:** Audit checklist provides value  
+ **Preview next email:** Keeps engagement high  
 
 ---
 
@@ -566,12 +566,12 @@ Every nurture email should follow this structure:
 
 ## Common Mistakes to Avoid
 
-❌ **Being too salesy:** Nurture = build trust, not push product  
-❌ **Generic advice:** "Work hard" isn't valuable  
-❌ **No clear takeaway:** Every email should teach something  
-❌ **Too infrequent:** They forget who you are  
-❌ **Too frequent:** Inbox fatigue  
-❌ **No variety:** Same format every time = boring  
+ **Being too salesy:** Nurture = build trust, not push product  
+ **Generic advice:** "Work hard" isn't valuable  
+ **No clear takeaway:** Every email should teach something  
+ **Too infrequent:** They forget who you are  
+ **Too frequent:** Inbox fatigue  
+ **No variety:** Same format every time = boring  
 
 ---
 

@@ -9,12 +9,12 @@ Real-time security monitoring dashboard for OpenClaw and Linux server infrastruc
 The Security Dashboard provides comprehensive monitoring for your OpenClaw deployment and Linux infrastructure. It tracks gateway security, network configuration, public exposure, system updates, SSH access, certificates, and resource usage - all in a clean, real-time web interface.
 
 **Key Features:**
-- 🔒 7 security monitoring sections
-- 🚨 Automated critical alerts (firewall, fail2ban, SSH)
-- 📊 Real-time metrics updated every 5 seconds  
-- 🤖 4x daily automated checks via cron
-- 🌐 Localhost-only binding (secure by default)
-- 📱 Mobile-friendly dark UI
+-  7 security monitoring sections
+-  Automated critical alerts (firewall, fail2ban, SSH)
+-  Real-time metrics updated every 5 seconds  
+-  4x daily automated checks via cron
+-  Localhost-only binding (secure by default)
+-  Mobile-friendly dark UI
 
 ## Quick Start
 
@@ -31,13 +31,13 @@ Then visit: http://localhost:18791
 
 ## Features
 
-- ✅ OpenClaw gateway monitoring
-- ✅ Network security metrics
-- ✅ Public exposure analysis
-- ✅ System security checks
-- ✅ SSH & fail2ban status
-- ✅ Real-time alerts
-- ✅ Resource monitoring
+-  OpenClaw gateway monitoring
+-  Network security metrics
+-  Public exposure analysis
+-  System security checks
+-  SSH & fail2ban status
+-  Real-time alerts
+-  Resource monitoring
 
 ## Documentation
 

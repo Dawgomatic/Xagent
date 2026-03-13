@@ -1,7 +1,7 @@
 ---
 name: promptify
 description: Optimize prompts for clarity and effectiveness. Use when user says "improve this prompt", "optimize my prompt", "make this clearer", or provides vague/unstructured prompts. Intelligently routes to sub-agents for codebase research, clarifying questions, or web search as needed.
-metadata: {"moltbot":{"emoji":"✨"}}
+metadata: {"moltbot":{"emoji":""}}
 ---
 
 # Prompt Optimizer

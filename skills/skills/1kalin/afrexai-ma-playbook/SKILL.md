@@ -206,7 +206,7 @@ Each lever with typical multiple impact:
 
 ## M&A Red Flags (Both Sides)
 
-🚩 **Walk Away Signals:**
+ **Walk Away Signals:**
 - Revenue declining >10% YoY with no clear turnaround
 - Key customer contract expiring within 12 months of close
 - Founder/CEO unwilling to transition (even for 6 months)
@@ -224,8 +224,8 @@ Each lever with typical multiple impact:
 - [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Deploy AI agents for post-acquisition integration
 
 **Related packs for M&A teams:**
-- 🏦 **Fintech Pack** — Financial modeling, valuation, compliance frameworks
-- 💼 **Professional Services Pack** — Client transition, knowledge management, SOW templates
-- 🏗️ **SaaS Pack** — MRR/ARR analytics, churn modeling, integration playbooks
+-  **Fintech Pack** — Financial modeling, valuation, compliance frameworks
+-  **Professional Services Pack** — Client transition, knowledge management, SOW templates
+-  **SaaS Pack** — MRR/ARR analytics, churn modeling, integration playbooks
 
 [Browse all packs →](https://afrexai-cto.github.io/context-packs/) | Pick 3 for $97 | All 10 for $197 | Everything Bundle $247

@@ -3,7 +3,7 @@ name: llmcouncil-router
 description: Route any prompt to the best-performing LLM using peer-reviewed council rankings from LLM Council
 homepage: https://llmcouncil.ai
 user-invocable: true
-metadata: {"openclaw":{"requires":{"env":["LLMCOUNCIL_API_KEY"]},"emoji":"🧠"}}
+metadata: {"openclaw":{"requires":{"env":["LLMCOUNCIL_API_KEY"]},"emoji":""}}
 ---
 
 # LLM Council Router

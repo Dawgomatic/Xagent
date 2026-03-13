@@ -129,7 +129,7 @@ async function submitFeedback() {
 
   // Validate chain
   if (!contractsConfig.chains[options.chain]) {
-    console.error(`❌ Invalid chain: ${options.chain}`);
+    console.error(` Invalid chain: ${options.chain}`);
     console.error(`Available chains: ${Object.keys(contractsConfig.chains).join(', ')}`);
     process.exit(1);
   }
@@ -138,7 +138,7 @@ async function submitFeedback() {
   
   // Validate network
   if (!chainConfig.networks[options.network]) {
-    console.error(`❌ Invalid network: ${options.network}`);
+    console.error(` Invalid network: ${options.network}`);
     console.error(`Available networks for ${options.chain}: ${Object.keys(chainConfig.networks).join(', ')}`);
     process.exit(1);
   }
@@ -146,9 +146,9 @@ async function submitFeedback() {
   const networkConfig = chainConfig.networks[options.network];
   const contractAddress = networkConfig.contracts.reputationRegistry;
 
-  console.log(`🔗 Chain: ${chainConfig.name}`);
-  console.log(`🌐 Network: ${networkConfig.name}`);
-  console.log(`📝 Contract: ${contractAddress}`);
+  console.log(` Chain: ${chainConfig.name}`);
+  console.log(` Network: ${networkConfig.name}`);
+  console.log(` Contract: ${contractAddress}`);
   console.log('');
 
   try {
@@ -159,11 +159,11 @@ async function submitFeedback() {
     const client = await createClient({ ...networkConfig, type: chainConfig.type }, privateKey);
     const walletAddress = client.getAddress();
     
-    console.log(`👛 Wallet: ${walletAddress}`);
-    console.log(`📋 Agent ID: ${options.agentId}`);
-    console.log(`⭐ Score: ${options.score}${options.decimals > 0 ? ` (${options.decimals} decimals)` : ''}`);
-    if (options.tag1) console.log(`🏷️  Tag1: ${options.tag1}`);
-    if (options.tag2) console.log(`🏷️  Tag2: ${options.tag2}`);
+    console.log(` Wallet: ${walletAddress}`);
+    console.log(` Agent ID: ${options.agentId}`);
+    console.log(` Score: ${options.score}${options.decimals > 0 ? ` (${options.decimals} decimals)` : ''}`);
+    if (options.tag1) console.log(`  Tag1: ${options.tag1}`);
+    if (options.tag2) console.log(`  Tag2: ${options.tag2}`);
     console.log('');
 
     // Get ABI
@@ -176,7 +176,7 @@ async function submitFeedback() {
     const feedbackHash = client.sha3(options.uri || '');
 
     // Submit feedback
-    console.log('📤 Submitting feedback...');
+    console.log(' Submitting feedback...');
     
     const tx = await client.sendTransaction(
       contract,
@@ -193,14 +193,14 @@ async function submitFeedback() {
     );
 
     console.log('');
-    console.log('✅ Feedback submitted successfully!');
+    console.log(' Feedback submitted successfully!');
     console.log('');
-    console.log(`📋 Transaction: ${tx}`);
-    console.log(`🔍 View on explorer: ${networkConfig.explorer}/#/transaction/${tx}`);
+    console.log(` Transaction: ${tx}`);
+    console.log(` View on explorer: ${networkConfig.explorer}/#/transaction/${tx}`);
     console.log('');
 
     // Wait for confirmation
-    console.log('⏳ Waiting for confirmation...');
+    console.log(' Waiting for confirmation...');
     await sleep(3000);
 
     console.log('');

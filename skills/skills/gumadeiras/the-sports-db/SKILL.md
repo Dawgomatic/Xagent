@@ -1,7 +1,7 @@
 ---
 name: the-sports-db
 description: Access sports data via TheSportsDB (teams, events, scores).
-metadata: {"clawdbot":{"emoji":"🏟️","requires":{"env":["THE_SPORTS_DB_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["THE_SPORTS_DB_KEY"]}}}
 ---
 
 # TheSportsDB

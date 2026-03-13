@@ -63,7 +63,7 @@ python3 scripts/aip.py rotate-key
 python3 scripts/aip.py badge --did did:aip:abc123  # SVG trust badge
 ```
 
-> ⚠️ Always use `--secure` for registration (local key generation). The `--easy` path is deprecated.
+>  Always use `--secure` for registration (local key generation). The `--easy` path is deprecated.
 
 ## Scopes
 

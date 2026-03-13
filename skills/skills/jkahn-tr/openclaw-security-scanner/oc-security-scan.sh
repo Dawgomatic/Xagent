@@ -111,7 +111,7 @@ banner() {
     [[ "$FLAG_QUIET" == true ]] && return
     out ""
     out "${BOLD}╔══════════════════════════════════════════════════════╗${RESET}"
-    out "${BOLD}║         🔒 OpenClaw Security Scanner v${VERSION}         ║${RESET}"
+    out "${BOLD}║          OpenClaw Security Scanner v${VERSION}         ║${RESET}"
     out "${BOLD}║    Local-only · Read-only · Owner-operated           ║${RESET}"
     out "${BOLD}╚══════════════════════════════════════════════════════╝${RESET}"
     out ""
@@ -132,11 +132,11 @@ finding() {
 
     local icon points_possible points_earned
     case "$severity" in
-        CRITICAL) icon="🔴"; points_possible=10; points_earned=0; ((CRITICAL_COUNT++)) || true ;;
-        WARNING)  icon="🟡"; points_possible=5;  points_earned=0; ((WARNING_COUNT++)) || true ;;
-        PASS)     icon="🟢"; points_possible=5;  points_earned=5; ((PASS_COUNT++)) || true ;;
-        INFO)     icon="⚪"; points_possible=0;  points_earned=0; ((INFO_COUNT++)) || true ;;
-        *) icon="❓"; points_possible=0; points_earned=0 ;;
+        CRITICAL) icon=""; points_possible=10; points_earned=0; ((CRITICAL_COUNT++)) || true ;;
+        WARNING)  icon=""; points_possible=5;  points_earned=0; ((WARNING_COUNT++)) || true ;;
+        PASS)     icon=""; points_possible=5;  points_earned=5; ((PASS_COUNT++)) || true ;;
+        INFO)     icon=""; points_possible=0;  points_earned=0; ((INFO_COUNT++)) || true ;;
+        *) icon=""; points_possible=0; points_earned=0 ;;
     esac
 
     TOTAL_POINTS=$((TOTAL_POINTS + points_possible))
@@ -679,10 +679,10 @@ print_summary() {
     out ""
     out "${BOLD}━━━ Summary ━━━${RESET}"
     out ""
-    out "  🔴 Critical: ${CRITICAL_COUNT}"
-    out "  🟡 Warning:  ${WARNING_COUNT}"
-    out "  🟢 Passed:   ${PASS_COUNT}"
-    out "  ⚪ Info:     ${INFO_COUNT}"
+    out "   Critical: ${CRITICAL_COUNT}"
+    out "   Warning:  ${WARNING_COUNT}"
+    out "   Passed:   ${PASS_COUNT}"
+    out "   Info:     ${INFO_COUNT}"
     out ""
 
     local grade color
@@ -697,7 +697,7 @@ print_summary() {
     out ""
 
     if (( CRITICAL_COUNT > 0 )); then
-        out "  ${RED}⚠  ${CRITICAL_COUNT} critical issue(s) require immediate attention.${RESET}"
+        out "  ${RED}  ${CRITICAL_COUNT} critical issue(s) require immediate attention.${RESET}"
     fi
     if [[ "$FLAG_FIX" == false ]] && (( CRITICAL_COUNT + WARNING_COUNT > 0 )); then
         out "  ${DIM}Run with --fix to apply available remediations.${RESET}"

@@ -105,22 +105,22 @@ When presenting journey results to users, use these emojis and formatting guidel
 
 | Emoji | Use For |
 |-------|---------|
-| 🚂 | Train (Pågatåg, Öresundståg) |
-| 🚌 | Bus |
-| 🚇 | Metro (Copenhagen) |
-| 🚋 | Tram |
-| ⛴️ | Ferry |
-| 🚶 | Walking segment |
-| ⏱️ | Time/duration |
-| 🕐 | Departure time |
-| 🏁 | Arrival time |
-| 📍 | Stop/station |
-| 🏠 | Origin (home/start) |
-| 🎯 | Destination |
-| ⚠️ | Delay or disruption |
-| ✅ | On time |
-| 🔄 | Transfer/change |
-| 🛤️ | Platform/track |
+|  | Train (Pågatåg, Öresundståg) |
+|  | Bus |
+|  | Metro (Copenhagen) |
+|  | Tram |
+|  | Ferry |
+|  | Walking segment |
+|  | Time/duration |
+|  | Departure time |
+|  | Arrival time |
+|  | Stop/station |
+|  | Origin (home/start) |
+|  | Destination |
+|  | Delay or disruption |
+|  | On time |
+|  | Transfer/change |
+|  | Platform/track |
 
 ### Response Structure
 
@@ -136,45 +136,45 @@ When presenting journey results to users, use these emojis and formatting guidel
 
 **For a simple direct journey:**
 ```
-🏠 **Leave home at 09:00**
+ **Leave home at 09:00**
 
-🚶 Walk 450m to Möllevångstorget (5 min)
+ Walk 450m to Möllevångstorget (5 min)
 
-📍 **Möllevångstorget** → 🎯 **Malmö C**
-🚌 Bus 5 departs 09:07 from Möllevångstorget
-🏁 Arrives 09:18 at Malmö C
+ **Möllevångstorget** →  **Malmö C**
+ Bus 5 departs 09:07 from Möllevångstorget
+ Arrives 09:18 at Malmö C
 
-⏱️ Total: 18 min
+ Total: 18 min
 ```
 
 **For a journey with transfer:**
 ```
-🏠 **Leave at 08:45**
+ **Leave at 08:45**
 
-🚶 Walk 300m to Västra Hamnen (4 min)
+ Walk 300m to Västra Hamnen (4 min)
 
-📍 **Västra Hamnen** → 🔄 **Malmö C** → 🎯 **Lund C**
+ **Västra Hamnen** →  **Malmö C** →  **Lund C**
 
 **Leg 1:**
-🚌 Bus 2 departs 08:51 [🛤️ Läge A]
-🏁 Arrives Malmö C 09:05
+ Bus 2 departs 08:51 [ Läge A]
+ Arrives Malmö C 09:05
 
-🔄 Transfer at Malmö C (6 min)
+ Transfer at Malmö C (6 min)
 
 **Leg 2:**
-🚂 Pågatåg departs 09:11 [🛤️ Spår 4]
-🏁 Arrives Lund C 09:23
+ Pågatåg departs 09:11 [ Spår 4]
+ Arrives Lund C 09:23
 
-⏱️ Total: 38 min | 🔄 1 change
+ Total: 38 min |  1 change
 ```
 
 **With delays:**
 ```
-🕐 **Depart 14:30** from Triangeln
+ **Depart 14:30** from Triangeln
 
-🚂 Öresundståg 1042 → København H
-⚠️ +8 min delay (expected 14:38 instead of 14:30)
-🏁 Arrives ~15:25 (normally 15:17)
+ Öresundståg 1042 → København H
+ +8 min delay (expected 14:38 instead of 14:30)
+ Arrives ~15:25 (normally 15:17)
 ```
 
 ### Walking Segment Details
@@ -192,7 +192,7 @@ Example tool output:
 
 Format as:
 ```
-🚶 Walk 450m to Möllevångstorget (~5 min)
+ Walk 450m to Möllevångstorget (~5 min)
 ```
 
 Walk time estimate: ~100m per minute (normal walking speed)
@@ -204,17 +204,17 @@ When showing journey options, make timing crystal clear:
 ```
 I found 3 options for you:
 
-**Option 1 - Leave now (09:00)** ✅ Recommended
-🚶 5 min walk → 🚌 Bus 5 at 09:07 → arrives 09:25
-⏱️ Total: 25 min
+**Option 1 - Leave now (09:00)**  Recommended
+ 5 min walk →  Bus 5 at 09:07 → arrives 09:25
+ Total: 25 min
 
 **Option 2 - Leave in 15m (09:15)**
-🚶 5 min walk → 🚌 Bus 5 at 09:22 → arrives 09:40
-⏱️ Total: 25 min
+ 5 min walk →  Bus 5 at 09:22 → arrives 09:40
+ Total: 25 min
 
 **Option 3 - Leave in 30m (09:30)**
-🚶 5 min walk → 🚂 Train at 09:37 → arrives 09:48
-⏱️ Total: 18 min | Faster but later departure
+ 5 min walk →  Train at 09:37 → arrives 09:48
+ Total: 18 min | Faster but later departure
 ```
 
 ### Time Offset Notation
@@ -410,13 +410,13 @@ User: "How do I get from Malmö C to Lund C?"
 
 **Response:**
 ```
-🏠 **Leave now** from Malmö C
+ **Leave now** from Malmö C
 
-📍 **Malmö C** → 🎯 **Lund C**
-🚂 Öresundståg 1324 departs 09:04 [🛤️ Spår 2b]
-🏁 Arrives 09:16 at Lund C [🛤️ Spår 1]
+ **Malmö C** →  **Lund C**
+ Öresundståg 1324 departs 09:04 [ Spår 2b]
+ Arrives 09:16 at Lund C [ Spår 1]
 
-⏱️ Total: 12 min | ✅ Direct, no changes
+ Total: 12 min |  Direct, no changes
 ```
 
 ### Example 2: Address with Walking
@@ -431,17 +431,17 @@ User: "I need to go from Kalendegatan 12 in Malmö to Emporia"
 
 **Response:**
 ```
-🏠 **Leave at 10:05**
+ **Leave at 10:05**
 
-🚶 Walk 320m to Möllevångstorget (~3 min)
+ Walk 320m to Möllevångstorget (~3 min)
 
-📍 **Möllevångstorget** → 🎯 **Emporia**
-🚌 Bus 32 departs 10:10
-🏁 Arrives 10:28 at Emporia
+ **Möllevångstorget** →  **Emporia**
+ Bus 32 departs 10:10
+ Arrives 10:28 at Emporia
 
-🚶 Walk 150m to destination (~2 min)
+ Walk 150m to destination (~2 min)
 
-⏱️ Total: 25 min
+ Total: 25 min
 ```
 
 ### Example 3: Arrive By Time
@@ -456,15 +456,15 @@ User: "I need to be at Copenhagen central by 18:00 tomorrow"
 
 **Response:**
 ```
-🎯 **Arrive by 18:00** at København H
+ **Arrive by 18:00** at København H
 
-📍 **Malmö C** → 🎯 **København H**
-🚂 Öresundståg departs **17:21** [🛤️ Spår 1]
-🏁 Arrives **17:56** ✅ 4 min buffer
+ **Malmö C** →  **København H**
+ Öresundståg departs **17:21** [ Spår 1]
+ Arrives **17:56**  4 min buffer
 
-⏱️ Journey: 35 min
+ Journey: 35 min
 
-💡 Leave Malmö C by 17:21 to arrive on time!
+ Leave Malmö C by 17:21 to arrive on time!
 ```
 
 ### Example 4: Around Time Query
@@ -481,16 +481,16 @@ User: "I want to travel to Lund around 15:00"
 Options around 15:00 for Malmö C → Lund C:
 
 **Option 1 - Depart 14:34** (in 25m)
-🚂 Pågatåg → arrives 14:52
-⏱️ 18 min
+ Pågatåg → arrives 14:52
+ 18 min
 
 **Option 2 - Depart 14:49** (in 40m)
-🚂 Öresundståg → arrives 15:01
-⏱️ 12 min
+ Öresundståg → arrives 15:01
+ 12 min
 
-**Option 3 - Depart 15:04** (in 55m) ✅ Closest to 15:00
-🚂 Pågatåg → arrives 15:22
-⏱️ 18 min
+**Option 3 - Depart 15:04** (in 55m)  Closest to 15:00
+ Pågatåg → arrives 15:22
+ 18 min
 
 Which works best for you?
 ```
@@ -509,10 +509,10 @@ User: "I want to leave in about an hour"
 Options departing around 14:00 (in ~1h):
 
 **Leave at 13:55** (in 55m)
-🚶 5 min walk → 🚌 Bus 5 at 14:02 → arrives 14:25
+ 5 min walk →  Bus 5 at 14:02 → arrives 14:25
 
 **Leave at 14:10** (in 1h 10m)
-🚶 5 min walk → 🚂 Train at 14:17 → arrives 14:35
+ 5 min walk →  Train at 14:17 → arrives 14:35
 
 Let me know which one works!
 ```
@@ -526,11 +526,11 @@ From: 14:30 Malmö C [+8 min late]
 
 **Response:**
 ```
-📍 **Malmö C** → 🎯 **Lund C**
-🚂 Öresundståg 1042
-⚠️ **Running 8 min late**
-🕐 Scheduled: 14:30 → Expected: ~14:38
-🏁 Arrives ~14:50 (normally 14:42)
+ **Malmö C** →  **Lund C**
+ Öresundståg 1042
+ **Running 8 min late**
+ Scheduled: 14:30 → Expected: ~14:38
+ Arrives ~14:50 (normally 14:42)
 ```
 
 ---
@@ -596,23 +596,23 @@ LEGS:
 
 | Type | Emoji | Description |
 |------|-------|-------------|
-| `TRAIN` | 🚂 | Pågatåg (regional train) |
-| `ORESUND` | 🚂 | Öresundståg (cross-border train) |
-| `BUS` | 🚌 | City or regional bus |
-| `WALK` | 🚶 | Walking segment |
-| `TRAM` | 🚋 | Tram/light rail |
-| `METRO` | 🚇 | Copenhagen Metro |
-| `FERRY` | ⛴️ | Ferry |
+| `TRAIN` |  | Pågatåg (regional train) |
+| `ORESUND` |  | Öresundståg (cross-border train) |
+| `BUS` |  | City or regional bus |
+| `WALK` |  | Walking segment |
+| `TRAM` |  | Tram/light rail |
+| `METRO` |  | Copenhagen Metro |
+| `FERRY` |  | Ferry |
 
 ### Status Indicators
 
 | Indicator | Emoji | Meaning |
 |-----------|-------|---------|
-| _(none)_ | ✅ | On time |
-| `[+X min late]` | ⚠️ | Delayed |
-| `[-X min early]` | ℹ️ | Running early |
-| `[PASSED]` | ❌ | Already departed |
-| `AVVIKELSE` | 🚨 | Service disruption |
+| _(none)_ |  | On time |
+| `[+X min late]` |  | Delayed |
+| `[-X min early]` |  | Running early |
+| `[PASSED]` |  | Already departed |
+| `AVVIKELSE` |  | Service disruption |
 
 ---
 

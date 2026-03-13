@@ -50,7 +50,7 @@ async def example_write_long_doc(ctx):
         folder_token=None  # 可选：指定文件夹
     )
     
-    print(f"✅ 文档创建成功: {doc_url}")
+    print(f" 文档创建成功: {doc_url}")
     return doc_url
 
 
@@ -76,9 +76,9 @@ async def example_append_to_doc(ctx, doc_url):
     )
     
     if success:
-        print("✅ 内容追加成功")
+        print(" 内容追加成功")
     else:
-        print("❌ 内容追加失败")
+        print(" 内容追加失败")
     
     return success
 

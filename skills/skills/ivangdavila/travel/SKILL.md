@@ -1,7 +1,7 @@
 ---
 name: Travel
 description: Build a personal travel system for dream destinations, trip planning, and travel memories.
-metadata: {"clawdbot":{"emoji":"✈️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

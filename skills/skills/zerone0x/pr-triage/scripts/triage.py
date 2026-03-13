@@ -270,7 +270,7 @@ def generate_report(
     
     # Duplicate groups
     if duplicates:
-        lines.append("## 🔴 Duplicate Groups (Action Required)")
+        lines.append("##  Duplicate Groups (Action Required)")
         lines.append("")
         
         for i, group in enumerate(duplicates, 1):
@@ -291,7 +291,7 @@ def generate_report(
             for j, pr in enumerate(group):
                 score = quality_score(pr)
                 grade = quality_grade(score)
-                rec = "✅ Keep" if j == 0 else "❌ Close"
+                rec = " Keep" if j == 0 else " Close"
                 title = pr["title"][:40] + "..." if len(pr["title"]) > 40 else pr["title"]
                 lines.append(f"| #{pr['number']} | {title} | @{pr['author']} | {grade} | {rec} |")
             
@@ -305,7 +305,7 @@ def generate_report(
         grade = quality_grade(quality_score(pr))
         grades[grade].append(pr["number"])
     
-    lines.append("## 📊 Quality Summary")
+    lines.append("##  Quality Summary")
     lines.append("")
     lines.append("| Grade | Count | PRs |")
     lines.append("|-------|-------|-----|")
@@ -328,7 +328,7 @@ def generate_report(
     
     if stale:
         stale.sort(key=lambda x: x[1], reverse=True)
-        lines.append("## ⚠️ Stale PRs (>30 days no activity)")
+        lines.append("##  Stale PRs (>30 days no activity)")
         lines.append("")
         for pr, age in stale[:10]:
             lines.append(f"- #{pr['number']}: \"{pr['title'][:50]}\" ({age} days)")
@@ -343,7 +343,7 @@ def generate_report(
     ready.sort(key=lambda x: quality_score(x), reverse=True)
     
     if ready:
-        lines.append("## 🚀 Ready to Review (High Quality + No Duplicates)")
+        lines.append("##  Ready to Review (High Quality + No Duplicates)")
         lines.append("")
         for pr in ready[:10]:
             lines.append(f"- #{pr['number']}: \"{pr['title'][:50]}\" (Grade A)")

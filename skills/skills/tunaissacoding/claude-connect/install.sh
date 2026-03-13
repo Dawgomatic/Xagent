@@ -64,7 +64,7 @@ elif [[ -f "$CONFIG_FILE" ]]; then
 fi
 
 if [[ -n "$EXISTING_CONFIG" ]]; then
-    echo -e "${YELLOW}⚠${NC} Config already exists: $EXISTING_CONFIG"
+    echo -e "${YELLOW}${NC} Config already exists: $EXISTING_CONFIG"
     echo ""
     read -p "Overwrite with new interactive config? [y/N] " -n 1 -r
     echo ""
@@ -105,14 +105,14 @@ if [[ "$CREATE_NEW_CONFIG" == "true" ]]; then
     echo -e "${CYAN}  Configure Notifications${NC}"
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
-    echo -e "${YELLOW}💡 Recommendation:${NC} Keep all enabled for the first run to verify it works."
+    echo -e "${YELLOW} Recommendation:${NC} Keep all enabled for the first run to verify it works."
     echo "   You can disable them later by:"
     echo "   1. Editing: $CONFIG_FILE"
     echo "   2. Asking Clawdbot: \"disable Claude refresh notifications\""
     echo ""
     
     # Prompt for each notification type
-    read -p "Enable \"✅ Token refreshed!\" notification? [Y/n] " -n 1 -r NOTIFY_SUCCESS_INPUT
+    read -p "Enable \" Token refreshed!\" notification? [Y/n] " -n 1 -r NOTIFY_SUCCESS_INPUT
     echo ""
     if [[ $NOTIFY_SUCCESS_INPUT =~ ^[Nn]$ ]]; then
         NOTIFY_SUCCESS="false"
@@ -120,7 +120,7 @@ if [[ "$CREATE_NEW_CONFIG" == "true" ]]; then
         NOTIFY_SUCCESS="true"
     fi
     
-    read -p "Enable \"❌ Refresh failed\" notification? [Y/n] " -n 1 -r NOTIFY_FAILURE_INPUT
+    read -p "Enable \" Refresh failed\" notification? [Y/n] " -n 1 -r NOTIFY_FAILURE_INPUT
     echo ""
     if [[ $NOTIFY_FAILURE_INPUT =~ ^[Nn]$ ]]; then
         NOTIFY_FAILURE="false"
@@ -162,7 +162,7 @@ EOF
   "notification_target": "YOUR_CHAT_ID"
 }
 EOF
-        echo -e "${YELLOW}⚠${NC} Could not auto-detect notification settings"
+        echo -e "${YELLOW}${NC} Could not auto-detect notification settings"
         echo ""
         echo "Please configure your notification target:"
         echo "  → Edit: $CONFIG_FILE"
@@ -247,7 +247,7 @@ sleep 2
 if launchctl list | grep -q "com.clawdbot.claude-oauth-refresher"; then
     echo -e "${GREEN}✓${NC} Service is running"
 else
-    echo -e "${YELLOW}⚠${NC} Service may not be loaded (check: launchctl list)"
+    echo -e "${YELLOW}${NC} Service may not be loaded (check: launchctl list)"
 fi
 echo ""
 
@@ -266,8 +266,8 @@ echo "Notification settings:"
 if [[ -f "$CONFIG_FILE" ]]; then
     SHOW_SUCCESS=$(jq -r '.notifications.on_success' "$CONFIG_FILE" 2>/dev/null || echo "unknown")
     SHOW_FAILURE=$(jq -r '.notifications.on_failure' "$CONFIG_FILE" 2>/dev/null || echo "unknown")
-    echo "  • Success (✅): $SHOW_SUCCESS"
-    echo "  • Failure (❌): $SHOW_FAILURE"
+    echo "  • Success (): $SHOW_SUCCESS"
+    echo "  • Failure (): $SHOW_FAILURE"
 fi
 echo ""
 echo "Change settings:"

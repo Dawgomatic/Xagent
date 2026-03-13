@@ -1,11 +1,11 @@
-# 🌐 PlanetScale CLI Skills
+#  PlanetScale CLI Skills
 
 Comprehensive `pscale` command reference and automation workflows for managing PlanetScale databases via terminal.
 
 [![ClawHub](https://img.shields.io/badge/ClawHub-planetscale--cli--skills-blue)](https://clawhub.com/skills/planetscale-cli-skills)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-## 🎯 What This Skill Provides
+##  What This Skill Provides
 
 - **8 sub-skills** covering all major `pscale` commands
 - **3 automation scripts** for common workflows (create branch, deploy schema, sync)
@@ -14,7 +14,7 @@ Comprehensive `pscale` command reference and automation workflows for managing P
 - **Complete command reference** in each sub-skill's `references/` directory
 - **Token-efficient workflows** (~90-95% reduction for repetitive operations)
 
-## 📦 Installation
+##  Installation
 
 ### Via ClawHub
 
@@ -28,7 +28,7 @@ clawhub install planetscale-cli-skills
 git clone https://github.com/vince-winkintel/planetscale-cli-skills.git
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -71,7 +71,7 @@ export PLANETSCALE_SERVICE_TOKEN=<token>
 pscale branch create my-database feature-branch --from main
 ```
 
-## 🧩 Sub-Skills
+##  Sub-Skills
 
 | Skill | Use When | Common Commands |
 |-------|----------|----------------|
@@ -84,7 +84,7 @@ pscale branch create my-database feature-branch --from main
 | **pscale-org** | Switch organizations | `pscale org list/switch` |
 | **pscale-service-token** | CI/CD authentication | `pscale service-token create` |
 
-## 🛠️ Automation Scripts
+##  Automation Scripts
 
 All scripts in `scripts/` directory execute without loading into context (~90% token savings).
 
@@ -119,7 +119,7 @@ Refresh development branch with main:
   --branch feature-branch
 ```
 
-## 🌊 Common Workflows
+##  Common Workflows
 
 ### Schema Migration (Safe Production Deployment)
 
@@ -181,7 +181,7 @@ pscale shell my-database $(git branch --show-current) < schema.sql
 pnpm drizzle-kit introspect
 ```
 
-## 🎓 Decision Trees
+##  Decision Trees
 
 ### Branch vs Deploy Request?
 
@@ -206,10 +206,10 @@ Use case?
 ### Direct Promotion vs Deploy Request?
 
 ```
-⚠️ Always use deploy requests for production
+ Always use deploy requests for production
 ```
 
-## 📊 Token Efficiency
+##  Token Efficiency
 
 | Operation | Manual (7 steps) | Script (1 command) | Savings |
 |-----------|-----------------|-------------------|---------|
@@ -217,19 +217,19 @@ Use case?
 | Branch creation | ~500 tokens | ~50 tokens | **90%** |
 | Deploy request | ~800 tokens | ~80 tokens | **90%** |
 
-## 🔗 Related Skills
+##  Related Skills
 
 - **drizzle-kit** - ORM schema management
 - **gitlab-cli-skills** - GitLab MR integration
 - **github** - GitHub PR and CI/CD
 
-## 📚 Resources
+##  Resources
 
 - [PlanetScale CLI Docs](https://planetscale.com/docs/reference/planetscale-cli)
 - [PlanetScale GitHub](https://github.com/planetscale/cli)
 - [ClawHub Page](https://clawhub.com/skills/planetscale-cli-skills)
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please:
 1. Follow existing skill structure patterns
@@ -237,11 +237,11 @@ Contributions welcome! Please:
 3. Add scripts to `scripts/` directory
 4. Update README.md and relevant SKILL.md files
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built for [OpenClaw](https://openclaw.ai) AI agents
 - Optimized using [skill-creator](https://clawhub.com/skills/skill-creator) patterns

@@ -29,59 +29,59 @@ generate_dashboard(
 
 ## Features
 
-### 📊 Overview
+###  Overview
 - Summary statistics (SNPs analyzed, format, alerts)
 - Critical alerts prominently displayed
 - High priority findings with recommendations
 
-### 💊 Pharmacogenomics
+###  Pharmacogenomics
 - Drug-gene interactions table
 - Search/filter functionality
 - Risk variants highlighted
 
-### 📈 Health Risks (PRS)
+###  Health Risks (PRS)
 - Polygenic risk score visualizations
 - Percentile bars with color coding
 - Confidence indicators
 
-### 🧬 Traits
+###  Traits
 - Visual trait cards with icons
 - Searchable trait library
 - Gene and genotype details
 
-### 🌍 Ancestry
+###  Ancestry
 - Haplogroup display (mtDNA, Y-DNA)
 - Ancestry composition if available
 - Migration history context
 
-### 🧪 Carrier Status
+###  Carrier Status
 - Clear carrier variant display
 - Condition descriptions
 - Recommendations for genetic counseling
 
-### 😴 Sleep Profile
+###  Sleep Profile
 - Chronotype visualization
 - Caffeine metabolism indicator
 - Personalized timing recommendations
 
-### 🏃 Athletic Profile
+###  Athletic Profile
 - Power vs Endurance gauge
 - Training recommendations
 - Sport suitability
 
-### ☀️ UV/Skin
+###  UV/Skin
 - Skin type estimation
 - SPF recommendations
 - Melanoma risk indicators
 
-### 🥗 Dietary
+###  Dietary
 - Food interaction matrix
 - Tolerance indicators
 - Personalized nutrition notes
 
 ## Interface Features
 
-- **Dark Mode**: Toggle with 🌙/☀️ button
+- **Dark Mode**: Toggle with / button
 - **Collapsible Sections**: Click headers to collapse/expand
 - **Search**: Filter tables and traits
 - **Print/PDF**: Use the Export PDF button (or Cmd/Ctrl+P)
@@ -89,7 +89,7 @@ generate_dashboard(
 
 ## Privacy
 
-🔒 **All processing happens locally in your browser.**
+ **All processing happens locally in your browser.**
 
 - No data is uploaded to any server
 - No network requests are made

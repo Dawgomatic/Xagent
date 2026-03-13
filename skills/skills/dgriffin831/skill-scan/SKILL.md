@@ -87,7 +87,7 @@ When the user asks to install a skill from ClawHub, follow this workflow:
 When a scan finds MEDIUM or higher risk:
 
 ```
-🛡️ Skill-Scan Alert: {RISK_LEVEL} ({SCORE}/100)
+ Skill-Scan Alert: {RISK_LEVEL} ({SCORE}/100)
 Skill: {slug}
 Findings: {count} issue(s) detected
 Top threat: {highest severity finding title}

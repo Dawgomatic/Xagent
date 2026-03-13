@@ -22,9 +22,9 @@ TONES = {
         "cta": "Ready to transform your daily routine?"
     },
     "playful": {
-        "hook": "Ready to level up? Let's do this! 🚀",
+        "hook": "Ready to level up? Let's do this! ",
         "transitions": ["Guess what?", "Here's the cool part:", "And wait, there's more:"],
-        "cta": "Don't miss out - grab yours today! ✨"
+        "cta": "Don't miss out - grab yours today! "
     },
     "luxury": {
         "hook": "Experience unparalleled craftsmanship.",
@@ -162,7 +162,7 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(description)
 
-    print(f"✅ Description generated: {args.output}")
+    print(f" Description generated: {args.output}")
     print(f"   Platform: {args.platform}")
     print(f"   Tone: {args.tone}")
     print(f"   Features: {len(features)}")

@@ -76,7 +76,7 @@ async function main() {
     transport: http(rpcUrl)
   });
 
-  console.log('🔍 Checking positions for sell signals...\n');
+  console.log(' Checking positions for sell signals...\n');
   console.log('Wallet:', walletAddress);
   console.log('');
 
@@ -179,24 +179,24 @@ async function main() {
     const shouldSell = pnlPercent >= TAKE_PROFIT_PERCENT || pnlPercent <= STOP_LOSS_PERCENT;
     const reason = pnlPercent >= TAKE_PROFIT_PERCENT ? 'take profit' : pnlPercent <= STOP_LOSS_PERCENT ? 'stop loss' : null;
     const action = shouldSell 
-      ? (pnlPercent >= TAKE_PROFIT_PERCENT ? '🟢 SELL (take profit)' : '🔴 SELL (stop loss)')
-      : '⚪ HOLD';
+      ? (pnlPercent >= TAKE_PROFIT_PERCENT ? ' SELL (take profit)' : ' SELL (stop loss)')
+      : ' HOLD';
     
     console.log(`${symbol}: ${balanceNum.toFixed(2)} tokens | ${currentValueMON.toFixed(4)} MON | Entry: ${entryValueMON.toFixed(4)} MON | P&L ${pnlStr} (${dataSource}) | ${action}`);
     
     // Auto-sell if threshold reached
     if (shouldSell && autoSell && !dryRun) {
-      console.log(`   🔄 Executing sell: ${reason}...`);
+      console.log(`    Executing sell: ${reason}...`);
       try {
         const env = { ...process.env, NAD_PRIVATE_KEY: privateKey };
         execSync(
           `node sell-token.js --token ${tokenAddress} --amount all --slippage 300`,
           { cwd: __dirname, env, stdio: 'inherit' }
         );
-        console.log(`   ✅ Sold ${symbol}`);
+        console.log(`    Sold ${symbol}`);
         await new Promise(r => setTimeout(r, 3000)); // Rate limit
       } catch (e) {
-        console.error(`   ❌ Failed to sell ${symbol}:`, e.message || e);
+        console.error(`    Failed to sell ${symbol}:`, e.message || e);
       }
     }
   }
@@ -206,7 +206,7 @@ async function main() {
     const pnl = p.entryValueMON > 0 ? ((p.currentValueMON - p.entryValueMON) / p.entryValueMON) * 100 : 0;
     return pnl >= TAKE_PROFIT_PERCENT || pnl <= STOP_LOSS_PERCENT;
   }).length;
-  console.log(`✅ Processed ${positions.length} positions. ${sellCount} position(s) meet sell criteria.`);
+  console.log(` Processed ${positions.length} positions. ${sellCount} position(s) meet sell criteria.`);
   if (!autoSell && sellCount > 0) {
     console.log(`   Run with --auto-sell to execute sells automatically.`);
   }

@@ -172,28 +172,28 @@ chmod +x *.sh
 
 ### Dry Run Output
 ```
-🔍 Clawdbot Backup Dry Run
+ Clawdbot Backup Dry Run
 ===========================
 This is a DRY RUN - no files will be created or modified
 
-📁 Would create backup at:
+ Would create backup at:
    ~/.clawdbot-backups/pre-update-YYYYMMDD-HHMMSS
 
 ✓ Config file: ~/.clawdbot/clawdbot.json
 ✓ Detected workspaces from config
 ✓ Would backup X workspace(s)
-✨ Dry run complete!
+ Dry run complete!
 ```
 
 ### Validation Output
 ```
-🔍 Clawdbot Setup Validation
+ Clawdbot Setup Validation
 ============================
 
-✅ Config file exists
-✅ Workspace(s) ready
-✅ Credentials directory exists
-✅ Git repository found
+ Config file exists
+ Workspace(s) ready
+ Credentials directory exists
+ Git repository found
 ```
 
 ### Package Structure

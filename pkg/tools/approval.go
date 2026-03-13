@@ -120,14 +120,14 @@ func (ag *ApprovalGate) formatPrompt(toolName string, args map[string]interface{
 	switch toolName {
 	case "exec":
 		cmd, _ := args["command"].(string)
-		return fmt.Sprintf("🔒 Approval needed: execute command\n`%s`\nApprove? (yes/no)", cmd)
+		return fmt.Sprintf(" Approval needed: execute command\n`%s`\nApprove? (yes/no)", cmd)
 	case "write_file":
 		path, _ := args["path"].(string)
-		return fmt.Sprintf("🔒 Approval needed: write file\n`%s`\nApprove? (yes/no)", path)
+		return fmt.Sprintf(" Approval needed: write file\n`%s`\nApprove? (yes/no)", path)
 	case "edit_file":
 		path, _ := args["path"].(string)
-		return fmt.Sprintf("🔒 Approval needed: edit file\n`%s`\nApprove? (yes/no)", path)
+		return fmt.Sprintf(" Approval needed: edit file\n`%s`\nApprove? (yes/no)", path)
 	default:
-		return fmt.Sprintf("🔒 Approval needed: %s\nApprove? (yes/no)", toolName)
+		return fmt.Sprintf(" Approval needed: %s\nApprove? (yes/no)", toolName)
 	}
 }

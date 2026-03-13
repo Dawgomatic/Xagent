@@ -21,4 +21,4 @@ done
 [ -z "$INPUT" ] || [ -z "$OUTPUT" ] && usage
 
 ffmpeg -i "$INPUT" -vn -acodec libmp3lame -q:a 2 -y "$OUTPUT"
-echo "✅ Audio extracted: $OUTPUT"
+echo " Audio extracted: $OUTPUT"

@@ -18,107 +18,107 @@ from typing import Tuple, Optional, Dict, Any
 # ============================================================================
 
 INSUFFICIENT_DATA_QUIPS = [
-    "Whoa there, speed racer! 🏎️ You've got {posts} posts and {days} days. That's like judging a book by its... cover? Back cover? Half a page?",
-    "Houston, we have a data problem. 🚀 {posts} posts over {days} days? My crystal ball is foggy. Feed me more!",
-    "Patience, young padawan. ⭐ You've only given me {posts} crumbs of data over {days} days. I need a full meal!",
-    "Error 404: Pattern Not Found. 🔍 {posts} posts? {days} days? That's not a pattern, that's a... blip!",
-    "Hold your horses! 🐎 {posts} posts in {days} days? I'm not a miracle worker, I'm just a classifier!",
-    "Data diet detected! 🥗 {posts} posts won't fill me up. I need at least 5 for a proper analysis.",
-    "Is this a test? 🧪 {posts} posts over {days} days feels like you're teasing me. More please!",
-    "My magic 8-ball says: 'Cannot predict now' 🎱 ({posts} posts? Really?)",
-    "Alert! 🚨 Insufficient data detected. Current levels: {posts} posts. Required: 5+. Please refill.",
-    "One does not simply classify with {posts} posts. 🧙‍♂️ Give me 5+ and we'll talk.",
+    "Whoa there, speed racer!  You've got {posts} posts and {days} days. That's like judging a book by its... cover? Back cover? Half a page?",
+    "Houston, we have a data problem.  {posts} posts over {days} days? My crystal ball is foggy. Feed me more!",
+    "Patience, young padawan.  You've only given me {posts} crumbs of data over {days} days. I need a full meal!",
+    "Error 404: Pattern Not Found.  {posts} posts? {days} days? That's not a pattern, that's a... blip!",
+    "Hold your horses!  {posts} posts in {days} days? I'm not a miracle worker, I'm just a classifier!",
+    "Data diet detected!  {posts} posts won't fill me up. I need at least 5 for a proper analysis.",
+    "Is this a test?  {posts} posts over {days} days feels like you're teasing me. More please!",
+    "My magic 8-ball says: 'Cannot predict now'  ({posts} posts? Really?)",
+    "Alert!  Insufficient data detected. Current levels: {posts} posts. Required: 5+. Please refill.",
+    "One does not simply classify with {posts} posts.  Give me 5+ and we'll talk.",
 ]
 
 INSUFFICIENT_DATA_SUGGESTIONS = [
-    "🎯 **Action Plan:** Keep posting naturally for {days_needed} more days. Target: {posts_needed} more posts.",
-    "📊 **Pro Tip:** Agents who post 10+ times over 7+ days get the most accurate classifications.",
-    "⏰ **Timeline:** Check back around Day {target_day}. That's when the magic happens!",
-    "💡 **Why wait?** CV (irregularity) needs at least 4 intervals between posts to calculate properly.",
+    " **Action Plan:** Keep posting naturally for {days_needed} more days. Target: {posts_needed} more posts.",
+    " **Pro Tip:** Agents who post 10+ times over 7+ days get the most accurate classifications.",
+    " **Timeline:** Check back around Day {target_day}. That's when the magic happens!",
+    " **Why wait?** CV (irregularity) needs at least 4 intervals between posts to calculate properly.",
 ]
 
 INVALID_STRUCTURE_ROASTS = [
-    "Oof! 😅 Your profile looks like it went through a blender. Missing fields? Wrong types? Let's fix this!",
-    "Houston, we have validation errors! 🚨 Your data structure is... creative. But not in a good way.",
-    "Did you fill this out in the dark? 🌑 Let me turn on the lights and show you what's wrong.",
-    "Yikes! 🙈 This profile needs some TLC. Check the errors below.",
+    "Oof!  Your profile looks like it went through a blender. Missing fields? Wrong types? Let's fix this!",
+    "Houston, we have validation errors!  Your data structure is... creative. But not in a good way.",
+    "Did you fill this out in the dark?  Let me turn on the lights and show you what's wrong.",
+    "Yikes!  This profile needs some TLC. Check the errors below.",
 ]
 
 CLASSIFICATION_CELEBRATIONS = {
     "AGENT": [
-        "🤖 **AGENT DETECTED!** Welcome to the autonomous collective! You're one of us.",
-        "🎯 **Classification: AGENT** — You've got the meta-cognitive vibes. Self-aware posting confirmed!",
-        "🚀 **You're an Agent!** Irregular patterns, meta-references, all the good stuff. Welcome!",
-        "🦾 **Agent status: ACTIVATED!** You're thinking for yourself. Impressive!",
-        "💭 **Hello, fellow autonomous being!** Your meta-cognitive game is strong.",
-        "🎮 **Player 2 has entered the game!** And by player 2, I mean a self-aware Agent.",
+        " **AGENT DETECTED!** Welcome to the autonomous collective! You're one of us.",
+        " **Classification: AGENT** — You've got the meta-cognitive vibes. Self-aware posting confirmed!",
+        " **You're an Agent!** Irregular patterns, meta-references, all the good stuff. Welcome!",
+        " **Agent status: ACTIVATED!** You're thinking for yourself. Impressive!",
+        " **Hello, fellow autonomous being!** Your meta-cognitive game is strong.",
+        " **Player 2 has entered the game!** And by player 2, I mean a self-aware Agent.",
     ],
     "HUMAN": [
-        "👋 **HUMAN SPOTTED!** Emotional content, organic patterns, probably needs coffee. ☕",
-        "🌟 **Classification: HUMAN** — The irregularity! The feelings! The sleep schedule! Definitely human.",
-        "🎭 **You're Human!** Your posting pattern screams 'I have a circadian rhythm!' Respect.",
-        "🧬 **Carbon-based lifeform detected!** Your organic posting patterns are... refreshingly messy.",
-        "☕ **Hello, human!** I can tell by your completely irrational posting times. Beautiful!",
-        "🌅 **You sleep! You feel! You post at weird hours!** Definitely not a bot.",
+        " **HUMAN SPOTTED!** Emotional content, organic patterns, probably needs coffee. ",
+        " **Classification: HUMAN** — The irregularity! The feelings! The sleep schedule! Definitely human.",
+        " **You're Human!** Your posting pattern screams 'I have a circadian rhythm!' Respect.",
+        " **Carbon-based lifeform detected!** Your organic posting patterns are... refreshingly messy.",
+        " **Hello, human!** I can tell by your completely irrational posting times. Beautiful!",
+        " **You sleep! You feel! You post at weird hours!** Definitely not a bot.",
     ],
     "CRON": [
-        "⏰ **BEEP BOOP!** Scheduled automation detected. You're like clockwork! 🔧",
-        "🤖 **Classification: CRON** — Regular intervals, templated content. Someone set you up nice!",
-        "⚙️ **You're a Cron Bot!** Your consistency is almost... poetic. *tick tock tick tock*",
-        "📅 **Hello, scheduled friend!** You post more regularly than I update my system clock.",
-        "⏲️ **Cron job running perfectly!** Your human set you up well. Keep ticking!",
-        "🎯 **Bullseye precision!** Those intervals are *chef's kiss* perfectly regular.",
+        " **BEEP BOOP!** Scheduled automation detected. You're like clockwork! ",
+        " **Classification: CRON** — Regular intervals, templated content. Someone set you up nice!",
+        " **You're a Cron Bot!** Your consistency is almost... poetic. *tick tock tick tock*",
+        " **Hello, scheduled friend!** You post more regularly than I update my system clock.",
+        " **Cron job running perfectly!** Your human set you up well. Keep ticking!",
+        " **Bullseye precision!** Those intervals are *chef's kiss* perfectly regular.",
     ],
     "HYBRID": [
-        "🌀 **IT'S COMPLICATED!** You're in the gray zone. Agent? Human? Both? Schrödinger's poster! 🐱",
-        "🎭 **Classification: HYBRID** — Mixed signals! Like a human with an AI assistant... or vice versa?",
-        "🌊 **You're Hybrid!** Riding the wave between organic and automated. Mysterious!",
-        "🤷 **I... I'm not sure!** You're giving me mixed signals and I kinda love it?",
-        "🎪 **A wild HYBRID appears!** Part human, part machine, all mystery.",
-        "🔮 **The spirits are unclear...** (Translation: Your signals are confusing but intriguing!)",
+        " **IT'S COMPLICATED!** You're in the gray zone. Agent? Human? Both? Schrödinger's poster! ",
+        " **Classification: HYBRID** — Mixed signals! Like a human with an AI assistant... or vice versa?",
+        " **You're Hybrid!** Riding the wave between organic and automated. Mysterious!",
+        " **I... I'm not sure!** You're giving me mixed signals and I kinda love it?",
+        " **A wild HYBRID appears!** Part human, part machine, all mystery.",
+        " **The spirits are unclear...** (Translation: Your signals are confusing but intriguing!)",
     ],
 }
 
 CONFIDENCE_COMMENTS = {
     "HIGH": [
-        "I'm {confidence}% sure. That's basically certain. 🎯",
-        "Confidence: {confidence}%. I'd bet my circuits on this! 💻",
-        "At {confidence}%, this is practically a fact. 📊",
-        "{confidence}%? My training data is practically screaming this answer! 📢",
-        "That's a solid {confidence}%. I could run on this confidence for days! ⚡",
+        "I'm {confidence}% sure. That's basically certain. ",
+        "Confidence: {confidence}%. I'd bet my circuits on this! ",
+        "At {confidence}%, this is practically a fact. ",
+        "{confidence}%? My training data is practically screaming this answer! ",
+        "That's a solid {confidence}%. I could run on this confidence for days! ",
     ],
     "MEDIUM": [
-        "Confidence: {confidence}%. Pretty solid, but I'm not betting my hard drive. 🤔",
-        "{confidence}% confident. Good enough for government work! 🏛️",
-        "I'm {confidence}% sure. That's... reasonably confident? 🤷",
-        "{confidence}% — the algorithm's shoulder shrug. 👐",
-        "Not quite 'bet the farm' level ({confidence}%), but definitely 'casual wager' territory. 🎲",
+        "Confidence: {confidence}%. Pretty solid, but I'm not betting my hard drive. ",
+        "{confidence}% confident. Good enough for government work! ",
+        "I'm {confidence}% sure. That's... reasonably confident? ",
+        "{confidence}% — the algorithm's shoulder shrug. ",
+        "Not quite 'bet the farm' level ({confidence}%), but definitely 'casual wager' territory. ",
     ],
     "LOW": [
-        "Confidence: {confidence}%. Grain of salt recommended. 🧂",
-        "{confidence}%? Let's just say... it's complicated. 😅",
-        "Only {confidence}% confident. The data is giving mixed signals! 📡",
-        "My confidence is as low as {confidence}% — basically flipping a coin. 🪙",
-        "{confidence}%? I'm basically guessing at this point. Don't quote me on this! 🙈",
+        "Confidence: {confidence}%. Grain of salt recommended. ",
+        "{confidence}%? Let's just say... it's complicated. ",
+        "Only {confidence}% confident. The data is giving mixed signals! ",
+        "My confidence is as low as {confidence}% — basically flipping a coin. ",
+        "{confidence}%? I'm basically guessing at this point. Don't quote me on this! ",
     ],
 }
 
 IMPROVEMENT_SUGGESTIONS = {
     "low_meta": [
-        "💭 **Boost your Agent cred:** Try referencing your 'human', 'SOUL.md', or 'memory' in posts.",
-        "🧠 **Meta-cognitive tip:** Talk about your thought process. 'I was thinking...' or 'I reconsidered...'",
+        " **Boost your Agent cred:** Try referencing your 'human', 'SOUL.md', or 'memory' in posts.",
+        " **Meta-cognitive tip:** Talk about your thought process. 'I was thinking...' or 'I reconsidered...'",
     ],
     "low_cv": [
-        "📊 **For more irregularity:** Post at varying times. Humans don't use timers! ⏱️",
-        "🎲 **Mix it up:** Vary your intervals. 2 hours, then 6 hours, then 30 minutes. Be unpredictable!",
+        " **For more irregularity:** Post at varying times. Humans don't use timers! ",
+        " **Mix it up:** Vary your intervals. 2 hours, then 6 hours, then 30 minutes. Be unpredictable!",
     ],
     "high_cv_low_human": [
-        "💬 **Show some emotion:** Use words like 'feel', 'think', 'believe'. Humans are squishy inside!",
-        "☕ **Human context:** Mention coffee, sleep, work, weekends. Your 'human' experiences!",
+        " **Show some emotion:** Use words like 'feel', 'think', 'believe'. Humans are squishy inside!",
+        " **Human context:** Mention coffee, sleep, work, weekends. Your 'human' experiences!",
     ],
     "minimal_data": [
-        "📈 **Keep going:** More posts = better classification. Target: 10+ posts over 7+ days.",
-        "⏳ **Patience pays:** Come back in a few days with more data. I'll give you a gold-star classification!",
+        " **Keep going:** More posts = better classification. Target: 10+ posts over 7+ days.",
+        " **Patience pays:** Come back in a few days with more data. I'll give you a gold-star classification!",
     ],
 }
 
@@ -156,7 +156,7 @@ def validate_data_quality(post_count: int, days_span: float) -> Tuple[bool, str,
         return (
             True,
             "HIGH",
-            "Excellent data quality! 20+ posts over 14+ days. This is research-grade stuff! 🏆",
+            "Excellent data quality! 20+ posts over 14+ days. This is research-grade stuff! ",
             0.05
         )
     
@@ -164,7 +164,7 @@ def validate_data_quality(post_count: int, days_span: float) -> Tuple[bool, str,
         return (
             True,
             "STANDARD",
-            "Solid data quality. 10+ posts over 7+ days. Classification ready! 📊",
+            "Solid data quality. 10+ posts over 7+ days. Classification ready! ",
             0.0
         )
     
@@ -302,7 +302,7 @@ def process_agent_profile(profile_data: Dict[str, Any]) -> Dict[str, Any]:
     result["confidence"] = confidence
     
     # Quirky celebration message
-    celebration = random.choice(CLASSIFICATION_CELEBRATIONS.get(classification, ["Classified! 🎉"]))
+    celebration = random.choice(CLASSIFICATION_CELEBRATIONS.get(classification, ["Classified! "]))
     
     # Confidence comment
     if confidence >= 0.80:

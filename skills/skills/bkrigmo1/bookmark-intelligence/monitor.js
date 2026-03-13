@@ -39,7 +39,7 @@ if (!credentials.ct0) credentials.ct0 = process.env.CT0;
 
 // Validate credentials exist
 if (!credentials.auth_token || !credentials.ct0) {
-  console.error('❌ Missing Twitter credentials!');
+  console.error(' Missing Twitter credentials!');
   console.error('');
   console.error('Please run the setup wizard:');
   console.error('  npm run setup');
@@ -158,26 +158,26 @@ function notifyTelegram(bookmark, analysis) {
   const tier = TIERS[licenseStatus.tier];
   
   if (!tier.notifications) {
-    console.log('⚠️  Notifications disabled on Free tier. Upgrade to Pro for alerts.');
+    console.log('  Notifications disabled on Free tier. Upgrade to Pro for alerts.');
     return;
   }
   
   console.log('\n=== TELEGRAM NOTIFICATION ===');
-  console.log(`📚 New Bookmark Insight from @${bookmark.author.username}`);
+  console.log(` New Bookmark Insight from @${bookmark.author.username}`);
   console.log(`\n${analysis.summary}`);
   
   if (analysis.actionableItems && analysis.actionableItems.length > 0) {
-    console.log('\n🎯 Actionable Items:');
+    console.log('\n Actionable Items:');
     analysis.actionableItems.forEach((item, idx) => {
       console.log(`${idx + 1}. ${item}`);
     });
   }
   
   if (analysis.relevantProjects && analysis.relevantProjects.length > 0) {
-    console.log(`\n🔗 Relevant to: ${analysis.relevantProjects.join(', ')}`);
+    console.log(`\n Relevant to: ${analysis.relevantProjects.join(', ')}`);
   }
   
-  console.log(`\n🔗 https://x.com/${bookmark.author.username}/status/${bookmark.id}`);
+  console.log(`\n https://x.com/${bookmark.author.username}/status/${bookmark.id}`);
   console.log('============================\n');
   
   // TODO: Integrate with OpenClaw message tool when running as skill
@@ -203,7 +203,7 @@ async function run(isDryRun = false) {
     const canProcess = canProcessBookmarks({ tier: licenseStatus.tier, expiresAt: licenseStatus.expiresAt }, usage);
     
     if (!canProcess.allowed) {
-      console.error(`\n❌ ${canProcess.reason}`);
+      console.error(`\n ${canProcess.reason}`);
       console.error('\nTo upgrade your plan:');
       console.error('  npm run license:upgrade');
       console.error('\nOr check your license status:');
@@ -212,13 +212,13 @@ async function run(isDryRun = false) {
     }
     
     if (canProcess.inGracePeriod) {
-      console.warn(`\n⚠️  ${canProcess.reason}`);
+      console.warn(`\n  ${canProcess.reason}`);
     }
     
     // Warn at 8/10 for free tier
     if (licenseStatus.tier === 'free' && usage.count >= 8 && usage.count < tier.monthlyLimit) {
       const remaining = tier.monthlyLimit - usage.count;
-      console.warn(`\n⚠️  You have ${remaining} bookmarks remaining this month.`);
+      console.warn(`\n  You have ${remaining} bookmarks remaining this month.`);
       console.warn('   Upgrade to Pro for unlimited: npm run license:upgrade');
     }
   }

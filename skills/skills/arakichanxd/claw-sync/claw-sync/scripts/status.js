@@ -39,11 +39,11 @@ function main() {
   const repo = process.env.BACKUP_REPO;
   const configured = isConfigured();
 
-  console.log('📊 Claw Sync Status\n');
+  console.log(' Claw Sync Status\n');
 
   // Configuration status
   if (!configured) {
-    console.log('⚠️  Not configured');
+    console.log('  Not configured');
     console.log('');
     console.log('Create ~/.openclaw/.backup.env with:');
     console.log('  BACKUP_REPO=https://github.com/username/repo');
@@ -52,12 +52,12 @@ function main() {
     return;
   }
 
-  console.log(`✅ Configured`);
-  console.log(`📁 Repository: ${repo}`);
+  console.log(` Configured`);
+  console.log(` Repository: ${repo}`);
   console.log('');
 
   // Files to sync
-  console.log('📝 Files to sync:');
+  console.log(' Files to sync:');
 
   const checks = [
     ['MEMORY.md', path.join(WORKSPACE_DIR, 'MEMORY.md')],
@@ -72,14 +72,14 @@ function main() {
     const exists = fs.existsSync(filePath);
     const size = exists ? fs.statSync(filePath).size : 0;
     const sizeStr = exists ? `${(size / 1024).toFixed(1)}KB` : 'missing';
-    console.log(`  ${exists ? '✅' : '⏭️ '} ${name} (${sizeStr})`);
+    console.log(`  ${exists ? '' : ' '} ${name} (${sizeStr})`);
   }
 
   // Count memory files
   const memoryDir = path.join(WORKSPACE_DIR, 'memory');
   if (fs.existsSync(memoryDir)) {
     const files = fs.readdirSync(memoryDir).filter(f => f.endsWith('.md'));
-    console.log(`  ✅ memory/*.md (${files.length} files)`);
+    console.log(`   memory/*.md (${files.length} files)`);
   }
 
   // Count skills
@@ -88,14 +88,14 @@ function main() {
     const skills = fs.readdirSync(skillsDir).filter(f =>
       fs.statSync(path.join(skillsDir, f)).isDirectory()
     );
-    console.log(`  ✅ skills/ (${skills.length} skills)`);
+    console.log(`   skills/ (${skills.length} skills)`);
   }
 
   console.log('');
-  console.log('🔒 NOT synced (security): openclaw.json, .env');
+  console.log(' NOT synced (security): openclaw.json, .env');
 
   // Local backups
-  console.log('\n💾 Local backups (disaster recovery):');
+  console.log('\n Local backups (disaster recovery):');
   if (fs.existsSync(LOCAL_BACKUP_DIR)) {
     const backups = fs.readdirSync(LOCAL_BACKUP_DIR)
       .filter(f => fs.statSync(path.join(LOCAL_BACKUP_DIR, f)).isDirectory())
@@ -106,7 +106,7 @@ function main() {
     if (backups.length > 0) {
       backups.forEach((b, i) => {
         const marker = i === 0 ? ' (latest)' : '';
-        console.log(`  📦 ${b}${marker}`);
+        console.log(`   ${b}${marker}`);
       });
     } else {
       console.log('  No local backups yet');
@@ -116,7 +116,7 @@ function main() {
   }
 
   // Commands
-  console.log('\n💡 Commands:');
+  console.log('\n Commands:');
   console.log('  node skills/claw-sync/scripts/push.js           # Push to remote');
   console.log('  node skills/claw-sync/scripts/push.js --dry-run # Preview');
   console.log('  node skills/claw-sync/scripts/pull.js --list    # List versions');

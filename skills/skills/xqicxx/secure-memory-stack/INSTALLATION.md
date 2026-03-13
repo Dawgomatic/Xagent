@@ -1,6 +1,6 @@
 # 安全记忆系统栈安装指南
 
-## 📦 安装方式
+##  安装方式
 
 ### 方式1: 通过ClawdHub安装 (推荐)
 
@@ -36,7 +36,7 @@ chmod +x secure-memory-stack/scripts/*.sh
 ./secure-memory-stack/secure-memory help
 ```
 
-## 🚀 首次使用
+##  首次使用
 
 ### 初始化系统
 ```bash
@@ -50,7 +50,7 @@ secure-memory setup
 secure-memory status
 ```
 
-## 🔧 配置选项
+##  配置选项
 
 ### 百度Embedding API (可选)
 如果需要语义搜索功能，可以配置百度API：
@@ -66,7 +66,7 @@ export BAIDU_API_KEY='your_api_key'
 export BAIDU_SECRET_KEY='your_secret_key'
 ```
 
-## ✅ 验证安装
+##  验证安装
 
 安装完成后，运行以下命令验证：
 
@@ -84,7 +84,7 @@ secure-memory remember "安装测试成功" --tags installation --importance nor
 secure-memory search "安装"
 ```
 
-## 🔍 故障排除
+##  故障排除
 
 ### 如果命令找不到
 确保路径正确，或者使用完整路径：
@@ -105,7 +105,7 @@ chmod +x /root/clawd/skills/secure-memory-stack/scripts/*.sh
 secure-memory fix git
 ```
 
-## 📝 使用示例
+##  使用示例
 
 ### 基本使用
 ```bash
@@ -128,7 +128,7 @@ secure-memory diagnose
 secure-memory fix all
 ```
 
-## 🔄 更新
+##  更新
 
 如果需要更新到新版本：
 
@@ -139,7 +139,7 @@ clawdhub update secure-memory-stack
 # 或者手动替换文件夹内容
 ```
 
-## 🗑️ 卸载
+##  卸载
 
 如果需要卸载：
 
@@ -151,7 +151,7 @@ rm -rf /root/clawd/skills/secure-memory-stack
 clawdhub uninstall secure-memory-stack
 ```
 
-## 🆘 支持
+##  支持
 
 如果遇到问题，运行：
 ```bash

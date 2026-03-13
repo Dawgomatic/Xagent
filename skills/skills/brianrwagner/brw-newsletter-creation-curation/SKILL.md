@@ -1,7 +1,7 @@
 ---
 name: newsletter-creation-curation
 description: Industry-adaptive B2B newsletter creation with stage, role, and geography-aware workflows
-metadata: {"clawdbot":{"emoji":"📧","homepage":"https://github.com/shashwatgtm","always":true}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://github.com/shashwatgtm","always":true}}
 ---
 
 # Newsletter Creation & Curation Skill

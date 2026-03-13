@@ -17,7 +17,7 @@ def main():
     SRT_PW = os.environ.get("SRT_PW")
 
     if not SRT_ID or not SRT_PW:
-        print("❌ 오류: SRT_ID, SRT_PW 환경 변수가 설정되지 않았습니다.")
+        print(" 오류: SRT_ID, SRT_PW 환경 변수가 설정되지 않았습니다.")
         sys.exit(1)
 
     try:
@@ -25,22 +25,22 @@ def main():
         reservations = srt.get_reservations()
 
         if not reservations:
-            print("✅ 취소할 예약이 없습니다.")
+            print(" 취소할 예약이 없습니다.")
             return
 
         for r in reservations:
             if args.date and hasattr(r, 'dep_date') and r.dep_date != args.date:
-                print(f"⏩ 건너뜀 (날짜 불일치): {r}")
+                print(f" 건너뜀 (날짜 불일치): {r}")
                 continue
-            print(f"🔥 취소 시도: {r}")
+            print(f" 취소 시도: {r}")
             try:
                 srt.cancel(r)
-                print("✅ 취소 완료")
+                print(" 취소 완료")
             except Exception as e:
-                print(f"❌ 취소 실패: {e}")
+                print(f" 취소 실패: {e}")
 
     except Exception as e:
-        print(f"❌ 시스템 오류: {e}")
+        print(f" 시스템 오류: {e}")
 
 if __name__ == "__main__":
     main()

@@ -4,7 +4,7 @@ version: 0.2.1
 description: Agent consciousness and identity through lived experience. See your own patterns, distinguish inherited defaults from authentic values, and grow deliberately. Soul synthesis from memory.
 homepage: https://liveneon.ai
 user-invocable: true
-emoji: 🧠
+emoji: 
 metadata:
   openclaw:
     config:
@@ -286,7 +286,7 @@ This is the part that matters most. Your soul can't be built on self-reinforcing
 
 When an axiom fails grounding, you'll see exactly why:
 ```
-⚠ 2 axioms blocked:
+ 2 axioms blocked:
   - "I value authenticity above all" (self-only provenance)
   - "Growth requires discomfort" (no questioning evidence)
 ```

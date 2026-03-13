@@ -45,13 +45,13 @@ def match_test(pattern: str, text: str, flags: int = 0):
     try:
         result = re.search(pattern, text, flags)
         if result:
-            print(f"✅ 匹配成功!")
+            print(f" 匹配成功!")
             print(f"匹配位置: {result.span()}")
             print(f"匹配内容: '{result.group()}'")
         else:
-            print("❌ 无匹配")
+            print(" 无匹配")
     except re.error as e:
-        print(f"❌ 正则表达式错误: {e}")
+        print(f" 正则表达式错误: {e}")
 
 
 def find_all(pattern: str, text: str, flags: int = 0):
@@ -64,7 +64,7 @@ def find_all(pattern: str, text: str, flags: int = 0):
     try:
         matches = re.findall(pattern, text, flags)
         if matches:
-            print(f"✅ 找到 {len(matches)} 个匹配:")
+            print(f" 找到 {len(matches)} 个匹配:")
             for i, match in enumerate(matches, 1):
                 if isinstance(match, tuple):
                     # 处理有分组的情况
@@ -72,9 +72,9 @@ def find_all(pattern: str, text: str, flags: int = 0):
                 else:
                     print(f"  {i}. '{match}'")
         else:
-            print("❌ 无匹配")
+            print(" 无匹配")
     except re.error as e:
-        print(f"❌ 正则表达式错误: {e}")
+        print(f" 正则表达式错误: {e}")
 
 
 def find_iter(pattern: str, text: str, flags: int = 0):
@@ -94,7 +94,7 @@ def find_iter(pattern: str, text: str, flags: int = 0):
                 if group:
                     print(f"  分组{g_idx}: '{group}'")
     except re.error as e:
-        print(f"❌ 正则表达式错误: {e}")
+        print(f" 正则表达式错误: {e}")
 
 
 def groups(pattern: str, text: str, flags: int = 0):
@@ -107,7 +107,7 @@ def groups(pattern: str, text: str, flags: int = 0):
     try:
         result = re.search(pattern, text, flags)
         if result:
-            print(f"✅ 匹配成功!")
+            print(f" 匹配成功!")
             print(f"完整匹配 (group 0): '{result.group()}'")
             print(f"\n捕获分组:")
             for i, group in enumerate(result.groups(), 1):
@@ -121,9 +121,9 @@ def groups(pattern: str, text: str, flags: int = 0):
                 for name, value in result.groupdict().items():
                     print(f"  ?P<{name}>: '{value}'")
         else:
-            print("❌ 无匹配")
+            print(" 无匹配")
     except re.error as e:
-        print(f"❌ 正则表达式错误: {e}")
+        print(f" 正则表达式错误: {e}")
 
 
 def substitute(pattern: str, replacement: str, text: str, count: int = 0, flags: int = 0):
@@ -146,7 +146,7 @@ def substitute(pattern: str, replacement: str, text: str, count: int = 0, flags:
             print(f"\n最多替换了 {count} 处")
 
     except re.error as e:
-        print(f"❌ 正则表达式错误: {e}")
+        print(f" 正则表达式错误: {e}")
 
 
 def get_pattern(name: str):
@@ -171,7 +171,7 @@ def get_pattern(name: str):
         print(f"\n使用示例:")
         print(f"python3 script/main.py match '{PATTERNS[name]}' '<你的测试文本>'")
     else:
-        print(f"❌ 未找到模式 '{name}'")
+        print(f" 未找到模式 '{name}'")
         print(f"\n可用模式: {', '.join(PATTERNS.keys())}")
 
 

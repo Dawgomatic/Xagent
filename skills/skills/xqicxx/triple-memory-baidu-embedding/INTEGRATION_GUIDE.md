@@ -1,19 +1,19 @@
 # Triple Memory Baidu Embedding - 系统集成指南
 
-## 🎯 集成概述
+##  集成概述
 
 此指南说明如何将Triple Memory Baidu Embedding技能完全集成到您的记忆系统中。
 
-## 📋 集成状态
+##  集成状态
 
-- ✅ 技能已创建
-- ✅ 依赖已验证
-- ✅ 脚本已配置
-- ✅ 功能已测试
-- ✅ 集成脚本已部署
-- ✅ Hook集成已完成
+-  技能已创建
+-  依赖已验证
+-  脚本已配置
+-  功能已测试
+-  集成脚本已部署
+-  Hook集成已完成
 
-## 🔧 部署的组件
+##  部署的组件
 
 ### 1. 会话初始化脚本
 - **路径**: `/root/clawd/session-init-triple-baidu.sh`
@@ -30,7 +30,7 @@
 - **功能**: 统一管理三个记忆层
 - **使用**: `bash triple-integration.sh [command]`
 
-## 🚀 立即使用
+##  立即使用
 
 ### 方法1：使用辅助函数
 ```bash
@@ -57,7 +57,7 @@ bash /root/clawd/skills/triple-memory-baidu-embedding/scripts/triple-integration
 bash /root/clawd/skills/triple-memory-baidu-embedding/scripts/triple-integration.sh search-all "搜索内容"
 ```
 
-## 🔐 API配置（可选但推荐）
+##  API配置（可选但推荐）
 
 为了启用Baidu Embedding功能（语义搜索），请配置API凭据：
 
@@ -68,7 +68,7 @@ export BAIDU_SECRET_KEY='your_secret_key'
 
 **注意**: 如果不配置API凭据，系统将在降级模式下运行，仅使用Git-Notes和文件系统搜索功能。
 
-## 🔄 系统兼容性
+##  系统兼容性
 
 ### 与现有系统的关系：
 - **兼容Git-Notes Memory**: 完全兼容现有的Git-Notes系统
@@ -76,7 +76,7 @@ export BAIDU_SECRET_KEY='your_secret_key'
 - **兼容分层搜索**: 与您之前创建的分层搜索功能无缝集成
 - **替代LanceDB**: 作为LanceDB的安全替代方案
 
-## 📊 工作流程
+##  工作流程
 
 ```
 用户输入
@@ -98,7 +98,7 @@ Baidu Embedding存储 (语义存储，如果API配置)
 文件系统更新 (持久存储)
 ```
 
-## 🛠️ 维护命令
+##  维护命令
 
 ### 检查系统状态
 ```bash
@@ -120,7 +120,7 @@ remember_with_triple_baidu "系统健康检查" n health-check
 search_with_triple_baidu "健康检查"
 ```
 
-## ⚡ 性能优化
+##  性能优化
 
 ### 1. API凭据配置
 - 配置Baidu API凭据以启用完整的语义搜索功能
@@ -136,7 +136,7 @@ search_with_triple_baidu "健康检查"
 - 语义信息使用Baidu Embedding确保关联性
 - 持久信息使用文件系统确保可靠性
 
-## 🔍 故障排除
+##  故障排除
 
 ### 常见问题
 1. **Baidu Embedding功能不可用**: 检查API凭据配置
@@ -152,7 +152,7 @@ bash /root/clawd/skills/triple-memory-baidu-embedding/scripts/triple-integration
 python3 /root/clawd/skills/git-notes-memory/memory.py -p /root/clawd branches
 ```
 
-## 🔄 升级和维护
+##  升级和维护
 
 ### 更新技能
 ```bash
@@ -167,7 +167,7 @@ cp /root/clawd/session-init-triple-baidu.sh /root/clawd/backup/
 cp /root/clawd/memory-helpers.sh /root/clawd/backup/
 ```
 
-## ✅ 验证集成
+##  验证集成
 
 运行以下命令验证集成是否成功：
 
@@ -185,7 +185,7 @@ echo ""
 echo "=== 集成验证完成 ==="
 ```
 
-## 📞 支持
+##  支持
 
 如果遇到问题，请检查：
 1. 所有脚本都有执行权限

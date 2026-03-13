@@ -99,7 +99,7 @@ Style: Modern Christian aesthetic, Instagram-worthy, trending on Pinterest, prof
 
 // Generate the thumbnail
 async function generateThumbnail(devotional, options = {}) {
-  console.log('🎨 Generating devotional thumbnail...\n');
+  console.log(' Generating devotional thumbnail...\n');
   
   const { prompt, theme, style } = generateThumbnailPrompt(devotional);
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
@@ -114,7 +114,7 @@ async function generateThumbnail(devotional, options = {}) {
   const nanoBananaScript = path.join(CONFIG.nanoBananaPath, 'scripts', 'generate_image.py');
   
   if (!fs.existsSync(nanoBananaScript)) {
-    console.error('❌ nano-banana-pro not found. Install it first:');
+    console.error(' nano-banana-pro not found. Install it first:');
     console.error('   clawdhub install nano-banana-pro');
     return null;
   }
@@ -131,10 +131,10 @@ async function generateThumbnail(devotional, options = {}) {
       env: { ...process.env, GEMINI_API_KEY: process.env.GEMINI_API_KEY }
     });
     
-    console.log(`\n✅ Thumbnail generated: ${outputPath}`);
+    console.log(`\n Thumbnail generated: ${outputPath}`);
     
     // Add text overlay using Python PIL
-    console.log('\n📝 Adding text overlay...');
+    console.log('\n Adding text overlay...');
     const finalPath = await addTextOverlay(outputPath, devotional, theme);
     
     return {
@@ -145,7 +145,7 @@ async function generateThumbnail(devotional, options = {}) {
     };
     
   } catch (error) {
-    console.error('❌ Failed to generate thumbnail:', error.message);
+    console.error(' Failed to generate thumbnail:', error.message);
     return null;
   }
 }
@@ -239,7 +239,7 @@ print(f"Final thumbnail saved: ${finalPath}")
     execSync(`python3 "${scriptPath}"`, { stdio: 'inherit' });
     return finalPath;
   } catch (error) {
-    console.warn('⚠️  Text overlay failed, returning base image');
+    console.warn('  Text overlay failed, returning base image');
     return imagePath;
   } finally {
     if (fs.existsSync(scriptPath)) {
@@ -258,11 +258,11 @@ async function testThumbnailGeneration() {
     newsContext: null
   };
   
-  console.log('🧪 Testing thumbnail generation...\n');
+  console.log(' Testing thumbnail generation...\n');
   const result = await generateThumbnail(testDevotional, { resolution: '1K' });
   
   if (result) {
-    console.log('\n✅ Test complete!');
+    console.log('\n Test complete!');
     console.log(`Base image: ${result.baseImage}`);
     console.log(`Final thumbnail: ${result.finalThumbnail}`);
     console.log(`Theme: ${result.theme}`);

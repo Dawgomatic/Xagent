@@ -1,6 +1,6 @@
 export function renderKPIs(data: any) {
   return `
-## 📊 FutureFulfillment KPIs
+##  FutureFulfillment KPIs
 
 | Metric | Value |
 |--------|-------|
@@ -13,7 +13,7 @@ export function renderKPIs(data: any) {
 
 export function renderPickerStats(pickers: any[]) {
   return `
-## 👤 Picker Performance (Today)
+##  Picker Performance (Today)
 
 | Picker | Open | Closed | Total | Efficiency |
 |--------|------|--------|-------|------------|
@@ -23,7 +23,7 @@ ${pickers.map(p => `| ${p.name} | ${p.open} | ${p.closed} | ${p.total} | ${p.eff
 
 export function renderStockTable(movements: any[]) {
   return `
-## 📦 Stock Movements by Client (Sortable)
+##  Stock Movements by Client (Sortable)
 
 | Client | Stock In | Stock Out | Net | Value |
 |--------|----------|-----------|-----|-------|

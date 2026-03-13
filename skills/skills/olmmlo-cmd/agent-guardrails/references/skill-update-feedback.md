@@ -100,10 +100,10 @@ bash scripts/auto-commit-skill-updates.sh
 7. Clears pending tasks file
 
 **Safety:**
-- ✅ Shows what will be committed
-- ✅ Confirmation step
-- ✅ Auto-generated commit message includes context
-- ✅ Can abort safely
+-  Shows what will be committed
+-  Confirmation step
+-  Auto-generated commit message includes context
+-  Can abort safely
 
 ---
 
@@ -163,16 +163,16 @@ ENFORCEMENT_PATTERNS=(
 ## Benefits
 
 **Without feedback loop:**
-- ❌ Improvements stay siloed
-- ❌ Rely on human memory
-- ❌ Skills become stale
-- ❌ Knowledge doesn't compound
+-  Improvements stay siloed
+-  Rely on human memory
+-  Skills become stale
+-  Knowledge doesn't compound
 
 **With feedback loop:**
-- ✅ Can't forget (mechanical reminder)
-- ✅ Improvements automatically tracked
-- ✅ Skills stay current
-- ✅ Knowledge compounds across projects
+-  Can't forget (mechanical reminder)
+-  Improvements automatically tracked
+-  Skills stay current
+-  Knowledge compounds across projects
 
 ---
 

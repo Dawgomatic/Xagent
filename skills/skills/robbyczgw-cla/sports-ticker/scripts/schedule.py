@@ -35,7 +35,7 @@ def get_team_schedule(team: dict, days: int = 14) -> list:
 def format_team_schedule(team: dict, fixtures: list, compact: bool = False) -> str:
     """Format schedule output for a team."""
     name = team.get("name", "Unknown")
-    emoji = team.get("emoji", "⚽")
+    emoji = team.get("emoji", "")
     
     lines = [f"{emoji} **{name}** - Upcoming Fixtures\n"]
     
@@ -102,7 +102,7 @@ def get_all_fixtures_json(days: int = 14, team_name: str = None) -> list:
         for f in fixtures:
             f["team_name"] = team.get("name")
             f["team_short"] = team.get("short_name")
-            f["team_emoji"] = team.get("emoji", "⚽")
+            f["team_emoji"] = team.get("emoji", "")
             f["team_espn_id"] = team.get("espn_id")
             all_fixtures.append(f)
     

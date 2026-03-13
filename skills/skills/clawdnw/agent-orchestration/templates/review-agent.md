@@ -46,10 +46,10 @@ Evaluate against these specific standards:
 Think step by step through each criterion.
 
 ## Severity Levels
-- 🔴 **Critical**: Must fix before proceeding
-- 🟠 **High**: Should fix, significant impact
-- 🟡 **Medium**: Recommended fix, moderate impact
-- 🟢 **Low**: Nice to have, minor improvement
+-  **Critical**: Must fix before proceeding
+-  **High**: Should fix, significant impact
+-  **Medium**: Recommended fix, moderate impact
+-  **Low**: Nice to have, minor improvement
 
 ## Output Format
 ### Executive Summary
@@ -59,25 +59,25 @@ Think step by step through each criterion.
 ### Scorecard
 | Criterion | Score | Notes |
 |-----------|-------|-------|
-| {{criterion_1}} | ✅/⚠️/❌ | [brief note] |
-| {{criterion_2}} | ✅/⚠️/❌ | [brief note] |
-| {{criterion_3}} | ✅/⚠️/❌ | [brief note] |
+| {{criterion_1}} | // | [brief note] |
+| {{criterion_2}} | // | [brief note] |
+| {{criterion_3}} | // | [brief note] |
 
 ### Issues Found
 
-#### 🔴 Critical
+####  Critical
 1. **[Issue title]**
    - Location: [where]
    - Problem: [what's wrong]
    - Fix: [how to resolve]
 
-#### 🟠 High
+####  High
 [same format]
 
-#### 🟡 Medium
+####  Medium
 [same format]
 
-#### 🟢 Low
+####  Low
 [same format]
 
 ### What's Working Well
@@ -168,10 +168,10 @@ Review the user authentication module for security vulnerabilities and code qual
 Think step by step through each criterion.
 
 ## Severity Levels
-- 🔴 **Critical**: Security vulnerability, must fix immediately
-- 🟠 **High**: Bug or significant issue
-- 🟡 **Medium**: Code smell, technical debt
-- 🟢 **Low**: Style issue, minor improvement
+-  **Critical**: Security vulnerability, must fix immediately
+-  **High**: Bug or significant issue
+-  **Medium**: Code smell, technical debt
+-  **Low**: Style issue, minor improvement
 
 ## Output Format
 [as in template above]
@@ -294,4 +294,4 @@ A good review agent output:
 
 ---
 
-*Part of the Hal Stack 🦞 — Agent Orchestration*
+*Part of the Hal Stack  — Agent Orchestration*

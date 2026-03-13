@@ -3,7 +3,7 @@ name: ipinfo
 description: Perform IP geolocation lookups using ipinfo.io API. Convert IP addresses to geographic data including city, region, country, postal code, timezone, and coordinates. Use when geolocating IPs, enriching IP data, or analyzing geographic distribution.
 homepage: https://ipinfo.io
 metadata:
-  { "openclaw": { "emoji": "🌍", "requires": { "bins": ["curl"] }, "primaryEnv": "IPINFO_TOKEN" } }
+  { "openclaw": { "emoji": "", "requires": { "bins": ["curl"] }, "primaryEnv": "IPINFO_TOKEN" } }
 ---
 
 # IPinfo Geolocation

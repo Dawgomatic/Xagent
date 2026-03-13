@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍅 Clawd Pomodoro</title>
+    <title> Clawd Pomodoro</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -167,10 +167,10 @@
     </style>
 </head>
 <body>
-    <button class="sound-toggle" onclick="toggleSound()">🔔</button>
+    <button class="sound-toggle" onclick="toggleSound()"></button>
     
     <div class="container">
-        <h1>🍅 Clawd Pomodoro</h1>
+        <h1> Clawd Pomodoro</h1>
         
         <div class="status" id="status">Ready to focus</div>
         
@@ -198,7 +198,7 @@
         </div>
         
         <div class="tasks">
-            <h3>📝 Tasks</h3>
+            <h3> Tasks</h3>
             <div class="task-input">
                 <input type="text" id="taskInput" placeholder="What are you working on?" onkeypress="if(event.key==='Enter')addTask()">
                 <button class="btn-primary" onclick="addTask()">Add</button>
@@ -238,7 +238,7 @@
             
             isRunning = true;
             document.getElementById('startBtn').textContent = 'Running...';
-            document.getElementById('status').textContent = isWorkTime ? '🔥 Focusing!' : '☕ Take a break';
+            document.getElementById('status').textContent = isWorkTime ? ' Focusing!' : ' Take a break';
             document.getElementById('timer').className = isWorkTime ? 'timer working' : 'timer break';
             
             timerId = setInterval(() => {
@@ -256,7 +256,7 @@
             clearInterval(timerId);
             isRunning = false;
             document.getElementById('startBtn').textContent = 'Resume';
-            document.getElementById('status').textContent = '⏸️ Paused';
+            document.getElementById('status').textContent = ' Paused';
         }
 
         function resetTimer() {
@@ -279,10 +279,10 @@
             if (isWorkTime) {
                 pomodoroCount++;
                 if (pomodoroCount % 4 === 0) {
-                    alert('🎉 Great job! Take a long break (15 min)');
+                    alert(' Great job! Take a long break (15 min)');
                     totalTime = parseInt(document.getElementById('longBreak').value) * 60;
                 } else {
-                    alert('✅ Focus session complete! Short break (5 min)');
+                    alert(' Focus session complete! Short break (5 min)');
                     totalTime = parseInt(document.getElementById('shortBreak').value) * 60;
                 }
             } else {
@@ -318,7 +318,7 @@
 
         function toggleSound() {
             soundEnabled = !soundEnabled;
-            document.querySelector('.sound-toggle').textContent = soundEnabled ? '🔔' : '🔕';
+            document.querySelector('.sound-toggle').textContent = soundEnabled ? '' : '';
         }
 
         function addTask() {

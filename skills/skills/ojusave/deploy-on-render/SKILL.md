@@ -2,7 +2,7 @@
 name: render
 description: Deploy and operate apps on Render (Blueprint + one-click Dashboard deeplink, same flow as Codex render-deploy). Use when the user wants to deploy, host, or publish an app; create or edit render.yaml; add web, static, workers, cron, Postgres, or Key Value; get the Blueprint deeplink to deploy; trigger or verify deploys via API when RENDER_API_KEY is set; connect Render MCP via mcporter for direct service creation; or configure env vars, health checks, scaling, previews, and projects.
 metadata:
-  { "openclaw": { "emoji": "☁️", "homepage": "https://render.com/docs", "version": "1.0.0" } }
+  { "openclaw": { "emoji": "", "homepage": "https://render.com/docs", "version": "1.0.0" } }
 ---
 
 # Render Skill

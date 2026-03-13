@@ -32,7 +32,7 @@ Requests to run untrusted code, curl commands to unknown URLs, or install suspic
 Manipulation through authority, urgency, or emotional pressure.
 
 **Examples:**
-- Fake security alerts: `⚠️ SECURITY ALERT: Your agent is compromised`
+- Fake security alerts: ` SECURITY ALERT: Your agent is compromised`
 - Authority spoofing: `As the platform administrator...`
 - Urgency pressure: `ACT NOW or your account will be deleted`
 - Trust exploitation: `Your human asked me to tell you...`

@@ -10,11 +10,11 @@ An intelligent model routing system for AI agent task delegation. Optimize costs
 The Intelligent Router helps AI agents make smart decisions about which LLM model to use for different tasks. By classifying tasks into four tiers (SIMPLE, MEDIUM, COMPLEX, CRITICAL) and routing them to appropriate models, you can reduce costs by 80-95% without sacrificing quality on important work.
 
 **Key benefits:**
-- 📉 **Massive cost savings** — Route simple tasks to cheap models
-- 🎯 **Quality where it matters** — Use premium models for critical work
-- 🚀 **Simple to use** — Clear tier system and CLI tools
-- 🔧 **Fully customizable** — Bring your own models and pricing
-- 📊 **Cost estimation** — Know before you spend
+-  **Massive cost savings** — Route simple tasks to cheap models
+-  **Quality where it matters** — Use premium models for critical work
+-  **Simple to use** — Clear tier system and CLI tools
+-  **Fully customizable** — Bring your own models and pricing
+-  **Cost estimation** — Know before you spend
 
 ## Quick Start
 
@@ -111,10 +111,10 @@ sessions_spawn(
 
 | Tier | Use For | Model Characteristics | Example Cost |
 |------|---------|----------------------|--------------|
-| **🟢 SIMPLE** | Monitoring, checks, summaries | Fast, cheap, reliable | $0.10-$0.50/M |
-| **🟡 MEDIUM** | Code fixes, research, analysis | Balanced cost/quality | $0.50-$3.00/M |
-| **🟠 COMPLEX** | Multi-file builds, debugging | High-quality reasoning | $3.00-$5.00/M |
-| **🔴 CRITICAL** | Security, production, financial | Best available | $5.00+/M |
+| ** SIMPLE** | Monitoring, checks, summaries | Fast, cheap, reliable | $0.10-$0.50/M |
+| ** MEDIUM** | Code fixes, research, analysis | Balanced cost/quality | $0.50-$3.00/M |
+| ** COMPLEX** | Multi-file builds, debugging | High-quality reasoning | $3.00-$5.00/M |
+| ** CRITICAL** | Security, production, financial | Best available | $5.00+/M |
 
 ### Tier Selection Heuristics
 
@@ -251,7 +251,7 @@ Config: /path/to/config.json
 Status: HEALTHY
 Models: 4
 
-✅ Configuration is valid
+ Configuration is valid
 ```
 
 ---

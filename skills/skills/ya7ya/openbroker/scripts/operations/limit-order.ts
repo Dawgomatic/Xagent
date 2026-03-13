@@ -111,11 +111,11 @@ async function main() {
 
     // Warning if order would be aggressively priced
     if ((isBuy && price > midPrice) || (!isBuy && price < midPrice)) {
-      console.log(`\n⚠️  Order is priced aggressively - may fill immediately as taker`);
+      console.log(`\n  Order is priced aggressively - may fill immediately as taker`);
     }
 
     if (dryRun) {
-      console.log('\n🔍 Dry run - order not submitted');
+      console.log('\n Dry run - order not submitted');
       return;
     }
 
@@ -134,21 +134,21 @@ async function main() {
           const avgPx = parseFloat(status.filled.avgPx);
           const fillNotional = fillSz * avgPx;
 
-          console.log(`✅ Filled`);
+          console.log(` Filled`);
           console.log(`   Order ID:  ${status.filled.oid}`);
           console.log(`   Size:      ${fillSz}`);
           console.log(`   Avg Price: ${formatUsd(avgPx)}`);
           console.log(`   Notional:  ${formatUsd(fillNotional)}`);
         } else if (status.resting) {
-          console.log(`✅ Order placed`);
+          console.log(` Order placed`);
           console.log(`   Order ID:  ${status.resting.oid}`);
           console.log(`   Status:    Resting on book`);
         } else if (status.error) {
-          console.log(`❌ Error: ${status.error}`);
+          console.log(` Error: ${status.error}`);
         }
       }
     } else {
-      console.log(`❌ Error: ${response.error || 'Unknown error'}`);
+      console.log(` Error: ${response.error || 'Unknown error'}`);
     }
 
   } catch (error) {

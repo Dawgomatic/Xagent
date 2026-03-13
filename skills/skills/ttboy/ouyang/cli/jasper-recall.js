@@ -22,11 +22,11 @@ const BIN_PATH = path.join(os.homedir(), '.local', 'bin');
 const SCRIPTS_DIR = path.join(__dirname, '..', 'scripts');
 
 function log(msg) {
-  console.log(`🦊 ${msg}`);
+  console.log(` ${msg}`);
 }
 
 function error(msg) {
-  console.error(`❌ ${msg}`);
+  console.error(` ${msg}`);
 }
 
 function run(cmd, opts = {}) {

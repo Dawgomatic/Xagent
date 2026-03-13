@@ -1,7 +1,7 @@
 ---
 name: ESP32
 description: Avoid common ESP32 mistakes — GPIO conflicts, WiFi+ADC2 trap, deep sleep gotchas, and FreeRTOS pitfalls.
-metadata: {"clawdbot":{"emoji":"📟","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## GPIO Restrictions

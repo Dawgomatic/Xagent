@@ -36,7 +36,7 @@ async function deleteEvent() {
     eventId,
   });
 
-  console.log('✅ 일정 삭제 완료');
+  console.log(' 일정 삭제 완료');
 }
 
 deleteEvent().catch(console.error);

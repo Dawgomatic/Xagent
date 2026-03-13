@@ -1,7 +1,7 @@
 ---
 name: FastAPI
 description: Build fast, production-ready Python APIs with type hints, validation, and async support.
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
 ---
 
 # FastAPI Patterns

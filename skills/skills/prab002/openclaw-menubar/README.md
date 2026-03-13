@@ -19,7 +19,7 @@ scripts/start.sh
 
 ### Usage
 
-Once enabled, you'll see a 🦀 crab icon in your macOS menu bar:
+Once enabled, you'll see a  crab icon in your macOS menu bar:
 - **Click** the icon to open quick chat popup
 - **Cmd+Shift+O** keyboard shortcut to toggle
 - **Click outside** or press Esc to hide

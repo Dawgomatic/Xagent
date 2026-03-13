@@ -448,8 +448,8 @@ Maintain a running log of significant decisions:
 ```
 | ID | Date | Decision | Type | Outcome | Score |
 |---|---|---|---|---|---|
-| DEC-2026-001 | 2026-01-15 | Chose vendor X | 1 | ✅ Good | 8/10 |
-| DEC-2026-002 | 2026-01-22 | Launched feature Y | 2 | ⚠️ Mixed | 5/10 |
+| DEC-2026-001 | 2026-01-15 | Chose vendor X | 1 |  Good | 8/10 |
+| DEC-2026-002 | 2026-01-22 | Launched feature Y | 2 |  Mixed | 5/10 |
 ```
 
 Review quarterly: What's your hit rate? Are you systematically wrong about anything?

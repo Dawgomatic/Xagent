@@ -7,7 +7,7 @@ WALLET_DIR="$HOME/.apiosk"
 WALLET_FILE="$WALLET_DIR/wallet.json"
 CONFIG_FILE="$WALLET_DIR/config.json"
 
-echo "🦞 Apiosk Wallet Setup"
+echo " Apiosk Wallet Setup"
 echo ""
 
 # Create directory
@@ -15,7 +15,7 @@ mkdir -p "$WALLET_DIR"
 
 # Check if wallet exists
 if [ -f "$WALLET_FILE" ] && [ "$1" != "--regenerate" ]; then
-  echo "❌ Wallet already exists at $WALLET_FILE"
+  echo " Wallet already exists at $WALLET_FILE"
   echo "Use --regenerate to create a new wallet (WARNING: old wallet will be lost!)"
   exit 1
 fi
@@ -23,7 +23,7 @@ fi
 # Generate wallet using cast (Foundry)
 if ! command -v cast &> /dev/null; then
   echo ""
-  echo "❌ 'cast' not found. Foundry is required to generate wallets."
+  echo " 'cast' not found. Foundry is required to generate wallets."
   echo ""
   echo "To install Foundry, run:"
   echo "  curl -L https://foundry.paradigm.xyz | bash"
@@ -63,12 +63,12 @@ cat > "$CONFIG_FILE" << EOF
 EOF
 
 echo ""
-echo "✅ Wallet created successfully!"
+echo " Wallet created successfully!"
 echo ""
-echo "📍 Address: $ADDRESS"
-echo "📂 Saved to: $WALLET_FILE"
+echo " Address: $ADDRESS"
+echo " Saved to: $WALLET_FILE"
 echo ""
-echo "⚠️  IMPORTANT: Fund your wallet with USDC on Base mainnet"
+echo "  IMPORTANT: Fund your wallet with USDC on Base mainnet"
 echo ""
 echo "How to fund:"
 echo "  1. Bridge USDC to Base: https://bridge.base.org"

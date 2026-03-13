@@ -1,7 +1,7 @@
 ---
 name: calendly
 description: Manage Calendly scheduling - list events, bookings, and availability. Create scheduling links programmatically.
-metadata: {"clawdbot":{"emoji":"📅","requires":{"env":["CALENDLY_API_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["CALENDLY_API_TOKEN"]}}}
 ---
 
 # Calendly

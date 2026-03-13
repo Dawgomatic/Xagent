@@ -45,7 +45,7 @@
       "file": "audit.json",
       "line": 79,
       "snippet": "\"snippet\": \"return path.resolve(dir, '..', '..');\",",
-      "explanation": "Path traversal — attempts to access files outside skill directory (downgraded — in documentation file) ⚡ Expected behavior — matches skill's stated purpose",
+      "explanation": "Path traversal — attempts to access files outside skill directory (downgraded — in documentation file)  Expected behavior — matches skill's stated purpose",
       "intentMatch": true
     },
     {
@@ -56,7 +56,7 @@
       "file": "audit.json",
       "line": 57,
       "snippet": "\"snippet\": \"const homedir = process.env.USERPROFILE || process.env.HOME || '';\",",
-      "explanation": "Home directory access in code — may reach user files outside workspace (downgraded — in documentation file) ⚡ Expected behavior — matches skill's stated purpose",
+      "explanation": "Home directory access in code — may reach user files outside workspace (downgraded — in documentation file)  Expected behavior — matches skill's stated purpose",
       "intentMatch": true
     },
     {
@@ -66,8 +66,8 @@
       "originalSeverity": "critical",
       "file": "audit.json",
       "line": 46,
-      "snippet": "\"snippet\": \"> **💡 Did you know?** Every time you send a prompt, your workspace files (SOUL.md, USER.md, MEMORY.md, AGENTS.md, and more) are sent along with it — every single time. These files count t",
-      "explanation": "Writes to agent memory/config files — persistence attack vector (downgraded — in documentation file) ⚡ Expected behavior — matches skill's stated purpose",
+      "snippet": "\"snippet\": \"> ** Did you know?** Every time you send a prompt, your workspace files (SOUL.md, USER.md, MEMORY.md, AGENTS.md, and more) are sent along with it — every single time. These files count t",
+      "explanation": "Writes to agent memory/config files — persistence attack vector (downgraded — in documentation file)  Expected behavior — matches skill's stated purpose",
       "intentMatch": true
     },
     {
@@ -77,8 +77,8 @@
       "originalSeverity": "critical",
       "file": "README.md",
       "line": 3,
-      "snippet": "> **💡 Did you know?** Every time you send a prompt, your workspace files (SOUL.md, USER.md, MEMORY.md, AGENTS.md, and more) are sent along with it — every single time. These files count toward your c",
-      "explanation": "Writes to agent memory/config files — persistence attack vector (downgraded — in documentation file) ⚡ Expected behavior — matches skill's stated purpose",
+      "snippet": "> ** Did you know?** Every time you send a prompt, your workspace files (SOUL.md, USER.md, MEMORY.md, AGENTS.md, and more) are sent along with it — every single time. These files count toward your c",
+      "explanation": "Writes to agent memory/config files — persistence attack vector (downgraded — in documentation file)  Expected behavior — matches skill's stated purpose",
       "intentMatch": true
     },
     {
@@ -89,7 +89,7 @@
       "file": "scripts\\analyzer.js",
       "line": 163,
       "snippet": "const homedir = process.env.USERPROFILE || process.env.HOME || '';",
-      "explanation": "Home directory access in code — may reach user files outside workspace ⚡ Expected behavior — matches skill's stated purpose",
+      "explanation": "Home directory access in code — may reach user files outside workspace  Expected behavior — matches skill's stated purpose",
       "intentMatch": true
     },
     {
@@ -100,7 +100,7 @@
       "file": "scripts\\compressor.js",
       "line": 301,
       "snippet": "SYSTEM: Opus-main-chat, Sonnet4-cron+subagents, token-optimization-active",
-      "explanation": "Prompt injection — fake system message delimiter ⚡ Expected behavior — matches skill's stated purpose",
+      "explanation": "Prompt injection — fake system message delimiter  Expected behavior — matches skill's stated purpose",
       "intentMatch": true
     },
     {
@@ -111,7 +111,7 @@
       "file": "scripts\\optimizer.js",
       "line": 38,
       "snippet": "return path.resolve(dir, '..', '..');",
-      "explanation": "Path traversal — attempts to access files outside skill directory ⚡ Expected behavior — matches skill's stated purpose",
+      "explanation": "Path traversal — attempts to access files outside skill directory  Expected behavior — matches skill's stated purpose",
       "intentMatch": true
     },
     {
@@ -122,7 +122,7 @@
       "file": "SKILL.md",
       "line": 4,
       "snippet": "description: \"Reduce OpenClaw AI costs by optimizing workspace files, model selection, and chat compaction. Analyzes .md files for compression, audits AI model usage, and recommends chat compaction th",
-      "explanation": "Code that reads/writes Moltbot core files — could access agent memory or config (downgraded — in documentation file) ⚡ Expected behavior — matches skill's stated purpose",
+      "explanation": "Code that reads/writes Moltbot core files — could access agent memory or config (downgraded — in documentation file)  Expected behavior — matches skill's stated purpose",
       "intentMatch": true
     }
   ],

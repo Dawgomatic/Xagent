@@ -178,7 +178,7 @@ Save:
 User: /eye status
 
 Output:
-📋 Eye Health Status
+ Eye Health Status
 
 Recent Vision Examination:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -187,8 +187,8 @@ Right Eye: 0.8 (uncorrected) / 1.0 (corrected)
 
 Recent IOP:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
-Left Eye: 15 mmHg ✅
-Right Eye: 16 mmHg ✅
+Left Eye: 15 mmHg 
+Right Eye: 16 mmHg 
 
 Screening Status:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -202,7 +202,7 @@ Macular Degeneration: None (2024-06-01)
 User: /eye trend 6months
 
 Output:
-📈 Vision Change Trend (Last 6 Months)
+ Vision Change Trend (Last 6 Months)
 
 Uncorrected Vision:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -222,7 +222,7 @@ Right Eye: -4.00D (No change)
 User: /eye checkup
 
 Output:
-📅 Eye Examination Reminder
+ Eye Examination Reminder
 
 Next Examination: 2025-06-15 (154 days remaining)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━

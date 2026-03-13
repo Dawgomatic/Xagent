@@ -151,7 +151,7 @@ Spawn 6 specialist sub-agents in parallel. Each agent reviews the source code th
 - **Don't report generic patterns that are already mitigated. Focus on protocol-specific attack scenarios.**
 - **Pay special attention to functions with low/no test coverage** (from the Coverage Gap Summary)
 - **Report 'No findings' if you genuinely find nothing, rather than inventing low-quality issues.** Quality over quantity.
-- **NEGATIVE EVIDENCE REQUIREMENT:** When NO findings are found in your area, you MUST document what was checked and why it's safe. Example: "Checked all 8 external calls — all protected by nonReentrant. Checked cross-contract reentrancy between StakingVault↔BuckEscrow — CEI followed, no callback opportunity." This goes into the Coverage Evidence section.
+- **NEGATIVE EVIDENCE REQUIREMENT:** When NO findings are found in your area, you MUST document what was checked and why it's safe. Example: "Checked all 8 external calls — all protected by nonReentrant. Checked cross-contract reentrancy between StakingVaultBuckEscrow — CEI followed, no callback opportunity." This goes into the Coverage Evidence section.
 - **Tag every finding with its SWC ID** from references/swc-registry.md where applicable.
 
 #### Agent 1: Reentrancy & State Management

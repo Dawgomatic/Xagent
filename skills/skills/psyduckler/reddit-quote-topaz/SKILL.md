@@ -152,16 +152,16 @@ Keys from macOS Keychain:
 ```
 {flag_emoji} Top {COUNT} {CATEGORY} in {DESTINATION}
 
-Real recommendations from {N}+ Reddit posts 🧵
+Real recommendations from {N}+ Reddit posts 
 
-📍 Swipe for the spots + what Redditors actually said:
+ Swipe for the spots + what Redditors actually said:
 1. {Attraction 1}
 2. {Attraction 2}
 ...
 
-Full list with maps, prices & more Reddit recs 👉 {POPULAR_PICKS_URL}
+Full list with maps, prices & more Reddit recs  {POPULAR_PICKS_URL}
 
-💬 {PROVOCATIVE_QUESTION — e.g. "What's the most overrated restaurant you've been to abroad?" or "Would you trust a stranger's Reddit rec over a Michelin star?"}
+ {PROVOCATIVE_QUESTION — e.g. "What's the most overrated restaurant you've been to abroad?" or "Would you trust a stranger's Reddit rec over a Michelin star?"}
 
 #{destination} #{category_tag} #redditfinds #traveltips #foodietravel #localfavorites #tabiji
 ```

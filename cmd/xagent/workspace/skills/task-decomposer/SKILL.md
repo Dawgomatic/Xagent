@@ -322,14 +322,14 @@ Present the decomposition results in a structured format:
 
 ```
 ════════════════════════════════════════════════════════════════
-📋 TASK DECOMPOSITION REPORT
+ TASK DECOMPOSITION REPORT
 ════════════════════════════════════════════════════════════════
 
-🎯 Original Request:
+ Original Request:
 {User's original request}
 
 ────────────────────────────────────────────────────────────────
-📊 SUBTASKS
+ SUBTASKS
 ────────────────────────────────────────────────────────────────
 ┌─────┬────────────────────────┬───────────────────┬───────────┐
 │ ID  │ Task                   │ Capability        │ Status    │
@@ -340,7 +340,7 @@ Present the decomposition results in a structured format:
 └─────┴────────────────────────┴───────────────────┴───────────┘
 
 ────────────────────────────────────────────────────────────────
-🔍 SKILL SEARCH RESULTS
+ SKILL SEARCH RESULTS
 ────────────────────────────────────────────────────────────────
 Task 1: {task name}
   Search: npx skills find {keywords}
@@ -353,14 +353,14 @@ Task 3: {task name}
   Action: Create new skill
 
 ────────────────────────────────────────────────────────────────
-🛠️ SKILLS TO CREATE
+ SKILLS TO CREATE
 ────────────────────────────────────────────────────────────────
 1. {skill-name}
    Capability: {capability_type}
    Description: {what it does}
 
 ────────────────────────────────────────────────────────────────
-📝 EXECUTION PLAN
+ EXECUTION PLAN
 ────────────────────────────────────────────────────────────────
 Prerequisites:
   • {prerequisite 1}

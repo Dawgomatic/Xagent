@@ -183,7 +183,7 @@ async def attempt_fix(session: aiohttp.ClientSession, cfg: dict, attempt: int) -
     if attempt <= 2:
         # Step 1-2: Simple restart
         log.info("Restarting gateway...")
-        await send_telegram(session, cfg, "🔧 <b>Watch Dog:</b> Restarting gateway...")
+        await send_telegram(session, cfg, " <b>Watch Dog:</b> Restarting gateway...")
         try:
             subprocess.run(["openclaw", "gateway", "restart"], timeout=30,
                            capture_output=True, text=True)
@@ -198,7 +198,7 @@ async def attempt_fix(session: aiohttp.ClientSession, cfg: dict, attempt: int) -
         # Step 3: Ask user for permission to reinstall
         log.info("Restart attempts exhausted, asking user for reinstall permission...")
         await send_telegram(session, cfg,
-            "⚠️ <b>Watch Dog:</b> Gateway restart failed after 2 attempts.\n\n"
+            " <b>Watch Dog:</b> Gateway restart failed after 2 attempts.\n\n"
             "Reinstalling OpenClaw might fix the issue.\n"
             "To approve reinstall, run:\n"
             "<code>touch ~/.openclaw/watchdog/approve-reinstall</code>\n\n"
@@ -210,7 +210,7 @@ async def attempt_fix(session: aiohttp.ClientSession, cfg: dict, attempt: int) -
         # Step 4-5: User approved reinstall
         log.info("User approved reinstall, running npm install -g openclaw...")
         APPROVE_REINSTALL.unlink(missing_ok=True)
-        await send_telegram(session, cfg, "🔧 <b>Watch Dog:</b> Reinstalling OpenClaw (approved by user)...")
+        await send_telegram(session, cfg, " <b>Watch Dog:</b> Reinstalling OpenClaw (approved by user)...")
         try:
             subprocess.run(["npm", "install", "-g", "openclaw"], timeout=120,
                            capture_output=True, text=True)
@@ -229,7 +229,7 @@ async def attempt_fix(session: aiohttp.ClientSession, cfg: dict, attempt: int) -
         log.info("Waiting for user action...")
         if attempt == 5:
             await send_telegram(session, cfg,
-                "❌ <b>Watch Dog:</b> All auto-fix attempts exhausted.\n"
+                " <b>Watch Dog:</b> All auto-fix attempts exhausted.\n"
                 "Manual intervention required:\n"
                 "<code>openclaw gateway restart</code>"
             )
@@ -281,7 +281,7 @@ async def main():
     log.info("Watch Dog started — monitoring %s", GATEWAY_HEALTH)
 
     async with aiohttp.ClientSession() as session:
-        await send_telegram(session, cfg, "🐕 <b>Watch Dog started</b>\nMonitoring gateway health every 15s.")
+        await send_telegram(session, cfg, " <b>Watch Dog started</b>\nMonitoring gateway health every 15s.")
 
         while True:
             healthy = await check_health(session)
@@ -291,7 +291,7 @@ async def main():
                     log.info("Gateway is healthy ✓")
                     if state["consecutive_failures"] > 0 or state["fix_attempts"] > 0:
                         await send_telegram(session, cfg,
-                            "✅ <b>Gateway recovered!</b>\n"
+                            " <b>Gateway recovered!</b>\n"
                             f"After {state['fix_attempts']} fix attempt(s)."
                         )
                     state["consecutive_failures"] = 0
@@ -308,7 +308,7 @@ async def main():
                     logs = collect_logs()
                     diagnosis = diagnose_locally(logs)
                     await send_telegram(session, cfg,
-                        "🚨 <b>Gateway DOWN!</b>\n"
+                        " <b>Gateway DOWN!</b>\n"
                         f"3 consecutive failures detected.\n\n"
                         f"<b>AI Diagnosis:</b>\n<code>{diagnosis[:500]}</code>\n\n"
                         "Attempting auto-fix..."
@@ -322,10 +322,10 @@ async def main():
                         state["fix_attempts"] = 0
                         state["last_status"] = "healthy"
                         log.info("Auto-fix succeeded!")
-                        await send_telegram(session, cfg, "✅ <b>Auto-fix succeeded!</b> Gateway is back online.")
+                        await send_telegram(session, cfg, " <b>Auto-fix succeeded!</b> Gateway is back online.")
                     elif state["fix_attempts"] >= 5:
                         await send_telegram(session, cfg,
-                            "❌ <b>Auto-fix exhausted</b> (5 attempts).\n"
+                            " <b>Auto-fix exhausted</b> (5 attempts).\n"
                             "Manual intervention required!"
                         )
                         state["fix_attempts"] = 0

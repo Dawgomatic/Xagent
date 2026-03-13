@@ -4,7 +4,7 @@ from pathlib import Path
 CONFIG = Path.home() / “.openclaw” / “novel_config.yaml”
 
 if not CONFIG.exists():
-    print(“❌ 请先创建 ~/.openclaw/novel_config.yaml”)
+    print(“ 请先创建 ~/.openclaw/novel_config.yaml”)
     sys.exit(1)
 
 with open(CONFIG, “r”, encoding=“utf-8”) as f:
@@ -17,7 +17,7 @@ ch_num = sys.argv[1].zfill(2)
 prompt = sys.argv[2]
 
 full_prompt = f“生活化现代仙侠《fangcunzhijian》，主角陆玄高中毕业，能力微弱。禁止系统/金光。写第{ch_num}章：{prompt}。600字，结尾留悬念。”
-print(f“⏳ 生成第{ch_num}章...”)
+print(f“ 生成第{ch_num}章...”)
 res = subprocess.run([“ollama”, “run”, model, full_prompt], capture_output=True, text=True, encoding=“utf-8”, timeout=180)
 if res.returncode != 0: raise Exception(res.stderr)
 
@@ -45,4 +45,4 @@ try:
 except:
     pass
 
-print(f“✅ 草稿完成！文件：{os.path.basename(filepath)}”)
+print(f“ 草稿完成！文件：{os.path.basename(filepath)}”)

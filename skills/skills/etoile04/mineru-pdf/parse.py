@@ -41,22 +41,22 @@ async def parse_pdf(pdf_path: str, output_dir: str,
     # Validate input
     pdf_path = Path(pdf_path)
     if not pdf_path.exists():
-        print(f"❌ Error: PDF file not found: {pdf_path}")
+        print(f" Error: PDF file not found: {pdf_path}")
         return 1
 
     if not pdf_path.suffix.lower() == '.pdf':
-        print(f"❌ Error: Not a PDF file: {pdf_path}")
+        print(f" Error: Not a PDF file: {pdf_path}")
         return 1
 
     # Create output directory
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    print(f"📖 PDF: {pdf_path}")
-    print(f"📁 Output: {output_dir}")
-    print(f"⚙️  Backend: {backend}")
-    print(f"   Formula: {'✅' if formula_enable else '❌'}")
-    print(f"   Table: {'✅' if table_enable else '❌'}")
+    print(f" PDF: {pdf_path}")
+    print(f" Output: {output_dir}")
+    print(f"  Backend: {backend}")
+    print(f"   Formula: {'' if formula_enable else ''}")
+    print(f"   Table: {'' if table_enable else ''}")
     print(f"   Pages: {start_page} → {end_page if end_page >= 0 else 'end'}")
     print()
 
@@ -89,7 +89,7 @@ async def parse_pdf(pdf_path: str, output_dir: str,
             end_page_id=end_page if end_page >= 0 else 99999,
         )
     except Exception as e:
-        print(f"❌ Error during parsing: {e}")
+        print(f" Error during parsing: {e}")
         import traceback
         traceback.print_exc()
         return 1
@@ -99,27 +99,27 @@ async def parse_pdf(pdf_path: str, output_dir: str,
     md_file = output_dir / pdf_name / parse_method / f"{pdf_name}.md"
 
     if md_file.exists():
-        print(f"✅ Parsing completed successfully!")
-        print(f"📄 Markdown: {md_file}")
-        print(f"📊 Size: {md_file.stat().st_size:,} bytes")
+        print(f" Parsing completed successfully!")
+        print(f" Markdown: {md_file}")
+        print(f" Size: {md_file.stat().st_size:,} bytes")
 
         # Also save a copy to root of output_dir for easier access
         copy_path = output_dir / f"{pdf_name}_parsed.md"
         copy_path.write_text(md_file.read_text(encoding="utf-8"), encoding="utf-8")
-        print(f"📋 Copy: {copy_path}")
+        print(f" Copy: {copy_path}")
 
         # List generated images
         images_dir = md_file.parent / "images"
         if images_dir.exists():
             images = list(images_dir.glob("*.jpg")) + list(images_dir.glob("*.png"))
-            print(f"🖼️  Images: {len(images)} files in {images_dir}")
+            print(f"  Images: {len(images)} files in {images_dir}")
             for img in images[:5]:  # Show first 5
                 print(f"      - {img.name}")
             if len(images) > 5:
                 print(f"      ... and {len(images) - 5} more")
 
         print()
-        print(f"📂 Output directory structure:")
+        print(f" Output directory structure:")
         print(f"   {output_dir}/")
         print(f"   ├── {pdf_name}/")
         print(f"   │   └── {parse_method}/")
@@ -129,7 +129,7 @@ async def parse_pdf(pdf_path: str, output_dir: str,
 
         return 0
     else:
-        print(f"❌ Error: Failed to generate markdown output")
+        print(f" Error: Failed to generate markdown output")
         print(f"   Expected: {md_file}")
         print(f"   Output directory contents:")
         if output_dir.exists():

@@ -1,4 +1,4 @@
-# 🍳 recipes-skill
+#  recipes-skill
 
 CLI for AI agents to find recipes for their humans. Uses TheMealDB API. No auth required.
 
@@ -54,20 +54,20 @@ recipes area Japanese
 
 **Full recipe:**
 ```
-🍽️  Spaghetti Bolognese
+  Spaghetti Bolognese
    ID: 52772 | Category: Beef | Area: Italian
    Tags: Pasta,Meat
 
-📝 Ingredients:
+ Ingredients:
    • 500g Beef Mince
    • 2 Onions
    • 400g Tomato Puree
    ...
 
-📖 Instructions:
+ Instructions:
 [Full cooking instructions]
 
-🎥 Video: https://youtube.com/...
+ Video: https://youtube.com/...
 ```
 
 ## API

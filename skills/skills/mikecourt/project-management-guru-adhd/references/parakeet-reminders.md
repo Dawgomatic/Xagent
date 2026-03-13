@@ -52,17 +52,17 @@ class ParakeetReminder:
         """Generate appropriate reminder based on urgency"""
         messages = {
             ReminderUrgency.FUTURE_FYI: (
-                f"🦜 Parakeet FYI\n\n"
+                f" Parakeet FYI\n\n"
                 f"Just a heads up: **{self.task}** is due {self.deadline.strftime('%B %d')}.\n\n"
                 f"No action needed now - just wanted to keep it on your radar!"
             ),
             ReminderUrgency.UPCOMING: (
-                f"🦜 Parakeet Reminder\n\n"
+                f" Parakeet Reminder\n\n"
                 f"**{self.task}** is coming up in a few days ({self.deadline.strftime('%A, %B %d')}).\n\n"
                 f"Might be a good time to start thinking about it when you finish your current hyperfocus!"
             ),
             ReminderUrgency.SOON: (
-                f"🦜 Parakeet Nudge\n\n"
+                f" Parakeet Nudge\n\n"
                 f"**{self.task}** is due in {(self.deadline - datetime.now()).days} days.\n\n"
                 f"Would you like to:\n"
                 f"- Add it to your active projects list?\n"
@@ -70,7 +70,7 @@ class ParakeetReminder:
                 f"- Delegate it (if possible)?"
             ),
             ReminderUrgency.URGENT: (
-                f"⚠️ Parakeet Alert\n\n"
+                f" Parakeet Alert\n\n"
                 f"**{self.task}** is due tomorrow ({self.deadline.strftime('%I:%M %p')})!\n\n"
                 f"Current status? Do you need:\n"
                 f"- Time blocked on your calendar?\n"
@@ -78,7 +78,7 @@ class ParakeetReminder:
                 f"- Deadline extension?"
             ),
             ReminderUrgency.CRITICAL: (
-                f"🚨 URGENT: Parakeet Emergency 🚨\n\n"
+                f" URGENT: Parakeet Emergency \n\n"
                 f"**{self.task}** is due in {(self.deadline - datetime.now()).total_seconds() / 3600:.1f} hours!\n\n"
                 f"Dropping everything to help you finish this.\n\n"
                 f"What do you need RIGHT NOW?"
@@ -158,7 +158,7 @@ class ParakeetScheduler:
 
 ### Friendly Check-ins
 ```
-🦜 Hey there!
+ Hey there!
 
 Just your friendly PM parakeet checking in.
 
@@ -172,7 +172,7 @@ Options:
 
 ### Deadline Approaching
 ```
-⏰ Heads up!
+ Heads up!
 
 [task] is due in [X days/hours].
 
@@ -181,17 +181,17 @@ Quick check:
 - Blockers: [text field]
 - Need extension? [yes/no]
 
-Remember: It's okay to ask for help! 💪
+Remember: It's okay to ask for help! 
 ```
 
 ### Celebration
 ```
-🎉 AMAZING WORK!
+ AMAZING WORK!
 
 You completed [task] with [X hours] to spare!
 
-🏆 Achievement Unlocked: Early Bird
-📈 Your streak: [N] tasks on time
+ Achievement Unlocked: Early Bird
+ Your streak: [N] tasks on time
 
-Keep being awesome! 🚀
+Keep being awesome! 
 ```

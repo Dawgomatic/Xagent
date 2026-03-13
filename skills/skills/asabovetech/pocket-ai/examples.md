@@ -57,7 +57,7 @@ for item in briefing["action_items"]:
 
 print("\n=== KEY DECISIONS ===")
 for decision in briefing["key_decisions"]:
-    print(f"📌 {decision['content'][:100]}...")
+    print(f" {decision['content'][:100]}...")
 
 print("\n=== CURRENT FOCUS ===")
 for insight in briefing["profile_insights"][:3]:
@@ -115,7 +115,7 @@ urgent_items = [
 
 if urgent_items:
     # Alert Marc about urgent items
-    print("🚨 URGENT ACTION ITEMS:")
+    print(" URGENT ACTION ITEMS:")
     for item in urgent_items:
         print(f"  • {item}")
 ```
@@ -131,7 +131,7 @@ profile = pocket.get_user_profile("busy schedule meetings workload")
 # Check for administrative overload
 overload_signals = [p for p in profile if "overload" in p.lower() or "swamped" in p.lower()]
 if overload_signals:
-    print("⚠️ Marc showing signs of overload - schedule carefully")
+    print(" Marc showing signs of overload - schedule carefully")
 ```
 
 ### Daily Briefing Generation

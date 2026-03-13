@@ -5,7 +5,7 @@ description: AI inference you own, forever powering your OpenClaw agents via the
 homepage: https://everclaw.com
 metadata:
   openclaw:
-    emoji: "♾️"
+    emoji: ""
     requires:
       bins: ["curl", "node"]
       env:
@@ -64,15 +64,15 @@ metadata:
     tags: ["inference", "everclaw", "morpheus", "mor", "decentralized", "ai", "blockchain", "base", "persistent", "fallback", "guardian", "security"]
 ---
 
-# ♾️ Everclaw — AI Inference You Own, Forever Powering Your OpenClaw Agents
+#  Everclaw — AI Inference You Own, Forever Powering Your OpenClaw Agents
 
 *Powered by [Morpheus AI](https://mor.org)*
 
 Access Kimi K2.5, Qwen3, GLM-4, Llama 3.3, and 10+ models with inference you own. Everclaw connects your OpenClaw agent to the Morpheus P2P network — stake MOR tokens, open sessions, and recycle your stake for persistent, self-sovereign access to AI.
 
-> 📦 **ClawHub:** `clawhub install everclaw-inference` — [clawhub.ai/DavidAJohnston/everclaw-inference](https://clawhub.ai/DavidAJohnston/everclaw-inference)
+>  **ClawHub:** `clawhub install everclaw-inference` — [clawhub.ai/DavidAJohnston/everclaw-inference](https://clawhub.ai/DavidAJohnston/everclaw-inference)
 >
-> ⚠️ **Name Collision Warning:** A different product ("Everclaw Vault") uses the bare `everclaw` slug on ClawHub. **Always use `everclaw-inference`** — never `clawhub install everclaw` or `clawhub update everclaw`. See `CLAWHUB_WARNING.md` for details.
+>  **Name Collision Warning:** A different product ("Everclaw Vault") uses the bare `everclaw` slug on ClawHub. **Always use `everclaw-inference`** — never `clawhub install everclaw` or `clawhub update everclaw`. See `CLAWHUB_WARNING.md` for details.
 
 ## How It Works
 
@@ -124,7 +124,7 @@ clawhub install everclaw-inference
 
 To update: `clawhub update everclaw-inference`
 
-⚠️ **Use `everclaw-inference`** — not `everclaw`. The bare `everclaw` slug belongs to a different, unrelated product on ClawHub.
+ **Use `everclaw-inference`** — not `everclaw`. The bare `everclaw` slug belongs to a different, unrelated product on ClawHub.
 
 ### Option B: One-Command Installer
 
@@ -219,11 +219,11 @@ LOG_FOLDER_PATH=./data/logs
 ENVIRONMENT=production
 ```
 
-⚠️ **`ETH_NODE_ADDRESS` MUST be set.** The router silently connects to an empty string without it and all blockchain operations fail. Also **`MODELS_CONFIG_PATH`** must point to your models-config.json.
+ **`ETH_NODE_ADDRESS` MUST be set.** The router silently connects to an empty string without it and all blockchain operations fail. Also **`MODELS_CONFIG_PATH`** must point to your models-config.json.
 
 ### models-config.json
 
-⚠️ **This file is required.** Without it, chat completions fail with `"api adapter not found"`.
+ **This file is required.** Without it, chat completions fail with `"api adapter not found"`.
 
 ```json
 {
@@ -245,7 +245,7 @@ ENVIRONMENT=production
 }
 ```
 
-⚠️ **Note the format:** The JSON uses a `"models"` array with `"modelId"` / `"modelName"` / `"apiType"` / `"apiUrl"` fields. The `apiUrl` is left empty — the router resolves provider endpoints from the blockchain. Add entries for every model you want to use. See `references/models.md` for the full list.
+ **Note the format:** The JSON uses a `"models"` array with `"modelId"` / `"modelName"` / `"apiType"` / `"apiUrl"` fields. The `apiUrl` is left empty — the router resolves provider endpoints from the blockchain. Add entries for every model you want to use. See `references/models.md` for the full list.
 
 ---
 
@@ -307,7 +307,7 @@ curl -s -u "admin:$COOKIE_PASS" -X POST \
   "http://localhost:8082/blockchain/approve?spender=0x6aBE1d282f72B474E54527D93b979A4f64d3030a&amount=1000000000000000000000"
 ```
 
-⚠️ **The `/blockchain/approve` endpoint uses query parameters**, not a JSON body. The `amount` is in wei (1000000000000000000 = 1 MOR). Approve a large amount so you don't need to re-approve frequently.
+ **The `/blockchain/approve` endpoint uses query parameters**, not a JSON body. The `amount` is in wei (1000000000000000000 = 1 MOR). Approve a large amount so you don't need to re-approve frequently.
 
 ---
 
@@ -324,7 +324,7 @@ curl -s -u "admin:$COOKIE_PASS" -X POST \
   -d '{"sessionDuration": 3600}'
 ```
 
-⚠️ **Always use the model ID endpoint**, not the bid ID. Using a bid ID results in `"dial tcp: missing address"`.
+ **Always use the model ID endpoint**, not the bid ID. Using a bid ID results in `"dial tcp: missing address"`.
 
 ### Session Duration
 
@@ -354,7 +354,7 @@ bash skills/everclaw/scripts/session.sh close 0xSESSION_ID_HERE
 
 ## 6. Sending Inference
 
-### ⚠️ THE #1 GOTCHA: Headers, Not Body
+###  THE #1 GOTCHA: Headers, Not Body
 
 `session_id` and `model_id` are **HTTP headers**, not JSON body fields. This is the single most common mistake.
 
@@ -411,7 +411,7 @@ Or use the script:
 bash skills/everclaw/scripts/session.sh close 0xSESSION_ID
 ```
 
-⚠️ MOR staked in a session is returned when the session closes. Close sessions you're not using to free up MOR for new sessions.
+ MOR staked in a session is returned when the session closes. Close sessions you're not using to free up MOR for new sessions.
 
 ---
 
@@ -419,7 +419,7 @@ bash skills/everclaw/scripts/session.sh close 0xSESSION_ID
 
 ### Sessions Are Ephemeral
 
-⚠️ **Sessions are NOT persisted across router restarts.** If you restart the proxy-router, you must re-open sessions. The blockchain still has the session, but the router's in-memory state is lost.
+ **Sessions are NOT persisted across router restarts.** If you restart the proxy-router, you must re-open sessions. The blockchain still has the session, but the router's in-memory state is lost.
 
 ### Monitoring
 
@@ -818,7 +818,7 @@ Configure a multi-tier fallback chain (recommended since v0.5):
 }
 ```
 
-⚠️ **Why multi-tier?** A single fallback creates a single point of failure. If both the primary provider and the single fallback enter cooldown simultaneously (e.g., billing error triggers cooldown on both), your agent goes offline. Multiple fallback tiers across different models and providers ensure at least one path remains available.
+ **Why multi-tier?** A single fallback creates a single point of failure. If both the primary provider and the single fallback enter cooldown simultaneously (e.g., billing error triggers cooldown on both), your agent goes offline. Multiple fallback tiers across different models and providers ensure at least one path remains available.
 
 ### Step 3: Add Auth Profiles
 
@@ -895,7 +895,7 @@ If you have multiple Venice API keys (e.g., from different accounts or plans), a
 }
 ```
 
-⚠️ **`auth.order`** is critical. Without it, OpenClaw uses round-robin (oldest-used first), which may not match your credit balances. With an explicit order, keys are tried in the exact sequence you specify — highest credits first.
+ **`auth.order`** is critical. Without it, OpenClaw uses round-robin (oldest-used first), which may not match your credit balances. With an explicit order, keys are tried in the exact sequence you specify — highest credits first.
 
 #### How Multi-Key Rotation Works
 
@@ -980,7 +980,7 @@ A self-healing, billing-aware watchdog that monitors the OpenClaw gateway and it
    - `openclaw gateway restart` (graceful — resets cooldown state)
    - Hard kill (excludes own PID) → launchd KeepAlive
    - `launchctl kickstart -k`
-   - **🔴 NUCLEAR:** `curl -fsSL https://clawd.bot/install.sh | bash`
+   - ** NUCLEAR:** `curl -fsSL https://clawd.bot/install.sh | bash`
 
 ### Recommended Config
 
@@ -1010,7 +1010,7 @@ chmod +x ~/.openclaw/workspace/scripts/gateway-guardian.sh
 # See templates/ai.openclaw.guardian.plist
 ```
 
-⚠️ **Important:** The launchd plist should include `OPENCLAW_GATEWAY_TOKEN` in its environment variables.
+ **Important:** The launchd plist should include `OPENCLAW_GATEWAY_TOKEN` in its environment variables.
 
 ### Manual Test
 
@@ -1065,11 +1065,11 @@ The bottleneck isn't raw memory — Chrome gives each tab 1.4-4GB of V8 heap. Th
 
 | Sessions Dir Size | Dashboard Behavior |
 |------------------|--------------------|
-| < 5 MB | ✅ Loads instantly |
-| 5-10 MB | ⚡ Slight delay, usable |
-| 10-15 MB | ⚠️ Sluggish, noticeable lag |
-| 15-20 MB | 🔴 "Page Unresponsive" likely |
-| 20+ MB | 💀 Dashboard won't load |
+| < 5 MB |  Loads instantly |
+| 5-10 MB |  Slight delay, usable |
+| 10-15 MB |  Sluggish, noticeable lag |
+| 15-20 MB |  "Page Unresponsive" likely |
+| 20+ MB |  Dashboard won't load |
 
 ### Solution: Size-Triggered Archiving
 
@@ -1329,7 +1329,7 @@ The reader handles all URI types: `data:` URIs (base64-encoded JSON stored on-ch
 | Identity | `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432` |
 | Reputation | `0x8004BAa17C55a88189AE136b182e5fdA19dE9b63` |
 
-⚠️ **Same addresses on all EVM chains** — Ethereum, Base, Arbitrum, Polygon, Optimism, Linea, Avalanche, etc. The Identity Registry does NOT implement `totalSupply()`, so `totalAgents()` uses a binary search via `ownerOf()`.
+ **Same addresses on all EVM chains** — Ethereum, Base, Arbitrum, Polygon, Optimism, Linea, Avalanche, etc. The Identity Registry does NOT implement `totalSupply()`, so `totalAgents()` uses a binary search via `ownerOf()`.
 
 ### Combining x402 + Agent Registry
 
@@ -1400,7 +1400,7 @@ if (agent.x402Support && apiEndpoint) {
 
 Everclaw agents handle MOR tokens and private keys — making them high-value targets. v0.3 bundles four security skills to defend against supply chain attacks, prompt injection, credential theft, and configuration exposure.
 
-### 🔍 SkillGuard — Pre-Install Skill Scanner
+###  SkillGuard — Pre-Install Skill Scanner
 
 Scans AgentSkill packages for malicious patterns before you install them. Detects credential theft, code injection, prompt manipulation, data exfiltration, and evasion techniques.
 
@@ -1416,16 +1416,16 @@ node security/skillguard/src/cli.js scan-hub <slug>
 ```
 
 **Score interpretation:**
-- 80-100 ✅ LOW risk — safe to install
-- 50-79 ⚠️ MEDIUM — review before installing
-- 20-49 🟠 HIGH — significant concerns
-- 0-19 🔴 CRITICAL — do NOT install
+- 80-100  LOW risk — safe to install
+- 50-79  MEDIUM — review before installing
+- 20-49  HIGH — significant concerns
+- 0-19  CRITICAL — do NOT install
 
 **When to use:** Before installing any skill from ClawHub or untrusted sources. Run batch scans periodically to audit all installed skills.
 
 Full docs: `security/skillguard/SKILL.md`
 
-### 🔒 ClawdStrike — Config & Exposure Audits
+###  ClawdStrike — Config & Exposure Audits
 
 Security audit and threat model for OpenClaw gateway hosts. Verifies configuration, network exposure, installed skills/plugins, and filesystem hygiene. Produces an OK/VULNERABLE report with evidence and remediation steps.
 
@@ -1448,7 +1448,7 @@ cd security/clawdstrike && \
 
 Full docs: `security/clawdstrike/SKILL.md`
 
-### 🧱 PromptGuard — Prompt Injection Defense
+###  PromptGuard — Prompt Injection Defense
 
 Advanced prompt injection defense system with multi-language detection (EN/KO/JA/ZH), severity scoring, automatic logging, and configurable security policies. Connects to the HiveFence distributed threat intelligence network.
 
@@ -1473,7 +1473,7 @@ python3 security/prompt-guard/scripts/analyze_log.py
 
 Full docs: `security/prompt-guard/SKILL.md`
 
-### 💰 Bagman — Secure Key Management
+###  Bagman — Secure Key Management
 
 Secure key management for AI agents handling private keys, API secrets, and wallet credentials. Covers secure storage patterns, session keys, leak prevention, prompt injection defense specific to financial operations, and MetaMask Delegation Framework (EIP-7710) integration.
 

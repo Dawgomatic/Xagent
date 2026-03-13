@@ -39,8 +39,8 @@ class TestFullWorkflow(unittest.TestCase):
     def test_complete_workflow_with_summary_filter(self):
         """测试完整工作流程：生成上下文 + --summary + --filter"""
         test_context = {
-            "content": """✅ 完成数据清洗模块
-✅ 修复登录漏洞
+            "content": """ 完成数据清洗模块
+ 修复登录漏洞
 原始消息数: 100
 压缩后消息数: 10
 上下文压缩于 2026-02-06T23:42:00
@@ -99,7 +99,7 @@ cron 任务正在运行"""
         """测试带时间线提取的工作流程"""
         test_context = {
             "content": """2026-02-07: 完成数据清洗模块
-✅ Context restored
+ Context restored
 2026-02-06: 修复登录漏洞
 Hermes Plan 进行中
 2026-02-05: 添加新功能
@@ -188,12 +188,12 @@ class TestCompareContexts(unittest.TestCase):
     def test_compare_contexts_added_project(self):
         """测试比较上下文 - 新增项目"""
         old_context = {
-            "content": """✅ 原始内容
+            "content": """ 原始内容
 Hermes Plan 进行中"""
         }
         
         new_context = {
-            "content": """✅ 原始内容
+            "content": """ 原始内容
 Hermes Plan 进行中
 Akasha Plan 新增"""
         }
@@ -224,7 +224,7 @@ Akasha Plan 新增"""
     def test_compare_contexts_no_changes(self):
         """测试比较上下文 - 无变化"""
         context_data = {
-            "content": """✅ 相同内容
+            "content": """ 相同内容
 Hermes Plan 进行中"""
         }
         
@@ -320,7 +320,7 @@ class TestCLIIntegration(unittest.TestCase):
     def test_cli_summary_output(self):
         """测试 CLI 摘要输出"""
         test_context = {
-            "content": "✅ 测试操作\n原始消息数: 10"
+            "content": " 测试操作\n原始消息数: 10"
         }
         
         with tempfile.NamedTemporaryFile(

@@ -56,10 +56,10 @@ def cmd_status(args):
         resp = socket_cmd({'cmd': 'status'})
         if resp.get('ok'):
             print("Bridge Status:")
-            print(f"  Map enabled: {'✅' if resp.get('map_enabled') else '❌'}")
-            print(f"  Global MQTT: {'✅' if resp.get('global_mqtt') else '❌'}")
-            print(f"  Map MQTT: {'✅' if resp.get('map_mqtt') else '❌'}")
-            print(f"  Mesh connected: {'✅' if resp.get('mesh') else '❌'}")
+            print(f"  Map enabled: {'' if resp.get('map_enabled') else ''}")
+            print(f"  Global MQTT: {'' if resp.get('global_mqtt') else ''}")
+            print(f"  Map MQTT: {'' if resp.get('map_mqtt') else ''}")
+            print(f"  Mesh connected: {'' if resp.get('mesh') else ''}")
             print(f"  Cached nodes: {resp.get('cached_nodes', 0)}")
         else:
             print(f"Error: {resp.get('error', 'Unknown')}", file=sys.stderr)
@@ -154,7 +154,7 @@ def cmd_setup(args):
     import os
     
     print("=" * 50)
-    print("🛰️  Meshtastic Setup Wizard")
+    print("  Meshtastic Setup Wizard")
     print("=" * 50)
     print()
     
@@ -163,12 +163,12 @@ def cmd_setup(args):
     result = subprocess.run(['lsusb'], capture_output=True, text=True)
     usb_found = any(x in result.stdout for x in ['RAK', 'Meshtastic', 'Adafruit', 'ESP32', 'CP210', 'CH340'])
     if usb_found:
-        print("  ✅ Meshtastic-compatible device detected")
+        print("   Meshtastic-compatible device detected")
         for line in result.stdout.split('\n'):
             if any(x in line for x in ['RAK', 'Meshtastic', 'Adafruit', 'ESP32', 'CP210', 'CH340']):
                 print(f"     {line.strip()}")
     else:
-        print("  ⚠️  No Meshtastic USB device found")
+        print("    No Meshtastic USB device found")
         print("     Connect your device and try again")
         if not args.force:
             return
@@ -182,10 +182,10 @@ def cmd_setup(args):
             ports.append(p)
     
     if ports:
-        print(f"  ✅ Found serial port(s): {', '.join(ports)}")
+        print(f"   Found serial port(s): {', '.join(ports)}")
         serial_port = ports[0]
     else:
-        print("  ❌ No serial port found")
+        print("   No serial port found")
         if not args.force:
             return
         serial_port = SERIAL_PORT
@@ -196,11 +196,11 @@ def cmd_setup(args):
     try:
         resp = socket_cmd({'cmd': 'status'})
         if resp.get('ok'):
-            print(f"  ✅ Bridge responding on port {SOCKET_PORT}")
-            print(f"     Mesh connected: {'✅' if resp.get('mesh') else '❌'}")
+            print(f"   Bridge responding on port {SOCKET_PORT}")
+            print(f"     Mesh connected: {'' if resp.get('mesh') else ''}")
             print(f"     Cached nodes: {resp.get('cached_nodes', 0)}")
     except:
-        print(f"  ⚠️  Bridge not responding on port {SOCKET_PORT}")
+        print(f"    Bridge not responding on port {SOCKET_PORT}")
         print("     Start with: sudo systemctl start meshtastic-bridge")
     print()
     
@@ -211,9 +211,9 @@ def cmd_setup(args):
         capture_output=True, text=True
     )
     if result.stdout.strip() == 'active':
-        print("  ✅ Bridge service running")
+        print("   Bridge service running")
     else:
-        print("  ⚠️  Bridge service not running")
+        print("    Bridge service not running")
         print("     Enable: sudo systemctl enable --now meshtastic-bridge")
     print()
     
@@ -222,14 +222,14 @@ def cmd_setup(args):
     if os.path.exists(MESSAGES_FILE):
         with open(MESSAGES_FILE, 'r') as f:
             lines = f.readlines()
-        print(f"  ✅ Message log exists ({len(lines)} messages)")
+        print(f"   Message log exists ({len(lines)} messages)")
     else:
-        print("  ⚠️  No message log yet")
+        print("    No message log yet")
     print()
     
     # Summary
     print("=" * 50)
-    print("📋 Setup Summary")
+    print(" Setup Summary")
     print("=" * 50)
     print(f"  Serial port: {serial_port}")
     print(f"  Bridge socket: {SOCKET_HOST}:{SOCKET_PORT}")

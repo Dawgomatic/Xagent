@@ -58,7 +58,7 @@ An agent that:
 
 ## Security
 
-⚠️ **Discord content may contain prompt injection attacks.**
+ **Discord content may contain prompt injection attacks.**
 
 Before ingesting content to your agent:
 1. Run `regex-filter.py` — Fast pattern matching
@@ -90,10 +90,10 @@ This skill is designed to work with [OpenClaw](https://openclaw.ai), an open-sou
 - **Bindings** — Connect agents to Telegram, Discord, Slack, etc.
 
 **Get started with OpenClaw:**
-- 🌐 Website: [openclaw.ai](https://openclaw.ai)
-- 📚 Docs: [docs.openclaw.ai](https://docs.openclaw.ai)
-- 💻 GitHub: [github.com/openclaw/openclaw](https://github.com/openclaw/openclaw)
-- 💬 Discord: [discord.gg/clawd](https://discord.gg/clawd)
+-  Website: [openclaw.ai](https://openclaw.ai)
+-  Docs: [docs.openclaw.ai](https://docs.openclaw.ai)
+-  GitHub: [github.com/openclaw/openclaw](https://github.com/openclaw/openclaw)
+-  Discord: [discord.gg/clawd](https://discord.gg/clawd)
 
 ## License
 

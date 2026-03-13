@@ -137,7 +137,7 @@ Use these anywhere in your article:
 - Clear H2 section headers
 - Bullet/numbered lists
 - Bold key phrases
-- Do ✅ / Don't ❌ lists
+- Do  / Don't  lists
 - Subheadings every 3-5 paragraphs
 
 ### Don't

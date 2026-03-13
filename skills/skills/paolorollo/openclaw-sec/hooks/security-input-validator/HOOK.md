@@ -3,7 +3,7 @@ name: security-input-validator
 description: "Validates user prompts for security threats before submission to AI agents"
 metadata:
   openclaw:
-    emoji: "🛡️"
+    emoji: ""
     events: ["command:new"]
 ---
 

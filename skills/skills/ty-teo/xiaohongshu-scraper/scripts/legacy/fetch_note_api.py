@@ -25,7 +25,7 @@ def load_cookies():
     """加载保存的 cookies"""
     cookie_file = Path.home() / '.xiaohongshu-scraper' / 'cookies.json'
     if not cookie_file.exists():
-        print(f"❌ Cookie 文件不存在: {cookie_file}")
+        print(f" Cookie 文件不存在: {cookie_file}")
         print("请先运行登录脚本获取 cookies")
         return None
     
@@ -56,7 +56,7 @@ def extract_note_id(url_or_id):
         if match:
             return match.group(1)
     
-    print(f"❌ 无法从链接中提取笔记 ID: {url_or_id}")
+    print(f" 无法从链接中提取笔记 ID: {url_or_id}")
     return None
 
 
@@ -331,7 +331,7 @@ def main():
         data = fetch_note_web(note_id, cookies)
     
     if not data:
-        print("❌ 无法获取笔记数据")
+        print(" 无法获取笔记数据")
         return
     
     # 保存原始数据
@@ -380,10 +380,10 @@ def main():
             result['content'] = parsed.get('description', '')
             result['images'] = parsed.get('all_images', [])
     
-    print(f"\n📝 标题: {result['title']}")
-    print(f"👤 作者: {result['author']}")
-    print(f"📄 内容: {result['content'][:100]}..." if len(result['content']) > 100 else f"📄 内容: {result['content']}")
-    print(f"🖼️  图片: {len(result['images'])} 张")
+    print(f"\n 标题: {result['title']}")
+    print(f" 作者: {result['author']}")
+    print(f" 内容: {result['content'][:100]}..." if len(result['content']) > 100 else f" 内容: {result['content']}")
+    print(f"  图片: {len(result['images'])} 张")
     
     # 下载图片
     if result['images']:
@@ -460,7 +460,7 @@ def main():
         f.write(md_content)
     
     print(f"\n" + "=" * 60)
-    print("✅ 抓取完成!")
+    print(" 抓取完成!")
     print("=" * 60)
     print(f"\n输出目录: {output_dir}")
     print(f"  - note.json    (结构化数据)")

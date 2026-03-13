@@ -33,12 +33,12 @@ async function main() {
   const client = new ImapClient(config.imap);
 
   try {
-    console.log(`🔍 ${options.account.toUpperCase()} 메일 확인 중...\n`);
+    console.log(` ${options.account.toUpperCase()} 메일 확인 중...\n`);
     
     await client.connect();
     const messages = await client.getUnreadMessages(options.limit);
     
-    console.log(`📬 ${messages.length}건의 읽지 않은 메일`);
+    console.log(` ${messages.length}건의 읽지 않은 메일`);
     console.log('━'.repeat(50) + '\n');
 
     if (messages.length === 0) {
@@ -59,7 +59,7 @@ async function main() {
 
     await client.disconnect();
   } catch (err) {
-    console.error('❌ 오류:', err.message);
+    console.error(' 오류:', err.message);
     process.exit(1);
   }
 }

@@ -29,7 +29,7 @@ writeFileSync(join(TEST_DIR, 'identity.json'), JSON.stringify(fullIdentity, null
 writeFileSync(join(TEST_DIR, 'config.json'), JSON.stringify({ displayName: 'Matt Test' }, null, 2));
 writeFileSync(join(TEST_DIR, 'friends.json'), JSON.stringify({ friends: [] }, null, 2));
 
-console.log('🧪 Test Identity Created');
+console.log(' Test Identity Created');
 console.log('='.repeat(50));
 console.log('Name: Matt Test');
 console.log('Public Key:', identity.publicKey);

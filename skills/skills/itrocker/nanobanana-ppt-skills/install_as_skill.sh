@@ -24,19 +24,19 @@ NC='\033[0m' # No Color
 
 # 打印函数
 print_info() {
-    echo -e "${BLUE}ℹ️  $1${NC}"
+    echo -e "${BLUE}  $1${NC}"
 }
 
 print_success() {
-    echo -e "${GREEN}✅ $1${NC}"
+    echo -e "${GREEN} $1${NC}"
 }
 
 print_warning() {
-    echo -e "${YELLOW}⚠️  $1${NC}"
+    echo -e "${YELLOW}  $1${NC}"
 }
 
 print_error() {
-    echo -e "${RED}❌ $1${NC}"
+    echo -e "${RED} $1${NC}"
 }
 
 print_header() {
@@ -191,7 +191,7 @@ main() {
     print_info "  - 项目文档: $SKILL_DIR/README.md"
     print_info "  - 架构说明: $SKILL_DIR/ARCHITECTURE.md"
     echo ""
-    print_success "祝使用愉快！ 🎉"
+    print_success "祝使用愉快！ "
     echo ""
 }
 

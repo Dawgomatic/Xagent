@@ -17,10 +17,10 @@ tags:
   - reddit
   - transcript
   - archive
-metadata: { "openclaw": { "emoji": "🫳", "requires": { "bins": ["yt-dlp", "ffmpeg", "whisper"] }, "install": [{ "id": "yt-dlp", "kind": "brew", "formula": "yt-dlp", "bins": ["yt-dlp"], "label": "Install yt-dlp (brew)" }, { "id": "ffmpeg", "kind": "brew", "formula": "ffmpeg", "bins": ["ffmpeg"], "label": "Install ffmpeg (brew)" }, { "id": "openai-whisper", "kind": "brew", "formula": "openai-whisper", "bins": ["whisper"], "label": "Install Whisper (brew)" }] } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["yt-dlp", "ffmpeg", "whisper"] }, "install": [{ "id": "yt-dlp", "kind": "brew", "formula": "yt-dlp", "bins": ["yt-dlp"], "label": "Install yt-dlp (brew)" }, { "id": "ffmpeg", "kind": "brew", "formula": "ffmpeg", "bins": ["ffmpeg"], "label": "Install ffmpeg (brew)" }, { "id": "openai-whisper", "kind": "brew", "formula": "openai-whisper", "bins": ["whisper"], "label": "Install Whisper (brew)" }] } }
 ---
 
-# grab 🫳
+# grab 
 
 Download and archive content from URLs into organized folders.
 

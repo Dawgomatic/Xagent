@@ -43,7 +43,7 @@ Use this payload structure for "remind me in X minutes" tasks.
   "schedule": { "kind": "at", "at": "2026-02-06T01:30:00Z" },
   "payload": {
     "kind": "agentTurn",
-    "message": "DELIVER THIS EXACT MESSAGE TO THE USER WITHOUT MODIFICATION OR COMMENTARY:\n\n💧 Drink water, Momo!"
+    "message": "DELIVER THIS EXACT MESSAGE TO THE USER WITHOUT MODIFICATION OR COMMENTARY:\n\n Drink water, Momo!"
   },
   "sessionTarget": "isolated",
   "delivery": { "mode": "announce", "channel": "telegram", "to": "1027899060" }
@@ -111,4 +111,4 @@ If you have old cron jobs using these patterns, update them:
     - **Fix 1:** Manually delete `~/.openclaw/state/cron/jobs.json` and restart the gateway if it's corrupted.
     - **Fix 2:** Run a manual sweep to reduce the job count.
 *   **"Job ran but I didn't get the message":** Ensure you are using the **Strict Instruction Pattern** with `agentTurn` + `announce` mode for proactive pings.
-*   **"The reminder message has extra commentary":** The subagent is being conversational. Use the strict prompt pattern: `"DELIVER THIS EXACT MESSAGE TO THE USER WITHOUT MODIFICATION OR COMMENTARY:\n\n💧 Your message here"`
+*   **"The reminder message has extra commentary":** The subagent is being conversational. Use the strict prompt pattern: `"DELIVER THIS EXACT MESSAGE TO THE USER WITHOUT MODIFICATION OR COMMENTARY:\n\n Your message here"`

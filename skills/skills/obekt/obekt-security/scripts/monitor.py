@@ -52,7 +52,7 @@ class SecurityScanHandler(FileSystemEventHandler):
                 return
 
         # Trigger scan
-        print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] ⚠️  File changed: {file_path}")
+        print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]   File changed: {file_path}")
         self._run_scan(parent_path)
 
     def _should_skip_file(self, file_path):
@@ -74,7 +74,7 @@ class SecurityScanHandler(FileSystemEventHandler):
     def _run_scan(self, path):
         """Run threat and secret scans on the path"""
         try:
-            print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] 🔍 Running security scan on {path}")
+            print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]  Running security scan on {path}")
 
             # Run threat scan
             threat_results = scan_directory(
@@ -97,21 +97,21 @@ class SecurityScanHandler(FileSystemEventHandler):
                 medium_count = threat_results.get('severty_counts', {}).get('medium', 0)
 
                 if critical_count > 0 or high_count > 0:
-                    print(f"   ❌ Found {critical_count} critical and {high_count} high severity issues")
+                    print(f"    Found {critical_count} critical and {high_count} high severity issues")
                     has_issues = True
                 elif medium_count > 0:
-                    print(f"   ⚠️  Found {medium_count} medium severity issues")
+                    print(f"     Found {medium_count} medium severity issues")
                     has_issues = True
                 else:
-                    print(f"   ✅ No critical/high severity issues found")
+                    print(f"    No critical/high severity issues found")
 
             if secret_results:
                 secret_count = len(secret_results)
                 if secret_count > 0:
-                    print(f"   🔑 Found {secret_count} potential secrets leaked")
+                    print(f"    Found {secret_count} potential secrets leaked")
                     has_issues = True
                 else:
-                    print(f"   ✅ No hardcoded secrets found")
+                    print(f"    No hardcoded secrets found")
 
             # Update last scan time
             self.last_scan_time[path] = time.time()
@@ -121,11 +121,11 @@ class SecurityScanHandler(FileSystemEventHandler):
                 self._send_alert(path, threat_results, secret_results)
 
         except Exception as e:
-            print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] ❌ Scan error: {e}")
+            print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]  Scan error: {e}")
 
     def _send_alert(self, path, threat_results, secret_results):
         """Send alert notification (placeholder for webhook/email integration)"""
-        print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] 🚨 SECURITY ISSUES DETECTED in {path}")
+        print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]  SECURITY ISSUES DETECTED in {path}")
 
         # TODO: Integrate with notification systems:
         # - Webhook to monitoring service
@@ -187,7 +187,7 @@ def main():
     config['severity'] = args.severity
     config['alert_on_issues'] = args.alert
 
-    print("🔒 ObekT Security Monitor - Pro Tier Feature")
+    print(" ObekT Security Monitor - Pro Tier Feature")
     print("=" * 50)
     print(f"Monitoring paths: {config['paths']}")
     print(f"Scan interval: {config['min_scan_interval']}s")
@@ -203,23 +203,23 @@ def main():
         path = Path(path).resolve()
         if path.exists():
             observer.schedule(event_handler, str(path), recursive=config.get('recursive', True))
-            print(f"📂 Watching: {path}")
+            print(f" Watching: {path}")
         else:
-            print(f"⚠️  Path not found: {path}")
+            print(f"  Path not found: {path}")
 
     # Start monitoring
     observer.start()
 
     try:
-        print("\n✅ Monitoring started. Press Ctrl+C to stop.\n")
+        print("\n Monitoring started. Press Ctrl+C to stop.\n")
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
-        print("\n\n🛑 Stopping security monitor...")
+        print("\n\n Stopping security monitor...")
         observer.stop()
     observer.join()
 
-    print("✅ Security monitor stopped.")
+    print(" Security monitor stopped.")
 
 
 if __name__ == '__main__':

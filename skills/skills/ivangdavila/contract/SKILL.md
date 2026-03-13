@@ -56,7 +56,7 @@ See `phases.md` for detailed phase requirements.
 
 ---
 
-## ⚠️ Mandatory Disclaimer
+##  Mandatory Disclaimer
 
 Include in EVERY draft:
 ```

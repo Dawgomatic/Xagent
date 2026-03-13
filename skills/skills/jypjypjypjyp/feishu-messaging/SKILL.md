@@ -16,9 +16,9 @@ description: |
 
 | 功能 | 状态 | 所需权限 |
 |------|------|---------|
-| 发送文本消息 | ✅ 可用 | `im:message:send_as_bot` |
-| 获取群聊列表 | ✅ 可用 | `im:chat:readonly` |
-| 获取群成员 | ✅ 可用 | `im:chat.members:read` |
+| 发送文本消息 |  可用 | `im:message:send_as_bot` |
+| 获取群聊列表 |  可用 | `im:chat:readonly` |
+| 获取群成员 |  可用 | `im:chat.members:read` |
 
 ## 使用方法
 

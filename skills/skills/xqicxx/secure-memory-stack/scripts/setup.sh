@@ -3,7 +3,7 @@
 
 WORKSPACE="/root/clawd"
 
-echo "🚀 开始设置安全记忆系统..."
+echo " 开始设置安全记忆系统..."
 
 # 创建必要的目录
 mkdir -p "$WORKSPACE/memory"
@@ -29,9 +29,9 @@ if [ ! -f "$MEMORY_FILE" ]; then
 - 文件存储：本地Markdown文件
 - 搜索方式：混合搜索（语义+关键词）
 EOT
-    echo "✅ 创建MEMORY.md文件"
+    echo " 创建MEMORY.md文件"
 else
-    echo "ℹ️  MEMORY.md文件已存在"
+    echo "  MEMORY.md文件已存在"
 fi
 
 # 创建当日记忆文件
@@ -45,9 +45,9 @@ if [ ! -f "$DATE_FILE" ]; then
 - 事件：安全记忆系统初始化
 - 状态：系统正常运行
 EOT
-    echo "✅ 创建当日记忆文件: $DATE_FILE"
+    echo " 创建当日记忆文件: $DATE_FILE"
 else
-    echo "ℹ️  当日消息文件已存在: $DATE_FILE"
+    echo "  当日消息文件已存在: $DATE_FILE"
 fi
 
 # 创建SESSION-STATE.md
@@ -65,9 +65,9 @@ if [ ! -f "$SESSION_FILE" ]; then
 - 正在使用安全记忆系统栈
 - 所有数据本地存储，无上传
 EOT
-    echo "✅ 创建SESSION-STATE.md文件"
+    echo " 创建SESSION-STATE.md文件"
 else
-    echo "ℹ️  SESSION-STATE.md文件已存在"
+    echo "  SESSION-STATE.md文件已存在"
 fi
 
 # 初始化Git仓库（如果尚未初始化）
@@ -76,21 +76,21 @@ if [ ! -d "$WORKSPACE/.git" ]; then
     git init
     git config user.name "SecureMemoryBot"
     git config user.email "securememory@example.com"
-    echo "✅ 初始化Git仓库"
+    echo " 初始化Git仓库"
 else
-    echo "ℹ️  Git仓库已存在"
+    echo "  Git仓库已存在"
 fi
 
 echo ""
-echo "✅ 安全记忆系统初始化完成！"
+echo " 安全记忆系统初始化完成！"
 echo ""
-echo "📋 系统组件："
+echo " 系统组件："
 echo "- 百度Embedding语义搜索：已配置"
 echo "- Git Notes结构化存储：已配置"
 echo "- 本地文件记忆系统：已配置"
 echo "- 安全配置：已验证"
 echo ""
-echo "🛡️  安全特性："
+echo "  安全特性："
 echo "- 完全本地化存储"
 echo "- 无数据上传"
 echo "- 隐私保护优先"

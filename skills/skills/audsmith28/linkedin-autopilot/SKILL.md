@@ -3,7 +3,7 @@ name: linkedin-autopilot
 description: Your agent builds your LinkedIn presence while you sleep. Schedule posts, auto-engage with target accounts, run personalized DM sequences, and never miss an engagement opportunity. Handles connection requests, profile visiting campaigns, post engagement, and follow-up sequences with safety throttling and human-like behavior patterns. Configure your targets, define engagement rules, and let your agent network 24/7. Use when setting up LinkedIn automation, managing posting schedules, running engagement campaigns, or building agent-driven LinkedIn lead generation workflows.
 metadata:
   clawdbot:
-    emoji: "🤝"
+    emoji: ""
     requires:
       browser: true
       env:
@@ -21,20 +21,20 @@ LinkedIn Autopilot turns your agent into a 24/7 LinkedIn manager. It schedules p
 
 ## The Pain Points This Solves
 
-❌ **"I spend 2 hours/day on LinkedIn and have nothing to show for it"**  
-✅ Your agent handles engagement, DMs, and connection building automatically
+ **"I spend 2 hours/day on LinkedIn and have nothing to show for it"**  
+ Your agent handles engagement, DMs, and connection building automatically
 
-❌ **"I post inconsistently and my reach is dying"**  
-✅ Scheduled posts with optimal timing — your agent never forgets
+ **"I post inconsistently and my reach is dying"**  
+ Scheduled posts with optimal timing — your agent never forgets
 
-❌ **"I see opportunities to engage but I'm too busy"**  
-✅ Auto-engage on target accounts' posts with personalized comments
+ **"I see opportunities to engage but I'm too busy"**  
+ Auto-engage on target accounts' posts with personalized comments
 
-❌ **"Follow-up sequences are tedious and I drop leads"**  
-✅ Multi-step DM sequences with conditional logic — your agent follows up
+ **"Follow-up sequences are tedious and I drop leads"**  
+ Multi-step DM sequences with conditional logic — your agent follows up
 
-❌ **"I want to build my network but connection requests feel spammy"**  
-✅ Targeted connection campaigns with personalized notes and safety limits
+ **"I want to build my network but connection requests feel spammy"**  
+ Targeted connection campaigns with personalized notes and safety limits
 
 ## Setup
 

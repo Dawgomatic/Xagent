@@ -30,15 +30,15 @@ Tell the agent about your current AP process, invoice volume, vendor count, and 
 
 For AP frameworks specific to your industry — regulatory compliance, specialized workflows, and automation ROI calculators:
 
-🛒 **[AI Agent Context Packs](https://afrexai-cto.github.io/context-packs/)** — $47/pack
+ **[AI Agent Context Packs](https://afrexai-cto.github.io/context-packs/)** — $47/pack
 
 - **Fintech** — Payment processing compliance, reconciliation
 - **Manufacturing** — Complex BOMs, landed cost, 3-way match
 - **Construction** — Retention, lien waivers, AIA billing
 - **Healthcare** — HIPAA-compliant vendor management
 
-📊 [Revenue Leak Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — Find where you're losing money
-🤖 [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Deploy your AP agent in minutes
+ [Revenue Leak Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — Find where you're losing money
+ [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Deploy your AP agent in minutes
 
 **Bundles:** Pick 3 ($97) | All 10 ($197) | Everything Bundle ($247)
 

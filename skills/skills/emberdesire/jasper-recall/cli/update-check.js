@@ -121,7 +121,7 @@ async function checkForUpdates(silent = false) {
     if (isNewer(latest, current)) {
       if (!silent) {
         console.log('');
-        console.log(`📦 Update available: ${current} → ${latest}`);
+        console.log(` Update available: ${current} → ${latest}`);
         console.log(`   Run: npm update -g jasper-recall`);
         console.log('');
       }

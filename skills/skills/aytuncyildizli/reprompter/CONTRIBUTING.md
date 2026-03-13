@@ -4,23 +4,23 @@ Thanks for your interest in contributing! RePrompter is a prompt engineering ski
 
 ## Ways to Contribute
 
-### 🐛 Bug Reports
+###  Bug Reports
 - Found a case where the interview produces bad output? [Open an issue](https://github.com/aytuncyildizli/reprompter/issues/new?template=bug_report.md)
 - Include your rough input and the generated output
 - Describe what you expected vs. what you got
 
-### 💡 Feature Requests
+###  Feature Requests
 - New template ideas? Quality dimension suggestions? Interview flow improvements?
 - [Open a feature request](https://github.com/aytuncyildizli/reprompter/issues/new?template=feature_request.md)
 
-### 📝 Template Contributions
+###  Template Contributions
 Templates live in `docs/references/`. To add one:
 1. Fork the repo
 2. Create your template in `docs/references/{type}-template.md` following the Base XML Structure in SKILL.md
 3. Add the new type to the Task Types table in SKILL.md (with name, filename, and "Use when")
 4. Open a PR with a before/after example
 
-### 📖 Documentation
+###  Documentation
 - README improvements, typo fixes, better examples — always welcome
 - If you've used RePrompter in an interesting workflow, share it
 

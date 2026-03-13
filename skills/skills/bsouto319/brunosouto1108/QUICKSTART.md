@@ -47,4 +47,4 @@ Ahimsa • Satya • Consent • Reversibility • Containment • Vyavasthit �
 ---
 
 *AGENTIC AI GOLD STANDARD v4.0*  
-*Built with 🪷 by DHARMIC CLAW*
+*Built with  by DHARMIC CLAW*

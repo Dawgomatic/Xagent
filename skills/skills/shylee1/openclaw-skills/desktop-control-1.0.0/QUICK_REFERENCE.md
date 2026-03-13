@@ -1,6 +1,6 @@
 # Desktop Control - Quick Reference Card
 
-## 🚀 Instant Start
+##  Instant Start
 
 ```python
 from skills.desktop_control import DesktopController
@@ -8,7 +8,7 @@ from skills.desktop_control import DesktopController
 dc = DesktopController()
 ```
 
-## 🖱️ Mouse Control (Top 10)
+##  Mouse Control (Top 10)
 
 ```python
 # 1. Move mouse
@@ -43,7 +43,7 @@ dc.move_mouse(1000, 500, duration=1.0, smooth=True)
 dc.middle_click()
 ```
 
-## ⌨️ Keyboard Control (Top 10)
+##  Keyboard Control (Top 10)
 
 ```python
 # 1. Type text (instant)
@@ -91,7 +91,7 @@ dc.press('delete')
 dc.hotkey('ctrl', 'alt', 'delete')
 ```
 
-## 📸 Screen Operations (Top 5)
+##  Screen Operations (Top 5)
 
 ```python
 # 1. Screenshot (full screen)
@@ -111,7 +111,7 @@ location = dc.find_on_screen("button.png")
 width, height = dc.get_screen_size()
 ```
 
-## 🪟 Window Management (Top 5)
+##  Window Management (Top 5)
 
 ```python
 # 1. Get all windows
@@ -131,7 +131,7 @@ for title in dc.get_all_windows():
 dc.activate_window("Visual Studio Code")
 ```
 
-## 📋 Clipboard (Top 2)
+##  Clipboard (Top 2)
 
 ```python
 # 1. Copy to clipboard
@@ -141,7 +141,7 @@ dc.copy_to_clipboard("Hello!")
 text = dc.get_from_clipboard()
 ```
 
-## 🔥 Real-World Examples
+##  Real-World Examples
 
 ### Example 1: Auto-fill Form
 ```python
@@ -205,7 +205,7 @@ dc.type_text("new_text")
 dc.hotkey('alt', 'a')
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 ```python
 # With failsafe (move to corner to abort)
@@ -218,7 +218,7 @@ dc = DesktopController(require_approval=True)
 dc = DesktopController(failsafe=False)
 ```
 
-## 🛡️ Safety
+##  Safety
 
 ```python
 # Check if safe to continue
@@ -231,7 +231,7 @@ dc.pause(2.0)  # Wait 2 seconds
 # Emergency abort: Move mouse to any screen corner
 ```
 
-## 🎯 Pro Tips
+##  Pro Tips
 
 1. **Instant typing**: `interval=0` or `wpm=None`
 2. **Human typing**: `wpm=60` (60 words/min)
@@ -244,13 +244,13 @@ dc.pause(2.0)  # Wait 2 seconds
 9. **Screenshots**: Capture before/after for verification
 10. **Hotkeys > Menus**: Faster and more reliable
 
-## 📦 Dependencies
+##  Dependencies
 
 ```bash
 pip install pyautogui pillow opencv-python pygetwindow pyperclip
 ```
 
-## 🚨 Common Issues
+##  Common Issues
 
 **Mouse not moving correctly?**
 - Check DPI scaling in Windows settings
@@ -266,4 +266,4 @@ pip install pyautogui pillow opencv-python pygetwindow pyperclip
 
 ---
 
-**Built for OpenClaw** 🦞 - Desktop automation made easy!
+**Built for OpenClaw**  - Desktop automation made easy!

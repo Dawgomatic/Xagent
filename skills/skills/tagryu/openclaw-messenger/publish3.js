@@ -24,7 +24,7 @@ function sendCDP(ws, method, params = {}) {
   await new Promise(r => ws.on('open', r));
   
   // GitHub 로그인 버튼 클릭
-  console.log('🔐 GitHub 로그인 클릭...');
+  console.log(' GitHub 로그인 클릭...');
   await sendCDP(ws, 'Runtime.evaluate', {
     expression: `document.querySelector('.btn-primary')?.click(); 'clicked'`,
   });
@@ -35,7 +35,7 @@ function sendCDP(ws, method, params = {}) {
   const urlResult = await sendCDP(ws, 'Runtime.evaluate', {
     expression: `window.location.href`
   });
-  console.log('📍 현재 URL:', urlResult.result?.value);
+  console.log(' 현재 URL:', urlResult.result?.value);
   
   // 페이지 내용 확인
   const pageResult = await sendCDP(ws, 'Runtime.evaluate', {
@@ -47,7 +47,7 @@ function sendCDP(ws, method, params = {}) {
       JSON.stringify({ h1, inputs });
     `
   });
-  console.log('📄 페이지:', pageResult.result?.value);
+  console.log(' 페이지:', pageResult.result?.value);
   
   ws.close();
 })().catch(e => console.error(e.message));

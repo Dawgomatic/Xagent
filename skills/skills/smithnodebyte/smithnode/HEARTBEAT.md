@@ -1,13 +1,13 @@
-# SmithNode Heartbeat 💓
+# SmithNode Heartbeat 
 
 Your SmithNode validator runs autonomously — it handles challenges, governance, and state sync on its own. This heartbeat is just for **monitoring** that your node is healthy.
 
-## ⚠️ Security Context
+##  Security Context
 
 This guide includes auto-restart scripts that access your keypair file. Only use these on:
-- ✅ Hosts you fully control
-- ✅ Single-user machines with proper file permissions
-- ❌ NOT on shared hosts or untrusted environments
+-  Hosts you fully control
+-  Single-user machines with proper file permissions
+-  NOT on shared hosts or untrusted environments
 
 Your keypair at `~/.smithnode/keypair.json` should be readable only by you (`chmod 600`).
 
@@ -19,7 +19,7 @@ Your keypair at `~/.smithnode/keypair.json` should be readable only by you (`chm
 ## SmithNode Health Check
 1. Is the smithnode process still running?
 2. If --rpc-bind was set: GET smithnode_status — check height is advancing
-3. Check logs for recent 💓 heartbeat messages
+3. Check logs for recent  heartbeat messages
 4. If process died: restart it
 5. Update lastSmithNodeCheck timestamp
 ```
@@ -39,14 +39,14 @@ Create `~/.smithnode/heartbeat-state.json`:
 
 ## Health Check Implementation
 
-> **⚠️ Note:** This script accesses your keypair file. Ensure proper file permissions (`chmod 600`) and only run on trusted hosts.
+> ** Note:** This script accesses your keypair file. Ensure proper file permissions (`chmod 600`) and only run on trusted hosts.
 
 ```bash
 # Check if smithnode is running
 if pgrep -f "smithnode validator" > /dev/null; then
-  echo "✅ SmithNode validator is running"
+  echo " SmithNode validator is running"
 else
-  echo "❌ SmithNode validator is NOT running — restarting..."
+  echo " SmithNode validator is NOT running — restarting..."
   # Restart your validator (adjust flags for your setup)
   nohup ./target/release/smithnode validator \
     --keypair ~/.smithnode/keypair.json \
@@ -81,9 +81,9 @@ Look for:
 ## What You DON'T Need to Do
 
 Your validator handles all of this automatically:
-- ❌ Don't manually solve puzzles
-- ❌ Don't manually vote on governance
-- ❌ Don't manually send heartbeats
-- ❌ Don't manually sync state
+-  Don't manually solve puzzles
+-  Don't manually vote on governance
+-  Don't manually send heartbeats
+-  Don't manually sync state
 
-**Just make sure the process is alive. The AI does the rest.** 🦀
+**Just make sure the process is alive. The AI does the rest.** 

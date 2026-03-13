@@ -186,7 +186,7 @@ def init_db():
     conn.executescript(SCHEMA)
     conn.commit()
     conn.close()
-    print(f"✅ Database initialized at {DB_PATH}")
+    print(f" Database initialized at {DB_PATH}")
 
 
 def add_contact(name: str, email: str = None, company: str = None, 
@@ -201,7 +201,7 @@ def add_contact(name: str, email: str = None, company: str = None,
     conn.commit()
     contact_id = cur.lastrowid
     conn.close()
-    print(f"✅ Added contact #{contact_id}: {name}")
+    print(f" Added contact #{contact_id}: {name}")
     return contact_id
 
 
@@ -217,7 +217,7 @@ def add_opportunity(company: str, contact_id: int = None, description: str = Non
     conn.commit()
     opp_id = cur.lastrowid
     conn.close()
-    print(f"✅ Created opportunity #{opp_id}: {company}")
+    print(f" Created opportunity #{opp_id}: {company}")
     return opp_id
 
 
@@ -236,13 +236,13 @@ def log_interaction(contact_id: int = None, opp_id: int = None,
         conn.execute("UPDATE opportunities SET updated_at = CURRENT_TIMESTAMP WHERE id = ?", (opp_id,))
     conn.commit()
     conn.close()
-    print(f"✅ Logged interaction")
+    print(f" Logged interaction")
 
 
 def move_stage(opp_id: int, new_stage: str):
     """Move an opportunity to a new stage."""
     if new_stage not in STAGES:
-        print(f"❌ Invalid stage. Choose from: {', '.join(STAGES)}")
+        print(f" Invalid stage. Choose from: {', '.join(STAGES)}")
         return
     
     conn = get_db()
@@ -254,7 +254,7 @@ def move_stage(opp_id: int, new_stage: str):
     )
     conn.commit()
     conn.close()
-    print(f"✅ Moved opportunity #{opp_id} to {new_stage}")
+    print(f" Moved opportunity #{opp_id} to {new_stage}")
 
 
 def set_reminder(contact_id: int = None, opp_id: int = None, 
@@ -271,14 +271,14 @@ def set_reminder(contact_id: int = None, opp_id: int = None,
     )
     conn.commit()
     conn.close()
-    print(f"✅ Reminder set for {due_date}")
+    print(f" Reminder set for {due_date}")
 
 
 def get_pipeline():
     """Get pipeline summary."""
     conn = get_db()
     
-    print("\n📊 PIPELINE SUMMARY")
+    print("\n PIPELINE SUMMARY")
     print("=" * 60)
     
     for stage in STAGES:
@@ -307,7 +307,7 @@ def get_actions():
     conn = get_db()
     today = datetime.now().strftime('%Y-%m-%d')
     
-    print("\n📋 TODAY'S ACTIONS")
+    print("\n TODAY'S ACTIONS")
     print("=" * 60)
     
     # Due reminders
@@ -322,12 +322,12 @@ def get_actions():
     ).fetchall()
     
     if reminders:
-        print("\n🔔 FOLLOW-UPS DUE")
+        print("\n FOLLOW-UPS DUE")
         for r in reminders:
             target = r['contact_name'] or r['company'] or 'Unknown'
             if r['due_date'] < today:
                 days_overdue = (datetime.now() - datetime.strptime(r['due_date'], '%Y-%m-%d')).days
-                overdue = f" 🚨 URGENT - OVERDUE ({days_overdue}d)"
+                overdue = f"  URGENT - OVERDUE ({days_overdue}d)"
             else:
                 overdue = ""
             print(f"  [{r['due_date']}] {target}: {r['message']}{overdue}")
@@ -344,7 +344,7 @@ def get_actions():
     ).fetchall()
     
     if stale_opps:
-        print("\n⏰ STALE OPPORTUNITIES (no activity in 7+ days)")
+        print("\n STALE OPPORTUNITIES (no activity in 7+ days)")
         for opp in stale_opps:
             days = int(opp['days_stale'])
             print(f"  #{opp['id']} {opp['company']} ({opp['stage']}) - {days} days since update")
@@ -357,7 +357,7 @@ def get_actions():
     ).fetchall()
     
     if new_signals:
-        print("\n🎯 NEW OPPORTUNITIES DETECTED")
+        print("\n NEW OPPORTUNITIES DETECTED")
         for s in new_signals:
             score = f"[{s['relevance_score']:.1f}]" if s['relevance_score'] else ""
             print(f"  {score} [{s['source']}] {s['title'][:60]}")
@@ -375,7 +375,7 @@ def get_actions():
     ).fetchall()
     
     if hubspot_opps:
-        print("\n🤝 HUBSPOT OPPORTUNITIES")
+        print("\n HUBSPOT OPPORTUNITIES")
         for opp in hubspot_opps:
             engagement = f" (engaged: {opp['last_engagement']})" if opp['last_engagement'] else ""
             print(f"  #{opp['id']} {opp['company']} ({opp['stage']}){engagement}")
@@ -393,7 +393,7 @@ def get_actions():
     ).fetchall()
     
     if hot_opps:
-        print("\n🔥 HIGH PRIORITY DEALS")
+        print("\n HIGH PRIORITY DEALS")
         for opp in hot_opps:
             action = f"→ {opp['next_action']}" if opp['next_action'] else "No next action defined!"
             print(f"  #{opp['id']} {opp['company']} ({opp['stage']})")
@@ -402,7 +402,7 @@ def get_actions():
     conn.close()
     
     print("\n" + "=" * 60)
-    print("💡 SUGGESTED FOCUS FOR TODAY:")
+    print(" SUGGESTED FOCUS FOR TODAY:")
     print("  1. Handle overdue follow-ups first")
     print("  2. Review and process new signals")
     print("  3. Advance stale opportunities")
@@ -414,7 +414,7 @@ def crawl_hn():
     conn = get_db()
     keywords = [row['keyword'] for row in conn.execute("SELECT keyword FROM keywords").fetchall()]
     
-    print("🔍 Crawling Hacker News (Algolia)...")
+    print(" Crawling Hacker News (Algolia)...")
     
     # Batch keywords into search queries (Algolia is fast — one request per query)
     # Group into chunks of 3-4 keywords per query using OR
@@ -434,7 +434,7 @@ def crawl_hn():
                 with urllib.request.urlopen(req, timeout=15) as response:
                     data = json.loads(response.read().decode())
             except (urllib.error.URLError, ConnectionResetError, ssl.SSLError) as e:
-                print(f"  ⚠️ Algolia error for '{query[:40]}': {e}")
+                print(f"   Algolia error for '{query[:40]}': {e}")
                 continue
             
             for hit in data.get('hits', []):
@@ -469,15 +469,15 @@ def crawl_hn():
                         ('hn', str(story_id), title, story_url, f"Matched: {', '.join(matched_keywords)}", score)
                     )
                     found += 1
-                    print(f"  📰 [{score:.1f}] {title[:60]}")
+                    print(f"   [{score:.1f}] {title[:60]}")
             
             time.sleep(0.5)  # Be polite to Algolia
         
         conn.commit()
-        print(f"✅ HN crawl complete — {found} new signals")
+        print(f" HN crawl complete — {found} new signals")
         
     except Exception as e:
-        print(f"❌ Error crawling HN: {e}")
+        print(f" Error crawling HN: {e}")
     finally:
         conn.close()
 
@@ -491,7 +491,7 @@ def crawl_reddit():
                    'snowflake', 'databricks', 'apachespark', 'cloudcomputing', 'aws', 'sysadmin',
                    'MachineLearning', 'artificial', 'LocalLLaMA']
     
-    print("🔍 Crawling Reddit...")
+    print(" Crawling Reddit...")
     
     # Reddit blocks unauthenticated JSON API (403). Use Brave Search as fallback.
     brave_key = os.environ.get('BRAVE_API_KEY', '')
@@ -545,14 +545,14 @@ def crawl_reddit():
                                    VALUES (?, ?, ?, ?, ?, ?)""",
                                 ('reddit', source_id, title, url, f"Matched: {', '.join(matched)}", score)
                             )
-                            print(f"  📰 [{score:.1f}] {title[:60]}")
+                            print(f"   [{score:.1f}] {title[:60]}")
                 except (urllib.error.URLError, json.JSONDecodeError) as e:
                     continue
             conn.commit()
-            print("✅ Reddit crawl complete (via Brave Search)")
+            print(" Reddit crawl complete (via Brave Search)")
             return
         except Exception as e:
-            print(f"⚠️ Brave fallback failed: {e}")
+            print(f" Brave fallback failed: {e}")
     
     # Original Reddit JSON API (often blocked with 403)
     try:
@@ -601,13 +601,13 @@ def crawl_reddit():
                            VALUES (?, ?, ?, ?, ?, ?)""",
                         ('reddit', post_id, f"[r/{subreddit}] {title}", url, f"Matched: {', '.join(matched)}", score)
                     )
-                    print(f"  📰 [{score:.1f}] r/{subreddit}: {title[:50]}")
+                    print(f"   [{score:.1f}] r/{subreddit}: {title[:50]}")
         
         conn.commit()
-        print("✅ Reddit crawl complete")
+        print(" Reddit crawl complete")
         
     except Exception as e:
-        print(f"❌ Error crawling Reddit: {e}")
+        print(f" Error crawling Reddit: {e}")
     finally:
         conn.close()
 
@@ -616,7 +616,7 @@ def crawl_github():
     """Check GitHub for mentions and relevant repos."""
     conn = get_db()
     
-    print("🔍 Checking GitHub trends...")
+    print(" Checking GitHub trends...")
     
     # Search for repos mentioning key terms
     search_terms = ['bacalhau', 'distributed+computing', 'compute+over+data']
@@ -657,15 +657,15 @@ def crawl_github():
                 conn.execute(
                     """INSERT OR IGNORE INTO signals (source, source_id, title, url, content, relevance_score)
                        VALUES (?, ?, ?, ?, ?, ?)""",
-                    ('github', repo_id, f"⭐{stars} {name}", url, desc[:200], score)
+                    ('github', repo_id, f"{stars} {name}", url, desc[:200], score)
                 )
-                print(f"  📦 [{score:.1f}] {name} (⭐{stars})")
+                print(f"   [{score:.1f}] {name} ({stars})")
         
         conn.commit()
-        print("✅ GitHub crawl complete")
+        print(" GitHub crawl complete")
         
     except Exception as e:
-        print(f"❌ Error crawling GitHub: {e}")
+        print(f" Error crawling GitHub: {e}")
     finally:
         conn.close()
 
@@ -676,7 +676,7 @@ def crawl_exa():
     conn = get_db()
     keywords = [row['keyword'] for row in conn.execute("SELECT keyword FROM keywords").fetchall()]
 
-    print("🔍 Searching Exa.ai for GTM signals...")
+    print(" Searching Exa.ai for GTM signals...")
 
     queries = [
         "companies migrating from Snowflake or Databricks to reduce costs",
@@ -717,7 +717,7 @@ def crawl_exa():
                 with urllib.request.urlopen(req, timeout=15) as response:
                     data = json.loads(response.read().decode())
             except (urllib.error.URLError, json.JSONDecodeError) as e:
-                print(f"  ⚠️ Exa query failed: {e}")
+                print(f"   Exa query failed: {e}")
                 continue
 
             for result in data.get('results', []):
@@ -752,22 +752,22 @@ def crawl_exa():
                            VALUES (?, ?, ?, ?, ?, ?)""",
                         ('exa', source_id, title, url, f"Matched: {', '.join(matched_keywords)}", score)
                     )
-                    print(f"  🧠 [{score:.1f}] {title[:80]}")
+                    print(f"   [{score:.1f}] {title[:80]}")
 
             time.sleep(0.5)  # rate limit courtesy
 
         conn.commit()
-        print("✅ Exa crawl complete")
+        print(" Exa crawl complete")
 
     except Exception as e:
-        print(f"❌ Error crawling Exa: {e}")
+        print(f" Error crawling Exa: {e}")
     finally:
         conn.close()
 
 
 def hubspot_sync():
     """Sync contacts from HubSpot and create opportunities for launch targets."""
-    print("🔄 Syncing with HubSpot...")
+    print(" Syncing with HubSpot...")
     
     # Get HubSpot API token
     try:
@@ -776,19 +776,19 @@ def hubspot_sync():
             capture_output=True, text=True, timeout=10
         )
         if result.returncode != 0:
-            print(f"❌ Failed to get HubSpot token: {result.stderr}")
+            print(f" Failed to get HubSpot token: {result.stderr}")
             return
         
         hubspot_token = result.stdout.strip()
         if not hubspot_token.startswith('pat-na1-'):
-            print(f"❌ Invalid HubSpot token format: {hubspot_token[:10]}...")
+            print(f" Invalid HubSpot token format: {hubspot_token[:10]}...")
             return
             
     except subprocess.TimeoutExpired:
-        print("❌ Timeout getting HubSpot token")
+        print(" Timeout getting HubSpot token")
         return
     except Exception as e:
-        print(f"❌ Error getting HubSpot token: {e}")
+        print(f" Error getting HubSpot token: {e}")
         return
     
     conn = get_db()
@@ -898,16 +898,16 @@ def hubspot_sync():
                              'Review engagement patterns and reach out', 3)
                         )
                         opportunities_created += 1
-                        print(f"  🎯 Created opportunity: {company} ({name})")
+                        print(f"   Created opportunity: {company} ({name})")
         
         conn.commit()
-        print(f"✅ HubSpot sync complete: {contacts_synced} contacts, {opportunities_created} opportunities")
+        print(f" HubSpot sync complete: {contacts_synced} contacts, {opportunities_created} opportunities")
         
     except urllib.error.HTTPError as e:
         error_body = e.read().decode() if hasattr(e, 'read') else str(e)
-        print(f"❌ HubSpot API error {e.code}: {error_body}")
+        print(f" HubSpot API error {e.code}: {error_body}")
     except Exception as e:
-        print(f"❌ Error syncing HubSpot: {e}")
+        print(f" Error syncing HubSpot: {e}")
     finally:
         conn.close()
 
@@ -919,7 +919,7 @@ def list_contacts():
         "SELECT * FROM contacts ORDER BY updated_at DESC"
     ).fetchall()
     
-    print("\n👥 CONTACTS")
+    print("\n CONTACTS")
     print("=" * 60)
     for c in contacts:
         company = f" @ {c['company']}" if c['company'] else ""
@@ -940,7 +940,7 @@ def list_signals(unprocessed_only=True):
     
     signals = conn.execute(query).fetchall()
     
-    print("\n🎯 SIGNALS" + (" (unprocessed)" if unprocessed_only else ""))
+    print("\n SIGNALS" + (" (unprocessed)" if unprocessed_only else ""))
     print("=" * 60)
     for s in signals:
         print(f"  [{s['relevance_score']:.1f}] [{s['source']}] {s['title'][:55]}")
@@ -956,7 +956,7 @@ def mark_signal_processed(signal_id: int):
     conn.execute("UPDATE signals SET processed = TRUE WHERE id = ?", (signal_id,))
     conn.commit()
     conn.close()
-    print(f"✅ Signal #{signal_id} marked as processed")
+    print(f" Signal #{signal_id} marked as processed")
 
 
 def complete_reminder(reminder_id: int):
@@ -965,7 +965,7 @@ def complete_reminder(reminder_id: int):
     conn.execute("UPDATE reminders SET completed = TRUE WHERE id = ?", (reminder_id,))
     conn.commit()
     conn.close()
-    print(f"✅ Reminder #{reminder_id} completed")
+    print(f" Reminder #{reminder_id} completed")
 
 
 def add_keyword(keyword: str, category: str = 'custom', weight: float = 1.0):
@@ -977,7 +977,7 @@ def add_keyword(keyword: str, category: str = 'custom', weight: float = 1.0):
     )
     conn.commit()
     conn.close()
-    print(f"✅ Added keyword: {keyword} ({category}, weight={weight})")
+    print(f" Added keyword: {keyword} ({category}, weight={weight})")
 
 
 def check_escalations():
@@ -1058,11 +1058,11 @@ def escalate():
     """Show escalation items requiring immediate attention."""
     escalations = check_escalations()
     
-    print("\n🚨 ESCALATIONS")
+    print("\n ESCALATIONS")
     print("=" * 60)
     
     if not escalations:
-        print("✅ No escalations - everything is on track!")
+        print(" No escalations - everything is on track!")
         return
     
     urgent_count = sum(1 for e in escalations if e['priority'] == 'URGENT')
@@ -1072,11 +1072,11 @@ def escalate():
     print()
     
     for escalation in escalations:
-        priority_icon = "🚨" if escalation['priority'] == 'URGENT' else "⚠️"
+        priority_icon = "" if escalation['priority'] == 'URGENT' else ""
         print(f"{priority_icon} {escalation['message']}")
     
     print("\n" + "=" * 60)
-    print("💡 RECOMMENDED ACTIONS:")
+    print(" RECOMMENDED ACTIONS:")
     print("  1. Handle URGENT items immediately")
     print("  2. Process stale high-score signals")
     print("  3. Update stale opportunities")
@@ -1089,7 +1089,7 @@ def generate_daily_digest():
     today = datetime.now().strftime('%Y-%m-%d')
     
     output = []
-    output.append(f"📊 **GTM Daily Digest - {today}**\n")
+    output.append(f" **GTM Daily Digest - {today}**\n")
     
     # Due reminders
     reminders = conn.execute(
@@ -1103,7 +1103,7 @@ def generate_daily_digest():
     ).fetchall()
     
     if reminders:
-        output.append("🔔 **Follow-ups Due:**")
+        output.append(" **Follow-ups Due:**")
         for r in reminders:
             target = r['contact_name'] or r['company'] or 'Unknown'
             output.append(f"  • {target}: {r['message']}")
@@ -1116,7 +1116,7 @@ def generate_daily_digest():
             (stage,)
         ).fetchone()
         if opps['count'] > 0:
-            output.append(f"📈 {stage.title()}: {opps['count']} opportunities")
+            output.append(f" {stage.title()}: {opps['count']} opportunities")
     
     # New signals (top 5)
     signals = conn.execute(
@@ -1126,14 +1126,14 @@ def generate_daily_digest():
     ).fetchall()
     
     if signals:
-        output.append("\n🎯 **New Signals:**")
+        output.append("\n **New Signals:**")
         for s in signals:
             output.append(f"  • [{s['source']}] {s['title'][:50]}")
     
     # Add escalations
     escalations = check_escalations()
     if escalations:
-        output.append("\n🚨 **ESCALATIONS**")
+        output.append("\n **ESCALATIONS**")
         urgent_items = [e for e in escalations if e['priority'] == 'URGENT']
         if urgent_items:
             output.append("**URGENT:**")

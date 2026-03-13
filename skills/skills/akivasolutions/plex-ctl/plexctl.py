@@ -259,12 +259,12 @@ def cmd_search(query: str):
     print(f"Results for '{query}':\n")
     for r in results[:20]:
         icon = {
-            "movie": "🎬",
-            "show": "📺",
-            "episode": "  📺",
-            "artist": "🎵",
-            "album": "💿",
-            "track": "  🎵"
+            "movie": "",
+            "show": "",
+            "episode": "  ",
+            "artist": "",
+            "album": "",
+            "track": "  "
         }.get(r.type, "  ")
         
         extra = ""
@@ -297,15 +297,15 @@ def cmd_now_playing():
                 media = timeline
                 pos_min = int(media.time / 60000) if media.time else 0
                 dur_min = int(media.duration / 60000) if media.duration else 0
-                print(f"🔊 {client.title}")
+                print(f" {client.title}")
                 print(f"   {media.title}")
                 if hasattr(media, 'grandparentTitle') and media.grandparentTitle:
                     print(f"   {media.grandparentTitle} — S{media.parentIndex:02d}E{media.index:02d}")
                 print(f"   {media.state.upper()} [{pos_min}:{pos_min%60:02d} / {dur_min}:{dur_min%60:02d}]")
             else:
-                print(f"⏸️  {client.title} — idle")
+                print(f"  {client.title} — idle")
         except Exception as e:
-            print(f"⚠️  {client.title} — {e}")
+            print(f"  {client.title} — {e}")
         print()
 
 
@@ -316,7 +316,7 @@ def cmd_pause(client_name: Optional[str] = None):
     
     try:
         client.pause()
-        print(f"⏸️  Paused on {client.title}")
+        print(f"  Paused on {client.title}")
     except Exception as e:
         print(f"Error: {e}")
 
@@ -328,7 +328,7 @@ def cmd_resume(client_name: Optional[str] = None):
     
     try:
         client.play()
-        print(f"▶️  Resumed on {client.title}")
+        print(f"  Resumed on {client.title}")
     except Exception as e:
         print(f"Error: {e}")
 
@@ -340,7 +340,7 @@ def cmd_stop(client_name: Optional[str] = None):
     
     try:
         client.stop()
-        print(f"⏹️  Stopped on {client.title}")
+        print(f"  Stopped on {client.title}")
     except Exception as e:
         print(f"Error: {e}")
 
@@ -352,7 +352,7 @@ def cmd_next(client_name: Optional[str] = None):
     
     try:
         client.skipNext()
-        print(f"⏭️  Next on {client.title}")
+        print(f"  Next on {client.title}")
     except Exception as e:
         print(f"Error: {e}")
 
@@ -364,7 +364,7 @@ def cmd_prev(client_name: Optional[str] = None):
     
     try:
         client.skipPrevious()
-        print(f"⏮️  Previous on {client.title}")
+        print(f"  Previous on {client.title}")
     except Exception as e:
         print(f"Error: {e}")
 
@@ -406,10 +406,10 @@ def cmd_libraries():
     print("Libraries:\n")
     for section in plex.library.sections():
         icon = {
-            "movie": "🎬",
-            "show": "📺",
-            "artist": "🎵"
-        }.get(section.type, "📁")
+            "movie": "",
+            "show": "",
+            "artist": ""
+        }.get(section.type, "")
         
         print(f"{icon} {section.title}")
         print(f"   {section.type} — {section.totalSize} items")
@@ -425,11 +425,11 @@ def cmd_recent(limit: int = 10):
     
     for item in recent:
         icon = {
-            "movie": "🎬",
-            "show": "📺",
-            "episode": "  📺",
-            "album": "💿",
-            "track": "  🎵"
+            "movie": "",
+            "show": "",
+            "episode": "  ",
+            "album": "",
+            "track": "  "
         }.get(item.type, "  ")
         
         title = item.title
@@ -458,8 +458,8 @@ def cmd_on_deck():
     
     for item in on_deck:
         icon = {
-            "movie": "🎬",
-            "episode": "📺"
+            "movie": "",
+            "episode": ""
         }.get(item.type, "  ")
         
         title = item.title

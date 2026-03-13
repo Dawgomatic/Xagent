@@ -61,7 +61,7 @@ while true; do
 
   # Read current plan and check completion
   if ! grep -q "^- \[ \]" "$PLAN_FILE"; then
-    echo "✅ All tasks completed!"
+    echo " All tasks completed!"
     echo ""
     echo "Summary: All items in $PLAN_FILE marked as done"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -82,7 +82,7 @@ while true; do
   fi
 
   echo ""
-  echo "📋 Instructions for sub-agent:"
+  echo " Instructions for sub-agent:"
   echo "─────────────────────────────────────────────────"
   echo "1. Study AGENTS.md for build/test commands"
   echo "2. Read IMPLEMENTATION_PLAN.md for context"
@@ -94,7 +94,7 @@ while true; do
   echo "   - Commit changes with descriptive message"
   echo "   - Update plan with any discoveries"
   echo ""
-  echo "⚠️  Backpressure Gates:"
+  echo "  Backpressure Gates:"
   echo "   - If tests FAIL: Fix before marking complete"
   echo "   - If typecheck FAILS: Fix types before committing"
   echo "   - If lint FAILS: Fix style issues before committing"

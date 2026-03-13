@@ -5,7 +5,7 @@ version: 1.1.0
 author: mainfraame
 homepage: https://github.com/mainfraame/clawback
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🦀", "requires": {"bins": ["python3", "pip"]}, "install": {"pip": "{baseDir}"}, "primaryEnv": "BROKER_API_KEY"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["python3", "pip"]}, "install": {"pip": "{baseDir}"}, "primaryEnv": "BROKER_API_KEY"}}
 ---
 
 # ClawBack

@@ -1,5 +1,5 @@
 /**
- * 👁️ Realtime Monitor
+ *  Realtime Monitor
  * 
  * Real-time security monitoring for OpenClaw
  */

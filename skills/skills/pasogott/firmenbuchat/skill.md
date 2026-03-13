@@ -3,7 +3,7 @@ name: firmenbuchat
 description: CLI für den Zugriff auf das österreichische Firmenbuch (HVD WebServices).
 homepage: https://github.com/pasogott/firmenbuch-aip
 version: 0.2.3
-metadata: {"clawdbot":{"emoji":"🇦🇹","requires":{"bins":["firmenbuchat"]},"install":[{"id":"brew","kind":"brew","formula":"pasogott/tap/firmenbuchat","bins":["firmenbuchat"],"label":"Install firmenbuchat (brew)"},{"id":"uv","kind":"shell","command":"uv add git+https://github.com/pasogott/firmenbuch-aip.git","label":"Install firmenbuchat (uv)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["firmenbuchat"]},"install":[{"id":"brew","kind":"brew","formula":"pasogott/tap/firmenbuchat","bins":["firmenbuchat"],"label":"Install firmenbuchat (brew)"},{"id":"uv","kind":"shell","command":"uv add git+https://github.com/pasogott/firmenbuch-aip.git","label":"Install firmenbuchat (uv)"}]}}
 ---
 
 # firmenbuchat

@@ -107,7 +107,7 @@ done
 
 # Send wake events for new warnings
 if [[ ${#NEW_WARNINGS[@]} -gt 0 ]]; then
-  MESSAGE="⚠️ Model Quota Alert (<${THRESHOLD}%):\n"
+  MESSAGE=" Model Quota Alert (<${THRESHOLD}%):\n"
   for warning in "${NEW_WARNINGS[@]}"; do
     MESSAGE="${MESSAGE}\n• ${warning}"
   done
@@ -118,7 +118,7 @@ fi
 
 # Send wake events for recoveries
 if [[ ${#RECOVERIES[@]} -gt 0 ]]; then
-  MESSAGE="✅ Quota Recovered (>=${THRESHOLD}%):\n"
+  MESSAGE=" Quota Recovered (>=${THRESHOLD}%):\n"
   for recovery in "${RECOVERIES[@]}"; do
     MESSAGE="${MESSAGE}\n• ${recovery}"
   done

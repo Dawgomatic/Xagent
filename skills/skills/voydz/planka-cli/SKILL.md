@@ -1,7 +1,7 @@
 ---
 name: planka
 description: Manage Planka (Kanban) projects, boards, lists, cards, and notifications via a custom Python CLI.
-metadata: {"clawdbot":{"emoji":"📋","requires":{"bins":["planka-cli"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["planka-cli"]}}}
 ---
 
 # Planka CLI

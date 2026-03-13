@@ -11,4 +11,4 @@ echo "Claiming rewards via Bankr..."
 
 "$SCRIPT_DIR/bankr.sh" "Submit this transaction on Base: {\"to\": \"$STAKING_CONTRACT\", \"data\": \"0x372500ab\", \"value\": \"0\", \"chainId\": 8453}"
 
-echo "✅ Rewards claimed"
+echo " Rewards claimed"

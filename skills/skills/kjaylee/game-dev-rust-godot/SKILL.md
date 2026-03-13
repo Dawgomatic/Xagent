@@ -7,18 +7,18 @@ description: Game development workflow using Rust+WASM or Godot 4.x for HTML5 ga
 
 HTML5 게임 제작을 위한 전용 워크플로우. **주인님 직접 지시 (2026-02-06)**: Rust + WASM 또는 Godot만 사용.
 
-## 🚀 기술 스택 (필수 준수)
+##  기술 스택 (필수 준수)
 
-### ✅ 허용된 기술
+###  허용된 기술
 - **Rust + WASM**: Macroquad (권장), Bevy
 - **Godot 4.x**: HTML5 Export
 
-### ❌ 금지된 기술
+###  금지된 기술
 - JavaScript/TypeScript (Phaser, PixiJS, Three.js 등 모든 JS 프레임워크)
 - Unity WebGL
 - 기타 웹 게임 엔진
 
-## 📋 워크플로우 개요
+##  워크플로우 개요
 
 ```
 1. 에셋 확보 (코딩 전 필수!)
@@ -29,7 +29,7 @@ HTML5 게임 제작을 위한 전용 워크플로우. **주인님 직접 지시 
    ↓
 4. 테스트케이스 작성 (TDD)
    ↓
-5. 구현 ↔ 기획 보완 (TC 100% PASS까지)
+5. 구현  기획 보완 (TC 100% PASS까지)
    ↓
 6. QA (Playwright + 수동)
    ↓
@@ -38,9 +38,9 @@ HTML5 게임 제작을 위한 전용 워크플로우. **주인님 직접 지시 
 8. 보고 (스크린샷 4장 + DoD 체크리스트)
 ```
 
-## 🎨 에셋 확보 (Phase 1 - 필수!)
+##  에셋 확보 (Phase 1 - 필수!)
 
-**⛔ 에셋 없이 코딩 시작 절대 금지**
+** 에셋 없이 코딩 시작 절대 금지**
 
 ### 에셋 소스 우선순위
 1. NAS 게임마당 (`/Volumes/workspace/Asset Store-5.x/`, 265 packages)
@@ -60,10 +60,10 @@ HTML5 게임 제작을 위한 전용 워크플로우. **주인님 직접 지시 
 ```
 
 **라이선스 정책 (공개 게임)**:
-- ✅ Kenney.nl CC0, AI 생성, 직접 제작
-- ❌ Unity Asset Store (무료 포함), 재배포 불허 에셋
+-  Kenney.nl CC0, AI 생성, 직접 제작
+-  Unity Asset Store (무료 포함), 재배포 불허 에셋
 
-## 🦀 Rust + WASM 구현
+##  Rust + WASM 구현
 
 ### Macroquad (권장)
 
@@ -123,7 +123,7 @@ cp target/wasm32-unknown-unknown/release/<game-name>.wasm .
 
 **자세한 가이드**: `references/rust-bevy.md` 참조
 
-## 🎮 Godot 4.x 구현
+##  Godot 4.x 구현
 
 ### 프로젝트 생성 (MiniPC)
 
@@ -157,7 +157,7 @@ godot4 --headless --path . --export-release "Web"
 
 **자세한 가이드**: `references/godot-html5.md` 참조
 
-## ✅ 테스트케이스 작성 (Phase 4 - TDD)
+##  테스트케이스 작성 (Phase 4 - TDD)
 
 **구현 전에 TC 먼저 작성**
 
@@ -189,7 +189,7 @@ TC-P003: 60fps 유지 (게임플레이 중)
 
 **TC 문서 위치**: `specs/games/<game>/test-cases.md`
 
-## 🔄 구현 ↔ 기획 보완 루프 (Phase 5)
+##  구현  기획 보완 루프 (Phase 5)
 
 **TC 100% PASS까지 반복**:
 
@@ -215,7 +215,7 @@ ALL PASS → Phase 6으로
 □ DoD 체크리스트 전항목 충족
 ```
 
-## 🧪 QA (Phase 6)
+##  QA (Phase 6)
 
 ### 자동 테스트 (MiniPC Playwright)
 
@@ -250,7 +250,7 @@ playwright test games/<game-name>.spec.ts
 □ 결과 화면 (게임오버/클리어)
 ```
 
-## 📦 배포
+##  배포
 
 ### Rust + WASM
 ```bash
@@ -270,7 +270,7 @@ playwright test games/<game-name>.spec.ts
 - assets/ (에셋 폴더, 필요 시)
 ```
 
-## ✅ Definition of Done
+##  Definition of Done
 
 **전부 충족해야 완료**:
 
@@ -286,7 +286,7 @@ playwright test games/<game-name>.spec.ts
 □ 런칭 테스트 통과 (실제 URL)
 ```
 
-## 🎯 게임 등급 기준
+##  게임 등급 기준
 
 | 등급 | 기준 | 조치 |
 |------|------|------|
@@ -295,7 +295,7 @@ playwright test games/<game-name>.spec.ts
 | **C** | 코드만 존재, 에셋 전무, TC 미작성 | Phase 1부터 재시작 |
 | **F** | index.html 없음, 빈 디렉토리, 크래시 | 삭제 또는 재제작 |
 
-## 📚 상세 가이드
+##  상세 가이드
 
 - **Rust Macroquad**: `references/rust-macroquad.md`
 - **Rust Bevy**: `references/rust-bevy.md`
@@ -303,7 +303,7 @@ playwright test games/<game-name>.spec.ts
 - **에셋 라이선스**: `references/asset-licensing.md`
 - **성능 최적화**: `references/optimization.md`
 
-## ⚠️ 중요 제약사항
+##  중요 제약사항
 
 1. **기술 스택**: Rust + WASM 또는 Godot만 허용
 2. **에셋 우선**: 코딩 전 에셋 전부 확보
@@ -311,7 +311,7 @@ playwright test games/<game-name>.spec.ts
 4. **모바일 퍼스트**: 반응형 동시 구현
 5. **라이선스 준수**: 재배포 가능한 에셋만 사용
 
-## 🚀 빠른 시작 예시
+##  빠른 시작 예시
 
 ### Snake 게임 (Rust + Macroquad)
 

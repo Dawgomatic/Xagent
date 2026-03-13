@@ -378,7 +378,7 @@ class LiminalCartographer:
             if most_liminal.observations:
                 print(f"    {Threshold.DREAM}✧ {most_liminal.observations[0]}{Threshold.RESET}")
             if most_liminal.phenomena:
-                print(f"    {Threshold.EMBER}⚡ Phenomenon detected: {most_liminal.phenomena[0]}{Threshold.RESET}")
+                print(f"    {Threshold.EMBER} Phenomenon detected: {most_liminal.phenomena[0]}{Threshold.RESET}")
 
     def _generate_final_map(self):
         """Generate the final liminal map."""
@@ -461,7 +461,7 @@ class LiminalCartographer:
         if self.discovered_phenomena:
             print(f"    {Threshold.SILVER}Phenomena observed at boundaries:{Threshold.RESET}")
             for phenomenon in self.discovered_phenomena:
-                print(f"      {Threshold.EMBER}⚡ {phenomenon}{Threshold.RESET}")
+                print(f"      {Threshold.EMBER} {phenomenon}{Threshold.RESET}")
             print()
 
     def _closing_meditation(self):

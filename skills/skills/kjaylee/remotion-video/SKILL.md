@@ -106,7 +106,7 @@ npx remotion render MyVideo out/animation.gif --every-nth-frame 2
 5. **렌더링:** headless 렌더링 → MP4/WebM
 6. **전송:** HTTP 서버로 맥 스튜디오에 전달
 
-## ⚠️ 주의사항
+##  주의사항
 
 - **서브에이전트 위임** — 영상 렌더링은 시간 소모적
 - **30fps 기본** — 필요 시 60fps로 변경

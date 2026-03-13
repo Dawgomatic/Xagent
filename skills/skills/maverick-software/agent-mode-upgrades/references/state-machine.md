@@ -55,13 +55,13 @@ interface StateTransition {
                     │                                                              │
                     ▼                                                              │
 ┌──────┐  user_input   ┌──────────┐  plan_ready   ┌───────────┐                   │
-│ IDLE │──────────────▶│ PLANNING │──────────────▶│ EXECUTING │                   │
+│ IDLE │──────────────│ PLANNING │──────────────│ EXECUTING │                   │
 └──────┘               └──────────┘               └───────────┘                   │
    ▲                        │                          │                          │
    │                        │ complex_task             │ tool_complete            │
    │                        ▼                          ▼                          │
    │                   ┌──────────┐              ┌────────────┐                   │
-   │                   │REPLANNING│◀─────────────│ REFLECTING │                   │
+   │                   │REPLANNING│─────────────│ REFLECTING │                   │
    │                   └──────────┘  need_replan └────────────┘                   │
    │                        │                          │                          │
    │                        │ plan_revised             │ on_track                 │
@@ -70,7 +70,7 @@ interface StateTransition {
    │                                                   │                          
    │                                                   │ all_done                 
    │                        ┌─────────────┐            │                          
-   │    response_sent       │ COMPLETING  │◀───────────┘                          
+   │    response_sent       │ COMPLETING  │───────────┘                          
    └────────────────────────┤             │                                       
                             └─────────────┘                                       
                                                                                   
@@ -86,9 +86,9 @@ interface StateTransition {
    From any state:  │  RECOVERING   │  (on tool error)                           
                     └───────────────┘                                             
                             │                                                     
-                            ├── recovered ──▶ (previous state)                   
+                            ├── recovered ── (previous state)                   
                             │                                                     
-                            └── unrecoverable ──▶ ERROR                          
+                            └── unrecoverable ── ERROR                          
 ```
 
 ## State Machine Implementation

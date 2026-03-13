@@ -125,32 +125,32 @@ def main():
         return
 
     if not all_issues and not all_warnings:
-        print("✅ Session guard: No issues found.")
+        print(" Session guard: No issues found.")
         return
 
     print("=== Session Guard Audit ===\n")
 
     if all_issues:
-        print("🚨 ISSUES (action required):")
+        print(" ISSUES (action required):")
         for i in all_issues:
-            print(f"  ❌ {i}")
+            print(f"   {i}")
         print()
 
     if all_warnings:
-        print("⚠️  WARNINGS:")
+        print("  WARNINGS:")
         for w in all_warnings:
-            print(f"  ⚠️  {w}")
+            print(f"    {w}")
         print()
 
     if session_files:
-        print("📊 Active session sizes:")
+        print(" Active session sizes:")
         for size_mb, name, _ in session_files[:5]:
             bar = "█" * min(int(size_mb), 20)
             print(f"  {size_mb:6.1f}MB  {bar}  {name[:40]}")
         print()
 
     if all_issues:
-        print("💡 Fix: Apply config patch via gateway tool:")
+        print(" Fix: Apply config patch via gateway tool:")
         print('  agents.defaults.heartbeat.every = "0m"')
         print('  agents.defaults.compaction.mode = "default"')
         print("  Then create isolated cron heartbeat (see session-guard SKILL.md).")

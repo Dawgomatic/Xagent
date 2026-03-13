@@ -90,10 +90,10 @@ class EventrealitiesTracker:
         changes = []
         
         if not orders:
-            print("❌ No orders configured in evenrealities-orders.json")
+            print(" No orders configured in evenrealities-orders.json")
             return changes
         
-        print(f"🔍 Checking {len(orders)} order(s)...")
+        print(f" Checking {len(orders)} order(s)...")
         print("=" * 60)
         
         for order in orders:
@@ -102,15 +102,15 @@ class EventrealitiesTracker:
             
             # Validate inputs
             if not email or not self._is_valid_email(email):
-                print(f"⚠️ Invalid email in order entry: {order}")
+                print(f" Invalid email in order entry: {order}")
                 continue
             
             if not order_id or not self._is_valid_order_id(order_id):
-                print(f"⚠️ Invalid order ID in entry: {order}")
+                print(f" Invalid order ID in entry: {order}")
                 continue
             
             key = self.get_order_key(email, order_id)
-            print(f"\n📦 Checking: {email} / Order #{order_id}")
+            print(f"\n Checking: {email} / Order #{order_id}")
             
             # Fetch status via browser
             status = self.fetch_status_via_browser(email, order_id)
@@ -122,7 +122,7 @@ class EventrealitiesTracker:
                 previous_status = history.get(key, {}).get("status")
                 
                 if previous_status and previous_status != status:
-                    print(f"   ✨ CHANGED: {previous_status} → {status}")
+                    print(f"    CHANGED: {previous_status} → {status}")
                     changes.append({
                         "email": email,
                         "order_id": order_id,
@@ -143,7 +143,7 @@ class EventrealitiesTracker:
                     "last_checked": datetime.now().isoformat()
                 }
             else:
-                print(f"   ❌ Failed to fetch status")
+                print(f"    Failed to fetch status")
         
         print("\n" + "=" * 60)
         
@@ -194,12 +194,12 @@ class EventrealitiesTracker:
                     if email_input:
                         email_input.fill(email)
                     else:
-                        print(f"   ⚠️ Could not find email input field")
+                        print(f"    Could not find email input field")
                         browser.close()
                         return None
                 
                 except Exception as e:
-                    print(f"   ⚠️ Error filling email: {e}")
+                    print(f"    Error filling email: {e}")
                     browser.close()
                     return None
                 
@@ -227,12 +227,12 @@ class EventrealitiesTracker:
                     if order_input:
                         order_input.fill(order_id)
                     else:
-                        print(f"   ⚠️ Could not find order ID input field")
+                        print(f"    Could not find order ID input field")
                         browser.close()
                         return None
                 
                 except Exception as e:
-                    print(f"   ⚠️ Error filling order ID: {e}")
+                    print(f"    Error filling order ID: {e}")
                     browser.close()
                     return None
                 
@@ -260,12 +260,12 @@ class EventrealitiesTracker:
                     if submit_btn:
                         submit_btn.click()
                     else:
-                        print(f"   ⚠️ Could not find submit button")
+                        print(f"    Could not find submit button")
                         browser.close()
                         return None
                 
                 except Exception as e:
-                    print(f"   ⚠️ Error clicking submit: {e}")
+                    print(f"    Error clicking submit: {e}")
                     browser.close()
                     return None
                 
@@ -309,22 +309,22 @@ class EventrealitiesTracker:
                     return mapped_status
                 
                 except Exception as e:
-                    print(f"   ⚠️ Error extracting status: {e}")
+                    print(f"    Error extracting status: {e}")
                     browser.close()
                     return None
         
         except ImportError:
-            print(f"   ❌ Playwright not installed. Install with: pip install playwright")
+            print(f"    Playwright not installed. Install with: pip install playwright")
             return None
         except Exception as e:
-            print(f"   ❌ Browser error: {e}")
+            print(f"    Browser error: {e}")
             return None
     
     def show_config(self):
         """Show current configuration"""
         orders = self.load_orders()
         if orders:
-            print("📋 Configured orders:")
+            print(" Configured orders:")
             for i, order in enumerate(orders, 1):
                 print(f"   {i}. {order.get('email')} - Order #{order.get('order_id')}")
         else:
@@ -334,7 +334,7 @@ class EventrealitiesTracker:
         """Show status history"""
         history = self.load_history()
         if history:
-            print("📜 Status history:")
+            print(" Status history:")
             for key, data in history.items():
                 print(f"\n   {key}")
                 print(f"      Status: {data.get('status')}")
@@ -356,9 +356,9 @@ def main():
     if args.check:
         changes = tracker.track_orders()
         if changes:
-            print(f"\n✨ {len(changes)} change(s) detected!")
+            print(f"\n {len(changes)} change(s) detected!")
             for change in changes:
-                print(f"   📦 {change['order_id']}: {change['previous_status']} → {change['new_status']}")
+                print(f"    {change['order_id']}: {change['previous_status']} → {change['new_status']}")
         else:
             print("\n✓ No changes detected")
     elif args.history:

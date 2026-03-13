@@ -6,16 +6,16 @@
 
 ## 1. Core Evaluation Index
 
-### 👤 Comprehensive Candidate Profile
+###  Comprehensive Candidate Profile
 *   [[{YYYYMMDD}_Candidate_Profile_{Name}]] - **{Keywords}**
     *   *Conclusion*: ...
 
-### 🧠 Deep Capability Insights
+###  Deep Capability Insights
 *   [[{YYYYMMDD}_Insight_{Name}_{Domain}_Capability]] - **{Keywords}**
     *   *Conclusion*: ...
 *   [[{YYYYMMDD}_Insight_{Name}_{Domain2}_Capability]]...
 
-### 🎯 Interviewer Review (Meta-Analysis)
+###  Interviewer Review (Meta-Analysis)
 *   [[{YYYYMMDD}_Evaluation_Interviewer_Meta_Analysis_{Name}]]
     *   *Conclusion*: ...
 

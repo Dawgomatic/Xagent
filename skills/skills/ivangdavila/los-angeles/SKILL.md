@@ -4,7 +4,7 @@ slug: los-angeles
 version: 1.0.1
 changelog: Minor refinements for consistency
 description: Navigate Los Angeles as visitor, resident, tech worker, student, or creative with neighborhoods, transport, costs, safety, and local insights.
-metadata: {"clawdbot":{"emoji":"🌴","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

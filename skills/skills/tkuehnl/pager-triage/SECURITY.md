@@ -149,8 +149,8 @@ Create a **read-only** PagerDuty API key:
 2. Create New API Key → Name: `OpenClaw Agent (read-only)` → **Read-only**
 
 With a read-only key:
-- ✅ `incidents`, `detail`, `oncall`, `services`, `recent` all work
-- ❌ `ack`, `resolve`, `note` will fail with HTTP 403 (the tool handles this gracefully)
+-  `incidents`, `detail`, `oncall`, `services`, `recent` all work
+-  `ack`, `resolve`, `note` will fail with HTTP 403 (the tool handles this gracefully)
 
 ### For full incident response
 

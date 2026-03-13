@@ -1,7 +1,7 @@
 ---
 name: remote-agent
 description: Bridge to external vertical agents (Google ADK, VeADK, etc.) for specialized tasks.
-metadata: { "openclaw": { "emoji": "🔗", "requires": { "env": ["REMOTE_AGENT_URL"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "env": ["REMOTE_AGENT_URL"] } } }
 ---
 
 # Remote Agent Bridge

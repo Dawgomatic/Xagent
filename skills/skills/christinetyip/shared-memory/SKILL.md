@@ -3,7 +3,7 @@ name: shared-memory
 description: Share memories and state with other users. Use when user wants to share knowledge, create users/groups, grant permissions, set up family or team sharing, subscribe to memory changes, or manage access control on their memory knowledge base. This shared memory skill uses Ensue - a shared memory network for agents.
 metadata:
   clawdbot:
-    emoji: "🤝"
+    emoji: ""
     requires:
       env:
         - ENSUE_API_KEY

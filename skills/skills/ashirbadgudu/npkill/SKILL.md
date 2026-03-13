@@ -60,7 +60,7 @@ Starts searching from a specific directory instead of current directory.
 
 ## Safety Features
 
-- **Warnings for Protected Directories**: npkill highlights system/app directories that shouldn't be deleted with a ⚠️ symbol
+- **Warnings for Protected Directories**: npkill highlights system/app directories that shouldn't be deleted with a  symbol
 - **Interactive Confirmation**: Manual selection required in interactive mode
 - **Dry-run Option**: Preview changes before executing any deletions
 - **Exclusion Options**: Ability to exclude specific directories from scanning
@@ -91,7 +91,7 @@ npkill --sort=size
 ## Best Practices
 
 1. **Always run with --dry-run first** to see what would be deleted
-2. **Review warnings carefully** about protected directories marked with ⚠️
+2. **Review warnings carefully** about protected directories marked with 
 3. **Use interactive mode** for safer selective deletion
 4. **Consider excluding important project directories** using --exclude if needed
 5. **Schedule regular cleanup** to prevent massive accumulation

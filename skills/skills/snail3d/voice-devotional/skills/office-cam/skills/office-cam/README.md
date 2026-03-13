@@ -1,24 +1,24 @@
-# 📹 ClawCamera — Multi-Camera Surveillance with AI
+#  ClawCamera — Multi-Camera Surveillance with AI
 
 Professional-grade office/home monitoring system with motion detection, continuous monitoring (Overwatch), and AI-powered analysis. Built for OpenClaw.
 
-## 🎯 What It Does
+##  What It Does
 
-✅ **Instant snapshots** — Ask "Is anyone here?" and get AI-powered visual answers
+ **Instant snapshots** — Ask "Is anyone here?" and get AI-powered visual answers
 
-✅ **Motion detection** — Alerts when movement is detected (configurable modes)
+ **Motion detection** — Alerts when movement is detected (configurable modes)
 
-✅ **Overwatch mode** — 24/7 background monitoring with periodic check-ins
+ **Overwatch mode** — 24/7 background monitoring with periodic check-ins
 
-✅ **Smart Overwatch** — Local motion detection (zero cost) → AI escalation only when needed
+ **Smart Overwatch** — Local motion detection (zero cost) → AI escalation only when needed
 
-✅ **Multi-camera** — USB webcams, Wyze RTSP, ESP32-CAM all supported
+ **Multi-camera** — USB webcams, Wyze RTSP, ESP32-CAM all supported
 
-✅ **Telegram integration** — Instant notifications with images
+ **Telegram integration** — Instant notifications with images
 
-✅ **No secrets in git** — Comprehensive .gitignore + env-based config
+ **No secrets in git** — Comprehensive .gitignore + env-based config
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Install
 
@@ -64,14 +64,14 @@ export TELEGRAM_CHAT_ID=your_chat_id
 # → AI only runs when motion detected
 ```
 
-## 📚 Documentation
+##  Documentation
 
 - [SKILL.md](/Snail3D/ClawCamera/blob/main/SKILL.md) — Full feature list, configuration, and integration guide (for OpenClaw Hub)
 - [guides/esp32-setup.md](/Snail3D/ClawCamera/blob/main/guides/esp32-setup.md) — ESP32-CAM firmware & deployment
 - [guides/wyze-setup.md](/Snail3D/ClawCamera/blob/main/guides/wyze-setup.md) — Wyze camera RTSP configuration
 - [guides/troubleshooting.md](/Snail3D/ClawCamera/blob/main/guides/troubleshooting.md) — Common issues & solutions
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────────┐
@@ -110,39 +110,39 @@ export TELEGRAM_CHAT_ID=your_chat_id
 4. If a person is detected, notifications are sent via Telegram
 5. If no person, monitoring continues silently
 
-## 🎯 Monitoring Modes
+##  Monitoring Modes
 
-### 🔴 Overwatch Pro (Full-Featured)
+###  Overwatch Pro (Full-Featured)
 ```bash
 ./scripts/overwatch-pro start
 ```
-- 🚨 Instant Telegram alerts on motion
-- 🌐 Live MJPEG stream at http://localhost:8080
-- 📱 Remote commands via Telegram replies
-- 💾 Saves all captures to `~/.clawdbot/overwatch/`
+-  Instant Telegram alerts on motion
+-  Live MJPEG stream at http://localhost:8080
+-  Remote commands via Telegram replies
+-  Saves all captures to `~/.clawdbot/overwatch/`
 
 **Telegram Commands (reply to motion alert):**
 - `analyze` — Request AI analysis of the image
 - `stream` — Get live stream link
 - `capture` — Take a fresh photo
 
-### 🟡 Smart Overwatch (Cost-Optimized)
+###  Smart Overwatch (Cost-Optimized)
 ```bash
 ./scripts/smart-overwatch start
 ```
-- 👀 Local motion detection (zero API cost, runs always)
-- 🚨 Motion detected → creates trigger file
-- 🤖 AI analyzes only when trigger exists
-- 👤 Person found? → AI starts continuous watching
-- 📊 No person? → Back to local monitoring
+-  Local motion detection (zero API cost, runs always)
+-  Motion detected → creates trigger file
+-  AI analyzes only when trigger exists
+-  Person found? → AI starts continuous watching
+-  No person? → Back to local monitoring
 
-### 🔵 One-Shot Capture
+###  One-Shot Capture
 ```bash
 ./scripts/capture.sh
 ```
 Instant photo capture on demand. Great for quick checks.
 
-## 📸 Multi-Camera Support
+##  Multi-Camera Support
 
 ### USB Webcam (Instant)
 Plug in any USB webcam and capture immediately.
@@ -177,23 +177,23 @@ Deploy an ESP32-CAM to remote locations with OV2640 sensor + WiFi.
 ./scripts/capture-esp32.sh --ip 192.168.1.50
 ```
 
-## 🔐 Security & Privacy
+##  Security & Privacy
 
-### ✅ No Secrets in Git
+###  No Secrets in Git
 
 - Comprehensive .gitignore blocks all sensitive files
 - API keys stored in .env (never committed)
 - Credentials in credentials.h or config.json are ignored
 - auth.json, secrets/ folder all blocked
 
-### ✅ Local-First Architecture
+###  Local-First Architecture
 
 - Motion detection runs locally (no cloud calls)
 - Images stored in `~/.clawdbot/overwatch/` (local filesystem)
 - AI analysis only happens when triggers are detected
 - No continuous API usage or streaming to cloud
 
-### ✅ Configurable Data Retention
+###  Configurable Data Retention
 
 Captures are stored locally. Add a cron job for cleanup:
 ```bash
@@ -201,7 +201,7 @@ Captures are stored locally. Add a cron job for cleanup:
 find ~/.clawdbot/overwatch -name "*.jpg" -mtime +7 -delete
 ```
 
-## 🛠️ Requirements
+##  Requirements
 
 - **macOS or Linux**
 - **imagesnap** (`brew install imagesnap`) for USB webcams
@@ -209,7 +209,7 @@ find ~/.clawdbot/overwatch -name "*.jpg" -mtime +7 -delete
 - **Python 3** for Overwatch scripts
 - **Telegram Bot Token** for notifications (optional)
 
-## 📁 File Structure
+##  File Structure
 
 ```
 ClawCamera/
@@ -233,7 +233,7 @@ ClawCamera/
 └── README.md                # This file
 ```
 
-## 🤝 OpenClaw Integration
+##  OpenClaw Integration
 
 This skill is designed to work with OpenClaw. When properly configured:
 

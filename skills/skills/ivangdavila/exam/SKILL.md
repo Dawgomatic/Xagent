@@ -88,7 +88,7 @@ Agent: Matches official format, question style, difficulty
 ## Practice Session
 
 ```
-📝 Practice: AWS S3 (10 questions)
+ Practice: AWS S3 (10 questions)
 
 Q1/10 [Medium]
 Which S3 storage class has the lowest cost for infrequently accessed data with millisecond retrieval?
@@ -103,7 +103,7 @@ Your answer: _
 
 After answer:
 ```
-✅ Correct!
+ Correct!
 
 S3 Standard-IA is designed for infrequently accessed data 
 but requires rapid access when needed. Glacier has lower 

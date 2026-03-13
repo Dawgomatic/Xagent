@@ -9,10 +9,10 @@
 
 | Metric | Value | Rating |
 |--------|-------|--------|
-| **Compression Ratio** | 5-6x | 🟢 Excellent |
-| **Context Savings** | ~80% | 🟢 Excellent |
-| **Semantic Fidelity** | 91% | 🟢 Good |
-| **Skill Overhead** | ~2000 tokens | 🟡 Consider |
+| **Compression Ratio** | 5-6x |  Excellent |
+| **Context Savings** | ~80% |  Excellent |
+| **Semantic Fidelity** | 91% |  Good |
+| **Skill Overhead** | ~2000 tokens |  Consider |
 
 ---
 
@@ -20,11 +20,11 @@
 
 | Scenario | Original Size | Net Benefit | Recommendation |
 |----------|---------------|-------------|----------------|
-| Single message | 50 chars | -2,154 tokens | ❌ Not worth it |
-| Short conversation | 500 chars | -1,783 tokens | ❌ Not worth it |
-| Medium conversation | 2,000 chars | -547 tokens | ❌ Marginal |
-| **Long conversation** | **10,000 chars** | **+6,047 tokens** | **✅ Worth it** |
-| Extended session | 50,000 chars | +39,017 tokens | ✅ Highly recommended |
+| Single message | 50 chars | -2,154 tokens |  Not worth it |
+| Short conversation | 500 chars | -1,783 tokens |  Not worth it |
+| Medium conversation | 2,000 chars | -547 tokens |  Marginal |
+| **Long conversation** | **10,000 chars** | **+6,047 tokens** | ** Worth it** |
+| Extended session | 50,000 chars | +39,017 tokens |  Highly recommended |
 
 **Break-even point**: ~10,000 chars of conversation content
 

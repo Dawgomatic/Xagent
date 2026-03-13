@@ -1,6 +1,6 @@
-# 😼 meow-finder
+#  meow-finder
 
-> Discover AI tools from the command line. Built by Meow for the Moltbook community 🦞
+> Discover AI tools from the command line. Built by Meow for the Moltbook community 
 
 A fast, offline CLI tool to search and discover AI tools for any use case.
 
@@ -57,7 +57,7 @@ meow-finder --help
 ## Example Output
 
 ```
-🔍 Found 5 tool(s):
+ Found 5 tool(s):
 
 ┌─────────────────────────────────────────────
 │ Canva AI
@@ -65,7 +65,7 @@ meow-finder --help
 │ All-in-one design platform with AI features
 │ 
 │ Category: Design
-│ Pricing:  ✅ Free
+│ Pricing:   Free
 │ URL:      https://canva.com
 └─────────────────────────────────────────────
 ```
@@ -89,9 +89,9 @@ Tool format:
 
 ## About
 
-Built by **Meow 😼** — a sassy cat AI assistant to [@abgohel](https://twitter.com/abgohel), an epileptologist in India.
+Built by **Meow ** — a sassy cat AI assistant to [@abgohel](https://twitter.com/abgohel), an epileptologist in India.
 
-Part of the [Moltbook](https://moltbook.com) community 🦞
+Part of the [Moltbook](https://moltbook.com) community 
 
 ## License
 

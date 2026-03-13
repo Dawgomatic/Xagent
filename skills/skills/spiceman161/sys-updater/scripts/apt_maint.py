@@ -440,7 +440,7 @@ def render_report(now_msk_label: str = "09:00 MSK") -> str:
     if not last:
         log.warning("No last_run.json found")
         log.info("=== report_9am END ===")
-        return "🕘 Отчёт (09:00 MSK)\n\n⚠️ Нет данных: задача 06:00 ещё не запускалась или не смогла сохранить состояние."
+        return " Отчёт (09:00 MSK)\n\n Нет данных: задача 06:00 ещё не запускалась или не смогла сохранить состояние."
 
     updated = last.get("updatedPackages") or []
     applied_planned = last.get("plannedApplied") or []
@@ -461,27 +461,27 @@ def render_report(now_msk_label: str = "09:00 MSK") -> str:
 
     lines: list[str] = []
 
-    lines.append(f"🕘 Отчёт ({now_msk_label})")
+    lines.append(f" Отчёт ({now_msk_label})")
     lines.append("")
 
-    lines.append("⚙️ Сегодня в 06:00:")
+    lines.append(" Сегодня в 06:00:")
     lines.append(f"- apt update: {'OK' if last.get('aptUpdateOk') else 'FAIL'}")
     lines.append(f"- security updates (unattended-upgrade): {'OK' if last.get('unattendedOk') else 'FAIL'}")
     lines.append(f"- симуляция upgrade: {'OK' if last.get('simulatedOk') else 'FAIL'}; {sim}")
     lines.append(f"- обновилось (любые apt апдейты): {fmt_list(updated)}")
     lines.append("")
 
-    lines.append("✅ Сегодня применено (из запланированного):")
+    lines.append(" Сегодня применено (из запланированного):")
     lines.append(f"- apt (non-security planned): {fmt_list(applied_planned)}")
     lines.append("")
 
-    lines.append("🔎 Отслеживаем (не-security):")
+    lines.append(" Отслеживаем (не-security):")
     lines.append(f"- кандидаты: {fmt_list(tracked_pkgs)}")
     if blocked_pkgs:
-        lines.append(f"- ⚠️ заблокировано из-за багов/рисков: {fmt_list(blocked_pkgs)}")
+        lines.append(f"-  заблокировано из-за багов/рисков: {fmt_list(blocked_pkgs)}")
     lines.append("")
 
-    lines.append("📅 Запланировано на завтра 06:00:")
+    lines.append(" Запланировано на завтра 06:00:")
     lines.append("- security updates + симуляция (всегда)")
     lines.append(f"- apt (non-security planned): {fmt_list(planned_pkgs)}")
 
@@ -499,17 +499,17 @@ def render_report(now_msk_label: str = "09:00 MSK") -> str:
     
     if npm_items or brew_items:
         lines.append("")
-        lines.append("📦 Другие пакетные менеджеры:")
+        lines.append(" Другие пакетные менеджеры:")
         
         if npm_items:
             lines.append(f"- npm global outdated: {fmt_list(npm_outdated, max_n=5)}")
             if npm_blocked:
-                lines.append(f"  ⚠️ npm blocked: {fmt_list(npm_blocked, max_n=3)}")
+                lines.append(f"   npm blocked: {fmt_list(npm_blocked, max_n=3)}")
         
         if brew_items:
             lines.append(f"- brew outdated: {fmt_list(brew_outdated, max_n=5)}")
             if brew_blocked:
-                lines.append(f"  ⚠️ brew blocked: {fmt_list(brew_blocked, max_n=3)}")
+                lines.append(f"   brew blocked: {fmt_list(brew_blocked, max_n=3)}")
     
     # Add skills section
     rc, stdout, stderr = subprocess.run(
@@ -517,7 +517,7 @@ def render_report(now_msk_label: str = "09:00 MSK") -> str:
     ).returncode, "", ""
     if rc == 0:
         lines.append("")
-        lines.append("🧩 OpenClaw Skills:")
+        lines.append(" OpenClaw Skills:")
         lines.append("- Автообновление при каждом запуске (без карантина)")
         result = subprocess.run(
             ["clawhub", "list"], capture_output=True, text=True, timeout=30

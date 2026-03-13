@@ -26,7 +26,7 @@
   },
   "openclaw": {
     "skill": true,
-    "emoji": "📜",
+    "emoji": "",
     "triggers": ["chronicle", "diary", "journal", "daily log", "write entry", "quotes", "curious", "decisions"],
     "capabilities": [
       "journal-generation",

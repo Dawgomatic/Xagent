@@ -66,10 +66,10 @@ def main():
                 result["symbol"] = args.symbol
                 results.append(result)
                 pnl = result["total_pnl"]
-                emoji = "✅" if pnl > 0 else "❌"
+                emoji = "" if pnl > 0 else ""
                 print(f"[{done}/{total}] {emoji} {strat} {params} → ${pnl:+.2f} ({result['win_rate']}% WR)")
             except Exception as e:
-                print(f"[{done}/{total}] ⚠️ {strat} {params} → ERROR: {e}")
+                print(f"[{done}/{total}]  {strat} {params} → ERROR: {e}")
 
     # Sort by PnL
     results.sort(key=lambda r: r["total_pnl"], reverse=True)

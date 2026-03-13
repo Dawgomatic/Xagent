@@ -80,9 +80,9 @@ RESPONSE=$(curl -s -X PUT \
 # Output
 STORY_NAME=$(echo "$RESPONSE" | jq -r '.name')
 if [ "$STORY_NAME" != "null" ]; then
-  echo "✅ Updated story #$STORY_ID: $STORY_NAME"
+  echo " Updated story #$STORY_ID: $STORY_NAME"
 else
-  echo "❌ Failed to update story"
+  echo " Failed to update story"
   echo "$RESPONSE" | jq .
   exit 1
 fi

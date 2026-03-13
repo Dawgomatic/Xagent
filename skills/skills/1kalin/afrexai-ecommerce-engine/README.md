@@ -1,4 +1,4 @@
-# 🛒 Ecommerce Operations Engine by AfrexAI
+#  Ecommerce Operations Engine by AfrexAI
 
 Complete ecommerce operating system — from product selection and unit economics through multi-channel scaling and profitability management.
 
@@ -36,14 +36,14 @@ Tell your agent:
 - Hybrid sellers expanding to multi-channel
 - Agencies managing ecommerce clients
 
-## ⚡ Level Up
+##  Level Up
 
 This free skill covers the operational playbook. For deep industry-specific context:
 
 - **[Ecommerce AI Context Pack ($47)](https://afrexai-cto.github.io/context-packs/)** — Industry benchmarks, competitor landscapes, customer personas, tech stacks, and compliance frameworks specific to ecommerce and retail
 - **[SaaS Context Pack ($47)](https://afrexai-cto.github.io/context-packs/)** — If you're selling software/SaaS products through ecommerce channels
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - `afrexai-conversion-copywriter` — High-converting product copy and landing pages
 - `afrexai-seo-content-engine` — Drive organic traffic with SEO-optimized content

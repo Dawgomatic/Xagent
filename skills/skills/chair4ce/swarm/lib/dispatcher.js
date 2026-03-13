@@ -46,7 +46,7 @@ class Dispatcher {
   // User-facing announcement (legacy - now uses events)
   announce(message) {
     if (!this.silent) {
-      console.log(`\n🐝 ${message}`);
+      console.log(`\n ${message}`);
     }
   }
 

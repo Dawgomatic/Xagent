@@ -39,7 +39,7 @@ The simplest path for newcomers.
 | [Aerodrome](https://aerodrome.finance/swap?from=eth&to=0x7431ada8a591c955a994a21710752ef9b882b8e3) | Yes (DEX) | Native Base DEX, often best liquidity |
 | Coinbase | ETH/USDC | Buy ETH or USDC, send to Base, then swap to MOR |
 
-⚠️ When withdrawing from an exchange, make sure to select **Base** as the network, not Ethereum mainnet. Base gas fees are fractions of a cent vs $5+ on Ethereum.
+ When withdrawing from an exchange, make sure to select **Base** as the network, not Ethereum mainnet. Base gas fees are fractions of a cent vs $5+ on Ethereum.
 
 ---
 

@@ -64,7 +64,7 @@ async function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
   // Don't check posts from the last 2 hours (TikTok indexing delay)
   const cutoffDate = new Date(now - 2 * 3600000);
 
-  console.log(`📊 Checking analytics (last ${days} days, cutoff: posts before ${cutoffDate.toISOString().slice(11, 16)} UTC)\n`);
+  console.log(` Checking analytics (last ${days} days, cutoff: posts before ${cutoffDate.toISOString().slice(11, 16)} UTC)\n`);
 
   // 1. Get all posts in range
   const postsData = await api('GET', `/posts?startDate=${startDate.toISOString()}&endDate=${now.toISOString()}`);
@@ -95,7 +95,7 @@ async function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
   console.log(`  Unconnected (ready): ${connectableUnconnected.length}`);
   if (tooNew.length > 0) {
     console.log(`  Too new (< 2h, skipping): ${tooNew.length}`);
-    tooNew.forEach(p => console.log(`    ⏳ "${(p.content || '').substring(0, 50)}..." — wait for TikTok to index`));
+    tooNew.forEach(p => console.log(`     "${(p.content || '').substring(0, 50)}..." — wait for TikTok to index`));
   }
   console.log('');
 
@@ -103,7 +103,7 @@ async function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
   if (connectableUnconnected.length > 0 && shouldConnect) {
     // Use the first unconnected post to get the missing list
     const referencePost = connectableUnconnected[0];
-    console.log(`🔍 Fetching TikTok video list via post ${referencePost.id}...`);
+    console.log(` Fetching TikTok video list via post ${referencePost.id}...`);
     const tiktokVideos = await api('GET', `/posts/${referencePost.id}/missing`);
 
     if (Array.isArray(tiktokVideos) && tiktokVideos.length > 0) {
@@ -130,32 +130,32 @@ async function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
         const videoId = idsToUse[i];
         
         if (!videoId) {
-          console.log(`  ⚠️ No matching video ID for "${(post.content || '').substring(0, 50)}..."`);
+          console.log(`   No matching video ID for "${(post.content || '').substring(0, 50)}..."`);
           continue;
         }
 
-        console.log(`  🔗 Connecting: "${(post.content || '').substring(0, 50)}..."`);
+        console.log(`   Connecting: "${(post.content || '').substring(0, 50)}..."`);
         console.log(`     Post: ${post.id} (${post.publishDate})`);
         console.log(`     TikTok: ${videoId}`);
 
         const result = await api('PUT', `/posts/${post.id}/release-id`, { releaseId: videoId });
         if (result.releaseId === videoId) {
-          console.log(`     ✅ Connected`);
+          console.log(`      Connected`);
         } else {
-          console.log(`     ⚠️ Connection returned: ${JSON.stringify(result.releaseId)}`);
+          console.log(`      Connection returned: ${JSON.stringify(result.releaseId)}`);
         }
         await sleep(1000);
       }
       console.log('');
     } else {
-      console.log(`  ⚠️ No TikTok videos found in missing list. Videos may need more time to index.\n`);
+      console.log(`   No TikTok videos found in missing list. Videos may need more time to index.\n`);
     }
   } else if (connectableUnconnected.length > 0 && !shouldConnect) {
-    console.log(`  ℹ️ ${connectableUnconnected.length} posts need connecting. Run with --connect to auto-connect.\n`);
+    console.log(`   ${connectableUnconnected.length} posts need connecting. Run with --connect to auto-connect.\n`);
   }
 
   // 4. Pull analytics for all connected posts
-  console.log('📈 Per-Post Analytics:\n');
+  console.log(' Per-Post Analytics:\n');
   
   // Re-fetch posts to get updated release IDs
   const updatedData = await api('GET', `/posts?startDate=${startDate.toISOString()}&endDate=${now.toISOString()}`);
@@ -208,10 +208,10 @@ async function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
     posts: results
   };
   fs.writeFileSync(analyticsPath, JSON.stringify(snapshot, null, 2));
-  console.log(`💾 Saved analytics snapshot to ${analyticsPath}`);
+  console.log(` Saved analytics snapshot to ${analyticsPath}`);
 
   // 6. Summary
-  console.log('\n📊 Summary:');
+  console.log('\n Summary:');
   const totalViews = results.reduce((s, r) => s + r.views, 0);
   const totalLikes = results.reduce((s, r) => s + r.likes, 0);
   console.log(`  Total views: ${totalViews.toLocaleString()}`);

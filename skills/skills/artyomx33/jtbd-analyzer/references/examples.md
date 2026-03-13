@@ -7,15 +7,15 @@
 **JOB STATEMENT:**
 "When I'm at work and feeling disconnected from my toddler, I want to see visual proof they're happy and cared for, so I can focus on work without guilt"
 
-📋 **FUNCTIONAL JOB:**
+ **FUNCTIONAL JOB:**
 See photos of my specific child during their day
 
-💜 **EMOTIONAL JOB:**
+ **EMOTIONAL JOB:**
 Feel like a good parent even though I'm physically absent
 Release the low-grade anxiety of "are they okay?"
 Feel connected despite distance
 
-👥 **SOCIAL JOB:**
+ **SOCIAL JOB:**
 Have something to share with partner/grandparents
 Prove to myself I made the right childcare choice
 Have stories to ask about at pickup
@@ -46,17 +46,17 @@ Have stories to ask about at pickup
 **JOB STATEMENT:**
 "When we've relocated internationally and I'm worried about my child's education continuity, I want a school that combines global standards with local opportunity, so I can feel my child isn't falling behind AND is thriving"
 
-📋 **FUNCTIONAL JOB:**
+ **FUNCTIONAL JOB:**
 Provide quality education matching international standards
 Teach both English and local language
 Develop practical skills, not just academics
 
-💜 **EMOTIONAL JOB:**
+ **EMOTIONAL JOB:**
 Feel I'm giving my child an advantage, not a compromise
 Feel confident they'll adapt to any future country
 Feel proud of choosing something innovative
 
-👥 **SOCIAL JOB:**
+ **SOCIAL JOB:**
 Be seen as a parent who "gets" education
 Have a school I'm proud to name
 Feel part of a community of like-minded families
@@ -88,17 +88,17 @@ Feel part of a community of like-minded families
 **JOB STATEMENT:**
 "When I'm on hole 7 and getting hungry, I want to order food that arrives at the right moment without interrupting my round, so I can keep enjoying golf without hangry frustration"
 
-📋 **FUNCTIONAL JOB:**
+ **FUNCTIONAL JOB:**
 Order food that meets me at the right hole
 Know when it's arriving
 Pay without hassle
 
-💜 **EMOTIONAL JOB:**
+ **EMOTIONAL JOB:**
 Feel like the course "gets" me
 Feel smart for using efficient solution
 Avoid the frustration of bad timing
 
-👥 **SOCIAL JOB:**
+ **SOCIAL JOB:**
 Look organized to playing partners
 Not be the one who "forgot to order"
 Maybe be the hero who orders for the group
@@ -129,17 +129,17 @@ Maybe be the hero who orders for the group
 **JOB STATEMENT:**
 "When I'm returning to work after parental leave, I want to trust that strangers will care for my baby as well as I would, so I can work without constant fear"
 
-📋 **FUNCTIONAL JOB:**
+ **FUNCTIONAL JOB:**
 Safe, quality care during work hours
 Developmental activities appropriate for age
 Reliable schedule and pickup flexibility
 
-💜 **EMOTIONAL JOB:**
+ **EMOTIONAL JOB:**
 Feel my baby is loved, not just "watched"
 Feel I'm not abandoning them
 Feel confident in the caregivers
 
-👥 **SOCIAL JOB:**
+ **SOCIAL JOB:**
 Tell others I found a "great" daycare
 Not feel judged for going back to work
 Be part of a parent community
@@ -174,13 +174,13 @@ USER: [Specific user type]
 JOB STATEMENT:
 "When [situation], I want to [motivation], so I can [outcome]"
 
-📋 FUNCTIONAL JOB:
+ FUNCTIONAL JOB:
 [What task?]
 
-💜 EMOTIONAL JOB:
+ EMOTIONAL JOB:
 [How feel?]
 
-👥 SOCIAL JOB:
+ SOCIAL JOB:
 [How perceived?]
 
 CURRENT ALTERNATIVES:

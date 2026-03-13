@@ -4,9 +4,9 @@
 
 | Voice | Grade | Traits | Notes |
 |-------|-------|--------|-------|
-| af_heart | A | ❤️ | Default, highest quality |
-| af_bella | A- | 🔥 | Expressive, warm |
-| af_nicole | B- | 🎧 | Clear, professional |
+| af_heart | A |  | Default, highest quality |
+| af_bella | A- |  | Expressive, warm |
+| af_nicole | B- |  | Clear, professional |
 | af_aoede | C+ | | Melodic |
 | af_kore | C+ | | Bright |
 | af_sarah | C+ | | Friendly |

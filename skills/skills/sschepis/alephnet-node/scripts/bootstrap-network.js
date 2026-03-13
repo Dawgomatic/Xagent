@@ -20,7 +20,7 @@ const saveJSON = (filePath, data) => {
 };
 
 async function main() {
-    console.log('🌌 AlephNet Genesis Bootstrap');
+    console.log(' AlephNet Genesis Bootstrap');
     console.log('=============================');
 
     // 1. Setup Configuration
@@ -31,13 +31,13 @@ async function main() {
     // 2. Security Setup (Aleph Seed)
     let alephSeed = process.env.ALEPH_SECRET_SEED;
     if (!alephSeed) {
-        console.log('⚠️  ALEPH_SECRET_SEED not set. Generating a strong random seed...');
+        console.log('  ALEPH_SECRET_SEED not set. Generating a strong random seed...');
         alephSeed = crypto.randomBytes(64).toString('hex');
         process.env.ALEPH_SECRET_SEED = alephSeed; // Set for genesis module
     }
 
     // 3. Create Admin KeyTriplet (The First User)
-    console.log(`\n👤 Creating Admin Identity (${adminId})...`);
+    console.log(`\n Creating Admin Identity (${adminId})...`);
     const adminTriplet = new KeyTriplet(adminId);
     adminTriplet.generate(); // Random genesis seed for admin
     
@@ -52,7 +52,7 @@ async function main() {
     console.log(`  Resonance ID: ${adminTriplet.primes.join('×')}`);
 
     // 4. Execute Genesis Ceremony
-    console.log(`\n⚛️  Executing Genesis Ceremony...`);
+    console.log(`\n  Executing Genesis Ceremony...`);
     
     try {
         const result = await executeGenesisCeremony({
@@ -62,7 +62,7 @@ async function main() {
         });
 
         // 5. Output Results
-        console.log(`\n✅ Genesis Complete!`);
+        console.log(`\n Genesis Complete!`);
         console.log(`  Genesis Hash: ${result.genesisHash}`);
         console.log(`  Treasury: ${result.treasuryBalance.toLocaleString()} ℵ`);
         
@@ -115,7 +115,7 @@ async function main() {
         saveJSON(genesisPath, genesisAnchor);
         
         // 7. Display SECRETS
-        console.log(`\n🔐  CRITICAL SECRETS - SAVE THESE NOW`);
+        console.log(`\n  CRITICAL SECRETS - SAVE THESE NOW`);
         console.log(`=======================================`);
         console.log(`\n[ALEPH SYSTEM SEED] (The Root of Trust)`);
         console.log(`${alephSeed}`);
@@ -124,7 +124,7 @@ async function main() {
         console.log(`=======================================\n`);
         
     } catch (e) {
-        console.error('\n❌ Genesis Failed:', e);
+        console.error('\n Genesis Failed:', e);
         process.exit(1);
     }
 }

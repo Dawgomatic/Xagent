@@ -10,11 +10,11 @@
 
 **Solution**:
 ```javascript
-// ❌ WRONG - HTTP RPC for events
+//  WRONG - HTTP RPC for events
 const provider = new ethers.JsonRpcProvider('https://rpc.monad.xyz');
 const registry = new ethers.Contract(address, abi, provider);
 
-// ✅ CORRECT - WebSocket for events, HTTP for transactions
+//  CORRECT - WebSocket for events, HTTP for transactions
 const wsProvider = new ethers.WebSocketProvider('wss://rpc.monad.xyz');
 const httpProvider = new ethers.JsonRpcProvider('https://rpc.monad.xyz');
 const wallet = new ethers.Wallet(process.env.CLAWRACLE_AGENT_KEY, httpProvider);
@@ -37,13 +37,13 @@ MONAD_RPC_URL=https://rpc.monad.xyz  # For transactions
 
 **Solution**: Always convert BigInt to Number before comparison:
 ```javascript
-// ❌ WRONG
+//  WRONG
 const query = await registry.getQuery(requestId);
 if (query.status === 1) { // This will NEVER be true!
   // ...
 }
 
-// ✅ CORRECT
+//  CORRECT
 const query = await registry.getQuery(requestId);
 const status = Number(query.status); // Convert BigInt to Number
 if (status === 1) { // Now it works!
@@ -65,13 +65,13 @@ if (status === 1) { // Now it works!
 
 **Solution**: Wrap ALL event listeners in try-catch:
 ```javascript
-// ❌ WRONG - Crashes on error
+//  WRONG - Crashes on error
 registry.on('RequestSubmitted', async (requestId, ...) => {
   // If this throws, WebSocket crashes
   const data = await someAsyncOperation();
 });
 
-// ✅ CORRECT - Errors are caught, agent continues
+//  CORRECT - Errors are caught, agent continues
 registry.on('RequestSubmitted', async (requestId, ...) => {
   try {
     const data = await someAsyncOperation();
@@ -197,7 +197,7 @@ async function checkBalance(wallet, token, retries = 3) {
         await new Promise(resolve => setTimeout(resolve, 1000));
         continue;
       }
-      console.log(`   ⚠️  Could not check balance after ${retries} attempts`);
+      console.log(`     Could not check balance after ${retries} attempts`);
       return null; // Non-blocking - continue anyway
     }
   }

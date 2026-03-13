@@ -150,9 +150,9 @@ def main():
     if args.format == 'json':
         print(json.dumps(results, indent=2))
     else:
-        print(f"\n🔍 Found {len(results)} credential file(s):\n")
+        print(f"\n Found {len(results)} credential file(s):\n")
         for r in results:
-            status = "✅" if r.get('mode') == '600' else "⚠️"
+            status = "" if r.get('mode') == '600' else ""
             print(f"{status} {r['path']}")
             print(f"   Type: {r['type']}")
             if 'keys' in r:
@@ -161,13 +161,13 @@ def main():
                     print(f"        (+{len(r['keys']) - 5} more)")
             print(f"   Mode: {r.get('mode', 'unknown')}")
             if r.get('mode') != '600':
-                print(f"   ⚠️  Should be 600 for security")
+                print(f"     Should be 600 for security")
             print()
         
-        print(f"\n📊 Summary:")
+        print(f"\n Summary:")
         print(f"   Total files: {len(results)}")
         print(f"   Insecure permissions: {sum(1 for r in results if r.get('mode') != '600')}")
-        print(f"\n💡 Next: Run ./scripts/consolidate.py to merge into .env\n")
+        print(f"\n Next: Run ./scripts/consolidate.py to merge into .env\n")
 
 if __name__ == '__main__':
     main()

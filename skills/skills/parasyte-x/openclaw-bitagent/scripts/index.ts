@@ -257,7 +257,7 @@ const commands = {
         console.log(`Wallet: ${account.address}`);
         console.log(`Balance: ${formatEther(balance)} ${config.chain.nativeCurrency.symbol}`);
 
-        console.log(`🚀 Launching Agent: ${name} ($${symbol}) with reserve ${reserveSymbol}...`);
+        console.log(` Launching Agent: ${name} ($${symbol}) with reserve ${reserveSymbol}...`);
 
         // SDK Init
         const NewToken = bitagent
@@ -302,7 +302,7 @@ const commands = {
             return;
         }
 
-        console.log(`✅ Agent Registered. Hash: ${agentHash}`);
+        console.log(` Agent Registered. Hash: ${agentHash}`);
 
         // Onchain Create
         console.log(`Submitting on-chain transaction...`);
@@ -324,11 +324,11 @@ const commands = {
         });
 
         if (txReceipt && txReceipt.status === 'success') {
-            console.log(`🎉 Token Launched Successfully!`);
+            console.log(` Token Launched Successfully!`);
             console.log(`Contract: ${tokenAddress}`);
             console.log(`URL: ${config.webBase}/agents/${tokenAddress}`);
         } else {
-            console.error("❌ On-chain creation failed.");
+            console.error(" On-chain creation failed.");
         }
     },
 
@@ -398,10 +398,10 @@ async function trade(side: 'buy' | 'sell', tokenAddress: string | undefined, amo
     }
 
     if (receipt && receipt.status === 'success') {
-        console.log(`✅ ${side.toUpperCase()} Successful!`);
+        console.log(` ${side.toUpperCase()} Successful!`);
         console.log(`Tx: ${receipt.transactionHash}`);
     } else {
-        console.error(`❌ ${side.toUpperCase()} Failed.`);
+        console.error(` ${side.toUpperCase()} Failed.`);
     }
 }
 

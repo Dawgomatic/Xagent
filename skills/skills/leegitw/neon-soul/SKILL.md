@@ -6,7 +6,7 @@ homepage: https://github.com/geeks-accelerator/neon-soul
 user-invocable: true
 disableModelInvocation: true
 disable-model-invocation: true
-emoji: 🔮
+emoji: 
 metadata:
   openclaw:
     config:
@@ -466,7 +466,7 @@ To prevent self-reinforcing beliefs, axioms must be grounded in diverse evidence
 
 **Blocked axioms** appear in synthesis output with their blocker reason:
 ```
-⚠ 2 axioms blocked by anti-echo-chamber:
+ 2 axioms blocked by anti-echo-chamber:
   - "I value authenticity above all" (self-only provenance)
   - "Growth requires discomfort" (no questioning evidence)
 ```

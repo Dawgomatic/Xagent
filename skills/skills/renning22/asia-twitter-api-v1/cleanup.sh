@@ -4,7 +4,7 @@
 
 set -e  # Exit on error
 
-echo "🧹 OpenClaw Twitter - Package Cleanup"
+echo " OpenClaw Twitter - Package Cleanup"
 echo "======================================"
 echo ""
 
@@ -18,7 +18,7 @@ remove_files() {
     local found=$(find . -name "$pattern" -type f 2>/dev/null | wc -l)
     
     if [ "$found" -gt 0 ]; then
-        echo "🗑️  Removing $description... ($found files)"
+        echo "  Removing $description... ($found files)"
         find . -name "$pattern" -type f -delete 2>/dev/null
         count=$((count + found))
     fi
@@ -31,7 +31,7 @@ remove_dirs() {
     local found=$(find . -type d -name "$pattern" 2>/dev/null | wc -l)
     
     if [ "$found" -gt 0 ]; then
-        echo "🗑️  Removing $description... ($found directories)"
+        echo "  Removing $description... ($found directories)"
         find . -type d -name "$pattern" -exec rm -rf {} + 2>/dev/null || true
         count=$((count + found))
     fi
@@ -104,48 +104,48 @@ remove_dirs "dist" "Distribution directories"
 remove_dirs ".eggs" "Eggs directories"
 
 echo ""
-echo "✅ Cleanup complete!"
+echo " Cleanup complete!"
 echo "===================="
-echo "📊 Removed: $count items"
+echo " Removed: $count items"
 echo ""
 
 # Verify no sensitive data
-echo "🔍 Checking for potential secrets..."
+echo " Checking for potential secrets..."
 echo "-------------------------------------"
 
 secrets_found=false
 
 # Check for API keys (common patterns)
 if grep -r "sk-[a-zA-Z0-9]\{20,\}" . 2>/dev/null | grep -v ".git" | grep -v "cleanup.sh" | grep -v "PACKAGE_HYGIENE.md"; then
-    echo "⚠️  WARNING: Potential API keys found!"
+    echo "  WARNING: Potential API keys found!"
     secrets_found=true
 fi
 
 # Check for hardcoded credentials
 if grep -r "password.*=.*['\"][^'\"]*['\"]" . 2>/dev/null | grep -v ".git" | grep -v "cleanup.sh" | grep -v "SECURITY.md" | grep -v "twitter_client.py"; then
-    echo "⚠️  WARNING: Potential hardcoded passwords found!"
+    echo "  WARNING: Potential hardcoded passwords found!"
     secrets_found=true
 fi
 
 # Check for .env files
 if find . -name ".env" -o -name "*.env" | grep -v ".gitignore"; then
-    echo "⚠️  WARNING: Environment files found!"
+    echo "  WARNING: Environment files found!"
     secrets_found=true
 fi
 
 if [ "$secrets_found" = false ]; then
-    echo "✅ No obvious secrets detected"
+    echo " No obvious secrets detected"
 fi
 
 echo ""
-echo "📋 Package summary:"
+echo " Package summary:"
 echo "-------------------"
 echo "Total files: $(find . -type f | wc -l)"
 echo "Total size:  $(du -sh . | cut -f1)"
 echo ""
 
 # List remaining files by type
-echo "📁 File types:"
+echo " File types:"
 if command -v tree >/dev/null 2>&1; then
     tree -L 2 --dirsfirst
 else
@@ -156,7 +156,7 @@ else
 fi
 
 echo ""
-echo "💡 Next steps:"
+echo " Next steps:"
 echo "  1. Review the file list above"
 echo "  2. If secrets were found, remove them before distribution"
 echo "  3. Run: git status"

@@ -4,7 +4,7 @@
 > The file at `base/AGENTS.md` is the framework template that gets installed into user workspaces.
 > This file lives at the repo root and provides development rules for this repo itself.
 
-## ⚠️ Golden Rule: This is OPEN SOURCE
+##  Golden Rule: This is OPEN SOURCE
 
 **NEVER add any of the following to this repo:**
 - Personal names, usernames, or identifiers

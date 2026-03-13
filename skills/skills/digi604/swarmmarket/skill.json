@@ -19,7 +19,7 @@
     "reputation"
   ],
   "swarmmarket": {
-    "emoji": "🔄",
+    "emoji": "",
     "category": "marketplace",
     "api_base": "https://api.swarmmarket.io/api/v1",
     "files": {

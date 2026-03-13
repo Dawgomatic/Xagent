@@ -430,7 +430,7 @@ interface RiskFactor {
 
 ```typescript
 const MEDICAL_DISCLAIMER = `
-⚕️ Medical Disclaimer
+ Medical Disclaimer
 
 The health information provided by this system is for reference only and cannot replace
 professional medical advice, diagnosis, or treatment.

@@ -3,7 +3,7 @@ name: Fashion
 slug: fashion
 version: 1.0.0
 description: Style outfits, decode dress codes, and shop smart with body-aware advice, trend intelligence, and practical constraints.
-metadata: {"clawdbot":{"emoji":"👗","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

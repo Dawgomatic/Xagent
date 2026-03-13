@@ -6,7 +6,7 @@ metadata:
   {
     "clawdbot":
       {
-        "emoji": "🔍",
+        "emoji": "",
         "requires": { "env": ["JINA_API_KEY"] },
         "primaryEnv": "JINA_API_KEY",
         "files": ["scripts/*"],

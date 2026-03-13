@@ -38,10 +38,10 @@ function helloWorld() {
 
 | 功能 | 状态 | 说明 |
 |------|------|------|
-| Markdown转换 | ✅ | 支持基本Markdown语法 |
-| HTML转换 | ✅ | 支持基本HTML标签 |
-| 图片上传 | ⚠️ | 需要额外处理 |
-| 表格处理 | ⚠️ | 需要去除merge_info字段 |
+| Markdown转换 |  | 支持基本Markdown语法 |
+| HTML转换 |  | 支持基本HTML标签 |
+| 图片上传 |  | 需要额外处理 |
+| 表格处理 |  | 需要去除merge_info字段 |
 
 ## 引用示例
 
@@ -75,10 +75,10 @@ const TEST_HTML = `<h1>HTML测试文档</h1>
 <p>访问<a href="https://open.feishu.cn">飞书开放平台</a>了解更多。</p>`;
 
 async function testConvertAPI() {
-  console.log('🚀 开始测试飞书文档转换接口...\n');
+  console.log(' 开始测试飞书文档转换接口...\n');
   
   if (!TEST_CONFIG.appId || !TEST_CONFIG.appSecret) {
-    console.error('❌ 请设置环境变量 FEISHU_APP_ID 和 FEISHU_APP_SECRET');
+    console.error(' 请设置环境变量 FEISHU_APP_ID 和 FEISHU_APP_SECRET');
     console.error('   或在代码中直接设置appId和appSecret');
     process.exit(1);
   }
@@ -89,7 +89,7 @@ async function testConvertAPI() {
     
     console.log('1. 测试Markdown内容转换...');
     const markdownResult = await api.convertContent('markdown', TEST_MARKDOWN);
-    console.log(`   ✅ Markdown转换成功！`);
+    console.log(`    Markdown转换成功！`);
     console.log(`      生成块数量: ${markdownResult.blocks?.length || 0}`);
     console.log(`      一级块ID: ${markdownResult.first_level_block_ids?.length || 0}个`);
     
@@ -104,7 +104,7 @@ async function testConvertAPI() {
     
     console.log('\n2. 测试HTML内容转换...');
     const htmlResult = await api.convertContent('html', TEST_HTML);
-    console.log(`   ✅ HTML转换成功！`);
+    console.log(`    HTML转换成功！`);
     console.log(`      生成块数量: ${htmlResult.blocks?.length || 0}`);
     
     // 显示块类型统计
@@ -119,46 +119,46 @@ async function testConvertAPI() {
     console.log('\n3. 测试错误处理...');
     try {
       await api.convertContent('invalid', 'test content');
-      console.log('   ❌ 应该抛出错误但没有抛出');
+      console.log('    应该抛出错误但没有抛出');
     } catch (error) {
-      console.log(`   ✅ 正确捕获错误: ${error.message}`);
+      console.log(`    正确捕获错误: ${error.message}`);
     }
     
     try {
       await api.convertContent('markdown', '');
-      console.log('   ❌ 应该抛出错误但没有抛出');
+      console.log('    应该抛出错误但没有抛出');
     } catch (error) {
-      console.log(`   ✅ 正确捕获错误: ${error.message}`);
+      console.log(`    正确捕获错误: ${error.message}`);
     }
     
     console.log('\n4. 测试表格块处理...');
     // 检查是否有表格块
     const hasTable = markdownResult.blocks?.some(block => block.block_type === 'table');
     if (hasTable) {
-      console.log('   ✅ 检测到表格块，验证处理逻辑...');
+      console.log('    检测到表格块，验证处理逻辑...');
       const tableBlock = markdownResult.blocks.find(block => block.block_type === 'table');
       if (tableBlock.table && tableBlock.table.merge_info) {
-        console.log('   ⚠️  表格块包含merge_info字段，需要处理');
+        console.log('     表格块包含merge_info字段，需要处理');
       } else {
-        console.log('   ✅ 表格块不包含merge_info字段或已处理');
+        console.log('    表格块不包含merge_info字段或已处理');
       }
     } else {
-      console.log('   ℹ️  测试内容中没有表格块');
+      console.log('     测试内容中没有表格块');
     }
     
-    console.log('\n🎉 所有测试完成！');
-    console.log('\n📋 总结:');
-    console.log('   - Markdown转换: ✅ 工作正常');
-    console.log('   - HTML转换: ✅ 工作正常');
-    console.log('   - 错误处理: ✅ 工作正常');
-    console.log('   - 表格处理: ✅ 已实现处理逻辑');
-    console.log('\n💡 建议:');
+    console.log('\n 所有测试完成！');
+    console.log('\n 总结:');
+    console.log('   - Markdown转换:  工作正常');
+    console.log('   - HTML转换:  工作正常');
+    console.log('   - 错误处理:  工作正常');
+    console.log('   - 表格处理:  已实现处理逻辑');
+    console.log('\n 建议:');
     console.log('   1. 使用 create-with-content 命令创建文档');
     console.log('   2. 对于包含图片的内容，需要额外处理图片上传');
     console.log('   3. 大内容需要分批插入（每批最多1000个块）');
     
   } catch (error) {
-    console.error('\n❌ 测试失败:', error.message);
+    console.error('\n 测试失败:', error.message);
     console.error('错误详情:', error);
     process.exit(1);
   }

@@ -26,9 +26,9 @@ def send_bark_msg(key, title, content, url=None, group=None):
         req = urllib.request.Request(request_url)
         with urllib.request.urlopen(req) as response:
             result = response.read().decode('utf-8')
-            print(f"✅ Bark Message sent. Response: {result}")
+            print(f" Bark Message sent. Response: {result}")
     except Exception as e:
-        print(f"❌ Failed to send Bark message: {e}")
+        print(f" Failed to send Bark message: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

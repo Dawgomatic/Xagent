@@ -61,7 +61,7 @@ This is the cleanest workflow: drag task to "Todo" in Linear → Clawdbot picks 
 **Message:**
 ```
 <@YOUR_BOT_ID>
-📋 New task: {{steps.trigger.event.body.data.title}}
+ New task: {{steps.trigger.event.body.data.title}}
   Status: {{steps.trigger.event.body.data.state.name}}
   ID: {{steps.trigger.event.body.data.identifier}}
 ```

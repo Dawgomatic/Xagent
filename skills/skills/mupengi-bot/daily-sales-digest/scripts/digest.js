@@ -18,7 +18,7 @@ function loadConfig() {
   const configPath = path.join(process.env.HOME, '.openclaw/workspace/config/daily-sales-digest.json');
   
   if (!fs.existsSync(configPath)) {
-    console.error('❌ 설정 파일이 없습니다:', configPath);
+    console.error(' 설정 파일이 없습니다:', configPath);
     process.exit(1);
   }
   
@@ -76,7 +76,7 @@ function generateDailySummary(config, date) {
   const data = loadData(config, date);
   
   if (!data) {
-    console.error('❌ 데이터가 없습니다:', formatDate(date));
+    console.error(' 데이터가 없습니다:', formatDate(date));
     process.exit(1);
   }
   
@@ -138,7 +138,7 @@ function generateWeeklySummary(config, endDate) {
   }
   
   if (results.length === 0) {
-    console.error('❌ 주간 데이터가 없습니다.');
+    console.error(' 주간 데이터가 없습니다.');
     process.exit(1);
   }
   
@@ -176,7 +176,7 @@ function generateMonthlySummary(config, endDate) {
   }
   
   if (results.length === 0) {
-    console.error('❌ 월간 데이터가 없습니다.');
+    console.error(' 월간 데이터가 없습니다.');
     process.exit(1);
   }
   
@@ -206,27 +206,27 @@ function formatText(summary) {
   }
   
   // 일일 요약
-  let output = `📊 ${summary.date} 매출 요약\n\n`;
-  output += `💰 총 매출: ₩${summary.summary.revenue.toLocaleString()}`;
+  let output = ` ${summary.date} 매출 요약\n\n`;
+  output += ` 총 매출: ₩${summary.summary.revenue.toLocaleString()}`;
   if (summary.comparison.vsYesterday.revenue !== null) {
     output += ` (${formatChange(summary.comparison.vsYesterday.revenue)} vs 전일)`;
   }
   output += '\n';
   
-  output += `🛒 주문 수: ${summary.summary.orders}건`;
+  output += ` 주문 수: ${summary.summary.orders}건`;
   if (summary.comparison.vsYesterday.orders !== null) {
     output += ` (${formatChange(summary.comparison.vsYesterday.orders)} vs 전일)`;
   }
   output += '\n';
   
-  output += `💳 객단가: ₩${summary.summary.avgOrderValue.toLocaleString()}`;
+  output += ` 객단가: ₩${summary.summary.avgOrderValue.toLocaleString()}`;
   if (summary.comparison.vsYesterday.avgOrderValue !== null) {
     output += ` (${formatChange(summary.comparison.vsYesterday.avgOrderValue)} vs 전일)`;
   }
   output += '\n';
   
   // 비교 분석
-  output += '\n📈 비교 분석:\n';
+  output += '\n 비교 분석:\n';
   if (summary.comparison.vsYesterday.revenue !== null) {
     output += `  • 전일 대비: ${formatChange(summary.comparison.vsYesterday.revenue)}\n`;
   }
@@ -238,7 +238,7 @@ function formatText(summary) {
   }
   
   // 채널별
-  output += '\n🏪 채널별:\n';
+  output += '\n 채널별:\n';
   for (const [key, data] of Object.entries(summary.sources)) {
     output += `  • ${key}: ₩${data.revenue.toLocaleString()} (${data.orders}건)\n`;
   }
@@ -247,27 +247,27 @@ function formatText(summary) {
 }
 
 function formatWeeklyText(summary) {
-  let output = `📊 주간 매출 리포트 (${summary.startDate} ~ ${summary.endDate})\n\n`;
-  output += `💰 총 매출: ₩${summary.summary.revenue.toLocaleString()}\n`;
-  output += `📅 평균 일매출: ₩${summary.summary.avgDailyRevenue.toLocaleString()}\n`;
-  output += `🛒 총 주문: ${summary.summary.orders}건\n`;
-  output += `💳 평균 객단가: ₩${summary.summary.avgOrderValue.toLocaleString()}\n`;
+  let output = ` 주간 매출 리포트 (${summary.startDate} ~ ${summary.endDate})\n\n`;
+  output += ` 총 매출: ₩${summary.summary.revenue.toLocaleString()}\n`;
+  output += ` 평균 일매출: ₩${summary.summary.avgDailyRevenue.toLocaleString()}\n`;
+  output += ` 총 주문: ${summary.summary.orders}건\n`;
+  output += ` 평균 객단가: ₩${summary.summary.avgOrderValue.toLocaleString()}\n`;
   return output;
 }
 
 function formatMonthlyText(summary) {
-  let output = `📊 월간 매출 리포트 (${summary.startDate} ~ ${summary.endDate})\n\n`;
-  output += `💰 총 매출: ₩${summary.summary.revenue.toLocaleString()}\n`;
-  output += `📅 평균 일매출: ₩${summary.summary.avgDailyRevenue.toLocaleString()}\n`;
-  output += `🛒 총 주문: ${summary.summary.orders}건\n`;
-  output += `💳 평균 객단가: ₩${summary.summary.avgOrderValue.toLocaleString()}\n`;
+  let output = ` 월간 매출 리포트 (${summary.startDate} ~ ${summary.endDate})\n\n`;
+  output += ` 총 매출: ₩${summary.summary.revenue.toLocaleString()}\n`;
+  output += ` 평균 일매출: ₩${summary.summary.avgDailyRevenue.toLocaleString()}\n`;
+  output += ` 총 주문: ${summary.summary.orders}건\n`;
+  output += ` 평균 객단가: ₩${summary.summary.avgOrderValue.toLocaleString()}\n`;
   return output;
 }
 
 // Discord 전송
 function deliverDiscord(config, content) {
   if (!config.delivery.discord.enabled) {
-    console.error('❌ Discord 전송이 비활성화되어 있습니다.');
+    console.error(' Discord 전송이 비활성화되어 있습니다.');
     return;
   }
   
@@ -277,23 +277,23 @@ function deliverDiscord(config, content) {
     execSync(`openclaw message send --channel discord --target "${channelId}" --message "${content.replace(/"/g, '\\"')}"`, {
       stdio: 'inherit'
     });
-    console.log('✅ Discord 전송 완료');
+    console.log(' Discord 전송 완료');
   } catch (err) {
-    console.error('❌ Discord 전송 실패:', err.message);
+    console.error(' Discord 전송 실패:', err.message);
   }
 }
 
 // 이메일 전송
 function deliverEmail(config, content, date) {
   if (!config.delivery.email.enabled) {
-    console.error('❌ 이메일 전송이 비활성화되어 있습니다.');
+    console.error(' 이메일 전송이 비활성화되어 있습니다.');
     return;
   }
   
   const subject = config.delivery.email.subject.replace('{date}', date);
   const to = config.delivery.email.to;
   
-  console.log('📧 이메일 전송 (TODO: himalaya 스킬 연동)');
+  console.log(' 이메일 전송 (TODO: himalaya 스킬 연동)');
   console.log(`To: ${to}`);
   console.log(`Subject: ${subject}`);
 }

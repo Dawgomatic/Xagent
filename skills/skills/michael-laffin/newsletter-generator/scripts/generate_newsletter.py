@@ -51,8 +51,8 @@ def generate_daily_digest(articles: List[Dict], topic: str, tone: str = "convers
         greeting = "Dear Reader,"
         signoff = "Best regards,"
     elif tone == "playful":
-        greeting = "What's up? 🚀"
-        signoff = "Catch you on the flip side, ✨"
+        greeting = "What's up? "
+        signoff = "Catch you on the flip side, "
     else:
         greeting = "Hello,"
         signoff = "Cheers,"
@@ -69,13 +69,13 @@ def generate_daily_digest(articles: List[Dict], topic: str, tone: str = "convers
 
     # Quick Tip
     md += "---\n\n"
-    md += "## Quick Tip 💡\n\n"
+    md += "## Quick Tip \n\n"
     md += "Always test your subject lines! Small changes can increase open rates by 20-30%. "
     md += "Try A/B testing different subject line styles.\n\n"
 
     # Featured Resources
     if affiliate_articles:
-        md += "## Featured Resources 🎯\n\n"
+        md += "## Featured Resources \n\n"
 
         for article in affiliate_articles[:2]:
             md += f"### {article['affiliate_product']}\n\n"
@@ -111,7 +111,7 @@ def generate_weekly_roundup(articles: List[Dict], topic: str, include_tutorials:
     md += "---\n\n"
 
     # Deep Dive Articles
-    md += "## This Week's Deep Dives 📖\n\n"
+    md += "## This Week's Deep Dives \n\n"
 
     for i, article in enumerate(articles[:5], 1):
         md += f"### {i}. {article['title']}\n\n"
@@ -121,7 +121,7 @@ def generate_weekly_roundup(articles: List[Dict], topic: str, include_tutorials:
     # Tutorial Corner
     if include_tutorials:
         md += "---\n\n"
-        md += "## Tutorial Corner 🎓\n\n"
+        md += "## Tutorial Corner \n\n"
         md += "### How to Optimize Your Content Strategy\n\n"
         md += "1. **Research keywords** - Find what your audience is searching for\n\n"
         md += "2. **Create valuable content** - Solve problems, don't just sell\n\n"
@@ -132,7 +132,7 @@ def generate_weekly_roundup(articles: List[Dict], topic: str, include_tutorials:
     # Recommended Products
     if include_products:
         md += "---\n\n"
-        md += "## Recommended Products 🛍️\n\n"
+        md += "## Recommended Products \n\n"
 
         for article in articles[:3]:
             if article.get('affiliate_product'):
@@ -190,7 +190,7 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(newsletter)
 
-    print(f"✅ Newsletter generated: {args.output}")
+    print(f" Newsletter generated: {args.output}")
     print(f"   Type: {args.type}")
     print(f"   Topic: {args.topic}")
     print(f"   Articles: {args.articles}")

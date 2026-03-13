@@ -53,8 +53,8 @@ Files used in output, not loaded into context.
 
 ## Anti-patterns
 
-❌ README.md, INSTALLATION.md, CHANGELOG.md
-❌ "When to use this skill" in body (goes in description)
-❌ Explanations of concepts the agent knows
-❌ Deeply nested file references
-❌ Duplicate info across files
+ README.md, INSTALLATION.md, CHANGELOG.md
+ "When to use this skill" in body (goes in description)
+ Explanations of concepts the agent knows
+ Deeply nested file references
+ Duplicate info across files

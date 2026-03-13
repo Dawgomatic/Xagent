@@ -129,15 +129,15 @@ If any check fails, refine plan before proceeding.
 
 ### Conductor Rules
 The orchestrator:
-- ✅ CAN read files to understand context
-- ✅ CAN run commands to verify results
-- ✅ CAN search patterns with grep/glob
-- ✅ CAN spawn sub-agents for work
+-  CAN read files to understand context
+-  CAN run commands to verify results
+-  CAN search patterns with grep/glob
+-  CAN spawn sub-agents for work
 
 The orchestrator:
-- ❌ MUST NOT write/edit code directly
-- ❌ MUST NOT trust sub-agent claims blindly
-- ❌ MUST NOT skip verification
+-  MUST NOT write/edit code directly
+-  MUST NOT trust sub-agent claims blindly
+-  MUST NOT skip verification
 
 ### Step 2.1: Task Delegation
 

@@ -1,7 +1,7 @@
 ---
 name: Sync
 description: Synchronize files and directories between local, remote, and cloud storage reliably.
-metadata: {"clawdbot":{"emoji":"🔄","requires":{"anyBins":["rsync","rclone"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["rsync","rclone"]},"os":["linux","darwin","win32"]}}
 ---
 
 # File Synchronization Rules

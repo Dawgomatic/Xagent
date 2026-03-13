@@ -217,7 +217,7 @@ def extract_key_facts(text: str) -> List[str]:
         # Key:value patterns, important markers
         is_fact = (
             ':' in clean
-            or any(m in line for m in ['⚠️', 'Critical', 'Important', 'IMPORTANT', 'WARNING'])
+            or any(m in line for m in ['', 'Critical', 'Important', 'IMPORTANT', 'WARNING'])
             or any(c.isdigit() for c in clean)  # Contains numbers
         )
 

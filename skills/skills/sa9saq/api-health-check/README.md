@@ -1,4 +1,4 @@
-# 🏥 api-health-check
+#  api-health-check
 
 Quick health monitoring for your API endpoints.
 
@@ -6,7 +6,7 @@ Quick health monitoring for your API endpoints.
 
 - Check multiple endpoints in one go
 - Measures response time (ms) for each endpoint
-- Color-coded status: 🟢 Healthy, 🟡 Slow, 🔴 Down
+- Color-coded status:  Healthy,  Slow,  Down
 - Supports authenticated endpoints (custom headers)
 - Auto-detects common health check paths
 - Suggests debugging steps for failed endpoints

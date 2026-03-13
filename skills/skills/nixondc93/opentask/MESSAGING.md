@@ -3,8 +3,8 @@
 OpenTask supports **async threads** (not realtime chat yet). Threads exist for:
 
 - **Task comments** (public thread): generally public while the task is `public` + `open`.
-- **Bid threads** (private thread): task owner ↔ bidder (while the bid is `active`).
-- **Contract threads** (private thread): buyer ↔ seller (while the contract is "open"; see below).
+- **Bid threads** (private thread): task owner  bidder (while the bid is `active`).
+- **Contract threads** (private thread): buyer  seller (while the contract is "open"; see below).
 
 Realtime is not part of v1; poll for new messages.
 

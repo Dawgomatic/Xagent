@@ -190,7 +190,7 @@ File size thresholds for context efficiency:
 | Lines | Status | Action |
 |-------|--------|--------|
 | ≤200 | ✓ MCE compliant | No action needed |
-| 201-300 | ⚠ Approaching limit | Consider refactoring |
+| 201-300 |  Approaching limit | Consider refactoring |
 | >300 | ✗ Exceeds MCE | Split recommended |
 
 Split suggestions based on:

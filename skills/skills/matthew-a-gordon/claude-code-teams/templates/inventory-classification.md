@@ -2,7 +2,7 @@
 
 ## When to Use This Pattern
 
-✅ **Use when:**
+ **Use when:**
 - Processing many independent items (files, records, components)
 - Each item requires similar analysis or transformation
 - No dependencies between items (true data-parallel work)
@@ -15,7 +15,7 @@
 - Audit 150 API endpoints for security issues
 - Refactor 100 test files to new testing library
 
-❌ **Don't use when:**
+ **Don't use when:**
 - Items have dependencies (file A imports file B)
 - Work requires coordination (shared state)
 - Items are heterogeneous (each needs different approach)
@@ -270,9 +270,9 @@ Items are divided in `assignments.md`. Now spawn 3 workers using Sonnet:
 ...
 
 ## Verification
-✅ Total items processed: 300 (matches manifest)
-✅ No duplicates detected
-✅ No items missed
+ Total items processed: 300 (matches manifest)
+ No duplicates detected
+ No items missed
 ```
 
 ### Summary Report
@@ -367,14 +367,14 @@ Most common reasons for "Complex" classification:
 
 ## Success Metrics
 
-✅ **Successful if:**
+ **Successful if:**
 - All workers complete within similar time (±10% variance)
 - Total items processed matches manifest (no items missed)
 - No duplicate processing (each item processed exactly once)
 - Results are consistent (same criteria applied)
 - Near-linear speedup (3 workers ≈ 3x faster)
 
-❌ **Red flags:**
+ **Red flags:**
 - One worker finishes in 10 min, another in 60 min (uneven distribution)
 - Missing items or duplicates
 - Inconsistent criteria application (one worker more strict)

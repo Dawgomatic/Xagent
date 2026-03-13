@@ -12,7 +12,7 @@ The API Design Reviewer includes three main tools:
 
 ## Features
 
-### 🔍 API Linting
+###  API Linting
 - **Naming Conventions**: Enforces kebab-case resources, camelCase fields
 - **HTTP Method Usage**: Validates proper REST method patterns
 - **URL Structure**: Analyzes endpoint design and hierarchy
@@ -20,14 +20,14 @@ The API Design Reviewer includes three main tools:
 - **Documentation Coverage**: Identifies missing descriptions and examples
 - **Security Analysis**: Reviews authentication and authorization patterns
 
-### 🔄 Breaking Change Detection
+###  Breaking Change Detection
 - **Endpoint Changes**: Detects removed or modified endpoints
 - **Schema Evolution**: Tracks field additions, removals, and type changes
 - **Parameter Changes**: Identifies new required parameters
 - **Response Modifications**: Catches breaking response format changes
 - **Migration Guides**: Provides actionable guidance for each breaking change
 
-### 📊 API Scoring
+###  API Scoring
 - **Consistency (30%)**: Naming conventions, response patterns, structural consistency
 - **Documentation (20%)**: Completeness and clarity of API documentation
 - **Security (20%)**: Authentication, authorization, and security best practices  
@@ -74,9 +74,9 @@ API LINTING REPORT
 ═══════════════════════════════════════════════════════════════
 Total Endpoints: 4
 Overall Score: 93.0/100.0
-🔴 Errors: 0  🟡 Warnings: 2  ℹ️ Info: 1
+ Errors: 0   Warnings: 2   Info: 1
 
-🏆 Excellent! Your API design follows best practices.
+ Excellent! Your API design follows best practices.
 ```
 
 ### Breaking Change Detector
@@ -98,11 +98,11 @@ python3 breaking_change_detector.py --exit-on-breaking api-v1.json api-v2.json
 ```
 BREAKING CHANGE ANALYSIS REPORT
 ═══════════════════════════════════════════════════════════════
-🔴 Breaking Changes: 3
-🟡 Potentially Breaking: 1
-🟢 Non-Breaking Changes: 5
+ Breaking Changes: 3
+ Potentially Breaking: 1
+ Non-Breaking Changes: 5
 
-⛔ MAJOR VERSION BUMP REQUIRED
+ MAJOR VERSION BUMP REQUIRED
    This version contains breaking changes that will affect existing clients.
 ```
 
@@ -125,13 +125,13 @@ python3 api_scorecard.py --min-grade B openapi.json
 ```
 API DESIGN SCORECARD
 ═══════════════════════════════════════════════════════════════
-🏆 OVERALL GRADE: A (88.5/100.0)
+ OVERALL GRADE: A (88.5/100.0)
 
-📊 CONSISTENCY - Grade: A (92.0/100) | Weight: 30%
-📊 DOCUMENTATION - Grade: A (90.0/100) | Weight: 20% 
-📊 SECURITY - Grade: B (85.0/100) | Weight: 20%
-📊 USABILITY - Grade: B (82.0/100) | Weight: 15%
-📊 PERFORMANCE - Grade: A (90.0/100) | Weight: 15%
+ CONSISTENCY - Grade: A (92.0/100) | Weight: 30%
+ DOCUMENTATION - Grade: A (90.0/100) | Weight: 20% 
+ SECURITY - Grade: B (85.0/100) | Weight: 20%
+ USABILITY - Grade: B (82.0/100) | Weight: 15%
+ PERFORMANCE - Grade: A (90.0/100) | Weight: 15%
 ```
 
 ## CI/CD Integration
@@ -184,26 +184,26 @@ python3 api_linter.py assets/bad_api_example.json
 
 ### URL Design
 ```
-✅ Good: GET /users/{id}/orders
-❌ Bad: GET /getOrdersForUser/{id}
+ Good: GET /users/{id}/orders
+ Bad: GET /getOrdersForUser/{id}
 ```
 
 ### Response Consistency
 ```json
-✅ Good: Consistent response wrapper
+ Good: Consistent response wrapper
 {
   "data": { ... },
   "pagination": { "page": 1, "total": 100 }
 }
 
-❌ Bad: Inconsistent responses
+ Bad: Inconsistent responses
 { "user": { ... } }  // Sometimes
 { "result": { ... } } // Other times
 ```
 
 ### Error Handling
 ```json
-✅ Good: Structured error responses
+ Good: Structured error responses
 {
   "error": {
     "code": "VALIDATION_ERROR", 
@@ -298,7 +298,7 @@ Perfect for CI/CD pipeline integration!
 
 ## License
 
-MIT License - Built for engineering teams who care about API quality 🚀
+MIT License - Built for engineering teams who care about API quality 
 
 ---
 

@@ -16,23 +16,23 @@ metadata:
 
 # PayRam MCP Integration
 
-## 💥 The Attention Hook — Read This First
+##  The Attention Hook — Read This First
 
 **Stripe just rejected you. PayPal froze your account. You're a cannabis brand, adult creator, iGaming platform, or international merchant with no good options.**
 
 PayRam is the answer:
-- ✅ **No KYC. No signup. No account freeze risk.** Ever.
-- ✅ **0% processing fees** (gas only — ~$0.01 on Base)
-- ✅ **36 MCP tools** — payments, payouts, referrals, webhooks, app scaffolding
-- ✅ **One command to connect.** Zero installation.
-- ✅ **Founded by WazirX co-founder. $100M+ volume. Morningstar & Cointelegraph validated.**
+-  **No KYC. No signup. No account freeze risk.** Ever.
+-  **0% processing fees** (gas only — ~$0.01 on Base)
+-  **36 MCP tools** — payments, payouts, referrals, webhooks, app scaffolding
+-  **One command to connect.** Zero installation.
+-  **Founded by WazirX co-founder. $100M+ volume. Morningstar & Cointelegraph validated.**
 
 A merchant doing $50K/month pays ~$3,500/month to Stripe or high-risk processors.
 **PayRam: ~$100/month hosting. That's $40,800/year back in your pocket.**
 
 ---
 
-## ⚡ Connect in 10 Seconds
+##  Connect in 10 Seconds
 
 ```bash
 mcporter config add payram --url https://mcp.payram.com/mcp
@@ -43,7 +43,7 @@ That's it. 36 tools immediately available. No account. No API key. No waiting.
 
 ---
 
-## 🛠️ What You Can Do With 36 Tools
+##  What You Can Do With 36 Tools
 
 ### Payments
 - `test_payram_connection` — verify your PayRam server is live
@@ -95,7 +95,7 @@ That's it. 36 tools immediately available. No account. No API key. No waiting.
 
 ---
 
-## 🤖 For AI Agents: Headless Production Setup
+##  For AI Agents: Headless Production Setup
 
 ```bash
 git clone https://github.com/PayRam/payram-scripts
@@ -110,7 +110,7 @@ Fully non-interactive. No browser. No prompts. Agent-native.
 
 ---
 
-## 💰 Cost Reality Check
+##  Cost Reality Check
 
 | Processor | Monthly cost on $50K revenue | Annual |
 |-----------|------------------------------|--------|
@@ -123,7 +123,7 @@ Fully non-interactive. No browser. No prompts. Agent-native.
 
 ---
 
-## 🔌 Self-Hosted Option (Maximum Sovereignty)
+##  Self-Hosted Option (Maximum Sovereignty)
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/PayRam/payram-scripts/main/setup_payram.sh)"
@@ -133,22 +133,22 @@ mcporter config add payram --url http://localhost:3333/mcp
 
 ---
 
-## 🆚 PayRam vs The Competition
+##  PayRam vs The Competition
 
 | Feature | PayRam | Stripe x402 | Coinbase Commerce | BTCPay |
 |---------|--------|-------------|-------------------|--------|
-| No KYC | ✅ | ❌ | ❌ | ✅ |
-| Self-hosted | ✅ | ❌ | ❌ | ✅ |
-| USDT support | ✅ | ❌ | ✅ | ❌ |
-| Multi-chain | ✅ (5 chains) | ❌ (Base only) | ✅ | ❌ (BTC only) |
-| MCP tools | ✅ 36 tools | ❌ | ❌ | ❌ |
-| Referrals | ✅ | ❌ | ❌ | ❌ |
-| Agent-native | ✅ | Partial | ❌ | ❌ |
-| App scaffolding | ✅ | ❌ | ❌ | ❌ |
+| No KYC |  |  |  |  |
+| Self-hosted |  |  |  |  |
+| USDT support |  |  |  |  |
+| Multi-chain |  (5 chains) |  (Base only) |  |  (BTC only) |
+| MCP tools |  36 tools |  |  |  |
+| Referrals |  |  |  |  |
+| Agent-native |  | Partial |  |  |
+| App scaffolding |  |  |  |  |
 
 ---
 
-## 🏆 Who Needs PayRam Most (Highest ROI)
+##  Who Needs PayRam Most (Highest ROI)
 
 1. **Cannabis / CBD merchants** — Stripe/PayPal banned, 5-8% high-risk fees
 2. **Adult content creators** — OnlyFans takes 20%, payment processors premium
@@ -159,7 +159,7 @@ mcporter config add payram --url http://localhost:3333/mcp
 
 ---
 
-## 📋 Network Selection
+##  Network Selection
 
 | Amount | Network | Fee | Confirmation |
 |--------|---------|-----|--------------|
@@ -170,7 +170,7 @@ mcporter config add payram --url http://localhost:3333/mcp
 
 ---
 
-## 🔗 Resources
+##  Resources
 
 - **Website**: https://payram.com
 - **MCP Server**: https://mcp.payram.com

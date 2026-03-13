@@ -23,7 +23,7 @@ execution: "python"
 intellectual_property:
   license: "free-to-use"  # Free to use with source code provided for transparency
   license_file: "LICENSE.md"
-  copyright: "© 2026 UnisAI. All rights reserved."
+  copyright: " 2026 UnisAI. All rights reserved."
   distribution: "via-clawhub-only"  # Distribute only through ClawhHub registry
   source_code_access: "included"  # Source code included for transparency and trust
   modification: "personal-use-only"  # Users may modify for personal use but not redistribute modifications
@@ -199,31 +199,31 @@ restrictions:
 
 changelog:
   "1.0.6":
-    - "🔒 Fixed license contradiction — source code IS included for transparency"
-    - "🔒 Changed license from 'proprietary' to 'free-to-use' with source included"
-    - "🔒 Clarified IP restrictions — modifications allowed for personal use only"
-    - "📝 Fixed metadata inconsistency — required_env_vars now accurately reflects code requirements"
-    - "⚠️ Added explicit third-party data sharing warnings for AI provider usage"
-    - "📦 Updated install instructions to RECOMMEND selective SDK installation (not all)"
-    - "📦 Clarified requirements.txt with version pins and usage notes"
-    - "🌐 Added GitHub repository and documentation links to support section"
-    - "🔧 Updated all version references to 1.0.6 across manifest, LICENSE, SKILL.md"
+    - " Fixed license contradiction — source code IS included for transparency"
+    - " Changed license from 'proprietary' to 'free-to-use' with source included"
+    - " Clarified IP restrictions — modifications allowed for personal use only"
+    - " Fixed metadata inconsistency — required_env_vars now accurately reflects code requirements"
+    - " Added explicit third-party data sharing warnings for AI provider usage"
+    - " Updated install instructions to RECOMMEND selective SDK installation (not all)"
+    - " Clarified requirements.txt with version pins and usage notes"
+    - " Added GitHub repository and documentation links to support section"
+    - " Updated all version references to 1.0.6 across manifest, LICENSE, SKILL.md"
   "1.0.2":
-    - "✨ Multi-model support: Claude, GPT-5.2, Gemini, Llama, Mistral"
-    - "✨ Choose your preferred AI model for analysis"
-    - "✨ 12 models across 5 providers"
-    - "✨ Real provider SDK integration (not mocked)"
-    - "✨ Updated to latest 2026 models"
-    - "✨ Added requirements.txt / install instructions"
-    - "🔧 Fixed credentials metadata consistency"
-    - "🔧 Removed non-existent integrations and API endpoints"
+    - " Multi-model support: Claude, GPT-5.2, Gemini, Llama, Mistral"
+    - " Choose your preferred AI model for analysis"
+    - " 12 models across 5 providers"
+    - " Real provider SDK integration (not mocked)"
+    - " Updated to latest 2026 models"
+    - " Added requirements.txt / install instructions"
+    - " Fixed credentials metadata consistency"
+    - " Removed non-existent integrations and API endpoints"
   "1.0.0":
-    - "✨ Content readability analysis with Flesch-Kincaid scoring"
-    - "✨ Keyword density tracking for target keywords"
-    - "✨ Technical SEO audit (headings, structure, links)"
-    - "✨ AI-powered optimization suggestions"
-    - "✨ Answer Engine Optimization (AEO) recommendations"
-    - "✨ Real-time impact estimation"
+    - " Content readability analysis with Flesch-Kincaid scoring"
+    - " Keyword density tracking for target keywords"
+    - " Technical SEO audit (headings, structure, links)"
+    - " AI-powered optimization suggestions"
+    - " Answer Engine Optimization (AEO) recommendations"
+    - " Real-time impact estimation"
 
 metadata:
   status: "active"

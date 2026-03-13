@@ -2,7 +2,7 @@
 
 A comprehensive OpenClaw skill for **pyzotero CLI** - the command-line interface for working with your Zotero library. This skill provides complete documentation, installation guides, usage examples, and workflows for searching and managing your Zotero library from the terminal.
 
-## 📦 What's Included
+##  What's Included
 
 ### Core Documentation
 - **[SKILL.md](SKILL.md)** - Complete skill documentation with capabilities, quick start, and command reference
@@ -22,7 +22,7 @@ Pyzotero CLI is a command-line interface that allows you to:
 - **Export data** - Output results in JSON for processing
 - **Local database access** - Query your local Zotero database directly
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -68,7 +68,7 @@ pyzotero search -q "python" --itemtype journalArticle
 pyzotero search -q "topic" --json
 ```
 
-## 🎯 Key Features
+##  Key Features
 
 ### Core Capabilities
 
@@ -80,7 +80,7 @@ pyzotero search -q "topic" --json
 - **Local Database Access** - Direct connection to your local Zotero
 - **Fast And Lightweight** - Quick searches without web API calls
 
-### PEP 668 Compliance ✨
+### PEP 668 Compliance 
 
 Designed for modern Linux distributions that follow PEP 668 (Debian 11+, Ubuntu 23.04+, Fedora 34+, etc.):
 
@@ -94,12 +94,12 @@ Designed for modern Linux distributions that follow PEP 668 (Debian 11+, Ubuntu 
 
 | Method | Best For | PEP 668 Compliant |
 |--------|----------|-------------------|
-| `pipx` | Production, PEP 668 systems | ✅ Yes |
-| `pip --user` | Generic systems | ✅ Yes |
-| `pip install` | Virtual environments | ❌ No |
-| `conda` | Anaconda users | ✅ Yes |
+| `pipx` | Production, PEP 668 systems |  Yes |
+| `pip --user` | Generic systems |  Yes |
+| `pip install` | Virtual environments |  No |
+| `conda` | Anaconda users |  Yes |
 
-## 📚 Documentation Structure
+##  Documentation Structure
 
 ### Main Documentation
 
@@ -140,7 +140,7 @@ Designed for modern Linux distributions that follow PEP 668 (Debian 11+, Ubuntu 
   - Literature review workflows
   - Advanced shell scripting examples
 
-## 🔧 Core Features
+##  Core Features
 
 ### Search Commands
 
@@ -184,7 +184,7 @@ pyzotero search -q "topic" --json | jq 'length'
 pyzotero search -q "topic" --json > results.json
 ```
 
-## 🌟 Highlights
+##  Highlights
 
 ### 1. PEP 668 Compatible
 
@@ -234,7 +234,7 @@ Perfect for shell scripting and automation:
 - Batch operations
 - Report generation
 
-## 💡 Common Use Cases
+##  Common Use Cases
 
 ### 1. Daily Research
 
@@ -312,7 +312,7 @@ for topic in "machine learning" "deep learning" "neural networks"; do
 done
 ```
 
-## 🔗 Integration
+##  Integration
 
 ### With Other OpenClaw Skills
 
@@ -327,7 +327,7 @@ done
 - **Text editors** - Export for manuscript preparation
 - **Data analysis tools** - Export JSON for pandas, R, etc.
 
-## 📊 Skill Statistics
+##  Skill Statistics
 
 | Metric | Count |
 |--------|-------|
@@ -339,7 +339,7 @@ done
 | Platforms supported | 8+ |
 | Workflow examples | 10+ |
 
-## ⚙️ System Requirements
+##  System Requirements
 
 ### Minimum Requirements
 
@@ -354,7 +354,7 @@ done
 - **curl** - For debugging connection issues
 - **Standard shell tools** - bash, zsh, etc.
 
-## 🛠️ Installation Quick Reference
+##  Installation Quick Reference
 
 ### PEP 668 Systems (Debian, Ubuntu, Fedora, etc.)
 
@@ -390,7 +390,7 @@ source ~/.venvs/pyzotero/bin/activate
 pip install "pyzotero[cli]"
 ```
 
-## 📖 Getting Help
+##  Getting Help
 
 ### Documentation
 
@@ -407,17 +407,17 @@ pip install "pyzotero[cli]"
 - **PEP 668**: https://peps.python.org/pep-0668/
 - **jq Manual**: https://stedolan.github.io/jq/
 
-## 🤝 Contributing
+##  Contributing
 
 This skill follows the OpenClaw format and structure. For bug reports, feature requests, or contributions to pyzotero itself, please visit the original repository:
 
 https://github.com/urschrei/pyzotero
 
-## 📄 License
+##  License
 
 This skill documentation is provided as-is to help users of pyzotero. The underlying software follows the Blue Oak Model License 1.0.0. See the original repository for details.
 
-## 🎯 Version Information
+##  Version Information
 
 - **Skill Version**: 1.0.0
 - **Pyzotero Version**: Latest from PyPI
@@ -425,19 +425,19 @@ This skill documentation is provided as-is to help users of pyzotero. The underl
 - **Python Required**: 3.7+
 - **Zotero Required**: 7+ (for local access)
 
-## ✨ Summary
+##  Summary
 
 This is a **production-ready** OpenClaw skill for pyzotero CLI that:
 
-- ✅ Fully supports PEP 668-compliant systems with pipx
-- ✅ Provides comprehensive CLI-specific documentation (17,500+ lines)
-- ✅ Covers 8+ platforms with specific instructions
-- ✅ Includes 15+ shell script examples
-- ✅ Offers secure installation methods (pipx and pip only)
-- ✅ Provides JSON output for automation
-- ✅ Includes full-text search capabilities
-- ✅ Works with local Zotero databases
-- ✅ Perfect for automation and scripting workflows
+-  Fully supports PEP 668-compliant systems with pipx
+-  Provides comprehensive CLI-specific documentation (17,500+ lines)
+-  Covers 8+ platforms with specific instructions
+-  Includes 15+ shell script examples
+-  Offers secure installation methods (pipx and pip only)
+-  Provides JSON output for automation
+-  Includes full-text search capabilities
+-  Works with local Zotero databases
+-  Perfect for automation and scripting workflows
 
 **Important Notes:**
 
@@ -447,8 +447,8 @@ This is a **production-ready** OpenClaw skill for pyzotero CLI that:
 4. **Full-text search** requires PDFs to be indexed in Zotero
 5. **Uses pipx** on PEP 668-compliant systems to avoid conflicts
 
-**Ready for immediate use in research and automation environments!** 🎉
+**Ready for immediate use in research and automation environments!** 
 
 ---
 
-**Happy searching from the terminal! 📚💻**
+**Happy searching from the terminal! **

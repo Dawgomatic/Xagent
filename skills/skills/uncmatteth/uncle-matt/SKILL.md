@@ -36,7 +36,7 @@ You must install those from the full UNCLEMATTCLAWBOT repo, or `uncle_matt_actio
 See: `ACTIONS.generated.md` (auto-generated at install time)
 
 ## Optional voice pack (disabled by default)
-!!! VOICE PACK !!! 😎👍
+!!! VOICE PACK !!! 
 - **420** random refusal/warning lines.
 - Used only for safety messages (refusals/warnings).
 - Enable: `voicePackEnabled: true`.

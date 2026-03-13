@@ -32,14 +32,14 @@ async function installSlither() {
   for (const method of methods) {
     try {
       execSync(method, { stdio: 'inherit' });
-      console.log('✅ Slither installed successfully');
+      console.log(' Slither installed successfully');
       return true;
     } catch {
       continue;
     }
   }
   
-  console.log('⚠️  Could not install Slither. Install manually:');
+  console.log('  Could not install Slither. Install manually:');
   console.log('   pip3 install slither-analyzer');
   console.log('   or: pipx install slither-analyzer');
   return false;
@@ -183,10 +183,10 @@ function generateCombinedReport(projectPath, guardianFindings, slitherFindings) 
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | ${merged.filter(f => f.severity === 'critical').length} |
-| 🟠 High | ${merged.filter(f => f.severity === 'high').length} |
-| 🟡 Medium | ${merged.filter(f => f.severity === 'medium').length} |
-| 🔵 Low | ${merged.filter(f => f.severity === 'low').length} |
+|  Critical | ${merged.filter(f => f.severity === 'critical').length} |
+|  High | ${merged.filter(f => f.severity === 'high').length} |
+|  Medium | ${merged.filter(f => f.severity === 'medium').length} |
+|  Low | ${merged.filter(f => f.severity === 'low').length} |
 
 `;
 
@@ -201,7 +201,7 @@ function generateCombinedReport(projectPath, guardianFindings, slitherFindings) 
   for (const [severity, items] of Object.entries(bySeverity)) {
     if (items.length === 0) continue;
     
-    const emoji = { critical: '🔴', high: '🟠', medium: '🟡', low: '🔵' }[severity];
+    const emoji = { critical: '', high: '', medium: '', low: '' }[severity];
     report += `## ${emoji} ${severity.charAt(0).toUpperCase() + severity.slice(1)} Findings\n\n`;
     
     for (const finding of items) {
@@ -301,7 +301,7 @@ Examples:
   
   if (outputFile) {
     fs.writeFileSync(outputFile, output);
-    console.log(`\n✅ Report written to ${outputFile}`);
+    console.log(`\n Report written to ${outputFile}`);
   } else {
     console.log('\n' + output);
   }

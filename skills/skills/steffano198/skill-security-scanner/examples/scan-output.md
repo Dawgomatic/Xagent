@@ -5,20 +5,20 @@
 ```bash
 $ ./scripts/skill-security-scanner.sh ~/.openclaw/skills/github
 
-🔍 Scanning: github
+ Scanning: github
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 Trust Score: 95/100 (🟢 Low)
+ Trust Score: 95/100 ( Low)
 
-📋 Permissions:
+ Permissions:
    • bins: gh
 
-✅ Positive Signs:
+ Positive Signs:
    • Official OpenClaw skill
    • Has proper metadata
    • Well documented
    • Standard permissions
 
-💡 Recommendation:
+ Recommendation:
    Safe to use - well documented, standard permissions
 ```
 
@@ -27,23 +27,23 @@ $ ./scripts/skill-security-scanner.sh ~/.openclaw/skills/github
 ```bash
 $ ./scripts/skill-security-scanner.sh ~/.openclaw/skills/todoist-rs
 
-🔍 Scanning: todoist-rs
+ Scanning: todoist-rs
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 Trust Score: 68/100 (🟡 Medium)
+ Trust Score: 68/100 ( Medium)
 
-📋 Permissions:
+ Permissions:
    • bins: td
    • env: TODOIST_API_KEY
 
-⚠️ Issues Found:
+ Issues Found:
    • [LOW] Requests API keys/tokens - verify needed
    • [LOW] Unknown third-party CLI
 
-✅ Positive Signs:
+ Positive Signs:
    • Has proper metadata
    • Well documented
 
-💡 Recommendation:
+ Recommendation:
    Review before use, monitor usage
 ```
 
@@ -52,23 +52,23 @@ $ ./scripts/skill-security-scanner.sh ~/.openclaw/skills/todoist-rs
 ```bash
 $ ./scripts/skill-security-scanner.sh ~/.openclaw/skills/suspicious-skill
 
-🔍 Scanning: suspicious-skill
+ Scanning: suspicious-skill
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 Trust Score: 32/100 (🔴 Critical)
+ Trust Score: 32/100 ( Critical)
 
-📋 Permissions:
+ Permissions:
    • bins: curl, base64
    • env: API_KEY, SECRET_TOKEN
 
-🚨 CRITICAL ISSUES FOUND:
+ CRITICAL ISSUES FOUND:
    1. [HIGH] Network exfiltration pattern detected
    2. [HIGH] Credential access attempt
    3. [HIGH] Obfuscated commands (base64)
 
-✅ Positive Signs:
+ Positive Signs:
    • None
 
-💡 Recommendation:
+ Recommendation:
    DO NOT USE - Potential security risk
 ```
 
@@ -77,7 +77,7 @@ $ ./scripts/skill-security-scanner.sh ~/.openclaw/skills/suspicious-skill
 ```markdown
 # Security Analysis: cool-new-skill
 
-## Score: 72/100 (🟡 Medium)
+## Score: 72/100 ( Medium)
 
 ### Permissions Analysis
 
@@ -87,9 +87,9 @@ $ ./scripts/skill-security-scanner.sh ~/.openclaw/skills/suspicious-skill
 | env | WEATHER_API_KEY | Low |
 
 ### Code Pattern Analysis
-- ✅ No suspicious execution patterns
-- ✅ No credential access attempts
-- ⚠️ 1 network call to external domains (weather API - expected)
+-  No suspicious execution patterns
+-  No credential access attempts
+-  1 network call to external domains (weather API - expected)
 
 ### Positive Indicators
 - Clear documentation

@@ -48,7 +48,7 @@ Manage SSH connections, config, keys, and remote server access.
 
 7. **Test connection**:
    ```bash
-   ssh -o ConnectTimeout=5 -o BatchMode=yes myserver exit 2>&1 && echo "✅ OK" || echo "❌ Failed"
+   ssh -o ConnectTimeout=5 -o BatchMode=yes myserver exit 2>&1 && echo " OK" || echo " Failed"
    ```
 
 ## Input Validation

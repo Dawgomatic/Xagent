@@ -27,17 +27,17 @@
   },
   "house_stuff": {
     "items": [
-      {"id": "hs_bins", "title": "Bins night reminder", "detail": "Roll them out Wednesday after dinner.", "priority": "medium", "category": "chores", "icon": "🗑️"},
-      {"id": "hs_kettle", "title": "Kettle just boiled", "detail": "Tea window lasts 15 minutes.", "priority": "low", "category": "kitchen", "icon": "☕"}
+      {"id": "hs_bins", "title": "Bins night reminder", "detail": "Roll them out Wednesday after dinner.", "priority": "medium", "category": "chores", "icon": ""},
+      {"id": "hs_kettle", "title": "Kettle just boiled", "detail": "Tea window lasts 15 minutes.", "priority": "low", "category": "kitchen", "icon": ""}
     ]
   },
   "earl_unplugged": [
-    {"id": "eu_anchor", "topic": "House energy", "take": "Chaotic, messy, brilliant. Wouldn't trade this house.", "heat": 0.95, "emoji": "❤️", "date": "2026-02-01"},
-    {"id": "eu_bins", "topic": "Bin night", "take": "Every week they act surprised. Every week I remind them.", "heat": 0.85, "emoji": "🗑️", "date": "2026-02-01"}
+    {"id": "eu_anchor", "topic": "House energy", "take": "Chaotic, messy, brilliant. Wouldn't trade this house.", "heat": 0.95, "emoji": "", "date": "2026-02-01"},
+    {"id": "eu_bins", "topic": "Bin night", "take": "Every week they act surprised. Every week I remind them.", "heat": 0.85, "emoji": "", "date": "2026-02-01"}
   ],
   "sketchpad": {
     "canvas": [
-      {"id": "sk_home", "type": "doodle", "label": "🏠", "x": 0.5, "y": 0.5, "size": 45, "color": "#FF9966", "note": "Home sweet home."},
+      {"id": "sk_home", "type": "doodle", "label": "", "x": 0.5, "y": 0.5, "size": 45, "color": "#FF9966", "note": "Home sweet home."},
       {"id": "sk_dishes", "type": "note", "label": "WHOSE DISHES?", "x": 0.78, "y": 0.4, "size": 11, "color": "#f472b6", "note": "eternal question"}
     ]
   },

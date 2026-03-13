@@ -163,7 +163,7 @@ class Agent:
         with self._lock:
             self._peer_bundles[peer_id] = bundle
             self._sessions[peer_id] = perform_key_exchange(self._keypair, bundle)
-        logger.debug("Session established: %s ↔ %s", self.id, peer_id)
+        logger.debug("Session established: %s  %s", self.id, peer_id)
 
     def connect_with_bundle(self, bundle: dict) -> None:
         """
@@ -174,7 +174,7 @@ class Agent:
         with self._lock:
             self._peer_bundles[peer_id] = bundle
             self._sessions[peer_id] = perform_key_exchange(self._keypair, bundle)
-        logger.debug("Session (bundle) established: %s ↔ %s", self.id, peer_id)
+        logger.debug("Session (bundle) established: %s  %s", self.id, peer_id)
 
     def _ensure_session(self, peer_id: str) -> CryptoSession:
         if peer_id not in self._sessions:

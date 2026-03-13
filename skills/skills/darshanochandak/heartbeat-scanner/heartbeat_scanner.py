@@ -113,44 +113,44 @@ def scan_heartbeat(filepath: str, strict: bool = False) -> Dict[str, Any]:
         "quirky_output": None
     }
     
-    print("💓 Heartbeat Scanner v2.0")
+    print(" Heartbeat Scanner v2.0")
     print("=" * 70)
-    print(f"\n📄 Loading profile: {filepath}")
+    print(f"\n Loading profile: {filepath}")
     
     # Step 1: SHACL Validation
     mode = "STRICT" if strict else "Standard"
-    print(f"\n🔍 Step 1: SHACL Structural Validation ({mode})...")
+    print(f"\n Step 1: SHACL Structural Validation ({mode})...")
     shacl_ok, shacl_report = shacl_validate(filepath, strict=strict)
     result["shacl_valid"] = shacl_ok
     
     if not shacl_ok:
         result["status"] = "INVALID_STRUCTURE"
         result["message"] = "SHACL validation failed. Profile structure is invalid."
-        result["quirky_output"] = "❌ Oops! Your profile is malformed. Check required fields."
-        print("❌ SHACL validation FAILED")
+        result["quirky_output"] = " Oops! Your profile is malformed. Check required fields."
+        print(" SHACL validation FAILED")
         print(f"\nErrors:\n{shacl_report[:500]}")
         return result
     
-    print("✅ SHACL validation PASSED")
+    print(" SHACL validation PASSED")
     
     # Step 2: Load Profile Data
-    print("\n📊 Step 2: Extracting profile data...")
+    print("\n Step 2: Extracting profile data...")
     profile_data = load_profile_from_ttl(filepath)
     
     if not profile_data:
         result["status"] = "PARSE_ERROR"
         result["message"] = "Could not parse profile data."
-        result["quirky_output"] = "❌ Hmm, can't read your pulse. File corrupted?"
-        print("❌ Failed to parse profile")
+        result["quirky_output"] = " Hmm, can't read your pulse. File corrupted?"
+        print(" Failed to parse profile")
         return result
     
     result["profile_data"] = profile_data
-    print(f"✅ Loaded: {profile_data['agentName']}")
+    print(f" Loaded: {profile_data['agentName']}")
     print(f"   Posts: {profile_data['postCount']}, Days: {profile_data['daysSpan']:.1f}")
     print(f"   CV: {profile_data['cvScore']:.2f}, Meta: {profile_data['metaScore']:.2f}, Human: {profile_data['humanContextScore']:.2f}")
     
     # Step 3: Python Classification
-    print("\n🧠 Step 3: Running classification engine...")
+    print("\n Step 3: Running classification engine...")
     classification = process_agent_profile(profile_data)
     result["classification"] = classification
     
@@ -160,10 +160,10 @@ def scan_heartbeat(filepath: str, strict: bool = False) -> Dict[str, Any]:
     result["quirky_output"] = classification.get("message", "")
     
     if classification.get("status") == "INSUFFICIENT_DATA":
-        print("⚠️  INSUFFICIENT DATA")
+        print("  INSUFFICIENT DATA")
         print(f"   Need more posts/days")
     else:
-        print(f"✅ Classification: {classification.get('classification', 'UNKNOWN')}")
+        print(f" Classification: {classification.get('classification', 'UNKNOWN')}")
         print(f"   Confidence: {classification.get('confidence', 0):.0%}")
     
     return result
@@ -181,7 +181,7 @@ def main():
     args = parser.parse_args()
     
     if not Path(args.profile).exists():
-        print(f"❌ File not found: {args.profile}")
+        print(f" File not found: {args.profile}")
         sys.exit(1)
     
     result = scan_heartbeat(args.profile, strict=args.strict)
@@ -192,7 +192,7 @@ def main():
     print("=" * 70)
     
     if result["status"] == "INVALID_STRUCTURE":
-        print("\n❌ STRUCTURAL VALIDATION FAILED")
+        print("\n STRUCTURAL VALIDATION FAILED")
         print("Your profile doesn't match the required schema.")
         print("\nCheck:")
         print("  - Required fields: agentId, agentName, platform")
@@ -200,14 +200,14 @@ def main():
         print("  - Score ranges: 0.0-1.0")
         
     elif result["status"] == "INSUFFICIENT_DATA":
-        print(f"\n⏳ {result['quirky_output']}")
+        print(f"\n {result['quirky_output']}")
         print(f"\n{result['classification'].get('recommendation', '')}")
         
     else:
         print(f"\n{result['quirky_output']}")
         
         if args.verbose and result["profile_data"]:
-            print(f"\n📊 Technical Details:")
+            print(f"\n Technical Details:")
             print(f"   Score: {result['profile_data']['agentScore']:.3f}")
             print(f"   Data Quality: {result['classification'].get('data_quality', 'UNKNOWN')}")
     

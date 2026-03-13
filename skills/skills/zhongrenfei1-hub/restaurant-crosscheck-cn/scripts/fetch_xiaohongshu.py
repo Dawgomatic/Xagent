@@ -46,13 +46,13 @@ def fetch_xiaohongshu(location: str, cuisine: str) -> List[XiaohongshuPost]:
                 f"https://www.xiaohongshu.com/search_result?"
                 f"keyword={quote(keyword)}&source=web_search_result_notes"
             )
-            print(f"  🔗 小红书: {url}")
+            print(f"   小红书: {url}")
             page.goto(url, timeout=30000, wait_until="domcontentloaded")
             time.sleep(PAGE_LOAD_WAIT + 1)
 
             # 如果被重定向，用搜索框
             if "/search_result" not in page.url:
-                print("  ⚠️ 被重定向，尝试搜索框...")
+                print("   被重定向，尝试搜索框...")
                 page.goto("https://www.xiaohongshu.com", timeout=30000)
                 time.sleep(3)
                 box = page.query_selector(
@@ -76,11 +76,11 @@ def fetch_xiaohongshu(location: str, cuisine: str) -> List[XiaohongshuPost]:
                 cards = page.query_selector_all(sel)
                 if cards:
                     break
-            print(f"  📊 找到 {len(cards)} 篇笔记")
+            print(f"   找到 {len(cards)} 篇笔记")
 
             if not cards:
                 page.screenshot(path=os.path.expanduser("~/Downloads/xhs_debug.png"))
-                print("  ⚠️ 未找到笔记，截图: ~/Downloads/xhs_debug.png")
+                print("   未找到笔记，截图: ~/Downloads/xhs_debug.png")
 
             # 从笔记标题提取店名
             seen_names = set()
@@ -118,7 +118,7 @@ def fetch_xiaohongshu(location: str, cuisine: str) -> List[XiaohongshuPost]:
             ctx.close()
 
     except Exception as e:
-        print(f"  ❌ 小红书出错: {e}")
+        print(f"   小红书出错: {e}")
 
     # 合并同名餐厅
     return _merge_posts(raw_posts)
@@ -181,7 +181,7 @@ def extract_restaurant_names(text: str) -> List[str]:
     for n in names:
         n = n.strip()
         # 去除 emoji
-        n = re.sub(r'[💕🔥✨🌟📍❗🍜🍲🥘🍱🍣🍻☕🎉👍💯]+', '', n).strip()
+        n = re.sub(r'[]+', '', n).strip()
         if len(n) >= 2 and n not in seen:
             seen.add(n)
             result.append(n)

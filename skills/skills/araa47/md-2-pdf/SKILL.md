@@ -1,7 +1,7 @@
 ---
 name: md-to-pdf
 description: Convert markdown files to clean, formatted PDFs using reportlab
-metadata: {"openclaw":{"emoji":"📄","requires":{"bins":["uv"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["uv"]}}}
 ---
 
 # Markdown to PDF
@@ -45,15 +45,15 @@ uv run scripts/md-to-pdf.py input.md -v
 
 | Element | Syntax | Status |
 |---------|--------|--------|
-| Headers | `# H1` to `###### H6` | ✅ |
-| Bold | `**text**` or `__text__` | ✅ |
-| Italic | `*text*` or `_text_` | ✅ |
-| Inline code | `` `code` `` | ✅ |
-| Code blocks | ``` | ✅ |
-| Bullet lists | `- item` or `* item` | ✅ |
-| Numbered lists | `1. item` | ✅ |
-| Task lists | `- [x] done` | ✅ |
-| Tables | `| col | col |` | ✅ |
-| Links | `[text](url)` | ✅ |
-| Horizontal rules | `---` or `***` | ✅ |
-| Blockquotes | `> quote` | ✅ |
+| Headers | `# H1` to `###### H6` |  |
+| Bold | `**text**` or `__text__` |  |
+| Italic | `*text*` or `_text_` |  |
+| Inline code | `` `code` `` |  |
+| Code blocks | ``` |  |
+| Bullet lists | `- item` or `* item` |  |
+| Numbered lists | `1. item` |  |
+| Task lists | `- [x] done` |  |
+| Tables | `| col | col |` |  |
+| Links | `[text](url)` |  |
+| Horizontal rules | `---` or `***` |  |
+| Blockquotes | `> quote` |  |

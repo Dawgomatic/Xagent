@@ -1,7 +1,7 @@
 ---
 name: Workouts
 description: Build a personal workout tracking system with exercises, routines, progression, and PRs.
-metadata: {"clawdbot":{"emoji":"💪","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

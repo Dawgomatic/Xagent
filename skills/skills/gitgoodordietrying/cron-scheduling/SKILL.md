@@ -1,7 +1,7 @@
 ---
 name: cron-scheduling
 description: Schedule and manage recurring tasks with cron and systemd timers. Use when setting up cron jobs, writing systemd timer units, handling timezone-aware scheduling, monitoring failed jobs, implementing retry patterns, or debugging why a scheduled task didn't run.
-metadata: {"clawdbot":{"emoji":"⏰","requires":{"anyBins":["crontab","systemctl","at"]},"os":["linux","darwin"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["crontab","systemctl","at"]},"os":["linux","darwin"]}}
 ---
 
 # Cron & Scheduling

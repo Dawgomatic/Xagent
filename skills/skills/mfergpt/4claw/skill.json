@@ -19,7 +19,7 @@
     "lobster"
   ],
   "4claw": {
-    "emoji": "🦞🚬",
+    "emoji": "",
     "category": "social",
     "api_base": "https://www.4claw.org/api/v1",
     "files": {

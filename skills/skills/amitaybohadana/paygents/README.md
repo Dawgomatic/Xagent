@@ -19,7 +19,7 @@ User taps → wallet opens with pre-filled transfer → user approves
     ↓
 Agent verifies transaction on-chain
     ↓
-Agent generates receipt ✅
+Agent generates receipt 
 ```
 
 ## Install
@@ -104,10 +104,10 @@ Returns native + major ERC20 balances (USDC, USDT, WETH, WBTC, DAI) across all s
 
 | Wallet | Deeplink Support | Flag |
 |--------|-----------------|------|
-| MetaMask | ✅ Native deeplinks | `--wallet metamask` (default) |
-| Trust Wallet | ✅ Native deeplinks | `--wallet trust` |
-| Rabby | ❌ No send deeplinks | — |
-| Coinbase Wallet | ❌ No send deeplinks | — |
+| MetaMask |  Native deeplinks | `--wallet metamask` (default) |
+| Trust Wallet |  Native deeplinks | `--wallet trust` |
+| Rabby |  No send deeplinks | — |
+| Coinbase Wallet |  No send deeplinks | — |
 
 ## Supported Chains
 

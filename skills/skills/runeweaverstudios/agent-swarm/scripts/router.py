@@ -746,12 +746,12 @@ def main():
     if args.command == 'default':
         m = router.get_default_model()
         if not m:
-            print("❌ No default model configured (missing default_model or QUALITY primary in config)", file=sys.stderr)
+            print(" No default model configured (missing default_model or QUALITY primary in config)", file=sys.stderr)
             sys.exit(1)
         if args.json:
             print(json.dumps({"model": m}))
         else:
-            print("🎯 Session default model (capable by default):\n")
+            print(" Session default model (capable by default):\n")
             print(f"   {m['alias']} ({m['id']})")
             print(f"   Cost: ${m['input_cost_per_m']}/${m['output_cost_per_m']} per M")
             print(f"   Use for: {', '.join(m.get('use_for', []))}")
@@ -762,31 +762,31 @@ def main():
         if args.json:
             print(json.dumps(result))
         else:
-            print(f"📋 Task: {task_str}")
-            print(f"\n🎯 Classification: {result['tier']}")
+            print(f" Task: {task_str}")
+            print(f"\n Classification: {result['tier']}")
             print(f"   Confidence: {result['classification']['confidence']:.1%}")
             print(f"   Reasoning: {result['reasoning']}")
             if result['model']:
                 m = result['model']
-                print(f"\n🤖 Recommended Model:")
+                print(f"\n Recommended Model:")
                 print(f"   {m['alias']} ({m['id']})")
                 print(f"   Cost: ${m['input_cost_per_m']}/${m['output_cost_per_m']} per M")
                 print(f"   Use for: {', '.join(m.get('use_for', []))}")
             if result['fallback']:
                 fb = result['fallback']
-                print(f"\n🔄 Fallback: {fb['alias']} ({fb['id']})")
+                print(f"\n Fallback: {fb['alias']} ({fb['id']})")
 
     elif args.command == 'score':
         result = router.classify_task(task_str, return_details=True)
         if args.json:
             print(json.dumps(result))
         else:
-            print(f"📋 Task: {task_str}")
-            print(f"\n🎯 Tier: {result['tier']}")
+            print(f" Task: {task_str}")
+            print(f"\n Tier: {result['tier']}")
             print(f"   Confidence: {result['confidence']:.1%}")
             print(f"   Agentic: {'Yes' if result['is_agentic'] else 'No'}")
             
-            print(f"\n📊 Tier Scores:")
+            print(f"\n Tier Scores:")
             for tier, score in sorted(result['tier_scores'].items(), key=lambda x: x[1], reverse=True):
                 bar = '█' * score
                 print(f"   {tier:10} {bar} ({score})")
@@ -797,10 +797,10 @@ def main():
             print(json.dumps(result))
         else:
             if 'error' in result:
-                print(f"❌ Error: {result['error']}", file=sys.stderr)
+                print(f" Error: {result['error']}", file=sys.stderr)
             else:
-                print(f"📋 Task: {task_str}")
-                print(f"\n💰 Cost Estimate:")
+                print(f" Task: {task_str}")
+                print(f"\n Cost Estimate:")
                 print(f"   Tier: {result['tier']}")
                 print(f"   Model: {result['model']}")
                 print(f"   Est. Cost: ${result['cost']} {result['currency']}")
@@ -809,7 +809,7 @@ def main():
         if args.json:
             print(json.dumps(router.config.get('models', [])))
         else:
-            print("📦 Configured Models:\n")
+            print(" Configured Models:\n")
             for model in router.config.get('models', []):
                 print(f"  {model['alias']:20} [{model['tier']:8}] {model['id']}")
                 print(f"                         ${model['input_cost_per_m']}/${model['output_cost_per_m']}/M")
@@ -824,12 +824,12 @@ def main():
             }
             print(json.dumps(out, indent=2))
         else:
-            print("🔗 OpenRouter model check (https://openrouter.ai/models)\n")
+            print(" OpenRouter model check (https://openrouter.ai/models)\n")
             print(f"   Fetched {report['openrouter_count']} models from OpenRouter.")
             if report["ok"]:
-                print("   ✅ All config model IDs match OpenRouter.")
+                print("    All config model IDs match OpenRouter.")
             else:
-                print(f"   ⚠️  {len(report['invalid'])} ID(s) not found or need correction:\n")
+                print(f"     {len(report['invalid'])} ID(s) not found or need correction:\n")
                 for inv in report["invalid"]:
                     sug = f" → use {inv['suggested']}" if inv.get("suggested") else " (no suggestion)"
                     print(f"      {inv['id']}  [{inv['where']}]{sug}")
@@ -859,7 +859,7 @@ def main():
                         replace_ids(config_data)
                         with open(router.config_path, "w", encoding="utf-8") as f:
                             json.dump(config_data, f, indent=2)
-                        print(f"\n   ✅ Applied {len(replacements)} correction(s). Backup: {backup}")
+                        print(f"\n    Applied {len(replacements)} correction(s). Backup: {backup}")
                 else:
                     print("\n   Run with --fix to update config.json (backup created).")
         if not report["ok"] and not getattr(args, "fix", False):
@@ -867,7 +867,7 @@ def main():
 
     elif args.command == 'spawn':
         if not task_str:
-            print("❌ Error: spawn requires a task string", file=sys.stderr)
+            print(" Error: spawn requires a task string", file=sys.stderr)
             sys.exit(1)
 
         if getattr(args, 'multi', False):
@@ -875,7 +875,7 @@ def main():
             try:
                 tasks = FridayRouter.split_into_tasks(task_str)
             except ValueError as e:
-                error_msg = f"❌ Error splitting tasks: {str(e)}"
+                error_msg = f" Error splitting tasks: {str(e)}"
                 if args.json:
                     print(json.dumps({"error": error_msg, "type": "ValueError"}))
                 else:
@@ -894,7 +894,7 @@ def main():
                         required_exec_node=args.required_exec_node,
                     )
                 except ValueError as e:
-                    error_msg = f"❌ Validation error for task {i+1}: {str(e)}"
+                    error_msg = f" Validation error for task {i+1}: {str(e)}"
                     if args.json:
                         print(json.dumps({"error": error_msg, "task_index": i, "type": "ValueError"}))
                     else:
@@ -903,7 +903,7 @@ def main():
                     sys.exit(1)
                 except Exception as e:
                     import traceback
-                    error_msg = f"❌ Unexpected error spawning task {i+1}: {type(e).__name__}: {str(e)}"
+                    error_msg = f" Unexpected error spawning task {i+1}: {type(e).__name__}: {str(e)}"
                     if args.json:
                         print(json.dumps({
                             "error": error_msg,
@@ -932,7 +932,7 @@ def main():
                 if args.json:
                     print(json.dumps(config_patch_result))
                 else:
-                    print("🚧 Configuration required!\n")
+                    print(" Configuration required!\n")
                     print(f"   {config_patch_result['message']}\n")
                     print(f"   Recommended patch: {config_patch_result['recommended_config_patch']}")
             elif args.json:
@@ -955,7 +955,7 @@ def main():
                     },
                 }))
             else:
-                print(f"📋 Parallel tasks ({len(results)}):\n")
+                print(f" Parallel tasks ({len(results)}):\n")
                 for i, r in enumerate(results, 1):
                     print(f"   {i}. {r['task'][:50]}{'...' if len(r['task']) > 50 else ''} → {r['model'].split('/')[-1]}")
         else:
@@ -967,7 +967,7 @@ def main():
                     required_exec_node=args.required_exec_node,
                 )
             except ValueError as e:
-                error_msg = f"❌ Validation error: {str(e)}"
+                error_msg = f" Validation error: {str(e)}"
                 if args.json:
                     print(json.dumps({"error": error_msg, "type": "ValueError"}))
                 else:
@@ -976,7 +976,7 @@ def main():
                 sys.exit(1)
             except Exception as e:
                 import traceback
-                error_msg = f"❌ Unexpected error in spawn_agent: {type(e).__name__}: {str(e)}"
+                error_msg = f" Unexpected error in spawn_agent: {type(e).__name__}: {str(e)}"
                 if args.json:
                     print(json.dumps({
                         "error": error_msg,
@@ -994,7 +994,7 @@ def main():
                 if args.json:
                     print(json.dumps(spawn_result))
                 else:
-                    print("🚧 Configuration required!\n")
+                    print(" Configuration required!\n")
                     print(f"   {spawn_result['message']}\n")
                     print(f"   Recommended patch: {spawn_result['recommended_config_patch']}")
                     print("   Then retry spawn after gateway restarts if needed.")
@@ -1018,11 +1018,11 @@ def main():
                     })
                     print(json.dumps(out))
                 else:
-                    print(f"📋 Task: {task_str}")
-                    print(f"\n🚀 OpenClaw Spawn Params:")
+                    print(f" Task: {task_str}")
+                    print(f"\n OpenClaw Spawn Params:")
                     print(f"   model: {spawn_result['params']['model']}")
                     print(f"   sessionTarget: {spawn_result['params']['sessionTarget']}")
-                    print(f"\n📦 Full recommendation:")
+                    print(f"\n Full recommendation:")
                     print(f"   Tier: {spawn_result['recommendation']['tier']}")
                     print(f"   Model: {spawn_result['recommendation']['model']['alias']}")
 
@@ -1036,10 +1036,10 @@ if __name__ == '__main__':
     try:
         main()
     except KeyboardInterrupt:
-        print("\n⚠️  Interrupted by user", file=sys.stderr)
+        print("\n  Interrupted by user", file=sys.stderr)
         sys.exit(130)
     except Exception as e:
-        error_msg = f"❌ Error in router.py: {type(e).__name__}: {str(e)}"
+        error_msg = f" Error in router.py: {type(e).__name__}: {str(e)}"
         print(error_msg, file=sys.stderr)
         if not getattr(sys, 'ps1', None):  # Not in interactive mode
             print("\nFull traceback:", file=sys.stderr)

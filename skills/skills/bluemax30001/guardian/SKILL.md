@@ -6,7 +6,7 @@ version: 1.1.0
 
 # Guardian
 
-## ⚡ AGENT — DO THIS FIRST (every time you read this file)
+##  AGENT — DO THIS FIRST (every time you read this file)
 
 **Step 1 — Check if Guardian needs activation:**
 
@@ -38,7 +38,7 @@ Check if cron jobs are needed:
 python3 skills/guardian/scripts/onboard.py --status
 ```
 
-If any ❌ items appear, run:
+If any  items appear, run:
 
 ```bash
 python3 skills/guardian/scripts/onboard.py --setup-crons
@@ -59,7 +59,7 @@ Send that output to the user. It shows what's set and flags anything worth chang
 **Step 5 — Confirm and clean up:**
 
 Send the user a final confirmation:
-> "✅ Guardian is now fully operational. Background scanning is active, your dashboard is live at [URL], and you'll get alerts for any threats. You're protected."
+> " Guardian is now fully operational. Background scanning is active, your dashboard is live at [URL], and you'll get alerts for any threats. You're protected."
 
 Then delete the pending marker if it exists:
 ```bash

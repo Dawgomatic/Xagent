@@ -3,7 +3,7 @@ name: Weaviate
 slug: weaviate
 version: 1.0.0
 description: Build vector search with Weaviate using v4 syntax, proper module configuration, and production-ready patterns.
-metadata: {"clawdbot":{"emoji":"🔷","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Critical: v4 Only (Dec 2024+)

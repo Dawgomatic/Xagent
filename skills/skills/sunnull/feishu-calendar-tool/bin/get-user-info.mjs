@@ -31,7 +31,7 @@ async function getCurrentUserInfo() {
   } catch (error) {
     // If /me fails, try alternative methods
     if (error.code === 99991400 || error.code === 99991668) {
-      console.error('❌ Error: App does not have permission to access user info.');
+      console.error(' Error: App does not have permission to access user info.');
       console.error('   Please add scope: contact:user.base:readonly or contact:user:readonly');
       console.error('   Visit: https://open.larksuite.com/app/' + process.env.FEISHU_APP_ID + '/auth');
     }
@@ -50,7 +50,7 @@ async function getCalendars() {
 
     return result.items || [];
   } catch (error) {
-    console.error('❌ Failed to get calendars:', error.message);
+    console.error(' Failed to get calendars:', error.message);
     throw error;
   }
 }
@@ -91,11 +91,11 @@ async function getPrimaryCalendar() {
  * Display calendars in a nice format
  */
 function displayCalendars(calendars) {
-  console.log('\n📅 Available Calendars:');
+  console.log('\n Available Calendars:');
   console.log('─'.repeat(80));
 
   calendars.forEach((cal, index) => {
-    const emoji = cal.type === 'primary' ? '⭐' : '📆';
+    const emoji = cal.type === 'primary' ? '' : '';
     const type = cal.type || 'personal';
     const summary = cal.summary || '(No name)';
 
@@ -112,26 +112,26 @@ function displayCalendars(calendars) {
  * Main function
  */
 async function main() {
-  console.log('\n🔍 Discovering Lark (Feishu) user and calendar info...\n');
+  console.log('\n Discovering Lark (Feishu) user and calendar info...\n');
 
   // Get user info
   try {
-    console.log('1️⃣ Getting current user info...');
+    console.log(' Getting current user info...');
     const user = await getCurrentUserInfo();
-    console.log(`✅ Found user:`);
+    console.log(` Found user:`);
     console.log(`   Name:      ${user.name}`);
     console.log(`   User ID:   ${user.user_id}`);
     console.log(`   Email:     ${user.email || '(not set)'}`);
     console.log(`   Avatar:    ${user.avatar_url || '(not set)'}`);
   } catch (error) {
-    console.log(`⚠️  Could not get user info: ${error.message}`);
+    console.log(`  Could not get user info: ${error.message}`);
     console.log(`   You may need to set USER_ID manually in .secrets.env\n`);
   }
 
   // Get calendars
-  console.log('\n2️⃣ Getting available calendars...');
+  console.log('\n Getting available calendars...');
   const calendars = await getCalendars();
-  console.log(`✅ Found ${calendars.length} calendar(s)`);
+  console.log(` Found ${calendars.length} calendar(s)`);
 
   // Display all calendars
   displayCalendars(calendars);
@@ -139,11 +139,11 @@ async function main() {
   // Show primary calendar
   try {
     const primary = await getPrimaryCalendar();
-    console.log('\n⭐ Primary/Recommended Calendar:');
+    console.log('\n Primary/Recommended Calendar:');
     console.log(`   Name:     ${primary.summary || '(unnamed)'}`);
     console.log(`   Calendar ID: ${primary.calendar_id}`);
 
-    console.log('\n💡 Configuration for .secrets.env:');
+    console.log('\n Configuration for .secrets.env:');
     console.log('─'.repeat(80));
     console.log(`# Add these lines to your .secrets.env file:`);
     console.log(`FEISHU_USER_ID=${primary.user_id || '(from above)'}`);
@@ -151,10 +151,10 @@ async function main() {
     console.log('─'.repeat(80));
 
   } catch (error) {
-    console.log(`\n⚠️  Could not determine primary calendar: ${error.message}`);
+    console.log(`\n  Could not determine primary calendar: ${error.message}`);
   }
 
-  console.log('\n✨ Done!\n');
+  console.log('\n Done!\n');
 }
 
 // Run

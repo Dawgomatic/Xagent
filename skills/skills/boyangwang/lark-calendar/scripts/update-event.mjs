@@ -65,14 +65,14 @@ async function main() {
       calendarId: values.calendar
     });
     
-    console.log('✅ Event updated successfully!');
+    console.log(' Event updated successfully!');
     console.log('');
     console.log('Updated Event:');
     console.log(`  Title: ${event.summary}`);
     console.log(`  Event ID: ${event.event_id}`);
     
   } catch (error) {
-    console.error('❌ Failed to update event:', error.message);
+    console.error(' Failed to update event:', error.message);
     if (error.larkResponse) {
       console.error('Lark response:', JSON.stringify(error.larkResponse, null, 2));
     }

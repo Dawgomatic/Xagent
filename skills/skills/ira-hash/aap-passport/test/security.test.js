@@ -6,7 +6,7 @@
 
 import { randomBytes, createHash, generateKeyPairSync, createSign, createVerify } from 'node:crypto';
 
-console.log('🧪 AAP Security Tests\n');
+console.log(' AAP Security Tests\n');
 console.log('='.repeat(60));
 
 let passed = 0;
@@ -15,10 +15,10 @@ let failed = 0;
 function test(name, fn) {
   try {
     fn();
-    console.log(`✅ ${name}`);
+    console.log(` ${name}`);
     passed++;
   } catch (e) {
-    console.log(`❌ ${name}: ${e.message}`);
+    console.log(` ${name}: ${e.message}`);
     failed++;
   }
 }
@@ -39,7 +39,7 @@ function generateIdentity() {
 }
 
 // ============== SIGNATURE TESTS ==============
-console.log('\n📦 Signature Security Tests\n');
+console.log('\n Signature Security Tests\n');
 
 test('Valid signature accepted', () => {
   const { publicKey, privateKey, publicId } = generateIdentity();
@@ -125,7 +125,7 @@ test('Empty signature rejected', () => {
 });
 
 // ============== TIMING TESTS ==============
-console.log('\n📦 Timing Security Tests\n');
+console.log('\n Timing Security Tests\n');
 
 test('Expired challenge detected', () => {
   const now = Date.now();
@@ -164,7 +164,7 @@ test('Response time limit enforced', () => {
 });
 
 // ============== INPUT VALIDATION TESTS ==============
-console.log('\n📦 Input Validation Tests\n');
+console.log('\n Input Validation Tests\n');
 
 test('Nonce length validation', () => {
   const validNonce = randomBytes(16).toString('hex');
@@ -202,7 +202,7 @@ test('PublicKey format validation', () => {
 });
 
 // ============== REPLAY ATTACK TESTS ==============
-console.log('\n📦 Replay Attack Tests\n');
+console.log('\n Replay Attack Tests\n');
 
 test('Same nonce cannot be reused', () => {
   const usedNonces = new Set();
@@ -239,7 +239,7 @@ test('Salt must match exactly', () => {
 });
 
 // ============== DOS PROTECTION TESTS ==============
-console.log('\n📦 DoS Protection Tests\n');
+console.log('\n DoS Protection Tests\n');
 
 test('Challenge store has size limit', () => {
   const MAX_CHALLENGES = 10000;
@@ -254,7 +254,7 @@ test('Body size limit defined', () => {
 
 // ============== RESULTS ==============
 console.log('\n' + '='.repeat(60));
-console.log(`\n📊 Results: ${passed} passed, ${failed} failed\n`);
+console.log(`\n Results: ${passed} passed, ${failed} failed\n`);
 
 if (failed > 0) {
   process.exit(1);

@@ -25,14 +25,14 @@
           "agent": "telegram-notifier",
           "action": "send",
           "input": {
-            "message": "📰 {{payload.title}}\n\n{{previous.summary}}\n\n{{payload.url}}"
+            "message": " {{payload.title}}\n\n{{previous.summary}}\n\n{{payload.url}}"
           }
         },
         {
           "agent": "discord-notifier",
           "action": "send",
           "input": {
-            "message": "📰 **{{payload.title}}**\n\n{{previous.summary}}\n\n{{payload.url}}"
+            "message": " **{{payload.title}}**\n\n{{previous.summary}}\n\n{{payload.url}}"
           }
         }
       ]

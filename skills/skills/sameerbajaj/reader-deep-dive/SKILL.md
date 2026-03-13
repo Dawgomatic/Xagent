@@ -1,10 +1,10 @@
 ---
 name: reader-deep-dive
 description: Daily briefing that connects your recent reading to your long-term archive.
-metadata: {"clawdbot":{"emoji":"🤿","requires":{"env":["READWISE_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["READWISE_TOKEN"]}}}
 ---
 
-# Reader Deep Dive 🤿
+# Reader Deep Dive 
 
 Your reading list shouldn't be a write-only memory. This skill checks what you've saved recently, finds connected ideas from your deep archive (last 3 days, 3 months, or years ago), and sends you a high-signal briefing with context on why you should revisit them.
 

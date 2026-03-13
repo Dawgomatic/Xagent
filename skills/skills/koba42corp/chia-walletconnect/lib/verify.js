@@ -40,7 +40,7 @@ async function verifySignature(address, message, signature, publicKey) {
       ...result
     };
   } catch (error) {
-    console.error('❌ Signature verification failed:', error);
+    console.error(' Signature verification failed:', error);
     return {
       verified: false,
       error: error.message,

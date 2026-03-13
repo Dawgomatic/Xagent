@@ -84,7 +84,7 @@ When a user requests to update collections or manage collection data, follow the
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Updates collection with excessive product data
+   #  HIGH COST - Updates collection with excessive product data
    mutation collectionUpdate($input: CollectionInput!) {
      collectionUpdate(input: $input) {
        collection { id title products { edges { node { ... } } } rules { ... } }
@@ -92,7 +92,7 @@ When a user requests to update collections or manage collection data, follow the
      }
    }
    
-   # ✅ LOW COST - Updates collection with only changed fields
+   #  LOW COST - Updates collection with only changed fields
    mutation collectionUpdate($input: CollectionInput!) {
      collectionUpdate(input: $input) {
        collection {

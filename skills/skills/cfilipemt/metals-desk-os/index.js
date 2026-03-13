@@ -107,11 +107,11 @@ class MetalsDeskOS {
 
     // 1. Connect to broker
     const brokerConnected = await this.mt5.connect();
-    console.log(`[INIT] MT5 Connector: ${brokerConnected ? '✅ Connected' : '⚠️ Offline (simulated mode)'}`);
+    console.log(`[INIT] MT5 Connector: ${brokerConnected ? ' Connected' : ' Offline (simulated mode)'}`);
 
     // 2. Initialize price feed
     const feedConnected = await this.priceFeed.initialize();
-    console.log(`[INIT] Price Feed: ${feedConnected ? '✅ Live' : '⚠️ Simulated'}`);
+    console.log(`[INIT] Price Feed: ${feedConnected ? ' Live' : ' Simulated'}`);
 
     // 3. Start automation layer
     this.priceFeed.start();
@@ -153,7 +153,7 @@ class MetalsDeskOS {
     });
 
     console.log('');
-    console.log('[METALS-DESK-OS] ✅ All engines running');
+    console.log('[METALS-DESK-OS]  All engines running');
     console.log(`[METALS-DESK-OS] Mode: ${['', 'Advisory', 'Semi-Auto', 'Full-Auto', 'Risk-Off'][bus.getMode()]}`);
     console.log(`[METALS-DESK-OS] Dashboard WebSocket: ws://localhost:${this.wsFeed.config.port}`);
     console.log(`[METALS-DESK-OS] Instruments: ${this.instruments.join(', ')}`);
@@ -186,7 +186,7 @@ class MetalsDeskOS {
     bus.publish(EVENTS.SYSTEM_STOP, { timestamp: new Date().toISOString() });
     this._saveState();
 
-    console.log('[METALS-DESK-OS] ✅ Shutdown complete');
+    console.log('[METALS-DESK-OS]  Shutdown complete');
   }
 
   // ============================================================================
@@ -375,7 +375,7 @@ process.on('SIGTERM', () => { desk.stop(); process.exit(0); });
 
 // Start
 desk.start().then(() => {
-  console.log('[METALS-DESK-OS] 🏛 Desk is operational');
+  console.log('[METALS-DESK-OS]  Desk is operational');
 }).catch(err => {
   console.error('[METALS-DESK-OS] FATAL:', err.message);
   process.exit(1);

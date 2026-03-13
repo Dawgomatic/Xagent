@@ -106,8 +106,8 @@ def generate_image(
             "cfg_scale": guidance_scale,
             "seed": seed,
         }
-        print(f"🎨 Editing image with prompt: {prompt}", file=sys.stderr)
-        print(f"📷 Input image: {input_image}", file=sys.stderr)
+        print(f" Editing image with prompt: {prompt}", file=sys.stderr)
+        print(f" Input image: {input_image}", file=sys.stderr)
     else:
         # Text-to-image models (dev, schnell)
         # Note: FLUX API only supports prompt, width, height, steps, seed
@@ -125,19 +125,19 @@ def generate_image(
         if width and height:
             payload["width"] = width
             payload["height"] = height
-            print(f"📐 Size: {width}x{height}", file=sys.stderr)
+            print(f" Size: {width}x{height}", file=sys.stderr)
         elif aspect_ratio in SUPPORTED_SIZES:
             w, h = SUPPORTED_SIZES[aspect_ratio]
             payload["width"] = w
             payload["height"] = h
-            print(f"📐 Aspect ratio: {aspect_ratio} ({w}x{h})", file=sys.stderr)
+            print(f" Aspect ratio: {aspect_ratio} ({w}x{h})", file=sys.stderr)
         
-        print(f"🎨 Generating image with prompt: {prompt}", file=sys.stderr)
+        print(f" Generating image with prompt: {prompt}", file=sys.stderr)
     
     info_parts = [f"Model: {model}"]
     if steps: info_parts.append(f"Steps: {steps}")
     if seed: info_parts.append(f"Seed: {seed}")
-    print(f"🤖 {' | '.join(info_parts)}", file=sys.stderr)
+    print(f" {' | '.join(info_parts)}", file=sys.stderr)
     
     response = requests.post(invoke_url, headers=headers, json=payload, timeout=180)
     
@@ -176,10 +176,10 @@ def generate_image(
         with open(output_path, "wb") as f:
             f.write(image_bytes)
         
-        print(f"✅ Image saved to: {output_path}", file=sys.stderr)
+        print(f" Image saved to: {output_path}", file=sys.stderr)
         return output_path
     else:
-        print(f"⚠️ Unexpected response format: {json.dumps(result, indent=2)}", file=sys.stderr)
+        print(f" Unexpected response format: {json.dumps(result, indent=2)}", file=sys.stderr)
         return None
 
 def main():
@@ -250,7 +250,7 @@ Examples:
             # Output in MEDIA format for Moltbot
             print(f"MEDIA:{os.path.abspath(result)}")
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 if __name__ == "__main__":

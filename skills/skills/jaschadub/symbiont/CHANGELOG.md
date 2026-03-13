@@ -135,7 +135,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-#### 🎯 Production-Ready Scheduling (v1.0.0)
+####  Production-Ready Scheduling (v1.0.0)
 - **Session Isolation**: Per-run AgentContext with HeartbeatContextMode control
   - `EphemeralWithSummary`: Fresh context per iteration with summary carryover (default)
   - `SharedPersistent`: Persistent context across all iterations
@@ -168,7 +168,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `require_agent_pin` policy enforcement
   - Prevents unauthorized agent execution
 
-#### 🔒 Security Enhancements
+####  Security Enhancements
 - **New SecurityEventType Variants**:
   - `CronJobDeadLettered`: Job moved to dead-letter queue after max retries
   - `AgentPinVerificationFailed`: AgentPin JWT validation failure
@@ -178,7 +178,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Human approval workflows
   - AgentPin cryptographic verification
 
-#### 📋 Documentation
+####  Documentation
 - **Comprehensive Scheduling Guide**: [`docs/scheduling.md`](docs/scheduling.md)
   - Complete architecture overview
   - DSL syntax reference (cron and at/one-shot)
@@ -230,7 +230,7 @@ Optional enhancements:
 
 ### Added
 
-#### 🚀 Delivery Routing & Policy Enforcement
+####  Delivery Routing & Policy Enforcement
 - **DeliveryRouter Trait**: Pluggable output routing system
   - [`crates/runtime/src/scheduler/delivery.rs`](crates/runtime/src/scheduler/delivery.rs): Core delivery abstractions
   - DefaultDeliveryRouter implementation with multiple channels
@@ -250,7 +250,7 @@ Optional enhancements:
   - Condition evaluation with complex boolean logic
   - Integration with security audit trail
 
-#### 🌐 HTTP API Schedule Endpoints
+####  HTTP API Schedule Endpoints
 - **Complete Schedule Management API**: 10 RESTful endpoints with OpenAPI annotations
   - `POST /api/v1/schedule`: Create new scheduled job
   - `GET /api/v1/schedule`: List all jobs (filterable by status, agent ID)
@@ -267,7 +267,7 @@ Optional enhancements:
   - Request/response schema definitions
   - Authentication examples
 
-#### 📦 SDK Integration
+####  SDK Integration
 - **JavaScript SDK ScheduleClient**: Complete TypeScript SDK for schedule management
   - [`symbiont-sdk-js/src/schedule.ts`](../symbiont-sdk-js/src/schedule.ts): Schedule client implementation
   - Full CRUD operations for jobs
@@ -302,7 +302,7 @@ Optional enhancements:
 
 ### Added
 
-#### 💓 Heartbeat Pattern & DSL
+####  Heartbeat Pattern & DSL
 - **Heartbeat Agent Pattern**: Continuous monitoring with assessment-action-sleep cycles
   - [`crates/runtime/src/scheduler/heartbeat.rs`](crates/runtime/src/scheduler/heartbeat.rs): Heartbeat execution engine
   - HeartbeatConfig for iteration limits and context management
@@ -318,7 +318,7 @@ Optional enhancements:
   - Integration with existing DSL parser infrastructure
   - Semantic validation (cron syntax, timestamp format, policy rules)
 
-#### ⌨️ CLI Subcommands
+####  CLI Subcommands
 - **`symbi cron` Command Group**: Complete CLI for schedule management
   - [`src/commands/cron/mod.rs`](src/commands/cron/mod.rs): Command router and shared utilities
   - **`symbi cron list`**: List jobs with filtering (status, agent ID)
@@ -355,7 +355,7 @@ Optional enhancements:
 
 ### Added
 
-#### ⏰ Cron Foundation
+####  Cron Foundation
 - **CronScheduler**: Background tick loop for scheduled execution
   - [`crates/runtime/src/scheduler/cron.rs`](crates/runtime/src/scheduler/cron.rs): Core scheduler implementation
   - 1-second tick interval with job selection by next run time
@@ -385,7 +385,7 @@ Optional enhancements:
   - Error message tracking
   - Integration with SecurityEventType for audit trail
 
-#### 📊 Monitoring & Observability
+####  Monitoring & Observability
 - **Job Status Tracking**: Real-time job state monitoring
   - Next run time calculation
   - Last run status and duration
@@ -434,7 +434,7 @@ Optional enhancements:
 
 ### Added
 
-#### 🧠 Complete REPL System (New)
+####  Complete REPL System (New)
 - **Interactive Development Environment**: Full REPL (Read-Eval-Print Loop) system for Symbiont DSL
   - [`crates/repl-core`](crates/repl-core): Core REPL engine with DSL evaluation, session management, and policy enforcement
   - [`crates/repl-cli`](crates/repl-cli): Interactive CLI interface and JSON-RPC server for programmatic access
@@ -445,7 +445,7 @@ Optional enhancements:
 - **Session Management**: Snapshot and restore REPL sessions with persistent state
 - **Policy Integration**: Built-in policy checking and capability gating for security
 
-#### 🏢 Enterprise Features (New)
+####  Enterprise Features (New)
 - **Suspended Agent Tracking**: Enterprise scheduler with advanced agent state management
   - [`enterprise/src/scheduler.rs`](enterprise/src/scheduler.rs): Enhanced scheduler with suspension tracking
   - Configurable suspension criteria and automatic resume capabilities
@@ -456,7 +456,7 @@ Optional enhancements:
   - Configurable retention policies with compliance support
   - Background task execution with monitoring and metrics
 
-#### 🛡️ AI-Driven Tool Review System (New)
+####  AI-Driven Tool Review System (New)
 - **Automated Security Analysis**: Complete workflow for MCP tool review and signing
   - [`enterprise/src/tool_review/`](enterprise/src/tool_review/): Tool review orchestrator and components
   - AI-powered security analysis with RAG (Retrieval-Augmented Generation)
@@ -467,14 +467,14 @@ Optional enhancements:
   - Automated recommendations with confidence scoring
   - Audit trail and compliance reporting
 
-#### ☁️ E2B Sandbox Integration (New)
+####  E2B Sandbox Integration (New)
 - **Cloud Sandbox Support**: E2B.dev integration for secure code execution
   - [`crates/runtime/src/sandbox/e2b.rs`](crates/runtime/src/sandbox/e2b.rs): E2B sandbox implementation
   - Multi-tier sandbox architecture (Docker, gVisor, Firecracker, E2B)
   - Automatic tier selection based on risk assessment
   - Remote execution capabilities with enhanced isolation
 
-#### 📊 Enhanced Scheduler Features
+####  Enhanced Scheduler Features
 - **Real Task Execution**: Production-grade task processing capabilities
   - Process spawning with secure execution environments
   - Resource monitoring (CPU, memory) with 5-second intervals
@@ -485,7 +485,7 @@ Optional enhancements:
   - Resource cleanup and metrics persistence
   - Queue cleanup and state synchronization
 
-#### 📋 Documentation & Architecture
+####  Documentation & Architecture
 - **Data Directory Design**: Comprehensive directory structure specification
   - [`data_directory_structure_design.md`](data_directory_structure_design.md): Enhanced data persistence architecture
   - Unified management of agent contexts, logs, prompts, and vector database storage
@@ -497,7 +497,7 @@ Optional enhancements:
   - [`docs/repl-guide.md`](docs/repl-guide.md): Complete REPL usage guide
   - Interactive examples and integration patterns
 
-#### 🔧 Release Management
+####  Release Management
 - **Version Bump**: Updated to 0.6.0 across all workspace crates
 - **Documentation Updates**: Updated version references in documentation and examples
 
@@ -558,7 +558,7 @@ Optional enhancements:
 
 ### Added
 
-#### 🛠️ Enhanced CLI Experience
+####  Enhanced CLI Experience
 - **System Health Diagnostics**: New `symbi doctor` command for comprehensive system health checks
   - [`src/commands/doctor.rs`](src/commands/doctor.rs): Validates system dependencies, configuration, and runtime environment
   - Checks for required tools, permissions, and connectivity
@@ -580,14 +580,14 @@ Optional enhancements:
   - Automatic dependency installation and service startup
   - Health checks and validation after startup
 
-#### 📦 Installation & Distribution
+####  Installation & Distribution
 - **Automated Installation Script**: New [`scripts/install.sh`](scripts/install.sh) for easy setup
   - Cross-platform installation support (Linux, macOS)
   - Automatic dependency detection and installation
   - Version management and upgrade capabilities
   - Configurable installation paths and options
 
-#### 📋 Documentation
+####  Documentation
 - **Version 1.0 Planning Documents**: Comprehensive planning for next major release
   - [`docs/v1-plan.md`](docs/v1-plan.md): Detailed roadmap and feature planning
   - [`docs/v1-plan-original.md`](docs/v1-plan-original.md): Original design documents and architecture decisions
@@ -628,7 +628,7 @@ Optional enhancements:
 
 ### Added
 
-#### 🧠 SLM-First Architecture (New)
+####  SLM-First Architecture (New)
 - **Policy-Driven Routing Engine**: Intelligent routing between Small Language Models (SLMs) and Large Language Models (LLMs)
   - [`crates/runtime/src/routing/engine.rs`](crates/runtime/src/routing/engine.rs): Core routing engine with SLM-first preference and LLM fallback
   - [`crates/runtime/src/routing/policy.rs`](crates/runtime/src/routing/policy.rs): Configurable policy evaluation with rule-based decision logic
@@ -642,7 +642,7 @@ Optional enhancements:
   - Real-time quality assessment with configurable confidence thresholds
   - Automatic fallback on low-confidence responses
 
-#### ⚡ Performance & Reliability
+####  Performance & Reliability
 - **Thread-Safe Operations**: Full async/await support with proper concurrency handling
 - **Error Recovery**: Graceful fallback mechanisms with exponential backoff retry logic
 - **Runtime Configuration**: Dynamic policy updates and threshold adjustments without restart
@@ -693,7 +693,7 @@ Optional enhancements:
 
 ### Added
 
-#### 🔒 Security Enhancements
+####  Security Enhancements
 - **Centralized Configuration Management**: New [`config.rs`](crates/runtime/src/config.rs) module for secure configuration handling
   - Environment variable abstraction layer with validation
   - Multiple secret key providers (environment, file, external services)
@@ -703,7 +703,7 @@ Optional enhancements:
   - Clippy security lints integration
   - Secret leak detection in build pipeline
 
-#### 📋 API Documentation
+####  API Documentation
 - **SwaggerUI Integration**: Interactive API documentation for HTTP endpoints
   - Auto-generated OpenAPI specifications
   - Interactive API testing interface
@@ -711,7 +711,7 @@ Optional enhancements:
 
 ### Security Fixes
 
-#### 🛡️ Critical Vulnerability Resolutions
+####  Critical Vulnerability Resolutions
 - **RUSTSEC-2022-0093**: Fixed ed25519-dalek Double Public Key Signing Oracle Attack
   - Updated from v1.0.1 → v2.2.0
 - **RUSTSEC-2024-0344**: Resolved curve25519-dalek timing variability vulnerability
@@ -748,16 +748,16 @@ Optional enhancements:
 - **Enhanced**: CI/CD security workflow with automated vulnerability scanning
 
 ### Verification
-- ✅ **cargo audit**: All critical vulnerabilities resolved
-- ✅ **cargo clippy**: No security or performance warnings
-- ✅ **Timing attack tests**: Constant-time comparison verified
-- ✅ **Configuration migration**: Seamless upgrade path from v0.3.0
+-  **cargo audit**: All critical vulnerabilities resolved
+-  **cargo clippy**: No security or performance warnings
+-  **Timing attack tests**: Constant-time comparison verified
+-  **Configuration migration**: Seamless upgrade path from v0.3.0
 
 ## [0.3.0] - 2025-08-09
 
 ### Added
 
-#### 🚀 HTTP API Server (New)
+####  HTTP API Server (New)
 - **Complete API Server**: Full-featured HTTP server implementation using Axum framework
   - RESTful endpoints for agent management, execution, and monitoring
   - Authentication middleware with bearer token and JWT support
@@ -773,7 +773,7 @@ Optional enhancements:
   - Agent scheduler statistics and performance metrics
   - Comprehensive health check with component status
 
-#### 🧠 Advanced Context & Knowledge Management (New)
+####  Advanced Context & Knowledge Management (New)
 - **Hierarchical Memory System**: Multi-layered memory architecture for agents
   - **Working Memory**: Variables, active goals, attention focus for immediate processing
   - **Short-term Memory**: Recent experiences and temporary information
@@ -795,7 +795,7 @@ Optional enhancements:
   - Batch operations for efficient data processing
 - **Context Examples**: Comprehensive [`context_example.rs`](crates/runtime/examples/context_example.rs) demonstration
 
-#### ⚡ Production-Grade Agent Scheduler (New)
+####  Production-Grade Agent Scheduler (New)
 - **Priority-Based Scheduling**: Multi-level priority queue with resource-aware scheduling
   - Configurable priority levels and scheduling algorithms
   - Resource requirements tracking and allocation
@@ -813,7 +813,7 @@ Optional enhancements:
   - Metrics persistence and system state preservation
   - Configurable shutdown timeouts and force termination
 
-#### 📊 Enhanced Documentation & Examples
+####  Enhanced Documentation & Examples
 - **Production Examples**: Real-world usage patterns and best practices
   - RAG engine integration with [`rag_example.rs`](crates/runtime/examples/rag_example.rs)
   - Context persistence and management workflows

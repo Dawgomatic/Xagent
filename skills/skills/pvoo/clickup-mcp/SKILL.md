@@ -2,7 +2,7 @@
 name: clickup-mcp
 description: Manage ClickUp tasks, docs, time tracking, comments, chat, and search via official MCP. OAuth authentication required.
 homepage: https://clickup.com
-metadata: {"clawdbot":{"emoji":"✅","requires":{"bins":["mcporter"],"env":["CLICKUP_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mcporter"],"env":["CLICKUP_TOKEN"]}}}
 ---
 
 # ClickUp MCP (Official)

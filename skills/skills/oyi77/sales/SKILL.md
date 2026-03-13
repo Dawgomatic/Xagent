@@ -5,7 +5,7 @@ description: "CRM integration, lead tracking, outreach automation, and pipeline 
 author: openclaw
 ---
 
-# Sales Skill 💼
+# Sales Skill 
 
 **Turn your AI agent into an elite sales operations partner.**
 
@@ -15,12 +15,12 @@ Track leads, manage pipelines, automate outreach, and never lose a deal to poor 
 
 ## What This Skill Does
 
-✅ **Lead Tracking** — Capture, qualify, and track leads through your pipeline
-✅ **CRM Integration** — Work with your existing CRM or use built-in tracking
-✅ **Outreach Automation** — Generate personalized outreach sequences
-✅ **Pipeline Management** — Track deals, forecast revenue, identify bottlenecks
-✅ **Follow-up Automation** — Never miss a follow-up again
-✅ **Sales Analytics** — Track conversion rates, velocity, and win/loss reasons
+ **Lead Tracking** — Capture, qualify, and track leads through your pipeline
+ **CRM Integration** — Work with your existing CRM or use built-in tracking
+ **Outreach Automation** — Generate personalized outreach sequences
+ **Pipeline Management** — Track deals, forecast revenue, identify bottlenecks
+ **Follow-up Automation** — Never miss a follow-up again
+ **Sales Analytics** — Track conversion rates, velocity, and win/loss reasons
 
 ---
 
@@ -56,7 +56,7 @@ Track leads, manage pipelines, automate outreach, and never lose a deal to poor 
 | **Timeline** | When do they need a solution? | 20% |
 
 **Lead Score Thresholds:**
-- 80-100: Hot 🔥 — Contact immediately
+- 80-100: Hot  — Contact immediately
 - 60-79: Warm — Nurture actively
 - 40-59: Cool — Keep in nurture sequence
 - 0-39: Cold — Low priority
@@ -257,7 +257,7 @@ Before outreach, gather:
 ## Overdue
 | Lead | Stage | Days Overdue | Priority |
 |------|-------|--------------|----------|
-| [Co] | [Stage] | [X] days | 🔥/⚠️ |
+| [Co] | [Stage] | [X] days | / |
 ```
 
 ---
@@ -504,11 +504,11 @@ sales/
 
 ## Common Mistakes
 
-❌ **Pitching before understanding** — Do discovery first
-❌ **Forgetting to follow up** — Use reminders religiously
-❌ **Vanity metrics** — Calls made matters less than meetings held
-❌ **Ignoring closed-lost** — They can become wins later
-❌ **No CRM hygiene** — Bad data = bad decisions
+ **Pitching before understanding** — Do discovery first
+ **Forgetting to follow up** — Use reminders religiously
+ **Vanity metrics** — Calls made matters less than meetings held
+ **Ignoring closed-lost** — They can become wins later
+ **No CRM hygiene** — Bad data = bad decisions
 
 ---
 

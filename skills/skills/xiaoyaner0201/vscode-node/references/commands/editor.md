@@ -16,8 +16,8 @@ No parameters. **Returns:** `{ path, selections: [{ startLine, endLine, text }] 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `path` | string | ❌ | Filter to specific file |
-| `severity` | string | ❌ | `error`, `warning`, `info`, `hint` |
+| `path` | string |  | Filter to specific file |
+| `severity` | string |  | `error`, `warning`, `info`, `hint` |
 
 **Returns:** `{ diagnostics: [{ path, line, severity, message, source }] }`
 

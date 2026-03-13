@@ -59,7 +59,7 @@ def get_option_greeks(osi_symbols, account_id=None):
             symbol = getattr(greek_data, 'osi_symbol', None) or getattr(greek_data, 'symbol', 'Unknown')
             greeks = greek_data.greeks
 
-            print(f"\n  📊 {symbol}")
+            print(f"\n   {symbol}")
             print(f"  {'-' * 66}")
 
             # Delta - measures rate of change of option price with respect to underlying

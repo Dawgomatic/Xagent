@@ -9,7 +9,7 @@ PRODUCT="${1:-vbr}"
 # Load credentials
 CREDS_FILE="$HOME/.veeam-mcp-creds.json"
 if [[ ! -f "$CREDS_FILE" ]]; then
-    echo "❌ Credentials file not found: $CREDS_FILE"
+    echo " Credentials file not found: $CREDS_FILE"
     exit 1
 fi
 
@@ -18,7 +18,7 @@ USERNAME=$(jq -r ".${PRODUCT}.username" "$CREDS_FILE")
 PASSWORD=$(jq -r ".${PRODUCT}.password" "$CREDS_FILE")
 
 if [[ "$URL" == "null" ]]; then
-    echo "❌ No configuration for product: $PRODUCT"
+    echo " No configuration for product: $PRODUCT"
     exit 1
 fi
 
@@ -36,12 +36,12 @@ RESPONSE=$(echo "$INIT_REQUEST" | docker run -i --rm \
     veeam-intelligence-mcp-server 2>&1)
 
 if echo "$RESPONSE" | jq -e '.result.serverInfo' > /dev/null 2>&1; then
-    echo "✅ Connection successful!"
+    echo " Connection successful!"
     echo ""
     echo "Server Info:"
     echo "$RESPONSE" | jq '.result.serverInfo'
 else
-    echo "❌ Connection failed"
+    echo " Connection failed"
     echo ""
     echo "Response:"
     echo "$RESPONSE"

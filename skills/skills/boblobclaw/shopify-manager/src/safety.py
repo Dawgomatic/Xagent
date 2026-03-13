@@ -51,7 +51,7 @@ class SafetyManager:
         if force:
             return True
         
-        print(f"\n⚠️  CONFIRMATION REQUIRED")
+        print(f"\n  CONFIRMATION REQUIRED")
         print(f"Operation: {operation}")
         print(f"Details: {details}")
         print(f"\nType 'yes' to proceed, or anything else to cancel:")
@@ -62,7 +62,7 @@ class SafetyManager:
     def preview_changes(self, title: str, changes: List[Dict[str, Any]]):
         """Display preview of changes in dry-run mode."""
         print(f"\n{'='*60}")
-        print(f"🔍 DRY RUN PREVIEW: {title}")
+        print(f" DRY RUN PREVIEW: {title}")
         print(f"{'='*60}")
         
         for i, change in enumerate(changes, 1):
@@ -75,15 +75,15 @@ class SafetyManager:
                 print(f"   Details: {change['details']}")
             
             if 'warning' in change:
-                print(f"   ⚠️  {change['warning']}")
+                print(f"     {change['warning']}")
         
         print(f"\n{'='*60}")
         
         if self.dry_run:
-            print("\n✋ Dry-run mode: No changes will be applied.")
+            print("\n Dry-run mode: No changes will be applied.")
             print("   Add --execute to apply these changes.")
         else:
-            print("\n✅ These changes will be applied.")
+            print("\n These changes will be applied.")
         
         print(f"{'='*60}\n")
     

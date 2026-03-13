@@ -12,25 +12,25 @@ ClawHub parses the YAML frontmatter in `SKILL.md`. These fields matter:
 
 ```yaml
 ---
-name: self-evolving-agent          # ✅ Must match folder name (lowercase, hyphens)
-version: 2.0.0                     # ✅ Semver
+name: self-evolving-agent          #  Must match folder name (lowercase, hyphens)
+version: 2.0.0                     #  Semver
 description: "One-line description visible in search results"
-homepage: https://github.com/...   # ✅ Reduces suspicion score in security scan
+homepage: https://github.com/...   #  Reduces suspicion score in security scan
 metadata:
-  clawdbot:                        # ✅ Use clawdbot (NOT openclaw — ClawHub ignores that)
-    emoji: "🧠"
+  clawdbot:                        #  Use clawdbot (NOT openclaw — ClawHub ignores that)
+    emoji: ""
     requires:
       env: []                      # List any required env vars
-      files: ["scripts/*"]         # ✅ Declare scripts exist (avoids "instruction-only but has scripts" flag)
+      files: ["scripts/*"]         #  Declare scripts exist (avoids "instruction-only but has scripts" flag)
 ---
 ```
 
 **Critical gotchas (from community research):**
-- ❌ `metadata.openclaw` → ClawHub ignores this key
-- ✅ `metadata.clawdbot` → This is what ClawHub actually parses
-- ❌ `requires.envs` → Wrong field name
-- ✅ `requires.env` → Correct (array)
-- ✅ `homepage` field → Provides provenance, lowers security suspicion score
+-  `metadata.openclaw` → ClawHub ignores this key
+-  `metadata.clawdbot` → This is what ClawHub actually parses
+-  `requires.envs` → Wrong field name
+-  `requires.env` → Correct (array)
+-  `homepage` field → Provides provenance, lowers security suspicion score
 
 ---
 
@@ -53,10 +53,10 @@ Every `.sh` file must include a security manifest comment:
 ### Shell Injection Prevention
 
 ```bash
-# ❌ Bad — RCE via $(cmd) or backticks in USER_INPUT
+#  Bad — RCE via $(cmd) or backticks in USER_INPUT
 curl "https://api.com/${USER_INPUT}"
 
-# ✅ Safe — sanitize before interpolation
+#  Safe — sanitize before interpolation
 SAFE_INPUT=$(printf '%s' "$INPUT" | python3 -c \
   'import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read().strip(), safe=""))')
 curl "https://api.com/${SAFE_INPUT}"
@@ -64,11 +64,11 @@ curl "https://api.com/${SAFE_INPUT}"
 
 ### Shell Best Practices (Required for Clawdex pass)
 
-- ✅ `set -euo pipefail` at top of every script
-- ✅ Check env vars exist before using: `${VAR:?VAR is required}`
-- ✅ Validate input arguments
-- ✅ Proper error handling with exit codes
-- ✅ No `eval` with user-supplied data
+-  `set -euo pipefail` at top of every script
+-  Check env vars exist before using: `${VAR:?VAR is required}`
+-  Validate input arguments
+-  Proper error handling with exit codes
+-  No `eval` with user-supplied data
 
 ---
 
@@ -78,10 +78,10 @@ ClawHub requires (or strongly recommends) these sections in the skill body:
 
 | Section | Required? | What to Include |
 |---|---|---|
-| **External Endpoints** | ✅ Required | Table of every URL called + what data is sent |
-| **Security & Privacy** | ✅ Required | What leaves the machine, what stays local |
-| **Model Invocation Note** | ✅ Required | Explain any autonomous LLM calls; provide opt-out |
-| **Trust Statement** | ✅ Required | "By using this skill, data is sent to X. Only install if..." |
+| **External Endpoints** |  Required | Table of every URL called + what data is sent |
+| **Security & Privacy** |  Required | What leaves the machine, what stays local |
+| **Model Invocation Note** |  Required | Explain any autonomous LLM calls; provide opt-out |
+| **Trust Statement** |  Required | "By using this skill, data is sent to X. Only install if..." |
 | **Installation** | Recommended | Step-by-step setup |
 | **Configuration** | Recommended | All config.yaml options |
 | **Works Well With** | Recommended | Complementary skills |
@@ -92,9 +92,9 @@ ClawHub requires (or strongly recommends) these sections in the skill body:
 
 ```
 self-evolving-agent/
-├── SKILL.md          ✅ Required — skill definition
-├── README.md         ✅ Required — shown on ClawHub page
-├── LICENSE           ✅ Required — MIT recommended
+├── SKILL.md           Required — skill definition
+├── README.md          Required — shown on ClawHub page
+├── LICENSE            Required — MIT recommended
 ├── config.yaml       Optional — user configuration
 └── scripts/          Optional — declare in metadata.clawdbot.requires.files
 ```
@@ -155,7 +155,7 @@ grep -E "^name:|^description:|^version:" SKILL.md
 
 # 3. Security manifest in every script
 for f in scripts/*.sh; do
-  grep -l "SECURITY MANIFEST" "$f" || echo "⚠️ Missing manifest: $f"
+  grep -l "SECURITY MANIFEST" "$f" || echo " Missing manifest: $f"
 done
 
 # 4. No secrets accidentally committed
@@ -164,7 +164,7 @@ grep -r "DISCORD_TOKEN\|OPENAI_KEY\|SECRET" . --include="*.sh" --include="*.yaml
 
 # 5. README.md has required sections
 for section in "External Endpoints" "Security" "Trust"; do
-  grep -q "$section" README.md || echo "⚠️ Missing section: $section"
+  grep -q "$section" README.md || echo " Missing section: $section"
 done
 ```
 

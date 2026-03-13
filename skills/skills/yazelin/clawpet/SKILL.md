@@ -13,7 +13,7 @@ metadata:
         label: "Install clawpet from GitHub"
 ---
 
-# clawpet — OpenClaw Pet Companion 🐾
+# clawpet — OpenClaw Pet Companion 
 
 Use this skill when the user wants to adopt a pet, check pet status, interact with the pet, or send a pet image.
 Pet status includes passive time-based updates, so each check-in can reflect elapsed time.
@@ -89,7 +89,7 @@ When the user requests a pet image:
 
 3. **Send the image with message tool:**
    ```
-   message(action="send", channel="telegram", media="/home/yaze/.openclaw/workspace/YYYY-MM-DD-HH-MM-pet-name.png", message="🐾 <pet_name> 的即時快照")
+   message(action="send", channel="telegram", media="/home/yaze/.openclaw/workspace/YYYY-MM-DD-HH-MM-pet-name.png", message=" <pet_name> 的即時快照")
    ```
 
 **Why this workflow:**

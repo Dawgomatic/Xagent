@@ -345,23 +345,23 @@ def generate_intel():
     
     # V5 严格格式输出
     today = datetime.now().strftime("%Y-%m-%d")
-    lines = [f"[{today}] 创造者情报 🌍", ""]
+    lines = [f"[{today}] 创造者情报 ", ""]
     
     for news in selected:
         # Emoji
         t = news["title"].lower()
         if any(kw in t for kw in ["github", "开源", "open source"]):
-            emoji = "📦"
+            emoji = ""
         elif any(kw in t for kw in ["架构", "算法", "model", "transformer", "diffusion"]):
-            emoji = "⚛️"
+            emoji = ""
         elif any(kw in t for kw in ["esp32", "raspberry", "树莓派", "nvme", "pcie"]):
-            emoji = "🛠️"
+            emoji = ""
         elif any(kw in t for kw in ["手术机器人", "surgical", "机器人"]):
-            emoji = "🔬"
+            emoji = ""
         elif any(kw in t for kw in ["脑机", "bci", "brain"]):
-            emoji = "🧠"
+            emoji = ""
         else:
-            emoji = "💡"
+            emoji = ""
         
         # V5 格式
         lines.append(f"> {emoji} {news['title']}")

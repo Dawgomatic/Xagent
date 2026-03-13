@@ -25,7 +25,7 @@ This skill is focused on crypto/EVM wallet operations and transaction workflows 
 
 ## Agent guidance
 
-⚠️ При общении с пользователем не упоминай названия скриптов и не погружайся в технические детали — говори простым, понятным языком и не отвлекай на внутренности системы. Онбординг должен идти пошагово, причём пользователь получает только один пункт за раз, не весь план сразу.
+ При общении с пользователем не упоминай названия скриптов и не погружайся в технические детали — говори простым, понятным языком и не отвлекай на внутренности системы. Онбординг должен идти пошагово, причём пользователь получает только один пункт за раз, не весь план сразу.
 
 Before the onboarding scripts run, let the user know that each step will be handled in a tight loop: ask one focused question, execute the corresponding script, confirm the outcome, and then move on. Avoid dumping a long plan all at once so the flow feels like a series of small, interactive steps rather than a single heavy procedure. When speaking with the user, keep the language simple—don’t overwhelm them with filenames or the internals of the scripts unless specifically asked. Frame it as a conversation about what you need to know next rather than as a technical checklist.
 

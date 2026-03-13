@@ -3,7 +3,7 @@ name: greptile
 description: "Query, search, and manage repositories indexed by Greptile (AI codebase intelligence). Use when asking questions about a codebase, searching for code patterns, indexing repos for Greptile review, or checking Greptile index status. Requires GREPTILE_TOKEN and a GitHub/GitLab token."
 metadata:
   openclaw:
-    emoji: "🦎"
+    emoji: ""
     publisher: "@iahmadzain"
     requires:
       env: [GREPTILE_TOKEN, GITHUB_TOKEN]

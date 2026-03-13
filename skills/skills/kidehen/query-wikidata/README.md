@@ -44,13 +44,13 @@ Skill: Generates beautiful HTML page with:
 
 ## Features
 
-✅ Natural language to SPARQL conversion
-✅ Automatic Wikidata entity lookup (Q-numbers)
-✅ Label Service integration (human-readable results)
-✅ Multiple output formats (JSON/Markdown/HTML)
-✅ Beautiful HTML templates with Wikidata branding
-✅ Error handling and timeout management
-✅ Wikidata Query Service integration
+ Natural language to SPARQL conversion
+ Automatic Wikidata entity lookup (Q-numbers)
+ Label Service integration (human-readable results)
+ Multiple output formats (JSON/Markdown/HTML)
+ Beautiful HTML templates with Wikidata branding
+ Error handling and timeout management
+ Wikidata Query Service integration
 
 ## Examples
 
@@ -145,11 +145,11 @@ Beautiful, interactive page with:
 ## Why Wikidata?
 
 **Advantages over DBpedia:**
-- ✅ Better temporal data (97% coverage for dates)
-- ✅ Structured property system (P-numbers)
-- ✅ Multilingual support
-- ✅ More comprehensive coverage
-- ✅ Collaborative, actively maintained
+-  Better temporal data (97% coverage for dates)
+-  Structured property system (P-numbers)
+-  Multilingual support
+-  More comprehensive coverage
+-  Collaborative, actively maintained
 
 **When to use DBpedia instead:**
 - Budget/financial data (better coverage)

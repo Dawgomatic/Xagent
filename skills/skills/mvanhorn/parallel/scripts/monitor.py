@@ -98,7 +98,7 @@ def format_monitor(monitor: dict) -> str:
     cadence = monitor.get("cadence", "unknown")
     created = monitor.get("created_at")
     
-    output.append(f"📡 {monitor_id}")
+    output.append(f" {monitor_id}")
     output.append(f"   Query: {query[:100]}")
     output.append(f"   Status: {status} | Cadence: {cadence}")
     if created:
@@ -116,7 +116,7 @@ def format_events(events_result: dict) -> str:
     if not events:
         return "No events found."
     
-    output.append(f"📋 Events ({len(events)} total)")
+    output.append(f" Events ({len(events)} total)")
     output.append("")
     
     for i, event in enumerate(events[:20], 1):
@@ -133,7 +133,7 @@ def format_events(events_result: dict) -> str:
         
         if sources:
             for src in sources[:2]:
-                output.append(f"   🔗 {src}")
+                output.append(f"    {src}")
         output.append("")
     
     return "\n".join(output)
@@ -189,7 +189,7 @@ def main():
             if args.json:
                 print(json.dumps(result, indent=2))
             else:
-                print(f"✅ Monitor created!")
+                print(f" Monitor created!")
                 print(format_monitor(result))
                 
         elif args.command == "list":
@@ -202,7 +202,7 @@ def main():
                 if not monitors:
                     print("No monitors found.")
                 else:
-                    print(f"📡 Monitors ({len(monitors)} total)\n")
+                    print(f" Monitors ({len(monitors)} total)\n")
                     for monitor in monitors:
                         print(format_monitor(monitor))
                         print()
@@ -216,13 +216,13 @@ def main():
                 
         elif args.command == "delete":
             delete_monitor(args.monitor_id)
-            print(f"✅ Monitor {args.monitor_id} deleted.")
+            print(f" Monitor {args.monitor_id} deleted.")
             
     except requests.exceptions.HTTPError as e:
-        print(f"❌ API Error: {e.response.status_code} - {e.response.text}", file=sys.stderr)
+        print(f" API Error: {e.response.status_code} - {e.response.text}", file=sys.stderr)
         sys.exit(1)
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

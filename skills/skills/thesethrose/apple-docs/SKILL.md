@@ -1,7 +1,7 @@
 ---
 name: apple-docs
 description: Query Apple Developer Documentation, APIs, and WWDC videos (2014-2025). Search SwiftUI, UIKit, Objective-C, Swift frameworks and watch sessions.
-metadata: {"clawdbot":{"emoji":"🍎","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Apple Docs Skill

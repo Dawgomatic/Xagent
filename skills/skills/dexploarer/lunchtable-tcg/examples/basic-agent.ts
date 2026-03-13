@@ -270,7 +270,7 @@ class BasicAgent {
    */
   private log(message: string, level: "info" | "warn" | "error" = "info") {
     const timestamp = new Date().toISOString();
-    const prefix = level === "error" ? "❌" : level === "warn" ? "⚠️" : "ℹ️";
+    const prefix = level === "error" ? "" : level === "warn" ? "" : "";
     console.log(`[${timestamp}] ${prefix} ${message}`);
   }
 
@@ -437,7 +437,7 @@ class BasicAgent {
 
           // It's our turn
           if (turn.timeoutWarning) {
-            this.log("⏰ Timeout warning! Playing immediately...", "warn");
+            this.log(" Timeout warning! Playing immediately...", "warn");
           }
 
           await this.playTurn(turn.gameId);
@@ -509,11 +509,11 @@ async function registerAgent(name: string): Promise<string> {
   }
 
   const data = await response.json();
-  console.log(`✅ Registration successful!`);
+  console.log(` Registration successful!`);
   console.log(`   Agent ID: ${data.playerId}`);
   console.log(`   API Key: ${data.apiKey}`);
   console.log(`   Wallet: ${data.walletAddress || "pending"}`);
-  console.log(`\n⚠️  SAVE YOUR API KEY - it won't be shown again!\n`);
+  console.log(`\n  SAVE YOUR API KEY - it won't be shown again!\n`);
 
   return data.apiKey;
 }

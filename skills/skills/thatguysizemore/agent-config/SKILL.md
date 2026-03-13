@@ -278,16 +278,16 @@ Read `references/claude-patterns.md` for detailed anti-patterns.
 
 **Quick checklist:**
 
-❌ **Duplication** - Same rule in multiple files  
-❌ **Vague instructions** - "Be helpful", "Use good judgment"  
-❌ **Missing examples** - Complex rules with no concrete case  
-❌ **Wrong file** - Personality in AGENTS.md, operations in SOUL.md  
-❌ **No motivation** - Rule without WHY it exists  
-❌ **Reference docs buried** - Long guides embedded instead of linked  
-❌ **Bloat** - Adding when updating existing would work  
-❌ **Format mismatch** - Prose in table-heavy file, bullets in narrative file  
-❌ **Subagent blindness** - Operational rule in file subagents don't see  
-❌ **Size ignorance** - Adding to 19K file without checking
+ **Duplication** - Same rule in multiple files  
+ **Vague instructions** - "Be helpful", "Use good judgment"  
+ **Missing examples** - Complex rules with no concrete case  
+ **Wrong file** - Personality in AGENTS.md, operations in SOUL.md  
+ **No motivation** - Rule without WHY it exists  
+ **Reference docs buried** - Long guides embedded instead of linked  
+ **Bloat** - Adding when updating existing would work  
+ **Format mismatch** - Prose in table-heavy file, bullets in narrative file  
+ **Subagent blindness** - Operational rule in file subagents don't see  
+ **Size ignorance** - Adding to 19K file without checking
 
 ## When to Use References
 

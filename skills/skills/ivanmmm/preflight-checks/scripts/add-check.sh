@@ -9,18 +9,18 @@ ANSWERS_FILE="$WORKSPACE_DIR/PRE-FLIGHT-ANSWERS.md"
 
 # Check files exist
 if [ ! -f "$CHECKS_FILE" ]; then
-    echo "❌ PRE-FLIGHT-CHECKS.md not found"
+    echo " PRE-FLIGHT-CHECKS.md not found"
     echo "Run: ./skills/preflight-checks/scripts/init.sh first"
     exit 1
 fi
 
 if [ ! -f "$ANSWERS_FILE" ]; then
-    echo "❌ PRE-FLIGHT-ANSWERS.md not found"
+    echo " PRE-FLIGHT-ANSWERS.md not found"
     echo "Run: ./skills/preflight-checks/scripts/init.sh first"
     exit 1
 fi
 
-echo "🔥 Add New Pre-Flight Check"
+echo " Add New Pre-Flight Check"
 echo
 
 # Get current check count
@@ -73,16 +73,16 @@ ANSWER_ENTRY="
 $EXPECTED
 
 **Wrong answers:**
-- ❌ $WRONG1"
+-  $WRONG1"
 
 if [ -n "$WRONG2" ]; then
     ANSWER_ENTRY="$ANSWER_ENTRY
-- ❌ $WRONG2"
+-  $WRONG2"
 fi
 
 if [ -n "$WRONG3" ]; then
     ANSWER_ENTRY="$ANSWER_ENTRY
-- ❌ $WRONG3"
+-  $WRONG3"
 fi
 
 # Show preview
@@ -102,7 +102,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 read -p "Add this check? (Y/n) " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Nn]$ ]]; then
-    echo "❌ Cancelled"
+    echo " Cancelled"
     exit 0
 fi
 
@@ -144,8 +144,8 @@ NEW_SCORE="$NEW_CHECK_NUM/$NEW_CHECK_NUM"
 sed -i "s|$OLD_SCORE correct|$NEW_SCORE correct|g" "$CHECKS_FILE"
 sed -i "s|Score: X/$CURRENT_COUNT|Score: X/$NEW_CHECK_NUM|g" "$CHECKS_FILE"
 
-echo "✅ Check added!"
-echo "✅ Scoring updated: $OLD_SCORE → $NEW_SCORE"
+echo " Check added!"
+echo " Scoring updated: $OLD_SCORE → $NEW_SCORE"
 echo
 echo "Files updated:"
 echo "- $CHECKS_FILE"

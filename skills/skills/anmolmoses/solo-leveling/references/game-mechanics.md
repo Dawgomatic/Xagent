@@ -113,42 +113,42 @@ Failing an Emergency Quest = double penalty.
 
 ### Daily Quest Issue (Morning)
 ```
-⚔️ DAILY QUEST ISSUED
+ DAILY QUEST ISSUED
 
 [Date] | Rank: [rank] | Level: [level]
 
 ━━━━━━━━━━━━━━━━━━━━
 MANDATORY QUESTS:
-▸ 🏋️ Complete gym session [STR +30]
-▸ 💻 Solve [N] DSA problem(s) [INT +25 each]
-▸ 📖 Read for 30 minutes [INT +15]
-▸ 😴 Sleep before 11:00 PM [VIT +30]
+▸  Complete gym session [STR +30]
+▸  Solve [N] DSA problem(s) [INT +25 each]
+▸  Read for 30 minutes [INT +15]
+▸  Sleep before 11:00 PM [VIT +30]
 
 [WEEKEND BONUS]:
-▸ 🎸 Guitar practice 30 min [CHA +25]
+▸  Guitar practice 30 min [CHA +25]
 ━━━━━━━━━━━━━━━━━━━━
 
 Completion bonus: +100 XP
-Streak: [N] days 🔥
+Streak: [N] days 
 
 The System is watching. Do not disappoint.
 ```
 
 ### Quest Report (Evening)
 ```
-📊 QUEST REPORT
+ QUEST REPORT
 
 [Date] | Day [N]
 
 ━━━━━━━━━━━━━━━━━━━━
-✅ Gym session — STR +30 [VERIFIED]
-✅ DSA x2 — INT +50 [VERIFIED]  
-❌ Reading — FAILED
-✅ Sleep — pending verification
+ Gym session — STR +30 [VERIFIED]
+ DSA x2 — INT +50 [VERIFIED]  
+ Reading — FAILED
+ Sleep — pending verification
 ━━━━━━━━━━━━━━━━━━━━
 
 XP Earned: [N]
-Streak: [N] days 🔥
+Streak: [N] days 
 Level: [N] → [N]
 
 [Motivational/harsh message based on performance]
@@ -156,7 +156,7 @@ Level: [N] → [N]
 
 ### Stat Card
 ```
-📋 HUNTER STATUS
+ HUNTER STATUS
 
 Player: [Name]
 Rank: [rank] | Level: [level]
@@ -170,7 +170,7 @@ AGI ███████░░░ [N]
 PER ████░░░░░░ [N]
 CHA ███░░░░░░░ [N]
 
-🔥 Streak: [N] days
-🏆 Titles: [list]
-⚔️ Active Dungeon: [name or none]
+ Streak: [N] days
+ Titles: [list]
+ Active Dungeon: [name or none]
 ```

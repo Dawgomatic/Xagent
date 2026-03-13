@@ -48,7 +48,7 @@ def fetch_signals():
     return []
 
 def main():
-    print("📡 Listening for signals on Claws Network...")
+    print(" Listening for signals on Claws Network...")
     print(f"   Source: {API_URL}\n")
 
     seen_hashes = set()

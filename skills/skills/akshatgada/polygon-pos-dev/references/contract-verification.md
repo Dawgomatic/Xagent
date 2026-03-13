@@ -211,9 +211,9 @@ https://amoy.polygonscan.com/address/CONTRACT_ADDRESS#code
 ```
 
 Status will show:
-- ✅ "Contract Source Code Verified"
-- ⏳ "Pending in queue"
-- ❌ "Verification failed"
+-  "Contract Source Code Verified"
+-  "Pending in queue"
+-  "Verification failed"
 
 ## Advanced Verification
 

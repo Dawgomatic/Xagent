@@ -9,20 +9,20 @@
 
 | Capability | Our Skill Auditor | Cisco Skill Scanner | Gap |
 |------------|-------------------|---------------------|-----|
-| **Static Pattern Matching** | ✅ Regex-based | ✅ YAML + YARA | ⚠️ Theirs is more robust |
-| **AST Dataflow Analysis** | ❌ None | ✅ Python AST analysis | 🔴 CRITICAL GAP |
-| **LLM Semantic Analysis** | ⚠️ Basic keyword matching | ✅ Claude-based semantic | 🔴 CRITICAL GAP |
-| **False Positive Filtering** | ✅ Context-aware downgrade | ✅ Meta-analyzer | ✅ Comparable |
-| **Intent Matching** | ✅ Purpose-keyword matching | ✅ LLM-based | ⚠️ Ours is keyword-based |
-| **Binary File Scanning** | ⚠️ Detection only, no analysis | ✅ VirusTotal integration | 🔴 CRITICAL GAP |
-| **YARA Rules** | ❌ None | ✅ Full YARA support + custom rules | 🟡 MEDIUM GAP |
-| **Python Dataflow** | ❌ None | ✅ Source-to-sink tracking | 🔴 CRITICAL GAP |
-| **CI/CD Integration** | ❌ None | ✅ SARIF output, exit codes | 🟡 MEDIUM GAP |
-| **Cloud AI Defense** | ❌ None | ✅ Cisco AI Defense API | 🟢 Optional (vendor-specific) |
-| **Accuracy Scoring** | ✅ 1-10 score | ❌ Not mentioned | ✅ WE HAVE THIS |
-| **Remote URL Scanning** | ✅ GitHub URLs | ✅ Skills directories | ✅ Comparable |
-| **Extensibility** | ⚠️ Hardcoded patterns | ✅ Plugin architecture | 🟡 MEDIUM GAP |
-| **Detection Modes** | ❌ Single mode | ✅ Strict/balanced/permissive | 🟡 MEDIUM GAP |
+| **Static Pattern Matching** |  Regex-based |  YAML + YARA |  Theirs is more robust |
+| **AST Dataflow Analysis** |  None |  Python AST analysis |  CRITICAL GAP |
+| **LLM Semantic Analysis** |  Basic keyword matching |  Claude-based semantic |  CRITICAL GAP |
+| **False Positive Filtering** |  Context-aware downgrade |  Meta-analyzer |  Comparable |
+| **Intent Matching** |  Purpose-keyword matching |  LLM-based |  Ours is keyword-based |
+| **Binary File Scanning** |  Detection only, no analysis |  VirusTotal integration |  CRITICAL GAP |
+| **YARA Rules** |  None |  Full YARA support + custom rules |  MEDIUM GAP |
+| **Python Dataflow** |  None |  Source-to-sink tracking |  CRITICAL GAP |
+| **CI/CD Integration** |  None |  SARIF output, exit codes |  MEDIUM GAP |
+| **Cloud AI Defense** |  None |  Cisco AI Defense API |  Optional (vendor-specific) |
+| **Accuracy Scoring** |  1-10 score |  Not mentioned |  WE HAVE THIS |
+| **Remote URL Scanning** |  GitHub URLs |  Skills directories |  Comparable |
+| **Extensibility** |  Hardcoded patterns |  Plugin architecture |  MEDIUM GAP |
+| **Detection Modes** |  Single mode |  Strict/balanced/permissive |  MEDIUM GAP |
 
 ---
 

@@ -24,6 +24,6 @@ The agent audits current load, models scenarios, flags risks, and recommends spe
 
 We build AI agent tools for businesses that want to stop guessing and start operating with data.
 
-- 🧮 [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — Free tool to find revenue leaks
-- 🏪 [Context Packs](https://afrexai-cto.github.io/context-packs/) — Industry-specific agent configs ($47 each)
-- ⚡ [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Configure your AI agent in 5 minutes
+-  [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) — Free tool to find revenue leaks
+-  [Context Packs](https://afrexai-cto.github.io/context-packs/) — Industry-specific agent configs ($47 each)
+-  [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Configure your AI agent in 5 minutes

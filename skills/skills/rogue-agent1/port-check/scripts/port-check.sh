@@ -36,7 +36,7 @@ for target in "${TARGETS[@]}"; do
   port="${target##*:}"
   
   if [[ "$host" == "$port" ]]; then
-    echo "  ❌ $target — invalid format (use host:port)" >&2
+    echo "   $target — invalid format (use host:port)" >&2
     ((FAIL++))
     continue
   fi
@@ -47,16 +47,16 @@ for target in "${TARGETS[@]}"; do
       # HTTP status check
       STATUS=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout "$TIMEOUT" "http://${host}:${port}/" 2>/dev/null || echo "000")
       if [[ "$STATUS" =~ ^[23] ]]; then
-        echo "  ✅ $target — open (HTTP $STATUS)"
+        echo "   $target — open (HTTP $STATUS)"
       else
-        echo "  ⚠️  $target — open but HTTP $STATUS"
+        echo "    $target — open but HTTP $STATUS"
       fi
     else
-      echo "  ✅ $target — open"
+      echo "   $target — open"
     fi
     ((OK++))
   else
-    echo "  ❌ $target — closed/timeout"
+    echo "   $target — closed/timeout"
     ((FAIL++))
   fi
 done

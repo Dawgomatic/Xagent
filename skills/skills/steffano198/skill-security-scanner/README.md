@@ -1,4 +1,4 @@
-# Skill Security Scanner 🔍
+# Skill Security Scanner 
 
 **Security scanning tool for OpenClaw skills - detect malware, analyze permissions, and get trust scores before installing.**
 
@@ -12,7 +12,7 @@
 
 ---
 
-## ⚡ Quick Start
+##  Quick Start
 
 ```bash
 # Option 1: Install via ClawHub (recommended)
@@ -27,7 +27,7 @@ git clone https://github.com/Steffano198/skill-security-scanner.git ~/.openclaw/
 
 ---
 
-## 🔐 What is Skill Security Scanner?
+##  What is Skill Security Scanner?
 
 **Skill Security Scanner** is a security tool for [OpenClaw](https://openclaw.ai) users to verify skills before installing them.
 
@@ -35,22 +35,22 @@ After the [ClawHavoc incident](https://www.authmind.com/post/openclaw-malicious-
 
 This scanner helps you:
 
-- 📊 **Calculate Trust Score** (0-100)
-- 🔍 **Detect Suspicious Patterns** 
-- 📋 **Analyze Permissions** (bins, env vars)
-- ⚠️ **Identify Risk Levels**
-- 💡 **Get Clear Recommendations**
+-  **Calculate Trust Score** (0-100)
+-  **Detect Suspicious Patterns** 
+-  **Analyze Permissions** (bins, env vars)
+-  **Identify Risk Levels**
+-  **Get Clear Recommendations**
 
 **No more blind trust** - scan every skill before you install.
 
 ---
 
-## ✨ Features
+##  Features
 
 | Feature | Description |
 |---------|-------------|
 | **Trust Score** | 0-100 score based on permissions, patterns, documentation |
-| **Risk Level** | 🟢 Low / 🟡 Medium / 🟠 High / 🔴 Critical |
+| **Risk Level** |  Low /  Medium /  High /  Critical |
 | **Permission Analysis** | Lists required bins and environment variables |
 | **Pattern Detection** | Finds suspicious code patterns (network calls, obfuscation, etc.) |
 | **Recommendations** | Clear advice on whether to use the skill |
@@ -58,14 +58,14 @@ This scanner helps you:
 
 ---
 
-## 📊 Trust Score System
+##  Trust Score System
 
 | Score | Risk | Action |
 |-------|------|--------|
-| 80-100 | 🟢 Low | Safe to use |
-| 60-79 | 🟡 Medium | Review before use |
-| 40-59 | 🟠 High | Use with caution |
-| 0-39 | 🔴 Critical | Don't use |
+| 80-100 |  Low | Safe to use |
+| 60-79 |  Medium | Review before use |
+| 40-59 |  High | Use with caution |
+| 0-39 |  Critical | Don't use |
 
 ### Score Factors
 
@@ -79,28 +79,28 @@ This scanner helps you:
 
 ---
 
-## 🚨 What It Detects
+##  What It Detects
 
 ### High Risk Patterns
-- 🌐 Network exfiltration attempts
-- 🔑 Credential harvesting
-- 💥 Destructive file operations
-- 🔒 Obfuscated commands (base64, eval)
+-  Network exfiltration attempts
+-  Credential harvesting
+-  Destructive file operations
+-  Obfuscated commands (base64, eval)
 
 ### Medium Risk Patterns
-- 📦 Excessive permissions
-- 🔗 Unknown third-party dependencies
-- ⏰ Outdated (6+ months no updates)
+-  Excessive permissions
+-  Unknown third-party dependencies
+-  Outdated (6+ months no updates)
 
-### Green Flags ✅
-- 🏷️ Official OpenClaw skill
-- 🔓 Minimal permissions
-- 📚 Clear documentation
-- 👤 Known author
+### Green Flags 
+-  Official OpenClaw skill
+-  Minimal permissions
+-  Clear documentation
+-  Known author
 
 ---
 
-## 💻 Usage
+##  Usage
 
 ### Basic Scan
 
@@ -116,25 +116,25 @@ clawhub install cool-new-skill
 ### Example Output
 
 ```
-🔍 Scanning: github
+ Scanning: github
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 Trust Score: 95/100 (🟢 Low)
+ Trust Score: 95/100 ( Low)
 
-📋 Permissions:
+ Permissions:
    • bins: gh
 
-✅ Positive Signs:
+ Positive Signs:
    • Official OpenClaw skill
    • Has proper metadata
    • Well documented
 
-💡 Recommendation:
+ Recommendation:
    Safe to use - well documented, standard permissions
 ```
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 skill-security-scanner/
@@ -150,7 +150,7 @@ skill-security-scanner/
 
 ---
 
-## 🛠️ Installation
+##  Installation
 
 ### Option 1: ClawHub (Recommended)
 
@@ -171,13 +171,13 @@ git clone https://github.com/Steffano198/skill-security-scanner.git ~/.openclaw/
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 No configuration needed! Just run the scanner on any skill path.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Here's how to help:
 
@@ -188,21 +188,21 @@ Contributions are welcome! Here's how to help:
 
 ---
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file.
 
 ---
 
-## 👤 Author
+##  Author
 
 **Steff** (@Steffano198 / @DevSef)
 - OpenClaw enthusiast
-- Building tools for the community 🦞
+- Building tools for the community 
 
 ---
 
-## 🔗 Related Links
+##  Related Links
 
 - [OpenClaw Official Site](https://openclaw.ai)
 - [OpenClaw Documentation](https://docs.openclaw.ai)
@@ -213,13 +213,13 @@ MIT License - see [LICENSE](LICENSE) file.
 
 ---
 
-## 📈 SEO Keywords
+##  SEO Keywords
 
 OpenClaw, ClawHub, skill security, OpenClaw skills, AI assistant security, malware detection, OpenClaw malware, skill scanner, AI agent tools, OpenClaw plugins, AI assistant plugins, Claude Code, OpenAI automation, AI workflow, productivity tools, security scanner, trust score, skill verification, AI safety
 
 ---
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 This tool provides automated security analysis but cannot guarantee 100% accuracy. Always:
 
@@ -228,8 +228,8 @@ This tool provides automated security analysis but cannot guarantee 100% accurac
 - Start with sandboxed environments
 - Monitor skill behavior after installation
 
-**Stay safe** 🔒
+**Stay safe** 
 
 ---
 
-*Built with ❤️ for the OpenClaw community*
+*Built with  for the OpenClaw community*

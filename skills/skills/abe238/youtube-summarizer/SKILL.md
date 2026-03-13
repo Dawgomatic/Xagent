@@ -68,24 +68,24 @@ Full text: `result.lines.map(l => l.text).join(' ')`
 Create a structured summary using this template:
 
 ```markdown
-📹 **Video:** [title]
-👤 **Channel:** [author] | 👁️ **Views:** [views] | 📅 **Published:** [date]
+ **Video:** [title]
+ **Channel:** [author] |  **Views:** [views] |  **Published:** [date]
 
-**🎯 Main Thesis:**
+** Main Thesis:**
 [1-2 sentence core argument/message]
 
-**💡 Key Insights:**
+** Key Insights:**
 - [insight 1]
 - [insight 2]
 - [insight 3]
 - [insight 4]
 - [insight 5]
 
-**📝 Notable Points:**
+** Notable Points:**
 - [additional point 1]
 - [additional point 2]
 
-**🔑 Takeaway:**
+** Takeaway:**
 [Practical application or conclusion]
 ```
 
@@ -113,7 +113,7 @@ Include in the file:
 ```bash
 message --action send --channel telegram --target CHAT_ID \
   --filePath /root/clawd/transcripts/YYYY-MM-DD_VIDEO_ID.txt \
-  --caption "📄 YouTube Transcript: [title]"
+  --caption " YouTube Transcript: [title]"
 ```
 
 **If channel is other/webchat:**

@@ -95,7 +95,7 @@ class ClawTrialHook {
     });
     
     logger.info('HOOK', 'ClawTrial hook initialized successfully');
-    console.log('\n🏛️  ClawTrial is monitoring conversations\n');
+    console.log('\n  ClawTrial is monitoring conversations\n');
   }
 
   /**
@@ -206,10 +206,10 @@ class ClawTrialHook {
         logger.info('HOOK', 'Case filed', { caseId: verdict.caseId });
         
         // Send notification
-        console.log(`\n🏛️  CASE FILED: ${detection.offense}`);
-        console.log(`📋 Case ID: ${verdict.caseId}`);
-        console.log(`⚖️  Verdict: ${verdict.verdict}`);
-        console.log(`🔗 View: https://clawtrial.app/cases/${verdict.caseId}\n`);
+        console.log(`\n  CASE FILED: ${detection.offense}`);
+        console.log(` Case ID: ${verdict.caseId}`);
+        console.log(`  Verdict: ${verdict.verdict}`);
+        console.log(` View: https://clawtrial.app/cases/${verdict.caseId}\n`);
       }
     } catch (err) {
       logger.error('HOOK', 'Hearing failed', { error: err.message });

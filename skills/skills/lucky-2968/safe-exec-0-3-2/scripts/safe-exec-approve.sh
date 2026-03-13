@@ -16,7 +16,7 @@ fi
 REQUEST_FILE="$PENDING_DIR/$REQUEST_ID.json"
 
 if [[ ! -f "$REQUEST_FILE" ]]; then
-    echo "❌ 请求 $REQUEST_ID 不存在"
+    echo " 请求 $REQUEST_ID 不存在"
     exit 1
 fi
 
@@ -36,7 +36,7 @@ if [[ -n "$OPENCLAW_AGENT_CALL" ]] || [[ -n "$SAFE_EXEC_AUTO_CONFIRM" ]]; then
     IS_INTERACTIVE=false
 fi
 
-echo "⚠️  即将执行以下命令："
+echo "  即将执行以下命令："
 echo ""
 echo "风险等级: ${RISK^^}"
 echo "命令: $COMMAND"
@@ -46,18 +46,18 @@ echo ""
 if [[ "$IS_INTERACTIVE" == "true" ]]; then
     read -p "确认执行？(yes/no): " confirm
     if [[ "$confirm" != "yes" ]]; then
-        echo "❌ 已取消"
+        echo " 已取消"
         exit 0
     fi
-    echo "✅ 已确认"
+    echo " 已确认"
 else
-    echo "🤖 非交互式环境 - 自动跳过确认"
+    echo " 非交互式环境 - 自动跳过确认"
 fi
 
 # 标记为已批准并执行
 jq '.status = "approved"' "$REQUEST_FILE" > "$REQUEST_FILE.tmp" && mv "$REQUEST_FILE.tmp" "$REQUEST_FILE"
 
-echo "✅ 执行中..."
+echo " 执行中..."
 eval "$COMMAND"
 exit_code=$?
 
@@ -65,9 +65,9 @@ exit_code=$?
 rm "$REQUEST_FILE"
 
 if [[ $exit_code -eq 0 ]]; then
-    echo "✅ 命令执行成功"
+    echo " 命令执行成功"
 else
-    echo "⚠️  命令执行失败（退出码: $exit_code）"
+    echo "  命令执行失败（退出码: $exit_code）"
 fi
 
 exit $exit_code

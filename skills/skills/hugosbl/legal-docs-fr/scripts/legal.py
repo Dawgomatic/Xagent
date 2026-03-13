@@ -458,7 +458,7 @@ def generate_devis(args):
   </table>
 
   <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 16px; margin-bottom: 30px;">
-    <p style="margin: 0 0 8px 0; font-weight: 700; color: #166534;">💳 Conditions de paiement</p>
+    <p style="margin: 0 0 8px 0; font-weight: 700; color: #166534;"> Conditions de paiement</p>
     <p style="margin: 4px 0;">Paiement par virement bancaire, à 30 jours après acceptation du devis.</p>
     <p style="margin: 4px 0;">Un acompte de 30% sera demandé à la commande.</p>
     {f"<p style='margin: 4px 0; font-style: italic; color: #666;'>{tva_mention}</p>" if tva_mention else ""}

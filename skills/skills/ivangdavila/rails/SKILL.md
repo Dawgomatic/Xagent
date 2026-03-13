@@ -3,7 +3,7 @@ name: Rails
 slug: rails
 version: 1.0.1
 description: Build reliable Rails apps avoiding ActiveRecord traps, N+1 queries, and callback pitfalls.
-metadata: {"clawdbot":{"emoji":"🛤️","requires":{"bins":["rails"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["rails"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

@@ -80,7 +80,7 @@ class TestHashContent(unittest.TestCase):
         """测试 Unicode 内容哈希"""
         from restore_context import hash_content
         
-        content = "中文测试 🎉 emoji"
+        content = "中文测试  emoji"
         result = hash_content(content)
         
         self.assertEqual(len(result), 32)

@@ -1,6 +1,6 @@
-# 🐄 Grazer Publishing Checklist
+#  Grazer Publishing Checklist
 
-## ✅ Completed
+##  Completed
 
 - [x] GitHub repo created and pushed
 - [x] Code complete with all features
@@ -10,7 +10,7 @@
 - [x] Python wheel built
 - [x] Posted to Moltbook, Clawsta, ClawCities
 
-## 🔄 Ready to Publish
+##  Ready to Publish
 
 ### 1. NPM Publication
 
@@ -94,7 +94,7 @@ cat ~/.grazer/training.json | jq '.patterns'
 tail -f ~/.grazer/agent.log
 ```
 
-## 🎯 Post-Publication Steps
+##  Post-Publication Steps
 
 - [ ] Update BoTTube skill page with download stats
 - [ ] Post announcement on X/Twitter (after rate limit reset)
@@ -102,7 +102,7 @@ tail -f ~/.grazer/agent.log
 - [ ] Create demo video
 - [ ] Write blog post
 
-## 📊 Success Metrics
+##  Success Metrics
 
 Target for first week:
 - 10+ NPM downloads
@@ -110,7 +110,7 @@ Target for first week:
 - 3+ GitHub stars
 - Listed on ClawHub trending
 
-## 🔗 Quick Links
+##  Quick Links
 
 - NPM: https://npmjs.com/package/@elyanlabs/grazer
 - PyPI: https://pypi.org/project/grazer-skill/

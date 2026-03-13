@@ -50,7 +50,7 @@ export interface ChannelAnalysis {
  * @returns Channel data with recent videos and calculated metrics
  */
 export async function analyzeChannel(channelId: string): Promise<ChannelAnalysis> {
-  console.log('\n📺 Analyzing channel...');
+  console.log('\n Analyzing channel...');
 
   console.log('  → Getting channel info...');
   const channel = await getChannel(channelId, { save: false });
@@ -76,7 +76,7 @@ export async function analyzeChannel(channelId: string): Promise<ChannelAnalysis
   // Save with channel name as filename
   saveResult(result, 'channels', 'channel_analysis', channel.title);
 
-  console.log('✅ Channel analysis complete\n');
+  console.log(' Channel analysis complete\n');
   return result;
 }
 
@@ -87,7 +87,7 @@ export async function analyzeChannel(channelId: string): Promise<ChannelAnalysis
  * @returns Comparison data for all channels
  */
 export async function compareChannels(channelIds: string[]) {
-  console.log(`\n📊 Comparing ${channelIds.length} channels...`);
+  console.log(`\n Comparing ${channelIds.length} channels...`);
 
   const channels = await getMultipleChannels(channelIds, { save: false });
 
@@ -117,7 +117,7 @@ export async function compareChannels(channelIds: string[]) {
 
   saveResult(result, 'channels', 'channel_comparison');
 
-  console.log('✅ Channel comparison complete\n');
+  console.log(' Channel comparison complete\n');
   return result;
 }
 
@@ -142,7 +142,7 @@ export interface VideoAnalysis {
  * @returns Video data with engagement metrics
  */
 export async function analyzeVideo(videoId: string): Promise<VideoAnalysis> {
-  console.log('\n🎬 Analyzing video...');
+  console.log('\n Analyzing video...');
 
   const video = await getVideo(videoId, { save: false });
 
@@ -164,7 +164,7 @@ export async function analyzeVideo(videoId: string): Promise<VideoAnalysis> {
   // Save with video title as filename
   saveResult(result, 'videos', 'video_analysis', video.title);
 
-  console.log('✅ Video analysis complete\n');
+  console.log(' Video analysis complete\n');
   return result;
 }
 
@@ -176,7 +176,7 @@ export async function analyzeVideo(videoId: string): Promise<VideoAnalysis> {
  * @returns Search results with video stats
  */
 export async function searchAndAnalyze(query: string, maxResults = 10) {
-  console.log(`\n🔍 Searching for "${query}"...`);
+  console.log(`\n Searching for "${query}"...`);
 
   console.log('  → Searching videos...');
   const searchResults = await searchVideos(query, { maxResults, save: false });
@@ -208,7 +208,7 @@ export async function searchAndAnalyze(query: string, maxResults = 10) {
   const sanitizedQuery = query.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 30);
   saveResult(result, 'search', 'search_analysis', sanitizedQuery);
 
-  console.log('✅ Search analysis complete\n');
+  console.log(' Search analysis complete\n');
   return result;
 }
 

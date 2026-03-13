@@ -72,13 +72,13 @@ const result = await client.submit(tx, { wallet });
 
 ## Safety Checks
 
-✅ **MUST VERIFY**:
+ **MUST VERIFY**:
 1. `lsfDisableMaster` flag set (no more minting)
 2. Contract ownership renounced
 3. Liquidity added (check trustlines)
 4. Not a honeypot (can sell after buying)
 
-❌ **SKIP IF**:
+ **SKIP IF**:
 - No audit
 - No liquidity
 - Non-renounced contract

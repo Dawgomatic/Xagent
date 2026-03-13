@@ -30,7 +30,7 @@ api() {
 }
 
 cmd_indexers() {
-  echo "📡 Prowlarr Indexers"
+  echo " Prowlarr Indexers"
   echo ""
   local data
   data=$(api GET "/indexer")
@@ -38,7 +38,7 @@ cmd_indexers() {
   count=$(echo "$data" | jq 'length')
   echo "Total: ${count} indexers"
   echo ""
-  echo "$data" | jq -r '.[] | "  [\(.id)] \(.name) (\(.protocol)) - \(if .enable then "✅ Enabled" else "❌ Disabled" end)"'
+  echo "$data" | jq -r '.[] | "  [\(.id)] \(.name) (\(.protocol)) - \(if .enable then " Enabled" else " Disabled" end)"'
 }
 
 cmd_test() {
@@ -49,23 +49,23 @@ cmd_test() {
     data=$(api GET "/indexer")
     echo "$data" | jq -r '.[] | select(.enable == true) | "\(.id) \(.name)"' | while read -r iid iname; do
       if api POST "/indexer/test" -d "{\"id\":${iid}}" >/dev/null 2>&1; then
-        echo "  ✅ ${iname}"
+        echo "   ${iname}"
       else
-        echo "  ❌ ${iname} - Test failed"
+        echo "   ${iname} - Test failed"
       fi
     done
   else
     echo "Testing indexer ${id}..."
     if api POST "/indexer/test" -d "{\"id\":${id}}" >/dev/null 2>&1; then
-      echo "  ✅ Test passed"
+      echo "   Test passed"
     else
-      echo "  ❌ Test failed"
+      echo "   Test failed"
     fi
   fi
 }
 
 cmd_stats() {
-  echo "📊 Prowlarr Stats"
+  echo " Prowlarr Stats"
   echo ""
   local indexers
   indexers=$(api GET "/indexer")
@@ -98,7 +98,7 @@ cmd_search() {
   if [[ -z "$query" ]]; then
     echo "Usage: prowlarr.sh search <query> [movie|tv|audio|book]" >&2; exit 1
   fi
-  echo "🔍 Searching: ${query}"
+  echo " Searching: ${query}"
   local params="query=$(echo "$query" | sed 's/ /%20/g')"
   if [[ -n "$type" ]]; then
     local cat_ids=""
@@ -120,7 +120,7 @@ cmd_search() {
 }
 
 cmd_apps() {
-  echo "🔗 Prowlarr App Sync Targets"
+  echo " Prowlarr App Sync Targets"
   echo ""
   local data
   data=$(api GET "/applications")
@@ -170,32 +170,32 @@ EOF
   if result=$(api POST "/applications" -d "$payload"); then
     local id
     id=$(echo "$result" | jq '.id')
-    echo "✅ Added ${impl} (id: ${id})"
+    echo " Added ${impl} (id: ${id})"
   else
-    echo "❌ Failed to add ${impl}" >&2
+    echo " Failed to add ${impl}" >&2
   fi
 }
 
 cmd_sync() {
-  echo "🔄 Triggering indexer sync to all apps..."
+  echo " Triggering indexer sync to all apps..."
   if api POST "/applications/action/sync" -d '{}' >/dev/null 2>&1; then
-    echo "✅ Sync triggered"
+    echo " Sync triggered"
   else
-    echo "❌ Sync failed" >&2
+    echo " Sync failed" >&2
   fi
 }
 
 cmd_status() {
-  echo "🏥 Prowlarr Health"
+  echo " Prowlarr Health"
   echo ""
   local health
   health=$(api GET "/health")
   local issues
   issues=$(echo "$health" | jq 'length')
   if [[ "$issues" == "0" ]]; then
-    echo "  ✅ No issues"
+    echo "   No issues"
   else
-    echo "$health" | jq -r '.[] | "  ⚠️  [\(.type)] \(.message)"'
+    echo "$health" | jq -r '.[] | "    [\(.type)] \(.message)"'
   fi
   echo ""
   local status
@@ -206,7 +206,7 @@ cmd_status() {
 
 cmd_logs() {
   local count="${1:-20}"
-  echo "📋 Prowlarr Logs (last ${count})"
+  echo " Prowlarr Logs (last ${count})"
   echo ""
   api GET "/log?pageSize=${count}&sortDirection=descending&sortKey=time" | \
     jq -r '.records[] | "  [\(.time | split("T")[0])] [\(.level)] \(.message)"'

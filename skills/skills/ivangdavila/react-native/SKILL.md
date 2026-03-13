@@ -1,7 +1,7 @@
 ---
 name: React Native
 description: Build performant cross-platform mobile apps with React Native components, navigation, and native modules.
-metadata: {"clawdbot":{"emoji":"📱","requires":{"anyBins":["npx","expo"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["npx","expo"]},"os":["linux","darwin","win32"]}}
 ---
 
 # React Native Development Rules

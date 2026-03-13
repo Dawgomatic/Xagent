@@ -117,7 +117,7 @@ async function detectNewPools(onNewPool) {
     async (logs) => {
       // "initialize2" = new pool creation signature
       if (logs.logs.some(log => log.includes('initialize2'))) {
-        console.log('\n[Sniper] 🚨 NEW RAYDIUM POOL DETECTED!');
+        console.log('\n[Sniper]  NEW RAYDIUM POOL DETECTED!');
         
         try {
           const tx = await connection.getParsedTransaction(logs.signature, {
@@ -167,7 +167,7 @@ async function detectNewPools(onNewPool) {
     new PublicKey(PUMP_FUN_PROGRAM),
     async (logs) => {
       if (logs.logs.some(log => log.includes('MintTo') || log.includes('InitializeMint'))) {
-        console.log('\n[Sniper] 🚨 NEW PUMP.FUN TOKEN DETECTED!');
+        console.log('\n[Sniper]  NEW PUMP.FUN TOKEN DETECTED!');
         
         // Quick grab the mint from logs
         const mintLog = logs.logs.find(l => l.includes('mint'));
@@ -200,7 +200,7 @@ async function executeSniperBuy(mint, solAmount, isSimulated = true) {
   console.log('[Sniper] Running safety checks...');
   const safety = await safetyCheck(mint);
   
-  console.log(`[Sniper] Safety: ${safety.passed ? '✅ PASSED' : '❌ FAILED'}`);
+  console.log(`[Sniper] Safety: ${safety.passed ? ' PASSED' : ' FAILED'}`);
   if (!safety.passed) {
     console.log(`[Sniper] Reasons: ${safety.reasons.join(', ')}`);
     return { success: false, reason: safety.reasons.join(', ') };
@@ -238,15 +238,15 @@ async function executeSniperBuy(mint, solAmount, isSimulated = true) {
     };
     
     await sendTelegram(`
-🎯 <b>SNIPER - PAPER BUY EXECUTED</b>
+ <b>SNIPER - PAPER BUY EXECUTED</b>
 
 Token: <code>${mint.slice(0,20)}...</code>
 SOL spent: ${solAmount}
 Tokens: ${tokensOut.toLocaleString()}
 Price impact: ${priceImpact.toFixed(2)}%
-Safety: ✅ PASSED
+Safety:  PASSED
 
-⚠️ SIMULATED — No real money
+ SIMULATED — No real money
 `.trim());
     
     return result;
@@ -272,13 +272,13 @@ async function autoSell(position, currentPrice) {
   
   // Take profit at 2x
   if (pnlPct >= 100) {
-    console.log('[Sniper] 🎯 TAKE PROFIT triggered!');
+    console.log('[Sniper]  TAKE PROFIT triggered!');
     return { action: 'SELL', reason: 'Take profit 2x' };
   }
   
   // Stop loss at -30%
   if (pnlPct <= -30) {
-    console.log('[Sniper] 🛑 STOP LOSS triggered!');
+    console.log('[Sniper]  STOP LOSS triggered!');
     return { action: 'SELL', reason: 'Stop loss -30%' };
   }
   
@@ -298,14 +298,14 @@ async function startSniper(options = {}) {
   console.log(`
 [Sniper] ==========================================
 [Sniper] IRONMAN SNIPER BOT STARTING
-[Sniper] Mode: ${simulated ? 'PAPER (Simulated)' : '⚠️ REAL MONEY'}
+[Sniper] Mode: ${simulated ? 'PAPER (Simulated)' : ' REAL MONEY'}
 [Sniper] Per trade: ${solPerTrade} SOL
 [Sniper] Max positions: ${maxPositions}
 [Sniper] ==========================================
   `);
   
   await sendTelegram(`
-🎯 <b>Sniper Bot Started</b>
+ <b>Sniper Bot Started</b>
 Mode: ${simulated ? 'Paper Trading' : 'LIVE'}
 Per trade: ${solPerTrade} SOL
 Watching: Raydium + Pump.fun new launches
@@ -370,7 +370,7 @@ Watching: Raydium + Pump.fun new launches
             positions.delete(mint);
             
             await sendTelegram(`
-📊 <b>Sniper Position Closed</b>
+ <b>Sniper Position Closed</b>
 Token: <code>${mint.slice(0,20)}...</code>
 Reason: ${decision.reason}
 P&L: ${((currentSOL - position.solSpent) / position.solSpent * 100).toFixed(1)}%
@@ -387,7 +387,7 @@ SOL back: ${currentSOL.toFixed(4)}
   // Stats every 5 minutes
   const statsInterval = setInterval(async () => {
     await sendTelegram(`
-📊 <b>Sniper Stats</b>
+ <b>Sniper Stats</b>
 Running: ${Math.floor(process.uptime()/60)} min
 Total snipe attempts: ${totalSnipes}
 Open positions: ${positions.size}

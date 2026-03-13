@@ -45,7 +45,7 @@ check_blocked() {
     local is_blocked
     is_blocked=$(jq -r --arg e "$entity" '.blocked // [] | map(select(. == $e)) | length' "$BLOCKED_FILE" 2>/dev/null || echo "0")
     if [[ "$is_blocked" -gt 0 ]]; then
-      echo "❌ BLOCKED: $entity is in blocked_entities.json and cannot be controlled."
+      echo " BLOCKED: $entity is in blocked_entities.json and cannot be controlled."
       exit 1
     fi
   fi
@@ -67,12 +67,12 @@ warn_critical() {
 
   for cd in $CRITICAL_DOMAINS; do
     if [[ "$domain" == "$cd" ]] || $is_cover_garage; then
-      echo "⚠️  CRITICAL: $entity is a security-sensitive device ($domain)."
+      echo "  CRITICAL: $entity is a security-sensitive device ($domain)."
       echo "   The agent MUST confirm with the user before executing this action."
       echo "   If running interactively, type YES to proceed or anything else to cancel."
       read -r -p "   Confirm? " response 2>/dev/null || return 0
       if [[ "${response,,}" != "yes" && "${response,,}" != "y" ]]; then
-        echo "❌ Cancelled."
+        echo " Cancelled."
         exit 1
       fi
       return 0
@@ -200,28 +200,28 @@ case "$cmd" in
   # --- Dashboard ---
 
   dashboard|status)
-    echo "=== 🏠 Home Assistant Dashboard ==="
+    echo "===  Home Assistant Dashboard ==="
     echo ""
 
-    echo "👥 Presence:"
+    echo " Presence:"
     api "$HA_URL/api/states" | jq -r '.[] | select(.entity_id | startswith("person.")) | "  \(.attributes.friendly_name // .entity_id): \(.state)"'
     echo ""
 
-    echo "💡 Lights ON:"
+    echo " Lights ON:"
     LIGHTS=$(api "$HA_URL/api/states" | jq -r '.[] | select(.entity_id | startswith("light.")) | select(.state == "on") | "  \(.attributes.friendly_name // .entity_id)"')
     if [[ -z "$LIGHTS" ]]; then echo "  (none)"; else echo "$LIGHTS"; fi
     echo ""
 
-    echo "🌡️ Temperature:"
+    echo " Temperature:"
     api "$HA_URL/api/states" | jq -r '.[] | select(.entity_id | startswith("sensor.")) | select(.attributes.device_class == "temperature") | "  \(.attributes.friendly_name // .entity_id): \(.state)\(.attributes.unit_of_measurement // "")"'
     echo ""
 
-    echo "🔒 Locks:"
+    echo " Locks:"
     LOCKS=$(api "$HA_URL/api/states" | jq -r '.[] | select(.entity_id | startswith("lock.")) | "  \(.attributes.friendly_name // .entity_id): \(.state)"')
     if [[ -z "$LOCKS" ]]; then echo "  (none configured)"; else echo "$LOCKS"; fi
     echo ""
 
-    echo "🚪 Open doors/windows:"
+    echo " Open doors/windows:"
     DOORS=$(api "$HA_URL/api/states" | jq -r '.[] | select(.entity_id | startswith("binary_sensor.")) | select(.state == "on") | select(.attributes.device_class == "door" or .attributes.device_class == "window") | "  \(.attributes.friendly_name // .entity_id)"')
     if [[ -z "$DOORS" ]]; then echo "  (all closed)"; else echo "$DOORS"; fi
     ;;
@@ -264,7 +264,7 @@ case "$cmd" in
 
   help|*)
     cat <<EOF
-🏠 Home Assistant CLI — Definitive Skill
+ Home Assistant CLI — Definitive Skill
 
 Usage: ha.sh <command> [args...]
 

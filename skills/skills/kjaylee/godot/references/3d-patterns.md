@@ -2,7 +2,7 @@
 
 Godot 4.x 3D 게임 공통 패턴 모음
 
-## 🎮 FPS 플레이어 컨트롤러
+##  FPS 플레이어 컨트롤러
 
 ### 기본 FPS 이동
 ```gdscript
@@ -72,7 +72,7 @@ func _process(delta):
 
 ---
 
-## 🎯 TPS (3인칭) 카메라
+##  TPS (3인칭) 카메라
 
 ### 플레이어 따라가기
 ```gdscript
@@ -109,7 +109,7 @@ func _process(delta):
 
 ---
 
-## 🚶 캐릭터 이동
+##  캐릭터 이동
 
 ### 이동 + 회전
 ```gdscript
@@ -149,7 +149,7 @@ func _physics_process(delta):
 
 ---
 
-## 🎯 총 발사 (Raycast)
+##  총 발사 (Raycast)
 
 ### Raycast 슈팅
 ```gdscript
@@ -184,7 +184,7 @@ func spawn_bullet_hole(pos: Vector3):
 
 ---
 
-## 🏃 적 AI (3D)
+##  적 AI (3D)
 
 ### 플레이어 추적 (NavMesh)
 ```gdscript
@@ -222,7 +222,7 @@ func _physics_process(delta):
 
 ---
 
-## 📦 오브젝트 상호작용
+##  오브젝트 상호작용
 
 ### Raycast 상호작용 (E키)
 ```gdscript
@@ -257,7 +257,7 @@ func interact():
 
 ---
 
-## 💥 물리 오브젝트
+##  물리 오브젝트
 
 ### RigidBody3D 충격
 ```gdscript
@@ -274,7 +274,7 @@ func apply_explosion_force(origin: Vector3, force: float, radius: float):
 
 ---
 
-## 🎬 애니메이션
+##  애니메이션
 
 ### AnimationTree (캐릭터)
 ```gdscript
@@ -293,7 +293,7 @@ func _process(delta):
 
 ---
 
-## 📷 카메라 효과
+##  카메라 효과
 
 ### 카메라 쉐이크 (3D)
 ```gdscript
@@ -318,7 +318,7 @@ func shake(duration: float = 0.3):
 
 ---
 
-## 🌍 환경 & 조명
+##  환경 & 조명
 
 ### 주야 사이클
 ```gdscript
@@ -347,7 +347,7 @@ func _process(delta):
 
 ---
 
-## 🎯 크로스헤어 (UI)
+##  크로스헤어 (UI)
 
 ### 간단한 크로스헤어
 ```gdscript
@@ -361,7 +361,7 @@ func _ready():
 
 ---
 
-## 🚗 차량 컨트롤러
+##  차량 컨트롤러
 
 ### 기본 차량 (VehicleBody3D)
 ```gdscript
@@ -383,7 +383,7 @@ func _physics_process(delta):
 
 ---
 
-## 🎮 비행 컨트롤러
+##  비행 컨트롤러
 
 ### 기본 비행
 ```gdscript
@@ -414,7 +414,7 @@ func _physics_process(delta):
 
 ---
 
-## 🗺️ 미니맵
+##  미니맵
 
 ### 톱다운 미니맵
 ```gdscript
@@ -432,7 +432,7 @@ func _process(delta):
 
 ---
 
-## 💾 3D 세이브
+##  3D 세이브
 
 ### 플레이어 위치 저장
 ```gdscript
@@ -454,7 +454,7 @@ func load_game():
 
 ---
 
-## 🌊 물리 영역 (중력, 물)
+##  물리 영역 (중력, 물)
 
 ### 물 영역 (Area3D)
 ```gdscript
@@ -479,7 +479,7 @@ func _on_body_exited(body):
 
 ---
 
-## 🎯 레이저 포인터
+##  레이저 포인터
 
 ### 레이저 비주얼
 ```gdscript
@@ -502,7 +502,7 @@ func _process(delta):
 
 ---
 
-## 🚀 로켓/미사일
+##  로켓/미사일
 
 ### 유도 미사일
 ```gdscript
@@ -527,7 +527,7 @@ func _physics_process(delta):
 
 ---
 
-## 🎮 그래플링 훅
+##  그래플링 훅
 
 ### 그래플 (RayCast)
 ```gdscript

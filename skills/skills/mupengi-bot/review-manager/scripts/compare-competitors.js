@@ -35,7 +35,7 @@ function loadAllReviews(config) {
 
 // 경쟁사 리뷰 수집 (mock)
 async function collectCompetitorReviews(competitor) {
-  console.log(`🔍 경쟁사 리뷰 수집 중: ${competitor.name}`);
+  console.log(` 경쟁사 리뷰 수집 중: ${competitor.name}`);
   
   // TODO: 실제 구현은 browser tool 또는 API 호출
   // 여기서는 mock 데이터 반환
@@ -89,11 +89,11 @@ function generateComparisonReport(ownStats, competitorStats) {
     const diff = (ownRating - compRating).toFixed(2);
     
     if (diff > 0) {
-      report.insights.push(`✅ ${comp.name}보다 ${diff}점 높음`);
+      report.insights.push(` ${comp.name}보다 ${diff}점 높음`);
     } else if (diff < 0) {
-      report.insights.push(`⚠️ ${comp.name}보다 ${Math.abs(diff)}점 낮음`);
+      report.insights.push(` ${comp.name}보다 ${Math.abs(diff)}점 낮음`);
     } else {
-      report.insights.push(`➖ ${comp.name}과 동일`);
+      report.insights.push(` ${comp.name}과 동일`);
     }
   }
   
@@ -102,22 +102,22 @@ function generateComparisonReport(ownStats, competitorStats) {
 
 // 리포트 출력
 function printReport(report) {
-  console.log('\n📊 **경쟁사 비교 리포트**\n');
+  console.log('\n **경쟁사 비교 리포트**\n');
   
-  console.log('🏪 **자사 통계**:');
+  console.log(' **자사 통계**:');
   console.log(`  총 리뷰: ${report.own.totalReviews}개`);
-  console.log(`  평균 별점: ⭐ ${report.own.avgRating}`);
+  console.log(`  평균 별점:  ${report.own.avgRating}`);
   console.log(`  최근 30일 리뷰: ${report.own.recentReviews}개`);
   
-  console.log('\n🔍 **경쟁사 통계**:');
+  console.log('\n **경쟁사 통계**:');
   for (const comp of report.competitors) {
     console.log(`\n  [${comp.name}]`);
     console.log(`    총 리뷰: ${comp.totalReviews}개`);
-    console.log(`    평균 별점: ⭐ ${comp.avgRating}`);
+    console.log(`    평균 별점:  ${comp.avgRating}`);
     console.log(`    최근 30일 리뷰: ${comp.recentReviews}개`);
   }
   
-  console.log('\n💡 **인사이트**:');
+  console.log('\n **인사이트**:');
   for (const insight of report.insights) {
     console.log(`  ${insight}`);
   }
@@ -136,7 +136,7 @@ function saveReport(config, report) {
   const filepath = path.join(reportsDir, filename);
   
   fs.writeFileSync(filepath, JSON.stringify(report, null, 2));
-  console.log(`\n💾 리포트 저장: ${filename}`);
+  console.log(`\n 리포트 저장: ${filename}`);
 }
 
 // 메인
@@ -144,7 +144,7 @@ async function main() {
   const config = loadConfig();
   
   if (!config.competitors || config.competitors.length === 0) {
-    console.log('⚠️  경쟁사 설정이 없습니다 (config.json)');
+    console.log('  경쟁사 설정이 없습니다 (config.json)');
     return;
   }
   
@@ -165,6 +165,6 @@ async function main() {
 }
 
 main().catch(err => {
-  console.error('❌ 오류:', err.message);
+  console.error(' 오류:', err.message);
   process.exit(1);
 });

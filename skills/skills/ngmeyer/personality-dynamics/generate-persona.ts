@@ -68,7 +68,7 @@ Write this as a character bible for a novel - rich, detailed, internally consist
 
 async function collectContext() {
   console.log(`
-🎭 AI-Powered Persona Generator
+ AI-Powered Persona Generator
 
 I'll ask you some questions to create a rich, personalized AI companion.
 This produces a 4,000+ word character bible.
@@ -79,7 +79,7 @@ This produces a 4,000+ word character bible.
   context.userName = await question("What's your name? ");
   context.agentName = await question("AI companion name? [default: Aria] ") || "Aria";
   
-  console.log("\n🎨 Personality Style:");
+  console.log("\n Personality Style:");
   console.log("  1. Warm Professional - friendly but competent");
   console.log("  2. Creative/Energetic - bold, experimental");
   console.log("  3. Casual/Friendly - conversational, warm");
@@ -116,14 +116,14 @@ async function savePersonaFiles(content, context) {
   // Save context
   writeFileSync(join(PERSONA_DIR, 'generation-context.json'), JSON.stringify(context, null, 2));
   
-  console.log(`\n✅ Persona saved to PERSONA/core-rich.md`);
+  console.log(`\n Persona saved to PERSONA/core-rich.md`);
   console.log(`   Context saved to PERSONA/generation-context.json`);
 }
 
 async function main() {
   const context = await collectContext();
   
-  console.log(`\n🤖 Generating rich persona for ${context.userName}...`);
+  console.log(`\n Generating rich persona for ${context.userName}...`);
   console.log(`   AI Companion: ${context.agentName}`);
   console.log(`   Style: ${context.style}\n`);
   
@@ -146,7 +146,7 @@ async function main() {
     console.log(`---END_SPAWN---`);
     
   } else {
-    console.log(`\n📋 Copy this prompt and run it with Claude/Opus/GPT-4:\n`);
+    console.log(`\n Copy this prompt and run it with Claude/Opus/GPT-4:\n`);
     console.log(`=== PROMPT START ===`);
     console.log(prompt);
     console.log(`=== PROMPT END ===\n`);

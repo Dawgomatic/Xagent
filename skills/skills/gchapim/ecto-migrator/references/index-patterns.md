@@ -29,11 +29,11 @@ The leftmost columns must appear in the query's WHERE/ORDER for the index to be 
 ```
 Index: (tenant_id, status, inserted_at)
 
-✅ WHERE tenant_id = ?
-✅ WHERE tenant_id = ? AND status = ?
-✅ WHERE tenant_id = ? AND status = ? ORDER BY inserted_at
-❌ WHERE status = ?                    (skips tenant_id)
-❌ WHERE inserted_at > ?               (skips both)
+ WHERE tenant_id = ?
+ WHERE tenant_id = ? AND status = ?
+ WHERE tenant_id = ? AND status = ? ORDER BY inserted_at
+ WHERE status = ?                    (skips tenant_id)
+ WHERE inserted_at > ?               (skips both)
 ```
 
 **Rule of thumb:** Most selective column first, but respect query patterns.

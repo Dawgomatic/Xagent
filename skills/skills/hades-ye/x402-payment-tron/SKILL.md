@@ -4,7 +4,7 @@ description: "Pay for x402-enabled Agent endpoints using USDT on TRON"
 version: 1.0.0
 author: x402-protocol
 homepage: https://x402.org
-metadata: {"clawdbot":{"emoji":"💳","env":["TRON_PRIVATE_KEY"]}}
+metadata: {"clawdbot":{"emoji":"","env":["TRON_PRIVATE_KEY"]}}
 tags: [crypto, payments, x402, agents, api, usdt, tron]
 requires_tools: [x402_tron_invoke]
 arguments:

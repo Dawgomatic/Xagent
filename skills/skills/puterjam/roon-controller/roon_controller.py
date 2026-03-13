@@ -81,10 +81,10 @@ class RoonController:
                         print(f"  Current zone: {self.selected_zone}")
             except Exception:
                 if self.verbose:
-                    print("⚠  Configuration file corrupted, will re-authorize")
+                    print("  Configuration file corrupted, will re-authorize")
         else:
             if self.verbose:
-                print("ℹ  No saved configuration found, will perform new authorization")
+                print("  No saved configuration found, will perform new authorization")
 
     def _save_config(self) -> None:
         """Save configuration to file"""
@@ -130,7 +130,7 @@ class RoonController:
 
             except Exception as e:
                 if self.verbose:
-                    print(f"⚠  Auto-discovery failed: {e}")
+                    print(f"  Auto-discovery failed: {e}")
                 if attempt < max_retries - 1:
                     time.sleep(1)
 
@@ -158,7 +158,7 @@ class RoonController:
             return False
         except Exception as e:
             if self.verbose:
-                print(f"⚠  Connection failed: {e}")
+                print(f"  Connection failed: {e}")
             return False
 
     def _connect(self) -> None:
@@ -248,7 +248,7 @@ class RoonController:
 
             if not zones:
                 if self.verbose:
-                    print("⚠  No zones found")
+                    print("  No zones found")
                 return None
 
             # Find zone with [roon] suffix
@@ -260,7 +260,7 @@ class RoonController:
 
             if not roon_zones:
                 if self.verbose:
-                    print(f"⚠  No zones with '[roon]' suffix found")
+                    print(f"  No zones with '[roon]' suffix found")
                     print(f"  Available zones:")
                     for zone_id, zone_data in zones.items():
                         print(f"    - {zone_data.get('display_name', 'Unknown')}")
@@ -275,7 +275,7 @@ class RoonController:
 
         except Exception as e:
             if self.verbose:
-                print(f"❌ Failed to find zone: {e}")
+                print(f" Failed to find zone: {e}")
             return None
 
     def get_current_zone(self) -> Optional[Dict[str, Any]]:
@@ -293,7 +293,7 @@ class RoonController:
                 return zone
             else:
                 if self.verbose:
-                    print(f"⚠  Saved zone '{self.selected_zone}' unavailable, trying default zone")
+                    print(f"  Saved zone '{self.selected_zone}' unavailable, trying default zone")
 
         # Fall back to default zone
         return self.find_default_zone()
@@ -549,7 +549,7 @@ def main():
     try:
         controller = RoonController(host=args.host, verbose=args.verbose)
     except Exception as e:
-        print(f"❌ Initialization failed: {e}")
+        print(f" Initialization failed: {e}")
         return 1
 
     # Execute command
@@ -579,7 +579,7 @@ def main():
     elif args.command == 'switch':
         if not args.zone_name:
             zones = controller.list_zones()
-            print("\n❌ Please specify a zone name")
+            print("\n Please specify a zone name")
             print("\nUsage: python roon_controller.py switch \"zone name\"")
             print("\nAvailable zones:")
             for zone in zones:
@@ -593,7 +593,7 @@ def main():
         if result.get('success'):
             if args.command == 'status':
                 # Format and display track info
-                print(f"\n🎵 Currently playing:")
+                print(f"\n Currently playing:")
                 print(f"  Zone: {result.get('zone')}")
                 print(f"  Status: {'Playing' if result.get('is_playing') else 'Paused'}")
                 print(f"  Track: {result.get('track')}")
@@ -610,15 +610,15 @@ def main():
                 pass  # Already handled above
             elif args.command in ('play', 'prev', 'next'):
                 # Display operation result and track info
-                print(f"\n✅ {result.get('message')}")
+                print(f"\n {result.get('message')}")
                 if result.get('track'):
                     print(f"  Track: {result.get('track')}")
                     print(f"  Artist: {result.get('artist')}")
                     print(f"  Album: {result.get('album')}")
             else:
-                print(f"\n✅ {result.get('message')}")
+                print(f"\n {result.get('message')}")
         else:
-            print(f"\n❌ {result.get('message')}")
+            print(f"\n {result.get('message')}")
             if result.get('available_zones'):
                 print("\nAvailable zones:")
                 for zone in result.get('available_zones'):

@@ -82,7 +82,7 @@ class ConfigGuard {
     }
     
     // 8. ROLLBACK
-    this._log('❌ Gateway unhealthy — rolling back!', true);
+    this._log(' Gateway unhealthy — rolling back!', true);
     this._restoreBackup(backupId);
     this._restartGateway();
     

@@ -7,9 +7,9 @@
 
 ## [5.0.0] — 2026-02-18
 
-### ✨ 추가 (Added)
+###  추가 (Added)
 
-- **Pillar 1: 시맨틱 임베딩 (`scripts/v5/embedding-analyze.sh`)** ⭐
+- **Pillar 1: 시맨틱 임베딩 (`scripts/v5/embedding-analyze.sh`)** 
   - Ollama `nomic-embed-text` 모델로 로컬 임베딩 생성 (API 비용 $0)
   - 코사인 유사도 > 0.78 → 불만 신호 확정 (의미론적 판단)
   - 임베딩 벡터 캐시 (`~/.sea-embeddings-cache/`) — 동일 세션 재계산 없음
@@ -18,7 +18,7 @@
   - 거짓양성률 ~15% → ~8% 감소 (추정)
   - Ollama 오프라인 시 v4 휴리스틱 자동 폴백
 
-- **Pillar 2: 스트리밍 모니터 (`scripts/v5/stream-monitor.sh`)** ⭐
+- **Pillar 2: 스트리밍 모니터 (`scripts/v5/stream-monitor.sh`)** 
   - `tail -F` 기반 실시간 로그 감시 (주 1회 배치 → 실시간)
   - `--poll` 모드: 30초 간격 폴링 (테스트/CI/비대화형 환경)
   - 임계치 기반 즉각 알림: exec 5회 연속, 크론 에러 3회, 불만 급등
@@ -26,7 +26,7 @@
   - `data/stream-alerts/` 큐 — 주간 분석에 자동 통합
   - 알림 지연 <30초
 
-- **Pillar 3: 플릿 분석 (`scripts/v5/fleet-analyzer.sh`)** ⭐
+- **Pillar 3: 플릿 분석 (`scripts/v5/fleet-analyzer.sh`)** 
   - `~/.openclaw/agents/` 내 모든 에이전트 인스턴스 자동 탐지
   - 교차 인스턴스 패턴 비교 (opus vs sonnet vs haiku)
   - 공통 패턴 → 시스템 수준 AGENTS.md 개선 권고
@@ -34,7 +34,7 @@
   - 플릿 건강도 점수 (가중 평균)
   - `data/fleet/fleet-YYYYMMDD.json` 결과 저장
 
-- **트렌드 분석 (`scripts/v5/trend-analyzer.sh`)** ⭐
+- **트렌드 분석 (`scripts/v5/trend-analyzer.sh`)** 
   - 최근 4주 분석 결과 비교 (패턴 빈도 추세)
   - Emerging 패턴: 4주 평균 대비 2× 이상 급증
   - Resolved 패턴: 4주 평균 대비 20% 이하로 감소
@@ -69,18 +69,18 @@
   - `docs/migration-v4-to-v5.md` 신설 — v4 → v5 마이그레이션 단계별 가이드
   - `tests/test-v5.sh` 신설 — v5 컴포넌트 독립 테스트
 
-### 🔧 변경 (Changed)
+###  변경 (Changed)
 
 - `synthesize-proposal.sh` — 임베딩 분석 결과, 트렌드, 플릿 데이터를 합성 입력으로 통합
 - `collect-logs.sh` — 스트림 알림 통합 (`data/stream-alerts/` 자동 스캔)
 - `bin/sea` v2.0.0 — `monitor`, `alerts`, `trends`, `patterns`, `fleet` 명령 추가
 
-### 🛡️ 보안 (Security)
+###  보안 (Security)
 
 - 임베딩 캐시에 민감 정보 포함 방지 (메시지 원문 미저장, 벡터만 저장)
 - `~/.sea-embeddings-cache/` 권한 자동 설정 (600)
 
-### ⚡ 성능 (Performance)
+###  성능 (Performance)
 
 - 임베딩 캐시로 동일 세션 재분석 시 <10초 (캐시 없을 때 <5분)
 - `--dry-run` 플래그 — 실제 임베딩 계산 없이 파이프라인 검증
@@ -89,7 +89,7 @@
 
 ## [4.3.0] — 2026-02-18
 
-### ✨ 추가 (Added)
+###  추가 (Added)
 
 - **멀티플랫폼 배달 (`deliver.sh`)**
   - `scripts/v4/deliver.sh` 신규: Slack Incoming Webhook, Telegram Bot API, Generic Webhook 지원
@@ -112,7 +112,7 @@
   - `feature_request.yml`: 사용 사례, 기대 동작, 대안 섹션 추가
   - `good_first_issue.yml`: 멘토링 가용 여부, 예상 소요 시간, 필요 기술 필드 추가
 
-### 🔧 변경 (Changed)
+###  변경 (Changed)
 
 - `config.yaml` `complaint_patterns` 구조 변경 (v3 flat list → v4 ko/en dict)
   - **마이그레이션 필요:** `docs/migration-v3-to-v4.md` 참조
@@ -122,7 +122,7 @@
 
 ## [4.1.0] — 2026-02-18
 
-### ✨ 추가 (Added)
+###  추가 (Added)
 
 - **멀티플랫폼 배달 (`deliver.sh`)**
   - `scripts/v4/deliver.sh` 신규: Slack Incoming Webhook, Telegram Bot API, Generic Webhook 지원
@@ -145,7 +145,7 @@
   - `feature_request.yml`: 사용 사례, 기대 동작, 대안 섹션 추가
   - `good_first_issue.yml`: 멘토링 가용 여부, 예상 소요 시간, 필요 기술 필드 추가
 
-### 🔧 변경 (Changed)
+###  변경 (Changed)
 
 - `config.yaml` `complaint_patterns` 구조 변경 (v3 flat list → v4 ko/en dict)
   - **마이그레이션 필요:** `docs/migration-v3-to-v4.md` 참조
@@ -155,7 +155,7 @@
 
 ## [4.0.0] — 2026-02-17
 
-### ✨ 추가 (Added)
+###  추가 (Added)
 
 - **멀티 스테이지 파이프라인 (`scripts/v4/`)**
   - `orchestrator.sh`: v4 메인 진입점. 크론에 의해 호출되며 각 스테이지를 순서대로 실행
@@ -182,13 +182,13 @@
   - GitHub Actions: PR마다 `shellcheck` 자동 실행
   - 대상: `scripts/*.sh`, `scripts/lib/*.sh`, `scripts/v4/*.sh`
 
-### 🔧 변경 (Changed)
+###  변경 (Changed)
 
 - 기존 `scripts/analyze-behavior.sh` + `scripts/generate-proposal.sh` (v3 레거시)는 유지되나 적극 유지보수 대상에서 제외
 - 임시 파일 경로: `/tmp/self-evolving-analysis.json` (단일 파일) → `/tmp/sea-v4/` (스테이지별 파일)
 - 크론 배달 방식: `generate-proposal.sh` stdout → `orchestrator.sh` stdout (OpenClaw native delivery)
 
-### 🛡️ 보안 (Security)
+###  보안 (Security)
 
 - 모든 `scripts/v4/` 스크립트에 SECURITY MANIFEST 주석 추가
 - 외부 엔드포인트 접근: `benchmark.sh`만 GitHub API + ClawHub API (선택적, 실패 시 건너뜀)
@@ -197,7 +197,7 @@
 
 ## [3.0.0] — 2026-02-17
 
-### 🔴 버그 수정 (Bug Fixes)
+###  버그 수정 (Bug Fixes)
 
 - **`build_report` heredoc 백틱 인터폴레이션 버그 수정**
   - `python3 << PYEOF` → 외부 Python 파일 (`sea-rpt-$$.py`) 방식으로 교체
@@ -212,7 +212,7 @@
   - 이전: exec 제안의 "최대 연속 재시도"에 browser의 119회 streak이 표시됨
   - 수정: `worst_streaks`를 해당 도구명으로 필터링 후 참조
 
-### ✨ 기능 개선 (Improvements)
+###  기능 개선 (Improvements)
 
 - **retry 분석 정밀도 향상 (오탐 감소)**
   - 파일 I/O 도구 제외: `read`, `write`, `edit`, `image`, `tts`, `canvas`
@@ -233,7 +233,7 @@
   - 근거 텍스트 줄바꿈 렌더링 개선 (`> 근거:` + 멀티라인)
   - backtick이 포함된 메시지 문구 이스케이프 없이 안전하게 출력
 
-### 🧪 테스트 검증
+###  테스트 검증
 
 - `python3 -m json.tool` JSON 유효성 검증 통과
 - 엣지 케이스 검증:
@@ -246,14 +246,14 @@
 
 ## [2.0.0] — 2026-02-17
 
-### ✨ 추가
+###  추가
 
 - `config.yaml` 지원: 분석 기간, 패턴, 크론 스케줄 등 외부 설정 파일로 관리
 - `scripts/lib/config-loader.sh`: YAML → bash 변수 자동 로드 (PyYAML 없어도 동작)
 - `self-improving-agent .learnings/` 연동: ERRORS.md, LEARNINGS.md, FEATURE_REQUESTS.md 파싱
 - v3.0 분석 신호 추가: exec 5210회 연속 재시도 패턴 감지 기원
 
-### 🔧 변경
+###  변경
 
 - 분석 아키텍처 리팩토링: 인라인 Python → 임시 파일 기반 (heredoc 안전성)
 - `tool_use` → `toolCall` 실제 필드명 수정
@@ -262,7 +262,7 @@
 
 ## [1.0.0] — 2026-02-17
 
-### ✨ 초기 릴리즈
+###  초기 릴리즈
 
 - 주간 세션 로그 분석 (최근 N일, 최대 M개 세션)
 - 불만 패턴 감지 (한국어/영어 키워드)
@@ -277,8 +277,8 @@
 ---
 
 > **변경 유형 범례:**
-> - ✨ 추가 (Added)
-> - 🔧 변경 (Changed)
-> - 🗑️ 제거 (Removed)
-> - 🔴 버그 수정 (Fixed)
-> - 🛡️ 보안 (Security)
+> -  추가 (Added)
+> -  변경 (Changed)
+> -  제거 (Removed)
+> -  버그 수정 (Fixed)
+> -  보안 (Security)

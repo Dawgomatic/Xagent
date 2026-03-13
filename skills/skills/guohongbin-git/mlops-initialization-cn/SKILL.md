@@ -5,13 +5,13 @@ description: MLOps project initialization with uv/git/VS Code best practices
 license: MIT
 ---
 
-# MLOps 项目初始化 🚀
+# MLOps 项目初始化 
 
 Setup new MLOps projects with modern Python toolchain.
 
 ## Features
 
-### 1. Project Initialization 📦
+### 1. Project Initialization 
 
 Create complete project structure:
 
@@ -26,7 +26,7 @@ Creates:
 - `.vscode/settings.json`
 - Git repository
 
-### 2. Configuration Templates 📋
+### 2. Configuration Templates 
 
 Copy reference configs:
 
@@ -57,11 +57,11 @@ uv run python -c "import sys; print(sys.executable)"
 
 ## What You Get
 
-- ✅ `src/` package layout
-- ✅ Locked dependencies (`uv.lock`)
-- ✅ Ruff + MyPy configured
-- ✅ VS Code settings
-- ✅ Git repository
+-  `src/` package layout
+-  Locked dependencies (`uv.lock`)
+-  Ruff + MyPy configured
+-  VS Code settings
+-  Git repository
 
 ## References
 

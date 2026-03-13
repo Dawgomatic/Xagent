@@ -11,7 +11,7 @@ Swarm started as a parallel research tool using cheap LLM workers. This roadmap 
 ## Phase 1: Development Use Cases (Current Focus)
 
 ### 1.1 Test Generation
-**Status:** 🔲 Planned
+**Status:**  Planned
 
 Workers generate unit tests in parallel for different modules/functions.
 
@@ -35,7 +35,7 @@ const tests = await swarm.generateTests({
 ---
 
 ### 1.2 Documentation Generation
-**Status:** 🔲 Planned
+**Status:**  Planned
 
 Workers generate documentation sections in parallel.
 
@@ -61,7 +61,7 @@ const docs = await swarm.generateDocs({
 ---
 
 ### 1.3 Code Refactoring Analysis
-**Status:** 🔲 Planned
+**Status:**  Planned
 
 Workers analyze code sections and suggest improvements.
 
@@ -88,7 +88,7 @@ const refactors = await swarm.analyzeRefactoring({
 ---
 
 ### 1.4 API Integration
-**Status:** 🔲 Planned
+**Status:**  Planned
 
 Workers research APIs and generate integration code.
 
@@ -117,7 +117,7 @@ const integrations = await swarm.integrateAPIs({
 ## Phase 2: Docker Architecture (Next)
 
 ### 2.1 Local Docker Deployment
-**Status:** 🔲 Planned
+**Status:**  Planned
 
 Run multiple Swarm workers as Docker containers on a single machine.
 
@@ -334,24 +334,24 @@ General tasks → Cloud API workers (Gemini, Claude)
 ## Phase 0: User Experience (Critical)
 
 ### 0.1 Visible Feedback
-**Status:** 🔴 CRITICAL
+**Status:**  CRITICAL
 
 Users need to SEE that Swarm is working. Without feedback, it feels like nothing is happening.
 
 **Required Output:**
 ```
-🐝 Swarm initialized (5 workers)
+ Swarm initialized (5 workers)
 ├─ Worker 1: Researching OpenAI...
 ├─ Worker 2: Researching Anthropic...
 ├─ Worker 3: Researching Google DeepMind...
 ├─ Worker 4: Researching Meta AI...
 └─ Worker 5: Researching Mistral...
 
-🐝 Progress: ████████░░ 4/5 complete
+ Progress: ████████░░ 4/5 complete
 
-🐝 Swarm complete in 3.2s
+ Swarm complete in 3.2s
    ✓ 5/5 tasks successful
-   ⚡ 4.1x faster than sequential
+    4.1x faster than sequential
 ```
 
 **Implementation:**
@@ -379,16 +379,16 @@ When should Swarm activate? Users shouldn't have to think about it.
 
 | Phase | Feature | Effort | Impact | Priority |
 |-------|---------|--------|--------|----------|
-| 0.1 | **Visible Feedback** | Low | **Critical** | 🔴 P0 |
-| 0.2 | Auto-Detection | Medium | High | 🔴 P1 |
-| 1.1 | Test Generation | Medium | High | 🔴 P1 |
-| 1.2 | Documentation | Low | Medium | 🟡 P2 |
-| 1.3 | Refactoring | Medium | High | 🔴 P1 |
-| 1.4 | API Integration | High | Medium | 🟡 P2 |
-| 2.1 | Docker Compose | Low | High | 🔴 P1 |
-| 2.2 | Container Images | Medium | High | 🔴 P1 |
-| 3.x | Mac Mini Cluster | High | High | 🟢 P3 |
-| 4.x | Hybrid Models | High | Medium | 🟢 P3 |
+| 0.1 | **Visible Feedback** | Low | **Critical** |  P0 |
+| 0.2 | Auto-Detection | Medium | High |  P1 |
+| 1.1 | Test Generation | Medium | High |  P1 |
+| 1.2 | Documentation | Low | Medium |  P2 |
+| 1.3 | Refactoring | Medium | High |  P1 |
+| 1.4 | API Integration | High | Medium |  P2 |
+| 2.1 | Docker Compose | Low | High |  P1 |
+| 2.2 | Container Images | Medium | High |  P1 |
+| 3.x | Mac Mini Cluster | High | High |  P3 |
+| 4.x | Hybrid Models | High | Medium |  P3 |
 
 ---
 
@@ -423,7 +423,7 @@ Since we don't have physical Mac Minis, we can:
 1. **Docker Simulation:** Run multiple "node" containers that simulate Mac Mini behavior
 2. **Virtual Network:** Use Docker networks to simulate physical network topology
 3. **Mock Discovery:** Implement mDNS-like discovery within Docker
-4. **Protocol Testing:** Validate coordinator ↔ worker communication
+4. **Protocol Testing:** Validate coordinator  worker communication
 
 ```bash
 # Simulate 3-node cluster locally

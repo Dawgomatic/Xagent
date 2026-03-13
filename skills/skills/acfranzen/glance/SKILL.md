@@ -3,7 +3,7 @@ name: glance
 description: "Create, update, and manage Glance dashboard widgets. Use when user wants to: add something to their dashboard, create a widget, track data visually, show metrics/stats, display API data, or monitor usage."
 metadata:
   openclaw:
-    emoji: "🖥️"
+    emoji: ""
     homepage: "https://github.com/acfranzen/glance"
     requires:
       env: ["GLANCE_URL"]
@@ -204,7 +204,7 @@ Every widget **MUST** have these fields (the schema enforces them):
 
 ---
 
-## ⚠️ Widget Creation Checklist (MANDATORY)
+##  Widget Creation Checklist (MANDATORY)
 
 Every widget must complete ALL steps before being considered done:
 
@@ -223,7 +223,7 @@ Every widget must complete ALL steps before being considered done:
     - Includes fetchedAt timestamp
     
 □ Step 4: Set up cron job (for agent_refresh widgets)
-    - Simple message: "⚡ WIDGET REFRESH: {slug}"
+    - Simple message: " WIDGET REFRESH: {slug}"
     - Appropriate schedule (*/15 or */30 typically)
     
 □ Step 5: BROWSER VERIFICATION (MANDATORY)
@@ -233,7 +233,7 @@ Every widget must complete ALL steps before being considered done:
     - Data values match what was cached
     - No errors or broken layouts
     
-⛔ DO NOT report widget as complete until Step 5 passes!
+ DO NOT report widget as complete until Step 5 passes!
 ```
 
 ## Quick Reference
@@ -273,7 +273,7 @@ Is data available via API that the widget can call?
 | **Interactive terminals** | `agent_refresh` | **YOU (the agent) via PTY** |
 | **Computed/aggregated data** | `agent_refresh` | **YOU (the agent) on a schedule** |
 
-**⚠️ `agent_refresh` means YOU are the data source.** You set up a cron to remind yourself, then YOU collect the data using your tools (exec, PTY, browser, etc.) and POST it to the cache.
+** `agent_refresh` means YOU are the data source.** You set up a cron to remind yourself, then YOU collect the data using your tools (exec, PTY, browser, etc.) and POST it to the cache.
 
 ## API Endpoints
 
@@ -391,7 +391,7 @@ Content-Type: application/json
 
 **`data_schema` (REQUIRED)** defines the data contract between the fetcher and the widget. Cache POSTs are validated against it — malformed data returns 400.
 
-> ⚠️ **Always include `data_schema`** when creating widgets. This ensures:
+>  **Always include `data_schema`** when creating widgets. This ensures:
 > 1. Data validation on cache POSTs (400 on schema mismatch)
 > 2. Clear documentation of expected data structure
 > 3. AI agents know the exact format to produce
@@ -424,7 +424,7 @@ Content-Type: application/json
 }
 ```
 
-**⚠️ If the widget has a `dataSchema`, the cache endpoint validates your data against it.** Bad data returns 400 with details. Always check the widget's schema before POSTing:
+** If the widget has a `dataSchema`, the cache endpoint validates your data against it.** Bad data returns 400 with details. Always check the widget's schema before POSTing:
 
 ```http
 GET /api/widgets/github-prs
@@ -433,7 +433,7 @@ GET /api/widgets/github-prs
 
 ### Step 4: Browser Verification (REQUIRED)
 
-**⚠️ MANDATORY: Every widget creation and refresh MUST end with browser verification.**
+** MANDATORY: Every widget creation and refresh MUST end with browser verification.**
 
 Never consider a widget "done" until you've visually confirmed it renders correctly on the dashboard.
 
@@ -530,7 +530,7 @@ return await response.json();
 
 ## Agent Refresh Contract
 
-**⚠️ CRITICAL: For `agent_refresh` widgets, YOU (the OpenClaw agent) are the data collector.**
+** CRITICAL: For `agent_refresh` widgets, YOU (the OpenClaw agent) are the data collector.**
 
 This is NOT an external API or service. YOU must:
 1. Set up a **cron job to remind yourself** to collect data on a schedule
@@ -557,7 +557,7 @@ This is NOT an external API or service. YOU must:
      schedule: { kind: "cron", expr: "*/15 * * * *" },
      payload: { 
        kind: "systemEvent", 
-       text: "⚡ WIDGET REFRESH: my-widget"  // Just the slug!
+       text: " WIDGET REFRESH: my-widget"  // Just the slug!
      },
      sessionTarget: "main"  // Reminds YOU, not an isolated session
    })
@@ -565,7 +565,7 @@ This is NOT an external API or service. YOU must:
 3. **When you receive the refresh message**, look up `fetch.instructions` from the DB and spawn a subagent:
    ```javascript
    // Parse slug from message
-   const slug = message.replace('⚡ WIDGET REFRESH:', '').trim();
+   const slug = message.replace(' WIDGET REFRESH:', '').trim();
    // Query widget's fetch.instructions
    const widget = db.query('SELECT fetch FROM custom_widgets WHERE slug = ?', slug);
    // Spawn subagent with the instructions
@@ -652,7 +652,7 @@ This widget shows Claude CLI usage stats. The data comes from running `claude` i
 4. Parse the output: Session %, Week %, Extra %
 5. POST to /api/widgets/claude-code-usage/cache
 6. Kill the PTY session
-7. ⚠️ VERIFY: Open browser to http://localhost:3333 and confirm widget displays new data
+7.  VERIFY: Open browser to http://localhost:3333 and confirm widget displays new data
 ```
 
 **This is YOUR responsibility as the agent.** The widget just displays whatever data is in the cache.
@@ -712,7 +712,7 @@ OPENCLAW_TOKEN=your-gateway-token
 **How it works:**
 1. User clicks refresh button on widget
 2. Glance POSTs to `/api/widgets/{slug}/refresh`
-3. If webhook configured, Glance immediately notifies OpenClaw: `⚡ WIDGET REFRESH: Refresh the "{slug}" widget now and POST to cache`
+3. If webhook configured, Glance immediately notifies OpenClaw: ` WIDGET REFRESH: Refresh the "{slug}" widget now and POST to cache`
 4. Agent wakes up, collects fresh data, POSTs to cache
 5. Widget re-renders with updated data
 
@@ -861,7 +861,7 @@ const config = useConfig();
 const { state, setState } = useWidgetState('counter', 0);
 ```
 
-**⚠️ `useData` requires both arguments.** Pass empty `{}` if no query needed.
+** `useData` requires both arguments.** Pass empty `{}` if no query needed.
 
 ## Error Handling
 
@@ -897,7 +897,7 @@ To summarize dashboard for user:
 
 ---
 
-## ⚠️ Rules & Gotchas
+##  Rules & Gotchas
 
 1. **Use JSON Schema for generation** — `docs/schemas/widget-schema.json` enforces all required fields
 2. **Browser verify EVERYTHING** — don't report success until you see the widget render correctly
@@ -923,7 +923,7 @@ To summarize dashboard for user:
 ## Learnings (Feb 2026)
 
 - **Webhook refresh works** — Glance POSTs to OpenClaw gateway, agent wakes immediately
-- **Simple cron messages** — just `⚡ WIDGET REFRESH: {slug}`, agent looks up instructions
+- **Simple cron messages** — just ` WIDGET REFRESH: {slug}`, agent looks up instructions
 - **AI summaries need AI** — for recent-emails, YOU generate the summaries, not some API
 - **icalBuddy for iCloud** — `gog calendar` doesn't work for iCloud, use `/opt/homebrew/bin/icalBuddy`
 - **wttr.in for weather** — free, no API key, JSON format: `wttr.in/City?format=j1`

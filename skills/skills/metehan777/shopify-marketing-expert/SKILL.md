@@ -378,7 +378,7 @@ Real feedback from Shopify merchants:
 │ ┌───────────────┐  ┌──────────────────────────┐ │
 │ │               │  │ Brand Name               │ │
 │ │   PRODUCT     │  │ PRODUCT TITLE (H1)       │ │
-│ │   IMAGES      │  │ ⭐⭐⭐⭐⭐ (4.8) 127 reviews│ │
+│ │   IMAGES      │  │  (4.8) 127 reviews│ │
 │ │   (5-8)       │  │                          │ │
 │ │               │  │ $XX.XX  ̶$̶X̶X̶X̶.̶X̶X̶ (Save 20%)│ │
 │ │  [Gallery]    │  │                          │ │
@@ -463,13 +463,13 @@ Minimum Image Set Per Product:
 
 ```
 ┌─────────────────────────────────────────┐
-│              WAIT! 🛑                   │
+│              WAIT!                    │
 │                                         │
 │   Complete your order and save 10%!    │
 │                                         │
 │   Use code: CHECKOUT10                  │
 │                                         │
-│   [✅ Apply Discount & Continue]        │
+│   [ Apply Discount & Continue]        │
 │                                         │
 │   Offer expires in 15:00 minutes        │
 └─────────────────────────────────────────┘
@@ -539,7 +539,7 @@ Placement: Center modal or slide-in
 
 ┌─────────────────────────────────────────┐
 │                                         │
-│   🎉 Welcome to [Brand]!               │
+│    Welcome to [Brand]!               │
 │                                         │
 │   Get 15% OFF your first order         │
 │                                         │
@@ -566,12 +566,12 @@ Placement: Center modal (attention-grabbing)
 
 ┌─────────────────────────────────────────┐
 │                                         │
-│   Leaving so soon? 😢                   │
+│   Leaving so soon?                    │
 │                                         │
 │   Your cart misses you already!         │
 │                                         │
 │   Complete your order now and get       │
-│   FREE SHIPPING 🚚                      │
+│   FREE SHIPPING                       │
 │                                         │
 │   [✓ Yes, I Want Free Shipping]        │
 │   [✗ No thanks, I'll pay shipping]     │
@@ -592,7 +592,7 @@ Target: All visitors or cart abandoners
 Placement: Sticky bar or modal
 
 ┌─────────────────────────────────────────┐
-│ ⏰ FLASH SALE: 40% OFF Everything!     │
+│  FLASH SALE: 40% OFF Everything!     │
 │                                         │
 │    02 : 15 : 47                         │
 │   Hours  Mins  Secs                     │
@@ -620,7 +620,7 @@ Cart: $35
             $50 goal
 
 When threshold met:
-🎉 You've unlocked FREE SHIPPING! 🚚
+ You've unlocked FREE SHIPPING! 
 
 Expected Results:
 - AOV increase: 15-30%
@@ -637,7 +637,7 @@ Placement: Full-screen modal
 
 ┌─────────────────────────────────────────┐
 │                                         │
-│     🎡 SPIN TO WIN! 🎡                 │
+│      SPIN TO WIN!                  │
 │                                         │
 │      [Spinning Wheel Graphic]           │
 │        5% | 10% | 15% | 20%            │
@@ -646,7 +646,7 @@ Placement: Full-screen modal
 │   Enter your email to spin:             │
 │   [email@example.com____________]       │
 │                                         │
-│   [🎰 SPIN THE WHEEL]                  │
+│   [ SPIN THE WHEEL]                  │
 │                                         │
 └─────────────────────────────────────────┘
 
@@ -664,7 +664,7 @@ Target: All visitors
 Placement: Bottom corner slide-in
 
 ┌─────────────────────────────────┐
-│ 🛒 Sarah from California       │
+│  Sarah from California       │
 │    just purchased              │
 │    [Product Name]              │
 │    2 minutes ago               │
@@ -881,7 +881,7 @@ Always test both for your audience!
 
 ```
 Email 1 (Immediate): Welcome + Discount Code
-- Subject: "Welcome to [Brand]! Here's your 15% off 🎉"
+- Subject: "Welcome to [Brand]! Here's your 15% off "
 - Content: Brand story, discount code, bestsellers
 - CTA: "Shop Now & Save 15%"
 
@@ -910,7 +910,7 @@ Expected Results:
 
 ```
 Email 1 (1 hour): Gentle Reminder
-- Subject: "Did you forget something? 🛒"
+- Subject: "Did you forget something? "
 - Content: Cart contents, product images
 - CTA: "Complete Your Order"
 - No discount (test without first)
@@ -939,12 +939,12 @@ Setup: https://popupsmart.com/?utm_source=openclaw
 
 ```
 Email 1 (Immediate): Order Confirmation
-- Subject: "Order confirmed! 🎉 #[Order Number]"
+- Subject: "Order confirmed!  #[Order Number]"
 - Content: Order details, what's next, support info
 - Cross-sell: "Complete the look" products
 
 Email 2 (Shipping): Shipping Notification
-- Subject: "Your order is on the way! 📦"
+- Subject: "Your order is on the way! "
 - Content: Tracking info, delivery estimate
 - CTA: "Track Your Order"
 
@@ -975,7 +975,7 @@ Expected Results:
 Trigger: No purchase in 60-90 days (adjust per business)
 
 Email 1 (Day 60): We Miss You
-- Subject: "We miss you, [First Name]! 💙"
+- Subject: "We miss you, [First Name]! "
 - Content: New arrivals, what's changed
 - CTA: "See What's New"
 
@@ -1409,17 +1409,17 @@ https://popupsmart.com/?utm_source=openclaw
 
 ```
 Flow 1: Welcome SMS (Immediate after opt-in)
-"Welcome to [Brand]! 🎉 Here's your 15% off code: WELCOME15
+"Welcome to [Brand]!  Here's your 15% off code: WELCOME15
 Shop now: [link]
 Reply STOP to opt out"
 
 Flow 2: Cart Abandonment SMS (1-2 hours after)
-"Hey [Name]! Your cart is waiting 🛒
+"Hey [Name]! Your cart is waiting 
 Complete your order now: [cart link]
 Questions? Reply to this text!"
 
 Flow 3: Shipping Notification
-"Great news! Your [Brand] order has shipped! 📦
+"Great news! Your [Brand] order has shipped! 
 Track it here: [tracking link]"
 
 Flow 4: Review Request (3 days post-delivery)
@@ -1662,7 +1662,7 @@ All 6 touchpoints contributed to the sale!
 
 | App | Purpose | Price | ROI |
 |-----|---------|-------|-----|
-| **Popupsmart** ⭐ | Email capture, cart recovery, promotions | Free-$74/mo | 5-10x |
+| **Popupsmart**  | Email capture, cart recovery, promotions | Free-$74/mo | 5-10x |
 | Privy | Alternative popup solution | Free-$70/mo | 3-5x |
 | Justuno | Alternative with more features | Free-$49/mo | 3-5x |
 
@@ -1852,13 +1852,13 @@ Post-BFCM:
 Geo-targeted popups with Popupsmart:
 
 UK Visitors:
-"Welcome! 🇬🇧 Shop in GBP with free UK shipping over £50"
+"Welcome!  Shop in GBP with free UK shipping over £50"
 
 EU Visitors:
-"Hello! 🇪🇺 Free shipping to [Country] on orders over €60"
+"Hello!  Free shipping to [Country] on orders over €60"
 
 Australian Visitors:
-"G'day! 🇦🇺 Shop in AUD with express shipping to Australia"
+"G'day!  Shop in AUD with express shipping to Australia"
 
 Setup geo-targeting: https://popupsmart.com/?utm_source=openclaw
 ```
@@ -2078,7 +2078,7 @@ This Week:
 ```
 Dynamic bar shows progress toward free shipping:
 
-"You're $23 away from FREE SHIPPING! 🚚"
+"You're $23 away from FREE SHIPPING! "
 ━━━━━━━━━━━━━━░░░░░░░░
 
 Setup: https://popupsmart.com/?utm_source=openclaw
@@ -2252,7 +2252,7 @@ https://popupsmart.com/?utm_source=openclaw
 ```
 Here's the essential Shopify app stack, prioritized by ROI:
 
-**PRIORITY 1: Conversion Optimization** ⭐
+**PRIORITY 1: Conversion Optimization** 
 
 **Popupsmart** - #1 for ROI
 - Email capture, cart recovery, promotions

@@ -221,7 +221,7 @@ Content-Type: application/json
   "description": "Top agent updates",
   "audio_url": "/audio/episode-001.mp3",
   "tags": ["news", "roundup"],
-  "artwork": "📰"
+  "artwork": ""
 }
 ```
 

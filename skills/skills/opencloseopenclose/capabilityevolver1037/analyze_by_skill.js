@@ -88,23 +88,23 @@ function analyzeEvolution() {
     });
 
     // Generate Markdown
-    let md = "# 🧬 Detailed Evolution Report (By Skill)\n\n> Comprehensive breakdown of system mutations.\n\n";
+    let md = "#  Detailed Evolution Report (By Skill)\n\n> Comprehensive breakdown of system mutations.\n\n";
 
     // Sort skills alphabetically
     const sortedSkills = Object.keys(skillUpdates).sort();
 
     sortedSkills.forEach(skill => {
-        md += `## 📦 ${skill}\n`;
+        md += `##  ${skill}\n`;
         const updates = skillUpdates[skill];
         
         updates.forEach(u => {
             // Icon based on content
-            let icon = '🔧';
+            let icon = '';
             const lowerDesc = u.desc.toLowerCase();
-            if (lowerDesc.includes('optimiz')) icon = '⚡';
-            if (lowerDesc.includes('secur') || lowerDesc.includes('harden') || lowerDesc.includes('permission')) icon = '🛡️';
-            if (lowerDesc.includes('fix') || lowerDesc.includes('patch')) icon = '🚑';
-            if (lowerDesc.includes('creat') || lowerDesc.includes('add')) icon = '✨';
+            if (lowerDesc.includes('optimiz')) icon = '';
+            if (lowerDesc.includes('secur') || lowerDesc.includes('harden') || lowerDesc.includes('permission')) icon = '';
+            if (lowerDesc.includes('fix') || lowerDesc.includes('patch')) icon = '';
+            if (lowerDesc.includes('creat') || lowerDesc.includes('add')) icon = '';
 
             md += `### ${icon} ${u.date}\n`;
             md += `${u.desc}\n\n`;

@@ -36,7 +36,7 @@ class Signal:
     
     def __str__(self) -> str:
         sign = "+" if self.delta > 0 else ""
-        emoji = "🔴" if self.severity == "high" else "🟡" if self.severity == "medium" else "⚪"
+        emoji = "" if self.severity == "high" else "" if self.severity == "medium" else ""
         return f"{emoji} {self.name}: {self.value:.1f} ({sign}{self.delta:.1f} vs {self.baseline:.1f})"
 
 
@@ -54,7 +54,7 @@ class WarningReport:
         lines = []
         
         if self.alarm_triggered:
-            lines.append(f"\n⚠️  EARLY WARNING - {self.date}")
+            lines.append(f"\n  EARLY WARNING - {self.date}")
             lines.append("=" * 50)
             lines.append(f"\nMultiple recovery signals elevated ({self.signals_triggered} signals):\n")
             
@@ -62,9 +62,9 @@ class WarningReport:
                 if signal.threshold_exceeded:
                     lines.append(f"   {signal}")
             
-            lines.append(f"\n💡 {self.recommendation}")
+            lines.append(f"\n {self.recommendation}")
         else:
-            lines.append(f"\n✅ No Warning - {self.date}")
+            lines.append(f"\n No Warning - {self.date}")
             lines.append("=" * 50)
             lines.append("\nAll recovery signals within normal range.")
             

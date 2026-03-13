@@ -216,11 +216,11 @@ if __name__ == '__main__':
     state_file = Path('/home/node/.openclaw/workspace/skills/qst-memory/data/qst_doing-state.json')
     manager = TemplateManager(template_file, state_file)
 
-    print("🧪 任務模板管理器測試")
+    print(" 任務模板管理器測試")
     print()
 
     # 列出所有模板
-    print("✅ 列出所有模板:")
+    print(" 列出所有模板:")
     templates = manager.list_templates()
     for template in templates:
         print(f"   • {template['name']} - {template['description']}")
@@ -228,7 +228,7 @@ if __name__ == '__main__':
     print()
 
     # 載入範例模板
-    print("✅ 載入 Development 模板:")
+    print(" 載入 Development 模板:")
     template = manager.load_template('Development')
     if template:
         print(f"   名稱: {template['name']}")
@@ -238,10 +238,10 @@ if __name__ == '__main__':
     print()
 
     # 獲取模板名稱
-    print("✅ 所有模板名稱:")
+    print(" 所有模板名稱:")
     names = manager.get_template_names()
     for name in names:
         print(f"   • {name}")
 
     print()
-    print("🐲 測試完成！")
+    print(" 測試完成！")

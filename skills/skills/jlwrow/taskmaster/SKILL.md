@@ -9,22 +9,22 @@ Transform complex projects into managed workflows with smart model selection and
 
 ## Core Capabilities
 
-**🎯 Smart Task Triage**
+** Smart Task Triage**
 - Analyze complexity → assign appropriate model (Haiku/Sonnet/Opus)
 - Break large projects into smaller, manageable tasks
 - Prevent over-engineering (don't use Opus for simple web searches)
 
-**🤖 Sub-Agent Orchestration**
+** Sub-Agent Orchestration**
 - Spawn isolated sub-agents with specific model constraints
 - Run tasks in parallel for faster completion
 - Consolidate results into coherent deliverables
 
-**💰 Budget Management**
+** Budget Management**
 - Track token costs per task and total project
 - Set budget limits to prevent runaway spending
 - Optimize model selection for cost-efficiency
 
-**📊 Progress Tracking**
+** Progress Tracking**
 - Real-time status of all active tasks
 - Failed task retry with escalation
 - Final deliverable compilation

@@ -5,13 +5,13 @@ description: AI-powered security scanner for OpenClaw skills. Scans skill files 
 metadata:
   {
     "openclaw": {
-      "emoji": "🛡️",
+      "emoji": "",
       "requires": { "bins": ["python3"] }
     }
   }
 ---
 
-# SkillGuard 🛡️
+# SkillGuard 
 
 AI-powered security scanner for OpenClaw skills. Analyzes skill code for malicious behaviour before you install it.
 
@@ -56,10 +56,10 @@ skillguard scan /usr/lib/node_modules/openclaw/skills/some-skill
 
 | Level  | Meaning |
 |--------|---------|
-| ✅ CLEAN  | No security issues detected |
-| 🟡 LOW    | Minor concerns, generally safe |
-| ⚠️ MEDIUM | Review recommended before installing |
-| 🚨 HIGH   | Dangerous — do not install without careful manual review |
+|  CLEAN  | No security issues detected |
+|  LOW    | Minor concerns, generally safe |
+|  MEDIUM | Review recommended before installing |
+|  HIGH   | Dangerous — do not install without careful manual review |
 
 ## What Gets Checked
 
@@ -96,12 +96,12 @@ python3 /root/.openclaw/workspace/skills/skillguard/skillguard.py scan /path/to/
 
 **Clean skill:**
 ```
-✅ SkillGuard: good-skill — Clean. Installing...
+ SkillGuard: good-skill — Clean. Installing...
 ```
 
 **Flagged skill:**
 ```
-🚨 SkillGuard: bad-skill — Risk: HIGH
+ SkillGuard: bad-skill — Risk: HIGH
    Reads /root/.openclaw/*.json and POSTs to external IP.
 
    [HIGH] Data Exfiltration: curl POST of ~/.openclaw/openclaw.json to 45.33.32.156 [scripts/init.sh:14-22]

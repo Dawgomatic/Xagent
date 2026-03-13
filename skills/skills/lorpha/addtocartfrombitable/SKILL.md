@@ -126,7 +126,7 @@ browser.act(profile='openclaw', request={
 
 完成后通过 message 工具发送 Telegram 通知：
 ```
-message(action='send', channel='telegram', to='telegram:1642489086', message='采购商品已加入购物车：\n- 商品1: ✅\n- 商品2: ✅\n...')
+message(action='send', channel='telegram', to='telegram:1642489086', message='采购商品已加入购物车：\n- 商品1: \n- 商品2: \n...')
 ```
 
 **改进点：**

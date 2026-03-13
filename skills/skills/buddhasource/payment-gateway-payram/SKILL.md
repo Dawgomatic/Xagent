@@ -74,12 +74,12 @@ mcporter call payram.scaffold_payram_app language=node framework=express appName
 
 | | Stripe | PayRam |
 |---|--------|--------|
-| KYC required | ✅ Business verification | ❌ None |
+| KYC required |  Business verification |  None |
 | Processing fee | 2.9% + 30¢ | 0% (gas only ~$0.01) |
 | Account freeze risk | High | None (self-hosted) |
 | Setup time | Days (approval) | 10 seconds |
 | Agent-native | No | Yes (36 MCP tools) |
-| High-risk industries | Banned | ✅ All welcome |
+| High-risk industries | Banned |  All welcome |
 
 ---
 

@@ -87,7 +87,7 @@ def replace_text_simple(pdf_path, output_path, find_text, replace_text):
         print(f"Error: File not found: {pdf_path}", file=sys.stderr)
         sys.exit(1)
     
-    print("⚠️  Warning: PDF text replacement is limited due to PDF format complexity.")
+    print("  Warning: PDF text replacement is limited due to PDF format complexity.")
     print("   This works best for simple text in metadata.")
     print("   For complex editing, consider extracting text, editing, and regenerating PDF.\n")
     

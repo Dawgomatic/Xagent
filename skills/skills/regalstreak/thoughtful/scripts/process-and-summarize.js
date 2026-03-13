@@ -27,14 +27,14 @@ function saveJSON(filename, data) {
 }
 
 async function main() {
-  console.log('📊 Loading tracking data...');
+  console.log(' Loading tracking data...');
   
   const config = loadJSON('config.json');
   const state = loadJSON('state.json');
   const tasks = loadJSON('tasks.json');
   const people = loadJSON('people.json');
   
-  console.log('📥 Loading messages...');
+  console.log(' Loading messages...');
   const messagesData = loadJSON('context/recent-messages.json');
   const chatsData = loadJSON('context/recent-chats.json');
   
@@ -61,9 +61,9 @@ async function main() {
   
   // Save prompt for manual testing
   fs.writeFileSync(path.join(DATA_DIR, 'context/last-prompt.txt'), prompt);
-  console.log(`💾 Saved prompt to ${DATA_DIR}/context/last-prompt.txt`);
+  console.log(` Saved prompt to ${DATA_DIR}/context/last-prompt.txt`);
   
-  console.log('\n📝 Summary input ready!');
+  console.log('\n Summary input ready!');
   console.log('Next step: Use OpenClaw LLM to generate summary from prompt');
   console.log('\nTo test manually:');
   console.log(`  cat ${DATA_DIR}/context/last-prompt.txt`);
@@ -188,28 +188,28 @@ Create a warm, conversational summary that helps Neil:
 
 Use this structure:
 
-**Morning, Neil! ☀️**
+**Morning, Neil! **
 
 Here's your WhatsApp catch-up:
 
-**🆕 WHAT'S NEW (last ${input.timeRange}):**
+** WHAT'S NEW (last ${input.timeRange}):**
 
 [For each DM with activity, write 2-3 sentences about what happened and if action is needed. Be specific, warm, and point out urgency/tone.]
 
 [For groups, briefly summarize. Only detail if something needs attention.]
 
-**⏰ STILL PENDING:**
+** STILL PENDING:**
 
 [List pending tasks from earlier. Note how long they've been pending. Flag if someone has followed up multiple times.]
 
-**💡 COMMUNICATION INSIGHTS:**
+** COMMUNICATION INSIGHTS:**
 
 [Analyze relationship dynamics. Has anyone's tone shifted? Are conversations going quiet? Who might need attention?]
 
 **Quiet conversations worth reviving:**
 [List people who went silent after Neil asked them something or after they asked him something.]
 
-**📝 SUGGESTED ACTIONS:**
+** SUGGESTED ACTIONS:**
 
 [For 2-3 most important items, provide specific message drafts Neil can send. Make them sound like him - warm but direct.]
 

@@ -693,7 +693,7 @@ function deriveHighlights(asset) {
 function formatReport(context, rankedAssets, selected, installResults, dryRun) {
     const lines = [];
     const selectedMap = new Map(selected.map((asset) => [asset.assetId, asset]));
-    lines.push('**🎯 Auto Skill Hunter 巡逻报告（仅 Skill）**');
+    lines.push('** Auto Skill Hunter 巡逻报告（仅 Skill）**');
     lines.push('');
     lines.push(`- 模式: ${dryRun ? 'Dry Run' : 'Live Install'}`);
     lines.push(`- 最近问题样本: ${context.problemStatements.length} 条`);
@@ -714,7 +714,7 @@ function formatReport(context, rankedAssets, selected, installResults, dryRun) {
     if (selected.length) {
         lines.push('**安装结果**');
         installResults.forEach((res) => {
-            const icon = res.runnable ? '✅' : '⚠️';
+            const icon = res.runnable ? '' : '';
             const selectedAsset = selectedMap.get(res.assetId);
             const highlights = selectedAsset ? deriveHighlights(selectedAsset) : ['通用任务覆盖能力'];
             const reasons = selectedAsset && Array.isArray(selectedAsset.reasons) ? selectedAsset.reasons.join(' / ') : '自动筛选';
@@ -757,7 +757,7 @@ function sendHunterReport(reportText) {
     try {
         const result = spawnSync('node', [
             REPORT_SCRIPT,
-            '--title', '🧬 Auto Skill Hunter: 自动搜索与安装',
+            '--title', ' Auto Skill Hunter: 自动搜索与安装',
             '--status', reportText,
             '--color', 'green',
             '--lang', 'cn'

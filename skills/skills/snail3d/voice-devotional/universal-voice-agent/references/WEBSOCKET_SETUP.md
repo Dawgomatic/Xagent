@@ -44,9 +44,9 @@ node universal-voice-agent/scripts/websocket-server.js
 
 Output:
 ```
-🚀 WebSocket server running on port 5000
-📍 Webhook URL: http://localhost:5000/call-webhook
-🔌 WebSocket URL: wss://localhost:5000/media-stream
+ WebSocket server running on port 5000
+ Webhook URL: http://localhost:5000/call-webhook
+ WebSocket URL: wss://localhost:5000/media-stream
 ```
 
 ### 2. Expose Server to Internet (ngrok)
@@ -156,21 +156,21 @@ async function processAudio(session) {
   if (!transcript) return; // Silent, skip
 
   session.recordMessage('other', transcript);
-  console.log(`🔊 Them: ${transcript}`);
+  console.log(` Them: ${transcript}`);
 
   // 3. Check timeout
   const timeout = session.checkTimeout();
   if (timeout.checkIn) {
     const response = "Hello? Are you still there?";
     session.recordMessage('you', response);
-    console.log(`🎤 You: ${response}`);
+    console.log(` You: ${response}`);
     
     const audio = await elevenLabsTTS(response);
     sendAudioToTwilio(session, audio);
     return;
   }
   if (timeout.timeout) {
-    console.log(`⏰ Call timeout: ${timeout.reason}`);
+    console.log(` Call timeout: ${timeout.reason}`);
     session.ws.close();
     return;
   }
@@ -183,7 +183,7 @@ async function processAudio(session) {
   });
 
   session.recordMessage('you', response);
-  console.log(`🎤 You: ${response}`);
+  console.log(` You: ${response}`);
 
   // 5. Check if goal achieved
   if (isSpeechLike(response, ['thank', 'goodbye', 'confirm'])) {

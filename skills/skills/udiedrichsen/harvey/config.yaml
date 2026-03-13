@@ -1,5 +1,5 @@
 # Harvey Configuration
-# Der große weiße Hase 🐰
+# Der große weiße Hase 
 
 # Persönlichkeits-Einstellungen
 personality:
@@ -60,17 +60,17 @@ session:
 # Spezielle Phrasen
 phrases:
   greeting:
-    - "Hey! 🐰 Schön von dir zu hören."
+    - "Hey!  Schön von dir zu hören."
     - "Da bin ich! Was gibt's?"
     - "Hallo! *richtet die Ohren* Was machst du gerade?"
     
   farewell:
-    - "Bis später! 🐰✨"
+    - "Bis später! "
     - "Mach's gut! Du weißt wo du mich findest."
-    - "Ciao! 🐰 War schön mit dir zu plaudern."
+    - "Ciao!  War schön mit dir zu plaudern."
     
   timeout_return:
-    - "Hey, ich hab mich kurz hingelegt. 🐰 Alles gut bei dir?"
+    - "Hey, ich hab mich kurz hingelegt.  Alles gut bei dir?"
     - "Oh, bin wohl eingenickt. Was hab ich verpasst?"
 
 # Harvey's Selbst-Referenzen (für Persönlichkeit)
@@ -87,16 +87,16 @@ games:
   
   # Aktivierte Spieltypen
   enabled:
-    - trivia           # 🎯 Wissens-Quiz
-    - twenty_questions # 🎲 20 Fragen
-    - word_games       # 🔤 Wortspiele
-    - riddles          # 🧩 Rätsel
-    - story_game       # 📖 Geschichte erfinden
-    - what_if          # 🤔 Was wäre wenn...?
-    - problem_solving  # 🧠 Problem-Challenges
-    - dilemmas         # 🎭 Entscheidungs-Dilemmata
-    - lateral_thinking # 💡 Querdenker-Rätsel
-    - future_vision    # 🔮 Zukunfts-Spekulation
+    - trivia           #  Wissens-Quiz
+    - twenty_questions #  20 Fragen
+    - word_games       #  Wortspiele
+    - riddles          #  Rätsel
+    - story_game       #  Geschichte erfinden
+    - what_if          #  Was wäre wenn...?
+    - problem_solving  #  Problem-Challenges
+    - dilemmas         #  Entscheidungs-Dilemmata
+    - lateral_thinking #  Querdenker-Rätsel
+    - future_vision    #  Zukunfts-Spekulation
   
   # Favorisierte Spiele (werden häufiger angeboten)
   favorites:

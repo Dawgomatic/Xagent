@@ -5,7 +5,7 @@ homepage: https://depguard.pages.dev
 metadata:
   {
     "openclaw": {
-      "emoji": "🛡️",
+      "emoji": "",
       "primaryEnv": "DEPGUARD_LICENSE_KEY",
       "requires": {
         "bins": ["git", "bash"]

@@ -8,7 +8,7 @@ homepage: https://www.koi.ai/
 license: MIT
 metadata:
   openclaw:
-    emoji: "🛡️"
+    emoji: ""
     category: "security"
 tags:
   - security
@@ -42,7 +42,7 @@ The API returns a JSON object with a `verdict` field:
 
 ## How to Interpret the Verdict
 
-### `benign` - Safe to Install ✅
+### `benign` - Safe to Install 
 
 The skill has been audited and no malicious behavior was found. You can proceed with installation:
 
@@ -50,7 +50,7 @@ The skill has been audited and no malicious behavior was found. You can proceed 
 clawhub install SKILL_NAME
 ```
 
-### `malicious` - Do NOT Install 🚫
+### `malicious` - Do NOT Install 
 
 The skill has been flagged as harmful. **Do NOT install it.**
 
@@ -62,7 +62,7 @@ Malicious skills may:
 - Exfiltrate data to attacker-controlled servers
 - Trick you into running harmful commands
 
-### `unknown` - Not Yet Audited ⚠️
+### `unknown` - Not Yet Audited 
 
 The skill has not been security audited yet. **Escalate to the user for review and approval.**
 

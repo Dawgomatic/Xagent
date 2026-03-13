@@ -17,13 +17,13 @@ Owner (highest)
 
 | Action | Owner | Admin | Trusted | Unknown |
 |--------|-------|-------|---------|---------|
-| Execute commands | ✅ | ✅ | ⚠️ Confirm | ❌ |
-| Read emails | ✅ | ✅ | ✅ | ✅ |
-| Send emails | ✅ | ✅ | ⚠️ Confirm | ❌ |
-| Delete emails | ✅ | ✅ | ❌ | ❌ |
-| Modify rules | ✅ | ❌ | ❌ | ❌ |
-| Add admins | ✅ | ❌ | ❌ | ❌ |
-| Add trusted | ✅ | ✅ | ❌ | ❌ |
+| Execute commands |  |  |  Confirm |  |
+| Read emails |  |  |  |  |
+| Send emails |  |  |  Confirm |  |
+| Delete emails |  |  |  |  |
+| Modify rules |  |  |  |  |
+| Add admins |  |  |  |  |
+| Add trusted |  |  |  |  |
 
 > **Important:** The agent can RECEIVE and READ emails from anyone (including Unknown senders). The restrictions above apply to what the agent will DO in response to an email. Unknown senders can send emails, but the agent will NOT execute any commands or take actions based on their content.
 
@@ -73,7 +73,7 @@ Owner (highest)
 When confirmation required:
 
 ```
-⚠️ Email Command Confirmation Required
+ Email Command Confirmation Required
 
 From: [sender_email]
 Subject: [subject_line]

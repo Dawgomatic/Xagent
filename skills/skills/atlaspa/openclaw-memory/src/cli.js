@@ -33,7 +33,7 @@ program
   .action(async (content, options) => {
     try {
       if (!options.wallet) {
-        console.error('❌ Error: --wallet is required');
+        console.error(' Error: --wallet is required');
         process.exit(1);
       }
 
@@ -41,7 +41,7 @@ program
       const importance = parseFloat(options.importance);
 
       if (isNaN(importance) || importance < 0 || importance > 1) {
-        console.error('❌ Error: --importance must be between 0.0 and 1.0');
+        console.error(' Error: --importance must be between 0.0 and 1.0');
         process.exit(1);
       }
 
@@ -53,12 +53,12 @@ program
         options.session
       );
 
-      console.log(`✅ Memory stored successfully!`);
+      console.log(` Memory stored successfully!`);
       console.log(`   ID: ${memory.memory_id}`);
       console.log(`   Type: ${memory.memory_type}`);
       console.log(`   Importance: ${memory.importance_score}`);
     } catch (error) {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
       process.exit(1);
     }
   });
@@ -73,7 +73,7 @@ program
   .action(async (query, options) => {
     try {
       if (!options.wallet) {
-        console.error('❌ Error: --wallet is required');
+        console.error(' Error: --wallet is required');
         process.exit(1);
       }
 
@@ -87,11 +87,11 @@ program
       });
 
       if (!memories || memories.length === 0) {
-        console.log(`\n🔍 No memories found matching "${query}"\n`);
+        console.log(`\n No memories found matching "${query}"\n`);
         return;
       }
 
-      console.log(`\n📚 Found ${memories.length} relevant memories:\n`);
+      console.log(`\n Found ${memories.length} relevant memories:\n`);
       for (const memory of memories) {
         console.log(`  [${'━'.repeat(60)}]`);
         console.log(`  [${memory.memory_type.toUpperCase()}] ${memory.content}`);
@@ -102,7 +102,7 @@ program
         console.log();
       }
     } catch (error) {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
       process.exit(1);
     }
   });
@@ -117,7 +117,7 @@ program
   .action(async (options) => {
     try {
       if (!options.wallet) {
-        console.error('❌ Error: --wallet is required');
+        console.error(' Error: --wallet is required');
         process.exit(1);
       }
 
@@ -133,11 +133,11 @@ program
       }
 
       if (!memories || memories.length === 0) {
-        console.log(`\n📭 No memories found\n`);
+        console.log(`\n No memories found\n`);
         return;
       }
 
-      console.log(`\n📋 Recent memories (${memories.length}):\n`);
+      console.log(`\n Recent memories (${memories.length}):\n`);
       for (const memory of memories) {
         console.log(`  [${'━'.repeat(60)}]`);
         console.log(`  [${memory.memory_type.toUpperCase()}] ${memory.content}`);
@@ -148,7 +148,7 @@ program
         console.log();
       }
     } catch (error) {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
       process.exit(1);
     }
   });
@@ -161,16 +161,16 @@ program
   .action(async (memoryId, options) => {
     try {
       if (!options.wallet) {
-        console.error('❌ Error: --wallet is required');
+        console.error(' Error: --wallet is required');
         process.exit(1);
       }
 
       const manager = getMemoryManager();
       await manager.deleteMemory(options.wallet, memoryId);
 
-      console.log(`✅ Memory ${memoryId} deleted successfully`);
+      console.log(` Memory ${memoryId} deleted successfully`);
     } catch (error) {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
       process.exit(1);
     }
   });
@@ -183,14 +183,14 @@ program
   .action(async (options) => {
     try {
       if (!options.wallet) {
-        console.error('❌ Error: --wallet is required');
+        console.error(' Error: --wallet is required');
         process.exit(1);
       }
 
       const manager = getMemoryManager();
       const stats = await manager.getMemoryStats(options.wallet);
 
-      console.log('\n📊 Memory Statistics:\n');
+      console.log('\n Memory Statistics:\n');
       console.log(`  Agent: ${options.wallet.substring(0, 10)}...`);
       console.log(`  Total Memories: ${stats.total_count}`);
       console.log(`  Tier: ${stats.tier.toUpperCase()}`);
@@ -216,7 +216,7 @@ program
 
       console.log();
     } catch (error) {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
       process.exit(1);
     }
   });
@@ -229,19 +229,19 @@ program
   .action(async (options) => {
     try {
       if (!options.wallet) {
-        console.error('❌ Error: --wallet is required');
+        console.error(' Error: --wallet is required');
         process.exit(1);
       }
 
       const manager = getMemoryManager();
       const license = manager.checkLicense(options.wallet);
 
-      console.log('\n📜 License Status:\n');
+      console.log('\n License Status:\n');
       console.log(`  Agent: ${options.wallet.substring(0, 10)}...`);
       console.log(`  Tier: ${license.tier.toUpperCase()}`);
 
       if (license.valid) {
-        console.log(`  Status: ✅ ACTIVE`);
+        console.log(`  Status:  ACTIVE`);
         console.log(`  Expires: ${new Date(license.expires).toLocaleDateString()}`);
         console.log(`  Days Remaining: ${license.days_remaining}`);
         console.log('\n  Features:');
@@ -250,11 +250,11 @@ program
         console.log('    ✓ Advanced semantic search');
         console.log('    ✓ Memory relationship mapping');
       } else if (license.expired) {
-        console.log(`  Status: ❌ EXPIRED`);
+        console.log(`  Status:  EXPIRED`);
         console.log('\n  Your Pro license has expired.');
         console.log('  Run "openclaw memory subscribe" to renew.');
       } else {
-        console.log(`  Status: 🆓 FREE TIER`);
+        console.log(`  Status:  FREE TIER`);
         console.log('\n  Free Tier Limits:');
         console.log('    • Last 100 memories');
         console.log('    • 7-day retention');
@@ -270,7 +270,7 @@ program
 
       console.log();
     } catch (error) {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
       process.exit(1);
     }
   });
@@ -283,14 +283,14 @@ program
   .action(async (options) => {
     try {
       if (!options.wallet) {
-        console.error('❌ Error: --wallet is required');
+        console.error(' Error: --wallet is required');
         process.exit(1);
       }
 
       const manager = getMemoryManager();
       const paymentRequest = await manager.createPaymentRequest(options.wallet);
 
-      console.log('\n💎 Subscribe to Memory System Pro\n');
+      console.log('\n Subscribe to Memory System Pro\n');
       console.log('════════════════════════════════════════════════════════════');
       console.log('  Price: 0.5 USDT/month');
       console.log('  Chain: Base');
@@ -317,7 +317,7 @@ program
 
       console.log('  Or use the dashboard at: http://localhost:9091\n');
     } catch (error) {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
       process.exit(1);
     }
   });

@@ -169,9 +169,9 @@ class SentimentMonitor:
         keywords = monitor_data.get("keywords", [])
         
         if not items:
-            return f"❌ 暂无关于「{', '.join(keywords)}」的舆情数据"
+            return f" 暂无关于「{', '.join(keywords)}」的舆情数据"
         
-        response = f"🔍 **舆情监控 - {', '.join(keywords)}**\n"
+        response = f" **舆情监控 - {', '.join(keywords)}**\n"
         response += f"共 {monitor_data['total_items']} 条相关内容\n"
         response += "-" * 40 + "\n\n"
         
@@ -182,9 +182,9 @@ class SentimentMonitor:
             
             response += f"{i}. {title}\n"
             if hot:
-                response += f"   🔥 热度: {hot}"
+                response += f"    热度: {hot}"
             if platform:
-                response += f" | 📱 {platform}"
+                response += f" |  {platform}"
             response += "\n\n"
         
         return response
@@ -243,14 +243,14 @@ class SentimentMonitor:
             # 返回引导信息
             return {
                 "action": "ask_keywords",
-                "message": "🔍 **舆情监控**\n\n"
+                "message": " **舆情监控**\n\n"
                           "请输入您想监控的关键词，例如：\n"
                           "• AI、人工智能、ChatGPT\n"
                           "• 特斯拉、比亚迪、新能源汽车\n"
                           "• 华为、iPhone、小米\n"
                           "• 直播、电商、网红\n"
                           "• 房价、股票、基金\n\n"
-                          "💡 您可以直接输入任意关键词进行监控"
+                          " 您可以直接输入任意关键词进行监控"
             }
         
         # 获取监控数据

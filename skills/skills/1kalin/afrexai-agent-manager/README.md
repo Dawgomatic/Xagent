@@ -34,4 +34,4 @@ Install this skill, then ask your agent:
 
 Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) — AI context packs that make agents actually useful.
 
-🧮 [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) | 🧙 [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)
+ [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) |  [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)

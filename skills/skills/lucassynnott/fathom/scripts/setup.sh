@@ -17,7 +17,7 @@ get_api_key() {
 API_KEY=$(get_api_key)
 
 if [ -z "$API_KEY" ]; then
-    echo "❌ No API key found!"
+    echo " No API key found!"
     echo ""
     echo "Setup instructions:"
     echo "  1. Get your API key from https://developers.fathom.ai"
@@ -30,8 +30,8 @@ if [ -z "$API_KEY" ]; then
     exit 1
 fi
 
-echo "🔑 API key found"
-echo "🔗 Testing connection..."
+echo " API key found"
+echo " Testing connection..."
 
 RESPONSE=$(curl -s -w "\n%{http_code}" \
     -H "X-API-Key: $API_KEY" \
@@ -41,23 +41,23 @@ HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
 BODY=$(echo "$RESPONSE" | sed '$d')
 
 if [ "$HTTP_CODE" = "200" ]; then
-    echo "✅ Connection successful!"
+    echo " Connection successful!"
     
     # Show account info
     CALL_COUNT=$(echo "$BODY" | jq -r '.items | length')
     if [ "$CALL_COUNT" -gt 0 ]; then
         LATEST=$(echo "$BODY" | jq -r '.items[0].title')
-        echo "📞 Latest call: $LATEST"
+        echo " Latest call: $LATEST"
     fi
     echo ""
     echo "You're all set! Try:"
     echo "  ./scripts/list-calls.sh"
 elif [ "$HTTP_CODE" = "401" ]; then
-    echo "❌ Invalid API key"
+    echo " Invalid API key"
     echo "Check your key at https://developers.fathom.ai"
     exit 1
 else
-    echo "❌ Connection failed (HTTP $HTTP_CODE)"
+    echo " Connection failed (HTTP $HTTP_CODE)"
     echo "$BODY" | jq -r '.error // .message // .' 2>/dev/null || echo "$BODY"
     exit 1
 fi

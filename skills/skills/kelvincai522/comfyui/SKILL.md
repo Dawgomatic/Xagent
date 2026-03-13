@@ -6,7 +6,7 @@ read_when:
   - User provides a workflow file or JSON to run
   - User describes an image to generate (subject, style, scene)
   - User pastes or sends a list of model weight URLs to download for ComfyUI
-metadata: {"clawdbot":{"emoji":"🖼️","requires":{"bins":["python3"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
 # ComfyUI Runner
@@ -83,7 +83,7 @@ Supported subfolders (under `ComfyUI/models/`): `checkpoints`, `clip`, `clip_vis
 ## After run
 Outputs are saved under `ComfyUI/output/`. Use the `images` list from the script output to locate the files (filename + subfolder).
 
-### ⚠️ Always send the output to the user
+###  Always send the output to the user
 After a successful ComfyUI run, **you must deliver the generated image(s) to the user**. Do not reply with only the filename in text or with NO_REPLY.
 
 1. Parse the script output JSON for `images` (each has `filename`, `subfolder`, `type`).

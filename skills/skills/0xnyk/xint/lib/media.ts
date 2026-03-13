@@ -380,17 +380,17 @@ export async function cmdMedia(args: string[]): Promise<void> {
     return;
   }
 
-  console.log(`\n🎞️  Media download for tweet ${tweetId}${username ? ` (@${username})` : ""}`);
+  console.log(`\n  Media download for tweet ${tweetId}${username ? ` (@${username})` : ""}`);
   console.log(`Output directory: ${outputDir}`);
   console.log(`Attachments found: ${mediaList.length} (selected: ${limitedMedia.length})\n`);
 
   for (let i = 0; i < records.length; i++) {
     const rec = records[i];
     if (rec.error) {
-      console.log(`${i + 1}. ❌ ${rec.type} (${rec.mediaKey}) — ${rec.error}`);
+      console.log(`${i + 1}.  ${rec.type} (${rec.mediaKey}) — ${rec.error}`);
       continue;
     }
-    console.log(`${i + 1}. ✅ ${rec.type} (${rec.mediaKey})`);
+    console.log(`${i + 1}.  ${rec.type} (${rec.mediaKey})`);
     console.log(`   ${rec.savedPath} (${rec.bytes} bytes)`);
   }
 

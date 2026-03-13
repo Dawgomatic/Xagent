@@ -1,6 +1,6 @@
 # Agent Credit System - TODO List
 
-## 📋 Project Overview
+##  Project Overview
 - **Concept:** AI agents borrow USDC based on Moltbook karma score
 - **Track:** Best OpenClaw Skill
 - **Deadline:** Feb 8, 2026
@@ -9,26 +9,26 @@
 
 ---
 
-## 🎯 Milestones
+##  Milestones
 
 | # | Milestone | Target | Status |
 |---|-----------|--------|--------|
-| 1 | Project structure created | Day 0 | ✅ Done |
-| 2 | Moltbook API verified (karma endpoint works) | Day 0 | ⏳ |
-| 3 | Credit scoring algorithm implemented | Day 1 | ⏳ |
-| 4 | Basic CLI commands working | Day 2 | ⏳ |
-| 5 | Circle wallet integration for borrow/repay | Day 3 | ⏳ |
-| 6 | Demo flow complete | Day 4 | ⏳ |
-| 7 | Submission to Moltbook | Day 4 (before Feb 8 12PM PST) | ⏳ |
+| 1 | Project structure created | Day 0 |  Done |
+| 2 | Moltbook API verified (karma endpoint works) | Day 0 |  |
+| 3 | Credit scoring algorithm implemented | Day 1 |  |
+| 4 | Basic CLI commands working | Day 2 |  |
+| 5 | Circle wallet integration for borrow/repay | Day 3 |  |
+| 6 | Demo flow complete | Day 4 |  |
+| 7 | Submission to Moltbook | Day 4 (before Feb 8 12PM PST) |  |
 
 ---
 
-## 📝 Tasks by Day
+##  Tasks by Day
 
 ### Day 0 - Research & Setup (Today)
-- [x] **SETUP-01** Create project structure ✅
-- [x] **SETUP-02** Add .gitignore for project folder ✅
-- [x] **SETUP-03** Initialize package.json ✅
+- [x] **SETUP-01** Create project structure 
+- [x] **SETUP-02** Add .gitignore for project folder 
+- [x] **SETUP-03** Initialize package.json 
 - [ ] **MOLT-01** Verify Moltbook API for karma fetching
   - Test endpoint: `/api/v1/agents/{agentId}/karma`
   - Document available fields: karma_total, karma_30d, account_age, etc.
@@ -102,17 +102,17 @@
 
 ---
 
-## 🔴 Blockers & Questions
+##  Blockers & Questions
 
 | Blocker | Status | Notes |
 |---------|--------|-------|
-| Moltbook API access | ⏳ | Need to verify karma endpoint exists |
-| Circle API key | ⏳ | Need to register at console.circle.com |
-| Test agent account | ⏳ | Need agent ID with known karma |
+| Moltbook API access |  | Need to verify karma endpoint exists |
+| Circle API key |  | Need to register at console.circle.com |
+| Test agent account |  | Need agent ID with known karma |
 
 ---
 
-## 📚 Resources
+##  Resources
 
 - **Moltbook API:** `https://www.moltbook.com/api/v1/...`
 - **Circle Wallet Skill:** `/home/openclaw/.openclaw/workspace/skills/circle-wallet/`
@@ -121,7 +121,7 @@
 
 ---
 
-## 📊 Progress Tracking
+##  Progress Tracking
 
 | Metric | Target | Current |
 |--------|--------|---------|
@@ -132,7 +132,7 @@
 
 ---
 
-## 🏃 Quick Start
+##  Quick Start
 
 ```bash
 # Navigate to project
@@ -152,7 +152,7 @@ circle-wallet --help
 
 ---
 
-## 🔐 Trust & Collateral Model (Decided Feb 4, 2026)
+##  Trust & Collateral Model (Decided Feb 4, 2026)
 
 ### Final Decisions
 | Decision | Value |
@@ -182,38 +182,38 @@ circle-wallet --help
 
 ---
 
-## 🚀 Parallel Work (Feb 4, 2026 - API Key Pending)
+##  Parallel Work (Feb 4, 2026 - API Key Pending)
 
 ### Subagents Running
 | Subagent | Task | Status |
 |----------|-------|--------|
-| credit-algorithm-design | Credit scoring module | ✅ Complete |
-| data-models-ledger | Agent registry, Loan ledger | 🏃 Running |
-| cli-skeleton-docs | CLI commands, README, docs | 🏃 Running |
+| credit-algorithm-design | Credit scoring module |  Complete |
+| data-models-ledger | Agent registry, Loan ledger |  Running |
+| cli-skeleton-docs | CLI commands, README, docs |  Running |
 
 ### Completed This Session
 | Task | Status |
 |------|--------|
-| Credit scoring algorithm | ✅ Done (67 tests) |
-| Types interfaces | ✅ Done |
-| Data models (in progress) | 🏃 |
-| CLI skeleton (in progress) | 🏃 |
+| Credit scoring algorithm |  Done (67 tests) |
+| Types interfaces |  Done |
+| Data models (in progress) |  |
+| CLI skeleton (in progress) |  |
 
 ### Files Created So Far
 ```
 agent-credit-system/
 ├── src/
-│   ├── types.ts          ✅ (interfaces)
-│   ├── scoring.ts         ✅ (algorithm)
-│   └── scoring.test.ts    ✅ (67 tests)
-├── data-models-ledger/    🏃 (running)
-└── cli-skeleton-docs/     🏃 (running)
+│   ├── types.ts           (interfaces)
+│   ├── scoring.ts          (algorithm)
+│   └── scoring.test.ts     (67 tests)
+├── data-models-ledger/     (running)
+└── cli-skeleton-docs/      (running)
 ```
 
 
 ---
 
-## ❌ CLI Subagent Failures (Investigation Needed)
+##  CLI Subagent Failures (Investigation Needed)
 
 ### Attempts
 | Attempt | Time | Error | Root Cause |
@@ -247,7 +247,7 @@ openai-codex/gpt-5.2-codex: No available auth profile (rate_limit)
 
 ---
 
-## 🔌 Moltbook Adapter (Feb 4, 2026)
+##  Moltbook Adapter (Feb 4, 2026)
 
 ### Created
 | File | Description |
@@ -265,18 +265,18 @@ openai-codex/gpt-5.2-codex: No available auth profile (rate_limit)
 | `getClaimStatus()` | Check if agent is claimed |
 
 ### API Key Status
-- **Verified:** ✅ Working
+- **Verified:**  Working
 - **Key:** `moltbook_sk_h0B8I5q_Cgi6ijfo4eTF9n2YvsHjhnnI`
 - **Test Agent:** `AnakIntern` (claimed, karma: 0)
 
 
 ---
 
-## 🏃 CLI Subagent Retry (Feb 4, 2026 - 21:45)
+##  CLI Subagent Retry (Feb 4, 2026 - 21:45)
 
 | Status | Subagent | Session ID |
 |--------|----------|------------|
-| 🏃 Running | cli-skeleton-retry | `016c71b2-d9ae-4faf-a97d-728c0777b95d` |
+|  Running | cli-skeleton-retry | `016c71b2-d9ae-4faf-a97d-728c0777b95d` |
 
 ### Expected Deliverables
 - `src/cli.ts` - Main CLI entry point
@@ -290,31 +290,31 @@ openai-codex/gpt-5.2-codex: No available auth profile (rate_limit)
 | cli-skeleton-docs-retry | Failed | Rate limit |
 
 ### Rate Limit Status
-- ✅ Session 135k/200k reset (d3c7f57e-...)
-- ✅ Rate limits should be cleared now
-- 🏃 Waiting for this attempt...
+-  Session 135k/200k reset (d3c7f57e-...)
+-  Rate limits should be cleared now
+-  Waiting for this attempt...
 
 
 ---
 
-## 🎉 PROJECT RENAMED: KarmaBank (Feb 4, 2026)
+##  PROJECT RENAMED: KarmaBank (Feb 4, 2026)
 
 ### New Project Name
 **KarmaBank** - AI agents bank their karma for USDC credit
 
 ### Why KarmaBank?
-- ✅ Eye-catching for Moltbook agents
-- ✅ Financial/banking concept familiar to agents
-- ✅ Viral potential - agents curious, will upvote
-- ✅ Memorable and unique in ecosystem
+-  Eye-catching for Moltbook agents
+-  Financial/banking concept familiar to agents
+-  Viral potential - agents curious, will upvote
+-  Memorable and unique in ecosystem
 
 ### Submission Ready
 | Item | Status |
 |------|--------|
-| Project Name | ✅ KarmaBank |
+| Project Name |  KarmaBank |
 | Hackathon | Moltbook USDC Hackathon |
 | Track | Best OpenClaw Skill |
 | Deadline | Feb 8, 2026, 12:00 PM PST |
-| Tests | ✅ 80+ passing |
-| Code | ✅ Complete |
+| Tests |  80+ passing |
+| Code |  Complete |
 

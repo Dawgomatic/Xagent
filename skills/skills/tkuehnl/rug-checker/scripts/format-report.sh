@@ -21,7 +21,7 @@ if ! source "${SCRIPT_DIR}/common.sh" 2>/dev/null; then
   }
   format_number() { printf "%'.0f" "$1" 2>/dev/null || echo "$1"; }
   format_pct() { printf "%.1f%%" "$1" 2>/dev/null || echo "${1}%"; }
-  CF_DISCLAIMER="⚠️ DISCLAIMER: This report is for informational purposes only and does NOT constitute financial advice. Risk scores are algorithmic estimates based on on-chain data. Always do your own research (DYOR) before making investment decisions. CacheForge is not responsible for any financial losses."
+  CF_DISCLAIMER=" DISCLAIMER: This report is for informational purposes only and does NOT constitute financial advice. Risk scores are algorithmic estimates based on on-chain data. Always do your own research (DYOR) before making investment decisions. CacheForge is not responsible for any financial losses."
 fi
 
 # ---------------------------------------------------------------------------
@@ -95,11 +95,11 @@ bar() {
 # Risk score color indicator
 risk_indicator() {
   local score="$1"
-  if [[ $score -le 2 ]]; then echo "🟢"
-  elif [[ $score -le 4 ]]; then echo "🟡"
-  elif [[ $score -le 6 ]]; then echo "🟠"
-  elif [[ $score -le 8 ]]; then echo "🔴"
-  else echo "⛔"
+  if [[ $score -le 2 ]]; then echo ""
+  elif [[ $score -le 4 ]]; then echo ""
+  elif [[ $score -le 6 ]]; then echo ""
+  elif [[ $score -le 8 ]]; then echo ""
+  else echo ""
   fi
 }
 
@@ -110,7 +110,7 @@ risk_indicator() {
 _header_line="Token:  \$${TOKEN_SYMBOL} (${TOKEN_NAME})"
 _mint_line="Mint:   ${ADDRESS}"
 _risk_line="Risk:   ${COMPOSITE}/100 ${TIER_EMOJI} ${TIER}"
-_title_line="🛡️  CacheForge Rug Report"
+_title_line="  CacheForge Rug Report"
 # Compute the widest content line (add 4 for "║  " + " ║" padding)
 _max_len=58  # minimum width
 for _line in "$_header_line" "$_mint_line" "$_risk_line" "$_title_line"; do
@@ -136,9 +136,9 @@ printf '%s\n' "$_bot"
 if [[ "$RUGGED" == "true" ]]; then
   cat <<'RUGGED'
 
-  ⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔
-  ⛔  THIS TOKEN HAS BEEN FLAGGED AS RUGGED  ⛔
-  ⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔⛔
+  
+    THIS TOKEN HAS BEEN FLAGGED AS RUGGED  
+  
 
 RUGGED
 fi
@@ -146,7 +146,7 @@ fi
 # Market overview
 cat <<MARKET
 
-## 📊 Market Overview
+##  Market Overview
 
 | Metric | Value |
 |--------|-------|
@@ -161,7 +161,7 @@ cat <<MARKET
 MARKET
 
 # Risk breakdown
-echo "## 🔍 Risk Breakdown"
+echo "##  Risk Breakdown"
 echo ""
 
 CHECK_COUNT=$(echo "$INPUT" | jq '.checks | length')
@@ -176,8 +176,8 @@ for ((i=0; i<CHECK_COUNT; i++)); do
 
   if [[ "$DATA_AVAILABLE" == "false" ]]; then
     # Distinct visual for "no data" — don't look like a real risk score
-    printf '❓ **%-22s** ░░░░░░░░░░  ?/10  (×%.1f)\n' "$NAME" "$WEIGHT"
-    printf '   └─ ⚠️ %s\n' "$REASON"
+    printf ' **%-22s** ░░░░░░░░░░  ?/10  (×%.1f)\n' "$NAME" "$WEIGHT"
+    printf '   └─  %s\n' "$REASON"
   else
     INDICATOR=$(risk_indicator "$SCORE")
     BAR=$(bar "$SCORE")
@@ -191,7 +191,7 @@ for ((i=0; i<CHECK_COUNT; i++)); do
 done
 
 # Composite score visual
-echo "## 📈 Composite Score"
+echo "##  Composite Score"
 echo ""
 echo '```'
 # Build a 50-char wide score bar
@@ -208,11 +208,11 @@ echo '```'
 echo ""
 
 # Data sources
-echo "## 📡 Data Sources"
+echo "##  Data Sources"
 echo ""
-SRC_RC_ICON=$( [[ "$SRC_RUGCHECK" == "true" ]] && echo "✅" || echo "❌" )
-SRC_DX_ICON=$( [[ "$SRC_DEX" == "true" ]] && echo "✅" || echo "❌" )
-SRC_RP_ICON=$( [[ "$SRC_RPC" == "true" ]] && echo "✅" || echo "❌" )
+SRC_RC_ICON=$( [[ "$SRC_RUGCHECK" == "true" ]] && echo "" || echo "" )
+SRC_DX_ICON=$( [[ "$SRC_DEX" == "true" ]] && echo "" || echo "" )
+SRC_RP_ICON=$( [[ "$SRC_RPC" == "true" ]] && echo "" || echo "" )
 echo "| Source | Status |"
 echo "|--------|--------|"
 echo "| Rugcheck.xyz | ${SRC_RC_ICON} |"
@@ -223,7 +223,7 @@ echo "_Report generated: ${TIMESTAMP}_"
 echo ""
 
 # Links
-echo "## 🔗 Links"
+echo "##  Links"
 echo ""
 echo "- [DexScreener](https://dexscreener.com/solana/${ADDRESS})"
 echo "- [Rugcheck.xyz](https://rugcheck.xyz/tokens/${ADDRESS})"
@@ -235,9 +235,9 @@ echo ""
 cat <<DISCLAIMER
 ---
 
-${CF_DISCLAIMER:-⚠️ DISCLAIMER: This report is for informational purposes only and does NOT constitute financial advice. Risk scores are algorithmic estimates based on on-chain data. Always do your own research (DYOR) before making investment decisions. CacheForge is not responsible for any financial losses.}
+${CF_DISCLAIMER:- DISCLAIMER: This report is for informational purposes only and does NOT constitute financial advice. Risk scores are algorithmic estimates based on on-chain data. Always do your own research (DYOR) before making investment decisions. CacheForge is not responsible for any financial losses.}
 
 ---
 
-_🛡️ Powered by [CacheForge](https://app.anvil-ai.io)_
+_ Powered by [CacheForge](https://app.anvil-ai.io)_
 DISCLAIMER

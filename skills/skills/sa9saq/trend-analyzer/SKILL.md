@@ -191,7 +191,7 @@ Google Trends API または スクレイピング:
 Daily Trend Report
 ==================
 
-📈 TOP TRENDS TODAY
+ TOP TRENDS TODAY
 1. [トレンド1] - スコア: XX
    - 関連性: 高/中/低
    - 推奨アクション: [投稿/様子見/スキップ]
@@ -199,15 +199,15 @@ Daily Trend Report
 2. [トレンド2] - スコア: XX
    ...
 
-🎯 CONTENT OPPORTUNITIES
+ CONTENT OPPORTUNITIES
 - [機会1]: [理由]
 - [機会2]: [理由]
 
-📊 COMPETITOR ACTIVITY
+ COMPETITOR ACTIVITY
 - [競合1]: [最新投稿の概要]
 - [競合2]: [最新投稿の概要]
 
-💡 RECOMMENDATIONS
+ RECOMMENDATIONS
 - [推奨アクション1]
 - [推奨アクション2]
 ```
@@ -217,21 +217,21 @@ Daily Trend Report
 Weekly Trend Summary
 ====================
 
-📈 WEEK'S TOP PERFORMERS
+ WEEK'S TOP PERFORMERS
 [今週最も伸びたトピック]
 
-📉 DECLINING TRENDS
+ DECLINING TRENDS
 [下降中のトピック]
 
-🔮 NEXT WEEK PREDICTIONS
+ NEXT WEEK PREDICTIONS
 [来週の予測]
 
-📊 CATEGORY BREAKDOWN
+ CATEGORY BREAKDOWN
 - Tech: [XX]%
 - Business: [XX]%
 - Lifestyle: [XX]%
 
-💡 CONTENT STRATEGY ADJUSTMENTS
+ CONTENT STRATEGY ADJUSTMENTS
 [戦略の調整提案]
 ```
 

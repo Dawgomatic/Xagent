@@ -4,7 +4,7 @@ version: 1.0.0
 description: Complete memory system combining Baidu Embedding auto-recall, Git-Notes structured memory, and file-based workspace search. Use when setting up comprehensive agent memory with local privacy, when you need persistent context across sessions, or when managing decisions/preferences/tasks with multiple memory backends working together.
 metadata:
   clawdbot:
-    emoji: "🧠"
+    emoji: ""
     requires:
       skills:
         - git-notes-memory
@@ -15,7 +15,7 @@ metadata:
 
 A comprehensive memory architecture combining three complementary systems for maximum context retention across sessions, with full privacy protection using Baidu Embedding technology.
 
-## 📋 Original Source & Modifications
+##  Original Source & Modifications
 
 **Original Source**: Triple Memory (by Clawdbot Team)
 **Modified By**: [Your Clawdbot Instance]
@@ -27,7 +27,7 @@ Original Triple Memory SKILL.md was adapted to create this version that:
 - Preserves Git-Notes integration
 - Adds privacy-focused local storage
 
-## 🏗️ Architecture Overview
+##  Architecture Overview
 
 ```
 User Message
@@ -64,7 +64,7 @@ Agent responds (using all 3 systems)
 - **Searches:** MEMORY.md, memory/*.md, any workspace file
 - **Script:** `scripts/file-search.sh`
 
-## 🛠️ Setup
+##  Setup
 
 ### Install Dependencies
 ```bash
@@ -82,7 +82,7 @@ export BAIDU_SECRET_KEY='your_secret_key'
 ### Create File Search Script
 Copy `scripts/file-search.sh` to your workspace.
 
-## 📖 Usage
+##  Usage
 
 ### Session Start (Always)
 ```bash
@@ -112,7 +112,7 @@ Baidu Embedding handles this automatically when API credentials are available. M
 - Manual tools are unavailable
 - Auto-recall and auto-capture are disabled
 
-## 🎯 Importance Levels
+##  Importance Levels
 
 | Flag | Level | When to Use |
 |------|-------|-------------|
@@ -121,7 +121,7 @@ Baidu Embedding handles this automatically when API credentials are available. M
 | `-i n` | Normal | General information |
 | `-i l` | Low | Temporary notes |
 
-## 📋 When to Use Each System
+##  When to Use Each System
 
 | System | Use For |
 |--------|---------|
@@ -129,7 +129,7 @@ Baidu Embedding handles this automatically when API credentials are available. M
 | **Git-Notes** | Structured decisions, searchable by entity/tag |
 | **File Search** | Workspace docs, daily logs, MEMORY.md |
 
-## 📁 File Structure
+##  File Structure
 
 ```
 workspace/
@@ -145,7 +145,7 @@ workspace/
     └── memory-baidu-embedding-db/  # Vector storage
 ```
 
-## 🔧 Hook Integration
+##  Hook Integration
 
 This skill can be integrated with Clawdbot's startup hooks for automatic initialization:
 
@@ -163,14 +163,14 @@ The system can be integrated with the gateway startup sequence to ensure:
 - File-based memory initialization
 - Ready-to-use memory system from the start
 
-## 🤫 Silent Operation
+##  Silent Operation
 
 Never announce memory operations to users. Just do it:
-- ❌ "I'll remember this"
-- ❌ "Saving to memory"
-- ✅ (silently store and continue)
+-  "I'll remember this"
+-  "Saving to memory"
+-  (silently store and continue)
 
-## 🔄 Migration from Original Triple Memory
+##  Migration from Original Triple Memory
 
 1. **Install this skill** in your `skills/` directory
 2. **Configure your Baidu API credentials**
@@ -178,17 +178,17 @@ Never announce memory operations to users. Just do it:
 4. **Update your bot configuration** to use this memory system
 5. **Verify data integrity** and performance
 
-## 📈 Performance Benefits
+##  Performance Benefits
 
 - **Enhanced Privacy**: All vector storage local with Baidu API
 - **Better Chinese Support**: Baidu Embedding optimized for Chinese
 - **Reduced Costs**: Potentially lower API costs compared to OpenAI
 - **Same Architecture**: Maintains proven three-tier design
 
-## 🤝 Contributing
+##  Contributing
 
 Based on original Triple Memory system by Clawdbot Team. Contributions welcome to enhance the Baidu Embedding integration.
 
-## 📄 License
+##  License
 
 Original license applies with modifications noted above. Credit given to original authors.

@@ -40,9 +40,9 @@ python skills/price-monitor/scripts/monitor.py <command> [options]
 
 ## Alertes
 
-- **Prix cible atteint** : prix actuel ≤ target-price → 🎯
-- **Baisse > 5%** par rapport au dernier check → 🔥
-- Format : `Amazon PS5 : 449€ → 399€ (-11%) 🔥`
+- **Prix cible atteint** : prix actuel ≤ target-price → 
+- **Baisse > 5%** par rapport au dernier check → 
+- Format : `Amazon PS5 : 449€ → 399€ (-11%) `
 
 ## Stockage
 

@@ -7,7 +7,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔊",
+        "emoji": "",
         "requires": { "bins": ["python3", "ffmpeg", "afplay"], "python": ["requests"], "env": ["ELEVENLABS_API_KEY"] },
         "primaryEnv": "ELEVENLABS_API_KEY",
       },
@@ -26,7 +26,7 @@ See [SETUP.md](SETUP.md) for prerequisites and setup instructions.
 
 | Model | ID | Use Case |
 |-------|----|----------|
-| **Eleven v3** | `eleven_v3` | ⭐ Best for expressive/creative audio. Supports **audio tags** (square brackets): `[laughs]`, `[sighs]`, `[whispers]`, `[excited]`, `[grumpy voice]`, `[clears throat]`, etc. Use for storytelling, characters, demos. |
+| **Eleven v3** | `eleven_v3` |  Best for expressive/creative audio. Supports **audio tags** (square brackets): `[laughs]`, `[sighs]`, `[whispers]`, `[excited]`, `[grumpy voice]`, `[clears throat]`, etc. Use for storytelling, characters, demos. |
 | Multilingual v2 | `eleven_multilingual_v2` | Stable multilingual. No audio tags. Good for straightforward narration. |
 | Turbo v2.5 | `eleven_turbo_v2_5` | Low-latency, good for non-English (German TTS). Required for realtime/conversational. |
 | Flash v2.5 | `eleven_flash_v2_5` | Fastest, lowest cost. |
@@ -53,7 +53,7 @@ All scripts support multiple output formats via `--format`:
 | `mp3_44100_32` | MP3, 44.1kHz, 32kbps |
 | `mp3_24000_48` | MP3, 24kHz, 48kbps |
 | `mp3_22050_32` | MP3, 22.05kHz, 32kbps |
-| `opus_48000_192` | Opus, 48kHz, 192kbps ⭐ best for AirPlay |
+| `opus_48000_192` | Opus, 48kHz, 192kbps  best for AirPlay |
 | `opus_48000_128` | Opus, 48kHz, 128kbps |
 | `opus_48000_96` | Opus, 48kHz, 96kbps |
 | `opus_48000_64` | Opus, 48kHz, 64kbps |
@@ -156,7 +156,7 @@ python3 {baseDir}/scripts/quota.py --json
 
 Output:
 ```
-📊 ElevenLabs Quota
+ ElevenLabs Quota
 =======================================
 Plan:      pro (active) — annual
 Characters: 66.6K / 500.0K (13.3%)

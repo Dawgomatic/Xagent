@@ -4,7 +4,7 @@ description: Create and manage scheduled bus arrival alerts using Korea TAGO (êµ
 metadata:
   {
     "openclaw": {
-      "emoji": "ðŸšŒ",
+      "emoji": "",
       "requires": {
         "env": ["TAGO_SERVICE_KEY"],
         "bins": ["python3", "systemctl"],

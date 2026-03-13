@@ -2,7 +2,7 @@
 name: "data-type-classifier"
 description: "Classify construction data by type (structured, unstructured, semi-structured). Analyze data sources and recommend appropriate storage/processing methods"
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "🏷️", "os": ["win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"], "anyBins": ["tesseract", "ifcopenshell"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"], "anyBins": ["tesseract", "ifcopenshell"]}}}
 ---
 # Data Type Classifier
 

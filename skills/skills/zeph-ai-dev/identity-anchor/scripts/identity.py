@@ -194,7 +194,7 @@ class IdentityAnchor:
 
             return {
                 "status": "changed",
-                "message": "⚠ Identity files have changed since last fingerprint.",
+                "message": " Identity files have changed since last fingerprint.",
                 "changes": changes,
                 "current_fingerprint": current["fingerprint"],
                 "last_fingerprint": last["fingerprint"],

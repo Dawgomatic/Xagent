@@ -28,18 +28,18 @@ EMAILS_SCANNED=${EMAILS_SCANNED:-0}
 
 # Create status message
 if [ "$PHISHING_COUNT" -gt 0 ]; then
-  STATUS="🚨 ALERT"
-  ICON="🔴"
+  STATUS=" ALERT"
+  ICON=""
 else
-  STATUS="✅ CLEAR"
-  ICON="🟢"
+  STATUS=" CLEAR"
+  ICON=""
 fi
 
 # Build message for agent
 cat > "/tmp/mail-hygiene-message.txt" << EOF
 $ICON **Mail Hygiene Scan Complete** ($STATUS)
 
-📊 **Summary:**
+ **Summary:**
 • Emails scanned: $EMAILS_SCANNED
 • Phishing detected: $PHISHING_COUNT
 • Spam detected: $SPAM_COUNT

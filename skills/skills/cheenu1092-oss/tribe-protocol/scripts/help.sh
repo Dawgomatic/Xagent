@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "🏛️  Tribe Protocol — Trust Lookup System"
+echo "  Tribe Protocol — Trust Lookup System"
 echo ""
 echo "Usage: tribe <command> [args]"
 echo ""

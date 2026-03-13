@@ -13,7 +13,7 @@ echo "输出目录: $OUTPUT_DIR"
 echo ""
 
 # 方法1: 使用 Nitter (Twitter镜像)
-echo "📡 方法1: 尝试Nitter镜像..."
+echo " 方法1: 尝试Nitter镜像..."
 
 # 备选Nitter实例列表
 NITTER_INSTANCES=(
@@ -33,7 +33,7 @@ for instance in "${NITTER_INSTANCES[@]}"; do
     if curl -s --max-time 15 -L "$URL" -o "/tmp/twitter-${instance}.html" 2>/dev/null; then
         # 检查是否有效页面
         if grep -q "timeline-item" "/tmp/twitter-${instance}.html" 2>/dev/null; then
-            echo "   ✅ 成功获取内容"
+            echo "    成功获取内容"
             
             # 提取推文内容 (简化提取)
             TWITTER_CONTENT=$(grep -oP '(?<=class="tweet-content"[^>]*>).*?(?=</div>)' "/tmp/twitter-${instance}.html" | head -10)
@@ -47,7 +47,7 @@ done
 
 # 方法2: 使用特定的Twitter列表RSS (通过RSSHub)
 echo ""
-echo "📡 方法2: 使用RSSHub获取Twitter列表..."
+echo " 方法2: 使用RSSHub获取Twitter列表..."
 
 RSS_URLS=(
     # AI领域KOL的推文 (通过RSSHub)
@@ -62,7 +62,7 @@ for rss_url in "${RSS_URLS[@]}"; do
     if curl -s --max-time 20 "$rss_url" -o "$RSS_FILE" 2>/dev/null; then
         # 检查是否是有效RSS
         if grep -q "<item>" "$RSS_FILE" 2>/dev/null; then
-            echo "   ✅ 获取到RSS: ${rss_url##*/}"
+            echo "    获取到RSS: ${rss_url##*/}"
             ITEMS=$(grep -oP '(?<=<title>).*?(?=</title>)' "$RSS_FILE" | tail -n +2 | head -5)
             RSS_CONTENT="${RSS_CONTENT}${ITEMS}"
         fi
@@ -74,7 +74,7 @@ done
 OUTPUT_FILE="$OUTPUT_DIR/twitter-content.md"
 
 cat > "$OUTPUT_FILE" << EOF
-# 🐦 Twitter AI热门推文 - $(date +%Y-%m-%d)
+#  Twitter AI热门推文 - $(date +%Y-%m-%d)
 
 > 收集时间: $(date '+%Y-%m-%d %H:%M:%S')
 
@@ -87,7 +87,7 @@ EOF
 if [[ -n "$TWITTER_CONTENT" ]]; then
     echo "$TWITTER_CONTENT" >> "$OUTPUT_FILE"
 else
-    echo "⚠️ Nitter暂时无法访问" >> "$OUTPUT_FILE"
+    echo " Nitter暂时无法访问" >> "$OUTPUT_FILE"
 fi
 
 cat >> "$OUTPUT_FILE" << EOF
@@ -103,14 +103,14 @@ if [[ -n "$RSS_CONTENT" ]]; then
         echo "- $line" >> "$OUTPUT_FILE"
     done
 else
-    echo "⚠️ RSSHub暂时不可用" >> "$OUTPUT_FILE"
+    echo " RSSHub暂时不可用" >> "$OUTPUT_FILE"
 fi
 
 cat >> "$OUTPUT_FILE" << EOF
 
 ---
 
-## 💡 备选方案: 手动Browser收集
+##  备选方案: 手动Browser收集
 
 由于Twitter的反爬机制，推荐以下方式:
 
@@ -142,8 +142,8 @@ Twitter API Basic: $100/月
 EOF
 
 echo ""
-echo "✅ Twitter内容收集完成"
-echo "📄 输出文件: $OUTPUT_FILE"
+echo " Twitter内容收集完成"
+echo " 输出文件: $OUTPUT_FILE"
 echo ""
-echo "⚠️ 注意: 由于Twitter限制，自动收集可能不稳定"
+echo " 注意: 由于Twitter限制，自动收集可能不稳定"
 echo "   建议使用browser工具手动收集高质量内容"

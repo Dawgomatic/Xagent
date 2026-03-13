@@ -220,7 +220,7 @@ youtube-studio/
 {
   "devoted_journey": {
     "title": "Daily Devotional - {topic}",
-    "description": "🙏 {hook}\n\n{body}\n\n⏱️ Timestamps:\n{timestamps}\n\n📖 Scripture: {reference}\n\n💬 Reflect: {reflection_question}",
+    "description": " {hook}\n\n{body}\n\n Timestamps:\n{timestamps}\n\n Scripture: {reference}\n\n Reflect: {reflection_question}",
     "tags": ["devotional", "faith", "scripture", "spiritual"]
   }
 }

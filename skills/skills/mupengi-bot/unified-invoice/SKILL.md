@@ -2,10 +2,10 @@
 name: unified-invoice
 description: 통합 견적서/세금계산서 생성기. 한국형 견적서(사업자등록번호, 부가세) + 프리랜서 인보이스(다국어, VAT). 거래처/품목 DB, PDF 출력, 자동 계산.
 version: 1.0.0
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
-# Unified Invoice Generator 📄🐧
+# Unified Invoice Generator 
 
 > **통합됨**: 기존 `invoice-gen`, `korean-invoice` 스킬을 통합
 
@@ -13,13 +13,13 @@ author: 무펭이 🐧
 
 ## 주요 기능
 
-- 📋 **한국형 견적서**: 사업자등록번호, 공급가액, 부가세 자동 계산
-- 🧾 **세금계산서**: 영수/청구 구분, 승인번호 생성
-- 💼 **프리랜서 인보이스**: Markdown/PDF, 다국어 지원 (KRW/USD/EUR)
-- 🏢 **거래처 관리**: 사업자 정보, 연락처 DB
-- 📦 **품목 관리**: 자주 쓰는 품목 저장 및 재사용
-- 📄 **PDF 출력**: HTML → PDF 자동 변환
-- 🔢 **자동 계산**: 공급가액, 부가세, 총액 자동 계산
+-  **한국형 견적서**: 사업자등록번호, 공급가액, 부가세 자동 계산
+-  **세금계산서**: 영수/청구 구분, 승인번호 생성
+-  **프리랜서 인보이스**: Markdown/PDF, 다국어 지원 (KRW/USD/EUR)
+-  **거래처 관리**: 사업자 정보, 연락처 DB
+-  **품목 관리**: 자주 쓰는 품목 저장 및 재사용
+-  **PDF 출력**: HTML → PDF 자동 변환
+-  **자동 계산**: 공급가액, 부가세, 총액 자동 계산
 
 ## 빠른 시작
 
@@ -63,24 +63,24 @@ node scripts/generate.js invoice \
 
 | 필드 | 설명 | 필수 | 기본값 |
 |------|------|------|--------|
-| `--client` | 거래처명 또는 ID | ✅ | - |
-| `--items` | 품목 리스트 (품명,수량,단가) | ✅ | - |
-| `--issue-date` | 작성일자 | ❌ | 오늘 |
-| `--valid-until` | 유효기간 | ❌ | +30일 |
-| `--notes` | 비고 | ❌ | - |
-| `--include-vat` | 부가세 포함 여부 | ❌ | true |
-| `--currency` | 통화 (KRW/USD/EUR) | ❌ | KRW |
-| `--lang` | 언어 (ko/en) | ❌ | ko |
+| `--client` | 거래처명 또는 ID |  | - |
+| `--items` | 품목 리스트 (품명,수량,단가) |  | - |
+| `--issue-date` | 작성일자 |  | 오늘 |
+| `--valid-until` | 유효기간 |  | +30일 |
+| `--notes` | 비고 |  | - |
+| `--include-vat` | 부가세 포함 여부 |  | true |
+| `--currency` | 통화 (KRW/USD/EUR) |  | KRW |
+| `--lang` | 언어 (ko/en) |  | ko |
 
 ## 세금계산서 필드
 
 | 필드 | 설명 | 필수 | 기본값 |
 |------|------|------|--------|
-| `--client` | 공급받는자 (거래처 ID) | ✅ | - |
-| `--items` | 품목 리스트 | ✅ | - |
-| `--issue-date` | 작성일자 | ✅ | - |
-| `--type` | 영수/청구 | ❌ | 영수 |
-| `--notes` | 비고 | ❌ | - |
+| `--client` | 공급받는자 (거래처 ID) |  | - |
+| `--items` | 품목 리스트 |  | - |
+| `--issue-date` | 작성일자 |  | - |
+| `--type` | 영수/청구 |  | 영수 |
+| `--notes` | 비고 |  | - |
 
 ## 자동 계산
 
@@ -336,4 +336,4 @@ unified-invoice/
 | invoice-gen | 프리랜서 인보이스, Markdown 템플릿, 다국어 지원 | 2026-02-18 |
 
 ---
-> 🐧 Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬
+>  Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬

@@ -50,7 +50,7 @@ openclaw gateway config.patch --raw '{
 scripts/create-agent.sh \
   --name "Watson" \
   --id "watson" \
-  --emoji "🔬" \
+  --emoji "" \
   --specialty "Research and analysis specialist" \
   --model "anthropic/claude-opus-4-5" \
   --workspace "$HOME/agents/watson" \
@@ -64,7 +64,7 @@ scripts/create-agent.sh \
 Ask the user:
 - **Agent name** (e.g., "Watson")
 - **Agent ID** (lowercase, hyphenated, e.g., "watson")
-- **Emoji** (e.g., "🔬")
+- **Emoji** (e.g., "")
 - **Specialty** (what the agent does)
 - **Model** (which LLM to use)
 - **Workspace** (where to create agent files)
@@ -76,7 +76,7 @@ Ask the user:
 scripts/create-agent.sh \
   --name "Agent Name" \
   --id "agent-id" \
-  --emoji "🤖" \
+  --emoji "" \
   --specialty "What this agent does" \
   --model "provider/model-name" \
   --workspace "/path/to/workspace" \
@@ -84,12 +84,12 @@ scripts/create-agent.sh \
 ```
 
 The script automatically:
-- ✅ Creates workspace with memory subdirectory
-- ✅ Generates SOUL.md and HEARTBEAT.md
-- ✅ Updates gateway config (preserves existing agents)
-- ✅ Adds Discord channel binding (if specified)
-- ✅ Restarts gateway to apply changes
-- ✅ Prompts for daily memory cron setup
+-  Creates workspace with memory subdirectory
+-  Generates SOUL.md and HEARTBEAT.md
+-  Updates gateway config (preserves existing agents)
+-  Adds Discord channel binding (if specified)
+-  Restarts gateway to apply changes
+-  Prompts for daily memory cron setup
 
 #### 3. Customize Agent
 
@@ -131,7 +131,7 @@ If your agent needs scheduled tasks:
 scripts/create-agent.sh \
   --name "Watson" \
   --id "watson" \
-  --emoji "🔬" \
+  --emoji "" \
   --specialty "Deep research and competitive analysis" \
   --model "anthropic/claude-opus-4-5" \
   --workspace "$HOME/agents/watson" \
@@ -143,7 +143,7 @@ scripts/create-agent.sh \
 scripts/create-agent.sh \
   --name "Picasso" \
   --id "picasso" \
-  --emoji "🎨" \
+  --emoji "" \
   --specialty "Image generation and editing specialist" \
   --model "google/gemini-3-flash-preview" \
   --workspace "$HOME/agents/picasso" \
@@ -155,7 +155,7 @@ scripts/create-agent.sh \
 scripts/create-agent.sh \
   --name "Nurse Joy" \
   --id "nurse-joy" \
-  --emoji "💊" \
+  --emoji "" \
   --specialty "Health tracking and wellness monitoring" \
   --model "anthropic/claude-opus-4-5" \
   --workspace "$HOME/agents/nurse-joy" \
@@ -269,7 +269,7 @@ openclaw gateway config.patch --raw '{"channels": {...}}'
 scripts/create-agent.sh \
   --name "Watson" \
   --id "watson" \
-  --emoji "🔬" \
+  --emoji "" \
   --specialty "Deep research and competitive analysis" \
   --model "anthropic/claude-opus-4-5" \
   --workspace "$HOME/agents/watson" \
@@ -367,7 +367,7 @@ This skill integrates with OpenClaw's gateway configuration:
         },
         "identity": {
           "name": "Watson",
-          "emoji": "🔬"
+          "emoji": ""
         }
       }
     ]
@@ -522,20 +522,20 @@ sessions_send({
 ### Best Practices
 
 **When to use Discord bindings:**
-- ✅ Domain-specific agents (research, health, images)
-- ✅ User wants direct access to agent
-- ✅ Agent should respond to channel activity
+-  Domain-specific agents (research, health, images)
+-  User wants direct access to agent
+-  Agent should respond to channel activity
 
 **When to use sessions_send:**
-- ✅ Programmatic coordination
-- ✅ Main agent delegates to specialists
-- ✅ Need response in same session
+-  Programmatic coordination
+-  Main agent delegates to specialists
+-  Need response in same session
 
 **When to use sessions_spawn:**
-- ✅ Long-running tasks (>5 minutes)
-- ✅ Complex multi-step work
-- ✅ Want isolation from main session
-- ✅ Background processing
+-  Long-running tasks (>5 minutes)
+-  Complex multi-step work
+-  Want isolation from main session
+-  Background processing
 
 ### Example: Research Workflow
 
@@ -566,7 +566,7 @@ const results = Read("agents/watson/memory/research-X.md")
 
 ### Communication Flow
 
-**Main Agent (You) ↔ Specialized Agents:**
+**Main Agent (You)  Specialized Agents:**
 
 ```
 User Request

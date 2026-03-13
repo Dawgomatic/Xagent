@@ -2,7 +2,7 @@
 name: fd-find
 description: A fast and user-friendly alternative to 'find' - simple syntax, smart defaults, respects gitignore.
 homepage: https://github.com/sharkdp/fd
-metadata: {"clawdbot":{"emoji":"📂","requires":{"bins":["fd"]},"install":[{"id":"brew","kind":"brew","formula":"fd","bins":["fd"],"label":"Install fd (brew)"},{"id":"apt","kind":"apt","package":"fd-find","bins":["fd"],"label":"Install fd (apt)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["fd"]},"install":[{"id":"brew","kind":"brew","formula":"fd","bins":["fd"],"label":"Install fd (brew)"},{"id":"apt","kind":"apt","package":"fd-find","bins":["fd"],"label":"Install fd (apt)"}]}}
 ---
 
 # fd - Fast File Finder

@@ -7,7 +7,7 @@ set -euo pipefail
 SKILL_DIR="${1:-.}"
 cd "$SKILL_DIR"
 
-echo "🚀 publisher v1.0.0"
+echo " publisher v1.0.0"
 echo ""
 
 # Check requirements
@@ -18,7 +18,7 @@ check_requirements() {
     command -v clawdhub >/dev/null || missing+=("clawdhub")
     
     if [ ${#missing[@]} -gt 0 ]; then
-        echo "❌ Missing required tools: ${missing[*]}"
+        echo " Missing required tools: ${missing[*]}"
         echo ""
         echo "Install with:"
         for tool in "${missing[@]}"; do
@@ -46,7 +46,7 @@ generate_oneliners() {
     local desc="$1"
     local name="$2"
     
-    echo "📝 Generating one-liner options..."
+    echo " Generating one-liner options..."
     echo ""
     
     # Try to extract key components
@@ -73,7 +73,7 @@ main() {
     
     # Verify SKILL.md exists
     if [ ! -f "SKILL.md" ]; then
-        echo "❌ SKILL.md not found in current directory"
+        echo " SKILL.md not found in current directory"
         echo ""
         echo "Create a SKILL.md with:"
         echo "---"
@@ -85,7 +85,7 @@ main() {
     
     # Verify VERSION exists
     if [ ! -f "VERSION" ]; then
-        echo "❌ VERSION file not found"
+        echo " VERSION file not found"
         echo ""
         echo "Create one with: echo '1.0.0' > VERSION"
         exit 1
@@ -98,11 +98,11 @@ main() {
     
     if [ -z "$SKILL_NAME" ]; then
         SKILL_NAME=$(basename "$PWD")
-        echo "⚠️  No name in SKILL.md frontmatter, using directory name: $SKILL_NAME"
+        echo "  No name in SKILL.md frontmatter, using directory name: $SKILL_NAME"
     fi
     
     if [ -z "$SKILL_DESC" ]; then
-        echo "❌ No description in SKILL.md frontmatter"
+        echo " No description in SKILL.md frontmatter"
         echo ""
         echo "Add to SKILL.md:"
         echo "---"
@@ -112,9 +112,9 @@ main() {
         exit 1
     fi
     
-    echo "📦 Skill: $SKILL_NAME"
-    echo "📝 Description: $SKILL_DESC"
-    echo "🏷️  Version: $VERSION"
+    echo " Skill: $SKILL_NAME"
+    echo " Description: $SKILL_DESC"
+    echo "  Version: $VERSION"
     echo ""
     
     # Generate one-liners
@@ -132,17 +132,17 @@ main() {
             echo ""
             ;;
         *)
-            echo "❌ Invalid choice"
+            echo " Invalid choice"
             exit 1
             ;;
     esac
     
-    echo "✅ Chosen: $CHOSEN_DESC"
+    echo " Chosen: $CHOSEN_DESC"
     echo ""
     
     # Update SKILL.md frontmatter if needed
     if [ "$SKILL_DESC" != "$CHOSEN_DESC" ]; then
-        echo "📝 Updating SKILL.md frontmatter..."
+        echo " Updating SKILL.md frontmatter..."
         awk -v desc="$CHOSEN_DESC" '
             /^---$/ { if (in_fm) { in_fm=0; print; next } else { in_fm=1; print; next } }
             in_fm && /^description:/ { print "description: " desc; next }
@@ -153,13 +153,13 @@ main() {
     # Generate README (simplified - use template)
     if [ ! -f "README.md" ] || read -p "README.md exists. Overwrite? (y/n): " -n 1 -r; then
         echo ""
-        echo "📄 Generating README.md..."
+        echo " Generating README.md..."
         
         # For v1.0.0, we'll keep existing README or prompt user to create manually
         # Full generation can be added in v1.1.0
         
         if [ ! -f "README.md" ]; then
-            echo "⚠️  README.md generation coming in v1.1.0"
+            echo "  README.md generation coming in v1.1.0"
             echo "   For now, please create README.md manually using:"
             echo "   ~/clawd/templates/README-template.md"
             echo ""
@@ -168,31 +168,31 @@ main() {
     fi
     
     echo ""
-    read -p "📤 Publish to GitHub and ClawdHub? (y/n): " -n 1 -r
+    read -p " Publish to GitHub and ClawdHub? (y/n): " -n 1 -r
     echo ""
     
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        echo "❌ Cancelled"
+        echo " Cancelled"
         exit 0
     fi
     
     # Initialize git if needed
     if [ ! -d ".git" ]; then
-        echo "🔧 Initializing git..."
+        echo " Initializing git..."
         git init
         git add .
         git commit -m "Initial commit: $SKILL_NAME v$VERSION"
     fi
     
     # Create GitHub repo
-    echo "🐙 Creating GitHub repository..."
+    echo " Creating GitHub repository..."
     if ! gh repo view >/dev/null 2>&1; then
         gh repo create "$SKILL_NAME" --public --source=. --remote=origin --push || {
             echo ""
-            echo "❌ GitHub repo creation failed"
+            echo " GitHub repo creation failed"
             echo "   This might be due to missing permissions"
             echo ""
-            echo "⏰ Reminder set for 9:30 PM to grant access"
+            echo " Reminder set for 9:30 PM to grant access"
             
             # Set reminder using cron
             cat > /tmp/github-access-reminder.txt << EOF
@@ -210,19 +210,19 @@ EOF
             exit 1
         }
     else
-        echo "✅ GitHub repo already exists"
+        echo " GitHub repo already exists"
         git push origin main || git push origin master
     fi
     
     # Publish to ClawdHub
-    echo "📦 Publishing to ClawdHub..."
+    echo " Publishing to ClawdHub..."
     clawdhub publish . --version "$VERSION"
     
     echo ""
-    echo "✅ Published successfully!"
+    echo " Published successfully!"
     echo ""
-    echo "📍 GitHub: $(gh repo view --json url -q .url)"
-    echo "📍 ClawdHub: https://clawdhub.com/skills/$SKILL_NAME"
+    echo " GitHub: $(gh repo view --json url -q .url)"
+    echo " ClawdHub: https://clawdhub.com/skills/$SKILL_NAME"
 }
 
 main "$@"

@@ -85,7 +85,7 @@ API制限:
   "url": "https://x.com/compose/tweet",
   "actions": [
     {"type": "waitForSelector", "selector": "[data-testid=\"tweetTextarea_0\"]"},
-    {"type": "type", "selector": "[data-testid=\"tweetTextarea_0\"]", "text": "スレッド1つ目 🧵"},
+    {"type": "type", "selector": "[data-testid=\"tweetTextarea_0\"]", "text": "スレッド1つ目 "},
     {"type": "click", "selector": "[data-testid=\"addButton\"]"},
     {"type": "wait", "ms": 500},
     {"type": "type", "selector": "[data-testid=\"tweetTextarea_1\"]", "text": "スレッド2つ目"},
@@ -357,7 +357,7 @@ Following タブ:
 
 **スレッド型（長文コンテンツ）**
 ```
-ツイート1: [フック] - 続きはスレッドで 🧵
+ツイート1: [フック] - 続きはスレッドで 
 
 ツイート2: まず[背景]について
 
@@ -532,7 +532,7 @@ X画像サイズ:
 「AIツールを100個試した結果、
 本当に使えるのは5個だけだった。
 
-その5個を教えます🧵」
+その5個を教えます」
 
 → スレッドへの誘導
 ```

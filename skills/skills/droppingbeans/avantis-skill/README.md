@@ -72,9 +72,9 @@ SPX, NDX, DJI
 ## Position Sizing
 
 **Minimum position size**: ~$100
-- $4 collateral × 25x leverage = $100 ✅
-- $5 collateral × 20x leverage = $100 ✅
-- $10 collateral × 10x leverage = $100 ✅
+- $4 collateral × 25x leverage = $100 
+- $5 collateral × 20x leverage = $100 
+- $10 collateral × 10x leverage = $100 
 
 ## Fee Structure
 
@@ -87,7 +87,7 @@ Example: $100 position × 0.08% = $0.08 per trade
 
 ## Risk Warnings
 
-⚠️ **High Risk**: Leverage trading can result in rapid losses exceeding your collateral.
+ **High Risk**: Leverage trading can result in rapid losses exceeding your collateral.
 
 - Use stop losses
 - Start with low leverage (2-5x)
@@ -104,8 +104,8 @@ Example: $100 position × 0.08% = $0.08 per trade
 ## Testing
 
 Tested successfully with:
-- Long position: $4 @ 25x leverage ✅
-- Short position: $5 @ 20x leverage ✅
+- Long position: $4 @ 25x leverage 
+- Short position: $5 @ 20x leverage 
 - Total test cost: $0.47 in fees
 
 ## License

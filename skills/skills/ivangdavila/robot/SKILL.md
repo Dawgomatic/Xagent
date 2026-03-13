@@ -3,7 +3,7 @@ name: Robot
 slug: robot
 version: 1.0.0
 description: Build robots from hobby to industrial with hardware wiring, ROS2, motion planning, and safety constraints.
-metadata: {"clawdbot":{"emoji":"🤖","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

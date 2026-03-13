@@ -7,7 +7,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔍",
+        "emoji": "",
         "requires": { "bins": ["python3"], "env": ["APIFY_TOKEN"] },
         "primaryEnv": "APIFY_TOKEN",
       },

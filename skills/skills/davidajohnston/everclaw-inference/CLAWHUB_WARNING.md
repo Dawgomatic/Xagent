@@ -1,4 +1,4 @@
-# ⚠️ ClawHub Name Collision Warning
+#  ClawHub Name Collision Warning
 
 **DO NOT run `clawhub update everclaw` or `clawhub install everclaw`.**
 

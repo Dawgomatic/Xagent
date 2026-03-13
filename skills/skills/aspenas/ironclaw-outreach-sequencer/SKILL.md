@@ -1,7 +1,7 @@
 ---
 name: outreach-sequencer
 description: Create and manage multi-step outreach sequences — LinkedIn messages, cold emails, and follow-ups with personalization. Use when asked to "send outreach", "create email sequence", "follow up with leads", "start a drip campaign", "send LinkedIn messages", "personalized outreach", or any automated multi-step communication workflow.
-metadata: { "openclaw": { "emoji": "📨" } }
+metadata: { "openclaw": { "emoji": "" } }
 ---
 
 # Outreach Sequencer — Multi-Step Personalized Campaigns

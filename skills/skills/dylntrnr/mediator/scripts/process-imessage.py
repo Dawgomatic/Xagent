@@ -112,7 +112,7 @@ def send_summary(contact: dict, messages: list, summary: dict, notify_channel: s
     msg_count = len(messages)
     
     message_parts = [
-        f"💬 **Mediated iMessage from {contact_name}**",
+        f" **Mediated iMessage from {contact_name}**",
         f"({msg_count} message{'s' if msg_count != 1 else ''})",
         "",
         "**Summary:**",
@@ -121,7 +121,7 @@ def send_summary(contact: dict, messages: list, summary: dict, notify_channel: s
     
     if summary.get("action_required"):
         message_parts.append("")
-        message_parts.append("⚡ **Action Required:** Yes")
+        message_parts.append(" **Action Required:** Yes")
     
     if summary.get("suggested_response"):
         message_parts.append("")

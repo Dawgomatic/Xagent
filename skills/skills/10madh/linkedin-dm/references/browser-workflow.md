@@ -33,7 +33,7 @@ This is used to identify relationship hooks for every connection in the list.
 
 ---
 
-## ⚠️ Mandatory Between Every Profile — No Exceptions
+##  Mandatory Between Every Profile — No Exceptions
 
 Navigate to feed before every new profile. Jumping directly between profiles is the #1 automation detection trigger.
 

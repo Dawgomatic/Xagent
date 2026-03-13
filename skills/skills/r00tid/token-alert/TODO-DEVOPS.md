@@ -1,11 +1,11 @@
 # Token Alert - DevOps/Deployment TODO
 
-**Status:** 📋 Brainstorming Required
+**Status:**  Brainstorming Required
 **Priority:** Low (nach A+B Features)
 
 ---
 
-## 🐳 1. Docker Container
+##  1. Docker Container
 
 **Goal:** Ein-Klick-Deployment des Token Alert Dashboards
 
@@ -38,7 +38,7 @@
 
 ---
 
-## 🌐 2. GitHub Pages Hosting
+##  2. GitHub Pages Hosting
 
 **Goal:** Static hosting des Dashboards ohne eigenen Server
 
@@ -66,7 +66,7 @@
 
 ---
 
-## 🔄 3. Auto-Update Mechanism
+##  3. Auto-Update Mechanism
 
 **Goal:** Dashboard checkt auf neue Versionen und updated sich
 
@@ -94,7 +94,7 @@
 
 ---
 
-## 💭 Brainstorming Session Needed
+##  Brainstorming Session Needed
 
 **Date:** TBD
 **Participants:** Kelle + Grym
@@ -113,13 +113,13 @@
 
 ---
 
-## 📊 Prioritization Matrix
+##  Prioritization Matrix
 
 | Feature | User Value | Complexity | Priority |
 |---------|-----------|-----------|----------|
-| Docker Container | High (easy deploy) | Medium | 🟡 Medium |
-| GitHub Pages | Low (CORS issues) | High | 🔴 Low |
-| Auto-Update | Medium (convenience) | Medium | 🟡 Medium |
+| Docker Container | High (easy deploy) | Medium |  Medium |
+| GitHub Pages | Low (CORS issues) | High |  Low |
+| Auto-Update | Medium (convenience) | Medium |  Medium |
 
 **Recommended Order:**
 1. Docker Container (most valuable, reasonable effort)

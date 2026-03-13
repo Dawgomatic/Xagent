@@ -86,10 +86,10 @@ uv run scripts/ms-todo-sync.py [GLOBAL_OPTIONS] <command> [COMMAND_OPTIONS]
 | `-v, --verbose` | Show detailed information (IDs, dates, notes). **Must be placed BEFORE the subcommand.** |
 | `--debug` | Enable debug mode to display API requests and responses. Useful for troubleshooting. **Must be placed BEFORE the subcommand.** |
 
-> ⚠️ **Common mistake**: Global options MUST come before the subcommand.
-> - ✅ `uv run scripts/ms-todo-sync.py -v lists`
-> - ✅ `uv run scripts/ms-todo-sync.py --debug add "Task"`
-> - ❌ `uv run scripts/ms-todo-sync.py lists -v`
+>  **Common mistake**: Global options MUST come before the subcommand.
+> -  `uv run scripts/ms-todo-sync.py -v lists`
+> -  `uv run scripts/ms-todo-sync.py --debug add "Task"`
+> -  `uv run scripts/ms-todo-sync.py lists -v`
 
 ---
 
@@ -133,7 +133,7 @@ uv run scripts/ms-todo-sync.py login verify
 ✗ Authentication failed: <error description>
 ```
 
-> ⚠️ **This command blocks** until Microsoft's server confirms the user completed browser authentication. Do NOT run this until the user confirms they have completed the browser step.
+>  **This command blocks** until Microsoft's server confirms the user completed browser authentication. Do NOT run this until the user confirms they have completed the browser step.
 
 **Exit code**: 0 on success, 1 on failure.
 
@@ -158,7 +158,7 @@ uv run scripts/ms-todo-sync.py -v lists  # with IDs and dates
 
 **Output example:**
 ```
-📋 Task Lists (3 total):
+ Task Lists (3 total):
 
 1. Tasks
 2. Work
@@ -188,7 +188,7 @@ uv run scripts/ms-todo-sync.py delete-list "<name>" [-y]
 | `name` | Yes | Name of the list to delete |
 | `-y, --yes` | No | Skip confirmation prompt |
 
-> ⚠️ **This is a destructive operation**. Without `-y`, the command will prompt for confirmation. Consider asking the user before deleting important lists.
+>  **This is a destructive operation**. Without `-y`, the command will prompt for confirmation. Consider asking the user before deleting important lists.
 
 Output: `✓ List deleted: <name>`
 
@@ -246,7 +246,7 @@ uv run scripts/ms-todo-sync.py delete "<title>" [-l "<list>"] [-y]
 | `-l, --list` | No | (default list) | List name. If not specified, uses your default list. |
 | `-y, --yes` | No | — | Skip confirmation prompt |
 
-> ⚠️ **This is a destructive operation**. Without `-y`, the command will prompt for confirmation. For routine cleanup or when user intent is clear, `-y` can be used to avoid blocking.
+>  **This is a destructive operation**. Without `-y`, the command will prompt for confirmation. For routine cleanup or when user intent is clear, `-y` can be used to avoid blocking.
 
 Output: `✓ Task deleted: <title>`
 
@@ -267,9 +267,9 @@ uv run scripts/ms-todo-sync.py tasks "<list>" [-a]
 
 **Output example:**
 ```
-📋 Tasks in list "Work" (2 total):
+ Tasks in list "Work" (2 total):
 
-1. [In Progress] Write documentation ⭐
+1. [In Progress] Write documentation 
 2. [In Progress] Review PR
 ```
 
@@ -285,13 +285,13 @@ uv run scripts/ms-todo-sync.py pending [-g]
 
 **Output example (with `-g`):**
 ```
-📋 All incomplete tasks (3 total):
+ All incomplete tasks (3 total):
 
-📂 Work:
-  [In Progress] Write documentation ⭐
+ Work:
+  [In Progress] Write documentation 
   [In Progress] Review PR
 
-📂 Shopping:
+ Shopping:
   [In Progress] Buy groceries
 ```
 
@@ -301,7 +301,7 @@ uv run scripts/ms-todo-sync.py pending [-g]
 uv run scripts/ms-todo-sync.py today
 ```
 
-Lists incomplete tasks with due date matching today. Output: `📅 No tasks due today` if none found.
+Lists incomplete tasks with due date matching today. Output: ` No tasks due today` if none found.
 
 #### `overdue` — Overdue tasks
 
@@ -311,9 +311,9 @@ uv run scripts/ms-todo-sync.py overdue
 
 **Output example:**
 ```
-⚠️  Overdue tasks (1 total):
+  Overdue tasks (1 total):
 
-[In Progress] Submit report ⭐
+[In Progress] Submit report 
    List: Work
    Overdue: 3 days
 ```
@@ -341,9 +341,9 @@ Searches across all lists in both task titles and notes (case-insensitive).
 
 **Output example:**
 ```
-🔍 Search results (1 found):
+ Search results (1 found):
 
-[In Progress] Write documentation ⭐
+[In Progress] Write documentation 
    List: Work
 ```
 
@@ -355,7 +355,7 @@ uv run scripts/ms-todo-sync.py stats
 
 **Output example:**
 ```
-📊 Task Statistics:
+ Task Statistics:
 
   Total lists: 3
   Total tasks: 15
@@ -394,11 +394,11 @@ Output: `✓ Tasks exported to: <filename>`
 
 | Error | Cause | Resolution |
 |-------|-------|------------|
-| `❌ Not logged in` | No cached token or token expired | Run `login get` then `login verify` |
+| ` Not logged in` | No cached token or token expired | Run `login get` then `login verify` |
 | `ModuleNotFoundError: No module named 'msal'` | Dependencies not installed | Run `uv sync` or `pip install -r requirements.txt` |
-| `❌ List not found: <name>` | Specified list does not exist | Check list name with `lists` command |
-| `❌ Task not found: <name>` | No task with exact matching title | Check task title with `tasks` or `search` |
-| `❌ Error: <message>` | API or network error | Retry; check network; use `--debug` for details |
+| ` List not found: <name>` | Specified list does not exist | Check list name with `lists` command |
+| ` Task not found: <name>` | No task with exact matching title | Check task title with `tasks` or `search` |
+| ` Error: <message>` | API or network error | Retry; check network; use `--debug` for details |
 
 ---
 

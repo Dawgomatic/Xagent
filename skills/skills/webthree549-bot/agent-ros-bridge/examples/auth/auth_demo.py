@@ -39,7 +39,7 @@ class SimulatedRobotPlugin(Plugin):
             return None
         
         cmd = message.command
-        logger.info(f"📩 Command from {identity.name} (roles: {identity.roles}): {cmd.action}")
+        logger.info(f" Command from {identity.name} (roles: {identity.roles}): {cmd.action}")
         
         if cmd.action == "list_robots":
             return Message(
@@ -63,7 +63,7 @@ class SimulatedRobotPlugin(Plugin):
         elif cmd.action == "move":
             direction = cmd.parameters.get("direction", "forward")
             distance = cmd.parameters.get("distance", 0.0)
-            logger.info(f"🤖 Move {direction} {distance}m")
+            logger.info(f" Move {direction} {distance}m")
             return Message(
                 header=Header(correlation_id=message.header.message_id),
                 telemetry=Telemetry(
@@ -109,11 +109,11 @@ async def main():
     await bridge.start()
     
     print("=" * 60)
-    print("🎭 SIMULATED ROBOT BRIDGE (WITH AUTH)")
+    print(" SIMULATED ROBOT BRIDGE (WITH AUTH)")
     print("=" * 60)
     print("WebSocket: ws://localhost:8768")
     print("")
-    print("⚠️  AUTHENTICATION REQUIRED")
+    print("  AUTHENTICATION REQUIRED")
     print("")
     print("Connect with token:")
     print('  wscat -c "ws://localhost:8768?token=eyJhbGciOiJIUzI1NiIs..."')
@@ -131,7 +131,7 @@ async def main():
         while True:
             await asyncio.sleep(1)
     except KeyboardInterrupt:
-        print('\n⏹️  Stopping...')
+        print('\n  Stopping...')
         await bridge.stop()
 
 

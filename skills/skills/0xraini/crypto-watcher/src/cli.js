@@ -140,7 +140,7 @@ async function cmdStatus(walletName, quiet = false) {
   const prices = await getPrices();
   
   for (const wallet of wallets) {
-    if (!quiet) console.log(`\n📍 ${wallet.name} (${wallet.address.slice(0, 6)}...${wallet.address.slice(-4)})`);
+    if (!quiet) console.log(`\n ${wallet.name} (${wallet.address.slice(0, 6)}...${wallet.address.slice(-4)})`);
     
     let totalUsd = 0;
     
@@ -172,20 +172,20 @@ async function cmdStatus(walletName, quiet = false) {
       }
     }
     
-    console.log(`  💰 Total: $${totalUsd.toFixed(2)}`);
+    console.log(`   Total: $${totalUsd.toFixed(2)}`);
   }
 }
 
 async function cmdGas() {
-  console.log('⛽ Gas Prices:\n');
+  console.log(' Gas Prices:\n');
   
   for (const [key, { chain }] of Object.entries(CHAINS)) {
     try {
       const gwei = await getGasPrice(key);
-      const status = gwei < 15 ? '🟢' : gwei < 30 ? '🟡' : '🔴';
+      const status = gwei < 15 ? '' : gwei < 30 ? '' : '';
       console.log(`  ${status} ${chain.name}: ${gwei.toFixed(1)} gwei`);
     } catch {
-      console.log(`  ⚪ ${chain.name}: unavailable`);
+      console.log(`   ${chain.name}: unavailable`);
     }
   }
 }
@@ -195,13 +195,13 @@ async function cmdAdd(address, name, chains) {
   
   // Validate address
   if (!address.match(/^0x[a-fA-F0-9]{40}$/)) {
-    console.log('❌ Invalid address format');
+    console.log(' Invalid address format');
     return;
   }
   
   // Check if exists
   if (config.wallets.some(w => w.address.toLowerCase() === address.toLowerCase())) {
-    console.log('❌ Wallet already exists');
+    console.log(' Wallet already exists');
     return;
   }
   
@@ -212,7 +212,7 @@ async function cmdAdd(address, name, chains) {
   });
   
   saveConfig(config);
-  console.log(`✅ Added ${name || address}`);
+  console.log(` Added ${name || address}`);
 }
 
 async function cmdRemove(nameOrAddress) {
@@ -225,9 +225,9 @@ async function cmdRemove(nameOrAddress) {
   
   if (config.wallets.length < before) {
     saveConfig(config);
-    console.log('✅ Removed');
+    console.log(' Removed');
   } else {
-    console.log('❌ Wallet not found');
+    console.log(' Wallet not found');
   }
 }
 
@@ -239,7 +239,7 @@ async function cmdList() {
     return;
   }
   
-  console.log('📋 Watched Wallets:\n');
+  console.log(' Watched Wallets:\n');
   for (const w of config.wallets) {
     console.log(`  ${w.name}: ${w.address}`);
     console.log(`    Chains: ${(w.chains || ['eth']).join(', ')}`);
@@ -247,7 +247,7 @@ async function cmdList() {
 }
 
 async function cmdDefi(address) {
-  console.log(`\n🏦 DeFi Positions for ${address.slice(0, 6)}...${address.slice(-4)}\n`);
+  console.log(`\n DeFi Positions for ${address.slice(0, 6)}...${address.slice(-4)}\n`);
   
   // Use Zapper API alternative or show manual check
   console.log('  Checking DefiLlama...');
@@ -255,11 +255,11 @@ async function cmdDefi(address) {
   try {
     const res = await fetch(`https://api.llama.fi/v2/historicalChainTvl`);
     // DefiLlama doesn't have per-address API, suggest alternatives
-    console.log('\n  💡 For detailed DeFi positions, check:');
+    console.log('\n   For detailed DeFi positions, check:');
     console.log(`     • https://debank.com/profile/${address}`);
     console.log(`     • https://zapper.xyz/account/${address}`);
   } catch {
-    console.log('  ❌ Could not fetch DeFi data');
+    console.log('   Could not fetch DeFi data');
   }
 }
 

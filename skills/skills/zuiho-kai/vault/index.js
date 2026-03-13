@@ -165,7 +165,7 @@ export default function vaultPlugin(api) {
   const masterKey = process.env.VAULT_MASTER_KEY || config.masterKey;
 
   if (!masterKey) {
-    console.error('⚠️  VAULT_MASTER_KEY not set!');
+    console.error('  VAULT_MASTER_KEY not set!');
     console.error('Please set environment variable: export VAULT_MASTER_KEY="your-secure-key"');
     console.error('Or add to config: { "plugins": { "vault": { "masterKey": "your-secure-key" } } }');
     throw new Error('VAULT_MASTER_KEY is required for encryption');

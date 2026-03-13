@@ -27,12 +27,12 @@
 
 ```
 ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
-│ Phase 0  │───▶│ Phase 1  │───▶│ Phase 2  │───▶│ Phase 3  │───▶│ Phase 4  │───▶│ Phase 5  │───▶│ Phase 6  │───▶│ Phase 7  │
+│ Phase 0  │───│ Phase 1  │───│ Phase 2  │───│ Phase 3  │───│ Phase 4  │───│ Phase 5  │───│ Phase 6  │───│ Phase 7  │
 │Constitute│    │ Research │    │ Specify  │    │Plan+Tasks│    │Implement │    │  Test    │    │ Review   │    │Gap Analys│
 └──────────┘    └──────────┘    └──────────┘    └──────────┘    └──────────┘    └──────────┘    └──────────┘    └──────────┘
       │                                                               │                              │                │
       │                                                               │         ┌───────────┐        │                │
-      │                                                               │◀────────│  Rollback  │◀───────│                │
+      │                                                               │────────│  Rollback  │───────│                │
       │                                                               │         └───────────┘        │                │
       ▼                                                                                              ▼                ▼
   CONSTITUTION.md                                                                              REVIEW_REPORT.md  GAP_ANALYSIS.md
@@ -417,7 +417,7 @@ Every cron trigger:
        Inject review comments into extra input of that phase
 
 5b. if current == "gap_analysis" && status == "done":
-     Pipeline Run Complete 🎉
+     Pipeline Run Complete 
      Archive: Copy pipeline/* → pipeline_archive/run-{runNumber}/
      Deferred persistence: Collect all deferredTasks → pipeline_archive/run-{N}/DEFERRED_TASKS.json
      Relaxed persistence: Collect all triageResult.decision=="RELAX" → pipeline_archive/run-{N}/RELAXED_CONSTRAINTS.json
@@ -486,15 +486,15 @@ Each spawned sub-agent:
 Orchestrator broadcasts a summary to the project notification channel on each phase transition:
 
 ```
-📋 Pipeline [example-project] Progress Update
+ Pipeline [example-project] Progress Update
 ━━━━━━━━━━━━━━━━━━━━━━
-✅ Phase 0: Constitute — Done
-✅ Phase 1: Research — Done
-🔄 Phase 2: Specify — In Progress (by @openclaw_designer_bot)
-⬜ Phase 3: Plan+Tasks
-⬜ Phase 4: Implement
-⬜ Phase 5: Test
-⬜ Phase 6: Review
+ Phase 0: Constitute — Done
+ Phase 1: Research — Done
+ Phase 2: Specify — In Progress (by @openclaw_designer_bot)
+ Phase 3: Plan+Tasks
+ Phase 4: Implement
+ Phase 5: Test
+ Phase 6: Review
 ━━━━━━━━━━━━━━━━━━━━━━
 Next Check: in 30 mins
 ```
@@ -603,7 +603,7 @@ Existing mechanism only has `maxRetries` retrying the same model, with no escala
 When sub-agent execution fails, Orchestrator automatically retries with a stronger model along a predefined chain:
 
 ```
-mini → glm → codex → sonnet → ⛔ Human Intervention
+mini → glm → codex → sonnet →  Human Intervention
 ```
 
 Configuration (in `config` of `PIPELINE_STATE.json`):
@@ -666,8 +666,8 @@ Inject synthesized solution into original phase prompt
     ▼
 Re-spawn original task using strongest model in escalation chain
     │
-    ├─ Success → Proceed normally ✅
-    └─ Fail → Mark blocker, notify human 🚨
+    ├─ Success → Proceed normally 
+    └─ Fail → Mark blocker, notify human 
 ```
 
 ### 11.4 Sub-Agent Stuck Reporting Protocol
@@ -769,7 +769,7 @@ Orchestrator spawns Auto-Triage agent (model=opus)
     │     → Write relaxed constraints into stuckInfo.triageResult
     │     → Re-spawn original phase task with relaxed constraints
     │     → Append PIPELINE_LOG: {"event":"triage_relax"}
-    │     ├─ Success → Proceed normally ✅
+    │     ├─ Success → Proceed normally 
     │     └─ Fail → Mark blocker (still fails after relaxing, must wait for human)
     │
     ├── DEFER (confidence >= 0.6)

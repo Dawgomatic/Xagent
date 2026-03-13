@@ -3,7 +3,7 @@ name: file-organizer-cn
 description: "智能文件整理 | Smart File Organizer. 自动整理文件和文件夹 | Auto organize files and folders. 查找重复、建议结构、清理 | Find duplicates, suggest structure, cleanup. 触发词：整理文件、file organizer、清理."
 metadata:
   openclaw:
-    emoji: 📁
+    emoji: 
     fork-of: "https://github.com/anthropics/skills"
 ---
 # File Organizer
@@ -224,7 +224,7 @@ When a user requests file organization help:
    After organizing:
    
    ```markdown
-   # Organization Complete! ✨
+   # Organization Complete! 
    
    ## What Changed
    

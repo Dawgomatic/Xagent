@@ -24,28 +24,28 @@ File-Deduplicator is an intelligent file duplicate finder and remover. Uses cont
 
 ## Features
 
-### ✅ Duplicate Detection
+###  Duplicate Detection
 - Content-based hashing (MD5) for fast comparison
 - Size-based detection (exact match, near match)
 - Name-based detection (similar filenames)
 - Directory scanning (recursive)
 - Exclude patterns (.git, node_modules, etc.)
 
-### ✅ Removal Options
+###  Removal Options
 - Auto-delete duplicates (keep newest/oldest)
 - Interactive review before deletion
 - Move to archive instead of delete
 - Preserve permissions and metadata
 - Dry-run mode (preview changes)
 
-### ✅ Analysis Tools
+###  Analysis Tools
 - Duplicate count summary
 - Space savings estimation
 - Largest duplicate files
 - Most common duplicate patterns
 - Detailed report generation
 
-### ✅ Safety Features
+###  Safety Features
 - Confirmation prompts before deletion
 - Backup to archive folder
 - Size threshold (don't remove huge files by mistake)
@@ -406,4 +406,4 @@ MIT
 
 ---
 
-**Find duplicates. Save space. Keep your system clean.** 🔮
+**Find duplicates. Save space. Keep your system clean.** 

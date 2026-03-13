@@ -9,7 +9,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 async function runTests() {
-  console.log('🧪 Bulk Scheduler Test Suite\n');
+  console.log(' Bulk Scheduler Test Suite\n');
   
   let passed = 0;
   let failed = 0;
@@ -29,16 +29,16 @@ async function runTests() {
         posts[0].datetime === '2026-02-04T10:00:00' &&
         posts[0].platform === 'twitter' &&
         posts[1].media === '/path/to/image.jpg') {
-      console.log('✅ CSV parsing works');
+      console.log(' CSV parsing works');
       passed++;
     } else {
-      console.log('❌ CSV parsing failed');
+      console.log(' CSV parsing failed');
       failed++;
     }
     
     await fs.unlink(tmpFile);
   } catch (err) {
-    console.log(`❌ CSV parsing error: ${err.message}`);
+    console.log(` CSV parsing error: ${err.message}`);
     failed++;
   }
   
@@ -53,17 +53,17 @@ async function runTests() {
     const posts = await parseCSV(tmpFile);
     
     if (posts.length === 1 && posts[0].content === 'Hello, world! This has commas.') {
-      console.log('✅ CSV quoted fields parsing works');
+      console.log(' CSV quoted fields parsing works');
       passed++;
     } else {
-      console.log('❌ CSV quoted fields parsing failed');
+      console.log(' CSV quoted fields parsing failed');
       console.log('  Got:', posts[0].content);
       failed++;
     }
     
     await fs.unlink(tmpFile);
   } catch (err) {
-    console.log(`❌ CSV quoted fields error: ${err.message}`);
+    console.log(` CSV quoted fields error: ${err.message}`);
     failed++;
   }
   
@@ -84,16 +84,16 @@ async function runTests() {
     const posts = await parseJSON(tmpFile);
     
     if (posts.length === 1 && posts[0].platform === 'twitter') {
-      console.log('✅ JSON parsing works');
+      console.log(' JSON parsing works');
       passed++;
     } else {
-      console.log('❌ JSON parsing failed');
+      console.log(' JSON parsing failed');
       failed++;
     }
     
     await fs.unlink(tmpFile);
   } catch (err) {
-    console.log(`❌ JSON parsing error: ${err.message}`);
+    console.log(` JSON parsing error: ${err.message}`);
     failed++;
   }
   
@@ -105,14 +105,14 @@ async function runTests() {
     }, true);
     
     if (!result.success && result.error.includes('datetime')) {
-      console.log('✅ Missing datetime validation works');
+      console.log(' Missing datetime validation works');
       passed++;
     } else {
-      console.log('❌ Missing datetime validation failed');
+      console.log(' Missing datetime validation failed');
       failed++;
     }
   } catch (err) {
-    console.log(`❌ Missing datetime validation error: ${err.message}`);
+    console.log(` Missing datetime validation error: ${err.message}`);
     failed++;
   }
   
@@ -125,14 +125,14 @@ async function runTests() {
     }, true);
     
     if (!result.success && result.error.includes('Invalid datetime')) {
-      console.log('✅ Invalid datetime validation works');
+      console.log(' Invalid datetime validation works');
       passed++;
     } else {
-      console.log('❌ Invalid datetime validation failed');
+      console.log(' Invalid datetime validation failed');
       failed++;
     }
   } catch (err) {
-    console.log(`❌ Invalid datetime validation error: ${err.message}`);
+    console.log(` Invalid datetime validation error: ${err.message}`);
     failed++;
   }
   
@@ -145,14 +145,14 @@ async function runTests() {
     }, true);
     
     if (!result.success && result.error.includes('past')) {
-      console.log('✅ Past datetime validation works');
+      console.log(' Past datetime validation works');
       passed++;
     } else {
-      console.log('❌ Past datetime validation failed');
+      console.log(' Past datetime validation failed');
       failed++;
     }
   } catch (err) {
-    console.log(`❌ Past datetime validation error: ${err.message}`);
+    console.log(` Past datetime validation error: ${err.message}`);
     failed++;
   }
   
@@ -165,14 +165,14 @@ async function runTests() {
     }, true);
     
     if (!result.success && result.error.includes('Unknown platform')) {
-      console.log('✅ Unknown platform validation works');
+      console.log(' Unknown platform validation works');
       passed++;
     } else {
-      console.log('❌ Unknown platform validation failed');
+      console.log(' Unknown platform validation failed');
       failed++;
     }
   } catch (err) {
-    console.log(`❌ Unknown platform validation error: ${err.message}`);
+    console.log(` Unknown platform validation error: ${err.message}`);
     failed++;
   }
   
@@ -185,26 +185,26 @@ async function runTests() {
     }, true);
     
     if (!result.success && result.error.includes('content')) {
-      console.log('✅ Missing content validation works');
+      console.log(' Missing content validation works');
       passed++;
     } else {
-      console.log('❌ Missing content validation failed');
+      console.log(' Missing content validation failed');
       failed++;
     }
   } catch (err) {
-    console.log(`❌ Missing content validation error: ${err.message}`);
+    console.log(` Missing content validation error: ${err.message}`);
     failed++;
   }
   
   // Summary
-  console.log(`\n📊 Test Results:`);
-  console.log(`  ✅ Passed: ${passed}`);
-  console.log(`  ❌ Failed: ${failed}`);
+  console.log(`\n Test Results:`);
+  console.log(`   Passed: ${passed}`);
+  console.log(`   Failed: ${failed}`);
   
   if (failed === 0) {
-    console.log('\n✨ All bulk scheduler tests passed!');
+    console.log('\n All bulk scheduler tests passed!');
   } else {
-    console.log(`\n⚠️ ${failed} test(s) failed`);
+    console.log(`\n ${failed} test(s) failed`);
     process.exit(1);
   }
 }

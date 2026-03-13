@@ -4,12 +4,12 @@
 const fs = require("fs");
 
 function fail(errors) {
-    for (const e of errors) console.error("❌", e);
+    for (const e of errors) console.error("", e);
     process.exit(1);
 }
 
 function ok(msg) {
-    console.log("✅", msg);
+    console.log("", msg);
 }
 
 function hasAnyText(x) {

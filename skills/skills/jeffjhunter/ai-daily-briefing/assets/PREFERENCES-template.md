@@ -87,8 +87,8 @@ Add custom sections or reminders:
 
 ```yaml
 custom:
-  - "💧 Drink water"
-  - "🏃 Movement break at 2pm"
+  - " Drink water"
+  - " Movement break at 2pm"
 ```
 
 ---

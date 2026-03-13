@@ -8,7 +8,7 @@ repository: https://github.com/kris-hansen/comanda
 
 # Comanda - Declarative AI Pipelines
 
-🌐 **Website:** [comanda.sh](https://comanda.sh) | 📦 **GitHub:** [kris-hansen/comanda](https://github.com/kris-hansen/comanda)
+ **Website:** [comanda.sh](https://comanda.sh) |  **GitHub:** [kris-hansen/comanda](https://github.com/kris-hansen/comanda)
 
 Comanda defines LLM workflows in YAML and runs them from the command line. Workflows can chain multiple AI models, run steps in parallel, and pipe data through processing stages.
 

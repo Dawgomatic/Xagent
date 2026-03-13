@@ -8,7 +8,7 @@ Build custom UIs with Trails hooks and programmatic control.
 
 ### 1. Get Your API Key
 
-👉 **Visit [https://dashboard.trails.build](https://dashboard.trails.build)** to get your API key, then set it as an environment variable:
+ **Visit [https://dashboard.trails.build](https://dashboard.trails.build)** to get your API key, then set it as an environment variable:
 
 ```bash
 NEXT_PUBLIC_TRAILS_API_KEY=your_api_key

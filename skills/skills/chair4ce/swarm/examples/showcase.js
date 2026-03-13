@@ -8,7 +8,7 @@ const { research, parallel } = require('../lib');
 
 async function showcase() {
   console.log('\n' + '═'.repeat(60));
-  console.log('🐝 SWARM SHOWCASE: AI Startup Research');
+  console.log(' SWARM SHOWCASE: AI Startup Research');
   console.log('═'.repeat(60));
   console.log('\nTask: Research 6 AI startups - funding, products, differentiators\n');
   
@@ -37,7 +37,7 @@ async function showcase() {
   const speedup = (seqEstimate / parseFloat(totalTime)).toFixed(1);
   
   console.log('\n' + '═'.repeat(60));
-  console.log('📊 RESULTS');
+  console.log(' RESULTS');
   console.log('═'.repeat(60));
   
   for (const analysis of result.analyses) {
@@ -49,7 +49,7 @@ async function showcase() {
   }
   
   console.log('\n' + '═'.repeat(60));
-  console.log('⏱️  PERFORMANCE');
+  console.log('  PERFORMANCE');
   console.log('═'.repeat(60));
   console.log(`Total time:      ${totalTime}s`);
   console.log(`Est. sequential: ${seqEstimate}s`);

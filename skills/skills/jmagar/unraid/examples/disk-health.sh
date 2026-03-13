@@ -16,7 +16,7 @@ echo "$RESPONSE" | jq -r '.array.disks[] | "\(.name) (\(.device)): \(.temp)°C -
 
 echo ""
 echo "Temperature warnings:"
-echo "$RESPONSE" | jq -r '.array.disks[] | select(.temp > 45) | "⚠️  \(.name): \(.temp)°C (HIGH)"'
+echo "$RESPONSE" | jq -r '.array.disks[] | select(.temp > 45) | "  \(.name): \(.temp)°C (HIGH)"'
 
 HOTTEST=$(echo "$RESPONSE" | jq -r '[.array.disks[].temp] | max')
 echo ""

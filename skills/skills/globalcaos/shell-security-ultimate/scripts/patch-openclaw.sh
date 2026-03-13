@@ -9,30 +9,30 @@ OPENCLAW_DIR="${OPENCLAW_DIR:-$HOME/src/clawdbot-moltbot-openclaw}"
 TARGET_FILE="$OPENCLAW_DIR/src/agents/pi-tool-definition-adapter.ts"
 PATCH_MARKER="// EXEC-DISPLAY-PATCH: before_tool_call hook"
 
-echo "🔧 OpenClaw before_tool_call Hook Patcher"
+echo " OpenClaw before_tool_call Hook Patcher"
 echo "========================================="
 echo ""
 
 # Check if OpenClaw directory exists
 if [ ! -d "$OPENCLAW_DIR" ]; then
-    echo "❌ OpenClaw directory not found: $OPENCLAW_DIR"
+    echo " OpenClaw directory not found: $OPENCLAW_DIR"
     echo "   Set OPENCLAW_DIR environment variable to your OpenClaw source path"
     exit 1
 fi
 
 # Check if target file exists
 if [ ! -f "$TARGET_FILE" ]; then
-    echo "❌ Target file not found: $TARGET_FILE"
+    echo " Target file not found: $TARGET_FILE"
     exit 1
 fi
 
 # Check if already patched
 if grep -q "$PATCH_MARKER" "$TARGET_FILE"; then
-    echo "✅ Already patched! No changes needed."
+    echo " Already patched! No changes needed."
     exit 0
 fi
 
-echo "📝 Patching $TARGET_FILE..."
+echo " Patching $TARGET_FILE..."
 
 # Create backup
 cp "$TARGET_FILE" "$TARGET_FILE.backup.$(date +%Y%m%d_%H%M%S)"
@@ -66,15 +66,15 @@ echo "   Patch applied"
 
 # Verify patch was applied
 if grep -q "$PATCH_MARKER" "$TARGET_FILE"; then
-    echo "✅ Patch verified"
+    echo " Patch verified"
 else
-    echo "❌ Patch verification failed"
+    echo " Patch verification failed"
     exit 1
 fi
 
 # Rebuild
 echo ""
-echo "🔨 Rebuilding OpenClaw..."
+echo " Rebuilding OpenClaw..."
 cd "$OPENCLAW_DIR"
 
 # Use pnpm if available, otherwise npm
@@ -85,10 +85,10 @@ else
 fi
 
 echo ""
-echo "✅ Done! Restart the OpenClaw gateway to apply changes."
+echo " Done! Restart the OpenClaw gateway to apply changes."
 echo ""
 echo "To restart:"
 echo "  systemctl --user restart openclaw-gateway"
 echo ""
 echo "To verify the hook is working, check logs for:"
-echo "  [exec-display] 🟢 SAFE: ..."
+echo "  [exec-display]  SAFE: ..."

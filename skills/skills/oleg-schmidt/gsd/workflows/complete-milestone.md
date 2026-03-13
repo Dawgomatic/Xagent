@@ -20,7 +20,7 @@ Creates historical record in .planning/milestones/.
 ```bash
 # Check for audit
 if [ ! -f ".planning/v${VERSION}-MILESTONE-AUDIT.md" ]; then
-  echo "⚠ No audit found. Run /gsd audit-milestone first."
+  echo " No audit found. Run /gsd audit-milestone first."
 fi
 ```
 
@@ -85,12 +85,12 @@ git tag -a "v{version}" -m "{milestone summary}"
 ```
 ---
 
-## 🎉 Milestone v{version} Complete
+##  Milestone v{version} Complete
 
 Archived to: .planning/milestones/
 Git tag: v{version}
 
-**▶ Next:** `/gsd new-milestone` — start next version
+** Next:** `/gsd new-milestone` — start next version
 
 ---
 ```

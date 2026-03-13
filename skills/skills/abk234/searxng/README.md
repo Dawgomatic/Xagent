@@ -19,11 +19,11 @@ If you don't have SearXNG set up yet:
 
 ## Features
 
-- 🔒 **Privacy-focused**: Uses your local SearXNG instance
-- 🌐 **Multi-engine**: Aggregates results from multiple search engines
-- 📰 **Multiple categories**: Web, images, news, videos, and more
-- 🎨 **Rich output**: Beautiful table formatting with result snippets
-- 🚀 **Fast JSON mode**: Programmatic access for scripts and integrations
+-  **Privacy-focused**: Uses your local SearXNG instance
+-  **Multi-engine**: Aggregates results from multiple search engines
+-  **Multiple categories**: Web, images, news, videos, and more
+-  **Rich output**: Beautiful table formatting with result snippets
+-  **Fast JSON mode**: Programmatic access for scripts and integrations
 
 ## Quick Start
 

@@ -1,7 +1,7 @@
 ---
 name: LaTeX
 description: Write LaTeX documents with correct syntax, packages, and compilation workflow.
-metadata: {"clawdbot":{"emoji":"📐","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Special Characters

@@ -360,9 +360,9 @@ node scripts/colony.mjs config set notifications.on_failure true
 ```
 
 **Notification examples:**
-- 🛑 `Colony checkpoint: Process "validate-idea" paused after stage "analyze". To continue: colony approve abc123`
-- ✅ `Colony complete: Process "validate-idea" finished in 120s. Run ID: abc123`
-- ❌ `Colony failed: Process "validate-idea" failed at stage "research". Error: Agent timed out. Run ID: abc123`
+-  `Colony checkpoint: Process "validate-idea" paused after stage "analyze". To continue: colony approve abc123`
+-  `Colony complete: Process "validate-idea" finished in 120s. Run ID: abc123`
+-  `Colony failed: Process "validate-idea" failed at stage "research". Error: Agent timed out. Run ID: abc123`
 
 ### Checkpoints
 

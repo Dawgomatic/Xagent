@@ -86,11 +86,11 @@ def cmd_list(args):
         last_status = agent.get("lastEndStatus", "unknown")
         
         status_emoji = {
-            "finished": "✅",
-            "error": "❌",
-            "running": "🔄",
-            "unknown": "❓"
-        }.get(last_status, "❓")
+            "finished": "",
+            "error": "",
+            "running": "",
+            "unknown": ""
+        }.get(last_status, "")
         
         print(f"{status_emoji} [{agent_id}] {name}")
         if script:
@@ -115,7 +115,7 @@ def cmd_launch(args):
         print(json.dumps(result, indent=2))
     else:
         container_id = result.get("containerId", "unknown")
-        print(f"✅ Agent {args.agent_id} launched!")
+        print(f" Agent {args.agent_id} launched!")
         print(f"   Container ID: {container_id}")
 
 
@@ -162,10 +162,10 @@ def cmd_status(args):
     running = result.get("runningContainers", 0)
     
     status_emoji = {
-        "finished": "✅",
-        "error": "❌",
-        "running": "🔄"
-    }.get(last_status, "❓")
+        "finished": "",
+        "error": "",
+        "running": ""
+    }.get(last_status, "")
     
     print(f"Agent: {name}")
     print(f"Status: {status_emoji} {last_status}")
@@ -182,7 +182,7 @@ def cmd_abort(args):
     if args.json:
         print(json.dumps(result, indent=2))
     else:
-        print(f"🛑 Abort signal sent to agent {args.agent_id}")
+        print(f" Abort signal sent to agent {args.agent_id}")
 
 
 def cmd_get(args):

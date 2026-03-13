@@ -21,4 +21,4 @@ done
 [ -z "$INPUT" ] || [ -z "$OUTPUT" ] && usage
 
 ffmpeg -i "$INPUT" -c:v libx264 -crf 23 -c:a aac -b:a 128k -y "$OUTPUT"
-echo "✅ Converted: $OUTPUT"
+echo " Converted: $OUTPUT"

@@ -1,7 +1,7 @@
 ---
 name: xai-search
 description: Search X/Twitter and the web in real-time using xAI's Grok API with agentic search tools.
-metadata: {"clawdbot":{"emoji":"🔍"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # xAI Search (Grok API)

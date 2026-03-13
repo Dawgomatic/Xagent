@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-echo "🚀 NFT Mint Bot Setup"
+echo " NFT Mint Bot Setup"
 cd "$(dirname "$0")"
 
 if [ ! -f package.json ]; then
@@ -13,9 +13,9 @@ npm install ethers@^6
 
 if [ ! -f config.json ]; then
   cp ../assets/config-template.json config.json
-  echo "📄 Created config.json from template — edit it with your settings"
+  echo " Created config.json from template — edit it with your settings"
 else
-  echo "⚠️  config.json already exists, skipping"
+  echo "  config.json already exists, skipping"
 fi
 
-echo "✅ Setup complete. Edit config.json then run: node mint-bot.js"
+echo " Setup complete. Edit config.json then run: node mint-bot.js"

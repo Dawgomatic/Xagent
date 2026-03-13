@@ -1,10 +1,10 @@
 # TODO - Token Alert Skill
 
-## 🎨 UI/UX Improvements
+##  UI/UX Improvements
 
 ### High Priority - Icons (mit AI erstellen)
 
-- [ ] **Custom Dashboard Icon** (statt 🔶 Emoji)
+- [ ] **Custom Dashboard Icon** (statt  Emoji)
   - Hochwertiges Design
   - Passt zum Thema "Token"
   - Farblich abgestimmt (Orange/Gradient)
@@ -17,9 +17,9 @@
     - Gauge/Meter Design
 
 - [ ] **Provider Icons** (AI-generiert, hochwertig)
-  - 🤖 Anthropic - Claude Logo (hochwertig)
-  - 🧠 OpenAI - GPT Logo (hochwertig)
-  - ✨ Gemini - Google Gemini Logo (hochwertig)
+  -  Anthropic - Claude Logo (hochwertig)
+  -  OpenAI - GPT Logo (hochwertig)
+  -  Gemini - Google Gemini Logo (hochwertig)
   - Konsistenter Design-Stil
   - SVG Format
   - Farblich passend zum Theme
@@ -45,7 +45,7 @@
   - Gemini: "Gemini Pro 1.5" (statt "Gemini")
   - Versionsnummer immer dabei
 
-## 🔧 Features
+##  Features
 
 ### v1.1.0
 - [ ] OpenAI API Implementation
@@ -84,17 +84,17 @@
   - Provider comparison
   - Usage predictions
 
-## 🐛 Bugs
+##  Bugs
 
 Keine bekannten Bugs.
 
-## 📝 Documentation
+##  Documentation
 
 - [ ] Video Tutorial (Dashboard Demo)
 - [ ] Provider Setup Guide (mit Screenshots)
 - [ ] Best Practices Artikel
 
-## 🔒 Security
+##  Security
 
 - [ ] API Key Encryption
 - [ ] Session Token Security Audit

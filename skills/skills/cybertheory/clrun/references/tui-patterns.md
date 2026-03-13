@@ -15,14 +15,14 @@ clrun <id> "my-vue-app"
 
 # 3. Select features: TypeScript, Router, Pinia, Linter
 #    Layout:
-#    ◻ TypeScript     ← space (select)
-#    ◻ JSX            ← down (skip)
-#    ◻ Router         ← down, space (select)
-#    ◻ Pinia          ← down, space (select)
-#    ◻ Vitest         ← down (skip)
-#    ◻ E2E Testing    ← down (skip)
-#    ◻ Linter         ← down, space (select)
-#    ◻ Prettier       ← down (skip)
+#     TypeScript     ← space (select)
+#     JSX            ← down (skip)
+#     Router         ← down, space (select)
+#     Pinia          ← down, space (select)
+#     Vitest         ← down (skip)
+#     E2E Testing    ← down (skip)
+#     Linter         ← down, space (select)
+#     Prettier       ← down (skip)
 #                     ← down, enter (confirm)
 clrun key <id> space down down space down space down down down space down down enter
 

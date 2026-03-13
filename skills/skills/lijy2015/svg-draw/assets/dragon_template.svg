@@ -55,5 +55,5 @@
   <circle cx="330" cy="340" r="2" fill="#ffcc00" opacity="0.8"/>
   
   <!-- Name -->
-  <text x="200" y="370" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffcc00" text-anchor="middle">大龙 🐉</text>
+  <text x="200" y="370" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffcc00" text-anchor="middle">大龙 </text>
 </svg>

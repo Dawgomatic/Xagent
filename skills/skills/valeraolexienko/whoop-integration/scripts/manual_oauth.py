@@ -14,7 +14,7 @@ def manual_oauth():
     
     client_id, client_secret = get_whoop_credentials()
     if not client_id:
-        print("❌ Missing credentials")
+        print(" Missing credentials")
         return False
     
     # Build authorization URL  
@@ -35,7 +35,7 @@ def manual_oauth():
     
     full_auth_url = f"{auth_url}?{urllib.parse.urlencode(auth_params)}"
     
-    print("🏃‍♀️ WHOOP Manual OAuth Setup")
+    print(" WHOOP Manual OAuth Setup")
     print("=" * 40)
     print("1. Open this URL in browser:")
     print(f"   {full_auth_url}")
@@ -48,11 +48,11 @@ def manual_oauth():
     auth_code = input("Paste the authorization code here: ").strip()
     
     if not auth_code:
-        print("❌ No code provided")
+        print(" No code provided")
         return False
     
     # Exchange code for tokens
-    print("🔄 Exchanging code for tokens...")
+    print(" Exchanging code for tokens...")
     token_url = "https://api.prod.whoop.com/oauth/oauth2/token"
     
     token_data = {
@@ -74,14 +74,14 @@ def manual_oauth():
         with open(config_path, 'w') as f:
             json.dump(tokens, f, indent=2)
         
-        print("✅ Tokens saved successfully!")
-        print(f"📁 Config saved to: {config_path}")
-        print("\n🎉 WHOOP integration ready!")
+        print(" Tokens saved successfully!")
+        print(f" Config saved to: {config_path}")
+        print("\n WHOOP integration ready!")
         
         return True
         
     except requests.RequestException as e:
-        print(f"❌ Token exchange failed: {e}")
+        print(f" Token exchange failed: {e}")
         if hasattr(e, 'response') and hasattr(e.response, 'text'):
             print(f"Response: {e.response.text}")
         return False

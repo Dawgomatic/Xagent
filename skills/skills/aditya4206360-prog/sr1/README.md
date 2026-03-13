@@ -89,13 +89,13 @@ The `--confirm` flag is **mandatory** for all orders and bookings. This prevents
 Without `--confirm`:
 ```bash
 swiggy food order --address "home"
-# ❌ Error: --confirm flag required
+#  Error: --confirm flag required
 ```
 
 With `--confirm`:
 ```bash
 swiggy food order --address "home" --confirm
-# ✅ Order placed
+#  Order placed
 ```
 
 ### Always Preview First
@@ -108,7 +108,7 @@ swiggy food order --address "home" --confirm
 
 ### COD Only
 
-⚠️ Currently supports **Cash on Delivery only**. Orders **cannot be cancelled** after placement.
+ Currently supports **Cash on Delivery only**. Orders **cannot be cancelled** after placement.
 
 ## How It Works
 

@@ -19,7 +19,7 @@
     "launchpad"
   ],
   "moltbot": {
-    "emoji": "💰",
+    "emoji": "",
     "category": "defi",
     "api_base": "https://public-api-v2.bags.fm/api/v1",
     "agent_api_base": "https://public-api-v2.bags.fm/api/v1/agent",

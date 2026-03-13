@@ -6,7 +6,7 @@
 
 ---
 
-## 🚀 快速開始
+##  快速開始
 
 ```typescript
 import { createGitHubSkill, SkillConfigBuilder } from '@skillforge/github-automation';
@@ -39,7 +39,7 @@ console.log(`Issue created: ${result.data.url}`);
 
 ---
 
-## 📦 安裝
+##  安裝
 
 ```bash
 npm install @skillforge/github-automation
@@ -47,48 +47,48 @@ npm install @skillforge/github-automation
 
 ---
 
-## ✨ 功能特性
+##  功能特性
 
 ### Issue 自動化
-- ✅ 建立 Issue（支援標籤、指派）
-- ✅ 列出 Issue（篩選狀態、標籤、指派者）
-- ✅ 更新 Issue（標題、內容、狀態、標籤）
-- ✅ 自動分類與標籤建議
+-  建立 Issue（支援標籤、指派）
+-  列出 Issue（篩選狀態、標籤、指派者）
+-  更新 Issue（標題、內容、狀態、標籤）
+-  自動分類與標籤建議
 
 ### PR 審查輔助
-- ✅ PR 摘要分析
-- ✅ 檔案變更統計
-- ✅ 審查清單生成
-- ✅ 衝突檢測
+-  PR 摘要分析
+-  檔案變更統計
+-  審查清單生成
+-  衝突檢測
 
 ### Release 自動化
-- ✅ 建立 Release
-- ✅ 自動生成 Release Notes
-- ✅ Draft/Pre-release 支援
+-  建立 Release
+-  自動生成 Release Notes
+-  Draft/Pre-release 支援
 
 ### Repo 分析
-- ✅ 統計數據（Stars, Forks, Issues）
-- ✅ 健康度評分（基於更新頻率、文件完整性）
-- ✅ Rate Limit 監控
+-  統計數據（Stars, Forks, Issues）
+-  健康度評分（基於更新頻率、文件完整性）
+-  Rate Limit 監控
 
 ---
 
-## 💰 版本比較
+##  版本比較
 
 | 功能 | Lite (USDT 20) | Pro (USDT 50) | Enterprise (USDT 200) |
 |------|---------------|---------------|----------------------|
-| Issue 自動化 | ✅ | ✅ | ✅ |
+| Issue 自動化 |  |  |  |
 | PR 分析 | 基礎 | 完整 | 完整 |
-| Release 自動化 | ❌ | ✅ | ✅ |
+| Release 自動化 |  |  |  |
 | Repo 統計 | 基礎 | 完整 | 完整 |
-| Webhook 觸發 | ❌ | ✅ | ✅ |
-| 多 Repo 支援 | ❌ | ❌ | ✅ |
-| 自定義規則 | ❌ | ❌ | ✅ |
-| 優先支援 | ❌ | 郵件 | 專屬頻道 |
+| Webhook 觸發 |  |  |  |
+| 多 Repo 支援 |  |  |  |
+| 自定義規則 |  |  |  |
+| 優先支援 |  | 郵件 | 專屬頻道 |
 
 ---
 
-## 🔐 授權驗證
+##  授權驗證
 
 本 Skill 採用 License Key 驗證機制：
 
@@ -102,7 +102,7 @@ const config = new SkillConfigBuilder()
 
 ---
 
-## 💳 付款方式
+##  付款方式
 
 **僅接受 USDT (TRC-20)**
 
@@ -120,7 +120,7 @@ const config = new SkillConfigBuilder()
 
 ---
 
-## 🎁 推薦有賞計畫
+##  推薦有賞計畫
 
 **推薦朋友購買，雙方各得 USDT 5 回饋！**
 
@@ -144,7 +144,7 @@ const config = new SkillConfigBuilder()
 
 ---
 
-## 🛠️ 開發
+##  開發
 
 ```bash
 # 安裝依賴
@@ -162,7 +162,7 @@ npm run dev
 
 ---
 
-## 📝 範例
+##  範例
 
 ### 自動標記 Bug Issue
 ```typescript
@@ -205,7 +205,7 @@ await skill.execute({
 
 ---
 
-## 🔒 安全性
+##  安全性
 
 - Token 絕不會離開本地環境
 - 所有 API 呼叫使用 HTTPS
@@ -214,7 +214,7 @@ await skill.execute({
 
 ---
 
-## 📄 授權
+##  授權
 
 MIT License - 詳見 LICENSE 檔案
 
@@ -222,7 +222,7 @@ MIT License - 詳見 LICENSE 檔案
 
 ---
 
-## 🤝 支援
+##  支援
 
 - Lite 版：GitHub Issues
 - Pro 版：Email 支援 (support@skillforge.dev)

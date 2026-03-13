@@ -1,13 +1,13 @@
 # Navifare Flight Validator Skill - Installation & Validation
 
-## ✅ Installation Complete!
+##  Installation Complete!
 
 The skill has been successfully created at:
 ```
 ~/.claude/skills/navifare-flight-validator/
 ```
 
-## 📁 Directory Structure
+##  Directory Structure
 
 ```
 navifare-flight-validator/
@@ -21,7 +21,7 @@ navifare-flight-validator/
 └── scripts/                       # Reserved for future use
 ```
 
-## 🔧 Configuration Required
+##  Configuration Required
 
 ### Step 1: Configure Navifare MCP HTTP Endpoint
 
@@ -57,7 +57,7 @@ In a Claude Code conversation, the following tools should be accessible:
 
 You can check by asking Claude: "What MCP tools are available?"
 
-## ✅ Validation Checklist
+##  Validation Checklist
 
 ### Skill Structure Validation
 
@@ -73,15 +73,15 @@ You can check by asking Claude: "What MCP tools are available?"
 
 According to [agentskills.io/specification](https://agentskills.io/specification):
 
-✅ **Directory structure**: Correct
-✅ **SKILL.md format**: Valid YAML frontmatter + Markdown body
-✅ **Name constraints**: Meets all requirements (1-64 chars, lowercase, hyphens)
-✅ **Description**: Clear, includes when to use, under 1024 chars
-✅ **Progressive disclosure**:
+ **Directory structure**: Correct
+ **SKILL.md format**: Valid YAML frontmatter + Markdown body
+ **Name constraints**: Meets all requirements (1-64 chars, lowercase, hyphens)
+ **Description**: Clear, includes when to use, under 1024 chars
+ **Progressive disclosure**:
   - Metadata: ~100 tokens
   - SKILL.md: ~4500 tokens
   - References: ~2500 tokens (loaded on-demand)
-✅ **File references**: All relative paths, one level deep
+ **File references**: All relative paths, one level deep
 
 ### Content Validation
 
@@ -93,7 +93,7 @@ According to [agentskills.io/specification](https://agentskills.io/specification
 - [x] **Reference documentation**: Complete IATA codes
 - [x] **Real usage examples**: 8 realistic conversations
 
-## 🧪 Testing the Skill
+##  Testing the Skill
 
 ### Test 1: Simple Price Validation
 
@@ -144,7 +144,7 @@ According to [agentskills.io/specification](https://agentskills.io/specification
 3. Claude asks which Paris airport (CDG/ORY)
 4. Claude references AIRPORTS.md for clarification
 
-## 🔍 Validation with skills-ref
+##  Validation with skills-ref
 
 To validate the skill structure using the official AgentSkills reference tool:
 
@@ -165,7 +165,7 @@ skills-ref validate ~/.claude/skills/navifare-flight-validator
 
 **Note**: skills-ref may not be installed yet. If the command fails, the manual checks above are sufficient.
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Issue: Skill doesn't activate
 
@@ -216,7 +216,7 @@ node /Users/simonenavifare/navifare/frontend/front-end/mcp/navifare-mcp/dist/ind
 - Partial results may be shown
 - Try again if timeout occurs
 
-## 📊 Skill Metrics
+##  Skill Metrics
 
 - **Total lines**: 1,545 lines across all files
 - **SKILL.md**: 573 lines (main instructions)
@@ -227,20 +227,20 @@ node /Users/simonenavifare/navifare/frontend/front-end/mcp/navifare-mcp/dist/ind
   - References: ~2,500 tokens (loaded on-demand)
 - **Load time**: < 1 second (metadata), ~2 seconds (full skill)
 
-## 🎯 Success Criteria
+##  Success Criteria
 
 The skill is working correctly when:
 
-✅ Claude recognizes flight price mentions and activates skill
-✅ Claude extracts flight details from conversation
-✅ Claude calls Navifare MCP search_flights tool
-✅ Claude presents results in formatted table
-✅ Claude provides clickable booking links
-✅ Claude handles missing information gracefully
-✅ Claude references AIRPORTS.md and AIRLINES.md as needed
-✅ Claude follows examples from EXAMPLES.md
+ Claude recognizes flight price mentions and activates skill
+ Claude extracts flight details from conversation
+ Claude calls Navifare MCP search_flights tool
+ Claude presents results in formatted table
+ Claude provides clickable booking links
+ Claude handles missing information gracefully
+ Claude references AIRPORTS.md and AIRLINES.md as needed
+ Claude follows examples from EXAMPLES.md
 
-## 🚀 Next Steps
+##  Next Steps
 
 1. **Test with real queries**: Try the examples from Test 1-4 above
 2. **Refine triggers**: If skill activates too often/rarely, adjust description
@@ -248,13 +248,13 @@ The skill is working correctly when:
 4. **Enhance references**: Add more airports/airlines as needed
 5. **Monitor performance**: Track search times and success rates
 
-## 📚 Related Documentation
+##  Related Documentation
 
 - **AgentSkills Specification**: https://agentskills.io/specification
 - **Claude Code MCP Guide**: https://github.com/anthropics/claude-code
 - **Navifare API Docs**: (see main Navifare repo)
 
-## ✉️ Support
+##  Support
 
 - **Skill issues**: Check README.md and this file
 - **MCP configuration**: See main Navifare MCP docs

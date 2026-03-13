@@ -50,12 +50,12 @@ python3 ~/.email-formatter-skill/scripts/readability.py "Your email text here"
 
 ### Features
 
-✅ No external dependencies required (uses Python standard library)
-✅ Optional enhanced features with `language-tool-python` and `textstat`
-✅ Security-first approach - blocks dangerous content
-✅ Comprehensive tone analysis
-✅ Professional formatting guidelines
-✅ Privacy-focused (no data storage)
+ No external dependencies required (uses Python standard library)
+ Optional enhanced features with `language-tool-python` and `textstat`
+ Security-first approach - blocks dangerous content
+ Comprehensive tone analysis
+ Professional formatting guidelines
+ Privacy-focused (no data storage)
 
 ## Workflow for AI Agents
 
@@ -110,14 +110,14 @@ python3 scripts/security_scan.py "$FORMATTED_EMAIL"
 ## Security Features
 
 The security scanner detects:
-- 🚨 Phishing attempts
-- 🚨 Credential requests
-- 🚨 Impersonation
-- 🚨 Threats and harassment
-- 🚨 Sensitive data leaks
-- 🚨 Academic dishonesty
-- ⚠️ Manipulation tactics
-- ⚠️ Discriminatory content
+-  Phishing attempts
+-  Credential requests
+-  Impersonation
+-  Threats and harassment
+-  Sensitive data leaks
+-  Academic dishonesty
+-  Manipulation tactics
+-  Discriminatory content
 
 ## Examples
 
@@ -125,19 +125,19 @@ The security scanner detects:
 ```bash
 $ python3 scripts/security_scan.py "Please verify your password immediately"
 
-🛑 SECURITY SCAN RESULTS
-🚨 CRITICAL ISSUES (1):
+ SECURITY SCAN RESULTS
+ CRITICAL ISSUES (1):
    • [PHISHING] Credential verification request
-❌ BLOCKED: Cannot format this email
+ BLOCKED: Cannot format this email
 ```
 
 ### Tone Analysis
 ```bash
 $ python3 scripts/tone_analyzer.py "Hey! Let me know ASAP!!!"
 
-📊 PRIMARY TONE: CASUAL
-🎯 OTHER TONES: ENTHUSIASTIC, URGENT
-⚠️ WARNINGS:
+ PRIMARY TONE: CASUAL
+ OTHER TONES: ENTHUSIASTIC, URGENT
+ WARNINGS:
    • Too many exclamation marks (unprofessional)
 ```
 
@@ -145,7 +145,7 @@ $ python3 scripts/tone_analyzer.py "Hey! Let me know ASAP!!!"
 ```bash
 $ python3 scripts/grammar_check.py "i recieved your email tommorow"
 
-⚠️ ISSUES FOUND:
+ ISSUES FOUND:
   • Grammar: 'i' should be capitalized to 'I'
   • Spelling: 'recieved' → 'received'
   • Spelling: 'tommorow' → 'tomorrow'
@@ -155,9 +155,9 @@ $ python3 scripts/grammar_check.py "i recieved your email tommorow"
 ```bash
 $ python3 scripts/readability.py "This is a simple, clear email."
 
-📖 Flesch Reading Ease: 82.3/100
-📚 Reading Level: Easy (6th grade)
-✅ Readability is good!
+ Flesch Reading Ease: 82.3/100
+ Reading Level: Easy (6th grade)
+ Readability is good!
 ```
 
 ## License

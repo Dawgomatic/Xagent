@@ -38,7 +38,7 @@ Track work time per project using local JSONL files with start/stop commands.
 ### Report format
 
 ```
-## ⏱️ Time Report — Week of 2025-01-13
+##  Time Report — Week of 2025-01-13
 
 | Project | Task | Hours | Sessions |
 |---------|------|-------|----------|

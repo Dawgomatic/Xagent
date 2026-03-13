@@ -154,11 +154,11 @@ class SignalEngine:
         if direction == "long":
             sl = price * (1 - sl_pct)
             tp = price * (1 + tp_pct)
-            emoji = "🟢"
+            emoji = ""
         else:
             sl = price * (1 + sl_pct)
             tp = price * (1 - tp_pct)
-            emoji = "🔴"
+            emoji = ""
 
         signal = {
             "symbol": symbol, "coin": coin, "direction": direction,
@@ -176,7 +176,7 @@ class SignalEngine:
             f"Take Profit: ${tp:,.2f} ({tp_pct*100:.0f}%)\n"
             f"R/R: 1:{tp_pct/sl_pct:.0f} | Leverage: {config.LEVERAGE}x\n"
             f"Indicator: {indicator_info}\n"
-            f"⏰ {datetime.now().strftime('%H:%M UTC')}"
+            f" {datetime.now().strftime('%H:%M UTC')}"
         )
         log.info(f"SIGNAL: {coin} {direction} @ {price}")
         send_tg(msg)
@@ -252,7 +252,7 @@ class SignalEngine:
     def summary(self) -> str:
         recent = [s for s in self.signals if time.time() - datetime.fromisoformat(s["time"]).timestamp() < 86400]
         lines = [
-            f"📊 <b>Signal Bot Status</b>",
+            f" <b>Signal Bot Status</b>",
             f"Monitoring: {', '.join(WS_SYMBOLS.keys())}",
             f"Signals today: {len(recent)}",
             f"Total signals: {len(self.signals)}",
@@ -279,7 +279,7 @@ async def run(engine: SignalEngine):
             async with websockets.connect(BYBIT_WS, ping_interval=20) as ws:
                 await ws.send(json.dumps(subscribe))
                 log.info(f"Connected. Symbols: {ws_symbols}, TF: {tf}")
-                send_tg(f"🤖 Signal Bot started\n{engine.summary()}")
+                send_tg(f" Signal Bot started\n{engine.summary()}")
 
                 async for raw in ws:
                     data = json.loads(raw)

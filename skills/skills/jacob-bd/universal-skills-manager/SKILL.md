@@ -273,8 +273,8 @@ This skill (Universal Skills Manager) requires network access to call the Skills
     If yes:
     -   Query the selected source(s) with the same search terms
     -   **Deduplicate:** Compare results across sources:
-        -   SkillsMP ↔ SkillHub: By full skill ID (`{owner}/{repo}/{path}`)
-        -   ClawHub ↔ others: By skill name (ClawHub uses slugs, not GitHub paths)
+        -   SkillsMP  SkillHub: By full skill ID (`{owner}/{repo}/{path}`)
+        -   ClawHub  others: By skill name (ClawHub uses slugs, not GitHub paths)
     -   Append unique results to the display, labeled with their source tag
 
 5.  **Offer Installation:**
@@ -314,15 +314,15 @@ This skill (Universal Skills Manager) requires network access to call the Skills
     Create a markdown table where:
     - **Rows** = skill names (deduplicated across all tools)
     - **Columns** = only tools that are installed on the system
-    - **Cells** = ✅ (installed) or ❌ (not installed)
+    - **Cells** =  (installed) or  (not installed)
 
     Example output:
     ```
     | Skill | Claude | Codex | Gemini |
     |-------|--------|-------|--------|
-    | humanizer | ✅ | ❌ | ✅ |
-    | skill-creator | ❌ | ✅ | ❌ |
-    | using-superpowers | ✅ | ✅ | ✅ |
+    | humanizer |  |  |  |
+    | skill-creator |  |  |  |
+    | using-superpowers |  |  |  |
     ```
 
 4.  **Show Summary:**
@@ -845,7 +845,7 @@ Authorization: Bearer $SKILLSMP_API_KEY
 -   **SkillHub Detail Lookup:** When installing from SkillHub, always fetch the detail endpoint first to get the correct `skillPath` and `branch`. Never try to parse the `id` field as a file path.
 -   **ClawHub Direct Hosting:** ClawHub hosts skill files directly — use the `/file` endpoint to fetch content. No GitHub URL construction is needed. Use the `slug` field as the skill identifier.
 -   **ClawHub Versioning:** ClawHub skills have explicit version numbers. Show the version in install confirmations. Use the `version` query param to pin a specific version if needed.
--   **Deduplication:** When showing results from multiple sources, deduplicate: SkillsMP ↔ SkillHub by full skill ID (`{owner}/{repo}/{path}`); ClawHub ↔ others by skill name (since ClawHub uses slugs, not GitHub paths).
+-   **Deduplication:** When showing results from multiple sources, deduplicate: SkillsMP  SkillHub by full skill ID (`{owner}/{repo}/{path}`); ClawHub  others by skill name (since ClawHub uses slugs, not GitHub paths).
 -   **Verify Content:** After fetching from any source, verify the SKILL.md has valid YAML frontmatter.
 -   **Structure Integrity:** Maintain the `.../skills/{skill-name}/SKILL.md` structure.
 -   **Syncing:** After installing a skill, offer to sync (copy) it to other detected AI tools.

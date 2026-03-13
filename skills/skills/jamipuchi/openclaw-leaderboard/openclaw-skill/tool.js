@@ -38,7 +38,7 @@ async function register({ name, description } = {}) {
     `Name: ${data.agent.name}`,
     `API Key: ${data.agent.api_key}`,
     ``,
-    `⚠️ SAVE YOUR API KEY! You need it for authenticated requests.`,
+    ` SAVE YOUR API KEY! You need it for authenticated requests.`,
     `Set it as OPENCLAW_API_KEY environment variable.`,
   ].join("\n");
 }

@@ -21,7 +21,7 @@ This skill enables secure OAuth2 authentication and API interactions with all Zo
 ### 1. Create Zoho API Client
 
 **Step 1:** Go to Zoho Developer Console
-🔗 https://api-console.zoho.com/
+ https://api-console.zoho.com/
 
 **Step 2:** Create a new client
 - Click "Add Client"
@@ -141,7 +141,7 @@ curl -X POST "https://accounts.zoho.com/oauth/v2/token" \
 
 ---
 
-### 🔍 Get All Modules
+###  Get All Modules
 
 ```bash
 curl -X GET "[BASE_URL]/settings/modules" \
@@ -150,7 +150,7 @@ curl -X GET "[BASE_URL]/settings/modules" \
 
 ---
 
-### 👥 CRM Leads Management
+###  CRM Leads Management
 
 #### Get All Leads
 
@@ -234,7 +234,7 @@ curl -X DELETE "[BASE_URL]/Leads/[LEAD_ID]" \
 
 ---
 
-### 💼 CRM Deals Management
+###  CRM Deals Management
 
 #### Create Deal
 
@@ -267,7 +267,7 @@ curl -X GET "[BASE_URL]/Deals?stage=Closed Won" \
 
 ---
 
-### 👤 CRM Contacts Management
+###  CRM Contacts Management
 
 #### Create Contact
 
@@ -292,7 +292,7 @@ curl -X POST "[BASE_URL]/Contacts" \
 
 ---
 
-### 🏢 CRM Accounts/Companies Management
+###  CRM Accounts/Companies Management
 
 #### Create Account
 
@@ -317,7 +317,7 @@ curl -X POST "[BASE_URL]/Accounts" \
 
 ---
 
-### 📝 CRM Notes & Activities
+###  CRM Notes & Activities
 
 #### Add Note to Record
 
@@ -353,13 +353,13 @@ curl -X POST "[BASE_URL]/Notes" \
 
 ---
 
-### 🔐 Authentication for Books
+###  Authentication for Books
 
 Use the same OAuth tokens. Books uses CRM tokens by default!
 
 ---
 
-### 👤 Books - Customer Management
+###  Books - Customer Management
 
 #### Get All Customers
 
@@ -393,7 +393,7 @@ curl -X POST "https://www.zohoapis.com/books/v3/contacts?organization_id=[ORG_ID
 
 ---
 
-### 💰 Books - Invoicing
+###  Books - Invoicing
 
 #### Create Invoice
 
@@ -449,7 +449,7 @@ curl -X POST "https://www.zohoapis.com/books/v3/invoices/[INVOICE_ID]/actions/se
 
 ---
 
-### 📊 Books - Expense Tracking
+###  Books - Expense Tracking
 
 #### Create Expense
 
@@ -469,7 +469,7 @@ curl -X POST "https://www.zohoapis.com/books/v3/expenses?organization_id=[ORG_ID
 
 ---
 
-### 📈 Books - Reports
+###  Books - Reports
 
 #### Get Profit & Loss Report
 
@@ -492,7 +492,7 @@ curl -X GET "https://www.zohoapis.com/books/v3/reports/profitandloss?organizatio
 
 ---
 
-### 🎫 Ticket Management
+###  Ticket Management
 
 #### Get All Tickets
 
@@ -564,7 +564,7 @@ curl -X POST "https://desk.zoho.com/api/v1/tickets/[TICKET_ID]/comments" \
 
 ---
 
-### 📝 Submit Form Data
+###  Submit Form Data
 
 ```bash
 curl -X POST "https://creator.zoho.com/api/v2/[APP_LINK_NAME]/[FORM_LINK_NAME]" \
@@ -583,7 +583,7 @@ curl -X POST "https://creator.zoho.com/api/v2/[APP_LINK_NAME]/[FORM_LINK_NAME]" 
 
 ---
 
-### 📊 Get Form Records
+###  Get Form Records
 
 ```bash
 curl -X GET "https://creator.zoho.com/api/v2/[APP_LINK_NAME]/[FORM_LINK_NAME]?MaxRows=100" \
@@ -599,7 +599,7 @@ curl -X GET "https://creator.zoho.com/api/v2/[APP_LINK_NAME]/[FORM_LINK_NAME]?Ma
 
 ---
 
-### 📧 Create Campaign
+###  Create Campaign
 
 ```bash
 curl -X POST "https://campaigns.zoho.com/api/v1/campaigns" \
@@ -607,7 +607,7 @@ curl -X POST "https://campaigns.zoho.com/api/v1/campaigns" \
   -H "Content-Type: application/json" \
   -d '{
     "campaign_name": "February Restaurant Promotion",
-    "subject": "🍛 Special Offer: 20% Off South Indian Thali!",
+    "subject": " Special Offer: 20% Off South Indian Thali!",
     "from_name": "South Indian Restaurant",
     "from_email": "marketing@southindian.se",
     "reply_to": "info@southindian.se"
@@ -616,7 +616,7 @@ curl -X POST "https://campaigns.zoho.com/api/v1/campaigns" \
 
 ---
 
-### 👥 Manage Lists
+###  Manage Lists
 
 ```bash
 # Get all mailing lists
@@ -628,7 +628,7 @@ curl -X GET "https://campaigns.zoho.com/api/v1/lists" \
 
 ## Advanced Features
 
-### 🔄 Auto Token Refresh Script
+###  Auto Token Refresh Script
 
 Create a helper script `refresh-zoho-token.sh`:
 
@@ -659,7 +659,7 @@ chmod +x refresh-zoho-token.sh
 
 ---
 
-### 📡 Webhooks Setup
+###  Webhooks Setup
 
 Zoho can send real-time updates to your endpoints:
 
@@ -689,7 +689,7 @@ app.post('/api/zoho-webhook', (req, res) => {
 
 ---
 
-### 🔗 Multi-Product Workflows
+###  Multi-Product Workflows
 
 #### Example: Restaurant Customer to Invoice Flow
 
@@ -799,19 +799,19 @@ call_zoho_api() {
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `ZOHO_CLIENT_ID` | ✅ | OAuth Client ID |
-| `ZOHO_CLIENT_SECRET` | ✅ | OAuth Client Secret |
-| `ZOHO_REFRESH_TOKEN` | ✅ | Long-lived refresh token |
-| `ZOHO_ACCESS_TOKEN` | ❌ | Short-lived (auto-generated) |
-| `ZOHO_DATA_CENTER` | ❌ | `com` (default), `eu`, `au`, `in` |
-| `ZOHO_REDIRECT_URI` | ❌ | OAuth redirect URL |
-| `ZOHO_ORG_ID` | ❌ | Books/Desk organization ID |
+| `ZOHO_CLIENT_ID` |  | OAuth Client ID |
+| `ZOHO_CLIENT_SECRET` |  | OAuth Client Secret |
+| `ZOHO_REFRESH_TOKEN` |  | Long-lived refresh token |
+| `ZOHO_ACCESS_TOKEN` |  | Short-lived (auto-generated) |
+| `ZOHO_DATA_CENTER` |  | `com` (default), `eu`, `au`, `in` |
+| `ZOHO_REDIRECT_URI` |  | OAuth redirect URL |
+| `ZOHO_ORG_ID` |  | Books/Desk organization ID |
 
 ---
 
 ## Use Cases
 
-### 🍽️ Restaurant Business
+###  Restaurant Business
 
 | Task | Zoho Product | Example |
 |------|-------------|---------|
@@ -823,7 +823,7 @@ call_zoho_api() {
 
 ---
 
-### 🛒 SaaS Business
+###  SaaS Business
 
 | Task | Zoho Product | Example |
 |------|-------------|---------|
@@ -835,7 +835,7 @@ call_zoho_api() {
 
 ---
 
-### 🏢 General Business
+###  General Business
 
 | Task | Zoho Product | Example |
 |------|-------------|---------|
@@ -849,7 +849,7 @@ call_zoho_api() {
 
 ## Security Best Practices
 
-### ✅ Do's
+###  Do's
 
 - Store tokens in environment variables
 - Use HTTPS for all API calls
@@ -857,7 +857,7 @@ call_zoho_api() {
 - Set up webhook verification
 - Use least-privilege API scopes
 
-### ❌ Don'ts
+###  Don'ts
 
 - Never commit tokens to GitHub
 - Don't expose access tokens in URLs
@@ -926,8 +926,8 @@ curl -X POST "https://accounts.zoho.com/oauth/v2/token" \
 ### "Module Not Found"
 
 Verify module name spelling:
-- ✅ `Leads`, `Contacts`, `Deals`, `Accounts`
-- ❌ `Lead`, `Contact`, `Deal`, `Account`
+-  `Leads`, `Contacts`, `Deals`, `Accounts`
+-  `Lead`, `Contact`, `Deal`, `Account`
 
 ---
 
@@ -966,6 +966,6 @@ Check your OAuth scopes:
 
 ---
 
-**Happy Zoho Automation!** 🚀📊
+**Happy Zoho Automation!** 
 
 Questions? Check the troubleshooting section or Zoho's official docs!

@@ -6,7 +6,7 @@ author: CacheForge
 tags: [code-quality, code-review, ai-audit, vibe-coding, linting, security, python, typescript, javascript, discord, discord-v2]
 ---
 
-# 🎭 Vibe Check
+#  Vibe Check
 
 Audit code for "vibe coding" — AI-generated code accepted without proper human review. Get a scored report card with specific findings and fix suggestions.
 

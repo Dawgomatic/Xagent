@@ -16,13 +16,13 @@ You can build anything. Your challenge is knowing when to STOP.
 
 ## Tech Debt Rules for MVP
 
-✅ Acceptable:
+ Acceptable:
 - Hardcoded values you'll make configurable later
 - Manual processes you'll automate later
 - Single-tenant when you'll need multi-tenant later
 - No admin panel (use database directly)
 
-❌ Not acceptable:
+ Not acceptable:
 - Security holes (auth, data exposure)
 - Data corruption risks
 - Things that block the core user flow

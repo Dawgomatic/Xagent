@@ -3,7 +3,7 @@ name: Vibe Marketing
 slug: vibe-marketing
 version: 1.0.0
 description: Run marketing campaigns with AI automation. Covers content generation, workflow automation, copy that sounds human, and rapid testing.
-metadata: {"clawdbot":{"emoji":"📣","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## What is Vibe Marketing

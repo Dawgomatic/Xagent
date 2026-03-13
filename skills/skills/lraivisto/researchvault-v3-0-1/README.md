@@ -1,4 +1,4 @@
-# ResearchVault 🦞
+# ResearchVault 
 
 **The local-first orchestration engine for high-velocity AI research.**
 
@@ -6,7 +6,7 @@ ResearchVault is a local-first state manager and orchestration framework for lon
 
 Vault is built CLI-first to close the loop between planning, ingestion, verification, and synthesis.
 
-## 🛡️ Security & Privacy
+##  Security & Privacy
 
 ResearchVault is designed with a **Local-First, Privacy-First** posture:
 
@@ -16,7 +16,7 @@ ResearchVault is designed with a **Local-First, Privacy-First** posture:
 *   **Zero Auto-Start**: No background processes or servers start during installation. Services must be explicitly invoked from `scripts/services/`.
 *   **Restricted Model Invocation**: The `disable-model-invocation: true` flag prevents the AI from autonomously triggering side-effects without a direct user prompt.
 
-## 🚀 Installation
+##  Installation
 
 ### Standard (Recommended)
 ```bash
@@ -25,7 +25,7 @@ source .venv/bin/activate
 pip install -e .
 ```
 
-## 🌐 Portal (v3)
+##  Portal (v3)
 
 Run the portal manually (nothing auto-starts in the background):
 
@@ -57,7 +57,7 @@ Ingest SSRF behavior matches CLI defaults:
 - Private/local/link-local targets are blocked by default.
 - Portal checkbox **Allow private networks** maps to CLI `--allow-private-networks`.
 
-## 🛠️ Key Workflows
+##  Key Workflows
 
 ### 1. Project Management
 ```bash
@@ -79,14 +79,14 @@ python scripts/vault.py verify run --id "ai-research"
 *   **MCP Server**: `python scripts/services/mcp_server.py`
 *   **Watchdog**: `python scripts/services/watchdog.py`
 
-## 📦 Dependencies
+##  Dependencies
 
 *   `requests` & `beautifulsoup4`: Targeted web ingestion.
 *   `rich`: CLI output formatting.
 *   `mcp`: Standard protocol for agent-tool communication.
 *   `pytest`: Local integrity verification.
 
-## ⚖️ License & Provenance
+##  License & Provenance
 
 - **Maintainer**: lraivisto
 - **License**: MIT

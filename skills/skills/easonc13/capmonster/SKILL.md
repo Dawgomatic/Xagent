@@ -422,7 +422,7 @@ for i in {1..60}; do
   if [ "$STATUS" = "ready" ]; then
     TOKEN=$(echo "$RESULT" | jq -r '.solution.gRecaptchaResponse')
     COST=$(echo "$RESULT" | jq -r '.cost')
-    echo "✅ Solved! Cost: \$$COST"
+    echo " Solved! Cost: \$$COST"
     echo ""
     echo "TOKEN:"
     echo "$TOKEN"
@@ -434,7 +434,7 @@ for i in {1..60}; do
 done
 
 echo ""
-echo "❌ Timeout after 120 seconds"
+echo " Timeout after 120 seconds"
 exit 1
 ```
 

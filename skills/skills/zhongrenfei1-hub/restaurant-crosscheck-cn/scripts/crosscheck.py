@@ -61,7 +61,7 @@ def calculate_recommendation(match: MatchedRestaurant) -> RecommendationResult:
         dianping_tags=dp.tags,
         dianping_address=dp.address,
         dianping_price=dp.price_range,
-        xhs_engagement_display=f"{xhs_rating:.1f}⭐ ({xhs.likes}赞)",
+        xhs_engagement_display=f"{xhs_rating:.1f} ({xhs.likes}赞)",
         xhs_keywords=xhs.keywords,
         recommendation_score=recommendation_score,
         consistency_level=consistency_level,
@@ -77,20 +77,20 @@ def calculate_recommendation(match: MatchedRestaurant) -> RecommendationResult:
 def crosscheck(location: str, cuisine: str):
     """执行交叉验证"""
     print(f"\n{'=' * 60}")
-    print(f"🔍 本地生活交叉验证: {location} - {cuisine}")
+    print(f" 本地生活交叉验证: {location} - {cuisine}")
     print(f"{'=' * 60}")
-    print(f"💡 会弹出浏览器窗口，请不要操作它们\n")
+    print(f" 会弹出浏览器窗口，请不要操作它们\n")
 
     # 抓取两个平台
     dp_restaurants = fetch_dianping(location, cuisine)
-    print(f"  ✅ 大众点评: {len(dp_restaurants)} 家\n")
+    print(f"   大众点评: {len(dp_restaurants)} 家\n")
 
     xhs_posts = fetch_xiaohongshu(location, cuisine)
-    print(f"  ✅ 小红书: {len(xhs_posts)} 家")
+    print(f"   小红书: {len(xhs_posts)} 家")
 
     if not dp_restaurants and not xhs_posts:
-        print("\n❌ 两个平台都没数据")
-        print("💡 排查步骤:")
+        print("\n 两个平台都没数据")
+        print(" 排查步骤:")
         print("  1. python3 session_manager.py all  重新登录")
         print("  2. 查看 ~/Downloads/ 下的截图")
         print("  3. 海外用户需开国内 VPN")
@@ -106,32 +106,32 @@ def crosscheck(location: str, cuisine: str):
 
     # ── 输出结果 ──
     print(f"\n{'=' * 60}")
-    print(f"📊 交叉验证结果")
+    print(f" 交叉验证结果")
     print(f"{'=' * 60}")
 
     max_show = OUTPUT_CONFIG['max_restaurants']
 
     if results:
-        print(f"\n  🎯 两平台共同推荐 ({len(results)} 家):\n")
+        print(f"\n   两平台共同推荐 ({len(results)} 家):\n")
         for i, r in enumerate(results[:max_show], 1):
             score = r.recommendation_score
             if score >= 8:
-                level = "🔥 强推"
+                level = " 强推"
             elif score >= 6:
-                level = "👍 推荐"
+                level = " 推荐"
             else:
-                level = "🤔 可以试试"
+                level = " 可以试试"
 
             print(f"  {i}. 【{r.name}】 {score}/10 {level}")
             print(f"     大众点评: {r.dianping_rating}分 | {r.dianping_reviews}条评论 | {r.dianping_price or '价格未知'}")
             print(f"     小红书: {r.xhs_engagement_display} | 匹配度{r.similarity_score}")
             print(f"     一致性: {r.consistency_level} ({r.consistency_score})")
             if r.dianping_address:
-                print(f"     📍 {r.dianping_address}")
+                print(f"      {r.dianping_address}")
             if r.dianping_tags:
-                print(f"     🏷️  {', '.join(r.dianping_tags)}")
+                print(f"       {', '.join(r.dianping_tags)}")
             if r.xhs_keywords:
-                print(f"     💬 小红书热词: {', '.join(r.xhs_keywords)}")
+                print(f"      小红书热词: {', '.join(r.xhs_keywords)}")
             print()
 
     # 未匹配的也列出
@@ -141,16 +141,16 @@ def crosscheck(location: str, cuisine: str):
     unmatched_xhs = [p for p in xhs_posts if p.restaurant_name not in matched_xhs_names]
 
     if not results:
-        print("\n  ⚠️ 未找到交叉匹配\n")
+        print("\n   未找到交叉匹配\n")
 
     if unmatched_dp:
-        print(f"  📍 仅大众点评 ({len(unmatched_dp)} 家):")
+        print(f"   仅大众点评 ({len(unmatched_dp)} 家):")
         for i, r in enumerate(unmatched_dp[:8], 1):
             print(f"    {i}. {r.name} — {r.rating}分 {r.review_count}评 {r.price_range}")
         print()
 
     if unmatched_xhs:
-        print(f"  📕 仅小红书 ({len(unmatched_xhs)} 家):")
+        print(f"   仅小红书 ({len(unmatched_xhs)} 家):")
         for i, p in enumerate(unmatched_xhs[:8], 1):
             print(f"    {i}. {p.restaurant_name} — 提及{p.mention_count}次 好评度{p.sentiment_score:.2f}")
         print()
@@ -191,7 +191,7 @@ def _save_results(location, cuisine, results, unmatched_dp, unmatched_xhs):
     try:
         with open(out_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-        print(f"💾 详细结果已保存: {out_path}")
+        print(f" 详细结果已保存: {out_path}")
     except Exception:
         pass
 
@@ -202,7 +202,7 @@ def _save_results(location, cuisine, results, unmatched_dp, unmatched_xhs):
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        print("🔍 本地生活交叉验证工具")
+        print(" 本地生活交叉验证工具")
         print()
         print("用法: python3 crosscheck.py <位置> <类型>")
         print()

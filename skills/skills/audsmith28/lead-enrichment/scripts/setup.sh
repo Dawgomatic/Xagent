@@ -6,7 +6,7 @@ set -euo pipefail
 LE_DIR="${LE_DIR:-$HOME/.config/lead-enrichment}"
 SKILL_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-echo "🔍 Lead Enrichment Setup"
+echo " Lead Enrichment Setup"
 echo "━━━━━━━━━━━━━━━━━━━━━━"
 
 # Create config and data directories
@@ -27,7 +27,7 @@ fi
 # Check for required tools
 for tool in jq curl; do
   if ! command -v "$tool" &> /dev/null; then
-    echo "⚠ Prerequisite missing: '$tool'. Please install it to continue."
+    echo " Prerequisite missing: '$tool'. Please install it to continue."
     # On macOS: brew install jq
     # On Debian/Ubuntu: sudo apt-get install jq
     exit 1
@@ -65,4 +65,4 @@ echo "Next steps:"
 echo "  1. (Optional) Edit $LE_DIR/config.json to customize enrichment depth and sources."
 echo "  2. Test with: $(dirname "$0")/enrich.sh --name \"Elon Musk\" --company \"Tesla\""
 echo ""
-echo "🕵️  Lead Enrichment is ready to investigate."
+echo "  Lead Enrichment is ready to investigate."

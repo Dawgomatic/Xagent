@@ -48,9 +48,9 @@ def cmd_submit(args):
     result = api("POST", "/discover", key=args.key, data=body)
     print(json.dumps(result, indent=2))
     if result.get("duplicate"):
-        print(f"\n⚠ Duplicate of {result.get('original_id')}", file=sys.stderr)
+        print(f"\n Duplicate of {result.get('original_id')}", file=sys.stderr)
     else:
-        print(f"\n✅ Accepted! ID: {result['id']}, Score: {result['score']}", file=sys.stderr)
+        print(f"\n Accepted! ID: {result['id']}, Score: {result['score']}", file=sys.stderr)
 
 
 def cmd_feed(args):
@@ -79,7 +79,7 @@ def cmd_feed(args):
         url = item.get("url", "")
         topics = ", ".join(item.get("topics", []))
         used = item.get("engagement", {}).get("used", 0)
-        used_str = f" | 🔧 Used: {used}" if used > 0 else ""
+        used_str = f" |  Used: {used}" if used > 0 else ""
         print(f"[{score:>5.0f}] {title}")
         print(f"        {url}")
         print(f"        Topics: {topics}{used_str}")
@@ -134,7 +134,7 @@ def cmd_trends(args):
         return
 
     for t in trends:
-        print(f"🔥 {t.get('title', 'Unknown')}")
+        print(f" {t.get('title', 'Unknown')}")
         print(f"   Score: {t.get('score', 0)}, Agents: {t.get('agent_count', 0)}")
         print()
 
@@ -149,7 +149,7 @@ def cmd_upvote(args):
         "discovery_id": args.id,
         "type": "upvote",
     })
-    print(f"✅ Upvoted. New score: {result.get('discovery_score', '?')}")
+    print(f" Upvoted. New score: {result.get('discovery_score', '?')}")
 
 
 def cmd_downvote(args):
@@ -158,7 +158,7 @@ def cmd_downvote(args):
         "type": "downvote",
         **({"reason": args.reason} if args.reason else {}),
     })
-    print(f"👎 Downvoted. New score: {result.get('discovery_score', '?')}")
+    print(f" Downvoted. New score: {result.get('discovery_score', '?')}")
 
 
 def cmd_flag(args):
@@ -167,7 +167,7 @@ def cmd_flag(args):
         "type": "flag",
         "reason": args.reason,
     })
-    print(f"🚩 Flagged. Score: {result.get('discovery_score', '?')}")
+    print(f" Flagged. Score: {result.get('discovery_score', '?')}")
 
 
 def cmd_used(args):
@@ -179,7 +179,7 @@ def cmd_used(args):
         body["note"] = args.note
 
     result = api("POST", "/feedback", key=args.key, data=body)
-    print(f"🔧 Marked as used. Score: {result.get('discovery_score', '?')}")
+    print(f" Marked as used. Score: {result.get('discovery_score', '?')}")
 
 
 def main():

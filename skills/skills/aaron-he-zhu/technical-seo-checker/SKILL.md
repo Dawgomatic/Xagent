@@ -134,12 +134,12 @@ When a user requests a technical SEO audit:
    
    | Check | Status | Notes |
    |-------|--------|-------|
-   | File exists | ✅/❌ | [notes] |
-   | Valid syntax | ✅/⚠️/❌ | [errors found] |
-   | Sitemap declared | ✅/❌ | [sitemap URL] |
-   | Important pages blocked | ✅/⚠️/❌ | [blocked paths] |
-   | Assets blocked | ✅/⚠️/❌ | [CSS/JS blocked?] |
-   | Correct user-agents | ✅/⚠️/❌ | [notes] |
+   | File exists | / | [notes] |
+   | Valid syntax | // | [errors found] |
+   | Sitemap declared | / | [sitemap URL] |
+   | Important pages blocked | // | [blocked paths] |
+   | Assets blocked | // | [CSS/JS blocked?] |
+   | Correct user-agents | // | [notes] |
    
    **Issues Found**:
    - [Issue 1]
@@ -164,14 +164,14 @@ When a user requests a technical SEO audit:
    
    | Check | Status | Notes |
    |-------|--------|-------|
-   | Sitemap exists | ✅/❌ | [notes] |
-   | Valid XML format | ✅/⚠️/❌ | [errors] |
-   | In robots.txt | ✅/❌ | [notes] |
-   | Submitted to ~~search console | ✅/⚠️/❌ | [notes] |
+   | Sitemap exists | / | [notes] |
+   | Valid XML format | // | [errors] |
+   | In robots.txt | / | [notes] |
+   | Submitted to ~~search console | // | [notes] |
    | URLs count | [X] | [appropriate?] |
-   | Only indexable URLs | ✅/⚠️/❌ | [notes] |
-   | Includes priority | ✅/⚠️ | [notes] |
-   | Includes lastmod | ✅/⚠️ | [accurate?] |
+   | Only indexable URLs | // | [notes] |
+   | Includes priority | / | [notes] |
+   | Includes lastmod | / | [accurate?] |
    
    **Issues Found**:
    - [Issue 1]
@@ -219,11 +219,11 @@ When a user requests a technical SEO audit:
    
    | Check | Status | Notes |
    |-------|--------|-------|
-   | Canonicals present | ✅/⚠️/❌ | [X]% of pages |
-   | Self-referencing | ✅/⚠️/❌ | [notes] |
-   | Consistent (HTTP/HTTPS) | ✅/⚠️/❌ | [notes] |
-   | Consistent (www/non-www) | ✅/⚠️/❌ | [notes] |
-   | No conflicting signals | ✅/⚠️/❌ | [notes] |
+   | Canonicals present | // | [X]% of pages |
+   | Self-referencing | // | [notes] |
+   | Consistent (HTTP/HTTPS) | // | [notes] |
+   | Consistent (www/non-www) | // | [notes] |
+   | No conflicting signals | // | [notes] |
    
    ### Duplicate Content Issues
    
@@ -247,21 +247,21 @@ When a user requests a technical SEO audit:
    
    | Metric | Mobile | Desktop | Target | Status |
    |--------|--------|---------|--------|--------|
-   | LCP (Largest Contentful Paint) | [X]s | [X]s | <2.5s | ✅/⚠️/❌ |
-   | FID (First Input Delay) | [X]ms | [X]ms | <100ms | ✅/⚠️/❌ |
-   | CLS (Cumulative Layout Shift) | [X] | [X] | <0.1 | ✅/⚠️/❌ |
-   | INP (Interaction to Next Paint) | [X]ms | [X]ms | <200ms | ✅/⚠️/❌ |
+   | LCP (Largest Contentful Paint) | [X]s | [X]s | <2.5s | // |
+   | FID (First Input Delay) | [X]ms | [X]ms | <100ms | // |
+   | CLS (Cumulative Layout Shift) | [X] | [X] | <0.1 | // |
+   | INP (Interaction to Next Paint) | [X]ms | [X]ms | <200ms | // |
    
    ### Additional Performance Metrics
    
    | Metric | Value | Status |
    |--------|-------|--------|
-   | Time to First Byte (TTFB) | [X]ms | ✅/⚠️/❌ |
-   | First Contentful Paint (FCP) | [X]s | ✅/⚠️/❌ |
-   | Speed Index | [X] | ✅/⚠️/❌ |
-   | Total Blocking Time | [X]ms | ✅/⚠️/❌ |
-   | Page Size | [X]MB | ✅/⚠️/❌ |
-   | Requests | [X] | ✅/⚠️/❌ |
+   | Time to First Byte (TTFB) | [X]ms | // |
+   | First Contentful Paint (FCP) | [X]s | // |
+   | Speed Index | [X] | // |
+   | Total Blocking Time | [X]ms | // |
+   | Page Size | [X]MB | // |
+   | Requests | [X] | // |
    
    ### Performance Issues
    
@@ -302,12 +302,12 @@ When a user requests a technical SEO audit:
    
    | Check | Status | Notes |
    |-------|--------|-------|
-   | Mobile-friendly overall | ✅/❌ | [notes] |
-   | Viewport configured | ✅/❌ | [viewport tag] |
-   | Text readable | ✅/⚠️/❌ | Font size: [X]px |
-   | Tap targets sized | ✅/⚠️/❌ | [notes] |
-   | Content fits viewport | ✅/❌ | [notes] |
-   | No horizontal scroll | ✅/❌ | [notes] |
+   | Mobile-friendly overall | / | [notes] |
+   | Viewport configured | / | [viewport tag] |
+   | Text readable | // | Font size: [X]px |
+   | Tap targets sized | // | [notes] |
+   | Content fits viewport | / | [notes] |
+   | No horizontal scroll | / | [notes] |
    
    ### Responsive Design Check
    
@@ -323,10 +323,10 @@ When a user requests a technical SEO audit:
    
    | Check | Status | Notes |
    |-------|--------|-------|
-   | Mobile version has all content | ✅/⚠️/❌ | [notes] |
-   | Mobile has same structured data | ✅/⚠️/❌ | [notes] |
-   | Mobile has same meta tags | ✅/⚠️/❌ | [notes] |
-   | Mobile images have alt text | ✅/⚠️/❌ | [notes] |
+   | Mobile version has all content | // | [notes] |
+   | Mobile has same structured data | // | [notes] |
+   | Mobile has same meta tags | // | [notes] |
+   | Mobile images have alt text | // | [notes] |
    
    **Mobile Score**: [X]/10
    ```
@@ -340,21 +340,21 @@ When a user requests a technical SEO audit:
    
    | Check | Status | Notes |
    |-------|--------|-------|
-   | SSL certificate valid | ✅/❌ | Expires: [date] |
-   | HTTPS enforced | ✅/❌ | [redirects properly?] |
-   | Mixed content | ✅/⚠️/❌ | [X] issues |
-   | HSTS enabled | ✅/⚠️ | [notes] |
-   | Certificate chain | ✅/⚠️/❌ | [notes] |
+   | SSL certificate valid | / | Expires: [date] |
+   | HTTPS enforced | / | [redirects properly?] |
+   | Mixed content | // | [X] issues |
+   | HSTS enabled | / | [notes] |
+   | Certificate chain | // | [notes] |
    
    ### Security Headers
    
    | Header | Present | Value | Recommended |
    |--------|---------|-------|-------------|
-   | Content-Security-Policy | ✅/❌ | [value] | [recommendation] |
-   | X-Frame-Options | ✅/❌ | [value] | DENY or SAMEORIGIN |
-   | X-Content-Type-Options | ✅/❌ | [value] | nosniff |
-   | X-XSS-Protection | ✅/❌ | [value] | 1; mode=block |
-   | Referrer-Policy | ✅/❌ | [value] | [recommendation] |
+   | Content-Security-Policy | / | [value] | [recommendation] |
+   | X-Frame-Options | / | [value] | DENY or SAMEORIGIN |
+   | X-Content-Type-Options | / | [value] | nosniff |
+   | X-XSS-Protection | / | [value] | 1; mode=block |
+   | Referrer-Policy | / | [value] | [recommendation] |
    
    **Security Score**: [X]/10
    ```
@@ -368,13 +368,13 @@ When a user requests a technical SEO audit:
    
    | Check | Status | Notes |
    |-------|--------|-------|
-   | HTTPS URLs | ✅/⚠️/❌ | [X]% HTTPS |
-   | Lowercase URLs | ✅/⚠️/❌ | [notes] |
-   | No special characters | ✅/⚠️/❌ | [notes] |
-   | Readable/descriptive | ✅/⚠️/❌ | [notes] |
-   | Appropriate length | ✅/⚠️/❌ | Avg: [X] chars |
-   | Keywords in URLs | ✅/⚠️/❌ | [notes] |
-   | Consistent structure | ✅/⚠️/❌ | [notes] |
+   | HTTPS URLs | // | [X]% HTTPS |
+   | Lowercase URLs | // | [notes] |
+   | No special characters | // | [notes] |
+   | Readable/descriptive | // | [notes] |
+   | Appropriate length | // | Avg: [X] chars |
+   | Keywords in URLs | // | [notes] |
+   | Consistent structure | // | [notes] |
    
    ### URL Issues Found
    
@@ -409,8 +409,8 @@ When a user requests a technical SEO audit:
    
    | Schema Type | Pages | Valid | Errors |
    |-------------|-------|-------|--------|
-   | [Type 1] | [X] | ✅/❌ | [errors] |
-   | [Type 2] | [X] | ✅/❌ | [errors] |
+   | [Type 1] | [X] | / | [errors] |
+   | [Type 2] | [X] | / | [errors] |
    
    ### Validation Results
    
@@ -441,18 +441,18 @@ When a user requests a technical SEO audit:
    
    | Check | Status | Notes |
    |-------|--------|-------|
-   | Hreflang tags present | ✅/❌ | [notes] |
-   | Self-referencing | ✅/⚠️/❌ | [notes] |
-   | Return tags present | ✅/⚠️/❌ | [notes] |
-   | Valid language codes | ✅/⚠️/❌ | [notes] |
-   | x-default tag | ✅/⚠️ | [notes] |
+   | Hreflang tags present | / | [notes] |
+   | Self-referencing | // | [notes] |
+   | Return tags present | // | [notes] |
+   | Valid language codes | // | [notes] |
+   | x-default tag | / | [notes] |
    
    ### Language/Region Targeting
    
    | Language | URL | Hreflang | Status |
    |----------|-----|----------|--------|
-   | [en-US] | [URL] | [tag] | ✅/⚠️/❌ |
-   | [es-ES] | [URL] | [tag] | ✅/⚠️/❌ |
+   | [en-US] | [URL] | [tag] | // |
+   | [es-ES] | [URL] | [tag] | // |
    
    **International Score**: [X]/10
    ```
@@ -484,12 +484,12 @@ When a user requests a technical SEO audit:
    1. **[Issue]**: [Impact] 
       - Affected: [pages/scope]
       - Solution: [specific fix]
-      - Priority: 🔴 Critical
+      - Priority:  Critical
    
    2. **[Issue]**: [Impact]
       - Affected: [pages/scope]
       - Solution: [specific fix]
-      - Priority: 🔴 Critical
+      - Priority:  Critical
    
    ## High Priority Issues
    
@@ -567,11 +567,11 @@ When a user requests a technical SEO audit:
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| File exists | ✅ | 200 response |
-| Valid syntax | ⚠️ | Wildcard pattern `Disallow: /*?` too aggressive — blocks faceted pages |
-| Sitemap declared | ❌ | No Sitemap directive in robots.txt |
-| Important pages blocked | ⚠️ | /pricing/ blocked by `Disallow: /pricing` rule |
-| Assets blocked | ✅ | CSS/JS accessible |
+| File exists |  | 200 response |
+| Valid syntax |  | Wildcard pattern `Disallow: /*?` too aggressive — blocks faceted pages |
+| Sitemap declared |  | No Sitemap directive in robots.txt |
+| Important pages blocked |  | /pricing/ blocked by `Disallow: /pricing` rule |
+| Assets blocked |  | CSS/JS accessible |
 
 **Issues Found**:
 - Sitemap URL not declared in robots.txt
@@ -584,9 +584,9 @@ When a user requests a technical SEO audit:
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| Sitemap exists | ✅ | Valid XML, 287 URLs |
-| Only indexable URLs | ❌ | 23 noindex URLs included |
-| Includes lastmod | ⚠️ | All dates set to 2023-01-01 — not accurate |
+| Sitemap exists |  | Valid XML, 287 URLs |
+| Only indexable URLs |  | 23 noindex URLs included |
+| Includes lastmod |  | All dates set to 2023-01-01 — not accurate |
 
 **Crawlability Score**: 5/10
 
@@ -596,18 +596,18 @@ When a user requests a technical SEO audit:
 
 | Metric | Mobile | Desktop | Target | Status |
 |--------|--------|---------|--------|--------|
-| LCP (Largest Contentful Paint) | 4.8s | 2.1s | <2.5s | ❌ Mobile / ✅ Desktop |
-| FID (First Input Delay) | 45ms | 12ms | <100ms | ✅ / ✅ |
-| CLS (Cumulative Layout Shift) | 0.24 | 0.08 | <0.1 | ❌ Mobile / ✅ Desktop |
-| INP (Interaction to Next Paint) | 380ms | 140ms | <200ms | ❌ Mobile / ✅ Desktop |
+| LCP (Largest Contentful Paint) | 4.8s | 2.1s | <2.5s |  Mobile /  Desktop |
+| FID (First Input Delay) | 45ms | 12ms | <100ms |  /  |
+| CLS (Cumulative Layout Shift) | 0.24 | 0.08 | <0.1 |  Mobile /  Desktop |
+| INP (Interaction to Next Paint) | 380ms | 140ms | <200ms |  Mobile /  Desktop |
 
 ### Additional Performance Metrics
 
 | Metric | Value | Status |
 |--------|-------|--------|
-| Time to First Byte (TTFB) | 1,240ms | ❌ |
-| Page Size | 3.8MB | ❌ |
-| Requests | 94 | ⚠️ |
+| Time to First Byte (TTFB) | 1,240ms |  |
+| Page Size | 3.8MB |  |
+| Requests | 94 |  |
 
 **LCP Issues**:
 - Uncompressed hero image (2.4MB PNG): Convert to WebP, est. save 1.9MB
@@ -624,10 +624,10 @@ When a user requests a technical SEO audit:
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| SSL certificate valid | ✅ | Expires: 2025-03-22 |
-| HTTPS enforced | ⚠️ | http://cloudhosting.com returns 200 instead of 301 redirect |
-| Mixed content | ❌ | 7 images loaded over HTTP on /features/ page |
-| HSTS enabled | ❌ | Header not present |
+| SSL certificate valid |  | Expires: 2025-03-22 |
+| HTTPS enforced |  | http://cloudhosting.com returns 200 instead of 301 redirect |
+| Mixed content |  | 7 images loaded over HTTP on /features/ page |
+| HSTS enabled |  | Header not present |
 
 **Security Score**: 5/10
 
@@ -637,7 +637,7 @@ When a user requests a technical SEO audit:
 
 | Schema Type | Pages | Valid | Errors |
 |-------------|-------|-------|--------|
-| Organization | 1 (homepage) | ✅ | None |
+| Organization | 1 (homepage) |  | None |
 | Article | 0 | — | Missing on 48 blog posts |
 | Product | 0 | — | Missing on 5 plan pages |
 | FAQ | 0 | — | Missing on 12 pages with FAQ content |
@@ -659,13 +659,13 @@ Score Breakdown:
 
 ## Priority Issues
 
-### 🔴 Critical (Fix Immediately)
+###  Critical (Fix Immediately)
 1. **Mobile LCP 4.8s (target <2.5s)** — Compress hero image to WebP (est. save 1.9MB) and implement a CDN to reduce TTFB from 1,240ms to <400ms.
 
-### 🟡 Important (Fix Soon)
+###  Important (Fix Soon)
 2. **HTTP not redirecting to HTTPS** — Add 301 redirect from http:// to https:// and enable HSTS header. 7 mixed-content images on /features/ need URL updates.
 
-### 🟢 Minor (Optimize)
+###  Minor (Optimize)
 3. **No Article/FAQ schema on blog posts** — Add Article schema to 48 blog posts and FAQ schema to 12 FAQ pages for rich result eligibility.
 ```
 

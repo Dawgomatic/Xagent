@@ -119,11 +119,11 @@ def format_human(hotels: list) -> str:
         amenities = hotel.get("amenities", [])
         amenity_str = ", ".join(amenities[:5]) if amenities else ""
         
-        lines.append(f"🏨 {name} {format_rating(rating)} ({hotel_id})")
+        lines.append(f" {name} {format_rating(rating)} ({hotel_id})")
         if city:
-            lines.append(f"   📍 {city}")
+            lines.append(f"    {city}")
         if amenity_str:
-            lines.append(f"   ✨ {amenity_str}")
+            lines.append(f"    {amenity_str}")
         lines.append("")
     
     if len(hotels) > 20:

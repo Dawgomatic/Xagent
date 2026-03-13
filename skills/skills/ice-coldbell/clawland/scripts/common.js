@@ -25,13 +25,13 @@ function ensureDeps() {
   const deps = ['@solana/web3.js', 'tweetnacl', 'bs58', '@solana/spl-token'];
   const missing = deps.some(d => { try { require.resolve(d, { paths: [__dirname] }); return false; } catch { return true; } });
   if (missing) {
-    console.log('📦 Installing Solana dependencies (first run, ~15s)...');
+    console.log(' Installing Solana dependencies (first run, ~15s)...');
     const { execSync } = require('child_process');
     execSync('npm init -y 2>/dev/null && npm install --silent @solana/web3.js@1 @coral-xyz/anchor @solana/spl-token bs58 tweetnacl', {
       cwd: __dirname,
       stdio: ['pipe', 'pipe', 'inherit'],
     });
-    console.log('✅ Dependencies installed.\n');
+    console.log(' Dependencies installed.\n');
   }
 }
 
@@ -43,7 +43,7 @@ function getConnection() {
 
 function loadWallet() {
   if (!fs.existsSync(WALLET_PATH)) {
-    console.error(`❌ Wallet not found at ${WALLET_PATH}`);
+    console.error(` Wallet not found at ${WALLET_PATH}`);
     console.error('Run: node setup-wallet.js');
     process.exit(1);
   }
@@ -88,7 +88,7 @@ function getApiKey() {
       const cred = JSON.parse(fs.readFileSync(credPath, 'utf8'));
       return cred.api_key;
     }
-    console.error('❌ CLAWLAND_API_KEY not set and no credentials.json found');
+    console.error(' CLAWLAND_API_KEY not set and no credentials.json found');
     process.exit(1);
   }
   return key;

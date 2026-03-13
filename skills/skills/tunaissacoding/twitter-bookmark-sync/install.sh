@@ -7,30 +7,30 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_FILE="$HOME/clawd/twitter-bookmark-sync-config.json"
 
-echo "🚀 twitter-bookmark-sync installer"
+echo " twitter-bookmark-sync installer"
 echo ""
 
 # Check dependencies
 echo "[1/4] Checking dependencies..."
 command -v bird >/dev/null || {
-    echo "❌ bird CLI not found"
+    echo " bird CLI not found"
     echo "   Install: brew install steipete/tap/bird"
     exit 1
 }
 
 command -v jq >/dev/null || {
-    echo "❌ jq not found"
+    echo " jq not found"
     echo "   Install: brew install jq"
     exit 1
 }
 
 bird whoami >/dev/null 2>&1 || {
-    echo "❌ bird not authenticated"
+    echo " bird not authenticated"
     echo "   Configure Twitter cookies first (see SKILL.md)"
     exit 1
 }
 
-echo "✅ Dependencies OK"
+echo " Dependencies OK"
 echo ""
 
 # Create config if doesn't exist
@@ -56,7 +56,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
   "output_dir": "~/Documents"
 }
 EOF
-    echo "✅ Created config at: $CONFIG_FILE"
+    echo " Created config at: $CONFIG_FILE"
 fi
 
 # Initialize ranking criteria from USER.md
@@ -77,7 +77,7 @@ fi
 if [ ! -f "$CRITERIA_FILE" ]; then
     python3 "$SCRIPT_DIR/scripts/init-criteria.py" "$CRITERIA_FILE"
     echo ""
-    echo "✅ Self-learning algorithm initialized"
+    echo " Self-learning algorithm initialized"
     echo "   It will adapt to your bookmarking patterns over time"
 fi
 
@@ -137,7 +137,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 fi
 
 echo ""
-echo "✅ Installation complete!"
+echo " Installation complete!"
 echo ""
 echo "Next steps:"
 echo "1. Edit config if needed: $CONFIG_FILE"

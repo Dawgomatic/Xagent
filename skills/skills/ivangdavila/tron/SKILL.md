@@ -1,7 +1,7 @@
 ---
 name: TRON
 description: Assist with TRON TRX transactions, bandwidth, energy, and TRC-20 token transfers.
-metadata: {"clawdbot":{"emoji":"⚡","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Resource Model (Critical)

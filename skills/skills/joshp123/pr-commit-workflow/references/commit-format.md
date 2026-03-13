@@ -1,13 +1,13 @@
 # Commit Message Format
 
 ## Requirements
-- Prefix with 🤖.
+- Prefix with .
 - Use multi-line message: subject + what/why + tests.
 - Prefer heredoc over `-m` to avoid quoting errors.
 
 ## Template
 Subject line:
-- `🤖 <type>: <short summary>`
+- ` <type>: <short summary>`
 
 Body:
 - `What: <bullet list>`
@@ -17,7 +17,7 @@ Body:
 ## Example (heredoc)
 ```
 git commit -F - <<'MSG'
-🤖 docs: clarify PR workflow expectations
+ docs: clarify PR workflow expectations
 
 What:
 - add explicit human-written intent requirement

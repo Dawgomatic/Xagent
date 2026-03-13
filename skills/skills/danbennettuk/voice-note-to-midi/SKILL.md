@@ -5,7 +5,7 @@ author: Clawd
 tags: [audio, midi, music, transcription, machine-learning]
 ---
 
-# 🎵 Voice Note to MIDI
+#  Voice Note to MIDI
 
 Transform your voice memos, humming, and melodic recordings into clean, quantized MIDI files ready for your DAW.
 
@@ -217,7 +217,7 @@ Output: my_humming.mid
   ✓ Done! Output: my_humming.mid
 ═══════════════════════════════════════════════════════════════
 
-📊 ANALYSIS SUMMARY
+ ANALYSIS SUMMARY
 ─────────────────────────────────────────────────────────────
   Detected Notes: C3, E3, G3, A3, C4, D4, G4
   Detected Key:   G major

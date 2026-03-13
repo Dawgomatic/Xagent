@@ -2,7 +2,7 @@
 
 Get started with zotero-cli in just a few minutes!
 
-## 🚀 5-Minute Setup
+##  5-Minute Setup
 
 ### Step 1: Install zotero-cli (1 min)
 
@@ -63,7 +63,7 @@ zotcli add-note "\"deep learning\""
 zotcli read "\"attention mechanisms\""
 ```
 
-## 📋 Essential Commands
+##  Essential Commands
 
 | Action | Command |
 |--------|---------|
@@ -73,7 +73,7 @@ zotcli read "\"attention mechanisms\""
 | Edit note | `zotcli edit-note "paper"` |
 | Configure | `zotcli configure` |
 
-## 🛠️ Helper Scripts
+##  Helper Scripts
 
 ```bash
 # Quick search with table output
@@ -95,7 +95,7 @@ python scripts/export_citations.py "topic" --format bib > refs.bib
 ./scripts/update_check.sh check
 ```
 
-## 💡 Daily Workflow
+##  Daily Workflow
 
 ### Morning Routine
 
@@ -140,7 +140,7 @@ zotcli read "\"transformer mechanisms\""
 ./scripts/update_check.sh update
 ```
 
-## 🎯 Common Tasks
+##  Common Tasks
 
 ### Task 1: Literature Review
 
@@ -208,7 +208,7 @@ EOF
 less reference_sheet.txt
 ```
 
-## 📚 Next Steps
+##  Next Steps
 
 1. **Read the documentation:**
    - [SKILL.md](SKILL.md) - Complete capabilities and features
@@ -223,7 +223,7 @@ less reference_sheet.txt
    - Create aliases for common commands
    - Set up weekly backups
 
-## 🔧 Configuration
+##  Configuration
 
 ### Set Your Default Editor
 
@@ -250,7 +250,7 @@ alias zc='zotcli configure'
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Problem: "command not found"
 ```bash
@@ -277,7 +277,7 @@ zotcli configure
 export VISUAL=nano
 ```
 
-## 📖 Learn More
+##  Learn More
 
 - **Full documentation:** See other markdown files in this skill
 - **GitHub repository:** https://github.com/jbaiter/zotero-cli
@@ -285,6 +285,6 @@ export VISUAL=nano
 
 ---
 
-**Happy researching! 📚🎓**
+**Happy researching! **
 
 Need help? Check the complete documentation in this skill directory.

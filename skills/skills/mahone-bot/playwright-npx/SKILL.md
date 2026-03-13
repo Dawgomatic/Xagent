@@ -1,12 +1,12 @@
 ---
 name: playwright-npx
 description: Fast browser automation using Node.js scripts with Playwright (run via `node script.mjs`). Use for web scraping, screenshots, form automation, and any browser task requiring programmatic control. For simple page fetching without JavaScript execution, use web_fetch first. For interactive CLI browsing without writing code, use browser tool or playwright-cli. This skill is ideal when you need full control, custom logic, or reusable scripts.
-metadata: {"clawdbot":{"emoji":"🎭","requires":{"bins":["node","npx"]}}, "created_by": "Kuba + Mahone", "created_date": "2026-02-04", "is_custom": true}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node","npx"]}}, "created_by": "Kuba + Mahone", "created_date": "2026-02-04", "is_custom": true}
 ---
 
 # Playwright Browser Automation
 
-> 🤝 Developed together by Kuba + Mahone · Feb 2026
+>  Developed together by Kuba + Mahone · Feb 2026
 
 Code-first browser automation with Playwright.
 

@@ -35,7 +35,7 @@ tools:
 
 ---
 
-## 📁 技能结构
+##  技能结构
 
 ```
 mineru-pdf-extractor/
@@ -57,7 +57,7 @@ mineru-pdf-extractor/
 
 ---
 
-## 🔧 环境要求
+##  环境要求
 
 ### 必需环境变量
 
@@ -89,11 +89,11 @@ export MINERU_API_KEY="your_api_token_here"
 export MINERU_BASE_URL="https://mineru.net/api/v4"
 ```
 
-> 💡 **获取 Token**：访问 https://mineru.net/apiManage/docs 注册并获取 API 密钥
+>  **获取 Token**：访问 https://mineru.net/apiManage/docs 注册并获取 API 密钥
 
 ---
 
-## 📄 功能一：解析本地 PDF 文档
+##  功能一：解析本地 PDF 文档
 
 适用于本地存储的 PDF 文件，需要 4 个步骤。
 
@@ -179,19 +179,19 @@ FULL_ZIP_URL=https://cdn-mineru.openxlab.org.cn/pdf/.../xxx.zip
 **输出文件结构：**
 ```
 extracted/
-├── full.md              # 📄 Markdown 文档（主要结果）
-├── images/              # 🖼️ 提取的图片
+├── full.md              #  Markdown 文档（主要结果）
+├── images/              #  提取的图片
 ├── content_list.json    # 结构化内容
 └── layout.json          # 版面分析数据
 ```
 
 ### 详细文档
 
-📚 **完整流程文档**：见 `docs/MinerU_本地文档解析完整流程.md`
+ **完整流程文档**：见 `docs/MinerU_本地文档解析完整流程.md`
 
 ---
 
-## 🌐 功能二：解析在线 PDF 文档（URL 方式）
+##  功能二：解析在线 PDF 文档（URL 方式）
 
 适用于已在线的 PDF 文件（如 arXiv、网站等），只需 2 个步骤，更简洁高效。
 
@@ -243,31 +243,31 @@ TASK_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 **输出文件结构：**
 ```
 extracted/
-├── full.md              # 📄 Markdown 文档（主要结果）
-├── images/              # 🖼️ 提取的图片
+├── full.md              #  Markdown 文档（主要结果）
+├── images/              #  提取的图片
 ├── content_list.json    # 结构化内容
 └── layout.json          # 版面分析数据
 ```
 
 ### 详细文档
 
-📚 **完整流程文档**：见 `docs/MinerU_在线文档解析完整流程.md`
+ **完整流程文档**：见 `docs/MinerU_在线文档解析完整流程.md`
 
 ---
 
-## 📊 两种解析方式对比
+##  两种解析方式对比
 
 | 特性 | **本地 PDF 解析** | **在线 PDF 解析** |
 |------|-------------------|-------------------|
 | **步骤数** | 4 步 | 2 步 |
-| **是否需要上传** | ✅ 是 | ❌ 否 |
+| **是否需要上传** |  是 |  否 |
 | **平均耗时** | 30-60 秒 | 10-20 秒 |
 | **适用场景** | 本地文件 | 文件已在线（arXiv、网站等） |
 | **文件大小限制** | 200MB | 受限于源服务器 |
 
 ---
 
-## ⚙️ 高级用法
+##  高级用法
 
 ### 批量处理本地文件
 
@@ -312,7 +312,7 @@ done
 
 ---
 
-## ⚠️ 注意事项
+##  注意事项
 
 1. **Token 配置**：脚本优先读取 `MINERU_TOKEN`，如不存在则读取 `MINERU_API_KEY`
 2. **Token 安全**：不要将 Token 硬编码在脚本中，建议通过环境变量传入
@@ -324,7 +324,7 @@ done
 
 ---
 
-## 📚 参考文档
+##  参考文档
 
 | 文档 | 说明 |
 |------|------|
@@ -334,9 +334,9 @@ done
 | `docs/Online_URL_Parsing_Guide.md` | 在线 PDF 解析详细指南（英文） |
 
 外部资源：
-- 🏠 **MinerU 官网**：https://mineru.net/
-- 📖 **API 文档**：https://mineru.net/apiManage/docs
-- 💻 **GitHub 仓库**：https://github.com/opendatalab/MinerU
+-  **MinerU 官网**：https://mineru.net/
+-  **API 文档**：https://mineru.net/apiManage/docs
+-  **GitHub 仓库**：https://github.com/opendatalab/MinerU
 
 ---
 

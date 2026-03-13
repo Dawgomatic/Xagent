@@ -7,7 +7,7 @@ read_when:
   - User needs to open/view a file (especially images, markdown, PDFs)
 metadata:
   openclaw:
-    emoji: "📤"
+    emoji: ""
     requires:
       bins: ["node"]
 ---
@@ -18,13 +18,13 @@ Share single workspace files via expiring HTTP links (tokenized, local-network o
 
 ## Features
 
-- ✅ **Single-file sharing** (no directory browsing)
-- ✅ **Time-limited tokens** (default **1h**, configurable; max 24h)
-- ✅ **Optional one-time access** (token invalid after first successful download)
-- ✅ **Local/VPN-only** (RFC1918 private ranges + localhost)
-- ✅ **UTF-8 encoding** (proper display of German umlauts, etc.)
-- ✅ **No-cache headers** (always fresh content)
-- ✅ **Auto-cleanup** (servers can be killed when done)
+-  **Single-file sharing** (no directory browsing)
+-  **Time-limited tokens** (default **1h**, configurable; max 24h)
+-  **Optional one-time access** (token invalid after first successful download)
+-  **Local/VPN-only** (RFC1918 private ranges + localhost)
+-  **UTF-8 encoding** (proper display of German umlauts, etc.)
+-  **No-cache headers** (always fresh content)
+-  **Auto-cleanup** (servers can be killed when done)
 
 ## Install / Update (ClawHub)
 

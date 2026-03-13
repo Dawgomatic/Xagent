@@ -4,7 +4,7 @@ Three ways to set up notifications - choose what works best for you!
 
 ---
 
-## 🚀 Option 1: Drop-in Settings Panel (Recommended)
+##  Option 1: Drop-in Settings Panel (Recommended)
 
 **Best for:** Users who want a ready-made UI
 
@@ -42,12 +42,12 @@ Copy the files and include the settings panel:
 ```
 
 **What you get:**
-- ✅ Enable/disable toggle
-- ✅ 5 intensity levels dropdown
-- ✅ Volume slider
-- ✅ Test button
-- ✅ Auto-saves preferences
-- ✅ Matches your theme (customizable CSS variables)
+-  Enable/disable toggle
+-  5 intensity levels dropdown
+-  Volume slider
+-  Test button
+-  Auto-saves preferences
+-  Matches your theme (customizable CSS variables)
 
 **Customize colors:**
 ```css
@@ -60,7 +60,7 @@ Copy the files and include the settings panel:
 
 ---
 
-## ⚙️ Option 2: JSON Configuration
+##  Option 2: JSON Configuration
 
 **Best for:** Developers who prefer config files
 
@@ -91,7 +91,7 @@ Copy the files and include the settings panel:
   // One-liner initialization from config
   window.addEventListener('DOMContentLoaded', async () => {
     notifier = await initNotificationsFromConfig('./notification-config.json');
-    console.log('✅ Notifications ready');
+    console.log(' Notifications ready');
   });
 </script>
 ```
@@ -117,7 +117,7 @@ Copy the files and include the settings panel:
 
 ---
 
-## 💻 Option 3: Programmatic Setup
+##  Option 3: Programmatic Setup
 
 **Best for:** Developers who want full control
 
@@ -177,7 +177,7 @@ const settings = notifier.getSettings();
 
 ---
 
-## 🎨 Custom Settings UI
+##  Custom Settings UI
 
 Don't like the default panel? Build your own:
 
@@ -191,11 +191,11 @@ Don't like the default panel? Build your own:
 
 <!-- Sound Selection -->
 <select id="sound-select" onchange="notifier.setSound(this.value)">
-  <option value="level1">🔕 Whisper</option>
-  <option value="level2">🔔 Soft</option>
-  <option value="level3" selected>🔔 Medium</option>
-  <option value="level4">🔊 Loud</option>
-  <option value="level5">📢 Very Loud</option>
+  <option value="level1"> Whisper</option>
+  <option value="level2"> Soft</option>
+  <option value="level3" selected> Medium</option>
+  <option value="level4"> Loud</option>
+  <option value="level5"> Very Loud</option>
 </select>
 
 <!-- Volume -->
@@ -208,7 +208,7 @@ Don't like the default panel? Build your own:
 
 ---
 
-## 📱 Mobile Considerations
+##  Mobile Considerations
 
 **iOS/Safari limitations:**
 - Requires user gesture for EACH audio play
@@ -226,7 +226,7 @@ if (settings.isMobile) {
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### No sound playing?
 
@@ -265,7 +265,7 @@ If localStorage is disabled (private browsing), settings won't persist.
 
 ---
 
-## 🎯 Recommended Setup for Moltbot/Clawdbot
+##  Recommended Setup for Moltbot/Clawdbot
 
 **1. Copy files to your webchat:**
 ```bash
@@ -315,7 +315,7 @@ cp -r client/sounds /path/to/webchat/
 
 ---
 
-## 📦 File Size
+##  File Size
 
 Total download (first load):
 - howler.min.js: 36KB
@@ -328,7 +328,7 @@ Users only download once, then browser caches everything.
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **Full Documentation:** [README.md](../README.md)
 - **Integration Guide:** [integration.md](./integration.md)

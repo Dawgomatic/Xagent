@@ -36,11 +36,11 @@ Analyzes a task/prompt and recommends the best model, considering task type, com
    - Cost-sensitive batch work → claude-haiku or gpt-4.1-mini
 5. **Output format**:
    ```
-   🔀 Route: <task_type> | Complexity: <level>
-   ✅ Recommended: <model>
-   🔄 Fallback: <model>
-   💰 Est. cost: <low/medium/high>
-   💡 Reason: <why>
+    Route: <task_type> | Complexity: <level>
+    Recommended: <model>
+    Fallback: <model>
+    Est. cost: <low/medium/high>
+    Reason: <why>
    ```
 6. **Batch routing**: For multiple tasks, create a routing plan table showing which model handles each task.
 

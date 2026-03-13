@@ -72,7 +72,7 @@ User: "Compare Aave vs Compound vs Morpho for investment decision,
 
 Agent: "Got it. Here's what I understand:
 
-        📋 SCOPE SUMMARY:
+         SCOPE SUMMARY:
         • Workflow: competitive-analysis
         • Projects: Aave vs Compound vs Morpho
         • Purpose: Investment decision
@@ -117,7 +117,7 @@ User: "Investment. PMF signals + competitive differentiation. Standard."
 
 Agent: "Perfect. Here's the scope:
 
-        📋 SCOPE SUMMARY:
+         SCOPE SUMMARY:
         • Workflow: product-analysis
         • Project: Uniswap V4
         • Purpose: Investment decision
@@ -148,7 +148,7 @@ User: "Twitter thread + blog article. Professional. Launch next week."
 
 Agent: "Perfect. Here's the scope:
 
-        📋 SCOPE SUMMARY:
+         SCOPE SUMMARY:
         • Workflow: create-content
         • Input: Morpho product analysis
         • Formats: Twitter thread + Blog article
@@ -205,7 +205,7 @@ User: "Sector allocation decision. Structure + competitive dynamics + growth dri
 
 Agent: "Understood. Here's the complete scope:
 
-        📋 SCOPE SUMMARY:
+         SCOPE SUMMARY:
         • Workflow: sector-overview
         • Sector: DeFi Lending
         • Purpose: Sector allocation decision
@@ -251,7 +251,7 @@ User: "./workspaces/morpho/outputs/tokenomics-analysis/output-2025-12-09.md
 
 Agent: "Understood. Here's the complete scope:
 
-        📋 SCOPE SUMMARY:
+         SCOPE SUMMARY:
         • Workflow: qa-review
         • Input: Morpho tokenomics analysis (2025-12-09)
         • Review Focus: Comprehensive (completeness + accuracy + logic)
@@ -322,7 +322,7 @@ User: "Comprehensive focus on all criteria. Currently 10% in DEX (Uniswap),
 
 Agent: "Perfect. Here's the complete scope:
 
-        📋 SCOPE SUMMARY:
+         SCOPE SUMMARY:
         • Workflow: create-research-brief
         • Template: Investment Research
         • Subject: Hyperliquid (Perpetual DEX)
@@ -364,7 +364,7 @@ If user deflects clarification (e.g., "Just do whatever you think"):
 ```
 Agent: "Understood - I'll proceed with these assumptions:
 
-        📋 ASSUMED SCOPE:
+         ASSUMED SCOPE:
         • Workflow: [inferred from request context]
         • Purpose: General understanding
         • Scope: Balanced coverage of key aspects
@@ -392,7 +392,7 @@ If you discover during execution that scope is impossible/invalid (e.g., "Analyz
 **This is the ONLY valid reason to interrupt execution and return to scope clarification.**
 
 ```
-Agent: "⚠️ SCOPE ISSUE DISCOVERED
+Agent: " SCOPE ISSUE DISCOVERED
 
         Initial scope: Analyze Morpho tokenomics
         Discovery: Morpho does not have a token yet
@@ -430,13 +430,13 @@ SCOPE CLARIFIED → HAND OFF TO EXECUTION
 ```
 
 **Common Pitfalls:**
-- ❌ Always asking (frustrates users when info already provided)
-- ❌ Never asking (wastes effort on wrong output)
-- ❌ Guessing when uncertain (assumes mind-reading)
-- ❌ Proceeding without user confirmation (skips alignment check)
-- ❌ Re-clarifying during execution (should happen only if scope becomes invalid)
+-  Always asking (frustrates users when info already provided)
+-  Never asking (wastes effort on wrong output)
+-  Guessing when uncertain (assumes mind-reading)
+-  Proceeding without user confirmation (skips alignment check)
+-  Re-clarifying during execution (should happen only if scope becomes invalid)
 
-**✅ Adaptive Approach:** Assess intelligently, ask conservatively, present scope clearly, confirm with user, then execute autonomously
+** Adaptive Approach:** Assess intelligently, ask conservatively, present scope clearly, confirm with user, then execute autonomously
 
 ---
 

@@ -23,7 +23,7 @@ curl -X POST "https://platform.scribeless.co/api/recipients" \
 
 Generate your API key at: [platform.scribeless.co/settings/teams/api-keys](https://platform.scribeless.co/settings/teams/api-keys)
 
-> ⚠️ **Warning:** Once you confirm you have securely copied an API Key, there is no way of viewing that key again. A new key will need to be created if the secret is lost.
+>  **Warning:** Once you confirm you have securely copied an API Key, there is no way of viewing that key again. A new key will need to be created if the secret is lost.
 
 ### Error Responses
 

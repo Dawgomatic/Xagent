@@ -184,7 +184,7 @@ bun run xint.ts article https://techcrunch.com/article --ai "What are the main p
 bun run xint.ts article https://blog.example.com/deep-dive --full
 ```
 
-**Agent usage:** When search results include tweets with article links, use `article` to read the full content. Search results now include article titles and descriptions from the X API (shown as `📰` lines), so you can decide which articles are worth a full read. Prioritize articles that:
+**Agent usage:** When search results include tweets with article links, use `article` to read the full content. Search results now include article titles and descriptions from the X API (shown as `` lines), so you can decide which articles are worth a full read. Prioritize articles that:
 - Multiple tweets reference
 - Come from high-engagement tweets
 - Have relevant titles/descriptions from the API metadata
@@ -454,7 +454,7 @@ bun run xint.ts thread <tweet_id>
 
 ### 4. Deep-Dive Linked Content
 
-Search results now include article titles and descriptions from the X API (shown as `📰` in output). Use these to decide which links are worth a full read, then fetch with `xint article`:
+Search results now include article titles and descriptions from the X API (shown as `` in output). Use these to decide which links are worth a full read, then fetch with `xint article`:
 
 ```bash
 bun run xint.ts article <url>               # terminal display

@@ -1,4 +1,4 @@
-# 🚀 Morning Briefing - Quick Start
+#  Morning Briefing - Quick Start
 
 ## TL;DR - Install in 30 Seconds
 
@@ -16,12 +16,12 @@ That's it! Your morning briefing will run **every day at 10:15 AM MST**.
 Every morning at **10:15 AM**, you'll receive two Telegram messages:
 
 ### Message 1: Consolidated Daily Briefing
-- 📺 **YouTube Analytics**: Last 24h stats, top videos, subscriber changes
-- 📧 **Email Summary**: Unread count, important senders, key messages  
-- 🌤️ **Weather**: Current Denver conditions + today's forecast
-- 📅 **Calendar**: Today's events + upcoming 48 hours
-- 🔗 **News Briefs**: Tech, maker, AI news with trending topics
-- 📚 **Research Briefs**: 3D printing, agentic coding, Clawdbot ecosystem, trending skills
+-  **YouTube Analytics**: Last 24h stats, top videos, subscriber changes
+-  **Email Summary**: Unread count, important senders, key messages  
+-  **Weather**: Current Denver conditions + today's forecast
+-  **Calendar**: Today's events + upcoming 48 hours
+-  **News Briefs**: Tech, maker, AI news with trending topics
+-  **Research Briefs**: 3D printing, agentic coding, Clawdbot ecosystem, trending skills
 
 ### Message 2: Skill Discovery Report
 - Automatically searches ClawdHub for relevant skills
@@ -122,4 +122,4 @@ Run the installer to get interactive setup help, or check the logs:
 tail -f /Users/ericwoodard/clawd/logs/morning-briefing.log
 ```
 
-Enjoy your daily briefings! 🌅
+Enjoy your daily briefings! 

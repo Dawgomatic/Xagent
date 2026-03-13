@@ -22,7 +22,7 @@ Manage a Todo List stored in TODO.md through Telegram bot commands.
 
 **Example Output**:
 ```
-📋 待办事项列表
+ 待办事项列表
 
 今日任务 (2026-02-12)
 
@@ -134,7 +134,7 @@ Manage a Todo List stored in TODO.md through Telegram bot commands.
 
 **Clean Table**:
 ```
-📋 待办事项
+ 待办事项
 
 今日任务 (2026-02-12)
 1. [ ] Task 1
@@ -161,9 +161,9 @@ Manage a Todo List stored in TODO.md through Telegram bot commands.
 ### User Experience
 
 **Confirmation Messages**:
-- Task completed: "✅ 已完成任务 #N"
-- Task deleted: "🗑️ 已删除任务 #N"
-- Task added: "➕ 已添加任务"
+- Task completed: " 已完成任务 #N"
+- Task deleted: " 已删除任务 #N"
+- Task added: " 已添加任务"
 
 **Progress Indicators**:
 - Show real-time count updates

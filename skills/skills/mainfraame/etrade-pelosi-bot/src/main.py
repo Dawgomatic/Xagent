@@ -429,7 +429,7 @@ class TradingBot:
                     if risk['warnings']:
                         print(f"\n  WARNINGS:")
                         for w in risk['warnings']:
-                            print(f"    ⚠️  {w}")
+                            print(f"      {w}")
 
             elif choice == '11':
                 interval = input("Check interval (hours, default 24): ").strip()
@@ -454,7 +454,7 @@ class TradingBot:
 
 def main():
     """Main entry point"""
-    print("\n🦞 ClawBack - Congressional Trade Mirror")
+    print("\n ClawBack - Congressional Trade Mirror")
     print("="*50)
     
     # Check for config file

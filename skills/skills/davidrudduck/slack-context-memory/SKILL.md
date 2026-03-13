@@ -81,4 +81,4 @@ The `conversation_summaries` table stores:
 
 ---
 
-Built for Clawdbot 🦞 | 2026-01-28
+Built for Clawdbot  | 2026-01-28

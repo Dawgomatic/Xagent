@@ -412,10 +412,10 @@ def scan_skill(skill_name: str, skill_path: Path, verbose: bool = False) -> Opti
 # ─── Output formatting ───────────────────────────────────────────────────────
 
 RISK_ICONS = {
-    "CLEAN":  "✅",
-    "LOW":    "🟡",
-    "MEDIUM": "⚠️ ",
-    "HIGH":   "🚨",
+    "CLEAN":  "",
+    "LOW":    "",
+    "MEDIUM": " ",
+    "HIGH":   "",
 }
 
 RISK_COLORS = {
@@ -427,7 +427,7 @@ RISK_COLORS = {
 
 
 def format_risk(level: str) -> str:
-    icon = RISK_ICONS.get(level, "❓")
+    icon = RISK_ICONS.get(level, "")
     color = RISK_COLORS.get(level, lambda x: x)
     return f"{icon} {color(BOLD(level))}"
 
@@ -444,7 +444,7 @@ def print_scan_result(skill_name: str, result: dict, show_install_prompt: bool =
     print()
 
     if level == "CLEAN":
-        print(f"{GREEN('✅')} SkillGuard: {BOLD(skill_name)} — {GREEN('Clean.')}", end="")
+        print(f"{GREEN('')} SkillGuard: {BOLD(skill_name)} — {GREEN('Clean.')}", end="")
         if show_install_prompt:
             print(" Installing...")
         else:
@@ -453,7 +453,7 @@ def print_scan_result(skill_name: str, result: dict, show_install_prompt: bool =
 
     # Non-clean result
     risk_display = format_risk(level)
-    print(f"{RISK_ICONS.get(level, '⚠️')} SkillGuard: {BOLD(skill_name)} — Risk: {risk_display}")
+    print(f"{RISK_ICONS.get(level, '')} SkillGuard: {BOLD(skill_name)} — Risk: {risk_display}")
 
     if summary:
         print(f"   {summary}")
@@ -476,7 +476,7 @@ def print_scan_result(skill_name: str, result: dict, show_install_prompt: bool =
     # Install prompt
     print()
     if recommendation == "block":
-        print(f"   {RED('⚠ HIGH RISK: This skill is dangerous to install.')}")
+        print(f"   {RED(' HIGH RISK: This skill is dangerous to install.')}")
         prompt_text = f"Install {skill_name} anyway? (type YES to confirm) "
     elif recommendation == "review":
         prompt_text = f"   Install {skill_name} anyway? [y/N] "
@@ -559,7 +559,7 @@ def cmd_install(args):
         scan_result = scan_skill(skill_name, tmp_skill_path, verbose=True)
 
         if scan_result is None:
-            print(f"{YELLOW('⚠')} Could not complete LLM scan.", file=sys.stderr)
+            print(f"{YELLOW('')} Could not complete LLM scan.", file=sys.stderr)
             try:
                 ans = input(f"   Proceed with installation of {skill_name} without security scan? [y/N] ").strip()
             except (KeyboardInterrupt, EOFError):
@@ -613,7 +613,7 @@ def cmd_audit(args):
         found_skills = dict(list(found_skills.items())[:args.limit])
 
     if not found_skills:
-        print(f"{YELLOW('⚠')} No skills found in known skill directories.")
+        print(f"{YELLOW('')} No skills found in known skill directories.")
         print(f"   Checked: {', '.join(SKILL_DIRS)}")
         return
 
@@ -634,7 +634,7 @@ def cmd_audit(args):
         level = result.get("risk_level", "HIGH")
         results[name] = result
 
-        icon = RISK_ICONS.get(level, "❓")
+        icon = RISK_ICONS.get(level, "")
         print(f" {icon} {level}")
 
         if level not in ("CLEAN",):
@@ -655,12 +655,12 @@ def cmd_audit(args):
     print(f"{'─'*60}")
 
     if flagged:
-        print(f"\n{YELLOW('⚠')} {len(flagged)} skill(s) flagged for review:\n")
+        print(f"\n{YELLOW('')} {len(flagged)} skill(s) flagged for review:\n")
         for name in flagged:
             r = results[name]
             print_scan_result(name, r, show_install_prompt=False)
     else:
-        print(f"\n{GREEN('✅')} All skills clean.")
+        print(f"\n{GREEN('')} All skills clean.")
 
 
 # ─── Entry point ─────────────────────────────────────────────────────────────

@@ -1,7 +1,7 @@
 ---
 name: project-management-guru-adhd
 description: Expert project manager for ADHD engineers managing multiple concurrent projects. Specializes in hyperfocus management, context-switching minimization, and parakeet-style gentle reminders.
-metadata: {"moltbot":{"emoji":"🧠"}}
+metadata: {"moltbot":{"emoji":""}}
 ---
 
 # Project Management Guru (ADHD-Specialized)

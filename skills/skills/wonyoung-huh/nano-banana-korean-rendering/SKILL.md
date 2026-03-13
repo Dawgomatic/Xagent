@@ -42,7 +42,7 @@ cd {baseDir} && node setup.mjs
 
 | 변수 | 필수 | 설명 |
 |---|---|---|
-| `GEMINI_API_KEY` | ⭐ 필수 | Gemini Flash(분석) + Gemini Image(생성) 모두에 사용 |
+| `GEMINI_API_KEY` |  필수 | Gemini Flash(분석) + Gemini Image(생성) 모두에 사용 |
 | `GEMINI_IMAGE_MODEL` | 선택 | 이미지 생성 모델 (기본: gemini-3-pro-image-preview) |
 
 ---

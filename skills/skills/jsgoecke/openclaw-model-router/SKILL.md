@@ -128,10 +128,10 @@ Access via OpenRouter with model IDs like `google/gemini-2.5-flash`, `deepseek/d
 
 ## Step 3: Apply Optimization Mode
 
-### 🟢 Balanced Mode (DEFAULT)
+###  Balanced Mode (DEFAULT)
 Use the default model for each tier as listed above. Escalate to next tier if the model produces low-quality output or fails.
 
-### 🔵 Aggressive Mode (Maximum Savings)
+###  Aggressive Mode (Maximum Savings)
 Override tier defaults to cheapest option:
 - Tier 0-1: `openrouter/free` ($0.00) for simple tasks, fall back to `gemini-2.0-flash` ($0.10/$0.40)
 - Tier 2: `gemini-2.5-flash` ($0.15/$0.60)
@@ -140,7 +140,7 @@ Override tier defaults to cheapest option:
 
 **Savings: 70-99% vs always using Opus**
 
-### 🟡 Quality Mode (Maximum Quality)
+###  Quality Mode (Maximum Quality)
 Override tier defaults to best-in-class:
 - Tier 1: `claude-haiku-4-5` ($1.00/$5.00)
 - Tier 2: `claude-sonnet-4-5` ($3.00/$15.00)

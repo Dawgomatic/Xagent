@@ -24,10 +24,10 @@ Web search using SearXNG instance via MCP protocol.
 
 ## Features
 
-- 🔍 Web search with multiple result formats
-- 🔧 MCP server for standard tool integration
-- ⚙️ Configurable SearXNG endpoint
-- 📊 JSON, Markdown, and text output formats
+-  Web search with multiple result formats
+-  MCP server for standard tool integration
+-  Configurable SearXNG endpoint
+-  JSON, Markdown, and text output formats
 
 ## Configuration
 

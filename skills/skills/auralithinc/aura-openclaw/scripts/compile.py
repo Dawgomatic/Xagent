@@ -37,10 +37,10 @@ def main():
             try:
                 min_quality = float(sys.argv[idx + 1])
             except ValueError:
-                print("❌ --min-quality must be a number (e.g., 0.3)")
+                print(" --min-quality must be a number (e.g., 0.3)")
                 sys.exit(1)
 
-    print(f"🔥 Compiling: {input_dir} → {output_file}")
+    print(f" Compiling: {input_dir} → {output_file}")
 
     try:
         from aura.compiler import compile_directory
@@ -52,13 +52,13 @@ def main():
             kwargs["min_quality"] = min_quality
 
         compile_directory(input_dir, output_file, **kwargs)
-        print(f"✅ Compiled successfully → {output_file}")
+        print(f" Compiled successfully → {output_file}")
 
     except ImportError:
-        print("❌ aura-core not found. Install with: pip install auralith-aura")
+        print(" aura-core not found. Install with: pip install auralith-aura")
         sys.exit(1)
     except Exception as e:
-        print(f"❌ Compilation failed: {e}")
+        print(f" Compilation failed: {e}")
         sys.exit(1)
 
 

@@ -6,9 +6,9 @@
 
 ---
 
-## 🎯 Top 3 Immediate Actions / 立即可行的三大应用
+##  Top 3 Immediate Actions / 立即可行的三大应用
 
-### 1. ✅ {internal_grant} Proposal Writer (ALREADY INSTALLED!)
+### 1.  {internal_grant} Proposal Writer (ALREADY INSTALLED!)
 **已安装！零设置时间**
 
 - **What:** Auto-generate {internal_grant} whitepaper drafts aligned with {research_lab} strategic priorities
@@ -25,7 +25,7 @@ OpenClaw: [Generates 5-page whitepaper with citations, methodology, budget]
 
 ---
 
-### 2. ⚙️ Bilingual Content Pipeline (30 min setup)
+### 2.  Bilingual Content Pipeline (30 min setup)
 **公众号文章流水线（30分钟设置）**
 
 - **What:** Draft → Translate (EN/ZH) → Illustrate → Distribute (WeChat/Twitter/LinkedIn)
@@ -48,7 +48,7 @@ OpenClaw:
 
 ---
 
-### 3. ⚙️ GitHub Issue Triager (45 min setup)
+### 3.  GitHub Issue Triager (45 min setup)
 **GitHub问题自动分类（45分钟设置）**
 
 - **What:** Auto-classify new issues on {github_user}/rose (bug/feature/question), high-priority Telegram alerts
@@ -58,7 +58,7 @@ OpenClaw:
 
 **Example Alert:**
 ```
-🚨 High Priority: rose#1234
+ High Priority: rose#1234
 "Segfault in AST traversal for C++20 coroutines"
 Type: Bug | Component: Compiler Core
 → Assign to Leo or triage team
@@ -66,7 +66,7 @@ Type: Bug | Component: Compiler Core
 
 ---
 
-## 📊 Additional High-Value Use Cases / 其他高价值应用
+##  Additional High-Value Use Cases / 其他高价值应用
 
 ### 4. HPC Job Monitoring (1-2 hours setup)
 - Monitor {research_lab} cluster jobs (SLURM), Telegram alerts on completion/failure
@@ -90,10 +90,10 @@ Type: Bug | Component: Compiler Core
 
 ---
 
-## 🛠️ Implementation Roadmap / 实施路线图
+##  Implementation Roadmap / 实施路线图
 
 ### Today (15 min)
-✅ Test {internal_grant} proposal writer with sample topic
+ Test {internal_grant} proposal writer with sample topic
 
 ### This Week (2 hours)
 1. Setup bilingual content pipeline
@@ -111,7 +111,7 @@ Type: Bug | Component: Compiler Core
 
 ---
 
-## 💰 Cost Estimate / 成本估算
+##  Cost Estimate / 成本估算
 
 ### Light Usage: $5-15/month
 - {internal_grant} proposals: 2-3/month × $0.50 = $1.50
@@ -128,15 +128,15 @@ Type: Bug | Component: Compiler Core
 
 ---
 
-## 🔐 Security Notes / 安全提醒
+##  Security Notes / 安全提醒
 
-⚠️ **CRITICAL for {research_lab}:**
+ **CRITICAL for {research_lab}:**
 - NEVER send classified/UCNI data to external APIs
 - Use OpenClaw for UNCLASSIFIED workflows ONLY
 - For sensitive HPC monitoring: Use local models (Ollama) instead of GPT-4
 - GitHub webhooks: Public repos only, validate signatures
 
-✅ **Best Practices:**
+ **Best Practices:**
 - Dedicated bot accounts for integrations
 - Enable 2FA everywhere
 - Anonymize community member data
@@ -144,7 +144,7 @@ Type: Bug | Component: Compiler Core
 
 ---
 
-## 📁 Full Report / 完整报告
+##  Full Report / 完整报告
 
 **File:** `skills/openclaw-usecases/findings/2026-02-05-leo-personalized.md`
 
@@ -167,7 +167,7 @@ Type: Bug | Component: Compiler Core
 
 ---
 
-## 🚀 Recommended Starting Point / 建议起点
+##  Recommended Starting Point / 建议起点
 
 **BEST FIRST STEP:**
 Test {internal_grant} proposal writer RIGHT NOW (zero setup required!)

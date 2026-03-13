@@ -62,13 +62,13 @@ Media Contact:
 ### Headline
 
 ```
-❌ Company X Announces Revolutionary New Product That Will Change Everything!
-❌ Press Release: Company X
-❌ Company X's Amazing Product Launch
+ Company X Announces Revolutionary New Product That Will Change Everything!
+ Press Release: Company X
+ Company X's Amazing Product Launch
 
-✅ Company X Launches AI-Powered Analytics Platform for Enterprise Teams
-✅ Company X Raises $25 Million Series B to Expand Global Operations
-✅ Company X Partners With Acme Corp to Accelerate Cloud Migration
+ Company X Launches AI-Powered Analytics Platform for Enterprise Teams
+ Company X Raises $25 Million Series B to Expand Global Operations
+ Company X Partners With Acme Corp to Accelerate Cloud Migration
 ```
 
 **Rules:**
@@ -94,10 +94,10 @@ LONDON, Dec. 10, 2026 —
 Answer WHO, WHAT, WHEN, WHERE, WHY in 25-35 words:
 
 ```
-❌ "We are thrilled to announce that after months of hard work, our talented
+ "We are thrilled to announce that after months of hard work, our talented
     team has created something truly special that we think you'll love."
 
-✅ "Company X, a developer tools startup, today launched DataFlow, an
+ "Company X, a developer tools startup, today launched DataFlow, an
     AI-powered analytics platform that automates reporting for enterprise
     engineering teams."
 ```
@@ -112,14 +112,14 @@ Answer WHO, WHAT, WHEN, WHERE, WHY in 25-35 words:
 - Forward-looking quotes work well: "We believe this will..."
 
 ```
-❌ "I am so excited about this launch," said John Smith.
-❌ "We launched a new product today," said the CEO.
+ "I am so excited about this launch," said John Smith.
+ "We launched a new product today," said the CEO.
 
-✅ "Enterprise teams spend an average of 15 hours per week on manual
+ "Enterprise teams spend an average of 15 hours per week on manual
     reporting," said Sarah Chen, CEO of Company X. "DataFlow eliminates
     that burden entirely, letting engineers focus on building."
 
-✅ "Since adopting DataFlow, our reporting cycle dropped from three days
+ "Since adopting DataFlow, our reporting cycle dropped from three days
     to three minutes," said Marcus Lee, VP of Engineering at Acme Corp.
 ```
 

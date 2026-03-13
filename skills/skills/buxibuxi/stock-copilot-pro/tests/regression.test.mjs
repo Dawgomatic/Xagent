@@ -216,13 +216,13 @@ async function main() {
     const elapsed = Date.now() - startTime;
 
     if (!runResult.success) {
-      console.log(`  ❌ FAILED: ${runResult.error}`);
+      console.log(`   FAILED: ${runResult.error}`);
       return { ...sample, status: "FAILED", reason: runResult.error, elapsed };
     }
 
     const parsed = parseResult(runResult.stdout);
     if (!parsed) {
-      console.log(`  ❌ FAILED: could not parse JSON output`);
+      console.log(`   FAILED: could not parse JSON output`);
       return { ...sample, status: "FAILED", reason: "parse error", elapsed };
     }
 
@@ -233,7 +233,7 @@ async function main() {
     // Check symbol resolution
     const symbolCheck = checkSymbolResolution(parsed, sample.expected_symbol_pattern);
     if (!symbolCheck.ok) {
-      console.log(`  ❌ FAILED: ${symbolCheck.reason}`);
+      console.log(`   FAILED: ${symbolCheck.reason}`);
       return { ...sample, status: "FAILED", reason: symbolCheck.reason, elapsed };
     }
 
@@ -241,14 +241,14 @@ async function main() {
     const missingFields = checkRequiredFields(parsed, sample.required_fields);
     if (missingFields.length > 0) {
       if (sample.allow_partial) {
-        console.log(`  ⚠️ DEGRADED_PASS: missing fields: ${missingFields.join(", ")}`);
+        console.log(`   DEGRADED_PASS: missing fields: ${missingFields.join(", ")}`);
         return { ...sample, status: "DEGRADED_PASS", missing: missingFields, elapsed };
       }
-      console.log(`  ❌ FAILED: missing fields: ${missingFields.join(", ")}`);
+      console.log(`   FAILED: missing fields: ${missingFields.join(", ")}`);
       return { ...sample, status: "FAILED", reason: "missing required fields", missing: missingFields, elapsed };
     }
 
-    console.log(`  ✅ PASSED (${elapsed}ms)`);
+    console.log(`   PASSED (${elapsed}ms)`);
     return { ...sample, status: "PASSED", elapsed };
   }
 
@@ -292,10 +292,10 @@ async function main() {
 
   // Exit with error if any failures
   if (failed > 0) {
-    console.log("\n❌ Regression test FAILED");
+    console.log("\n Regression test FAILED");
     process.exit(1);
   } else {
-    console.log("\n✅ All regression tests PASSED");
+    console.log("\n All regression tests PASSED");
     process.exit(0);
   }
 }

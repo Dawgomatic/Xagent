@@ -1,4 +1,4 @@
-# 🦞 OpenClaw Identity Guard Guide
+#  OpenClaw Identity Guard Guide
 
 This example shows how to use `otp-challenger` as a mandatory security layer in OpenClaw.
 

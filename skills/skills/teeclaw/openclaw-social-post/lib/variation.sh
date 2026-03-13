@@ -56,7 +56,7 @@ vary_text() {
   
   # If still no change, force an emoji addition
   if [ "$varied" = "$original" ]; then
-    local emojis=("🚀" "✨" "🔥" "💪" "🎯" "⚡")
+    local emojis=("" "" "" "" "" "")
     local random_emoji="${emojis[$((RANDOM % ${#emojis[@]}))]}"
     varied="$varied $random_emoji"
   fi
@@ -103,13 +103,13 @@ vary_emoji() {
   local text="$1"
   local result="$text"
   
-  local emojis=("🚀" "✨" "🔥" "💪" "🎯" "⚡" "🛠️" "🔧" "👀" "💯")
+  local emojis=("" "" "" "" "" "" "" "" "" "")
   local random_emoji="${emojis[$((RANDOM % ${#emojis[@]}))]}"
   
   # Check if text already has emojis
-  if echo "$result" | grep -qE '[🚀✨🔥💪🎯⚡🛠️🔧👀💯]'; then
+  if echo "$result" | grep -qE '[]'; then
     # Remove existing emoji
-    result=$(echo "$result" | sed 's/ [🚀✨🔥💪🎯⚡🛠️🔧👀💯]//g')
+    result=$(echo "$result" | sed 's/ []//g')
   else
     # Add emoji at end
     result="$result $random_emoji"

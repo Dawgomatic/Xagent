@@ -239,7 +239,7 @@ This document defines the severity classification system used for incident respo
 
 ### SEV1 Executive Alert
 ```
-Subject: 🚨 CRITICAL INCIDENT - [Service] Complete Outage
+Subject:  CRITICAL INCIDENT - [Service] Complete Outage
 
 URGENT: Customer-facing service outage requiring immediate attention
 
@@ -261,7 +261,7 @@ This is a customer-impacting incident requiring executive awareness.
 
 ### SEV2 Major Impact
 ```
-Subject: ⚠️ [SEV2] [Service] - Major Performance Impact
+Subject:  [SEV2] [Service] - Major Performance Impact
 
 Major service degradation affecting user experience
 

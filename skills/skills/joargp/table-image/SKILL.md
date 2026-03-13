@@ -1,7 +1,7 @@
 ---
 name: table-image
 description: Generate images from tables for better readability in messaging apps like Telegram. Use when displaying tabular data.
-metadata: {"clawdis":{"emoji":"📊"}}
+metadata: {"clawdis":{"emoji":""}}
 ---
 
 # Table Image Skill
@@ -45,7 +45,7 @@ Then send with `MEDIA:/tmp/table.png`
 
 ## Emoji Support
 
-**Bundled** (work out of the box): ✅ ❌ 🔴 🟢 🟡 ⭕ ⚠️
+**Bundled** (work out of the box):       
 
 **Full emoji** (one-time download):
 ```bash
@@ -60,8 +60,8 @@ Unsupported emoji render as □ until full set is installed.
 # Create table image
 echo "| Task | Status |
 |------|--------|
-| Build | ✅ |
-| Deploy | 🚀 |" | tablesnap -o /tmp/table.png
+| Build |  |
+| Deploy |  |" | tablesnap -o /tmp/table.png
 
 # Send in reply
 MEDIA:/tmp/table.png

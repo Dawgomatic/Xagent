@@ -2,7 +2,7 @@
 name: temp-mail
 description: Temporary email helper backed by Vortex (vortex.email). Use when needing disposable addresses for signup flows: create a mailbox (random localpart), poll for messages, fetch and clear mailboxes.
 homepage: https://vortex.skyfall.dev
-metadata: {"clawdis":{"emoji":"✉️","requires":{"bins":["curl"]}}}
+metadata: {"clawdis":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
 # temp-mail skill

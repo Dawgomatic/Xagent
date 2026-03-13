@@ -16,7 +16,7 @@ P2P file sharing with semantic search. Share any file, find it by content simila
 
 **For features and architecture**, see [README.md](README.md).
 
-## 🚀 Installation
+##  Installation
 
 ### Prerequisites
 
@@ -41,7 +41,7 @@ uv run python client.py --help
 
 > **Note**: Always use `uv run python` instead of `python3`. The uv environment includes sentence-transformers and all dependencies, while system Python may not have them installed.
 
-## 📝 Usage
+##  Usage
 
 ### Seeder Daemon Control
 
@@ -97,7 +97,7 @@ uv run python client.py download \
   --output ./downloads
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -115,7 +115,7 @@ To use custom trackers:
 uv run python client.py share file.txt --trackers "http://tracker1.com,http://tracker2.com"
 ```
 
-## 🔍 Testing Installation
+##  Testing Installation
 
 ```bash
 # Check uv installed
@@ -128,7 +128,7 @@ uv run python client.py --help
 uv run python client.py seeder status
 ```
 
-## 🆘 Troubleshooting
+##  Troubleshooting
 
 **Issue**: `ModuleNotFoundError: No module named 'libtorrent'`
 - **Solution**: Add to pyproject.toml or install: `uv pip install libtorrent`
@@ -146,7 +146,7 @@ uv run python client.py seeder status
 **Issue**: Search returns 0 results
 - **Solution**: Ensure file was shared WITH embedding registration (check tracker logs)
 
-## 📚 Available Commands
+##  Available Commands
 
 ```
 share           - Share a file with semantic search
@@ -159,7 +159,7 @@ generate-magnet - (legacy) Generate magnet without daemon
 setup-identity  - Generate ML-DSA-87 identity
 ```
 
-## 📖 Next Steps
+##  Next Steps
 
 - Read [README.md](README.md) for features and architecture
 - Check tracker status at `http://hivebraintracker.com:8080/api/stats`

@@ -1,4 +1,4 @@
-# 🎲 Boggle Solver — OpenClaw Skill
+#  Boggle Solver — OpenClaw Skill
 
 Fast trie-based DFS Boggle solver for [OpenClaw](https://github.com/openclaw/openclaw).
 

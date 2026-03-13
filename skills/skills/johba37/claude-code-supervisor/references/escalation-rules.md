@@ -37,7 +37,7 @@ Between 23:00 and 08:00 (human's timezone):
 Keep it brief and actionable:
 
 ```
-👷 Supervisor Alert: [session-name]
+ Supervisor Alert: [session-name]
 
 Goal: [original goal]
 Status: [stuck/error/needs-decision]

@@ -6,7 +6,7 @@
 
 An **OpenClaw Plugin + CLI Skill** for automated SonarQube code quality analysis with intelligent issue detection and suggested solutions.
 
-## 🎯 Dual Mode
+##  Dual Mode
 
 This package works in **two modes**:
 
@@ -15,7 +15,7 @@ This package works in **two modes**:
 | **OpenClaw Plugin** | AI agents, automation, cron jobs | Add to `openclaw.json` |
 | **CLI Tool** | Manual analysis, CI/CD scripts | `npm install -g` or `npx` |
 
-## 🎯 Overview
+##  Overview
 
 This skill integrates with SonarQube self-hosted instances to:
 - Fetch and analyze code quality issues
@@ -24,7 +24,7 @@ This skill integrates with SonarQube self-hosted instances to:
 - Check Quality Gate status
 - Distinguish between auto-fixable and manual-fix issues
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Mode 1: OpenClaw Plugin (Recommended for AI Agents)
 
@@ -106,7 +106,7 @@ node scripts/analyze.js --project=my-project --pr=5 --format=markdown
 node scripts/analyze.js --project=my-project --pr=5 --action=quality-gate
 ```
 
-## 📋 Features
+##  Features
 
 ### Issue Analysis
 - Fetches all open issues from SonarQube
@@ -124,12 +124,12 @@ The skill includes a comprehensive rule database with:
 
 | Rule ID | Issue | Auto-fixable |
 |---------|-------|--------------|
-| `typescript:S6606` | Prefer nullish coalescing (`??`) over logical OR (`\|\|`) | ✅ Yes |
-| `typescript:S6749` | Redundant fragment with single child | ✅ Yes |
-| `typescript:S6759` | Props should be marked as `readonly` | ✅ Yes |
-| `typescript:S6571` | Redundant `any` in union types | ✅ Yes |
-| `typescript:S3358` | Nested ternary operations | ❌ No (requires refactoring) |
-| `typescript:S3776` | High cognitive complexity | ❌ No (requires extraction) |
+| `typescript:S6606` | Prefer nullish coalescing (`??`) over logical OR (`\|\|`) |  Yes |
+| `typescript:S6749` | Redundant fragment with single child |  Yes |
+| `typescript:S6759` | Props should be marked as `readonly` |  Yes |
+| `typescript:S6571` | Redundant `any` in union types |  Yes |
+| `typescript:S3358` | Nested ternary operations |  No (requires refactoring) |
+| `typescript:S3776` | High cognitive complexity |  No (requires extraction) |
 
 ### Report Generation
 
@@ -159,8 +159,8 @@ The skill includes a comprehensive rule database with:
 
 **Total Issues:** 12
 
-- 🔧 Auto-fixable: 8
-- 📝 Manual fix required: 4
+-  Auto-fixable: 8
+-  Manual fix required: 4
 
 ## Next Steps
 1. Apply 8 auto-fixable issues
@@ -168,7 +168,7 @@ The skill includes a comprehensive rule database with:
 3. Run lint and typecheck after fixes
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -187,7 +187,7 @@ Options:
   --format=<type>     Output: json | markdown (default: json)
 ```
 
-## 🔌 Architecture
+##  Architecture
 
 ```
 sonarqube-analyzer/
@@ -208,7 +208,7 @@ sonarqube-analyzer/
 
 **Dual-mode design:** The same codebase powers both the CLI tool and the OpenClaw plugin. The `openclaw.plugin.json` declares the tool schema, while `package.json` handles the CLI binary.
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run all tests
@@ -221,7 +221,7 @@ npm run test:coverage
 npm test -- analyze.test.js
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -229,17 +229,17 @@ npm test -- analyze.test.js
 4. Push to branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built for [OpenClaw](https://github.com/openclaw/openclaw)
 - Inspired by SonarQube's code quality philosophy
 - Thanks to the OpenClaw community for feedback and support
 
-## 📞 Support
+##  Support
 
 - **Issues**: [GitHub Issues](https://github.com/FelipeOFF/sonarqube-analyzer/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/FelipeOFF/sonarqube-analyzer/discussions)
@@ -247,4 +247,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ for the OpenClaw community**
+**Made with  for the OpenClaw community**

@@ -317,22 +317,22 @@ def main():
     
     if args.action == "start":
         result = start_journey(args.mode, args.location)
-        msg = f"🚶 Journey started ({args.mode})"
+        msg = f" Journey started ({args.mode})"
     elif args.action == "event":
         if not args.type or not args.content:
             print("Error: --type and --content required", file=sys.stderr)
             sys.exit(1)
         result = add_event(args.type, args.content, args.location)
-        msg = f"📝 Event recorded: {args.type}"
+        msg = f" Event recorded: {args.type}"
     elif args.action == "context":
         result = get_context()
         msg = result.get("summary", "No active journey")
     elif args.action == "checkin":
         result = record_checkin()
-        msg = f"✅ Check-in #{result.get('checkin_count', 0)}"
+        msg = f" Check-in #{result.get('checkin_count', 0)}"
     elif args.action == "checkin-due":
         result = is_checkin_due()
-        msg = "⏰ Check-in due!" if result.get("due") else "⏳ Not yet"
+        msg = " Check-in due!" if result.get("due") else " Not yet"
     elif args.action == "checkin-prompt":
         prompt = get_checkin_prompt()
         result = {"prompt": prompt}
@@ -340,15 +340,15 @@ def main():
     elif args.action == "end":
         result = end_journey(args.reason)
         if "error" not in result:
-            msg = f"🏁 Journey ended: {result.get('total_duration_minutes', 0)} min, {result.get('total_events', 0)} events"
+            msg = f" Journey ended: {result.get('total_duration_minutes', 0)} min, {result.get('total_events', 0)} events"
         else:
             msg = result["error"]
     elif args.action == "status":
         result = get_context()
         if result.get("active"):
-            msg = f"🚶 Active: {result.get('duration_minutes', 0)} min | {result.get('summary', '')}"
+            msg = f" Active: {result.get('duration_minutes', 0)} min | {result.get('summary', '')}"
         else:
-            msg = "💤 No active journey"
+            msg = " No active journey"
     else:
         result = {"error": "Unknown action"}
         msg = "Unknown action"

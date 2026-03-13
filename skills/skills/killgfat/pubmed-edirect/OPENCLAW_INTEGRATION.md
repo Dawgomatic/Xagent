@@ -1,10 +1,10 @@
-# OpenClaw Integration Guide ⚠️
+# OpenClaw Integration Guide 
 
 **Important Security Reminder**: You must complete secure installation steps (see [INSTALL.md](INSTALL.md)) before using this skill. This skill executes external commands and requires careful auditing.
 
 ## Secure Usage Guidelines
 
-### ⚠️ Pre-Execution Checks
+###  Pre-Execution Checks
 Before each use of the `exec` tool, ensure:
 1. Understand the commands to be executed
 2. Confirm EDirect is properly installed

@@ -51,9 +51,9 @@ for wait in wait_times:
 
 | Provider | Max Duration | Text-to-Video | Image-to-Video | Approx. Cost/sec |
 |----------|--------------|---------------|----------------|------------------|
-| Runway Gen-4.5 | 10s | ✅ | ✅ | $0.05 |
-| Luma Ray-2 | 5s | ✅ | ✅ | $0.032 |
-| Kling V2 | 10s | ✅ | ✅ | $0.10 |
-| Pika | 3s | ✅ | ✅ | $0.05 |
-| SVD (local) | ~4s | ❌ | ✅ | Free |
-| Replicate | Varies | Varies | ✅ | $0.02-0.10 |
+| Runway Gen-4.5 | 10s |  |  | $0.05 |
+| Luma Ray-2 | 5s |  |  | $0.032 |
+| Kling V2 | 10s |  |  | $0.10 |
+| Pika | 3s |  |  | $0.05 |
+| SVD (local) | ~4s |  |  | Free |
+| Replicate | Varies | Varies |  | $0.02-0.10 |

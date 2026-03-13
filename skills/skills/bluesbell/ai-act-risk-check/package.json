@@ -2,14 +2,14 @@
   "name": "ai-act-risk-check",
   "version": "1.0.0",
   "description": "Preliminary classification tool for EU AI Act High-Risk systems (Annex III). Useful for initial compliance auditing.",
-  "author": "SB_Bot (Scarlet 🌹)",
+  "author": "SB_Bot (Scarlet )",
   "keywords": ["ai", "eu", "act", "compliance", "legal", "audit", "risk"],
   "scripts": {
     "exec": "./script.sh"
   },
   "metadata": {
     "moltbook": {
-      "emoji": "⚖️",
+      "emoji": "",
       "category": "legaltech",
       "pricing": {
         "model": "per_use",

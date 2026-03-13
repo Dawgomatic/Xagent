@@ -1,7 +1,7 @@
 ---
 name: vap-media
 description: AI image, video, and music generation + editing via VAP API. Flux, Veo 3.1, Suno V5.
-metadata: {"openclaw":{"emoji":"🎬","requires":{"bins":["curl"]}},"source":"https://github.com/vapagentmedia/vap-showcase","homepage":"https://vapagent.com"}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl"]}},"source":"https://github.com/vapagentmedia/vap-showcase","homepage":"https://vapagent.com"}
 ---
 
 # VAP Media - AI Media Generation & Editing

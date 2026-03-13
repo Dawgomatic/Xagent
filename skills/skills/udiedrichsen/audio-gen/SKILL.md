@@ -2,10 +2,10 @@
 name: audio-gen
 description: Generate audiobooks, podcasts, or educational audio content on demand. User provides an idea or topic, Claude AI writes a script, and ElevenLabs converts it to high-quality audio. Supports multiple formats (audiobook, podcast, educational), custom lengths, and voice effects. Use when asked to create audio content, make a podcast, generate an audiobook, or produce educational audio. Returns MP3 audio file via MEDIA token.
 homepage: https://github.com/clawdbot/clawdbot
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"skills":["sag"],"env":["ANTHROPIC_API_KEY","ELEVENLABS_API_KEY"]},"primaryEnv":"ANTHROPIC_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"skills":["sag"],"env":["ANTHROPIC_API_KEY","ELEVENLABS_API_KEY"]},"primaryEnv":"ANTHROPIC_API_KEY"}}
 ---
 
-# 🎙️ Audio Content Generator
+#  Audio Content Generator
 
 Generate high-quality audiobooks, podcasts, or educational audio content on demand using AI-written scripts and ElevenLabs text-to-speech.
 
@@ -484,4 +484,4 @@ Agent: [Generates content that combines storytelling narrative with educational 
 
 ---
 
-💡 **Pro Tip:** Always generate the script first and get user approval before creating audio. This saves time and API costs, and ensures the user gets exactly what they want.
+ **Pro Tip:** Always generate the script first and get user approval before creating audio. This saves time and API costs, and ensures the user gets exactly what they want.

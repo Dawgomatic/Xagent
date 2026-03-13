@@ -631,17 +631,17 @@ QUALITY=$(echo "$RESULT" | jq -r '.quality_score')
 
 # Decision logic
 if [ "$AI_SCORE" -gt 5 ]; then
-  echo "❌ AI detection too high: $AI_SCORE"
+  echo " AI detection too high: $AI_SCORE"
   exit 1
 fi
 
 if [ "$FLAG_SCORE" -gt 5 ]; then
-  echo "❌ Platform risk too high: $FLAG_SCORE"
+  echo " Platform risk too high: $FLAG_SCORE"
   exit 1
 fi
 
 if [ "$QUALITY" -lt 6 ]; then
-  echo "⚠️  Quality below threshold: $QUALITY"
+  echo "  Quality below threshold: $QUALITY"
   exit 1
 fi
 

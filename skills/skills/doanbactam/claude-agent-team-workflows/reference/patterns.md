@@ -8,7 +8,7 @@ Detailed reference for each canonical pipeline pattern with task graphs and hand
 
 ```
 ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
-│ Planner  │───▶│ Builder  │───▶│ Validator │───▶│  Critic  │───▶│   Lead   │
+│ Planner  │───│ Builder  │───│ Validator │───│  Critic  │───│   Lead   │
 │(architect)│   │(developer)│   │ (tester) │    │(reviewer)│    │Synthesis │
 └──────────┘    └──────────┘    └──────────┘    └──────────┘    └──────────┘
 ```
@@ -59,13 +59,13 @@ Task 4 (reviewer): "Critique [artifact + validation]"
 
 ```
                  ┌──────────┐
-             ┌──▶│ Builder  │──┐
+             ┌──│ Builder  │──┐
              │   └──────────┘  │
 ┌──────────┐ │   ┌──────────┐  │   ┌──────────┐    ┌──────────┐
-│ Planner  │─┼──▶│ Validator│──┼──▶│   Lead   │───▶│Validator │
+│ Planner  │─┼──│ Validator│──┼──│   Lead   │───│Validator │
 │(architect)│ │  └──────────┘  │   │  Merge   │    │  Gate    │
 └──────────┘ │   ┌──────────┐  │   └──────────┘    └──────────┘
-             └──▶│  Critic  │──┘
+             └──│  Critic  │──┘
                  └──────────┘
 ```
 
@@ -119,8 +119,8 @@ Task 3 (lead): "Merge analyses into unified recommendation"
 ## 3. iterative-review
 
 ```
-┌──────────┐    ┌──────────┐ ◀─┐    ┌──────────┐    ┌──────────┐
-│ Planner  │───▶│ Builder  │   │───▶│ Validator │───▶│   Lead   │
+┌──────────┐    ┌──────────┐ ─┐    ┌──────────┐    ┌──────────┐
+│ Planner  │───│ Builder  │   │───│ Validator │───│   Lead   │
 │(architect)│   │(developer)│───┘   │ (tester) │    │Synthesis │
 └──────────┘    └──────────┘       └──────────┘    └──────────┘
                   ▲      │
@@ -167,7 +167,7 @@ Task 5 (tester): "Final validation against all acceptance criteria"
 ```
 
 ### Loop Control
-- **Default max:** 2 Builder↔Critic rounds
+- **Default max:** 2 BuilderCritic rounds
 - **Escalation:** If not converging after max rounds, Lead asks user: "Continue iteration or finalize?"
 - **Exit criteria:** Critic's feedback has no critical/major items remaining
 
@@ -177,8 +177,8 @@ Task 5 (tester): "Final validation against all acceptance criteria"
 - Lead decides when to exit loop based on Critic's severity ratings
 
 ### Common Domains
-- Content editing (draft ↔ editor)
-- Design refinement (prototype ↔ review)
+- Content editing (draft  editor)
+- Design refinement (prototype  review)
 - Proposal writing
 - Code review cycles
 
@@ -188,19 +188,19 @@ Task 5 (tester): "Final validation against all acceptance criteria"
 
 ```
                  ┌────────────┐
-             ┌──▶│ Chunk A    │──┐
+             ┌──│ Chunk A    │──┐
              │   │(architect) │  │
              │   └────────────┘  │
 ┌──────────┐ │   ┌────────────┐  │   ┌──────────┐    ┌──────────┐
-│ Planner  │─┼──▶│ Chunk B    │──┼──▶│   Lead   │───▶│  Critic  │
+│ Planner  │─┼──│ Chunk B    │──┼──│   Lead   │───│  Critic  │
 │(architect)│ │  │(developer) │  │   │ Fan-in   │    │  Gate    │
 └──────────┘ │   └────────────┘  │   └──────────┘    └──────────┘
              │   ┌────────────┐  │
-             ├──▶│ Chunk C    │──┤
+             ├──│ Chunk C    │──┤
              │   │ (tester)   │  │
              │   └────────────┘  │
              │   ┌────────────┐  │
-             └──▶│ Chunk D    │──┘
+             └──│ Chunk D    │──┘
                  │(reviewer)  │
                  └────────────┘
 ```
@@ -281,6 +281,6 @@ Is work naturally linear, step-by-step?
 ## Combining Patterns
 
 Patterns can be composed for complex workflows:
-- **sequential + iterative-review:** Plan → (Build ↔ Critique ×2) → Validate → Final
+- **sequential + iterative-review:** Plan → (Build  Critique ×2) → Validate → Final
 - **fan-out-fan-in + sequential:** Decompose → Parallel chunks → Merge → Validate → Critique
-- **parallel-merge + iterative-review:** Frame → Parallel analysis → Merge → (Refine ↔ Critique ×2) → Validate
+- **parallel-merge + iterative-review:** Frame → Parallel analysis → Merge → (Refine  Critique ×2) → Validate

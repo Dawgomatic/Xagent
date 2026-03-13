@@ -26,9 +26,9 @@ MODERATE_PATTERNS='aws_autoscaling|aws_launch_template|aws_cloudwatch|google_com
 ###############################################################################
 # Helpers
 ###############################################################################
-die() { echo "❌ ERROR: $*" >&2; exit 1; }
-warn() { echo "⚠️  WARNING: $*" >&2; }
-info() { echo "ℹ️  $*" >&2; }
+die() { echo " ERROR: $*" >&2; exit 1; }
+warn() { echo "  WARNING: $*" >&2; }
+info() { echo "  $*" >&2; }
 
 json_error() {
   local msg="$1"
@@ -210,20 +210,20 @@ parse_plan_json() {
       # Classify risk
       (
         if ($action_str == "delete" or $action_str == "replace") then
-          if ($rtype | test($crit; "i")) then "🔴 CRITICAL"
-          elif ($rtype | test($dang; "i")) then "🔴 DANGEROUS"
-          else "🟠 DANGEROUS"
+          if ($rtype | test($crit; "i")) then " CRITICAL"
+          elif ($rtype | test($dang; "i")) then " DANGEROUS"
+          else " DANGEROUS"
           end
         elif ($action_str == "update") then
-          if ($rtype | test($crit; "i")) then "🟠 DANGEROUS"
-          elif ($rtype | test($mod; "i")) then "🟡 MODERATE"
-          else "🟡 MODERATE"
+          if ($rtype | test($crit; "i")) then " DANGEROUS"
+          elif ($rtype | test($mod; "i")) then " MODERATE"
+          else " MODERATE"
           end
         elif ($action_str == "create") then
-          if ($rtype | test($crit; "i")) then "🟡 MODERATE"
-          else "🟢 SAFE"
+          if ($rtype | test($crit; "i")) then " MODERATE"
+          else " SAFE"
           end
-        else "🟢 SAFE"
+        else " SAFE"
         end
       ) as $risk |
 
@@ -235,10 +235,10 @@ parse_plan_json() {
         importing: (.importing // null)
       }
     ] | sort_by(
-      if .risk | startswith("🔴 CRITICAL") then 0
-      elif .risk | startswith("🔴 DANGEROUS") then 1
-      elif .risk | startswith("🟠") then 2
-      elif .risk | startswith("🟡") then 3
+      if .risk | startswith(" CRITICAL") then 0
+      elif .risk | startswith(" DANGEROUS") then 1
+      elif .risk | startswith("") then 2
+      elif .risk | startswith("") then 3
       else 4
       end
     )
@@ -246,18 +246,18 @@ parse_plan_json() {
 
   # Calculate overall risk score
   local critical_count dangerous_count moderate_count safe_count
-  critical_count=$(echo "$classified_resources" | jq '[.[] | select(.risk | startswith("🔴 CRITICAL"))] | length' 2>/dev/null || echo "0")
+  critical_count=$(echo "$classified_resources" | jq '[.[] | select(.risk | startswith(" CRITICAL"))] | length' 2>/dev/null || echo "0")
   dangerous_count=$(echo "$classified_resources" | jq '[.[] | select(.risk | contains("DANGEROUS"))] | length' 2>/dev/null || echo "0")
-  moderate_count=$(echo "$classified_resources" | jq '[.[] | select(.risk | startswith("🟡"))] | length' 2>/dev/null || echo "0")
-  safe_count=$(echo "$classified_resources" | jq '[.[] | select(.risk | startswith("🟢"))] | length' 2>/dev/null || echo "0")
+  moderate_count=$(echo "$classified_resources" | jq '[.[] | select(.risk | startswith(""))] | length' 2>/dev/null || echo "0")
+  safe_count=$(echo "$classified_resources" | jq '[.[] | select(.risk | startswith(""))] | length' 2>/dev/null || echo "0")
 
-  local overall_risk="🟢 LOW"
+  local overall_risk=" LOW"
   if [[ "$critical_count" -gt 0 ]]; then
-    overall_risk="🔴 CRITICAL"
+    overall_risk=" CRITICAL"
   elif [[ "$dangerous_count" -gt 0 ]]; then
-    overall_risk="🔴 HIGH"
+    overall_risk=" HIGH"
   elif [[ "$moderate_count" -gt 0 ]]; then
-    overall_risk="🟡 MODERATE"
+    overall_risk=" MODERATE"
   fi
 
   # Extract diagnostics/warnings from plan
@@ -312,7 +312,7 @@ parse_plan_json() {
       resources: $resources,
       drift: $drift,
       diagnostics: $diagnostics,
-      footer: "Powered by CacheForge 🔍"
+      footer: "Powered by CacheForge "
     }'
 
   # Also output Markdown report to stderr
@@ -334,7 +334,7 @@ generate_markdown_report() {
 
   cat <<HEADER
 
-# 🔍 Terraform Plan Risk Assessment
+#  Terraform Plan Risk Assessment
 
 **Directory:** \`$dir\`
 **Binary:** \`$tf\`
@@ -342,38 +342,38 @@ generate_markdown_report() {
 
 ---
 
-## 📊 Change Summary
+##  Change Summary
 
 | Action | Count |
 |--------|-------|
-| ➕ Create | $creates |
-| ✏️  Update | $updates |
-| 💥 Destroy | $destroys |
-| 🔄 Replace (destroy+create) | $replaces |
+|  Create | $creates |
+|   Update | $updates |
+|  Destroy | $destroys |
+|  Replace (destroy+create) | $replaces |
 | **Total Changes** | **$total** |
 
 HEADER
 
   if [[ "$drift" -gt 0 ]]; then
-    echo "⚠️  **Drift detected:** $drift resource(s) have changed outside of Terraform."
+    echo "  **Drift detected:** $drift resource(s) have changed outside of Terraform."
     echo ""
   fi
 
   cat <<RISK
-## 🎯 Risk Breakdown
+##  Risk Breakdown
 
 | Risk Level | Count |
 |------------|-------|
-| 🔴 Critical | $critical |
-| 🟠 Dangerous | $dangerous |
-| 🟡 Moderate | $moderate |
-| 🟢 Safe | $safe |
+|  Critical | $critical |
+|  Dangerous | $dangerous |
+|  Moderate | $moderate |
+|  Safe | $safe |
 
 RISK
 
   # Show critical and dangerous resources prominently
   if [[ "$critical" -gt 0 || "$dangerous" -gt 0 ]]; then
-    echo "## 🚨 HIGH-RISK CHANGES — REVIEW CAREFULLY"
+    echo "##  HIGH-RISK CHANGES — REVIEW CAREFULLY"
     echo ""
     echo "| Risk | Action | Resource |"
     echo "|------|--------|----------|"
@@ -386,22 +386,22 @@ RISK
 
   # Show destroys prominently
   if [[ "$destroys" -gt 0 || "$replaces" -gt 0 ]]; then
-    echo "## 💀 RESOURCES BEING DESTROYED"
+    echo "##  RESOURCES BEING DESTROYED"
     echo ""
     echo "**The following resources will be PERMANENTLY DELETED:**"
     echo ""
     echo "$resources" | jq -r '
       .[] | select(.action == "delete" or .action == "replace") |
-      "- ⛔ `\(.address)` — \(.action)"
+      "-  `\(.address)` — \(.action)"
     ' 2>/dev/null
     echo ""
-    echo "> ⚠️  **Destruction is irreversible.** Verify backups exist for any stateful resources above."
+    echo ">   **Destruction is irreversible.** Verify backups exist for any stateful resources above."
     echo ""
   fi
 
   # Show all changes in a table
   if [[ "$total" -gt 0 ]]; then
-    echo "## 📋 All Resource Changes"
+    echo "##  All Resource Changes"
     echo ""
     echo "| Risk | Action | Resource |"
     echo "|------|--------|----------|"
@@ -414,7 +414,7 @@ RISK
 
   # Drift section
   if [[ "$drift" -gt 0 ]]; then
-    echo "## 🔀 Drift Detected"
+    echo "##  Drift Detected"
     echo ""
     echo "These resources were changed outside of Terraform:"
     echo ""
@@ -429,14 +429,14 @@ RISK
   local diag_count
   diag_count=$(echo "$diagnostics" | jq 'length' 2>/dev/null || echo "0")
   if [[ "$diag_count" -gt 0 ]]; then
-    echo "## ⚠️  Diagnostics"
+    echo "##   Diagnostics"
     echo ""
     echo "$diagnostics" | jq -r '.[] | "- **\(.severity):** \(.summary)"' 2>/dev/null
     echo ""
   fi
 
   # Pre-apply checklist
-  echo "## ✅ Pre-Apply Checklist"
+  echo "##  Pre-Apply Checklist"
   echo ""
   if [[ "$destroys" -gt 0 || "$replaces" -gt 0 ]]; then
     echo "- [ ] **Backups verified** for all resources being destroyed/replaced"
@@ -454,13 +454,13 @@ RISK
   echo "- [ ] **Rollback plan** documented in case of failure"
   echo "- [ ] **Monitoring/alerts** in place for affected services"
   if [[ "$total" -eq 0 ]]; then
-    echo "- [x] **No changes detected** — plan is a no-op ✨"
+    echo "- [x] **No changes detected** — plan is a no-op "
   fi
   echo ""
 
   echo "---"
   echo ""
-  echo "*Powered by CacheForge 🔍*"
+  echo "*Powered by CacheForge *"
 }
 
 ###############################################################################
@@ -493,7 +493,7 @@ cmd_state() {
       total_resources: 0,
       resources: [],
       message: "State is empty — no managed resources.",
-      footer: "Powered by CacheForge 🔍"
+      footer: "Powered by CacheForge "
     }'
     return
   fi
@@ -511,7 +511,7 @@ cmd_state() {
         total_resources: 0,
         resources: [],
         message: "No resources match filter.",
-        footer: "Powered by CacheForge 🔍"
+        footer: "Powered by CacheForge "
       }'
       return
     fi
@@ -554,13 +554,13 @@ cmd_state() {
       filter: (if $filter == "" then null else $filter end),
       total_resources: $total,
       resources: $resources,
-      footer: "Powered by CacheForge 🔍"
+      footer: "Powered by CacheForge "
     }'
 
   # Markdown to stderr
   {
     echo ""
-    echo "# 📦 Terraform State Inspection"
+    echo "#  Terraform State Inspection"
     echo ""
     echo "**Directory:** \`$dir\`"
     if [[ -n "$filter" ]]; then
@@ -574,7 +574,7 @@ cmd_state() {
     echo ""
     echo "---"
     echo ""
-    echo "*Powered by CacheForge 🔍*"
+    echo "*Powered by CacheForge *"
   } >&2
 }
 
@@ -641,16 +641,16 @@ cmd_validate() {
       error_count: $errors,
       warning_count: $warnings,
       diagnostics: $diagnostics,
-      footer: "Powered by CacheForge 🔍"
+      footer: "Powered by CacheForge "
     }'
 
   # Markdown to stderr
   {
     echo ""
     if [[ "$valid" == "true" ]]; then
-      echo "# ✅ Terraform Configuration Valid"
+      echo "#  Terraform Configuration Valid"
     else
-      echo "# ❌ Terraform Configuration Invalid"
+      echo "#  Terraform Configuration Invalid"
     fi
     echo ""
     echo "**Directory:** \`$dir\`"
@@ -662,7 +662,7 @@ cmd_validate() {
     echo ""
     echo "---"
     echo ""
-    echo "*Powered by CacheForge 🔍*"
+    echo "*Powered by CacheForge *"
   } >&2
 }
 
@@ -698,7 +698,7 @@ SAFETY:
   It NEVER runs terraform apply.
   It NEVER modifies terraform state.
 
-Powered by CacheForge 🔍
+Powered by CacheForge 
 EOF
   exit 0
 }

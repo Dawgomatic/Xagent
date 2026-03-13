@@ -28,14 +28,14 @@ def print_banner():
     print(f"""
 {Colors.CYAN}{Colors.BOLD}╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
-║   🎙️  ElevenLabs Voices - Setup Wizard                    ║
+║     ElevenLabs Voices - Setup Wizard                    ║
 ║                                                           ║
 ╚═══════════════════════════════════════════════════════════╝{Colors.RESET}
 """)
     print(f"{Colors.DIM}Welcome! Let's configure your ElevenLabs integration.{Colors.RESET}")
     print(f"{Colors.DIM}This will create a config.json file in the skill directory.{Colors.RESET}")
     print()
-    print(f"{Colors.GREEN}🔒 Privacy: Your API key is stored locally only.{Colors.RESET}")
+    print(f"{Colors.GREEN} Privacy: Your API key is stored locally only.{Colors.RESET}")
     print(f"{Colors.GREEN}   It never leaves your machine and is in .gitignore.{Colors.RESET}")
     print()
 
@@ -251,7 +251,7 @@ def main():
     
     # Check if config already exists
     if config_path.exists():
-        print(f"\n{Colors.YELLOW}⚠ Configuration already exists at: {config_path}{Colors.RESET}")
+        print(f"\n{Colors.YELLOW} Configuration already exists at: {config_path}{Colors.RESET}")
         if not get_yes_no("Do you want to reconfigure?", default=False):
             print(f"{Colors.DIM}Setup cancelled. Existing config preserved.{Colors.RESET}")
             return 0

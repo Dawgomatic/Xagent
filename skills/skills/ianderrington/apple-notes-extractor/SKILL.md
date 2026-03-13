@@ -1,7 +1,7 @@
 ---
 name: apple-notes
 description: Extract and monitor Apple Notes content for workflow integration. Supports bulk extraction, real-time monitoring, and export to various formats.
-metadata: {"openclaw": {"requires": {"bins": ["python3", "osascript"]}, "emoji": "📝"}}
+metadata: {"openclaw": {"requires": {"bins": ["python3", "osascript"]}, "emoji": ""}}
 ---
 
 # Apple Notes Skill
@@ -85,15 +85,15 @@ Edit `configs/monitor.json` for:
 
 ## Features
 
-- ✅ Extract text content from all notes
-- ✅ Handle embedded images and attachments  
-- ✅ Process note metadata (dates, folders)
-- ✅ Multiple output formats (JSON, Markdown, SQLite)
-- ✅ Real-time monitoring for changes
-- ✅ Privacy-first design with local processing
-- ✅ Integration with knowledge management tools
-- ✅ Automatic deduplication
-- ✅ Incremental updates
+-  Extract text content from all notes
+-  Handle embedded images and attachments  
+-  Process note metadata (dates, folders)
+-  Multiple output formats (JSON, Markdown, SQLite)
+-  Real-time monitoring for changes
+-  Privacy-first design with local processing
+-  Integration with knowledge management tools
+-  Automatic deduplication
+-  Incremental updates
 
 ## Output Formats
 

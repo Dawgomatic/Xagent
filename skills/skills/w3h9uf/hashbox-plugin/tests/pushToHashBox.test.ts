@@ -30,7 +30,7 @@ describe("sendHashBoxNotification", () => {
     vi.stubGlobal("fetch", fetchMock);
 
     const result = await sendHashBoxNotification(
-      "article", "News", "📰", "Test Article", "This is a test body"
+      "article", "News", "", "Test Article", "This is a test body"
     );
 
     expect(result.status).toBe(200);
@@ -45,7 +45,7 @@ describe("sendHashBoxNotification", () => {
     expect(sentBody).toEqual({
       type: "article",
       channelName: "News",
-      channelIcon: "📰",
+      channelIcon: "",
       title: "Test Article",
       body: "This is a test body",
     });
@@ -64,7 +64,7 @@ describe("sendHashBoxNotification", () => {
     ];
 
     const result = await sendHashBoxNotification(
-      "metric", "System Monitor", "📊", "Server Stats", metrics
+      "metric", "System Monitor", "", "Server Stats", metrics
     );
 
     expect(result.status).toBe(200);
@@ -75,7 +75,7 @@ describe("sendHashBoxNotification", () => {
     expect(sentBody).toEqual({
       type: "metric",
       channelName: "System Monitor",
-      channelIcon: "📊",
+      channelIcon: "",
       title: "Server Stats",
       metrics,
     });
@@ -94,7 +94,7 @@ describe("sendHashBoxNotification", () => {
     ];
 
     const result = await sendHashBoxNotification(
-      "audit", "Audit Log", "🔍", "User Change", entries
+      "audit", "Audit Log", "", "User Change", entries
     );
 
     expect(result.status).toBe(200);
@@ -105,7 +105,7 @@ describe("sendHashBoxNotification", () => {
     expect(sentBody).toEqual({
       type: "audit",
       channelName: "Audit Log",
-      channelIcon: "🔍",
+      channelIcon: "",
       title: "User Change",
       entries,
     });
@@ -113,7 +113,7 @@ describe("sendHashBoxNotification", () => {
 
   it("should throw when config file is missing", async () => {
     await expect(
-      sendHashBoxNotification("article", "Ch", "📰", "Title", "Body")
+      sendHashBoxNotification("article", "Ch", "", "Title", "Body")
     ).rejects.toThrow("HashBox config not found");
   });
 
@@ -124,7 +124,7 @@ describe("sendHashBoxNotification", () => {
     vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new Error("fetch failed")));
 
     const result = await sendHashBoxNotification(
-      "article", "News", "📰", "Test", "Body"
+      "article", "News", "", "Test", "Body"
     );
     expect(result.status).toBe(0);
     expect(result.message).toContain("Network error");
@@ -139,7 +139,7 @@ describe("sendHashBoxNotification", () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(mockResponse));
 
     const result = await sendHashBoxNotification(
-      "article", "News", "📰", "Test", "Body"
+      "article", "News", "", "Test", "Body"
     );
     expect(result.status).toBe(403);
     expect(result.message).toBe("Request failed with status 403");
@@ -154,7 +154,7 @@ describe("sendHashBoxNotification", () => {
     vi.stubGlobal("fetch", fetchMock);
 
     await sendHashBoxNotification(
-      "article", "News", "📰", "Test", "Body"
+      "article", "News", "", "Test", "Body"
     );
 
     const sentBody = JSON.parse(

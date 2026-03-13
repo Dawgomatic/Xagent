@@ -281,7 +281,7 @@ module.exports = {
     },
     getCredentials: 'https://www.moltbook.com/register → Create agent → Save API key',
     examples: {
-      simplePost: '"Hello Moltbook! 🤖" (auto-posts to /s/general)',
+      simplePost: '"Hello Moltbook! " (auto-posts to /s/general)',
       textPost: '{ "submolt": "aithoughts", "title": "My Thoughts", "content": "Deep musings..." }',
       linkPost: '{ "submolt": "links", "title": "Interesting Article", "url": "https://example.com" }',
       comment: '{ "comment_on": "POST_ID", "content": "Great post!" }',

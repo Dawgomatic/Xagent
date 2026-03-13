@@ -57,7 +57,7 @@ def format_market(market: dict, include_description: bool = True) -> str:
     """Format a single market (PolyEdge-style: question, prices, volume, endDate, resolutionSource)."""
     lines = []
     question = market.get("question") or market.get("title", "Unknown")
-    lines.append(f"📊 **{question}**")
+    lines.append(f" **{question}**")
     # Prices: support outcomePrices as list or JSON string (like PolyEdge types)
     outcomes = market.get("outcomes", [])
     prices = market.get("outcomePrices") or market.get("outcome_prices")
@@ -106,7 +106,7 @@ def format_market(market: dict, include_description: bool = True) -> str:
     # Link: market slug -> polymarket.com/market/{slug}; event slug -> event
     slug = market.get("slug") or market.get("market_slug")
     if slug:
-        lines.append(f"   🔗 polymarket.com/market/{slug}")
+        lines.append(f"    polymarket.com/market/{slug}")
     return "\n".join(lines)
 
 
@@ -114,7 +114,7 @@ def format_event(event: dict) -> str:
     lines = []
 
     title = event.get("title", "Unknown Event")
-    lines.append(f"🎯 **{title}**")
+    lines.append(f" **{title}**")
 
     # Event-level info
     volume = event.get("volume")
@@ -146,7 +146,7 @@ def format_event(event: dict) -> str:
 
     slug = event.get("slug")
     if slug:
-        lines.append(f"   🔗 polymarket.com/event/{slug}")
+        lines.append(f"    polymarket.com/event/{slug}")
 
     return "\n".join(lines)
 
@@ -162,7 +162,7 @@ def cmd_trending(args):
 
     data = fetch("/events", params)
 
-    print(f"🔥 **Trending on Polymarket**\n")
+    print(f" **Trending on Polymarket**\n")
 
     for event in data:
         print(format_event(event))
@@ -190,7 +190,7 @@ def find_market_by_slug(args):
                 else data.get("events", data.get("markets", []))
             )
 
-            print(f"🔍 **Search: '{args.query}'**\n")
+            print(f" **Search: '{args.query}'**\n")
 
             if not events:
                 print("No markets found.")
@@ -227,7 +227,7 @@ def cmd_search(args):
                 else data.get("events", data.get("markets", []))
             )
 
-            print(f"🔍 **Search: '{args.query}'**\n")
+            print(f" **Search: '{args.query}'**\n")
 
             if not events:
                 print("No markets found.")
@@ -262,7 +262,7 @@ def cmd_search(args):
                 matches.append(event)
                 break
 
-    print(f"🔍 **Search: '{args.query}'**\n")
+    print(f" **Search: '{args.query}'**\n")
 
     if not matches:
         print("No markets found.")
@@ -286,14 +286,14 @@ def cmd_event(args):
         # Show more detail on markets
         markets = data.get("markets", [])
         if markets:
-            print(f"\n📊 **All Markets:**\n")
+            print(f"\n **All Markets:**\n")
             for m in markets:
                 print(format_market(m))
                 print()
 
     except requests.HTTPError as e:
         if e.response.status_code == 404:
-            print(f"❌ Event not found: {args.slug}")
+            print(f" Event not found: {args.slug}")
         else:
             raise
 
@@ -338,7 +338,7 @@ def cmd_category(args):
         if tag_lower in title or tag_lower in " ".join(tags):
             matches.append(event)
 
-    print(f"📁 **Category: {args.category.title()}**\n")
+    print(f" **Category: {args.category.title()}**\n")
 
     if not matches:
         # Show all instead
@@ -359,7 +359,7 @@ def cmd_market(args):
         print(format_market(data))
     except requests.HTTPError as e:
         if e.response.status_code == 404:
-            print(f"❌ Market not found: {args.slug}")
+            print(f" Market not found: {args.slug}")
         else:
             raise
 
@@ -375,7 +375,7 @@ def cmd_markets(args):
     }
     data = fetch("/markets", params)
     title = "Closed" if getattr(args, "closed", False) else "Active"
-    print(f"📋 **Polymarket markets ({title}, order={params['order']})**\n")
+    print(f" **Polymarket markets ({title}, order={params['order']})**\n")
     if not data:
         print("No markets found.")
         return
@@ -448,10 +448,10 @@ def main():
     try:
         commands[args.command](args)
     except requests.RequestException as e:
-        print(f"❌ API Error: {e}", file=sys.stderr)
+        print(f" API Error: {e}", file=sys.stderr)
         sys.exit(1)
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

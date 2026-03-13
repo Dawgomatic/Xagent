@@ -11,7 +11,7 @@ const TEST_DIR = '/tmp/clawlink-test';
 const identity = JSON.parse(readFileSync(`${TEST_DIR}/identity.json`, 'utf8'));
 const { friends } = JSON.parse(readFileSync(`${TEST_DIR}/friends.json`, 'utf8'));
 
-console.log('📥 Polling as Matt Test...');
+console.log(' Polling as Matt Test...');
 console.log('='.repeat(50));
 
 try {

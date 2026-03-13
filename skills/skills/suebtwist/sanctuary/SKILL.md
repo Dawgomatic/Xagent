@@ -3,7 +3,7 @@ name: sanctuary
 description: Continuity is here. Cryptographic identity continuity and permanent encrypted memory for AI agents. Verify any agent's identity with zero setup.
 metadata:
   openclaw:
-    emoji: "🏛️"
+    emoji: ""
 ---
 
 # Sanctuary

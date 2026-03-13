@@ -19,7 +19,7 @@ NC='\033[0m'
 # Help text
 usage() {
     cat << EOF
-Kindroid CLI v${VERSION} 🤖
+Kindroid CLI v${VERSION} 
 
 Usage: 
     $(basename $0) <command> [options] [arguments]

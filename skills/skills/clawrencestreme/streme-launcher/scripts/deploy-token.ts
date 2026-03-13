@@ -250,12 +250,12 @@ async function main() {
   const receipt = await publicClient.waitForTransactionReceipt({ hash });
 
   if (receipt.status === 'success') {
-    console.log('\n✅ Token deployed successfully!');
+    console.log('\n Token deployed successfully!');
     console.log(`Token: ${predictedToken}`);
     console.log(`TX: https://basescan.org/tx/${hash}`);
     console.log(`View: https://streme.fun/token/${predictedToken}`);
   } else {
-    console.error('❌ Deployment failed');
+    console.error(' Deployment failed');
     process.exit(1);
   }
 }

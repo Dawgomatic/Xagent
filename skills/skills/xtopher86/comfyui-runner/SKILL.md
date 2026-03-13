@@ -1,7 +1,7 @@
 ---
 name: comfyui-runner
 description: Start/stop/status for a ComfyUI instance.
-metadata: {"clawdbot":{"emoji":"🧩","requires":{"bins":["node","curl"]},"entry":"bin/cli.js"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node","curl"]},"entry":"bin/cli.js"}}
 ---
 
 # comfyui-runner

@@ -127,7 +127,7 @@ def main():
     
     # 下载视频
     if args.video:
-        print(f"\n📹 下载视频 ({len(args.video)} 个):")
+        print(f"\n 下载视频 ({len(args.video)} 个):")
         for i, url in enumerate(args.video):
             ext = get_extension_from_url(url, ".mp4")
             suffix = f"_{i+1}" if len(args.video) > 1 else ""
@@ -141,7 +141,7 @@ def main():
     
     # 下载音频
     if args.audio:
-        print(f"\n🎵 下载音频 ({len(args.audio)} 个):")
+        print(f"\n 下载音频 ({len(args.audio)} 个):")
         for i, url in enumerate(args.audio):
             ext = get_extension_from_url(url, ".mp3")
             suffix = f"_{i+1}" if len(args.audio) > 1 else ""
@@ -155,7 +155,7 @@ def main():
     
     # 下载图片
     if args.image:
-        print(f"\n🖼️  下载图片 ({len(args.image)} 个):")
+        print(f"\n  下载图片 ({len(args.image)} 个):")
         for i, url in enumerate(args.image):
             ext = get_extension_from_url(url, ".jpg")
             filename = f"{name}_{i+1}_{timestamp}{ext}"
@@ -168,7 +168,7 @@ def main():
     
     # 下载缩略图
     if args.thumbnail:
-        print(f"\n🖼️  下载缩略图:")
+        print(f"\n  下载缩略图:")
         url = args.thumbnail
         ext = get_extension_from_url(url, ".jpg")
         filename = f"{name}_thumbnail_{timestamp}{ext}"

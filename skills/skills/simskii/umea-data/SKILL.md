@@ -7,7 +7,7 @@ Query open data from Umeå kommun about locations, facilities, demographics, env
 
 ## Available Data Categories
 
-### 🏞️ Recreation & Facilities
+###  Recreation & Facilities
 
 #### **Lekplatser (Playgrounds)**
 - Dataset ID: `gop_lekparker`
@@ -39,7 +39,7 @@ Query open data from Umeå kommun about locations, facilities, demographics, env
 - Fields: tree type, location, management data
 - Example: "Vilka träd finns i området?"
 
-### ⚡ Infrastructure
+###  Infrastructure
 
 #### **Laddplatser (EV Charging Stations)**
 - Dataset ID: `laddplatser`
@@ -53,7 +53,7 @@ Query open data from Umeå kommun about locations, facilities, demographics, env
 - Fields: popularnamn (name), koordinat (coordinates)
 - Example: "Var finns gratis wifi i Umeå?"
 
-### 🏗️ Building & Planning
+###  Building & Planning
 
 #### **Bygglov Beslut (Building Permit Decisions)**
 - Dataset ID: `bygglov-beslut`
@@ -67,7 +67,7 @@ Query open data from Umeå kommun about locations, facilities, demographics, env
 - Fields: application details, submission date, status
 - Example: "Hur många bygglovsansökningar har kommit in?"
 
-### 📊 Demographics & Statistics
+###  Demographics & Statistics
 
 #### **Befolkningsförändringar (Population Changes)**
 - Dataset ID: `befolkningsfoeraendringar-helar`
@@ -81,7 +81,7 @@ Query open data from Umeå kommun about locations, facilities, demographics, env
 - Fields: house type, count, area
 - Example: "Hur ser bostadsbeståndet ut?"
 
-### 🌍 Environment
+###  Environment
 
 #### **Växthusgasutsläpp (Greenhouse Gas Emissions)**
 - Dataset ID: `vaxthusgasutslapp_umea`

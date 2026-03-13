@@ -59,7 +59,7 @@ Examples:
 async function deleteSite(apiKey, pid) {
   const url = `${API_BASE}/${pid}`;
   
-  console.log(`🗑️  Deleting site: ${pid}...\n`);
+  console.log(`  Deleting site: ${pid}...\n`);
   
   const response = await fetch(url, {
     method: 'DELETE',
@@ -100,7 +100,7 @@ async function confirmDeletion(pid) {
   });
 
   return new Promise((resolve) => {
-    rl.question(`⚠️  Are you sure you want to delete site "${pid}"? (yes/no): `, (answer) => {
+    rl.question(`  Are you sure you want to delete site "${pid}"? (yes/no): `, (answer) => {
       rl.close();
       resolve(answer.toLowerCase() === 'yes');
     });
@@ -111,13 +111,13 @@ async function main() {
   const options = parseArgs();
   
   if (!options.apiKey) {
-    console.error('❌ Error: API key required. Provide --api-key or set STATIC_APP_API_KEY env var.');
+    console.error(' Error: API key required. Provide --api-key or set STATIC_APP_API_KEY env var.');
     console.error('   Get your API key at: https://static.app/account/api');
     process.exit(1);
   }
   
   if (!options.pid) {
-    console.error('❌ Error: PID required. Provide PID as argument or use --pid.');
+    console.error(' Error: PID required. Provide PID as argument or use --pid.');
     console.error('   Example: node delete.js abc123');
     process.exit(1);
   }
@@ -126,7 +126,7 @@ async function main() {
   if (!options.force) {
     const confirmed = await confirmDeletion(options.pid);
     if (!confirmed) {
-      console.log('\n❌ Deletion cancelled.');
+      console.log('\n Deletion cancelled.');
       process.exit(0);
     }
   }
@@ -134,10 +134,10 @@ async function main() {
   try {
     const result = await deleteSite(options.apiKey, options.pid);
     
-    console.log(`✅ Site "${options.pid}" deleted successfully!`);
+    console.log(` Site "${options.pid}" deleted successfully!`);
     
   } catch (error) {
-    console.error(`❌ Failed to delete site: ${error.message}`);
+    console.error(` Failed to delete site: ${error.message}`);
     process.exit(1);
   }
 }

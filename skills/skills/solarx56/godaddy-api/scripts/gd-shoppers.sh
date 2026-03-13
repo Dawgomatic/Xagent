@@ -46,7 +46,7 @@ case "$cmd" in
 
   delete)
     shopper_id="${1:?shopperId required}"
-    echo "⚠️  WARNING: This will delete shopper ${shopper_id}." >&2
+    echo "  WARNING: This will delete shopper ${shopper_id}." >&2
     confirm "Continue?" || { echo "Aborted." >&2; exit 1; }
     gd_api DELETE "/v1/shoppers/${shopper_id}" | jq .
     ;;

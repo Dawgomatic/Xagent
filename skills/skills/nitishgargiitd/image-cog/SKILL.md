@@ -3,7 +3,7 @@ name: image-cog
 description: AI image generation powered by CellCog. Create images, edit photos, consistent characters, product photography, reference-based images, sets of images, style transfer. Professional image creation with AI.
 metadata:
   openclaw:
-    emoji: "🎨"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

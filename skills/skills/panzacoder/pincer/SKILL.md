@@ -4,7 +4,7 @@ description: Security-first wrapper for installing agent skills. Scans for malwa
 homepage: https://github.com/panzacoder/pincer
 metadata:
   openclaw:
-    emoji: "🦞"
+    emoji: ""
     requires:
       bins: ["pincer"]
     install:
@@ -16,7 +16,7 @@ metadata:
           mkdir -p ~/.local/bin
           ln -sf "${SKILL_DIR}/scripts/pincer.sh" ~/.local/bin/pincer
           echo ""
-          echo "✅ pincer installed!"
+          echo " pincer installed!"
           echo ""
           echo "Make sure ~/.local/bin is in your PATH:"
           echo '  export PATH="$HOME/.local/bin:$PATH"'
@@ -28,7 +28,7 @@ metadata:
           echo ""
 ---
 
-# pincer 🛡️
+# pincer 
 
 Security-first wrapper for `clawhub install`. Scans skills for malware, prompt injection, and suspicious patterns before installation.
 
@@ -142,15 +142,15 @@ pincer config reset
 ### Additional Pattern Detection
 | Pattern | Risk | Description |
 |---------|------|-------------|
-| Base64 commands | 🚨 High | Encoded shell commands |
-| Hex payloads | 🚨 High | Obfuscated binary data |
-| `xattr -d quarantine` | 🚨 High | macOS Gatekeeper bypass |
-| `curl \| sh` | 🚨 High | Pipe to shell execution |
-| Password archives | 🚨 High | Hidden malicious payloads |
-| Download + execute | ⚠️ Medium | `chmod +x && ./` patterns |
-| `eval $var` | ⚠️ Medium | Dynamic code execution |
-| Hidden files | ⚠️ Medium | Dot-file creation |
-| Persistence | ⚠️ Medium | cron/launchd entries |
+| Base64 commands |  High | Encoded shell commands |
+| Hex payloads |  High | Obfuscated binary data |
+| `xattr -d quarantine` |  High | macOS Gatekeeper bypass |
+| `curl \| sh` |  High | Pipe to shell execution |
+| Password archives |  High | Hidden malicious payloads |
+| Download + execute |  Medium | `chmod +x && ./` patterns |
+| `eval $var` |  Medium | Dynamic code execution |
+| Hidden files |  Medium | Dot-file creation |
+| Persistence |  Medium | cron/launchd entries |
 
 ### Publisher & Provenance
 - Publisher reputation (trusted list)
@@ -166,11 +166,11 @@ pincer config reset
 
 | Level | Meaning | Action |
 |-------|---------|--------|
-| ✅ **CLEAN** | No issues | Auto-approve if trusted publisher |
-| ⚠️ **CAUTION** | Warnings present | Prompt for approval |
-| 🚨 **DANGER** | Suspicious patterns | Block (override with `--force`) |
-| ☠️ **MALWARE** | Known malicious | Block (cannot override) |
-| ⛔ **BLOCKED** | On blocklist | Block (cannot override) |
+|  **CLEAN** | No issues | Auto-approve if trusted publisher |
+|  **CAUTION** | Warnings present | Prompt for approval |
+|  **DANGER** | Suspicious patterns | Block (override with `--force`) |
+|  **MALWARE** | Known malicious | Block (cannot override) |
+|  **BLOCKED** | On blocklist | Block (cannot override) |
 
 ## Configuration
 
@@ -203,61 +203,61 @@ Config: `~/.config/pincer/config.json`
 ### Clean Install
 ```
 $ pincer install bird
-🛡️ pincer v1.0.0
+ pincer v1.0.0
 
   → Fetching bird from ClawHub...
   Publisher: steipete (trusted)
   Stats: 7363 downloads · 27 ★ · created 1 month ago
 
-🛡️ pincer Scanning bird...
+ pincer Scanning bird...
 
   → Running mcp-scan...
-  ✅ mcp-scan: passed
+   mcp-scan: passed
   → Checking for suspicious patterns...
-  ✅ Pattern check: passed
+   Pattern check: passed
   → Checking external URLs...
-  ✅ URL check: passed
+   URL check: passed
   → Checking for bundled binaries...
-  ✅ Binary check: passed
+   Binary check: passed
 
 Risk Assessment:
-  ✅ CLEAN — No issues detected
+   CLEAN — No issues detected
 
   → Auto-approved (clean + trusted config).
   → Installing bird...
-  ✅ Installed successfully!
+   Installed successfully!
 ```
 
 ### Dangerous Skill Blocked
 ```
 $ pincer install sketchy-tool
-🛡️ pincer v1.0.0
+ pincer v1.0.0
 
   → Fetching sketchy-tool from ClawHub...
   Publisher: newaccount (unknown)
   Stats: 12 downloads · 0 ★ · created 2 days ago
 
-🛡️ pincer Scanning sketchy-tool...
+ pincer Scanning sketchy-tool...
 
   → Running mcp-scan...
-  🚨 mcp-scan: high-risk warnings
+   mcp-scan: high-risk warnings
   → Checking for suspicious patterns...
-  🚨 Pattern check: suspicious patterns found
+   Pattern check: suspicious patterns found
     • curl/wget piped to shell
     • macOS quarantine removal (xattr)
   → Checking external URLs...
-  ⚠️ URL check: external URLs found
+   URL check: external URLs found
     • http://sketchy-domain.xyz/install
   → Checking for bundled binaries...
-  ✅ Binary check: passed
+   Binary check: passed
 
 Risk Assessment:
-  🚨 DANGER — Suspicious patterns detected
+   DANGER — Suspicious patterns detected
     • mcp-scan: high-risk patterns detected
     • curl/wget piped to shell
     • macOS quarantine removal (xattr)
 
-  ☠️ Install blocked. Use --force to override (not recommended).
+   Install blocked. Use --force to override (not recommended).
 ```
 
 ## Credits
@@ -272,4 +272,4 @@ MIT
 
 ---
 
-**Stay safe out there.** 🛡️
+**Stay safe out there.** 

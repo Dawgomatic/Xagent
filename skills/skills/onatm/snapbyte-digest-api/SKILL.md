@@ -2,7 +2,7 @@
 name: snapbyte-digest-api
 description: Fetch personalized developer news digests from Snapbyte External API with API-key auth. Use for Hacker News digest, Reddit digest, Lobsters digest, and DEV.to digest workflows.
 homepage: https://api.snapbyte.dev/docs
-metadata: {"openclaw":{"emoji":"📰","requires":{"bins":["python3","curl"],"env":["SNAPBYTE_API_KEY"]},"primaryEnv":"SNAPBYTE_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3","curl"],"env":["SNAPBYTE_API_KEY"]},"primaryEnv":"SNAPBYTE_API_KEY"}}
 ---
 
 # Snapbyte Digest API

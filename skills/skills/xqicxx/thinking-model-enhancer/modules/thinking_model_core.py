@@ -622,15 +622,15 @@ class ThinkingModelCore:
             格式化的字符串
         """
         lines = [
-            f"🧠 思维模型处理结果",
+            f" 思维模型处理结果",
             "=" * 50,
             f"",
-            f"📝 问题: {result.problem[:100]}{'...' if len(result.problem) > 100 else ''}",
-            f"🎯 使用模型: {result.selected_model}",
-            f"📊 置信度: {result.confidence.value}",
-            f"⏱️ 处理时间: {result.processing_time_ms:.1f}ms",
+            f" 问题: {result.problem[:100]}{'...' if len(result.problem) > 100 else ''}",
+            f" 使用模型: {result.selected_model}",
+            f" 置信度: {result.confidence.value}",
+            f" 处理时间: {result.processing_time_ms:.1f}ms",
             f"",
-            f"✅ 已完成阶段: {len(result.stages_completed)}",
+            f" 已完成阶段: {len(result.stages_completed)}",
         ]
         
         for i, stage in enumerate(result.stages_completed, 1):
@@ -639,7 +639,7 @@ class ThinkingModelCore:
         if result.findings:
             lines.extend([
                 f"",
-                f"📋 发现:",
+                f" 发现:",
             ])
             for finding in result.findings[:5]:
                 lines.append(f"   • {finding}")
@@ -647,14 +647,14 @@ class ThinkingModelCore:
         if result.recommendations:
             lines.extend([
                 f"",
-                f"💡 建议:",
+                f" 建议:",
             ])
             for rec in result.recommendations[:5]:
                 lines.append(f"   • {rec}")
         
         lines.extend([
             f"",
-            f"⏰ 时间戳: {result.timestamp}",
+            f" 时间戳: {result.timestamp}",
         ])
         
         return "\n".join(lines)

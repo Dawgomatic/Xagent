@@ -135,15 +135,15 @@ const ha = {
     async turnOn() {
         if (TV_CONFIG.tvMac) {
             await wakeOnLan(TV_CONFIG.tvMac);
-            console.log('📡 Wake-on-LAN packet sent');
+            console.log(' Wake-on-LAN packet sent');
         }
         await haRequest('turn_on', 'media_player', { entity_id: TV_CONFIG.haEntity });
-        console.log('✅ TV turn_on sent via Home Assistant');
+        console.log(' TV turn_on sent via Home Assistant');
     },
 
     async turnOff() {
         await haRequest('turn_off', 'media_player', { entity_id: TV_CONFIG.haEntity });
-        console.log('✅ TV turned off via Home Assistant');
+        console.log(' TV turned off via Home Assistant');
     },
 
     async launchApp(appId) {
@@ -166,14 +166,14 @@ const ha = {
                 });
             } catch (e) {
                 // Fallback: media_player.select_source
-                console.log('⚠️  androidtv.adb_command failed, trying select_source...');
+                console.log('  androidtv.adb_command failed, trying select_source...');
                 await haRequest('select_source', 'media_player', {
                     entity_id: TV_CONFIG.haEntity,
                     source: 'Jellyfin'
                 });
             }
         }
-        console.log(`✅ Launched app: ${appId}`);
+        console.log(` Launched app: ${appId}`);
     },
 
     async listApps() {
@@ -185,16 +185,16 @@ const ha = {
                 command: 'com.webos.applicationManager/listLaunchPoints',
                 payload: {}
             });
-            console.log('✅ App list requested — check Home Assistant logs/events for the response.');
+            console.log(' App list requested — check Home Assistant logs/events for the response.');
         } else {
             try {
                 await haRequest('adb_command', 'androidtv', {
                     entity_id: TV_CONFIG.haEntity,
                     command: 'pm list packages -3'
                 });
-                console.log('✅ Package list requested — check HA entity attributes or logcat.');
+                console.log(' Package list requested — check HA entity attributes or logcat.');
             } catch (e) {
-                console.log('⚠️  Could not list apps. Check HA → Developer Tools → States → your entity.');
+                console.log('  Could not list apps. Check HA → Developer Tools → States → your entity.');
             }
         }
     }
@@ -248,7 +248,7 @@ function adbConnect() {
 
     const result = adbExec(`connect ${device}`);
     if (result.includes('connected') || result.includes('already')) {
-        console.log(`🔌 ADB connected to ${device}`);
+        console.log(` ADB connected to ${device}`);
     } else {
         throw new Error(
             `Cannot connect to ${device}.\n` +
@@ -265,14 +265,14 @@ const androidtv = {
     async turnOn() {
         if (TV_CONFIG.tvMac) {
             await wakeOnLan(TV_CONFIG.tvMac);
-            console.log('📡 Wake-on-LAN packet sent');
+            console.log(' Wake-on-LAN packet sent');
         } else {
             // ADB wakeup works if TV is in standby (not fully off)
             adbCheckInstalled();
             try {
                 adbConnect();
                 adbExec('shell input keyevent KEYCODE_WAKEUP');
-                console.log('✅ ADB WAKEUP sent');
+                console.log(' ADB WAKEUP sent');
                 return;
             } catch (e) {
                 throw new Error(
@@ -286,7 +286,7 @@ const androidtv = {
         adbCheckInstalled();
         adbConnect();
         adbExec('shell input keyevent KEYCODE_SLEEP');
-        console.log('✅ TV sent to sleep via ADB');
+        console.log(' TV sent to sleep via ADB');
     },
 
     async launchApp(appId) {
@@ -304,7 +304,7 @@ const androidtv = {
             );
         }
         
-        console.log(`✅ Launched app: ${appId}`);
+        console.log(` Launched app: ${appId}`);
     },
 
     async listApps() {
@@ -317,20 +317,20 @@ const androidtv = {
             .filter(Boolean)
             .sort();
         
-        console.log('\n📱 Installed Apps (third-party):\n');
+        console.log('\n Installed Apps (third-party):\n');
         packages.forEach(pkg => console.log(`  ${pkg}`));
         console.log(`\n  Total: ${packages.length} apps`);
         
         const jfApp = getJellyfinApp();
         if (packages.includes(jfApp)) {
-            console.log(`  ✅ Jellyfin found: ${jfApp}`);
+            console.log(`   Jellyfin found: ${jfApp}`);
         } else {
             const found = packages.filter(p => p.includes('jellyfin'));
             if (found.length) {
-                console.log(`  ⚠️  Expected ${jfApp}, found: ${found.join(', ')}`);
+                console.log(`    Expected ${jfApp}, found: ${found.join(', ')}`);
                 console.log(`     Set TV_JELLYFIN_APP to the correct package.`);
             } else {
-                console.log(`  ❌ Jellyfin not found! Install from Play Store / Amazon Appstore.`);
+                console.log(`   Jellyfin not found! Install from Play Store / Amazon Appstore.`);
             }
         }
         
@@ -404,12 +404,12 @@ function webosRegister(ws) {
                     ws.removeListener('message', handler);
                     const key = data.payload && data.payload['client-key'];
                     if (key && !process.env.TV_CLIENT_KEY) {
-                        console.log(`\n🔑 SAVE THIS! Add to env: "TV_CLIENT_KEY": "${key}"\n`);
+                        console.log(`\n SAVE THIS! Add to env: "TV_CLIENT_KEY": "${key}"\n`);
                     }
                     resolve(key);
                 } else if (data.type === 'response' && !prompted) {
                     prompted = true;
-                    console.log('📺 Accept the pairing prompt on your TV!');
+                    console.log(' Accept the pairing prompt on your TV!');
                 }
             } catch (e) { /* ignore */ }
         };
@@ -427,7 +427,7 @@ const webos = {
             throw new Error('TV_MAC is required to turn on the TV (Wake-on-LAN).');
         }
         await wakeOnLan(TV_CONFIG.tvMac);
-        console.log('📡 Wake-on-LAN packet sent');
+        console.log(' Wake-on-LAN packet sent');
     },
 
     async turnOff() {
@@ -435,7 +435,7 @@ const webos = {
         await webosRegister(ws);
         await webosSend(ws, 'system/turnOff');
         ws.close();
-        console.log('✅ TV turned off');
+        console.log(' TV turned off');
     },
 
     async launchApp(appId) {
@@ -443,7 +443,7 @@ const webos = {
         await webosRegister(ws);
         await webosSend(ws, 'system.launcher/launch', { id: appId });
         ws.close();
-        console.log(`✅ Launched app: ${appId}`);
+        console.log(` Launched app: ${appId}`);
     },
 
     async listApps() {
@@ -453,7 +453,7 @@ const webos = {
         ws.close();
 
         if (result.launchPoints) {
-            console.log('\n📱 Installed Apps:\n');
+            console.log('\n Installed Apps:\n');
             result.launchPoints
                 .sort((a, b) => a.title.localeCompare(b.title))
                 .forEach(app => console.log(`  ${app.title.padEnd(30)} → ${app.id}`));
@@ -503,19 +503,19 @@ module.exports = {
         const driver = getDriver();
         const jellyfinApp = getJellyfinApp();
 
-        console.log(`📺 Step 1/3: Turning on TV... [${getBackend()}/${getPlatform()}]`);
+        console.log(` Step 1/3: Turning on TV... [${getBackend()}/${getPlatform()}]`);
         await driver.turnOn();
 
-        console.log(`⏳ Step 2/3: Waiting ${TV_CONFIG.bootDelay}s for boot...`);
+        console.log(` Step 2/3: Waiting ${TV_CONFIG.bootDelay}s for boot...`);
         await sleep(TV_CONFIG.bootDelay);
 
-        console.log(`🚀 Step 3/3: Launching Jellyfin (${jellyfinApp})...`);
+        console.log(` Step 3/3: Launching Jellyfin (${jellyfinApp})...`);
         await driver.launchApp(jellyfinApp);
 
-        console.log(`⏳ Waiting ${TV_CONFIG.appDelay}s for session...`);
+        console.log(` Waiting ${TV_CONFIG.appDelay}s for session...`);
         await sleep(TV_CONFIG.appDelay);
 
-        console.log('✅ TV ready for playback!');
+        console.log(' TV ready for playback!');
     },
 
     wakeOnLan,

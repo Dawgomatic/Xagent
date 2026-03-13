@@ -1,4 +1,4 @@
-# 🔑 ipeaky
+#  ipeaky
 
 **Secure API key management for [OpenClaw](https://openclaw.ai) agents.**
 
@@ -45,11 +45,11 @@ Reads key from **stdin only**. Output always uses masked values (first 4 chars +
 
 | Service | Test Endpoint | Auto-test |
 |---------|--------------|-----------|
-| OpenAI | `/v1/models` | ✅ |
-| ElevenLabs | `/v1/user` | ✅ |
-| Anthropic | `/v1/messages` | ✅ |
-| Brave Search | `/res/v1/web/search` | ✅ |
-| Gemini | `/v1/models` | ✅ |
+| OpenAI | `/v1/models` |  |
+| ElevenLabs | `/v1/user` |  |
+| Anthropic | `/v1/messages` |  |
+| Brave Search | `/res/v1/web/search` |  |
+| Gemini | `/v1/models` |  |
 | Any service | — | stored, no auto-test |
 
 ## Storage Model

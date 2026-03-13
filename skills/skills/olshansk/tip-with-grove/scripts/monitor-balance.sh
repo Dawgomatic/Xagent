@@ -199,7 +199,7 @@ check_balance() {
 
     # Check threshold
     if compare_balance "$balance" "$THRESHOLD"; then
-        echo -e " ${RED}⚠️  LOW BALANCE${NC}"
+        echo -e " ${RED}  LOW BALANCE${NC}"
         log_message "LOW BALANCE: $balance USDC (threshold: $THRESHOLD USDC)"
 
         # Send alert (only once until balance is restored)
@@ -221,7 +221,7 @@ check_balance() {
 }
 
 # Main monitoring loop
-echo -e "${BLUE}🔍 Grove Balance Monitor${NC}"
+echo -e "${BLUE} Grove Balance Monitor${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Threshold:      $THRESHOLD USDC"
 echo "Check interval: $INTERVAL seconds"

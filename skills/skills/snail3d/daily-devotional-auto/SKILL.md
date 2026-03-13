@@ -15,39 +15,39 @@ Automated daily devotional generation for OpenClaw. Fetches news, generates cont
 
 ## Features
 
-### 📰 News-Based Content
+###  News-Based Content
 - Fetches current national and international news
 - Generates devotionals contextually tied to real events
 - Selects spiritually relevant stories
 - Maintains appropriate tone for faith-based content
 
-### 💬 User Suggestions
+###  User Suggestions
 - Monitors YouTube comments for topic requests
 - Keywords detected: "suggest", "topic", "pray for", "devotional about", "question about", "help with", "request"
 - Prioritizes viewer suggestions in content generation
 - Credits users in video descriptions when their suggestion is used
 
-### 🎙️ Your Voice
+###  Your Voice
 - Uses your ElevenLabs custom voice for all narrations
 - Pre-configured with your voice ID
 - Professional-quality audio output
 - Consistent voice across all videos
 
-### 🎬 Auto Video Creation
+###  Auto Video Creation
 - Generates video titles with devotional themes
 - Creates audio visualizers (blue waveforms)
 - Includes scripture references and date
 - Adds viewer suggestion credits
 - Optimized for YouTube playback
 
-### 📤 Auto Upload
+###  Auto Upload
 - Uploads to YouTube with proper metadata
 - Sets videos as public
 - Automatically adds to your devotional playlist
 - Includes proper descriptions with scripture and context
 - Schedules publishing time (optional)
 
-### ⏰ Daily Scheduling
+###  Daily Scheduling
 - Runs automatically at 9:00 AM MST (configurable)
 - Uses system cron for reliability
 - Logs all activity for debugging

@@ -1,7 +1,7 @@
 ---
 name: Gratitude
 description: Build a personal gratitude practice for logging what's good, discovering patterns, and cultivating appreciation.
-metadata: {"clawdbot":{"emoji":"🙏","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

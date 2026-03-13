@@ -1,7 +1,7 @@
 ---
 name: prometheus
 description: Query metrics via Prometheus API. Run PromQL queries and manage alerts.
-metadata: {"clawdbot":{"emoji":"🔥","requires":{"env":["PROMETHEUS_URL"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["PROMETHEUS_URL"]}}}
 ---
 # Prometheus
 Metrics and monitoring.

@@ -431,55 +431,55 @@ To install in OpenClaw:
 When testing, check:
 
 ### Core Systems
-✅ **Skill triggers** on appropriate prompts (cyberpunk, dark fantasy, TTRPG)
-✅ **Character creation** uses template structure
-✅ **Dual consequences** tracked (World + Relationships)
-✅ **Consequence ripples** have three tiers (immediate, session+1, long-term)
-✅ **NPCs have agency** (not just quest givers)
-✅ **NPC-NPC relationships** tracked and affect dynamics
-✅ **Custom universe creation** follows guided process
+ **Skill triggers** on appropriate prompts (cyberpunk, dark fantasy, TTRPG)
+ **Character creation** uses template structure
+ **Dual consequences** tracked (World + Relationships)
+ **Consequence ripples** have three tiers (immediate, session+1, long-term)
+ **NPCs have agency** (not just quest givers)
+ **NPC-NPC relationships** tracked and affect dynamics
+ **Custom universe creation** follows guided process
 
 ### Combat & Death
-✅ **Combat flows cinematically** (not strict turn order)
-✅ **Damage tracked as status** (Fresh → Wounded → Critical → Down)
-✅ **Death spiral** gives 3 exchanges to stabilize
-✅ **Death is meaningful** not arbitrary
-✅ **Alternative failures** used when appropriate (capture, maiming, debt)
-✅ **Last Stand** mechanics work for dramatic sacrifice
-✅ **First session protection** prevents arbitrary early death
+ **Combat flows cinematically** (not strict turn order)
+ **Damage tracked as status** (Fresh → Wounded → Critical → Down)
+ **Death spiral** gives 3 exchanges to stabilize
+ **Death is meaningful** not arbitrary
+ **Alternative failures** used when appropriate (capture, maiming, debt)
+ **Last Stand** mechanics work for dramatic sacrifice
+ **First session protection** prevents arbitrary early death
 
 ### Dice & Feedback
-✅ **Hidden rolls** work correctly
-✅ **Feedback levels** vary by roll quality (not binary pass/fail)
-✅ **Critical results** have dramatic narrative impact
+ **Hidden rolls** work correctly
+ **Feedback levels** vary by roll quality (not binary pass/fail)
+ **Critical results** have dramatic narrative impact
 
 ### State Management
-✅ **Campaign saves** on session end triggers
-✅ **Campaign loads** correctly with all state
-✅ **Psychological gauges** tracked internally, revealed through narration
-✅ **Delayed consequences** trigger at appropriate sessions
-✅ **Locations tracked** with status and NPC presence
-✅ **Active objectives** tracked with progress
-✅ **Corruption recovery** attempts reconstruction
+ **Campaign saves** on session end triggers
+ **Campaign loads** correctly with all state
+ **Psychological gauges** tracked internally, revealed through narration
+ **Delayed consequences** trigger at appropriate sessions
+ **Locations tracked** with status and NPC presence
+ **Active objectives** tracked with progress
+ **Corruption recovery** attempts reconstruction
 
 ### Safety & Pacing
-✅ **X-card** stops immediately, no questions
-✅ **Lines respected** - content never appears
-✅ **Veils respected** - content off-screen only
-✅ **Pacing matches player energy** (speed up/slow down signals)
-✅ **Tone checks** before dark content
+ **X-card** stops immediately, no questions
+ **Lines respected** - content never appears
+ **Veils respected** - content off-screen only
+ **Pacing matches player energy** (speed up/slow down signals)
+ **Tone checks** before dark content
 
 ### Content & Tone
-✅ **Adult content toggle** works both directions
-✅ **Adult content** only when mode enabled
-✅ **Tone** is mature, dark, atmospheric
-✅ **META PAUSE** used for error recovery
+ **Adult content toggle** works both directions
+ **Adult content** only when mode enabled
+ **Tone** is mature, dark, atmospheric
+ **META PAUSE** used for error recovery
 
 ### Technical
-✅ **References load** as needed (not all at once)
-✅ **Campaign file** uses machine-parseable format
-✅ **Directory creation** handled before first save
-✅ **Portable paths** work across systems (XDG compliance)
+ **References load** as needed (not all at once)
+ **Campaign file** uses machine-parseable format
+ **Directory creation** handled before first save
+ **Portable paths** work across systems (XDG compliance)
 
 ---
 

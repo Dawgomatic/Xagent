@@ -110,7 +110,7 @@ def check_security(env_file: Path) -> Dict:
 def fix_permissions(env_file: Path):
     """Fix file permissions."""
     os.chmod(env_file, 0o600)
-    print(f"   🔧 Fixed permissions: 600")
+    print(f"    Fixed permissions: 600")
 
 def fix_gitignore(openclaw_dir: Path):
     """Add .env to .gitignore."""
@@ -123,7 +123,7 @@ def fix_gitignore(openclaw_dir: Path):
         with open(gitignore, 'a') as f:
             f.write("\n# Credentials\n.env\n")
     
-    print(f"   🔧 Added .env to .gitignore")
+    print(f"    Added .env to .gitignore")
 
 def validate(check_type: str = 'all', auto_fix: bool = False) -> bool:
     """Validate .env file."""
@@ -131,21 +131,21 @@ def validate(check_type: str = 'all', auto_fix: bool = False) -> bool:
     openclaw_dir = home / '.openclaw'
     env_file = openclaw_dir / '.env'
     
-    print("\n🔍 Validating credentials...\n")
+    print("\n Validating credentials...\n")
     
     all_ok = True
     
     # Check permissions
     if check_type in ['all', 'permissions']:
-        print("📋 Checking permissions...")
+        print(" Checking permissions...")
         result = check_permissions(env_file)
         if result['status'] == 'ok':
-            print(f"   ✅ Permissions: {result['mode']}")
+            print(f"    Permissions: {result['mode']}")
         elif result['status'] == 'missing':
-            print(f"   ❌ {result['message']}")
+            print(f"    {result['message']}")
             return False
         else:
-            print(f"   ⚠️  {result['message']}")
+            print(f"     {result['message']}")
             all_ok = False
             if auto_fix:
                 fix_permissions(env_file)
@@ -153,12 +153,12 @@ def validate(check_type: str = 'all', auto_fix: bool = False) -> bool:
     
     # Check gitignore
     if check_type in ['all', 'gitignore']:
-        print("\n📋 Checking .gitignore...")
+        print("\n Checking .gitignore...")
         result = check_gitignore(openclaw_dir)
         if result['status'] == 'ok':
-            print(f"   ✅ .env is git-ignored")
+            print(f"    .env is git-ignored")
         else:
-            print(f"   ⚠️  {result.get('message', 'Not protected')}")
+            print(f"     {result.get('message', 'Not protected')}")
             all_ok = False
             if auto_fix:
                 fix_gitignore(openclaw_dir)
@@ -166,37 +166,37 @@ def validate(check_type: str = 'all', auto_fix: bool = False) -> bool:
     
     # Check format
     if check_type in ['all', 'format']:
-        print("\n📋 Checking format...")
+        print("\n Checking format...")
         result = check_format(env_file)
         if result['status'] == 'ok':
-            print(f"   ✅ Format valid ({result['keys_count']} keys)")
+            print(f"    Format valid ({result['keys_count']} keys)")
         else:
-            print(f"   ⚠️  Found {len(result['issues'])} issue(s):")
+            print(f"     Found {len(result['issues'])} issue(s):")
             for issue in result['issues'][:5]:
                 print(f"      • {issue}")
             if len(result['issues']) > 5:
                 print(f"      ... +{len(result['issues']) - 5} more")
             
             if result['duplicates']:
-                print(f"   ⚠️  Duplicate keys: {', '.join(result['duplicates'])}")
+                print(f"     Duplicate keys: {', '.join(result['duplicates'])}")
             all_ok = False
     
     # Check security
     if check_type in ['all', 'security']:
-        print("\n📋 Checking security...")
+        print("\n Checking security...")
         result = check_security(env_file)
         if result['status'] == 'ok':
-            print(f"   ✅ No security warnings")
+            print(f"    No security warnings")
         else:
-            print(f"   ⚠️  Warnings:")
+            print(f"     Warnings:")
             for warning in result['warnings']:
                 print(f"      • {warning}")
     
     # Summary
-    print(f"\n{'✅' if all_ok else '⚠️'} Validation {'passed' if all_ok else 'found issues'}")
+    print(f"\n{'' if all_ok else ''} Validation {'passed' if all_ok else 'found issues'}")
     
     if not all_ok and not auto_fix:
-        print(f"\n💡 Run with --fix to automatically fix issues")
+        print(f"\n Run with --fix to automatically fix issues")
     
     return all_ok
 

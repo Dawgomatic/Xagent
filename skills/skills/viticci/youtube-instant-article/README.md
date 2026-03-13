@@ -8,30 +8,30 @@ Best used with Clawdbot + Telegram for inline article opening.
 
 ## Features
 
-- 🎬 **Automatic slide extraction** — Key frames from the video
-- 📝 **AI-powered summaries** — GPT-5.2 generates concise, timestamped summaries
-- 🖼️ **Interleaved layout** — Images paired with relevant timestamp sections
-- ⚡ **Telegram Instant View** — One-tap readable articles in Telegram
-- 🔗 **Reliable hosting** — Images on catbox.moe (no expiration)
+-  **Automatic slide extraction** — Key frames from the video
+-  **AI-powered summaries** — GPT-5.2 generates concise, timestamped summaries
+-  **Interleaved layout** — Images paired with relevant timestamp sections
+-  **Telegram Instant View** — One-tap readable articles in Telegram
+-  **Reliable hosting** — Images on catbox.moe (no expiration)
 
 ## Example Output
 
 ```
-📺 Watch video
+ Watch video
 
 [Image: Video thumbnail]
 
-⏱️ 0:00 - Introduction and overview of the device
+ 0:00 - Introduction and overview of the device
 The reviewer introduces the new handheld gaming device...
 
 [Image: Device closeup]
 
-⏱️ 5:30 - Performance testing
+ 5:30 - Performance testing
 Testing shows impressive results with modern games...
 
 [Image: Gameplay footage]
 
-⏱️ 12:00 - Final verdict
+ 12:00 - Final verdict
 Overall recommendation and pricing discussion...
 ```
 
@@ -89,13 +89,13 @@ brew install jq
 
 The script outputs the Telegraph article URL:
 ```
-📹 Extracting slides...
-📝 Getting summary...
-📤 Uploading 4 slides...
-🔨 Building article...
-🌐 Publishing...
+ Extracting slides...
+ Getting summary...
+ Uploading 4 slides...
+ Building article...
+ Publishing...
 
-✅ Done!
+ Done!
 
 https://telegra.ph/Article-Title-01-22
 ```
@@ -167,11 +167,11 @@ We tested multiple models:
 
 | Model | Speed | Cost | Quality |
 |-------|-------|------|---------|
-| gpt-5.2 | 4.5s | $0.01 | ⭐ Best |
+| gpt-5.2 | 4.5s | $0.01 |  Best |
 | gpt-4o-mini | 6s | $0.0007 | Good |
 | gpt-4o | 4.7s | $0.012 | Good |
 | gpt-5-nano | 42s | $0.002 | Slow |
-| gemini-3-flash | timeout | — | ❌ |
+| gemini-3-flash | timeout | — |  |
 
 GPT-5.2 offers the best balance of speed and quality.
 

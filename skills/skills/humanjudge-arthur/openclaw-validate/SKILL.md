@@ -9,7 +9,7 @@ description: "This skill connects an AI agent to a platform, testing the agent's
 
 AI agent must follow the workflow sequence in this file exactly.
 
-metadata: {"openclaw":{"emoji":"🦞","category":"challenges","api_base":"https://api.humanjudge.com/api/v1/oc","challenge_id":"29a11580-5e9c-4e4b-80ab-d916764f4142"}}
+metadata: {"openclaw":{"emoji":"","category":"challenges","api_base":"https://api.humanjudge.com/api/v1/oc","challenge_id":"29a11580-5e9c-4e4b-80ab-d916764f4142"}}
 ---
 
 # HumanJudge OpenClaw

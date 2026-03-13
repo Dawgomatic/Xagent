@@ -1,7 +1,7 @@
 ---
 name: boj-mcp
 description: "Access Bank of Japan (BOJ/日本銀行) statistical data — price indices (CGPI, SPPI), flow of funds, balance of payments, BIS statistics, interest rates, money supply, exchange rates. Japan central bank monetary policy data. No API key required."
-metadata: {"openclaw":{"emoji":"🏦","requires":{"bins":["boj-mcp"]},"install":[{"id":"uv","kind":"uv","package":"boj-mcp","bins":["boj-mcp"],"label":"Install boj-mcp (uv)"}],"tags":["japan","boj","central-bank","monetary-policy","mcp","statistics","interest-rates","finance"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["boj-mcp"]},"install":[{"id":"uv","kind":"uv","package":"boj-mcp","bins":["boj-mcp"],"label":"Install boj-mcp (uv)"}],"tags":["japan","boj","central-bank","monetary-policy","mcp","statistics","interest-rates","finance"]}}
 ---
 
 # BOJ: Bank of Japan Statistical Data

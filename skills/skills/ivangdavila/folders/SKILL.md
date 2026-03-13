@@ -1,7 +1,7 @@
 ---
 name: Folders
 description: Index important directories and perform safe folder operations with proper security checks.
-metadata: {"clawdbot":{"emoji":"📂","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Folder Index

@@ -2,11 +2,11 @@
 
 This is a **real, working configuration** for connecting to the kr-legal-search MCP server.
 
-## ⚠️ Important: No API Key Required
+##  Important: No API Key Required
 
 The current kr-legal-search service **does not require an API key**. The documentation mentioning `KR_LEGAL_API_KEY` was for a hypothetical future version.
 
-## 🚀 Working Configuration
+##  Working Configuration
 
 ### OpenClaw Configuration
 
@@ -36,7 +36,7 @@ Edit `~/.openclaw/openclaw.json`:
 
 **That's it!** No API key needed.
 
-## 🎯 Start the kr-legal Service
+##  Start the kr-legal Service
 
 Assuming you have the kr-legal MCP server running:
 
@@ -49,7 +49,7 @@ npm start
 # kr-legal MCP server listening on http://localhost:3000
 ```
 
-## ✅ Verify It Works
+##  Verify It Works
 
 ### Step 1: Restart OpenClaw
 
@@ -101,7 +101,7 @@ Found statutes related to civil law:
 ...
 ```
 
-## 📊 Full Example Interaction
+##  Full Example Interaction
 
 ### User Query
 ```
@@ -153,7 +153,7 @@ User: Find Korean labor law about overtime pay
 }
 ```
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Issue: "Failed to connect to kr-legal"
 
@@ -199,7 +199,7 @@ openclaw logs | grep "Connected to kr-legal"
 }
 ```
 
-## 📝 Minimal Test Configuration
+##  Minimal Test Configuration
 
 Here's the **absolute minimum** to test:
 
@@ -225,16 +225,16 @@ Here's the **absolute minimum** to test:
 
 **Start server → Restart OpenClaw → Test in chat**
 
-## 🎉 Success Criteria
+##  Success Criteria
 
 You know it's working when:
 
-1. ✅ OpenClaw logs show "Connected to kr-legal: X tools available"
-2. ✅ `List MCP tools` command shows kr-legal tools
-3. ✅ Calling a tool returns results (not errors)
-4. ✅ Agent can successfully use kr-legal tools in conversation
+1.  OpenClaw logs show "Connected to kr-legal: X tools available"
+2.  `List MCP tools` command shows kr-legal tools
+3.  Calling a tool returns results (not errors)
+4.  Agent can successfully use kr-legal tools in conversation
 
-## 📋 Complete Setup Checklist
+##  Complete Setup Checklist
 
 - [ ] kr-legal MCP server is installed
 - [ ] kr-legal server is running on port 3000
@@ -245,7 +245,7 @@ You know it's working when:
 - [ ] Tools are listed correctly
 - [ ] Test query works
 
-## 🔗 Related Files
+##  Related Files
 
 - Main documentation: [README.md](../README.md)
 - Configuration guide: [CONFIGURATION.md](CONFIGURATION.md)

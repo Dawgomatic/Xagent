@@ -64,4 +64,4 @@ if err != nil {
 fmt.Println(result)
 ```
 
-You agree if it is easy, right? 😎
+You agree if it is easy, right? 

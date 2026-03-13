@@ -80,7 +80,7 @@ import json, sys
 data = json.load(sys.stdin)
 if not data.get('success', True):
     err = data.get('error', 'Unknown error')
-    print(f'❌ Error: {err}', file=sys.stderr)
+    print(f' Error: {err}', file=sys.stderr)
     sys.exit(1)
 print(json.dumps(data))
 "
@@ -92,14 +92,14 @@ format_deals() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 deals = data.get('data') or []
 if not deals:
     print('No deals found.')
     sys.exit(0)
 for d in deals:
-    status_icon = {'open': '🔵', 'won': '✅', 'lost': '❌', 'deleted': '🗑️'}.get(d.get('status', ''), '❓')
+    status_icon = {'open': '', 'won': '', 'lost': '', 'deleted': ''}.get(d.get('status', ''), '')
     title = (d.get('title') or 'Untitled')[:40]
     value = d.get('value') or 0
     currency = d.get('currency') or ''
@@ -116,7 +116,7 @@ format_persons() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 persons = data.get('data') or []
 if not persons:
@@ -136,7 +136,7 @@ for p in persons:
         org = p.get('org_name')
     elif p.get('org_id') and isinstance(p.get('org_id'), dict):
         org = p.get('org_id', {}).get('name', '')
-    print(f\"👤 {p.get('id')}\t{name}\t{email[:30]}\t{org[:25]}\")
+    print(f\" {p.get('id')}\t{name}\t{email[:30]}\t{org[:25]}\")
 "
 }
 
@@ -146,7 +146,7 @@ format_orgs() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 orgs = data.get('data') or []
 if not orgs:
@@ -158,7 +158,7 @@ for o in orgs:
     people = o.get('people_count', 0)
     deals_open = o.get('open_deals_count', 0)
     deals_won = o.get('won_deals_count', 0)
-    print(f\"🏢 {o.get('id')}\t{name}\t{address}\t{people}p\t{deals_open}o/{deals_won}w\")
+    print(f\" {o.get('id')}\t{name}\t{address}\t{people}p\t{deals_open}o/{deals_won}w\")
 "
 }
 
@@ -168,14 +168,14 @@ format_activities() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 activities = data.get('data') or []
 if not activities:
     print('No activities found.')
     sys.exit(0)
 for a in activities:
-    done_icon = '✅' if a.get('done') else '⏳'
+    done_icon = '' if a.get('done') else ''
     subject = (a.get('subject') or 'No subject')[:40]
     atype = a.get('type') or ''
     due_date = a.get('due_date') or ''
@@ -191,7 +191,7 @@ format_pipelines() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 pipelines = data.get('data') or []
 if not pipelines:
@@ -199,7 +199,7 @@ if not pipelines:
     sys.exit(0)
 for p in pipelines:
     name = (p.get('name') or 'Unnamed')[:40]
-    active = '🟢' if p.get('active') else '⚪'
+    active = '' if p.get('active') else ''
     deals = p.get('deals_count', 0)
     print(f\"{active} {p.get('id')}\t{name}\t{deals} deals\")
 "
@@ -211,7 +211,7 @@ format_stages() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 stages = data.get('data') or []
 if not stages:
@@ -221,7 +221,7 @@ for s in stages:
     name = (s.get('name') or 'Unnamed')[:35]
     order = s.get('order_nr', 0)
     deals = s.get('deals_count', 0) if 'deals_count' in s else '-'
-    rotten = '⚠️' if s.get('rotten_flag') else ''
+    rotten = '' if s.get('rotten_flag') else ''
     print(f\"  {order}. {s.get('id')}\t{name}\t{deals} deals {rotten}\")
 "
 }
@@ -232,7 +232,7 @@ format_leads() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 leads = data.get('data') or []
 if not leads:
@@ -250,7 +250,7 @@ for l in leads:
         value_str = str(value)
     person_id = l.get('person_id') or '-'
     org_id = l.get('organization_id') or '-'
-    print(f\"💡 {l.get('id')}\t{title}\t{value_str}\tP:{person_id}\tO:{org_id}\")
+    print(f\" {l.get('id')}\t{title}\t{value_str}\tP:{person_id}\tO:{org_id}\")
 "
 }
 
@@ -260,7 +260,7 @@ format_products() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 products = data.get('data') or []
 if not products:
@@ -275,7 +275,7 @@ for p in products:
     if prices:
         pr = prices[0]
         price_str = f\"{pr.get('price', 0)} {pr.get('currency', '')}\"
-    active = '🟢' if p.get('active_flag') else '⚪'
+    active = '' if p.get('active_flag') else ''
     print(f\"{active} {p.get('id')}\t{name}\t{code[:15]}\t{price_str}\")
 "
 }
@@ -286,7 +286,7 @@ format_notes() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 notes = data.get('data') or []
 if not notes:
@@ -295,11 +295,11 @@ if not notes:
 for n in notes:
     content = (n.get('content') or '')[:60].replace('\n', ' ')
     add_time = (n.get('add_time') or '')[:10]
-    pinned = '📌' if n.get('pinned_to_deal_flag') or n.get('pinned_to_person_flag') or n.get('pinned_to_organization_flag') else ''
+    pinned = '' if n.get('pinned_to_deal_flag') or n.get('pinned_to_person_flag') or n.get('pinned_to_organization_flag') else ''
     deal = n.get('deal_id') or '-'
     person = n.get('person_id') or '-'
     org = n.get('org_id') or '-'
-    print(f\"📝 {n.get('id')}\t{add_time}\t{pinned}{content}\")
+    print(f\" {n.get('id')}\t{add_time}\t{pinned}{content}\")
 "
 }
 
@@ -309,11 +309,11 @@ show_deal() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 d = data.get('data', {})
-status_icon = {'open': '🔵 Open', 'won': '✅ Won', 'lost': '❌ Lost', 'deleted': '🗑️ Deleted'}.get(d.get('status', ''), '❓')
-print(f\"💼 Deal: {d.get('title', 'Untitled')}\")
+status_icon = {'open': ' Open', 'won': ' Won', 'lost': ' Lost', 'deleted': ' Deleted'}.get(d.get('status', ''), '')
+print(f\" Deal: {d.get('title', 'Untitled')}\")
 print(f\"ID: {d.get('id')}\")
 print(f\"Status: {status_icon}\")
 print(f\"Value: {d.get('value', 0)} {d.get('currency', '')}\")
@@ -352,10 +352,10 @@ show_person() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 p = data.get('data', {})
-print(f\"👤 Person: {p.get('name', 'Unknown')}\")
+print(f\" Person: {p.get('name', 'Unknown')}\")
 print(f\"ID: {p.get('id')}\")
 # Handle email array
 emails = p.get('email') or []
@@ -394,10 +394,10 @@ show_org() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 o = data.get('data', {})
-print(f\"🏢 Organization: {o.get('name', 'Unknown')}\")
+print(f\" Organization: {o.get('name', 'Unknown')}\")
 print(f\"ID: {o.get('id')}\")
 if o.get('address'): print(f\"Address: {o.get('address')}\")
 if o.get('address_country'): print(f\"Country: {o.get('address_country')}\")
@@ -418,11 +418,11 @@ show_activity() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 a = data.get('data', {})
-done_icon = '✅ Done' if a.get('done') else '⏳ Pending'
-print(f\"📅 Activity: {a.get('subject', 'No subject')}\")
+done_icon = ' Done' if a.get('done') else ' Pending'
+print(f\" Activity: {a.get('subject', 'No subject')}\")
 print(f\"ID: {a.get('id')}\")
 print(f\"Type: {a.get('type', '-')}\")
 print(f\"Status: {done_icon}\")
@@ -442,10 +442,10 @@ show_lead() {
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 l = data.get('data', {})
-print(f\"💡 Lead: {l.get('title', 'Untitled')}\")
+print(f\" Lead: {l.get('title', 'Untitled')}\")
 print(f\"ID: {l.get('id')}\")
 # Value handling
 value = l.get('value') or {}
@@ -485,7 +485,7 @@ case "$RESOURCE" in
             *) shift ;;
           esac
         done
-        echo "💼 Listing deals..."
+        echo " Listing deals..."
         QUERY="limit=$LIMIT&start=$START"
         [ -n "$STATUS" ] && QUERY="$QUERY&status=$STATUS"
         [ -n "$STAGE_ID" ] && QUERY="$QUERY&stage_id=$STAGE_ID"
@@ -499,12 +499,12 @@ case "$RESOURCE" in
           echo "Usage: pipedrive.sh deals search \"query\""
           exit 1
         fi
-        echo "🔍 Searching deals for: $QUERY"
+        echo " Searching deals for: $QUERY"
         pipedrive_api GET "/itemSearch?term=$(echo "$QUERY" | python3 -c 'import urllib.parse,sys; print(urllib.parse.quote(sys.stdin.read().strip()))')&item_types=deal&limit=50" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 items = data.get('data', {}).get('items', [])
 if not items:
@@ -512,7 +512,7 @@ if not items:
     sys.exit(0)
 for item in items:
     d = item.get('item', {})
-    print(f\"💼 {d.get('id')}\t{d.get('title', 'Untitled')[:40]}\t{d.get('value', 0)} {d.get('currency', '')}\t{d.get('person', {}).get('name', '')[:20] if d.get('person') else ''}\")
+    print(f\" {d.get('id')}\t{d.get('title', 'Untitled')[:40]}\t{d.get('value', 0)} {d.get('currency', '')}\t{d.get('person', {}).get('name', '')[:20] if d.get('person') else ''}\")
 "
         ;;
       
@@ -553,7 +553,7 @@ for item in items:
           exit 1
         fi
         
-        echo "📝 Creating deal: $TITLE"
+        echo " Creating deal: $TITLE"
         DATA=$(python3 -c "
 import json
 data = {'title': '$TITLE'}
@@ -570,10 +570,10 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 d = data.get('data', {})
-print(f\"✅ Created deal ID: {d.get('id')} - {d.get('title')}\")
+print(f\" Created deal ID: {d.get('id')} - {d.get('title')}\")
 "
         ;;
       
@@ -605,7 +605,7 @@ print(f\"✅ Created deal ID: {d.get('id')} - {d.get('title')}\")
           esac
         done
         
-        echo "✏️ Updating deal $ID..."
+        echo " Updating deal $ID..."
         DATA=$(python3 -c "
 import json
 data = {}
@@ -622,10 +622,10 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 d = data.get('data', {})
-print(f\"✅ Updated deal ID: {d.get('id')}\")
+print(f\" Updated deal ID: {d.get('id')}\")
 "
         ;;
       
@@ -635,14 +635,14 @@ print(f\"✅ Updated deal ID: {d.get('id')}\")
           echo "Usage: pipedrive.sh deals won <id>"
           exit 1
         fi
-        echo "✅ Marking deal $ID as won..."
+        echo " Marking deal $ID as won..."
         pipedrive_api PUT "/deals/$ID" '{"status": "won"}' | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
-print(f\"✅ Deal marked as won!\")
+print(f\" Deal marked as won!\")
 "
         ;;
       
@@ -660,7 +660,7 @@ print(f\"✅ Deal marked as won!\")
             *) shift ;;
           esac
         done
-        echo "❌ Marking deal $ID as lost..."
+        echo " Marking deal $ID as lost..."
         DATA=$(python3 -c "
 import json
 data = {'status': 'lost'}
@@ -671,9 +671,9 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
-print(f\"✅ Deal marked as lost!\")
+print(f\" Deal marked as lost!\")
 "
         ;;
       
@@ -683,14 +683,14 @@ print(f\"✅ Deal marked as lost!\")
           echo "Usage: pipedrive.sh deals delete <id>"
           exit 1
         fi
-        echo "🗑️ Deleting deal $ID..."
+        echo " Deleting deal $ID..."
         pipedrive_api DELETE "/deals/$ID" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
-print(f\"✅ Deal deleted!\")
+print(f\" Deal deleted!\")
 "
         ;;
       
@@ -712,7 +712,7 @@ print(f\"✅ Deal deleted!\")
             *) shift ;;
           esac
         done
-        echo "👤 Listing persons..."
+        echo " Listing persons..."
         pipedrive_api GET "/persons?limit=$LIMIT&start=$START" | format_persons
         ;;
       
@@ -722,12 +722,12 @@ print(f\"✅ Deal deleted!\")
           echo "Usage: pipedrive.sh persons search \"query\""
           exit 1
         fi
-        echo "🔍 Searching persons for: $QUERY"
+        echo " Searching persons for: $QUERY"
         pipedrive_api GET "/itemSearch?term=$(echo "$QUERY" | python3 -c 'import urllib.parse,sys; print(urllib.parse.quote(sys.stdin.read().strip()))')&item_types=person&limit=50" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 items = data.get('data', {}).get('items', [])
 if not items:
@@ -740,7 +740,7 @@ for item in items:
         email = e
         break
     org = p.get('organization', {}).get('name', '') if p.get('organization') else ''
-    print(f\"👤 {p.get('id')}\t{p.get('name', 'Unknown')[:35]}\t{email[:30]}\t{org[:25]}\")
+    print(f\" {p.get('id')}\t{p.get('name', 'Unknown')[:35]}\t{email[:30]}\t{org[:25]}\")
 "
         ;;
       
@@ -773,7 +773,7 @@ for item in items:
           exit 1
         fi
         
-        echo "📝 Creating person: $NAME"
+        echo " Creating person: $NAME"
         DATA=$(python3 -c "
 import json
 data = {'name': '$NAME'}
@@ -786,10 +786,10 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 p = data.get('data', {})
-print(f\"✅ Created person ID: {p.get('id')} - {p.get('name')}\")
+print(f\" Created person ID: {p.get('id')} - {p.get('name')}\")
 "
         ;;
       
@@ -815,7 +815,7 @@ print(f\"✅ Created person ID: {p.get('id')} - {p.get('name')}\")
           esac
         done
         
-        echo "✏️ Updating person $ID..."
+        echo " Updating person $ID..."
         DATA=$(python3 -c "
 import json
 data = {}
@@ -829,10 +829,10 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 p = data.get('data', {})
-print(f\"✅ Updated person ID: {p.get('id')}\")
+print(f\" Updated person ID: {p.get('id')}\")
 "
         ;;
       
@@ -842,14 +842,14 @@ print(f\"✅ Updated person ID: {p.get('id')}\")
           echo "Usage: pipedrive.sh persons delete <id>"
           exit 1
         fi
-        echo "🗑️ Deleting person $ID..."
+        echo " Deleting person $ID..."
         pipedrive_api DELETE "/persons/$ID" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
-print(f\"✅ Person deleted!\")
+print(f\" Person deleted!\")
 "
         ;;
       
@@ -871,7 +871,7 @@ print(f\"✅ Person deleted!\")
             *) shift ;;
           esac
         done
-        echo "🏢 Listing organizations..."
+        echo " Listing organizations..."
         pipedrive_api GET "/organizations?limit=$LIMIT&start=$START" | format_orgs
         ;;
       
@@ -881,12 +881,12 @@ print(f\"✅ Person deleted!\")
           echo "Usage: pipedrive.sh orgs search \"query\""
           exit 1
         fi
-        echo "🔍 Searching organizations for: $QUERY"
+        echo " Searching organizations for: $QUERY"
         pipedrive_api GET "/itemSearch?term=$(echo "$QUERY" | python3 -c 'import urllib.parse,sys; print(urllib.parse.quote(sys.stdin.read().strip()))')&item_types=organization&limit=50" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 items = data.get('data', {}).get('items', [])
 if not items:
@@ -894,7 +894,7 @@ if not items:
     sys.exit(0)
 for item in items:
     o = item.get('item', {})
-    print(f\"🏢 {o.get('id')}\t{o.get('name', 'Unknown')[:40]}\t{o.get('address', '')[:30]}\")
+    print(f\" {o.get('id')}\t{o.get('name', 'Unknown')[:40]}\t{o.get('address', '')[:30]}\")
 "
         ;;
       
@@ -923,7 +923,7 @@ for item in items:
           exit 1
         fi
         
-        echo "📝 Creating organization: $NAME"
+        echo " Creating organization: $NAME"
         DATA=$(python3 -c "
 import json
 data = {'name': '$NAME'}
@@ -934,10 +934,10 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 o = data.get('data', {})
-print(f\"✅ Created organization ID: {o.get('id')} - {o.get('name')}\")
+print(f\" Created organization ID: {o.get('id')} - {o.get('name')}\")
 "
         ;;
       
@@ -959,7 +959,7 @@ print(f\"✅ Created organization ID: {o.get('id')} - {o.get('name')}\")
           esac
         done
         
-        echo "✏️ Updating organization $ID..."
+        echo " Updating organization $ID..."
         DATA=$(python3 -c "
 import json
 data = {}
@@ -971,10 +971,10 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 o = data.get('data', {})
-print(f\"✅ Updated organization ID: {o.get('id')}\")
+print(f\" Updated organization ID: {o.get('id')}\")
 "
         ;;
       
@@ -984,14 +984,14 @@ print(f\"✅ Updated organization ID: {o.get('id')}\")
           echo "Usage: pipedrive.sh orgs delete <id>"
           exit 1
         fi
-        echo "🗑️ Deleting organization $ID..."
+        echo " Deleting organization $ID..."
         pipedrive_api DELETE "/organizations/$ID" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
-print(f\"✅ Organization deleted!\")
+print(f\" Organization deleted!\")
 "
         ;;
       
@@ -1019,7 +1019,7 @@ print(f\"✅ Organization deleted!\")
             *) shift ;;
           esac
         done
-        echo "📅 Listing activities..."
+        echo " Listing activities..."
         QUERY="limit=$LIMIT&start=$START"
         [ -n "$DONE" ] && QUERY="$QUERY&done=$DONE"
         [ -n "$DEAL_ID" ] && QUERY="$QUERY&deal_id=$DEAL_ID"
@@ -1066,7 +1066,7 @@ print(f\"✅ Organization deleted!\")
           exit 1
         fi
         
-        echo "📝 Creating activity: $SUBJECT"
+        echo " Creating activity: $SUBJECT"
         DATA=$(python3 -c "
 import json
 from datetime import date
@@ -1087,10 +1087,10 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 a = data.get('data', {})
-print(f\"✅ Created activity ID: {a.get('id')} - {a.get('subject')}\")
+print(f\" Created activity ID: {a.get('id')} - {a.get('subject')}\")
 "
         ;;
       
@@ -1100,14 +1100,14 @@ print(f\"✅ Created activity ID: {a.get('id')} - {a.get('subject')}\")
           echo "Usage: pipedrive.sh activities done <id>"
           exit 1
         fi
-        echo "✅ Marking activity $ID as done..."
+        echo " Marking activity $ID as done..."
         pipedrive_api PUT "/activities/$ID" '{"done": true}' | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
-print(f\"✅ Activity marked as done!\")
+print(f\" Activity marked as done!\")
 "
         ;;
       
@@ -1120,7 +1120,7 @@ print(f\"✅ Activity marked as done!\")
   pipelines)
     case "$COMMAND" in
       list)
-        echo "📊 Listing pipelines..."
+        echo " Listing pipelines..."
         pipedrive_api GET "/pipelines" | format_pipelines
         ;;
       
@@ -1130,7 +1130,7 @@ print(f\"✅ Activity marked as done!\")
           echo "Usage: pipedrive.sh pipelines stages <pipeline_id>"
           exit 1
         fi
-        echo "📊 Stages for pipeline $PIPELINE_ID:"
+        echo " Stages for pipeline $PIPELINE_ID:"
         pipedrive_api GET "/stages?pipeline_id=$PIPELINE_ID" | format_stages
         ;;
       
@@ -1152,7 +1152,7 @@ print(f\"✅ Activity marked as done!\")
             *) shift ;;
           esac
         done
-        echo "💡 Listing leads..."
+        echo " Listing leads..."
         pipedrive_api GET "/leads?limit=$LIMIT&start=$START" | format_leads
         ;;
       
@@ -1189,7 +1189,7 @@ print(f\"✅ Activity marked as done!\")
           exit 1
         fi
         
-        echo "📝 Creating lead: $TITLE"
+        echo " Creating lead: $TITLE"
         DATA=$(python3 -c "
 import json
 data = {'title': '$TITLE'}
@@ -1203,10 +1203,10 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 l = data.get('data', {})
-print(f\"✅ Created lead ID: {l.get('id')} - {l.get('title')}\")
+print(f\" Created lead ID: {l.get('id')} - {l.get('title')}\")
 "
         ;;
       
@@ -1216,7 +1216,7 @@ print(f\"✅ Created lead ID: {l.get('id')} - {l.get('title')}\")
           echo "Usage: pipedrive.sh leads convert <id>"
           exit 1
         fi
-        echo "🔄 Converting lead $ID to deal..."
+        echo " Converting lead $ID to deal..."
         # First get the lead details
         LEAD_DATA=$(pipedrive_api GET "/leads/$ID")
         
@@ -1228,7 +1228,7 @@ import sys
 
 lead_resp = json.loads('''$LEAD_DATA''')
 if not lead_resp.get('success'):
-    print(f\"❌ Error getting lead: {lead_resp.get('error', 'Unknown error')}\")
+    print(f\" Error getting lead: {lead_resp.get('error', 'Unknown error')}\")
     sys.exit(1)
 
 lead = lead_resp.get('data', {})
@@ -1256,10 +1256,10 @@ print(json.dumps(deal_data))
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 d = data.get('data', {})
-print(f\"✅ Created deal ID: {d.get('id')} from lead\")
+print(f\" Created deal ID: {d.get('id')} from lead\")
 print(f\"Note: Original lead still exists. Delete it manually if needed.\")
 "
         ;;
@@ -1282,7 +1282,7 @@ print(f\"Note: Original lead still exists. Delete it manually if needed.\")
             *) shift ;;
           esac
         done
-        echo "📦 Listing products..."
+        echo " Listing products..."
         pipedrive_api GET "/products?limit=$LIMIT&start=$START" | format_products
         ;;
       
@@ -1292,12 +1292,12 @@ print(f\"Note: Original lead still exists. Delete it manually if needed.\")
           echo "Usage: pipedrive.sh products search \"query\""
           exit 1
         fi
-        echo "🔍 Searching products for: $QUERY"
+        echo " Searching products for: $QUERY"
         pipedrive_api GET "/itemSearch?term=$(echo "$QUERY" | python3 -c 'import urllib.parse,sys; print(urllib.parse.quote(sys.stdin.read().strip()))')&item_types=product&limit=50" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 items = data.get('data', {}).get('items', [])
 if not items:
@@ -1305,7 +1305,7 @@ if not items:
     sys.exit(0)
 for item in items:
     p = item.get('item', {})
-    print(f\"📦 {p.get('id')}\t{p.get('name', 'Unknown')[:40]}\t{p.get('code', '')[:15]}\")
+    print(f\" {p.get('id')}\t{p.get('name', 'Unknown')[:40]}\t{p.get('code', '')[:15]}\")
 "
         ;;
       
@@ -1333,7 +1333,7 @@ for item in items:
             *) shift ;;
           esac
         done
-        echo "📝 Listing notes..."
+        echo " Listing notes..."
         QUERY="limit=$LIMIT&start=$START"
         [ -n "$DEAL_ID" ] && QUERY="$QUERY&deal_id=$DEAL_ID"
         [ -n "$PERSON_ID" ] && QUERY="$QUERY&person_id=$PERSON_ID"
@@ -1368,7 +1368,7 @@ for item in items:
           exit 1
         fi
         
-        echo "📝 Creating note..."
+        echo " Creating note..."
         DATA=$(python3 -c "
 import json
 data = {'content': '''$CONTENT'''}
@@ -1387,10 +1387,10 @@ print(json.dumps(data))
 import json, sys
 data = json.load(sys.stdin)
 if not data.get('success'):
-    print(f\"❌ Error: {data.get('error', 'Unknown error')}\")
+    print(f\" Error: {data.get('error', 'Unknown error')}\")
     sys.exit(1)
 n = data.get('data', {})
-print(f\"✅ Created note ID: {n.get('id')}\")
+print(f\" Created note ID: {n.get('id')}\")
 "
         ;;
       

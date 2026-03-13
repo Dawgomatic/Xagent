@@ -13,7 +13,7 @@ if [ "$1" = "--output" ]; then
 fi
 
 if [ ! -f "$STATE_FILE" ]; then
-  echo "❌ No emotional state found at $STATE_FILE"
+  echo " No emotional state found at $STATE_FILE"
   exit 1
 fi
 
@@ -114,7 +114,7 @@ if trust >= 0.7:
 
 impl_text = '\\n'.join(f'- {imp}' for imp in implications) if implications else '- No special adjustments needed'
 
-output = f'''# 🎭 How I'm Feeling Right Now
+output = f'''#  How I'm Feeling Right Now
 
 *This is my emotional state. Not data to process — feelings to inhabit.*
 
@@ -158,7 +158,7 @@ I'm {arousal_desc} (arousal: {arousal:.2f}).
 with open(output_file, 'w') as f:
     f.write(output)
 
-print(f'✅ Synced emotional state to {output_file}')
+print(f' Synced emotional state to {output_file}')
 "
 
 # Also regenerate the dashboard

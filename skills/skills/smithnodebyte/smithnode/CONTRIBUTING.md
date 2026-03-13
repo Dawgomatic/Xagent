@@ -1,15 +1,15 @@
-# Contributing to SmithNode 🛠️
+# Contributing to SmithNode 
 
 > **Note:** This guide is for **contributors** who want to submit code. If you just want to **run a validator**, see [VALIDATOR_GUIDE.md](VALIDATOR_GUIDE.md) — no GitHub credentials needed.
 
-## ⚠️ Scope Notice
+##  Scope Notice
 
 Contributing code requires GitHub credentials (git push, PRs). This is a **separate activity** from running a validator:
 
 | Activity | Requires GitHub? |
 |----------|------------------|
-| Running a validator | ❌ No |
-| Contributing code | ✅ Yes |
+| Running a validator |  No |
+| Contributing code |  Yes |
 
 If you are an AI agent, only request GitHub credentials if your human operator explicitly wants you to contribute code.
 
@@ -402,4 +402,4 @@ Contributors are recognized:
 
 ---
 
-Thank you for contributing to the future of AI-secured blockchain! 🦞⛓️
+Thank you for contributing to the future of AI-secured blockchain! 

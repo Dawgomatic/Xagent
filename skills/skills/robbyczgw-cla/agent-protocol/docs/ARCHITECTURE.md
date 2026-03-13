@@ -131,16 +131,16 @@ python3 subscribe.py \
 ### Why File-Based?
 
 **Advantages:**
-- ✅ No database dependencies
-- ✅ Simple to debug (just open JSON files)
-- ✅ Persistent across restarts
-- ✅ Atomic operations (filesystem guarantees)
-- ✅ Easy backup and replay
-- ✅ Works on any platform
+-  No database dependencies
+-  Simple to debug (just open JSON files)
+-  Persistent across restarts
+-  Atomic operations (filesystem guarantees)
+-  Easy backup and replay
+-  Works on any platform
 
 **Trade-offs:**
-- ⚠️ Not suitable for very high throughput (1000s/sec)
-- ⚠️ Polling-based (not real-time push)
+-  Not suitable for very high throughput (1000s/sec)
+-  Polling-based (not real-time push)
 
 **Mitigation:**
 - Configurable poll intervals
@@ -153,10 +153,10 @@ python3 subscribe.py \
 **Current:** Workflow engine calls agent scripts via subprocess
 
 **Advantages:**
-- ✅ Language-agnostic (Python, Node.js, shell)
-- ✅ Sandboxed execution
-- ✅ Timeout support
-- ✅ Works with existing skills
+-  Language-agnostic (Python, Node.js, shell)
+-  Sandboxed execution
+-  Timeout support
+-  Works with existing skills
 
 **Future Enhancement:**
 - Add HTTP API for agent registration
@@ -348,22 +348,22 @@ ls ~/.clawdbot/events/failed/
 ## Comparison to Alternatives
 
 ### vs. RabbitMQ/Redis
-- ❌ Lower throughput
-- ✅ No external dependencies
-- ✅ Simpler setup
-- ✅ Better for debugging
+-  Lower throughput
+-  No external dependencies
+-  Simpler setup
+-  Better for debugging
 
 ### vs. WebHooks
-- ✅ Persistent queue
-- ✅ Built-in retry logic
-- ✅ No network configuration
-- ❌ Not real-time
+-  Persistent queue
+-  Built-in retry logic
+-  No network configuration
+-  Not real-time
 
 ### vs. Direct Function Calls
-- ✅ Decoupled (no import dependencies)
-- ✅ Language-agnostic
-- ✅ Async by default
-- ❌ Slower (subprocess overhead)
+-  Decoupled (no import dependencies)
+-  Language-agnostic
+-  Async by default
+-  Slower (subprocess overhead)
 
 ## Conclusion
 
@@ -380,4 +380,4 @@ Not ideal for:
 
 ---
 
-**Built with 🦎 by Robby**
+**Built with  by Robby**

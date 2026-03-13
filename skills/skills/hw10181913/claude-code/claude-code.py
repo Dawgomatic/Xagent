@@ -77,10 +77,10 @@ brew install --cask claude-code
 
 ## Writing Good Prompts
 
-### ❌ Bad Example
+###  Bad Example
 "Fix my code"
 
-### ✅ Good Example
+###  Good Example
 "Fix the null pointer exception in userService.js line 45. The error occurs when user.id is accessed without null check. Provide a null-safe implementation."
 
 ## Workflow Best Practices
@@ -227,13 +227,13 @@ VS Code, JetBrains, and other IDEs supported.
 
 ## Connection Issues
 
-### ❌ "Failed to connect to API"
+###  "Failed to connect to API"
 **Solution:**
 - Check internet connection
 - Verify API key validity
 - Check Anthropic status page
 
-### ❌ "Authentication failed"
+###  "Authentication failed"
 **Solution:**
 - Refresh API token
 - Check environment variables
@@ -241,13 +241,13 @@ VS Code, JetBrains, and other IDEs supported.
 
 ## Performance Issues
 
-### ⚠️ "Slow response times"
+###  "Slow response times"
 **Solutions:**
 - Reduce context size
 - Use faster models for simple tasks
 - Check network latency
 
-### ⚠️ "Memory issues"
+###  "Memory issues"
 **Solutions:**
 - Clear conversation history
 - Reduce batch sizes
@@ -255,13 +255,13 @@ VS Code, JetBrains, and other IDEs supported.
 
 ## Code Quality Issues
 
-### ❌ "Code doesn't compile"
+###  "Code doesn't compile"
 **Solutions:**
 - Check syntax errors in prompts
 - Specify programming language
 - Verify dependencies
 
-### ❌ "Code doesn't match style"
+###  "Code doesn't match style"
 **Solutions:**
 - Provide style guide in CLAUDE.md
 - Reference existing code patterns
@@ -586,7 +586,7 @@ def show_docs_overview() -> str:
 Claude Code Documentation Overview
 ==================================
 
-📚 Core Topics:
+ Core Topics:
 
 1. quickstart - Getting Started Guide
    Install, configure, and start using Claude Code
@@ -603,7 +603,7 @@ Claude Code Documentation Overview
 5. troubleshooting - Troubleshooting Guide
    Common issues and solutions
 
-🤖 Advanced Topics:
+ Advanced Topics:
 
 6. subagents - Subagents System
    Creating and managing specialized AI agents
@@ -617,7 +617,7 @@ Claude Code Documentation Overview
 9. mcp - Model Context Protocol
    Connecting to external tools and data sources
 
-📖 Usage Examples:
+ Usage Examples:
 
    claude-code docs                    # Show this overview
    claude-code query quickstart        # Get quickstart guide
@@ -698,15 +698,15 @@ To execute:
 Claude Code Configuration
 ========================
 
-Status: ✅ Configured
+Status:  Configured
 Version: OpenClaw native integration
 Documentation: https://code.claude.com/docs
 
 Available Capabilities:
-- 📚 Documentation queries
-- 🤖 Subagent task creation
-- 📖 Best practices guidance
-- 🛠️ Troubleshooting support
+-  Documentation queries
+-  Subagent task creation
+-  Best practices guidance
+-  Troubleshooting support
 
 Next Steps:
 - Explore documentation: claude-code docs

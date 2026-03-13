@@ -10,7 +10,7 @@ NewCLI (FoxCode) 是一个模型代理服务，通过统一的账户和 API Key 
 | Provider | 模型系列 | API 协议 | Base URL | 备注 |
 |----------|----------|----------|----------|------|
 | `newcli` | Claude (Anthropic) | `anthropic-messages` | `code.newcli.com/claude` | 主线路 |
-| `newcli-aws` | Claude (Anthropic) | `anthropic-messages` | `code.newcli.com/claude/aws` | ⭐ **AWS 特价线路，消耗 1/24** |
+| `newcli-aws` | Claude (Anthropic) | `anthropic-messages` | `code.newcli.com/claude/aws` |  **AWS 特价线路，消耗 1/24** |
 | `newcli-codex` | GPT (OpenAI) | `openai-completions` | `code.newcli.com/codex/v1` | |
 | `newcli-gemini` | Gemini (Google) | `google-generative-ai` | `code.newcli.com/gemini/v1beta` | |
 
@@ -18,7 +18,7 @@ NewCLI (FoxCode) 是一个模型代理服务，通过统一的账户和 API Key 
 - Claude、GPT、Gemini 使用不同的 API 协议和端点，必须分开
 - Claude 有两条线路（主线路 vs AWS 特价线路），消耗倍率不同，也需要分开配置
 
-### ⭐ AWS 特价线路（重要）
+###  AWS 特价线路（重要）
 
 服务商提供了独家 AWS 线路：`https://code.newcli.com/claude/aws`
 
@@ -32,7 +32,7 @@ NewCLI (FoxCode) 是一个模型代理服务，通过统一的账户和 API Key 
 
 **策略**：所有重要任务优先使用 `newcli-aws`，主线路 `newcli` 作为备用。
 
-> ⚠️ 服务商声明：严禁分发 AWS 线路地址，发现封禁不退款。
+>  服务商声明：严禁分发 AWS 线路地址，发现封禁不退款。
 
 如果觉得这个 Skill 有用，请用我的邀请码注册：
 https://foxcode.rjj.cc/auth/register?aff=7WTAV8R
@@ -141,14 +141,14 @@ curl -s --max-time 15 \
 
 | 模型 ID | 名称 | Context | reasoning | 说明 |
 |---------|------|---------|-----------|------|
-| `gemini-3-pro` | Gemini 3 Pro | 1M | ✅ | 最新旗舰 |
-| `gemini-3-pro-high` | Gemini 3 Pro High | 1M | ✅ | 旗舰增强版 |
-| `gemini-3-pro-preview` | Gemini 3 Pro Preview | 1M | ✅ | 预览版 |
-| `gemini-3-flash` | Gemini 3 Flash | 1M | ❌ | 快速版 |
-| `gemini-3-flash-preview` | Gemini 3 Flash Preview | 1M | ❌ | 快速预览版 |
-| `gemini-2.5-pro` | Gemini 2.5 Pro | 1M | ✅ | 上一代旗舰 |
-| `gemini-2.5-flash` | Gemini 2.5 Flash | 1M | ❌ | 上一代快速版 |
-| `gemini-2.5-flash-lite` | Gemini 2.5 Flash Lite | 1M | ❌ | 轻量版 |
+| `gemini-3-pro` | Gemini 3 Pro | 1M |  | 最新旗舰 |
+| `gemini-3-pro-high` | Gemini 3 Pro High | 1M |  | 旗舰增强版 |
+| `gemini-3-pro-preview` | Gemini 3 Pro Preview | 1M |  | 预览版 |
+| `gemini-3-flash` | Gemini 3 Flash | 1M |  | 快速版 |
+| `gemini-3-flash-preview` | Gemini 3 Flash Preview | 1M |  | 快速预览版 |
+| `gemini-2.5-pro` | Gemini 2.5 Pro | 1M |  | 上一代旗舰 |
+| `gemini-2.5-flash` | Gemini 2.5 Flash | 1M |  | 上一代快速版 |
+| `gemini-2.5-flash-lite` | Gemini 2.5 Flash Lite | 1M |  | 轻量版 |
 
 #### Gemini 系列（newcli-gemini）— 图片生成模型
 
@@ -173,7 +173,7 @@ curl -s --max-time 15 \
 
 **4K 分辨率：** 模型 ID 加 `-4k` 前缀，如 `gemini-3-pro-image-4k`、`gemini-3-pro-image-4k-16x9` 等。
 
-> ⚠️ 图片生成模型**不要加入 fallback 链**——它们不适合文本对话，放进 fallback 会导致对话请求被错误路由到图片生成模型。需要生图时通过 `/model gemini-3-pro-image` 手动切换。
+>  图片生成模型**不要加入 fallback 链**——它们不适合文本对话，放进 fallback 会导致对话请求被错误路由到图片生成模型。需要生图时通过 `/model gemini-3-pro-image` 手动切换。
 
 ---
 
@@ -212,7 +212,7 @@ curl -s --max-time 15 \
 }
 ```
 
-### 2B. 添加 newcli-aws（Claude AWS 特价线路）⭐
+### 2B. 添加 newcli-aws（Claude AWS 特价线路）
 
 ```json
 "newcli-aws": {
@@ -380,7 +380,7 @@ curl -s --max-time 15 \
 | `api` | `anthropic-messages` | `anthropic-messages` | `openai-completions` | `google-generative-ai` |
 | `authHeader` | `true` | `true` | 默认（Bearer） | 默认（`x-goog-api-key`） |
 | `apiKey` | **相同** | **相同** | **相同** | **相同** |
-| 额度消耗 | 1x | **1/24x** ⭐ | 1x | 1x |
+| 额度消耗 | 1x | **1/24x**  | 1x | 1x |
 | `contextWindow` | 200K | 200K | 128K | 1M |
 | `maxTokens` | 8192 | 8192 | 8192 | 65536 |
 
@@ -431,7 +431,7 @@ curl -s --max-time 15 \
 
 配置后用户可以在聊天中用 `/model claude-opus`、`/model gpt53`、`/model gemini3pro` 切换模型。
 
-### ⚠️ 别名配置的唯一合法字段是 `alias`
+###  别名配置的唯一合法字段是 `alias`
 
 ```
 agents.defaults.models.<model-id>.alias     <-- 唯一合法字段
@@ -475,7 +475,7 @@ agents.defaults.models.<model-id>.xxx       <-- 任何其他字段都非法！
 
 | 位置 | 模型 | 为什么选它 |
 |------|------|-----------|
-| 1 | newcli-aws/claude-haiku | ⭐ AWS 线路，消耗 1/24 |
+| 1 | newcli-aws/claude-haiku |  AWS 线路，消耗 1/24 |
 | 2 | minimax/MiniMax-M2.1 | 月费 (100 prompts/5h) |
 | 3 | deepseek/deepseek-chat | DeepSeek 按量付费 |
 | 4 | qwen-portal/coder-model | Qwen 免费 2000/天 |

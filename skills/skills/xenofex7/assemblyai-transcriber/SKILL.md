@@ -8,17 +8,17 @@ metadata:
         - ASSEMBLYAI_API_KEY
 ---
 
-# AssemblyAI Transcriber 🎙️
+# AssemblyAI Transcriber 
 
 Transcribe audio files with speaker diarization (who speaks when).
 
 ## Features
 
-- ✅ Transcription in 100+ languages
-- ✅ Speaker diarization (Speaker A, B, C...)
-- ✅ Timestamps per utterance
-- ✅ Automatic language detection
-- ✅ Supports MP3, WAV, M4A, FLAC, OGG, WEBM
+-  Transcription in 100+ languages
+-  Speaker diarization (Speaker A, B, C...)
+-  Timestamps per utterance
+-  Automatic language detection
+-  Supports MP3, WAV, M4A, FLAC, OGG, WEBM
 
 ## Setup
 

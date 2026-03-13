@@ -29,8 +29,8 @@ import { useEffect, useState } from "react";
 import { Grid } from "@raycast/api";
 
 const items = [
-  { content: "🙈", keywords: ["see-no-evil", "monkey"] },
-  { content: "🥳", keywords: ["partying", "face"] },
+  { content: "", keywords: ["see-no-evil", "monkey"] },
+  { content: "", keywords: ["partying", "face"] },
 ];
 
 export default function Command() {
@@ -69,8 +69,8 @@ import { useState } from "react";
 import { Action, ActionPanel, Grid } from "@raycast/api";
 
 const items = [
-  { content: "🙈", keywords: ["see-no-evil", "monkey"] },
-  { content: "🥳", keywords: ["partying", "face"] },
+  { content: "", keywords: ["see-no-evil", "monkey"] },
+  { content: "", keywords: ["partying", "face"] },
 ];
 
 export default function Command() {
@@ -266,8 +266,8 @@ import { Grid } from "@raycast/api";
 export default function Command() {
   return (
     <Grid columns={8} inset={Grid.Inset.Large}>
-      <Grid.Item content="🥳" />
-      <Grid.Item content="🙈" />
+      <Grid.Item content="" />
+      <Grid.Item content="" />
     </Grid>
   );
 }
@@ -309,7 +309,7 @@ export default function Command() {
         title="Item 1"
         actions={
           <ActionPanel>
-            <Action.CopyToClipboard content="👋" />
+            <Action.CopyToClipboard content="" />
           </ActionPanel>
         }
       />
@@ -367,8 +367,8 @@ The grid uses built-in filtering by indexing the title & keywords of its items.
 import { Grid } from "@raycast/api";
 
 const items = [
-  { content: "🙈", keywords: ["see-no-evil", "monkey"] },
-  { content: "🥳", keywords: ["partying", "face"] },
+  { content: "", keywords: ["see-no-evil", "monkey"] },
+  { content: "", keywords: ["partying", "face"] },
 ];
 
 export default function Command() {
@@ -425,8 +425,8 @@ const types = [
 ];
 
 const items: { [key: string]: { content: Image.ImageLike; keywords: string[] }[] } = {
-  smileys: [{ content: "🥳", keywords: ["partying", "face"] }],
-  "animals-and-nature": [{ content: "🙈", keywords: ["see-no-evil", "monkey"] }],
+  smileys: [{ content: "", keywords: ["partying", "face"] }],
+  "animals-and-nature": [{ content: "", keywords: ["see-no-evil", "monkey"] }],
 };
 
 export default function Command() {
@@ -610,7 +610,7 @@ import { Grid } from "@raycast/api";
 export default function Command() {
   return (
     <Grid>
-      <Grid.Item content="🥳" title="Partying Face" subtitle="Smiley" />
+      <Grid.Item content="" title="Partying Face" subtitle="Smiley" />
     </Grid>
   );
 }

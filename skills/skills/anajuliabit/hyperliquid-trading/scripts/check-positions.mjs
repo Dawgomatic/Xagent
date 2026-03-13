@@ -54,13 +54,13 @@ async function main() {
       
       // Check if profit target or stop loss hit
       if (pnlPct >= 2) {
-        console.log(`  ⚠️  PROFIT TARGET HIT! Consider taking profit.`);
+        console.log(`    PROFIT TARGET HIT! Consider taking profit.`);
       } else if (pnlPct <= -1) {
-        console.log(`  🛑 STOP LOSS HIT! Consider closing position.`);
+        console.log(`   STOP LOSS HIT! Consider closing position.`);
       }
     }
   } else {
-    console.log('\n✅ No open positions');
+    console.log('\n No open positions');
   }
   
   // Current prices
@@ -76,9 +76,9 @@ async function main() {
     tradingState.current_positions = state.assetPositions || [];
     tradingState.parameters.account_size = parseFloat(state.marginSummary.accountValue);
     writeFileSync(stateFile, JSON.stringify(tradingState, null, 2));
-    console.log('\n✅ Trading state updated');
+    console.log('\n Trading state updated');
   } catch (err) {
-    console.log('\n⚠️  Could not update trading state:', err.message);
+    console.log('\n  Could not update trading state:', err.message);
   }
 }
 

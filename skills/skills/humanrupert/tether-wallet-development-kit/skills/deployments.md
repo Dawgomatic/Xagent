@@ -6,8 +6,8 @@ WDK-relevant chains only. All USDT are **6 decimals**.
 
 | Chain | Address | Notes |
 |-------|---------|-------|
-| **Ethereum** | `0xdAC17F958D2ee523a2206206994597C13D831ec7` | ⚠️ Non-standard ERC20: no bool return on `transfer()`. Use SafeERC20. Does NOT support EIP-3009. |
-| **TRON** | `TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t` | ⚠️ Same non-standard transfer as Ethereum USDT. |
+| **Ethereum** | `0xdAC17F958D2ee523a2206206994597C13D831ec7` |  Non-standard ERC20: no bool return on `transfer()`. Use SafeERC20. Does NOT support EIP-3009. |
+| **TRON** | `TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t` |  Same non-standard transfer as Ethereum USDT. |
 | **Solana** | `Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB` | SPL token mint address |
 | **TON** | `EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs` | Jetton master contract |
 | **Avalanche** | `0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7` | Standard ERC20 |

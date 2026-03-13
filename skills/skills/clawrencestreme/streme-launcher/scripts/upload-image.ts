@@ -190,7 +190,7 @@ Environment variables:
       process.exit(1);
   }
 
-  console.log(`✅ Image uploaded: ${imageUrl}`);
+  console.log(` Image uploaded: ${imageUrl}`);
   console.log(`\nUse in deployment:`);
   console.log(`  TOKEN_IMAGE="${imageUrl}"`);
 }

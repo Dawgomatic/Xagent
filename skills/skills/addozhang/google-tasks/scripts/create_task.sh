@@ -110,7 +110,7 @@ fi
 
 # Success
 TASK_ID=$(echo "$RESULT" | jq -r '.id')
-echo "✅ Task created successfully!"
+echo " Task created successfully!"
 echo ""
 echo "List: $LIST_NAME"
 echo "Task: $TASK_TITLE"

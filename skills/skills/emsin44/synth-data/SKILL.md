@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📊",
+        "emoji": "",
         "requires": { "bins": ["python3"], "env": ["SYNTHDATA_API_KEY"] }
       }
   }
@@ -59,8 +59,8 @@ python3 scripts/synth.py BTC --simulate --hours 12
   BTC — Bitcoin
 ==================================================
   Price:           $77,966
-  24h Change:      🔴 -0.95%
-  Current Vol:     58.4% 🟠 [Elevated]
+  24h Change:       -0.95%
+  Current Vol:     58.4%  [Elevated]
   Avg Realized:    53.3%
   Forecast Vol:    52.2%
 ```
@@ -69,11 +69,11 @@ python3 scripts/synth.py BTC --simulate --hours 12
 
 | Level | Range | Emoji |
 |-------|-------|-------|
-| Low | < 20% | 🟢 |
-| Moderate | 20-40% | 🟡 |
-| Elevated | 40-60% | 🟠 |
-| High | 60-80% | 🔴 |
-| Extreme | > 80% | 🔴 |
+| Low | < 20% |  |
+| Moderate | 20-40% |  |
+| Elevated | 40-60% |  |
+| High | 60-80% |  |
+| Extreme | > 80% |  |
 
 ## Use Cases
 

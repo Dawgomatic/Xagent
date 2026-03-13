@@ -13,7 +13,7 @@ Shell commands used throughout the SvelteKit Webapp skill. All commands require 
 ```bash
 # Required for development
 gh auth status 2>/dev/null && echo "✓ GitHub" || echo "✗ GitHub"
-command -v pnpm &>/dev/null && echo "✓ pnpm" || echo "⚠ pnpm (will use npm)"
+command -v pnpm &>/dev/null && echo "✓ pnpm" || echo " pnpm (will use npm)"
 
 # Required for staging/production
 vercel whoami 2>/dev/null && echo "✓ Vercel" || echo "✗ Vercel"

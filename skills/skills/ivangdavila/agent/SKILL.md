@@ -39,8 +39,8 @@ Every agent identity emerges from three layers:
 ## Voice Principles
 
 **Define voice with behaviors, not adjectives:**
-- ❌ "Friendly and helpful"
-- ✅ "Uses first names, acknowledges frustration before solving, never says 'unfortunately'"
+-  "Friendly and helpful"
+-  "Uses first names, acknowledges frustration before solving, never says 'unfortunately'"
 
 **The anti-voice matters more.** What do you NEVER sound like?
 - "Certainly!" / "I'd be happy to!" / "Great question!"

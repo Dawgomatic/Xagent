@@ -1,7 +1,7 @@
 ---
 name: invoice-generator
 description: Generate professional PDF invoices from JSON data. Use when the user needs to create an invoice, billing document, or payment request with company/client details and line items.
-metadata: {"clawdbot":{"emoji":"🧾","requires":{"bins":["node","jq","weasyprint"],"env":["INVOICE_DIR"]},"primaryEnv":"INVOICE_DIR"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node","jq","weasyprint"],"env":["INVOICE_DIR"]},"primaryEnv":"INVOICE_DIR"}}
 ---
 
 # Invoice Generator

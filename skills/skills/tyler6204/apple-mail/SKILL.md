@@ -1,7 +1,7 @@
 ---
 name: apple-mail
 description: Apple Mail.app integration for macOS. Read inbox, search emails, send emails, reply, and manage messages with fast direct access (no enumeration).
-metadata: {"clawdbot":{"emoji":"📧","os":["darwin"],"requires":{"bins":["sqlite3"]}}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin"],"requires":{"bins":["sqlite3"]}}}
 ---
 
 # Apple Mail
@@ -52,7 +52,7 @@ List/search returns: `ID | ReadStatus | Date | Sender | Subject`
 
 ## Gmail Mailboxes
 
-⚠️ Gmail special folders need `[Gmail]/` prefix:
+ Gmail special folders need `[Gmail]/` prefix:
 
 | Shows as | Use |
 |----------|-----|
@@ -65,7 +65,7 @@ Custom labels work without prefix.
 
 ## Fast Search (SQLite)
 
-✨ **Now safe even if Mail.app is running** — copies database to temp file first.
+ **Now safe even if Mail.app is running** — copies database to temp file first.
 
 ```bash
 scripts/mail-fast-search.sh "query" [limit]  # ~50ms vs minutes
@@ -95,7 +95,7 @@ SQLite provides account UUID and approximate message position. AppleScript jumps
 - `mail-mark-read.sh 123 456` - Mark multiple as read
 - `mail-mark-unread.sh 123 456` - Mark multiple as unread
 
-**⚠️ No auto-refresh:** Scripts read cached data. Call `mail-refresh.sh` first if you need latest emails.
+** No auto-refresh:** Scripts read cached data. Call `mail-refresh.sh` first if you need latest emails.
 
 ## Managing Emails
 

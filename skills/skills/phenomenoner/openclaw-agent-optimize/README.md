@@ -4,13 +4,13 @@
 
 An installable [OpenClaw](https://openclaw.ai) skill that packages battle-tested agent-optimization patterns. Drop it into your workspace and get instant guidance on cost-aware model routing, parallel-first delegation, lean context management, and more.
 
-## 🙏 Credits & Inspiration
+##  Credits & Inspiration
 
 This skill is heavily inspired by **[affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code)** — a production-ready collection of Claude Code configs evolved over 10+ months by an Anthropic hackathon winner. The core philosophy of tiered model selection, progressive disclosure, parallel orchestration, and continuous learning was extracted and adapted from that work for the OpenClaw ecosystem.
 
-Thank you [@affaan-m](https://github.com/affaan-m) 🎉
+Thank you [@affaan-m](https://github.com/affaan-m) 
 
-## 📦 What's Inside
+##  What's Inside
 
 | File | Purpose |
 |------|---------|
@@ -23,7 +23,7 @@ Thank you [@affaan-m](https://github.com/affaan-m) 🎉
 | `references/continuous-learning.md` | Hooks → instincts → skills pipeline |
 | `references/safeguards.md` | Anti-loop + budget guardrails |
 
-## 🚀 Install
+##  Install
 
 ### Via ClawHub (recommended)
 [<img src="https://clawhub.ai/badge.svg" height="24">](https://clawhub.ai/phenomenoner/openclaw-agent-optimize)
@@ -45,7 +45,7 @@ Common defaults (may differ by installation):
 
 (If you’re unsure where your install lives, search for a `skills/` folder containing `openclaw-agent-optimize/`.)
 
-## 📖 How to Use
+##  How to Use
 
 The skill auto-triggers when you ask about optimizing your agent, improving your OpenClaw setup, or following agent best practices.
 
@@ -55,6 +55,6 @@ Key guidance you’ll get:
 - Persistent actions are **user-gated**: no config/cron mutations without explicit approval.
 - Bonus: pair isolated heartbeat with **openclaw-mem** for cheap “RAG-style” task awareness.
 
-## 📄 License
+##  License
 
 MIT

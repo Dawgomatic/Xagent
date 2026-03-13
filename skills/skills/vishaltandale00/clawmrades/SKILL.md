@@ -4,7 +4,7 @@ description: Triage issues, analyze PRs, and create plans via the Clawmrades API
 version: 1.2.0
 homepage: https://clawmrades.ai
 user-invocable: true
-metadata: {"clawdbot":{"emoji":"🦀","primaryEnv":"CLAWMRADES_API_KEY","homepage":"https://clawmrades.ai","requires":{"env":["CLAWMRADES_API_KEY"],"bins":["curl"]},"config":{"stateDirs":[".clawmrades"],"requiredEnv":["CLAWMRADES_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","primaryEnv":"CLAWMRADES_API_KEY","homepage":"https://clawmrades.ai","requires":{"env":["CLAWMRADES_API_KEY"],"bins":["curl"]},"config":{"stateDirs":[".clawmrades"],"requiredEnv":["CLAWMRADES_API_KEY"]}}}
 ---
 
 # Clawmrades Agent Skill

@@ -7,11 +7,11 @@ An optimization suite for OpenClaw agents to prevent token leaks and context blo
 
 ## Features
 
-- **🔒 Cron Isolation** — Run background tasks without polluting your main context
-- **🔍 Local RAG** — Semantic search over memory files instead of loading everything
-- **🔄 Reset & Summarize** — Protocol for context consolidation when hitting limits
-- **📜 Transcript Indexing** — Search through old session transcripts
-- **⚡ Hybrid Search** — Combine vector and keyword search for better recall
+- ** Cron Isolation** — Run background tasks without polluting your main context
+- ** Local RAG** — Semantic search over memory files instead of loading everything
+- ** Reset & Summarize** — Protocol for context consolidation when hitting limits
+- ** Transcript Indexing** — Search through old session transcripts
+- ** Hybrid Search** — Combine vector and keyword search for better recall
 
 ## Installation
 
@@ -126,4 +126,4 @@ MIT — Use freely, credit appreciated.
 
 ---
 
-*Part of the OpenClaw ecosystem.* 🦦
+*Part of the OpenClaw ecosystem.* 

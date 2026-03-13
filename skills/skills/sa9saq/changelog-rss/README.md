@@ -1,4 +1,4 @@
-# 📡 changelog-rss
+#  changelog-rss
 
 Convert any CHANGELOG.md into an RSS feed — monitor releases, track dependency updates.
 

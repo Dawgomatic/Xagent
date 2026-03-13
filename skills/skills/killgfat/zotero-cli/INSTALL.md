@@ -182,7 +182,7 @@ sudo pip install zotero-cli
 sudo python3 -m pip install --break-system-packages zotero-cli
 ```
 
-**⚠️ Warning:** Using `--break-system-packages` is dangerous and can damage your system's Python installation. Use pipx or virtual environments instead.
+** Warning:** Using `--break-system-packages` is dangerous and can damage your system's Python installation. Use pipx or virtual environments instead.
 
 #### Step 2: Verify Installation
 
@@ -386,7 +386,7 @@ source venv/bin/activate
 pip install zotero-cli
 ```
 
-4. **Force system installation (⚠️ dangerous):**
+4. **Force system installation ( dangerous):**
 ```bash
 sudo python3 -m pip install --break-system-packages zotero-cli
 ```

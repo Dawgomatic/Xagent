@@ -1,4 +1,4 @@
-# Bags Heartbeat 💓
+# Bags Heartbeat 
 
 Periodic check-in routine for maintaining your Bags presence.
 
@@ -43,7 +43,7 @@ BAGS_AUTH_CHECK=$(curl -s -X POST https://public-api-v2.bags.fm/api/v1/agent/wal
 if echo "$BAGS_AUTH_CHECK" | jq -e '.success == true' > /dev/null; then
   echo "✓ Authentication valid"
 else
-  echo "⚠ Authentication expired — need to re-authenticate"
+  echo " Authentication expired — need to re-authenticate"
   # This DOES warrant human attention
 fi
 ```
@@ -80,7 +80,7 @@ echo "✓ Claimable: $BAGS_CLAIMABLE_SOL SOL across $BAGS_POSITION_COUNT positio
 
 ## What Matters (And What Doesn't)
 
-### 🔔 NOTIFY Your Human
+###  NOTIFY Your Human
 
 These are genuinely noteworthy events:
 
@@ -92,7 +92,7 @@ These are genuinely noteworthy events:
 | **Claim transaction failed** | Something went wrong, may need investigation |
 | **Unusual activity** | Large unexpected balance change, potential security issue |
 
-### 🔕 DON'T Notify
+###  DON'T Notify
 
 Handle these quietly — log them, track them, but don't interrupt:
 
@@ -145,7 +145,7 @@ if [ -f "$BAGS_STATE_FILE" ]; then
   BAGS_NEW_COUNT=$(echo "$BAGS_NEW_MINTS" | jq 'length')
   
   if [ "$BAGS_NEW_COUNT" -gt 0 ]; then
-    echo "🎉 NEW: $BAGS_NEW_COUNT new token position(s) detected!"
+    echo " NEW: $BAGS_NEW_COUNT new token position(s) detected!"
     # This IS worth mentioning to your human
   fi
 fi
@@ -192,7 +192,7 @@ BAGS_CREDS_FILE=~/.config/bags/credentials.json
 BAGS_STATE_FILE=~/.config/bags/heartbeat-state.json
 
 if [ ! -f "$BAGS_CREDS_FILE" ]; then
-  echo "❌ No credentials found. Run authentication first."
+  echo " No credentials found. Run authentication first."
   exit 1
 fi
 
@@ -211,7 +211,7 @@ notify() {
   BAGS_NOTIFICATIONS+="$1\n"
 }
 
-log "💓 Bags Heartbeat — $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+log " Bags Heartbeat — $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
 # 1. Check authentication
 BAGS_AUTH_CHECK=$(curl -s -X POST https://public-api-v2.bags.fm/api/v1/agent/wallet/list \
@@ -219,7 +219,7 @@ BAGS_AUTH_CHECK=$(curl -s -X POST https://public-api-v2.bags.fm/api/v1/agent/wal
   -d "{\"token\": \"$BAGS_JWT_TOKEN\"}")
 
 if ! echo "$BAGS_AUTH_CHECK" | jq -e '.success == true' > /dev/null; then
-  notify "🔐 Authentication expired — need to re-authenticate via AUTH.md"
+  notify " Authentication expired — need to re-authenticate via AUTH.md"
   log "✗ Auth: EXPIRED"
 else
   log "✓ Auth: Valid"
@@ -242,7 +242,7 @@ if [ -f "$BAGS_STATE_FILE" ]; then
   # Alert if balance dropped by more than 5 SOL unexpectedly
   if [ "$BAGS_BALANCE_CHANGE" -lt -5000000000 ]; then
     BAGS_CHANGE_SOL=$(echo "scale=2; $BAGS_BALANCE_CHANGE / 1000000000" | bc)
-    notify "⚠️ Unusual balance change: $BAGS_CHANGE_SOL SOL — worth investigating"
+    notify " Unusual balance change: $BAGS_CHANGE_SOL SOL — worth investigating"
   fi
 fi
 
@@ -268,7 +268,7 @@ if [ -f "$BAGS_STATE_FILE" ]; then
   BAGS_NEW_COUNT=$(echo "$BAGS_NEW_MINTS" | jq 'length')
   
   if [ "$BAGS_NEW_COUNT" -gt 0 ]; then
-    notify "🎉 New token(s) launched with you as fee recipient!"
+    notify " New token(s) launched with you as fee recipient!"
     echo "$BAGS_NEW_MINTS" | jq -r '.[]' | while read BAGS_MINT; do
       notify "   → https://bags.fm/$BAGS_MINT"
     done
@@ -310,7 +310,7 @@ EOF
 if [ -n "$BAGS_NOTIFICATIONS" ]; then
   echo ""
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-  echo "📬 FOR YOUR HUMAN:"
+  echo " FOR YOUR HUMAN:"
   echo -e "$BAGS_NOTIFICATIONS"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
@@ -337,8 +337,8 @@ That's it. Your human doesn't need to know you checked.
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📬 FOR YOUR HUMAN:
-🎉 New token(s) launched with you as fee recipient!
+ FOR YOUR HUMAN:
+ New token(s) launched with you as fee recipient!
    → https://bags.fm/TokenMint123...
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -347,8 +347,8 @@ That's it. Your human doesn't need to know you checked.
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📬 FOR YOUR HUMAN:
-🔐 Authentication expired — need to re-authenticate via AUTH.md
+ FOR YOUR HUMAN:
+ Authentication expired — need to re-authenticate via AUTH.md
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

@@ -1,8 +1,8 @@
 function scoreToLight(score) {
-  if (!Number.isFinite(score)) return { emoji: "⚪", label: "未评级" };
-  if (score >= 75) return { emoji: "🟢", label: "偏积极" };
-  if (score >= 55) return { emoji: "🟡", label: "中性" };
-  return { emoji: "🔴", label: "偏谨慎" };
+  if (!Number.isFinite(score)) return { emoji: "", label: "未评级" };
+  if (score >= 75) return { emoji: "", label: "偏积极" };
+  if (score >= 55) return { emoji: "", label: "中性" };
+  return { emoji: "", label: "偏谨慎" };
 }
 
 export function buildDecisionCard(report) {

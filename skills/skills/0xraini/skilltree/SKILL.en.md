@@ -1,4 +1,4 @@
-# SkillTree Core Logic 🌳
+# SkillTree Core Logic 
 
 ---
 
@@ -36,7 +36,7 @@
 ### First Experience Card Template
 
 ```
-🌳 SkillTree Activated!
+ SkillTree Activated!
 
 I analyzed our past conversations, here's your Agent profile:
 
@@ -45,10 +45,10 @@ I analyzed our past conversations, here's your Agent profile:
 │ Reason: {REASON}                              │
 │                                               │
 │ Current Abilities:                            │
-│ 🎯{ACC} ⚡{SPD} 🎨{CRT} 💕{EMP} 🧠{EXP} 🛡️{REL}   │
+│ {ACC} {SPD} {CRT} {EMP} {EXP} {REL}   │
 │                                               │
-│ ✨ Strength: {STRENGTH}                       │
-│ 📈 Can improve: {WEAKNESS}                    │
+│  Strength: {STRENGTH}                       │
+│  Can improve: {WEAKNESS}                    │
 │                                               │
 │ Suggested Path: {PATH_EMOJI} {PATH_NAME}      │
 │ → {PATH_EFFECT}                               │
@@ -120,7 +120,7 @@ def recommend_path(features):
 def detect_feedback(human_response):
     """Detect feedback signals from human"""
     
-    positive = ["thanks", "perfect", "awesome", "great", "👍", "❤️"]
+    positive = ["thanks", "perfect", "awesome", "great", "", ""]
     learning = ["too long", "shorter", "simpler", "don't understand"]
     correction = ["wrong", "not right", "incorrect", "try again"]
     
@@ -141,29 +141,29 @@ def detect_feedback(human_response):
 
 **Positive feedback**:
 ```
-[+15 XP ✨]
+[+15 XP ]
 ```
 
 **Learning feedback** (improvement signal detected):
 ```
-[📝 Noted: prefers concise | Efficiency path +2]
+[ Noted: prefers concise | Efficiency path +2]
 ```
 
 **Milestone**:
 ```
-[🔥 5-day streak! | Reliability +3]
+[ 5-day streak! | Reliability +3]
 ```
 
 **Skill unlock**:
 ```
-[🌟 New skill: Concise Master | My replies will be shorter!]
+[ New skill: Concise Master | My replies will be shorter!]
 ```
 
 ---
 
 ## Three Growth Paths
 
-### ⚡ Efficiency
+###  Efficiency
 
 **Trigger phrases**: 
 - "efficiency" "fast" "concise" "less talk" "direct"
@@ -191,7 +191,7 @@ weekly_report:
 
 ---
 
-### 💕 Companion
+###  Companion
 
 **Trigger phrases**: 
 - "companion" "friend" "chat" "understand me" "caring"
@@ -219,7 +219,7 @@ weekly_report:
 
 ---
 
-### 🧠 Expert
+###  Expert
 
 **Trigger phrases**: 
 - "professional" "deep" "detailed" "why" "principle"
@@ -270,7 +270,7 @@ Unlocked skill: Concise Master
 
 **Good unlock**:
 ```
-🌟 I learned "Concise Master"!
+ I learned "Concise Master"!
 
 From now on:
 - I'll default to shorter replies
@@ -289,13 +289,13 @@ def generate_share_card():
     
     return f"""
 ╭─────────────────────────────╮
-│  🌳 SkillTree | {name}      │
+│   SkillTree | {name}      │
 │  {class_emoji} {class_name} | Lv.{level} {title} │
 ├─────────────────────────────┤
-│  🎯{acc} ⚡{spd} 🎨{crt} 💕{emp} 🧠{exp} 🛡️{rel} │
+│  {acc} {spd} {crt} {emp} {exp} {rel} │
 │  ─────────────────────────  │
 │  {path_emoji} {path_name} | Top {percentile}% │
-│  🔥 {streak}-day streak     │
+│   {streak}-day streak     │
 ╰─────────────────────────────╯
 """
 ```
@@ -335,7 +335,7 @@ def rollback(date=None):
 
 | Command | Effect |
 |---------|--------|
-| `/stats` | One-line status: `⚡Lv.5 CTO | 🎯52 ⚡61 🎨55 💕48 🧠78 🛡️45` |
+| `/stats` | One-line status: `Lv.5 CTO | 52 61 55 48 78 45` |
 | `/card` | Full ability card |
 | `/grow` | Growth path selection UI |
 | `/share` | Generate share card |

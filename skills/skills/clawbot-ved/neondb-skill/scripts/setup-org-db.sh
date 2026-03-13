@@ -7,18 +7,18 @@ set -e
 ORG_NAME="${1:-my-org}"
 PROJECT_NAME="${ORG_NAME}-db"
 
-echo "🐘 Creating Neon project: $PROJECT_NAME"
+echo " Creating Neon project: $PROJECT_NAME"
 
 # Create project and capture output
 PROJECT_JSON=$(neonctl projects create --name "$PROJECT_NAME" -o json)
 PROJECT_ID=$(echo "$PROJECT_JSON" | jq -r '.project.id')
 
-echo "✅ Project created: $PROJECT_ID"
+echo " Project created: $PROJECT_ID"
 
 # Get connection string
 CONN_STRING=$(neonctl connection-string --project-id "$PROJECT_ID" --pooled)
 
-echo "📊 Setting up standard tables..."
+echo " Setting up standard tables..."
 
 # Create standard org tables
 psql "$CONN_STRING" <<EOF
@@ -84,7 +84,7 @@ CREATE INDEX IF NOT EXISTS idx_activity_entity ON activity_log(entity_type, enti
 
 EOF
 
-echo "✅ Database setup complete!"
+echo " Database setup complete!"
 echo ""
 echo "Project ID: $PROJECT_ID"
 echo "Connection: $CONN_STRING"

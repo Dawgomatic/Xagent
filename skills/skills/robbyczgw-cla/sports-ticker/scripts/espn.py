@@ -191,43 +191,43 @@ def format_event(event: dict, sport: str = "soccer") -> str:
                 detail = " (OG)"
             elif "Penalty" in event_type:
                 detail = " (pen)"
-            return f"⚽ {clock} {player}{detail} ({team})"
+            return f" {clock} {player}{detail} ({team})"
         elif "Yellow" in event_type:
-            return f"🟨 {clock} {player} ({team})"
+            return f" {clock} {player} ({team})"
         elif "Red" in event_type:
-            return f"🟥 {clock} {player} ({team})"
+            return f" {clock} {player} ({team})"
         elif "Substitution" in event_type:
-            return f"🔄 {clock} {player} ({team})"
+            return f" {clock} {player} ({team})"
     
     # American Football events
     elif sport == "football":
         if "Touchdown" in event_type:
-            return f"🏈 {clock} TOUCHDOWN - {player} ({team})"
+            return f" {clock} TOUCHDOWN - {player} ({team})"
         elif "Field Goal" in event_type:
-            return f"🎯 {clock} Field Goal - {player} ({team})"
+            return f" {clock} Field Goal - {player} ({team})"
         elif "Interception" in event_type:
-            return f"🔒 {clock} INT - {player} ({team})"
+            return f" {clock} INT - {player} ({team})"
     
     # Basketball events
     elif sport == "basketball":
         if "Three Point" in event_type or "3PT" in event_type:
-            return f"🎯 {clock} 3-pointer - {player} ({team})"
+            return f" {clock} 3-pointer - {player} ({team})"
         elif "Dunk" in event_type:
-            return f"💪 {clock} DUNK - {player} ({team})"
+            return f" {clock} DUNK - {player} ({team})"
     
     # Hockey events
     elif sport == "hockey":
         if "Goal" in event_type:
-            return f"🏒 {clock} GOAL - {player} ({team})"
+            return f" {clock} GOAL - {player} ({team})"
         elif "Penalty" in event_type:
-            return f"⏱️ {clock} Penalty - {player} ({team})"
+            return f" {clock} Penalty - {player} ({team})"
     
     # Baseball events
     elif sport == "baseball":
         if "Home Run" in event_type or "HR" in event_type:
-            return f"⚾ {clock} HOME RUN - {player} ({team})"
+            return f" {clock} HOME RUN - {player} ({team})"
     
-    return f"📋 {clock} {event_type}: {player}"
+    return f" {clock} {event_type}: {player}"
 
 def format_match(event: dict, include_events: bool = True, sport: str = "soccer", league: str = "eng.1") -> str:
     """Format a full match/game summary."""
@@ -239,21 +239,21 @@ def format_match(event: dict, include_events: bool = True, sport: str = "soccer"
     
     # Status header (sport-specific terminology)
     if status_desc == "In Progress":
-        lines.append(f"🔴 LIVE {clock}")
+        lines.append(f" LIVE {clock}")
     elif status_desc == "Halftime":
         if sport in ["football", "basketball"]:
-            lines.append("⏸️ HALFTIME")
+            lines.append(" HALFTIME")
         else:
-            lines.append("⏸️ HALFTIME")
+            lines.append(" HALFTIME")
     elif "End of" in status_desc:  # Basketball/Hockey periods
-        lines.append(f"⏸️ {status_desc}")
+        lines.append(f" {status_desc}")
     elif status_desc == "Final":
         if sport == "soccer":
-            lines.append("🏁 FULL TIME")
+            lines.append(" FULL TIME")
         else:
-            lines.append("🏁 FINAL")
+            lines.append(" FINAL")
     else:
-        lines.append(f"📅 {status_desc}")
+        lines.append(f" {status_desc}")
     
     # Teams and score
     competitions = event.get("competitions", [{}])[0]
@@ -420,9 +420,9 @@ def format_fixture(fixture: dict, include_venue: bool = True) -> str:
     # Home/Away indicator
     location = "vs" if is_home else "@"
     
-    result = f"📅 {date_fmt} {time_fmt} UTC | {location} {opponent} ({comp})"
+    result = f" {date_fmt} {time_fmt} UTC | {location} {opponent} ({comp})"
     if include_venue and venue:
-        result += f"\n   📍 {venue}"
+        result += f"\n    {venue}"
     
     return result
 

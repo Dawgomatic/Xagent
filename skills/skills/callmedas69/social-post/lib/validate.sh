@@ -11,10 +11,10 @@ validate_twitter() {
   local char_count=${#text}
   
   if [ "$char_count" -gt "$TWITTER_LIMIT" ]; then
-    echo "❌ Twitter: $char_count/$TWITTER_LIMIT characters (over by $(($char_count - $TWITTER_LIMIT)))" >&2
+    echo " Twitter: $char_count/$TWITTER_LIMIT characters (over by $(($char_count - $TWITTER_LIMIT)))" >&2
     return 1
   else
-    echo "✅ Twitter: $char_count/$TWITTER_LIMIT characters" >&2
+    echo " Twitter: $char_count/$TWITTER_LIMIT characters" >&2
     return 0
   fi
 }
@@ -25,10 +25,10 @@ validate_farcaster() {
   local byte_count=$(echo -n "$text" | wc -c)
   
   if [ "$byte_count" -gt "$FARCASTER_BYTE_LIMIT" ]; then
-    echo "❌ Farcaster: $byte_count/$FARCASTER_BYTE_LIMIT bytes (over by $(($byte_count - $FARCASTER_BYTE_LIMIT)))" >&2
+    echo " Farcaster: $byte_count/$FARCASTER_BYTE_LIMIT bytes (over by $(($byte_count - $FARCASTER_BYTE_LIMIT)))" >&2
     return 1
   else
-    echo "✅ Farcaster: $byte_count/$FARCASTER_BYTE_LIMIT bytes" >&2
+    echo " Farcaster: $byte_count/$FARCASTER_BYTE_LIMIT bytes" >&2
     return 0
   fi
 }

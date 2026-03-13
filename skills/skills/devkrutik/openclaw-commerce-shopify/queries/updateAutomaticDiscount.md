@@ -93,7 +93,7 @@ When a user requests to update automatic discounts or manage automatic discount 
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Updates discount with excessive configuration
+   #  HIGH COST - Updates discount with excessive configuration
    mutation discountAutomaticAppUpdate($input: DiscountAutomaticAppInput!) {
      discountAutomaticAppUpdate(input: $input) {
        discount { id title conditions { ... } 
@@ -102,7 +102,7 @@ When a user requests to update automatic discounts or manage automatic discount 
      }
    }
    
-   # ✅ LOW COST - Updates discount with only changed fields
+   #  LOW COST - Updates discount with only changed fields
    mutation discountAutomaticAppUpdate($input: DiscountAutomaticAppInput!) {
      discountAutomaticAppUpdate(input: $input) {
        discount {

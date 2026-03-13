@@ -53,7 +53,7 @@ class TestEstimateTokens:
         assert result >= 0
 
     def test_emoji(self):
-        result = estimate_tokens("🎉🌍🚀💻")
+        result = estimate_tokens("")
         assert result > 0
 
     def test_json(self):

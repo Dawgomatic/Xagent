@@ -159,7 +159,7 @@ const proposeTx = await walletClient.writeContract({
   args: [
     'MoonDog',                        // name
     'MDOG',                           // symbol
-    'To the moon! 🚀🐕',              // description
+    'To the moon! ',              // description
     'https://i.imgur.com/moondog.png' // imageUrl
   ]
 });

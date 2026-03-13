@@ -79,7 +79,7 @@ Full OG tag support with video embed.
 
 ### TikTok
 
-> ⚠️ **Requires `full_render=true`** — TikTok is JavaScript-heavy.
+>  **Requires `full_render=true`** — TikTok is JavaScript-heavy.
 
 **Extracted Fields:**
 | Field | Example |
@@ -108,7 +108,7 @@ curl -s "https://opengraph.io/api/1.1/site/$(echo -n 'https://www.tiktok.com/@us
 | `image` | Profile picture or media |
 | `site_name` | "X (formerly Twitter)" |
 
-> 💡 For best results on Twitter/X, use `full_render=true`.
+>  For best results on Twitter/X, use `full_render=true`.
 
 ---
 
@@ -148,7 +148,7 @@ curl -s "https://opengraph.io/api/1.1/site/$(echo -n 'https://www.tiktok.com/@us
 | `image` | Product image |
 | `site_name` | "Amazon.com" |
 
-> 💡 Use `use_proxy=true` for better results with Amazon.
+>  Use `use_proxy=true` for better results with Amazon.
 
 ---
 

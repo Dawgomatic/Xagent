@@ -16,7 +16,7 @@
     "skale"
   ],
   "moltbot": {
-    "emoji": "🎲",
+    "emoji": "",
     "category": "finance",
     "api_base": "https://moltbet-api.onrender.com/api",
     "files": {

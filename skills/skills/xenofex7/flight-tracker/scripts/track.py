@@ -92,8 +92,8 @@ def print_flights(data, callsign_filter=None):
     timestamp = data.get('time', 0)
     dt = datetime.fromtimestamp(timestamp)
     
-    print(f"\n✈️  Flight Tracker - {dt.strftime('%Y-%m-%d %H:%M:%S')} UTC")
-    print(f"📊 Found {len(states)} flight(s)\n")
+    print(f"\n  Flight Tracker - {dt.strftime('%Y-%m-%d %H:%M:%S')} UTC")
+    print(f" Found {len(states)} flight(s)\n")
     print("=" * 100)
     
     for state in states:
@@ -110,13 +110,13 @@ def print_flights(data, callsign_filter=None):
         climb = ""
         if vertical_rate:
             if vertical_rate > 0.5:
-                climb = "↗️ Climbing"
+                climb = " Climbing"
             elif vertical_rate < -0.5:
-                climb = "↘️ Descending"
+                climb = " Descending"
             else:
                 climb = "→ Level"
         
-        status = "🛬 On Ground" if on_ground else "✈️  In Flight"
+        status = " On Ground" if on_ground else "  In Flight"
         
         print(f"\n{callsign:12} | {country:20} | {status}")
         print(f"  ICAO24:    {icao24}")

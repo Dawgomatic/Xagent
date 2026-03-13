@@ -1,7 +1,7 @@
 ---
 name: desearch-ai-search
 description: AI-powered search that aggregates and summarizes results from multiple sources including web, X/Twitter, Reddit, Hacker News, YouTube, ArXiv, and Wikipedia. Use this when you need a synthesized answer or curated links from across the internet and social platforms.
-metadata: {"clawdbot":{"emoji":"🔎","homepage":"https://desearch.ai","requires":{"env":["DESEARCH_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://desearch.ai","requires":{"env":["DESEARCH_API_KEY"]}}}
 ---
 
 # AI Search By Desearch

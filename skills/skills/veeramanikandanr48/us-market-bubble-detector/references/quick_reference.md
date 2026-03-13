@@ -208,14 +208,14 @@ Stage 3 (Panic signs):
 
 ## Short-Selling Timing Assessment (Critical)
 
-### ❌ Absolutely NG: Early Contrarian
+###  Absolutely NG: Early Contrarian
 
 ```
 Reason: Normal for prices to rise 2-3x more after feeling "too high"
 Risk: "Markets can remain irrational longer than you can remain solvent"
 ```
 
-### ✅ Recommended: After Composite Conditions Clear
+###  Recommended: After Composite Conditions Clear
 
 **Consider starting when at least 3 apply:**
 

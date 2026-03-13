@@ -137,7 +137,7 @@ Goal: shift from "grinding" to "can't imagine living any other way."
 ## Summary Template
 
 ```
-✅ **Session 4 Complete: The Lifestyle-Outcome Alignment Auditor**
+ **Session 4 Complete: The Lifestyle-Outcome Alignment Auditor**
 
 **Desired Outcome:**
 {from 1.1}
@@ -165,5 +165,5 @@ Goal: shift from "grinding" to "can't imagine living any other way."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ready for Session 5: The Dissonance Engine?
-[▶️ Continue] [⏸ Take a Break]
+[ Continue] [ Take a Break]
 ```

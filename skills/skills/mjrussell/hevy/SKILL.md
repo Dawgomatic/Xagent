@@ -4,7 +4,7 @@ description: Query workout data from Hevy including workouts, routines, exercise
 homepage: https://hevy.com
 metadata:
   clawdbot:
-    emoji: "🏋️"
+    emoji: ""
     requires:
       bins: ["hevy"]
       env: ["HEVY_API_KEY"]
@@ -116,13 +116,13 @@ hevy create-exercise --title "My Exercise" --muscle chest --type weight_reps
 hevy create-exercise --title "My Exercise" --muscle chest --force
 ```
 
-**⚠️ Duplicate Prevention:** `create-exercise` checks if an exercise with the same name already exists and will error if found. Use `--force` to create anyway (not recommended).
+** Duplicate Prevention:** `create-exercise` checks if an exercise with the same name already exists and will error if found. Use `--force` to create anyway (not recommended).
 
 **Routine JSON format:**
 ```json
 {
   "routine": {
-    "title": "Push Day 💪",
+    "title": "Push Day ",
     "folder_id": null,
     "notes": "Chest, shoulders, triceps",
     "exercises": [

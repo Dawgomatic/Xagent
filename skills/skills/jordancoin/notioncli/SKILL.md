@@ -4,7 +4,7 @@ description: Notion API for creating and managing pages, databases, blocks, rela
 homepage: https://github.com/JordanCoin/notioncli
 metadata:
   openclaw:
-    emoji: "📝"
+    emoji: ""
     requires:
       env: ["NOTION_API_KEY"]
     primaryEnv: NOTION_API_KEY
@@ -33,9 +33,9 @@ When you run `notion init`, every shared database is automatically assigned a sl
 ```
 Found 3 databases:
 
-  ✅ projects                   → Projects
-  ✅ tasks                      → Tasks  
-  ✅ reading-list               → Reading List
+   projects                   → Projects
+   tasks                      → Tasks  
+   reading-list               → Reading List
 ```
 
 You can then use `projects` instead of `a1b2c3d4-e5f6-...` everywhere. Manage aliases manually with:
@@ -163,7 +163,7 @@ notion user <user-id>              # Get details for a specific user
 notion comments <page-id>                                      # By page ID
 notion comments tasks --filter "Name=Ship feature"             # By alias + filter
 notion comment <page-id> "Looks good, shipping this!"          # By page ID
-notion comment tasks "AI review complete ✅" --filter "Name=Ship feature"  # By alias + filter
+notion comment tasks "AI review complete " --filter "Name=Ship feature"  # By alias + filter
 ```
 
 ### Page Inspector
@@ -272,11 +272,11 @@ notion append <page-id> "Status update: completed phase 1"
 
 ```bash
 notion comments tasks --filter "Name=Review PR #42"              # Check existing
-notion comment tasks "AI review complete ✅" --filter "Name=Review PR #42"  # Add comment
+notion comment tasks "AI review complete " --filter "Name=Review PR #42"  # Add comment
 
 # Or by page ID
 notion comments <page-id>
-notion comment <page-id> "AI review complete ✅"
+notion comment <page-id> "AI review complete "
 ```
 
 ### 8. Delete by alias + filter

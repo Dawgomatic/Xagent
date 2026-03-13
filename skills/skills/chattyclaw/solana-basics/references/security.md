@@ -160,7 +160,7 @@ async function requireConfirmation(
   recipient: string
 ): Promise<boolean> {
   // In agent context, send message and wait for response
-  const message = `⚠️ Confirm transaction:\n` +
+  const message = ` Confirm transaction:\n` +
     `Amount: ${amount} ${token}\n` +
     `To: ${recipient}\n` +
     `Reply YES to confirm`;

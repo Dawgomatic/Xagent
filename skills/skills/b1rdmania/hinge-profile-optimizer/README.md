@@ -85,10 +85,10 @@ Best option for most people. Once installed, Claude keeps the skill loaded acros
 **Step 2: Add to Claude Desktop**
 
 1. Open **Claude Desktop** (the app, not the browser)
-2. Click the **⚙️ Settings** icon (bottom left)
+2. Click the ** Settings** icon (bottom left)
 3. Click **Projects** in the sidebar
 4. Click **+ Create Project** and name it something like "Hinge Profile Help"
-5. Once inside your project, look for **Project Knowledge** or the **📎 Add Content** button
+5. Once inside your project, look for **Project Knowledge** or the ** Add Content** button
 6. Add these files from the folder you downloaded:
    - `SKILL.md` (the main skill — add this first)
    - Everything inside the `references/` folder (7 files)
@@ -113,7 +113,7 @@ Don't have Claude Desktop? You can do this directly at [claude.ai](https://claud
 
 1. Download the files using the **Code → Local → Download ZIP** button above
 2. Start a new chat at [claude.ai](https://claude.ai)
-3. Click the **📎 attachment** icon and upload `SKILL.md` plus the files from the `references/` folder
+3. Click the ** attachment** icon and upload `SKILL.md` plus the files from the `references/` folder
 4. Tell Claude you want to optimize your Hinge profile
 
 **Note:** You'll need to re-upload the files each time you start a new conversation. Desktop (Option 1) is better if you want to come back to this over multiple sessions.

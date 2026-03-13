@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🌍",
+        "emoji": "",
         "requires": { "bins": ["curl", "jq"] },
       },
   }
@@ -189,4 +189,4 @@ Refunds your balance if no workers have started.
 - MCP: https://api.loopuman.com/.well-known/mcp.json
 - A2A: https://api.loopuman.com/.well-known/agent-card.json
 
-⚠️ **Budget Safety:** Tasks are paid to workers upon completion. Start with small budgets (25-50 VAE) when testing. Loopuman charges 20% commission on top of the budget you set.
+ **Budget Safety:** Tasks are paid to workers upon completion. Start with small budgets (25-50 VAE) when testing. Loopuman charges 20% commission on top of the budget you set.

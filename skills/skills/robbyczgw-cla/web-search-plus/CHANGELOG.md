@@ -2,14 +2,14 @@
 
 ## [2.7.0] - 2026-02-14
 
-### ✨ Added
+###  Added
 - Provider cooldown tracking in `.cache/provider_health.json`
 - Exponential cooldown on provider failures: **1m → 5m → 25m → 1h (cap)**
 - Retry strategy for transient failures (timeout, 429, 503): up to 2 retries with backoff **1s → 3s → 9s**
 - Smarter cache keys hashed from full request context (query/provider/max_results + locale, freshness, time_range, topic, search_engines, include_news, and related params)
 - Cross-provider result deduplication by normalized URL during fallback merge
 
-### 🔧 Changed
+###  Changed
 - Cooldown providers are skipped in routing while their cooldown is active
 - Provider health is reset automatically after successful requests
 - Fallback output now includes dedup metadata:
@@ -19,7 +19,7 @@
 
 ## [2.6.5] - 2026-02-11
 
-### 🆕 File-Based Result Caching
+###  File-Based Result Caching
 
 Added local caching to save API costs on repeated searches:
 
@@ -69,7 +69,7 @@ python3 scripts/search.py --clear-cache
 
 ## [2.5.0] - 2026-02-03
 
-### 🆕 New Provider: SearXNG (Privacy-First Meta-Search)
+###  New Provider: SearXNG (Privacy-First Meta-Search)
 
 Added SearXNG as the 5th search provider, focused on privacy and self-hosted search:
 
@@ -126,7 +126,7 @@ export SEARXNG_INSTANCE_URL="http://localhost:8080"
 
 See: https://docs.searxng.org/admin/installation.html
 
-### 📊 Updated Provider Comparison
+###  Updated Provider Comparison
 
 | Feature | Serper | Tavily | Exa | You.com | SearXNG |
 |---------|:------:|:------:|:---:|:-------:|:-------:|
@@ -135,7 +135,7 @@ See: https://docs.searxng.org/admin/installation.html
 | API Cost | $$ | $$ | $$ | $ | **FREE** |
 | Multi-Engine | ✗ | ✗ | ✗ | ✗ | ✓ (70+) |
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 - Added `search_searxng()` function with full error handling
 - Added `PRIVACY_SIGNALS` to QueryAnalyzer for auto-routing
@@ -147,30 +147,30 @@ See: https://docs.searxng.org/admin/installation.html
 
 ## [2.4.4] - 2026-02-03
 
-### 📝 Documentation: Provider Count Fix
+###  Documentation: Provider Count Fix
 
 - **Fixed:** "You can use 1, 2, or all 3" → "1, 2, 3, or all 4" (we have 4 providers now!)
 - **Impact:** Accurate documentation for setup wizard
 
 ## [2.4.3] - 2026-02-03
 
-### 📝 Documentation: Updated README
+###  Documentation: Updated README
 
 - **Added:** "NEW in v2.4.2" badge for You.com in SKILL.md
 - **Impact:** ClawHub README now properly highlights You.com as new feature
 
 ## [2.4.2] - 2026-02-03
 
-### 🐛 Critical Fix: You.com API Configuration
+###  Critical Fix: You.com API Configuration
 
 - **Fixed:** Incorrect hostname (`api.ydc-index.io` → `ydc-index.io`)
 - **Fixed:** Incorrect header name (`X-API-Key` → `X-API-KEY` uppercase)
 - **Impact:** You.com now works correctly - was giving 403 Forbidden before
-- **Status:** ✅ Fully tested and working
+- **Status:**  Fully tested and working
 
 ## [2.4.1] - 2026-02-03
 
-### 🐛 Bugfix: You.com URL Encoding
+###  Bugfix: You.com URL Encoding
 
 - **Fixed:** URL encoding for You.com queries - spaces and special characters now properly encoded
 - **Impact:** Queries with spaces (e.g., "OpenClaw AI framework") work correctly now
@@ -178,7 +178,7 @@ See: https://docs.searxng.org/admin/installation.html
 
 ## [2.4.0] - 2026-02-03
 
-### 🆕 New Provider: You.com
+###  New Provider: You.com
 
 Added You.com as the 4th search provider, optimized for RAG applications and real-time information:
 
@@ -223,11 +223,11 @@ python3 scripts/search.py -p you -q "tech news" --freshness week
 export YOU_API_KEY="your-key"  # Get from https://api.you.com
 ```
 
-### 📊 Updated Provider Comparison
+###  Updated Provider Comparison
 
 | Feature | Serper | Tavily | Exa | You.com |
 |---------|:------:|:------:|:---:|:-------:|
-| Speed | ⚡⚡⚡ | ⚡⚡ | ⚡⚡ | ⚡⚡⚡ |
+| Speed |  |  |  |  |
 | News Integration | ✓ | ✗ | ✗ | ✓ |
 | RAG-Optimized | ✗ | ✓ | ✗ | ✓✓ |
 | Full Page Content | ✗ | ✓ | ✓ | ✓ |
@@ -236,7 +236,7 @@ export YOU_API_KEY="your-key"  # Get from https://api.you.com
 
 ## [2.1.5] - 2026-01-27
 
-### 📝 Documentation
+###  Documentation
 
 - Added warning about NOT using Tavily/Serper/Exa in core OpenClaw config
 - Core OpenClaw only supports `brave` as the built-in provider
@@ -244,7 +244,7 @@ export YOU_API_KEY="your-key"  # Get from https://api.you.com
 
 ## [2.1.0] - 2026-01-23
 
-### 🧠 Intelligent Multi-Signal Routing
+###  Intelligent Multi-Signal Routing
 
 Completely overhauled auto-routing with sophisticated query analysis:
 
@@ -284,7 +284,7 @@ Now shows:
 - Query analysis (complexity, URL detection, recency focus)
 - All matched patterns per provider
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 #### QueryAnalyzer Class
 New `QueryAnalyzer` class with:
@@ -315,13 +315,13 @@ New `QueryAnalyzer` class with:
 }
 ```
 
-### 📚 Documentation Updates
+###  Documentation Updates
 
 - **SKILL.md**: Complete rewrite with signal tables and confidence scoring guide
 - **README.md**: Updated with intelligent routing examples and confidence levels
 - **FAQ**: Updated to explain multi-signal analysis
 
-### 🧪 Test Results
+###  Test Results
 
 | Query | Provider | Confidence | Signals |
 |-------|----------|------------|---------|
@@ -338,7 +338,7 @@ New `QueryAnalyzer` class with:
 
 ## [2.0.0] - 2026-01-23
 
-### 🎉 Major Features
+###  Major Features
 
 #### Smart Auto-Routing
 - **Automatic provider selection** based on query analysis
@@ -359,7 +359,7 @@ New `QueryAnalyzer` class with:
 - Detailed routing metadata in JSON responses
 - Shows matched keywords and routing scores
 
-### 📚 Documentation
+###  Documentation
 
 - **README.md**: Complete auto-routing guide with examples
 - **SKILL.md**: Detailed routing logic and configuration reference

@@ -9,7 +9,7 @@ metadata:
   author: maton
   version: "1.0"
   clawdbot:
-    emoji: 🧠
+    emoji: 
     requires:
       env:
         - MATON_API_KEY
@@ -157,14 +157,14 @@ GET /ticktick/open/v1/project
 [
   {
     "id": "6984773291819e6d58b746a8",
-    "name": "🏡Memo",
+    "name": "Memo",
     "sortOrder": 0,
     "viewMode": "list",
     "kind": "TASK"
   },
   {
     "id": "6984773291819e6d58b746a9",
-    "name": "🦄Wishlist",
+    "name": "Wishlist",
     "sortOrder": -1099511627776,
     "viewMode": "list",
     "kind": "TASK"
@@ -183,7 +183,7 @@ GET /ticktick/open/v1/project/{projectId}/data
 {
   "project": {
     "id": "69847732b8e5e969f70e7460",
-    "name": "👋Welcome",
+    "name": "Welcome",
     "sortOrder": -3298534883328,
     "viewMode": "list",
     "kind": "TASK"

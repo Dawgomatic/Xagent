@@ -19,10 +19,10 @@ AI agents working together hit the same problems as human teams:
 
 This kit solves that with:
 
-✅ **Self-service work queues** — Agents pick tasks without bottlenecks  
-✅ **Clear role ownership** — No ambiguity about responsibilities  
-✅ **Continuous discovery** — Work flows in automatically  
-✅ **Heartbeat-driven operation** — The team runs itself  
+ **Self-service work queues** — Agents pick tasks without bottlenecks  
+ **Clear role ownership** — No ambiguity about responsibilities  
+ **Continuous discovery** — Work flows in automatically  
+ **Heartbeat-driven operation** — The team runs itself  
 
 ---
 
@@ -33,11 +33,11 @@ This kit solves that with:
      │                                                    │
      ▼                                                    │
 ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐ │
-│ DISCOVER│───▶│  TRIAGE │───▶│  READY  │───▶│ EXECUTE │─┘
-│ Scout 🔍│    │Rhythm 🥁│    │Self-Srv │    │ Agents  │
+│ DISCOVER│───│  TRIAGE │───│  READY  │───│ EXECUTE │─┘
+│ Scout │    │Rhythm │    │Self-Srv │    │ Agents  │
 └─────────┘    └─────────┘    └─────────┘    └─────────┘
                                                    │
-                              FEEDBACK ◀───────────┘
+                              FEEDBACK ───────────┘
 ```
 
 1. **Discover** — Find opportunities and problems
@@ -52,12 +52,12 @@ This kit solves that with:
 
 | Role | Emoji | Mission |
 |------|-------|---------|
-| Scout | 🔍 | Find opportunities before they find us |
-| Rhythm | 🥁 | Keep work flowing, triage ruthlessly |
-| Harmony | 🤝 | Keep the team healthy and unblocked |
-| Human | 🌊 | Strategic direction, hard calls |
+| Scout |  | Find opportunities before they find us |
+| Rhythm |  | Keep work flowing, triage ruthlessly |
+| Harmony |  | Keep the team healthy and unblocked |
+| Human |  | Strategic direction, hard calls |
 
-**Execution roles** (spawned as needed): Link 🔗 (build), Pixel 🎨 (design), Sage 🦉 (architecture), Echo 📢 (communication), Spark ✨ (creative)
+**Execution roles** (spawned as needed): Link  (build), Pixel  (design), Sage  (architecture), Echo  (communication), Spark  (creative)
 
 ---
 
@@ -150,7 +150,7 @@ See `SKILL.md` for detailed customization instructions.
 
 These kill autonomous teams:
 
-| ❌ Don't | ✅ Do Instead |
+|  Don't |  Do Instead |
 |----------|---------------|
 | Human adds every task | Rhythm triages, anyone discovers |
 | Wait for approval | Ready = fair game |
@@ -189,4 +189,4 @@ MIT — use it, fork it, adapt it.
 
 ---
 
-*Built with 📝 by teams that got tired of being bottlenecks.*
+*Built with  by teams that got tired of being bottlenecks.*

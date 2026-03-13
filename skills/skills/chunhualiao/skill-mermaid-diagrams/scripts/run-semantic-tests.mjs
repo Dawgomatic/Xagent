@@ -20,7 +20,7 @@ const TESTS_FILE = path.join(__dirname, "../tests/semantic-validation-tests.json
 function runTests() {
   const testData = JSON.parse(fs.readFileSync(TESTS_FILE, 'utf-8'));
   
-  console.log(`\n🧪 Running ${testData.testSuite} Test Suite\n`);
+  console.log(`\n Running ${testData.testSuite} Test Suite\n`);
   console.log(`   Version: ${testData.version}`);
   console.log(`   Tests: ${testData.tests.length}\n`);
   console.log(`${'='.repeat(80)}\n`);
@@ -35,19 +35,19 @@ function runTests() {
     
     if (result.passed) {
       passed++;
-      console.log(`✅ Test ${testNum}: ${test.name}`);
+      console.log(` Test ${testNum}: ${test.name}`);
     } else {
       failed++;
-      console.log(`❌ Test ${testNum}: ${test.name}`);
+      console.log(` Test ${testNum}: ${test.name}`);
       failures.push({ testNum, test, result });
     }
   }
   
   console.log(`\n${'='.repeat(80)}\n`);
-  console.log(`📊 Results: ${passed}/${testData.tests.length} passed\n`);
+  console.log(` Results: ${passed}/${testData.tests.length} passed\n`);
   
   if (failures.length > 0) {
-    console.log(`❌ Failed Tests:\n`);
+    console.log(` Failed Tests:\n`);
     for (const failure of failures) {
       console.log(`   Test ${failure.testNum}: ${failure.test.name}`);
       console.log(`   Expected: ${JSON.stringify(failure.test.expected)}`);

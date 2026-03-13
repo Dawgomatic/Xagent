@@ -290,18 +290,18 @@ if __name__ == '__main__':
     state_file = Path('/home/node/.openclaw/workspace/skills/qst-memory/data/qst_doing-state.json')
     reminder = ProgressReminder(state_file)
 
-    print("🧪 定期進度提醒測試")
+    print(" 定期進度提醒測試")
     print()
 
     # 顯示當前配置
-    print("⚙️  配置:")
+    print("  配置:")
     print(f"   啟用: {reminder.config.get('enabled', True)}")
     print(f"   停滯閾值: {reminder.config.get('stagnation_threshold_minutes', 8)} 分鐘")
     print()
 
     # 獲取停滯狀態
     status = reminder.get_stagnation_status()
-    print("📊 停滯狀態:")
+    print(" 停滯狀態:")
     print(f"   當前停滯: {status['current_stagnation_minutes'] or 'N/A'} 分鐘")
     print(f"   是否停滯: {status['is_stagnant']}")
     if status['next_action']:
@@ -312,13 +312,13 @@ if __name__ == '__main__':
     event = reminder.check_stagnation()
 
     if event:
-        print(f"📢 停滯操作:")
+        print(f" 停滯操作:")
         print(f"   類型: {event['type']}")
         print(f"   操作: {event['action']}")
         print(f"   停滯時間: {event['stagnation_minutes']:.1f} 分鐘")
         print(f"   消息: {event['message']}")
     else:
-        print("✅ 無需執行停滯操作")
+        print(" 無需執行停滯操作")
 
     print()
-    print("🐲 測試完成！")
+    print(" 測試完成！")

@@ -435,17 +435,17 @@ if __name__ == "__main__":
     # Test connection
     try:
         client.test_connection()
-        print("✅ Connection successful!")
+        print(" Connection successful!")
     except FlizAPIError as e:
-        print(f"❌ Connection failed: {e}")
+        print(f" Connection failed: {e}")
         exit(1)
     
     # List available voices
     voices = client.get_voices()
-    print(f"\n🎙️ Found {len(voices)} voices")
+    print(f"\n Found {len(voices)} voices")
     
     # Create a video
-    print("\n📹 Creating video...")
+    print("\n Creating video...")
     result = client.create_video(
         name="Test Video",
         description="This is a test video created via the Fliz API.",
@@ -459,13 +459,13 @@ if __name__ == "__main__":
     def on_progress(status):
         print(f"   Status: {status['step']}")
     
-    print("\n⏳ Waiting for video...")
+    print("\n Waiting for video...")
     try:
         video = client.wait_for_video(
             result["video_id"],
             poll_interval=10,
             callback=on_progress
         )
-        print(f"\n✅ Video ready: {video['url']}")
+        print(f"\n Video ready: {video['url']}")
     except FlizAPIError as e:
-        print(f"\n❌ Error: {e}")
+        print(f"\n Error: {e}")

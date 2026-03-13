@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 🦞 WalletConnect v2 Agent Connector
+ *  WalletConnect v2 Agent Connector
  * 
  * Allows AI agents to programmatically connect to dApps via WalletConnect
  * and automatically sign transactions.
@@ -13,7 +13,7 @@
  *   --rpc <url>           RPC URL (default: https://mainnet.base.org)
  *   --interactive         Prompt before signing each request
  *   --audit               Enable audit logging
- *   --allow-eth-sign      Allow dangerous eth_sign method (⚠️ security risk!)
+ *   --allow-eth-sign      Allow dangerous eth_sign method ( security risk!)
  * 
  * Environment Variables (REQUIRED):
  *   PRIVATE_KEY           Wallet private key
@@ -21,7 +21,7 @@
  *   CHAIN_ID              Chain ID (optional, default: 8453)
  *   RPC_URL               RPC URL (optional)
  * 
- * ⚠️ SECURITY:
+ *  SECURITY:
  *   - NEVER pass private key as command line argument (shell history risk!)
  *   - ALWAYS use environment variables for sensitive data
  *   - Use a dedicated wallet with limited funds
@@ -102,12 +102,12 @@ function parseArgs() {
     // Check for dangerous --private-key usage
     if (arg === '--private-key' || arg === '-p') {
       console.error('');
-      console.error('⛔ SECURITY ERROR: Do not pass private key as command line argument!');
+      console.error(' SECURITY ERROR: Do not pass private key as command line argument!');
       console.error('');
       console.error('   Command line arguments are logged in shell history and process lists.');
       console.error('   This is a security risk!');
       console.error('');
-      console.error('✅ Use environment variable instead:');
+      console.error(' Use environment variable instead:');
       console.error('   export PRIVATE_KEY="0x..."');
       console.error('   node wc-connect.js "wc:..."');
       console.error('');
@@ -128,7 +128,7 @@ function parseArgs() {
       config.audit = false;
     } else if (arg === '--allow-eth-sign') {
       config.allowEthSign = true;
-      console.warn('⚠️  Warning: eth_sign enabled - this allows signing arbitrary data!');
+      console.warn('  Warning: eth_sign enabled - this allows signing arbitrary data!');
     }
   }
 
@@ -152,7 +152,7 @@ async function main() {
   const privateKey = process.env.PRIVATE_KEY;
 
   if (!config.uri) {
-    console.log('🦞 WalletConnect v2 Agent Connector');
+    console.log(' WalletConnect v2 Agent Connector');
     console.log('═'.repeat(50));
     console.log('');
     console.log('Usage: node wc-connect.js <walletconnect-uri> [options]');
@@ -162,7 +162,7 @@ async function main() {
     console.log('  --rpc <url>        RPC URL');
     console.log('  --interactive      Prompt before signing');
     console.log('  --no-audit         Disable audit logging');
-    console.log('  --allow-eth-sign   Allow dangerous eth_sign (⚠️ security risk!)');
+    console.log('  --allow-eth-sign   Allow dangerous eth_sign ( security risk!)');
     console.log('');
     console.log('Environment Variables:');
     console.log('  PRIVATE_KEY        Wallet private key (REQUIRED)');
@@ -174,19 +174,19 @@ async function main() {
     console.log('  export PRIVATE_KEY="0x..."');
     console.log('  node wc-connect.js "wc:abc123...@2?relay-protocol=irn&symKey=xyz"');
     console.log('');
-    console.log('⚠️  SECURITY: Never pass private key as command line argument!');
+    console.log('  SECURITY: Never pass private key as command line argument!');
     process.exit(1);
   }
 
   if (!privateKey) {
     console.error('');
-    console.error('❌ Error: PRIVATE_KEY environment variable not set');
+    console.error(' Error: PRIVATE_KEY environment variable not set');
     console.error('');
     console.error('Set it like this:');
     console.error('  export PRIVATE_KEY="0x..."');
     console.error('  node wc-connect.js "wc:..."');
     console.error('');
-    console.error('⚠️  SECURITY: Never pass private key as command line argument!');
+    console.error('  SECURITY: Never pass private key as command line argument!');
     process.exit(1);
   }
 
@@ -195,14 +195,14 @@ async function main() {
   const wallet = new ethers.Wallet(privateKey, provider);
   const address = wallet.address;
 
-  console.log('🦞 WalletConnect v2 Agent Connector');
+  console.log(' WalletConnect v2 Agent Connector');
   console.log('═'.repeat(50));
-  console.log(`📍 Address: ${address}`);
-  console.log(`⛓️  Chain: ${config.chainId}`);
-  console.log(`🔗 RPC: ${config.rpc}`);
-  console.log(`🔐 Mode: ${config.interactive ? 'Interactive (prompt before signing)' : 'Auto-approve'}`);
+  console.log(` Address: ${address}`);
+  console.log(`  Chain: ${config.chainId}`);
+  console.log(` RPC: ${config.rpc}`);
+  console.log(` Mode: ${config.interactive ? 'Interactive (prompt before signing)' : 'Auto-approve'}`);
   if (config.audit) {
-    console.log(`📝 Audit: ${AUDIT_FILE}`);
+    console.log(` Audit: ${AUDIT_FILE}`);
   }
 
   // Log connection attempt
@@ -226,14 +226,14 @@ async function main() {
     },
   });
 
-  console.log('\n📡 Connecting to dApp...');
+  console.log('\n Connecting to dApp...');
 
   // Handle session proposals
   web3wallet.on('session_proposal', async (proposal) => {
     const dappName = proposal.params.proposer.metadata.name;
     const dappUrl = proposal.params.proposer.metadata.url;
     
-    console.log('\n✅ Session proposal received!');
+    console.log('\n Session proposal received!');
     console.log(`   dApp: ${dappName}`);
     console.log(`   URL: ${dappUrl}`);
 
@@ -271,7 +271,7 @@ async function main() {
         namespaces,
       });
 
-      console.log('✅ Session approved!');
+      console.log(' Session approved!');
       console.log(`   Topic: ${session.topic}`);
       
       if (config.audit) {
@@ -282,7 +282,7 @@ async function main() {
         id: proposal.id,
         reason: { code: 4001, message: 'User rejected' },
       });
-      console.log('❌ Session rejected');
+      console.log(' Session rejected');
       
       if (config.audit) {
         logAudit('session_rejected', { wallet: address, dapp: dappName });
@@ -296,7 +296,7 @@ async function main() {
     const { request } = params;
 
     console.log('\n' + '─'.repeat(50));
-    console.log('📝 Signing Request:');
+    console.log(' Signing Request:');
     console.log(`   Method: ${request.method}`);
 
     try {
@@ -384,7 +384,7 @@ async function main() {
             gasLimit: tx.gas || tx.gasLimit,
           });
 
-          console.log(`   ✅ TX Hash: ${txResponse.hash}`);
+          console.log(`    TX Hash: ${txResponse.hash}`);
           txDetails.txHash = txResponse.hash;
           result = txResponse.hash;
           break;
@@ -393,25 +393,25 @@ async function main() {
         case 'eth_sign': {
           const [from, message] = request.params;
           console.log(`   From: ${from}`);
-          console.log(`   ⚠️  eth_sign is DANGEROUS - can sign arbitrary data!`);
+          console.log(`     eth_sign is DANGEROUS - can sign arbitrary data!`);
           
           // Block by default unless explicitly allowed
           if (!config.allowEthSign) {
-            console.log('   ❌ Blocked: eth_sign is disabled by default for security');
+            console.log('    Blocked: eth_sign is disabled by default for security');
             console.log('   Use --allow-eth-sign to enable (not recommended)');
             throw new Error('eth_sign blocked for security - use --allow-eth-sign to enable');
           }
 
           if (config.interactive) {
             console.log(`   Message (hex): ${message}`);
-            const answer = await prompt('\n⚠️  Sign this raw message? This is dangerous! (yes/no): ');
+            const answer = await prompt('\n  Sign this raw message? This is dangerous! (yes/no): ');
             if (answer !== 'yes' && answer !== 'y') {
               throw new Error('User rejected');
             }
           }
 
           result = await wallet.signMessage(ethers.getBytes(message));
-          console.log('   ⚠️  Signed (eth_sign) - be cautious!');
+          console.log('     Signed (eth_sign) - be cautious!');
           break;
         }
 
@@ -428,14 +428,14 @@ async function main() {
         },
       });
 
-      console.log('✅ Request completed!');
+      console.log(' Request completed!');
       
       if (config.audit) {
         logAudit('sign_success', { ...txDetails, success: true });
       }
 
     } catch (error) {
-      console.error('❌ Error:', error.message);
+      console.error(' Error:', error.message);
       
       await web3wallet.respondSessionRequest({
         topic,
@@ -458,9 +458,9 @@ async function main() {
   // Connect to URI
   try {
     await web3wallet.pair({ uri: config.uri });
-    console.log('✅ Pairing initiated! Waiting for session...');
+    console.log(' Pairing initiated! Waiting for session...');
   } catch (error) {
-    console.error('❌ Pairing failed:', error.message);
+    console.error(' Pairing failed:', error.message);
     if (config.audit) {
       logAudit('pairing_failed', { wallet: address, error: error.message, success: false });
     }
@@ -468,7 +468,7 @@ async function main() {
   }
 
   // Keep running
-  console.log('\n⏳ Listening for requests... (Press Ctrl+C to exit)');
+  console.log('\n Listening for requests... (Press Ctrl+C to exit)');
   console.log('─'.repeat(50));
 }
 

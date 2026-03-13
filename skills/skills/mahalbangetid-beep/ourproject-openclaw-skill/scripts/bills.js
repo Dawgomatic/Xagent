@@ -28,24 +28,24 @@ async function checkBills() {
             .sort((a, b) => a._days - b._days);
 
         if (upcoming.length === 0) {
-            console.log(`✅ No bills due in the next ${lookAhead} day(s).`);
+            console.log(` No bills due in the next ${lookAhead} day(s).`);
             return;
         }
 
-        console.log(`📋 *Bills Due (next ${lookAhead} days)*\n`);
+        console.log(` *Bills Due (next ${lookAhead} days)*\n`);
 
         let total = 0;
         upcoming.forEach(b => {
-            const icon = b._days === 0 ? '🔴' : b._days <= 2 ? '🟠' : b._days <= 4 ? '🟡' : '🟢';
+            const icon = b._days === 0 ? '' : b._days <= 2 ? '' : b._days <= 4 ? '' : '';
             const timeStr = b._days === 0 ? 'TODAY' : b._days === 1 ? 'Tomorrow' : `${b._days} days`;
             const amount = b.amount || 0;
             total += Number(amount);
             console.log(`${icon} ${b.name || b.title}: ${formatRupiah(amount)} — ${timeStr}`);
         });
 
-        console.log(`\n💰 Total: ${formatRupiah(total)} (${upcoming.length} bill(s))`);
+        console.log(`\n Total: ${formatRupiah(total)} (${upcoming.length} bill(s))`);
     } catch (err) {
-        console.error('❌', err.message);
+        console.error('', err.message);
     }
 }
 

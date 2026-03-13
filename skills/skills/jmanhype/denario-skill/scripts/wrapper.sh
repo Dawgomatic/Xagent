@@ -17,7 +17,7 @@ fi
 
 # 2. Check API Key
 if [ -z "$OPENAI_API_KEY" ]; then
-    echo "❌ Error: OPENAI_API_KEY is not set."
+    echo " Error: OPENAI_API_KEY is not set."
     echo "Please set it for Z.ai/Zhipu access via Clawdbot config:"
     echo "  clawdbot config set env.OPENAI_API_KEY <your-key>"
     exit 1
@@ -49,6 +49,6 @@ case $COMMAND in
         ;;
 esac
 
-echo "🚀 Running Denario: $COMMAND"
+echo " Running Denario: $COMMAND"
 # Run with unbuffered output
 "$VENV_DIR/bin/python" -u "$SCRIPTS_DIR/$SCRIPT" "$@"

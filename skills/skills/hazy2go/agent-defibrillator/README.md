@@ -1,4 +1,4 @@
-# 🫀⚡ Agent Defibrillator
+#  Agent Defibrillator
 
 > *"CLEAR!"* — Every sysadmin, eventually
 
@@ -15,9 +15,9 @@ Every 10 minutes:
     │
     ├─ Agent alive?
     │       │
-    │       └─ Version match? → 😴 (sleep)
+    │       └─ Version match? →  (sleep)
     │               │
-    │               └─ Stale version? → 🔄 Restart + 📢 Notify
+    │               └─ Stale version? →  Restart +  Notify
     │
     └─ Agent dead?
            │
@@ -25,23 +25,23 @@ Every 10 minutes:
            │
            └─ Still dead after 3 checks?
                   │
-                  └─ 🫀⚡ "CLEAR!" → Full restart + 📢 Notify
+                  └─  "CLEAR!" → Full restart +  Notify
                          │
-                         ├─ ✅ Pulse restored!
+                         ├─  Pulse restored!
                          │
-                         └─ 💀 Manual intervention needed
+                         └─  Manual intervention needed
 ```
 
 **Safety features:**
-- 🔄 5-minute cooldown between shocks (no restart loops)
-- 🔒 Lock file prevents concurrent runs
-- 🧹 Kills orphaned processes before restart
-- 📝 Only logs when something goes wrong (no spam)
+-  5-minute cooldown between shocks (no restart loops)
+-  Lock file prevents concurrent runs
+-  Kills orphaned processes before restart
+-  Only logs when something goes wrong (no spam)
 
 **v2 features:**
-- 🔍 **Version mismatch detection** — catches stale gateway processes running old code after npm updates
-- 📢 **Discord notifications** — get pinged when your agent gets shocked back to life
-- ⏰ 1-hour cooldown for version-based restarts (separate from crash cooldown)
+-  **Version mismatch detection** — catches stale gateway processes running old code after npm updates
+-  **Discord notifications** — get pinged when your agent gets shocked back to life
+-  1-hour cooldown for version-based restarts (separate from crash cooldown)
 
 ## Quick Install
 
@@ -58,7 +58,7 @@ chmod +x install.sh
 ./install.sh
 ```
 
-### Option 3: Ask Your Agent! 🤖
+### Option 3: Ask Your Agent! 
 
 Just paste this prompt to your AI agent:
 
@@ -182,6 +182,6 @@ MIT — because even death should be free.
 
 ---
 
-*Made with 🫀 by [hazy2go](https://github.com/hazy2go) and their agent Rem, who kept dying until they built this.*
+*Made with  by [hazy2go](https://github.com/hazy2go) and their agent Rem, who kept dying until they built this.*
 
-*P.S. - If you're reading this, your agent is probably still alive. For now.* ⚡
+*P.S. - If you're reading this, your agent is probably still alive. For now.* 

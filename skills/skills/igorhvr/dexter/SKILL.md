@@ -1,7 +1,7 @@
 ---
 name: dexter
 description: Autonomous financial research agent for stock analysis, financial statements, metrics, prices, SEC filings, and crypto data.
-metadata: {"clawdbot":{"emoji":"📊","os":["darwin","linux"],"requires":{"bins":["bun","git"]}}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin","linux"],"requires":{"bins":["bun","git"]}}}
 ---
 
 # Dexter Skill (Clawdbot)

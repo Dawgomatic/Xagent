@@ -13,7 +13,7 @@ commands:
   - /stock_rumors - Find early signals, M&A rumors, insider activity (Rumor Scanner)
   - /portfolio - Show portfolio summary
   - /portfolio_add - Add asset to portfolio
-metadata: {"clawdbot":{"emoji":"📈","requires":{"bins":["uv"],"env":[]},"install":[{"id":"uv-brew","kind":"brew","formula":"uv","bins":["uv"],"label":"Install uv (brew)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["uv"],"env":[]},"install":[{"id":"uv-brew","kind":"brew","formula":"uv","bins":["uv"],"label":"Install uv (brew)"}]}}
 ---
 
 # Stock Analysis v6.1
@@ -22,26 +22,26 @@ Analyze US stocks and cryptocurrencies with 8-dimension analysis, portfolio mana
 
 ## What's New in v6.2
 
-- 🔮 **Rumor Scanner** — Early signals before mainstream news
+-  **Rumor Scanner** — Early signals before mainstream news
   - M&A rumors and takeover bids
   - Insider buying/selling activity
   - Analyst upgrades/downgrades
   - Twitter/X "hearing that...", "sources say..." detection
-- 🎯 **Impact Scoring** — Rumors ranked by potential market impact
+-  **Impact Scoring** — Rumors ranked by potential market impact
 
 ## What's in v6.1
 
-- 🔥 **Hot Scanner** — Find viral stocks & crypto across multiple sources
-- 🐦 **Twitter/X Integration** — Social sentiment via bird CLI
-- 📰 **Multi-Source Aggregation** — CoinGecko, Google News, Yahoo Finance
-- ⏰ **Cron Support** — Daily trend reports
+-  **Hot Scanner** — Find viral stocks & crypto across multiple sources
+-  **Twitter/X Integration** — Social sentiment via bird CLI
+-  **Multi-Source Aggregation** — CoinGecko, Google News, Yahoo Finance
+-  **Cron Support** — Daily trend reports
 
 ## What's in v6.0
 
-- 🆕 **Watchlist + Alerts** — Price targets, stop losses, signal changes
-- 🆕 **Dividend Analysis** — Yield, payout ratio, growth, safety score
-- 🆕 **Fast Mode** — `--fast` skips slow analyses (insider, news)
-- 🆕 **Improved Performance** — `--no-insider` for faster runs
+-  **Watchlist + Alerts** — Price targets, stop losses, signal changes
+-  **Dividend Analysis** — Yield, payout ratio, growth, safety score
+-  **Fast Mode** — `--fast` skips slow analyses (insider, news)
+-  **Improved Performance** — `--no-insider` for faster runs
 
 ## Quick Commands
 
@@ -103,9 +103,9 @@ uv run {baseDir}/scripts/watchlist.py remove AAPL
 ```
 
 **Alert Types:**
-- 🎯 **Target Hit** — Price >= target
-- 🛑 **Stop Hit** — Price <= stop
-- 📊 **Signal Change** — BUY/HOLD/SELL changed
+-  **Target Hit** — Price >= target
+-  **Stop Hit** — Price <= stop
+-  **Signal Change** — BUY/HOLD/SELL changed
 
 ### Portfolio Management
 ```bash
@@ -123,7 +123,7 @@ uv run {baseDir}/scripts/portfolio.py show
 uv run {baseDir}/scripts/analyze_stock.py --portfolio "Tech Portfolio" --period weekly
 ```
 
-### 🔥 Hot Scanner (NEW v6.1)
+###  Hot Scanner (NEW v6.1)
 ```bash
 # Full scan - find what's trending NOW
 python3 {baseDir}/scripts/hot_scanner.py
@@ -136,11 +136,11 @@ python3 {baseDir}/scripts/hot_scanner.py --json
 ```
 
 **Data Sources:**
-- 📊 CoinGecko Trending — Top 15 trending coins
-- 📈 CoinGecko Movers — Biggest gainers/losers
-- 📰 Google News — Finance & crypto headlines
-- 📉 Yahoo Finance — Gainers, losers, most active
-- 🐦 Twitter/X — Social sentiment (requires auth)
+-  CoinGecko Trending — Top 15 trending coins
+-  CoinGecko Movers — Biggest gainers/losers
+-  Google News — Finance & crypto headlines
+-  Yahoo Finance — Gainers, losers, most active
+-  Twitter/X — Social sentiment (requires auth)
 
 **Output:**
 - Top trending by mention count
@@ -153,18 +153,18 @@ python3 {baseDir}/scripts/hot_scanner.py --json
 2. Login to x.com in Safari/Chrome
 3. Create `.env` with `AUTH_TOKEN` and `CT0`
 
-### 🔮 Rumor Scanner (NEW v6.2)
+###  Rumor Scanner (NEW v6.2)
 ```bash
 # Find early signals, M&A rumors, insider activity
 python3 {baseDir}/scripts/rumor_scanner.py
 ```
 
 **What it finds:**
-- 🏢 **M&A Rumors** — Merger, acquisition, takeover bids
-- 👔 **Insider Activity** — CEO/Director buying/selling
-- 📊 **Analyst Actions** — Upgrades, downgrades, price target changes
-- 🐦 **Twitter Whispers** — "hearing that...", "sources say...", "rumor"
-- ⚖️ **SEC Activity** — Investigations, filings
+-  **M&A Rumors** — Merger, acquisition, takeover bids
+-  **Insider Activity** — CEO/Director buying/selling
+-  **Analyst Actions** — Upgrades, downgrades, price target changes
+-  **Twitter Whispers** — "hearing that...", "sources say...", "rumor"
+-  **SEC Activity** — Investigations, filings
 
 **Impact Scoring:**
 - Each rumor is scored by potential market impact (1-10)
@@ -207,12 +207,12 @@ python3 {baseDir}/scripts/rumor_scanner.py
 
 ## Risk Detection
 
-- ⚠️ **Pre-Earnings** — Warns if < 14 days to earnings
-- ⚠️ **Post-Spike** — Flags if up >15% in 5 days
-- ⚠️ **Overbought** — RSI >70 + near 52w high
-- ⚠️ **Risk-Off** — GLD/TLT/UUP rising together
-- ⚠️ **Geopolitical** — Taiwan, China, Russia, Middle East keywords
-- ⚠️ **Breaking News** — Crisis keywords in last 24h
+-  **Pre-Earnings** — Warns if < 14 days to earnings
+-  **Post-Spike** — Flags if up >15% in 5 days
+-  **Overbought** — RSI >70 + near 52w high
+-  **Risk-Off** — GLD/TLT/UUP rising together
+-  **Geopolitical** — Taiwan, China, Russia, Middle East keywords
+-  **Breaking News** — Crisis keywords in last 24h
 
 ## Performance Options
 
@@ -245,4 +245,4 @@ BTC, ETH, BNB, SOL, XRP, ADA, DOGE, AVAX, DOT, MATIC, LINK, ATOM, UNI, LTC, BCH,
 
 ## Disclaimer
 
-⚠️ **NOT FINANCIAL ADVICE.** For informational purposes only. Consult a licensed financial advisor before making investment decisions.
+ **NOT FINANCIAL ADVICE.** For informational purposes only. Consult a licensed financial advisor before making investment decisions.

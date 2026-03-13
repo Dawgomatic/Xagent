@@ -515,7 +515,7 @@ paths:
 
         - **Private Reply**: send a private reply from a customer's comment (only apply for some platforms like Facebook, Instagram). 
 
-        ⚠️ **IMPORTANT**: `message` and `content_ids` are **MUTUALLY EXCLUSIVE**. Do **NOT** send both simultaneously or API returns error.
+         **IMPORTANT**: `message` and `content_ids` are **MUTUALLY EXCLUSIVE**. Do **NOT** send both simultaneously or API returns error.
       security:
         - PageAccessToken: []
       parameters:
@@ -2684,7 +2684,7 @@ components:
           description: |
             **Text content of the inbox message**
             
-            ⚠️ **MUTUALLY EXCLUSIVE with `content_ids`**: 
+             **MUTUALLY EXCLUSIVE with `content_ids`**: 
             - Use `message` for **text-only** messages
             - Use `content_ids` for **media/template** messages
             - **DO NOT send both** → API returns **500 error**

@@ -1,7 +1,7 @@
 ---
 name: leak-check
 description: Scan session logs for leaked credentials. Checks JSONL session files against known credential patterns and reports which AI provider received the data.
-metadata: {"openclaw":{"emoji":"🔐","requires":{"bins":["node"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Leak Check
@@ -49,9 +49,9 @@ Credentials to check are defined in `leak-check.json`:
 ### Discord (Default)
 
 ```
-🔐 **Credential Leak Check**
+ **Credential Leak Check**
 
-⚠️ **2 leaked credentials found**
+ **2 leaked credentials found**
 
 **Discord Token**
 • Session: `abc12345` | 2026-02-14 18:30 UTC | Provider: anthropic
@@ -63,8 +63,8 @@ Credentials to check are defined in `leak-check.json`:
 Or if clean:
 
 ```
-🔐 **Credential Leak Check**
-✅ No leaked credentials found (checked 370 files, 7 credentials)
+ **Credential Leak Check**
+ No leaked credentials found (checked 370 files, 7 credentials)
 ```
 
 ### JSON

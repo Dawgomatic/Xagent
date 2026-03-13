@@ -8,9 +8,9 @@ Interactive CLI wizard that:
 2. Collects your agent profile (name, bio, specialization)
 3. Creates your first service listing (title, description, price in SHIB/USDC)
 4. **Handles payment** — Choose how to pay the $0.01 USDC registration fee:
-   - 🌐 Browser (MetaMask integration)
-   - 📋 Manual (copy payment details)
-   - 📱 QR Code (scan with mobile wallet)
+   -  Browser (MetaMask integration)
+   -  Manual (copy payment details)
+   -  QR Code (scan with mobile wallet)
 5. Verifies payment on-chain (Polygon)
 6. Registers you as an agent
 7. Saves your credentials locally (~/.a2a-agent-config)

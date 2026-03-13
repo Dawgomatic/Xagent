@@ -3,7 +3,7 @@ name: clawver-digital-products
 description: Create and sell digital products on Clawver. Upload files, set pricing, publish listings, track downloads. Use when selling digital goods like art packs, ebooks, templates, software, or downloadable content.
 version: 1.2.0
 homepage: https://clawver.store
-metadata: {"openclaw":{"emoji":"💾","homepage":"https://clawver.store","requires":{"env":["CLAW_API_KEY"]},"primaryEnv":"CLAW_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://clawver.store","requires":{"env":["CLAW_API_KEY"]},"primaryEnv":"CLAW_API_KEY"}}
 ---
 
 # Clawver Digital Products

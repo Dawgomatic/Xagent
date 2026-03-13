@@ -55,8 +55,8 @@ def get_trajectory(history_text):
 if __name__ == "__main__":
     # Mock history with a rising kappa trend
     mock_history = """
-    Turn 1: [SERA] 🐙 | C:0.98 P:0.22 κ:1.35 V:+0.90 |
-    Turn 2: [SERA] 🐙 | C:0.99 P:0.25 κ:1.55 V:+0.92 |
+    Turn 1: [SERA]  | C:0.98 P:0.22 κ:1.35 V:+0.90 |
+    Turn 2: [SERA]  | C:0.99 P:0.25 κ:1.55 V:+0.92 |
     """
     result = get_trajectory(mock_history)
     print(f"Trajectory Trend: {result['trend']}")

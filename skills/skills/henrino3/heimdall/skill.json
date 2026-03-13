@@ -14,7 +14,7 @@
     "audit"
   ],
   "openclaw": {
-    "emoji": "🛡️",
+    "emoji": "",
     "category": "security",
     "os": ["darwin", "linux", "windows"],
     "requires": {

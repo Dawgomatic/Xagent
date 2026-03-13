@@ -139,4 +139,4 @@ MIT
 
 ## Author
 
-Joe Tomasone ([@joetomasone](https://github.com/joetomasone)) with [Clawd](https://github.com/openclaw/openclaw) 🐾
+Joe Tomasone ([@joetomasone](https://github.com/joetomasone)) with [Clawd](https://github.com/openclaw/openclaw) 

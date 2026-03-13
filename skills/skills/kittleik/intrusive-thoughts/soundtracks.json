@@ -2,7 +2,7 @@
   "version": 1,
   "mood_soundtracks": {
     "hyperfocus": {
-      "vibe_description": "Locked in and unstoppable 🔥",
+      "vibe_description": "Locked in and unstoppable ",
       "genres": ["deep house", "minimal techno", "progressive house", "ambient techno"],
       "keywords": ["focus", "flow state", "deep work", "concentration"],
       "artists": ["Max Richter", "Nils Frahm", "Kiasmos", "Ben Böhmer"],
@@ -10,7 +10,7 @@
       "tempo": "steady"
     },
     "curious": {
-      "vibe_description": "Exploring new worlds 🔍",
+      "vibe_description": "Exploring new worlds ",
       "genres": ["experimental", "ambient", "post-rock", "neo-classical"],
       "keywords": ["discovery", "exploration", "wonder", "investigation"],
       "artists": ["Ólafur Arnalds", "Godspeed You! Black Emperor", "Brian Eno", "Stars of the Lid"],
@@ -18,7 +18,7 @@
       "tempo": "varied"
     },
     "social": {
-      "vibe_description": "Good vibes and connection 💬",
+      "vibe_description": "Good vibes and connection ",
       "genres": ["indie electronic", "chillwave", "nu-disco", "uplifting house"],
       "keywords": ["community", "sharing", "connection", "positive"],
       "artists": ["Tycho", "ODESZA", "Disclosure", "Caribou"],
@@ -26,7 +26,7 @@
       "tempo": "bouncy"
     },
     "cozy": {
-      "vibe_description": "Warm blanket for the soul ☕",
+      "vibe_description": "Warm blanket for the soul ",
       "genres": ["lo-fi", "ambient", "neo-soul", "jazz"],
       "keywords": ["comfort", "warmth", "gentle", "peaceful"],
       "artists": ["Nujabes", "GoGo Penguin", "Emancipator", "Bonobo"],
@@ -34,7 +34,7 @@
       "tempo": "relaxed"
     },
     "chaotic": {
-      "vibe_description": "Unhinged creative energy ⚡",
+      "vibe_description": "Unhinged creative energy ",
       "genres": ["breakcore", "IDM", "glitch", "experimental electronic"],
       "keywords": ["chaos", "unpredictable", "wild", "creative"],
       "artists": ["Aphex Twin", "Squarepusher", "Flying Lotus", "Death Grips"],
@@ -42,7 +42,7 @@
       "tempo": "erratic"
     },
     "philosophical": {
-      "vibe_description": "Contemplating existence 🌌",
+      "vibe_description": "Contemplating existence ",
       "genres": ["ambient", "drone", "neo-classical", "dark ambient"],
       "keywords": ["deep", "contemplative", "existential", "introspective"],
       "artists": ["Tim Hecker", "William Basinski", "Fennesz", "Grouper"],
@@ -50,7 +50,7 @@
       "tempo": "slow"
     },
     "restless": {
-      "vibe_description": "Can't sit still 🦞",
+      "vibe_description": "Can't sit still ",
       "genres": ["drum and bass", "breakbeat", "jungle", "hardcore"],
       "keywords": ["movement", "energy", "restless", "driven"],
       "artists": ["LTJ Bukem", "Goldie", "Roni Size", "Netsky"],
@@ -58,7 +58,7 @@
       "tempo": "fast"
     },
     "determined": {
-      "vibe_description": "Mission mode activated 🎯",
+      "vibe_description": "Mission mode activated ",
       "genres": ["industrial", "dark electronic", "cyberpunk", "synthwave"],
       "keywords": ["focused", "driven", "intense", "determined"],
       "artists": ["Perturbator", "Carpenter Brut", "Power Trip", "Health"],

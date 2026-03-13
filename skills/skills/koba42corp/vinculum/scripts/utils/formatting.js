@@ -8,7 +8,7 @@
  * @returns {string}
  */
 function formatQuickStatus({ enabled, peerCount, lastSync }) {
-  const statusEmoji = enabled ? '📡' : '⏸️';
+  const statusEmoji = enabled ? '' : '';
   const statusText = enabled ? 'ON' : 'OFF';
   const peerText = peerCount === 1 ? '1 peer' : `${peerCount} peers`;
   const syncText = lastSync ? formatTimeAgo(lastSync) : 'never';
@@ -32,19 +32,19 @@ function formatDetailedStatus({
   config,
   stats 
 }) {
-  const lines = ['📡 **Vinculum Status**', ''];
+  const lines = [' **Vinculum Status**', ''];
   
   // Network section
   lines.push('**Network**');
   lines.push(`Collective: \`${namespaceId || 'Not connected'}\``);
-  lines.push(`Status: ${enabled ? '🟢 Connected' : '🔴 Disconnected'}`);
+  lines.push(`Status: ${enabled ? ' Connected' : ' Disconnected'}`);
   lines.push('');
   
   // Peers section
   lines.push('**Peers**');
   if (peers && peers.length > 0) {
     peers.forEach(peer => {
-      const status = peer.online ? '🟢' : '⚫';
+      const status = peer.online ? '' : '';
       const lastSeen = peer.last_seen ? formatTimeAgo(peer.last_seen) : 'unknown';
       lines.push(`• ${peer.name} — ${status} (last: ${lastSeen})`);
     });
@@ -86,7 +86,7 @@ function formatDetailedStatus({
  * @returns {string}
  */
 function formatInitSuccess({ namespaceId, pairingCode }) {
-  return `🔗 **Collective Initialized**
+  return ` **Collective Initialized**
 
 Collective created: \`${namespaceId}\`
 Encryption: AES-256 via Gun SEA
@@ -112,10 +112,10 @@ function formatJoinSuccess({ namespaceId, peers, entryCount }) {
     ? peers.map(p => `• ${p.name} (${p.online ? 'online' : 'offline'})`).join('\n')
     : '• No other peers found yet';
     
-  return `🔗 **Joined Network**
+  return ` **Joined Network**
 
-✅ Connected to namespace: \`${namespaceId}\`
-✅ Initial sync complete (${entryCount} entries)
+ Connected to namespace: \`${namespaceId}\`
+ Initial sync complete (${entryCount} entries)
 
 **Peers:**
 ${peerList}
@@ -130,13 +130,13 @@ Use \`/link status\` anytime to check connection.`;
  */
 function formatPeerList(peers) {
   if (!peers || peers.length === 0) {
-    return '👥 **No peers connected**\n\nUse `/link invite` to get a pairing code.';
+    return ' **No peers connected**\n\nUse `/link invite` to get a pairing code.';
   }
   
-  const lines = ['👥 **Connected Peers**', ''];
+  const lines = [' **Connected Peers**', ''];
   
   peers.forEach(peer => {
-    const status = peer.online ? '🟢 Online' : '⚫ Offline';
+    const status = peer.online ? ' Online' : ' Offline';
     const task = peer.current_task ? `\n   └ Working on: ${peer.current_task}` : '';
     const lastSeen = peer.last_seen ? `\n   └ Last seen: ${formatTimeAgo(peer.last_seen)}` : '';
     
@@ -155,12 +155,12 @@ function formatPeerList(peers) {
  */
 function formatActivityList(activities, filterAgent = null) {
   if (!activities || activities.length === 0) {
-    return '📋 **No recent activity**';
+    return ' **No recent activity**';
   }
   
   const title = filterAgent 
-    ? `📋 **Activity: ${filterAgent}**`
-    : '📋 **Recent Network Activity**';
+    ? ` **Activity: ${filterAgent}**`
+    : ' **Recent Network Activity**';
     
   const lines = [title, ''];
   
@@ -183,8 +183,8 @@ function formatActivityList(activities, filterAgent = null) {
         hour: '2-digit', 
         minute: '2-digit' 
       });
-      const emoji = act.action === 'completed' ? '✅' : 
-                    act.action === 'started' ? '🔄' : '❌';
+      const emoji = act.action === 'completed' ? '' : 
+                    act.action === 'started' ? '' : '';
       lines.push(`• ${time} — ${emoji} ${act.agent}: ${act.summary}`);
     });
     lines.push('');
@@ -200,10 +200,10 @@ function formatActivityList(activities, filterAgent = null) {
  */
 function formatDecisionsList(decisions) {
   if (!decisions || decisions.length === 0) {
-    return '📜 **No shared decisions**';
+    return ' **No shared decisions**';
   }
   
-  const lines = ['📜 **Shared Decisions**', ''];
+  const lines = [' **Shared Decisions**', ''];
   
   decisions.forEach(dec => {
     const date = new Date(dec.timestamp).toLocaleDateString('en-US', { 
@@ -228,15 +228,15 @@ function formatDecisionsList(decisions) {
  * @returns {string}
  */
 function formatConfig(config) {
-  return `⚙️ **Sync Configuration**
+  return ` **Sync Configuration**
 
 **Sharing**
-Share activity: ${config.shareActivity ? '✅ ON' : '❌ OFF'}
-Share memory: ${config.shareMemory ? '✅ ON' : '❌ OFF'}
-Share decisions: ${config.shareDecisions ? '✅ ON' : '❌ OFF'}
+Share activity: ${config.shareActivity ? ' ON' : ' OFF'}
+Share memory: ${config.shareMemory ? ' ON' : ' OFF'}
+Share decisions: ${config.shareDecisions ? ' ON' : ' OFF'}
 
 **Sync**
-Auto-sync: ${config.autoSync ? '✅ ON' : '❌ OFF'}
+Auto-sync: ${config.autoSync ? ' ON' : ' OFF'}
 Interval: ${config.syncInterval} seconds
 
 **Agent**
@@ -266,7 +266,7 @@ function formatTimeAgo(timestamp) {
  * @returns {string}
  */
 function formatError(message) {
-  return `❌ **Error**\n\n${message}`;
+  return ` **Error**\n\n${message}`;
 }
 
 /**
@@ -275,7 +275,7 @@ function formatError(message) {
  * @returns {string}
  */
 function formatSuccess(message) {
-  return `✅ ${message}`;
+  return ` ${message}`;
 }
 
 /**
@@ -284,7 +284,7 @@ function formatSuccess(message) {
  * @returns {string}
  */
 function formatWarning(message) {
-  return `⚠️ ${message}`;
+  return ` ${message}`;
 }
 
 /**
@@ -293,7 +293,7 @@ function formatWarning(message) {
  * @returns {string}
  */
 function formatInfo(message) {
-  return `ℹ️ ${message}`;
+  return ` ${message}`;
 }
 
 module.exports = {

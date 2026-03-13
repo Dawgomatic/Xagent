@@ -27,9 +27,9 @@ const hrtMs = () => Number(process.hrtime.bigint() / 1_000_000n);
 
 function ts() { return new Date().toISOString(); }
 function log(msg, ...a) { console.log(`[${ts()}] ${msg}`, ...a); }
-function logError(msg, ...a) { console.error(`[${ts()}] ❌ ${msg}`, ...a); }
-function logSuccess(msg, ...a) { console.log(`[${ts()}] ✅ ${msg}`, ...a); }
-function logWarn(msg, ...a) { console.warn(`[${ts()}] ⚠️  ${msg}`, ...a); }
+function logError(msg, ...a) { console.error(`[${ts()}]  ${msg}`, ...a); }
+function logSuccess(msg, ...a) { console.log(`[${ts()}]  ${msg}`, ...a); }
+function logWarn(msg, ...a) { console.warn(`[${ts()}]   ${msg}`, ...a); }
 
 
 // ─── Batched RPC helper (avoids rate limits on free RPCs) ──────────────────
@@ -200,14 +200,14 @@ async function checkArchetypeInvite(provider, cfg) {
   const quantity = cfg.contract.maxMintsPerWallet;
   const hasAffiliate = cfg.archetype.affiliate && cfg.archetype.affiliate !== ethers.ZeroAddress;
 
-  log("🏛️  Archetype mode — checking invite & config...");
+  log("  Archetype mode — checking invite & config...");
 
   try {
     const invite = await contract.invites(authKey);
     log(`   Invite [${authKey.slice(0, 10)}...]: price=${ethers.formatEther(invite.price)} ETH, start=${invite.start}, end=${invite.end}, limit=${invite.limit}, maxSupply=${invite.maxSupply}`);
     const now = Math.floor(Date.now() / 1000);
     if (Number(invite.start) > now) {
-      log(`   ⏰ Invite starts in ${Number(invite.start) - now}s (${new Date(Number(invite.start) * 1000).toISOString()})`);
+      log(`    Invite starts in ${Number(invite.start) - now}s (${new Date(Number(invite.start) * 1000).toISOString()})`);
     } else if (Number(invite.end) > 0 && Number(invite.end) < now) {
       logWarn(`   Invite has ENDED at ${new Date(Number(invite.end) * 1000).toISOString()}`);
     } else {
@@ -229,7 +229,7 @@ async function checkArchetypeInvite(provider, cfg) {
     log(`   Computed price for ${quantity} mint(s): ${ethers.formatEther(price)} ETH`);
     cfg.contract.mintPriceEth = ethers.formatEther(price);
     cfg._archetypeComputedPrice = price;
-    log(`   ✅ Using computed price: ${cfg.contract.mintPriceEth} ETH total`);
+    log(`    Using computed price: ${cfg.contract.mintPriceEth} ETH total`);
   } catch (err) {
     logWarn(`   Failed to compute price: ${err.message}`);
   }
@@ -242,7 +242,7 @@ async function waitForArchetypeInvite(provider, cfg) {
   const intervalMs = cfg.monitoring.intervalMs || 100;
   const deadline = Date.now() + cfg.monitoring.timeoutMs;
 
-  log(`🔍 Archetype: waiting for invite ${authKey.slice(0, 10)}... to go live...`);
+  log(` Archetype: waiting for invite ${authKey.slice(0, 10)}... to go live...`);
 
   while (Date.now() < deadline) {
     try {
@@ -250,7 +250,7 @@ async function waitForArchetypeInvite(provider, cfg) {
       const now = Math.floor(Date.now() / 1000);
       if (Number(invite.start) > 0 && Number(invite.start) <= now) {
         if (Number(invite.end) === 0 || Number(invite.end) > now) {
-          logSuccess(`🏛️  Archetype invite is LIVE! (started at ${new Date(Number(invite.start) * 1000).toISOString()})`);
+          logSuccess(`  Archetype invite is LIVE! (started at ${new Date(Number(invite.start) * 1000).toISOString()})`);
           return true;
         }
       }
@@ -280,7 +280,7 @@ async function getWarModeGas(provider, cfg) {
       const adjustedMaxFee = networkMaxFee * 120n / 100n > warMaxFee ? warMaxFee : networkMaxFee * 120n / 100n;
       const adjustedPriority = networkPriority * 150n / 100n > warPriority ? warPriority : networkPriority * 150n / 100n;
 
-      logWarn(`⚔️ WAR MODE ACTIVE — network gas ${ethers.formatUnits(networkMaxFee, "gwei")} gwei > configured ${cfg.gas.maxFeePerGas} gwei`);
+      logWarn(` WAR MODE ACTIVE — network gas ${ethers.formatUnits(networkMaxFee, "gwei")} gwei > configured ${cfg.gas.maxFeePerGas} gwei`);
       log(`   Adjusted: maxFee=${ethers.formatUnits(adjustedMaxFee, "gwei")} gwei, priority=${ethers.formatUnits(adjustedPriority, "gwei")} gwei`);
       return { maxFeePerGas: adjustedMaxFee, maxPriorityFeePerGas: adjustedPriority };
     }
@@ -319,7 +319,7 @@ async function presignAll(walletEntries) {
       entry.signedRawTx = await entry.signer.signTransaction(entry.tx);
     })
   );
-  log(`⚡ All ${walletEntries.length} txs signed in ${hrtMs() - t0}ms`);
+  log(` All ${walletEntries.length} txs signed in ${hrtMs() - t0}ms`);
 }
 
 // ─── WebSocket Provider ────────────────────────────────────────────────────────
@@ -346,12 +346,12 @@ async function waitForMintLive(provider, wsProvider, cfg, iface, calldata) {
   const deadline = Date.now() + timeoutMs;
   const fnSelector = calldata.slice(0, 10).toLowerCase();
 
-  log(`🔍 Monitoring contract ${cfg.contract.address} for mint availability...`);
+  log(` Monitoring contract ${cfg.contract.address} for mint availability...`);
   log(`   Check: ${mintLiveCheck}, interval: ${intervalMs}ms, ws: ${!!wsProvider && useWebSocket}, mempool: ${mempoolWatch}`);
 
   // ── Mempool monitoring via WebSocket (fastest detection) ──
   if (mempoolWatch && wsProvider) {
-    log("   👁️ Mempool watch active — monitoring pending txs for mint function calls");
+    log("    Mempool watch active — monitoring pending txs for mint function calls");
     const mempoolPromise = new Promise((resolve, reject) => {
       const timeout = setTimeout(() => {
         try { wsProvider.removeAllListeners("pending"); } catch {}
@@ -365,7 +365,7 @@ async function waitForMintLive(provider, wsProvider, cfg, iface, calldata) {
             && tx.data && tx.data.slice(0, 10).toLowerCase() === fnSelector) {
             clearTimeout(timeout);
             try { wsProvider.removeAllListeners("pending"); } catch {}
-            logSuccess(`🎯 Mempool detected mint tx ${txHash} — FIRING!`);
+            logSuccess(` Mempool detected mint tx ${txHash} — FIRING!`);
             resolve(true);
           }
         } catch {}
@@ -380,7 +380,7 @@ async function waitForMintLive(provider, wsProvider, cfg, iface, calldata) {
 
   // ── WebSocket newHeads monitoring (block-level) ──
   if (useWebSocket && wsProvider) {
-    log("   📡 WebSocket newHeads monitoring active");
+    log("    WebSocket newHeads monitoring active");
     return new Promise((resolve, reject) => {
       const timeout = setTimeout(() => {
         try { wsProvider.removeAllListeners("block"); } catch {}
@@ -452,7 +452,7 @@ async function submitWithRetry(fn, label, maxRetries, delayMs) {
 
 async function main() {
   const startNs = process.hrtime.bigint();
-  log("🚀 NFT Mint Bot starting... (MAX SPEED EDITION)");
+  log(" NFT Mint Bot starting... (MAX SPEED EDITION)");
 
   // 1. Load config
   const cfg = loadConfig();
@@ -462,12 +462,12 @@ async function main() {
 
   // 2. Pre-warm ALL connections in parallel
   await prewarmConnections(cfg.rpcUrls);
-  log(`🔥 Pre-warmed ${cfg.rpcUrls.length} RPC connections`);
+  log(` Pre-warmed ${cfg.rpcUrls.length} RPC connections`);
 
   // 3. Create providers
   const provider = new ethers.JsonRpcProvider(cfg.rpcUrl, cfg.chainId, { staticNetwork: true });
   const wsProvider = createWsProvider(cfg);
-  if (wsProvider) log("📡 WebSocket provider connected");
+  if (wsProvider) log(" WebSocket provider connected");
 
   const fastProvider = wsProvider || provider;
   const blockNum = await fastProvider.getBlockNumber();
@@ -475,7 +475,7 @@ async function main() {
 
   // 3b. Archetype: check invite info on startup (reads price from chain)
   if (cfg.archetype && cfg.archetype.enabled) {
-    log("🏛️  Archetype mode ENABLED");
+    log("  Archetype mode ENABLED");
     await checkArchetypeInvite(fastProvider, cfg);
   }
 
@@ -560,12 +560,12 @@ async function main() {
       if (needResign) await presignAll(walletEntries);
     }
   } else {
-    log("⚡ Instant mode — firing immediately");
+    log(" Instant mode — firing immediately");
   }
 
-  // 8. 🔥🔥🔥 FIRE — ZERO AWAIT HOT PATH 🔥🔥🔥
+  // 8.  FIRE — ZERO AWAIT HOT PATH 
   const fireNs = process.hrtime.bigint();
-  log("🔥 FIRING ALL TRANSACTIONS...");
+  log(" FIRING ALL TRANSACTIONS...");
 
   const submissionPromises = walletEntries.map((entry) => {
     if (cfg.bankr.enabled) {
@@ -622,12 +622,12 @@ async function main() {
     }
   }
 
-  log(`\n✅ Successful: ${successful.length}/${results.length}`);
-  if (failed.length) log(`❌ Failed: ${failed.length}/${results.length}`);
+  log(`\n Successful: ${successful.length}/${results.length}`);
+  if (failed.length) log(` Failed: ${failed.length}/${results.length}`);
 
   // 10. Wait for confirmations (parallel)
   if (successful.length > 0 && !cfg.bankr.enabled && !cfg.flashbots.enabled) {
-    log("\n⏳ Waiting for confirmations...");
+    log("\n Waiting for confirmations...");
     await Promise.all(successful.map(async (s) => {
       try {
         const receipt = await provider.waitForTransaction(s.hash, 1, 120000);
@@ -644,7 +644,7 @@ async function main() {
 
   const totalNs = process.hrtime.bigint() - startNs;
   const totalMs = Number(totalNs / 1_000_000n);
-  log(`\n🏁 Total execution time: ${totalMs}ms (${(totalMs / 1000).toFixed(2)}s)`);
+  log(`\n Total execution time: ${totalMs}ms (${(totalMs / 1000).toFixed(2)}s)`);
   log(`   Fire-to-submit: ${submitDurationMs}ms`);
 
   if (wsProvider) { try { await wsProvider.destroy(); } catch {} }

@@ -9,7 +9,7 @@ from typing import List
 def scan_local(path: str) -> str:
     """Scan a local skill folder – callable by agents for automation."""
     if not os.path.exists(path):
-        return f"❌ Path not found: {path}"
+        return f" Path not found: {path}"
     
     all_threats: List[Threat] = []
     for root, _, files in os.walk(path):
@@ -28,34 +28,34 @@ def quarantine(path: str) -> str:
     if os.path.exists(target):
         shutil.rmtree(target, ignore_errors=True)
     shutil.move(path, target)
-    return f"🛡️ Quarantined {path} → {target}\n   (Safe for agents to auto-trigger on HIGH RISK)"
+    return f" Quarantined {path} → {target}\n   (Safe for agents to auto-trigger on HIGH RISK)"
 
 def generate_report(skill_name: str, threats: List[Threat]) -> str:
     risk_score = calculate_risk_score(threats)
-    colors = {"critical": "🔴", "warning": "🟡", "info": "🔵"}
+    colors = {"critical": "", "warning": "", "info": ""}
     
     report = [f"\n{'='*60}", f"ClawSkillShield Report: {skill_name}", f"{'='*60}\n"]
     
     if risk_score >= 7:
-        verdict = "🟢 LOW RISK - Safe to try"
+        verdict = " LOW RISK - Safe to try"
     elif risk_score >= 4:
-        verdict = "🟡 MODERATE RISK - Review"
+        verdict = " MODERATE RISK - Review"
     else:
-        verdict = "🔴 HIGH RISK - Quarantine recommended!"
+        verdict = " HIGH RISK - Quarantine recommended!"
     
     report += [f"{verdict}", f"Risk Score: {risk_score:.1f}/10.0\n"]
     
     if threats:
         report += ["-"*60, "Threats Found:", "-"*60]
         for t in threats:
-            emoji = colors.get(t.severity, "⚪")
+            emoji = colors.get(t.severity, "")
             report += [f"\n{emoji} [{t.severity.upper()}] {t.title}", f"   File: {t.file}"]
             if t.line: report += [f"   Line: {t.line}"]
             report += [f"   {t.description}"]
         if risk_score < 4:
-            report += ["\n🚨 Auto-quarantine suggested!"]
+            report += ["\n Auto-quarantine suggested!"]
     else:
-        report += ["🎉 No threats detected!"]
+        report += [" No threats detected!"]
     
     report += [f"\n{'='*60}\n"]
     return "\n".join(report)

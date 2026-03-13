@@ -95,22 +95,22 @@ grep -rh "^import \|^from " --include="*.py" . | sort -u
 Organize findings into priority tiers:
 
 ```markdown
-## 🔴 Critical — Security Vulnerabilities
+##  Critical — Security Vulnerabilities
 | Package | Severity | Current | Fixed In | Command |
 |---------|----------|---------|----------|---------|
 | lodash | CRITICAL | 4.17.19 | 4.17.21 | `npm install lodash@4.17.21` |
 
-## 🟠 High — Breaking Updates Available
+##  High — Breaking Updates Available
 | Package | Current | Latest | Breaking Changes |
 |---------|---------|--------|-----------------|
 | express | 4.18.2 | 5.0.0 | New router API |
 
-## 🟡 Medium — Minor/Patch Updates
+##  Medium — Minor/Patch Updates
 | Package | Current | Latest | Command |
 |---------|---------|--------|---------|
 | axios | 1.5.0 | 1.6.2 | `npm install axios@1.6.2` |
 
-## 🟢 Low — Unused Dependencies
+##  Low — Unused Dependencies
 | Package | Action |
 |---------|--------|
 | moment | `npm uninstall moment` |
@@ -144,11 +144,11 @@ pip install --upgrade package_name
 
 | Category | Count |
 |----------|-------|
-| 🔴 Security vulnerabilities | 2 |
-| 🟠 Major updates available | 3 |
-| 🟡 Minor/patch updates | 8 |
-| 🟢 Unused dependencies | 1 |
-| ✅ Up-to-date | 42 |
+|  Security vulnerabilities | 2 |
+|  Major updates available | 3 |
+|  Minor/patch updates | 8 |
+|  Unused dependencies | 1 |
+|  Up-to-date | 42 |
 ```
 
 ## Edge Cases

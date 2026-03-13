@@ -30,10 +30,10 @@ fi
 mkdir -p "$BACKUP_DIR"
 BACKUP_FILE="$BACKUP_DIR/openclaw.json.$(date '+%Y%m%d_%H%M%S').bak"
 cp "$OPENCLAW_CONFIG" "$BACKUP_FILE"
-log "✅ 백업 생성: $BACKUP_FILE"
+log " 백업 생성: $BACKUP_FILE"
 
 # ── Python으로 JSON 패치 ──────────────────────────────────
-log "🔧 캐싱 최적화 설정 적용 중..."
+log " 캐싱 최적화 설정 적용 중..."
 
 python3 - "$OPENCLAW_CONFIG" << 'PYEOF'
 import json, sys
@@ -82,17 +82,17 @@ print(f"  agents.defaults.heartbeat.every       = {agents_defaults['heartbeat'][
 print(f"  diagnostics.cacheTrace.enabled        = {config['diagnostics']['cacheTrace']['enabled']}")
 PYEOF
 
-log "✅ openclaw.json 업데이트 완료"
+log " openclaw.json 업데이트 완료"
 
 # ── Gateway 재시작 ─────────────────────────────────────────
-log "🔄 openclaw gateway 재시작 중..."
+log " openclaw gateway 재시작 중..."
 openclaw gateway restart 2>&1 || true
-log "✅ Gateway 재시작 완료 (또는 비대화형 환경에서는 수동 재시작 필요)"
+log " Gateway 재시작 완료 (또는 비대화형 환경에서는 수동 재시작 필요)"
 
 # ── 결과 확인 ─────────────────────────────────────────────
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "🎉 캐싱 최적화 적용 완료!"
+echo " 캐싱 최적화 적용 완료!"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 echo "절약 효과 확인:"

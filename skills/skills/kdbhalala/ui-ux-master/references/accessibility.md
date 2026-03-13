@@ -22,16 +22,16 @@ Complete WCAG compliance guide and accessibility best practices.
 
 ## Quick Checklist
 
-✅ Alt text for images
-✅ Keyboard navigable (Tab, Enter, Esc, Arrows)
-✅ Focus visible (outline or custom)
-✅ Color contrast meets AA (4.5:1 text, 3:1 UI)
-✅ Headings in logical order (h1 → h2 → h3)
-✅ ARIA labels for interactive elements
-✅ Forms have labels
-✅ Error messages clear and helpful
-✅ Reduce motion respected
-✅ Screen reader tested
+ Alt text for images
+ Keyboard navigable (Tab, Enter, Esc, Arrows)
+ Focus visible (outline or custom)
+ Color contrast meets AA (4.5:1 text, 3:1 UI)
+ Headings in logical order (h1 → h2 → h3)
+ ARIA labels for interactive elements
+ Forms have labels
+ Error messages clear and helpful
+ Reduce motion respected
+ Screen reader tested
 
 ## Testing Tools
 

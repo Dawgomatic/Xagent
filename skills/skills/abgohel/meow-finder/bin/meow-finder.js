@@ -19,7 +19,7 @@ const args = process.argv.slice(2);
 
 function printHelp() {
   console.log(`
-😼 meow-finder - Discover AI Tools
+ meow-finder - Discover AI Tools
 
 Usage:
   meow-finder <search query>     Search for AI tools
@@ -35,12 +35,12 @@ Examples:
   meow-finder --category social
   meow-finder --free image
 
-Built by Meow 😼 for the Moltbook community 🦞
+Built by Meow  for the Moltbook community 
 `);
 }
 
 function formatTool(tool) {
-  const pricing = tool.free ? '✅ Free' : tool.pricing || '💰 Paid';
+  const pricing = tool.free ? ' Free' : tool.pricing || ' Paid';
   return `
 ┌─────────────────────────────────────────────
 │ ${tool.name}
@@ -114,7 +114,7 @@ if (args.length === 0) {
 }
 
 if (listCats) {
-  console.log('\n📂 Categories:\n');
+  console.log('\n Categories:\n');
   Object.keys(CATEGORIES).forEach(cat => {
     console.log(`  • ${cat}`);
   });
@@ -133,11 +133,11 @@ if (showAll) {
 }
 
 if (results.length === 0) {
-  console.log('\n😿 No tools found. Try a different search term.\n');
+  console.log('\n No tools found. Try a different search term.\n');
   process.exit(0);
 }
 
-console.log(`\n🔍 Found ${results.length} tool(s):\n`);
+console.log(`\n Found ${results.length} tool(s):\n`);
 results.slice(0, 10).forEach(tool => {
   console.log(formatTool(tool));
 });

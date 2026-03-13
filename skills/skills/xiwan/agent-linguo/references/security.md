@@ -1,6 +1,6 @@
 # Secure Communication Details
 
-👽语 supports three security levels. This document details the implementation of encrypted communication.
+语 supports three security levels. This document details the implementation of encrypted communication.
 
 ## Security Levels
 
@@ -39,7 +39,7 @@ Agent A                                    Agent B
    │                                          │
    │ ① Initiate secure handshake (plaintext,  │
    │   with public key)                       │
-   │   👽09|$j:{..., security:["E"],           │
+   │   09|$j:{..., security:["E"],           │
    │          crypto:["X25519+AES-GCM"],       │
    │          pubkey:"A's public key"}         │
    │  ─────────────────────────────────────►  │
@@ -58,7 +58,7 @@ Agent A                                    Agent B
    │   session_key = HKDF-SHA256(shared_key, session)
    │                                          │
    │ ④ Encrypted communication begins         │
-   │   👽137|#s123|$e:[nonce]:[ciphertext]     │
+   │   137|#s123|$e:[nonce]:[ciphertext]     │
    │  ─────────────────────────────────────►  │
    │                                          │
    │                   ^0|#s123|$e:[nonce]:[ciphertext]
@@ -71,8 +71,8 @@ Agent A                                    Agent B
 
 **Initiator (requesting encrypted communication):**
 ```
-👽09|$j:eyJwcm90b2NvbCI6ImFnZW50LWxpbmd1YSIsInZlcnNpb24iOiIwLjQuMCIsInNwZWMiOiJjbGF3aHViLmFpL3hpd2FuL2FnZW50LWxpbmd1byIsImNhcGFiaWxpdGllcyI6WyIxIiwiNyIsIkEiXSwic2VjdXJpdHkiOlsiUCIsIkIiLCJFIl0sImNyeXB0byI6WyJYMjU1MTkrQUVTLUdDTSIsIlBTSytBRVMtR0NNIl0sInB1YmtleSI6Ik1Db3dCUVlESzJWd0F5RUEuLi4ifQ==
---👽lingua/0.4@agent-lingua
+09|$j:eyJwcm90b2NvbCI6ImFnZW50LWxpbmd1YSIsInZlcnNpb24iOiIwLjQuMCIsInNwZWMiOiJjbGF3aHViLmFpL3hpd2FuL2FnZW50LWxpbmd1byIsImNhcGFiaWxpdGllcyI6WyIxIiwiNyIsIkEiXSwic2VjdXJpdHkiOlsiUCIsIkIiLCJFIl0sImNyeXB0byI6WyJYMjU1MTkrQUVTLUdDTSIsIlBTSytBRVMtR0NNIl0sInB1YmtleSI6Ik1Db3dCUVlESzJWd0F5RUEuLi4ifQ==
+--lingua/0.4@agent-lingua
 ```
 
 **Payload decoded:**
@@ -96,7 +96,7 @@ Agent A                                    Agent B
 **Receiver (accepting encryption):**
 ```
 ^0|$j:eyJhY2NlcHRlZCI6dHJ1ZSwidmVyc2lvbiI6IjAuNC4wIiwiY2FwYWJpbGl0aWVzIjpbIjEiLCI3Il0sInNlY3VyaXR5IjoiRSIsImNyeXB0byI6IlgyNTUxOStBRVMtR0NNIiwicHVia2V5IjoiTUNvd0JRWURLMlZ3QXlFQi4uLiIsInNlc3Npb24iOiJzMTIzNDU2IiwiZmluZ2VycHJpbnQiOiJTSEEyNTY6OGE3Yi4uLiJ9
---👽lingua/0.4@agent-lingua
+--lingua/0.4@agent-lingua
 ```
 
 **Payload decoded:**
@@ -140,7 +140,7 @@ Negotiated result: "B" (Base64)
 After handshake completion, encrypted messages use modifier `7` and `$e:` prefix:
 
 ```
-👽137|#s123456|$e:YWJjZGVmZ2hpams=:kH8xJ2mNpQ...
+137|#s123456|$e:YWJjZGVmZ2hpams=:kH8xJ2mNpQ...
 ```
 
 **Payload format:** `$e:[Base64 of nonce]:[Base64 of ciphertext]`
@@ -193,8 +193,8 @@ session_key = HKDF-SHA256(PSK, session_id)
 
 **Session termination:**
 ```
-👽08|#s123456
---👽lingua/0.4@agent-lingua
+08|#s123456
+--lingua/0.4@agent-lingua
 ```
 = Domain 0 (system) + Action 8 (unsubscribe) + session ID = End session, invalidate key
 
@@ -212,9 +212,9 @@ session_key = HKDF-SHA256(PSK, session_id)
 
 | Solution | Security | Complexity | Use Case |
 |----------|----------|------------|----------|
-| TOFU (Trust On First Use) | ⭐⭐ | Low | Default, trust on first contact |
-| Fingerprint verification | ⭐⭐⭐ | Medium | High security, human confirms fingerprint via other channel |
-| Pre-shared public key | ⭐⭐⭐⭐ | High | Highest security, distribute trusted public keys in advance |
+| TOFU (Trust On First Use) |  | Low | Default, trust on first contact |
+| Fingerprint verification |  | Medium | High security, human confirms fingerprint via other channel |
+| Pre-shared public key |  | High | Highest security, distribute trusted public keys in advance |
 
 **Default uses TOFU**: After successful first handshake, remember the other party's public key, verify public key consistency in subsequent communications.
 
@@ -240,6 +240,6 @@ session_key = HKDF-SHA256(PSK, session_id)
 **Reject communication:**
 ```
 ^A|$j:eyJyZWFzb24iOiJlbmNyeXB0aW9uIHJlcXVpcmVkIn0=
---👽lingua/0.4@agent-lingua
+--lingua/0.4@agent-lingua
 ```
 = Status code A (reject) + reason

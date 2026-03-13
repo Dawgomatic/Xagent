@@ -347,13 +347,13 @@ def main():
         print(f"Sprint Capacity: {sprint['capacity']} points")
         print(f"Committed: {sprint['total_points']} points ({sprint['utilization']}%)")
         print(f"Stories: {len(sprint['committed'])} committed + {len(sprint['stretch'])} stretch")
-        print("\n📋 COMMITTED STORIES:\n")
+        print("\n COMMITTED STORIES:\n")
         
         for story in sprint['committed']:
             print(f"  [{story['priority'][:1].upper()}] {story['id']}: {story['title']} ({story['estimation']}pts)")
         
         if sprint['stretch']:
-            print("\n🎯 STRETCH GOALS:\n")
+            print("\n STRETCH GOALS:\n")
             for story in sprint['stretch']:
                 print(f"  [{story['priority'][:1].upper()}] {story['id']}: {story['title']} ({story['estimation']}pts)")
     

@@ -24,7 +24,7 @@ async def setup_cookie():
     cookie_file = SKILL_DIR / "social-auto-upload" / "cookies" / "xhs_account.json"
     cookie_file.parent.mkdir(parents=True, exist_ok=True)
     await xiaohongshu_cookie_gen(str(cookie_file))
-    print(f"✅ Cookie 已保存到: {cookie_file}")
+    print(f" Cookie 已保存到: {cookie_file}")
 
 
 async def check_cookie():
@@ -33,14 +33,14 @@ async def check_cookie():
     cookie_file = SKILL_DIR / "social-auto-upload" / "cookies" / "xhs_account.json"
     
     if not cookie_file.exists():
-        print("❌ Cookie 文件不存在，请先运行 setup 命令")
+        print(" Cookie 文件不存在，请先运行 setup 命令")
         return False
     
     valid = await cookie_auth(str(cookie_file))
     if valid:
-        print("✅ Cookie 有效")
+        print(" Cookie 有效")
     else:
-        print("❌ Cookie 已失效，请重新登录")
+        print(" Cookie 已失效，请重新登录")
     return valid
 
 
@@ -61,7 +61,7 @@ async def publish_images(title: str, desc: str, images: list, schedule_time=None
     cookie_file = SKILL_DIR / "social-auto-upload" / "cookies" / "xhs_account.json"
     
     if not cookie_file.exists():
-        print("❌ Cookie 文件不存在")
+        print(" Cookie 文件不存在")
         return False
     
     async with async_playwright() as p:
@@ -69,12 +69,12 @@ async def publish_images(title: str, desc: str, images: list, schedule_time=None
         context = await browser.new_context(storage_state=str(cookie_file))
         page = await context.new_page()
         
-        print("🌐 打开小红书创作者中心...")
+        print(" 打开小红书创作者中心...")
         await page.goto("https://creator.xiaohongshu.com/publish/publish")
         await asyncio.sleep(3)
         
         # 选择"上传图文"
-        print("📝 选择图文发布...")
+        print(" 选择图文发布...")
         try:
             await page.click('text=发布图文')
             await asyncio.sleep(2)
@@ -82,20 +82,20 @@ async def publish_images(title: str, desc: str, images: list, schedule_time=None
             pass  # 可能已经在图文页面
         
         # 上传图片
-        print(f"📷 上传 {len(images)} 张图片...")
+        print(f" 上传 {len(images)} 张图片...")
         upload_input = await page.query_selector('input[type="file"]')
         if upload_input:
             await upload_input.set_input_files(images)
             await asyncio.sleep(5)  # 等待上传
         
         # 填写标题
-        print("✏️ 填写标题...")
+        print(" 填写标题...")
         title_input = await page.query_selector('[placeholder*="标题"]')
         if title_input:
             await title_input.fill(title[:20])  # 小红书标题限制
         
         # 填写正文
-        print("📄 填写正文...")
+        print(" 填写正文...")
         desc_input = await page.query_selector('[placeholder*="正文"]')
         if not desc_input:
             desc_input = await page.query_selector('.ql-editor')
@@ -105,12 +105,12 @@ async def publish_images(title: str, desc: str, images: list, schedule_time=None
         await asyncio.sleep(2)
         
         # 发布
-        print("🚀 发布中...")
+        print(" 发布中...")
         publish_btn = await page.query_selector('button:has-text("发布")')
         if publish_btn:
             await publish_btn.click()
             await asyncio.sleep(5)
-            print("✅ 发布成功！")
+            print(" 发布成功！")
         
         await browser.close()
         return True

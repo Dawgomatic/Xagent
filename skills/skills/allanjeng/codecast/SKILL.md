@@ -2,7 +2,7 @@
 version: 4.1.0
 name: codecast
 description: Stream coding agent sessions (Claude Code, Codex, Gemini CLI, etc.) to a Discord channel in real-time via webhook. Use when invoking coding agents and wanting transparent, observable dev sessions — no black box. Parses Claude Code's stream-json output into clean formatted Discord messages showing tool calls, file writes, bash commands, and results with zero AI token burn. Use when asked to "stream to Discord", "relay agent output", or "make dev sessions visible".
-metadata: {"openclaw":{"emoji":"🎬","requires":{"anyBins":["unbuffer","python3"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"anyBins":["unbuffer","python3"]}}}
 ---
 
 # Codecast

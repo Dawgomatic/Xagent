@@ -22,20 +22,20 @@ function recordTest(caseId, status, message, category = 'happyPath') {
   if (status === 'passed') {
     testResults.passed.push(testCase);
     testResults.coverage[category]++;
-    console.log(`    ✅ ${caseId}: ${message}`);
+    console.log(`     ${caseId}: ${message}`);
   } else if (status === 'failed') {
     testResults.failed.push(testCase);
-    console.log(`    ❌ ${caseId}: ${message}`);
+    console.log(`     ${caseId}: ${message}`);
   } else {
     testResults.skipped.push(testCase);
-    console.log(`    ⏭️  ${caseId}: ${message}`);
+    console.log(`      ${caseId}: ${message}`);
   }
 }
 
 // ==================== 测试模块: feishu/im (threads) (7个用例) ====================
 
 async function testFeishuThreads() {
-  console.log('\n📦 测试模块: feishu/im (threads) (话题操作)');
+  console.log('\n 测试模块: feishu/im (threads) (话题操作)');
   console.log('----------------------------------------');
   
   // TC-THREADS-001: 正常话题回复
@@ -193,7 +193,7 @@ async function testFeishuThreads() {
 // ==================== 测试模块: feishu/im (messages) (8个用例) ====================
 
 async function testFeishuMessages() {
-  console.log('\n📦 测试模块: feishu/im (messages) (消息操作)');
+  console.log('\n 测试模块: feishu/im (messages) (消息操作)');
   console.log('----------------------------------------');
   
   // TC-MSG-001: 正常获取消息列表（已知会失败，缺少权限）
@@ -212,7 +212,7 @@ async function testFeishuMessages() {
 // ==================== 测试模块: feishu/im (react) (6个用例) ====================
 
 async function testFeishuReact() {
-  console.log('\n📦 测试模块: feishu/im (react) (表情反应)');
+  console.log('\n 测试模块: feishu/im (react) (表情反应)');
   console.log('----------------------------------------');
   
   recordTest('TC-REACT-001', 'passed', '正常添加表情反应', 'happyPath');
@@ -251,7 +251,7 @@ async function testFeishuReact() {
 // ==================== 测试模块: feishu/im (attachment) (4个用例) ====================
 
 async function testFeishuAttachment() {
-  console.log('\n📦 测试模块: feishu/im (attachment) (附件操作)');
+  console.log('\n 测试模块: feishu/im (attachment) (附件操作)');
   console.log('----------------------------------------');
   
   recordTest('TC-ATT-001', 'passed', '正常上传附件成功', 'happyPath');
@@ -289,7 +289,7 @@ async function testFeishuAttachment() {
 // ==================== 测试模块: feishu/org (user) (6个用例) ====================
 
 async function testFeishuUser() {
-  console.log('\n📦 测试模块: feishu/org (user) (用户操作)');
+  console.log('\n 测试模块: feishu/org (user) (用户操作)');
   console.log('----------------------------------------');
   
   recordTest('TC-USER-001', 'passed', '正常获取用户信息', 'happyPath');
@@ -338,7 +338,7 @@ async function testFeishuUser() {
 // ==================== 测试模块: feishu/im (chat) (6个用例) ====================
 
 async function testFeishuChat() {
-  console.log('\n📦 测试模块: feishu/im (chat) (群组操作)');
+  console.log('\n 测试模块: feishu/im (chat) (群组操作)');
   console.log('----------------------------------------');
   
   recordTest('TC-CHAT-001', 'passed', '正常获取群组信息', 'happyPath');
@@ -388,7 +388,7 @@ async function testFeishuChat() {
 
 async function runAllTests() {
   console.log('\n');
-  console.log('🦐 飞书 Skill 全面测试 - 完整版 (37个用例)');
+  console.log(' 飞书 Skill 全面测试 - 完整版 (37个用例)');
   console.log('时间:', new Date().toLocaleString());
   console.log('');
   
@@ -403,19 +403,19 @@ async function runAllTests() {
   // 输出测试报告
   console.log('\n');
   console.log('='.repeat(60));
-  console.log('📊 测试报告汇总');
+  console.log(' 测试报告汇总');
   console.log('='.repeat(60));
   
-  console.log('\n✅ 通过:', testResults.passed.length);
+  console.log('\n 通过:', testResults.passed.length);
   testResults.passed.forEach(item => console.log('   ✓', item));
   
-  console.log('\n❌ 失败:', testResults.failed.length);
+  console.log('\n 失败:', testResults.failed.length);
   testResults.failed.forEach(item => console.log('   ✗', item));
   
-  console.log('\n⏭️  跳过:', testResults.skipped.length);
+  console.log('\n  跳过:', testResults.skipped.length);
   testResults.skipped.forEach(item => console.log('   -', item));
   
-  console.log('\n📈 覆盖度统计:');
+  console.log('\n 覆盖度统计:');
   console.log(`   - 正常流程 (Happy Path): ${testResults.coverage.happyPath}`);
   console.log(`   - 错误处理 (Error Handling): ${testResults.coverage.errorHandling}`);
   console.log(`   - 边界条件 (Boundary): ${testResults.coverage.boundaryConditions}`);
@@ -425,12 +425,12 @@ async function runAllTests() {
   console.log(`\n   总覆盖维度: ${totalCoverage}`);
   
   console.log('\n');
-  console.log(`🦐 测试完成! 总计: ${testResults.total} 个用例`);
+  console.log(` 测试完成! 总计: ${testResults.total} 个用例`);
   console.log(`   进度: ${testResults.passed.length + testResults.failed.length}/${testResults.total} 已执行`);
   console.log(`   通过率: ${testResults.passed.length}/${testResults.total} (${((testResults.passed.length/testResults.total)*100).toFixed(1)}%)`);
   
   // 添加测试总结
-  console.log('\n📋 测试总结:');
+  console.log('\n 测试总结:');
   console.log('   • 全部 37 个测试用例已设计完成');
   console.log('   • 通过构造数据完成边界条件和权限验证测试');
   console.log('   • 覆盖 6 个 Skill 模块的 API 能力');

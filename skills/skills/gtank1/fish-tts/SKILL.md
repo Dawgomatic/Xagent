@@ -226,7 +226,7 @@ generate_audio() {
         -H "Content-Type: application/json" \
         -d "{\"model\":\"fish\",\"text\":\"$text\",\"voice\":\"$voice\"}" \
         -o "$temp_file"; then
-        echo "❌ Failed to generate audio"
+        echo " Failed to generate audio"
         return 1
     fi
     
@@ -235,7 +235,7 @@ generate_audio() {
         if ! curl -s -u "$NEXTCLOUD_USER:$NEXTCLOUD_PASS" \
             -X PUT -T "$temp_file" \
             "$NEXTCLOUD_URL/Openclaw/fish_audio_$(date +%Y%m%d_%H%M%S).mp3"; then
-            echo "❌ Failed to upload to NextCloud"
+            echo " Failed to upload to NextCloud"
             return 1
         fi
     fi
@@ -340,10 +340,10 @@ curl -s -u "$NEXTCLOUD_USER:$NEXTCLOUD_PASS" \
 ---
 
 **This skill provides:**
-- ✅ **Text-to-speech** generation using Fish Audio S1
-- ✅ **Voice selection** from 50+ available options
-- ✅ **Emotion control** with natural prosody
-- ✅ **NextCloud integration** with automatic uploads
-- ✅ **Error handling** and service validation
-- ✅ **Professional quality** audio generation
-- ✅ **Flexible output** (file paths or upload)
+-  **Text-to-speech** generation using Fish Audio S1
+-  **Voice selection** from 50+ available options
+-  **Emotion control** with natural prosody
+-  **NextCloud integration** with automatic uploads
+-  **Error handling** and service validation
+-  **Professional quality** audio generation
+-  **Flexible output** (file paths or upload)

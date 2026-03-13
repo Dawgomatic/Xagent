@@ -112,19 +112,19 @@ class VPN:
         else:
             servers = self.get_servers(country)
             if not servers:
-                self._log(f"❌ No servers found in {self.config_dir}")
+                self._log(f" No servers found in {self.config_dir}")
                 return False
             config = random.choice(servers)
         
         if not config.exists():
-            self._log(f"❌ Config not found: {config}")
+            self._log(f" Config not found: {config}")
             return False
         
         if not self.creds_file.exists():
-            self._log(f"❌ Credentials not found: {self.creds_file}")
+            self._log(f" Credentials not found: {self.creds_file}")
             return False
         
-        self._log(f"🔌 Connecting to {config.name}...")
+        self._log(f" Connecting to {config.name}...")
         
         # Start OpenVPN
         result = self._run([
@@ -137,7 +137,7 @@ class VPN:
         ])
         
         if result.returncode != 0 and "password" in result.stderr.lower():
-            self._log("❌ sudo requires password. Run setup.sh first.")
+            self._log(" sudo requires password. Run setup.sh first.")
             return False
         
         # Wait for connection
@@ -146,10 +146,10 @@ class VPN:
             if self.is_connected():
                 self._current_server = config.name
                 ip = self.get_ip()
-                self._log(f"✅ Connected! IP: {ip}")
+                self._log(f" Connected! IP: {ip}")
                 return True
         
-        self._log("❌ Connection timeout")
+        self._log(" Connection timeout")
         return False
     
     def disconnect(self) -> bool:
@@ -170,7 +170,7 @@ class VPN:
     
     def rotate(self, country: str = None) -> bool:
         """Rotate to a new server (new IP)."""
-        self._log(f"\n🔄 Rotating VPN...")
+        self._log(f"\n Rotating VPN...")
         self.disconnect()
         time.sleep(2)
         return self.connect(country=country)

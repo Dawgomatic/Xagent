@@ -91,9 +91,9 @@ Alert on issues immediately.`,
 
   for await (const message of response) {
     if (message.type === 'assistant') {
-      console.log('\n📋 Orchestrator:', message.content);
+      console.log('\n Orchestrator:', message.content);
     } else if (message.type === 'tool_call') {
-      console.log(`\n🔧 Tool: ${message.tool_name}`);
+      console.log(`\n Tool: ${message.tool_name}`);
     }
   }
 }

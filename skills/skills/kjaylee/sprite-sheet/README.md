@@ -2,7 +2,7 @@
 
 Comprehensive guide to sprite sheets and texture atlases for efficient game asset management.
 
-## 📁 Contents
+##  Contents
 
 ```
 sprite-sheet/
@@ -25,7 +25,7 @@ sprite-sheet/
         └── project.godot    # Godot 4.3 config
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Understand the Concept
 Read **SKILL.md** sections:
@@ -59,7 +59,7 @@ cargo run
 # Open examples/godot/ in Godot 4.x editor
 ```
 
-## 📚 Learning Path
+##  Learning Path
 
 ### Beginner
 1. Read SKILL.md "Core Concepts"
@@ -78,29 +78,29 @@ cargo run
 3. Optimize for mobile (compression, mipmaps)
 4. Create custom atlas format for your engine
 
-## 🎯 Use Cases Covered
+##  Use Cases Covered
 
-✅ Loading sprite sheets from PNG + JSON  
-✅ Frame-based animation (idle, run, jump)  
-✅ Texture atlas metadata parsing  
-✅ Pixel art filtering (nearest neighbor)  
-✅ WASM deployment (web games)  
-✅ Mobile optimization (size limits, compression)  
-✅ Tool automation (CLI workflows)  
-✅ Godot editor integration  
+ Loading sprite sheets from PNG + JSON  
+ Frame-based animation (idle, run, jump)  
+ Texture atlas metadata parsing  
+ Pixel art filtering (nearest neighbor)  
+ WASM deployment (web games)  
+ Mobile optimization (size limits, compression)  
+ Tool automation (CLI workflows)  
+ Godot editor integration  
 
-## 🔗 Related Skills
+##  Related Skills
 
 - **game-dev-rust-godot/** - Main tech stack guide
 - **AGENTS.md** - Asset license policy (Kenney.nl CC0 for public games)
 
-## 📝 License
+##  License
 
 Documentation: MIT  
 Code examples: MIT (see individual files)  
 Assets: Use Kenney.nl CC0 for public projects (see AGENTS.md)
 
-## 🤝 Contributing
+##  Contributing
 
 This is a personal knowledge base. If using externally:
 1. Replace asset paths with your own

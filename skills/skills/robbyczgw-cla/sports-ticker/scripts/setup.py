@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🏆 Sports Ticker - Interactive Setup Wizard
+ Sports Ticker - Interactive Setup Wizard
 
 First-run onboarding that guides you through:
 - Selecting your sports
@@ -32,136 +32,136 @@ CONFIG_EXAMPLE = SKILL_DIR / "config.example.json"
 SPORTS = {
     "soccer": {
         "name": "Soccer/Football",
-        "emoji": "⚽",
+        "emoji": "",
         "espn_sport": "soccer",
         "popular_teams": [
-            ("Real Madrid", "86", ["esp.1", "uefa.champions"], "⚪"),
-            ("Barcelona", "83", ["esp.1", "uefa.champions"], "🔵🔴"),
-            ("Manchester United", "360", ["eng.1", "uefa.europa"], "🔴"),
-            ("Liverpool", "364", ["eng.1", "uefa.champions"], "🔴"),
-            ("Bayern Munich", "132", ["ger.1", "uefa.champions"], "🔴⚪"),
-            ("Paris Saint-Germain", "160", ["fra.1", "uefa.champions"], "🔵🔴"),
-            ("Juventus", "111", ["ita.1", "uefa.champions"], "⚪⚫"),
-            ("Manchester City", "382", ["eng.1", "uefa.champions"], "🩵"),
-            ("Chelsea", "363", ["eng.1", "uefa.europa"], "🔵"),
-            ("Arsenal", "359", ["eng.1", "uefa.champions"], "🔴⚪"),
+            ("Real Madrid", "86", ["esp.1", "uefa.champions"], ""),
+            ("Barcelona", "83", ["esp.1", "uefa.champions"], ""),
+            ("Manchester United", "360", ["eng.1", "uefa.europa"], ""),
+            ("Liverpool", "364", ["eng.1", "uefa.champions"], ""),
+            ("Bayern Munich", "132", ["ger.1", "uefa.champions"], ""),
+            ("Paris Saint-Germain", "160", ["fra.1", "uefa.champions"], ""),
+            ("Juventus", "111", ["ita.1", "uefa.champions"], ""),
+            ("Manchester City", "382", ["eng.1", "uefa.champions"], ""),
+            ("Chelsea", "363", ["eng.1", "uefa.europa"], ""),
+            ("Arsenal", "359", ["eng.1", "uefa.champions"], ""),
         ],
         "leagues": {
-            "eng.1": "Premier League 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-            "esp.1": "La Liga 🇪🇸",
-            "ger.1": "Bundesliga 🇩🇪",
-            "ita.1": "Serie A 🇮🇹",
-            "fra.1": "Ligue 1 🇫🇷",
-            "uefa.champions": "Champions League 🏆",
-            "usa.1": "MLS 🇺🇸",
+            "eng.1": "Premier League ",
+            "esp.1": "La Liga ",
+            "ger.1": "Bundesliga ",
+            "ita.1": "Serie A ",
+            "fra.1": "Ligue 1 ",
+            "uefa.champions": "Champions League ",
+            "usa.1": "MLS ",
         }
     },
     "nfl": {
         "name": "NFL",
-        "emoji": "🏈",
+        "emoji": "",
         "espn_sport": "football",
         "popular_teams": [
-            ("Kansas City Chiefs", "12", ["nfl"], "🔴🟡"),
-            ("Dallas Cowboys", "6", ["nfl"], "⭐"),
-            ("New England Patriots", "17", ["nfl"], "🔵🔴"),
-            ("San Francisco 49ers", "25", ["nfl"], "🔴🟡"),
-            ("Green Bay Packers", "9", ["nfl"], "💚🟡"),
-            ("Philadelphia Eagles", "21", ["nfl"], "🦅"),
-            ("Buffalo Bills", "2", ["nfl"], "🔵🔴"),
-            ("Miami Dolphins", "15", ["nfl"], "🐬"),
-            ("Las Vegas Raiders", "13", ["nfl"], "⚫"),
-            ("Denver Broncos", "7", ["nfl"], "🧡🔵"),
+            ("Kansas City Chiefs", "12", ["nfl"], ""),
+            ("Dallas Cowboys", "6", ["nfl"], ""),
+            ("New England Patriots", "17", ["nfl"], ""),
+            ("San Francisco 49ers", "25", ["nfl"], ""),
+            ("Green Bay Packers", "9", ["nfl"], ""),
+            ("Philadelphia Eagles", "21", ["nfl"], ""),
+            ("Buffalo Bills", "2", ["nfl"], ""),
+            ("Miami Dolphins", "15", ["nfl"], ""),
+            ("Las Vegas Raiders", "13", ["nfl"], ""),
+            ("Denver Broncos", "7", ["nfl"], ""),
         ],
-        "leagues": {"nfl": "NFL 🏈"}
+        "leagues": {"nfl": "NFL "}
     },
     "nba": {
         "name": "NBA",
-        "emoji": "🏀",
+        "emoji": "",
         "espn_sport": "basketball",
         "popular_teams": [
-            ("Los Angeles Lakers", "13", ["nba"], "💜💛"),
-            ("Golden State Warriors", "9", ["nba"], "💙💛"),
-            ("Boston Celtics", "2", ["nba"], "☘️"),
-            ("Chicago Bulls", "4", ["nba"], "🐂"),
-            ("Miami Heat", "14", ["nba"], "🔥"),
-            ("Brooklyn Nets", "17", ["nba"], "⚫⚪"),
-            ("New York Knicks", "18", ["nba"], "🔵🧡"),
-            ("Phoenix Suns", "21", ["nba"], "🌞"),
-            ("Dallas Mavericks", "6", ["nba"], "🐴"),
-            ("Milwaukee Bucks", "15", ["nba"], "🦌"),
+            ("Los Angeles Lakers", "13", ["nba"], ""),
+            ("Golden State Warriors", "9", ["nba"], ""),
+            ("Boston Celtics", "2", ["nba"], ""),
+            ("Chicago Bulls", "4", ["nba"], ""),
+            ("Miami Heat", "14", ["nba"], ""),
+            ("Brooklyn Nets", "17", ["nba"], ""),
+            ("New York Knicks", "18", ["nba"], ""),
+            ("Phoenix Suns", "21", ["nba"], ""),
+            ("Dallas Mavericks", "6", ["nba"], ""),
+            ("Milwaukee Bucks", "15", ["nba"], ""),
         ],
-        "leagues": {"nba": "NBA 🏀"}
+        "leagues": {"nba": "NBA "}
     },
     "nhl": {
         "name": "NHL",
-        "emoji": "🏒",
+        "emoji": "",
         "espn_sport": "hockey",
         "popular_teams": [
-            ("Toronto Maple Leafs", "10", ["nhl"], "🍁"),
-            ("New York Rangers", "4", ["nhl"], "🔵🔴"),
-            ("Montreal Canadiens", "8", ["nhl"], "🔵⚪🔴"),
-            ("Boston Bruins", "1", ["nhl"], "🐻"),
-            ("Chicago Blackhawks", "4", ["nhl"], "🪶"),
-            ("Edmonton Oilers", "22", ["nhl"], "🛢️"),
-            ("Detroit Red Wings", "17", ["nhl"], "🐙"),
-            ("Vegas Golden Knights", "37", ["nhl"], "⚔️"),
-            ("Colorado Avalanche", "21", ["nhl"], "🏔️"),
-            ("Pittsburgh Penguins", "5", ["nhl"], "🐧"),
+            ("Toronto Maple Leafs", "10", ["nhl"], ""),
+            ("New York Rangers", "4", ["nhl"], ""),
+            ("Montreal Canadiens", "8", ["nhl"], ""),
+            ("Boston Bruins", "1", ["nhl"], ""),
+            ("Chicago Blackhawks", "4", ["nhl"], ""),
+            ("Edmonton Oilers", "22", ["nhl"], ""),
+            ("Detroit Red Wings", "17", ["nhl"], ""),
+            ("Vegas Golden Knights", "37", ["nhl"], ""),
+            ("Colorado Avalanche", "21", ["nhl"], ""),
+            ("Pittsburgh Penguins", "5", ["nhl"], ""),
         ],
-        "leagues": {"nhl": "NHL 🏒"}
+        "leagues": {"nhl": "NHL "}
     },
     "mlb": {
         "name": "MLB",
-        "emoji": "⚾",
+        "emoji": "",
         "espn_sport": "baseball",
         "popular_teams": [
-            ("New York Yankees", "10", ["mlb"], "⚾"),
-            ("Los Angeles Dodgers", "19", ["mlb"], "💙"),
-            ("Boston Red Sox", "2", ["mlb"], "🔴"),
-            ("Chicago Cubs", "16", ["mlb"], "🐻"),
-            ("Atlanta Braves", "15", ["mlb"], "🪓"),
-            ("Houston Astros", "18", ["mlb"], "⭐"),
-            ("San Francisco Giants", "26", ["mlb"], "🧡⚫"),
-            ("St. Louis Cardinals", "24", ["mlb"], "🐦"),
-            ("Philadelphia Phillies", "22", ["mlb"], "🔔"),
-            ("San Diego Padres", "25", ["mlb"], "🟤🟡"),
+            ("New York Yankees", "10", ["mlb"], ""),
+            ("Los Angeles Dodgers", "19", ["mlb"], ""),
+            ("Boston Red Sox", "2", ["mlb"], ""),
+            ("Chicago Cubs", "16", ["mlb"], ""),
+            ("Atlanta Braves", "15", ["mlb"], ""),
+            ("Houston Astros", "18", ["mlb"], ""),
+            ("San Francisco Giants", "26", ["mlb"], ""),
+            ("St. Louis Cardinals", "24", ["mlb"], ""),
+            ("Philadelphia Phillies", "22", ["mlb"], ""),
+            ("San Diego Padres", "25", ["mlb"], ""),
         ],
-        "leagues": {"mlb": "MLB ⚾"}
+        "leagues": {"mlb": "MLB "}
     },
     "f1": {
         "name": "Formula 1",
-        "emoji": "🏎️",
+        "emoji": "",
         "espn_sport": "racing",
         "popular_teams": [
-            ("Red Bull Racing", "1", ["f1"], "🔵🔴"),
-            ("Ferrari", "2", ["f1"], "🔴"),
-            ("Mercedes", "3", ["f1"], "⚫🩵"),
-            ("McLaren", "4", ["f1"], "🧡"),
-            ("Aston Martin", "5", ["f1"], "💚"),
-            ("Alpine", "6", ["f1"], "💙"),
-            ("Williams", "7", ["f1"], "💙"),
-            ("Haas", "8", ["f1"], "⚫🔴"),
-            ("RB (AlphaTauri)", "9", ["f1"], "🔵"),
-            ("Sauber (Stake)", "10", ["f1"], "💚"),
+            ("Red Bull Racing", "1", ["f1"], ""),
+            ("Ferrari", "2", ["f1"], ""),
+            ("Mercedes", "3", ["f1"], ""),
+            ("McLaren", "4", ["f1"], ""),
+            ("Aston Martin", "5", ["f1"], ""),
+            ("Alpine", "6", ["f1"], ""),
+            ("Williams", "7", ["f1"], ""),
+            ("Haas", "8", ["f1"], ""),
+            ("RB (AlphaTauri)", "9", ["f1"], ""),
+            ("Sauber (Stake)", "10", ["f1"], ""),
         ],
-        "leagues": {"f1": "Formula 1 🏎️"}
+        "leagues": {"f1": "Formula 1 "}
     }
 }
 
 ALERT_TYPES = {
     "live": {
         "name": "Live Scores",
-        "emoji": "⚡",
+        "emoji": "",
         "description": "Real-time alerts for every goal/score/major event"
     },
     "final": {
         "name": "Final Only",
-        "emoji": "🏁",
+        "emoji": "",
         "description": "Just the final results when games end"
     },
     "digest": {
         "name": "Daily Digest",
-        "emoji": "📰",
+        "emoji": "",
         "description": "One summary of all your teams' results each day"
     }
 }
@@ -174,7 +174,7 @@ def clear_screen():
     """Clear terminal screen."""
     print("\033[2J\033[H", end="")
 
-def print_header(title: str, emoji: str = "🏆"):
+def print_header(title: str, emoji: str = ""):
     """Print a fun header."""
     width = 60
     print()
@@ -223,7 +223,7 @@ def get_time(prompt: str) -> str:
         except:
             pass
         
-        print("❌ Please enter time as HH:MM (e.g. 22:00 or 07:30)")
+        print(" Please enter time as HH:MM (e.g. 22:00 or 07:30)")
 
 def select_multiple(prompt: str, options: list, show_numbers: bool = True) -> list:
     """Allow user to select multiple items from a list."""
@@ -261,9 +261,9 @@ def step_welcome():
     print("""
     ╔═══════════════════════════════════════════════════════════════╗
     ║                                                               ║
-    ║   🏆  SPORTS TICKER  🏆                                       ║
+    ║     SPORTS TICKER                                         ║
     ║                                                               ║
-    ║   ⚽ 🏈 🏀 🏒 ⚾ 🏎️                                            ║
+    ║                                                    ║
     ║                                                               ║
     ║   Never miss a goal, touchdown, or checkered flag!           ║
     ║   Let's set up your personalized sports alerts.              ║
@@ -274,7 +274,7 @@ def step_welcome():
 
 def step_select_sports() -> list:
     """Step 1: Which sports do you follow?"""
-    print_header("Step 1: Pick Your Sports", "📺")
+    print_header("Step 1: Pick Your Sports", "")
     
     print("Which sports do you follow? (Select all that apply)\n")
     
@@ -282,11 +282,11 @@ def step_select_sports() -> list:
     selected = select_multiple("", options, show_numbers=True)
     
     if not selected:
-        print("\n⚠️  You need to select at least one sport!")
+        print("\n  You need to select at least one sport!")
         return step_select_sports()
     
     sport_names = [SPORTS[s]["emoji"] + " " + SPORTS[s]["name"] for s in selected]
-    print(f"\n✅ Great choices! You selected: {', '.join(sport_names)}")
+    print(f"\n Great choices! You selected: {', '.join(sport_names)}")
     input("\nPress ENTER to continue...")
     return selected
 
@@ -307,7 +307,7 @@ def step_select_teams(sports: list) -> list:
             options.append((espn_id, f"{emoji} {name}"))
             print(f"  [{i:2}] {emoji} {name}")
         
-        print(f"\n  [{len(options)+1}] 🔍 Search for another team")
+        print(f"\n  [{len(options)+1}]  Search for another team")
         print()
         
         response = input("Your choices (comma-separated numbers): ").strip()
@@ -342,7 +342,7 @@ def step_select_teams(sports: list) -> list:
         if search_requested:
             while True:
                 print()
-                team_name = input("🔍 Enter team name to search (or 'done'): ").strip()
+                team_name = input(" Enter team name to search (or 'done'): ").strip()
                 if team_name.lower() in ("done", "d", ""):
                     break
                 
@@ -377,17 +377,17 @@ def step_select_teams(sports: list) -> list:
                                 "espn_leagues": [r['league']],
                                 "enabled": True
                             })
-                            print(f"✅ Added {r['name']}!")
+                            print(f" Added {r['name']}!")
                     except:
                         pass
                 else:
                     print("No results found. Try a different name.")
         
         if not any(t["sport"] == sport["espn_sport"] for t in all_teams):
-            print(f"\n⚠️  No {sport['name']} teams selected. Skipping...")
+            print(f"\n  No {sport['name']} teams selected. Skipping...")
         else:
             team_count = len([t for t in all_teams if t["sport"] == sport["espn_sport"]])
-            print(f"\n✅ {team_count} {sport['name']} team(s) added!")
+            print(f"\n {team_count} {sport['name']} team(s) added!")
         
         input("\nPress ENTER to continue...")
     
@@ -395,7 +395,7 @@ def step_select_teams(sports: list) -> list:
 
 def step_alert_preferences() -> dict:
     """Step 3: How do you want alerts?"""
-    print_header("Step 3: Alert Style", "🔔")
+    print_header("Step 3: Alert Style", "")
     
     print("How do you want to receive alerts?\n")
     
@@ -412,7 +412,7 @@ def step_alert_preferences() -> dict:
         alert_style = "live"
     
     selected = ALERT_TYPES[alert_style]
-    print(f"\n✅ {selected['emoji']} {selected['name']} it is!")
+    print(f"\n {selected['emoji']} {selected['name']} it is!")
     
     # Build alerts config based on choice
     if alert_style == "live":
@@ -451,31 +451,31 @@ def step_alert_preferences() -> dict:
 
 def step_game_reminders() -> bool:
     """Step 4: Game-day reminders?"""
-    print_header("Step 4: Game-Day Reminders", "⏰")
+    print_header("Step 4: Game-Day Reminders", "")
     
     print("Want a heads-up before your teams play?\n")
-    print("  📅 Get notified 30 minutes before kick-off/tip-off")
-    print("  🎮 Never miss the start of a game again!\n")
+    print("   Get notified 30 minutes before kick-off/tip-off")
+    print("   Never miss the start of a game again!\n")
     
     enabled = get_yes_no("Enable game-day reminders?", default=True)
     
     if enabled:
-        print("\n✅ ⏰ You'll get a 30-minute heads-up before games!")
+        print("\n  You'll get a 30-minute heads-up before games!")
     else:
-        print("\n👍 No problem, you'll just get live alerts.")
+        print("\n No problem, you'll just get live alerts.")
     
     input("\nPress ENTER to continue...")
     return enabled
 
 def step_quiet_hours() -> dict:
     """Step 5: Quiet hours?"""
-    print_header("Step 5: Quiet Hours (Optional)", "🌙")
+    print_header("Step 5: Quiet Hours (Optional)", "")
     
     print("Some games run late! Set quiet hours to pause alerts.\n")
     print("During quiet hours, alerts are saved and sent when you wake up.\n")
     
     if not get_yes_no("Set up quiet hours?", default=False):
-        print("\n👍 No quiet hours - you'll get alerts 24/7!")
+        print("\n No quiet hours - you'll get alerts 24/7!")
         input("\nPress ENTER to continue...")
         return None
     
@@ -484,17 +484,17 @@ def step_quiet_hours() -> dict:
     end = get_time("Quiet hours END")
     
     if start and end:
-        print(f"\n✅ 🌙 Quiet hours: {start} to {end}")
+        print(f"\n  Quiet hours: {start} to {end}")
         input("\nPress ENTER to continue...")
         return {"start": start, "end": end}
     
-    print("\n👍 No quiet hours set.")
+    print("\n No quiet hours set.")
     input("\nPress ENTER to continue...")
     return None
 
 def step_summary(config: dict):
     """Show final summary."""
-    print_header("Setup Complete!", "🎉")
+    print_header("Setup Complete!", "")
     
     print("Here's your configuration:\n")
     
@@ -507,8 +507,8 @@ def step_summary(config: dict):
         teams_by_sport[sport].append(team)
     
     for sport, teams in teams_by_sport.items():
-        sport_emoji = {"soccer": "⚽", "football": "🏈", "basketball": "🏀", 
-                       "hockey": "🏒", "baseball": "⚾", "racing": "🏎️"}.get(sport, "🏆")
+        sport_emoji = {"soccer": "", "football": "", "basketball": "", 
+                       "hockey": "", "baseball": "", "racing": ""}.get(sport, "")
         print(f"  {sport_emoji} {sport.upper()}")
         for t in teams:
             print(f"     {t.get('emoji', '')} {t['name']}")
@@ -516,30 +516,30 @@ def step_summary(config: dict):
     
     # Alert style
     mode = config.get("alerts", {}).get("mode", "live")
-    mode_display = {"live": "⚡ Live Scores", "final": "🏁 Final Only", "digest": "📰 Daily Digest"}
-    print(f"  🔔 Alerts: {mode_display.get(mode, mode)}")
+    mode_display = {"live": " Live Scores", "final": " Final Only", "digest": " Daily Digest"}
+    print(f"   Alerts: {mode_display.get(mode, mode)}")
     
     # Reminders
     if config.get("preferences", {}).get("game_reminders"):
-        print("  ⏰ Game-day reminders: ON")
+        print("   Game-day reminders: ON")
     
     # Quiet hours
     quiet = config.get("preferences", {}).get("quiet_hours")
     if quiet:
-        print(f"  🌙 Quiet hours: {quiet['start']} - {quiet['end']}")
+        print(f"   Quiet hours: {quiet['start']} - {quiet['end']}")
     
     print()
     print("═" * 50)
     print()
     print(f"Config saved to: {CONFIG_FILE}")
     print()
-    print("🚀 You're all set! Here's what you can do next:")
+    print(" You're all set! Here's what you can do next:")
     print()
     print("  python3 scripts/ticker.py           # Check your teams now")
     print("  python3 scripts/live_monitor.py     # Start live monitoring")
     print("  python3 scripts/setup_crons.py      # Set up auto-alerts")
     print()
-    print("Enjoy the games! ⚽🏈🏀🏒⚾🏎️")
+    print("Enjoy the games! ")
     print()
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -559,7 +559,7 @@ def run_onboarding():
         teams = step_select_teams(selected_sports)
         
         if not teams:
-            print("\n❌ No teams configured. Please run setup again.")
+            print("\n No teams configured. Please run setup again.")
             return
         
         # Step 3: Alert preferences
@@ -590,12 +590,12 @@ def run_onboarding():
         step_summary(config)
         
     except KeyboardInterrupt:
-        print("\n\n👋 Setup cancelled. Run again anytime!")
+        print("\n\n Setup cancelled. Run again anytime!")
         sys.exit(0)
 
 def find_team_id(team_name: str, sport: str = "soccer"):
     """Search for a team's ESPN ID."""
-    print(f"🔍 Searching for '{team_name}' in {sport}...\n")
+    print(f" Searching for '{team_name}' in {sport}...\n")
     
     results = search_team(team_name, sport)
     
@@ -627,7 +627,7 @@ if __name__ == "__main__":
         if check_first_run():
             run_onboarding()
         else:
-            print("🏆 Sports Ticker Setup\n")
+            print(" Sports Ticker Setup\n")
             print("Config already exists! Options:\n")
             print("  1. Run setup wizard again (overwrites config)")
             print("  2. Find a team ID")
@@ -636,18 +636,18 @@ if __name__ == "__main__":
             choice = input("\nChoice (1-3): ").strip()
             
             if choice == "1":
-                confirm = get_yes_no("\n⚠️  This will replace your current config. Continue?", default=False)
+                confirm = get_yes_no("\n  This will replace your current config. Continue?", default=False)
                 if confirm:
                     run_onboarding()
                 else:
-                    print("👍 Keeping existing config.")
+                    print(" Keeping existing config.")
             elif choice == "2":
                 name = input("Team name: ").strip()
                 sport = input("Sport (soccer/football/basketball/hockey/baseball/racing) [soccer]: ").strip() or "soccer"
                 if name:
                     find_team_id(name, sport)
             else:
-                print("👋 Bye!")
+                print(" Bye!")
     
     elif sys.argv[1] == "find":
         # Find team ID
@@ -669,7 +669,7 @@ if __name__ == "__main__":
         run_onboarding()
     
     else:
-        print("🏆 Sports Ticker Setup")
+        print(" Sports Ticker Setup")
         print()
         print("Usage:")
         print("  setup.py                      - Interactive setup (or menu if config exists)")

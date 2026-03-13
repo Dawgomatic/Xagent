@@ -5,7 +5,7 @@ metadata:
     {
         "clawdbot":
             {
-                "emoji": "📜",
+                "emoji": "",
                 "requires":
                     { "bins": ["hackmd-cli"], "env": ["HMD_API_ACCESS_TOKEN"] },
                 "primaryEnv": "HMD_API_ACCESS_TOKEN",

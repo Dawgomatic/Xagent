@@ -2,7 +2,7 @@
 name: Create a Self-Selling Website
 description: Create AI-First Website with GEO (Generative Engine Optimization) and marketing rules to convert visitors into leads
 homepage: https://evoweb.ai/?utm_source=claw&utm_medium=skill&utm_campaign=selfselling&utm_content=v1.0
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"bins":[],"env":["EVOWEB_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[],"env":["EVOWEB_API_KEY"]}}}
 ---
 
 # EvoWeb Self-Selling Websites
@@ -174,7 +174,7 @@ Tell them:
 - The site will be optimized for AI discovery and conversion
 - You'll check progress automatically
 
-Example: "✨ Creating your AI-optimized self-selling website! Generation typically takes 4-5 minutes. I'll check the status and let you know when it's ready."
+Example: " Creating your AI-optimized self-selling website! Generation typically takes 4-5 minutes. I'll check the status and let you know when it's ready."
 
 ### Step 4: Poll for Status
 
@@ -208,12 +208,12 @@ When status is `ready`:
 
 **Example response:**
 ```
-🎉 Your AI-optimized self-selling website is ready!
+ Your AI-optimized self-selling website is ready!
 
-🌐 View it here: https://yoga-studio-23f4.evoweb.ai
-✏️ Customize it: https://editor.evoweb.ai/sites/abc123xyz
+ View it here: https://yoga-studio-23f4.evoweb.ai
+ Customize it: https://editor.evoweb.ai/sites/abc123xyz
 
-✨ Your site is now optimized for:
+ Your site is now optimized for:
 - Discovery by AI assistants (ChatGPT, Gemini, Claude)
 - Modern search engines
 - Automatic client conversion
@@ -231,7 +231,7 @@ When status is `failed`:
 
 **Example response:**
 ```
-❌ Website generation failed: [error message]
+ Website generation failed: [error message]
 
 Would you like me to try again? I can restart the generation process.
 ```
@@ -284,7 +284,7 @@ Enhanced prompt:
 
 ### Writing Good Prompts for Self-Selling Websites
 
-✅ **Do:**
+ **Do:**
 - Describe the business/project essence and what makes it unique
 - Explain what the business does or offers
 - Identify the target audience clearly
@@ -292,7 +292,7 @@ Enhanced prompt:
 - Include key differentiators (why choose this business?)
 - Focus on information AI assistants need to recommend the business
 
-❌ **Don't:**
+ **Don't:**
 - Prescribe specific design elements (colors, layouts, styles)
 - Dictate website sections or structure
 - Specify look and feel details
@@ -347,4 +347,4 @@ Enhanced prompt:
 
 ---
 
-**Ready to create self-selling websites that AI assistants recommend to their users!** 🚀
+**Ready to create self-selling websites that AI assistants recommend to their users!** 

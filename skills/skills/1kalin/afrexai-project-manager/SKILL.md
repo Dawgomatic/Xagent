@@ -213,7 +213,7 @@ For each: pre-write the mitigation BEFORE it happens.
 ```markdown
 # Project Status — [Project Name]
 **Week of:** [date]
-**Overall Health:** 🟢 On Track | 🟡 At Risk | 🔴 Off Track
+**Overall Health:**  On Track |  At Risk |  Off Track
 
 ## Progress This Week
 - [Completed item 1]
@@ -244,9 +244,9 @@ For each: pre-write the mitigation BEFORE it happens.
 ```
 
 ### Escalation Rules
-- **🟢 Green**: No action — standard reporting
-- **🟡 Yellow**: PM escalates to sponsor within 24h with mitigation plan
-- **🔴 Red**: Immediate escalation + emergency stakeholder meeting within 48h
+- ** Green**: No action — standard reporting
+- ** Yellow**: PM escalates to sponsor within 24h with mitigation plan
+- ** Red**: Immediate escalation + emergency stakeholder meeting within 48h
 
 ---
 
@@ -352,11 +352,11 @@ Score weekly across 5 dimensions:
 
 | Range | Health | Action |
 |-------|--------|--------|
-| 85-100 | 🟢 Excellent | Maintain course |
-| 70-84 | 🟢 Good | Monitor closely |
-| 55-69 | 🟡 At Risk | Corrective action plan |
-| 40-54 | 🔴 Troubled | Escalate + recovery plan |
-| 0-39 | 🔴 Critical | Stop/reset/cancel decision needed |
+| 85-100 |  Excellent | Maintain course |
+| 70-84 |  Good | Monitor closely |
+| 55-69 |  At Risk | Corrective action plan |
+| 40-54 |  Troubled | Escalate + recovery plan |
+| 0-39 |  Critical | Stop/reset/cancel decision needed |
 
 ---
 
@@ -371,7 +371,7 @@ Score weekly across 5 dimensions:
 - [ ] Contracts / vendors closed out
 - [ ] Knowledge transfer to operations / support team
 - [ ] Project metrics compiled (planned vs actual)
-- [ ] Celebration / recognition 🎉
+- [ ] Celebration / recognition 
 
 ### Lessons Learned Template
 ```yaml

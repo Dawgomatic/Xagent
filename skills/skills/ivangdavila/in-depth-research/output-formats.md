@@ -7,22 +7,22 @@ Templates for delivering research results. Match format to audience and purpose.
 For decision-makers with limited time.
 
 ```
-🔬 RESEARCH: [Topic]
+ RESEARCH: [Topic]
 
-⚡ BOTTOM LINE
+ BOTTOM LINE
 [1-2 sentences: the answer]
 
-📊 CONFIDENCE: [High/Medium/Low]
+ CONFIDENCE: [High/Medium/Low]
 
 KEY FINDINGS
 • [Finding 1]
 • [Finding 2]  
 • [Finding 3]
 
-⚠️ MAIN CAVEAT
+ MAIN CAVEAT
 [Single most important limitation]
 
-🎯 RECOMMENDATION
+ RECOMMENDATION
 [What to do with this information]
 ```
 
@@ -33,7 +33,7 @@ Length: 1 page max. No methodology details. Decision-focused.
 For most research requests.
 
 ```
-🔬 DEEP RESEARCH: [Topic]
+ DEEP RESEARCH: [Topic]
 
 ## Question
 [Specific question being answered]

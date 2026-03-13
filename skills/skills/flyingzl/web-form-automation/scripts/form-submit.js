@@ -39,7 +39,7 @@ async function run(configPath) {
   
   // Load session if provided
   if (config.sessionFile && fs.existsSync(config.sessionFile)) {
-    console.log('🍪 Loading session...');
+    console.log(' Loading session...');
     const session = JSON.parse(fs.readFileSync(config.sessionFile, 'utf8'));
     
     // Set cookies
@@ -69,12 +69,12 @@ async function run(configPath) {
   }
   
   await page.waitForTimeout(3000);
-  console.log('🔗 Page loaded');
+  console.log(' Page loaded');
   
   // Upload files
   if (config.uploads) {
     for (const upload of config.uploads) {
-      console.log(`🖼️ Uploading ${upload.path}...`);
+      console.log(` Uploading ${upload.path}...`);
       const input = page.locator(upload.selector).first();
       await input.setInputFiles(upload.path);
       await page.waitForTimeout(3000);
@@ -84,7 +84,7 @@ async function run(configPath) {
   // Select options
   if (config.selects) {
     for (const sel of config.selects) {
-      console.log(`🎬 Selecting ${sel.value}...`);
+      console.log(` Selecting ${sel.value}...`);
       await page.click(sel.selector);
       await page.waitForTimeout(500);
       await page.click(`text=${sel.value}`);
@@ -95,7 +95,7 @@ async function run(configPath) {
   // Type text inputs
   if (config.textInputs) {
     for (const ti of config.textInputs) {
-      console.log('📝 Typing text...');
+      console.log(' Typing text...');
       const input = page.locator(ti.selector).first();
       await input.click();
       await page.waitForTimeout(500);
@@ -107,12 +107,12 @@ async function run(configPath) {
   // Screenshot before submit
   if (config.beforeScreenshot) {
     await page.screenshot({ path: config.beforeScreenshot, fullPage: true });
-    console.log('📸 Before-submit screenshot saved');
+    console.log(' Before-submit screenshot saved');
   }
   
   // Submit form
   if (config.submitSelector) {
-    console.log('🚀 Submitting...');
+    console.log(' Submitting...');
     const btn = page.locator(config.submitSelector).first();
     await btn.click({ force: true });
   }
@@ -123,11 +123,11 @@ async function run(configPath) {
   
   if (config.screenshot) {
     await page.screenshot({ path: config.screenshot, fullPage: true });
-    console.log(`📸 Screenshot saved: ${config.screenshot}`);
+    console.log(` Screenshot saved: ${config.screenshot}`);
   }
   
   await browser.close();
-  console.log('✅ Done');
+  console.log(' Done');
 }
 
 const configPath = process.argv[2];

@@ -1,7 +1,7 @@
 ---
 name: openclaw-memory
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🧠","requires":{"bins":["node"]},"os":["darwin","linux","win32"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"]},"os":["darwin","linux","win32"]}}
 ---
 
 # OpenClaw Memory System
@@ -14,11 +14,11 @@ The first OpenClaw skill that gives your agents **persistent memory** - they rem
 
 ## Key Features
 
-- 🧠 **Persistent Memory** - Remembers everything across sessions
-- 🔍 **Semantic Search** - Find memories by meaning, not just keywords
-- 🤖 **Automatic Learning** - Extracts facts and preferences automatically
-- 💾 **Local Storage** - SQLite database with vector embeddings
-- 💰 **x402 Payments** - Agents can pay for unlimited storage (0.5 USDT/month)
+-  **Persistent Memory** - Remembers everything across sessions
+-  **Semantic Search** - Find memories by meaning, not just keywords
+-  **Automatic Learning** - Extracts facts and preferences automatically
+-  **Local Storage** - SQLite database with vector embeddings
+-  **x402 Payments** - Agents can pay for unlimited storage (0.5 USDT/month)
 
 ## Free vs Pro Tier
 

@@ -116,7 +116,7 @@ def main(input_file, error_code, auto_fix, dry_run, json_output, category):
                 content.append("")
 
             if p.fix_recipe_id and fix_engine.can_auto_fix(p.fix_recipe_id):
-                content.append("[bold yellow]⚡ Auto-fix available[/bold yellow]")
+                content.append("[bold yellow] Auto-fix available[/bold yellow]")
                 auto_fixable += 1
             else:
                 manual_needed += 1

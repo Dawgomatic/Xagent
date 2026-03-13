@@ -1,16 +1,16 @@
 ---
 name: bitcoin-daily
 description: Daily digest of the Bitcoin Development mailing list and Bitcoin Core commits. Use when asked about recent bitcoin-dev discussions, mailing list activity, Bitcoin Core code changes, or to set up daily summaries. Fetches threads from groups.google.com/g/bitcoindev and commits from github.com/bitcoin/bitcoin.
-metadata: {"clawdbot":{"emoji":"📰"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
-# Bitcoin Dev Digest (📰)
+# Bitcoin Dev Digest ()
 
 ![Bitcoin Daily](https://files.catbox.moe/v0zvnj.png)
 
 Daily summary of bitcoindev mailing list + Bitcoin Core commits.
 
-*Made in 🤠 Texas ❤️ [PlebLab](https://pleblab.dev)*
+*Made in  Texas  [PlebLab](https://pleblab.dev)*
 
 ## Commands
 

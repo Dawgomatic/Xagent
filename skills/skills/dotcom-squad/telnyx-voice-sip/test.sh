@@ -3,7 +3,7 @@
 # test.sh - Validate Telnyx Voice skill setup
 #
 
-echo "🧪 Telnyx Voice - Tests"
+echo " Telnyx Voice - Tests"
 echo "======================="
 echo ""
 
@@ -11,12 +11,12 @@ PASS=0
 FAIL=0
 
 pass() {
-    echo "  ✅ $1"
+    echo "   $1"
     ((PASS++))
 }
 
 fail() {
-    echo "  ❌ $1"
+    echo "   $1"
     ((FAIL++))
 }
 
@@ -61,12 +61,12 @@ if [ -f ".env" ]; then
     if grep -q "TELNYX_API_KEY=KEY" .env 2>/dev/null; then
         pass "TELNYX_API_KEY configured"
     elif grep -q "TELNYX_API_KEY=" .env 2>/dev/null; then
-        echo "  ⚠️  TELNYX_API_KEY present but may need value"
+        echo "    TELNYX_API_KEY present but may need value"
     else
         fail "TELNYX_API_KEY not in .env"
     fi
 elif [ -f ".env.example" ]; then
-    echo "  ⚠️  .env not created (copy from .env.example)"
+    echo "    .env not created (copy from .env.example)"
 else
     fail "No .env or .env.example"
 fi

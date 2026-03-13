@@ -44,8 +44,8 @@ Use Apple emojis via CDN (Remotion can't render system emojis):
 
 ```typescript
 // See references/AppleEmoji.tsx for full component
-<AppleEmoji emoji="🤖" size={28} />
-<InlineEmoji emoji="🎙️" size={38} />  // For inline with text
+<AppleEmoji emoji="" size={28} />
+<InlineEmoji emoji="" size={38} />  // For inline with text
 ```
 
 ## Brand Icons (WhatsApp, Telegram, etc.)
@@ -105,13 +105,13 @@ const pulse = interpolate(
   alignItems: "center",
   gap: 8,
 }}>
-  <AppleEmoji emoji="🤖" size={28} /> TEXT HERE
+  <AppleEmoji emoji="" size={28} /> TEXT HERE
 </div>
 ```
 
 ### Big Emoji (center)
 ```typescript
-<AppleEmoji emoji="🗣️" size={140} />
+<AppleEmoji emoji="" size={140} />
 ```
 
 ### Title (Instrument Serif italic)
@@ -163,8 +163,8 @@ src/
 
 ## DO NOT
 
-- ❌ Use system fonts (won't render)
-- ❌ Use icon libraries like simple-icons (won't work)
-- ❌ Use non-italic headings
-- ❌ Use colors outside the palette
-- ❌ Forget the lime accent color
+-  Use system fonts (won't render)
+-  Use icon libraries like simple-icons (won't work)
+-  Use non-italic headings
+-  Use colors outside the palette
+-  Forget the lime accent color

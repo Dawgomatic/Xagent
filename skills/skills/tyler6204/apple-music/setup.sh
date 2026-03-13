@@ -147,7 +147,7 @@ show_completion() {
 }
 
 main() {
-    echo "🎵 Apple Music Setup"
+    echo " Apple Music Setup"
     check_requirements
     check_existing_config
     show_requirements

@@ -5,7 +5,7 @@
  */
 
 async function testLocal() {
-  console.log('🧪 Testing bridge locally...\n');
+  console.log(' Testing bridge locally...\n');
   
   const bridgeUrl = 'http://127.0.0.1:3001';
   const testPayload = {
@@ -19,7 +19,7 @@ async function testLocal() {
     createdAt: new Date().toISOString(),
   };
 
-  console.log(`📤 Sending to: ${bridgeUrl}`);
+  console.log(` Sending to: ${bridgeUrl}`);
   console.log('Payload:', JSON.stringify(testPayload, null, 2));
   console.log('');
 
@@ -34,22 +34,22 @@ async function testLocal() {
 
     const responseText = await response.text();
     
-    console.log(`📥 Response Status: ${response.status} ${response.statusText}`);
-    console.log(`📥 Response Body:`, responseText);
+    console.log(` Response Status: ${response.status} ${response.statusText}`);
+    console.log(` Response Body:`, responseText);
     console.log('');
 
     if (response.ok || response.status === 202) {
-      console.log('✅ Bridge received webhook successfully!');
+      console.log(' Bridge received webhook successfully!');
       console.log('');
       console.log('Check:');
       console.log('1. Bridge logs should show the request');
       console.log('2. Bridge should forward to OpenClaw at http://127.0.0.1:18789/hooks/agent');
       console.log('3. Check your OpenClaw session for the message');
     } else {
-      console.log(`⚠️  Bridge returned ${response.status}: ${responseText}`);
+      console.log(`  Bridge returned ${response.status}: ${responseText}`);
     }
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     console.error('');
     console.error('Make sure bridge is running:');
     console.error('  cd openclaw-skill/bridge');

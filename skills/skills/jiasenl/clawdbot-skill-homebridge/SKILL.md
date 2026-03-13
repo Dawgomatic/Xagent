@@ -2,7 +2,7 @@
 name: homebridge
 description: "Control smart home devices via Homebridge Config UI X REST API. Use to list, turn on/off, adjust brightness, color, or temperature of HomeKit-compatible accessories. Supports lights, switches, thermostats, fans, and other Homebridge-managed devices."
 homepage: https://github.com/homebridge/homebridge-config-ui-x
-metadata: { "clawdbot": { "emoji": "🏠" } }
+metadata: { "clawdbot": { "emoji": "" } }
 ---
 
 # Homebridge Control

@@ -34,11 +34,11 @@ metadata:
   }
 ---
 
-# 🔗 OpenClaw Solana Connect v3.0
+#  OpenClaw Solana Connect v3.0
 
 > Secure toolkit for AI agents to interact with Solana blockchain
 
-## 🛡️ Security Features
+##  Security Features
 
 - **Private Key Protection** - Keys never exposed to agent
 - **Max Limits** - Configurable transaction limits
@@ -50,12 +50,12 @@ metadata:
 
 | Function | Status | Description |
 |----------|--------|-------------|
-| `generateWallet()` | ✅ Works | Generate wallet addresses |
-| `connectWallet()` | ✅ Works | Validate wallet addresses |
-| `getBalance()` | ✅ Works | Read SOL/token balances |
-| `getTransactions()` | ✅ Works | Read transaction history |
-| `getTokenAccounts()` | ✅ Works | Read token holdings |
-| `sendSol()` | ✅ Works | Send SOL (with security) |
+| `generateWallet()` |  Works | Generate wallet addresses |
+| `connectWallet()` |  Works | Validate wallet addresses |
+| `getBalance()` |  Works | Read SOL/token balances |
+| `getTransactions()` |  Works | Read transaction history |
+| `getTokenAccounts()` |  Works | Read token holdings |
+| `sendSol()` |  Works | Send SOL (with security) |
 
 ## Installation
 

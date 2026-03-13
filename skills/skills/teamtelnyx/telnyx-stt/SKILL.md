@@ -1,7 +1,7 @@
 ---
 name: telnyx-stt
 description: Transcribe audio files to text using Telnyx Speech-to-Text API. Use when you need to convert audio recordings, voice messages, or spoken content to text.
-metadata: {"openclaw":{"emoji":"🎤","requires":{"bins":["python3"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
 ---
 
 # Telnyx Speech-to-Text

@@ -148,7 +148,7 @@ async function route(modelName, messages, options = {}) {
     for (const fb of (config.fallback || [])) {
       const fbProvider = findProvider(config, fb);
       if (fbProvider) {
-        console.warn(`⚠️ Model "${modelName}" not configured, falling back to ${fb}`);
+        console.warn(` Model "${modelName}" not configured, falling back to ${fb}`);
         return chatCompletion(fbProvider, fb, messages, options);
       }
     }
@@ -185,7 +185,7 @@ if (require.main === module) {
 
   if (cmd === 'list') {
     const models = listModels();
-    console.log('\n🇨🇳 Available Chinese LLMs:\n');
+    console.log('\n Available Chinese LLMs:\n');
     for (const m of models) {
       console.log(`  ${m.model} (${m.provider})`);
     }
@@ -193,17 +193,17 @@ if (require.main === module) {
   } else if (cmd === 'recommend') {
     const task = args[1] || 'chat';
     const recs = recommend(task);
-    console.log(`\n🎯 Recommended for "${task}":\n`);
+    console.log(`\n Recommended for "${task}":\n`);
     recs.forEach((r, i) => console.log(`  ${i + 1}. ${r.model} (${r.provider})`));
   } else if (cmd === 'test') {
     const model = args[1] || 'qwen3-max';
-    console.log(`\n🧪 Testing ${model}...`);
+    console.log(`\n Testing ${model}...`);
     route(model, [{ role: 'user', content: '你好，请用一句话介绍你自己。' }])
       .then(r => {
-        console.log(`✅ ${model}: ${r.choices[0].message.content}`);
+        console.log(` ${model}: ${r.choices[0].message.content}`);
         if (r.usage) console.log(`   Tokens: ${r.usage.prompt_tokens} in / ${r.usage.completion_tokens} out`);
       })
-      .catch(e => console.error(`❌ ${model}: ${e.message}`));
+      .catch(e => console.error(` ${model}: ${e.message}`));
   } else {
     console.log('Usage: node router.js <command>');
     console.log('  list              - List all configured models');

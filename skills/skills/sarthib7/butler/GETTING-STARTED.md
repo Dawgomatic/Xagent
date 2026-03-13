@@ -41,7 +41,7 @@ const allocation = butler.allocateTokens('PRD-simple.md');
 
 if (allocation.success) {
   console.log(`
-✅ Allocation Successful:
+ Allocation Successful:
    Provider: ${allocation.provider}
    Tokens: ${allocation.allocated}
    Cost: $${allocation.cost_estimate.toFixed(2)}
@@ -72,7 +72,7 @@ async function analyzeData() {
   const summary = butler.aggregateTaskResults(results[0].taskId);
   
   console.log(`
-📊 Analysis Complete:
+ Analysis Complete:
    Success Rate: ${summary.successRate.toFixed(1)}%
    Tokens Used: ${summary.totalTokensUsed}
    Details: ${JSON.stringify(summary.details, null, 2)}
@@ -93,7 +93,7 @@ const butler = new Butler();
 const status = butler.getStatus();
 
 console.log(`
-📊 Token Status:
+ Token Status:
    Total Keys: ${status.tokens.total_keys}
    Active Sessions: ${status.tokens.active_sessions}
    Pending Alerts: ${status.tokens.pending_alerts}
@@ -177,4 +177,4 @@ npm run build
 
 ---
 
-Happy building! 🚀
+Happy building! 

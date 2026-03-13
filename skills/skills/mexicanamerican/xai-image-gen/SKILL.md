@@ -7,13 +7,13 @@ Generate images using xAI's Grok API (grok-imagine-image model).
 Production-ready CLI tool for generating images via xAI's image generation API. Supports multiple output formats, resolutions, and batch generation. Automatically outputs MEDIA: paths for OpenClaw auto-attachment.
 
 **Features:**
-- 🎨 Simple CLI interface: `xai-gen "<prompt>"`
-- 🖼️ Multiple output formats: URL download, base64 encoding
-- 🔢 Batch generation (multiple images per prompt)
-- ⚡ Fast, pure API implementation (Pi-safe)
-- 🛡️ Robust error handling with user-friendly messages
-- 📎 Auto-attaches generated images in OpenClaw
-- 🎯 Uses xAI's native resolution (no size parameter needed)
+-  Simple CLI interface: `xai-gen "<prompt>"`
+-  Multiple output formats: URL download, base64 encoding
+-  Batch generation (multiple images per prompt)
+-  Fast, pure API implementation (Pi-safe)
+-  Robust error handling with user-friendly messages
+-  Auto-attaches generated images in OpenClaw
+-  Uses xAI's native resolution (no size parameter needed)
 
 ## Installation
 
@@ -120,11 +120,11 @@ xai-gen "chart showing Q1 sales data" --filename sales_chart.png
 
 The tool handles common errors gracefully:
 
-- ❌ Missing API key → Clear instructions
-- ❌ Network errors → Descriptive messages
-- ❌ API timeouts → Retry suggestions
-- ❌ Invalid parameters → Usage hints
-- ❌ File write errors → Permission checks
+-  Missing API key → Clear instructions
+-  Network errors → Descriptive messages
+-  API timeouts → Retry suggestions
+-  Invalid parameters → Usage hints
+-  File write errors → Permission checks
 
 ## Requirements
 
@@ -135,10 +135,10 @@ The tool handles common errors gracefully:
 
 ## Platform Compatibility
 
-- ✅ Linux (tested on Raspberry Pi)
-- ✅ macOS
-- ✅ Windows (via WSL or native Python)
-- ✅ ARM64 / ARMv7 (Pi-safe, pure API calls)
+-  Linux (tested on Raspberry Pi)
+-  macOS
+-  Windows (via WSL or native Python)
+-  ARM64 / ARMv7 (Pi-safe, pure API calls)
 
 ## Troubleshooting
 

@@ -130,7 +130,7 @@ async function main(): Promise<void> {
   });
 
   // Fetch market info
-  console.log("\n📊 Market Info\n");
+  console.log("\n Market Info\n");
   
   const info = await client.market.getMarketInfo(args.conditionId);
   const prices = await client.market.getMarketPrices(args.conditionId);
@@ -161,18 +161,18 @@ async function main(): Promise<void> {
   // Check if tradeable
   const now = Math.floor(Date.now() / 1000);
   if (now >= parseInt(info.endTime)) {
-    console.error("\n❌ Market trading period has ended");
+    console.error("\n Market trading period has ended");
     process.exit(1);
   }
   if (info.isSettled) {
-    console.error("\n❌ Market is already settled");
+    console.error("\n Market is already settled");
     process.exit(1);
   }
 
   const amount = ethers.parseUnits(args.amount, args.decimals);
   const minOut = ethers.parseUnits(args.minOut, args.action === "buy" ? 18 : args.decimals);
 
-  console.log(`\n💱 Executing ${args.action.toUpperCase()}\n`);
+  console.log(`\n Executing ${args.action.toUpperCase()}\n`);
   console.log(`Action:     ${args.action.toUpperCase()} ${args.outcome}`);
   console.log(`Amount:     ${args.amount}`);
   console.log(`Wallet:     ${client.client.signer?.address}`);
@@ -185,7 +185,7 @@ async function main(): Promise<void> {
       result = await client.trading.sell(args.conditionId, amount, args.outcome, minOut);
     }
 
-    console.log("\n✅ Trade Executed!\n");
+    console.log("\n Trade Executed!\n");
     console.log(`Tx Hash: ${result.hash}`);
     console.log(`\nBaseScan: https://basescan.org/tx/${result.hash}`);
 
@@ -196,7 +196,7 @@ async function main(): Promise<void> {
     console.log(`  NO:  ${newPrices.noPricePercent}`);
 
   } catch (error: any) {
-    console.error("\n❌ Trade failed:", error.message);
+    console.error("\n Trade failed:", error.message);
     process.exit(1);
   }
 }

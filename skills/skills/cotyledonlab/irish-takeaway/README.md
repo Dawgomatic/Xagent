@@ -1,13 +1,13 @@
-# 🍕 Irish Takeaway Finder
+#  Irish Takeaway Finder
 
 A Clawdbot skill for finding nearby takeaways in Ireland and browsing their menus.
 
 ## Features
 
-- 🔍 **Find nearby takeaways** using Google Places API
-- 📋 **Browse menus** via Deliveroo/Just Eat browser automation
-- 🇮🇪 **Irish-focused** with pre-configured town coordinates
-- ⭐ **Filter by rating**, cuisine type, and open status
+-  **Find nearby takeaways** using Google Places API
+-  **Browse menus** via Deliveroo/Just Eat browser automation
+-  **Irish-focused** with pre-configured town coordinates
+-  **Filter by rating**, cuisine type, and open status
 
 ## Setup
 
@@ -51,4 +51,4 @@ See SKILL.md for detailed browser automation workflow.
 
 ---
 
-Made with 👻 by OhMyClawd
+Made with  by OhMyClawd

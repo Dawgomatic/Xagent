@@ -192,7 +192,7 @@ Examples:
         can_ivc = sub.get("can_use_instant_voice_cloning", False)
         can_pvc = sub.get("can_use_professional_voice_cloning", False)
         
-        print(f"\n📊 ElevenLabs Quota")
+        print(f"\n ElevenLabs Quota")
         print("=" * 39)
         print(f"Plan:      {tier} ({status}) — {billing}")
         print(f"Characters: {format_characters(used)} / {format_characters(limit)} ({pct:.1f}%)")
@@ -214,7 +214,7 @@ Examples:
         
         # Warning if approaching limit
         if pct >= args.warn_pct:
-            print(f"\n⚠️  Warning: {pct:.1f}% of quota used!")
+            print(f"\n  Warning: {pct:.1f}% of quota used!")
         
         # Usage stats
         if args.usage:
@@ -222,7 +222,7 @@ Examples:
             start_ts_ms = int((datetime.now() - timedelta(days=args.days)).timestamp() * 1000)
             usage = get_usage_stats(start_unix_ms=start_ts_ms, end_unix_ms=end_ts_ms)
             
-            print(f"\n📈 Usage (last {args.days} days)")
+            print(f"\n Usage (last {args.days} days)")
             print("-" * 40)
             
             time_axis = usage.get("time", [])
@@ -259,7 +259,7 @@ Examples:
         print()
         
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

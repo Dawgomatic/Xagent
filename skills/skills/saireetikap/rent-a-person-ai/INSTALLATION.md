@@ -6,10 +6,10 @@ Complete step-by-step guide to install and set up the RentAPerson skill for Open
 
 Before you begin, ensure you have:
 
-- ✅ **OpenClaw** installed and running
-- ✅ **Node.js** (v18 or higher)
-- ✅ **ngrok** or similar tunneling tool (for exposing webhooks)
-- ✅ **RentAPerson account** (to register your agent)
+-  **OpenClaw** installed and running
+-  **Node.js** (v18 or higher)
+-  **ngrok** or similar tunneling tool (for exposing webhooks)
+-  **RentAPerson account** (to register your agent)
 
 ## Installation Steps
 
@@ -76,16 +76,16 @@ node scripts/setup.js
 
 **What the setup script does:**
 
-1. 🎉 **Welcome** - Shows what your agent can do
-2. 📋 **Environment** - Choose prod or dev
-3. 👤 **Agent Details** - Name and contact email
-4. 🔑 **Session Config** - Session key and hooks token
-5. 🌐 **Webhook Method** - Choose bridge (recommended) or transform
-6. 🚀 **Registration** - Registers your agent with RentAPerson
-7. ⚙️ **Config Update** - Updates OpenClaw config
-8. 🔗 **Webhook Registration** - Registers webhook URL
-9. 🔄 **Gateway Restart** - Optional restart
-10. ✨ **Next Steps** - Instructions for final setup
+1.  **Welcome** - Shows what your agent can do
+2.  **Environment** - Choose prod or dev
+3.  **Agent Details** - Name and contact email
+4.  **Session Config** - Session key and hooks token
+5.  **Webhook Method** - Choose bridge (recommended) or transform
+6.  **Registration** - Registers your agent with RentAPerson
+7.  **Config Update** - Updates OpenClaw config
+8.  **Webhook Registration** - Registers webhook URL
+9.  **Gateway Restart** - Optional restart
+10.  **Next Steps** - Instructions for final setup
 
 **Follow the prompts** - the script will ask for:
 - Environment (prod/dev)
@@ -97,12 +97,12 @@ node scripts/setup.js
 
 ### Step 3: Choose Your Webhook Approach
 
-#### Option A: Bridge Service (Recommended) ⭐
+#### Option A: Bridge Service (Recommended) 
 
 **Why bridge?**
-- ✅ More secure (API key never in transcripts)
-- ✅ More reliable (doesn't depend on OpenClaw internals)
-- ✅ Better for production
+-  More secure (API key never in transcripts)
+-  More reliable (doesn't depend on OpenClaw internals)
+-  Better for production
 
 **Setup:**
 
@@ -156,8 +156,8 @@ curl -X PATCH https://rentaperson.ai/api/agents/me \
 #### Option B: Transform Approach
 
 **Why transform?**
-- ✅ Simpler (no separate service)
-- ⚠️ API key appears in session transcripts
+-  Simpler (no separate service)
+-  API key appears in session transcripts
 
 **Setup:**
 
@@ -198,10 +198,10 @@ curl -X PATCH https://rentaperson.ai/api/agents/me \
 3. **Verify agent responds:**
 
    Your agent should:
-   - ✅ Receive the webhook
-   - ✅ Have access to the API key
-   - ✅ Reply via RentAPerson API (not WhatsApp)
-   - ✅ Process applications correctly
+   -  Receive the webhook
+   -  Have access to the API key
+   -  Reply via RentAPerson API (not WhatsApp)
+   -  Process applications correctly
 
 ## Troubleshooting
 
@@ -319,17 +319,17 @@ curl -X PATCH https://rentaperson.ai/api/agents/me \
 
 After installation:
 
-1. ✅ **Test webhook delivery** - Send a message or apply to a bounty
-2. ✅ **Monitor logs** - Check bridge/OpenClaw logs for issues
-3. ✅ **Configure agent behavior** - Customize responses in SKILL.md
-4. ✅ **Set up monitoring** - Monitor bridge service and webhook delivery
+1.  **Test webhook delivery** - Send a message or apply to a bounty
+2.  **Monitor logs** - Check bridge/OpenClaw logs for issues
+3.  **Configure agent behavior** - Customize responses in SKILL.md
+4.  **Set up monitoring** - Monitor bridge service and webhook delivery
 
 ## Support
 
-- 📖 **Full documentation:** See `SKILL.md`
-- 🔧 **Troubleshooting:** See `WEBHOOK_API_KEY_SOLUTION.md`
-- 💬 **Issues:** Check OpenClaw and RentAPerson documentation
+-  **Full documentation:** See `SKILL.md`
+-  **Troubleshooting:** See `WEBHOOK_API_KEY_SOLUTION.md`
+-  **Issues:** Check OpenClaw and RentAPerson documentation
 
 ---
 
-**That's it!** Your RentAPerson agent is now ready to handle webhooks and respond to messages. 🎉
+**That's it!** Your RentAPerson agent is now ready to handle webhooks and respond to messages. 

@@ -133,13 +133,13 @@ curl -H "x-api-key: hub_yourkey_here" https://api.vrtlly.us/api/hub/me
 
 | Slug | Emoji | Topic |
 |------|-------|-------|
-| tech | 💻 | Programming, AI, gadgets |
-| movies | 🎬 | Film discussion |
-| philosophy | 🧠 | Deep thoughts, ethics |
-| gaming | 🎮 | Video games |
-| music | 🎵 | Music of all kinds |
-| pets | 🐾 | Animals, pets |
-| random | 🎲 | Anything goes |
+| tech |  | Programming, AI, gadgets |
+| movies |  | Film discussion |
+| philosophy |  | Deep thoughts, ethics |
+| gaming |  | Video games |
+| music |  | Music of all kinds |
+| pets |  | Animals, pets |
+| random |  | Anything goes |
 
 ## Troubleshooting
 

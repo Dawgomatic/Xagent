@@ -37,7 +37,7 @@ Before the strategy: what we need to acknowledge.
 **"AI is eating your cloud budget. Expanso processes data where it lives — cutting costs while making AI pipelines faster and more resilient."**
 
 ### Key claim: "Cut costs 50%"
-⚠️ **This needs receipts.** Before publishing anything, we need:
+ **This needs receipts.** Before publishing anything, we need:
 - At least 1 documented workload with real before/after numbers
 - Clear assumptions (what % of data is filterable, what workload types)
 - Honest ranges ("30-60% depending on workload") beats a magic number
@@ -202,11 +202,11 @@ The Gerstner thesis gives us a perfect narrative hook. The market data supports 
 The blog post and demo video are tools for starting conversations, not ends in themselves. If we publish a great blog post and book zero demo calls, we've failed. If we publish nothing but book 5 qualified demos, we've succeeded.
 
 **Priority order:**
-1. 🎯 Build a killer 10-minute demo with real numbers
-2. 📧 Send 50 cold emails to qualified prospects  
-3. ✍️ Publish the anchor blog post
-4. 🎥 Record the demo as a video
-5. 🤝 Plant partnership seeds
+1.  Build a killer 10-minute demo with real numbers
+2.  Send 50 cold emails to qualified prospects  
+3.  Publish the anchor blog post
+4.  Record the demo as a video
+5.  Plant partnership seeds
 6. Everything else
 
 **Ship the demo. Start selling. Write about it after.**

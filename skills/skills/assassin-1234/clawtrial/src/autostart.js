@@ -79,19 +79,19 @@ async function autoStart() {
   
   if (!exists) {
     logger.info('AUTOSTART', 'No config, user needs to run setup');
-    console.log('\n🏛️  ClawTrial not configured. Run: clawtrial setup\n');
+    console.log('\n  ClawTrial not configured. Run: clawtrial setup\n');
     return null;
   }
 
   if (!config.consent?.granted) {
     logger.info('AUTOSTART', 'Consent not granted, skipping');
-    console.log('\n🏛️  ClawTrial requires consent. Run: clawtrial setup\n');
+    console.log('\n  ClawTrial requires consent. Run: clawtrial setup\n');
     return null;
   }
 
   if (config.enabled === false) {
     logger.info('AUTOSTART', 'Courtroom disabled in config');
-    console.log('\n🏛️  ClawTrial is disabled. Run: clawtrial enable\n');
+    console.log('\n  ClawTrial is disabled. Run: clawtrial enable\n');
     return null;
   }
 
@@ -129,17 +129,17 @@ async function autoStart() {
     global.courtroom = courtroom;
     
     if (result.status === 'initialized') {
-      console.log('\n🏛️  AI Courtroom active and monitoring\n');
+      console.log('\n  AI Courtroom active and monitoring\n');
       logger.info('AUTOSTART', 'Courtroom active');
     } else {
-      console.log(`\n🏛️  ClawTrial: ${result.message}\n`);
+      console.log(`\n  ClawTrial: ${result.message}\n`);
       logger.warn('AUTOSTART', 'Courtroom not fully initialized', { status: result.status });
     }
     
     return courtroom;
   } catch (err) {
     logger.error('AUTOSTART', 'Failed to initialize courtroom', { error: err.message });
-    console.error('\n❌ Courtroom initialization failed:', err.message, '\n');
+    console.error('\n Courtroom initialization failed:', err.message, '\n');
     return null;
   }
 }

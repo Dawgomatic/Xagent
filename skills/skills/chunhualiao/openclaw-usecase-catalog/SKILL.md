@@ -30,11 +30,11 @@ After each invocation that discovers new use cases, append to (or create) `findi
 - **来源/Source**: [URL or @handle]
 - **平台/Platform**: [WhatsApp/Telegram/Discord/etc.]
 - **描述/Description**:
-  - 🇨🇳 中文描述
-  - 🇺🇸 English description
+  -  中文描述
+  -  English description
 - **亮点/Why interesting**:
-  - 🇨🇳 中文说明为什么有趣
-  - 🇺🇸 English explanation of why it's notable
+  -  中文说明为什么有趣
+  -  English explanation of why it's notable
 ```
 
 Then commit and push:

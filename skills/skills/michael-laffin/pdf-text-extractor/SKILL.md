@@ -24,31 +24,31 @@ PDF-Text-Extractor is a zero-dependency tool for extracting text content from PD
 
 ## Features
 
-### ✅ Text Extraction
+###  Text Extraction
 - Extract text from PDFs without external tools
 - Support for both text-based and scanned PDFs
 - Preserve document structure and formatting
 - Fast extraction (milliseconds for text-based)
 
-### ✅ OCR Support
+###  OCR Support
 - Use Tesseract.js for scanned documents
 - Support multiple languages (English, Spanish, French, German)
 - Configurable OCR quality/speed
 - Fallback to text extraction when possible
 
-### ✅ Batch Processing
+###  Batch Processing
 - Process multiple PDFs at once
 - Batch extraction for document workflows
 - Progress tracking for large files
 - Error handling and retry logic
 
-### ✅ Output Options
+###  Output Options
 - Plain text output
 - JSON output with metadata
 - Markdown conversion
 - HTML output (preserving links)
 
-### ✅ Utility Features
+###  Utility Features
 - Page-by-page extraction
 - Character/word counting
 - Language detection
@@ -353,4 +353,4 @@ MIT
 
 ---
 
-**Extract text from PDFs. Fast, accurate, zero dependencies.** 🔮
+**Extract text from PDFs. Fast, accurate, zero dependencies.** 

@@ -101,7 +101,7 @@ if [[ "$PARSED" =~ ^duration:(.+)$ ]]; then
         --every "$DURATION" \
         --session isolated \
         --wake now \
-        --message "⏰ $MESSAGE" \
+        --message " $MESSAGE" \
         --deliver \
         --channel telegram \
         --to 6636746252 \
@@ -116,7 +116,7 @@ elif [[ "$PARSED" =~ ^cron:(.+)$ ]]; then
         --tz "$TIMEZONE" \
         --session isolated \
         --wake now \
-        --message "⏰ $MESSAGE" \
+        --message " $MESSAGE" \
         --deliver \
         --channel telegram \
         --to 6636746252 \
@@ -137,6 +137,6 @@ JOB_ID=$(echo "$JSON_OUTPUT" | jq -r '.id' 2>/dev/null)
 mkdir -p "$(dirname "$REMINDERS_FILE")"
 echo "- [recurring] $SCHEDULE_DISPLAY | $MESSAGE (id: $JOB_ID)" >> "$REMINDERS_FILE"
 
-echo "✅ Recurring reminder set: $SCHEDULE_DISPLAY"
-echo "📝 Logged to $REMINDERS_FILE"
-echo "🆔 Job ID: $JOB_ID"
+echo " Recurring reminder set: $SCHEDULE_DISPLAY"
+echo " Logged to $REMINDERS_FILE"
+echo " Job ID: $JOB_ID"

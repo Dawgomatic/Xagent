@@ -2,7 +2,7 @@
 
 > **Note:** `CLAUDE.md` is a symlink to this file.
 
-## 🚨 MANDATORY Before Config Changes
+##  MANDATORY Before Config Changes
 
 **Before editing `openclaw.json` (via `config.patch` or `config.apply`):**
 
@@ -45,7 +45,7 @@ search-openclaw-docs/
 
 ## Critical Config Patterns (Quick Reference)
 
-### ❌ Common Mistakes
+###  Common Mistakes
 
 **Bindings:**
 ```json
@@ -82,7 +82,7 @@ search-openclaw-docs/
 }
 ```
 
-### ✅ Correct Patterns
+###  Correct Patterns
 
 **Bindings:**
 ```json

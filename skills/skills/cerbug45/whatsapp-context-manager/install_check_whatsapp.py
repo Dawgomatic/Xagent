@@ -12,10 +12,10 @@ def check_python_version():
     print("Checking Python version...")
     version = sys.version_info
     if version.major >= 3 and version.minor >= 8:
-        print(f"✅ Python {version.major}.{version.minor}.{version.micro} - OK")
+        print(f" Python {version.major}.{version.minor}.{version.micro} - OK")
         return True
     else:
-        print(f"❌ Python {version.major}.{version.minor}.{version.micro} - Need 3.8+")
+        print(f" Python {version.major}.{version.minor}.{version.micro} - Need 3.8+")
         return False
 
 def check_files():
@@ -32,9 +32,9 @@ def check_files():
     missing_files = []
     for filename in required_files:
         if os.path.exists(filename):
-            print(f"✅ {filename}")
+            print(f" {filename}")
         else:
-            print(f"❌ {filename} - MISSING")
+            print(f" {filename} - MISSING")
             missing_files.append(filename)
     
     return len(missing_files) == 0
@@ -47,10 +47,10 @@ def test_import():
             ContextManager, Order, Customer, Message,
             MessagePriority, CustomerSentiment, MessageCategory
         )
-        print("✅ Module imported successfully")
+        print(" Module imported successfully")
         return True
     except ImportError as e:
-        print(f"❌ Failed to import module: {e}")
+        print(f" Failed to import module: {e}")
         return False
 
 def run_quick_test():
@@ -81,11 +81,11 @@ def run_quick_test():
         if os.path.exists(test_db):
             os.remove(test_db)
         
-        print("✅ Quick functionality test passed")
+        print(" Quick functionality test passed")
         return True
         
     except Exception as e:
-        print(f"❌ Quick test failed: {e}")
+        print(f" Quick test failed: {e}")
         # Clean up on failure
         test_db = "install_check_test.db"
         if os.path.exists(test_db):
@@ -108,14 +108,14 @@ def main():
     
     print("\n" + "="*60)
     if all(checks):
-        print("✅ INSTALLATION SUCCESSFUL!")
+        print(" INSTALLATION SUCCESSFUL!")
         print("\nNext steps:")
         print("  1. Run: python test_whatsapp.py")
         print("  2. Run: python examples_whatsapp.py")
         print("  3. Read: README_WHATSAPP.md")
         print("  4. Start integrating with your WhatsApp system!")
     else:
-        print("❌ INSTALLATION INCOMPLETE")
+        print(" INSTALLATION INCOMPLETE")
         print("\nPlease ensure all files are present and Python 3.8+ is installed.")
     print("="*60 + "\n")
 

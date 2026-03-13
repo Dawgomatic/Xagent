@@ -33,10 +33,10 @@ cd skills/lunchtable/lunchtable-tcg
 ```
 
 The script will:
-1. ✅ Check everything is correct
-2. ✅ Ask for confirmation
-3. ✅ Submit to ClawHub
-4. ✅ Give you a status link
+1.  Check everything is correct
+2.  Ask for confirmation
+3.  Submit to ClawHub
+4.  Give you a status link
 
 ---
 
@@ -46,10 +46,10 @@ The script will:
 
 You'll see:
 ```
-🎴 Publishing LunchTable-TCG to ClawHub...
+ Publishing LunchTable-TCG to ClawHub...
 
 Step 1/6: Validating skill format...
-✅ Validation passed!
+ Validation passed!
 
 Step 2/6: Checking ClawHub CLI...
 ✓ ClawHub CLI found
@@ -71,14 +71,14 @@ Step 5/6: Submitting to ClawHub...
 ✓ Successfully submitted to ClawHub
 
 Step 6/6: Publish to npm (optional)...
-📦 Also publish to npm? [y/N]
+ Also publish to npm? [y/N]
 ```
 
 Type `n` (you can do this later).
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Publishing complete!
+ Publishing complete!
 
 Your skill has been submitted to ClawHub for review.
 
@@ -186,4 +186,4 @@ ClawHub is free for open-source skills.
 ./publish.sh
 ```
 
-That's it! Good luck! 🎴
+That's it! Good luck! 

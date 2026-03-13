@@ -185,9 +185,9 @@ case "${1:-help}" in
     # Test 1: Network connectivity
     echo -n "1. Network connectivity... "
     if curl -k -s --connect-timeout 5 "https://${IDRAC_IP}/redfish/v1/" > /dev/null 2>&1; then
-      echo "✅ OK"
+      echo " OK"
     else
-      echo "❌ FAILED (cannot reach ${IDRAC_IP})"
+      echo " FAILED (cannot reach ${IDRAC_IP})"
       exit 1
     fi
 
@@ -195,9 +195,9 @@ case "${1:-help}" in
     echo -n "2. Credential hydration (${CREDS_SOURCE})... "
     hydrate_creds
     if [ -f "$CREDS_FILE" ]; then
-      echo "✅ OK"
+      echo " OK"
     else
-      echo "❌ FAILED"
+      echo " FAILED"
       exit 1
     fi
 
@@ -206,9 +206,9 @@ case "${1:-help}" in
     RESPONSE=$(api_get "/" 2>&1)
     if echo "$RESPONSE" | jq -e '.RedfishVersion' > /dev/null 2>&1; then
       VERSION=$(echo "$RESPONSE" | jq -r '.RedfishVersion')
-      echo "✅ OK (Redfish ${VERSION})"
+      echo " OK (Redfish ${VERSION})"
     else
-      echo "❌ FAILED (invalid response or auth failure)"
+      echo " FAILED (invalid response or auth failure)"
       exit 1
     fi
 
@@ -218,9 +218,9 @@ case "${1:-help}" in
     if echo "$SYSTEM" | jq -e '.Model' > /dev/null 2>&1; then
       MODEL=$(echo "$SYSTEM" | jq -r '.Model')
       HEALTH=$(echo "$SYSTEM" | jq -r '.Status.Health')
-      echo "✅ OK (${MODEL}, Health: ${HEALTH})"
+      echo " OK (${MODEL}, Health: ${HEALTH})"
     else
-      echo "❌ FAILED"
+      echo " FAILED"
       exit 1
     fi
 

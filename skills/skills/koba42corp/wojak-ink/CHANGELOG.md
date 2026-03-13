@@ -2,7 +2,7 @@
 
 ## v2.0.0 - Advanced Analytics & Rarity Features (2026-01-29)
 
-### 🎉 Major Features Added
+###  Major Features Added
 
 #### 1. Rarity Analysis System (`lib/rarity.js`)
 - **Rarity scoring** based on trait frequency
@@ -68,19 +68,19 @@ wojak deals [threshold]     # Find underpriced NFTs
                            # Default: 10% below average
 ```
 
-### 📊 Enhanced Analytics
+###  Enhanced Analytics
 
 **Rarity Tiers:**
-- 🌟 Legendary (score ≥ 10)
-- 💎 Epic (score ≥ 7)
-- 💠 Rare (score ≥ 5)
-- 🔷 Uncommon (score ≥ 3)
-- ⬜ Common (score < 3)
+-  Legendary (score ≥ 10)
+-  Epic (score ≥ 7)
+-  Rare (score ≥ 5)
+-  Uncommon (score ≥ 3)
+-  Common (score < 3)
 
 **Price Trends:**
-- 📈 Rising (positive slope)
-- 📉 Falling (negative slope)
-- ➡️ Stable (flat)
+-  Rising (positive slope)
+-  Falling (negative slope)
+-  Stable (flat)
 - Confidence scoring
 
 **Market Stats:**
@@ -90,7 +90,7 @@ wojak deals [threshold]     # Find underpriced NFTs
 - Sales count
 - Min/max/average prices
 
-### 🛠️ Technical Improvements
+###  Technical Improvements
 
 **New Dependencies:**
 - File system operations for data persistence
@@ -103,10 +103,10 @@ wojak-ink/
 ├── lib/
 │   ├── api.js          # Existing API client
 │   ├── format.js       # Existing formatting
-│   ├── rarity.js       # ✨ NEW: Rarity analysis
-│   ├── history.js      # ✨ NEW: Price tracking
-│   └── traits.js       # ✨ NEW: Trait analysis
-├── data/               # ✨ NEW: Local storage
+│   ├── rarity.js       #  NEW: Rarity analysis
+│   ├── history.js      #  NEW: Price tracking
+│   └── traits.js       #  NEW: Trait analysis
+├── data/               #  NEW: Local storage
 │   ├── price_history.json
 │   └── sales.json
 ```
@@ -117,23 +117,23 @@ wojak-ink/
 - Data validation
 - Automatic caching
 
-### 📚 Documentation Updates
+###  Documentation Updates
 
 - **SKILL.md** - Full command reference
 - **README.md** - Quick start guide
 - **CHANGELOG.md** - This file
 - Help text with all new commands
 
-### 🧪 Testing
+###  Testing
 
 All new commands tested and working:
-- ✅ `wojak rarity 1` - Rarity estimation
-- ✅ `wojak rarity 4001` - Legendary tier detection
-- ✅ `wojak traits` - Trait categories list
-- ✅ `wojak history recent` - Sales history
-- ✅ `wojak deals` - Deal finder
+-  `wojak rarity 1` - Rarity estimation
+-  `wojak rarity 4001` - Legendary tier detection
+-  `wojak traits` - Trait categories list
+-  `wojak history recent` - Sales history
+-  `wojak deals` - Deal finder
 
-### 🚀 Usage Examples
+###  Usage Examples
 
 **Find rare NFTs:**
 ```bash
@@ -160,7 +160,7 @@ wojak traits                # List categories
 wojak traits Head           # Head trait distribution
 ```
 
-### 🎯 Next Steps
+###  Next Steps
 
 **To fully unlock trait features:**
 1. Scrape full collection metadata
@@ -173,7 +173,7 @@ wojak traits Head           # Head trait distribution
 - Link to `dexie` skill for sales data
 - Use `spacescan` for wallet tracking
 
-### 📝 Notes
+###  Notes
 
 - Rarity scores are **estimates** until full metadata is loaded
 - Price tracking requires **periodic execution** (`wojak track`)

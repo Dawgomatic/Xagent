@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-## 🚀 Get it Running in 2 Minutes!
+##  Get it Running in 2 Minutes!
 
 ### Step 1: Install Dependencies (if not done)
 
@@ -41,7 +41,7 @@ npm start
 ```
 
 You should see:
-- 🦞 Icon appear in menu bar (or default icon)
+-  Icon appear in menu bar (or default icon)
 - Click it to open chat
 - Try typing a message!
 
@@ -88,4 +88,4 @@ Once it's running:
 
 ---
 
-**That's it!** Your menu bar app is ready! 🎉
+**That's it!** Your menu bar app is ready! 

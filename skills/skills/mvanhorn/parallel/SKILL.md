@@ -13,7 +13,7 @@ triggers:
   - extract
 metadata:
   clawdbot:
-    emoji: "🔬"
+    emoji: ""
     primaryEnv: PARALLEL_API_KEY
     requires:
       bins: [python3, curl, jq]

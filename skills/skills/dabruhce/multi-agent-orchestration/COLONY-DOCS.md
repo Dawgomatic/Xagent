@@ -121,11 +121,11 @@ Processes chain multiple agents in sequence:
 ├──────────────────────────────────────────────────────────────┤
 │                                                              │
 │  ┌────────┐    ┌────────┐    ┌──────────┐    ┌──────────┐   │
-│  │  MUSE  │───▶│ SCOUT  │───▶│ FORECAST │───▶│  FORGE   │   │
+│  │  MUSE  │───│ SCOUT  │───│ FORECAST │───│  FORGE   │   │
 │  │brainstorm│  │research │    │ analyze  │    │   spec   │   │
 │  └────────┘    └────────┘    └──────────┘    └──────────┘   │
 │                                    │                         │
-│                              ⏸️ CHECKPOINT                   │
+│                               CHECKPOINT                   │
 │                              (human reviews)                 │
 │                                    │                         │
 │                                    ▼                         │
@@ -234,7 +234,7 @@ Colony includes 9 pre-built processes for common workflows.
 | brainstorm | muse | Brainstorm angles and variations | ideas.md |
 | research | scout | Market research - competitors? | market-research.md |
 | analyze | forecast | Size opportunity, analyze trends | analysis.md |
-| ⏸️ *checkpoint* | - | Human reviews analysis | - |
+|  *checkpoint* | - | Human reviews analysis | - |
 | spec | forge | Define MVP scope | mvp-spec.md |
 | estimate | ledger | Cost vs potential return | business-case.md |
 
@@ -249,10 +249,10 @@ colony process validate-idea --context "AI-powered meal planning for busy parent
 |-------|-------|------|--------|
 | research | scout | Analyze market, competitors, positioning | market-brief.md |
 | spec | forge | Write PRD based on research | prd.md |
-| ⏸️ *checkpoint* | - | Human reviews PRD | - |
+|  *checkpoint* | - | Human reviews PRD | - |
 | build | pincer | Implement MVP per PRD | code/ |
 | copy | quill | Write landing page copy | landing-copy.md |
-| ⏸️ *checkpoint* | - | Human reviews copy | - |
+|  *checkpoint* | - | Human reviews copy | - |
 
 ```bash
 colony process product-launch --context "Life Lunch ritual kit for parents"
@@ -265,7 +265,7 @@ colony process product-launch --context "Life Lunch ritual kit for parents"
 |-------|-------|------|--------|
 | strategy | scout | Research competitor pages, best practices | strategy.md |
 | copy | quill | Write headline, sections, CTA | copy.md |
-| ⏸️ *checkpoint* | - | Human reviews copy | - |
+|  *checkpoint* | - | Human reviews copy | - |
 | build | pincer | Implement in HTML/CSS | landing.html, landing.css |
 
 ```bash
@@ -281,7 +281,7 @@ colony process landing-page --context "SaaS dashboard for small business analyti
 |-------|-------|------|--------|
 | research | scout | Research the topic | research.md |
 | draft | scribe | Write full article | draft.md |
-| ⏸️ *checkpoint* | - | Human reviews draft | - |
+|  *checkpoint* | - | Human reviews draft | - |
 | publish | shell | Deploy article | - |
 | promote | echo | Create social posts | social-posts.md |
 
@@ -356,7 +356,7 @@ colony process colony-review --context "check after busy week"
 | gather | scuttle | Gather all context and results | process-data.md |
 | analyze | doctor | Analyze what went well/poorly | retro-analysis.md |
 | learn | doctor | Extract learnings for agents | learnings-to-add.md |
-| ⏸️ *checkpoint* | - | Human reviews learnings | - |
+|  *checkpoint* | - | Human reviews learnings | - |
 
 ```bash
 colony process process-retrospective --context "run-abc123 (validate-idea for meal planning)"
@@ -561,7 +561,7 @@ Before using notifications, configure your target:
 colony config set notifications.target "YOUR_PHONE_NUMBER"
 ```
 
-> ⚠️ **Important:** The notification target must be configured before notifications will work. Do not commit your phone number to version control.
+>  **Important:** The notification target must be configured before notifications will work. Do not commit your phone number to version control.
 
 ### Notification System
 
@@ -574,9 +574,9 @@ Colony can send Telegram notifications at key points during process execution:
 | Failure | `notifications.on_failure` | Task or process fails |
 
 **Example notifications:**
-- `🛑 Colony checkpoint: Process "validate-idea" paused after stage "analyze". To continue: colony approve abc123`
-- `✅ Colony complete: Process "validate-idea" finished in 245s. Run ID: abc123`
-- `❌ Colony failed: Process "bug-triage" failed at stage "fix". Error: Timeout. Run ID: abc123`
+- ` Colony checkpoint: Process "validate-idea" paused after stage "analyze". To continue: colony approve abc123`
+- ` Colony complete: Process "validate-idea" finished in 245s. Run ID: abc123`
+- ` Colony failed: Process "bug-triage" failed at stage "fix". Error: Timeout. Run ID: abc123`
 
 ### config.yaml Structure
 
@@ -710,9 +710,9 @@ colony retro --days 7
 │                                                              │
 │  "Was this good?"                                            │
 │                                                              │
-│  YES ──▶ colony feedback abc123 "Great job, concise"          │
+│  YES ── colony feedback abc123 "Great job, concise"          │
 │                                                              │
-│  NO ───▶ colony feedback abc123 "Missed competitor X"         │
+│  NO ─── colony feedback abc123 "Missed competitor X"         │
 │          colony memory scout add "Check EU competitors"       │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
@@ -771,7 +771,7 @@ node scripts/colony.mjs process validate-idea \
   --context "Subscription box for home coffee brewing experiments"
 
 # Output:
-# 🚀 Starting process: validate-idea
+#  Starting process: validate-idea
 #    Run ID: abc12345
 #    Context: Subscription box for home coffee brewing experiments
 #    Stages: 5
@@ -790,7 +790,7 @@ node scripts/colony.mjs process validate-idea \
 # ...
 # → Task completed
 #
-# ⏸️  Process paused at checkpoint after: analyze
+#   Process paused at checkpoint after: analyze
 #    To continue: colony approve abc12345
 ```
 

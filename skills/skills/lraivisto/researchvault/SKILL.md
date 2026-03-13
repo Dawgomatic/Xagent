@@ -6,7 +6,7 @@ disable-model-invocation: true
 user-invocable: true
 metadata:
   openclaw:
-    emoji: "🦞"
+    emoji: ""
     requires:
       python: ">=3.13"
       env:
@@ -78,7 +78,7 @@ metadata:
           required: false
 ---
 
-# ResearchVault 🦞
+# ResearchVault 
 
 **Local-first research orchestration engine.**
 

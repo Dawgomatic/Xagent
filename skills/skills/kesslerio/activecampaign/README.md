@@ -6,13 +6,13 @@ ActiveCampaign **trial accounts** have limited API access:
 
 | Operation | Trial Account | Paid Account |
 |-----------|---------------|--------------|
-| Contact Read | ✅ Working | ✅ Working |
-| Contact Create/Update | ✅ Working | ✅ Working |
-| Deal Create | ❌ Blocked | ✅ Working |
-| Deal List | ✅ Working | ✅ Working |
-| Pipeline List | ❌ Blocked | ✅ Working |
-| Tag Add/Create | ❌ Blocked | ✅ Working |
-| Lists List | ❌ Blocked | ✅ Working |
+| Contact Read |  Working |  Working |
+| Contact Create/Update |  Working |  Working |
+| Deal Create |  Blocked |  Working |
+| Deal List |  Working |  Working |
+| Pipeline List |  Blocked |  Working |
+| Tag Add/Create |  Blocked |  Working |
+| Lists List |  Blocked |  Working |
 
 **Workaround:** Use `deal_stage_list` to infer pipeline structure from stage IDs (stages include `pipeline` field).
 

@@ -118,7 +118,7 @@ program
     const summarizer = new Summarizer();
     const digest = new Digest(config);
 
-    console.log(chalk.blue('🔍 Fetching sources...\n'));
+    console.log(chalk.blue(' Fetching sources...\n'));
 
     const allArticles = [];
     for (const source of config.sources) {
@@ -169,7 +169,7 @@ program
       console.log(chalk.green(`\n✓ Digest saved to: ${options.output}`));
     } else {
       console.log(chalk.bold('\n' + '═'.repeat(60)));
-      console.log(chalk.bold('📰 DAILY DIGEST'));
+      console.log(chalk.bold(' DAILY DIGEST'));
       console.log(chalk.bold('═'.repeat(60)) + '\n');
       console.log(markdown);
     }

@@ -1,6 +1,6 @@
-# Ritual Memory 🔄
+# Ritual Memory 
 
-**Status:** 📋 Agent Guideline | **Module:** ritual | **Part of:** Agent Brain
+**Status:**  Agent Guideline | **Module:** ritual | **Part of:** Agent Brain
 
 Pattern detection and habit tracking. The agent should watch for repeated behaviors and store them as `pattern` entries.
 

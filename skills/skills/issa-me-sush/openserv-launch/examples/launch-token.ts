@@ -75,7 +75,7 @@ async function main() {
   const creatorWallet = process.env.CREATOR_WALLET
 
   if (!creatorWallet) {
-    console.error('❌ CREATOR_WALLET not set in environment')
+    console.error(' CREATOR_WALLET not set in environment')
     console.log('\nSet your wallet address:')
     console.log('  export CREATOR_WALLET=0x...')
     process.exit(1)
@@ -93,7 +93,7 @@ async function main() {
     // twitter: '@example'
   }
 
-  console.log('🚀 Launching token...')
+  console.log(' Launching token...')
   console.log(`   Name: ${tokenConfig.name}`)
   console.log(`   Symbol: ${tokenConfig.symbol}`)
   console.log(`   Creator: ${tokenConfig.wallet}`)
@@ -101,28 +101,28 @@ async function main() {
   try {
     const result = await launchToken(tokenConfig)
 
-    console.log('\n✅ Token launched successfully!')
-    console.log('\n📋 Token Details:')
+    console.log('\n Token launched successfully!')
+    console.log('\n Token Details:')
     console.log(`   Address: ${result.token.address}`)
     console.log(`   Name: ${result.token.name}`)
     console.log(`   Symbol: ${result.token.symbol}`)
     console.log(`   Supply: ${result.token.supply}`)
 
-    console.log('\n💧 Pool Details:')
+    console.log('\n Pool Details:')
     console.log(`   Address: ${result.pool.address}`)
     console.log(`   Fee: ${result.pool.fee}`)
 
-    console.log('\n🔒 Locker Details:')
+    console.log('\n Locker Details:')
     console.log(`   Address: ${result.locker.address}`)
     console.log(`   LP Token ID: ${result.locker.lpTokenId}`)
     console.log(`   Locked Until: ${result.locker.lockedUntil}`)
 
-    console.log('\n🔗 Links:')
+    console.log('\n Links:')
     console.log(`   Explorer: ${result.links.explorer}`)
     console.log(`   Trade on Aerodrome: ${result.links.aerodrome}`)
     console.log(`   DEXScreener: ${result.links.dexscreener}`)
 
-    console.log('\n📝 Transaction Hashes:')
+    console.log('\n Transaction Hashes:')
     console.log(`   Token Deploy: ${result.txHashes.tokenDeploy}`)
     console.log(`   LP Mint: ${result.txHashes.lpMint}`)
     console.log(`   Lock: ${result.txHashes.lock}`)
@@ -130,14 +130,14 @@ async function main() {
 
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
-      console.error('\n❌ Launch failed:', error.response.data?.error || error.message)
+      console.error('\n Launch failed:', error.response.data?.error || error.message)
 
       // Common errors and solutions
       const errorMsg = error.response.data?.error || ''
       if (errorMsg.includes('Daily launch limit')) {
-        console.log('\n💡 Tip: Wait 24 hours or use a different wallet address')
+        console.log('\n Tip: Wait 24 hours or use a different wallet address')
       } else if (errorMsg.includes('Invalid Ethereum address')) {
-        console.log('\n💡 Tip: Make sure CREATOR_WALLET is a valid Ethereum address')
+        console.log('\n Tip: Make sure CREATOR_WALLET is a valid Ethereum address')
       }
     } else {
       throw error

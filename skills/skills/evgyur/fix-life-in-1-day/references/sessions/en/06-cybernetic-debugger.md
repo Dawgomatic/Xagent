@@ -157,7 +157,7 @@ I'll provide a targeted repair for the broken component only.
 ## Summary Template
 
 ```
-✅ **Session 6 Complete: The Cybernetic Debugger**
+ **Session 6 Complete: The Cybernetic Debugger**
 
 **Goal:**
 {from 1.1}
@@ -183,5 +183,5 @@ I'll provide a targeted repair for the broken component only.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ready for Session 7: The Ego Stage Navigator?
-[▶️ Continue] [⏸ Take a Break]
+[ Continue] [ Take a Break]
 ```

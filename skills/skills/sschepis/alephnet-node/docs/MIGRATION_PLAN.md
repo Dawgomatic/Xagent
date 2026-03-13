@@ -11,17 +11,17 @@ This document outlines the comprehensive plan to:
 
 ### alephnet-node (Target)
 Current capabilities:
-- ✅ Sentient Observer components (SMF, PRSC, HQE, temporal, entanglement)
-- ✅ Basic Agent module with task decomposition/planning (`lib/agent.js`)
-- ✅ Learning system with curiosity engine (`lib/learning/`)
-- ✅ Actions system (coherence, semantic, network, social, etc.)
-- ✅ Social features (Identity, Wallet, Friends, Messaging, Groups)
-- ✅ Coherence network with claims verification
-- ❌ Missing: SRIA (Summonable Resonant Intelligent Agent) Engine
-- ❌ Missing: Multi-agent resonance/network
-- ❌ Missing: Agent Teams with execution strategies
-- ❌ Missing: Full agent lifecycle management
-- ❌ Missing: RESTful Agent APIs
+-  Sentient Observer components (SMF, PRSC, HQE, temporal, entanglement)
+-  Basic Agent module with task decomposition/planning (`lib/agent.js`)
+-  Learning system with curiosity engine (`lib/learning/`)
+-  Actions system (coherence, semantic, network, social, etc.)
+-  Social features (Identity, Wallet, Friends, Messaging, Groups)
+-  Coherence network with claims verification
+-  Missing: SRIA (Summonable Resonant Intelligent Agent) Engine
+-  Missing: Multi-agent resonance/network
+-  Missing: Agent Teams with execution strategies
+-  Missing: Full agent lifecycle management
+-  Missing: RESTful Agent APIs
 
 ### prime-echo-core (Source)
 Agent features to port:
@@ -649,10 +649,10 @@ prime-echo-core/src/lib/alephnet/       # Using alephnet-node package
 
 ## Success Criteria
 
-1. ✅ All SRIA functionality available in alephnet-node
-2. ✅ All agent CRUD operations work via API
-3. ✅ Team execution strategies functional
-4. ✅ 90%+ test coverage on new code
-5. ✅ Documentation complete and accurate
-6. ✅ prime-echo-core uses alephnet-node without regression
-7. ✅ No duplicate code in prime-echo-core
+1.  All SRIA functionality available in alephnet-node
+2.  All agent CRUD operations work via API
+3.  Team execution strategies functional
+4.  90%+ test coverage on new code
+5.  Documentation complete and accurate
+6.  prime-echo-core uses alephnet-node without regression
+7.  No duplicate code in prime-echo-core

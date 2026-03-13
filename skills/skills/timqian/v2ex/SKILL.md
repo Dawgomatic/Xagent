@@ -335,7 +335,7 @@ if __name__ == "__main__":
     
     # Get hot topics (no token required)
     hot_topics = client.get_hot_topics()
-    print("\n🔥 Hot Topics:")
+    print("\n Hot Topics:")
     for topic in hot_topics[:5]:
         print(f"- [{topic['node']['title']}] {topic['title']} ({topic['replies']} replies)")
 ```

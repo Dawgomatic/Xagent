@@ -429,11 +429,11 @@ app.listen(port, () => {
 
 // Graceful shutdown
 process.on('SIGINT', () => {
-  console.log('\n\n🛑 Shutting down Memory System dashboard...');
+  console.log('\n\n Shutting down Memory System dashboard...');
   process.exit(0);
 });
 
 process.on('SIGTERM', () => {
-  console.log('\n\n🛑 Shutting down Memory System dashboard...');
+  console.log('\n\n Shutting down Memory System dashboard...');
   process.exit(0);
 });

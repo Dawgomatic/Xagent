@@ -52,7 +52,7 @@ send_safe() {
     if echo "$msg" | arc-shield.sh --strict 2>/dev/null; then
         openclaw message send --channel "$channel" "$msg"
     else
-        echo "❌ Blocked: contains secrets" >&2
+        echo " Blocked: contains secrets" >&2
         return 1
     fi
 }
@@ -94,7 +94,7 @@ output-guard.py --help
 
 ## Remember
 
-⚠️ This is an **OUTPUT** filter (not input).  
-⚠️ Use `--strict` before external messages.  
-⚠️ Train your agent to avoid secrets.  
-✅ Arc-shield catches mistakes.
+ This is an **OUTPUT** filter (not input).  
+ Use `--strict` before external messages.  
+ Train your agent to avoid secrets.  
+ Arc-shield catches mistakes.

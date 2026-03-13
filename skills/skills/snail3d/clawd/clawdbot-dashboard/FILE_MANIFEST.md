@@ -1,10 +1,10 @@
-# 📋 File Manifest - Clawdbot Dashboard
+#  File Manifest - Clawdbot Dashboard
 
 Complete file inventory with descriptions and purposes.
 
 ---
 
-## 📚 Documentation Files
+##  Documentation Files
 
 | File | Size | Purpose |
 |------|------|---------|
@@ -22,7 +22,7 @@ Complete file inventory with descriptions and purposes.
 
 ---
 
-## 🧬 Source Code Files
+##  Source Code Files
 
 ### React Components (`src/components/`)
 
@@ -60,7 +60,7 @@ Complete file inventory with descriptions and purposes.
 
 ---
 
-## ⚙️ Configuration Files
+##  Configuration Files
 
 | File | Purpose |
 |------|---------|
@@ -76,7 +76,7 @@ Complete file inventory with descriptions and purposes.
 
 ---
 
-## 🌐 HTML & Static Files
+##  HTML & Static Files
 
 | File | Purpose |
 |------|---------|
@@ -86,7 +86,7 @@ Complete file inventory with descriptions and purposes.
 
 ---
 
-## 🔧 Project Configuration
+##  Project Configuration
 
 | File | Purpose |
 |------|---------|
@@ -94,57 +94,57 @@ Complete file inventory with descriptions and purposes.
 
 ---
 
-## 📊 Complete File List
+##  Complete File List
 
 ```
 clawdbot-dashboard/                    (Project root)
-├── 📚 Documentation (9 files, 81 KB)
-│   ├── README.md                      ✅ Main docs
-│   ├── SKILL.md                       ✅ Integration guide
-│   ├── QUICKSTART.md                  ✅ 60-second setup
-│   ├── ARCHITECTURE.md                ✅ Component design
-│   ├── DEPLOYMENT.md                  ✅ Production guide
-│   ├── BUILD_SUMMARY.md               ✅ Project summary
-│   ├── DOCS_INDEX.md                  ✅ Doc navigation
-│   ├── PROJECT_STATUS.md              ✅ Status report
-│   └── FILE_MANIFEST.md               ✅ This file
+├──  Documentation (9 files, 81 KB)
+│   ├── README.md                       Main docs
+│   ├── SKILL.md                        Integration guide
+│   ├── QUICKSTART.md                   60-second setup
+│   ├── ARCHITECTURE.md                 Component design
+│   ├── DEPLOYMENT.md                   Production guide
+│   ├── BUILD_SUMMARY.md                Project summary
+│   ├── DOCS_INDEX.md                   Doc navigation
+│   ├── PROJECT_STATUS.md               Status report
+│   └── FILE_MANIFEST.md                This file
 │
-├── 🧬 Source Code (src/)
+├──  Source Code (src/)
 │   ├── components/
-│   │   ├── Header.tsx                 ✅ Navigation
-│   │   ├── Sidebar.tsx                ✅ Session card
-│   │   ├── ChatPanel.tsx              ✅ Chat area
-│   │   └── Message.tsx                ✅ Message bubble
+│   │   ├── Header.tsx                  Navigation
+│   │   ├── Sidebar.tsx                 Session card
+│   │   ├── ChatPanel.tsx               Chat area
+│   │   └── Message.tsx                 Message bubble
 │   ├── data/
-│   │   └── messages.ts                ✅ Sample data
+│   │   └── messages.ts                 Sample data
 │   ├── types/
-│   │   └── prism.d.ts                 ✅ Prism types
-│   ├── App.tsx                        ✅ Root component
-│   ├── App.css                        ✅ App styles
-│   ├── main.tsx                       ✅ Entry point
-│   └── index.css                      ✅ Global styles
+│   │   └── prism.d.ts                  Prism types
+│   ├── App.tsx                         Root component
+│   ├── App.css                         App styles
+│   ├── main.tsx                        Entry point
+│   └── index.css                       Global styles
 │
-├── ⚙️ Configuration
-│   ├── package.json                   ✅ Dependencies
-│   ├── package-lock.json              ✅ Lock file
-│   ├── vite.config.ts                 ✅ Vite config
-│   ├── tsconfig.json                  ✅ TS config
-│   ├── tsconfig.app.json              ✅ TS app config
-│   ├── tsconfig.node.json             ✅ TS node config
-│   ├── tailwind.config.js             ✅ Tailwind config
-│   ├── postcss.config.js              ✅ PostCSS config
-│   ├── eslint.config.js               ✅ Linting rules
-│   └── .gitignore                     ✅ Git ignore
+├──  Configuration
+│   ├── package.json                    Dependencies
+│   ├── package-lock.json               Lock file
+│   ├── vite.config.ts                  Vite config
+│   ├── tsconfig.json                   TS config
+│   ├── tsconfig.app.json               TS app config
+│   ├── tsconfig.node.json              TS node config
+│   ├── tailwind.config.js              Tailwind config
+│   ├── postcss.config.js               PostCSS config
+│   ├── eslint.config.js                Linting rules
+│   └── .gitignore                      Git ignore
 │
-├── 🌐 Static & HTML
-│   ├── index.html                     ✅ HTML template
+├──  Static & HTML
+│   ├── index.html                      HTML template
 │   ├── public/
 │   │   └── vite.svg                   (unused)
 │   └── src/assets/
 │       └── react.svg                  (unused)
 │
-└── 📦 Generated (on build)
-    └── dist/                          ✅ Production bundle
+└──  Generated (on build)
+    └── dist/                           Production bundle
         ├── index.html                 (minified)
         ├── assets/
         │   ├── index-*.css
@@ -156,7 +156,7 @@ clawdbot-dashboard/                    (Project root)
 
 ---
 
-## 📈 Statistics
+##  Statistics
 
 ### File Count
 - **Documentation**: 9 files
@@ -191,7 +191,7 @@ clawdbot-dashboard/                    (Project root)
 
 ---
 
-## 🗺️ File Navigation Guide
+##  File Navigation Guide
 
 ### "I need to..."
 
@@ -224,7 +224,7 @@ clawdbot-dashboard/                    (Project root)
 
 ---
 
-## 📝 File Purposes by Type
+##  File Purposes by Type
 
 ### Documentation Files
 - **README.md** - Full documentation
@@ -259,7 +259,7 @@ Control how the project builds:
 
 ---
 
-## 🔄 Workflow by File
+##  Workflow by File
 
 ### Development Workflow
 1. Run: `npm run dev`
@@ -284,7 +284,7 @@ Control how the project builds:
 
 ---
 
-## 🎯 Key Files to Know
+##  Key Files to Know
 
 ### Most Important Files
 1. **App.tsx** - Root component, entry point
@@ -307,7 +307,7 @@ Control how the project builds:
 
 ---
 
-## 📦 Dependencies Listed
+##  Dependencies Listed
 
 See `package.json` for full list:
 
@@ -339,7 +339,7 @@ See `package.json` for full list:
 
 ---
 
-## 🔐 Sensitive Files
+##  Sensitive Files
 
 None - this is open-source project code.
 
@@ -350,52 +350,52 @@ For production, add:
 
 ---
 
-## 📋 File Checklist
+##  File Checklist
 
-✅ **Documentation** (9 files)
-- ✅ README.md
-- ✅ SKILL.md
-- ✅ QUICKSTART.md
-- ✅ ARCHITECTURE.md
-- ✅ DEPLOYMENT.md
-- ✅ BUILD_SUMMARY.md
-- ✅ DOCS_INDEX.md
-- ✅ PROJECT_STATUS.md
-- ✅ FILE_MANIFEST.md
+ **Documentation** (9 files)
+-  README.md
+-  SKILL.md
+-  QUICKSTART.md
+-  ARCHITECTURE.md
+-  DEPLOYMENT.md
+-  BUILD_SUMMARY.md
+-  DOCS_INDEX.md
+-  PROJECT_STATUS.md
+-  FILE_MANIFEST.md
 
-✅ **Source Code** (10 files)
-- ✅ App.tsx
-- ✅ Header.tsx
-- ✅ Sidebar.tsx
-- ✅ ChatPanel.tsx
-- ✅ Message.tsx
-- ✅ messages.ts
-- ✅ main.tsx
-- ✅ index.css
-- ✅ App.css
-- ✅ prism.d.ts
+ **Source Code** (10 files)
+-  App.tsx
+-  Header.tsx
+-  Sidebar.tsx
+-  ChatPanel.tsx
+-  Message.tsx
+-  messages.ts
+-  main.tsx
+-  index.css
+-  App.css
+-  prism.d.ts
 
-✅ **Configuration** (9 files)
-- ✅ package.json
-- ✅ package-lock.json
-- ✅ vite.config.ts
-- ✅ tsconfig.json
-- ✅ tsconfig.app.json
-- ✅ tsconfig.node.json
-- ✅ tailwind.config.js
-- ✅ postcss.config.js
-- ✅ eslint.config.js
+ **Configuration** (9 files)
+-  package.json
+-  package-lock.json
+-  vite.config.ts
+-  tsconfig.json
+-  tsconfig.app.json
+-  tsconfig.node.json
+-  tailwind.config.js
+-  postcss.config.js
+-  eslint.config.js
 
-✅ **Other** (3 files)
-- ✅ index.html
-- ✅ .gitignore
-- ✅ Static assets (2 SVGs)
+ **Other** (3 files)
+-  index.html
+-  .gitignore
+-  Static assets (2 SVGs)
 
 **Total: 31 files (all present and accounted for)**
 
 ---
 
-## 🚀 Quick File Reference
+##  Quick File Reference
 
 **Want to...**
 - Change look? → `tailwind.config.js`
@@ -411,7 +411,7 @@ For production, add:
 
 ---
 
-## 📊 File Size Summary
+##  File Size Summary
 
 | Category | Size |
 |----------|------|
@@ -424,7 +424,7 @@ For production, add:
 
 ---
 
-## ✅ Validation
+##  Validation
 
 - [x] All source files present
 - [x] All documentation complete
@@ -435,7 +435,7 @@ For production, add:
 
 ---
 
-## 📞 File Questions
+##  File Questions
 
 **Q: Where's the main component?**
 A: `src/App.tsx`
@@ -463,7 +463,7 @@ A: `index.html` and `src/main.tsx`
 
 ---
 
-## 🎯 Essential Files by Role
+##  Essential Files by Role
 
 ### For Users
 - README.md
@@ -487,7 +487,7 @@ A: `index.html` and `src/main.tsx`
 
 ---
 
-## 🔗 File Cross-References
+##  File Cross-References
 
 **README.md** links to:
 - QUICKSTART.md (setup)
@@ -512,7 +512,7 @@ A: `index.html` and `src/main.tsx`
 
 ---
 
-## 📜 File Licenses
+##  File Licenses
 
 All source code: **Custom (Clawdbot Dashboard)**
 All documentation: **Open source**
@@ -525,7 +525,7 @@ All documentation: **Open source**
 **Total Size (Source)**: 140 KB  
 **Total Size (Built)**: 367 KB gzipped  
 
-**Status**: ✅ Complete & Ready to Use
+**Status**:  Complete & Ready to Use
 
 ---
 

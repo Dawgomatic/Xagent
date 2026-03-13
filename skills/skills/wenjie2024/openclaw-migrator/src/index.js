@@ -11,7 +11,7 @@ const program = new Command();
 function getPassword(options) {
     if (options.password) return options.password;
     if (process.env.MIGRATOR_PASSWORD) return process.env.MIGRATOR_PASSWORD;
-    console.error("❌ Error: Password required. Use --password or set MIGRATOR_PASSWORD env var.");
+    console.error(" Error: Password required. Use --password or set MIGRATOR_PASSWORD env var.");
     process.exit(1);
 }
 
@@ -33,12 +33,12 @@ program.command('export')
           const password = getPassword(options);
           const outputPath = path.resolve(options.output);
           
-          console.log(`📦 Archiving sources: ${options.source.join(', ')}`);
+          console.log(` Archiving sources: ${options.source.join(', ')}`);
           
           await createArchive(options.source, outputPath, password);
-          console.log(`✅ Export successful: ${outputPath}`);
+          console.log(` Export successful: ${outputPath}`);
       } catch (e) {
-          console.error(`❌ Export failed: ${e.message}`);
+          console.error(` Export failed: ${e.message}`);
           process.exit(1);
       }
   });
@@ -59,14 +59,14 @@ program.command('import')
           }
           
           await fs.ensureDir(destDir);
-          console.log(`🔓 Restoring to: ${destDir}`);
+          console.log(` Restoring to: ${destDir}`);
           
           await restoreArchive(inputPath, destDir, password);
           await fixPaths(destDir);
           
-          console.log(`✅ Import successful.`);
+          console.log(` Import successful.`);
       } catch (e) {
-          console.error(`❌ Import failed: ${e.message}`);
+          console.error(` Import failed: ${e.message}`);
           process.exit(1);
       }
   });

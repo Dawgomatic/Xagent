@@ -101,7 +101,7 @@ async function getDeploymentCalldata(txHash, rpcUrl) {
 
   const selector = tx.data.slice(0, 10);
   if (selector !== DEPLOY_SELECTOR) {
-    console.warn(`⚠️  Unexpected function selector: ${selector} (expected ${DEPLOY_SELECTOR})`);
+    console.warn(`  Unexpected function selector: ${selector} (expected ${DEPLOY_SELECTOR})`);
   }
 
   return {
@@ -201,7 +201,7 @@ async function main() {
       return;
     }
 
-    console.log('\n🔗 LSP23 Cross-Chain Deployment Data');
+    console.log('\n LSP23 Cross-Chain Deployment Data');
     console.log('════════════════════════════════════════');
     console.log(`UP Address:       ${result.upAddress}`);
     console.log(`KeyManager:       ${result.keyManagerAddress}`);
@@ -213,27 +213,27 @@ async function main() {
     console.log(`Selector:         ${result.functionSelector}`);
     console.log(`Calldata Size:    ${result.calldataLength} bytes`);
     console.log(`Value:            ${result.value} wei`);
-    console.log('\n📦 Calldata:');
+    console.log('\n Calldata:');
     console.log(result.calldata);
 
     if (result.targetChainVerification) {
-      console.log('\n🌐 Target Chain Verification:');
+      console.log('\n Target Chain Verification:');
       for (const [chainName, info] of Object.entries(result.targetChainVerification)) {
-        const status = info.allPresent ? '✅' : '❌';
+        const status = info.allPresent ? '' : '';
         console.log(`\n  ${status} ${chainName}`);
         for (const [name, contract] of Object.entries(info.contracts)) {
-          const icon = contract.present ? '✅' : '❌';
+          const icon = contract.present ? '' : '';
           const size = contract.present ? `${contract.byteSize.toLocaleString()} bytes` : 'missing';
           console.log(`    ${icon} ${name}: ${size}`);
         }
       }
     }
 
-    console.log('\n💡 To redeploy on another chain, send this calldata to');
+    console.log('\n To redeploy on another chain, send this calldata to');
     console.log(`   ${result.factoryAddress} on the target chain.`);
     console.log('   The same salt produces the same UP address.\n');
   } catch (err) {
-    console.error(`❌ ${err.message}`);
+    console.error(` ${err.message}`);
     process.exit(1);
   }
 }

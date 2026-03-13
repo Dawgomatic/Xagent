@@ -2,7 +2,7 @@
   <img src="assets/logo.png" alt="tokenmeter logo" width="200" />
 </p>
 
-# 🪙 tokenmeter
+#  tokenmeter
 
 **Track your AI API usage and costs across all providers — locally, privately.**
 
@@ -14,10 +14,10 @@
 You're using Claude Code, Cursor, ChatGPT, Azure OpenAI, and a dozen other AI tools. Your monthly bill is a mystery until it arrives. Sound familiar?
 
 **tokenmeter** solves this by:
-- 📊 Tracking token usage across OpenAI, Anthropic, Azure OpenAI, and Google
-- 💰 Calculating real-time cost estimates based on current pricing
-- 🔒 Running 100% locally — your data never leaves your machine
-- 📈 Showing trends and breakdowns by model, day, and application
+-  Tracking token usage across OpenAI, Anthropic, Azure OpenAI, and Google
+-  Calculating real-time cost estimates based on current pricing
+-  Running 100% locally — your data never leaves your machine
+-  Showing trends and breakdowns by model, day, and application
 
 ## Installation
 
@@ -48,13 +48,13 @@ tokenmeter dashboard
 
 ## Features
 
-### 🎯 Multi-Provider Support
+###  Multi-Provider Support
 - **Anthropic** (Claude 3.5, 4, Opus, Sonnet, Haiku)
 - **OpenAI** (GPT-4, GPT-4o, o1, o3)
 - **Azure OpenAI** (all deployed models)
 - **Google** (Gemini Pro, Ultra, Flash)
 
-### 📊 Rich CLI Dashboard with Cache Tracking
+###  Rich CLI Dashboard with Cache Tracking
 ```
 ╭─────────────────── tokenmeter ───────────────────╮
 │  TODAY  $122.42  (396.9K tokens)                 │
@@ -74,19 +74,19 @@ This reveals the true value of OpenClaw/Claude's prompt caching. In this example
 - 116.4M cache reads saved ~$350 vs sending as regular input
 - Cache reads are the #1 cost saver for heavy users
 
-### 🔄 Automatic Import
+###  Automatic Import
 - Claude Code usage logs
 - OpenAI API response headers
 - Custom webhook endpoint for proxy integration
 
-### 📈 Analytics
+###  Analytics
 - Daily/weekly/monthly trends
 - Cost by model breakdown
 - Input vs output token ratios
 - **Cache token tracking** (reads + writes)
 - Peak usage hours
 
-### 💾 Cache Token Tracking
+###  Cache Token Tracking
 
 tokenmeter tracks **prompt caching** usage from OpenClaw and Claude:
 
@@ -174,4 +174,4 @@ MIT — use it, fork it, improve it.
 
 ---
 
-*Built during a 5 AM coding session because AI bills are getting out of hand.* 🌅
+*Built during a 5 AM coding session because AI bills are getting out of hand.* 

@@ -15,7 +15,7 @@ node skills/feishu-card/send.js --target "ou_..." --text "Hello World"
 ```
 
 ### 2. Complex/Markdown Text (RECOMMENDED)
-**⚠️ CRITICAL:** To prevent shell escaping issues (e.g., swallowed backticks), ALWAYS write content to a file first.
+** CRITICAL:** To prevent shell escaping issues (e.g., swallowed backticks), ALWAYS write content to a file first.
 
 1. Write content to a temp file:
 ```bash

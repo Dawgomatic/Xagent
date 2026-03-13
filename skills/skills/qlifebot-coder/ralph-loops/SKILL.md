@@ -11,7 +11,7 @@ Autonomous AI agent loops for iterative development. Based on Geoffrey Huntley's
 
 ---
 
-## ⚠️ Known Issues
+##  Known Issues
 
 ### Claude Code Version Compatibility
 
@@ -31,16 +31,16 @@ This was discovered 2026-02-01. Check if newer versions fix the issue before upg
 
 ---
 
-## ⚠️ Don't Block the Conversation!
+##  Don't Block the Conversation!
 
 When running a Ralph loop, **don't monitor it synchronously**. The loop runs as a separate Claude CLI process — you can keep chatting.
 
-**❌ Wrong (blocks conversation):**
+** Wrong (blocks conversation):**
 ```
 Start loop → sleep 60 → poll → sleep 60 → poll → ... (6 minutes of silence)
 ```
 
-**✅ Right (stays responsive):**
+** Right (stays responsive):**
 ```
 Start loop → "It's running, I'll check periodically" → keep chatting → check on heartbeats
 ```
@@ -72,10 +72,10 @@ Don't assume which phase. Ask:
 
 > "Which type of Ralph loop are we doing?
 > 
-> 1️⃣ **Interview** — I'll ask you questions to build specs (Phase 1)
-> 2️⃣ **Planning** — I'll iterate on an implementation plan (Phase 2)  
-> 3️⃣ **Building** — I'll implement from a plan, one task per iteration (Phase 3)
-> 4️⃣ **Generic** — Simple iterative refinement on a single topic"
+>  **Interview** — I'll ask you questions to build specs (Phase 1)
+>  **Planning** — I'll iterate on an implementation plan (Phase 2)  
+>  **Building** — I'll implement from a plan, one task per iteration (Phase 3)
+>  **Generic** — Simple iterative refinement on a single topic"
 
 **Then proceed based on their answer:**
 
@@ -290,9 +290,9 @@ If you need "and" or "also", it's probably multiple topics. Split it.
 
 **Example split:**
 ```
-❌ "User management handles registration, authentication, profiles, and permissions"
+ "User management handles registration, authentication, profiles, and permissions"
 
-✅ Split into:
+ Split into:
    - "Registration creates new user accounts from email/password"
    - "Authentication verifies user identity via login flow"  
    - "Profiles let users view and edit their information"
@@ -301,7 +301,7 @@ If you need "and" or "also", it's probably multiple topics. Split it.
 
 **Counter-example (don't split):**
 ```
-✅ Keep together:
+ Keep together:
    "Color extraction analyzes images and returns dominant color palettes"
    
    Why: "analyzes" and "returns" are steps in one operation, not separate concerns.

@@ -7,7 +7,7 @@
   "homepage": "https://github.com/FELMONON/trust-protocol",
   "keywords": ["trust", "agents", "identity", "verification", "bayesian", "skillsign", "moltbot", "skill"],
   "moltbot": {
-    "emoji": "🤝",
+    "emoji": "",
     "category": "security",
     "requires": {
       "bins": ["python3"]

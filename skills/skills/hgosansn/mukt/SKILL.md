@@ -1,7 +1,7 @@
 ---
 name: openrouter-free-responder
 description: Zero-cost OpenRouter responder that auto-discovers the best currently free model, retries on failures, and returns clean answers fast. Use this when a user asks to query OpenRouter, wants lowest-cost/free model routing, or explicitly requests a free-model OpenRouter response.
-metadata: {"openclaw":{"emoji":"🆓","requires":{"bins":["python3"],"env":["OPENROUTER_API_KEY"]},"primaryEnv":"OPENROUTER_API_KEY","homepage":"https://openrouter.ai"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"],"env":["OPENROUTER_API_KEY"]},"primaryEnv":"OPENROUTER_API_KEY","homepage":"https://openrouter.ai"}}
 ---
 
 ## What is Mukt for?

@@ -1,10 +1,10 @@
 # Audos Skill — Roadmap & Ideas
 
-## Done ✅
-- **Better polling UX** — 15-20s intervals, immediate progress updates, visual status icons (✅🔄⏳)
+## Done 
+- **Better polling UX** — 15-20s intervals, immediate progress updates, visual status icons ()
 - **Poll helper script** — `poll-with-updates.sh` for formatted terminal output
 
-## Ideas 🔄
+## Ideas 
 
 ### Edit-in-place Progress Messages
 Instead of sending a new message each poll, edit the same message with updated progress. Cleaner chat, less spam.

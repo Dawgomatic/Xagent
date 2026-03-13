@@ -172,7 +172,7 @@ def format_output(features: List[Dict], analysis: Dict, roadmap: List[Dict]) -> 
     output.append("=" * 60)
     
     # Top prioritized features
-    output.append("\n📊 TOP PRIORITIZED FEATURES\n")
+    output.append("\n TOP PRIORITIZED FEATURES\n")
     for i, feature in enumerate(features[:10], 1):
         output.append(f"{i}. {feature.get('name', 'Unnamed')}")
         output.append(f"   RICE Score: {feature['rice_score']}")
@@ -181,22 +181,22 @@ def format_output(features: List[Dict], analysis: Dict, roadmap: List[Dict]) -> 
         output.append("")
     
     # Portfolio analysis
-    output.append("\n📈 PORTFOLIO ANALYSIS\n")
+    output.append("\n PORTFOLIO ANALYSIS\n")
     output.append(f"Total Features: {analysis.get('total_features', 0)}")
     output.append(f"Total Effort: {analysis.get('total_effort_months', 0)} person-months")
     output.append(f"Total Reach: {analysis.get('total_reach', 0):,} users")
     output.append(f"Average RICE Score: {analysis.get('average_rice', 0)}")
     
-    output.append(f"\n🎯 Quick Wins: {analysis.get('quick_wins', 0)} features")
+    output.append(f"\n Quick Wins: {analysis.get('quick_wins', 0)} features")
     for qw in analysis.get('quick_wins_list', []):
         output.append(f"   • {qw.get('name', 'Unnamed')} (RICE: {qw['rice_score']})")
     
-    output.append(f"\n🚀 Big Bets: {analysis.get('big_bets', 0)} features")
+    output.append(f"\n Big Bets: {analysis.get('big_bets', 0)} features")
     for bb in analysis.get('big_bets_list', []):
         output.append(f"   • {bb.get('name', 'Unnamed')} (RICE: {bb['rice_score']})")
     
     # Roadmap
-    output.append("\n\n📅 SUGGESTED ROADMAP\n")
+    output.append("\n\n SUGGESTED ROADMAP\n")
     for quarter in roadmap:
         output.append(f"\nQ{quarter['quarter']} - Capacity: {quarter['capacity_used']}/{quarter['capacity_used'] + quarter['capacity_available']} person-months")
         for feature in quarter['features']:

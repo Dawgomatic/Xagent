@@ -300,7 +300,7 @@ async function sendSlackMessage(text, config) {
 
 function isEpic(task) {
   if (task.tags && task.tags.includes('epic')) return true;
-  if (task.title && (task.title.includes('EPIC:') || task.title.includes('🎯'))) return true;
+  if (task.title && (task.title.includes('EPIC:') || task.title.includes(''))) return true;
   return false;
 }
 
@@ -378,7 +378,7 @@ function calculateDiff(oldTasks, newTasks) {
 
 function formatWorkOrder(inProgressTasks, newTasks) {
   const lines = [];
-  lines.push('🤖 **ARBEITSAUFTRAG - Bitte ausführen:**\n');
+  lines.push(' **ARBEITSAUFTRAG - Bitte ausführen:**\n');
   
   for (const task of inProgressTasks) {
     const fullTask = (newTasks.tasks || []).find(t => t.id === task.id) || task;
@@ -392,7 +392,7 @@ function formatWorkOrder(inProgressTasks, newTasks) {
     if (fullTask.subtasks && fullTask.subtasks.length > 0) {
       lines.push(`**Subtasks:**`);
       for (const sub of fullTask.subtasks) {
-        const check = sub.done ? '✅' : '⬜';
+        const check = sub.done ? '' : '';
         lines.push(`${check} ${sub.title}`);
       }
     }
@@ -415,7 +415,7 @@ function formatWorkOrder(inProgressTasks, newTasks) {
 function formatEpicWorkOrder(epicTask, childTasks) {
   const lines = [];
   
-  lines.push('🎯 **EPIC ARBEITSAUFTRAG**\n');
+  lines.push(' **EPIC ARBEITSAUFTRAG**\n');
   lines.push(`**EPIC:** ${epicTask.title}`);
   if (epicTask.description) lines.push(`**Beschreibung:** ${epicTask.description}`);
   lines.push('');
@@ -434,7 +434,7 @@ function formatEpicWorkOrder(epicTask, childTasks) {
     if (child.subtasks && child.subtasks.length > 0) {
       lines.push(`**Subtasks:**`);
       for (const sub of child.subtasks) {
-        const check = sub.done ? '✅' : '⬜';
+        const check = sub.done ? '' : '';
         lines.push(`${check} ${sub.title}`);
       }
     }
@@ -458,40 +458,40 @@ function formatEpicWorkOrder(epicTask, childTasks) {
 
 function formatStartNotification(actor, inProgressTasks, epicInfo) {
   const lines = [];
-  lines.push(`📋 **Mission Control Update** (von ${actor})`);
+  lines.push(` **Mission Control Update** (von ${actor})`);
   lines.push('');
   
   for (const task of inProgressTasks) {
     if (epicInfo && epicInfo.epicTask.id === task.id) {
-      lines.push(`🎯 **EPIC: ${task.title}** → In Progress`);
+      lines.push(` **EPIC: ${task.title}** → In Progress`);
       lines.push(`   _${epicInfo.childTasks.length} Child-Tickets werden sequentiell abgearbeitet_`);
     } else {
-      lines.push(`🚀 **${task.title}** → In Progress`);
+      lines.push(` **${task.title}** → In Progress`);
     }
   }
   
   lines.push('');
-  lines.push('🤖 _Hintergrund-Agent startet Bearbeitung..._');
+  lines.push(' _Hintergrund-Agent startet Bearbeitung..._');
   
   return lines.join('\n');
 }
 
 function formatNotification(events, actor) {
   const lines = [];
-  lines.push(`📋 **Mission Control Update** (von ${actor})`);
+  lines.push(` **Mission Control Update** (von ${actor})`);
   lines.push('');
   
   for (const event of events.slice(0, 5)) {
     switch (event.type) {
       case 'moved':
-        const emoji = event.to === 'done' ? '✅' : event.to === 'review' ? '👀' : '📌';
+        const emoji = event.to === 'done' ? '' : event.to === 'review' ? '' : '';
         lines.push(`${emoji} **${event.task.title}**: ${event.from} → ${event.to}`);
         break;
       case 'created':
-        lines.push(`✨ **Neu:** ${event.task.title}`);
+        lines.push(` **Neu:** ${event.task.title}`);
         break;
       case 'commented':
-        lines.push(`💬 **Kommentar** auf "${event.task.title}"`);
+        lines.push(` **Kommentar** auf "${event.task.title}"`);
         break;
     }
   }
@@ -529,7 +529,7 @@ export default async function transform(ctx) {
   if (payload.zen) {
     log('Ping event received', config);
     return {
-      message: `🏓 **GitHub Webhook verbunden!**\n_"${payload.zen}"_`,
+      message: ` **GitHub Webhook verbunden!**\n_"${payload.zen}"_`,
       deliver: true
     };
   }
@@ -607,7 +607,7 @@ export default async function transform(ctx) {
   } catch (e) {
     log(`Fetch failed: ${e.message}`, config);
     return {
-      message: `⚠️ **GitHub Fetch fehlgeschlagen**\n\`\`\`${e.message}\`\`\``,
+      message: ` **GitHub Fetch fehlgeschlagen**\n\`\`\`${e.message}\`\`\``,
       deliver: true
     };
   }

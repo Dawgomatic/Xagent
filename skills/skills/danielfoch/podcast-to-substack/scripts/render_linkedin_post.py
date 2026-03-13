@@ -70,7 +70,7 @@ def main() -> int:
     points = key_points(body, 3)
 
     lines: list[str] = []
-    lines.append(f"🎙️ {title}")
+    lines.append(f" {title}")
     lines.append("")
     lines.append(hook)
     lines.append("")

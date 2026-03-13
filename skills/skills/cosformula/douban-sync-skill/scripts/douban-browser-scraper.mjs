@@ -165,7 +165,7 @@ async function main() {
       console.log(`Written ${lines.length} rows to ${filePath}`);
     }
 
-    console.log('\n✅ All done!');
+    console.log('\n All done!');
   } finally {
     browser.disconnect();
   }

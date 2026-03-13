@@ -19,7 +19,7 @@ If LETHECLAW_API_URL is unset, try `http://host.docker.internal:51234` first (Do
 
 ---
 
-## ⚠️ PROTOCOL (NON-NEGOTIABLE)
+##  PROTOCOL (NON-NEGOTIABLE)
 
 ### Retrieval Rule
 When the user asks about **history, decisions, prior work, "what did we do", or any past context:**

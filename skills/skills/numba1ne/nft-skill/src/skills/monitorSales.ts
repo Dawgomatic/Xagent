@@ -43,7 +43,7 @@ export function startSalesMonitor(onSale: SaleCallback): () => void {
     price: bigint,
     event: any
   ) => {
-    console.log('[Monitor] 🎉 SALE DETECTED!');
+    console.log('[Monitor]  SALE DETECTED!');
     console.log(`[Monitor] Token #${tokenId} sold for ${ethers.formatEther(price)} ETH`);
     console.log(`[Monitor] Buyer: ${buyer}`);
     console.log(`[Monitor] TX: ${event.transactionHash}`);

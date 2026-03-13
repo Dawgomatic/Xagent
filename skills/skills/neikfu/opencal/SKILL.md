@@ -2,7 +2,7 @@
 name: opencal
 description: Log meals, check nutrition progress, and manage calorie goals in the OpenCal app — hands-free via your AI agent. Use when the user mentions eating, food, calories, macros, or nutrition.
 homepage: https://opencal.ai
-metadata: {"openclaw":{"emoji":"🥗","requires":{"bins":["curl","jq"],"env":["OPENCAL_API_KEY"]},"primaryEnv":"OPENCAL_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","jq"],"env":["OPENCAL_API_KEY"]},"primaryEnv":"OPENCAL_API_KEY"}}
 ---
 
 # OpenCal

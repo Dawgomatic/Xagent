@@ -127,7 +127,7 @@ curl -X POST https://hannah.sumike.ai/v1/tasks \
 }
 ```
 
-**⏱️ IMPORTANT: Wait 2-3 minutes before checking status!**
+** IMPORTANT: Wait 2-3 minutes before checking status!**
 
 ### 3. Check Task Status
 
@@ -151,7 +151,7 @@ curl -X GET https://hannah.sumike.ai/v1/tasks/task_xyz789 \
 }
 ```
 
-**⏱️ If IN_PROGRESS: Wait another 2-3 minutes, then check again**
+** If IN_PROGRESS: Wait another 2-3 minutes, then check again**
 
 **Response (Completed):**
 ```json
@@ -208,7 +208,7 @@ curl -X POST https://elena.sumike.ai/v1/tasks \
   }'
 ```
 
-**⏱️ IMPORTANT: Elena may delegate to Hannah for market research. Total time: 5-10 minutes.**
+** IMPORTANT: Elena may delegate to Hannah for market research. Total time: 5-10 minutes.**
 
 ---
 

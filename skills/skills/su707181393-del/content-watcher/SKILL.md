@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📰",
+        "emoji": "",
         "requires": { "bins": ["node", "npm"] },
         "install":
           [
@@ -53,13 +53,13 @@ content-watcher run --output digest.md
 
 ## Features
 
-- ✅ RSS/Atom feed parsing
-- ✅ Web content extraction
-- ✅ AI text summarization (local, no API key)
-- ✅ Markdown digest generation
-- ✅ Multi-source aggregation
-- ✅ Duplicate detection
-- ✅ Configurable via CLI
+-  RSS/Atom feed parsing
+-  Web content extraction
+-  AI text summarization (local, no API key)
+-  Markdown digest generation
+-  Multi-source aggregation
+-  Duplicate detection
+-  Configurable via CLI
 
 ## Configuration
 

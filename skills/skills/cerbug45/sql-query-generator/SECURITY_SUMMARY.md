@@ -1,12 +1,12 @@
 # SQL Query Generator - Security Summary
 
-## 🔒 100x Enhanced Security Features
+##  100x Enhanced Security Features
 
 ### Executive Summary
 
 This SQL Query Generator has been enhanced with **military-grade security features** to prevent SQL injection attacks, protect sensitive data, and ensure safe database operations. The system includes 8 layers of security protection and has achieved a **100% detection rate** for common SQL injection patterns.
 
-## 🛡️ Security Layers
+##  Security Layers
 
 ### Layer 1: Input Validation
 - Type validation (integers, strings, dates, emails)
@@ -57,7 +57,7 @@ This SQL Query Generator has been enhanced with **military-grade security featur
 - Protected stack traces
 - **Result: 100% protection**
 
-## 📊 Test Results
+##  Test Results
 
 ```
 SQL Injection Detection: 15/15 (100%)
@@ -70,7 +70,7 @@ Security Levels: PASSED
 Performance: < 2ms overhead
 ```
 
-## 🎯 Security Improvements
+##  Security Improvements
 
 **Before Enhancement:**
 - Basic query generation
@@ -80,31 +80,31 @@ Performance: < 2ms overhead
 - No rate limiting
 
 **After 100x Enhancement:**
-- ✅ 18+ injection patterns detected
-- ✅ Comprehensive input validation
-- ✅ Mandatory parameterization
-- ✅ Rate limiting with penalties
-- ✅ Complete audit logging
-- ✅ Data sanitization
-- ✅ Query security validation
-- ✅ Error message protection
+-  18+ injection patterns detected
+-  Comprehensive input validation
+-  Mandatory parameterization
+-  Rate limiting with penalties
+-  Complete audit logging
+-  Data sanitization
+-  Query security validation
+-  Error message protection
 
-## 🔐 Compliance
+##  Compliance
 
-- ✅ OWASP Top 10 2021
-- ✅ CWE-89 (SQL Injection)
-- ✅ NIST Secure Coding
-- ✅ PCI DSS (data protection)
-- ✅ GDPR (audit logging)
+-  OWASP Top 10 2021
+-  CWE-89 (SQL Injection)
+-  NIST Secure Coding
+-  PCI DSS (data protection)
+-  GDPR (audit logging)
 
-## 📈 Performance
+##  Performance
 
 - Query generation: < 1ms
 - Validation: < 0.5ms
 - Rate limiting: < 0.1ms
 - **Total overhead: < 2ms**
 
-## ✅ Recommended Configuration
+##  Recommended Configuration
 
 ```python
 generator = SQLQueryGenerator(

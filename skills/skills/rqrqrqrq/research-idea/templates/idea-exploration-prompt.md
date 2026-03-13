@@ -71,22 +71,22 @@ Please research and analyze this idea comprehensively. Use web_search to find re
 
 Provide a clear verdict:
 
-- 🟢 **STRONG YES** - Clear opportunity, pursue aggressively
+-  **STRONG YES** - Clear opportunity, pursue aggressively
   - Why this is a strong opportunity
   - First 3 actions to take
   - Timeline to first revenue
   
-- 🟡 **CONDITIONAL YES** - Promising but needs validation
+-  **CONDITIONAL YES** - Promising but needs validation
   - What needs to be validated first
   - How to validate it (specific experiments)
   - Decision criteria (when to go/no-go)
   
-- 🟠 **PIVOT RECOMMENDED** - Core insight good, execution needs work
+-  **PIVOT RECOMMENDED** - Core insight good, execution needs work
   - What's right about the insight
   - What needs to change
   - Alternative angles to explore
   
-- 🔴 **PASS** - Too many red flags
+-  **PASS** - Too many red flags
   - Main reasons to pass
   - What would need to change to reconsider
   - Alternative ideas in similar space

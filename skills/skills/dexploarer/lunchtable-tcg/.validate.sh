@@ -1,14 +1,14 @@
 #!/bin/bash
 # Validation script for LunchTable-TCG OpenClaw Skill
 
-echo "🎴 Validating LunchTable-TCG OpenClaw Skill Structure..."
+echo " Validating LunchTable-TCG OpenClaw Skill Structure..."
 echo ""
 
 # Track validation status
 ERRORS=0
 
 # Check required files
-echo "📋 Checking required files..."
+echo " Checking required files..."
 REQUIRED_FILES=(
   "SKILL.md"
   ".clawhub.json"
@@ -30,7 +30,7 @@ done
 
 # Check required directories
 echo ""
-echo "📁 Checking required directories..."
+echo " Checking required directories..."
 REQUIRED_DIRS=(
   "examples"
   "scenarios"
@@ -47,7 +47,7 @@ done
 
 # Check SKILL.md has YAML frontmatter
 echo ""
-echo "🔍 Checking SKILL.md YAML frontmatter..."
+echo " Checking SKILL.md YAML frontmatter..."
 if head -1 SKILL.md | grep -q "^---$"; then
   echo "  ✓ SKILL.md has YAML frontmatter"
 else
@@ -57,7 +57,7 @@ fi
 
 # Check for required YAML fields
 echo ""
-echo "📝 Checking YAML frontmatter fields..."
+echo " Checking YAML frontmatter fields..."
 YAML_FIELDS=("name:" "description:" "version:" "author:" "license:")
 for field in "${YAML_FIELDS[@]}"; do
   if grep -q "$field" SKILL.md; then
@@ -70,7 +70,7 @@ done
 
 # Check .clawhub.json is valid JSON
 echo ""
-echo "🔧 Validating .clawhub.json..."
+echo " Validating .clawhub.json..."
 if command -v jq &> /dev/null; then
   if jq empty .clawhub.json 2>/dev/null; then
     echo "  ✓ .clawhub.json is valid JSON"
@@ -79,12 +79,12 @@ if command -v jq &> /dev/null; then
     ((ERRORS++))
   fi
 else
-  echo "  ⚠ jq not installed, skipping JSON validation"
+  echo "   jq not installed, skipping JSON validation"
 fi
 
 # Check package.json is valid JSON
 echo ""
-echo "📦 Validating package.json..."
+echo " Validating package.json..."
 if command -v jq &> /dev/null; then
   if jq empty package.json 2>/dev/null; then
     echo "  ✓ package.json is valid JSON"
@@ -93,14 +93,14 @@ if command -v jq &> /dev/null; then
     ((ERRORS++))
   fi
 else
-  echo "  ⚠ jq not installed, skipping JSON validation"
+  echo "   jq not installed, skipping JSON validation"
 fi
 
 # Summary
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 if [ $ERRORS -eq 0 ]; then
-  echo "✅ Validation passed! Skill is ready for ClawHub submission."
+  echo " Validation passed! Skill is ready for ClawHub submission."
   echo ""
   echo "Next steps:"
   echo "  1. Test locally: openclaw skill add ."
@@ -108,7 +108,7 @@ if [ $ERRORS -eq 0 ]; then
   echo "  3. Submit to ClawHub: clawhub submit ."
   exit 0
 else
-  echo "❌ Validation failed with $ERRORS error(s)."
+  echo " Validation failed with $ERRORS error(s)."
   echo ""
   echo "Please fix the errors above before submitting to ClawHub."
   exit 1

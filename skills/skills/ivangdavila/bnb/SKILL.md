@@ -1,7 +1,7 @@
 ---
 name: BNB
 description: Assist with BNB Chain transactions, BEP-20 tokens, gas fees, and cross-chain transfers.
-metadata: {"clawdbot":{"emoji":"🔶","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Network Clarity (Critical)
@@ -34,7 +34,7 @@ metadata: {"clawdbot":{"emoji":"🔶","os":["linux","darwin","win32"]}}
 ## Cross-Chain Transfers
 - Binance exchange supports direct withdrawal to BNB Chain — easiest method
 - Bridges: cBridge, Multichain, Stargate — verify bridge reputation
-- BNB Chain ↔ Ethereum requires bridge — not same network despite same addresses
+- BNB Chain  Ethereum requires bridge — not same network despite same addresses
 - opBNB is L2 on BNB Chain — even lower fees, different RPC
 - Wrapped assets need unwrapping — bridged ETH is not native ETH
 

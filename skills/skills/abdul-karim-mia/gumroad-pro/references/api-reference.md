@@ -2,7 +2,7 @@
 
 This document provides detailed command specifications and usage examples for the Gumroad Pro skill. 
 
-## 🛠️ Command Reference
+##  Command Reference
 
 All commands follow this pattern:
 `node scripts/gumroad-pro.js <resource> <action> [flags] --json`
@@ -115,7 +115,7 @@ Verify and manage license keys.
 
 ---
 
-## 📝 Usage Example: Selling a Product
+##  Usage Example: Selling a Product
 
 1. **Create Product**:
    `node scripts/gumroad-pro.js products create --name "Art Pack 1" --price 2500 --json`

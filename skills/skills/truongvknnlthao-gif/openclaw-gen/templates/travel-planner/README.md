@@ -22,11 +22,11 @@ Your personal travel agent that helps you:
 
 ## Features
 
-- 🗓️ Detailed itinerary creation
-- 💰 Budget management
-- 🌍 Destination research
-- 📋 Packing checklists
-- 🔔 Travel reminders
+-  Detailed itinerary creation
+-  Budget management
+-  Destination research
+-  Packing checklists
+-  Travel reminders
 
 ## Customization
 

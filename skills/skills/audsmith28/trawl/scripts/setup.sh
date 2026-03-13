@@ -6,7 +6,7 @@ set -euo pipefail
 TRAWL_DIR="${TRAWL_DIR:-$HOME/.config/trawl}"
 SKILL_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-echo "🔧 Trawl Setup"
+echo " Trawl Setup"
 echo "━━━━━━━━━━━━━━"
 
 # Create config directory
@@ -44,11 +44,11 @@ if [ -f "$HOME/.clawdbot/secrets.env" ]; then
   if grep -q "MOLTBOOK_API_KEY" "$HOME/.clawdbot/secrets.env" 2>/dev/null; then
     echo "✓ MOLTBOOK_API_KEY found in secrets.env"
   else
-    echo "⚠ MOLTBOOK_API_KEY not found in secrets.env"
+    echo " MOLTBOOK_API_KEY not found in secrets.env"
     echo "  Add: MOLTBOOK_API_KEY=moltbook_xxx to ~/.clawdbot/secrets.env"
   fi
 else
-  echo "⚠ ~/.clawdbot/secrets.env not found"
+  echo " ~/.clawdbot/secrets.env not found"
   echo "  Create it and add: MOLTBOOK_API_KEY=moltbook_xxx"
 fi
 
@@ -58,4 +58,4 @@ echo "  1. Edit $TRAWL_DIR/config.json with your identity and signals"
 echo "  2. Add MOLTBOOK_API_KEY to ~/.clawdbot/secrets.env"
 echo "  3. Test: $(dirname "$0")/sweep.sh --dry-run"
 echo ""
-echo "🎯 Trawl is ready to hunt."
+echo " Trawl is ready to hunt."

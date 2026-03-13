@@ -96,11 +96,11 @@ Or use the system packages if available.
 ## Verification
 
 Tested working:
-- ✅ Agent registration with Ed25519 keypair
-- ✅ Memory storage with cryptographic signatures  
-- ✅ Memory retrieval with authentication
-- ✅ Service health monitoring
-- ✅ Database persistence
+-  Agent registration with Ed25519 keypair
+-  Memory storage with cryptographic signatures  
+-  Memory retrieval with authentication
+-  Service health monitoring
+-  Database persistence
 
 ## Credits
 

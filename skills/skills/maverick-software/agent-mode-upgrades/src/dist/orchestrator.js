@@ -287,7 +287,7 @@ export class EnhancedLoopOrchestrator {
         }
         if (status.pendingApprovals.length > 0) {
             lines.push("");
-            lines.push("⚠️ **Pending Approvals:**");
+            lines.push(" **Pending Approvals:**");
             for (const req of status.pendingApprovals) {
                 lines.push(`- ${req.tool.name}: ${req.riskReason}`);
             }
@@ -335,7 +335,7 @@ export class EnhancedLoopOrchestrator {
             const isComplete = state.completedStepIds.includes(step.id);
             const isFailed = state.failedStepIds.includes(step.id);
             const isActive = step.id === state.activeStepId;
-            const icon = isComplete ? "✅" : isFailed ? "❌" : isActive ? "🔄" : "⬜";
+            const icon = isComplete ? "" : isFailed ? "" : isActive ? "" : "";
             const title = isComplete ? `~~${step.title}~~` : step.title;
             const suffix = isActive ? " ← current" : "";
             lines.push(`${icon} ${title}${suffix}`);

@@ -302,7 +302,7 @@ export default function Command() {
         title="Item 1"
         actions={
           <ActionPanel>
-            <Action.CopyToClipboard content="👋" />
+            <Action.CopyToClipboard content="" />
           </ActionPanel>
         }
       />

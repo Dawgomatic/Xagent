@@ -24,7 +24,7 @@ RESPONSE=$(curl -s -X POST "$SKILLGUARD_URL/api/audit" \
 
 # Check if it's a 402 (payment required)
 if echo "$RESPONSE" | grep -q "x402Version"; then
-  echo "⚠️  Payment required. Use x402 pay or the credit system."
+  echo "  Payment required. Use x402 pay or the credit system."
   echo "   Credit: GET $SKILLGUARD_URL/api/credit/template?address=YOUR_WALLET"
   exit 2
 fi
@@ -36,7 +36,7 @@ try:
   d = json.load(sys.stdin)
   v = d.get('verdict','?')
   s = d.get('riskScore',0)
-  icons = {'SAFE':'✅','LOW_RISK':'🟢','CAUTION':'⚠️','DANGEROUS':'🔴'}
+  icons = {'SAFE':'','LOW_RISK':'','CAUTION':'','DANGEROUS':''}
   print(f'{icons.get(v,\"?\")} {v} (risk: {s}/100)')
   for t in d.get('threats',[]):
     print(f'  [{t[\"severity\"]}] {t[\"description\"]}')

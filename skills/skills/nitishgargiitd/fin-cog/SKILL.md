@@ -3,7 +3,7 @@ name: fin-cog
 description: "Wall Street-grade analysis, accessible globally. Deep financial reasoning powered by #1 on DeepResearch Bench (Feb 2026) + SOTA financial models — stock analysis, valuation models, portfolio optimization, earnings breakdowns, financial statements, tax planning, and investment research. From raw tickers to boardroom-ready deliverables in one request."
 metadata:
   openclaw:
-    emoji: "💰"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

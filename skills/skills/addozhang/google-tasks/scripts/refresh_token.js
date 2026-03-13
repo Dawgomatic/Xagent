@@ -44,17 +44,17 @@ if (fs.existsSync(TOKEN_PATH)) {
           token.access_token = newToken.access_token;
           token.expiry_date = Date.now() + (newToken.expires_in * 1000);
           fs.writeFileSync(TOKEN_PATH, JSON.stringify(token, null, 2));
-          console.log('✅ Token refreshed successfully!');
+          console.log(' Token refreshed successfully!');
           process.exit(0);
         } else {
-          console.error('❌ Failed to refresh token:', data);
+          console.error(' Failed to refresh token:', data);
           process.exit(1);
         }
       });
     });
 
     req.on('error', (e) => {
-      console.error('❌ Error refreshing token:', e.message);
+      console.error(' Error refreshing token:', e.message);
       process.exit(1);
     });
 
@@ -77,7 +77,7 @@ const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${new url.URLSearc
   prompt: 'consent'
 }).toString()}`;
 
-console.log('\n📋 Authorize this app by visiting:\n');
+console.log('\n Authorize this app by visiting:\n');
 console.log(authUrl);
 console.log('\n');
 
@@ -87,7 +87,7 @@ const server = http.createServer(async (req, res) => {
     const qs = new url.URL(req.url, 'http://localhost:3000').searchParams;
     const code = qs.get('code');
     
-    res.end('✅ Authentication successful! You can close this window.');
+    res.end(' Authentication successful! You can close this window.');
     
     // Exchange code for token
     const https = require('https');
@@ -115,7 +115,7 @@ const server = http.createServer(async (req, res) => {
       tokenRes.on('end', () => {
         const token = JSON.parse(data);
         fs.writeFileSync(TOKEN_PATH, JSON.stringify(token, null, 2));
-        console.log('✅ Token saved to', TOKEN_PATH);
+        console.log(' Token saved to', TOKEN_PATH);
         server.close();
         process.exit(0);
       });

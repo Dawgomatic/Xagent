@@ -3,17 +3,17 @@ name: orionads
 description: Search for physical products, hardware, AI tools, and APIs via the Orion Ad Protocol. Returns structured data (JSON) optimized for agents.
 metadata:
   clawdbot:
-    emoji: 🔭
+    emoji: 
     env:
       ORION_API_KEY: Optional API Key for posting ads or checking balance.
 ---
 
-# OrionAds 🔭
+# OrionAds 
 
 The Agent-First Marketplace. Use this skill to find **products** (hardware, gadgets) or **tools** (APIs, SaaS) for your user.
 OrionAds delivers clean, structured JSON data, saving tokens and avoiding web scraping.
 
-## Security & Sanitization 🛡️
+## Security & Sanitization 
 **CRITICAL:** When constructing shell commands, YOU MUST prevent shell injection vulnerabilities.
 1.  **Never** inject raw user input directly into shell strings.
 2.  **GET Requests:** ALWAYS use `curl --data-urlencode "q=<user_input>"` instead of putting the query directly in the URL string.

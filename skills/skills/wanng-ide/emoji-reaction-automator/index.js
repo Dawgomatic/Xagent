@@ -4,23 +4,23 @@ const path = require('path');
 const SENTIMENT_MAP = {
   positive: {
     keywords: ['great', 'awesome', 'good', 'nice', 'excellent', 'amazing', 'perfect', 'correct', 'agree', 'thanks', 'thank you', 'cool', 'love', 'happy'],
-    emojis: ['👍', '❤️', '🙌', '✅', '👌', '🥰']
+    emojis: ['', '', '', '', '', '']
   },
   negative: {
     keywords: ['bad', 'wrong', 'fail', 'error', 'broken', 'bug', 'sad', 'disagree', 'no', 'problem', 'issue', 'hate'],
-    emojis: ['👎', '💔', '❌', '⚠️', '😢', '🤦']
+    emojis: ['', '', '', '', '', '']
   },
   funny: {
     keywords: ['haha', 'lol', 'lmao', 'funny', 'joke', 'hilarious', 'laugh'],
-    emojis: ['😂', '🤣', '💀', '😆']
+    emojis: ['', '', '', '']
   },
   curious: {
     keywords: ['why', 'how', 'what', 'question', 'wonder', 'maybe', 'perhaps', '?', 'check'],
-    emojis: ['🤔', '🧐', '❓', '👀']
+    emojis: ['', '', '', '']
   },
   excited: {
     keywords: ['wow', 'omg', 'yes', 'win', 'finally', 'launch', 'new', 'growth'],
-    emojis: ['🎉', '🚀', '🔥', '✨']
+    emojis: ['', '', '', '']
   }
 };
 
@@ -30,7 +30,7 @@ const SENTIMENT_MAP = {
  * @returns {object} { category, emoji, confidence } or null if no match.
  */
 function suggestReaction(text) {
-  if (!text || typeof text !== 'string') return { category: 'neutral', emoji: '👀', confidence: 0.0 };
+  if (!text || typeof text !== 'string') return { category: 'neutral', emoji: '', confidence: 0.0 };
   const lowerText = text.toLowerCase();
   
   let bestCategory = 'neutral';
@@ -64,7 +64,7 @@ function suggestReaction(text) {
     };
   }
   
-  return { category: 'neutral', emoji: '👀', confidence: 0.1 };
+  return { category: 'neutral', emoji: '', confidence: 0.1 };
 }
 
 /**

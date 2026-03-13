@@ -2,7 +2,7 @@
 name: data-scraper
 description: Web page data collection and structured text extraction
 version: 1.0.0
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
 # data-scraper

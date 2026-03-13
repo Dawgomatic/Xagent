@@ -1,4 +1,4 @@
-# Budget Planner 💰
+# Budget Planner 
 
 Turn your AI agent into a budget tracker. Create budgets, log spending, get variance reports, and catch overspending before it becomes a problem.
 
@@ -34,4 +34,4 @@ Free skills that make AI agents actually useful:
 
 Need more? **[Full context packs for 10+ industries →](https://afrexai-cto.github.io/context-packs/)**
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

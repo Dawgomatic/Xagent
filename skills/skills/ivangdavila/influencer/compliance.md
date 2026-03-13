@@ -1,6 +1,6 @@
 # Legal & Compliance for AI Influencers
 
-## ⚠️ Critical Disclosure Requirements
+##  Critical Disclosure Requirements
 
 ### FTC Guidelines (USA)
 AI-generated influencers MUST disclose:
@@ -31,14 +31,14 @@ AI-generated influencers MUST disclose:
 
 ## What IS and ISN'T Allowed
 
-### ✅ Allowed
+###  Allowed
 - Creating fictional AI personas
 - AI-generated lifestyle content
 - Sponsored posts with proper disclosure
 - Educational content
 - Entertainment content
 
-### ❌ Prohibited
+###  Prohibited
 - Claiming AI influencer is a real person
 - Using real person's likeness without consent
 - Generating content that impersonates public figures
@@ -50,10 +50,10 @@ AI-generated influencers MUST disclose:
 ## Face/Likeness Rules
 
 ### Using Generated Faces
-✅ Safe — fully AI-generated faces with no resemblance to real people
-✅ Safe — licensed stock model faces as reference
-⚠️ Risky — faces that closely resemble celebrities
-❌ Illegal — using real person's face without consent
+ Safe — fully AI-generated faces with no resemblance to real people
+ Safe — licensed stock model faces as reference
+ Risky — faces that closely resemble celebrities
+ Illegal — using real person's face without consent
 
 ### Training Data Considerations
 - Don't train LoRAs on copyrighted images without license
@@ -97,7 +97,7 @@ Each platform has specific AI content rules:
 ## Age-Related Content
 
 ### Minor Personas
-⚠️ HIGH RISK — Do not create AI influencers that appear to be minors
+ HIGH RISK — Do not create AI influencers that appear to be minors
 - Legal issues across all jurisdictions
 - Platform bans likely
 - Reputational damage

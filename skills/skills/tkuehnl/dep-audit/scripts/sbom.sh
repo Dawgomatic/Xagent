@@ -76,4 +76,4 @@ jq -n --arg file "$OUTPUT" --argjson count "$COMPONENT_COUNT" '{
   components: $count
 }'
 
-echo "✅ SBOM written to $OUTPUT ($COMPONENT_COUNT components)" >&2
+echo " SBOM written to $OUTPUT ($COMPONENT_COUNT components)" >&2

@@ -158,7 +158,7 @@ if total_retry_events >= 5:
     # 도구별 구체적 개선안
     tool_fixes = {
         'exec': (
-            '## ⚡ exec 연속 재시도 방지\n'
+            '##  exec 연속 재시도 방지\n'
             '같은 exec를 3회 이상 재시도하기 전에:\n'
             '1. 첫 번째 실패 시 에러 메시지를 사용자에게 보고\n'
             '2. 두 번째 시도는 방법을 변경해서 (다른 옵션/경로)\n'
@@ -166,20 +166,20 @@ if total_retry_events >= 5:
             '이 패턴을 AGENTS.md "Exec 에러 노출 금지 규칙"에 추가'
         ),
         'process': (
-            '## 🔄 process 폴링 최적화\n'
+            '##  process 폴링 최적화\n'
             'process(action=poll) 반복 대신:\n'
             '`exec`에 `yieldMs=30000` (30초 대기) 활용\n'
             '또는 `background=true` + 나중에 1회 poll로 대체'
         ),
         'browser': (
-            '## 🌐 browser 재시도 최적화\n'
+            '##  browser 재시도 최적화\n'
             'browser 연속 재시도 시 snapshot → act 패턴 확인:\n'
             '1. snapshot으로 현재 상태 확인 후 act\n'
             '2. 같은 selector 2회 실패 시 다른 방법 시도\n'
             '3. aria-ref (refs="aria") 사용으로 안정성 향상'
         ),
         'cron': (
-            '## ⏰ cron 설정 재시도 방지\n'
+            '##  cron 설정 재시도 방지\n'
             'cron 작업 실패 시 즉시 재시도 대신:\n'
             '1. 기존 크론 schedule 확인 (cron list)\n'
             '2. 충돌 크론 삭제 후 재등록\n'
@@ -235,7 +235,7 @@ for log_err in log_errors:
             ),
             'before': f'`{fname}` 에러 발생 시 별도 조치 없음',
             'after': (
-                f'## 🔴 반복 에러 즉시 대응 프로토콜\n'
+                f'##  반복 에러 즉시 대응 프로토콜\n'
                 f'동일 에러 5회 이상 반복 시:\n'
                 f'1. 해당 크론/스크립트 실행 중단\n'
                 f'2. 에러 원인 파악 후 수정\n'
@@ -265,7 +265,7 @@ if persistent_errors:
         ),
         'before': '연속 실패 크론에 대한 자동 보고 규칙 없음',
         'after': (
-            '## 🔴 크론 연속 실패 대응\n'
+            '##  크론 연속 실패 대응\n'
             '다음 크론 즉시 점검 필요:\n' +
             '\n'.join(f'- `{e["name"]}`: {e["consecutive_errors"]}회 연속 실패' for e in persistent_errors[:3]) +
             '\n\n점검 방법:\n'
@@ -303,7 +303,7 @@ for v in high_violations[:2]:  # 최대 2개만
         ),
         'before': v.get('rule', ''),
         'after': (
-            f'## ✅ 올바른 방법\n'
+            f'##  올바른 방법\n'
             f'```bash\n'
             f'{fix}\n'
             f'```\n'
@@ -332,7 +332,7 @@ if heavy_sessions >= 3 or max_comp >= 20:
         ),
         'before': '장시간 세션에 대한 분리 가이드 없음',
         'after': (
-            '## 📦 서브에이전트 분리 기준\n'
+            '##  서브에이전트 분리 기준\n'
             '다음 조건 중 하나라도 해당하면 서브에이전트 사용:\n'
             '- 예상 작업 시간 > 10분\n'
             '- 도구 호출 예상 > 20회\n'
@@ -360,7 +360,7 @@ if high_priority > 0:
         ),
         'before': '미해결 .learnings/ 이슈가 AGENTS.md에 미반영',
         'after': (
-            '## 📚 .learnings/ 승격 프로토콜\n'
+            '##  .learnings/ 승격 프로토콜\n'
             '매주 일요일 heartbeat에서:\n'
             '```bash\n'
             'grep -r "Priority**: high" ~/openclaw/.learnings/ | head -10\n'
@@ -392,7 +392,7 @@ if total_hits >= 3:
         ),
         'before': '반복 불만 발생 시 즉각 대응 규칙 없음',
         'after': (
-            '## 🔁 불만 감지 즉시 대응\n'
+            '##  불만 감지 즉시 대응\n'
             '사용자가 반복/재촉 표현 사용 시:\n'
             '1. 현재 진행 상황 즉시 보고\n'
             '2. SESSION-STATE.md에 "왜 반복 됐는가" 기록\n'
@@ -512,25 +512,25 @@ real_proposals = [p for p in proposals if p.get('id') != 'no-issues-found']
 proposal_count = len(real_proposals)
 
 source_emoji = {
-    'retry_analysis': '🔁',
-    'repeating_log_errors': '🐛',
-    'cron_errors': '🔴',
-    'agents_md_violation': '⚠️',
-    'learnings_integration': '📚',
-    'complaint_patterns': '💬',
-    'session_health': '📦',
-    'system': 'ℹ️'
+    'retry_analysis': '',
+    'repeating_log_errors': '',
+    'cron_errors': '',
+    'agents_md_violation': '',
+    'learnings_integration': '',
+    'complaint_patterns': '',
+    'session_health': '',
+    'system': ''
 }
 
 diff_type_label = {
-    'agents_md_addition': '📝 AGENTS.md 추가',
-    'agents_md_update': '✏️ AGENTS.md 수정',
-    'action_required': '🚨 즉시 조치 필요',
+    'agents_md_addition': ' AGENTS.md 추가',
+    'agents_md_update': ' AGENTS.md 수정',
+    'action_required': ' 즉시 조치 필요',
     'none': ''
 }
 
 lines = []
-lines.append("## 🧬 Self-Evolving Agent 주간 분석 리포트 v3.0")
+lines.append("##  Self-Evolving Agent 주간 분석 리포트 v3.0")
 lines.append("")
 lines.append(f"**분석 기간:** {date_from} ~ {date_to}")
 lines.append(f"**분석된 세션:** {session_count}개")
@@ -546,15 +546,15 @@ lines.append(f"**개선 제안:** {proposal_count}개")
 lines.append("")
 
 if proposal_count == 0:
-    lines.append("✅ **이번 주 발견된 개선 사항 없음**")
+    lines.append(" **이번 주 발견된 개선 사항 없음**")
     lines.append("다음 분석 때 다시 확인합니다.")
 else:
     lines.append("---")
     lines.append("")
 
     for i, p in enumerate(real_proposals, 1):
-        sev_emoji = {'high': '🔴', 'medium': '🟡', 'low': '🟢'}.get(p.get('severity', 'low'), '🟢')
-        src_emoji = source_emoji.get(p.get('source', ''), '📌')
+        sev_emoji = {'high': '', 'medium': '', 'low': ''}.get(p.get('severity', 'low'), '')
+        src_emoji = source_emoji.get(p.get('source', ''), '')
         diff_label = diff_type_label.get(p.get('diff_type', ''), '')
 
         lines.append(f"### {src_emoji} 제안 #{i}: {p.get('title', '')}")
@@ -583,16 +583,16 @@ else:
 
     lines.append("---")
     lines.append("")
-    lines.append("### ✅ 승인 방법")
+    lines.append("###  승인 방법")
     lines.append("")
     lines.append("이모지 반응으로 빠르게 승인/거부:")
     lines.append("")
     lines.append("| 반응 | 의미 |")
     lines.append("|------|------|")
-    lines.append("| ✅ | 전체 승인 → AGENTS.md 자동 반영 + git commit |")
-    lines.append("| 1️⃣ ~ 5️⃣ | 해당 번호 제안만 승인 |")
-    lines.append("| ❌ | 전체 거부 (댓글로 이유 남기면 다음 분석에 반영) |")
-    lines.append("| 🔄 | 수정 요청 (댓글로 원하는 내용 명시) |")
+    lines.append("|  | 전체 승인 → AGENTS.md 자동 반영 + git commit |")
+    lines.append("|  ~  | 해당 번호 제안만 승인 |")
+    lines.append("|  | 전체 거부 (댓글로 이유 남기면 다음 분석에 반영) |")
+    lines.append("|  | 수정 요청 (댓글로 원하는 내용 명시) |")
     lines.append("")
     lines.append("> 거부 이유는 다음 분석에 반영됩니다. 피드백이 있으면 꼭 남겨주세요.")
 

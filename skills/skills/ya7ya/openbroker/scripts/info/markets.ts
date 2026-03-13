@@ -111,13 +111,13 @@ async function main() {
       const gainers = [...markets].sort((a, b) => b.change24h - a.change24h).slice(0, 3);
       const losers = [...markets].sort((a, b) => a.change24h - b.change24h).slice(0, 3);
 
-      console.log('\n📈 Top Gainers:');
+      console.log('\n Top Gainers:');
       for (const m of gainers) {
         if (m.change24h <= 0) break;
         console.log(`  ${m.coin}: ${formatChange(m.change24h)}`);
       }
 
-      console.log('\n📉 Top Losers:');
+      console.log('\n Top Losers:');
       for (const m of losers) {
         if (m.change24h >= 0) break;
         console.log(`  ${m.coin}: ${formatChange(m.change24h)}`);

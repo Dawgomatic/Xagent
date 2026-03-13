@@ -81,7 +81,7 @@ Constraints that never get reviewed become stale. Rules that never get challenge
 | `/gov state` | 状態 | central_state, event→alert | HEARTBEAT |
 | `/gov review` | 審査 | constraints.due→review_queue | HEARTBEAT |
 | `/gov index` | 索引 | skills[]→INDEX.md | Explicit |
-| `/gov verify` | 検証 | round_trip(source↔compiled)→sync✓∨drift✗ | Explicit |
+| `/gov verify` | 検証 | round_trip(sourcecompiled)→sync✓∨drift✗ | Explicit |
 | `/gov migrate` | 移行 | schema.v(n)→schema.v(n+1) | Explicit |
 
 ## Arguments
@@ -176,7 +176,7 @@ governance:
 | 76-90 | Approaching | Warning alert |
 | 91+ | Overdue | Escalation alert |
 
-> **⚠️ Advisory Only**: This review cycle is *not enforced programmatically*.
+> ** Advisory Only**: This review cycle is *not enforced programmatically*.
 > Compliance relies on HEARTBEAT P3 checks and manual diligence.
 > Automated enforcement (`/gov review --automated`) is planned for future release.
 > See HEARTBEAT.md for current verification schedule.
@@ -309,7 +309,7 @@ Compliance Status (SOC 2):
    Age: 31 days | Status: active
    Compliance: SOC 2 CC6.2
    Violations (90d): 1 | Adoption: 98%
-   ⚠ Review violation on 2026-02-01
+    Review violation on 2026-02-01
 
 Summary: 12 constraints | 11 compliant | 1 needs review
 ```

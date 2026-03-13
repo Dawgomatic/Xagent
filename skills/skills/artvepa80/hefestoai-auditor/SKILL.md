@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔨",
+        "emoji": "",
         "requires": { "bins": ["hefesto"] },
         "install":
           [
@@ -129,7 +129,7 @@ Full constitution: see workspace `CLAUDE.md`
 ## Interpreting Results
 
 ```
-📄 <file>:<line>:<col>
+ <file>:<line>:<col>
 ├─ Issue: <description>
 ├─ Function: <name>
 ├─ Type: <issue_type>
@@ -241,4 +241,4 @@ Created by **Narapa LLC** (Miami, FL) — Arturo Velasquez (@artvepa)
 GitHub: https://github.com/artvepa80/Agents-Hefesto
 Support: support@narapallc.com
 
-> "El código limpio es código seguro" 🛡️
+> "El código limpio es código seguro" 

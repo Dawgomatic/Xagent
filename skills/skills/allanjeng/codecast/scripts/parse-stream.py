@@ -162,7 +162,7 @@ def handle_codex_event(evt):
 
     if etype == "thread.started":
         thread_id = evt.get("thread_id", "?")
-        post(f"⚙️ Codex session `{thread_id[:12]}…`")
+        post(f" Codex session `{thread_id[:12]}…`")
 
     elif etype == "item.started":
         item = evt.get("item", {})
@@ -182,16 +182,16 @@ def handle_codex_event(evt):
             cost = inp * 0.000002 + out * 0.000008
             global cumulative_cost
             cumulative_cost += cost
-            post(f"📊 Turn done — {inp:,} in ({cached:,} cached) / {out:,} out tokens")
+            post(f" Turn done — {inp:,} in ({cached:,} cached) / {out:,} out tokens")
 
     elif etype == "turn.failed":
         error = evt.get("error", {})
         msg = error.get("message", "Unknown error") if isinstance(error, dict) else str(error)
-        post(f"❌ **Turn failed:** {truncate(msg, 500)}")
+        post(f" **Turn failed:** {truncate(msg, 500)}")
 
     elif etype == "error":
         msg = evt.get("message", evt.get("error", "Unknown error"))
-        post(f"❌ **Error:** {truncate(str(msg), 500)}")
+        post(f" **Error:** {truncate(str(msg), 500)}")
 
 
 def _handle_codex_item(item, started=False):
@@ -202,7 +202,7 @@ def _handle_codex_item(item, started=False):
     if itype == "command_execution":
         cmd = item.get("command", "?")
         if started:
-            post(f"🖥️ **Exec** `{truncate(cmd, 300)}`")
+            post(f" **Exec** `{truncate(cmd, 300)}`")
             bash_commands.append(cmd)
             tools_used["command_execution"] = tools_used.get("command_execution", 0) + 1
         else:
@@ -211,14 +211,14 @@ def _handle_codex_item(item, started=False):
             exit_code = item.get("exit_code")
             if output:
                 output = truncate(output.strip(), 800)
-                post(f"📤 **Output** ```\n{output}\n```")
+                post(f" **Output** ```\n{output}\n```")
             if exit_code is not None and exit_code != 0:
-                post(f"⚠️ Exit code: {exit_code}")
+                post(f" Exit code: {exit_code}")
 
     elif itype == "agent_message":
         text = item.get("text", "").strip()
         if text and not started:
-            post(f"💬 {text}")
+            post(f" {text}")
 
     elif itype == "file_change":
         fp = item.get("file_path", item.get("path", "?"))
@@ -226,35 +226,35 @@ def _handle_codex_item(item, started=False):
         if not started:
             if change in ("created", "create"):
                 files_created.append(fp)
-                post(f"📝 **Created** `{fp}`")
+                post(f" **Created** `{fp}`")
             else:
                 files_edited.append(fp)
-                post(f"✏️ **Modified** `{fp}`")
+                post(f" **Modified** `{fp}`")
             tools_used["file_change"] = tools_used.get("file_change", 0) + 1
 
     elif itype == "reasoning":
         # Reasoning traces — post a condensed version
         text = item.get("text", "").strip()
         if text and not started:
-            post(f"🧠 *{truncate(text, 400)}*")
+            post(f" *{truncate(text, 400)}*")
 
     elif itype == "mcp_tool_call":
         name = item.get("name", item.get("tool", "?"))
         if started:
-            post(f"🔧 **MCP** `{name}`")
+            post(f" **MCP** `{name}`")
             tools_used[f"mcp:{name}"] = tools_used.get(f"mcp:{name}", 0) + 1
 
     elif itype == "web_search":
         query = item.get("query", "?")
         if started:
-            post(f"🔍 **Search** `{query}`")
+            post(f" **Search** `{query}`")
             tools_used["web_search"] = tools_used.get("web_search", 0) + 1
 
     elif itype == "plan_update":
         if not started:
             text = item.get("text", "").strip()
             if text:
-                post(f"📋 **Plan** {truncate(text, 500)}")
+                post(f" **Plan** {truncate(text, 500)}")
 
 
 # ---------------------------------------------------------------------------
@@ -330,7 +330,7 @@ for line in sys.stdin:
     if etype == "system" and evt.get("subtype") == "init":
         model = evt.get("model", "unknown")
         mode = evt.get("permissionMode", "default")
-        post(f"⚙️ Model: `{model}` | Mode: `{mode}`")
+        post(f" Model: `{model}` | Mode: `{mode}`")
 
     # --- Assistant messages (tool calls + text) ---
     elif etype == "assistant":
@@ -349,7 +349,7 @@ for line in sys.stdin:
             if block.get("type") == "text":
                 text = block["text"].strip()
                 if text:
-                    post(f"💬 {text}")
+                    post(f" {text}")
 
             elif block.get("type") == "tool_use":
                 tool = block.get("name", "?")
@@ -365,32 +365,32 @@ for line in sys.stdin:
                     preview, total = format_file_preview(content)
                     # Truncate preview for Discord message limits
                     preview = truncate(preview, 800)
-                    post(f"📝 **Write** `{fp}` ({total} lines)\n```\n{preview}\n```")
+                    post(f" **Write** `{fp}` ({total} lines)\n```\n{preview}\n```")
 
                 elif tool in ("Edit", "MultiEdit"):
                     fp = inp.get("file_path", "?")
-                    post(f"✏️ **{tool}** `{fp}`")
+                    post(f" **{tool}** `{fp}`")
 
                 elif tool == "Bash":
                     cmd = truncate(inp.get("command", "?"), 300)
-                    post(f"🖥️ **Bash** `{cmd}`")
+                    post(f" **Bash** `{cmd}`")
                     bash_commands.append(cmd)
 
                 elif tool == "Read":
                     fp = inp.get("file_path", "?")
                     if not skip_reads:
-                        post(f"👁️ **Read** `{fp}`")
+                        post(f" **Read** `{fp}`")
 
                 elif tool == "WebSearch":
                     query = inp.get("query", "?")
-                    post(f"🔍 **Search** `{query}`")
+                    post(f" **Search** `{query}`")
 
                 elif tool == "WebFetch":
                     url = inp.get("url", "?")
-                    post(f"🌐 **Fetch** `{url}`")
+                    post(f" **Fetch** `{url}`")
 
                 else:
-                    post(f"🔧 **{tool}**")
+                    post(f" **{tool}**")
 
     # --- User events (tool results, bash output) ---
     elif etype == "user":
@@ -401,10 +401,10 @@ for line in sys.stdin:
             fp = result.get("filePath", "")
             if rtype == "create" and fp:
                 files_created.append(fp)
-                post(f"✅ Created `{fp}`")
+                post(f" Created `{fp}`")
             elif rtype == "update" and fp:
                 files_edited.append(fp)
-                post(f"✅ Updated `{fp}`")
+                post(f" Updated `{fp}`")
 
         # Handle bash command output from tool_result content blocks
         msg = evt.get("message", {})
@@ -419,7 +419,7 @@ for line in sys.stdin:
                         stdout = sub.get("text", "").strip()
                         if stdout:
                             stdout = truncate(stdout, 800)
-                            post(f"📤 **Output** ```\n{stdout}\n```")
+                            post(f" **Output** ```\n{stdout}\n```")
 
     # --- Result (session complete) ---
     elif etype == "result":
@@ -431,7 +431,7 @@ for line in sys.stdin:
         result_text = truncate(evt.get("result", ""), 300)
         turns = evt.get("num_turns", 0)
 
-        icon = "✅" if success else "❌"
+        icon = "" if success else ""
         status = "Completed" if success else "Failed"
 
         # --- End summary block ---
@@ -441,11 +441,11 @@ for line in sys.stdin:
             summary_parts.append(f"> {result_text}")
 
         summary_parts.append("")  # blank line before summary
-        summary_parts.append("📊 **Session Summary**")
+        summary_parts.append(" **Session Summary**")
 
         if files_created:
             unique_created = sorted(set(files_created))
-            summary_parts.append(f"  📝 Created: {len(unique_created)} file(s)")
+            summary_parts.append(f"   Created: {len(unique_created)} file(s)")
             for f in unique_created[:10]:
                 summary_parts.append(f"    • `{f}`")
             if len(unique_created) > 10:
@@ -453,20 +453,20 @@ for line in sys.stdin:
 
         if files_edited:
             unique_edited = sorted(set(files_edited))
-            summary_parts.append(f"  ✏️ Edited: {len(unique_edited)} file(s)")
+            summary_parts.append(f"   Edited: {len(unique_edited)} file(s)")
             for f in unique_edited[:10]:
                 summary_parts.append(f"    • `{f}`")
             if len(unique_edited) > 10:
                 summary_parts.append(f"    • ... and {len(unique_edited) - 10} more")
 
         if bash_commands:
-            summary_parts.append(f"  🖥️ Bash commands: {len(bash_commands)}")
+            summary_parts.append(f"   Bash commands: {len(bash_commands)}")
 
         if tools_used:
             tool_summary = ", ".join(f"{k}: {v}" for k, v in sorted(tools_used.items()))
-            summary_parts.append(f"  🔧 Tools: {tool_summary}")
+            summary_parts.append(f"   Tools: {tool_summary}")
 
-        summary_parts.append(f"  💰 Total cost: ${final_cost:.4f}")
+        summary_parts.append(f"   Total cost: ${final_cost:.4f}")
 
         post("\n".join(summary_parts))
 
@@ -478,25 +478,25 @@ for line in sys.stdin:
 # --- Codex end-of-session summary ---
 if _stream_format == "codex" and _codex_start_time:
     duration = time.time() - _codex_start_time
-    summary_parts = [f"✅ **Codex Session Complete** | {duration:.1f}s | ${cumulative_cost:.4f}"]
+    summary_parts = [f" **Codex Session Complete** | {duration:.1f}s | ${cumulative_cost:.4f}"]
     summary_parts.append("")
-    summary_parts.append("📊 **Session Summary**")
+    summary_parts.append(" **Session Summary**")
     if files_created:
         unique_created = sorted(set(files_created))
-        summary_parts.append(f"  📝 Created: {len(unique_created)} file(s)")
+        summary_parts.append(f"   Created: {len(unique_created)} file(s)")
         for f in unique_created[:10]:
             summary_parts.append(f"    • `{f}`")
     if files_edited:
         unique_edited = sorted(set(files_edited))
-        summary_parts.append(f"  ✏️ Edited: {len(unique_edited)} file(s)")
+        summary_parts.append(f"   Edited: {len(unique_edited)} file(s)")
         for f in unique_edited[:10]:
             summary_parts.append(f"    • `{f}`")
     if bash_commands:
-        summary_parts.append(f"  🖥️ Commands: {len(bash_commands)}")
+        summary_parts.append(f"   Commands: {len(bash_commands)}")
     if tools_used:
         tool_summary = ", ".join(f"{k}: {v}" for k, v in sorted(tools_used.items()))
-        summary_parts.append(f"  🔧 Tools: {tool_summary}")
-    summary_parts.append(f"  💰 Total cost: ${cumulative_cost:.4f}")
+        summary_parts.append(f"   Tools: {tool_summary}")
+    summary_parts.append(f"   Total cost: ${cumulative_cost:.4f}")
     post("\n".join(summary_parts))
 
 # Flush any remaining batched messages

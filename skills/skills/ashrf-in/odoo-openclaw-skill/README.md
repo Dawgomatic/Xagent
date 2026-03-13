@@ -2,7 +2,7 @@
 
 Production-grade Odoo accounting intelligence for OpenClaw with **native RPC reporting**, **IFRS-compliant financial statements**, **modern visualizations**, and **evidence-backed outputs**.
 
-> **⚠️ SECURITY NOTICE**: This skill requires Odoo credentials and implements strict read-only access. See [SECURITY.md](SECURITY.md) for full details.
+> ** SECURITY NOTICE**: This skill requires Odoo credentials and implements strict read-only access. See [SECURITY.md](SECURITY.md) for full details.
 
 ## Features
 

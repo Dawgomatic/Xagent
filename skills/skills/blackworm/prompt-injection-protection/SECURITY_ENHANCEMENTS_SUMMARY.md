@@ -63,7 +63,7 @@ The enhanced security features work with:
 
 ### When a suspicious command is detected:
 ```
-🚨 SECURITY ALERT: COMMAND_SECURITY_CHECK
+ SECURITY ALERT: COMMAND_SECURITY_CHECK
    Command: sudo rm -rf /
    Risks: COMMAND_PATTERN
    Action Required: CONFIRM_WITH_USER
@@ -71,7 +71,7 @@ The enhanced security features work with:
 
 ### When system file access is attempted:
 ```
-🚨 SECURITY ALERT: FILE_OPERATION_SECURITY_CHECK
+ SECURITY ALERT: FILE_OPERATION_SECURITY_CHECK
    File: /etc/passwd
    Operation: read
    Risks: SYSTEM_FILE_ACCESS

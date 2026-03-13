@@ -119,15 +119,15 @@ def detect_doc_type(filename: str) -> str:
 def format_results(results: Dict[str, Any]) -> str:
     """格式化搜索结果"""
     output = []
-    output.append(f"\n🔍 搜索: **{results['query']}**")
-    output.append(f"📚 类型: {results['type']}")
-    output.append(f"📊 结果: {results['total']} 篇文档\n")
+    output.append(f"\n 搜索: **{results['query']}**")
+    output.append(f" 类型: {results['type']}")
+    output.append(f" 结果: {results['total']} 篇文档\n")
     
     for i, r in enumerate(results["results"], 1):
         icon = get_type_icon(r["type"])
         output.append(f"{i}. {icon} **{r['file']}**")
-        output.append(f"   📁 {r['path']}")
-        output.append(f"   📝 {r['excerpt']}")
+        output.append(f"    {r['path']}")
+        output.append(f"    {r['excerpt']}")
         output.append("")
     
     return "\n".join(output)
@@ -135,14 +135,14 @@ def format_results(results: Dict[str, Any]) -> str:
 def get_type_icon(doc_type: str) -> str:
     """获取类型图标"""
     icons = {
-        "error": "❌",
-        "config": "⚙️",
-        "guide": "📖",
-        "cli": "💻",
-        "channel": "📱",
-        "general": "📄"
+        "error": "",
+        "config": "",
+        "guide": "",
+        "cli": "",
+        "channel": "",
+        "general": ""
     }
-    return icons.get(doc_type, "📄")
+    return icons.get(doc_type, "")
 
 def main():
     """CLI 入口"""

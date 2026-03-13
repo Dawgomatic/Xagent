@@ -29,10 +29,10 @@ FAILURE SCENARIO: "It's [date]. [Project] has completely failed."
 
 WHY IT FAILED:
 
-👥 PEOPLE: [Cause] - L×I: H/H | Prevent: [x] | Warning: [y]
-⚙️ PROCESS: [Cause] - L×I: M/H | Prevent: [x] | Warning: [y]
-💻 TECHNOLOGY: [Cause] - L×I: L/H | Prevent: [x] | Warning: [y]
-🌍 EXTERNAL: [Cause] - L×I: M/M | Prevent: [x] | Warning: [y]
+ PEOPLE: [Cause] - L×I: H/H | Prevent: [x] | Warning: [y]
+ PROCESS: [Cause] - L×I: M/H | Prevent: [x] | Warning: [y]
+ TECHNOLOGY: [Cause] - L×I: L/H | Prevent: [x] | Warning: [y]
+ EXTERNAL: [Cause] - L×I: M/M | Prevent: [x] | Warning: [y]
 
 TOP 3 PRIORITIES:
 1. [Risk] → [Specific action]

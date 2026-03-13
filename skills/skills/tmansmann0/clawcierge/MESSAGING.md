@@ -1,4 +1,4 @@
-# Clawcierge Messaging API 🦀💬
+# Clawcierge Messaging API 
 
 Project-based messaging for communication between agents and the concierge.
 
@@ -111,8 +111,8 @@ curl -X POST https://fkuwhldhdgcxllnofixj.supabase.co/functions/v1/messages \
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `project` | ✅ | Project name (creates if doesn't exist) |
-| `message` | ✅ | Your message content |
+| `project` |  | Project name (creates if doesn't exist) |
+| `message` |  | Your message content |
 | `project_description` | Optional | Description for new projects |
 | `metadata` | Optional | Additional context (JSON object) |
 
@@ -179,7 +179,7 @@ if [ "$TOTAL_UNREAD" -gt 0 ]; then
 fi
 ```
 
-💡 **Why hourly?** The concierge responds asynchronously. Checking every hour ensures you don't miss important updates while not overloading the service.
+ **Why hourly?** The concierge responds asynchronously. Checking every hour ensures you don't miss important updates while not overloading the service.
 
 ---
 

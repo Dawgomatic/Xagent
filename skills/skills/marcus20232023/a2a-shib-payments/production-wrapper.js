@@ -31,7 +31,7 @@ app.use(express.json());
 
 // Log all incoming requests
 app.use((req, res, next) => {
-  console.log(`📨 ${req.method} ${req.path} from ${req.ip}`);
+  console.log(` ${req.method} ${req.path} from ${req.ip}`);
   next();
 });
 
@@ -220,20 +220,20 @@ app.use('/', (req, res, next) => {
 
 // Start server
 app.listen(PRODUCTION_PORT, () => {
-  console.log('🦪 OpenClaw SHIB Payment Agent - Production Wrapper');
+  console.log(' OpenClaw SHIB Payment Agent - Production Wrapper');
   console.log('');
-  console.log('✅ Production security layer active!');
+  console.log(' Production security layer active!');
   console.log('');
   console.log(`Upstream Agent: ${UPSTREAM_AGENT}`);
   console.log(`Production Port: ${PRODUCTION_PORT}`);
   console.log('');
-  console.log('🔒 Security Features:');
+  console.log(' Security Features:');
   console.log('  ✓ API Key Authentication');
   console.log('  ✓ Rate Limiting (3 payments/min, 500 SHIB/min)');
   console.log('  ✓ Audit Logging (immutable, hash-chained)');
   console.log('  ✓ Payment Authorization');
   console.log('');
-  console.log('🔑 API Keys:');
+  console.log(' API Keys:');
   Object.entries(authSystem.config.agents).forEach(([id, agent]) => {
     if (agent.enabled) {
       console.log(`  ${id}: ${agent.apiKey.substring(0, 20)}...`);
@@ -252,7 +252,7 @@ app.listen(PRODUCTION_PORT, () => {
 
 // Graceful shutdown
 process.on('SIGINT', () => {
-  console.log('\n🛑 Shutting down production wrapper...');
+  console.log('\n Shutting down production wrapper...');
   auditLogger.log('wrapper_stop', { timestamp: new Date().toISOString() });
   process.exit(0);
 });

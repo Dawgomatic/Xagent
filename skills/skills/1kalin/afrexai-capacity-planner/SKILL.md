@@ -32,9 +32,9 @@ The agent will:
 ### Utilization Bands
 | Band | Rate | Meaning |
 |------|------|---------|
-| 🟢 Green | <70% | Healthy buffer for unplanned work |
-| 🟡 Yellow | 70-85% | Sustainable but tight |
-| 🔴 Red | >85% | Burnout zone — something will slip |
+|  Green | <70% | Healthy buffer for unplanned work |
+|  Yellow | 70-85% | Sustainable but tight |
+|  Red | >85% | Burnout zone — something will slip |
 
 ### Key Metrics
 - **Effective capacity** = headcount × available hours × efficiency factor (typically 0.7-0.8)
@@ -56,7 +56,7 @@ For each scenario, output:
 CAPACITY SNAPSHOT — [Date]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 Team: [size] | Utilization: [%] | Buffer: [%]
-Status: 🟢/🟡/🔴
+Status: //
 
 CURRENT COMMITMENTS
 - [Project A]: [X people, Y hours/week, end date]

@@ -2,7 +2,7 @@
 name: godaddy
 description: Complete GoDaddy API skill with shell scripts + MCP server for domains, DNS, certificates, shoppers, subscriptions, agreements, countries, and aftermarket listings.
 homepage: https://developer.godaddy.com/doc
-metadata: {"openclaw": {"emoji": "🌐", "requires": {"bins": ["bash", "curl", "jq", "node", "npm"]}}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["bash", "curl", "jq", "node", "npm"]}}}
 ---
 
 # GoDaddy API

@@ -7,7 +7,7 @@ metadata:
   {
     "openclaw":
       { 
-        "emoji": "📰",
+        "emoji": "",
         "requires": { "bins": ["newsboat", "sqlite3", "pandoc"] }
       }
   }

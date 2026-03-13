@@ -61,7 +61,7 @@ def performance_log():
         print("PERFORMANCE SUMMARY")
         print("=" * 60)
         for m in measurements:
-            status = "✅" if m['passed_target'] else "❌"
+            status = "" if m['passed_target'] else ""
             print(f"{status} {m['test']}: {m['time_ms']:.2f}ms (target: <{m['target_ms']}ms)")
         print("=" * 60)
 
@@ -1048,7 +1048,7 @@ def generate_build_log_entry(measurements: list) -> str:
 """
     
     for m in measurements:
-        status = "✅" if m['passed_target'] else "⚠️"
+        status = "" if m['passed_target'] else ""
         entry += f"- {m['test']}: {m['time_ms']:.1f}ms (target: <{m['target_ms']}ms) {status}\n"
     
     entry += """

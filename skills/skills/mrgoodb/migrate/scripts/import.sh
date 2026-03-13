@@ -53,7 +53,7 @@ if [ ! -f "$ARCHIVE" ]; then
     exit 1
 fi
 
-echo -e "${GREEN}🚀 Clawdbot Import${NC}"
+echo -e "${GREEN} Clawdbot Import${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # Create temp extraction directory
@@ -72,7 +72,7 @@ fi
 
 # Check for existing installations
 if [ -d "$WORKSPACE" ] && [ "$FORCE" = false ]; then
-    echo -e "${YELLOW}⚠ Workspace already exists: $WORKSPACE${NC}"
+    echo -e "${YELLOW} Workspace already exists: $WORKSPACE${NC}"
     read -p "  Merge/overwrite? [y/N] " -n 1 -r
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -82,7 +82,7 @@ if [ -d "$WORKSPACE" ] && [ "$FORCE" = false ]; then
 fi
 
 if [ -d "$CONFIG_DIR" ] && [ "$FORCE" = false ]; then
-    echo -e "${YELLOW}⚠ Config directory already exists: $CONFIG_DIR${NC}"
+    echo -e "${YELLOW} Config directory already exists: $CONFIG_DIR${NC}"
     read -p "  Merge/overwrite? [y/N] " -n 1 -r
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then

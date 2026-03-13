@@ -23,7 +23,7 @@
 
 | Period | Weather | Crowds | Prices |
 |--------|---------|--------|--------|
-| **Sep-Oct** ⭐ | Perfect (60-75°F), foliage | Moderate | Moderate |
+| **Sep-Oct**  | Perfect (60-75°F), foliage | Moderate | Moderate |
 | **Apr-May** | Pleasant, blooms | Moderate | Moderate |
 | **Early Dec** | Cold but festive | High (holidays) | High |
 | **Jan-Mar** | Cold, grey | Low | Cheapest |

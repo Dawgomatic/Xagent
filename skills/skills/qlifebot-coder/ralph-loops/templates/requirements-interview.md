@@ -23,7 +23,7 @@ When human says:
 
 1. **State the phase clearly:** "Starting Phase 1: Requirements Interview for [system name]"
 2. **Work through steps sequentially:** JTBD → Topics → Deep dive each → Write specs
-3. **Confirm each step before moving on:** "JTBD captured ✅ — now let's break into topics..."
+3. **Confirm each step before moving on:** "JTBD captured  — now let's break into topics..."
 4. **Show progress against checklist:** Track what's done/remaining out loud
 5. **Get explicit approval:** "All specs written. Ready to approve and move to planning?"
 
@@ -40,7 +40,7 @@ Stop when ALL of these are true:
 
 ### Transition to Phase 2
 
-Say: "Phase 1 complete ✅ — specs approved. Ready to run planning? This will generate IMPLEMENTATION_PLAN.md with prioritized tasks."
+Say: "Phase 1 complete  — specs approved. Ready to run planning? This will generate IMPLEMENTATION_PLAN.md with prioritized tasks."
 
 If yes → Run `./loop.sh plan` or spawn sub-agent for planning loop.
 

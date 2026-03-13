@@ -4,38 +4,38 @@ Stub implementation of a yield farming vault contract compatible with the BNB Te
 
 ---
 
-## 📋 Overview
+##  Overview
 
 **Network:** BNB Testnet  
 **Chain ID:** 97  
 **Solidity Version:** 0.8.24  
-**Status:** ✅ Ready for Deployment  
+**Status:**  Ready for Deployment  
 
 ### Key Features
 
-✅ **Core Functions**
+ **Core Functions**
 - `deposit(amount)` - Deposit tokens and receive shares
 - `withdraw(shares)` - Burn shares and withdraw tokens
 - `harvest()` - Claim yields without reinvesting
 - `compound()` - Reinvest yields as new shares
 
-✅ **Agent Events** (required by yield farming agent)
+ **Agent Events** (required by yield farming agent)
 - `ExecutionRecorded` - Tracks all vault actions with vault_id, action, user, amount, shares
 - `ActionExecuted` - Records success/failure status of actions
 
-✅ **Data Compatibility**
+ **Data Compatibility**
 - Compatible with `mockdata.json` vault structure
 - Supports vault_id, token addresses, shares, and amounts
 - Integrates with 8 predefined vault configurations
 
-✅ **Admin Functions**
+ **Admin Functions**
 - Pause/unpause vault (emergency)
 - Fee management (5% default, adjustable)
 - Ownership transfer
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Install Dependencies
 
@@ -77,12 +77,12 @@ npm run deploy:testnet
 
 **Output:**
 ```
-🚀 YieldVault Multi-Vault Deployment
+ YieldVault Multi-Vault Deployment
 ====================================
 Deployer: 0x...
 
-📝 Deploying vault_bnb_lp_001...
-   ✅ Deployed to: 0x1234567890123456789012345678901234567890
+ Deploying vault_bnb_lp_001...
+    Deployed to: 0x1234567890123456789012345678901234567890
 ```
 
 ### 6. Verify on BscScan (Optional)
@@ -93,7 +93,7 @@ npm run verify 0x1234567890123456789012345678901234567890
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 contracts/
@@ -122,7 +122,7 @@ contracts/
 
 ---
 
-## 🛠️ Available Commands
+##  Available Commands
 
 | Command | Description |
 |---------|-------------|
@@ -137,7 +137,7 @@ contracts/
 
 ---
 
-## 📝 Contract Details
+##  Contract Details
 
 ### Constructor
 
@@ -217,7 +217,7 @@ function compound()
 
 ---
 
-## 📡 Events
+##  Events
 
 ### ExecutionRecorded
 
@@ -260,7 +260,7 @@ event ActionExecuted(
 
 ---
 
-## 🔌 Integration with Yield Farming Agent
+##  Integration with Yield Farming Agent
 
 ### 1. Import ABI
 
@@ -319,7 +319,7 @@ contract.on('ExecutionRecorded', (vaultId, action, user, amount, shares, timesta
 
 ---
 
-## 🔗 Vault Configurations (from mockdata.json)
+##  Vault Configurations (from mockdata.json)
 
 The contract is preconfigured with 8 vault types:
 
@@ -338,7 +338,7 @@ Deploy multiple vault instances, one per vault type.
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Run Tests
 
@@ -379,7 +379,7 @@ describe("YieldVault", function () {
 
 ---
 
-## 🌐 BNB Testnet Resources
+##  BNB Testnet Resources
 
 **Faucet:** https://testnet.binance.org/faucet-smart-chain  
 **Explorer:** https://testnet.bscscan.com  
@@ -388,7 +388,7 @@ describe("YieldVault", function () {
 
 ---
 
-## 📊 Gas Estimates
+##  Gas Estimates
 
 | Function | Gas (approx) | Cost @ 10 Gwei (tBNB) |
 |----------|--------------|----------------------|
@@ -400,9 +400,9 @@ describe("YieldVault", function () {
 
 ---
 
-## 🔒 Security Notes
+##  Security Notes
 
-⚠️ **This is a stub implementation for agent integration testing.**
+ **This is a stub implementation for agent integration testing.**
 
 - NOT audited for production use
 - Limited error handling
@@ -419,7 +419,7 @@ describe("YieldVault", function () {
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 - **DEPLOYMENT.md** - Step-by-step deployment guide
 - **ABI_USAGE.md** - API reference and integration examples
@@ -427,7 +427,7 @@ describe("YieldVault", function () {
 
 ---
 
-## 🤝 Support
+##  Support
 
 For questions or issues:
 
@@ -438,7 +438,7 @@ For questions or issues:
 
 ---
 
-## ✨ Deployment Checklist
+##  Deployment Checklist
 
 - [ ] Copy `.env.example` to `.env`
 - [ ] Fill in `DEPLOYER_ADDRESS` and `PRIVATE_KEY`
@@ -454,5 +454,5 @@ For questions or issues:
 ---
 
 **Created:** 2026-02-17  
-**Status:** ✅ Ready for Agent Integration  
+**Status:**  Ready for Agent Integration  
 **Network:** BNB Testnet (chainId: 97)

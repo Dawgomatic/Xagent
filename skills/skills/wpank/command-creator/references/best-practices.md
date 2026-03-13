@@ -11,13 +11,13 @@ Commands are executed by AI agents, so optimize for autonomous execution.
 **ALWAYS use imperative/infinitive form** (verb-first instructions), not second person.
 
 ```markdown
-✅ CORRECT:
+ CORRECT:
 
 - "Run git status to check current branch"
 - "Check if .PLAN.md exists before proceeding"
 - "Use the Task tool with Bash tool"
 
-❌ WRONG:
+ WRONG:
 
 - "You should run git status"
 - "You need to check if .PLAN.md exists"
@@ -29,13 +29,13 @@ Commands are executed by AI agents, so optimize for autonomous execution.
 Be explicit and specific, not vague.
 
 ```markdown
-✅ CORRECT:
+ CORRECT:
 
 - "Run make lint to check for linting errors"
 - "Read src/config.py lines 45-67 to understand the config structure"
 - "Use Edit tool to replace 'List[str]' with 'list[str]'"
 
-❌ WRONG:
+ WRONG:
 
 - "Check for errors"
 - "Look at the config file"
@@ -47,13 +47,13 @@ Be explicit and specific, not vague.
 Include what should happen after each action.
 
 ```markdown
-✅ CORRECT:
+ CORRECT:
 
 - "Run git status - this should show modified files in src/ directory"
 - "After running make format, all Python files should be formatted"
 - "The output should contain PR URLs for each submitted branch"
 
-❌ WRONG:
+ WRONG:
 
 - "Run git status"
 - "Run make format"
@@ -65,13 +65,13 @@ Include what should happen after each action.
 Provide realistic examples, not placeholders like foo/bar.
 
 ```markdown
-✅ CORRECT:
+ CORRECT:
 
 - "Example: `git commit -m 'Add user authentication with OAuth2'`"
 - "Example: `/submit-stack 'Implement caching for API responses'`"
 - "If error shows: `src/erk/cli/commands/init.py:45: Type error`"
 
-❌ WRONG:
+ WRONG:
 
 - "Example: `git commit -m 'foo bar'`"
 - "Example: `/submit-stack 'something'`"
@@ -430,13 +430,13 @@ Before finalizing a command, verify:
 
 ### 1. Vague Instructions
 
-❌ **WRONG:**
+ **WRONG:**
 
 ```markdown
 Fix any errors that appear
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 
 ```markdown
 If lint errors appear:
@@ -448,7 +448,7 @@ If lint errors appear:
 
 ### 2. Missing Error Handling
 
-❌ **WRONG:**
+ **WRONG:**
 
 ```markdown
 Run make all-ci
@@ -456,7 +456,7 @@ Apply fixes
 Done
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 
 ```markdown
 Run make all-ci
@@ -475,13 +475,13 @@ If exit code is non-zero:
 
 ### 3. Ambiguous Conditionals
 
-❌ **WRONG:**
+ **WRONG:**
 
 ```markdown
 Check if file exists and do something
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 
 ```markdown
 Check if .PLAN.md exists:
@@ -499,13 +499,13 @@ If file does not exist:
 
 ### 4. Batch Operations
 
-❌ **WRONG:**
+ **WRONG:**
 
 ```markdown
 Fix all the errors, then mark all todos as completed
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 
 ```markdown
 For each error category:
@@ -519,13 +519,13 @@ Do NOT batch todo completions at the end
 
 ### 5. Tool Confusion
 
-❌ **WRONG:**
+ **WRONG:**
 
 ```markdown
 Use an agent to run make
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 
 ```markdown
 Use Bash tool to run make commands:
@@ -539,13 +539,13 @@ DO NOT use Bash tool for make commands
 
 ### 6. Missing Context
 
-❌ **WRONG:**
+ **WRONG:**
 
 ```markdown
 Create a commit and submit PRs
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 
 ```markdown
 ### 1. Check for Context Files
@@ -572,7 +572,7 @@ Run: gt submit --stack --publish --no-edit
 
 ### 7. Poor Descriptions
 
-❌ **WRONG:**
+ **WRONG:**
 
 ```yaml
 ---
@@ -580,7 +580,7 @@ description: A command that helps with CI stuff
 ---
 ```
 
-✅ **CORRECT:**
+ **CORRECT:**
 
 ```yaml
 ---

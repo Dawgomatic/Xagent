@@ -185,7 +185,7 @@ class ConversationBuffer:
         
         context_parts = []
         for turn in recent:
-            prefix = "👤" if turn.turn_type == "user" else "🤖" if turn.turn_type == "assistant" else "⚙️"
+            prefix = "" if turn.turn_type == "user" else "" if turn.turn_type == "assistant" else ""
             context_parts.append(f"{prefix} {turn.speaker}: {turn.content}")
         
         return "\n".join(context_parts)

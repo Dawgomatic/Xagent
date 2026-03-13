@@ -251,7 +251,7 @@ def list_speakers(as_json: bool = False):
         print()
     else:
         for s in speakers:
-            status = "🟢" if s["connected"] else "⚪"
+            status = "" if s["connected"] else ""
             tag = ""
             if s["configured"]:
                 tag = " [configured]"

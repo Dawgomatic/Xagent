@@ -98,7 +98,7 @@ notify() {
 error_exit() {
     local error_message="$1"
     log "ERROR: $error_message"
-    notify "❌ Claude token refresh failed: $error_message" "failure"
+    notify " Claude token refresh failed: $error_message" "failure"
     exit 1
 }
 
@@ -167,7 +167,7 @@ while IFS= read -r account; do
         log "✓ Found complete OAuth tokens in this entry"
         break
     else
-        log "  ⚠ Entry incomplete or invalid, continuing..."
+        log "   Entry incomplete or invalid, continuing..."
     fi
 done <<< "$ALL_ACCOUNTS"
 
@@ -200,7 +200,7 @@ TIME_LEFT_MIN=$((TIME_LEFT_MS / 60000))
 
 if [[ "$FORCE_REFRESH" == "false" ]] && [[ $TIME_LEFT_MIN -gt $REFRESH_BUFFER ]]; then
     log "Token still valid for ${TIME_LEFT_MIN} minutes (buffer: ${REFRESH_BUFFER}m)"
-    echo "✅ Token still valid ($TIME_LEFT_MIN minutes remaining)"
+    echo " Token still valid ($TIME_LEFT_MIN minutes remaining)"
     echo "Use --force to refresh anyway"
     exit 0
 fi
@@ -289,11 +289,11 @@ security add-generic-password -s "$KEYCHAIN_SERVICE" -a "$KEYCHAIN_ACCOUNT" -w "
 log "✓ Keychain updated"
 log "Refresh complete"
 
-notify "✅ Claude token refreshed!
+notify " Claude token refreshed!
 New expiry: $NEW_EXPIRES_TIME
 Next refresh: ~$((EXPIRES_IN / 3600 - REFRESH_BUFFER / 60))h" "success"
 
 echo ""
-echo "✅ Token refreshed successfully!"
+echo " Token refreshed successfully!"
 echo "New expiry: $NEW_EXPIRES_TIME"
 echo "Expires in: $((EXPIRES_IN / 3600)) hours"

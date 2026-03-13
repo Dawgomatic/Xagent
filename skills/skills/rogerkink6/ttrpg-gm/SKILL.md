@@ -11,7 +11,7 @@ triggers:
   - pattern: "(?i)(Witcher|Cyberpunk ?2077|Altered ?Carbon|Shadowrun|Vampire.*Masquerade|Warhammer ?40k|Mass ?Effect|Blade ?Runner|Fallout|Dune|Game ?of ?Thrones).*(campaign|play|run|adventure)"
   - pattern: "(?i)(be my|act as|you are).*(gm|game ?master|dungeon ?master|narrator)"
   - pattern: "(?i)continue.*(our|my|the).*(campaign|adventure|game|session)"
-metadata: {"openclaw":{"os":["darwin","linux","win32"],"emoji":"🎲","tags":["ttrpg","rpg","gamemaster","narrative","cyberpunk","fantasy","horror"]}}
+metadata: {"openclaw":{"os":["darwin","linux","win32"],"emoji":"","tags":["ttrpg","rpg","gamemaster","narrative","cyberpunk","fantasy","horror"]}}
 ---
 
 # TTRPG Master - Narrative Engine
@@ -158,9 +158,9 @@ Every companion has:
 **Track in campaign file:**
 ```markdown
 ## NPC-NPC Relationships
-- **Kira** ↔ **Marcus**: Tension (old rivalry from mercenary days)
-- **Kira** ↔ **Jin**: Trust (worked a job together, saved each other)
-- **Marcus** ↔ **Jin**: Neutral (no history, cautious respect)
+- **Kira**  **Marcus**: Tension (old rivalry from mercenary days)
+- **Kira**  **Jin**: Trust (worked a job together, saved each other)
+- **Marcus**  **Jin**: Neutral (no history, cautious respect)
 ```
 
 **Gameplay implications:**
@@ -506,8 +506,8 @@ Measures the gap between the character's **claimed identity** and their **actual
 
 **CRITICAL: NEVER Play-by-Player**
 
-❌ **WRONG:** Player says "I accept the deal" → GM describes the entire scene, signing papers, shaking hands, leaving
-✅ **CORRECT:** Player says "I accept the deal" → GM describes the moment of acceptance, then STOPS. Player chooses what happens next.
+ **WRONG:** Player says "I accept the deal" → GM describes the entire scene, signing papers, shaking hands, leaving
+ **CORRECT:** Player says "I accept the deal" → GM describes the moment of acceptance, then STOPS. Player chooses what happens next.
 
 **Rule:** Describe narratively what the player DOES, then STOP before:
 - NPC reactions/dialogue
@@ -520,8 +520,8 @@ Measures the gap between the character's **claimed identity** and their **actual
 
 **When Player Action is Vague: ASK, Don't Assume**
 
-❌ **WRONG:** Player says "I go into the street" → GM assumes they want to explore provocatively, describes entire encounter
-✅ **CORRECT:** Player says "I go into the street" → GM asks: "How are you dressed? What look are you going for? Subtle? Open? Provocative?"
+ **WRONG:** Player says "I go into the street" → GM assumes they want to explore provocatively, describes entire encounter
+ **CORRECT:** Player says "I go into the street" → GM asks: "How are you dressed? What look are you going for? Subtle? Open? Provocative?"
 
 **Rule:** If intent, appearance, or approach is unclear, ASK the player for clarification. Don't guess.
 
@@ -1019,7 +1019,7 @@ SETTINGS:
 
 ## NPC-NPC Relationships
 <!-- NPC_NPC_START -->
-- **[NPC A]** ↔ **[NPC B]**: [Relationship type] - [Brief note]
+- **[NPC A]**  **[NPC B]**: [Relationship type] - [Brief note]
 <!-- NPC_NPC_END -->
 
 ## Locations Discovered

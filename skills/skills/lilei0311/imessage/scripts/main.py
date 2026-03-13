@@ -213,7 +213,7 @@ class SecurityManager:
         if self.is_trusted_contact(phone):
             return True
         
-        print(f"\n⚠️  安全警告", file=sys.stderr)
+        print(f"\n  安全警告", file=sys.stderr)
         print(f"您正在向非可信联系人发送消息:", file=sys.stderr)
         print(f"  接收者: {phone}", file=sys.stderr)
         print(f"  消息内容: {message[:50]}{'...' if len(message) > 50 else ''}", file=sys.stderr)

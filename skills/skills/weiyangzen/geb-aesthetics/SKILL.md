@@ -171,10 +171,10 @@ When misalignment detected:
 ### 4.3 Cross-Domain Isomorphisms
 
 **Music-Visual-Narrative Mappings**:
-- Rhythm ↔ Editing pace
-- Harmony ↔ Color palette
-- Melody ↔ Camera movement
-- Tension-Resolution ↔ Plot structure
+- Rhythm  Editing pace
+- Harmony  Color palette
+- Melody  Camera movement
+- Tension-Resolution  Plot structure
 
 ---
 
@@ -234,7 +234,7 @@ geb-aesthetics export --format finaldraft --format pdf
 
 ## 8. License
 
-MIT © Weiyang ([@weiyangzen](https://github.com/weiyangzen))
+MIT  Weiyang ([@weiyangzen](https://github.com/weiyangzen))
 
 ---
 

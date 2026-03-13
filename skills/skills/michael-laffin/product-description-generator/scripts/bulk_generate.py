@@ -43,7 +43,7 @@ def bulk_generate(csv_path: str, platform: str, output_dir: str) -> None:
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(description)
 
-            print(f"✅ Generated: {filename}")
+            print(f" Generated: {filename}")
 
 
 def main():

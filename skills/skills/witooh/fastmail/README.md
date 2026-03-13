@@ -4,7 +4,7 @@ OpenCode skill for managing Fastmail email and calendar via JMAP and CalDAV APIs
 
 ## Features
 
-🔹 **9 Email Management Tools:**
+ **9 Email Management Tools:**
 
 | Tool | Description |
 |------|-------------|
@@ -18,7 +18,7 @@ OpenCode skill for managing Fastmail email and calendar via JMAP and CalDAV APIs
 | `set_labels` | Set labels/keywords ($seen, $flagged, etc.) |
 | `delete_email` | Delete email (move to trash) |
 
-🔹 **8 Calendar Management Tools:**
+ **8 Calendar Management Tools:**
 
 | Tool | Description |
 |------|-------------|
@@ -31,7 +31,7 @@ OpenCode skill for managing Fastmail email and calendar via JMAP and CalDAV APIs
 | `search_events` | Search events by title/description |
 | `create_recurring_event` | Create recurring event |
 
-🔹 **4 Reminder/Alarm Tools:**
+ **4 Reminder/Alarm Tools:**
 
 | Tool | Description |
 |------|-------------|
@@ -325,11 +325,11 @@ bun run build
 
 ## Security
 
-- ✅ API token via environment variable (never hardcoded)
-- ✅ App password for calendar (separate from main password)
-- ✅ HTTPS for all API calls
-- ✅ No sensitive data in logs
-- ⚠️ Tokens have full account access - keep them secret!
+-  API token via environment variable (never hardcoded)
+-  App password for calendar (separate from main password)
+-  HTTPS for all API calls
+-  No sensitive data in logs
+-  Tokens have full account access - keep them secret!
 
 **Best practices:**
 - Use `.env` file (add to `.gitignore`)
@@ -357,4 +357,4 @@ Part of OpenCode project - follows project licensing.
 
 ---
 
-Built with ❤️ using JMAP, CalDAV, and TypeScript
+Built with  using JMAP, CalDAV, and TypeScript

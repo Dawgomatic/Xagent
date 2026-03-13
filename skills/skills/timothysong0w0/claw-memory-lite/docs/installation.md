@@ -164,7 +164,7 @@ chmod -R u+w /home/node/.openclaw/database
 ### No Memories Extracted
 
 ```
-✅ All daily memory files have been processed.
+ All daily memory files have been processed.
 ```
 
 **Solution**: This is normal if all files are already processed. Add new content to `memory/*.md` files or run with `--force` flag to re-process.

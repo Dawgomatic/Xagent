@@ -109,7 +109,7 @@ This skill uses the following OpenClaw tools:
 
 ## Security Requirements
 
-⚠️ **MUST follow these security defaults:**
+ **MUST follow these security defaults:**
 
 1. **Keep secrets out of prompts** - Pass via env/config only
 2. **Use strict tool allowlists** - Only enable `web_*` tools when actively scouting
@@ -123,7 +123,7 @@ This skill uses the following OpenClaw tools:
 ┌─────────────────────────────────────────────────────────────────┐
 │                     DISCOVERY PHASE                             │
 │  ┌──────────┐    ┌──────────┐    ┌──────────┐                  │
-│  │web_search│───▶│ Filter   │───▶│ Dedupe   │                  │
+│  │web_search│───│ Filter   │───│ Dedupe   │                  │
 │  │ (venues) │    │ Results  │    │ & Queue  │                  │
 │  └──────────┘    └──────────┘    └──────────┘                  │
 └─────────────────────────────────────────────────────────────────┘
@@ -132,7 +132,7 @@ This skill uses the following OpenClaw tools:
 ┌─────────────────────────────────────────────────────────────────┐
 │                     ENRICHMENT PHASE                            │
 │  ┌──────────┐    ┌──────────┐    ┌──────────┐                  │
-│  │web_fetch │───▶│ Extract  │───▶│ Validate │                  │
+│  │web_fetch │───│ Extract  │───│ Validate │                  │
 │  │ (pages)  │    │ Signals  │    │ Evidence │                  │
 │  └──────────┘    └──────────┘    └──────────┘                  │
 └─────────────────────────────────────────────────────────────────┘
@@ -141,7 +141,7 @@ This skill uses the following OpenClaw tools:
 ┌─────────────────────────────────────────────────────────────────┐
 │                     RANKING PHASE                               │
 │  ┌──────────┐    ┌──────────┐    ┌──────────┐                  │
-│  │  Score   │───▶│  Rank    │───▶│  Top K   │                  │
+│  │  Score   │───│  Rank    │───│  Top K   │                  │
 │  │ Heuristic│    │  Sort    │    │ Selection│                  │
 │  └──────────┘    └──────────┘    └──────────┘                  │
 └─────────────────────────────────────────────────────────────────┘
@@ -150,7 +150,7 @@ This skill uses the following OpenClaw tools:
 ┌─────────────────────────────────────────────────────────────────┐
 │                     DRAFTING PHASE                              │
 │  ┌──────────┐    ┌──────────┐    ┌──────────┐                  │
-│  │  Draft   │───▶│  Review  │───▶│  Output  │                  │
+│  │  Draft   │───│  Review  │───│  Output  │                  │
 │  │ Messages │    │  Tone    │    │  Brief   │                  │
 │  └──────────┘    └──────────┘    └──────────┘                  │
 └─────────────────────────────────────────────────────────────────┘
@@ -172,19 +172,19 @@ See `examples/sample_run.md` for a sample report.
 
 ### Hard Requirements (discard if missing)
 
-- ✅ At least 2 evidence URLs per candidate
-- ✅ Clear reason mapping to your `ask`
-- ✅ Last activity within N days (configurable, default 30)
+-  At least 2 evidence URLs per candidate
+-  Clear reason mapping to your `ask`
+-  Last activity within N days (configurable, default 30)
 
 ### Risk Flags
 
 Candidates are flagged if they exhibit:
 
-- 🟡 `low_evidence` - Fewer than expected signals
-- 🟡 `spammy_language` - Promotional or suspicious content
-- 🟡 `unclear_identity` - Cannot verify who they are
-- 🟡 `too_salesy` - Overly promotional content
-- 🟡 `irrelevant` - Weak connection to your ask
+-  `low_evidence` - Fewer than expected signals
+-  `spammy_language` - Promotional or suspicious content
+-  `unclear_identity` - Cannot verify who they are
+-  `too_salesy` - Overly promotional content
+-  `irrelevant` - Weak connection to your ask
 
 ## Ranking Heuristic (v1)
 

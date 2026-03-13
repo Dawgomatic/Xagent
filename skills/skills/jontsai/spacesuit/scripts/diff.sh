@@ -15,7 +15,7 @@ VERSION="$(cat "$SPACESUIT_DIR/VERSION")"
 
 WORKSPACE="${1:-$(cd "$SPACESUIT_DIR/../.." && pwd)}"
 
-echo "🔍 Spacesuit Diff — v${VERSION}"
+echo " Spacesuit Diff — v${VERSION}"
 echo "   Workspace: $WORKSPACE"
 
 # Check installed version
@@ -54,7 +54,7 @@ for section in "${!SECTION_MAP[@]}"; do
   end_marker="<!-- SPACESUIT:END -->"
 
   if [[ ! -f "$target_file" ]]; then
-    echo "  ⚠️  ${TARGET_MAP[$section]} — not found in workspace"
+    echo "    ${TARGET_MAP[$section]} — not found in workspace"
     continue
   fi
 
@@ -63,7 +63,7 @@ for section in "${!SECTION_MAP[@]}"; do
   fi
 
   if ! grep -qF "$begin_marker" "$target_file"; then
-    echo "  📌 ${TARGET_MAP[$section]} — no SPACESUIT markers (would add on upgrade)"
+    echo "   ${TARGET_MAP[$section]} — no SPACESUIT markers (would add on upgrade)"
     ((DIFFS++))
     continue
   fi
@@ -77,10 +77,10 @@ for section in "${!SECTION_MAP[@]}"; do
 
   # Compare with base
   if diff <(echo "$current_section") "$base_file" > /dev/null 2>&1; then
-    echo "  ✅ ${TARGET_MAP[$section]} — up to date"
+    echo "   ${TARGET_MAP[$section]} — up to date"
   else
     echo ""
-    echo "  📝 ${TARGET_MAP[$section]} — differences found:"
+    echo "   ${TARGET_MAP[$section]} — differences found:"
     diff --unified=3 <(echo "$current_section") "$base_file" | head -60 || true
     echo ""
     ((DIFFS++))
@@ -89,7 +89,7 @@ done
 
 echo ""
 if [[ $DIFFS -eq 0 ]]; then
-  echo "✅ Everything up to date! No changes needed."
+  echo " Everything up to date! No changes needed."
 else
-  echo "📊 $DIFFS file(s) have changes. Run upgrade.sh to apply."
+  echo " $DIFFS file(s) have changes. Run upgrade.sh to apply."
 fi

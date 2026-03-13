@@ -9,17 +9,17 @@ API_BASE="http://localhost:8082"
 
 # Read auth cookie
 if [[ ! -f "$MORPHEUS_DIR/.cookie" ]]; then
-  echo "❌ .cookie file not found. Is the proxy-router running?" >&2
+  echo " .cookie file not found. Is the proxy-router running?" >&2
   exit 1
 fi
 COOKIE_PASS=$(cat "$MORPHEUS_DIR/.cookie" | cut -d: -f2)
 
-echo "🦋 Morpheus Balance Report"
+echo " Morpheus Balance Report"
 echo "=========================="
 echo ""
 
 # MOR and ETH balance
-echo "💰 Wallet Balance:"
+echo " Wallet Balance:"
 BALANCE=$(curl -s -u "admin:$COOKIE_PASS" "${API_BASE}/blockchain/balance" 2>/dev/null || echo "{}")
 
 MOR_WEI=$(echo "$BALANCE" | jq -r '.mor // .MOR // "0"' 2>/dev/null || echo "0")
@@ -43,7 +43,7 @@ fi
 echo ""
 
 # Allowance
-echo "✅ MOR Allowance (Diamond contract):"
+echo " MOR Allowance (Diamond contract):"
 ALLOWANCE=$(curl -s -u "admin:$COOKIE_PASS" "${API_BASE}/blockchain/allowance?spender=0x6aBE1d282f72B474E54527D93b979A4f64d3030a" 2>/dev/null || echo "{}")
 ALLOWANCE_VAL=$(echo "$ALLOWANCE" | jq -r '.allowance // .Allowance // empty' 2>/dev/null || echo "unknown")
 if [[ -n "$ALLOWANCE_VAL" && "$ALLOWANCE_VAL" != "null" && "$ALLOWANCE_VAL" != "unknown" ]]; then
@@ -56,7 +56,7 @@ fi
 echo ""
 
 # Active sessions
-echo "📋 Active Sessions:"
+echo " Active Sessions:"
 SESSIONS=$(curl -s -u "admin:$COOKIE_PASS" "${API_BASE}/blockchain/sessions" 2>/dev/null || echo "[]")
 
 SESSION_COUNT=$(echo "$SESSIONS" | jq 'if type == "array" then length elif type == "object" and has("sessions") then .sessions | length else 0 end' 2>/dev/null || echo "0")
@@ -74,5 +74,5 @@ else
 fi
 
 echo ""
-echo "🔗 API: ${API_BASE}"
-echo "📖 Swagger: ${API_BASE}/swagger/index.html"
+echo " API: ${API_BASE}"
+echo " Swagger: ${API_BASE}/swagger/index.html"

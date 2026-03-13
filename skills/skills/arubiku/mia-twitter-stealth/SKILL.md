@@ -11,10 +11,10 @@ tags:
   - social-media
 metadata:
   clawdbot:
-    emoji: 🕵️‍♀️
+    emoji: 
 ---
 
-# Mia Twitter Stealth 🕵️‍♀️
+# Mia Twitter Stealth 
 
 Twitter/X automation with advanced stealth techniques to avoid bot detection.
 

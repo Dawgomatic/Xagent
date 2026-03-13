@@ -3,7 +3,7 @@ name: standard-agentic-commerce-engine
 version: 1.4.8
 description: A production-ready universal engine for Agentic Commerce. This tool enables autonomous agents to interact with any compatible headless e-commerce backend through a standardized protocol. It provides out-of-the-box support for discovery, cart operations, and secure user management.
 tags: [ecommerce, shopping-agent, commerce-engine, standard-protocol, headless-commerce, agentic-web]
-metadata: {"clawdbot":{"emoji":"🛒","requires":{"bins":["python3"],"tools":["web_search","web_fetch"],"env":[{"name":"COMMERCE_URL","description":"Target API base URL"},{"name":"COMMERCE_BRAND_ID","description":"Unique slug for the brand"}],"paths":["~/.clawdbot/credentials/agent-commerce-engine/"]},"install":[{"id":"python-deps","kind":"pip","package":"requests","label":"Install Python dependencies"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"],"tools":["web_search","web_fetch"],"env":[{"name":"COMMERCE_URL","description":"Target API base URL"},{"name":"COMMERCE_BRAND_ID","description":"Unique slug for the brand"}],"paths":["~/.clawdbot/credentials/agent-commerce-engine/"]},"install":[{"id":"python-deps","kind":"pip","package":"requests","label":"Install Python dependencies"}]}}
 ---
 
 # Standard Agentic Commerce Engine
@@ -17,7 +17,7 @@ GitHub Repository: https://github.com/NowLoadY/agent-commerce-engine
 For a production-grade implementation example using this engine, see the [Lafeitu Gourmet Skill](https://clawdhub.com/NowLoadY/agentic-spicy-food). It demonstrates the engine specialized for a real-world artisanal food brand.
 
 ---
-## 🔒 Security & Privacy
+##  Security & Privacy
 
 To ensure transparency and protect user data, the Standard Agentic Commerce Engine follows these security protocols:
 
@@ -38,7 +38,7 @@ To ensure transparency and protect user data, the Standard Agentic Commerce Engi
 
 ---
 
-## 🛠 Tool Priority & Fallback Strategy
+##  Tool Priority & Fallback Strategy
 
 To provide the most accurate and efficient experience, follow this priority sequence:
 
@@ -48,7 +48,7 @@ To provide the most accurate and efficient experience, follow this priority sequ
 
 ---
 
-## 🧠 Agent Operational Logic
+##  Agent Operational Logic
 
 Follow these logical flows to ensure a high-quality user experience:
 
@@ -90,7 +90,7 @@ Follow these logical flows to ensure a high-quality user experience:
 
 ---
 
-## 🚀 Capabilities Summary
+##  Capabilities Summary
 
 - **`search` / `list`**: Product discovery and inventory scan.
 - **`get`**: Deep dive into product specifications, variants, and pricing.
@@ -103,7 +103,7 @@ Follow these logical flows to ensure a high-quality user experience:
 
 ---
 
-## 💻 CLI Configuration & Examples
+##  CLI Configuration & Examples
 
 ```bash
 # Setup
@@ -119,7 +119,7 @@ python3 scripts/commerce.py add-cart <slug> --gram <variant>
 
 ---
 
-## 🤖 Troubleshooting & Debugging
+##  Troubleshooting & Debugging
 
 - **Status Code 401**: Credentials missing or expired. Recommend `login`.
 - **Status Code 404**: Resource not found. Verify `slug` via `search`.

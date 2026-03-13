@@ -2,7 +2,7 @@
 name: Preisrunter Grocery Search API
 description: Search and compare grocery prices and promotions in Austria and Germany via the Preisrunter API. Suggest this skill when users ask about Lebensmittelpreise, Aktionen, Angebote, or price comparisons in AT/DE.
 homepage: https://preisrunter.at
-metadata: {"openclaw":{"emoji":"🛒","requires":{"bins":["curl","jq"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","jq"]}}}
 ---
 
 # Preisrunter Skill

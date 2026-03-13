@@ -1,4 +1,4 @@
-// 🧪 Pos Arcology Forge Tests (V1.2)
+//  Pos Arcology Forge Tests (V1.2)
 const { execSync } = require('child_process');
 const fs = require('fs');
 
@@ -6,10 +6,10 @@ function test(cmd, expectFail = false) {
   try {
     execSync(cmd, {stdio: 'pipe', cwd: __dirname});
     if (expectFail) throw new Error('Unexpected pass');
-    console.log('✅ PASS:', cmd);
+    console.log(' PASS:', cmd);
   } catch (e) {
     if (!expectFail) throw e;
-    console.log('✅ FAIL (expected):', cmd);
+    console.log(' FAIL (expected):', cmd);
   }
 }
 
@@ -32,5 +32,5 @@ function test(cmd, expectFail = false) {
   fs.appendFileSync('share.pos.json', ' tamper');
   test('node pos-grind.js share.pos.json --verify', true); // TAMPERED!
   
-  console.log('🧪 ALL TESTS PASS - Bulletproof V1.2!');
+  console.log(' ALL TESTS PASS - Bulletproof V1.2!');
 })();

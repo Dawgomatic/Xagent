@@ -5,14 +5,14 @@
 CATEGORY="${1:-热门}"
 
 echo "================================"
-echo "📊 淘宝热销: $CATEGORY"
+echo " 淘宝热销: $CATEGORY"
 echo "================================"
 echo ""
 
 # 基于品类返回热销商品类型
 case "$CATEGORY" in
   "女装"|"衣服"|"服装")
-    echo "👗 女装热销 Top 5:"
+    echo " 女装热销 Top 5:"
     echo ""
     echo "1. 法式连衣裙（显瘦优雅）"
     echo "   - 价格区间: ¥89-299"
@@ -35,7 +35,7 @@ case "$CATEGORY" in
     echo "   - 爆款特征: 高腰、显瘦、直筒"
     ;;
   "美妆"|"化妆品"|"护肤")
-    echo "💄 美妆热销 Top 5:"
+    echo " 美妆热销 Top 5:"
     echo ""
     echo "1. 防晒霜（刚需产品）"
     echo "   - 价格区间: ¥59-399"
@@ -58,7 +58,7 @@ case "$CATEGORY" in
     echo "   - 爆款特征: 持妆、遮瑕、不卡粉"
     ;;
   "数码"|"手机"|"电子产品")
-    echo "📱 数码热销 Top 5:"
+    echo " 数码热销 Top 5:"
     echo ""
     echo "1. 手机壳（高频复购）"
     echo "   - 价格区间: ¥9-99"
@@ -81,7 +81,7 @@ case "$CATEGORY" in
     echo "   - 爆款特征: 快充、编织、加长"
     ;;
   "零食"|"食品"|"美食")
-    echo "🍪 零食热销 Top 5:"
+    echo " 零食热销 Top 5:"
     echo ""
     echo "1. 坚果礼盒（送礼首选）"
     echo "   - 价格区间: ¥49-299"
@@ -104,7 +104,7 @@ case "$CATEGORY" in
     echo "   - 爆款特征: 低卡、高蛋白、饱腹"
     ;;
   "家居"|"生活"|"日用品")
-    echo "🏠 家居热销 Top 5:"
+    echo " 家居热销 Top 5:"
     echo ""
     echo "1. 收纳盒（刚需产品）"
     echo "   - 价格区间: ¥9-99"
@@ -127,7 +127,7 @@ case "$CATEGORY" in
     echo "   - 爆款特征: 防滑、吸水、速干"
     ;;
   *)
-    echo "🔥 全品类热销 Top 5:"
+    echo " 全品类热销 Top 5:"
     echo ""
     echo "1. 手机配件（高频刚需）"
     echo "   - 推荐品类: 手机壳、充电器、数据线"
@@ -152,7 +152,7 @@ case "$CATEGORY" in
 esac
 
 echo ""
-echo "💡 选品建议:"
+echo " 选品建议:"
 echo "- 查看评价数和销量比例"
 echo "- 关注直播带货爆款"
 echo "- 注意季节性趋势"

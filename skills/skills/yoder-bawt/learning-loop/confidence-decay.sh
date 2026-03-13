@@ -303,22 +303,22 @@ print("STALE RULES REPORT")
 print("=" * 60)
 
 if rules_flagged:
-    print(f"\n⚠️  {len(rules_flagged)} rule(s) flagged for review (confidence < 0.5):")
+    print(f"\n  {len(rules_flagged)} rule(s) flagged for review (confidence < 0.5):")
     for r in sorted(rules_flagged, key=lambda x: x["confidence"]):
         print(f"\n  {r['id']}: {r['rule']}")
         print(f"    Confidence: {r['confidence']:.2f}")
         print(f"    Last validated: {r['last_validated']}")
 else:
-    print("\n✅ No rules flagged for review. All rules have confidence ≥ 0.5")
+    print("\n No rules flagged for review. All rules have confidence ≥ 0.5")
 
 if lessons_flagged:
-    print(f"\n⚠️  {len(lessons_flagged)} lesson(s) flagged for review (confidence < 0.5):")
+    print(f"\n  {len(lessons_flagged)} lesson(s) flagged for review (confidence < 0.5):")
     for l in sorted(lessons_flagged, key=lambda x: x["confidence"]):
         print(f"\n  {l['id']}: {l['lesson']}")
         print(f"    Confidence: {l['confidence']:.2f}")
         print(f"    Last validated: {l['last_validated']}")
 else:
-    print("\n✅ No lessons flagged for review. All lessons have confidence ≥ 0.5")
+    print("\n No lessons flagged for review. All lessons have confidence ≥ 0.5")
 
 print("\n" + "=" * 60)
 print("RECOMMENDATIONS")

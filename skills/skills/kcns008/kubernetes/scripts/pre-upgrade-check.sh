@@ -114,15 +114,15 @@ echo "Warnings: $WARNINGS" >&2
 
 if [ "$BLOCKERS" -gt 0 ]; then
     echo "" >&2
-    echo "❌ DO NOT PROCEED WITH UPGRADE" >&2
+    echo " DO NOT PROCEED WITH UPGRADE" >&2
     echo "   Resolve blockers before upgrading" >&2
 elif [ "$WARNINGS" -gt 0 ]; then
     echo "" >&2
-    echo "⚠️  PROCEED WITH CAUTION" >&2
+    echo "  PROCEED WITH CAUTION" >&2
     echo "   Review warnings before upgrading" >&2
 else
     echo "" >&2
-    echo "✅ CLUSTER READY FOR UPGRADE" >&2
+    echo " CLUSTER READY FOR UPGRADE" >&2
 fi
 
 # Output JSON

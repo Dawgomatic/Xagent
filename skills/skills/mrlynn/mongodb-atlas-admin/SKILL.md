@@ -1,7 +1,7 @@
 ---
 name: mongodb-atlas-admin
 description: "Manage MongoDB Atlas clusters, projects, users, backups, and alerts via the Atlas Admin API v2. Use when: (1) Creating, scaling, or deleting Atlas clusters, (2) Managing database users and IP access lists, (3) Configuring backups, snapshots, and restore jobs, (4) Setting up alerts and monitoring, (5) Managing projects and organizations, (6) Viewing cluster metrics and logs. Requires Atlas API keys (public/private) or service account credentials."
-metadata: {"clawdbot":{"emoji":"🍃","requires":{"bins":["curl","jq"]},"author":{"name":"Michael Lynn","github":"mrlynn","website":"https://mlynn.org","linkedin":"https://linkedin.com/in/mlynn"}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq"]},"author":{"name":"Michael Lynn","github":"mrlynn","website":"https://mlynn.org","linkedin":"https://linkedin.com/in/mlynn"}}}
 ---
 
 # MongoDB Atlas Admin
@@ -416,8 +416,8 @@ For detailed endpoint documentation, see `references/api-endpoints.md`.
 
 **Michael Lynn** — Principal Staff Developer Advocate at MongoDB
 
-- 🌐 Website: [mlynn.org](https://mlynn.org)
-- 🐙 GitHub: [@mrlynn](https://github.com/mrlynn)
-- 💼 LinkedIn: [linkedin.com/in/mlynn](https://linkedin.com/in/mlynn)
+-  Website: [mlynn.org](https://mlynn.org)
+-  GitHub: [@mrlynn](https://github.com/mrlynn)
+-  LinkedIn: [linkedin.com/in/mlynn](https://linkedin.com/in/mlynn)
 
 Issues & contributions welcome on GitHub!

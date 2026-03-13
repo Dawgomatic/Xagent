@@ -161,4 +161,4 @@ Respects standard conventions:
 
 ## License
 
-MIT © Vadim Kostin (@adinvadim)
+MIT  Vadim Kostin (@adinvadim)

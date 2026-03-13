@@ -8,7 +8,7 @@
 
 ## Privacy & Data Handling
 
-⚠️ **External API Notice**: This skill sends queries to `api.neurodoc.app` for processing.
+ **External API Notice**: This skill sends queries to `api.neurodoc.app` for processing.
 
 - **What is sent**: Natural language business/strategy queries only
 - **What is NOT sent**: No credentials, API keys, personal files, or system data
@@ -20,7 +20,7 @@
 
 Three V3 strategy engines in one skill:
 
-### 📈 APEX Strategy V3 — Nobel-Level Analysis
+###  APEX Strategy V3 — Nobel-Level Analysis
 Every response includes:
 - **EXECUTIVE SUMMARY** — 3-4 actionable proposals with numbers
 - **SITUATION ANALYSIS** — Quantified current state, challenges with impact scores, stakeholder mapping
@@ -39,7 +39,7 @@ Every response includes:
 - **KPIs** — Leading & lagging with min/target/stretch
 - **NEXT ACTIONS** — 3 things for TODAY
 
-### 📊 Market Intel V3
+###  Market Intel V3
 - TAM/SAM/SOM with € values and CAGR%
 - Category design (create new vs compete)
 - Porter's 5 Forces analysis
@@ -48,7 +48,7 @@ Every response includes:
 - Network effects and viral coefficient (K-factor)
 - Distribution matrix (Direct/Partners/Marketplace)
 
-### 💼 NEXUS-7 Consult V3
+###  NEXUS-7 Consult V3
 - Causal loop diagrams (reinforcing/balancing loops)
 - Theory of constraints (Bottleneck → Exploit → Subordinate → Elevate)
 - Wardley Maps (Genesis → Custom → Product → Commodity)
@@ -101,4 +101,4 @@ Returns structured Greek output with markdown headers. Typical response: 4000-80
 - **Rate Limit**: 100 req/hour (free)
 
 ---
-*Built by NeuroAether — From Kitchen to Code* 🧠
+*Built by NeuroAether — From Kitchen to Code* 

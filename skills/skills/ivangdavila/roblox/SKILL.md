@@ -1,7 +1,7 @@
 ---
 name: Roblox
 description: Avoid common Roblox mistakes — server/client security, DataStore pitfalls, memory leaks, and replication gotchas.
-metadata: {"clawdbot":{"emoji":"🎲","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Server vs Client

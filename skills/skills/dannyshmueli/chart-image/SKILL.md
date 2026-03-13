@@ -14,11 +14,11 @@ Generate PNG chart images from data using Vega-Lite. Perfect for headless server
 ## Why This Skill?
 
 **Built for Fly.io / VPS / Docker deployments:**
-- ✅ **No native compilation** - Uses Sharp with prebuilt binaries (unlike `canvas` which requires build tools)
-- ✅ **No Puppeteer/browser** - Pure Node.js, no Chrome download, no headless browser overhead
-- ✅ **Lightweight** - ~15MB total dependencies vs 400MB+ for Puppeteer-based solutions
-- ✅ **Fast cold starts** - No browser spinup delay, generates charts in <500ms
-- ✅ **Works offline** - No external API calls (unlike QuickChart.io)
+-  **No native compilation** - Uses Sharp with prebuilt binaries (unlike `canvas` which requires build tools)
+-  **No Puppeteer/browser** - Pure Node.js, no Chrome download, no headless browser overhead
+-  **Lightweight** - ~15MB total dependencies vs 400MB+ for Puppeteer-based solutions
+-  **Fast cold starts** - No browser spinup delay, generates charts in <500ms
+-  **Works offline** - No external API calls (unlike QuickChart.io)
 
 ## Setup (one-time)
 
@@ -281,7 +281,7 @@ For advanced charts:
 node chart.mjs --spec my-spec.json --output custom.png
 ```
 
-## ⚠️ IMPORTANT: Always Send the Image!
+##  IMPORTANT: Always Send the Image!
 
 After generating a chart, **always send it back to the user's channel**.
 Don't just save to a file and describe it — the whole point is the visual.

@@ -110,20 +110,20 @@ def parse_results(data, home_lat, home_lng):
 
 def format_telegram(courses, date, players):
     """Format results for Telegram output."""
-    lines = [f"🏌️ *Tee Times · {date} · {players} Players*\n"]
+    lines = [f" *Tee Times · {date} · {players} Players*\n"]
     lines.append("⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯\n")
 
     # Deals first
     deals = [c for c in courses if c['has_hot'] or c['has_trade']]
     if deals:
         for c in deals:
-            flag = "🔥" if c['has_hot'] else "💳"
+            flag = "" if c['has_hot'] else ""
             url = f"https://www.golfnow.com/tee-times/facility/{c['seo']}/search"
             lines.append(f"{flag} *[{c['name']}]({url})*")
-            lines.append(f"{c['city']} · {c['dist']:.1f} mi · ⭐ {c['rating']:.1f} · {c['reviews']} reviews")
+            lines.append(f"{c['city']} · {c['dist']:.1f} mi ·  {c['rating']:.1f} · {c['reviews']} reviews")
             for s in c['slots']:
                 if s['hot'] or s['trade']:
-                    sf = " 🔥" if s['hot'] else " 💳"
+                    sf = " " if s['hot'] else " "
                     lines.append(f"▸ {s['time']} · *${s['price']:.0f}* · {s['holes']} holes{sf}")
             lines.append("")
         lines.append("⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯\n")
@@ -132,7 +132,7 @@ def format_telegram(courses, date, players):
     for c in courses:
         url = f"https://www.golfnow.com/tee-times/facility/{c['seo']}/search"
         lines.append(f"*[{c['name']}]({url})*")
-        lines.append(f"{c['city']} · {c['dist']:.1f} mi · ⭐ {c['rating']:.1f} · {c['reviews']} reviews")
+        lines.append(f"{c['city']} · {c['dist']:.1f} mi ·  {c['rating']:.1f} · {c['reviews']} reviews")
 
         by_price = defaultdict(list)
         for s in c['slots']:
@@ -158,12 +158,12 @@ def format_plain(courses):
     for c in courses:
         url = f"https://www.golfnow.com/tee-times/facility/{c['seo']}/search"
         flags = []
-        if c['has_hot']: flags.append("🔥HOT")
-        if c['has_trade']: flags.append("💳CREDIT")
-        print(f"\n⛳ {c['name']} ({c['city']}) — {c['dist']:.1f} mi — ⭐{c['rating']:.1f} ({c['reviews']} reviews) {' '.join(flags)}")
+        if c['has_hot']: flags.append("HOT")
+        if c['has_trade']: flags.append("CREDIT")
+        print(f"\n {c['name']} ({c['city']}) — {c['dist']:.1f} mi — {c['rating']:.1f} ({c['reviews']} reviews) {' '.join(flags)}")
         print(f"   {url}")
         for s in c['slots']:
-            f = " 🔥" if s['hot'] else (" 💳" if s['trade'] else "")
+            f = " " if s['hot'] else (" " if s['trade'] else "")
             print(f"   {s['time']:>10} | ${s['price']:<5.0f} | {s['holes']}h | {s['rate']}{f}")
 
 
@@ -204,4 +204,4 @@ if __name__ == '__main__':
         format_plain(courses)
 
     if no_avail:
-        print(f"\n❌ No availability: {', '.join(no_avail)}")
+        print(f"\n No availability: {', '.join(no_avail)}")

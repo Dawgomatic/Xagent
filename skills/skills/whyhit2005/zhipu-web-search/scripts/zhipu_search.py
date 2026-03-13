@@ -197,7 +197,7 @@ def format_results(data: Dict[str, Any]) -> str:
     """Format search results to readable text"""
     lines = []
     
-    lines.append(f"🔍 Search: {data.get('search_query', 'N/A')}")
+    lines.append(f" Search: {data.get('search_query', 'N/A')}")
     lines.append("")
     
     # Search intent info

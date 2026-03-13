@@ -1,7 +1,7 @@
 ---
 name: XRP
 description: Assist with XRP transactions, destination tags, reserves, and XRPL features.
-metadata: {"clawdbot":{"emoji":"💧","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Destination Tags (Critical)

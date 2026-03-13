@@ -41,9 +41,9 @@ RST='\033[0m'
 declare -a ISSUES=()
 
 log_ok()   { echo -e "  ${GRN}✓${RST} $1"; }
-log_warn() { echo -e "  ${YEL}⚠${RST} $1"; ISSUES+=("{\"level\":\"warn\",\"msg\":\"$1\"}"); [ $EXIT_CODE -lt 1 ] && EXIT_CODE=1; }
+log_warn() { echo -e "  ${YEL}${RST} $1"; ISSUES+=("{\"level\":\"warn\",\"msg\":\"$1\"}"); [ $EXIT_CODE -lt 1 ] && EXIT_CODE=1; }
 log_crit() { echo -e "  ${RED}✗${RST} $1"; ISSUES+=("{\"level\":\"critical\",\"msg\":\"$1\"}"); EXIT_CODE=2; }
-log_info() { echo -e "  ${CYN}ℹ${RST} $1"; }
+log_info() { echo -e "  ${CYN}${RST} $1"; }
 
 echo ""
 echo "╔══════════════════════════════════════════╗"
@@ -226,10 +226,10 @@ for cred in data["credentials"]:
             print(f"  \033[0;31m✗\033[0m {name}: EXPIRED {abs(days_to_expiry)} days ago!")
             continue
         elif days_to_expiry < 30:
-            print(f"  \033[0;33m⚠\033[0m {name}: Expires in {days_to_expiry} days ({expires})")
+            print(f"  \033[0;33m\033[0m {name}: Expires in {days_to_expiry} days ({expires})")
             continue
         elif days_to_expiry < 90:
-            print(f"  \033[0;33m⚠\033[0m {name}: Expires in {days_to_expiry} days ({expires})")
+            print(f"  \033[0;33m\033[0m {name}: Expires in {days_to_expiry} days ({expires})")
             continue
 
     # Check rotation policy
@@ -239,10 +239,10 @@ for cred in data["credentials"]:
         max_days = policies[policy]
         if days_since > max_days:
             overdue = days_since - max_days
-            print(f"  \033[0;33m⚠\033[0m {name}: Rotation OVERDUE by {overdue} days (last: {last_rotated}, policy: {policy})")
+            print(f"  \033[0;33m\033[0m {name}: Rotation OVERDUE by {overdue} days (last: {last_rotated}, policy: {policy})")
         elif days_since > max_days * 0.8:
             remaining = max_days - days_since
-            print(f"  \033[0;33m⚠\033[0m {name}: Rotation due in ~{remaining} days (last: {last_rotated})")
+            print(f"  \033[0;33m\033[0m {name}: Rotation due in ~{remaining} days (last: {last_rotated})")
         else:
             remaining = max_days - days_since
             print(f"  \033[0;32m✓\033[0m {name}: OK - {remaining} days until rotation due (last: {last_rotated})")
@@ -251,7 +251,7 @@ for cred in data["credentials"]:
         days_to_expiry = (exp_date - today).days
         print(f"  \033[0;32m✓\033[0m {name}: {days_to_expiry} days until expiry ({expires})")
     else:
-        print(f"  \033[0;36mℹ\033[0m {name}: No expiry/rotation policy defined")
+        print(f"  \033[0;36m\033[0m {name}: No expiry/rotation policy defined")
 PYEOF
 else
   log_warn "Credential tracker file not found at $TRACKER"

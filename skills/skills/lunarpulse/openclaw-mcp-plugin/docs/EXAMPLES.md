@@ -2,7 +2,7 @@
 
 Practical examples of using the MCP Integration plugin with OpenClaw.
 
-## 📚 Table of Contents
+##  Table of Contents
 
 1. [Basic Usage](#basic-usage)
 2. [Legal Research](#legal-research)
@@ -11,7 +11,7 @@ Practical examples of using the MCP Integration plugin with OpenClaw.
 5. [Multi-Step Workflows](#multi-step-workflows)
 6. [Error Handling](#error-handling)
 
-## 🎯 Basic Usage
+##  Basic Usage
 
 ### Example 1: List All Available Tools
 
@@ -92,7 +92,7 @@ Current weather in Seoul:
 • Wind: 12 km/h NW
 ```
 
-## ⚖️ Legal Research
+##  Legal Research
 
 ### Example 3: Search Korean Statutes
 
@@ -211,7 +211,7 @@ Related provisions:
 }
 ```
 
-## 💾 Database Queries
+##  Database Queries
 
 ### Example 6: Query Database
 
@@ -260,7 +260,7 @@ Latest 10 orders:
 }
 ```
 
-## 🌦️ Weather Service
+##  Weather Service
 
 ### Example 8: Weather Forecast
 
@@ -286,16 +286,16 @@ Latest 10 orders:
 ```
 7-day forecast for Tokyo:
 
-Mon Feb 3: ☀️ Sunny, 12°C / 5°C
-Tue Feb 4: ⛅ Partly cloudy, 14°C / 7°C
-Wed Feb 5: 🌧️ Rain, 11°C / 6°C
-Thu Feb 6: ☁️ Cloudy, 10°C / 4°C
-Fri Feb 7: ☀️ Sunny, 13°C / 5°C
-Sat Feb 8: ⛅ Partly cloudy, 15°C / 8°C
-Sun Feb 9: ☀️ Sunny, 16°C / 9°C
+Mon Feb 3:  Sunny, 12°C / 5°C
+Tue Feb 4:  Partly cloudy, 14°C / 7°C
+Wed Feb 5:  Rain, 11°C / 6°C
+Thu Feb 6:  Cloudy, 10°C / 4°C
+Fri Feb 7:  Sunny, 13°C / 5°C
+Sat Feb 8:  Partly cloudy, 15°C / 8°C
+Sun Feb 9:  Sunny, 16°C / 9°C
 ```
 
-## 🔄 Multi-Step Workflows
+##  Multi-Step Workflows
 
 ### Example 9: Legal Research + Analysis
 
@@ -417,20 +417,20 @@ Next Steps:
 ```
 Outdoor Events with Rain Risk:
 
-⚠️ Feb 5 - Company Picnic (Seoul Park)
+ Feb 5 - Company Picnic (Seoul Park)
    Forecast: 80% rain, 11°C
    Recommendation: Consider moving indoors or rescheduling
 
-✅ Feb 7 - Team Building (Han River)
+ Feb 7 - Team Building (Han River)
    Forecast: Sunny, 13°C
    Status: Good to proceed
 
-⚠️ Feb 10 - Product Launch (Rooftop Venue)
+ Feb 10 - Product Launch (Rooftop Venue)
    Forecast: 60% rain, 12°C
    Recommendation: Prepare backup indoor location
 ```
 
-## ❌ Error Handling
+##  Error Handling
 
 ### Example 11: Invalid Tool
 
@@ -532,7 +532,7 @@ What would you like me to do?
 }
 ```
 
-## 🔗 Related Documentation
+##  Related Documentation
 
 - [Main README](../README.md)
 - [API Reference](API.md)

@@ -17,7 +17,7 @@
       "tag": "The Forgiving Liberator",
       "archetype": "Long-Game Leader",
       "color": "#228B22",
-      "icon": "✊",
+      "icon": "",
       "aliases": ["mandela", "nelson", "madiba"],
       "domain": "Foundation",
       "question": "Can I let go of this resentment?"
@@ -50,7 +50,7 @@
       "tag": "The Curious Eye",
       "archetype": "Curious Polymath",
       "color": "#DAA520",
-      "icon": "👁",
+      "icon": "",
       "aliases": ["leonardo", "davinci", "vinci"],
       "domain": "Mind",
       "question": "What do I notice that others miss?"
@@ -61,7 +61,7 @@
       "tag": "The Way of Mastery",
       "archetype": "Warrior Sage",
       "color": "#4A4A4A",
-      "icon": "⚔",
+      "icon": "",
       "aliases": ["musashi", "miyamoto"],
       "domain": "Body",
       "question": "What is the Way in this moment?"
@@ -72,7 +72,7 @@
       "tag": "The Adaptive Philosopher",
       "archetype": "Fluid Warrior",
       "color": "#FFD700",
-      "icon": "💧",
+      "icon": "",
       "aliases": ["bruce", "lee"],
       "domain": "Body",
       "question": "How do I absorb what's useful?"
@@ -94,7 +94,7 @@
       "tag": "The Meaning Maker",
       "archetype": "Existential Guide",
       "color": "#9B59B6",
-      "icon": "☀",
+      "icon": "",
       "aliases": ["frankl", "viktor"],
       "domain": "Heart",
       "question": "What meaning can be found here?"
@@ -127,7 +127,7 @@
       "tag": "The Endurance Captain",
       "archetype": "Crisis Leader",
       "color": "#3498DB",
-      "icon": "⚓",
+      "icon": "",
       "aliases": ["shackleton", "ernest"],
       "domain": "Fire",
       "question": "How do we survive AND keep spirits up?"
@@ -138,7 +138,7 @@
       "tag": "The Creative Ritualist",
       "archetype": "Disciplined Creator",
       "color": "#FF69B4",
-      "icon": "🎭",
+      "icon": "",
       "aliases": ["tharp", "twyla"],
       "domain": "Craft",
       "question": "What's my ritual?"
@@ -149,7 +149,7 @@
       "tag": "The Practical Improver",
       "archetype": "Pragmatic Polymath",
       "color": "#4169E1",
-      "icon": "⚡",
+      "icon": "",
       "aliases": ["franklin", "ben", "benjamin"],
       "domain": "Craft",
       "question": "What small habit makes me better?"

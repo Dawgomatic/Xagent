@@ -13,12 +13,12 @@ async def main():
     
     try:
         trades, pending = await trader_client.trade.get_trades(trader)
-        print(f"\n📊 Open positions: {len(trades)}")
+        print(f"\n Open positions: {len(trades)}")
         for t in trades:
             direction = "LONG" if t.trade.is_long else "SHORT"
             print(f"  • {direction} {t.trade.leverage}x | ${t.trade.collateral_in_trade} collateral")
         
-        print(f"\n📝 Pending orders: {len(pending)}")
+        print(f"\n Pending orders: {len(pending)}")
         for p in pending:
             direction = "LONG" if p.is_long else "SHORT"
             print(f"  • {direction} {p.leverage}x @ ${p.price} | ${p.open_collateral} collateral")

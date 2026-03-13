@@ -47,7 +47,7 @@ export function registerSummary(command: Command): void {
         return p >= 100 ? c.green(`${p}%`) : c.yellow(`${p}%`);
       };
 
-      console.log(c.bold(`\n📊 Daily Summary for ${profile.user.displayName} — ${resolvedDate}\n`));
+      console.log(c.bold(`\n Daily Summary for ${profile.user.displayName} — ${resolvedDate}\n`));
 
       console.log(c.underline("Activity"));
       console.log(keyValueTable([
@@ -113,7 +113,7 @@ export function registerSummary(command: Command): void {
         return p >= 100 ? c.green(`${p}%`) : c.yellow(`${p}%`);
       };
 
-      console.log(c.bold(`\n📊 Daily Summary for ${profile.user.displayName} — ${resolvedDate}\n`));
+      console.log(c.bold(`\n Daily Summary for ${profile.user.displayName} — ${resolvedDate}\n`));
 
       console.log(c.underline("Activity"));
       console.log(keyValueTable([

@@ -2,7 +2,7 @@
 
 A high-fidelity automation bridge for macOS (Darwin) that enables agents to perceive the desktop state and execute precise mouse and keyboard interactions.
 
-## 🛠 Included Scripts
+##  Included Scripts
 This skill leverages specialized wrappers located in the `/scripts` directory to interface with system-level binaries:
 
 ### 1. `cliclick_wrapper.sh`
@@ -19,7 +19,7 @@ The visual perception engine for the skill.
 
 ---
 
-## 🚀 Tool Specifications
+##  Tool Specifications
 
 ### `see`
 Captures the current screen state for visual analysis.
@@ -33,7 +33,7 @@ Sends precise commands to the mouse and keyboard.
 
 ---
 
-## ⚙️ Requirements & Setup
+##  Requirements & Setup
 
 1. **Binary Dependency**:
    ```bash

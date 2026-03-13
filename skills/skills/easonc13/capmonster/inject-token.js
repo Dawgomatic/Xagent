@@ -51,7 +51,7 @@
             results.push(`✓ Called grecaptcha callback for client ${clientId}`);
             break;
           } catch (e) {
-            results.push(`⚠ Callback error: ${e.message}`);
+            results.push(` Callback error: ${e.message}`);
           }
         }
       }
@@ -67,7 +67,7 @@
         window[callbackName](TOKEN);
         results.push(`✓ Called window.${callbackName}()`);
       } catch (e) {
-        results.push(`⚠ ${callbackName} error: ${e.message}`);
+        results.push(` ${callbackName} error: ${e.message}`);
       }
     }
   }
@@ -88,7 +88,7 @@
         window[callbackName](TOKEN);
         results.push(`✓ Called hCaptcha callback: ${callbackName}`);
       } catch (e) {
-        results.push(`⚠ hCaptcha callback error: ${e.message}`);
+        results.push(` hCaptcha callback error: ${e.message}`);
       }
     }
   }
@@ -109,7 +109,7 @@
         window[callbackName](TOKEN);
         results.push(`✓ Called Turnstile callback: ${callbackName}`);
       } catch (e) {
-        results.push(`⚠ Turnstile callback error: ${e.message}`);
+        results.push(` Turnstile callback error: ${e.message}`);
       }
     }
   }

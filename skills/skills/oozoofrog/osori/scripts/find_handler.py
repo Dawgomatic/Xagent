@@ -42,24 +42,24 @@ roots_meta = registry_roots(res.registry)
 root_keys = [r.get("key", "default") for r in roots_meta]
 
 if resolved_name != name:
-    print(f"ℹ️ alias resolved: {name} -> {resolved_name}")
+    print(f" alias resolved: {name} -> {resolved_name}")
 
 # 1) Registry lookup (root-prioritized when root_filter is set)
 for p in projects:
     pname = p.get('name', '')
     if query in pname.lower():
-        print(f"📁 *{pname}*")
-        print(f"📍 {p.get('path', '-')}")
+        print(f" *{pname}*")
+        print(f" {p.get('path', '-')}")
         if p.get('repo'):
-            print(f"🌐 {p.get('repo')}")
+            print(f" {p.get('repo')}")
         if p.get('lang') and p.get('lang') != 'unknown':
-            print(f"🔤 {p.get('lang')}")
-        print(f"🧭 root: {p.get('root', 'default')}")
+            print(f" {p.get('lang')}")
+        print(f" root: {p.get('root', 'default')}")
         if res.migrated:
             notes = '; '.join(res.migration_notes)
-            print(f"\nℹ️ Migrated registry: {notes}")
+            print(f"\n Migrated registry: {notes}")
             if res.backup_path:
-                print(f"ℹ️ Migration backup: {res.backup_path}")
+                print(f" Migration backup: {res.backup_path}")
         raise SystemExit(0)
 
 # Build prioritized search paths from roots[].paths + OSORI_SEARCH_PATHS
@@ -79,9 +79,9 @@ if shutil.which('mdfind'):
             if root_only_paths:
                 lines = [line for line in lines if within_any(line, root_only_paths)]
         if lines:
-            print("🔍 *Found via Spotlight:*")
+            print(" *Found via Spotlight:*")
             for p in lines[:3]:
-                print(f"📍 {p}")
+                print(f" {p}")
             raise SystemExit(0)
 
 # 3) find fallback (root paths first)
@@ -94,15 +94,15 @@ for sp in search_paths:
     )
     lines = [line for line in r.stdout.strip().split('\n') if line.strip()]
     if lines:
-        print("🔍 *Found via search:*")
+        print(" *Found via search:*")
         for p in lines[:3]:
-            print(f"📍 {p}")
+            print(f" {p}")
         raise SystemExit(0)
 
 if root_key and root_key not in root_keys:
-    print(f"ℹ️ Unknown root '{root_key}'. Available roots: {', '.join(root_keys)}")
+    print(f" Unknown root '{root_key}'. Available roots: {', '.join(root_keys)}")
 
 if not search_paths:
-    print("ℹ️ Tip: set roots[].paths in registry or OSORI_SEARCH_PATHS for fallback discovery")
+    print(" Tip: set roots[].paths in registry or OSORI_SEARCH_PATHS for fallback discovery")
 
-print(f"❌ Project '{name}' not found.")
+print(f" Project '{name}' not found.")

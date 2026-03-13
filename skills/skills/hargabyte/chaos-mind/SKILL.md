@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🧠",
+        "emoji": "",
         "install":
           [
             {
@@ -32,7 +32,7 @@ Hybrid search memory for AI agents with 4 retrieval signals:
 
 ---
 
-## 🤖 For AI Agents: How to Use This Tool
+##  For AI Agents: How to Use This Tool
 
 **First time?** Run this to see the complete reference:
 ```bash
@@ -131,7 +131,7 @@ chaos-cli list 20     # Show 20
 
 ## Auto-Capture (Optional - Opt-In Only)
 
-**⚠️ DISABLED BY DEFAULT for privacy.**
+** DISABLED BY DEFAULT for privacy.**
 
 To enable auto-capture:
 
@@ -152,7 +152,7 @@ To enable auto-capture:
 
 ---
 
-## 🔗 Enhanced Capabilities
+##  Enhanced Capabilities
 
 CHAOS Memory integrates with other tools for deeper intelligence:
 
@@ -182,7 +182,7 @@ chaos-cli search "auth flow"
 # With Cortex
 chaos-cli search "auth flow"
 → "Changed auth to use JWT tokens"
-→ 📍 Auth.tsx:45-67, middleware/auth.js:12
+→  Auth.tsx:45-67, middleware/auth.js:12
 ```
 
 ### Beads - Task Relationship Tracking
@@ -193,7 +193,7 @@ chaos-cli search "auth flow"
 
 **How it works:**
 - CHAOS detects if `beads` or `beads-rust` is available
-- Creates bidirectional links: `memory ↔ task`
+- Creates bidirectional links: `memory  task`
 - Memories can reference issue IDs automatically
 
 **Install Beads:**
@@ -210,7 +210,7 @@ chaos-cli store "Need to refactor auth" --category decision --task AUTH-123
 # Search shows related tasks
 chaos-cli search "auth refactor"
 → "Need to refactor auth"
-→ 📋 Task: AUTH-123 (In Progress)
+→  Task: AUTH-123 (In Progress)
 ```
 
 ### Combined Power
@@ -219,9 +219,9 @@ When **all three tools** work together:
 ```bash
 chaos-cli search "performance optimization"
 → Memory: "Added Redis caching layer"
-→ 📍 Code: cache/redis.js:34-89
-→ 📋 Task: PERF-042 (Completed)
-→ 🔗 Related: 3 other memories, 2 code files, 1 PR
+→  Code: cache/redis.js:34-89
+→  Task: PERF-042 (Completed)
+→  Related: 3 other memories, 2 code files, 1 PR
 ```
 
 **Status Detection:**

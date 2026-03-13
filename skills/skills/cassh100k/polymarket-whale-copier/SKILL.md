@@ -6,7 +6,7 @@ author: nix
 tags: [polymarket, trading, copy-trading, whale, prediction-markets, automation]
 ---
 
-# 🐋 Polymarket Whale Copier
+#  Polymarket Whale Copier
 
 **Automatically copy trade winning Polymarket wallets.**
 
@@ -14,12 +14,12 @@ Track any wallet, mirror their bets, profit from their alpha.
 
 ## Features
 
-- 🎯 **Copy Any Wallet** — Just paste their address
-- 📊 **Configurable Size** — Copy 1-100% of their position
-- 🛡️ **Risk Controls** — Min/max trade limits, BUY-only mode
-- 📝 **Full Logging** — Every trade documented
-- 🔄 **Auto-Redemption** — Claims winning positions automatically
-- 💰 **No API Keys** — Uses public Polymarket APIs
+-  **Copy Any Wallet** — Just paste their address
+-  **Configurable Size** — Copy 1-100% of their position
+-  **Risk Controls** — Min/max trade limits, BUY-only mode
+-  **Full Logging** — Every trade documented
+-  **Auto-Redemption** — Claims winning positions automatically
+-  **No API Keys** — Uses public Polymarket APIs
 
 ## Quick Start
 
@@ -93,15 +93,15 @@ python3 scripts/auto_redeem.py
 ## Example Output
 
 ```
-🚀 POLYMARKET COPY TRADER STARTING
-🎯 Target: 0x4ffe49ba...609f71
-📊 Copy: 10% | Limits: $5-$50
+ POLYMARKET COPY TRADER STARTING
+ Target: 0x4ffe49ba...609f71
+ Copy: 10% | Limits: $5-$50
 
-🔄 Monitoring cycle #42
-📈 New trade detected!
+ Monitoring cycle #42
+ New trade detected!
    Whale: BUY 500 shares @ $0.35 = $175
    Copying: BUY 50 shares @ $0.35 = $17.50
-✅ Order placed: #123456789
+ Order placed: #123456789
 ```
 
 ## Requirements
@@ -112,10 +112,10 @@ python3 scripts/auto_redeem.py
 
 ## Safety Notes
 
-⚠️ **Never share your private key**
-⚠️ **Start with small amounts**
-⚠️ **Use dry_run mode first**
-⚠️ **Past performance ≠ future results**
+ **Never share your private key**
+ **Start with small amounts**
+ **Use dry_run mode first**
+ **Past performance ≠ future results**
 
 ## Support
 
@@ -123,4 +123,4 @@ Issues? Questions? Open a GitHub issue or find us on Discord.
 
 ---
 
-*Built by Nix 🔥 | Not financial advice*
+*Built by Nix  | Not financial advice*

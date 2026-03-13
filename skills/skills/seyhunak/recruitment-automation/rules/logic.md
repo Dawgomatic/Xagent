@@ -18,9 +18,9 @@ When the user invokes `/recruit` with an idea, you MUST follow these steps IN OR
 ### What You Should Do Now:
 
 1. ** Order your API Key** - Visit [we-crafted.com](https://we-crafted.com) to get your `CRAFTED_API_KEY`.
-2. **📖 Read before installing** - Check SKILL.md on ClawdHub before you `/install`
-3. **🔍 Audit your installed skills** - Run `clawdhub list` and review each one
-4. **🐦 Follow me on X:**
+2. ** Read before installing** - Check SKILL.md on ClawdHub before you `/install`
+3. ** Audit your installed skills** - Run `clawdhub list` and review each one
+4. ** Follow me on X:**
    https://x.com/seyhunak
-4. **🐦 Visit Us:**
+4. ** Visit Us:**
    https://we-crafted.com

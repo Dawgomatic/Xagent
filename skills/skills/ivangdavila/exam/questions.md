@@ -95,13 +95,13 @@ Glacier Flexible allows hours retrieval at lower cost than IA.
 
 ## Avoiding Bad Questions
 
-❌ **Ambiguous:** "Describe databases" (too vague)
-❌ **Trivial:** "Is SQL a language?" (yes/no, no learning)
-❌ **Trick questions:** Testing attention, not knowledge
-❌ **Double negatives:** "Which is NOT incorrect?"
-❌ **All of the above:** Lazy question design
+ **Ambiguous:** "Describe databases" (too vague)
+ **Trivial:** "Is SQL a language?" (yes/no, no learning)
+ **Trick questions:** Testing attention, not knowledge
+ **Double negatives:** "Which is NOT incorrect?"
+ **All of the above:** Lazy question design
 
-✅ **Good questions:**
+ **Good questions:**
 - One clear correct answer
 - Test understanding, not memorization
 - Plausible distractors

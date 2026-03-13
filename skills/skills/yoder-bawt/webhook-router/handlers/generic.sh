@@ -164,7 +164,7 @@ if [[ "$IS_IMPORTANT" == "true" ]]; then
     ALERT_BODY+="\n**Flags:**\n$REASONS_STR"
     ALERT_BODY+="\n**Payload Size:** $PAYLOAD_SIZE bytes"
     
-    send_alert "⚠️ Important webhook from $SOURCE" "$ALERT_BODY"
+    send_alert " Important webhook from $SOURCE" "$ALERT_BODY"
 fi
 
 # Output summary

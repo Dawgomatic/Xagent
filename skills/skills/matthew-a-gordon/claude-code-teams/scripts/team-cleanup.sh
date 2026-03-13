@@ -3,7 +3,7 @@
 
 set -euo pipefail
 
-echo "🎭 Claude Code Agent Teams - Cleanup"
+echo " Claude Code Agent Teams - Cleanup"
 echo "===================================="
 echo ""
 
@@ -105,9 +105,9 @@ graceful_cleanup() {
     # Step 1: Check for active Claude Code session
     echo -n "Step 1: Checking for active Claude Code session... "
     if check_claude_process; then
-        echo -e "${GREEN}✅ Found${NC}"
+        echo -e "${GREEN} Found${NC}"
     else
-        echo -e "${YELLOW}⚠️  No active session${NC}"
+        echo -e "${YELLOW}  No active session${NC}"
         echo ""
         echo "Nothing to clean up."
         exit 0
@@ -139,7 +139,7 @@ graceful_cleanup() {
     echo ""
     echo "Step 4: Cleaning up temporary files..."
     # This would clean up any temp files created during team operation
-    echo -e "${GREEN}✅ Complete${NC}"
+    echo -e "${GREEN} Complete${NC}"
     
     # Step 5: Exit Claude Code
     echo ""
@@ -147,7 +147,7 @@ graceful_cleanup() {
     echo "  (Type 'exit' in Claude Code to close)"
     echo ""
     
-    echo -e "${GREEN}✅ Graceful cleanup complete${NC}"
+    echo -e "${GREEN} Graceful cleanup complete${NC}"
     echo ""
     echo "Next steps:"
     echo "  1. Review teammate output files"
@@ -157,7 +157,7 @@ graceful_cleanup() {
 
 # Force cleanup
 force_cleanup() {
-    echo -e "${RED}⚠️  Force cleanup mode${NC}"
+    echo -e "${RED}  Force cleanup mode${NC}"
     echo ""
     echo "This will immediately terminate the Claude Code session."
     echo "Work in progress may be lost."
@@ -172,13 +172,13 @@ force_cleanup() {
     echo "Terminating Claude Code processes..."
     
     if pkill -f "claude.*pty"; then
-        echo -e "${GREEN}✅ Processes terminated${NC}"
+        echo -e "${GREEN} Processes terminated${NC}"
     else
-        echo -e "${YELLOW}⚠️  No processes found${NC}"
+        echo -e "${YELLOW}  No processes found${NC}"
     fi
     
     echo ""
-    echo -e "${RED}⚠️  Force cleanup complete${NC}"
+    echo -e "${RED}  Force cleanup complete${NC}"
     echo "Review any incomplete work before proceeding."
 }
 
@@ -186,7 +186,7 @@ force_cleanup() {
 show_checklist() {
     cat << EOF
 
-📋 Post-Cleanup Checklist:
+ Post-Cleanup Checklist:
 --------------------------
 [ ] Review all teammate output files
 [ ] Verify task completion (no pending tasks)

@@ -6,8 +6,8 @@
 Optimize for Apple Podcasts, Spotify, and Google:
 
 **Title:** Include main keyword + benefit
-- ❌ "The Business Show"
-- ✅ "Bootstrapped: Growing a SaaS Without VC"
+-  "The Business Show"
+-  "Bootstrapped: Growing a SaaS Without VC"
 
 **Description:** Front-load keywords, clear value prop
 ```
@@ -17,8 +17,8 @@ growth tactics, and hard-won lessons. For indie hackers and solo founders.
 ```
 
 **Episode Titles:** Specific > clever
-- ❌ "Episode 47: An Interesting Conversation"
-- ✅ "How I Grew to $50k MRR with Zero Ads (Sarah Chen, PricingBot)"
+-  "Episode 47: An Interesting Conversation"
+-  "How I Grew to $50k MRR with Zero Ads (Sarah Chen, PricingBot)"
 
 ### Show Notes SEO
 Include:

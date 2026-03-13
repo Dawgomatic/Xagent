@@ -4,7 +4,7 @@
 
 A purpose-built toolkit that enables autonomous AI agents running on OpenClaw to interact with the Solana blockchain **securely**.
 
-## 🛡️ Security First
+##  Security First
 
 ### Private Key Protection
 **Private keys are NEVER exposed to the agent.**
@@ -99,20 +99,20 @@ Options:
 ## Security Usage
 
 ```javascript
-// ✅ Good - Always dry-run first
+//  Good - Always dry-run first
 const sim = await sendSol(key, to, 1.0, { dryRun: true });
 if (sim.success) {
   console.log('Simulation OK, sending real tx...');
   const tx = await sendSol(key, to, 1.0, { dryRun: false });
 }
 
-// ✅ Good - Set limits
+//  Good - Set limits
 export MAX_SOL_PER_TX=5
 
-// ✅ Good - Human confirmation for large amounts
+//  Good - Human confirmation for large amounts
 export HUMAN_CONFIRMATION_THRESHOLD=0.5
 
-// ❌ Bad - Never hardcode keys
+//  Bad - Never hardcode keys
 const key = '4z...'; // DON'T
 ```
 
@@ -124,12 +124,12 @@ node test.js
 ```
 
 All tests pass:
-- ✅ Generate wallet
-- ✅ Configuration
-- ✅ Get balance
-- ✅ Get transactions
-- ✅ Dry-run sendSol
-- ✅ Max limit enforcement
+-  Generate wallet
+-  Configuration
+-  Get balance
+-  Get transactions
+-  Dry-run sendSol
+-  Max limit enforcement
 
 ## GitHub
 
@@ -137,4 +137,4 @@ All tests pass:
 
 ---
 
-MIT © 2026 Seenfinity
+MIT  2026 Seenfinity

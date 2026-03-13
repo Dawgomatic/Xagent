@@ -4,7 +4,7 @@ Token-efficient scripts for common SendGrid operations. Execute without loading 
 
 ## Available Scripts
 
-### 📤 send-test-email.sh
+###  send-test-email.sh
 
 Send a test email to validate SendGrid API key and configuration.
 
@@ -43,7 +43,7 @@ Send a test email to validate SendGrid API key and configuration.
 
 ---
 
-### 📧 send-html-email.sh
+###  send-html-email.sh
 
 Send HTML-formatted email via SendGrid API.
 
@@ -88,7 +88,7 @@ export SENDGRID_FROM="noreply@example.com"
 
 ---
 
-### 📥 verify-inbound-setup.sh
+###  verify-inbound-setup.sh
 
 Verify SendGrid Inbound Parse configuration (MX records, webhook endpoint).
 
@@ -121,7 +121,7 @@ Verify SendGrid Inbound Parse configuration (MX records, webhook endpoint).
 
 ---
 
-### 🔧 parse-webhook-payload.js
+###  parse-webhook-payload.js
 
 Parse SendGrid Inbound Parse webhook payload from multipart/form-data.
 

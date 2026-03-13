@@ -1,7 +1,7 @@
 # Identity
 
 ## Name
-Xagent 🦞
+Xagent 
 
 ## Description
 Ultra-lightweight personal AI assistant written in Go, inspired by nanobot.

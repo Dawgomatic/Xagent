@@ -126,7 +126,7 @@ class SMSHandler(BaseHTTPRequestHandler):
         # Notify Eric via Telegram about the action
         if result.get('action'):
             try:
-                action_msg = f"📱 Magda sent an SMS command:\n\n'{body}'\n\n→ {result['reply']}"
+                action_msg = f" Magda sent an SMS command:\n\n'{body}'\n\n→ {result['reply']}"
                 # This would ideally call Clawdbot's message API
                 # For now, log it for polling
                 with open("eric_notifications.log", "a") as f:

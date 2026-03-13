@@ -90,26 +90,26 @@ When description summarizes workflow, agents may follow description instead of r
 ### Bad Descriptions
 
 ```yaml
-# ❌ Summarizes workflow - agent follows this shortcut
+#  Summarizes workflow - agent follows this shortcut
 description: Use when executing plans - dispatches subagent per task with code review
 
-# ❌ Too much process detail
+#  Too much process detail
 description: Use for TDD - write test first, watch it fail, write minimal code, refactor
 
-# ❌ Vague
+#  Vague
 description: Helps with PDFs
 ```
 
 ### Good Descriptions
 
 ```yaml
-# ✅ Triggering conditions only
+#  Triggering conditions only
 description: Use when executing implementation plans with independent tasks
 
-# ✅ Symptoms, not process
+#  Symptoms, not process
 description: Use when tests have race conditions or pass/fail inconsistently
 
-# ✅ Concrete triggers
+#  Concrete triggers
 description: Extract text and tables from PDF files. Use when processing documents.
 ```
 

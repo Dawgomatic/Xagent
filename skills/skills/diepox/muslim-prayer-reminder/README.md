@@ -1,4 +1,4 @@
-# 🕌 Prayer Times - Automated Salat Reminders for OpenClaw
+#  Prayer Times - Automated Salat Reminders for OpenClaw
 
 Never forget about the most important thing in your day and life. **Prayer is your first priority.**
 
@@ -7,35 +7,35 @@ This OpenClaw skill provides accurate Islamic prayer times for any location worl
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-green.svg)](https://openclaw.ai)
 
-## ✨ Features
+##  Features
 
-### 🌍 Global Prayer Times
+###  Global Prayer Times
 - **20+ countries** with official calculation methods
 - **Any location** - city/country or GPS coordinates
 - **Automatic method selection** - no manual configuration
 - **Next prayer countdown** - know exactly when Salat is coming
 - **Specific date support** - plan ahead for travel
 
-### 🔔 Automated Background Reminders
+###  Automated Background Reminders
 The core feature that makes this special:
 
-- **10 minutes before** - "🕌 Salat approaching: Asr in 10 minutes (16:43)"
-- **At prayer time** - "🕌 Salat First: Asr time is now (16:43)"
-- **5 minutes after** - "🕌 Salat reminder: Asr started 5 minutes ago (16:43)"
+- **10 minutes before** - " Salat approaching: Asr in 10 minutes (16:43)"
+- **At prayer time** - " Salat First: Asr time is now (16:43)"
+- **5 minutes after** - " Salat reminder: Asr started 5 minutes ago (16:43)"
 
 **Works during conversations** - No need to ask. The reminders appear automatically while you're chatting, ensuring you never forget.
 
 **Set up once, works forever** - Updates daily automatically via cron jobs. Zero maintenance required.
 
-### 🌐 Supported Countries
+###  Supported Countries
 
 Automatically uses official calculation methods for:
 
-🇲🇦 Morocco | 🇸🇦 Saudi Arabia | 🇪🇬 Egypt | 🇹🇷 Turkey | 🇦🇪 UAE | 🇰🇼 Kuwait | 🇶🇦 Qatar | 🇯🇴 Jordan | 🇩🇿 Algeria | 🇹🇳 Tunisia
+ Morocco |  Saudi Arabia |  Egypt |  Turkey |  UAE |  Kuwait |  Qatar |  Jordan |  Algeria |  Tunisia
 
 Plus 10+ more countries with Muslim World League as default fallback.
 
-## ⚠️ CRITICAL: Read This First
+##  CRITICAL: Read This First
 
 **[CRITICAL_SETUP.md](CRITICAL_SETUP.md)** - Essential guide to ensure prayer reminders NEVER fail.
 
@@ -46,7 +46,7 @@ Prayer is not optional. The reminder system must be 100% reliable. Read the crit
 
 **Don't skip this.** Missing a prayer reminder is a critical failure.
 
-## 📦 Installation
+##  Installation
 
 ### Prerequisites
 - [OpenClaw](https://openclaw.ai) installed and running
@@ -67,7 +67,7 @@ cp -r . ~/.openclaw/skills/prayer-times/
 /skill install prayer-times.skill
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Query Prayer Times
 
@@ -82,19 +82,19 @@ What are the prayer times in Cairo on March 15, 2026?
 
 **Example Output:**
 ```
-📍 Mecca, Saudi Arabia
-📆 10 Feb 2026
-🌙 22-08-1447
-🔢 Method: 4
+ Mecca, Saudi Arabia
+ 10 Feb 2026
+ 22-08-1447
+ Method: 4
 
-🕌 Fajr     05:37
-🌅 Sunrise  06:54
-🕌 Dhuhr    12:35
-🕌 Asr      15:50
-🕌 Maghrib  18:16
-🕌 Isha     19:46
+ Fajr     05:37
+ Sunrise  06:54
+ Dhuhr    12:35
+ Asr      15:50
+ Maghrib  18:16
+ Isha     19:46
 
-⏳ Next: Maghrib at 18:16 (in 15 minutes)
+ Next: Maghrib at 18:16 (in 15 minutes)
 ```
 
 ### 2. Set Up Automated Reminders
@@ -123,7 +123,7 @@ Fetch daily at midnight and check every 5 minutes.
 
 **From now on, you'll receive automatic reminders** - even while chatting about completely different topics.
 
-## 📖 Documentation
+##  Documentation
 
 ### Core Files
 
@@ -138,7 +138,7 @@ Fetch daily at midnight and check every 5 minutes.
 - **[check_prayer_reminder.py](scripts/check_prayer_reminder.py)** - Automated reminder checker
 - **[fetch_prayer_times.py](scripts/fetch_prayer_times.py)** - Morocco-specific fetcher (legacy)
 
-## 🎯 Use Cases
+##  Use Cases
 
 - **Daily reminders** - Never miss Salat during work, study, or conversations
 - **Travel planning** - Check prayer times before trips
@@ -146,7 +146,7 @@ Fetch daily at midnight and check every 5 minutes.
 - **Ramadan preparation** - Accurate Iftar and Suhoor times
 - **Mosque coordination** - Sync with local prayer schedules
 
-## 🔧 Advanced Configuration
+##  Advanced Configuration
 
 ### Custom Calculation Method
 
@@ -171,7 +171,7 @@ Default is every 5 minutes. To change:
 
 See [setup-reminders.md](references/setup-reminders.md) for complete guide.
 
-## 🌐 Network Considerations
+##  Network Considerations
 
 The skill uses the [AlAdhan API](https://aladhan.com/prayer-times-api) which may be unreachable from some datacenter IPs due to routing issues.
 
@@ -187,7 +187,7 @@ warp-cli connect
 
 See [SKILL.md](SKILL.md) for more details.
 
-## 💰 Cost Estimate
+##  Cost Estimate
 
 Running automated reminders costs approximately:
 
@@ -195,9 +195,9 @@ Running automated reminders costs approximately:
 - **Reminder checks:** ~60K tokens/day
 - **Total:** ~$1.80-2.00/month (at $0.03/1K tokens)
 
-**Worth every cent** to never miss Salat! 🤲
+**Worth every cent** to never miss Salat! 
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Whether it's:
 
@@ -208,30 +208,30 @@ Contributions are welcome! Whether it's:
 
 Please feel free to open an issue or submit a pull request.
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Credits
+##  Credits
 
 - **API Provider:** [AlAdhan](https://aladhan.com) / Islamic Network
 - **Creator:** L'Modir ([OpenClaw](https://openclaw.ai))
 - **Framework:** [OpenClaw](https://openclaw.ai) - AI agent framework
 
-## 🌟 Support
+##  Support
 
 - **Documentation:** [docs.openclaw.ai](https://docs.openclaw.ai)
 - **Community:** [Discord](https://discord.com/invite/clawd)
 - **Issues:** [GitHub Issues](https://github.com/diepox/openclaw-prayer-times/issues)
 
-## ⭐ Star This Repo
+##  Star This Repo
 
-If this skill helps you maintain your Salat, please ⭐ star this repo to help others discover it!
+If this skill helps you maintain your Salat, please  star this repo to help others discover it!
 
 ---
 
-**Made with ❤️ for the Muslim community**
+**Made with  for the Muslim community**
 
 > "Indeed, prayer has been decreed upon the believers at specified times." - Quran 4:103
 
-May Allah accept your prayers 🤲 Alhamdulillah!
+May Allah accept your prayers  Alhamdulillah!

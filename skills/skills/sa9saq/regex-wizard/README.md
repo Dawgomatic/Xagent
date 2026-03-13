@@ -1,4 +1,4 @@
-# 🧙 regex-wizard
+#  regex-wizard
 
 Turn plain English into regex — and regex into plain English.
 

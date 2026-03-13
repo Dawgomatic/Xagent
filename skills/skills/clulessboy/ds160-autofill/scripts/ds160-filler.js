@@ -458,7 +458,7 @@ async function fillElement(page, elementData, userData, currentUrl) {
  * Handle captcha using LLM
  */
 async function handleCaptcha(page, currentUrl) {
-  console.log('🤖 Captcha detected - calling LLM for assistance');
+  console.log(' Captcha detected - calling LLM for assistance');
 
   // This function should be called from the main skill
   // The skill will use the image tool to analyze the captcha
@@ -577,13 +577,13 @@ function saveCSVFile(csvContent) {
  * Main fill function
  */
 async function fillPage(page, currentUrl, userData, yamlData) {
-  console.log(`\n📄 Processing page: ${currentUrl}`);
+  console.log(`\n Processing page: ${currentUrl}`);
 
   // Find current page in YAML
   const currentPage = findCurrentPage(yamlData.pages, currentUrl);
 
   if (!currentPage) {
-    console.log(`⚠️  Page not found in mapping: ${currentUrl}`);
+    console.log(`  Page not found in mapping: ${currentUrl}`);
     return {
       success: false,
       message: `Page not found in mapping`,
@@ -625,13 +625,13 @@ async function fillPage(page, currentUrl, userData, yamlData) {
 
     // Check if we need to pause
     if (fillResult.needsUserInput) {
-      console.log(`\n⚠️  PAUSE NEEDED: ${fillResult.message}`);
+      console.log(`\n  PAUSE NEEDED: ${fillResult.message}`);
       needsSave = true;
       break;
     }
 
     if (fillResult.needsLLM) {
-      console.log(`\n⤵️  LLM ASSISTANCE NEEDED: ${fillResult.message}`);
+      console.log(`\n  LLM ASSISTANCE NEEDED: ${fillResult.message}`);
       return {
         needsLLM: true,
         message: fillResult.message,

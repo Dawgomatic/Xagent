@@ -13,7 +13,7 @@ An AI-powered trading agent for prediction markets that leverages LLMs (Google G
 - Implement on-chain data analysis for market sentiment
 - Create reusable toolkits for market data retrieval and trade execution
 
-### Phase 2: Moltbot Skills Integration ✅
+### Phase 2: Moltbot Skills Integration 
 - Package trading strategies as Moltbot-compatible Skills
 - Create SKILL.md files with proper YAML frontmatter
 - Implement skill gating for API keys and dependencies
@@ -480,7 +480,7 @@ name: skill-name
 description: Brief description
 homepage: https://github.com/zbruceli/trading
 user-invocable: true
-metadata: {"moltbot":{"emoji":"📈","requires":{"env":["API_KEY"]},"primaryEnv":"API_KEY"}}
+metadata: {"moltbot":{"emoji":"","requires":{"env":["API_KEY"]},"primaryEnv":"API_KEY"}}
 ---
 
 # Skill Name

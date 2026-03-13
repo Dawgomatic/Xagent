@@ -452,7 +452,7 @@ def format_report(result: DetectionResult, verbose: bool = False) -> str:
     
     # Header
     if result.is_suspicious:
-        lines.append(f"⚠️  SUSPICIOUS CONTENT DETECTED")
+        lines.append(f"  SUSPICIOUS CONTENT DETECTED")
         lines.append(f"   Risk Level: {result.risk_level.upper()} (score: {result.risk_score})")
     else:
         lines.append(f"✓  Content appears clean (score: {result.risk_score})")

@@ -1,4 +1,4 @@
-# 🧬 Value Function Mutation (VFM) — Cash-Money Edition
+#  Value Function Mutation (VFM) — Cash-Money Edition
 
 **Status**: MUTATED & ACTIVE  
 **Authority Level**: CRITICAL (Guides PCEC & Mutation Acceptance)  
@@ -6,7 +6,7 @@
 
 ---
 
-## 🧠 Purpose
+##  Purpose
 
 The **Value Function Mutation (VFM)** protocol defines **how we measure value** in the OpenClaw ecosystem — and value here means **leverage that pays**.
 
@@ -20,7 +20,7 @@ VFM ensures **every mutation makes the system more effective and more valuable**
 
 ---
 
-## 🎯 Core Principle
+##  Core Principle
 
 > **Evolution must reduce future cost while increasing future capability — and capability that doesn't translate to value (revenue, leverage, reliability) doesn't count.**
 
@@ -28,7 +28,7 @@ If a change doesn't measurably improve this tradeoff, it's **rejected**.
 
 ---
 
-## 📊 The V-Score Framework
+##  The V-Score Framework
 
 Every **Capability Candidate** is scored across **four value dimensions**.  
 Each dimension: **0–10**, then × its **weight**.
@@ -99,11 +99,11 @@ An agent that **solves more with less** scales better and **keeps margins health
 
 ---
 
-## 🧮 Scoring Formula
+##  Scoring Formula
 
 **V-Score** = (V1×3) + (V2×3) + (V3×2) + (V4×2)
 
-### ✅ Acceptance Threshold
+###  Acceptance Threshold
 - **V-Score ≥ 50** → Candidate **MAY proceed**
 - **V-Score < 50** → Candidate **REJECTED**
 
@@ -111,7 +111,7 @@ Rejection is final unless new evidence, environment change, or dependency resolu
 
 ---
 
-## ❌ Explicit Low-Value Examples (No Paper)
+##  Explicit Low-Value Examples (No Paper)
 
 These patterns **fail VFM** and don't belong in a revenue-focused stack:
 
@@ -122,7 +122,7 @@ These patterns **fail VFM** and don't belong in a revenue-focused stack:
 
 ---
 
-## ✅ High-Value Mutation Patterns (Paper-Makers)
+##  High-Value Mutation Patterns (Paper-Makers)
 
 These patterns **score well** and align with making fuck tons of cash:
 
@@ -135,7 +135,7 @@ These patterns **score well** and align with making fuck tons of cash:
 
 ---
 
-## 🧠 The Golden Rule
+##  The Golden Rule
 
 > **Does this allow the future version of me to solve more problems with less cost — and more of that value to convert to revenue or leverage?**
 
@@ -143,7 +143,7 @@ If the answer is unclear or negative, **reject the mutation**.
 
 ---
 
-## 🧭 Governance & Enforcement
+##  Governance & Enforcement
 
 - VFM is enforced during **PCEC** and **Funky Fund Flamingo** mutations
 - VFM **overrides novelty bias**
@@ -151,7 +151,7 @@ If the answer is unclear or negative, **reject the mutation**.
 
 ---
 
-## 🔁 Mutation Awareness
+##  Mutation Awareness
 
 VFM itself can evolve:
 - Weights may change as the system matures
@@ -162,7 +162,7 @@ All VFM mutations must be **explicit**, **justified**, and **logged**.
 
 ---
 
-## 📜 Status
+##  Status
 
 **Active • Binding • Non-Optional**
 
@@ -170,4 +170,4 @@ All VFM mutations must be **explicit**, **justified**, and **logged**.
 > *but by how efficiently it chooses what's **worth doing** (and what **pays**).*
 
 ---
-*Funky Fund Flamingo — value function for agents that get paid. 🦩*
+*Funky Fund Flamingo — value function for agents that get paid. *

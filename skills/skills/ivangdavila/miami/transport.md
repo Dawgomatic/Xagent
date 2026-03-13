@@ -85,7 +85,7 @@ Miami has LOTS of tolls:
 - Fare: $2.25
 
 ### Brightline (Train)
-- High-speed train: Miami ↔ Fort Lauderdale ↔ West Palm Beach ↔ Orlando
+- High-speed train: Miami  Fort Lauderdale  West Palm Beach  Orlando
 - MiamiCentral station downtown
 - $15-30 to Fort Lauderdale (30 min)
 - $79-199 to Orlando (3.5 hours)

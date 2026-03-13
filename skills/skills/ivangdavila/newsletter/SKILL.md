@@ -1,7 +1,7 @@
 ---
 name: Newsletter
 description: Create, grow, and monetize newsletters with effective content and subscriber strategies.
-metadata: {"clawdbot":{"emoji":"📧","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Subject Lines

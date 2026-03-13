@@ -28,7 +28,7 @@ def get_device_status(ip):
     except:
         return "TIMEOUT"
 
-print("🔍 Tasmota Device Summary")
+print(" Tasmota Device Summary")
 print("="*80)
 
 devices = []

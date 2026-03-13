@@ -31,12 +31,12 @@ check_auth() {
     log "Checking authentication status..."
     # Use list command instead of whoami (whoami has issues)
     if ! clawdhub list > /dev/null 2>&1; then
-        print_status "$RED" "❌ Not authenticated to ClawdHub"
+        print_status "$RED" " Not authenticated to ClawdHub"
         log "Please login first: clawdhub login --token <YOUR_TOKEN> --no-browser"
         return 1
     fi
     # Token is valid (list works)
-    print_status "$GREEN" "✅ Authenticated to ClawdHub"
+    print_status "$GREEN" " Authenticated to ClawdHub"
     log "Authenticated successfully"
     return 0
 }
@@ -66,7 +66,7 @@ publish_skill() {
 
     # Read SKILL.md to get name and description
     if [ ! -f "SKILL.md" ]; then
-        print_status "$RED" "❌ SKILL.md not found in $skill_name"
+        print_status "$RED" " SKILL.md not found in $skill_name"
         FAILED_SKILLS+=("$skill_name: Missing SKILL.md")
         cd - > /dev/null
         rm -rf "$skill_dir"
@@ -90,7 +90,7 @@ publish_skill() {
 
     # Check if already published
     if is_skill_published "$skill_name"; then
-        print_status "$YELLOW" "⏭️  Skipping $skill_name (already published)"
+        print_status "$YELLOW" "  Skipping $skill_name (already published)"
         ALREADY_PUBLISHED+=("$skill_name")
         cd - > /dev/null
         rm -rf "$skill_dir"
@@ -104,11 +104,11 @@ publish_skill() {
         --name "$skill_display_name" \
         --version "1.0.0" \
         --changelog "Initial release: $skill_desc"; then
-        print_status "$GREEN" "✅ Successfully published: $skill_name"
+        print_status "$GREEN" " Successfully published: $skill_name"
         PUBLISHED_SKILLS+=("$skill_name")
         log "Published $skill_name successfully"
     else
-        print_status "$RED" "❌ Failed to publish: $skill_name"
+        print_status "$RED" " Failed to publish: $skill_name"
         FAILED_SKILLS+=("$skill_name")
         log "Failed to publish $skill_name"
     fi
@@ -129,12 +129,12 @@ main() {
 
     # Find all .skill files
     if [ ! -d "$DIST_DIR" ]; then
-        print_status "$RED" "❌ dist directory not found: $DIST_DIR"
+        print_status "$RED" " dist directory not found: $DIST_DIR"
         exit 1
     fi
 
     local skill_count=$(find "$DIST_DIR" -name "*.skill" -type f | wc -l)
-    print_status "$BLUE" "📦 Found $skill_count skill(s) to process"
+    print_status "$BLUE" " Found $skill_count skill(s) to process"
     log "Found $skill_count skill(s) in $DIST_DIR"
 
     # Process each skill
@@ -149,9 +149,9 @@ main() {
     log "========================================"
     log "Publishing Summary"
     log "========================================"
-    print_status "$GREEN" "✅ Published: ${#PUBLISHED_SKILLS[@]}"
-    print_status "$YELLOW" "⏭️  Already Published: ${#ALREADY_PUBLISHED[@]}"
-    print_status "$RED" "❌ Failed: ${#FAILED_SKILLS[@]}"
+    print_status "$GREEN" " Published: ${#PUBLISHED_SKILLS[@]}"
+    print_status "$YELLOW" "  Already Published: ${#ALREADY_PUBLISHED[@]}"
+    print_status "$RED" " Failed: ${#FAILED_SKILLS[@]}"
 
     if [ ${#PUBLISHED_SKILLS[@]} -gt 0 ]; then
         echo

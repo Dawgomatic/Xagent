@@ -122,15 +122,15 @@ print(int(dt.timestamp()))  # 1770764400
 
 ## Accounting Rules for Spain
 
-**⚠️ ALWAYS check these rules BEFORE creating any expense document:**
+** ALWAYS check these rules BEFORE creating any expense document:**
 
 | Expense Type | IVA Deductible | Expense Deductible | Account |
 |--------------|----------------|---------------------|---------|
-| Restaurants/Meals | ❌ No | ✅ Yes (with justification) | 629 |
-| Displacement | ❌ No | ✅ Yes | 629 |
-| Fuel | ⚠️ Mixed | ✅ Yes | 625/622 |
-| Office supplies | ✅ Yes | ✅ Yes | 600/602 |
-| Insurance | ⚠️ Mixed | ✅ Yes | 625 |
+| Restaurants/Meals |  No |  Yes (with justification) | 629 |
+| Displacement |  No |  Yes | 629 |
+| Fuel |  Mixed |  Yes | 625/622 |
+| Office supplies |  Yes |  Yes | 600/602 |
+| Insurance |  Mixed |  Yes | 625 |
 
 **Before creating any document, ALWAYS verify:**
 1. Is the expense tax deductible?

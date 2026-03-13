@@ -103,4 +103,4 @@ csvkit stats large_dataset.csv
 
 **Built by [LXGIC Studios](https://lxgicstudios.com)**
 
-🔗 [GitHub](https://github.com/lxgicstudios/csvkit-next) · [Twitter](https://x.com/lxgicstudios)
+ [GitHub](https://github.com/lxgicstudios/csvkit-next) · [Twitter](https://x.com/lxgicstudios)

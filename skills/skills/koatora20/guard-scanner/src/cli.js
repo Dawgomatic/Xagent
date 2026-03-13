@@ -36,7 +36,7 @@ const args = process.argv.slice(2);
 
 if (args.includes('--help') || args.includes('-h')) {
     console.log(`
-🛡️  guard-scanner v${VERSION} — Agent Skill Security Scanner
+  guard-scanner v${VERSION} — Agent Skill Security Scanner
 
 Usage: guard-scanner [scan-dir] [options]
 
@@ -128,19 +128,19 @@ if (jsonOutput) {
     const report = scanner.toJSON();
     const outPath = path.join(scanDir, 'guard-scanner-report.json');
     fs.writeFileSync(outPath, JSON.stringify(report, null, 2));
-    console.log(`\n📄 JSON report: ${outPath}`);
+    console.log(`\n JSON report: ${outPath}`);
 }
 
 if (sarifOutput) {
     const outPath = path.join(scanDir, 'guard-scanner.sarif');
     fs.writeFileSync(outPath, JSON.stringify(scanner.toSARIF(scanDir), null, 2));
-    console.log(`\n📄 SARIF report: ${outPath}`);
+    console.log(`\n SARIF report: ${outPath}`);
 }
 
 if (htmlOutput) {
     const outPath = path.join(scanDir, 'guard-scanner-report.html');
     fs.writeFileSync(outPath, scanner.toHTML());
-    console.log(`\n📄 HTML report: ${outPath}`);
+    console.log(`\n HTML report: ${outPath}`);
 }
 
 // Exit codes

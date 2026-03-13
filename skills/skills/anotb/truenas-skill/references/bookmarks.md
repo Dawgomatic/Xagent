@@ -112,13 +112,13 @@ curl -s "$KARAKEEP_URL/api/v1/lists" \
 curl -s -X POST "$KARAKEEP_URL/api/v1/lists" \
   -H "Authorization: Bearer $KARAKEEP_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"name": "Reading List", "icon": "📚"}'
+  -d '{"name": "Reading List", "icon": ""}'
 
 # Create a smart list (auto-populated by query)
 curl -s -X POST "$KARAKEEP_URL/api/v1/lists" \
   -H "Authorization: Bearer $KARAKEEP_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"name": "AI Articles", "icon": "🤖", "type": "smart", "query": "#ai"}'
+  -d '{"name": "AI Articles", "icon": "", "type": "smart", "query": "#ai"}'
 
 # Add bookmark to list
 curl -s -X PUT "$KARAKEEP_URL/api/v1/lists/LIST_ID/bookmarks/BOOKMARK_ID" \

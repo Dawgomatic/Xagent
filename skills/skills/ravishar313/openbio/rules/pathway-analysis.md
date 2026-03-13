@@ -59,24 +59,24 @@ What analysis do you need?
 ### Common Pitfalls
 
 ```
-❌ Too few genes
+ Too few genes
    "Enrichment with 3 genes" → Not meaningful
 
-✅ Need at least 5-10 genes for reliable enrichment
+ Need at least 5-10 genes for reliable enrichment
 ```
 
 ```
-❌ Redundant pathways
+ Redundant pathways
    "Cell cycle" and "Mitotic cell cycle" both significant
 
-✅ Group related terms, report most specific
+ Group related terms, report most specific
 ```
 
 ```
-❌ Ignoring background
+ Ignoring background
    Testing against all 20,000 genes when only 8,000 expressed
 
-✅ Use appropriate background (expressed genes in your experiment)
+ Use appropriate background (expressed genes in your experiment)
 ```
 
 ## STRING Confidence Scores

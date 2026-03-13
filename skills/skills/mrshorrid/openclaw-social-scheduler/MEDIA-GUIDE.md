@@ -205,21 +205,21 @@ await exec({
 
 ### File Too Large
 ```
-❌ Upload failed: File too large: 6.2MB (max 5.0MB for twitter)
+ Upload failed: File too large: 6.2MB (max 5.0MB for twitter)
 ```
 
 **Solution**: Resize or compress the image before upload.
 
 ### Unsupported Format
 ```
-❌ Upload failed: Unsupported format: image/bmp (twitter supports: image/jpeg, image/png, image/gif, image/webp)
+ Upload failed: Unsupported format: image/bmp (twitter supports: image/jpeg, image/png, image/gif, image/webp)
 ```
 
 **Solution**: Convert to a supported format (JPEG/PNG recommended).
 
 ### Rate Limit
 ```
-❌ Upload failed: Twitter API error: Rate limit exceeded. Try again later.
+ Upload failed: Twitter API error: Rate limit exceeded. Try again later.
 ```
 
 **Solution**: Wait and retry. Twitter free tier has strict limits.
@@ -327,4 +327,4 @@ This validates:
 
 ---
 
-**Built by Ori ✨ for the OpenClaw community**
+**Built by Ori  for the OpenClaw community**

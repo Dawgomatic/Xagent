@@ -57,8 +57,8 @@ sshfs -p "$PORT" "root@$IP:/" "$MOUNT_PATH" \
   -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
 
 if [ $? -eq 0 ]; then
-    echo "✅ Mounted at $MOUNT_PATH"
+    echo " Mounted at $MOUNT_PATH"
 else
-    echo "❌ Failed to mount"
+    echo " Failed to mount"
     exit 1
 fi

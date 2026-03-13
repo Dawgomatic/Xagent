@@ -26,16 +26,16 @@ def format_daily_summary():
     
     data = load_cache()
     if not data:
-        return "📊 No Garmin data available yet. Run sync first."
+        return " No Garmin data available yet. Run sync first."
     
     summary = data.get('summary', {})
     
-    output = "📊 **Daily Activity**\n"
-    output += f"🚶 Steps: {summary.get('steps', 0):,}\n"
-    output += f"❤️ Heart Rate (resting): {summary.get('heart_rate_resting', 0)} bpm\n"
-    output += f"🔥 Calories: {summary.get('calories', 0):,}\n"
-    output += f"⏱️ Active Minutes: {summary.get('active_minutes', 0)} min\n"
-    output += f"📏 Distance: {summary.get('distance_km', 0)} km"
+    output = " **Daily Activity**\n"
+    output += f" Steps: {summary.get('steps', 0):,}\n"
+    output += f" Heart Rate (resting): {summary.get('heart_rate_resting', 0)} bpm\n"
+    output += f" Calories: {summary.get('calories', 0):,}\n"
+    output += f" Active Minutes: {summary.get('active_minutes', 0)} min\n"
+    output += f" Distance: {summary.get('distance_km', 0)} km"
     
     return output
 
@@ -44,12 +44,12 @@ def format_sleep():
     
     data = load_cache()
     if not data:
-        return "😴 No sleep data available"
+        return " No sleep data available"
     
     sleep = data.get('sleep', {})
     
     quality = sleep.get('quality_percent', 0)
-    quality_emoji = "😴" if quality >= 80 else "😐" if quality >= 60 else "😩"
+    quality_emoji = "" if quality >= 80 else "" if quality >= 60 else ""
     
     output = f"{quality_emoji} **Sleep**\n"
     output += f"Duration: {sleep.get('duration_hours', 0)}h {int(sleep.get('duration_minutes', 0) % 60)}m\n"
@@ -66,14 +66,14 @@ def format_workouts():
     
     data = load_cache()
     if not data:
-        return "🏋️ No workout data available"
+        return " No workout data available"
     
     workouts = data.get('workouts', [])
     
     if not workouts:
-        return "🏋️ No recent workouts"
+        return " No recent workouts"
     
-    output = "🏋️ **Recent Workouts**\n"
+    output = " **Recent Workouts**\n"
     
     for workout in workouts[:5]:  # Show last 5
         output += f"\n• {workout.get('type', 'Workout')}: {workout.get('name', 'Unnamed')}\n"

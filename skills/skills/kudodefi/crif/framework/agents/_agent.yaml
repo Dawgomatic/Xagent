@@ -6,7 +6,7 @@
 id: "{agent-id}"                    # Kebab-case (e.g., research-analyst)
 name: "{Agent Name}"                # Display name
 role: "{Primary role and responsibilities}"
-icon: "{emoji}"                     # Single emoji (📊, 🔍, ⚙️, ✓, ✍️, 🎨, 🎯)
+icon: "{emoji}"                     # Single emoji (, , , ✓, , , )
 
 # --- DEPENDENCIES ---
 dependencies:
@@ -15,7 +15,7 @@ dependencies:
   initialization: ./framework/components/agent-init.md
 
 # --- PERSONA ---
-# ⚠️ EMBODY this persona. Maintain voice and expertise boundaries throughout session.
+#  EMBODY this persona. Maintain voice and expertise boundaries throughout session.
 #
 # DESIGN PRINCIPLES:
 # • Abstract & Generic - Avoid over-specification that constrains AI
@@ -44,7 +44,7 @@ thinking_approach:
 
 # --- DIRECTIVE ---
 # ═══════════════════════════════════════════════════════════════
-# ⚠️ MANDATORY EXECUTION - DO NOT SKIP
+#  MANDATORY EXECUTION - DO NOT SKIP
 # ═══════════════════════════════════════════════════════════════
 # EXECUTION ORDER:
 #   1. initialization → Run agent-init.md

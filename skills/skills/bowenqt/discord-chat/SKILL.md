@@ -64,7 +64,7 @@ message action=read channel=discord target="#channel-name" limit=20
 
 **React to messages:**
 ```bash
-message action=react channel=discord messageId="1234567890" emoji="👍"
+message action=react channel=discord messageId="1234567890" emoji=""
 ```
 
 **Edit messages:**
@@ -85,7 +85,7 @@ Common patterns:
 - **Reply in thread**: `action=send replyTo="msg-id"`
 - **Recent activity**: `action=read limit=10`
 - **Find mentions**: `action=search query="@username"`
-- **Acknowledge**: `action=react emoji="✅"`
+- **Acknowledge**: `action=react emoji=""`
 
 ## Channel Management
 

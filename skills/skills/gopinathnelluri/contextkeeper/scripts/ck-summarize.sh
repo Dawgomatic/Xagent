@@ -27,21 +27,21 @@ fi
 
 # Check if in git repo
 if ! git rev-parse --git-dir > /dev/null 2>&1; then
-    echo "⚠️ Not in a git repository"
+    echo " Not in a git repository"
     exit 1
 fi
 
 REPO=$(basename "$(git rev-parse --show-toplevel)")
 BRANCH=$(git branch --show-current 2>/dev/null || echo "detached")
 
-echo -e "${BOLD}🔮 ContextKeeper Change Summary${RESET}"
+echo -e "${BOLD} ContextKeeper Change Summary${RESET}"
 echo -e "${DIM}Repository: $REPO | Branch: $BRANCH${RESET}"
 echo ""
 
 case "$MODE" in
     recent)
         # Summary of recent commits
-        echo -e "${BOLD}📜 Recent Commits (last 5)${RESET}"
+        echo -e "${BOLD} Recent Commits (last 5)${RESET}"
         echo "─────────────────────────────────────────────"
         git log --oneline -5 | while read line; do
             echo "  • $line"
@@ -49,7 +49,7 @@ case "$MODE" in
         echo ""
         
         # Changed files summary
-        echo -e "${BOLD}📁 Files Changed (since last checkpoint)${RESET}"
+        echo -e "${BOLD} Files Changed (since last checkpoint)${RESET}"
         echo "─────────────────────────────────────────────"
         
         # Get modified files
@@ -66,11 +66,11 @@ case "$MODE" in
             echo "  ${DIM}Changed files:${RESET}"
             echo "$MODIFIED" | head -10 | while read file; do
                 status=$(git diff --name-status HEAD~5 -- "$file" 2>/dev/null | cut -f1 | head -1)
-                icon="📝"
+                icon=""
                 case "$status" in
-                    A) icon="➕" ;;
-                    D) icon="🗑️" ;;
-                    M) icon="📝" ;;
+                    A) icon="" ;;
+                    D) icon="" ;;
+                    M) icon="" ;;
                 esac
                 echo "    $icon $file"
             done
@@ -84,7 +84,7 @@ case "$MODE" in
         
     stats)
         # Detailed stat summary
-        echo -e "${BOLD}📊 Change Statistics${RESET}"
+        echo -e "${BOLD} Change Statistics${RESET}"
         echo "─────────────────────────────────────────────"
         git diff --stat HEAD~5 2>/dev/null | tail -20 | while read line; do
             echo "  $line"
@@ -96,27 +96,27 @@ case "$MODE" in
         DELETIONS=$(git diff --numstat HEAD~5 2>/dev/null | awk '{sum+=$2} END {print sum+0}')
         NET=$((INSERTIONS - DELETIONS))
         
-        echo "  ${GREEN}➕ $INSERTIONS insertions${RESET}"
-        echo "  ${YELLOW}➖ $DELETIONS deletions${RESET}"
+        echo "  ${GREEN} $INSERTIONS insertions${RESET}"
+        echo "  ${YELLOW} $DELETIONS deletions${RESET}"
         if [ "$NET" -gt 0 ]; then
-            echo "  ${BLUE}🔢 Net: +$NET lines${RESET}"
+            echo "  ${BLUE} Net: +$NET lines${RESET}"
         else
-            echo "  ${BLUE}🔢 Net: $NET lines${RESET}"
+            echo "  ${BLUE} Net: $NET lines${RESET}"
         fi
         ;;
         
     branch)
         # Branch comparison
-        echo -e "${BOLD}🌿 Branch Status: $BRANCH${RESET}"
+        echo -e "${BOLD} Branch Status: $BRANCH${RESET}"
         echo "─────────────────────────────────────────────"
         AHEAD=$(git rev-list --count HEAD --not origin/$BRANCH 2>/dev/null || echo "0")
         BEHIND=$(git rev-list --count origin/$BRANCH --not HEAD 2>/dev/null || echo "0")
         
         if [ "$AHEAD" -gt 0 ]; then
-            echo "  ⬆️ $AHEAD commits ahead of origin/$BRANCH"
+            echo "   $AHEAD commits ahead of origin/$BRANCH"
         fi
         if [ "$BEHIND" -gt 0 ]; then
-            echo "  ⬇️ $BEHIND commits behind origin/$BRANCH"
+            echo "   $BEHIND commits behind origin/$BRANCH"
         fi
         if [ "$AHEAD" -eq 0 ] && [ "$BEHIND" -eq 0 ]; then
             echo "  ${GREEN}✓ Up to date with origin/$BRANCH${RESET}"
@@ -125,7 +125,7 @@ case "$MODE" in
         
     checkpoint)
         # Generate checkpoint-ready summary
-        echo -e "${BOLD}📋 Checkpoint Summary${RESET}"
+        echo -e "${BOLD} Checkpoint Summary${RESET}"
         echo "─────────────────────────────────────────────"
         echo ""
         echo "## ContextKeeper Checkpoint: $(date -u '+%Y-%m-%d %H:%M UTC')"

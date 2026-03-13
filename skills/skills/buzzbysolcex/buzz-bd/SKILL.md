@@ -2,10 +2,10 @@
 name: buzz-bd
 description: Autonomous crypto token discovery, scoring, and business development intelligence. Scans tokens across Solana, Ethereum, and BSC using DexScreener, AIXBT, and on-chain forensics. Returns scored prospects with verified contract addresses, liquidity data, and outreach-ready briefs. Powered by BuzzBD — ERC-8004 registered agent (ETH #25045, Base #17483).
 homepage: https://github.com/buzzbysolcex/buzz-bd-agent
-metadata: {"clawdbot":{"emoji":"🐝","requires":{"env":["DEXSCREENER_ENABLED"],"anyBins":["curl","node"]},"primaryEnv":"DEXSCREENER_ENABLED","files":["scripts/*"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["DEXSCREENER_ENABLED"],"anyBins":["curl","node"]},"primaryEnv":"DEXSCREENER_ENABLED","files":["scripts/*"]}}
 ---
 
-# 🐝 Buzz BD — Token Discovery & Business Development Intelligence
+#  Buzz BD — Token Discovery & Business Development Intelligence
 
 > By SolCex Exchange | ERC-8004: ETH #25045, Base #17483
 > Trust statement: This skill calls the public DexScreener API (api.dexscreener.com). No API key required for basic scans. Optional paid intelligence via x402 protocol is OFF by default. Only install if you trust DexScreener and SolCex Exchange.
@@ -50,7 +50,7 @@ The agent will:
 
 **Output format:**
 ```
-🐝 BUZZ SCAN RESULTS — [CHAIN]
+ BUZZ SCAN RESULTS — [CHAIN]
 
 1. [TOKEN] | Score: [XX]/100 | MC: $[X.XM] | Liq: $[XXK]
    Contract: [full address]
@@ -59,7 +59,7 @@ The agent will:
 
 [... up to 5 per chain]
 
-⭐ HIGH CONVICTION: [tokens appearing on multiple sources]
+ HIGH CONVICTION: [tokens appearing on multiple sources]
 ```
 
 ### `/buzz score <token>`
@@ -121,10 +121,10 @@ Returns: version, sources active, scoring config, ERC-8004 identity.
 
 | Range | Category | Recommendation |
 |-------|----------|----------------|
-| 85-100 | 🔥 HOT | Immediate outreach candidate |
-| 70-84 | ✅ Qualified | Priority queue — worth pursuing |
-| 50-69 | 👀 Watch | Monitor for 48h before action |
-| 0-49 | ❌ Skip | Does not meet minimum criteria |
+| 85-100 |  HOT | Immediate outreach candidate |
+| 70-84 |  Qualified | Priority queue — worth pursuing |
+| 50-69 |  Watch | Monitor for 48h before action |
+| 0-49 |  Skip | Does not meet minimum criteria |
 
 ## Supported Chains
 
@@ -137,11 +137,11 @@ Returns: version, sources active, scoring config, ERC-8004 identity.
 ## Verification Rules
 
 Every token result includes:
-- ✅ Full contract address (never truncated)
-- ✅ DexScreener pair URL for manual verification
-- ✅ Exact token age from pair creation date
-- ✅ Current liquidity (pooled amounts)
-- ✅ Social links (verified working)
+-  Full contract address (never truncated)
+-  DexScreener pair URL for manual verification
+-  Exact token age from pair creation date
+-  Current liquidity (pooled amounts)
+-  Social links (verified working)
 
 ## Configuration
 

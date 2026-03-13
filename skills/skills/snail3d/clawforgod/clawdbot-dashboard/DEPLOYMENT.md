@@ -531,7 +531,7 @@ vercel deploy --prod
 
 ## Success Criteria
 
-✅ **Deployment Complete When:**
+ **Deployment Complete When:**
 1. Site loads without errors
 2. All pages responsive
 3. Performance score > 90

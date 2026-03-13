@@ -2,7 +2,7 @@
 name: skiplagged-flights
 description: Use when the user asks to "find flights", "compare itineraries", "search hidden-city routes", "check cheapest dates", "explore destinations", "search hotels", "plan a trip", etc, or general flights / trip planning. Ground outputs in offical Skiplagged MCP results.
 homepage: https://skiplagged.com
-metadata: {"openclaw":{"emoji":"✈️","homepage":"https://skiplagged.com","requires":{"bins":["mcporter"]},"install":[{"id":"node","kind":"node","package":"mcporter","bins":["mcporter"],"label":"Install mcporter (node)"}]}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://skiplagged.com","requires":{"bins":["mcporter"]},"install":[{"id":"node","kind":"node","package":"mcporter","bins":["mcporter"],"label":"Install mcporter (node)"}]}}
 ---
 
 # Skiplagged Flights (MCP)

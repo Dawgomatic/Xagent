@@ -188,7 +188,7 @@ async function setup() {
         body: 'Review and polish the draft report. Ensure: 1) Consistent tone matching the coaching style preference, 2) Clear and actionable recommendations, 3) Professional formatting, 4) Motivational closing with next steps.'
       }
     ],
-    // ⚠️ CRITICAL: Edges define how data flows through your workflow
+    //  CRITICAL: Edges define how data flows through your workflow
     edges: [
       { from: 'trigger:life-coaching-trigger', to: 'task:intake-summary' },
       { from: 'task:intake-summary', to: 'task:goal-clarification' },

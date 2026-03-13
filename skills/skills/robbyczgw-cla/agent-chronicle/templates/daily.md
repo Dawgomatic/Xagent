@@ -6,13 +6,13 @@
 ## Projects Worked On
 {{projects}}
 
-## Wins 🎉
+## Wins 
 {{wins}}
 
-## Frustrations 😤
+## Frustrations 
 {{frustrations}}
 
-## Learnings 📚
+## Learnings 
 {{learnings}}
 
 ## Emotional State
@@ -22,22 +22,22 @@
 {{interactions}}
 
 {{#if quotes}}
-## Quote of the Day 💬
+## Quote of the Day 
 {{quotes}}
 {{/if}}
 
 {{#if curiosity}}
-## Things I'm Curious About 🔮
+## Things I'm Curious About 
 {{curiosity}}
 {{/if}}
 
 {{#if decisions}}
-## Key Decisions Made 🏛️
+## Key Decisions Made 
 {{decisions}}
 {{/if}}
 
 {{#if relationship}}
-## Relationship Notes 🤝
+## Relationship Notes 
 {{relationship}}
 {{/if}}
 

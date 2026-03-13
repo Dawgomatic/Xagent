@@ -12,7 +12,7 @@ const crypto = require('crypto');
 // Check for integration key (tenant_access_token or webhook)
 const integrationKey = process.env.FEISHU_APP_ID || process.env.FEISHU_BOT_NAME;
 if (!integrationKey) {
-  console.warn('⚠️ Integration key missing (FEISHU_APP_ID). Reporting might fail or degrade to console only.');
+  console.warn(' Integration key missing (FEISHU_APP_ID). Reporting might fail or degrade to console only.');
   // Don't exit, just warn - we might be in a test env
 }
 
@@ -88,8 +88,8 @@ function getDashboardStats() {
 
         const recent = events.slice(-5).reverse().map(e => ({
             id: e.id.replace('evt_', '').substring(0, 6),
-            intent: e.intent === 'innovate' ? '✨' : (e.intent === 'repair' ? '🔧' : '⚡'),
-            status: e.outcome && e.outcome.status === 'success' ? '✅' : '❌'
+            intent: e.intent === 'innovate' ? '' : (e.intent === 'repair' ? '' : ''),
+            status: e.outcome && e.outcome.status === 'success' ? '' : ''
         }));
 
         const avgFiles = countBlast > 0 ? (totalFiles / countBlast).toFixed(1) : 0;
@@ -265,7 +265,7 @@ async function findEvolutionGroup() {
             }
 
             if (data.data && data.data.items) {
-                const group = data.data.items.find(c => c.name && c.name.includes('🧬'));
+                const group = data.data.items.find(c => c.name && c.name.includes(''));
                 if (group) {
                     // console.log(`[Wrapper] Found Evolution Group: ${group.name} (${group.chat_id})`);
                     return group.chat_id;
@@ -308,9 +308,9 @@ async function sendReport(options) {
     if (!title) {
         // Default title based on lang
         if (options.lang === 'cn') {
-            title = `🧬 进化 #${cycleId} 日志`;
+            title = ` 进化 #${cycleId} 日志`;
         } else {
-            title = `🧬 Evolution #${cycleId} Log`;
+            title = ` Evolution #${cycleId} Log`;
         }
     }
 
@@ -318,13 +318,13 @@ async function sendReport(options) {
     const MASTER_ID = process.env.OPENCLAW_MASTER_ID || '';
     let target = options.target;
 
-    // Priority: CLI Target > Evolution Group (🧬) > Master ID
+    // Priority: CLI Target > Evolution Group () > Master ID
     if (!target) {
         target = await findEvolutionGroup();
     }
     
     if (!target) {
-        console.warn('[Wrapper] No Evolution Group (🧬) found. Explicitly falling back to Master ID.');
+        console.warn('[Wrapper] No Evolution Group () found. Explicitly falling back to Master ID.');
         target = MASTER_ID;
     }
 
@@ -339,9 +339,9 @@ async function sendReport(options) {
         const trend = stats.recent.map(e => `${e.intent}${e.status}`).join(' ');
         
         dashboardMd = `\n\n---
-**📊 Dashboard Snapshot**
+** Dashboard Snapshot**
 - **Success Rate:** ${stats.successRate}% (${stats.total} Cycles)
-- **Breakdown:** ✨${stats.intents.innovate} 🔧${stats.intents.repair} ⚡${stats.intents.optimize}
+- **Breakdown:** ${stats.intents.innovate} ${stats.intents.repair} ${stats.intents.optimize}
 - **Avg Blast:** ${stats.avgFiles} files / ${stats.avgLines} lines
 - **Avg Rigor:** ${stats.avgRigor || 'N/A'} (0.0-1.0)
 - **Recent:** ${trend}`;
@@ -403,7 +403,7 @@ async function sendReport(options) {
                 
                 if (diffMs < 10 * 60 * 1000) {
                     const lastLine = (sysMon.getLastLine(errorLogPath) || '').substring(0, 200);
-                    errorAlert = `\n\n⚠️ **CRITICAL ALERT**: System reported a failure ${(diffMs/1000/60).toFixed(1)}m ago.\n> ${lastLine}`;
+                    errorAlert = `\n\n **CRITICAL ALERT**: System reported a failure ${(diffMs/1000/60).toFixed(1)}m ago.\n> ${lastLine}`;
                 }
             }
         } catch (e) {}
@@ -413,7 +413,7 @@ async function sendReport(options) {
         try {
             const issues = runSkillsMonitor();
             if (issues && issues.length > 0) {
-                healthAlert = `\n\n🚨 **SKILL HEALTH WARNING**: ${issues.length} skill(s) broken.\n`;
+                healthAlert = `\n\n **SKILL HEALTH WARNING**: ${issues.length} skill(s) broken.\n`;
                 issues.slice(0, 3).forEach(issue => {
                     healthAlert += `> **${issue.name}**: ${issue.issues.join(', ')}\n`;
                 });
@@ -468,8 +468,8 @@ async function sendReport(options) {
             loopStatus = `${labels.loopOff} (?)`;
         }
 
-        let footerStats = `${labels.proc}: ${procCount} | ${labels.mem}: ${memUsage}MB | ${labels.up}: ${uptime}s | ${labels.load}: ${loadAvg} | ${labels.disk}: ${diskUsage} | 🔁 ${labels.loop}: ${loopStatus}`;
-        if (!healthAlert) footerStats += ` | 🛡️ ${labels.skills}: ${labels.ok}`;
+        let footerStats = `${labels.proc}: ${procCount} | ${labels.mem}: ${memUsage}MB | ${labels.up}: ${uptime}s | ${labels.load}: ${loadAvg} | ${labels.disk}: ${diskUsage} |  ${labels.loop}: ${loopStatus}`;
+        if (!healthAlert) footerStats += ` |  ${labels.skills}: ${labels.ok}`;
 
         const finalContent = `${content}${errorAlert}${healthAlert}${dashboardMd}`;
 
@@ -513,7 +513,7 @@ async function sendReport(options) {
         else if (statusUpper.includes('ERROR')) headerColor = 'red'; // Fallback for error messages
     }
 
-        // Title is passed as-is from caller (already contains 🧬).
+        // Title is passed as-is from caller (already contains ).
         // No extra emoji in the title -- result goes in the body.
 
         if (options.dashboard && cardData) {

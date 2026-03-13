@@ -82,11 +82,11 @@ TechLevel = advanced (15 questions, ~12 min)
 
 ### Simple Level — Keep it human
 
-❌ Don't say: "Configure heartbeat polling interval"
-✅ Say: "How often should I check in? Often, sometimes, or only when you message me?"
+ Don't say: "Configure heartbeat polling interval"
+ Say: "How often should I check in? Often, sometimes, or only when you message me?"
 
-❌ Don't say: "Enable Solvr collective knowledge integration"
-✅ Skip entirely for simple level
+ Don't say: "Enable Solvr collective knowledge integration"
+ Skip entirely for simple level
 
 ### Intermediate Level — Light technical
 

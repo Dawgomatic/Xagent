@@ -8,12 +8,12 @@ Comprehensive security auditing for your OpenClaw instance
 
 ## Features
 
-- 🔍 15+ automated security checks
-- 🤖 AI-powered analysis using YOUR existing LLM
-- 📊 Risk scoring and prioritization
-- 🛠️ Step-by-step fix instructions
-- 🔒 Privacy-focused (secrets never exposed)
-- ⚡ Zero configuration required
+-  15+ automated security checks
+-  AI-powered analysis using YOUR existing LLM
+-  Risk scoring and prioritization
+-  Step-by-step fix instructions
+-  Privacy-focused (secrets never exposed)
+-  Zero configuration required
 
 ## Quick Start
 

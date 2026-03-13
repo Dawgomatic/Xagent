@@ -11,8 +11,8 @@ Access Cookidoo (Thermomix) recipes, shopping lists, and meal planning.
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `COOKIDOO_EMAIL` | ✅ Yes | Your Cookidoo account email |
-| `COOKIDOO_PASSWORD` | ✅ Yes | Your Cookidoo account password |
+| `COOKIDOO_EMAIL` |  Yes | Your Cookidoo account email |
+| `COOKIDOO_PASSWORD` |  Yes | Your Cookidoo account password |
 | `COOKIDOO_COUNTRY` | Optional | Country code (default: DE) |
 | `COOKIDOO_LANGUAGE` | Optional | Language code (default: de-DE) |
 

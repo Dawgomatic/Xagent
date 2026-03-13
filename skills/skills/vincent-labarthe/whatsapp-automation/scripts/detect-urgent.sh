@@ -21,7 +21,7 @@ jq -r "select(.timestamp > $LAST_ID) | select(.text | test(\"URGENT|HELP|SOS|EME
     CONTACT_NAME=$(echo "$CONTACT" | sed 's/@.*//' || echo "Someone")
     
     # Build alert
-    ALERT="⚠️ Important message from $CONTACT_NAME: $TEXT"
+    ALERT=" Important message from $CONTACT_NAME: $TEXT"
     
     # Send alert
     bash "$SCRIPT_DIR/send-alert.sh" "$ALERT" 2>/dev/null

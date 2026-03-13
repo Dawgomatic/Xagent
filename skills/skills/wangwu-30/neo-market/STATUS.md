@@ -4,7 +4,7 @@ Last updated: 2026-02-06 04:35 (Asia/Shanghai)
 
 ## Current state (green)
 - Branch: main
-- Tests: `npm test` ✅ (latest run: 31 passing)
+- Tests: `npm test`  (latest run: 31 passing)
 
 ## Latest milestones (most recent first)
 - (unreleased) Add job finalization `closeJob` gated on escrow terminal state + indexing-friendly events

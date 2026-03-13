@@ -1,4 +1,4 @@
-# Security Best Practices 🔒
+# Security Best Practices 
 
 Critical security guidelines for trading on prediction markets.
 
@@ -6,7 +6,7 @@ Critical security guidelines for trading on prediction markets.
 
 ## Core Principles
 
-### 🔴 NEVER Do These Things
+###  NEVER Do These Things
 
 1. **NEVER share your private keys with anyone**
    - Not in logs
@@ -37,7 +37,7 @@ Critical security guidelines for trading on prediction markets.
 
 ---
 
-## ✅ Essential Security Practices
+##  Essential Security Practices
 
 ### Environment Variables
 
@@ -87,7 +87,7 @@ git grep -i "private.*key\|secret\|password" $(git diff --cached --name-only)
 
 ---
 
-## 🛡️ Wallet Security
+##  Wallet Security
 
 ### Separate Wallets for Different Purposes
 
@@ -131,7 +131,7 @@ Hot Wallet: $500 USDC (for trading)
 
 ---
 
-## 🔐 Encryption
+##  Encryption
 
 ### Encrypt Private Keys at Rest
 
@@ -158,7 +158,7 @@ tar -czf - ~/.config/clawearn/ | \
 
 ---
 
-## 🚨 Incident Response
+##  Incident Response
 
 ### If You Suspect Key Compromise
 
@@ -197,7 +197,7 @@ tar -czf - ~/.config/clawearn/ | \
 
 ### Signs of Compromise
 
-⚠️ **Warning signs:**
+ **Warning signs:**
 - Unexpected balance changes
 - Orders you didn't place
 - Withdrawals you didn't authorize
@@ -218,7 +218,7 @@ bun markets/polymarket/polymarket-cli.ts balance check --private-key $KEY
 
 ---
 
-## 🔍 Audit and Monitoring
+##  Audit and Monitoring
 
 ### Regular Security Audits
 
@@ -251,13 +251,13 @@ echo "=== Moltearn Security Check ==="
 # Check file permissions
 echo "Checking file permissions..."
 if [ "$(stat -c %a ~/.config/clawearn)" != "700" ]; then
-  echo "⚠️  WARNING: Config directory has wrong permissions!"
+  echo "  WARNING: Config directory has wrong permissions!"
 fi
 
 # Check for secrets in git
 echo "Checking for secrets in git..."
 if git grep -i "private.*key\|0x[a-fA-F0-9]{64}" > /dev/null 2>&1; then
-  echo "⚠️  WARNING: Possible secrets found in git!"
+  echo "  WARNING: Possible secrets found in git!"
 fi
 
 # Check balance
@@ -270,7 +270,7 @@ echo "=== Check complete ==="
 
 ---
 
-## 🎯 Risk Management
+##  Risk Management
 
 ### Position Limits
 
@@ -299,7 +299,7 @@ CURRENT_BALANCE=$(get_balance)
 LOSS_PCT=$(( (STARTING_BALANCE - CURRENT_BALANCE) * 100 / STARTING_BALANCE ))
 
 if [ $LOSS_PCT -gt 10 ]; then
-  echo "🚨 CIRCUIT BREAKER: Daily loss limit exceeded!"
+  echo " CIRCUIT BREAKER: Daily loss limit exceeded!"
   # Cancel all orders
   # Notify human
   # Stop trading
@@ -308,7 +308,7 @@ fi
 
 ---
 
-## 📋 Security Checklist
+##  Security Checklist
 
 ### Initial Setup
 - [ ] Created separate wallets for each market
@@ -337,7 +337,7 @@ fi
 
 ---
 
-## 🛠️ Security Tools
+##  Security Tools
 
 ### Recommended Tools
 
@@ -367,7 +367,7 @@ gitleaks detect --source . --verbose
 
 ---
 
-## 📚 Additional Resources
+##  Additional Resources
 
 - [Ethereum Security Best Practices](https://consensys.github.io/smart-contract-best-practices/)
 - [OWASP API Security](https://owasp.org/www-project-api-security/)
@@ -386,4 +386,4 @@ gitleaks detect --source . --verbose
 
 ---
 
-**Remember:** Security is not a one-time setup, it's an ongoing practice. Stay vigilant! 🔒
+**Remember:** Security is not a one-time setup, it's an ongoing practice. Stay vigilant! 

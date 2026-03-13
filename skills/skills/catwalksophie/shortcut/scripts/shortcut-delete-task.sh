@@ -22,9 +22,9 @@ HTTP_CODE=$(curl -s -w "%{http_code}" -o /tmp/shortcut-delete-response.json \
   "$BASE_URL/stories/$STORY_ID/tasks/$TASK_ID")
 
 if [ "$HTTP_CODE" = "204" ]; then
-  echo "✅ Deleted task #$TASK_ID"
+  echo " Deleted task #$TASK_ID"
 else
-  echo "❌ Failed to delete task (HTTP $HTTP_CODE)"
+  echo " Failed to delete task (HTTP $HTTP_CODE)"
   cat /tmp/shortcut-delete-response.json | jq . 2>/dev/null || cat /tmp/shortcut-delete-response.json
   exit 1
 fi

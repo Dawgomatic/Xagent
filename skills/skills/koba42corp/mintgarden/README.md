@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">🌱 MintGarden API Client</h1>
+  <h1 align="center"> MintGarden API Client</h1>
   <p align="center">
     <strong>Browse, search, and analyze Chia NFTs via MintGarden API</strong>
   </p>
@@ -27,24 +27,24 @@
 
 ---
 
-## 🎯 Overview
+##  Overview
 
 Access the complete MintGarden API to interact with NFTs on the Chia blockchain. Search collections, view floor prices, track trading history, browse profiles, and more.
 
 **No API key required** — MintGarden's API is free and public.
 
-## ✨ Features
+##  Features
 
-- 🔍 **Search** NFTs and collections with natural language
-- 📊 **Stats** — floor prices, volumes, sales counts, trending
-- 🖼️ **NFT Details** — metadata, attributes, rarity, ownership
-- 📚 **Collections** — browse top collections, view activity
-- 👤 **Profiles** — user portfolios, trade history, holdings
-- 📈 **Events** — real-time marketplace activity
-- 💰 **Offers** — active bids and listings
-- 🔥 **Trending** — what's hot in the last 24h
+-  **Search** NFTs and collections with natural language
+-  **Stats** — floor prices, volumes, sales counts, trending
+-  **NFT Details** — metadata, attributes, rarity, ownership
+-  **Collections** — browse top collections, view activity
+-  **Profiles** — user portfolios, trade history, holdings
+-  **Events** — real-time marketplace activity
+-  **Offers** — active bids and listings
+-  **Trending** — what's hot in the last 24h
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -130,7 +130,7 @@ const nft = await api.getNFT('nft1abc...');
 const profile = await api.getProfile('username');
 ```
 
-## 📖 Command Reference
+##  Command Reference
 
 ### Search Commands
 
@@ -185,7 +185,7 @@ const profile = await api.getProfile('username');
 | `mg nft1abc...` | Get NFT by launcher ID |
 | `mg did:chia:...` | Get profile by DID |
 
-## 🛠️ API Methods
+##  API Methods
 
 Complete method reference for the API client:
 
@@ -230,11 +230,11 @@ Complete method reference for the API client:
 - `resolveAddress(address)` — Resolve address
 - `getCAT(assetId)` — Get CAT info
 
-## 📊 Output Examples
+##  Output Examples
 
 ### Collection Details
 ```
-📚 Chia Friends
+ Chia Friends
 ✓ Verified
 
 Floor Price: 0.450 XCH
@@ -251,7 +251,7 @@ ID: col1abc...
 
 ### NFT Details
 ```
-🖼  Rare Zombie #4567
+  Rare Zombie #4567
 
 Collection: Zombie NFTs
 Price: 2.500 XCH
@@ -270,7 +270,7 @@ Launcher ID: nft1abc...
 
 ### Trending Collections
 ```
-🔥 Trending Collections (24h):
+ Trending Collections (24h):
 
 1. Chia Friends
    Floor: 0.450 XCH | Vol: 12.300 XCH
@@ -281,7 +281,7 @@ Launcher ID: nft1abc...
    Sales: 11
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -303,7 +303,7 @@ Most methods accept an `options` object:
 }
 ```
 
-## 🧪 Examples
+##  Examples
 
 ### Track a Collection's Activity
 
@@ -348,7 +348,7 @@ setInterval(async () => {
 }, 60000); // Check every minute
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please:
 
@@ -358,11 +358,11 @@ Contributions welcome! Please:
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) for details
 
-## 🔗 Links
+##  Links
 
 - **MintGarden**: https://mintgarden.io
 - **API Docs**: https://api.mintgarden.io/docs
@@ -370,7 +370,7 @@ MIT License - see [LICENSE](LICENSE) for details
 - **ClawdHub**: https://clawdhub.com
 - **Chia Network**: https://chia.net
 
-## 💬 Support
+##  Support
 
 - Issues: [GitHub Issues](https://github.com/yourusername/mintgarden-skill/issues)
 - Discord: [Clawdbot Community](https://discord.gg/clawd)
@@ -378,4 +378,4 @@ MIT License - see [LICENSE](LICENSE) for details
 
 ---
 
-<p align="center">Made with 🖖 by the Clawdbot community</p>
+<p align="center">Made with  by the Clawdbot community</p>

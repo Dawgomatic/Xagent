@@ -49,7 +49,7 @@ OFFLINE="${OFFLINE:-false}"
 START_TS=$(date +%s)
 mkdir -p "$OUTPUT_DIR" || true
 
-echo "⚡ [benchmark] 수집 시작 — 목표 30초 이내" >&2
+echo " [benchmark] 수집 시작 — 목표 30초 이내" >&2
 
 # ── 헬퍼 ────────────────────────────────────────────────────
 HAS_JQ=false;   command -v jq   &>/dev/null && HAS_JQ=true   || true
@@ -111,8 +111,8 @@ fi
 # 릴리스 노트에서 breaking / new features 파싱
 if [ -n "$GH_BODY" ]; then
   # Breaking changes 줄 추출
-  RAW_BREAK=$(echo "$GH_BODY" | grep -iE "breaking|BREAKING|호환성 변경|⚠️" | head -5 || echo "")
-  RAW_FEAT=$(echo  "$GH_BODY" | grep -iE "^[-*]?\s*(feat|add|new|추가|신규|✨)" | head -5 || echo "")
+  RAW_BREAK=$(echo "$GH_BODY" | grep -iE "breaking|BREAKING|호환성 변경|" | head -5 || echo "")
+  RAW_FEAT=$(echo  "$GH_BODY" | grep -iE "^[-*]?\s*(feat|add|new|추가|신규|)" | head -5 || echo "")
 
   if [ -n "$RAW_BREAK" ]; then
     GH_BREAKING=$(echo "$RAW_BREAK" | awk '{printf "\"%s\",", $0}' | sed 's/,$//' \
@@ -306,5 +306,5 @@ cat > "$OUTPUT_FILE" <<BMBODY
 }
 BMBODY
 
-echo "✅ [benchmark] 완료 → $OUTPUT_FILE (${ELAPSED}초)" >&2
+echo " [benchmark] 완료 → $OUTPUT_FILE (${ELAPSED}초)" >&2
 cat "$OUTPUT_FILE"

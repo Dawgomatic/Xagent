@@ -3,7 +3,7 @@ name: saas-revenue-tracker
 description: Track SAAS revenue, MRR growth, customer metrics, and profitability. Use to monitor $1000+ MRR targets, identify optimization opportunities, and keep SAAS products profitable.
 ---
 
-# 💰 SAAS Revenue Tracker - The Money Monitor
+#  SAAS Revenue Tracker - The Money Monitor
 
 This skill keeps your SAAS empire honest about revenue. No feel-good metrics here - just cold, hard cash flow analysis.
 

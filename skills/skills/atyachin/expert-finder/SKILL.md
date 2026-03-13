@@ -73,7 +73,7 @@ Fetch profiles for top 20-30:
 mcporter call xpoz.getTwitterUser identifier="user" identifierType="username"
 ```
 
-**Types:** 🔬 Deep Expert (uses Tier 2 naturally) | 💡 Thought Leader (trends, large audience) | 🛠️ Practitioner ("I built") | 📣 Evangelist (aggregates) | 🎓 Educator (explains)
+**Types:**  Deep Expert (uses Tier 2 naturally) |  Thought Leader (trends, large audience) |  Practitioner ("I built") |  Evangelist (aggregates) |  Educator (explains)
 
 **Score (0-100):** Domain depth 30%, consistency 20%, peer recognition 20%, breadth 15%, credentials 15%.
 
@@ -82,9 +82,9 @@ mcporter call xpoz.getTwitterUser identifier="user" identifierType="username"
 ```markdown
 ## Expert Report: [Domain] — X,XXX posts analyzed
 
-#### 🥇 @username — 🔬 Deep Expert (92/100)
+####  @username —  Deep Expert (92/100)
 **Followers:** 12.4K | **Why:** 23 posts on reward optimization, advanced terminology
-**Key:** "[quote]" — ❤️ 342
+**Key:** "[quote]" —  342
 ```
 
 ## Tips

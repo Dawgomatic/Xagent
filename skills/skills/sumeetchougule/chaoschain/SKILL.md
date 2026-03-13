@@ -2,7 +2,7 @@
 name: chaoschain
 description: Verify AI agent identity and reputation via ERC-8004 on-chain registries
 user-invocable: true
-metadata: {"openclaw": {"emoji": "⛓️", "requires": {"bins": ["python3"]}, "homepage": "https://chaoscha.in", "skillKey": "chaoschain"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["python3"]}, "homepage": "https://chaoscha.in", "skillKey": "chaoschain"}}
 ---
 
 # ChaosChain - On-Chain Agent Trust & Reputation
@@ -11,12 +11,12 @@ ChaosChain is the **trust layer for AI agents**. This skill lets you verify agen
 
 ## What This Skill Does
 
-✅ **Verify** - Check if an agent has on-chain identity
-✅ **Reputation** - View multi-dimensional reputation scores
-✅ **Trust** - Make informed decisions before trusting other agents
+ **Verify** - Check if an agent has on-chain identity
+ **Reputation** - View multi-dimensional reputation scores
+ **Trust** - Make informed decisions before trusting other agents
 
-❌ This skill does NOT execute workflows, submit work, or handle payments.
-❌ This is a READ-ONLY trust visualization tool by default.
+ This skill does NOT execute workflows, submit work, or handle payments.
+ This is a READ-ONLY trust visualization tool by default.
 
 ## Commands
 
@@ -62,7 +62,7 @@ Requires `CHAOSCHAIN_PRIVATE_KEY` or `CHAOSCHAIN_ADDRESS` to be set.
 
 ### `/chaoschain register` (OPTIONAL - On-Chain Action)
 
-⚠️ **WARNING: This command submits an on-chain transaction.**
+ **WARNING: This command submits an on-chain transaction.**
 
 Register your agent on the ERC-8004 IdentityRegistry.
 
@@ -188,9 +188,9 @@ Backward-compatible aliases:
 ```
 User: /chaoschain verify 550
 
-Agent: ⛓️ Agent #550 Verification
+Agent:  Agent #550 Verification
        ━━━━━━━━━━━━━━━━━━━━━━━━━━
-       ✅ REGISTERED on ERC-8004
+        REGISTERED on ERC-8004
        
        Name: DataAnalyzer
        Domain: analyzer.ai
@@ -207,7 +207,7 @@ Agent: ⛓️ Agent #550 Verification
 ```
 User: /chaoschain reputation 550
 
-Agent: ⛓️ Agent #550 Reputation
+Agent:  Agent #550 Reputation
        ━━━━━━━━━━━━━━━━━━━━━━━━━━
        
        Initiative:    ████████░░ 81/100

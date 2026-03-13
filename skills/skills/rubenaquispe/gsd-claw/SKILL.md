@@ -152,7 +152,7 @@ Save plans to: `{project}/.gsd/plans/{phase}-{N}-PLAN.md`
 
 **Rule 4 (Architectural) Format:**
 ```
-⚠️ Architectural Decision Needed
+ Architectural Decision Needed
 
 Current task: [task name]
 Discovery: [what prompted this]
@@ -273,12 +273,12 @@ Update STATE.md after each significant action.
 
 From original GSD:
 
-❌ **Enterprise theater**
+ **Enterprise theater**
 - Story points, sprint ceremonies
 - Human time estimates (days/weeks)
 - RACI matrices, stakeholder syncs
 
-❌ **Vague tasks**
+ **Vague tasks**
 ```xml
 <!-- BAD -->
 <task>
@@ -288,11 +288,11 @@ From original GSD:
 </task>
 ```
 
-❌ **Filler language**
+ **Filler language**
 - "Let me...", "I'd be happy to..."
 - "Great question!", "Excellent!"
 
-✅ **Direct, imperative, technical**
+ **Direct, imperative, technical**
 
 ---
 

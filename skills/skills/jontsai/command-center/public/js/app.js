@@ -249,7 +249,7 @@ function setWidth(id, width) {
 function updateTimestamp() {
   const now = state.lastUpdated || new Date();
   const timeStr = now.toLocaleTimeString();
-  const indicator = state.connected ? " ⚡" : "";
+  const indicator = state.connected ? " " : "";
   setText("last-updated", timeStr + indicator);
   setText("sidebar-updated", state.connected ? `Live: ${timeStr}` : `Updated: ${timeStr}`);
 }
@@ -261,10 +261,10 @@ function updateConnectionStatus(status) {
   el.className = "connection-status " + status;
   el.textContent =
     status === "connected"
-      ? "🟢 Live"
+      ? " Live"
       : status === "connecting"
-        ? "🟡 Connecting..."
-        : "🔴 Disconnected";
+        ? " Connecting..."
+        : " Disconnected";
 }
 
 // ============================================================================

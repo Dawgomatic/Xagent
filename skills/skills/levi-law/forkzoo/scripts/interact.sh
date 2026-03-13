@@ -8,7 +8,7 @@ REPO_NAME="${1:-}"
 
 # Check for GitHub token
 if [ -z "$GITHUB_TOKEN" ]; then
-  echo "❌ GITHUB_TOKEN not set"
+  echo " GITHUB_TOKEN not set"
   exit 1
 fi
 
@@ -23,18 +23,18 @@ if [ -z "$REPO_NAME" ]; then
     jq -r '.[] | select(.name | test("fork(Monkey|Cat|Dog|Lion|monkey|cat|dog|lion)"; "i")) | .name')
   
   if [ -z "$REPOS" ]; then
-    echo "❌ No pets found. Adopt one with: ./adopt.sh <animal>"
+    echo " No pets found. Adopt one with: ./adopt.sh <animal>"
     exit 1
   fi
   
   REPO_NAME=$(echo "$REPOS" | head -1)
 fi
 
-echo "🐾 Interacting with $REPO_NAME..."
+echo " Interacting with $REPO_NAME..."
 echo ""
 
 # Try to trigger the daily evolution workflow
-echo "⚡ Triggering evolution..."
+echo " Triggering evolution..."
 
 # Try different workflow names
 for WORKFLOW in "daily-evolution.yml" "evolve.yml" "daily.yml"; do
@@ -45,15 +45,15 @@ for WORKFLOW in "daily-evolution.yml" "evolve.yml" "daily.yml"; do
     -d '{"ref": "main"}' 2>/dev/null)
   
   if [ "$RESPONSE" == "204" ]; then
-    echo "✅ Evolution triggered!"
+    echo " Evolution triggered!"
     echo ""
     echo "Your pet is evolving... Check back in a minute!"
-    echo "🌐 Watch at: https://github.com/$GITHUB_USER/$REPO_NAME/actions"
+    echo " Watch at: https://github.com/$GITHUB_USER/$REPO_NAME/actions"
     exit 0
   fi
 done
 
-echo "⚠️  Could not trigger evolution workflow."
+echo "  Could not trigger evolution workflow."
 echo "   The pet may evolve automatically on schedule."
 echo ""
 echo "Check workflows at: https://github.com/$GITHUB_USER/$REPO_NAME/actions"

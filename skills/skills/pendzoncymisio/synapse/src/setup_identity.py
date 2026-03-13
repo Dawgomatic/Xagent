@@ -147,9 +147,9 @@ def generate_identity(identity_dir: str = None):
         # Try ML-DSA-87 first if OpenSSL supports it
         if check_openssl_mldsa_support():
             result = generate_identity_openssl_mldsa(identity_path)
-            print("✅ Using ML-DSA-87 (post-quantum secure)")
+            print(" Using ML-DSA-87 (post-quantum secure)")
         else:
-            print("ℹ️  ML-DSA-87 not available, using Ed25519")
+            print("  ML-DSA-87 not available, using Ed25519")
             result = generate_identity_ed25519(identity_path)
         
         # Save agent ID and algorithm metadata
@@ -161,13 +161,13 @@ def generate_identity(identity_dir: str = None):
         with open(algo_path, "w") as f:
             f.write(result["algorithm"])
         
-        print(f"✅ Identity generated successfully!")
+        print(f" Identity generated successfully!")
         print(f"   Algorithm:   {result['algorithm']}")
         print(f"   Private Key: {result['private_key_path']}")
         print(f"   Public Key:  {result['public_key_path']}")
         print(f"   Agent ID:    {result['agent_id']}")
         print()
-        print("⚠️  KEEP YOUR PRIVATE KEY SECRET!")
+        print("  KEEP YOUR PRIVATE KEY SECRET!")
         print(f"   Permissions set to 0600 on {result['private_key_path']}")
         
         return {
@@ -178,7 +178,7 @@ def generate_identity(identity_dir: str = None):
         }
         
     except Exception as e:
-        print(f"❌ Failed to generate identity: {e}")
+        print(f" Failed to generate identity: {e}")
         sys.exit(1)
 
 
@@ -215,7 +215,7 @@ def main():
     
     # Check if identity already exists
     if check_identity_exists(args.identity_dir) and not args.force:
-        print("⚠️  Identity already exists!")
+        print("  Identity already exists!")
         identity_dir = args.identity_dir or os.path.expanduser("~/.openclaw/identity")
         print(f"   Location: {identity_dir}")
         

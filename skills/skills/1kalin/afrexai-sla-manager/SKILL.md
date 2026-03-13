@@ -54,9 +54,9 @@ Build SLAs with these components:
 ### 3. SLA Monitoring Framework
 
 **Traffic Light System:**
-- 🟢 Green: ≥95% of target — no action needed
-- 🟡 Yellow: 85-94% of target — review and course-correct
-- 🔴 Red: <85% of target — escalate, root cause analysis, remediation plan
+-  Green: ≥95% of target — no action needed
+-  Yellow: 85-94% of target — review and course-correct
+-  Red: <85% of target — escalate, root cause analysis, remediation plan
 
 **Review Cadence:**
 - Weekly: operational metrics dashboard
@@ -128,8 +128,8 @@ When creating an SLA, output:
 
 This skill covers SLA fundamentals. For industry-specific compliance and operational frameworks:
 
-🛒 **[AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/)** — $47 each, 10 industries covered (SaaS, Healthcare, Fintech, Legal, Construction, Manufacturing, Real Estate, Ecommerce, Recruitment, Professional Services)
+ **[AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/)** — $47 each, 10 industries covered (SaaS, Healthcare, Fintech, Legal, Construction, Manufacturing, Real Estate, Ecommerce, Recruitment, Professional Services)
 
-📊 **[AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)** — Find where you're losing money to manual processes
+ **[AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)** — Find where you're losing money to manual processes
 
-🚀 **[Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)** — Get your AI agent configured in minutes
+ **[Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)** — Get your AI agent configured in minutes

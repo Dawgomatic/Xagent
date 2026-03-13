@@ -1,4 +1,4 @@
-# AI Recruiting Engine 🎯
+# AI Recruiting Engine 
 
 Full-cycle recruiting agent for OpenClaw — source, screen, score, and hire top talent with zero dependencies.
 
@@ -34,7 +34,7 @@ Or:
 Or:
 > "Give me a weekly pipeline health report for all open positions."
 
-## ⚡ Level Up — Recruitment Context Pack
+##  Level Up — Recruitment Context Pack
 
 Want industry-specific recruiting frameworks? The **AfrexAI Recruitment Context Pack** ($47) includes:
 
@@ -44,9 +44,9 @@ Want industry-specific recruiting frameworks? The **AfrexAI Recruitment Context 
 - Employer branding strategies by company stage
 - Comp benchmarking data sources and analysis methods
 
-👉 [Get the Recruitment Pack](https://afrexai-cto.github.io/context-packs/)
+ [Get the Recruitment Pack](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [Lead Hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Source and score B2B prospects
 - [Customer Support](https://clawhub.com/skills/afrexai-customer-support) — Ticket triage, CSAT, and retention
@@ -54,4 +54,4 @@ Want industry-specific recruiting frameworks? The **AfrexAI Recruitment Context 
 - [SEO Content Engine](https://clawhub.com/skills/afrexai-seo-content-engine) — Research, write, and optimize content
 - [Code Reviewer](https://clawhub.com/skills/afrexai-code-reviewer) — PR review with SPEAR framework
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

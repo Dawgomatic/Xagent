@@ -32,9 +32,9 @@ TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
 if [ "$HTTP_CODE" = "200" ]; then
   SCORE=$(echo "$BODY" | jq -r '.data.abuseConfidenceScore // "unknown"')
   echo "$TIMESTAMP | REPORTED | $IP | score: $SCORE | $COMMENT" >> "$LOG"
-  echo "✅ Reported $IP to AbuseIPDB (confidence score: $SCORE)"
+  echo " Reported $IP to AbuseIPDB (confidence score: $SCORE)"
 else
   ERROR=$(echo "$BODY" | jq -r '.errors[0].detail // "unknown error"' 2>/dev/null || echo "$BODY")
   echo "$TIMESTAMP | FAILED | $IP | HTTP $HTTP_CODE | $ERROR" >> "$LOG"
-  echo "❌ Failed to report $IP: $ERROR (HTTP $HTTP_CODE)"
+  echo " Failed to report $IP: $ERROR (HTTP $HTTP_CODE)"
 fi

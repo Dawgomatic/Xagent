@@ -9,7 +9,7 @@ PIPELINE_DIR="$(dirname "$SCRIPT_DIR")"
 KEEP_DAYS="${1:-30}"
 
 echo ""
-echo "🧹 清理AI内容流水线旧数据"
+echo " 清理AI内容流水线旧数据"
 echo "═══════════════════════════════════════════════════════════"
 echo ""
 echo "保留最近 $KEEP_DAYS 天的数据"
@@ -22,7 +22,7 @@ echo ""
 
 # 清理 collected 目录
 if [[ -d "$PIPELINE_DIR/collected" ]]; then
-    echo "📁 清理 collected 目录..."
+    echo " 清理 collected 目录..."
     
     for dir in "$PIPELINE_DIR/collected"/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]; do
         if [[ -d "$dir" ]]; then
@@ -37,7 +37,7 @@ fi
 
 # 清理 filtered 目录
 if [[ -d "$PIPELINE_DIR/filtered" ]]; then
-    echo "📁 清理 filtered 目录..."
+    echo " 清理 filtered 目录..."
     
     for dir in "$PIPELINE_DIR/filtered"/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]; do
         if [[ -d "$dir" ]]; then
@@ -51,5 +51,5 @@ if [[ -d "$PIPELINE_DIR/filtered" ]]; then
 fi
 
 echo ""
-echo "✅ 清理完成"
+echo " 清理完成"
 echo ""

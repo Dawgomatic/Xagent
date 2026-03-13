@@ -127,7 +127,7 @@ async function main() {
   }
   
   const wallet = new Wallet(process.env.PRIVATE_KEY, provider);
-  console.log(`\n🔄 Aborean Swap on Abstract`);
+  console.log(`\n Aborean Swap on Abstract`);
   console.log(`   Wallet: ${wallet.address}`);
 
   // Determine if we're swapping ETH or ERC20
@@ -174,7 +174,7 @@ async function main() {
     // Check and set approval if needed
     const allowance = await tokenContract.allowance(wallet.address, ABOREAN_ROUTER);
     if (allowance < amountIn) {
-      console.log(`\n📝 Approving ${tokenIn.symbol} for Aborean router...`);
+      console.log(`\n Approving ${tokenIn.symbol} for Aborean router...`);
       const approveTx = await tokenContract.approve(ABOREAN_ROUTER, amountIn * 2n);
       await approveTx.wait();
       console.log(`   Approved: ${approveTx.hash}`);
@@ -198,7 +198,7 @@ async function main() {
   // In production, you'd want to quote first
   const amountOutMinimum = 0n;
 
-  console.log(`\n🚀 Executing swap...`);
+  console.log(`\n Executing swap...`);
 
   try {
     let tx;
@@ -255,7 +255,7 @@ async function main() {
     console.log(`   Waiting for confirmation...`);
     
     const receipt = await tx.wait();
-    console.log(`\n✅ Swap complete!`);
+    console.log(`\n Swap complete!`);
     console.log(`   Block: ${receipt.blockNumber}`);
     console.log(`   Gas Used: ${receipt.gasUsed.toString()}`);
     console.log(`   Explorer: https://abscan.org/tx/${tx.hash}`);
@@ -271,7 +271,7 @@ async function main() {
     }
 
   } catch (error) {
-    console.error('\n❌ Swap failed:', error.message);
+    console.error('\n Swap failed:', error.message);
     
     if (error.message.includes('insufficient')) {
       console.log('\nTip: You may need more ETH for gas or the pool may have low liquidity');

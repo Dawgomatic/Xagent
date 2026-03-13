@@ -2,7 +2,7 @@
 
 Complete API documentation for the MCP Integration plugin.
 
-## 🛠️ The `mcp` Tool
+##  The `mcp` Tool
 
 The plugin exposes a single tool called `mcp` that provides access to all connected MCP servers.
 
@@ -38,7 +38,7 @@ The plugin exposes a single tool called `mcp` that provides access to all connec
 }
 ```
 
-## 📊 Actions
+##  Actions
 
 ### 1. List Tools (`action: "list"`)
 
@@ -207,7 +207,7 @@ Found 5 statutes related to civil law:
 ...
 ```
 
-## 🔌 MCPManager Class
+##  MCPManager Class
 
 Internal class that manages MCP server connections. Not directly accessible from agents.
 
@@ -312,7 +312,7 @@ await mcpManager.disconnect();
 // All servers disconnected
 ```
 
-## 🌐 StreamableHTTPClientTransport Class
+##  StreamableHTTPClientTransport Class
 
 Implements MCP Streamable HTTP transport specification.
 
@@ -390,7 +390,7 @@ transport.onclose = () => {
 };
 ```
 
-## 📡 JSON-RPC Protocol
+##  JSON-RPC Protocol
 
 ### Request Format
 
@@ -487,7 +487,7 @@ Execute a tool.
 }
 ```
 
-## 🔗 Related Documentation
+##  Related Documentation
 
 - [Main README](../README.md)
 - [Configuration Guide](CONFIGURATION.md)

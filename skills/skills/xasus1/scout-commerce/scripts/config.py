@@ -54,7 +54,7 @@ def save_credentials(creds: dict) -> bool:
             json.dump(creds, f, indent=2)
         return True
     except IOError as e:
-        print(f"❌ Failed to save credentials: {e}", file=sys.stderr)
+        print(f" Failed to save credentials: {e}", file=sys.stderr)
         return False
 
 
@@ -81,7 +81,7 @@ def get_api_key(required: bool = True) -> str | None:
         return api_key
     
     if required:
-        print("❌ No API key found.", file=sys.stderr)
+        print(" No API key found.", file=sys.stderr)
         print("", file=sys.stderr)
         print("Run this to register:", file=sys.stderr)
         print("  python get_api_key.py --email you@example.com --address \"Name,Street,City,State,Zip,Country\"", file=sys.stderr)
@@ -149,7 +149,7 @@ def get_wallet_address(required: bool = True) -> str | None:
         return wallet
     
     if required:
-        print("❌ No wallet address found.", file=sys.stderr)
+        print(" No wallet address found.", file=sys.stderr)
         print("Run get_api_key.py first to create your wallet.", file=sys.stderr)
         sys.exit(1)
     

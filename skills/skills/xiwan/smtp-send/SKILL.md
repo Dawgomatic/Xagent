@@ -7,7 +7,7 @@ description: Send emails via SMTP or Resend API with support for plain text, HTM
 
 发送邮件，支持 SMTP 和 Resend API 两种方式。
 
-## 🚀 快速使用
+##  快速使用
 
 ```bash
 # 发送简单邮件
@@ -38,7 +38,7 @@ python3 scripts/send_email.py \
   --provider resend
 ```
 
-## ⚙️ 配置
+##  配置
 
 在 `~/.smtp_config` 中配置（二选一或两个都配）：
 
@@ -88,24 +88,24 @@ python3 scripts/send_email.py \
 chmod 600 ~/.smtp_config
 ```
 
-## 📋 参数
+##  参数
 
 | 参数 | 必填 | 说明 |
 |------|------|------|
-| `--to` | ✅ | 收件人邮箱 |
-| `--subject` | ✅ | 邮件标题 |
-| `--body` | ✅ | 邮件内容 |
-| `--html` | ❌ | 以 HTML 格式发送 |
-| `--attachments` | ❌ | 附件路径，多个用逗号分隔 |
-| `--provider` | ❌ | `auto`/`smtp`/`resend`（默认 auto） |
+| `--to` |  | 收件人邮箱 |
+| `--subject` |  | 邮件标题 |
+| `--body` |  | 邮件内容 |
+| `--html` |  | 以 HTML 格式发送 |
+| `--attachments` |  | 附件路径，多个用逗号分隔 |
+| `--provider` |  | `auto`/`smtp`/`resend`（默认 auto） |
 
-## 🔄 Provider 选择逻辑
+##  Provider 选择逻辑
 
 - `auto`（默认）：优先 Resend，失败则 fallback 到 SMTP
 - `smtp`：强制使用 SMTP
 - `resend`：强制使用 Resend API
 
-## 📧 常见 SMTP 配置
+##  常见 SMTP 配置
 
 | 邮箱 | Host | Port | SSL |
 |------|------|------|-----|
@@ -116,13 +116,13 @@ chmod 600 ~/.smtp_config
 
 **注意**：163/QQ/Gmail 都需要使用授权码而非登录密码。
 
-## 🔐 安全
+##  安全
 
 - 凭据存储在 `~/.smtp_config`，权限应设为 600
 - API key 和密码不会出现在命令行参数中
 - 配置文件不应提交到版本控制
 
-## 🐛 常见问题
+##  常见问题
 
 **认证失败**：检查授权码是否正确，是否开启了 SMTP 服务
 

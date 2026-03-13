@@ -3,7 +3,7 @@ name: 1password-ui
 description: 1Password UI tab for OpenClaw dashboard. Manage secrets, credential mappings, and auth state from the Control UI.
 version: 1.1.0
 author: OpenClaw Community
-metadata: {"clawdbot":{"emoji":"🔐","requires":{"clawdbot":">=2026.1.0"},"category":"tools"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"clawdbot":">=2026.1.0"},"category":"tools"}}
 ---
 
 # 1Password UI Extension
@@ -172,7 +172,7 @@ The UI automatically detects Connect mode.
 
 ## Security Considerations
 
-### ✅ Safe by Design
+###  Safe by Design
 
 | Aspect | Implementation |
 |--------|----------------|
@@ -182,7 +182,7 @@ The UI automatically detects Connect mode.
 | **Mapping file perms** | `1password-mappings.json` should be 0600 (contains references, not secrets) |
 | **CLI auth** | Uses 1Password app integration for biometric auth when available |
 
-### ⚠️ Documented Risks
+###  Documented Risks
 
 | Risk | Mitigation |
 |------|------------|

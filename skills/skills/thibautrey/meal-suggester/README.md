@@ -2,7 +2,7 @@
 
 Un assistant de recettes qui apprend vos goûts et votre stock de cuisine au fil du temps. Chaque soir à 19h, reçois une idée de repas rapide (≤25 min) adaptée à vos préférences et ce que vous avez à la maison.
 
-## 🎯 Fonctionnement
+##  Fonctionnement
 
 1. **Chaque soir à 19h** → tu reçois une suggestion de recette (jamais la même deux fois d'affilée)
 2. **Tu essaies** → tu me dis si c'était bon, trop épicé, trop simple, etc.
@@ -10,7 +10,7 @@ Un assistant de recettes qui apprend vos goûts et votre stock de cuisine au fil
 4. **J'apprends et je track** → je mémorise tes goûts, mets à jour le stock, et je suggère quoi acheter
 5. **Ça s'améliore** → les suggestions deviennent de plus en plus pertinentes et variées
 
-## 📁 Structure du Skill
+##  Structure du Skill
 
 ```
 meal-suggester/
@@ -27,7 +27,7 @@ meal-suggester/
     └── suggest-meal.sh           # Script qui génère les suggestions
 ```
 
-## 🍳 Comment ça marche
+##  Comment ça marche
 
 ### Recevoir une suggestion
 Chaque soir à 19h, tu reçois une idée de recette. Il y a 15+ recettes différentes, donc jamais ennuyeux.
@@ -63,7 +63,7 @@ Je mets à jour `inventory/stock.md` et les suggestions tiennent compte du nouve
 - `inventory/stock.md` — En ce moment vous avez...
 - `inventory/shopping-list.md` — Vous devriez acheter...
 
-## 🔧 Commandes
+##  Commandes
 
 ### Tester une suggestion maintenant
 ```bash
@@ -85,18 +85,18 @@ cat ~/.clawd/skills/meal-suggester/inventory/stock.md
 cat ~/.clawd/skills/meal-suggester/inventory/shopping-list.md
 ```
 
-## 📅 Planning
+##  Planning
 
-- ✅ Skill créé avec structure complète
-- ✅ 15+ recettes prêtes avec variété
-- ✅ Système de mémoire markdown en place
-- ✅ Script de suggestion fonctionnel
-- ✅ Cron job configuré (19h chaque jour)
-- ✅ Tracking d'ingrédients utilisés
-- ✅ Suggestions de shopping list
-- 🔄 Apprentissage (à chaque feedback)
+-  Skill créé avec structure complète
+-  15+ recettes prêtes avec variété
+-  Système de mémoire markdown en place
+-  Script de suggestion fonctionnel
+-  Cron job configuré (19h chaque jour)
+-  Tracking d'ingrédients utilisés
+-  Suggestions de shopping list
+-  Apprentissage (à chaque feedback)
 
-## 💡 Prochaines étapes
+##  Prochaines étapes
 
 Voilà, c'est prêt! 
 

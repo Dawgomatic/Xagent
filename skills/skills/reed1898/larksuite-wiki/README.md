@@ -1,13 +1,13 @@
 # Lark Suite Wiki
 
-📚 Export and sync Lark Suite (Feishu) Wiki/Knowledge Base documents to local Markdown files.
+ Export and sync Lark Suite (Feishu) Wiki/Knowledge Base documents to local Markdown files.
 
 ## Features
 
-- ✅ **Batch Export** - Export entire knowledge base with one command
-- ✅ **Recursive Export** - Automatically follows and exports all linked subdocuments  
-- ✅ **Preserves Structure** - Creates nested folders matching your wiki structure
-- ✅ **Incremental Sync** - Only exports changed documents (tracks revision IDs)
+-  **Batch Export** - Export entire knowledge base with one command
+-  **Recursive Export** - Automatically follows and exports all linked subdocuments  
+-  **Preserves Structure** - Creates nested folders matching your wiki structure
+-  **Incremental Sync** - Only exports changed documents (tracks revision IDs)
 
 ## Quick Start
 

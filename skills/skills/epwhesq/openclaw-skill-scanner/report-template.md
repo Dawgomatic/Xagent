@@ -1,4 +1,4 @@
-# 🔍 Skill Scanner Report
+#  Skill Scanner Report
 
 **Scan Date:** {scan_date}
 **Scanner Version:** 1.0.0
@@ -44,9 +44,9 @@
 
 ## Legend
 
-- 🟢 **Clean** (0-29): No suspicious patterns detected
-- 🟡 **Suspicious** (30-69): Review warnings before use
-- 🔴 **Dangerous** (70-100): Likely malicious — do not install
+-  **Clean** (0-29): No suspicious patterns detected
+-  **Suspicious** (30-69): Review warnings before use
+-  **Dangerous** (70-100): Likely malicious — do not install
 
 ---
 

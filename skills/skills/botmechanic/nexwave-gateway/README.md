@@ -1,4 +1,4 @@
-# nexwave-gateway 🌐
+# nexwave-gateway 
 
 **Unified Crosschain USDC for OpenClaw Agents — Powered by Circle Gateway**
 

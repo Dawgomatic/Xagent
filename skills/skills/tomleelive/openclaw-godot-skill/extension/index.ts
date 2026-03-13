@@ -384,7 +384,7 @@ const plugin = {
           .command("status")
           .description("Show Godot connection status")
           .action(() => {
-            console.log("\n🎮 Godot Plugin Status\n");
+            console.log("\n Godot Plugin Status\n");
             
             if (sessions.size === 0) {
               console.log("  No Godot sessions connected.\n");
@@ -399,7 +399,7 @@ const plugin = {
               const age = Math.round((Date.now() - session.registeredAt) / 1000);
               const lastSeen = Math.round((Date.now() - session.lastHeartbeat) / 1000);
               
-              console.log(`  ✅ ${session.projectName}`);
+              console.log(`   ${session.projectName}`);
               console.log(`     Version: ${session.godotVersion}`);
               console.log(`     Platform: ${session.platform}`);
               console.log(`     Session: ${id}`);

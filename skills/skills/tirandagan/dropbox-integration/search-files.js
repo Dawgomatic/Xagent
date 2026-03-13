@@ -12,7 +12,7 @@ if (!searchTerm) {
 
 (async () => {
   try {
-    console.log(`🔍 Searching for: "${searchTerm}"\n`);
+    console.log(` Searching for: "${searchTerm}"\n`);
     
     // Get auto-refreshing Dropbox client
     const dbx = await getDropboxClient();
@@ -25,15 +25,15 @@ if (!searchTerm) {
     });
     
     if (response.result.matches.length === 0) {
-      console.log('❌ No matches found');
+      console.log(' No matches found');
       return;
     }
     
-    console.log(`✅ Found ${response.result.matches.length} matches:\n`);
+    console.log(` Found ${response.result.matches.length} matches:\n`);
     
     for (const match of response.result.matches) {
       const metadata = match.metadata.metadata;
-      const icon = metadata['.tag'] === 'folder' ? '📁' : '📄';
+      const icon = metadata['.tag'] === 'folder' ? '' : '';
       console.log(`${icon} ${metadata.path_display}`);
       if (metadata['.tag'] === 'file') {
         const sizeKB = (metadata.size / 1024).toFixed(1);
@@ -44,7 +44,7 @@ if (!searchTerm) {
     }
     
   } catch (error) {
-    console.error('❌ Search failed:', error.message);
+    console.error(' Search failed:', error.message);
     if (error.error) {
       console.error(JSON.stringify(error.error, null, 2));
     }

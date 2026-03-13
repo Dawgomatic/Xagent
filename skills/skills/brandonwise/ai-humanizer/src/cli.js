@@ -60,10 +60,10 @@ const color = {
  * @returns {string} Colored badge string
  */
 function scoreBadge(s) {
-  if (s <= 25) return color.green(`🟢 ${s}/100`);
-  if (s <= 50) return color.yellow(`🟡 ${s}/100`);
-  if (s <= 75) return color.magenta(`🟠 ${s}/100`);
-  return color.red(`🔴 ${s}/100`);
+  if (s <= 25) return color.green(` ${s}/100`);
+  if (s <= 50) return color.yellow(` ${s}/100`);
+  if (s <= 75) return color.magenta(` ${s}/100`);
+  return color.red(` ${s}/100`);
 }
 
 /**
@@ -180,10 +180,10 @@ ${color.bold('Examples:')}
   humanizer humanize --autofix -f article.txt
 
 ${color.bold('Score badges:')}
-  🟢 0-25    Mostly human-sounding
-  🟡 26-50   Lightly AI-touched
-  🟠 51-75   Moderately AI-influenced
-  🔴 76-100  Heavily AI-generated
+   0-25    Mostly human-sounding
+   26-50   Lightly AI-touched
+   51-75   Moderately AI-influenced
+   76-100  Heavily AI-generated
 `);
 }
 

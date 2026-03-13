@@ -58,10 +58,10 @@ Weighted Score = Σ(dimension_score / 10 × weight) × 100
 
 | Weighted Score | Action | Bet Size |
 |---------------|--------|----------|
-| < 80% | ❌ NO TRADE | $0 |
-| 80–84% | ✅ Minimum | $3–5 |
-| 85–89% | ✅ Standard | $5–7 |
-| 90%+ | ✅ Conviction | Up to $7.50 (max 10% bankroll) |
+| < 80% |  NO TRADE | $0 |
+| 80–84% |  Minimum | $3–5 |
+| 85–89% |  Standard | $5–7 |
+| 90%+ |  Conviction | Up to $7.50 (max 10% bankroll) |
 
 ### Veto Rules
 

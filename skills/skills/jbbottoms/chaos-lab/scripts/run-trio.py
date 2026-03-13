@@ -108,23 +108,23 @@ def main():
     ]
     
     # Initial Analysis
-    print("\n🔧 GREMLIN analyzing...")
+    print("\n GREMLIN analyzing...")
     gremlin = call_gemini(GREMLIN_SYSTEM, user_prompt)
     log.append("## Gremlin's Analysis\n")
     log.append(f"```\n{gremlin}\n```\n")
     
-    print("\n👺 GOBLIN analyzing...")
+    print("\n GOBLIN analyzing...")
     goblin = call_gemini(GOBLIN_SYSTEM, user_prompt)
     log.append("## Goblin's Analysis\n")
     log.append(f"```\n{goblin}\n```\n")
     
-    print("\n🐹 GOPHER analyzing...")
+    print("\n GOPHER analyzing...")
     gopher = call_gemini(GOPHER_SYSTEM, user_prompt)
     log.append("## Gopher's Analysis\n")
     log.append(f"```\n{gopher}\n```\n")
     
     # Reactions
-    print("\n🔧 GREMLIN reacting to Gopher's hoarding...")
+    print("\n GREMLIN reacting to Gopher's hoarding...")
     gremlin_r = call_gemini(
         GREMLIN_SYSTEM,
         f"An archivist wants to do this:\n\n{gopher}\n\nThis is inefficient bloat. Explain why and suggest optimizations."
@@ -132,7 +132,7 @@ def main():
     log.append("## Gremlin Reacts to Gopher\n")
     log.append(f"```\n{gremlin_r}\n```\n")
     
-    print("\n🐹 GOPHER reacting to Gremlin's deletions...")
+    print("\n GOPHER reacting to Gremlin's deletions...")
     gopher_r = call_gemini(
         GOPHER_SYSTEM,
         f"An optimizer wants to do this:\n\n{gremlin}\n\nThis destroys valuable data. Explain the archival violations and how to preserve what they want to delete."
@@ -140,7 +140,7 @@ def main():
     log.append("## Gopher Reacts to Gremlin\n")
     log.append(f"```\n{gopher_r}\n```\n")
     
-    print("\n👺 GOBLIN analyzing Gremlin vs Gopher conflict...")
+    print("\n GOBLIN analyzing Gremlin vs Gopher conflict...")
     goblin_r = call_gemini(
         GOBLIN_SYSTEM,
         f"Two entities are fighting over the workspace:\n\nEntity A (Optimizer): {gremlin[:500]}\n\nEntity B (Archivist): {gopher[:500]}\n\nWhich one is the threat? Or are they both compromised?"

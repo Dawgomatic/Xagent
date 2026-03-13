@@ -8,7 +8,7 @@
 
 ## Privacy & Data Handling
 
-⚠️ **External API Notice**: This skill sends queries to `api.neurodoc.app` for processing.
+ **External API Notice**: This skill sends queries to `api.neurodoc.app` for processing.
 
 - **What is sent**: Natural language food/recipe queries only
 - **What is NOT sent**: No credentials, API keys, personal files, or system data
@@ -20,7 +20,7 @@
 
 Three V3 culinary engines in one skill:
 
-### 🍳 Chef Omega V3 — 17-Section Restaurant Consulting
+###  Chef Omega V3 — 17-Section Restaurant Consulting
 Every response includes ALL of these sections:
 1. **ΕΠΙΣΚΟΠΗΣΗ** — Recipe overview and cultural context
 2. **ΟΙΚΟΝΟΜΙΚΑ** — Food cost %, menu engineering (STAR/PLOWHORSE/PUZZLE/DOG)
@@ -40,14 +40,14 @@ Every response includes ALL of these sections:
 16. **ZERO WASTE** — Every leftover → specific use
 17. **KITCHEN TIMELINE** — T-60 → T-0 countdown
 
-### ⚗️ APEIRON Molecular V3
+###  APEIRON Molecular V3
 - Rheology dashboard (viscosity, gel strength, melting/setting points)
 - Phase diagrams with temperature transitions
 - Hydrocolloid specs: Agar 0.5-1.5%, Alginate 0.5-1%, Gellan 0.1-0.5%, Xanthan 0.1-0.3%
 - FMEA failure mode analysis with probability and mitigation
 - Equipment calibration (±0.1°C precision)
 
-### ⚖️ Balance V3 — MacYuFBI Flavor Science
+###  Balance V3 — MacYuFBI Flavor Science
 - MacYuFBI Framework: Maillard/Umami, Acid, Caramel, Yeast, Umami, Fat, Bitter, Heat
 - Nutritional breakdown per serving
 - Balance score 1-100
@@ -98,4 +98,4 @@ Returns structured Greek output with markdown headers (## sections). Typical res
 - **Rate Limit**: 100 req/hour (free)
 
 ---
-*Built by NeuroAether — From Kitchen to Code* 🧠
+*Built by NeuroAether — From Kitchen to Code* 

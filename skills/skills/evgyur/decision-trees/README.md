@@ -2,11 +2,11 @@
 
 Decision tree analysis for complex decision-making across all domains.
 
-## 📊 What It Does
+##  What It Does
 
 Helps you make structured decisions using decision tree analysis with expected value (EV) calculations. Works for any situation where you need to evaluate multiple options with uncertain outcomes.
 
-## ✨ Features
+##  Features
 
 - **Universal application**: business, investing, personal decisions, operations, career choices
 - **Expected value calculation**: quantify risk/reward scenarios
@@ -14,7 +14,7 @@ Helps you make structured decisions using decision tree analysis with expected v
 - **Python calculator**: automate EV calculations (interactive + JSON)
 - **Examples across domains**: trading, business strategy, personal life, operations
 
-## 🎯 Use Cases
+##  Use Cases
 
 ### Trading & Investing
 - Position sizing (how much capital to allocate)
@@ -37,7 +37,7 @@ Helps you make structured decisions using decision tree analysis with expected v
 - Expansion timing
 - Resource allocation
 
-## 🚀 How It Works
+##  How It Works
 
 1. **Define options** — all possible actions
 2. **Define outcomes** — what can happen after each action
@@ -46,7 +46,7 @@ Helps you make structured decisions using decision tree analysis with expected v
 5. **Calculate EV** — expected value = Σ (probability × value)
 6. **Choose** — option with highest EV (with qualitative context)
 
-## 📝 Example
+##  Example
 
 **Decision:** Launch new product?
 
@@ -59,10 +59,10 @@ Helps you make structured decisions using decision tree analysis with expected v
 Launch EV = (0.4 × $500K) + (0.6 × -$200K) = $80K
 Don't launch EV = $0
 
-✅ Recommendation: Launch (EV: $80K)
+ Recommendation: Launch (EV: $80K)
 ```
 
-## 🛠️ Python Calculator
+##  Python Calculator
 
 The skill includes a Python script for automated EV calculations:
 
@@ -100,7 +100,7 @@ python3 scripts/decision_tree.py --json tree.json
 
 **Output:**
 ```
-📊 Decision Tree Analysis
+ Decision Tree Analysis
 
 Decision: Launch product?
 
@@ -113,10 +113,10 @@ Option 2: Don't launch
   └─ EV = $0.00
      └─ Status quo (100.0%) → $0.00
 
-✅ Recommendation: Launch (EV: $80,000.00)
+ Recommendation: Launch (EV: $80,000.00)
 ```
 
-## ⚠️ Limitations
+##  Limitations
 
 - **Subjective probabilities** — often "finger in the air" estimates
 - **Doesn't account for risk appetite** — ignores loss aversion
@@ -126,7 +126,7 @@ Option 2: Don't launch
 
 **But:** The method is valuable for **structuring thinking**, even if numbers are approximate. The process forces you to think through all branches explicitly.
 
-## 📚 What's Included
+##  What's Included
 
 - **SKILL.md** — Complete guide with examples across domains
 - **scripts/decision_tree.py** — EV calculator (interactive + JSON mode)
@@ -135,7 +135,7 @@ Option 2: Don't launch
 - Advantages & disadvantages
 - Domain-specific applications
 
-## 🎓 Background
+##  Background
 
 Decision trees are a standard tool in:
 - Operations research
@@ -146,7 +146,7 @@ Decision trees are a standard tool in:
 
 They've been used since the 1960s for structured decision-making under uncertainty.
 
-## 🤝 Contributing
+##  Contributing
 
 This is an AgentSkill for Clawdbot. Improvements welcome:
 - Additional examples
@@ -154,11 +154,11 @@ This is an AgentSkill for Clawdbot. Improvements welcome:
 - Enhanced calculator features
 - Domain-specific templates
 
-## 📄 License
+##  License
 
 MIT License — free to use and modify.
 
-## 🔗 Resources
+##  Resources
 
 - [Decision tree on Wikipedia](https://en.wikipedia.org/wiki/Decision_tree)
 - [Decision analysis](https://en.wikipedia.org/wiki/Decision_analysis)

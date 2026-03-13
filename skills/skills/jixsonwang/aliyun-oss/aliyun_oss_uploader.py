@@ -19,7 +19,7 @@ try:
     from oss2 import SizedFileAdapter, determine_part_size
     from oss2.models import PartInfo
 except ImportError:
-    print("❌ 需要安装阿里云OSS SDK: pip install oss2")
+    print(" 需要安装阿里云OSS SDK: pip install oss2")
     sys.exit(1)
 
 class AliyunOSSUploader:

@@ -4,10 +4,10 @@
 
 ## 功能特性
 
-- 🔍 **自动检测** - 每2小时检查一次 GitHub API
-- 📱 **飞书通知** - 新 issue 实时推送到个人飞书
-- 📝 **智能追踪** - 避免重复通知已知的 issue
-- ⚙️ **易于管理** - 简单的状态查看和手动控制
+-  **自动检测** - 每2小时检查一次 GitHub API
+-  **飞书通知** - 新 issue 实时推送到个人飞书
+-  **智能追踪** - 避免重复通知已知的 issue
+-  **易于管理** - 简单的状态查看和手动控制
 
 ## 文件说明
 
@@ -59,13 +59,13 @@ rm ~/.openclaw/safe-exec-known-issues.txt
 当检测到新 issue 时，你会收到如下格式的飞书消息：
 
 ```
-🔔 **New GitHub Issue Detected**
+ **New GitHub Issue Detected**
 
-📦 **Repository:** OTTTTTO/safe-exec
-🔢 **Issue:** #123
-📝 **Title:** Issue title here
-🕐 **Created:** 2026-02-01T10:00:00Z
-🔗 **URL:** https://github.com/OTTTTTO/safe-exec/issues/123
+ **Repository:** OTTTTTO/safe-exec
+ **Issue:** #123
+ **Title:** Issue title here
+ **Created:** 2026-02-01T10:00:00Z
+ **URL:** https://github.com/OTTTTTO/safe-exec/issues/123
 
 ---
 This is an automated notification from SafeExec GitHub Issue Monitor.

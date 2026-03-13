@@ -17,7 +17,7 @@
 **Before:** `recommendation: "safe"` — field doesn't exist in API  
 **After:** `result: "safe"` — correct field name
 
-### 3. Pattern IDs — NO CHANGE NEEDED ✅
+### 3. Pattern IDs — NO CHANGE NEEDED 
 All 4 "missing" IDs (`CRYPTO_WEAK`, `DESER`, `PATH_TRAV`, `SEC_BYPASS`) were already present in audit-prompt.md. The gap was only in SKILL.md (separate fix).
 
 ---

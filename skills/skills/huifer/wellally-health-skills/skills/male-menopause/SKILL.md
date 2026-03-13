@@ -255,7 +255,7 @@ AI: 请问这些症状对您的生活影响有多大？
     重度：持续存在，严重影响生活
 
 User: 中度吧
-AI: ✅ 症状已记录
+AI:  症状已记录
 
     Sexual symptoms: Decreased libido (moderate)
     Physical symptoms: Easy fatigue (moderate)
@@ -268,10 +268,10 @@ AI: ✅ 症状已记录
 ### Example 2: Record Testosterone
 ```
 User: 睾酮 7.5 早晨9点
-AI: ✅ 睾酮检测已记录
+AI:  睾酮检测已记录
 
-    Total testosterone: 7.5 nmol/L ⚠️ (reference: 10-35)
-    Free testosterone: 0.18 nmol/L ⚠️ (reference: 0.22-0.65)
+    Total testosterone: 7.5 nmol/L  (reference: 10-35)
+    Free testosterone: 0.18 nmol/L  (reference: 0.22-0.65)
     Measurement time: 09:00 ✓ (morning)
 
     Diagnosis: Hypogonadism (confirmed)
@@ -300,10 +300,10 @@ AI: 请回答以下10个问题 (是/否):
 
     [User answers each question...]
 
-    ✅ ADAM问卷已完成
+     ADAM问卷已完成
 
     Total score: 7/10 questions positive
-    Result: Positive ⚠️
+    Result: Positive 
 
     ADAM questionnaire positive, suggests possible male menopause (hypogonadism).
 

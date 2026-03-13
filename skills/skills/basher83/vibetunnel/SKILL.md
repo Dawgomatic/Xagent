@@ -2,7 +2,7 @@
 name: vibetunnel
 description: Manage VibeTunnel terminal sessions. Create, list, monitor, and control terminal sessions visible in the VibeTunnel web dashboard.
 homepage: https://github.com/AugmentedMomentum/vibetunnel
-metadata: {"clawdbot":{"emoji":"🖥️","requires":{"bins":["vibetunnel","curl","jq"]},"primaryEnv":"VT_URL","install":[{"id":"vibetunnel","kind":"node","package":"vibetunnel","bins":["vibetunnel"],"label":"Install VibeTunnel (npm)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["vibetunnel","curl","jq"]},"primaryEnv":"VT_URL","install":[{"id":"vibetunnel","kind":"node","package":"vibetunnel","bins":["vibetunnel"],"label":"Install VibeTunnel (npm)"}]}}
 ---
 
 # VibeTunnel

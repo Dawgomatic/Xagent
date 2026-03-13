@@ -1,6 +1,6 @@
 # OpenClaw LinkedIn Poster Skill (v1.1.0)
 
-🚀 **Post to LinkedIn (Personal & Company Pages) directly from OpenClaw via a simple chat command.**
+ **Post to LinkedIn (Personal & Company Pages) directly from OpenClaw via a simple chat command.**
 
 This skill integrates OpenClaw with LinkedIn's API using OAuth 2.0. Once you authorize it (a one-time setup), you can post updates to your profile by simply chatting with your bot.
 
@@ -49,7 +49,7 @@ The first time you try to post, the skill will generate an extensive authorizati
 
 ### Chat Command
 Just tell your bot to post!
-> "Post to LinkedIn: Just launched my new OpenClaw skill! 🦞"
+> "Post to LinkedIn: Just launched my new OpenClaw skill! "
 
 **To post to a company page:**
 > "Post to LinkedIn org 'Acme Corp': We are hiring!"

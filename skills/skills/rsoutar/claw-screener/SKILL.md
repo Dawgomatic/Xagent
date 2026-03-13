@@ -4,7 +4,7 @@ description: Stock screener combining Williams %R oversold signals with Warren B
 homepage: https://github.com/rsoutar/claw-screener
 metadata:
   clawdbot:
-    emoji: "📊"
+    emoji: ""
     requires:
       env: []
       files:
@@ -199,7 +199,7 @@ npm run watchlist:list   # List watched stocks
 
 ### Text (Default)
 ```
-📊 Combined Quality Screening (US (S&P 500))
+ Combined Quality Screening (US (S&P 500))
 Technical: Oversold signals (Williams %R < -80)
 Fundamental: Warren Buffett's 10 formulas on SEC data
 Minimum Buffett Score: 5/10
@@ -217,12 +217,12 @@ Top 10 Opportunities:
 
 ### Telegram
 ```
-📊 Combined Quality Screening (US (S&P 500))
+ Combined Quality Screening (US (S&P 500))
 Scanned: 503 stocks
 Oversold: 42
 Quality (Buffett ≥5/10): 8
 
-🌟 Top 10 Quality Opportunities:
+ Top 10 Quality Opportunities:
 
 1. **AAPL** — Combined: 85% | Buffett: 8/10 | WR: -82.3
 2. **MSFT** — Combined: 79% | Buffett: 7/10 | WR: -85.1

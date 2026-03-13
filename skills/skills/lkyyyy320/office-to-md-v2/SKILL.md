@@ -49,10 +49,10 @@ const result = await exec(
 );
 
 if (result.exitCode === 0) {
-  console.log('✅ Document converted successfully');
+  console.log(' Document converted successfully');
   // Output file: /path/to/document.md
 } else {
-  console.error('❌ Conversion failed:', result.stderr);
+  console.error(' Conversion failed:', result.stderr);
 }
 ```
 
@@ -174,7 +174,7 @@ for (const doc of documents) {
     error: success ? null : result.stderr
   });
   
-  console.log(success ? '✅ Success' : '❌ Failed');
+  console.log(success ? ' Success' : ' Failed');
 }
 
 // Summary

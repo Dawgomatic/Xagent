@@ -33,7 +33,7 @@ monitor.record_usage(
     output_tokens=400,
     task_label="summarize article"
 )
-# ✅ Recorded: $0.00192
+#  Recorded: $0.00192
 ```
 
 ### 2. Auto-Record from API Responses
@@ -60,8 +60,8 @@ monitor.set_budget(
     per_call_usd=0.10,
     alert_at_percent=80.0   # Alert at 80% of budget
 )
-# ✅ Budget set: daily=$1.0, weekly=$5.0, monthly=$15.0
-# 🚨 BUDGET ALERT fires automatically when threshold is crossed
+#  Budget set: daily=$1.0, weekly=$5.0, monthly=$15.0
+#  BUDGET ALERT fires automatically when threshold is crossed
 ```
 
 ### 4. Dashboard
@@ -71,18 +71,18 @@ print(monitor.format_dashboard())
 ```
 
 ```
-💰 SPENDING SUMMARY
+ SPENDING SUMMARY
   Today:   $0.0042  (4 calls, 13,600 tokens)
   Week:    $0.0231  (18 calls, 67,200 tokens)
   Month:   $0.1847  (92 calls, 438,000 tokens)
 
-📋 BUDGET STATUS
-  Daily:   [████░░░░░░░░░░░░░░░░] 42% $0.0042 / $1.00 ✅
-  Monthly: [███████░░░░░░░░░░░░░] 37% $0.1847 / $0.50 ⚠️
+ BUDGET STATUS
+  Daily:   [████░░░░░░░░░░░░░░░░] 42% $0.0042 / $1.00 
+  Monthly: [███████░░░░░░░░░░░░░] 37% $0.1847 / $0.50 
 
-💡 OPTIMIZATION TIPS
-  🔴 Swap Opus → Sonnet for non-reasoning tasks (save ~$8.20/mo)
-  🟡 High avg cost/call on gpt-4o — reduce prompt length
+ OPTIMIZATION TIPS
+   Swap Opus → Sonnet for non-reasoning tasks (save ~$8.20/mo)
+   High avg cost/call on gpt-4o — reduce prompt length
 ```
 
 ### 5. Compare Models Before Calling
@@ -225,11 +225,11 @@ Helper to auto-record from OpenAI SDK response object.
 
 ## Privacy & Security
 
-- ✅ **Zero telemetry** — No data sent anywhere
-- ✅ **Local-only storage** — Everything in `.tokenwatch/` on your machine
-- ✅ **No API keys required** — The monitor itself needs no credentials
-- ✅ **No authentication** — No accounts or logins needed
-- ✅ **Full transparency** — MIT licensed, source code included
+-  **Zero telemetry** — No data sent anywhere
+-  **Local-only storage** — Everything in `.tokenwatch/` on your machine
+-  **No API keys required** — The monitor itself needs no credentials
+-  **No authentication** — No accounts or logins needed
+-  **Full transparency** — MIT licensed, source code included
 
 ---
 
@@ -237,27 +237,27 @@ Helper to auto-record from OpenAI SDK response object.
 
 ### [1.2.3] - 2026-02-16
 
-- 📋 Updated SKILL.md model table to match code: 41 models across 10 providers
+-  Updated SKILL.md model table to match code: 41 models across 10 providers
 
 ### [1.2.0] - 2026-02-16
 
-- ✨ Added DeepSeek, Meta Llama, MiniMax providers
-- ✨ Expanded to 41 models across 10 providers
-- ✨ Updated all Anthropic/OpenAI/Google/Mistral pricing to Feb 2026 rates
+-  Added DeepSeek, Meta Llama, MiniMax providers
+-  Expanded to 41 models across 10 providers
+-  Updated all Anthropic/OpenAI/Google/Mistral pricing to Feb 2026 rates
 
 ### [1.1.0] - 2026-02-16
 
-- ✨ Added xAI Grok, Kimi (Moonshot), Qwen (Alibaba)
-- ✨ Expanded to 32 models across 7 providers
+-  Added xAI Grok, Kimi (Moonshot), Qwen (Alibaba)
+-  Expanded to 32 models across 7 providers
 
 ### [1.0.0] - 2026-02-16
 
-- ✨ Initial release — TokenWatch
-- ✨ Pricing table for 11 models across 5 providers
-- ✨ Budget alerts: daily, weekly, monthly, per-call thresholds
-- ✨ Model cost comparison, cost estimation, optimization suggestions
-- ✨ Auto-hooks for Anthropic and OpenAI response objects
-- ✨ Dashboard, JSON export, local-only storage, MIT licensed
+-  Initial release — TokenWatch
+-  Pricing table for 11 models across 5 providers
+-  Budget alerts: daily, weekly, monthly, per-call thresholds
+-  Model cost comparison, cost estimation, optimization suggestions
+-  Auto-hooks for Anthropic and OpenAI response objects
+-  Dashboard, JSON export, local-only storage, MIT licensed
 
 ---
 
@@ -265,4 +265,4 @@ Helper to auto-record from OpenAI SDK response object.
 **Current Version**: 1.2.3
 **Status**: Active & Community-Maintained
 
-© 2026 UnisAI Community
+ 2026 UnisAI Community

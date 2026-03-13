@@ -25,9 +25,9 @@ const colors = {
 };
 
 const log = {
-  error: (msg) => console.error(`${colors.red}${colors.bold}✖${colors.reset} ${msg}`),
-  warn: (msg) => console.log(`${colors.yellow}${colors.bold}⚠${colors.reset} ${msg}`),
-  info: (msg) => console.log(`${colors.blue}ℹ${colors.reset} ${msg}`),
+  error: (msg) => console.error(`${colors.red}${colors.bold}${colors.reset} ${msg}`),
+  warn: (msg) => console.log(`${colors.yellow}${colors.bold}${colors.reset} ${msg}`),
+  info: (msg) => console.log(`${colors.blue}${colors.reset} ${msg}`),
   success: (msg) => console.log(`${colors.green}${colors.bold}✓${colors.reset} ${msg}`),
   debug: (msg) => process.env.DEBUG && console.log(`${colors.cyan}[DEBUG]${colors.reset} ${msg}`),
 };

@@ -53,18 +53,18 @@ Traditional payment APIs require HTTP clients, authentication flows, and manual 
 ### Data Sovereignty
 
 **What You Control**:
-- ✅ Payment database (PostgreSQL on your server)
-- ✅ Wallet keys (encrypted, your infrastructure)
-- ✅ Transaction logs (complete audit trail)
-- ✅ SSL certificates (your domain, your CA)
-- ✅ Network configuration (firewall rules, access control)
-- ✅ Backup procedures (your schedule, your storage)
+-  Payment database (PostgreSQL on your server)
+-  Wallet keys (encrypted, your infrastructure)
+-  Transaction logs (complete audit trail)
+-  SSL certificates (your domain, your CA)
+-  Network configuration (firewall rules, access control)
+-  Backup procedures (your schedule, your storage)
 
 **What You Don't Need**:
-- ❌ Third-party accounts (no Stripe/Coinbase account)
-- ❌ API key management (no rate limits from others)
-- ❌ Terms of service compliance (no TOS to break)
-- ❌ Geographic restrictions (runs globally)
+-  Third-party accounts (no Stripe/Coinbase account)
+-  API key management (no rate limits from others)
+-  Terms of service compliance (no TOS to break)
+-  Geographic restrictions (runs globally)
 
 ## Multi-Chain Support
 
@@ -186,33 +186,33 @@ Payer → On-chain tx → Blockchain → Your server monitors
 **Stripe/Coinbase Commerce/NOWPayments/BitPay**:
 
 **Account Requirements**:
-- ❌ Signup + email verification
-- ❌ KYC documentation (ID, address proof)
-- ❌ Business verification
-- ❌ Bank account linking
-- ❌ Ongoing compliance reviews
+-  Signup + email verification
+-  KYC documentation (ID, address proof)
+-  Business verification
+-  Bank account linking
+-  Ongoing compliance reviews
 
 **Operational Risks**:
-- ❌ Terms of service changes
-- ❌ Account freeze/ban (discretionary)
-- ❌ Geographic restrictions
-- ❌ High-risk industry bans
-- ❌ Processing fee changes (0.5-3%)
+-  Terms of service changes
+-  Account freeze/ban (discretionary)
+-  Geographic restrictions
+-  High-risk industry bans
+-  Processing fee changes (0.5-3%)
 
 **PayRam Self-Hosted**:
 
 **Zero Accounts**:
-- ✅ No signup (deploy script)
-- ✅ No KYC (permissionless)
-- ✅ No identity verification
-- ✅ No account approval process
+-  No signup (deploy script)
+-  No KYC (permissionless)
+-  No identity verification
+-  No account approval process
 
 **Operational Freedom**:
-- ✅ Your infrastructure, your rules
-- ✅ Cannot be shut down by third party
-- ✅ Runs globally (no restrictions)
-- ✅ High-risk industries supported
-- ✅ 0% processing fees (network gas only)
+-  Your infrastructure, your rules
+-  Cannot be shut down by third party
+-  Runs globally (no restrictions)
+-  High-risk industries supported
+-  0% processing fees (network gas only)
 
 **Cost Comparison** ($50K/month volume):
 - Stripe/Coinbase: $1,500/month (3% fees)

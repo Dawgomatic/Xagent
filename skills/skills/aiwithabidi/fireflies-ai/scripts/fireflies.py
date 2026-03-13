@@ -393,7 +393,7 @@ def format_human(data, command):
         lines = []
         for t in data:
             dur = f" ({t.get('duration', 0) // 60}m)" if t.get("duration") else ""
-            lines.append(f"📅 {t.get('dateString', 'N/A')}{dur} — {t.get('title', 'Untitled')}")
+            lines.append(f" {t.get('dateString', 'N/A')}{dur} — {t.get('title', 'Untitled')}")
             lines.append(f"   ID: {t.get('id', 'N/A')}")
             if t.get("host_email"):
                 lines.append(f"   Host: {t['host_email']}")
@@ -445,7 +445,7 @@ def format_human(data, command):
         if sent:
             lines += [f"Sentiment: +{sent.get('positive_pct',0):.0f}% / ~{sent.get('neutral_pct',0):.0f}% / -{sent.get('negative_pct',0):.0f}%", ""]
         for sp in (a.get("speakers") or []):
-            lines.append(f"🎙️ {sp.get('name','?')}: {sp.get('word_count',0)} words, {sp.get('duration_pct',0):.0f}% talk time, {sp.get('words_per_minute',0):.0f} wpm")
+            lines.append(f" {sp.get('name','?')}: {sp.get('word_count',0)} words, {sp.get('duration_pct',0):.0f}% talk time, {sp.get('words_per_minute',0):.0f} wpm")
         return "\n".join(lines)
     elif command == "attendees":
         t = data
@@ -465,7 +465,7 @@ def format_human(data, command):
             return "No contacts found."
         lines = []
         for c in data:
-            lines.append(f"👤 {c.get('name', 'Unknown')} <{c.get('email', '')}>  Last met: {c.get('last_meeting_date', 'N/A')}")
+            lines.append(f" {c.get('name', 'Unknown')} <{c.get('email', '')}>  Last met: {c.get('last_meeting_date', 'N/A')}")
         return "\n".join(lines)
     elif command == "user":
         u = data
@@ -475,7 +475,7 @@ def format_human(data, command):
             return "No team members found."
         lines = []
         for u in data:
-            lines.append(f"👤 {u.get('name', '?')} <{u.get('email', '')}> — {u.get('num_transcripts', 0)} transcripts")
+            lines.append(f" {u.get('name', '?')} <{u.get('email', '')}> — {u.get('num_transcripts', 0)} transcripts")
         return "\n".join(lines)
     return json.dumps(data, indent=2, default=str)
 

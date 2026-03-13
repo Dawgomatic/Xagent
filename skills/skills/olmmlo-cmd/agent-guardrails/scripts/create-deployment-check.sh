@@ -16,7 +16,7 @@ if [ ! -d "$PROJECT_DIR" ]; then
     exit 1
 fi
 
-echo "🔧 Creating deployment verification system in $PROJECT_DIR"
+echo " Creating deployment verification system in $PROJECT_DIR"
 echo ""
 
 # 1. Create .deployment-check.sh template
@@ -27,7 +27,7 @@ cat > "$PROJECT_DIR/.deployment-check.sh" << 'EOF'
 
 set -e
 
-echo "🔍 Deployment Verification"
+echo " Deployment Verification"
 echo "=========================="
 echo ""
 
@@ -38,37 +38,37 @@ echo "Test 1: Main output generated..."
 # TODO: Add your test here
 # Example: bash scripts/generate_report.sh > /dev/null 2>&1
 # if [ -f /tmp/report.txt ]; then
-#     echo "  ✅ Report generated"
+#     echo "   Report generated"
 # else
-#     echo "  ❌ No report"
+#     echo "   No report"
 #     FAILED=1
 # fi
-echo "  ⚠️ Not implemented yet"
+echo "   Not implemented yet"
 
 # Test 2: Output format
 echo "Test 2: Output format..."
 # TODO: Check output has required elements
 # Example: grep -q "Required Field" /tmp/report.txt
-echo "  ⚠️ Not implemented yet"
+echo "   Not implemented yet"
 
 # Test 3: Integration points
 echo "Test 3: Integration points..."
 # TODO: Verify all entry points work
-echo "  ⚠️ Not implemented yet"
+echo "   Not implemented yet"
 
 echo ""
 echo "=========================="
 if [ $FAILED -eq 0 ]; then
-    echo "✅ All tests passed (or not yet implemented)"
+    echo " All tests passed (or not yet implemented)"
     exit 0
 else
-    echo "❌ Some tests failed"
+    echo " Some tests failed"
     exit 1
 fi
 EOF
 
 chmod +x "$PROJECT_DIR/.deployment-check.sh"
-echo "✅ Created .deployment-check.sh"
+echo " Created .deployment-check.sh"
 
 # 2. Create DEPLOYMENT-CHECKLIST.md template
 cat > "$PROJECT_DIR/DEPLOYMENT-CHECKLIST.md" << 'EOF'
@@ -162,7 +162,7 @@ cat /tmp/report.txt
 **Remember:** A feature isn't "done" until users receive the intended benefit.
 EOF
 
-echo "✅ Created DEPLOYMENT-CHECKLIST.md"
+echo " Created DEPLOYMENT-CHECKLIST.md"
 
 # 3. Create git hook
 mkdir -p "$PROJECT_DIR/.git-hooks"
@@ -176,14 +176,14 @@ cat > "$PROJECT_DIR/.git-hooks/pre-commit-deployment" << 'EOF'
 FILE_PATTERN="." # Change to your pattern, e.g., "src/", "lib/", etc.
 
 if git diff --cached --name-only | grep -q "$FILE_PATTERN"; then
-    echo "🔍 Project files changed, running deployment verification..."
+    echo " Project files changed, running deployment verification..."
     
     if bash .deployment-check.sh; then
-        echo "✅ Deployment checks passed"
+        echo " Deployment checks passed"
         exit 0
     else
         echo ""
-        echo "❌ Deployment verification failed!"
+        echo " Deployment verification failed!"
         echo "Fix the issues above or use --no-verify to skip (not recommended)"
         exit 1
     fi
@@ -194,7 +194,7 @@ exit 0
 EOF
 
 chmod +x "$PROJECT_DIR/.git-hooks/pre-commit-deployment"
-echo "✅ Created git hook template"
+echo " Created git hook template"
 
 # 4. Installation instructions
 cat > "$PROJECT_DIR/.deployment-setup-instructions.txt" << 'EOF'
@@ -234,6 +234,6 @@ Remember: A feature isn't done until end-to-end production flow is verified.
 EOF
 
 echo ""
-echo "✅ Deployment verification system created!"
+echo " Deployment verification system created!"
 echo ""
 cat "$PROJECT_DIR/.deployment-setup-instructions.txt"

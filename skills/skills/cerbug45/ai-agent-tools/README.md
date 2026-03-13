@@ -1,4 +1,4 @@
-# 🤖 AI Agent Tools
+#  AI Agent Tools
 
 [![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -6,16 +6,16 @@
 
 A comprehensive Python utility library designed for AI agents. Provides ready-to-use tools for file operations, text processing, data transformation, memory management, and validation.
 
-## ✨ Features
+##  Features
 
-- 🗂️ **File Operations** - Read, write, list, and check files
-- 📝 **Text Processing** - Extract emails, URLs, phone numbers; clean and summarize text
-- 🔄 **Data Transformation** - Convert between JSON, CSV, and dictionary formats
-- 🧰 **Utilities** - Timestamps, ID generation, calculations
-- 💾 **Memory Management** - Store and retrieve data during execution
-- ✅ **Validation** - Validate emails, URLs, and phone numbers
+-  **File Operations** - Read, write, list, and check files
+-  **Text Processing** - Extract emails, URLs, phone numbers; clean and summarize text
+-  **Data Transformation** - Convert between JSON, CSV, and dictionary formats
+-  **Utilities** - Timestamps, ID generation, calculations
+-  **Memory Management** - Store and retrieve data during execution
+-  **Validation** - Validate emails, URLs, and phone numbers
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -43,7 +43,7 @@ emails = TextTools.extract_emails(content)
 DataTools.save_json({"emails": emails}, "output.json")
 ```
 
-## 📖 Documentation
+##  Documentation
 
 For full documentation, see [SKILL.md](SKILL.md)
 
@@ -58,7 +58,7 @@ For full documentation, see [SKILL.md](SKILL.md)
 | **MemoryTools** | Memory management | `store`, `retrieve`, `list_keys` |
 | **ValidationTools** | Data validation | `is_valid_email`, `is_valid_url`, `is_valid_phone` |
 
-## 💡 Examples
+##  Examples
 
 ### Extract Contact Information
 
@@ -129,7 +129,7 @@ print(f"Current user: {user_id}")
 print(f"Stored keys: {memory.list_keys()}")
 ```
 
-## 🔧 Integration Examples
+##  Integration Examples
 
 ### With LangChain
 
@@ -168,7 +168,7 @@ tools = [
 ]
 ```
 
-## 🧪 Testing
+##  Testing
 
 Run the built-in test suite:
 
@@ -176,12 +176,12 @@ Run the built-in test suite:
 python ai_agent_tools.py
 ```
 
-## 📋 Requirements
+##  Requirements
 
 - Python 3.7 or higher
 - No external dependencies (uses only standard library)
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -191,28 +191,28 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👤 Author
+##  Author
 
 **GitHub:** [@cerbug45](https://github.com/cerbug45)
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built for AI agents and automation workflows
 - Designed with simplicity and usability in mind
 - Zero dependencies for easy deployment
 
-## 📊 Project Stats
+##  Project Stats
 
 - **Total Functions:** 25+
 - **Tool Categories:** 6
 - **Lines of Code:** ~300
 - **Test Coverage:** Included
 
-## 🔗 Links
+##  Links
 
 - [Full Documentation](SKILL.md)
 - [Issue Tracker](https://github.com/cerbug45/ai-agent-tools/issues)
@@ -220,4 +220,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ for AI Agents**
+**Made with  for AI Agents**

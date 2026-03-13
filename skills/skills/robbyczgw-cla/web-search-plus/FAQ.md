@@ -87,7 +87,7 @@ export SERPER_API_KEY="your-key"
 ## Routing Details
 
 ### How do I know which provider handled my search?
-Check `routing.provider` in JSON output, or `[🔍 Searched with: Provider]` in chat responses.
+Check `routing.provider` in JSON output, or `[ Searched with: Provider]` in chat responses.
 
 ### Why does it sometimes choose Serper for research questions?
 If the query has brand/product signals (e.g., "how does Tesla FSD work"), shopping intent may outweigh research intent. Override with `-p tavily`.
@@ -162,7 +162,7 @@ Yes! Use `--engines google,bing,duckduckgo` to specify engines, or configure def
 | **RAG/Real-time** ("summarize latest", "current events") | **You.com** | LLM-ready snippets, combined web+news |
 | **Privacy** ("search without tracking") | **SearXNG** | No tracking, multi-source, self-hosted |
 
-**Tip:** Enable auto-routing and let the skill choose automatically! 🎯
+**Tip:** Enable auto-routing and let the skill choose automatically! 
 
 ### Do I need all 5 providers?
 **No!** All providers are optional. You can use:
@@ -178,7 +178,7 @@ Yes! Use `--engines google,bing,duckduckgo` to specify engines, or configure def
 | **Tavily** | 1,000 queries/mo | $150/mo (10,000 queries) |
 | **Exa** | 1,000 queries/mo | $1,000/mo (100,000 queries) |
 | **You.com** | Limited free | ~$10/mo (varies by usage) |
-| **SearXNG** | **FREE** ✅ | Only VPS cost (~$5/mo if self-hosting) |
+| **SearXNG** | **FREE**  | Only VPS cost (~$5/mo if self-hosting) |
 
 **Budget tip:** Use SearXNG as primary + others as fallback for specialized queries!
 
@@ -186,9 +186,9 @@ Yes! Use `--engines google,bing,duckduckgo` to specify engines, or configure def
 
 | Setup | Privacy Level |
 |-------|---------------|
-| **Self-hosted (your VPS)** | ⭐⭐⭐⭐⭐ You control everything |
-| **Self-hosted (Docker local)** | ⭐⭐⭐⭐⭐ Fully private |
-| **Public instance** | ⭐⭐⭐ Depends on operator's logging policy |
+| **Self-hosted (your VPS)** |  You control everything |
+| **Self-hosted (Docker local)** |  Fully private |
+| **Public instance** |  Depends on operator's logging policy |
 
 **Best practice:** Self-host if privacy is critical.
 
@@ -226,11 +226,11 @@ The skill analyzes your query for keywords and patterns:
 
 ### Can I use this in production?
 **Yes!** Web-search-plus is production-ready:
-- ✅ Error handling with automatic fallback
-- ✅ Rate limit protection
-- ✅ Timeout handling (30s per provider)
-- ✅ API key security (.env + config.json gitignored)
-- ✅ 5 providers for redundancy
+-  Error handling with automatic fallback
+-  Rate limit protection
+-  Timeout handling (30s per provider)
+-  API key security (.env + config.json gitignored)
+-  5 providers for redundancy
 
 **Tip:** Monitor API usage to avoid exceeding free tiers!
 

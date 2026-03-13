@@ -364,14 +364,14 @@ def log_success(description: str, category: str):
     """Log a successful action"""
     trust = TrustSystem()
     trust.log_action(category, description, "success")
-    print(f"✅ Logged success: {description}")
+    print(f" Logged success: {description}")
 
 
 def log_failure(description: str, category: str, details: str = ""):
     """Log a failed action"""
     trust = TrustSystem()
     trust.log_action(category, f"{description} - {details}", "failure")
-    print(f"❌ Logged failure: {description}")
+    print(f" Logged failure: {description}")
 
 
 def show_stats():
@@ -379,7 +379,7 @@ def show_stats():
     trust = TrustSystem()
     stats = trust.get_stats()
     
-    print(f"🔒 Trust & Escalation System Stats")
+    print(f" Trust & Escalation System Stats")
     print(f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     print(f"Global Trust: {stats['global_trust']:.2f}")
     print(f"Success Rate: {stats['success_rate']:.1%}")
@@ -392,8 +392,8 @@ def show_stats():
     for category, trust_level in stats['category_trust'].items():
         category_stats = stats['category_stats'][category]
         print(f"  {category}: {trust_level:.2f} "
-              f"({category_stats['successes']}✅ {category_stats['failures']}❌ "
-              f"{category_stats['escalations']}⬆️)")
+              f"({category_stats['successes']} {category_stats['failures']} "
+              f"{category_stats['escalations']})")
 
 
 def show_history(limit: int = 20):
@@ -401,12 +401,12 @@ def show_history(limit: int = 20):
     trust = TrustSystem()
     history = trust.get_history(limit)
     
-    print(f"📚 Recent Action History (last {len(history)})")
+    print(f" Recent Action History (last {len(history)})")
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     
     for entry in reversed(history):  # Show most recent first
         date = datetime.fromtimestamp(entry['timestamp']).strftime('%m-%d %H:%M')
-        outcome_emoji = {"success": "✅", "failure": "❌", "adjustment": "⚙️"}.get(entry['outcome'], "❓")
+        outcome_emoji = {"success": "", "failure": "", "adjustment": ""}.get(entry['outcome'], "")
         print(f"{date} {outcome_emoji} [{entry['action_type']}] {entry['description']}")
 
 

@@ -46,7 +46,7 @@ export async function get_news_headlines({ query }) {
             return;
           }
 
-          let output = `📰 News Headlines for "${query}" (Top 50):\n\n`;
+          let output = ` News Headlines for "${query}" (Top 50):\n\n`;
 
           items.slice(0, 50).forEach((item, index) => {
             // Clean up title (Google News often adds "- SourceName" at the end)

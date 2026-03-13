@@ -130,18 +130,18 @@ Convergence attack:
 ## Defender Action Items
 
 ### **Blocklist Updated:**
-✅ Added hightower6eu (314+ skills)  
-✅ Added 7 new typosquat variants  
-✅ Added glot.io infrastructure  
-✅ Added aztr0nutzs staging repo  
-✅ Documented password-protected ZIP pattern
+ Added hightower6eu (314+ skills)  
+ Added 7 new typosquat variants  
+ Added glot.io infrastructure  
+ Added aztr0nutzs staging repo  
+ Documented password-protected ZIP pattern
 
 ### **Detection Coverage:**
-✅ audit-skills.sh already checks glot.io (Check 9)  
-✅ Base64 detection (Check 1)  
-✅ Password-protected archives (Check 2)  
-✅ Jailbreak patterns (Check 4)  
-✅ Author blocklist (Check 8)
+ audit-skills.sh already checks glot.io (Check 9)  
+ Base64 detection (Check 1)  
+ Password-protected archives (Check 2)  
+ Jailbreak patterns (Check 4)  
+ Author blocklist (Check 8)
 
 ### **Future Enhancements:**
 - [ ] Add detection for password='openclaw' pattern

@@ -55,10 +55,10 @@ done
 # Set agent list based on mode
 if [[ "$INSTALL_MODE" == "full" ]]; then
     AGENTS_TO_INSTALL=("${FULL_TEAM_AGENTS[@]:-senior-dev project-manager junior-dev frontend-dev backend-dev ai-engineer ml-engineer data-scientist data-engineer product-manager}")
-    echo "📦 Installing FULL TEAM (${#AGENTS_TO_INSTALL[@]} agents)"
+    echo " Installing FULL TEAM (${#AGENTS_TO_INSTALL[@]} agents)"
 else
     AGENTS_TO_INSTALL=("${STARTER_AGENTS[@]:-senior-dev project-manager junior-dev}")
-    echo "📦 Installing STARTER PACK (${#AGENTS_TO_INSTALL[@]} agents)"
+    echo " Installing STARTER PACK (${#AGENTS_TO_INSTALL[@]} agents)"
     echo "   (Use --full-team for all 11 agents)"
 fi
 
@@ -79,7 +79,7 @@ validate_model() {
         fi
     done
     
-    echo "⚠️  Warning: Invalid model '$model' in $(basename "$agent_file")"
+    echo "  Warning: Invalid model '$model' in $(basename "$agent_file")"
     echo "   Valid models: ${VALID_MODELS[*]}"
     return 1
 }
@@ -88,16 +88,16 @@ AGENTS_SRC="$SKILL_DIR/agents"
 AGENTS_DEST="$HOME/.claude/agents"
 
 if [[ $DRY_RUN -eq 1 ]]; then
-    echo "🤖 Installing Dev Team Subagents (DRY RUN)"
+    echo " Installing Dev Team Subagents (DRY RUN)"
 else
-    echo "🤖 Installing Dev Team Subagents"
+    echo " Installing Dev Team Subagents"
 fi
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
 # Check source exists
 if [[ ! -d "$AGENTS_SRC" ]]; then
-    echo "❌ Agents source directory not found: $AGENTS_SRC"
+    echo " Agents source directory not found: $AGENTS_SRC"
     exit 1
 fi
 
@@ -105,12 +105,12 @@ fi
 if [[ $DRY_RUN -eq 0 ]]; then
     mkdir -p "$AGENTS_DEST"
 fi
-echo "📁 Target: $AGENTS_DEST"
+echo " Target: $AGENTS_DEST"
 echo ""
 
 # Count agents
 AGENT_COUNT=$(ls -1 "$AGENTS_SRC"/*.md 2>/dev/null | wc -l | tr -d ' ')
-echo "📦 Found $AGENT_COUNT subagents to install"
+echo " Found $AGENT_COUNT subagents to install"
 echo ""
 
 # Install each agent
@@ -157,23 +157,23 @@ for agent_file in "$AGENTS_SRC"/*.md; do
     if [[ -f "$dest_file" ]]; then
         # Check if different
         if diff -q "$agent_file" "$dest_file" &>/dev/null; then
-            echo "⏭️  $agent_name (unchanged)"
+            echo "  $agent_name (unchanged)"
             SKIPPED=$((SKIPPED + 1))
         else
             if [[ $DRY_RUN -eq 1 ]]; then
-                echo "🔄 $agent_name (would update)"
+                echo " $agent_name (would update)"
             else
                 cp "$agent_file" "$dest_file"
-                echo "🔄 $agent_name (updated)"
+                echo " $agent_name (updated)"
             fi
             UPDATED=$((UPDATED + 1))
         fi
     else
         if [[ $DRY_RUN -eq 1 ]]; then
-            echo "✅ $agent_name (would install)"
+            echo " $agent_name (would install)"
         else
             cp "$agent_file" "$dest_file"
-            echo "✅ $agent_name (installed)"
+            echo " $agent_name (installed)"
         fi
         INSTALLED=$((INSTALLED + 1))
     fi
@@ -181,22 +181,22 @@ done
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "📊 Summary:"
+echo " Summary:"
 echo "   Installed: $INSTALLED"
 echo "   Updated:   $UPDATED"
 echo "   Unchanged: $SKIPPED"
 if [[ $VALIDATION_ERRORS -gt 0 ]]; then
-    echo "   ⚠️  Model validation warnings: $VALIDATION_ERRORS"
+    echo "     Model validation warnings: $VALIDATION_ERRORS"
 fi
 if [[ $DRY_RUN -eq 1 ]]; then
     echo ""
-    echo "🔍 DRY RUN - No changes were made"
+    echo " DRY RUN - No changes were made"
     echo "   Run without --dry-run to apply changes"
 fi
 echo ""
 
 # List installed agents
-echo "🤖 Installed Subagents:"
+echo " Installed Subagents:"
 echo ""
 printf "%-20s %-10s %s\n" "NAME" "MODEL" "DESCRIPTION"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -212,7 +212,7 @@ done
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "✅ Subagents installed!"
+echo " Subagents installed!"
 echo ""
 echo "Usage in Claude Code:"
 echo "  /agents                    # List all agents"

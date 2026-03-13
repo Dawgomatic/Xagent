@@ -8,7 +8,7 @@ This guide covers essential local services for residents and long-term visitors:
 
 ---
 
-## 📱 SIM Cards & Mobile
+##  SIM Cards & Mobile
 
 ### Telecom Providers
 
@@ -86,7 +86,7 @@ This guide covers essential local services for residents and long-term visitors:
 
 ---
 
-## 🏦 Banking
+##  Banking
 
 ### Major Banks
 
@@ -146,10 +146,10 @@ This guide covers essential local services for residents and long-term visitors:
 
 | App | Bank | Rating |
 |-----|------|--------|
-| ENBD X | Emirates NBD | ⭐⭐⭐⭐⭐ |
-| FAB Mobile | First Abu Dhabi | ⭐⭐⭐⭐ |
-| Liv. | ENBD Digital | ⭐⭐⭐⭐⭐ |
-| Neo | Mashreq Digital | ⭐⭐⭐⭐ |
+| ENBD X | Emirates NBD |  |
+| FAB Mobile | First Abu Dhabi |  |
+| Liv. | ENBD Digital |  |
+| Neo | Mashreq Digital |  |
 
 ### Money Transfer Services
 
@@ -162,7 +162,7 @@ This guide covers essential local services for residents and long-term visitors:
 
 ---
 
-## ⚡ Utilities (DEWA)
+##  Utilities (DEWA)
 
 ### DEWA = Dubai Electricity & Water Authority
 
@@ -251,7 +251,7 @@ Many new buildings use district cooling (chilled water for A/C).
 
 ---
 
-## 🌐 Internet & Home Services
+##  Internet & Home Services
 
 ### Home Internet Providers
 
@@ -291,7 +291,7 @@ Many new buildings use district cooling (chilled water for A/C).
 
 ---
 
-## 📮 Mail & Packages
+##  Mail & Packages
 
 ### Emirates Post
 
@@ -338,7 +338,7 @@ Many expats use "shop and ship" to buy from US/UK:
 
 ---
 
-## 📱 Essential Apps for Daily Life
+##  Essential Apps for Daily Life
 
 ### Delivery & Food
 
@@ -398,7 +398,7 @@ Many expats use "shop and ship" to buy from US/UK:
 
 ---
 
-## 🔌 Electricity & Plugs
+##  Electricity & Plugs
 
 | Standard | Details |
 |----------|---------|
@@ -410,7 +410,7 @@ Many expats use "shop and ship" to buy from US/UK:
 
 ---
 
-## 📋 Service Setup Checklist
+##  Service Setup Checklist
 
 ### Week 1 Priorities
 
@@ -437,7 +437,7 @@ Many expats use "shop and ship" to buy from US/UK:
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **Banking:** Start with Liv. (no minimum balance) while waiting for Emirates ID
 2. **Mobile:** Tourist SIM is fine for first month, switch to postpaid later
@@ -449,7 +449,7 @@ Many expats use "shop and ship" to buy from US/UK:
 
 ---
 
-## ⚠️ Common Mistakes
+##  Common Mistakes
 
 1. **No DEWA deposit budget:** AED 2,000-4,000 upfront
 2. **Ignoring chiller costs:** Can double your utility bill

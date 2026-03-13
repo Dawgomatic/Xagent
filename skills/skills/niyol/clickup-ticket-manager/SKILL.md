@@ -35,9 +35,9 @@ User says:
 
 ### Example Transformation
 
-❌ **User:** "ticket for firewall rule"
+ **User:** "ticket for firewall rule"
 
-✅ **You create:**
+ **You create:**
 ```bash
 ./clup.sh --title "Firewall Rule for Production System" \
      --description "Open port 443 from server web-01 (10.0.1.5) to db-prod (10.0.2.10). Required for API communication after migration. Coordination with network team needed."

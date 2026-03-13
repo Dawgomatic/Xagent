@@ -143,7 +143,7 @@ Read its `<objective>` section.
 ```
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **{phase}-{plan}: [Plan Name]** — [objective summary from PLAN.md]
 
@@ -163,7 +163,7 @@ Check if `{phase}-CONTEXT.md` exists in phase directory.
 ```
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **Phase {N}: {Name}** — {Goal from ROADMAP.md}
 <sub>✓ Context gathered, ready to plan</sub>
@@ -178,7 +178,7 @@ Check if `{phase}-CONTEXT.md` exists in phase directory.
 ```
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **Phase {N}: {Name}** — {Goal from ROADMAP.md}
 
@@ -215,7 +215,7 @@ Read ROADMAP.md to get the next phase's name and goal.
 
 ## ✓ Phase {Z} Complete
 
-## ▶ Next Up
+##  Next Up
 
 **Phase {Z+1}: {Name}** — {Goal from ROADMAP.md}
 
@@ -231,7 +231,7 @@ Read ROADMAP.md to get the next phase's name and goal.
 ```
 ---
 
-## 🎉 Milestone Complete
+##  Milestone Complete
 
 All {N} phases finished!
 
@@ -251,7 +251,7 @@ A milestone was completed and archived. Ready to start the next milestone cycle.
 
 Ready to plan the next milestone.
 
-## ▶ Next Up
+##  Next Up
 
 **Start Next Project/Milestone**
 

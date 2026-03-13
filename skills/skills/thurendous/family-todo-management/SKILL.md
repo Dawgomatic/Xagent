@@ -8,11 +8,11 @@ description: Manage family todo lists with multi-user support
 A lightweight, multi-user todo list manager for any family, powered by Node.js and JSON.
 
 ## Features
-- 📝 **Natural Language Add**: "Add a task: Buy milk tomorrow"
-- 👥 **Multi-User**: Supports Admin (You), Partner, and Family shared tasks.
-- ⏰ **Cron Integration**: Designed to work with OpenClaw cron for daily briefings.
-- 💾 **JSON Storage**: Simple file-based storage (`memory/todo.json`), easy to backup.
-- 🆔 **Timestamp IDs**: Tasks have unique, time-ordered IDs.
+-  **Natural Language Add**: "Add a task: Buy milk tomorrow"
+-  **Multi-User**: Supports Admin (You), Partner, and Family shared tasks.
+-  **Cron Integration**: Designed to work with OpenClaw cron for daily briefings.
+-  **JSON Storage**: Simple file-based storage (`memory/todo.json`), easy to backup.
+-  **Timestamp IDs**: Tasks have unique, time-ordered IDs.
 
 ## Installation
 

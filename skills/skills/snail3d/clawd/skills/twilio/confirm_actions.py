@@ -19,7 +19,7 @@ def execute_calendar_action(action):
     date = cmd.get('date')
     time = cmd.get('time', '09:00')
     
-    print(f"\n📅 Calendar Event")
+    print(f"\n Calendar Event")
     print(f"   Title: {title}")
     print(f"   Date: {date}")
     print(f"   Time: {time}")
@@ -41,14 +41,14 @@ def execute_calendar_action(action):
         )
         
         if result.returncode == 0:
-            print("✅ Added to calendar!")
+            print(" Added to calendar!")
             return True
         else:
-            print(f"❌ Failed: {result.stderr}")
+            print(f" Failed: {result.stderr}")
             return False
             
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         return False
 
 
@@ -58,7 +58,7 @@ def execute_task_action(action):
     title = cmd.get('title', 'Task')
     due_date = cmd.get('due_date')
     
-    print(f"\n✅ Task")
+    print(f"\n Task")
     print(f"   Title: {title}")
     if due_date:
         print(f"   Due: {due_date}")
@@ -80,14 +80,14 @@ def execute_task_action(action):
         )
         
         if result.returncode == 0:
-            print("✅ Added to Things!")
+            print(" Added to Things!")
             return True
         else:
-            print(f"❌ Failed: {result.stderr}")
+            print(f" Failed: {result.stderr}")
             return False
             
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         return False
 
 
@@ -132,11 +132,11 @@ def confirm_actions():
         json.dump(remaining, f, indent=2)
     
     print(f"\n{'=' * 60}")
-    print(f"✅ Confirmed {len(completed)} action(s)")
+    print(f" Confirmed {len(completed)} action(s)")
     if remaining:
-        print(f"⏳ {len(remaining)} still pending")
+        print(f" {len(remaining)} still pending")
     else:
-        print("🎉 All caught up!")
+        print(" All caught up!")
 
 
 def auto_confirm():
@@ -167,7 +167,7 @@ def auto_confirm():
     with open(PENDING_FILE, "w") as f:
         json.dump([], f)
     
-    print("\n✅ All actions processed")
+    print("\n All actions processed")
 
 
 def main():

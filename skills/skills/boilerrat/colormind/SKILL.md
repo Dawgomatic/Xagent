@@ -2,12 +2,12 @@
 name: colormind
 description: Generate color palettes and get color suggestions via the Colormind.io API (list models, generate palettes with optional locked colors).
 version: 1.1.1
-metadata: {"clawdbot":{"emoji":"🎨","requires":{"bins":["node","python3","convert"],"env":[]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node","python3","convert"],"env":[]}}}
 ---
 
 # Colormind (Color Palette Generator)
 
-⚠️ **Privacy & Security Notice:**
+ **Privacy & Security Notice:**
 - This skill sends color data to an external service (colormind.io)
 - The API uses **unencrypted HTTP** (HTTPS has a self-signed certificate)
 - When using `image_to_palette.sh`, derived color data from your images is sent externally

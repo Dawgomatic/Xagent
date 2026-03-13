@@ -1,7 +1,7 @@
 ---
 name: Dreams
 description: Build a personal dream journal for recording, analyzing patterns, and exploring your subconscious.
-metadata: {"clawdbot":{"emoji":"🌙","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

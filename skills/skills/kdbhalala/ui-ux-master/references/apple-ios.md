@@ -329,7 +329,7 @@ Complete guide to iOS-specific design patterns, layouts, and interactions.
 
 **Notification:**
 - Success: ✓ (positive)
-- Warning: ⚠︎ (caution)
+- Warning:  (caution)
 - Error: ✕ (negative)
 
 **Selection:**
@@ -424,39 +424,39 @@ Complete guide to iOS-specific design patterns, layouts, and interactions.
 
 ## Design Checklist
 
-✅ **Layout**
+ **Layout**
 - Respects safe areas
 - Supports all device sizes
 - Adaptive (compact/regular size classes)
 - Margins and spacing follow 8pt grid
 
-✅ **Typography**
+ **Typography**
 - Uses SF Pro (system font)
 - Supports Dynamic Type
 - Appropriate text styles (Body, Headline, etc.)
 
-✅ **Color**
+ **Color**
 - Uses semantic system colors
 - Supports Light and Dark mode
 - Sufficient contrast (4.5:1 minimum)
 
-✅ **Components**
+ **Components**
 - Uses native iOS components when possible
 - Custom components feel native
 - Interactions match iOS patterns
 
-✅ **Navigation**
+ **Navigation**
 - Clear hierarchy
 - Consistent navigation pattern
 - Back navigation always available
 
-✅ **Accessibility**
+ **Accessibility**
 - VoiceOver labels on all interactive elements
 - Dynamic Type supported
 - Reduce Motion alternatives
 - Color contrast meets WCAG AA
 
-✅ **Platform Features**
+ **Platform Features**
 - Widgets (if appropriate)
 - Shortcuts integration
 - Handoff support (if multi-device)

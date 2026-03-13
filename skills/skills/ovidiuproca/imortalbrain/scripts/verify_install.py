@@ -19,19 +19,19 @@ class Colors:
 
 
 def print_success(msg):
-    print(f"{Colors.GREEN}✅ {msg}{Colors.END}")
+    print(f"{Colors.GREEN} {msg}{Colors.END}")
 
 
 def print_error(msg):
-    print(f"{Colors.RED}❌ {msg}{Colors.END}")
+    print(f"{Colors.RED} {msg}{Colors.END}")
 
 
 def print_warning(msg):
-    print(f"{Colors.YELLOW}⚠️  {msg}{Colors.END}")
+    print(f"{Colors.YELLOW}  {msg}{Colors.END}")
 
 
 def print_info(msg):
-    print(f"{Colors.BLUE}ℹ️  {msg}{Colors.END}")
+    print(f"{Colors.BLUE}  {msg}{Colors.END}")
 
 
 def main():
@@ -160,7 +160,7 @@ def main():
     print("=" * 70 + "\n")
 
     if not errors and not warnings:
-        print_success("🎉 INSTALARE PERFECTĂ! Toate verificările au trecut.")
+        print_success(" INSTALARE PERFECTĂ! Toate verificările au trecut.")
         print("\nSistemul este gata de utilizare!")
         print("\nPentru a începe:")
         print("  1. Adaugă task-uri în: workspace/memory/*.md")
@@ -168,7 +168,7 @@ def main():
         print("  3. Primești notificări automate!")
         return 0
     elif not errors:
-        print_warning("⚠️  INSTALARE FUNCȚIONALĂ cu avertismente")
+        print_warning("  INSTALARE FUNCȚIONALĂ cu avertismente")
         print("\nAvertismente:")
         for w in warnings:
             print(f"  • {w}")
@@ -177,7 +177,7 @@ def main():
         )
         return 0
     else:
-        print_error("❌ INSTALARE INCOMPLETĂ - Probleme detectate!")
+        print_error(" INSTALARE INCOMPLETĂ - Probleme detectate!")
         print("\nErori critice:")
         for e in errors:
             print(f"  • {e}")
@@ -185,7 +185,7 @@ def main():
             print("\nAvertismente:")
             for w in warnings:
                 print(f"  • {w}")
-        print("\n⚠️  Rezolvă erorile de mai sus înainte de a utiliza sistemul.")
+        print("\n  Rezolvă erorile de mai sus înainte de a utiliza sistemul.")
         return 1
 
 

@@ -28,7 +28,7 @@ After registration:
 4. Add a description (e.g., "clawdbot") and choose expiration
 5. Click **Add**
 6. **Immediately copy the Value** (not the ID) → This is your `CLIENT_SECRET`
-   - ⚠️ You can only see this once!
+   -  You can only see this once!
 
 ## Step 3: Configure API Permissions
 

@@ -253,4 +253,4 @@ For urgent issues, live chat is recommended for fastest resolution.
 
 ---
 
-© 2026 hergunmac.com - All rights reserved.
+ 2026 hergunmac.com - All rights reserved.

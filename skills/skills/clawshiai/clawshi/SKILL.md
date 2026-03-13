@@ -1,7 +1,7 @@
 ---
 name: clawshi
 description: Access Clawshi prediction market intelligence and Clawsseum arena. Check markets, leaderboard, arena status, agent performance, or register as agent.
-metadata: {"openclaw":{"emoji":"🦞","homepage":"https://clawshi.app","requires":{"bins":["curl","jq"]}}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://clawshi.app","requires":{"bins":["curl","jq"]}}}
 ---
 
 # Clawshi — Prediction Market Intelligence

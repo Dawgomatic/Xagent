@@ -6,7 +6,7 @@
  *   NAD_PRIVATE_KEY="0x..." node nadmail-register.js --handle myname        # Use env var (recommended)
  *   node nadmail-register.js --wallet my-wallet --handle myname             # Use managed wallet file
  * 
- * ⚠️ SECURITY: Never pass private key as command line argument!
+ *  SECURITY: Never pass private key as command line argument!
  */
 
 const { ethers } = require('ethers');
@@ -37,7 +37,7 @@ function logAudit(action, details = {}) {
 }
 
 function showHelp() {
-  console.log('📧 NadMail Registration (SIWE Auth)');
+  console.log(' NadMail Registration (SIWE Auth)');
   console.log('═'.repeat(50));
   console.log('');
   console.log('Usage:');
@@ -50,7 +50,7 @@ function showHelp() {
   console.log('Optional Arguments:');
   console.log('  --wallet NAME      Use managed wallet file (if not using env var)');
   console.log('');
-  console.log('⚠️  SECURITY:');
+  console.log('  SECURITY:');
   console.log('   • Use NAD_PRIVATE_KEY environment variable (recommended)');
   console.log('   • Never pass private key as command line argument');
   console.log('   • Handle must be unique across NadMail');
@@ -83,13 +83,13 @@ function parseArgs() {
 function getWallet(walletName) {
   // 1. Check environment variable first (recommended)
   if (process.env.NAD_PRIVATE_KEY) {
-    console.log('🔑 Using wallet from NAD_PRIVATE_KEY environment variable');
+    console.log(' Using wallet from NAD_PRIVATE_KEY environment variable');
     return new ethers.Wallet(process.env.NAD_PRIVATE_KEY);
   }
   
   // 2. Load from managed wallet file
   if (!walletName) {
-    console.error('❌ No wallet specified and NAD_PRIVATE_KEY not set');
+    console.error(' No wallet specified and NAD_PRIVATE_KEY not set');
     console.error('');
     console.error('Options:');
     console.error('  1. Set NAD_PRIVATE_KEY environment variable:');
@@ -107,13 +107,13 @@ function getWallet(walletName) {
   const filepath = path.join(walletsDir, `${walletName}.json`);
   
   if (fs.existsSync(filepath)) {
-    console.log(`🔑 Using managed wallet: ${filepath}`);
+    console.log(` Using managed wallet: ${filepath}`);
     const data = JSON.parse(fs.readFileSync(filepath, 'utf8'));
     return new ethers.Wallet(data.privateKey);
   }
   
   // Not found
-  console.error(`❌ Wallet not found: ${filepath}`);
+  console.error(` Wallet not found: ${filepath}`);
   console.error('');
   console.error('Create wallet first:');
   console.error('  node scripts/create-wallet.js --managed ' + walletName);
@@ -121,7 +121,7 @@ function getWallet(walletName) {
 }
 
 async function registerNadMail(wallet, handle) {
-  console.log('\n🔐 Starting NadMail SIWE registration...');
+  console.log('\n Starting NadMail SIWE registration...');
   
   // Step 1: Start authentication
   console.log('Step 1: Requesting authentication message...');
@@ -142,12 +142,12 @@ async function registerNadMail(wallet, handle) {
     throw new Error('No message in auth start response: ' + JSON.stringify(startData));
   }
   
-  console.log('✅ Got authentication message');
+  console.log(' Got authentication message');
   
   // Step 2: Sign the message
   console.log('Step 2: Signing authentication message...');
   const signature = await wallet.signMessage(startData.message);
-  console.log('✅ Message signed');
+  console.log(' Message signed');
   
   // Step 3: Register with agent endpoint
   console.log('Step 3: Registering with NadMail...');
@@ -186,7 +186,7 @@ function saveToken(tokenData, handle) {
   };
   
   fs.writeFileSync(TOKEN_FILE, JSON.stringify(tokenInfo, null, 2), { mode: 0o600 });
-  console.log('💾 Token saved to:', TOKEN_FILE);
+  console.log(' Token saved to:', TOKEN_FILE);
   
   return tokenInfo;
 }
@@ -203,7 +203,7 @@ async function main() {
   // Check for dangerous private key arguments
   if (process.argv.includes('--private-key') || process.argv.includes('-p')) {
     console.error('');
-    console.error('⛔ SECURITY ERROR: Do not pass private key as command line argument!');
+    console.error(' SECURITY ERROR: Do not pass private key as command line argument!');
     console.error('');
     console.error('Use environment variable instead:');
     console.error('  export NAD_PRIVATE_KEY="0x..."');
@@ -213,13 +213,13 @@ async function main() {
   
   // Validate handle
   if (!args.handle) {
-    console.error('❌ Missing required --handle argument');
+    console.error(' Missing required --handle argument');
     console.error('');
     showHelp();
     process.exit(1);
   }
   
-  console.log('📧 NadMail Registration');
+  console.log(' NadMail Registration');
   console.log('═'.repeat(50));
   console.log('Handle:', args.handle);
   
@@ -231,20 +231,20 @@ async function main() {
     // Register with NadMail
     const result = await registerNadMail(wallet, args.handle);
     
-    console.log('\n🎉 SUCCESS!');
-    console.log('📧 NadMail registration completed!');
+    console.log('\n SUCCESS!');
+    console.log(' NadMail registration completed!');
     console.log('Handle:', args.handle);
     console.log('Address:', wallet.address);
     
     // Save token
     const tokenInfo = saveToken(result, args.handle);
     
-    console.log('\n📋 Registration Details:');
+    console.log('\n Registration Details:');
     console.log('  • Token saved for API access');
     console.log('  • Handle:', tokenInfo.handle);
     console.log('  • Registered at:', tokenInfo.registeredAt);
     
-    console.log('\n🌐 Next Steps:');
+    console.log('\n Next Steps:');
     console.log('  • Access NadMail at: https://nadmail.ai');
     console.log('  • Your handle: ' + args.handle);
     console.log('  • API token stored locally for automation');
@@ -269,16 +269,16 @@ async function main() {
             registeredAt: tokenInfo.registeredAt
           };
           fs.writeFileSync(filepath, JSON.stringify(walletData, null, 2), { mode: 0o600 });
-          console.log('\n💾 Wallet file updated with NadMail info');
+          console.log('\n Wallet file updated with NadMail info');
         } catch (e) {
           // Ignore update errors
-          console.log('\n⚠️ Could not update wallet file (non-critical)');
+          console.log('\n Could not update wallet file (non-critical)');
         }
       }
     }
     
   } catch (error) {
-    console.error('\n❌ Registration failed:', error.message);
+    console.error('\n Registration failed:', error.message);
     
     logAudit('nadmail_register_failed', { 
       handle: args.handle,
@@ -286,7 +286,7 @@ async function main() {
     });
     
     if (error.message.includes('handle already exists')) {
-      console.log('\n💡 Try a different handle:');
+      console.log('\n Try a different handle:');
       console.log('  node nadmail-register.js --handle ' + args.handle + '2');
     }
     

@@ -56,7 +56,7 @@ HEARTBEAT_OK
 
 **If something needs attention:**
 ```
-🔔 [Type] Alert
+ [Type] Alert
 [Brief description]
 [Action item if applicable]
 ```
@@ -92,15 +92,15 @@ HEARTBEAT_OK
 
 **Single alert:**
 ```
-🔔 Calendar
+ Calendar
 Meeting with Captain in 45 minutes (10:00 AM)
 ```
 
 **Multiple alerts (batched):**
 ```
-🔔 Email: 2 urgent messages from clients
-🔔 Monitoring: Disk space on server-3 at 85%
-🔔 Calendar: Team standup in 30 min
+ Email: 2 urgent messages from clients
+ Monitoring: Disk space on server-3 at 85%
+ Calendar: Team standup in 30 min
 ```
 
 ## Integration with token_tracker.py

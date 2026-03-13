@@ -1,7 +1,7 @@
 ---
 name: client-manager
 description: When user asks to track clients, manage projects, create invoices, log payments, track earnings, manage leads, track time, generate proposals, set follow-up reminders, or view a freelance dashboard. Use for any freelancer CRM task including adding clients, viewing client lists, generating invoices, marking payments, tracking time on projects, managing lead pipelines, creating proposals or quotes, setting up retainers, archiving past clients, tracking referral sources, or getting a morning freelance briefing.
-metadata: {"clawdbot":{"emoji":"💼","requires":{"tools":["read","exec","write"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"tools":["read","exec","write"]}}}
 ---
 
 # Client Manager — Freelancer's Command Center
@@ -156,7 +156,7 @@ Save format:
 }
 ```
 
-Confirm: "✅ Client **John Smith** added! Web Development — $500 fixed."
+Confirm: " Client **John Smith** added! Web Development — $500 fixed."
 
 ---
 
@@ -170,7 +170,7 @@ cat ~/.openclaw/client-manager/clients.json 2>/dev/null
 
 Display as table:
 ```
-📋 YOUR CLIENTS
+ YOUR CLIENTS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 | # | Client        | Service      | Rate      | Status  |
@@ -214,7 +214,7 @@ Save to `projects.json`:
 }
 ```
 
-Confirm: "✅ Project **Portfolio Website** for **John Smith** — $500, due March 15."
+Confirm: " Project **Portfolio Website** for **John Smith** — $500, due March 15."
 
 ---
 
@@ -229,7 +229,7 @@ When user says **"invoice [client name]"** or **"create invoice"**:
 Generate invoice display (use values from `settings.json` for business name, email, and payment terms):
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📄 INVOICE #INV-2026-001
+ INVOICE #INV-2026-001
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 From: [business_name from settings.json] ([email from settings.json])
@@ -244,7 +244,7 @@ SERVICES:
 TOTAL:                           $500.00
 ───────────────────────────────────────
 
-Status: ⏳ UNPAID
+Status:  UNPAID
 
 Payment methods: [User can customize]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -298,7 +298,7 @@ Update invoice status to "paid" in `invoices.json` and save payment record to `e
 }
 ```
 
-"✅ Payment received! **$500** from **John Smith** — Invoice #INV-2026-001 marked as PAID."
+" Payment received! **$500** from **John Smith** — Invoice #INV-2026-001 marked as PAID."
 
 ---
 
@@ -322,10 +322,10 @@ Save to `reminders.json`:
 }
 ```
 
-Confirm: "⏰ Reminder set: Follow up with **John Smith** about **payment** on **February 22, 2026**."
+Confirm: " Reminder set: Follow up with **John Smith** about **payment** on **February 22, 2026**."
 
 When reminder triggers, send:
-"🔔 FOLLOW-UP REMINDER: Time to follow up with **John Smith** about payment ($500 outstanding)."
+" FOLLOW-UP REMINDER: Time to follow up with **John Smith** about payment ($500 outstanding)."
 
 ---
 
@@ -339,7 +339,7 @@ cat ~/.openclaw/client-manager/invoices.json 2>/dev/null
 
 Calculate and display:
 ```
-💰 EARNINGS REPORT
+ EARNINGS REPORT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 This Week:    $500
@@ -347,17 +347,17 @@ This Month:   $1,200
 Last Month:   $800
 All Time:     $4,500
 
-📊 BY CLIENT:
+ BY CLIENT:
   John Smith     $1,500  (33%)
   Sarah Wilson   $2,000  (44%)
   Mike Chen      $1,000  (23%)
 
-📊 BY SERVICE:
+ BY SERVICE:
   Web Dev        $2,500  (56%)
   Design         $1,200  (27%)
   Content        $800    (17%)
 
-💡 Insight: Your best month was January ($1,500).
+ Insight: Your best month was January ($1,500).
    Sarah Wilson is your highest-paying client.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -371,7 +371,7 @@ When user says **"client status"** or **"dashboard"** or **"overview"**:
 
 Show everything at a glance:
 ```
-🎯 FREELANCE DASHBOARD
+ FREELANCE DASHBOARD
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Active Clients: 3
@@ -379,12 +379,12 @@ Active Projects: 4
 Pending Invoices: 2 ($700 outstanding)
 This Month Earnings: $1,200
 
-⚠️ NEEDS ATTENTION:
+ NEEDS ATTENTION:
   → Invoice #INV-2026-003 overdue (Mike Chen, $200)
   → Project "Logo Redesign" deadline tomorrow
   → Follow up with Sarah Wilson (proposal sent 5 days ago)
 
-📅 UPCOMING:
+ UPCOMING:
   → Feb 22: Follow up John Smith (payment)
   → Mar 1: Project deadline — Sarah's website
   → Mar 5: Invoice due — John Smith
@@ -423,17 +423,17 @@ Save to `leads.json`:
 
 When user says **"show leads"** or **"pipeline"**:
 ```
-🔥 LEAD PIPELINE
+ LEAD PIPELINE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🔴 HOT (respond today):
+ HOT (respond today):
   → Lisa Park — Landing page ($800) — Twitter DM — contacted 1 day ago
   → Tom Rivera — Full website ($2,000) — Referral — proposal sent
 
-🟡 WARM (follow up this week):
+ WARM (follow up this week):
   → Amy Zhang — Logo design ($300) — Upwork — initial chat done
   
-🔵 COLD (nurture):
+ COLD (nurture):
   → Dev Patel — App UI ($1,500) — LinkedIn — no response yet
 
 Pipeline Value: $4,600
@@ -442,7 +442,7 @@ Pipeline Value: $4,600
 
 When user says **"convert [lead name]"**, move lead to clients automatically — pre-fill all details.
 
-**Proactive behavior:** If a Hot lead has no contact in 2 days, remind user: "🔥 Lisa Park (Hot lead, $800) — no contact in 2 days. Want me to draft a follow-up?"
+**Proactive behavior:** If a Hot lead has no contact in 2 days, remind user: " Lisa Park (Hot lead, $800) — no contact in 2 days. Want me to draft a follow-up?"
 
 ---
 
@@ -467,7 +467,7 @@ When user says **"start timer [project]"** or **"time [project]"**:
 }
 ```
 
-"⏱️ Timer started for **Portfolio Website** (John Smith)."
+" Timer started for **Portfolio Website** (John Smith)."
 
 When user says **"stop timer"**:
 Find the running timer (entry with `"end": null`) in `timelog.json`, update it:
@@ -483,11 +483,11 @@ Find the running timer (entry with `"end": null`) in `timelog.json`, update it:
 }
 ```
 
-"⏱️ Timer stopped. **2h 15m** logged for Portfolio Website."
+" Timer stopped. **2h 15m** logged for Portfolio Website."
 
 When user says **"time report"**:
 ```
-⏱️ TIME REPORT — This Week
+ TIME REPORT — This Week
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 John Smith — Portfolio Website:     6h 30m
@@ -496,7 +496,7 @@ Mike Chen — Blog Content:           2h 00m
 ────────────────────────────────────
 TOTAL:                              11h 45m
 
-💡 Tip: At $50/hr, that's $587.50 worth of work.
+ Tip: At $50/hr, that's $587.50 worth of work.
    John Smith is taking the most time this week.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -525,11 +525,11 @@ Save to `activity_log.json`:
 }
 ```
 
-"📝 Logged: **John Smith** — Sent first draft"
+" Logged: **John Smith** — Sent first draft"
 
 When user says **"show log [client]"**:
 ```
-📝 ACTIVITY LOG — John Smith
+ ACTIVITY LOG — John Smith
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Feb 19  14:30  Sent first draft
@@ -556,7 +556,7 @@ When user says **"quote [client]"** or **"proposal [client]"**:
 Generate proposal:
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 PROPOSAL — John Smith
+ PROPOSAL — John Smith
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Project: Portfolio Website
@@ -637,12 +637,12 @@ Save retainer info to `retainers.json`:
 ```
 
 **Proactive behavior:**
-- On billing date, auto-prompt: "📅 Retainer invoice due for **Sarah Wilson** — $500. Generate invoice now?"
+- On billing date, auto-prompt: " Retainer invoice due for **Sarah Wilson** — $500. Generate invoice now?"
 - Track months billed, total retainer revenue
 
 When user says **"retainers"**:
 ```
-🔄 ACTIVE RETAINERS
+ ACTIVE RETAINERS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Sarah Wilson — $500/month — Bills on 1st — Active since Jan 2026
@@ -660,11 +660,11 @@ When user says **"archive [client]"**:
 
 Move client status from "active" to "archived". Keep all data — just hide from active views.
 
-"📦 **Mike Chen** moved to archive. All project and payment history preserved."
+" **Mike Chen** moved to archive. All project and payment history preserved."
 
 When user says **"past clients"**:
 ```
-📦 ARCHIVED CLIENTS
+ ARCHIVED CLIENTS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 | # | Client      | Last Project       | Total Earned | Archived |
@@ -672,7 +672,7 @@ When user says **"past clients"**:
 | 1 | Mike Chen   | Blog Content       | $1,000      | Feb 2026 |
 | 2 | Jane Doe    | Logo Design        | $400        | Jan 2026 |
 
-💡 Tip: Mike Chen hasn't worked with you in 30 days.
+ Tip: Mike Chen hasn't worked with you in 30 days.
    Want me to send a "checking in" message?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -703,12 +703,12 @@ Track milestones per project in `milestones.json`:
 
 Display:
 ```
-📋 MILESTONES — Portfolio Website (John Smith)
+ MILESTONES — Portfolio Website (John Smith)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-✅ Design mockup        Feb 25    $150    DONE
-🔄 Development          Mar 5     $200    IN PROGRESS
-⏳ Testing + Launch     Mar 15    $150    PENDING
+ Design mockup        Feb 25    $150    DONE
+ Development          Mar 5     $200    IN PROGRESS
+ Testing + Launch     Mar 15    $150    PENDING
 
 Progress: ██████████░░░░░ 66%
 Paid: $150 / $500
@@ -732,7 +732,7 @@ Every client and lead has a **"source"** field:
 
 When user says **"where do my clients come from?"** or **"referral report"**:
 ```
-📊 CLIENT SOURCES
+ CLIENT SOURCES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Twitter/X:     5 clients  → $3,200 revenue  (42%)
@@ -740,8 +740,8 @@ Referrals:     3 clients  → $2,500 revenue  (33%)
 Upwork:        2 clients  → $1,000 revenue  (13%)
 LinkedIn:      1 client   → $900 revenue    (12%)
 
-🏆 Best source: Twitter/X (highest revenue per client)
-💡 Tip: Double down on X content — it's your top earner.
+ Best source: Twitter/X (highest revenue per client)
+ Tip: Double down on X content — it's your top earner.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -753,29 +753,29 @@ When user says **"briefing"** or **"good morning"** or agent runs on schedule:
 
 Generate daily briefing:
 ```
-☀️ GOOD MORNING — Freelance Briefing
+ GOOD MORNING — Freelance Briefing
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Wednesday, February 19, 2026
 
-💰 THIS MONTH: $1,200 earned | $700 pending
+ THIS MONTH: $1,200 earned | $700 pending
 
-🔥 TODAY'S PRIORITIES:
+ TODAY'S PRIORITIES:
   1. John Smith — send revised mockup (deadline tomorrow!)
   2. Lisa Park — Hot lead, follow up (no contact in 2 days)
   3. Sarah Wilson retainer invoice — due in 3 days
 
-⏳ OVERDUE:
+ OVERDUE:
   → Mike Chen owes $200 (Invoice #003, 5 days overdue)
 
-📅 THIS WEEK:
+ THIS WEEK:
   → Feb 21: Portfolio Website deadline
   → Feb 22: Follow up John (payment)
   → Feb 25: Sarah's retainer bills
 
-📊 QUICK STATS:
+ QUICK STATS:
   Active clients: 3 | Active projects: 4 | Open leads: 2
 
-Have a productive day! 💪
+Have a productive day! 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -788,7 +788,7 @@ When user says **"show projects"**:
 Read `projects.json` and display only projects with status "in-progress" or "pending":
 
 ```
-📂 ACTIVE PROJECTS
+ ACTIVE PROJECTS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 | # | Project           | Client       | Amount | Deadline   | Priority | Status      |
@@ -797,12 +797,12 @@ Read `projects.json` and display only projects with status "in-progress" or "pen
 | 2 | Logo Redesign     | Sarah Wilson | $300   | Feb 28     | Medium   | In Progress |
 | 3 | Blog Content      | Mike Chen    | $200   | Mar 1      | Low      | Pending     |
 
-⚠️ Logo Redesign deadline in 9 days!
+ Logo Redesign deadline in 9 days!
 Total Active Project Value: $1,000
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-When a project deadline is within 3 days, mark it with ⚠️. When overdue, mark with 🔴.
+When a project deadline is within 3 days, mark it with . When overdue, mark with .
 
 User can also say **"completed projects"** to see projects with status "completed".
 
@@ -825,7 +825,7 @@ Generate CSV files with today's date:
 - `export-YYYY-MM-DD-earnings.csv` — earnings summary (month, amount, client)
 - `export-YYYY-MM-DD-timelog.csv` — time logs (date, client, project, duration)
 
-"📁 Data exported to `~/.openclaw/client-manager/exports/`. 5 CSV files created."
+" Data exported to `~/.openclaw/client-manager/exports/`. 5 CSV files created."
 
 Also support: **"export [clients/projects/invoices]"** to export only one type.
 
@@ -843,7 +843,7 @@ Calculate based on:
 
 Display:
 ```
-📈 REVENUE FORECAST — Next 30 Days
+ REVENUE FORECAST — Next 30 Days
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Guaranteed (retainers):           $1,500
@@ -853,12 +853,12 @@ Pipeline (weighted):              $560
 ────────────────────────────────────
 TOTAL FORECAST:                   $3,560
 
-📊 CONFIDENCE:
+ CONFIDENCE:
   High (>80% sure):    $2,200
   Medium (50-80%):     $800
   Low (<50%):          $560
 
-💡 Tip: You need $1,440 more to hit your $5,000 monthly goal.
+ Tip: You need $1,440 more to hit your $5,000 monthly goal.
    Close Lisa Park (Hot, $800) to get there faster.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -876,19 +876,19 @@ Save to `settings.json` as `monthly_income_goal` and `monthly_client_goal`.
 
 When user says **"goal"** or **"how am I doing"**:
 ```
-🎯 MONTHLY GOAL TRACKER — February 2026
+ MONTHLY GOAL TRACKER — February 2026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-💰 Income:  $1,200 / $5,000   ████░░░░░░ 24%
+ Income:  $1,200 / $5,000   ████░░░░░░ 24%
    ↳ 19 days left, need $200/day to hit goal
 
-👤 Clients: 2 / 5 new         ████░░░░░░ 40%
+ Clients: 2 / 5 new         ████░░░░░░ 40%
    ↳ 3 more clients needed this month
 
-📈 Pace: Behind by $1,800
+ Pace: Behind by $1,800
    Last month you hit $3,200 (64% of goal)
 
-💡 Action: Convert 2 Hot leads ($800 + $2,000) = goal hit!
+ Action: Convert 2 Hot leads ($800 + $2,000) = goal hit!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -908,7 +908,7 @@ Save to `settings.json` as `late_fee_type`, `late_fee_amount`, `late_fee_grace_d
 
 When an invoice is overdue past grace period, auto-calculate penalty:
 
-"⚠️ Invoice #INV-2026-003 for **Mike Chen** ($200) is 5 days overdue. Late fee of **$25** applies. New total: **$225**. Want me to send a reminder with the updated amount?"
+" Invoice #INV-2026-003 for **Mike Chen** ($200) is 5 days overdue. Late fee of **$25** applies. New total: **$225**. Want me to send a reminder with the updated amount?"
 
 Show in invoices:
 ```
@@ -931,19 +931,19 @@ Calculate per client:
 
 Display:
 ```
-📊 PROFITABILITY REPORT
+ PROFITABILITY REPORT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 | Client       | Revenue | Hours | $/Hour | Rating |
 |-------------|---------|-------|--------|--------|
-| Sarah Wilson | $2,000  | 20h   | $100/hr | ⭐⭐⭐⭐⭐ |
-| John Smith   | $1,500  | 30h   | $50/hr  | ⭐⭐⭐   |
-| Mike Chen    | $1,000  | 40h   | $25/hr  | ⭐      |
+| Sarah Wilson | $2,000  | 20h   | $100/hr |  |
+| John Smith   | $1,500  | 30h   | $50/hr  |    |
+| Mike Chen    | $1,000  | 40h   | $25/hr  |       |
 
-🏆 Most profitable: Sarah Wilson ($100/hr)
-⚠️ Least profitable: Mike Chen ($25/hr — consider raising rates)
+ Most profitable: Sarah Wilson ($100/hr)
+ Least profitable: Mike Chen ($25/hr — consider raising rates)
 
-💡 Insight: You earn 4x more per hour with Sarah than Mike.
+ Insight: You earn 4x more per hour with Sarah than Mike.
    Focus on clients like Sarah for higher income.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -959,7 +959,7 @@ When user says **"tax"** or **"tax report"** or **"how much tax do I owe"**:
 
 Calculate and display:
 ```
-📊 TAX REPORT — 2026
+ TAX REPORT — 2026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Total Income (YTD):           $4,500
@@ -967,14 +967,14 @@ Estimated Tax (25%):          $1,125
 ────────────────────────────────
 After-Tax Income:             $3,375
 
-📅 BY QUARTER:
+ BY QUARTER:
   Q1 (Jan-Mar):  $3,500 earned → $875 tax
   Q2 (Apr-Jun):  $1,000 earned → $250 tax (so far)
 
-💡 Set aside: $375/month for taxes
+ Set aside: $375/month for taxes
    You should have $1,125 saved for taxes by now.
 
-⚠️ This is an estimate only. Consult a tax professional
+ This is an estimate only. Consult a tax professional
    for accurate tax advice.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -992,7 +992,7 @@ Also tag each earning with a category for tax deduction tracking:
 
 When user says **"help"** or **"commands"**:
 ```
-📋 CLIENT MANAGER COMMANDS
+ CLIENT MANAGER COMMANDS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 CLIENT & LEADS:

@@ -1,7 +1,7 @@
 ---
 name: Svelte
 description: Avoid common Svelte mistakes — reactivity triggers, store subscriptions, and SvelteKit SSR gotchas.
-metadata: {"clawdbot":{"emoji":"🔥","requires":{"bins":["node"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Reactivity Triggers

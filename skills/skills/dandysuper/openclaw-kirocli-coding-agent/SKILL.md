@@ -3,7 +3,7 @@ name: coding-agent
 description: Run Codex CLI, Claude Code, Kiro CLI, OpenCode, or Pi Coding Agent via background process for programmatic control.
 metadata:
   {
-    "openclaw": { "emoji": "🧩", "requires": { "anyBins": ["claude", "codex", "opencode", "pi", "kiro-cli"] } },
+    "openclaw": { "emoji": "", "requires": { "anyBins": ["claude", "codex", "opencode", "pi", "kiro-cli"] } },
   }
 ---
 
@@ -11,17 +11,17 @@ metadata:
 
 Use **bash** (with optional background mode) for all coding agent work. Simple and effective.
 
-## ⚠️ PTY Mode Required!
+##  PTY Mode Required!
 
 Coding agents (Codex, Claude Code, Kiro, Pi) are **interactive terminal applications** that need a pseudo-terminal (PTY) to work correctly. Without PTY, you'll get broken output, missing colors, or the agent may hang.
 
 **Always use `pty:true`** when running coding agents:
 
 ```bash
-# ✅ Correct - with PTY
+#  Correct - with PTY
 bash pty:true command:"codex exec 'Your prompt'"
 
-# ❌ Wrong - no PTY, agent may break
+#  Wrong - no PTY, agent may break
 bash command:"codex exec 'Your prompt'"
 ```
 
@@ -92,7 +92,7 @@ process action:submit sessionId:XXX data:"yes"
 process action:kill sessionId:XXX
 ```
 
-**Why workdir matters:** Agent wakes up in a focused directory, doesn't wander off reading unrelated files (like your soul.md 😅).
+**Why workdir matters:** Agent wakes up in a focused directory, doesn't wander off reading unrelated files (like your soul.md ).
 
 ---
 
@@ -120,7 +120,7 @@ bash pty:true workdir:~/project background:true command:"codex --yolo 'Refactor 
 
 ### Reviewing PRs
 
-**⚠️ CRITICAL: Never review PRs in OpenClaw's own project folder!**
+** CRITICAL: Never review PRs in OpenClaw's own project folder!**
 Clone to temp folder or use git worktree.
 
 ```bash
@@ -197,7 +197,7 @@ kiro-cli chat --no-interactive --trust-all-tools "Create hello.py"
 kiro-cli chat --no-interactive --trust-tools "fs_read,fs_write" "Read package.json"
 ```
 
-**🔐 Tool Trust:** Use `--trust-all-tools` for automation (default). For untrusted input or sensitive systems, consider `--trust-tools "fs_read,fs_write,shell"` to limit scope.
+** Tool Trust:** Use `--trust-all-tools` for automation (default). For untrusted input or sensitive systems, consider `--trust-tools "fs_read,fs_write,shell"` to limit scope.
 
 ### OpenClaw Integration
 
@@ -349,7 +349,7 @@ git worktree remove /tmp/issue-99
 
 ---
 
-## ⚠️ Rules
+##  Rules
 
 1. **Always use pty:true** - coding agents need a terminal!
 2. **Respect tool choice** - if user asks for Kiro, use Kiro; if they ask for Codex, use Codex.
@@ -412,4 +412,4 @@ This triggers an immediate wake event — gets pinged in seconds, not 10 minutes
 - **Git repo required:** Codex won't run outside a git directory. Use `mktemp -d && git init` for scratch work.
 - **exec is your friend:** `codex exec "prompt"` runs and exits cleanly - perfect for one-shots.
 - **submit vs write:** Use `submit` to send input + Enter, `write` for raw data without newline.
-- **Sass works:** Codex responds well to playful prompts. Asked it to write a haiku about being second fiddle to a space lobster, got: _"Second chair, I code / Space lobster sets the tempo / Keys glow, I follow"_ 🦞
+- **Sass works:** Codex responds well to playful prompts. Asked it to write a haiku about being second fiddle to a space lobster, got: _"Second chair, I code / Space lobster sets the tempo / Keys glow, I follow"_ 

@@ -514,16 +514,16 @@ def format_deadlines(
     
     # Markdown format
     urgency_emoji = {
-        "overdue": "🔴",
-        "critical": "🔴",
-        "urgent": "🟠",
-        "soon": "🟡",
-        "normal": "🟢",
-        "completed": "✅"
+        "overdue": "",
+        "critical": "",
+        "urgent": "",
+        "soon": "",
+        "normal": "",
+        "completed": ""
     }
     
     lines = [
-        "# 📅 Legal Deadline Tracker",
+        "#  Legal Deadline Tracker",
         "",
         f"**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M')}",
         f"**Total Deadlines:** {len(deadlines)}",
@@ -539,41 +539,41 @@ def format_deadlines(
     
     if overdue:
         lines.extend([
-            "## 🚨 OVERDUE",
+            "##  OVERDUE",
             ""
         ])
         for d in overdue:
             days = abs(d.days_until())
             lines.append(f"- **{d.date}** — {d.description[:80]}")
-            lines.append(f"  ⚠️ {days} days overdue | {d.category}")
+            lines.append(f"   {days} days overdue | {d.category}")
             if d.matter_name:
-                lines.append(f"  📁 Matter: {d.matter_name}")
+                lines.append(f"   Matter: {d.matter_name}")
         lines.append("")
     
     if critical:
         lines.extend([
-            "## 🔴 CRITICAL (≤3 days)",
+            "##  CRITICAL (≤3 days)",
             ""
         ])
         for d in critical:
             lines.append(f"- **{d.date}** ({d.days_until()} days) — {d.description[:80]}")
             lines.append(f"  {d.category}")
             if d.court:
-                lines.append(f"  🏛️ {d.court}")
+                lines.append(f"   {d.court}")
         lines.append("")
     
     if upcoming:
         lines.extend([
-            "## 📋 Upcoming",
+            "##  Upcoming",
             ""
         ])
         for d in upcoming:
-            emoji = urgency_emoji.get(d.urgency_level(), "⚪")
+            emoji = urgency_emoji.get(d.urgency_level(), "")
             lines.append(f"- {emoji} **{d.date}** ({d.days_until()} days)")
             lines.append(f"  {d.description[:80]}")
             lines.append(f"  Category: {d.category}")
             if d.matter_name:
-                lines.append(f"  📁 {d.matter_name}")
+                lines.append(f"   {d.matter_name}")
         lines.append("")
     
     if not deadlines:
@@ -690,11 +690,11 @@ def main():
         )
         
         if db.add(deadline):
-            print(f"✅ Deadline added: {deadline_id}")
+            print(f" Deadline added: {deadline_id}")
             print(f"   Date: {args.date}")
             print(f"   Description: {args.description}")
         else:
-            print("❌ Failed to add deadline (may already exist)")
+            print(" Failed to add deadline (may already exist)")
             sys.exit(1)
     
     elif args.command == "extract":
@@ -706,7 +706,7 @@ def main():
                 for d in deadlines:
                     if db.add(d):
                         saved += 1
-                print(f"✅ Saved {saved} of {len(deadlines)} deadlines", file=sys.stderr)
+                print(f" Saved {saved} of {len(deadlines)} deadlines", file=sys.stderr)
             
             print(format_deadlines(deadlines, args.output))
             
@@ -720,9 +720,9 @@ def main():
         if deadline:
             if args.save:
                 db.add(deadline)
-                print(f"✅ Saved SOL deadline", file=sys.stderr)
+                print(f" Saved SOL deadline", file=sys.stderr)
             
-            print(f"📅 Statute of Limitations Deadline")
+            print(f" Statute of Limitations Deadline")
             print(f"   Claim Type: {args.claim_type}")
             print(f"   Incident Date: {args.incident_date}")
             print(f"   Deadline: {deadline.date}")
@@ -730,26 +730,26 @@ def main():
             if deadline.notes:
                 print(f"   Notes: {deadline.notes}")
         else:
-            print(f"❌ Unknown claim type: {args.claim_type}")
+            print(f" Unknown claim type: {args.claim_type}")
             print("Run 'deadline_tracker.py sol-types' to see available types")
             sys.exit(1)
     
     elif args.command == "complete":
         if db.mark_complete(args.deadline_id):
-            print(f"✅ Deadline {args.deadline_id} marked complete")
+            print(f" Deadline {args.deadline_id} marked complete")
         else:
-            print(f"❌ Deadline not found: {args.deadline_id}")
+            print(f" Deadline not found: {args.deadline_id}")
             sys.exit(1)
     
     elif args.command == "delete":
         if db.delete(args.deadline_id):
-            print(f"✅ Deadline {args.deadline_id} deleted")
+            print(f" Deadline {args.deadline_id} deleted")
         else:
-            print(f"❌ Deadline not found: {args.deadline_id}")
+            print(f" Deadline not found: {args.deadline_id}")
             sys.exit(1)
     
     elif args.command == "categories":
-        print("📋 Deadline Categories:\n")
+        print(" Deadline Categories:\n")
         for cat, info in DEADLINE_CATEGORIES.items():
             print(f"  {cat}")
             print(f"    {info['description']}")
@@ -758,7 +758,7 @@ def main():
             print()
     
     elif args.command == "sol-types":
-        print("⏰ Statute of Limitations Types (California defaults):\n")
+        print(" Statute of Limitations Types (California defaults):\n")
         for claim, info in STATUTE_OF_LIMITATIONS.items():
             period = f"{info.get('years', '')} years" if 'years' in info else f"{info.get('days', '')} days"
             print(f"  {claim.replace('_', ' ').title()}")

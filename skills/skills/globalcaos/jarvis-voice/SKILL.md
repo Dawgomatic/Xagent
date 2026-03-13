@@ -6,7 +6,7 @@ homepage: https://github.com/globalcaos/clawdbot-moltbot-openclaw
 repository: https://github.com/globalcaos/clawdbot-moltbot-openclaw
 metadata:
   openclaw:
-    emoji: "🎙️"
+    emoji: ""
     requires:
       bins: ["ffmpeg", "aplay"]
     install:

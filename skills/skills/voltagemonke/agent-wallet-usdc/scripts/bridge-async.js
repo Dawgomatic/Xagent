@@ -222,7 +222,7 @@ async function initiateBridge(fromChainKey, toChainKey, amount) {
   
   console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🌉 BRIDGE INITIATED
+ BRIDGE INITIATED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ID:     ${bridgeId}
 From:   ${fromChain.name}
@@ -239,7 +239,7 @@ async function stepApprove(bridgeId) {
   const state = getState(bridgeId);
   if (!state) throw new Error(`Bridge ${bridgeId} not found`);
   if (state.approveTx) {
-    console.log(`✅ Already approved: ${state.approveTx}`);
+    console.log(` Already approved: ${state.approveTx}`);
     return state;
   }
   
@@ -248,7 +248,7 @@ async function stepApprove(bridgeId) {
   const usdc = new ethers.Contract(fromChain.usdc, ERC20_ABI, wallet);
   
   setState(bridgeId, { status: STATES.APPROVING });
-  console.log('🔐 Approving USDC spend...');
+  console.log(' Approving USDC spend...');
   
   // For V2, we need to approve amount + maxFee (10%)
   // Use a generous allowance to avoid issues
@@ -257,20 +257,20 @@ async function stepApprove(bridgeId) {
   // Check current allowance
   const allowance = await usdc.allowance(wallet.address, fromChain.tokenMessenger);
   if (allowance >= approveAmount) {
-    console.log('✅ Already has sufficient allowance');
+    console.log(' Already has sufficient allowance');
     return setState(bridgeId, { status: STATES.APPROVED });
   }
   
   // Approve generous amount
   const tx = await usdc.approve(fromChain.tokenMessenger, approveAmount);
-  console.log(`📝 Approve TX: ${fromChain.explorer}${tx.hash}`);
+  console.log(` Approve TX: ${fromChain.explorer}${tx.hash}`);
   
   const receipt = await tx.wait();
   if (receipt.status !== 1) {
     throw new Error('Approve transaction failed');
   }
   
-  console.log('✅ Approved!');
+  console.log(' Approved!');
   return setState(bridgeId, { 
     status: STATES.APPROVED, 
     approveTx: tx.hash 
@@ -281,7 +281,7 @@ async function stepBurn(bridgeId) {
   const state = getState(bridgeId);
   if (!state) throw new Error(`Bridge ${bridgeId} not found`);
   if (state.burnTx) {
-    console.log(`✅ Already burned: ${state.burnTx}`);
+    console.log(` Already burned: ${state.burnTx}`);
     return state;
   }
   if (state.status !== STATES.APPROVED && !state.approveTx) {
@@ -299,7 +299,7 @@ async function stepBurn(bridgeId) {
   );
   
   setState(bridgeId, { status: STATES.BURNING });
-  console.log('🔥 Burning USDC on source chain (FAST TRANSFER)...');
+  console.log(' Burning USDC on source chain (FAST TRANSFER)...');
   
   const mintRecipient = addressToBytes32(wallet.address);
   const destinationCaller = ethers.zeroPadValue('0x', 32); // bytes32(0) = anyone can call
@@ -318,7 +318,7 @@ async function stepBurn(bridgeId) {
     minFinalityThreshold
   );
   
-  console.log(`📝 Burn TX: ${fromChain.explorer}${tx.hash}`);
+  console.log(` Burn TX: ${fromChain.explorer}${tx.hash}`);
   
   const receipt = await tx.wait();
   if (receipt.status !== 1) {
@@ -331,7 +331,7 @@ async function stepBurn(bridgeId) {
     throw new Error('Could not extract message from burn TX');
   }
   
-  console.log(`✅ Burned! Message hash: ${msgData.messageHash}`);
+  console.log(` Burned! Message hash: ${msgData.messageHash}`);
   
   return setState(bridgeId, {
     status: STATES.BURNED,
@@ -345,7 +345,7 @@ async function stepAttest(bridgeId, maxAttempts = 60, intervalMs = 3000) {
   const state = getState(bridgeId);
   if (!state) throw new Error(`Bridge ${bridgeId} not found`);
   if (state.attestation) {
-    console.log('✅ Already have attestation');
+    console.log(' Already have attestation');
     return state;
   }
   if (!state.burnTx) {
@@ -355,7 +355,7 @@ async function stepAttest(bridgeId, maxAttempts = 60, intervalMs = 3000) {
   const fromChain = CHAINS[state.fromChain];
   
   setState(bridgeId, { status: STATES.ATTESTING });
-  console.log('⏳ Waiting for Circle attestation (FAST TRANSFER ~8-30s)...');
+  console.log(' Waiting for Circle attestation (FAST TRANSFER ~8-30s)...');
   console.log(`   Burn TX: ${state.burnTx}`);
   console.log(`   Source Domain: ${fromChain.domain}`);
   console.log(`   Polling every ${intervalMs/1000}s (max ${maxAttempts} attempts)`);
@@ -364,7 +364,7 @@ async function stepAttest(bridgeId, maxAttempts = 60, intervalMs = 3000) {
     const result = await getAttestation(state.messageHash, state.burnTx, fromChain.domain);
     
     if (result) {
-      console.log(`\n✅ Attestation received after ${attempt} attempts (~${attempt * intervalMs / 1000}s)!`);
+      console.log(`\n Attestation received after ${attempt} attempts (~${attempt * intervalMs / 1000}s)!`);
       
       // V2 API returns the message too - update if available
       const updateData = {
@@ -385,7 +385,7 @@ async function stepAttest(bridgeId, maxAttempts = 60, intervalMs = 3000) {
     }
   }
   
-  console.log(`\n⚠️ Attestation not ready after ${maxAttempts} attempts`);
+  console.log(`\n Attestation not ready after ${maxAttempts} attempts`);
   console.log('   Run again later to continue polling');
   return state;
 }
@@ -394,7 +394,7 @@ async function stepMint(bridgeId) {
   const state = getState(bridgeId);
   if (!state) throw new Error(`Bridge ${bridgeId} not found`);
   if (state.mintTx) {
-    console.log(`✅ Already minted: ${state.mintTx}`);
+    console.log(` Already minted: ${state.mintTx}`);
     return state;
   }
   if (!state.attestation) {
@@ -411,21 +411,21 @@ async function stepMint(bridgeId) {
   );
   
   setState(bridgeId, { status: STATES.MINTING });
-  console.log('💰 Minting USDC on destination chain...');
+  console.log(' Minting USDC on destination chain...');
   
   const tx = await messageTransmitter.receiveMessage(
     state.message,
     state.attestation
   );
   
-  console.log(`📝 Mint TX: ${toChain.explorer}${tx.hash}`);
+  console.log(` Mint TX: ${toChain.explorer}${tx.hash}`);
   
   const receipt = await tx.wait();
   if (receipt.status !== 1) {
     throw new Error('Mint transaction failed');
   }
   
-  console.log('✅ Minted! Bridge complete!');
+  console.log(' Minted! Bridge complete!');
   
   return setState(bridgeId, {
     status: STATES.COMPLETE,
@@ -444,7 +444,7 @@ async function runBridge(bridgeId) {
     const state = getState(bridgeId);
     console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ BRIDGE COMPLETE
+ BRIDGE COMPLETE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ID:        ${bridgeId}
 Amount:    ${state.amount} USDC
@@ -509,12 +509,12 @@ function listBridges() {
   
   console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 BRIDGE LIST
+ BRIDGE LIST
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
   
   for (const b of bridges) {
-    const status = b.status === STATES.COMPLETE ? '✅' : 
-                   b.status === STATES.FAILED ? '❌' : '⏳';
+    const status = b.status === STATES.COMPLETE ? '' : 
+                   b.status === STATES.FAILED ? '' : '';
     console.log(`${status} ${b.id}`);
     console.log(`   ${b.amount} USDC: ${CHAINS[b.fromChain]?.name || b.fromChain} → ${CHAINS[b.toChain]?.name || b.toChain}`);
     console.log(`   Status: ${b.status}`);
@@ -536,7 +536,7 @@ function bridgeStatus(bridgeId) {
   
   console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🌉 BRIDGE STATUS
+ BRIDGE STATUS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ID:      ${state.id}
 Status:  ${state.status}
@@ -546,10 +546,10 @@ To:      ${toChain?.name || state.toChain}
 Wallet:  ${state.walletAddress}
 
 Steps:
-  ${state.approveTx ? '✅' : '⬜'} Approve ${state.approveTx ? `(${state.approveTx.slice(0,10)}...)` : ''}
-  ${state.burnTx ? '✅' : '⬜'} Burn    ${state.burnTx ? `(${state.burnTx.slice(0,10)}...)` : ''}
-  ${state.attestation ? '✅' : '⬜'} Attest  ${state.messageHash ? `(${state.messageHash.slice(0,10)}...)` : ''}
-  ${state.mintTx ? '✅' : '⬜'} Mint    ${state.mintTx ? `(${state.mintTx.slice(0,10)}...)` : ''}
+  ${state.approveTx ? '' : ''} Approve ${state.approveTx ? `(${state.approveTx.slice(0,10)}...)` : ''}
+  ${state.burnTx ? '' : ''} Burn    ${state.burnTx ? `(${state.burnTx.slice(0,10)}...)` : ''}
+  ${state.attestation ? '' : ''} Attest  ${state.messageHash ? `(${state.messageHash.slice(0,10)}...)` : ''}
+  ${state.mintTx ? '' : ''} Mint    ${state.mintTx ? `(${state.mintTx.slice(0,10)}...)` : ''}
 ${state.error ? `\nError: ${state.error}` : ''}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 `);

@@ -227,13 +227,13 @@ Check your stealth setup:
 
 | Check | Camoufox | Plain Playwright |
 |-------|----------|------------------|
-| webdriver | ✅ | ❌ |
-| CDP artifacts | ✅ (no CDP) | ❌ |
-| Canvas | ✅ | ❌ |
-| WebGL | ✅ | ❌ |
-| Audio | ✅ | ❌ |
-| Fonts | ✅ | ❌ |
-| Headless | ✅ | ❌ |
-| TLS | ✅ | ❌ |
+| webdriver |  |  |
+| CDP artifacts |  (no CDP) |  |
+| Canvas |  |  |
+| WebGL |  |  |
+| Audio |  |  |
+| Fonts |  |  |
+| Headless |  |  |
+| TLS |  |  |
 
-Legend: ✅ = patched, ❌ = detected
+Legend:  = patched,  = detected

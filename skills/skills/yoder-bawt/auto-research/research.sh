@@ -69,7 +69,7 @@ case "$DEPTH" in
         ;;
 esac
 
-echo -e "${BLUE}🔍 Auto-Research Agent${NC}"
+echo -e "${BLUE} Auto-Research Agent${NC}"
 echo "=========================="
 echo -e "Topic: ${YELLOW}$TOPIC${NC}"
 echo -e "Depth: ${YELLOW}$DEPTH${NC} (${SOURCE_COUNT} sources)"
@@ -308,11 +308,11 @@ if [[ -x "$VECTORIZE_SCRIPT" ]]; then
         echo -e "${GREEN}✓ Vectorization complete${NC}"
     else
         VECTORIZED="Failed"
-        echo -e "${YELLOW}⚠ Vectorization failed (non-critical)${NC}"
+        echo -e "${YELLOW} Vectorization failed (non-critical)${NC}"
     fi
 else
     VECTORIZED="Skipped"
-    echo -e "${YELLOW}⚠ Vectorize script not found${NC}"
+    echo -e "${YELLOW} Vectorize script not found${NC}"
 fi
 
 # Update file with vectorization status using a safe replacement

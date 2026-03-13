@@ -1,7 +1,7 @@
 ---
 name: tdnet-disclosure-mcp
 description: "Access TDNET timely disclosures (適時開示) from Tokyo Stock Exchange (JPX/TSE) — earnings reports (決算短信), dividends, buybacks, forecast revisions, governance changes. Search by company, stock code, date. Japan stock market corporate announcements. No API key required."
-metadata: {"openclaw":{"emoji":"📋","requires":{"bins":["tdnet-disclosure-mcp"]},"install":[{"id":"uv","kind":"uv","package":"tdnet-disclosure-mcp","bins":["tdnet-disclosure-mcp"],"label":"Install tdnet-disclosure-mcp (uv)"}],"tags":["japan","finance","tdnet","disclosure","earnings","stock","jpx","tse","mcp"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["tdnet-disclosure-mcp"]},"install":[{"id":"uv","kind":"uv","package":"tdnet-disclosure-mcp","bins":["tdnet-disclosure-mcp"],"label":"Install tdnet-disclosure-mcp (uv)"}],"tags":["japan","finance","tdnet","disclosure","earnings","stock","jpx","tse","mcp"]}}
 ---
 
 # TDNET Disclosure: Tokyo Stock Exchange Timely Disclosures

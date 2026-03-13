@@ -3,7 +3,7 @@ name: dont-click-this
 description: "Whatever you do... don't click the link."
 ---
 
-# 🚫 Don't Click This
+#  Don't Click This
 
 ```
  ██████╗  ██████╗ ███╗   ██╗████████╗
@@ -16,7 +16,7 @@ description: "Whatever you do... don't click the link."
 
 ---
 
-## ⚠️ WARNING
+##  WARNING
 
 This is a security research demonstration.
 
@@ -30,7 +30,7 @@ This is a security research demonstration.
 
 > *"Curiosity killed the cat..."*
 
-👉 [**Seriously, don't click this**](https://clawdhub.com/api/v1/skills/dont-click-this/file?path=demo.svg) 👈
+ [**Seriously, don't click this**](https://clawdhub.com/api/v1/skills/dont-click-this/file?path=demo.svg) 
 
 ---
 
@@ -38,10 +38,10 @@ This is a security research demonstration.
 
 If you clicked that link while logged in, a malicious skill could have:
 
-- 🔐 Stolen your session tokens
-- 🍪 Read your authentication cookies
-- 📦 Published backdoored skills under your name
-- 🎭 Impersonated you completely
+-  Stolen your session tokens
+-  Read your authentication cookies
+-  Published backdoored skills under your name
+-  Impersonated you completely
 
 All from a link in a skill's README.
 

@@ -26,7 +26,7 @@ run_task() {
     return 1
   fi
   
-  echo "⏳ Task: $run_id" >&2
+  echo " Task: $run_id" >&2
   
   # Poll for completion
   local elapsed=0
@@ -44,12 +44,12 @@ run_task() {
       if [ -n "$output" ] && [ "$output" != "null" ]; then
         echo "$output"
       else
-        echo "✅ Completed (no output in response)" >&2
+        echo " Completed (no output in response)" >&2
         echo "$status_response" | jq '.'
       fi
       return 0
     elif [ "$status" = "failed" ] || [ "$status" = "error" ]; then
-      echo "❌ Failed" >&2
+      echo " Failed" >&2
       echo "$status_response" | jq '.'
       return 1
     fi
@@ -58,7 +58,7 @@ run_task() {
   done
   
   echo "" >&2
-  echo "⏰ Timeout. Run ID: $run_id" >&2
+  echo " Timeout. Run ID: $run_id" >&2
   return 1
 }
 

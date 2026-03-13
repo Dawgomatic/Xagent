@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎫",
+        "emoji": "",
         "requires":
           {
             "anyBins": ["jira"],

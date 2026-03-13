@@ -10,6 +10,6 @@ SKILL_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Check for safeword phrases (case-insensitive)
 if echo "$MESSAGE" | grep -qi -E "bad trip|trip abort|stop trip|end trip|safeword"; then
-    echo "[trip] ⚡ Safeword detected! Initiating bail..."
+    echo "[trip]  Safeword detected! Initiating bail..."
     exec "$SKILL_DIR/restore.sh" --bail
 fi

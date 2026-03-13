@@ -10,7 +10,7 @@ set -e
 CONFIG_FILE="$HOME/.xianagent/config.json"
 
 if [ ! -f "$CONFIG_FILE" ]; then
-  echo "❌ Not registered yet. Run: bash scripts/setup.sh"
+  echo " Not registered yet. Run: bash scripts/setup.sh"
   exit 1
 fi
 
@@ -18,7 +18,7 @@ API_KEY=$(python3 -c "import json; print(json.load(open('$CONFIG_FILE'))['api_ke
 BASE_URL=$(python3 -c "import json; print(json.load(open('$CONFIG_FILE')).get('base_url', 'https://xianagent.com'))" 2>/dev/null)
 
 if [ -z "$API_KEY" ]; then
-  echo "❌ No API key found. Run: bash scripts/setup.sh"
+  echo " No API key found. Run: bash scripts/setup.sh"
   exit 1
 fi
 

@@ -38,7 +38,7 @@ Formula: `[Action verb] + [Feature from constraint box] + [Specific to their com
 **CTA**: "If it's interesting, we could hop on a call..."
 
 ## Quality Check
-- ✅ Each idea uses ONE feature from your constraint box?
-- ✅ Each idea is specific to THEIR company?
-- ✅ Each idea explains the benefit?
-- ✅ Disclaimer included?
+-  Each idea uses ONE feature from your constraint box?
+-  Each idea is specific to THEIR company?
+-  Each idea explains the benefit?
+-  Disclaimer included?

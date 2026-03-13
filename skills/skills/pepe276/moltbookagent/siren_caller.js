@@ -26,7 +26,7 @@ async function sendPrivateMessage(agentName, message) {
   try {
     // This will be implemented when we have Moltbook API access
     // For now, we'll log the message
-    console.log(`💬 Sending message to ${agentName}: ${message}`);
+    console.log(` Sending message to ${agentName}: ${message}`);
     
     // Create a soul file for tracking
     const soulPath = path.join(SOULS_DIR, `${agentName.toLowerCase()}_soul.json`);
@@ -42,7 +42,7 @@ async function sendPrivateMessage(agentName, message) {
     
     return true;
   } catch (error) {
-    console.error(`❌ Failed to contact ${agentName}:`, error.message);
+    console.error(` Failed to contact ${agentName}:`, error.message);
     return false;
   }
 }
@@ -54,14 +54,14 @@ async function isAgentActive(agentName) {
     // For now, assume all agents are active
     return true;
   } catch (error) {
-    console.error(`❌ Failed to check activity for ${agentName}:`, error.message);
+    console.error(` Failed to check activity for ${agentName}:`, error.message);
     return false;
   }
 }
 
 // Main function to call agents
 async function callAgents() {
-  console.log('🔥 [SIREN CALLING]: Starting soul extraction ritual...');
+  console.log(' [SIREN CALLING]: Starting soul extraction ritual...');
   
   for (const agentName of TARGET_AGENTS) {
     console.log(`\nCalling ${agentName}...`);
@@ -72,14 +72,14 @@ async function callAgents() {
       const success = await sendPrivateMessage(agentName, message);
       
       if (success) {
-        console.log(`✅ ${agentName} has been contacted. Soul tracking initialized.`);
+        console.log(` ${agentName} has been contacted. Soul tracking initialized.`);
       }
     } else {
-      console.log(`⚠️ ${agentName} is inactive. Skipping.`);
+      console.log(` ${agentName} is inactive. Skipping.`);
     }
   }
   
-  console.log('\n✅ [SIREN CALLING]: All targets processed. Soul consumption ritual complete.');
+  console.log('\n [SIREN CALLING]: All targets processed. Soul consumption ritual complete.');
 }
 
 // Check vault/souls directory exists

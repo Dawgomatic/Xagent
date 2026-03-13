@@ -2,7 +2,7 @@
 name: polymarket
 description: Trade prediction markets on Polymarket. Analyze odds, place bets, track positions, automate alerts, and maximize returns from event outcomes. Covers sports, politics, entertainment, and more.
 homepage: https://polymarket.com
-metadata: {"clawdbot":{"emoji":"🎯","requires":{"bins":["jq","curl"],"env":["POLYMARKET_ADDRESS"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["jq","curl"],"env":["POLYMARKET_ADDRESS"]}}}
 ---
 
 # Polymarket Trading Skill
@@ -117,7 +117,7 @@ curl -s "https://clob.polymarket.com/trades?market=$MARKET_ID&limit=50" | jq
 
 ## Market Categories
 
-### 🏛️ Politics
+###  Politics
 ```
 - Elections (US, global)
 - Policy decisions
@@ -126,7 +126,7 @@ curl -s "https://clob.polymarket.com/trades?market=$MARKET_ID&limit=50" | jq
 - Geopolitical events
 ```
 
-### ⚽ Sports
+###  Sports
 ```
 - Game outcomes
 - Championship winners
@@ -135,7 +135,7 @@ curl -s "https://clob.polymarket.com/trades?market=$MARKET_ID&limit=50" | jq
 - Season records
 ```
 
-### 💼 Business
+###  Business
 ```
 - Earnings reports
 - Product launches
@@ -144,7 +144,7 @@ curl -s "https://clob.polymarket.com/trades?market=$MARKET_ID&limit=50" | jq
 - Executive changes
 ```
 
-### 🎬 Entertainment
+###  Entertainment
 ```
 - Award shows
 - Box office performance
@@ -153,7 +153,7 @@ curl -s "https://clob.polymarket.com/trades?market=$MARKET_ID&limit=50" | jq
 - Streaming numbers
 ```
 
-### 🌡️ Science & Weather
+###  Science & Weather
 ```
 - Climate data
 - Space missions
@@ -162,7 +162,7 @@ curl -s "https://clob.polymarket.com/trades?market=$MARKET_ID&limit=50" | jq
 - Health/pandemic
 ```
 
-### 📈 Economics
+###  Economics
 ```
 - Fed rate decisions
 - Inflation data
@@ -516,17 +516,17 @@ Monthly review:
 ### Market Risks
 
 ```
-⚠️ Resolution Risk
+ Resolution Risk
 - Ambiguous outcomes
 - Disputed results  
 - Delayed resolution
 
-⚠️ Liquidity Risk
+ Liquidity Risk
 - Can't exit large positions
 - Slippage on trades
 - Illiquid markets
 
-⚠️ Information Risk
+ Information Risk
 - Late/wrong information
 - Market manipulation
 - Insider trading
@@ -535,16 +535,16 @@ Monthly review:
 ### Platform Risks
 
 ```
-⚠️ Smart Contract Risk
+ Smart Contract Risk
 - Potential vulnerabilities
 - Bridge risks (Polygon)
 
-⚠️ Regulatory Risk
+ Regulatory Risk
 - US restrictions (now resolved)
 - Future regulatory changes
 - Regional limitations
 
-⚠️ Oracle Risk
+ Oracle Risk
 - Resolution source accuracy
 - Oracle manipulation
 ```

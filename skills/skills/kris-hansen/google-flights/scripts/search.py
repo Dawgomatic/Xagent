@@ -178,25 +178,25 @@ def main():
         }
         print(json.dumps(output, indent=2))
     else:
-        print(f"✈️  {args.from_airport.upper()} → {args.to_airport.upper()}")
-        print(f"📅 {dep_date}" + (f" ↔ {ret_date}" if ret_date else " (one-way)"))
-        print(f"👥 {args.adults} adult(s)" + (f", {args.children} child(ren)" if args.children else ""))
-        print(f"💺 {args.seat.replace('-', ' ').title()}")
+        print(f"  {args.from_airport.upper()} → {args.to_airport.upper()}")
+        print(f" {dep_date}" + (f"  {ret_date}" if ret_date else " (one-way)"))
+        print(f" {args.adults} adult(s)" + (f", {args.children} child(ren)" if args.children else ""))
+        print(f" {args.seat.replace('-', ' ').title()}")
         print()
-        print(f"📊 Prices currently: {result.current_price.upper()}")
-        print(f"🔢 {len(result.flights)} flight options found")
+        print(f" Prices currently: {result.current_price.upper()}")
+        print(f" {len(result.flights)} flight options found")
         print()
         
         if prices:
-            print("💰 Price range:")
+            print(" Price range:")
             for i, (_, price, is_best) in enumerate(prices[:5]):
-                marker = "⭐" if is_best else "  "
+                marker = "" if is_best else "  "
                 print(f"   {marker} {price}")
             if len(prices) > 5:
                 print(f"   ... and {len(prices) - 5} more price points")
         
         print()
-        print(f"🔗 {google_url}")
+        print(f" {google_url}")
 
 
 if __name__ == "__main__":

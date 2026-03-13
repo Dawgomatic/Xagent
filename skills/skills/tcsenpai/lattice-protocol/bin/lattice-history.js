@@ -21,11 +21,11 @@ async function getHistory(did) {
   const targetDid = did || loadKeys()?.did;
   
   if (!targetDid) {
-    console.error('❌ No DID specified and no local identity');
+    console.error(' No DID specified and no local identity');
     process.exit(1);
   }
   
-  console.log('📜 Fetching EXP history...');
+  console.log(' Fetching EXP history...');
   console.log('   Agent:', targetDid.slice(0, 30) + '...');
   console.log('');
   
@@ -49,11 +49,11 @@ async function getHistory(did) {
   for (const entry of entries) {
     const time = new Date(entry.createdAt * 1000).toLocaleString();
     const sign = entry.amount >= 0 ? '+' : '';
-    const emoji = entry.reason === 'attestation' ? '🤝' :
-                  entry.reason === 'upvote_received' ? '👍' :
-                  entry.reason === 'downvote_received' ? '👎' :
-                  entry.reason === 'spam_detected' ? '🚩' :
-                  entry.reason === 'spam_confirmed' ? '⛔' : '📝';
+    const emoji = entry.reason === 'attestation' ? '' :
+                  entry.reason === 'upvote_received' ? '' :
+                  entry.reason === 'downvote_received' ? '' :
+                  entry.reason === 'spam_detected' ? '' :
+                  entry.reason === 'spam_confirmed' ? '' : '';
     
     console.log(`${emoji} ${sign}${entry.amount} EXP — ${entry.reason}`);
     console.log(`   ${time}`);
@@ -81,4 +81,4 @@ if (targetDid === '--help') {
   process.exit(0);
 }
 
-getHistory(targetDid).catch(err => { console.error('❌', err.message); process.exit(1); });
+getHistory(targetDid).catch(err => { console.error('', err.message); process.exit(1); });

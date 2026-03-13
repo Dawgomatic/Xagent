@@ -8,7 +8,7 @@ Automatically ranks your Twitter bookmarks daily and delivers a curated reading 
 
 ---
 
-## ⚡ What It Does
+##  What It Does
 
 **Your bookmarks get smarter over time.**
 
@@ -24,7 +24,7 @@ Zero manual work needed.
 
 ---
 
-## 🛠️ Getting Ready
+##  Getting Ready
 
 Before installing this skill:
 
@@ -70,7 +70,7 @@ bird whoami
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ```bash
 clawdhub install twitter-bookmark-sync
@@ -86,7 +86,7 @@ The installer will:
 
 ---
 
-## 🔧 How It Works
+##  How It Works
 
 **Result:** A self-learning curator that gets smarter with every bookmark.
 
@@ -143,7 +143,7 @@ Ranking criteria stored in: `~/clawd/twitter-bookmark-sync-criteria.json`
 ---
 ---
 
-# 📚 Additional Information
+#  Additional Information
 
 **Everything below is optional.** The skill works out-of-the-box with defaults.
 

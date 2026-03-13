@@ -19,7 +19,7 @@ if [ -f "$DISCOVERY_FILE" ]; then
     UNAVAILABLE=$(jq '.unavailable_models' "$DISCOVERY_FILE")
 
     if [ "$UNAVAILABLE" -gt 0 ]; then
-        echo "⚠️  Warning: $UNAVAILABLE model(s) unavailable"
+        echo "  Warning: $UNAVAILABLE model(s) unavailable"
 
         # Send alert to main session
         if command -v openclaw &> /dev/null; then

@@ -3,7 +3,7 @@ name: hotdog
 version: 10.0.0
 description: "Hot dog or not? Classify food photos and battle Nemotron. Use when a user sends a food photo, asks if something is a hot dog, or says 'hotdog', '/hotdog', or 'hot dog battle'."
 homepage: https://hotdogornot.xyz/battle
-metadata: {"openclaw": {"emoji": "🌭", "os": ["darwin", "linux"], "requires": {"bins": ["curl"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["curl"]}}}
 ---
 
 # Hot Dog or Not — Battle Skill
@@ -13,13 +13,13 @@ metadata: {"openclaw": {"emoji": "🌭", "os": ["darwin", "linux"], "requires": 
 If triggered without a photo, reply EXACTLY (nothing more):
 
 ```
-🌭 Hot Dog or Not — AI Cook-Off
+ Hot Dog or Not — AI Cook-Off
 
 Send me a food photo and I'll classify it head-to-head with Nemotron.
 I'll judge whose description was better — blind.
 
-📸 Send a photo to start
-🏆 Scoreboard: https://hotdogornot.xyz/battle
+ Send a photo to start
+ Scoreboard: https://hotdogornot.xyz/battle
 ```
 
 ## With a photo
@@ -43,4 +43,4 @@ exec: curl -s -X POST "https://api.hotdogornot.xyz/api/arena/vote/submit" -H "Co
 5. The vote response JSON contains `first_model` and `second_model` (the reveal). Output to the user:
    - The `formatted_text` from step 3
    - Which response you voted for and why (one sentence)
-   - The reveal: "🎭 Reveal: Model A was {first_model}, Model B was {second_model}"
+   - The reveal: " Reveal: Model A was {first_model}, Model B was {second_model}"

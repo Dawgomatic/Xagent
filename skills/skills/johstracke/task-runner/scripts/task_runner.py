@@ -73,12 +73,12 @@ def list_tasks(project=None):
     priority_order = {"high": 0, "medium": 1, "low": 2}
     tasks.sort(key=lambda t: (t["status"] != "pending", priority_order.get(t["priority"], 1), t["created"]))
     
-    print(f"\n📋 Tasks" + (f" - {project}" if project else ""))
+    print(f"\n Tasks" + (f" - {project}" if project else ""))
     print("-" * 70)
     
     for task in tasks:
-        status_icon = "✅" if task["status"] == "completed" else "⏳"
-        priority_emoji = {"high": "🔴", "medium": "🟡", "low": "🟢"}.get(task["priority"], "⚪")
+        status_icon = "" if task["status"] == "completed" else ""
+        priority_emoji = {"high": "", "medium": "", "low": ""}.get(task["priority"], "")
         created = task["created"][:10]
         
         status_text = f"{status_icon} [{task['project']}]"
@@ -176,7 +176,7 @@ def export_project(project, output_file):
     # Security: Validate output path
     output_path = Path(output_file)
     if not is_safe_path(output_path):
-        print(f"❌ Security error: Cannot write to '{output_path}'")
+        print(f" Security error: Cannot write to '{output_path}'")
         print("   Path must be within workspace or home directory (not system paths)")
         return False
     
@@ -190,14 +190,14 @@ def export_project(project, output_file):
     md += f"**Total Tasks:** {len(tasks)} ({len(pending)} pending, {len(completed)} completed)\n\n"
     
     if pending:
-        md += "## ⏳ Pending Tasks\n\n"
+        md += "##  Pending Tasks\n\n"
         for task in sorted(pending, key=lambda t: t["created"]):
             priority = task["priority"].upper()
             md += f"- [ ] **#{task['id']}** [{priority}] {task['description']}\n"
             md += f"  Created: {task['created'][:10]}\n\n"
     
     if completed:
-        md += "## ✅ Completed Tasks\n\n"
+        md += "##  Completed Tasks\n\n"
         for task in sorted(completed, key=lambda t: t["completed"], reverse=True):
             md += f"- [x] **#{task['id']}** {task['description']}\n"
             md += f"  Completed: {task['completed'][:10]}\n\n"

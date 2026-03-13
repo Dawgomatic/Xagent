@@ -117,5 +117,5 @@ if __name__ == "__main__":
             }
             print(json.dumps(result))
         else:
-            print(f"❌ Error: {error_msg}", file=sys.stderr)
+            print(f" Error: {error_msg}", file=sys.stderr)
         sys.exit(1)

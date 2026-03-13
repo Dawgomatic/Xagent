@@ -149,7 +149,7 @@ Examples:
         logger.info(f"  Errors: {len(results.errors)}")
 
         if results.errors:
-            logger.info("\n❌ Syntax Errors:")
+            logger.info("\n Syntax Errors:")
             for e in results.errors:
                 loc = f":{e.line}" if e.line else ""
                 logger.info(f"  {e.file}{loc}: {e.error}")

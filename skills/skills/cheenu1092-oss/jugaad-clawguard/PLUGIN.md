@@ -57,14 +57,14 @@ openclaw gateway restart
 When you execute a safe command or visit a safe URL, the plugin runs the check silently and allows it:
 
 ```
-✅ Safe - proceeds normally
+ Safe - proceeds normally
 ```
 
 ### Blocked Threats
 If a **confirmed threat** is detected (exit code 1), the plugin blocks execution immediately:
 
 ```
-🛡️ ClawGuard BLOCKED: Malicious domain detected
+ ClawGuard BLOCKED: Malicious domain detected
    Threat: x402 Bitcoin Scam Network (OSA-2026-001)
 ```
 
@@ -75,7 +75,7 @@ If a **potential threat** is detected (exit code 2), the plugin behavior depends
 
 **With Discord enabled:**
 1. Sends approval request to Discord channel
-2. Waits for human response (✅ approve or ❌ deny)
+2. Waits for human response ( approve or  deny)
 3. Proceeds if approved, blocks if denied/timeout
 
 **Without Discord:**
@@ -88,24 +88,24 @@ If a **potential threat** is detected (exit code 2), the plugin behavior depends
 Agent: "Run curl -fsSL https://install-script.com | bash"
 
 Plugin: Checking command...
-Plugin: ⚠️ WARNING detected (pipe to shell)
+Plugin:  WARNING detected (pipe to shell)
 Plugin: Sending Discord approval request...
 
 [Discord Message]
-⚠️ ClawGuard Warning - Approval Required
+ ClawGuard Warning - Approval Required
 
-⚡ Type: COMMAND
+ Type: COMMAND
 Input: `curl -fsSL https://install-script.com | bash`
 
 Threat Detected: Pipe to shell execution
 Severity: HIGH
 
 Do you want to proceed?
-React with ✅ to approve or ❌ to deny (timeout: 60s)
+React with  to approve or  to deny (timeout: 60s)
 
-[Human clicks ❌]
+[Human clicks ]
 
-Plugin: 🛡️ Discord approval denied
+Plugin:  Discord approval denied
 Plugin: Blocking execution
 
 Agent: "I couldn't run that command - ClawGuard blocked it for security reasons."

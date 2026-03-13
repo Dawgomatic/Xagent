@@ -68,14 +68,14 @@ if (flags.tlds) {
 const maxTlds = config.limits?.maxTlds || 5;
 if (tlds.length > maxTlds && !flags.tlds) {
   if (!flags.json) {
-    console.log(`ℹ️  Limiting to ${maxTlds} TLDs (configurable in config)`);
+    console.log(`  Limiting to ${maxTlds} TLDs (configurable in config)`);
   }
   tlds = tlds.slice(0, maxTlds);
 }
 
 if (!flags.json) {
-  console.log(`🔍 Checking availability for: ${baseName}\n`);
-  console.log(`📊 Checking ${tlds.length} TLDs${flags.noVariations ? '' : ' and generating variations'}...\n`);
+  console.log(` Checking availability for: ${baseName}\n`);
+  console.log(` Checking ${tlds.length} TLDs${flags.noVariations ? '' : ' and generating variations'}...\n`);
 }
 
 try {
@@ -114,7 +114,7 @@ try {
       } catch (error) {
         // Continue on error for individual domains
         if (!flags.json) {
-          console.error(`  ⚠️  Error checking ${domain}: ${error.message}`);
+          console.error(`    Error checking ${domain}: ${error.message}`);
         }
       }
     }
@@ -133,7 +133,7 @@ try {
     
     if (allVariationNames.length > maxVariations) {
       if (!flags.json) {
-        console.log(`ℹ️  Limiting to ${maxVariations} variations (configurable in config)`);
+        console.log(`  Limiting to ${maxVariations} variations (configurable in config)`);
       }
       allVariationNames = allVariationNames.slice(0, maxVariations);
     }
@@ -176,7 +176,7 @@ try {
         } catch (error) {
           // Continue on error
           if (!flags.json) {
-            console.error(`  ⚠️  Error checking ${domain}: ${error.message}`);
+            console.error(`    Error checking ${domain}: ${error.message}`);
           }
         }
       }
@@ -191,7 +191,7 @@ try {
   }
   
 } catch (error) {
-  console.error('❌ Error:', error.message);
+  console.error(' Error:', error.message);
   if (error.response) {
     console.error('API Response:', error.response);
   }
@@ -205,14 +205,14 @@ function displayResults(results, flags) {
   // Show exact matches
   if (!flags.variationsOnly && results.exact.length > 0) {
     console.log('═══════════════════════════════════════════════════════');
-    console.log('📋 EXACT MATCHES (Different TLDs)');
+    console.log(' EXACT MATCHES (Different TLDs)');
     console.log('═══════════════════════════════════════════════════════\n');
     
     const available = results.exact.filter(r => r.available);
     const unavailable = results.exact.filter(r => !r.available);
     
     if (available.length > 0) {
-      console.log('✅ Available:\n');
+      console.log(' Available:\n');
       available.forEach(r => {
         console.log(`  ${r.domain.padEnd(30)} ${r.price || 'N/A'}`);
       });
@@ -220,7 +220,7 @@ function displayResults(results, flags) {
     }
     
     if (unavailable.length > 0) {
-      console.log('❌ Unavailable:\n');
+      console.log(' Unavailable:\n');
       unavailable.forEach(r => {
         console.log(`  ${r.domain.padEnd(30)} (${r.status})`);
       });
@@ -231,7 +231,7 @@ function displayResults(results, flags) {
   // Show variations
   if (!flags.noVariations && Object.keys(results.variations).length > 0) {
     console.log('═══════════════════════════════════════════════════════');
-    console.log('🎨 NAME VARIATIONS');
+    console.log(' NAME VARIATIONS');
     console.log('═══════════════════════════════════════════════════════\n');
     
     for (const [pattern, domains] of Object.entries(results.variations)) {
@@ -241,7 +241,7 @@ function displayResults(results, flags) {
       console.log(`${patternLabel}:\n`);
       
       domains.forEach(r => {
-        console.log(`  ✅ ${r.domain.padEnd(30)} ${r.price || 'N/A'}`);
+        console.log(`   ${r.domain.padEnd(30)} ${r.price || 'N/A'}`);
       });
       console.log('');
     }
@@ -252,6 +252,6 @@ function displayResults(results, flags) {
                          Object.values(results.variations).flat().length;
   
   console.log('═══════════════════════════════════════════════════════');
-  console.log(`📊 SUMMARY: ${totalAvailable} available domains found`);
+  console.log(` SUMMARY: ${totalAvailable} available domains found`);
   console.log('═══════════════════════════════════════════════════════');
 }

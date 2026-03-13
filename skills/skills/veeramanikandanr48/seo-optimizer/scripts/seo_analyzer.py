@@ -271,19 +271,19 @@ def generate_report(results, output_format='text'):
 
         # Issues
         if result['issues']:
-            report.append("\n🔴 CRITICAL ISSUES:")
+            report.append("\n CRITICAL ISSUES:")
             for issue in result['issues']:
                 report.append(f"  - {issue}")
 
         # Warnings
         if result['warnings']:
-            report.append("\n⚠️  WARNINGS:")
+            report.append("\n  WARNINGS:")
             for warning in result['warnings']:
                 report.append(f"  - {warning}")
 
         # Good practices
         if result['good_practices']:
-            report.append("\n✅ GOOD PRACTICES:")
+            report.append("\n GOOD PRACTICES:")
             for practice in result['good_practices']:
                 report.append(f"  - {practice}")
 
@@ -304,11 +304,11 @@ def generate_report(results, output_format='text'):
     report.append(f"Total good practices: {total_good}")
 
     if total_issues > 0:
-        report.append("\n⚠️  Action required: Fix critical issues first")
+        report.append("\n  Action required: Fix critical issues first")
     elif total_warnings > 0:
         report.append("\n✓ Good foundation. Consider addressing warnings for optimal SEO")
     else:
-        report.append("\n✅ Excellent! SEO best practices are being followed")
+        report.append("\n Excellent! SEO best practices are being followed")
 
     return "\n".join(report)
 

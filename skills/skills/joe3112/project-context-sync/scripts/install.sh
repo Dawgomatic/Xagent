@@ -5,11 +5,11 @@ set -e
 
 SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || {
-    echo "❌ Not in a git repository"
+    echo " Not in a git repository"
     exit 1
 }
 
-echo "🔧 Installing project-context-sync in: $REPO_ROOT"
+echo " Installing project-context-sync in: $REPO_ROOT"
 
 # 1. Install post-commit hook
 HOOKS_DIR="$REPO_ROOT/.git/hooks"
@@ -20,7 +20,7 @@ if [ -f "$HOOK_FILE" ]; then
     if grep -q "project-context-sync" "$HOOK_FILE"; then
         echo "   ✓ Hook already installed"
     else
-        echo "   ⚠️  Existing post-commit hook found, appending..."
+        echo "     Existing post-commit hook found, appending..."
         echo "" >> "$HOOK_FILE"
         echo "# project-context-sync" >> "$HOOK_FILE"
         echo "\"$SKILL_DIR/scripts/update-context.sh\" \"$REPO_ROOT\"" >> "$HOOK_FILE"
@@ -70,7 +70,7 @@ else
 fi
 
 echo ""
-echo "✅ project-context-sync installed!"
+echo " project-context-sync installed!"
 echo ""
 echo "Next steps:"
 echo "  • Edit .project-context.yml to customize"

@@ -299,8 +299,8 @@ async function handleEventDetails(slug: string): Promise<any> {
     description: event.description || 'No description available',
     date: event.start_time || 'Date not available',
     location: event.location.type === 'virtual' 
-      ? '🌐 Virtual Event' 
-      : `📍 ${event.location.address || 'Location on event page'}`,
+      ? ' Virtual Event' 
+      : ` ${event.location.address || 'Location on event page'}`,
     host: event.host_name || 'Unknown',
     url: event.url,
     image: event.cover_image,
@@ -381,8 +381,8 @@ async function handleConfigure(): Promise<any> {
   return {
     authenticated: isAuth,
     message: isAuth 
-      ? "✅ Luma cookies are configured. You can access your events and guest lists."
-      : "❌ Luma cookies not configured.",
+      ? " Luma cookies are configured. You can access your events and guest lists."
+      : " Luma cookies not configured.",
     instructions: [
       "To set up authenticated access:",
       "",
@@ -425,7 +425,7 @@ async function handleStatus(): Promise<any> {
 
 async function handleHelp(): Promise<any> {
   return {
-    message: `📅 Luma Event Manager Help
+    message: ` Luma Event Manager Help
 
 DISCOVER (no auth required):
   luma search <topic>          - Search by topic/theme/keyword

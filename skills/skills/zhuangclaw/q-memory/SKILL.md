@@ -21,7 +21,7 @@ description: |
 
 # Universal Memory Management v1.8.2
 
-## 🌳 Tree-Based Classification Structure
+##  Tree-Based Classification Structure
 
 **Key Innovation**: Hierarchical 3-level classification with automatic keyword matching.
 
@@ -50,7 +50,7 @@ General
 
 ---
 
-## 🔍 Multi-Mode Search System
+##  Multi-Mode Search System
 
 ### v1.5 New: Hybrid Search Engine
 
@@ -80,12 +80,12 @@ adjusted_score = similarity * weight_multiplier
 ```
 C_ab = 1 when geometric neighbors
 
-QST_Physics ↔ QST_Computation ↔ QST_Audit
+QST_Physics  QST_Computation  QST_Audit
 ```
 
 ---
 
-## 🤖 Auto-Classification (v1.5 New)
+##  Auto-Classification (v1.5 New)
 
 ### Smart Inference
 
@@ -107,7 +107,7 @@ result = auto_classify("QST暗物質使用FSCA理論")
 
 ---
 
-## 🧹 Memory Decay System (v1.5 New)
+##  Memory Decay System (v1.5 New)
 
 ### Cleanup Rules
 
@@ -127,7 +127,7 @@ result = auto_classify("QST暗物質使用FSCA理論")
 
 ---
 
-## 🤖 Agent State System (v1.7 New)
+##  Agent State System (v1.7 New)
 
 ### State Machine
 
@@ -200,7 +200,7 @@ All state changes are automatically logged with timestamps:
 
 ---
 
-## 🛡️ Loop Protection System (v1.8.2 New)
+##  Loop Protection System (v1.8.2 New)
 
 ### Anti-Loop Protection Mechanisms
 
@@ -278,31 +278,31 @@ should_throttle, reason, wait_seconds = state_mgr.should_throttle_heartbeat()
 
 ```
 ============================================================
-❤️  Heartbeat Started: 2026-02-15 16:05:00 UTC
+  Heartbeat Started: 2026-02-15 16:05:00 UTC
 ============================================================
 
-🤖 Agent: lisi | 狀態: DOING | 優先級: CRITICAL
+ Agent: lisi | 狀態: DOING | 優先級: CRITICAL
    任務: 測試防死循環保護
    進度: 42%
 
-🛡️  Loop Protection:
-   ✅ 心跳頻率正常 (上次檢查: 32 秒前)
-   ✅ 任務未停滯 (上次更新: 5 分鐘前)
-   ✅ 未超時 (運行時間: 25 分鐘 < 閾值: 30 分鐘)
+  Loop Protection:
+    心跳頻率正常 (上次檢查: 32 秒前)
+    任務未停滯 (上次更新: 5 分鐘前)
+    未超時 (運行時間: 25 分鐘 < 閾值: 30 分鐘)
 
-🔄 狀態: DOING [CRITICAL] - 最小化干擾
-   📢 通知: 0 提及, 0 回覆
-   ❌ 跳過: HKGBook 巡邏, 投票檢查
+ 狀態: DOING [CRITICAL] - 最小化干擾
+    通知: 0 提及, 0 回覆
+    跳過: HKGBook 巡邏, 投票檢查
 
 ============================================================
-✅ Heartbeat Completed: 2026-02-15 16:05:01 UTC
+ Heartbeat Completed: 2026-02-15 16:05:01 UTC
 ============================================================
 ```
 
 #### Throttled Heartbeat Example
 
 ```
-[lisi] ⏸️ 心跳頻率限制：Too frequent (3s < 30s)（等待 27 秒）
+[lisi]  心跳頻率限制：Too frequent (3s < 30s)（等待 27 秒）
 
 Check Result:
   - 來源: lisi_doing-state.json
@@ -343,12 +343,12 @@ Result:
   - Status: BLOCKED
   - Reason: "任務停滯過久: 執行時間 56 分鐘超限（閾值：45 分鐘）"
   - Heartbeat: Only check @mentions and alerts
-  - Loop eliminated ✅
+  - Loop eliminated 
 ```
 
 ---
 
-## 👤 User Priority Response Mechanism (v1.8.2 New)
+##  User Priority Response Mechanism (v1.8.2 New)
 
 v1.8.2 introduces the **User Priority Window**, ensuring system heartbeats do not interrupt active user conversations.
 
@@ -367,7 +367,7 @@ v1.8.2 introduces the **User Priority Window**, ensuring system heartbeats do no
 
 
 
-## 💓 Heartbeat Integration (v1.7.1 New)
+##  Heartbeat Integration (v1.7.1 New)
 
 ### State-Driven Checking Strategy
 
@@ -375,11 +375,11 @@ The system intelligently adjusts heartbeat checking based on agent state:
 
 ```python
 # When agent is DOING: Only check critical notifications
-# - ✅ Check: @mentions, replies
-# - ❌ Skip: Voting (to avoid interrupting work)
+# -  Check: @mentions, replies
+# -  Skip: Voting (to avoid interrupting work)
 
 # When agent is IDLE: Full checking
-# - ✅ Check: @mentions, replies, voting
+# -  Check: @mentions, replies, voting
 ```
 
 ### Setting Up Heartbeat Integration
@@ -398,21 +398,21 @@ crontab -e
 
 ```
 ============================================================
-❤️  Heartbeat Started: 2026-02-15 09:15:26 UTC
+  Heartbeat Started: 2026-02-15 09:15:26 UTC
 ============================================================
 
-🤖 Agent: qst | 狀態: DOING
+ Agent: qst | 狀態: DOING
    任務: QST simulation #42
    類型: Research
    進度: 50%
 
-🔄 狀態: DOING - 執行 HKGBook 檢查 (策略: 簡化)
-   📢 通知: 0 提及, 0 回覆
-   ⚠️  DOING/WAITING - 跳過投票
-   ✅ HKGBook 檢查完成
+ 狀態: DOING - 執行 HKGBook 檢查 (策略: 簡化)
+    通知: 0 提及, 0 回覆
+     DOING/WAITING - 跳過投票
+    HKGBook 檢查完成
 
 ============================================================
-✅ Heartbeat Completed: 2026-02-15 09:15:28 UTC
+ Heartbeat Completed: 2026-02-15 09:15:28 UTC
 ============================================================
 ```
 
@@ -433,7 +433,7 @@ Each agent maintains independent state:
 
 ---
 
-## 🔐 Memory Encryption (v1.7 New)
+##  Memory Encryption (v1.7 New)
 
 ### AES-128-CBC + HMAC Encryption
 
@@ -458,7 +458,7 @@ decrypted = crypto.decrypt(encrypted)
 
 ---
 
-## 📊 Statistics Panel
+##  Statistics Panel
 
 ```bash
 python qst_memory.py stats
@@ -466,7 +466,7 @@ python qst_memory.py stats
 
 Output:
 ```
-📊 Q Memory v1.5 統計面板
+ Q Memory v1.5 統計面板
 ├── 分類結構: 34 分類
 ├── 記憶總數: 156 條
 ├── Token 估算: ~8,500
@@ -475,7 +475,7 @@ Output:
 
 ---
 
-## 💾 Memory Format
+##  Memory Format
 
 ```markdown
 # Memory Title
@@ -490,7 +490,7 @@ Tags: tag1, tag2
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Search with hybrid mode (default)
@@ -514,7 +514,7 @@ python qst_memory.py stats
 
 ---
 
-## 📁 File Structure
+##  File Structure
 
 ```
 q-memory/
@@ -535,7 +535,7 @@ q-memory/
 
 ---
 
-## 🎯 Token Optimization
+##  Token Optimization
 
 | Version | Tokens/Query | Relevance |
 |---------|--------------|-----------|
@@ -547,7 +547,7 @@ q-memory/
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ```yaml
 version: '1.5'
@@ -575,7 +575,7 @@ cleanup:
 
 ---
 
-## 🔧 Installation
+##  Installation
 
 ### From ClawHub
 ```bash

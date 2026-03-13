@@ -1,13 +1,13 @@
-# openclaw-tc-dict-skill 📚
+# openclaw-tc-dict-skill 
 
 OpenClaw skill for querying Traditional Chinese dictionaries from Taiwan's Ministry of Education (MOE).
 
 ## Features
 
-- 🔍 **Word Lookup** — Search for Chinese word definitions with fuzzy matching
-- 📥 **Auto-Download** — Fetch latest dictionary data from MOE
-- 🔄 **Update Management** — Periodic update checks via cron
-- 🇹🇼 **Traditional Chinese** — Uses official MOE 國語辭典簡編本
+-  **Word Lookup** — Search for Chinese word definitions with fuzzy matching
+-  **Auto-Download** — Fetch latest dictionary data from MOE
+-  **Update Management** — Periodic update checks via cron
+-  **Traditional Chinese** — Uses official MOE 國語辭典簡編本
 
 ## Installation
 
@@ -119,10 +119,10 @@ openclaw-tc-dict-skill/
 
 This skill implements secure practices for handling external data:
 
-- **TLS Verification** ✅ All HTTPS connections use proper certificate validation
-- **Zip-Slip Prevention** ✅ Dictionary zip files are validated for path traversal attempts before extraction  
-- **Isolated Storage** ✅ Downloaded files stored in user-controlled directory (`~/.openclaw/dictionaries/`)
-- **No Credentials** ✅ No API keys or credentials required (MOE data is public)
+- **TLS Verification**  All HTTPS connections use proper certificate validation
+- **Zip-Slip Prevention**  Dictionary zip files are validated for path traversal attempts before extraction  
+- **Isolated Storage**  Downloaded files stored in user-controlled directory (`~/.openclaw/dictionaries/`)
+- **No Credentials**  No API keys or credentials required (MOE data is public)
 
 **Automatic Updates**: If you enable cron-based updates, the skill will periodically download dictionary data from MOE. Consider your update frequency and monitor for unexpected changes.
 
@@ -170,4 +170,4 @@ MIT License — see [LICENSE](LICENSE)
 
 ---
 
-Made with 🥧 by [Kai](https://github.com/kai-tw)
+Made with  by [Kai](https://github.com/kai-tw)

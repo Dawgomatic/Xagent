@@ -17,7 +17,7 @@ const TESTS = [
   },
 ];
 
-console.log('🧪 BaseCred SDK Skill - Test Suite\n');
+console.log(' BaseCred SDK Skill - Test Suite\n');
 
 for (const test of TESTS) {
   console.log(`Testing: ${test.name}`);
@@ -27,20 +27,20 @@ for (const test of TESTS) {
     const result = await checkReputation(test.address, { skipWarnings: true });
 
     if (result.error) {
-      console.log(`❌ Error: ${result.message}\n`);
+      console.log(` Error: ${result.message}\n`);
       continue;
     }
 
     const summary = getSummary(result);
 
-    console.log('✅ Success!');
-    console.log('📊 Summary:');
+    console.log(' Success!');
+    console.log(' Summary:');
     console.log(JSON.stringify(summary, null, 2));
     console.log('\n' + '='.repeat(60) + '\n');
 
   } catch (error) {
-    console.log(`❌ Test failed: ${error.message}\n`);
+    console.log(` Test failed: ${error.message}\n`);
   }
 }
 
-console.log('✅ Test suite complete');
+console.log(' Test suite complete');

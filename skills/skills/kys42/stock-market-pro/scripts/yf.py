@@ -264,7 +264,7 @@ def show_report(symbol, ticker, info, period="6mo"):
     macd_val_str = f"{macd_val:.2f}" if isinstance(macd_val, (int, float)) else "N/A"
     macd_sig_str = f"{macd_sig:.2f}" if isinstance(macd_sig, (int, float)) else "N/A"
     
-    report_title = f"🚀 [bold]{info.get('longName', symbol)}[/bold] Analysis Report"
+    report_title = f" [bold]{info.get('longName', symbol)}[/bold] Analysis Report"
     content = f"""
 [bold cyan]● Market Quote[/bold cyan]
   Price: [bold]{current:,.2f} {info.get('currency', '')}[/bold]

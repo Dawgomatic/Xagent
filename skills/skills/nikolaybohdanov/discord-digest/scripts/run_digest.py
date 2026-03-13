@@ -106,10 +106,10 @@ if __name__ == "__main__":
     result = run(hours, server_filter)
 
     if not result["ok"]:
-        print(f"❌ Error: {result['message']}", file=sys.stderr)
+        print(f" Error: {result['message']}", file=sys.stderr)
         sys.exit(1)
 
     for d in result["digests"]:
         print(d["text"])
-        print(f"\n📊 {d['server']}: {d['total_messages']} messages from {d['channels_read']} channels")
+        print(f"\n {d['server']}: {d['total_messages']} messages from {d['channels_read']} channels")
         print("---")

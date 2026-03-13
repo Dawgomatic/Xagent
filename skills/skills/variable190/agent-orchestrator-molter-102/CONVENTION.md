@@ -45,9 +45,9 @@ Include a table showing when to use this skill vs. alternatives:
 
 | Task | This Skill | Alternative |
 |------|------------|-------------|
-| Task A | ✅ Yes | No ❌ |
-| Task B | No ❌ | ✅ Better tool |
-| Task C | Maybe 🤔 | Depends on X |
+| Task A |  Yes | No  |
+| Task B | No  |  Better tool |
+| Task C | Maybe  | Depends on X |
 ```
 
 ### 3. Common Workflows (Organized by Use Case)
@@ -78,7 +78,7 @@ Each negative example must have three parts:
 ```markdown
 ## Negative Examples (Common Mistakes)
 
-❌ **Mistake description:**
+ **Mistake description:**
 ```bash
 # WRONG - explanation of why this is wrong
 command that fails or is inefficient
@@ -161,4 +161,4 @@ Potential additions to convention:
 
 ---
 
-**This convention is living documentation.** Update as patterns evolve. 🧪
+**This convention is living documentation.** Update as patterns evolve. 

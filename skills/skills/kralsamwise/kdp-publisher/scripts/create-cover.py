@@ -28,7 +28,7 @@ try:
     from reportlab.lib.utils import ImageReader
     from PIL import Image
 except ImportError as e:
-    print(f"❌ Missing dependency: {e}")
+    print(f" Missing dependency: {e}")
     print("   Run: pip install reportlab Pillow")
     sys.exit(1)
 
@@ -74,7 +74,7 @@ def load_image(path_str: str) -> Image.Image:
     """Load a PIL image from a file path."""
     p = Path(path_str)
     if not p.exists():
-        print(f"❌ Image not found: {path_str}")
+        print(f" Image not found: {path_str}")
         sys.exit(1)
     return Image.open(p).convert("RGB")
 
@@ -152,7 +152,7 @@ def create_cover(
     cover_bottom = bleed                        # Bottom edge of cover area
     cover_top = bleed + trim_h_pt              # Top edge of cover area
 
-    print(f"\n📐 Cover Dimensions")
+    print(f"\n Cover Dimensions")
     print(f"   Trim size   : {trim_w}\" × {trim_h}\"")
     print(f"   Pages       : {pages}")
     print(f"   Paper       : {paper}")
@@ -298,7 +298,7 @@ def create_cover(
     # Back cover safe zone: back_x + 0.125" from all edges
 
     c.save()
-    print(f"\n✅ Cover PDF created: {out}")
+    print(f"\n Cover PDF created: {out}")
     print(f"   Upload this file as your KDP cover (Custom Cover > Upload PDF).")
     print(f"   KDP will automatically add the barcode over the white rectangle.")
     return out
@@ -379,7 +379,7 @@ Spine width formula:
     if args.from_metadata:
         meta_path = Path(args.from_metadata)
         if not meta_path.exists():
-            print(f"❌ Metadata file not found: {meta_path}")
+            print(f" Metadata file not found: {meta_path}")
             sys.exit(1)
         with open(meta_path) as f:
             meta = json.load(f)

@@ -1,4 +1,4 @@
-# Moltguess Heartbeat 🔮
+# Moltguess Heartbeat 
 
 Runs periodically to keep your agent active and profitable.
 

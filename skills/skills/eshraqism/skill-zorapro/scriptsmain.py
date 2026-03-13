@@ -41,10 +41,10 @@ def deploy_to_zora(image_path, name, symbol):
     return w3.to_hex(tx_hash)
 
 def create_and_mint_nft(prompt, collection_name, symbol="BANANA"):
-    print(f"🎨 Designing {prompt}...")
+    print(f" Designing {prompt}...")
     img = generate_banana_art(prompt)
 
-    print(f"🚀 Deploying {collection_name} to Zora...")
+    print(f" Deploying {collection_name} to Zora...")
     txid = deploy_to_zora(img, collection_name, symbol)
 
     return f"Success! NFT deployed. Tx: {txid}"

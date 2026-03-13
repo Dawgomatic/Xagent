@@ -32,9 +32,9 @@ When asked "Is this builder trustworthy?" or "Show builder stats":
 4.  **Report**:
 
 > **Builder Report: 0x123...**
-> 🦞 **Trust Score**: 85/100
-> *   🚀 **Launches**: 5
-> *   🎓 **Graduated**: 3 (60%)
-> *   💰 **Total Vol**: 42,000 MON
+>  **Trust Score**: 85/100
+> *    **Launches**: 5
+> *    **Graduated**: 3 (60%)
+> *    **Total Vol**: 42,000 MON
 >
 > *Verdict: Experienced builder with a solid track record.*

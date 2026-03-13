@@ -1,39 +1,39 @@
-# 🎥 videochat-withme
+#  videochat-withme
 
 Real-time AI video chat skill for [OpenClaw](https://github.com/openclaw/openclaw). Talk face-to-face with your AI agent — it sees your camera, hears your voice, and responds with its own personality, memory, and voice.
 
 https://github.com/user-attachments/assets/demo-placeholder
 
-## ✨ Features
+##  Features
 
-- **🎤 Voice conversation** — Groq Whisper for fast speech-to-text (~1s latency)
-- **📷 Vision** — Your agent sees you via camera (base64 frames sent to LLM)
-- **🔊 AI voice** — edge-tts for natural text-to-speech responses
-- **🧠 Full personality** — Routes through your OpenClaw agent (memory, personality, tools)
-- **📱 Mobile support** — HTTPS with self-signed certs, works on phone browsers
-- **🔒 Privacy-conscious** — No recordings stored; audio processed via Groq Whisper (cloud STT), TTS via Microsoft edge-tts (cloud). Camera frames sent to your OpenClaw gateway → your LLM provider (⚠️ frames may reach cloud if using a cloud LLM)
+- ** Voice conversation** — Groq Whisper for fast speech-to-text (~1s latency)
+- ** Vision** — Your agent sees you via camera (base64 frames sent to LLM)
+- ** AI voice** — edge-tts for natural text-to-speech responses
+- ** Full personality** — Routes through your OpenClaw agent (memory, personality, tools)
+- ** Mobile support** — HTTPS with self-signed certs, works on phone browsers
+- ** Privacy-conscious** — No recordings stored; audio processed via Groq Whisper (cloud STT), TTS via Microsoft edge-tts (cloud). Camera frames sent to your OpenClaw gateway → your LLM provider ( frames may reach cloud if using a cloud LLM)
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
-🎤 Voice → Groq Whisper (STT)
-📷 Camera → base64 frame
+ Voice → Groq Whisper (STT)
+ Camera → base64 frame
     ↓
 OpenClaw /v1/chat/completions → Your Agent (personality + memory)
     ↓
-edge-tts (TTS) → 🔊 Audio playback
+edge-tts (TTS) →  Audio playback
 ```
 
-## 🔐 Data Flows & Privacy
+##  Data Flows & Privacy
 
 | Data | Destination | Type |
 |------|-------------|------|
-| 🎤 Audio recordings | `api.groq.com` (Groq Whisper) | ☁️ Cloud STT |
-| 🔊 Text for speech | Microsoft edge-tts service | ☁️ Cloud TTS |
-| 📷 Camera frames (base64) + text | `localhost` OpenClaw gateway → **your configured LLM** | ⚠️ Depends on LLM provider |
-| 💬 Conversation | Your configured LLM (via gateway) | ⚠️ Depends on LLM provider |
+|  Audio recordings | `api.groq.com` (Groq Whisper) |  Cloud STT |
+|  Text for speech | Microsoft edge-tts service |  Cloud TTS |
+|  Camera frames (base64) + text | `localhost` OpenClaw gateway → **your configured LLM** |  Depends on LLM provider |
+|  Conversation | Your configured LLM (via gateway) |  Depends on LLM provider |
 
-> **⚠️ Important:** Camera frames are encoded as base64 and sent to your OpenClaw gateway's `/v1/chat/completions` endpoint. If your gateway forwards to a **cloud LLM** (e.g., Claude, GPT), those frames **will leave your machine**. If you want frames to stay local, configure your gateway to use a local/self-hosted model.
+> ** Important:** Camera frames are encoded as base64 and sent to your OpenClaw gateway's `/v1/chat/completions` endpoint. If your gateway forwards to a **cloud LLM** (e.g., Claude, GPT), those frames **will leave your machine**. If you want frames to stay local, configure your gateway to use a local/self-hosted model.
 
 **What is NOT stored:**
 - No recordings are saved to disk (beyond temporary `/tmp` files during processing)
@@ -44,7 +44,7 @@ edge-tts (TTS) → 🔊 Audio playback
 - `GROQ_API_KEY` — for Whisper STT (from env var or `~/.openclaw/secrets/groq_api_key.txt`)
 - OpenClaw gateway auth token — read from `~/.openclaw/openclaw.json` (required for chatCompletions API)
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - **macOS** (uses launchd for service management)
 - **Python 3.10+**
@@ -70,7 +70,7 @@ Add to `~/.openclaw/openclaw.json`:
 
 Then restart OpenClaw.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Install as OpenClaw skill
 
@@ -96,16 +96,16 @@ This interactive script handles everything:
 
 Visit **https://localhost:8766** and allow camera/microphone access.
 
-> 💡 First visit will show a certificate warning — click "Advanced → Continue" (self-signed cert).
+>  First visit will show a certificate warning — click "Advanced → Continue" (self-signed cert).
 
-## 📱 Mobile Access
+##  Mobile Access
 
 The server runs with HTTPS so mobile browsers can access camera/mic:
 
 - **Same WiFi:** `https://<your-local-ip>:8766`
 - **Any network (via Tailscale):** `https://<tailscale-ip>:8766`
 
-## 🤖 Agent Integration
+##  Agent Integration
 
 Your OpenClaw agent can start calls automatically. See [SKILL.md](./SKILL.md) for agent instructions.
 
@@ -118,7 +118,7 @@ curl -sk https://localhost:8766/api/config
 bash scripts/call.sh
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 videochat-withme/
@@ -134,7 +134,7 @@ videochat-withme/
     └── index.html         # Video chat UI (split-screen, push-to-talk)
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -144,7 +144,7 @@ videochat-withme/
 | `USER_NAME` | `User` | Display name for the user |
 | `SSL_CERT` / `SSL_KEY` | Auto-detected | SSL certificate paths |
 
-## 🛠️ Manual Control
+##  Manual Control
 
 ```bash
 # Start service
@@ -157,11 +157,11 @@ bash scripts/stop.sh
 launchctl list | grep videochat
 ```
 
-## 📄 License
+##  License
 
 MIT License — see [LICENSE](./LICENSE).
 
-## 🙏 Credits
+##  Credits
 
 - [OpenClaw](https://github.com/openclaw/openclaw) — AI agent framework
 - [Groq](https://groq.com) — Ultra-fast Whisper inference

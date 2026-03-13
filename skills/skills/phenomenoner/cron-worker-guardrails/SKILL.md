@@ -8,7 +8,7 @@ description: |
   Output: a scripts-first hardening checklist + portable patterns.
 metadata:
   openclaw:
-    emoji: "🧯"
+    emoji: ""
 ---
 
 # Cron Worker Guardrails

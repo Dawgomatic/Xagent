@@ -153,11 +153,11 @@ Example: 750 * (20/2000) = $7.5/trade
 
 | Market Type | Grid Suitable | Recommendation |
 |-------------|---------------|----------------|
-| Range-bound | ✅ Very suitable | Standard grid |
-| Slow uptrend | ✅ Suitable | Long-biased grid |
-| Slow downtrend | ⚠️ Cautious | Short-bias + small position |
-| High volatility | ❌ Not suitable | Pause grid |
-| Trending market | ❌ Not suitable | Use trend strategy |
+| Range-bound |  Very suitable | Standard grid |
+| Slow uptrend |  Suitable | Long-biased grid |
+| Slow downtrend |  Cautious | Short-bias + small position |
+| High volatility |  Not suitable | Pause grid |
+| Trending market |  Not suitable | Use trend strategy |
 
 ## Common Questions
 

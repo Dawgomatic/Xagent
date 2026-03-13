@@ -410,25 +410,25 @@ if __name__ == '__main__':
     # Calculate overall stats
     stats = calculate_overall_progress(all_progress)
     
-    print(f"\n📊 Overall Statistics:")
+    print(f"\n Overall Statistics:")
     print(f"   Total Projects: {stats['total_projects']}")
     print(f"   Active: {stats['active_projects']}")
     print(f"   Completed: {stats['completed_projects']}")
     print(f"   Average Progress: {stats['average_progress']}%")
     
-    print(f"\n📁 Project Details:")
+    print(f"\n Project Details:")
     print("-" * 60)
     
     for project in all_progress:
         name = project.get('name', project['project'])
         status_emoji = {
-            'active': '🟢',
-            'completed': '✅',
-            'paused': '⏸️',
-            'archived': '📦',
-            'unknown': '❓',
-            'planning': '📋'
-        }.get(project['status'], '❓')
+            'active': '',
+            'completed': '',
+            'paused': '',
+            'archived': '',
+            'unknown': '',
+            'planning': ''
+        }.get(project['status'], '')
         
         print(f"\n{status_emoji} {name}")
         print(f"   Status: {project['status']}")
@@ -439,6 +439,6 @@ if __name__ == '__main__':
             print(f"   Last Updated: {project['last_updated']}")
         
         if project.get('error'):
-            print(f"   ⚠️  {project['error']}")
+            print(f"     {project['error']}")
     
     print("\n" + "=" * 60)

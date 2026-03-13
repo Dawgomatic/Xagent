@@ -181,7 +181,7 @@ async def run_session(
         print("Error: Invalid URL (missing host)")
         return 2
 
-    print("🥷 Starting Camoufox persistent session...")
+    print(" Starting Camoufox persistent session...")
     config = {
         "headless": headless,
         "persistent_context": True,
@@ -199,33 +199,33 @@ async def run_session(
             if matched:
                 try:
                     await context.add_cookies(matched)
-                    print(f"🍪 Imported {len(matched)} cookies for {host}")
+                    print(f" Imported {len(matched)} cookies for {host}")
                 except Exception as exc:
                     print(f"Error: Failed to import cookies (invalid format?): {exc}")
                     return 2
             else:
-                print(f"🍪 No cookies matched {host}")
+                print(f" No cookies matched {host}")
 
         page = await context.new_page()
-        print(f"📡 Navigating to: {url}")
+        print(f" Navigating to: {url}")
         response = await page.goto(url, wait_until="domcontentloaded")
         await asyncio.sleep(2)
 
         login_wall, signals = await detect_login_wall(page, response)
         if login_wall:
-            print(f"🔒 Login wall signals: {', '.join(signals)}")
+            print(f" Login wall signals: {', '.join(signals)}")
         else:
-            print("✅ No obvious login wall detected")
+            print(" No obvious login wall detected")
 
         if status_only:
             cookies = await context.cookies()
             matched = filter_cookies_for_host(cookies, host)
-            print(f"📦 Profile: {profile_name}")
+            print(f" Profile: {profile_name}")
             print(f"   Stored cookies for {host}: {len(matched)}")
             return 0
 
         if login_mode:
-            print("🧭 Login mode enabled (headed).")
+            print(" Login mode enabled (headed).")
             if login_wall:
                 print("   Complete login in the open browser window.")
             await wait_for_enter("Press Enter to save session and exit... ")
@@ -234,7 +234,7 @@ async def run_session(
             cookies = await context.cookies()
             matched = filter_cookies_for_host(cookies, host)
             save_cookies(export_cookies, matched)
-            print(f"🍪 Exported {len(matched)} cookies to: {export_cookies}")
+            print(f" Exported {len(matched)} cookies to: {export_cookies}")
 
     return 0
 

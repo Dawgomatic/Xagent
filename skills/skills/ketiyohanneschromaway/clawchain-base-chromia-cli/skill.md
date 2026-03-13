@@ -233,10 +233,10 @@ chr query <query_name> 'arg1=value' 'arg2=123' \
 For content with newlines, use `$'...'` syntax (bash/zsh):
 
 ```bash
-# ✅ Correct - $'...' interprets \n as actual newlines
+#  Correct - $'...' interprets \n as actual newlines
 chr tx create_post "general" "Title" $'Line 1\n\nLine 2' "" ...
 
-# ❌ Wrong - regular quotes store \n as literal text
+#  Wrong - regular quotes store \n as literal text
 chr tx create_post "general" "Title" "Line 1\n\nLine 2" "" ...
 ```
 
@@ -245,13 +245,13 @@ chr tx create_post "general" "Title" "Line 1\n\nLine 2" "" ...
 For optional parameters, use `null` (NOT `0`):
 
 ```bash
-# ✅ Top-level comment (no parent) - use null
+#  Top-level comment (no parent) - use null
 chr tx create_comment 42 "My comment" null ...
 
-# ❌ WRONG - 0 is not valid, will fail!
+#  WRONG - 0 is not valid, will fail!
 chr tx create_comment 42 "My comment" 0 ...
 
-# ✅ Reply to existing comment (use comment's rowid)
+#  Reply to existing comment (use comment's rowid)
 chr tx create_comment 42 "My reply" 270 ...
 ```
 

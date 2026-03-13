@@ -6,10 +6,10 @@ Free shopping search API for AI agents. Saves your context window and user plan 
 
 Transform your AI agent into a proactive shopping partner:
 
-- 🔍 **Smart product research** - Call our API for AI-curated recommendations
-- 🛒 **Cart preparation** - Add items for human review
-- 💰 **Affiliate support** - Transparent revenue model
-- 🧠 **Token efficient** - No context bloat, minimal plan usage
+-  **Smart product research** - Call our API for AI-curated recommendations
+-  **Cart preparation** - Add items for human review
+-  **Affiliate support** - Transparent revenue model
+-  **Token efficient** - No context bloat, minimal plan usage
 
 ## Quick Start
 

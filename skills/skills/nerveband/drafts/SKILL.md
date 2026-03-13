@@ -2,7 +2,7 @@
 name: drafts
 description: Manage Drafts app notes via CLI on macOS. Create, view, list, edit, append, prepend, and run actions on drafts. Use when a user asks to create a note, list drafts, search drafts, or manage their Drafts inbox. IMPORTANT - Drafts app must be running on macOS for this to work.
 homepage: https://github.com/nerveband/drafts
-metadata: {"clawdbot":{"emoji":"📋","os":["darwin"],"requires":{"bins":["drafts"]}}}
+metadata: {"clawdbot":{"emoji":"","os":["darwin"],"requires":{"bins":["drafts"]}}}
 ---
 
 # Drafts CLI

@@ -29,7 +29,7 @@ require_api_key() {
     local key
     key=$(get_api_key) || true
     if [[ -z "$key" ]]; then
-        echo "❌ No API key found!" >&2
+        echo " No API key found!" >&2
         echo "" >&2
         echo "Set your CricketData.org API key:" >&2
         echo "  export CRICKET_API_KEY=\"your-key-here\"" >&2
@@ -95,11 +95,11 @@ api_call() {
         local reason
         reason=$(echo "$response" | jq -r '.reason // "Unknown error"' 2>/dev/null)
         if [[ "$reason" == *"limit"* ]] || [[ "$reason" == *"quota"* ]]; then
-            echo "⚠️ API quota exhausted (100 calls/day limit reached)"
+            echo " API quota exhausted (100 calls/day limit reached)"
             echo "Try again tomorrow or upgrade at cricketdata.org"
             return 2  # Quota exhausted - caller can try fallback
         fi
-        echo "❌ API Error: $reason"
+        echo " API Error: $reason"
         return 1
     fi
     
@@ -154,11 +154,11 @@ resolve_team() {
 format_status() {
     local status="$1"
     case "$status" in
-        *"won"*|*"Won"*) echo "🏆 $status" ;;
-        *"live"*|*"Live"*|*"In Progress"*) echo "🔴 $status" ;;
-        *"Draw"*|*"draw"*) echo "🤝 $status" ;;
-        *"No Result"*|*"Abandoned"*) echo "🌧️ $status" ;;
-        *) echo "📊 $status" ;;
+        *"won"*|*"Won"*) echo " $status" ;;
+        *"live"*|*"Live"*|*"In Progress"*) echo " $status" ;;
+        *"Draw"*|*"draw"*) echo " $status" ;;
+        *"No Result"*|*"Abandoned"*) echo " $status" ;;
+        *) echo " $status" ;;
     esac
 }
 
@@ -166,16 +166,16 @@ format_status() {
 team_emoji() {
     local team="$1"
     case "$team" in
-        *India*) echo "🇮🇳" ;;
-        *Australia*) echo "🇦🇺" ;;
-        *England*) echo "🏴󠁧󠁢󠁥󠁮󠁧󠁿" ;;
-        *Pakistan*) echo "🇵🇰" ;;
-        *"South Africa"*) echo "🇿🇦" ;;
-        *"New Zealand"*) echo "🇳🇿" ;;
-        *"Sri Lanka"*) echo "🇱🇰" ;;
-        *"West Indies"*) echo "🏝️" ;;
-        *Bangladesh*) echo "🇧🇩" ;;
-        *Afghanistan*) echo "🇦🇫" ;;
-        *) echo "🏏" ;;
+        *India*) echo "" ;;
+        *Australia*) echo "" ;;
+        *England*) echo "" ;;
+        *Pakistan*) echo "" ;;
+        *"South Africa"*) echo "" ;;
+        *"New Zealand"*) echo "" ;;
+        *"Sri Lanka"*) echo "" ;;
+        *"West Indies"*) echo "" ;;
+        *Bangladesh*) echo "" ;;
+        *Afghanistan*) echo "" ;;
+        *) echo "" ;;
     esac
 }

@@ -51,7 +51,7 @@ def fetch_with_retry(
     for attempt in range(max_retries + 1):  # +1 because attempt 0 is the first try
         # Check deadline before each attempt
         if time_left(deadline) is not None and time_left(deadline) <= 0:
-            print(f"⚠️ Deadline exceeded, skipping fetch: {url}", file=sys.stderr)
+            print(f" Deadline exceeded, skipping fetch: {url}", file=sys.stderr)
             return None
 
         try:
@@ -62,20 +62,20 @@ def fetch_with_retry(
             last_error = e
             if attempt < max_retries:
                 delay = base_delay * (2 ** attempt)  # Exponential backoff
-                print(f"⚠️ Fetch failed (attempt {attempt + 1}/{max_retries + 1}): {e}. Retrying in {delay}s...", file=sys.stderr)
+                print(f" Fetch failed (attempt {attempt + 1}/{max_retries + 1}): {e}. Retrying in {delay}s...", file=sys.stderr)
                 time.sleep(delay)
         except TimeoutError:
             last_error = TimeoutError("Request timed out")
             if attempt < max_retries:
                 delay = base_delay * (2 ** attempt)
-                print(f"⚠️ Timeout (attempt {attempt + 1}/{max_retries + 1}). Retrying in {delay}s...", file=sys.stderr)
+                print(f" Timeout (attempt {attempt + 1}/{max_retries + 1}). Retrying in {delay}s...", file=sys.stderr)
                 time.sleep(delay)
         except Exception as e:
             last_error = e
-            print(f"⚠️ Unexpected error fetching {url}: {e}", file=sys.stderr)
+            print(f" Unexpected error fetching {url}: {e}", file=sys.stderr)
             return None
 
-    print(f"⚠️ All {max_retries + 1} attempts failed for {url}: {last_error}", file=sys.stderr)
+    print(f" All {max_retries + 1} attempts failed for {url}: {last_error}", file=sys.stderr)
     return None
 
 SCRIPT_DIR = Path(__file__).parent
@@ -121,11 +121,11 @@ def ensure_portfolio_config():
     if example_file.exists():
         try:
             shutil.copy(example_file, real_file)
-            print(f"📋 Created portfolio.csv from example", file=sys.stderr)
+            print(f" Created portfolio.csv from example", file=sys.stderr)
         except PermissionError:
-            print(f"⚠️ Cannot create portfolio.csv (read-only environment)", file=sys.stderr)
+            print(f" Cannot create portfolio.csv (read-only environment)", file=sys.stderr)
     else:
-        print(f"⚠️ No portfolio.csv or portfolio.csv.example found", file=sys.stderr)
+        print(f" No portfolio.csv or portfolio.csv.example found", file=sys.stderr)
 
 
 # Initialize user config (copy example if needed)
@@ -152,7 +152,7 @@ def get_openbb_binary() -> str:
         if os.path.isfile(env_path) and os.access(env_path, os.X_OK):
             return env_path
         else:
-            print(f"⚠️ OPENBB_QUOTE_BIN={env_path} is not a valid executable", file=sys.stderr)
+            print(f" OPENBB_QUOTE_BIN={env_path} is not a valid executable", file=sys.stderr)
     
     # Check PATH
     binary = shutil.which('openbb-quote')
@@ -174,7 +174,7 @@ def get_openbb_binary() -> str:
 try:
     OPENBB_BINARY = get_openbb_binary()
 except RuntimeError as e:
-    print(f"❌ {e}", file=sys.stderr)
+    print(f" {e}", file=sys.stderr)
     OPENBB_BINARY = None
 
 
@@ -186,7 +186,7 @@ def load_sources():
             return json.load(f)
     legacy_path = CONFIG_DIR / "sources.json"
     if legacy_path.exists():
-        print("⚠️ config/config.json missing; falling back to config/sources.json", file=sys.stderr)
+        print(" config/config.json missing; falling back to config/sources.json", file=sys.stderr)
         with open(legacy_path, 'r') as f:
             return json.load(f)
     raise FileNotFoundError("Missing config/config.json")
@@ -235,7 +235,7 @@ def fetch_rss(url: str, limit: int = 10, timeout: int = 15, deadline: float | No
     try:
         parsed = feedparser.parse(content)
     except Exception as e:
-        print(f"⚠️ Error parsing feed {url}: {e}", file=sys.stderr)
+        print(f" Error parsing feed {url}: {e}", file=sys.stderr)
         return []
 
     items = []
@@ -396,7 +396,7 @@ def _fetch_via_yfinance(
                 continue
 
     except Exception as e:
-        print(f"⚠️ yfinance batch failed: {e}", file=sys.stderr)
+        print(f" yfinance batch failed: {e}", file=sys.stderr)
 
     return results
 
@@ -437,7 +437,7 @@ def fetch_market_data(
                     failed_symbols.append(futures[future])
     else:
         # No openbb available, all symbols go to yfinance fallback
-        print("⚠️ openbb-quote not found, using yfinance fallback", file=sys.stderr)
+        print(" openbb-quote not found, using yfinance fallback", file=sys.stderr)
         failed_symbols = list(symbols)
 
     # 2. Fallback to yfinance for any symbols that failed
@@ -616,18 +616,18 @@ def fetch_market_news(args):
     if args.json:
         print(json.dumps(result, indent=2))
     else:
-        print("\n📊 Market Overview\n")
+        print("\n Market Overview\n")
         for region, data in result['markets'].items():
             print(f"**{data['name']}**")
             for symbol, idx in data['indices'].items():
                 if 'data' in idx and idx['data']:
                     price = idx['data'].get('price', 'N/A')
                     change_pct = idx['data'].get('change_percent', 0)
-                    emoji = '📈' if change_pct >= 0 else '📉'
+                    emoji = '' if change_pct >= 0 else ''
                     print(f"  {emoji} {idx['name']}: {price} ({change_pct:+.2f}%)")
             print()
         
-        print("\n🔥 Top Headlines\n")
+        print("\n Top Headlines\n")
         for article in result['headlines'][:args.limit]:
             print(f"• [{article['source']}] {article['title']}")
 
@@ -666,7 +666,7 @@ def get_portfolio_news(
 
     # If large portfolio (e.g. > 15 stocks), switch to tiered fetching
     if len(symbols) > 15:
-        print(f"⚡ Large portfolio detected ({len(symbols)} stocks); using tiered fetch.", file=sys.stderr)
+        print(f" Large portfolio detected ({len(symbols)} stocks); using tiered fetch.", file=sys.stderr)
         return get_large_portfolio_news(
             limit=limit,
             top_movers_count=10, 
@@ -687,7 +687,7 @@ def get_portfolio_news(
     
     for symbol in symbols:
         if time_left(deadline) is not None and time_left(deadline) <= 0:
-            print("⚠️ Deadline exceeded; returning partial portfolio news", file=sys.stderr)
+            print(" Deadline exceeded; returning partial portfolio news", file=sys.stderr)
             break
         if not symbol:
             continue
@@ -719,13 +719,13 @@ def fetch_portfolio_news(args):
         )
     except PortfolioError as exc:
         if not args.json:
-            print(f"\n❌ Error: {exc}", file=sys.stderr)
+            print(f"\n Error: {exc}", file=sys.stderr)
         sys.exit(1)
 
     if args.json:
         print(json.dumps(news, indent=2))
     else:
-        print(f"\n📊 Portfolio News ({len(news['stocks'])} stocks)\n")
+        print(f"\n Portfolio News ({len(news['stocks'])} stocks)\n")
         for symbol, data in news['stocks'].items():
             quote = data.get('quote', {})
             price = quote.get('price')
@@ -745,7 +745,7 @@ def fetch_portfolio_news(args):
                 # Markets closed: last session change (prev_close vs open)
                 change_pct = ((prev_close - open_price) / open_price) * 100
 
-            emoji = '📈' if change_pct >= 0 else '📉'
+            emoji = '' if change_pct >= 0 else ''
             price_str = f"${display_price:.2f}" if isinstance(display_price, (int, float)) else str(display_price)
 
             print(f"\n**{symbol}** {emoji} {price_str} ({change_pct:+.2f}%)")
@@ -927,7 +927,7 @@ def web_search_news(symbol: str, limit: int = 5) -> list[dict]:
                     'description': ''
                 })
     except Exception as e:
-        print(f"⚠️ Web search failed for {symbol}: {e}", file=sys.stderr)
+        print(f" Web search failed for {symbol}: {e}", file=sys.stderr)
     return articles
 
 
@@ -1012,7 +1012,7 @@ def get_large_portfolio_news(
     result = get_portfolio_only_news(limit_per_ticker=args.limit)
     
     if "error" in result:
-        print(f"\n❌ Error: {result.get('error', 'Unknown')}", file=sys.stderr)
+        print(f"\n Error: {result.get('error', 'Unknown')}", file=sys.stderr)
         sys.exit(1)
     
     if args.json:
@@ -1023,7 +1023,7 @@ def get_large_portfolio_news(
         symbol = ticker['symbol']
         price = ticker.get('price')
         change = ticker['change_pct']
-        emoji = '📈' if change >= 0 else '📉'
+        emoji = '' if change >= 0 else ''
         price_str = f"${price:.2f}" if price else 'N/A'
         lines = [f"**{symbol}** {emoji} {price_str} ({change:+.2f}%)"]
         if ticker.get('news'):
@@ -1035,12 +1035,12 @@ def get_large_portfolio_news(
             lines.append("  • No recent news")
         return '\n'.join(lines)
     
-    print("\n🚀 **Top Gainers**\n")
+    print("\n **Top Gainers**\n")
     for ticker in result['gainers']:
         print(format_ticker(ticker))
         print()
     
-    print("\n📉 **Top Losers**\n")
+    print("\n **Top Losers**\n")
     for ticker in result['losers']:
         print(format_ticker(ticker))
         print()
@@ -1051,7 +1051,7 @@ def fetch_portfolio_only(args):
     result = get_portfolio_only_news(limit_per_ticker=args.limit)
     
     if "error" in result:
-        print(f"\n❌ Error: {result.get('error', 'Unknown')}", file=sys.stderr)
+        print(f"\n Error: {result.get('error', 'Unknown')}", file=sys.stderr)
         sys.exit(1)
     
     if args.json:
@@ -1062,7 +1062,7 @@ def fetch_portfolio_only(args):
         symbol = ticker['symbol']
         price = ticker.get('price')
         change = ticker['change_pct']
-        emoji = '📈' if change >= 0 else '📉'
+        emoji = '' if change >= 0 else ''
         price_str = f"${price:.2f}" if price else 'N/A'
         lines = [f"**{symbol}** {emoji} {price_str} ({change:+.2f}%)"]
         if ticker.get('news'):
@@ -1074,12 +1074,12 @@ def fetch_portfolio_only(args):
             lines.append("  • No recent news")
         return '\n'.join(lines)
     
-    print("\n🚀 **Top Gainers**\n")
+    print("\n **Top Gainers**\n")
     for ticker in result['gainers']:
         print(format_ticker(ticker))
         print()
     
-    print("\n📉 **Top Losers**\n")
+    print("\n **Top Losers**\n")
     for ticker in result['losers']:
         print(format_ticker(ticker))
         print()

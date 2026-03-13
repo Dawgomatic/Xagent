@@ -260,18 +260,18 @@ Zum bestehenden Score Guide hinzufügen:
 
 ```
 JETZT (Phase 0):
-  ✅ audit-prompt.md updaten mit den 4 Änderungen oben
-  ✅ SKILL.md Score-Berechnung um by_design Ausnahme ergänzen
+   audit-prompt.md updaten mit den 4 Änderungen oben
+   SKILL.md Score-Berechnung um by_design Ausnahme ergänzen
   → Sofortige Verbesserung für alle zukünftigen Audits
 
 DIESE WOCHE (Phase 1):
-  📋 API: by_design Boolean in Findings-Tabelle
-  📋 Bestehende Findings für llama-index, crewai, autogen nachträglich markieren
+   API: by_design Boolean in Findings-Tabelle
+   Bestehende Findings für llama-index, crewai, autogen nachträglich markieren
 
 SPÄTER (Phase 2):
-  📋 Review-Endpoint um by_design Verdict erweitern
-  📋 Known-Patterns Allowlist (config/known-patterns.json)
-  📋 UI/Dashboard: Separate Darstellung von by-design vs. real findings
+   Review-Endpoint um by_design Verdict erweitern
+   Known-Patterns Allowlist (config/known-patterns.json)
+   UI/Dashboard: Separate Darstellung von by-design vs. real findings
 ```
 
 ---
@@ -280,29 +280,29 @@ SPÄTER (Phase 2):
 
 ### Vorher
 ```
-⚠️ llama-index-core — Trust Score: 45/100 (caution)
-  🟠 HIGH: exec() usage in code runner
-  🟠 HIGH: eval() in expression parser
-  🟡 MEDIUM: pickle usage in caching
-  🟡 MEDIUM: Dynamic imports
-  🟡 MEDIUM: Outbound HTTP calls
-  🔵 LOW: No input validation on plugin names
+ llama-index-core — Trust Score: 45/100 (caution)
+   HIGH: exec() usage in code runner
+   HIGH: eval() in expression parser
+   MEDIUM: pickle usage in caching
+   MEDIUM: Dynamic imports
+   MEDIUM: Outbound HTTP calls
+   LOW: No input validation on plugin names
 ```
 
 ### Nachher
 ```
-✅ llama-index-core — Trust Score: 92/100 (safe)
+ llama-index-core — Trust Score: 92/100 (safe)
 
   Vulnerabilities (1):
-    🔵 LOW: No input validation on plugin names (-3)
+     LOW: No input validation on plugin names (-3)
     → Remediation: Validate plugin names against allowlist
 
   By-Design Patterns (5, score-neutral):
-    ℹ️ exec() — Core code-execution feature (sandboxed)
-    ℹ️ eval() — Expression parser for query DSL
-    ℹ️ pickle — Model/index caching (local files only)
-    ℹ️ Dynamic imports — Plugin loading system
-    ℹ️ HTTP calls — LLM API communication
+     exec() — Core code-execution feature (sandboxed)
+     eval() — Expression parser for query DSL
+     pickle — Model/index caching (local files only)
+     Dynamic imports — Plugin loading system
+     HTTP calls — LLM API communication
 ```
 
 **User sieht:** "Die Registry hat alles geprüft, versteht den Kontext, und zeigt mir was wichtig ist."

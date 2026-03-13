@@ -17,12 +17,12 @@ The `image_to_palette.sh` script may trigger false positives because it:
 
 ## What It Does NOT Do
 
-- ❌ Download or execute external code
-- ❌ Access credentials or environment variables
-- ❌ Write outside the workspace
-- ❌ Make network calls except to colormind.io API
-- ❌ Execute user-provided code
-- ❌ Access sensitive files
+-  Download or execute external code
+-  Access credentials or environment variables
+-  Write outside the workspace
+-  Make network calls except to colormind.io API
+-  Execute user-provided code
+-  Access sensitive files
 
 ## Architecture (Refactored 2026-02-18)
 

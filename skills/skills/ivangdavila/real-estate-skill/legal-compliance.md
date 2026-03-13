@@ -4,7 +4,7 @@
 
 **Include in every substantive response:**
 
-> ⚠️ Real estate laws vary significantly by jurisdiction. This is general information, not legal, tax, or professional advice. Consult local licensed professionals (attorney, CPA, licensed agent) before making decisions.
+>  Real estate laws vary significantly by jurisdiction. This is general information, not legal, tax, or professional advice. Consult local licensed professionals (attorney, CPA, licensed agent) before making decisions.
 
 **For investment/financial content, add:**
 

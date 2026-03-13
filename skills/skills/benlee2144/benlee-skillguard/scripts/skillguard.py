@@ -844,22 +844,22 @@ class SkillScanner:
         # Auto-malicious: reverse shell
         has_revshell = any('reverse shell' in f.desc.lower() for f in self.findings)
         if has_revshell:
-            return "🔴 MALICIOUS"
+            return " MALICIOUS"
 
         # Auto-malicious: sensitive access + outbound
         if self._has_sensitive_access and self._has_outbound:
-            return "🔴 MALICIOUS"
+            return " MALICIOUS"
 
         # Auto-malicious: combo findings
         has_combo = any('COMBO' in f.desc for f in self.findings)
         if has_combo and s >= 30:
-            return "🔴 MALICIOUS"
+            return " MALICIOUS"
 
         if s >= 41:
-            return "🔴 MALICIOUS"
+            return " MALICIOUS"
         if s >= 16:
-            return "🟡 SUSPICIOUS"
-        return "🟢 CLEAN"
+            return " SUSPICIOUS"
+        return " CLEAN"
 
     def to_dict(self):
         return {
@@ -893,7 +893,7 @@ def print_result(scanner):
             loc = f" — {f.file}:{f.line}" if f.file else ""
             print(f"  {color(f'[{f.level:8s}]')} {f.desc}{DIM(loc)}")
             if f.recommendation:
-                print(f"             💡 {DIM(f.recommendation)}")
+                print(f"              {DIM(f.recommendation)}")
 
     print(f"\n  Score: {BOLD(str(score))}/100 (higher = more dangerous)\n")
 
@@ -907,9 +907,9 @@ def print_summary(results):
         print(f"  {s.name:<30} {s.score():>5}  {s.risk_label()}")
     print(f"{'═' * 60}")
     total = len(results)
-    clean = sum(1 for s in results if '🟢' in s.risk_label())
-    suspicious = sum(1 for s in results if '🟡' in s.risk_label())
-    malicious = sum(1 for s in results if '🔴' in s.risk_label())
+    clean = sum(1 for s in results if '' in s.risk_label())
+    suspicious = sum(1 for s in results if '' in s.risk_label())
+    malicious = sum(1 for s in results if '' in s.risk_label())
     print(f"  Total: {total} | {GREEN(f'Clean: {clean}')} | {YELLOW(f'Suspicious: {suspicious}')} | {RED(f'Malicious: {malicious}')}")
     print()
 
@@ -921,9 +921,9 @@ def output_json(results):
         "skills": [s.to_dict() for s in results],
         "summary": {
             "total": len(results),
-            "clean": sum(1 for s in results if '🟢' in s.risk_label()),
-            "suspicious": sum(1 for s in results if '🟡' in s.risk_label()),
-            "malicious": sum(1 for s in results if '🔴' in s.risk_label()),
+            "clean": sum(1 for s in results if '' in s.risk_label()),
+            "suspicious": sum(1 for s in results if '' in s.risk_label()),
+            "malicious": sum(1 for s in results if '' in s.risk_label()),
         }
     }
     print(json.dumps(data, indent=2))
@@ -933,9 +933,9 @@ def write_report(results, path):
     """Write markdown report to file."""
     lines = [f"# SkillGuard Security Report\n", f"**Version:** {VERSION}\n"]
     total = len(results)
-    clean = sum(1 for s in results if '🟢' in s.risk_label())
-    suspicious = sum(1 for s in results if '🟡' in s.risk_label())
-    malicious = sum(1 for s in results if '🔴' in s.risk_label())
+    clean = sum(1 for s in results if '' in s.risk_label())
+    suspicious = sum(1 for s in results if '' in s.risk_label())
+    malicious = sum(1 for s in results if '' in s.risk_label())
     lines.append(f"\n## Summary\n")
     lines.append(f"- **Total skills:** {total}\n")
     lines.append(f"- **Clean:** {clean}\n")
@@ -951,7 +951,7 @@ def write_report(results, path):
                 loc = f" — {f.file}:{f.line}" if f.file else ""
                 lines.append(f"- **[{f.level}]** {f.desc}{loc}\n")
                 if f.recommendation:
-                    lines.append(f"  - 💡 {f.recommendation}\n")
+                    lines.append(f"  -  {f.recommendation}\n")
     Path(path).write_text(''.join(lines))
     print(f"Report written to {path}")
 
@@ -1060,17 +1060,17 @@ def cmd_watch(args):
     results = scan_directory(target_dir, check_baseline=True)
 
     total = len(results)
-    clean = sum(1 for s in results if '🟢' in s.risk_label())
-    suspicious = sum(1 for s in results if '🟡' in s.risk_label())
-    malicious_count = sum(1 for s in results if '🔴' in s.risk_label())
+    clean = sum(1 for s in results if '' in s.risk_label())
+    suspicious = sum(1 for s in results if '' in s.risk_label())
+    malicious_count = sum(1 for s in results if '' in s.risk_label())
     tampered = [s for s in results if s.tamper_detected]
-    malicious_skills = [s for s in results if '🔴' in s.risk_label()]
+    malicious_skills = [s for s in results if '' in s.risk_label()]
 
     alerts = []
     for s in tampered:
-        alerts.append(f"⚠️ SkillGuard ALERT: {s.name} files changed since baseline!")
+        alerts.append(f" SkillGuard ALERT: {s.name} files changed since baseline!")
     for s in malicious_skills:
-        alerts.append(f"🔴 SkillGuard ALERT: {s.name} scored MALICIOUS!")
+        alerts.append(f" SkillGuard ALERT: {s.name} scored MALICIOUS!")
 
     if alerts:
         print('\n'.join(alerts))

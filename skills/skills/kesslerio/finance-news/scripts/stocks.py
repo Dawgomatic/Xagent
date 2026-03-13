@@ -181,7 +181,7 @@ def move_to_holdings(
             break
     
     if not watchlist_item:
-        print(f"⚠️ {ticker} not found in watchlist", file=sys.stderr)
+        print(f" {ticker} not found in watchlist", file=sys.stderr)
         return False
     
     # Add to holdings
@@ -223,7 +223,7 @@ def list_stocks(show_holdings: bool = True, show_watchlist: bool = True):
     data = load_stocks()
     
     if show_holdings:
-        print(f"\n📊 HOLDINGS ({len(data['holdings'])})")
+        print(f"\n HOLDINGS ({len(data['holdings'])})")
         print("-" * 50)
         for h in data["holdings"][:20]:
             print(f"  {h['ticker']:10} {h.get('name', '')[:30]}")
@@ -231,7 +231,7 @@ def list_stocks(show_holdings: bool = True, show_watchlist: bool = True):
             print(f"  ... and {len(data['holdings']) - 20} more")
     
     if show_watchlist:
-        print(f"\n👀 WATCHLIST ({len(data['watchlist'])})")
+        print(f"\n WATCHLIST ({len(data['watchlist'])})")
         print("-" * 50)
         for w in data["watchlist"][:20]:
             target = f"${w['target']}" if w.get('target') else "no target"
@@ -294,22 +294,22 @@ def main():
     
     elif args.command == "add-watchlist":
         add_to_watchlist(args.ticker.upper(), args.target, args.stop, args.notes)
-        print(f"✅ Added {args.ticker.upper()} to watchlist")
+        print(f" Added {args.ticker.upper()} to watchlist")
     
     elif args.command == "add-holding":
         add_to_holdings(args.ticker.upper(), args.name, args.category, args.notes,
                         args.target, args.stop)
-        print(f"✅ Added {args.ticker.upper()} to holdings")
+        print(f" Added {args.ticker.upper()} to holdings")
     
     elif args.command == "move":
         if move_to_holdings(args.ticker.upper(), args.name, args.category):
-            print(f"✅ Moved {args.ticker.upper()} from watchlist to holdings")
+            print(f" Moved {args.ticker.upper()} from watchlist to holdings")
     
     elif args.command == "remove":
         if remove_stock(args.ticker.upper(), args.from_list):
-            print(f"✅ Removed {args.ticker.upper()}")
+            print(f" Removed {args.ticker.upper()}")
         else:
-            print(f"⚠️ {args.ticker.upper()} not found")
+            print(f" {args.ticker.upper()} not found")
     
     elif args.command == "set-alert":
         data = load_stocks()
@@ -322,10 +322,10 @@ def main():
                     h["stop"] = args.stop
                 save_stocks(data)
                 found = True
-                print(f"✅ Set alert on {args.ticker.upper()}: target=${args.target}, stop=${args.stop}")
+                print(f" Set alert on {args.ticker.upper()}: target=${args.target}, stop=${args.stop}")
                 break
         if not found:
-            print(f"⚠️ {args.ticker.upper()} not found in holdings")
+            print(f" {args.ticker.upper()} not found in holdings")
     
     else:
         parser.print_help()

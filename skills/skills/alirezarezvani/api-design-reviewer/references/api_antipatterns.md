@@ -10,7 +10,7 @@ This document outlines common anti-patterns in REST API design that can lead to 
 Using verbs in URLs instead of treating endpoints as resources.
 
 ```
-❌ Bad Examples:
+ Bad Examples:
 POST /api/getUsers
 POST /api/createUser
 GET  /api/deleteUser/123
@@ -27,7 +27,7 @@ GET  /api/calculateOrderTotal/456
 
 ### Solution
 ```
-✅ Good Examples:
+ Good Examples:
 GET    /api/users                    # Get users
 POST   /api/users                    # Create user
 DELETE /api/users/123               # Delete user
@@ -41,7 +41,7 @@ GET    /api/orders/456/total        # Get order total
 Mixed naming conventions across the API.
 
 ```json
-❌ Bad Examples:
+ Bad Examples:
 {
   "user_id": 123,           // snake_case
   "firstName": "John",      // camelCase
@@ -59,7 +59,7 @@ Mixed naming conventions across the API.
 
 ### Solution
 ```json
-✅ Choose one convention and stick to it (camelCase recommended):
+ Choose one convention and stick to it (camelCase recommended):
 {
   "userId": 123,
   "firstName": "John",
@@ -75,7 +75,7 @@ Mixed naming conventions across the API.
 Always returning HTTP 200 regardless of the actual result.
 
 ```json
-❌ Bad Example:
+ Bad Example:
 HTTP/1.1 200 OK
 {
   "status": "error",
@@ -92,7 +92,7 @@ HTTP/1.1 200 OK
 
 ### Solution
 ```json
-✅ Good Example:
+ Good Example:
 HTTP/1.1 404 Not Found
 {
   "error": {
@@ -109,7 +109,7 @@ HTTP/1.1 404 Not Found
 Creating deeply nested URL structures that are hard to navigate.
 
 ```
-❌ Bad Example:
+ Bad Example:
 /companies/123/departments/456/teams/789/members/012/projects/345/tasks/678/comments/901
 ```
 
@@ -121,7 +121,7 @@ Creating deeply nested URL structures that are hard to navigate.
 
 ### Solution
 ```
-✅ Good Examples:
+ Good Examples:
 /tasks/678                    # Direct access to task
 /tasks/678/comments          # Task comments
 /users/012/tasks             # User's tasks
@@ -134,7 +134,7 @@ Creating deeply nested URL structures that are hard to navigate.
 Different error response structures across endpoints.
 
 ```json
-❌ Bad Examples:
+ Bad Examples:
 # Endpoint 1
 {"error": "Invalid email"}
 
@@ -152,7 +152,7 @@ Different error response structures across endpoints.
 
 ### Solution
 ```json
-✅ Standardized Error Format:
+ Standardized Error Format:
 {
   "error": {
     "code": "VALIDATION_ERROR",
@@ -176,7 +176,7 @@ Different error response structures across endpoints.
 Returning all results in a single response or inconsistent pagination.
 
 ```json
-❌ Bad Examples:
+ Bad Examples:
 # No pagination (returns 10,000 records)
 GET /api/users
 
@@ -194,7 +194,7 @@ GET /api/products?start=0&count=50
 
 ### Solution
 ```json
-✅ Good Example:
+ Good Example:
 GET /api/users?page=1&pageSize=10
 
 {
@@ -216,7 +216,7 @@ GET /api/users?page=1&pageSize=10
 URLs and field names that reflect database structure or internal architecture.
 
 ```
-❌ Bad Examples:
+ Bad Examples:
 /api/user_table/123
 /api/db_orders
 /api/legacy_customer_data
@@ -238,7 +238,7 @@ Response fields:
 
 ### Solution
 ```
-✅ Good Examples:
+ Good Examples:
 /api/users/123
 /api/orders
 /api/customers
@@ -257,7 +257,7 @@ Response fields:
 Using one endpoint for multiple unrelated operations based on request parameters.
 
 ```
-❌ Bad Example:
+ Bad Example:
 POST /api/user-actions
 {
   "action": "create_user",
@@ -286,7 +286,7 @@ POST /api/user-actions
 
 ### Solution
 ```
-✅ Good Examples:
+ Good Examples:
 POST   /api/users              # Create user
 DELETE /api/users/123         # Delete user  
 POST   /api/users/123/emails   # Send email to user
@@ -298,7 +298,7 @@ POST   /api/users/123/emails   # Send email to user
 Making breaking changes without version management.
 
 ```
-❌ Bad Examples:
+ Bad Examples:
 # Original API
 {
   "name": "John Doe",
@@ -321,7 +321,7 @@ Making breaking changes without version management.
 
 ### Solution
 ```
-✅ Good Examples:
+ Good Examples:
 # Version 1
 GET /api/v1/users/123
 {
@@ -345,7 +345,7 @@ GET /api/v2/users/123
 Vague, unhelpful, or technical error messages.
 
 ```json
-❌ Bad Examples:
+ Bad Examples:
 {"error": "Something went wrong"}
 {"error": "Invalid input"}
 {"error": "SQL constraint violation: FK_user_profile_id"}
@@ -360,7 +360,7 @@ Vague, unhelpful, or technical error messages.
 
 ### Solution
 ```json
-✅ Good Examples:
+ Good Examples:
 {
   "error": {
     "code": "VALIDATION_ERROR",
@@ -382,7 +382,7 @@ Vague, unhelpful, or technical error messages.
 Hard-coding response format without considering client preferences.
 
 ```
-❌ Bad Example:
+ Bad Example:
 # Always returns JSON regardless of Accept header
 GET /api/users/123
 Accept: application/xml
@@ -396,7 +396,7 @@ Accept: application/xml
 
 ### Solution
 ```
-✅ Good Example:
+ Good Example:
 GET /api/users/123
 Accept: application/xml
 
@@ -416,7 +416,7 @@ Content-Type: application/xml
 Maintaining session state on the server between requests.
 
 ```
-❌ Bad Example:
+ Bad Example:
 # Step 1: Initialize session
 POST /api/session/init
 
@@ -435,7 +435,7 @@ GET /api/session/user-data
 
 ### Solution
 ```
-✅ Good Example:
+ Good Example:
 # Self-contained requests
 GET /api/users/123/data
 Authorization: Bearer jwt-token-with-context
@@ -447,7 +447,7 @@ Authorization: Bearer jwt-token-with-context
 Using HTTP methods inappropriately or inconsistently.
 
 ```
-❌ Bad Examples:
+ Bad Examples:
 GET  /api/users/123/delete    # DELETE operation with GET
 POST /api/users/123/get       # GET operation with POST
 PUT  /api/users               # Creating with PUT on collection
@@ -461,7 +461,7 @@ GET  /api/users/search        # Search with side effects
 
 ### Solution
 ```
-✅ Good Examples:
+ Good Examples:
 DELETE /api/users/123         # Delete with DELETE
 GET    /api/users/123         # Get with GET
 POST   /api/users             # Create on collection
@@ -474,7 +474,7 @@ GET    /api/users?q=search    # Safe search with GET
 Not providing rate limiting information to clients.
 
 ```
-❌ Bad Example:
+ Bad Example:
 HTTP/1.1 429 Too Many Requests
 {
   "error": "Rate limit exceeded"
@@ -488,7 +488,7 @@ HTTP/1.1 429 Too Many Requests
 
 ### Solution
 ```
-✅ Good Example:
+ Good Example:
 HTTP/1.1 429 Too Many Requests
 X-RateLimit-Limit: 1000
 X-RateLimit-Remaining: 0
@@ -510,7 +510,7 @@ Retry-After: 3600
 Requiring multiple API calls to accomplish common tasks.
 
 ```
-❌ Bad Example:
+ Bad Example:
 # Get user profile requires 4 API calls
 GET /api/users/123           # Basic info
 GET /api/users/123/profile   # Profile details
@@ -526,7 +526,7 @@ GET /api/users/123/stats     # User statistics
 
 ### Solution
 ```
-✅ Good Examples:
+ Good Examples:
 # Single call with expansion
 GET /api/users/123?include=profile,settings,stats
 
@@ -549,7 +549,7 @@ POST /api/batch
 Accepting and processing invalid input without proper validation.
 
 ```json
-❌ Bad Example:
+ Bad Example:
 POST /api/users
 {
   "email": "not-an-email",
@@ -568,7 +568,7 @@ POST /api/users
 
 ### Solution
 ```json
-✅ Good Example:
+ Good Example:
 POST /api/users
 {
   "email": "not-an-email",
@@ -608,7 +608,7 @@ HTTP/1.1 400 Bad Request
 Blocking the client with long-running operations in synchronous endpoints.
 
 ```
-❌ Bad Example:
+ Bad Example:
 POST /api/reports/generate
 # Client waits 30 seconds for response
 ```
@@ -621,7 +621,7 @@ POST /api/reports/generate
 
 ### Solution
 ```
-✅ Good Example:
+ Good Example:
 # Async pattern
 POST /api/reports
 HTTP/1.1 202 Accepted

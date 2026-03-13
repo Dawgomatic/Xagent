@@ -133,7 +133,7 @@ function generateWeeklyReport(allMetrics, weekStart) {
     if (prevIdx >= 0) {
       const prevWeekKey = sortedWeeks[prevIdx];
       const prevAvg = weeks[prevWeekKey].reduce((sum, m) => sum + m.completeness, 0) / weeks[prevWeekKey].length;
-      trend = avg > prevAvg ? '📈' : avg < prevAvg ? '📉' : '➡️';
+      trend = avg > prevAvg ? '' : avg < prevAvg ? '' : '';
     }
     report += `| ${weekStart.toLocaleDateString('en-GB', { month: 'short', day: 'numeric' })} | ${weekData.length} | ${avg.toFixed(1)} | ${trend} |\n`;
   });

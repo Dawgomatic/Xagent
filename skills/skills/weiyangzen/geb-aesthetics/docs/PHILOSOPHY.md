@@ -115,4 +115,4 @@ Hofstadter's GEB was published in 1979. Nearly half a century later, we stand at
 
 The eternal golden braid continues, now woven by human and machine together.
 
-🎭 *Gödel × Escher × Bach = Creative Intelligence*
+ *Gödel × Escher × Bach = Creative Intelligence*

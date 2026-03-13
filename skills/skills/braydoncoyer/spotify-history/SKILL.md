@@ -29,7 +29,7 @@ This guides you through:
    - Fill in:
      - **App name:** `Clawd` (or any name)
      - **App description:** `Personal assistant integration`
-     - **Redirect URI:** `http://127.0.0.1:8888/callback` ⚠️ Use exact URL!
+     - **Redirect URI:** `http://127.0.0.1:8888/callback`  Use exact URL!
    - Save and copy **Client ID** and **Client Secret**
 
 2. **Store Credentials**

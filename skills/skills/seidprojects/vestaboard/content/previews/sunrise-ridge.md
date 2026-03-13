@@ -1,12 +1,12 @@
 # SUNRISE RIDGE (preview)
 
-Legend: 🟪/🟦 sky, 🟨 sun glow, ⬜ sun, ⬛ ridge silhouette
+Legend: / sky,  sun glow,  sun,  ridge silhouette
 
 ```
-🟪🟪🟦🟦🟦🟦🟦🟨🟨⬜🟨🟨🟦🟦🟦🟦🟦🟦🟦🟦🟪🟪
-🟪🟦🟦🟦🟦🟦🟨🟨🟨🟨🟨🟨🟨🟦🟦🟦🟦🟦🟦🟦🟦🟪
-🟦🟦🟦🟦🟦🟨🟨🟨🟨🟨🟨🟨🟨🟨🟦🟦🟦🟦🟦🟦🟦🟦
-🟦🟦🟦🟦⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛🟦🟦🟦🟦🟦
-🟦🟦🟦⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛🟦🟦🟦🟦
-🟦🟦⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛🟦🟦🟦
+
+
+
+
+
+
 ```

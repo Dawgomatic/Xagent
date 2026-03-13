@@ -6,7 +6,7 @@ author: Versatly
 repository: https://github.com/Versatly/clawvault
 ---
 
-# ClawVault 🐘
+# ClawVault 
 
 An elephant never forgets. Structured memory for OpenClaw agents.
 

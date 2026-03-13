@@ -39,16 +39,16 @@
 
 | Attraction | Verdict | Notes |
 |------------|---------|-------|
-| **Disneyland** | ✅ IF you love Disney | 1+ hr from LA, full day, $150-200 |
-| **Santa Monica beach** | ✅ Classic | Touristy but actually nice |
-| **Runyon Canyon** | ⚠️ Crowded, overrated | Better hikes exist (Temescal, Eaton) |
-| **La Brea Tar Pits** | ⚠️ Meh | Interesting once, museum extra |
-| **Rodeo Drive** | ⚠️ Window shop only | See it for 20 min, done |
-| **Venice Canals** | ✅ Hidden gem | Much better than boardwalk |
-| **Malibu** | ✅ Beautiful drive | But far (1+ hr from central LA) |
-| **Little Tokyo** | ✅ Fun food/culture | Couple hours, not a full day |
-| **Grand Central Market** | ✅ Great food hall | Lunch stop, DTLA |
-| **Arts District DTLA** | ✅ Cool murals, cafes | Couple hours walking |
+| **Disneyland** |  IF you love Disney | 1+ hr from LA, full day, $150-200 |
+| **Santa Monica beach** |  Classic | Touristy but actually nice |
+| **Runyon Canyon** |  Crowded, overrated | Better hikes exist (Temescal, Eaton) |
+| **La Brea Tar Pits** |  Meh | Interesting once, museum extra |
+| **Rodeo Drive** |  Window shop only | See it for 20 min, done |
+| **Venice Canals** |  Hidden gem | Much better than boardwalk |
+| **Malibu** |  Beautiful drive | But far (1+ hr from central LA) |
+| **Little Tokyo** |  Fun food/culture | Couple hours, not a full day |
+| **Grand Central Market** |  Great food hall | Lunch stop, DTLA |
+| **Arts District DTLA** |  Cool murals, cafes | Couple hours walking |
 
 ---
 

@@ -38,7 +38,7 @@ echo ""
 echo "Checking optional files..."
 for file in "${optional_files[@]}"; do
     if [[ ! -f "$SKILL_DIR/$file" ]]; then
-        echo "⚠ Optional file missing: $file"
+        echo " Optional file missing: $file"
     else
         echo "✓ $file"
     fi

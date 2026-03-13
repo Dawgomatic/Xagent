@@ -142,14 +142,14 @@ const endpoints = await prism.agent.discoverEndpoints('find high yield stablecoi
 
 ## Works With Everything
 
-- ✅ **Cursor** — drop into any Cursor project
-- ✅ **Claude** — use with Claude's tool calling
-- ✅ **OpenClaw / Clawdbot** — native integration
-- ✅ **ChatGPT** — GPT function calling compatible
-- ✅ **Copilot** — works in any VS Code setup
-- ✅ **LangChain** — use as a LangChain tool
-- ✅ **AutoGPT / AgentGPT** — plug into any agent framework
-- ✅ **Custom agents** — simple REST API under the hood
+-  **Cursor** — drop into any Cursor project
+-  **Claude** — use with Claude's tool calling
+-  **OpenClaw / Clawdbot** — native integration
+-  **ChatGPT** — GPT function calling compatible
+-  **Copilot** — works in any VS Code setup
+-  **LangChain** — use as a LangChain tool
+-  **AutoGPT / AgentGPT** — plug into any agent framework
+-  **Custom agents** — simple REST API under the hood
 
 ## Configuration
 
@@ -179,10 +179,10 @@ const prism = new PrismOS({
 
 ## Links
 
-- 📚 [API Documentation](https://api.prismapi.ai/docs)
-- 💬 [Discord](https://discord.gg/strykr)
-- 🐦 [Twitter](https://twitter.com/strykrai)
-- 🐙 [GitHub](https://github.com/Strykr-Prism/PRISM-OS-SDK)
+-  [API Documentation](https://api.prismapi.ai/docs)
+-  [Discord](https://discord.gg/strykr)
+-  [Twitter](https://twitter.com/strykrai)
+-  [GitHub](https://github.com/Strykr-Prism/PRISM-OS-SDK)
 
 ## License
 

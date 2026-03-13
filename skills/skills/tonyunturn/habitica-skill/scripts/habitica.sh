@@ -57,7 +57,7 @@ format_user() {
 }
 
 format_user_full() {
-    jq -r '.data | "═══ \(.profile.name) ═══\nClass: \(.stats.class | ascii_upcase) | Level \(.stats.lvl)\n\n❤️  HP: \(.stats.hp | floor)/\(.stats.maxHealth)\n⚡ MP: \(.stats.mp | floor)/\(.stats.maxMP)\n✨ XP: \(.stats.exp | floor)/\(.stats.toNextLevel)\n💰 Gold: \(.stats.gp | floor)\n💎 Gems: \((.balance // 0) * 4 | floor)\n\nSTR: \(.stats.str) | INT: \(.stats.int) | CON: \(.stats.con) | PER: \(.stats.per)"'
+    jq -r '.data | "═══ \(.profile.name) ═══\nClass: \(.stats.class | ascii_upcase) | Level \(.stats.lvl)\n\n  HP: \(.stats.hp | floor)/\(.stats.maxHealth)\n MP: \(.stats.mp | floor)/\(.stats.maxMP)\n XP: \(.stats.exp | floor)/\(.stats.toNextLevel)\n Gold: \(.stats.gp | floor)\n Gems: \((.balance // 0) * 4 | floor)\n\nSTR: \(.stats.str) | INT: \(.stats.int) | CON: \(.stats.con) | PER: \(.stats.per)"'
 }
 
 format_pets() {
@@ -121,7 +121,7 @@ cmd_create() {
         '{type: $type, text: $text, notes: $notes}')
     
     api_request POST "/tasks/user" "$payload" | format_task
-    echo "✅ Task created!"
+    echo " Task created!"
 }
 
 cmd_score() {
@@ -143,7 +143,7 @@ cmd_score() {
     gp=$(echo "$result" | jq -r '.data.gp // 0 | floor')
     lvl=$(echo "$result" | jq -r '.data.lvl // 0')
     
-    echo "✅ Scored $direction! Delta: $delta"
+    echo " Scored $direction! Delta: $delta"
     echo "Stats: Lv$lvl | HP=$hp | XP=$exp | Gold=$gp"
 }
 
@@ -183,7 +183,7 @@ cmd_update() {
     [[ -n "$priority" ]] && payload=$(echo "$payload" | jq --arg p "$priority" '. + {priority: ($p | tonumber)}')
     
     api_request PUT "/tasks/$task_id" "$payload" | format_task
-    echo "✅ Task updated!"
+    echo " Task updated!"
 }
 
 # ===== USER COMMANDS =====
@@ -350,10 +350,10 @@ cmd_cast() {
     success=$(echo "$result" | jq -r '.success')
     
     if [[ "$success" == "true" ]]; then
-        echo "✨ Cast $skill successfully!"
+        echo " Cast $skill successfully!"
         echo "$result" | jq -r '.data.user.stats | "MP: \(.mp | floor)/\(.maxMP) | HP: \(.hp | floor)/\(.maxHealth)"'
     else
-        echo "❌ Failed to cast skill"
+        echo " Failed to cast skill"
         echo "$result" | jq -r '.message // .error // "Unknown error"'
     fi
 }
@@ -374,12 +374,12 @@ cmd_quest_accept() {
     rsvp_needed=$(echo "$user_data" | jq -r '.data.party.quest.RSVPNeeded // false')
     
     if [[ "$rsvp_needed" == "true" ]]; then
-        echo "📜 Found pending quest invitation. Accepting..."
+        echo " Found pending quest invitation. Accepting..."
         local result
         result=$(api_request POST "/groups/party/quest/accept")
         echo "$result" | jq -r '.message // "Quest accepted successfully!"'
     else
-        echo "✅ No pending quest invitations."
+        echo " No pending quest invitations."
     fi
 }
 

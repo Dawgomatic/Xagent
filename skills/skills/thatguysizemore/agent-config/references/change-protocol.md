@@ -110,7 +110,7 @@ Choose format based on content type (see `references/claude-patterns.md` for det
 |--------------|-------------|
 | Multi-step procedure | Numbered list |
 | Decision tree / routing | Table |
-| Behavioral rules | ❌/✅ contrast examples |
+| Behavioral rules | / contrast examples |
 | Anti-patterns / forbidden | Forbidden list with examples |
 | Context-dependent rules | If/then conditionals |
 | Principles | Bold keyword bullets |
@@ -148,8 +148,8 @@ Each file has characteristic style:
 2. Numbered step
 
 **Anti-pattern:**
-- ❌ Bad example
-- ✅ Good example
+-  Bad example
+-  Good example
 ```
 
 **SOUL.md:**

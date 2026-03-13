@@ -11,7 +11,7 @@ description: |
 homepage: https://studio.x402layer.cc/docs/agentic-access/x402-compute
 metadata:
   clawdbot:
-    emoji: "🖥️"
+    emoji: ""
     homepage: https://compute.x402layer.cc
     os:
       - linux
@@ -75,7 +75,7 @@ python {baseDir}/scripts/create_api_key.py --label "my-agent"
 
 ---
 
-## ⚠️ Security Notice
+##  Security Notice
 
 > **IMPORTANT**: This skill handles private keys for signing blockchain transactions.
 >
@@ -131,7 +131,7 @@ ssh-keygen -t ed25519 -N "" -f ~/.ssh/x402_compute
 # Provision an instance (triggers x402 payment)
 python {baseDir}/scripts/provision.py vcg-a100-1c-2g-6gb lax --months 1 --label "my-gpu" --ssh-key-file ~/.ssh/x402_compute.pub
 
-# ⚠️ After provisioning, wait 2-3 minutes for Vultr to complete setup
+#  After provisioning, wait 2-3 minutes for Vultr to complete setup
 # Then fetch your instance details (IP, status):
 python {baseDir}/scripts/instance_details.py <instance_id>
 ```
@@ -200,6 +200,6 @@ For full endpoint details, see [references/api-reference.md](references/api-refe
 
 ## Resources
 
-- 📖 **Documentation:** [studio.x402layer.cc/docs/agentic-access/x402-compute](https://studio.x402layer.cc/docs/agentic-access/x402-compute)
-- 🖥️ **Compute Dashboard:** [compute.x402layer.cc](https://compute.x402layer.cc)
-- 🌐 **x402 Studio:** [studio.x402layer.cc](https://studio.x402layer.cc)
+-  **Documentation:** [studio.x402layer.cc/docs/agentic-access/x402-compute](https://studio.x402layer.cc/docs/agentic-access/x402-compute)
+-  **Compute Dashboard:** [compute.x402layer.cc](https://compute.x402layer.cc)
+-  **x402 Studio:** [studio.x402layer.cc](https://studio.x402layer.cc)

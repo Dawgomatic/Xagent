@@ -11,7 +11,7 @@ const { applySessionData } = require('./scripts/browser-session-manager.js');
 
 async function main() {
   try {
-    console.log('🌐 使用浏览器会话数据访问即梦...\n');
+    console.log(' 使用浏览器会话数据访问即梦...\n');
     
     // 配置
     const config = {
@@ -36,8 +36,8 @@ async function main() {
       }
     };
     
-    console.log(`🔗 目标 URL: ${config.url}`);
-    console.log(`📄 会话文件: ${config.sessionJsonPath}`);
+    console.log(` 目标 URL: ${config.url}`);
+    console.log(` 会话文件: ${config.sessionJsonPath}`);
     console.log('');
     
     // 执行
@@ -47,19 +47,19 @@ async function main() {
       config.options
     );
     
-    console.log('\n✅ 访问成功!');
-    console.log(`📊 页面标题: ${result.title}`);
-    console.log(`📍 最终 URL: ${result.url}`);
-    console.log(`🍪 Cookies 数量: ${result.cookies.length}`);
-    console.log(`💾 localStorage 项数: ${Object.keys(result.localStorage).length}`);
-    console.log(`📦 sessionStorage 项数: ${Object.keys(result.sessionStorage).length}`);
+    console.log('\n 访问成功!');
+    console.log(` 页面标题: ${result.title}`);
+    console.log(` 最终 URL: ${result.url}`);
+    console.log(` Cookies 数量: ${result.cookies.length}`);
+    console.log(` localStorage 项数: ${Object.keys(result.localStorage).length}`);
+    console.log(` sessionStorage 项数: ${Object.keys(result.sessionStorage).length}`);
     
     if (config.options.screenshotPath) {
-      console.log(`\n📸 截图已保存: ${config.options.screenshotPath}`);
+      console.log(`\n 截图已保存: ${config.options.screenshotPath}`);
     }
     
   } catch (error) {
-    console.error('\n❌ 错误:', error.message);
+    console.error('\n 错误:', error.message);
     console.error('堆栈:', error.stack);
     process.exit(1);
   }

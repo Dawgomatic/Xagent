@@ -80,7 +80,7 @@ Each takeover unlocks visibility into adjacent bottlenecks.
 
 Weekly summary:
 ```
-📊 Autonomy Report
+ Autonomy Report
 
 Fully owned: 5 processes
 - [list with stats]

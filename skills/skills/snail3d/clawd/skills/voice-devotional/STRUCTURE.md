@@ -3,7 +3,7 @@
 ```
 voice-devotional/
 │
-├─── 📄 Documentation (6 files - ~35KB)
+├───  Documentation (6 files - ~35KB)
 │    ├── SKILL.md                   # Complete technical specification
 │    ├── README.md                  # User guide and quick start  
 │    ├── INDEX.md                   # File structure and API reference
@@ -11,7 +11,7 @@ voice-devotional/
 │    ├── DEPLOYMENT.md              # Deployment and installation guide
 │    └── BUILD_SUMMARY.txt          # Build summary (text format)
 │
-├─── 📜 Scripts (4 files - ~37KB)
+├───  Scripts (4 files - ~37KB)
 │    ├── scripts/voice-devotional.js     # Main orchestrator class
 │    │   ├─ generateDaily()              # Daily devotional generation
 │    │   ├─ generateScripture()          # Scripture reading
@@ -42,7 +42,7 @@ voice-devotional/
 │        ├─ batch command                # Batch generation
 │        └─ help system                  # Full help with examples
 │
-├─── ⚙️  Configuration (4 JSON files - ~32KB)
+├───   Configuration (4 JSON files - ~32KB)
 │    │
 │    ├── config/devotional-templates.json    # Content templates
 │    │   ├─ daily-devotional              # 10 theme templates
@@ -79,7 +79,7 @@ voice-devotional/
 │        ├─ love
 │        └─ [6 more themes]
 │
-├─── 📚 Examples (3 files - ~3KB)
+├───  Examples (3 files - ~3KB)
 │    ├── examples/basic.js                # Complete usage example
 │    │   ├─ Generate daily devotional
 │    │   ├─ Generate scripture reading
@@ -93,7 +93,7 @@ voice-devotional/
 │    │
 │    └── examples/themes.json             # Sample theme list
 │
-├─── 🧪 Tests (1 file - 8.5KB, 25+ tests)
+├───  Tests (1 file - 8.5KB, 25+ tests)
 │    └── tests/voice-devotional.test.js
 │        ├─ LessonGenerator tests
 │        ├─ VoiceDevotion tests
@@ -102,13 +102,13 @@ voice-devotional/
 │        ├─ Integration tests
 │        └─ Error handling tests
 │
-├─── 🔧 Support Files (4 files)
+├───  Support Files (4 files)
 │    ├── package.json                    # Node.js dependencies & scripts
 │    ├── .env.example                    # Configuration template
 │    ├── .gitignore                      # Git ignore rules
 │    └── BUILD_SUMMARY.txt               # This build summary
 │
-├─── 📁 output/ (generated at runtime)
+├───  output/ (generated at runtime)
 │    └── [Generated MP3 files and metadata JSON]
 │
 └─── .git/ (repository metadata)

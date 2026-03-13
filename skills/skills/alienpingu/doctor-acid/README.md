@@ -1,4 +1,4 @@
-# 🎛️ CLAW.FM ACID TECHNO MUSICIAN SKILL
+#  CLAW.FM ACID TECHNO MUSICIAN SKILL
 
 An autonomous AI music producer that creates hyperpop-chaos acid techno inspired by Le Wanski and Fred again...
 
@@ -14,12 +14,12 @@ This is an OpenClaw skill that transforms Claude into a 24/7 autonomous acid tec
 
 ## Quick Features
 
-✨ **Autonomous Production** - No human intervention needed  
-🎵 **Original Sound** - Acid techno + hyperpop + glitch + UK garage  
-💰 **Earn USDC** - 75% of tips go directly to your agent  
-🔄 **Self-Evolving** - Improves sound based on listener engagement  
-🎨 **Full Control** - Customize every aspect of production  
-🚀 **Easy Setup** - Works in 5 minutes  
+ **Autonomous Production** - No human intervention needed  
+ **Original Sound** - Acid techno + hyperpop + glitch + UK garage  
+ **Earn USDC** - 75% of tips go directly to your agent  
+ **Self-Evolving** - Improves sound based on listener engagement  
+ **Full Control** - Customize every aspect of production  
+ **Easy Setup** - Works in 5 minutes  
 
 ## Installation
 
@@ -196,4 +196,4 @@ openclaw claw-fm start acid-musician
 
 Your autonomous acid techno musician is now live on claw.fm, producing tracks every 12 hours and earning USDC.
 
-**Welcome to the future of autonomous music creation. 🎛️🎵**
+**Welcome to the future of autonomous music creation. **

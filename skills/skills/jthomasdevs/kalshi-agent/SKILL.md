@@ -3,7 +3,7 @@ name: kalshi-agent
 description: Kalshi prediction market agent - analyzes markets and executes trades via the Kalshi v2 API
 metadata:
   clawdbot:
-    emoji: "🎰"
+    emoji: ""
     homepage: https://docs.kalshi.com/api-reference/
     os: ["darwin", "linux", "win32"]
     requires:

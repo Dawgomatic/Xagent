@@ -6,7 +6,7 @@
 
 ---
 
-## 🛡️ 현재 Prompt Guard의 보안 규모
+##  현재 Prompt Guard의 보안 규모
 
 | 지표 | 수치 | 의미 |
 |------|------|------|
@@ -20,14 +20,14 @@
 
 ---
 
-## ⚡ v3.1.0의 핵심: 왜 토큰 최적화인가?
+##  v3.1.0의 핵심: 왜 토큰 최적화인가?
 
 ### 문제 인식
 
 AI 에이전트의 컨텍스트 윈도우는 유한합니다. SKILL.md가 크면:
-- 🔴 대화 길이 제한 (컨텍스트 소진)
-- 🔴 응답 지연 (토큰 처리 시간)
-- 🔴 비용 증가 (토큰당 과금)
+-  대화 길이 제한 (컨텍스트 소진)
+-  응답 지연 (토큰 처리 시간)
+-  비용 증가 (토큰당 과금)
 
 기존 Prompt Guard는 744줄의 SKILL.md로 **매 세션 ~5-6k 토큰**을 소비했습니다.
 
@@ -43,7 +43,7 @@ AI 에이전트의 컨텍스트 윈도우는 유한합니다. SKILL.md가 크면
 
 ---
 
-## 🆕 v3.1.0 새 기능 상세
+##  v3.1.0 새 기능 상세
 
 ### 1. 티어드 패턴 로딩 (Tiered Pattern Loading)
 
@@ -71,7 +71,7 @@ AI 에이전트의 컨텍스트 윈도우는 유한합니다. SKILL.md가 크면
 |------|-----|
 | 캐시 크기 | LRU 1,000개 |
 | 해시 알고리즘 | SHA-256 |
-| 스레드 안전 | ✅ |
+| 스레드 안전 |  |
 
 **보안 유지 원리:**
 - 메시지 원문 저장 안 함 (해시만)
@@ -93,7 +93,7 @@ patterns/
 
 ---
 
-## 📊 실제 절감 효과
+##  실제 절감 효과
 
 ### 일반 대화 (대부분의 경우)
 ```
@@ -117,9 +117,9 @@ Tier 확장 → 전체 550+ 패턴 로드
 
 ---
 
-## 📜 최근 10개 릴리즈 히스토리
+##  최근 10개 릴리즈 히스토리
 
-### v3.1.0 (2026-02-09) — 이번 릴리즈 ⭐
+### v3.1.0 (2026-02-09) — 이번 릴리즈 
 토큰 최적화: 티어드 로딩, 해시 캐시, SKILL.md 경량화
 
 ### v3.0.1 (2026-02-08)
@@ -151,7 +151,7 @@ HiveFence Scout: Allowlist 우회, Hooks 하이재킹, 서브에이전트 악용
 
 ---
 
-## 🔢 버전별 성장 추이
+##  버전별 성장 추이
 
 | 버전 | 패턴 수 | 주요 추가 |
 |------|---------|----------|
@@ -166,7 +166,7 @@ HiveFence Scout: Allowlist 우회, Hooks 하이재킹, 서브에이전트 악용
 
 ---
 
-## 🚀 시작하기
+##  시작하기
 
 ### 설치
 ```bash
@@ -183,7 +183,7 @@ guard = PromptGuard()
 result = guard.analyze("user message")
 
 if result.action == "block":
-    return "🚫 차단됨"
+    return " 차단됨"
 ```
 
 ### 설정 (선택)
@@ -197,17 +197,17 @@ prompt_guard:
 
 ---
 
-## 🏗️ 프로젝트 구조
+##  프로젝트 구조
 
 ```
 prompt-guard/
 │
-├── 📦 prompt_guard/              # 핵심 Python 패키지
+├──  prompt_guard/              # 핵심 Python 패키지
 │   ├── __init__.py               # 모듈 export
 │   ├── engine.py                 # PromptGuard 메인 클래스
 │   ├── patterns.py               # 550+ 정규식 패턴 정의
-│   ├── pattern_loader.py         # 🆕 티어드 로딩 시스템
-│   ├── cache.py                  # 🆕 LRU 해시 캐시
+│   ├── pattern_loader.py         #  티어드 로딩 시스템
+│   ├── cache.py                  #  LRU 해시 캐시
 │   ├── scanner.py                # 패턴 매칭 엔진
 │   ├── normalizer.py             # 텍스트 정규화 (호모글리프 등)
 │   ├── decoder.py                # 인코딩 탐지/디코드
@@ -217,18 +217,18 @@ prompt-guard/
 │   ├── logging_utils.py          # SIEM 호환 JSON 로깅
 │   └── cli.py                    # CLI 진입점
 │
-├── 📁 patterns/                  # 🆕 외부 패턴 파일 (YAML)
+├──  patterns/                  #  외부 패턴 파일 (YAML)
 │   ├── critical.yaml             # Tier 0: ~30개 (항상 로드)
 │   ├── high.yaml                 # Tier 1: ~70개 (기본 로드)
 │   └── medium.yaml               # Tier 2: ~100개 (동적 확장)
 │
-├── 🧪 tests/                     # 테스트 스위트
+├──  tests/                     # 테스트 스위트
 │   └── test_detect.py            # 115개 회귀 테스트
 │
-├── 📄 SKILL.md                   # 스킬 정의 (경량화됨: 261줄)
-├── 📄 CHANGELOG.md               # 전체 버전 히스토리
-├── 📄 RELEASE-v3.1.0.md          # 이 문서
-└── 📄 LICENSE                    # MIT 라이센스
+├──  SKILL.md                   # 스킬 정의 (경량화됨: 261줄)
+├──  CHANGELOG.md               # 전체 버전 히스토리
+├──  RELEASE-v3.1.0.md          # 이 문서
+└──  LICENSE                    # MIT 라이센스
 ```
 
 ### 모듈별 역할
@@ -279,7 +279,7 @@ prompt-guard/
 
 ---
 
-## 📜 MIT 라이센스 — 왜 오픈소스인가?
+##  MIT 라이센스 — 왜 오픈소스인가?
 
 ### MIT 라이센스란?
 
@@ -301,11 +301,11 @@ copies of the Software...
 
 | 권리 | 설명 |
 |------|------|
-| ✅ **상업적 사용** | 회사 제품에 통합 가능 |
-| ✅ **수정** | 코드를 자유롭게 수정 |
-| ✅ **배포** | 수정본 재배포 가능 |
-| ✅ **사적 사용** | 개인 프로젝트에 사용 |
-| ✅ **서브라이센스** | 다른 라이센스로 재배포 가능 |
+|  **상업적 사용** | 회사 제품에 통합 가능 |
+|  **수정** | 코드를 자유롭게 수정 |
+|  **배포** | 수정본 재배포 가능 |
+|  **사적 사용** | 개인 프로젝트에 사용 |
+|  **서브라이센스** | 다른 라이센스로 재배포 가능 |
 
 ### 유일한 조건
 
@@ -331,7 +331,7 @@ copies of the Software...
 
 ---
 
-## 📎 링크
+##  링크
 
 - **GitHub:** [seojoonkim/prompt-guard](https://github.com/seojoonkim/prompt-guard)
 - **ClawdHub:** [clawdhub.com/skills/prompt-guard](https://clawdhub.com/skills/prompt-guard)

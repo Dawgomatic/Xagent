@@ -24,7 +24,7 @@ def send_to_whatsapp(message: str, group_name: str | None = None):
     if not group_name:
         group_name = os.environ.get('FINANCE_NEWS_TARGET', '')
     if not group_name:
-        print("❌ No target specified. Set FINANCE_NEWS_TARGET env var or use --group", file=sys.stderr)
+        print(" No target specified. Set FINANCE_NEWS_TARGET env var or use --group", file=sys.stderr)
         return False
     # Use openclaw message tool
     try:
@@ -41,14 +41,14 @@ def send_to_whatsapp(message: str, group_name: str | None = None):
         )
         
         if result.returncode == 0:
-            print(f"✅ Sent to WhatsApp group: {group_name}", file=sys.stderr)
+            print(f" Sent to WhatsApp group: {group_name}", file=sys.stderr)
             return True
         else:
-            print(f"⚠️ WhatsApp send failed: {result.stderr}", file=sys.stderr)
+            print(f" WhatsApp send failed: {result.stderr}", file=sys.stderr)
             return False
     
     except Exception as e:
-        print(f"❌ WhatsApp error: {e}", file=sys.stderr)
+        print(f" WhatsApp error: {e}", file=sys.stderr)
         return False
 
 
@@ -86,7 +86,7 @@ def generate_and_send(args):
     # Always use JSON for internal processing to handle splits
     cmd.append('--json')
     
-    print(f"📊 Generating {briefing_time} briefing...", file=sys.stderr)
+    print(f" Generating {briefing_time} briefing...", file=sys.stderr)
     
     timeout = args.deadline if args.deadline is not None else 300
     timeout = max(1, int(timeout))
@@ -101,14 +101,14 @@ def generate_and_send(args):
     )
     
     if result.returncode != 0:
-        print(f"❌ Briefing generation failed: {result.stderr}", file=sys.stderr)
+        print(f" Briefing generation failed: {result.stderr}", file=sys.stderr)
         sys.exit(1)
     
     try:
         data = json.loads(result.stdout.strip())
     except json.JSONDecodeError:
         # Fallback if not JSON (shouldn't happen with --json)
-        print(f"⚠️ Failed to parse briefing JSON", file=sys.stderr)
+        print(f" Failed to parse briefing JSON", file=sys.stderr)
         print(result.stdout)
         return result.stdout
 

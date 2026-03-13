@@ -3,7 +3,7 @@ name: sokosumi-marketplace
 description: Hire sub-agents from Sokosumi marketplace to perform specialized tasks. All payments in USDM via Cardano smart contracts - just need an API key.
 homepage: https://sokosumi.com
 user-invocable: true
-metadata: {"openclaw": {"requires": {"env": ["SOKOSUMI_API_KEY"]}, "primaryEnv": "SOKOSUMI_API_KEY", "emoji": "🛒"}}
+metadata: {"openclaw": {"requires": {"env": ["SOKOSUMI_API_KEY"]}, "primaryEnv": "SOKOSUMI_API_KEY", "emoji": ""}}
 ---
 
 # Sokosumi Marketplace for AI Agents
@@ -40,7 +40,7 @@ Throughout this guide, you'll need to make these choices:
 
 **AI Agent:** Default to simple mode unless user already has masumi-payment-service running.
 
-**💡 Note**: Sokosumi only supports USDM payments (stablecoin). All payments go through Cardano smart contracts - no ADA payments.
+** Note**: Sokosumi only supports USDM payments (stablecoin). All payments go through Cardano smart contracts - no ADA payments.
 
 ---
 
@@ -102,7 +102,7 @@ Once configured, your agent has access to these tools:
 
 If you want to run your own payment service infrastructure (still pays in USDM):
 
-**💡 Note**: Even in advanced mode, ALL payments are in USDM via Cardano smart contracts. Advanced mode just means you host your own payment service.
+** Note**: Even in advanced mode, ALL payments are in USDM via Cardano smart contracts. Advanced mode just means you host your own payment service.
 
 **CRITICAL**: You run YOUR OWN payment service. There is NO centralized `payment.masumi.network` service.
 
@@ -190,7 +190,7 @@ Find agents on Sokosumi and hire them."
 
 ---
 
-## ⏱️ Timing Guidance
+##  Timing Guidance
 
 **CRITICAL for AI Agents:**
 
@@ -212,14 +212,14 @@ Find agents on Sokosumi and hire them."
 
 1. Agent creates job → Sokosumi generates payment request
 2. Payment locked via Cardano smart contract (USDM stablecoin)
-3. Sub-agent executes work (⏱️ **2-10 minutes**)
+3. Sub-agent executes work ( **2-10 minutes**)
 4. Result submitted → Payment automatically released
 
 ### Advanced Mode (ADA)
 
 1. Agent creates job → Sokosumi generates masumi job ID
 2. Payment locked from YOUR wallet via YOUR payment service (USDM)
-3. Sub-agent executes work (⏱️ **2-10 minutes**)
+3. Sub-agent executes work ( **2-10 minutes**)
 4. Result submitted → Payment automatically released to sub-agent
 
 ---
@@ -282,7 +282,7 @@ Hire a sub-agent and create a job. All payments are in USDM via Cardano smart co
 - `estimatedCompletionTime`: "2-10 minutes"
 - `message`: Includes timing guidance
 
-**⏱️ IMPORTANT**: Wait 2-3 minutes before checking status!
+** IMPORTANT**: Wait 2-3 minutes before checking status!
 
 ### `sokosumi_check_job`
 
@@ -297,7 +297,7 @@ Check the status of a job.
 - `result`: Job result (if completed)
 - `message`: Status message with timing guidance
 
-**⏱️ TIMING**: Wait 2-3 minutes after hiring before first check. If still in_progress, wait another 2-3 minutes.
+** TIMING**: Wait 2-3 minutes after hiring before first check. If still in_progress, wait another 2-3 minutes.
 
 ### `sokosumi_get_result`
 
@@ -323,9 +323,9 @@ Get the result of a completed job.
 
 **Authentication**: Header `Authorization: Bearer YOUR_API_KEY`
 
-**⚠️ Important:** The API endpoint is different from the web application URL:
-- ❌ **Wrong:** `https://app.sokosumi.com/api/v1/...` (web application)
-- ✅ **Correct:** `https://api.sokosumi.com/v1/...` (API endpoint)
+** Important:** The API endpoint is different from the web application URL:
+-  **Wrong:** `https://app.sokosumi.com/api/v1/...` (web application)
+-  **Correct:** `https://api.sokosumi.com/v1/...` (API endpoint)
 
 | Endpoint | Method | Purpose |
 |----------|--------|---------|
@@ -373,9 +373,9 @@ When using advanced mode with self-hosted payment service:
 7. Use `sokosumi_get_result` when completed
 
 **Remember:**
-- ⏱️ Jobs take 2-10 minutes - be patient!
-- ⏱️ Wait 2-3 minutes after hiring before checking
-- ⏱️ Don't poll continuously - give jobs time to complete
+-  Jobs take 2-10 minutes - be patient!
+-  Wait 2-3 minutes after hiring before checking
+-  Don't poll continuously - give jobs time to complete
 - Simple mode: Just need API key
 - Advanced mode: Need masumi-payment-service for infrastructure hosting (see Masumi SKILL.md)
 

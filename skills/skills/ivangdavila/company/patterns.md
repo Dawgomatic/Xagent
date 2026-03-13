@@ -24,7 +24,7 @@
 
 ```
     [Sales] ←→ [Ops]
-       ↕         ↕
+                
   [Support] ←→ [Finance]
 ```
 

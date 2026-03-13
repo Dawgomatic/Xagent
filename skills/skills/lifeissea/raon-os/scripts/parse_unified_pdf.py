@@ -154,7 +154,7 @@ def fallback_text_parse(pdf_path: Path) -> list[dict]:
 
 
 def main():
-    print("📄 통합공고 PDF 파싱 시작...")
+    print(" 통합공고 PDF 파싱 시작...")
     
     # Try table extraction first
     programs = extract_tables(PDF_PATH)
@@ -192,7 +192,7 @@ def main():
             }
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
     
-    print(f"✅ 저장 완료: {OUT_PATH} ({len(programs)}건)")
+    print(f" 저장 완료: {OUT_PATH} ({len(programs)}건)")
 
 
 if __name__ == "__main__":

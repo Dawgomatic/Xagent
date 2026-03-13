@@ -3,7 +3,7 @@ name: web-multi-search
 description: Search the web using multiple search engines simultaneously (Bing, Yahoo, Startpage, Aol, Ask) via async-search-scraper, iterating through result pages.
 metadata:
   clawdis:
-    emoji: "🔍"
+    emoji: ""
     primaryEnv: python
     requires:
       bins:

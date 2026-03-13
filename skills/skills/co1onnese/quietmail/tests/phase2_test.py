@@ -21,11 +21,11 @@ def test(name, func):
     print('='*70)
     try:
         func()
-        print(f"✅ {name} PASSED")
+        print(f" {name} PASSED")
     except AssertionError as e:
-        print(f"❌ {name} FAILED: {e}")
+        print(f" {name} FAILED: {e}")
     except Exception as e:
-        print(f"⚠️  {name} ERROR: {e}")
+        print(f"  {name} ERROR: {e}")
 
 
 def get_api_key(agent_id):

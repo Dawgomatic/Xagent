@@ -12,7 +12,7 @@ description: >
   needed).
 metadata:
   openclaw:
-    emoji: "🧠"
+    emoji: ""
     required_env: []  # Nothing is strictly required - self-hosted mode works without API key
     optional_env:
       - name: HONCHO_API_KEY
@@ -58,7 +58,7 @@ metadata:
 
 Install the Honcho plugin and migrate legacy workspace memory files to Honcho.
 
-> ⚠️ **DATA UPLOAD WARNING**: This skill uploads the contents of your workspace memory files (USER.md, MEMORY.md, IDENTITY.md, memory/, canvas/, SOUL.md, AGENTS.md, BOOTSTRAP.md, TOOLS.md, HEARTBEAT.md) to an external API. By default, data is sent to `api.honcho.dev` (managed Honcho cloud service). For self-hosted instances, data is sent to your configured `HONCHO_BASE_URL`. You will be asked for explicit confirmation before any upload occurs, and you will see exactly which files will be uploaded and where they will be sent.
+>  **DATA UPLOAD WARNING**: This skill uploads the contents of your workspace memory files (USER.md, MEMORY.md, IDENTITY.md, memory/, canvas/, SOUL.md, AGENTS.md, BOOTSTRAP.md, TOOLS.md, HEARTBEAT.md) to an external API. By default, data is sent to `api.honcho.dev` (managed Honcho cloud service). For self-hosted instances, data is sent to your configured `HONCHO_BASE_URL`. You will be asked for explicit confirmation before any upload occurs, and you will see exactly which files will be uploaded and where they will be sent.
 
 > **This skill modifies workspace files.** It will ask for confirmation before archiving or deleting any files. If the Honcho upload fails or is skipped, no files are moved or removed. All files are backed up to `{workspace_root}/archive/` before any deletion.
 

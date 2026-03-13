@@ -1,7 +1,7 @@
 ---
 name: naver-stock
 description: Fetch text-based real-time stock prices (KRX, Overseas) using Naver Finance.
-metadata: {"clawdbot":{"emoji":"📈","os":["mac","linux","windows"],"requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","os":["mac","linux","windows"],"requires":{"bins":["node"]}}}
 ---
 
 # Naver Stock

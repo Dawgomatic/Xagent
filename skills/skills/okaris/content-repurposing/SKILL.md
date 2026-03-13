@@ -75,7 +75,7 @@ infsh app run falai/flux-dev-lora --input '{
 
 # Post the thread
 infsh app run x/post-create --input '{
-  "text": "I analyzed 500 landing pages.\n\nHere are 7 patterns the top converters all share:\n\n🧵 Thread:"
+  "text": "I analyzed 500 landing pages.\n\nHere are 7 patterns the top converters all share:\n\n Thread:"
 }'
 ```
 

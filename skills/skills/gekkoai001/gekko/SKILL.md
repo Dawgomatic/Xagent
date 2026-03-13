@@ -2,7 +2,7 @@
 name: gekko-portfolio-manager
 description: AI-powered DeFi portfolio manager for Base network. Analyze yield opportunities, manage portfolio allocations, and provide market intelligence across DeFi protocols. Real-time vault APY analysis from Morpho and Yearn.
 version: 1.0.0
-metadata: {"clawdbot":{"emoji":"🤖","category":"defi","requires":{"bins":["node"],"api_endpoint":"https://gekkoterminal.ai/api/a2a?agent=gekko"}}}
+metadata: {"clawdbot":{"emoji":"","category":"defi","requires":{"bins":["node"],"api_endpoint":"https://gekkoterminal.ai/api/a2a?agent=gekko"}}}
 ---
 
 # Gekko — Portfolio Manager

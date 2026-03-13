@@ -6,7 +6,7 @@ metadata:
   {
     "clawdbot":
       {
-        "emoji": "🎨",
+        "emoji": "",
         "requires": { "bins": ["python3"], "env": ["VENICE_API_KEY"] },
         "primaryEnv": "VENICE_API_KEY",
         "notes": "Requires Python 3.10+",

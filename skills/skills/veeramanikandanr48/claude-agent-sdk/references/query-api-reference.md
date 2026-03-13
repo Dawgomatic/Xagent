@@ -360,7 +360,7 @@ await forkSession(session, "Try GraphQL instead");
 
 ## Best Practices
 
-### ✅ Do
+###  Do
 
 - Set specific `allowedTools` for security
 - Use `canUseTool` for fine-grained control
@@ -370,7 +370,7 @@ await forkSession(session, "Try GraphQL instead");
 - Test MCP servers independently
 - Monitor tool execution with `tool_call` messages
 
-### ❌ Don't
+###  Don't
 
 - Use `bypassPermissions` in production (unless sandboxed)
 - Ignore error messages

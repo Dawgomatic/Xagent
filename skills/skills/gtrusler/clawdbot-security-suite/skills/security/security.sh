@@ -28,16 +28,16 @@ log_event() {
     
     case "$level" in
         "THREAT")
-            echo -e "${RED}❌ THREAT DETECTED:${NC} $message"
+            echo -e "${RED} THREAT DETECTED:${NC} $message"
             ;;
         "SAFE")
-            echo -e "${GREEN}✅ SAFE:${NC} $message"
+            echo -e "${GREEN} SAFE:${NC} $message"
             ;;
         "WARNING")
-            echo -e "${YELLOW}⚠️ WARNING:${NC} $message"
+            echo -e "${YELLOW} WARNING:${NC} $message"
             ;;
         "INFO")
-            echo -e "${BLUE}ℹ️ INFO:${NC} $message"
+            echo -e "${BLUE} INFO:${NC} $message"
             ;;
     esac
 }

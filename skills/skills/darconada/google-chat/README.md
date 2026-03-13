@@ -4,11 +4,11 @@ Send messages to Google Chat spaces and users via webhooks or OAuth 2.0.
 
 ## Features
 
-✅ **Webhook support** - Send to predefined channels (messages appear as configured bot)  
-✅ **OAuth support** - Send to any space dynamically (messages appear from your Google Chat App)  
-✅ **Space discovery** - List all available spaces and DMs  
-✅ **Automatic emoji prefix** - OAuth messages include 🤖 emoji (configurable)  
-✅ **Message threading** - Support for threaded conversations
+ **Webhook support** - Send to predefined channels (messages appear as configured bot)  
+ **OAuth support** - Send to any space dynamically (messages appear from your Google Chat App)  
+ **Space discovery** - List all available spaces and DMs  
+ **Automatic emoji prefix** - OAuth messages include  emoji (configurable)  
+ **Message threading** - Support for threaded conversations
 
 ## Quick Start
 

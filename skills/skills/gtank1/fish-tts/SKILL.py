@@ -69,19 +69,19 @@ def generate_audio(tts_url: str, text: str, voice: str, output_path: str) -> dic
         if response.status_code == 200:
             with open(output_path, 'wb') as f:
                 f.write(response.content)
-                print(f"✅ Audio saved to {output_path}")
+                print(f" Audio saved to {output_path}")
                 return {"success": True, "audio_file": output_path, "duration": duration}
         else:
-            print(f"❌ Failed to generate audio")
+            print(f" Failed to generate audio")
             print(f"Status: {response.status_code}")
             print(f"Response: {response.text[:200]}")
             return {"success": False, "error": f"Error generating audio"}
             
     except requests.exceptions.RequestException as e:
-        print(f"❌ Request failed: {e}")
+        print(f" Request failed: {e}")
         return {"success": False, "error": f"Connection error"}
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
+        print(f" Unexpected error: {e}")
         return {"success": False, "error": f"Unexpected error"}
 
 def upload_to_nextcloud(audio_file_path: str, filename: str) -> dict:
@@ -99,18 +99,18 @@ def upload_to_nextcloud(audio_file_path: str, filename: str) -> dict:
             )
             
             if response.status_code in [200, 201, 204]:
-                print(f"✅ Uploaded to NextCloud")
+                print(f" Uploaded to NextCloud")
                 return {"success": True, "nextcloud_path": f"/remote.php/webdav/Openclaw/{filename}"}
             else:
-                print(f"❌ Upload failed: {response.status_code}")
+                print(f" Upload failed: {response.status_code}")
                 print(f"Response: {response.text[:200]}")
                 return {"success": False, "error": f"Upload error"}
             
     except requests.exceptions.RequestException as e:
-        print(f"❌ Upload failed: {e}")
+        print(f" Upload failed: {e}")
         return {"success": False, "error": f"Connection error"}
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
+        print(f" Unexpected error: {e}")
         return {"success": False, "error": f"Unexpected error"}
 
 def generate_and_upload(text: str, voice: Optional[str] = None, output_filename: Optional[str] = None) -> dict:
@@ -180,7 +180,7 @@ def main():
     
     elif args.command == 'upload':
         if not args.file:
-            print("❌ Error: --file argument is required for upload command")
+            print(" Error: --file argument is required for upload command")
             print("Usage: upload --file /path/to/audio.mp3")
             sys.exit(1)
         
@@ -222,7 +222,7 @@ def main():
         print(json.dumps(results, indent=2))
     
     else:
-        print("❌ Error: Unknown command")
+        print(" Error: Unknown command")
         parser.print_help()
         sys.exit(1)
 

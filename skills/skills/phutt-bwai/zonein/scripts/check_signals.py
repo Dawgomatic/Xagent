@@ -38,7 +38,7 @@ def format_pm_signal(s: dict) -> str:
     """Format a prediction market signal for display."""
     consensus_pct = round(s.get("consensus", 0) * 100)
     return (
-        f"  🔮 {s.get('title', s.get('market_slug', ''))[:60]}\n"
+        f"   {s.get('title', s.get('market_slug', ''))[:60]}\n"
         f"     Direction: {s.get('direction')} | Consensus: {consensus_pct}% | "
         f"Wallets: {s.get('total_wallets')} (YES:{s.get('yes_wallets')} NO:{s.get('no_wallets')})\n"
         f"     Price: YES {s.get('cur_yes_price', 0):.2f} / NO {s.get('cur_no_price', 0):.2f} | "
@@ -50,7 +50,7 @@ def format_perp_signal(s: dict) -> str:
     """Format a perp signal for display."""
     consensus_pct = round(s.get("consensus", 0) * 100)
     return (
-        f"  📊 ${s.get('coin', '')}\n"
+        f"   ${s.get('coin', '')}\n"
         f"     Direction: {s.get('direction')} | Consensus: {consensus_pct}% | "
         f"Wallets: {s.get('total_wallets')} (L:{s.get('long_wallets')} S:{s.get('short_wallets')})\n"
         f"     Long $: ${s.get('long_value', 0):,.0f} | Short $: ${s.get('short_value', 0):,.0f} | "

@@ -52,11 +52,11 @@ class AlertDispatcher:
     """Dispatches alerts to configured channels."""
     
     SEVERITY_ICONS = {
-        "info": "🔵",
-        "low": "🟢",
-        "medium": "🟡",
-        "high": "🟠",
-        "critical": "🔴"
+        "info": "",
+        "low": "",
+        "medium": "",
+        "high": "",
+        "critical": ""
     }
     
     def __init__(self, config: Dict = None):
@@ -136,7 +136,7 @@ class AlertDispatcher:
     
     def format_alert(self, alert: Alert, format_type: str = "text") -> str:
         """Format alert for display."""
-        icon = self.SEVERITY_ICONS.get(alert.severity, "⚪")
+        icon = self.SEVERITY_ICONS.get(alert.severity, "")
         
         if format_type == "text":
             return f"""
@@ -396,7 +396,7 @@ def main():
     elif args.command == "list":
         alerts = dispatcher.get_alerts(args.date, limit=args.limit)
         for alert in alerts:
-            icon = AlertDispatcher.SEVERITY_ICONS.get(alert.get("severity"), "⚪")
+            icon = AlertDispatcher.SEVERITY_ICONS.get(alert.get("severity"), "")
             ack = "✓" if alert.get("acknowledged") else "○"
             print(f"{ack} {icon} [{alert.get('id')}] {alert.get('title')}")
         print(f"\nTotal: {len(alerts)} alerts")
@@ -415,7 +415,7 @@ def main():
         counts = dispatcher.get_unacknowledged_count()
         print("Unacknowledged alerts (last 7 days):")
         for severity, count in counts.items():
-            icon = AlertDispatcher.SEVERITY_ICONS.get(severity, "⚪")
+            icon = AlertDispatcher.SEVERITY_ICONS.get(severity, "")
             print(f"  {icon} {severity.upper()}: {count}")
 
 

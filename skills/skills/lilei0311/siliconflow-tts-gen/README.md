@@ -4,11 +4,11 @@ Text-to-Speech using SiliconFlow API with CosyVoice2 model.
 
 ## Features
 
-- 🎙️ **8 Preset Voices**: 4 male + 4 female voices
-- 🌍 **Multilingual**: Chinese, English, Japanese, Korean
-- 🗣️ **Chinese Dialects**: Cantonese, Sichuan, Shanghai, Tianjin, Wuhan
-- ⚡ **Ultra Low Latency**: 150ms first packet delay
-- 🎵 **Voice Cloning**: 3-second rapid voice cloning
+-  **8 Preset Voices**: 4 male + 4 female voices
+-  **Multilingual**: Chinese, English, Japanese, Korean
+-  **Chinese Dialects**: Cantonese, Sichuan, Shanghai, Tianjin, Wuhan
+-  **Ultra Low Latency**: 150ms first packet delay
+-  **Voice Cloning**: 3-second rapid voice cloning
 
 ## Quick Start
 

@@ -11,7 +11,7 @@ function loadConfig(configPath) {
   const fullPath = path.resolve(configPath);
   
   if (!fs.existsSync(fullPath)) {
-    console.error(`❌ Config file not found: ${fullPath}`);
+    console.error(` Config file not found: ${fullPath}`);
     process.exit(1);
   }
 
@@ -19,17 +19,17 @@ function loadConfig(configPath) {
 }
 
 async function escalate(config, channel, user, message, reason) {
-  console.log(`\n🚨 Escalation Alert - ${config.name}`);
+  console.log(`\n Escalation Alert - ${config.name}`);
   console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-  console.log(`📨 From: ${user} (${channel})`);
-  console.log(`💬 Message: "${message}"`);
-  console.log(`⚠️  Reason: ${reason}\n`);
+  console.log(` From: ${user} (${channel})`);
+  console.log(` Message: "${message}"`);
+  console.log(`  Reason: ${reason}\n`);
 
   const escalationTarget = config.escalationTarget;
   
   // 알림 메시지 생성
   const alertMessage = `
-🚨 **CS 에스컬레이션** - ${config.name}
+ **CS 에스컬레이션** - ${config.name}
 
 **채널**: ${channel}
 **고객**: ${user}
@@ -38,12 +38,12 @@ async function escalate(config, channel, user, message, reason) {
 **사유**: ${reason}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💡 고객에게 답변 후 로그를 확인하세요.
+ 고객에게 답변 후 로그를 확인하세요.
   `.trim();
 
   if (escalationTarget.type === 'discord') {
     // Discord 알림 (OpenClaw message tool 사용)
-    console.log(`📤 [MOCK] Sending Discord alert to channel ${escalationTarget.channelId}`);
+    console.log(` [MOCK] Sending Discord alert to channel ${escalationTarget.channelId}`);
     console.log(`   Mention: ${escalationTarget.mention || 'none'}`);
     console.log(`\n${alertMessage}\n`);
 
@@ -55,15 +55,15 @@ async function escalate(config, channel, user, message, reason) {
     // await exec(`openclaw message send --channel ${escalationTarget.channelId} --message "${fullMessage}"`);
     
   } else if (escalationTarget.type === 'kakao') {
-    console.log(`📤 [MOCK] Sending Kakao alert to ${escalationTarget.phoneNumber}`);
+    console.log(` [MOCK] Sending Kakao alert to ${escalationTarget.phoneNumber}`);
     console.log(`\n${alertMessage}\n`);
 
     // Production: Kakao 알림톡 전송
   } else {
-    console.error(`❌ Unknown escalation type: ${escalationTarget.type}`);
+    console.error(` Unknown escalation type: ${escalationTarget.type}`);
   }
 
-  console.log(`✅ Escalation notification sent`);
+  console.log(` Escalation notification sent`);
   console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`);
 }
 
@@ -102,13 +102,13 @@ Example:
   const reason = args.slice(reasonIndex + 1).join(' ');
 
   if (!configPath || !channel || !user || !message || !reason) {
-    console.error('❌ Missing required arguments. Use --help for usage.');
+    console.error(' Missing required arguments. Use --help for usage.');
     process.exit(1);
   }
 
   const config = loadConfig(configPath);
   escalate(config, channel, user, message, reason).catch(err => {
-    console.error('❌ Error:', err);
+    console.error(' Error:', err);
     process.exit(1);
   });
 }

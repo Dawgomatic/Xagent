@@ -44,7 +44,7 @@ Add this to your `openclaw.json` → `agents.list`:
   },
   "identity": {
     "name": "Treasury",
-    "emoji": "💰"
+    "emoji": ""
   }
 }
 ```
@@ -119,13 +119,13 @@ openclaw run --agent treasury "Purchase 1 lead for $1 from LeadGen Pro"
 
 ---
 
-## 🎉 Done!
+##  Done!
 
 Your Treasury agent is ready. It will:
-- ✅ Enforce spending limits ($10/tx, $50/day)
-- ✅ Only transact with whitelisted providers
-- ✅ Log every transaction
-- ✅ Alert you on low balance
+-  Enforce spending limits ($10/tx, $50/day)
+-  Only transact with whitelisted providers
+-  Log every transaction
+-  Alert you on low balance
 
 ---
 

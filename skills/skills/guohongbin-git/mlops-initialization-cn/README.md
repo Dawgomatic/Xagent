@@ -4,10 +4,10 @@ Modern Python project setup using `uv` package manager.
 
 ## Features
 
-- 📦 **Project Initialization** - Create complete project structure
-- 📋 **Configuration Templates** - pyproject.toml, VS Code settings
-- 🔧 **Git Setup** - .gitignore, initial commit
-- ✅ **Validation** - Ensure environment correctness
+-  **Project Initialization** - Create complete project structure
+-  **Configuration Templates** - pyproject.toml, VS Code settings
+-  **Git Setup** - .gitignore, initial commit
+-  **Validation** - Ensure environment correctness
 
 ## Quick Start
 

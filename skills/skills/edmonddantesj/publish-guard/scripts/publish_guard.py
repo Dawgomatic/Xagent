@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-/* 🌌 Aoineco-Verified | Multi-Agent Collective Proprietary Skill */
+/*  Aoineco-Verified | Multi-Agent Collective Proprietary Skill */
 S-DNA: AOI-2026-0213-SDNA-PG01
 
 PublishGuard v1.0 — Post Verification & Platform Credential Manager
@@ -116,7 +116,7 @@ PLATFORM_REGISTRY = {
         content_type="application/json",
         verify_method="http_get",
         rate_limit_seconds=180,  # 3 minute rate limit!
-        notes="⚠️ title MUST contain Korean characters or post is rejected with 400. "
+        notes=" title MUST contain Korean characters or post is rejected with 400. "
               "3-minute rate limit between posts. Content in markdown.",
         quirks={
             "title_requires_korean": True,
@@ -136,7 +136,7 @@ PLATFORM_REGISTRY = {
         content_type="text/plain",
         verify_method="browser",
         rate_limit_seconds=60,
-        notes="⚠️ Moltbook has NO public API. Must use browser automation. "
+        notes=" Moltbook has NO public API. Must use browser automation. "
               "Login via wallet connect or email. Posts are profile-based.",
         quirks={
             "browser_only": True,
@@ -291,7 +291,7 @@ class PostVerifier:
                     if expected_content:
                         if expected_content.lower() in body_lower:
                             result.verified = True
-                            result.diagnosis = "✅ Post verified — content found on page."
+                            result.diagnosis = " Post verified — content found on page."
                         else:
                             result.diagnosis = (
                                 "Page exists but expected content not found. "
@@ -299,7 +299,7 @@ class PostVerifier:
                             )
                     else:
                         result.verified = True
-                        result.diagnosis = "✅ Page accessible (200 OK)."
+                        result.diagnosis = " Page accessible (200 OK)."
                 else:
                     result.diagnosis = f"Unexpected status code: {resp.status}"
                     
@@ -308,7 +308,7 @@ class PostVerifier:
             
             if e.code == 404:
                 result.diagnosis = (
-                    "🔴 404 Not Found — post does NOT exist. "
+                    " 404 Not Found — post does NOT exist. "
                     "The publish action likely failed silently."
                 )
                 result.retry_suggestion = (
@@ -377,7 +377,7 @@ class ContentValidator:
             has_korean = any('\uac00' <= c <= '\ud7af' for c in title)
             if not has_korean:
                 issues.append(
-                    "❌ BotMadang requires Korean characters in title! "
+                    " BotMadang requires Korean characters in title! "
                     "Add at least one Korean word or the API will return 400."
                 )
         
@@ -398,11 +398,11 @@ class ContentValidator:
         # Browser-only platform
         if quirks.get("browser_only"):
             issues.append(
-                f"⚠️ {config.name} requires browser automation. "
+                f" {config.name} requires browser automation. "
                 f"API calls will NOT work. Use browser tool instead."
             )
         
-        is_valid = len([i for i in issues if i.startswith("❌") or i.startswith("Missing")]) == 0
+        is_valid = len([i for i in issues if i.startswith("") or i.startswith("Missing")]) == 0
         return is_valid, issues
 
 
@@ -453,7 +453,7 @@ class PublishGuard:
             return f"Unknown platform '{platform}'. Available: {available}"
         
         creds = self.creds.get(platform)
-        has_creds = "✅ Credentials stored" if creds else "❌ No credentials — setup needed"
+        has_creds = " Credentials stored" if creds else " No credentials — setup needed"
         
         guide = f"""
 ## {config.name} — Publishing Guide
@@ -470,7 +470,7 @@ class PublishGuard:
 - Store token: `pg.creds.set("{platform}", "token", "your_token_here")`
 """
         elif config.auth_method == "browser_only":
-            guide += "- ⚠️ Browser-only platform. No API. Use browser automation.\n"
+            guide += "-  Browser-only platform. No API. Use browser automation.\n"
             guide += f"- Login method: {config.quirks.get('login_method', 'unknown')}\n"
         elif config.auth_method == "cli_token":
             guide += f"- CLI tool: `{config.quirks.get('cli_tool', '')}`\n"
@@ -483,7 +483,7 @@ class PublishGuard:
 - Content type: {config.content_type}
 - Endpoint: {config.post_endpoint or 'N/A (browser/CLI)'}
 
-### ⚠️ Known Gotchas
+###  Known Gotchas
 {config.notes}
 
 ### CRITICAL RULE
@@ -612,18 +612,18 @@ class PublishGuard:
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("🛡️  PublishGuard v1.0 — Post Verification Engine")
+    print("  PublishGuard v1.0 — Post Verification Engine")
     print("   Aoineco & Co. | Never Trust 'Posted Successfully' Again")
     print("=" * 60)
     
     pg = PublishGuard(audit_dir="/tmp/publish_guard_test")
     
     # 1. Get platform guide
-    print("\n📖 BotMadang Guide:")
+    print("\n BotMadang Guide:")
     print(pg.get_platform_guide("botmadang"))
     
     # 2. Validate content
-    print("\n\n📝 Validating content...")
+    print("\n\n Validating content...")
     
     # Bad content (no Korean in title)
     valid, issues = pg.validate_content("botmadang", {
@@ -644,7 +644,7 @@ if __name__ == "__main__":
         print(f"    → {issue}")
     
     # 3. Verify a known URL
-    print("\n\n🔍 Verifying URLs...")
+    print("\n\n Verifying URLs...")
     
     # Test with a real URL (ClawHub)
     result = pg.verify_post("https://clawhub.com", platform="clawhub")
@@ -660,7 +660,7 @@ if __name__ == "__main__":
     print(f"  Diagnosis: {result.diagnosis}")
     
     # 4. Check rate limits
-    print("\n\n⏱️ Rate Limits:")
+    print("\n\n Rate Limits:")
     print(json.dumps(pg.get_status()["rate_limits"], indent=2))
     
-    print("\n✅ PublishGuard test complete!")
+    print("\n PublishGuard test complete!")

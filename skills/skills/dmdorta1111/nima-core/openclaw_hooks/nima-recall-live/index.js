@@ -41,7 +41,7 @@ let lastConversationId = null; // Track conversation changes
 function resetSessionIfNeeded(conversationId) {
   if (conversationId && conversationId !== lastConversationId) {
     if (lastConversationId !== null) {
-      console.error(`[nima-recall-live] 🔄 New conversation detected, resetting session state`);
+      console.error(`[nima-recall-live]  New conversation detected, resetting session state`);
     }
     SESSION_MEMORY_IDS.clear();
     sessionTokensUsed = 0;
@@ -127,7 +127,7 @@ function extractUserMessage(prompt) {
     const line = lines[i].trim();
     if (!line) continue;
     if (line.includes("AFFECT STATE") || line.includes("[Dynamic affect")) continue;
-    if (line.startsWith("🎭")) continue;
+    if (line.startsWith("")) continue;
     if (line.length < 10) continue;
     if (line.startsWith("[message_id:")) continue;
     if (line.startsWith("<media:")) continue;
@@ -153,7 +153,7 @@ function extractUserMessage(prompt) {
  * Tier 3: Full decode (on demand only)
  */
 async function quickRecall(query) {
-  console.error(`[nima-recall-live] 🚀 LAZY RECALL with: "${query.substring(0,50)}"`);
+  console.error(`[nima-recall-live]  LAZY RECALL with: "${query.substring(0,50)}"`);
   
   // Try LadybugDB backend first (if enabled and available)
   if (USE_LADYBUG && existsSync(LADYBUG_DB)) {
@@ -167,7 +167,7 @@ async function quickRecall(query) {
         });
         
         if (result && result.trim() !== "[]") {
-          console.error(`[nima-recall-live] ✅ LadybugDB backend`);
+          console.error(`[nima-recall-live]  LadybugDB backend`);
           return JSON.parse(result.trim());
         }
       } catch (err) {
@@ -178,7 +178,7 @@ async function quickRecall(query) {
   
   // Fallback to SQLite backend
   if (!existsSync(GRAPH_DB)) {
-    console.error(`[nima-recall-live] ❌ Graph DB not found at ${GRAPH_DB}`);
+    console.error(`[nima-recall-live]  Graph DB not found at ${GRAPH_DB}`);
     return null;
   }
   
@@ -192,7 +192,7 @@ async function quickRecall(query) {
   const actualPath = existsSync(scriptPath) ? scriptPath : 
                      existsSync(fallbackPath) ? fallbackPath : legacyPath;
   if (!existsSync(actualPath)) {
-    console.error(`[nima-recall-live] ❌ No recall script found`);
+    console.error(`[nima-recall-live]  No recall script found`);
     return null;
   }
   
@@ -227,9 +227,9 @@ async function quickRecall(query) {
  * Kept for fallback if lazy_recall.py fails
  */
 async function quickRecallLegacy(query) {
-  console.error(`[nima-recall-live] 🚀 LEGACY quickRecall (slower) with: "${query.substring(0,50)}"`);
+  console.error(`[nima-recall-live]  LEGACY quickRecall (slower) with: "${query.substring(0,50)}"`);
   if (!existsSync(GRAPH_DB)) {
-    console.error(`[nima-recall-live] ❌ Graph DB not found at ${GRAPH_DB}`);
+    console.error(`[nima-recall-live]  Graph DB not found at ${GRAPH_DB}`);
     return null;
   }
   
@@ -392,7 +392,7 @@ function formatMemories(memories) {
   
   // Check token budget
   if (sessionTokensUsed >= SESSION_TOKEN_BUDGET) {
-    console.error(`[nima-recall-live] ⚠️ Session token budget exhausted (${sessionTokensUsed}/${SESSION_TOKEN_BUDGET})`);
+    console.error(`[nima-recall-live]  Session token budget exhausted (${sessionTokensUsed}/${SESSION_TOKEN_BUDGET})`);
     return "";
   }
   
@@ -407,14 +407,14 @@ function formatMemories(memories) {
   }
   
   if (newMemories.length === 0) {
-    console.error(`[nima-recall-live] 📋 All memories already injected (dedup)`);
+    console.error(`[nima-recall-live]  All memories already injected (dedup)`);
     return "";
   }
   
-  console.error(`[nima-recall-live] 📋 Injecting ${newMemories.length} new memories (${SESSION_MEMORY_IDS.size} total this session)`);
+  console.error(`[nima-recall-live]  Injecting ${newMemories.length} new memories (${SESSION_MEMORY_IDS.size} total this session)`);
   
   if (USE_COMPRESSED_FORMAT) {
-    // Compressed format: 📌 [who: summary...]
+    // Compressed format:  [who: summary...]
     // Saves ~80% tokens vs full format
     const lines = newMemories.map(m => {
       const who = m.who || "unknown";
@@ -425,7 +425,7 @@ function formatMemories(memories) {
     const tokens = Math.ceil(compressed.length / 4);
     sessionTokensUsed += tokens;
     
-    console.error(`[nima-recall-live] 📊 Tokens: ${tokens} (session total: ${sessionTokensUsed}/${SESSION_TOKEN_BUDGET})`);
+    console.error(`[nima-recall-live]  Tokens: ${tokens} (session total: ${sessionTokensUsed}/${SESSION_TOKEN_BUDGET})`);
     
     return `\n[NIMA RECALL — ${newMemories.length} memories]\n${compressed}\n`;
   } else {
@@ -444,7 +444,7 @@ function formatMemories(memories) {
  */
 function applyAffectBleed(bleed, identityName = "agent", conversationId = null) {
   if (!bleed || Object.keys(bleed).length === 0) {
-    console.error(`[nima-recall-live] 🎭 No bleed to apply`);
+    console.error(`[nima-recall-live]  No bleed to apply`);
     return;
   }
   
@@ -463,15 +463,15 @@ function applyAffectBleed(bleed, identityName = "agent", conversationId = null) 
       mkdirSync(convDir, { recursive: true });
     }
     statePath = join(convDir, `${safeIdentity}_${safeConvId}.json`);
-    console.error(`[nima-recall-live] 🎭 Looking for: ${statePath}`);
+    console.error(`[nima-recall-live]  Looking for: ${statePath}`);
   } else {
     statePath = join(affectDir, `affect_state_${safeIdentity}.json`);
-    console.error(`[nima-recall-live] 🎭 No conversationId, using: ${statePath}`);
+    console.error(`[nima-recall-live]  No conversationId, using: ${statePath}`);
   }
   
   if (!existsSync(statePath)) {
     // No affect state yet - nothing to bleed into
-    console.error(`[nima-recall-live] 🎭 State file not found: ${statePath}`);
+    console.error(`[nima-recall-live]  State file not found: ${statePath}`);
     return;
   }
   
@@ -501,9 +501,9 @@ function applyAffectBleed(bleed, identityName = "agent", conversationId = null) 
     }
     
     writeFileSync(statePath, JSON.stringify(state, null, 2));
-    console.error(`[nima-recall-live] 🎭 Applied affect bleed: SEEKING ${bleed.SEEKING?.toFixed(3) || 0}, CARE ${bleed.CARE?.toFixed(3) || 0}`);
+    console.error(`[nima-recall-live]  Applied affect bleed: SEEKING ${bleed.SEEKING?.toFixed(3) || 0}, CARE ${bleed.CARE?.toFixed(3) || 0}`);
   } catch (err) {
-    console.error(`[nima-recall-live] ⚠️ Could not apply affect bleed: ${err.message}`);
+    console.error(`[nima-recall-live]  Could not apply affect bleed: ${err.message}`);
   }
 }
 
@@ -532,7 +532,7 @@ export default function nimaRecallLivePlugin(api, config) {
     }
 
     // TRACE: Log full context to find conversation ID
-    console.error(`[nima-recall-live] 🔍 CTX: conversationId=${conversationId}, ctx.conversationId=${ctx?.conversationId}`);
+    console.error(`[nima-recall-live]  CTX: conversationId=${conversationId}, ctx.conversationId=${ctx?.conversationId}`);
 
     // Reset session state if conversation changed
     resetSessionIfNeeded(conversationId);
@@ -548,7 +548,7 @@ export default function nimaRecallLivePlugin(api, config) {
 
     const userMessage = extractUserMessage(event.prompt);
     console.error(`[nima-recall-live] extracted userMessage (${userMessage.length}): ${userMessage.substring(0, 100)}`);
-    console.error(`[nima-recall-live] 🚀 Running ${FTS_ONLY_MODE ? 'FTS-only' : 'HYBRID'} recall (max ${MAX_RESULTS} results)`);
+    console.error(`[nima-recall-live]  Running ${FTS_ONLY_MODE ? 'FTS-only' : 'HYBRID'} recall (max ${MAX_RESULTS} results)`);
     if (!userMessage || userMessage.length < MIN_QUERY_LENGTH) {
       console.error(`[nima-recall-live] SKIP: too short (${userMessage.length} < ${MIN_QUERY_LENGTH})`);
       return;
@@ -568,9 +568,9 @@ export default function nimaRecallLivePlugin(api, config) {
       return;
     }
 
-    console.error(`[nima-recall-live] 🚀 About to call quickRecall with: "${userMessage.substring(0,30)}"`);
+    console.error(`[nima-recall-live]  About to call quickRecall with: "${userMessage.substring(0,30)}"`);
     const result = await quickRecall(userMessage);
-    console.error(`[nima-recall-live] ✅ Recall complete: ${result?.memories?.length || 0} memories returned`);
+    console.error(`[nima-recall-live]  Recall complete: ${result?.memories?.length || 0} memories returned`);
 
     // Handle both old array format and new {memories, affect_bleed} format
     const memories = Array.isArray(result) ? result : (result?.memories || []);
@@ -594,7 +594,7 @@ export default function nimaRecallLivePlugin(api, config) {
       const identityName = config?.identity_name || "agent";  // Match nima-affect default
 
       // Use conversationId extracted from prompt at top of hook
-      console.error(`[nima-recall-live] 🎭 Applying bleed: identity=${identityName}, convId=${conversationId}`);
+      console.error(`[nima-recall-live]  Applying bleed: identity=${identityName}, convId=${conversationId}`);
       applyAffectBleed(affectBleed, identityName, conversationId);
     }
 
@@ -612,7 +612,7 @@ export default function nimaRecallLivePlugin(api, config) {
   
   // Register before_compaction handler for memory flush
   api.on("before_compaction", async (event, ctx) => {
-    console.error(`[nima-recall-live] 🔄 PRE-COMPACTION HOOK FIRED`);
+    console.error(`[nima-recall-live]  PRE-COMPACTION HOOK FIRED`);
     console.error(`[nima-recall-live] event: ${JSON.stringify(event || {})}`);
     
     // Signal that the hook fired successfully

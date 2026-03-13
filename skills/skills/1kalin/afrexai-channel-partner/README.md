@@ -37,4 +37,4 @@ Install this skill in your AI agent, then ask:
 - [Context Packs](https://afrexai-cto.github.io/context-packs/) — Industry-specific agent configs ($47/pack)
 - [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/) — Get your AI agent running fast
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

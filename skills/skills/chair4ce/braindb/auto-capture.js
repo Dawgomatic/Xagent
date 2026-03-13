@@ -251,7 +251,7 @@ async function warmPatternCache(recallFn) {
         }
       }
     }
-    console.log(`🧠 Auto-capture: warmed ${warmed} known patterns from BrainDB`);
+    console.log(` Auto-capture: warmed ${warmed} known patterns from BrainDB`);
   } catch (e) {
     console.warn('Auto-capture: failed to warm pattern cache:', e.message);
   }

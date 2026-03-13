@@ -22,7 +22,7 @@ description: |
 **Check parent before trading:**
 - Verify portfolio-level exposure limits in `../../references/master_portfolio.md`
 - Check correlation with PM Research positions (same markets)
-- Respect parent's risk level (🟢/🟡/🟠/🔴)
+- Respect parent's risk level (///)
 
 **Your job within the system:**
 1. Identify mispriced markets and arbitrage opportunities

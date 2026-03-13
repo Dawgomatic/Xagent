@@ -1,7 +1,7 @@
 ---
 name: Icons
 description: Implement accessible icons with proper sizing, color inheritance, and performance.
-metadata: {"clawdbot":{"emoji":"🔣","requires":{},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{},"os":["linux","darwin","win32"]}}
 ---
 
 ## SVG vs Icon Fonts

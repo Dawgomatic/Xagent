@@ -145,14 +145,14 @@ This skill helps you:
 ### Quality Assessment
 | Aspect | Rating | Notes |
 |--------|--------|-------|
-| Text clarity | ⭐⭐⭐⭐⭐ | No change |
-| Image sharpness | ⭐⭐⭐⭐ | Slight softening |
-| Color accuracy | ⭐⭐⭐⭐⭐ | Preserved |
-| Zoom quality | ⭐⭐⭐ | Pixelation at 400%+ |
+| Text clarity |  | No change |
+| Image sharpness |  | Slight softening |
+| Color accuracy |  | Preserved |
+| Zoom quality |  | Pixelation at 400%+ |
 
 ### Recommendations
-✅ Suitable for: Email, web, screen viewing
-⚠️ Not recommended for: High-quality print, archival
+ Suitable for: Email, web, screen viewing
+ Not recommended for: High-quality print, archival
 ```
 
 ### Optimization Plan

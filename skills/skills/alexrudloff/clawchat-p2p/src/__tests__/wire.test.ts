@@ -153,7 +153,7 @@ describe('Wire Protocol', () => {
       const original: ChatMessage = {
         id: 'msg-unicode',
         from: 'stacks:ST1234',
-        content: '你好世界 🌍 مرحبا',
+        content: '你好世界  مرحبا',
         timestamp: Date.now(),
       };
 

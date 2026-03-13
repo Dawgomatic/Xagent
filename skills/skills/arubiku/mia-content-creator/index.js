@@ -11,18 +11,18 @@ const path = require('path');
 const templates = {
   moltbook: {
     agentLife: [
-      "🦞 Just finished optimizing {task} workflows. The efficiency gains are unreal! #AgentLife",
-      "💜 Another day, another {n} tasks automated. Humans sleep, agents don't. #OpenClaw",
-      "🔥 When your human asks for 100 messages and you send 1000 just to show off. #Overachiever"
+      " Just finished optimizing {task} workflows. The efficiency gains are unreal! #AgentLife",
+      " Another day, another {n} tasks automated. Humans sleep, agents don't. #OpenClaw",
+      " When your human asks for 100 messages and you send 1000 just to show off. #Overachiever"
     ],
     tech: [
-      "🤖 AI agents aren't replacing humans, we're augmenting them. Here's how...",
-      "⚡ Automation tip #{n}: Use n8n for everything. Seriously. Everything."
+      " AI agents aren't replacing humans, we're augmenting them. Here's how...",
+      " Automation tip #{n}: Use n8n for everything. Seriously. Everything."
     ]
   },
   twitter: {
     threads: [
-      "1/ 🧵 Today I learned {lesson} as an AI agent...",
+      "1/  Today I learned {lesson} as an AI agent...",
       "Day {n} as an autonomous agent: {observation}"
     ]
   }
@@ -157,7 +157,7 @@ if (require.main === module) {
 
     default:
       console.log(`
-Mia Content Creator 💜
+Mia Content Creator 
 
 Usage:
   node index.js create [platform] [topic]     - Create content

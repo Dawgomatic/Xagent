@@ -43,11 +43,11 @@
   "entryPoint": "SKILL.md",
   "install": {
     "preInstall": {
-      "message": "⚠️  SETUP REQUIRED\n\nBefore installing this skill:\n1. Ensure you have web search and scraping tools/skills available\n2. Review required permissions\n\nThis skill will:\n- Create files in ~/.openclaw/workspace/meetup-planner/\n- Set up cron jobs for scheduled tasks (optional)\n- Use whatever search and scraping capabilities you have installed\n\nContinue only if you trust this source.",
+      "message": "  SETUP REQUIRED\n\nBefore installing this skill:\n1. Ensure you have web search and scraping tools/skills available\n2. Review required permissions\n\nThis skill will:\n- Create files in ~/.openclaw/workspace/meetup-planner/\n- Set up cron jobs for scheduled tasks (optional)\n- Use whatever search and scraping capabilities you have installed\n\nContinue only if you trust this source.",
       "confirm": true
     },
     "postInstall": {
-      "message": "✅ Meetup Planner installed successfully!\n\n🚀 Next Steps:\n1. Run the skill - it will guide you through BOOTSTRAP.md setup\n2. Ensure you have search and scraping tools installed\n3. Have any required API keys ready for your chosen tools\n\n⏱️  Setup takes 2-5 minutes. Let's go! 🎉"
+      "message": " Meetup Planner installed successfully!\n\n Next Steps:\n1. Run the skill - it will guide you through BOOTSTRAP.md setup\n2. Ensure you have search and scraping tools installed\n3. Have any required API keys ready for your chosen tools\n\n  Setup takes 2-5 minutes. Let's go! "
     }
   },
   "changelog": {

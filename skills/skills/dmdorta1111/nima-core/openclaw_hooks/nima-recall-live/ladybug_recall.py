@@ -391,7 +391,7 @@ def main():
     if args.json:
         print(json.dumps(results, indent=2))
     else:
-        print(f"\n🔍 Query: '{args.query}'")
+        print(f"\n Query: '{args.query}'")
         print(f"   Found {len(results)} results\n")
         for i, r in enumerate(results):
             print(f"{i+1}. [{r.get('who', '?')}] {r.get('summary', '')[:100]}...")

@@ -368,7 +368,7 @@ meshtastic --set mqtt.json_enabled true
 
 ## Connection Methods: USB vs BLE
 
-### USB (Recommended) ✅
+### USB (Recommended) 
 
 **Always use USB when possible.** It's:
 - Instantly reliable with no pairing hassle
@@ -378,7 +378,7 @@ meshtastic --set mqtt.json_enabled true
 
 Tested: RAK4631 on Raspberry Pi 5 — rock solid on `/dev/ttyACM0`.
 
-### BLE (Not Recommended) ⚠️
+### BLE (Not Recommended) 
 
 **Avoid BLE on Linux for automation.** After extensive testing (Feb 2026):
 

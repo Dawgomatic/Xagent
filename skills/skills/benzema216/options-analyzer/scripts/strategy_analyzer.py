@@ -277,7 +277,7 @@ def format_markdown(result: dict, strategy_name: str = None) -> str:
     lines.append(f"\n**标的价格**: ${result['spot']}")
     lines.append(f"**DTE**: {result['dte']}天")
     
-    lines.append("\n## 📋 策略腿")
+    lines.append("\n##  策略腿")
     lines.append("| # | 行权价 | 类型 | 方向 | 权利金 |")
     lines.append("|---|--------|------|------|--------|")
     for i, leg in enumerate(result['legs'], 1):
@@ -287,7 +287,7 @@ def format_markdown(result: dict, strategy_name: str = None) -> str:
     
     lines.append(f"\n**净权利金**: ${result['net_premium']:,.2f}" + (" (收入)" if result['net_premium'] > 0 else " (支出)"))
     
-    lines.append("\n## 📊 盈亏分析")
+    lines.append("\n##  盈亏分析")
     lines.append(f"- **最大盈利**: {result['max_profit']}")
     lines.append(f"- **最大亏损**: {result['max_loss']}")
     
@@ -299,7 +299,7 @@ def format_markdown(result: dict, strategy_name: str = None) -> str:
         lines.append(f"- **风险收益比**: {result['risk_reward_ratio']:.2f}:1")
     
     # ASCII P&L 图
-    lines.append("\n## 📈 盈亏曲线 (到期)")
+    lines.append("\n##  盈亏曲线 (到期)")
     lines.append("```")
     curve = result['payoff_curve']
     max_pnl = max(abs(c['pnl']) for c in curve) or 1
@@ -346,7 +346,7 @@ def main():
             print(format_markdown(result, args.strategy))
             
     except Exception as e:
-        print(f"❌ 错误: {e}", file=sys.stderr)
+        print(f" 错误: {e}", file=sys.stderr)
         sys.exit(1)
 
 

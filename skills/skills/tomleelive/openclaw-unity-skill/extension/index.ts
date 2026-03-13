@@ -384,7 +384,7 @@ const plugin = {
           .command("status")
           .description("Show Unity connection status")
           .action(() => {
-            console.log("\n🎮 Unity Plugin Status\n");
+            console.log("\n Unity Plugin Status\n");
             
             if (sessions.size === 0) {
               console.log("  No Unity sessions connected.\n");
@@ -400,7 +400,7 @@ const plugin = {
               const age = Math.round((Date.now() - session.registeredAt) / 1000);
               const lastSeen = Math.round((Date.now() - session.lastHeartbeat) / 1000);
               
-              console.log(`  ✅ ${session.projectName}`);
+              console.log(`   ${session.projectName}`);
               console.log(`     Version: Unity ${session.unityVersion}`);
               console.log(`     Platform: ${session.platform}`);
               console.log(`     Session: ${id}`);

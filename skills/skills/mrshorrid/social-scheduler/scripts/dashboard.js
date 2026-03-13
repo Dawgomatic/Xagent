@@ -147,14 +147,14 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n🎨 Social Scheduler Dashboard\n`);
-  console.log(`   📡 Server running at: http://localhost:${PORT}`);
-  console.log(`   🌐 Open in browser to manage scheduled posts\n`);
+  console.log(`\n Social Scheduler Dashboard\n`);
+  console.log(`    Server running at: http://localhost:${PORT}`);
+  console.log(`    Open in browser to manage scheduled posts\n`);
   console.log(`   Press Ctrl+C to stop\n`);
 });
 
 // Graceful shutdown
 process.on('SIGINT', () => {
-  console.log('\n\n👋 Shutting down dashboard...\n');
+  console.log('\n\n Shutting down dashboard...\n');
   server.close(() => process.exit(0));
 });

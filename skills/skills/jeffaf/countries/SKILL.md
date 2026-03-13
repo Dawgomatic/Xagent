@@ -5,7 +5,7 @@ description: "CLI for AI agents to lookup country info for their humans. Uses RE
 homepage: https://restcountries.com
 metadata:
   openclaw:
-    emoji: "🌍"
+    emoji: ""
     requires:
       bins: ["bash", "curl", "jq", "bc"]
     tags: ["countries", "geography", "reference", "api", "cli"]
@@ -55,12 +55,12 @@ Valid regions: `africa`, `americas`, `asia`, `europe`, `oceania`
 
 **Search/list output:**
 ```
-[US] United States — Washington D.C., Americas, Pop: 331M, 🇺🇸
+[US] United States — Washington D.C., Americas, Pop: 331M, 
 ```
 
 **Info output:**
 ```
-🌍 Japan
+ Japan
    Official: Japan
    Code: JP / JPN / 392
    Capital: Tokyo
@@ -72,9 +72,9 @@ Valid regions: `africa`, `americas`, `asia`, `europe`, `oceania`
    Timezones: UTC+09:00
    Borders: None (island/isolated)
    Driving: left side
-   Flag: 🇯🇵
+   Flag: 
 
-🗺️ Map: https://goo.gl/maps/...
+ Map: https://goo.gl/maps/...
 ```
 
 ## Notes

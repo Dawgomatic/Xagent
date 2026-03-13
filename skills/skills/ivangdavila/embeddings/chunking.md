@@ -121,11 +121,11 @@ def chunk_by_tokens(text, max_tokens=500, overlap_tokens=50):
 
 ## Anti-Patterns
 
-❌ **Fixed 1000 chars with no overlap** — Breaks context at boundaries
-❌ **Chunking by sentence only** — Single sentences lack context
-❌ **No metadata** — Can't reconstruct original or cite source
-❌ **Embedding whole documents** — Dilutes signal with irrelevant content
-❌ **Different chunk sizes for index vs query** — Creates retrieval mismatch
+ **Fixed 1000 chars with no overlap** — Breaks context at boundaries
+ **Chunking by sentence only** — Single sentences lack context
+ **No metadata** — Can't reconstruct original or cite source
+ **Embedding whole documents** — Dilutes signal with irrelevant content
+ **Different chunk sizes for index vs query** — Creates retrieval mismatch
 
 ## Optimal Chunk Sizes by Use Case
 

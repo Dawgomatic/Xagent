@@ -16,20 +16,20 @@ This skill allows Clawdbot to control the macOS desktop visually using the TuriX
 
 ## Key Features
 
-### 🤖 Multi-Model Architecture
+###  Multi-Model Architecture
 TuriX uses a sophisticated multi-model system:
 - **Brain**: Understands the task and generates step-by-step plans
 - **Actor**: Executes precise UI actions based on visual understanding
 - **Planner**: Coordinates high-level task decomposition (when `use_plan: true`)
 - **Memory**: Maintains context across task steps
 
-### 📋 Skills System
+###  Skills System
 Skills are markdown playbooks that guide the agent for specific domains:
 - `github-web-actions`: GitHub navigation, repo search, starring
 - `browser-tasks`: General web browser operations
 - Custom skills can be added to the `skills/` directory
 
-### 🔄 Resume Capability
+###  Resume Capability
 The agent can resume interrupted tasks by setting a stable `agent_id`.
 
 ## Running TuriX
@@ -44,22 +44,22 @@ skills/local/turix-mac/scripts/run_turix.sh "Open Chrome and go to github.com"
 skills/local/turix-mac/scripts/run_turix.sh --resume my-task-001
 ```
 
-> ✅ **Note**: `run_turix.sh` updates `examples/config.json` for you (task, resume, `use_plan`, `use_skills`). If you want to keep a hand-edited config, skip passing a task and edit `examples/config.json` directly.
+>  **Note**: `run_turix.sh` updates `examples/config.json` for you (task, resume, `use_plan`, `use_skills`). If you want to keep a hand-edited config, skip passing a task and edit `examples/config.json` directly.
 
 
 ### Tips for Effective Tasks
 
-**✅ Good Examples:**
+** Good Examples:**
 - "Open Safari, go to google.com, search for 'TuriX AI', and click the first result"
 - "Open System Settings, click on Dark Mode, then return to System Settings"
 - "Open Finder, navigate to Documents, and create a new folder named 'Project X'"
 
-**❌ Avoid:**
+** Avoid:**
 - Vague instructions: "Help me" or "Fix this"
 - Impossible actions: "Delete all files"
 - Tasks requiring system-level permissions without warning
 
-**💡 Best Practices:**
+** Best Practices:**
 1. Be specific about the target application
 2. Break complex tasks into clear steps, but do not mention the precise coordinates on the screen.
 
@@ -357,11 +357,11 @@ ls -la your_dir/TuriX-CUA/examples/.turix_tmp/*.txt
 | `actor_llm_interactions.log_actor_N.txt` | Actor model conversations (one per step) |
 
 **Key log markers:**
-- `📍 Step N` - New step started
-- `✅ Eval: Success/Failed` - Current step evaluation
-- `🎯 Goal to achieve this step` - Current goal
-- `🛠️  Action` - Executed action
-- `✅ Task completed successfully` - Task completed
+- ` Step N` - New step started
+- ` Eval: Success/Failed` - Current step evaluation
+- ` Goal to achieve this step` - Current goal
+- `  Action` - Executed action
+- ` Task completed successfully` - Task completed
 
 ### 4. Common Monitoring Issues
 

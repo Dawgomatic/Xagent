@@ -31,7 +31,7 @@ mkdir -p "$BIN_DIR"
 
 # Check for existing installation
 if [ -f "${BIN_DIR}/aos" ]; then
-  echo -e "${YELLOW}⚠ Existing installation detected${NC}"
+  echo -e "${YELLOW} Existing installation detected${NC}"
   if [ "$UPGRADE" = true ]; then
     echo "Upgrading..."
   else
@@ -69,7 +69,7 @@ if [ -f "$CONFIG_FILE" ]; then
   if jq -e '.apiKey' "$CONFIG_FILE" > /dev/null 2>&1; then
     echo -e "${GREEN}✓ API key configured${NC}"
   else
-    echo -e "${YELLOW}⚠ API key missing - run: aos setup${NC}"
+    echo -e "${YELLOW} API key missing - run: aos setup${NC}"
   fi
 else
   echo -e "${YELLOW}No config found. Running setup...${NC}"
@@ -105,7 +105,7 @@ if [ -f "${HOME}/clawd/bin/agentos-golden-sync.sh" ]; then
   chmod +x "${HOME}/clawd/bin/agentos-golden-sync.sh" || true
   echo -e "${GREEN}✓ Golden sync ready at ${HOME}/clawd/bin/agentos-golden-sync.sh${NC}"
 else
-  echo -e "${YELLOW}⚠ Golden sync script not found at ${HOME}/clawd/bin/agentos-golden-sync.sh${NC}"
+  echo -e "${YELLOW} Golden sync script not found at ${HOME}/clawd/bin/agentos-golden-sync.sh${NC}"
 fi
 
 echo ""

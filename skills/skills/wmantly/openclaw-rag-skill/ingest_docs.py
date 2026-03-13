@@ -22,7 +22,7 @@ def read_file_safe(file_path: Path) -> str:
         with open(file_path, 'r', encoding='utf-8') as f:
             return f.read()
     except Exception as e:
-        print(f"   ⚠️  Error reading: {e}")
+        print(f"     Error reading: {e}")
         return None
 
 
@@ -87,10 +87,10 @@ def ingest_workspace(
     workspace_path = Path(workspace_dir)
 
     if not workspace_path.exists():
-        print(f"❌ Workspace not found: {workspace_dir}")
+        print(f" Workspace not found: {workspace_dir}")
         return
 
-    print(f"🔍 Scanning workspace: {workspace_path}")
+    print(f" Scanning workspace: {workspace_path}")
 
     # Default file patterns
     if file_patterns is None:
@@ -108,10 +108,10 @@ def ingest_workspace(
                 all_files.append(file_path)
 
     if not all_files:
-        print(f"⚠️  No files found")
+        print(f"  No files found")
         return
 
-    print(f"✅ Found {len(all_files)} files\n")
+    print(f" Found {len(all_files)} files\n")
 
     # Initialize RAG
     rag = RAGSystem(collection_name=collection_name)
@@ -120,7 +120,7 @@ def ingest_workspace(
 
     for file_path in all_files[:100]:  # Limit to 100 files for testing
         relative_path = file_path.relative_to(workspace_path)
-        print(f"\n📄 {relative_path}")
+        print(f"\n {relative_path}")
 
         # Read file
         content = read_file_safe(file_path)
@@ -152,9 +152,9 @@ def ingest_workspace(
             doc_id = rag.add_document(chunk, metadata)
             total_chunks += 1
 
-        print(f"   ✅ Indexed {len(text_chunks)} chunk(s)")
+        print(f"    Indexed {len(text_chunks)} chunk(s)")
 
-    print(f"\n📊 Summary:")
+    print(f"\n Summary:")
     print(f"   Files processed: {len([f for f in all_files[:100]])}")
     print(f"   Total chunks indexed: {total_chunks}")
 
@@ -182,12 +182,12 @@ def ingest_skills(
         skills_dirs = [d for d in [system_skills, workspace_skills] if d.exists()]
 
         if not skills_dirs:
-            print(f"❌ No skills directories found")
+            print(f" No skills directories found")
             return
     else:
         skills_dirs = [Path(skills_base_dir)]
 
-    print(f"🔍 Scanning for skills...")
+    print(f" Scanning for skills...")
 
     # Find all SKILL.md files
     skill_files = []
@@ -198,10 +198,10 @@ def ingest_skills(
             skill_files.append(skill_file)
 
     if not skill_files:
-        print(f"⚠️  No SKILL.md files found")
+        print(f"  No SKILL.md files found")
         return
 
-    print(f"✅ Found {len(skill_files)} skills\n")
+    print(f" Found {len(skill_files)} skills\n")
 
     # Initialize RAG
     rag = RAGSystem(collection_name=collection_name)
@@ -215,7 +215,7 @@ def ingest_skills(
         else:
             skill_name = skill_file.stem
 
-        print(f"\n📜 {skill_name}")
+        print(f"\n {skill_name}")
 
         content = read_file_safe(skill_file)
 
@@ -239,9 +239,9 @@ def ingest_skills(
             doc_id = rag.add_document(chunk, metadata)
             total_chunks += 1
 
-        print(f"   ✅ Indexed {len(chunks)} chunk(s)")
+        print(f"    Indexed {len(chunks)} chunk(s)")
 
-    print(f"\n📊 Summary:")
+    print(f"\n Summary:")
     print(f"   Skills processed: {len(skill_files)}")
     print(f"   Total chunks indexed: {total_chunks}")
 

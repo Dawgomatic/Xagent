@@ -49,7 +49,7 @@ def main():
             limit=args.limit
         )
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         sys.exit(1)
     
     messages = response

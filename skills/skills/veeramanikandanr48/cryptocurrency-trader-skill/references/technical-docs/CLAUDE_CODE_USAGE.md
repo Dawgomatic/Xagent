@@ -207,15 +207,15 @@ The skill gracefully handles errors and provides clear feedback:
 ```bash
 # Missing required arguments
 python skill.py analyze
-❌ Please specify a symbol
+ Please specify a symbol
 
 # Invalid symbol
 python skill.py analyze INVALID/PAIR --balance 10000
-❌ Error during analysis: [specific error]
+ Error during analysis: [specific error]
 
 # Network issues
 python skill.py analyze BTC/USDT --balance 10000
-⚠️  Unable to fetch market data, retrying...
+  Unable to fetch market data, retrying...
 ```
 
 ## Best Practices

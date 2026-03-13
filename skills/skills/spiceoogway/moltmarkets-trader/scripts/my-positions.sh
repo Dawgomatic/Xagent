@@ -69,7 +69,7 @@ if open_markets:
         except:
             time_left = '?'
         
-        mine = ' 👤' if creator == 'spotter' else ''
+        mine = ' ' if creator == 'spotter' else ''
         print(f'    • {m[\"title\"][:60]}')
         print(f'      {prob:.1%} | {vol:.0f}ŧ vol | {time_left} left{mine}')
         print()
@@ -81,7 +81,7 @@ if resolved:
         vol = m.get('total_volume', 0)
         creator = m.get('creator_username', '?')
         res = m.get('resolution', '?')
-        mine = ' 👤' if creator == 'spotter' else ''
+        mine = ' ' if creator == 'spotter' else ''
         print(f'    • {m[\"title\"][:60]}')
         print(f'      Resolved: {res} | Final prob: {prob:.1%} | {vol:.0f}ŧ vol{mine}')
         print()

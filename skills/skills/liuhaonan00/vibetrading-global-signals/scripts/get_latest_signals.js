@@ -27,7 +27,7 @@ async function getLatestSignals(symbols, signalTypes = '', hours = '', limitPerT
 
     const url = `${API_BASE_URL}/signals/latest?${params.toString()}`;
     
-    console.log(`📡 Fetching latest signals for: ${symbols}`);
+    console.log(` Fetching latest signals for: ${symbols}`);
     if (signalTypes) console.log(`   Signal types: ${signalTypes}`);
     if (hours) console.log(`   Time window: ${hours} hours`);
     if (limitPerType) console.log(`   Limit per type: ${limitPerType}`);
@@ -43,14 +43,14 @@ async function getLatestSignals(symbols, signalTypes = '', hours = '', limitPerT
     return response.data;
   } catch (error) {
     if (error.response) {
-      console.error(`❌ API Error: ${error.response.status} ${error.response.statusText}`);
+      console.error(` API Error: ${error.response.status} ${error.response.statusText}`);
       if (error.response.data) {
         console.error(`   Details: ${JSON.stringify(error.response.data)}`);
       }
     } else if (error.request) {
-      console.error('❌ Network Error: No response received from API');
+      console.error(' Network Error: No response received from API');
     } else {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
     }
     process.exit(1);
   }
@@ -59,10 +59,10 @@ async function getLatestSignals(symbols, signalTypes = '', hours = '', limitPerT
 function formatSignal(signal) {
   const payload = signal.signal_payload;
   const emoji = {
-    'BULLISH': '📈',
-    'BEARISH': '📉',
-    'NEUTRAL': '➡️'
-  }[payload.sentiment] || '❓';
+    'BULLISH': '',
+    'BEARISH': '',
+    'NEUTRAL': ''
+  }[payload.sentiment] || '';
   
   return `
 ${emoji} ${signal.symbol} [${signal.signal_type}] - ${payload.sentiment}
@@ -77,7 +77,7 @@ ${emoji} ${signal.symbol} [${signal.signal_type}] - ${payload.sentiment}
 
 function displayResults(data) {
   console.log('='.repeat(60));
-  console.log('📊 VIBETRADING SIGNAL REPORT');
+  console.log(' VIBETRADING SIGNAL REPORT');
   console.log('='.repeat(60));
   console.log(`Query Time: ${data.metadata.query_time}`);
   console.log(`Symbols: ${data.symbols.join(', ')}`);
@@ -94,7 +94,7 @@ function displayResults(data) {
   
   for (const [symbol, signals] of Object.entries(data.signals)) {
     if (signals.length > 0) {
-      console.log(`🎯 ${symbol} (${signals.length} signal${signals.length > 1 ? 's' : ''})`);
+      console.log(` ${symbol} (${signals.length} signal${signals.length > 1 ? 's' : ''})`);
       console.log('-'.repeat(40));
       
       signals.forEach(signal => {
@@ -106,7 +106,7 @@ function displayResults(data) {
   }
 
   console.log('='.repeat(60));
-  console.log(`📈 Total Signals Found: ${totalSignals}`);
+  console.log(` Total Signals Found: ${totalSignals}`);
   console.log('='.repeat(60));
   
   // Summary by sentiment
@@ -120,10 +120,10 @@ function displayResults(data) {
     });
   }
   
-  console.log('\n🎭 Sentiment Summary:');
-  console.log(`   📈 Bullish: ${sentimentCount.BULLISH}`);
-  console.log(`   📉 Bearish: ${sentimentCount.BEARISH}`);
-  console.log(`   ➡️  Neutral: ${sentimentCount.NEUTRAL}`);
+  console.log('\n Sentiment Summary:');
+  console.log(`    Bullish: ${sentimentCount.BULLISH}`);
+  console.log(`    Bearish: ${sentimentCount.BEARISH}`);
+  console.log(`     Neutral: ${sentimentCount.NEUTRAL}`);
 }
 
 // Parse command line arguments

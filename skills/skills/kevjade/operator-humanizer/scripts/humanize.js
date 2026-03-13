@@ -305,11 +305,11 @@ function printReport(analysis) {
   console.log(`Overall AI Score: ${analysis.score}/100`);
   
   let likelihood;
-  if (analysis.score < 20) likelihood = '✅ Very likely HUMAN';
-  else if (analysis.score < 40) likelihood = '🟢 Probably HUMAN';
-  else if (analysis.score < 60) likelihood = '🟡 MIXED/Uncertain';
-  else if (analysis.score < 80) likelihood = '🟠 Probably AI';
-  else likelihood = '🔴 Very likely AI';
+  if (analysis.score < 20) likelihood = ' Very likely HUMAN';
+  else if (analysis.score < 40) likelihood = ' Probably HUMAN';
+  else if (analysis.score < 60) likelihood = ' MIXED/Uncertain';
+  else if (analysis.score < 80) likelihood = ' Probably AI';
+  else likelihood = ' Very likely AI';
   
   console.log(`Likelihood: ${likelihood}\n`);
   
@@ -337,7 +337,7 @@ function printSuggestions(suggestions) {
   const low = suggestions.filter(s => s.priority === 'LOW');
   
   if (high.length > 0) {
-    console.log('🔴 HIGH PRIORITY:\n');
+    console.log(' HIGH PRIORITY:\n');
     high.forEach((s, i) => {
       console.log(`${i + 1}. [${s.category}] ${s.issue}`);
       console.log(`   Fix: ${s.fix}\n`);
@@ -345,7 +345,7 @@ function printSuggestions(suggestions) {
   }
   
   if (medium.length > 0) {
-    console.log('🟠 MEDIUM PRIORITY:\n');
+    console.log(' MEDIUM PRIORITY:\n');
     medium.forEach((s, i) => {
       console.log(`${i + 1}. [${s.category}] ${s.issue}`);
       console.log(`   Fix: ${s.fix}\n`);
@@ -353,7 +353,7 @@ function printSuggestions(suggestions) {
   }
   
   if (low.length > 0) {
-    console.log('🟡 LOW PRIORITY:\n');
+    console.log(' LOW PRIORITY:\n');
     low.forEach((s, i) => {
       console.log(`${i + 1}. [${s.category}] ${s.issue}`);
       console.log(`   Fix: ${s.fix}\n`);
@@ -361,7 +361,7 @@ function printSuggestions(suggestions) {
   }
   
   if (suggestions.length === 0) {
-    console.log('✅ No major issues detected. Text appears human-like.\n');
+    console.log(' No major issues detected. Text appears human-like.\n');
   }
 }
 
@@ -424,11 +424,11 @@ Examples:
       console.log(JSON.stringify({ score: analysis.score }, null, 2));
     } else {
       console.log(`AI Score: ${analysis.score}/100`);
-      if (analysis.score < 20) console.log('✅ Very likely HUMAN');
-      else if (analysis.score < 40) console.log('🟢 Probably HUMAN');
-      else if (analysis.score < 60) console.log('🟡 MIXED/Uncertain');
-      else if (analysis.score < 80) console.log('🟠 Probably AI');
-      else console.log('🔴 Very likely AI');
+      if (analysis.score < 20) console.log(' Very likely HUMAN');
+      else if (analysis.score < 40) console.log(' Probably HUMAN');
+      else if (analysis.score < 60) console.log(' MIXED/Uncertain');
+      else if (analysis.score < 80) console.log(' Probably AI');
+      else console.log(' Very likely AI');
     }
   } else if (command === 'analyze') {
     const analysis = calculateAIScore(text);

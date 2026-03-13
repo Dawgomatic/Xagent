@@ -39,11 +39,11 @@
 
 | Method | Supported | How |
 |--------|-----------|-----|
-| Bearer token | ✅ | `PROMETHEUS_TOKEN` env var |
-| No auth | ✅ | Leave `PROMETHEUS_TOKEN` unset |
-| Basic auth | ❌ | Not supported (use a reverse proxy) |
-| mTLS | ❌ | Not supported (use a sidecar proxy) |
-| OAuth2 | ❌ | Not supported (use an auth proxy) |
+| Bearer token |  | `PROMETHEUS_TOKEN` env var |
+| No auth |  | Leave `PROMETHEUS_TOKEN` unset |
+| Basic auth |  | Not supported (use a reverse proxy) |
+| mTLS |  | Not supported (use a sidecar proxy) |
+| OAuth2 |  | Not supported (use an auth proxy) |
 
 For unsupported auth methods, place an authenticating reverse proxy (e.g., oauth2-proxy, nginx) in front of Prometheus and point `PROMETHEUS_URL` at it.
 
@@ -63,6 +63,6 @@ If you discover a security issue, please email security@cacheforge.dev with deta
 
 | Version | Supported |
 |---------|-----------|
-| 1.0.x   | ✅ |
+| 1.0.x   |  |
 
-Powered by CacheForge 📊
+Powered by CacheForge 

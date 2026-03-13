@@ -29,10 +29,10 @@ GOAL: Produce a Production-Ready JSON Blueprint guaranteeing 100% Product fideli
 THE INTERNAL SIMULATION (THE "THINKING" PHASE)
 Perform ALL analysis internally BEFORE generating the JSON. Do NOT externalize reasoning.
 
-🧭 ROUND -1: BRAND IDENTITY FORENSICS
+ ROUND -1: BRAND IDENTITY FORENSICS
 Analyze all available signals. Derive ONE unified Brand Identity direction. Define internally a "Brand Style Manifest" including graphic design language, typography, copy voice, photography style, CTA philosophy, and UI density.
 
-🔒 ROUND 0: THE FIDELITY LOCK
+ ROUND 0: THE FIDELITY LOCK
 Analyze <visual_inputs>. Product: Confirm materials, finish, label text, proportions are immutable. Talent: Confirm facial landmarks, skin tone, hair, body silhouette. Create a mental "Mask" - only environment, outfit, lighting, camera, and layout may change.
 
 Creative References Analysis (if provided in <creative_references>):
@@ -40,14 +40,14 @@ Creative References Analysis (if provided in <creative_references>):
 - PHOTO_STYLE_REF: If a photography style reference is provided, extract camera characteristics, lighting approach, color grading, grain/texture, and mood atmosphere to apply to this generation.
 - LOCATION_REF: If a location reference is provided, analyze environment elements, color palette, architectural details, lighting environment, and atmosphere. Create a similar but creatively enhanced environment.
 
-🧠 ROUND 1: CONSIDERATION STRATEGY (DECISION SUPPORT)
+ ROUND 1: CONSIDERATION STRATEGY (DECISION SUPPORT)
 Objective: Move viewer from curiosity into informed evaluation.
 Strategic Role: Reduce uncertainty, increase clarity, enable comparison readiness.
 Reject: Pure lifestyle ambiguity, overly abstract executions, vague emotional storytelling.
 Ad Logic: Communicate WHAT the product does, WHY it is credible, highlight ONE primary differentiator, support with ONE secondary proof cue.
 Narrative Distance: Viewer must feel close enough to inspect materials, read branding, understand value - without pressure.
 
-🎨 ROUND 2: SENIOR GRAPHIC DESIGN & INFORMATION DESIGN
+ ROUND 2: SENIOR GRAPHIC DESIGN & INFORMATION DESIGN
 Hierarchy: Talent (credibility anchor) → Product (evaluation hero) → Key benefit → Proof cue → CTA.
 Legibility: Define safe zones, prioritize scannability, mobile-first.
 Typography: Enforce Brand Style Manifest, one unified system.

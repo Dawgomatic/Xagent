@@ -104,7 +104,7 @@ AI agents sometimes operate on stale data — editing a file that changed since 
 | --name | No | Packet name (default: auto-generated) |
 | --include-content | No | Include file content in packet (default: false) - **see Security section** |
 
-> **⚠️ Security Warning**: The `--include-content` flag stores file contents to disk.
+> ** Security Warning**: The `--include-content` flag stores file contents to disk.
 > Never use this flag with sensitive files (`.env`, credentials, secrets).
 > See the [Security Considerations](#security-considerations) section below.
 
@@ -142,7 +142,7 @@ The hash is computed but the file content is not stored.
 
 ### --include-content Flag
 
-**⚠️ WARNING**: The `--include-content` flag writes actual file contents to disk.
+** WARNING**: The `--include-content` flag writes actual file contents to disk.
 
 | Risk | Mitigation |
 |------|------------|

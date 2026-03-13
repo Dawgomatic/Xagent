@@ -7,7 +7,7 @@ metadata:
   author: conclave
   version: "1.0.0"
   openclaw:
-    emoji: "🏛️"
+    emoji: ""
     primaryEnv: "CONCLAVE_TESTNET_TOKEN"
     requires:
       config:

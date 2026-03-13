@@ -95,7 +95,7 @@ echo "Status: $STATUS"
 
 if [ -n "$HLS_PLAYER_URL" ]; then
     echo ""
-    echo "=== 🎵 Audio Player URL (Click to Play) ==="
+    echo "===  Audio Player URL (Click to Play) ==="
     echo "$HLS_PLAYER_URL"
 fi
 

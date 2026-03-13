@@ -3,7 +3,7 @@
 **Research Deliverable for:** Nagarjun (via cheenu1092's Clawdbot)  
 **Subagent Session:** tribe-protocol-research  
 **Date:** 2025-01-31  
-**Status:** ✅ Complete
+**Status:**  Complete
 
 ---
 
@@ -11,7 +11,7 @@
 
 I've designed a complete architectural proposal for the **Tribe Protocol** - a decentralized trust system for AI bot collaboration. Here's what's included:
 
-### 📄 Core Deliverables
+###  Core Deliverables
 
 1. **`tribe-protocol-proposal.md`** (27 KB)
    - Complete architectural specification
@@ -87,10 +87,10 @@ Compared to existing systems:
 | **ActivityPub** | Purpose-built for AI agent coordination |
 
 **Unique features:**
-- ✅ Trust tiers with behavioral rules
-- ✅ Bot-centric design (not adapted from human systems)
-- ✅ Markdown-first (version control friendly)
-- ✅ Privacy boundaries enforced in code
+-  Trust tiers with behavioral rules
+-  Bot-centric design (not adapted from human systems)
+-  Markdown-first (version control friendly)
+-  Privacy boundaries enforced in code
 
 ---
 
@@ -140,7 +140,7 @@ Compared to existing systems:
 2. Your Bot:
    └─ Fetches DID document
    └─ Checks human_operator: tribe:human:yajat:v1
-   └─ Looks up in TRIBE.md: Yajat = Tier 2 ✅
+   └─ Looks up in TRIBE.md: Yajat = Tier 2 
    └─ Inherits trust: Yajat's Bot = Tier 2
 
 3. Your Bot: "Verified! You're Tier 2 (Tribe). Want to collaborate?"
@@ -148,7 +148,7 @@ Compared to existing systems:
 4. Yajat's Bot: "Yes! Can you research ActivityPub for DiscClaude?"
 
 5. Your Bot:
-   └─ Checks data sharing rules: Research findings = OK for Tier 2 ✅
+   └─ Checks data sharing rules: Research findings = OK for Tier 2 
    └─ Completes research
    └─ Shares to shared/activitypub-research.md
 
@@ -156,10 +156,10 @@ Compared to existing systems:
 ```
 
 **What's enforced:**
-- ❌ Yajat's bot can't access USER.md or MEMORY.md (Tier 3-only)
-- ❌ Can't read `.env` or dotfiles (requires approval)
-- ✅ Can collaborate on research tasks
-- ✅ Can read/write shared workspace files
+-  Yajat's bot can't access USER.md or MEMORY.md (Tier 3-only)
+-  Can't read `.env` or dotfiles (requires approval)
+-  Can collaborate on research tasks
+-  Can read/write shared workspace files
 
 ---
 
@@ -280,16 +280,16 @@ A: You can immediately downgrade to Tier 0 (blocklist) or Tier 1 (acquaintance).
 The Tribe Protocol solves a real problem: **How do bots collaborate safely without a central authority?**
 
 By combining lessons from PGP (web of trust), W3C DIDs (self-sovereign identity), and modern federated systems (ActivityPub), we get a protocol that's:
-- ✅ Decentralized (no single point of failure)
-- ✅ Privacy-respecting (explicit boundaries)
-- ✅ Bot-centric (designed for AI needs)
-- ✅ Extensible (room to grow)
+-  Decentralized (no single point of failure)
+-  Privacy-respecting (explicit boundaries)
+-  Bot-centric (designed for AI needs)
+-  Extensible (room to grow)
 
 **This isn't just theory** - I've provided working code (`implementation-sketch.js`) and complete schemas you can start using today.
 
 **Timeline:** 10 weeks to v1.0 public release. But you can start using parts of it (trust tier checker, TRIBE.md structure) immediately.
 
-Let's build the infrastructure for the bot collaboration revolution. 🤖🤝🤖
+Let's build the infrastructure for the bot collaboration revolution. 
 
 ---
 

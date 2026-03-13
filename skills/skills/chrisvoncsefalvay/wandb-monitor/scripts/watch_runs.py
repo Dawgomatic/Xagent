@@ -148,11 +148,11 @@ def get_recent_finished(api, entity: str, projects: Optional[list[str]] = None, 
 def print_report(running: list, recent: list, entity: str):
     """Print the watch report."""
     print(f"\n{'='*70}")
-    print(f"🔭 W&B WATCH - {entity}")
+    print(f" W&B WATCH - {entity}")
     print(f"{'='*70}")
     
     # Running jobs
-    print(f"\n🟢 RUNNING ({len(running)})")
+    print(f"\n RUNNING ({len(running)})")
     print("-" * 70)
     
     if not running:
@@ -162,8 +162,8 @@ def print_report(running: list, recent: list, entity: str):
             health = quick_health_check(run)
             
             # Status emoji
-            status_emoji = {"healthy": "✅", "warning": "⚠️", "critical": "🚨"}
-            emoji = status_emoji.get(health["status"], "❓")
+            status_emoji = {"healthy": "", "warning": "", "critical": ""}
+            emoji = status_emoji.get(health["status"], "")
             
             # Progress string
             progress = ""
@@ -182,7 +182,7 @@ def print_report(running: list, recent: list, entity: str):
             
             if health["issues"]:
                 for issue in health["issues"]:
-                    print(f"      ⚠️ {issue}")
+                    print(f"       {issue}")
             print()
     
     # Recent finished/failed
@@ -190,14 +190,14 @@ def print_report(running: list, recent: list, entity: str):
     finished = [r for r in recent if r.state == "finished"]
     
     if failed:
-        print(f"\n🔴 FAILED/CRASHED (last 24h): {len(failed)}")
+        print(f"\n FAILED/CRASHED (last 24h): {len(failed)}")
         print("-" * 70)
         for run in failed[:5]:
-            print(f"   💀 {run.project}/{run.name} ({run.state})")
+            print(f"    {run.project}/{run.name} ({run.state})")
             print(f"      ID: {run.id} | Created: {run.created_at}")
     
     if finished:
-        print(f"\n✅ FINISHED (last 24h): {len(finished)}")
+        print(f"\n FINISHED (last 24h): {len(finished)}")
         print("-" * 70)
         for run in finished[:5]:
             summary = run.summary._json_dict

@@ -387,10 +387,10 @@ Plan: Add Password Reset Feature
 Progress: 1/4 tasks completed (25%)
 
 Tasks:
-✅ Design password reset API endpoints (completed)
-⏳ Implement reset token generation (pending, unblocked)
-🔒 Create password reset email template (pending, blocked by task 2)
-🔒 Add reset password UI form (pending, blocked by task 2)
+ Design password reset API endpoints (completed)
+ Implement reset token generation (pending, unblocked)
+ Create password reset email template (pending, blocked by task 2)
+ Add reset password UI form (pending, blocked by task 2)
 ```
 
 ### View the dependency graph

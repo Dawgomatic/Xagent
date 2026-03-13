@@ -9,7 +9,7 @@ const CIRCLE_API_KEY = process.env.CIRCLE_API_KEY;
 
 async function test() {
   if (!CIRCLE_API_KEY) {
-    console.error('❌ No API key');
+    console.error(' No API key');
     return;
   }
 
@@ -19,22 +19,22 @@ async function test() {
     // Generate entity secret (no API call needed)
     console.log('1. Generating entity secret...');
     generateEntitySecret();
-    console.log('   ✅ Done\n');
+    console.log('    Done\n');
 
     // Create client and try to get public key
     console.log('2. Creating client...');
     const client = initiateDeveloperControlledWalletsClient({
       apiKey: CIRCLE_API_KEY,
     });
-    console.log('   ✅ Client created\n');
+    console.log('    Client created\n');
 
     // Try to get public key
     console.log('3. Getting public key...');
     try {
       const publicKey = await client.getPublicKey();
-      console.log('   ✅ Public Key:', publicKey?.substring(0, 50) + '...\n');
+      console.log('    Public Key:', publicKey?.substring(0, 50) + '...\n');
     } catch (e) {
-      console.log('   ❌ Error:', e.message, '\n');
+      console.log('    Error:', e.message, '\n');
     }
 
     // Try generate ciphertext
@@ -43,13 +43,13 @@ async function test() {
       const ciphertext = await generateEntitySecretCiphertext({
         apiKey: CIRCLE_API_KEY,
       });
-      console.log('   ✅ Ciphertext:', ciphertext?.substring(0, 50) + '...\n');
+      console.log('    Ciphertext:', ciphertext?.substring(0, 50) + '...\n');
     } catch (e) {
-      console.log('   ❌ Error:', e.message, '\n');
+      console.log('    Error:', e.message, '\n');
     }
 
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
   }
 }
 

@@ -61,7 +61,7 @@ def main():
         with open(env_path, "r") as f:
             content = f.read()
             if "SOLANA_PRIVATE_KEY=" in content:
-                print("⚠️  Warning: SOLANA_PRIVATE_KEY already exists in .env")
+                print("  Warning: SOLANA_PRIVATE_KEY already exists in .env")
                 response = input("Do you want to create a new wallet? This will overwrite the existing key. (y/N): ")
                 if response.lower() != "y":
                     print("Aborted.")
@@ -81,11 +81,11 @@ def main():
     # Save to .env
     saved_path = save_to_env(private_key_base58, env_path)
     
-    print("✅ New wallet created!\n")
-    print(f"📍 Public Key (Address): {public_key}")
-    print(f"💾 Private key saved to: {saved_path}")
+    print(" New wallet created!\n")
+    print(f" Public Key (Address): {public_key}")
+    print(f" Private key saved to: {saved_path}")
     print()
-    print("⚠️  IMPORTANT: Keep your private key safe! Never share it.")
+    print("  IMPORTANT: Keep your private key safe! Never share it.")
     print()
     print("To use the wallet, export the private key to your environment:")
     print()

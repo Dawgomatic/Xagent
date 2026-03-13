@@ -13,7 +13,7 @@ NIMA provides:
 - **Lazy recall** — Efficient memory injection with dedup
 - **Session optimization** — Token budgeting and compression
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Install
@@ -35,16 +35,16 @@ export VOYAGE_API_KEY=your-key
 openclaw restart
 ```
 
-## 🔒 Privacy & Permissions
+##  Privacy & Permissions
 
 **What NIMA accesses:**
-- ✅ Session transcripts: `~/.openclaw/agents/*/sessions/*.jsonl` (captures conversation turns)
-- ✅ Local storage: `~/.nima/` (SQLite/LadybugDB databases, affect history, embeddings)
+-  Session transcripts: `~/.openclaw/agents/*/sessions/*.jsonl` (captures conversation turns)
+-  Local storage: `~/.nima/` (SQLite/LadybugDB databases, affect history, embeddings)
 
 **Network calls (conditional):**
-- 🌐 **Voyage API** — Only when `NIMA_EMBEDDER=voyage` (sends conversation text for embeddings)
-- 🌐 **OpenAI API** — Only when `NIMA_EMBEDDER=openai` (sends conversation text for embeddings)
-- 🔒 **Local embeddings** — Default (`NIMA_EMBEDDER=local`), no external network calls
+-  **Voyage API** — Only when `NIMA_EMBEDDER=voyage` (sends conversation text for embeddings)
+-  **OpenAI API** — Only when `NIMA_EMBEDDER=openai` (sends conversation text for embeddings)
+-  **Local embeddings** — Default (`NIMA_EMBEDDER=local`), no external network calls
 
 **Opt-in controls:**
 ```json
@@ -74,7 +74,7 @@ openclaw restart
 
 **To disable entirely:** Remove `nima-memory` from `plugins.allow` in `openclaw.json`
 
-## 📚 Documentation
+##  Documentation
 
 | Guide | Description |
 |-------|-------------|
@@ -85,7 +85,7 @@ openclaw restart
 | [MIGRATION_GUIDE.md](./MIGRATION_GUIDE.md) | Migrate from old versions |
 | [QUICK_REFERENCE.md](./QUICK_REFERENCE.md) | Common commands |
 
-## 🧠 Memory System
+##  Memory System
 
 ### Database Options
 
@@ -125,7 +125,7 @@ python -m nima_core benchmark
 python scripts/ladybug_parallel.py --migrate
 ```
 
-## 🎭 Dynamic Affect System
+##  Dynamic Affect System
 
 NIMA includes a biologically-inspired emotional intelligence system based on the **Panksepp 7-Affect Model**:
 
@@ -162,7 +162,7 @@ print(f"Dominant: {current.dominant()}")  # ('CARE', 0.82)
 | **Sage** | High SEEKING, Balanced |
 | See [DYNAMIC_AFFECT.md](./DYNAMIC_AFFECT.md) for full list |
 
-## 🔌 OpenClaw Hooks
+##  OpenClaw Hooks
 
 NIMA provides three hooks for OpenClaw:
 
@@ -202,7 +202,7 @@ Tracks emotional state across conversations.
 }
 ```
 
-## 📊 Performance
+##  Performance
 
 | Operation | SQLite | LadybugDB |
 |-----------|--------|-----------|
@@ -211,7 +211,7 @@ Tracks emotional state across conversations.
 | Recall overhead | ~180 tokens | ~30 tokens |
 | Database size | 91 MB | 50 MB |
 
-## 🔄 Migration from v1.x
+##  Migration from v1.x
 
 ```bash
 # Backup
@@ -231,7 +231,7 @@ openclaw restart
 
 See [MIGRATION_GUIDE.md](./MIGRATION_GUIDE.md) for details.
 
-## 🏗 Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

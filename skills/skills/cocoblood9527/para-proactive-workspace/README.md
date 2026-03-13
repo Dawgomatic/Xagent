@@ -1,4 +1,4 @@
-# PARA + Proactive Agent Workspace 🦞📁
+# PARA + Proactive Agent Workspace 
 
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://clawhub.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -8,18 +8,18 @@
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🗂️ **PARA Method** - Battle-tested organization system by Tiago Forte
-- 🧠 **Proactive Agent Memory** - Complete AI continuity architecture
-- 🚀 **One-command setup** - Automated workspace initialization
-- 📝 **Rich templates** - 19+ pre-configured files and directories
-- 🔒 **Security-first** - Built-in security audit and best practices
-- 🦞 **Agent-native** - Designed specifically for AI agent workflows
+-  **PARA Method** - Battle-tested organization system by Tiago Forte
+-  **Proactive Agent Memory** - Complete AI continuity architecture
+-  **One-command setup** - Automated workspace initialization
+-  **Rich templates** - 19+ pre-configured files and directories
+-  **Security-first** - Built-in security audit and best practices
+-  **Agent-native** - Designed specifically for AI agent workflows
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 ### Complete Workspace Structure
 
@@ -37,7 +37,7 @@ Visual overview of the workspace organization system.
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Option 1: Using OpenClaw (Recommended)
 
@@ -69,60 +69,60 @@ cp -r assets/templates/* ~/workspace/
 
 ---
 
-## 📁 Directory Structure
+##  Directory Structure
 
 ```
 workspace/
 │
-├── 📁 1-projects/          # Active projects with deadlines
+├──  1-projects/          # Active projects with deadlines
 │   └── example-project/
 │       ├── README.md
 │       ├── notes.md
 │       ├── docs/
 │       └── assets/
 │
-├── 📁 2-areas/             # Ongoing responsibilities
+├──  2-areas/             # Ongoing responsibilities
 │   ├── health/
 │   ├── finance/
 │   └── learning/
 │
-├── 📁 3-resources/         # Reference materials
+├──  3-resources/         # Reference materials
 │   ├── articles/
 │   ├── books/
 │   └── templates/
 │
-├── 📁 4-archives/          # Completed items
+├──  4-archives/          # Completed items
 │   └── 2024-projects/
 │
-├── 📁 +inbox/              # Temporary inbox (process weekly)
-├── 📁 +temp/               # Scratch space
+├──  +inbox/              # Temporary inbox (process weekly)
+├──  +temp/               # Scratch space
 │
-├── 📁 .agents/             # Agent configuration
+├──  .agents/             # Agent configuration
 │   └── state.json
 │
-├── 📁 .learnings/          # Learning logs
+├──  .learnings/          # Learning logs
 │   ├── ERRORS.md
 │   ├── LEARNINGS.md
 │   └── FEATURE_REQUESTS.md
 │
-├── 📁 memory/              # Daily logs
+├──  memory/              # Daily logs
 │   └── working-buffer.md
 │
-├── 📄 AGENTS.md            # Operating rules
-├── 📄 HEARTBEAT.md         # Periodic checklist
-├── 📄 MEMORY.md            # Long-term memory
-├── 📄 ONBOARDING.md        # First-run setup
-├── 📄 README.md            # This file
-├── 📄 SESSION-STATE.md     # Active task state
-├── 📄 SOUL.md              # Agent identity
-├── 📄 TOOLS.md             # Tool configurations
-├── 📄 USER.md              # Your profile
-└── 📄 .gitignore           # Git ignore rules
+├──  AGENTS.md            # Operating rules
+├──  HEARTBEAT.md         # Periodic checklist
+├──  MEMORY.md            # Long-term memory
+├──  ONBOARDING.md        # First-run setup
+├──  README.md            # This file
+├──  SESSION-STATE.md     # Active task state
+├──  SOUL.md              # Agent identity
+├──  TOOLS.md             # Tool configurations
+├──  USER.md              # Your profile
+└──  .gitignore           # Git ignore rules
 ```
 
 ---
 
-## 🎯 What You Get
+##  What You Get
 
 ### PARA Structure
 
@@ -147,7 +147,7 @@ workspace/
 
 ---
 
-## 🔄 Workflows
+##  Workflows
 
 ### For You (Human)
 
@@ -168,7 +168,7 @@ USER.md  .learnings/
 
 ---
 
-## 🛠️ Requirements
+##  Requirements
 
 - [OpenClaw](https://github.com/openclaw/openclaw) - AI agent framework
 - Git (optional, for version control)
@@ -176,7 +176,7 @@ USER.md  .learnings/
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 - **SKILL.md** - Complete skill documentation
 - **PARA Method** - [Building a Second Brain](https://fortelabs.com/blog/para/) by Tiago Forte
@@ -184,14 +184,14 @@ USER.md  .learnings/
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Areas where help is needed:
 
-- 🖼️ **Screenshots** - Real workspace examples
-- 🌍 **Translations** - Multi-language support
-- 📝 **Documentation** - Tutorials and guides
-- 🐛 **Bug fixes** - Report issues via GitHub
+-  **Screenshots** - Real workspace examples
+-  **Translations** - Multi-language support
+-  **Documentation** - Tutorials and guides
+-  **Bug fixes** - Report issues via GitHub
 
 ### How to Contribute
 
@@ -203,13 +203,13 @@ Contributions welcome! Areas where help is needed:
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **Tiago Forte** - Creator of PARA Method
 - **Hal Labs** - Proactive Agent Architecture
@@ -217,14 +217,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🔗 Links
+##  Links
 
-- 📦 [ClawHub Skill Page](https://clawhub.com)
-- 🐙 [GitHub Repository](https://github.com/Cocoblood9527/para-proactive-workspace)
-- 🦞 [OpenClaw](https://github.com/openclaw/openclaw)
+-  [ClawHub Skill Page](https://clawhub.com)
+-  [GitHub Repository](https://github.com/Cocoblood9527/para-proactive-workspace)
+-  [OpenClaw](https://github.com/openclaw/openclaw)
 
 ---
 
 <p align="center">
-  Made with 🦞 by <a href="https://github.com/Cocoblood9527">Cocoblood9527</a>
+  Made with  by <a href="https://github.com/Cocoblood9527">Cocoblood9527</a>
 </p>

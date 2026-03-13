@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   if (chatLabel) chatLabel.textContent = `${agentName} CHAT`;
 
   // 設定 agent prefix CSS 變數
-  const emoji = config.agent?.emoji || '⚡';
+  const emoji = config.agent?.emoji || '';
   document.documentElement.style.setProperty('--agent-prefix', `"${agentName} ${emoji} "`);
 
   // 載入畫面

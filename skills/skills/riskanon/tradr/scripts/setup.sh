@@ -32,7 +32,7 @@ BANKR_DEFAULT="$HOME/.openclaw/skills/bankr/scripts/bankr.sh"
 if [ -f "$BANKR_DEFAULT" ]; then
     echo "✓ Bankr skill found"
 else
-    echo "⚠  Bankr skill not found at $BANKR_DEFAULT"
+    echo "  Bankr skill not found at $BANKR_DEFAULT"
     echo "   Install the bankr skill first, or update bankr_script in config.json"
 fi
 

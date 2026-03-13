@@ -277,7 +277,7 @@ pub async fn run_stream_rules(
             if args.json {
                 println!("{}", serde_json::to_string_pretty(&res)?);
             } else {
-                println!("✅ Added stream rule.");
+                println!(" Added stream rule.");
             }
         }
         "delete" => {
@@ -300,7 +300,7 @@ pub async fn run_stream_rules(
             if args.json {
                 println!("{}", serde_json::to_string_pretty(&res)?);
             } else {
-                println!("✅ Deleted stream rule(s).");
+                println!(" Deleted stream rule(s).");
             }
         }
         "clear" => {
@@ -323,7 +323,7 @@ pub async fn run_stream_rules(
             if args.json {
                 println!("{}", serde_json::to_string_pretty(&res)?);
             } else {
-                println!("✅ Cleared all stream rules.");
+                println!(" Cleared all stream rules.");
             }
         }
         _ => {

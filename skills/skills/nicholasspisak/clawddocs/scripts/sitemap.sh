@@ -19,5 +19,5 @@ CATEGORIES=(
 )
 
 for cat in "${CATEGORIES[@]}"; do
-  echo "📁 /$cat/"
+  echo " /$cat/"
 done

@@ -16,11 +16,11 @@ API_BASE = "https://ws.audioscrobbler.com/2.0/"
 
 def load_config():
     if not CONFIG_PATH.exists():
-        print("❌ Not configured yet. Run: lastfm setup", file=sys.stderr)
+        print(" Not configured yet. Run: lastfm setup", file=sys.stderr)
         sys.exit(1)
     config = json.loads(CONFIG_PATH.read_text())
     if config.get('api_key', '').startswith('YOUR_'):
-        print("❌ Config not complete. Run: lastfm setup", file=sys.stderr)
+        print(" Config not complete. Run: lastfm setup", file=sys.stderr)
         sys.exit(1)
     return config
 
@@ -37,14 +37,14 @@ def api_call(method, config, **params):
             return json.loads(r.read().decode())
     except urllib.error.HTTPError as e:
         if e.code == 403:
-            print("❌ Invalid API key. Get one at: https://www.last.fm/api/account/create", file=sys.stderr)
+            print(" Invalid API key. Get one at: https://www.last.fm/api/account/create", file=sys.stderr)
         elif e.code == 404:
-            print(f"❌ User '{config['username']}' not found on Last.fm", file=sys.stderr)
+            print(f" User '{config['username']}' not found on Last.fm", file=sys.stderr)
         else:
-            print(f"❌ API error: {e.code} {e.reason}", file=sys.stderr)
+            print(f" API error: {e.code} {e.reason}", file=sys.stderr)
         sys.exit(1)
     except urllib.error.URLError as e:
-        print(f"❌ Network error: {e.reason}", file=sys.stderr)
+        print(f" Network error: {e.reason}", file=sys.stderr)
         sys.exit(1)
 
 def init_db():
@@ -89,7 +89,7 @@ def parse_tracks(data):
 
 def cmd_setup():
     """Interactive setup wizard."""
-    print("🎵 Last.fm CLI Setup\n")
+    print(" Last.fm CLI Setup\n")
     
     # Check existing config
     if CONFIG_PATH.exists():
@@ -110,13 +110,13 @@ def cmd_setup():
     # Get API key
     api_key = input("API Key: ").strip()
     if not api_key:
-        print("❌ API key required")
+        print(" API key required")
         return
     
     # Get username
     username = input("Last.fm username: ").strip()
     if not username:
-        print("❌ Username required")
+        print(" Username required")
         return
     
     # Test the credentials
@@ -133,17 +133,17 @@ def cmd_setup():
         with urllib.request.urlopen(url, timeout=10) as r:
             data = json.loads(r.read().decode())
             playcount = data.get('user', {}).get('playcount', 0)
-            print(f"✅ Found {int(playcount):,} scrobbles!\n")
+            print(f" Found {int(playcount):,} scrobbles!\n")
     except urllib.error.HTTPError as e:
         if e.code == 403:
-            print("❌ Invalid API key")
+            print(" Invalid API key")
         elif e.code == 404:
-            print(f"❌ User '{username}' not found")
+            print(f" User '{username}' not found")
         else:
-            print(f"❌ Error: {e.code}")
+            print(f" Error: {e.code}")
         return
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         return
     
     # Save config
@@ -153,7 +153,7 @@ def cmd_setup():
         'username': username
     }, indent=2))
     
-    print(f"✅ Config saved to {CONFIG_PATH}")
+    print(f" Config saved to {CONFIG_PATH}")
     print("\nYou're all set! Try these commands:")
     print("  lastfm now       - See what's playing")
     print("  lastfm stats     - Your listening stats")
@@ -172,7 +172,7 @@ def cmd_now(config):
     track = t.get('name', '')
     album = t.get('album', {}).get('#text', '')
     
-    status = "🎵 Now playing" if playing else "⏸️  Last played"
+    status = " Now playing" if playing else "  Last played"
     print(f"{status}: {artist} - {track}")
     if album:
         print(f"   Album: {album}")
@@ -200,14 +200,14 @@ def cmd_stats(config):
         cur = conn.execute('SELECT COUNT(*), COUNT(DISTINCT artist) FROM scrobbles')
         local_total, local_artists = cur.fetchone()
         conn.close()
-        print(f"\n📀 Local DB: {local_total:,} scrobbles, {local_artists:,} artists")
+        print(f"\n Local DB: {local_total:,} scrobbles, {local_artists:,} artists")
 
 def cmd_recent(config, limit=10):
     """Show recent tracks."""
     data = api_call('user.getrecenttracks', config, limit=limit)
     for t in data.get('recenttracks', {}).get('track', []):
         if t.get('@attr', {}).get('nowplaying'):
-            prefix = "▶️  "
+            prefix = "  "
         else:
             ts = t.get('date', {}).get('uts')
             prefix = datetime.fromtimestamp(int(ts)).strftime('%H:%M') + " " if ts else ""
@@ -219,7 +219,7 @@ def cmd_backfill(config):
     conn = init_db()
     page, total_added = 1, 0
     
-    print(f"📥 Backfilling {config['username']}...")
+    print(f" Backfilling {config['username']}...")
     print("   (This may take a few minutes for large libraries)\n")
     
     while True:
@@ -257,7 +257,7 @@ def cmd_backfill(config):
         time.sleep(0.25)  # Rate limit
     
     conn.close()
-    print(f"\n✅ Backfill complete: {total_added:,} scrobbles")
+    print(f"\n Backfill complete: {total_added:,} scrobbles")
     print(f"   Database: {DB_PATH}")
 
 def cmd_sync(config):
@@ -290,12 +290,12 @@ def cmd_sync(config):
     
     conn.commit()
     conn.close()
-    print(f"✅ Synced {added} new scrobbles")
+    print(f" Synced {added} new scrobbles")
 
 def cmd_search(config, query):
     """Search local scrobble history."""
     if not DB_PATH.exists():
-        print("❌ No local database. Run 'lastfm backfill' first.", file=sys.stderr)
+        print(" No local database. Run 'lastfm backfill' first.", file=sys.stderr)
         sys.exit(1)
     
     conn = sqlite3.connect(DB_PATH)
@@ -313,7 +313,7 @@ def cmd_search(config, query):
         conn.close()
         return
     
-    print(f"🔍 Found {len(results)} matches for '{query}':\n")
+    print(f" Found {len(results)} matches for '{query}':\n")
     for ts, artist, track, album in results:
         dt = datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M')
         print(f"  {dt}  {artist} - {track}")
@@ -323,7 +323,7 @@ def cmd_search(config, query):
 def cmd_db_stats():
     """Show local database statistics."""
     if not DB_PATH.exists():
-        print("❌ No local database. Run 'lastfm backfill' first.", file=sys.stderr)
+        print(" No local database. Run 'lastfm backfill' first.", file=sys.stderr)
         sys.exit(1)
     
     conn = sqlite3.connect(DB_PATH)
@@ -346,20 +346,20 @@ def cmd_db_stats():
     
     conn.close()
     
-    print(f"📀 Local Database\n")
+    print(f" Local Database\n")
     print(f"   Location:   {DB_PATH}")
     print(f"   Scrobbles:  {total:,}")
     print(f"   Artists:    {artists:,}")
     print(f"   Tracks:     {tracks:,}")
     if first and last:
         print(f"   Range:      {datetime.fromtimestamp(first).strftime('%Y-%m-%d')} → {datetime.fromtimestamp(last).strftime('%Y-%m-%d')}")
-    print(f"\n🏆 Top Artists:")
+    print(f"\n Top Artists:")
     for artist, count in top_artists:
         print(f"   {count:>6,}  {artist}")
 
 def main():
     if len(sys.argv) < 2:
-        print("🎵 Last.fm CLI\n")
+        print(" Last.fm CLI\n")
         print("Usage: lastfm <command>\n")
         print("Commands:")
         print("  setup     Configure API credentials (start here!)")
@@ -396,7 +396,7 @@ def main():
     elif cmd == 'db':
         cmd_db_stats()
     else:
-        print(f"❌ Unknown command: {cmd}")
+        print(f" Unknown command: {cmd}")
         print("Run 'lastfm' for help")
 
 if __name__ == '__main__':

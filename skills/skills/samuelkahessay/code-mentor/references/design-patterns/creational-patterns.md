@@ -81,10 +81,10 @@ console.log(db1 === db2);  // true
 - **Don't Use**: When you need multiple instances, or for simple utilities (use module instead)
 
 ### Pros & Cons
-✅ Controlled access to single instance
-✅ Lazy initialization
-❌ Global state (can make testing harder)
-❌ Can violate Single Responsibility Principle
+ Controlled access to single instance
+ Lazy initialization
+ Global state (can make testing harder)
+ Can violate Single Responsibility Principle
 
 ---
 
@@ -202,10 +202,10 @@ console.log(pet.speak());  // Woof!
 - **Don't Use**: For simple object creation with no variation
 
 ### Pros & Cons
-✅ Loose coupling between client and products
-✅ Easy to add new products (Open/Closed Principle)
-✅ Centralized creation logic
-❌ Can introduce many classes
+ Loose coupling between client and products
+ Easy to add new products (Open/Closed Principle)
+ Centralized creation logic
+ Can introduce many classes
 
 ---
 
@@ -430,10 +430,10 @@ console.log(pizza.toString());
 - **Don't Use**: Simple objects with few parameters
 
 ### Pros & Cons
-✅ Readable, fluent interface
-✅ Control over construction process
-✅ Can create different representations
-❌ More code (requires builder class)
+ Readable, fluent interface
+ Control over construction process
+ Can create different representations
+ More code (requires builder class)
 
 ---
 

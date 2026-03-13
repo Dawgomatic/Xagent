@@ -1,7 +1,7 @@
 ---
 name: hexmem-sync
 description: "Syncs session context with HexMem - injects relevant memories on start, extracts observations on end"
-metadata: {"clawdbot":{"emoji":"🧠","events":["command:new","command:reset","command:stop"],"requires":{"bins":["python3"]}}}
+metadata: {"clawdbot":{"emoji":"","events":["command:new","command:reset","command:stop"],"requires":{"bins":["python3"]}}}
 ---
 
 # HexMem Sync Hook

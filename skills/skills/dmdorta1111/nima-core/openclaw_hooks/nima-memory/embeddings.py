@@ -90,7 +90,7 @@ def ensure_embedding_column(db):
     if "embedding" not in cols:
         db.execute("ALTER TABLE memory_nodes ADD COLUMN embedding BLOB DEFAULT NULL")
         db.commit()
-        print("✅ Added 'embedding' column to memory_nodes")
+        print(" Added 'embedding' column to memory_nodes")
     return True
 
 def embed_texts(client, texts, use_cache=True):
@@ -151,10 +151,10 @@ def backfill(batch_size=BATCH_SIZE, max_retries=3):
         # Count un-embedded
         total = db.execute("SELECT COUNT(*) FROM memory_nodes WHERE embedding IS NULL").fetchone()[0]
         embedded_count = db.execute("SELECT COUNT(*) FROM memory_nodes WHERE embedding IS NOT NULL").fetchone()[0]
-        print(f"📊 {embedded_count} already embedded, {total} remaining")
+        print(f" {embedded_count} already embedded, {total} remaining")
         
         if total == 0:
-            print("✅ All nodes already embedded!")
+            print(" All nodes already embedded!")
             return
         
         client = get_client()
@@ -216,10 +216,10 @@ def backfill(batch_size=BATCH_SIZE, max_retries=3):
                     
                     if attempt < max_retries and is_transient:
                         delay = min(2 ** attempt, 30)  # Exponential backoff, max 30s
-                        print(f"  ⚠️ Attempt {attempt} failed (transient), retrying in {delay}s: {e}")
+                        print(f"   Attempt {attempt} failed (transient), retrying in {delay}s: {e}")
                         time.sleep(delay)
                     else:
-                        print(f"  ❌ Batch error (attempt {attempt}/{max_retries}): {e}")
+                        print(f"   Batch error (attempt {attempt}/{max_retries}): {e}")
                         failed_batches += 1
                         # Still continue to next batch
                         break
@@ -228,15 +228,15 @@ def backfill(batch_size=BATCH_SIZE, max_retries=3):
             time.sleep(0.3)
         
         elapsed = time.time() - start
-        print(f"\n✅ Backfill complete! {processed} nodes embedded in {elapsed:.1f}s")
+        print(f"\n Backfill complete! {processed} nodes embedded in {elapsed:.1f}s")
         if failed_batches > 0:
-            print(f"   ⚠️ {failed_batches} batches failed and were skipped")
+            print(f"    {failed_batches} batches failed and were skipped")
         
         final = db.execute("SELECT COUNT(*) FROM memory_nodes WHERE embedding IS NOT NULL").fetchone()[0]
         print(f"   Total embedded: {final}")
         
     except Exception as e:
-        print(f"❌ Fatal error in backfill: {e}", file=sys.stderr)
+        print(f" Fatal error in backfill: {e}", file=sys.stderr)
         raise
     finally:
         # AUDIT FIX: Always close connection (Issue #2)
@@ -361,7 +361,7 @@ def stats():
     total = db.execute("SELECT COUNT(*) FROM memory_nodes").fetchone()[0]
     embedded = db.execute("SELECT COUNT(*) FROM memory_nodes WHERE embedding IS NOT NULL").fetchone()[0]
     pct = (embedded / total * 100) if total > 0 else 0
-    print(f"📊 Embedding Stats:")
+    print(f" Embedding Stats:")
     print(f"   Total nodes: {total}")
     print(f"   Embedded: {embedded} ({pct:.1f}%)")
     print(f"   Remaining: {total - embedded}")
@@ -373,14 +373,14 @@ def build_index(index_type='flat'):
         from faiss_index import build_faiss_index
         index = build_faiss_index(index_type=index_type)
         if index:
-            print(f"✅ Built FAISS index: {len(index.id_map)} vectors")
+            print(f" Built FAISS index: {len(index.id_map)} vectors")
         else:
-            print("❌ Failed to build FAISS index")
+            print(" Failed to build FAISS index")
     except ImportError as e:
-        print(f"❌ FAISS not available: {e}")
+        print(f" FAISS not available: {e}")
         print("   Install with: pip install faiss-cpu")
     except Exception as e:
-        print(f"❌ Build failed: {e}")
+        print(f" Build failed: {e}")
 
 
 if __name__ == "__main__":
@@ -406,7 +406,7 @@ if __name__ == "__main__":
             from faiss_index import get_faiss_index
             index = get_faiss_index()
             if index:
-                print(f"\n📊 FAISS Index:")
+                print(f"\n FAISS Index:")
                 print(f"   Vectors: {len(index.id_map)}")
                 print(f"   Type: {index.index_type}")
         except:
@@ -415,7 +415,7 @@ if __name__ == "__main__":
         try:
             from voyage_cache import cache_stats
             cs = cache_stats()
-            print(f"\n📊 Voyage Cache:")
+            print(f"\n Voyage Cache:")
             print(f"   LRU hits: {cs['lru_hits']}")
             print(f"   Disk hits: {cs['disk_hits']}")
             print(f"   API calls: {cs['api_calls']}")

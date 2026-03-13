@@ -6,11 +6,11 @@ Every audited package gets a Trust Score from 0 to 100.
 
 | Range | Label | Meaning |
 |-------|-------|---------|
-| 80–100 | 🟢 Trusted | Clean or minor issues only. Safe to use. |
-| 70–79 | 🟢 Acceptable | Low-risk issues. Generally safe. |
-| 40–69 | 🟡 Caution | Medium-severity issues found. Review before using. |
-| 1–39 | 🔴 Unsafe | High/critical issues. Do not use without remediation. |
-| 0 | ⚫ Unaudited | No data. Needs an audit. |
+| 80–100 |  Trusted | Clean or minor issues only. Safe to use. |
+| 70–79 |  Acceptable | Low-risk issues. Generally safe. |
+| 40–69 |  Caution | Medium-severity issues found. Review before using. |
+| 1–39 |  Unsafe | High/critical issues. Do not use without remediation. |
+| 0 |  Unaudited | No data. Needs an audit. |
 
 ## Calculation Formula
 
@@ -27,7 +27,7 @@ Penalties per finding (only where by_design = false):
 
 **Component-Type Weighting**: Apply ×1.2 multiplier to penalties for findings in high-risk component types (hooks/, configs, MCP servers, plugin entry points).
 
-**Example**: 1 critical + 2 medium findings → 100 - 25 - 8 - 8 = **59** (⚠️ Caution)
+**Example**: 1 critical + 2 medium findings → 100 - 25 - 8 - 8 = **59** ( Caution)
 
 ## How Scores Change
 

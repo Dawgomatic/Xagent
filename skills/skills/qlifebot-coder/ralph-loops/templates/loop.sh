@@ -34,7 +34,7 @@ ITERATION=0
 CURRENT_BRANCH=$(git branch --show-current 2>/dev/null || echo "no-git")
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "🐛 Ralph Wiggum Loop"
+echo " Ralph Wiggum Loop"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Mode: $MODE"
 echo "Prompt: $PROMPT_FILE"
@@ -44,7 +44,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 
 # Verify prompt file exists
 if [ ! -f "$PROMPT_FILE" ]; then
-    echo "❌ Error: $PROMPT_FILE not found"
+    echo " Error: $PROMPT_FILE not found"
     echo ""
     echo "Make sure you have:"
     echo "  - PROMPT_plan.md (for planning mode)"
@@ -54,7 +54,7 @@ fi
 
 # Check for specs
 if [ ! -d "specs" ] || [ -z "$(ls -A specs 2>/dev/null)" ]; then
-    echo "⚠️  Warning: No specs found in specs/"
+    echo "  Warning: No specs found in specs/"
     echo "Consider running Phase 1 (requirements) first."
     echo ""
     read -p "Continue anyway? [y/N] " -n 1 -r
@@ -68,7 +68,7 @@ while true; do
     if [ $MAX_ITERATIONS -gt 0 ] && [ $ITERATION -ge $MAX_ITERATIONS ]; then
         echo ""
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-        echo "✅ Reached max iterations: $MAX_ITERATIONS"
+        echo " Reached max iterations: $MAX_ITERATIONS"
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         break
     fi
@@ -100,5 +100,5 @@ while true; do
 done
 
 echo ""
-echo "🎉 Ralph loop complete!"
+echo " Ralph loop complete!"
 echo "Total iterations: $ITERATION"

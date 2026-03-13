@@ -9,20 +9,20 @@ Forms are critical for web interaction. This guide covers accessible form patter
 ### Every Input Needs a Label
 
 ```html
-<!-- ✅ CORRECT - explicit label -->
+<!--  CORRECT - explicit label -->
 <label for="email">Email address</label>
 <input type="email" id="email" name="email">
 
-<!-- ✅ CORRECT - implicit label -->
+<!--  CORRECT - implicit label -->
 <label>
   Email address
   <input type="email" name="email">
 </label>
 
-<!-- ❌ WRONG - no label -->
+<!--  WRONG - no label -->
 <input type="email" placeholder="Email address">
 
-<!-- ❌ WRONG - aria-label when visible label should exist -->
+<!--  WRONG - aria-label when visible label should exist -->
 <input type="email" aria-label="Email address">
 <!-- Screen reader gets it, but visual users don't -->
 ```
@@ -36,7 +36,7 @@ Forms are critical for web interaction. This guide covers accessible form patter
 ### Mark Required Fields
 
 ```html
-<!-- ✅ Visual + programmatic -->
+<!--  Visual + programmatic -->
 <label for="name">
   Full name <span aria-label="required">*</span>
 </label>
@@ -48,13 +48,13 @@ Forms are critical for web interaction. This guide covers accessible form patter
   aria-required="true"
 >
 
-<!-- ✅ Text indicator -->
+<!--  Text indicator -->
 <label for="email">
   Email address (required)
 </label>
 <input type="email" id="email" required>
 
-<!-- ❌ WRONG - visual only -->
+<!--  WRONG - visual only -->
 <label for="phone">Phone *</label>
 <input type="tel" id="phone">
 <!-- Missing required attribute -->

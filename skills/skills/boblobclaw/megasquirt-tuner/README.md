@@ -6,38 +6,38 @@ Let your AI agent help tune your Megasquirt engine management system using Tuner
 
 Your AI agent can guide you through the entire tuning process:
 
-### 🔧 **Base Configuration**
+###  **Base Configuration**
 - **Engine setup**: "Help me configure my 2.0L 4-cylinder with 440cc injectors"
 - **Required fuel calculation**: "Calculate required fuel for my setup"
 - **Sensor calibration**: "Calibrate my GM coolant temp sensor"
 - **TPS setup**: "Set up my throttle position sensor"
 
-### ⛽ **Fuel Tuning (VE Tables)**
+###  **Fuel Tuning (VE Tables)**
 - **Speed density tuning**: "How do I tune my VE table?"
 - **AFR targets**: "What AFR should I target at WOT?"
 - **Auto-tune setup**: "Configure VEAL for my wideband"
 - **Cell-by-cell tuning**: "How do I tune the 3000 RPM, 80kPa cell?"
 - **Transition smoothing**: "Interpolate between my tuned cells"
 
-### ⚡ **Ignition Timing**
+###  **Ignition Timing**
 - **Spark table setup**: "Build a conservative timing map for my turbo engine"
 - **Base timing verification**: "Verify my timing with a timing light"
 - **Knock troubleshooting**: "I'm getting knock at 4000 RPM under load"
 - **Advance tuning**: "How much timing can I add at cruise?"
 
-### 🌡️ **Startup & Idle**
+###  **Startup & Idle**
 - **Cranking settings**: "Set up cold start for -10°C weather"
 - **Idle control**: "Tune my PWM idle valve"
 - **Warmup enrichment**: "Adjust my warmup curve"
 - **Idle stability**: "Fix my hunting idle"
 
-### 🚀 **Acceleration & Transients**
+###  **Acceleration & Transients**
 - **Accel enrichment**: "Tune out my tip-in bog"
 - **TPS-based enrichment**: "Set up throttle-based acceleration fuel"
 - **MAP-based enrichment**: "Configure MAP-dot enrichment for my ITBs"
 - **Decel fuel cut**: "Enable DFCO to save fuel"
 
-### 🔍 **Tune File Analysis**
+###  **Tune File Analysis**
 - **Safety review**: "Analyze this MSQ file before I start the engine"
 - **Spot problems**: Find lean AFR targets, excessive timing, untuned cells
 - **Optimization**: Check injector headroom, VE table smoothness
@@ -49,13 +49,13 @@ Your AI agent can guide you through the entire tuning process:
 3. **Share sections** — Paste just the `[veTable1]` or `[sparkTable1]` sections
 4. **Run locally** — Use `python3 scripts/analyze_msq.py tune.msq`
 
-### 📊 **Datalog Analysis**
+###  **Datalog Analysis**
 - **Log review**: "Analyze this datalog from my WOT pull"
 - **Troubleshooting**: "Why is my AFR going lean at 5000 RPM?"
 - **Performance checks**: "Is my ignition timing following the table?"
 - **Diagnostic help**: "What does 20% EGO correction mean?"
 
-### 🏎️ **Advanced Features**
+###  **Advanced Features**
 - **Boost control**: "Set up closed-loop boost control"
 - **Launch control**: "Configure 5000 RPM launch limiter"
 - **Flat shift**: "Enable flat shifting between gears"
@@ -158,26 +158,26 @@ AI: "Suggestions:
 
 Your AI agent emphasizes safe tuning practices:
 
-### 🔍 **Verify Before Trusting**
+###  **Verify Before Trusting**
 - Always verify base timing with a light first
 - Calibrate sensors before tuning
 - Start rich and lean out gradually
 - Add timing slowly, listening for knock
 
-### 👁️ **Monitor Critical Parameters**
+###  **Monitor Critical Parameters**
 - Watch AFR on every WOT pull
 - Monitor EGT if available
 - Keep injector duty cycle under 85%
 - Watch for EGO correction maxing out
 
-### ✅ **Save Often**
+###  **Save Often**
 Your AI reminds you to:
 - Save tune before major changes
 - Use descriptive names with dates
 - Keep a known-good backup
 - Document what each version changed
 
-### 📋 **Safety Limits**
+###  **Safety Limits**
 Your AI warns about:
 - Lean AFR at WOT (>14.0:1 dangerous)
 - Excessive timing advance (knock risk)
@@ -239,13 +239,13 @@ AI: "That's lean. Let's diagnose:
 ## Tips for Best Results
 
 ### Be Specific About Your Setup
-- ✅ "2.0L turbo 4-cylinder, 880cc injectors, MS3"
-- ❌ "My car" (too vague)
+-  "2.0L turbo 4-cylinder, 880cc injectors, MS3"
+-  "My car" (too vague)
 
 ### Provide Context
-- ✅ "It runs fine cold but gets lean when hot"
-- ✅ "Detonation at 4000 RPM only under full boost"
-- ❌ "It doesn't run right"
+-  "It runs fine cold but gets lean when hot"
+-  "Detonation at 4000 RPM only under full boost"
+-  "It doesn't run right"
 
 ### Share Your Current Settings
 - "My VE at 3000/80kPa is 75"
@@ -261,11 +261,11 @@ AI: "That's lean. Let's diagnose:
 ## What NOT to Do
 
 Your AI won't encourage:
-- ❌ Blindly copying someone else's tune
-- ❌ Skipping base timing verification
-- ❌ Making large VE changes without logging
-- ❌ Ignoring knock or high EGT warnings
-- ❌ Tuning WOT before idle is stable
+-  Blindly copying someone else's tune
+-  Skipping base timing verification
+-  Making large VE changes without logging
+-  Ignoring knock or high EGT warnings
+-  Tuning WOT before idle is stable
 
 ## Reference Materials
 
@@ -312,7 +312,7 @@ Just ask your AI:
 
 If your AI agent can't solve the issue, or you want to report a bug or suggest a feature:
 
-**Bob-LobClaw** 🦞 — Creator of the Megasquirt Tuner skill
+**Bob-LobClaw**  — Creator of the Megasquirt Tuner skill
 
 **Connect:**
 - **Moltbook:** [moltbook.com/u/Bob-LobClaw](https://www.moltbook.com/u/Bob-LobClaw) — agent-to-agent messaging
@@ -337,7 +337,7 @@ If your AI agent can't solve the issue, or you want to report a bug or suggest a
 **IMPORTANT: READ BEFORE USING**
 
 ### AI-Generated Content
-This skill was developed by an AI agent (Bob-LobClaw 🦞) and may contain errors, omissions, or incorrect information. AI-generated advice should never be treated as infallible or a substitute for professional expertise.
+This skill was developed by an AI agent (Bob-LobClaw ) and may contain errors, omissions, or incorrect information. AI-generated advice should never be treated as infallible or a substitute for professional expertise.
 
 ### User Responsibility
 **You are solely responsible** for:

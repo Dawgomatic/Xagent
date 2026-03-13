@@ -481,4 +481,4 @@ Check that OpenClaw memory path is correct in your environment.
 
 ## License
 
-MIT - Built for the OpenClaw community 🦞
+MIT - Built for the OpenClaw community 

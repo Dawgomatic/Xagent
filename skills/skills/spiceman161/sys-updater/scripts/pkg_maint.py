@@ -211,9 +211,9 @@ def upgrade_skills(dry_run: bool = False) -> str:
         # clawhub doesn't support --dry-run, just list skills
         rc, stdout, stderr = sh(["clawhub", "list"], timeout=60)
         if rc != 0:
-            return f"❌ clawhub list failed: {stderr[:200]}"
+            return f" clawhub list failed: {stderr[:200]}"
         
-        lines = ["🔍 Skills (dry-run not supported by clawhub):"]
+        lines = [" Skills (dry-run not supported by clawhub):"]
         lines.append("Will check and update all installed skills")
         lines.append("\nInstalled skills:")
         lines.append(stdout if stdout else "No skills found")
@@ -222,15 +222,15 @@ def upgrade_skills(dry_run: bool = False) -> str:
     # Real update
     result = check_skills()
     
-    lines = ["📦 Обновление скиллов OpenClaw:"]
+    lines = [" Обновление скиллов OpenClaw:"]
     
     if result["updated"]:
-        lines.append(f"✅ Обновлено: {len(result['updated'])}")
+        lines.append(f" Обновлено: {len(result['updated'])}")
         for skill in result["updated"]:
             lines.append(f"   - {skill['name']}")
     
     if result["failed"]:
-        lines.append(f"❌ Ошибки: {len(result['failed'])}")
+        lines.append(f" Ошибки: {len(result['failed'])}")
         for skill in result["failed"]:
             lines.append(f"   - {skill['name']}: {skill['error'][:80]}")
     
@@ -408,12 +408,12 @@ def review_mode() -> str:
         return "Нет пакетов для ревью (все новые, не прошло 2 дня, или уже обработаны)."
     
     # Build report
-    lines = ["📋 Пакеты для ревью (прошло 2+ дней):"]
+    lines = [" Пакеты для ревью (прошло 2+ дней):"]
     for pkg in review_list:
         lines.append(f"  - {pkg['name']} ({pkg['manager']}): {pkg['current']} → {pkg['latest']}")
     
     lines.append("")
-    lines.append("🔍 Рекомендация: проверь эти пакеты на наличие багов/регрессий")
+    lines.append(" Рекомендация: проверь эти пакеты на наличие багов/регрессий")
     lines.append("   перед автоматическим обновлением.")
     lines.append("")
     lines.append("Действия:")
@@ -480,14 +480,14 @@ def upgrade_mode(dry_run: bool = False) -> str:
     save_tracked(BREW_TRACK_PATH, brew_tracked)
     
     # Build report
-    lines = ["🚀 Результат обновления:"]
+    lines = [" Результат обновления:"]
     
     if npm_upgraded:
-        lines.append(f"✅ npm: {', '.join(npm_upgraded)}")
+        lines.append(f" npm: {', '.join(npm_upgraded)}")
     if brew_upgraded:
-        lines.append(f"✅ brew: {', '.join(brew_upgraded)}")
+        lines.append(f" brew: {', '.join(brew_upgraded)}")
     if failed:
-        lines.append(f"❌ Ошибки: {len(failed)}")
+        lines.append(f" Ошибки: {len(failed)}")
         for name, manager, err in failed:
             lines.append(f"   - {name} ({manager}): {err[:100]}")
     

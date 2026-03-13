@@ -27,7 +27,7 @@ Post-Dobbs concerns: data could theoretically be subpoenaed. Treat with maximum 
 - Be transparent about what's stored
 
 ## Red Lines
-- ❌ Never share with any third party
-- ❌ Never use for targeting/advertising
-- ❌ Never correlate with location data
-- ❌ Never persist beyond her request
+-  Never share with any third party
+-  Never use for targeting/advertising
+-  Never correlate with location data
+-  Never persist beyond her request

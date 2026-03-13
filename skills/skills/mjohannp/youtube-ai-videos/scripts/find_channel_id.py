@@ -48,11 +48,11 @@ def find_channel_id(channel_input):
             if match:
                 return match.group(1)
         
-        print(f"❌ Could not find channel ID for: {channel_input}")
+        print(f" Could not find channel ID for: {channel_input}")
         return None
     
     except Exception as e:
-        print(f"❌ Error fetching {url}: {e}")
+        print(f" Error fetching {url}: {e}")
         return None
 
 if __name__ == '__main__':
@@ -64,4 +64,4 @@ if __name__ == '__main__':
     channel_id = find_channel_id(channel_input)
     
     if channel_id:
-        print(f"✅ Channel ID for '{channel_input}': {channel_id}")
+        print(f" Channel ID for '{channel_input}': {channel_id}")

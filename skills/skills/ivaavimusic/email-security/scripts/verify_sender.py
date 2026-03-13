@@ -219,7 +219,7 @@ def main():
         if result['warnings']:
             print("\nWarnings:")
             for w in result['warnings']:
-                print(f"  ⚠️  {w}")
+                print(f"    {w}")
         
         print(f"\nAuthentication:")
         print(f"  SPF: {result['auth']['spf']}")

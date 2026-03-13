@@ -6,10 +6,10 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-log()  { echo -e "${GREEN}✅ $1${NC}"; }
-warn() { echo -e "${YELLOW}⚠️  $1${NC}"; }
-err()  { echo -e "${RED}❌ $1${NC}"; }
-info() { echo -e "${BLUE}ℹ️  $1${NC}"; }
+log()  { echo -e "${GREEN} $1${NC}"; }
+warn() { echo -e "${YELLOW}  $1${NC}"; }
+err()  { echo -e "${RED} $1${NC}"; }
+info() { echo -e "${BLUE}  $1${NC}"; }
 
 
 # Early check for OPENAI_API_KEY

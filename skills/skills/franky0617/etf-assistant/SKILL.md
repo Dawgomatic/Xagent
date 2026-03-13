@@ -11,25 +11,25 @@ A professional ETF investment assistant for querying ETF quotes, screening inves
 
 ## 功能特性 / Features
 
-- 📊 **ETF列表 / ETF List** - 常用ETF代码速查
+-  **ETF列表 / ETF List** - 常用ETF代码速查
   - Quick reference for commonly used ETF codes
 
-- 💰 **实时行情 / Real-time Quotes** - 查询ETF当前价格和涨跌
+-  **实时行情 / Real-time Quotes** - 查询ETF当前价格和涨跌
   - Query current ETF prices and changes
 
-- 🔥 **热门ETF / Hot ETFs** - 推荐热门投资标的
+-  **热门ETF / Hot ETFs** - 推荐热门投资标的
   - Recommend popular investment targets
 
-- 🔍 **搜索ETF / Search ETF** - 按名称或代码搜索
+-  **搜索ETF / Search ETF** - 按名称或代码搜索
   - Search by name or code
 
-- 📈 **对比分析 / Comparison** - 对比两只ETF表现
+-  **对比分析 / Comparison** - 对比两只ETF表现
   - Compare performance of two ETFs
 
-- 🧮 **定投计算器 / DCA Calculator** - 计算定投收益
+-  **定投计算器 / DCA Calculator** - 计算定投收益
   - Calculate Dollar-Cost Averaging returns
 
-- 📋 **投资摘要 / Summary** - 主流ETF分类介绍
+-  **投资摘要 / Summary** - 主流ETF分类介绍
   - Introduction to mainstream ETF categories
 
 ## 使用方法 / Usage
@@ -119,11 +119,11 @@ etf-assistant summary
 
 ## 注意事项 / Notes
 
-⚠️ 投资有风险，入市需谨慎
-⚠️ Investment involves risk, invest cautiously
+ 投资有风险，入市需谨慎
+ Investment involves risk, invest cautiously
 
-⚠️ 历史收益不代表未来表现
-⚠️ Past performance does not guarantee future results
+ 历史收益不代表未来表现
+ Past performance does not guarantee future results
 
-⚠️ 仅供参考，不构成投资建议
-⚠️ For reference only, not investment advice
+ 仅供参考，不构成投资建议
+ For reference only, not investment advice

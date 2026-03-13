@@ -48,7 +48,7 @@ ENV=development uv run python -m scripts.seed_data
 
 ## Important Notes
 
-⚠️ **This will populate your development database** (`data/dev.db`)
+ **This will populate your development database** (`data/dev.db`)
 
 - The script will create tables if they don't exist
 - It will add sample data to existing tables (may create duplicates if run multiple times)

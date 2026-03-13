@@ -72,7 +72,7 @@ case "$cmd" in
     series=$(curl -s -H "$AUTH" "$API/series/lookup?term=tvdb:$tvdbId" | jq '.[0]')
     
     if [ "$series" = "null" ] || [ -z "$series" ]; then
-      echo "❌ Show not found with TVDB ID: $tvdbId"
+      echo " Show not found with TVDB ID: $tvdbId"
       exit 1
     fi
     
@@ -111,12 +111,12 @@ case "$cmd" in
       title=$(echo "$result" | jq -r '.title')
       year=$(echo "$result" | jq -r '.year')
       seasons=$(echo "$result" | jq -r '.statistics.seasonCount // "?"')
-      echo "✅ Added: $title ($year) - $seasons seasons"
+      echo " Added: $title ($year) - $seasons seasons"
       if [ "$searchFlag" = "true" ]; then
-        echo "🔍 Search started"
+        echo " Search started"
       fi
     else
-      echo "❌ Failed to add show"
+      echo " Failed to add show"
       echo "$result" | jq -r '.message // .'
     fi
     ;;
@@ -132,7 +132,7 @@ case "$cmd" in
     series=$(curl -s -H "$AUTH" "$API/series?tvdbId=$tvdbId")
     
     if [ "$series" = "[]" ]; then
-      echo "❌ Show not found in library"
+      echo " Show not found in library"
       exit 1
     fi
     
@@ -143,9 +143,9 @@ case "$cmd" in
     curl -s -X DELETE -H "$AUTH" "$API/series/$seriesId?deleteFiles=$deleteFiles" > /dev/null
     
     if [ "$deleteFiles" = "true" ]; then
-      echo "🗑️ Removed: $title ($year) + deleted files"
+      echo " Removed: $title ($year) + deleted files"
     else
-      echo "🗑️ Removed: $title ($year) (files kept)"
+      echo " Removed: $title ($year) (files kept)"
     fi
     ;;
     

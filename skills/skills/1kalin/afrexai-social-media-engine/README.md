@@ -34,7 +34,7 @@ Or:
 Or:
 > "Set up my brand voice document and content pillars"
 
-## ⚡ Level Up
+##  Level Up
 
 This skill gives you the strategy engine. Want **industry-specific content angles, competitor messaging teardowns, and vertical-specific audience personas**?
 
@@ -44,9 +44,9 @@ Check out our Context Packs ($47 each):
 - **Ecommerce Pack** — Product launch sequences, UGC campaigns, seasonal calendars
 - **Real Estate Pack** — Listing content, market update templates, community building
 
-👉 [Browse all 10 packs](https://afrexai-cto.github.io/context-packs/)
+ [Browse all 10 packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Find and qualify leads with 100-point scoring
 - [afrexai-seo-content-engine](https://clawhub.com/skills/afrexai-seo-content-engine) — SEO article writing with keyword research
@@ -54,4 +54,4 @@ Check out our Context Packs ($47 each):
 - [afrexai-meeting-mastery](https://clawhub.com/skills/afrexai-meeting-mastery) — Meeting prep, notes, and follow-up
 - [afrexai-recruiting-engine](https://clawhub.com/skills/afrexai-recruiting-engine) — End-to-end hiring pipeline
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

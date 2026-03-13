@@ -21,7 +21,7 @@ const DATA_DIR = path.join(process.env.HOME, '.openclaw', 'workspace', 'data', '
 
 // Check if credentials exist
 if (!fs.existsSync(CREDENTIALS_PATH)) {
-  console.error('❌ Google Calendar credentials not found');
+  console.error(' Google Calendar credentials not found');
   console.error('Place OAuth credentials at:', CREDENTIALS_PATH);
   console.error('\nSetup guide:');
   console.error('1. Go to https://console.cloud.google.com/');
@@ -45,7 +45,7 @@ async function authorize() {
     return oAuth2Client;
   }
   
-  console.error('❌ No auth token found. Run this script manually first to authenticate.');
+  console.error(' No auth token found. Run this script manually first to authenticate.');
   console.error('Auth URL will open in browser. Follow the flow and paste the code.');
   
   const authUrl = oAuth2Client.generateAuthUrl({
@@ -116,7 +116,7 @@ async function syncToCalendar() {
         synced++;
         
       } catch (error) {
-        console.error(`❌ Error syncing booking ${booking.id}:`, error.message);
+        console.error(` Error syncing booking ${booking.id}:`, error.message);
         errors++;
       }
     }
@@ -125,7 +125,7 @@ async function syncToCalendar() {
     fs.writeFileSync(filePath, JSON.stringify(bookings, null, 2));
   }
   
-  console.log(`\n✅ Sync complete: ${synced} events synced, ${errors} errors`);
+  console.log(`\n Sync complete: ${synced} events synced, ${errors} errors`);
 }
 
 // Run

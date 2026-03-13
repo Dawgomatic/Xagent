@@ -94,15 +94,15 @@ Every submission is logged:
 
 | Action | Automated? | Notes |
 |--------|------------|-------|
-| Load directory list | ✅ Yes | From directories.json |
-| Visit submit pages | ✅ Yes | Uses browser tool |
-| Fill form fields | ✅ Yes | Maps your product info to fields |
-| Upload logo/screenshots | ✅ Yes | If URLs provided |
-| Solve captchas | ⚡ With API key | You provide 2captcha key |
-| Email verification | ⚡ With IMAP | You provide email access |
-| Create accounts | ❌ No | Flags you |
-| Make payments | ❌ No | Flags you |
-| Track submissions | ✅ Yes | Saves to submissions.json |
+| Load directory list |  Yes | From directories.json |
+| Visit submit pages |  Yes | Uses browser tool |
+| Fill form fields |  Yes | Maps your product info to fields |
+| Upload logo/screenshots |  Yes | If URLs provided |
+| Solve captchas |  With API key | You provide 2captcha key |
+| Email verification |  With IMAP | You provide email access |
+| Create accounts |  No | Flags you |
+| Make payments |  No | Flags you |
+| Track submissions |  Yes | Saves to submissions.json |
 
 ---
 
@@ -114,7 +114,7 @@ Every submission is logged:
 
 ### Highly Recommended  
 3. **Your own captcha API key** from [2captcha.com](https://2captcha.com)
-   - ⚠️ **You must get your own key** - skill does not include one
+   -  **You must get your own key** - skill does not include one
    - Sign up at 2captcha.com → Add $3 → Copy your API key
    - Without it, you'll solve 70+ captchas manually (tedious)
 
@@ -181,7 +181,7 @@ The skill includes 70+ directories. Each entry has:
 
 ## Captcha Integration
 
-### ⚠️ You Must Get Your Own API Key
+###  You Must Get Your Own API Key
 
 **This skill does NOT include a captcha API key. You must get your own.**
 
@@ -285,7 +285,7 @@ You check, click the link, tell agent to continue.
 
 ## Safety Considerations
 
-### ✅ Safe
+###  Safe
 
 - **No stored credentials** - You provide info each session
 - **No payments** - Agent flags paid directories, doesn't pay
@@ -293,7 +293,7 @@ You check, click the link, tell agent to continue.
 - **Local tracking** - Submission log stays in your workspace
 - **You control the pace** - Can stop anytime
 
-### ⚠️ Be Aware
+###  Be Aware
 
 - **Directory ToS** - Some directories don't allow automated submission. The agent fills forms like a human would, but technically it's automation.
 - **Captcha costs** - If using paid captcha service, ~$3 per 70 directories

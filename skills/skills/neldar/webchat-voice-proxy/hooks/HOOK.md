@@ -3,7 +3,7 @@ name: voice-input-inject
 description: "Injects voice-input.js into Control UI on gateway startup (survives updates)"
 metadata:
   openclaw:
-    emoji: "🎤"
+    emoji: ""
     events: ["gateway:startup"]
     requires:
       bins: ["bash"]

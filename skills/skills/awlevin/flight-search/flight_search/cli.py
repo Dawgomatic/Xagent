@@ -68,10 +68,10 @@ def do_upgrade() -> int:
 
     try:
         subprocess.run(cmd, check=True)
-        print("\n✅ Upgrade complete! Run 'flight-search --version' to verify.")
+        print("\n Upgrade complete! Run 'flight-search --version' to verify.")
         return 0
     except subprocess.CalledProcessError as e:
-        print(f"\n❌ Upgrade failed: {e}", file=sys.stderr)
+        print(f"\n Upgrade failed: {e}", file=sys.stderr)
         return 1
 
 
@@ -81,7 +81,7 @@ def format_text_output(result: SearchResult) -> str:
 
     # Header
     trip_type = "Round trip" if result.return_date else "One way"
-    lines.append(f"✈️  {result.origin} → {result.destination}")
+    lines.append(f"  {result.origin} → {result.destination}")
     lines.append(f"   {trip_type} · {result.date}" + (f" - {result.return_date}" if result.return_date else ""))
 
     if result.current_price:
@@ -95,24 +95,24 @@ def format_text_output(result: SearchResult) -> str:
 
     # Flights
     for flight in result.flights:
-        best_tag = " ⭐ BEST" if flight.is_best else ""
+        best_tag = "  BEST" if flight.is_best else ""
         price_str = f"${flight.price}" if flight.price else "Price N/A"
 
         lines.append(f"{'─' * 50}")
         lines.append(f"   {flight.airline}{best_tag}")
-        lines.append(f"   🕐 {flight.departure_time} → {flight.arrival_time}" +
+        lines.append(f"    {flight.departure_time} → {flight.arrival_time}" +
                     (f" {flight.arrival_ahead}" if flight.arrival_ahead else ""))
-        lines.append(f"   ⏱️  {flight.duration}")
+        lines.append(f"     {flight.duration}")
 
         if flight.stops == 0:
-            lines.append("   ✅ Nonstop")
+            lines.append("    Nonstop")
         else:
             stop_text = f"{flight.stops} stop" + ("s" if flight.stops > 1 else "")
             if flight.stop_info:
                 stop_text += f" ({flight.stop_info})"
-            lines.append(f"   🔄 {stop_text}")
+            lines.append(f"    {stop_text}")
 
-        lines.append(f"   💰 {price_str}")
+        lines.append(f"    {price_str}")
         lines.append("")
 
     return "\n".join(lines)

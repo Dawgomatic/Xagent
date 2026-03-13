@@ -24,7 +24,7 @@ if (fs.existsSync(credPath)) {
 // Build the full message with API key
 const fullMessage = `${message}
 
-🔑 API KEY: ${apiKey}
+ API KEY: ${apiKey}
 Use this header: X-API-Key: ${apiKey}`;
 
 try {

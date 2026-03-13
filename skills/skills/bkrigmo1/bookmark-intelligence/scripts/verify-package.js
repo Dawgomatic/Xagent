@@ -28,14 +28,14 @@ let warnings = 0;
 
 function check(name, condition, failMessage, warnMessage = null) {
   if (condition === true) {
-    console.log(`${green}✅${reset} ${name}`);
+    console.log(`${green}${reset} ${name}`);
     passed++;
   } else if (warnMessage) {
-    console.log(`${yellow}⚠️${reset}  ${name}`);
+    console.log(`${yellow}${reset}  ${name}`);
     console.log(`   ${yellow}${warnMessage}${reset}`);
     warnings++;
   } else {
-    console.log(`${red}❌${reset} ${name}`);
+    console.log(`${red}${reset} ${name}`);
     console.log(`   ${red}${failMessage}${reset}`);
     failed++;
   }
@@ -80,7 +80,7 @@ function checkGitignore(pattern) {
 }
 
 console.log('');
-console.log(`${bright}${cyan}🔍 Verifying Package Readiness for ClawHub${reset}`);
+console.log(`${bright}${cyan} Verifying Package Readiness for ClawHub${reset}`);
 console.log('='.repeat(60));
 console.log('');
 
@@ -112,7 +112,7 @@ if (existsSync(bookmarksDir)) {
     `${files.length} bookmark files in ${bookmarksDir}`
   );
 } else {
-  console.log(`${green}✅${reset} No bookmarks directory (will be created on first run)`);
+  console.log(`${green}${reset} No bookmarks directory (will be created on first run)`);
   passed++;
 }
 
@@ -214,7 +214,7 @@ for (const file of filesToCheck) {
     const content = readFileSync(filePath, 'utf8');
     for (const pattern of suspiciousPatterns) {
       if (pattern.test(content)) {
-        console.log(`${red}❌${reset} ${file} contains hardcoded credentials!`);
+        console.log(`${red}${reset} ${file} contains hardcoded credentials!`);
         console.log(`   ${red}Found pattern: ${pattern}${reset}`);
         foundCredentials = true;
         failed++;
@@ -224,7 +224,7 @@ for (const file of filesToCheck) {
 }
 
 if (!foundCredentials) {
-  console.log(`${green}✅${reset} No hardcoded credentials found in source files`);
+  console.log(`${green}${reset} No hardcoded credentials found in source files`);
   passed++;
 }
 
@@ -234,7 +234,7 @@ console.log('');
 
 // Summary
 if (failed === 0 && warnings === 0) {
-  console.log(`${green}${bright}🎉 Package is ready for ClawHub!${reset}`);
+  console.log(`${green}${bright} Package is ready for ClawHub!${reset}`);
   console.log(`${green}   ${passed} checks passed${reset}`);
   console.log('');
   console.log('Next steps:');
@@ -242,13 +242,13 @@ if (failed === 0 && warnings === 0) {
   console.log('  2. Review TESTING_CHECKLIST.md');
   console.log('  3. Submit to ClawHub marketplace');
 } else if (failed === 0) {
-  console.log(`${yellow}${bright}⚠️  Package has warnings${reset}`);
+  console.log(`${yellow}${bright}  Package has warnings${reset}`);
   console.log(`${green}   ${passed} passed${reset}`);
   console.log(`${yellow}   ${warnings} warnings${reset}`);
   console.log('');
   console.log('Review warnings above. May still be ready for release.');
 } else {
-  console.log(`${red}${bright}❌ Package NOT ready for ClawHub${reset}`);
+  console.log(`${red}${bright} Package NOT ready for ClawHub${reset}`);
   console.log(`${green}   ${passed} passed${reset}`);
   console.log(`${yellow}   ${warnings} warnings${reset}`);
   console.log(`${red}   ${failed} failed${reset}`);

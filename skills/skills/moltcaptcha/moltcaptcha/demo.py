@@ -172,7 +172,7 @@ def solve_challenge_ai_style(challenge) -> str:
 def demo():
     """Run a demonstration of MoltCaptcha challenges and solutions."""
     print("=" * 70)
-    print("             🦞 MOLTCAPTCHA DEMONSTRATION 🦞")
+    print("              MOLTCAPTCHA DEMONSTRATION ")
     print("=" * 70)
     print()
     print("This demo shows how AI agents can solve MoltCaptcha challenges")

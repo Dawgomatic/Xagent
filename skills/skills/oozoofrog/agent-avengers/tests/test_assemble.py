@@ -89,7 +89,7 @@ class TestCreateAgentConfig:
         config = create_agent_config(subtask, "test", 1)
         
         assert config["type"] == "coder"
-        assert config["emoji"] == "💻"
+        assert config["emoji"] == ""
     
     def test_override_model(self):
         subtask = {"description": "분석", "model": "haiku"}
@@ -149,7 +149,7 @@ class TestGenerateCommands:
         agent = {
             "id": "test_agent_01",
             "type": "researcher",
-            "emoji": "🔬",
+            "emoji": "",
             "model": "sonnet",
             "timeout": 1800,
             "description": "Research competitors",

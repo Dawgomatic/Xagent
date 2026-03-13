@@ -4,7 +4,7 @@ Thank you for considering contributing to ClawMeter! This document outlines how 
 
 ---
 
-## 🤝 Ways to Contribute
+##  Ways to Contribute
 
 1. **Report bugs** — Found a problem? Open an issue
 2. **Request features** — Have an idea? Share it
@@ -16,7 +16,7 @@ Thank you for considering contributing to ClawMeter! This document outlines how 
 
 ---
 
-## 🐛 Reporting Bugs
+##  Reporting Bugs
 
 Before opening an issue, please:
 
@@ -56,7 +56,7 @@ All stats show $0.00.
 
 ## Logs
 ```
-✅ Ingested 0 new usage events
+ Ingested 0 new usage events
 ```
 
 ## Troubleshooting Attempted
@@ -67,7 +67,7 @@ All stats show $0.00.
 
 ---
 
-## 💡 Requesting Features
+##  Requesting Features
 
 **Good feature requests include:**
 - **Use case:** Why do you need this?
@@ -98,7 +98,7 @@ This would help teams doing client billing or internal cost allocation.
 
 ---
 
-## 🔧 Development Setup
+##  Development Setup
 
 ### Prerequisites
 
@@ -142,7 +142,7 @@ This would help teams doing client billing or internal cost allocation.
 
 ---
 
-## 🎨 Code Style
+##  Code Style
 
 ### JavaScript
 
@@ -183,7 +183,7 @@ export async function fetchData(url) {
 
 ---
 
-## 📝 Commit Messages
+##  Commit Messages
 
 Follow [Conventional Commits](https://www.conventionalcommits.org/):
 
@@ -222,7 +222,7 @@ chore(deps): update Chart.js to v4.5.0
 
 ---
 
-## 🔀 Pull Request Process
+##  Pull Request Process
 
 ### Before Submitting
 
@@ -289,7 +289,7 @@ How to test this PR:
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Manual Testing
 
@@ -314,7 +314,7 @@ Before submitting a PR, test:
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 ### When to Update Docs
 
@@ -332,7 +332,7 @@ Before submitting a PR, test:
 
 ---
 
-## 🎯 Focus Areas
+##  Focus Areas
 
 ### High Priority
 
@@ -353,7 +353,7 @@ Before submitting a PR, test:
 
 ---
 
-## 💬 Communication
+##  Communication
 
 ### Where to Discuss
 
@@ -369,7 +369,7 @@ Before submitting a PR, test:
 
 ---
 
-## 🏆 Recognition
+##  Recognition
 
 Contributors will be:
 - **Credited in CHANGELOG.md**
@@ -378,7 +378,7 @@ Contributors will be:
 
 ---
 
-## 📜 Code of Conduct
+##  Code of Conduct
 
 ### Be Respectful
 
@@ -397,7 +397,7 @@ Violations will result in removal from the project.
 
 ---
 
-## 🛠️ Specific Contribution Guides
+##  Specific Contribution Guides
 
 ### Adding Model Pricing
 
@@ -442,10 +442,10 @@ Violations will result in removal from the project.
 
 ---
 
-## 🙏 Thank You
+##  Thank You
 
 Every contribution, no matter how small, helps make ClawMeter better for everyone.
 
 **Questions?** Open a discussion on GitHub or ask in the OpenClaw Discord.
 
-**Happy contributing! ⚡**
+**Happy contributing! **

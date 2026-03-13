@@ -9,7 +9,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-echo -e "${GREEN}📱 10DLC Registration${NC}"
+echo -e "${GREEN} 10DLC Registration${NC}"
 echo "======================================"
 
 # Check prerequisites
@@ -60,7 +60,7 @@ echo ""
 telnyx 10dlc wizard
 
 echo ""
-echo -e "${GREEN}✅ Registration submitted!${NC}"
+echo -e "${GREEN} Registration submitted!${NC}"
 echo ""
 echo "Next steps:"
 echo "  1. Check status:  ./status.sh"

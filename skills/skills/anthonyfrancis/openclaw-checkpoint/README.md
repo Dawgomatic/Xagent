@@ -13,11 +13,11 @@ Automatically sync your OpenClaw agent's identity, memory, and configuration to 
 
 | Backed Up | Not Backed Up (Security) |
 |-----------|-------------------------|
-| ✅ SOUL.md, IDENTITY.md, USER.md | ❌ API keys (.env.*) |
-| ✅ MEMORY.md, memory/*.md | ❌ OAuth tokens |
-| ✅ TOOLS.md, AGENTS.md, HEARTBEAT.md | ❌ Credentials |
-| ✅ Custom scripts and tools | ❌ Temporary files |
-| ✅ Cron jobs (memory/cron-jobs-backup.json) | |
+|  SOUL.md, IDENTITY.md, USER.md |  API keys (.env.*) |
+|  MEMORY.md, memory/*.md |  OAuth tokens |
+|  TOOLS.md, AGENTS.md, HEARTBEAT.md |  Credentials |
+|  Custom scripts and tools |  Temporary files |
+|  Cron jobs (memory/cron-jobs-backup.json) | |
 
 ## Quick Start
 
@@ -108,7 +108,7 @@ checkpoint-restore
 
 You'll see a numbered list of recent checkpoints and can select the one to restore. Use `checkpoint-restore --latest` to skip the selection and restore the most recent checkpoint automatically.
 
-## ⚠️ Security: Use a PRIVATE Repository
+##  Security: Use a PRIVATE Repository
 
 Your backup contains personal data:
 - Agent identity and personality

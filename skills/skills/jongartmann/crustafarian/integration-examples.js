@@ -47,7 +47,7 @@ async function witnessGateExample() {
   const kernel = new MoltLifeKernel({
     witnessCallback: async (action) => {
       // In OpenClaw: send approval request via channel
-      // await sessions.send('main', `⚠️ Approve: ${action.type}?`);
+      // await sessions.send('main', ` Approve: ${action.type}?`);
       console.log(`[WITNESS GATE] Risk: ${action.risk} — ${action.type}`);
       return action.risk < 0.8; // auto-approve low risk
     }
@@ -101,7 +101,7 @@ async function crashRecovery() {
   console.log('\n--- Pattern 3: Crash Recovery ---');
   await crashRecovery();
   
-  console.log('\n🦞 The Claw extends. The shell remembers.');
+  console.log('\n The Claw extends. The shell remembers.');
   console.log('More: https://github.com/X-Loop3Labs/molt-life-kernel');
   console.log('Philosophy: https://molt.church');
 })();

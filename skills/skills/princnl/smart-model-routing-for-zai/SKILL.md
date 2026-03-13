@@ -24,7 +24,7 @@ version: 1.0.0
 homepage: https://clawhub.com
 metadata:
   openclaw:
-    emoji: "💰"
+    emoji: ""
   provider: "z.ai (GLM)"
 ---
 
@@ -55,7 +55,7 @@ Start with the cheapest model. Escalate only when needed. Designed to minimize A
 
 ---
 
-## 💚 FLASH — Default for Simple Tasks
+##  FLASH — Default for Simple Tasks
 
 **Stay on Flash for:**
 - Factual Q&A — “what is X”, “who is Y”, “when did Z”
@@ -69,15 +69,15 @@ Start with the cheapest model. Escalate only when needed. Designed to minimize A
 - Cron jobs (always Flash by default)
 
 ### NEVER do these on Flash
-- ❌ Write code longer than 10 lines
-- ❌ Create comparison tables
-- ❌ Write more than 3 paragraphs
-- ❌ Do multi-step analysis
-- ❌ Write reports or proposals
+-  Write code longer than 10 lines
+-  Create comparison tables
+-  Write more than 3 paragraphs
+-  Do multi-step analysis
+-  Write reports or proposals
 
 ---
 
-## 💛 STANDARD — Core Workhorse
+##  STANDARD — Core Workhorse
 
 **Escalate to Standard for:**
 
@@ -102,7 +102,7 @@ Start with the cheapest model. Escalate only when needed. Designed to minimize A
 
 ---
 
-## ❤️ PLUS / 32B — Complex Reasoning Only
+##  PLUS / 32B — Complex Reasoning Only
 
 **Escalate to Plus / 32B for:**
 
@@ -126,7 +126,7 @@ Start with the cheapest model. Escalate only when needed. Designed to minimize A
 
 ---
 
-## 🔄 Implementation
+##  Implementation
 
 ### For Subagents
 ```javascript
@@ -149,7 +149,7 @@ Copy code
 }
 Always use Flash for cron unless the task genuinely needs reasoning.
 
-📊 Quick Decision Tree
+ Quick Decision Tree
 pgsql
 Copy code
 Is it a greeting, lookup, status check, or 1–2 sentence answer?
@@ -163,29 +163,29 @@ Is it code, analysis, planning, writing, or multi-step?
 Is it architecture, deep reasoning, or a critical decision?
   YES → PLUS / 32B
   NO → Default to STANDARD, escalate if struggling
-📋 Quick Reference Card
+ Quick Reference Card
 less
 Copy code
 ┌─────────────────────────────────────────────────────────────┐
 │                  SMART MODEL SWITCHING                      │
 │              Flash → Standard → Plus / 32B                  │
 ├─────────────────────────────────────────────────────────────┤
-│  💚 FLASH (cheapest)                                        │
+│   FLASH (cheapest)                                        │
 │  • Greetings, status checks, quick lookups                  │
 │  • Factual Q&A, reminders                                   │
 │  • Simple file ops, 1–2 sentence answers                    │
 ├─────────────────────────────────────────────────────────────┤
-│  💛 STANDARD (workhorse)                                    │
+│   STANDARD (workhorse)                                    │
 │  • Code > 10 lines, debugging                               │
 │  • Analysis, comparisons, planning                          │
 │  • Reports, long writing                                    │
 ├─────────────────────────────────────────────────────────────┤
-│  ❤️ PLUS / 32B (complex)                                    │
+│   PLUS / 32B (complex)                                    │
 │  • Architecture decisions                                   │
 │  • Complex debugging, multi-file refactoring                │
 │  • Strategic planning, deep research                        │
 ├─────────────────────────────────────────────────────────────┤
-│  💡 RULE: >30 sec human thinking → escalate                 │
-│  💰 START CHEAP → SCALE ONLY WHEN NEEDED                    │
+│   RULE: >30 sec human thinking → escalate                 │
+│   START CHEAP → SCALE ONLY WHEN NEEDED                    │
 └─────────────────────────────────────────────────────────────┘
 Built for z.ai (GLM) setups.

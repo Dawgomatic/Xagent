@@ -21,10 +21,10 @@ try:
     from pocket_tts import TTSModel
     import scipy.io.wavfile
 except ImportError:
-    print("❌ Pocket TTS not installed.")
+    print(" Pocket TTS not installed.")
     print("Install with: pip install pocket-tts")
     print("")
-    print("⚠️  Accept the model license first:")
+    print("  Accept the model license first:")
     print("   https://huggingface.co/kyutai/pocket-tts")
     sys.exit(1)
 
@@ -88,7 +88,7 @@ Examples:
     args = parser.parse_args()
     
     if args.list_voices:
-        print("🎤 Available voices:")
+        print(" Available voices:")
         for voice in VOICES:
             print(f"   - {voice}")
         print("")
@@ -96,18 +96,18 @@ Examples:
         sys.exit(0)
     
     if args.serve:
-        print("🚀 Starting Pocket TTS server on http://localhost:8000")
+        print(" Starting Pocket TTS server on http://localhost:8000")
         os.system("pocket-tts serve")
         sys.exit(0)
     
     if not args.text:
         parser.print_help()
-        print("\n💡 Tip: pocket-tts \"Hello, world!\"")
+        print("\n Tip: pocket-tts \"Hello, world!\"")
         sys.exit(1)
     
-    print(f"🔊 Generating speech...")
-    print(f"📝 Text: {args.text[:60]}{'...' if len(args.text) > 60 else ''}")
-    print(f"🎤 Voice: {args.voice}")
+    print(f" Generating speech...")
+    print(f" Text: {args.text[:60]}{'...' if len(args.text) > 60 else ''}")
+    print(f" Voice: {args.voice}")
     
     try:
         # Load model
@@ -116,7 +116,7 @@ Examples:
         # Get voice state
         if args.voice_file:
             voice_state = tts_model.get_state_for_audio_prompt(args.voice_file)
-            print(f"🎭 Using custom voice from: {args.voice_file}")
+            print(f" Using custom voice from: {args.voice_file}")
         else:
             voice_state = tts_model.get_state_for_audio_prompt(
                 f"hf://kyutai/tts-voices/{args.voice}-mackenna/casual.wav"
@@ -128,12 +128,12 @@ Examples:
         # Save audio
         wavfile.write(args.output, tts_model.sample_rate, audio.numpy())
         
-        print(f"✅ Saved to: {args.output}")
-        print(f"📊 Sample rate: {tts_model.sample_rate} Hz")
-        print(f"📏 Audio length: {len(audio) / tts_model.sample_rate:.2f}s")
+        print(f" Saved to: {args.output}")
+        print(f" Sample rate: {tts_model.sample_rate} Hz")
+        print(f" Audio length: {len(audio) / tts_model.sample_rate:.2f}s")
         
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         print("")
         print("Make sure you've accepted the model license at:")
         print("   https://huggingface.co/kyutai/pocket-tts")

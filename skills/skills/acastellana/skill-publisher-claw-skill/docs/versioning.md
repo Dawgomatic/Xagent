@@ -101,7 +101,7 @@ When removing features:
 
 1. **Announce deprecation** (minor version)
    ```markdown
-   > ⚠️ Deprecated: `old-section` will be removed in v2.0
+   >  Deprecated: `old-section` will be removed in v2.0
    ```
 
 2. **Keep deprecated content** for at least one minor version

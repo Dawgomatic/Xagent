@@ -1,6 +1,6 @@
 # Heartbeat Automation Guide
 
-> **⚠️ OPT-IN ONLY:** Nothing in this guide runs automatically when the skill is installed.
+> ** OPT-IN ONLY:** Nothing in this guide runs automatically when the skill is installed.
 > Heartbeat configuration and cron jobs described here are **manual setup steps** that the
 > user must explicitly choose to perform. The core skill works fully without any cron jobs.
 > All cron jobs run in **isolated sessions** — they read/write only local workspace files
@@ -50,12 +50,12 @@ HEARTBEAT_OK
 
 **Checkpoint written:**
 ```
-🫀 Feb 5, 2:30 PM PT | anthropic/claude-haiku-4-5 | AI Persona OS v1.3.3
+ Feb 5, 2:30 PM PT | anthropic/claude-haiku-4-5 | AI Persona OS v1.3.3
 
-🟢 Context: 31% — Healthy
-🟡 Memory: Stale — last checkpoint 47m ago
-🟢 Workspace: Clean
-🟢 Tasks: None pending
+ Context: 31% — Healthy
+ Memory: Stale — last checkpoint 47m ago
+ Workspace: Clean
+ Tasks: None pending
 
 → Checkpoint written to memory/2026-02-05.md
   Captured: 2 decisions, 1 action item
@@ -63,26 +63,26 @@ HEARTBEAT_OK
 
 **Context emergency:**
 ```
-🚨 HEARTBEAT — Feb 5, 2:30 PM PT
+ HEARTBEAT — Feb 5, 2:30 PM PT
 
-🔴 Context: 84% — EMERGENCY
-🔴 Memory: At risk — last checkpoint 2h ago
-🟢 Workspace: Clean
-🟡 Tasks: 1 blocked — PR review overdue
+ Context: 84% — EMERGENCY
+ Memory: At risk — last checkpoint 2h ago
+ Workspace: Clean
+ Tasks: 1 blocked — PR review overdue
 
 → Emergency checkpoint written
   Flushed: 3 decisions, 2 action items, 1 blocker
-  ⚠️ Recommend starting a fresh session
+   Recommend starting a fresh session
 ```
 
 **Maintenance needed:**
 ```
-🫀 HEARTBEAT — Feb 5, 2:30 PM PT
+ HEARTBEAT — Feb 5, 2:30 PM PT
 
-🟢 Context: 22% — Healthy
-🟡 Memory: MEMORY.md at 3.8KB (limit 4KB)
-🟡 Workspace: 4 logs older than 90 days
-🟢 Tasks: None pending
+ Context: 22% — Healthy
+ Memory: MEMORY.md at 3.8KB (limit 4KB)
+ Workspace: 4 logs older than 90 days
+ Tasks: None pending
 
 → Maintenance needed
   MEMORY.md approaching limit — pruning recommended
@@ -92,12 +92,12 @@ HEARTBEAT_OK
 
 **Overdue items surfaced:**
 ```
-🫀 HEARTBEAT — Feb 5, 8:00 AM PT
+ HEARTBEAT — Feb 5, 8:00 AM PT
 
-🟢 Context: 12% — Healthy
-🟢 Memory: Synced — checkpoint 8m ago
-🟢 Workspace: Clean
-🟡 Tasks: 3 uncompleted from yesterday
+ Context: 12% — Healthy
+ Memory: Synced — checkpoint 8m ago
+ Workspace: Clean
+ Tasks: 3 uncompleted from yesterday
 
 → Carried over from Feb 4:
   ☐ Review Q1 budget proposal
@@ -109,9 +109,9 @@ HEARTBEAT_OK
 
 | Indicator | Context | Memory | Workspace | Tasks |
 |-----------|---------|--------|-----------|-------|
-| 🟢 | <50% | Checkpoint <30m old | All files OK | 0 pending |
-| 🟡 | 50-69% | Checkpoint 30-60m old | Minor issues | 1-3 items |
-| 🔴 | ≥70% | Checkpoint >60m old | Files inaccessible | Blocked items |
+|  | <50% | Checkpoint <30m old | All files OK | 0 pending |
+|  | 50-69% | Checkpoint 30-60m old | Minor issues | 1-3 items |
+|  | ≥70% | Checkpoint >60m old | Files inaccessible | Blocked items |
 
 ### Custom Heartbeat Prompt (RECOMMENDED)
 
@@ -125,7 +125,7 @@ Override the default OpenClaw heartbeat prompt. This is **strongly recommended**
         "every": "30m",
         "target": "last",
         "ackMaxChars": 20,
-        "prompt": "Read HEARTBEAT.md and execute every instruction. On the first line show: 🫀 [current date/time] | [your model name] | AI Persona OS v[VERSION from workspace VERSION.md file]. Then report using 🟢🟡🔴 indicators — one per line with a blank line between each: Context, Memory, Workspace, Tasks. If you took action, state what with → prefix. Only reply HEARTBEAT_OK if all 🟢 and no action taken. Do NOT use Step 0/1/2/3/4 format. Do NOT use markdown tables. Do NOT use headers."
+        "prompt": "Read HEARTBEAT.md and execute every instruction. On the first line show:  [current date/time] | [your model name] | AI Persona OS v[VERSION from workspace VERSION.md file]. Then report using  indicators — one per line with a blank line between each: Context, Memory, Workspace, Tasks. If you took action, state what with → prefix. Only reply HEARTBEAT_OK if all  and no action taken. Do NOT use Step 0/1/2/3/4 format. Do NOT use markdown tables. Do NOT use headers."
       }
     }
   }
@@ -134,7 +134,7 @@ Override the default OpenClaw heartbeat prompt. This is **strongly recommended**
 
 This replaces the default prompt ("Read HEARTBEAT.md if it exists...") with one that:
 - Shows model name and OS version on the first line (instant visibility)
-- Explicitly requires 🟢🟡🔴 indicators
+- Explicitly requires  indicators
 - Forces line breaks between indicators (blank line between each)
 - Blocks the old Step format that v1.2.0 agents may have learned
 - Blocks markdown tables (garbled on WhatsApp/Telegram)
@@ -164,7 +164,7 @@ Step 3: Priority scan — Check channels in priority order (P1 critical → P4 b
 
 Step 4: Assessment — System health summary, blocking issues, time-sensitive items, recommended first action.
 
-Format as a daily briefing with 🟢🟡🔴 indicators for each section." \
+Format as a daily briefing with  indicators for each section." \
   --announce
 ```
 
@@ -244,7 +244,7 @@ Just uses HEARTBEAT.md as-is. Good starting point.
         "every": "30m",
         "target": "last",
         "ackMaxChars": 20,
-        "prompt": "Read HEARTBEAT.md and execute every instruction. On the first line show: 🫀 [current date/time] | [your model name] | AI Persona OS v[VERSION from workspace VERSION.md file]. Then report using 🟢🟡🔴 indicators — one per line with a blank line between each: Context, Memory, Workspace, Tasks. If you took action, state what with → prefix. Only reply HEARTBEAT_OK if all 🟢 and no action taken. Do NOT use Step 0/1/2/3/4 format. Do NOT use markdown tables. Do NOT use headers.",
+        "prompt": "Read HEARTBEAT.md and execute every instruction. On the first line show:  [current date/time] | [your model name] | AI Persona OS v[VERSION from workspace VERSION.md file]. Then report using  indicators — one per line with a blank line between each: Context, Memory, Workspace, Tasks. If you took action, state what with → prefix. Only reply HEARTBEAT_OK if all  and no action taken. Do NOT use Step 0/1/2/3/4 format. Do NOT use markdown tables. Do NOT use headers.",
         "activeHours": {
           "start": "07:00",
           "end": "23:00"
@@ -300,7 +300,7 @@ If auto-migration doesn't trigger, tell your agent:
 
 Tell your agent:
 
-> "Update your openclaw.json heartbeat to: `{ "every": "30m", "target": "last", "ackMaxChars": 20, "prompt": "Read HEARTBEAT.md and execute every instruction. On the first line show: 🫀 [current date/time] | [your model name] | AI Persona OS v[VERSION from workspace VERSION.md file]. Then report using 🟢🟡🔴 indicators — one per line with a blank line between each: Context, Memory, Workspace, Tasks. If you took action, state what with → prefix. Only reply HEARTBEAT_OK if all 🟢 and no action taken. Do NOT use Step 0/1/2/3/4 format. Do NOT use markdown tables. Do NOT use headers." }`"
+> "Update your openclaw.json heartbeat to: `{ "every": "30m", "target": "last", "ackMaxChars": 20, "prompt": "Read HEARTBEAT.md and execute every instruction. On the first line show:  [current date/time] | [your model name] | AI Persona OS v[VERSION from workspace VERSION.md file]. Then report using  indicators — one per line with a blank line between each: Context, Memory, Workspace, Tasks. If you took action, state what with → prefix. Only reply HEARTBEAT_OK if all  and no action taken. Do NOT use Step 0/1/2/3/4 format. Do NOT use markdown tables. Do NOT use headers." }`"
 
 ### Shared Channel Fix
 
@@ -346,7 +346,7 @@ Your existing memory files, SOUL.md, USER.md, AGENTS.md, WORKFLOWS.md, and all w
 **Heartbeat messages are too noisy:**
 - Increase interval: `"every": "1h"`
 - Add activeHours to limit to work hours
-- The 🟢-all-clear case already suppresses delivery
+- The -all-clear case already suppresses delivery
 
 **Heartbeats not firing:**
 - Run `openclaw heartbeat last` to check status
@@ -364,7 +364,7 @@ Your existing memory files, SOUL.md, USER.md, AGENTS.md, WORKFLOWS.md, and all w
 **Don't know what config settings are missing:**
 - Run `./scripts/config-validator.sh` (NEW v1.3.2)
 - Checks: heartbeat (every, target, ackMaxChars, prompt), Discord (requireMention per guild), workspace files (SOUL.md, USER.md, MEMORY.md size, HEARTBEAT.md template version), VERSION.md file, ESCALATION.md
-- Reports 🟢 all clear / 🟡 warnings / 🔴 critical issues
+- Reports  all clear /  warnings /  critical issues
 
 **Agent's config file is clawdbot-mac.json or clawdbot.json (not openclaw.json):**
 - Older installs may use the pre-rename config file

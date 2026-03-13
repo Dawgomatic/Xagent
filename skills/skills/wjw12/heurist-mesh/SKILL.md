@@ -2,7 +2,7 @@
 name: heurist-mesh
 description: Access Web3 and crypto intelligence via Heurist Mesh MCP. Use when the user asks about cryptocurrency analytics, token information, trending tokens, wallet analysis, Twitter/X crypto intelligence, funding rates, market summaries, or any Web3-related queries. Heurist Mesh provides 30+ specialized AI agents for crypto use cases through the mcporter CLI.
 homepage: https://mesh.heurist.ai
-metadata: {"clawdbot":{"emoji":"💠","requires":{"bins":["mcporter"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mcporter"]}}}
 ---
 
 # Heurist Mesh

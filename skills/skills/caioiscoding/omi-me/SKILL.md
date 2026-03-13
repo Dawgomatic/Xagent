@@ -4,7 +4,7 @@ description: Complete Omi.me integration for memories, action items (tasks), and
 homepage: https://omi.me
 metadata:
   openclaw:
-    emoji: "🧠"
+    emoji: ""
     requires:
       bins: ["omi", "omi-token"]
       env: ["OMI_API_TOKEN"]

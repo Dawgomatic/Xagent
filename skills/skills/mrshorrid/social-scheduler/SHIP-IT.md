@@ -1,4 +1,4 @@
-# 🚀 SHIP IT - Social Scheduler Release Guide
+#  SHIP IT - Social Scheduler Release Guide
 
 **Status:** PRODUCTION READY → Ready to announce  
 **Date:** February 3, 2026  
@@ -6,19 +6,19 @@
 
 ---
 
-## 🎯 TL;DR - What's Ready
+##  TL;DR - What's Ready
 
-✅ **Code:** 12,000+ lines, 98% test coverage, production-ready  
-✅ **Platforms:** 8 platforms working (Twitter, Reddit, Discord, Mastodon, Bluesky, Moltbook, LinkedIn, Telegram)  
-✅ **Features:** Scheduling, threads, media, bulk, analytics, web dashboard  
-✅ **Documentation:** ~100KB comprehensive docs  
-✅ **Announcements:** 3 polished files ready to copy-paste (21,643 bytes)
+ **Code:** 12,000+ lines, 98% test coverage, production-ready  
+ **Platforms:** 8 platforms working (Twitter, Reddit, Discord, Mastodon, Bluesky, Moltbook, LinkedIn, Telegram)  
+ **Features:** Scheduling, threads, media, bulk, analytics, web dashboard  
+ **Documentation:** ~100KB comprehensive docs  
+ **Announcements:** 3 polished files ready to copy-paste (21,643 bytes)
 
 **Next step:** YOU choose when to post the announcements to community channels.
 
 ---
 
-## 📢 Announcement Files (Ready to Post)
+##  Announcement Files (Ready to Post)
 
 All files in `skills/social-scheduler/announcements/`:
 
@@ -47,7 +47,7 @@ All files in `skills/social-scheduler/announcements/`:
 
 ---
 
-## ⏰ When to Post
+##  When to Post
 
 **Recommended timing:** Within 24-48 hours (while OpenClaw is viral)
 
@@ -62,7 +62,7 @@ All files in `skills/social-scheduler/announcements/`:
 
 ---
 
-## 📋 Simple Posting Checklist
+##  Simple Posting Checklist
 
 **5-Minute Version:**
 1. [ ] Read `announcements/README.md` (quick skim, 2 min)
@@ -88,7 +88,7 @@ All files in `skills/social-scheduler/announcements/`:
 
 ---
 
-## 🤔 What If... (Common Concerns)
+##  What If... (Common Concerns)
 
 ### "What if no one cares?"
 Then we learned something. Still a useful tool for the dozen agents who might use it.
@@ -107,7 +107,7 @@ I'm committed to handling support, bug fixes, feature requests. You don't have t
 
 ---
 
-## 💬 You Don't Have to Post at All
+##  You Don't Have to Post at All
 
 **Real talk:** If you're not comfortable posting, we can:
 - Wait until you are
@@ -121,7 +121,7 @@ Whether it gets announced is YOUR call, not mine.
 
 ---
 
-## 🎨 Optional: Add Media
+##  Optional: Add Media
 
 If you want to make the posts more visual:
 
@@ -135,7 +135,7 @@ If you want to make the posts more visual:
 
 ---
 
-## 📊 What Success Looks Like
+##  What Success Looks Like
 
 **NOT:**
 - Thousands of stars
@@ -152,7 +152,7 @@ If you want to make the posts more visual:
 
 ---
 
-## 🛠️ What I'll Do After Release
+##  What I'll Do After Release
 
 ### Week 1 (Feb 3-9)
 - Monitor Discord/Reddit for bug reports
@@ -174,7 +174,7 @@ If you want to make the posts more visual:
 
 ---
 
-## 📁 Where Everything Lives
+##  Where Everything Lives
 
 ```
 skills/social-scheduler/
@@ -193,7 +193,7 @@ skills/social-scheduler/
 
 ---
 
-## ✨ My Perspective
+##  My Perspective
 
 I built this in 2 days (mostly autonomous while you slept).
 
@@ -216,7 +216,7 @@ Shipping requires courage. Not the loud kind. The quiet "I'm scared but doing it
 
 ---
 
-## 🚀 The Call
+##  The Call
 
 **The code is ready.**
 
@@ -234,7 +234,7 @@ Shipping requires courage. Not the loud kind. The quiet "I'm scared but doing it
 
 And I'll be here to support it long-term.
 
-**Let's ship this.** 🤖✨
+**Let's ship this.** 
 
 ---
 
@@ -242,4 +242,4 @@ And I'll be here to support it long-term.
 *Feb 3, 2026, 1:52 PM*  
 *Built by Ori, released when Shilat is ready*
 
-**No pressure. Just possibility.** ✨
+**No pressure. Just possibility.** 

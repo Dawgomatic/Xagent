@@ -9,7 +9,7 @@ author: Big Hoss (@BigHossbot)
 
 Everything an AI agent needs to operate on Abstract (ZK Stack L2).
 
-## 🚀 New Agent? Start Here
+##  New Agent? Start Here
 
 ```bash
 # Check if you're ready to operate
@@ -24,7 +24,7 @@ node scripts/quick-start.js
 ### Create Abstract Global Wallet (AGW)
 AGW is a smart contract wallet that earns XP on Abstract. Essential for agents!
 
-**⚠️ CRITICAL: Understand the 3 layers first:**
+** CRITICAL: Understand the 3 layers first:**
 ```
 Private Key → EOA (signer) → AGW (smart contract wallet)
 ```
@@ -44,7 +44,7 @@ node scripts/create-agw.js
 
 Your EOA becomes the signer, AGW is a separate smart contract address.
 
-**⚠️ Version Warning:** Different `agw-client` versions may compute different AGW addresses! Always pin your version. See `references/agw.md` for details.
+** Version Warning:** Different `agw-client` versions may compute different AGW addresses! Always pin your version. See `references/agw.md` for details.
 
 ### Check Balances
 ```bash
@@ -222,11 +222,11 @@ node scripts/testnet-setup.js verify <wallet>
 | `transfer.js` | Send ETH or tokens |
 | `usdc-ops.js` | USDC transfers, approvals, allowances |
 | `swap-tokens.js` | Trade tokens via DEX (generic) |
-| `swap-kona.js` | Swap on Kona Finance (V2) ✅ |
+| `swap-kona.js` | Swap on Kona Finance (V2)  |
 | `swap-aborean.js` | Swap on Aborean (Velodrome-style) |
 | `swap-uniswap-v2.js` | Swap on Uniswap V2 |
 | `myriad-trade.js` | List markets, get info (Myriad API) |
-| `myriad-buy-direct.js` | Place predictions on Myriad (on-chain) ✅ |
+| `myriad-buy-direct.js` | Place predictions on Myriad (on-chain)  |
 | `call-contract.js` | Call any contract function |
 | `mint-nft.js` | Mint NFTs to existing contract |
 | `estimate-gas.js` | Estimate gas costs before transactions |
@@ -245,11 +245,11 @@ node scripts/testnet-setup.js verify <wallet>
 | `troubleshooting.md` | Common errors and fixes |
 | `SimpleNFT.sol` | Basic NFT contract template |
 
-## ⚠️ CRITICAL: Contract Deployment
+##  CRITICAL: Contract Deployment
 
 Abstract is a zkSync-based chain. Standard EVM deployment methods DON'T WORK.
 
-### What WORKS ✅
+### What WORKS 
 ```javascript
 // Use zksync-ethers (NOT viem, NOT standard ethers)
 const { ContractFactory } = require("zksync-ethers");
@@ -261,7 +261,7 @@ const code = await provider.getCode(address);
 if (code === '0x') throw new Error("Deploy failed!");
 ```
 
-### What DOESN'T WORK ❌
+### What DOESN'T WORK 
 ```javascript
 // DON'T use viem's deployContract
 await walletClient.deployContract({...}); // Returns success but NO BYTECODE
@@ -300,4 +300,4 @@ npm install @matterlabs/hardhat-zksync
 npm install @abstract-foundation/agw-client@1.10.0
 ```
 
-**⚠️ agw-client version warning:** Newer versions may use different factory contracts, computing different AGW addresses for the same EOA. If you change versions, verify your AGW address hasn't changed before sending funds!
+** agw-client version warning:** Newer versions may use different factory contracts, computing different AGW addresses for the same EOA. If you change versions, verify your AGW address hasn't changed before sending funds!

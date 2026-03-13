@@ -752,11 +752,11 @@ python -m cs_rv.migrate --input old_code/ --output new_code/ --verify
 > If removing all metaphorical language changes system behavior, the metaphor was not metaphor—it was coupling.
 
 **The agnostic implementation:**
-- ✅ Zero semantic dependencies
-- ✅ Passes total renaming test
-- ✅ Continues under violation
-- ✅ Conserves entropy
-- ✅ Audit-transparent
-- ✅ Production-ready
+-  Zero semantic dependencies
+-  Passes total renaming test
+-  Continues under violation
+-  Conserves entropy
+-  Audit-transparent
+-  Production-ready
 
 **Status:** Reference implementation complete and verified.

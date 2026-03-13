@@ -10,14 +10,14 @@
 
 通过 Chrome DevTools Protocol (CDP) 协议，实现对腾讯 **IMA (ima.copilot)** 桌面客户端（AI 知识库助手）的自动化控制。本 Skill 支持全网自动化搜索，并具备独特的**私有知识库注入**功能，无需手动切换即可在查询中自动调用私有知识库。
 
-## ✨ 核心特性
+##  核心特性
 
-- **🤖 全自动控制**：自动启动、连接并控制 IMA 桌面客户端。
-- **🧠 知识库注入**：当查询包含 `@knowledge` 或 `@个人知识库` 标记时，自动注入配置好的 `Knowledge ID`，无需人工干预即可搜索私有数据。
-- **🛡️ 零乱码输出**：采用先进的 DOM 提取技术（DOM Extraction），绕过 CDP 网络层的编码缺陷，确保输出完美的 UTF-8 中文结果。
-- **🔌 API 拦截**：通过底层 API 拦截技术，强制开启知识库模式。
+- ** 全自动控制**：自动启动、连接并控制 IMA 桌面客户端。
+- ** 知识库注入**：当查询包含 `@knowledge` 或 `@个人知识库` 标记时，自动注入配置好的 `Knowledge ID`，无需人工干预即可搜索私有数据。
+- ** 零乱码输出**：采用先进的 DOM 提取技术（DOM Extraction），绕过 CDP 网络层的编码缺陷，确保输出完美的 UTF-8 中文结果。
+- ** API 拦截**：通过底层 API 拦截技术，强制开启知识库模式。
 
-## 📦 环境要求
+##  环境要求
 
 - **操作系统**：macOS (已在 macOS 14/15 上验证)
 - **IMA 客户端**：需安装在 `/Applications/ima.copilot.app`
@@ -27,7 +27,7 @@
 pip3 install websocket-client
 ```
 
-## ⚙️ 配置说明
+##  配置说明
 
 要使用 **私有知识库** 功能，你需要配置你的 Knowledge ID。
 
@@ -52,7 +52,7 @@ pip3 install websocket-client
 
 *注意：`config.json` 已被加入 `.gitignore`，以保护你的隐私。*
 
-## 🚀 使用方法
+##  使用方法
 
 ### 命令行调用
 
@@ -76,7 +76,7 @@ python3 scripts/ima.py "@个人知识库 分析新大陆"
 > "用 IMA 搜一下最新的 AI 新闻"
 > "去个人知识库查一下关于 Project X 的会议纪要"
 
-## 🛠️ 工作原理
+##  工作原理
 
 1.  **CDP 连接**：连接到 IMA 的远程调试端口 (8315)。
 2.  **请求拦截**：监听 `/qa` API 请求。
@@ -91,14 +91,14 @@ python3 scripts/ima.py "@个人知识库 分析新大陆"
 
 Control the **IMA.copilot** desktop application (AI knowledge base assistant) via Chrome DevTools Protocol (CDP). This skill enables automated searching and, uniquely, **injects private knowledge base context** into queries without manual switching.
 
-## ✨ Features
+##  Features
 
-- **🤖 Automated Control**: Auto-launch and control the IMA desktop app.
-- **🧠 Private Knowledge Injection**: Automatically injects your private `Knowledge ID` when the query contains `@knowledge` or `@个人知识库`.
-- **🛡️ Zero-Garbled Output**: Uses advanced DOM extraction techniques to bypass CDP encoding issues, ensuring perfect UTF-8 Chinese characters output.
-- **🔌 API Interception**: Intercepts network requests to force-enable knowledge base mode programmatically.
+- ** Automated Control**: Auto-launch and control the IMA desktop app.
+- ** Private Knowledge Injection**: Automatically injects your private `Knowledge ID` when the query contains `@knowledge` or `@个人知识库`.
+- ** Zero-Garbled Output**: Uses advanced DOM extraction techniques to bypass CDP encoding issues, ensuring perfect UTF-8 Chinese characters output.
+- ** API Interception**: Intercepts network requests to force-enable knowledge base mode programmatically.
 
-## 📦 Requirements
+##  Requirements
 
 - **macOS** (Tested on macOS 14/15)
 - **IMA.copilot App**: Installed in `/Applications/ima.copilot.app`
@@ -108,7 +108,7 @@ Control the **IMA.copilot** desktop application (AI knowledge base assistant) vi
 pip3 install websocket-client
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 To use the **Private Knowledge Base** feature, you need to configure your Knowledge ID.
 
@@ -133,7 +133,7 @@ To use the **Private Knowledge Base** feature, you need to configure your Knowle
 
 *Note: `config.json` is git-ignored to protect your privacy.*
 
-## 🚀 Usage
+##  Usage
 
 ### Command Line
 
@@ -157,7 +157,7 @@ This skill is designed for [Clawdbot](https://github.com/clawdbot/clawdbot). Onc
 > "Use IMA to search for the latest AI news"
 > "Check my personal knowledge base for the meeting minutes about Project X"
 
-## 🛠️ How it Works
+##  How it Works
 
 1.  **CDP Connection**: Connects to IMA's debugging port (8315).
 2.  **Request Interception**: Listens for `/qa` API requests.

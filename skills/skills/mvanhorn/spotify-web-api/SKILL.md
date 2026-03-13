@@ -2,7 +2,7 @@
 name: spotify-web-api
 description: Spotify control via Web API - playback, history, top tracks, search. Cross-platform (no Mac required).
 homepage: https://spotify.com
-metadata: {"clawdbot":{"emoji":"🎵","requires":{"env":["SPOTIFY_CLIENT_ID","SPOTIFY_CLIENT_SECRET"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SPOTIFY_CLIENT_ID","SPOTIFY_CLIENT_SECRET"]}}}
 ---
 
 # Spotify Web API (Cross-Platform)

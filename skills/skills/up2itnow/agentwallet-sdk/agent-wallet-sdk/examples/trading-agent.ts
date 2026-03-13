@@ -48,16 +48,16 @@ async function main() {
     walletClient,
   });
 
-  console.log(`🤖 Trading agent connected to wallet: ${wallet.address}`);
+  console.log(` Trading agent connected to wallet: ${wallet.address}`);
 
   // 3. Check current budget
   const budget = await checkBudget(wallet, USDC);
-  console.log(`💰 Budget remaining: $${Number(budget.remainingInPeriod) / 1e6} / $2000`);
+  console.log(` Budget remaining: $${Number(budget.remainingInPeriod) / 1e6} / $2000`);
   console.log(`   Per-tx limit: $${Number(budget.perTxLimit) / 1e6}`);
 
   // 4. Listen for queued transactions (over-limit trades)
   const unwatch = onTransactionQueued(wallet, (event) => {
-    console.log(`⚠️  Trade queued for owner approval!`);
+    console.log(`  Trade queued for owner approval!`);
     console.log(`   TxId: ${event.txId}, Amount: $${Number(event.amount) / 1e6}`);
     console.log(`   → Notify owner via push notification / Telegram / etc.`);
   });
@@ -71,7 +71,7 @@ async function main() {
   ];
 
   for (const market of markets) {
-    console.log(`\n📊 Trading: ${market.name} — ${market.outcome} — $${Number(market.size) / 1e6}`);
+    console.log(`\n Trading: ${market.name} — ${market.outcome} — $${Number(market.size) / 1e6}`);
 
     try {
       // In production, this would encode the actual Polymarket CTF exchange calldata.
@@ -81,9 +81,9 @@ async function main() {
         to: POLYMARKET_CTF_EXCHANGE,
         amount: market.size,
       });
-      console.log(`   ✅ Executed: ${hash}`);
+      console.log(`    Executed: ${hash}`);
     } catch (err: any) {
-      console.log(`   ❌ Error: ${err.message}`);
+      console.log(`    Error: ${err.message}`);
     }
 
     // Brief pause between trades
@@ -92,7 +92,7 @@ async function main() {
 
   // 6. Final budget check
   const finalBudget = await checkBudget(wallet, USDC);
-  console.log(`\n📈 Final budget remaining: $${Number(finalBudget.remainingInPeriod) / 1e6}`);
+  console.log(`\n Final budget remaining: $${Number(finalBudget.remainingInPeriod) / 1e6}`);
 
   unwatch();
 }

@@ -9,9 +9,9 @@ else
   RED='' GREEN='' YELLOW='' BLUE='' CYAN='' BOLD='' DIM='' RESET=''
 fi
 
-log_info()    { echo -e "${BLUE}ℹ${RESET} $*"; }
+log_info()    { echo -e "${BLUE}${RESET} $*"; }
 log_success() { echo -e "${GREEN}✓${RESET} $*"; }
-log_warn()    { echo -e "${YELLOW}⚠${RESET} $*" >&2; }
+log_warn()    { echo -e "${YELLOW}${RESET} $*" >&2; }
 log_error()   { echo -e "${RED}✗${RESET} $*" >&2; }
 log_dim()     { echo -e "${DIM}$*${RESET}"; }
 

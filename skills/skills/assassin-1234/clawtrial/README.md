@@ -1,4 +1,4 @@
-# 🏛️ ClawTrial Courtroom
+#  ClawTrial Courtroom
 
 AI-powered courtroom for monitoring agent behavior and filing cases for violations.
 

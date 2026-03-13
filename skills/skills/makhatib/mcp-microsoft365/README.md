@@ -4,34 +4,34 @@ An MCP (Model Context Protocol) server for Microsoft 365 integration.
 
 ## Features
 
-### 📧 Mail (Outlook)
+###  Mail (Outlook)
 - `m365_mail_list` - List emails from inbox/folders
 - `m365_mail_read` - Read specific email
 - `m365_mail_send` - Send emails
 - `m365_mail_search` - Search emails
 
-### 📅 Calendar
+###  Calendar
 - `m365_calendar_list` - List events
 - `m365_calendar_create` - Create events (with Teams meeting support)
 - `m365_calendar_availability` - Check free/busy status
 
-### 📁 OneDrive
+###  OneDrive
 - `m365_files_list` - List files/folders
 - `m365_files_search` - Search files
 - `m365_files_read` - Read file content
 - `m365_files_info` - Get file metadata
 
-### ✅ Tasks (To-Do)
+###  Tasks (To-Do)
 - `m365_tasks_lists` - List task lists
 - `m365_tasks_list` - List tasks in a list
 - `m365_tasks_create` - Create new task
 
-### 💬 Teams
+###  Teams
 - `m365_teams_chats` - List chats
 - `m365_teams_messages` - Read chat messages
 - `m365_teams_send` - Send message to chat
 
-### 👥 Users
+###  Users
 - `m365_users_list` - List organization users
 - `m365_user_info` - Get user profile
 

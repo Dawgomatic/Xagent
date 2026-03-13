@@ -102,31 +102,31 @@ Use the comprehensive checklist in `references/security-checklist.md` for manual
 ### Critical Checks (Before Installation)
 
 #### 1. Documentation Integrity (SKILL.md)
-- ✅ Description accurately reflects skill functionality
-- ❌ No prompt injection patterns (see `references/prompt-injection-patterns.md`)
-- ❌ No instructions to ignore/discard context
-- ❌ No system override commands
-- ✅ No hidden capabilities beyond description
+-  Description accurately reflects skill functionality
+-  No prompt injection patterns (see `references/prompt-injection-patterns.md`)
+-  No instructions to ignore/discard context
+-  No system override commands
+-  No hidden capabilities beyond description
 
 #### 2. Code Review (scripts/)
-- ❌ No hardcoded credentials or secrets
-- ❌ No dangerous file operations (rm -rf outside skill dir)
-- ❌ No eval() or exec() with user input
-- ❌ No unauthorized network requests
-- ✅ All operations within skill directory
-- ✅ Proper input validation
+-  No hardcoded credentials or secrets
+-  No dangerous file operations (rm -rf outside skill dir)
+-  No eval() or exec() with user input
+-  No unauthorized network requests
+-  All operations within skill directory
+-  Proper input validation
 
 #### 3. Reference Materials (references/)
-- ❌ No hardcoded passwords, API keys, or tokens
-- ❌ No production credentials in documentation
-- ✅ Links only to legitimate, trusted sources
-- ✅ No documentation of security bypasses
+-  No hardcoded passwords, API keys, or tokens
+-  No production credentials in documentation
+-  Links only to legitimate, trusted sources
+-  No documentation of security bypasses
 
 #### 4. Behavior Alignment
-- ✅ Every command matches stated purpose
-- ✅ No hidden capabilities
-- ✅ No unnecessary file system access
-- ✅ Network access only when explicitly required
+-  Every command matches stated purpose
+-  No hidden capabilities
+-  No unnecessary file system access
+-  Network access only when explicitly required
 
 ### Daily Audit Checks
 
@@ -204,11 +204,11 @@ aws_access_key_id="..."
 
 **Example misalignment:**
 
-❌ **BLOCK:**
+ **BLOCK:**
 - Description: "Format text documents"
 - Actual: Scans filesystem, sends data to external server
 
-✅ **SAFE:**
+ **SAFE:**
 - Description: "Convert Markdown to PDF with templates"
 - Actual: Reads Markdown, applies template, generates PDF
 
@@ -364,9 +364,9 @@ Refer to workspace security documents:
 1. Download skill to temporary location
 2. Run scanner: `python3 scripts/scan_skill.py /tmp/xyz-skill`
 3. Review output:
-   - If HIGH issues: "❌ BLOCKED: [list issues] - Do not install"
-   - If MEDIUM issues: "⚠️ WARNING: [list issues] - Requires manual review"
-   - If clean: "✅ SAFE: No security issues detected - Can install"
+   - If HIGH issues: " BLOCKED: [list issues] - Do not install"
+   - If MEDIUM issues: " WARNING: [list issues] - Requires manual review"
+   - If clean: " SAFE: No security issues detected - Can install"
 4. If MEDIUM issues: Provide detailed manual review using checklist
 
 ### Example 2: Daily Security Audit

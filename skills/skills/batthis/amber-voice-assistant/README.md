@@ -1,4 +1,4 @@
-# ☎️ Amber — Phone-Capable Voice Agent
+#  Amber — Phone-Capable Voice Agent
 
 **A voice sub-agent for [OpenClaw](https://openclaw.ai)** — gives your OpenClaw deployment phone capabilities via a provider-swappable telephony bridge + OpenAI Realtime. Twilio is the default and recommended provider.
 
@@ -11,14 +11,14 @@ Amber is not a standalone voice agent — it operates as an extension of your Op
 
 ### Features
 
-- 🔉 **Inbound call screening** — greeting, message-taking, appointment booking
-- 📞 **Outbound calls** — reservations, inquiries, follow-ups with structured call plans
-- 🧠 **Brain-in-the-loop** — consults your OpenClaw gateway mid-call for calendar, contacts, preferences
-- 📊 **Call log dashboard** — browse history, transcripts, captured messages, follow-up tracking
-- ⚡ **Launch in minutes** — `npm install`, configure `.env`, `npm start`
-- 🔒 **Safety guardrails** — operator approval for outbound calls, payment escalation, consent boundaries
-- 🎛️ **Fully configurable** — assistant name, operator info, org name, voice, screening style
-- 📝 **AGENT.md** — customize all prompts, greetings, booking flow, and personality in a single editable markdown file (no code changes needed)
+-  **Inbound call screening** — greeting, message-taking, appointment booking
+-  **Outbound calls** — reservations, inquiries, follow-ups with structured call plans
+-  **Brain-in-the-loop** — consults your OpenClaw gateway mid-call for calendar, contacts, preferences
+-  **Call log dashboard** — browse history, transcripts, captured messages, follow-up tracking
+-  **Launch in minutes** — `npm install`, configure `.env`, `npm start`
+-  **Safety guardrails** — operator approval for outbound calls, payment escalation, consent boundaries
+-  **Fully configurable** — assistant name, operator info, org name, voice, screening style
+-  **AGENT.md** — customize all prompts, greetings, booking flow, and personality in a single editable markdown file (no code changes needed)
 
 ## Quick Start
 

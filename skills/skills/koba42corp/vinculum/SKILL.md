@@ -7,7 +7,7 @@ license: MIT
 homepage: https://github.com/koba42/clawdbot-vinculum
 metadata:
   clawdbot:
-    emoji: "🔗"
+    emoji: ""
     category: "integration"
     requires:
       bins: ["node", "npm"]
@@ -36,11 +36,11 @@ Link multiple Clawdbot instances into a collective consciousness using Gun.js pe
 
 ## Features
 
-- 🔗 **Real-time link** — Changes propagate instantly between drones
-- 🌐 **Local network** — Works across machines on the same LAN
-- 🔐 **Encrypted** — All shared data encrypted
-- 🤖 **Individual identity** — Each drone keeps its own SOUL.md
-- 📡 **Drone discovery** — Automatic multicast discovery
+-  **Real-time link** — Changes propagate instantly between drones
+-  **Local network** — Works across machines on the same LAN
+-  **Encrypted** — All shared data encrypted
+-  **Individual identity** — Each drone keeps its own SOUL.md
+-  **Drone discovery** — Automatic multicast discovery
 
 ## Installation
 
@@ -135,14 +135,14 @@ You'll receive a pairing code. Share it with your other bot(s).
 
 | Data | Shared | Notes |
 |------|--------|-------|
-| Activity summaries | ✅ | What each drone did |
-| Learned knowledge | ✅ | Collective learnings |
-| Decisions | ✅ | Consensus achieved |
-| Drone status | ✅ | Online, current task |
-| Full conversations | ❌ | Stays local |
-| USER.md | ❌ | Individual identity |
-| SOUL.md | ❌ | Individual personality |
-| Credentials | ❌ | Never linked |
+| Activity summaries |  | What each drone did |
+| Learned knowledge |  | Collective learnings |
+| Decisions |  | Consensus achieved |
+| Drone status |  | Online, current task |
+| Full conversations |  | Stays local |
+| USER.md |  | Individual identity |
+| SOUL.md |  | Individual personality |
+| Credentials |  | Never linked |
 
 ## Multi-Machine Setup
 

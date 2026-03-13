@@ -91,11 +91,11 @@ The script will show:
 Example:
 ========================================================================
 Testing: Add simple task
-  Command: ms-todo-oauth.py add -l 🧪 Test List 14:23:45 Simple test task
+  Command: ms-todo-oauth.py add -l  Test List 14:23:45 Simple test task
   ✓ PASSED
 
 Testing: Add high priority task
-  Command: ms-todo-oauth.py add -l 🧪 Test List 14:23:45 High priority task -p high
+  Command: ms-todo-oauth.py add -l  Test List 14:23:45 High priority task -p high
   ✓ PASSED
 ...
 ========================================================================
@@ -108,7 +108,7 @@ Failed: 0
 Pass rate: 100.0%
 
 ========================================================================
-🎉 ALL TESTS PASSED! 🎉
+ ALL TESTS PASSED! 
 ========================================================================
 
 
@@ -211,7 +211,7 @@ CLEANUP
 =======
 
 The automated test script:
-- Creates a test list with timestamp (e.g., "🧪 Test List 14:23:45")
+- Creates a test list with timestamp (e.g., " Test List 14:23:45")
 - Deletes the test list after tests complete
 - Cleans up export files
 

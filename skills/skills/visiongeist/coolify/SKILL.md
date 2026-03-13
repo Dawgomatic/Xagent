@@ -3,7 +3,7 @@ name: coolify
 description: Manage Coolify deployments, applications, databases, and services via the Coolify API. Use when the user wants to deploy, start, stop, restart, or manage applications hosted on Coolify.
 homepage: https://coolify.io
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🚀","requires":{"bins":["node"],"env":["COOLIFY_TOKEN"]},"primaryEnv":"COOLIFY_TOKEN"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"],"env":["COOLIFY_TOKEN"]},"primaryEnv":"COOLIFY_TOKEN"}}
 ---
 
 # Coolify API Skill

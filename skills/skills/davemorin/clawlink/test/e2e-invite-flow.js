@@ -35,7 +35,7 @@ const cyan = (s) => `\x1b[36m${s}\x1b[0m`;
 function log(msg) { console.log(msg); }
 function pass(msg) { console.log(green(`  ✓ ${msg}`)); }
 function fail(msg) { console.log(red(`  ✗ ${msg}`)); }
-function info(msg) { console.log(cyan(`  ℹ ${msg}`)); }
+function info(msg) { console.log(cyan(`   ${msg}`)); }
 function section(msg) { console.log(yellow(`\n▸ ${msg}`)); }
 
 // ============================================================================

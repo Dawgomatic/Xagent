@@ -23,7 +23,7 @@ class GeekbenchCrawler:
 
     def search_device(self, device_name: str) -> List[Dict]:
         """搜索设备跑分结果"""
-        print(f"🔍 搜索设备: {device_name}")
+        print(f" 搜索设备: {device_name}")
 
         search_url = f"{self.BASE_URL}/v6/cpu/search"
         params = {'q': device_name}
@@ -34,7 +34,7 @@ class GeekbenchCrawler:
             results = self._parse_search_results(response.text)
             return results
         except Exception as e:
-            print(f"❌ 搜索失败: {e}")
+            print(f" 搜索失败: {e}")
             return []
 
     def _parse_search_results(self, html: str) -> List[Dict]:
@@ -69,7 +69,7 @@ class GeekbenchCrawler:
             response.raise_for_status()
             return self._parse_benchmark_detail(response.text, benchmark_id)
         except Exception as e:
-            print(f"❌ 获取跑分详情失败 {benchmark_id}: {e}")
+            print(f" 获取跑分详情失败 {benchmark_id}: {e}")
             return None
 
     def _parse_benchmark_detail(self, html: str, benchmark_id: str) -> Dict:
@@ -218,7 +218,7 @@ class GeekbenchCrawler:
             response.raise_for_status()
             return self._parse_latest_list(response.text, limit)
         except Exception as e:
-            print(f"❌ 获取最新跑分失败: {e}")
+            print(f" 获取最新跑分失败: {e}")
             return []
 
     def _parse_latest_list(self, html: str, limit: int = 50) -> List[Dict]:
@@ -283,12 +283,12 @@ class GeekbenchCrawler:
 
     def analyze_device_benchmarks(self, device_model: str) -> Dict:
         """分析特定设备的所有跑分结果"""
-        print(f"\n📊 开始分析设备: {device_model}")
+        print(f"\n 开始分析设备: {device_model}")
 
         search_results = self.search_device(device_model)
 
         if not search_results:
-            print(f"❌ 未找到设备: {device_model}")
+            print(f" 未找到设备: {device_model}")
             return {}
 
         all_benchmarks = []
@@ -299,7 +299,7 @@ class GeekbenchCrawler:
                 time.sleep(0.5)
 
         if not all_benchmarks:
-            print("❌ 无法获取跑分详情")
+            print(" 无法获取跑分详情")
             return {}
 
         version_stats = {}
@@ -360,23 +360,23 @@ class GeekbenchCrawler:
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=2)
 
-        print(f"💾 结果已保存到: {filepath}")
+        print(f" 结果已保存到: {filepath}")
         return filepath
 
     def generate_report(self, analysis: Dict) -> str:
         """生成分析报告"""
         if not analysis:
-            return "❌ 无数据可生成报告"
+            return " 无数据可生成报告"
 
         report_lines = [
-            f"📱 设备: {analysis['device']}",
-            f"📈 总跑分数: {analysis['total_benchmarks']}",
+            f" 设备: {analysis['device']}",
+            f" 总跑分数: {analysis['total_benchmarks']}",
             "-" * 60
         ]
 
         for version, stats in analysis['versions'].items():
             report_lines.extend([
-                f"\n🔹 Geekbench {version}",
+                f"\n Geekbench {version}",
                 f"  跑分数量: {stats['count']}",
                 f"  Single-Core 平均分: {stats['avg_single']:.0f} (中位数: {stats['median_single']:.0f})",
                 f"  Multi-Core 平均分: {stats['avg_multi']:.0f} (中位数: {stats['median_multi']:.0f})"
@@ -385,7 +385,7 @@ class GeekbenchCrawler:
             if 'typical_single_core' in stats:
                 typical = stats['typical_single_core']
                 report_lines.append(
-                    f"  📌 典型 Single-Core 跑分: "
+                    f"   典型 Single-Core 跑分: "
                     f"[#{typical['id']}]({typical['url']}) "
                     f"(Single: {typical['single_core_score']}, Multi: {typical['multi_core_score']})"
                 )
@@ -393,7 +393,7 @@ class GeekbenchCrawler:
             if 'typical_multi_core' in stats:
                 typical = stats['typical_multi_core']
                 report_lines.append(
-                    f"  📌 典型 Multi-Core 跑分: "
+                    f"   典型 Multi-Core 跑分: "
                     f"[#{typical['id']}]({typical['url']}) "
                     f"(Single: {typical['single_core_score']}, Multi: {typical['multi_core_score']})"
                 )
@@ -407,12 +407,12 @@ def main():
     """主函数示例"""
     crawler = GeekbenchCrawler()
 
-    print("📋 获取最新跑分结果...")
+    print(" 获取最新跑分结果...")
     latest = crawler.get_latest_benchmarks(10)
     for item in latest[:5]:
         print(f"  #{item['id']}: {item['title']} - Single: {item['single_core']}, Multi: {item['multi_core']}")
 
-    print("\n📊 测试获取跑分详情...")
+    print("\n 测试获取跑分详情...")
     detail = crawler.get_benchmark_detail('16471550')
     if detail:
         print(f"  型号: {detail['model']}")

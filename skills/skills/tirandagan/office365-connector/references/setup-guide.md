@@ -30,9 +30,9 @@ This guide provides step-by-step instructions for creating and configuring an Az
    - **Name**: Enter a descriptive name
      - Example: "OpenClaw Microsoft Graph Integration"
    - **Supported account types**: Select one:
-     - ✅ **"Accounts in this organizational directory only (Single tenant)"** (Recommended for most users)
+     -  **"Accounts in this organizational directory only (Single tenant)"** (Recommended for most users)
      - "Accounts in any organizational directory (Multi-tenant)" (For cross-organization)
-     - ❌ "Personal Microsoft accounts" (Not compatible with this skill)
+     -  "Personal Microsoft accounts" (Not compatible with this skill)
    - **Redirect URI**: Leave blank (not needed for device code flow)
    
 4. Click **Register**
@@ -61,11 +61,11 @@ After registration, you'll see the Overview page.
    - **Description**: Enter a description
      - Example: "OpenClaw production secret"
    - **Expires**: Choose expiration
-     - ✅ **24 months** (Recommended - balance of security and maintenance)
+     -  **24 months** (Recommended - balance of security and maintenance)
      - 6 months / 12 months / Custom (More secure, requires more frequent renewal)
 4. Click **Add**
 
-**⚠️ IMPORTANT:** The secret **Value** is displayed ONLY ONCE!
+** IMPORTANT:** The secret **Value** is displayed ONLY ONCE!
 
 - **Copy the "Value" immediately** (not the "Secret ID")
 - Example: `AbC1~dEf2GhI3jKl4MnO5pQr6StU7vWx8YzA9bCd0`
@@ -124,8 +124,8 @@ After registration, you'll see the Overview page.
 **Check if admin consent is needed:**
 
 Look at the "Status" column for each permission:
-- ✅ Green checkmark = Consent granted
-- ⚠️ "Not granted" = Admin consent required
+-  Green checkmark = Consent granted
+-  "Not granted" = Admin consent required
 
 **If admin consent is required:**
 
@@ -182,7 +182,7 @@ Edit your OpenClaw configuration (`~/.openclaw/openclaw.json` or via `/config` c
 }
 ```
 
-**⚠️ Security note:** 
+** Security note:** 
 - Client secrets are sensitive - treat them like passwords
 - Don't commit secrets to version control
 - Restrict file permissions: `chmod 600 ~/.openclaw/openclaw.json`
@@ -204,15 +204,15 @@ When you first use the Microsoft Graph skill:
 
 Before testing, verify:
 
-- ✅ App registration created in Azure Portal
-- ✅ Application (client) ID copied
-- ✅ Directory (tenant) ID copied
-- ✅ Client secret created and value copied
-- ✅ All 9 permissions added (User.Read, Mail.*, Calendars.*, Contacts.*, offline_access)
-- ✅ Admin consent granted (if required)
-- ✅ Public client flow enabled
-- ✅ Credentials added to OpenClaw config
-- ✅ First authentication completed successfully
+-  App registration created in Azure Portal
+-  Application (client) ID copied
+-  Directory (tenant) ID copied
+-  Client secret created and value copied
+-  All 9 permissions added (User.Read, Mail.*, Calendars.*, Contacts.*, offline_access)
+-  Admin consent granted (if required)
+-  Public client flow enabled
+-  Credentials added to OpenClaw config
+-  First authentication completed successfully
 
 ## Troubleshooting
 

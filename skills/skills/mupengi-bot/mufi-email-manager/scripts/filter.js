@@ -67,7 +67,7 @@ async function filterAccount(accountName, keywords, hours, limit) {
     await client.disconnect();
     return recentMessages;
   } catch (err) {
-    console.error(`❌ ${accountName} 오류:`, err.message);
+    console.error(` ${accountName} 오류:`, err.message);
     return [];
   }
 }
@@ -76,7 +76,7 @@ async function main() {
   const options = parseArgs();
   
   if (!options.keywords) {
-    console.error('❌ --keywords 옵션이 필요합니다.');
+    console.error(' --keywords 옵션이 필요합니다.');
     console.error('예: node filter.js --keywords "결제,청구,승인"');
     process.exit(1);
   }
@@ -86,23 +86,23 @@ async function main() {
     : [options.account];
 
   if (accounts.length === 0) {
-    console.error('❌ 설정된 계정이 없습니다.');
+    console.error(' 설정된 계정이 없습니다.');
     process.exit(1);
   }
 
   const hours = parseTimeString(options.recent);
-  console.log(`🔍 키워드 필터링 중: "${options.keywords}"`);
+  console.log(` 키워드 필터링 중: "${options.keywords}"`);
   console.log(`   기간: 최근 ${options.recent}\n`);
 
   let allMatches = [];
 
   for (const account of accounts) {
-    console.log(`📂 ${account.toUpperCase()} 검색 중...`);
+    console.log(` ${account.toUpperCase()} 검색 중...`);
     const messages = await filterAccount(account, options.keywords, hours, options.limit);
     
     if (messages.length > 0) {
       allMatches.push({ account, messages });
-      console.log(`   ✅ ${messages.length}건 발견\n`);
+      console.log(`    ${messages.length}건 발견\n`);
     } else {
       console.log(`   (일치하는 메일 없음)\n`);
     }
@@ -111,16 +111,16 @@ async function main() {
   // 결과 출력
   if (allMatches.length === 0) {
     console.log('━'.repeat(50));
-    console.log('🔍 일치하는 메일이 없습니다.');
+    console.log(' 일치하는 메일이 없습니다.');
     console.log('━'.repeat(50) + '\n');
     return;
   }
 
   console.log('━'.repeat(50));
-  console.log('📋 필터링 결과\n');
+  console.log(' 필터링 결과\n');
 
   allMatches.forEach(({ account, messages }) => {
-    console.log(`📬 ${account.toUpperCase()} (${messages.length}건)`);
+    console.log(` ${account.toUpperCase()} (${messages.length}건)`);
     messages.forEach((msg, idx) => {
       const date = new Date(msg.date).toLocaleString('ko-KR');
       const subject = msg.subject || '(제목 없음)';
@@ -136,7 +136,7 @@ async function main() {
 
   const totalCount = allMatches.reduce((sum, { messages }) => sum + messages.length, 0);
   console.log('━'.repeat(50));
-  console.log(`📊 총 ${totalCount}건 발견`);
+  console.log(` 총 ${totalCount}건 발견`);
   console.log('━'.repeat(50) + '\n');
 }
 

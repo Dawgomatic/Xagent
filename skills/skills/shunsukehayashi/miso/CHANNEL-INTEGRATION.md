@@ -14,10 +14,10 @@ Auto-post mission start/complete notifications to @MIYABI_CHANNEL (chatId: -1003
 
 | Event | Post | Content |
 |-------|------|---------|
-| Mission start | ✅ | 🚀 Start notification |
-| Mission complete | ✅ | ✅ Completion report (Key Insights only) |
-| Error | ❌ | Do not post |
-| In progress | ❌ | Do not post |
+| Mission start |  |  Start notification |
+| Mission complete |  |  Completion report (Key Insights only) |
+| Error |  | Do not post |
+| In progress |  | Do not post |
 
 ---
 
@@ -26,29 +26,29 @@ Auto-post mission start/complete notifications to @MIYABI_CHANNEL (chatId: -1003
 ### Mission Start Notification
 
 ```
-🚀 𝗠𝗜𝗦𝗦𝗜𝗢𝗡 𝗦𝗧𝗔𝗥𝗧𝗘𝗗
+ 𝗠𝗜𝗦𝗦𝗜𝗢𝗡 𝗦𝗧𝗔𝗥𝗧𝗘𝗗
 ——————————————————
-📋 {mission_description}
-🧩 {agent_count} agents deployed
+ {mission_description}
+ {agent_count} agents deployed
 ——————————————————
-🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
+ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
 ```
 
 ### Mission Complete Report
 
 ```
-✅ 𝗠𝗜𝗦𝗦𝗜𝗢𝗡 𝗖𝗢𝗠𝗣𝗟𝗘𝗧𝗘
+ 𝗠𝗜𝗦𝗦𝗜𝗢𝗡 𝗖𝗢𝗠𝗣𝗟𝗘𝗧𝗘
 ——————————————————
-📋 {mission_description}
-⏱ {total_time} ∣ 🧩 {agent_count} agents
+ {mission_description}
+ {total_time} ∣  {agent_count} agents
 
-↳ 💡 𝗞𝗘𝗬 𝗜𝗡𝗦𝗜𝗚𝗛𝗧𝗦
+↳  𝗞𝗘𝗬 𝗜𝗡𝗦𝗜𝗚𝗛𝗧𝗦
 ——————————————————
 1. {insight_1}
 2. {insight_2}
 3. {insight_3}
 ——————————————————
-🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
+ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
 ```
 
 **Variable Definitions:**
@@ -66,10 +66,10 @@ Auto-post mission start/complete notifications to @MIYABI_CHANNEL (chatId: -1003
 
 | Item | Channel Output |
 |------|----------------|
-| 💰 Cost information | ❌ Never show |
-| Agent names | ✅ OK to show |
-| Error details | ❌ Never show |
-| Approval gates | ❌ DM only |
+|  Cost information |  Never show |
+| Agent names |  OK to show |
+| Error details |  Never show |
+| Approval gates |  DM only |
 
 ---
 

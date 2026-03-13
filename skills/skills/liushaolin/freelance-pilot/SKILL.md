@@ -5,24 +5,24 @@ description: AI Agent Co-Pilot for Upwork & Fiverr. Includes Bid Calculator & Pr
 version: 1.0.0
 ---
 
-# ✈️ FreelancePilot (Community Edition)
+#  FreelancePilot (Community Edition)
 
 **The AI Co-Pilot for Upwork, Fiverr, and Toptal.**
 
 Turn your OpenClaw agent into a top-1% bidder. This skill provides specialized logic for pricing and proposal structuring.
 
-> **💎 Upgrade to PRO:**
+> ** Upgrade to PRO:**
 > Get the **Red Flag Scanner**, **Fee Shield Calculator**, and **Advanced Sales Prompts** in the PRO version.
-> [👉 Get FreelancePilot PRO on Gumroad](https://gumroad.com/l/freelance-pilot)
+> [ Get FreelancePilot PRO on Gumroad](https://gumroad.com/l/freelance-pilot)
 
-## 📦 Installation
+##  Installation
 
 
 1.  **Unzip** into your workspace or skills directory.
 2.  **Configure:** Rename `config.example.json` to `config.json` and set your rates.
 3.  **Install Deps:** None! (Built on native Node.js).
 
-## 🛠️ Tools & Usage
+##  Tools & Usage
 
 ### 1. `freelance_calculate_bid`
 Calculates the perfect bid price to ensure you cover platform fees (20%) and taxes.
@@ -33,7 +33,7 @@ Calculates the perfect bid price to ensure you cover platform fees (20%) and tax
 Generates a proposal using the **"Consultant Flip"** framework—a sales technique that focuses on client ROI rather than your technical skills.
 *   **Usage:** "Draft a proposal for this job description..."
 
-## 🤖 SOUL.md Integration (Optional)
+##  SOUL.md Integration (Optional)
 
 Add this to your agent's `SOUL.md`:
 

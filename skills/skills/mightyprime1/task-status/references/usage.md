@@ -53,10 +53,10 @@ python send_status.py "Backup complete" "success" "backup"
 
 | Type | Emoji | ASCII | When to Use |
 |------|-------|-------|-------------|
-| progress | 🔄 | -> | Ongoing work, "still working on it" |
-| success | ✅ | OK | Task completed successfully |
-| error | ❌ | ! | Task failed, cannot continue |
-| warning | ⚠️ | ? | Issue but continuing |
+| progress |  | -> | Ongoing work, "still working on it" |
+| success |  | OK | Task completed successfully |
+| error |  | ! | Task failed, cannot continue |
+| warning |  | ? | Issue but continuing |
 
 ## When to Use Each Method
 

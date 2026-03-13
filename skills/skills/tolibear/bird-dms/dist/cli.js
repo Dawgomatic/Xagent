@@ -64,7 +64,7 @@ addAuthOptions(program
             return;
         }
         for (const conv of conversations) {
-            const icon = conv.type === 'GROUP_DM' ? '👥' : '💬';
+            const icon = conv.type === 'GROUP_DM' ? '' : '';
             const name = conv.name || conv.participants.join(', ');
             console.log(`${icon} ${name}`);
             console.log(`   ID: ${conv.id}`);

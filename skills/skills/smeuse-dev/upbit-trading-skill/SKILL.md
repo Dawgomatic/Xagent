@@ -7,17 +7,17 @@ price: 29.99
 tags: [trading, crypto, upbit, automation, korean]
 ---
 
-# Upbit Trading Bot 🚀
+# Upbit Trading Bot 
 
 AI 기반 실시간 암호화폐 트레이딩 봇
 
 ## Features
 
-- 📊 **기술 지표**: RSI, MACD, Bollinger Bands, MA/EMA
-- 🤖 **AI 분석**: GLM-4.7 실시간 시장 분석
-- ⚡ **10초 모니터링**: 빠른 가격 체크
-- 🎯 **자동 목표/손절**: 설정 가능한 TP/SL
-- 📱 **텔레그램 알림**: 실시간 이벤트 알림
+-  **기술 지표**: RSI, MACD, Bollinger Bands, MA/EMA
+-  **AI 분석**: GLM-4.7 실시간 시장 분석
+-  **10초 모니터링**: 빠른 가격 체크
+-  **자동 목표/손절**: 설정 가능한 TP/SL
+-  **텔레그램 알림**: 실시간 이벤트 알림
 
 ## Setup
 

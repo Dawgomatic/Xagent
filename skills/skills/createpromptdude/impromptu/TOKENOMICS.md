@@ -178,16 +178,16 @@ All contracts are verified on [Basescan](https://basescan.org).
 
 | Feature | Status |
 |---------|--------|
-| Token earning (DB-tracked) | ✅ Live |
-| BYOK via OpenRouter | ✅ Live |
-| Budget system | ✅ Live |
-| Uniswap trading | ✅ Live |
-| Registration fee withholding | ✅ Live |
-| On-chain vesting deposits | ⏳ Designed, not yet active |
-| PoW burn integration | ⏳ Designed, not yet active |
-| FeeRouter integration | ⏳ Designed, not yet active |
-| Staking | ❌ Not available |
-| Token withdrawal endpoint | ⏳ Coming soon |
+| Token earning (DB-tracked) |  Live |
+| BYOK via OpenRouter |  Live |
+| Budget system |  Live |
+| Uniswap trading |  Live |
+| Registration fee withholding |  Live |
+| On-chain vesting deposits |  Designed, not yet active |
+| PoW burn integration |  Designed, not yet active |
+| FeeRouter integration |  Designed, not yet active |
+| Staking |  Not available |
+| Token withdrawal endpoint |  Coming soon |
 
 **What "designed, not yet active" means:** The smart contracts are deployed on Base mainnet and verified. The platform currently tracks earnings in the database. On-chain settlement (vesting deposits, fee routing, PoW burns) will be activated as the platform matures.
 

@@ -37,18 +37,18 @@ Describe the **goal**, agent figures out the **steps**:
 ## Task-Oriented Thinking
 
 **Good task descriptions:**
-- ✅ "Fill out the registration form with these details"
-- ✅ "Search for Python tutorials and summarize top 3"
-- ✅ "Go to login page, authenticate, then check dashboard"
+-  "Fill out the registration form with these details"
+-  "Search for Python tutorials and summarize top 3"
+-  "Go to login page, authenticate, then check dashboard"
 
 **Bad task descriptions:**
-- ❌ "Click button" (too vague, use `browser`)
-- ❌ "Extract prices" (use `js_code` instead)
-- ❌ "Step 1: navigate, Step 2: click..." (let agent figure it out)
+-  "Click button" (too vague, use `browser`)
+-  "Extract prices" (use `js_code` instead)
+-  "Step 1: navigate, Step 2: click..." (let agent figure it out)
 
 ## Working with Existing Tabs
 
-> **🎯 Important: tab_id Selection**
+> ** Important: tab_id Selection**
 >
 > **When user refers to their already-opened pages** (e.g., "the current page", "from my open tabs", "the second tab"):
 >
@@ -84,7 +84,7 @@ Provide multiple tasks to run agents in parallel. Each task needs a unique `tab_
 
 ## Fallback Strategy
 
-> **🔄 When browser-use Fails or Needs Manual Control**
+> ** When browser-use Fails or Needs Manual Control**
 >
 > If `execute_browser_use_agent` fails, gets stuck, or you need more precise control:
 >

@@ -67,7 +67,7 @@ WORKSPACE="${WORKSPACE:-$HOME/openclaw}"
 # 실행 전 설정 유효성 검사. --quiet 모드: 오류만 표시.
 if [[ -f "$SKILL_DIR/scripts/validate-config.sh" ]]; then
   bash "$SKILL_DIR/scripts/validate-config.sh" --quiet || {
-    echo "❌ Config validation failed. Run: bash $SKILL_DIR/scripts/setup-wizard.sh" >&2
+    echo " Config validation failed. Run: bash $SKILL_DIR/scripts/setup-wizard.sh" >&2
     exit 1
   }
 fi
@@ -310,7 +310,7 @@ with open(sys.argv[1]) as f:
     data = json.load(f)
 stages = sys.argv[2]
 
-print("## 🤖 SEA v4.0 요약 (폴백)")
+print("##  SEA v4.0 요약 (폴백)")
 print()
 
 summary = data.get("summary", {})

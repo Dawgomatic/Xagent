@@ -30,37 +30,37 @@
 
 | Event | Action |
 |-------|--------|
-| Mission start | Add new row (`⏳ #{id} {title} (pending)`) |
-| Mission running | Update status (`🔥 #{id} {title} (running)`) |
-| Mission complete | Update status (`✅ #{id} {title} (complete)`) |
-| Mission error | Update status (`❌ #{id} {title} (error)`) |
+| Mission start | Add new row (` #{id} {title} (pending)`) |
+| Mission running | Update status (` #{id} {title} (running)`) |
+| Mission complete | Update status (` #{id} {title} (complete)`) |
+| Mission error | Update status (` #{id} {title} (error)`) |
 | All missions complete | Show summary + unpin |
 
 ## Templates
 
 ### Master Ticket (Active)
 ```
-📋 𝗠𝗜𝗦𝗦𝗜𝗢𝗡 𝗖𝗢𝗡𝗧𝗥𝗢𝗟
+ 𝗠𝗜𝗦𝗦𝗜𝗢𝗡 𝗖𝗢𝗡𝗧𝗥𝗢𝗟
 ——————————————
-⏳ #1 Title (pending)
-🔥 #2 Title (running)
-✅ #3 Title (complete)
+ #1 Title (pending)
+ #2 Title (running)
+ #3 Title (complete)
 ——————————————
 Updated: 2026-02-17 08:57:00 JST
-🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
+ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
 ```
 
 ### Master Ticket (All Complete)
 ```
-📋 𝗠𝗜𝗦𝗦𝗜𝗢𝗡 𝗖𝗢𝗠𝗣𝗟𝗘𝗧𝗘 ✅
+ 𝗠𝗜𝗦𝗦𝗜𝗢𝗡 𝗖𝗢𝗠𝗣𝗟𝗘𝗧𝗘 
 ——————————————
-✅ #1 Title (complete)
-✅ #2 Title (complete)
-✅ #3 Title (complete)
+ #1 Title (complete)
+ #2 Title (complete)
+ #3 Title (complete)
 ——————————————
 All missions complete: 3/3
 Updated: 2026-02-17 08:57:00 JST
-🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
+ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
 ```
 
 ## Initial Creation Flow

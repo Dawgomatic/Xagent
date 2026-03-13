@@ -1,15 +1,15 @@
-# Claude Code Skill 🤖
+# Claude Code Skill 
 
 Control Claude Code via MCP (Model Context Protocol). This CLI provides programmatic access to Claude Code's full capabilities including persistent sessions, agent teams, and advanced tool control.
 
 ## Features
 
-- 🔌 **MCP Protocol** - Direct access to all Claude Code tools
-- 💾 **Persistent Sessions** - Maintain context across multiple interactions
-- 🤝 **Agent Teams** - Deploy multiple specialized agents
-- 🔧 **Tool Control** - Fine-grained control over which tools are available
-- 📊 **Budget Limits** - Set spending caps on API usage
-- 🔄 **Session Management** - Fork, pause, resume, search sessions
+-  **MCP Protocol** - Direct access to all Claude Code tools
+-  **Persistent Sessions** - Maintain context across multiple interactions
+-  **Agent Teams** - Deploy multiple specialized agents
+-  **Tool Control** - Fine-grained control over which tools are available
+-  **Budget Limits** - Set spending caps on API usage
+-  **Session Management** - Fork, pause, resume, search sessions
 
 ## Installation
 
@@ -34,7 +34,7 @@ npm link
 - Backend API server running (see Configuration)
 - Claude Code CLI (for the backend)
 
-## Multi-Model Support (Proxy) 🌐
+## Multi-Model Support (Proxy) 
 
 Use `--base-url` to route requests through a custom API endpoint, enabling **any OpenAI-compatible model** to power Claude Code:
 

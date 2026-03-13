@@ -78,7 +78,7 @@ export async function listNFT(tokenId: string, priceInEth: string): Promise<List
     console.log(`[List] Listing transaction: ${listTx.hash}`);
     const receipt = await listTx.wait();
 
-    console.log(`[List] ✅ Listed successfully in block ${receipt.blockNumber}`);
+    console.log(`[List]  Listed successfully in block ${receipt.blockNumber}`);
 
     return {
       success: true,

@@ -81,7 +81,7 @@ After each review, user rates:
 ## Session Flow
 
 ```
-📚 Flashcards: AWS Services (23 due)
+ Flashcards: AWS Services (23 due)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 What service provides managed 

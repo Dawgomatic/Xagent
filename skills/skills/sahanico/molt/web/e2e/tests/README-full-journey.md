@@ -93,8 +93,8 @@ bun run test:e2e:headed tests/full-journey.spec.ts
 ## Test Output
 
 The test prints detailed progress at each step:
-- ✅ Success indicators
-- 📊 Summary at the end
+-  Success indicators
+-  Summary at the end
 - Agent API keys (for manual testing)
 - Campaign ID
 

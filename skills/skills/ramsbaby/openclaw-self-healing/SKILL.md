@@ -46,7 +46,7 @@ A 4-tier autonomous self-healing system for OpenClaw Gateway.
 ```
 Level 1: Watchdog (180s)     → Process monitoring (OpenClaw built-in)
 Level 2: Health Check (300s) → HTTP 200 + 3 retries
-Level 3: Claude Recovery     → 30min AI-powered diagnosis 🧠
+Level 3: Claude Recovery     → 30min AI-powered diagnosis 
 Level 4: Discord Alert       → Human escalation
 ```
 
@@ -107,7 +107,7 @@ tail -f ~/openclaw/memory/healthcheck-$(date +%Y-%m-%d).log
 |--------|-------|-------------|
 | `gateway-healthcheck.sh` | 2 | HTTP 200 check + 3 retries + escalation |
 | `emergency-recovery.sh` | 3 | Claude Code PTY session for AI diagnosis (v1) |
-| `emergency-recovery-v2.sh` | 3 | Enhanced with learning + reasoning logs (v2) ⭐ |
+| `emergency-recovery-v2.sh` | 3 | Enhanced with learning + reasoning logs (v2)  |
 | `emergency-recovery-monitor.sh` | 4 | Discord/Telegram notification on failure |
 | `metrics-dashboard.sh` | - | Visualize recovery statistics (NEW) |
 
@@ -131,7 +131,7 @@ All settings via environment variables in `~/.openclaw/.env`:
 bash ~/openclaw/scripts/gateway-healthcheck.sh
 
 # Expected output:
-# ✅ Gateway healthy
+#  Gateway healthy
 ```
 
 ### Test Level 3 (Claude Recovery)
@@ -153,4 +153,4 @@ tail -f ~/openclaw/memory/emergency-recovery-*.log
 
 MIT License - do whatever you want with it.
 
-Built by @ramsbaby + Jarvis 🦞
+Built by @ramsbaby + Jarvis 

@@ -18,7 +18,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 EXPORT_DIR="/home/celluloid/.openclaw/workspace/stl-exports"
 TEMP_SCRIPT="/tmp/auto_3d_$(date +%s).py"
 
-echo "🎨 Génération modèle 3D à partir du prompt..."
+echo " Génération modèle 3D à partir du prompt..."
 echo "Prompt: $PROMPT"
 echo ""
 
@@ -76,19 +76,19 @@ if __name__ == "__main__":
     print("Génération du modèle...")
     mesh = create_model()
     save_mesh(mesh, "{{OUTPUT_NAME}}.stl")
-    print("✅ Terminé!")
+    print(" Terminé!")
 PYTHON_SCRIPT
 
 # Remplacer les placeholders
 sed -i "s|{{DESCRIPTION}}|$PROMPT|g" "$TEMP_SCRIPT"
 sed -i "s|{{OUTPUT_NAME}}|$OUTPUT_NAME|g" "$TEMP_SCRIPT"
 
-echo "🔧 Exécution du script de génération..."
+echo " Exécution du script de génération..."
 python3 "$TEMP_SCRIPT"
 
 # Nettoyage
 rm -f "$TEMP_SCRIPT"
 
 echo ""
-echo "✅ Modèle généré avec succès!"
-echo "📁 Emplacement: $EXPORT_DIR/${OUTPUT_NAME}.stl"
+echo " Modèle généré avec succès!"
+echo " Emplacement: $EXPORT_DIR/${OUTPUT_NAME}.stl"

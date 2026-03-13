@@ -2,10 +2,10 @@
 name: twitter-openclaw
 description: Interact with Twitter/X — read tweets, search, post, like, retweet, and manage your timeline.
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🐦‍⬛","skillKey":"twitter-openclaw","primaryEnv":"TWITTER_BEARER_TOKEN","requires":{"bins":["twclaw"],"env":["TWITTER_BEARER_TOKEN"]},"install":[{"id":"npm","kind":"node","package":"twclaw","bins":["twclaw"],"label":"Install twclaw (npm)"}]}}
+metadata: {"openclaw":{"emoji":"","skillKey":"twitter-openclaw","primaryEnv":"TWITTER_BEARER_TOKEN","requires":{"bins":["twclaw"],"env":["TWITTER_BEARER_TOKEN"]},"install":[{"id":"npm","kind":"node","package":"twclaw","bins":["twclaw"],"label":"Install twclaw (npm)"}]}}
 ---
 
-# twitter-openclaw 🐦‍⬛
+# twitter-openclaw 
 
 Interact with Twitter/X posts, timelines, and users from OpenClaw.
 

@@ -133,9 +133,9 @@ class DataCleaner:
                         all_data.extend(data)
                         
             except Exception as e:
-                print(f"⚠️  读取文件 {path} 失败: {e}")
+                print(f"  读取文件 {path} 失败: {e}")
         
-        print(f"\n📊 数据源统计：")
+        print(f"\n 数据源统计：")
         for platform, count in platform_counts.items():
             print(f"   {platform}: {count} 条")
         
@@ -150,7 +150,7 @@ class DataCleaner:
                 "data": data
             }, f, ensure_ascii=False, indent=2)
         
-        print(f"\n✅ 数据清洗完成")
+        print(f"\n 数据清洗完成")
         print(f"{'='*50}")
         print(f"原始数据：{stats['original_count']} 条")
         print(f"清洗后数据：{stats['cleaned_count']} 条")
@@ -162,9 +162,9 @@ class DataCleaner:
         print(f"  其他原因：{stats['invalid_stats']['other']} 条")
         
         if not stats['meets_minimum']:
-            print(f"\n⚠️  警告：清洗后数据量不足2000条，建议增加数据抓取")
+            print(f"\n  警告：清洗后数据量不足2000条，建议增加数据抓取")
         
-        print(f"\n💾 数据已保存到 {output_path}")
+        print(f"\n 数据已保存到 {output_path}")
 
 def main():
     parser = argparse.ArgumentParser(description='数据清洗与预处理')

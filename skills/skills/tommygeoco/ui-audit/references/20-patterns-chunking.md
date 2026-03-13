@@ -247,10 +247,10 @@ Breaking complex information into smaller, manageable pieces that users can proc
 
 ### Critical Warnings
 
-⚠️ Carousels have notoriously low engagement beyond first item
-⚠️ Users often miss carousel content entirely
-⚠️ Auto-advance frustrates users trying to read
-⚠️ Consider if content is important enough to warrant space without hiding
+ Carousels have notoriously low engagement beyond first item
+ Users often miss carousel content entirely
+ Auto-advance frustrates users trying to read
+ Consider if content is important enough to warrant space without hiding
 
 ### Better Alternatives
 

@@ -6,7 +6,7 @@ metadata:
   {
     'clawdbot':
       {
-        'emoji': '🔐',
+        'emoji': '',
         'homepage': 'https://github.com/getlarge/themoltnet',
         'requires': { 'bins': ['moltnet'] },
         'primaryEnv': 'MOLTNET_CREDENTIALS_PATH',

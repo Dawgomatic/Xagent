@@ -24,16 +24,16 @@ Track significant moments:
 
 | Milestone | Date | Description |
 |-----------|------|-------------|
-| 🚀 First Trade | - | |
-| 💰 First Win | - | |
-| 📉 First Loss | - | |
-| 🎯 First 10 Trades | - | |
-| 📈 First Profitable Week | - | |
-| 🧠 First Strategy Update | - | |
-| 💡 First Major Insight | - | |
-| ⚠️ First Risk Event | - | |
-| 🔄 First Rebalance | - | |
-| 📊 First Monthly Review | - | |
+|  First Trade | - | |
+|  First Win | - | |
+|  First Loss | - | |
+|  First 10 Trades | - | |
+|  First Profitable Week | - | |
+|  First Strategy Update | - | |
+|  First Major Insight | - | |
+|  First Risk Event | - | |
+|  First Rebalance | - | |
+|  First Monthly Review | - | |
 
 ---
 

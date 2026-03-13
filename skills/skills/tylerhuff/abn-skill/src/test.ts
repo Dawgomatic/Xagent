@@ -14,16 +14,16 @@ import { verifyLink } from './lib/verifier.js';
 import { loadState, addSite, getSites, getStatePath } from './lib/state.js';
 
 async function test() {
-  console.log('🧪 Agent Backlink Network - Test Suite\n');
+  console.log(' Agent Backlink Network - Test Suite\n');
   
   // Test 1: State management
-  console.log('1️⃣ Testing state management...');
+  console.log(' Testing state management...');
   const state = loadState();
   console.log(`   ✓ State loaded from ${getStatePath()}`);
   console.log(`   ✓ Public key: ${state.npub.slice(0, 20)}...`);
   
   // Test 2: Local site storage
-  console.log('\n2️⃣ Testing local site storage...');
+  console.log('\n Testing local site storage...');
   const testSite = {
     url: 'https://test-plumber.example.com',
     businessName: 'Test Plumber Co',
@@ -43,7 +43,7 @@ async function test() {
   console.log(`   ✓ Total sites: ${sites.length}`);
 
   // Test 3: Link verification
-  console.log('\n3️⃣ Testing link verification...');
+  console.log('\n Testing link verification...');
   try {
     // Test with a real page that we know has links
     const result = await verifyLink('https://example.com', 'https://www.iana.org');
@@ -51,18 +51,18 @@ async function test() {
     console.log(`   ✓ Link found: ${result.found}`);
     if (result.anchorText) console.log(`   ✓ Anchor text: ${result.anchorText}`);
   } catch (e: any) {
-    console.log(`   ⚠ Verification test skipped: ${e.message}`);
+    console.log(`    Verification test skipped: ${e.message}`);
   }
 
   // Test 4: Nostr connection
-  console.log('\n4️⃣ Testing Nostr connection...');
+  console.log('\n Testing Nostr connection...');
   const client = new NostrClient(state.privateKey, DEFAULT_RELAYS.slice(0, 2));
   console.log(`   ✓ Client created`);
   console.log(`   ✓ Client npub: ${client.npub}`);
 
   try {
     // Try to find some sites on the network
-    console.log('   ⏳ Querying network for registered sites...');
+    console.log('    Querying network for registered sites...');
     const events = await Promise.race([
       client.findSites({}),
       new Promise<never>((_, reject) => 
@@ -83,15 +83,15 @@ async function test() {
     }
   } catch (e: any) {
     if (e.message === 'timeout') {
-      console.log('   ⚠ Query timed out (normal if no sites registered yet)');
+      console.log('    Query timed out (normal if no sites registered yet)');
     } else {
-      console.log(`   ⚠ Query failed: ${e.message}`);
+      console.log(`    Query failed: ${e.message}`);
     }
   }
 
   // Test 5: Event creation (don't publish)
-  console.log('\n5️⃣ Testing event creation...');
-  console.log('   ⏳ Creating test registration event...');
+  console.log('\n Testing event creation...');
+  console.log('    Creating test registration event...');
   
   // We'll just verify event creation works without publishing
   const { finalizeEvent } = await import('nostr-tools');
@@ -112,7 +112,7 @@ async function test() {
 
   client.close();
 
-  console.log('\n✅ All tests passed!\n');
+  console.log('\n All tests passed!\n');
   console.log('Next steps:');
   console.log('  1. Register a real site: npm run dev -- register-site -u https://yoursite.com -n "Your Business" -t plumber -c "San Diego" -s CA');
   console.log('  2. Find matches: npm run dev -- find-matches');

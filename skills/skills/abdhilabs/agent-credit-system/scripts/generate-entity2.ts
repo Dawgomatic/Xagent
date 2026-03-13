@@ -12,7 +12,7 @@ const CIRCLE_API_KEY = process.env.CIRCLE_API_KEY;
 
 async function main() {
   if (!CIRCLE_API_KEY) {
-    console.error('❌ CIRCLE_API_KEY not set in .env');
+    console.error(' CIRCLE_API_KEY not set in .env');
     process.exit(1);
   }
 
@@ -23,7 +23,7 @@ async function main() {
     // Step 1: Generate our own 32-byte entity secret (hex format)
     console.log('1. Generating entity secret (32-byte hex)...');
     const entitySecret = crypto.randomBytes(32).toString('hex');
-    console.log(`   ✅ Generated: ${entitySecret.substring(0, 32)}...\n`);
+    console.log(`    Generated: ${entitySecret.substring(0, 32)}...\n`);
 
     // Step 2: Generate and register ciphertext using SDK
     console.log('2. Registering with Circle...');
@@ -32,7 +32,7 @@ async function main() {
       entitySecret,
     });
 
-    console.log('   ✅ Registered!\n');
+    console.log('    Registered!\n');
 
     // Output results
     console.log('=== RESULTS ===\n');
@@ -41,11 +41,11 @@ async function main() {
     console.log('\nEntity Secret Ciphertext (from Circle):');
     console.log(ciphertext);
     
-    console.log('\n📋 UPDATE .env:');
+    console.log('\n UPDATE .env:');
     console.log(`CIRCLE_ENTITY_SECRET=${entitySecret}\n`);
     
   } catch (error: any) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     if (error.response?.data) {
       console.error('Response:', JSON.stringify(error.response.data, null, 2));
     }

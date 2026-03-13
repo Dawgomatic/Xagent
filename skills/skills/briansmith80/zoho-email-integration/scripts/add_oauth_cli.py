@@ -20,7 +20,7 @@ if marker in content:
             print(json.dumps(status, indent=2))
             
             if status['status'] == 'expired':
-                print("\\n⚠️  Token has expired. Run 'python3 zoho-email.py oauth-login' to refresh.", file=sys.stderr)
+                print("\\n  Token has expired. Run 'python3 zoho-email.py oauth-login' to refresh.", file=sys.stderr)
                 sys.exit(1)
             elif status['status'] == 'valid':
                 print(f"\\n✓ Token is valid (expires in {status['expires_in_seconds']}s)", file=sys.stderr)

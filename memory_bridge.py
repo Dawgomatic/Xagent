@@ -214,7 +214,7 @@ class DistributedMemory:
             except Exception as e:
                 print(f"  ✗ Failed to sync section: {e}")
         
-        print(f"\n✅ Synced {synced} entries from {memory_file}")
+        print(f"\n Synced {synced} entries from {memory_file}")
         return synced
 
 
@@ -232,7 +232,7 @@ class MemoryWatcher(FileSystemEventHandler):
             # Debounce (wait 5 seconds after last change)
             current_time = time.time()
             if current_time - self.last_sync > 5:
-                print(f"\n📝 Detected change in {self.memory_file}, syncing...")
+                print(f"\n Detected change in {self.memory_file}, syncing...")
                 try:
                     self.distributed_mem.sync_from_markdown(self.memory_file)
                     self.last_sync = current_time
@@ -267,7 +267,7 @@ def watch_mode(memory_file: Path):
     observer.schedule(event_handler, str(memory_file.parent), recursive=False)
     observer.start()
     
-    print(f"\n👀 Watching {memory_file} for changes...")
+    print(f"\n Watching {memory_file} for changes...")
     print("Press Ctrl+C to stop")
     
     try:
@@ -320,7 +320,7 @@ Examples:
             sys.exit(1)
         
         query = " ".join(sys.argv[2:])
-        print(f"\n🔍 Search: {query}\n")
+        print(f"\n Search: {query}\n")
         
         results = mem.search_memory(query, limit=10)
         
@@ -332,7 +332,7 @@ Examples:
             score_bar = "█" * int(result['score'] * 10)
             print(f"{i}. [{score_bar} {result['score']:.3f}]")
             print(f"   {result['text'][:200]}...")
-            print(f"   📍 {result['node']} | 🕐 {result['timestamp'][:19]} | 📄 {result['source']}")
+            print(f"    {result['node']} |  {result['timestamp'][:19]} |  {result['source']}")
             print()
     
     elif command == "add":
@@ -343,7 +343,7 @@ Examples:
         
         text = " ".join(sys.argv[2:])
         point_id = mem.add_memory(text)
-        print(f"✅ Memory added (ID: {point_id}): {text[:60]}...")
+        print(f" Memory added (ID: {point_id}): {text[:60]}...")
     
     elif command == "watch":
         # Watch mode

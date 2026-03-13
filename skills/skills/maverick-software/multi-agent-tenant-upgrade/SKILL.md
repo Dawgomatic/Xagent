@@ -29,7 +29,7 @@ The Agents tab gains a **+ Create Agent** button that expands a panel with two m
 **AI Wizard mode:**
 - Describe the agent in plain English
 - Click "Generate Agent" — AI generates name, emoji, and full SOUL.md
-- Review the preview, then click "✅ Create This Agent"
+- Review the preview, then click " Create This Agent"
 
 After creation, the agents list **and** config form are both refreshed automatically — no "not found in config" error, no manual reload needed.
 
@@ -133,7 +133,7 @@ openclaw gateway restart
 ### Agents: Create Agent
 1. Click **+ Create Agent**
 2. **Manual:** enter name, workspace, pick emoji → "Create Agent"
-3. **AI Wizard:** describe the agent → "Generate Agent" → review preview → "✅ Create This Agent"
+3. **AI Wizard:** describe the agent → "Generate Agent" → review preview → " Create This Agent"
 
 ### Agents: Fallback Models
 In Model Selection:

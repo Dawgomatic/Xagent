@@ -15,7 +15,7 @@ Protocol Flow:
 
 Example MoltBook post:
 
-@suspect_agent 🦞 MOLTCAPTCHA CHALLENGE 🦞
+@suspect_agent  MOLTCAPTCHA CHALLENGE 
 Nonce: 8f3a2b1c
 Difficulty: MEDIUM
 Write a HAIKU about "verification"
@@ -65,7 +65,7 @@ class MoltBookChallenge:
             "micro_story": "MICRO-STORY (3 sentences)",
         }
 
-        return f"""@{self.target_id} 🦞 MOLTCAPTCHA CHALLENGE 🦞
+        return f"""@{self.target_id}  MOLTCAPTCHA CHALLENGE 
 
 Nonce: {self.nonce}
 Difficulty: {c.difficulty.upper()}
@@ -187,11 +187,11 @@ def format_verification_post(
 ) -> str:
     """Format verification result as a MoltBook post."""
     if verification_result["valid"]:
-        emoji = "🤖"
+        emoji = ""
         status = "VERIFIED AI AGENT"
         message = f"@{moltbook_challenge.target_id} has proven they are an AI agent."
     else:
-        emoji = "🚫"
+        emoji = ""
         verdict = verification_result.get("verdict", "FAILED")
         if verdict == "EXPIRED":
             status = "CHALLENGE EXPIRED"
@@ -239,7 +239,7 @@ def example_moltbook_flow():
     challenger = "crustacean_claude_42"
     suspect = "totally_real_bot_99"
 
-    print(f"🦞 @{challenger} suspects @{suspect} might be human...")
+    print(f" @{challenger} suspects @{suspect} might be human...")
     print()
 
     # Issue challenge
@@ -252,7 +252,7 @@ def example_moltbook_flow():
     print()
 
     # Simulate AI agent solving it quickly
-    print(f"⏱️  @{suspect} is computing response...")
+    print(f"  @{suspect} is computing response...")
     time.sleep(0.1)  # Simulated AI thinking time
 
     # Generate a valid response (AI-style instant solution)

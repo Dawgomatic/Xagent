@@ -1,4 +1,4 @@
-# git-auto - Git 워크스페이스 자동화 🐧
+# git-auto - Git 워크스페이스 자동화 
 
 워크스페이스의 git 작업을 자동화하는 스킬.
 
@@ -22,11 +22,11 @@ git commit -m "자동생성된 메시지"
 **커밋 메시지 생성 규칙:**
 - 변경된 파일들을 분석하여 주요 변경사항 파악
 - 파일 종류별 이모지 prefix 자동 선택:
-  - `✨` feat: 새 기능, 스킬 추가 (skills/)
-  - `🐛` fix: 버그 수정
-  - `📝` docs: 문서 변경 (README, *.md)
-  - `🔧` chore: 설정, 도구 변경
-  - `🗃️` memory: 메모리 파일 업데이트 (memory/)
+  - `` feat: 새 기능, 스킬 추가 (skills/)
+  - `` fix: 버그 수정
+  - `` docs: 문서 변경 (README, *.md)
+  - `` chore: 설정, 도구 변경
+  - `` memory: 메모리 파일 업데이트 (memory/)
 - 제목: 50자 이내, 한국어 OK
 - 필요시 body에 상세 내역 추가
 
@@ -57,7 +57,7 @@ git diff --shortstat
 
 ## 안전 규칙
 
-### 🚫 금지 사항
+###  금지 사항
 1. **Force push 절대 금지**
    - `git push --force` 또는 `-f` 옵션 사용 불가
    
@@ -70,7 +70,7 @@ git diff --shortstat
    - 100개 이상 파일 변경 시 형님에게 확인 요청
    - `git diff --stat | wc -l` 로 체크
 
-### ✅ 안전 가이드
+###  안전 가이드
 - 커밋 전 항상 `git status` 먼저 확인
 - 민감한 정보가 포함된 파일이 staged 되었는지 체크
 - push 전 로컬 변경사항과 리모트 동기화 확인
@@ -103,4 +103,4 @@ git diff --shortstat
 - "변경사항 요약"
 
 ---
-> 🐧 Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬
+>  Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬

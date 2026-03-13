@@ -197,10 +197,10 @@ Long details go in expandable blocks.</blockquote>
 
 **Status update:**
 ```
-📋 <b>TASK COMPLETE</b>
+ <b>TASK COMPLETE</b>
 
 <b>Task:</b> Deploy v2.3
-<b>Status:</b> ✅ Done
+<b>Status:</b>  Done
 <b>Duration:</b> 12 min
 
 <blockquote>All health checks passing.</blockquote>
@@ -208,7 +208,7 @@ Long details go in expandable blocks.</blockquote>
 
 **Alert:**
 ```
-⚠️ <b>ATTENTION NEEDED</b>
+ <b>ATTENTION NEEDED</b>
 
 <b>Issue:</b> API rate limit at 90%
 <b>Action:</b> Review usage
@@ -218,7 +218,7 @@ Long details go in expandable blocks.</blockquote>
 
 **List:**
 ```
-✅ <b>PRIORITIES</b>
+ <b>PRIORITIES</b>
 
 • <s>Review PR #234</s> — done
 • <b>Finish docs</b> — in progress
@@ -236,17 +236,17 @@ Long details go in expandable blocks.</blockquote>
 **For structured data, use emoji + bold + separators:**
 
 ```
-❌ BAD (wraps on mobile):
+ BAD (wraps on mobile):
 <pre>
-├─ 🟠 Reddit  32 threads │ 1,658 pts
-└─ 🌐 Web     8 pages
+├─  Reddit  32 threads │ 1,658 pts
+└─  Web     8 pages
 </pre>
 
-✅ GOOD (flows naturally):
-🟠 <b>Reddit:</b> 32 threads · 1,658 pts · 625 comments
-🔵 <b>X:</b> 22 posts · 10,695 likes · 1,137 reposts
-🌐 <b>Web:</b> 8 pages (supplementary)
-🗣️ <b>Top voices:</b> @handle1 · @handle2 · r/subreddit
+ GOOD (flows naturally):
+ <b>Reddit:</b> 32 threads · 1,658 pts · 625 comments
+ <b>X:</b> 22 posts · 10,695 likes · 1,137 reposts
+ <b>Web:</b> 8 pages (supplementary)
+ <b>Top voices:</b> @handle1 · @handle2 · r/subreddit
 ```
 
 **Other patterns:**

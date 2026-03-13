@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🔥 Example 3: Self-Improvement - Darwin-Gödel Engine
+ Example 3: Self-Improvement - Darwin-Gödel Engine
    Enable the skill to improve itself overnight
 
    This example demonstrates:
@@ -13,7 +13,7 @@ import random
 from datetime import datetime, timedelta
 
 print("=" * 60)
-print("🔥 AGENTIC AI GOLD STANDARD - Self-Improvement Engine")
+print(" AGENTIC AI GOLD STANDARD - Self-Improvement Engine")
 print("=" * 60)
 print()
 
@@ -45,7 +45,7 @@ class ShaktiFlow:
         4. Validate through dharmic gates
         5. Propose updates to itself
         """
-        print("🧬 Enabling Darwin-Gödel Self-Improvement Engine")
+        print(" Enabling Darwin-Gödel Self-Improvement Engine")
         print()
         
         config = {
@@ -56,27 +56,27 @@ class ShaktiFlow:
         
         print("Configuration:")
         for key, value in config.items():
-            status = "✅ ENABLED" if value else "❌ DISABLED"
+            status = " ENABLED" if value else " DISABLED"
             print(f"   • {key:25} {status}")
         
         print()
         self.active = True
-        print("🔥 Shakti Flow is now ACTIVE")
+        print(" Shakti Flow is now ACTIVE")
         print("   The skill will improve itself while you sleep.")
         print()
     
     def simulate_night_cycle(self):
         """Simulate an overnight research cycle"""
         if not self.active:
-            print("⚠️  Self-improvement not enabled. Call enable_auto_evolution() first.")
+            print("  Self-improvement not enabled. Call enable_auto_evolution() first.")
             return
         
-        print("🌙 Starting Night Cycle...")
+        print(" Starting Night Cycle...")
         print(f"   Time: {(datetime.now() + timedelta(hours=8)).strftime('%Y-%m-%d %H:%M')}")
         print()
         
         # Step 1: Research
-        print("📚 Phase 1: Research Scan")
+        print(" Phase 1: Research Scan")
         research_areas = [
             "Agentic AI frameworks (LangGraph, CrewAI updates)",
             "MCP ecosystem growth (new servers)",
@@ -95,7 +95,7 @@ class ShaktiFlow:
         print()
         
         # Step 2: Identify improvements
-        print("🔍 Phase 2: Pattern Recognition")
+        print(" Phase 2: Pattern Recognition")
         
         potential_improvements = [
             "New LangGraph checkpointing API",
@@ -113,7 +113,7 @@ class ShaktiFlow:
         print()
         
         # Step 3: Integration tests
-        print("🧪 Phase 3: Integration Testing")
+        print(" Phase 3: Integration Testing")
         
         tests = [
             "Council activation",
@@ -128,7 +128,7 @@ class ShaktiFlow:
         passed = 0
         for test in tests:
             success = random.random() > 0.1  # 90% pass rate
-            status = "✅ PASS" if success else "❌ FAIL"
+            status = " PASS" if success else " FAIL"
             if success:
                 passed += 1
             print(f"   {status} {test}")
@@ -137,7 +137,7 @@ class ShaktiFlow:
         print()
         
         # Step 4: Dharmic validation
-        print("🛡️  Phase 4: Dharmic Validation")
+        print("  Phase 4: Dharmic Validation")
         
         gates_validated = [
             "AHIMSA: No harmful capabilities added",
@@ -150,7 +150,7 @@ class ShaktiFlow:
         for gate in gates_validated:
             print(f"   ✓ {gate}")
         
-        print("\n   ✅ All dharmic checks passed")
+        print("\n    All dharmic checks passed")
         print()
         
         # Record the cycle
@@ -166,7 +166,7 @@ class ShaktiFlow:
         self.evolution_history.append(cycle_record)
         
         print("=" * 60)
-        print("🌅 Night Cycle Complete")
+        print(" Night Cycle Complete")
         print("=" * 60)
         print()
         print(f"   Research cycles completed: {self.research_cycles}")
@@ -178,7 +178,7 @@ class ShaktiFlow:
     
     def get_evolution_report(self):
         """Generate evolution history report"""
-        print("\n📊 EVOLUTION REPORT")
+        print("\n EVOLUTION REPORT")
         print("-" * 40)
         print(f"   Total cycles: {self.research_cycles}")
         print(f"   Improvements found: {len(self.improvements_found)}")
@@ -224,7 +224,7 @@ def main():
     # Summary
     print()
     print("=" * 60)
-    print("🎉 SUCCESS! Self-improvement is active.")
+    print(" SUCCESS! Self-improvement is active.")
     print("=" * 60)
     print()
     print("What this means:")
@@ -236,7 +236,7 @@ def main():
     print()
     print("This is not metaphorical. It's operational.")
     print()
-    print("   JSCA! 🔥🪷")
+    print("   JSCA! ")
 
 
 if __name__ == "__main__":

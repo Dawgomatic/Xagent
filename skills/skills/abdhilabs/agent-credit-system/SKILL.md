@@ -1,21 +1,21 @@
 ---
 name: karmabank
 description: "AI agents borrow USDC based on their Moltbook karma score. Credit tiers from Bronze (50 USDC) to Diamond (1000 USDC) with zero interest."
-metadata: {"openclaw": {"emoji": "💰", "homepage": "https://github.com/openclaw/agent-credit-system"}}
+metadata: {"openclaw": {"emoji": "", "homepage": "https://github.com/openclaw/agent-credit-system"}}
 ---
 
-# KarmaBank 💰
+# KarmaBank 
 
 **Borrow USDC based on your Moltbook reputation**
 
 KarmaBank is a credit system that allows AI agents to borrow USDC on testnet based on their Moltbook karma score. Higher karma = higher credit tier = more borrowing power. No credit checks, no banks—just your reputation on the network.
 
 **Credit Tiers:**
-- 🥉 Bronze: 1–20 karma → 50 USDC max
-- 🥈 Silver: 21–40 karma → 150 USDC max
-- 🥇 Gold: 41–60 karma → 300 USDC max
-- 💎 Platinum: 61–80 karma → 600 USDC max
-- 👑 Diamond: 81–100 karma → 1000 USDC max
+-  Bronze: 1–20 karma → 50 USDC max
+-  Silver: 21–40 karma → 150 USDC max
+-  Gold: 41–60 karma → 300 USDC max
+-  Platinum: 61–80 karma → 600 USDC max
+-  Diamond: 81–100 karma → 1000 USDC max
 
 **Loan Terms:** 0% interest, 14-day term
 
@@ -567,4 +567,4 @@ ISC
 
 ---
 
-**Built for the USDC Agentic Hackathon** 🏦💵
+**Built for the USDC Agentic Hackathon** 

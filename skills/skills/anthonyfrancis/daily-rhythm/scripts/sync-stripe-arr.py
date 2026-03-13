@@ -35,7 +35,7 @@ def fetch_active_subscriptions():
     """Fetch all active subscriptions from Stripe."""
     api_key = load_config()
     if not api_key:
-        print("❌ No Stripe API key found")
+        print(" No Stripe API key found")
         return None
     
     stripe.api_key = api_key
@@ -48,7 +48,7 @@ def fetch_active_subscriptions():
         )
         return subscriptions.data
     except Exception as e:
-        print(f"❌ Stripe API error: {e}")
+        print(f" Stripe API error: {e}")
         return None
 
 def calculate_arr(subscriptions):
@@ -135,7 +135,7 @@ def sync_stripe():
     with open(heartbeat_path, 'w') as f:
         json.dump(hb_data, f, indent=2)
     
-    print(f"✅ Updated ARR: £{arr:,} ({customer_count} active customers)")
+    print(f" Updated ARR: £{arr:,} ({customer_count} active customers)")
     return True
 
 if __name__ == '__main__':

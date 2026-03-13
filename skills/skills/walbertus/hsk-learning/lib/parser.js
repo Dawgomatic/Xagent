@@ -12,7 +12,7 @@ function parseQuizLog(filePath) {
   
   const results = [];
   let currentSection = null;
-  let currentCorrect = true; // assume correct unless we see ❌
+  let currentCorrect = true; // assume correct unless we see 
   
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
@@ -26,9 +26,9 @@ function parseQuizLog(filePath) {
     
     // Look for grade indicators
     if (line.includes('Grade:')) {
-      if (line.includes('✅') || line.includes('Correct') || line.includes('⚠️ corrected')) {
+      if (line.includes('') || line.includes('Correct') || line.includes(' corrected')) {
         currentCorrect = true;
-      } else if (line.includes('❌') || line.includes('Incorrect')) {
+      } else if (line.includes('') || line.includes('Incorrect')) {
         currentCorrect = false;
       }
     }

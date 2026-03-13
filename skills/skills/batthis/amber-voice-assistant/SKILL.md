@@ -2,7 +2,7 @@
 name: amber-voice-assistant
 description: "The most complete phone skill for OpenClaw. Production-ready, low-latency AI calls — inbound & outbound, multilingual, live dashboard, brain-in-the-loop."
 homepage: https://github.com/batthis/amber-openclaw-voice-agent
-metadata: {"openclaw":{"emoji":"☎️","requires":{"env":["TWILIO_ACCOUNT_SID","TWILIO_AUTH_TOKEN","TWILIO_CALLER_ID","OPENAI_API_KEY","OPENAI_PROJECT_ID","OPENAI_WEBHOOK_SECRET","PUBLIC_BASE_URL"],"optionalEnv":["OPENCLAW_GATEWAY_URL","OPENCLAW_GATEWAY_TOKEN","BRIDGE_API_TOKEN","TWILIO_WEBHOOK_STRICT","VOICE_PROVIDER","VOICE_WEBHOOK_SECRET"],"anyBins":["node","ical-query"]},"primaryEnv":"OPENAI_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["TWILIO_ACCOUNT_SID","TWILIO_AUTH_TOKEN","TWILIO_CALLER_ID","OPENAI_API_KEY","OPENAI_PROJECT_ID","OPENAI_WEBHOOK_SECRET","PUBLIC_BASE_URL"],"optionalEnv":["OPENCLAW_GATEWAY_URL","OPENCLAW_GATEWAY_TOKEN","BRIDGE_API_TOKEN","TWILIO_WEBHOOK_STRICT","VOICE_PROVIDER","VOICE_WEBHOOK_SECRET"],"anyBins":["node","ical-query"]},"primaryEnv":"OPENAI_API_KEY"}}
 ---
 
 # Amber — Phone-Capable Voice Agent
@@ -129,7 +129,7 @@ To avoid dead air while waiting for OpenClaw to respond, Amber automatically say
 - **`VOICE_PROVIDER`**: Selects the telephony carrier adapter. Amber uses a provider adapter pattern — the carrier layer (phone numbers, PSTN routing) is decoupled from the AI pipeline. Set to `twilio` (default) for production use. Setting `telnyx` will throw `not implemented` errors until the Telnyx adapter is filled in (`runtime/src/providers/telnyx.ts`). Future providers can be added without touching any core logic.
 - **`TWILIO_WEBHOOK_STRICT`**: Defaults to `true` — invalid Twilio webhook signatures are rejected. Only set `TWILIO_WEBHOOK_STRICT=false` in local dev when you do not have valid Twilio credentials configured. Do not disable in production.
 
-## ⚠️ Production security checklist
+##  Production security checklist
 
 Before exposing Amber to the public internet, verify all of the following:
 
@@ -185,7 +185,7 @@ The bridge exposes two webhook endpoints — make sure you point each service to
 |----------|--------|---------|----------------------|
 | `/twilio/inbound` | Twilio | Incoming phone calls → generates TwiML to bridge to OpenAI SIP | None (Twilio-facing) |
 | `/twilio/status` | Twilio | Call status callbacks (ringing, answered, completed) | None |
-| `/openai/webhook` | OpenAI Realtime | Incoming SIP call events from OpenAI | ✅ `openai-signature` HMAC-SHA256 |
+| `/openai/webhook` | OpenAI Realtime | Incoming SIP call events from OpenAI |  `openai-signature` HMAC-SHA256 |
 | `/call/outbound` | Your app/OpenClaw | Trigger an outbound call | Internal (localhost only) |
 
 **Common setup mistake:** If you point Twilio's voice webhook at `/openai/webhook` instead of `/twilio/inbound`, calls will fail because Twilio doesn't send the `openai-signature` header that endpoint expects.

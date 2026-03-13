@@ -20,7 +20,7 @@ skill:
     support for low-latency applications, and comprehensive voice management.
   version: "1.1.5"
   author: "Nick Gill (https://github.com/gizmoGremlin)"
-  icon: "🎙️"
+  icon: ""
   category: "audio"
   tags:
     - text-to-speech

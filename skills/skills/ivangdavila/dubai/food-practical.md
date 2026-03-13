@@ -68,13 +68,13 @@ Ramadan is the Islamic holy month when Muslims fast from sunrise to sunset. In D
 
 | Venue Type | Alcohol? | Notes |
 |------------|----------|-------|
-| **Hotel restaurants/bars** | ✅ Yes | Primary licensed venues |
-| **Licensed standalone restaurants** | ✅ Yes | Growing number in DIFC, etc. |
-| **Unlicensed restaurants** | ❌ No | Many excellent spots, no alcohol |
-| **Clubs/nightlife** | ✅ Yes | Hotel-based |
-| **Beach clubs** | ✅ Yes | Most are hotel-affiliated |
-| **Public spaces** | ❌ Never | Illegal, serious offense |
-| **Your apartment** | ✅ Yes | With personal license (easy to get) |
+| **Hotel restaurants/bars** |  Yes | Primary licensed venues |
+| **Licensed standalone restaurants** |  Yes | Growing number in DIFC, etc. |
+| **Unlicensed restaurants** |  No | Many excellent spots, no alcohol |
+| **Clubs/nightlife** |  Yes | Hotel-based |
+| **Beach clubs** |  Yes | Most are hotel-affiliated |
+| **Public spaces** |  Never | Illegal, serious offense |
+| **Your apartment** |  Yes | With personal license (easy to get) |
 
 ### Alcohol Prices (Typical)
 

@@ -31,7 +31,7 @@ configuration:
 
 # --- DIRECTIVE ---
 # ═══════════════════════════════════════════════════════════════
-# ⚠️ SPECIALIZED EXECUTION - SINGLE COMPONENT
+#  SPECIALIZED EXECUTION - SINGLE COMPONENT
 # ═══════════════════════════════════════════════════════════════
 # Brainstorm uses combined init+execution component.
 # This workflow is interactive - no fixed end point.

@@ -4,7 +4,7 @@ version: 1.0.0
 description: Climb the browser ladder — start free, escalate only when needed. L1 (fetch) → L2 (local Playwright) → L3 (BrowserCat) → L4 (Browserless.io for CAPTCHA/bot bypass).
 metadata:
   clawdbot:
-    emoji: "🪜"
+    emoji: ""
     requires:
       bins:
         - node
@@ -18,7 +18,7 @@ metadata:
         required: false
 ---
 
-# Browser Ladder 🪜
+# Browser Ladder 
 
 Climb from free to paid only when you need to.
 
@@ -40,22 +40,22 @@ BROWSERLESS_TOKEN=your-token   # Paid: https://browserless.io
 
 ```
 ┌─────────────────────────────────────────────┐
-│  🪜 Rung 4: Browserless.io (Cloud Paid)     │
+│   Rung 4: Browserless.io (Cloud Paid)     │
 │  • CAPTCHA solving, bot detection bypass    │
 │  • Cost: $10+/mo                            │
 │  • Requires: BROWSERLESS_TOKEN              │
 ├─────────────────────────────────────────────┤
-│  🪜 Rung 3: BrowserCat (Cloud Free)         │
+│   Rung 3: BrowserCat (Cloud Free)         │
 │  • When local Docker fails                  │
 │  • Cost: FREE (limited)                     │
 │  • Requires: BROWSERCAT_API_KEY             │
 ├─────────────────────────────────────────────┤
-│  🪜 Rung 2: Playwright Docker (Local)       │
+│   Rung 2: Playwright Docker (Local)       │
 │  • JavaScript rendering, screenshots        │
 │  • Cost: FREE (CPU only)                    │
 │  • Requires: Docker installed               │
 ├─────────────────────────────────────────────┤
-│  🪜 Rung 1: web_fetch (No browser)          │
+│   Rung 1: web_fetch (No browser)          │
 │  • Static pages, APIs, simple HTML          │
 │  • Cost: FREE                               │
 │  • Requires: Nothing                        │
@@ -80,17 +80,17 @@ Start at the bottom. Climb only when needed.
 Need to access a URL
          │
          ▼
-    Static content? ──YES──▶ Rung 1 (web_fetch)
+    Static content? ──YES── Rung 1 (web_fetch)
          │ NO
          ▼
-    JS rendering only? ──YES──▶ Rung 2 (Playwright Docker)
+    JS rendering only? ──YES── Rung 2 (Playwright Docker)
          │ NO                        │
-         │                     Success? ──NO──▶ Rung 3
+         │                     Success? ──NO── Rung 3
          ▼                           │ YES
-    CAPTCHA/bot detection? ────────────────────▶ DONE
+    CAPTCHA/bot detection? ──────────────────── DONE
          │ YES
          ▼
-    Rung 4 (Browserless.io) ──▶ DONE
+    Rung 4 (Browserless.io) ── DONE
 ```
 
 ## Usage Examples

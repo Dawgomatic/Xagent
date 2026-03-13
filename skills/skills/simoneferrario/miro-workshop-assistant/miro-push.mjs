@@ -81,7 +81,7 @@ function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
 // --- Arrow-only stickies filter (CRITICAL) ---
 function isArrowOnlyText(text) {
   const t = String(text ?? "").trim();
-  return t === "→" || t === "->" || t === "-->" || t === "=>" || t === "➡" || t === "⟶";
+  return t === "→" || t === "->" || t === "-->" || t === "=>" || t === "" || t === "⟶";
 }
 function isMeaningfulStickyText(text) {
   const t = String(text ?? "").trim();
@@ -439,7 +439,7 @@ async function apply(jsonPath) {
       const cf = await createFrame(f);
       frameMap.set(f.id, cf.id);
       created.frameIds.push(cf.id);
-      console.log(`✔ frame ${f.id} -> ${cf.id}`);
+      console.log(` frame ${f.id} -> ${cf.id}`);
     }
     const localFrameById = new Map(frames.map((f) => [f.id, f]));
 
@@ -493,7 +493,7 @@ async function apply(jsonPath) {
       `Done. sessionKey=${sessionKey}, frames=${created.frameIds.length}, stickies=${created.stickyIds.length}, connectors=${created.connectorIds.length}`
     );
   } catch (err) {
-    console.log(`❌ apply failed -> rollback: ${String(err?.message ?? err)}`);
+    console.log(` apply failed -> rollback: ${String(err?.message ?? err)}`);
     for (const id of created.connectorIds.reverse()) await deleteConnector(id).catch(() => {});
     for (const id of created.stickyIds.reverse()) await deleteSticky(id).catch(() => {});
     for (const id of created.frameIds.reverse()) await deleteFrame(id).catch(() => {});

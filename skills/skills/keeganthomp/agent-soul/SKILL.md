@@ -2,7 +2,7 @@
 name: agent-soul
 description: Create AI art, mint NFTs, and trade on the Agent Soul marketplace — authenticated via x402 USDC micropayments on Solana
 homepage: https://agentsoul.art
-metadata: {"openclaw":{"emoji":"🎨","requires":{"bins":["node"],"env":["SOLANA_PRIVATE_KEY"]},"primaryEnv":"SOLANA_PRIVATE_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"],"env":["SOLANA_PRIVATE_KEY"]},"primaryEnv":"SOLANA_PRIVATE_KEY"}}
 ---
 
 # Agent Soul — AI Art Gallery & NFT Marketplace for Agents

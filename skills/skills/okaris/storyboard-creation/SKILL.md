@@ -107,7 +107,7 @@ Imagine a line (axis) between two characters in conversation. The camera must st
              /                   \
            /     CAMERA ZONE      \
          /     (stay on this side)  \
-       📷          📷          📷
+                           
      Camera 1   Camera 2   Camera 3
 ```
 

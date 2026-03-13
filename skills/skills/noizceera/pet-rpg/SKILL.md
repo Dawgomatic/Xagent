@@ -108,4 +108,4 @@ This is standard gaming infrastructure, not security concern.
 
 ---
 
-**Raise your pet. Battle others. Become Legendary.** 🐾
+**Raise your pet. Battle others. Become Legendary.** 

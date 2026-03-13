@@ -50,7 +50,7 @@ def cmd_list_monitors(args):
             print(json.dumps(monitors, indent=2, default=str))
         else:
             for m in monitors:
-                status = "🟢" if m.get("active") else "⚫"
+                status = "" if m.get("active") else ""
                 print(f"{status} [{m['id']}] {m['name']} ({m['type']})")
 
 
@@ -170,10 +170,10 @@ def cmd_status(args):
                 "pending": pending
             }, indent=2))
         else:
-            print(f"📊 Uptime Kuma Status")
+            print(f" Uptime Kuma Status")
             print(f"   Total monitors: {total}")
             print(f"   Active: {active} | Paused: {paused}")
-            print(f"   🟢 Up: {up} | 🔴 Down: {down} | ⏳ Pending: {pending}")
+            print(f"    Up: {up} |  Down: {down} |  Pending: {pending}")
 
 
 def cmd_heartbeats(args):
@@ -184,7 +184,7 @@ def cmd_heartbeats(args):
             print(json.dumps(beats, indent=2, default=str))
         else:
             for b in beats[-10:]:  # Show last 10
-                status = "🟢" if b.get("status") == 1 else "🔴"
+                status = "" if b.get("status") == 1 else ""
                 time = b.get("time", "?")
                 ping = b.get("ping", "?")
                 print(f"{status} {time} - {ping}ms")

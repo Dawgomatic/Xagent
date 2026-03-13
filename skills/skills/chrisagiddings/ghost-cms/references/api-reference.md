@@ -2,14 +2,14 @@
 
 Condensed API endpoint reference for quick lookups with security classifications.
 
-## ⚠️ Security & Operation Classification
+##  Security & Operation Classification
 
 ### Operation Summary
 
 | Resource | Read-Only | Destructive | Public Risk |
 |----------|-----------|-------------|-------------|
-| **Posts** | List (GET), Get (GET) | Create (POST), Update (PUT), Delete (DELETE) | ⚠️ Publishing makes content public |
-| **Pages** | List (GET), Get (GET) | Create (POST), Update (PUT), Delete (DELETE) | ⚠️ Publishing makes content public |
+| **Posts** | List (GET), Get (GET) | Create (POST), Update (PUT), Delete (DELETE) |  Publishing makes content public |
+| **Pages** | List (GET), Get (GET) | Create (POST), Update (PUT), Delete (DELETE) |  Publishing makes content public |
 | **Tags** | List (GET), Get (GET) | Create (POST), Update (PUT), Delete (DELETE) | Affects post organization |
 | **Users** | List (GET), Get (GET) | Invite (POST), Update (PUT), Delete (DELETE) | Modifies site access |
 | **Members** | List (GET), Get (GET), Stats (GET) | Create (POST), Update (PUT), Delete (DELETE) | Affects subscriptions |
@@ -22,7 +22,7 @@ Condensed API endpoint reference for quick lookups with security classifications
 
 **Total:** ~45 operations (15 read-only, 30 destructive)
 
-### ✅ Read-Only Operations (Safe)
+###  Read-Only Operations (Safe)
 
 These operations **do not modify** your Ghost site:
 - All **GET** requests
@@ -32,7 +32,7 @@ These operations **do not modify** your Ghost site:
 
 **Safe to run anytime** - no risk of data modification or publication.
 
-### ⚠️ Destructive Operations (Caution Required)
+###  Destructive Operations (Caution Required)
 
 These operations **modify or delete** data:
 
@@ -44,7 +44,7 @@ These operations **modify or delete** data:
 - **PUT /pages/:id/** - Update page (can publish!)
 - **DELETE /pages/:id/** - Delete page permanently
 
-**🚨 CRITICAL:** Setting `status: "published"` makes content **immediately public**
+** CRITICAL:** Setting `status: "published"` makes content **immediately public**
 
 **Organization:**
 - **POST /tags/** - Create tag
@@ -82,10 +82,10 @@ These operations **modify or delete** data:
 | Create post/page | Delete it | No (can delete) |
 | Publish post/page | Set status to 'draft' | Content was public temporarily |
 | Update post/page | Update again with old values | No version history |
-| Delete post/page | **Cannot undo** | ✅ Yes - permanent |
+| Delete post/page | **Cannot undo** |  Yes - permanent |
 | Create tag | Delete tag | No (safe to delete if unused) |
 | Update tag | Update with old values | Affects all tagged posts |
-| Delete tag | **Cannot undo** | ✅ Yes - permanent |
+| Delete tag | **Cannot undo** |  Yes - permanent |
 | Create member | Delete member | No (data kept for compliance) |
 | Update member subscription | Update again | Billing may have been affected |
 | Delete member | **Cannot easily undo** | Subscription data lost |
@@ -93,12 +93,12 @@ These operations **modify or delete** data:
 | Update tier pricing | Update again | Active subscriptions affected |
 | Create comment reply | Delete it | Reply was public temporarily |
 | Approve comment | Reject it | Comment was public temporarily |
-| Delete comment | **Cannot undo** | ✅ Yes - permanent |
+| Delete comment | **Cannot undo** |  Yes - permanent |
 | Upload image | Delete file manually | Uses storage quota |
 | Invite user | Revoke invitation/delete user | Invitation email sent |
-| Delete user | **Cannot undo** | ✅ Yes - user access removed |
+| Delete user | **Cannot undo** |  Yes - user access removed |
 
-**⚠️ No version history** - Ghost does not keep revision history for most content. Always save important data before modifying.
+** No version history** - Ghost does not keep revision history for most content. Always save important data before modifying.
 
 ### Security Best Practices
 
@@ -185,13 +185,13 @@ Accept-Version: v5.0
 
 | Endpoint | Method | Type | Description |
 |----------|--------|------|-------------|
-| `/posts/` | GET | ✅ Safe | List all posts |
-| `/posts/${id}/` | GET | ✅ Safe | Get single post |
-| `/posts/` | POST | ⚠️ Destructive | Create post (draft by default) |
-| `/posts/${id}/` | PUT | ⚠️ Destructive | Update post (can publish!) |
-| `/posts/${id}/` | DELETE | 🚨 Permanent | Delete post permanently |
+| `/posts/` | GET |  Safe | List all posts |
+| `/posts/${id}/` | GET |  Safe | Get single post |
+| `/posts/` | POST |  Destructive | Create post (draft by default) |
+| `/posts/${id}/` | PUT |  Destructive | Update post (can publish!) |
+| `/posts/${id}/` | DELETE |  Permanent | Delete post permanently |
 
-**🚨 PUBLISHING RISK:** Setting `status: "published"` in POST or PUT makes content **immediately public**.
+** PUBLISHING RISK:** Setting `status: "published"` in POST or PUT makes content **immediately public**.
 
 **Query params:**
 - `limit` - Number of posts (default 15, max 100, 'all' for unlimited)
@@ -212,13 +212,13 @@ Accept-Version: v5.0
 
 | Endpoint | Method | Type | Description |
 |----------|--------|------|-------------|
-| `/pages/` | GET | ✅ Safe | List all pages |
-| `/pages/${id}/` | GET | ✅ Safe | Get single page |
-| `/pages/` | POST | ⚠️ Destructive | Create page (draft by default) |
-| `/pages/${id}/` | PUT | ⚠️ Destructive | Update page (can publish!) |
-| `/pages/${id}/` | DELETE | 🚨 Permanent | Delete page permanently |
+| `/pages/` | GET |  Safe | List all pages |
+| `/pages/${id}/` | GET |  Safe | Get single page |
+| `/pages/` | POST |  Destructive | Create page (draft by default) |
+| `/pages/${id}/` | PUT |  Destructive | Update page (can publish!) |
+| `/pages/${id}/` | DELETE |  Permanent | Delete page permanently |
 
-**🚨 PUBLISHING RISK:** Setting `status: "published"` makes pages **immediately public**.
+** PUBLISHING RISK:** Setting `status: "published"` makes pages **immediately public**.
 
 Same query params as posts.
 
@@ -226,11 +226,11 @@ Same query params as posts.
 
 | Endpoint | Method | Type | Description |
 |----------|--------|------|-------------|
-| `/tags/` | GET | ✅ Safe | List all tags |
-| `/tags/${id}/` | GET | ✅ Safe | Get single tag |
-| `/tags/` | POST | ⚠️ Destructive | Create tag |
-| `/tags/${id}/` | PUT | ⚠️ Destructive | Update tag (affects all tagged posts) |
-| `/tags/${id}/` | DELETE | 🚨 Permanent | Delete tag (removes from all posts) |
+| `/tags/` | GET |  Safe | List all tags |
+| `/tags/${id}/` | GET |  Safe | Get single tag |
+| `/tags/` | POST |  Destructive | Create tag |
+| `/tags/${id}/` | PUT |  Destructive | Update tag (affects all tagged posts) |
+| `/tags/${id}/` | DELETE |  Permanent | Delete tag (removes from all posts) |
 
 **Include options:**
 - `count.posts` - Number of posts with tag
@@ -252,11 +252,11 @@ Same query params as posts.
 
 | Endpoint | Method | Type | Description |
 |----------|--------|------|-------------|
-| `/members/` | GET | ✅ Safe | List members |
-| `/members/${id}/` | GET | ✅ Safe | Get member |
-| `/members/` | POST | ⚠️ Destructive | Create member (may send email) |
-| `/members/${id}/` | PUT | ⚠️ Destructive | Update member (can change subscription!) |
-| `/members/${id}/` | DELETE | 🚨 Permanent | Delete member (subscription data lost) |
+| `/members/` | GET |  Safe | List members |
+| `/members/${id}/` | GET |  Safe | Get member |
+| `/members/` | POST |  Destructive | Create member (may send email) |
+| `/members/${id}/` | PUT |  Destructive | Update member (can change subscription!) |
+| `/members/${id}/` | DELETE |  Permanent | Delete member (subscription data lost) |
 
 **Query params:**
 - `search` - Search name/email
@@ -301,11 +301,11 @@ Same query params as posts.
 
 | Endpoint | Method | Type | Description |
 |----------|--------|------|-------------|
-| `/comments/` | GET | ✅ Safe | List comments |
-| `/comments/${id}/` | GET | ✅ Safe | Get comment |
-| `/comments/` | POST | ⚠️ Destructive | Create comment reply (public) |
-| `/comments/${id}/` | PUT | ⚠️ Destructive | Update comment status (approve/reject, affects visibility) |
-| `/comments/${id}/` | DELETE | 🚨 Permanent | Delete comment permanently |
+| `/comments/` | GET |  Safe | List comments |
+| `/comments/${id}/` | GET |  Safe | Get comment |
+| `/comments/` | POST |  Destructive | Create comment reply (public) |
+| `/comments/${id}/` | PUT |  Destructive | Update comment status (approve/reject, affects visibility) |
+| `/comments/${id}/` | DELETE |  Permanent | Delete comment permanently |
 
 **Query params:**
 - `filter` - NQL filter (e.g., `post_id:'${post_id}'`)
@@ -375,11 +375,11 @@ Returns:
 
 | Endpoint | Method | Description | Safety |
 |----------|--------|-------------|--------|
-| `/themes/` | GET | List installed themes | ✅ Safe |
-| `/themes/upload/` | POST | Upload theme ZIP | ⚠️ Destructive |
-| `/themes/${name}/activate/` | PUT | Activate theme | ⚠️ Destructive |
-| `/themes/${name}/download/` | GET | Download theme ZIP | ✅ Safe |
-| `/themes/${name}/` | DELETE | Delete theme | ⚠️ Destructive |
+| `/themes/` | GET | List installed themes |  Safe |
+| `/themes/upload/` | POST | Upload theme ZIP |  Destructive |
+| `/themes/${name}/activate/` | PUT | Activate theme |  Destructive |
+| `/themes/${name}/download/` | GET | Download theme ZIP |  Safe |
+| `/themes/${name}/` | DELETE | Delete theme |  Destructive |
 
 **Upload parameters:**
 - `file` - Theme ZIP file (multipart/form-data)

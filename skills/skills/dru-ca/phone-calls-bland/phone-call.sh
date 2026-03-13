@@ -148,8 +148,8 @@ REQUEST_BODY=$(jq -n \
     } + (if $first_sentence != "" then {first_sentence: $first_sentence} else {} end)')
 
 # Make the API call
-echo "📞 Initiating call to $PHONE_NUMBER..."
-echo "📝 Task: $TASK"
+echo " Initiating call to $PHONE_NUMBER..."
+echo " Task: $TASK"
 echo ""
 
 RESPONSE=$(curl -s -X POST "https://api.bland.ai/v1/calls" \
@@ -161,25 +161,25 @@ RESPONSE=$(curl -s -X POST "https://api.bland.ai/v1/calls" \
 STATUS=$(echo "$RESPONSE" | jq -r '.status // "error"')
 if [[ "$STATUS" == "error" ]]; then
     ERROR_MSG=$(echo "$RESPONSE" | jq -r '.message // "Unknown error"')
-    echo "❌ Error: $ERROR_MSG"
+    echo " Error: $ERROR_MSG"
     exit 1
 fi
 
 CALL_ID=$(echo "$RESPONSE" | jq -r '.call_id // empty')
 
 if [[ -z "$CALL_ID" ]]; then
-    echo "❌ Error: No call ID returned"
+    echo " Error: No call ID returned"
     echo "$RESPONSE" | jq .
     exit 1
 fi
 
-echo "✅ Call initiated!"
-echo "📱 Call ID: $CALL_ID"
+echo " Call initiated!"
+echo " Call ID: $CALL_ID"
 echo ""
 
 # If --wait flag, poll for completion
 if [[ "$WAIT_FOR_COMPLETION" == "true" ]]; then
-    echo "⏳ Waiting for call to complete..."
+    echo " Waiting for call to complete..."
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     
     while true; do
@@ -189,7 +189,7 @@ if [[ "$WAIT_FOR_COMPLETION" == "true" ]]; then
         
         if [[ "$COMPLETED" == "true" ]]; then
             echo ""
-            echo "📋 Call completed!"
+            echo " Call completed!"
             "$SCRIPT_DIR/check-call.sh" "$CALL_ID"
             break
         fi
@@ -197,5 +197,5 @@ if [[ "$WAIT_FOR_COMPLETION" == "true" ]]; then
         echo -n "."
     done
 else
-    echo "💡 Check status with: ./check-call.sh $CALL_ID"
+    echo " Check status with: ./check-call.sh $CALL_ID"
 fi

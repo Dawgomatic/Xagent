@@ -2,7 +2,7 @@
 name: track17
 description: Track parcels via the 17TRACK API (local SQLite DB, polling + optional webhook ingestion)
 user-invocable: true
-metadata: {"clawdbot":{"emoji":"📦","requires":{"anyBins":["python3","python"],"env":["TRACK17_TOKEN"]},"primaryEnv":"TRACK17_TOKEN"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["python3","python"],"env":["TRACK17_TOKEN"]},"primaryEnv":"TRACK17_TOKEN"}}
 ---
 
 # track17 (17TRACK parcel tracking)

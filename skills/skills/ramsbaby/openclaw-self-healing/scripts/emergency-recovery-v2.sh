@@ -81,9 +81,9 @@ send_discord_notification() {
       2>&1 || echo "000")
     
     if [ "$response_code" = "200" ] || [ "$response_code" = "204" ]; then
-      log "✅ Discord notification sent (HTTP $response_code)"
+      log " Discord notification sent (HTTP $response_code)"
     else
-      log "⚠️ Discord notification failed (HTTP $response_code)"
+      log " Discord notification failed (HTTP $response_code)"
     fi
   fi
 }
@@ -99,9 +99,9 @@ send_telegram_notification() {
       2>&1 || echo "000")
     
     if [ "$response_code" = "200" ]; then
-      log "✅ Telegram notification sent (HTTP $response_code)"
+      log " Telegram notification sent (HTTP $response_code)"
     else
-      log "⚠️ Telegram notification failed (HTTP $response_code)"
+      log " Telegram notification failed (HTTP $response_code)"
     fi
   fi
 }
@@ -124,12 +124,12 @@ check_dependencies() {
   fi
   
   if [ ${#missing_deps[@]} -gt 0 ]; then
-    log "❌ Missing dependencies: ${missing_deps[*]}"
-    send_notification "🚨 **Level 3 Emergency Recovery 실패**\n\n필수 의존성이 설치되지 않았습니다:\n- ${missing_deps[*]}\n\n설치 방법:\n\`\`\`bash\nbrew install ${missing_deps[*]}\n\`\`\`"
+    log " Missing dependencies: ${missing_deps[*]}"
+    send_notification " **Level 3 Emergency Recovery 실패**\n\n필수 의존성이 설치되지 않았습니다:\n- ${missing_deps[*]}\n\n설치 방법:\n\`\`\`bash\nbrew install ${missing_deps[*]}\n\`\`\`"
     return 1
   fi
   
-  log "✅ Dependencies check passed"
+  log " Dependencies check passed"
   return 0
 }
 
@@ -144,14 +144,14 @@ wait_for_claude_prompt() {
     output=$(tmux capture-pane -t "$session" -p 2>/dev/null || echo "")
     
     if echo "$output" | grep -q "trust this workspace"; then
-      log "✅ Claude workspace trust prompt detected"
+      log " Claude workspace trust prompt detected"
       return 0
     fi
     
     sleep 1
   done
   
-  log "⚠️ Claude workspace trust prompt not detected after ${timeout}s"
+  log " Claude workspace trust prompt not detected after ${timeout}s"
   return 1
 }
 
@@ -160,10 +160,10 @@ capture_tmux_session() {
   local output_file="$2"
   
   if tmux capture-pane -t "$session" -p > "$output_file" 2>/dev/null; then
-    log "✅ tmux session captured: $output_file"
+    log " tmux session captured: $output_file"
     return 0
   else
-    log "⚠️ Failed to capture tmux session"
+    log " Failed to capture tmux session"
     return 1
   fi
 }
@@ -172,7 +172,7 @@ check_claude_quota() {
   local session_log="$1"
   
   if grep -qE "rate limit|quota exceeded|429|too many requests" "$session_log"; then
-    log "⚠️ Claude API rate limited or quota exceeded"
+    log " Claude API rate limited or quota exceeded"
     return 1
   fi
   
@@ -257,9 +257,9 @@ extract_learning() {
       echo "---"
     } >> "$LEARNING_REPO"
     
-    log "✅ Learning appended to $LEARNING_REPO (including reasoning)"
+    log " Learning appended to $LEARNING_REPO (including reasoning)"
   else
-    log "⚠️ No report file found, skipping learning extraction"
+    log " No report file found, skipping learning extraction"
   fi
 }
 
@@ -278,7 +278,7 @@ main() {
   
   # 1. Check dependencies
   if ! check_dependencies; then
-    log "🚨 Cannot proceed without required dependencies"
+    log " Cannot proceed without required dependencies"
     record_metric "emergency_recovery" "dependency_failed" 0
     exit 1
   fi
@@ -287,8 +287,8 @@ main() {
   log "Starting Claude Code session in tmux..."
   
   if ! tmux new-session -d -s "$TMUX_SESSION" "claude" 2>> "$LOG_FILE"; then
-    log "❌ Failed to start tmux session"
-    send_notification "🚨 **Level 3 실패**\n\ntmux 세션 시작 실패.\n\n수동 개입 필요:\n\`$LOG_FILE\`"
+    log " Failed to start tmux session"
+    send_notification " **Level 3 실패**\n\ntmux 세션 시작 실패.\n\n수동 개입 필요:\n\`$LOG_FILE\`"
     record_metric "emergency_recovery" "tmux_failed" 0
     exit 1
   fi
@@ -301,7 +301,7 @@ main() {
     tmux send-keys -t "$TMUX_SESSION" "" C-m
     sleep "$WORKSPACE_TRUST_CONFIRM_WAIT"
   else
-    log "⚠️ Proceeding without workspace trust confirmation"
+    log " Proceeding without workspace trust confirmation"
   fi
   
   # 4. 긴급 복구 명령 전송 (v2.0 enhanced instructions)
@@ -365,9 +365,9 @@ main() {
 **목표:** Gateway가 $GATEWAY_URL 에서 HTTP 200 응답하도록 복구"
   
   if ! tmux send-keys -t "$TMUX_SESSION" "$recovery_command" C-m 2>> "$LOG_FILE"; then
-    log "❌ Failed to send command to Claude"
+    log " Failed to send command to Claude"
     cleanup_tmux_session "$TMUX_SESSION"
-    send_notification "🚨 **Level 3 실패**\n\nClaude 명령 전송 실패.\n\n수동 개입 필요:\n\`$LOG_FILE\`"
+    send_notification " **Level 3 실패**\n\nClaude 명령 전송 실패.\n\n수동 개입 필요:\n\`$LOG_FILE\`"
     record_metric "emergency_recovery" "command_failed" 0
     exit 1
   fi
@@ -388,15 +388,15 @@ main() {
     local current_output
     current_output=$(tmux capture-pane -t "$TMUX_SESSION" -p 2>/dev/null | tail -20 || echo "")
     
-    if echo "$current_output" | grep -qiE "(recovery (completed|complete|finished)|task (completed|complete|finished)|wrote.*report|gateway.*restored|http 200|✅.*(success|recover|complete))"; then
-      log "✅ Claude appears to have completed (detected completion signal)"
+    if echo "$current_output" | grep -qiE "(recovery (completed|complete|finished)|task (completed|complete|finished)|wrote.*report|gateway.*restored|http 200|.*(success|recover|complete))"; then
+      log " Claude appears to have completed (detected completion signal)"
       break
     fi
     
     if [ "$current_output" = "$last_output" ]; then
       idle_count=$((idle_count + 1))
       if [ $idle_count -ge $max_idle ]; then
-        log "⚠️ Claude idle for $((idle_count * poll_interval))s, assuming completion"
+        log " Claude idle for $((idle_count * poll_interval))s, assuming completion"
         break
       fi
     else
@@ -411,9 +411,9 @@ main() {
   done
   
   if [ $elapsed -ge "$RECOVERY_TIMEOUT" ]; then
-    log "⚠️ Recovery timeout reached (${RECOVERY_TIMEOUT}s)"
+    log " Recovery timeout reached (${RECOVERY_TIMEOUT}s)"
   else
-    log "✅ Claude completed in ${elapsed}s (saved $((RECOVERY_TIMEOUT - elapsed))s)"
+    log " Claude completed in ${elapsed}s (saved $((RECOVERY_TIMEOUT - elapsed))s)"
   fi
   
   # 6. tmux 세션 캡처
@@ -424,7 +424,7 @@ main() {
   local SUCCESS="unknown"
   
   if ! check_claude_quota "$SESSION_LOG"; then
-    send_notification "⚠️ **Level 3 Emergency Recovery 실패**\n\nClaude API 할당량 소진 또는 속도 제한.\n\n다음 단계:\n1. Claude 할당량 확인: \`claude\` → \`/usage\`\n2. 수동 복구 시도\n\n세션 로그: \`$SESSION_LOG\`"
+    send_notification " **Level 3 Emergency Recovery 실패**\n\nClaude API 할당량 소진 또는 속도 제한.\n\n다음 단계:\n1. Claude 할당량 확인: \`claude\` → \`/usage\`\n2. 수동 복구 시도\n\n세션 로그: \`$SESSION_LOG\`"
     SUCCESS="false"
   fi
   
@@ -435,10 +435,10 @@ main() {
   http_code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "$GATEWAY_URL" 2>/dev/null || echo "000")
   
   if [ "$http_code" = "200" ] && [ "$SUCCESS" != "false" ]; then
-    log "✅ Claude successfully recovered the gateway! (HTTP $http_code)"
+    log " Claude successfully recovered the gateway! (HTTP $http_code)"
     SUCCESS="true"
   else
-    log "❌ Gateway still unhealthy after Claude recovery (HTTP $http_code)"
+    log " Gateway still unhealthy after Claude recovery (HTTP $http_code)"
     SUCCESS="false"
   fi
   
@@ -467,23 +467,23 @@ main() {
   log "=== Emergency Recovery v2.0 Completed (${total_time}s) ==="
   
   if [ "$SUCCESS" = "true" ]; then
-    log "✅ Sending success notification..."
-    send_notification "✅ **Level 3 Emergency Recovery 성공!**\n\nGateway가 Claude에 의해 복구되었습니다.\n- 복구 시간: ${total_time}초\n- HTTP 상태: $http_code\n- 증상: $symptom\n- 근본 원인: $root_cause\n- 로그: \`$LOG_FILE\`\n- 복구 리포트: \`$REPORT_FILE\`\n- 추론 과정: \`$REASONING_LOG\`\n- 학습 누적: \`$LEARNING_REPO\`"
+    log " Sending success notification..."
+    send_notification " **Level 3 Emergency Recovery 성공!**\n\nGateway가 Claude에 의해 복구되었습니다.\n- 복구 시간: ${total_time}초\n- HTTP 상태: $http_code\n- 증상: $symptom\n- 근본 원인: $root_cause\n- 로그: \`$LOG_FILE\`\n- 복구 리포트: \`$REPORT_FILE\`\n- 추론 과정: \`$REASONING_LOG\`\n- 학습 누적: \`$LEARNING_REPO\`"
     exit 0
   else
-    log "🚨 Sending failure notification..."
+    log " Sending failure notification..."
 
     local failure_msg
-    failure_msg="🚨 **Level 3 Emergency Recovery 실패!**\n\n**모든 자동 복구 시스템이 실패했습니다:**\n- Level 1 (Watchdog): ❌\n- Level 2 (Health Check): ❌\n- Level 3 (Claude Recovery): ❌\n\n**수동 개입 필요**\n- HTTP 상태: $http_code\n- 복구 시간: ${total_time}초\n- 로그: \`$LOG_FILE\`\n- Claude 세션: \`$SESSION_LOG\`\n- 복구 리포트: \`$REPORT_FILE\`\n- 추론 과정: \`$REASONING_LOG\`"
+    failure_msg=" **Level 3 Emergency Recovery 실패!**\n\n**모든 자동 복구 시스템이 실패했습니다:**\n- Level 1 (Watchdog): \n- Level 2 (Health Check): \n- Level 3 (Claude Recovery): \n\n**수동 개입 필요**\n- HTTP 상태: $http_code\n- 복구 시간: ${total_time}초\n- 로그: \`$LOG_FILE\`\n- Claude 세션: \`$SESSION_LOG\`\n- 복구 리포트: \`$REPORT_FILE\`\n- 추론 과정: \`$REASONING_LOG\`"
 
     send_notification "$failure_msg"
 
     cat >> "$LOG_FILE" << EOF
 
 === MANUAL INTERVENTION REQUIRED ===
-Level 1 (Watchdog) ❌
-Level 2 (Health Check) ❌
-Level 3 (Claude Recovery) ❌
+Level 1 (Watchdog) 
+Level 2 (Health Check) 
+Level 3 (Claude Recovery) 
 
 수동 개입 필요합니다.
 복구 시간: ${total_time}초

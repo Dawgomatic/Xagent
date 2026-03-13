@@ -41,7 +41,7 @@ export async function runCombinedScreening(
   const hasFundamentals = market === "us";
 
   console.log(
-    `📊 Running combined screening (${marketName}, min Buffett score: ${minBuffettScore})...`
+    ` Running combined screening (${marketName}, min Buffett score: ${minBuffettScore})...`
   );
 
   const tickers = await getTickers(market);
@@ -141,7 +141,7 @@ export async function runCombinedScreening(
 
   if (format === "telegram") {
     const lines = [
-      `📊 Combined Quality Screening (${marketName})`,
+      ` Combined Quality Screening (${marketName})`,
       `Scanned: ${tickers.length} stocks`,
       `Oversold: ${oversoldStocks.length}`,
       hasFundamentals
@@ -150,7 +150,7 @@ export async function runCombinedScreening(
     ];
 
     if (qualityStocks.length > 0) {
-      lines.push("🌟 Top 10 Quality Opportunities:\n");
+      lines.push(" Top 10 Quality Opportunities:\n");
 
       for (let i = 0; i < Math.min(10, qualityStocks.length); i++) {
         const stock = qualityStocks[i];
@@ -166,14 +166,14 @@ export async function runCombinedScreening(
         }
       }
     } else {
-      lines.push("❌ No quality stocks found matching criteria");
+      lines.push(" No quality stocks found matching criteria");
     }
 
     return lines.join("\n");
   }
 
   const lines = [
-    `📊 Combined Quality Screening (${marketName})`,
+    ` Combined Quality Screening (${marketName})`,
     hasFundamentals
       ? "Technical: Oversold signals (Williams %R < -80)"
       : "Technical: Oversold signals (Williams %R < -80) - Thai Market",

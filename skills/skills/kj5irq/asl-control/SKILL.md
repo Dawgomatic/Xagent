@@ -1,7 +1,7 @@
 ---
 name: asl-control
 description: Monitor and control AllStar Link amateur radio nodes via REST API
-metadata: {"openclaw":{"emoji":"📡","requires":{"bins":["python3"],"env":["ASL_PI_IP","ASL_API_KEY"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"],"env":["ASL_PI_IP","ASL_API_KEY"]}}}
 ---
 
 # AllStar Link Node Control

@@ -9,8 +9,8 @@ const STATUS_MAP = {
 };
 
 const ICONS = {
-  accepted: '✅', rejected: '❌', deferred: '⏸️',
-  completed: '🏁', in_progress: '🔄', dead: '💀',
+  accepted: '', rejected: '', deferred: '',
+  completed: '', in_progress: '', dead: '',
 };
 
 function main() {
@@ -32,7 +32,7 @@ function main() {
 
   const newStatus = STATUS_MAP[action];
   if (!newStatus) {
-    console.log(`❌ Unknown action: ${action}`);
+    console.log(` Unknown action: ${action}`);
     printUsage();
     return;
   }
@@ -49,7 +49,7 @@ function main() {
   const { ids, comment } = parseIdsAndComment(rest);
 
   if (ids.length === 0) {
-    console.log(`❌ No valid IDs given.`);
+    console.log(` No valid IDs given.`);
     printUsage();
     return;
   }
@@ -125,11 +125,11 @@ function executeBulk(db, ids, newStatus, comment) {
   // Output
   for (const r of results) {
     if (!r.ok) {
-      console.log(`❌ #${r.id} nicht gefunden.`);
+      console.log(` #${r.id} nicht gefunden.`);
     } else {
-      console.log(`${ICONS[newStatus] || '📝'} #${r.id} "${r.title}" → ${newStatus}`);
+      console.log(`${ICONS[newStatus] || ''} #${r.id} "${r.title}" → ${newStatus}`);
       if (newStatus === 'accepted' && r.followUp) {
-        console.log(`\n💬 ${r.followUp}`);
+        console.log(`\n ${r.followUp}`);
       }
     }
   }
@@ -139,7 +139,7 @@ function executeBulk(db, ids, newStatus, comment) {
     for (const r of results.filter(x => x.ok)) {
       const project = createProjectFromProposal(r.id);
       if (project) {
-        console.log(`📦 Project #${project.id} "${r.title}" created`);
+        console.log(` Project #${project.id} "${r.title}" created`);
       }
     }
   }
@@ -150,7 +150,7 @@ function executeBulk(db, ids, newStatus, comment) {
     for (const r of results.filter(x => x.ok)) {
       const project = completeProject(r.id);
       if (project) {
-        console.log(`🏁 Project "${project.title}" completed`);
+        console.log(` Project "${project.title}" completed`);
       }
     }
   }
@@ -160,14 +160,14 @@ function executeBulk(db, ids, newStatus, comment) {
     for (const r of results.filter(x => x.ok)) {
       const archived = archiveKnowledgeForProposal(r.id);
       if (archived > 0) {
-        console.log(`🗄️  ${archived} knowledge entry/entries archived for "${r.title}"`);
+        console.log(`  ${archived} knowledge entry/entries archived for "${r.title}"`);
       }
     }
   }
 
   const okCount = results.filter(r => r.ok).length;
   if (ids.length > 1) {
-    console.log(`\n📊 ${okCount}/${ids.length} Proposals → ${newStatus}`);
+    console.log(`\n ${okCount}/${ids.length} Proposals → ${newStatus}`);
   }
 
   // Update throttle based on feedback pattern
@@ -206,22 +206,22 @@ function handleAll(db, newStatus, extraArgs) {
  */
 function handleMute(duration) {
   if (!duration) {
-    console.log('❌ Format: mute <duration> (z.B. 1d, 1w, 2h)');
+    console.log(' Format: mute <duration> (z.B. 1d, 1w, 2h)');
     return;
   }
   const hours = parseDurationHours(duration);
   if (!hours) {
-    console.log(`❌ Unbekannte Dauer: ${duration}. Nutze z.B. 1d, 1w, 2h`);
+    console.log(` Unbekannte Dauer: ${duration}. Nutze z.B. 1d, 1w, 2h`);
     return;
   }
   const until = new Date(Date.now() + hours * 3600000);
   updateState('mute_until', until.toISOString());
-  console.log(`🔇 Muted bis ${until.toLocaleDateString('de-DE')} ${until.toLocaleTimeString('de-DE')}`);
+  console.log(` Muted bis ${until.toLocaleDateString('de-DE')} ${until.toLocaleTimeString('de-DE')}`);
 }
 
 function handleUnmute() {
   updateState('mute_until', null);
-  console.log('🔊 Unmuted. Notifications sind wieder aktiv.');
+  console.log(' Unmuted. Notifications sind wieder aktiv.');
 }
 
 /**
@@ -241,12 +241,12 @@ function updateThrottle(db, lastAction) {
 
   if (count >= 5) {
     updateState('proposal_throttle', '1');
-    console.log('⚡ Auto-Drosselung: Zu viele Ablehnungen → max 1 Vorschlag pro Run');
+    console.log(' Auto-Drosselung: Zu viele Ablehnungen → max 1 Vorschlag pro Run');
   } else if (count === 0) {
     const current = getState('proposal_throttle');
     if (current === '1') {
       updateState('proposal_throttle', null);
-      console.log('⚡ Drosselung aufgehoben → zurück auf Normal');
+      console.log(' Drosselung aufgehoben → zurück auf Normal');
     }
   }
 }

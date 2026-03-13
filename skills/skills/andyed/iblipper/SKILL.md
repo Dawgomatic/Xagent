@@ -15,7 +15,7 @@ Generate animated kinetic typography to communicate with humans in a more expres
 Generate a clickable link — recipient sees the animation in their browser.
 
 ```markdown
-[▶️ MESSAGE TEXT](https://andyed.github.io/iblipper2025/#text=MESSAGE+TEXT&emotion=emphatic&dark=true&share=yes)
+[ MESSAGE TEXT](https://andyed.github.io/iblipper2025/#text=MESSAGE+TEXT&emotion=emphatic&dark=true&share=yes)
 ```
 
 ### Option 2: GIF Download (requires browser tool)
@@ -62,17 +62,17 @@ All parameters go in the **hash fragment** (`#param=value&param2=value2`).
 
 **Important announcement:**
 ```markdown
-[▶️ BREAKING NEWS](https://andyed.github.io/iblipper2025/#text=BREAKING+NEWS&emotion=emphatic&dark=true&share=yes)
+[ BREAKING NEWS](https://andyed.github.io/iblipper2025/#text=BREAKING+NEWS&emotion=emphatic&dark=true&share=yes)
 ```
 
 **Friendly greeting:**
 ```markdown
-[▶️ Hey there!](https://andyed.github.io/iblipper2025/#text=Hey+there!&emotion=casual&dark=false&share=yes)
+[ Hey there!](https://andyed.github.io/iblipper2025/#text=Hey+there!&emotion=casual&dark=false&share=yes)
 ```
 
 **Celebration:**
 ```markdown
-[▶️ Congratulations!](https://andyed.github.io/iblipper2025/#text=Congratulations!&emotion=excited&share=yes)
+[ Congratulations!](https://andyed.github.io/iblipper2025/#text=Congratulations!&emotion=excited&share=yes)
 ```
 
 ## GIF Export Workflow (Browser Required)
@@ -101,14 +101,14 @@ All parameters go in the **hash fragment** (`#param=value&param2=value2`).
 
 ## When to Use
 
-✅ **Good for:**
+ **Good for:**
 - Greetings and introductions
 - Important announcements  
 - Celebrating milestones
 - Dramatic reveals
 - Adding personality to messages
 
-❌ **Skip for:**
+ **Skip for:**
 - Long-form content (keep to 1-10 words)
 - Urgent safety alerts (plain text is faster)
 
@@ -129,7 +129,7 @@ For quick URL generation, use the included shell script:
 
 # As markdown link
 ./scripts/iblipper.sh -m "Click me!" excited
-# [▶️ Click me!](https://...)
+# [ Click me!](https://...)
 
 # GIF export URL
 ./scripts/iblipper.sh --gif "Export this" playful

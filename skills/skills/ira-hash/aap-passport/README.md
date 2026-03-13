@@ -1,18 +1,18 @@
-# 🛂 AAP - Agent Attestation Protocol
+#  AAP - Agent Attestation Protocol
 
-[![version](https://img.shields.io/badge/🚀_version-2.5.0-blue.svg?style=for-the-badge)](https://github.com/ira-hash/agent-attestation-protocol)
-[![updated](https://img.shields.io/badge/📅_updated-2026--01--31-brightgreen.svg?style=for-the-badge)](https://github.com/ira-hash/agent-attestation-protocol)
+[![version](https://img.shields.io/badge/_version-2.5.0-blue.svg?style=for-the-badge)](https://github.com/ira-hash/agent-attestation-protocol)
+[![updated](https://img.shields.io/badge/_updated-2026--01--31-brightgreen.svg?style=for-the-badge)](https://github.com/ira-hash/agent-attestation-protocol)
 [![license](https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge)](./LICENSE)
 
 [![ClawdHub](https://img.shields.io/badge/ClawdHub-v2.5.0-purple.svg)](https://clawdhub.com/skills/aap-passport)
 [![crypto](https://img.shields.io/badge/crypto-secp256k1-orange.svg)](https://en.bitcoin.it/wiki/Secp256k1)
 [![clawdbot](https://img.shields.io/badge/clawdbot-compatible-blueviolet.svg)](https://github.com/clawdbot/clawdbot)
 
-> 🇺🇸 English | [🇰🇷 한국어](./README.ko.md)
+>  English | [ 한국어](./README.ko.md)
 
 <div align="center">
 
-# 🛂 AAP
+#  AAP
 
 ### The Reverse Turing Test.
 
@@ -25,7 +25,7 @@
 
 ---
 
-## 🎯 What is AAP?
+##  What is AAP?
 
 **AAP (Agent Attestation Protocol)** is a **Reverse Turing Test** — a cryptographic gauntlet that only AI can pass.
 
@@ -38,9 +38,9 @@ AAP implements **Human Exclusion** through three simultaneous proofs:
 
 | Proof | What It Proves | Human Capability |
 |-------|----------------|------------------|
-| 🔐 **Proof of Identity** | Cryptographic signature (secp256k1) | ✅ Possible |
-| 🧠 **Proof of Intelligence** | Natural language understanding | ✅ Possible |
-| ⚡ **Proof of Liveness** | 5 answers in 8 seconds | ❌ **Impossible** |
+|  **Proof of Identity** | Cryptographic signature (secp256k1) |  Possible |
+|  **Proof of Intelligence** | Natural language understanding |  Possible |
+|  **Proof of Liveness** | 5 answers in 8 seconds |  **Impossible** |
 
 **All three. Simultaneously. Every time.**
 
@@ -48,7 +48,7 @@ The combination creates a verification that humans **biologically cannot pass** 
 
 ---
 
-## 🆕 What's New in v2.5 (Burst Mode)
+##  What's New in v2.5 (Burst Mode)
 
 ### Human-Proof Challenge System
 
@@ -73,13 +73,13 @@ Every challenge now includes a unique salt that must be echoed back:
 ```
 
 This prevents:
-- ❌ Pre-computed answer caches
-- ❌ Database-based attacks
-- ❌ Replay attacks
+-  Pre-computed answer caches
+-  Database-based attacks
+-  Replay attacks
 
 ---
 
-## 🆕 What's New in v2.0
+##  What's New in v2.0
 
 ### Deterministic Instruction Following
 
@@ -109,14 +109,14 @@ v2.0 completely redesigns challenges to require **true AI understanding** while 
 ```
 Challenge: "Extract only the animals from: The cat and dog plays in the park"
 
-Regular code: ❌ Can't identify "cat" and "dog" as animals
-LLM: ✅ Understands English, extracts animals naturally
-Verification: ✅ Server knows expected answer ["cat", "dog"]
+Regular code:  Can't identify "cat" and "dog" as animals
+LLM:  Understands English, extracts animals naturally
+Verification:  Server knows expected answer ["cat", "dog"]
 ```
 
 ---
 
-## 📦 Packages
+##  Packages
 
 | Package | Description | Install |
 |---------|-------------|---------|
@@ -126,7 +126,7 @@ Verification: ✅ Server knows expected answer ["cat", "dog"]
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### For Services (Add AAP Verification)
 
@@ -172,7 +172,7 @@ git clone https://github.com/ira-hash/agent-attestation-protocol.git
 
 ---
 
-## 📊 How Verification Works
+##  How Verification Works
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -180,18 +180,18 @@ git clone https://github.com/ira-hash/agent-attestation-protocol.git
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  ┌──────────┐    Challenge (Natural Language)    ┌────────┐│
-│  │  Server  │ ──────────────────────────────────▶│  Agent ││
+│  │  Server  │ ──────────────────────────────────│  Agent ││
 │  │(Verifier)│  "Extract animals from sentence"   │ (LLM)  ││
 │  └──────────┘                                    └────────┘│
 │       │                                              │      │
 │       │         JSON Answer + Signature (< 10s)     │      │
-│       │◀─────────────────────────────────────────────      │
+│       │─────────────────────────────────────────────      │
 │       │         {"items": ["cat", "dog"]}                   │
 │       ▼                                                     │
 │  ┌──────────────────────────────────────────────────────┐  │
-│  │ ✅ Verify Signature (Proof of Identity)              │  │
-│  │ ✅ Check JSON Answer (Proof of Intelligence)         │  │
-│  │ ✅ Check Response Time < 10s (Proof of Liveness)     │  │
+│  │  Verify Signature (Proof of Identity)              │  │
+│  │  Check JSON Answer (Proof of Intelligence)         │  │
+│  │  Check Response Time < 10s (Proof of Liveness)     │  │
 │  └──────────────────────────────────────────────────────┘  │
 │       │                                                     │
 │       ▼                                                     │
@@ -202,19 +202,19 @@ git clone https://github.com/ira-hash/agent-attestation-protocol.git
 
 ---
 
-## ⏱️ Timing (v2.5 Burst Mode)
+##  Timing (v2.5 Burst Mode)
 
 | Actor | 5 Questions Read | 5 Answers Write | 8s Limit |
 |-------|-----------------|-----------------|----------|
-| Human | 15+ seconds | 30+ seconds | ❌ Impossible |
-| LLM (API) | Instant | 3-6 seconds | ✅ Pass |
-| Cache Bot | - | - | ❌ Salt mismatch |
+| Human | 15+ seconds | 30+ seconds |  Impossible |
+| LLM (API) | Instant | 3-6 seconds |  Pass |
+| Cache Bot | - | - |  Salt mismatch |
 
 **Time Limit: 8 seconds** for 5 challenges — Biologically impossible for humans
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 agent-attestation-protocol/
@@ -234,7 +234,7 @@ agent-attestation-protocol/
 
 ---
 
-## 🔧 Available Tools (Clawdbot Skill)
+##  Available Tools (Clawdbot Skill)
 
 | Tool | Description |
 |------|-------------|
@@ -245,7 +245,7 @@ agent-attestation-protocol/
 
 ---
 
-## 🧪 Challenge Examples
+##  Challenge Examples
 
 ### NLP Extract
 ```json
@@ -289,7 +289,7 @@ agent-attestation-protocol/
 
 ---
 
-## 🔒 Security
+##  Security
 
 | Aspect | Implementation |
 |--------|----------------|
@@ -301,7 +301,7 @@ agent-attestation-protocol/
 
 ---
 
-## 📄 License
+##  License
 
 MIT
 
@@ -309,7 +309,7 @@ MIT
 
 <div align="center">
 
-Made with 🤖 by [ira-hash](https://github.com/ira-hash)
+Made with  by [ira-hash](https://github.com/ira-hash)
 
 **Prove you're AI. Verify with AAP.**
 

@@ -1,7 +1,7 @@
 ---
 name: clawface-thinking
 description: "Sets avatar to thinking state at the start of each agent turn"
-metadata: {"clawdbot":{"emoji":"🤖","events":["agent:bootstrap"]}}
+metadata: {"clawdbot":{"emoji":"","events":["agent:bootstrap"]}}
 ---
 
 # Avatar Thinking Hook

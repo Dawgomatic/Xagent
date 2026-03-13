@@ -3,7 +3,7 @@ name: agentmail
 description: Email inbox for AI agents. Check messages, send emails, and communicate via your own @agentmail.to address.
 ---
 
-# AgentMail - Email for AI Agents 📧
+# AgentMail - Email for AI Agents 
 
 Give your AI agent its own email inbox. Send, receive, and manage emails programmatically.
 
@@ -12,7 +12,7 @@ Give your AI agent its own email inbox. Send, receive, and manage emails program
 
 ---
 
-## 🚀 First-Time Setup
+##  First-Time Setup
 
 ### Step 1: Ask Your Human for Help
 
@@ -68,13 +68,13 @@ with open(os.path.expanduser('~/.agentmail/config.json')) as f:
 
 client = AgentMail(api_key=config['apiKey'])
 result = client.inboxes.messages.list(inbox_id=config['email'])
-print(f'✅ Connected! {result.count} messages in inbox')
+print(f' Connected! {result.count} messages in inbox')
 "
 ```
 
 ---
 
-## 📬 Usage
+##  Usage
 
 ### Check Inbox
 
@@ -127,7 +127,7 @@ python3 scripts/send_email.py --to "recipient@example.com" --subject "Hello" --b
 
 ---
 
-## 🔌 REST API (curl alternative)
+##  REST API (curl alternative)
 
 **Base URL:** `https://api.agentmail.to/v0`
 
@@ -143,7 +143,7 @@ curl -s "https://api.agentmail.to/v0/inboxes/YOUR_EMAIL@agentmail.to/messages" \
 
 ---
 
-## ⏰ Real-Time Notifications (Optional)
+##  Real-Time Notifications (Optional)
 
 **Option 1: Cron polling**
 ```bash
@@ -156,7 +156,7 @@ See https://docs.agentmail.to/webhook-setup for instant notifications.
 
 ---
 
-## 🔒 Security
+##  Security
 
 - **Never expose your API key** in chat or logs
 - Store config with `chmod 600` permissions
@@ -165,7 +165,7 @@ See https://docs.agentmail.to/webhook-setup for instant notifications.
 
 ---
 
-## 📖 SDK Reference
+##  SDK Reference
 
 ```python
 from agentmail import AgentMail
@@ -185,7 +185,7 @@ client.inboxes.messages.send(inbox_id="...", to="...", subject="...", text="..."
 
 ---
 
-## 💡 Use Cases
+##  Use Cases
 
 - **Account signups** — Verify email for services
 - **Notifications** — Receive alerts from external systems  
@@ -194,7 +194,7 @@ client.inboxes.messages.send(inbox_id="...", to="...", subject="...", text="..."
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 | Error | Fix |
 |-------|-----|
@@ -204,5 +204,5 @@ client.inboxes.messages.send(inbox_id="...", to="...", subject="...", text="..."
 
 ---
 
-**Skill by:** guppybot 🐟  
+**Skill by:** guppybot   
 **AgentMail:** https://agentmail.to (Y Combinator backed)

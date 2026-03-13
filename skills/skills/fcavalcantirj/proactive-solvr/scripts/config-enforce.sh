@@ -5,7 +5,7 @@
 
 set +e
 
-echo "⚙️  Config Enforcement Check"
+echo "  Config Enforcement Check"
 echo "============================"
 echo ""
 
@@ -19,11 +19,11 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-warn() { echo -e "${YELLOW}⚠️  $1${NC}"; ((MISMATCHES++)); }
-fail() { echo -e "${RED}❌ $1${NC}"; }
-pass() { echo -e "${GREEN}✅ $1${NC}"; }
-info() { echo -e "${BLUE}ℹ️  $1${NC}"; }
-fixed() { echo -e "${GREEN}🔧 $1${NC}"; ((FIXES++)); }
+warn() { echo -e "${YELLOW}  $1${NC}"; ((MISMATCHES++)); }
+fail() { echo -e "${RED} $1${NC}"; }
+pass() { echo -e "${GREEN} $1${NC}"; }
+info() { echo -e "${BLUE}  $1${NC}"; }
+fixed() { echo -e "${GREEN} $1${NC}"; ((FIXES++)); }
 
 CONFIG_FILE="${HOME}/.openclaw/openclaw.json"
 

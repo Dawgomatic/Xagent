@@ -75,11 +75,11 @@ infsh app run x/post-create --input '{
 ### What Fails
 
 ```
-❌ "Excited to announce that we are pleased to share..." (corporate speak)
-❌ "In today's rapidly evolving landscape..." (cliché, says nothing)
-❌ "I'd like to take a moment to..." (slow, no hook)
-❌ "Just published a new blog post!" (no value proposition)
-❌ Starting with a hashtag or emoji
+ "Excited to announce that we are pleased to share..." (corporate speak)
+ "In today's rapidly evolving landscape..." (cliché, says nothing)
+ "I'd like to take a moment to..." (slow, no hook)
+ "Just published a new blog post!" (no value proposition)
+ Starting with a hashtag or emoji
 ```
 
 ## Formatting Rules
@@ -87,10 +87,10 @@ infsh app run x/post-create --input '{
 ### Line Breaks Are Your Best Friend
 
 ```
-❌ Dense paragraph:
+ Dense paragraph:
 "I learned something important about leadership last week. My team was struggling with a deadline and instead of pushing harder, I decided to remove scope. The result was incredible — we shipped faster and the quality was better. Sometimes less really is more."
 
-✅ Formatted for LinkedIn:
+ Formatted for LinkedIn:
 "I learned something about leadership last week.
 
 My team was struggling with a deadline.
@@ -200,8 +200,8 @@ End every post with engagement driver:
 |----------|---------|
 | Question | "What's the worst career advice you've received?" |
 | Agreement check | "Agree or disagree?" |
-| Share request | "Repost if this resonates ♻️" |
-| Save prompt | "Save this for your next [situation] 🔖" |
+| Share request | "Repost if this resonates " |
+| Save prompt | "Save this for your next [situation] " |
 | Recommendation ask | "What would you add to this list?" |
 | Experience ask | "Has this happened to you?" |
 

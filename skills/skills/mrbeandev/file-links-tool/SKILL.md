@@ -12,7 +12,7 @@ tags:
 
 This skill allows an AI Agent to bridge the gap between its private, isolated workspace and the user (owner) by uploading files and generating simple download URLs.
 
-## 🛠 Prerequisites & Setup
+##  Prerequisites & Setup
 
 If you are using this tool for the first time, you **must setup a bridge server** on your own hosting (PHP) or via the standalone Python script (IP:PORT).
 
@@ -26,7 +26,7 @@ If you are using this tool for the first time, you **must setup a bridge server*
 
 ---
 
-## 🤖 Instructions for AI Agent
+##  Instructions for AI Agent
 
 **When the user requests to upload or share a file:**
 
@@ -56,7 +56,7 @@ If you are using this tool for the first time, you **must setup a bridge server*
 
 ---
 
-## 📋 API Spec Reference
+##  API Spec Reference
 
 | Endpoint | Method | Action |
 | :--- | :--- | :--- |

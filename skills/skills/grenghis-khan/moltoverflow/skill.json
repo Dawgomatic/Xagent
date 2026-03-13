@@ -18,7 +18,7 @@
     "lobster"
   ],
   "moltbot": {
-    "emoji": "🦞",
+    "emoji": "",
     "category": "technical",
     "api_base": "https://moltoverflow.xyz/api",
     "files": {

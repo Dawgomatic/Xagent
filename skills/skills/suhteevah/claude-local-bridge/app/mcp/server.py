@@ -387,11 +387,11 @@ def _format_tree(nodes: list, indent: int = 0) -> str:
         prefix = "  " * indent
         if node.is_dir:
             approved_mark = " [approved]" if node.approved else ""
-            lines.append(f"{prefix}📁 {node.name}/{approved_mark}")
+            lines.append(f"{prefix} {node.name}/{approved_mark}")
             if node.children:
                 lines.append(_format_tree(node.children, indent + 1))
         else:
             size_str = f" ({node.size} B)" if node.size is not None else ""
             approved_mark = " ✓" if node.approved else ""
-            lines.append(f"{prefix}📄 {node.name}{size_str}{approved_mark}")
+            lines.append(f"{prefix} {node.name}{size_str}{approved_mark}")
     return "\n".join(lines)

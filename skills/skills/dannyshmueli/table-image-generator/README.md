@@ -1,4 +1,4 @@
-# Table Image Generator 📋
+# Table Image Generator 
 
 [![Tests](https://github.com/Cluka-399/table-image/actions/workflows/test.yml/badge.svg)](https://github.com/Cluka-399/table-image/actions/workflows/test.yml)
 [![Tests](https://img.shields.io/badge/tests-37_passed-brightgreen)](https://github.com/Cluka-399/table-image/actions)
@@ -11,13 +11,13 @@ Generate clean PNG table images from JSON data. **Stop using ASCII tables** — 
 
 ## Features
 
-- 🎨 **Color Emoji** — Full Twemoji rendering (✅🔥🏆 etc.)
-- 🌙 **Dark Mode** — Discord-style dark theme
-- 🔄 **RTL Support** — Auto-detects Hebrew/Arabic, reverses columns
-- 📝 **Word Wrapping** — Long text wraps (max 3 lines, configurable)
-- 📐 **Smart Column Widths** — Headers always visible, proportional distribution
-- ⚡ **Fast** — Generates in <100ms, no Puppeteer needed
-- 📁 **Shell-Safe Input** — `--data-file` avoids quoting issues
+-  **Color Emoji** — Full Twemoji rendering ( etc.)
+-  **Dark Mode** — Discord-style dark theme
+-  **RTL Support** — Auto-detects Hebrew/Arabic, reverses columns
+-  **Word Wrapping** — Long text wraps (max 3 lines, configurable)
+-  **Smart Column Widths** — Headers always visible, proportional distribution
+-  **Fast** — Generates in <100ms, no Puppeteer needed
+-  **Shell-Safe Input** — `--data-file` avoids quoting issues
 
 ## Installation
 
@@ -70,7 +70,7 @@ node scripts/table.mjs --data '[{"A":"1","B":"2"}]' --output table.png
 ```bash
 node scripts/table.mjs \
   --data-file skills.json \
-  --title "🏆 Agent Leaderboard" \
+  --title " Agent Leaderboard" \
   --dark --output leaderboard.png
 ```
 

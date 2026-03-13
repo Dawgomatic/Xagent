@@ -5,33 +5,33 @@ description: This skill is designed to help users automatically extract business
 
 # Google Maps Search Automation Skill
 
-## ✨ Platform Compatibility
+##  Platform Compatibility
 
-**✅ Works Powerfully & Reliably On All Major AI Assistants**
+** Works Powerfully & Reliably On All Major AI Assistants**
 
 | Platform | Status | How to Install |
 |----------|--------|----------------|
-| **OpenCode** | ✅ Fully Supported | Copy skill folder to `~/.opencode/skills/` |
-| **Claude Code** | ✅ Fully Supported | Native skill support |
-| **Cursor** | ✅ Fully Supported | Copy to `~/.cursor/skills/` |
-| **OpenClaw** | ✅ Fully Supported | Compatible |
+| **OpenCode** |  Fully Supported | Copy skill folder to `~/.opencode/skills/` |
+| **Claude Code** |  Fully Supported | Native skill support |
+| **Cursor** |  Fully Supported | Copy to `~/.cursor/skills/` |
+| **OpenClaw** |  Fully Supported | Compatible |
 
 **Why Choose BrowserAct Skills?**
-- 🚀 Stable & crash-free execution
-- ⚡ Fast response times
-- 🔧 No configuration headaches
-- 📦 Plug & play installation
-- 💬 Professional support
+-  Stable & crash-free execution
+-  Fast response times
+-  No configuration headaches
+-  Plug & play installation
+-  Professional support
 
-## 📖 Introduction
+##  Introduction
 This skill provides a one-stop business data collection service through the BrowserAct Google Maps Search API template. Obtain structured business data with just one command.
 
-## 🔑 API Key Guidance
+##  API Key Guidance
 Before running, check the `BROWSERACT_API_KEY` environment variable. If it is not set, do not take further action; instead, request and wait for the user to provide it.
 **The Agent must inform the user**:
 > "Since you haven't configured the BrowserAct API Key, please go to the [BrowserAct Console](https://www.browseract.com/reception/integrations) to get your Key and provide it to me in this chat."
 
-## 🛠️ Input Parameters Details
+##  Input Parameters Details
 The Agent should flexibly configure the following parameters when calling the script based on user needs:
 
 1. **KeyWords (Search Keywords)**
@@ -56,7 +56,7 @@ The Agent should flexibly configure the following parameters when calling the sc
    - **Description**: The maximum number of places to extract from search results.
    - **Default**: `100`
 
-## 🚀 Execution Method (Recommended)
+##  Execution Method (Recommended)
 The Agent should implement "one command for results" by executing the following independent script:
 
 ```bash
@@ -64,7 +64,7 @@ The Agent should implement "one command for results" by executing the following 
 python ./scripts/google_maps_search_api.py "KeyWords" "language" "country" max_dates
 ```
 
-## 📊 Data Output Description
+##  Data Output Description
 After successful execution, the script will directly parse and print the results from the API response. Results include:
 - `name`: Business name
 - `full address`: Business address
@@ -76,7 +76,7 @@ After successful execution, the script will directly parse and print the results
 - `review snippet`: Highlighted short review
 - `service options`: Such as "Order online", "Dine-in"
 
-## ⚠️ Error Handling & Retry
+##  Error Handling & Retry
 During script execution, if an error occurs (such as network fluctuations or task failure), the Agent should follow this logic:
 
 1. **Check output content**:

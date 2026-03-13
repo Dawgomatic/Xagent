@@ -72,7 +72,7 @@ playwright-cli -s=resy-cancel click {cancel-ref}
 playwright-cli -s=resy-cancel click {confirm-ref}
 ```
 
-**⚠️ Resy Cancellation Policies:**
+** Resy Cancellation Policies:**
 Many Resy restaurants have strict policies:
 - 24–48 hour cancellation windows
 - No-show fees: $25–100+ per person

@@ -5,8 +5,8 @@ KODIT/KIBO 금융 상품 정보 업데이트 크롤러
 FINANCIAL_PRODUCTS 정적 데이터를 기반으로
 실시간 URL 유효성 체크 및 금리 업데이트.
 
-⚠️ urllib.request 사용 (requests 없음)
-⚠️ Python 3.9+ compatible
+ urllib.request 사용 (requests 없음)
+ Python 3.9+ compatible
 """
 from __future__ import annotations
 
@@ -147,7 +147,7 @@ def update_products(dry_run: bool = False) -> list:
                     updated["rate"] = new_rate
                     updated["rate_updated_at"] = check_time
 
-        status_emoji = "✅" if is_alive else "❌"
+        status_emoji = "" if is_alive else ""
         print(
             f"  {status_emoji} {product['name'][:35]}: "
             f"HTTP {status_code} ({resp_time}ms)",

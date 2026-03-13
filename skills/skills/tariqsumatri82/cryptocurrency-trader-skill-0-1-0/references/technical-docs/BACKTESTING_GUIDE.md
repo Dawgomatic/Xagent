@@ -146,7 +146,7 @@ Trade Analysis:
 
 ## Interpreting Results
 
-### ✅ Good Strategy Characteristics
+###  Good Strategy Characteristics
 
 - **Sharpe Ratio > 1.0:** Risk-adjusted returns are positive
 - **Win Rate > 50%:** More winners than losers
@@ -154,7 +154,7 @@ Trade Analysis:
 - **Max Drawdown < 20%:** Manageable losses
 - **Positive Total Return:** Strategy is profitable
 
-### ❌ Poor Strategy Characteristics
+###  Poor Strategy Characteristics
 
 - **Sharpe Ratio < 0:** Losing money
 - **Win Rate < 40%:** Too many losers
@@ -162,7 +162,7 @@ Trade Analysis:
 - **Max Drawdown > 50%:** Unacceptable risk
 - **Negative Total Return:** Unprofitable strategy
 
-### 🔴 **DO NOT TRADE LIVE IF:**
+###  **DO NOT TRADE LIVE IF:**
 
 1. Sharpe Ratio < 1.0
 2. Max Drawdown > 30%
@@ -259,9 +259,9 @@ print(test_results.summary())
 
 # Strategy is robust if test performance similar to train
 if test_results.sharpe_ratio > 0.8 * train_results.sharpe_ratio:
-    print("✅ Strategy is robust (not overfitted)")
+    print(" Strategy is robust (not overfitted)")
 else:
-    print("⚠️  Performance degraded significantly (possible overfitting)")
+    print("  Performance degraded significantly (possible overfitting)")
 ```
 
 ### Visualize Equity Curve
@@ -309,7 +309,7 @@ print(f"Exported {len(trade_log)} trades to trade_log.csv")
 
 ## Important Notes
 
-### ⚠️  Warnings
+###   Warnings
 
 1. **Past Performance ≠ Future Results:** Backtesting shows what WOULD have happened, not what WILL happen
 2. **Overfitting Risk:** Don't optimize parameters on same data you test on
@@ -317,7 +317,7 @@ print(f"Exported {len(trade_log)} trades to trade_log.csv")
 4. **Slippage Varies:** Real slippage may be worse during volatile periods
 5. **Liquidity Matters:** Small accounts get better fills than large accounts
 
-### ✅ Best Practices
+###  Best Practices
 
 1. **Test on Multiple Periods:** Bull markets, bear markets, sideways markets
 2. **Test on Multiple Assets:** BTC, ETH, alts - if strategy is robust, it works on multiple assets
@@ -325,7 +325,7 @@ print(f"Exported {len(trade_log)} trades to trade_log.csv")
 4. **Start Small:** Even if backtest is great, start with 1-5% of capital
 5. **Monitor Live Performance:** Track if live results match backtest expectations
 
-### 🔄 When to Stop Trading
+###  When to Stop Trading
 
 Stop trading immediately if:
 - Live win rate drops 20% below backtest
@@ -338,11 +338,11 @@ Stop trading immediately if:
 
 After backtesting:
 
-1. **✅ Sharpe > 1.0, Win Rate > 50%?** → Proceed to paper trading
-2. **📄 Paper Trading:** Test with fake money for 30 days
-3. **💰 Live Trading:** Start with 1-5% of capital
-4. **📊 Monitor:** Track live performance vs backtest expectations
-5. **🔧 Adjust:** If live performance differs, re-evaluate strategy
+1. ** Sharpe > 1.0, Win Rate > 50%?** → Proceed to paper trading
+2. ** Paper Trading:** Test with fake money for 30 days
+3. ** Live Trading:** Start with 1-5% of capital
+4. ** Monitor:** Track live performance vs backtest expectations
+5. ** Adjust:** If live performance differs, re-evaluate strategy
 
 ## Support
 
@@ -353,4 +353,4 @@ For issues or questions:
 
 ---
 
-**Remember:** Backtesting is REQUIRED before live trading. Never risk real money on an unvalidated strategy. 🚨
+**Remember:** Backtesting is REQUIRED before live trading. Never risk real money on an unvalidated strategy. 

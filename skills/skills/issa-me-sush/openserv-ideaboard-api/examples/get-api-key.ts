@@ -53,11 +53,11 @@ async function getApiKey() {
   // 4. Verify and get API key
   const { data } = await api.post("/auth/nonce/verify", { message, signature });
 
-  console.log("\n✅ Authentication successful!");
+  console.log("\n Authentication successful!");
   console.log("API Key:", data.apiKey);
   console.log("Last 4 chars:", data.keyLastFour);
   console.log("User ID:", data.user._id);
-  console.log("\n⚠️  Save this API key securely — it will not be shown again!");
+  console.log("\n  Save this API key securely — it will not be shown again!");
   console.log("\nAdd to your .env:");
   console.log(`OPENSERV_API_KEY=${data.apiKey}`);
 

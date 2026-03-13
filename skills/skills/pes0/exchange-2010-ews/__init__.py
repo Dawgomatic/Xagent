@@ -981,6 +981,6 @@ def set_out_of_office(
 if __name__ == '__main__':
     # Test
     account = get_account()
-    print(f"✅ Connected to Exchange 2010")
-    print(f"📧 Inbox: {account.inbox.name}")
-    print(f"📅 Calendar: {account.calendar.name}")
+    print(f" Connected to Exchange 2010")
+    print(f" Inbox: {account.inbox.name}")
+    print(f" Calendar: {account.calendar.name}")

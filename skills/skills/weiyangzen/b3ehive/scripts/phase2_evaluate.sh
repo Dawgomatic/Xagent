@@ -6,7 +6,7 @@ set -euo pipefail
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 readonly WORKSPACE="${SCRIPT_DIR}/workspace"
 
-echo "🐝 Phase 2: Cross-Evaluation..."
+echo " Phase 2: Cross-Evaluation..."
 
 # Evaluation dimensions with weights
 declare -A DIMENSIONS=(
@@ -119,4 +119,4 @@ if [[ $eval_count -ne 6 ]]; then
     exit 1
 fi
 
-echo "✅ Phase 2 complete: 6 evaluations created and validated"
+echo " Phase 2 complete: 6 evaluations created and validated"

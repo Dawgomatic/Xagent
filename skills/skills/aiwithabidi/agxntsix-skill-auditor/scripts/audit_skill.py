@@ -472,7 +472,7 @@ def format_human_report(report: dict) -> str:
     """Format a human-readable report."""
     lines = []
     rs = report["risk_score"]
-    emoji = {"CLEAN": "✅", "LOW": "🟢", "MEDIUM": "🟡", "HIGH": "🟠", "CRITICAL": "🔴"}.get(rs, "❓")
+    emoji = {"CLEAN": "", "LOW": "", "MEDIUM": "", "HIGH": "", "CRITICAL": ""}.get(rs, "")
 
     lines.append(f"\n{'='*60}")
     lines.append(f"  SKILL AUDIT REPORT  {emoji} {rs}")
@@ -499,7 +499,7 @@ def format_human_report(report: dict) -> str:
     # Show HIGH and CRITICAL findings in detail
     critical_findings = [f for f in report["findings"] if f["severity"] in ("CRITICAL", "HIGH")]
     if critical_findings:
-        lines.append("  ⚠️  HIGH/CRITICAL FINDINGS:")
+        lines.append("    HIGH/CRITICAL FINDINGS:")
         lines.append(f"  {'-'*56}")
         for f in critical_findings:
             lines.append(f"  [{f['severity']}] {f['category']}")
@@ -512,7 +512,7 @@ def format_human_report(report: dict) -> str:
     # Summarize MEDIUM/LOW
     medium = [f for f in report["findings"] if f["severity"] == "MEDIUM"]
     if medium:
-        lines.append(f"  ⚡ MEDIUM findings: {len(medium)}")
+        lines.append(f"   MEDIUM findings: {len(medium)}")
         for f in medium[:10]:
             lines.append(f"    • {f['file']}:{f['line']} — {f['description']}")
         if len(medium) > 10:
@@ -521,17 +521,17 @@ def format_human_report(report: dict) -> str:
 
     low = [f for f in report["findings"] if f["severity"] == "LOW"]
     if low:
-        lines.append(f"  ℹ️  LOW findings: {len(low)} (informational)")
+        lines.append(f"    LOW findings: {len(low)} (informational)")
         lines.append("")
 
     # Verdict
     lines.append(f"{'='*60}")
     if rs in ("CLEAN", "LOW"):
-        lines.append("  ✅ VERDICT: Safe to install")
+        lines.append("   VERDICT: Safe to install")
     elif rs == "MEDIUM":
-        lines.append("  ⚠️  VERDICT: Manual review required before installation")
+        lines.append("    VERDICT: Manual review required before installation")
     else:
-        lines.append("  🚫 VERDICT: BLOCKED — Do not install")
+        lines.append("   VERDICT: BLOCKED — Do not install")
     lines.append(f"{'='*60}\n")
 
     return "\n".join(lines)

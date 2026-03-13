@@ -1,7 +1,7 @@
 ---
 name: WP Multi Tool — WordPress Optimization Toolkit
 description: WordPress site health audit, performance optimization, database cleanup, autoload tuning, slow query detection, wp-config management, image size control, frontend speed fixes, and server diagnostics. Combines 13 optimization and control modules into a single plugin, replacing a stack of single-purpose tools. Installs on any WordPress 5.8+ site.
-metadata: {"openclaw":{"emoji":"🔧","requires":{"bins":["wp"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["wp"]}}}
 ---
 
 # WP Multi Tool — WordPress Optimization Toolkit

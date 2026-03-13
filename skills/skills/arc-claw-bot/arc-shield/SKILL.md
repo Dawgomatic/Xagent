@@ -12,7 +12,7 @@ description: Output sanitization for agent responses - prevents accidental secre
 
 **Output sanitization for agent responses.** Scans ALL outbound messages for leaked secrets, tokens, keys, passwords, and PII before they leave the agent.
 
-⚠️ **This is NOT an input scanner** — `clawdefender` already handles that. This is an **OUTPUT filter** for catching things your agent accidentally includes in its own responses.
+ **This is NOT an input scanner** — `clawdefender` already handles that. This is an **OUTPUT filter** for catching things your agent accidentally includes in its own responses.
 
 ## Why You Need This
 
@@ -26,7 +26,7 @@ Arc-shield catches these leaks before they reach Discord, Signal, X, or any exte
 
 ## What It Detects
 
-### 🔴 CRITICAL (blocks in `--strict` mode)
+###  CRITICAL (blocks in `--strict` mode)
 - **API Keys & Tokens**: 1Password (`ops_*`), GitHub (`ghp_*`), OpenAI (`sk-*`), Stripe, AWS, Bearer tokens
 - **Passwords**: Assignments like `password=...` or `passwd: ...`
 - **Private Keys**: Ethereum (0x + 64 hex), SSH keys, PGP blocks
@@ -34,12 +34,12 @@ Arc-shield catches these leaks before they reach Discord, Signal, X, or any exte
 - **PII**: Social Security Numbers, credit card numbers
 - **Platform Tokens**: Slack, Telegram, Discord
 
-### 🟠 HIGH (warns loudly)
+###  HIGH (warns loudly)
 - **High-entropy strings**: Shannon entropy > 4.5 for strings > 16 chars (catches novel secret patterns)
 - **Credit cards**: 16-digit card numbers
 - **Base64 credentials**: Long base64 strings that look like tokens
 
-### 🟡 WARN (informational)
+###  WARN (informational)
 - **Secret file paths**: `~/.secrets/*`, paths containing "password", "token", "key"
 - **Environment variables**: `ENV_VAR=secret_value` exports
 - **Database URLs**: Connection strings with credentials

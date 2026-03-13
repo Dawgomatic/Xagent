@@ -123,19 +123,19 @@ Present complete project status to user:
 ╚══════════════════════════════════════════════════════════════╝
 
 [If incomplete work found:]
-⚠️  Incomplete work detected:
+  Incomplete work detected:
     - [.continue-here file or incomplete plan]
 
 [If interrupted agent found:]
-⚠️  Interrupted agent detected:
+  Interrupted agent detected:
     Agent ID: [id]
     Task: [task description from agent-history.json]
 
 [If pending todos exist:]
-📋 [N] pending todos — /gsd:check-todos to review
+ [N] pending todos — /gsd:check-todos to review
 
 [If blockers exist:]
-⚠️  Carried concerns:
+  Carried concerns:
     - [blocker 1]
     - [blocker 2]
 ```
@@ -196,7 +196,7 @@ Based on user selection, route to appropriate workflow:
   ```
   ---
 
-  ## ▶ Next Up
+  ##  Next Up
 
   **{phase}-{plan}: [Plan Name]** — [objective]
 
@@ -211,7 +211,7 @@ Based on user selection, route to appropriate workflow:
   ```
   ---
 
-  ## ▶ Next Up
+  ##  Next Up
 
   **Phase [N]: [Name]** — [Goal]
 

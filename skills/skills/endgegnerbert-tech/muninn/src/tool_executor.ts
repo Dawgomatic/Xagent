@@ -42,13 +42,13 @@ export class ToolExecutor {
 
     private async handleBrainCheck(args: any): Promise<any> {
         const currentProject = this.projectManager.getCurrentProject();
-        if (!currentProject) return { content: [{ type: "text", text: "⚠️ No active project. Run reindex_context first." }] };
+        if (!currentProject) return { content: [{ type: "text", text: " No active project. Run reindex_context first." }] };
         
         const context = await this.projectManager.searchContext(args.task_description, 3);
         return {
             content: [{
                 type: "text",
-                text: `🧠 **BRAIN CHECK COMPLETE**\n\nProject: ${path.basename(currentProject)}\n\n${context}\n\n✅ Context loaded.`
+                text: ` **BRAIN CHECK COMPLETE**\n\nProject: ${path.basename(currentProject)}\n\n${context}\n\n Context loaded.`
             }]
         };
     }

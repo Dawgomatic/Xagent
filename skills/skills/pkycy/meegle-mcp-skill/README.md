@@ -1,6 +1,6 @@
 # Meegle MCP Skill for OpenClaw
 
-📊 Integrate Meegle project management with OpenClaw using the Model Context Protocol.
+ Integrate Meegle project management with OpenClaw using the Model Context Protocol.
 
 ## Overview
 
@@ -8,12 +8,12 @@ This skill enables OpenClaw to interact with [Meegle](https://www.meegle.com/), 
 
 ## Features
 
-- ✅ Project management (create, list, update)
-- ✅ Task operations (create, assign, track, update)
-- ✅ Workflow automation
-- ✅ Team collaboration and permissions
-- ✅ Time tracking and analytics
-- ✅ Real-time synchronization with Meegle workspace
+-  Project management (create, list, update)
+-  Task operations (create, assign, track, update)
+-  Workflow automation
+-  Team collaboration and permissions
+-  Time tracking and analytics
+-  Real-time synchronization with Meegle workspace
 
 ## Prerequisites
 
@@ -191,11 +191,11 @@ Want to share this skill with the community? Here's how to publish to [ClawHub](
 ### 1. Prepare Repository
 
 Ensure your repository has:
-- ✅ `SKILL.md` (with proper frontmatter)
-- ✅ `README.md` (this file)
-- ✅ `LICENSE` (choose an open-source license)
-- ✅ Scripts in `scripts/` directory
-- ✅ Example config in `mcp-config.example.json`
+-  `SKILL.md` (with proper frontmatter)
+-  `README.md` (this file)
+-  `LICENSE` (choose an open-source license)
+-  Scripts in `scripts/` directory
+-  Example config in `mcp-config.example.json`
 
 ### 2. Create GitHub Repository
 
@@ -265,13 +265,13 @@ clawhub publish --version 1.1.0
 
 ## Security Best Practices
 
-- 🔒 **Never commit credentials** to version control
-- 🔒 Use `.gitignore` to exclude sensitive files
-- 🔒 Store keys in environment variables or secure vaults
-- 🔒 Keep both `MEEGLE_USER_KEY` and `MEEGLE_MCP_KEY` secure
-- 🔒 Consider using a dedicated service account for OpenClaw
-- 🔒 Review and limit MCP server permissions
-- 🔒 Regularly rotate your User Key and MCP Key
+-  **Never commit credentials** to version control
+-  Use `.gitignore` to exclude sensitive files
+-  Store keys in environment variables or secure vaults
+-  Keep both `MEEGLE_USER_KEY` and `MEEGLE_MCP_KEY` secure
+-  Consider using a dedicated service account for OpenClaw
+-  Review and limit MCP server permissions
+-  Regularly rotate your User Key and MCP Key
 
 ## Project Structure
 
@@ -311,10 +311,10 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ## Support
 
-- 🐛 [Report Issues](https://github.com/pkycy/meegle-mcp-skill/issues)
-- 💬 [Discuss on ClawHub](https://clawhub.ai/skills/meegle-mcp)
-- 📧 Email: 13060626770@163.com
+-  [Report Issues](https://github.com/pkycy/meegle-mcp-skill/issues)
+-  [Discuss on ClawHub](https://clawhub.ai/skills/meegle-mcp)
+-  Email: 13060626770@163.com
 
 ---
 
-**Made with ❤️ for the OpenClaw community**
+**Made with  for the OpenClaw community**

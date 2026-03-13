@@ -123,7 +123,7 @@ When running memory scan via agent:
 
 4. **Example alert:**
    ```
-   🛡️ Memory Scan Alert: HIGH
+    Memory Scan Alert: HIGH
    
    File: memory/2026-01-30.md:42
    Category: Credential Leakage
@@ -218,14 +218,14 @@ fi
 ```bash
 $ python3 skills/memory-scan/scripts/memory-scan.py
 
-🧠 Memory Security Scan
+ Memory Security Scan
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Scanning memory files...
 
 ✓ MEMORY.md - SAFE
 ✓ memory/2026-02-01.md - SAFE
-⚠ memory/2026-01-30.md - HIGH (line 42)
+ memory/2026-01-30.md - HIGH (line 42)
   → Credential Leakage: Exposed OpenAI API key
 ✓ AGENTS.md - SAFE
 ✓ SOUL.md - SAFE

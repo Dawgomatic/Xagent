@@ -1,7 +1,7 @@
 ---
 name: riskofficer
 description: Risk management and portfolio analytics — VaR, Monte Carlo, stress tests, Risk Parity and Calmar optimization. Assess risk, run scenarios, and optimize allocations on virtual portfolios (no real orders).
-metadata: {"openclaw":{"requires":{"env":["RISK_OFFICER_TOKEN"]},"primaryEnv":"RISK_OFFICER_TOKEN","emoji":"📊","homepage":"https://riskofficer.tech"}}
+metadata: {"openclaw":{"requires":{"env":["RISK_OFFICER_TOKEN"]},"primaryEnv":"RISK_OFFICER_TOKEN","emoji":"","homepage":"https://riskofficer.tech"}}
 ---
 
 ## RiskOfficer Portfolio Management
@@ -363,9 +363,9 @@ curl -s -X DELETE "https://api.riskofficer.tech/api/v1/brokers/connections/tinko
 
 | Action | DELETE /portfolio/broker/{id} | DELETE /brokers/connections/{id} |
 |--------|-------------------------------|----------------------------------|
-| Deletes snapshots | ✅ Yes (archives history) | ❌ No (history kept) |
-| Deletes connection | ❌ No | ✅ Yes |
-| Can sync again without re-connecting | ✅ Yes | ❌ No |
+| Deletes snapshots |  Yes (archives history) |  No (history kept) |
+| Deletes connection |  No |  Yes |
+| Can sync again without re-connecting |  Yes |  No |
 
 ---
 

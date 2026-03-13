@@ -83,8 +83,8 @@ docker exec rose-cmake /rose/build/bin/rose-compiler --version
 
 | Feature | Autotools | CMake |
 |---------|-----------|-------|
-| Stability | ✅ Mature | ⚠️ Newer |
-| C/C++ analysis | ✅ Works | ✅ Works (with fixes) |
+| Stability |  Mature |  Newer |
+| C/C++ analysis |  Works |  Works (with fixes) |
 | Build target | `make core` | `make` (full build) |
 | Incremental builds | Slower | Faster |
 | IDE integration | Limited | Excellent |

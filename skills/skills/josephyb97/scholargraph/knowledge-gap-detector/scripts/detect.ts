@@ -549,7 +549,7 @@ export default class KnowledgeGapDetector {
   toMarkdown(report: GapReport): string {
     return `# ${report.domain} 知识盲区分析报告
 
-## 📊 总览
+##  总览
 
 - 分析时间: ${report.analysisDate}
 - 知识覆盖率: ${report.summary.coveragePercentage}%
@@ -561,27 +561,27 @@ export default class KnowledgeGapDetector {
 | 建议学习 | ${report.summary.recommendedCount} |
 | 可选扩展 | ${report.summary.optionalCount} |
 
-## 🚨 关键缺口 (必须掌握)
+##  关键缺口 (必须掌握)
 
 ${report.criticalGaps.map(g => `
 ### ${g.concept}
-- **重要性**: ${'⭐'.repeat(g.importance)}
+- **重要性**: ${''.repeat(g.importance)}
 - **原因**: ${g.reason}
 - **前置知识**: ${g.prerequisites.join(', ') || '无'}
 - **预计时间**: ${g.estimatedTime}
 - **学习影响**: ${g.impactIfLearned}
 `).join('\n')}
 
-## 📚 建议学习
+##  建议学习
 
 ${report.recommendedGaps.map(g => `
 ### ${g.concept}
-- **重要性**: ${'⭐'.repeat(g.importance)}
+- **重要性**: ${''.repeat(g.importance)}
 - **原因**: ${g.reason}
 - **预计时间**: ${g.estimatedTime}
 `).join('\n')}
 
-## 🔗 跨学科机会
+##  跨学科机会
 
 ${report.crossDisciplinary.map(g => `
 ### ${g.concept}
@@ -589,17 +589,17 @@ ${report.crossDisciplinary.map(g => `
 - **影响**: ${g.impactIfLearned}
 `).join('\n')}
 
-## 📈 新兴主题
+##  新兴主题
 
 ${report.emergingTopics.map(g => `
 - **${g.concept}**: ${g.reason}
 `).join('\n')}
 
-## 🎯 建议学习顺序
+##  建议学习顺序
 
 1. ${report.suggestedOrder.join('\n2. ')}
 
-## ⏱️ 预计学习工作量
+##  预计学习工作量
 
 - 补齐关键缺口: ${report.estimatedEffort.critical}
 - 完成建议学习: ${report.estimatedEffort.recommended}

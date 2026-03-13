@@ -15,12 +15,12 @@ def load_config() -> dict:
         if CONFIG_FILE.exists():
             return json.loads(CONFIG_FILE.read_text())
         elif CONFIG_EXAMPLE.exists():
-            print(f"⚠️  No config.json found. Copy config.example.json to config.json and customize it.")
+            print(f"  No config.json found. Copy config.example.json to config.json and customize it.")
             return json.loads(CONFIG_EXAMPLE.read_text())
         else:
             return {"teams": [], "alerts": {}}
     except json.JSONDecodeError as e:
-        print(f"⚠️  Invalid JSON in config file: {e}")
+        print(f"  Invalid JSON in config file: {e}")
         return {"teams": [], "alerts": {}}
 
 def save_config(config: dict):
@@ -52,7 +52,7 @@ def get_alert_settings() -> dict:
     })
 
 def add_team(name: str, espn_id: str = None, thesportsdb_id: str = None, 
-             leagues: list = None, emoji: str = "⚽", short_name: str = None, sport: str = "soccer"):
+             leagues: list = None, emoji: str = "", short_name: str = None, sport: str = "soccer"):
     """Add a team to config."""
     config = load_config()
     
@@ -89,7 +89,7 @@ def add_team(name: str, espn_id: str = None, thesportsdb_id: str = None,
     
     config.setdefault("teams", []).append(team)
     save_config(config)
-    print(f"✅ Added {name} to config.json")
+    print(f" Added {name} to config.json")
 
 if __name__ == "__main__":
     import sys
@@ -109,7 +109,7 @@ if __name__ == "__main__":
         teams = get_teams()
         print(f"Configured teams ({len(teams)}):\n")
         for t in teams:
-            emoji = t.get("emoji", "⚽")
+            emoji = t.get("emoji", "")
             name = t.get("name")
             espn = t.get("espn_id", "-")
             tsdb = t.get("thesportsdb_id", "-")

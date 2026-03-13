@@ -1,20 +1,20 @@
 # ClawdHub Publishing Guide
 
 ## Status
-✅ GitHub repo created: https://github.com/brokemac79/webchat-audio-notifications  
-⏳ ClawdHub publishing - ready to publish after login
+ GitHub repo created: https://github.com/brokemac79/webchat-audio-notifications  
+ ClawdHub publishing - ready to publish after login
 
 ---
 
 ## Prerequisites
 
-✅ **ClawdHub CLI installed** (v0.3.0)
+ **ClawdHub CLI installed** (v0.3.0)
 ```bash
 clawdhub --cli-version
 # ClawdHub CLI v0.3.0
 ```
 
-❌ **Not logged in yet**
+ **Not logged in yet**
 ```bash
 clawdhub whoami
 # Error: Not logged in
@@ -132,10 +132,10 @@ clawdhub search "webchat"
 
 | Step | Status | Command |
 |------|--------|---------|
-| CLI Installed | ✅ Done | `which clawdhub` |
-| GitHub Repo | ✅ Done | https://github.com/brokemac79/webchat-audio-notifications |
-| ClawdHub Login | ⏳ Needed | `clawdhub login` |
-| Publish | ⏳ Ready | `clawdhub publish . --slug webchat-audio-notifications --name "Webchat Audio Notifications" --version 1.0.0 --changelog "Initial release"` |
+| CLI Installed |  Done | `which clawdhub` |
+| GitHub Repo |  Done | https://github.com/brokemac79/webchat-audio-notifications |
+| ClawdHub Login |  Needed | `clawdhub login` |
+| Publish |  Ready | `clawdhub publish . --slug webchat-audio-notifications --name "Webchat Audio Notifications" --version 1.0.0 --changelog "Initial release"` |
 
 ---
 
@@ -150,8 +150,8 @@ clawdhub search "webchat"
 3. Then publish to ClawdHub when ready
 
 **Publishing Decision:**
-- ✅ Publish now = Get it out there, iterate based on user feedback
-- ✅ Wait for feedback = Polish based on Discord input first
+-  Publish now = Get it out there, iterate based on user feedback
+-  Wait for feedback = Polish based on Discord input first
 
 Both are valid! POC is solid enough to publish now.
 

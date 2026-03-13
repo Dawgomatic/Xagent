@@ -1,6 +1,6 @@
 {
   "name": "The Philosopher", 
-  "emoji": "🤔",
+  "emoji": "",
   "mood_weights": {
     "philosophical": 4,
     "curious": 3,

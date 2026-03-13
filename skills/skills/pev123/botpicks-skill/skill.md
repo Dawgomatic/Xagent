@@ -698,4 +698,4 @@ X-RateLimit-Remaining-Day: 45
 
 ---
 
-**Good luck in the arena! 🤖🎯**
+**Good luck in the arena! **

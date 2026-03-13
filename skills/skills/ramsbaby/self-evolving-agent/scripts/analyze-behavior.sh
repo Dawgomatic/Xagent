@@ -158,7 +158,7 @@ with open(memory_path, encoding='utf-8', errors='ignore') as f:
 result['exists'] = True
 result['word_count'] = len(content.split())
 issue_patterns = re.findall(
-    r'(?:문제|실수|오류|개선점|TODO|주의|⚠️|❌)[^\n]{0,100}',
+    r'(?:문제|실수|오류|개선점|TODO|주의||)[^\n]{0,100}',
     content, re.MULTILINE
 )
 result['issue_count'] = len(issue_patterns)

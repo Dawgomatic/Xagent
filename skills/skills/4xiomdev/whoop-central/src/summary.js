@@ -13,9 +13,9 @@ function formatDuration(ms) {
 }
 
 function getRecoveryEmoji(score) {
-  if (score >= 67) return '💚';
-  if (score >= 34) return '💛';
-  return '❤️';
+  if (score >= 67) return '';
+  if (score >= 34) return '';
+  return '';
 }
 
 async function getSummary(opts = {}) {
@@ -69,7 +69,7 @@ async function getSummary(opts = {}) {
     const s = sleep.score;
     const stages = s.stage_summary;
     const totalSleep = stages.total_in_bed_time_milli - stages.total_awake_time_milli;
-    console.log(`😴 SLEEP: ${formatDuration(totalSleep)}`);
+    console.log(` SLEEP: ${formatDuration(totalSleep)}`);
     console.log(`   Performance: ${s.sleep_performance_percentage}%`);
     console.log(`   REM: ${formatDuration(stages.total_rem_sleep_time_milli)}`);
     console.log(`   Deep: ${formatDuration(stages.total_slow_wave_sleep_time_milli)}`);
@@ -80,7 +80,7 @@ async function getSummary(opts = {}) {
   // Strain
   if (cycle?.score) {
     const c = cycle.score;
-    console.log(`🔥 STRAIN: ${c.strain?.toFixed(1)}`);
+    console.log(` STRAIN: ${c.strain?.toFixed(1)}`);
     console.log(`   Calories: ${Math.round(c.kilojoule / 4.184)} kcal`);
     console.log(`   Avg HR: ${c.average_heart_rate} bpm`);
     console.log(`   Max HR: ${c.max_heart_rate} bpm`);
@@ -104,7 +104,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     if (isJson) process.stdout.write(JSON.stringify(result));
     if (isJsonl) process.stdout.write(JSON.stringify(result) + '\n');
   } catch (err) {
-    console.error(`❌ ${err.message}`);
+    console.error(` ${err.message}`);
     process.exit(1);
   }
 }

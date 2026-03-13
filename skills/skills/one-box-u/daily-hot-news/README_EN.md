@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔥 Daily Hot News - OpenClaw Skill
+#  Daily Hot News - OpenClaw Skill
 
 [![GitHub stars](https://img.shields.io/github/stars/one-box-u/openclaw-daily-hot-news)](https://github.com/one-box-u/openclaw-daily-hot-news/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/one-box-u/openclaw-daily-hot-news)](https://github.com/one-box-u/openclaw-daily-hot-news/network)
@@ -8,7 +8,7 @@
 
 ---
 
-**🇺🇸 English Readme** | **📖 [中文说明](README.md)**
+** English Readme** | ** [中文说明](README.md)**
 
 ---
 
@@ -16,7 +16,7 @@ A hot news aggregation skill based on DailyHotApi, supporting 54 platform hot se
 
 </div>
 
-## 🎯 Features
+##  Features
 
 ### Core Features
 - **Hot Search Query**: Query hot search data from any of 54 platforms
@@ -30,9 +30,9 @@ A hot news aggregation skill based on DailyHotApi, supporting 54 platform hot se
 - **Cross-Platform Aggregation**: Top 10 hot search榜单 nationwide
 - **Sentiment Monitoring**: Keyword monitoring and hot alerts
 
-## 📊 Supported Platforms (54)
+##  Supported Platforms (54)
 
-### 🎬 Video/Live Streaming (5)
+###  Video/Live Streaming (5)
 | Platform | API | Description |
 |----------|------|------|
 | Bilibili | bilibili | Hot Ranking |
@@ -41,7 +41,7 @@ A hot news aggregation skill based on DailyHotApi, supporting 54 platform hot se
 | Kuaishou | kuaishou | Hot Topics |
 | Coolapk | coolapk | Hot Ranking |
 
-### 💬 Social Media (8)
+###  Social Media (8)
 | Platform | API | Description |
 |----------|------|------|
 | Weibo | weibo | Hot Search |
@@ -53,7 +53,7 @@ A hot news aggregation skill based on DailyHotApi, supporting 54 platform hot se
 | NGA | ngabbs | Hot Posts |
 | Hupu | hupu | Street Hot Posts |
 
-### 📰 News & Media (10)
+###  News & Media (10)
 | Platform | API | Description |
 |----------|------|------|
 | Baidu | baidu | Hot Search |
@@ -67,7 +67,7 @@ A hot news aggregation skill based on DailyHotApi, supporting 54 platform hot se
 | Huxiu | huxiu | 24 Hours |
 | Ifanr | ifanr | Quick News |
 
-### 💻 Tech/Developer Communities (8)
+###  Tech/Developer Communities (8)
 | Platform | API | Description |
 |----------|------|------|
 | IT Home | ithome | Hot List |
@@ -79,7 +79,7 @@ A hot news aggregation skill based on DailyHotApi, supporting 54 platform hot se
 | NodeSeek | nodeseek | Latest Updates |
 | HelloGitHub | hellogithub | Trending |
 
-### 🎮 Gaming/ACG (5)
+###  Gaming/ACG (5)
 | Platform | API | Description |
 |----------|------|------|
 | Genshin | genshin | Latest News |
@@ -88,7 +88,7 @@ A hot news aggregation skill based on DailyHotApi, supporting 54 platform hot se
 | StarRail | starrail | Latest Updates |
 | LOL | lol | Update Notice |
 
-### 📚 Reading/Culture (4)
+###  Reading/Culture (4)
 | Platform | API | Description |
 |----------|------|------|
 | Jianshu | jianshu | Popular Recommendations |
@@ -96,7 +96,7 @@ A hot news aggregation skill based on DailyHotApi, supporting 54 platform hot se
 | WeRead | weread | Rising List |
 | Douban Movie | douban-movie | New Movies |
 
-### 🔧 Tools/Other (5)
+###  Tools/Other (5)
 | Platform | API | Description |
 |----------|------|------|
 | 52pojie | 52pojie | Ranking List |
@@ -105,7 +105,7 @@ A hot news aggregation skill based on DailyHotApi, supporting 54 platform hot se
 | Earthquake | earthquake | Earthquake Report |
 | History Today | history | Month-Day |
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Deploy Backend Service
 
@@ -132,7 +132,7 @@ export DAILY_HOT_API_URL=http://localhost:6688
 python3 daily_hot_news.py --query "weibo hot"
 ```
 
-## 💬 Usage Examples
+##  Usage Examples
 
 ### Example 1: Query Single Platform
 
@@ -152,7 +152,7 @@ python3 daily_hot_news.py -q "原神"
 
 **Output**:
 ```
-🔥 **Weibo Hot Search**
+ **Weibo Hot Search**
 Update Time: 2026-02-05T19:00:00.000Z
 
 1. Wang Yibo Zhongshan Suit 5.2M
@@ -170,16 +170,16 @@ python3 daily_hot_news.py --list
 
 **Output**:
 ```
-📊 **Supported Hot Search Sources (54)**
+ **Supported Hot Search Sources (54)**
 
-🎬 Video/Live Streaming
+ Video/Live Streaming
 • Bilibili (bilibili)
 • Douyin (douyin)
 • Kuaishou (kuaishou)
 • AcFun (acfun)
 • Coolapk (coolapk)
 
-💬 Social Media
+ Social Media
 • Weibo (weibo)
 • Zhihu (zhihu)
 • V2EX (v2ex)
@@ -196,16 +196,16 @@ python3 daily_hot_news.py --cross-platform
 
 **Output**:
 ```
-🌐 Nationwide Hot Topics TOP10
+ Nationwide Hot Topics TOP10
 
-🥇 Genshin Update · 9.52M 【Highest on Bilibili】
-   Score: 98 - 🔥 Super Popular
+ Genshin Update · 9.52M 【Highest on Bilibili】
+   Score: 98 -  Super Popular
    Discussed on 5 platforms
 
-🥈 Weibo Hot · 8.76M 【Highest on Weibo】
+ Weibo Hot · 8.76M 【Highest on Weibo】
    Score: 95 - Nationwide Discussion
 
-🥉 Trump · 6.54M 【Highest on Weibo】
+ Trump · 6.54M 【Highest on Weibo】
    Score: 89 - International Topic
 ...
 ```
@@ -222,7 +222,7 @@ python3 daily_hot_news.py -q "查看我的监控"
 
 **Output**:
 ```
-✅ **Monitoring Set!**
+ **Monitoring Set!**
 
 Monitoring Keyword: AI
 Hot Threshold: 5M
@@ -240,7 +240,7 @@ I'll notify you when any topic exceeds the threshold!
 
 **Output**:
 ```
-⏰ **Scheduled Push Configured!**
+ **Scheduled Push Configured!**
 
 Push Time: Daily 08:00
 Hot Source: Weibo Hot Search
@@ -249,7 +249,7 @@ Push Method: Feishu Message
 I'll automatically push Weibo hot to your Feishu every morning at 8!
 ```
 
-## 🎮 Advanced Usage
+##  Advanced Usage
 
 ### Query by Category
 
@@ -286,7 +286,7 @@ I'll automatically push Weibo hot to your Feishu every morning at 8!
 "已保存了哪些数据"
 ```
 
-## 📁 File Structure
+##  File Structure
 
 ```
 daily-hot-news/
@@ -304,7 +304,7 @@ daily-hot-news/
 └── README.md           # This Document
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 | Environment Variable | Default | Description |
 |---------------------|---------|-------------|
@@ -313,27 +313,27 @@ daily-hot-news/
 | `DAILY_HOT_MAX_ITEMS` | 20 | Max Items Returned |
 | `DAILY_HOT_TIMEOUT` | 10 | Request Timeout (seconds) |
 
-## 🛡️ Security Note
+##  Security Note
 
-- ✅ No API keys or passwords included
-- ✅ All sensitive configurations managed via environment variables
-- ✅ User data stored locally, not uploaded to cloud
+-  No API keys or passwords included
+-  All sensitive configurations managed via environment variables
+-  User data stored locally, not uploaded to cloud
 
-## 📝 Changelog
+##  Changelog
 
 **v2.0.0** (2026-02-05)
-- ✨ Added 5 extended features
-- ✨ Support 15 hot tag classifications
-- ✨ Support 10 industry vertical hot searches
-- ✨ Added personalized subscription feature
-- ✨ Added cross-platform TOP10 aggregation
-- ✨ Added sentiment monitoring alerts
+-  Added 5 extended features
+-  Support 15 hot tag classifications
+-  Support 10 industry vertical hot searches
+-  Added personalized subscription feature
+-  Added cross-platform TOP10 aggregation
+-  Added sentiment monitoring alerts
 
-## 📄 License
+##  License
 
 MIT License
 
-## 🤝 Acknowledgements
+##  Acknowledgements
 
 - [DailyHotApi](https://github.com/imsyy/DailyHotApi) - Providing 54 hot search source APIs
 - [OpenClaw](https://github.com/openclaw/openclaw) - AI Assistant Platform

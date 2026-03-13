@@ -13,7 +13,7 @@
 
 set -e
 
-echo "🧠 Installing CHAOS Memory System..."
+echo " Installing CHAOS Memory System..."
 echo ""
 
 CHAOS_HOME="${CHAOS_HOME:-$HOME/.chaos}"
@@ -27,7 +27,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 
 success() { echo -e "${GREEN}✓${NC} $1"; }
-warn() { echo -e "${YELLOW}⚠${NC} $1"; }
+warn() { echo -e "${YELLOW}${NC} $1"; }
 error() { echo -e "${RED}✗${NC} $1"; exit 1; }
 
 # Detect platform
@@ -280,7 +280,7 @@ echo "Search memories:"
 echo "  chaos-cli search \"keyword\""
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "📋 OPTIONAL: Enable Auto-Capture (Disabled by Default)"
+echo " OPTIONAL: Enable Auto-Capture (Disabled by Default)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 echo "Auto-capture is DISABLED by default for privacy."

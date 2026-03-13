@@ -92,14 +92,14 @@ collect_hackernews() {
             
             # 写入Markdown
             {
-                echo "## 🔥 Hacker News - AI相关内容"
+                echo "##  Hacker News - AI相关内容"
                 echo ""
                 echo "共 $COUNT 条"
                 echo ""
                 
                 echo "$ITEMS" | jq -r '.[] | 
                     "### \(.title)" + "\n" +
-                    "- **热度**: ⬆️ \(.points) points, 💬 \(.comments) comments" + "\n" +
+                    "- **热度**:  \(.points) points,  \(.comments) comments" + "\n" +
                     "- **作者**: @\(.author)" + "\n" +
                     "- **原文链接**: \(.url // "N/A")" + "\n" +
                     "- **HN讨论**: \(.hn_url)" + "\n" +
@@ -112,10 +112,10 @@ collect_hackernews() {
             
             log "[Hacker News] 处理完成"
         else
-            log "[Hacker News] ❌ 返回数据无效"
+            log "[Hacker News]  返回数据无效"
         fi
     else
-        log "[Hacker News] ❌ 请求失败"
+        log "[Hacker News]  请求失败"
     fi
     
     rm -f "$TEMP_FILE"
@@ -174,14 +174,14 @@ collect_reddit() {
             
             # 写入Markdown
             {
-                echo "## 🤖 Reddit r/$SUBREDDIT"
+                echo "##  Reddit r/$SUBREDDIT"
                 echo ""
                 echo "共 $COUNT 条"
                 echo ""
                 
                 echo "$ITEMS" | jq -r '.[] | 
                     "### \(.title)" + "\n" +
-                    "- **热度**: ⬆️ \(.upvotes) upvotes (\(.upvote_ratio * 100)%), 💬 \(.comments) comments" + "\n" +
+                    "- **热度**:  \(.upvotes) upvotes (\(.upvote_ratio * 100)%),  \(.comments) comments" + "\n" +
                     "- **作者**: u/\(.author)" + "\n" +
                     "- **来源**: \(.domain)" + "\n" +
                     "- **链接**: [原文](\(.url)) | [Reddit讨论](\(.permalink))" + "\n"
@@ -193,11 +193,11 @@ collect_reddit() {
             
             log "[Reddit r/$SUBREDDIT] 处理完成"
         else
-            log "[Reddit r/$SUBREDDIT] ❌ 返回数据无效"
+            log "[Reddit r/$SUBREDDIT]  返回数据无效"
             log "[Reddit r/$SUBREDDIT] 响应内容: $(head -c 200 "$TEMP_FILE")"
         fi
     else
-        log "[Reddit r/$SUBREDDIT] ❌ 请求失败"
+        log "[Reddit r/$SUBREDDIT]  请求失败"
     fi
     
     rm -f "$TEMP_FILE"
@@ -233,7 +233,7 @@ sed -i.bak "s/数据来源:.*/数据来源: Hacker News, Reddit | 共 $TOTAL_ITE
 rm -f "$MARKDOWN_FILE.bak"
 
 echo ""
-echo "✅ 收集完成!"
-echo "📁 输出目录: $OUTPUT_DIR"
-echo "📊 共 $TOTAL_ITEMS 条内容"
-echo "📄 Markdown报告: $MARKDOWN_FILE"
+echo " 收集完成!"
+echo " 输出目录: $OUTPUT_DIR"
+echo " 共 $TOTAL_ITEMS 条内容"
+echo " Markdown报告: $MARKDOWN_FILE"

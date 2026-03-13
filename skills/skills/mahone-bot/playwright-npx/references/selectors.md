@@ -121,16 +121,16 @@ await page.click('section.products >> div.card:has-text("Laptop") >> button');
 ### 1. Prefer Stable Selectors
 
 ```javascript
-// ✅ Good - test ID (won't change with redesign)
+//  Good - test ID (won't change with redesign)
 await page.click('[data-testid="submit-btn"]');
 
-// ⚠️ Okay - semantic role + name
+//  Okay - semantic role + name
 await page.click('role=button[name="Submit order"]');
 
-// ❌ Avoid - positional (fragile)
+//  Avoid - positional (fragile)
 await page.click('div > div:nth-child(3) > button');
 
-// ❌ Avoid - class names that may change
+//  Avoid - class names that may change
 await page.click('.css-1a2b3c4');
 ```
 
@@ -184,7 +184,7 @@ await page.waitForFunction(() =>
 Use `locator()` for modern, retryable selectors:
 
 ```javascript
-// ✅ Modern - auto-retries, resilient
+//  Modern - auto-retries, resilient
 const submitBtn = page.locator('[data-testid="submit"]');
 await submitBtn.click();
 

@@ -3,7 +3,7 @@ name: prism-finance-os
 description: Financial data SDK for AI Agents. 218+ read-only endpoints for market data, prices, fundamentals. Built for Cursor, Claude, OpenClaw. Data retrieval only.
 homepage: https://api.prismapi.ai
 repository: https://github.com/Strykr-Prism/PRISM-OS-SDK
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":[],"env":["PRISM_API_KEY"]},"primaryEnv":"PRISM_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[],"env":["PRISM_API_KEY"]},"primaryEnv":"PRISM_API_KEY"}}
 ---
 
 # PRISM Finance OS

@@ -18,24 +18,24 @@ def main():
     args = parser.parse_args()
 
     if not os.path.exists(args.audio):
-        print(f"❌ Audio file not found: {args.audio}")
+        print(f" Audio file not found: {args.audio}")
         sys.exit(1)
 
     # Import inside main to allow checking args before heavy import
     try:
         import stable_whisper
     except ImportError:
-        print("❌ stable-ts not installed. Run:")
+        print(" stable-ts not installed. Run:")
         print("   source ~/.openclaw/workspace/.venv/bin/activate")
         print("   pip install stable-ts")
         sys.exit(1)
 
     os.makedirs(os.path.dirname(args.output), exist_ok=True)
 
-    print(f"🎤 Loading model: {args.model} (device: {args.device})", flush=True)
+    print(f" Loading model: {args.model} (device: {args.device})", flush=True)
     model = stable_whisper.load_model(args.model, device=args.device)
 
-    print(f"🎵 Transcribing: {args.audio}", flush=True)
+    print(f" Transcribing: {args.audio}", flush=True)
     result = model.transcribe(
         args.audio,
         language=args.language,
@@ -43,12 +43,12 @@ def main():
     )
 
     result.save_as_json(args.output)
-    print(f"✅ Saved aligned JSON: {args.output}", flush=True)
+    print(f" Saved aligned JSON: {args.output}", flush=True)
 
     # Summary
     segments = result.segments
     total_words = sum(len(s.words) for s in segments)
-    print(f"   📊 {len(segments)} segments, {total_words} words")
+    print(f"    {len(segments)} segments, {total_words} words")
 
 if __name__ == "__main__":
     main()

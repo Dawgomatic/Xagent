@@ -2,7 +2,7 @@
 name: birdnet
 version: 1.0.0
 description: Query BirdNET-Go bird detections. View recent birds, search by species, get detection details.
-metadata: {"openclaw":{"emoji":"🐦","requires":{"bins":["curl","jq"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","jq"]}}}
 ---
 
 # BirdNET-Go

@@ -18,15 +18,15 @@ The reflect skill is **90% compatible** with ClawdHub format. The main changes n
 
 | Field | Current | ClawdHub Required | Status |
 |-------|---------|-------------------|--------|
-| `name` | `reflect` | `reflect` | ✅ Match |
-| `description` | Multi-line | Single-line preferred | ⚠️ Adjust |
-| `version` | `2.0.0` | `"2.0.0"` | ✅ Match |
-| `author` | Present | Not standard (use skill.json) | ⚠️ Move |
-| `allowed-tools` | Present | Same format | ✅ Match |
-| `triggers` | Missing | Required for activation | ❌ Add |
-| `user-invocable` | Missing | Recommended | ❌ Add |
-| `hooks` | Missing | Optional but valuable | ⚠️ Consider |
-| `metadata.clawdbot` | Missing | Optional | ⚠️ Consider |
+| `name` | `reflect` | `reflect` |  Match |
+| `description` | Multi-line | Single-line preferred |  Adjust |
+| `version` | `2.0.0` | `"2.0.0"` |  Match |
+| `author` | Present | Not standard (use skill.json) |  Move |
+| `allowed-tools` | Present | Same format |  Match |
+| `triggers` | Missing | Required for activation |  Add |
+| `user-invocable` | Missing | Recommended |  Add |
+| `hooks` | Missing | Optional but valuable |  Consider |
+| `metadata.clawdbot` | Missing | Optional |  Consider |
 
 ### Directory Structure Comparison
 
@@ -89,7 +89,7 @@ allowed-tools:
   - Bash
 metadata:
   clawdbot:
-    emoji: "🪞"
+    emoji: ""
     requires:
       bins: ["python3"]
     config:
@@ -108,7 +108,7 @@ hooks:
 ```json
 {
   "name": "Reflect - Agent Self-Improvement",
-  "emoji": "🪞",
+  "emoji": "",
   "description": "Self-improvement through conversation analysis. Extracts learnings from corrections, success patterns, and session outcomes. Encodes learnings permanently into agent definitions for continuous improvement across all future sessions.",
   "category": "meta",
   "author": "Claude Code Toolkit",
@@ -256,12 +256,12 @@ The reflect skill offers features not found in other ClawdHub skills:
 
 | Feature | reflect | planning-with-files | personas |
 |---------|---------|---------------------|----------|
-| Self-improvement | ✅ Core | ❌ | ❌ |
-| Learning persistence | ✅ | ✅ (plans) | ❌ |
-| Agent updates | ✅ | ❌ | ❌ |
-| Skill generation | ✅ | ❌ | ✅ (personas) |
-| Metrics tracking | ✅ | ❌ | ❌ |
-| Hook integration | ✅ | ✅ | ❌ |
+| Self-improvement |  Core |  |  |
+| Learning persistence |  |  (plans) |  |
+| Agent updates |  |  |  |
+| Skill generation |  |  |  (personas) |
+| Metrics tracking |  |  |  |
+| Hook integration |  |  |  |
 
 ## Marketing Copy
 

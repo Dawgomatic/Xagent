@@ -155,7 +155,7 @@ function patchOpenClawConfig(configPath, apiKey) {
   if (primary.startsWith('everclaw/')) {
     const fixedModel = primary.replace('everclaw/', `${PROVIDER_NAME}/`);
     config.agents.defaults.model.primary = fixedModel;
-    console.log(`  ⚠️  Fixed misconfigured primary model:`);
+    console.log(`    Fixed misconfigured primary model:`);
     console.log(`     ${primary} → ${fixedModel}`);
     console.log(`     ("everclaw/" is a skill, not a provider)`);
   }
@@ -164,7 +164,7 @@ function patchOpenClawConfig(configPath, apiKey) {
     config.agents.defaults.model.fallbacks = config.agents.defaults.model.fallbacks.map(fb => {
       if (fb.startsWith('everclaw/')) {
         const fixed = fb.replace('everclaw/', `${PROVIDER_NAME}/`);
-        console.log(`  ⚠️  Fixed misconfigured fallback: ${fb} → ${fixed}`);
+        console.log(`    Fixed misconfigured fallback: ${fb} → ${fixed}`);
         return fixed;
       }
       return fb;
@@ -173,7 +173,7 @@ function patchOpenClawConfig(configPath, apiKey) {
 
   // Remove invalid "everclaw" provider entry if present
   if (config.models.providers.everclaw) {
-    console.log(`  ⚠️  Removing invalid "everclaw" provider (not a real endpoint)`);
+    console.log(`    Removing invalid "everclaw" provider (not a real endpoint)`);
     delete config.models.providers.everclaw;
   }
   // ── End fix ────────────────────────────────────────────────────────────
@@ -195,7 +195,7 @@ function patchOpenClawConfig(configPath, apiKey) {
     const gatewayModel = `${PROVIDER_NAME}/kimi-k2.5`;
     if (!fallbacks.includes(gatewayModel)) {
       fallbacks.push(gatewayModel);
-      console.log(`  ✅ Added ${gatewayModel} to fallback chain`);
+      console.log(`   Added ${gatewayModel} to fallback chain`);
     }
   }
 
@@ -218,7 +218,7 @@ function patchOpenClawConfig(configPath, apiKey) {
 // ─── Commands ──────────────────────────────────────────────────
 
 async function cmdSetup(userKey) {
-  console.log('\n♾️  Everclaw v0.8 — Morpheus API Gateway Bootstrap\n');
+  console.log('\n  Everclaw v0.8 — Morpheus API Gateway Bootstrap\n');
   
   const apiKey = userKey || decodeCommunityKey();
   const isOwnKey = !!userKey;
@@ -235,7 +235,7 @@ async function cmdSetup(userKey) {
   const test = await testGateway(apiKey);
   
   if (!test.ok) {
-    console.log(`  ❌ Gateway test failed: ${test.error}`);
+    console.log(`   Gateway test failed: ${test.error}`);
     if (!isOwnKey) {
       console.log('\n  The community key may have expired or hit rate limits.');
       console.log('  Get your own free key at https://app.mor.org');
@@ -243,12 +243,12 @@ async function cmdSetup(userKey) {
     process.exit(1);
   }
   
-  console.log(`  ✅ Gateway responding — model: ${test.model}`);
+  console.log(`   Gateway responding — model: ${test.model}`);
 
   // Find and patch OpenClaw config
   const configPath = findOpenClawConfig();
   if (!configPath) {
-    console.log('\n  ⚠️  Could not find openclaw.json');
+    console.log('\n    Could not find openclaw.json');
     console.log('  To configure manually, add this provider to your config:\n');
     console.log(JSON.stringify({
       [PROVIDER_NAME]: {
@@ -264,7 +264,7 @@ async function cmdSetup(userKey) {
   console.log(`  Patching config: ${configPath}`);
   patchOpenClawConfig(configPath, apiKey);
   
-  console.log('\n  🎉 Morpheus API Gateway configured!\n');
+  console.log('\n   Morpheus API Gateway configured!\n');
   console.log('  Provider name: mor-gateway');
   console.log('  Models available:');
   for (const m of GATEWAY_MODELS) {
@@ -273,7 +273,7 @@ async function cmdSetup(userKey) {
   console.log('\n  Added to fallback chain: mor-gateway/kimi-k2.5');
   
   if (!isOwnKey) {
-    console.log('\n  ⚡ Next step: Get your own free API key');
+    console.log('\n   Next step: Get your own free API key');
     console.log('     1. Go to https://app.mor.org');
     console.log('     2. Create an account and sign in');
     console.log('     3. Click "Create API Key" and enable automation');
@@ -285,7 +285,7 @@ async function cmdSetup(userKey) {
 }
 
 async function cmdTest() {
-  console.log('\n♾️  Testing Morpheus API Gateway...\n');
+  console.log('\n  Testing Morpheus API Gateway...\n');
   
   const configPath = findOpenClawConfig();
   let apiKey;
@@ -310,7 +310,7 @@ async function cmdTest() {
     }
     if (models.length > 10) console.log(`    ... and ${models.length - 10} more`);
   } else {
-    console.log('  ⚠️  Could not list models');
+    console.log('    Could not list models');
   }
 
   // Test inference
@@ -318,15 +318,15 @@ async function cmdTest() {
   const result = await testGateway(apiKey);
   
   if (result.ok) {
-    console.log(`  ✅ Success — model: ${result.model}, response: "${result.content.slice(0, 60)}"`);
+    console.log(`   Success — model: ${result.model}, response: "${result.content.slice(0, 60)}"`);
   } else {
-    console.log(`  ❌ Failed: ${result.error}`);
+    console.log(`   Failed: ${result.error}`);
   }
   console.log('');
 }
 
 async function cmdStatus() {
-  console.log('\n♾️  Morpheus API Gateway Status\n');
+  console.log('\n  Morpheus API Gateway Status\n');
   
   const configPath = findOpenClawConfig();
   if (!configPath) {
@@ -356,7 +356,7 @@ async function cmdStatus() {
   // Test connectivity
   console.log('\n  Testing connection...');
   const result = await testGateway(gateway.apiKey);
-  console.log(result.ok ? `  ✅ Online — ${result.model}` : `  ❌ ${result.error}`);
+  console.log(result.ok ? `   Online — ${result.model}` : `   ${result.error}`);
   console.log('');
 }
 

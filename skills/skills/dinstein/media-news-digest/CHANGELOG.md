@@ -38,8 +38,8 @@
 ## [1.3.0] - 2026-02-16
 
 ### Added
-- 🇨🇳 **China / 中国影视** section (1st position) — China box office, co-productions, policy, streaming platforms
-- 🎞️ **Upcoming Releases / 北美近期上映** section (4th position) — theater openings, release date announcements, scheduling moves
+-  **China / 中国影视** section (1st position) — China box office, co-productions, policy, streaming platforms
+-  **Upcoming Releases / 北美近期上映** section (4th position) — theater openings, release date announcements, scheduling moves
 - 6 Reddit sources: r/movies, r/boxoffice, r/television, r/Oscars, r/TrueFilm, r/flicks
 - 3 China-specific RSS feeds: THR China, Variety Asia, Deadline China
 - Reddit pipeline step in digest-prompt
@@ -51,7 +51,7 @@
 ## [1.2.0] - 2026-02-16
 
 ### Added
-- 🇨🇳 China section and RSS feeds
+-  China section and RSS feeds
 - Reddit data layer (6 subreddits)
 
 ## [1.1.0] - 2026-02-16

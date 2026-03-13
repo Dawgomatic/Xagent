@@ -75,9 +75,9 @@ def cmd_upload(args):
         text = f.read()
     ok, msg = upload_document(session, args.dataset_id, args.api_key, args.name, text)
     if ok:
-        print(f"✅ {args.name} (id: {msg})")
+        print(f" {args.name} (id: {msg})")
     else:
-        print(f"❌ {args.name}: {msg}", file=sys.stderr)
+        print(f" {args.name}: {msg}", file=sys.stderr)
         sys.exit(1)
 
 
@@ -96,16 +96,16 @@ def cmd_batch(args):
     for i, meme in enumerate(memes):
         name = meme["name"]
         if name in existing:
-            print(f"[{i+1}/{len(memes)}] ⏭️  跳过（已存在）：{name}")
+            print(f"[{i+1}/{len(memes)}]   跳过（已存在）：{name}")
             skipped += 1
             continue
         print(f"[{i+1}/{len(memes)}] 写入：{name} ... ", end="", flush=True)
         ok, msg = upload_document(session, args.dataset_id, args.api_key, name, meme["text"])
         if ok:
-            print(f"✅ (id: {msg})")
+            print(f" (id: {msg})")
             success += 1
         else:
-            print(f"❌ {msg}")
+            print(f" {msg}")
             failed.append(name)
         if i < len(memes) - 1:
             time.sleep(1)

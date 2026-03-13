@@ -58,15 +58,15 @@ Complete guide to building accessible web applications that meet WCAG 2.2 standa
 **Examples:**
 
 ```css
-/* ✅ Good: 7:1 ratio */
+/*  Good: 7:1 ratio */
 color: #000000;
 background: #ffffff;
 
-/* ✅ Good: 4.5:1 ratio */
+/*  Good: 4.5:1 ratio */
 color: #595959;
 background: #ffffff;
 
-/* ❌ Bad: 2.5:1 ratio (fails AA) */
+/*  Bad: 2.5:1 ratio (fails AA) */
 color: #999999;
 background: #ffffff;
 ```
@@ -95,14 +95,14 @@ background: #ffffff;
 **Logical tab order** matches visual layout:
 
 ```jsx
-// ✅ Good: Natural DOM order
+//  Good: Natural DOM order
 <nav>
   <a href="/">Home</a>
   <a href="/about">About</a>
   <a href="/contact">Contact</a>
 </nav>
 
-// ❌ Bad: Using tabIndex to override
+//  Bad: Using tabIndex to override
 <nav>
   <a href="/" tabIndex={3}>Home</a>
   <a href="/about" tabIndex={1}>About</a>
@@ -120,18 +120,18 @@ background: #ffffff;
 **All interactive elements must have visible focus:**
 
 ```css
-/* ✅ Good: Visible focus outline */
+/*  Good: Visible focus outline */
 button:focus-visible {
   outline: 3px solid #3b82f6;
   outline-offset: 2px;
 }
 
-/* ❌ Bad: Removing focus without replacement */
+/*  Bad: Removing focus without replacement */
 button:focus {
   outline: none;
 }
 
-/* ✅ Good: Custom focus style */
+/*  Good: Custom focus style */
 button:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
@@ -169,7 +169,7 @@ Provide skip links for keyboard users:
 **Always use semantic elements:**
 
 ```jsx
-// ✅ Good: Semantic HTML
+//  Good: Semantic HTML
 <nav>
   <ul>
     <li><a href="/">Home</a></li>
@@ -182,7 +182,7 @@ Provide skip links for keyboard users:
   </article>
 </main>
 
-// ❌ Bad: Div soup
+//  Bad: Div soup
 <div class="nav">
   <div class="nav-item">
     <div class="link" onclick="navigate()">Home</div>
@@ -201,14 +201,14 @@ Provide skip links for keyboard users:
 **Use proper heading levels (h1-h6):**
 
 ```jsx
-// ✅ Good: Logical hierarchy
+//  Good: Logical hierarchy
 <h1>Page Title</h1>
   <h2>Section 1</h2>
     <h3>Subsection 1.1</h3>
   <h2>Section 2</h2>
     <h3>Subsection 2.1</h3>
 
-// ❌ Bad: Skipping levels
+//  Bad: Skipping levels
 <h1>Page Title</h1>
   <h4>Section 1</h4>
 ```
@@ -220,15 +220,15 @@ Provide skip links for keyboard users:
 **Every image must have alt text:**
 
 ```jsx
-// ✅ Good: Descriptive alt text
+//  Good: Descriptive alt text
 <img src="logo.png" alt="Acme Corporation logo" />
 <img src="chart.png" alt="Bar chart showing 50% increase in sales from 2024 to 2025" />
 
-// ❌ Bad: Generic or missing alt
+//  Bad: Generic or missing alt
 <img src="logo.png" alt="image" />
 <img src="chart.png" />
 
-// ✅ Good: Decorative images (empty alt)
+//  Good: Decorative images (empty alt)
 <img src="decorative-line.png" alt="" />
 ```
 
@@ -374,16 +374,16 @@ export function AccessibleDialog({ isOpen, onClose, children }) {
 **Only use ARIA roles when semantic HTML isn't available:**
 
 ```jsx
-// ✅ Good: Semantic HTML (no ARIA needed)
+//  Good: Semantic HTML (no ARIA needed)
 <button>Click Me</button>
 <nav>...</nav>
 
-// ⚠️ Acceptable: When no semantic option exists
+//  Acceptable: When no semantic option exists
 <div role="button" tabIndex={0} onClick={handleClick} onKeyDown={handleKeyDown}>
   Custom Button
 </div>
 
-// ❌ Bad: Redundant ARIA
+//  Bad: Redundant ARIA
 <button role="button">Click Me</button>
 ```
 
@@ -396,17 +396,17 @@ export function AccessibleDialog({ isOpen, onClose, children }) {
 **Every input must have a label:**
 
 ```jsx
-// ✅ Good: Explicit label association
+//  Good: Explicit label association
 <label htmlFor="email">Email Address</label>
 <input id="email" type="email" />
 
-// ✅ Good: Wrapping label
+//  Good: Wrapping label
 <label>
   Email Address
   <input type="email" />
 </label>
 
-// ❌ Bad: Placeholder as label
+//  Bad: Placeholder as label
 <input type="email" placeholder="Email Address" />
 ```
 
@@ -451,16 +451,16 @@ export function AccessibleDialog({ isOpen, onClose, children }) {
 **Use buttons for actions, links for navigation:**
 
 ```jsx
-// ✅ Good: Button for action
+//  Good: Button for action
 <button onClick={handleSubmit}>Submit Form</button>
 
-// ✅ Good: Link for navigation
+//  Good: Link for navigation
 <a href="/about">About Us</a>
 
-// ❌ Bad: Link styled as button for action
+//  Bad: Link styled as button for action
 <a href="#" onClick={handleSubmit}>Submit Form</a>
 
-// ❌ Bad: Button for navigation
+//  Bad: Button for navigation
 <button onClick={() => navigate('/about')}>About Us</button>
 ```
 
@@ -469,10 +469,10 @@ export function AccessibleDialog({ isOpen, onClose, children }) {
 **Make divs keyboard-accessible:**
 
 ```jsx
-// ❌ Bad: Div as button (not keyboard accessible)
+//  Bad: Div as button (not keyboard accessible)
 <div onClick={handleClick}>Click Me</div>
 
-// ✅ Good: Proper keyboard support
+//  Good: Proper keyboard support
 <div 
   role="button"
   tabIndex={0}
@@ -487,7 +487,7 @@ export function AccessibleDialog({ isOpen, onClose, children }) {
   Click Me
 </div>
 
-// ✅ Better: Just use a button
+//  Better: Just use a button
 <button onClick={handleClick}>Click Me</button>
 ```
 

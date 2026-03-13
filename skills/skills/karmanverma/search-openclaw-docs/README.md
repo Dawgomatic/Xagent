@@ -1,6 +1,6 @@
 # search-openclaw-docs
 
-📚 OpenClaw agent skill for fast documentation search.
+ OpenClaw agent skill for fast documentation search.
 
 Returns **file paths to read** - find the right doc quickly, then get full context.
 
@@ -38,15 +38,15 @@ node scripts/docs-index.js rebuild
 ## Example Output
 
 ```
-🔍 Query: discord only respond when mentioned
+ Query: discord only respond when mentioned
 
-🎯 Best match:
+ Best match:
    channels/discord.md
    "Discord (Bot API)"
    Keywords: discord, requiremention
    Score: 0.70
 
-💡 Read with:
+ Read with:
    cat /usr/lib/node_modules/openclaw/docs/channels/discord.md
 ```
 

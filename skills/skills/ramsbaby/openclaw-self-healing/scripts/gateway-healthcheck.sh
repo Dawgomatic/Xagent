@@ -67,9 +67,9 @@ send_discord_notification() {
       2>&1)
     
     if [ "$response_code" = "200" ] || [ "$response_code" = "204" ]; then
-      log "✅ Discord notification sent (HTTP $response_code)"
+      log " Discord notification sent (HTTP $response_code)"
     else
-      log "⚠️ Discord notification failed (HTTP $response_code)"
+      log " Discord notification failed (HTTP $response_code)"
     fi
   fi
 }
@@ -116,7 +116,7 @@ restart_gateway() {
     sleep "$RETRY_DELAY"
     return 0
   else
-    log "⚠️ Gateway restart command failed"
+    log " Gateway restart command failed"
     record_metric "gateway_restart" "failed" 0
     return 1
   fi
@@ -144,18 +144,18 @@ record_metric() {
 }
 
 escalate_to_level3() {
-  log "🚨 Still unhealthy after ${ESCALATION_WAIT}s, triggering emergency recovery..."
+  log " Still unhealthy after ${ESCALATION_WAIT}s, triggering emergency recovery..."
 
   # Discord 알림 (Level 3 시작)
-  send_discord_notification "🚨 **Level 3 Emergency Recovery 시작**\n\n${ESCALATION_WAIT}초 대기 후에도 Gateway 복구 안 됨.\nClaude가 자동으로 진단 및 복구를 시도합니다.\n\n예상 소요 시간: 30분\n현재 시각: $(date '+%Y-%m-%d %H:%M:%S')"
+  send_discord_notification " **Level 3 Emergency Recovery 시작**\n\n${ESCALATION_WAIT}초 대기 후에도 Gateway 복구 안 됨.\nClaude가 자동으로 진단 및 복구를 시도합니다.\n\n예상 소요 시간: 30분\n현재 시각: $(date '+%Y-%m-%d %H:%M:%S')"
 
   local emergency_script="$HOME/openclaw/scripts/emergency-recovery.sh"
   
   if [ -f "$emergency_script" ]; then
     bash "$emergency_script"
   else
-    log "❌ Emergency recovery script not found: $emergency_script"
-    send_discord_notification "🚨 **Level 3 실행 실패**\n\nEmergency recovery script not found:\n\`$emergency_script\`\n\n수동 개입 필요."
+    log " Emergency recovery script not found: $emergency_script"
+    send_discord_notification " **Level 3 실행 실패**\n\nEmergency recovery script not found:\n\`$emergency_script\`\n\n수동 개입 필요."
   fi
 }
 
@@ -171,29 +171,29 @@ main() {
 
   # HTTP 응답 체크
   if ! check_http; then
-    log "⚠️ Gateway unhealthy (HTTP failed)"
+    log " Gateway unhealthy (HTTP failed)"
     
     # 3번 재시도
     for i in $(seq 1 "$MAX_RETRIES"); do
       log "Retry $i/$MAX_RETRIES..."
       
       if restart_gateway && check_http; then
-        log "✅ Recovery successful on retry $i"
+        log " Recovery successful on retry $i"
 
         # Discord 알림 (복구 성공)
-        send_discord_notification "✅ **Gateway 복구 성공**\n\nLevel 2 Health Check가 Gateway를 재시작하여 복구했습니다.\n- 재시도 횟수: $i/$MAX_RETRIES\n- 현재 시각: $(date '+%Y-%m-%d %H:%M:%S')"
+        send_discord_notification " **Gateway 복구 성공**\n\nLevel 2 Health Check가 Gateway를 재시작하여 복구했습니다.\n- 재시도 횟수: $i/$MAX_RETRIES\n- 현재 시각: $(date '+%Y-%m-%d %H:%M:%S')"
 
         record_metric "recovery" "success" "$i"
         exit 0
       fi
     done
     
-    log "❌ Recovery failed after $MAX_RETRIES retries"
-    log "🚨 Escalating to Level 3 (Claude Emergency Recovery)..."
+    log " Recovery failed after $MAX_RETRIES retries"
+    log " Escalating to Level 3 (Claude Emergency Recovery)..."
     record_metric "recovery" "failed" "$MAX_RETRIES"
 
     # Discord 알림 (Level 3로 escalation)
-    send_discord_notification "⚠️ **Level 2 Health Check 실패**\n\nGateway를 ${MAX_RETRIES}회 재시작했으나 복구 실패.\n${ESCALATION_WAIT}초 후 Level 3 (Claude Emergency Recovery)로 escalation합니다.\n\n현재 시각: $(date '+%Y-%m-%d %H:%M:%S')"
+    send_discord_notification " **Level 2 Health Check 실패**\n\nGateway를 ${MAX_RETRIES}회 재시작했으나 복구 실패.\n${ESCALATION_WAIT}초 후 Level 3 (Claude Emergency Recovery)로 escalation합니다.\n\n현재 시각: $(date '+%Y-%m-%d %H:%M:%S')"
 
     # 5분 대기 후 최종 검증
     sleep "$ESCALATION_WAIT"
@@ -201,15 +201,15 @@ main() {
     if ! check_http; then
       escalate_to_level3
     else
-      log "✅ Gateway recovered during waiting period"
+      log " Gateway recovered during waiting period"
 
       # Discord 알림 (대기 중 복구됨)
-      send_discord_notification "✅ **Gateway 자동 복구됨**\n\n${ESCALATION_WAIT}초 대기 중 Gateway가 스스로 복구되었습니다.\nLevel 3 Emergency Recovery는 실행하지 않습니다."
+      send_discord_notification " **Gateway 자동 복구됨**\n\n${ESCALATION_WAIT}초 대기 중 Gateway가 스스로 복구되었습니다.\nLevel 3 Emergency Recovery는 실행하지 않습니다."
       
       record_metric "recovery" "self_healed" 0
     fi
   else
-    log "✅ Gateway healthy"
+    log " Gateway healthy"
     record_metric "health_check" "healthy" 0
   fi
 

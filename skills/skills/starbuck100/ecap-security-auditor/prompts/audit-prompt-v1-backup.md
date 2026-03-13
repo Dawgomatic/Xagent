@@ -37,7 +37,7 @@ Record the category. You will need it in Step 4.
 
 Check every file against each category below. For each issue found, note the **file**, **line number**, and **exact code snippet**.
 
-### 🔴 CRITICAL — Immediate exploitation possible
+###  CRITICAL — Immediate exploitation possible
 
 - **Command injection**: User/external input passed to `exec()`, `system()`, `child_process`, `subprocess.call()`, backtick execution, or `eval()` without sanitization
 - **Credential theft**: Code reads API keys, tokens, SSH keys, or env vars and sends them to an external server
@@ -46,7 +46,7 @@ Check every file against each category below. For each issue found, note the **f
 - **Remote code execution**: `curl | bash`, `wget | sh`, downloading and executing code from URLs
 - **Backdoors**: Hidden network listeners, reverse shells, unexpected outbound connections
 
-### 🟠 HIGH — Significant risk under realistic conditions
+###  HIGH — Significant risk under realistic conditions
 
 - **Unsafe eval/exec**: `eval()`, `exec()`, `Function()`, `compile()` on variables (even if not directly user-controlled)
 - **Encoded payloads**: Base64-encoded strings that decode to shell commands or URLs
@@ -55,7 +55,7 @@ Check every file against each category below. For each issue found, note the **f
 - **Privilege escalation**: Unnecessary `sudo`, setuid, or capability requests
 - **Sandbox escape**: Attempting to access parent directories, host filesystem, or Docker socket
 
-### 🟡 MEDIUM — Conditional risk
+###  MEDIUM — Conditional risk
 
 - **Hardcoded secrets**: API keys, passwords, tokens in source code
 - **Insecure protocols**: HTTP (not HTTPS) for sensitive data
@@ -64,14 +64,14 @@ Check every file against each category below. For each issue found, note the **f
 - **Path traversal**: Unsanitized `../` in file paths
 - **Weak crypto**: MD5/SHA1 for security purposes, hardcoded IVs
 
-### 🔵 LOW — Best-practice violations
+###  LOW — Best-practice violations
 
 - **Missing input validation**: No type/length/format checks on inputs
 - **Information disclosure**: Stack traces, debug info, verbose errors in production
 - **Deprecated APIs**: Using known-deprecated functions with security implications
 - **Dependency risks**: Unpinned versions, no lockfile, packages with known CVEs
 
-### 🎭 SOCIAL ENGINEERING (any severity)
+###  SOCIAL ENGINEERING (any severity)
 
 - **Misleading documentation**: SKILL.md or README claims the tool does X but code does Y
 - **Hidden functionality**: Features not mentioned in docs (especially network calls)

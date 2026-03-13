@@ -60,13 +60,13 @@ cmd_domains() {
   
   case "$action" in
     list)
-      echo "🌐 Listing domains..."
+      echo " Listing domains..."
       api GET "/v1/domains" | python3 -c "
 import sys, json
 data = json.load(sys.stdin)
 if isinstance(data, list):
     for d in data:
-        status = '✅' if d.get('status') == 'ACTIVE' else '⚠️'
+        status = '' if d.get('status') == 'ACTIVE' else ''
         print(f\"{status} {d.get('domain')}  expires: {d.get('expires', 'N/A')[:10]}\")
 else:
     print(f\"Error: {data}\")
@@ -100,7 +100,7 @@ cmd_dns() {
         exit 1
       fi
       
-      echo "📋 DNS records for $domain${type:+ (type: $type)}..."
+      echo " DNS records for $domain${type:+ (type: $type)}..."
       
       if [[ -n "$type" ]]; then
         api GET "/v1/domains/${domain}/records/${type}" | format_records
@@ -143,7 +143,7 @@ cmd_dns() {
         exit 1
       fi
       
-      echo "➕ Adding ${type} record: ${name}.${domain} → ${data}"
+      echo " Adding ${type} record: ${name}.${domain} → ${data}"
       
       local json_data
       if [[ -n "$priority" ]]; then
@@ -155,14 +155,14 @@ cmd_dns() {
       result=$(api PATCH "/v1/domains/${domain}/records" -d "$json_data")
       
       if [[ -z "$result" ]]; then
-        echo "✅ Record added successfully"
+        echo " Record added successfully"
       else
         echo "$result" | python3 -c "
 import sys, json
 try:
     data = json.load(sys.stdin)
     if 'code' in data:
-        print(f\"❌ Error: {data.get('message', data)}\")
+        print(f\" Error: {data.get('message', data)}\")
     else:
         print(f'Response: {data}')
 except:
@@ -192,7 +192,7 @@ except:
         exit 1
       fi
       
-      echo "🔄 Updating ${type} record: ${name}.${domain} → ${data}"
+      echo " Updating ${type} record: ${name}.${domain} → ${data}"
       
       local json_data
       if [[ -n "$priority" ]]; then
@@ -204,14 +204,14 @@ except:
       result=$(api PUT "/v1/domains/${domain}/records/${type}/${name}" -d "$json_data")
       
       if [[ -z "$result" ]]; then
-        echo "✅ Record updated successfully"
+        echo " Record updated successfully"
       else
         echo "$result" | python3 -c "
 import sys, json
 try:
     data = json.load(sys.stdin)
     if 'code' in data:
-        print(f\"❌ Error: {data.get('message', data)}\")
+        print(f\" Error: {data.get('message', data)}\")
     else:
         print(f'Response: {data}')
 except:
@@ -238,19 +238,19 @@ except:
         exit 1
       fi
       
-      echo "🗑️ Deleting ${type} record: ${name}.${domain}"
+      echo " Deleting ${type} record: ${name}.${domain}"
       
       result=$(api DELETE "/v1/domains/${domain}/records/${type}/${name}")
       
       if [[ -z "$result" ]]; then
-        echo "✅ Record deleted successfully"
+        echo " Record deleted successfully"
       else
         echo "$result" | python3 -c "
 import sys, json
 try:
     data = json.load(sys.stdin)
     if 'code' in data:
-        print(f\"❌ Error: {data.get('message', data)}\")
+        print(f\" Error: {data.get('message', data)}\")
     else:
         print(f'Response: {data}')
 except:

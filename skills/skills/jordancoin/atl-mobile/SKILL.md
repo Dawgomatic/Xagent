@@ -3,7 +3,7 @@ name: atl-browser
 description: Mobile browser and native app automation via ATL (iOS Simulator). Navigate, click, screenshot, and automate web and native app tasks on iPhone/iPad simulators.
 metadata:
   openclaw:
-    emoji: "📱"
+    emoji: ""
     requires:
       bins: ["xcrun", "xcodebuild", "curl"]
     install:
@@ -23,7 +23,7 @@ metadata:
 
 ATL provides HTTP-based automation for iOS Simulator — both **browser** (mobile Safari) and **native apps**. Think Playwright, but for mobile.
 
-## 🔀 Two Servers: Browser & Native
+##  Two Servers: Browser & Native
 
 ATL uses **two separate servers** for browser and native app automation:
 
@@ -75,7 +75,7 @@ curl http://localhost:9223/ping  # → {"status":"ok","mode":"native"}
 
 ---
 
-## 📱 Native App Automation (Port 9223)
+##  Native App Automation (Port 9223)
 
 Native automation uses **port 9223** and automates **any iOS app** using the accessibility tree — no DOM, no JavaScript, just direct element interaction.
 
@@ -222,7 +222,7 @@ curl -s -X POST http://localhost:9223/command \
 
 ---
 
-## 🔄 Native App Workflow Example
+##  Native App Workflow Example
 
 Here's a complete flow: open Settings, navigate to Wi-Fi, take a screenshot:
 
@@ -274,7 +274,7 @@ atl_closeapp
 
 ---
 
-## 💡 Core Insight: Vision-Free Automation
+##  Core Insight: Vision-Free Automation
 
 ATL's killer feature is **spatial understanding without vision models**:
 
@@ -319,7 +319,7 @@ curl -s -X POST http://localhost:9222/command \
 
 **The marks tell you WHERE everything is. The PDF tells you WHAT everything says. Together = full page understanding.**
 
-## 🎯 The Escalation Ladder
+##  The Escalation Ladder
 
 When automation gets stuck, escalate through these levels:
 
@@ -383,7 +383,7 @@ When you click "Add to cart" on sites like Target, Amazon, etc., they often:
 
 **Your original tap WORKED** — you just can't see the result without a screenshot.
 
-## 🚀 Quick Start (30 seconds)
+##  Quick Start (30 seconds)
 
 ```bash
 # 1. Setup (boots sim, installs ATL)

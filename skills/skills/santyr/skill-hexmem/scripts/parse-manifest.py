@@ -157,7 +157,7 @@ def commit_insight(conn, insight, dry_run=False):
     conflicts = check_lesson_conflict(conn, domain, lesson)
     if conflicts and action == 'supersede':
         # For now, just report - user can manually supersede
-        print(f"   ⚠️  Found {len(conflicts)} similar lesson(s) in '{domain}' - review for supersession")
+        print(f"     Found {len(conflicts)} similar lesson(s) in '{domain}' - review for supersession")
     
     return new_id
 
@@ -217,14 +217,14 @@ def main():
         print("No items to commit in manifest")
         return
     
-    print(f"📥 Committing {total} item(s) from manifest:")
+    print(f" Committing {total} item(s) from manifest:")
     print(f"   - {obs_count} observation(s) → facts")
     print(f"   - {insight_count} insight(s) → lessons")
     print(f"   - {pref_count} meta-preference(s) → core_values")
     print()
     
     if args.dry_run:
-        print("🏃 DRY RUN MODE - No database changes will be made")
+        print(" DRY RUN MODE - No database changes will be made")
         print()
     
     # Connect to database
@@ -233,26 +233,26 @@ def main():
     try:
         # Commit observations
         if obs_count > 0:
-            print("📊 Observations:")
+            print(" Observations:")
             for obs in data['observations']:
                 commit_observation(conn, obs, args.dry_run)
             print()
         
         # Commit insights
         if insight_count > 0:
-            print("💡 Insights:")
+            print(" Insights:")
             for insight in data['insights']:
                 commit_insight(conn, insight, args.dry_run)
             print()
         
         # Commit meta-preferences
         if pref_count > 0:
-            print("⚙️  Meta-Preferences:")
+            print("  Meta-Preferences:")
             for pref in data['meta_preferences']:
                 commit_meta_preference(conn, pref, args.dry_run)
             print()
         
-        print("✅ Manifest processing complete")
+        print(" Manifest processing complete")
         
     finally:
         conn.close()

@@ -8,7 +8,7 @@ import { nsFetch, requireNsSubscriptionKey } from './ns-api.mjs';
 
 const NS_SUBSCRIPTION_KEY = (() => {
   try { return requireNsSubscriptionKey(); }
-  catch (e) { console.error(`❌ ${e.message}`); process.exit(1); }
+  catch (e) { console.error(` ${e.message}`); process.exit(1); }
 })();
 
 const BASE_URL = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/stations';
@@ -24,7 +24,7 @@ const limit = parseInt(getArg('--limit') || '10');
 
 if (!query) {
   console.log(`
-🚉 NS Station Lookup
+ NS Station Lookup
 
 Usage: node stations.mjs --search "query" [--limit 10]
 
@@ -43,7 +43,7 @@ async function searchStations() {
     });
 
     if (!res.ok) {
-      console.error(`❌ API Error: ${res.status}`);
+      console.error(` API Error: ${res.status}`);
       process.exit(1);
     }
 
@@ -51,11 +51,11 @@ async function searchStations() {
     const stations = data.payload || [];
 
     if (stations.length === 0) {
-      console.log(`❌ No stations found for "${query}"`);
+      console.log(` No stations found for "${query}"`);
       process.exit(0);
     }
 
-    console.log(`\n🚉 Stations matching "${query}"`);
+    console.log(`\n Stations matching "${query}"`);
     console.log('═'.repeat(50));
 
     stations.forEach(s => {
@@ -64,7 +64,7 @@ async function searchStations() {
       const type = s.stationType?.replace(/_/g, ' ').toLowerCase() || 'station';
       const country = s.land || 'NL';
 
-      console.log(`\n📍 ${name}`);
+      console.log(`\n ${name}`);
       console.log(`   Code: ${code} | Type: ${type} | ${country}`);
       
       if (s.sporen?.length > 0) {
@@ -77,7 +77,7 @@ async function searchStations() {
     console.log(`Found ${stations.length} station(s)`);
 
   } catch (err) {
-    console.error(`❌ Error: ${err.message}`);
+    console.error(` Error: ${err.message}`);
     process.exit(1);
   }
 }

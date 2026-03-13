@@ -1,7 +1,7 @@
 ---
 name: DOCX
 description: Read and generate Word documents with correct structure, styles, and cross-platform compatibility.
-metadata: {"clawdbot":{"emoji":"📘","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Structure

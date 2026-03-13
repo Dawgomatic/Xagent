@@ -11,7 +11,7 @@ compatibility:
     - ching-tech-os
 metadata:
   openclaw:
-    emoji: "🍌"
+    emoji: ""
     requires:
       bins: ["uv"]
       env: ["GEMINI_API_KEY"]
@@ -31,7 +31,7 @@ metadata:
 
 Use the bundled script to generate or edit images. Automatically falls back through multiple Gemini models if one fails.
 
-⚠️ **IMPORTANT: MUST use `uv run` or the `generate` wrapper. Do NOT use `python3` directly — dependencies won't be available.**
+ **IMPORTANT: MUST use `uv run` or the `generate` wrapper. Do NOT use `python3` directly — dependencies won't be available.**
 
 Generate (option A: wrapper script)
 

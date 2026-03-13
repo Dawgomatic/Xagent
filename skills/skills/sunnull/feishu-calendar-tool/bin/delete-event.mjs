@@ -45,10 +45,10 @@ async function main() {
     
     await deleteEvent(values['event-id'], values.calendar, !values['no-notify']);
     
-    console.log('✅ Event deleted successfully!');
+    console.log(' Event deleted successfully!');
     
   } catch (error) {
-    console.error('❌ Failed to delete event:', error.message);
+    console.error(' Failed to delete event:', error.message);
     if (error.larkResponse) {
       console.error('Lark response:', JSON.stringify(error.larkResponse, null, 2));
     }

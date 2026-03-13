@@ -128,10 +128,10 @@ Comprehensive guide for optimizing HTML/CSS websites for search engines.
 
 ### Examples:
 ```
-✅ Good: https://example.com/seo-best-practices
-✅ Good: https://example.com/blog/html-optimization
-❌ Bad: https://example.com/page?id=123&cat=456
-❌ Bad: https://example.com/Blog_Post_Title
+ Good: https://example.com/seo-best-practices
+ Good: https://example.com/blog/html-optimization
+ Bad: https://example.com/page?id=123&cat=456
+ Bad: https://example.com/Blog_Post_Title
 ```
 
 ## 6. Internal Linking
@@ -368,27 +368,27 @@ Sitemap: https://example.com/sitemap.xml
 ## Quick Reference Priority List
 
 ### Critical (Fix Immediately):
-1. ✅ Unique title tag on every page (50-60 chars)
-2. ✅ Meta description on every page (150-160 chars)
-3. ✅ Exactly one H1 per page
-4. ✅ Alt text on all images
-5. ✅ Mobile viewport meta tag
-6. ✅ HTTPS enabled
-7. ✅ HTML lang attribute
+1.  Unique title tag on every page (50-60 chars)
+2.  Meta description on every page (150-160 chars)
+3.  Exactly one H1 per page
+4.  Alt text on all images
+5.  Mobile viewport meta tag
+6.  HTTPS enabled
+7.  HTML lang attribute
 
 ### Important (Fix Soon):
-8. ⚠️ Proper heading hierarchy (H1-H6)
-9. ⚠️ Open Graph tags
-10. ⚠️ Twitter Card tags
-11. ⚠️ Canonical URLs
-12. ⚠️ XML sitemap
-13. ⚠️ Robots.txt
-14. ⚠️ Schema markup
+8.  Proper heading hierarchy (H1-H6)
+9.  Open Graph tags
+10.  Twitter Card tags
+11.  Canonical URLs
+12.  XML sitemap
+13.  Robots.txt
+14.  Schema markup
 
 ### Recommended (Optimize Over Time):
-15. 📊 Page speed optimization
-16. 📊 Internal linking strategy
-17. 📊 Content quality and freshness
-18. 📊 URL structure optimization
-19. 📊 Image optimization
-20. 📊 Semantic HTML usage
+15.  Page speed optimization
+16.  Internal linking strategy
+17.  Content quality and freshness
+18.  URL structure optimization
+19.  Image optimization
+20.  Semantic HTML usage

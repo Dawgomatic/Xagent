@@ -1,6 +1,6 @@
 # System Health Reporter
 
-🏥 Generate comprehensive system health reports with actionable recommendations.
+ Generate comprehensive system health reports with actionable recommendations.
 
 ## Features
 
@@ -8,7 +8,7 @@
 - Failed service detection
 - Zombie process identification
 - Top resource consumers
-- Severity-based scoring (🟢🟡🔴)
+- Severity-based scoring ()
 - Actionable recommendations
 - Optional report archiving
 
@@ -28,16 +28,16 @@ Say any of:
 ## Example Output
 
 ```
-🏥 System Health Report
+ System Health Report
 Host: my-server | Uptime: 14 days
 
 | Area    | Status | Details           |
 |---------|--------|-------------------|
-| CPU     | 🟢     | Load 0.5/4 cores  |
-| Memory  | 🟡     | 82% used          |
-| Disk    | 🟢     | / 45% used        |
+| CPU     |      | Load 0.5/4 cores  |
+| Memory  |      | 82% used          |
+| Disk    |      | / 45% used        |
 
-⚠️ Recommendations:
+ Recommendations:
 1. Memory usage approaching threshold — consider closing unused apps
 ```
 

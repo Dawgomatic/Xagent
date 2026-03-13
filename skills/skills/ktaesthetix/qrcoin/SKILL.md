@@ -1,7 +1,7 @@
 ---
 name: qrcoin
 description: Interact with QR Coin auctions on Base. Use when the user wants to participate in qrcoin.fun QR code auctions — check auction status, view current bids, create new bids, or contribute to existing bids. QR Coin lets you bid to display URLs on QR codes; the highest bidder's URL gets encoded.
-metadata: {"clawdbot":{"emoji":"📱","homepage":"https://qrcoin.fun","requires":{"bins":["curl","jq"]}}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://qrcoin.fun","requires":{"bins":["curl","jq"]}}}
 ---
 
 # QR Coin Auction
@@ -164,4 +164,4 @@ calling contributeToBid(329, "https://grokipedia.com/page/debtreliefbot", "Merkl
 
 ---
 
-**💡 Pro Tip**: Contributing to an existing bid is cheaper than creating a new one. Check if someone already bid for your URL before creating a new bid.
+** Pro Tip**: Contributing to an existing bid is cheaper than creating a new one. Check if someone already bid for your URL before creating a new bid.

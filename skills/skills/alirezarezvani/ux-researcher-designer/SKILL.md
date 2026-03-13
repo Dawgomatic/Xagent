@@ -275,32 +275,32 @@ Generates data-driven personas from user research data.
 PERSONA: Alex the Power User
 ============================================================
 
-📝 A daily user who primarily uses the product for work purposes
+ A daily user who primarily uses the product for work purposes
 
 Archetype: Power User
 Quote: "I need tools that can keep up with my workflow"
 
-👤 Demographics:
+ Demographics:
   • Age Range: 25-34
   • Location Type: Urban
   • Tech Proficiency: Advanced
 
-🎯 Goals & Needs:
+ Goals & Needs:
   • Complete tasks efficiently
   • Automate workflows
   • Access advanced features
 
-😤 Frustrations:
+ Frustrations:
   • Slow loading times (14/20 users)
   • No keyboard shortcuts
   • Limited API access
 
-💡 Design Implications:
+ Design Implications:
   → Optimize for speed and efficiency
   → Provide keyboard shortcuts and power features
   → Expose API and automation capabilities
 
-📈 Data: Based on 45 users
+ Data: Based on 45 users
     Confidence: High
 ```
 

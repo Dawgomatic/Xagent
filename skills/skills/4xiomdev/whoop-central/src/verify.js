@@ -56,12 +56,12 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     if (isJson) {
       process.stdout.write(JSON.stringify(result));
     } else {
-      console.log('✅ WHOOP verify OK');
+      console.log(' WHOOP verify OK');
       console.log(`   User: ${result.profile.first_name} ${result.profile.last_name} (${result.profile.email})`);
       console.log(`   Scopes: ${result.token_meta.scope}`);
     }
   } catch (err) {
-    console.error(`❌ ${err.message}`);
+    console.error(` ${err.message}`);
     process.exit(1);
   }
 }

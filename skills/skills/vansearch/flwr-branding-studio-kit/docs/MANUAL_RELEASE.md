@@ -13,7 +13,7 @@ Criar uma "Release" no GitHub marca um ponto estável do seu projeto (ex: v1.0.0
 5.  **Describe this release**: Cole o conteúdo das novidades (pode copiar parte do README ou usar o botão "Generate release notes" do GitHub).
 6.  Clique no botão verde **"Publish release"**.
 
-✅ **Resultado:** Seu projeto agora tem uma versão oficial e parece profissional para quem visita.
+ **Resultado:** Seu projeto agora tem uma versão oficial e parece profissional para quem visita.
 
 ---
 
@@ -21,7 +21,7 @@ Criar uma "Release" no GitHub marca um ponto estável do seu projeto (ex: v1.0.0
 
 Para que seu projeto seja encontrado por outros desenvolvedores:
 
-1.  No topo do repositório (ao lado de "About"), clique no ícone de engrenagem ⚙️.
+1.  No topo do repositório (ao lado de "About"), clique no ícone de engrenagem .
 2.  Em **"Topics"**, adicione tags relevantes:
     *   `branding`
     *   `ai-agent`
@@ -52,4 +52,4 @@ Se você quiser que pessoas instalem usando `npx flwr-kit` sem clonar o reposit�
     npm publish --access public
     ```
 
-✅ **Resultado:** Qualquer pessoa no mundo poderá rodar `npx flwr-kit "Nome do Cliente"` direto do terminal, sem baixar nada antes.
+ **Resultado:** Qualquer pessoa no mundo poderá rodar `npx flwr-kit "Nome do Cliente"` direto do terminal, sem baixar nada antes.

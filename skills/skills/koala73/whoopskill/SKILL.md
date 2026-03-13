@@ -2,7 +2,7 @@
 name: whoopskill
 description: WHOOP CLI with health insights, trends analysis, and data fetching (sleep, recovery, HRV, strain).
 homepage: https://github.com/koala73/whoopskill
-metadata: {"clawdis":{"emoji":"💪","requires":{"bins":["node"],"env":["WHOOP_CLIENT_ID","WHOOP_CLIENT_SECRET","WHOOP_REDIRECT_URI"]},"install":[{"id":"npm","kind":"npm","package":"whoopskill","bins":["whoopskill"],"label":"Install whoopskill (npm)"}]}}
+metadata: {"clawdis":{"emoji":"","requires":{"bins":["node"],"env":["WHOOP_CLIENT_ID","WHOOP_CLIENT_SECRET","WHOOP_REDIRECT_URI"]},"install":[{"id":"npm","kind":"npm","package":"whoopskill","bins":["whoopskill"],"label":"Install whoopskill (npm)"}]}}
 ---
 
 # whoopskill
@@ -13,7 +13,7 @@ Install: `npm install -g whoopskill` | [GitHub](https://github.com/koala73/whoop
 
 Quick start
 - `whoopskill summary` — one-liner: Recovery: 52% | HRV: 39ms | Sleep: 40% | Strain: 6.7
-- `whoopskill summary --color` — color-coded summary with 🟢🟡🔴 status indicators
+- `whoopskill summary --color` — color-coded summary with  status indicators
 - `whoopskill trends` — 7-day trends with averages and direction arrows
 - `whoopskill trends --days 30 --pretty` — 30-day trend analysis
 - `whoopskill insights --pretty` — AI-style health recommendations
@@ -53,41 +53,41 @@ Notes
 
 Sample: `whoopskill summary --color`
 ```
-📅 2026-01-25
-🟢 Recovery: 85% | HRV: 39ms | RHR: 63bpm
-🟡 Sleep: 79% | 6.9h | Efficiency: 97%
-🔴 Strain: 0.1 (optimal: ~14) | 579 cal
+ 2026-01-25
+ Recovery: 85% | HRV: 39ms | RHR: 63bpm
+ Sleep: 79% | 6.9h | Efficiency: 97%
+ Strain: 0.1 (optimal: ~14) | 579 cal
 ```
 
 Sample: `whoopskill trends`
 ```
-📊 7-Day Trends
+ 7-Day Trends
 
-💚 Recovery: 62.1% avg (34-86) →
-💓 HRV: 33.8ms avg (26-42) →
-❤️ RHR: 63.8bpm avg (60-68) →
-😴 Sleep: 75.4% avg (69-79) →
-🛏️ Hours: 6.5h avg (5.7-7.8) ↓
-🔥 Strain: 5.9 avg (0.1-9.0) ↓
+ Recovery: 62.1% avg (34-86) →
+ HRV: 33.8ms avg (26-42) →
+ RHR: 63.8bpm avg (60-68) →
+ Sleep: 75.4% avg (69-79) →
+ Hours: 6.5h avg (5.7-7.8) ↓
+ Strain: 5.9 avg (0.1-9.0) ↓
 ```
 
 Sample: `whoopskill insights`
 ```
-💡 Insights & Recommendations
+ Insights & Recommendations
 
-✅ Green Recovery
+ Green Recovery
    Recovery at 85% — body is primed for high strain.
    → Great day for intense training or competition.
 
-✅ HRV Above Baseline
+ HRV Above Baseline
    Today's HRV (39ms) is 21% above your 7-day average.
    → Excellent recovery. Good day for peak performance.
 
-⚠️ Mild Sleep Debt
+ Mild Sleep Debt
    You have 2.0 hours of sleep debt.
    → Consider an earlier bedtime tonight.
 
-✅ Strain Capacity Available
+ Strain Capacity Available
    Current strain: 0.1. Optimal target: ~14.
    → Room for 13.9 more strain today.
 ```

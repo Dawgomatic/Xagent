@@ -11,13 +11,13 @@
 
 ### The Solution: SearXNG
 This skill uses **SearXNG**, a privacy-respecting metasearch engine that:
-- 🎭 **Randomizes browser fingerprints** with each query
-- 🔒 **Masks your IP address** (search engines see SearXNG's IP, not yours)
-- 🚫 **Blocks cookies and referrers** from reaching search engines
-- 📊 **Aggregates 250+ search engines** simultaneously
-- 🧹 **Delivers ad-free results**
+-  **Randomizes browser fingerprints** with each query
+-  **Masks your IP address** (search engines see SearXNG's IP, not yours)
+-  **Blocks cookies and referrers** from reaching search engines
+-  **Aggregates 250+ search engines** simultaneously
+-  **Delivers ad-free results**
 
-### Unique Feature: Bangs Support 🎯
+### Unique Feature: Bangs Support 
 
 Search directly on specific engines with DuckDuckGo-style shortcuts:
 - `!w` - Wikipedia
@@ -32,32 +32,32 @@ Search directly on specific engines with DuckDuckGo-style shortcuts:
 
 ## Key Features
 
-✅ **Privacy Protection**
+ **Privacy Protection**
 - Randomized browser fingerprints per query
 - IP address masking
 - No cookie/referrer forwarding
 - Based on research from heise.de (German tech publication)
 
-✅ **Bangs for Direct Engine Search**
+ **Bangs for Direct Engine Search**
 - DuckDuckGo-style shortcuts
 - More granular than categories
 - Full bang list in documentation
 
-✅ **250+ Search Engines**
+ **250+ Search Engines**
 - Web: Google, Bing, DuckDuckGo, Qwant, Brave, Startpage
 - News: Google News, Reuters, Tagesschau
 - Videos: YouTube, Vimeo, Dailymotion
 - Science: Google Scholar, arXiv, PubMed
 - And many more
 
-✅ **Multi-Category Search**
+ **Multi-Category Search**
 - General, News, Images, Videos, Music, Files, Science
 
-✅ **Clean JSON Output**
+ **Clean JSON Output**
 - Easy to parse and present
 - Title, URL, content snippet
 
-✅ **No API Keys Required**
+ **No API Keys Required**
 - Free and unlimited searches
 - No rate limits
 

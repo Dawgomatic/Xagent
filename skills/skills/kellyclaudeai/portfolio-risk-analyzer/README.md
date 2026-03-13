@@ -1,6 +1,6 @@
 # Portfolio Risk & Optimization Analyzer
 
-**Turn portfolio analysis fees into $BANKR buy pressure** 🤖💰
+**Turn portfolio analysis fees into $BANKR buy pressure** 
 
 ## What is This?
 
@@ -44,12 +44,12 @@ $BANKR: `0x50D2280441372486BeecdD328c1854743EBaCb07`
 
 ## Features
 
-- 📊 Multi-chain portfolio scanning
-- ⚠️ Risk scoring (0-100)
-- 💡 Optimization recommendations
-- 🔄 Automated buyback every hour
-- 🎙️ Voice bot integration (optional)
-- 📈 Real-time DeFi position tracking
+-  Multi-chain portfolio scanning
+-  Risk scoring (0-100)
+-  Optimization recommendations
+-  Automated buyback every hour
+-  Voice bot integration (optional)
+-  Real-time DeFi position tracking
 
 ## How It Works
 

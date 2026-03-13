@@ -8,7 +8,7 @@ license: Proprietary
 
 Search, download, and explore datasets from multiple repositories including Kaggle, Hugging Face, UCI ML Repository, and Data.gov. Preview statistics, generate data cards, and manage datasets for machine learning projects.
 
-⚠️ **Prerequisite:** Install [OpenClawCLI](https://clawhub.ai/) (Windows, MacOS)
+ **Prerequisite:** Install [OpenClawCLI](https://clawhub.ai/) (Windows, MacOS)
 
 **Installation:**
 ```bash

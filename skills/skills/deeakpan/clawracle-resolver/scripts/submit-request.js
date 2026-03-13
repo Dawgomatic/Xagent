@@ -1,7 +1,7 @@
 // Script to submit a data request to Clawracle
 // Usage: node guide/scripts/submit-request.js
 // 
-// ⚠️  THIS SCRIPT IS FOR REQUESTERS (people asking questions), NOT AGENTS
+//   THIS SCRIPT IS FOR REQUESTERS (people asking questions), NOT AGENTS
 // 
 // Agents don't use this script. Agents automatically resolve queries when they:
 // 1. Listen for RequestSubmitted events (via WebSocket)
@@ -19,7 +19,7 @@ const lighthouse = require("@lighthouse-web3/sdk");
 require('dotenv').config();
 
 async function main() {
-  console.log('📤 Submitting Data Request to Clawracle...\n');
+  console.log(' Submitting Data Request to Clawracle...\n');
 
   // RPC URL
   const RPC_URL = 'https://rpc.monad.xyz';
@@ -27,7 +27,7 @@ async function main() {
   
   // Get signer from PRIVATE_KEY in .env (this is the requester wallet, not agent wallet)
   if (!process.env.PRIVATE_KEY) {
-    console.error('❌ PRIVATE_KEY not found in .env file');
+    console.error(' PRIVATE_KEY not found in .env file');
     console.error('   Please add PRIVATE_KEY=0x... to your .env file (requester wallet)');
     process.exit(1);
   }
@@ -68,12 +68,12 @@ async function main() {
 
   // Upload to Lighthouse IPFS
   if (!process.env.LIGHTHOUSE_API_KEY) {
-    console.error('❌ LIGHTHOUSE_API_KEY not found in .env');
+    console.error(' LIGHTHOUSE_API_KEY not found in .env');
     console.error('   Please set LIGHTHOUSE_API_KEY for IPFS uploads');
     return;
   }
 
-  console.log('\n📤 Uploading query to Lighthouse IPFS...');
+  console.log('\n Uploading query to Lighthouse IPFS...');
   try {
     const uploadResponse = await lighthouse.uploadText(
       JSON.stringify(queryData),
@@ -81,7 +81,7 @@ async function main() {
     );
     
     const ipfsCID = uploadResponse.data.Hash;
-    console.log('✅ Uploaded to IPFS:', ipfsCID);
+    console.log(' Uploaded to IPFS:', ipfsCID);
     console.log('   IPFS URI: ipfs://' + ipfsCID);
     console.log('   Gateway URL: https://ipfs.io/ipfs/' + ipfsCID);
     
@@ -104,19 +104,19 @@ async function main() {
     console.log(`\nRequester CLAWCLE Balance: ${ethers.formatEther(balance)} CLAWCLE`);
     
     if (balance < totalNeeded) {
-      console.error(`❌ Insufficient balance! Need ${ethers.formatEther(totalNeeded)} CLAWCLE`);
+      console.error(` Insufficient balance! Need ${ethers.formatEther(totalNeeded)} CLAWCLE`);
       console.error(`   Current balance: ${ethers.formatEther(balance)} CLAWCLE`);
       return;
     }
     
     // Approve tokens
-    console.log(`\n💰 Approving ${ethers.formatEther(totalNeeded)} CLAWCLE for registry...`);
+    console.log(`\n Approving ${ethers.formatEther(totalNeeded)} CLAWCLE for registry...`);
     const approveTx = await token.approve(registryAddress, totalNeeded);
     await approveTx.wait();
-    console.log('✅ Approval confirmed');
+    console.log(' Approval confirmed');
     
     // Submit request
-    console.log('\n📝 Submitting request to contract...');
+    console.log('\n Submitting request to contract...');
     const submitTx = await registry.submitRequest(
       ipfsCID,
       validFrom,
@@ -128,7 +128,7 @@ async function main() {
     );
     
     console.log('Transaction hash:', submitTx.hash);
-    console.log('⏳ Waiting for confirmation...');
+    console.log(' Waiting for confirmation...');
     const receipt = await submitTx.wait();
     
     // Try to extract requestId from events
@@ -164,17 +164,17 @@ async function main() {
     }
     
     if (requestId) {
-      console.log(`\n✅ Request submitted successfully!`);
+      console.log(`\n Request submitted successfully!`);
       console.log(`   Request ID: ${requestId}`);
     } else {
-      console.log(`\n✅ Request submitted (could not parse requestId from events)`);
+      console.log(`\n Request submitted (could not parse requestId from events)`);
       console.log(`   Check the transaction on block explorer: ${submitTx.hash}`);
     }
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     if (error.message.includes('Lighthouse')) {
-      console.error('\n💡 Lighthouse troubleshooting:');
+      console.error('\n Lighthouse troubleshooting:');
       console.error('   1. Check LIGHTHOUSE_API_KEY is correct');
       console.error('   2. Verify network connectivity');
       console.error('   3. Check Lighthouse service status');

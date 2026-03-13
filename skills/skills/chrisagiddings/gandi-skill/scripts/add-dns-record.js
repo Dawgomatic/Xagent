@@ -22,7 +22,7 @@ const [,, rawDomain, rawName, type, ...rest] = process.argv;
 
 // Check required arguments
 if (!rawDomain || !rawName || !type || rest.length === 0) {
-  console.error('❌ Usage: node add-dns-record.js <domain> <name> <type> <value> [ttl]');
+  console.error(' Usage: node add-dns-record.js <domain> <name> <type> <value> [ttl]');
   console.error('');
   console.error('Examples:');
   console.error('  node add-dns-record.js example.com @ A 192.168.1.1');
@@ -42,7 +42,7 @@ try {
   domain = sanitizeDomain(rawDomain);
   name = sanitizeRecordName(rawName);
 } catch (error) {
-  console.error(`❌ Invalid input: ${error.message}`);
+  console.error(` Invalid input: ${error.message}`);
   process.exit(1);
 }
 
@@ -58,7 +58,7 @@ if (rest.length > 1) {
       ttl = sanitizeTTL(parseInt(lastArg));
       value = rest.slice(0, -1).join(' ');
     } catch (error) {
-      console.error(`❌ Invalid TTL: ${error.message}`);
+      console.error(` Invalid TTL: ${error.message}`);
       process.exit(1);
     }
   } else {
@@ -70,7 +70,7 @@ if (rest.length > 1) {
 
 async function main() {
   try {
-    console.log(`🔄 Adding/updating ${type} record for ${name}.${domain}...`);
+    console.log(` Adding/updating ${type} record for ${name}.${domain}...`);
     console.log(`   Value: ${value}`);
     console.log(`   TTL: ${ttl}s`);
     console.log('');
@@ -78,7 +78,7 @@ async function main() {
     // Validate record value
     const validation = validateRecordValue(type, value);
     if (!validation.valid) {
-      console.error(`❌ Validation error: ${validation.error}`);
+      console.error(` Validation error: ${validation.error}`);
       process.exit(1);
     }
     
@@ -86,13 +86,13 @@ async function main() {
     let existingRecord = null;
     try {
       existingRecord = await getDnsRecord(domain, name, type);
-      console.log('ℹ️  Record already exists, will be replaced:');
+      console.log('  Record already exists, will be replaced:');
       console.log(`   Current value(s): ${existingRecord.rrset_values.join(', ')}`);
       console.log(`   Current TTL: ${existingRecord.rrset_ttl}s`);
       console.log('');
     } catch (error) {
       // Record doesn't exist, that's okay
-      console.log('ℹ️  Creating new record...');
+      console.log('  Creating new record...');
       console.log('');
     }
     
@@ -100,26 +100,26 @@ async function main() {
     const result = await createDnsRecord(domain, name, type, [value], ttl);
     
     if (result.statusCode === 201) {
-      console.log('✅ DNS record created successfully!');
+      console.log(' DNS record created successfully!');
     } else if (result.statusCode === 200) {
-      console.log('✅ DNS record updated successfully!');
+      console.log(' DNS record updated successfully!');
     } else {
-      console.log(`✅ DNS record saved (status: ${result.statusCode})`);
+      console.log(` DNS record saved (status: ${result.statusCode})`);
     }
     
     console.log('');
-    console.log('📋 Record details:');
+    console.log(' Record details:');
     console.log(`   Domain: ${domain}`);
     console.log(`   Name: ${name}`);
     console.log(`   Type: ${type}`);
     console.log(`   Value: ${value}`);
     console.log(`   TTL: ${ttl}s (${Math.floor(ttl / 60)} minutes)`);
     console.log('');
-    console.log('⏱️  DNS propagation may take a few minutes.');
+    console.log('  DNS propagation may take a few minutes.');
     console.log('   Verify with: dig @ns1.gandi.net ' + (name === '@' ? domain : `${name}.${domain}`) + ' ' + type);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('   Authentication failed. Check your API token.');

@@ -85,10 +85,10 @@ log_memory() {
     # 重要度マーカー
     local marker=""
     case "$importance" in
-        "high") marker="🔴 " ;;
-        "medium") marker="🟡 " ;;
-        "low") marker="⚪ " ;;
-        *) marker="📝 " ;;
+        "high") marker=" " ;;
+        "medium") marker=" " ;;
+        "low") marker=" " ;;
+        *) marker=" " ;;
     esac
     
     # ログエントリ追加
@@ -127,7 +127,7 @@ curate_weekly_memories() {
         
         if [[ -f "$daily_file" ]]; then
             # 高重要度の出来事を抽出
-            grep -E "🔴|高重要|重要な" "$daily_file" >> /tmp/important-events.txt
+            grep -E "|高重要|重要な" "$daily_file" >> /tmp/important-events.txt
         fi
     done
     
@@ -393,21 +393,21 @@ heartbeat_memory_check() {
     local pending_count="$(grep -c "ステータス.*pending" "$workspace/memory/pending-memories.md" 2>/dev/null || echo 0)"
     
     if [[ $pending_count -gt 10 ]]; then
-        echo "⚠️ 段階処理キューが満杯です ($pending_count 項目)"
+        echo " 段階処理キューが満杯です ($pending_count 項目)"
     elif [[ $pending_count -gt 5 ]]; then
-        echo "📋 段階処理キューレビューが必要 ($pending_count 項目)"
+        echo " 段階処理キューレビューが必要 ($pending_count 項目)"
     fi
     
     # MEMORY.md サイズ確認
     local memory_size="$(wc -c < "$workspace/MEMORY.md" 2>/dev/null || echo 0)"
     if [[ $memory_size -gt 100000 ]]; then
-        echo "📚 MEMORY.md が大きくなっています。整理を検討してください"
+        echo " MEMORY.md が大きくなっています。整理を検討してください"
     fi
     
     # 日次ファイル確認
     local today="$(date -I)"
     if [[ ! -f "$workspace/memory/$today.md" ]]; then
-        echo "📝 本日の日次ファイルを作成します"
+        echo " 本日の日次ファイルを作成します"
         create_daily_memory
     fi
 }

@@ -14,16 +14,16 @@ Usage (from an AI agent or script):
     mind.set_photo("earl_selfie.jpg", caption="Looking good today.")
 
     # Post important house stuff
-    mind.post_house_stuff("Bins go out tonight", detail="It's Wednesday again.", priority="high", category="chores", icon="🗑️")
+    mind.post_house_stuff("Bins go out tonight", detail="It's Wednesday again.", priority="high", category="chores", icon="")
 
     # Update a room's status
     mind.update_room("kitchen", status="occupied", notes="Someone's cooking pasta. Smells great.")
 
     # Drop a hot take (Earl Unplugged)
-    mind.hot_take("Pineapple on pizza", "Controversial but I respect the audacity.", heat=0.6, emoji="🍕")
+    mind.hot_take("Pineapple on pizza", "Controversial but I respect the audacity.", heat=0.6, emoji="")
 
     # Doodle on the sketchpad
-    mind.doodle("🌧️", x=0.3, y=0.2, size=30, note="Rain starting")
+    mind.doodle("", x=0.3, y=0.2, size=30, note="Rain starting")
     mind.sketch_note("todo: remind about umbrellas", x=0.5, y=0.8, color="#fbbf24")
 
     # Record a long-term pattern
@@ -82,7 +82,7 @@ class EarlMind:
 
     # ── Important House Stuff ────────────────────────────────────────
 
-    def post_house_stuff(self, title, detail="", priority="medium", category="general", icon="📌"):
+    def post_house_stuff(self, title, detail="", priority="medium", category="general", icon=""):
         """Add an item to the Important House Stuff noticeboard."""
         items = self.mind["house_stuff"]["items"]
         items.insert(0, {
@@ -143,7 +143,7 @@ class EarlMind:
 
     # ── Earl Unplugged (Hot Takes) ───────────────────────────────────
 
-    def hot_take(self, topic, take, heat=0.5, emoji="💭"):
+    def hot_take(self, topic, take, heat=0.5, emoji=""):
         """Add or update a hot take. If topic exists, update it."""
         for t in self.mind["earl_unplugged"]:
             if t["topic"].lower() == topic.lower():
@@ -233,20 +233,20 @@ class EarlMind:
         """Return a human-readable summary of Earl's current state."""
         m = self.mind
         lines = [
-            f"🧙🏻 {m['identity']['name']} — {m['identity']['mood']} (energy: {int(m['identity']['energy']*100)}%)",
-            f"💭 \"{m['identity']['current_vibe']}\"",
+            f" {m['identity']['name']} — {m['identity']['mood']} (energy: {int(m['identity']['energy']*100)}%)",
+            f" \"{m['identity']['current_vibe']}\"",
             f"",
-            f"📋 Important House Stuff:"
+            f" Important House Stuff:"
         ]
         for item in m.get('house_stuff', {}).get('items', []):
-            prio = {'high': '🔴', 'medium': '🟡', 'low': '🟢'}.get(item['priority'], '⚪')
+            prio = {'high': '', 'medium': '', 'low': ''}.get(item['priority'], '')
             lines.append(f"  {prio} {item['icon']} {item['title']}: {item['detail']}")
         lines.append("")
-        lines.append(f"🏠 Rooms:")
+        lines.append(f" Rooms:")
         for r in m['spatial_awareness']['rooms']:
             lines.append(f"  {r['name']}: {r['status']} — {r['notes']}")
         lines.append("")
-        lines.append(f"🎤 Earl Unplugged ({len(m.get('earl_unplugged', []))}):")
+        lines.append(f" Earl Unplugged ({len(m.get('earl_unplugged', []))}):")
         for t in m.get('earl_unplugged', []):
             lines.append(f"  {t['emoji']} {t['topic']}: \"{t['take']}\"")
         return "\n".join(lines)

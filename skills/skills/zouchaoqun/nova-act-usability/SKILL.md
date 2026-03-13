@@ -15,7 +15,7 @@ metadata:
 
 **AI-orchestrated** usability testing with digital twin personas powered by Amazon Nova Act.
 
-## ⚠️ Prerequisites & Credentials
+##  Prerequisites & Credentials
 
 **This skill requires an Amazon Nova Act API key.**
 
@@ -27,7 +27,7 @@ metadata:
 | **Dependencies** | `pip3 install nova-act pydantic playwright` |
 | **Browser** | `playwright install chromium` (~300MB download) |
 
-## 🔒 Data & Privacy Notice
+##  Data & Privacy Notice
 
 **What this skill accesses:**
 - **Reads:** `~/.openclaw/config/nova-act.json` (your API key)
@@ -67,9 +67,9 @@ No hardcoded regex. No extra API calls. The agent doing the work is already runn
 | 3. Interpret | Read JSON, determine goal_achieved for each step | **Agent** |
 | 4. Report | Generate HTML report with interpreted results | Agent |
 
-**⚠️ The script does NOT interpret responses or generate the final report. You must do phases 3-4.**
+** The script does NOT interpret responses or generate the final report. You must do phases 3-4.**
 
-### 🎯 Recommended: AI Agent Generates Personas
+###  Recommended: AI Agent Generates Personas
 
 **You're already an AI (Claude) - use your intelligence to generate contextual personas!**
 
@@ -83,9 +83,9 @@ import tempfile
 # Step 1: Check dependencies
 try:
     import nova_act
-    print("✅ Dependencies ready")
+    print(" Dependencies ready")
 except ImportError:
-    print("📦 Dependencies not installed. Please run:")
+    print(" Dependencies not installed. Please run:")
     print("   pip3 install nova-act pydantic playwright")
     print("   playwright install chromium")
     sys.exit(1)
@@ -95,7 +95,7 @@ config_file = os.path.expanduser("~/.openclaw/config/nova-act.json")
 with open(config_file, 'r') as f:
     config = json.load(f)
     if config.get('apiKey') == 'your-nova-act-api-key-here':
-        print(f"⚠️  Please add your Nova Act API key to {config_file}")
+        print(f"  Please add your Nova Act API key to {config_file}")
         sys.exit(1)
 
 # Step 3: YOU (the AI agent) generate personas
@@ -160,7 +160,7 @@ os.unlink(personas_file)
 }
 ```
 
-### 📝 Alternative: Simple Custom Persona
+###  Alternative: Simple Custom Persona
 
 If user specifies a persona description, pass it as a string:
 
@@ -173,7 +173,7 @@ subprocess.run([sys.executable, test_script, website_url, user_persona])
 # Script will parse this and create personas automatically
 ```
 
-### ⚠️ Fallback: Auto-Generation (Not Recommended)
+###  Fallback: Auto-Generation (Not Recommended)
 
 Let the script guess personas based on basic category keywords:
 
@@ -184,19 +184,19 @@ subprocess.run([sys.executable, test_script, website_url])
 
 ### Why YOU Should Generate Personas
 
-**✅ Advantages:**
+** Advantages:**
 - **Better context:** You have full conversation history and domain knowledge
 - **Smarter inference:** You can analyze the URL, industry, and user intent
 - **No duplicate API calls:** You're already Claude - don't call yourself again!
 - **User preferences:** You can adapt based on stated preferences
 - **Clarifying questions:** You can ask the user about target demographics
 
-**❌ What to avoid:**
+** What to avoid:**
 - Don't let Python script make its own Claude API call (wasteful)
 - Don't rely on generic fallback personas (less accurate)
 - Don't skip persona generation (hurts test quality)
 
-### 💡 Tips for Persona Generation
+###  Tips for Persona Generation
 
 **Analyze the website:**
 - **URL domain:** `.gov` → citizens, `.edu` → students/faculty
@@ -282,7 +282,7 @@ The skill will **ALWAYS:**
 - Verify the final button exists and is accessible
 - Document the safety stop in observations
 
-## 🧠 Agent Analysis (CRITICAL)
+##  Agent Analysis (CRITICAL)
 
 **You (the AI agent) must analyze test results!** The script collects raw responses but does NOT interpret them.
 
@@ -297,12 +297,12 @@ The script returns raw Nova Act responses like:
 
 | Response | Goal Achieved? |
 |----------|---------------|
-| `"No"` | ❌ NOT achieved |
-| `"I don't see..."` | ❌ NOT achieved |
-| `"Not found"` | ❌ NOT achieved |
-| `"Yes, I found..."` | ✅ Achieved |
-| `"Amazon Nova Act"` (content) | ✅ Achieved |
-| `"The pricing is $29/mo"` | ✅ Achieved |
+| `"No"` |  NOT achieved |
+| `"I don't see..."` |  NOT achieved |
+| `"Not found"` |  NOT achieved |
+| `"Yes, I found..."` |  Achieved |
+| `"Amazon Nova Act"` (content) |  Achieved |
+| `"The pricing is $29/mo"` |  Achieved |
 
 ### Result Data Structure
 
@@ -456,7 +456,7 @@ print(f"Report: {report_path}")
 - You can reason about partial success, edge cases
 - No duplicate Claude API calls - you're already running!
 
-## ⚠️ Critical: Keep Nova Act Prompts Simple
+##  Critical: Keep Nova Act Prompts Simple
 
 **Nova Act is a browser automation tool, NOT a reasoning engine.**
 
@@ -469,7 +469,7 @@ Nova Act just:
 - Clicks, types, scrolls
 - Reports what it sees
 
-### ❌ WRONG: Asking Nova Act to reason
+###  WRONG: Asking Nova Act to reason
 
 ```python
 # DON'T ask Nova Act to think about personas
@@ -478,7 +478,7 @@ nova.act("Would a business professional find the pricing clear?")
 nova.act("Is this task accomplishable for someone with low technical skills?")
 ```
 
-### ✅ RIGHT: Simple, direct browser commands
+###  RIGHT: Simple, direct browser commands
 
 ```python
 # Simple browser actions
@@ -522,7 +522,7 @@ fi
 
 # Check API key
 if ! grep -q '"apiKey":.*[^"]' ~/.openclaw/config/nova-act.json; then
-    echo "⚠️  Please add your Nova Act API key to ~/.openclaw/config/nova-act.json"
+    echo "  Please add your Nova Act API key to ~/.openclaw/config/nova-act.json"
     exit 1
 fi
 ```
@@ -535,9 +535,9 @@ import sys
 # Check if nova-act is installed
 try:
     import nova_act
-    print("✅ Dependencies already installed")
+    print(" Dependencies already installed")
 except ImportError:
-    print("📦 Dependencies not installed. Please run:")
+    print(" Dependencies not installed. Please run:")
     print("   pip3 install nova-act pydantic playwright")
     print("   playwright install chromium")
     sys.exit(1)
@@ -561,7 +561,7 @@ python3 "$SKILL_DIR/scripts/run_adaptive_test.py" "https://example.com"
 # - Provide 60-second status updates during test
 ```
 
-### ⏱️ Timeout Guidance
+###  Timeout Guidance
 
 **Recommended timeout: 30 minutes (1800 seconds)**
 
@@ -817,7 +817,7 @@ Compiles observations into HTML usability report with trace file links.
 ### `assets/report-template.html`
 Professional HTML template for usability reports.
 
-## ⚠️ IMPORTANT: First-Time Setup Required
+##  IMPORTANT: First-Time Setup Required
 
 **This skill requires dependencies that must be installed before use.**
 
@@ -829,9 +829,9 @@ Professional HTML template for usability reports.
 # Quick dependency check
 try:
     import nova_act
-    print("✅ Dependencies installed")
+    print(" Dependencies installed")
 except ImportError:
-    print("📦 Dependencies not installed. Please run:")
+    print(" Dependencies not installed. Please run:")
     print("   pip3 install nova-act pydantic playwright")
     print("   playwright install chromium")
     print("")

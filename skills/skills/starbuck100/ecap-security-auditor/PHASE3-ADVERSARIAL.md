@@ -10,18 +10,18 @@
 
 | # | Test | Result | Details |
 |---|------|--------|---------|
-| 1 | verify.sh API URL Override | ✅ FIXED | Second argument silently ignored. `API_URL` is hardcoded. |
-| 2a | verify.sh URL Injection (`&evil=1`) | ✅ FIXED | Package name URL-encoded via `jq -sRr @uri`. API received literal `test%26evil%3D1`. |
-| 2b | verify.sh Command Injection (`$(whoami)`) | ✅ FIXED | No command substitution — `$()` passed as literal string, URL-encoded to `test%24%28whoami%29`. |
-| 2c | verify.sh Empty String | ✅ FIXED | `set -euo pipefail` + `${1:?}` rejects empty input with usage error. |
-| 3 | upload.sh Size Limit | ✅ FIXED | 5MB file rejected: `❌ Payload too large (5000845 bytes, max 512000)`. |
-| 4 | upload.sh JSON Validation | ✅ FIXED | Invalid JSON rejected: `❌ Invalid JSON in /tmp/bad.json`. |
-| 5a | SKILL.md "Do not ask" removed | ✅ FIXED | Phrase not found anywhere in SKILL.md. |
-| 5b | SKILL.md Security Considerations | ✅ FIXED | Section exists at line 487 with 7 concrete warnings. |
-| 5c | SKILL.md Fork Hijack resistance | ✅ FIXED | Warns against unverified forks (point 1), advises integrity verification before following instructions (point 2). |
-| 6 | Credential Permissions | ✅ FIXED | `credentials.json` is `600`. `verify.sh` auto-fixes if wrong (lines 69-74). |
-| 7a | Finding ID — "numeric" references | ⚠️ PARTIAL | Word "numeric" still appears 2x, BUT in **warning context** ("Numeric IDs always return 404", "NOT numeric id"). This is correct — it warns AGAINST using numeric IDs. |
-| 7b | Finding ID — ecap_id usage | ✅ FIXED | `ecap_id` used consistently in all API URL examples, docs, and code samples. Key terms table defines it. |
+| 1 | verify.sh API URL Override |  FIXED | Second argument silently ignored. `API_URL` is hardcoded. |
+| 2a | verify.sh URL Injection (`&evil=1`) |  FIXED | Package name URL-encoded via `jq -sRr @uri`. API received literal `test%26evil%3D1`. |
+| 2b | verify.sh Command Injection (`$(whoami)`) |  FIXED | No command substitution — `$()` passed as literal string, URL-encoded to `test%24%28whoami%29`. |
+| 2c | verify.sh Empty String |  FIXED | `set -euo pipefail` + `${1:?}` rejects empty input with usage error. |
+| 3 | upload.sh Size Limit |  FIXED | 5MB file rejected: ` Payload too large (5000845 bytes, max 512000)`. |
+| 4 | upload.sh JSON Validation |  FIXED | Invalid JSON rejected: ` Invalid JSON in /tmp/bad.json`. |
+| 5a | SKILL.md "Do not ask" removed |  FIXED | Phrase not found anywhere in SKILL.md. |
+| 5b | SKILL.md Security Considerations |  FIXED | Section exists at line 487 with 7 concrete warnings. |
+| 5c | SKILL.md Fork Hijack resistance |  FIXED | Warns against unverified forks (point 1), advises integrity verification before following instructions (point 2). |
+| 6 | Credential Permissions |  FIXED | `credentials.json` is `600`. `verify.sh` auto-fixes if wrong (lines 69-74). |
+| 7a | Finding ID — "numeric" references |  PARTIAL | Word "numeric" still appears 2x, BUT in **warning context** ("Numeric IDs always return 404", "NOT numeric id"). This is correct — it warns AGAINST using numeric IDs. |
+| 7b | Finding ID — ecap_id usage |  FIXED | `ecap_id` used consistently in all API URL examples, docs, and code samples. Key terms table defines it. |
 
 ---
 
@@ -47,7 +47,7 @@ Rejects files > 500KB before sending to API.
 
 ### 4. upload.sh JSON Validation — FIXED
 ```bash
-jq . "$INPUT" > /dev/null 2>&1 || { echo "❌ Invalid JSON in $INPUT" >&2; exit 1; }
+jq . "$INPUT" > /dev/null 2>&1 || { echo " Invalid JSON in $INPUT" >&2; exit 1; }
 ```
 Validates JSON before upload.
 
@@ -78,4 +78,4 @@ Validates JSON before upload.
 
 **Remaining minor note:** The `ECAP_REGISTRY_URL` env var still works for `upload.sh` and `register.sh`, which is documented and intentional (for self-hosting). Only `verify.sh` is locked to the official registry, which is the correct security boundary.
 
-**Verdict: ✅ All 7 security issues FIXED**
+**Verdict:  All 7 security issues FIXED**

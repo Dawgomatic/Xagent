@@ -83,8 +83,8 @@ After user makes decision, log for learning:
 
 | Date | Item | Price | Verdict | Outcome |
 |------|------|-------|---------|---------|
-| 2024-02-14 | XM5 | $298 | Bought | ✅ Good - still at $348 |
-| 2024-02-01 | TV | $899 | Waited | ❌ Went up to $999 |
+| 2024-02-14 | XM5 | $298 | Bought |  Good - still at $348 |
+| 2024-02-01 | TV | $899 | Waited |  Went up to $999 |
 ```
 
 Use history to improve future recommendations.

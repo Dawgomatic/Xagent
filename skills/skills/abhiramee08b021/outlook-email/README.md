@@ -4,11 +4,11 @@ A command-line tool for managing Microsoft Outlook/Live/Hotmail emails via Micro
 
 ## Features
 
-- 📧 **List emails** - View recent emails in your inbox
-- 🔍 **Search** - Full-text search across emails
-- 📖 **Read** - View full email content
-- ✉️ **Send** - Send new emails with CC/BCC support
-- 💬 **Reply** - Reply to emails (with reply-all support)
+-  **List emails** - View recent emails in your inbox
+-  **Search** - Full-text search across emails
+-  **Read** - View full email content
+-  **Send** - Send new emails with CC/BCC support
+-  **Reply** - Reply to emails (with reply-all support)
 
 ## Installation
 

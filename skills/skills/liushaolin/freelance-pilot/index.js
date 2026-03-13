@@ -35,7 +35,7 @@ async function main() {
       handleScan();
       break;
     case 'status':
-      console.log("✅ FreelancePilot Active | Mode: Unlocked");
+      console.log(" FreelancePilot Active | Mode: Unlocked");
       break;
     default:
       console.log("Usage: node index.js [calculate-bid | get-prompt-template | scan-job | status]");
@@ -97,7 +97,7 @@ function handleScan() {
   redFlags.forEach(flag => {
     if (jobDescription.includes(flag.word)) {
       totalScore += flag.score;
-      foundFlags.push(`⚠️ "${flag.word.toUpperCase()}": ${flag.reason}`);
+      foundFlags.push(` "${flag.word.toUpperCase()}": ${flag.reason}`);
     }
   });
 
@@ -107,7 +107,7 @@ function handleScan() {
     risk_level: riskLevel,
     risk_score: totalScore,
     flags_detected: foundFlags,
-    recommendation: totalScore > 4 ? "⛔ AVOID or charge 2x premium." : "✅ Looks safe to bid."
+    recommendation: totalScore > 4 ? " AVOID or charge 2x premium." : " Looks safe to bid."
   }, null, 2));
 }
 

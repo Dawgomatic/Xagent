@@ -84,9 +84,9 @@ def cmd_undo(args):
     
     if removed:
         emoji = get_emoji(removed["category"])
-        print(f"↩️ Removed: {emoji} {removed['amount']:,} — {removed['description']}")
+        print(f" Removed: {emoji} {removed['amount']:,} — {removed['description']}")
     else:
-        print("❌ No transactions to undo.")
+        print(" No transactions to undo.")
     
     return 0
 
@@ -94,13 +94,13 @@ def cmd_undo(args):
 def cmd_edit(args):
     """Edit a transaction."""
     if len(args) < 1:
-        print("❌ Usage: finance edit <id> [--amount=X] [--desc=\"Y\"] [--category=Z]")
+        print(" Usage: finance edit <id> [--amount=X] [--desc=\"Y\"] [--category=Z]")
         return 1
     
     try:
         tx_id = int(args[0])
     except ValueError:
-        print("❌ Invalid transaction ID")
+        print(" Invalid transaction ID")
         return 1
     
     amount = None
@@ -120,9 +120,9 @@ def cmd_edit(args):
     
     if tx:
         emoji = get_emoji(tx["category"])
-        print(f"✏️ Updated: {emoji} {tx['amount']:,} — {tx['description']}")
+        print(f" Updated: {emoji} {tx['amount']:,} — {tx['description']}")
     else:
-        print(f"❌ Transaction #{tx_id} not found")
+        print(f" Transaction #{tx_id} not found")
     
     return 0
 
@@ -130,20 +130,20 @@ def cmd_edit(args):
 def cmd_delete(args):
     """Delete a specific transaction."""
     if len(args) < 1:
-        print("❌ Usage: finance delete <id>")
+        print(" Usage: finance delete <id>")
         return 1
     
     try:
         tx_id = int(args[0])
     except ValueError:
-        print("❌ Invalid transaction ID")
+        print(" Invalid transaction ID")
         return 1
     
     storage = get_storage()
     if storage.delete_transaction(tx_id):
-        print(f"🗑️ Deleted transaction #{tx_id}")
+        print(f" Deleted transaction #{tx_id}")
     else:
-        print(f"❌ Transaction #{tx_id} not found")
+        print(f" Transaction #{tx_id} not found")
     
     return 0
 
@@ -202,9 +202,9 @@ def cmd_currency(args):
     
     if args:
         storage.set_currency(args[0])
-        print(f"✅ Currency set to {args[0].upper()}")
+        print(f" Currency set to {args[0].upper()}")
     else:
-        print(f"💱 Currency: {storage.get_currency()}")
+        print(f" Currency: {storage.get_currency()}")
     
     return 0
 
@@ -224,13 +224,13 @@ def cmd_rates(args):
 def cmd_convert(args):
     """Convert between currencies."""
     if len(args) < 3:
-        print("❌ Usage: finance convert 100 USD UZS")
+        print(" Usage: finance convert 100 USD UZS")
         return 1
     
     try:
         amount = float(args[0].replace('k', '000').replace('K', '000'))
     except ValueError:
-        print("❌ Invalid amount")
+        print(" Invalid amount")
         return 1
     
     from_curr = args[1].upper()
@@ -242,7 +242,7 @@ def cmd_convert(args):
     from_formatted = converter.format_amount(amount, from_curr)
     to_formatted = converter.format_amount(converted, to_curr)
     
-    print(f"💱 {from_formatted} = {to_formatted}")
+    print(f" {from_formatted} = {to_formatted}")
     print(f"   Rate: 1 {from_curr} = {rate:.4f} {to_curr}")
     
     return 0
@@ -251,12 +251,12 @@ def cmd_convert(args):
 def cmd_income(args):
     """Log income."""
     if len(args) < 2:
-        print("❌ Usage: finance income 5000000 \"salary\"")
+        print(" Usage: finance income 5000000 \"salary\"")
         return 1
     
     amount = parse_cli_amount(args[0])
     if amount <= 0:
-        print("❌ Invalid amount")
+        print(" Invalid amount")
         return 1
     
     description = " ".join(args[1:]).strip('"\'')
@@ -278,8 +278,8 @@ def cmd_income(args):
     portfolio = get_portfolio()
     income = portfolio.add_income(amount, description, income_type)
     
-    emoji = Portfolio.INCOME_TYPES.get(income_type, {}).get("emoji", "💰")
-    print(f"✅ Income logged: {emoji} {amount:,} UZS — {description}")
+    emoji = Portfolio.INCOME_TYPES.get(income_type, {}).get("emoji", "")
+    print(f" Income logged: {emoji} {amount:,} UZS — {description}")
     return 0
 
 
@@ -298,22 +298,22 @@ def cmd_asset(args):
         value = parse_cli_amount(args[2])
         
         if value <= 0:
-            print("❌ Invalid value")
+            print(" Invalid value")
             return 1
         
         asset_type = args[3] if len(args) > 3 else "other"
         asset = portfolio.add_asset(name, value, asset_type)
         
-        emoji = Portfolio.ASSET_TYPES.get(asset_type, {}).get("emoji", "📦")
-        print(f"✅ Asset added: {emoji} {name} = {value:,} UZS")
+        emoji = Portfolio.ASSET_TYPES.get(asset_type, {}).get("emoji", "")
+        print(f" Asset added: {emoji} {name} = {value:,} UZS")
         return 0
     
     elif action == "remove" and len(args) >= 2:
         name = args[1].strip('"\'')
         if portfolio.remove_asset(name):
-            print(f"✅ Removed: {name}")
+            print(f" Removed: {name}")
         else:
-            print(f"❌ Asset not found: {name}")
+            print(f" Asset not found: {name}")
         return 0
     
     elif action == "list":
@@ -355,7 +355,7 @@ def cmd_budget(args):
     
     daily = parse_cli_amount(args[0])
     if daily <= 0:
-        print("❌ Invalid amount")
+        print(" Invalid amount")
         return 1
     
     print(get_budget_status(daily))
@@ -386,20 +386,20 @@ def cmd_recurring(args):
                 day = int(arg.split("=")[1])
         
         if frequency not in recurring.FREQUENCIES:
-            print(f"❌ Invalid frequency. Use: {', '.join(recurring.FREQUENCIES.keys())}")
+            print(f" Invalid frequency. Use: {', '.join(recurring.FREQUENCIES.keys())}")
             return 1
         
         item = recurring.add_recurring(amount, description, frequency, day)
         emoji = get_emoji(item["category"])
-        print(f"✅ Recurring added: {emoji} {amount:,} — {description} ({frequency})")
+        print(f" Recurring added: {emoji} {amount:,} — {description} ({frequency})")
         return 0
     
     elif action == "remove" and len(args) >= 2:
         id_or_name = args[1].strip('"\'')
         if recurring.remove_recurring(id_or_name):
-            print(f"✅ Removed recurring expense")
+            print(f" Removed recurring expense")
         else:
-            print(f"❌ Not found: {id_or_name}")
+            print(f" Not found: {id_or_name}")
         return 0
     
     elif action == "list":
@@ -409,23 +409,23 @@ def cmd_recurring(args):
     elif action == "process":
         logged = recurring.process_due()
         if logged:
-            print(f"✅ Processed {len(logged)} recurring expense(s)")
+            print(f" Processed {len(logged)} recurring expense(s)")
             for tx in logged:
                 emoji = get_emoji(tx["category"])
                 print(f"   {emoji} {tx['amount']:,} — {tx['description']}")
         else:
-            print("✅ No recurring expenses due today")
+            print(" No recurring expenses due today")
         return 0
     
     elif action == "due":
         due = recurring.get_due_today()
         if due:
-            print("🔄 Due Today:")
+            print(" Due Today:")
             for item in due:
                 emoji = get_emoji(item["category"])
                 print(f"   {emoji} {item['amount']:,} — {item['description']}")
         else:
-            print("✅ Nothing due today")
+            print(" Nothing due today")
         return 0
     
     else:
@@ -459,7 +459,7 @@ def cmd_goal(args):
                 current = parse_cli_amount(arg.split("=")[1])
         
         goal = goals.add_goal(name, target, deadline, current)
-        print(f"🎯 Goal added: {name}")
+        print(f" Goal added: {name}")
         print(f"   Target: {target:,} UZS")
         if deadline:
             print(f"   Deadline: {deadline}")
@@ -472,12 +472,12 @@ def cmd_goal(args):
         goal = goals.update_goal(name, amount)
         if goal:
             progress = goals.get_goal_progress(goal)
-            print(f"✅ Added {amount:,} to {goal['name']}")
+            print(f" Added {amount:,} to {goal['name']}")
             print(f"   Progress: {progress['current']:,} / {progress['target']:,} ({progress['percentage']:.0f}%)")
             if goal.get("completed"):
-                print(f"   🎉 GOAL COMPLETED!")
+                print(f"    GOAL COMPLETED!")
         else:
-            print(f"❌ Goal not found: {name}")
+            print(f" Goal not found: {name}")
         return 0
     
     elif action == "set" and len(args) >= 3:
@@ -487,18 +487,18 @@ def cmd_goal(args):
         goal = goals.set_goal_amount(name, amount)
         if goal:
             progress = goals.get_goal_progress(goal)
-            print(f"✅ Set {goal['name']} to {amount:,}")
+            print(f" Set {goal['name']} to {amount:,}")
             print(f"   Progress: {progress['percentage']:.0f}%")
         else:
-            print(f"❌ Goal not found: {name}")
+            print(f" Goal not found: {name}")
         return 0
     
     elif action == "remove" and len(args) >= 2:
         name = args[1].strip('"\'')
         if goals.remove_goal(name):
-            print(f"✅ Removed goal: {name}")
+            print(f" Removed goal: {name}")
         else:
-            print(f"❌ Goal not found: {name}")
+            print(f" Goal not found: {name}")
         return 0
     
     elif action == "list":
@@ -538,7 +538,7 @@ def cmd_digest(args):
 def cmd_quick(args):
     """Show quick action buttons info."""
     print("""
-⚡ Quick Actions for Telegram
+ Quick Actions for Telegram
 
 These shortcuts work in chat:
 • "spent 50k lunch" → finance add 50000 "lunch"
@@ -558,7 +558,7 @@ Or use inline buttons (if enabled in your bot).
 def cmd_help(args):
     """Show help."""
     help_text = """
-💰 Finance Tracker v2.0 — Complete Personal Finance
+ Finance Tracker v2.0 — Complete Personal Finance
 
 EXPENSES:
   finance add <amount> "<desc>"     Log an expense

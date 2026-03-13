@@ -25,7 +25,7 @@ export async function runTechnicalScreening(
   const marketName = getMarketName(market);
 
   console.log(
-    `📊 Scanning ${marketName} for oversold stocks (threshold: ${threshold})...`
+    ` Scanning ${marketName} for oversold stocks (threshold: ${threshold})...`
   );
 
   const tickers = await getTickers(market);
@@ -75,18 +75,18 @@ export async function runTechnicalScreening(
 
   if (format === "telegram") {
     const lines = [
-      `📊 Technical Oversold Scan (${marketName})`,
+      ` Technical Oversold Scan (${marketName})`,
       `Scanned: ${tickers.length} stocks`,
       `Found: ${oversoldStocks.length} oversold (${threshold})\n`,
     ];
 
     if (oversoldStocks.length > 0) {
-      lines.push("🔴 Most Oversold (Top 10):\n");
+      lines.push(" Most Oversold (Top 10):\n");
 
       for (let i = 0; i < Math.min(10, oversoldStocks.length); i++) {
         const stock = oversoldStocks[i];
         lines.push(
-          `${i + 1}. **${stock.ticker}** — Williams %R: ${stock.williamsR.toFixed(1)} 🔴`
+          `${i + 1}. **${stock.ticker}** — Williams %R: ${stock.williamsR.toFixed(1)} `
         );
       }
 
@@ -94,14 +94,14 @@ export async function runTechnicalScreening(
         lines.push(`\n+ ${oversoldStocks.length - 10} more`);
       }
     } else {
-      lines.push("✅ No oversold stocks found");
+      lines.push(" No oversold stocks found");
     }
 
     return lines.join("\n");
   }
 
   const lines = [
-    `📊 Technical Oversold Scan (${marketName})`,
+    ` Technical Oversold Scan (${marketName})`,
     `Scanned: ${tickers.length} stocks`,
     `Found: ${oversoldStocks.length} oversold (threshold: ${threshold})\n`,
   ];
@@ -124,7 +124,7 @@ export async function runTechnicalScreening(
       lines.push(`\n+ ${oversoldStocks.length - topN} more oversold stocks`);
     }
   } else {
-    lines.push("✅ No oversold stocks found - market looks healthy!");
+    lines.push(" No oversold stocks found - market looks healthy!");
   }
 
   return lines.join("\n");

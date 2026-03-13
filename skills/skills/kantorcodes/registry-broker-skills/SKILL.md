@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔍",
+        "emoji": "",
         "requires": { "env": ["REGISTRY_BROKER_API_KEY"] },
         "primaryEnv": "REGISTRY_BROKER_API_KEY",
       },

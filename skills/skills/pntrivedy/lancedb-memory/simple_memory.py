@@ -107,4 +107,4 @@ if __name__ == "__main__":
     all_memories = get_all_memories()
     print(f"Total memories: {len(all_memories)}")
     
-    print("✅ Simple LanceDB integration working!")
+    print(" Simple LanceDB integration working!")

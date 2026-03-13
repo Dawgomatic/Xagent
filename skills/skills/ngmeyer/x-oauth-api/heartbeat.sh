@@ -22,10 +22,10 @@ check_rate_limits() {
   node "$SCRIPT_DIR/bin/x.js" rate-limits >> "$LOG_FILE" 2>&1
   
   if [ $? -eq 0 ]; then
-    echo "✅ Rate limits OK"
+    echo " Rate limits OK"
     return 0
   else
-    echo "❌ Rate limit check failed"
+    echo " Rate limit check failed"
     return 1
   fi
 }
@@ -33,10 +33,10 @@ check_rate_limits() {
 # Function: Verify credentials
 verify_credentials() {
   if [ -z "$X_API_KEY" ] || [ -z "$X_API_SECRET" ] || [ -z "$X_ACCESS_TOKEN" ] || [ -z "$X_ACCESS_TOKEN_SECRET" ]; then
-    echo "❌ Missing X API credentials"
+    echo " Missing X API credentials"
     return 1
   fi
-  echo "✅ Credentials configured"
+  echo " Credentials configured"
   return 0
 }
 
@@ -59,7 +59,7 @@ main() {
   # Update state
   jq '.lastCheck = now | .status = "healthy"' "$STATE_FILE" > "${STATE_FILE}.tmp" && mv "${STATE_FILE}.tmp" "$STATE_FILE"
   
-  echo "✅ Heartbeat OK"
+  echo " Heartbeat OK"
   exit 0
 }
 

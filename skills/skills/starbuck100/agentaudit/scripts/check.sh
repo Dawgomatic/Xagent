@@ -10,7 +10,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 for cmd in jq curl; do
   if ! command -v "$cmd" &>/dev/null; then
-    echo "❌ Required: ${cmd}" >&2; exit 1
+    echo " Required: ${cmd}" >&2; exit 1
   fi
 done
 
@@ -35,14 +35,14 @@ if [[ "$1" == "--hash" || "$1" == "-H" ]]; then
     || printf '%s' "$HASH" | jq -sRr @uri 2>/dev/null \
     || echo "$HASH")"
 
-  echo "🔍 Looking up hash '${HASH}' against ${API_URL}..."
+  echo " Looking up hash '${HASH}' against ${API_URL}..."
   echo ""
 
   LOOKUP_ARGS=(-sL -f --max-time 10 "${API_URL}/api/lookup?hash=${HASH_ENCODED}")
   [[ -n "$API_KEY" ]] && LOOKUP_ARGS+=(-H "Authorization: Bearer ${API_KEY}")
 
   LOOKUP_RESPONSE="$(curl_retry "${LOOKUP_ARGS[@]}")" || {
-    echo "⚠️  Registry unreachable. Cannot look up hash."
+    echo "  Registry unreachable. Cannot look up hash."
     exit 2
   }
 
@@ -56,19 +56,19 @@ if [[ "$1" == "--hash" || "$1" == "-H" ]]; then
   echo ""
 
   if [[ "$REPORT_COUNT" -gt 0 ]]; then
-    echo "   📋 Reports:"
+    echo "    Reports:"
     echo "$LOOKUP_RESPONSE" | jq -r '.reports[] | "   • \(.skill_slug) — score \(.risk_score), matched \(.matched_field)"'
     echo ""
   fi
 
   if [[ "$FINDING_COUNT" -gt 0 ]]; then
-    echo "   🔎 Findings:"
+    echo "    Findings:"
     echo "$LOOKUP_RESPONSE" | jq -r '.findings[] | "   • [\(.severity | ascii_upcase)] \(.asf_id): \(.title) (matched \(.matched_field))"'
     echo ""
   fi
 
   if [[ "$TOTAL" -eq 0 ]]; then
-    echo "📭 No audit data matches this hash."
+    echo " No audit data matches this hash."
   fi
   exit 0
 fi
@@ -79,7 +79,7 @@ PKG_ENCODED="$(printf '%s' "$PKG" | python3 -c "import sys, urllib.parse; print(
   || printf '%s' "$PKG" | jq -sRr @uri 2>/dev/null \
   || echo "$PKG")"
 
-echo "🔍 Checking '$PKG' against ${API_URL}..."
+echo " Checking '$PKG' against ${API_URL}..."
 echo ""
 
 # Fetch the trust score from /api/check (authoritative, accounts for by_design exclusions)
@@ -87,7 +87,7 @@ CHECK_ARGS=(-sL -f --max-time 10 "${API_URL}/api/check?package=${PKG_ENCODED}")
 [[ -n "$API_KEY" ]] && CHECK_ARGS+=(-H "Authorization: Bearer ${API_KEY}")
 
 CHECK_RESPONSE="$(curl_retry "${CHECK_ARGS[@]}")" || {
-  echo "⚠️  Registry unreachable. Cannot verify package."
+  echo "  Registry unreachable. Cannot verify package."
   echo "    Try again later or run a local LLM audit on the source."
   exit 2
 }
@@ -95,7 +95,7 @@ CHECK_RESPONSE="$(curl_retry "${CHECK_ARGS[@]}")" || {
 # Check if the package has audit data
 EXISTS=$(echo "$CHECK_RESPONSE" | jq -r '.exists // false')
 if [[ "$EXISTS" != "true" ]]; then
-  echo "📭 No audit data found for '$PKG'."
+  echo " No audit data found for '$PKG'."
   echo "   This package has not been scanned yet."
   echo "   Consider submitting an audit: bash scripts/upload.sh <report.json>"
   exit 0
@@ -115,7 +115,7 @@ RESPONSE="$(curl_retry "${FIND_ARGS[@]}")" || RESPONSE='{"findings":[],"total":0
 if [[ -n "$API_SCORE" ]]; then
   SCORE="$API_SCORE"
 else
-  echo "⚠️  API did not return trust_score — using local approximation" >&2
+  echo "  API did not return trust_score — using local approximation" >&2
   SCORE=$(echo "$RESPONSE" | jq '
     [.findings // [] | .[] | select(.by_design != true and .by_design != "true") |
       .component_type as $ct |
@@ -139,11 +139,11 @@ BYDESIGN=$(echo "$RESPONSE" | jq '[.findings[]|select(.by_design==true or .by_de
 
 # Decision
 if [[ "$SCORE" -ge 70 ]]; then
-  ICON="✅"; VERDICT="PASS — Safe to install"
+  ICON=""; VERDICT="PASS — Safe to install"
 elif [[ "$SCORE" -ge 40 ]]; then
-  ICON="⚠️"; VERDICT="CAUTION — Review findings before installing"
+  ICON=""; VERDICT="CAUTION — Review findings before installing"
 else
-  ICON="🔴"; VERDICT="UNSAFE — Do not install without careful review"
+  ICON=""; VERDICT="UNSAFE — Do not install without careful review"
 fi
 
 echo "${ICON} ${PKG} — Score: ${SCORE}/100"

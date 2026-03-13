@@ -129,6 +129,6 @@ sage_rpc send_transaction_immediately '{
 
 ## Notes
 
-- WalletConnect enables dApp ↔ wallet communication
+- WalletConnect enables dApp  wallet communication
 - `lineage_proof` is required for CAT spends
 - Message signing proves address ownership without spending

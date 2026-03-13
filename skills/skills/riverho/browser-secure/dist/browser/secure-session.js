@@ -104,7 +104,7 @@ async function checkVaultLock() {
     }
 }
 async function promptVaultUnlock(provider) {
-    console.log(`\n🔐 ${provider} vault is locked.`);
+    console.log(`\n ${provider} vault is locked.`);
     console.log('Please unlock your vault in another terminal, then press Enter to continue...');
     return new Promise((resolve) => {
         const rl = require('readline').createInterface({
@@ -144,10 +144,10 @@ export async function startBrowser(url, options = {}) {
     }
     // Start audit session
     const sessionId = startAuditSession(options.site);
-    console.log(`🔒 Secure session started: ${sessionId}`);
+    console.log(` Secure session started: ${sessionId}`);
     // Create isolated session
     activeSession = createSecureSession(options.site, options.timeout, options.unattended?.credentialSource);
-    console.log(`📁 Work directory: ${activeSession.workDir}`);
+    console.log(` Work directory: ${activeSession.workDir}`);
     // Setup timeout watcher
     setupTimeoutWatcher(async () => {
         await closeBrowser();
@@ -156,14 +156,14 @@ export async function startBrowser(url, options = {}) {
     const config = loadConfig();
     const chromePath = getChromePath();
     if (chromePath) {
-        console.log(`🌐 Using system Chrome: ${chromePath}`);
+        console.log(` Using system Chrome: ${chromePath}`);
     }
     else {
-        console.log('⚠️  System Chrome not found, using bundled Chromium (extensions unavailable)');
+        console.log('  System Chrome not found, using bundled Chromium (extensions unavailable)');
     }
     if (options.profile) {
         // Use persistent context with Chrome profile
-        console.log(`🔐 Using Chrome profile: ${options.profile.name} [${options.profile.id}]`);
+        console.log(` Using Chrome profile: ${options.profile.name} [${options.profile.id}]`);
         const userDataDir = options.profile.path.replace(/\/Default$/, '').replace(/\/Profile \d+$/, '');
         const profileArg = options.profile.id === 'Default' ? '' : `--profile-directory=${options.profile.id}`;
         const context = await chromium.launchPersistentContext(userDataDir, {
@@ -194,7 +194,7 @@ export async function startBrowser(url, options = {}) {
         try {
             const welcomeHtml = fs.readFileSync(welcomePath, 'utf-8');
             await page.setContent(welcomeHtml, { waitUntil: 'networkidle' });
-            console.log('✅ Opened welcome page');
+            console.log(' Opened welcome page');
         }
         catch (e) {
             throw new Error(`Failed to load welcome page: ${e}`);
@@ -202,7 +202,7 @@ export async function startBrowser(url, options = {}) {
     }
     else {
         await page.goto(url);
-        console.log(`✅ Navigated to ${url}`);
+        console.log(` Navigated to ${url}`);
     }
     // Handle site authentication if specified or auto-vault is enabled
     if (options.site) {
@@ -263,13 +263,13 @@ function setupTimeoutWatcher(onTimeout) {
         // Show warning before timeout
         if (!activeSession.warningShown && elapsed > warningAtMs && elapsed < activeSession.maxDuration) {
             const remaining = Math.floor((activeSession.maxDuration - elapsed) / 1000);
-            console.log(`\n⚠️  Session warning: ${remaining}s remaining until timeout`);
+            console.log(`\n  Session warning: ${remaining}s remaining until timeout`);
             activeSession.warningShown = true;
         }
         if (elapsed > activeSession.maxDuration) {
             if (timeoutInterval)
                 clearInterval(timeoutInterval);
-            console.log('\n⚠️  Session timed out. Closing browser...');
+            console.log('\n  Session timed out. Closing browser...');
             onTimeout();
         }
     }, 5000);
@@ -284,7 +284,7 @@ async function handleSiteAuthentication(site, unattended) {
         if (isCacheValid(site)) {
             creds = await getCachedCredentials(site);
             if (creds) {
-                console.log(`🔐 Using cached credentials for ${site}`);
+                console.log(` Using cached credentials for ${site}`);
                 fromCache = true;
             }
         }
@@ -304,7 +304,7 @@ async function handleSiteAuthentication(site, unattended) {
     });
     // Get credentials from vault if not cached
     if (!creds) {
-        console.log(`🔐 Retrieving credentials for ${site}...`);
+        console.log(` Retrieving credentials for ${site}...`);
         if (unattended?.credentialSource === 'env') {
             // Use environment credentials
             const prefix = `BROWSER_SECURE_${site.toUpperCase()}`;
@@ -337,15 +337,15 @@ async function handleAutoVaultAuthentication(url, unattended) {
     if (!page)
         return;
     const domain = extractDomain(url);
-    console.log(`🔍 Auto-discovering credentials for ${domain}...`);
+    console.log(` Auto-discovering credentials for ${domain}...`);
     // Use interactive discovery (not available in unattended mode)
     if (unattended?.enabled) {
-        console.log('⏭️  Auto-vault discovery skipped in unattended mode.');
+        console.log('  Auto-vault discovery skipped in unattended mode.');
         return;
     }
     const discovery = await interactiveCredentialDiscovery(url, domain);
     if (!discovery || !discovery.credentials) {
-        console.log('⏭️  No credentials selected. Continuing without authentication.');
+        console.log('  No credentials selected. Continuing without authentication.');
         return;
     }
     const { credentials, siteKey } = discovery;
@@ -603,7 +603,7 @@ export async function closeBrowser() {
     // Finalize audit
     const duration = Math.floor((Date.now() - startTime) / 1000);
     finalizeAuditSession(duration, cleanupSuccess);
-    console.log('🔒 Secure session closed');
+    console.log(' Secure session closed');
     actionCounter = 0;
 }
 function secureCleanup() {
@@ -655,7 +655,7 @@ export function suspendSession() {
     }
     activeSession.suspended = true;
     activeSession.suspendedAt = Date.now();
-    console.log('⏸️  Session suspended. Timeout is paused.');
+    console.log('  Session suspended. Timeout is paused.');
 }
 // Resume the session (continue timeout)
 export function resumeSession() {
@@ -674,5 +674,5 @@ export function resumeSession() {
     activeSession.suspended = false;
     activeSession.suspendedAt = undefined;
     activeSession.warningShown = false; // Reset warning so it shows again
-    console.log('▶️  Session resumed. Timeout continues.');
+    console.log('  Session resumed. Timeout continues.');
 }

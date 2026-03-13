@@ -336,7 +336,7 @@ class ChangelogGenerator:
         if show_breaking and commit.breaking_change_description:
             line += f" - {commit.breaking_change_description}"
         elif commit.is_breaking and not show_breaking:
-            line += " ⚠️ BREAKING"
+            line += "  BREAKING"
         
         return line
     

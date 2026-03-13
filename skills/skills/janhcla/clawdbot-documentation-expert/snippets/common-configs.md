@@ -112,7 +112,7 @@ Then run: `clawdbot login` to scan QR code.
 ```json
 {
   "messages": {
-    "ackReaction": "👀",
+    "ackReaction": "",
     "textChunkLimit": 1900,
     "historyLimit": 20,
     "replyToMode": "first"

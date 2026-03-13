@@ -181,20 +181,20 @@ Key from macOS Keychain:
 ## Caption Template
 
 ```
-🇲🇾 {N} Nights in {Destination} — {Itinerary Subtitle}
+ {N} Nights in {Destination} — {Itinerary Subtitle}
 
 {One-line hook about the trip}
 
-📍 Swipe through our top 5 picks:
+ Swipe through our top 5 picks:
 1. {Attraction 1} — {one-line reason}
 2. {Attraction 2} — {one-line reason}
 3. {Attraction 3} — {one-line reason}
 4. {Attraction 4} — {one-line reason}
 5. {Attraction 5} — {one-line reason}
 
-Full free itinerary with tips, prices & Reddit recs 👉 {ITINERARY_URL}
+Full free itinerary with tips, prices & Reddit recs  {ITINERARY_URL}
 
-💬 {PROVOCATIVE_QUESTION — e.g. "Is 5 nights enough for {Destination} or do you need more?" or "What's the one thing most tourists get wrong about {Destination}?"}
+ {PROVOCATIVE_QUESTION — e.g. "Is 5 nights enough for {Destination} or do you need more?" or "What's the one thing most tourists get wrong about {Destination}?"}
 
 #{destination_hashtag} #{country} #travelitinerary #foodietravel #southeastasia #asiatravel #travelguide #tabiji
 ```

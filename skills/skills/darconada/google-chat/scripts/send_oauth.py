@@ -45,7 +45,7 @@ def get_credentials(credentials_path: str, token_path: str) -> Credentials:
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(credentials_path, SCOPES)
-            print("\n🔐 Authentication required!", file=sys.stderr)
+            print("\n Authentication required!", file=sys.stderr)
             print("Opening browser for authentication...\n", file=sys.stderr)
             creds = flow.run_local_server(port=0)
         
@@ -103,7 +103,7 @@ def send_message(service, space_id: str, message: str, add_emoji: bool = True) -
     try:
         # Add robot emoji prefix
         if add_emoji:
-            message = f"🤖 {message}"
+            message = f" {message}"
         
         body = {'text': message}
         result = service.spaces().messages().create(

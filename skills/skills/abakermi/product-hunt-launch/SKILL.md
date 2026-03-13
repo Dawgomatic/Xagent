@@ -5,12 +5,12 @@ description: Track your Product Hunt launch stats (Rank, Upvotes, Comments) in r
 author: abakermi
 metadata:
   openclaw:
-    emoji: "🚀"
+    emoji: ""
     requires:
       env: ["PH_API_TOKEN"]
 ---
 
-# Product Hunt Launch 🚀
+# Product Hunt Launch 
 
 Track your launch day metrics from the terminal.
 
@@ -24,7 +24,7 @@ Track your launch day metrics from the terminal.
 ### Check Post Stats
 ```bash
 ph-launch stats --slug "your-product-slug"
-# Output: Rank #4 | 🔼 450 | 💬 56
+# Output: Rank #4 |  450 |  56
 ```
 
 ### Monitor Launch (Live Dashboard)

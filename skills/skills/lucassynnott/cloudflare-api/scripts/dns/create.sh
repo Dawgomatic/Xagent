@@ -48,13 +48,13 @@ fi
 
 TOKEN=$(get_token)
 if [ -z "$TOKEN" ]; then
-    echo "❌ No API token. Run ./scripts/setup.sh first." >&2
+    echo " No API token. Run ./scripts/setup.sh first." >&2
     exit 1
 fi
 
 ZONE_ID=$(get_zone_id "$DOMAIN")
 if [ -z "$ZONE_ID" ]; then
-    echo "❌ Zone '$DOMAIN' not found"
+    echo " Zone '$DOMAIN' not found"
     exit 1
 fi
 
@@ -78,7 +78,7 @@ DATA=$(jq -n \
 RESPONSE=$(cf_post "/zones/$ZONE_ID/dns_records" "$DATA")
 
 if check_error "$RESPONSE"; then
-    echo "✅ Record created!"
+    echo " Record created!"
     RECORD_ID=$(echo "$RESPONSE" | jq -r '.result.id')
     echo "   ID: $RECORD_ID"
 else

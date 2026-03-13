@@ -49,7 +49,7 @@ def parse_tasks(content: str) -> dict:
     for line in content.split('\n'):
         # Detect section headers
         if line.startswith('## '):
-            section_match = re.match(r'## ([🔴🟡🟢📅✅]) (.+)', line)
+            section_match = re.match(r'## ([]) (.+)', line)
             if section_match:
                 current_section = section_match.group(1)
             continue
@@ -76,13 +76,13 @@ def parse_tasks(content: str) -> dict:
             # Categorize by section
             if done:
                 result['done'].append(current_task)
-            elif current_section == '🔴':
+            elif current_section == '':
                 result['high_priority'].append(current_task)
-            elif current_section == '🟡':
+            elif current_section == '':
                 result['medium_priority'].append(current_task)
-            elif current_section == '🟢':
+            elif current_section == '':
                 result['delegated'].append(current_task)
-            elif current_section == '📅':
+            elif current_section == '':
                 result['upcoming'].append(current_task)
             
             continue
@@ -128,7 +128,7 @@ def parse_tasks(content: str) -> dict:
 def load_tasks() -> tuple[str, dict]:
     """Load and parse tasks from file."""
     if not TASKS_FILE.exists():
-        print(f"\n❌ Tasks file not found: {TASKS_FILE}\n", file=sys.stderr)
+        print(f"\n Tasks file not found: {TASKS_FILE}\n", file=sys.stderr)
         print("To create a new tasks file, run:")
         print(f"  python3 scripts/init.py\n")
         sys.exit(1)

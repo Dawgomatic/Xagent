@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📰",
+        "emoji": "",
         "requires": { "bins": ["curl", "python3"] },
         "schedule": "0 7 * * *",
         "delivery": "paulkingham@mac.com",
@@ -156,35 +156,35 @@ SECTIONS=(
 The briefing produces a well-formatted message like:
 
 ```
-📰 Good morning! Here's your briefing for Monday, February 16
+ Good morning! Here's your briefing for Monday, February 16
 
-🌤️ Weather in Leyton
+ Weather in Leyton
    Partly cloudy, 8°C / 46°F
    High: 12°C · Low: 5°C
-   💧 10% rain · 💨 12km/h wind
+    10% rain ·  12km/h wind
 
-📅 Today
+ Today
    09:00 - Team standup
    14:00 - Client call (Zoom)
 
-📰 Top Stories
+ Top Stories
    • Headline one...
    • Headline two...
    • Headline three...
    • Headline four...
    • Headline five...
 
-🤖 AI/Tech Pulse
+ AI/Tech Pulse
    • OpenAI releases new feature...
    • Anthropic updates Claude...
    • Hacker News trending: ...
 
-🦾 OpenClaw Deep Dive
+ OpenClaw Deep Dive
    New this week: skill-name (description)
    Community highlight: ...
    Try this: ...
 
-💡 Two Things to Try
+ Two Things to Try
    1. First suggestion...
    2. Second suggestion...
 ```

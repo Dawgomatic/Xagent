@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "✅",
+        "emoji": "",
         "requires": { "bins": ["todoist"] },
         "env": { "TODOIST_API_TOKEN": "" },
         "install":

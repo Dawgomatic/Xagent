@@ -56,9 +56,9 @@
 ## Hygiene Issues
 
 ### BOARD.md bloat
-**Detection:** `wc -l BOARD.md` > 100 with many ✅ items
+**Detection:** `wc -l BOARD.md` > 100 with many  items
 **Remediation:** Archive completed items, keep only active
-**Auto-fixable:** Yes (move ✅ older than 7 days to archive)
+**Auto-fixable:** Yes (move  older than 7 days to archive)
 
 ### Orphaned memory files
 **Detection:** Compare `ls memory/*.md` vs entries in `memory/INDEX.md`
@@ -71,8 +71,8 @@
 **Auto-fixable:** No (architectural decision)
 
 ### Stale BACKLOG entries
-**Detection:** 📋 or 🔄 items >7 days old
-**Remediation:** Review and either complete, delegate, or mark ⏸️
+**Detection:**  or  items >7 days old
+**Remediation:** Review and either complete, delegate, or mark 
 **Auto-fixable:** No (requires task evaluation)
 
 ---

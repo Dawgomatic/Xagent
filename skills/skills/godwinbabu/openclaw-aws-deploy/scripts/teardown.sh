@@ -34,7 +34,7 @@ Usage: $0 [options]
 
 Discovery (at least one required):
   --name <name>           Find resources by Project=<name> tag
-                          ⚠️  May affect multiple deployments — prefer --deploy-id
+                            May affect multiple deployments — prefer --deploy-id
   --deploy-id <id>        Find resources by DeployId=<id> tag (most precise)
   --from-output <path>    Read resource IDs from deploy-output.json
 
@@ -141,8 +141,8 @@ if ! aws_with_region sts get-caller-identity --output text --query 'Account' >/d
 fi
 
 log() { echo "[$(date '+%H:%M:%S')] $*"; }
-warn() { echo "[$(date '+%H:%M:%S')] ⚠️  $*" >&2; }
-fail() { echo "[$(date '+%H:%M:%S')] ❌ $*" >&2; exit 1; }
+warn() { echo "[$(date '+%H:%M:%S')]   $*" >&2; }
+fail() { echo "[$(date '+%H:%M:%S')]  $*" >&2; exit 1; }
 
 ###############################################################################
 # aws_query — Run AWS CLI, surface real errors, treat not-found as empty
@@ -385,9 +385,9 @@ fi
 log ""
 log "=========================================="
 if [[ "$DRY_RUN" == "true" ]]; then
-  log "  🔍 TEARDOWN DRY RUN: ${NAME:-unknown}"
+  log "   TEARDOWN DRY RUN: ${NAME:-unknown}"
 else
-  log "  🗑️  TEARDOWN: ${NAME:-unknown}"
+  log "    TEARDOWN: ${NAME:-unknown}"
 fi
 log "=========================================="
 [[ -n "$DEPLOY_ID" ]] && log "  Deploy ID: $DEPLOY_ID"
@@ -401,7 +401,7 @@ print_resource() {
   local type="$1" id="$2" billable="${3:-no}"
   if [[ -n "$id" ]]; then
     local marker=""
-    [[ "$billable" == "yes" ]] && marker=" 💰"
+    [[ "$billable" == "yes" ]] && marker=" "
     log "    $type: $id$marker"
     RESOURCE_COUNT=$((RESOURCE_COUNT + 1))
   fi
@@ -424,7 +424,7 @@ done
 [[ -n "$CW_LOG_GROUP" ]] && print_resource "CW Log Group" "$CW_LOG_GROUP"
 
 log ""
-log "  Total: $RESOURCE_COUNT resources (💰 = billable)"
+log "  Total: $RESOURCE_COUNT resources ( = billable)"
 log "  ─────────────────────────────────────"
 
 if [[ $RESOURCE_COUNT -eq 0 ]]; then
@@ -464,7 +464,7 @@ delete_resource() {
   local stderr_file
   stderr_file=$(mktemp)
   if "$@" 2>"$stderr_file"; then
-    log "  ✅ $desc"
+    log "   $desc"
     rm -f "$stderr_file"
   else
     local err
@@ -501,7 +501,7 @@ if [[ -n "$INSTANCE_ID" ]]; then
       warn "  Timeout waiting for termination — continuing anyway"
       sleep 30
     fi
-    log "  ✅ Instance terminated: $INSTANCE_ID"
+    log "   Instance terminated: $INSTANCE_ID"
   fi
 fi
 
@@ -553,7 +553,7 @@ if [[ ${#CW_ALARM_NAMES[@]} -gt 0 || -n "$CW_LOG_GROUP" ]]; then
   log "--- Step 4: Delete CloudWatch resources ---"
   if [[ ${#CW_ALARM_NAMES[@]} -gt 0 ]]; then
     aws_with_region cloudwatch delete-alarms --alarm-names "${CW_ALARM_NAMES[@]}" 2>/dev/null || true
-    log "  ✅ CloudWatch alarms deleted"
+    log "   CloudWatch alarms deleted"
   fi
   if [[ -n "$CW_LOG_GROUP" ]]; then
     delete_resource "CW Log Group: $CW_LOG_GROUP" \
@@ -626,9 +626,9 @@ fi
 log ""
 log "=========================================="
 if [[ $ERRORS -eq 0 ]]; then
-  log "  ✅ Teardown Complete! All resources deleted."
+  log "   Teardown Complete! All resources deleted."
 else
-  log "  ⚠️  Teardown finished with $ERRORS error(s)."
+  log "    Teardown finished with $ERRORS error(s)."
   log "  Check warnings above and verify in AWS Console."
 fi
 log "=========================================="

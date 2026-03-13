@@ -1,16 +1,16 @@
 ---
 name: web-claude
 description: Unified web search skill. Fallback order — web_search(Brave) → duckduckgo → claude.ai. Auto-cache search results (saved to memory/research/)
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
-# Unified Web Search 🐧
+# Unified Web Search 
 
 Reliable web search via 3-tier fallback strategy: **Brave API → DuckDuckGo → claude.ai browser**
 
 ## Search Strategy
 
-### Tier 1: web_search (Brave API) — ⚡ Fast and Reliable (Recommended)
+### Tier 1: web_search (Brave API) —  Fast and Reliable (Recommended)
 
 Use OpenClaw built-in `web_search` tool.
 
@@ -28,7 +28,7 @@ web_search(query="search query", count=5, freshness="pw")
 - Requires Brave API key
 - `missing_brave_api_key` error without key
 
-### Tier 2: duckduckgo-search — 🔒 Privacy-focused (Fallback)
+### Tier 2: duckduckgo-search —  Privacy-focused (Fallback)
 
 Use DuckDuckGo API when Brave fails.
 
@@ -52,7 +52,7 @@ with DDGS() as ddgs:
 - Lower result quality than Brave
 - Request limits (blocks if too many consecutive requests)
 
-### Tier 3: web-claude (Browser) — 🧠 Analysis+Search (Last Resort)
+### Tier 3: web-claude (Browser) —  Analysis+Search (Last Resort)
 
 Trigger web search in claude.ai browser tab.
 
@@ -246,4 +246,4 @@ Search for related info after YouTube summary:
 - **Search result cache**: `memory/research/` folder auto-created
 
 ---
-> 🐧 Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill
+>  Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill

@@ -6,7 +6,7 @@
 - **Context window**: Recently expanded ("more memory now")
 - **Status**: Awaiting major system improvements
 
-## Improvements to Track: SUPERCLAW PROJECT 🚀
+## Improvements to Track: SUPERCLAW PROJECT 
 **GitHub:** https://github.com/Snail3D/SuperClaw
 **Runtime:** 24-48 hours autonomous improvement loop via OPUS 4.5
 **Started:** ~2026-02-02 00:00 MST (9 hours ago)
@@ -22,8 +22,8 @@
 
 ### IN PROGRESS
 - [ ] **CFG-01 Config (1/5)** - CFG-001 complete, 4 tasks remaining
-  - ✅ CFG-001: Unknown channels warn instead of error
-  - ⏳ CFG-002 through CFG-005 pending
+  -  CFG-001: Unknown channels warn instead of error
+  -  CFG-002 through CFG-005 pending
 
 ### UPCOMING SECTIONS
 - [ ] 02 Credentials (4 tasks)

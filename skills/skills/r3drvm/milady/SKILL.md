@@ -140,10 +140,10 @@ To customize this skill for your specific bot:
 ## Compatibility
 
 Works with:
-- ✅ ClawdBot
-- ✅ OpenClaw
-- ✅ Claude-based bots with system prompt injection
-- ✅ Any agent using custom Claude implementations
+-  ClawdBot
+-  OpenClaw
+-  Claude-based bots with system prompt injection
+-  Any agent using custom Claude implementations
 
 ---
 

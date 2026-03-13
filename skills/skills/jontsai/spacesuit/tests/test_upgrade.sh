@@ -173,9 +173,9 @@ fi
 # --- Summary ---
 echo ""
 if [[ $ERRORS -gt 0 ]]; then
-  echo "  ❌ test_upgrade.sh: $ERRORS failure(s)"
+  echo "   test_upgrade.sh: $ERRORS failure(s)"
   exit 1
 else
-  echo "  ✅ test_upgrade.sh: all checks passed"
+  echo "   test_upgrade.sh: all checks passed"
   exit 0
 fi

@@ -63,11 +63,11 @@ To prevent background tasks from bloating your main conversation context, always
 
 ## Workflow 2: Reset & Summarize (The "Digital Soul" Protocol)
 
-When your context usage (visible via `📊 session_status`) exceeds 100k tokens, perform a manual consolidation.
+When your context usage (visible via ` session_status`) exceeds 100k tokens, perform a manual consolidation.
 
 ### Steps
 
-1. **Check Context**: Run `📊 session_status` to see current token usage
+1. **Check Context**: Run ` session_status` to see current token usage
 2. **Scan History**: Review the current session for new facts, preferences, or project updates
 3. **Update MEMORY.md**: Append these new facts to your long-term memory file
 4. **Daily Log**: Ensure `memory/YYYY-MM-DD.md` is up to date with today's events
@@ -198,4 +198,4 @@ The restart clears the session history, but:
 - **Pépère** (shAde) — Original concept and documentation
 - **Zayan** (Clément) — Implementation and testing
 
-*Built for the OpenClaw community.* 🦦😸
+*Built for the OpenClaw community.* 

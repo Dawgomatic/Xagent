@@ -16,7 +16,7 @@ const force = args.includes('--force');
 const [domain, mailbox] = args.filter(arg => !arg.startsWith('--'));
 
 if (!domain || !mailbox) {
-  console.error('❌ Usage: node delete-email-forward.js <domain> <mailbox> [--force]');
+  console.error(' Usage: node delete-email-forward.js <domain> <mailbox> [--force]');
   console.error('');
   console.error('Examples:');
   console.error('  node delete-email-forward.js example.com old');
@@ -36,7 +36,7 @@ async function confirmDelete(forward) {
     
     const sourceDisplay = mailbox === '@' ? '@ (catch-all)' : mailbox;
     console.log('');
-    console.log('⚠️  Are you sure you want to delete this email forward?');
+    console.log('  Are you sure you want to delete this email forward?');
     console.log(`   From: ${sourceDisplay}@${domain}`);
     console.log(`   To: ${forward.destinations.join(', ')}`);
     console.log('');
@@ -51,7 +51,7 @@ async function confirmDelete(forward) {
 async function main() {
   try {
     const sourceDisplay = mailbox === '@' ? '@ (catch-all)' : mailbox;
-    console.log(`🔍 Checking email forward for ${sourceDisplay}@${domain}...`);
+    console.log(` Checking email forward for ${sourceDisplay}@${domain}...`);
     console.log('');
     
     // Get current forward
@@ -60,10 +60,10 @@ async function main() {
       forward = await getEmailForward(domain, mailbox);
     } catch (error) {
       if (error.statusCode === 404) {
-        console.error(`❌ Email forward not found: ${sourceDisplay}@${domain}`);
+        console.error(` Email forward not found: ${sourceDisplay}@${domain}`);
         console.error('   The forward may have already been deleted.');
         console.error('');
-        console.error('💡 To list all forwards:');
+        console.error(' To list all forwards:');
         console.error(`   node list-email-forwards.js ${domain}`);
         process.exit(1);
       }
@@ -71,7 +71,7 @@ async function main() {
     }
     
     // Show current forward
-    console.log('📋 Email forward to be deleted:');
+    console.log(' Email forward to be deleted:');
     console.log(`   From: ${sourceDisplay}@${domain}`);
     console.log(`   To:`);
     forward.destinations.forEach(dest => {
@@ -83,26 +83,26 @@ async function main() {
       const confirmed = await confirmDelete(forward);
       if (!confirmed) {
         console.log('');
-        console.log('❌ Deletion cancelled.');
+        console.log(' Deletion cancelled.');
         process.exit(0);
       }
     }
     
     // Delete the forward
     console.log('');
-    console.log('🗑️  Deleting email forward...');
+    console.log('  Deleting email forward...');
     await deleteEmailForward(domain, mailbox);
     
-    console.log('✅ Email forward deleted successfully!');
+    console.log(' Email forward deleted successfully!');
     console.log('');
-    console.log('⏱️  Changes should be active immediately.');
+    console.log('  Changes should be active immediately.');
     console.log(`   Emails to ${sourceDisplay}@${domain} will no longer be forwarded.`);
     console.log('');
-    console.log('💡 To list remaining forwards:');
+    console.log(' To list remaining forwards:');
     console.log(`   node list-email-forwards.js ${domain}`);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('   Authentication failed. Check your API token.');

@@ -1269,12 +1269,12 @@ class ToolExecutor {
         // Format for display
         const formatted = entries.map(e => {
             if (e.type === 'directory') {
-                return `📁 ${e.path}/`;
+                return ` ${e.path}/`;
             } else {
                 const size = e.size < 1024 ? `${e.size}B` :
                             e.size < 1024 * 1024 ? `${Math.round(e.size / 1024)}KB` :
                             `${Math.round(e.size / (1024 * 1024))}MB`;
-                return `📄 ${e.path} (${size})`;
+                return ` ${e.path} (${size})`;
             }
         }).join('\n');
         
@@ -1659,7 +1659,7 @@ class ToolExecutor {
                 lines.push(this.color(ANSI.dim, '│'));
                 if (result.cached) {
                     lines.push(this.color(ANSI.dim, '│ ') +
-                               this.color(ANSI.magenta, '📦 Cached summary'));
+                               this.color(ANSI.magenta, ' Cached summary'));
                 }
                 lines.push(this.color(ANSI.dim, '│'));
                 lines.push(this.color(ANSI.dim, '│ ') +
@@ -1691,7 +1691,7 @@ class ToolExecutor {
                 lines.push(this.color(ANSI.dim, '│'));
                 if (result.cached) {
                     lines.push(this.color(ANSI.dim, '│ ') +
-                               this.color(ANSI.magenta, '📦 Cached response'));
+                               this.color(ANSI.magenta, ' Cached response'));
                 }
                 lines.push(this.color(ANSI.dim, '│ ') +
                            this.color(ANSI.cyan, `Provider: ${result.provider}`));
@@ -1714,13 +1714,13 @@ class ToolExecutor {
                 lines.push(this.color(ANSI.dim, '│'));
                 if (result.noChanges) {
                     lines.push(this.color(ANSI.dim, '│ ') +
-                               this.color(ANSI.yellow, '⚡ No changes needed'));
+                               this.color(ANSI.yellow, ' No changes needed'));
                 } else if (result.editsApplied > 0) {
                     lines.push(this.color(ANSI.dim, '│ ') +
-                               this.color(ANSI.green, `✏️  Applied ${result.editsApplied} edit(s)`));
+                               this.color(ANSI.green, `  Applied ${result.editsApplied} edit(s)`));
                     if (result.editsFailed > 0) {
                         lines.push(this.color(ANSI.dim, '│ ') +
-                                   this.color(ANSI.yellow, `⚠️  ${result.editsFailed} edit(s) failed`));
+                                   this.color(ANSI.yellow, `  ${result.editsFailed} edit(s) failed`));
                     }
                 }
                 if (result.thoughtProcess) {

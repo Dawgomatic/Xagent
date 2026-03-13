@@ -340,24 +340,24 @@ scripts/tavily_search.py "React documentation" --json | \
 ## Comparison with Other Search APIs
 
 **vs Brave Search:**
-- ✅ AI answer generation
-- ✅ Raw content extraction
-- ✅ Better domain filtering
-- ❌ Slower than Brave
-- ❌ Costs credits
+-  AI answer generation
+-  Raw content extraction
+-  Better domain filtering
+-  Slower than Brave
+-  Costs credits
 
 **vs Perplexity:**
-- ✅ More control over sources
-- ✅ Raw content available
-- ✅ Dedicated news mode
+-  More control over sources
+-  Raw content available
+-  Dedicated news mode
 - ≈ Similar answer quality
 - ≈ Similar speed
 
 **vs Google Custom Search:**
-- ✅ LLM-optimized results
-- ✅ Answer generation
-- ✅ Simpler API
-- ❌ Smaller index
+-  LLM-optimized results
+-  Answer generation
+-  Simpler API
+-  Smaller index
 - ≈ Similar cost structure
 
 ## Troubleshooting

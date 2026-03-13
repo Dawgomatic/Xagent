@@ -6,12 +6,12 @@ author: oak lee
 tags: [restaurant, food, recommendation, chinese, 美食, 找餐厅, 口味画像, 大众点评, 小红书]
 metadata:
   openclaw:
-    emoji: "🍜"
+    emoji: ""
     requires:
       bins: ["python3"]
 ---
 
-# 小饭卡 🍜
+# 小饭卡 
 
 唯爱与美食不可辜负。
 

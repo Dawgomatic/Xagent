@@ -83,14 +83,14 @@ def main():
 
     if result["valid"]:
         user = result["user"]
-        print("✅ Token is valid!")
+        print(" Token is valid!")
         print(f"   Username: {user['username']}")
         print(f"   User ID:  {user['id']}")
         print(f"   Is Bot:   {user['bot']}")
 
         if not user["bot"]:
             print()
-            print("⚠️  Warning: This appears to be a user token, not a bot token.")
+            print("  Warning: This appears to be a user token, not a bot token.")
             print("   Bot tokens are required for Discord bots.")
             sys.exit(1)
 
@@ -98,17 +98,17 @@ def main():
         print()
         guilds = get_guilds(token)
         if guilds:
-            print(f"📋 Bot is in {len(guilds)} server(s):")
+            print(f" Bot is in {len(guilds)} server(s):")
             for guild in guilds[:10]:  # Show first 10
                 print(f"   • {guild['name']} ({guild['id']})")
             if len(guilds) > 10:
                 print(f"   ... and {len(guilds) - 10} more")
         else:
-            print("📋 Bot is not in any servers yet.")
+            print(" Bot is not in any servers yet.")
             print("   Use the invite URL to add it to a server.")
 
     else:
-        print("❌ Token is invalid!")
+        print(" Token is invalid!")
         print(f"   Error: {result['error']}")
         sys.exit(1)
 

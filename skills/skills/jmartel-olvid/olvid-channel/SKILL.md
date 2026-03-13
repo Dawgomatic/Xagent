@@ -3,7 +3,7 @@ name: olvid-channel
 version: 0.0.0-a9
 description: Add a native Olvid channel in OpenClaw.
 homepage: https://doc.bot.olvid.io/openclaw
-metadata: {"openclaw":{"emoji":"🗨️","category":"communication"}}
+metadata: {"openclaw":{"emoji":"","category":"communication"}}
 ---
 
 # Olvid Channel

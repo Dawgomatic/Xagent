@@ -47,7 +47,7 @@ More normal text...
       console.log('\nSanitized content ready for processing:');
       console.log(processed.sanitized.substring(0, 500) + '...');
     } else {
-      console.log('\n⚠️ Potential injection detected!');
+      console.log('\n Potential injection detected!');
       console.log('Threats found:', processed.injectionCheck.threats);
       console.log('Using sanitized version for safety...');
       console.log(processed.sanitized.substring(0, 500) + '...');

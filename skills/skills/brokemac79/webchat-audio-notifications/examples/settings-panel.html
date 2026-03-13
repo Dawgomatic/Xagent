@@ -209,7 +209,7 @@
 </style>
 
 <div class="notif-settings-panel" id="notif-settings-panel">
-  <h3>🔔 Notification Settings</h3>
+  <h3> Notification Settings</h3>
   
   <!-- Enable/Disable Toggle -->
   <div class="notif-setting-row">
@@ -232,12 +232,12 @@
       <span class="notif-label-muted">(Choose how loud notifications should be)</span>
     </label>
     <select class="notif-select" id="notif-sound">
-      <option value="level1">🔕 Level 1 - Whisper (most subtle)</option>
-      <option value="level2">🔔 Level 2 - Soft</option>
-      <option value="level3" selected>🔔 Level 3 - Medium (recommended)</option>
-      <option value="level4">🔊 Level 4 - Loud</option>
-      <option value="level5">📢 Level 5 - Very Loud (impossible to miss)</option>
-      <option value="custom" id="notif-custom-option" style="display: none;">🎵 Custom Sound</option>
+      <option value="level1"> Level 1 - Whisper (most subtle)</option>
+      <option value="level2"> Level 2 - Soft</option>
+      <option value="level3" selected> Level 3 - Medium (recommended)</option>
+      <option value="level4"> Level 4 - Loud</option>
+      <option value="level5"> Level 5 - Very Loud (impossible to miss)</option>
+      <option value="custom" id="notif-custom-option" style="display: none;"> Custom Sound</option>
     </select>
   </div>
 
@@ -254,13 +254,13 @@
              style="display: none;"
              onchange="handleCustomSoundUpload(this)">
       <button class="notif-btn" onclick="document.getElementById('notif-custom-file').click()" style="flex: 1;">
-        📁 Upload Sound
+         Upload Sound
       </button>
       <button class="notif-btn" 
               id="notif-remove-custom" 
               onclick="removeCustomSound()"
               style="background: #e74c3c; display: none;">
-        🗑️
+        
       </button>
     </div>
     <div id="notif-custom-status" style="margin-top: 6px; font-size: 12px; color: #7f8c8d;"></div>
@@ -277,7 +277,7 @@
   <!-- Test Button -->
   <div class="notif-setting-row">
     <button class="notif-btn" id="notif-test-btn" onclick="testNotificationSound()">
-      🔊 Test Sound
+       Test Sound
     </button>
   </div>
 </div>
@@ -337,7 +337,7 @@
       if (customSound) {
         // Show custom option in dropdown
         customOption.style.display = 'block';
-        customOption.textContent = `🎵 Custom Sound (${customSound.name})`;
+        customOption.textContent = ` Custom Sound (${customSound.name})`;
         
         // Show remove button
         removeBtn.style.display = 'block';
@@ -442,7 +442,7 @@
     
     if (customSound) {
       customOption.style.display = 'block';
-      customOption.textContent = `🎵 Custom Sound (${customSound.name})`;
+      customOption.textContent = ` Custom Sound (${customSound.name})`;
       removeBtn.style.display = 'block';
       statusDiv.textContent = `✓ Using: ${customSound.name}`;
       statusDiv.style.color = '#27ae60';

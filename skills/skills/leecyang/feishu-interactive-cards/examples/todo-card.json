@@ -1,7 +1,7 @@
 {
   "config": { "wide_screen_mode": true },
   "header": {
-    "title": { "content": "📋 今日任务清单", "tag": "plain_text" },
+    "title": { "content": " 今日任务清单", "tag": "plain_text" },
     "template": "blue"
   },
   "elements": [
@@ -18,7 +18,7 @@
     {
       "tag": "div",
       "text": {
-        "content": "**🔴 高优先级**",
+        "content": "** 高优先级**",
         "tag": "lark_md"
       }
     },
@@ -27,7 +27,7 @@
       "actions": [
         {
           "tag": "button",
-          "text": { "content": "⬜ 完成项目报告", "tag": "plain_text" },
+          "text": { "content": " 完成项目报告", "tag": "plain_text" },
           "type": "primary",
           "value": { 
             "action": "toggle_todo", 
@@ -46,7 +46,7 @@
       "actions": [
         {
           "tag": "button",
-          "text": { "content": "⬜ 回复客户邮件", "tag": "plain_text" },
+          "text": { "content": " 回复客户邮件", "tag": "plain_text" },
           "type": "primary",
           "value": { 
             "action": "toggle_todo", 
@@ -67,7 +67,7 @@
     {
       "tag": "div",
       "text": {
-        "content": "**🟡 中优先级**",
+        "content": "** 中优先级**",
         "tag": "lark_md"
       }
     },
@@ -76,7 +76,7 @@
       "actions": [
         {
           "tag": "button",
-          "text": { "content": "⬜ 准备周会材料", "tag": "plain_text" },
+          "text": { "content": " 准备周会材料", "tag": "plain_text" },
           "type": "primary",
           "value": { 
             "action": "toggle_todo", 
@@ -98,7 +98,7 @@
       "actions": [
         {
           "tag": "button",
-          "text": { "content": "✅ 全部完成", "tag": "plain_text" },
+          "text": { "content": " 全部完成", "tag": "plain_text" },
           "type": "primary",
           "value": { 
             "action": "complete_all_todos",
@@ -111,7 +111,7 @@
         },
         {
           "tag": "button",
-          "text": { "content": "🔄 重置全部", "tag": "plain_text" },
+          "text": { "content": " 重置全部", "tag": "plain_text" },
           "type": "default",
           "value": { 
             "action": "reset_all_todos",
@@ -129,7 +129,7 @@
       "elements": [
         {
           "tag": "plain_text",
-          "content": "💡 提示：点击任务可以切换完成状态"
+          "content": " 提示：点击任务可以切换完成状态"
         }
       ]
     }

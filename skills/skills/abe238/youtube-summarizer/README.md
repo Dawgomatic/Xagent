@@ -4,12 +4,12 @@ Automatically fetch YouTube video transcripts, generate structured summaries, an
 
 ## Features
 
-✅ **Automatic detection** - Recognizes YouTube URLs in messages  
-✅ **Cloud-friendly** - Works from VPS/cloud IPs where yt-dlp fails  
-✅ **Structured summaries** - Main thesis, key insights, and takeaways  
-✅ **Full transcripts** - Downloadable text file with complete video content  
-✅ **Platform-aware** - Auto-sends files to Telegram, text-only elsewhere  
-✅ **Multi-language** - Supports multiple languages with English fallback  
+ **Automatic detection** - Recognizes YouTube URLs in messages  
+ **Cloud-friendly** - Works from VPS/cloud IPs where yt-dlp fails  
+ **Structured summaries** - Main thesis, key insights, and takeaways  
+ **Full transcripts** - Downloadable text file with complete video content  
+ **Platform-aware** - Auto-sends files to Telegram, text-only elsewhere  
+ **Multi-language** - Supports multiple languages with English fallback  
 
 ## Installation
 
@@ -45,15 +45,15 @@ Simply share a YouTube URL in chat:
 ```
 You: https://youtu.be/dQw4w9WgXcQ
 
-Agent: 📹 **Video:** Never Gonna Give You Up
-       👤 **Channel:** Rick Astley | 👁️ **Views:** 1.4B | 📅 **Published:** 2009-10-25
+Agent:  **Video:** Never Gonna Give You Up
+        **Channel:** Rick Astley |  **Views:** 1.4B |  **Published:** 2009-10-25
        
-       **🎯 Main Thesis:**
+       ** Main Thesis:**
        A declaration of unwavering commitment and loyalty in a relationship...
        
        [structured summary follows]
        
-       📄 Full transcript attached (Telegram) or saved to transcripts/
+        Full transcript attached (Telegram) or saved to transcripts/
 ```
 
 ## How It Works
@@ -77,22 +77,22 @@ Agent: 📹 **Video:** Never Gonna Give You Up
 ### Summary Structure
 
 ```markdown
-📹 **Video:** [Title]
-👤 **Channel:** [Author] | 👁️ **Views:** [Count] | 📅 **Published:** [Date]
+ **Video:** [Title]
+ **Channel:** [Author] |  **Views:** [Count] |  **Published:** [Date]
 
-**🎯 Main Thesis:**
+** Main Thesis:**
 Core message in 1-2 sentences
 
-**💡 Key Insights:**
+** Key Insights:**
 - Insight 1
 - Insight 2
 - Insight 3
 
-**📝 Notable Points:**
+** Notable Points:**
 - Supporting detail 1
 - Supporting detail 2
 
-**🔑 Takeaway:**
+** Takeaway:**
 Practical conclusion
 ```
 

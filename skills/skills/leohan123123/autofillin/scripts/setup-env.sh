@@ -112,7 +112,7 @@ check_port() {
 
 echo -e "${CYAN}[4/6] Checking debug port ${CHROME_DEBUG_PORT}...${NC}"
 if ! check_port $CHROME_DEBUG_PORT; then
-    echo -e "${YELLOW}  ⚠ Port ${CHROME_DEBUG_PORT} is in use${NC}"
+    echo -e "${YELLOW}   Port ${CHROME_DEBUG_PORT} is in use${NC}"
     
     # Check if it's Chrome using the port
     CHROME_PID=$(lsof -t -i:$CHROME_DEBUG_PORT 2>/dev/null || true)

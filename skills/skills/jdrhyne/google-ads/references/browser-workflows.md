@@ -197,9 +197,9 @@ For bulk budget changes:
 1. Navigate: Goals → Conversions → Summary
    OR: ads.google.com/aw/conversions
 2. Check status column:
-   - "Recording conversions" = ✅ Working
-   - "No recent conversions" = ⚠️ Check setup
-   - "Inactive" = ❌ Needs fixing
+   - "Recording conversions" =  Working
+   - "No recent conversions" =  Check setup
+   - "Inactive" =  Needs fixing
 ```
 
 ### Check Conversion Settings

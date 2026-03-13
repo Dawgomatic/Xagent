@@ -203,17 +203,17 @@ print_verdict() {
     echo -e "${CYAN}═══════════════════════════════════════════${NC}"
     
     if [ "$high" -gt 0 ]; then
-        echo -e "  VERDICT: ${RED}${BOLD}❌ DO NOT INSTALL${NC}"
+        echo -e "  VERDICT: ${RED}${BOLD} DO NOT INSTALL${NC}"
         echo -e "  High: $high | Medium: $medium | Low: $low"
         echo -e "${CYAN}═══════════════════════════════════════════${NC}"
         return 2
     elif [ "$medium" -gt 0 ]; then
-        echo -e "  VERDICT: ${YELLOW}${BOLD}⚠️  REVIEW REQUIRED${NC}"
+        echo -e "  VERDICT: ${YELLOW}${BOLD}  REVIEW REQUIRED${NC}"
         echo -e "  High: $high | Medium: $medium | Low: $low"
         echo -e "${CYAN}═══════════════════════════════════════════${NC}"
         return 1
     else
-        echo -e "  VERDICT: ${GREEN}${BOLD}✅ APPEARS SAFE${NC}"
+        echo -e "  VERDICT: ${GREEN}${BOLD} APPEARS SAFE${NC}"
         echo -e "  High: $high | Medium: $medium | Low: $low"
         echo -e "${CYAN}═══════════════════════════════════════════${NC}"
         return 0

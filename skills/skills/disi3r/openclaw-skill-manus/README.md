@@ -1,6 +1,6 @@
 # Manus AI Skill for Clawdbot
 
-🧠 **Autonomous AI agent skill with web access, research, development, and automation capabilities**
+ **Autonomous AI agent skill with web access, research, development, and automation capabilities**
 
 [![Clawdbot Skill](https://img.shields.io/badge/Clawdbot-Skill-blue)](https://clawhub.com/skills/manus)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -13,13 +13,13 @@ This skill provides full integration with Manus API for Clawdbot/OpenClaw agents
 
 ## Features
 
-- 🧠 **Autonomous Tasks** - Complex task execution with progress tracking
-- 🔍 **Research** - Web search, data analysis, and information synthesis
-- 💻 **Development** - Build websites, apps, and software solutions
-- 🎨 **Media Generation** - Images, videos, audio from text descriptions
-- 🔄 **Workflow Automation** - Bookings, data collection, scheduled tasks
-- 📊 **Data Integrations** - Similarweb, premium data sources
-- 🔗 **Connectors** - Gmail, Notion, Google Calendar, Slack
+-  **Autonomous Tasks** - Complex task execution with progress tracking
+-  **Research** - Web search, data analysis, and information synthesis
+-  **Development** - Build websites, apps, and software solutions
+-  **Media Generation** - Images, videos, audio from text descriptions
+-  **Workflow Automation** - Bookings, data collection, scheduled tasks
+-  **Data Integrations** - Similarweb, premium data sources
+-  **Connectors** - Gmail, Notion, Google Calendar, Slack
 
 ## Installation
 
@@ -191,12 +191,12 @@ response = client.chat.completions.create(
 
 ### Effective Prompts
 
-**✅ Good:**
+** Good:**
 - "Research AI regulations in the EU and summarize key points"
 - "Create a weather web app with React and OpenWeatherMap"
 - "Analyze the last 10 tweets from an account"
 
-**❌ Avoid:**
+** Avoid:**
 - "Do something useful" (too vague)
 - "Improve this" (no context)
 
@@ -227,4 +227,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Built with ❤️ by [DisierTECH](https://disier.tech)**
+**Built with  by [DisierTECH](https://disier.tech)**

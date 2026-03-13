@@ -113,7 +113,7 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(report)
 
-    print(f"✅ Sentiment analysis complete: {args.output}")
+    print(f" Sentiment analysis complete: {args.output}")
 
 
 if __name__ == "__main__":

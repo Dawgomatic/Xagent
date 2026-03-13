@@ -11,23 +11,23 @@
 **Kogo dotyczy:** Obrót >200 mln PLN brutto w 2024 roku
 
 **Obowiązki:**
-- ✅ Wystawianie faktur przez KSeF
-- ✅ Odbieranie faktur przez KSeF
+-  Wystawianie faktur przez KSeF
+-  Odbieranie faktur przez KSeF
 
 ### Faza 2: Pozostali Podatnicy (od 1 kwietnia 2026)
 **Kogo dotyczy:** Obrót ≤200 mln PLN
 
 **Obowiązki:**
-- ✅ Odbieranie faktur przez KSeF (od 1 lutego 2026)
-- ✅ Wystawianie faktur przez KSeF (od 1 kwietnia 2026)
-- ⏳ Do 31 marca 2026 mogą wystawiać faktury poza KSeF
+-  Odbieranie faktur przez KSeF (od 1 lutego 2026)
+-  Wystawianie faktur przez KSeF (od 1 kwietnia 2026)
+-  Do 31 marca 2026 mogą wystawiać faktury poza KSeF
 
 ### Faza 3: Mikroprzedsiębiorcy (od 1 stycznia 2027)
 **Kogo dotyczy:** Miesięczny obrót <10 tys PLN
 
 **Obowiązki:**
-- ✅ Odbieranie: od 1 lutego 2026
-- ✅ Wystawianie: od 1 stycznia 2027
+-  Odbieranie: od 1 lutego 2026
+-  Wystawianie: od 1 stycznia 2027
 
 ---
 

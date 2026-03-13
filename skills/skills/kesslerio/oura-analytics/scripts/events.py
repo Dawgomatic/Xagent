@@ -72,7 +72,7 @@ class EventLogger:
         with open(self.events_file, "a") as f:
             f.write(json.dumps(event) + "\n")
         
-        print(f"✅ Logged event for {date}: {', '.join(tags)}")
+        print(f" Logged event for {date}: {', '.join(tags)}")
     
     def load_events(self) -> List[Dict]:
         """Load all events from file."""
@@ -293,7 +293,7 @@ def main():
             print("No events found")
             return
         
-        print(f"\n📋 Events ({len(events)} total):\n")
+        print(f"\n Events ({len(events)} total):\n")
         for e in sorted(events, key=lambda x: x["date"], reverse=True):
             tags_str = ", ".join(e["tags"])
             notes_str = f" - {e['notes']}" if e.get("notes") else ""
@@ -307,7 +307,7 @@ def main():
             print(f"No events found with tag '{args.tag}'")
             sys.exit(1)
         
-        print(f"\n🔬 Analyzing correlation: {args.tag} → {args.metric}\n")
+        print(f"\n Analyzing correlation: {args.tag} → {args.metric}\n")
         
         client = OuraClient(args.token)
         analyzer = CorrelationAnalyzer(client)
@@ -318,14 +318,14 @@ def main():
             print(f"Error: {result['error']}")
             sys.exit(1)
         
-        print(f"📊 Results:")
+        print(f" Results:")
         print(f"   Tag: {result['tag']}")
         print(f"   Metric: {result['metric']}")
         print(f"   Event days: {result['event_mean']} (n={result['event_sample_size']})")
         print(f"   Control days: {result['control_mean']} (n={result['control_sample_size']})")
         print(f"   Difference: {'+' if result['difference'] > 0 else ''}{result['difference']}")
         print(f"   Significance: {result['significance']}")
-        print(f"\n💡 {result['interpretation']}\n")
+        print(f"\n {result['interpretation']}\n")
 
 
 if __name__ == "__main__":

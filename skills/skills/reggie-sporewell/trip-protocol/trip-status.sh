@@ -17,14 +17,14 @@ warn() { echo -e "${YELLOW}[trip]${NC} $1"; }
 
 # Check if SOUL.md has active trip marker
 if [ -f "$WORKSPACE/SOUL.md" ]; then
-    if grep -q "🍄 Active Trip" "$WORKSPACE/SOUL.md"; then
+    if grep -q " Active Trip" "$WORKSPACE/SOUL.md"; then
         echo ""
         echo -e "${CYAN}═══════════════════════════════════════${NC}"
-        echo -e "${CYAN}  🍄 TRIP ACTIVE${NC}"
+        echo -e "${CYAN}   TRIP ACTIVE${NC}"
         echo -e "${CYAN}═══════════════════════════════════════${NC}"
         
         # Extract trip info from SOUL.md
-        TRIP_SECTION=$(sed -n '/🍄 Active Trip/,/^---$/p' "$WORKSPACE/SOUL.md" | head -10)
+        TRIP_SECTION=$(sed -n '/ Active Trip/,/^---$/p' "$WORKSPACE/SOUL.md" | head -10)
         echo "$TRIP_SECTION" | grep -E "^\*\*|^##" | head -5
         
         # Check for scheduled restore

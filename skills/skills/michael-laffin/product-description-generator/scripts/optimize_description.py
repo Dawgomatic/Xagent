@@ -60,7 +60,7 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(optimized)
 
-    print(f"✅ Description optimized: {args.output}")
+    print(f" Description optimized: {args.output}")
 
 
 if __name__ == "__main__":

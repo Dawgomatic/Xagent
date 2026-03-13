@@ -582,7 +582,7 @@ function getUnauthorizedPage(reason, user) {
 </head>
 <body>
     <div class="container">
-        <div class="icon">🔐</div>
+        <div class="icon"></div>
         <h1>Access Denied</h1>
         <div class="reason">${reason}</div>
         ${userInfo}
@@ -1295,11 +1295,11 @@ function parseSessionLabel(key) {
   }
 
   if (key.includes("telegram")) {
-    return "📱 Telegram";
+    return " Telegram";
   }
 
   if (key === "agent:main:main") {
-    return "🏠 Main Session";
+    return " Main Session";
   }
 
   // Fallback: truncate key
@@ -1595,8 +1595,8 @@ function getRecentActivity() {
       lines.slice(-5).forEach((line) => {
         const text = line.replace(/^- /, "").slice(0, 80);
         activities.push({
-          icon: text.includes("✅") ? "✅" : text.includes("❌") ? "❌" : "📝",
-          text: text.replace(/[✅❌📝🔧]/g, "").trim(),
+          icon: text.includes("") ? "" : text.includes("") ? "" : "",
+          text: text.replace(/[]/g, "").trim(),
           time: today,
         });
       });
@@ -2613,7 +2613,7 @@ function getSessionDetail(sessionKey) {
           const questions = text.match(/[^.!?\n]*\?/g) || [];
           questions.slice(0, 2).forEach((q) => {
             if (q.length > 15 && q.length < 200) {
-              needsAttention.push(`❓ ${q.trim()}`);
+              needsAttention.push(` ${q.trim()}`);
             }
           });
         }
@@ -2625,7 +2625,7 @@ function getSessionDetail(sessionKey) {
           lowerText.includes("need to")
         ) {
           const match = text.match(/(?:todo|remind|need to)[^.!?\n]*/i);
-          if (match) needsAttention.push(`📋 ${match[0].slice(0, 100)}`);
+          if (match) needsAttention.push(` ${match[0].slice(0, 100)}`);
         }
       }
 
@@ -2634,7 +2634,7 @@ function getSessionDetail(sessionKey) {
         const lowerText = text.toLowerCase();
 
         // Look for completions
-        ["✅", "done", "created", "updated", "fixed", "deployed"].forEach((keyword) => {
+        ["", "done", "created", "updated", "fixed", "deployed"].forEach((keyword) => {
           if (lowerText.includes(keyword)) {
             const lines = text.split("\n").filter((l) => l.toLowerCase().includes(keyword));
             lines.slice(0, 2).forEach((line) => {
@@ -3441,9 +3441,9 @@ function executeAction(action) {
         } catch (e) {}
 
         results.output = [
-          `Gateway: ${gateway?.includes("running") ? "✅ Running" : "❌ Not running"}`,
+          `Gateway: ${gateway?.includes("running") ? " Running" : " Not running"}`,
           `Sessions: ${sessionCount}`,
-          `Dashboard: ✅ Running on port ${PORT}`,
+          `Dashboard:  Running on port ${PORT}`,
         ].join("\n");
         results.success = true;
         break;
@@ -3875,7 +3875,7 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
   const profile = process.env.OPENCLAW_PROFILE;
-  console.log(`🦞 OpenClaw Command Center running at http://localhost:${PORT}`);
+  console.log(` OpenClaw Command Center running at http://localhost:${PORT}`);
   if (profile) {
     console.log(`   Profile: ${profile} (~/.openclaw-${profile})`);
   }

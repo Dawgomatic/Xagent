@@ -113,7 +113,7 @@ def main():
                 })
         
         if duplicates:
-            print(f"⚠️  Found {len(duplicates)} potential duplicate(s):\n")
+            print(f"  Found {len(duplicates)} potential duplicate(s):\n")
             for d in sorted(duplicates, key=lambda x: -x["similarity"]):
                 print(f"  [{d['similarity']:.0%} similar] {d['date']} {d['platform']} ({d['state']})")
                 print(f"    \"{d['content']}...\"\n")
@@ -146,7 +146,7 @@ def main():
                     })
         
         if dupes:
-            print(f"⚠️  {platform}: {len(dupes)} duplicate pair(s)")
+            print(f"  {platform}: {len(dupes)} duplicate pair(s)")
             for d in sorted(dupes, key=lambda x: -x["similarity"])[:5]:
                 print(f"    [{d['similarity']:.0%}] {d['post1']['date']} vs {d['post2']['date']}")
                 print(f"      1: \"{d['post1']['content']}...\" ({d['post1']['state']})")
@@ -159,7 +159,7 @@ def main():
     if total_dupes == 0:
         print("✓ No duplicates found across all platforms!")
     else:
-        print(f"⚠️  Total: {total_dupes} duplicate pair(s) found")
+        print(f"  Total: {total_dupes} duplicate pair(s) found")
         print("\nTo delete duplicates, use the Postiz web UI or:")
         print("  curl -s -b /tmp/postiz-cookies.txt -X DELETE 'https://postiz.home.mykuhlmann.com/api/posts/POST_ID'")
 

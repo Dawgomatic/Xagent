@@ -2,7 +2,7 @@
 
 本文档介绍如何将 bocha-search skill 发布到 ClawdHub，供其他 OpenClaw 用户使用。
 
-## 📦 发布前准备
+##  发布前准备
 
 ### 1. 确保文件完整
 
@@ -10,14 +10,14 @@
 
 ```bash
 bocha-search/
-├── SKILL.md              # ✅ 技能定义（必需）
-├── README.md             # ✅ 使用说明（推荐）
-├── LICENSE               # ✅ MIT 许可证（推荐）
-├── PUBLISH.md            # ✅ 本文件
-└── scripts/              # ✅ 脚本目录
-    ├── package.json      # ✅ Node.js 配置
-    ├── tool.json         # ✅ 工具定义
-    └── bocha_search.js   # ✅ 主脚本
+├── SKILL.md              #  技能定义（必需）
+├── README.md             #  使用说明（推荐）
+├── LICENSE               #  MIT 许可证（推荐）
+├── PUBLISH.md            #  本文件
+└── scripts/              #  脚本目录
+    ├── package.json      #  Node.js 配置
+    ├── tool.json         #  工具定义
+    └── bocha_search.js   #  主脚本
 ```
 
 ### 2. 测试功能
@@ -45,7 +45,7 @@ echo '{"query": "测试", "count": 3}' | node bocha_search.js
 }
 ```
 
-## 🚀 发布步骤
+##  发布步骤
 
 ### 方法一：使用 ClawdHub CLI（推荐）
 
@@ -125,7 +125,7 @@ zip -r bocha-search-v1.0.0.zip bocha-search \
 4. 填写表单并上传 zip 文件
 5. 提交审核
 
-## 🔄 更新版本
+##  更新版本
 
 当需要修复 bug 或添加功能时：
 
@@ -154,7 +154,7 @@ clawdhub publish . \
   --changelog "Fixed XXX bug, improved YYY feature"
 ```
 
-## 📋 最佳实践
+##  最佳实践
 
 ### 版本号规范
 
@@ -189,13 +189,13 @@ v1.0.0 (2026-02-03)
 - **推荐**: `chinese` (中文), `web` (网页)
 - **可选**: `news` (新闻), `ai` (AI), `tools` (工具)
 
-## 🔒 安全注意事项
+##  安全注意事项
 
 ### API Key 处理
 
-- ❌ **永远不要**在代码中硬编码 API key
-- ✅ 使用环境变量或配置文件
-- ✅ 在文档中明确说明用户需要提供自己的 API key
+-  **永远不要**在代码中硬编码 API key
+-  使用环境变量或配置文件
+-  在文档中明确说明用户需要提供自己的 API key
 
 ### 敏感信息检查
 
@@ -208,7 +208,7 @@ grep -r "password" . --include="*.js" --include="*.json"
 grep -r "apiKey" . --include="*.js" --include="*.json"
 ```
 
-## 📊 发布后维护
+##  发布后维护
 
 ### 监控使用情况
 
@@ -229,7 +229,7 @@ grep -r "apiKey" . --include="*.js" --include="*.json"
 - 在 OpenClaw 社区论坛发帖
 - 写博客文章介绍使用方法
 
-## 🆘 常见问题
+##  常见问题
 
 ### Q: 发布失败怎么办？
 
@@ -253,7 +253,7 @@ clawdhub delete bocha-search --version 1.0.0 --yes
 - 直接分享 git 仓库链接
 - 使用本地路径安装
 
-## 📞 获取帮助
+##  获取帮助
 
 - **ClawdHub 文档**: https://docs.clawdhub.com
 - **OpenClaw 文档**: https://docs.openclaw.ai/tools/clawdhub
@@ -262,4 +262,4 @@ clawdhub delete bocha-search --version 1.0.0 --yes
 
 ---
 
-祝发布顺利！🎉
+祝发布顺利！

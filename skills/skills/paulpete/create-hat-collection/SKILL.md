@@ -107,7 +107,7 @@ hats:
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `name` | Yes | Display name with optional emoji (e.g., "🔍 Analyzer") |
+| `name` | Yes | Display name with optional emoji (e.g., " Analyzer") |
 | `description` | Yes | Short description of the hat's purpose (one sentence) |
 | `triggers` | Yes | Events this hat responds to (list) |
 | `publishes` | Yes | Events this hat can emit (list) |

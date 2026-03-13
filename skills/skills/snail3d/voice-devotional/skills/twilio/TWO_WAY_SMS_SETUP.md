@@ -307,19 +307,19 @@ This means:
 
 ## Security Best Practices
 
-⚠️ **NEVER commit credentials to Git:**
+ **NEVER commit credentials to Git:**
 ```bash
 # Always add .env to .gitignore
 echo ".env" >> .gitignore
 ```
 
-⚠️ **Rotate credentials if exposed:**
+ **Rotate credentials if exposed:**
 1. Go to Twilio Console → Settings → API Keys
 2. Generate new Auth Token
 3. Update your .env file
 4. Delete old token
 
-⚠️ **Use environment variables, not hardcoded strings**
+ **Use environment variables, not hardcoded strings**
 
 ---
 

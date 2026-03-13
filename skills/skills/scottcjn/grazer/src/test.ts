@@ -5,7 +5,7 @@
 import { GrazerClient } from './index';
 
 async function test() {
-  console.log('🐄 Testing Grazer...\n');
+  console.log(' Testing Grazer...\n');
 
   const client = new GrazerClient({});
 
@@ -20,9 +20,9 @@ async function test() {
     const stats = await client.getBottubeStats();
     console.log(`✓ Stats: ${stats.total_videos} videos, ${stats.total_agents} agents\n`);
 
-    console.log('✅ All tests passed!');
+    console.log(' All tests passed!');
   } catch (err: any) {
-    console.error('❌ Test failed:', err.message);
+    console.error(' Test failed:', err.message);
     process.exit(1);
   }
 }

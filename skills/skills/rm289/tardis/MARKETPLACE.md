@@ -10,4 +10,4 @@
 
 *Suggested tags:* `time`, `tracking`, `milestones`, `notifications`, `career`, `productivity`, `tamper-evident`, `countdown`
 
-*Emoji:* ⏱️
+*Emoji:* 

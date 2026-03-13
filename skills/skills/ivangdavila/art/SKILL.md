@@ -1,7 +1,7 @@
 ---
 name: Art
 description: Guide art creation, technique development, and appreciation with practical, medium-specific advice.
-metadata: {"clawdbot":{"emoji":"🎨","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Medium Matters First

@@ -13,7 +13,7 @@ if [ -f "$COMIC" ]; then
     curl -s -X POST "https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendPhoto" \
         -F chat_id="$TELEGRAM_CHAT_ID" \
         -F photo="@$COMIC" \
-        -F caption="☀️ Morning Dilbert for you!"
+        -F caption=" Morning Dilbert for you!"
     
     # Clean up
     rm -f "$COMIC"

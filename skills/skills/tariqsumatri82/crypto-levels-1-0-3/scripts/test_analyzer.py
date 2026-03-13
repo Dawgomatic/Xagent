@@ -21,16 +21,16 @@ def test_pair(analyzer, pair):
     if analysis:
         output = analyzer.format_output(analysis)
         print(output)
-        print(f"\n⏱️  Analysis time: {end_time - start_time:.2f}s")
+        print(f"\n  Analysis time: {end_time - start_time:.2f}s")
         return True
     else:
-        print(f"❌ Failed to analyze {pair}")
+        print(f" Failed to analyze {pair}")
         return False
 
 
 def main():
     """Main test function"""
-    print("🧪 Crypto Levels Analyzer - Test Suite")
+    print(" Crypto Levels Analyzer - Test Suite")
     print("=" * 60)
     
     # Create analyzer
@@ -58,7 +58,7 @@ def main():
     print(f"{'='*60}")
     
     for pair, success in results:
-        status = "✅ PASS" if success else "❌ FAIL"
+        status = " PASS" if success else " FAIL"
         print(f"{status}: {pair}")
     
     total = len(results)
@@ -67,10 +67,10 @@ def main():
     print(f"\nTotal: {passed}/{total} passed ({passed/total*100:.1f}%)")
     
     if passed == total:
-        print("\n🎉 All tests passed!")
+        print("\n All tests passed!")
         sys.exit(0)
     else:
-        print(f"\n⚠️  {total - passed} test(s) failed")
+        print(f"\n  {total - passed} test(s) failed")
         sys.exit(1)
 
 

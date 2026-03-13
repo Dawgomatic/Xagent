@@ -5,7 +5,7 @@ description: Calculate Bitcoin Kimchi Premium (Upbit vs Binance)
 author: seungdols
 ---
 
-# Kimchi Premium 🌶️
+# Kimchi Premium 
 
 Calculates the real-time Kimchi Premium by comparing Bitcoin prices on Upbit (KRW) and Binance (USD).
 

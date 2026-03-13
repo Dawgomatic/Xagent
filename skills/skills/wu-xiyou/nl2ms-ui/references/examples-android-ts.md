@@ -10,7 +10,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 Promise.resolve(
   (async () => {
-    console.log('🚀 启动京东ME消息发送流程自动化测试...');
+    console.log(' 启动京东ME消息发送流程自动化测试...');
     
     // 获取连接的设备
     const devices = await getConnectedDevices();
@@ -19,7 +19,7 @@ Promise.resolve(
     }
     
     const page = new AndroidDevice(devices[0].udid);
-    console.log(`📱 使用设备: ${devices[0].udid}`);
+    console.log(` 使用设备: ${devices[0].udid}`);
 
     // 初始化 Midscene agent，设置中文上下文
     const agent = new AndroidAgent(page, {
@@ -27,7 +27,7 @@ Promise.resolve(
     });
 
     try {
-      // 👀 连接设备并启动京东ME应用
+      //  连接设备并启动京东ME应用
       await page.connect();
       console.log('设备连接成功');
       
@@ -38,64 +38,64 @@ Promise.resolve(
 
       console.log('\n=== 第一步：搜索用户并进入聊天 ===');
       
-      // 👀 点击底部的消息tab
+      //  点击底部的消息tab
       await agent.aiTap('消息');
-      console.log('✅ 已点击底部消息tab');
+      console.log(' 已点击底部消息tab');
       await sleep(2000);
 
-      // 👀 点击顶部搜索框
+      //  点击顶部搜索框
       await agent.aiTap('搜索框');
-      console.log('✅ 已点击顶部搜索框');
+      console.log(' 已点击顶部搜索框');
       await sleep(1000);
 
-      // 👀 在搜索框中输入用户名
+      //  在搜索框中输入用户名
       await agent.aiInput('zhencuicui', '搜索框');
-      console.log('✅ 已在搜索框中输入用户名: zhencuicui');
+      console.log(' 已在搜索框中输入用户名: zhencuicui');
       await sleep(3000);
 
-      // 👀 验证搜索结果包含目标用户
+      //  验证搜索结果包含目标用户
       await agent.aiAssert('搜索结果中显示甄翠翠');
-      console.log('✅ 验证成功：搜索结果包含甄翠翠');
+      console.log(' 验证成功：搜索结果包含甄翠翠');
 
       console.log('\n=== 第二步：发送消息 ===');
 
-      // 👀 点击搜索结果中的目标用户
+      //  点击搜索结果中的目标用户
       await agent.aiTap('甄翠翠');
-      console.log('✅ 已点击搜索结果中的甄翠翠用户，进入聊天页面');
+      console.log(' 已点击搜索结果中的甄翠翠用户，进入聊天页面');
       await sleep(2000);
 
-      // 👀 点击消息输入框获得焦点
+      //  点击消息输入框获得焦点
       await agent.aiAction('点击消息输入框');
-      console.log('✅ 已点击消息输入框，获得输入焦点');
+      console.log(' 已点击消息输入框，获得输入焦点');
       await sleep(1000);
 
-      // 👀 在输入框中输入测试消息内容
+      //  在输入框中输入测试消息内容
       await agent.aiInput('AI自动化测试', '消息输入框');
-      console.log('✅ 已在消息输入框中输入: AI自动化测试');
+      console.log(' 已在消息输入框中输入: AI自动化测试');
       await sleep(1000);
 
-      // 👀 点击发送按钮发送消息
+      //  点击发送按钮发送消息
       await agent.aiAction('点击发送按钮');
-      console.log('✅ 已点击发送按钮');
+      console.log(' 已点击发送按钮');
       await sleep(2000);
 
-      // 👀 验证消息发送成功
+      //  验证消息发送成功
       await agent.aiAssert('消息"AI自动化测试"已发送成功');
-      console.log('✅ 验证成功：消息已发送并在聊天记录中可见');
+      console.log(' 验证成功：消息已发送并在聊天记录中可见');
 
-      // 👀 返回上一页
+      //  返回上一页
       await agent.aiAction('AndroidBackButton');
       console.log('已返回上一页');
       await sleep(1000);
 
-      // 👀 再次返回到主页面
+      //  再次返回到主页面
       await agent.aiAction('AndroidBackButton');
       console.log('已返回主页面');
 
-      console.log('\n🎉 京东ME消息发送流程测试完成！');
+      console.log('\n 京东ME消息发送流程测试完成！');
 
     } catch (error) {
-      console.error('❌ 测试过程中发生错误:', error);
+      console.error(' 测试过程中发生错误:', error);
       throw error;
     }
   })()

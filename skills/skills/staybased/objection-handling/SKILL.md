@@ -47,7 +47,7 @@ When someone says "it's too expensive," they're really saying: "I don't yet see 
 
 Every objection falls into one of these buckets. Diagnose the category first, then apply the framework.
 
-### 1. 💰 Price Objections
+### 1.  Price Objections
 *"It's too expensive" / "That's over our budget" / "Can you do it cheaper?"*
 
 **What they really mean:** The perceived value doesn't match the price.
@@ -60,7 +60,7 @@ Every objection falls into one of these buckets. Diagnose the category first, th
 
 **Never:** Immediately discount. It signals your price wasn't real and trains them to always negotiate.
 
-### 2. ⏰ Timing Objections
+### 2.  Timing Objections
 *"Not right now" / "Maybe next quarter" / "I need to think about it"*
 
 **What they really mean:** Either no urgency, fear of commitment, or they need someone else's approval.
@@ -71,7 +71,7 @@ Every objection falls into one of these buckets. Diagnose the category first, th
 3. Lower the commitment: "What if we started with a 2-week pilot? No long-term commitment."
 4. Create a deadline (real): "I have capacity for 2 new clients this month. After that, onboarding moves to [date]."
 
-### 3. 🤔 Need Objections
+### 3.  Need Objections
 *"I don't think I need this" / "We're doing fine without it" / "I'll just do it myself"*
 
 **What they really mean:** They don't see the gap between where they are and where they could be.
@@ -84,7 +84,7 @@ Every objection falls into one of these buckets. Diagnose the category first, th
 
 **The "I'll do it myself" variant:** Respect it, but quantify: "Absolutely. From my experience, building this from scratch takes about [X hours]. At your hourly rate of $Y, that's $Z in your time alone — vs. $[your price] to have it done in [timeframe]."
 
-### 4. 🏢 Trust/Credibility Objections
+### 4.  Trust/Credibility Objections
 *"I've never heard of you" / "How do I know this will work?" / "Our last vendor failed"*
 
 **What they really mean:** They're risk-averse and need proof.
@@ -95,7 +95,7 @@ Every objection falls into one of these buckets. Diagnose the category first, th
 3. Guarantee or pilot: "Let's do a 2-week trial. If you don't see [specific outcome], no charge."
 4. Social proof: Reviews, testimonials, portfolio links, ClawHub install counts.
 
-### 5. ⚔️ Competitor Objections
+### 5.  Competitor Objections
 *"We're already using [competitor]" / "Someone quoted us less" / "[Other tool] does this"*
 
 **What they really mean:** They need a reason to switch or choose you specifically.

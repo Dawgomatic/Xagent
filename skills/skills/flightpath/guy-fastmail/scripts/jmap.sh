@@ -78,19 +78,19 @@ for e in emails:
       today-yesterday)
         START_DATE=$(date -u -d "2 days ago" +"%Y-%m-%dT00:00:00Z")
         END_DATE=$(date -u -d "tomorrow" +"%Y-%m-%dT00:00:00Z")
-        TITLE="📧 Smart Inbox: Today & Yesterday"
+        TITLE=" Smart Inbox: Today & Yesterday"
         ;;
       this-week)
         # Start of this week (Monday)
         START_DATE=$(date -u -d "last monday" +"%Y-%m-%dT00:00:00Z")
         END_DATE=$(date -u -d "tomorrow" +"%Y-%m-%dT00:00:00Z")
-        TITLE="📧 Smart Inbox: This Week"
+        TITLE=" Smart Inbox: This Week"
         ;;
       last-week)
         # Last Monday to Sunday
         START_DATE=$(date -u -d "2 monday ago" +"%Y-%m-%dT00:00:00Z")
         END_DATE=$(date -u -d "last monday" +"%Y-%m-%dT00:00:00Z")
-        TITLE="📧 Smart Inbox: Last Week"
+        TITLE=" Smart Inbox: Last Week"
         ;;
       *)
         echo "Unknown timeframe: $TIMEFRAME"
@@ -704,7 +704,7 @@ else:
         domain = m.get('forDomain', '')
         desc = m.get('description', '')
         created = m.get('createdAt', '')[:10]
-        icon = '✅' if state == 'enabled' else '⏸️' if state == 'disabled' else '🗑️'
+        icon = '' if state == 'enabled' else '' if state == 'disabled' else ''
         extra = f' ({domain})' if domain else ''
         extra += f' - {desc}' if desc else ''
         print(f'{icon} {email} [{state}]{extra} ({created})')
@@ -731,7 +731,7 @@ else:
         state = m.get('state', 'unknown')
         domain = m.get('forDomain', '')
         desc = m.get('description', '')
-        icon = '✅' if state == 'enabled' else '⏸️' if state == 'disabled' else '🗑️'
+        icon = '' if state == 'enabled' else '' if state == 'disabled' else ''
         extra = f' ({domain})' if domain else ''
         extra += f' - {desc}' if desc else ''
         print(f'{icon} {email} [{state}]{extra} [id: {m[\"id\"]}]')
@@ -849,7 +849,7 @@ for resp in root.findall('.//d:response', ns):
         h = href.text
         n = name.text if name is not None else h.split('/')[-1]
         s = size.text if size is not None else '-'
-        t = '📁' if restype is not None else '📄'
+        t = '' if restype is not None else ''
         print(f'{t} {n} ({s} bytes)' if s != '-' and s != '0' else f'{t} {n}')
 "
     ;;
@@ -985,7 +985,7 @@ for resp in root.findall('.//d:response', ns):
     if is_cal and href is not None and name is not None and name.text:
         h = href.text.rstrip('/')
         cal_id = h.split('/')[-1]
-        print(f'📅 {name.text} [{cal_id}]')
+        print(f' {name.text} [{cal_id}]')
 "
     ;;
 
@@ -1076,7 +1076,7 @@ if not events:
 else:
     for dt, s, ds, de, loc, u in events:
         date_str = dt.strftime('%a %b %d %H:%M') if dt else ds
-        loc_str = f' 📍 {loc}' if loc else ''
+        loc_str = f'  {loc}' if loc else ''
         print(f'{date_str}  {s}{loc_str}')
 "
     ;;
@@ -1159,7 +1159,7 @@ if not events:
 else:
     for dt, s, ds, loc in events:
         date_str = dt.strftime('%a %b %d %H:%M') if dt else ds
-        loc_str = f' 📍 {loc}' if loc else ''
+        loc_str = f'  {loc}' if loc else ''
         print(f'{date_str}  {s}{loc_str}')
 "
     ;;
@@ -1188,9 +1188,9 @@ else:
 </c:mkcalendar>")
 
     if [ "$HTTP_CODE" = "201" ]; then
-      echo "✅ Created calendar: ${CAL_NAME} [${CAL_UUID}]"
+      echo " Created calendar: ${CAL_NAME} [${CAL_UUID}]"
     else
-      echo "❌ Failed to create calendar (HTTP ${HTTP_CODE})"
+      echo " Failed to create calendar (HTTP ${HTTP_CODE})"
       exit 1
     fi
     ;;
@@ -1206,9 +1206,9 @@ else:
       -X DELETE)
 
     if [ "$HTTP_CODE" = "204" ] || [ "$HTTP_CODE" = "200" ]; then
-      echo "✅ Deleted calendar: ${CAL_ID}"
+      echo " Deleted calendar: ${CAL_ID}"
     else
-      echo "❌ Failed to delete calendar (HTTP ${HTTP_CODE})"
+      echo " Failed to delete calendar (HTTP ${HTTP_CODE})"
       exit 1
     fi
     ;;
@@ -1263,9 +1263,9 @@ END:VCALENDAR"
       -d "$VEVENT")
 
     if [ "$HTTP_CODE" = "201" ] || [ "$HTTP_CODE" = "204" ]; then
-      echo "✅ Created event: ${TITLE} (UID: ${EVT_UUID})"
+      echo " Created event: ${TITLE} (UID: ${EVT_UUID})"
     else
-      echo "❌ Failed to create event (HTTP ${HTTP_CODE})"
+      echo " Failed to create event (HTTP ${HTTP_CODE})"
       exit 1
     fi
     ;;
@@ -1326,13 +1326,13 @@ print(data, end='')
         -d "$UPDATED")
 
       if [ "$HTTP_CODE" = "201" ] || [ "$HTTP_CODE" = "204" ]; then
-        echo "✅ Updated ${FIELD} to: ${VALUE}"
+        echo " Updated ${FIELD} to: ${VALUE}"
       else
-        echo "❌ Failed to update event (HTTP ${HTTP_CODE})"
+        echo " Failed to update event (HTTP ${HTTP_CODE})"
         exit 1
       fi
     else
-      echo "❌ Event not found: ${EVT_UID}"
+      echo " Event not found: ${EVT_UID}"
       exit 1
     fi
     ;;
@@ -1349,9 +1349,9 @@ print(data, end='')
       -X DELETE)
 
     if [ "$HTTP_CODE" = "204" ] || [ "$HTTP_CODE" = "200" ]; then
-      echo "✅ Deleted event: ${EVT_UID}"
+      echo " Deleted event: ${EVT_UID}"
     else
-      echo "❌ Failed to delete event (HTTP ${HTTP_CODE})"
+      echo " Failed to delete event (HTTP ${HTTP_CODE})"
       exit 1
     fi
     ;;

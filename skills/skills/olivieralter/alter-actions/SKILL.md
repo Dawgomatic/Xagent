@@ -1,7 +1,7 @@
 ---
 name: alter-action-trigger
 description: Trigger Alter macOS app actions via x-callback-urls. Catalog of 84+ actions including ask-anything, translate, summarize, grammar correction, and more.
-metadata: {"clawdbot":{"requires":{"os":["darwin"]},"emoji":"🌀"}}
+metadata: {"clawdbot":{"requires":{"os":["darwin"]},"emoji":""}}
 user-invocable: true
 homepage: https://alterhq.com/blog/alter-callback-urls-guide
 ---
@@ -51,7 +51,7 @@ Builds an x-callback-url without executing it.
 
 ## Available Actions Reference
 
-### 📝 Writing Actions
+###  Writing Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -68,7 +68,7 @@ Builds an x-callback-url without executing it.
 | `shorten` | Shorten | Condenses text while retaining essentials | None |
 | `write-essay` | Write essay | Crafts well-structured essays | `input`: Topic/Instructions |
 
-### 💻 Code Actions
+###  Code Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -81,7 +81,7 @@ Builds an x-callback-url without executing it.
 | `suggest-improvements` | Suggest code improvements | Analyzes code for enhancements | None |
 | `transcode` | Transcode to other language | Converts code between languages | `language`: Target language |
 
-### 🌐 Translation Actions
+###  Translation Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -90,7 +90,7 @@ Builds an x-callback-url without executing it.
 | `translate-to-french` | Translate to French | Translates any language to French | None |
 | `translate-to-spanish` | Translate to Spanish | Translates any language to Spanish | None |
 
-### 📊 Summarize Actions
+###  Summarize Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -98,7 +98,7 @@ Builds an x-callback-url without executing it.
 | `summarize-micro` | Micro | Concise, focused summaries | None |
 | `summarize-newsletter` | Newsletter Summary | Extracts key newsletter updates | None |
 
-### 🔍 Extract Actions
+###  Extract Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -111,7 +111,7 @@ Builds an x-callback-url without executing it.
 | `extract-trends` | Trends | Extracts trends | None |
 | `extract-wisdom` | Extract Wisdom | Extracts insights and interesting info | None |
 
-### 📋 Format Actions
+###  Format Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -122,7 +122,7 @@ Builds an x-callback-url without executing it.
 | `sort-az` | Sort A-Z | Sorts alphabetically ascending | None |
 | `sort-za` | Sort Z-A | Sorts alphabetically descending | None |
 
-### 🎨 Create Actions
+###  Create Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -135,7 +135,7 @@ Builds an x-callback-url without executing it.
 | `create-presentations` | HTML Presentations | Generates slide presentations | `input`: Instructions |
 | `create-react-app` | Tailwind React App | Creates React apps | `input`: Instructions |
 
-### 🔎 Explain Actions
+###  Explain Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -143,7 +143,7 @@ Builds an x-callback-url without executing it.
 | `explain-selection` | Explain | Explains complex concepts simply | None |
 | `hidden-message` | Hidden message | Uncovers hidden messages in text | None |
 
-### 🔀 Git Actions
+###  Git Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -152,7 +152,7 @@ Builds an x-callback-url without executing it.
 | `git-summarize` | Summarize | Summarizes Git commits | None |
 | `pull-request` | Pull Request | Creates PR descriptions | None |
 
-### 🧠 Co-Intelligence Actions (Expert GPTs)
+###  Co-Intelligence Actions (Expert GPTs)
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -164,14 +164,14 @@ Builds an x-callback-url without executing it.
 | `mental-models-gpt` | Mental Models Expert | Mental models for decision-making | `input`: Question |
 | `software-architect-gpt` | Software Architect Expert | Software architecture guidance | `input`: Question |
 
-### 💬 General Actions
+###  General Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
 | `ask-anything` | Ask Anything | Open-ended AI conversation | `input`: Instructions |
 | `ask-web` | Search the web | Web search with sources | `input`: Question |
 
-### 📧 Email Actions
+###  Email Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -180,7 +180,7 @@ Builds an x-callback-url without executing it.
 | `mail-reply` | Mail Reply | Generates email replies | `answerType`: Any updates?, Doesn't work, I don't know, etc. |
 | `mail-summary` | Thread summary | Summarizes email threads | None |
 
-### 📱 Social Media Actions
+###  Social Media Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -190,7 +190,7 @@ Builds an x-callback-url without executing it.
 | `twitter-reply` | Twitter Reply | Generates tweet replies | None |
 | `twitter-thread` | Twitter Thread | Creates Twitter threads | None |
 
-### 📺 YouTube Actions
+###  YouTube Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|
@@ -198,7 +198,7 @@ Builds an x-callback-url without executing it.
 | `youtube-summarize-detailed` | Youtube detailed Summary | Comprehensive video summaries | None |
 | `youtube-summarize-micro` | Youtube micro summary | Quick video summaries | None |
 
-### 🎯 Other Actions
+###  Other Actions
 
 | Action ID | Name | Description | Parameters |
 |-----------|------|-------------|------------|

@@ -14,7 +14,7 @@ if (!webhookUrl) {
 }
 
 async function testWebhook() {
-  console.log('🧪 Testing RentAPerson webhook setup...\n');
+  console.log(' Testing RentAPerson webhook setup...\n');
   console.log(`Target URL: ${webhookUrl}\n`);
 
   // Test payload similar to what RentAPerson sends
@@ -29,7 +29,7 @@ async function testWebhook() {
     createdAt: new Date().toISOString(),
   };
 
-  console.log('📤 Sending test webhook...');
+  console.log(' Sending test webhook...');
   console.log('Payload:', JSON.stringify(testPayload, null, 2));
   console.log('');
 
@@ -48,13 +48,13 @@ async function testWebhook() {
 
     const responseText = await response.text();
     
-    console.log(`📥 Response Status: ${response.status} ${response.statusText}`);
-    console.log(`📥 Response Headers:`, Object.fromEntries(response.headers.entries()));
-    console.log(`📥 Response Body:`, responseText);
+    console.log(` Response Status: ${response.status} ${response.statusText}`);
+    console.log(` Response Headers:`, Object.fromEntries(response.headers.entries()));
+    console.log(` Response Body:`, responseText);
     console.log('');
 
     if (response.ok || response.status === 202) {
-      console.log('✅ Webhook accepted successfully!');
+      console.log(' Webhook accepted successfully!');
       console.log('');
       console.log('Next steps:');
       console.log('1. Check your OpenClaw session (agent:main:rentaperson or your configured session)');
@@ -62,21 +62,21 @@ async function testWebhook() {
       console.log('3. Verify the message contains: [RENTAPERSON] Use for all API calls: X-API-Key: ...');
       console.log('4. The agent should be able to see the API key and respond');
     } else {
-      console.log('❌ Webhook was rejected');
+      console.log(' Webhook was rejected');
       console.log('');
       if (response.status === 401) {
-        console.log('⚠️  401 Unauthorized: Check your OpenClaw hooks token');
+        console.log('  401 Unauthorized: Check your OpenClaw hooks token');
         console.log('   Make sure webhookBearerToken is set correctly in RentAPerson');
       } else if (response.status === 404) {
-        console.log('⚠️  404 Not Found: Check the webhook URL path');
+        console.log('  404 Not Found: Check the webhook URL path');
         console.log('   Bridge: Should be root /');
         console.log('   Transform: Should be /hooks/rentaperson');
       } else {
-        console.log(`⚠️  Error ${response.status}: ${responseText}`);
+        console.log(`  Error ${response.status}: ${responseText}`);
       }
     }
   } catch (error) {
-    console.error('❌ Error sending webhook:', error.message);
+    console.error(' Error sending webhook:', error.message);
     console.error('');
     console.error('Troubleshooting:');
     console.error('1. Visit the ngrok URL in browser first (ngrok-free.dev requires browser verification)');

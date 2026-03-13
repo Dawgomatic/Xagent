@@ -2,7 +2,7 @@
 
 Solutions to common issues with the MCP Integration plugin.
 
-## 🔍 Diagnostic Commands
+##  Diagnostic Commands
 
 ### Quick Status Check
 
@@ -20,7 +20,7 @@ ls -la ~/.openclaw/extensions/mcp-integration/
 cat ~/.openclaw/openclaw.json | jq '.plugins.entries["mcp-integration"]'
 ```
 
-## 🚨 Common Issues
+##  Common Issues
 
 ### Issue 1: Plugin Not Loading
 
@@ -373,7 +373,7 @@ transport.onerror = null;
 transport.onclose = null;
 ```
 
-## 🧪 Debug Mode
+##  Debug Mode
 
 ### Enable Full Debug Logging
 
@@ -404,7 +404,7 @@ openclaw logs | grep -i transport
 [Transport] POST response: {"jsonrpc":"2.0","id":1,"result":{...}}
 ```
 
-## 📊 Collecting Diagnostic Info
+##  Collecting Diagnostic Info
 
 ### Create Diagnostic Report
 
@@ -442,7 +442,7 @@ chmod +x diagnose-mcp.sh
 ./diagnose-mcp.sh > mcp-diagnostic.txt
 ```
 
-## 📞 Getting Help
+##  Getting Help
 
 ### Before Asking for Help
 
@@ -469,7 +469,7 @@ chmod +x diagnose-mcp.sh
 - Steps to reproduce
 - Diagnostic report
 
-## 🔗 Related Documentation
+##  Related Documentation
 
 - [Main README](../README.md)
 - [Configuration](CONFIGURATION.md)

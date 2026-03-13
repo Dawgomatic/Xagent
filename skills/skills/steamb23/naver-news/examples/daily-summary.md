@@ -112,9 +112,9 @@ From collected articles, select only the most important ones:
 Format selected articles as a concise summary:
 
 ```markdown
-# 🌅 Morning News Summary - January 31, 2026
+#  Morning News Summary - January 31, 2026
 
-## 🤖 IT News
+##  IT News
 
 ### 1. [Article Title]
 Key summary (1-2 sentences, must explain why it matters)
@@ -130,7 +130,7 @@ Published: 11:20 | Source: <https://example.com>
 
 ***
 
-## 🎮 Game News
+##  Game News
 
 ### 1. [Article Title]
 Key summary...
@@ -146,7 +146,7 @@ Published: 11:00 | Source: <https://example.com>
 
 ***
 
-## 📰 General News (Economy, Politics, Diplomacy)
+##  General News (Economy, Politics, Diplomacy)
 
 ### 1. [Article Title]
 Key summary...
@@ -170,7 +170,7 @@ Published: 11:30 | Source: <https://example.com>
 
 ***
 
-## 🔍 Summary
+##  Summary
 Concise overview of today's key trends and insights...
 ```
 

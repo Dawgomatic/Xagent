@@ -40,7 +40,7 @@ const force = args.includes('--force');
 const [rawDomain, jsonFile] = args.filter(arg => !arg.startsWith('--'));
 
 if (!rawDomain) {
-  console.error('❌ Usage: node update-dns-bulk.js <domain> [records.json] [--no-snapshot] [--force]');
+  console.error(' Usage: node update-dns-bulk.js <domain> [records.json] [--no-snapshot] [--force]');
   console.error('');
   console.error('Examples:');
   console.error('  node update-dns-bulk.js example.com records.json');
@@ -51,7 +51,7 @@ if (!rawDomain) {
   console.error('  --no-snapshot  Skip automatic snapshot creation');
   console.error('  --force        Skip confirmation prompt');
   console.error('');
-  console.error('⚠️  WARNING: This replaces ALL DNS records for the domain!');
+  console.error('  WARNING: This replaces ALL DNS records for the domain!');
   console.error('   Records not in the JSON file will be deleted.');
   console.error('   Use --no-snapshot with caution.');
   process.exit(1);
@@ -62,7 +62,7 @@ let domain;
 try {
   domain = sanitizeDomain(rawDomain);
 } catch (error) {
-  console.error(`❌ Invalid domain: ${error.message}`);
+  console.error(` Invalid domain: ${error.message}`);
   process.exit(1);
 }
 
@@ -88,7 +88,7 @@ async function confirmReplace(oldCount, newCount) {
     });
     
     console.log('');
-    console.log('⚠️  WARNING: This will REPLACE all DNS records!');
+    console.log('  WARNING: This will REPLACE all DNS records!');
     console.log(`   Current records: ${oldCount}`);
     console.log(`   New records: ${newCount}`);
     console.log(`   Records removed: ${Math.max(0, oldCount - newCount)}`);
@@ -153,7 +153,7 @@ function validateRecords(records) {
 
 async function main() {
   try {
-    console.log(`📥 Reading DNS records for ${domain}...`);
+    console.log(` Reading DNS records for ${domain}...`);
     
     // Read input JSON
     const inputJson = await readInput();
@@ -162,30 +162,30 @@ async function main() {
     try {
       records = JSON.parse(inputJson);
     } catch (error) {
-      console.error('❌ Invalid JSON:', error.message);
+      console.error(' Invalid JSON:', error.message);
       process.exit(1);
     }
     
     // Validate records
     const errors = validateRecords(records);
     if (errors.length > 0) {
-      console.error('❌ Validation errors:');
+      console.error(' Validation errors:');
       errors.forEach(err => console.error(`   - ${err}`));
       process.exit(1);
     }
     
     // Get current records for comparison
-    console.log('🔍 Fetching current DNS records...');
+    console.log(' Fetching current DNS records...');
     const currentRecords = await listDnsRecords(domain);
     
     console.log('');
-    console.log('📊 Comparison:');
+    console.log(' Comparison:');
     console.log(`   Current records: ${currentRecords.length}`);
     console.log(`   New records: ${records.length}`);
     console.log('');
     
     // Show what will change
-    console.log('📋 New DNS configuration:');
+    console.log(' New DNS configuration:');
     records.forEach(record => {
       console.log(`   ${record.rrset_name.padEnd(20)} ${record.rrset_type.padEnd(6)} → ${record.rrset_values.join(', ')}`);
     });
@@ -193,15 +193,15 @@ async function main() {
     // Create snapshot before making changes (unless --no-snapshot)
     if (!skipSnapshot) {
       console.log('');
-      console.log('💾 Creating safety snapshot...');
+      console.log(' Creating safety snapshot...');
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
       const snapshotName = `Before bulk update ${timestamp}`;
       
       try {
         await createSnapshot(domain, snapshotName);
-        console.log(`✅ Snapshot created: "${snapshotName}"`);
+        console.log(` Snapshot created: "${snapshotName}"`);
       } catch (error) {
-        console.error('⚠️  Failed to create snapshot:', error.message);
+        console.error('  Failed to create snapshot:', error.message);
         console.error('   Continuing anyway...');
       }
     }
@@ -211,30 +211,30 @@ async function main() {
       const confirmed = await confirmReplace(currentRecords.length, records.length);
       if (!confirmed) {
         console.log('');
-        console.log('❌ Bulk update cancelled.');
+        console.log(' Bulk update cancelled.');
         process.exit(0);
       }
     }
     
     // Replace all records
     console.log('');
-    console.log('🔄 Replacing DNS records...');
+    console.log(' Replacing DNS records...');
     await replaceDnsRecords(domain, records);
     
-    console.log('✅ DNS records updated successfully!');
+    console.log(' DNS records updated successfully!');
     console.log('');
-    console.log('⏱️  DNS propagation may take a few minutes.');
+    console.log('  DNS propagation may take a few minutes.');
     console.log('   Verify with: node list-dns.js ' + domain);
     
     if (!skipSnapshot) {
       console.log('');
-      console.log('💡 To restore previous configuration:');
+      console.log(' To restore previous configuration:');
       console.log('   node list-snapshots.js ' + domain);
       console.log('   node restore-snapshot.js ' + domain + ' <snapshot-id>');
     }
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('   Authentication failed. Check your API token.');

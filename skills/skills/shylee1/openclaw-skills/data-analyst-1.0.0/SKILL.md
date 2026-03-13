@@ -5,7 +5,7 @@ description: "Data visualization, report generation, SQL queries, and spreadshee
 author: openclaw
 ---
 
-# Data Analyst Skill 📊
+# Data Analyst Skill 
 
 **Turn your AI agent into a data analysis powerhouse.**
 
@@ -15,12 +15,12 @@ Query databases, analyze spreadsheets, create visualizations, and generate insig
 
 ## What This Skill Does
 
-✅ **SQL Queries** — Write and execute queries against databases
-✅ **Spreadsheet Analysis** — Process CSV, Excel, Google Sheets data
-✅ **Data Visualization** — Create charts, graphs, and dashboards
-✅ **Report Generation** — Automated reports with insights
-✅ **Data Cleaning** — Handle missing data, outliers, formatting
-✅ **Statistical Analysis** — Descriptive stats, trends, correlations
+ **SQL Queries** — Write and execute queries against databases
+ **Spreadsheet Analysis** — Process CSV, Excel, Google Sheets data
+ **Data Visualization** — Create charts, graphs, and dashboards
+ **Report Generation** — Automated reports with insights
+ **Data Cleaning** — Handle missing data, outliers, formatting
+ **Statistical Analysis** — Descriptive stats, trends, correlations
 
 ---
 
@@ -554,12 +554,12 @@ python scripts/analyze.py --input data/sales.csv --report weekly
 
 ## Common Mistakes
 
-❌ **Confirmation bias** — Looking for data to support a conclusion
-❌ **Correlation ≠ causation** — Be careful with claims
-❌ **Cherry-picking** — Using only favorable data
-❌ **Ignoring outliers** — Investigate before removing
-❌ **Over-complicating** — Simple analysis often wins
-❌ **No context** — Numbers without comparison are meaningless
+ **Confirmation bias** — Looking for data to support a conclusion
+ **Correlation ≠ causation** — Be careful with claims
+ **Cherry-picking** — Using only favorable data
+ **Ignoring outliers** — Investigate before removing
+ **Over-complicating** — Simple analysis often wins
+ **No context** — Numbers without comparison are meaningless
 
 ---
 

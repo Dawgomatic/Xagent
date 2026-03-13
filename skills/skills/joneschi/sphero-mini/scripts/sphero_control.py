@@ -68,7 +68,7 @@ def main():
             voltage = sphero.getBatteryVoltage()
             print(f"Battery: {voltage}V")
             if voltage < 3.6:
-                print("⚠️  Battery low! Please charge.")
+                print("  Battery low! Please charge.")
         
         elif command == "sensors":
             sphero.wake()

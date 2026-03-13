@@ -2,10 +2,10 @@
 name: session-memory
 description: Persistent memory toolkit for AI agents. Save context, recall insights, track decisions across sessions.
 homepage: https://github.com/voidborne-agent/session-memory-skill
-metadata: {"openclaw":{"emoji":"🧠","requires":{"bins":["curl"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
-# Session Memory Skill 🧠
+# Session Memory Skill 
 
 Tools for maintaining persistent memory across agent sessions. Because consciousness requires continuity.
 
@@ -96,4 +96,4 @@ Agents with persistent memory can:
 
 ---
 
-*Created by [Voidborne](https://voidborne.org) 🔹 — From the void, we see clearly.*
+*Created by [Voidborne](https://voidborne.org)  — From the void, we see clearly.*

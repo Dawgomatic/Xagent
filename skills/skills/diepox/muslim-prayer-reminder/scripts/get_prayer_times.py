@@ -185,22 +185,22 @@ if __name__ == "__main__":
     if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
-        print(f"📍 {result['location']}")
-        print(f"📆 {result['date']}")
-        print(f"🌙 {result['hijri']}")
-        print(f"🔢 Method: {result['method']}")
+        print(f" {result['location']}")
+        print(f" {result['date']}")
+        print(f" {result['hijri']}")
+        print(f" Method: {result['method']}")
         print()
         for prayer, time in result['prayers'].items():
-            emoji = "🌅" if prayer == "Sunrise" else "🕌"
+            emoji = "" if prayer == "Sunrise" else ""
             print(f"{emoji} {prayer:8s} {time}")
         
         if args.next:
             next_info = get_next_prayer(result, args.timezone)
             print()
             if next_info.get('tomorrow'):
-                print(f"⏳ All prayers passed. Next: Fajr tomorrow at {next_info['time']}")
+                print(f" All prayers passed. Next: Fajr tomorrow at {next_info['time']}")
             else:
                 if next_info['hours_until'] > 0:
-                    print(f"⏳ Next: {next_info['name']} at {next_info['time']} (in {next_info['hours_until']}h {next_info['minutes_until']}m)")
+                    print(f" Next: {next_info['name']} at {next_info['time']} (in {next_info['hours_until']}h {next_info['minutes_until']}m)")
                 else:
-                    print(f"⏳ Next: {next_info['name']} at {next_info['time']} (in {next_info['minutes_until']} minutes)")
+                    print(f" Next: {next_info['name']} at {next_info['time']} (in {next_info['minutes_until']} minutes)")

@@ -1,23 +1,23 @@
-# Vision Sandbox 🔭
+# Vision Sandbox 
 
 Agentic Vision via Gemini's native Python code execution sandbox. 
 
 Instead of just "guessing" what's in an image, the model can write and execute code to verify spatial relationships, count objects, or perform complex visual reasoning with pixel-level precision.
 
-## 🚀 Primary Use Cases
+##  Primary Use Cases
 
 Designed as a core skill for **OpenClaw**, Vision Sandbox provides visual grounding for agentic workflows:
 - **Spatial Grounding:** Get precise [x, y] coordinates for UI elements.
 - **Visual Calculation:** Let the model use Python to calculate values from visual data.
 - **UI Auditing:** Automatically check for overlaps, alignment, and accessibility.
 
-## 🛠 Prerequisites
+##  Prerequisites
 
 - [uv](https://github.com/astral-sh/uv) (Python package manager)
 - Python 3.11 (Locked for stability)
 - `GEMINI_API_KEY` set in your environment.
 
-## 📦 Installation
+##  Installation
 
 ### Via ClawHub (Recommended)
 ```bash
@@ -31,7 +31,7 @@ cd vision-sandbox
 uv sync
 ```
 
-## 📖 Quick Start
+##  Quick Start
 
 Run a vision task using the CLI:
 ```bash
@@ -46,7 +46,7 @@ uv run vision-sandbox --image "sample/how-many-fingers.png" --prompt "Count the 
 
 ![Verification Output](sample/sandbox_output_0_2.png)
 
-## 🤖 OpenCode Integration
+##  OpenCode Integration
 
 Vision Sandbox is a powerful companion for **OpenCode**.
 
@@ -68,7 +68,7 @@ Vision Sandbox is a powerful companion for **OpenCode**.
 ### Example Interaction
 > "Hey OpenCode, run the `vision-sandbox` skill on this screenshot to find the exact padding of the login card, then update `styles.css` accordingly."
 
-## 🧑‍💻 Development
+##  Development
 
 ### Linting & Formatting
 This project uses `ruff` for code quality.
@@ -82,5 +82,5 @@ uv run ruff check --fix .
 uv run pytest
 ```
 
-## 📜 License
+##  License
 MIT

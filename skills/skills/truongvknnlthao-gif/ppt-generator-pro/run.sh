@@ -16,10 +16,10 @@ source "$SCRIPT_DIR/venv/bin/activate"
 if [ -z "$GEMINI_API_KEY" ]; then
     # 系统环境变量未设置，尝试从 .env 文件加载
     if [ -f "$SCRIPT_DIR/.env" ]; then
-        echo "📌 从 .env 文件加载API密钥"
+        echo " 从 .env 文件加载API密钥"
         export $(cat "$SCRIPT_DIR/.env" | grep -v '^#' | xargs)
     else
-        echo "❌ 错误: API密钥未配置"
+        echo " 错误: API密钥未配置"
         echo ""
         echo "请选择以下任一方式配置API密钥："
         echo ""
@@ -34,12 +34,12 @@ if [ -z "$GEMINI_API_KEY" ]; then
         exit 1
     fi
 else
-    echo "✅ 使用系统环境变量中的API密钥"
+    echo " 使用系统环境变量中的API密钥"
 fi
 
 # 最终检查
 if [ -z "$GEMINI_API_KEY" ]; then
-    echo "❌ 错误: GEMINI_API_KEY 仍未设置"
+    echo " 错误: GEMINI_API_KEY 仍未设置"
     exit 1
 fi
 

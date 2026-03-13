@@ -2,7 +2,7 @@
 name: tavily-search
 description: "AI-optimized search and content extraction using Tavily API. Includes deep search, news filtering, and raw content extraction for LLM processing."
 homepage: https://tavily.com
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"bins":["node"],"env":["TAVILY_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"],"env":["TAVILY_API_KEY"]}}}
 ---
 
 # Tavily Search

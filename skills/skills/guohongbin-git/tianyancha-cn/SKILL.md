@@ -3,7 +3,7 @@ name: tianyancha-cn
 description: 企业信息查询 - 天眼查/企查查/爱企查数据查询（Bloomberg 终端中国版）
 metadata:
   openclaw:
-    emoji: "🏢"
+    emoji: ""
     category: "business"
     tags: ["tianyancha", "qichacha", "china", "company", "business-intelligence"]
 ---
@@ -14,19 +14,19 @@ metadata:
 
 ## 功能
 
-- 🏢 企业基本信息
-- 👥 股东/高管
-- 📊 财务数据
-- ⚖️ 法律风险
-- 📈 经营状况
+-  企业基本信息
+-  股东/高管
+-  财务数据
+-  法律风险
+-  经营状况
 
 ## 平台对比
 
 | 平台 | 免费额度 | API | 数据质量 |
 |------|---------|-----|---------|
-| **天眼查** | 有限 | ✅ | ⭐⭐⭐⭐ |
-| **企查查** | 有限 | ✅ | ⭐⭐⭐⭐ |
-| **爱企查** | 免费 | ❌ | ⭐⭐⭐ |
+| **天眼查** | 有限 |  |  |
+| **企查查** | 有限 |  |  |
+| **爱企查** | 免费 |  |  |
 
 ## 天眼查 API
 

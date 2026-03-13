@@ -24,17 +24,17 @@ integration
 - **Pro:** $44.99
 
 ## Key Features
-- ✅ Multi-provider support (SendGrid, Mailgun, AWS SES, SMTP)
-- ✅ Delivery tracking (open, click, bounce)
-- ✅ Email verification
-- ✅ Template management
-- ✅ Scheduled sends
-- ✅ Batch processing
-- ✅ Unsubscribe management
-- ✅ List hygiene (bounce handling)
-- ✅ Compliance reporting
-- ✅ OAuth support (Gmail)
-- ✅ Reply tracking
+-  Multi-provider support (SendGrid, Mailgun, AWS SES, SMTP)
+-  Delivery tracking (open, click, bounce)
+-  Email verification
+-  Template management
+-  Scheduled sends
+-  Batch processing
+-  Unsubscribe management
+-  List hygiene (bounce handling)
+-  Compliance reporting
+-  OAuth support (Gmail)
+-  Reply tracking
 
 ## Use Cases
 - Transactional email delivery (signups, resets)
@@ -75,5 +75,5 @@ await mail.send({
 https://github.com/midas-skills/agentmail-wrapper
 
 ## Support
-📧 support@midas-skills.com  
-🔗 Docs: https://docs.midas-skills.com/agentmail-wrapper
+ support@midas-skills.com  
+ Docs: https://docs.midas-skills.com/agentmail-wrapper

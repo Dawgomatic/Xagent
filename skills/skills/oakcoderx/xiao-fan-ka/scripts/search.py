@@ -144,11 +144,11 @@ def main():
 
         restaurants.sort(key=lambda x: (x['is_shop_page'], x['avg_price'] is not None), reverse=True)
 
-        print(f"🔍 大众点评搜索: {args.query}\n")
+        print(f" 大众点评搜索: {args.query}\n")
         for i, r in enumerate(restaurants, 1):
             name = r['name']
             price = f"¥{r['avg_price']}" if r['avg_price'] else ''
-            score = f"⭐{r['score']}" if r['score'] else ''
+            score = f"{r['score']}" if r['score'] else ''
             cats = ' '.join(f'#{c}' for c in r['categories']) if r['categories'] else ''
             info = ' | '.join(p for p in [price, score, cats] if p)
 

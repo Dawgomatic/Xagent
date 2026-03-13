@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🧬",
+        "emoji": "",
         "events": ["agent:bootstrap"],
         "handler": "handler.js",
         "install": [{ "id": "workspace", "kind": "workspace", "label": "Workspace hook" }],

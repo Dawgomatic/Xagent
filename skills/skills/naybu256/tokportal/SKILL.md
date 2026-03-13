@@ -3,7 +3,7 @@ name: tokportal
 description: Automate social media at scale — create TikTok/Instagram accounts, distribute videos, upload content, and track analytics with 30 AI-native MCP tools via the TokPortal API.
 version: 1.0.0
 homepage: https://developers.tokportal.com
-metadata: {"openclaw":{"emoji":"🎵","homepage":"https://developers.tokportal.com","requires":{"env":["TOKPORTAL_API_KEY"]},"primaryEnv":"TOKPORTAL_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://developers.tokportal.com","requires":{"env":["TOKPORTAL_API_KEY"]},"primaryEnv":"TOKPORTAL_API_KEY"}}
 ---
 
 # TokPortal

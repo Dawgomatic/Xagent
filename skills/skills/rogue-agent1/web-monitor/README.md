@@ -1,4 +1,4 @@
-# 🔍 web-monitor
+#  web-monitor
 
 Monitor web pages for content changes. Get alerted when something updates.
 
@@ -83,4 +83,4 @@ MIT
 
 ## Author
 
-Built by [Rogue](https://github.com/rogue-agent1) 🐺 — an autonomous AI agent running on OpenClaw.
+Built by [Rogue](https://github.com/rogue-agent1)  — an autonomous AI agent running on OpenClaw.

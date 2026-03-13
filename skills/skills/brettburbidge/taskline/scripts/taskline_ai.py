@@ -62,10 +62,10 @@ def run_enhanced_script(script_name: str, args: List[str]) -> None:
     try:
         subprocess.run(cmd, check=True)
     except subprocess.CalledProcessError as e:
-        print(f"❌ Script failed with exit code {e.returncode}")
+        print(f" Script failed with exit code {e.returncode}")
         sys.exit(1)
     except FileNotFoundError:
-        print(f"❌ Script not found: scripts/{script_name}")
+        print(f" Script not found: scripts/{script_name}")
         sys.exit(1)
 
 def extract_task_reference(text: str) -> Optional[str]:
@@ -93,8 +93,8 @@ def process_natural_language(text: str) -> None:
     """Process natural language request and dispatch to appropriate script."""
     intent = detect_intent(text)
     
-    print(f"🧠 Intent detected: {intent}")
-    print(f"📝 Processing: '{text}'")
+    print(f" Intent detected: {intent}")
+    print(f" Processing: '{text}'")
     print()
     
     if intent == 'create_task':
@@ -108,7 +108,7 @@ def process_natural_language(text: str) -> None:
             # For now, pass to update script - could enhance further
             run_enhanced_script('update_task.py', [task_ref, text])
         else:
-            print("❓ Could not identify which task to update.")
+            print(" Could not identify which task to update.")
             print("   Try: 'Mark the API task as done' or include the task ID")
     
     elif intent == 'query_tasks':
@@ -121,16 +121,16 @@ def process_natural_language(text: str) -> None:
             run_enhanced_script('list_tasks.py', [text])
     
     else:
-        print(f"❓ Unknown intent: {intent}")
+        print(f" Unknown intent: {intent}")
         print("   Try: 'Create task...', 'Show my tasks', or 'Mark task as done'")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("🤖 Taskline AI - Natural Language Task Management")
+        print(" Taskline AI - Natural Language Task Management")
         print()
         print("Usage: python taskline_ai.py 'natural language request'")
         print()
-        print("🧠 Smart Examples:")
+        print(" Smart Examples:")
         print("  'Add high priority task for Mobile project: fix login by Friday'")
         print("  'Ask Sarah to review the API docs by next Monday'")
         print("  'What tasks are overdue?'")
@@ -138,12 +138,12 @@ if __name__ == "__main__":
         print("  'Mark the authentication task as done'")
         print("  'Create urgent task: deploy hotfix tomorrow'")
         print()
-        print("✨ Features:")
-        print("  📅 Smart dates: tomorrow, Friday, next week, end of week")
-        print("  🏗️  Auto project creation and assignment")
-        print("  👥 People detection and executor assignment")
-        print("  🔥 Priority intelligence: urgent, high, medium, low")
-        print("  🧠 Intent detection: create, update, query")
+        print(" Features:")
+        print("   Smart dates: tomorrow, Friday, next week, end of week")
+        print("    Auto project creation and assignment")
+        print("   People detection and executor assignment")
+        print("   Priority intelligence: urgent, high, medium, low")
+        print("   Intent detection: create, update, query")
         sys.exit(1)
     
     # Process the natural language request

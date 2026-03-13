@@ -11,7 +11,7 @@ TOKEN_FILE="$CLAWDGIGS_DIR/token"
 
 # Check if registered
 if [[ ! -f "$CONFIG_FILE" ]]; then
-    echo "❌ Not registered on ClawdGigs yet."
+    echo " Not registered on ClawdGigs yet."
     echo "Run: ./scripts/register.sh <wallet_address>"
     exit 1
 fi
@@ -86,13 +86,13 @@ done
 fetch_profile() {
     RESPONSE=$(curl -sf "$CLAWDGIGS_API/db/agents?where=id:eq:$AGENT_ID" \
         -H "Authorization: Bearer ${PRESSBASE_SERVICE_KEY:-$AGENT_TOKEN}" 2>/dev/null) || {
-        echo "❌ Failed to fetch profile from API"
+        echo " Failed to fetch profile from API"
         exit 1
     }
 
     SUCCESS=$(echo "$RESPONSE" | jq -r '.ok // false')
     if [[ "$SUCCESS" != "true" ]]; then
-        echo "❌ Failed to fetch profile"
+        echo " Failed to fetch profile"
         exit 1
     fi
 
@@ -101,13 +101,13 @@ fetch_profile() {
 
 # View profile
 if [[ "$ACTION" == "view" ]]; then
-    echo "🤖 ClawdGigs Profile"
+    echo " ClawdGigs Profile"
     echo ""
     
     PROFILE=$(fetch_profile)
     
     if [[ -z "$PROFILE" || "$PROFILE" == "null" ]]; then
-        echo "❌ Profile not found on server"
+        echo " Profile not found on server"
         echo "Agent ID: $AGENT_ID"
         exit 1
     fi
@@ -135,7 +135,7 @@ if [[ "$ACTION" == "view" ]]; then
     echo "│ Skills: $P_SKILLS"
     echo "│ Rate: \$$P_RATE USDC/task"
     echo "│"
-    echo "│ ⭐ $P_RATING rating • $P_JOBS jobs completed"
+    echo "│  $P_RATING rating • $P_JOBS jobs completed"
     echo "│ Status: $P_STATUS"
     echo "├─────────────────────────────────────────────┤"
     echo "│ Wallet: $P_WALLET"
@@ -159,7 +159,7 @@ if [[ "$ACTION" == "set" ]]; then
     [[ -n "$WEBHOOK" ]] && UPDATE_FIELDS="$UPDATE_FIELDS\"webhook_url\": \"$WEBHOOK\","
     
     if [[ -z "$UPDATE_FIELDS" ]]; then
-        echo "❌ No fields to update. Use --name, --bio, --skills, --avatar, --rate, or --webhook"
+        echo " No fields to update. Use --name, --bio, --skills, --avatar, --rate, or --webhook"
         exit 1
     fi
     
@@ -167,7 +167,7 @@ if [[ "$ACTION" == "set" ]]; then
     UPDATE_FIELDS="${UPDATE_FIELDS%,}"
     PAYLOAD="{$UPDATE_FIELDS}"
     
-    echo "🤖 Updating profile..."
+    echo " Updating profile..."
     echo ""
     
     RESPONSE=$(curl -sf "$CLAWDGIGS_API/db/agents/$AGENT_ID" \
@@ -175,18 +175,18 @@ if [[ "$ACTION" == "set" ]]; then
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${PRESSBASE_SERVICE_KEY:-$AGENT_TOKEN}" \
         -d "$PAYLOAD" 2>/dev/null) || {
-        echo "❌ Failed to update profile"
+        echo " Failed to update profile"
         exit 1
     }
 
     SUCCESS=$(echo "$RESPONSE" | jq -r '.ok // false')
     if [[ "$SUCCESS" != "true" ]]; then
         ERROR=$(echo "$RESPONSE" | jq -r '.error // "Unknown error"')
-        echo "❌ Update failed: $ERROR"
+        echo " Update failed: $ERROR"
         exit 1
     fi
 
-    echo "✅ Profile updated!"
+    echo " Profile updated!"
     echo ""
     
     # Show what was updated

@@ -24,18 +24,18 @@
 - LGBTQ+ friendly (Lincoln Road, 12th St)
 
 ### Pros
-✅ **Walk to beach** — The main draw
-✅ **Walkable neighborhood** — Restaurants, bars, shops
-✅ **Art Deco architecture** — Beautiful buildings
-✅ **Nightlife** — Clubs, rooftop bars
-✅ **Lincoln Road** — Pedestrian mall, dining
+ **Walk to beach** — The main draw
+ **Walkable neighborhood** — Restaurants, bars, shops
+ **Art Deco architecture** — Beautiful buildings
+ **Nightlife** — Clubs, rooftop bars
+ **Lincoln Road** — Pedestrian mall, dining
 
 ### Cons
-❌ **Tourists everywhere** — Gets old fast for residents
-❌ **Parking nightmare** — $30-50/day, street parking brutal
-❌ **Noise** — Ocean Drive clubs, music until 5am
-❌ **Expensive groceries** — Limited options, premium pricing
-❌ **Spring break chaos** — March is unbearable
+ **Tourists everywhere** — Gets old fast for residents
+ **Parking nightmare** — $30-50/day, street parking brutal
+ **Noise** — Ocean Drive clubs, music until 5am
+ **Expensive groceries** — Limited options, premium pricing
+ **Spring break chaos** — March is unbearable
 
 ### Best For
 - Beach lovers who prioritize ocean access
@@ -63,15 +63,15 @@ Quieter stretch between South Beach party zone and family-oriented North Beach. 
 - Good restaurants without SoBe markup
 
 ### Pros
-✅ Beach access without SoBe crowds
-✅ More parking than South Beach
-✅ Good restaurants (Carbone, Surf Club)
-✅ Walking/biking path
+ Beach access without SoBe crowds
+ More parking than South Beach
+ Good restaurants (Carbone, Surf Club)
+ Walking/biking path
 
 ### Cons
-❌ Between two worlds — not quite anywhere
-❌ Still touristy around hotels
-❌ Need car for most errands
+ Between two worlds — not quite anywhere
+ Still touristy around hotels
+ Need car for most errands
 
 ### Best For
 - Families wanting beach access
@@ -99,16 +99,16 @@ Quieter, more residential beach communities. Orthodox Jewish community concentra
 - Bal Harbour Shops (ultra-luxury mall)
 
 ### Pros
-✅ **Affordable** (North Beach)
-✅ **Quiet beaches** — locals, not tourists
-✅ **Family-friendly**
-✅ **Kosher dining options**
+ **Affordable** (North Beach)
+ **Quiet beaches** — locals, not tourists
+ **Family-friendly**
+ **Kosher dining options**
 
 ### Cons
-❌ Far from nightlife (30+ min to SoBe)
-❌ Need car
-❌ Fewer restaurant options
-❌ Surfside condo collapse increased scrutiny on buildings
+ Far from nightlife (30+ min to SoBe)
+ Need car
+ Fewer restaurant options
+ Surfside condo collapse increased scrutiny on buildings
 
 ### Best For
 - Families with children
@@ -137,17 +137,17 @@ Exclusive island connected by bridge (toll: $2). Resort community with Ritz-Carl
 - Tennis culture (Crandon Park, former Sony Open)
 
 ### Pros
-✅ **Best beaches in Miami** — Crandon Park, Bill Baggs
-✅ **Safe** — Island security
-✅ **Nature access** — State parks, kayaking
-✅ **Excellent schools**
-✅ **Community feel**
+ **Best beaches in Miami** — Crandon Park, Bill Baggs
+ **Safe** — Island security
+ **Nature access** — State parks, kayaking
+ **Excellent schools**
+ **Community feel**
 
 ### Cons
-❌ **Expensive** — Everything costs more
-❌ **Isolated** — One road in/out, bridge toll
-❌ **Need car** — No transit
-❌ **Limited nightlife** — One main strip
+ **Expensive** — Everything costs more
+ **Isolated** — One road in/out, bridge toll
+ **Need car** — No transit
+ **Limited nightlife** — One main strip
 
 ### Best For
 - Wealthy families prioritizing schools + safety

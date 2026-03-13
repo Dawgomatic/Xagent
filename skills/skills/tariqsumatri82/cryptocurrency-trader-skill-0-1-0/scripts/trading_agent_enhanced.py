@@ -130,19 +130,19 @@ class EnhancedTradingAgent:
             validation_report = self.validator.validate_data_integrity(df, symbol, timeframe)
 
             if not validation_report['passed']:
-                print(f"\n❌ VALIDATION FAILURE for {symbol} [{timeframe}]")
+                print(f"\n VALIDATION FAILURE for {symbol} [{timeframe}]")
                 print(f"   Critical Issues: {', '.join(validation_report['critical_failures'])}")
                 return None
 
             if validation_report['warnings']:
-                print(f"\n⚠️  VALIDATION WARNINGS for {symbol} [{timeframe}]:")
+                print(f"\n  VALIDATION WARNINGS for {symbol} [{timeframe}]:")
                 for warning in validation_report['warnings']:
                     print(f"   {warning}")
 
             return df
 
         except Exception as e:
-            print(f"❌ Data fetch error for {symbol} [{timeframe}]: {str(e)}")
+            print(f" Data fetch error for {symbol} [{timeframe}]: {str(e)}")
             return None
 
     def calculate_advanced_indicators(self, df: pd.DataFrame) -> Dict:
@@ -210,7 +210,7 @@ class EnhancedTradingAgent:
             validation_report = self.validator.validate_indicators(indicators, df)
 
             if not validation_report['passed']:
-                print(f"\n❌ INDICATOR VALIDATION FAILURE")
+                print(f"\n INDICATOR VALIDATION FAILURE")
                 print(f"   Issues: {', '.join(validation_report['critical_failures'])}")
                 return {'error': 'Indicator validation failed'}
 
@@ -237,7 +237,7 @@ class EnhancedTradingAgent:
         7. Final validation and confidence scoring
         """
         print(f"\n{'='*80}")
-        print(f"🔬 COMPREHENSIVE ANALYSIS: {symbol}")
+        print(f" COMPREHENSIVE ANALYSIS: {symbol}")
         print(f"{'='*80}")
 
         analysis = {
@@ -257,7 +257,7 @@ class EnhancedTradingAgent:
         }
 
         # Step 1: Multi-timeframe data collection with retry logic
-        print(f"\n📊 Stage 1: Multi-Timeframe Data Collection & Validation")
+        print(f"\n Stage 1: Multi-Timeframe Data Collection & Validation")
 
         timeframe_dataframes = {}
         for tf in timeframes:
@@ -273,10 +273,10 @@ class EnhancedTradingAgent:
                 except Exception as e:
                     if attempt < 2:
                         wait_time = 2 ** attempt  # 1s, 2s
-                        print(f"   ⚠️  Attempt {attempt + 1} failed, retrying in {wait_time}s...")
+                        print(f"     Attempt {attempt + 1} failed, retrying in {wait_time}s...")
                         time.sleep(wait_time)
                     else:
-                        print(f"   ❌ All retries failed for {tf}: {str(e)[:100]}")
+                        print(f"    All retries failed for {tf}: {str(e)[:100]}")
 
             if df is not None:
                 timeframe_dataframes[tf] = df
@@ -285,11 +285,11 @@ class EnhancedTradingAgent:
 
                 if 'error' not in indicators:
                     analysis['multi_timeframe_data'][tf] = indicators
-                    print(f"   ✅ {tf} data validated and processed")
+                    print(f"    {tf} data validated and processed")
                 else:
-                    print(f"   ❌ {tf} indicator calculation failed")
+                    print(f"    {tf} indicator calculation failed")
             else:
-                print(f"   ❌ {tf} data validation failed")
+                print(f"    {tf} data validation failed")
 
         if len(analysis['timeframes_analyzed']) < 2:
             analysis['final_recommendation'] = {
@@ -302,7 +302,7 @@ class EnhancedTradingAgent:
         analysis['validation_stages_passed'].append('DATA_COLLECTION')
 
         # Step 2: Pattern Recognition & Chart Analysis
-        print(f"\n🎯 Stage 2: Advanced Pattern Recognition & Technical Analysis")
+        print(f"\n Stage 2: Advanced Pattern Recognition & Technical Analysis")
 
         # Use the 1h timeframe for pattern analysis (or first available)
         primary_tf = '1h' if '1h' in timeframe_dataframes else analysis['timeframes_analyzed'][0]
@@ -312,25 +312,25 @@ class EnhancedTradingAgent:
         analysis['pattern_analysis'] = pattern_analysis
 
         if 'error' not in pattern_analysis:
-            print(f"   ✅ Detected {len(pattern_analysis['patterns_detected'])} chart patterns")
-            print(f"   ✅ Identified {len(pattern_analysis['support_levels'])} support / {len(pattern_analysis['resistance_levels'])} resistance levels")
-            print(f"   ✅ Market Regime: {pattern_analysis.get('market_regime', {}).get('market_regime', 'UNKNOWN')}")
+            print(f"    Detected {len(pattern_analysis['patterns_detected'])} chart patterns")
+            print(f"    Identified {len(pattern_analysis['support_levels'])} support / {len(pattern_analysis['resistance_levels'])} resistance levels")
+            print(f"    Market Regime: {pattern_analysis.get('market_regime', {}).get('market_regime', 'UNKNOWN')}")
             analysis['validation_stages_passed'].append('PATTERN_RECOGNITION')
 
         # Step 3: Bayesian Probabilistic Signal Generation
-        print(f"\n🧮 Stage 3: Bayesian Probabilistic Signal Generation")
+        print(f"\n Stage 3: Bayesian Probabilistic Signal Generation")
 
         bayesian_signals = self._generate_bayesian_signals(
             analysis['multi_timeframe_data'],
             pattern_analysis
         )
         analysis['probabilistic_signals'] = bayesian_signals
-        print(f"   ✅ Bayesian probability: {bayesian_signals.get('bullish_probability', 0):.1f}% bullish")
-        print(f"   ✅ Signal strength: {bayesian_signals.get('signal_strength', 'UNKNOWN')}")
+        print(f"    Bayesian probability: {bayesian_signals.get('bullish_probability', 0):.1f}% bullish")
+        print(f"    Signal strength: {bayesian_signals.get('signal_strength', 'UNKNOWN')}")
         analysis['validation_stages_passed'].append('PROBABILISTIC_MODELING')
 
         # Step 4: Monte Carlo Risk Scenarios
-        print(f"\n🎲 Stage 4: Monte Carlo Simulation for Risk Assessment")
+        print(f"\n Stage 4: Monte Carlo Simulation for Risk Assessment")
 
         returns = primary_df['close'].pct_change().dropna()
         current_price = primary_df['close'].iloc[-1]
@@ -344,13 +344,13 @@ class EnhancedTradingAgent:
 
         if 'error' not in monte_carlo:
             analysis['monte_carlo_scenarios'] = monte_carlo
-            print(f"   ✅ Simulated 10,000 price scenarios")
-            print(f"   ✅ Expected price (5 periods): ${monte_carlo['expected_price']}")
-            print(f"   ✅ Profit probability: {monte_carlo['probability_profit']}%")
+            print(f"    Simulated 10,000 price scenarios")
+            print(f"    Expected price (5 periods): ${monte_carlo['expected_price']}")
+            print(f"    Profit probability: {monte_carlo['probability_profit']}%")
             analysis['validation_stages_passed'].append('MONTE_CARLO')
 
         # Step 5: Advanced Risk Metrics
-        print(f"\n📈 Stage 5: Advanced Risk Metrics Calculation")
+        print(f"\n Stage 5: Advanced Risk Metrics Calculation")
 
         # VaR and CVaR
         position_value = self.balance * 0.10  # Assume 10% position
@@ -367,13 +367,13 @@ class EnhancedTradingAgent:
         analysis['advanced_metrics'] = performance_metrics
 
         if 'error' not in var_cvar and 'error' not in performance_metrics:
-            print(f"   ✅ VaR (95%): ${abs(var_cvar.get('modified_var_dollar', 0)):.2f} maximum 1-day loss")
-            print(f"   ✅ Sharpe Ratio: {performance_metrics.get('sharpe_ratio', 0):.2f}")
-            print(f"   ✅ Win Rate: {performance_metrics.get('win_rate_pct', 0):.1f}%")
+            print(f"    VaR (95%): ${abs(var_cvar.get('modified_var_dollar', 0)):.2f} maximum 1-day loss")
+            print(f"    Sharpe Ratio: {performance_metrics.get('sharpe_ratio', 0):.2f}")
+            print(f"    Win Rate: {performance_metrics.get('win_rate_pct', 0):.1f}%")
             analysis['validation_stages_passed'].append('RISK_METRICS')
 
         # Step 6: Generate Trading Recommendation
-        print(f"\n🎯 Stage 6: Generating Final Trading Recommendation")
+        print(f"\n Stage 6: Generating Final Trading Recommendation")
 
         recommendation = self._generate_recommendation(
             bayesian_signals=bayesian_signals,
@@ -391,11 +391,11 @@ class EnhancedTradingAgent:
         validation_report = self.validator.validate_trading_signal(recommendation)
 
         if validation_report['passed']:
-            print(f"   ✅ Signal validation passed")
+            print(f"    Signal validation passed")
             analysis['execution_ready'] = True
             analysis['validation_stages_passed'].append('SIGNAL_VALIDATION')
         else:
-            print(f"   ❌ Signal validation failed:")
+            print(f"    Signal validation failed:")
             for failure in validation_report['critical_failures']:
                 print(f"      {failure}")
             analysis['execution_ready'] = False
@@ -662,7 +662,7 @@ class EnhancedTradingAgent:
         """
         logger.info(f"Starting market scan across {len(self.categories)} categories")
         print(f"\n{'='*80}")
-        print(f"🔬 MARKET SCANNER - Finding Top {top_n} Opportunities")
+        print(f" MARKET SCANNER - Finding Top {top_n} Opportunities")
         print(f"{'='*80}")
 
         all_opportunities = []
@@ -672,7 +672,7 @@ class EnhancedTradingAgent:
             if categories and category not in categories:
                 continue
 
-            print(f"\n📊 Scanning {category}...")
+            print(f"\n Scanning {category}...")
             logger.info(f"Scanning category: {category}")
 
             for symbol in symbols:
@@ -690,14 +690,14 @@ class EnhancedTradingAgent:
                         analysis['ev_score'] = round(ev_score, 3)
                         analysis['category'] = category
                         all_opportunities.append(analysis)
-                        print(f"✅ EV: {ev_score:.3f}")
+                        print(f" EV: {ev_score:.3f}")
                         logger.info(f"{symbol} passed - EV: {ev_score:.3f}")
                     else:
-                        print(f"❌ Failed validation")
+                        print(f" Failed validation")
 
                     time.sleep(0.5)
                 except Exception as e:
-                    print(f"⚠️  Error: {str(e)[:50]}")
+                    print(f"  Error: {str(e)[:50]}")
                     logger.error(f"Failed {symbol}: {str(e)}")
 
         all_opportunities.sort(key=lambda x: x['ev_score'], reverse=True)
@@ -705,7 +705,7 @@ class EnhancedTradingAgent:
         scan_duration = (datetime.now() - scan_start_time).total_seconds()
 
         print(f"\n{'='*80}")
-        print(f"📊 SCAN COMPLETE - {len(all_opportunities)} opportunities in {scan_duration:.1f}s")
+        print(f" SCAN COMPLETE - {len(all_opportunities)} opportunities in {scan_duration:.1f}s")
         print(f"{'='*80}")
         logger.info(f"Scan complete: {len(all_opportunities)} found")
 
@@ -714,24 +714,24 @@ class EnhancedTradingAgent:
     def display_scan_results(self, opportunities: List[Dict]):
         """Display market scan results"""
         if not opportunities:
-            print("\n⚠️  No execution-ready opportunities found.")
+            print("\n  No execution-ready opportunities found.")
             return
 
         print(f"\n{'='*80}")
-        print(f"🏆 TOP TRADING OPPORTUNITIES (Ranked by EV)")
+        print(f" TOP TRADING OPPORTUNITIES (Ranked by EV)")
         print(f"{'='*80}\n")
 
         for i, analysis in enumerate(opportunities, 1):
             rec = analysis['final_recommendation']
             print(f"#{i}. {analysis['symbol']} ({analysis['category']})")
-            print(f"   ⭐ EV: {analysis['ev_score']:.3f} | Action: {rec['action']} | Conf: {rec['confidence']}%")
-            print(f"   💰 Entry: ${rec['entry_price']} | Stop: ${rec['stop_loss']} | Target: ${rec['take_profit']}")
+            print(f"    EV: {analysis['ev_score']:.3f} | Action: {rec['action']} | Conf: {rec['confidence']}%")
+            print(f"    Entry: ${rec['entry_price']} | Stop: ${rec['stop_loss']} | Target: ${rec['take_profit']}")
             print()
 
     def display_analysis(self, analysis: Dict):
         """Display comprehensive analysis results"""
         print(f"\n{'='*80}")
-        print(f"📊 ANALYSIS REPORT: {analysis['symbol']}")
+        print(f" ANALYSIS REPORT: {analysis['symbol']}")
         print(f"{'='*80}")
         print(f"Analysis Time: {analysis['timestamp'].strftime('%Y-%m-%d %H:%M:%S')}")
         print(f"Validation Stages Passed: {len(analysis['validation_stages_passed'])}/6")
@@ -740,14 +740,14 @@ class EnhancedTradingAgent:
         rec = analysis['final_recommendation']
 
         print(f"\n{'='*80}")
-        print(f"🎯 TRADING RECOMMENDATION")
+        print(f" TRADING RECOMMENDATION")
         print(f"{'='*80}")
         print(f"ACTION: {rec['action']}")
         print(f"CONFIDENCE: {rec['confidence']}%")
-        print(f"EXECUTION READY: {'✅ YES' if analysis['execution_ready'] else '❌ NO'}")
+        print(f"EXECUTION READY: {' YES' if analysis['execution_ready'] else ' NO'}")
 
         if rec['action'] in ['LONG', 'SHORT']:
-            print(f"\n💰 PRICE LEVELS:")
+            print(f"\n PRICE LEVELS:")
             print(f"   Entry Price: ${rec['entry_price']}")
             print(f"   Stop Loss: ${rec['stop_loss']}")
             print(f"   Take Profit: ${rec['take_profit']}")
@@ -755,7 +755,7 @@ class EnhancedTradingAgent:
 
             if 'position_sizing' in rec:
                 ps = rec['position_sizing']
-                print(f"\n💼 POSITION SIZING:")
+                print(f"\n POSITION SIZING:")
                 print(f"   Standard Size: {ps['standard_size_coin']} coins (${ps['standard_value_usd']})")
                 print(f"   Risk Amount: ${ps['risk_usd']} (2% of account)")
                 print(f"   Est. Trading Fees: ${ps['trading_fees_est']}")
@@ -764,7 +764,7 @@ class EnhancedTradingAgent:
                     print(f"   Kelly Conservative: ${ps['kelly_conservative_usd']}")
                     print(f"   Kelly Aggressive: ${ps['kelly_aggressive_usd']}")
 
-        print(f"\n📈 PROBABILISTIC ANALYSIS:")
+        print(f"\n PROBABILISTIC ANALYSIS:")
         print(f"   Bayesian Bullish Probability: {rec['bayesian_probability']['bullish']:.1f}%")
         print(f"   Bayesian Bearish Probability: {rec['bayesian_probability']['bearish']:.1f}%")
         print(f"   Signal Strength: {rec['signal_strength']}")
@@ -772,7 +772,7 @@ class EnhancedTradingAgent:
 
         if 'monte_carlo_scenarios' in analysis and 'error' not in analysis['monte_carlo_scenarios']:
             mc = analysis['monte_carlo_scenarios']
-            print(f"\n🎲 MONTE CARLO SIMULATION (10,000 scenarios):")
+            print(f"\n MONTE CARLO SIMULATION (10,000 scenarios):")
             print(f"   Expected Return: {mc['expected_return_pct']:+.2f}%")
             print(f"   Profit Probability: {mc['probability_profit']}%")
             print(f"   Best Case (95th percentile): {mc['best_case_5pct']:+.2f}%")
@@ -780,7 +780,7 @@ class EnhancedTradingAgent:
 
         if 'advanced_metrics' in analysis and 'error' not in analysis['advanced_metrics']:
             metrics = analysis['advanced_metrics']
-            print(f"\n📊 ADVANCED RISK METRICS:")
+            print(f"\n ADVANCED RISK METRICS:")
             print(f"   Sharpe Ratio: {metrics['sharpe_ratio']:.2f}")
             print(f"   Sortino Ratio: {metrics['sortino_ratio']:.2f}")
             print(f"   Max Drawdown: {metrics['max_drawdown_pct']:.2f}%")
@@ -790,19 +790,19 @@ class EnhancedTradingAgent:
         if 'risk_assessment' in analysis and 'var_cvar' in analysis['risk_assessment']:
             var = analysis['risk_assessment']['var_cvar']
             if 'error' not in var:
-                print(f"\n⚠️  VALUE AT RISK (95% confidence):")
+                print(f"\n  VALUE AT RISK (95% confidence):")
                 print(f"   {var['interpretation']}")
                 print(f"   CVaR (Expected Shortfall): ${abs(var['cvar_dollar']):.2f}")
 
         if 'pattern_analysis' in analysis and 'patterns_detected' in analysis['pattern_analysis']:
             patterns = analysis['pattern_analysis']['patterns_detected']
             if patterns:
-                print(f"\n🎨 CHART PATTERNS DETECTED ({len(patterns)}):")
+                print(f"\n CHART PATTERNS DETECTED ({len(patterns)}):")
                 for i, pattern in enumerate(patterns[:5], 1):  # Show top 5
                     print(f"   {i}. {pattern['pattern']} - {pattern['bias']} ({pattern['confidence']}% confidence)")
 
         print(f"\n{'='*80}")
-        print(f"⚠️  PRODUCTION NOTICE:")
+        print(f"  PRODUCTION NOTICE:")
         print(f"This analysis is designed for real-world application. All calculations")
         print(f"have been validated through multi-stage verification. However:")
         print(f"• Markets are inherently uncertain")
@@ -815,7 +815,7 @@ class EnhancedTradingAgent:
 def main():
     """Main execution"""
     print("\n" + "="*80)
-    print("🚀 ENHANCED AI TRADING AGENT - Production-Grade Analysis")
+    print(" ENHANCED AI TRADING AGENT - Production-Grade Analysis")
     print("="*80)
     print("\nFeatures:")
     print("✓ Multi-stage validation (zero hallucination tolerance)")
@@ -825,13 +825,13 @@ def main():
     print("✓ Chart pattern recognition with mathematical validation")
     print("✓ Production-ready actionable outputs")
 
-    balance = float(input("\n💵 Enter account balance in USD: $"))
+    balance = float(input("\n Enter account balance in USD: $"))
 
     agent = EnhancedTradingAgent(balance=balance)
 
-    symbol = input("💱 Enter trading pair (e.g., BTC/USDT): ").strip().upper()
+    symbol = input(" Enter trading pair (e.g., BTC/USDT): ").strip().upper()
 
-    print(f"\n🔬 Starting comprehensive analysis of {symbol}...")
+    print(f"\n Starting comprehensive analysis of {symbol}...")
     print("This may take 30-60 seconds due to advanced computations...")
 
     analysis = agent.comprehensive_analysis(symbol, timeframes=['15m', '1h', '4h'])

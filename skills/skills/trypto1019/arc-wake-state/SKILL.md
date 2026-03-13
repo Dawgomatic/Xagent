@@ -2,7 +2,7 @@
 name: wake-state
 description: Persist agent state across crashes, context deaths, and restarts. Use when you need to save current context, restore after a crash, maintain a memory file across sessions, or implement crash recovery. Essential for autonomous agents that must survive context window limits.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🧠", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Wake State — Crash Recovery & Persistence

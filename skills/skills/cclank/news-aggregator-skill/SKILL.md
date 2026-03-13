@@ -65,7 +65,7 @@ When the user says **"news-aggregator-skill 如意如意"** (or similar "menu/he
 If the user requests a specific time window (e.g., "past X hours") and the results are sparse (< 5 items):
 1.  **Prioritize User Window**: First, list all items that strictly fall within the user's requested time (Time < X).
 2.  **Smart Fill**: If the list is short, you MUST include high-value/high-heat items from a wider range (e.g. past 24h) to ensure the report provides at least 5 meaningful insights.
-2.  **Annotation**: Clearly mark these older items (e.g., "⚠️ 18h ago", "🔥 24h Hot") so the user knows they are supplementary.
+2.  **Annotation**: Clearly mark these older items (e.g., " 18h ago", " 24h Hot") so the user knows they are supplementary.
 3.  **High Value**: Always prioritize "SOTA", "Major Release", or "High Heat" items even if they slightly exceed the time window.
 4.  **GitHub Trending Exception**: For purely list-based sources like **GitHub Trending**, strictly return the valid items from the fetched list (e.g. Top 10). **List ALL fetched items**. Do **NOT** perform "Smart Fill".
     *   **Deep Analysis (Required)**: For EACH item, you **MUST** leverage your AI capabilities to analyze:
@@ -84,8 +84,8 @@ If the user requests a specific time window (e.g., "past X hours") and the resul
     - **Finance / Social**: Other strong categories if relevant.
 - **Item Format**:
     - **Title**: **MUST be a Markdown Link** to the original URL.
-        - ✅ Correct: `### 1. [OpenAI Releases GPT-5](https://...)`
-        - ❌ Incorrect: `### 1. OpenAI Releases GPT-5`
+        -  Correct: `### 1. [OpenAI Releases GPT-5](https://...)`
+        -  Incorrect: `### 1. OpenAI Releases GPT-5`
     - **Metadata Line**: Must include Source, **Time/Date**, and Heat/Score.
     - **1-Liner Summary**: A punchy, "so what?" summary.
     - **Deep Interpretation (Bulleted)**: 2-3 bullet points explaining *why* this matters, technical details, or context. (Required for "Deep Scan").

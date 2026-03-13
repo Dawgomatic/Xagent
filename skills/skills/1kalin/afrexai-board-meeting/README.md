@@ -18,4 +18,4 @@ Generate complete board meeting packages your directors will actually read. Agen
 
 Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) — AI agent context packs for business operations ($47/pack).
 
-🔗 [Context Packs Storefront](https://afrexai-cto.github.io/context-packs/) | [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) | [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)
+ [Context Packs Storefront](https://afrexai-cto.github.io/context-packs/) | [AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) | [Agent Setup Wizard](https://afrexai-cto.github.io/agent-setup/)

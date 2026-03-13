@@ -104,5 +104,5 @@ export function rebuildDailyAggregates() {
 if (process.argv[1]?.endsWith('ingest.mjs')) {
   await initDb(config.dbPath);
   const count = await ingestAll(config.agentsDir);
-  console.log(`✅ Ingested ${count} new usage events`);
+  console.log(` Ingested ${count} new usage events`);
 }

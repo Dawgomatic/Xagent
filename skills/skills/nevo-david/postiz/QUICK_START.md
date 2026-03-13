@@ -225,7 +225,7 @@ postiz posts:list
 ### API Key Not Set
 
 ```
-❌ Error: POSTIZ_API_KEY environment variable is required
+ Error: POSTIZ_API_KEY environment variable is required
 ```
 
 **Solution:** Set the environment variable:
@@ -247,13 +247,13 @@ postiz: command not found
 ### API Errors
 
 ```
-❌ API Error (401): Unauthorized
+ API Error (401): Unauthorized
 ```
 
 **Solution:** Check your API key is valid and has proper permissions.
 
 ```
-❌ API Error (404): Not Found
+ API Error (404): Not Found
 ```
 
 **Solution:** Verify the post ID exists when deleting.

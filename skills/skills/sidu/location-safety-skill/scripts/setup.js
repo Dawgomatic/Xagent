@@ -77,7 +77,7 @@ function loadConfig() {
 
 function saveConfig(config) {
   fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
-  console.log(`\n✅ Configuration saved to ${CONFIG_FILE}`);
+  console.log(`\n Configuration saved to ${CONFIG_FILE}`);
 }
 
 function showConfig() {
@@ -86,7 +86,7 @@ function showConfig() {
     console.log('No configuration found. Run setup first.');
     return;
   }
-  console.log('\n📍 Current Configuration:\n');
+  console.log('\n Current Configuration:\n');
   console.log(JSON.stringify(config, null, 2));
 }
 
@@ -126,7 +126,7 @@ async function interactiveSetup() {
 
   console.log('\n');
   console.log('╔══════════════════════════════════════════════════════════════╗');
-  console.log('║          🛡️  LOCATION SAFETY - SETUP WIZARD                  ║');
+  console.log('║            LOCATION SAFETY - SETUP WIZARD                  ║');
   console.log('╚══════════════════════════════════════════════════════════════╝');
   console.log('\nThis wizard will help you set up location-based safety monitoring.');
   console.log('Your AI assistant will watch for dangers near you and alert you.\n');
@@ -160,7 +160,7 @@ async function interactiveSetup() {
       locationKeywords: preset.keywords,
       newsFeeds: preset.feeds
     };
-    console.log(`\n✅ Using preset for ${city || 'Seattle'}`);
+    console.log(`\n Using preset for ${city || 'Seattle'}`);
   } else {
     // Try to geocode
     console.log(`\nLooking up "${city}"...`);
@@ -180,7 +180,7 @@ async function interactiveSetup() {
         locationKeywords: [city.toLowerCase()],
         newsFeeds: []
       };
-      console.log('\n⚠️  No preset news feeds for this city. You may want to add local RSS feeds manually.');
+      console.log('\n  No preset news feeds for this city. You may want to add local RSS feeds manually.');
     } catch (e) {
       console.log(`Could not find city. Using Seattle defaults.`);
       const preset = CITY_PRESETS['seattle'];
@@ -217,8 +217,8 @@ async function interactiveSetup() {
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
   
   console.log('To share your location, install the OwnTracks app:\n');
-  console.log('  📱 iPhone:  https://apps.apple.com/app/owntracks/id692424691');
-  console.log('  🤖 Android: https://play.google.com/store/apps/details?id=org.owntracks.android\n');
+  console.log('   iPhone:  https://apps.apple.com/app/owntracks/id692424691');
+  console.log('   Android: https://play.google.com/store/apps/details?id=org.owntracks.android\n');
   
   await ask('Press Enter once you\'ve installed OwnTracks...');
   
@@ -242,14 +242,14 @@ async function interactiveSetup() {
   
   // Summary
   console.log('\n╔══════════════════════════════════════════════════════════════╗');
-  console.log('║                    ✅ SETUP COMPLETE!                        ║');
+  console.log('║                     SETUP COMPLETE!                        ║');
   console.log('╚══════════════════════════════════════════════════════════════╝\n');
   
-  console.log('📍 Location:', config.location.city, `(${config.location.defaultLat.toFixed(4)}, ${config.location.defaultLon.toFixed(4)})`);
-  console.log('🔍 Keywords:', config.monitoring.locationKeywords.join(', '));
-  console.log('📰 News feeds:', config.monitoring.newsFeeds.length, 'configured');
+  console.log(' Location:', config.location.city, `(${config.location.defaultLat.toFixed(4)}, ${config.location.defaultLon.toFixed(4)})`);
+  console.log(' Keywords:', config.monitoring.locationKeywords.join(', '));
+  console.log(' News feeds:', config.monitoring.newsFeeds.length, 'configured');
   if (config.emergencyContact?.name) {
-    console.log('🚨 Emergency:', config.emergencyContact.name, `<${config.emergencyContact.email}>`);
+    console.log(' Emergency:', config.emergencyContact.name, `<${config.emergencyContact.email}>`);
   }
   
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
@@ -280,7 +280,7 @@ if (args.includes('--show')) {
     config.monitoring = { ...config.monitoring, locationKeywords: preset.keywords, newsFeeds: preset.feeds };
     config.configured = true;
     saveConfig(config);
-    console.log(`✅ Configured for ${city}`);
+    console.log(` Configured for ${city}`);
   } else {
     console.log(`Unknown city preset: ${city}`);
     console.log('Available: Seattle, Portland, San Francisco, Los Angeles, New York, Chicago');

@@ -2,7 +2,7 @@
 name: perplobster
 description: Deploy automated trading bots on Hyperliquid DEX. Supports perpetual market making, spot market making, and grid trading strategies with a web dashboard. Helps users set up credentials, choose a strategy, configure markets, and start trading. Use when someone wants to trade on Hyperliquid, run a market maker, set up a grid bot, or automate crypto trading.
 license: MIT
-metadata: {"openclaw":{"emoji":"🦞","os":["darwin","linux"],"requires":{"anyBins":["python3","python"],"bins":["git"]}}}
+metadata: {"openclaw":{"emoji":"","os":["darwin","linux"],"requires":{"anyBins":["python3","python"],"bins":["git"]}}}
 ---
 
 # Perp Lobster - Hyperliquid Trading Bots

@@ -5,7 +5,7 @@
 TOPIC="${1:-general}"
 
 cat << EOF
-💡 LINKEDIN CONTENT IDEAS: $TOPIC
+ LINKEDIN CONTENT IDEAS: $TOPIC
 ═══════════════════════════════════════
 
 Generate content ideas based on high-performing formats.
@@ -27,27 +27,27 @@ Generate content ideas based on high-performing formats.
 
 ## High-Engagement Post Formats:
 
-📌 **The Contrarian Take**
+ **The Contrarian Take**
 "Unpopular opinion: [controversial but defensible stance]"
 → Drives comments and debate
 
-📌 **The Story Arc**
+ **The Story Arc**
 "3 years ago, I [struggle]. Today, I [success]. Here's what changed:"
 → Personal stories get 3x engagement
 
-📌 **The List Post**
+ **The List Post**
 "10 [lessons/tips/tools] I wish I knew [timeframe] ago:"
 → Easy to consume, high saves
 
-📌 **The Before/After**
+ **The Before/After**
 "Before: [old way]. After: [new way]. The difference? [insight]"
 → Clear transformation narrative
 
-📌 **The Question Hook**
+ **The Question Hook**
 "What's the one skill that changed your career?"
 → Drives comments
 
-📌 **The Hot Take + Data**
+ **The Hot Take + Data**
 "[Bold claim]. Here's the data: [stats]"
 → Credibility + controversy
 

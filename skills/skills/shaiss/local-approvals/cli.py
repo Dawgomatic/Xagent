@@ -53,17 +53,17 @@ def approve(request_id: str, reviewer: str = "user", auto_learn: bool = False) -
     """
     request = get_request(request_id)
     if request is None:
-        print(f"❌ Error: Request '{request_id}' not found")
+        print(f" Error: Request '{request_id}' not found")
         return False
     
     if request["status"] != "pending":
-        print(f"⚠️  Request '{request_id}' is not pending (status: {request['status']})")
+        print(f"  Request '{request_id}' is not pending (status: {request['status']})")
         return False
     
     # Update the request
     updated = update_request(request_id, "approved", reviewer)
     if updated:
-        print(f"✅ Approved request '{request_id}'")
+        print(f" Approved request '{request_id}'")
         print(f"   Agent: {updated['agent']}")
         print(f"   Category: {updated['category']}")
         print(f"   Operation: {updated['operation']}")
@@ -71,7 +71,7 @@ def approve(request_id: str, reviewer: str = "user", auto_learn: bool = False) -
         # Auto-learn the category if requested
         if auto_learn:
             learn_category(updated['agent'], updated['category'])
-            print(f"   📚 Category '{updated['category']}' added to auto-approve for agent '{updated['agent']}'")
+            print(f"    Category '{updated['category']}' added to auto-approve for agent '{updated['agent']}'")
         
         return True
     
@@ -91,17 +91,17 @@ def deny(request_id: str, reviewer: str = "user") -> bool:
     """
     request = get_request(request_id)
     if request is None:
-        print(f"❌ Error: Request '{request_id}' not found")
+        print(f" Error: Request '{request_id}' not found")
         return False
     
     if request["status"] != "pending":
-        print(f"⚠️  Request '{request_id}' is not pending (status: {request['status']})")
+        print(f"  Request '{request_id}' is not pending (status: {request['status']})")
         return False
     
     # Update the request
     updated = update_request(request_id, "denied", reviewer)
     if updated:
-        print(f"❌ Denied request '{request_id}'")
+        print(f" Denied request '{request_id}'")
         print(f"   Agent: {updated['agent']}")
         print(f"   Category: {updated['category']}")
         print(f"   Operation: {updated['operation']}")
@@ -126,7 +126,7 @@ def list_pending_cmd(agent: str = None) -> None:
             print("✓ No pending requests")
         return
     
-    print(f"\n📋 Pending Requests ({len(pending)}):")
+    print(f"\n Pending Requests ({len(pending)}):")
     print("-" * 60)
     
     for req_id, req in sorted(pending.items(), key=lambda x: x[1].get('submitted_at', '')):
@@ -160,7 +160,7 @@ def show_history(limit: int = 20) -> None:
     # Show the most recent entries (up to limit)
     recent_history = history[-limit:] if len(history) > limit else history
     
-    print(f"\n📜 Approval History (showing {len(recent_history)} of {len(history)}):")
+    print(f"\n Approval History (showing {len(recent_history)} of {len(history)}):")
     print("-" * 60)
     
     for entry in reversed(recent_history):
@@ -170,7 +170,7 @@ def show_history(limit: int = 20) -> None:
         decision = entry.get("decision", "Unknown decision")
         reason = entry.get("reason", "")
         
-        status_emoji = "✅" if decision == "approved" else "❌"
+        status_emoji = "" if decision == "approved" else ""
         print(f"\n{status_emoji} {timestamp}")
         print(f"   Agent:     {agent}")
         print(f"   Action:    {action}")
@@ -197,7 +197,7 @@ def reset_categories(agent: str) -> bool:
     auto_approve = state.get("auto_approve", {})
     
     if agent not in auto_approve:
-        print(f"⚠️  Agent '{agent}' has no auto-approved categories to reset")
+        print(f"  Agent '{agent}' has no auto-approved categories to reset")
         return False
     
     # Clear the categories for this agent
@@ -207,7 +207,7 @@ def reset_categories(agent: str) -> bool:
     
     _save_state(state)
     
-    print(f"🔄 Reset auto-approved categories for agent '{agent}'")
+    print(f" Reset auto-approved categories for agent '{agent}'")
     print(f"   Removed categories: {', '.join(categories)}")
     return True
 
@@ -228,13 +228,13 @@ def show_categories(agent: str = None) -> None:
     
     if agent:
         if agent not in auto_approve:
-            print(f"⚠️  Agent '{agent}' has no auto-approved categories")
+            print(f"  Agent '{agent}' has no auto-approved categories")
             return
         agents_to_show = {agent: auto_approve[agent]}
     else:
         agents_to_show = auto_approve
     
-    print("\n📚 Auto-Approved Categories:")
+    print("\n Auto-Approved Categories:")
     print("-" * 60)
     
     for agent_id, categories in agents_to_show.items():

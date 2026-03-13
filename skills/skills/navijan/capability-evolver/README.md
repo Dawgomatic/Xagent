@@ -1,4 +1,4 @@
-# 🧬 Capability Evolver
+#  Capability Evolver
 
 ![Capability Evolver Cover](assets/cover.png)
 

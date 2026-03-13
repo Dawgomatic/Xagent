@@ -6,14 +6,14 @@ author: clawdbot
 license: MIT
 metadata:
   clawdbot:
-    emoji: "🔧"
+    emoji: ""
     triggers: ["/device", "/geräte"]
     requires:
       bins: ["jq", "curl"]
   tags: ["devices", "appliances", "troubleshooting", "maintenance", "home", "warranty"]
 ---
 
-# Device Assistant 🔧
+# Device Assistant 
 
 Personal device manager with error code lookup, troubleshooting, and maintenance tracking.
 
@@ -135,7 +135,7 @@ The skill searches for error codes using:
 ```
 User: Ich habe einen neuen Geschirrspüler
 
-Bot: 🔧 Neues Gerät hinzufügen:
+Bot:  Neues Gerät hinzufügen:
      
      Welche Infos hast du?
      • Hersteller?
@@ -145,12 +145,12 @@ Bot: 🔧 Neues Gerät hinzufügen:
 
 User: Siemens SN658X06TE, gekauft am 15.3.2022
 
-Bot: ✅ Gespeichert!
+Bot:  Gespeichert!
      
-     📦 Geschirrspüler (Siemens SN658X06TE)
-     📅 Gekauft: 15.03.2022
-     🛡️ Garantie: bis 15.03.2025 (ABGELAUFEN)
-     📄 Anleitung: [Link gefunden]
+      Geschirrspüler (Siemens SN658X06TE)
+      Gekauft: 15.03.2022
+      Garantie: bis 15.03.2025 (ABGELAUFEN)
+      Anleitung: [Link gefunden]
      
      Spitzname vergeben? (z.B. "Spüli")
 ```
@@ -158,19 +158,19 @@ Bot: ✅ Gespeichert!
 ```
 User: Mein Geschirrspüler zeigt E24
 
-Bot: 🔧 Siemens SN658X06TE — Fehler E24
+Bot:  Siemens SN658X06TE — Fehler E24
      
-     ⚠️ Bedeutung: Abpumpproblem
+      Bedeutung: Abpumpproblem
      Das Wasser wird nicht richtig abgepumpt.
      
-     🔨 Lösung:
+      Lösung:
      1. Gerät ausschalten
      2. Sieb am Boden prüfen und reinigen
      3. Abflussschlauch auf Knicke prüfen
      4. Siphon-Anschluss kontrollieren
      5. Gerät neu starten
      
-     📄 Details: Anleitung S. 45
+      Details: Anleitung S. 45
      
      [Problem gelöst] [Weitere Hilfe]
 ```
@@ -191,7 +191,7 @@ Stored in `$WORKSPACE/memory/device-assistant/`:
 The skill can remind you before warranties expire:
 
 ```
-⚠️ Garantie-Warnung:
+ Garantie-Warnung:
 
 Diese Geräte laufen bald ab:
 • TV Samsung (noch 30 Tage)

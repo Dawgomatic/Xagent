@@ -24,7 +24,7 @@
         "reason": "gateway 직접 재시작"
       },
       {
-        "cmd": "mv /tmp/openclaw-updated.json ~/.openclaw/openclaw.json\necho \"✅ Config updated\"\n",
+        "cmd": "mv /tmp/openclaw-updated.json ~/.openclaw/openclaw.json\necho \" Config updated\"\n",
         "reason": "gateway 직접 재시작"
       },
       {

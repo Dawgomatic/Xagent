@@ -55,7 +55,7 @@ async function fetchAndAnalyze(item) {
 }
 
 async function sequential() {
-  console.log('\n📊 SEQUENTIAL (Fetch + Analyze one at a time)');
+  console.log('\n SEQUENTIAL (Fetch + Analyze one at a time)');
   console.log('─'.repeat(60));
   const start = Date.now();
   const results = [];
@@ -71,7 +71,7 @@ async function sequential() {
 }
 
 async function parallel() {
-  console.log('\n⚡ PARALLEL (All fetch + analyze at once)');
+  console.log('\n PARALLEL (All fetch + analyze at once)');
   console.log('─'.repeat(60));
   const start = Date.now();
   const results = await Promise.all(urls.map(fetchAndAnalyze));
@@ -84,7 +84,7 @@ async function parallel() {
 }
 
 async function main() {
-  console.log('🐝 SWARM BENCHMARK: Sequential vs Parallel (Fetch + LLM)');
+  console.log(' SWARM BENCHMARK: Sequential vs Parallel (Fetch + LLM)');
   console.log('═'.repeat(60));
   console.log(`Testing ${urls.length} URLs with Gemini Flash analysis\n`);
   
@@ -92,14 +92,14 @@ async function main() {
   const par = await parallel();
   
   console.log('\n' + '═'.repeat(60));
-  console.log('📈 RESULTS');
+  console.log(' RESULTS');
   console.log('─'.repeat(60));
   console.log(`  Sequential: ${(seq.total/1000).toFixed(2)}s`);
   console.log(`  Parallel:   ${(par.total/1000).toFixed(2)}s`);
   console.log(`  Speedup:    ${(seq.total/par.total).toFixed(1)}x faster`);
   console.log('═'.repeat(60));
   
-  console.log('\n📋 SAMPLE ANALYSES (from parallel run):');
+  console.log('\n SAMPLE ANALYSES (from parallel run):');
   console.log('─'.repeat(60));
   par.results.slice(0, 3).forEach(r => {
     if (r.analysis) {

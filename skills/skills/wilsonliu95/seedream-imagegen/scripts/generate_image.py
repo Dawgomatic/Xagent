@@ -228,7 +228,7 @@ Examples:
     else:
         # Pretty print results
         if "data" in result:
-            print(f"\n✅ Generated {len(result['data'])} image(s):\n")
+            print(f"\n Generated {len(result['data'])} image(s):\n")
             for i, item in enumerate(result["data"], 1):
                 if "url" in item:
                     print(f"  [{i}] URL: {item['url']}")
@@ -239,10 +239,10 @@ Examples:
         
         if "usage" in result:
             usage = result["usage"]
-            print(f"\n📊 Usage: {usage.get('generated_images', 0)} images, {usage.get('output_tokens', 0)} tokens")
+            print(f"\n Usage: {usage.get('generated_images', 0)} images, {usage.get('output_tokens', 0)} tokens")
         
         if "saved_files" in result:
-            print(f"\n💾 Saved to: {', '.join(result['saved_files'])}")
+            print(f"\n Saved to: {', '.join(result['saved_files'])}")
 
 
 if __name__ == "__main__":

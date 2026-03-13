@@ -1,7 +1,7 @@
 ---
 name: backup-to-telnyx-storage
 description: Backup and restore your OpenClaw workspace to Telnyx Storage. Simple CLI-based scripts with no external dependencies.
-metadata: {"openclaw":{"emoji":"💾","requires":{"bins":["telnyx"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["telnyx"],"env":["TELNYX_API_KEY"]},"primaryEnv":"TELNYX_API_KEY"}}
 ---
 
 # Backup to Telnyx Storage
@@ -28,13 +28,13 @@ That's it. No boto3, no AWS credentials, no environment variables.
 ./backup.sh
 
 # Output:
-# 🔄 OpenClaw Backup → Telnyx Storage
+#  OpenClaw Backup → Telnyx Storage
 # ========================================
 # Creating archive: openclaw-backup-20260201-120000.tar.gz
 #   + MEMORY.md
 #   + SOUL.md
 #   + memory/
-# ✅ Backup complete: openclaw-backup/openclaw-backup-20260201-120000.tar.gz
+#  Backup complete: openclaw-backup/openclaw-backup-20260201-120000.tar.gz
 ```
 
 Custom bucket and workspace:
@@ -53,7 +53,7 @@ MAX_BACKUPS=100 ./backup.sh
 ./list.sh
 
 # Output:
-# 📋 Available Backups
+#  Available Backups
 # ========================================
 # Bucket: openclaw-backup
 #

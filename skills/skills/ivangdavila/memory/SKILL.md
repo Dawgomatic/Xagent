@@ -1,7 +1,7 @@
 ---
 name: Memory
 description: Manage agent long-term memory with effective storage, retrieval, and maintenance patterns.
-metadata: {"clawdbot":{"emoji":"🧠","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Agent Memory Rules

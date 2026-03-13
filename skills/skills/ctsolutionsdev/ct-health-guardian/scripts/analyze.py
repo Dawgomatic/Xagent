@@ -70,7 +70,7 @@ def detect_anomalies(readings: dict, config: dict):
                 "severity": "warning" if value < 101.5 else "critical",
                 "value": value,
                 "threshold": thresholds.get("temperature_high_f", 100.4),
-                "message": f"🌡️ Elevated temperature: {value}°F",
+                "message": f" Elevated temperature: {value}°F",
                 "timestamp": recent["timestamp"]
             })
     
@@ -85,7 +85,7 @@ def detect_anomalies(readings: dict, config: dict):
                     "severity": "warning",
                     "value": avg_hr,
                     "threshold": thresholds.get("heart_rate_high", 120),
-                    "message": f"💓 Elevated heart rate: {avg_hr:.0f} bpm (10-reading avg)",
+                    "message": f" Elevated heart rate: {avg_hr:.0f} bpm (10-reading avg)",
                     "timestamp": readings["heart_rate"][-1]["timestamp"]
                 })
     
@@ -104,7 +104,7 @@ def detect_anomalies(readings: dict, config: dict):
                     "severity": "info",
                     "value": recent_avg,
                     "baseline": baseline_avg,
-                    "message": f"😴 Sleep degradation: {recent_avg:.1f}h avg (was {baseline_avg:.1f}h)",
+                    "message": f" Sleep degradation: {recent_avg:.1f}h avg (was {baseline_avg:.1f}h)",
                     "timestamp": datetime.now().isoformat()
                 })
     
@@ -151,7 +151,7 @@ def main():
     if alerts:
         print("## Alerts\n")
         for alert in alerts:
-            severity_icon = "🔴" if alert["severity"] == "critical" else "🟡" if alert["severity"] == "warning" else "🔵"
+            severity_icon = "" if alert["severity"] == "critical" else "" if alert["severity"] == "warning" else ""
             print(f"{severity_icon} {alert['message']}")
         print()
     

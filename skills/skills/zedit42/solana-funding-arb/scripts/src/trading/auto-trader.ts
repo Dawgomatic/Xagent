@@ -170,7 +170,7 @@ export class AutoTrader {
   async initialize(): Promise<boolean> {
     logger.info('═══════════════════════════════════════════════════════');
     logger.info('  Funding Arbitrage Auto Trader');
-    logger.info(`  Mode: ${this.config.dry_run ? 'DRY RUN 🧪' : 'LIVE TRADING 🔴'}`);
+    logger.info(`  Mode: ${this.config.dry_run ? 'DRY RUN ' : 'LIVE TRADING '}`);
     logger.info(`  Strategy: ${this.config.strategy.toUpperCase()}`);
     logger.info(`  Leverage: ${this.config.leverage}x`);
     logger.info('═══════════════════════════════════════════════════════');
@@ -201,7 +201,7 @@ export class AutoTrader {
    * Scan for arbitrage opportunities
    */
   async scanOpportunities(): Promise<ArbitrageOpportunity[]> {
-    logger.info('\n📡 Scanning funding rates...');
+    logger.info('\n Scanning funding rates...');
 
     const [driftMarkets, flashMarkets] = await Promise.all([
       this.driftClient.getMarkets(),
@@ -271,11 +271,11 @@ export class AutoTrader {
 
     // Log opportunities
     if (opportunities.length > 0) {
-      logger.info('\n💰 Arbitrage Opportunities Found:');
+      logger.info('\n Arbitrage Opportunities Found:');
       logger.info('─────────────────────────────────────────────────────');
       for (const opp of opportunities.slice(0, 5)) {
-        const driftEmoji = opp.driftRate < 0 ? '🟢' : '🔴';
-        const flashEmoji = opp.flashRate < 0 ? '🟢' : '🔴';
+        const driftEmoji = opp.driftRate < 0 ? '' : '';
+        const flashEmoji = opp.flashRate < 0 ? '' : '';
         logger.info(`${opp.symbol.padEnd(6)} | Drift: ${driftEmoji} ${opp.driftRate.toFixed(0).padStart(6)}% | Flash: ${flashEmoji} ${opp.flashRate.toFixed(0).padStart(6)}% | Spread: ${opp.spread.toFixed(0)}%`);
         logger.info(`        → ${opp.recommendation.driftSide.toUpperCase()} Drift, ${opp.recommendation.flashSide.toUpperCase()} Flash`);
       }
@@ -319,7 +319,7 @@ export class AutoTrader {
       return false;
     }
 
-    logger.info(`\n🚀 Executing arbitrage for ${opp.symbol}`);
+    logger.info(`\n Executing arbitrage for ${opp.symbol}`);
     logger.info(`  Position size: $${positionSize.toFixed(2)}`);
     logger.info(`  Target spread: ${opp.spread.toFixed(0)}% APY`);
 
@@ -374,7 +374,7 @@ export class AutoTrader {
     this.state.totalTrades += 2;
     this.saveState();
 
-    logger.info('✅ Arbitrage positions opened successfully!');
+    logger.info(' Arbitrage positions opened successfully!');
     
     return true;
   }
@@ -389,7 +389,7 @@ export class AutoTrader {
       return;
     }
 
-    logger.info(`\n🔄 Checking ${arbitrages.length} open arbitrage(s)...`);
+    logger.info(`\n Checking ${arbitrages.length} open arbitrage(s)...`);
 
     for (const arb of arbitrages) {
       await this.checkArbitrage(arb);
@@ -425,7 +425,7 @@ export class AutoTrader {
 
     // Check if spread reversed or dropped below threshold
     if (currentSpread < this.config.risk.rebalance_threshold * 100) {
-      logger.warn(`  ⚠️ Spread dropped below threshold (${(this.config.risk.rebalance_threshold * 100).toFixed(0)}%)`);
+      logger.warn(`   Spread dropped below threshold (${(this.config.risk.rebalance_threshold * 100).toFixed(0)}%)`);
       
       if (this.config.risk.auto_rebalance) {
         logger.info(`  Closing arbitrage...`);
@@ -437,7 +437,7 @@ export class AutoTrader {
     // Check max drawdown
     const dd = this.positionManager.calculateMaxDrawdown();
     if (dd > this.config.max_dd_pct) {
-      logger.warn(`  ⚠️ Max drawdown exceeded: ${dd.toFixed(2)}% > ${this.config.max_dd_pct}%`);
+      logger.warn(`   Max drawdown exceeded: ${dd.toFixed(2)}% > ${this.config.max_dd_pct}%`);
       
       if (this.config.auto_execute) {
         logger.info(`  Closing arbitrage...`);
@@ -450,7 +450,7 @@ export class AutoTrader {
    * Close an arbitrage position
    */
   async closeArbitrage(arb: ArbitragePosition): Promise<boolean> {
-    logger.info(`\n❌ Closing arbitrage: ${arb.pair.long.symbol}`);
+    logger.info(`\n Closing arbitrage: ${arb.pair.long.symbol}`);
 
     // Close both legs
     const driftResult = await this.driftClient.closePosition(`${arb.pair.long.symbol}-PERP`);
@@ -471,7 +471,7 @@ export class AutoTrader {
     this.positionManager.closePosition(arb.pair.short.id, exitPrice, flashResult.txSignature!);
     this.positionManager.closeArbitrage(arb.id);
 
-    logger.info('✅ Arbitrage closed');
+    logger.info(' Arbitrage closed');
     return true;
   }
 
@@ -526,7 +526,7 @@ export class AutoTrader {
     const summary = this.positionManager.getSummary();
     const stats = this.positionManager.getTotalStats();
 
-    logger.info('\n📊 Portfolio Summary');
+    logger.info('\n Portfolio Summary');
     logger.info('─────────────────────────────────────────────────────');
     logger.info(`  Open Positions: ${summary.totalPositions}`);
     logger.info(`  Total Notional: $${summary.totalNotional.toFixed(2)}`);
@@ -538,7 +538,7 @@ export class AutoTrader {
     if (summary.totalPositions > 0) {
       const positions = this.positionManager.getOpenPositions();
       for (const pos of positions) {
-        const pnlEmoji = (pos.unrealizedPnl || 0) >= 0 ? '🟢' : '🔴';
+        const pnlEmoji = (pos.unrealizedPnl || 0) >= 0 ? '' : '';
         logger.info(`  ${pos.exchange.padEnd(6)} ${pos.side.toUpperCase().padEnd(5)} ${pos.symbol.padEnd(8)} $${pos.notional.toFixed(0).padStart(6)} ${pnlEmoji} $${(pos.unrealizedPnl || 0).toFixed(2)}`);
       }
     }

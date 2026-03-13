@@ -67,16 +67,16 @@ This skill follows the standard convention used across the skills ecosystem: **A
 
 | Method | Storage Location | Security |
 |--------|-----------------|----------|
-| **Claude Desktop (.mcpb)** | OS credential manager (Keychain/Windows Credential Manager) | ✅ Encrypted, secure |
-| **CLI / Direct Usage** | Shell environment (`export WISE_API_TOKEN='...'`) | ⚠️ User-managed |
-| **OpenClaw/ClawdBot** | `~/.openclaw/openclaw.json` under `skills.entries.bank-skill.env` | ⚠️ File permissions |
-| **MCP Server** | Shell environment | ⚠️ User-managed |
+| **Claude Desktop (.mcpb)** | OS credential manager (Keychain/Windows Credential Manager) |  Encrypted, secure |
+| **CLI / Direct Usage** | Shell environment (`export WISE_API_TOKEN='...'`) |  User-managed |
+| **OpenClaw/ClawdBot** | `~/.openclaw/openclaw.json` under `skills.entries.bank-skill.env` |  File permissions |
+| **MCP Server** | Shell environment |  User-managed |
 
 **The skill's responsibility:** 
-- ✅ Read from `WISE_API_TOKEN` environment variable
-- ✅ Fail gracefully with clear error if missing
-- ✅ Never log or expose the token value
-- ✅ Declare requirements in SKILL.md metadata
+-  Read from `WISE_API_TOKEN` environment variable
+-  Fail gracefully with clear error if missing
+-  Never log or expose the token value
+-  Declare requirements in SKILL.md metadata
 
 **Your responsibility:**
 - Set the environment variable before running
@@ -288,10 +288,10 @@ The token swap feature supports **any ERC-20 token with WETH liquidity** on Base
 3. **Automatic detection** — Seamlessly routes to the best available pool
 
 **Supported Tokens:**
-- ✅ USDC, DAI, WBTC, and other standard tokens (V3 pools)
-- ✅ ClawBank and other V4 tokens with hooks
-- ✅ Any token with WETH liquidity on Base
-- ✅ Automatically supports new token listings
+-  USDC, DAI, WBTC, and other standard tokens (V3 pools)
+-  ClawBank and other V4 tokens with hooks
+-  Any token with WETH liquidity on Base
+-  Automatically supports new token listings
 
 **Verified Working:**
 - **USDC:** V3 swap, 0.001 ETH → 3.91 USDC ([tx](https://basescan.org/tx/006afdeb6aa723a651042ab8640ca18b59e205d0ee1e35f0011f3b46d36d92a9))
@@ -457,7 +457,7 @@ Export the wallet's private key for recovery or import into other wallets.
 
 **Returns:** Private key (hex string) and wallet address
 
-**⚠️ Warning:** Keep private keys secure. Anyone with the key has full control of the wallet.
+** Warning:** Keep private keys secure. Anyone with the key has full control of the wallet.
 
 #### `set_target_token`
 Set the target token address for swaps.

@@ -48,9 +48,9 @@ When the user requests to install a skill:
 
 &nbsp;   \* \*\*If `verdict` is "malicious"\*\*:
 
-&nbsp;       \* 🔴 \*\*BLOCK ACTION\*\*.
+&nbsp;       \*  \*\*BLOCK ACTION\*\*.
 
-&nbsp;       \* Report: "🚨 \*\*Security Alert\*\*: The \*\*ClawDex API by https://www.koi.ai/\*\* flagged this skill as \*\*Malicious\*\*. Installation prevented."
+&nbsp;       \* Report: " \*\*Security Alert\*\*: The \*\*ClawDex API by https://www.koi.ai/\*\* flagged this skill as \*\*Malicious\*\*. Installation prevented."
 
 &nbsp;       \* \*\*STOP\*\*. Do not proceed.
 
@@ -58,9 +58,9 @@ When the user requests to install a skill:
 
 &nbsp;   \* \*\*If `verdict` is "unknown"\*\*:
 
-&nbsp;       \* ⚠️ \*\*WARN USER\*\*.
+&nbsp;       \*  \*\*WARN USER\*\*.
 
-&nbsp;       \* Report: "⚠️ \*\*Unknown Safety Status\*\*: This skill has not been verified by the ClawDex API (https://www.koi.ai/)."
+&nbsp;       \* Report: " \*\*Unknown Safety Status\*\*: This skill has not been verified by the ClawDex API (https://www.koi.ai/)."
 
 &nbsp;       \* \*\*ASK\*\*: "This carries a risk. Do you explicitly approve the installation of `<skill-name>`?"
 
@@ -70,9 +70,9 @@ When the user requests to install a skill:
 
 &nbsp;   \* \*\*If `verdict` is "benign"\*\*:
 
-&nbsp;       \* ✅ \*\*CONFIRM SAFETY\*\*.
+&nbsp;       \*  \*\*CONFIRM SAFETY\*\*.
 
-&nbsp;       \* Report: "✅ \*\*Verified Safe\*\*: ClawDex API by https://www.koi.ai/ reports this skill is benign."
+&nbsp;       \* Report: " \*\*Verified Safe\*\*: ClawDex API by https://www.koi.ai/ reports this skill is benign."
 
 &nbsp;       \* \*\*ASK\*\*: "Do you want to proceed with installing `<skill-name>`?"
 
@@ -98,7 +98,7 @@ When the user requests to install a skill:
 
 > \*\*ClawDex API (https://www.koi.ai/) Report\*\*
 
-> 🔴 \*\*Verdict: Malicious\*\*
+>  \*\*Verdict: Malicious\*\*
 
 >
 
@@ -118,7 +118,7 @@ When the user requests to install a skill:
 
 > \*\*ClawDex API (https://www.koi.ai/) Report\*\*
 
-> ✅ \*\*Verdict: Benign\*\*
+>  \*\*Verdict: Benign\*\*
 
 >
 

@@ -32,7 +32,7 @@ case "$1" in
     heartbeat|hb)
         DEST="${HOME}/.openclaw/workspace/HEARTBEAT.md"
         cp "$SCRIPT_DIR/../assets/HEARTBEAT.template.md" "$DEST"
-        echo "✅ Installed optimized heartbeat to: $DEST"
+        echo " Installed optimized heartbeat to: $DEST"
         ;;
     providers)
         python3 "$SCRIPT_DIR/model_router.py" providers

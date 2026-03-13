@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🦣",
+        "emoji": "",
         "requires": { "anyBins": ["{baseDir}/bin/mastodon-scout", "mastodon-scout"] },
         "envVars": [{ "name": "MASTODON_TOKEN", "required": true }],
         "install":

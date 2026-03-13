@@ -273,7 +273,7 @@ def cmd_list(verbose: bool = False, json_mode: bool = False):
             left = f"- {display.ljust(max_name + 4)}"
 
         if active:
-            left += "  ✅"
+            left += "  "
         lines.append(left)
 
     header = "Codex Accounts"
@@ -340,7 +340,7 @@ def cmd_add(name_override: str | None = None):
         do_browser_login()
 
         if not AUTH_FILE.exists():
-            print("❌ Login did not produce ~/.codex/auth.json.")
+            print(" Login did not produce ~/.codex/auth.json.")
             if not interactive:
                 return
             retry = input("Retry login? [Y/n] ").strip().lower()
@@ -364,17 +364,17 @@ def cmd_add(name_override: str | None = None):
         if match is not None:
             # Only overwrite if different.
             if is_current(match):
-                print(f"ℹ️  '{match.stem}' already up to date for {current_email}")
+                print(f"  '{match.stem}' already up to date for {current_email}")
             else:
-                print(f"ℹ️  Updating existing account '{match.stem}' ({current_email})")
+                print(f"  Updating existing account '{match.stem}' ({current_email})")
                 shutil.copy2(AUTH_FILE, match)
-            print(f"✅ Saved '{match.stem}' ({email})")
+            print(f" Saved '{match.stem}' ({email})")
         else:
             # 2) Otherwise, create a new snapshot with default (or override) name.
             base_name = (name_override or suggested).strip() or suggested
             name, target = _resolve_unique_name_path(base_name)
             shutil.copy2(AUTH_FILE, target)
-            print(f"✅ Saved '{name}' ({email})")
+            print(f" Saved '{name}' ({email})")
 
         if not interactive:
             return
@@ -387,7 +387,7 @@ def do_browser_login():
     import subprocess
     import time
 
-    print("\n🚀 Starting browser login (codex logout && codex login)...")
+    print("\n Starting browser login (codex logout && codex login)...")
 
     before_mtime = AUTH_FILE.stat().st_mtime if AUTH_FILE.exists() else 0
 
@@ -435,7 +435,7 @@ def do_browser_login():
 
         if time.time() - start > timeout_s:
             process.kill()
-            print("\n❌ Login timed out after 15 minutes.")
+            print("\n Login timed out after 15 minutes.")
             return
 
         time.sleep(0.2)
@@ -443,16 +443,16 @@ def do_browser_login():
     process.wait(timeout=5)
 
     if AUTH_FILE.exists() and AUTH_FILE.stat().st_mtime > before_mtime:
-        print("\n✅ Login successful (auth.json updated).")
+        print("\n Login successful (auth.json updated).")
     else:
-        print("\n❌ Login did not update auth.json (may have failed).")
+        print("\n Login did not update auth.json (may have failed).")
 
 
 def do_device_login():
     import subprocess
     import re
     
-    print("\n🚀 Starting Device Flow Login...")
+    print("\n Starting Device Flow Login...")
     
     # 1. Logout first to be safe
     subprocess.run(["codex", "logout"], capture_output=True)
@@ -499,8 +499,8 @@ def do_device_login():
             
             if url and code:
                 print("\n" + "="*50)
-                print(f"👉 OPEN THIS: {url}")
-                print(f"🔑 ENTER CODE: {code}")
+                print(f" OPEN THIS: {url}")
+                print(f" ENTER CODE: {code}")
                 print("="*50 + "\n")
                 print("Waiting for you to complete login in browser...")
                 break
@@ -509,9 +509,9 @@ def do_device_login():
     process.wait()
     
     if process.returncode == 0:
-        print("\n✅ Login successful!")
+        print("\n Login successful!")
     else:
-        print("\n❌ Login failed or timed out.")
+        print("\n Login failed or timed out.")
 
 def _get_quota_cache_file(name):
     """Get path to quota cache file for an account."""
@@ -625,7 +625,7 @@ def cmd_auto(json_mode=False):
         if json_mode:
             print('{"error": "No accounts found"}')
         else:
-            print("❌ No accounts found")
+            print(" No accounts found")
         return
     
     # Save current account to restore if needed
@@ -637,7 +637,7 @@ def cmd_auto(json_mode=False):
                 break
     
     if not json_mode:
-        print(f"🔄 Checking quota for {len(accounts)} account(s)...\n")
+        print(f" Checking quota for {len(accounts)} account(s)...\n")
     
     now = int(time.time())
     results = {}
@@ -670,7 +670,7 @@ def cmd_auto(json_mode=False):
         else:
             results[name] = {'error': 'could not get quota'}
             if not json_mode:
-                print("❌ failed")
+                print(" failed")
     
     # Find best account (lowest effective weekly usage, accounting for resets)
     valid = {k: v for k, v in results.items() if 'available' in v}
@@ -681,7 +681,7 @@ def cmd_auto(json_mode=False):
         if json_mode:
             print(json.dumps({"error": "No valid quota data", "results": results}))
         else:
-            print("\n❌ Could not get quota for any account")
+            print("\n Could not get quota for any account")
         return
     
     # Sort by: 1) lowest effective usage, 2) earliest reset time (if both at 100%)
@@ -714,9 +714,9 @@ def cmd_auto(json_mode=False):
     else:
         from datetime import datetime
         if already_active:
-            print(f"\n✅ Already on best account: {best}")
+            print(f"\n Already on best account: {best}")
         else:
-            print(f"\n✅ Switched to: {best}")
+            print(f"\n Switched to: {best}")
         
         effective = valid[best]['effective_weekly_used']
         actual = valid[best]['weekly_used']
@@ -748,7 +748,7 @@ def cmd_use(name):
     source = ACCOUNTS_DIR / f"{name}.json"
     
     if not source.exists():
-        print(f"❌ Account '{name}' not found.")
+        print(f" Account '{name}' not found.")
         print("Available accounts:")
         for f in ACCOUNTS_DIR.glob("*.json"):
             print(f" - {f.stem}")
@@ -759,7 +759,7 @@ def cmd_use(name):
     
     shutil.copy2(source, AUTH_FILE)
     info = get_account_info(source)
-    print(f"✅ Switched to account: {name} ({info.get('email')})")
+    print(f" Switched to account: {name} ({info.get('email')})")
 
 def get_token_email(auth_path) -> str:
     """Extract email from a token file."""
@@ -787,7 +787,7 @@ def safe_save_token(source_path: Path, target_path: Path, force: bool = False) -
                 if not force:
                     return False, f"Refusing to overwrite: target has {target_email}, source has {source_email}"
                 # Force mode: warn but proceed
-                print(f"⚠️  Warning: overwriting {target_email} with {source_email} (--force)")
+                print(f"  Warning: overwriting {target_email} with {source_email} (--force)")
     
     shutil.copy2(source_path, target_path)
     return True, f"Saved token for {source_email}"
@@ -798,16 +798,16 @@ def cmd_save(name: str, force: bool = False):
     ensure_dirs()
     
     if not AUTH_FILE.exists():
-        print("❌ No current auth.json to save")
+        print(" No current auth.json to save")
         return
     
     target = ACCOUNTS_DIR / f"{name}.json"
     success, message = safe_save_token(AUTH_FILE, target, force=force)
     
     if success:
-        print(f"✅ {message} as '{name}'")
+        print(f" {message} as '{name}'")
     else:
-        print(f"❌ {message}")
+        print(f" {message}")
 
 
 def sync_current_login_to_snapshot() -> None:

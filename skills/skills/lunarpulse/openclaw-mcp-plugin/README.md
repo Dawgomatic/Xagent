@@ -2,27 +2,27 @@
 
 **Model Context Protocol (MCP) integration for OpenClaw** - Connect to MCP servers and use their tools seamlessly within OpenClaw.
 
-## 🎯 Overview
+##  Overview
 
 This plugin enables OpenClaw to connect to any MCP (Model Context Protocol) server and expose its tools to AI agents. It implements the MCP Streamable HTTP transport specification and provides a unified interface for calling external MCP tools.
 
-> ✅ **Real Working Example:** See [REAL_EXAMPLE_KR_LEGAL.md](docs/REAL_EXAMPLE_KR_LEGAL.md) for a complete, tested configuration with kr-legal-search (no API key required!).
+>  **Real Working Example:** See [REAL_EXAMPLE_KR_LEGAL.md](docs/REAL_EXAMPLE_KR_LEGAL.md) for a complete, tested configuration with kr-legal-search (no API key required!).
 
 ### Key Features
 
-✅ **HTTP/SSE Transport** - Full support for MCP Streamable HTTP with Server-Sent Events  
-✅ **Dynamic Tool Discovery** - Automatically discovers and registers tools from MCP servers  
-✅ **Multi-Server Support** - Connect to multiple MCP servers simultaneously  
-✅ **Unified Interface** - All MCP tools accessible through a single `mcp` tool  
-✅ **Error Handling** - Robust error handling and logging  
+ **HTTP/SSE Transport** - Full support for MCP Streamable HTTP with Server-Sent Events  
+ **Dynamic Tool Discovery** - Automatically discovers and registers tools from MCP servers  
+ **Multi-Server Support** - Connect to multiple MCP servers simultaneously  
+ **Unified Interface** - All MCP tools accessible through a single `mcp` tool  
+ **Error Handling** - Robust error handling and logging  
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - **OpenClaw**: Version 2026.1.0 or higher
 - **Node.js**: 18.0.0 or higher
 - **MCP Server**: Any MCP-compliant server with HTTP transport
 
-## 🚀 Installation
+##  Installation
 
 ### Method 1: Via OpenClaw Extensions
 
@@ -56,7 +56,7 @@ ln -s $(pwd) ~/.openclaw/extensions/mcp-integration
 openclaw gateway restart
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Basic Configuration
 
@@ -133,7 +133,7 @@ Add to `~/.openclaw/openclaw.json`:
 }
 ```
 
-## 🛠️ Usage
+##  Usage
 
 ### The `mcp` Tool
 
@@ -240,7 +240,7 @@ Found 15 statutes related to labor law...
 }
 ```
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Component Diagram
 
@@ -308,7 +308,7 @@ class StreamableHTTPClientTransport {
 }
 ```
 
-## 🔄 Request Flow
+##  Request Flow
 
 ### Tool Call Sequence
 
@@ -333,7 +333,7 @@ sequenceDiagram
     Agent-->>User: "Found 15 statutes..."
 ```
 
-## 📊 HTTP Transport Implementation
+##  HTTP Transport Implementation
 
 ### Streamable HTTP Specification
 
@@ -373,7 +373,7 @@ data: {"jsonrpc":"2.0","id":1,"result":{...}}
 - Persisted across requests via `mcp-session-id` header
 - Allows server to maintain state
 
-## 🔧 Development
+##  Development
 
 ### Project Structure
 
@@ -421,7 +421,7 @@ This logs:
 - SSE stream events
 - Error conditions
 
-## 🧪 Testing
+##  Testing
 
 ### Test Connection
 
@@ -496,7 +496,7 @@ app.post('/mcp', (req, res) => {
 app.listen(3000, () => console.log('Test MCP server on :3000'));
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Plugin Not Loading
 
@@ -571,7 +571,7 @@ Error: Tool not found: kr-legal:search_statute
    openclaw gateway restart
    ```
 
-## 📚 Examples
+##  Examples
 
 ### Example 1: Weather Service
 
@@ -627,7 +627,7 @@ AI: I'll query the database for recent orders.
 Here are the 10 most recent orders...
 ```
 
-## 🔒 Security Considerations
+##  Security Considerations
 
 ### Server Validation
 
@@ -662,7 +662,7 @@ All tool arguments are passed through to MCP servers. Ensure:
 - Sensitive operations require confirmation
 - Rate limiting is implemented
 
-## 🚀 Future Enhancements
+##  Future Enhancements
 
 - [ ] stdio transport support
 - [ ] Resource support (MCP resources)
@@ -673,17 +673,17 @@ All tool arguments are passed through to MCP servers. Ensure:
 - [ ] Health checks
 - [ ] Metrics and monitoring
 
-## 📖 References
+##  References
 
 - [Model Context Protocol Specification](https://spec.modelcontextprotocol.io/)
 - [MCP SDK Documentation](https://github.com/modelcontextprotocol/typescript-sdk)
 - [OpenClaw Plugin Development](https://docs.openclaw.ai/plugins)
 
-## 📄 License
+##  License
 
 MIT
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please:
 
@@ -693,7 +693,7 @@ Contributions welcome! Please:
 4. Add tests if applicable
 5. Submit a pull request
 
-## 💬 Support
+##  Support
 
 - **Issues**: [GitHub Issues](https://github.com/yourorg/mcp-integration/issues)
 - **Discord**: OpenClaw Community #plugins
@@ -703,4 +703,4 @@ Contributions welcome! Please:
 
 **Version:** 0.1.0  
 **Last Updated:** 2026-02-01  
-**Author:** Lob 🦞
+**Author:** Lob 

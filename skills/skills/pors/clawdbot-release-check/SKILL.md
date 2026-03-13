@@ -2,7 +2,7 @@
 name: clawdbot-release-check
 description: Check for new clawdbot releases and notify once per new version.
 homepage: https://github.com/clawdbot/clawdbot
-metadata: {"clawdbot":{"emoji":"🔄","requires":{"bins":["curl","jq"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq"]}}}
 ---
 
 # Clawdbot Release Check
@@ -65,7 +65,7 @@ launchctl kickstart -k gui/$(id -u)/com.clawdis.gateway
 ## Example Output
 
 ```
-🔄 **Clawdbot Update Available!**
+ **Clawdbot Update Available!**
 
 Current: `2.0.0-beta5`
 Latest:  `2026.1.5-3`
@@ -77,7 +77,7 @@ _(3 versions behind)_
 - Agent tools: new `image` tool
 - Config: default model shorthands
 
-🔗 https://github.com/clawdbot/clawdbot/releases/tag/v2026.1.5-3
+ https://github.com/clawdbot/clawdbot/releases/tag/v2026.1.5-3
 
 To update: `cd /path/to/clawdis && git pull && pnpm install && pnpm build`
 ```

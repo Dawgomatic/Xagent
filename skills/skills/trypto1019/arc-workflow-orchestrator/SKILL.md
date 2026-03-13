@@ -2,7 +2,7 @@
 name: workflow-orchestrator
 description: Chain skills into automated pipelines with conditional logic, error handling, and audit logging. Define workflows in YAML or JSON, then execute them hands-free. Perfect for security-gated deployments, scheduled maintenance, and multi-step agent operations.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🔗", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Workflow Orchestrator

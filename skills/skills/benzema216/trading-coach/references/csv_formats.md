@@ -140,13 +140,13 @@
 
 | 字段 | 说明 | 必需 |
 |------|------|------|
-| symbol | 股票代码 | ✅ |
+| symbol | 股票代码 |  |
 | symbol_name | 股票名称 | |
-| direction | 交易方向 (buy/sell/sell_short/buy_to_cover) | ✅ |
-| filled_price | 成交价格 | ✅ |
-| filled_quantity | 成交数量 | ✅ |
+| direction | 交易方向 (buy/sell/sell_short/buy_to_cover) |  |
+| filled_price | 成交价格 |  |
+| filled_quantity | 成交数量 |  |
 | filled_amount | 成交金额 | |
-| filled_time | 成交时间 | ✅ |
+| filled_time | 成交时间 |  |
 | market | 市场 (us/hk/cn) | |
 | currency | 币种 | |
 | status | 状态 (filled/cancelled) | |

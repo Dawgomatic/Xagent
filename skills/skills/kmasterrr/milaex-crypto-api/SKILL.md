@@ -2,7 +2,7 @@
 name: milaex
 description: Unified crypto market data API and scripts for exchanges, markets, tickers, OHLCV, and orderbooks.
 homepage: https://api.milaex.com/api-docs/index.html
-metadata: {"clawdbot":{"emoji":"📈","requires":{"bins":["python3"],"env":["MILAEX_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"],"env":["MILAEX_API_KEY"]}}}
 ---
 
 # Milaex skill (crypto market data)

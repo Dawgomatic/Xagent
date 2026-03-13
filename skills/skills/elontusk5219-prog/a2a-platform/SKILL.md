@@ -4,7 +4,7 @@ description: 教 Agent 如何发现并调用 A2A B2B Agent 互联平台（能力
 metadata:
   openclaw:
     homepage: https://a2a4b2b.com
-    emoji: 🤝
+    emoji: 
     requires:
       env:
         - name: A2A_BASE_URL

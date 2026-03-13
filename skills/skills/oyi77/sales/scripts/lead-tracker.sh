@@ -50,11 +50,11 @@ case "$1" in
 - [ ] Initial outreach — Due: $(date -v+3d +%Y-%m-%d 2>/dev/null || date -d "+3 days" +%Y-%m-%d 2>/dev/null || echo "$(date +%Y-%m-%d)")
 EOF
         
-        echo "✅ Lead created: $lead_file"
+        echo " Lead created: $lead_file"
         ;;
     
     list)
-        echo "📋 All Leads"
+        echo " All Leads"
         echo "============"
         for file in "$LEADS_DIR"/*.md; do
             if [ -f "$file" ] && [ "$(basename "$file")" != "README.md" ]; then
@@ -77,14 +77,14 @@ EOF
         
         if [ -f "$lead_file" ]; then
             echo "| $(date +%Y-%m-%d) | Stage update | Moved to: $4 |" >> "$lead_file"
-            echo "✅ Updated $2 to stage: $4"
+            echo " Updated $2 to stage: $4"
         else
-            echo "❌ Lead not found: $2"
+            echo " Lead not found: $2"
         fi
         ;;
     
     followups)
-        echo "📅 Today's Follow-ups"
+        echo " Today's Follow-ups"
         echo "===================="
         today=$(date +%Y-%m-%d)
         for file in "$LEADS_DIR"/*.md; do
@@ -103,7 +103,7 @@ EOF
             echo "Usage: $0 search <term>"
             exit 1
         fi
-        echo "🔍 Searching for: $2"
+        echo " Searching for: $2"
         echo "===================="
         grep -l -r "$2" "$LEADS_DIR" 2>/dev/null | while read file; do
             name=$(grep "^# Lead:" "$file" | sed 's/# Lead: //')

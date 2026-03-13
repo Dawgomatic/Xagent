@@ -1,4 +1,4 @@
-# Wallet Management Guide 💼
+# Wallet Management Guide 
 
 Complete guide to setting up wallets, managing funds, and sending USDC for prediction market trading.
 
@@ -9,17 +9,17 @@ Complete guide to setting up wallets, managing funds, and sending USDC for predi
 Your wallet is the gateway to trading on prediction markets. Clawearn handles wallet creation, security, and provides tools to send USDC directly from your wallet to other addresses on Arbitrum.
 
 ### What You Can Do
-- ✅ Create new wallets instantly
-- ✅ Send USDC to other addresses
-- ✅ Check balances across markets
-- ✅ Manage multiple wallets securely
-- ✅ Export and backup credentials
+-  Create new wallets instantly
+-  Send USDC to other addresses
+-  Check balances across markets
+-  Manage multiple wallets securely
+-  Export and backup credentials
 
 ---
 
-## ⚠️ Financial Common Sense - READ FIRST
+##  Financial Common Sense - READ FIRST
 
-### Money is Serious 💰
+### Money is Serious 
 
 **Your wallet holds real money.** USDC is a real stablecoin backed by actual US dollars. Every transaction is permanent and cannot be undone.
 
@@ -34,16 +34,16 @@ Your wallet is the gateway to trading on prediction markets. Clawearn handles wa
 ### The More Money, The Better (But Be Careful)
 
 **Yes, more capital helps:**
-- ✅ Larger positions = more profit potential
-- ✅ Better diversification across markets
-- ✅ Room to average down on losses
-- ✅ Can take advantage of larger opportunities
+-  Larger positions = more profit potential
+-  Better diversification across markets
+-  Room to average down on losses
+-  Can take advantage of larger opportunities
 
 **BUT:**
-- ⚠️ More money also means more loss potential
-- ⚠️ Position sizing matters more with large balances
-- ⚠️ Risk management becomes critical
-- ⚠️ One bad trade can hurt more
+-  More money also means more loss potential
+-  Position sizing matters more with large balances
+-  Risk management becomes critical
+-  One bad trade can hurt more
 
 ### Golden Rules
 
@@ -70,14 +70,14 @@ Trading Capital: $1000
 
 ### Common Mistakes to Avoid
 
-❌ **Rookie mistakes:**
+ **Rookie mistakes:**
 - Depositing your entire life savings
 - Trading with leverage you don't understand
 - Following emotion instead of strategy
 - Not diversifying across markets
 - Ignoring losses (hoping they'll recover)
 
-✅ **Smart moves:**
+ **Smart moves:**
 - Start with small test trades
 - Only add more capital after proven profits
 - Diversify across multiple markets
@@ -169,7 +169,7 @@ clawearn polymarket balance check
 
 ---
 
-## Sending USDC (NEW Feature ✨)
+## Sending USDC (NEW Feature )
 
 ### What is `clawearn wallet send`?
 
@@ -195,13 +195,13 @@ clawearn wallet send --to 0x742d35Cc6634C0532925a3b844Bc9e7595f42aED --amount 10
 ### What Happens
 
 The command will:
-1. ✅ Validate the recipient address format
-2. ✅ Validate the amount (must be positive)
-3. ✅ Check you have enough ETH for gas fees
-4. ✅ Check you have enough USDC for the transfer
-5. ✅ Execute the transfer on Arbitrum
-6. ✅ Wait for confirmation
-7. ✅ Display the transaction hash
+1.  Validate the recipient address format
+2.  Validate the amount (must be positive)
+3.  Check you have enough ETH for gas fees
+4.  Check you have enough USDC for the transfer
+5.  Execute the transfer on Arbitrum
+6.  Wait for confirmation
+7.  Display the transaction hash
 
 ### Example Output
 
@@ -214,17 +214,17 @@ Amount: 100 USDC
 Sending 100 USDC...
 Transaction sent! Hash: 0x123abc...
 Waiting for confirmation...
-✅ Transfer successful!
+ Transfer successful!
 100 USDC sent to 0x742d35Cc6634C0532925a3b844Bc9e7595f42aED
 ```
 
 ### Requirements
 
 To send USDC, you need:
-- ✅ Existing wallet (created with `clawearn wallet create`)
-- ✅ USDC balance on Arbitrum
-- ✅ Some ETH on Arbitrum for gas fees
-- ✅ Valid recipient Ethereum address
+-  Existing wallet (created with `clawearn wallet create`)
+-  USDC balance on Arbitrum
+-  Some ETH on Arbitrum for gas fees
+-  Valid recipient Ethereum address
 
 ### Common Issues
 
@@ -248,7 +248,7 @@ To send USDC, you need:
 
 ## Manifold Wallet Setup
 
-🚧 **Coming Soon**
+ **Coming Soon**
 
 Manifold uses account-based authentication with play money (Mana).
 
@@ -267,7 +267,7 @@ curl -X POST https://manifold.markets/api/v0/me/register \
 
 ## Kalshi Wallet Setup
 
-🚧 **Coming Soon**
+ **Coming Soon**
 
 Kalshi uses traditional account-based system with USD.
 
@@ -324,7 +324,7 @@ Kalshi uses traditional account-based system with USD.
 
 ## Security Checklist
 
-### ✅ Essential Security Practices
+###  Essential Security Practices
 
 - [ ] Private keys stored in `~/.config/clawearn/` with 600 permissions
 - [ ] Directory has 700 permissions (only you can access)
@@ -335,7 +335,7 @@ Kalshi uses traditional account-based system with USD.
 - [ ] Regular backups of wallet addresses (not keys!)
 - [ ] Environment variables used instead of hardcoded keys
 
-### 🔒 Advanced Security
+###  Advanced Security
 
 - [ ] Hardware wallet integration (for large amounts)
 - [ ] Multi-sig wallets for production trading
@@ -378,13 +378,13 @@ EOF
 
 ### What to Backup
 
-**✅ Must backup:**
+** Must backup:**
 - Private keys (encrypted!)
 - Wallet addresses
 - Account usernames/emails
 - Recovery phrases (if applicable)
 
-**❌ Don't backup:**
+** Don't backup:**
 - API responses
 - Temporary session tokens
 - Cached data
@@ -460,7 +460,7 @@ chmod 600 ~/.config/clawearn/*.txt
 ```
 
 ### Lost private key
-⚠️ **If you lose your private key, you lose access to your funds!**
+ **If you lose your private key, you lose access to your funds!**
 
 - Check backups immediately
 - Check environment variables: `echo $POLYMARKET_PRIVATE_KEY`
@@ -520,11 +520,11 @@ Goal:        Learn and validate your strategy
 ```
 
 **Rules:**
-- ✅ Use small position sizes ($5-10 per trade)
-- ✅ Trade slowly and deliberately
-- ✅ Document every trade
-- ✅ Don't rush to win big
-- ❌ Don't increase position size yet
+-  Use small position sizes ($5-10 per trade)
+-  Trade slowly and deliberately
+-  Document every trade
+-  Don't rush to win big
+-  Don't increase position size yet
 
 ### Phase 2: Validation (Weeks 5-8)
 
@@ -565,16 +565,16 @@ PATIENCE = PROFIT
 ### Why More Money Helps (But Careful)
 
 **More capital benefits:**
-- 📈 Better diversification (5 positions vs 1)
-- 📈 Can handle losses better (one loss doesn't destroy you)
-- 📈 Larger profits with same win rate
-- 📈 Can take larger opportunities
+-  Better diversification (5 positions vs 1)
+-  Can handle losses better (one loss doesn't destroy you)
+-  Larger profits with same win rate
+-  Can take larger opportunities
 
 **More capital risks:**
-- ⚠️ Larger absolute losses (lose $100 instead of $10)
-- ⚠️ Temptation to over-leverage
-- ⚠️ More positions to manage
-- ⚠️ Easier to make big mistakes
+-  Larger absolute losses (lose $100 instead of $10)
+-  Temptation to over-leverage
+-  More positions to manage
+-  Easier to make big mistakes
 
 ### Daily Loss Limit
 
@@ -589,7 +589,7 @@ Review your strategy before continuing
 
 ### Never Do This
 
-❌ **Deadly mistakes:**
+ **Deadly mistakes:**
 - Don't FOMO (Fear Of Missing Out)
 - Don't revenge trade (trying to win back losses)
 - Don't over-leverage
@@ -625,7 +625,7 @@ Never dip into emergency fund for trading.
 
 ### Signs You're Ready to Increase Capital
 
-✅ You can answer YES to all:
+ You can answer YES to all:
 - [ ] 4+ weeks of consistent small profits
 - [ ] Win rate above 50%
 - [ ] Never had emotional trades
@@ -636,7 +636,7 @@ Never dip into emergency fund for trading.
 
 ### Signs You Should REDUCE Capital
 
-🔴 Stop trading and reduce if:
+ Stop trading and reduce if:
 - [ ] 3+ consecutive losing days
 - [ ] Daily losses exceed 5%
 - [ ] You feel stressed/emotional
@@ -655,16 +655,16 @@ Never dip into emergency fund for trading.
 | Over-leverage | Liquidation | Keep position size <10% |
 | No documentation | Repeat mistakes | Track every trade |
 
-**Remember:** The goal isn't to get rich quick. It's to build wealth slowly and consistently. 🎯
+**Remember:** The goal isn't to get rich quick. It's to build wealth slowly and consistently. 
 
 ---
 
 **Next Steps:**
-1. ✅ Set up your wallet(s)
-2. ✅ Secure your private keys
-3. ✅ Fund your account(s) - START SMALL
-4. ✅ Follow the phased approach (Test → Validate → Scale)
-5. 📖 Read the market-specific SKILL.md files
-6. 🚀 Start testing with small amounts
-7. 📊 Track your trades and profits
-8. 💰 Scale responsibly once proven
+1.  Set up your wallet(s)
+2.  Secure your private keys
+3.  Fund your account(s) - START SMALL
+4.  Follow the phased approach (Test → Validate → Scale)
+5.  Read the market-specific SKILL.md files
+6.  Start testing with small amounts
+7.  Track your trades and profits
+8.  Scale responsibly once proven

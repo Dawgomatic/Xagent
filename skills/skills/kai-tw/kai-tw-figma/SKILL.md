@@ -3,7 +3,7 @@ name: figma
 description: Interact with the Figma REST API to read files, export layers/components as images, and retrieve comments. Use when the user needs information from Figma designs or wants to export assets for development. Triggers include "read figma file", "export figma layer", or "check figma comments".
 metadata:
   openclaw:
-    emoji: 📐
+    emoji: 
     requires:
       env:
         - FIGMA_TOKEN

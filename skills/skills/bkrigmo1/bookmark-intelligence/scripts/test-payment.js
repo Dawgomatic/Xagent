@@ -7,7 +7,7 @@
 import { getLicenseStatus, activateLicense, canProcessBookmarks, getUsage, incrementUsage } from './license.js';
 import { generateStripeLink, generateCryptoPayment, completePayment, getPaymentStatus } from './payment.js';
 
-console.log('🧪 Testing Bookmark Intelligence Payment System\n');
+console.log(' Testing Bookmark Intelligence Payment System\n');
 console.log('='.repeat(80));
 
 let testsPassed = 0;
@@ -202,14 +202,14 @@ test('Reject invalid license key', () => {
 
 // Summary
 console.log('\n' + '='.repeat(80));
-console.log('\n📊 TEST SUMMARY');
+console.log('\n TEST SUMMARY');
 console.log(`✓ Passed: ${testsPassed}`);
 console.log(`✗ Failed: ${testsFailed}`);
 
 if (testsFailed === 0) {
-  console.log('\n🎉 All tests passed! Payment system is working correctly.');
+  console.log('\n All tests passed! Payment system is working correctly.');
   process.exit(0);
 } else {
-  console.log('\n❌ Some tests failed. Please review the errors above.');
+  console.log('\n Some tests failed. Please review the errors above.');
   process.exit(1);
 }

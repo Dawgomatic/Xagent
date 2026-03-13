@@ -1,7 +1,7 @@
 ---
 name: beszel
 description: Monitor home lab servers via Beszel (PocketBase).
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Beszel Monitoring

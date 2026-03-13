@@ -4,7 +4,7 @@
 
 This skill monitors **your personal** CamelCamelCamel RSS feed for Amazon price drops and sends you Telegram notifications.
 
-⚠️ **Important**: Each user must use their own CamelCamelCamel feed URL. Do not share or reuse someone else's feed URL—you'll only see alerts for their watchlist.
+ **Important**: Each user must use their own CamelCamelCamel feed URL. Do not share or reuse someone else's feed URL—you'll only see alerts for their watchlist.
 
 ## Prerequisites
 

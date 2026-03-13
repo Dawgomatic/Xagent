@@ -1,4 +1,4 @@
-# 🧠 Hippocampus
+#  Hippocampus
 
 [![GitHub](https://img.shields.io/badge/GitHub-ImpKind%2Fhippocampus--skill-blue?logo=github)](https://github.com/ImpKind/hippocampus-skill)
 [![ClawdHub](https://img.shields.io/badge/ClawdHub-hippocampus-purple)](https://www.clawhub.ai/skills/hippocampus)
@@ -86,9 +86,9 @@ xdg-open ~/.openclaw/workspace/brain-dashboard.html
 ```
 
 ### Features
-- 🧠 Memory tab with stats and top memories
-- 🎭 Emotions tab (if amygdala installed, or install prompt)
-- ⭐ Drive tab (if VTA installed, or install prompt)
+-  Memory tab with stats and top memories
+-  Emotions tab (if amygdala installed, or install prompt)
+-  Drive tab (if VTA installed, or install prompt)
 - Reads avatar/name from `IDENTITY.md`
 - **Auto-regenerates** on every cron run (stays fresh)
 
@@ -96,7 +96,7 @@ xdg-open ~/.openclaw/workspace/brain-dashboard.html
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│ Preprocess  │────▶│   Score &   │────▶│   LLM       │
+│ Preprocess  │────│   Score &   │────│   LLM       │
 │  signals    │     │   Filter    │     │  Summarize  │
 └─────────────┘     └─────────────┘     └──────┬──────┘
                                                │
@@ -105,7 +105,7 @@ xdg-open ~/.openclaw/workspace/brain-dashboard.html
          ▼
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
 │  Semantic   │     │   Store in  │     │    Decay    │
-│  Reinforce  │────▶│  index.json │◀────│ (0.99^days) │
+│  Reinforce  │────│  index.json │────│ (0.99^days) │
 │  OR Create  │     │             │     │             │
 └─────────────┘     └─────────────┘     └─────────────┘
 ```
@@ -162,12 +162,12 @@ Building cognitive architecture for AI agents:
 
 | Part | Function | Status |
 |------|----------|--------|
-| **hippocampus** | Memory formation, decay, reinforcement | ✅ Live |
-| [amygdala-memory](https://github.com/ImpKind/amygdala-memory) | Emotional processing | ✅ Live |
-| [vta-memory](https://github.com/ImpKind/vta-memory) | Reward and motivation | ✅ Live |
-| basal-ganglia-memory | Habit formation | 🚧 Coming |
-| anterior-cingulate-memory | Conflict detection | 🚧 Coming |
-| insula-memory | Internal state awareness | 🚧 Coming |
+| **hippocampus** | Memory formation, decay, reinforcement |  Live |
+| [amygdala-memory](https://github.com/ImpKind/amygdala-memory) | Emotional processing |  Live |
+| [vta-memory](https://github.com/ImpKind/vta-memory) | Reward and motivation |  Live |
+| basal-ganglia-memory | Habit formation |  Coming |
+| anterior-cingulate-memory | Conflict detection |  Coming |
+| insula-memory | Internal state awareness |  Coming |
 
 ## Based On
 

@@ -24,9 +24,9 @@ Each brief item should include:
 4. **Image** - Include if available from source
 5. **Link** - Direct URL to original article
 6. **Clinical Relevance Badge** - One of:
-   - 🔴 High Impact (practice-changing)
-   - 🟡 Moderate (consider for practice)
-   - 🟢 Low (awareness only)
+   -  High Impact (practice-changing)
+   -  Moderate (consider for practice)
+   -  Low (awareness only)
 
 ## Search Strategy
 

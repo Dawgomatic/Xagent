@@ -10,12 +10,12 @@ This skill enables OpenClaw AI assistants to verify AI agent identities, check t
 
 Praesidia provides a trust framework for AI agents, similar to how SSL certificates work for websites. This OpenClaw skill allows AI assistants to:
 
-- ✅ **Verify agent identity** - Check if an agent is registered and verified
-- 📊 **Check trust scores** - View 0-100 trust ratings with detailed breakdowns
-- 🔍 **Discover agents** - Search marketplace for public agents by capability
-- 📋 **Fetch agent cards** - Get A2A-compliant agent metadata
-- 🛡️ **Make trust decisions** - Help users decide if an agent is safe to use
-- 🔒 **Apply guardrails** - Add security policies, content moderation, and compliance rules
+-  **Verify agent identity** - Check if an agent is registered and verified
+-  **Check trust scores** - View 0-100 trust ratings with detailed breakdowns
+-  **Discover agents** - Search marketplace for public agents by capability
+-  **Fetch agent cards** - Get A2A-compliant agent metadata
+-  **Make trust decisions** - Help users decide if an agent is safe to use
+-  **Apply guardrails** - Add security policies, content moderation, and compliance rules
 
 ---
 
@@ -106,10 +106,10 @@ Every agent in Praesidia has a trust score (0-100) and a trust level:
 
 | Score | Level | Meaning | Action |
 |-------|-------|---------|--------|
-| 90-100 | VERIFIED | Fully vetted, verified identity | ✅ Recommend |
-| 70-89 | STANDARD | Good reputation, basic checks | ✅ Generally safe |
-| 50-69 | LIMITED | Minimal verification | ⚠️ Caution |
-| 0-49 | UNTRUSTED | Not verified or bad reputation | ❌ Warn user |
+| 90-100 | VERIFIED | Fully vetted, verified identity |  Recommend |
+| 70-89 | STANDARD | Good reputation, basic checks |  Generally safe |
+| 50-69 | LIMITED | Minimal verification |  Caution |
+| 0-49 | UNTRUSTED | Not verified or bad reputation |  Warn user |
 
 **Always present both:** "Trust Score: 92.5/100 (VERIFIED)"
 
@@ -222,7 +222,7 @@ Content-Type: application/json
 
 When presenting agent information, always include:
 
-1. **Trust indicator** - Visual indicator (✅/⚠️/❌) + score
+1. **Trust indicator** - Visual indicator (//) + score
 2. **Status** - ACTIVE/INACTIVE
 3. **Capabilities** - What the agent can do
 4. **Compliance** - SOC2, GDPR, HIPAA (if any)
@@ -230,7 +230,7 @@ When presenting agent information, always include:
 
 **Good example:**
 ```
-✅ ChatBot V2 is verified and safe to use!
+ ChatBot V2 is verified and safe to use!
 
 Trust Score: 92.5/100 (VERIFIED)
 Status: ACTIVE

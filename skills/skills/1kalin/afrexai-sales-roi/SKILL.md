@@ -37,7 +37,7 @@ When the user asks to evaluate an investment or calculate ROI:
 
 4. **Output format**:
    ```
-   📊 ROI Analysis: [Project Name]
+    ROI Analysis: [Project Name]
    ────────────────────────────
    Investment:     $X,XXX
    Annual Return:  $XX,XXX

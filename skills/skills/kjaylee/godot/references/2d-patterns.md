@@ -2,7 +2,7 @@
 
 Godot 4.x 2D 게임 공통 패턴 모음
 
-## 🎮 플레이어 이동
+##  플레이어 이동
 
 ### 8방향 이동 (탑다운)
 ```gdscript
@@ -56,7 +56,7 @@ func _physics_process(delta):
 
 ---
 
-## 🎯 발사체 (Bullet)
+##  발사체 (Bullet)
 
 ### 직선 발사
 ```gdscript
@@ -96,7 +96,7 @@ func shoot():
 
 ---
 
-## 👾 적 AI
+##  적 AI
 
 ### 플레이어 추적
 ```gdscript
@@ -144,7 +144,7 @@ func _physics_process(delta):
 
 ---
 
-## 💥 체력 & 데미지
+##  체력 & 데미지
 
 ### 체력 시스템
 ```gdscript
@@ -193,7 +193,7 @@ func _on_health_changed(current, maximum):
 
 ---
 
-## 💰 아이템 수집
+##  아이템 수집
 
 ### 코인 (아이템)
 ```gdscript
@@ -225,7 +225,7 @@ func collect_coin(amount: int):
 
 ---
 
-## 🎬 애니메이션
+##  애니메이션
 
 ### AnimatedSprite2D (프레임 애니메이션)
 ```gdscript
@@ -252,7 +252,7 @@ func take_damage(amount):
 
 ---
 
-## 📷 카메라
+##  카메라
 
 ### 플레이어 따라가기
 ```gdscript
@@ -280,7 +280,7 @@ func shake(duration: float = 0.3):
 
 ---
 
-## 🌟 파티클 효과
+##  파티클 효과
 
 ### 파티클 트리거
 ```gdscript
@@ -297,7 +297,7 @@ func explode():
 
 ---
 
-## 🗺️ TileMap
+##  TileMap
 
 ### 타일 충돌 감지
 ```gdscript
@@ -318,7 +318,7 @@ func remove_tile(pos: Vector2i):
 
 ---
 
-## 🎯 적 스포너
+##  적 스포너
 
 ### 랜덤 위치 스폰
 ```gdscript
@@ -353,7 +353,7 @@ func spawn_enemy():
 
 ---
 
-## 🔊 사운드 효과
+##  사운드 효과
 
 ### 효과음 재생
 ```gdscript
@@ -379,7 +379,7 @@ func play(sound_name: String):
 
 ---
 
-## 🎮 입력 관리
+##  입력 관리
 
 ### 커스텀 입력 액션 (Project Settings → Input Map)
 ```
@@ -400,7 +400,7 @@ if Input.is_action_just_pressed("jump"):
 
 ---
 
-## 🏁 씬 전환
+##  씬 전환
 
 ### 페이드 전환
 ```gdscript
@@ -420,7 +420,7 @@ func change_scene(target_scene: String):
 
 ---
 
-## 💾 세이브/로드
+##  세이브/로드
 
 ### 간단한 세이브
 ```gdscript
@@ -451,7 +451,7 @@ var data = SaveManager.load_game()
 
 ---
 
-## 🎯 추가 패턴
+##  추가 패턴
 
 ### 대쉬 (빠른 이동)
 ```gdscript

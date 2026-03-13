@@ -247,7 +247,7 @@ export const siteConfig = {
       { name: "GitHub", href: "https://github.com/acme", icon: "Github" },
       { name: "Discord", href: "https://discord.gg/acme", icon: "MessageCircle" },
     ],
-    copyright: `© ${new Date().getFullYear()} Acme AI. All rights reserved.`,
+    copyright: ` ${new Date().getFullYear()} Acme AI. All rights reserved.`,
   },
 }
 

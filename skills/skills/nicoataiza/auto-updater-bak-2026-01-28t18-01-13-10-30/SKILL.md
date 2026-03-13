@@ -1,7 +1,7 @@
 ---
 name: auto-updater
 description: "Automatically update Clawdbot and all installed skills once daily. Runs via cron, checks for updates, applies them, and messages the user with a summary of what changed."
-metadata: {"version":"1.0.0","clawdbot":{"emoji":"🔄","os":["darwin","linux"]}}
+metadata: {"version":"1.0.0","clawdbot":{"emoji":"","os":["darwin","linux"]}}
 ---
 
 # Auto-Updater Skill
@@ -78,7 +78,7 @@ This checks all installed skills against the registry and updates any with new v
 After updates complete, you'll receive a message like:
 
 ```
-🔄 Daily Auto-Update Complete
+ Daily Auto-Update Complete
 
 **Clawdbot**: Updated to v2026.1.10 (was v2026.1.9)
 

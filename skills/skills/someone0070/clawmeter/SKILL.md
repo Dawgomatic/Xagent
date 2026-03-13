@@ -258,7 +258,7 @@ ClawMeter automatically checks spending against configured thresholds and sends 
 ```
 Let me check your spending...
 
-📊 Today's Spend: $2.15
+ Today's Spend: $2.15
 Budget: $5.00 (43% used)
 
 You have $2.85 remaining today.
@@ -269,7 +269,7 @@ You have $2.85 remaining today.
 const res = await fetch('http://localhost:3377/api/summary');
 const data = await res.json();
 const pct = (data.today / data.budgetDaily * 100).toFixed(0);
-return `📊 Today's Spend: $${data.today.toFixed(2)}\nBudget: $${data.budgetDaily.toFixed(2)} (${pct}% used)\n\nYou have $${(data.budgetDaily - data.today).toFixed(2)} remaining today.`;
+return ` Today's Spend: $${data.today.toFixed(2)}\nBudget: $${data.budgetDaily.toFixed(2)} (${pct}% used)\n\nYou have $${(data.budgetDaily - data.today).toFixed(2)} remaining today.`;
 ```
 
 ### Example 2: Model Comparison
@@ -280,7 +280,7 @@ return `📊 Today's Spend: $${data.today.toFixed(2)}\nBudget: $${data.budgetDai
 ```
 Based on your usage history:
 
-💰 Cost per 1K messages:
+ Cost per 1K messages:
 • Claude Haiku 3-5: $0.12
 • GPT-4o-mini: $0.18
 • Claude Sonnet 4-5: $0.45
@@ -293,7 +293,7 @@ Recommendation: Use Haiku for simple tasks, Sonnet for complex work.
 
 **Agent (proactive):**
 ```
-⚠️ Budget Alert
+ Budget Alert
 
 You've spent $5.52 today, exceeding your $5.00 daily limit.
 
@@ -396,7 +396,7 @@ Consider switching to a cheaper model or pausing non-urgent tasks.
 
 **Fix:**
 1. Ensure server is running (`npm start`)
-2. Check terminal for `📥 X new events` messages
+2. Check terminal for ` X new events` messages
 3. Verify file permissions on session directories
 
 ### Budget alerts not sending
@@ -563,6 +563,6 @@ MIT — Free and open source forever.
 
 ---
 
-**Made with ⚡ by the OpenClaw community**
+**Made with  by the OpenClaw community**
 
 _Track your spending. Optimize your costs. Stay in control._

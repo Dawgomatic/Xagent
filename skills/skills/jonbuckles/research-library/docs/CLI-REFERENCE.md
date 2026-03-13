@@ -76,8 +76,8 @@ reslib add data.csv -p analysis -m research -t "Q4 Sales Data"
 
 **Output:**
 ```
-ℹ️  Extracting text content...
-✅ Saved as research #42
+  Extracting text content...
+ Saved as research #42
    Title: Paper
    Project: ml-papers
    Type: reference
@@ -311,7 +311,7 @@ reslib status
 
 **Output:**
 ```
-📚 Research Library Status
+ Research Library Status
 ========================================
 
 Documents:
@@ -331,10 +331,10 @@ Storage:
   Total:       1.2 GB
 
 Extraction Queue:
-  ⏳ pending: 3
-  ⚙️ processing: 1
-  ✅ completed: 198
-  ❌ failed: 2
+   pending: 3
+   processing: 1
+   completed: 198
+   failed: 2
 
 Backups:
   Location: /home/user/.reslib/backups

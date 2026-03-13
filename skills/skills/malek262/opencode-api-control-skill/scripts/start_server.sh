@@ -16,7 +16,7 @@ if [ ! -f "$OPENCODE_BIN" ]; then
     if command -v opencode >/dev/null 2>&1; then
         OPENCODE_BIN="opencode"
     else
-        echo "❌ Error: opencode binary not found at $OPENCODE_BIN or in PATH." >&2
+        echo " Error: opencode binary not found at $OPENCODE_BIN or in PATH." >&2
         exit 1
     fi
 fi
@@ -46,6 +46,6 @@ while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
     sleep 1
 done
 
-echo "❌ Error: Server failed to start within $MAX_ATTEMPTS seconds."
+echo " Error: Server failed to start within $MAX_ATTEMPTS seconds."
 echo "Check $LOG_FILE for details."
 exit 1

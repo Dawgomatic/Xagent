@@ -15,7 +15,7 @@ function loadConfig() {
     try {
         return JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf-8'));
     } catch {
-        console.error('❌ Not configured. Run: node scripts/setup.js');
+        console.error(' Not configured. Run: node scripts/setup.js');
         process.exit(1);
     }
 }
@@ -50,7 +50,7 @@ function makeRequest(method, endpoint, body = null) {
                 try {
                     const json = JSON.parse(data);
                     if (res.statusCode === 401) {
-                        console.error('❌ Authentication failed. Run: node scripts/setup.js to reconfigure.');
+                        console.error(' Authentication failed. Run: node scripts/setup.js to reconfigure.');
                         process.exit(1);
                     }
                     resolve({ status: res.statusCode, data: json });
@@ -90,7 +90,7 @@ async function main() {
         const result = await makeRequest(method, endpoint, body);
         console.log(JSON.stringify(result.data, null, 2));
     } catch (err) {
-        console.error('❌', err.message);
+        console.error('', err.message);
     }
 }
 

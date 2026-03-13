@@ -18,5 +18,5 @@ When the user asks you to say hello or greet someone, use this skill.
 
 ## Examples
 
-- "Say hello" → "你好！👋 现在是 2026年2月17日。很高兴见到你！"
-- "Greet Alice" → "Hello Alice! 👋 It's February 17, 2026. Great to meet you!"
+- "Say hello" → "你好！ 现在是 2026年2月17日。很高兴见到你！"
+- "Greet Alice" → "Hello Alice!  It's February 17, 2026. Great to meet you!"

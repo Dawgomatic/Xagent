@@ -121,7 +121,7 @@ async function main() {
     receivedJwt,
     publicKey,
   );
-  console.log("\n✅ Base JWT Signature Verified.");
+  console.log("\n Base JWT Signature Verified.");
 
   // c. Verify Disclosures
   const recoveredClaims: Record<string, any> = {};
@@ -137,10 +137,10 @@ async function main() {
     const hash = hashDisclosure(decoded);
 
     if (_sd.includes(hash)) {
-      console.log(`  ✅ Verified Claim: "${decoded[1]}" = ${decoded[2]}`);
+      console.log(`   Verified Claim: "${decoded[1]}" = ${decoded[2]}`);
       recoveredClaims[decoded[1]] = decoded[2];
     } else {
-      console.error(`  ❌ Hash mismatch for disclosure: ${decodedJson}`);
+      console.error(`   Hash mismatch for disclosure: ${decodedJson}`);
     }
   }
 

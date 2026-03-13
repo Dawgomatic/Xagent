@@ -32,16 +32,16 @@
         volume: 1.0,
         html5: true,
         onload: function() {
-          log('✅ Sound loaded successfully');
+          log(' Sound loaded successfully');
         },
         onloaderror: function(id, err) {
-          log('❌ Load error: ' + err);
+          log(' Load error: ' + err);
         },
         onplay: function() {
-          log('✅ Sound started playing');
+          log(' Sound started playing');
         },
         onplayerror: function(id, err) {
-          log('❌ Play error: ' + err);
+          log(' Play error: ' + err);
           log('Attempting to unlock...');
           sound.once('unlock', function() {
             log('Audio unlocked, trying again...');
@@ -49,7 +49,7 @@
           });
         },
         onend: function() {
-          log('✅ Sound finished playing');
+          log(' Sound finished playing');
         }
       });
       

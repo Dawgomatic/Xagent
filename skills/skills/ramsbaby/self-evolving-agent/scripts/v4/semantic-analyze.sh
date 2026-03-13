@@ -103,7 +103,7 @@ def load_agents_rules():
             ('msg_fragmentation', r'단편화 금지|하나의 메시지|짧은 메시지.*연속'),
         ]
         # AGENTS.md에서 금지 규칙 코드블록 추출
-        code_blocks = re.findall(r'❌[^\n]*\n([^\n]+)', content)
+        code_blocks = re.findall(r'[^\n]*\n([^\n]+)', content)
         for block in code_blocks[:20]:
             rules.append(block.strip())
     except Exception as e:
@@ -669,7 +669,7 @@ def detect_rule_violations(session):
     if not is_likely_cron:
         assistant_msgs = [m for m in session['messages'] if m['role'] == 'assistant']
         # 실질적 응답만 카운트 (HEARTBEAT_OK, NO_REPLY 등 자동 응답 제외)
-        auto_response_patterns = ('HEARTBEAT_OK', 'NO_REPLY', '✅ New session')
+        auto_response_patterns = ('HEARTBEAT_OK', 'NO_REPLY', ' New session')
         real_assistant_msgs = [
             m for m in assistant_msgs
             if not any(m['text'].startswith(p) for p in auto_response_patterns)
@@ -719,7 +719,7 @@ def detect_failure_patterns(session):
         })
 
     # 2. 고착 루프 (Stuck Loop)
-    # 특징: 동일 주제에서 5회 이상 user↔assistant 교환
+    # 특징: 동일 주제에서 5회 이상 userassistant 교환
     if len(messages) >= 10:
         # 주제 클러스터링 (단순 창 기반)
         window_size = 10

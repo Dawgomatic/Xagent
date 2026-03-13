@@ -17,7 +17,7 @@ try:
     import requests
     from bs4 import BeautifulSoup
 except ImportError:
-    print("⚠️  의존성 설치 필요: pip install requests beautifulsoup4 lxml", file=sys.stderr)
+    print("  의존성 설치 필요: pip install requests beautifulsoup4 lxml", file=sys.stderr)
     sys.exit(1)
 
 
@@ -47,7 +47,7 @@ class ProductSearcher:
                 data = json.loads(response.read().decode('utf-8'))
                 return self._parse_naver_results(data.get('items', []))
         except Exception as e:
-            print(f"⚠️  네이버 API 에러: {e}", file=sys.stderr)
+            print(f"  네이버 API 에러: {e}", file=sys.stderr)
         
         return []
     
@@ -128,7 +128,7 @@ class ProductSearcher:
                     continue
         
         except Exception as e:
-            print(f"⚠️  쿠팡 스크래핑 에러: {e}", file=sys.stderr)
+            print(f"  쿠팡 스크래핑 에러: {e}", file=sys.stderr)
         
         return results
     
@@ -184,7 +184,7 @@ class ProductSearcher:
                     continue
         
         except Exception as e:
-            print(f"⚠️  11번가 스크래핑 에러: {e}", file=sys.stderr)
+            print(f"  11번가 스크래핑 에러: {e}", file=sys.stderr)
         
         return results
     
@@ -212,7 +212,7 @@ def format_price(price: int) -> str:
 def format_output(results: List[Dict], sort_by: str = 'price') -> str:
     """결과를 보기 좋게 포맷팅"""
     if not results:
-        return "❌ 검색 결과가 없습니다."
+        return " 검색 결과가 없습니다."
     
     # 정렬
     if sort_by == 'price':
@@ -222,14 +222,14 @@ def format_output(results: List[Dict], sort_by: str = 'price') -> str:
     min_price = min(r['total'] for r in results)
     
     output = []
-    output.append(f"🔍 검색 결과: {len(results)}개 상품\n")
+    output.append(f" 검색 결과: {len(results)}개 상품\n")
     
     for i, item in enumerate(results, 1):
         platform_icon = {
-            '네이버쇼핑': '🛍️',
-            '쿠팡': '🛒',
-            '11번가': '🏬',
-        }.get(item['platform'], '🏪')
+            '네이버쇼핑': '',
+            '쿠팡': '',
+            '11번가': '',
+        }.get(item['platform'], '')
         
         # 제목 (너무 길면 자르기)
         title = item['title']
@@ -239,7 +239,7 @@ def format_output(results: List[Dict], sort_by: str = 'price') -> str:
         output.append(f"{platform_icon} [{item['platform']}] {title}")
         
         # 가격 정보
-        price_line = f"   💰 {format_price(item['price'])}"
+        price_line = f"    {format_price(item['price'])}"
         if item['shipping'] > 0:
             price_line += f" (배송비 {format_price(item['shipping'])})"
         else:
@@ -249,20 +249,20 @@ def format_output(results: List[Dict], sort_by: str = 'price') -> str:
         
         # 최저가 표시
         if item['total'] == min_price:
-            price_line += " ⭐ 최저가!"
+            price_line += "  최저가!"
         
         output.append(price_line)
         
         # 추가 정보
         if item.get('is_rocket'):
-            output.append("   🚀 로켓배송")
+            output.append("    로켓배송")
         
         if item.get('mall'):
-            output.append(f"   🏪 {item['mall']}")
+            output.append(f"    {item['mall']}")
         
         # URL
         if item.get('url'):
-            output.append(f"   🔗 {item['url']}")
+            output.append(f"    {item['url']}")
         
         output.append("")  # 빈 줄
     
@@ -292,7 +292,7 @@ def main():
     
     # 유효성 검사
     if args.display < 1 or args.display > 10:
-        print("❌ display는 1-10 사이여야 합니다.", file=sys.stderr)
+        print(" display는 1-10 사이여야 합니다.", file=sys.stderr)
         sys.exit(1)
     
     platforms = [p.strip() for p in args.platforms.split(',')]
@@ -300,7 +300,7 @@ def main():
     platforms = [p for p in platforms if p in valid_platforms]
     
     if not platforms:
-        print("❌ 유효한 플랫폼이 없습니다. (naver, coupang, 11st)", file=sys.stderr)
+        print(" 유효한 플랫폼이 없습니다. (naver, coupang, 11st)", file=sys.stderr)
         sys.exit(1)
     
     # 검색 실행

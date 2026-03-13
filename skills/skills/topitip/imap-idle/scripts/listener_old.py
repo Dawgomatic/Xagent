@@ -89,19 +89,19 @@ class IMAPIdleListener:
             try:
                 password = keyring.get_password('imap-idle', username)
                 if password:
-                    self.logger.debug(f"🔐 Using keyring password for {username}")
+                    self.logger.debug(f" Using keyring password for {username}")
                     return password
             except Exception as e:
-                self.logger.warning(f"⚠️  Keyring access failed for {username}: {e}")
+                self.logger.warning(f"  Keyring access failed for {username}: {e}")
         
         # Fall back to config file
         password = account_config.get('password')
         if password:
-            self.logger.debug(f"📄 Using config file password for {username}")
+            self.logger.debug(f" Using config file password for {username}")
             return password
         
         # No password found
-        self.logger.error(f"❌ No password found for {username} (not in keyring or config)")
+        self.logger.error(f" No password found for {username} (not in keyring or config)")
         return None
     
     def queue_event(self, account, from_addr, subject, body_preview=""):
@@ -117,7 +117,7 @@ class IMAPIdleListener:
             }
             self.pending_events.append(event)
             
-            self.logger.info(f"📥 Queued: {account} from {from_addr[:50]} (buffer: {len(self.pending_events)})")
+            self.logger.info(f" Queued: {account} from {from_addr[:50]} (buffer: {len(self.pending_events)})")
             
             # Cancel existing timer
             if self.debounce_timer:
@@ -149,14 +149,14 @@ class IMAPIdleListener:
                 text = self._format_single_event(event)
             else:
                 # Multiple events - batch format
-                text = f"📬 {len(events)} новых писем:\n\n"
+                text = f" {len(events)} новых писем:\n\n"
                 
                 # Group GitHub notifications separately
                 github_events = [e for e in events if 'github' in e['from'].lower()]
                 other_events = [e for e in events if 'github' not in e['from'].lower()]
                 
                 if github_events:
-                    text += f"🔔 GitHub ({len(github_events)}):\n"
+                    text += f" GitHub ({len(github_events)}):\n"
                     for event in github_events[:5]:  # Max 5 to avoid overflow
                         preview = self._format_github_preview(event)
                         text += f"  • {preview}\n"
@@ -165,7 +165,7 @@ class IMAPIdleListener:
                     text += "\n"
                 
                 if other_events:
-                    text += f"📧 Другие ({len(other_events)}):\n"
+                    text += f" Другие ({len(other_events)}):\n"
                     for event in other_events[:5]:  # Max 5
                         text += f"  • {event['account']}: {event['from'][:40]}\n"
                         text += f"    {event['subject'][:60]}\n"
@@ -192,10 +192,10 @@ class IMAPIdleListener:
             )
             
             with urllib.request.urlopen(req, timeout=5) as response:
-                self.logger.info(f"✅ Webhook sent: {len(events)} event(s)")
+                self.logger.info(f" Webhook sent: {len(events)} event(s)")
                 
         except Exception as e:
-            self.logger.error(f"❌ Webhook failed: {e}")
+            self.logger.error(f" Webhook failed: {e}")
     
     def _format_single_event(self, event):
         """Format a single event for webhook"""
@@ -208,25 +208,25 @@ class IMAPIdleListener:
         if 'github' in from_addr.lower() and account == "a.parmeev@jakeberrimor.com":
             # Parse GitHub notification type
             if '@arkasha-ai' in subject or '@arkasha-ai' in body_preview:
-                icon = "💬"
+                icon = ""
                 action = "упомянули"
             elif 'review requested' in subject.lower():
-                icon = "👀"
+                icon = ""
                 action = "запросили review"
             elif 'assigned you' in subject.lower() or 'assigned to you' in subject.lower():
-                icon = "📌"
+                icon = ""
                 action = "назначили"
             elif 'mentioned you' in subject.lower():
-                icon = "💬"
+                icon = ""
                 action = "mention"
             else:
-                icon = "🔔"
+                icon = ""
                 action = "уведомление"
             
             return f"{icon} GitHub: тебя {action}\n{subject}\n\n{body_preview[:500]}"
         else:
             # Regular email notification
-            text = f"📧 New email in {account}:\nFrom: {from_addr}\nSubject: {subject}"
+            text = f" New email in {account}:\nFrom: {from_addr}\nSubject: {subject}"
             if body_preview:
                 text += f"\n\n{body_preview[:300]}"
             return text
@@ -237,13 +237,13 @@ class IMAPIdleListener:
         body = event['body_preview']
         
         if '@arkasha-ai' in subject or '@arkasha-ai' in body:
-            return f"💬 mention: {subject[:60]}"
+            return f" mention: {subject[:60]}"
         elif 'review requested' in subject.lower():
-            return f"👀 review: {subject[:60]}"
+            return f" review: {subject[:60]}"
         elif 'assigned' in subject.lower():
-            return f"📌 assigned: {subject[:60]}"
+            return f" assigned: {subject[:60]}"
         else:
-            return f"🔔 {subject[:60]}"
+            return f" {subject[:60]}"
     
     def parse_email_body(self, body_data):
         """Parse and extract preview from email body"""
@@ -286,7 +286,7 @@ class IMAPIdleListener:
         
         # Abort if no password available
         if not password:
-            self.logger.error(f"❌ Cannot monitor {username}: no password available")
+            self.logger.error(f" Cannot monitor {username}: no password available")
             return
         
         # Track last processed UID to prevent duplicates
@@ -298,7 +298,7 @@ class IMAPIdleListener:
         
         while True:
             try:
-                self.logger.info(f"🔌 Connecting to {username}@{host}...")
+                self.logger.info(f" Connecting to {username}@{host}...")
                 
                 # Connect to IMAP server
                 client = IMAPClient(host, port=port, ssl=ssl, timeout=30)
@@ -309,11 +309,11 @@ class IMAPIdleListener:
                 messages = client.search(['ALL'])
                 if messages:
                     last_uid = max(messages)
-                    self.logger.info(f"📬 {username}: Starting from UID {last_uid}")
+                    self.logger.info(f" {username}: Starting from UID {last_uid}")
                 
                 # Start IDLE mode
                 client.idle()
-                self.logger.info(f"✅ {username}: IDLE monitoring active")
+                self.logger.info(f" {username}: IDLE monitoring active")
                 
                 # Reset backoff on successful connect
                 backoff = 5
@@ -327,7 +327,7 @@ class IMAPIdleListener:
                     
                     # If we got responses, new mail arrived
                     if responses:
-                        self.logger.info(f"📨 {username}: IDLE notification received")
+                        self.logger.info(f" {username}: IDLE notification received")
                         
                         # Exit IDLE to check messages
                         client.idle_done()
@@ -363,19 +363,19 @@ class IMAPIdleListener:
                     
                     # Periodic reconnect (every 15 min by default)
                     if time.time() - idle_start > self.reconnect_interval:
-                        self.logger.info(f"🔄 {username}: Periodic reconnect")
+                        self.logger.info(f" {username}: Periodic reconnect")
                         client.idle_done()
                         client.noop()  # Keep-alive
                         client.idle()
                         idle_start = time.time()
                 
             except KeyboardInterrupt:
-                self.logger.info(f"⏹️  {username}: Stopped by user")
+                self.logger.info(f"  {username}: Stopped by user")
                 break
                 
             except Exception as e:
-                self.logger.error(f"❌ {username}: Connection error: {e}")
-                self.logger.info(f"🔁 {username}: Reconnecting in {backoff}s...")
+                self.logger.error(f" {username}: Connection error: {e}")
+                self.logger.info(f" {username}: Reconnecting in {backoff}s...")
                 time.sleep(backoff)
                 
                 # Exponential backoff
@@ -386,10 +386,10 @@ class IMAPIdleListener:
         accounts = self.config.get('accounts', [])
         
         if not accounts:
-            self.logger.error("❌ No accounts configured")
+            self.logger.error(" No accounts configured")
             return
         
-        self.logger.info(f"🚀 Starting IMAP IDLE listener for {len(accounts)} account(s)")
+        self.logger.info(f" Starting IMAP IDLE listener for {len(accounts)} account(s)")
         
         # Start one thread per account
         threads = []
@@ -408,7 +408,7 @@ class IMAPIdleListener:
             for t in threads:
                 t.join()
         except KeyboardInterrupt:
-            self.logger.info("⏹️  Shutting down...")
+            self.logger.info("  Shutting down...")
 
 
 def load_config(config_path=None):
@@ -475,12 +475,12 @@ if __name__ == '__main__':
         """Parse GitHub notification and extract mention/issue info"""
         # GitHub notification patterns
         if '@arkasha-ai' in subject or '@arkasha-ai' in body_preview:
-            return "💬 GitHub: тебя упомянули!"
+            return " GitHub: тебя упомянули!"
         elif 'review requested' in subject.lower():
-            return "👀 GitHub: запросили review"
+            return " GitHub: запросили review"
         elif 'assigned you' in subject.lower():
-            return "📌 GitHub: назначили на задачу"
+            return " GitHub: назначили на задачу"
         elif 'mentioned you' in subject.lower():
-            return "💬 GitHub: mention"
+            return " GitHub: mention"
         else:
-            return "🔔 GitHub notification"
+            return " GitHub notification"

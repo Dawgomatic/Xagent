@@ -1,5 +1,5 @@
 # End-of-Day Checkpoint — Cron Job Template
-# ⚠️  OPT-IN ONLY: This template is NOT auto-installed.
+#   OPT-IN ONLY: This template is NOT auto-installed.
 # The user must explicitly request cron setup ("set up cron jobs")
 # and manually copy-paste this command into their terminal.
 # This skill NEVER runs this command automatically.
@@ -31,5 +31,5 @@ openclaw cron add \
 
 4. Deliver a brief end-of-day summary: what was accomplished, what carries over to tomorrow, and any blockers.
 
-Use 🟢🟡🔴 indicators for system health. Keep it concise." \
+Use  indicators for system health. Keep it concise." \
   --announce

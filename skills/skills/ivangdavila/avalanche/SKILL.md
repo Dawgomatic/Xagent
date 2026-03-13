@@ -1,7 +1,7 @@
 ---
 name: Avalanche
 description: Assist with Avalanche C-Chain transactions, AVAX transfers, subnets, and cross-chain bridges.
-metadata: {"clawdbot":{"emoji":"🔺","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Network Architecture (Critical)
@@ -20,7 +20,7 @@ metadata: {"clawdbot":{"emoji":"🔺","os":["linux","darwin","win32"]}}
 
 ## Cross-Chain Transfers
 - Moving AVAX between chains uses Avalanche Wallet — not regular transfers
-- C-Chain ↔ X-Chain transfer takes seconds — but requires correct process
+- C-Chain  X-Chain transfer takes seconds — but requires correct process
 - Export from one chain, import to another — two-step process
 - Use official Core wallet or Avalanche Wallet — supports all three chains
 - MetaMask only sees C-Chain — can't transfer to X or P chains directly

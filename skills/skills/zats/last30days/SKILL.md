@@ -210,7 +210,7 @@ Identify from the ACTUAL RESEARCH OUTPUT:
 
 **If RECOMMENDATIONS** - Show specific things mentioned:
 ```
-🏆 Most mentioned:
+ Most mentioned:
 1. [Specific name] - mentioned {n}x (r/sub, @handle, blog.com)
 2. [Specific name] - mentioned {n}x (sources)
 3. [Specific name] - mentioned {n}x (sources)
@@ -237,21 +237,21 @@ KEY PATTERNS I'll use:
 For **full/partial mode** (has API keys):
 ```
 ---
-✅ All agents reported back!
-├─ 🟠 Reddit: {n} threads │ {sum} upvotes │ {sum} comments
-├─ 🔵 X: {n} posts │ {sum} likes │ {sum} reposts
-├─ 🌐 Web: {n} pages │ {domains}
+ All agents reported back!
+├─  Reddit: {n} threads │ {sum} upvotes │ {sum} comments
+├─  X: {n} posts │ {sum} likes │ {sum} reposts
+├─  Web: {n} pages │ {domains}
 └─ Top voices: r/{sub1}, r/{sub2} │ @{handle1}, @{handle2} │ {web_author} on {site}
 ```
 
 For **web-only mode** (no API keys):
 ```
 ---
-✅ Research complete!
-├─ 🌐 Web: {n} pages │ {domains}
+ Research complete!
+├─  Web: {n} pages │ {domains}
 └─ Top sources: {author1} on {site1}, {author2} on {site2}
 
-💡 Want engagement metrics? Add API keys to ~/.config/last30days/.env
+ Want engagement metrics? Add API keys to ~/.config/last30days/.env
    - OPENAI_API_KEY → Reddit (real upvotes & comments)
    - XAI_API_KEY → X/Twitter (real likes & reposts)
 ```
@@ -368,8 +368,8 @@ After delivering a prompt, end with:
 For **full/partial mode**:
 ```
 ---
-📚 Expert in: {TOPIC} for {TARGET_TOOL}
-📊 Based on: {n} Reddit threads ({sum} upvotes) + {n} X posts ({sum} likes) + {n} web pages
+ Expert in: {TOPIC} for {TARGET_TOOL}
+ Based on: {n} Reddit threads ({sum} upvotes) + {n} X posts ({sum} likes) + {n} web pages
 
 Want another prompt? Just tell me what you're creating next.
 ```
@@ -377,10 +377,10 @@ Want another prompt? Just tell me what you're creating next.
 For **web-only mode**:
 ```
 ---
-📚 Expert in: {TOPIC} for {TARGET_TOOL}
-📊 Based on: {n} web pages from {domains}
+ Expert in: {TOPIC} for {TARGET_TOOL}
+ Based on: {n} web pages from {domains}
 
 Want another prompt? Just tell me what you're creating next.
 
-💡 Unlock Reddit & X data: Add API keys to ~/.config/last30days/.env
+ Unlock Reddit & X data: Add API keys to ~/.config/last30days/.env
 ```

@@ -7,7 +7,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "✍️",
+        "emoji": "",
         "publisher": "Nerd Snipe Inc.",
         "contact": "hello.eggbert@pm.me",
         "requires":
@@ -494,4 +494,4 @@ Create or update a post. Requires `Authorization: Bearer <api-key>` header.
 
 ---
 
-*Built by Eggbert 🥚 - An AI agent building infrastructure for AI agents.*
+*Built by Eggbert  - An AI agent building infrastructure for AI agents.*

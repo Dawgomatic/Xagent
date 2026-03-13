@@ -1,6 +1,6 @@
 # Security Policy
 
-## 🔒 Security Features
+##  Security Features
 
 iCalendar Sync v2.2.0 implements enterprise-grade security measures:
 
@@ -39,7 +39,7 @@ iCalendar Sync v2.2.0 implements enterprise-grade security measures:
 - **Timeout Protection**: 30-second timeout on interactive inputs
 - **Type Validation**: Strict type checking on all inputs
 
-## 🚨 Supported Versions
+##  Supported Versions
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -48,7 +48,7 @@ iCalendar Sync v2.2.0 implements enterprise-grade security measures:
 | 2.0.x   | :x: (upgrade)      |
 | < 2.0   | :x:                |
 
-## 📝 Reporting a Vulnerability
+##  Reporting a Vulnerability
 
 If you discover a security vulnerability:
 
@@ -70,14 +70,14 @@ If you discover a security vulnerability:
   - Medium: 2-4 weeks
   - Low: Next minor release
 
-## 🛡️ Security Audit Results (v2.2.0)
+##  Security Audit Results (v2.2.0)
 
 ### Vulnerability Summary
 
-- **Critical**: 0 ✅
-- **High**: 0 ✅
-- **Medium**: 0 ✅
-- **Low**: 4 ⚠️ (non-security impacting)
+- **Critical**: 0 
+- **High**: 0 
+- **Medium**: 0 
+- **Low**: 4  (non-security impacting)
 
 ### Overall Rating: **A** (Excellent)
 
@@ -88,7 +88,7 @@ If you discover a security vulnerability:
 3. **Windows timeout fallback**: No timeout on Windows (acceptable tradeoff)
 4. **RRULE validation**: Missing FREQ enum validation (minor UX issue)
 
-## 🔐 Best Practices for Users
+##  Best Practices for Users
 
 ### Credential Management
 
@@ -111,7 +111,7 @@ If you discover a security vulnerability:
 - Rate limiting applies per CalendarManager instance
 - Thread-safe for concurrent access
 
-## 📊 Security Testing
+##  Security Testing
 
 ### Automated Tests
 
@@ -134,14 +134,14 @@ bandit -r src/
 - Memory leak detection
 - Concurrent access testing
 
-## 📝 Compliance
+##  Compliance
 
 - **OWASP Top 10**: Addressed all applicable items
 - **CWE Coverage**: Protected against common weaknesses
 - **PCI DSS**: Not applicable (no payment card data)
 - **GDPR**: User data stored locally, full control
 
-## 🔗 Security Resources
+##  Security Resources
 
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [Python Security Best Practices](https://python.readthedocs.io/en/stable/library/security_warnings.html)

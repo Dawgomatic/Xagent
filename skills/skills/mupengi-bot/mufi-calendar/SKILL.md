@@ -1,7 +1,7 @@
 ---
 name: mufi-calendar
 description: Google Calendar + 네이버 캘린더 통합 관리. 한국어 자연어 일정 파싱, 리마인더 지원.
-metadata: {"clawdbot":{"emoji":"📆","requires":{"bins":["node","python3"]},"install":[{"id":"npm","kind":"npm","packages":["@google-cloud/calendar"],"label":"Install Google Calendar Node.js library"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node","python3"]},"install":[{"id":"npm","kind":"npm","packages":["@google-cloud/calendar"],"label":"Install Google Calendar Node.js library"}]}}
 ---
 
 # MUFI Calendar
@@ -10,10 +10,10 @@ Google Calendar + 네이버 캘린더 통합 관리 스킬. 한국 SMB 고객용
 
 ## 기능
 
-- ✅ Google Calendar 연동 (조회/추가/수정/삭제)
-- ✅ 한국어 자연어 파싱 ("내일 3시 미팅" → 이벤트 생성)
-- ✅ 일정 리마인더 (cron 연동)
-- 🚧 네이버 캘린더 연동 (브라우저 자동화 or iCal 구독 방식)
+-  Google Calendar 연동 (조회/추가/수정/삭제)
+-  한국어 자연어 파싱 ("내일 3시 미팅" → 이벤트 생성)
+-  일정 리마인더 (cron 연동)
+-  네이버 캘린더 연동 (브라우저 자동화 or iCal 구독 방식)
 
 ## 설정
 
@@ -148,11 +148,11 @@ node scripts/naver-list.js
 ### 텍스트 (기본)
 
 ```
-📅 2026-02-20 (목)
+ 2026-02-20 (목)
   10:00-11:00  개발팀 회의
   15:00-16:00  미팅
 
-📅 2026-02-21 (금)
+ 2026-02-21 (금)
   종일  공휴일
 ```
 

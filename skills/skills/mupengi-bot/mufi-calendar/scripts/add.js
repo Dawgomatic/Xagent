@@ -56,11 +56,11 @@ async function addEvent() {
     const text = argv._.join(' ');
     event = parseKoreanEvent(text);
     if (!event) {
-      console.error('❌ 파싱 실패. 형식: "내일 3시 미팅" 또는 --title, --start 사용');
+      console.error(' 파싱 실패. 형식: "내일 3시 미팅" 또는 --title, --start 사용');
       process.exit(1);
     }
   } else {
-    console.error('❌ 일정 정보 필요. --help 참고');
+    console.error(' 일정 정보 필요. --help 참고');
     process.exit(1);
   }
 
@@ -70,7 +70,7 @@ async function addEvent() {
     requestBody: event,
   });
 
-  console.log(`✅ 일정 추가 완료: ${res.data.summary}`);
+  console.log(` 일정 추가 완료: ${res.data.summary}`);
   console.log(`   시작: ${res.data.start.dateTime || res.data.start.date}`);
   console.log(`   종료: ${res.data.end.dateTime || res.data.end.date}`);
   console.log(`   ID: ${res.data.id}`);

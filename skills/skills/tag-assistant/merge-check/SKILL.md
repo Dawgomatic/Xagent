@@ -30,9 +30,9 @@ After gathering data, analyze across ALL of these dimensions. Load `skills/merge
 
 ### 2. PR Hygiene
 - **Size** (most predictive single factor):
-  - 🟢 <400 LOC changed — ideal, easy to review
-  - 🟡 400–1000 LOC — risky, reviewer fatigue
-  - 🔴 >1000 LOC — danger zone, likely to stall or get rejected
+  -  <400 LOC changed — ideal, easy to review
+  -  400–1000 LOC — risky, reviewer fatigue
+  -  >1000 LOC — danger zone, likely to stall or get rejected
 - **File spread**: Concentrated in one area or scattered across directories?
 - **Single concern**: Does it do one thing, or is it a kitchen-sink PR?
 - **Title & description**: Clear, descriptive? Or vague/empty?
@@ -69,34 +69,34 @@ After gathering data, analyze across ALL of these dimensions. Load `skills/merge
 Produce a structured report:
 
 ### Mergeability Score
-- 🟢 **High** (>80% likely to merge) — No blockers, reviews positive, CI green
-- 🟡 **Medium** (40–80%) — Some concerns but addressable
-- 🔴 **Low** (<40%) — Significant blockers present
+-  **High** (>80% likely to merge) — No blockers, reviews positive, CI green
+-  **Medium** (40–80%) — Some concerns but addressable
+-  **Low** (<40%) — Significant blockers present
 
 ### Report Sections
-1. **Mergeability Score**: 🟢/🟡/🔴 with percentage estimate
+1. **Mergeability Score**: // with percentage estimate
 2. **Risk Factors**: Bullet list of specific concerns, ordered by severity
 3. **Strengths**: What's working in the PR's favor
-4. **Recommendations**: Actionable steps to improve mergeability (if not already 🟢)
+4. **Recommendations**: Actionable steps to improve mergeability (if not already )
 5. **Verdict**: One-sentence summary
 
 ### Example Output
 ```
 ## PR Mergeability Report: owner/repo#123
 
-**Score: 🟡 Medium (~55%)**
+**Score:  Medium (~55%)**
 
 ### Risk Factors
-- ⚠️ 847 lines changed — approaching reviewer fatigue threshold
-- ⚠️ Changes requested by @maintainer not yet addressed
-- ⚠️ Touches 12 files across 6 directories — scattered scope
-- ℹ️ No linked issue
+-  847 lines changed — approaching reviewer fatigue threshold
+-  Changes requested by @maintainer not yet addressed
+-  Touches 12 files across 6 directories — scattered scope
+-  No linked issue
 
 ### Strengths
-- ✅ All 14 CI checks passing
-- ✅ Clear title and detailed description
-- ✅ Author has 73% merge rate in this repo (8/11 recent PRs)
-- ✅ Active discussion — last update 2 hours ago
+-  All 14 CI checks passing
+-  Clear title and detailed description
+-  Author has 73% merge rate in this repo (8/11 recent PRs)
+-  Active discussion — last update 2 hours ago
 
 ### Recommendations
 1. Address @maintainer's review comments before requesting re-review

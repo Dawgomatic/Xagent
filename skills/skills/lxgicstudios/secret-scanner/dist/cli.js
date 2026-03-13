@@ -24,7 +24,7 @@ program
         }
         spinner.warn(`Found ${findings.length} potential secret(s)`);
         findings.forEach(f => {
-            console.log(`\n  ⚠ ${f.type} in ${f.file}:${f.line}`);
+            console.log(`\n   ${f.type} in ${f.file}:${f.line}`);
             console.log(`    ${f.snippet}`);
         });
         if (options.ai) {

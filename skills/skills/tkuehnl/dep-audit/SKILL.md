@@ -93,7 +93,7 @@ Show the user the Markdown report from the aggregator. Highlight:
 - Critical and High findings first (these need attention)
 - Which ecosystems were scanned vs skipped
 
-If **zero vulnerabilities** found: report "✅ No known vulnerabilities found."
+If **zero vulnerabilities** found: report " No known vulnerabilities found."
 If **no lockfiles** found: report "No lockfiles found in <dir>. This skill works with npm, pip, Cargo, and Go projects."
 
 ### Discord v2 Delivery Mode (OpenClaw v2026.2.14+)

@@ -44,7 +44,7 @@ class SimulatedRobotPlugin(Plugin):
             return None
         
         cmd = message.command
-        logger.info(f"📩 Command from {identity.name}: {cmd.action}")
+        logger.info(f" Command from {identity.name}: {cmd.action}")
         
         if cmd.action == "list_robots":
             return Message(
@@ -86,7 +86,7 @@ class SimulatedRobotPlugin(Plugin):
             if topic == "/cmd_vel":
                 linear = data.get("linear", {})
                 self.speed = linear.get("x", 0.0)
-                logger.info(f"🚀 Robot moving: speed={self.speed:.2f} m/s")
+                logger.info(f" Robot moving: speed={self.speed:.2f} m/s")
                 return Message(
                     header=Header(correlation_id=message.header.message_id),
                     telemetry=Telemetry(
@@ -106,7 +106,7 @@ class SimulatedRobotPlugin(Plugin):
         elif cmd.action == "move":
             direction = cmd.parameters.get("direction", "forward")
             distance = cmd.parameters.get("distance", 0.0)
-            logger.info(f"🤖 Move {direction} {distance}m")
+            logger.info(f" Move {direction} {distance}m")
             return Message(
                 header=Header(correlation_id=message.header.message_id),
                 telemetry=Telemetry(
@@ -117,7 +117,7 @@ class SimulatedRobotPlugin(Plugin):
         
         elif cmd.action == "rotate":
             angle = cmd.parameters.get("angle", 0.0)
-            logger.info(f"🔄 Rotate {angle} degrees")
+            logger.info(f" Rotate {angle} degrees")
             return Message(
                 header=Header(correlation_id=message.header.message_id),
                 telemetry=Telemetry(
@@ -151,7 +151,7 @@ async def main():
     await bridge.start()
     
     print("=" * 60)
-    print("🎭 SIMULATED ROBOT BRIDGE (Demo Mode)")
+    print(" SIMULATED ROBOT BRIDGE (Demo Mode)")
     print("=" * 60)
     print("WebSocket: ws://localhost:8766")
     print("")
@@ -170,7 +170,7 @@ async def main():
         while True:
             await asyncio.sleep(1)
     except KeyboardInterrupt:
-        print('\n⏹️  Stopping...')
+        print('\n  Stopping...')
         await bridge.stop()
 
 

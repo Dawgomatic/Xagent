@@ -3,7 +3,7 @@ name: boof
 description: "Convert PDFs and documents to markdown, index them locally for RAG retrieval, and analyze them token-efficiently. Use when asked to: read/analyze/summarize a PDF, process a document, boof a file, extract information from papers/decks/NOFOs, or when you need to work with large documents without filling the context window. Supports batch processing and cross-document queries."
 ---
 
-# Boof 🍑
+# Boof 
 
 Local-first document processing: PDF → markdown → RAG index → token-efficient analysis.
 

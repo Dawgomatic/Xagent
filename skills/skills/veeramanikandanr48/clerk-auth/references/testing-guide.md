@@ -45,9 +45,9 @@ test+clerk_test@mycompany.com
 ```
 
 **Behavior**:
-- ✅ No emails sent (saves your email quota)
-- ✅ Fixed OTP code: `424242`
-- ✅ Works in all sign-up/sign-in flows
+-  No emails sent (saves your email quota)
+-  Fixed OTP code: `424242`
+-  Works in all sign-up/sign-in flows
 
 ### Fake Phone Numbers
 
@@ -63,9 +63,9 @@ Any [fictional phone number](https://en.wikipedia.org/wiki/555_(telephone_number
 ```
 
 **Behavior**:
-- ✅ No SMS sent (saves your SMS quota)
-- ✅ Fixed OTP code: `424242`
-- ✅ Works in all verification flows
+-  No SMS sent (saves your SMS quota)
+-  Fixed OTP code: `424242`
+-  Works in all verification flows
 
 ### Monthly Limits (Development Instances)
 
@@ -325,10 +325,10 @@ POST https://happy-hippo-1.clerk.accounts.dev/v1/client/sign_ups?__clerk_testing
 
 Testing Tokens work in **both development and production**, but:
 
-**❌ Not Supported in Production**:
+** Not Supported in Production**:
 - Code-based authentication (SMS OTP, Email OTP)
 
-**✅ Supported in Production**:
+** Supported in Production**:
 - Email + password authentication
 - Email magic link (sign-in via email)
 
@@ -474,39 +474,39 @@ Email links are challenging to test in E2E suites.
 
 ### Development Testing
 
-✅ **Do**:
+ **Do**:
 - Use test emails (`+clerk_test`) and phone numbers (555-01XX)
 - Fixed OTP: `424242`
 - Enable test mode in Clerk Dashboard
 - Use `@clerk/testing` for Playwright/Cypress
 
-❌ **Don't**:
+ **Don't**:
 - Send real emails/SMS during tests (wastes quota)
 - Use production keys in tests
 - Enable test mode on production instances with real users
 
 ### Backend/API Testing
 
-✅ **Do**:
+ **Do**:
 - Generate session tokens via Backend API
 - Refresh tokens before each test or on interval
 - Use test users created via API
 - Store `CLERK_SECRET_KEY` securely
 
-❌ **Don't**:
+ **Don't**:
 - Hardcode session tokens (expire in 60 seconds)
 - Reuse expired tokens
 - Expose secret keys in logs or version control
 
 ### E2E Testing
 
-✅ **Do**:
+ **Do**:
 - Use `@clerk/testing` for automatic Testing Token management
 - Configure global setup for token generation
 - Use test credentials in all flows
 - Run tests in CI/CD with secret environment variables
 
-❌ **Don't**:
+ **Don't**:
 - Skip `setupClerkTestingToken()` (triggers bot detection)
 - Manually implement Testing Token logic (use helpers)
 - Test code-based auth in production with Testing Tokens

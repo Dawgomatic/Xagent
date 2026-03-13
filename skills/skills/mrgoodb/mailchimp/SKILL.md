@@ -1,7 +1,7 @@
 ---
 name: mailchimp
 description: Manage email marketing campaigns, audiences, and automations via Mailchimp API.
-metadata: {"clawdbot":{"emoji":"🐵","requires":{"env":["MAILCHIMP_API_KEY","MAILCHIMP_SERVER"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["MAILCHIMP_API_KEY","MAILCHIMP_SERVER"]}}}
 ---
 
 # Mailchimp

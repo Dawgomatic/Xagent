@@ -64,7 +64,7 @@ JOB_OUTPUT=$(npx tsx src/index.ts cron add \
     --at "$TIMESTAMP" \
     --session isolated \
     --wake now \
-    --message "⏰ Reminder: $MESSAGE" \
+    --message " Reminder: $MESSAGE" \
     --deliver \
     --channel telegram \
     --to 6636746252 \
@@ -83,6 +83,6 @@ JOB_ID=$(echo "$JSON_OUTPUT" | jq -r '.id' 2>/dev/null)
 mkdir -p "$(dirname "$REMINDERS_FILE")"
 echo "- [scheduled] $DISPLAY_TIME | $MESSAGE (id: $JOB_ID)" >> "$REMINDERS_FILE"
 
-echo "✅ Reminder set for $DISPLAY_TIME"
-echo "📝 Logged to $REMINDERS_FILE"
-echo "🆔 Job ID: $JOB_ID"
+echo " Reminder set for $DISPLAY_TIME"
+echo " Logged to $REMINDERS_FILE"
+echo " Job ID: $JOB_ID"

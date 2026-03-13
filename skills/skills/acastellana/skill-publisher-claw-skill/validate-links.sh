@@ -23,7 +23,7 @@ ERRORS=0
 WARNINGS=0
 
 echo ""
-echo -e "${BLUE}🔗 Validating links:${NC} $(basename "$(pwd)")"
+echo -e "${BLUE} Validating links:${NC} $(basename "$(pwd)")"
 echo "   External checks: $($CHECK_EXTERNAL && echo "enabled" || echo "disabled")"
 echo ""
 
@@ -71,7 +71,7 @@ for file in $(find . -name "*.md" -type f); do
         heading_pattern=$(echo "$anchor" | tr '-' ' ')
         
         if ! grep -qi "^#.*$heading_pattern" "$file" 2>/dev/null; then
-            echo -e "${YELLOW}⚠${NC} Possibly broken anchor: $file → #$anchor"
+            echo -e "${YELLOW}${NC} Possibly broken anchor: $file → #$anchor"
             ((WARNINGS++))
         fi
     done
@@ -141,7 +141,7 @@ if [ $IMG_COUNT -gt 0 ]; then
     
     for img in $IMAGES; do
         if [[ "$img" == http* ]]; then
-            echo -e "${BLUE}↗${NC} External image: $img"
+            echo -e "${BLUE}${NC} External image: $img"
         elif [ -f "$img" ]; then
             echo -e "${GREEN}✓${NC} Local image: $img"
         else
@@ -164,7 +164,7 @@ if [ $ERRORS -gt 0 ]; then
     [ $WARNINGS -gt 0 ] && echo -e "${YELLOW}  Plus $WARNINGS warning(s)${NC}"
     exit 1
 elif [ $WARNINGS -gt 0 ]; then
-    echo -e "${YELLOW}⚠ $WARNINGS warning(s), no errors${NC}"
+    echo -e "${YELLOW} $WARNINGS warning(s), no errors${NC}"
     exit 0
 else
     echo -e "${GREEN}✓ All links valid!${NC}"

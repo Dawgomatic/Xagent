@@ -101,7 +101,7 @@ When a user requests to fetch collection data, follow these steps:
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Fetches all collections with excessive product data
+   #  HIGH COST - Fetches all collections with excessive product data
    query {
      collections(first: 50) {
        edges {
@@ -113,7 +113,7 @@ When a user requests to fetch collection data, follow these steps:
      }
    }
    
-   # ✅ LOW COST - Fetches collections with essential fields only
+   #  LOW COST - Fetches collections with essential fields only
    query {
      collections(first: 10, query:"title:*Summer*") {
        edges {

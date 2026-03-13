@@ -1,7 +1,7 @@
 ---
 name: outreach
 description: Manage sales engagement via Outreach API. Create sequences, manage prospects, and track activities.
-metadata: {"clawdbot":{"emoji":"📧","requires":{"env":["OUTREACH_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["OUTREACH_ACCESS_TOKEN"]}}}
 ---
 # Outreach
 Sales engagement platform.

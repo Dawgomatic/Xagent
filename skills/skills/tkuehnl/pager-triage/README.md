@@ -1,4 +1,4 @@
-# 🚨 pager-triage
+#  pager-triage
 
 **AI-powered PagerDuty incident triage for OpenClaw — because nobody should parse JSON at 3am.**
 
@@ -40,36 +40,36 @@ export PAGERDUTY_EMAIL="you@company.com"
 ```
 You:    What's firing?
 
-Agent:  Checking PagerDuty... 🔍
+Agent:  Checking PagerDuty... 
 
         Found 2 active incidents:
 
-        🔴 #4521 — High CPU on prod-web-03
+         #4521 — High CPU on prod-web-03
            Service: Production Web | Urgency: HIGH | Triggered 45 min ago
            Assigned to: Jane Doe (Level 1) | 3 alerts
 
-        🟡 #4520 — Elevated error rate on auth-service
+         #4520 — Elevated error rate on auth-service
            Service: Auth Service | Urgency: LOW | Triggered 2 hours ago
            Assigned to: Bob Smith (Level 1) | 1 alert
 
 You:    Tell me more about #4521
 
-Agent:  Deep-diving into incident P123ABC... 🔍
+Agent:  Deep-diving into incident P123ABC... 
 
-        📋 Incident: High CPU on prod-web-03
+         Incident: High CPU on prod-web-03
         Status: TRIGGERED | Urgency: HIGH | Duration: 45 minutes
 
-        📊 Timeline:
+         Timeline:
         03:00 — Triggered via Prometheus Alertmanager
         03:05 — Escalated to Jane Doe (Level 1)
         03:05 — Notified Jane Doe via push, SMS
 
-        🚨 Alerts (3):
+         Alerts (3):
         • CPU > 95% on prod-web-03 (critical) — source: Prometheus
         • Memory > 90% on prod-web-03 (warning) — source: Prometheus
         • High load average on prod-web-03 (warning) — source: Prometheus
 
-        📝 Notes: none yet
+         Notes: none yet
 
         The trigger source is Prometheus Alertmanager. Want me to query
         Prometheus for the CPU metrics on prod-web-03? I can also check
@@ -77,7 +77,7 @@ Agent:  Deep-diving into incident P123ABC... 🔍
 
 You:    Ack it while I investigate
 
-Agent:  ⚠️ ACKNOWLEDGE INCIDENT
+Agent:   ACKNOWLEDGE INCIDENT
         ID: P123ABC (#4521)
         Title: High CPU on prod-web-03
         Service: Production Web
@@ -87,7 +87,7 @@ Agent:  ⚠️ ACKNOWLEDGE INCIDENT
 
 You:    Yes
 
-Agent:  ✅ Incident P123ABC acknowledged at 03:46 UTC.
+Agent:   Incident P123ABC acknowledged at 03:46 UTC.
         Escalation paused. Let me know when you want to resolve it.
 ```
 
@@ -108,14 +108,14 @@ Agent:  ✅ Incident P123ABC acknowledged at 03:46 UTC.
 
 | Command | Type | Description |
 |---------|------|-------------|
-| `incidents` | 🟢 Read | List active incidents |
-| `detail <id>` | 🟢 Read | Incident deep-dive |
-| `oncall` | 🟢 Read | On-call schedules |
-| `services` | 🟢 Read | Service health overview |
-| `recent [--service ID] [--since 24h\|7d\|30d]` | 🟢 Read | Recent incident history |
-| `ack <id> --confirm` | 🟡 Write | Acknowledge incident |
-| `resolve <id> --confirm` | 🟡 Write | Resolve incident |
-| `note <id> --content "..." --confirm` | 🟡 Write | Add incident note |
+| `incidents` |  Read | List active incidents |
+| `detail <id>` |  Read | Incident deep-dive |
+| `oncall` |  Read | On-call schedules |
+| `services` |  Read | Service health overview |
+| `recent [--service ID] [--since 24h\|7d\|30d]` |  Read | Recent incident history |
+| `ack <id> --confirm` |  Write | Acknowledge incident |
+| `resolve <id> --confirm` |  Write | Resolve incident |
+| `note <id> --content "..." --confirm` |  Write | Add incident note |
 
 ## OpenClaw Discord v2 Ready
 

@@ -3,25 +3,25 @@
 ## Creative Commons Attribution-NoDerivatives-NonCommercial 4.0 International
 
 **WhatsApp Automation Skill**
-Copyright © 2026 OpenClaw Contributors
+Copyright  2026 OpenClaw Contributors
 All rights reserved.
 
 ---
 
 ## You are free to:
 
-✅ **Use** — Use this skill personally and non-commercially
-✅ **Share** — Copy and redistribute the unmodified skill
-✅ **Study** — Read, learn from, and understand the code
+ **Use** — Use this skill personally and non-commercially
+ **Share** — Copy and redistribute the unmodified skill
+ **Study** — Read, learn from, and understand the code
 
 ## You CANNOT:
 
-❌ **Modify** — You cannot alter, transform, or adapt the code
-❌ **Commercialize** — You cannot use this for any commercial purpose
-❌ **Sell** — You cannot sell this skill or services based on it
-❌ **Derivative Works** — You cannot create modified versions
-❌ **Bundle** — You cannot include this in commercial products
-❌ **Commercial Services** — You cannot offer services using this skill
+ **Modify** — You cannot alter, transform, or adapt the code
+ **Commercialize** — You cannot use this for any commercial purpose
+ **Sell** — You cannot sell this skill or services based on it
+ **Derivative Works** — You cannot create modified versions
+ **Bundle** — You cannot include this in commercial products
+ **Commercial Services** — You cannot offer services using this skill
 
 ---
 

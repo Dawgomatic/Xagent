@@ -15,12 +15,12 @@ This skill provides tools to programmatically access EdStem discussion forums, m
 
 ## Features
 
-- ✅ **Staff differentiation**: Clearly marks instructor/TA posts vs student posts
-- ✅ **Structured output**: Markdown format for easy reading and searching
-- ✅ **API-based**: Uses EdStem's official API (no scraping)
-- ✅ **Flexible output**: Choose your own output directory and organization scheme
-- ✅ **Course auto-detection**: Automatically fetches course name from API
-- ✅ **Lightweight alternative**: Bash script available for environments without Python
+-  **Staff differentiation**: Clearly marks instructor/TA posts vs student posts
+-  **Structured output**: Markdown format for easy reading and searching
+-  **API-based**: Uses EdStem's official API (no scraping)
+-  **Flexible output**: Choose your own output directory and organization scheme
+-  **Course auto-detection**: Automatically fetches course name from API
+-  **Lightweight alternative**: Bash script available for environments without Python
 
 ## Quick Start
 
@@ -184,4 +184,4 @@ For issues or questions:
 
 ---
 
-Built for the OpenClaw ecosystem 🐾
+Built for the OpenClaw ecosystem 

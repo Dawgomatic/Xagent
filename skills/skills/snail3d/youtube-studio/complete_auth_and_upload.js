@@ -23,19 +23,19 @@ async function exchangeCodeForTokens() {
   try {
     const { tokens } = await oauth2Client.getToken(AUTH_CODE);
     
-    console.log('✅ Tokens received!');
+    console.log(' Tokens received!');
     console.log('Access token:', tokens.access_token.substring(0, 20) + '...');
     console.log('Refresh token:', tokens.refresh_token ? 'Present' : 'Missing');
     
     // Save tokens
     fs.writeFileSync(TOKENS_FILE, JSON.stringify(tokens, null, 2));
-    console.log('✅ Tokens saved to:', TOKENS_FILE);
+    console.log(' Tokens saved to:', TOKENS_FILE);
     
     // Now upload the video
     await uploadVideo(tokens);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
   }
 }
 
@@ -58,7 +58,7 @@ async function uploadVideo(tokens) {
   
   const videoPath = '/Users/ericwoodard/Desktop/devotionals/devotional-with-title.mp4';
   
-  console.log('\n📹 Starting video upload...');
+  console.log('\n Starting video upload...');
   
   const response = await youtube.videos.insert({
     part: 'snippet,status',
@@ -69,8 +69,8 @@ async function uploadVideo(tokens) {
 
 But Scripture offers us a different perspective. The psalmist declares that even if the mountains fall into the sea, we need not fear. Why? Because God is not only our refuge—He is our strength.
 
-🌅 Daily Devotional - Feb 4, 2026
-📖 Psalm 46:1-3
+ Daily Devotional - Feb 4, 2026
+ Psalm 46:1-3
 
 Subscribe for daily devotionals!`,
         tags: ['devotional', 'daily devotion', 'psalm 46', 'faith', 'christian', 'bible'],
@@ -86,9 +86,9 @@ Subscribe for daily devotionals!`,
   });
   
   const videoId = response.data.id;
-  console.log('\n✅ Upload complete!');
-  console.log(`📺 Video ID: ${videoId}`);
-  console.log(`🔗 Link: https://youtube.com/watch?v=${videoId}`);
+  console.log('\n Upload complete!');
+  console.log(` Video ID: ${videoId}`);
+  console.log(` Link: https://youtube.com/watch?v=${videoId}`);
 }
 
 exchangeCodeForTokens().catch(console.error);

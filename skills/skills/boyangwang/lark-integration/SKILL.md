@@ -36,7 +36,7 @@ Lark App ──webhook──► Bridge (port 3000) ──WebSocket──► Open
 
 | Type | Direction | Format |
 |------|-----------|--------|
-| `text` | ↔ Both | Plain text |
+| `text` |  Both | Plain text |
 | `post` | → Receive | Rich text with images, links |
 | `image` | → Receive | Single image |
 | Reply | ← Send | Text (cards via feishu-card skill) |

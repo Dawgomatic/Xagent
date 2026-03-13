@@ -1,7 +1,7 @@
 ---
 name: google-workspace
 description: Gmail, Calendar, Drive, Docs, Sheets — NO Google Cloud Console required. Just OAuth sign-in. Zero setup complexity vs traditional Google API integrations.
-metadata: {"clawdbot":{"emoji":"📬","requires":{"bins":["mcporter"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mcporter"]}}}
 ---
 
 # Google Workspace Access (No Cloud Console!)
@@ -14,12 +14,12 @@ Uses `@presto-ai/google-workspace-mcp` — just sign in with your Google account
 
 | Traditional Approach | This Skill |
 |---------------------|------------|
-| Create Google Cloud Project | ❌ Not needed |
-| Enable individual APIs | ❌ Not needed |
-| Create OAuth credentials | ❌ Not needed |
-| Download client_secret.json | ❌ Not needed |
-| Configure redirect URIs | ❌ Not needed |
-| **Just sign in with Google** | ✅ That's it |
+| Create Google Cloud Project |  Not needed |
+| Enable individual APIs |  Not needed |
+| Create OAuth credentials |  Not needed |
+| Download client_secret.json |  Not needed |
+| Configure redirect URIs |  Not needed |
+| **Just sign in with Google** |  That's it |
 
 ## Setup (Already Done)
 

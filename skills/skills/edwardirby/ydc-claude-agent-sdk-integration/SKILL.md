@@ -335,12 +335,12 @@ mcpServers: {
 ```
 
 **Benefits of HTTP MCP:**
-- ✅ No local installation required
-- ✅ Stateless request/response model
-- ✅ Always up-to-date with latest version
-- ✅ Consistent across all environments
-- ✅ Production-ready and scalable
-- ✅ Works with existing HTTP infrastructure
+-  No local installation required
+-  Stateless request/response model
+-  Always up-to-date with latest version
+-  Consistent across all environments
+-  Production-ready and scalable
+-  Works with existing HTTP infrastructure
 
 ## Available You.com Tools
 

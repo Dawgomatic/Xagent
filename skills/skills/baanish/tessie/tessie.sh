@@ -20,7 +20,7 @@ fi
 
 # Validate API key
 if [[ -z "$TESSIE_API_KEY" ]]; then
-    echo "⚠️  Tessie API key not configured"
+    echo "  Tessie API key not configured"
     echo "Set TESSIE_API_KEY environment variable or configure in clawdbot.json"
     exit 1
 fi
@@ -32,12 +32,12 @@ validate_temp() {
     local max="$3"
 
     if ! [[ "$temp" =~ ^[0-9]+$ ]]; then
-        echo "⚠️  Temperature must be a number"
+        echo "  Temperature must be a number"
         return 1
     fi
 
     if (( temp < min || temp > max )); then
-        echo "⚠️  Temperature must be between ${min}°F and ${max}°F"
+        echo "  Temperature must be between ${min}°F and ${max}°F"
         return 1
     fi
 }
@@ -48,12 +48,12 @@ validate_percent() {
     local name="${2:-Value}"
 
     if ! [[ "$value" =~ ^[0-9]+$ ]]; then
-        echo "⚠️  ${name} must be a number"
+        echo "  ${name} must be a number"
         return 1
     fi
 
     if (( value < 0 || value > 100 )); then
-        echo "⚠️  ${name} must be between 0 and 100"
+        echo "  ${name} must be between 0 and 100"
         return 1
     fi
 }
@@ -63,7 +63,7 @@ validate_vehicle_id() {
     local id="$1"
 
     if [[ -z "$id" ]]; then
-        echo "⚠️  Vehicle ID is empty"
+        echo "  Vehicle ID is empty"
         return 1
     fi
 
@@ -77,7 +77,7 @@ validate_vehicle_id() {
         return 0
     fi
 
-    echo "⚠️  Invalid vehicle ID format"
+    echo "  Invalid vehicle ID format"
     return 1
 }
 
@@ -105,7 +105,7 @@ get_vehicle_info() {
     if [[ -z "$TESSIE_VEHICLE_ID" ]]; then
         RESULT=$(api_request "GET" "/vehicles")
         if [[ $? -ne 0 ]] || [[ -z "$RESULT" ]]; then
-            echo "⚠️  Could not get vehicle info from Tessie API"
+            echo "  Could not get vehicle info from Tessie API"
             echo "Please provide TESSIE_VEHICLE_ID in config"
             exit 1
         fi
@@ -113,7 +113,7 @@ get_vehicle_info() {
         TESSIE_VIN=$(echo "$RESULT" | jq -r '.results[0].vin // empty')
 
         if [[ -z "$TESSIE_VEHICLE_ID" ]]; then
-            echo "⚠️  No vehicle found linked to your Tessie account"
+            echo "  No vehicle found linked to your Tessie account"
             exit 1
         fi
     else
@@ -131,14 +131,14 @@ get_vehicle_state() {
     ALL_VEHICLES=$(api_request "GET" "/vehicles")
 
     if [[ $? -ne 0 ]] || [[ -z "$ALL_VEHICLES" ]]; then
-        echo "⚠️  Failed to fetch vehicle state"
+        echo "  Failed to fetch vehicle state"
         return 1
     fi
 
     STATE=$(echo "$ALL_VEHICLES" | jq -r '.results[0].last_state')
 
     if [[ -z "$STATE" ]] || [[ "$STATE" == "null" ]]; then
-        echo "⚠️  Vehicle state not available"
+        echo "  Vehicle state not available"
         return 1
     fi
 
@@ -155,14 +155,14 @@ case "$COMMAND" in
             exit 1
         fi
 
-        echo "🚗 Vehicle Status:"
+        echo " Vehicle Status:"
         echo "$STATE" | jq -r '
-            "🔋 Battery: \(.charge_state.battery_level // "N/A")%",
-            "📏 Range: \(.charge_state.battery_range // "N/A") mi",
-            "🔒 Locked: \(.vehicle_state.locked // "N/A")",
-            "🔌 Charging: \(.charge_state.charging_state // "N/A")",
-            "🌡️  Temperature: \(.climate_state.inside_temp // "N/A")°C",
-            "🚗 State: \(.state // "N/A")"
+            " Battery: \(.charge_state.battery_level // "N/A")%",
+            " Range: \(.charge_state.battery_range // "N/A") mi",
+            " Locked: \(.vehicle_state.locked // "N/A")",
+            " Charging: \(.charge_state.charging_state // "N/A")",
+            "  Temperature: \(.climate_state.inside_temp // "N/A")°C",
+            " State: \(.state // "N/A")"
         '
         ;;
 
@@ -175,8 +175,8 @@ case "$COMMAND" in
         LEVEL=$(echo "$STATE" | jq -r '.charge_state.battery_level // "N/A"')
         RANGE=$(echo "$STATE" | jq -r '.charge_state.battery_range // "N/A"')
 
-        echo "🔋 Battery: ${LEVEL}%"
-        echo "📏 Range: ${RANGE} mi"
+        echo " Battery: ${LEVEL}%"
+        echo " Range: ${RANGE} mi"
         ;;
 
     location|where)
@@ -186,7 +186,7 @@ case "$COMMAND" in
         fi
 
         echo "$STATE" | jq -r '
-            "📍 Location:",
+            " Location:",
             "  Latitude: \(.drive_state.latitude // "Unknown")",
             "  Longitude: \(.drive_state.longitude // "Unknown")",
             "  Shift State: \(.drive_state.shift_state // "Unknown")",
@@ -200,18 +200,18 @@ case "$COMMAND" in
         LIMIT="${1:-5}"
 
         if ! validate_number "$LIMIT"; then
-            echo "⚠️  Limit must be a number"
+            echo "  Limit must be a number"
             exit 1
         fi
 
         DRIVES=$(api_request "GET" "/${TESSIE_VIN}/drives?limit=${LIMIT}")
 
         if [[ $? -ne 0 ]] || [[ -z "$DRIVES" ]]; then
-            echo "⚠️  Failed to fetch drives"
+            echo "  Failed to fetch drives"
             exit 1
         fi
 
-        echo "🚗 Recent Drives (last ${LIMIT}):"
+        echo " Recent Drives (last ${LIMIT}):"
         echo "$DRIVES" | jq -r '
             .results[] |
             "(.ended_at | strftime("%Y-%m-%d %H:%M")): (.ending_saved_location // "Unknown") " +
@@ -223,15 +223,15 @@ case "$COMMAND" in
     preheat|heat|warm)
         # Preheat car
         get_vehicle_info
-        echo "🔥 Starting climate..."
+        echo " Starting climate..."
 
         PAYLOAD=$(jq -n --arg t "$TEMP" '{temperature: $t}')
         RESULT=$(api_request "POST" "/${TESSIE_VIN}/command/start_climate" "$PAYLOAD")
 
         if [[ $? -eq 0 ]]; then
-            echo "✅ Climate started"
+            echo " Climate started"
         else
-            echo "⚠️  Failed to start climate"
+            echo "  Failed to start climate"
             echo "Response: $RESULT"
         fi
         ;;
@@ -244,15 +244,15 @@ case "$COMMAND" in
         fi
 
         get_vehicle_id
-        echo "❄️  Precooling car to ${TEMP}°F..."
+        echo "  Precooling car to ${TEMP}°F..."
 
         PAYLOAD=$(jq -n --arg t "$TEMP" '{temperature: $t}')
         RESULT=$(api_request "POST" "/${TESSIE_VIN}/command/start_climate" "$PAYLOAD")
 
         if [[ $? -eq 0 ]]; then
-            echo "✅ Climate started"
+            echo " Climate started"
         else
-            echo "⚠️  Failed to start climate"
+            echo "  Failed to start climate"
             echo "Response: $RESULT"
         fi
         ;;
@@ -260,13 +260,13 @@ case "$COMMAND" in
     climate-off|ac-off|heat-off)
         # Turn off climate
         get_vehicle_id
-        echo "🌡️  Turning off climate..."
+        echo "  Turning off climate..."
         RESULT=$(api_request "POST" "/${TESSIE_VIN}/command/stop_climate")
 
         if [[ $? -eq 0 ]]; then
-            echo "✅ Climate stopped"
+            echo " Climate stopped"
         else
-            echo "⚠️  Failed to stop climate"
+            echo "  Failed to stop climate"
             echo "Response: $RESULT"
         fi
         ;;
@@ -279,11 +279,11 @@ case "$COMMAND" in
         fi
 
         get_vehicle_id
-        echo "🚗 Recent Drives (last ${LIMIT}):"
+        echo " Recent Drives (last ${LIMIT}):"
         RESULT=$(api_request "GET" "/${TESSIE_VIN}/drives?limit=${LIMIT}")
 
         if [[ $? -ne 0 ]] || [[ -z "$RESULT" ]]; then
-            echo "⚠️  Failed to fetch drives"
+            echo "  Failed to fetch drives"
             exit 1
         fi
 
@@ -293,7 +293,7 @@ case "$COMMAND" in
         else
             echo "$RESULT" | jq -r '
                 .drives[] |
-                "📅 \(.date // "Unknown") - \(.distance // "N/A") mi",
+                " \(.date // "Unknown") - \(.distance // "N/A") mi",
                 "   Duration: \(.duration // "N/A")",
                 "   Efficiency: \(.efficiency // "N/A") Wh/mi"
             '
@@ -303,13 +303,13 @@ case "$COMMAND" in
     charge-start|start-charging|plug)
         # Start charging
         get_vehicle_id
-        echo "🔌 Starting charge..."
+        echo " Starting charge..."
         RESULT=$(api_request "POST" "/${TESSIE_VIN}/command/start_charging")
 
         if [[ $? -eq 0 ]]; then
-            echo "✅ Charging started"
+            echo " Charging started"
         else
-            echo "⚠️  Failed to start charging"
+            echo "  Failed to start charging"
             echo "Response: $RESULT"
         fi
         ;;
@@ -317,13 +317,13 @@ case "$COMMAND" in
     charge-stop|stop-charging|unplug)
         # Stop charging
         get_vehicle_id
-        echo "🛑 Stopping charge..."
+        echo " Stopping charge..."
         RESULT=$(api_request "POST" "/${TESSIE_VIN}/command/stop_charging")
 
         if [[ $? -eq 0 ]]; then
-            echo "✅ Charging stopped"
+            echo " Charging stopped"
         else
-            echo "⚠️  Failed to stop charging"
+            echo "  Failed to stop charging"
             echo "Response: $RESULT"
         fi
         ;;
@@ -336,15 +336,15 @@ case "$COMMAND" in
         fi
 
         get_vehicle_id
-        echo "🔋 Setting charge limit to ${LIMIT}%..."
+        echo " Setting charge limit to ${LIMIT}%..."
 
         PAYLOAD=$(jq -n --arg l "$LIMIT" '{limit: $l}')
         RESULT=$(api_request "POST" "/${TESSIE_VIN}/command/set_charge_limit" "$PAYLOAD")
 
         if [[ $? -eq 0 ]]; then
-            echo "✅ Charge limit set to ${LIMIT}%"
+            echo " Charge limit set to ${LIMIT}%"
         else
-            echo "⚠️  Failed to set charge limit"
+            echo "  Failed to set charge limit"
             echo "Response: $RESULT"
         fi
         ;;
@@ -354,58 +354,58 @@ case "$COMMAND" in
         RANGE="${2:-today}"
         get_vehicle_id
 
-        echo "🚗 FSD Stats (${RANGE}):"
+        echo " FSD Stats (${RANGE}):"
         RESULT=$(api_request "GET" "/${TESSIE_VIN}/drives?range=${RANGE}")
 
         if [[ $? -ne 0 ]] || [[ -z "$RESULT" ]]; then
-            echo "⚠️  Could not fetch FSD stats. Check if FSD is enabled on vehicle."
+            echo "  Could not fetch FSD stats. Check if FSD is enabled on vehicle."
             echo "Response: $RESULT"
             exit 1
         fi
 
         echo "$RESULT" | jq -r '
-            "🤖 FSD Miles: \(.miles // 0) mi",
-            "📈 Engagement: \(.engagement // 0)%",
-            "⏱️  Time: \(.hours // 0) hrs",
-            "📅 Period: \(.period // "Unknown")"
+            " FSD Miles: \(.miles // 0) mi",
+            " Engagement: \(.engagement // 0)%",
+            "  Time: \(.hours // 0) hrs",
+            " Period: \(.period // "Unknown")"
         '
         ;;
 
     fsd-week|weekly-fsd)
         # Weekly FSD stats
         get_vehicle_id
-        echo "📊 Weekly FSD Stats:"
+        echo " Weekly FSD Stats:"
         RESULT=$(api_request "GET" "/${TESSIE_VIN}/drives?range=week")
 
         if [[ $? -ne 0 ]] || [[ -z "$RESULT" ]]; then
-            echo "⚠️  Could not fetch FSD stats"
+            echo "  Could not fetch FSD stats"
             echo "Response: $RESULT"
             exit 1
         fi
 
         echo "$RESULT" | jq -r '
-            "🤖 FSD Miles: \(.miles // 0) mi",
-            "📈 Engagement: \(.engagement // 0)%",
-            "📅 Days: \(.days // 0)"
+            " FSD Miles: \(.miles // 0) mi",
+            " Engagement: \(.engagement // 0)%",
+            " Days: \(.days // 0)"
         '
         ;;
 
     fsd-month|monthly-fsd)
         # Monthly FSD stats
         get_vehicle_id
-        echo "📅 Monthly FSD Stats:"
+        echo " Monthly FSD Stats:"
         RESULT=$(api_request "GET" "/${TESSIE_VIN}/drives?range=month")
 
         if [[ $? -ne 0 ]] || [[ -z "$RESULT" ]]; then
-            echo "⚠️  Could not fetch FSD stats"
+            echo "  Could not fetch FSD stats"
             echo "Response: $RESULT"
             exit 1
         fi
 
         echo "$RESULT" | jq -r '
-            "🤖 FSD Miles: \(.miles // 0) mi",
-            "📈 Engagement: \(.engagement // 0)%",
-            "📅 Days: \(.days // 0)"
+            " FSD Miles: \(.miles // 0) mi",
+            " Engagement: \(.engagement // 0)%",
+            " Days: \(.days // 0)"
         '
         ;;
 

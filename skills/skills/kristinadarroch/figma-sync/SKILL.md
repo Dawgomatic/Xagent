@@ -9,7 +9,7 @@ description: |
 
 # figma-sync
 
-Bidirectional Figma ↔ Code synchronization skill.
+Bidirectional Figma  Code synchronization skill.
 
 ## Setup
 

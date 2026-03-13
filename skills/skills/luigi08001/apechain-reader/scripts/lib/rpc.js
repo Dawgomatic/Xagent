@@ -316,7 +316,7 @@ function formatOutput(data, format) {
 
 function formatPretty(data) {
   if (data.error) {
-    return `❌ Error: ${data.error}`;
+    return ` Error: ${data.error}`;
   }
   
   // Handle different script types
@@ -347,37 +347,37 @@ function formatWalletOrContract(data) {
     lines.push('');
   }
   
-  lines.push(`🔍 ${data.isContract ? 'Contract' : 'Wallet'}: ${data.address}`);
-  lines.push(`⛓️  Chain: ${data.chain} (${data.chainId})`);
+  lines.push(` ${data.isContract ? 'Contract' : 'Wallet'}: ${data.address}`);
+  lines.push(`  Chain: ${data.chain} (${data.chainId})`);
   
   if (data.balance) {
     const symbol = Object.keys(data.balance)[0];
     const amount = data.balance[symbol];
     if (data.balanceUSD) {
-      lines.push(`💰 Balance: ${amount} ${symbol} (~$${data.balanceUSD.toFixed(2)})`);
+      lines.push(` Balance: ${amount} ${symbol} (~$${data.balanceUSD.toFixed(2)})`);
     } else {
-      lines.push(`💰 Balance: ${amount} ${symbol}`);
+      lines.push(` Balance: ${amount} ${symbol}`);
     }
   }
   
   if (data.transactionCount !== undefined) {
-    lines.push(`📊 Transactions: ${data.transactionCount.toLocaleString()}`);
+    lines.push(` Transactions: ${data.transactionCount.toLocaleString()}`);
   }
   
   if (data.type && data.type !== 'EOA (wallet)') {
-    lines.push(`📋 Type: ${data.type}`);
-    if (data.name) lines.push(`🏷️  Name: ${data.name}`);
-    if (data.symbol) lines.push(`🔤 Symbol: ${data.symbol}`);
-    if (data.totalSupply) lines.push(`📈 Total Supply: ${data.totalSupply.toLocaleString()}`);
+    lines.push(` Type: ${data.type}`);
+    if (data.name) lines.push(`  Name: ${data.name}`);
+    if (data.symbol) lines.push(` Symbol: ${data.symbol}`);
+    if (data.totalSupply) lines.push(` Total Supply: ${data.totalSupply.toLocaleString()}`);
   }
   
   if (data.nftActivity) {
-    lines.push(`🎨 NFT Activity: ${data.nftActivity.received} received, ${data.nftActivity.sent} sent`);
-    lines.push(`📦 Collections: ${data.nftCollectionsHeld}`);
+    lines.push(` NFT Activity: ${data.nftActivity.received} received, ${data.nftActivity.sent} sent`);
+    lines.push(` Collections: ${data.nftCollectionsHeld}`);
     
     // Show collection names if available
     if (data.topHoldings && data.topHoldings.length > 0) {
-      lines.push(`🏆 Top Collections:`);
+      lines.push(` Top Collections:`);
       for (const holding of data.topHoldings.slice(0, 3)) {
         const name = holding.name || (holding.contract.slice(0, 6) + '...' + holding.contract.slice(-4));
         lines.push(`   ${name}: ${holding.count} NFT${holding.count !== 1 ? 's' : ''}`);
@@ -386,7 +386,7 @@ function formatWalletOrContract(data) {
   }
   
   if (data.explorer) {
-    lines.push(`🔗 Explorer: ${data.explorer}`);
+    lines.push(` Explorer: ${data.explorer}`);
   }
   
   return lines.join('\n');
@@ -394,14 +394,14 @@ function formatWalletOrContract(data) {
 
 function formatTransactionHistory(data) {
   const lines = [];
-  lines.push(`📜 Transaction History: ${data.address}`);
-  lines.push(`⛓️  Chain: ${data.chain}`);
-  lines.push(`📊 Found: ${data.count} recent transactions`);
+  lines.push(` Transaction History: ${data.address}`);
+  lines.push(`  Chain: ${data.chain}`);
+  lines.push(` Found: ${data.count} recent transactions`);
   lines.push('');
   
   for (const tx of data.transactions.slice(0, 10)) {
-    const direction = tx.direction === 'IN' ? '📥' : '📤';
-    const type = tx.type === 'NFT' ? '🎨' : '🪙';
+    const direction = tx.direction === 'IN' ? '' : '';
+    const type = tx.type === 'NFT' ? '' : '';
     const amount = tx.type === 'NFT' ? `Token #${tx.tokenId}` : `${tx.value} tokens`;
     const time = tx.timestamp ? new Date(tx.timestamp).toLocaleDateString() : `Block ${tx.block}`;
     lines.push(`${direction} ${type} ${amount} - ${time}`);
@@ -415,14 +415,14 @@ function formatTransactionHistory(data) {
 
 function formatNFTHoldings(data) {
   const lines = [];
-  lines.push(`🎨 NFT Holdings: ${data.address}`);
-  lines.push(`⛓️  Chain: ${data.chain}`);
-  lines.push(`📊 Total NFTs: ${data.totalNFTs} across ${data.collections} collections`);
+  lines.push(` NFT Holdings: ${data.address}`);
+  lines.push(`  Chain: ${data.chain}`);
+  lines.push(` Total NFTs: ${data.totalNFTs} across ${data.collections} collections`);
   lines.push('');
   
   for (const holding of data.holdings.slice(0, 10)) {
     const collectionName = holding.name || (holding.contract.slice(0, 6) + '...' + holding.contract.slice(-4));
-    lines.push(`📦 Collection: ${collectionName}`);
+    lines.push(` Collection: ${collectionName}`);
     lines.push(`   Contract: ${holding.contract}`);
     lines.push(`   Held: ${holding.held} NFTs (${holding.totalIn} in, ${holding.totalOut} out)`);
     if (holding.tokenIds.length > 0) {
@@ -438,14 +438,14 @@ function formatNFTHoldings(data) {
 
 function formatBotDetection(data) {
   const lines = [];
-  const scoreEmoji = data.botScore >= 75 ? '🤖' : data.botScore >= 40 ? '⚠️' : '👤';
+  const scoreEmoji = data.botScore >= 75 ? '' : data.botScore >= 40 ? '' : '';
   lines.push(`${scoreEmoji} Bot Analysis: ${data.address}`);
-  lines.push(`⛓️  Chain: ${data.chain}`);
-  lines.push(`🎯 Score: ${data.botScore}/100 - ${data.verdict.toUpperCase()}`);
+  lines.push(`  Chain: ${data.chain}`);
+  lines.push(` Score: ${data.botScore}/100 - ${data.verdict.toUpperCase()}`);
   lines.push('');
   
   if (data.breakdown) {
-    lines.push('📊 Score Breakdown:');
+    lines.push(' Score Breakdown:');
     for (const [key, info] of Object.entries(data.breakdown)) {
       if (typeof info === 'object' && info.score !== undefined) {
         lines.push(`   ${key}: ${info.score}/${info.max} - ${info.detail}`);
@@ -455,7 +455,7 @@ function formatBotDetection(data) {
   }
   
   if (data.stats) {
-    lines.push('📈 Activity Stats:');
+    lines.push(' Activity Stats:');
     lines.push(`   Buys: ${data.stats.totalBuys}, Sells: ${data.stats.totalSells}`);
     lines.push(`   Collections: ${data.stats.collections}, Fast Flips: ${data.stats.fastFlips}`);
   }

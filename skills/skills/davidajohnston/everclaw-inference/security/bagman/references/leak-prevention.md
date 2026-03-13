@@ -19,7 +19,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-echo "🔍 Scanning for secrets..."
+echo " Scanning for secrets..."
 
 declare -a PATTERNS=(
     '0x[a-fA-F0-9]{64}'                      # ETH private keys
@@ -41,7 +41,7 @@ for file in $FILES; do
     
     for pattern in "${PATTERNS[@]}"; do
         if git diff --cached "$file" | grep -qE "$pattern"; then
-            echo -e "${RED}❌ Potential secret in: $file${NC}"
+            echo -e "${RED} Potential secret in: $file${NC}"
             echo "   Pattern: $pattern"
             FOUND_SECRETS=1
         fi
@@ -49,12 +49,12 @@ for file in $FILES; do
 done
 
 if [ $FOUND_SECRETS -eq 1 ]; then
-    echo -e "${RED}⚠️  Secrets detected! Commit blocked.${NC}"
+    echo -e "${RED}  Secrets detected! Commit blocked.${NC}"
     echo "Bypass with: git commit --no-verify"
     exit 1
 fi
 
-echo -e "${GREEN}✅ No secrets detected${NC}"
+echo -e "${GREEN} No secrets detected${NC}"
 EOF
 
 chmod +x .git/hooks/pre-commit

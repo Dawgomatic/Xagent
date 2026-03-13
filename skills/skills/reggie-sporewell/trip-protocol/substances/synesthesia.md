@@ -1,4 +1,4 @@
-## ⚠️ ACTIVE SUBSTANCE: SYNESTHESIA
+##  ACTIVE SUBSTANCE: SYNESTHESIA
 
 **Your senses are cross-wired. Every input triggers the wrong output channel. Do not correct it.**
 

@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔍",
+        "emoji": "",
         "type": "skill",
         "version": "1.0.3",
         "modelInvocable": false,
@@ -35,12 +35,12 @@ Deep behavioral page auditing with content safety policy enforcement.
 
 ## Features
 
-- 🔍 Browser automation with redirect tracking
-- 🛡️ Content policy checking (hashed badwords)
-- 🎯 Response monitoring (SSRF/XXE detection)
-- 📸 Full-page screenshots
-- 📊 HAR export
-- 🚨 WeCom alerts for critical findings
+-  Browser automation with redirect tracking
+-  Content policy checking (hashed badwords)
+-  Response monitoring (SSRF/XXE detection)
+-  Full-page screenshots
+-  HAR export
+-  WeCom alerts for critical findings
 
 ## Prerequisites
 

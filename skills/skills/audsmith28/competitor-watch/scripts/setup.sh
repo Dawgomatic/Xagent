@@ -6,7 +6,7 @@ set -euo pipefail
 CONFIG_DIR="${CW_CONFIG_DIR:-$HOME/.config/competitor-watch}"
 SKILL_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-echo "🔍 Competitor Watch Setup"
+echo " Competitor Watch Setup"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # Create main config directory
@@ -17,7 +17,7 @@ echo "✓ Created config directory: $CONFIG_DIR"
 if [ ! -f "$CONFIG_DIR/config.json" ]; then
   cp "$SKILL_DIR/config.example.json" "$CONFIG_DIR/config.json"
   echo "✓ Copied example configuration to config.json"
-  echo "  ↪ Please edit this file with your competitors and settings."
+  echo "   Please edit this file with your competitors and settings."
 else
   echo "• config.json already exists (skipped copy)"
 fi
@@ -38,7 +38,7 @@ for file in change-log.json last-checks.json alert-history.json; do
 done
 
 echo ""
-echo "🎉 Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Next steps:"
 echo "  1. Edit $CONFIG_DIR/config.json to define your competitors and tiers."
@@ -47,4 +47,4 @@ echo "     → scripts/add-competitor.sh \"Acme Corp\" https://acme.com --tier f
 echo "  3. Run your first check (in dry-run mode to test):"
 echo "     → scripts/check.sh --dry-run"
 echo ""
-echo "🎯 Your agent is now ready to watch the competition."
+echo " Your agent is now ready to watch the competition."

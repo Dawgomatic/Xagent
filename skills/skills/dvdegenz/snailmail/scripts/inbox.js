@@ -85,11 +85,11 @@ function list(filter = 'unread', jsonMode = false) {
     return;
   }
 
-  console.log(`\n📬 Inbox (${unreadCount} unread · ${totalCount} total · ${archivedCount} archived)\n`);
-  if (msgs.length === 0) { console.log('  ✅ All caught up.\n'); return; }
+  console.log(`\n Inbox (${unreadCount} unread · ${totalCount} total · ${archivedCount} archived)\n`);
+  if (msgs.length === 0) { console.log('   All caught up.\n'); return; }
 
   for (const m of msgs.slice(0, 20)) {
-    const icon = m.priority === 'urgent' ? '🔴' : m.priority === 'important' ? '🟡' : '⚪';
+    const icon = m.priority === 'urgent' ? '' : m.priority === 'important' ? '' : '';
     const status = m.read ? '✓' : '•';
     const date = new Date(m.createdAt).toLocaleDateString();
     console.log(`${status} ${icon} [${date}] ${m.title}  (${m.id})`);
@@ -177,13 +177,13 @@ function renderHTML(msgs, unread, total, filter) {
   const filterLabel = filter === 'unread' ? 'Unread' : filter === 'archived' ? 'Archived' : 'All';
 
   if (msgs.length === 0) {
-    return `<b>📬 Inbox</b> <i>(${filterLabel})</i>\n\n✅ ${filter === 'unread' ? 'All caught up!' : 'No messages.'}`;
+    return `<b> Inbox</b> <i>(${filterLabel})</i>\n\n ${filter === 'unread' ? 'All caught up!' : 'No messages.'}`;
   }
 
-  let html = `<b>📬 Inbox</b> — <i>${unread} unread · ${total} total · ${filterLabel}</i>\n`;
+  let html = `<b> Inbox</b> — <i>${unread} unread · ${total} total · ${filterLabel}</i>\n`;
 
   for (const m of msgs.slice(0, 15)) {
-    const prioIcon = m.priority === 'urgent' ? '🔴' : m.priority === 'important' ? '🟡' : '';
+    const prioIcon = m.priority === 'urgent' ? '' : m.priority === 'important' ? '' : '';
     const prioTag = m.priority === 'urgent'
       ? ' <b>[URGENT]</b>'
       : m.priority === 'important'
@@ -206,13 +206,13 @@ function renderMD(msgs, unread, total, filter) {
   const filterLabel = filter === 'unread' ? 'Unread' : filter === 'archived' ? 'Archived' : 'All';
 
   if (msgs.length === 0) {
-    return `**📬 Inbox** *(${filterLabel})*\n\n✅ ${filter === 'unread' ? 'All caught up!' : 'No messages.'}`;
+    return `** Inbox** *(${filterLabel})*\n\n ${filter === 'unread' ? 'All caught up!' : 'No messages.'}`;
   }
 
-  let md = `**📬 Inbox** — *${unread} unread · ${total} total · ${filterLabel}*\n`;
+  let md = `** Inbox** — *${unread} unread · ${total} total · ${filterLabel}*\n`;
 
   for (const m of msgs.slice(0, 15)) {
-    const prioIcon = m.priority === 'urgent' ? '🔴 ' : m.priority === 'important' ? '🟡 ' : '';
+    const prioIcon = m.priority === 'urgent' ? ' ' : m.priority === 'important' ? ' ' : '';
     const prioTag = m.priority !== 'normal' ? ` **[${m.priority.toUpperCase()}]**` : '';
     const bullet = m.read ? '  ✓' : '  •';
     const date = fmtDate(m.createdAt);

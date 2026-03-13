@@ -40,4 +40,4 @@ Inspired by **鸿蒙小张** and ByteDance's **OpenViking** hierarchy.
 
 ---
 
-**Built with 🐯 for OpenClaw users.**
+**Built with  for OpenClaw users.**

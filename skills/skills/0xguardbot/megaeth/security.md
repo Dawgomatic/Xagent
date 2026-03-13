@@ -55,7 +55,7 @@ These apply equally to MegaETH:
 ### Reentrancy
 
 ```solidity
-// ❌ Vulnerable
+//  Vulnerable
 function withdraw() external {
     uint256 amount = balances[msg.sender];
     (bool success, ) = msg.sender.call{value: amount}("");
@@ -63,7 +63,7 @@ function withdraw() external {
     balances[msg.sender] = 0;
 }
 
-// ✅ Checks-Effects-Interactions
+//  Checks-Effects-Interactions
 function withdraw() external {
     uint256 amount = balances[msg.sender];
     balances[msg.sender] = 0; // Effect before interaction
@@ -75,7 +75,7 @@ function withdraw() external {
 ### Access Control
 
 ```solidity
-// ✅ Always validate
+//  Always validate
 modifier onlyOwner() {
     require(msg.sender == owner, "Not owner");
     _;
@@ -100,10 +100,10 @@ Solidity 0.8+ has built-in overflow checks. For older code:
 ### RPC Endpoint Trust
 
 ```typescript
-// ❌ Don't trust random RPCs
+//  Don't trust random RPCs
 const client = createClient({ rpc: userProvidedUrl });
 
-// ✅ Use known endpoints, verify responses
+//  Use known endpoints, verify responses
 const TRUSTED_RPCS = [
   'https://mainnet.megaeth.com/rpc',
   'https://rpc.alchemy.com/megaeth'

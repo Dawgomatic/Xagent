@@ -1,7 +1,7 @@
 ---
 name: Kubernetes
 description: Avoid common Kubernetes mistakes — resource limits, probe configuration, selector mismatches, and RBAC pitfalls.
-metadata: {"clawdbot":{"emoji":"☸️","requires":{"bins":["kubectl"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["kubectl"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Resource Management

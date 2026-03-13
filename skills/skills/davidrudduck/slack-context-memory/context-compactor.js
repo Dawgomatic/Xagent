@@ -141,7 +141,7 @@ function formatSummariesForContext(summaries) {
     return '';
   }
 
-  let output = '📚 **Previous Conversations (Summarized)**\n\n';
+  let output = ' **Previous Conversations (Summarized)**\n\n';
 
   for (const s of summaries) {
     const date = new Date(s.start_ts).toLocaleDateString();
@@ -172,7 +172,7 @@ function formatRecentMessages(messages, channelName) {
     return '';
   }
 
-  let output = `\n💬 **Recent Messages** (#${channelName}, last ${messages.length})\n\n`;
+  let output = `\n **Recent Messages** (#${channelName}, last ${messages.length})\n\n`;
 
   for (const m of messages) {
     const time = new Date(m.timestamp).toLocaleTimeString('en-US', { 
@@ -325,7 +325,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       process.exit(1);
     }
 
-    console.log(`\n📊 Context Size Comparison for ${channelId}\n`);
+    console.log(`\n Context Size Comparison for ${channelId}\n`);
     
     const comparison = await compareContextSizes(channelId);
     
@@ -350,8 +350,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
   console.log(result.context);
   console.log('\n---');
-  console.log(`📊 Stats: ${result.stats.summaryCount} summaries + ${result.stats.recentMessageCount} recent messages`);
-  console.log(`📊 Est. tokens: ${result.stats.estimatedTokens.total.toLocaleString()}`);
+  console.log(` Stats: ${result.stats.summaryCount} summaries + ${result.stats.recentMessageCount} recent messages`);
+  console.log(` Est. tokens: ${result.stats.estimatedTokens.total.toLocaleString()}`);
 
   if (args.includes('--json')) {
     console.log('\n---JSON---');

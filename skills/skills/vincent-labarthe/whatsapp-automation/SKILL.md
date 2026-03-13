@@ -3,24 +3,24 @@ name: whatsapp-automation
 description: "WhatsApp automation with intelligent Telegram alerts. Detects appointments, important messages, and suggests calendar additions. OpenClaw cron jobs + Claude analysis."
 ---
 
-⚠️ **DEPRECATED - Use the new version instead!**
+ **DEPRECATED - Use the new version instead!**
 
 This skill has been replaced by a newer, improved version:
 
-🔗 **New Skill (Recommended):** https://www.clawhub.ai/Vincent-Labarthe/whatsapp-telegram-calendar-alert
+ **New Skill (Recommended):** https://www.clawhub.ai/Vincent-Labarthe/whatsapp-telegram-calendar-alert
 
 **Improvements in the new version:**
-- ✅ Better appointment detection
-- ✅ Calendar integration with confirmation
-- ✅ Cleaner setup process
-- ✅ Better documentation
-- ✅ Zero duplicates guarantee
+-  Better appointment detection
+-  Calendar integration with confirmation
+-  Cleaner setup process
+-  Better documentation
+-  Zero duplicates guarantee
 
 **Use the new skill instead.** This version is archived for reference only.
 
 ---
 
-# 📱 WhatsApp Automation Skill
+#  WhatsApp Automation Skill
 
 Automatically capture WhatsApp messages and get intelligent Telegram notifications with Claude analysis.
 
@@ -29,12 +29,12 @@ Automatically capture WhatsApp messages and get intelligent Telegram notificatio
 ## Prerequisites
 
 Before setup, make sure you have:
-- ✅ **OpenClaw installed** (with cron + message tools)
-- ✅ **An AI agent configured** (Claude, Gemini, Anthropic, etc.)
-- ✅ **Telegram bot configured** in your OpenClaw config (for alerts)
-- ✅ **Google Calendar API** (optional, for calendar additions)
+-  **OpenClaw installed** (with cron + message tools)
+-  **An AI agent configured** (Claude, Gemini, Anthropic, etc.)
+-  **Telegram bot configured** in your OpenClaw config (for alerts)
+-  **Google Calendar API** (optional, for calendar additions)
 
-## 🚀 ONE-LINE SETUP
+##  ONE-LINE SETUP
 
 ```bash
 bash ~/.openclaw/workspace/whatsapp-automation-skill/setup.sh
@@ -45,7 +45,7 @@ This will:
 2. Create 2 OpenClaw cron jobs (Claude-powered analysis)
 3. Set up message storage
 
-Done! ✅
+Done! 
 
 ---
 
@@ -53,10 +53,10 @@ Done! ✅
 
 | Feature | How |
 |---------|-----|
-| 🗓️ **Appointment Detection** | Your AI agent finds "meeting/rdv/reunion" → asks if you want to add to Google Calendar |
-| 📌 **Important Messages** | AI detects tone/keywords suggesting importance → sends Telegram alert |
-| 💾 **Message Storage** | All WhatsApp messages saved to `~/.openclaw/workspace/.whatsapp-messages/messages.jsonl` |
-| ⏱️ **Continuous Monitoring** | Runs every 5 minutes via OpenClaw cron jobs (not launchd/scripts) |
+|  **Appointment Detection** | Your AI agent finds "meeting/rdv/reunion" → asks if you want to add to Google Calendar |
+|  **Important Messages** | AI detects tone/keywords suggesting importance → sends Telegram alert |
+|  **Message Storage** | All WhatsApp messages saved to `~/.openclaw/workspace/.whatsapp-messages/messages.jsonl` |
+|  **Continuous Monitoring** | Runs every 5 minutes via OpenClaw cron jobs (not launchd/scripts) |
 
 ---
 
@@ -119,8 +119,8 @@ WhatsApp → WAHA (Docker) → messages.jsonl
 cron list
 
 # Should show:
-# ✅ WhatsApp Smart Analyzer
-# ✅ Important Messages
+#  WhatsApp Smart Analyzer
+#  Important Messages
 ```
 
 ### Check Message Store
@@ -146,7 +146,7 @@ tail ~/.openclaw/workspace/.whatsapp-messages/alerts.log
 
 **You'll get Telegram:**
 ```
-🗓️ Meeting detected
+ Meeting detected
 Day: tomorrow
 Time: 3:00 PM
 
@@ -212,20 +212,20 @@ Claude is smart, but you can refine by updating the cron job prompts.
 
 ## What You DON'T Have
 
-❌ Bash regex nightmares  
-❌ Launchd daemons cluttering your system  
-❌ False positives from bad patterns  
-❌ Manual message parsing  
+ Bash regex nightmares  
+ Launchd daemons cluttering your system  
+ False positives from bad patterns  
+ Manual message parsing  
 
 ---
 
 ## What You DO Have
 
-✅ Claude AI analyzing messages intelligently  
-✅ Clean OpenClaw cron jobs (every 5 min)  
-✅ Telegram alerts with full details  
-✅ Google Calendar integration (on-demand)  
-✅ Contact-specific filtering (Joséphine)  
+ Claude AI analyzing messages intelligently  
+ Clean OpenClaw cron jobs (every 5 min)  
+ Telegram alerts with full details  
+ Google Calendar integration (on-demand)  
+ Contact-specific filtering (Joséphine)  
 
 ---
 
@@ -233,10 +233,10 @@ Claude is smart, but you can refine by updating the cron job prompts.
 
 **CC BY-ND-NC 4.0** — Non-commercial, no modifications allowed
 
-Personal use: ✅  
-Share unmodified: ✅  
-Commercial: ❌  
-Modifications: ❌  
+Personal use:   
+Share unmodified:   
+Commercial:   
+Modifications:   
 
 See `LICENSE.md` for details.
 

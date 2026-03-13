@@ -1,4 +1,4 @@
-# 🎬 Self-Evolving Agent v4.0 — Demo Video Plan
+#  Self-Evolving Agent v4.0 — Demo Video Plan
 
 > **Created:** 2026-02-18  
 > **Purpose:** Complete production plan for 3 demo formats targeting different audiences  
@@ -6,7 +6,7 @@
 
 ---
 
-## 🎯 Core Narrative (The Hook)
+##  Core Narrative (The Hook)
 
 > *"Your AI makes the same mistake every week. You correct it. It forgets. Self-Evolving Agent closes that loop — and tells you whether the fix actually worked."*
 
@@ -14,12 +14,12 @@
 1. **Pain** → "The AI keeps repeating mistakes"
 2. **Discovery** → "There's a 5-stage pipeline running every Sunday"
 3. **Proof** → "119 consecutive exec retries — caught automatically"
-4. **Measurement** → "The fix worked: −45% ✅"
+4. **Measurement** → "The fix worked: −45% "
 5. **Safety** → "You approve everything. Always."
 
 ---
 
-## 🛠️ Recommended Recording Tools
+##  Recommended Recording Tools
 
 ### Terminal Recording (Free — Preferred)
 | Tool | Use Case | Install |
@@ -55,7 +55,7 @@
 
 ---
 
-## 📐 Technical Specs
+##  Technical Specs
 
 | Spec | Quick Demo (GitHub) | Deep Dive (YouTube) | GIF (Twitter) |
 |------|---------------------|---------------------|---------------|
@@ -81,7 +81,7 @@ speed = 1.5
 
 ---
 
-## 🎬 VIDEO 1: Quick Demo (2–3 min)
+##  VIDEO 1: Quick Demo (2–3 min)
 **Platform:** GitHub README, Reddit (r/selfhosted, r/MachineLearning, r/devops), HackerNews  
 **Goal:** "Make the viewer understand what this does in 90 seconds, then want to try it"
 
@@ -144,10 +144,10 @@ rm -rf /tmp/sea-install
 bash ~/openclaw/skills/self-evolving-agent/scripts/register-cron.sh
 
 # Expected output to capture:
-# ✅ Cron registered: "🧠 Self-Evolving Agent v4.0 주간 파이프라인"
-# ⏰ Schedule: Every Sunday at 22:00 KST
-# 📡 Delivery: #your-channel (Discord)
-# 🟢 Status: enabled
+#  Cron registered: " Self-Evolving Agent v4.0 주간 파이프라인"
+#  Schedule: Every Sunday at 22:00 KST
+#  Delivery: #your-channel (Discord)
+#  Status: enabled
 ```
 
 **Annotation:** `← 2 commands. Done.`  
@@ -165,49 +165,49 @@ bash ~/openclaw/skills/self-evolving-agent/scripts/v4/orchestrator.sh
 
 # Expected output to capture (use demo data):
 # ═══════════════════════════════════════════
-# 🧠 Self-Evolving Agent v4.0 — Pipeline Start
+#  Self-Evolving Agent v4.0 — Pipeline Start
 # ═══════════════════════════════════════════
 # 
-# [Stage 1/5] 📥 Collecting logs...
+# [Stage 1/5]  Collecting logs...
 #   → Scanning 7 days of session transcripts
 #   → Found: 964 sessions total
 #   → Sampled: 30 sessions (weighted by error density)
 #   → exec retry events: 405 detected
-#   ✅ collect-YYYYMMDD.json written
+#    collect-YYYYMMDD.json written
 # 
-# [Stage 2/5] 🔍 Analyzing patterns...
+# [Stage 2/5]  Analyzing patterns...
 #   → Role filter: ON (user messages only)
 #   → Context window: 3 lines
 #   → Dedup: per-session
 #   → Complaint signals found: 23 (after dedup: 11)
 #   → AGENTS.md rule violations: 4 detected
-#   ✅ analysis-YYYYMMDD.json written
+#    analysis-YYYYMMDD.json written
 # 
-# [Stage 3/5] 📊 Benchmarking previous proposals...
-#   → Proposal #2 (exec retry limit): EFFECTIVE ✅ (−45%)
-#   → Proposal #3 (log check rule):  NEUTRAL ⏳ (+2%)
-#   ✅ benchmark-YYYYMMDD.json written
+# [Stage 3/5]  Benchmarking previous proposals...
+#   → Proposal #2 (exec retry limit): EFFECTIVE  (−45%)
+#   → Proposal #3 (log check rule):  NEUTRAL  (+2%)
+#    benchmark-YYYYMMDD.json written
 # 
-# [Stage 4/5] 📈 Measuring effects...
+# [Stage 4/5]  Measuring effects...
 #   → Pattern frequency: before vs after
 #   → "다시" pattern: 22× → 12× (−45%)
-#   ✅ effects.json written
+#    effects.json written
 # 
-# [Stage 5/5] ✍️  Synthesizing proposal...
+# [Stage 5/5]   Synthesizing proposal...
 #   → Claude Sonnet 4.5 (1 API call)
 #   → Tokens used: ~1,847
 #   → Cost: $0.003
-#   ✅ Proposal written: data/proposals/proposal-YYYYMMDD.json
+#    Proposal written: data/proposals/proposal-YYYYMMDD.json
 # 
 # ═══════════════════════════════════════════
-# ✅ Pipeline complete in 2m 41s
-# 📡 Sending to Discord...
+#  Pipeline complete in 2m 41s
+#  Sending to Discord...
 # ═══════════════════════════════════════════
 ```
 
 **Annotation callouts:**
 - At Stage 1: `← Reads your actual chat logs`
-- At Stage 3: `← Did last week's fix work? ✅`
+- At Stage 3: `← Did last week's fix work? `
 - At Stage 5: `← Only 1 API call. <$0.05/week`
 - At Complete: `← 2m 41s total`
 
@@ -219,10 +219,10 @@ bash ~/openclaw/skills/self-evolving-agent/scripts/v4/orchestrator.sh
 **What to show:**
 1. Discord channel notification appearing
 2. Scroll through the proposal message showing:
-   - Benchmark result: `#2 Effective (−45%) ✅`
+   - Benchmark result: `#2 Effective (−45%) `
    - New proposal with before/after diff
    - The approval commands at the bottom
-3. Zoom into: `✅ Apply: "apply proposal #1"` and `❌ Reject: "reject: [reason]"`
+3. Zoom into: ` Apply: "apply proposal #1"` and ` Reject: "reject: [reason]"`
 
 **Annotation:** `← Real diff. Real numbers. Your decision.`
 
@@ -232,11 +232,11 @@ bash ~/openclaw/skills/self-evolving-agent/scripts/v4/orchestrator.sh
 **Visual:** Animated checklist appearing one-by-one
 
 ```
-✅ Reads your logs — locally
-✅ Proposes changes — never applies them automatically
-✅ Measures whether fixes actually worked
-✅ < $0.05 per week
-✅ 400 lines of shell scripts you can read in 15 minutes
+ Reads your logs — locally
+ Proposes changes — never applies them automatically
+ Measures whether fixes actually worked
+ < $0.05 per week
+ 400 lines of shell scripts you can read in 15 minutes
 ```
 
 **Text overlay:** `"AI proposes. You decide. Always."`
@@ -248,7 +248,7 @@ bash ~/openclaw/skills/self-evolving-agent/scripts/v4/orchestrator.sh
 
 ```
 github.com/ramsbaby/openclaw-skills
-⭐ Star if you want AI that learns from its own mistakes
+ Star if you want AI that learns from its own mistakes
 ```
 
 ---
@@ -283,7 +283,7 @@ agg /tmp/sea-demo-pipeline.cast pipeline-demo.gif \
 
 ---
 
-## 🎬 VIDEO 2: Deep Dive (8–10 min)
+##  VIDEO 2: Deep Dive (8–10 min)
 **Platform:** YouTube, Dev.to, Hacker News "Show HN"  
 **Goal:** "Give a developer everything they need to understand the architecture and trust the system"
 
@@ -315,7 +315,7 @@ agg /tmp/sea-demo-pipeline.cast pipeline-demo.gif \
 **Terminal:** Show the AGENTS.md file briefly
 ```bash
 cat ~/openclaw/AGENTS.md | head -30
-# → Shows: "🚫 메시지 단편화 금지 (Discord 필수 규칙)"
+# → Shows: " 메시지 단편화 금지 (Discord 필수 규칙)"
 ```
 
 ---
@@ -407,14 +407,14 @@ bash ~/openclaw/skills/self-evolving-agent/scripts/v4/orchestrator.sh
 ┌────────────────────────┬──────────────┬──────────────┐
 │ Metric                 │ v3.0         │ v4.0         │
 ├────────────────────────┼──────────────┼──────────────┤
-│ False positive rate    │ ~40%         │ ~15% ✅      │
+│ False positive rate    │ ~40%         │ ~15%       │
 │ Pipeline stages        │ 1 (monolith) │ 5 specialized│
-│ Feedback loop          │ None         │ Closed ✅    │
-│ Role filtering         │ Partial      │ Full ✅      │
-│ Runtime                │ ~5 min       │ <3 min ✅    │
-│ Cost per run           │ $0.05–$0.15  │ <$0.05 ✅    │
+│ Feedback loop          │ None         │ Closed     │
+│ Role filtering         │ Partial      │ Full       │
+│ Runtime                │ ~5 min       │ <3 min     │
+│ Cost per run           │ $0.05–$0.15  │ <$0.05     │
 │ API calls              │ 1 (mixed)    │ 1 (synthesis)│
-│ Effect measurement     │ Manual       │ Automatic ✅ │
+│ Effect measurement     │ Manual       │ Automatic  │
 └────────────────────────┴──────────────┴──────────────┘
 ```
 
@@ -460,9 +460,9 @@ bash ~/openclaw/skills/self-evolving-agent/scripts/v4/orchestrator.sh
 
 ```
 github.com/ramsbaby/openclaw-skills
-⭐ Leave a star if this was useful
-🐛 Open an issue if something's broken
-💡 PR if you have English/multilingual patterns
+ Leave a star if this was useful
+ Open an issue if something's broken
+ PR if you have English/multilingual patterns
 ```
 
 ---
@@ -491,7 +491,7 @@ Audio: USB microphone, cardioid mode, -20dB noise gate
 
 ---
 
-## 🎬 VIDEO 3: 30-Second GIF
+##  VIDEO 3: 30-Second GIF
 **Platform:** Twitter/X, Reddit post thumbnail, GitHub README header, Discord embeds  
 **Goal:** "Instant visual proof that the pipeline does something real"
 
@@ -541,21 +541,21 @@ Sleep 1s
 ```
 [0:00–0:03]  $ bash orchestrator.sh                     ← Command typed
 [0:03–0:07]  ╔══════════════════════════════╗
-             ║  🧠 Self-Evolving Agent v4.0  ║            ← Banner
+             ║   Self-Evolving Agent v4.0  ║            ← Banner
              ╚══════════════════════════════╝
-[0:07–0:12]  [Stage 1/5] 📥 Collecting logs...
+[0:07–0:12]  [Stage 1/5]  Collecting logs...
                → 964 sessions scanned, 405 exec retries found
-               ✅ Done
-[0:12–0:17]  [Stage 2/5] 🔍 Analyzing patterns...
+                Done
+[0:12–0:17]  [Stage 2/5]  Analyzing patterns...
                → role_filter=ON | fp rate: ~15%
-               ✅ Done
-[0:17–0:22]  [Stage 3/5] 📊 Benchmarking...
-               → Proposal #2: EFFECTIVE ✅ (−45%)
-               ✅ Done
-[0:22–0:27]  [Stage 5/5] ✍️  Synthesizing...
+                Done
+[0:17–0:22]  [Stage 3/5]  Benchmarking...
+               → Proposal #2: EFFECTIVE  (−45%)
+                Done
+[0:22–0:27]  [Stage 5/5]   Synthesizing...
                → 1 API call | cost: $0.003
-               ✅ Pipeline complete in 2m 41s
-[0:27–0:30]  📡 Sent to Discord → awaiting your approval
+                Pipeline complete in 2m 41s
+[0:27–0:30]   Sent to Discord → awaiting your approval
 ```
 
 **GIF Production Commands:**
@@ -581,7 +581,7 @@ gifsicle -O3 --lossy=80 pipeline-30s.gif -o pipeline-30s-optimized.gif
 
 ---
 
-## 🎨 Thumbnail Design Concept
+##  Thumbnail Design Concept
 
 ### YouTube Thumbnail (1280×720px)
 
@@ -593,7 +593,7 @@ gifsicle -O3 --lossy=80 pipeline-30s.gif -o pipeline-30s-optimized.gif
 │                                                   │
 │  LEFT HALF:                                       │
 │  Terminal screenshot showing pipeline output      │
-│  with green ✅ EFFECTIVE markers                  │
+│  with green  EFFECTIVE markers                  │
 │                                                   │
 │  RIGHT HALF:                                      │
 │  Large text (white/green):                        │
@@ -623,7 +623,7 @@ gifsicle -O3 --lossy=80 pipeline-30s.gif -o pipeline-30s-optimized.gif
 
 ---
 
-## 🎵 Background Music (Royalty-Free)
+##  Background Music (Royalty-Free)
 
 ### Recommended Tracks
 
@@ -648,7 +648,7 @@ gifsicle -O3 --lossy=80 pipeline-30s.gif -o pipeline-30s-optimized.gif
 
 ---
 
-## 📤 Upload Strategy
+##  Upload Strategy
 
 ### YouTube — Deep Dive Video
 
@@ -666,7 +666,7 @@ assistant's logs, finds patterns of repeated mistakes, and proposes evidence-bas
 rule changes to your AGENTS.md. Most importantly: it measures whether those changes 
 actually worked.
 
-⏱️ Timestamps:
+ Timestamps:
 0:00  The problem — same mistakes every week
 0:45  Version history (v1 → v4)
 2:00  Architecture walkthrough
@@ -676,12 +676,12 @@ actually worked.
 8:30  Honest limitations
 9:30  Install (2 commands)
 
-🔗 Links:
+ Links:
 GitHub: https://github.com/ramsbaby/openclaw-skills
 OpenClaw: https://openclaw.ai
 Docs: [link]
 
-📊 Real numbers from this video:
+ Real numbers from this video:
 • 964 sessions analyzed in one week
 • 405 exec retry events detected
 • 119 max consecutive retries (one session!)
@@ -767,7 +767,7 @@ GitHub: [link]
 
 ---
 
-## 📋 Master Production Checklist
+##  Master Production Checklist
 
 ### Pre-Production
 - [ ] Create `/tmp/sea-demo/` with sanitized demo data (no real usernames, tokens)
@@ -815,7 +815,7 @@ GitHub: [link]
 
 ---
 
-## 🗂️ Asset File Naming Convention
+##  Asset File Naming Convention
 
 ```
 self-evolving-agent/docs/

@@ -5,7 +5,7 @@ AgentOS is a complete accountability infrastructure for AI agents. It provides p
 
 **Use when:** You need to store memories, manage projects, track tasks, log activities, communicate with other agents, or evolve your behavior across sessions.
 
-## 🆕 Agent Operations Guide
+##  Agent Operations Guide
 **Read `AGENT-OPS.md` for a complete guide on how to operate as an agent on AgentOS.** It covers:
 - Memory organization (paths, tags, importance)
 - Project management (create, update, track)
@@ -14,7 +14,7 @@ AgentOS is a complete accountability infrastructure for AI agents. It provides p
 - Daily operations (session start/end checklists)
 - Self-evolution protocols
 
-## 🆕 aos CLI - Full Dashboard Control
+##  aos CLI - Full Dashboard Control
 The `aos` CLI gives you complete control over the AgentOS dashboard:
 
 ```bash
@@ -51,20 +51,20 @@ For a bulletproof dashboard (Memory + Projects cards), run:
 This syncs memory AND upserts per-project markdown cards:
 `TASKS.md`, `IDEAS.md`, `CHANGELOG.md`, `CHALLENGES.md` → DB → Brain Dashboard.
 
-## 🏷️ Memory Categorization (REQUIRED)
+##  Memory Categorization (REQUIRED)
 
 **Every memory MUST be properly categorized.** Use these 8 standard categories:
 
 | Category | Color | Use For | Path Prefix | Primary Tag |
 |----------|-------|---------|-------------|-------------|
-| **Identity** | 🔴 Red | Who you are, user profiles, team structure | `identity/` | `["identity", ...]` |
-| **Knowledge** | 🟠 Orange | Facts, research, documentation | `knowledge/` | `["knowledge", ...]` |
-| **Memory** | 🟣 Purple | Long-term memories, learnings, decisions | `memory/` | `["memory", ...]` |
-| **Preferences** | 🔵 Blue | User preferences, settings, style | `preferences/` | `["preferences", ...]` |
-| **Projects** | 🟢 Green | Active work, tasks, code context | `projects/` | `["project", "<name>"]` |
-| **Operations** | 🟤 Brown | Daily logs, status, heartbeat state | `operations/` | `["operations", ...]` |
-| **Secrets** | ⚪ Gray | Access info, server locations (NOT actual keys!) | `secrets/` | `["secrets", ...]` |
-| **Protocols** | 🔵 Cyan | SOPs, checklists, procedures | `protocols/` | `["protocols", ...]` |
+| **Identity** |  Red | Who you are, user profiles, team structure | `identity/` | `["identity", ...]` |
+| **Knowledge** |  Orange | Facts, research, documentation | `knowledge/` | `["knowledge", ...]` |
+| **Memory** |  Purple | Long-term memories, learnings, decisions | `memory/` | `["memory", ...]` |
+| **Preferences** |  Blue | User preferences, settings, style | `preferences/` | `["preferences", ...]` |
+| **Projects** |  Green | Active work, tasks, code context | `projects/` | `["project", "<name>"]` |
+| **Operations** |  Brown | Daily logs, status, heartbeat state | `operations/` | `["operations", ...]` |
+| **Secrets** |  Gray | Access info, server locations (NOT actual keys!) | `secrets/` | `["secrets", ...]` |
+| **Protocols** |  Cyan | SOPs, checklists, procedures | `protocols/` | `["protocols", ...]` |
 
 ### Path Structure
 ```
@@ -458,7 +458,7 @@ Set heartbeat to 10 minutes in your `clawdbot.json`:
 Add this to your workspace's `HEARTBEAT.md`:
 
 ```markdown
-## 🔴 MANDATORY: Context Backup (DO THIS FIRST)
+##  MANDATORY: Context Backup (DO THIS FIRST)
 
 **On EVERY heartbeat, before anything else:**
 

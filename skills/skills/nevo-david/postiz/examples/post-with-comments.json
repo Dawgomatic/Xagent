@@ -10,7 +10,7 @@
       },
       "value": [
         {
-          "content": "This is the main post content 🚀",
+          "content": "This is the main post content ",
           "image": [
             {
               "id": "img1",
@@ -23,7 +23,7 @@
           ]
         },
         {
-          "content": "This is the first comment with its own media 📸",
+          "content": "This is the first comment with its own media ",
           "image": [
             {
               "id": "img3",
@@ -33,7 +33,7 @@
           "delay": 5000
         },
         {
-          "content": "This is the second comment with different media 🎨",
+          "content": "This is the second comment with different media ",
           "image": [
             {
               "id": "img4",

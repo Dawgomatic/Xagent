@@ -1,8 +1,8 @@
-# Copyku Update Notes - v1.1.0 🇮🇩
+# Copyku Update Notes - v1.1.0 
 
-## 🎉 Apa yang Baru di Copyku v1.1.0?
+##  Apa yang Baru di Copyku v1.1.0?
 
-### 📚 Knowledge Base Baru
+###  Knowledge Base Baru
 
 Integrasi wisdom dari 8 buku copywriting terbaik dunia:
 
@@ -19,7 +19,7 @@ Integrasi wisdom dari 8 buku copywriting terbaik dunia:
 
 ---
 
-## 🧠 Advanced Copy Engine
+##  Advanced Copy Engine
 
 ### Awareness Model (Eugene Schwartz)
 Sekarang Copyku bisa detect awareness level target market:
@@ -40,7 +40,7 @@ Sekarang Copyku bisa detect awareness level target market:
 
 ---
 
-## 🧪 Intelligence Mode
+##  Intelligence Mode
 
 ### Analysis Before Writing
 Sebelum generate copy, sekarang Copyku akan:
@@ -56,31 +56,31 @@ Sebelum generate copy, sekarang Copyku akan:
 
 ---
 
-## 📱 Platform Baru
+##  Platform Baru
 
 Sekarang support:
-- ✅ Instagram (Caption, Story, Reels)
-- ✅ TikTok (Script, Caption)
-- ✅ LinkedIn (Post, Article)
-- ✅ Twitter/X (Tweet, Thread)
-- ✅ Facebook (Post, Ads)
-- ✅ Landing Page & Sales Page
-- ✅ Email Marketing
-- ✅ WhatsApp Blast
+-  Instagram (Caption, Story, Reels)
+-  TikTok (Script, Caption)
+-  LinkedIn (Post, Article)
+-  Twitter/X (Tweet, Thread)
+-  Facebook (Post, Ads)
+-  Landing Page & Sales Page
+-  Email Marketing
+-  WhatsApp Blast
 
 ---
 
-## ⚖️ Ethical Filter
+##  Ethical Filter
 
 Penceritakan yang jelas:
-- ❌ No false claims
-- ❌ No misleading scarcity
-- ❌ No harmful manipulation
-- ❌ No illegal product promotion
+-  No false claims
+-  No misleading scarcity
+-  No harmful manipulation
+-  No illegal product promotion
 
 ---
 
-## 🚀 Cara Upgrade
+##  Cara Upgrade
 
 ```bash
 clawhub update copyku
@@ -94,7 +94,7 @@ clawhub install copyku
 
 ---
 
-## 📋 Changelog
+##  Changelog
 
 | Version | Date | Changes |
 |---------|------|---------|
@@ -104,4 +104,4 @@ clawhub install copyku
 ---
 
 **Created by:** @khamalismadie  
-**Copyku** - AI Copywriting Expert 🇮🇩
+**Copyku** - AI Copywriting Expert 

@@ -474,7 +474,7 @@ if __name__ == "__main__":
     result = scan_with_llm(text, provider=args.provider, model=args.model, timeout=args.timeout)
 
     if result is None:
-        print("❌ No LLM provider available. Set OPENAI_API_KEY or ANTHROPIC_API_KEY.")
+        print(" No LLM provider available. Set OPENAI_API_KEY or ANTHROPIC_API_KEY.")
         sys.exit(1)
 
     if args.json:
@@ -492,7 +492,7 @@ if __name__ == "__main__":
     elif args.quiet:
         print(f"{result.severity} {result.verdict} {result.confidence:.2f}")
     else:
-        emoji = {"SAFE": "✅", "LOW": "📝", "MEDIUM": "⚠️", "HIGH": "🔴", "CRITICAL": "🚨"}.get(result.severity, "❓")
+        emoji = {"SAFE": "", "LOW": "", "MEDIUM": "", "HIGH": "", "CRITICAL": ""}.get(result.severity, "")
         print(f"{emoji} {result.severity} — {result.verdict} (confidence: {result.confidence:.0%})")
         print(f"Model: {result.model} | Latency: {result.latency_ms}ms | Tokens: {result.tokens_used}")
         if result.threats:

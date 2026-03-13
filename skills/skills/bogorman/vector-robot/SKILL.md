@@ -43,7 +43,7 @@ timeout 2 curl -s "$WIREPOD/cam-stream?serial=$SERIAL" > /tmp/stream.mjpeg
 
 ### Movement
 
-**⚠️ SAFETY: Cliff sensors are DISABLED during behavior control. Be careful with wheel movements!**
+** SAFETY: Cliff sensors are DISABLED during behavior control. Be careful with wheel movements!**
 
 ```bash
 # Head: speed -2 to 2

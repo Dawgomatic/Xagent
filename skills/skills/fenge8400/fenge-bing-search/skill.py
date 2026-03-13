@@ -31,10 +31,10 @@ HIGH_QUALITY = {
 LOW_QUALITY = ['baidu.com', '360.cn', 'sogou.com']
 
 def get_quality_label(score):
-    if score >= 2.5: return "⭐⭐⭐【官方】"
-    elif score >= 2.0: return "⭐⭐【优质】"
-    elif score >= 1.0: return "⭐【普通】"
-    else: return "⚠️【低质量】"
+    if score >= 2.5: return "【官方】"
+    elif score >= 2.0: return "【优质】"
+    elif score >= 1.0: return "【普通】"
+    else: return "【低质量】"
 
 def calc_domain_score(url):
     domain = urlparse(url).netloc.lower()
@@ -92,15 +92,15 @@ def print_res(results, query):
     if not results:
         print(f"未找到: {query}")
         return
-    print(f"\n🔍 搜索: {query}")
-    print(f"📊 结果: {len(results)} 条\n")
+    print(f"\n 搜索: {query}")
+    print(f" 结果: {len(results)} 条\n")
     for i, r in enumerate(results, 1):
         q = get_quality_label(r['score'])
         print(f"{i}. {q}")
         print(f"   {r['title']}")
         print(f"   {r['url'][:70]}...")
         if r['desc']:
-            print(f"   📝 {r['desc'][:100]}...")
+            print(f"    {r['desc'][:100]}...")
         print()
 
 if __name__ == "__main__":

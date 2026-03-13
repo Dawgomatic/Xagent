@@ -142,7 +142,7 @@ ALCOHOL_DIET_MARKERS = {
                 "tolerance": ToleranceLevel.POOR,
                 "description": "Impaired acetaldehyde clearance - ASIAN FLUSH",
                 "recommendations": [
-                    "⚠️ SIGNIFICANT flush reaction to alcohol",
+                    " SIGNIFICANT flush reaction to alcohol",
                     "Acetaldehyde (carcinogen) accumulates",
                     "STRONGLY limit alcohol - esophageal cancer risk 6-10x higher if drinking",
                     "Do not 'push through' the flush"
@@ -154,7 +154,7 @@ ALCOHOL_DIET_MARKERS = {
                 "tolerance": ToleranceLevel.VERY_POOR,
                 "description": "Cannot clear acetaldehyde - AVOID ALCOHOL",
                 "recommendations": [
-                    "🚫 AVOID ALCOHOL completely",
+                    " AVOID ALCOHOL completely",
                     "Severe flushing, nausea, rapid heartbeat",
                     "Cannot safely consume alcohol",
                     "Even small amounts cause significant reaction"
@@ -206,7 +206,7 @@ SATURATED_FAT_MARKERS = {
                 "tolerance": ToleranceLevel.POOR,
                 "description": "High saturated fat = higher BMI/obesity risk",
                 "recommendations": [
-                    "⚠️ Strong gene-diet interaction for weight",
+                    " Strong gene-diet interaction for weight",
                     "Keep saturated fat <15g/day",
                     "Replace with unsaturated fats (olive oil, avocado, nuts)",
                     "Higher weight gain with high saturated fat diet"
@@ -249,7 +249,7 @@ LACTOSE_MARKERS = {
                 "tolerance": ToleranceLevel.POOR,
                 "description": "Lactase non-persistent - lactose intolerant",
                 "recommendations": [
-                    "⚠️ Cannot efficiently digest lactose",
+                    " Cannot efficiently digest lactose",
                     "Dairy may cause bloating, gas, diarrhea",
                     "Use lactase enzyme supplements with dairy",
                     "Choose lactose-free or fermented dairy",
@@ -302,7 +302,7 @@ GLUTEN_SENSITIVITY_MARKERS = {
                 "tolerance": ToleranceLevel.POOR,
                 "description": "Homozygous HLA-DQ2 - highest celiac risk",
                 "recommendations": [
-                    "⚠️ Highest genetic risk for celiac disease",
+                    " Highest genetic risk for celiac disease",
                     "~10-15% lifetime risk if both DQ2 copies",
                     "Get screened if any symptoms",
                     "Consider periodic celiac screening even without symptoms",
@@ -427,7 +427,7 @@ ADDITIONAL_DIET_MARKERS = {
                 "tolerance": ToleranceLevel.POOR,
                 "description": "Poor ALA to EPA/DHA conversion",
                 "recommendations": [
-                    "⚠️ Cannot efficiently convert plant omega-3s to active forms",
+                    " Cannot efficiently convert plant omega-3s to active forms",
                     "Need preformed EPA/DHA from fish or algae oil",
                     "Flax/chia alone may not meet omega-3 needs",
                     "Fish 2-3x/week or supplement"
@@ -462,7 +462,7 @@ ADDITIONAL_DIET_MARKERS = {
                 "tolerance": ToleranceLevel.VERY_POOR,
                 "description": "Homozygous C282Y - hemochromatosis risk",
                 "recommendations": [
-                    "🚫 HIGH risk of iron overload",
+                    " HIGH risk of iron overload",
                     "AVOID iron supplements",
                     "Limit vitamin C with meals (increases absorption)",
                     "Avoid raw shellfish (Vibrio vulnificus risk)",
@@ -530,7 +530,7 @@ ADDITIONAL_DIET_MARKERS = {
                 "tolerance": ToleranceLevel.MODERATE,
                 "description": "Reduced MTHFR (~30% activity) - C677T homozygous",
                 "recommendations": [
-                    "⚠️ May not process folic acid efficiently",
+                    " May not process folic acid efficiently",
                     "Consider methylfolate (L-5-MTHF) instead of folic acid",
                     "Prioritize food sources of folate (leafy greens)",
                     "B12 (methylcobalamin) also important",
@@ -641,7 +641,7 @@ def determine_apoe_diet_recommendations(genotypes: Dict[str, str]) -> Dict[str, 
             "saturated_fat_sensitivity": "high",
             "tolerance": ToleranceLevel.POOR,
             "recommendations": [
-                "⚠️ ELEVATED sensitivity to dietary saturated fat",
+                " ELEVATED sensitivity to dietary saturated fat",
                 "Saturated fat significantly raises LDL in e4 carriers",
                 "Limit saturated fat to <10% of calories",
                 "Replace with unsaturated fats (olive oil, nuts, avocado)",
@@ -655,7 +655,7 @@ def determine_apoe_diet_recommendations(genotypes: Dict[str, str]) -> Dict[str, 
             "saturated_fat_sensitivity": "very_high",
             "tolerance": ToleranceLevel.VERY_POOR,
             "recommendations": [
-                "🚨 HIGHEST sensitivity to dietary saturated fat",
+                " HIGHEST sensitivity to dietary saturated fat",
                 "Very strong LDL increase with saturated fat",
                 "STRICT limitation of saturated fat recommended",
                 "Mediterranean diet provides the most protection",
@@ -744,7 +744,7 @@ def analyze_dietary_interactions(genotypes: Dict[str, str]) -> Dict[str, Any]:
                         results["summary"]["foods_to_avoid"].extend(finding["foods_to_avoid"])
                     if "recommendations" in finding:
                         for rec in finding.get("recommendations", []):
-                            if rec.startswith("⚠️") or rec.startswith("🚫") or rec.startswith("🚨"):
+                            if rec.startswith("") or rec.startswith("") or rec.startswith(""):
                                 results["summary"]["key_recommendations"].append(rec)
     
     # Deduplicate
@@ -792,14 +792,14 @@ def generate_dietary_matrix_report(genotypes: Dict[str, str]) -> str:
     analysis = analyze_dietary_interactions(genotypes)
     
     lines = []
-    lines.append("🍽️ PERSONALIZED DIETARY INTERACTION MATRIX")
+    lines.append(" PERSONALIZED DIETARY INTERACTION MATRIX")
     lines.append("=" * 50)
     lines.append("")
     
     # Caffeine
     if "caffeine" in analysis["categories"]:
         cat = analysis["categories"]["caffeine"]
-        lines.append("☕ CAFFEINE")
+        lines.append(" CAFFEINE")
         if cat["findings"]:
             for f in cat["findings"]:
                 lines.append(f"   {f.get('description', 'No data')}")
@@ -812,12 +812,12 @@ def generate_dietary_matrix_report(genotypes: Dict[str, str]) -> str:
     # Alcohol
     if "alcohol" in analysis["categories"]:
         cat = analysis["categories"]["alcohol"]
-        lines.append("🍷 ALCOHOL")
+        lines.append(" ALCOHOL")
         if cat["findings"]:
             for f in cat["findings"]:
                 lines.append(f"   {f['gene']}: {f.get('description', 'No data')}")
                 if f.get("tolerance") == ToleranceLevel.VERY_POOR:
-                    lines.append("   ⚠️ AVOID ALCOHOL")
+                    lines.append("    AVOID ALCOHOL")
         else:
             lines.append("   No alcohol metabolism data available")
         lines.append("")
@@ -825,7 +825,7 @@ def generate_dietary_matrix_report(genotypes: Dict[str, str]) -> str:
     # Saturated Fat
     if "saturated_fat" in analysis["categories"]:
         cat = analysis["categories"]["saturated_fat"]["findings"]
-        lines.append("🥩 SATURATED FAT (APOE)")
+        lines.append(" SATURATED FAT (APOE)")
         lines.append(f"   APOE: {cat.get('apoe_genotype', 'unknown')}")
         lines.append(f"   Sensitivity: {cat.get('saturated_fat_sensitivity', 'unknown')}")
         if cat.get("recommendations"):
@@ -836,7 +836,7 @@ def generate_dietary_matrix_report(genotypes: Dict[str, str]) -> str:
     # Lactose
     if "lactose" in analysis["categories"]:
         cat = analysis["categories"]["lactose"]
-        lines.append("🥛 LACTOSE")
+        lines.append(" LACTOSE")
         if cat["findings"]:
             for f in cat["findings"]:
                 if f["gene"] == "LCT":
@@ -848,7 +848,7 @@ def generate_dietary_matrix_report(genotypes: Dict[str, str]) -> str:
     # Gluten
     if "gluten" in analysis["categories"]:
         cat = analysis["categories"]["gluten"]
-        lines.append("🌾 GLUTEN (CELIAC RISK)")
+        lines.append(" GLUTEN (CELIAC RISK)")
         if cat["findings"]:
             for f in cat["findings"]:
                 if "HLA" in f["gene"]:
@@ -860,7 +860,7 @@ def generate_dietary_matrix_report(genotypes: Dict[str, str]) -> str:
     # Bitter taste
     if "bitter_taste" in analysis["categories"]:
         cat = analysis["categories"]["bitter_taste"]
-        lines.append("🥬 BITTER TASTE")
+        lines.append(" BITTER TASTE")
         if cat["findings"]:
             for f in cat["findings"]:
                 lines.append(f"   {f.get('description', 'No data')}")
@@ -871,7 +871,7 @@ def generate_dietary_matrix_report(genotypes: Dict[str, str]) -> str:
     # Key recommendations
     if analysis["summary"]["key_recommendations"]:
         lines.append("-" * 50)
-        lines.append("⚠️ KEY DIETARY ALERTS:")
+        lines.append(" KEY DIETARY ALERTS:")
         for rec in analysis["summary"]["key_recommendations"]:
             lines.append(f"   {rec}")
     

@@ -28,9 +28,9 @@ dict_concised_2014_YYYYMMDD.zip
 - File URL: `https://language.moe.gov.tw/001/Upload/Files/site_content/M0001/respub/download/dict_concised_2014_20251229.zip`
 
 **Data Availability**:
-- 📄 Text database (文字資料庫) — `.xlsx` format
-- 🖼️ Image files (圖片檔) — optional
-- 🔊 Audio files (聲音檔) — optional, split across 5 zips
+-  Text database (文字資料庫) — `.xlsx` format
+-  Image files (圖片檔) — optional
+-  Audio files (聲音檔) — optional, split across 5 zips
 
 **For this skill**: We use only the `.xlsx` text database.
 

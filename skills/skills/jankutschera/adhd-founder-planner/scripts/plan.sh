@@ -24,20 +24,20 @@ TIME_OF_DAY=$(date +%H)
 # Determine time of day label
 if [ "$TIME_OF_DAY" -ge 5 ] && [ "$TIME_OF_DAY" -lt 12 ]; then
   TIME_LABEL="morning"
-  GREETING="🌅 Good morning!"
+  GREETING=" Good morning!"
 elif [ "$TIME_OF_DAY" -ge 12 ] && [ "$TIME_OF_DAY" -lt 17 ]; then
   TIME_LABEL="afternoon"
-  GREETING="🌞 Good afternoon!"
+  GREETING=" Good afternoon!"
 elif [ "$TIME_OF_DAY" -ge 17 ] && [ "$TIME_OF_DAY" -lt 22 ]; then
   TIME_LABEL="evening"
-  GREETING="🌙 Good evening!"
+  GREETING=" Good evening!"
 else
   TIME_LABEL="night"
-  GREETING="🦉 Working late?"
+  GREETING=" Working late?"
 fi
 
 show_help() {
-  echo "ADHD Daily Planner 📝🧠"
+  echo "ADHD Daily Planner "
   echo ""
   echo "Usage: ./plan.sh [command]"
   echo ""
@@ -62,45 +62,45 @@ show_help() {
 create_daily_file() {
   if [ ! -f "$TODAY_FILE" ]; then
     cat > "$TODAY_FILE" << EOF
-# $DAY_NAME, $DAY_MONTH 📝
+# $DAY_NAME, $DAY_MONTH 
 
-## 🎯 TODAY'S ONE THING
+##  TODAY'S ONE THING
 _What ONE thing must happen for today to be a success?_
 
 **ONE THING:** _________________________________
 
 ---
 
-## 🏊 SWIM LANES
+##  SWIM LANES
 
-### 🎯 MUST HAPPEN (The ONE thing)
+###  MUST HAPPEN (The ONE thing)
 - [ ] 
 
-### 🔥 HIGH ENERGY (Deep work, creative)
-- [ ] 
-- [ ] 
-
-### 💧 MEDIUM ENERGY (Standard tasks)
+###  HIGH ENERGY (Deep work, creative)
 - [ ] 
 - [ ] 
 
-### ❄️ LOW ENERGY (Admin, easy wins)
+###  MEDIUM ENERGY (Standard tasks)
 - [ ] 
 - [ ] 
 
-### 🚫 NOT TODAY (Captured but deferred)
+###  LOW ENERGY (Admin, easy wins)
+- [ ] 
+- [ ] 
+
+###  NOT TODAY (Captured but deferred)
 - [ ] 
 
 ---
 
-## 📝 RAPID LOG
+##  RAPID LOG
 _Capture everything as it comes:_
 
 - 
 
 ---
 
-## 🎁 DOPAMINE MENU (Today's Rewards)
+##  DOPAMINE MENU (Today's Rewards)
 
 When I complete the ONE thing:
 - [ ] _________________________________
@@ -110,22 +110,22 @@ When I finish a swim lane:
 
 ---
 
-## 🌙 EVENING REFLECTION
+##  EVENING REFLECTION
 _Fill in at end of day:_
 
-### ✅ Today's Wins
+###  Today's Wins
 - 
 
-### 📊 What Worked?
+###  What Worked?
 - 
 
-### 📊 What Didn't?
+###  What Didn't?
 - 
 
-### 🔄 Migrated Tasks
+###  Migrated Tasks
 - 
 
-### 🌟 One Thing for Tomorrow
+###  One Thing for Tomorrow
 - 
 
 ---
@@ -148,16 +148,16 @@ cmd_today() {
   # Check if file exists and has content
   if [ -f "$TODAY_FILE" ]; then
     # Extract swim lanes section
-    echo "📋 TODAY'S SWIM LANES"
+    echo " TODAY'S SWIM LANES"
     echo ""
     
     # Show must happen
-    echo "🎯 MUST HAPPEN (Today's ONE thing):"
-    grep -A 2 "### 🎯 MUST HAPPEN" "$TODAY_FILE" | tail -n +2
+    echo " MUST HAPPEN (Today's ONE thing):"
+    grep -A 2 "###  MUST HAPPEN" "$TODAY_FILE" | tail -n +2
     echo ""
     
     # Show each swim lane
-    for lane in "🔥 HIGH ENERGY" "💧 MEDIUM ENERGY" "❄️ LOW ENERGY"; do
+    for lane in " HIGH ENERGY" " MEDIUM ENERGY" " LOW ENERGY"; do
       echo "$lane:"
       grep -A 3 "### $lane" "$TODAY_FILE" | tail -n +2 | sed 's/^/  /'
       echo ""
@@ -168,15 +168,15 @@ cmd_today() {
     TOTAL=$(grep -c '^\- \[ \]' "$TODAY_FILE" 2>/dev/null || echo "0")
     TOTAL=$((TOTAL + COMPLETED))
     
-    echo "📊 Progress: $COMPLETED/$TOTAL tasks"
+    echo " Progress: $COMPLETED/$TOTAL tasks"
     
     # Energy-based suggestion
     if [ "$TIME_LABEL" = "morning" ]; then
-      echo "💡 Try the 🔥 HIGH ENERGY lane while you're fresh!"
+      echo " Try the  HIGH ENERGY lane while you're fresh!"
     elif [ "$TIME_LABEL" = "afternoon" ]; then
-      echo "💡 Energy dip? Try the 💧 MEDIUM ENERGY lane."
+      echo " Energy dip? Try the  MEDIUM ENERGY lane."
     else
-      echo "💡 Winding down? Stick to ❄️ LOW ENERGY tasks."
+      echo " Winding down? Stick to  LOW ENERGY tasks."
     fi
     
   else
@@ -189,29 +189,29 @@ cmd_today() {
 
 cmd_plan() {
   echo "═══════════════════════════════════════════════════════"
-  echo "  🌅 MORNING PLANNING SESSION"
+  echo "   MORNING PLANNING SESSION"
   echo "  $DAY_NAME, $DAY_MONTH"
   echo "═══════════════════════════════════════════════════════"
   echo ""
   
   # Step 1: ONE thing
-  echo "🎯 STEP 1: TODAY'S ONE THING"
+  echo " STEP 1: TODAY'S ONE THING"
   echo "What ONE thing must happen for today to be a success?"
   echo "(Be specific. This is your ★ priority.)"
   read -p "> " ONE_THING
   echo ""
   
   # Step 2: Energy check
-  echo "🧠 STEP 2: ENERGY CHECK"
+  echo " STEP 2: ENERGY CHECK"
   echo "How's your energy right now? (1-10)"
   read -p "> " ENERGY
   
-  SWIM_LANE="💧 MEDIUM ENERGY"
+  SWIM_LANE=" MEDIUM ENERGY"
   if [ "$ENERGY" -ge 8 ] 2>/dev/null; then
-    SWIM_LANE="🔥 HIGH ENERGY"
+    SWIM_LANE=" HIGH ENERGY"
     ENERGY_MSG="You're feeling sharp! Tackle the hard stuff."
   elif [ "$ENERGY" -le 4 ] 2>/dev/null; then
-    SWIM_LANE="❄️ LOW ENERGY"
+    SWIM_LANE=" LOW ENERGY"
     ENERGY_MSG="Low energy day. Be gentle with yourself."
   else
     ENERGY_MSG="Moderate energy. Good for standard tasks."
@@ -220,7 +220,7 @@ cmd_plan() {
   echo ""
   
   # Step 3: Rapid log
-  echo "📝 STEP 3: RAPID LOG"
+  echo " STEP 3: RAPID LOG"
   echo "Brain dump - list EVERYTHING on your mind."
   echo "(Type each item, ENTER. Empty line when done.)"
   
@@ -236,7 +236,7 @@ cmd_plan() {
   
   # Step 4: Dopamine menu
   echo ""
-  echo "🎁 STEP 4: DOPAMINE MENU"
+  echo " STEP 4: DOPAMINE MENU"
   echo "What will you do when you complete the ONE thing?"
   echo "1. Movement (walk, stretch)"
   echo "2. Sensory (coffee, snack)"
@@ -262,48 +262,48 @@ cmd_plan() {
   
   # Create the file
   cat > "$TODAY_FILE" << EOF
-# $DAY_NAME, $DAY_MONTH 📝
+# $DAY_NAME, $DAY_MONTH 
 
-## 🎯 TODAY'S ONE THING
+##  TODAY'S ONE THING
 _What ONE thing must happen for today to be a success?_
 
 **ONE THING:** $ONE_THING
 
-**Status:** ⬜ Not started | 🟡 In progress | ✅ Complete
+**Status:**  Not started |  In progress |  Complete
 
 ---
 
-## 🏊 SWIM LANES
+##  SWIM LANES
 _These are context/energy based, NOT time-based_
 _Work in whatever lane matches your CURRENT energy_
 
-### 🎯 MUST HAPPEN (The ONE thing)
+###  MUST HAPPEN (The ONE thing)
 - [ ] ★ $ONE_THING
 
-### 🔥 HIGH ENERGY (Deep work, creative)
+###  HIGH ENERGY (Deep work, creative)
 - [ ] 
 - [ ] 
 
-### 💧 MEDIUM ENERGY (Standard tasks)
+###  MEDIUM ENERGY (Standard tasks)
 - [ ] 
 - [ ] 
 
-### ❄️ LOW ENERGY (Admin, easy wins)
+###  LOW ENERGY (Admin, easy wins)
 - [ ] 
 - [ ] 
 
-### 🚫 NOT TODAY (Captured but deferred)
+###  NOT TODAY (Captured but deferred)
 - [ ] 
 
 ---
 
-## 📝 RAPID LOG
+##  RAPID LOG
 _Capture everything as it comes:_
 $RAPID_LOG
 
 ---
 
-## 🎁 DOPAMINE MENU (Today's Rewards)
+##  DOPAMINE MENU (Today's Rewards)
 
 When I complete the ONE thing:
 - [ ] $REWARD
@@ -313,22 +313,22 @@ When I finish a swim lane:
 
 ---
 
-## 🌙 EVENING REFLECTION
+##  EVENING REFLECTION
 _Fill in at end of day:_
 
-### ✅ Today's Wins
+###  Today's Wins
 - 
 
-### 📊 What Worked?
+###  What Worked?
 - 
 
-### 📊 What Didn't?
+###  What Didn't?
 - 
 
-### 🔄 Migrated Tasks
+###  Migrated Tasks
 - 
 
-### 🌟 One Thing for Tomorrow
+###  One Thing for Tomorrow
 - 
 
 ---
@@ -341,12 +341,12 @@ EOF
 
   echo ""
   echo "═══════════════════════════════════════════════════════"
-  echo "  ✅ PLAN CREATED!"
+  echo "   PLAN CREATED!"
   echo "═══════════════════════════════════════════════════════"
   echo ""
-  echo "🎯 ONE THING: $ONE_THING"
-  echo "⚡ Energy: $ENERGY/10 → $SWIM_LANE lane"
-  echo "🎁 Reward: $REWARD"
+  echo " ONE THING: $ONE_THING"
+  echo " Energy: $ENERGY/10 → $SWIM_LANE lane"
+  echo " Reward: $REWARD"
   echo ""
   echo "File: $TODAY_FILE"
 }
@@ -355,13 +355,13 @@ cmd_reflect() {
   create_daily_file
   
   echo "═══════════════════════════════════════════════════════"
-  echo "  🌙 EVENING REFLECTION"
+  echo "   EVENING REFLECTION"
   echo "  $DAY_NAME, $DAY_MONTH"
   echo "═══════════════════════════════════════════════════════"
   echo ""
   
   # Get wins
-  echo "✅ STEP 1: TODAY'S WINS"
+  echo " STEP 1: TODAY'S WINS"
   echo "List everything you completed (even tiny things!):"
   WINS=""
   while true; do
@@ -375,7 +375,7 @@ cmd_reflect() {
   
   # What worked
   echo ""
-  echo "📊 STEP 2: WHAT WORKED?"
+  echo " STEP 2: WHAT WORKED?"
   echo "What helped you today? (techniques, conditions, etc.)"
   WORKED=""
   while true; do
@@ -389,7 +389,7 @@ cmd_reflect() {
 
   # What didn't
   echo ""
-  echo "📊 STEP 3: WHAT DIDN'T?"
+  echo " STEP 3: WHAT DIDN'T?"
   echo "What got in the way? (distractions, blockers, etc.)"
   DIDNT=""
   while true; do
@@ -403,7 +403,7 @@ cmd_reflect() {
   
   # Migration
   echo ""
-  echo "🔄 STEP 4: MIGRATION CHECK"
+  echo " STEP 4: MIGRATION CHECK"
   echo "Any incomplete tasks to carry forward?"
   echo "(List them, we'll decide what to do with each)"
   
@@ -436,7 +436,7 @@ cmd_reflect() {
   
   # Tomorrow
   echo ""
-  echo "🌟 STEP 5: ONE THING FOR TOMORROW"
+  echo " STEP 5: ONE THING FOR TOMORROW"
   echo "What's one thing you'll do differently tomorrow?"
   read -p "> " TOMORROW_LESSON
   
@@ -446,25 +446,25 @@ cmd_reflect() {
 
 ---
 
-## 🌙 EVENING REFLECTION (completed)
+##  EVENING REFLECTION (completed)
 
-### ✅ Today's Wins
+###  Today's Wins
 ${WINS:-
 - (none recorded)}
 
-### 📊 What Worked?
+###  What Worked?
 ${WORKED:-
 - (none recorded)}
 
-### 📊 What Didn't?
+###  What Didn't?
 ${DIDNT:-
 - (none recorded)}
 
-### 🔄 Migrated Tasks
+###  Migrated Tasks
 ${MIGRATED:-
 - (none)}
 
-### 🌟 One Thing for Tomorrow
+###  One Thing for Tomorrow
 - ${TOMORROW_LESSON:-(not set)}
 
 ---
@@ -482,10 +482,10 @@ EOF
 
   echo ""
   echo "═══════════════════════════════════════════════════════"
-  echo "  ✅ REFLECTION COMPLETE & SAVED!"
+  echo "   REFLECTION COMPLETE & SAVED!"
   echo "═══════════════════════════════════════════════════════"
   echo ""
-  echo "📊 Summary:"
+  echo " Summary:"
   echo "  Wins: $WIN_COUNT"
   echo "  What worked: $WORKED_COUNT"
   echo "  Migrated: $MIGRATED_COUNT"
@@ -497,7 +497,7 @@ EOF
 
 cmd_migrate() {
   echo "═══════════════════════════════════════════════════════"
-  echo "  🔄 TASK MIGRATION"
+  echo "   TASK MIGRATION"
   echo "═══════════════════════════════════════════════════════"
   echo ""
   
@@ -540,7 +540,7 @@ cmd_log() {
   echo "" >> "$TODAY_FILE"
   echo "- [ ] $TASK" >> "$TODAY_FILE"
   
-  echo "📝 Added to rapid log: $TASK"
+  echo " Added to rapid log: $TASK"
 }
 
 cmd_done() {
@@ -559,54 +559,54 @@ cmd_done() {
     TASK_SED=$(printf '%s' "$TASK" | sed 's/[&/\]/\\&/g')
     sed -i.bak "s/\[ \] ${TASK_SED}/[x] ${TASK_SED}/" "$TODAY_FILE"
     rm -f "${TODAY_FILE}.bak"
-    echo "✅ Marked complete: $TASK"
+    echo " Marked complete: $TASK"
   else
     # Add to wins section
     echo "" >> "$TODAY_FILE"
     echo "- × $TASK (added retroactively)" >> "$TODAY_FILE"
-    echo "✅ Added to wins: $TASK"
+    echo " Added to wins: $TASK"
   fi
 }
 
 cmd_dopamine() {
   echo "═══════════════════════════════════════════════════════"
-  echo "  🧠 DOPAMINE MENU"
+  echo "   DOPAMINE MENU"
   echo "  Quick rewards for ADHD brains"
   echo "═══════════════════════════════════════════════════════"
   echo ""
   echo "Pick ONE. Do it. Back to work."
   echo ""
-  echo "1. 🏃 MOVEMENT (2-5 min)"
+  echo "1.  MOVEMENT (2-5 min)"
   echo "   - 10 jumping jacks"
   echo "   - Stretch"
   echo "   - Walk around the room"
   echo ""
-  echo "2. ☕ SENSORY (2-5 min)"
+  echo "2.  SENSORY (2-5 min)"
   echo "   - Make coffee/tea"
   echo "   - Eat a snack"
   echo "   - Splash water on face"
   echo ""
-  echo "3. 💬 SOCIAL (2-5 min)"
+  echo "3.  SOCIAL (2-5 min)"
   echo "   - Text a friend"
   echo "   - Check social (set timer!)"
   echo "   - Call someone quick"
   echo ""
-  echo "4. 🎨 CREATION (2-5 min)"
+  echo "4.  CREATION (2-5 min)"
   echo "   - Doodle"
   echo "   - Play one song"
   echo "   - Organize a drawer"
   echo ""
-  echo "5. 🌿 NATURE (2-5 min)"
+  echo "5.  NATURE (2-5 min)"
   echo "   - Step outside"
   echo "   - Look at a plant"
   echo "   - Open a window"
   echo ""
-  echo "6. ✨ NOVELTY (2-5 min)"
+  echo "6.  NOVELTY (2-5 min)"
   echo "   - Read something new"
   echo "   - Watch a short video"
   echo "   - Change your environment"
   echo ""
-  echo "7. ✅ COMPLETION (instant)"
+  echo "7.  COMPLETION (instant)"
   echo "   - Check off a small task"
   echo "   - Make a 'done' list"
   echo "   - Celebrate the win!"
@@ -617,7 +617,7 @@ cmd_monthly() {
   create_monthly_file
   
   echo "═══════════════════════════════════════════════════════"
-  echo "  📅 MONTHLY OVERVIEW"
+  echo "   MONTHLY OVERVIEW"
   echo "  $MONTH"
   echo "═══════════════════════════════════════════════════════"
   echo ""
@@ -633,16 +633,16 @@ cmd_monthly() {
 create_monthly_file() {
   if [ ! -f "$MONTH_FILE" ]; then
     cat > "$MONTH_FILE" << EOF
-# $(date +%B) $(date +%Y) 📅
+# $(date +%B) $(date +%Y) 
 
-## 🎯 Monthly Theme/Intent
+##  Monthly Theme/Intent
 _What is this month about?_
 
 **THEME:** _________________________________
 
 ---
 
-## 📊 Weekly Tracker
+##  Weekly Tracker
 
 | Week | ONE Thing | Completed | Avg Energy | Key Win |
 |------|-----------|-----------|------------|---------|
@@ -654,20 +654,20 @@ _What is this month about?_
 
 ---
 
-## 🔄 Recurring Tasks
+##  Recurring Tasks
 _Tasks that repeat this month:_
 
 - [ ] 
 
 ---
 
-## 🏆 Monthly Goals
+##  Monthly Goals
 
 - [ ] 
 
 ---
 
-## 💡 Ideas & Capture
+##  Ideas & Capture
 _Don't forget these:_
 
 - 

@@ -40,7 +40,7 @@ GEMINI_API_KEY="$KEY" uv run {baseDir}/scripts/analyze.py \
 
 The `--auto-save` flag automatically saves to `~/clawd/ad-ready/configs/Brands/{Brand_Name}.json`
 
-### ⚠️ MANDATORY: Push to GitHub After Every New Brand Profile
+###  MANDATORY: Push to GitHub After Every New Brand Profile
 
 **Every time a new brand profile is generated and saved, it MUST be pushed to GitHub immediately.** This is non-optional — the ComfyDeploy deployment pulls brand profiles from the repo.
 
@@ -62,7 +62,7 @@ GEMINI_API_KEY="$KEY" uv run {baseDir}/scripts/analyze.py --brand "Nike"
 
 | Input | Required | Description |
 |-------|----------|-------------|
-| `--brand` | ✅ | Brand name to analyze |
+| `--brand` |  | Brand name to analyze |
 | `--output` | Optional | Output file path (default: stdout) |
 | `--auto-save` | Optional | Auto-save to Ad-Ready brands catalog |
 | `--api-key` | Optional | Gemini API key (or set `GEMINI_API_KEY` env var) |

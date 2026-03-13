@@ -1,6 +1,6 @@
 # Meal Planner JP
 
-🍱 Japanese meal planning with nutrition balance and budget optimization.
+ Japanese meal planning with nutrition balance and budget optimization.
 
 ## Features
 

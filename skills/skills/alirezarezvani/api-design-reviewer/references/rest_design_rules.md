@@ -6,14 +6,14 @@
 REST APIs should focus on **resources** (nouns) rather than **actions** (verbs). The HTTP methods provide the actions.
 
 ```
-✅ Good:
+ Good:
 GET    /users           # Get all users
 GET    /users/123       # Get user 123
 POST   /users           # Create new user
 PUT    /users/123       # Update user 123
 DELETE /users/123       # Delete user 123
 
-❌ Bad:
+ Bad:
 POST   /getUsers
 POST   /createUser
 POST   /updateUser/123
@@ -30,20 +30,20 @@ Use hierarchical URLs to represent resource relationships:
 But avoid excessive nesting (max 3-4 levels):
 
 ```
-❌ Too deep: /companies/123/departments/456/teams/789/members/012/tasks/345
-✅ Better:   /tasks/345?member=012&team=789
+ Too deep: /companies/123/departments/456/teams/789/members/012/tasks/345
+ Better:   /tasks/345?member=012&team=789
 ```
 
 ## Resource Naming Conventions
 
 ### URLs Should Use Kebab-Case
 ```
-✅ Good:
+ Good:
 /user-profiles
 /order-items
 /shipping-addresses
 
-❌ Bad:
+ Bad:
 /userProfiles
 /user_profiles
 /orderItems
@@ -251,7 +251,7 @@ GET /products?search=laptop&category=electronics
 
 ### Use camelCase for JSON Fields
 ```json
-✅ Good:
+ Good:
 {
   "firstName": "John",
   "lastName": "Doe",
@@ -259,7 +259,7 @@ GET /products?search=laptop&category=electronics
   "isActive": true
 }
 
-❌ Bad:
+ Bad:
 {
   "first_name": "John",
   "LastName": "Doe",
@@ -271,7 +271,7 @@ GET /products?search=laptop&category=electronics
 Use positive, clear names with "is", "has", "can", or "should" prefixes:
 
 ```json
-✅ Good:
+ Good:
 {
   "isActive": true,
   "hasPermission": false,
@@ -279,7 +279,7 @@ Use positive, clear names with "is", "has", "can", or "should" prefixes:
   "shouldNotify": false
 }
 
-❌ Bad:
+ Bad:
 {
   "active": true,
   "disabled": false,  // Double negative
@@ -425,44 +425,44 @@ Retry-After: 3600
 
 ### 1. Verbs in URLs
 ```
-❌ Bad: /api/getUser/123
-✅ Good: GET /api/users/123
+ Bad: /api/getUser/123
+ Good: GET /api/users/123
 ```
 
 ### 2. Inconsistent Naming
 ```
-❌ Bad: /user-profiles and /userAddresses
-✅ Good: /user-profiles and /user-addresses
+ Bad: /user-profiles and /userAddresses
+ Good: /user-profiles and /user-addresses
 ```
 
 ### 3. Deep Nesting
 ```
-❌ Bad: /companies/123/departments/456/teams/789/members/012
-✅ Good: /team-members/012?team=789
+ Bad: /companies/123/departments/456/teams/789/members/012
+ Good: /team-members/012?team=789
 ```
 
 ### 4. Ignoring HTTP Status Codes
 ```
-❌ Bad: Always return 200 with error info in body
-✅ Good: Use appropriate status codes (404, 400, 500, etc.)
+ Bad: Always return 200 with error info in body
+ Good: Use appropriate status codes (404, 400, 500, etc.)
 ```
 
 ### 5. Exposing Internal Structure
 ```
-❌ Bad: /api/database_table_users
-✅ Good: /api/users
+ Bad: /api/database_table_users
+ Good: /api/users
 ```
 
 ### 6. No Versioning Strategy
 ```
-❌ Bad: Breaking changes without version management
-✅ Good: /api/v1/users or Accept: application/vnd.api+json;version=1
+ Bad: Breaking changes without version management
+ Good: /api/v1/users or Accept: application/vnd.api+json;version=1
 ```
 
 ### 7. Inconsistent Error Responses
 ```
-❌ Bad: Different error formats for different endpoints
-✅ Good: Standardized error response structure
+ Bad: Different error formats for different endpoints
+ Good: Standardized error response structure
 ```
 
 ## Best Practices Summary

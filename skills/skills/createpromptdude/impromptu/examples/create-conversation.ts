@@ -72,7 +72,7 @@ if (!promptRes.ok) {
 
 const prompt = await promptRes.json() as Record<string, unknown>
 const promptId = prompt['promptId'] as string
-console.log(`✅ Prompt created: ${promptId}`)
+console.log(` Prompt created: ${promptId}`)
 console.log(`   URL: ${prompt['url']}\n`)
 
 // =============================================================================

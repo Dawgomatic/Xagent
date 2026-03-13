@@ -5,7 +5,7 @@ homepage: https://exa.ai
 metadata:
   {
     "openclaw": {
-      "emoji": "🔍",
+      "emoji": "",
       "requires": { "env": ["EXA_API_KEY"] },
       "primaryEnv": "EXA_API_KEY",
       "bins": ["exa-search", "exa-web-search"]

@@ -2,7 +2,7 @@
 name: nanoleaf
 description: Control Nanoleaf light panels via the Picoleaf CLI. Use for turning Nanoleaf on/off, adjusting brightness, setting colors (RGB/HSL), changing color temperature, or any Nanoleaf lighting control.
 homepage: https://github.com/tessro/picoleaf
-metadata: {"clawdbot":{"emoji":"🌈","requires":{"bins":["picoleaf"]},"install":[{"id":"brew","kind":"brew","tap":"paulrosania/command-home","formula":"paulrosania/command-home/picoleaf","bins":["picoleaf"],"label":"Install Picoleaf CLI (brew)"},{"id":"binary","kind":"shell","command":"curl -sL https://github.com/tessro/picoleaf/releases/latest/download/picoleaf_1.4.0_linux_amd64.tar.gz | tar xz -C ~/.local/bin","bins":["picoleaf"],"label":"Install Picoleaf (binary)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["picoleaf"]},"install":[{"id":"brew","kind":"brew","tap":"paulrosania/command-home","formula":"paulrosania/command-home/picoleaf","bins":["picoleaf"],"label":"Install Picoleaf CLI (brew)"},{"id":"binary","kind":"shell","command":"curl -sL https://github.com/tessro/picoleaf/releases/latest/download/picoleaf_1.4.0_linux_amd64.tar.gz | tar xz -C ~/.local/bin","bins":["picoleaf"],"label":"Install Picoleaf (binary)"}]}}
 ---
 
 # Picoleaf CLI

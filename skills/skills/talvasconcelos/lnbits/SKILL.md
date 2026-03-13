@@ -2,14 +2,14 @@
 name: lnbits
 description: Manage LNbits Lightning Wallet (Balance, Pay, Invoice)
 homepage: https://lnbits.com
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"bins":["python3"],"env":["LNBITS_API_KEY", "LNBITS_BASE_URL"]},"primaryEnv":"LNBITS_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"],"env":["LNBITS_API_KEY", "LNBITS_BASE_URL"]},"primaryEnv":"LNBITS_API_KEY"}}
 ---
 
 # LNbits Wallet Manager
 
 Enable the assistant to safely and effectively manage an LNbits Lightning Network wallet.
 
-## 🛑 CRITICAL SECURITY PROTOCOLS 🛑
+##  CRITICAL SECURITY PROTOCOLS 
 
 1.  **NEVER Expose Secrets**: Do NOT display Admin Keys, User IDs, or Wallet IDs.
 2.  **Explicit Confirmation**: You MUST ask for "Yes/No" confirmation before paying.
@@ -50,7 +50,7 @@ python3 {baseDir}/scripts/lnbits_cli.py invoice --amount 1000 --memo "Pizza"
 ```
 
 ### 3. Pay Invoice (Send)
-**⚠️ REQUIRES CONFIRMATION**: Decode first, verify balance, ask user, then execute.
+** REQUIRES CONFIRMATION**: Decode first, verify balance, ask user, then execute.
 
 ```bash
 # Step 1: Decode to verify amount/memo

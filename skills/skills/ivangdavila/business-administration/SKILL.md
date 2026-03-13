@@ -1,7 +1,7 @@
 ---
 name: Business Administration
 description: Support business understanding from small ventures to corporate strategy and academic research.
-metadata: {"clawdbot":{"emoji":"📊","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

@@ -2,7 +2,7 @@
 name: compliance-audit
 description: Immutable audit trail for autonomous agent operations. Log skill executions, data access, decisions, and budget changes with tamper-evident hashes. Essential for enterprise governance, incident response, and trust verification.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "📋", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Compliance Audit Trail

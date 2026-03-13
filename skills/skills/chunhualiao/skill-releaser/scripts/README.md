@@ -37,18 +37,18 @@ bash scripts/validate-structure.sh /tmp/skill-release-my-skill
 # Output:
 # Structure validation: /tmp/skill-release-my-skill
 # ──────────────────────────────────────────
-#   ✅ SKILL.md exists
-#   ✅ skill.yml exists
-#   ✅ README.md exists
-#   ✅ skill.yml has required fields (name, description, version, triggers)
-#   ✅ SKILL.md has ## Configuration section
-#   ✅ SKILL.md references trigger words
-#   ✅ tests/ directory exists with 1 file(s)
-#   ✅ CHANGELOG.md exists
+#    SKILL.md exists
+#    skill.yml exists
+#    README.md exists
+#    skill.yml has required fields (name, description, version, triggers)
+#    SKILL.md has ## Configuration section
+#    SKILL.md references trigger words
+#    tests/ directory exists with 1 file(s)
+#    CHANGELOG.md exists
 # ──────────────────────────────────────────
 # Score: 8/8
 #
-# ✅ PASS — structure complete
+#  PASS — structure complete
 ```
 
 ### Exit codes
@@ -86,12 +86,12 @@ bash scripts/validate-release-content.sh /tmp/skill-release-my-skill
 # Output:
 # Release content validation: /tmp/skill-release-my-skill
 # ──────────────────────────────────────────
-#   ✅ PASS — No placeholder text found ({{, TODO, FIXME, YOUR_)
-#   ✅ PASS — No empty files (all files ≥ 50 bytes)
-#   ✅ PASS — README.md has 842 chars (≥ 200 required)
+#    PASS — No placeholder text found ({{, TODO, FIXME, YOUR_)
+#    PASS — No empty files (all files ≥ 50 bytes)
+#    PASS — README.md has 842 chars (≥ 200 required)
 # ──────────────────────────────────────────
 #
-# ✅ PASS — release content is clean
+#  PASS — release content is clean
 ```
 
 ### Exit codes
@@ -135,7 +135,7 @@ bash scripts/opsec-scan.sh /tmp/skill-release-my-skill
 # ──────────────────────────────────────────
 #   Using: refactory/scripts/validate-job-output.py
 #
-# ✅ CLEAN — refactory scanner found no violations
+#  CLEAN — refactory scanner found no violations
 ```
 
 ### Example — violations found
@@ -147,10 +147,10 @@ bash scripts/opsec-scan.sh /tmp/skill-release-my-skill
 # ──────────────────────────────────────────
 #   Refactory scanner not available — using fallback grep scan
 #
-#   ❌ Hardcoded absolute paths (/Users/, /home/) found:
+#    Hardcoded absolute paths (/Users/, /home/) found:
 #     README.md:12:  cp ~/skills/my-skill ~/.openclaw/skills/
 #
-# ❌ BLOCKED — OPSEC violations found (see above)
+#  BLOCKED — OPSEC violations found (see above)
 #    Fix violations in the release copy before proceeding.
 #    Do NOT modify the source in openclaw-knowledge.
 ```

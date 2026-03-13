@@ -157,9 +157,9 @@ after     = d.get("after", "")
 created   = d.get("created_at", datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"))
 diff_type = d.get("diff_type", "agents_md_addition")
 
-sev_icon = {"critical": "🔴", "high": "🔴", "medium": "🟡", "low": "🟢"}.get(severity, "🟡")
+sev_icon = {"critical": "", "high": "", "medium": "", "low": ""}.get(severity, "")
 
-body = f"""## 🤖 Self-Evolving Agent — 자동 생성 제안
+body = f"""##  Self-Evolving Agent — 자동 생성 제안
 
 > 이 이슈는 [Self-Evolving Agent v4.1](https://github.com/search?q=self-evolving-agent)이 자동 생성했습니다.
 > 승인: `sea approve {prop_id}` | 거부: `sea reject {prop_id} "이유"`
@@ -178,7 +178,7 @@ body = f"""## 🤖 Self-Evolving Agent — 자동 생성 제안
 
 ---
 
-### 📋 근거 (Evidence)
+###  근거 (Evidence)
 
 ```
 {evidence}
@@ -186,13 +186,13 @@ body = f"""## 🤖 Self-Evolving Agent — 자동 생성 제안
 
 ---
 
-### 🔴 Before (현재 상태)
+###  Before (현재 상태)
 
 ```
 {before if before else "(변경 전 내용 없음 — 신규 추가)"}
 ```
 
-### 🟢 After (적용 시 변경)
+###  After (적용 시 변경)
 
 ```
 {after if after else "(변경 후 내용 없음)"}
@@ -289,7 +289,7 @@ PYEOF
     return 1
   fi
 
-  ok "✅ 이슈 생성됨: #${issue_num} — ${issue_url}"
+  ok " 이슈 생성됨: #${issue_num} — ${issue_url}"
 
   # 제안 JSON에 이슈 번호 저장
   python3 - "$file" "$issue_num" "$issue_url" <<'PYEOF'
@@ -327,7 +327,7 @@ close_issue() {
   info "이슈 #${issue_num} 종료 중..."
 
   # 종료 코멘트
-  local default_comment="✅ **제안 승인 및 적용됨**
+  local default_comment=" **제안 승인 및 적용됨**
 
 제안 \`${prop_id}\`가 \`sea approve\`를 통해 승인 및 AGENTS.md에 적용되었습니다.
 
@@ -346,7 +346,7 @@ _closed by self-evolving-agent v4.1_"
   # 이슈 상태를 closed로 변경 + 레이블 업데이트
   local close_payload='{"state":"closed","state_reason":"completed"}'
   gh_api PATCH "/repos/${repo}/issues/${issue_num}" "$close_payload" > /dev/null 2>&1 \
-    && ok "✅ 이슈 #${issue_num} 종료됨" \
+    && ok " 이슈 #${issue_num} 종료됨" \
     || warn "이슈 종료 실패 (수동 종료 필요)"
 
   # 레이블 업데이트: pending-review → approved
@@ -363,10 +363,10 @@ json.dump(d, open(fpath, 'w', encoding="utf-8"), ensure_ascii=False, indent=2)
 PYEOF
 }
 
-# ── 동기화 (proposals/ ↔ GitHub Issues) ──────────────────
+# ── 동기화 (proposals/  GitHub Issues) ──────────────────
 sync_issues() {
   local repo="$1"
-  info "제안 ↔ GitHub 이슈 동기화 중..."
+  info "제안  GitHub 이슈 동기화 중..."
 
   local created=0 skipped=0 closed=0
 
@@ -414,12 +414,12 @@ try:
     if not isinstance(issues, list):
         print("이슈 없음 또는 API 오류")
         sys.exit(0)
-    state_icons = {"open": "🟡", "closed": "✅"}
+    state_icons = {"open": "", "closed": ""}
     for iss in issues:
         num   = iss.get("number", "?")
         title = iss.get("title", "?")
         state = iss.get("state", "?")
-        icon  = state_icons.get(state, "❓")
+        icon  = state_icons.get(state, "")
         url   = iss.get("html_url", "")
         labels = [l["name"] for l in iss.get("labels", [])]
         sev = next((l.split(":")[1] for l in labels if l.startswith("severity:")), "?")
@@ -445,7 +445,7 @@ Usage: bash github-issue.sh <command> [options]
   create <file|id>   제안 파일/ID로 GitHub 이슈 생성
   create --all       모든 pending 제안 이슈 생성
   close  <id>        제안 승인 후 이슈 종료
-  sync               proposals/ ↔ GitHub 이슈 동기화
+  sync               proposals/  GitHub 이슈 동기화
   list               self-evolving 이슈 목록
   labels             레이블 초기화
 

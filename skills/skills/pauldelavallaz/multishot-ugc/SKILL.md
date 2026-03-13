@@ -3,13 +3,13 @@ name: multishot-ugc
 description: |
   Generate 10 perspective/angle variations from a single image for multi-shot UGC videos.
   
-  ✅ USE WHEN:
+   USE WHEN:
   - Have a hero image and need camera angle variations
   - Creating multi-scene UGC videos (need different shots)
   - Want close-ups, wide shots, side angles from one source
   - Building a video with scene changes
   
-  ❌ DON'T USE WHEN:
+   DON'T USE WHEN:
   - Don't have a hero image yet → use morpheus-fashion-design first
   - Need completely different scenes/locations → use Morpheus multiple times
   - Just need one image → skip this step

@@ -2,7 +2,7 @@
 
 There are several ways to run the CLI, depending on your needs.
 
-## Option 1: Direct Execution (Quick Test) ⚡
+## Option 1: Direct Execution (Quick Test) 
 
 The built file at `apps/cli/dist/index.js` is already executable!
 
@@ -18,7 +18,7 @@ export POSTIZ_API_KEY=your_key
 node apps/cli/dist/index.js posts:list
 ```
 
-## Option 2: Link Globally (Recommended for Development) 🔗
+## Option 2: Link Globally (Recommended for Development) 
 
 This creates a global `postiz` command you can use anywhere:
 
@@ -38,7 +38,7 @@ pnpm unlink --global
 
 **After linking, you can use `postiz` from any directory!**
 
-## Option 3: Use pnpm Filter (From Root) 📦
+## Option 3: Use pnpm Filter (From Root) 
 
 ```bash
 # From the monorepo root
@@ -47,7 +47,7 @@ pnpm --filter postiz start -- posts:list
 pnpm --filter postiz start -- posts:create -c "Hello" -i "twitter-123"
 ```
 
-## Option 4: Use npm/npx (After Publishing) 🌐
+## Option 4: Use npm/npx (After Publishing) 
 
 Once published to npm:
 
@@ -297,4 +297,4 @@ postiz integrations:list
 postiz posts:create -c "My first post" -i "twitter-123"
 ```
 
-Now you can use `postiz` from anywhere! 🚀
+Now you can use `postiz` from anywhere! 

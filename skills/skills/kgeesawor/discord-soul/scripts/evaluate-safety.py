@@ -161,7 +161,7 @@ def main():
             total_processed += len(results)
             
             if flagged > 0:
-                print(f"  ⚠️ {flagged} flagged in this batch")
+                print(f"   {flagged} flagged in this batch")
         else:
             # Mark as unverified if eval failed
             for m in messages:
@@ -187,7 +187,7 @@ def main():
     conn.close()
     
     if total_flagged > 0:
-        print(f"\n⚠️ {total_flagged} messages flagged - review before processing!")
+        print(f"\n {total_flagged} messages flagged - review before processing!")
         sys.exit(2)  # Non-zero exit for flagged content
 
 

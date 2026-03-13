@@ -183,7 +183,7 @@ Save: Complete discharge summary record
 ## IV. Output Confirmation Example
 
 ```
-✅ Discharge summary saved
+ Discharge summary saved
 
 Hospitalization Information:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━

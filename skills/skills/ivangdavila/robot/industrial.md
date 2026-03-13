@@ -1,6 +1,6 @@
 # Industrial Robotics — Safety Critical
 
-## ⚠️ SIMULATION vs REAL HARDWARE
+##  SIMULATION vs REAL HARDWARE
 
 Before generating ANY motion code, clarify:
 1. **Target:** Simulation (RobotStudio, KUKA.Sim) or real robot?

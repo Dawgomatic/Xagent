@@ -125,11 +125,11 @@ The plugin exposes 58 tools organized by category:
 
 ```
 OpenClaw Agent
-    ↕ (plugin tools + hooks)
+     (plugin tools + hooks)
 memory-valence plugin
-    ↕ (REST API)
+     (REST API)
 Valence Server (http://127.0.0.1:8420)
-    ↕ (SQL + pgvector)
+     (SQL + pgvector)
 PostgreSQL + pgvector
 ```
 

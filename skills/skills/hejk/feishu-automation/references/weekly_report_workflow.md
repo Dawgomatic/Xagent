@@ -181,7 +181,7 @@ After report generation, notify the team:
 ```python
 def notify_team(report_url, recipients):
     """Send notification about new report."""
-    message = f"📊 Weekly report is ready: {report_url}"
+    message = f" Weekly report is ready: {report_url}"
     
     # Use OpenClaw message tool or Feishu bot API
     for recipient in recipients:

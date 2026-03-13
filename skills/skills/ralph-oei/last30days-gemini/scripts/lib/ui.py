@@ -118,8 +118,8 @@ Just start with "last30" and talk to me like normal.
 
 # Shorter promo for single missing key
 PROMO_SINGLE_KEY = {
-    "reddit": "\n💡 You can unlock Reddit with an OpenAI API key — just ask me how.\n",
-    "x": "\n💡 You can unlock X with an xAI API key — just ask me how.\n",
+    "reddit": "\n You can unlock Reddit with an OpenAI API key — just ask me how.\n",
+    "x": "\n You can unlock X with an xAI API key — just ask me how.\n",
 }
 
 # Bird auth help (for local users with vendored Bird CLI)
@@ -172,7 +172,7 @@ class Spinner:
         else:
             # Not a TTY (Claude Code) - just print once
             if not self.shown_static:
-                sys.stderr.write(f"⏳ {self.message}\n")
+                sys.stderr.write(f" {self.message}\n")
                 sys.stderr.flush()
                 self.shown_static = True
 
@@ -180,7 +180,7 @@ class Spinner:
         self.message = message
         if not IS_TTY and not self.shown_static:
             # Print update in non-TTY mode
-            sys.stderr.write(f"⏳ {message}\n")
+            sys.stderr.write(f" {message}\n")
             sys.stderr.flush()
 
     def stop(self, final_message: str = ""):
@@ -289,7 +289,7 @@ class ProgressDisplay:
             age_str = f" ({age_hours:.1f}h old)"
         else:
             age_str = ""
-        sys.stderr.write(f"{Colors.GREEN}⚡{Colors.RESET} {Colors.DIM}Using cached results{age_str} - use --refresh for fresh data{Colors.RESET}\n\n")
+        sys.stderr.write(f"{Colors.GREEN}{Colors.RESET} {Colors.DIM}Using cached results{age_str} - use --refresh for fresh data{Colors.RESET}\n\n")
         sys.stderr.flush()
 
     def show_error(self, message: str):
@@ -366,9 +366,9 @@ def show_diagnostic_banner(diag: dict):
 
         # Reddit
         if has_openai:
-            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.GREEN}✅ Reddit{Colors.RESET}    — OPENAI_API_KEY found                {Colors.DIM}│{Colors.RESET}")
+            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.GREEN} Reddit{Colors.RESET}    — OPENAI_API_KEY found                {Colors.DIM}│{Colors.RESET}")
         else:
-            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.RED}❌ Reddit{Colors.RESET}    — No OPENAI_API_KEY                    {Colors.DIM}│{Colors.RESET}")
+            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.RED} Reddit{Colors.RESET}    — No OPENAI_API_KEY                    {Colors.DIM}│{Colors.RESET}")
             lines.append(f"{Colors.DIM}│{Colors.RESET}     └─ Add to ~/.config/last30days/.env            {Colors.DIM}│{Colors.RESET}")
 
         # X/Twitter
@@ -376,9 +376,9 @@ def show_diagnostic_banner(diag: dict):
             source = diag.get("x_source", "")
             username = diag.get("bird_username", "")
             label = f"Bird ({username})" if source == "bird" and username else source.upper()
-            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.GREEN}✅ X/Twitter{Colors.RESET} — {label}                          {Colors.DIM}│{Colors.RESET}")
+            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.GREEN} X/Twitter{Colors.RESET} — {label}                          {Colors.DIM}│{Colors.RESET}")
         else:
-            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.RED}❌ X/Twitter{Colors.RESET} — No Bird CLI or XAI_API_KEY          {Colors.DIM}│{Colors.RESET}")
+            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.RED} X/Twitter{Colors.RESET} — No Bird CLI or XAI_API_KEY          {Colors.DIM}│{Colors.RESET}")
             if diag.get("bird_installed"):
                 lines.append(f"{Colors.DIM}│{Colors.RESET}     └─ Bird installed but not authenticated         {Colors.DIM}│{Colors.RESET}")
                 lines.append(f"{Colors.DIM}│{Colors.RESET}     └─ Log into x.com in your browser, then retry   {Colors.DIM}│{Colors.RESET}")
@@ -387,17 +387,17 @@ def show_diagnostic_banner(diag: dict):
 
         # YouTube
         if has_youtube:
-            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.GREEN}✅ YouTube{Colors.RESET}   — yt-dlp found                      {Colors.DIM}│{Colors.RESET}")
+            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.GREEN} YouTube{Colors.RESET}   — yt-dlp found                      {Colors.DIM}│{Colors.RESET}")
         else:
-            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.RED}❌ YouTube{Colors.RESET}   — yt-dlp not installed                {Colors.DIM}│{Colors.RESET}")
+            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.RED} YouTube{Colors.RESET}   — yt-dlp not installed                {Colors.DIM}│{Colors.RESET}")
             lines.append(f"{Colors.DIM}│{Colors.RESET}     └─ Fix: brew install yt-dlp (free)                {Colors.DIM}│{Colors.RESET}")
 
         # Web
         if has_web:
             backend = diag.get("web_search_backend", "")
-            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.GREEN}✅ Web{Colors.RESET}       — {backend} API                       {Colors.DIM}│{Colors.RESET}")
+            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.GREEN} Web{Colors.RESET}       — {backend} API                       {Colors.DIM}│{Colors.RESET}")
         else:
-            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.YELLOW}⚡ Web{Colors.RESET}       — Using assistant's search tool       {Colors.DIM}│{Colors.RESET}")
+            lines.append(f"{Colors.DIM}│{Colors.RESET}  {Colors.YELLOW} Web{Colors.RESET}       — Using assistant's search tool       {Colors.DIM}│{Colors.RESET}")
 
         lines.append(f"{Colors.DIM}│{Colors.RESET}                                                     {Colors.DIM}│{Colors.RESET}")
         lines.append(f"{Colors.DIM}│{Colors.RESET}  Config: {Colors.BOLD}~/.config/last30days/.env{Colors.RESET}                  {Colors.DIM}│{Colors.RESET}")
@@ -409,30 +409,30 @@ def show_diagnostic_banner(diag: dict):
         lines.append("│                                                     │")
 
         if has_openai:
-            lines.append("│  ✅ Reddit    — OPENAI_API_KEY found                │")
+            lines.append("│   Reddit    — OPENAI_API_KEY found                │")
         else:
-            lines.append("│  ❌ Reddit    — No OPENAI_API_KEY                    │")
+            lines.append("│   Reddit    — No OPENAI_API_KEY                    │")
             lines.append("│     └─ Add to ~/.config/last30days/.env            │")
 
         if has_x:
-            lines.append("│  ✅ X/Twitter — available                            │")
+            lines.append("│   X/Twitter — available                            │")
         else:
-            lines.append("│  ❌ X/Twitter — No Bird CLI or XAI_API_KEY          │")
+            lines.append("│   X/Twitter — No Bird CLI or XAI_API_KEY          │")
             if diag.get("bird_installed"):
                 lines.append("│     └─ Log into x.com in your browser, then retry   │")
             else:
                 lines.append("│     └─ Needs Node.js 22+ (Bird is bundled)           │")
 
         if has_youtube:
-            lines.append("│  ✅ YouTube   — yt-dlp found                        │")
+            lines.append("│   YouTube   — yt-dlp found                        │")
         else:
-            lines.append("│  ❌ YouTube   — yt-dlp not installed                │")
+            lines.append("│   YouTube   — yt-dlp not installed                │")
             lines.append("│     └─ Fix: brew install yt-dlp (free)                │")
 
         if has_web:
-            lines.append("│  ✅ Web       — API search available                │")
+            lines.append("│   Web       — API search available                │")
         else:
-            lines.append("│  ⚡ Web       — Using assistant's search tool       │")
+            lines.append("│   Web       — Using assistant's search tool       │")
 
         lines.append("│                                                     │")
         lines.append("│  Config: ~/.config/last30days/.env                  │")

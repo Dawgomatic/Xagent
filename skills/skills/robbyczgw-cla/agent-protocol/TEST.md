@@ -200,14 +200,14 @@ echo '{"event_type":"test","payload":{}}' | python3 your_handler.py
 
 ## Success Criteria
 
-✅ Events can be published  
-✅ Events appear in queue  
-✅ Workflow engine validates workflows  
-✅ Workflow engine processes events  
-✅ Events move from queue to processed  
-✅ Handlers execute successfully  
-✅ Logs show execution details  
+ Events can be published  
+ Events appear in queue  
+ Workflow engine validates workflows  
+ Workflow engine processes events  
+ Events move from queue to processed  
+ Handlers execute successfully  
+ Logs show execution details  
 
 ---
 
-**All tests passing? You're ready to integrate! 🦎**
+**All tests passing? You're ready to integrate! **

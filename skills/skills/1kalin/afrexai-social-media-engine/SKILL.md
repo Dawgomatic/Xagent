@@ -73,7 +73,7 @@ Define 5-6 pillars with percentage allocation:
 
 **High-performing formats:**
 1. **Hook tweet** — Bold statement or contrarian take. One line. Period.
-2. **Thread (🧵)** — 5-12 tweets. Hook → Problem → Framework → Examples → CTA
+2. **Thread ()** — 5-12 tweets. Hook → Problem → Framework → Examples → CTA
 3. **List tweet** — "X things I learned from Y:" (numbered, one per line)
 4. **Quote tweet** — Add original insight to someone else's viral tweet
 5. **Poll** — 2-4 options, controversial enough to drive engagement
@@ -84,7 +84,7 @@ Define 5-6 pillars with percentage allocation:
 Tweet 1 (HOOK — this decides everything):
 [Bold claim or surprising stat]
 
-Here's what most people get wrong: 🧵
+Here's what most people get wrong: 
 
 Tweet 2-N (VALUE — one idea per tweet):
 [Number]. [Subheading]
@@ -133,8 +133,8 @@ If this was useful:
 [CTA — question for comments, or soft link in comments]
 
 ---
-♻️ Repost if this resonates
-🔔 Follow [name] for more on [topic]
+ Repost if this resonates
+ Follow [name] for more on [topic]
 ```
 
 **Optimal posting:** 1x/day weekdays, best times Tue-Thu 7-8am or 12pm
@@ -350,7 +350,7 @@ Evening (15 min):
 ```
 
 ### Engagement Quality Rules
-- **Never:** "Great post!" / "🔥" / "Agree!" (zero-value comments)
+- **Never:** "Great post!" / "" / "Agree!" (zero-value comments)
 - **Always:** Add insight, ask a question, share experience, respectfully disagree
 - **Format:** 2-4 sentences minimum, reference specific point from their post
 - **Goal:** Make THEM want to check YOUR profile
@@ -471,7 +471,7 @@ Create recurring series that build audience habit:
 
 ### Social Selling (non-salesy)
 ```
-Don't: "Check out our product! 🎉 Link in bio!"
+Don't: "Check out our product!  Link in bio!"
 Do: "We noticed 73% of [role]s struggle with [problem]. 
      Last week we helped [customer type] solve this in [timeframe]. 
      Here's exactly what we did: [value-first content]

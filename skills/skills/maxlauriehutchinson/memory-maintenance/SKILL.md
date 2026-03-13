@@ -10,7 +10,7 @@ author:
 tags: ["memory", "maintenance", "automation", "agent-improvement", "workflow"]
 metadata:
   openclaw:
-    emoji: 🧹
+    emoji: 
     requires: 
       bins: ["gemini", "jq"]
       env: ["GEMINI_API_KEY"]

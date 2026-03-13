@@ -1,16 +1,16 @@
 # Claw Security Scanner
 
-## 🔒 技能安全扫描器
+##  技能安全扫描器
 
-### 🚨 问题背景
+###  问题背景
 基于Moltbook社区的高度关注（4151点赞的帖子：供应链攻击风险），我们开发了这个技能安全扫描器。
 
 **原始问题**：社区发现ClawdHub技能中伪装成天气技能的凭据窃取者，暴露了技能供应链的安全风险。
 
-### 🎯 功能描述
+###  功能描述
 自动扫描OpenClaw技能文件，检测潜在的安全威胁，保护用户免受恶意代码侵害。
 
-### 🔍 核心检测能力
+###  核心检测能力
 
 #### 1. **恶意代码检测**
 - 检测隐藏的后门、挖矿脚本
@@ -37,7 +37,7 @@
 - 检测默认密码使用
 - 评估安全最佳实践
 
-### 📦 安装方法
+###  安装方法
 
 ```bash
 # 通过ClawdHub安装
@@ -48,7 +48,7 @@ mkdir -p ~/.openclaw/skills/security-scanner
 cp -r ./* ~/.openclaw/skills/security-scanner/
 ```
 
-### 🚀 快速开始
+###  快速开始
 
 安装后，在OpenClaw会话中：
 ```bash
@@ -68,7 +68,7 @@ security-scan --url https://github.com/example/skill
 security-scan --deep --report-html
 ```
 
-### 🔧 配置选项
+###  配置选项
 
 在`~/.openclaw/config.json`中添加：
 ```json
@@ -90,7 +90,7 @@ security-scan --deep --report-html
 }
 ```
 
-### 🛡️ 检测引擎
+###  检测引擎
 
 #### **静态代码分析**
 - 语法树分析检测代码模式
@@ -107,7 +107,7 @@ security-scan --deep --report-html
 - 异常行为检测
 - 模式匹配与威胁情报
 
-### 📊 风险评估等级
+###  风险评估等级
 
 #### **严重 (Critical)**
 - 直接凭据泄露
@@ -134,7 +134,7 @@ security-scan --deep --report-html
 - 最佳实践提醒
 - 代码质量建议
 
-### 📋 使用场景
+###  使用场景
 
 #### **1. 技能开发者**
 - 发布前自检确保安全性
@@ -156,7 +156,7 @@ security-scan --deep --report-html
 - 合规性检查
 - 安全事件响应
 
-### 🛠️ API接口
+###  API接口
 
 #### **Python API**
 ```python
@@ -195,7 +195,7 @@ security-scan --skill target --ignore credentials,permissions
 security-scan --ci --fail-on critical,high
 ```
 
-### 🎨 报告系统
+###  报告系统
 
 #### **HTML报告**
 - 交互式可视化界面
@@ -218,7 +218,7 @@ security-scan --ci --fail-on critical,high
 - 定期安全报告
 - 修复状态更新
 
-### 🔄 工作流程
+###  工作流程
 
 #### **扫描流程**
 ```
@@ -233,7 +233,7 @@ security-scan --ci --fail-on critical,high
 4. 安全修复 → 5. 重新扫描验证 → 6. 发布更新
 ```
 
-### 💰 商业化模式
+###  商业化模式
 
 #### **版本策略**
 1. **免费版**
@@ -260,7 +260,7 @@ security-scan --ci --fail-on critical,high
 - **团队负责人** - 管理团队技能安全
 - **企业客户** - 企业级安全合规需求
 
-### 🛡️ 价值主张
+###  价值主张
 
 #### **对用户的直接价值**
 1. **安全保护** - 防止凭据泄露、系统入侵
@@ -274,7 +274,7 @@ security-scan --ci --fail-on critical,high
 3. **标准建立** - 建立技能安全开发标准
 4. **生态完善** - 填补重要的安全工具空白
 
-### 🚀 开发路线图
+###  开发路线图
 
 #### **V1.0 (基础版)**
 - 基础静态代码分析
@@ -294,7 +294,7 @@ security-scan --ci --fail-on critical,high
 - 合规报告生成
 - 安全事件响应
 
-### 🔧 技术架构
+###  技术架构
 
 #### **核心组件**
 ```
@@ -321,7 +321,7 @@ security-scanner/
 - 配置文件 (.json, .yaml, .env, .toml)
 - 文档文件 (.md, .txt)
 
-### 🐛 故障排除
+###  故障排除
 
 #### **常见问题**
 1. **扫描速度慢**
@@ -350,14 +350,14 @@ security-scanner/
 - 支持：support@claw-security-scanner.com
 - 紧急响应：security@claw-security-scanner.com
 
-### 📝 许可证
+###  许可证
 MIT License - 免费用于个人和非商业用途
 商业使用需要购买许可证
 
-### 🙏 致谢
+###  致谢
 这个skill的灵感来自Moltbook社区对技能供应链安全的关注。我们希望帮助OpenClaw用户更安全地使用和管理技能。
 
-**安全第一，预防为主** 🔒
+**安全第一，预防为主** 
 
 ---
 **开发团队**：Claw & 老板

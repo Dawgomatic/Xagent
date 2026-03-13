@@ -260,16 +260,16 @@ log_finding() {
     
     case "$severity" in
         critical)
-            echo -e "${RED}🔴 CRITICAL [$module]:${NC} $message (score: $score)"
+            echo -e "${RED} CRITICAL [$module]:${NC} $message (score: $score)"
             ;;
         high)
-            echo -e "${ORANGE}🟠 HIGH [$module]:${NC} $message (score: $score)"
+            echo -e "${ORANGE} HIGH [$module]:${NC} $message (score: $score)"
             ;;
         warning)
-            echo -e "${YELLOW}🟡 WARNING [$module]:${NC} $message (score: $score)"
+            echo -e "${YELLOW} WARNING [$module]:${NC} $message (score: $score)"
             ;;
         info)
-            echo -e "${BLUE}ℹ️  INFO [$module]:${NC} $message"
+            echo -e "${BLUE}  INFO [$module]:${NC} $message"
             ;;
     esac
 }
@@ -461,7 +461,7 @@ validate_input() {
     else
         # Human-readable output
         if [ "$action" = "allow" ]; then
-            echo -e "${GREEN}✅ Clean - No threats detected${NC}"
+            echo -e "${GREEN} Clean - No threats detected${NC}"
         else
             echo -e "\n=== Security Scan Results ==="
             while IFS='|' read -r module pattern severity score; do
@@ -563,7 +563,7 @@ full_audit() {
     if [ -f "$WORKSPACE/.env" ]; then
         local perms=$(stat -c %a "$WORKSPACE/.env" 2>/dev/null || echo "unknown")
         if [ "$perms" != "600" ] && [ "$perms" != "unknown" ]; then
-            echo -e "  ${YELLOW}⚠${NC} .env has loose permissions ($perms, should be 600)"
+            echo -e "  ${YELLOW}${NC} .env has loose permissions ($perms, should be 600)"
         else
             echo -e "  ${GREEN}✓${NC} .env permissions OK"
         fi
@@ -573,16 +573,16 @@ full_audit() {
     echo ""
     echo "=== Summary ==="
     if [ $total_findings -eq 0 ]; then
-        echo -e "${GREEN}✅ All clear - No issues found${NC}"
+        echo -e "${GREEN} All clear - No issues found${NC}"
     else
-        echo -e "${YELLOW}⚠️ Found $total_findings file(s) with potential issues${NC}"
+        echo -e "${YELLOW} Found $total_findings file(s) with potential issues${NC}"
     fi
     
     # Log to file
     echo "" >> "$LOG_FILE"
     echo "### $(date '+%Y-%m-%d %H:%M') - Security Audit" >> "$LOG_FILE"
     echo "- Findings: $total_findings" >> "$LOG_FILE"
-    [ $total_findings -eq 0 ] && echo "- Status: ✅ Clean" >> "$LOG_FILE" || echo "- Status: ⚠️ Review needed" >> "$LOG_FILE"
+    [ $total_findings -eq 0 ] && echo "- Status:  Clean" >> "$LOG_FILE" || echo "- Status:  Review needed" >> "$LOG_FILE"
     
     return $total_findings
 }
@@ -614,7 +614,7 @@ safe_install() {
         
         if [ $findings -gt 0 ]; then
             echo ""
-            echo -e "${YELLOW}⚠️ Security issues detected!${NC}"
+            echo -e "${YELLOW} Security issues detected!${NC}"
             read -p "Keep this skill? (y/N) " -n 1 -r
             echo
             if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -626,7 +626,7 @@ safe_install() {
     fi
     
     echo ""
-    echo -e "${GREEN}✅ Installation complete${NC}"
+    echo -e "${GREEN} Installation complete${NC}"
     echo "Documentation: skills/$skill_name/SKILL.md"
 }
 
@@ -654,9 +654,9 @@ case "$1" in
         [ -z "$2" ] && { echo "Usage: $0 --check-url <url>"; exit 1; }
         findings=$(validate_url "$2")
         if [ -z "$findings" ]; then
-            echo -e "${GREEN}✅ URL is safe${NC}"
+            echo -e "${GREEN} URL is safe${NC}"
         else
-            echo -e "${RED}🔴 SSRF/dangerous URL detected${NC}"
+            echo -e "${RED} SSRF/dangerous URL detected${NC}"
             echo "$findings"
             exit 1
         fi

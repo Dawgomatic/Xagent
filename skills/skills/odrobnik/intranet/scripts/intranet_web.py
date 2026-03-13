@@ -532,7 +532,7 @@ class IntranetHandler(BaseHTTPRequestHandler):
                     "url": parent_url,
                     "is_dir": True,
                     "size": "",
-                    "icon": "📁",
+                    "icon": "",
                 })
 
             ignore_tokens = _collect_ignore_tokens(dir_path, dir_path, url_path)
@@ -562,18 +562,18 @@ class IntranetHandler(BaseHTTPRequestHandler):
                     entry_url += "/"
 
                 if is_dir:
-                    icon = "📁"
+                    icon = ""
                 else:
                     suffix = entry.suffix.lower()
                     icon = {
-                        ".html": "🌐", ".htm": "🌐",
-                        ".md": "📄", ".txt": "📄",
-                        ".json": "📋", ".xml": "📋", ".yaml": "📋", ".yml": "📋",
-                        ".jpg": "🖼️", ".jpeg": "🖼️", ".png": "🖼️",
-                        ".gif": "🖼️", ".svg": "🖼️", ".webp": "🖼️",
-                        ".pdf": "📕",
-                        ".zip": "📦", ".tar": "📦", ".gz": "📦", ".bz2": "📦",
-                    }.get(suffix, "📄")
+                        ".html": "", ".htm": "",
+                        ".md": "", ".txt": "",
+                        ".json": "", ".xml": "", ".yaml": "", ".yml": "",
+                        ".jpg": "", ".jpeg": "", ".png": "",
+                        ".gif": "", ".svg": "", ".webp": "",
+                        ".pdf": "",
+                        ".zip": "", ".tar": "", ".gz": "", ".bz2": "",
+                    }.get(suffix, "")
 
                 entries.append({
                     "name": entry.name + ("/" if is_dir else ""),

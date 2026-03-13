@@ -4,21 +4,21 @@
 
 ## Features
 
-- 📋 List reminders (today/week/all)
-- ➕ Add new reminders with due dates
-- 🔄 **Native Recurrence**: Weekly, daily, monthly, yearly repeating reminders (single reminder, not duplicates)
-- 🌍 Multi-language support (en, ko, ja, zh)
-- ⏰ Cron-compatible for scheduled checks
-- ☁️ **iCloud Sync**: Reminders sync automatically to all devices (iPhone, iPad, Mac) logged into the same Apple ID
+-  List reminders (today/week/all)
+-  Add new reminders with due dates
+-  **Native Recurrence**: Weekly, daily, monthly, yearly repeating reminders (single reminder, not duplicates)
+-  Multi-language support (en, ko, ja, zh)
+-  Cron-compatible for scheduled checks
+-  **iCloud Sync**: Reminders sync automatically to all devices (iPhone, iPad, Mac) logged into the same Apple ID
 
 ## iCloud Sync
 
 When you add or modify reminders using this skill on your Mac, they **automatically sync to all your Apple devices** (iPhone, iPad, Apple Watch, other Macs) logged into the same Apple ID via iCloud.
 
 This means:
-- ✅ Add a reminder via agent → appears on your iPhone instantly
-- ✅ Complete a reminder on iPhone → reflected in agent queries
-- ✅ No manual sync required
+-  Add a reminder via agent → appears on your iPhone instantly
+-  Complete a reminder on iPhone → reflected in agent queries
+-  No manual sync required
 
 > **Note**: Ensure iCloud Reminders is enabled in System Settings → Apple ID → iCloud → Reminders
 

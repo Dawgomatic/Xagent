@@ -2,7 +2,7 @@ import type { StrapiClient } from '../client.js';
 import { fetchJson } from '../client.js';
 
 const WARNING =
-  '⚠️  This is a DESTRUCTIVE operation that modifies the database schema. ' +
+  '  This is a DESTRUCTIVE operation that modifies the database schema. ' +
   'Strapi will restart after changes. ' +
   'This may not work on production/cloud deployments.';
 

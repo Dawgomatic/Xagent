@@ -13,7 +13,7 @@ const fs = require('fs');
 const path = require('path');
 
 async function getTrends() {
-  console.log('🔥 Fetching trending topics...');
+  console.log(' Fetching trending topics...');
   
   const browser = await chromium.connectOverCDP('http://127.0.0.1:18792');
   const context = browser.contexts()[0];
@@ -41,7 +41,7 @@ async function getTrends() {
     
     return trends;
   } catch (error) {
-    console.error('❌ Error fetching trends:', error.message);
+    console.error(' Error fetching trends:', error.message);
     throw error;
   }
 }
@@ -50,7 +50,7 @@ async function main() {
   try {
     const trends = await getTrends();
     
-    console.log(`📊 Found ${trends.length} trending topics`);
+    console.log(` Found ${trends.length} trending topics`);
     
     // Save trends for AI to process
     const dataDir = path.join(__dirname, '..', 'data');
@@ -64,8 +64,8 @@ async function main() {
       trends
     }, null, 2));
     
-    console.log(`💾 Saved trends to ${trendsFile}`);
-    console.log('\n🤖 Now message OpenClaw to generate tweet ideas from these trends!');
+    console.log(` Saved trends to ${trendsFile}`);
+    console.log('\n Now message OpenClaw to generate tweet ideas from these trends!');
     
     // Output trends for easy reading
     console.log('\nTop trends:');

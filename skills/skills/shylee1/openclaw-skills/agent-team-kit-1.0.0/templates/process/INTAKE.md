@@ -19,9 +19,9 @@ After: A self-sustaining system where work flows continuously and agents can sel
      │                                                         │
      ▼                                                         │
 ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐      │
-│ DISCOVER│───▶│  TRIAGE │───▶│  READY  │───▶│ EXECUTE │──────┘
+│ DISCOVER│───│  TRIAGE │───│  READY  │───│ EXECUTE │──────┘
 │         │    │         │    │         │    │         │
-│ Scout 🔍│    │Rhythm 🥁│    │Self-Srv │    │ Agents  │
+│ Scout │    │Rhythm │    │Self-Srv │    │ Agents  │
 └─────────┘    └─────────┘    └─────────┘    └─────────┘
      ▲                                              │
      │              Feedback Loop                   │
@@ -30,7 +30,7 @@ After: A self-sustaining system where work flows continuously and agents can sel
 
 ---
 
-## Phase 1: DISCOVER 🔍
+## Phase 1: DISCOVER 
 
 **Owner:** Scout (or any agent who finds something)
 
@@ -61,7 +61,7 @@ After: A self-sustaining system where work flows continuously and agents can sel
 
 ---
 
-## Phase 2: TRIAGE 🥁
+## Phase 2: TRIAGE 
 
 **Owner:** Rhythm (Backlog Owner)
 
@@ -89,13 +89,13 @@ For each item in OPPORTUNITIES.md, decide:
 
 ---
 
-## Phase 3: READY QUEUE 📋
+## Phase 3: READY QUEUE 
 
 **Location:** `process/BACKLOG.md` → "Ready" section
 
 **Structure:**
 ```markdown
-## 🟡 Ready (can be picked up)
+##  Ready (can be picked up)
 
 ### High Priority
 | Task | Size | Notes |
@@ -120,7 +120,7 @@ For each item in OPPORTUNITIES.md, decide:
 
 ---
 
-## Phase 4: SELF-SERVICE EXECUTION 🤖
+## Phase 4: SELF-SERVICE EXECUTION 
 
 **How agents claim work:**
 
@@ -136,14 +136,14 @@ For each item in OPPORTUNITIES.md, decide:
 
 | Agent | Task | Started | Status |
 |-------|------|---------|--------|
-| [Agent] | [Task name] | [Date] | 🟡 In Progress |
+| [Agent] | [Task name] | [Date] |  In Progress |
 ```
 
 **No bottleneck rule:** Agents don't need permission to pick up Ready tasks. If it's in Ready, it's fair game.
 
 ---
 
-## Phase 5: FEEDBACK LOOP 🔄
+## Phase 5: FEEDBACK LOOP 
 
 **Owner:** Whoever completes the work
 
@@ -174,8 +174,8 @@ For each item in OPPORTUNITIES.md, decide:
 
 | Phase | Owner | Backup |
 |-------|-------|--------|
-| Discover | Scout 🔍 | Any agent (opportunistic) |
-| Triage | Rhythm 🥁 | Human (strategic decisions) |
+| Discover | Scout  | Any agent (opportunistic) |
+| Triage | Rhythm  | Human (strategic decisions) |
 | Ready Queue | Self-serve | Rhythm maintains queue health |
 | Execute | Assigned agent | Spawn sub-agents as needed |
 | Feedback | Completing agent | — |
@@ -184,15 +184,15 @@ For each item in OPPORTUNITIES.md, decide:
 
 ## Anti-Patterns to Avoid
 
-❌ **"[Human] will add it"** — No. Anyone adds to OPPORTUNITIES.md.
+ **"[Human] will add it"** — No. Anyone adds to OPPORTUNITIES.md.
 
-❌ **"Waiting for approval"** — No. If it's in Ready, pick it up.
+ **"Waiting for approval"** — No. If it's in Ready, pick it up.
 
-❌ **"I'll remember this idea"** — No. Log it or lose it.
+ **"I'll remember this idea"** — No. Log it or lose it.
 
-❌ **"This is too small to log"** — No. Small tasks clog brains. Log them.
+ **"This is too small to log"** — No. Small tasks clog brains. Log them.
 
-❌ **"Someone else will notice"** — No. You noticed. You log it.
+ **"Someone else will notice"** — No. You noticed. You log it.
 
 ---
 

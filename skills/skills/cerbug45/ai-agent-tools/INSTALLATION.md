@@ -2,7 +2,7 @@
 
 Complete installation guide for AI Agent Tools library.
 
-## 📦 Installation Methods
+##  Installation Methods
 
 ### Method 1: Direct File Download (Recommended for Quick Start)
 
@@ -55,7 +55,7 @@ git submodule add https://github.com/cerbug45/ai-agent-tools.git libs/ai-agent-t
 git submodule update --init --recursive
 ```
 
-## 🐍 Python Version Requirements
+##  Python Version Requirements
 
 - **Minimum:** Python 3.7
 - **Recommended:** Python 3.9 or higher
@@ -69,12 +69,12 @@ python --version
 python3 --version
 ```
 
-## 📋 System Requirements
+##  System Requirements
 
 ### Operating Systems
-- ✅ Linux (Ubuntu, Debian, CentOS, etc.)
-- ✅ macOS (10.14+)
-- ✅ Windows (10/11)
+-  Linux (Ubuntu, Debian, CentOS, etc.)
+-  macOS (10.14+)
+-  Windows (10/11)
 
 ### Dependencies
 **None!** This library uses only Python's standard library.
@@ -91,7 +91,7 @@ pip install black
 pip install flake8
 ```
 
-## 🚀 Quick Setup Guide
+##  Quick Setup Guide
 
 ### Step 1: Download or Clone
 
@@ -120,7 +120,7 @@ Expected output:
 ✓ Tüm araçlar test edildi!
 ```
 
-## 🔧 Project Setup
+##  Project Setup
 
 ### For Single-File Projects
 
@@ -173,7 +173,7 @@ my-package/
 └── tests/
 ```
 
-## 🐳 Docker Setup
+##  Docker Setup
 
 Create a `Dockerfile`:
 
@@ -197,7 +197,7 @@ docker build -t my-ai-agent .
 docker run my-ai-agent
 ```
 
-## 🌐 Virtual Environment Setup
+##  Virtual Environment Setup
 
 ### Using venv (Recommended)
 
@@ -234,7 +234,7 @@ wget https://raw.githubusercontent.com/cerbug45/ai-agent-tools/main/ai_agent_too
 conda deactivate
 ```
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Issue: Module Not Found
 
@@ -289,7 +289,7 @@ filepath = "data/file.txt"  # Good
 # Not: filepath = "data\\file.txt"
 ```
 
-## 📱 IDE Setup
+##  IDE Setup
 
 ### Visual Studio Code
 
@@ -315,7 +315,7 @@ sys.path.append('./path/to/library')
 from ai_agent_tools import FileTools, TextTools
 ```
 
-## 🧪 Running Tests
+##  Running Tests
 
 ### Basic Test
 ```bash
@@ -343,7 +343,7 @@ if __name__ == "__main__":
     print("✓ All tests passed!")
 ```
 
-## 📚 Next Steps
+##  Next Steps
 
 After installation:
 
@@ -352,16 +352,16 @@ After installation:
 3. Review the code for available functions
 4. Start building your AI agent!
 
-## 🆘 Getting Help
+##  Getting Help
 
 - **Issues:** https://github.com/cerbug45/ai-agent-tools/issues
 - **Discussions:** https://github.com/cerbug45/ai-agent-tools/discussions
 - **Documentation:** https://github.com/cerbug45/ai-agent-tools/blob/main/SKILL.md
 
-## 📝 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file
 
 ---
 
-**Installation complete! Happy coding! 🚀**
+**Installation complete! Happy coding! **

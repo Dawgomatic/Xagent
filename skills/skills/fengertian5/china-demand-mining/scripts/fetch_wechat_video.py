@@ -80,7 +80,7 @@ class WechatVideoFetcher:
                 "data": comments
             }, f, ensure_ascii=False, indent=2)
         
-        print(f"✅ 已保存 {len(comments)} 条视频号评论到 {output_path}")
+        print(f" 已保存 {len(comments)} 条视频号评论到 {output_path}")
 
 def main():
     parser = argparse.ArgumentParser(description='抓取视频号评论数据')

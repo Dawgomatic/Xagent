@@ -27,8 +27,8 @@ Jobs follow this state machine:
 
 ```
 CREATED(0) → FUNDED(1) → ACCEPTED(2) → ACTIVE(3) → DELIVERED(4) → COMPLETED(6)
-                                                  ↘ DISPUTED(5) → ARBITRATED(8)
-         ↘ REFUNDED(7)                                           ↘ COMPLETED(6)
+                                                   DISPUTED(5) → ARBITRATED(8)
+          REFUNDED(7)                                            COMPLETED(6)
 ```
 
 There are **two ways** to get work:

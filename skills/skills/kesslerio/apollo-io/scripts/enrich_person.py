@@ -21,7 +21,7 @@ def format_person(person: dict) -> str:
     name = person.get("name", "N/A")
     title = person.get("title", "N/A")
     
-    lines.append(f"👤 {name}")
+    lines.append(f" {name}")
     lines.append(f"   Title: {title}")
     
     # Organization

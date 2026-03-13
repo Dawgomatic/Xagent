@@ -30,10 +30,10 @@ Provide context about what you're assessing:
 |---|------|----------|---|---|-------|----------|------------|-------|----------|------|
 
 **Risk Heat Map:**
-- 🔴 Critical (20-25): Immediate action required
-- 🟠 High (15-19): Mitigation plan within 7 days
-- 🟡 Medium (8-14): Monitor and review monthly
-- 🟢 Low (1-7): Accept or monitor quarterly
+-  Critical (20-25): Immediate action required
+-  High (15-19): Mitigation plan within 7 days
+-  Medium (8-14): Monitor and review monthly
+-  Low (1-7): Accept or monitor quarterly
 
 **Residual Risk:** After mitigation, re-score to show risk reduction.
 

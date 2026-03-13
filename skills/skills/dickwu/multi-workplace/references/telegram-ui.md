@@ -13,7 +13,7 @@ Read `registry.json`, separate into:
 **Top-level message:**
 
 ```
-📁 **Workplaces**
+ **Workplaces**
 Current: **{current_name}** {current_path_short}
 ```
 
@@ -24,8 +24,8 @@ Current: **{current_name}** {current_path_short}
   "blocks": [{
     "type": "buttons",
     "buttons": [
-      {"label": "📂 log-stream (2)", "style": "primary"},
-      {"label": "🔧 multi-workplace ✓", "style": "secondary", "disabled": true}
+      {"label": " log-stream (2)", "style": "primary"},
+      {"label": " multi-workplace ✓", "style": "secondary", "disabled": true}
     ]
   }]
 }
@@ -37,10 +37,10 @@ Current: **{current_name}** {current_path_short}
 
 ### Drill into Parent
 
-When user clicks a parent workspace button (e.g. "📂 log-stream (2)"), show its children:
+When user clicks a parent workspace button (e.g. " log-stream (2)"), show its children:
 
 ```
-📂 **log-stream** — parent workspace
+ **log-stream** — parent workspace
 `/Users/.../opensource/log-stream`
 ```
 
@@ -51,9 +51,9 @@ When user clicks a parent workspace button (e.g. "📂 log-stream (2)"), show it
   "blocks": [{
     "type": "buttons",
     "buttons": [
-      {"label": "⚙️ logstream", "style": "primary"},
-      {"label": "🌐 logstream-dashboard ✓", "style": "secondary", "disabled": true},
-      {"label": "📂 Use log-stream (parent)", "style": "secondary"},
+      {"label": " logstream", "style": "primary"},
+      {"label": " logstream-dashboard ✓", "style": "secondary", "disabled": true},
+      {"label": " Use log-stream (parent)", "style": "secondary"},
       {"label": "← Back", "style": "secondary"}
     ]
   }]
@@ -89,10 +89,10 @@ If it matches a standalone or child → switch directly.
 After switching, send:
 
 ```
-✅ Switched to **logstream**
-📂 `/Users/.../log-stream/logstream`
-📂 Parent: log-stream
-🔗 Linked: logstream-dashboard
+ Switched to **logstream**
+ `/Users/.../log-stream/logstream`
+ Parent: log-stream
+ Linked: logstream-dashboard
 
 Agents: kernel, rust-dev, sdk-dev, reviewer, publisher
 ```
@@ -101,12 +101,12 @@ Agents: kernel, rust-dev, sdk-dev, reviewer, publisher
 
 | Button text | Action |
 |---|---|
-| `📂 {parent} (N)` | Show parent's children (drill-in) |
-| `⚙️/🌐/🔧 {name}` | Switch to that workspace |
-| `📂 Use {name} (parent)` | Switch to parent workspace |
+| ` {parent} (N)` | Show parent's children (drill-in) |
+| `// {name}` | Switch to that workspace |
+| ` Use {name} (parent)` | Switch to parent workspace |
 | `← Back` | Show top-level list |
-| `▶️ Start {agent}` | `workplace agent start {agent}` |
-| `⏹ Stop {agent}` | `workplace agent stop {agent}` |
+| ` Start {agent}` | `workplace agent start {agent}` |
+| ` Stop {agent}` | `workplace agent stop {agent}` |
 
 ### Agent and Deploy Buttons
 
@@ -117,10 +117,10 @@ Same as before — shown after switching or via `/workplace agents` / `/workplac
   "blocks": [
     {"type": "text", "text": "**Agents for logstream:**"},
     {"type": "buttons", "buttons": [
-      {"label": "▶️ Start rust-dev", "style": "success"},
-      {"label": "▶️ Start reviewer", "style": "success"},
-      {"label": "▶️ Start sdk-dev", "style": "success"},
-      {"label": "🔄 Start kernel", "style": "primary"}
+      {"label": " Start rust-dev", "style": "success"},
+      {"label": " Start reviewer", "style": "success"},
+      {"label": " Start sdk-dev", "style": "success"},
+      {"label": " Start kernel", "style": "primary"}
     ]}
   ]
 }
@@ -131,17 +131,17 @@ Same as before — shown after switching or via `/workplace agents` / `/workplac
 For `/workplace status`:
 
 ```
-📁 **logstream** (93cb20c8...)
-📂 `/Users/.../log-stream/logstream`
-🖥️ Host: dsgnmac2
-📂 Parent: log-stream (74cdd6fd...)
-🔗 Linked: logstream-dashboard
+ **logstream** (93cb20c8...)
+ `/Users/.../log-stream/logstream`
+ Host: dsgnmac2
+ Parent: log-stream (74cdd6fd...)
+ Linked: logstream-dashboard
 
 **Agents:**
-🟢 kernel — persistent structure watcher
-⚪ rust-dev — Rust systems developer
-⚪ reviewer — code reviewer
-⚪ publisher — release manager
+ kernel — persistent structure watcher
+ rust-dev — Rust systems developer
+ reviewer — code reviewer
+ publisher — release manager
 
 **Deploy:** dev | main | pre
 ```
@@ -151,12 +151,12 @@ For `/workplace status`:
 On platforms without inline buttons (WhatsApp, Signal), show hierarchical text:
 
 ```
-📁 Workplaces (current: logstream)
+ Workplaces (current: logstream)
 
-1. 📂 log-stream (parent)
-   1a. ⚙️ logstream ← current
-   1b. 🌐 logstream-dashboard
-2. 🔧 multi-workplace
+1.  log-stream (parent)
+   1a.  logstream ← current
+   1b.  logstream-dashboard
+2.  multi-workplace
 
 Reply with number (e.g. "1b") or name (e.g. "log-stream:logstream-dashboard")
 ```

@@ -309,16 +309,16 @@ def main():
         if result["attachments"]:
             print("\n=== ATTACHMENTS ===")
             for att in result["attachments"]:
-                status = "✅" if att["safety"] == "allowed" else "❌"
+                status = "" if att["safety"] == "allowed" else ""
                 print(f"  {status} {att['filename']} ({att['size_mb']}MB) - {att['safety']}")
                 if att["reason"]:
                     print(f"     Reason: {att['reason']}")
         
         if result["saved_attachments"]:
-            print(f"\n✅ Saved {len(result['saved_attachments'])} attachment(s) to {args.attachments_dir}")
+            print(f"\n Saved {len(result['saved_attachments'])} attachment(s) to {args.attachments_dir}")
         
         if result["warnings"]:
-            print("\n⚠️  WARNINGS:")
+            print("\n  WARNINGS:")
             for w in result["warnings"]:
                 print(f"  - {w}")
 

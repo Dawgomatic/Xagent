@@ -1,7 +1,7 @@
 ---
 name: Medicine
 description: Support medical understanding from patient education to clinical practice and research.
-metadata: {"clawdbot":{"emoji":"⚕️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

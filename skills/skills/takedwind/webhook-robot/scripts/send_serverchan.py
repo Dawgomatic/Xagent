@@ -17,9 +17,9 @@ def send_serverchan_msg(key, title, content):
         req = urllib.request.Request(url, data=data)
         with urllib.request.urlopen(req) as response:
             result = response.read().decode('utf-8')
-            print(f"✅ ServerChan Message sent. Response: {result}")
+            print(f" ServerChan Message sent. Response: {result}")
     except Exception as e:
-        print(f"❌ Failed to send ServerChan message: {e}")
+        print(f" Failed to send ServerChan message: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

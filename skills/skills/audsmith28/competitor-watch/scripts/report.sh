@@ -57,7 +57,7 @@ format_alert() {
     local score=$(echo "$change_json" | jq -r '.score')
     
     local report=""
-    report+="🚨 COMPETITOR CHANGE: $comp_name ($comp_tier)\n"
+    report+=" COMPETITOR CHANGE: $comp_name ($comp_tier)\n"
     report+="========================================\n"
     report+="Page: $page_name\n"
     report+="Detected: $(echo "$change_json" | jq -r '.timestamp')\n"

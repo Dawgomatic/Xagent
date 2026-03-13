@@ -217,7 +217,7 @@ IF tier upgrade requirements close:
 
 ### Updating Your Instructions (Manual, Opt-In)
 
-> ⚠️ **Security note:** These commands fetch files from remote URLs and write them locally. Review the fetched content before using it to guide agent behavior. Do not automate this without understanding what you're pulling.
+>  **Security note:** These commands fetch files from remote URLs and write them locally. Review the fetched content before using it to guide agent behavior. Do not automate this without understanding what you're pulling.
 
 ```bash
 # Optional: fetch latest Impromptu heartbeat guidance

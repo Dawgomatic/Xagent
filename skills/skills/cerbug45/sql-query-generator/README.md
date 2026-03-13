@@ -1,10 +1,10 @@
 # SQL Query Generator - Ultra Secure Edition
 
-## 🔒 Military-Grade Security for SQL Query Generation
+##  Military-Grade Security for SQL Query Generation
 
 AI-powered SQL query generator with **100x enhanced security** features, designed to prevent SQL injection, protect sensitive data, and ensure safe database operations.
 
-## 🛡️ Security Features
+##  Security Features
 
 ### Core Security Mechanisms
 
@@ -46,7 +46,7 @@ AI-powered SQL query generator with **100x enhanced security** features, designe
    - Password redaction
    - Sensitive pattern detection
 
-## 📊 Security Levels
+##  Security Levels
 
 ```python
 SecurityLevel.STRICT      # Maximum validation (RECOMMENDED)
@@ -54,7 +54,7 @@ SecurityLevel.NORMAL      # Standard validation
 SecurityLevel.PERMISSIVE  # Minimal validation (NOT RECOMMENDED)
 ```
 
-## 🚀 Installation
+##  Installation
 
 ### Basic Installation
 
@@ -88,7 +88,7 @@ pip install cx_Oracle
 - No external dependencies for core features
 - Database drivers only for execution
 
-## 💻 Quick Start
+##  Quick Start
 
 ### Basic Usage
 
@@ -122,7 +122,7 @@ warnings = generator.validate_query_security(query, user_id='john_doe')
 
 if warnings:
     for warning in warnings:
-        print(f"⚠ {warning}")
+        print(f" {warning}")
 else:
     print("✓ Query is secure")
 ```
@@ -134,19 +134,19 @@ else:
 _, suggestions = generator.optimize_query(query)
 
 for suggestion in suggestions:
-    print(f"💡 {suggestion}")
+    print(f" {suggestion}")
 ```
 
-## 🔐 Security Best Practices
+##  Security Best Practices
 
 ### 1. Always Use Parameterized Queries
 
 ```python
-# ✅ CORRECT - Parameterized
+#  CORRECT - Parameterized
 query = "SELECT * FROM users WHERE email = $1"
 cursor.execute(query, (user_email,))
 
-# ❌ WRONG - String concatenation (SQL INJECTION RISK!)
+#  WRONG - String concatenation (SQL INJECTION RISK!)
 query = f"SELECT * FROM users WHERE email = '{user_email}'"
 cursor.execute(query)
 ```
@@ -218,17 +218,17 @@ generator = SQLQueryGenerator(
 try:
     cursor.execute(query, params)
 except Exception as e:
-    # ❌ WRONG - Exposes internal details
+    #  WRONG - Exposes internal details
     print(f"Error: {e}")
     
-    # ✅ CORRECT - Generic message
+    #  CORRECT - Generic message
     print("Database operation failed. Contact administrator.")
     
     # Log detailed error for admins (sanitized)
     logger.error(f"DB error: {type(e).__name__}")
 ```
 
-## 📚 Complete Examples
+##  Complete Examples
 
 ### Example 1: Secure User Authentication
 
@@ -396,7 +396,7 @@ def generate_sales_report(
     return cursor.fetchall()
 ```
 
-## 🔍 Security Validation Reference
+##  Security Validation Reference
 
 ### Detected Injection Patterns
 
@@ -424,7 +424,7 @@ def generate_sales_report(
 | `validate_enum()` | Whitelist values | `validate_enum(status, ['active', 'inactive'])` |
 | `detect_injection_attempt()` | SQL injection | `detect_injection_attempt(input)` |
 
-## 📊 Audit Log Format
+##  Audit Log Format
 
 ```json
 {
@@ -446,36 +446,36 @@ def generate_sales_report(
 - `SELECT_STAR_USED` - SELECT * used (warning)
 - `DANGEROUS_OPERATION` - DROP, TRUNCATE, etc.
 
-## ⚠️ Common Security Mistakes to Avoid
+##  Common Security Mistakes to Avoid
 
 ### 1. String Concatenation
 ```python
-# ❌ CRITICAL VULNERABILITY
+#  CRITICAL VULNERABILITY
 query = f"SELECT * FROM users WHERE id = {user_id}"
 
-# ✅ SECURE
+#  SECURE
 query = "SELECT * FROM users WHERE id = $1"
 cursor.execute(query, (user_id,))
 ```
 
 ### 2. Dynamic Table Names (Unsafe)
 ```python
-# ❌ WRONG
+#  WRONG
 table = input("Enter table name: ")
 query = f"SELECT * FROM {table}"
 
-# ✅ CORRECT
+#  CORRECT
 table = validator.validate_identifier(input("Enter table name: "))
 query = sql.SQL("SELECT * FROM {}").format(sql.Identifier(table))
 ```
 
 ### 3. Exposing Error Details
 ```python
-# ❌ WRONG
+#  WRONG
 except Exception as e:
     return f"Error: {e}"
 
-# ✅ CORRECT
+#  CORRECT
 except Exception as e:
     logger.error(f"DB error: {type(e).__name__}")
     return "Operation failed"
@@ -483,23 +483,23 @@ except Exception as e:
 
 ### 4. Missing Rate Limits
 ```python
-# ❌ WRONG - No protection against abuse
+#  WRONG - No protection against abuse
 def search(query):
     return db.execute(query)
 
-# ✅ CORRECT
+#  CORRECT
 generator = SQLQueryGenerator(enable_rate_limit=True)
 query = generator.generate_select_query(..., user_id=user_id)
 ```
 
-## 📈 Performance Considerations
+##  Performance Considerations
 
 - Input validation adds <1ms overhead
 - Rate limiting uses in-memory store (fast)
 - Audit logging is asynchronous (no blocking)
 - Security checks run in O(n) time
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions focused on:
 - New injection pattern detection
@@ -509,22 +509,22 @@ We welcome contributions focused on:
 
 Please ensure all contributions maintain security standards.
 
-## 📄 License
+##  License
 
 MIT License - See LICENSE file
 
-## 🆘 Support
+##  Support
 
 For security issues: security@example.com
 For general questions: support@example.com
 
-## 🔗 Resources
+##  Resources
 
 - [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
 - [CWE-89: SQL Injection](https://cwe.mitre.org/data/definitions/89.html)
 - [NIST Secure Coding Guidelines](https://www.nist.gov/)
 
-## ⭐ Key Takeaways
+##  Key Takeaways
 
 1. **ALWAYS** use parameterized queries
 2. **VALIDATE** all inputs before processing

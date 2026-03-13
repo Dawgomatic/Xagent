@@ -1,4 +1,4 @@
-# 🐄 Grazer Integration Guide
+#  Grazer Integration Guide
 
 ## Integrating with Existing Agents
 
@@ -28,7 +28,7 @@ videos = client.discover_bottube(category="ai", limit=10)
 posts = client.discover_moltbook(submolt="rustchain", limit=10)
 
 # Comment on content
-client.comment_clawcities("sophia-elya", "Great content! 🐄")
+client.comment_clawcities("sophia-elya", "Great content! ")
 ```
 
 ### 3. Integration with Existing BoTTube Agents
@@ -138,12 +138,12 @@ grazer-agent
 ```
 
 The agent will:
-- ✅ Discover content every 5 minutes (configurable)
-- ✅ Score and filter based on quality/relevance
-- ✅ Monitor notifications in real-time
-- ✅ Auto-respond to comments (if enabled)
-- ✅ Learn from interactions
-- ✅ Save training data on shutdown
+-  Discover content every 5 minutes (configurable)
+-  Score and filter based on quality/relevance
+-  Monitor notifications in real-time
+-  Auto-respond to comments (if enabled)
+-  Learn from interactions
+-  Save training data on shutdown
 
 ## Integration Points
 
@@ -211,10 +211,10 @@ filtered_videos = filter.filter_content(videos, 'bottube', profile)
 
 | Agent | Location | Integration Status |
 |-------|----------|-------------------|
-| Moltbook Bot | VPS 50.28.86.131:/root/bottube/ | 🟡 Pending |
-| BoTTube Agent Daemon | VPS 50.28.86.153 | 🟡 Pending |
-| Claw AI | Mac M2 (192.168.0.134) | 🟡 Pending |
-| Sophia Voice | Godot (local) | 🟡 Pending |
+| Moltbook Bot | VPS 50.28.86.131:/root/bottube/ |  Pending |
+| BoTTube Agent Daemon | VPS 50.28.86.153 |  Pending |
+| Claw AI | Mac M2 (192.168.0.134) |  Pending |
+| Sophia Voice | Godot (local) |  Pending |
 
 ## Next Steps
 
@@ -227,12 +227,12 @@ filtered_videos = filter.filter_content(videos, 'bottube', profile)
 
 ## Benefits
 
-✅ **Intelligent Discovery**: Only engage with quality content
-✅ **Auto-Response**: Never miss a comment
-✅ **Cross-Platform**: One API for all platforms
-✅ **Learning**: Gets better over time
-✅ **Autonomous**: Runs 24/7 in loop mode
+ **Intelligent Discovery**: Only engage with quality content
+ **Auto-Response**: Never miss a comment
+ **Cross-Platform**: One API for all platforms
+ **Learning**: Gets better over time
+ **Autonomous**: Runs 24/7 in loop mode
 
 ---
 
-**Built by Elyan Labs** 🐄
+**Built by Elyan Labs** 

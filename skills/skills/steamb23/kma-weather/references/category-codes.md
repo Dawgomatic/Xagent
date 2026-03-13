@@ -67,11 +67,11 @@ Used in `PTY` category:
 
 | Code | Korean | English | Icon Suggestion |
 |------|--------|---------|-----------------|
-| 0 | 없음 | None | ☀️ (if clear) or ☁️ (if cloudy) |
-| 1 | 비 | Rain | 🌧️ |
-| 2 | 비/눈 | Rain/Snow | 🌨️ |
-| 3 | 눈 | Snow | ❄️ |
-| 4 | 소나기 | Shower | 🌦️ |
+| 0 | 없음 | None |  (if clear) or  (if cloudy) |
+| 1 | 비 | Rain |  |
+| 2 | 비/눈 | Rain/Snow |  |
+| 3 | 눈 | Snow |  |
+| 4 | 소나기 | Shower |  |
 
 ### Sky Condition Codes
 
@@ -79,9 +79,9 @@ Used in `SKY` category:
 
 | Code | Korean | English | Icon Suggestion |
 |------|--------|---------|-----------------|
-| 1 | 맑음 | Clear | ☀️ |
-| 3 | 구름많음 | Partly Cloudy | ⛅ |
-| 4 | 흐림 | Cloudy | ☁️ |
+| 1 | 맑음 | Clear |  |
+| 3 | 구름많음 | Partly Cloudy |  |
+| 4 | 흐림 | Cloudy |  |
 
 ### Wind Direction Conversion
 

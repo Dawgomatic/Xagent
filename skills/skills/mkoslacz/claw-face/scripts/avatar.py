@@ -46,27 +46,27 @@ else:  # Linux and others
 # ═══════════════════════════════════════════════════════════════════════════════
 
 EMOTIONS = {
-    "neutral": {"emoji": "🦞", "color": "#888888", "robot_eyes": "idle"},
-    "happy": {"emoji": "😊🦞", "color": "#00ff88", "robot_eyes": "happy"},
-    "excited": {"emoji": "🤩🦞", "color": "#ffff00", "robot_eyes": "star"},
-    "thinking": {"emoji": "🤔🦞", "color": "#00ccff", "robot_eyes": "thinking"},
-    "confused": {"emoji": "😵🦞", "color": "#ff88ff", "robot_eyes": "spiral"},
-    "tired": {"emoji": "😴🦞", "color": "#666688", "robot_eyes": "sleepy"},
-    "angry": {"emoji": "😤🦞", "color": "#ff4444", "robot_eyes": "angry"},
-    "sad": {"emoji": "😢🦞", "color": "#4488ff", "robot_eyes": "sad"},
-    "proud": {"emoji": "😎🦞", "color": "#ff8800", "robot_eyes": "cool"},
+    "neutral": {"emoji": "", "color": "#888888", "robot_eyes": "idle"},
+    "happy": {"emoji": "", "color": "#00ff88", "robot_eyes": "happy"},
+    "excited": {"emoji": "", "color": "#ffff00", "robot_eyes": "star"},
+    "thinking": {"emoji": "", "color": "#00ccff", "robot_eyes": "thinking"},
+    "confused": {"emoji": "", "color": "#ff88ff", "robot_eyes": "spiral"},
+    "tired": {"emoji": "", "color": "#666688", "robot_eyes": "sleepy"},
+    "angry": {"emoji": "", "color": "#ff4444", "robot_eyes": "angry"},
+    "sad": {"emoji": "", "color": "#4488ff", "robot_eyes": "sad"},
+    "proud": {"emoji": "", "color": "#ff8800", "robot_eyes": "cool"},
 }
 
 ACTIONS = {
     "idle": {"label": "STANDBY", "hands": "rest", "emoji_acc": None},
     "coding": {"label": "CODING", "hands": "typing", "emoji_acc": None},  # Keyboard already drawn
-    "searching": {"label": "SEARCHING", "hands": "holding", "emoji_acc": "🔍"},
-    "reading": {"label": "READING", "hands": "holding", "emoji_acc": "📄"},
-    "loading": {"label": "LOADING", "hands": "waiting", "emoji_acc": "⏳"},
-    "speaking": {"label": "OUTPUT", "hands": "gesture", "emoji_acc": "💬"},
-    "success": {"label": "SUCCESS!", "hands": "raised", "emoji_acc": "🎉"},
-    "error": {"label": "ERROR!", "hands": "facepalm", "emoji_acc": "💥"},
-    "thinking": {"label": "THINKING", "hands": "chin", "emoji_acc": "💭"},
+    "searching": {"label": "SEARCHING", "hands": "holding", "emoji_acc": ""},
+    "reading": {"label": "READING", "hands": "holding", "emoji_acc": ""},
+    "loading": {"label": "LOADING", "hands": "waiting", "emoji_acc": ""},
+    "speaking": {"label": "OUTPUT", "hands": "gesture", "emoji_acc": ""},
+    "success": {"label": "SUCCESS!", "hands": "raised", "emoji_acc": ""},
+    "error": {"label": "ERROR!", "hands": "facepalm", "emoji_acc": ""},
+    "thinking": {"label": "THINKING", "hands": "chin", "emoji_acc": ""},
 }
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -129,7 +129,7 @@ def get_scale(w: int, h: int) -> float:
 def draw_subagent_bar(canvas: tk.Canvas, subagents, cx: int, y: int, scale: float = 1.0):
     """Draw subagent status icons centered above status label.
 
-    Icons: ⏳ running, ✅ success, ❌ error, ⏱️ timeout, ❓ unknown
+    Icons:  running,  success,  error,  timeout,  unknown
     """
     if not subagents:
         return
@@ -140,7 +140,7 @@ def draw_subagent_bar(canvas: tk.Canvas, subagents, cx: int, y: int, scale: floa
     if isinstance(subagents, int):
         if subagents <= 0:
             return
-        icons = "⏳" * min(subagents, 5)  # Max 5 icons
+        icons = "" * min(subagents, 5)  # Max 5 icons
         if subagents > 5:
             icons += f"+{subagents - 5}"
         canvas.create_text(cx, y, text=icons, font=("Arial", font_size))
@@ -160,7 +160,7 @@ def draw_subagent_bar(canvas: tk.Canvas, subagents, cx: int, y: int, scale: floa
     # Build compact icon string (max 6 total to fit)
     icons = ""
     remaining = 6
-    for count, icon in [(running, "⏳"), (success, "✅"), (error, "❌"), (timeout, "⏱️"), (unknown, "❓")]:
+    for count, icon in [(running, ""), (success, ""), (error, ""), (timeout, ""), (unknown, "")]:
         show = min(count, remaining)
         icons += icon * show
         remaining -= show
@@ -478,7 +478,7 @@ class RobotRenderer:
                 angle = frame * 0.12 + i * (math.pi / 3)
                 x = cx + int(55 * s * math.cos(angle))
                 y = cy + int(35 * s * math.sin(angle))
-                canvas.create_text(x, y, text="✨", font=("Arial", emoji_size))
+                canvas.create_text(x, y, text="", font=("Arial", emoji_size))
 
         elif effect == "pulse":
             pulse = int(12 * s * abs(math.sin(frame * 0.12)))
@@ -513,10 +513,10 @@ class RobotRenderer:
             for i in range(5):
                 x = cx - int(40 * s) + i * int(20 * s)
                 offset = int(5 * s * math.sin(frame * 0.4 + i))
-                canvas.create_text(x, fire_y - offset, text="🔥", font=("Arial", emoji_size))
+                canvas.create_text(x, fire_y - offset, text="", font=("Arial", emoji_size))
 
         elif effect == "confetti":
-            shapes = ["🎉", "🎊", "✨", "⭐", "💫"]
+            shapes = ["", "", "", "", ""]
             emoji_size = max(8, int(12 * s))
             num_conf = max(15, int(w / 15))  # More confetti
             for i in range(num_conf):
@@ -606,15 +606,15 @@ class RobotRenderer:
             pulse = 1 + 0.3 * abs(math.sin(frame * 0.2))
             size = int(24 * s * pulse)
             margin = int(25 * s)
-            canvas.create_text(margin, cy, text="❤", font=("Arial", size), fill="#ff4466")
-            canvas.create_text(w - margin, cy, text="❤", font=("Arial", size), fill="#ff4466")
+            canvas.create_text(margin, cy, text="", font=("Arial", size), fill="#ff4466")
+            canvas.create_text(w - margin, cy, text="", font=("Arial", size), fill="#ff4466")
 
         elif effect == "snow":
             num_flakes = max(18, int(w / 12))  # More snowflakes
             for i in range(num_flakes):
                 x = (i * int(18 * s) + frame * 2) % w
                 y = (frame * 2 + i * int(15 * s)) % h
-                canvas.create_text(x, y, text="❄", font=("Arial", max(10, int(12 * s))), fill="#aaddff")
+                canvas.create_text(x, y, text="", font=("Arial", max(10, int(12 * s))), fill="#aaddff")
 
         elif effect == "rainbow":
             colors_list = ["#ff0000", "#ff8800", "#ffff00", "#00ff00", "#0088ff", "#8800ff"]
@@ -957,7 +957,7 @@ class FaceRenderer:
                 angle = frame * 0.12 + i * (math.pi / 3)
                 x = cx + int(55 * s * math.cos(angle))
                 y = face_cy + int(40 * s * math.sin(angle))
-                canvas.create_text(x, y, text="✨", font=("Arial", font_sm))
+                canvas.create_text(x, y, text="", font=("Arial", font_sm))
 
         elif effect == "pulse":
             pulse = int(12 * s * abs(math.sin(frame * 0.12)))
@@ -989,10 +989,10 @@ class FaceRenderer:
             for i in range(5):
                 x = cx - int(40 * s) + i * int(20 * s)
                 offset = int(5 * s * math.sin(frame * 0.4 + i))
-                canvas.create_text(x, fire_y - offset, text="🔥", font=("Arial", font_md))
+                canvas.create_text(x, fire_y - offset, text="", font=("Arial", font_md))
 
         elif effect == "confetti":
-            conf = ["🎉", "🎊", "✨", "⭐", "💫"]
+            conf = ["", "", "", "", ""]
             num_conf = max(15, int(w / 15))  # More confetti
             for i in range(num_conf):
                 x = (frame * 3 + i * int(22 * s)) % w
@@ -1075,15 +1075,15 @@ class FaceRenderer:
             pulse = 1 + 0.3 * abs(math.sin(frame * 0.2))
             size = int(24 * s * pulse)
             margin = int(25 * s)
-            canvas.create_text(margin, face_cy, text="❤", font=("Arial", size), fill="#ff4466")
-            canvas.create_text(w - margin, face_cy, text="❤", font=("Arial", size), fill="#ff4466")
+            canvas.create_text(margin, face_cy, text="", font=("Arial", size), fill="#ff4466")
+            canvas.create_text(w - margin, face_cy, text="", font=("Arial", size), fill="#ff4466")
 
         elif effect == "snow":
             num_flakes = max(18, int(w / 12))  # More snowflakes
             for i in range(num_flakes):
                 x = (i * int(18 * s) + frame * 2) % w
                 y = (frame * 2 + i * int(15 * s)) % h
-                canvas.create_text(x, y, text="❄", font=("Arial", max(10, int(12 * s))), fill="#aaddff")
+                canvas.create_text(x, y, text="", font=("Arial", max(10, int(12 * s))), fill="#aaddff")
 
         elif effect == "rainbow":
             colors_list = ["#ff0000", "#ff8800", "#ffff00", "#00ff00", "#0088ff", "#8800ff"]
@@ -1438,7 +1438,7 @@ def run_demo():
         ("neutral", "loading", "snow", "Czyszczę cache..."),
     ]
 
-    print("🦞 DEMO MODE - Losowe stany co 5 sekund")
+    print(" DEMO MODE - Losowe stany co 5 sekund")
     print("=" * 50)
     print("Naciśnij Ctrl+C aby zatrzymać")
     print("=" * 50)
@@ -1482,7 +1482,7 @@ def run_demo():
             print(f"│ {'EFFECT:':<10} {effect:<36} │")
             print(f"│ {'MESSAGE:':<10} {message[:34]:<36} │")
             if subagents:
-                sub_str = f"⏳{subagents['running']} ✅{subagents['success']} ❌{subagents['error']} ⏱️{subagents['timeout']} ❓{subagents['unknown']}"
+                sub_str = f"{subagents['running']} {subagents['success']} {subagents['error']} {subagents['timeout']} {subagents['unknown']}"
                 print(f"│ {'SUBAGENTS:':<10} {sub_str:<36} │")
             print(f"└{'─' * 48}┘")
             print()
@@ -1490,7 +1490,7 @@ def run_demo():
             time.sleep(5)
 
     except KeyboardInterrupt:
-        print("\n👋 Demo zakończone!")
+        print("\n Demo zakończone!")
         set_state("neutral", "idle", "none", "")
 
 
@@ -1526,7 +1526,7 @@ def main():
             print(f"Message: {args.message}")
         return
 
-    print("🦞 Moltbot Avatar v3")
+    print(" Moltbot Avatar v3")
     print(f"   Mode: {args.mode}")
     print("   Drag to move | Q/Esc to quit")
     print(f"   State file: ~/.clawface/avatar_state.json")

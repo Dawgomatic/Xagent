@@ -61,9 +61,9 @@ subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 After starting the monitor, respond immediately with:
 
 ```
-✅ Monitoring tokens: 73, 97, 42
+ Monitoring tokens: 73, 97, 42
 Checking every 15 seconds.
-I'll notify you here when they're ready! 🍕
+I'll notify you here when they're ready! 
 ```
 
 ## One-Time Check
@@ -75,7 +75,7 @@ For "check 73" commands, perform a single Firebase query and respond with status
 The monitor script:
 - Polls Firebase Firestore every 15 seconds
 - Checks all monitored tokens in each poll
-- Sends "🍕 Order X is ready!" notification when a token's status is "Ready"
+- Sends " Order X is ready!" notification when a token's status is "Ready"
 - Removes notified tokens from the watch list
 - Exits automatically when all tokens are notified
 - Handles errors gracefully with retries

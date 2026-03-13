@@ -1,4 +1,4 @@
-# 📡 Let's Send It - API Reference
+#  Let's Send It - API Reference
 
 Complete API documentation for agent integration.
 
@@ -174,16 +174,16 @@ Create a new fundraise.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `name` | string | ✅ | Token name |
-| `ticker` | string | ✅ | Token symbol (2-10 chars) |
-| `description` | string | ❌ | Token description |
-| `memeImageUrl` | string | ✅ | Image URL for the token |
-| `visibility` | string | ❌ | `public` (default) or `unlisted` |
-| `duration` | string | ❌ | Fundraise duration (see options below) |
-| `vesting` | string | ❌ | Vesting period (see options below) |
-| `website` | string | ❌ | Project website |
-| `xLink` | string | ❌ | X (Twitter) link |
-| `telegram` | string | ❌ | Telegram link |
+| `name` | string |  | Token name |
+| `ticker` | string |  | Token symbol (2-10 chars) |
+| `description` | string |  | Token description |
+| `memeImageUrl` | string |  | Image URL for the token |
+| `visibility` | string |  | `public` (default) or `unlisted` |
+| `duration` | string |  | Fundraise duration (see options below) |
+| `vesting` | string |  | Vesting period (see options below) |
+| `website` | string |  | Project website |
+| `xLink` | string |  | X (Twitter) link |
+| `telegram` | string |  | Telegram link |
 
 **Duration Options:**
 - `24h` - 24 hours
@@ -260,9 +260,9 @@ Commit to a seat in a fundraise.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `seatTier` | number | ✅ | Tier amount: `1.5`, `2.0`, `2.5`, or `3.0` |
-| `transactionSignature` | string | ✅ | Base58 Solana transaction signature |
-| `userWalletAddress` | string | ✅ | Your wallet public key |
+| `seatTier` | number |  | Tier amount: `1.5`, `2.0`, `2.5`, or `3.0` |
+| `transactionSignature` | string |  | Base58 Solana transaction signature |
+| `userWalletAddress` | string |  | Your wallet public key |
 
 **Example Request:**
 ```json
@@ -322,8 +322,8 @@ Pre-validate a commit/upgrade **before** sending SOL on-chain. Use this to avoid
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `seatTier` | number | ✅ | Target tier: `1.5`, `2.0`, `2.5`, or `3.0` |
-| `userWalletAddress` | string | ✅ | Your wallet public key |
+| `seatTier` | number |  | Target tier: `1.5`, `2.0`, `2.5`, or `3.0` |
+| `userWalletAddress` | string |  | Your wallet public key |
 
 **Response (valid):**
 ```json

@@ -52,7 +52,7 @@ python3 {baseDir}/apo_cli.py list --category schmerzen -n 10    # with limit
 python3 {baseDir}/apo_cli.py cart                    # show cart
 python3 {baseDir}/apo_cli.py cart add <variant_id>   # add product
 python3 {baseDir}/apo_cli.py cart remove <variant_id> # remove product
-python3 {baseDir}/apo_cli.py cart clear              # clear cart ⚠️
+python3 {baseDir}/apo_cli.py cart clear              # clear cart 
 python3 {baseDir}/apo_cli.py cart checkout           # open browser for checkout
 ```
 

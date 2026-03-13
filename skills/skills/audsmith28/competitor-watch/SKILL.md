@@ -3,7 +3,7 @@ name: competitor-watch
 description: Know what your competitors ship before their customers do. Automated monitoring of competitor websites, product pages, pricing, content, and social presence. Detects changes, extracts new features, tracks pricing updates, and alerts you with digestible summaries. Your agent watches the competition 24/7 so you can focus on building. Configure competitor tiers (fierce rivals get deep monitoring, adjacents get high-level), set check frequency, define alert thresholds, and receive smart diffs highlighting what actually matters. Use when setting up competitive intelligence, tracking product launches, monitoring pricing changes, or staying ahead of market moves.
 metadata:
   clawdbot:
-    emoji: "🔍"
+    emoji: ""
     requires:
       skills: []
 ---
@@ -129,7 +129,7 @@ Run `scripts/check.sh` on schedule (cron or heartbeat). The check:
 When a meaningful change is detected, `report.sh` generates a summary:
 
 ```
-🚨 COMPETITOR CHANGE: Acme Corp (fierce rival)
+ COMPETITOR CHANGE: Acme Corp (fierce rival)
 
 Page: https://acme.com/pricing
 Detected: 2026-02-11 13:45 EST

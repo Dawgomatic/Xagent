@@ -1,6 +1,6 @@
 # Leverage Trading Guide
 
-⚠️ **HIGH RISK** — Only for experienced traders with strict risk management.
+ **HIGH RISK** — Only for experienced traders with strict risk management.
 
 ## Overview
 

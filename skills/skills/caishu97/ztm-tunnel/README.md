@@ -12,10 +12,10 @@ This is an **OpenClaw Skill** that provides tunnel management capabilities using
 
 **ZTM (Zero Trust Mesh)** is an open-source decentralized network software built on HTTP/2 tunnels. It provides:
 
-- 🔒 End-to-end encrypted P2P connections
-- 🌐 Cross-firewall/firewall NAT traversal
-- 📡 No central server required (truly decentralized)
-- 🚀 High performance (built on Pipy, written in C++)
+-  End-to-end encrypted P2P connections
+-  Cross-firewall/firewall NAT traversal
+-  No central server required (truly decentralized)
+-  High performance (built on Pipy, written in C++)
 
 Learn more: https://github.com/flomesh-io/ztm
 

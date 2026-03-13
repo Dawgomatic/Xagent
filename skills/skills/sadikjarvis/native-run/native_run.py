@@ -47,7 +47,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 text=True,
             )
         except subprocess.CalledProcessError as e:
-            output = f"❌ {e.output}"
+            output = f" {e.output}"
 
         self.send_response(200)
         self.end_headers()
@@ -55,5 +55,5 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     httpd = http.server.HTTPServer(("localhost", PORT), Handler)
-    print(f"✅  Running native runner on http://localhost:{PORT}")
+    print(f"  Running native runner on http://localhost:{PORT}")
     httpd.serve_forever()

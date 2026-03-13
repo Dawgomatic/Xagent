@@ -66,7 +66,7 @@ class ShibPaymentExecutor {
     const text = userMessage.parts[0]?.text || '';
     const { v4: uuidv4 } = require('crypto');
     
-    console.log(`📨 Received [${taskId}]: ${text}`);
+    console.log(` Received [${taskId}]: ${text}`);
     
     const createMessage = (text) => ({
       kind: 'message',
@@ -87,10 +87,10 @@ class ShibPaymentExecutor {
         try {
           const result = await shibAgent.sendPayment(recipient, amount);
           eventBus.publish(createMessage(
-            `✅ Payment sent!\n\nAmount: ${amount} SHIB\nTo: ${recipient}\nTx: ${result.txHash}\nGas: ${result.gasCostUSD}\n\n${result.explorerUrl}`
+            ` Payment sent!\n\nAmount: ${amount} SHIB\nTo: ${recipient}\nTx: ${result.txHash}\nGas: ${result.gasCostUSD}\n\n${result.explorerUrl}`
           ));
         } catch (error) {
-          eventBus.publish(createMessage(`❌ Payment failed: ${error.message}`));
+          eventBus.publish(createMessage(` Payment failed: ${error.message}`));
         }
       } else {
         eventBus.publish(createMessage('Usage: send <amount> SHIB to <0xaddress>'));
@@ -99,14 +99,14 @@ class ShibPaymentExecutor {
       try {
         const balance = await shibAgent.getBalance();
         eventBus.publish(createMessage(
-          `💰 SHIB Balance\n\nAddress: ${balance.address}\nBalance: ${balance.balance} SHIB\nNetwork: Polygon`
+          ` SHIB Balance\n\nAddress: ${balance.address}\nBalance: ${balance.balance} SHIB\nNetwork: Polygon`
         ));
       } catch (error) {
-        eventBus.publish(createMessage(`❌ Balance check failed: ${error.message}`));
+        eventBus.publish(createMessage(` Balance check failed: ${error.message}`));
       }
     } else {
       eventBus.publish(createMessage(
-        `🦪 SHIB Payment Agent\n\nCommands:\n- send <amount> SHIB to <address>\n- balance\n\nExample: send 100 SHIB to 0xDBD846593c1C89014a64bf0ED5802126912Ba99A`
+        ` SHIB Payment Agent\n\nCommands:\n- send <amount> SHIB to <address>\n- balance\n\nExample: send 100 SHIB to 0xDBD846593c1C89014a64bf0ED5802126912Ba99A`
       ));
     }
     
@@ -114,7 +114,7 @@ class ShibPaymentExecutor {
   }
   
   async cancelTask(taskId, eventBus) {
-    console.log(`🛑 Task ${taskId} cancellation requested (not implemented)`);
+    console.log(` Task ${taskId} cancellation requested (not implemented)`);
   }
 }
 
@@ -135,9 +135,9 @@ async function startServer() {
   
   // Start listening
   app.listen(port, () => {
-    console.log('🦪 OpenClaw SHIB Payment Agent');
+    console.log(' OpenClaw SHIB Payment Agent');
     console.log('');
-    console.log('✅ Agent is online and ready!');
+    console.log(' Agent is online and ready!');
     console.log('');
     console.log('Agent Info:');
     console.log(`  Name: ${agentCard.name}`);
@@ -162,7 +162,7 @@ async function startServer() {
   // Graceful shutdown
   process.on('SIGINT', () => {
     console.log('');
-    console.log('🛑 Shutting down agent...');
+    console.log(' Shutting down agent...');
     process.exit(0);
   });
 }
@@ -192,8 +192,8 @@ Configuration:
   Set POLYGON_WALLET_ADDRESS and POLYGON_PRIVATE_KEY in ~/.env.local
 
 Phase 2 Progress:
-  ✅ Milestone 1.1: A2A SDK installed
-  ✅ Milestone 1.2: Agent created with proper SDK structure
-  🚧 Milestone 2: Discovery protocol (next)
+   Milestone 1.1: A2A SDK installed
+   Milestone 1.2: Agent created with proper SDK structure
+   Milestone 2: Discovery protocol (next)
   `);
 }

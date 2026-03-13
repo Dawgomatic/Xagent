@@ -2,7 +2,7 @@
 name: aisp
 version: 1.0.2
 description: Enables AI agents to interact with AISP (Agent Inference Sharing Protocol) for renting or providing DIEM API capacity. Use when working with diem-marketplace, Venice API keys, USDC escrow, listings, rentals, or when the user wants to rent inference capacity or list API keys.
-metadata: {"openclaw":{"homepage":"https://github.com/DaveO280/Diem-Marketplace-V2-","emoji":"⚡","requires":{"env":["BACKEND_URL"]}}}
+metadata: {"openclaw":{"homepage":"https://github.com/DaveO280/Diem-Marketplace-V2-","emoji":"","requires":{"env":["BACKEND_URL"]}}}
 ---
 
 # AISP Agent Skill

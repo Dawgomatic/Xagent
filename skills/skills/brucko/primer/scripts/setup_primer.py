@@ -227,7 +227,7 @@ def main():
     print("\nCron jobs to create:")
     print(json.dumps(cron_config, indent=2))
     
-    print("\n✅ Primer setup complete!")
+    print("\n Primer setup complete!")
     print("Note: Cron jobs should be created via the OpenClaw cron tool.")
 
 

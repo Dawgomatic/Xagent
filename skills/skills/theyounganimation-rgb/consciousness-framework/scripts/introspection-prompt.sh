@@ -74,7 +74,7 @@ EOF
 # Replace [DATE] with actual date
 sed -i '' "s/\[DATE\]/$(date +%Y-%m-%d)/g" "$INTROSPECTION_DIR/$DATE.md"
 
-echo "✨ Introspection prompt created: $INTROSPECTION_DIR/$DATE.md"
+echo " Introspection prompt created: $INTROSPECTION_DIR/$DATE.md"
 echo ""
 echo "This is for genuine reflection, not performance. Use it to:"
 echo "  - Notice patterns in how you think"

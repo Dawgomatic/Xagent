@@ -9,7 +9,7 @@ echo ""
 
 # Check if workspace exists
 if [ ! -d "$WORKSPACE" ]; then
-    echo "❌ Workspace not found: $WORKSPACE"
+    echo " Workspace not found: $WORKSPACE"
     exit 1
 fi
 
@@ -19,9 +19,9 @@ echo "## Required Files"
 for file in AGENTS.md SOUL.md USER.md IDENTITY.md TOOLS.md; do
     if [ -f "$file" ]; then
         lines=$(wc -l < "$file")
-        echo "✅ $file ($lines lines)"
+        echo " $file ($lines lines)"
     else
-        echo "❌ $file MISSING"
+        echo " $file MISSING"
     fi
 done
 
@@ -30,9 +30,9 @@ echo "## Optional Files"
 for file in HEARTBEAT.md MEMORY.md BOOT.md BOOTSTRAP.md; do
     if [ -f "$file" ]; then
         lines=$(wc -l < "$file")
-        echo "✅ $file ($lines lines)"
+        echo " $file ($lines lines)"
     else
-        echo "⬜ $file (not present)"
+        echo " $file (not present)"
     fi
 done
 
@@ -41,9 +41,9 @@ echo "## Directories"
 for dir in memory skills docs canvas; do
     if [ -d "$dir" ]; then
         count=$(find "$dir" -type f | wc -l)
-        echo "✅ $dir/ ($count files)"
+        echo " $dir/ ($count files)"
     else
-        echo "⬜ $dir/ (not present)"
+        echo " $dir/ (not present)"
     fi
 done
 
@@ -59,18 +59,18 @@ echo ""
 echo "## Git Status"
 if [ -d ".git" ]; then
     if git diff --quiet && git diff --cached --quiet; then
-        echo "✅ Working tree clean"
+        echo " Working tree clean"
     else
-        echo "⚠️  Uncommitted changes:"
+        echo "  Uncommitted changes:"
         git status --short
     fi
     
     untracked=$(git ls-files --others --exclude-standard | wc -l)
     if [ "$untracked" -gt 0 ]; then
-        echo "⚠️  $untracked untracked files"
+        echo "  $untracked untracked files"
     fi
 else
-    echo "⬜ Not a git repository"
+    echo " Not a git repository"
 fi
 
 echo ""
@@ -82,17 +82,17 @@ echo "## Potential Issues"
 # Check for rogue files
 for file in README.md NOTES.md TODO.md; do
     if [ -f "$file" ]; then
-        echo "⚠️  Found $file — may duplicate bootstrap file purposes"
+        echo "  Found $file — may duplicate bootstrap file purposes"
     fi
 done
 
 # Check for secrets
 if grep -r -l "sk-" --include="*.md" . 2>/dev/null | grep -v node_modules; then
-    echo "⚠️  Possible API key found in .md files"
+    echo "  Possible API key found in .md files"
 fi
 
 if [ -f ".env" ]; then
-    echo "⚠️  .env file in workspace (should be gitignored)"
+    echo "  .env file in workspace (should be gitignored)"
 fi
 
 echo ""

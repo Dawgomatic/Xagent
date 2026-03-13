@@ -1,13 +1,13 @@
 ---
 name: smart-accounts-kit
 description: Web3 development using MetaMask Smart Accounts Kit. Use when the user wants to build dApps with ERC-4337 smart accounts, send user operations, batch transactions, configure signers (EOA, passkey, multisig), implement gas abstraction with paymasters, create delegations, or request advanced permissions (ERC-7715). Supports Viem integration, multiple signer types (Dynamic, Web3Auth, Wagmi), gasless transactions, and the Delegation Framework.
-metadata: {"openclaw":{"emoji":"🦊","homepage":"https://docs.metamask.io/smart-accounts-kit"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://docs.metamask.io/smart-accounts-kit"}}
 ---
 ## Quick Reference
 
 This skill file provides quick access to the MetaMask Smart Accounts Kit v0.3.0. For detailed information, refer to the specific reference files.
 
-**📚 Detailed References:**
+** Detailed References:**
 
 - [Smart Accounts Reference](./references/smart-accounts.md) - Account creation, implementations, signers
 - [Delegations Reference](./references/delegations.md) - Delegation lifecycle, scopes, caveats

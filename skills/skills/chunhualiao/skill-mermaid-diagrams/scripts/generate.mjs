@@ -43,12 +43,12 @@ let content;
 try {
   content = JSON.parse(fs.readFileSync(args.content, "utf-8"));
 } catch (error) {
-  console.error(`❌ Failed to load content file: ${error.message}`);
+  console.error(` Failed to load content file: ${error.message}`);
   process.exit(1);
 }
 
-console.log(`\n📖 Rendering diagrams from: ${args.content}`);
-console.log(`📊 Found ${content.diagrams.length} diagrams to render\n`);
+console.log(`\n Rendering diagrams from: ${args.content}`);
+console.log(` Found ${content.diagrams.length} diagrams to render\n`);
 
 /**
  * Validate content before rendering
@@ -59,7 +59,7 @@ function validateContent(templateContent, template, placeholders) {
   // Check 1: Unresolved placeholders
   const unresolvedMatches = templateContent.match(/\{\{[A-Z_0-9]+\}\}/g);
   if (unresolvedMatches) {
-    warnings.push(`⚠️  Unresolved placeholders: ${unresolvedMatches.join(", ")}`);
+    warnings.push(`  Unresolved placeholders: ${unresolvedMatches.join(", ")}`);
   }
   
   // Check 2: Text length (readability)
@@ -81,7 +81,7 @@ function validateContent(templateContent, template, placeholders) {
   const maxLength = maxLengths[template] || 50;
   for (const [key, value] of Object.entries(placeholders)) {
     if (typeof value === 'string' && value.length > maxLength) {
-      warnings.push(`⚠️  ${key}: "${value}" (${value.length} chars, recommend <${maxLength})`);
+      warnings.push(`  ${key}: "${value}" (${value.length} chars, recommend <${maxLength})`);
     }
   }
   
@@ -89,7 +89,7 @@ function validateContent(templateContent, template, placeholders) {
   const problematicChars = /[<>{}[\]]/;
   for (const [key, value] of Object.entries(placeholders)) {
     if (typeof value === 'string' && problematicChars.test(value)) {
-      warnings.push(`⚠️  ${key}: contains special characters (<>{}[]) that may break rendering`);
+      warnings.push(`  ${key}: contains special characters (<>{}[]) that may break rendering`);
     }
   }
   
@@ -104,7 +104,7 @@ async function renderDiagramFromContent(diagramData, index) {
   const templatePath = path.join(TEMPLATES_DIR, `${template}.mmd`);
   
   if (!fs.existsSync(templatePath)) {
-    console.error(`   ❌ Template not found: ${template}`);
+    console.error(`    Template not found: ${template}`);
     return null;
   }
   
@@ -118,7 +118,7 @@ async function renderDiagramFromContent(diagramData, index) {
   // Validate before saving
   const warnings = validateContent(templateContent, template, placeholders);
   if (warnings.length > 0) {
-    console.log(`\n⚠️  Validation warnings for ${template}:`);
+    console.log(`\n  Validation warnings for ${template}:`);
     warnings.forEach(w => console.log(`   ${w}`));
     console.log();
   }
@@ -126,7 +126,7 @@ async function renderDiagramFromContent(diagramData, index) {
   // Save .mmd file
   const mmdPath = path.join(outDir, `diagram-${String(index + 1).padStart(2, "0")}-${template}.mmd`);
   fs.writeFileSync(mmdPath, templateContent);
-  console.log(`   💾 Saved: ${path.basename(mmdPath)}`);
+  console.log(`    Saved: ${path.basename(mmdPath)}`);
   
   return { template, mmdPath, index };
 }
@@ -149,10 +149,10 @@ async function renderDiagram({ mmdPath, templateName, index }) {
       stdio: "ignore",
     });
     
-    console.log(`   ✅ Rendered: ${svgPath} + ${pngPath}`);
+    console.log(`    Rendered: ${svgPath} + ${pngPath}`);
     return true;
   } catch (error) {
-    console.error(`   ❌ Rendering failed for ${templateName}:`, error.message);
+    console.error(`    Rendering failed for ${templateName}:`, error.message);
     return false;
   }
 }
@@ -166,7 +166,7 @@ async function main() {
     try {
       execSync("which mmdc", { stdio: "ignore" });
     } catch {
-      console.error("❌ Error: mermaid-cli (mmdc) not found.");
+      console.error(" Error: mermaid-cli (mmdc) not found.");
       console.error("   Install with: npm install -g @mermaid-js/mermaid-cli");
       process.exit(1);
     }
@@ -179,11 +179,11 @@ async function main() {
     }
     
     if (results.length === 0) {
-      console.error("\n❌ No diagrams rendered successfully.");
+      console.error("\n No diagrams rendered successfully.");
       process.exit(1);
     }
     
-    console.log(`\n🎨 Rendering to SVG/PNG...\n`);
+    console.log(`\n Rendering to SVG/PNG...\n`);
     
     // Render to SVG/PNG
     let successCount = 0;
@@ -192,7 +192,7 @@ async function main() {
       if (success) successCount++;
     }
     
-    console.log(`\n✅ Successfully rendered ${successCount}/${results.length} diagrams in ${outDir}\n`);
+    console.log(`\n Successfully rendered ${successCount}/${results.length} diagrams in ${outDir}\n`);
     
     // Save summary
     const summary = {
@@ -215,7 +215,7 @@ async function main() {
     );
     
   } catch (error) {
-    console.error("\n❌ Fatal error:", error.message);
+    console.error("\n Fatal error:", error.message);
     process.exit(1);
   }
 }

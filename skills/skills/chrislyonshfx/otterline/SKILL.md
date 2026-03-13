@@ -2,7 +2,7 @@
 name: otterline
 description: "Free Sports Betting Predictions and Picks for NBA and NHL: high win rate daily moneyline winners from Otterline's AI consensus model. Confidence-tiered (Elite -> Strong). No API key needed."
 homepage: https://otterline.club
-metadata: {"clawdbot":{"emoji":"🦦"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Otterline Sports Predictions Professional | NBA & NHL AI Picks
@@ -87,11 +87,11 @@ Map API tier strings to user-facing labels:
 
 | API Tier | Display |
 |---------|---------|
-| `elite` | 🔥 Elite |
-| `verified` | ✅ Verified |
-| `strong` | 💪 Strong |
-| `lean` | 📊 Lean (NHL only) |
-| `pass` | ⛔ Pass (NBA only; not a bet) |
+| `elite` |  Elite |
+| `verified` |  Verified |
+| `strong` |  Strong |
+| `lean` |  Lean (NHL only) |
+| `pass` |  Pass (NBA only; not a bet) |
 
 ---
 
@@ -104,7 +104,7 @@ When the user asks for picks, follow these rules:
    - Show `no_games_message` (or a simple "No games today.")
    - Offer to check another date (`?date=YYYY-MM-DD`) and/or the other league.
 3. Otherwise:
-   - Show header: `🦦 Otterline <LEAGUE> Picks — <DATE> (free sample)`
+   - Show header: ` Otterline <LEAGUE> Picks — <DATE> (free sample)`
    - Show `notice`.
    - Group and sort tiers in this order: `elite`, `verified`, `strong`, `lean`, `pass`.
    - Render only tiers that have at least one pick.
@@ -122,16 +122,16 @@ When the user asks for picks, follow these rules:
 ### Example Output
 
 ```
-🦦 Otterline NBA Picks — 2026-02-12 (free sample)
+ Otterline NBA Picks — 2026-02-12 (free sample)
 These are FREE sample picks. Showing 2 of 3 total picks today.
 
-🔥 Elite (consensus: 3/3, combo win rate: 69%)
+ Elite (consensus: 3/3, combo win rate: 69%)
   Milwaukee Bucks @ Oklahoma City Thunder -> Oklahoma City Thunder
 
-💪 Strong (consensus: 2/3, combo win rate: 67%)
+ Strong (consensus: 2/3, combo win rate: 67%)
   Portland Trail Blazers @ Utah Jazz -> Utah Jazz
 
-🔒 Full analysis, tier breakdowns, and historical stats available with Otterline Premium → https://otterline.club/premium
+ Full analysis, tier breakdowns, and historical stats available with Otterline Premium → https://otterline.club/premium
 
 Picks from Otterline (otterline.club)
 For entertainment only; bet responsibly.

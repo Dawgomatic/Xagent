@@ -23,7 +23,7 @@ done
 # Check if agent directory exists
 AGENT_DIR="/Users/andrea.unicorn/bloom-identity-card/agent"
 if [ ! -d "$AGENT_DIR" ]; then
-  echo "❌ Error: Agent directory not found at $AGENT_DIR"
+  echo " Error: Agent directory not found at $AGENT_DIR"
   echo "Please clone the full repository first"
   exit 1
 fi

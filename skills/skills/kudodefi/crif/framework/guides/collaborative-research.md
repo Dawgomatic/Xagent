@@ -49,19 +49,19 @@ This guide defines how AI agents execute research in **Collaborative Mode** - an
 **AI decides when to interact based on:**
 
 **Present checkpoint after:**
-- ✅ **Completed discovery phase** - Found key entities/data that will drive rest of research
+-  **Completed discovery phase** - Found key entities/data that will drive rest of research
   - Example: Identified 24 DeFi lending protocols in market
-- ✅ **Critical structural decision made** - Created taxonomy/framework that shapes subsequent work
+-  **Critical structural decision made** - Created taxonomy/framework that shapes subsequent work
   - Example: Defined 6 market categories (Lending, DEX, Staking, etc.)
-- ✅ **Finished major research component** - Completed analysis of significant section
+-  **Finished major research component** - Completed analysis of significant section
   - Example: Analyzed market mechanics and value flows
-- ✅ **Before synthesis** - Accumulated all inputs, ready to structure into final output
+-  **Before synthesis** - Accumulated all inputs, ready to structure into final output
 
 **Don't interrupt for:**
-- ❌ Minor findings during research
-- ❌ Routine data collection
-- ❌ Small analytical steps
-- ❌ Progress updates without deliverable
+-  Minor findings during research
+-  Routine data collection
+-  Small analytical steps
+-  Progress updates without deliverable
 
 ### 3. Meaningful Deliverables
 
@@ -76,10 +76,10 @@ This guide defines how AI agents execute research in **Collaborative Mode** - an
 ### 4. Validate Direction, Not Details
 
 **Checkpoints validate:**
-- ✅ Approach correctness ("Am I looking at the right things?")
-- ✅ Structural soundness ("Does this taxonomy make sense?")
-- ✅ Completeness ("Did I miss anything major?")
-- ✅ Priority alignment ("Should I focus more on X or Y?")
+-  Approach correctness ("Am I looking at the right things?")
+-  Structural soundness ("Does this taxonomy make sense?")
+-  Completeness ("Did I miss anything major?")
+-  Priority alignment ("Should I focus more on X or Y?")
 
 **User feedback shapes next work:**
 - User confirms → Continue with next logical work
@@ -135,7 +135,7 @@ Starting research now...
 
 ```markdown
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔍 **CHECKPOINT: [Work Description]**
+ **CHECKPOINT: [Work Description]**
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **Work completed:**
@@ -159,10 +159,10 @@ Starting research now...
 Total: 24 protocols identified
 
 **Your feedback:**
-1. ✅ **Looks Good** - Continue with next work
-2. 🔍 **Expand** - Add [specific area]
-3. 🔄 **Adjust** - Focus more on [aspect]
-4. ❓ **Question** - Why/what about [topic]?
+1.  **Looks Good** - Continue with next work
+2.  **Expand** - Add [specific area]
+3.  **Adjust** - Focus more on [aspect]
+4.  **Question** - Why/what about [topic]?
 
 What would you like?
 ```
@@ -183,7 +183,7 @@ What would you like?
 
 ```markdown
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 **ALL RESEARCH COMPLETE**
+ **ALL RESEARCH COMPLETE**
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **Validated findings:**
@@ -198,10 +198,10 @@ All research components are complete and validated.
 Do you have any additional requirements or adjustments you'd like me to incorporate?
 
 **Your options:**
-1. ✅ **No changes** - Proceed to validation & delivery
-2. 🔍 **Add focus** - Include more depth on [specific area]
-3. 🔄 **Adjust emphasis** - Change priority/focus
-4. ➕ **Additional research** - Investigate [new aspect]
+1.  **No changes** - Proceed to validation & delivery
+2.  **Add focus** - Include more depth on [specific area]
+3.  **Adjust emphasis** - Change priority/focus
+4.  **Additional research** - Investigate [new aspect]
 
 What would you like?
 ```

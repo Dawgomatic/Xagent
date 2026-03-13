@@ -9,7 +9,7 @@
 
 ## [2.2.2] - 2026-02-11
 
-### 🆕 Python CLI Handler
+###  Python CLI Handler
 
 Added `scripts/persona.py` for programmatic persona management:
 

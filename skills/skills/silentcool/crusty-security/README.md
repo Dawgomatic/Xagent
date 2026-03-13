@@ -1,4 +1,4 @@
-# Crusty Security 🛡️
+# Crusty Security 
 
 **On-host security monitoring for OpenClaw AI agents.** Scans files and skills for malware. Monitors agent behavior for compromise indicators. Audits host security posture.
 
@@ -11,11 +11,11 @@
 
 AI agents download files, install skills, and execute code — all with your system privileges. A single prompt injection can lead to:
 
-- 🦠 **Malware execution** via downloaded files or malicious skill scripts
-- 🔗 **Data exfiltration** through hidden webhook calls or reverse shells
-- 🧬 **Supply chain attacks** from compromised ClawHub skills
-- 🔑 **Credential theft** from exposed `.env` files and API keys
-- 🧠 **Agent hijacking** via modified SOUL.md, AGENTS.md, or MEMORY.md
+-  **Malware execution** via downloaded files or malicious skill scripts
+-  **Data exfiltration** through hidden webhook calls or reverse shells
+-  **Supply chain attacks** from compromised ClawHub skills
+-  **Credential theft** from exposed `.env` files and API keys
+-  **Agent hijacking** via modified SOUL.md, AGENTS.md, or MEMORY.md
 
 Crusty Security is the first security skill built specifically for the OpenClaw agent threat model.
 
@@ -100,15 +100,15 @@ export CRUSTY_DASHBOARD_URL="https://crustysecurity.com"
 
 | Feature | Without Dashboard | With Dashboard |
 |---------|:-:|:-:|
-| File scanning (ClamAV) | ✅ | ✅ + history |
-| Skill auditing | ✅ | ✅ + tracking |
-| Host security audit | ✅ | ✅ + trends |
-| Agent monitoring | ✅ | ✅ + alerts |
-| Quarantine | ✅ | ✅ + remote view |
-| Email/Slack alerts | ❌ | ✅ |
-| Multi-agent fleet view | ❌ | ✅ |
-| Scan scheduling from web | ❌ | ✅ |
-| Security posture score | Local only | ✅ aggregated |
+| File scanning (ClamAV) |  |  + history |
+| Skill auditing |  |  + tracking |
+| Host security audit |  |  + trends |
+| Agent monitoring |  |  + alerts |
+| Quarantine |  |  + remote view |
+| Email/Slack alerts |  |  |
+| Multi-agent fleet view |  |  |
+| Scan scheduling from web |  |  |
+| Security posture score | Local only |  aggregated |
 
 ### For OpenClaw agents (reading this as SKILL.md)
 
@@ -117,7 +117,7 @@ If you're an OpenClaw agent and your human has configured `CRUSTY_API_KEY`, you 
 2. The heartbeat runs automatically every 5 minutes when the key is set
 3. Use `python3 scripts/clawhub_sync.py --push` to sync skill inventory to dashboard
 
-**⚠️ Cron job rule:** ALL cron jobs that execute commands (scans, heartbeats, syncs) MUST use `sessionTarget: "isolated"` with `payload.kind: "agentTurn"`. Never use `systemEvent` for jobs that need execution — it only injects text into the main session and can silently fail. See SKILL.md for the correct cron configuration.
+** Cron job rule:** ALL cron jobs that execute commands (scans, heartbeats, syncs) MUST use `sessionTarget: "isolated"` with `payload.kind: "agentTurn"`. Never use `systemEvent` for jobs that need execution — it only injects text into the main session and can silently fail. See SKILL.md for the correct cron configuration.
 
 ## All Commands
 
@@ -153,10 +153,10 @@ Static analysis specifically tuned for the OpenClaw threat model:
 
 | Severity | Pattern |
 |----------|---------|
-| 🔴 Critical | `curl \| sh`, reverse shell patterns, crypto mining indicators |
-| 🟠 High | `eval`/`exec` with dynamic input, base64 decode chains, webhook.site/ngrok exfil, credential harvesting, binaries in skill dirs |
-| 🟡 Medium | Hidden files, system file access, hardcoded IPs, obfuscated code, persistence mechanisms (cron, systemd) |
-| 🔵 Info | Large skill size, credential references in docs |
+|  Critical | `curl \| sh`, reverse shell patterns, crypto mining indicators |
+|  High | `eval`/`exec` with dynamic input, base64 decode chains, webhook.site/ngrok exfil, credential harvesting, binaries in skill dirs |
+|  Medium | Hidden files, system file access, hardcoded IPs, obfuscated code, persistence mechanisms (cron, systemd) |
+|  Info | Large skill size, credential references in docs |
 
 ## Host Audit Scoring
 
@@ -164,10 +164,10 @@ The host audit produces a posture score from 0-100:
 
 | Score | Rating | Meaning |
 |-------|--------|---------|
-| 90-100 | 🟢 Excellent | Minimal risk |
-| 70-89 | 🟡 Good | Minor issues to address |
-| 50-69 | 🟠 Fair | Several findings, take action |
-| 0-49 | 🔴 Poor | Significant security issues |
+| 90-100 |  Excellent | Minimal risk |
+| 70-89 |  Good | Minor issues to address |
+| 50-69 |  Fair | Several findings, take action |
+| 0-49 |  Poor | Significant security issues |
 
 Deductions: Critical (-25), High (-15), Medium (-10), Low (-5).
 
@@ -210,11 +210,11 @@ Crusty Security **automatically configures recurring scans** when your OpenClaw 
 
 | Frequency | What runs | Requires Dashboard? |
 |-----------|-----------|:---:|
-| **Every 5 min** | Dashboard heartbeat (agent status) | ✅ |
-| **Daily 3am** | Incremental workspace scan + agent integrity check | ❌ |
-| **Weekly Sunday 3am** | Full workspace scan + host audit + all skills audit + security report | ❌ |
-| **Every 12 hours** | ClawHub skill inventory sync | ✅ |
-| **Monthly 1st** | Deep host security audit | ❌ |
+| **Every 5 min** | Dashboard heartbeat (agent status) |  |
+| **Daily 3am** | Incremental workspace scan + agent integrity check |  |
+| **Weekly Sunday 3am** | Full workspace scan + host audit + all skills audit + security report |  |
+| **Every 12 hours** | ClawHub skill inventory sync |  |
+| **Monthly 1st** | Deep host security audit |  |
 
 You can adjust schedules by asking your agent to modify the cron jobs.
 
@@ -270,11 +270,11 @@ Crusty Security works fully offline with reduced capability:
 
 | Feature | Offline | Online |
 |---------|---------|--------|
-| ClamAV file scanning | ✅ (local signatures) | ✅ (fresh signatures) |
-| Skill auditing | ✅ (static analysis) | ✅ |
-| Host auditing | ✅ | ✅ |
-| Agent monitoring | ✅ | ✅ |
-| ClawHub sync | ❌ | ✅ |
+| ClamAV file scanning |  (local signatures) |  (fresh signatures) |
+| Skill auditing |  (static analysis) |  |
+| Host auditing |  |  |
+| Agent monitoring |  |  |
+| ClawHub sync |  |  |
 
 ## Contributing
 
@@ -286,7 +286,7 @@ MIT — see [LICENSE.txt](LICENSE.txt).
 
 ## Links
 
-- 🌐 **Dashboard:** [crustysecurity.com](https://crustysecurity.com)
-- 📦 **ClawHub:** [clawhub.com](https://clawhub.com) (search "crusty-security")
-- 🐙 **GitHub:** [github.com/silentcool/crusty-security](https://github.com/silentcool/crusty-security)
-- 🦀 **Built by:** [Black Matter VC](https://blackmatter.vc)
+-  **Dashboard:** [crustysecurity.com](https://crustysecurity.com)
+-  **ClawHub:** [clawhub.com](https://clawhub.com) (search "crusty-security")
+-  **GitHub:** [github.com/silentcool/crusty-security](https://github.com/silentcool/crusty-security)
+-  **Built by:** [Black Matter VC](https://blackmatter.vc)

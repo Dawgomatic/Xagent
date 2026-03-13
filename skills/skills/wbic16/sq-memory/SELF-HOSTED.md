@@ -337,4 +337,4 @@ curl http://localhost:1337/api/v2/version
 
 **Questions?** Join Discord or open a GitHub issue.
 
-🔱 **Self-hosting is how phext stays open.**
+ **Self-hosting is how phext stays open.**

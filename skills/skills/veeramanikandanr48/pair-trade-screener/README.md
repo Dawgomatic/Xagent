@@ -14,13 +14,13 @@ The Pair Trade Screener finds statistically significant pair trading opportuniti
 
 ## Features
 
-✅ **Sector-wide screening** - Analyze all stocks in a sector
-✅ **Custom pair analysis** - Test specific stock combinations
-✅ **Statistical rigor** - Cointegration tests (ADF), correlation analysis
-✅ **Mean-reversion metrics** - Half-life calculation, z-score tracking
-✅ **Trade signals** - Automatic entry/exit recommendations
-✅ **FMP API integration** - Free tier sufficient for screening
-✅ **JSON output** - Structured results for further analysis
+ **Sector-wide screening** - Analyze all stocks in a sector
+ **Custom pair analysis** - Test specific stock combinations
+ **Statistical rigor** - Cointegration tests (ADF), correlation analysis
+ **Mean-reversion metrics** - Half-life calculation, z-score tracking
+ **Trade signals** - Automatic entry/exit recommendations
+ **FMP API integration** - Free tier sufficient for screening
+ **JSON output** - Structured results for further analysis
 
 ## Installation
 
@@ -156,7 +156,7 @@ PAIR TRADE ANALYSIS: AAPL / MSFT
 [ COINTEGRATION TEST ]
   ADF Statistic: -3.8542
   P-value: 0.0028
-  Result: ✅ COINTEGRATED (p < 0.05)
+  Result:  COINTEGRATED (p < 0.05)
   Strength: ★★★ Very Strong
 
 [ MEAN REVERSION ]
@@ -168,7 +168,7 @@ PAIR TRADE ANALYSIS: AAPL / MSFT
   Historical Range: [-3.45, 3.12]
 
 [ TRADE SIGNAL ]
-  Signal: 🔺 LONG SPREAD
+  Signal:  LONG SPREAD
   Action: Long AAPL, Short MSFT
   Rationale: Z-score = -2.13 → AAPL cheap relative to MSFT
 
@@ -282,20 +282,20 @@ Individual pair analysis:
 
 ### When to Trade
 
-✅ **Strong Pair (Enter):**
+ **Strong Pair (Enter):**
 - Correlation > 0.80
 - P-value < 0.03
 - Half-life 20-60 days
 - |Z-score| > 2.0
 - Economic linkage (same sector/industry)
 
-⚠️ **Marginal Pair (Caution):**
+ **Marginal Pair (Caution):**
 - Correlation 0.70-0.80
 - P-value 0.03-0.05
 - Half-life > 60 days
 - |Z-score| 1.5-2.0
 
-❌ **Weak Pair (Avoid):**
+ **Weak Pair (Avoid):**
 - Correlation < 0.70
 - P-value > 0.05
 - Half-life > 90 days or undefined

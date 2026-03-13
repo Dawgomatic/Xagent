@@ -45,10 +45,10 @@ When you install this skill, the AI assistant will send you a config template. R
 I want to set up waste reminders!
 
 My containers:
-- blue: Paper (🔵)
-- gray: Residual (⚫)
-- orange: Plastic (🟠)
-- green: Garden (🟢)
+- blue: Paper ()
+- gray: Residual ()
+- orange: Plastic ()
+- green: Garden ()
 
 Reminder times:
 - 18:00: to group_whatsapp (day before, group notification)
@@ -88,10 +88,10 @@ waste-reminder/
 {
   "config_version": "1.0",
   "containers": {
-    "blue": {"name": "Paper", "color": "blue", "emoji": "🔵"},
-    "gray": {"name": "Residual", "color": "gray", "emoji": "⚫"},
-    "orange": {"name": "Plastic", "color": "orange", "emoji": "🟠"},
-    "green": {"name": "Garden", "color": "green", "emoji": "🟢"}
+    "blue": {"name": "Paper", "color": "blue", "emoji": ""},
+    "gray": {"name": "Residual", "color": "gray", "emoji": ""},
+    "orange": {"name": "Plastic", "color": "orange", "emoji": ""},
+    "green": {"name": "Garden", "color": "green", "emoji": ""}
   },
   "reminder_times": {
     "18:00": {
@@ -106,7 +106,7 @@ waste-reminder/
     },
     "06:30": {
       "type": "personal",
-      "template": "⚠️ {container_emoji} put out NOW!",
+      "template": " {container_emoji} put out NOW!",
       "target": "partner_whatsapp"
     },
     "09:30": {

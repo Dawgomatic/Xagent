@@ -19,7 +19,7 @@ def add_note(content):
     
     with open(NOTES_FILE, "a") as f:
         f.write(entry)
-    print(f"✅ Note saved to {NOTES_FILE}")
+    print(f" Note saved to {NOTES_FILE}")
 
 def list_notes(last_n=10):
     if not NOTES_FILE.exists():

@@ -12,14 +12,14 @@ if [ -f ".agents/skills/ethereum-wingman/AGENTS.md" ]; then
 elif [ -f "$SKILL_DIR/AGENTS.md" ]; then
     AGENTS_FILE="$SKILL_DIR/AGENTS.md"
 else
-    echo "❌ Error: Could not find ethereum-wingman skill"
+    echo " Error: Could not find ethereum-wingman skill"
     echo "   Run: npx skills add austintgriffith/ethereum-wingman"
     exit 1
 fi
 
 # Create symlink to .cursorrules
 if [ -f ".cursorrules" ]; then
-    echo "⚠️  .cursorrules already exists"
+    echo "  .cursorrules already exists"
     read -p "   Overwrite? (y/n) " -n 1 -r
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -32,7 +32,7 @@ fi
 # Create symlink (so it auto-updates with skill)
 ln -sf "$AGENTS_FILE" .cursorrules
 
-echo "✅ Created .cursorrules -> $AGENTS_FILE"
+echo " Created .cursorrules -> $AGENTS_FILE"
 echo ""
-echo "🚀 Cursor is now configured with ethereum-wingman!"
+echo " Cursor is now configured with ethereum-wingman!"
 echo "   Restart Cursor or reload the window to apply."

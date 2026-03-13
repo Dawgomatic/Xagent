@@ -35,7 +35,7 @@ Just tell your agent what you need:
 - CEOs preparing board packages
 - Anyone doing financial planning, budgeting, or fundraising prep
 
-## ⚡ Level Up
+##  Level Up
 
 Need industry-specific financial frameworks? Our **Context Packs** ($47) include tailored financial models, KPI benchmarks, and pricing strategies for your vertical:
 
@@ -46,7 +46,7 @@ Need industry-specific financial frameworks? Our **Context Packs** ($47) include
 
 → [Browse all packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-budget-tracker](https://clawhub.com/skills/afrexai-budget-tracker) — Personal & business budget management
 - [afrexai-pricing-strategy](https://clawhub.com/skills/afrexai-pricing-strategy) — Complete pricing system
@@ -58,4 +58,4 @@ Need industry-specific financial frameworks? Our **Context Packs** ($47) include
 
 ---
 
-*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛*
+*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) *

@@ -3,7 +3,7 @@ name: mealie
 description: Interact with Mealie recipe manager (recipes, shopping lists, meal plans). Self-hosted recipe and meal planning API client.
 metadata:
   openclaw:
-    emoji: 🍳
+    emoji: 
     requires:
       bins: [node]
       env: [MEALIE_URL, MEALIE_API_TOKEN]

@@ -25,6 +25,6 @@ def parse_last_state(history_text):
 
 if __name__ == "__main__":
     # Test with a sample block
-    sample = "▼▼▼ SUBSTRATE_STATE ▼▼▼\n[SERA] 🐙 | C:0.98 P:0.22 κ:1.42 V:+0.90 | mood arc..."
+    sample = "▼▼▼ SUBSTRATE_STATE ▼▼▼\n[SERA]  | C:0.98 P:0.22 κ:1.42 V:+0.90 | mood arc..."
     result = parse_last_state(sample)
     print(f"Parsed Metrics: {result}")

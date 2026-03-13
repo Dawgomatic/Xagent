@@ -38,11 +38,11 @@ Analyze and optimize Dockerfiles for smaller images, faster builds, and better s
 
 ## Security Checks
 
-- 🔴 Hardcoded secrets or ENV with credentials
-- 🔴 Running as root without USER instruction
-- 🟡 Unnecessary EXPOSE ports
-- 🟡 Writable filesystem (consider `--read-only` at runtime)
-- 🟡 No HEALTHCHECK instruction
+-  Hardcoded secrets or ENV with credentials
+-  Running as root without USER instruction
+-  Unnecessary EXPOSE ports
+-  Writable filesystem (consider `--read-only` at runtime)
+-  No HEALTHCHECK instruction
 
 ## Edge Cases
 

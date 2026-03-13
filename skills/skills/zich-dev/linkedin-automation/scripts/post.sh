@@ -28,7 +28,7 @@ fi
 
 # Output instructions for the agent to execute via browser tool
 cat << EOF
-📝 LINKEDIN POST WORKFLOW
+ LINKEDIN POST WORKFLOW
 ═══════════════════════════════════════
 
 Content to post:
@@ -56,5 +56,5 @@ Steps to execute via browser tool:
 
 6. Wait for confirmation (post appears in feed)
 
-⚠️  Rate limit: Max 2-3 posts per day
+  Rate limit: Max 2-3 posts per day
 EOF

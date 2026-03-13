@@ -1,15 +1,15 @@
 # AI Trading Agent - Quick Start Guide
 
-🤖 **AI-powered cryptocurrency trading assistant that prevents mistakes and finds opportunities automatically**
+ **AI-powered cryptocurrency trading assistant that prevents mistakes and finds opportunities automatically**
 
 ## What This Does
 
 This AI trading agent helps you:
-- ✅ Analyze cryptocurrency markets automatically
-- ✅ Prevent common trading mistakes  
-- ✅ Find the best trading opportunities
-- ✅ Calculate position sizes safely
-- ✅ Understand risks in simple terms
+-  Analyze cryptocurrency markets automatically
+-  Prevent common trading mistakes  
+-  Find the best trading opportunities
+-  Calculate position sizes safely
+-  Understand risks in simple terms
 
 **No experience needed!** The AI explains everything step-by-step.
 
@@ -31,12 +31,12 @@ python trading_agent.py
 ### Step 3: Follow the Prompts
 
 ```
-💵 Enter your account balance: 1000
+ Enter your account balance: 1000
 Choose mode:
   1. Analyze specific coin
   2. Scan entire market
 Enter 1 or 2: 1
-💱 Enter trading pair: BTC/USDT
+ Enter trading pair: BTC/USDT
 ```
 
 The AI will analyze the market and give you clear recommendations!
@@ -46,19 +46,19 @@ The AI will analyze the market and give you clear recommendations!
 ### Example Analysis Output:
 
 ```
-🔍 Analyzing BTC/USDT...
+ Analyzing BTC/USDT...
 
-💰 CURRENT PRICE: $94,250
-📈 RECOMMENDATION: ✅ LONG at $94,250
+ CURRENT PRICE: $94,250
+ RECOMMENDATION:  LONG at $94,250
 
-🎯 ACTION: LONG (Buy)
-📊 CONFIDENCE: 75% (NOT a guarantee)
-💵 ENTRY PRICE: $94,250
-🛑 STOP LOSS: $93,100 (protect your money)
-🎁 TAKE PROFIT: $96,975 (target)
-⚖️ RISK/REWARD: 1:2.4
+ ACTION: LONG (Buy)
+ CONFIDENCE: 75% (NOT a guarantee)
+ ENTRY PRICE: $94,250
+ STOP LOSS: $93,100 (protect your money)
+ TAKE PROFIT: $96,975 (target)
+ RISK/REWARD: 1:2.4
 
-💼 POSITION SIZING (for $1000 account):
+ POSITION SIZING (for $1000 account):
    • Buy Amount: 0.017 BTC
    • Position Value: $100
    • Risk Amount: $20 (2% of account)
@@ -79,20 +79,20 @@ The AI will analyze the market and give you clear recommendations!
 ## Safety Features Built-In
 
 ### The AI Will NEVER:
-- ❌ Generate fake data
-- ❌ Give overly confident predictions
-- ❌ Recommend trades without proper analysis
-- ❌ Risk more than 2% of your account
-- ❌ Ignore trading fees
-- ❌ Use outdated market data
+-  Generate fake data
+-  Give overly confident predictions
+-  Recommend trades without proper analysis
+-  Risk more than 2% of your account
+-  Ignore trading fees
+-  Use outdated market data
 
 ### The AI Will ALWAYS:
-- ✅ Validate all data before analysis
-- ✅ Analyze multiple timeframes
-- ✅ Calculate proper position sizes
-- ✅ Include trading fees
-- ✅ Explain risks clearly
-- ✅ Block bad trades automatically
+-  Validate all data before analysis
+-  Analyze multiple timeframes
+-  Calculate proper position sizes
+-  Include trading fees
+-  Explain risks clearly
+-  Block bad trades automatically
 
 ## Common Questions
 
@@ -140,8 +140,8 @@ The AI will analyze the market and give you clear recommendations!
 4. **Review Top Opportunities**
    ```
    #1 OPPORTUNITY: BTC/USDT
-   ⭐ SCORE: 7.2/10
-   📊 CONFIDENCE: 80%
+    SCORE: 7.2/10
+    CONFIDENCE: 80%
    ```
 
 5. **Understand the Recommendation**
@@ -163,24 +163,24 @@ The AI will analyze the market and give you clear recommendations!
 
 ### Before You Trade:
 
-1. ✅ This is NOT financial advice
-2. ✅ Start with small amounts
-3. ✅ Test on paper trading first
-4. ✅ Never risk money you need
-5. ✅ Markets can be irrational
-6. ✅ Past performance ≠ future results
-7. ✅ Always use stop losses
-8. ✅ Don't trade emotionally
+1.  This is NOT financial advice
+2.  Start with small amounts
+3.  Test on paper trading first
+4.  Never risk money you need
+5.  Markets can be irrational
+6.  Past performance ≠ future results
+7.  Always use stop losses
+8.  Don't trade emotionally
 
 ### Red Flags to Ignore:
 
-- ❌ "Get rich quick" thinking
-- ❌ Revenge trading after losses
-- ❌ Ignoring stop losses
-- ❌ Risking more than 2%
-- ❌ Trading without analysis
-- ❌ Following hype blindly
-- ❌ FOMO (Fear of Missing Out)
+-  "Get rich quick" thinking
+-  Revenge trading after losses
+-  Ignoring stop losses
+-  Risking more than 2%
+-  Trading without analysis
+-  Following hype blindly
+-  FOMO (Fear of Missing Out)
 
 ## Market Scanner Mode
 
@@ -214,11 +214,11 @@ The AI will:
 **Problem:** Exchange temporarily unavailable  
 **Solution:** Try again in a few minutes. System tries multiple exchanges automatically.
 
-### "⛔ DO NOT TRADE - Insufficient data"
+### " DO NOT TRADE - Insufficient data"
 **Problem:** Not enough data to make safe recommendation  
 **Solution:** This is protecting you! Wait for better conditions or try different coin.
 
-### "⚠️ Stale data"
+### " Stale data"
 **Problem:** Market data too old (>5 minutes)  
 **Solution:** System rejects automatically. Wait for fresh data.
 
@@ -237,9 +237,9 @@ python test_trading_agent.py
 
 You should see:
 ```
-✅ PASS - Simulated Data Test
-✅ PASS - Anti-Hallucination Test
-🏆 Overall: 2-3/3 tests passed
+ PASS - Simulated Data Test
+ PASS - Anti-Hallucination Test
+ Overall: 2-3/3 tests passed
 ```
 
 ## Learning Path
@@ -279,9 +279,9 @@ You should see:
 ### Understanding Error Messages:
 
 ```
-❌ "Trade blocked" = Safety check triggered (good!)
-⚠️ "Warning" = Be extra cautious (still can trade)
-✅ "Safe to trade" = All checks passed (but still risky!)
+ "Trade blocked" = Safety check triggered (good!)
+ "Warning" = Be extra cautious (still can trade)
+ "Safe to trade" = All checks passed (but still risky!)
 ```
 
 ## Real User Tips
@@ -305,44 +305,44 @@ You should see:
 ## What Makes This Different?
 
 ### vs Manual Analysis:
-- ✅ Analyzes multiple timeframes instantly
-- ✅ Never gets emotional
-- ✅ Consistent calculations every time
-- ✅ Never forgets risk management
+-  Analyzes multiple timeframes instantly
+-  Never gets emotional
+-  Consistent calculations every time
+-  Never forgets risk management
 
 ### vs Other Trading Bots:
-- ✅ Explains reasoning clearly
-- ✅ Validates all data (no hallucinations)
-- ✅ Designed for beginners
-- ✅ Transparent methodology
-- ✅ No black box decisions
+-  Explains reasoning clearly
+-  Validates all data (no hallucinations)
+-  Designed for beginners
+-  Transparent methodology
+-  No black box decisions
 
 ### vs "Trust Me Bro" Signals:
-- ✅ Shows all data used
-- ✅ Explains confidence levels
-- ✅ Admits uncertainty
-- ✅ Realistic expectations
-- ✅ No hype or FOMO
+-  Shows all data used
+-  Explains confidence levels
+-  Admits uncertainty
+-  Realistic expectations
+-  No hype or FOMO
 
 ## Next Steps
 
-1. ✅ Install dependencies (`pip install -r requirements.txt`)
-2. ✅ Run first analysis (`python trading_agent.py`)
-3. ✅ Try market scanner mode
-4. ✅ Read SKILL.md for technical details
-5. ✅ Practice with paper trading
-6. ✅ Start small when ready
+1.  Install dependencies (`pip install -r requirements.txt`)
+2.  Run first analysis (`python trading_agent.py`)
+3.  Try market scanner mode
+4.  Read SKILL.md for technical details
+5.  Practice with paper trading
+6.  Start small when ready
 
 ## Remember
 
-- 💰 Only risk what you can afford to lose
-- 🛑 Always use stop losses
-- 📊 Markets are unpredictable
-- 🎓 Keep learning
-- 🧘 Stay calm and disciplined
-- ✅ The AI is a tool, not a crystal ball
+-  Only risk what you can afford to lose
+-  Always use stop losses
+-  Markets are unpredictable
+-  Keep learning
+-  Stay calm and disciplined
+-  The AI is a tool, not a crystal ball
 
-**Good luck and trade safely!** 🚀
+**Good luck and trade safely!** 
 
 ---
 

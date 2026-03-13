@@ -1,7 +1,7 @@
 ---
 name: News
 description: Build a personalized news system that learns your interests, formats, and schedule.
-metadata: {"clawdbot":{"emoji":"📰","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Building Your News Profile

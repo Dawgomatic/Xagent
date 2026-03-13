@@ -44,7 +44,7 @@ cat << 'EOF'
 (__(__)___(__)__)   ╚══════╝ ╚═════╝ ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 EOF
 echo -e "${NC}"
-echo -e "${BOLD}  ⚡ Trading Bot CLI${NC} ${DIM}— Backtest → Deploy → Monitor${NC}"
+echo -e "${BOLD}   Trading Bot CLI${NC} ${DIM}— Backtest → Deploy → Monitor${NC}"
 echo ""
 
 # =============================================================================
@@ -207,7 +207,7 @@ main() {
     
     echo ""
     echo -e "${MAGENTA}    /\\_/\\  ${GREEN}═══════════════════════════════════════${NC}"
-    echo -e "${MAGENTA}   ( o.o ) ${GREEN}  ✨ Installation Complete!${NC}"
+    echo -e "${MAGENTA}   ( o.o ) ${GREEN}   Installation Complete!${NC}"
     echo -e "${MAGENTA}    > ^ <  ${GREEN}═══════════════════════════════════════${NC}"
     echo ""
     echo -e "  ${BOLD}Quick Start:${NC}"
@@ -216,7 +216,7 @@ main() {
     echo -e "    ${CYAN}supurr backtest${NC}       ${DIM}# Test strategy${NC}"
     echo -e "    ${CYAN}supurr deploy${NC}         ${DIM}# Go live!${NC}"
     echo ""
-    echo -e "  ${YELLOW}⚠${NC}  Open a new terminal or run: ${CYAN}source ~/.zshrc${NC}"
+    echo -e "  ${YELLOW}${NC}  Open a new terminal or run: ${CYAN}source ~/.zshrc${NC}"
     echo ""
 }
 

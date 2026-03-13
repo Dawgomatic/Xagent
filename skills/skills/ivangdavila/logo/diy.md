@@ -4,11 +4,11 @@
 
 | Situation | DIY Viability |
 |-----------|---------------|
-| Testing business idea, not launched yet | ✅ Perfect |
-| Side project, personal brand | ✅ Good |
-| Budget under $200 | ✅ Only option |
-| Funded startup, external stakeholders | ⚠️ Risky |
-| Established business rebranding | ❌ Hire professional |
+| Testing business idea, not launched yet |  Perfect |
+| Side project, personal brand |  Good |
+| Budget under $200 |  Only option |
+| Funded startup, external stakeholders |  Risky |
+| Established business rebranding |  Hire professional |
 
 **The honest truth:** DIY logos are fine for early stages. But if investors, press, or enterprise customers will see it, amateur logos cost credibility.
 

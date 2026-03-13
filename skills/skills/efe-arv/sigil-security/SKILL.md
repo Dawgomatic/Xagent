@@ -6,7 +6,7 @@ source: https://github.com/Arven-Digital/sigil-public
 metadata:
   openclaw:
     primaryEnv: SIGIL_API_KEY
-    emoji: "🛡️"
+    emoji: ""
     requires:
       env:
         - SIGIL_API_KEY
@@ -25,19 +25,19 @@ Secure smart wallets for AI agents on 5 EVM chains. 3-layer Guardian evaluates e
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `SIGIL_API_KEY` | ✅ Yes | Agent API key from Sigil dashboard (starts with `sgil_`). Generate at https://sigil.codes/dashboard/agent-access |
-| `SIGIL_ACCOUNT_ADDRESS` | ✅ Yes | Your deployed Sigil smart account address. Deploy at https://sigil.codes/onboarding |
+| `SIGIL_API_KEY` |  Yes | Agent API key from Sigil dashboard (starts with `sgil_`). Generate at https://sigil.codes/dashboard/agent-access |
+| `SIGIL_ACCOUNT_ADDRESS` |  Yes | Your deployed Sigil smart account address. Deploy at https://sigil.codes/onboarding |
 | `SIGIL_API_URL` | No | API base URL (default: `https://api.sigil.codes`) |
 | `SIGIL_CHAIN_ID` | No | Chain ID: 43114=Avalanche, 8453=Base, 42161=Arbitrum, 137=Polygon, 16661=0G (default: `43114`) |
 
-## ⚠️ How It Works (Read This First)
+##  How It Works (Read This First)
 
 Sigil has **3 addresses** — don't confuse them:
 - **Owner wallet** — your MetaMask/EOA, controls settings (human only)
 - **Sigil smart account** — on-chain vault that holds funds and executes transactions
 - **Agent key** — API authentication credential, NOT a wallet
 
-> **💰 FUND THE SIGIL ACCOUNT, NOT THE AGENT KEY.**
+> ** FUND THE SIGIL ACCOUNT, NOT THE AGENT KEY.**
 > The agent authenticates via API key → calls `/v1/execute` → server builds, signs, and submits the transaction. The Sigil account executes with its own funds.
 
 [Full setup guide →](references/agent-setup-guide.md)
@@ -46,7 +46,7 @@ Sigil has **3 addresses** — don't confuse them:
 
 Add the skill to your agent config. **The `env` field MUST be a flat key-value object, NOT an array.**
 
-✅ **Correct format** (in `openclaw.json` under your agent's `skills`):
+ **Correct format** (in `openclaw.json` under your agent's `skills`):
 ```json
 {
   "name": "sigil-security",
@@ -57,7 +57,7 @@ Add the skill to your agent config. **The `env` field MUST be a flat key-value o
 }
 ```
 
-❌ **WRONG format** (will crash the gateway):
+ **WRONG format** (will crash the gateway):
 ```json
 {
   "name": "sigil-security",
@@ -79,15 +79,15 @@ Add the skill to your agent config. **The `env` field MUST be a flat key-value o
 
 | Action | Agent Key | Owner (SIWE) | Session Key |
 |--------|-----------|--------------|-------------|
-| Execute (sign + submit) | ✅ | ✅ | ❌ |
-| Evaluate transactions | ✅ | ✅ | ✅ |
-| Check wallet status | ✅ | ✅ | ✅ |
-| View audit logs | ✅ | ✅ | ❌ |
-| Update policy | ❌ | ✅ | ❌ |
-| Freeze account | ❌ | ✅ | ❌ |
-| Rotate keys | ❌ | ✅ | ❌ |
-| Emergency withdraw | ❌ | ✅ (on-chain only) | ❌ |
-| Add/remove recovery guardians | ❌ | ✅ | ❌ |
+| Execute (sign + submit) |  |  |  |
+| Evaluate transactions |  |  |  |
+| Check wallet status |  |  |  |
+| View audit logs |  |  |  |
+| Update policy |  |  |  |
+| Freeze account |  |  |  |
+| Rotate keys |  |  |  |
+| Emergency withdraw |  |  (on-chain only) |  |
+| Add/remove recovery guardians |  |  |  |
 
 **Key principles:**
 - The agent key **cannot** freeze, withdraw, rotate keys, or change policy — those are owner-only (require SIWE wallet signature)

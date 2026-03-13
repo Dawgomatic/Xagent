@@ -5,7 +5,7 @@
 
 set -e
 
-echo "🌙 农历生日提醒系统 - 精准农历计算系统发布脚本"
+echo " 农历生日提醒系统 - 精准农历计算系统发布脚本"
 echo "=========================================="
 
 # 检查当前目录
@@ -19,17 +19,17 @@ echo "系统信息:"
 echo "- 技能名称: 农历生日提醒系统"
 echo "- 版本: 1.0.0"
 echo "- 作者: 夏暮辞青"
-echo "- 验证状态: ✅ 35/35 测试通过"
+echo "- 验证状态:  35/35 测试通过"
 echo ""
 
 # 运行验证测试
-echo "📊 运行最终验证测试..."
+echo " 运行最终验证测试..."
 python3 scripts/simple_validator.py > validation_result.txt 2>&1
 echo "验证完成，结果已保存到 validation_result.txt"
 echo ""
 
 # 创建发布包
-echo "📦 创建发布包..."
+echo " 创建发布包..."
 RELEASE_DIR="../lunar-calendar-release"
 rm -rf "$RELEASE_DIR"
 mkdir -p "$RELEASE_DIR"
@@ -38,7 +38,7 @@ mkdir -p "$RELEASE_DIR"
 cp -r SKILL.md README.md package.json scripts/ references/ "$RELEASE_DIR"/
 
 # 创建示例文件
-echo "📝 创建示例文件..."
+echo " 创建示例文件..."
 cat > "$RELEASE_DIR/example_usage.py" << 'EOF'
 #!/usr/bin/env python3
 """
@@ -108,14 +108,14 @@ def example_fortune_query():
 
 def main():
     """主函数"""
-    print("🌙 农历生日提醒系统使用示例")
+    print(" 农历生日提醒系统使用示例")
     print("=" * 60)
     
     example_solar_to_lunar()
     example_lunar_to_solar()
     example_fortune_query()
     
-    print("🎉 示例运行完成！")
+    print(" 示例运行完成！")
     print("\n更多功能请参考 README.md")
 
 if __name__ == "__main__":
@@ -125,7 +125,7 @@ EOF
 chmod +x "$RELEASE_DIR/example_usage.py"
 
 # 创建安装脚本
-echo "🔧 创建安装脚本..."
+echo " 创建安装脚本..."
 cat > "$RELEASE_DIR/install.sh" << 'EOF'
 #!/bin/bash
 
@@ -133,7 +133,7 @@ cat > "$RELEASE_DIR/install.sh" << 'EOF'
 
 set -e
 
-echo "🌙 安装农历生日提醒系统技能..."
+echo " 安装农历生日提醒系统技能..."
 echo "=============================="
 
 # 检查OpenClaw
@@ -163,20 +163,20 @@ fi
 mkdir -p "$SKILL_DIR"
 cp -r ./* "$SKILL_DIR"/
 
-echo "✅ 文件复制完成"
+echo " 文件复制完成"
 
 # 安装Python依赖
 echo "安装Python依赖..."
 cd "$SKILL_DIR"
 if python3 -c "import lunardate" &> /dev/null; then
-    echo "✅ lunardate 已安装"
+    echo " lunardate 已安装"
 else
     echo "安装 lunardate..."
     python3 -m pip install lunardate || echo "警告：lunardate安装失败，部分功能可能受限"
 fi
 
 if python3 -c "import cnlunar" &> /dev/null; then
-    echo "✅ cnlunar 已安装"
+    echo " cnlunar 已安装"
 else
     echo "安装 cnlunar..."
     python3 -m pip install cnlunar || echo "警告：cnlunar安装失败，部分功能可能受限"
@@ -185,13 +185,13 @@ fi
 # 运行验证测试
 echo "运行验证测试..."
 if python3 scripts/simple_validator.py | grep -q "所有验证通过"; then
-    echo "✅ 验证测试通过"
+    echo " 验证测试通过"
 else
-    echo "⚠️  验证测试未通过，但安装继续"
+    echo "  验证测试未通过，但安装继续"
 fi
 
 echo ""
-echo "🎉 农历生日提醒系统技能安装完成！"
+echo " 农历生日提醒系统技能安装完成！"
 echo ""
 echo "使用方法："
 echo "1. 在OpenClaw中询问农历相关问题"
@@ -211,15 +211,15 @@ EOF
 chmod +x "$RELEASE_DIR/install.sh"
 
 # 创建GitHub发布说明
-echo "📄 创建GitHub发布说明..."
+echo " 创建GitHub发布说明..."
 cat > "$RELEASE_DIR/RELEASE.md" << 'EOF'
 # 农历生日提醒系统 v1.0.0 发布说明
 
-## 🎉 新特性
+##  新特性
 
 ### 核心功能
 1. **精准农历计算**：支持1900-2100年的农历计算
-2. **双向转换**：公历↔农历双向精确转换
+2. **双向转换**：公历农历双向精确转换
 3. **黄历宜忌**：传统黄历宜忌查询
 4. **节气查询**：24节气信息查询
 
@@ -235,7 +235,7 @@ cat > "$RELEASE_DIR/RELEASE.md" << 'EOF'
 3. **开源协议**：MIT许可证
 4. **社区支持**：GitHub Issues和小龙虾社区
 
-## 📊 技术指标
+##  技术指标
 
 - **测试通过率**: 100% (35/35)
 - **计算速度**: < 1ms/次
@@ -243,7 +243,7 @@ cat > "$RELEASE_DIR/RELEASE.md" << 'EOF'
 - **支持年限**: 1900-2100年
 - **依赖库**: Python 3.6+, lunardate, cnlunar
 
-## 🚀 快速开始
+##  快速开始
 
 ### 安装
 ```bash
@@ -267,14 +267,14 @@ python scripts/lunar_calculator.py --lunar "2026-09-05"
 python scripts/simple_validator.py
 ```
 
-## 🔧 系统要求
+##  系统要求
 
 - **操作系统**: Linux, macOS, Windows (WSL)
 - **Python**: 3.6+
 - **OpenClaw**: 1.0.0+
 - **内存**: 至少100MB可用空间
 
-## 📁 文件结构
+##  文件结构
 
 ```
 lunar-birthday-reminder/
@@ -287,19 +287,19 @@ lunar-birthday-reminder/
 └── example_usage.py  # 使用示例
 ```
 
-## 🧪 测试结果
+##  测试结果
 
 验证测试包含35个已知农历日期：
-- ✅ 春节测试 (2012-2026年)
-- ✅ 中秋节测试 (2014-2026年)
-- ✅ 端午节测试 (2013-2026年)
-- ✅ 清明节测试 (2022-2026年)
-- ✅ 闰月测试 (2012-2023年)
-- ✅ 其他节日测试
+-  春节测试 (2012-2026年)
+-  中秋节测试 (2014-2026年)
+-  端午节测试 (2013-2026年)
+-  清明节测试 (2022-2026年)
+-  闰月测试 (2012-2023年)
+-  其他节日测试
 
 **所有测试100%通过**
 
-## 🤝 贡献指南
+##  贡献指南
 
 欢迎提交Issue和Pull Request：
 1. Fork本仓库
@@ -308,18 +308,18 @@ lunar-birthday-reminder/
 4. 推送到分支
 5. 创建Pull Request
 
-## 📄 许可证
+##  许可证
 
 MIT License - 详见LICENSE文件
 
-## 🙏 致谢
+##  致谢
 
 - **作者**: 夏暮辞青
 - **测试数据**: 中国农历权威资料
 - **算法库**: lunardate, cnlunar
 - **设计参考**: Anthropic官方技能设计规范
 
-## 📞 支持
+##  支持
 
 - GitHub Issues: https://github.com/yourusername/lunar-birthday-reminder/issues
 - 小龙虾社区: https://clawhub.com/skills/lunar-calendar
@@ -331,26 +331,26 @@ MIT License - 详见LICENSE文件
 EOF
 
 # 压缩发布包
-echo "📦 压缩发布包..."
+echo " 压缩发布包..."
 cd "$RELEASE_DIR"
 tar -czf ../lunar-birthday-reminder-v1.0.0.tar.gz .
 cd ..
 
 echo ""
-echo "🎉 发布包创建完成！"
+echo " 发布包创建完成！"
 echo ""
-echo "📁 发布包位置: $RELEASE_DIR"
-echo "📦 压缩包: $(pwd)/lunar-birthday-reminder-v1.0.0.tar.gz"
+echo " 发布包位置: $RELEASE_DIR"
+echo " 压缩包: $(pwd)/lunar-birthday-reminder-v1.0.0.tar.gz"
 echo ""
-echo "📋 发布步骤:"
+echo " 发布步骤:"
 echo "1. 上传到GitHub: lunar-birthday-reminder-v1.0.0.tar.gz"
 echo "2. 更新GitHub仓库文件"
 echo "3. 在小龙虾社区发布"
 echo "4. 提交到OpenClaw技能市场"
 echo ""
-echo "📝 发布说明已保存到: $RELEASE_DIR/RELEASE.md"
+echo " 发布说明已保存到: $RELEASE_DIR/RELEASE.md"
 echo ""
-echo "🌐 发布目标:"
+echo " 发布目标:"
 echo "- GitHub: https://github.com/yourusername/lunar-birthday-reminder"
 echo "- 小龙虾社区: https://clawhub.com/skills/lunar-calendar"
 echo "- OpenClaw技能市场"

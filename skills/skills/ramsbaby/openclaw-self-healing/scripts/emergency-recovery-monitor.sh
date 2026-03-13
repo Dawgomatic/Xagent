@@ -76,13 +76,13 @@ send_alert() {
   
   # Discord 알림 메시지 생성
   cat > "$ALERT_TMP" << EOF
-🚨 **긴급: OpenClaw 자가복구 실패**
+ **긴급: OpenClaw 자가복구 실패**
 
 **시간:** $timestamp
 **상태:**
-- Level 1 (Watchdog) ❌
-- Level 2 (Health Check) ❌  
-- Level 3 (Claude Recovery) ❌
+- Level 1 (Watchdog) 
+- Level 2 (Health Check)   
+- Level 3 (Claude Recovery) 
 
 **수동 개입 필요합니다.**
 
@@ -111,9 +111,9 @@ EOF
       2>&1 || echo "000")
     
     if [ "$response_code" = "200" ] || [ "$response_code" = "204" ]; then
-      log "✅ Discord notification sent (HTTP $response_code)"
+      log " Discord notification sent (HTTP $response_code)"
     else
-      log "⚠️ Discord notification failed (HTTP $response_code), falling back to stdout"
+      log " Discord notification failed (HTTP $response_code), falling back to stdout"
       cat "$ALERT_TMP"
     fi
   else

@@ -3,12 +3,12 @@
 Brain v3 - Personal AI Memory System with SQLite Support
 
 Features:
-- 🎭 Soul/Personality - Evolving traits
-- 👤 User Profile - Learns preferences
-- 💭 Conversation State - Mood/intent detection
-- 📚 Learning Insights - Continuous improvement
-- 🧠 get_full_context() - Everything for personalized responses
-- 🔐 Encrypted Secrets - Securely store sensitive data
+-  Soul/Personality - Evolving traits
+-  User Profile - Learns preferences
+-  Conversation State - Mood/intent detection
+-  Learning Insights - Continuous improvement
+-  get_full_context() - Everything for personalized responses
+-  Encrypted Secrets - Securely store sensitive data
 
 Supports: SQLite (default), PostgreSQL, Redis
 """

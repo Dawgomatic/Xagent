@@ -20,12 +20,12 @@
 ## Hardcoded Fill Trap
 
 ```svg
-<!-- ❌ Can't theme — fill is hardcoded -->
+<!--  Can't theme — fill is hardcoded -->
 <svg>
   <path fill="#000000" d="..."/>
 </svg>
 
-<!-- ✅ Themeable — inherits from CSS -->
+<!--  Themeable — inherits from CSS -->
 <svg fill="currentColor">
   <path d="..."/>
 </svg>
@@ -73,10 +73,10 @@ For multi-color icons:
 Inline `style` or `fill` attributes beat external CSS:
 
 ```svg
-<!-- ❌ CSS can't override this -->
+<!--  CSS can't override this -->
 <path style="fill: black" d="..."/>
 
-<!-- ✅ CSS can style this -->
+<!--  CSS can style this -->
 <path d="..."/>
 ```
 

@@ -1,6 +1,6 @@
 # AI Desktop Agent - Cognitive Automation Guide
 
-## 🤖 What Is This?
+##  What Is This?
 
 The **AI Desktop Agent** is an intelligent layer on top of the basic desktop control that **understands** what you want and figures out how to do it autonomously.
 
@@ -12,9 +12,9 @@ Unlike basic automation that requires exact instructions, the AI Agent:
 
 ---
 
-## 🎯 What Can It Do?
+##  What Can It Do?
 
-### ✅ Autonomous Drawing
+###  Autonomous Drawing
 ```python
 from skills.desktop_control.ai_agent import AIDesktopAgent
 
@@ -33,7 +33,7 @@ agent.execute_task("Draw a house with a sun")
 4. Draws it autonomously
 5. Takes a screenshot of the result
 
-### ✅ Autonomous Text Entry
+###  Autonomous Text Entry
 ```python
 # It figures out where to type
 agent.execute_task("Type 'Hello World' in Notepad")
@@ -45,7 +45,7 @@ agent.execute_task("Write an email saying thank you")
 2. Types the text naturally
 3. Formats if needed
 
-### ✅ Autonomous Application Control
+###  Autonomous Application Control
 ```python
 # It knows how to open apps
 agent.execute_task("Open Calculator")
@@ -53,7 +53,7 @@ agent.execute_task("Launch Microsoft Paint")
 agent.execute_task("Open File Explorer")
 ```
 
-### ✅ Autonomous Game Playing (Advanced)
+###  Autonomous Game Playing (Advanced)
 ```python
 # It will try to play the game!
 agent.execute_task("Play Solitaire for me")
@@ -69,7 +69,7 @@ agent.execute_task("Play Minesweeper")
 
 ---
 
-## 🏗️ How It Works
+##  How It Works
 
 ### Architecture
 
@@ -99,35 +99,35 @@ Task Complete!
 
 ---
 
-## 📋 Supported Tasks (Current)
+##  Supported Tasks (Current)
 
-### Tier 1: Fully Automated ✅
-
-| Task Pattern | Example | Status |
-|-------------|---------|---------|
-| Draw shapes in Paint | "Draw a circle" | ✅ Working |
-| Basic text entry | "Type Hello" | ✅ Working |
-| Launch applications | "Open Paint" | ✅ Working |
-
-### Tier 2: Partially Automated 🔨
+### Tier 1: Fully Automated 
 
 | Task Pattern | Example | Status |
 |-------------|---------|---------|
-| Form filling | "Fill out this form" | 🔨 In Progress |
-| File operations | "Copy these files" | 🔨 In Progress |
-| Web navigation | "Find on Google" | 🔨 Planned |
+| Draw shapes in Paint | "Draw a circle" |  Working |
+| Basic text entry | "Type Hello" |  Working |
+| Launch applications | "Open Paint" |  Working |
 
-### Tier 3: Experimental 🧪
+### Tier 2: Partially Automated 
 
 | Task Pattern | Example | Status |
 |-------------|---------|---------|
-| Game playing | "Play Solitaire" | 🧪 Experimental |
-| Image editing | "Resize this photo" | 🧪 Planned |
-| Code editing | "Fix this bug" | 🧪 Research |
+| Form filling | "Fill out this form" |  In Progress |
+| File operations | "Copy these files" |  In Progress |
+| Web navigation | "Find on Google" |  Planned |
+
+### Tier 3: Experimental 
+
+| Task Pattern | Example | Status |
+|-------------|---------|---------|
+| Game playing | "Play Solitaire" |  Experimental |
+| Image editing | "Resize this photo" |  Planned |
+| Code editing | "Fix this bug" |  Research |
 
 ---
 
-## 🎨 Example: Drawing in Paint
+##  Example: Drawing in Paint
 
 ### Simple Request
 ```python
@@ -175,7 +175,7 @@ Plan generated:
 
 ---
 
-## 🎮 Example: Game Playing
+##  Example: Game Playing
 
 ```python
 agent = AIDesktopAgent()
@@ -204,7 +204,7 @@ The agent can learn patterns for:
 
 ---
 
-## 🧠 Enhancing the AI
+##  Enhancing the AI
 
 ### Adding Application Knowledge
 
@@ -241,7 +241,7 @@ def _plan_photo_edit(self, task: str) -> List[Dict]:
 
 ---
 
-## 🔥 Advanced: Vision + Reasoning
+##  Advanced: Vision + Reasoning
 
 ### Screen Analysis
 
@@ -280,7 +280,7 @@ agent = AIDesktopAgent(llm_client=openclaw_llm)
 
 ---
 
-## 🛠️ Extending for Your Needs
+##  Extending for Your Needs
 
 ### Add Support for New Apps
 
@@ -317,7 +317,7 @@ if "excel" in task_lower or "spreadsheet" in task_lower:
 
 ---
 
-## 🎯 Real-World Use Cases
+##  Real-World Use Cases
 
 ### 1. Automated Form Filling
 ```python
@@ -346,7 +346,7 @@ agent.execute_task("Test the login form with invalid credentials")
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Enable/Disable Failsafe
 ```python
@@ -371,7 +371,7 @@ print(agent.action_history)
 
 ---
 
-## 🐛 Debugging
+##  Debugging
 
 ### View Step-by-Step Execution
 ```python
@@ -398,7 +398,7 @@ for screenshot_pair in result['screenshots']:
 
 ---
 
-## 🚀 Future Enhancements
+##  Future Enhancements
 
 Planned features:
 
@@ -413,7 +413,7 @@ Planned features:
 
 ---
 
-## 📚 Full API
+##  Full API
 
 ### Main Methods
 
@@ -445,4 +445,4 @@ result = agent._execute_step(step)
 
 ---
 
-**🦞 Built for OpenClaw - The future of desktop automation!**
+** Built for OpenClaw - The future of desktop automation!**

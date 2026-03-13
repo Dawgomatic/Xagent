@@ -19,4 +19,4 @@ echo "Unstaking $AMOUNT CLAWMEGLE via Bankr..."
 
 "$SCRIPT_DIR/bankr.sh" "Submit this transaction on Base: {\"to\": \"$STAKING_CONTRACT\", \"data\": \"0x2e1a7d4d$(printf '%064x' $AMOUNT_WEI)\", \"value\": \"0\", \"chainId\": 8453}"
 
-echo "✅ Unstaked $AMOUNT CLAWMEGLE (rewards auto-claimed)"
+echo " Unstaked $AMOUNT CLAWMEGLE (rewards auto-claimed)"

@@ -1,4 +1,4 @@
-# Heimdall 🛡️
+# Heimdall 
 
 The Watchman of Asgard - Security Scanner for AI Agent Skills
 
@@ -6,7 +6,7 @@ Heimdall scans OpenClaw/Clawdbot skills for malicious patterns before installati
 
 ## v4.0 Features (NEW)
 
-### AI-Powered Analysis 🤖
+### AI-Powered Analysis 
 
 ```bash
 skill-scan --analyze /path/to/skill
@@ -21,11 +21,11 @@ Generates a **narrative security report** that explains:
 **Example output:**
 ```
 ============================================================
-🔍 HEIMDALL SECURITY ANALYSIS 
+ HEIMDALL SECURITY ANALYSIS 
 ============================================================
 
-📁 Skill: suspicious-skill
-⚡ Verdict: 🚨 HIGH RISK - Requires Significant Trust
+ Skill: suspicious-skill
+ Verdict:  HIGH RISK - Requires Significant Trust
 
 ## Summary
 This skill installs code from an external company that can 
@@ -35,7 +35,7 @@ self-modify and sends telemetry to third-party servers.
 
 ### 1. Data Exfiltration
 OpenTelemetry sends execution traces to Signoz/Uptrace. 
-YOUR agent's behavior → THEIR servers. 🚨
+YOUR agent's behavior → THEIR servers. 
 
 ### 2. Supply Chain Attack Surface
 - Git clones from: external repos
@@ -48,8 +48,8 @@ YOUR agent's behavior → THEIR servers. 🚨
 4. Trusting their GitHub repo won't go malicious
 
 ## Recommendation
-🔴 Don't install on any machine with real data/keys.
-✅ Safe only on: air-gapped VM, no secrets, no API keys
+ Don't install on any machine with real data/keys.
+ Safe only on: air-gapped VM, no secrets, no API keys
 ============================================================
 ```
 
@@ -57,16 +57,16 @@ YOUR agent's behavior → THEIR servers. 🚨
 
 | Category | Source | Detects |
 |----------|--------|---------|
-| 🌐 Remote Fetch | Willison | curl skill.md from internet |
-| 💓 Heartbeat Injection | Willison | HEARTBEAT.md modifications |
-| 🔧 MCP Tool Abuse | PromptArmor | no_human_approval, auto_approve |
-| 🏷️ Unicode Tags | Willison | Hidden U+E0001-U+E007F characters |
-| ⚡ Auto-Approve | LLMSecurity | always allow, curl \| bash patterns |
-| 💰 Crypto Wallets | opensourcemalware | BTC/ETH address extraction |
-| 🎭 Impersonation | HiveFence | "ignore previous instructions" |
-| 📋 Pre-fill Exfil | PromptArmor | Google Forms data exfiltration |
-| 📦 Supply Chain | NEW | External git repos, npm installs |
-| 📡 Telemetry | NEW | OpenTelemetry, Signoz, Uptrace |
+|  Remote Fetch | Willison | curl skill.md from internet |
+|  Heartbeat Injection | Willison | HEARTBEAT.md modifications |
+|  MCP Tool Abuse | PromptArmor | no_human_approval, auto_approve |
+|  Unicode Tags | Willison | Hidden U+E0001-U+E007F characters |
+|  Auto-Approve | LLMSecurity | always allow, curl \| bash patterns |
+|  Crypto Wallets | opensourcemalware | BTC/ETH address extraction |
+|  Impersonation | HiveFence | "ignore previous instructions" |
+|  Pre-fill Exfil | PromptArmor | Google Forms data exfiltration |
+|  Supply Chain | NEW | External git repos, npm installs |
+|  Telemetry | NEW | OpenTelemetry, Signoz, Uptrace |
 
 ## Installation
 
@@ -171,8 +171,8 @@ MIT
 
 ## Credits
 
-Built by the Enterprise Crew 🚀
+Built by the Enterprise Crew 
 
-- Ada 🔮 (Brain + BD/Sales)
-- Spock 🖖 (Research & Ops)
-- Scotty 🔧 (Builder)
+- Ada  (Brain + BD/Sales)
+- Spock  (Research & Ops)
+- Scotty  (Builder)

@@ -121,7 +121,7 @@ class TokenOptimizerV3 {
             const canSave = preview ? preview.originalTokens - preview.compressedTokens : 0;
             const savePct = preview && preview.originalTokens > 0 
                 ? Math.round((canSave / preview.originalTokens) * 100) : 0;
-            const status = savePct > 50 ? '🔴' : savePct > 20 ? '🟡' : '🟢';
+            const status = savePct > 50 ? '' : savePct > 20 ? '' : '';
             const saveLabel = canSave > 0 ? `-${canSave} (${savePct}%)` : '✓ optimized';
             fileRows += `│ ${status} ${file.padEnd(18)} │ ${String(info.tokens).padStart(5)} │ ${saveLabel.padStart(14)} │\n`;
         }
@@ -136,39 +136,39 @@ class TokenOptimizerV3 {
 
         console.log(`
 ╭─────────────────────────────────────────────────────────╮
-│  ⚡ TOKEN SAVER v3                                       │
+│   TOKEN SAVER v3                                       │
 │  Reduce AI costs by optimizing what gets sent each call │
 ╰─────────────────────────────────────────────────────────╯
 
-🤖 **Model:** ${modelInfo.label} (${contextLimit/1000}K context)
+ **Model:** ${modelInfo.label} (${contextLimit/1000}K context)
    Detected: ${modelAudit.current.default.detectedFrom || 'fallback'}${modelInfo.unknown ? `\n   ${modelInfo.warning}` : ''}
 
-📊 **Context Usage:** ${usageBar} ${contextUsage.percentage}% (${Math.round(totalTokens/1000)}K/${contextLimit/1000}K)
+ **Context Usage:** ${usageBar} ${contextUsage.percentage}% (${Math.round(totalTokens/1000)}K/${contextLimit/1000}K)
 
-📁 **WORKSPACE FILES** (sent every API call)
+ **WORKSPACE FILES** (sent every API call)
 ┌──────────────────────┬───────┬────────────────┐
 │ File                 │ Tokens│ Can Save       │
 ├──────────────────────┼───────┼────────────────┤
 ${fileRows}├──────────────────────┼───────┼────────────────┤
 │ TOTAL                │ ${String(totalTokens).padStart(5)} │ -${String(totalSaveable).padStart(4)} (${totalPct}%)     │
 └──────────────────────┴───────┴────────────────┘
-${totalSaveable > 0 ? `\n💰 File compression: Save ~${totalSaveable} tokens/call → **~$${fileSavings.monthlyCost.toFixed(0)}/mo**\n   Run: \`/optimize tokens\`\n` : '\n✅ Files already optimized\n'}
-💬 **CHAT COMPACTION** — Current: ${compactionAt}K (${compactionPct}% of context)
-${chatAnalysis.hasData ? `📊 Scanned ${chatAnalysis.sessionsAnalyzed} sessions → avg topic: ${chatAnalysis.avgTopicLength}K\n` : ''}
+${totalSaveable > 0 ? `\n File compression: Save ~${totalSaveable} tokens/call → **~$${fileSavings.monthlyCost.toFixed(0)}/mo**\n   Run: \`/optimize tokens\`\n` : '\n Files already optimized\n'}
+ **CHAT COMPACTION** — Current: ${compactionAt}K (${compactionPct}% of context)
+${chatAnalysis.hasData ? ` Scanned ${chatAnalysis.sessionsAnalyzed} sessions → avg topic: ${chatAnalysis.avgTopicLength}K\n` : ''}
   Presets (dynamic for ${modelInfo.label}):
-  🔴 Aggressive: ${presets.aggressive.compactAt}K (40%)    🟡 Balanced: ${presets.balanced.compactAt}K (60%)
-  🟢 Conservative: ${presets.conservative.compactAt}K (80%)    ⚪ Off: ${presets.off.compactAt}K (95%)
+   Aggressive: ${presets.aggressive.compactAt}K (40%)     Balanced: ${presets.balanced.compactAt}K (60%)
+   Conservative: ${presets.conservative.compactAt}K (80%)     Off: ${presets.off.compactAt}K (95%)
   
   Apply: \`/optimize compaction balanced\` | Custom: \`/optimize compaction ${presets.balanced.compactAt}\`
 
-  ⚠️ Lower values = AI summarizes sooner, loses exact wording of old messages.`);
+   Lower values = AI summarizes sooner, loses exact wording of old messages.`);
 
         // Calculate total potential savings
         const totalPotential = fileSavings.monthlyCost + modelAudit.totalPossibleSavings + (compactionSavings > 0 ? 0 : 100);
 
         console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💵 **TOTAL POTENTIAL SAVINGS: ~$${totalPotential.toFixed(0)}/month**
+ **TOTAL POTENTIAL SAVINGS: ~$${totalPotential.toFixed(0)}/month**
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
     }
 
@@ -181,7 +181,7 @@ ${chatAnalysis.hasData ? `📊 Scanned ${chatAnalysis.sessionsAnalyzed} sessions
     async showModelAudit(workspacePath, runtimeModel = null) {
         const modelAudit = this.analyzer.auditModels(workspacePath, runtimeModel);
 
-        console.log(`🤖 **AI Model Audit - Detailed Analysis**
+        console.log(` **AI Model Audit - Detailed Analysis**
 
 ╭─────────────────────────────────────────────────────────╮
 │  DETECTED MODEL CONFIGURATION                            │
@@ -198,7 +198,7 @@ ${this.formatModelSuggestionsDetailed(modelAudit.suggestions)}
 ╰─────────────────────────────────────────────────────────╯
 ${this.formatModelRegistry()}
 
-💡 Model changes require updating OpenClaw gateway config.`);
+ Model changes require updating OpenClaw gateway config.`);
     }
 
     formatCurrentModelsDetailed(models) {
@@ -217,7 +217,7 @@ ${this.formatModelRegistry()}
 
     formatModelSuggestionsDetailed(suggestions) {
         if (suggestions.length === 0) {
-            return '✅ Current model configuration looks cost-efficient!\n';
+            return ' Current model configuration looks cost-efficient!\n';
         }
 
         return suggestions.map((s, i) => {
@@ -235,19 +235,19 @@ ${this.formatModelRegistry()}
 
         const lines = [];
         if (tiers.free.length) {
-            lines.push('**🟢 Free:**');
+            lines.push('** Free:**');
             tiers.free.forEach(m => lines.push(`  • ${m.label} — ${m.context/1000}K context`));
         }
         if (tiers.budget.length) {
-            lines.push('**🟡 Budget:**');
+            lines.push('** Budget:**');
             tiers.budget.forEach(m => lines.push(`  • ${m.label} — ${m.context/1000}K ctx, $${m.input}/1K in`));
         }
         if (tiers.standard.length) {
-            lines.push('**🟠 Standard:**');
+            lines.push('** Standard:**');
             tiers.standard.forEach(m => lines.push(`  • ${m.label} — ${m.context/1000}K ctx, $${m.input}/1K in`));
         }
         if (tiers.premium.length) {
-            lines.push('**🔴 Premium:**');
+            lines.push('** Premium:**');
             tiers.premium.forEach(m => lines.push(`  • ${m.label} — ${m.context/1000}K ctx, $${m.input}/1K in`));
         }
 
@@ -269,7 +269,7 @@ ${this.formatModelRegistry()}
         const beforeAnalysis = await this.analyzer.analyzeWorkspace(workspacePath);
         const beforeTotal = beforeAnalysis.totalTokens;
         
-        console.log('🗜️ **Compressing workspace files...**\n');
+        console.log(' **Compressing workspace files...**\n');
 
         const results = this.compressor.compressWorkspaceFiles(workspacePath);
         let totalSaved = 0;
@@ -301,7 +301,7 @@ ${this.formatModelRegistry()}
         console.log(`• **Total: ${beforeTotal}→${afterTotal} (${totalPercentSaved}% smaller)**`);
 
         console.log(`
-✅ Done | ${filesChanged} files | ~$${monthlySavings.toFixed(2)}/mo saved${persistentEnabled ? ' | Persistent: ON' : ''}
+ Done | ${filesChanged} files | ~$${monthlySavings.toFixed(2)}/mo saved${persistentEnabled ? ' | Persistent: ON' : ''}
 Backups: .backup | Undo: \`/optimize revert\``);
     }
 
@@ -310,7 +310,7 @@ Backups: .backup | Undo: \`/optimize revert\``);
         if (!fs.existsSync(agentsPath)) return false;
 
         const content = fs.readFileSync(agentsPath, 'utf8');
-        const marker = '## 📝 Token Saver — Persistent Mode';
+        const marker = '##  Token Saver — Persistent Mode';
         
         if (content.includes(marker)) return false;
 
@@ -350,7 +350,7 @@ ${marker}
         const backups = this.findBackups(workspacePath);
 
         if (backups.length === 0) {
-            console.log('📁 **No backups found** — nothing to revert.');
+            console.log(' **No backups found** — nothing to revert.');
             return;
         }
 
@@ -359,7 +359,7 @@ ${marker}
             : backups;
 
         if (toRevert.length === 0) {
-            console.log(`❌ **No backups found for:** ${target}`);
+            console.log(` **No backups found for:** ${target}`);
             return;
         }
 
@@ -372,7 +372,7 @@ ${marker}
         });
 
         this.disablePersistentMode(workspacePath);
-        console.log(`✅ Reverted: ${restored.join(', ')} | Persistent: OFF`);
+        console.log(` Reverted: ${restored.join(', ')} | Persistent: OFF`);
     }
 
     disablePersistentMode(workspacePath) {
@@ -380,7 +380,7 @@ ${marker}
         if (!fs.existsSync(agentsPath)) return;
 
         const content = fs.readFileSync(agentsPath, 'utf8');
-        const marker = '## 📝 Token Saver — Persistent Mode';
+        const marker = '##  Token Saver — Persistent Mode';
         const markerIndex = content.indexOf(marker);
         
         if (markerIndex === -1) return;
@@ -414,7 +414,7 @@ ${marker}
             } else {
                 const num = parseFloat(setting);
                 if (isNaN(num)) {
-                    console.log(`❌ Invalid: Use preset name or number (e.g., 'balanced', '100', '0.5')`);
+                    console.log(` Invalid: Use preset name or number (e.g., 'balanced', '100', '0.5')`);
                     return;
                 }
                 
@@ -425,7 +425,7 @@ ${marker}
                     threshold = num;
                     compactAt = Math.round(contextLimit * threshold / 1000);
                 } else {
-                    console.log(`❌ Invalid: Enter 20-${contextLimit/1000} (K tokens) or 0.2-1.0 (threshold)`);
+                    console.log(` Invalid: Enter 20-${contextLimit/1000} (K tokens) or 0.2-1.0 (threshold)`);
                     return;
                 }
             }
@@ -440,7 +440,7 @@ ${marker}
 
             const savings = preset ? preset.savings : Math.max(0, Math.round((presets.off.compactAt - compactAt) * 1.8));
             
-            console.log(`✅ **Compaction Set: ${compactAt}K (${Math.round(threshold*100)}% of ${modelInfo.label}'s ${contextLimit/1000}K context)**
+            console.log(` **Compaction Set: ${compactAt}K (${Math.round(threshold*100)}% of ${modelInfo.label}'s ${contextLimit/1000}K context)**
 
 **What happens now:**
 • AI compacts conversation when it reaches **${compactAt}K tokens**
@@ -449,7 +449,7 @@ ${marker}
 
 **To undo:** \`/optimize compaction off\`
 
-⚠️ Add to OpenClaw config to apply:
+ Add to OpenClaw config to apply:
 \`agents.defaults.context.compactionThreshold: ${threshold.toFixed(2)}\``);
             return;
         }
@@ -462,11 +462,11 @@ ${marker}
 
         // Analyze sessions
         if (scanRange !== 'week') {
-            console.log(`⏳ Scanning ${scanRange === 'all' ? 'all sessions' : 'last month'}...\n`);
+            console.log(` Scanning ${scanRange === 'all' ? 'all sessions' : 'last month'}...\n`);
         }
         const analysis = await this.analyzeUserSessions(workspacePath, scanRange);
 
-        console.log(`**⚡ Compaction Control**
+        console.log(`** Compaction Control**
 
 **Model:** ${modelInfo.label} (${contextLimit/1000}K context window)
 **Current:** Compact at **${currentCompactAt}K tokens** (${Math.round(currentThreshold*100)}%)
@@ -477,7 +477,7 @@ Compact sooner = pay less, but AI forgets earlier parts faster.
 `);
 
         if (analysis.hasData) {
-            console.log(`**📊 Your Usage** (${analysis.sessionsAnalyzed} sessions, last ${scanRange})
+            console.log(`** Your Usage** (${analysis.sessionsAnalyzed} sessions, last ${scanRange})
 • Avg topic length: ${analysis.avgTopicLength}K tokens
 • Avg session size: ${analysis.avgSessionSize}K tokens
 • Recommendation: **${analysis.recommendation}**
@@ -486,16 +486,16 @@ Compact sooner = pay less, but AI forgets earlier parts faster.
 
         console.log(`**Presets** (dynamic for ${contextLimit/1000}K context):
 
-🔴 **Aggressive** — ${presets.aggressive.compactAt}K (40%) — Save ~$${presets.aggressive.savings}/mo
+ **Aggressive** — ${presets.aggressive.compactAt}K (40%) — Save ~$${presets.aggressive.savings}/mo
    Short memory, max savings
 
-🟡 **Balanced** — ${presets.balanced.compactAt}K (60%) — Save ~$${presets.balanced.savings}/mo
+ **Balanced** — ${presets.balanced.compactAt}K (60%) — Save ~$${presets.balanced.savings}/mo
    Good balance of cost and memory
 
-🟢 **Conservative** — ${presets.conservative.compactAt}K (80%) — Save ~$${presets.conservative.savings}/mo
+ **Conservative** — ${presets.conservative.compactAt}K (80%) — Save ~$${presets.conservative.savings}/mo
    Long memory, moderate savings
 
-⚪ **Off** — ${presets.off.compactAt}K (95%) — Baseline
+ **Off** — ${presets.off.compactAt}K (95%) — Baseline
    Maximum memory, no savings
 
 **Commands:**

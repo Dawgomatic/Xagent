@@ -212,7 +212,7 @@ def generate_html(invoice_data):
 
   <!-- Paiement -->
   <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 20px; margin-bottom: 30px;">
-    <p style="margin: 0 0 8px 0; font-weight: 700; color: #166534;">💳 Conditions de paiement</p>
+    <p style="margin: 0 0 8px 0; font-weight: 700; color: #166534;"> Conditions de paiement</p>
     <p style="margin: 4px 0;">Mode de paiement : {payment_method}</p>
     <p style="margin: 4px 0;">Date d'échéance : {due_date}</p>
     {iban_line}
@@ -342,7 +342,7 @@ def cmd_list(args):
     print(f"{'N°':<12} {'Date':<12} {'Client':<25} {'Total':<14} {'Statut':<10}")
     print("─" * 73)
     for inv in invoices:
-        statut = "✅ Payée" if inv["paid"] else "⏳ En attente"
+        statut = " Payée" if inv["paid"] else " En attente"
         print(f"{inv['number']:<12} {inv['date']:<12} {inv['client']:<25} {format_euro(inv['total_ttc']):<14} {statut}")
 
 

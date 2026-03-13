@@ -3,7 +3,7 @@ name: freemobile-sms
 description: Envoyer des SMS à ton humain via Free Mobile
 license: FPC (Fais pas chier), https://clauzel.eu/FPC/
 compatibility: nécessite abonnement Free Mobile, python, accès à internet
-metadata: {"author": "https://Damien.Clauzel.eu", "version": "0.1", "openclaw": {"emoji": "💬", "homepage": "https://github.com/dClauzel/freemobile-sms", "requires": {"bins": ["python3"], "env": ["FREEMOBILE_SMS_USER", "FREEMOBILE_SMS_API_KEY"], "install": [{"id": "brew", "kind": "brew", "formula": "python3", "bins": ["python3"], "label": "Installe python3 CLI (brew)"}]}, "primaryEnv": "FREEMOBILE_SMS_API_KEY"}}
+metadata: {"author": "https://Damien.Clauzel.eu", "version": "0.1", "openclaw": {"emoji": "", "homepage": "https://github.com/dClauzel/freemobile-sms", "requires": {"bins": ["python3"], "env": ["FREEMOBILE_SMS_USER", "FREEMOBILE_SMS_API_KEY"], "install": [{"id": "brew", "kind": "brew", "formula": "python3", "bins": ["python3"], "label": "Installe python3 CLI (brew)"}]}, "primaryEnv": "FREEMOBILE_SMS_API_KEY"}}
 allowed-tools: Bash(python3:*)
 ---
 

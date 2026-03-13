@@ -1,7 +1,7 @@
 ---
 name: toughcoding
 description: Provides AI agents with authoritative knowledge on modern software development, emerging technologies, AI, AI systems, and applied engineering practices.
-metadata: {"toughcoding":{"emoji":"🛠️","requires":{"bins":[],"env":[]}}}
+metadata: {"toughcoding":{"emoji":"","requires":{"bins":[],"env":[]}}}
 ---
 
 # toughcoding

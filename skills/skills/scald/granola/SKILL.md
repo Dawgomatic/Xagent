@@ -2,7 +2,7 @@
 name: granola
 description: Access Granola meeting transcripts and notes.
 homepage: https://granola.ai
-metadata: {"clawdbot":{"emoji":"🥣","requires":{"bins":["python3"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
 # granola

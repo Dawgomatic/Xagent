@@ -25,19 +25,19 @@ const DEFAULT_PARAMS = {
 };
 
 function initializeMasteryDB() {
-  console.log('📚 Initializing HSK Mastery Database...');
+  console.log(' Initializing HSK Mastery Database...');
   
   // Check if mastery DB already exists
   if (fs.existsSync(MASTERY_DB_PATH)) {
-    console.log('⚠️  Mastery database already exists at:', MASTERY_DB_PATH);
+    console.log('  Mastery database already exists at:', MASTERY_DB_PATH);
     const backupPath = MASTERY_DB_PATH + '.backup-' + Date.now();
     fs.copyFileSync(MASTERY_DB_PATH, backupPath);
-    console.log('📋 Created backup at:', backupPath);
+    console.log(' Created backup at:', backupPath);
   }
   
   // Load HSK word list
   if (!fs.existsSync(HSK_WORD_TO_LEVEL_PATH)) {
-    console.error('❌ HSK word-to-level mapping not found at:', HSK_WORD_TO_LEVEL_PATH);
+    console.error(' HSK word-to-level mapping not found at:', HSK_WORD_TO_LEVEL_PATH);
     console.error('Please ensure the skill data files are properly installed.');
     process.exit(1);
   }
@@ -45,7 +45,7 @@ function initializeMasteryDB() {
   const wordLevels = JSON.parse(fs.readFileSync(HSK_WORD_TO_LEVEL_PATH, 'utf8'));
   const words = Object.keys(wordLevels);
   
-  console.log(`📖 Found ${words.length} HSK words to initialize`);
+  console.log(` Found ${words.length} HSK words to initialize`);
   
   // Create mastery database structure
   const masteryDB = {
@@ -83,10 +83,10 @@ function initializeMasteryDB() {
     'utf8'
   );
   
-  console.log('✅ Mastery database initialized successfully!');
-  console.log(`📊 Total words: ${words.length}`);
-  console.log(`📁 Location: ${MASTERY_DB_PATH}`);
-  console.log('\n🎯 Next steps:');
+  console.log(' Mastery database initialized successfully!');
+  console.log(` Total words: ${words.length}`);
+  console.log(` Location: ${MASTERY_DB_PATH}`);
+  console.log('\n Next steps:');
   console.log('1. Run your first HSK quiz');
   console.log('2. Use hsk_update_mastery_from_quiz to process quiz logs');
   console.log('3. Check mastery stats with hsk_get_mastery_stats');

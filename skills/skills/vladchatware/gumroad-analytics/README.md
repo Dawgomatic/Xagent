@@ -1,4 +1,4 @@
-# 📊 Gumroad Analytics Skill
+#  Gumroad Analytics Skill
 
 Pull product and sales data from Gumroad's API for tracking, analysis, and correlation with marketing efforts.
 

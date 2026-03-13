@@ -10,7 +10,7 @@ BASE_URL="https://api.seede.ai"
 # Get API Token from environment
 get_token() {
     if [ -z "$SEEDE_API_TOKEN" ]; then
-        echo "❌ SEEDE_API_TOKEN environment variable is not set." >&2
+        echo " SEEDE_API_TOKEN environment variable is not set." >&2
         echo "   Run: export SEEDE_API_TOKEN='your_token'" >&2
         exit 1
     fi
@@ -36,7 +36,7 @@ api() {
 
 case "$1" in
     tasks|list)
-        echo "📋 Listing design tasks..."
+        echo " Listing design tasks..."
         api GET "/api/task" | jq '.[] | {id, name, status, created_at}'
         ;;
     
@@ -59,12 +59,12 @@ case "$1" in
         WIDTH="${4:-1080}"
         HEIGHT="${5:-1440}"
         
-        echo "🎨 Creating design task..."
+        echo " Creating design task..."
         RESULT=$(api POST "/api/task/create" "{\"name\": \"$NAME\", \"prompt\": \"$PROMPT\", \"size\": {\"w\": $WIDTH, \"h\": $HEIGHT}}")
         TASK_ID=$(echo "$RESULT" | jq -r '.id')
         
         if [ "$TASK_ID" = "null" ]; then
-            echo "❌ Failed to create task"
+            echo " Failed to create task"
             echo "$RESULT" | jq .
             exit 1
         fi
@@ -80,18 +80,18 @@ case "$1" in
             if [ "$STATE" = "completed" ] || [ "$STATE" = "success" ]; then
                 IMAGE_URL=$(echo "$STATUS" | jq -r '.urls.image')
                 PROJECT_URL=$(echo "$STATUS" | jq -r '.urls.project')
-                echo "✅ Task complete!"
-                echo "🖼️ Image URL: $IMAGE_URL"
-                echo "🔗 Project URL: $PROJECT_URL"
+                echo " Task complete!"
+                echo " Image URL: $IMAGE_URL"
+                echo " Project URL: $PROJECT_URL"
                 exit 0
             elif [ "$STATE" = "failed" ] || [ "$STATE" = "error" ]; then
-                echo "❌ Task failed"
+                echo " Task failed"
                 echo "$STATUS" | jq .
                 exit 1
             fi
             echo "  Status: $STATE..."
         done
-        echo "⏰ Timeout waiting for task completion"
+        echo " Timeout waiting for task completion"
         ;;
     
     upload)
@@ -103,17 +103,17 @@ case "$1" in
         MIME_TYPE=$(file --mime-type -b "$2")
         DATA_URL="data:$MIME_TYPE;base64,$(base64 -i "$2")"
         
-        echo "📤 Uploading $FILENAME..."
+        echo " Uploading $FILENAME..."
         api POST "/asset" "{\"name\": \"$FILENAME\", \"contentType\": \"$MIME_TYPE\", \"dataURL\": \"$DATA_URL\"}" | jq .
         ;;
     
     models)
-        echo "📋 Available models:"
+        echo " Available models:"
         api GET "/api/task/models" | jq .
         ;;
     
     *)
-        echo "🌱 Seede AI CLI Helper"
+        echo " Seede AI CLI Helper"
         echo ""
         echo "Commands:"
         echo "  tasks           List all tasks"

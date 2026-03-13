@@ -471,7 +471,7 @@ aos_mesh_pending() {
     local count
     count=$(jq 'length' "$MESH_PENDING_FILE" 2>/dev/null || echo "0")
     if [[ "$count" -gt 0 ]]; then
-      echo "📬 $count pending message(s):" >&2
+      echo " $count pending message(s):" >&2
       jq -r '.[] | "[\(.from)] \(.topic): \(.body | .[0:100])..."' "$MESH_PENDING_FILE"
     else
       echo "✓ No pending messages" >&2
@@ -687,13 +687,13 @@ aos_before_action() {
   echo "=== Pre-Action Check: $action_type ===" >&2
   
   # Check for relevant mistakes
-  echo "⚠️ Past mistakes to avoid:" >&2
+  echo " Past mistakes to avoid:" >&2
   local mistakes
   mistakes=$(aos_search "mistakes $action_type" 3)
   echo "$mistakes" | jq -r '.results[]? | "  - \(.value.lesson // .value)"' >&2 2>/dev/null || echo "  (none found)" >&2
   
   # Check for solved problems
-  echo "✅ Previously solved:" >&2
+  echo " Previously solved:" >&2
   local solved
   solved=$(aos_search "problem-solved $action_type" 2)
   echo "$solved" | jq -r '.results[]? | "  - \(.value.title // .value): \(.value.solution // "")"' >&2 2>/dev/null || echo "  (none found)" >&2
@@ -756,7 +756,7 @@ aos_session_start() {
   echo "=== Session Start: $(date) ===" >&2
   
   # 1. Load working memory
-  echo "📋 Working memory:" >&2
+  echo " Working memory:" >&2
   local context
   context=$(aos_get "/context/working-memory")
   if echo "$context" | jq -e '.found == true' > /dev/null 2>&1; then
@@ -766,7 +766,7 @@ aos_session_start() {
   fi
   
   # 2. Recent mistakes to remember
-  echo "⚠️ Recent mistakes to avoid:" >&2
+  echo " Recent mistakes to avoid:" >&2
   local mistakes
   mistakes=$(aos_search "mistake" 3 "/learnings/mistakes")
   echo "$mistakes" | jq -r '.results[]? | "  - \(.value.lesson // .value)"' >&2 2>/dev/null || echo "  (none)" >&2
@@ -807,15 +807,15 @@ aos_daily_summary() {
   echo "=== Daily Summary: $today ===" >&2
   
   # Tasks completed
-  echo "📋 Tasks completed:" >&2
+  echo " Tasks completed:" >&2
   aos_list "/daily/$today/tasks" | jq -r '.items[]?.path' >&2 2>/dev/null || echo "  (none)" >&2
   
   # Learnings
-  echo "📚 Learnings:" >&2
+  echo " Learnings:" >&2
   aos_glob "/learnings/*/$today*" | jq -r '.paths[]?' >&2 2>/dev/null || echo "  (none)" >&2
   
   # Problems solved
-  echo "✅ Problems solved:" >&2
+  echo " Problems solved:" >&2
   aos_glob "/problems/solved/$today*" | jq -r '.paths[]?' >&2 2>/dev/null || echo "  (none)" >&2
 }
 

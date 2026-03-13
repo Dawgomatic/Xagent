@@ -1,7 +1,7 @@
 ---
 name: agent-step-sequencer
 description: Multi-step scheduler for in-depth agent requests. Detects when user needs multiple steps, suggests plan and waits for confirmation, persists state, and runs heartbeat-aware flow. Use when requests have 3+ actions, sequential dependencies, output dependencies, or high scope/risk.
-metadata: {"openclaw":{"emoji":"🔗","requires":{"bins":["python3"],"env":["STEP_AGENT_CMD"]},"install":[{"id":"apt","kind":"apt","package":"python3","bins":["python3"],"label":"Install Python 3","os":["linux"]},{"id":"brew","kind":"brew","formula":"python@3","bins":["python3"],"label":"Install Python 3","os":["darwin"]}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"],"env":["STEP_AGENT_CMD"]},"install":[{"id":"apt","kind":"apt","package":"python3","bins":["python3"],"label":"Install Python 3","os":["linux"]},{"id":"brew","kind":"brew","formula":"python@3","bins":["python3"],"label":"Install Python 3","os":["darwin"]}]}}
 ---
 
 # Agent Step Sequencer

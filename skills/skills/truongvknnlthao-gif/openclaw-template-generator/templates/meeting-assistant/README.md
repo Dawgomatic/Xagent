@@ -22,11 +22,11 @@ Your personal meeting coordinator that helps you:
 
 ## Features
 
-- 📅 Smart scheduling with availability checks
-- ⏰ Automated reminders
-- 📝 Meeting minutes generation
-- ✅ Action item tracking
-- 🔄 Follow-up reminders
+-  Smart scheduling with availability checks
+-  Automated reminders
+-  Meeting minutes generation
+-  Action item tracking
+-  Follow-up reminders
 
 ## Customization
 

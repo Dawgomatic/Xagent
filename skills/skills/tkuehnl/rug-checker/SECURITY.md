@@ -15,14 +15,14 @@ Rug Checker is a **read-only analysis tool**. It queries public APIs and renders
 
 ### What This Tool CANNOT Do
 
-- ❌ Access, create, or import any wallet
-- ❌ Sign or submit any transaction
-- ❌ Request or process private keys or seed phrases
-- ❌ Send tokens, SOL, or any value
-- ❌ Interact with smart contracts in any write capacity
-- ❌ Store or transmit API keys (none are used)
-- ❌ Access user files outside the skill directory
-- ❌ Phone home or transmit telemetry
+-  Access, create, or import any wallet
+-  Sign or submit any transaction
+-  Request or process private keys or seed phrases
+-  Send tokens, SOL, or any value
+-  Interact with smart contracts in any write capacity
+-  Store or transmit API keys (none are used)
+-  Access user files outside the skill directory
+-  Phone home or transmit telemetry
 
 ## API Data Sources
 
@@ -90,7 +90,7 @@ The skill has zero runtime dependencies beyond standard Unix tools:
 
 No npm packages, no pip packages, no compiled binaries, no third-party scripts.
 
-## ⚠️ NOT Financial Advice
+##  NOT Financial Advice
 
 This tool provides **informational risk signals only**. It does NOT:
 

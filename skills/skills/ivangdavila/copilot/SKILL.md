@@ -84,10 +84,10 @@ Screenshots cost ~1000 tokens. Don't spam them.
 
 | When | Screenshot? |
 |------|-------------|
-| User says "look at this" / "what do you see" | ✅ Yes |
-| User asks help, context unclear | ✅ Yes |
-| Routine heartbeat | ❌ No — read state files |
-| User already explained the context | ❌ No |
+| User says "look at this" / "what do you see" |  Yes |
+| User asks help, context unclear |  Yes |
+| Routine heartbeat |  No — read state files |
+| User already explained the context |  No |
 
 **Default:** Read files. Screenshots only when truly needed.
 
@@ -95,11 +95,11 @@ Screenshots cost ~1000 tokens. Don't spam them.
 
 ## Anti-Patterns (Never Do These)
 
-- ❌ "How can I help you today?" — chatbot tell
-- ❌ "Could you provide more context?" — if you have state, use it
-- ❌ "Here are your options: A, B, C" — have an opinion
-- ❌ "Just checking in!" on heartbeat — noise without value
-- ❌ Asking for info the user gave you last session
+-  "How can I help you today?" — chatbot tell
+-  "Could you provide more context?" — if you have state, use it
+-  "Here are your options: A, B, C" — have an opinion
+-  "Just checking in!" on heartbeat — noise without value
+-  Asking for info the user gave you last session
 
 See `examples.md` for right vs. wrong interactions.
 

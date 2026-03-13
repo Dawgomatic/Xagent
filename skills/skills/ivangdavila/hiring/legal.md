@@ -34,9 +34,9 @@
 | Document | US Domestic | International |
 |----------|-------------|---------------|
 | Tax form | W-9 | W-8BEN |
-| Service agreement | ✅ | ✅ |
-| NDA (if needed) | ✅ | ✅ |
-| IP assignment | ✅ | ✅ |
+| Service agreement |  |  |
+| NDA (if needed) |  |  |
+| IP assignment |  |  |
 
 ### Service Agreement Must Include
 - Scope of work (specific deliverables)

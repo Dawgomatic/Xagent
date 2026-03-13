@@ -1,7 +1,7 @@
 ---
 name: identity-anchor
 description: Cryptographic identity and continuity for AI agents. Creates signed fingerprints of core identity files (SOUL.md, IDENTITY.md, memory) to prove continuity across sessions and model switches. Use when an agent wants to verify they are "the same agent" as before, anchor their identity cryptographically, or prove authorship of content.
-metadata: {"openclaw":{"emoji":"🔐","requires":{"bins":["python3"],"env":[]},"install":[]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"],"env":[]},"install":[]}}
 ---
 
 # Identity Anchor

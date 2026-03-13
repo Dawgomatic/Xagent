@@ -431,7 +431,7 @@ def format_findings(findings, skill_name="", json_output=False):
         return
 
     if not findings:
-        print(f"✅ CLEAN — No security issues detected{f' in {skill_name}' if skill_name else ''}.")
+        print(f" CLEAN — No security issues detected{f' in {skill_name}' if skill_name else ''}.")
         return
 
     by_severity = {}
@@ -443,11 +443,11 @@ def format_findings(findings, skill_name="", json_output=False):
     high = len(by_severity.get("HIGH", []))
 
     if critical > 0:
-        verdict = "🚨 CRITICAL"
+        verdict = " CRITICAL"
     elif high > 0:
-        verdict = "⚠️  HIGH RISK"
+        verdict = "  HIGH RISK"
     else:
-        verdict = "⚡ REVIEW NEEDED"
+        verdict = " REVIEW NEEDED"
 
     print(f"{verdict} — {len(findings)} issue(s) found{f' in {skill_name}' if skill_name else ''}")
     print()
@@ -561,7 +561,7 @@ def cmd_scan_all(args):
             if r["findings"]:
                 format_findings(r["findings"], r["name"])
             else:
-                print(f"✅ {r['name']} — CLEAN")
+                print(f" {r['name']} — CLEAN")
         print(f"\nTotal: {total_findings} issue(s) across {len(results)} skills")
 
 

@@ -1,10 +1,10 @@
 ---
 name: sequential-read
 description: "Read prose sequentially with structured reflections to simulate the reading experience"
-metadata: {"openclaw":{"emoji":"📖","requires":{"bins":["python3"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
-# 📖 Sequential Read
+#  Sequential Read
 
 Read prose (novels, non-fiction, articles) by ingesting content in semantic chunks and building structured reflections iteratively. The output captures how your perspective developed over the course of reading — predictions that were wrong, questions that got answered, opinions that shifted — not just a retroactive summary.
 

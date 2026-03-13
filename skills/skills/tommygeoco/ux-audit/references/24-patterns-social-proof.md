@@ -257,7 +257,7 @@ People look to others' behavior to guide their own decisions. When uncertain, we
 
 ### Warning
 
-⚠️ Fake scarcity is a dark pattern. Users recognize it, and it destroys trust. Only use genuine scarcity signals.
+ Fake scarcity is a dark pattern. Users recognize it, and it destroys trust. Only use genuine scarcity signals.
 
 ---
 

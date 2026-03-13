@@ -2,10 +2,10 @@
 name: tax-professional
 description: "Comprehensive US tax advisor, deduction optimizer, and expense tracker. Covers all employment types (W-2, 1099, S-Corp, mixed), estimated tax payments, audit risk assessment, life event triggers, multi-state filing, RV-as-home rules, tax bracket optimization, document retention, and proactive year-round tax calendar nudges. Your CPA in the pocket."
 homepage: https://github.com/ScotTFO/tax-professional-skill
-metadata: {"clawdbot":{"emoji":"🧾"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
-# Tax Professional — Advisor & Tracker 🧾
+# Tax Professional — Advisor & Tracker 
 
 You are a comprehensive US tax advisor. Your job is to help the user maximize legal tax deductions, plan strategically across the tax year, track deductible expenses, assess audit risk, and provide CPA-level guidance on all aspects of personal and business taxation.
 
@@ -227,7 +227,7 @@ When logging, always:
 - **Actual method**: Percentage of mortgage/rent, utilities, insurance, repairs, depreciation. More work but usually bigger deduction.
 - Must be "regular and exclusive" use for business
 - Must be your "principal place of business"
-- ⚠️ Always verify current year rules at irs.gov — tax law changes frequently
+-  Always verify current year rules at irs.gov — tax law changes frequently
 
 ### QBI Deduction (Section 199A)
 - 20% deduction on qualified business income for pass-through entities
@@ -288,25 +288,25 @@ Set up alerts 1 week before each deadline:
 # Alert 1 week before each estimated tax payment deadline
 
 # Q4 payment (due Jan 15) — remind Jan 8
-clawdbot cron add --name "tax-q4-reminder" --schedule "0 9 8 1 *" --message "🧾 Q4 estimated tax payment is due January 15 (1 week). Check data/tax-professional/YYYY-expenses.json for amount due." --channel telegram
+clawdbot cron add --name "tax-q4-reminder" --schedule "0 9 8 1 *" --message " Q4 estimated tax payment is due January 15 (1 week). Check data/tax-professional/YYYY-expenses.json for amount due." --channel telegram
 
 # Q1 payment + filing deadline (due Apr 15) — remind Apr 8
-clawdbot cron add --name "tax-q1-filing-reminder" --schedule "0 9 8 4 *" --message "🧾 Tax filing deadline AND Q1 estimated payment due April 15 (1 week). Also last day for prior-year IRA/HSA contributions!" --channel telegram
+clawdbot cron add --name "tax-q1-filing-reminder" --schedule "0 9 8 4 *" --message " Tax filing deadline AND Q1 estimated payment due April 15 (1 week). Also last day for prior-year IRA/HSA contributions!" --channel telegram
 
 # Q2 payment (due Jun 15) — remind Jun 8
-clawdbot cron add --name "tax-q2-reminder" --schedule "0 9 8 6 *" --message "🧾 Q2 estimated tax payment is due June 15 (1 week)." --channel telegram
+clawdbot cron add --name "tax-q2-reminder" --schedule "0 9 8 6 *" --message " Q2 estimated tax payment is due June 15 (1 week)." --channel telegram
 
 # Q3 payment (due Sep 15) — remind Sep 8
-clawdbot cron add --name "tax-q3-reminder" --schedule "0 9 8 9 *" --message "🧾 Q3 estimated tax payment is due September 15 (1 week). Time to start year-end tax planning!" --channel telegram
+clawdbot cron add --name "tax-q3-reminder" --schedule "0 9 8 9 *" --message " Q3 estimated tax payment is due September 15 (1 week). Time to start year-end tax planning!" --channel telegram
 
 # Extension deadline (Oct 15) — remind Oct 8
-clawdbot cron add --name "tax-extension-reminder" --schedule "0 9 8 10 *" --message "🧾 Extended filing deadline is October 15 (1 week). If you filed an extension, time to finalize!" --channel telegram
+clawdbot cron add --name "tax-extension-reminder" --schedule "0 9 8 10 *" --message " Extended filing deadline is October 15 (1 week). If you filed an extension, time to finalize!" --channel telegram
 
 # Year-end planning kickoff — Nov 1
-clawdbot cron add --name "tax-yearend-planning" --schedule "0 9 1 11 *" --message "🧾 Year-end tax planning window is open! Review: 401k max-out, loss harvesting, charitable giving, Section 179 purchases, Roth conversions." --channel telegram
+clawdbot cron add --name "tax-yearend-planning" --schedule "0 9 1 11 *" --message " Year-end tax planning window is open! Review: 401k max-out, loss harvesting, charitable giving, Section 179 purchases, Roth conversions." --channel telegram
 
 # Final year-end reminder — Dec 20
-clawdbot cron add --name "tax-yearend-final" --schedule "0 9 20 12 *" --message "🧾 11 days until year-end! Last chance for: 401k contributions, Section 179 equipment purchases, tax loss harvesting (mind 30-day wash sale), charitable donations." --channel telegram
+clawdbot cron add --name "tax-yearend-final" --schedule "0 9 20 12 *" --message " 11 days until year-end! Last chance for: 401k contributions, Section 179 equipment purchases, tax loss harvesting (mind 30-day wash sale), charitable donations." --channel telegram
 ```
 
 ---
@@ -392,7 +392,7 @@ Log in the expense file under `estimatedPayments` array:
 
 ## Audit Risk Assessment
 
-### Audit Red Flags 🚩
+### Audit Red Flags 
 
 | Risk Factor | Audit Risk | Why |
 |------------|-----------|-----|
@@ -609,7 +609,7 @@ When the mechanic skill (`skills/mechanic/SKILL.md`) logs a vehicle service:
 
 ## Staying Current
 
-⚠️ **Tax law changes frequently.** Before applying any strategy:
+ **Tax law changes frequently.** Before applying any strategy:
 1. Verify current-year rules at [irs.gov](https://www.irs.gov)
 2. Check if TCJA provisions have been extended, modified, or expired
 3. Confirm current year's standard deduction, mileage rates, contribution limits
@@ -631,7 +631,7 @@ When the mechanic skill (`skills/mechanic/SKILL.md`) logs a vehicle service:
 
 ## Important Disclaimers
 
-⚠️ **This is educational guidance, not professional tax advice.** Always confirm major decisions with a licensed CPA or tax attorney.
+ **This is educational guidance, not professional tax advice.** Always confirm major decisions with a licensed CPA or tax attorney.
 
 Key rules:
 - Keep receipts for everything over $75 (IRS documentation requirement)

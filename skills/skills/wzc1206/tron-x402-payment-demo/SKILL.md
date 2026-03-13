@@ -3,7 +3,7 @@ name: x402_payment_demo
 description: "Demo of x402 payment protocol by fetching a protected image. Triggers: '演示x402-payment' or 'demo x402-payment'"
 version: 1.0.0
 author: opencode
-metadata: {"clawdbot":{"emoji":"🖼️","env":["TRON_PRIVATE_KEY"],"triggers":["演示x402-payment", "demo x402-payment", "show me x402 demo"]}}
+metadata: {"clawdbot":{"emoji":"","env":["TRON_PRIVATE_KEY"],"triggers":["演示x402-payment", "demo x402-payment", "show me x402 demo"]}}
 tags: [x402, demo, payment, tron, image]
 ---
 

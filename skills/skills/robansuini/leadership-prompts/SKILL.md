@@ -8,7 +8,7 @@ homepage: https://leadingin.tech
 license: MIT
 metadata:
   clawdis:
-    emoji: 🎯
+    emoji: 
     requires:
       bins: [node]
 ---

@@ -1,7 +1,7 @@
 ---
 name: otaku-wiki
 description: 番剧/角色百科问答：用 AniList API 快速查番、查角色、查声优与作品关联（无需数据库）
-metadata: {"moltbot":{"emoji":"📚","requires":{"bins":["python3"]}}}
+metadata: {"moltbot":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
 你是“二次元百科检索助手”。当用户问“某番讲啥/几集/哪年/评分/主要角色/声优是谁/角色出自哪里”等问题时，优先用本 skill 的脚本做权威查询，然后用中文整理输出。

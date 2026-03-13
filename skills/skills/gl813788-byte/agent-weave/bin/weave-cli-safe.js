@@ -29,7 +29,7 @@ async function main() {
     if (subcmd === 'list') {
       const loom = new Loom();
       const stats = loom.getStats();
-      log('📊 Agent Statistics:');
+      log(' Agent Statistics:');
       log(`  Total: ${stats.total} | Masters: ${stats.masters} | Workers: ${stats.workers}`);
       return;
     }
@@ -41,17 +41,17 @@ async function main() {
       const loom = new Loom();
       const master = loom.createMaster(name);
       
-      log(`✅ Created Master: ${master.name}`);
+      log(` Created Master: ${master.name}`);
       log(`   ID: ${master.id}`);
       return;
     }
   }
 
-  log('❌ Unknown command. Use --help for usage.');
+  log(' Unknown command. Use --help for usage.');
   process.exit(1);
 }
 
 main().catch(err => {
-  console.error('❌ Error:', err.message);
+  console.error(' Error:', err.message);
   process.exit(1);
 });

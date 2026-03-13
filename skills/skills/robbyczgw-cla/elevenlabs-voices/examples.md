@@ -272,19 +272,19 @@ python3 scripts/tts.py --stats
 
 **Output:**
 ```
-📊 ElevenLabs Usage Statistics
+ ElevenLabs Usage Statistics
 
   Total Characters: 45,230
   Total Requests:   127
   Since:            2024-01-15
 
-💰 Estimated Costs:
+ Estimated Costs:
   Starter    $13.57 ($0.30/1k chars)
   Creator    $10.86 ($0.24/1k chars)
   Pro        $8.14 ($0.18/1k chars)
   Scale      $4.98 ($0.11/1k chars)
 
-📜 Recent Sessions:
+ Recent Sessions:
   2024-01-20 14:30 |   1250 chars | rachel
   2024-01-20 14:28 |    830 chars | adam
   2024-01-20 13:45 |   2100 chars | george
@@ -573,9 +573,9 @@ python3 scripts/tts.py --text "Welcome back to Tech Talk, the podcast where we e
 
 | Accent | Voices |
 |--------|--------|
-| 🇺🇸 American | rachel, adam, bella, brian, callum, jessica, matilda, river, roger, eric, chris, will, liam |
-| 🇬🇧 British | george, alice, lily, daniel |
-| 🇦🇺 Australian | charlie |
+|  American | rachel, adam, bella, brian, callum, jessica, matilda, river, roger, eric, chris, will, liam |
+|  British | george, alice, lily, daniel |
+|  Australian | charlie |
 
 ### By Gender
 

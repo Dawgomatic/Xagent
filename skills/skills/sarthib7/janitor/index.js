@@ -211,7 +211,7 @@ async function handleConfigCommand(subcommand, args) {
         process.exit(1);
       }
       config.set(setKey, setValue);
-      console.log(`✅ Set ${setKey} = ${setValue}`);
+      console.log(` Set ${setKey} = ${setValue}`);
       break;
 
     case 'delete':
@@ -221,7 +221,7 @@ async function handleConfigCommand(subcommand, args) {
         process.exit(1);
       }
       config.delete(delKey);
-      console.log(`✅ Deleted ${delKey}`);
+      console.log(` Deleted ${delKey}`);
       break;
 
     case 'list':
@@ -231,13 +231,13 @@ async function handleConfigCommand(subcommand, args) {
 
     case 'reset':
       config.reset();
-      console.log('✅ Configuration reset to defaults');
+      console.log(' Configuration reset to defaults');
       break;
 
     case 'export':
       const exportPath = args[2] || 'janitor-config-export.json';
       config.exportConfig(exportPath);
-      console.log(`✅ Configuration exported to ${exportPath}`);
+      console.log(` Configuration exported to ${exportPath}`);
       break;
 
     case 'import':
@@ -247,15 +247,15 @@ async function handleConfigCommand(subcommand, args) {
         process.exit(1);
       }
       config.importConfig(importPath);
-      console.log(`✅ Configuration imported from ${importPath}`);
+      console.log(` Configuration imported from ${importPath}`);
       break;
 
     case 'validate':
       const validation = config.validate();
       if (validation.valid) {
-        console.log('✅ Configuration is valid');
+        console.log(' Configuration is valid');
       } else {
-        console.log('❌ Configuration has errors:');
+        console.log(' Configuration has errors:');
         validation.errors.forEach(err => console.log(`  - ${err}`));
         process.exit(1);
       }

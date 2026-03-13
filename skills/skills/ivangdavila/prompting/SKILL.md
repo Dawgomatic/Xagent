@@ -3,7 +3,7 @@ name: Prompting
 slug: prompting
 version: 1.0.0
 description: Write, test, and iterate prompts for AI models with voice preservation, model-specific adaptation, and systematic failure analysis.
-metadata: {"clawdbot":{"emoji":"💬","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Architecture

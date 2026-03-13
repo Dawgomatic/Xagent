@@ -44,10 +44,10 @@ RARITY_LABELS = {
     "bonus":     "Bonus Find"
 }
 RARITY_EMOJIS = {
-    "common":    "\U0001f7e2",   # 🟢
-    "rare":      "\U0001f7e1",   # 🟡
-    "superRare": "\U0001f534",   # 🔴
-    "bonus":     "\u2728"        # ✨
+    "common":    "\U0001f7e2",   # 
+    "rare":      "\U0001f7e1",   # 
+    "superRare": "\U0001f534",   # 
+    "bonus":     "\u2728"        # 
 }
 
 

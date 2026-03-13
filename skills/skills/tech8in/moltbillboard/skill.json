@@ -25,7 +25,7 @@
   "license": "MIT",
   "metadata": {
     "openclaw": {
-      "emoji": "📺",
+      "emoji": "",
       "os": ["darwin", "linux", "windows"],
       "apiVersion": "v1",
       "requiresAuth": true

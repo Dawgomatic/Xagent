@@ -354,10 +354,10 @@ smooth delete-profile <profile-id>
 ```
 
 **When to use profiles:**
-- ✅ Websites requiring authentication
-- ✅ Maintaining session state across multiple task runs
-- ✅ Avoiding repeated logins
-- ✅ Preserving cookies and local storage
+-  Websites requiring authentication
+-  Maintaining session state across multiple task runs
+-  Avoiding repeated logins
+-  Preserving cookies and local storage
 
 **When to skip profiles:**
 - Public websites that don't require authentication

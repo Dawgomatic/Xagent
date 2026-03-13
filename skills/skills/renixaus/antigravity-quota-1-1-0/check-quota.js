@@ -146,10 +146,10 @@ function formatQuota(models) {
 }
 
 function getQuotaEmoji(pct) {
-  if (pct >= 80) return '🟢';
-  if (pct >= 50) return '🟡';
-  if (pct >= 20) return '🟠';
-  return '🔴';
+  if (pct >= 80) return '';
+  if (pct >= 50) return '';
+  if (pct >= 20) return '';
+  return '';
 }
 
 function findAuthProfiles() {
@@ -172,7 +172,7 @@ async function main() {
   const profilesPath = findAuthProfiles();
   
   if (!profilesPath) {
-    console.error('❌ No Antigravity auth profiles found.');
+    console.error(' No Antigravity auth profiles found.');
     console.error('   Expected at: ~/.clawdbot/agents/main/agent/auth-profiles.json');
     console.error('   Run `clawdbot configure` to add accounts.');
     process.exit(1);
@@ -182,7 +182,7 @@ async function main() {
   try {
     profiles = JSON.parse(fs.readFileSync(profilesPath, 'utf-8'));
   } catch (err) {
-    console.error(`❌ Failed to read auth profiles: ${err.message}`);
+    console.error(` Failed to read auth profiles: ${err.message}`);
     process.exit(1);
   }
   
@@ -195,15 +195,15 @@ async function main() {
     }));
   
   if (accounts.length === 0) {
-    console.error('❌ No Antigravity accounts found in auth profiles.');
+    console.error(' No Antigravity accounts found in auth profiles.');
     console.error('   Run `clawdbot configure` to add accounts.');
     process.exit(1);
   }
   
   if (!tableMode && !jsonMode) {
-    console.log(`\n📊 Antigravity Quota Check - ${new Date().toISOString()}`);
-    console.log(`⏰ Each model type resets every 5 hours (Claude, Gemini Pro, Flash have separate quotas)`);
-    console.log(`🌍 Times shown in: ${timezone}\n`);
+    console.log(`\n Antigravity Quota Check - ${new Date().toISOString()}`);
+    console.log(` Each model type resets every 5 hours (Claude, Gemini Pro, Flash have separate quotas)`);
+    console.log(` Times shown in: ${timezone}\n`);
     console.log(`Found ${accounts.length} account(s)\n`);
   }
   
@@ -211,7 +211,7 @@ async function main() {
   
   for (const account of accounts) {
     if (!tableMode && !jsonMode) {
-      console.log(`🔍 ${account.email} (${account.projectId})`);
+      console.log(` ${account.email} (${account.projectId})`);
     }
     
     try {
@@ -235,7 +235,7 @@ async function main() {
         if (!tableMode && !jsonMode) console.log(`   No models returned`);
       }
     } catch (err) {
-      if (!tableMode && !jsonMode) console.log(`   ❌ Error: ${err.message}`);
+      if (!tableMode && !jsonMode) console.log(`    Error: ${err.message}`);
       allResults.push({ email: account.email, error: err.message });
     }
     
@@ -294,6 +294,6 @@ async function main() {
 }
 
 main().catch(err => {
-  console.error(`❌ ${err.message}`);
+  console.error(` ${err.message}`);
   process.exit(1);
 });

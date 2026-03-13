@@ -92,25 +92,25 @@ optimizer = SEOOptimizer(model="mistral-large-2501")
 ## Example Output
 
 ```
-📊 METRICS
+ METRICS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • Word Count: 847 words
 • Readability Score: 68/100 (Good)
 • Flesch-Kincaid Grade: 8.2
 • Avg Paragraph: 32 words (Optimal)
 
-🔑 KEYWORD DENSITY
+ KEYWORD DENSITY
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• cloud storage: 1.8% ✅ (Optimal)
+• cloud storage: 1.8%  (Optimal)
 • data security: 0.8% (Increase to 1-2%)
 
-💡 TOP SUGGESTIONS
+ TOP SUGGESTIONS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🟡 [KEYWORDS] "data security" too low at 0.8%
-🟢 [TECHNICAL] Heading structure well organized
-🟡 [CONTENT] Expand "encryption" section
+ [KEYWORDS] "data security" too low at 0.8%
+ [TECHNICAL] Heading structure well organized
+ [CONTENT] Expand "encryption" section
 
-🤖 AI SEARCH (AEO)
+ AI SEARCH (AEO)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. Add FAQ section → gets cited in ChatGPT
 2. Include comparison tables → AI cites as authoritative
@@ -141,4 +141,4 @@ Install directly via [ClawhHub](https://clawhub.ai/unisai/seo-optimizer-pro) for
 
 Free to use — see [LICENSE.md](LICENSE.md) for details.
 
-© 2026 UnisAI
+ 2026 UnisAI

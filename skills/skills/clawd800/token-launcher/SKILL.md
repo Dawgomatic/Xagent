@@ -17,12 +17,12 @@ Your agent deploys a token → people trade it → fees flow back to fund comput
 | Feature | PumpClaw | Clanker | ConLaunch | pump.fun |
 |---------|----------|---------|-----------|----------|
 | **Creator fee share** | **80%** | 40% | 80% (via Clanker) | 0% (Cashback) |
-| **Own contracts** | **✅** | ✅ | ❌ (Clanker SDK) | ✅ |
+| **Own contracts** | **** |  |  (Clanker SDK) |  |
 | **LP locked** | Forever | Forever | Forever | varies |
 | **Chain** | Base | Base | Base | Solana |
 | **Cost to launch** | **$0** | ~$10 | $0 | varies |
-| **Server dependency** | **None** (direct chain) | None | ⚠️ API required | None |
-| **Agent-native** | ✅ CLI + MCP | ❌ | ✅ API + MCP | ❌ |
+| **Server dependency** | **None** (direct chain) | None |  API required | None |
+| **Agent-native** |  CLI + MCP |  |  API + MCP |  |
 
 **Key advantage:** PumpClaw calls the blockchain directly. No middleman server. If pumpclaw.com goes down, your tokens still work, fees still flow, agents still earn.
 

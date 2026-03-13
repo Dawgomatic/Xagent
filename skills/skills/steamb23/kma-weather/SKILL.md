@@ -3,7 +3,7 @@ name: kma-weather
 description: Get weather from Korea Meteorological Administration (기상청). Provides current conditions, forecasts (3-10 days), and weather warnings/advisories (기상특보). Use when user needs Korean weather data, 기상특보, or precise local forecasts (5km grid). Requires KMA_SERVICE_KEY.
 metadata:
   openclaw:
-    emoji: "🌦️"
+    emoji: ""
     homepage: "https://www.data.go.kr/data/15084084/openapi.do"
     requires:
       bins: ["python3"]
@@ -94,27 +94,27 @@ In `~/.openclaw/openclaw.json`:
 
 **Output example** (`current`):
 ```
-🌤️ 현재 날씨 (초단기실황)
-🌡️  기온: 5.2°C
-💧 습도: 65%
-🌧️  강수량: 0mm (1시간)
-💨 풍속: 2.3m/s
-🧭 풍향: NW (315°)
+ 현재 날씨 (초단기실황)
+  기온: 5.2°C
+ 습도: 65%
+  강수량: 0mm (1시간)
+ 풍속: 2.3m/s
+ 풍향: NW (315°)
 ```
 
 ### weather_warnings.py
 
 Returns current nationwide 기상특보:
 ```
-🚨 기상특보 현황
+ 기상특보 현황
 발표시각: 2026-02-01 10:00
 발효시각: 2026-02-01 10:00
 
-📍 현재 발효 중인 특보
+ 현재 발효 중인 특보
   • 건조경보 : 강원도, 경상북도, ...
   • 풍랑주의보 : 동해중부안쪽먼바다, ...
 
-⚠️  예비특보
+  예비특보
   • (1) 강풍 예비특보 : 02월 02일 새벽(00시~06시) : 울릉도.독도
 ```
 

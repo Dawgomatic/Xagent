@@ -24,7 +24,7 @@ async function prompt(question) {
 
 async function main() {
   if (existsSync(WALLET_FILE)) {
-    console.error("⚠️  Wallet already exists at", WALLET_FILE);
+    console.error("  Wallet already exists at", WALLET_FILE);
     console.error("   Delete it first if you want to generate a new one.");
     process.exit(1);
   }
@@ -32,7 +32,7 @@ async function main() {
   // Generate random wallet
   const wallet = ethers.Wallet.createRandom();
 
-  console.error("🔑 New wallet generated!");
+  console.error(" New wallet generated!");
   console.error("");
   console.error("   Address: ", wallet.address);
   console.error("   Network:  Base (Ethereum L2)");
@@ -63,12 +63,12 @@ async function main() {
   // For now, store plaintext (v2 will add encryption)
   writeFileSync(WALLET_FILE, JSON.stringify(walletData, null, 2), { mode: 0o600 });
 
-  console.error("💾 Wallet saved to", WALLET_FILE);
+  console.error(" Wallet saved to", WALLET_FILE);
   console.error("");
-  console.error("⚠️  IMPORTANT: Back up your wallet! If lost, funds are gone forever.");
-  console.error("⚠️  NEVER share your private key with anyone.");
+  console.error("  IMPORTANT: Back up your wallet! If lost, funds are gone forever.");
+  console.error("  NEVER share your private key with anyone.");
   console.error("");
-  console.error("📬 Fund this address with USDC on Base network:");
+  console.error(" Fund this address with USDC on Base network:");
   console.error("   ", wallet.address);
 
   // Output address to stdout (for scripting)

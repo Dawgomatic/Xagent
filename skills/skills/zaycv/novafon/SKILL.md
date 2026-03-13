@@ -4,13 +4,13 @@ name: novafon\_api
 
 description: Novafon Data API и Call API интеграция и примеры запросов — работа с данными, отчётами и управлением звонками через JSON-RPC.
 
-metadata: {"clawdbot":{"emoji":"📞","always":true,"requires":{"bins":\["curl","jq"]}}}
+metadata: {"clawdbot":{"emoji":"","always":true,"requires":{"bins":\["curl","jq"]}}}
 
 ---
 
 
 
-\# Novafon API 📞
+\# Novafon API 
 
 
 
@@ -18,11 +18,11 @@ Novafon предоставляет два JSON-RPC API — \*\*Data API\*\* дл
 
 
 
-\## 🔑 Настройка
+\##  Настройка
 
 
 
-\### 📦 Переменные окружения
+\###  Переменные окружения
 
 
 
@@ -42,15 +42,15 @@ Novafon предоставляет два JSON-RPC API — \*\*Data API\*\* дл
 
 
 
-\## 🧠 Общие сведения
+\##  Общие сведения
 
 
 
-📌 Обе API используют \*\*JSON-RPC 2.0\*\* (метод POST, тело запроса JSON). :contentReference\[oaicite:2]{index=2}  
+ Обе API используют \*\*JSON-RPC 2.0\*\* (метод POST, тело запроса JSON). :contentReference\[oaicite:2]{index=2}  
 
-📌 Все параметры и поля — \*\*snake\_case\*\*. :contentReference\[oaicite:3]{index=3}  
+ Все параметры и поля — \*\*snake\_case\*\*. :contentReference\[oaicite:3]{index=3}  
 
-📌 Требуется добавление IP в белый список в админ-панели. :contentReference\[oaicite:4]{index=4}
+ Требуется добавление IP в белый список в админ-панели. :contentReference\[oaicite:4]{index=4}
 
 
 
@@ -58,11 +58,11 @@ Novafon предоставляет два JSON-RPC API — \*\*Data API\*\* дл
 
 
 
-\## 🗂 Data API — работа с данными и отчётами
+\##  Data API — работа с данными и отчётами
 
 
 
-\### 📌 Основные принципы
+\###  Основные принципы
 
 
 
@@ -78,7 +78,7 @@ Novafon предоставляет два JSON-RPC API — \*\*Data API\*\* дл
 
 
 
-\### 📊 📈 📉 Базовые запросы
+\###    Базовые запросы
 
 
 

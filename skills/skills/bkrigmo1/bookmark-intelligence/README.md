@@ -1,4 +1,4 @@
-# 🔖 Bookmark Intelligence
+#  Bookmark Intelligence
 
 **AI-powered bookmark analysis that actually helps you get things done.**
 
@@ -7,20 +7,20 @@
 
 Turn your X (Twitter) bookmarks into actionable insights automatically. This OpenClaw skill monitors your bookmarks, extracts content from linked articles, analyzes everything with AI, and surfaces ideas relevant to YOUR specific projects.
 
-## 💎 Pricing
+##  Pricing
 
-### 🆓 Free Tier
+###  Free Tier
 - 10 bookmarks/month
 - Manual run only
 - Basic analysis (no AI)
 
-### ⭐ Pro - $9/month
+###  Pro - $9/month
 - **Unlimited bookmarks**
 - Automated monitoring
 - Full AI analysis
 - Telegram notifications
 
-### 🚀 Enterprise - $29/month
+###  Enterprise - $29/month
 - Everything in Pro +
 - Team collaboration
 - Custom AI models
@@ -29,17 +29,17 @@ Turn your X (Twitter) bookmarks into actionable insights automatically. This Ope
 
 **Annual plans save 16%** | [View full pricing](SKILL.md#-pricing--tiers)
 
-## ✨ Features
+##  Features
 
-- 📚 **Auto-monitors** your X bookmarks
-- 🔍 **Fetches full content** from linked articles (not just tweets)
-- 🤖 **AI analysis** extracts key concepts, actionable items, and implementation ideas
-- 🎯 **Project-aware** - relates insights to YOUR active projects
-- 📱 **Telegram notifications** for high-value findings (Pro+)
-- 💾 **Knowledge base** - stores everything for future reference
-- ⚙️ **Background daemon** mode - runs 24/7 without your input (Pro+)
+-  **Auto-monitors** your X bookmarks
+-  **Fetches full content** from linked articles (not just tweets)
+-  **AI analysis** extracts key concepts, actionable items, and implementation ideas
+-  **Project-aware** - relates insights to YOUR active projects
+-  **Telegram notifications** for high-value findings (Pro+)
+-  **Knowledge base** - stores everything for future reference
+-  **Background daemon** mode - runs 24/7 without your input (Pro+)
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 cd skills/bookmark-intelligence
@@ -50,15 +50,15 @@ npm run daemon       # Run in background (Pro/Enterprise)
 ```
 
 The interactive wizard will:
-1. ✅ Check dependencies
-2. 🍪 Guide you through getting X cookies (step-by-step)
-3. 🎯 Ask about your projects & interests
-4. 🧪 Test your credentials
-5. ⚙️ Configure everything
+1.  Check dependencies
+2.  Guide you through getting X cookies (step-by-step)
+3.  Ask about your projects & interests
+4.  Test your credentials
+5.  Configure everything
 
 **That's it!** No configuration files to edit, no docs to read (unless you want to).
 
-## 💳 How to Upgrade
+##  How to Upgrade
 
 ```bash
 npm run license:upgrade
@@ -73,7 +73,7 @@ After payment, activate your license:
 node scripts/license.js activate YOUR-LICENSE-KEY
 ```
 
-## 🧪 Test Licenses (For Development)
+##  Test Licenses (For Development)
 
 Pre-configured test keys for reviewers and developers:
 
@@ -90,7 +90,7 @@ node scripts/license.js activate TEST-ENT-00000000000000000
 
 These test licenses have all features enabled for evaluation.
 
-## 📖 Full Documentation
+##  Full Documentation
 
 See [SKILL.md](SKILL.md) for complete documentation including:
 - Detailed setup instructions
@@ -101,7 +101,7 @@ See [SKILL.md](SKILL.md) for complete documentation including:
 - Troubleshooting
 - Examples
 
-## 🎯 Example Use Case
+##  Example Use Case
 
 **Before:**
 > You bookmark a tweet about "vector embeddings for AI agents" and never look at it again.
@@ -117,7 +117,7 @@ See [SKILL.md](SKILL.md) for complete documentation including:
 
 See [examples/](examples/) for sample outputs.
 
-## 🛠️ Requirements
+##  Requirements
 
 **Required:**
 - Node.js 16+ ([download](https://nodejs.org))
@@ -127,7 +127,7 @@ See [examples/](examples/) for sample outputs.
 - PM2 for daemon mode (`npm install -g pm2`)
 - OpenClaw for LLM analysis & Telegram notifications
 
-## 📦 What's Included
+##  What's Included
 
 ```
 ├── scripts/
@@ -144,7 +144,7 @@ See [examples/](examples/) for sample outputs.
 └── package.json
 ```
 
-## 🎨 Customization
+##  Customization
 
 Edit `config.json` after setup to:
 - Change how many bookmarks to check
@@ -152,7 +152,7 @@ Edit `config.json` after setup to:
 - Update your project list (be specific for better results!)
 - Enable/disable notifications
 
-## 🔐 Privacy
+##  Privacy
 
 - Your credentials stay on your machine (`.env` file, permissions: 600)
 - License keys encrypted locally with machine ID
@@ -162,7 +162,7 @@ Edit `config.json` after setup to:
 
 **Payment processing:** Stripe (PCI-DSS Level 1) or crypto (direct to wallet)
 
-## 🧹 Uninstalling
+##  Uninstalling
 
 ```bash
 npm run uninstall
@@ -170,17 +170,17 @@ npm run uninstall
 
 Optionally keeps your analyzed bookmarks.
 
-## 📜 License
+##  License
 
 MIT - Use it however you want!
 
-## 🙋 Support
+##  Support
 
 - **Free tier:** Community support via GitHub issues
 - **Pro tier:** Email support (48hr response)
 - **Enterprise tier:** Priority support (8hr response) + Slack channel
 
-## 🤝 Contributing
+##  Contributing
 
 PRs welcome! Ideas for improvement:
 - Better content extraction (PDFs, paywalls)
@@ -189,13 +189,13 @@ PRs welcome! Ideas for improvement:
 - Export integrations (Notion, Obsidian)
 - Interactive Telegram UI
 
-## 🐛 Issues?
+##  Issues?
 
 See the [troubleshooting section](SKILL.md#-troubleshooting) in SKILL.md or open an issue.
 
 ---
 
-## 👨‍💼 For Sellers (ClawHub Distribution)
+##  For Sellers (ClawHub Distribution)
 
 ### Setup Payment Processing
 

@@ -1,6 +1,6 @@
 # TeraBox API Reference (v1.3.8)
 
-## 📡 CLI Commands
+##  CLI Commands
 The skill utilizes a high-performance Node.js extraction engine.
 
 ### 1. Extract Links
@@ -19,7 +19,7 @@ node scripts/extract.js "<url>" --download [--out <path>]
   - `--out`: Subdirectory within `Downloads/` (Security-enforced).
   - `--json`: Return structured output for automation.
 
-## 🔒 Security Protocols
+##  Security Protocols
 1. **Path Isolation**: All downloads are restricted to the local `Downloads/` root. Path traversal (`../`) is automatically blocked.
 2. **Credential Safety**: `TERABOX_API_KEY` is read from the environment and never logged or exposed in stdout.
 3. **Primary Domain**: All network requests are native `https` to `xapiverse.com`.

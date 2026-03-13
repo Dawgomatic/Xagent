@@ -2,18 +2,18 @@
 
 Full CLI for **Revolut Business** — accounts, balances, transactions, counterparties, payments, FX exchange, CSV export.
 
-> ⚠️ **Business only** — Revolut Personal API requires PSD2 Open Banking (AISP) registration and is not supported.
+>  **Business only** — Revolut Personal API requires PSD2 Open Banking (AISP) registration and is not supported.
 
 ## Features
 
-- 💰 **Accounts & Balances** — list all accounts, total EUR balance
-- 📋 **Transactions** — filter by date, type, account; JSON output
-- 👥 **Counterparties** — list, search by name
-- 💸 **Payments** — send payments (with confirmation) or create drafts
-- 💱 **FX Exchange** — exchange currencies between accounts
-- 🔄 **Internal Transfers** — move funds between own accounts
-- 📊 **CSV Export** — export transactions for bookkeeping
-- 🔑 **Auto Token Refresh** — OAuth tokens refresh automatically via JWT
+-  **Accounts & Balances** — list all accounts, total EUR balance
+-  **Transactions** — filter by date, type, account; JSON output
+-  **Counterparties** — list, search by name
+-  **Payments** — send payments (with confirmation) or create drafts
+-  **FX Exchange** — exchange currencies between accounts
+-  **Internal Transfers** — move funds between own accounts
+-  **CSV Export** — export transactions for bookkeeping
+-  **Auto Token Refresh** — OAuth tokens refresh automatically via JWT
 
 ## Setup (Step by Step)
 
@@ -38,7 +38,7 @@ openssl genrsa -out private.pem 2048
 openssl req -new -x509 -key private.pem -out certificate.pem -days 730 -subj "/CN=openclaw/O=YourCompany/C=AT"
 ```
 
-> ⚠️ Revolut **rejects** a plain public key — you must upload an **X509 certificate**.
+>  Revolut **rejects** a plain public key — you must upload an **X509 certificate**.
 
 ---
 
@@ -60,7 +60,7 @@ async function handleRequest(request) {
   const code = url.searchParams.get("code")
   if (code) {
     return new Response(`<html><body style="font-family:sans-serif;padding:40px">
-      <h1>✅ Revolut Authorization Code</h1>
+      <h1> Revolut Authorization Code</h1>
       <pre style="background:#f0f0f0;padding:20px;font-size:18px">${code}</pre>
       <p>Copy this code and paste it into the CLI.</p>
     </body></html>`, { headers: { "content-type": "text/html" } })
@@ -82,8 +82,8 @@ If you run n8n, create a webhook workflow that returns the `code` query paramete
 
 Any URL that captures the `?code=` parameter and shows it to you works.
 
-> ❌ `localhost` will **not** work as a redirect URI.
-> ❌ `revolut.com` will **not** work (Revolut blocks their own domain).
+>  `localhost` will **not** work as a redirect URI.
+>  `revolut.com` will **not** work (Revolut blocks their own domain).
 
 ---
 
@@ -109,7 +109,7 @@ REVOLUT_CLIENT_ID=your_client_id_here
 REVOLUT_ISS_DOMAIN=revolut.yourdomain.com   # your redirect URI domain WITHOUT https://
 ```
 
-> ⚠️ **Important:** `REVOLUT_ISS_DOMAIN` must be the domain part of your redirect URI (without `https://`). This is used as the `iss` (issuer) claim in the JWT. Revolut will reject any other value with: *"The 'iss' (issuer) claim must be your domain"*
+>  **Important:** `REVOLUT_ISS_DOMAIN` must be the domain part of your redirect URI (without `https://`). This is used as the `iss` (issuer) claim in the JWT. Revolut will reject any other value with: *"The 'iss' (issuer) claim must be your domain"*
 
 ---
 
@@ -134,7 +134,7 @@ https://business.revolut.com/app-confirm?client_id=YOUR_ID&redirect_uri=https://
 python3 scripts/revolut.py auth --code oa_prod_xxxxx
 ```
 
-If successful, you'll see: `✅ Authenticated successfully!`
+If successful, you'll see: ` Authenticated successfully!`
 
 Tokens are saved to `~/.clawdbot/revolut/tokens.json` and auto-refresh from now on.
 

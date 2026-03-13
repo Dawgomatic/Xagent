@@ -1,4 +1,4 @@
-# Decision Engine ⚡
+# Decision Engine 
 
 **Stop agonizing. Start deciding.** A complete decision-making system — from quick gut checks to million-dollar bets. 10 frameworks, 15-bias checklist, group decision protocols, and documentation templates.
 
@@ -24,13 +24,13 @@ Tell your agent: "Help me decide whether to [your decision]"
 
 It will classify the decision type, pick the right framework, walk you through it, and document the outcome.
 
-## ⚡ Level Up
+##  Level Up
 
 This skill gives you the decision-making process. Want the full strategic toolkit for your industry?
 
 **[AfrexAI Context Packs — $47](https://afrexai-cto.github.io/context-packs/)** — Industry-specific AI agent configurations with decision frameworks baked into your vertical (SaaS, Fintech, Healthcare, Legal, and 6 more).
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-competitive-intel](https://clawhub.com/skills/afrexai-competitive-intel) — Competitive intelligence system
 - [afrexai-risk-management](https://clawhub.com/skills/afrexai-risk-management) — Enterprise risk management

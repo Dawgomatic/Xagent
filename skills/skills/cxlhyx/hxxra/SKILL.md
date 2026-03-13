@@ -276,9 +276,9 @@ Each command returns standard error format:
 ## Development Status
 
 version: v1
-- ✅ Command structure defined
-- ✅ Parameter validation implemented
-- ✅ arXiv integration in progress
-- ✅ Google Scholar integration using scholarly library
-- ✅ Zotero API integration
-- ✅ LLM analysis pipeline using pymupdf pdfplumber and OpenAI API
+-  Command structure defined
+-  Parameter validation implemented
+-  arXiv integration in progress
+-  Google Scholar integration using scholarly library
+-  Zotero API integration
+-  LLM analysis pipeline using pymupdf pdfplumber and OpenAI API

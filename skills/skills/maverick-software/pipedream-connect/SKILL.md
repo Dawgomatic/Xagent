@@ -1,7 +1,7 @@
 ---
 name: pipedream-connect
 description: Connect 2,000+ APIs with managed OAuth via Pipedream. Includes full UI integration for Clawdbot Gateway dashboard.
-metadata: {"clawdbot":{"emoji":"🔌","requires":{"bins":["mcporter"],"clawdbot":">=2026.1.0"},"category":"integrations"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mcporter"],"clawdbot":">=2026.1.0"},"category":"integrations"}}
 ---
 
 # Pipedream Connect

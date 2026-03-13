@@ -221,7 +221,7 @@ async function main() {
         } else {
           console.log(`\nVenice ${type.charAt(0).toUpperCase() + type.slice(1)} Models:\n`);
           for (const m of models) {
-            const privacy = m.privacy === 'private' ? '🔒' : '👤';
+            const privacy = m.privacy === 'private' ? '' : '';
             console.log(`  ${privacy} ${m.name} (${m.id})`);
             if (m.context) console.log(`     Context: ${m.context.toLocaleString()} tokens`);
           }

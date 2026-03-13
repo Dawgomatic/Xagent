@@ -27,7 +27,7 @@ print_success() {
 }
 
 print_warning() {
-    echo -e "${YELLOW}⚠${NC} $1"
+    echo -e "${YELLOW}${NC} $1"
 }
 
 print_error() {
@@ -35,7 +35,7 @@ print_error() {
 }
 
 print_info() {
-    echo -e "${BLUE}ℹ${NC} $1"
+    echo -e "${BLUE}${NC} $1"
 }
 
 ask_yes_no() {

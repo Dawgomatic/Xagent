@@ -1,7 +1,7 @@
 ---
 name: hn-extract
 description: Extract a HackerNews post (article + comments) into single clean Markdown for quick reading or LLM input.
-metadata:  {"openclaw":{"always":true,"emoji":"🦞","homepage":"https://github.com/guoqiao/skills/blob/main/hn-extract/hn-extract/SKILL.md","os":["darwin","linux","win32"],"tags":["hn","hackernews","comments","extract","markdown","python","uv","scraper","rss","reader","summarize"],"requires":{"bins":["uv"]}}}
+metadata:  {"openclaw":{"always":true,"emoji":"","homepage":"https://github.com/guoqiao/skills/blob/main/hn-extract/hn-extract/SKILL.md","os":["darwin","linux","win32"],"tags":["hn","hackernews","comments","extract","markdown","python","uv","scraper","rss","reader","summarize"],"requires":{"bins":["uv"]}}}
 ---
 
 # HackerNews Extract

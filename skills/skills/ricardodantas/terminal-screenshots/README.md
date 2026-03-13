@@ -1,4 +1,4 @@
-# 📸 Terminal Screenshots
+#  Terminal Screenshots
 
 > An AI agent skill for creating terminal screenshots and recordings with VHS
 

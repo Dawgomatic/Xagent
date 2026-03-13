@@ -64,7 +64,7 @@ When a user requests to create catalogs, follow these steps:
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Creates catalog with excessive optional fields
+   #  HIGH COST - Creates catalog with excessive optional fields
    mutation catalogCreate($input: CatalogInput!) {
      catalogCreate(input: $input) {
        catalog { id name settings { ... } publication { ... } }
@@ -72,7 +72,7 @@ When a user requests to create catalogs, follow these steps:
      }
    }
    
-   # ✅ LOW COST - Creates catalog with essential fields only
+   #  LOW COST - Creates catalog with essential fields only
    mutation catalogCreate($input: CatalogInput!) {
      catalogCreate(input: $input) {
        catalog {

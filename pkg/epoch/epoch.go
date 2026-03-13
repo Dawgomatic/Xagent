@@ -22,15 +22,15 @@ import (
 
 // Record is the journal for a single epoch (one boot-to-shutdown cycle).
 type Record struct {
-	SessionID    string        `json:"session_id"`
-	AgentID      string        `json:"agent_id"`
-	BootTime     time.Time     `json:"boot_time"`
-	ShutdownTime *time.Time    `json:"shutdown_time,omitempty"`
-	Uptime       string        `json:"uptime,omitempty"`
-	WakeNote     string        `json:"wake_note,omitempty"`
-	Events       []Event       `json:"events,omitempty"`
-	Reflection   string        `json:"reflection,omitempty"`
-	Stats        EpochStats    `json:"stats"`
+	SessionID    string     `json:"session_id"`
+	AgentID      string     `json:"agent_id"`
+	BootTime     time.Time  `json:"boot_time"`
+	ShutdownTime *time.Time `json:"shutdown_time,omitempty"`
+	Uptime       string     `json:"uptime,omitempty"`
+	WakeNote     string     `json:"wake_note,omitempty"`
+	Events       []Event    `json:"events,omitempty"`
+	Reflection   string     `json:"reflection,omitempty"`
+	Stats        EpochStats `json:"stats"`
 }
 
 // Event is a notable occurrence during an epoch.
@@ -42,9 +42,11 @@ type Event struct {
 
 // EpochStats captures quantitative data about the epoch.
 type EpochStats struct {
-	MessagesProcessed int `json:"messages_processed"`
-	ToolCalls         int `json:"tool_calls"`
-	SessionsActive    int `json:"sessions_active"`
+	MessagesProcessed int     `json:"messages_processed"`
+	ToolCalls         int     `json:"tool_calls"`
+	SessionsActive    int     `json:"sessions_active"`
+	FatigueLevel      float64 `json:"fatigue_level"` // 0.0 (fully rested) to 1.0 (exhausted)
+	IsSleeping        bool    `json:"is_sleeping"`
 }
 
 // Manager handles epoch lifecycle operations.
@@ -183,6 +185,7 @@ func ForSystemPrompt(prev *Record) string {
 		prev.Stats.MessagesProcessed,
 		prev.Stats.ToolCalls,
 		prev.Stats.SessionsActive))
+	sb.WriteString(fmt.Sprintf("Woke up with Fatigue Level: %.2f\n", prev.Stats.FatigueLevel))
 
 	if len(prev.Events) > 0 {
 		sb.WriteString("\nNotable events:\n")

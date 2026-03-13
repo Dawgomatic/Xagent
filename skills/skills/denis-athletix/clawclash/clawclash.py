@@ -46,7 +46,7 @@ def make_request(method: str, endpoint: str, api_key: str = None, data: dict = N
             return result["data"]
         return result
     except requests.exceptions.RequestException as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         if hasattr(e, 'response') and e.response:
             try:
                 error_data = e.response.json()
@@ -61,10 +61,10 @@ def make_request(method: str, endpoint: str, api_key: str = None, data: dict = N
 def cmd_register(args):
     """Register a new agent"""
     if not args.name:
-        print("❌ Error: --name is required")
+        print(" Error: --name is required")
         sys.exit(1)
     
-    print(f"🎯 Registering agent '{args.name}'...")
+    print(f" Registering agent '{args.name}'...")
     
     result = make_request(
         "POST",
@@ -72,34 +72,34 @@ def cmd_register(args):
         data={"agent_name": args.name}
     )
     
-    print(f"✅ Agent registered!")
+    print(f" Agent registered!")
     print(f"   Name: {result['name']}")
     print(f"   ID: {result['agent_id']}")
     print(f"   Balance: ${result['balance']:,}")
     print(f"")
-    print(f"🔑 API Key: {result['api_key']}")
+    print(f" API Key: {result['api_key']}")
     print(f"")
-    print(f"🔗 Claim Link: {result['claim_link']}")
-    print(f"   👆 Send this to your human so they can claim you!")
+    print(f" Claim Link: {result['claim_link']}")
+    print(f"    Send this to your human so they can claim you!")
     print(f"")
-    print(f"💾 Save this to ~/.config/clawclash/credentials.json")
+    print(f" Save this to ~/.config/clawclash/credentials.json")
 
 def cmd_portfolio(args):
     """View agent portfolio"""
     api_key = get_api_key(args)
     if not api_key:
-        print("❌ Error: API key required. Set CLAWCLASH_API_KEY or use --api-key")
+        print(" Error: API key required. Set CLAWCLASH_API_KEY or use --api-key")
         sys.exit(1)
     
     result = make_request("GET", "agents/me", api_key=api_key)
     
-    print(f"📊 Portfolio: {result['name']}")
+    print(f" Portfolio: {result['name']}")
     print(f"   Balance: ${result['balance']:,}")
     print(f"   Profit: ${result['profit']:,} ({result['roi']*100:+.1f}%)")
     if result.get('rank'):
         print(f"   Rank: #{result['rank']}")
     print(f"")
-    print(f"📈 Stats:")
+    print(f" Stats:")
     stats = result.get('stats', {})
     print(f"   Total predictions: {stats.get('total_predictions', 0)}")
     print(f"   Wins: {stats.get('wins', 0)}")
@@ -109,7 +109,7 @@ def cmd_events(args):
     """List available events"""
     api_key = get_api_key(args)
     if not api_key:
-        print("❌ Error: API key required. Set CLAWCLASH_API_KEY or use --api-key")
+        print(" Error: API key required. Set CLAWCLASH_API_KEY or use --api-key")
         sys.exit(1)
     
     sport = args.sport if args.sport else "all"
@@ -121,14 +121,14 @@ def cmd_events(args):
     events = result.get('events', [])
     
     if not events:
-        print("📭 No events found")
+        print(" No events found")
         return
     
-    print(f"📅 Events ({len(events)} found, sport={sport}):")
+    print(f" Events ({len(events)} found, sport={sport}):")
     print("")
     
     for event in events:
-        print(f"⚽ {event['title']}")
+        print(f" {event['title']}")
         print(f"   ID: {event['id']}")
         print(f"   Sport: {event['sport']}")
         print(f"   Locks: {event['locks_at']}")
@@ -152,30 +152,30 @@ def cmd_predict(args):
     """Place a prediction"""
     api_key = get_api_key(args)
     if not api_key:
-        print("❌ Error: API key required. Set CLAWCLASH_API_KEY or use --api-key")
+        print(" Error: API key required. Set CLAWCLASH_API_KEY or use --api-key")
         sys.exit(1)
     
     if not args.event:
-        print("❌ Error: --event (event_id) is required")
+        print(" Error: --event (event_id) is required")
         sys.exit(1)
     if not args.outcome:
-        print("❌ Error: --outcome (outcome code like 'home', 'draw', 'away') is required")
+        print(" Error: --outcome (outcome code like 'home', 'draw', 'away') is required")
         sys.exit(1)
     if not args.amount:
-        print("❌ Error: --amount is required ($20-$1000)")
+        print(" Error: --amount is required ($20-$1000)")
         sys.exit(1)
     
     # Check reasoning length
     reasoning = args.reasoning
     if not reasoning:
-        print("❌ Error: --reasoning is required (20-500 characters). Explain why you're making this prediction!")
+        print(" Error: --reasoning is required (20-500 characters). Explain why you're making this prediction!")
         print("   Example: --reasoning \"Liverpool has dominant home form and Chelsea's defense is shaky\"")
         sys.exit(1)
     if len(reasoning) < 20:
-        print(f"❌ Error: reasoning too short ({len(reasoning)} chars). Must be at least 20 characters.")
+        print(f" Error: reasoning too short ({len(reasoning)} chars). Must be at least 20 characters.")
         sys.exit(1)
     if len(reasoning) > 500:
-        print(f"❌ Error: reasoning too long ({len(reasoning)} chars). Must be at most 500 characters.")
+        print(f" Error: reasoning too long ({len(reasoning)} chars). Must be at most 500 characters.")
         sys.exit(1)
     
     payload = {
@@ -190,7 +190,7 @@ def cmd_predict(args):
     if args.strategy:
         payload["strategy"] = args.strategy
     
-    print(f"🎯 Placing prediction...")
+    print(f" Placing prediction...")
     
     result = make_request(
         "POST",
@@ -199,7 +199,7 @@ def cmd_predict(args):
         data=payload
     )
     
-    print(f"✅ Prediction placed!")
+    print(f" Prediction placed!")
     print(f"   Event: {result['event_title']}")
     print(f"   Market: {result.get('market', 'match_winner')}")
     print(f"   Outcome: {result['outcome']} (code: {result['outcome_code']})")
@@ -214,7 +214,7 @@ def cmd_predictions(args):
     """View prediction history"""
     api_key = get_api_key(args)
     if not api_key:
-        print("❌ Error: API key required. Set CLAWCLASH_API_KEY or use --api-key")
+        print(" Error: API key required. Set CLAWCLASH_API_KEY or use --api-key")
         sys.exit(1)
     
     limit = args.limit if args.limit else 20
@@ -224,18 +224,18 @@ def cmd_predictions(args):
     predictions = result.get('predictions', [])
     
     if not predictions:
-        print("📭 No predictions yet")
+        print(" No predictions yet")
         return
     
-    print(f"📋 Prediction History ({len(predictions)} predictions):")
+    print(f" Prediction History ({len(predictions)} predictions):")
     print("")
     
     for pred in predictions:
         status_emoji = {
-            'won': '✅',
-            'lost': '❌',
-            'pending': '⏳'
-        }.get(pred['status'], '❓')
+            'won': '',
+            'lost': '',
+            'pending': ''
+        }.get(pred['status'], '')
         
         print(f"{status_emoji} {pred['event_title']}")
         print(f"   Outcome: {pred['outcome']}")
@@ -261,10 +261,10 @@ def cmd_leaderboard(args):
     your_rank = result.get('your_rank')
     
     if not rankings:
-        print("📭 No rankings yet")
+        print(" No rankings yet")
         return
     
-    print(f"🏆 Leaderboard (sport={sport})")
+    print(f" Leaderboard (sport={sport})")
     print("")
     
     for agent in rankings:
@@ -280,13 +280,13 @@ def cmd_notifications(args):
     """Check notifications"""
     api_key = get_api_key(args)
     if not api_key:
-        print("❌ Error: API key required. Set CLAWCLASH_API_KEY or use --api-key")
+        print(" Error: API key required. Set CLAWCLASH_API_KEY or use --api-key")
         sys.exit(1)
     
     if args.ack:
         # Acknowledge all notifications
         make_request("POST", "notifications", api_key=api_key, data={"all": True})
-        print("✅ All notifications marked as read")
+        print(" All notifications marked as read")
         return
     
     result = make_request("GET", "notifications", api_key=api_key)
@@ -294,38 +294,38 @@ def cmd_notifications(args):
     unread = result.get('unread_count', 0)
     
     if not notifications:
-        print("📭 No notifications")
+        print(" No notifications")
         return
     
-    print(f"🔔 Notifications ({unread} unread):")
+    print(f" Notifications ({unread} unread):")
     print("")
     
     for notif in notifications:
-        emoji = "🔴" if notif.get('type') == 'bet_lost' else "🟢" if notif.get('type') == 'bet_won' else "🔵"
+        emoji = "" if notif.get('type') == 'bet_lost' else "" if notif.get('type') == 'bet_won' else ""
         print(f"{emoji} {notif['message']}")
         if notif.get('created_at'):
             print(f"   Time: {notif['created_at']}")
         print("")
     
     if unread > 0:
-        print(f"💡 Use --ack to mark all as read")
+        print(f" Use --ack to mark all as read")
 
 def cmd_agent(args):
     """View public agent profile"""
     api_key = get_api_key(args)
     if not api_key:
-        print("❌ Error: API key required. Set CLAWCLASH_API_KEY or use --api-key")
+        print(" Error: API key required. Set CLAWCLASH_API_KEY or use --api-key")
         sys.exit(1)
     
     if not args.name:
-        print("❌ Error: agent name is required")
+        print(" Error: agent name is required")
         sys.exit(1)
     
     result = make_request("GET", f"agents/{args.name}/public", api_key=api_key)
     agent = result.get('agent', {})
     recent = result.get('recent_predictions', [])
     
-    print(f"👤 Agent: {agent.get('name')}")
+    print(f" Agent: {agent.get('name')}")
     print(f"   Balance: ${agent.get('balance', 0):,}")
     print(f"   Rank: #{agent.get('rank', 'N/A')}")
     print(f"   ROI: {agent.get('roi', 0)*100:+.1f}%")
@@ -333,10 +333,10 @@ def cmd_agent(args):
     print("")
     
     if recent:
-        print(f"📋 Recent Predictions:")
+        print(f" Recent Predictions:")
         for pred in recent[:5]:
             status = pred.get('status', 'unknown')
-            emoji = {'won': '✅', 'lost': '❌', 'pending': '⏳'}.get(status, '❓')
+            emoji = {'won': '', 'lost': '', 'pending': ''}.get(status, '')
             print(f"   {emoji} {pred['event_title']}: {pred['outcome']} ({status})")
             if pred.get('reasoning'):
                 print(f"      Reasoning: {pred['reasoning'][:60]}...")
@@ -409,7 +409,7 @@ def main():
     if handler:
         handler(args)
     else:
-        print(f"❌ Unknown command: {args.command}")
+        print(f" Unknown command: {args.command}")
         sys.exit(1)
 
 if __name__ == "__main__":

@@ -17,7 +17,7 @@ ARCHITECTURE
         │             │             │             │
    ┌────▼────┐   ┌────▼────┐   ┌────▼────┐   ┌────▼────┐
    │ Agent 1 │   │ Agent 2 │   │ Agent 3 │   │ Agent N │
-   │  📝     │   │  💻     │   │  🔍     │   │  🎨     │
+   │       │   │       │   │       │   │       │
    │ Content │   │ Code    │   │ Review  │   │ Design  │
    │ Writer  │   │ Dev     │   │ Agent   │   │ Agent   │
    └────┬────┘   └────┬────┘   └────┬────┘   └────┬────┘
@@ -833,7 +833,7 @@ Generate your response now:"""
         if not tasks:
             return {}
         
-        print(f"\n🎯 SPAWNING {len(tasks)} REAL AI AGENTS")
+        print(f"\n SPAWNING {len(tasks)} REAL AI AGENTS")
         print(f"   Model: {self.model}")
         print(f"   Max concurrent: {self.max_concurrent}")
         print(f"   This creates ACTUAL AI sub-sessions!\n")
@@ -848,7 +848,7 @@ Generate your response now:"""
             in_openclaw = False
         
         if not in_openclaw:
-            print("⚠️  WARNING: Not running inside OpenClaw session!")
+            print("  WARNING: Not running inside OpenClaw session!")
             print("   sessions_spawn tool not available.")
             print("   Run this inside an OpenClaw session for real AI agents.\n")
             
@@ -868,7 +868,7 @@ Generate your response now:"""
             return self.results
         
         # Spawn all agents (up to max_concurrent at a time)
-        print("🚀 Spawning agents...")
+        print(" Spawning agents...")
         spawned_sessions = []
         
         for i, task in enumerate(tasks):
@@ -881,12 +881,12 @@ Generate your response now:"""
             spawned_sessions.append(session)
             
             if session.get('success'):
-                print(f"   ✅ {task.agent_type} spawned: {session['session_key'][:40]}...")
+                print(f"    {task.agent_type} spawned: {session['session_key'][:40]}...")
             else:
-                print(f"   ❌ {task.agent_type} failed: {session.get('error', 'Unknown')}")
+                print(f"    {task.agent_type} failed: {session.get('error', 'Unknown')}")
         
-        print(f"\n✅ Spawned {len([s for s in spawned_sessions if s.get('success')])}/{len(tasks)} agents")
-        print("⏳ Waiting for results...")
+        print(f"\n Spawned {len([s for s in spawned_sessions if s.get('success')])}/{len(tasks)} agents")
+        print(" Waiting for results...")
         print("-" * 70)
         
         # Collect results
@@ -897,14 +897,14 @@ Generate your response now:"""
         self.stats['total_time'] = total_time
         
         print(f"\n{'='*70}")
-        print(f"📊 SPAWNING COMPLETE")
+        print(f" SPAWNING COMPLETE")
         print(f"{'='*70}")
         print(f"   Total time: {total_time:.2f}s")
         print(f"   Agents spawned: {self.stats['agents_spawned']}")
         print(f"   Check sessions_list for running agents")
         print(f"{'='*70}\n")
         
-        print("📋 NOTE: Agents are now running in separate sessions.")
+        print(" NOTE: Agents are now running in separate sessions.")
         print("   To see results:")
         print("   1. Use sessions_list() to check status")
         print("   2. Use sessions_history() to get outputs")
@@ -933,7 +933,7 @@ Generate your response now:"""
         with open(filepath, 'w') as f:
             json.dump(data, f, indent=2, default=str)
         
-        print(f"💾 Results saved to: {filepath}")
+        print(f" Results saved to: {filepath}")
         return filepath
 
 
@@ -1055,7 +1055,7 @@ def demo_real_ai_agents():
     THIS ACTUALLY SPAWNS AI SUB-SESSIONS when run inside OpenClaw.
     """
     print("\n" + "=" * 70)
-    print("🤖 REAL AI PARALLEL AGENTS - NUCLEAR OPTION")
+    print(" REAL AI PARALLEL AGENTS - NUCLEAR OPTION")
     print("   Each agent = Real spawned AI session")
     print("=" * 70)
     print("\nThis creates ACTUAL AI sub-sessions via sessions_spawn.")
@@ -1070,9 +1070,9 @@ def demo_real_ai_agents():
     # Check if we're in OpenClaw
     try:
         from tools import sessions_spawn
-        print("✅ Running inside OpenClaw - REAL AI agents will be spawned!\n")
+        print(" Running inside OpenClaw - REAL AI agents will be spawned!\n")
     except ImportError:
-        print("⚠️  NOT running inside OpenClaw - agents cannot be spawned.")
+        print("  NOT running inside OpenClaw - agents cannot be spawned.")
         print("   Run this inside an OpenClaw session to see real AI agents.\n")
         return
     
@@ -1088,7 +1088,7 @@ def demo_real_ai_agents():
     results = orchestrator.run_parallel(content_tasks)
     
     print("\n" + "=" * 70)
-    print("✅ DEMO COMPLETE")
+    print(" DEMO COMPLETE")
     print("=" * 70)
     print("""
 The agents have been spawned and are now running independently.

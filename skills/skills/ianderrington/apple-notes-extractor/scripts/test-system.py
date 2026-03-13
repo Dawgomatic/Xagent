@@ -21,7 +21,7 @@ class SystemTester:
         
     def print_test(self, name, success, details=""):
         """Print test result"""
-        status = "✅ PASS" if success else "❌ FAIL"
+        status = " PASS" if success else " FAIL"
         print(f"{status} {name}")
         if details:
             print(f"      {details}")
@@ -33,7 +33,7 @@ class SystemTester:
     
     def test_environment(self):
         """Test basic environment requirements"""
-        print("\n🔍 Testing Environment...")
+        print("\n Testing Environment...")
         
         # Test Python version
         version = sys.version_info
@@ -70,7 +70,7 @@ class SystemTester:
     
     def test_notes_access(self):
         """Test Apple Notes application access"""
-        print("\n🔍 Testing Apple Notes Access...")
+        print("\n Testing Apple Notes Access...")
         
         # Test if Notes app responds
         try:
@@ -107,7 +107,7 @@ class SystemTester:
     
     def test_simple_extraction(self):
         """Test simple AppleScript extraction method"""
-        print("\n🔍 Testing Simple Extraction...")
+        print("\n Testing Simple Extraction...")
         
         self.test_output_dir.mkdir(parents=True, exist_ok=True)
         
@@ -155,7 +155,7 @@ class SystemTester:
     
     def test_configuration(self):
         """Test configuration loading and validation"""
-        print("\n🔍 Testing Configuration...")
+        print("\n Testing Configuration...")
         
         # Test extractor configuration
         config_file = self.root_dir / "configs" / "extractor.json"
@@ -189,7 +189,7 @@ class SystemTester:
     
     def test_workflow_integration(self):
         """Test workflow integration capabilities"""
-        print("\n🔍 Testing Workflow Integration...")
+        print("\n Testing Workflow Integration...")
         
         # Test workflow integrator script
         workflow_script = self.script_dir / "workflow-integrator.py"
@@ -215,7 +215,7 @@ class SystemTester:
     
     def test_monitor_functionality(self):
         """Test monitoring system"""
-        print("\n🔍 Testing Monitor System...")
+        print("\n Testing Monitor System...")
         
         monitor_script = self.script_dir / "monitor-notes.py"
         monitor_exists = monitor_script.exists()
@@ -251,7 +251,7 @@ class SystemTester:
     
     def run_all_tests(self):
         """Run the complete test suite"""
-        print("🧪 Apple Notes Extraction System - Test Suite")
+        print(" Apple Notes Extraction System - Test Suite")
         print("==============================================")
         
         # Run tests in order
@@ -265,36 +265,36 @@ class SystemTester:
                 extraction_ok = self.test_simple_extraction()
             else:
                 extraction_ok = False
-                print("⚠️ Skipping extraction test due to Notes access issues")
+                print(" Skipping extraction test due to Notes access issues")
             
             workflow_ok = self.test_workflow_integration()
             monitor_ok = self.test_monitor_functionality()
         else:
-            print("⚠️ Skipping remaining tests due to environment issues")
+            print(" Skipping remaining tests due to environment issues")
             notes_ok = extraction_ok = config_ok = workflow_ok = monitor_ok = False
         
         # Cleanup
         cleanup_ok = self.cleanup_test_files()
         
         # Summary
-        print("\n📊 Test Summary")
+        print("\n Test Summary")
         print("================")
-        print(f"✅ Passed: {self.passed}")
-        print(f"❌ Failed: {self.failed}")
-        print(f"📈 Success rate: {(self.passed/(self.passed+self.failed)*100):.1f}%")
+        print(f" Passed: {self.passed}")
+        print(f" Failed: {self.failed}")
+        print(f" Success rate: {(self.passed/(self.passed+self.failed)*100):.1f}%")
         
         if cleanup_ok:
-            print("🧹 Test cleanup completed")
+            print(" Test cleanup completed")
         
         # Overall assessment
         if env_ok and notes_ok and extraction_ok:
-            print("\n🎉 System is ready for use!")
+            print("\n System is ready for use!")
             return True
         elif env_ok and config_ok:
-            print("\n⚠️ System partially functional - check Notes app permissions")
+            print("\n System partially functional - check Notes app permissions")
             return False
         else:
-            print("\n❌ System needs setup - run scripts/setup.sh")
+            print("\n System needs setup - run scripts/setup.sh")
             return False
 
 def main():

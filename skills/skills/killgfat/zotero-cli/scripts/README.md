@@ -2,7 +2,7 @@
 
 This directory contains a collection of helper scripts to enhance and automate your zotero-cli experience.
 
-## 📋 Available Scripts
+##  Available Scripts
 
 ### 1. `quick_search.py`
 
@@ -128,7 +128,7 @@ chmod +x batch_process.sh
 
 ---
 
-### 4. `setup_and_check.sh` ⭐ NEW
+### 4. `setup_and_check.sh`  NEW
 
 Quick setup and verification script for zotero-cli. This script helps you get started quickly and verifies your installation.
 
@@ -198,7 +198,7 @@ It will:
 
 ---
 
-### 5. `backup_restore.sh` ⭐ NEW
+### 5. `backup_restore.sh`  NEW
 
 Backup and restore utility for zotero-cli configuration and data.
 
@@ -289,7 +289,7 @@ queries_YYYYMMDD_HHMMSS.txt
 
 ---
 
-### 6. `update_check.sh` ⭐ NEW
+### 6. `update_check.sh`  NEW
 
 Update check and management utility for keeping zotero-cli up to date.
 
@@ -326,10 +326,10 @@ The script checks multiple sources:
 
 **Status Messages:**
 
-- ✅ **"You are running the latest version!"** - No update needed
-- ⚠️ **"A new version is available!"** - Update recommended
-- ⚠️ **"You are running a newer version"** - You have a dev version
-- ⚠️ **"zotero-cli is not installed"** - Need to install first
+-  **"You are running the latest version!"** - No update needed
+-  **"A new version is available!"** - Update recommended
+-  **"You are running a newer version"** - You have a dev version
+-  **"zotero-cli is not installed"** - Need to install first
 
 **Update Methods:**
 
@@ -375,7 +375,7 @@ Add to your crontab for regular checks:
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### First-Time Setup
 
@@ -421,7 +421,7 @@ python export_citations.py "topic" --format bib > refs.bib
 
 ---
 
-## 💡 Tips and Tricks
+##  Tips and Tricks
 
 ### 1. Create Shortcuts
 
@@ -506,7 +506,7 @@ sed 's/TOPIC/machine learning/g' research_template.txt > ml_queries.txt
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Script Not Executable
 
@@ -555,7 +555,7 @@ chmod 755 script_name.sh
 
 ---
 
-## 📚 Documentation Index
+##  Documentation Index
 
 For more information, see:
 
@@ -566,7 +566,7 @@ For more information, see:
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 If you have ideas for new scripts or improvements:
 
@@ -578,13 +578,13 @@ If you have ideas for new scripts or improvements:
 
 ---
 
-## 📄 License
+##  License
 
 These scripts are provided as-is for helping users of zotero-cli. They follow the same license as zotero-cli.
 
 ---
 
-## 🔗 External Resources
+##  External Resources
 
 - [zotero-cli GitHub](https://github.com/jbaiter/zotero-cli)
 - [Zotero Documentation](https://www.zotero.org/support/)
@@ -594,7 +594,7 @@ These scripts are provided as-is for helping users of zotero-cli. They follow th
 
 ---
 
-## 📖 Quick Reference
+##  Quick Reference
 
 | Script | Purpose | Common Command |
 |--------|---------|----------------|
@@ -607,4 +607,4 @@ These scripts are provided as-is for helping users of zotero-cli. They follow th
 
 ---
 
-**Happy researching! 📚🎓**
+**Happy researching! **

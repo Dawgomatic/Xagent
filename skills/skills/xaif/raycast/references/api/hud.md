@@ -25,7 +25,7 @@ async function showHUD(
 import { showHUD } from "@raycast/api";
 
 export default async function Command() {
-  await showHUD("Hey there 👋");
+  await showHUD("Hey there ");
 }
 ```
 
@@ -35,7 +35,7 @@ export default async function Command() {
 import { PopToRootType, showHUD } from "@raycast/api";
 
 export default async function Command() {
-  await showHUD("Hey there 👋", { clearRootSearch: true, popToRootType: PopToRootType.Immediate });
+  await showHUD("Hey there ", { clearRootSearch: true, popToRootType: PopToRootType.Immediate });
 }
 ```
 

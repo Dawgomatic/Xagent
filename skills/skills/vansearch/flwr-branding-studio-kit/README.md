@@ -7,28 +7,28 @@ This repository enables you to deploy an autonomous branding agent capable of ge
 Developed by **FLWR Branding Studio** ([@flwr.branding](https://instagram.com/flwr.branding))
 
 
-## 🚀 Key Features
+##  Key Features
 
 *   **RACE Framework Integration**: Deep integration of the Research, Action, Context, Example methodology.
 *   **Context Shielding Protocol**: Prevents cross-contamination between clients. The structure is fixed; the content is fluid.
 *   **Anti-Slop Writing Checks**: Automated rules to prevent generic AI copywriting (no "delve", "tapestry", or sequential adjectives).
-*   **🎨 Asset Output:** Generates assets in a specific Markdown format.
+*   ** Asset Output:** Generates assets in a specific Markdown format.
 *   **Automated Project Setup**: One-command initialization for new client projects.
 
-## 📦 What's Included
+##  What's Included
 
 *   **`.agent/rules/`**: The "brain" of the strategist (`branding_agent_rules.md`).
 *   **`.agent/workflows/`**: The step-by-step logic for executing branding projects.
 *   **`.agent/templates/`**: The core templates (Golden Circle, Persona, Voice, etc.).
 *   **`scripts/`**: Automation tools for project scaffolding.
 
-## 🌍 Compatibility
+##  Compatibility
 
 *   **Operating Systems**: Windows, macOS, Linux (Universal Node.js support).
 *   **IDEs**: Optimized for **Cursor**, **Windsurf**, and **VS Code**, but works in ANY editor (Zed, Sublime, etc.).
 *   **Requirements**: [Node.js](https://nodejs.org/) (v14 or higher).
 
-## 🛠️ Installation
+##  Installation
 
 1.  **Clone the repository**:
     ```bash
@@ -47,7 +47,7 @@ Developed by **FLWR Branding Studio** ([@flwr.branding](https://instagram.com/fl
     *   If using Cursor, Windsurf, or similar: Ensure the `.agent` folder is in your workspace root.
     *   If using a custom LLM script: Load `.agent/rules/branding_agent_rules.md` into the system prompt.
 
-## ⚡ Workflow: How to Run a Project
+##  Workflow: How to Run a Project
 
 ### Phase 1: Initialization
 Start a new project for a client. This creates the directory structure and copies the necessary templates.
@@ -83,7 +83,7 @@ Before finalizing, the agent runs the **Writing Quality Check**:
 *   Verifies distinctiveness vs. competitors.
 
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```text
 .
@@ -98,8 +98,8 @@ Before finalizing, the agent runs the **Writing Quality Check**:
 ├── README.md                # This manual
 ```
 
-## 🤝 Contributing
+##  Contributing
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to improve the agent's logic or add new templates.
 
-## 📄 License
+##  License
 MIT

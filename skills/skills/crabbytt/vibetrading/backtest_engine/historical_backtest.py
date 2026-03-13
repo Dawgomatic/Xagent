@@ -362,15 +362,15 @@ class HistoricalBacktestEngine:
     def _generate_report(self, results, config):
         """Generate backtest report"""
         print("\n" + "="*60)
-        print("📊 HISTORICAL BACKTEST RESULTS")
+        print(" HISTORICAL BACKTEST RESULTS")
         print("="*60)
         
-        print(f"📅 Period: {results.get('period_start', 'N/A')} to {results.get('period_end', 'N/A')}")
-        print(f"📈 Symbol: {config['symbol']} | Interval: {config['interval']}")
-        print(f"💰 Initial Balance: ${results['initial_balance']:,.2f}")
-        print(f"💰 Final Balance: ${results['final_balance']:,.2f}")
+        print(f" Period: {results.get('period_start', 'N/A')} to {results.get('period_end', 'N/A')}")
+        print(f" Symbol: {config['symbol']} | Interval: {config['interval']}")
+        print(f" Initial Balance: ${results['initial_balance']:,.2f}")
+        print(f" Final Balance: ${results['final_balance']:,.2f}")
         
-        print(f"\n📊 Performance Metrics:")
+        print(f"\n Performance Metrics:")
         print(f"  • Total Return: {results['total_return_pct']:+.2f}%")
         print(f"  • Max Drawdown: {results['max_drawdown_pct']:.2f}%")
         print(f"  • Sharpe Ratio: {results['sharpe_ratio']:.2f}")
@@ -378,12 +378,12 @@ class HistoricalBacktestEngine:
         print(f"  • Total Trades: {results['total_trades']}")
         print(f"  • Total Commission: ${results['total_commission']:.2f}")
         
-        print(f"\n📋 Final Position:")
+        print(f"\n Final Position:")
         print(f"  • USDC: ${results['final_usdc']:,.2f}")
         print(f"  • {config['symbol']}: {results['final_asset']:.4f}")
         print(f"  • Current Price: ${results['final_price']:.4f}")
         
-        print(f"\n📈 Data Summary:")
+        print(f"\n Data Summary:")
         print(f"  • Data Points: {results['data_points']}")
         print(f"  • Backtest Type: Historical Data")
         
@@ -406,7 +406,7 @@ class HistoricalBacktestEngine:
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
         
-        print(f"\n💾 Results saved to: {filepath}")
+        print(f"\n Results saved to: {filepath}")
         
         # Also save summary
         summary_file = output_dir / f"summary_{config['symbol']}_{timestamp}.txt"
@@ -421,7 +421,7 @@ class HistoricalBacktestEngine:
             f.write(f"Trades: {results['total_trades']}\n")
             f.write(f"Win Rate: {results['win_rate']:.1f}%\n")
         
-        print(f"📝 Summary saved to: {summary_file}")
+        print(f" Summary saved to: {summary_file}")
 
 
 def main():
@@ -454,9 +454,9 @@ def main():
     results = engine.run_backtest(args.strategy, config)
     
     if results:
-        print("\n✅ Backtest completed successfully!")
+        print("\n Backtest completed successfully!")
     else:
-        print("\n❌ Backtest failed!")
+        print("\n Backtest failed!")
 
 if __name__ == "__main__":
     main()

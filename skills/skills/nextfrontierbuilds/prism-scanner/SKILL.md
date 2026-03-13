@@ -38,10 +38,10 @@ Scans holder concentration, liquidity locks, contract honeypots, and copycat sca
 ## Risk Score Calculation
 
 ```
-0-25:   ✅ Lower Risk (Green)
-26-50:  ⚠️ Medium Risk (Yellow)
-51-75:  🔶 Higher Risk (Orange)
-76-100: 🚨 High Risk (Red)
+0-25:    Lower Risk (Green)
+26-50:   Medium Risk (Yellow)
+51-75:   Higher Risk (Orange)
+76-100:  High Risk (Red)
 ```
 
 ### Scoring Breakdown
@@ -59,7 +59,7 @@ Scans holder concentration, liquidity locks, contract honeypots, and copycat sca
 ## Output Format
 
 ```
-🛡️ PRISM Token Scan: PEPE
+ PRISM Token Scan: PEPE
 
 Contract: 0x6982508...2311933
 Chain: Ethereum
@@ -72,12 +72,12 @@ RISK SCORE: 35/100
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 CHECKS:
-✅ No copycat detected
-✅ Contract verified on Etherscan
-✅ Liquidity locked (12 months)
-⚠️ Top 10 wallets hold 42% of supply
-✅ Token age: 8 months
-✅ Normal buy/sell taxes (0%/0%)
+ No copycat detected
+ Contract verified on Etherscan
+ Liquidity locked (12 months)
+ Top 10 wallets hold 42% of supply
+ Token age: 8 months
+ Normal buy/sell taxes (0%/0%)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -88,7 +88,7 @@ HOLDER DISTRIBUTION:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-⚠️ DYOR - This is not financial advice
+ DYOR - This is not financial advice
 ```
 
 ## API Endpoints Used
@@ -115,13 +115,13 @@ GET /analyze/rebrand/{symbol}
 ### Telegram Bot
 ```
 User: /scan PEPE
-Bot: 🛡️ Scanning PEPE...
+Bot:  Scanning PEPE...
      
      Risk Score: 35/100 (Lower Risk)
      
-     ✅ No copycat detected
-     ✅ Liquidity locked
-     ⚠️ Top 10 hold 42%
+      No copycat detected
+      Liquidity locked
+      Top 10 hold 42%
      
      [Full Report] [Share]
 ```

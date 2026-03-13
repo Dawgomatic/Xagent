@@ -220,11 +220,11 @@ const PRIVATE_PATTERNS = [
 
 ## Success Criteria
 
-1. ✅ Moltbook-scanner can query recall for product info
-2. ✅ Private data never appears in shared memory
-3. ✅ Main agent sees moltbook engagement data
-4. ✅ New product updates auto-sync to sandboxed agents
-5. ✅ Privacy filter catches 95%+ of sensitive patterns
+1.  Moltbook-scanner can query recall for product info
+2.  Private data never appears in shared memory
+3.  Main agent sees moltbook engagement data
+4.  New product updates auto-sync to sandboxed agents
+5.  Privacy filter catches 95%+ of sensitive patterns
 
 ## Timeline
 

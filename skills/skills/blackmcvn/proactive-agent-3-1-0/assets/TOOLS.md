@@ -13,7 +13,7 @@ All credentials stored in `.credentials/` (gitignored):
 
 ## [Tool Name]
 
-**Status:** ✅ Working | ⚠️ Issues | ❌ Not configured
+**Status:**  Working |  Issues |  Not configured
 
 **Configuration:**
 ```

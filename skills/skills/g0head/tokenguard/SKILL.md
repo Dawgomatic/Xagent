@@ -9,7 +9,7 @@ keywords: [cost, budget, spending, limit, api, tokens, guard, monitor]
 triggers: ["cost limit", "spending limit", "budget", "how much spent", "tokenguard", "api cost"]
 ---
 
-# 🛡️ TokenGuard — API Cost Guardian
+#  TokenGuard — API Cost Guardian
 
 **Protect your wallet from runaway API costs.**
 
@@ -91,7 +91,7 @@ fi
 When a check would exceed your limit:
 
 ```
-🚫 BUDGET EXCEEDED
+ BUDGET EXCEEDED
 ╭──────────────────────────────────────────╮
 │  Current spent:  $    4.0000            │
 │  This action:    $   10.0000            │
@@ -100,7 +100,7 @@ When a check would exceed your limit:
 │  Over by:        $    4.0000            │
 ╰──────────────────────────────────────────╯
 
-💡 Options:
+ Options:
    tokenguard extend 5    # Add to limit
    tokenguard set <amt>   # Set new limit
    tokenguard reset       # Clear session

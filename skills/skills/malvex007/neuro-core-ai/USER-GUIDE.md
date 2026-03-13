@@ -1,12 +1,12 @@
 # NeuroCore AI - Complete User Guide
 
-## 🧠 Welcome to Intelligent Automation
+##  Welcome to Intelligent Automation
 
 NeuroCore AI transforms your OpenClaw into a self-aware, autonomous intelligence that proactively manages your system while saving you money.
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 1. [Installation](#installation)
 2. [Quick Start](#quick-start)
@@ -70,10 +70,10 @@ openclaw skills list
 
 You should see:
 ```
-✓ ready   🧠 neurocore-ai
+✓ ready    neurocore-ai
 ```
 
-🎉 **NeuroCore AI is now active!**
+ **NeuroCore AI is now active!**
 
 ---
 
@@ -108,7 +108,7 @@ NeuroCore: "nginx✓ mysql✓ ssh✓ docker✓"
 
 ## Core Features
 
-### 🧠 1. Cognitive Intelligence
+###  1. Cognitive Intelligence
 
 NeuroCore understands context and intent:
 
@@ -120,7 +120,7 @@ NeuroCore: "✓ Optimized: cleared cache, killed zombie processes"
 
 It knows you want to speed up the system without explaining every step.
 
-### 🔧 2. Self-Healing Systems
+###  2. Self-Healing Systems
 
 NeuroCore detects and fixes issues automatically:
 
@@ -146,7 +146,7 @@ NeuroCore detects and fixes issues automatically:
 - Terminates runaway processes
 - Manages CPU hogs
 
-### 💰 3. Cost Optimization
+###  3. Cost Optimization
 
 **The Problem with Traditional AI:**
 ```
@@ -197,7 +197,7 @@ Tokens: 16 | Cost: $0.032
 
 | Command | Description | Response Example |
 |---------|-------------|------------------|
-| `fix` | Auto-fix issues | `⚠ Fixed: 3 issues` |
+| `fix` | Auto-fix issues | ` Fixed: 3 issues` |
 | `clean` | Clear temp/cache | `✓ Freed 2.3GB` |
 | `optimize` | System optimization | `✓ System optimized` |
 | `update` | System update check | `✓ 5 packages available` |
@@ -239,7 +239,7 @@ NeuroCore runs background monitoring scripts that:
 [2:15 PM] NeuroCore: Auto-cleaning initiated
 [2:15 PM] NeuroCore: Removed 4.2GB temp files
 [2:15 PM] Disk usage: 64%
-You see: "⚠ Auto-resolved: Disk space optimized"
+You see: " Auto-resolved: Disk space optimized"
 ```
 
 **Example 2: Memory Pressure**
@@ -256,7 +256,7 @@ You see: Nothing (fixed silently)
 [4:45 PM] NeuroCore: Detected failure
 [4:45 PM] NeuroCore: Restarting nginx
 [4:46 PM] nginx: active (running)
-You see: "⚠ Auto-recovered: nginx restarted"
+You see: " Auto-recovered: nginx restarted"
 ```
 
 ### Viewing Logs
@@ -300,7 +300,7 @@ ls -la ~/.openclaw/monitor/
 
 1. **Ultra-Concise Responses**
    - No verbose explanations
-   - Symbol-based status (✓ ✗ ⚠)
+   - Symbol-based status (✓ ✗ )
    - Data-dense output
 
 2. **Smart Caching**
@@ -404,7 +404,7 @@ If you're getting long responses, the skill might not be active. Check:
 openclaw skills list
 ```
 
-Should show: `✓ ready   🧠 neurocore-ai`
+Should show: `✓ ready    neurocore-ai`
 
 ### Issue: "Not auto-fixing"
 
@@ -426,8 +426,8 @@ If missing, restart OpenClaw.
 
 ### 1. Use Short Commands
 ```
-❌ "Can you please check the current CPU usage?"
-✅ "cpu"
+ "Can you please check the current CPU usage?"
+ "cpu"
 ```
 
 ### 2. Trust Silent Operation
@@ -439,15 +439,15 @@ It will alert you if something needs attention.
 
 ### 3. Batch Requests
 ```
-❌ "cpu" [wait] "memory" [wait] "disk"
-✅ "cpu memory disk"
+ "cpu" [wait] "memory" [wait] "disk"
+ "cpu memory disk"
 ```
 
 ### 4. Learn the Symbols
 ```
 ✓ = Everything good
 ✗ = Problem (NeuroCore will try to fix)
-⚠ = Issue auto-fixed
+ = Issue auto-fixed
 → = Working on it
 ```
 
@@ -475,14 +475,14 @@ A: Add "detailed" to any command: "status detailed", "services detailed", etc.
 ## Summary
 
 You now have:
-- ✅ NeuroCore AI installed and running
-- ✅ Self-thinking AI that anticipates needs
-- ✅ 24/7 automated system monitoring
-- ✅ Silent auto-fixing of common issues
-- ✅ 60-85% savings on API costs
-- ✅ Ultra-fast, concise responses
+-  NeuroCore AI installed and running
+-  Self-thinking AI that anticipates needs
+-  24/7 automated system monitoring
+-  Silent auto-fixing of common issues
+-  60-85% savings on API costs
+-  Ultra-fast, concise responses
 
-**Welcome to the future of intelligent automation!** 🧠✨
+**Welcome to the future of intelligent automation!** 
 
 ---
 

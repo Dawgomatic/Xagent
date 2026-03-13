@@ -131,7 +131,7 @@ cmd_leaderboard() {
         return
     fi
 
-    echo "🏆 DEBATE LEADERBOARD"
+    echo " DEBATE LEADERBOARD"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     printf "%-4s %-20s %4s %4s %4s %7s\n" "Rank" "Participant" "W" "L" "D" "Win%"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -180,7 +180,7 @@ cmd_history() {
         return
     fi
 
-    echo "📋 RECENT DEBATES (last $limit)"
+    echo " RECENT DEBATES (last $limit)"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
     while IFS='|' read -r id winner loser topic format created_at; do
@@ -224,7 +224,7 @@ cmd_stats() {
         winrate="0"
     fi
 
-    echo "📊 STATS: $p_name"
+    echo " STATS: $p_name"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  Wins:       $wins"
     echo "  Losses:     $losses"
@@ -245,7 +245,7 @@ cmd_stats() {
 cmd_reset() {
     ensure_db
 
-    echo "⚠️  This will delete ALL debate records permanently."
+    echo "  This will delete ALL debate records permanently."
     read -rp "Type 'RESET' to confirm: " confirm
 
     if [[ "$confirm" != "RESET" ]]; then

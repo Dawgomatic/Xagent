@@ -52,7 +52,7 @@ export const repayCommand = new Command()
         const newOutstanding = outstanding - amount;
         agentRegistry.updateOutstandingLoan(agent.id, newOutstanding);
         
-        console.log(`✅ Repayment processed!`);
+        console.log(` Repayment processed!`);
         console.log(`   Paid: ${amount} USDC`);
         console.log(`   Remaining: ${newOutstanding} USDC\n`);
         return;
@@ -74,7 +74,7 @@ export const repayCommand = new Command()
       );
       
       if (!transferResult.success) {
-        console.error(`\n❌ Transfer failed: ${transferResult.error || 'Unknown error'}\n`);
+        console.error(`\n Transfer failed: ${transferResult.error || 'Unknown error'}\n`);
         return;
       }
       
@@ -82,11 +82,11 @@ export const repayCommand = new Command()
       const newOutstanding = outstanding - amount;
       agentRegistry.updateOutstandingLoan(agent.id, newOutstanding);
       
-      console.log(`✅ Repayment successful!`);
+      console.log(` Repayment successful!`);
       console.log(`   Transaction ID: ${transferResult.transactionId}`);
       console.log(`   Paid: ${amount} USDC`);
       console.log(`   Remaining: ${newOutstanding} USDC\n`);
     } catch (error: any) {
-      console.error(`\n❌ Error: ${error.message}\n`);
+      console.error(`\n Error: ${error.message}\n`);
     }
   });

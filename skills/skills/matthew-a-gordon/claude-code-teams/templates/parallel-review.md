@@ -2,13 +2,13 @@
 
 ## When to Use This Pattern
 
-✅ **Use when:**
+ **Use when:**
 - You need comprehensive code review covering multiple domains
 - Security, performance, and test coverage are all important
 - Changes span multiple files/modules
 - Want parallel review to speed up PR approval process
 
-❌ **Don't use when:**
+ **Don't use when:**
 - Changes are trivial (typo fix, formatting)
 - Only one domain is relevant (e.g., pure documentation change)
 - Codebase is <100 LOC (overhead > benefit)
@@ -200,13 +200,13 @@ For critical production changes, add:
 
 ## Success Metrics
 
-✅ **Successful if:**
+ **Successful if:**
 - All 3 reviewers complete within 25 minutes
 - Findings are actionable (file + line + recommendation)
 - Synthesis prioritizes by severity
 - No merge conflicts (reviewers only read, don't edit)
 
-❌ **Red flags:**
+ **Red flags:**
 - Reviewers editing same files (should be read-only)
 - Generic findings without file/line references
 - Lead synthesizing before teammates finish

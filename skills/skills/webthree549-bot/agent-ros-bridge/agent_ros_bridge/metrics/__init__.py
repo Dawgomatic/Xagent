@@ -302,7 +302,7 @@ class MetricsServer:
         if PROMETHEUS_AVAILABLE:
             # Use prometheus_client's built-in server
             start_http_server(self.port, registry=self.collector.registry)
-            logger.info(f"📊 Prometheus metrics server started on port {self.port}")
+            logger.info(f" Prometheus metrics server started on port {self.port}")
         else:
             # Start custom HTTP server
             await self._start_custom_server()
@@ -329,7 +329,7 @@ class MetricsServer:
         site = web.TCPSite(runner, "0.0.0.0", self.port)
         await site.start()
         
-        logger.info(f"📊 Custom metrics server started on port {self.port}")
+        logger.info(f" Custom metrics server started on port {self.port}")
     
     def stop(self):
         """Stop metrics server"""

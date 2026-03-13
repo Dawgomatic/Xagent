@@ -15,7 +15,7 @@
   "license": "MIT",
   "openclaw": {
     "skill": true,
-    "emoji": "🎭",
+    "emoji": "",
     "category": "orchestration",
     "requires": {
       "bins": ["claude"],

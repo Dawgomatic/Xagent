@@ -34,10 +34,10 @@ Check health and status of homelab services and infrastructure.
    ```bash
    curl -s -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 10 <url>
    ```
-   - 200-299: 🟢 Healthy
-   - 300-399: 🟡 Redirect
-   - 400+: 🔴 Error
-   - No response: 🔴 Down
+   - 200-299:  Healthy
+   - 300-399:  Redirect
+   - 400+:  Error
+   - No response:  Down
 
 4. **Systemd services** (if specified):
    ```bash
@@ -47,41 +47,41 @@ Check health and status of homelab services and infrastructure.
 
 5. **Output format**:
    ```
-   🏠 Homelab Dashboard — 2025-01-15 14:30 JST
+    Homelab Dashboard — 2025-01-15 14:30 JST
 
-   ## 💻 System Resources
+   ##  System Resources
    | Resource | Usage | Status |
    |----------|-------|--------|
-   | CPU | 4 cores, load 1.2 | 🟢 Normal |
-   | Memory | 6.2G / 16G (39%) | 🟢 Normal |
-   | Disk / | 120G / 500G (24%) | 🟢 Normal |
-   | Disk /mnt/hdd | 2.1T / 2.7T (78%) | 🟡 Warning |
+   | CPU | 4 cores, load 1.2 |  Normal |
+   | Memory | 6.2G / 16G (39%) |  Normal |
+   | Disk / | 120G / 500G (24%) |  Normal |
+   | Disk /mnt/hdd | 2.1T / 2.7T (78%) |  Warning |
 
-   ## 🐳 Docker Containers
+   ##  Docker Containers
    | Container | Status | Ports |
    |-----------|--------|-------|
-   | nginx | 🟢 Up 3 days | 80, 443 |
-   | postgres | 🟢 Up 3 days | 5432 |
-   | redis | 🔴 Exited (1) 2h ago | — |
+   | nginx |  Up 3 days | 80, 443 |
+   | postgres |  Up 3 days | 5432 |
+   | redis |  Exited (1) 2h ago | — |
 
-   ## 🌐 Services
+   ##  Services
    | Service | Status | Response |
    |---------|--------|----------|
-   | Nextcloud | 🟢 200 OK | 142ms |
-   | Gitea | 🔴 Connection refused | — |
+   | Nextcloud |  200 OK | 142ms |
+   | Gitea |  Connection refused | — |
 
-   ## ⚠️ Alerts
-   - 🔴 redis container is down (exited with code 1)
-   - 🔴 Gitea is unreachable
-   - 🟡 /mnt/hdd disk usage at 78% — consider cleanup
+   ##  Alerts
+   -  redis container is down (exited with code 1)
+   -  Gitea is unreachable
+   -  /mnt/hdd disk usage at 78% — consider cleanup
    ```
 
 6. **Alert thresholds**:
-   - Disk > 85%: 🔴 Critical
-   - Disk > 70%: 🟡 Warning
-   - Memory > 90%: 🔴 Critical
-   - Load > 2× CPU cores: 🟡 Warning
-   - Any stopped container or failed service: 🔴
+   - Disk > 85%:  Critical
+   - Disk > 70%:  Warning
+   - Memory > 90%:  Critical
+   - Load > 2× CPU cores:  Warning
+   - Any stopped container or failed service: 
 
 ## Edge Cases
 

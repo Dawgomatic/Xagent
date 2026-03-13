@@ -7,7 +7,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORKSPACE="${HOME}/.openclaw/workspace"
 TEST_DIR="${WORKSPACE}/.memory-scan/test"
 
-echo "🧪 Testing memory-scan..."
+echo " Testing memory-scan..."
 echo ""
 
 # Create test directory

@@ -20,7 +20,7 @@ Polygon PoS is an EVM-compatible Proof-of-Stake sidechain for Ethereum with:
 
 ---
 
-## 🚀 Quick Navigation
+##  Quick Navigation
 
 **For Agents/Fast Deployment**: Jump to [Quick Start Path](#quick-start-path) (5-10 min)
 
@@ -42,7 +42,7 @@ Choose based on your needs:
 | **Scripts Used** | None (direct forge commands) | Direct forge commands with all options |
 | **Documentation** | Minimal | Full reference guides |
 | **Verification** | Automatic during deploy | Multiple methods with troubleshooting |
-| **Agent-Friendly** | ✅ Optimized for speed | ⚠️ Comprehensive but slower |
+| **Agent-Friendly** |  Optimized for speed |  Comprehensive but slower |
 
 ### Path 1: Quick Start (Minimal Time - Agent-Friendly)
 **Best for**: Fast deployment, simple contracts, prototyping
@@ -261,7 +261,7 @@ See `references/contract-verification.md` for troubleshooting verification issue
 
 ### Phase 7: Deploy to Mainnet (5 minutes)
 
-**⚠️ IMPORTANT: Complete mainnet deployment checklist first!**
+** IMPORTANT: Complete mainnet deployment checklist first!**
 
 See [Mainnet Deployment Checklist](#mainnet-deployment-checklist) below.
 
@@ -274,7 +274,7 @@ forge script script/Deploy.s.sol \
     --etherscan-api-key $POLYGONSCAN_API_KEY
 ```
 
-**End of Complete Development Path** ✅
+**End of Complete Development Path** 
 
 ## Network Configuration
 
@@ -388,7 +388,7 @@ forge script script/Deploy.s.sol \
 
 ### Deploy to Mainnet
 
-**⚠️ IMPORTANT: Test thoroughly on Amoy first!**
+** IMPORTANT: Test thoroughly on Amoy first!**
 
 ```bash
 # Use deployment script and select mainnet option

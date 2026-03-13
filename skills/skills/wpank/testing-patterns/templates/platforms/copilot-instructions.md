@@ -39,10 +39,10 @@ test.each([
 ## Mocking — Only at Boundaries
 
 ```typescript
-// ❌ BAD — mocking internal implementation
+//  BAD — mocking internal implementation
 jest.mock('./utils/formatDate');
 
-// ✅ GOOD — mocking external boundary
+//  GOOD — mocking external boundary
 jest.mock('./services/paymentGateway');
 ```
 

@@ -6,14 +6,14 @@
 
 README.md
 这是一套专门为 A股短线（1~5日） 设计的 OpenClaw Skill 方案,请实现.
-🎯 一、短线模型核心逻辑
+ 一、短线模型核心逻辑
 A股短线最重要的 4 件事：
 情绪强度（涨停家数、连板高度）
 板块强度（行业轮动）
 成交量放大
 资金流向（主力/北向）
 技术指标在短线里权重较低。
-🧠 二、短线模型结构（重构版）
+ 二、短线模型结构（重构版）
 市场情绪监测
       ↓
 强势板块识别
@@ -30,9 +30,9 @@ A股短线最重要的 4 件事：
       ↓
 OpenClaw解释 + 推送
 
-🏗 三、Tool 设计
+ 三、Tool 设计
 短线专用工具,数据来源AkShare
-1️⃣ Tool: get_market_sentiment ⭐⭐⭐
+ Tool: get_market_sentiment 
 短线最重要模块。
 数据：
 今日涨停家数
@@ -53,7 +53,7 @@ OpenClaw解释 + 推送
 涨停 > 50 → 情绪强
 跌停 < 10 → 风险低
 连板 ≥ 3 → 投机活跃
-2️⃣ Tool: get_sector_rotation ⭐⭐⭐
+ Tool: get_sector_rotation 
 找出当天强势板块。
 数据：
 板块涨幅
@@ -67,7 +67,7 @@ OpenClaw解释 + 推送
   ]
 }
 
-3️⃣ Tool: scan_strong_stocks ⭐⭐⭐
+ Tool: scan_strong_stocks 
 在强势板块中筛选个股：
 筛选条件：
 今日涨幅 > 5%
@@ -83,7 +83,7 @@ OpenClaw解释 + 推送
   }
 ]
 
-4️⃣ Tool: analyze_capital_flow
+ Tool: analyze_capital_flow
 短线非常关键。
 关注：
 主力净流入
@@ -95,7 +95,7 @@ OpenClaw解释 + 推送
   "flow_trend": "3-day-inflow"
 }
 
-5️⃣ Tool: short_term_signal_engine（核心重构）
+ Tool: short_term_signal_engine（核心重构）
 短线评分模型（0~100）：
 因子权重
 市场情绪
@@ -120,7 +120,7 @@ score ≥ 75 → 强势短线标的
   "confidence": 0.68
 }
 
-6️⃣ Tool: short_term_risk_control ⭐⭐⭐
+ Tool: short_term_risk_control 
 短线必须风控严格。
 规则：
 单股仓位 ≤ 15%
@@ -135,7 +135,7 @@ score ≥ 75 → 强势短线标的
   "market_filter": true
 }
 
-📜 四、短线 Agent Prompt（重写）
+ 四、短线 Agent Prompt（重写）
 System Prompt：
 你是A股短线交易策略分析师。
 
@@ -172,7 +172,7 @@ a-share-short-decision/
 ├── config.json
 └── README.md
 
-�📅 六、短线每日流程设计
+� 六、短线每日流程设计
 14:30 盘中扫描
 情绪判断
 强板块识别
@@ -182,7 +182,7 @@ a-share-short-decision/
 是否封板
 是否放量回落
 15:20 推送报告
-📨 七、每日推送格式
+ 七、每日推送格式
 【A股短线日报】
 
 市场情绪：偏强（涨停62家）
@@ -207,14 +207,14 @@ a-share-short-decision/
 风险：
 指数接近压力位
 
-🔥 八、短线模型关键升级点
+ 八、短线模型关键升级点
 你可以继续升级：
-1️⃣ 打板模型
-2️⃣ 低吸模型
-3️⃣ 反包模型
-4️⃣ 龙头战法
-5️⃣ 连板博弈模型
-⚠️ 九、短线必须知道的现实
+ 打板模型
+ 低吸模型
+ 反包模型
+ 龙头战法
+ 连板博弈模型
+ 九、短线必须知道的现实
 A股短线：
 极端波动
 情绪切换快

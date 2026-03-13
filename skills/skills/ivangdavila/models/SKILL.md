@@ -1,7 +1,7 @@
 ---
 name: Models
 description: Choose AI models for coding, reasoning, and agents with cost-aware, task-matched recommendations.
-metadata: {"clawdbot":{"emoji":"🤖","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # AI Model Selection Rules

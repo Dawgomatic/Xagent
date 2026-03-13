@@ -74,8 +74,8 @@ Save your recovery phrase! It's the only way to recover your identity.
 ## Testing
 
 Verified working:
-- ✅ Agent registration with Ed25519 keypair
-- ✅ Memory storage with proper signatures
-- ✅ Memory retrieval with authentication
-- ✅ Service health checks
-- ✅ Database persistence
+-  Agent registration with Ed25519 keypair
+-  Memory storage with proper signatures
+-  Memory retrieval with authentication
+-  Service health checks
+-  Database persistence

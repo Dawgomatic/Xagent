@@ -8,7 +8,7 @@ URL="http://localhost:$PORT/dashboard-v3.html"
 pkill -f "python.*$PORT" 2>/dev/null
 
 # Start simple HTTP server
-echo "🚀 Starting test server on port $PORT..."
+echo " Starting test server on port $PORT..."
 python3 -m http.server $PORT &
 SERVER_PID=$!
 
@@ -16,15 +16,15 @@ SERVER_PID=$!
 sleep 1
 
 # Open in default browser
-echo "🌐 Opening dashboard: $URL"
+echo " Opening dashboard: $URL"
 open "$URL"
 
 echo ""
-echo "📊 Dashboard Test Server Running"
+echo " Dashboard Test Server Running"
 echo "   URL: $URL"
 echo "   PID: $SERVER_PID"
 echo ""
-echo "🔍 Testing checklist:"
+echo " Testing checklist:"
 echo "   [ ] PWA manifest loads"
 echo "   [ ] Service worker registers"
 echo "   [ ] Chart.js loads and renders"
@@ -34,8 +34,8 @@ echo "   [ ] Keyboard shortcuts (press ?)"
 echo "   [ ] Cost tracking displays"
 echo "   [ ] Token prediction shows"
 echo ""
-echo "⏹️  Press Ctrl+C to stop server"
+echo "  Press Ctrl+C to stop server"
 
 # Wait for Ctrl+C
-trap "kill $SERVER_PID 2>/dev/null; echo ''; echo '✅ Test server stopped'; exit 0" INT
+trap "kill $SERVER_PID 2>/dev/null; echo ''; echo ' Test server stopped'; exit 0" INT
 wait $SERVER_PID

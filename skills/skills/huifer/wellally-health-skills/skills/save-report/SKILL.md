@@ -136,7 +136,7 @@ Save user-provided medical test reports to the personal medical data center.
 用户: @医疗报告/血液检查.jpg
 
 输出:
-✅ 检查单保存成功！
+ 检查单保存成功！
 类型：生化检查（血液常规）
 日期：2025-10-07（从图片提取）
 提取到 15 项检查指标
@@ -148,7 +148,7 @@ Save user-provided medical test reports to the personal medical data center.
 用户: @医疗报告/血液检查.jpg 2025-10-07
 
 输出:
-✅ 检查单保存成功！
+ 检查单保存成功！
 类型：生化检查（血液常规）
 日期：2025-10-07（使用用户指定日期）
 ```

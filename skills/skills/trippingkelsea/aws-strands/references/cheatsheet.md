@@ -50,12 +50,12 @@ from strands.experimental.bidi.models.openai_realtime import OpenAIRealtimeModel
 Agent()  # defaults to Claude Sonnet 4
 
 # Ollama — host is POSITIONAL
-OllamaModel("http://localhost:11434", model_id="qwen3:latest")  # ✅
-OllamaModel(model_id="qwen3:latest")                            # ❌ missing host
+OllamaModel("http://localhost:11434", model_id="qwen3:latest")  # 
+OllamaModel(model_id="qwen3:latest")                            #  missing host
 
 # Anthropic — max_tokens is REQUIRED
-AnthropicModel(model_id="claude-sonnet-4-20250514", max_tokens=4096)  # ✅
-AnthropicModel(model_id="claude-sonnet-4-20250514")                   # ❌ crashes
+AnthropicModel(model_id="claude-sonnet-4-20250514", max_tokens=4096)  # 
+AnthropicModel(model_id="claude-sonnet-4-20250514")                   #  crashes
 ```
 
 ## Agent Constructor

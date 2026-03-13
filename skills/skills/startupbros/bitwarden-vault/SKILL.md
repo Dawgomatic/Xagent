@@ -2,7 +2,7 @@
 name: bitwarden
 description: Set up and use Bitwarden CLI (bw). Use when installing the CLI, authenticating (login/unlock), or reading secrets from your vault. Supports email/password, API key, and SSO authentication methods.
 homepage: https://bitwarden.com/help/cli/
-metadata: {"clawdbot":{"emoji":"🔒","requires":{"bins":["bw"]},"install":[{"id":"npm","kind":"npm","package":"@bitwarden/cli","bins":["bw"],"label":"Install Bitwarden CLI (npm)"},{"id":"brew","kind":"brew","formula":"bitwarden-cli","bins":["bw"],"label":"Install Bitwarden CLI (brew)"},{"id":"choco","kind":"choco","package":"bitwarden-cli","bins":["bw"],"label":"Install Bitwarden CLI (choco)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["bw"]},"install":[{"id":"npm","kind":"npm","package":"@bitwarden/cli","bins":["bw"],"label":"Install Bitwarden CLI (npm)"},{"id":"brew","kind":"brew","formula":"bitwarden-cli","bins":["bw"],"label":"Install Bitwarden CLI (brew)"},{"id":"choco","kind":"choco","package":"bitwarden-cli","bins":["bw"],"label":"Install Bitwarden CLI (choco)"}]}}
 ---
 
 # Bitwarden CLI Skill

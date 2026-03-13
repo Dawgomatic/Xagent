@@ -15,7 +15,7 @@ Si les index sont absents (`data/chroma_db` ou `data/fts_index.db` manquants), *
 python scripts/ingest.py
 ```
 
-⚠️ Cette étape télécharge le corpus LEGI (HuggingFace) et le modèle d'embeddings BGE-M3 (~2 Go au total) puis écrit les index sur disque. Durée estimée : 20–40 min selon la connexion.
+ Cette étape télécharge le corpus LEGI (HuggingFace) et le modèle d'embeddings BGE-M3 (~2 Go au total) puis écrit les index sur disque. Durée estimée : 20–40 min selon la connexion.
 
 Demander : *"L'initialisation va télécharger ~2 Go de données (corpus juridique + modèle). Confirmer ?"*
 

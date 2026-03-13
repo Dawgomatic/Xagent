@@ -3,7 +3,7 @@ name: Barcelona
 slug: barcelona
 version: 1.0.0
 description: Navigate Barcelona as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, safety, and local insights.
-metadata: {"clawdbot":{"emoji":"🏖️","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

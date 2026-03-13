@@ -1,4 +1,4 @@
-# 📊 DWLF Clawdbot Skill
+#  DWLF Clawdbot Skill
 
 A [Clawdbot](https://github.com/clawdbot/clawdbot) skill that gives your agent native access to [DWLF](https://dwlf.co.uk) — a market analysis platform for crypto and stocks.
 
@@ -158,7 +158,7 @@ For detailed worked examples with tool call sequences, see the [MCP server cookb
 
 Want to use DWLF from Claude Desktop, Codex, Cursor, or any MCP client? Check out the companion project:
 
-👉 [dwlf-mcp-server](https://github.com/dwlf-ai/dwlf-mcp-server) — 43 tools, full read/write access
+ [dwlf-mcp-server](https://github.com/dwlf-ai/dwlf-mcp-server) — 43 tools, full read/write access
 
 ## License
 

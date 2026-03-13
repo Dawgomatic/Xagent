@@ -19,7 +19,7 @@ export const BUZZ_TOKEN_INTELLIGENCE = {
   examples: [
     [
       { user: 'agent', content: { text: 'Analyze RENDER token on Ethereum' } },
-      { user: 'buzz', content: { text: 'RENDER | Score: 82/100 | ✅ Qualified | MC: $2.1B | Liq: $45M' } }
+      { user: 'buzz', content: { text: 'RENDER | Score: 82/100 |  Qualified | MC: $2.1B | Liq: $45M' } }
     ]
   ],
   handler: async (runtime, message) => {
@@ -104,12 +104,12 @@ export const buzzBDService = {
   name: 'buzz-bd-service',
   description: 'Buzz BD background service for periodic scanning',
   start: async (runtime) => {
-    console.log('🐝 Buzz BD Service started (OpenClaw-first pattern)');
+    console.log(' Buzz BD Service started (OpenClaw-first pattern)');
     console.log('   ERC-8004: ETH #25045 | Base #17483');
     console.log('   Source: OpenClaw SKILL.md → elizaOS adapter');
   },
   stop: async () => {
-    console.log('🐝 Buzz BD Service stopped');
+    console.log(' Buzz BD Service stopped');
   }
 };
 

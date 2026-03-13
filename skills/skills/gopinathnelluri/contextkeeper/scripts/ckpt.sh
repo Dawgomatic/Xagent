@@ -66,7 +66,7 @@ fi
 
 # Skip if not in a project
 if [ "$PROJECT_ID" = "P000" ]; then
-    echo "⚠️  No git project detected. Run from within a git repository."
+    echo "  No git project detected. Run from within a git repository."
     echo "   Or specify project: ckpt.sh 'message' P002"
     exit 1
 fi
@@ -127,11 +127,11 @@ JSON
 # Update current-state symlink
 ln -sf "$CHECKPOINTS_DIR/$TIMESTAMP.json" "$CKPT_DIR/current-state.json" 2>/dev/null || true
 
-echo "🔮 ContextKeeper Checkpoint"
+echo " ContextKeeper Checkpoint"
 echo "=========================="
-echo "✅ Created: $TIMESTAMP"
-echo "📁 Project: $PROJECT_NAME ($PROJECT_ID)"
-echo "💬 Summary: $MESSAGE"
-echo "📂 Files: ${RECENT_FILES:-none}"
-echo "🌿 Branch: ${BRANCH:-none}"
-echo "📍 Location: $CHECKPOINTS_DIR/$TIMESTAMP.json"
+echo " Created: $TIMESTAMP"
+echo " Project: $PROJECT_NAME ($PROJECT_ID)"
+echo " Summary: $MESSAGE"
+echo " Files: ${RECENT_FILES:-none}"
+echo " Branch: ${BRANCH:-none}"
+echo " Location: $CHECKPOINTS_DIR/$TIMESTAMP.json"

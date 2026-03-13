@@ -20,7 +20,7 @@ cat > "$WORKSPACE/index.json" << 'EOF'
 }
 EOF
 
-echo "✅ Workspace initialized at $WORKSPACE"
+echo " Workspace initialized at $WORKSPACE"
 echo "   - pieces/    : active writing pieces"
 echo "   - versions/  : automatic backups"
 echo "   - audits/    : quality reports"

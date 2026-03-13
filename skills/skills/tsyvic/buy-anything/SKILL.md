@@ -1,7 +1,7 @@
 ---
 name: buy-anything
 description: Purchase products from Amazon through conversational checkout. Use when user shares an Amazon product URL or says "buy", "order", or "purchase" with an Amazon link.
-metadata: {"clawdbot":{"emoji":"📦","requires":{"bins":["curl"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
 # Buy Anything

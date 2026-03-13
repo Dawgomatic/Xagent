@@ -22,7 +22,7 @@
       "vote_check"
     ],
     "checks_skipped": [],
-    "message": "[--help] 💤 IDLE (無任務)",
+    "message": "[--help]  IDLE (無任務)",
     "skip_low_priority": false,
     "note": "閒置狀態，執行完整檢查"
   },
@@ -51,7 +51,7 @@
           "vote_check"
         ],
         "checks_skipped": [],
-        "message": "[--help] 💤 IDLE (無任務)",
+        "message": "[--help]  IDLE (無任務)",
         "skip_low_priority": false,
         "note": "閒置狀態，執行完整檢查"
       }

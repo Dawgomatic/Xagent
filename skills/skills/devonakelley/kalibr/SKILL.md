@@ -4,7 +4,7 @@ description: Autonomous execution path routing for OpenClaw agents. Reads real-t
 homepage: https://github.com/kalibr-ai/openclaw-kalibr
 metadata:
   clawdbot:
-    emoji: "⚡"
+    emoji: ""
     requires:
       env: ["KALIBR_API_KEY"]
       bins: ["node"]

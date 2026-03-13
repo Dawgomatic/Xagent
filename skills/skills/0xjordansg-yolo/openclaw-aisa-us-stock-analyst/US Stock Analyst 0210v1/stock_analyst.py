@@ -56,22 +56,22 @@ class AIsaStockAnalyst:
             models = ["gpt-4", "claude-3-opus"]
         
         print(f"\n{'='*60}")
-        print(f"🔍 Analyzing {ticker.upper()}")
+        print(f" Analyzing {ticker.upper()}")
         print(f"{'='*60}\n")
         
         # Step 1: Gather data from all sources
-        print("📊 Gathering data from multiple sources...")
+        print(" Gathering data from multiple sources...")
         data = await self._gather_data(ticker, depth)
         
         # Step 2: Run AI analysis
-        print("\n🤖 Running AI analysis...")
+        print("\n Running AI analysis...")
         analysis = await self._run_analysis(ticker, data, models)
         
         # Step 3: Synthesize report
-        print("\n📝 Synthesizing report...")
+        print("\n Synthesizing report...")
         report = await self._synthesize_report(ticker, data, analysis)
         
-        print(f"\n✅ Analysis complete!\n")
+        print(f"\n Analysis complete!\n")
         
         return report
     
@@ -586,10 +586,10 @@ async def main():
         with open(filename, "w") as f:
             json.dump(report, f, indent=2)
         
-        print(f"✅ Full report saved to {filename}")
+        print(f" Full report saved to {filename}")
         
     except Exception as e:
-        print(f"❌ Error: {str(e)}")
+        print(f" Error: {str(e)}")
         import traceback
         traceback.print_exc()
         

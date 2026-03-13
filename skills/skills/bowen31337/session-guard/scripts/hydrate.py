@@ -58,16 +58,16 @@ def load_daily_notes(workspace, days, quiet):
                 notes[date_str] = content[:4000]  # cap per file
             except Exception as e:
                 if not quiet:
-                    print(f"⚠️  Could not read {note_file}: {e}", file=sys.stderr)
+                    print(f"  Could not read {note_file}: {e}", file=sys.stderr)
         elif not quiet and i == 0:
-            print(f"ℹ️  No daily note for today ({date_str})", file=sys.stderr)
+            print(f"  No daily note for today ({date_str})", file=sys.stderr)
     return notes
 
 def search_tiered_memory(workspace, limit, quiet):
     cli = workspace / "skills" / "tiered-memory" / "scripts" / "memory_cli.py"
     if not cli.exists():
         if not quiet:
-            print("ℹ️  Tiered memory CLI not found — skipping", file=sys.stderr)
+            print("  Tiered memory CLI not found — skipping", file=sys.stderr)
         return None
     try:
         result = subprocess.run(
@@ -79,10 +79,10 @@ def search_tiered_memory(workspace, limit, quiet):
         if result.returncode == 0:
             return result.stdout.strip()
         elif not quiet:
-            print(f"⚠️  Tiered memory search failed: {result.stderr[:200]}", file=sys.stderr)
+            print(f"  Tiered memory search failed: {result.stderr[:200]}", file=sys.stderr)
     except Exception as e:
         if not quiet:
-            print(f"⚠️  Tiered memory error: {e}", file=sys.stderr)
+            print(f"  Tiered memory error: {e}", file=sys.stderr)
     return None
 
 def load_memory_md(workspace, quiet):
@@ -94,7 +94,7 @@ def load_memory_md(workspace, quiet):
             return content[:2000]
         except Exception as e:
             if not quiet:
-                print(f"⚠️  Could not read MEMORY.md: {e}", file=sys.stderr)
+                print(f"  Could not read MEMORY.md: {e}", file=sys.stderr)
     return None
 
 def main():
@@ -102,11 +102,11 @@ def main():
     workspace = find_workspace(args)
 
     parts = []
-    parts.append("# 🔄 SESSION HYDRATION SUMMARY")
+    parts.append("#  SESSION HYDRATION SUMMARY")
     parts.append(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
 
     if not workspace:
-        parts.append("⚠️  Workspace not found — provide --workspace path")
+        parts.append("  Workspace not found — provide --workspace path")
         print("\n".join(parts))
         return
 
@@ -115,25 +115,25 @@ def main():
     # 1. Daily notes
     daily_notes = load_daily_notes(workspace, args.days, args.quiet)
     if daily_notes:
-        parts.append("## 📝 Recent Daily Notes")
+        parts.append("##  Recent Daily Notes")
         for date_str, content in sorted(daily_notes.items(), reverse=True):
             parts.append(f"\n### {date_str}")
             # Trim to most recent/relevant lines
             lines = content.strip().split("\n")
             parts.append("\n".join(lines[:60]))  # first 60 lines
     else:
-        parts.append("## 📝 Daily Notes\n_(none found)_")
+        parts.append("##  Daily Notes\n_(none found)_")
 
     # 2. Tiered memory
     tiered = search_tiered_memory(workspace, args.memory_limit, args.quiet)
     if tiered:
-        parts.append("\n## 🧠 Tiered Memory (recent context)")
+        parts.append("\n##  Tiered Memory (recent context)")
         parts.append(tiered)
 
     # 3. MEMORY.md core context
     memory_md = load_memory_md(workspace, args.quiet)
     if memory_md:
-        parts.append("\n## 📚 Long-term Memory (MEMORY.md excerpt)")
+        parts.append("\n##  Long-term Memory (MEMORY.md excerpt)")
         parts.append(memory_md)
 
     parts.append("\n---")

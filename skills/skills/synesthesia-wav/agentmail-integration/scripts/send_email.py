@@ -81,11 +81,11 @@ def main():
     # Send
     try:
         message = client.inboxes.messages.send(**kwargs)
-        print(f"✅ Sent: {message.message_id}")
+        print(f" Sent: {message.message_id}")
         print(f"   To: {args.to}")
         print(f"   Subject: {args.subject}")
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         sys.exit(1)
 
 

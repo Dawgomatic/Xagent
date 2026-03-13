@@ -2,7 +2,7 @@
 name: CAN
 description: "NAMING + ROUTING for agents. CLOCK address things by WHEN (time), WHERE (SHA-256), HOW (natural language), WHO (id), WHY (intent). Agents LOG things as SAWs: verified things seen build the routing table. One index replaces three NDN tables. Say what you see. LOG what you SAW."
 homepage: https://github.com/xccx/can
-metadata: {"openclaw":{"emoji":"⌛","requires":{"bins":["sha256sum","openssl","base64","awk","date"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["sha256sum","openssl","base64","awk","date"]}}}
 ---
 
 # CAN: Clock Address Naming

@@ -270,7 +270,7 @@ async function main() {
     
     if (args.length === 0) {
         console.log(`
-📘 Zoho API Helper
+ Zoho API Helper
 
 Usage:
   node index.js <command> [options]
@@ -308,22 +308,22 @@ Optional:
 
         switch (command) {
             case 'auth':
-                console.log('🔐 Testing Zoho authentication...');
+                console.log(' Testing Zoho authentication...');
                 await config.validate();
                 await api.auth.refreshAccessToken();
-                console.log('✅ Authentication successful!');
-                console.log(`📝 Access token: ${config.accessToken.substring(0, 20)}...`);
+                console.log(' Authentication successful!');
+                console.log(` Access token: ${config.accessToken.substring(0, 20)}...`);
                 break;
 
             case 'modules':
-                console.log('📋 Fetching CRM modules...');
+                console.log(' Fetching CRM modules...');
                 const modules = await api.getModules();
                 console.log(JSON.stringify(modules, null, 2));
                 break;
 
             case 'leads':
                 const leadCount = parseInt(args[1]) || 10;
-                console.log(`👥 Fetching ${leadCount} leads...`);
+                console.log(` Fetching ${leadCount} leads...`);
                 const leads = await api.getLeads({ per_page: leadCount });
                 console.log(`Found ${leads.data?.length || 0} leads`);
                 if (leads.data) {
@@ -333,7 +333,7 @@ Optional:
 
             case 'contacts':
                 const contactCount = parseInt(args[1]) || 10;
-                console.log(`👤 Fetching ${contactCount} contacts...`);
+                console.log(` Fetching ${contactCount} contacts...`);
                 const contacts = await api.getContacts({ per_page: contactCount });
                 console.log(`Found ${contacts.data?.length || 0} contacts`);
                 if (contacts.data) {
@@ -343,7 +343,7 @@ Optional:
 
             case 'deals':
                 const dealCount = parseInt(args[1]) || 10;
-                console.log(`💼 Fetching ${dealCount} deals...`);
+                console.log(` Fetching ${dealCount} deals...`);
                 const deals = await api.getDeals({ per_page: dealCount });
                 console.log(`Found ${deals.data?.length || 0} deals`);
                 if (deals.data) {
@@ -357,7 +357,7 @@ Optional:
         }
 
     } catch (error) {
-        console.error('❌ Error:', error.message);
+        console.error(' Error:', error.message);
         process.exit(1);
     }
 }

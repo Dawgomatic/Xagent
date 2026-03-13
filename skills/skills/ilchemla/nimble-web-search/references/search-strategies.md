@@ -20,16 +20,16 @@ Advanced strategies for effective web research using Nimble Search API.
 ### Principles of Effective Queries
 
 **Be Specific**
-- ❌ "machine learning"
-- ✅ "supervised learning algorithms for image classification"
+-  "machine learning"
+-  "supervised learning algorithms for image classification"
 
 **Include Context**
-- ❌ "async patterns"
-- ✅ "async/await error handling patterns in Node.js"
+-  "async patterns"
+-  "async/await error handling patterns in Node.js"
 
 **Use Natural Language**
-- ❌ "kubernetes +deployment -docker"
-- ✅ "how to deploy applications to Kubernetes without Docker"
+-  "kubernetes +deployment -docker"
+-  "how to deploy applications to Kubernetes without Docker"
 
 **Specify Intent**
 - Add "tutorial", "example", "guide" for learning
@@ -503,7 +503,7 @@ Run parallel searches with variations:
 
 ### When to Generate Answers
 
-**✅ Generate answers for:**
+** Generate answers for:**
 
 1. **Synthesis Tasks**
    - Combining multiple sources
@@ -525,7 +525,7 @@ Run parallel searches with variations:
    - Trend analysis
    - Recent developments
 
-**❌ Skip answers for:**
+** Skip answers for:**
 
 1. **Resource Collection**
    - Building reading lists
@@ -551,8 +551,8 @@ Run parallel searches with variations:
 
 **Provide Context in Query**
 
-❌ Poor: "machine learning"
-✅ Good: "explain machine learning concepts for software engineers with examples"
+ Poor: "machine learning"
+ Good: "explain machine learning concepts for software engineers with examples"
 
 **Specify Answer Format**
 
@@ -587,7 +587,7 @@ For best answers, enable content extraction:
 
 ### When to Extract Content
 
-**✅ Extract content for:**
+** Extract content for:**
 
 1. **Deep Analysis**
    - Detailed research
@@ -605,7 +605,7 @@ For best answers, enable content extraction:
    - Build knowledge base
    - Archive research
 
-**❌ Skip extraction for:**
+** Skip extraction for:**
 
 1. **Quick Searches**
    - URL collection only

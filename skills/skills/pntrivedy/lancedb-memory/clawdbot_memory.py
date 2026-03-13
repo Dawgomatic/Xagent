@@ -59,4 +59,4 @@ if __name__ == "__main__":
     )
     print(f"Added memory ID: {memory_id}")
     
-    print("✅ Clawdbot integration ready!")
+    print(" Clawdbot integration ready!")

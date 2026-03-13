@@ -1,6 +1,6 @@
 # Jo4 - URL Shortener & Analytics
 
-🔗 **[jo4.io](https://jo4.io)** - Modern URL shortening with QR codes and detailed analytics.
+ **[jo4.io](https://jo4.io)** - Modern URL shortening with QR codes and detailed analytics.
 
 ## Features
 

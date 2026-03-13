@@ -94,7 +94,7 @@ tail -f ~/clawd/logs/claude-oauth-refresh.log
 
 ---
 
-## Done! 🎉
+## Done! 
 
 Your Claude CLI will now:
 - Automatically refresh tokens before they expire

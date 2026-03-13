@@ -15,7 +15,7 @@ execution: "python"
 intellectual_property:
   license: "MIT"
   license_file: "LICENSE.md"
-  copyright: "© 2026 UnisAI Community"
+  copyright: " 2026 UnisAI Community"
   distribution: "clawhub-and-forks-allowed"
   source_code_access: "included"
   modification: "allowed"
@@ -141,16 +141,16 @@ restrictions:
 
 changelog:
   "1.0.0":
-    - "✨ Initial release — PersistentMind"
-    - "✨ 7 memory types: fact, preference, procedure, context, correction, relationship, reminder"
-    - "✨ 3 scopes: global, project, session"
-    - "✨ Full-text search with relevance scoring and importance boosting"
-    - "✨ Prompt context injection via get_context()"
-    - "✨ Auto-tag extraction from content"
-    - "✨ Memory consolidation for deduplication"
-    - "✨ Export/import for team sharing"
-    - "✨ Auto-expiry and stale session cleanup"
-    - "✨ Zero dependencies, local-only storage, MIT licensed"
+    - " Initial release — PersistentMind"
+    - " 7 memory types: fact, preference, procedure, context, correction, relationship, reminder"
+    - " 3 scopes: global, project, session"
+    - " Full-text search with relevance scoring and importance boosting"
+    - " Prompt context injection via get_context()"
+    - " Auto-tag extraction from content"
+    - " Memory consolidation for deduplication"
+    - " Export/import for team sharing"
+    - " Auto-expiry and stale session cleanup"
+    - " Zero dependencies, local-only storage, MIT licensed"
 
 metadata:
   status: "active"

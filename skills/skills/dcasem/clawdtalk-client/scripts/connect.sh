@@ -40,21 +40,21 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 print_status() {
-    echo -e "${BLUE}📞 Clawd Talk Connection Manager${NC}"
+    echo -e "${BLUE} Clawd Talk Connection Manager${NC}"
     echo "================================="
     echo ""
 }
 
 check_config() {
     if [ ! -f "$CONFIG_FILE" ]; then
-        echo -e "${RED}❌ Configuration not found. Run './setup.sh' first.${NC}"
+        echo -e "${RED} Configuration not found. Run './setup.sh' first.${NC}"
         exit 1
     fi
     
     # Check if we have API key
     local api_key=$(jq -r '.api_key // empty' "$CONFIG_FILE" 2>/dev/null || echo "")
     if [ -z "$api_key" ] || [ "$api_key" = "null" ] || [ "$api_key" = "YOUR_API_KEY_HERE" ]; then
-        echo -e "${RED}❌ No API key configured.${NC}"
+        echo -e "${RED} No API key configured.${NC}"
         echo ""
         echo "Get your API key from https://clawdtalk.com → Dashboard"
         echo "Then add it to skill-config.json"
@@ -65,17 +65,17 @@ check_config() {
 check_dependencies() {
     for tool in node jq; do
         if ! command -v "$tool" &> /dev/null; then
-            echo -e "${RED}❌ Required tool '$tool' is not installed.${NC}"
+            echo -e "${RED} Required tool '$tool' is not installed.${NC}"
             exit 1
         fi
     done
     
     # Check node_modules exist
     if [ ! -d "$SKILL_DIR/node_modules/ws" ]; then
-        echo -e "${YELLOW}📦 Installing dependencies...${NC}"
+        echo -e "${YELLOW} Installing dependencies...${NC}"
         (cd "$SKILL_DIR" && npm install --production 2>/dev/null)
         if [ ! -d "$SKILL_DIR/node_modules/ws" ]; then
-            echo -e "${RED}❌ Failed to install dependencies. Run 'npm install' in $SKILL_DIR${NC}"
+            echo -e "${RED} Failed to install dependencies. Run 'npm install' in $SKILL_DIR${NC}"
             exit 1
         fi
         echo -e "   ${GREEN}✓ Dependencies installed${NC}"
@@ -98,11 +98,11 @@ is_running() {
 
 start_connection() {
     if is_running; then
-        echo -e "${YELLOW}⚠️  Connection already running (PID: $(cat "$PID_FILE"))${NC}"
+        echo -e "${YELLOW}  Connection already running (PID: $(cat "$PID_FILE"))${NC}"
         return 0
     fi
     
-    echo "🚀 Starting WebSocket connection..."
+    echo " Starting WebSocket connection..."
     
     # Source .env files for environment variable resolution
     # Supports both OpenClaw and Clawdbot paths
@@ -112,7 +112,7 @@ start_connection() {
     
     # Rotate log if it's too big (> 1MB)
     if [ -f "$LOG_FILE" ] && [ $(stat -f%z "$LOG_FILE" 2>/dev/null || stat -c%s "$LOG_FILE" 2>/dev/null || echo 0) -gt 1048576 ]; then
-        echo "🔄 Rotating large log file..."
+        echo " Rotating large log file..."
         mv "$LOG_FILE" "${LOG_FILE}.1" 2>/dev/null || true
     fi
     
@@ -132,7 +132,7 @@ start_connection() {
         echo "Logs: $LOG_FILE"
     else
         rm -f "$PID_FILE"
-        echo -e "   ❌ ${RED}Failed to start WebSocket client${NC}"
+        echo -e "    ${RED}Failed to start WebSocket client${NC}"
         echo ""
         echo "Check logs: $LOG_FILE"
         exit 1
@@ -141,12 +141,12 @@ start_connection() {
 
 stop_connection() {
     if ! is_running; then
-        echo -e "${YELLOW}⚠️  Connection not running${NC}"
+        echo -e "${YELLOW}  Connection not running${NC}"
         return 0
     fi
     
     local pid=$(cat "$PID_FILE")
-    echo "🛑 Stopping WebSocket connection (PID: $pid)..."
+    echo " Stopping WebSocket connection (PID: $pid)..."
     
     # Try graceful shutdown first
     if kill "$pid" 2>/dev/null; then
@@ -222,7 +222,7 @@ show_status() {
 }
 
 restart_connection() {
-    echo "🔄 Restarting WebSocket connection..."
+    echo " Restarting WebSocket connection..."
     stop_connection
     sleep 1
     start_connection
@@ -273,7 +273,7 @@ case "${CMD:-}" in
         ;;
     *)
         print_status
-        echo -e "${RED}❌ Invalid command${NC}"
+        echo -e "${RED} Invalid command${NC}"
         echo ""
         echo "Usage: $0 {start|stop|status|restart|watchdog} [--server <url>]"
         echo ""

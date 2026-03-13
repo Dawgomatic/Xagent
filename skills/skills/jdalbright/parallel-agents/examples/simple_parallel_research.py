@@ -24,7 +24,7 @@ def run_example():
     import time
     
     print("\n" + "="*70)
-    print("  🔬 PARALLEL RESEARCH AGENTS EXAMPLE")
+    print("   PARALLEL RESEARCH AGENTS EXAMPLE")
     print("="*70)
     print("\nUsing smart model hierarchy: Haiku → Kimi → Opus")
     print("Spawning 3 research agents in parallel...\n")
@@ -62,17 +62,17 @@ Return your findings as JSON in this format:
             'run_id': result['runId']
         })
         
-        print(f"     ✅ Session: {result['childSessionKey'][:50]}...")
+        print(f"      Session: {result['childSessionKey'][:50]}...")
     
-    print(f"\n✅ All {len(topics)} agents spawned and running in parallel!")
-    print(f"⏳ Waiting 45 seconds for completion...\n")
+    print(f"\n All {len(topics)} agents spawned and running in parallel!")
+    print(f" Waiting 45 seconds for completion...\n")
     
     # Wait for agents to complete
     time.sleep(45)
     
     # Check results
     print("="*70)
-    print("  📊 CHECKING RESULTS")
+    print("   CHECKING RESULTS")
     print("="*70 + "\n")
     
     for spawn_info in spawned:
@@ -91,19 +91,19 @@ Return your findings as JSON in this format:
                 last_msg = next((m for m in reversed(messages) if m.get('role') == 'assistant'), None)
                 if last_msg:
                     output = last_msg['content']
-                    print(f"  ✅ SUCCESS")
+                    print(f"   SUCCESS")
                     print(f"  Output preview: {output[:100]}...")
                 else:
-                    print(f"  ⚠️ No assistant message found")
+                    print(f"   No assistant message found")
             else:
-                print(f"  ❌ No output produced")
+                print(f"   No output produced")
         except Exception as e:
-            print(f"  ❌ Error: {e}")
+            print(f"   Error: {e}")
         
         print()
     
     print("="*70)
-    print("  ✨ EXAMPLE COMPLETE")
+    print("   EXAMPLE COMPLETE")
     print("="*70)
     print("""
 Key Takeaways:
@@ -125,7 +125,7 @@ For production use with automatic model fallback, see helpers.py!
 
 
 if __name__ == "__main__":
-    print("\n⚠️  ERROR: This example must be run from within an OpenClaw agent session.")
+    print("\n  ERROR: This example must be run from within an OpenClaw agent session.")
     print("\nThe 'tools' module is only available in OpenClaw agent runtime context.")
     print("\nTo use this example:")
     print("  1. Start OpenClaw agent session")

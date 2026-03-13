@@ -8,7 +8,7 @@ description: >
 version: 1.0.0
 metadata:
   openclaw:
-    emoji: "📊"
+    emoji: ""
     homepage: "https://inclawbate.com/skills"
     requires:
       bins: ["curl"]

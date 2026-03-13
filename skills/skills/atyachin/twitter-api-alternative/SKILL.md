@@ -33,9 +33,9 @@ Get up and running in 2 minutes. Search tweets, look up profiles, find users by 
 
 ---
 
-## ⚡ Setup
+##  Setup
 
-👉 **Follow [`xpoz-setup`](https://clawhub.ai/skills/xpoz-setup)** — one-click auth, no API keys to manage. You'll be searching tweets in under 2 minutes.
+ **Follow [`xpoz-setup`](https://clawhub.ai/skills/xpoz-setup)** — one-click auth, no API keys to manage. You'll be searching tweets in under 2 minutes.
 
 ---
 

@@ -15,8 +15,8 @@
 **Agent mindset:**
 ```
 Task: "Build feature X"
-→ Code written ✅
-→ "Done" ❌ (Wrong!)
+→ Code written 
+→ "Done"  (Wrong!)
 ```
 
 **Should be:**
@@ -27,7 +27,7 @@ Goal: "Users receive benefit X"
 → Find integration gaps
 → Fix them
 → Verify user receives benefit
-→ "Done" ✅
+→ "Done" 
 ```
 
 ---
@@ -64,11 +64,11 @@ Goal: "Users receive benefit X"
 Template: `scripts/create-deployment-check.sh`
 
 Creates `.deployment-check.sh` that:
-- ✅ Runs actual production flow
-- ✅ Verifies output exists
-- ✅ Checks output format
-- ✅ Tests all integration points
-- ❌ Blocks if any test fails
+-  Runs actual production flow
+-  Verifies output exists
+-  Checks output format
+-  Tests all integration points
+-  Blocks if any test fails
 
 ### 2. Pre-Commit Hook
 
@@ -77,7 +77,7 @@ Runs deployment check before allowing commit:
 # Project files changed?
 → Run .deployment-check.sh
 → All pass? Allow commit
-→ Any fail? Block ❌
+→ Any fail? Block 
 ```
 
 ### 3. Deployment Checklist
@@ -128,9 +128,9 @@ This creates:
    ```bash
    echo "Test 1: Report generation..."
    if bash scripts/generate_report.sh > /dev/null 2>&1; then
-       echo "  ✅ Generated"
+       echo "   Generated"
    else
-       echo "  ❌ Failed"
+       echo "   Failed"
        FAILED=1
    fi
    ```
@@ -147,36 +147,36 @@ This creates:
 
 ### Minimum (Must Have)
 
-- ✅ **Main flow runs** (no crashes)
-- ✅ **Output exists** (file/DB/message created)
-- ✅ **Output format valid** (parseable, has required fields)
+-  **Main flow runs** (no crashes)
+-  **Output exists** (file/DB/message created)
+-  **Output format valid** (parseable, has required fields)
 
 ### Recommended (Should Have)
 
-- ✅ **All entry points tested** (cron, API, manual)
-- ✅ **Edge cases handled** (empty, errors, timeouts)
-- ✅ **User-facing output verified** (what they actually see)
+-  **All entry points tested** (cron, API, manual)
+-  **Edge cases handled** (empty, errors, timeouts)
+-  **User-facing output verified** (what they actually see)
 
 ### Advanced (Nice to Have)
 
-- ✅ **Integration tests** (end-to-end with real services)
-- ✅ **Performance checks** (not too slow)
-- ✅ **Monitoring alerts** (catch issues in production)
+-  **Integration tests** (end-to-end with real services)
+-  **Performance checks** (not too slow)
+-  **Monitoring alerts** (catch issues in production)
 
 ---
 
 ## Common Pitfalls
 
 ### 1. "I tested the function"
-❌ **Wrong:**
+ **Wrong:**
 ```python
 def generate_report():
     return "Report"
 
-# Tested: ✅ Returns "Report"
+# Tested:  Returns "Report"
 ```
 
-✅ **Right:**
+ **Right:**
 ```bash
 # Test the FULL FLOW:
 bash scripts/hourly_cron.sh
@@ -189,16 +189,16 @@ bash scripts/hourly_cron.sh
 ```
 
 ### 2. "It works when I run it manually"
-❌ **Wrong:**
+ **Wrong:**
 ```bash
 # Agent runs: python3 script.py
-# Works! ✅
+# Works! 
 
 # But cron runs: /usr/bin/python3 script.py
-# Different environment, missing deps ❌
+# Different environment, missing deps 
 ```
 
-✅ **Right:**
+ **Right:**
 ```bash
 # Test the ACTUAL cron command:
 /usr/bin/python3 /full/path/script.py
@@ -208,14 +208,14 @@ bash /path/to/cron_wrapper.sh
 ```
 
 ### 3. "I updated the code"
-❌ **Wrong:**
+ **Wrong:**
 ```bash
 # Updated: notify.py
 # But cron still calls: old_notify.py
-# Users get old output ❌
+# Users get old output 
 ```
 
-✅ **Right:**
+ **Right:**
 ```bash
 # Check what cron ACTUALLY calls:
 crontab -l | grep notify
@@ -255,11 +255,11 @@ bash .deployment-check.sh
 
 When you finish a feature:
 
-1. ✅ Code written
-2. ✅ **Run .deployment-check.sh** ← Mandatory
-3. ✅ **Fix any issues found**
-4. ✅ **Re-verify**
-5. ✅ **Update DEPLOYMENT-CHECKLIST.md** with any new lessons
+1.  Code written
+2.  **Run .deployment-check.sh** ← Mandatory
+3.  **Fix any issues found**
+4.  **Re-verify**
+5.  **Update DEPLOYMENT-CHECKLIST.md** with any new lessons
 
 Only then say "Done."
 ```
@@ -279,17 +279,17 @@ Built new notify.py with scoring/URLs, but forgot to update cron.
 # Test 1: Cron generates report
 bash kalshi/send_hourly_scan.sh > /dev/null 2>&1
 if [ -f /tmp/kalshi_hourly_scan_dm.txt ]; then
-    echo "  ✅ Report generated"
+    echo "   Report generated"
 fi
 
 # Test 2: Report has URLs
 if grep -q "https://kalshi.com/" /tmp/kalshi_hourly_scan_dm.txt; then
-    echo "  ✅ URLs present"
+    echo "   URLs present"
 fi
 
 # Test 3: Report has scoring
 if grep -q "Score:" /tmp/kalshi_hourly_scan_dm.txt; then
-    echo "  ✅ Scoring present"
+    echo "   Scoring present"
 fi
 ```
 

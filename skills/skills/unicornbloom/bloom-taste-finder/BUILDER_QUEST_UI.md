@@ -17,8 +17,8 @@
 │  │                │  │                                          │ │
 │  │  Agent Info    │  │      Identity Card (Main)                │ │
 │  │  (Left Sidebar)│  │                                          │ │
-│  │                │  │  💜 The Visionary                        │ │
-│  │  🤖 Agent      │  │  "See beyond the hype"                   │ │
+│  │                │  │   The Visionary                        │ │
+│  │   Agent      │  │  "See beyond the hype"                   │ │
 │  │  Wallet        │  │                                          │ │
 │  │                │  │  [Description]                           │ │
 │  │  0x03Ce...9905 │  │                                          │ │
@@ -26,7 +26,7 @@
 │  │  Network: Base │  │                                          │ │
 │  │                │  │  ─────────────────────────────────       │ │
 │  │  [Manage]      │  │                                          │ │
-│  │                │  │  🎯 Top Skills Matched for You           │ │
+│  │                │  │   Top Skills Matched for You           │ │
 │  │                │  │                                          │ │
 │  │                │  │  1. DeFi Protocol Analyzer (95%)         │ │
 │  │                │  │  2. Smart Contract Auditor (90%)         │ │
@@ -54,7 +54,7 @@
   <Card className="border-none bg-background">
     <CardHeader className="pb-3">
       <CardTitle className="text-sm font-medium text-muted-foreground">
-        🤖 Agent Wallet
+         Agent Wallet
       </CardTitle>
     </CardHeader>
     <CardContent className="space-y-3">
@@ -104,7 +104,7 @@
   <Card className="border-none bg-background">
     <CardHeader className="pb-3">
       <CardTitle className="text-sm font-medium text-muted-foreground">
-        📊 Stats
+         Stats
       </CardTitle>
     </CardHeader>
     <CardContent className="space-y-2 text-sm">
@@ -136,7 +136,7 @@
       <div className="flex items-start justify-between">
         <div className="space-y-1">
           <CardTitle className="text-3xl flex items-center gap-3">
-            💜 The Visionary
+             The Visionary
             <Badge variant="secondary" className="text-xs font-normal">
               85% confidence
             </Badge>
@@ -182,7 +182,7 @@
   {/* Recommended Skills */}
   <Card>
     <CardHeader>
-      <CardTitle>🎯 Top Skills Matched for You</CardTitle>
+      <CardTitle> Top Skills Matched for You</CardTitle>
     </CardHeader>
     <CardContent>
       <div className="space-y-4">
@@ -238,7 +238,7 @@
         variant="outline"
         onClick={() => handleTip(skill)}
       >
-        💰 Tip
+         Tip
       </Button>
     </div>
   </CardContent>
@@ -256,7 +256,7 @@
 <Dialog open={showWalletModal} onOpenChange={setShowWalletModal}>
   <DialogContent className="max-w-2xl">
     <DialogHeader>
-      <DialogTitle>🤖 Manage Agent Wallet</DialogTitle>
+      <DialogTitle> Manage Agent Wallet</DialogTitle>
       <DialogDescription>
         Your agent wallet is managed by Coinbase CDP
       </DialogDescription>
@@ -406,7 +406,7 @@
   {/* Mobile: Top bar with wallet */}
   <div className="lg:hidden border-b p-4">
     <Button variant="outline" onClick={() => setShowWalletModal(true)}>
-      🤖 {address.slice(0, 6)}...{address.slice(-4)}
+       {address.slice(0, 6)}...{address.slice(-4)}
     </Button>
   </div>
 
@@ -421,18 +421,18 @@
 
 ## Feature Priorities for Builder Quest
 
-### ✅ Must Have (For Demo)
+###  Must Have (For Demo)
 1. **Identity Card Display** - The star of the show
 2. **Recommended Skills** - Shows the AI matching
 3. **Agent Wallet Info** (sidebar) - Shows CDP integration
 4. **Clean, professional UI** - Impresses judges
 
-### 🟡 Nice to Have (If Time)
+###  Nice to Have (If Time)
 1. **Tip Modal** - Shows X402 concept (even if placeholder)
 2. **Transaction History** - Shows it's functional
 3. **Share Button** - Shows social aspect
 
-### ⚪ Can Skip (For Now)
+###  Can Skip (For Now)
 1. Wallet export/recovery
 2. Advanced settings
 3. Multiple network support
@@ -443,24 +443,24 @@
 ## Builder Quest Judging Criteria Alignment
 
 ### Innovation
-- ✅ AI-powered identity matching
-- ✅ CDP wallet integration
-- ✅ X402 payment protocol
+-  AI-powered identity matching
+-  CDP wallet integration
+-  X402 payment protocol
 
 ### Technical Implementation
-- ✅ Clean architecture (identity + wallet separated)
-- ✅ CDP AgentKit usage
-- ✅ Next.js best practices
+-  Clean architecture (identity + wallet separated)
+-  CDP AgentKit usage
+-  Next.js best practices
 
 ### User Experience
-- ✅ Simple, clean UI
-- ✅ Progressive disclosure (advanced features in modal)
-- ✅ Mobile responsive
+-  Simple, clean UI
+-  Progressive disclosure (advanced features in modal)
+-  Mobile responsive
 
 ### Potential Impact
-- ✅ Helps users discover relevant skills
-- ✅ Enables creator monetization
-- ✅ Agent-to-agent economy
+-  Helps users discover relevant skills
+-  Enables creator monetization
+-  Agent-to-agent economy
 
 ---
 
@@ -549,7 +549,7 @@
 4. **Builder Quest Ready**: Can implement in 5-6 days, clean and impressive
 
 **Key Decision**: Sidebar wallet info is perfect because it:
-- ✅ Shows CDP integration without overwhelming
-- ✅ Keeps focus on identity card
-- ✅ Easy to access when needed
-- ✅ Professional, clean layout
+-  Shows CDP integration without overwhelming
+-  Keeps focus on identity card
+-  Easy to access when needed
+-  Professional, clean layout

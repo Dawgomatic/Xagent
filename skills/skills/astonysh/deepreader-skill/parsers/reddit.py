@@ -170,12 +170,12 @@ class RedditParser(BaseParser):
 
         # Stats line
         stats_line = (
-            f"⬆️ {score:,} ({upvote_ratio:.0%} upvoted) · "
-            f"💬 {num_comments:,} comments"
+            f" {score:,} ({upvote_ratio:.0%} upvoted) · "
+            f" {num_comments:,} comments"
         )
         if flair:
-            stats_line += f" · 🏷️ {flair}"
-        content_parts.append(f"📊 {stats_line}\n")
+            stats_line += f" ·  {flair}"
+        content_parts.append(f" {stats_line}\n")
 
         content_parts.append("---\n")
 
@@ -183,19 +183,19 @@ class RedditParser(BaseParser):
         if selftext:
             content_parts.append(selftext)
         elif not is_self and post_url:
-            content_parts.append(f"🔗 **Link post**: [{post_url}]({post_url})")
+            content_parts.append(f" **Link post**: [{post_url}]({post_url})")
 
         # --- Media detection ---
         media_parts = self._extract_media(post)
         if media_parts:
-            content_parts.append("\n\n---\n### 🖼️ Media\n")
+            content_parts.append("\n\n---\n###  Media\n")
             content_parts.extend(media_parts)
 
         # --- Comments (second element) ---
         if len(data) >= 2:
             comments = self._extract_comments(data[1])
             if comments:
-                content_parts.append("\n\n---\n### 💬 Top Comments\n")
+                content_parts.append("\n\n---\n###  Top Comments\n")
                 content_parts.extend(comments)
 
         full_content = clean_text("\n".join(content_parts))
@@ -249,7 +249,7 @@ class RedditParser(BaseParser):
             body = cdata.get("body", "").strip()
 
             # Format the comment
-            result.append(f"**u/{author}** (⬆️ {score:,}):\n")
+            result.append(f"**u/{author}** ( {score:,}):\n")
             # Indent comment body as blockquote
             quoted_body = "\n".join(f"> {line}" for line in body.split("\n"))
             result.append(f"{quoted_body}\n")
@@ -291,7 +291,7 @@ class RedditParser(BaseParser):
             author = cdata.get("author", "[deleted]")
             score = cdata.get("score", 0)
 
-            result.append(f"{indent}↳ **u/{author}** (⬆️ {score:,}):\n")
+            result.append(f"{indent}↳ **u/{author}** ( {score:,}):\n")
             quoted = "\n".join(
                 f"{indent}> {line}" for line in body.strip().split("\n")
             )
@@ -330,11 +330,11 @@ class RedditParser(BaseParser):
         # Reddit video
         reddit_video = (post.get("media") or {}).get("reddit_video", {})
         if reddit_video.get("fallback_url"):
-            parts.append(f"🎬 Video: [{reddit_video['fallback_url']}]({reddit_video['fallback_url']})\n")
+            parts.append(f" Video: [{reddit_video['fallback_url']}]({reddit_video['fallback_url']})\n")
 
         # External video (e.g. YouTube embed)
         if post.get("is_video") and not reddit_video:
-            parts.append(f"🎬 External video: [{url}]({url})\n")
+            parts.append(f" External video: [{url}]({url})\n")
 
         return parts
 

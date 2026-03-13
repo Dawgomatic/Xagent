@@ -40,7 +40,7 @@ from src.bot.android.tiktok_navigation import TikTokNavigation
 # Check if config exists
 if not os.path.exists("config.py"):
     print("\n" + "="*60)
-    print("⚠️  Configuration not found!")
+    print("  Configuration not found!")
     print("="*60)
     print("\nThis is your first time running the bot.")
     print("Let's set it up!\n")
@@ -50,11 +50,11 @@ if not os.path.exists("config.py"):
         print("\nStarting setup wizard...\n")
         os.system("python3 setup.py")
         if not os.path.exists("config.py"):
-            print("\n❌ Setup was not completed. Exiting.")
+            print("\n Setup was not completed. Exiting.")
             sys.exit(1)
-        print("\n✅ Setup complete! Starting bot...\n")
+        print("\n Setup complete! Starting bot...\n")
     else:
-        print("\n❌ Cannot run without configuration.")
+        print("\n Cannot run without configuration.")
         print("   Run: python3 setup.py")
         sys.exit(1)
 
@@ -70,7 +70,7 @@ try:
         from src.ai_comments import generate_ai_comment
         
 except ImportError as e:
-    print(f"❌ Error loading config: {e}")
+    print(f" Error loading config: {e}")
     print("   Run: python3 setup.py")
     sys.exit(1)
 
@@ -90,7 +90,7 @@ def get_device_id(specified_device=None):
                if line.strip() and "device" in line]
     
     if not devices:
-        print("❌ No Android device found!")
+        print(" No Android device found!")
         print("   1. Connect device via USB")
         print("   2. Enable USB debugging")
         print("   3. Authorize computer on device")
@@ -134,7 +134,7 @@ def get_comment_ai(screenshot_path, topic):
             # Fall back to generic
             return random.choice(GENERIC_COMMENTS)
     except Exception as e:
-        print(f"    ⚠️  AI failed, using fallback: {e}")
+        print(f"      AI failed, using fallback: {e}")
         return random.choice(GENERIC_COMMENTS)
 
 
@@ -142,7 +142,7 @@ def get_comment(topic, screenshot_path=None, used_comments=None):
     """Get comment based on configured style."""
     if COMMENT_STYLE == "ai":
         if not screenshot_path:
-            print("    ⚠️  No screenshot for AI, using fallback")
+            print("      No screenshot for AI, using fallback")
             return random.choice(GENERIC_COMMENTS)
         return get_comment_ai(screenshot_path, topic)
     else:  # static
@@ -154,7 +154,7 @@ def get_comment(topic, screenshot_path=None, used_comments=None):
 def search_mode(bot, nav, topics, videos_per_topic, device_id):
     """Search specific topics and comment on videos."""
     print("\n" + "="*60)
-    print("🔍 SEARCH MODE")
+    print(" SEARCH MODE")
     print("="*60)
     print(f"Topics: {', '.join(topics)}")
     print(f"Videos per topic: {videos_per_topic}")
@@ -164,7 +164,7 @@ def search_mode(bot, nav, topics, videos_per_topic, device_id):
     all_results = []
     
     for topic_idx, topic in enumerate(topics, 1):
-        print(f"\n📍 TOPIC {topic_idx}/{len(topics)}: {topic.upper()}")
+        print(f"\n TOPIC {topic_idx}/{len(topics)}: {topic.upper()}")
         print("-" * 60)
         
         used_comments = set()
@@ -181,7 +181,7 @@ def search_mode(bot, nav, topics, videos_per_topic, device_id):
         
         # Engage with videos
         for video_num in range(1, videos_per_topic + 1):
-            print(f"\n  📹 Video {video_num}/{videos_per_topic}")
+            print(f"\n   Video {video_num}/{videos_per_topic}")
             
             try:
                 position = ((video_num - 1) % 4) + 1
@@ -189,14 +189,14 @@ def search_mode(bot, nav, topics, videos_per_topic, device_id):
                 # Scroll if needed
                 if video_num > 4 and (video_num - 1) % 4 == 0:
                     scroll_count += 1
-                    print(f"    📜 Scrolling for more videos...")
+                    print(f"     Scrolling for more videos...")
                     bot.scroll_down()
                     time.sleep(2)
                 
                 video_id = f"s{scroll_count}_p{position}"
                 
                 if video_id in commented_videos:
-                    print(f"    ⏭️  Already commented, skipping")
+                    print(f"      Already commented, skipping")
                     continue
                 
                 # Open video
@@ -209,18 +209,18 @@ def search_mode(bot, nav, topics, videos_per_topic, device_id):
                 
                 # Generate comment (AI or static)
                 if COMMENT_STYLE == "ai":
-                    print(f"    🤖 Analyzing video with AI...")
+                    print(f"     Analyzing video with AI...")
                     comment = get_comment(topic, screenshot_path=screenshot_path)
                 else:
                     comment = get_comment(topic, used_comments=used_comments)
                 
-                print(f"    💬 {comment}")
+                print(f"     {comment}")
                 
                 success = bot.post_comment(comment)
                 commented_videos.add(video_id)
                 
                 if success:
-                    print(f"    ✅ Posted!")
+                    print(f"     Posted!")
                     all_results.append({
                         "topic": topic,
                         "video_num": video_num,
@@ -228,7 +228,7 @@ def search_mode(bot, nav, topics, videos_per_topic, device_id):
                         "success": True
                     })
                 else:
-                    print(f"    ❌ Failed")
+                    print(f"     Failed")
                 
                 # Go back
                 if video_num < videos_per_topic:
@@ -236,11 +236,11 @@ def search_mode(bot, nav, topics, videos_per_topic, device_id):
                     time.sleep(2)
                     
             except Exception as e:
-                print(f"    ❌ Error: {e}")
+                print(f"     Error: {e}")
         
         # Pause between topics
         if topic_idx < len(topics):
-            print(f"\n⏸️  Pausing 10s before next topic...")
+            print(f"\n  Pausing 10s before next topic...")
             time.sleep(10)
     
     return all_results
@@ -249,7 +249,7 @@ def search_mode(bot, nav, topics, videos_per_topic, device_id):
 def explore_mode(bot, nav, num_videos, device_id):
     """Explore For You feed and comment on random videos."""
     print("\n" + "="*60)
-    print("🌟 EXPLORE MODE (For You Feed)")
+    print(" EXPLORE MODE (For You Feed)")
     print("="*60)
     print(f"Videos to engage: {num_videos}")
     print(f"Device: {device_id}")
@@ -264,7 +264,7 @@ def explore_mode(bot, nav, num_videos, device_id):
     time.sleep(2)
     
     for video_num in range(1, num_videos + 1):
-        print(f"\n📹 Video {video_num}/{num_videos}")
+        print(f"\n Video {video_num}/{num_videos}")
         
         try:
             # Take screenshot
@@ -273,34 +273,34 @@ def explore_mode(bot, nav, num_videos, device_id):
             
             # Generate comment (AI or generic)
             if COMMENT_STYLE == "ai":
-                print(f"  🤖 Analyzing video with AI...")
+                print(f"   Analyzing video with AI...")
                 comment = get_comment("general", screenshot_path=screenshot_path)
             else:
                 comment = get_comment(None, used_comments=used_comments)
             
-            print(f"  💬 {comment}")
+            print(f"   {comment}")
             
             # Post comment
             success = bot.post_comment(comment)
             
             if success:
-                print(f"  ✅ Posted!")
+                print(f"   Posted!")
                 results.append({
                     "video_num": video_num,
                     "comment": comment,
                     "success": True
                 })
             else:
-                print(f"  ❌ Failed")
+                print(f"   Failed")
             
             # Scroll to next video
             if video_num < num_videos:
-                print(f"  ⏭️  Scrolling to next video...")
+                print(f"    Scrolling to next video...")
                 bot.scroll_down()
                 time.sleep(3)
                 
         except Exception as e:
-            print(f"  ❌ Error: {e}")
+            print(f"   Error: {e}")
     
     return results
 
@@ -308,14 +308,14 @@ def explore_mode(bot, nav, num_videos, device_id):
 def print_summary(results, mode):
     """Print session summary."""
     print("\n" + "="*60)
-    print("📊 SESSION SUMMARY")
+    print(" SESSION SUMMARY")
     print("="*60)
     
     success_count = len([r for r in results if r.get("success")])
     total = len(results)
     
     print(f"\nMode: {mode.upper()}")
-    print(f"✅ Success: {success_count}/{total} videos")
+    print(f" Success: {success_count}/{total} videos")
     
     if mode == "search" and results:
         # Group by topic
@@ -379,7 +379,7 @@ Examples:
     
     # Get device
     device_id = get_device_id(args.device)
-    print(f"\n📱 Using device: {device_id}")
+    print(f"\n Using device: {device_id}")
     
     # Initialize bot
     bot = TikTokAndroidBot(device_id=device_id)

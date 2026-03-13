@@ -72,10 +72,10 @@ Bad test design leads to bad decisions. Get the fundamentals right.
 - Check for selection bias (device type, geo, etc.)
 
 ### What NOT to Do
-- ❌ Stop test when you see a winner (peeking)
-- ❌ Run multiple tests on same screen simultaneously
-- ❌ Change variant mid-test
-- ❌ Ignore statistical significance
+-  Stop test when you see a winner (peeking)
+-  Run multiple tests on same screen simultaneously
+-  Change variant mid-test
+-  Ignore statistical significance
 
 ---
 

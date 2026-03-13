@@ -7,5 +7,5 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
-| #2734 | 5:23 PM | 🔵 | Verified Code-Audit Command Has Correct YAML Frontmatter | ~269 |
+| #2734 | 5:23 PM |  | Verified Code-Audit Command Has Correct YAML Frontmatter | ~269 |
 </claude-mem-context>

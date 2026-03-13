@@ -183,7 +183,7 @@ cronParts.push(`--to "${deliveryTo}"`);
 
 ### Is Clawdbot a Good Fit for Bot Mode?
 
-#### Pros ✅
+#### Pros 
 
 - Already handles WhatsApp via Baileys (reliable)
 - Session isolation built-in (`per-channel-peer`)
@@ -194,7 +194,7 @@ cronParts.push(`--to "${deliveryTo}"`);
 - No message templates required
 - Claude's coaching is high quality
 
-#### Cons ❌
+#### Cons 
 
 - Designed for personal assistant, not public bot service
 - No built-in user management or authentication
@@ -209,10 +209,10 @@ cronParts.push(`--to "${deliveryTo}"`);
 
 | User Count | Clawdbot Fit? | Notes |
 |------------|---------------|-------|
-| **1-10** (Personal + family) | ✅ **Perfect** | Simple setup, low overhead, ideal use case |
-| **10-100** (Small community) | ✅ **Good** | Works well. Monitor API costs. Consider rate limits. |
-| **100-1000** (Small business) | ⚠️ **Possible** | Need custom rate limiting, monitoring, cost controls |
-| **1000+** (Public service) | ❌ **No** | Build custom solution or use dedicated platform |
+| **1-10** (Personal + family) |  **Perfect** | Simple setup, low overhead, ideal use case |
+| **10-100** (Small community) |  **Good** | Works well. Monitor API costs. Consider rate limits. |
+| **100-1000** (Small business) |  **Possible** | Need custom rate limiting, monitoring, cost controls |
+| **1000+** (Public service) |  **No** | Build custom solution or use dedicated platform |
 
 **Cost estimate at scale:**
 - Average habit tracking session: 3-5 LLM calls/day/user
@@ -363,19 +363,19 @@ Beyond basic multi-user support:
 ## Decision Framework
 
 **Use bot mode with clawdbot if:**
-- ✅ Serving personal + small group (< 50 users)
-- ✅ You value sophisticated AI coaching
-- ✅ You're okay with hosting costs
-- ✅ You don't need billing/payments
-- ✅ You can handle basic admin manually
+-  Serving personal + small group (< 50 users)
+-  You value sophisticated AI coaching
+-  You're okay with hosting costs
+-  You don't need billing/payments
+-  You can handle basic admin manually
 
 **Consider alternatives if:**
-- ❌ Expecting 100+ users
-- ❌ Need to monetize (billing required)
-- ❌ Want fine-grained rate limiting
-- ❌ Need lighter/cheaper infrastructure
-- ❌ Require SLA/uptime guarantees
-- ❌ Must have admin dashboard
+-  Expecting 100+ users
+-  Need to monetize (billing required)
+-  Want fine-grained rate limiting
+-  Need lighter/cheaper infrastructure
+-  Require SLA/uptime guarantees
+-  Must have admin dashboard
 
 ---
 

@@ -348,14 +348,14 @@ def main():
     
     note_id = extract_note_id(args.url)
     if not note_id:
-        print(f"❌ 无法提取笔记 ID: {args.url}")
+        print(f" 无法提取笔记 ID: {args.url}")
         return
     
     print(f"笔记 ID: {note_id}")
     
     result = asyncio.run(fetch_note(note_id, args.output, args.ocr))
     
-    print(f"\n✅ 完成!")
+    print(f"\n 完成!")
     print(f"标题: {result['title']}")
     print(f"作者: {result['author']['nickname']}")
     print(f"图片: {len(result['local_images'])} 张")

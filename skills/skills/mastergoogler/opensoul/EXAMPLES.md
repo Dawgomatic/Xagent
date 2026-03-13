@@ -100,7 +100,7 @@ class ResearchAgent:
     
     async def search_with_memory(self, query):
         """Perform web search but check past research first"""
-        print(f"\n🔍 Researching: {query}")
+        print(f"\n Researching: {query}")
         
         # Check if we've researched this before
         history = await self.logger.get_history()
@@ -118,7 +118,7 @@ class ResearchAgent:
                         })
         
         if similar_searches:
-            print(f"💡 Found {len(similar_searches)} similar past searches:")
+            print(f" Found {len(similar_searches)} similar past searches:")
             for search in similar_searches:
                 print(f"  - '{search['query']}' at {search['timestamp']}")
         
@@ -142,7 +142,7 @@ class ResearchAgent:
     
     async def analyze_document(self, document_name, word_count):
         """Analyze a document and log the analysis"""
-        print(f"\n📄 Analyzing: {document_name}")
+        print(f"\n Analyzing: {document_name}")
         
         self.logger.log({
             "action": "document_analysis",
@@ -195,7 +195,7 @@ class ResearchAgent:
         
         # Flush final logs
         tx_id = await self.logger.flush()
-        print(f"\n📊 Session Summary:")
+        print(f"\n Session Summary:")
         print(f"  Duration: {summary['session_duration']}")
         print(f"  Searches: {summary['total_searches']}")
         print(f"  Total tokens: {summary['total_tokens']}")
@@ -373,7 +373,7 @@ class SelfReflectingAgent:
     
     async def reflect_on_performance(self):
         """Analyze past performance and identify areas for improvement"""
-        print("\n🤔 Reflecting on performance...")
+        print("\n Reflecting on performance...")
         
         history = await self.logger.get_history()
         
@@ -436,14 +436,14 @@ class SelfReflectingAgent:
         await self.logger.flush()
         
         # Print reflection
-        print(f"\n📊 Performance Analysis:")
+        print(f"\n Performance Analysis:")
         print(f"  Total actions: {total_actions}")
         print(f"  Success rate: {success_rate:.1%}")
         print(f"  Avg tokens/action: {avg_tokens_per_action:.0f}")
         print(f"  Total cost: {total_cost:.6f} BSV")
         
         if issues:
-            print(f"\n⚠️  Issues identified:")
+            print(f"\n  Issues identified:")
             for issue in issues:
                 print(f"  - {issue}")
         else:
@@ -472,7 +472,7 @@ class SelfReflectingAgent:
             optimizations.append("Reduce logging frequency")
         
         if optimizations:
-            print(f"\n🔧 Recommended optimizations:")
+            print(f"\n Recommended optimizations:")
             for opt in optimizations:
                 print(f"  - {opt}")
             
@@ -553,14 +553,14 @@ class CostAwareAgent:
         would_exceed = (status["spent_bsv"] + estimated_cost_bsv) > self.budget_bsv
         
         if would_exceed:
-            print(f"⚠️  Action would exceed budget!")
+            print(f"  Action would exceed budget!")
             print(f"  Current: {status['spent_bsv']:.6f} BSV")
             print(f"  Budget: {self.budget_bsv:.6f} BSV")
             return False
         
         # Warning if approaching limit
         if status["percentage_used"] > (self.spending_warning_threshold * 100):
-            print(f"⚠️  Approaching budget limit: {status['percentage_used']:.1f}% used")
+            print(f"  Approaching budget limit: {status['percentage_used']:.1f}% used")
         
         return True
     
@@ -601,7 +601,7 @@ class CostAwareAgent:
                 cost = log.get("total_cost_bsv", 0) / len(log.get("metrics", [])) if log.get("metrics") else 0
                 action_costs[action] = action_costs.get(action, 0) + cost
         
-        print(f"\n💰 Budget Report:")
+        print(f"\n Budget Report:")
         print(f"  Budget: {status['budget_bsv']:.6f} BSV")
         print(f"  Spent: {status['spent_bsv']:.6f} BSV ({status['percentage_used']:.1f}%)")
         print(f"  Remaining: {status['remaining_bsv']:.6f} BSV")
@@ -692,7 +692,7 @@ class SessionManager:
             "status": "started"
         })
         
-        print(f"📝 Session started: {session_id}")
+        print(f" Session started: {session_id}")
         print(f"   Task: {task_description}")
     
     async def log_action(self, action_type, tokens_in, tokens_out, details=None):
@@ -713,7 +713,7 @@ class SessionManager:
     async def end_session(self):
         """End the current session and flush logs"""
         if not self.logger:
-            print("⚠️  No active session to end")
+            print("  No active session to end")
             return
         
         duration = datetime.now() - self.current_session["start_time"]
@@ -795,11 +795,11 @@ class ResilientAgent:
                 print(f"✓ Logs flushed to blockchain: {tx_id}")
                 return tx_id
             except Exception as e:
-                print(f"⚠️  Flush attempt {attempt + 1} failed: {e}")
+                print(f"  Flush attempt {attempt + 1} failed: {e}")
                 
                 if attempt == max_retries - 1:
                     # Last attempt failed - save to local backup
-                    print("💾 Saving logs to local backup...")
+                    print(" Saving logs to local backup...")
                     await self.save_backup()
                 else:
                     # Wait before retry
@@ -835,7 +835,7 @@ class ResilientAgent:
         with open(self.backup_file) as f:
             backups = json.load(f)
         
-        print(f"📤 Retrying {len(backups)} backed-up logs...")
+        print(f" Retrying {len(backups)} backed-up logs...")
         
         # Add backups to pending logs
         for backup in backups:
@@ -858,7 +858,7 @@ class ResilientAgent:
                 history = await self.logger.get_history()
                 return history
             except Exception as e:
-                print(f"⚠️  History retrieval attempt {attempt + 1} failed: {e}")
+                print(f"  History retrieval attempt {attempt + 1} failed: {e}")
                 
                 if attempt < max_retries - 1:
                     await asyncio.sleep(2 ** attempt)
@@ -887,7 +887,7 @@ async def error_handling_example():
     
     # Safely get history
     history = await agent.safe_get_history()
-    print(f"\n📚 Retrieved {len(history)} historical logs")
+    print(f"\n Retrieved {len(history)} historical logs")
 
 if __name__ == "__main__":
     asyncio.run(error_handling_example())

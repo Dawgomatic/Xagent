@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🪙",
+        "emoji": "",
         "requires": { "bins": ["pnpm"], "env": [] },
         "optionalEnv": ["SOLANA_RPC_URL", "TRENDS_POOL_CONFIG"],
         "install":
@@ -44,8 +44,8 @@ cd {baseDir} && pnpm install
 
 | 环境变量 | 必需 | 默认值 | 说明 |
 |----------|------|--------|------|
-| `SOLANA_RPC_URL` | ❌ | `https://api.mainnet-beta.solana.com` | Solana RPC 端点 |
-| `TRENDS_POOL_CONFIG` | ❌ | `7UQpAg2GfvwnBhuNAF5g9ujjDmkq7rPnF7Xogs4xE9AA` | Trends.fun 使用的 pool_config 地址 |
+| `SOLANA_RPC_URL` |  | `https://api.mainnet-beta.solana.com` | Solana RPC 端点 |
+| `TRENDS_POOL_CONFIG` |  | `7UQpAg2GfvwnBhuNAF5g9ujjDmkq7rPnF7Xogs4xE9AA` | Trends.fun 使用的 pool_config 地址 |
 
 ## 使用方法
 
@@ -78,13 +78,13 @@ npx tsx {baseDir}/src/index.ts \
 
 | 参数 | 必需 | 说明 |
 |------|------|------|
-| `--name` | ✅ | Token 名称 |
-| `--symbol` | ✅ | Token 符号 (ticker) |
-| `--imagePath` | ✅ | 本地图片路径 |
-| `--mode` | ✅ | 模式: 1=Standard, 2=Boost Creator Share |
-| `--url` | ❌ | 关联 URL（推文或个人主页链接https://x.com/user/status/123456 或 https://x.com/username） |
-| `--desc` | ❌ | Token 简要描述(请注意不要用换行和空格) |
-| `--first-buy` | ❌ | 首次购买 SOL 数量（默认 0） |
+| `--name` |  | Token 名称 |
+| `--symbol` |  | Token 符号 (ticker) |
+| `--imagePath` |  | 本地图片路径 |
+| `--mode` |  | 模式: 1=Standard, 2=Boost Creator Share |
+| `--url` |  | 关联 URL（推文或个人主页链接https://x.com/user/status/123456 或 https://x.com/username） |
+| `--desc` |  | Token 简要描述(请注意不要用换行和空格) |
+| `--first-buy` |  | 首次购买 SOL 数量（默认 0） |
 
 ## 执行流程
 

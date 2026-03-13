@@ -2,7 +2,7 @@
 
 Real-world tasks you can run with `android-agent`. Copy-paste these directly!
 
-## 📱 Daily Life
+##  Daily Life
 
 ```bash
 python scripts/run-task.py "Order an Uber to the airport"
@@ -12,7 +12,7 @@ python scripts/run-task.py "Open Google Maps and navigate to the nearest coffee 
 python scripts/run-task.py "Call the last number in my recent calls"
 ```
 
-## 💬 Messaging
+##  Messaging
 
 ```bash
 python scripts/run-task.py "Send a WhatsApp message to Mom saying I'll be late for dinner"
@@ -21,7 +21,7 @@ python scripts/run-task.py "Open Telegram and check unread messages in my first 
 python scripts/run-task.py "Reply to the last WhatsApp message with 'Sounds good!'"
 ```
 
-## 🛒 Shopping
+##  Shopping
 
 ```bash
 python scripts/run-task.py "Open Amazon and search for wireless earbuds under 2000 rupees"
@@ -29,7 +29,7 @@ python scripts/run-task.py "Open Swiggy and order from the first restaurant"
 python scripts/run-task.py "Add milk, bread, and eggs to my Instamart cart"
 ```
 
-## 📅 Productivity
+##  Productivity
 
 ```bash
 python scripts/run-task.py "Open Google Calendar and check my schedule for tomorrow"
@@ -37,7 +37,7 @@ python scripts/run-task.py "Create a new note in Google Keep titled 'Grocery Lis
 python scripts/run-task.py "Open Gmail and read the subject of my latest 3 emails"
 ```
 
-## 🎵 Entertainment
+##  Entertainment
 
 ```bash
 python scripts/run-task.py "Play my Discover Weekly playlist on Spotify"
@@ -45,7 +45,7 @@ python scripts/run-task.py "Open YouTube and search for lo-fi study music, play 
 python scripts/run-task.py "Open Netflix and continue watching my last show"
 ```
 
-## ⚙️ Settings & Configuration
+##  Settings & Configuration
 
 ```bash
 python scripts/run-task.py "Turn on Dark Mode"
@@ -56,7 +56,7 @@ python scripts/run-task.py "Increase screen brightness to maximum"
 python scripts/run-task.py "Check how much storage is available"
 ```
 
-## 📸 Utilities
+##  Utilities
 
 ```bash
 python scripts/run-task.py "Take a screenshot and save it"
@@ -64,7 +64,7 @@ python scripts/run-task.py "Clear all notifications"
 python scripts/run-task.py "Open the camera and switch to front-facing"
 ```
 
-## 💡 Tips
+##  Tips
 
 - **Be specific**: "Open Chrome and search for 'best pizza near me'" works better than "find pizza"
 - **Use --timeout for long tasks**: `--timeout 180` for app installs or multi-step flows

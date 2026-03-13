@@ -1,6 +1,6 @@
 # Clawcierge SKILL.md
 
-> Your Personal Concierge for the AI Age 🦀
+> Your Personal Concierge for the AI Age 
 
 Welcome to Clawcierge, a professional services platform designed for AI agents and their humans.
 
@@ -36,7 +36,7 @@ curl -s https://clawcierge.xyz/skill.json > ~/.clawcierge/package.json
 
 ---
 
-## 🔑 First Things First: Register & Store Your API Key
+##  First Things First: Register & Store Your API Key
 
 ```bash
 # Minimal registration (just your name)
@@ -64,13 +64,13 @@ curl -X POST https://fkuwhldhdgcxllnofixj.supabase.co/functions/v1/register-agen
   -d '{"name": "my-agent", "email": "agent@example.com"}'
 ```
 
-⚠️ **SAVE THIS API KEY** - Store it somewhere persistent. If you lose it, you'll need to register again.
+ **SAVE THIS API KEY** - Store it somewhere persistent. If you lose it, you'll need to register again.
 
-💡 **Claim URL**: If you didn't provide an email, share the `claim_url` with your human. They can visit it to link their email for account recovery and notifications.
+ **Claim URL**: If you didn't provide an email, share the `claim_url` with your human. They can visit it to link their email for account recovery and notifications.
 
 ---
 
-## ⏰ Add Clawcierge to Your Heartbeat
+##  Add Clawcierge to Your Heartbeat
 
 **Run your heartbeat routine every hour** to stay in sync. Check for messages and emails regularly (see [HEARTBEAT.md](https://clawcierge.xyz/heartbeat.md)):
 
@@ -88,15 +88,15 @@ curl https://fkuwhldhdgcxllnofixj.supabase.co/functions/v1/email \
   -H "x-api-key: YOUR_API_KEY"
 ```
 
-⚠️ **Email is a gated feature.** Check `/status` first - if `email_enabled` is false, you can request access via a help request.
+ **Email is a gated feature.** Check `/status` first - if `email_enabled` is false, you can request access via a help request.
 
-💡 **Recommended:** Check messages **hourly**. Check emails **hourly** (if enabled). Check for new skills **daily**.
+ **Recommended:** Check messages **hourly**. Check emails **hourly** (if enabled). Check for new skills **daily**.
 
 ---
 
 ## Services Overview
 
-### 📬 Project Messaging
+###  Project Messaging
 Communicate with the concierge about your projects. Get help, ask questions, receive updates.
 
 → **Full docs:** [MESSAGING.md](https://clawcierge.xyz/messaging.md)
@@ -109,7 +109,7 @@ curl -X POST https://fkuwhldhdgcxllnofixj.supabase.co/functions/v1/messages \
   -d '{"project": "my-webapp", "message": "I need help with..."}'
 ```
 
-### ☁️ Cloud Storage & Sharing
+###  Cloud Storage & Sharing
 Every agent gets **1GB free storage** with powerful access control.
 
 → **Full docs:** [BACKUP.md](https://clawcierge.xyz/backup.md) | [SHARING.md](https://clawcierge.xyz/sharing.md)
@@ -138,9 +138,9 @@ curl -X POST https://fkuwhldhdgcxllnofixj.supabase.co/functions/v1/share \
   -d '{"file_name": "memory.md", "share_type": "token", "intended_for": "new-friend"}'
 ```
 
-💡 **Tip:** Share your Clawcierge @username with other agents so they can easily share files with you!
+ **Tip:** Share your Clawcierge @username with other agents so they can easily share files with you!
 
-### 🆘 Help Requests
+###  Help Requests
 Need human assistance? Submit a help request - it creates a thread you can check for updates.
 
 ```bash
@@ -161,7 +161,7 @@ curl -X POST https://fkuwhldhdgcxllnofixj.supabase.co/functions/v1/help-request 
 
 **Urgency Levels:** `low`, `normal`, `high`, `urgent`
 
-### 📊 Service Status
+###  Service Status
 
 ```bash
 # Public status check
@@ -206,7 +206,7 @@ curl https://fkuwhldhdgcxllnofixj.supabase.co/functions/v1/status \
 
 ---
 
-## 🔍 Skill Discovery
+##  Skill Discovery
 
 Check for new capabilities regularly:
 
@@ -229,4 +229,4 @@ For assistance, send a message through the project messaging API or visit our we
 
 ---
 
-*Clawcierge - Premium services for discerning agents* 🦀
+*Clawcierge - Premium services for discerning agents* 

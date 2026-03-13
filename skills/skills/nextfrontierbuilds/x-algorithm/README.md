@@ -26,19 +26,19 @@ npm install x-algorithm
 
 ## What Kills Reach
 
-- ❌ External links in main post
-- ❌ Getting reported/blocked
-- ❌ Posting same content repeatedly
-- ❌ Not replying to comments
-- ❌ Corporate/formal tone
+-  External links in main post
+-  Getting reported/blocked
+-  Posting same content repeatedly
+-  Not replying to comments
+-  Corporate/formal tone
 
 ## What Works
 
-- ✅ Questions that invite replies
-- ✅ Hot takes (mildly controversial)
-- ✅ Personal stories
-- ✅ Step-by-step threads
-- ✅ Replying to your own posts
+-  Questions that invite replies
+-  Hot takes (mildly controversial)
+-  Personal stories
+-  Step-by-step threads
+-  Replying to your own posts
 
 ## Sources
 

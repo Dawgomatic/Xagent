@@ -16,14 +16,14 @@ When sub-agents find useful patterns, document them here.
 
 **Pattern:** Use centralized db utilities from src/lib/db/
 
-❌ Don't:
+ Don't:
 ```typescript
 // In multiple files scattered across src/
 const pool = mysql.createPool(/* config */);
 const connection = await pool.getConnection();
 ```
 
-✅ Do:
+ Do:
 ```typescript
 // In src/lib/db.ts
 export const pool = mysql.createPool(/* config */);
@@ -52,7 +52,7 @@ const users = await query<User[]>('SELECT * FROM users');
 
 **Pattern:** Consistent error types and handling
 
-❌ Don't:
+ Don't:
 ```typescript
 // Scattered error approaches
 if (error) return { error: "Failed" };
@@ -60,7 +60,7 @@ if (err) throw new Error("Bad request");
 if (e) return res.status(500).json({ error: e.message });
 ```
 
-✅ Do:
+ Do:
 ```typescript
 // In src/lib/errors.ts
 export class AppError extends Error {
@@ -93,7 +93,7 @@ try {
 
 **Pattern:** Centralized auth with token verification
 
-❌ Don't:
+ Don't:
 ```typescript
 // JWT verification repeated everywhere
 const token = req.headers.authorization?.split(' ')[1];
@@ -101,7 +101,7 @@ const decoded = jwt.verify(token, SECRET);
 if (!decoded) return res.status(401);
 ```
 
-✅ Do:
+ Do:
 ```typescript
 // In src/lib/auth.ts
 export function verifyToken(token: string): JWTPayload {
@@ -128,7 +128,7 @@ router.get('/protected', requireAuth, async (req, res) => {
 
 **Pattern:** Consistent response structure
 
-❌ Don't:
+ Don't:
 ```typescript
 // Inconsistent response formats
 return { data: user };
@@ -136,7 +136,7 @@ return { user };
 return { success: true, user: user, timestamp: Date.now() };
 ```
 
-✅ Do:
+ Do:
 ```typescript
 // In src/lib/api.ts
 export interface ApiResponse<T> {
@@ -164,7 +164,7 @@ return res.status(400).json(errorResponse('Invalid input'));
 
 **Pattern:** Server actions for mutations
 
-❌ Don't:
+ Don't:
 ```typescript
 // Route handlers doing business logic
 app.post('/api/users', async (req, res) => {
@@ -174,7 +174,7 @@ app.post('/api/users', async (req, res) => {
 });
 ```
 
-✅ Do:
+ Do:
 ```typescript
 // Server action in src/app/actions/users.ts
 'use server';
@@ -194,7 +194,7 @@ import { createUser } from '@/app/actions/users';
 
 **Pattern:** Server components with async patterns
 
-❌ Don't:
+ Don't:
 ```typescript
 // Client-side data fetching in server component
 export default async function Page() {
@@ -204,7 +204,7 @@ export default async function Page() {
 }
 ```
 
-✅ Do:
+ Do:
 ```typescript
 // In src/app/data.ts (server utilities)
 import { db } from '@/lib/db';
@@ -227,7 +227,7 @@ export default async function Page() {
 
 **Pattern:** Use Pydantic for request/response validation
 
-❌ Don't:
+ Don't:
 ```python
 # Manual validation everywhere
 @app.post("/users")
@@ -239,7 +239,7 @@ async def create_user(request):
         raise HTTPException(400, "Invalid email")
 ```
 
-✅ Do:
+ Do:
 ```python
 # In src/models/user.py
 class UserCreate(BaseModel):
@@ -258,7 +258,7 @@ async def create_user(user: UserCreate):
 
 **Pattern:** Dependency injection with lifespan
 
-❌ Don't:
+ Don't:
 ```python
 # Global state scattered
 db = Database()
@@ -272,7 +272,7 @@ async def shutdown():
     db.disconnect()
 ```
 
-✅ Do:
+ Do:
 ```python
 # In src/lib/database.py
 class Database:

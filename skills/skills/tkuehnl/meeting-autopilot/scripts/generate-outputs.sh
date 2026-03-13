@@ -148,25 +148,25 @@ cat << 'HEADER'
 HEADER
 
 echo ""
-echo "# ✈️ Meeting Autopilot Report"
+echo "#  Meeting Autopilot Report"
 echo ""
 echo "**$MEETING_TITLE**"
-echo "📅 $REPORT_DATE"
-[ -n "$SPEAKERS" ] && echo "👥 Participants: $SPEAKERS"
+echo " $REPORT_DATE"
+[ -n "$SPEAKERS" ] && echo " Participants: $SPEAKERS"
 echo ""
 
 # ── Overview bar ──────────────────────────────────────────
 echo "---"
 echo ""
-echo "## 📊 Overview"
+echo "##  Overview"
 echo ""
 echo "| Category | Count |"
 echo "|----------|------:|"
-echo "| ✅ Decisions | $NUM_DECISIONS |"
-echo "| 📋 Action Items | $NUM_ACTIONS |"
-echo "| ❓ Open Questions | $NUM_QUESTIONS |"
-echo "| 🅿️ Parking Lot | $NUM_PARKING |"
-echo "| 💡 Key Points | $NUM_KEY_POINTS |"
+echo "|  Decisions | $NUM_DECISIONS |"
+echo "|  Action Items | $NUM_ACTIONS |"
+echo "|  Open Questions | $NUM_QUESTIONS |"
+echo "|  Parking Lot | $NUM_PARKING |"
+echo "|  Key Points | $NUM_KEY_POINTS |"
 echo "| **Total Items** | **$NUM_TOTAL** |"
 echo ""
 
@@ -174,7 +174,7 @@ echo ""
 if [ "$NUM_DECISIONS" -gt 0 ]; then
   echo "---"
   echo ""
-  echo "## ✅ Decisions"
+  echo "##  Decisions"
   echo ""
   printf '%s' "$DECISIONS" | jq -r 'to_entries[] |
     "### Decision \(.key + 1)\n" +
@@ -190,12 +190,12 @@ fi
 if [ "$NUM_ACTIONS" -gt 0 ]; then
   echo "---"
   echo ""
-  echo "## 📋 Action Items"
+  echo "##  Action Items"
   echo ""
   echo "| # | Action | Owner | Deadline | Status |"
   echo "|:-:|--------|-------|----------|:------:|"
   printf '%s' "$ACTION_ITEMS" | jq -r 'to_entries[] |
-    "| \(.key + 1) | \(.value.text) | \(.value.speaker // "Unassigned") | \(.value.deadline // "TBD") | ⬜ Open |"'
+    "| \(.key + 1) | \(.value.text) | \(.value.speaker // "Unassigned") | \(.value.deadline // "TBD") |  Open |"'
   echo ""
 fi
 
@@ -203,7 +203,7 @@ fi
 if [ "$NUM_QUESTIONS" -gt 0 ]; then
   echo "---"
   echo ""
-  echo "## ❓ Open Questions"
+  echo "##  Open Questions"
   echo ""
   printf '%s' "$OPEN_QUESTIONS" | jq -r 'to_entries[] |
     "\(.key + 1). **\(.value.text)**" +
@@ -215,7 +215,7 @@ fi
 if [ "$NUM_PARKING" -gt 0 ]; then
   echo "---"
   echo ""
-  echo "## 🅿️ Parking Lot"
+  echo "##  Parking Lot"
   echo ""
   echo "*Items deferred for future discussion:*"
   echo ""
@@ -229,7 +229,7 @@ fi
 if [ "$NUM_KEY_POINTS" -gt 0 ]; then
   echo "---"
   echo ""
-  echo "## 💡 Key Points"
+  echo "##  Key Points"
   echo ""
   printf '%s' "$KEY_POINTS" | jq -r 'to_entries[] |
     "- \(.value.text)" +
@@ -250,6 +250,6 @@ echo "---"
 echo ""
 echo "<sub>$BRAND_FOOTER | v$VERSION | Items stored locally for cross-meeting tracking.</sub>"
 echo ""
-echo "<sub>💡 *Tip: Install via \`clawhub install cacheforge/meeting-autopilot\` for one-command meeting analysis.*</sub>"
+echo "<sub> *Tip: Install via \`clawhub install cacheforge/meeting-autopilot\` for one-command meeting analysis.*</sub>"
 
 log_ok "Report generated successfully"

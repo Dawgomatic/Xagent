@@ -74,5 +74,5 @@ cognary-cli tasks delete <id> --json
 - When listing tasks, present them in a clean readable format (not raw JSON).
 - Show: title, status, priority, category, due date (if set), and ID.
 - Group active vs completed when showing all.
-- Use emoji for priority: 🔴 High, 🟡 Medium, 🟢 Low.
+- Use emoji for priority:  High,  Medium,  Low.
 - When confirming actions (add/complete/delete), be brief.

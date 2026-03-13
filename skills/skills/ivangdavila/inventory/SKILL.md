@@ -1,7 +1,7 @@
 ---
 name: Inventory
 description: Build a personal inventory system for home items, valuables, and equipment tracking.
-metadata: {"clawdbot":{"emoji":"📦","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

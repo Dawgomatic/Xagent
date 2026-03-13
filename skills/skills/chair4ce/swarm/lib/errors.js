@@ -120,7 +120,7 @@ function formatErrorEvent(error, context = {}) {
  */
 function formatErrorCLI(error, context = {}) {
   const diag = diagnoseError(error, context);
-  const icon = diag.severity === 'fatal' ? '💀' : diag.severity === 'warning' ? '⚠️' : '❌';
+  const icon = diag.severity === 'fatal' ? '' : diag.severity === 'warning' ? '' : '';
   
   let output = `${icon} ${diag.category.toUpperCase()}: ${diag.error}`;
   if (diag.stage) output += `\n   Stage: ${diag.stage}`;

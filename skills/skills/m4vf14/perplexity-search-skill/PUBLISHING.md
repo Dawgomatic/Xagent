@@ -1,6 +1,6 @@
 # Publishing Guide
 
-## Package Ready ✅
+## Package Ready 
 
 Your skill is packaged and ready for ClawHub publication.
 
@@ -99,7 +99,7 @@ When you make changes:
 
 **On ClawHub:**
 - Name: Perplexity Search
-- Icon: 🔍
+- Icon: 
 - Description: Search the web using Perplexity's Search API...
 - Install button → `clawhub install perplexity-search`
 
@@ -117,7 +117,7 @@ Your personal API key is **NOT** in the packaged skill. Users must provide their
 - Scripts
 - Configuration templates
 
-✅ **Safe to distribute publicly**
+ **Safe to distribute publicly**
 
 ---
 
@@ -125,4 +125,4 @@ Your personal API key is **NOT** in the packaged skill. Users must provide their
 
 - ClawHub docs: https://clawhub.com/docs
 - OpenClaw docs: https://docs.openclaw.ai
-- Your OpenClaw agent can help too! 🦾
+- Your OpenClaw agent can help too! 

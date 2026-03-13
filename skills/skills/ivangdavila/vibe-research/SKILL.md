@@ -3,7 +3,7 @@ name: Vibe Research
 slug: vibe-research
 version: 1.0.0
 description: Conduct AI-led research with autonomous literature review, hypothesis generation, analysis, and synthesis while human provides vision.
-metadata: {"clawdbot":{"emoji":"🔬","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

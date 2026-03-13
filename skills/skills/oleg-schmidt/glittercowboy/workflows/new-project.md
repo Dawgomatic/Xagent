@@ -95,7 +95,7 @@ Exit command.
 
 **Display stage banner:**
 
-🚀 **GSD → Questioning**
+ **GSD → Questioning**
 
 **Open the conversation:**
 
@@ -426,7 +426,7 @@ Use AskUserQuestion:
 **If "Research first":**
 
 Display stage banner:
-🚀 **GSD → Researching**
+ **GSD → Researching**
 
 Researching [domain] ecosystem...
 
@@ -654,7 +654,7 @@ Commit after writing.
 ```
 
 Display research complete banner and key findings:
-🚀 **GSD → Research Complete** ✓
+ **GSD → Research Complete** ✓
 
 **Key Findings:**
 
@@ -669,7 +669,7 @@ Files: `.planning/research/`
 ## Phase 7: Define Requirements
 
 Display stage banner:
-🚀 **GSD → Defining Requirements**
+ **GSD → Defining Requirements**
 
 **Load context:**
 
@@ -808,7 +808,7 @@ EOF
 ## Phase 8: Create Roadmap
 
 Display stage banner:
-🚀 **GSD → Creating Roadmap**
+ **GSD → Creating Roadmap**
 
 ◆ Spawning roadmapper...
 
@@ -954,7 +954,7 @@ EOF
 
 Present completion with next steps:
 
-🚀 **GSD → Project Initialized** ✓
+ **GSD → Project Initialized** ✓
 
 **[Project Name]**
 
@@ -992,7 +992,7 @@ Route to autopilot command.
 ```
 ───────────────────────────────────────────────────────────────
 
-## ▶ Next Up
+##  Next Up
 
 **Phase 1: [Phase Name]** — [Goal from ROADMAP.md]
 
@@ -1007,7 +1007,7 @@ Route to autopilot command.
 ```
 ───────────────────────────────────────────────────────────────
 
-## ▶ Next Up
+##  Next Up
 
 **Phase 1: [Phase Name]** — [Goal from ROADMAP.md]
 
@@ -1028,7 +1028,7 @@ Route to autopilot command.
 ```
 ───────────────────────────────────────────────────────────────
 
-## ▶ Design System
+##  Design System
 
 Establish visual foundations before building UI phases.
 

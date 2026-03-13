@@ -24,18 +24,18 @@ Check for outdated dependencies and security issues in npm and pip projects.
 
 3. **Output format**:
    ```
-   📦 Dependency Check — my-project
+    Dependency Check — my-project
 
    ## npm (3 outdated of 42 total)
    | Package | Current | Latest | Type |
    |---------|---------|--------|------|
-   | express | 4.18.2  | 5.0.1  | ⚠️ Major |
-   | lodash  | 4.17.20 | 4.17.21| 🟢 Patch |
+   | express | 4.18.2  | 5.0.1  |  Major |
+   | lodash  | 4.17.20 | 4.17.21|  Patch |
 
-   ## 🔒 Security Issues
+   ##  Security Issues
    | Package | Severity | Issue |
    |---------|----------|-------|
-   | lodash <4.17.21 | 🔴 High | Prototype Pollution |
+   | lodash <4.17.21 |  High | Prototype Pollution |
 
    ## Update Commands
    npm update                          # safe (patch+minor)
@@ -44,9 +44,9 @@ Check for outdated dependencies and security issues in npm and pip projects.
    ```
 
 4. **Version classification**:
-   - 🟢 Patch (x.y.3→x.y.4): Safe to update
-   - 🔵 Minor (x.2.z→x.3.0): Usually safe, check changelog
-   - ⚠️ Major (1.x→2.0): Breaking changes likely
+   -  Patch (x.y.3→x.y.4): Safe to update
+   -  Minor (x.2.z→x.3.0): Usually safe, check changelog
+   -  Major (1.x→2.0): Breaking changes likely
 
 ## Edge Cases
 

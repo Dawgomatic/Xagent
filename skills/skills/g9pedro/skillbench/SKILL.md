@@ -124,11 +124,11 @@ Copy `examples/github-action.yml` for ready-to-use GitHub Actions workflow.
 
 | Grade | Score | Meaning |
 |-------|-------|---------|
-| 🏆 A+ | 95-100 | Elite performance |
-| ✅ A | 85-94 | Excellent |
-| 👍 B | 70-84 | Good |
-| ⚠️ C | 50-69 | Needs work |
-| ❌ D | <50 | Broken |
+|  A+ | 95-100 | Elite performance |
+|  A | 85-94 | Excellent |
+|  B | 70-84 | Good |
+|  C | 50-69 | Needs work |
+|  D | <50 | Broken |
 
 Based on: Success Rate (40%), Avg Duration (30%), Consistency (20%), Trend (10%)
 
@@ -150,9 +150,9 @@ Benchmarks sync to [ClawVault](https://clawvault.dev) automatically.
 ## Improvement Signals
 
 `skillbench skills` shows:
-- ⚠️ **needs work** — Success rate below 70%
-- 🕐 **stale** — No benchmarks in 7+ days
-- ↘️ **declining** — Getting worse over time
+-  **needs work** — Success rate below 70%
+-  **stale** — No benchmarks in 7+ days
+-  **declining** — Getting worse over time
 
 ## Related
 

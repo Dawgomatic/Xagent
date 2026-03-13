@@ -3,7 +3,7 @@ name: slack-personal
 description: Read, send, search, and manage Slack messages and DMs via the slk CLI. Use when the user asks to check Slack, read channels or DMs, send Slack messages, search Slack, check unreads, manage drafts, view saved items, or interact with Slack workspace. Also use for heartbeat Slack checks. Triggers on "check slack", "any slack messages", "send on slack", "slack unreads", "search slack", "slack threads", "draft on slack", "read slack dms", "message on slack".
 homepage: https://www.npmjs.com/package/slkcli
 user-invocable: true
-metadata: {"openclaw":{"emoji":"💬","requires":{"bins":["slk"]},"install":[{"id":"npm","kind":"node","package":"slkcli","bins":["slk"],"label":"Install slk (npm)"}],"os":["darwin"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["slk"]},"install":[{"id":"npm","kind":"node","package":"slkcli","bins":["slk"],"label":"Install slk (npm)"}],"os":["darwin"]}}
 ---
 
 # slk — Slack CLI
@@ -82,7 +82,7 @@ slk thread general 1769753479.788949
 
 - **Heartbeat/cron unread check** — `slk unread` → `slk read <channel>` for channels that need attention
 - **Save & pick up** — Human saves threads in Slack ("Save for later"). Agent runs `slk saved` during heartbeat, reads full threads with `slk thread`, summarizes or extracts action items
-- **Daily channel digest** — `slk read <channel> 100` across key channels → compile decisions, open questions, action items → `slk send daily-digest "📋 ..."`
+- **Daily channel digest** — `slk read <channel> 100` across key channels → compile decisions, open questions, action items → `slk send daily-digest " ..."`
 - **Weekly DM summary** — `slk read @boss 200 --from 2026-02-01 --threads` → extract action items, decisions, context
 - **Thread monitoring** — Watch specific threads for new replies (incidents, PR reviews, decisions)
 - **Draft for human review** — `slk draft <channel> "..."` posts to Slack's editor UI for human to review before sending

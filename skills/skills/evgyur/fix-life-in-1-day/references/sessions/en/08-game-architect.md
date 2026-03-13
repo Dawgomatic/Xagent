@@ -132,27 +132,27 @@ Your 1-month project is the boss fight. How you gain XP and loot.
 After completion, form the complete map:
 
 ```
-🎮 GAME MAP — {Name}
+ GAME MAP — {Name}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-⚔️ STAKES (Anti-Vision):
+ STAKES (Anti-Vision):
 {from 1.2}
 
-🏆 WIN (Vision):
+ WIN (Vision):
 {from 2.1}
 
-🎯 MISSION (1 Year):
+ MISSION (1 Year):
 {from 3.1}
 
-👹 BOSS FIGHT (1 Month):
+ BOSS FIGHT (1 Month):
 {from 4.1}
 
-📋 QUESTS (Daily):
+ QUESTS (Daily):
 • {quest 1}
 • {quest 2}
 • {quest 3}
 
-📜 RULES (Constraints):
+ RULES (Constraints):
 • {constraint 1}
 • {constraint 2}
 
@@ -164,9 +164,9 @@ After completion, form the complete map:
 ## Summary Template
 
 ```
-✅ **Session 8 Complete: The Game Architecture Engineer**
+ **Session 8 Complete: The Game Architecture Engineer**
 
-🎮 **Your Game Map is ready!**
+ **Your Game Map is ready!**
 
 **Stakes:** {brief anti-vision}
 **Win:** {brief vision}
@@ -183,5 +183,5 @@ After completion, form the complete map:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ready for Session 9: The Conditioning Excavator?
-[▶️ Continue] [⏸ Take a Break]
+[ Continue] [ Take a Break]
 ```

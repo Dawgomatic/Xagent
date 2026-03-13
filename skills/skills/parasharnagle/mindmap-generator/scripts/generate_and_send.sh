@@ -25,7 +25,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CHAT_ID="${1:?Usage: echo '<mermaid>' | generate_and_send.sh <chat_id> [caption]}"
-CAPTION="${2:-🗺️ Here's your mindmap}"
+CAPTION="${2:- Here's your mindmap}"
 
 # Generate unique temp filenames
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
@@ -47,10 +47,10 @@ if [[ ! -s "$INPUT_FILE" ]]; then
     exit 1
 fi
 
-echo "📝 Step 1/3: Received mindmap content ($(wc -l < "$INPUT_FILE" | tr -d ' ') lines)"
+echo " Step 1/3: Received mindmap content ($(wc -l < "$INPUT_FILE" | tr -d ' ') lines)"
 
 # Step 1: Render to PNG
-echo "🎨 Step 2/3: Rendering mindmap to PNG..."
+echo " Step 2/3: Rendering mindmap to PNG..."
 "$SCRIPT_DIR/render_mindmap.sh" "$INPUT_FILE" "$OUTPUT_FILE"
 
 if [[ $? -ne 0 || ! -f "$OUTPUT_FILE" ]]; then
@@ -60,7 +60,7 @@ if [[ $? -ne 0 || ! -f "$OUTPUT_FILE" ]]; then
     TEXT_CONTENT=$(cat "$INPUT_FILE")
     curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
         -F "chat_id=$CHAT_ID" \
-        -F "text=⚠️ Couldn't render the mindmap as an image. Here's the structure:\n\n$TEXT_CONTENT" \
+        -F "text= Couldn't render the mindmap as an image. Here's the structure:\n\n$TEXT_CONTENT" \
         -F "parse_mode=HTML" \
         > /dev/null 2>&1
 
@@ -69,10 +69,10 @@ if [[ $? -ne 0 || ! -f "$OUTPUT_FILE" ]]; then
 fi
 
 # Step 2: Send to Telegram
-echo "📱 Step 3/3: Sending to Telegram..."
+echo " Step 3/3: Sending to Telegram..."
 "$SCRIPT_DIR/send_telegram_photo.sh" "$OUTPUT_FILE" "$CAPTION" "$CHAT_ID"
 
 # Cleanup temp files
 rm -f "$INPUT_FILE" "$OUTPUT_FILE"
 
-echo "🎉 Done! Mindmap delivered to Telegram."
+echo " Done! Mindmap delivered to Telegram."

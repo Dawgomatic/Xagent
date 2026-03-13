@@ -2,10 +2,10 @@
 name: okx-dex
 description: OKX DEX aggregator (v6). Get swap quotes, swap/approve tx data, tokens, and chains.
 homepage: https://web3.okx.com/build/dev-docs/wallet-api/dex-api-reference
-metadata: {"clawdbot":{"emoji":"🧭","always":true,"requires":{"bins":["curl","jq","python3"]}}}
+metadata: {"clawdbot":{"emoji":"","always":true,"requires":{"bins":["curl","jq","python3"]}}}
 ---
 
-# OKX DEX Aggregator 🧭
+# OKX DEX Aggregator 
 
 OKX Wallet DEX API provides aggregated swap quotes and transaction data across multiple chains (EVM + non‑EVM).
 

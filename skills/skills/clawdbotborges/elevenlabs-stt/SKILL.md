@@ -2,7 +2,7 @@
 name: elevenlabs-stt
 description: Transcribe audio files using ElevenLabs Speech-to-Text (Scribe v2).
 homepage: https://elevenlabs.io/speech-to-text
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"bins":["curl"],"env":["ELEVENLABS_API_KEY"]},"primaryEnv":"ELEVENLABS_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"],"env":["ELEVENLABS_API_KEY"]},"primaryEnv":"ELEVENLABS_API_KEY"}}
 ---
 
 # ElevenLabs Speech-to-Text

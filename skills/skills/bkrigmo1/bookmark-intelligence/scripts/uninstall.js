@@ -49,7 +49,7 @@ function commandExists(command) {
 
 async function main() {
   console.log('');
-  print('🗑️  Bookmark Intelligence - Uninstall', bright);
+  print('  Bookmark Intelligence - Uninstall', bright);
   console.log('='.repeat(60));
   console.log('');
   
@@ -81,12 +81,12 @@ async function main() {
   // 1. Stop PM2 daemon
   if (commandExists('pm2')) {
     try {
-      print('🛑 Stopping PM2 daemon...', cyan);
+      print(' Stopping PM2 daemon...', cyan);
       execSync('pm2 delete bookmark-intelligence 2>/dev/null', { stdio: 'ignore' });
-      print('   ✅ PM2 daemon stopped and removed', green);
+      print('    PM2 daemon stopped and removed', green);
       removed++;
     } catch {
-      print('   ℹ️  No PM2 daemon was running', yellow);
+      print('     No PM2 daemon was running', yellow);
     }
   }
   
@@ -94,7 +94,7 @@ async function main() {
   const envFile = join(SKILL_DIR, '.env');
   if (existsSync(envFile)) {
     unlinkSync(envFile);
-    print('🔐 Removed credentials (.env)', green);
+    print(' Removed credentials (.env)', green);
     removed++;
   }
   
@@ -102,7 +102,7 @@ async function main() {
   const configFile = join(SKILL_DIR, 'config.json');
   if (existsSync(configFile)) {
     unlinkSync(configFile);
-    print('⚙️  Removed configuration (config.json)', green);
+    print('  Removed configuration (config.json)', green);
     removed++;
   }
   
@@ -110,7 +110,7 @@ async function main() {
   const stateFile = join(SKILL_DIR, 'bookmarks.json');
   if (existsSync(stateFile)) {
     unlinkSync(stateFile);
-    print('📊 Removed processing state (bookmarks.json)', green);
+    print(' Removed processing state (bookmarks.json)', green);
     removed++;
   }
   
@@ -120,22 +120,22 @@ async function main() {
     if (existsSync(storageDir)) {
       try {
         rmSync(storageDir, { recursive: true, force: true });
-        print('📚 Removed analyzed bookmarks', green);
+        print(' Removed analyzed bookmarks', green);
         removed++;
       } catch (error) {
-        print(`❌ Failed to remove bookmarks: ${error.message}`, red);
+        print(` Failed to remove bookmarks: ${error.message}`, red);
       }
     }
   } else {
-    print('📚 Keeping analyzed bookmarks (as requested)', cyan);
+    print(' Keeping analyzed bookmarks (as requested)', cyan);
   }
   
   console.log('');
   
   if (removed > 0) {
-    print(`✅ Uninstall complete! Removed ${removed} item(s).`, green);
+    print(` Uninstall complete! Removed ${removed} item(s).`, green);
   } else {
-    print('ℹ️  Nothing to remove (already clean)', yellow);
+    print('  Nothing to remove (already clean)', yellow);
   }
   
   console.log('');
@@ -153,7 +153,7 @@ process.on('SIGINT', () => {
 });
 
 main().catch(error => {
-  print(`\n❌ Uninstall failed: ${error.message}`, red);
+  print(`\n Uninstall failed: ${error.message}`, red);
   rl.close();
   process.exit(1);
 });

@@ -20,7 +20,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('[BOT] 🤖 SecondMind Telegram Bot gestartet');
+  console.log('[BOT]  SecondMind Telegram Bot gestartet');
   console.log('[BOT] Warte auf Commands...');
 
   // Set bot commands menu
@@ -67,7 +67,7 @@ async function main() {
             await sendMessage(token, chatId, response);
           }
         } catch (err) {
-          await sendMessage(token, chatId, `❌ Fehler: ${err.message}`);
+          await sendMessage(token, chatId, ` Fehler: ${err.message}`);
         }
       }
     } catch (err) {
@@ -147,12 +147,12 @@ async function handleCommand(db, text) {
       return moodText(db);
 
     default:
-      return `❓ Unbekannt: /${cmd}\n${helpText()}`;
+      return ` Unbekannt: /${cmd}\n${helpText()}`;
   }
 }
 
 function helpText() {
-  return `🧠 *SecondMind Bot*
+  return ` *SecondMind Bot*
 
 /status – Overview
 /proposals – Open proposals
@@ -185,7 +185,7 @@ function statusText(db) {
   try {
     const projActive = db.prepare("SELECT COUNT(*) as c FROM projects WHERE status='active'").get();
     const projDone = db.prepare("SELECT COUNT(*) as c FROM projects WHERE status='completed'").get();
-    projLine = `\n📦 Projects: ${projActive.c} active / ${projDone.c} done`;
+    projLine = `\n Projects: ${projActive.c} active / ${projDone.c} done`;
   } catch { /* table might not exist yet */ }
 
   let emo = '';
@@ -196,8 +196,8 @@ function statusText(db) {
       GROUP BY mood ORDER BY c DESC LIMIT 5
     `).all();
     if (moods.length > 0) {
-      const mi = { frustration:'😤', excitement:'🎉', worry:'😰', celebration:'🥳', stress:'😫', curiosity:'🤔', boredom:'😴', gratitude:'🙏' };
-      emo = '\n🎭 ' + moods.map(m => `${mi[m.mood]||'❓'}${m.c}`).join(' ');
+      const mi = { frustration:'', excitement:'', worry:'', celebration:'', stress:'', curiosity:'', boredom:'', gratitude:'' };
+      emo = '\n ' + moods.map(m => `${mi[m.mood]||''}${m.c}`).join(' ');
     }
   } catch {}
 
@@ -205,16 +205,16 @@ function statusText(db) {
   const lc = getState('last_consolidate');
   const linit = getState('last_initiative');
 
-  return `🧠 *Status*
+  return ` *Status*
 
-📚 Knowledge: ${k.c} Einträge
-🗄️ Archiv: ${a.c}
-📥 Buffer: ${buf.c} (${buf.u || 0} offen)
-💡 Proposals: ${pOpen.c} offen / ${pTotal.c} total${projLine}${emo}
+ Knowledge: ${k.c} Einträge
+ Archiv: ${a.c}
+ Buffer: ${buf.c} (${buf.u || 0} offen)
+ Proposals: ${pOpen.c} offen / ${pTotal.c} total${projLine}${emo}
 
-⏰ Ingest: ${timeAgo(li)}
-⏰ Consolidate: ${timeAgo(lc)}
-⏰ Initiative: ${timeAgo(linit)}`;
+ Ingest: ${timeAgo(li)}
+ Consolidate: ${timeAgo(lc)}
+ Initiative: ${timeAgo(linit)}`;
 }
 
 function proposalsText(db, filter) {
@@ -225,21 +225,21 @@ function proposalsText(db, filter) {
   sql += ' ORDER BY proposed_at DESC LIMIT 10';
 
   const rows = db.prepare(sql).all(...params);
-  if (rows.length === 0) return `Nix offen (${status}). Alles erledigt 👍`;
+  if (rows.length === 0) return `Nix offen (${status}). Alles erledigt `;
 
   // Save digest IDs for NL-feedback
   updateState('last_digest_ids', JSON.stringify(rows.map(r => r.id)));
   updateState('last_digest_at', new Date().toISOString());
 
-  const eff = { quick:'⚡', medium:'🔧', large:'🏗️' };
-  const cat = { automation:'🤖', project:'📦', tool:'🔨', optimization:'⚡', fix:'🔧', social:'🎭', follow_up:'📌', learning:'📚' };
+  const eff = { quick:'', medium:'', large:'' };
+  const cat = { automation:'', project:'', tool:'', optimization:'', fix:'', social:'', follow_up:'', learning:'' };
 
-  let t = `💡 *Offene Vorschläge:*\n\n`;
+  let t = ` *Offene Vorschläge:*\n\n`;
   for (const p of rows) {
     const effort = p.effort_estimate || 'medium';
     const type = p.type || 'optimization';
-    t += `${cat[type]||'💡'} *#${p.id} ${p.title}*\n${p.description}`;
-    if (p.follow_up) t += `\n💬 _${p.follow_up}_`;
+    t += `${cat[type]||''} *#${p.id} ${p.title}*\n${p.description}`;
+    if (p.follow_up) t += `\n _${p.follow_up}_`;
     t += `\n${eff[effort]||''} ${effort}\n\n`;
   }
   return t + '_/accept <ID...> | /reject <ID...> | /drop <ID...>_';
@@ -254,17 +254,17 @@ function projectsText(db, filter) {
     rows = db.prepare('SELECT * FROM projects WHERE status = ? ORDER BY started_at DESC LIMIT 20').all(status);
   }
 
-  if (rows.length === 0) return `📦 No projects (${status}). Nothing tracked yet.`;
+  if (rows.length === 0) return ` No projects (${status}). Nothing tracked yet.`;
 
-  const icons = { active: '🔄', completed: '✅', paused: '⏸️', abandoned: '🚫' };
-  let t = `📦 *Projects (${status}):*\n\n`;
+  const icons = { active: '', completed: '', paused: '', abandoned: '' };
+  let t = ` *Projects (${status}):*\n\n`;
   for (const p of rows) {
     const age = Math.floor((Date.now() - new Date(p.started_at).getTime()) / 86400000);
-    t += `${icons[p.status] || '📦'} *#${p.id} ${p.title}*\n`;
+    t += `${icons[p.status] || ''} *#${p.id} ${p.title}*\n`;
     t += `${p.description.slice(0, 120)}${p.description.length > 120 ? '...' : ''}\n`;
-    t += `📅 ${age}d old`;
-    if (p.completed_at) t += ` | ✅ ${new Date(p.completed_at).toLocaleDateString('de-DE')}`;
-    if (p.notes) t += `\n💬 _${p.notes}_`;
+    t += ` ${age}d old`;
+    if (p.completed_at) t += ` |  ${new Date(p.completed_at).toLocaleDateString('de-DE')}`;
+    if (p.notes) t += `\n _${p.notes}_`;
     t += '\n\n';
   }
 
@@ -275,7 +275,7 @@ function projectsText(db, filter) {
 }
 
 function feedbackAction(db, args, newStatus) {
-  if (!args) return `❌ Format: /accept <ID...> [Kommentar]\nBeispiel: /accept 3 oder /accept 1 3 5`;
+  if (!args) return ` Format: /accept <ID...> [Kommentar]\nBeispiel: /accept 3 oder /accept 1 3 5`;
 
   // === Handle "all" variants ===
   if (args.toLowerCase().startsWith('all')) {
@@ -285,10 +285,10 @@ function feedbackAction(db, args, newStatus) {
   // === Parse IDs and optional comment ===
   const { ids, comment } = parseIdsAndComment(args);
 
-  if (ids.length === 0) return `❌ Keine gültigen IDs gefunden.`;
+  if (ids.length === 0) return ` Keine gültigen IDs gefunden.`;
 
   // === Bulk execute in transaction ===
-  const icons = { accepted:'✅', rejected:'❌', deferred:'⏸️', completed:'🏁', dead:'💀' };
+  const icons = { accepted:'', rejected:'', deferred:'', completed:'', dead:'' };
   const results = [];
 
   const update = db.prepare(`
@@ -319,15 +319,15 @@ function feedbackAction(db, args, newStatus) {
   let response = '';
   for (const r of results) {
     if (!r.ok) {
-      response += `❌ #${r.id} nicht gefunden.\n`;
+      response += ` #${r.id} nicht gefunden.\n`;
     } else {
-      response += `${icons[newStatus]||'📝'} *#${r.id}* "${r.title}" → *${newStatus}*\n`;
+      response += `${icons[newStatus]||''} *#${r.id}* "${r.title}" → *${newStatus}*\n`;
     }
   }
 
   if (ids.length > 1) {
     const okCount = results.filter(r => r.ok).length;
-    response += `\n📊 ${okCount}/${ids.length} → ${newStatus}`;
+    response += `\n ${okCount}/${ids.length} → ${newStatus}`;
   }
 
   // After accept: show follow-up for single proposal + create project
@@ -336,7 +336,7 @@ function feedbackAction(db, args, newStatus) {
     for (const r of accepted) {
       const project = createProjectFromProposal(r.id);
       if (project) {
-        response += `\n📦 Project #${project.id} created`;
+        response += `\n Project #${project.id} created`;
       }
     }
     if (accepted.length === 1 && accepted[0].followUp) {
@@ -352,7 +352,7 @@ function feedbackAction(db, args, newStatus) {
     for (const r of completed) {
       const project = completeProject(r.id);
       if (project) {
-        response += `\n🏁 Project "${project.title}" completed`;
+        response += `\n Project "${project.title}" completed`;
       }
     }
   }
@@ -363,12 +363,12 @@ function feedbackAction(db, args, newStatus) {
     for (const r of dropped) {
       const archived = archiveKnowledgeForProposal(r.id);
       if (archived > 0) {
-        response += `\n🗄️ ${archived} knowledge entries archived`;
+        response += `\n ${archived} knowledge entries archived`;
       }
     }
   }
 
-  if (comment) response += `\n💬 ${comment}`;
+  if (comment) response += `\n ${comment}`;
 
   return response;
 }
@@ -390,10 +390,10 @@ function feedbackAll(db, newStatus, extraArgs) {
   }
 
   const proposals = db.prepare(`SELECT id FROM proposals WHERE ${where}`).all();
-  if (proposals.length === 0) return `Nix gefunden (${label}). Alles erledigt 👍`;
+  if (proposals.length === 0) return `Nix gefunden (${label}). Alles erledigt `;
 
   const ids = proposals.map(p => p.id);
-  const icons = { accepted:'✅', rejected:'❌', dead:'💀', deferred:'⏸️' };
+  const icons = { accepted:'', rejected:'', dead:'', deferred:'' };
 
   const update = db.prepare(`
     UPDATE proposals SET status = ?, user_feedback = ?, resolved_at = datetime('now')
@@ -418,9 +418,9 @@ function feedbackAll(db, newStatus, extraArgs) {
     }
   }
 
-  let response = `${icons[newStatus]||'📝'} ${ids.length} Proposals (${label}) → *${newStatus}*`;
+  let response = `${icons[newStatus]||''} ${ids.length} Proposals (${label}) → *${newStatus}*`;
   if (archivedCount > 0) {
-    response += `\n🗄️ ${archivedCount} knowledge entries archived`;
+    response += `\n ${archivedCount} knowledge entries archived`;
   }
   return response;
 }
@@ -460,18 +460,18 @@ function parseIdsAndComment(argsStr) {
  * /mute 1d | 1w | 2h
  */
 function handleMute(args) {
-  if (!args) return '❌ Format: /mute <dauer> (z.B. 1d, 1w, 2h)';
+  if (!args) return ' Format: /mute <dauer> (z.B. 1d, 1w, 2h)';
   const hours = parseDurationHours(args.trim());
-  if (!hours) return `❌ Unbekannte Dauer: ${args}. Nutze z.B. 1d, 1w, 2h`;
+  if (!hours) return ` Unbekannte Dauer: ${args}. Nutze z.B. 1d, 1w, 2h`;
 
   const until = new Date(Date.now() + hours * 3600000);
   updateState('mute_until', until.toISOString());
-  return `🔇 *Muted* bis ${until.toLocaleDateString('de-DE')} ${until.toLocaleTimeString('de-DE', {hour:'2-digit',minute:'2-digit'})}`;
+  return ` *Muted* bis ${until.toLocaleDateString('de-DE')} ${until.toLocaleTimeString('de-DE', {hour:'2-digit',minute:'2-digit'})}`;
 }
 
 function handleUnmute() {
   updateState('mute_until', null);
-  return '🔊 *Unmuted.* Notifications sind wieder aktiv.';
+  return ' *Unmuted.* Notifications sind wieder aktiv.';
 }
 
 /**
@@ -517,8 +517,8 @@ Nur IDs aus der Liste. NUR JSON.`
     if (!Array.isArray(result) || result.length === 0) return null;
 
     const statusMap = { accept: 'accepted', reject: 'rejected', defer: 'deferred', drop: 'dead' };
-    const icons = { accepted:'✅', rejected:'❌', deferred:'⏸️', dead:'💀' };
-    let response = '🤖 *NL-Feedback verstanden:*\n\n';
+    const icons = { accepted:'', rejected:'', deferred:'', dead:'' };
+    let response = ' *NL-Feedback verstanden:*\n\n';
 
     const transaction = db.transaction(() => {
       for (const item of result) {
@@ -592,13 +592,13 @@ function parseDurationHours(str) {
 }
 
 function searchText(db, query) {
-  if (!query) return '❌ Format: /search <Begriff>';
+  if (!query) return ' Format: /search <Begriff>';
 
   const escaped = query.replace(/[^\w\säöüÄÖÜß-]/g, ' ')
     .split(/\s+/).filter(w => w.length > 1)
     .map(w => `"${w}"`).join(' OR ');
 
-  if (!escaped) return '❌ Keine sinnvollen Suchbegriffe.';
+  if (!escaped) return ' Keine sinnvollen Suchbegriffe.';
 
   let results = [];
   try {
@@ -611,9 +611,9 @@ function searchText(db, query) {
     `).all(escaped);
   } catch {}
 
-  if (results.length === 0) return `🔍 Keine Ergebnisse für "${query}".`;
+  if (results.length === 0) return ` Keine Ergebnisse für "${query}".`;
 
-  let t = `🔍 *"${query}"*\n\n`;
+  let t = ` *"${query}"*\n\n`;
   for (const r of results) {
     t += `[${r.category}] *${r.title}*\n${r.summary?.slice(0, 100)}...\n\n`;
   }
@@ -629,24 +629,24 @@ function moodText(db) {
       GROUP BY mood ORDER BY c DESC
     `).all();
 
-    if (moods.length === 0) return '🎭 Keine Emotionen in den letzten 7 Tagen erfasst.';
+    if (moods.length === 0) return ' Keine Emotionen in den letzten 7 Tagen erfasst.';
 
-    const mi = { frustration:'😤', excitement:'🎉', worry:'😰', celebration:'🥳', stress:'😫', curiosity:'🤔', boredom:'😴', gratitude:'🙏' };
-    let t = '🎭 *Stimmungspuls (7 Tage)*\n\n';
+    const mi = { frustration:'', excitement:'', worry:'', celebration:'', stress:'', curiosity:'', boredom:'', gratitude:'' };
+    let t = ' *Stimmungspuls (7 Tage)*\n\n';
     for (const m of moods) {
       const bar = '█'.repeat(Math.min(m.c, 15));
-      t += `${mi[m.mood]||'❓'} ${m.mood}: ${bar} ${m.c}\n`;
+      t += `${mi[m.mood]||''} ${m.mood}: ${bar} ${m.c}\n`;
     }
 
     // Stale frustrations
     try {
       const stale = db.prepare('SELECT COUNT(*) as c FROM v_stale_frustrations WHERE days_ago > 3').get();
-      if (stale.c > 0) t += `\n⚠️ ${stale.c} ungelöste Frustration(en) > 3 Tage`;
+      if (stale.c > 0) t += `\n ${stale.c} ungelöste Frustration(en) > 3 Tage`;
     } catch {}
 
     return t;
   } catch {
-    return '🎭 Social tables nicht verfügbar.';
+    return ' Social tables nicht verfügbar.';
   }
 }
 

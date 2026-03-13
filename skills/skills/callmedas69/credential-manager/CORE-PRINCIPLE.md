@@ -79,13 +79,13 @@ Yes, scattered JSON files are "easier" to set up initially. But they're harder t
 
 Every OpenClaw skill that needs credentials MUST:
 
-1. ✅ Load from `~/.openclaw/.env`
-2. ✅ Validate file permissions on load
-3. ✅ Never log full credentials
-4. ✅ Provide clear error if `.env` missing
-5. ❌ Never accept credentials from CLI args
-6. ❌ Never accept credentials from environment variables set in shell
-7. ❌ Never create credential files outside `.env`
+1.  Load from `~/.openclaw/.env`
+2.  Validate file permissions on load
+3.  Never log full credentials
+4.  Provide clear error if `.env` missing
+5.  Never accept credentials from CLI args
+6.  Never accept credentials from environment variables set in shell
+7.  Never create credential files outside `.env`
 
 ## Migration Is Mandatory
 
@@ -154,4 +154,4 @@ It's not a feature. It's the foundation everything else builds on.
 
 **Bottom line:** If your credentials aren't in `~/.openclaw/.env` with mode 600, stop what you're doing and fix it first. Everything else can wait.
 
-This is the hill we die on. 📺
+This is the hill we die on. 

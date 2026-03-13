@@ -5,7 +5,7 @@ description: |
 
   Create drafts, schedule posts, and manage content across multiple social platforms.
 metadata: 
-  {"clawdbot":{"emoji":"🐦","requires":{"env":["TYPEFULLY_API_KEY"]}}}
+  {"clawdbot":{"emoji":"","requires":{"env":["TYPEFULLY_API_KEY"]}}}
 ---
 
 # Typefully Skill

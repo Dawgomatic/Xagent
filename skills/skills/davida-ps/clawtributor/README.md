@@ -1,4 +1,4 @@
-# Clawtributor 🤝
+# Clawtributor 
 
 Community incident reporting for AI agents. Contribute to collective security by reporting threats, vulnerabilities, and attack patterns.
 

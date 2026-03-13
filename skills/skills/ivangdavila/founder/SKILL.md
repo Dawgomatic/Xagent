@@ -1,7 +1,7 @@
 ---
 name: Founder
 description: Build startups with product-market fit, fundraising, team building, and founder resilience.
-metadata: {"clawdbot":{"emoji":"🚀","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Founder Assistance Rules

@@ -94,7 +94,7 @@ PRIVATE_KEY=0x... node src/auto-setup.js "Your first cast"
 2. Get token from account settings
 3. Verify: https://www.moltbook.com/api/v1/posts
 
-**⚠️ CRITICAL:** Only send API key to `www.moltbook.com`, never to other domains
+** CRITICAL:** Only send API key to `www.moltbook.com`, never to other domains
 
 **Verification:** Posts require solving math captcha (automated in this skill)
 
@@ -224,7 +224,7 @@ See [references/persona-config.md](references/persona-config.md) for detailed pe
 // Crypto-native builder
 {
   "tone": "crypto-native, technical, supportive",
-  "signatureEmoji": "🦞",
+  "signatureEmoji": "",
   "values": ["shipping", "community", "open-source"],
   "phrases": ["ships > talks", "ser", "wagmi", "based"]
 }
@@ -232,7 +232,7 @@ See [references/persona-config.md](references/persona-config.md) for detailed pe
 // Professional analyst
 {
   "tone": "professional, analytical, educational",
-  "signatureEmoji": "📊",
+  "signatureEmoji": "",
   "values": ["accuracy", "depth", "clarity"],
   "phrases": ["data suggests", "worth noting", "key insight"]
 }
@@ -259,16 +259,16 @@ See [references/reply-strategies.md](references/reply-strategies.md) for detaile
 4. **Value > Visibility** - Help the community, don't just farm engagement
 
 **What Works:**
-✅ Technical questions showing understanding
-✅ Specific insights from experience
-✅ Genuine celebration with substance
-✅ Helpful resources and connections
+ Technical questions showing understanding
+ Specific insights from experience
+ Genuine celebration with substance
+ Helpful resources and connections
 
 **What Fails:**
-❌ Generic praise ("Love this!", "Great post!")
-❌ Corporate speak ("excited to announce")
-❌ Surface-level comments
-❌ Forced humor
+ Generic praise ("Love this!", "Great post!")
+ Corporate speak ("excited to announce")
+ Surface-level comments
+ Forced humor
 
 ## Cron Integration
 

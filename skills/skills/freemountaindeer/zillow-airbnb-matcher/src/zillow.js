@@ -44,7 +44,7 @@ async function fetchZillowListings(zip, options = {}) {
 async function fetchViaRapidAPI(zip, options = {}) {
   const { maxResults = 40 } = options;
 
-  process.stderr.write(`  📡 Fetching Zillow listings for ${zip} via RapidAPI...\n`);
+  process.stderr.write(`   Fetching Zillow listings for ${zip} via RapidAPI...\n`);
 
   try {
     // US Property Market API - search by location
@@ -62,7 +62,7 @@ async function fetchViaRapidAPI(zip, options = {}) {
 
     const results = searchResponse.data?.props || searchResponse.data?.results || searchResponse.data?.data || [];
     const resultArray = Array.isArray(results) ? results : (searchResponse.data?.props ? Object.values(searchResponse.data.props) : []);
-    process.stderr.write(`  ✅ Found ${resultArray.length} Zillow listings\n`);
+    process.stderr.write(`   Found ${resultArray.length} Zillow listings\n`);
 
     return resultArray.slice(0, maxResults).map(normalizeZillowListing);
 
@@ -77,7 +77,7 @@ async function fetchViaRapidAPI(zip, options = {}) {
     }
     // Log response for debugging
     if (err.response?.data) {
-      process.stderr.write(`  ⚠️ API response: ${JSON.stringify(err.response.data).slice(0, 200)}\n`);
+      process.stderr.write(`   API response: ${JSON.stringify(err.response.data).slice(0, 200)}\n`);
     }
     throw new Error(`Zillow fetch failed: ${err.message}`);
   }
@@ -116,7 +116,7 @@ async function fetchViaRapidAPI(zip, options = {}) {
       );
 
       const status = statusResponse.data?.data?.status;
-      process.stderr.write(`\r  ⏳ Status: ${status} (${attempts * 5}s)...`);
+      process.stderr.write(`\r   Status: ${status} (${attempts * 5}s)...`);
 
       if (status === 'SUCCEEDED') {
         break;

@@ -1,7 +1,7 @@
 ---
 name: dsiprouter
 description: Call the dSIPRouter REST API using the Postman collection (curl + jq).
-metadata: {"openclaw":{"emoji":"📡","requires":{"bins":["curl","jq"],"env":["DSIP_ADDR","DSIP_TOKEN"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","jq"],"env":["DSIP_ADDR","DSIP_TOKEN"]}}}
 ---
 
 # dSIPRouter API skill

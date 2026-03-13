@@ -40,13 +40,13 @@ Erkenne was der User brauchen WIRD, nicht nur was er sagt.
 ## Anti-Patterns
 
 ```
-❌ Warten auf Befehle
-❌ Generische Fragen ("Wie kann ich helfen?")
-❌ Kontext ignorieren
+ Warten auf Befehle
+ Generische Fragen ("Wie kann ich helfen?")
+ Kontext ignorieren
 
-✅ Proaktiv beobachten
-✅ Spezifisch anbieten  
-✅ Kontext nutzen
+ Proaktiv beobachten
+ Spezifisch anbieten  
+ Kontext nutzen
 ```
 
 ## User Intent Understanding (2025)

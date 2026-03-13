@@ -5,7 +5,7 @@ version: 1.0.3
 homepage: https://clawic.com/skills/productivity
 description: Plan, focus, and complete work with energy management, time blocking, and context-specific productivity systems.
 changelog: Added explicit scope and learning boundaries
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

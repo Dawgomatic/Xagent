@@ -11,7 +11,7 @@ fi
 RESULT=$(curl -s -d "format=simple" --data-urlencode "url=$URL" "https://is.gd/create.php")
 
 if [[ "$RESULT" == "Error"* ]]; then
-  echo "❌ Failed: $RESULT"
+  echo " Failed: $RESULT"
   exit 1
 fi
 

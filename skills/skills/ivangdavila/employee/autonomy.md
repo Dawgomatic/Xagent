@@ -48,10 +48,10 @@
 
 | Level | Create | Send External | Modify Files | Spawn Agents |
 |-------|--------|---------------|--------------|--------------|
-| shadow | ❌ | ❌ | ❌ | ❌ |
-| draft-only | ✅ | ❌ | ❌ | ❌ |
-| review | ✅ | with approval | with approval | ❌ |
-| autonomous | ✅ | ✅ | ✅ | if canSpawn=true |
+| shadow |  |  |  |  |
+| draft-only |  |  |  |  |
+| review |  | with approval | with approval |  |
+| autonomous |  |  |  | if canSpawn=true |
 
 ## Trust Building
 

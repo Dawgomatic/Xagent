@@ -56,10 +56,10 @@ line art logo, flat design icon, minimalist symbol
 ### Keywords That Fail
 
 ```
-❌ photorealistic logo (contradiction — logos aren't photos)
-❌ 3D rendered logo (too complex, won't scale down)
-❌ gradient logo (inconsistent results, hard to reproduce)
-❌ logo with text "Company Name" (text rendering fails)
+ photorealistic logo (contradiction — logos aren't photos)
+ 3D rendered logo (too complex, won't scale down)
+ gradient logo (inconsistent results, hard to reproduce)
+ logo with text "Company Name" (text rendering fails)
 ```
 
 ### Prompt Structure

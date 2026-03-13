@@ -69,14 +69,14 @@ export function getProfileById(profileId) {
 export async function promptProfileSelection() {
     const profiles = listChromeProfiles();
     if (profiles.length === 0) {
-        console.log('❌ No Chrome profiles found.');
+        console.log(' No Chrome profiles found.');
         return null;
     }
     if (profiles.length === 1) {
-        console.log(`✅ Using only available profile: ${profiles[0].name} (${profiles[0].id})`);
+        console.log(` Using only available profile: ${profiles[0].name} (${profiles[0].id})`);
         return profiles[0];
     }
-    console.log('\n📋 Found Chrome profiles:\n');
+    console.log('\n Found Chrome profiles:\n');
     profiles.forEach((profile, index) => {
         const marker = profile.id === 'Default' ? ' (default)' : '';
         console.log(`  ${index + 1}) ${profile.name}${marker} [${profile.id}]`);
@@ -90,18 +90,18 @@ export async function promptProfileSelection() {
         rl.question('\nSelect profile (1-' + profiles.length + ', or n): ', (answer) => {
             rl.close();
             if (answer.toLowerCase() === 'n') {
-                console.log('⏭️  Using incognito mode (no profile)');
+                console.log('  Using incognito mode (no profile)');
                 resolve(null);
                 return;
             }
             const selection = parseInt(answer, 10);
             if (isNaN(selection) || selection < 1 || selection > profiles.length) {
-                console.log('⚠️  Invalid selection, using incognito mode');
+                console.log('  Invalid selection, using incognito mode');
                 resolve(null);
                 return;
             }
             const selected = profiles[selection - 1];
-            console.log(`✅ Selected profile: ${selected.name} [${selected.id}]`);
+            console.log(` Selected profile: ${selected.name} [${selected.id}]`);
             resolve(selected);
         });
     });

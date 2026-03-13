@@ -4,7 +4,7 @@ A powerful OpenClaw skill for creating customizable QR codes for any purpose.
 
 ## Features
 
-✅ **Multiple Data Types**
+ **Multiple Data Types**
 - URLs and web links
 - Plain text messages
 - WiFi credentials
@@ -15,21 +15,21 @@ A powerful OpenClaw skill for creating customizable QR codes for any purpose.
 - GPS coordinates
 - Calendar events
 
-✅ **Customization**
+ **Customization**
 - Custom colors (foreground/background)
 - Logo embedding
 - Error correction levels
 - Adjustable size and border
 - Multiple output formats
 
-✅ **Export Formats**
+ **Export Formats**
 - PNG (raster)
 - SVG (vector)
 - PDF (print-ready)
 - EPS (design tools)
 - Terminal (ASCII art)
 
-✅ **Batch Processing**
+ **Batch Processing**
 - Generate from text files
 - CSV with metadata
 - JSON with full config
@@ -59,7 +59,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-⚠️ **Never use `--break-system-packages`** - use virtual environments instead!
+ **Never use `--break-system-packages`** - use virtual environments instead!
 
 ## Quick Start
 

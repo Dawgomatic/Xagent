@@ -12,10 +12,10 @@
 
 ## Data Versioning Traps
 
-- ❌ Assuming data fits in Git → use DVC for large datasets
-- ❌ Not versioning preprocessing logic separately
-- ❌ Only versioning raw data, not derived features
-- ❌ `.gitignore` excluding artifacts you need to track
+-  Assuming data fits in Git → use DVC for large datasets
+-  Not versioning preprocessing logic separately
+-  Only versioning raw data, not derived features
+-  `.gitignore` excluding artifacts you need to track
 
 ## Experiment Tracking
 
@@ -27,10 +27,10 @@
 - Environment/dependency versions
 
 **What agents miss:**
-- ❌ Only final metrics, no intermediate
-- ❌ Implicit hyperparameters (augmentation, LR schedule)
-- ❌ Remote artifact store config (defaults to local)
-- ❌ Which data version was used
+-  Only final metrics, no intermediate
+-  Implicit hyperparameters (augmentation, LR schedule)
+-  Remote artifact store config (defaults to local)
+-  Which data version was used
 
 ## Environment Reproducibility
 

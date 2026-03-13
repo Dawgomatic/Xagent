@@ -43,10 +43,10 @@ for name, data in list(active.items()):
         continue
 
 if not to_resolve:
-    print("✅ No patterns ready for resolution")
+    print(" No patterns ready for resolution")
 else:
     for name, data, days_since in to_resolve:
-        print(f"🎓 Resolving '{name}' — {days_since} days without error")
+        print(f" Resolving '{name}' — {days_since} days without error")
 
         # Analyze what likely led to resolution
         mitigation = data.get('mitigation', '')
@@ -125,7 +125,7 @@ else:
     with open(state_file, 'w') as f:
         json.dump(state, f, indent=2)
 
-    print(f"\n✅ Resolved {len(to_resolve)} pattern(s)")
+    print(f"\n Resolved {len(to_resolve)} pattern(s)")
 PYTHON
 
 # Sync state

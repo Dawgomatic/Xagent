@@ -74,7 +74,7 @@ class CrossCheckBase:
             dianping_tags=dp.tags,
             dianping_address=dp.address,
             dianping_price=dp.price_range,
-            xhs_engagement_display=f"{xhs_rating:.1f}⭐ ({xhs.likes}赞/{xhs.saves}收藏)",
+            xhs_engagement_display=f"{xhs_rating:.1f} ({xhs.likes}赞/{xhs.saves}收藏)",
             xhs_keywords=xhs.keywords,
             recommendation_score=recommendation_score,
             consistency_level=consistency_level,
@@ -100,28 +100,28 @@ class CrossCheckBase:
             max_restaurants = OUTPUT_CONFIG.get('max_restaurants', 10)
 
         if not results:
-            return f"❌ 未找到符合条件的餐厅: {location} - {cuisine}"
+            return f" 未找到符合条件的餐厅: {location} - {cuisine}"
 
         output = []
-        output.append(f"📍 {location} {cuisine} 餐厅推荐\n")
+        output.append(f" {location} {cuisine} 餐厅推荐\n")
         output.append("=" * 60 + "\n")
 
         for i, r in enumerate(results[:max_restaurants], 1):
             output.append(f"{i}. {r.name}")
-            output.append(f"   🏆 推荐指数: {r.recommendation_score}/10")
-            output.append(f"   ⭐ 大众点评: {r.dianping_rating}⭐ ({r.dianping_reviews}评价)")
-            output.append(f"   💬 小红书: {r.xhs_engagement_display}")
-            output.append(f"   📍 地址: {r.dianping_address}")
-            output.append(f"   💰 人均: {r.dianping_price}")
-            output.append(f"   ✅ 一致性: {r.consistency_level} ({r.consistency_score:.2f})")
+            output.append(f"    推荐指数: {r.recommendation_score}/10")
+            output.append(f"    大众点评: {r.dianping_rating} ({r.dianping_reviews}评价)")
+            output.append(f"    小红书: {r.xhs_engagement_display}")
+            output.append(f"    地址: {r.dianping_address}")
+            output.append(f"    人均: {r.dianping_price}")
+            output.append(f"    一致性: {r.consistency_level} ({r.consistency_score:.2f})")
 
             if OUTPUT_CONFIG.get('show_details', True):
-                output.append(f"\n   📊 平台对比:")
+                output.append(f"\n    平台对比:")
                 output.append(f"   - 大众点评标签: {', '.join(r.dianping_tags)}")
                 output.append(f"   - 小红书热词: {', '.join(r.xhs_keywords)}")
 
                 if r.consistency_level == "低":
-                    output.append(f"\n   ⚠️ 注意: 两平台评价差异较大，建议进一步了解")
+                    output.append(f"\n    注意: 两平台评价差异较大，建议进一步了解")
 
             output.append("")
 

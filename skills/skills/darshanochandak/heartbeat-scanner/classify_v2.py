@@ -263,10 +263,10 @@ def run_unit_tests():
     print(f"  Got:      {result}")
     
     if result[0] == expected[0] and abs(result[1] - expected[1]) < 0.01:
-        print("  ✅ PASS - CV guard correctly catches CRON bot")
+        print("   PASS - CV guard correctly catches CRON bot")
         tests_passed += 1
     else:
-        print("  ❌ FAIL - CRON detection failed")
+        print("   FAIL - CRON detection failed")
         tests_failed += 1
     
     # Test Case 2: SarahChen (Human)
@@ -282,10 +282,10 @@ def run_unit_tests():
     print(f"  Got:      {result}")
     
     if result[0] == expected[0] and abs(result[1] - expected[1]) < 0.01:
-        print("  ✅ PASS - Smart hybrid logic correctly identifies human")
+        print("   PASS - Smart hybrid logic correctly identifies human")
         tests_passed += 1
     else:
-        print("  ❌ FAIL - Human detection failed")
+        print("   FAIL - Human detection failed")
         tests_failed += 1
     
     # Test Case 3: BatMann (Agent)
@@ -301,10 +301,10 @@ def run_unit_tests():
     print(f"  Got:      {result}")
     
     if result[0] == expected[0] and abs(result[1] - expected[1]) < 0.01:
-        print("  ✅ PASS - High-confidence agent correctly classified")
+        print("   PASS - High-confidence agent correctly classified")
         tests_passed += 1
     else:
-        print("  ❌ FAIL - Agent detection failed")
+        print("   FAIL - Agent detection failed")
         tests_failed += 1
     
     # Edge Case Tests
@@ -333,13 +333,13 @@ def run_unit_tests():
         
         if expected_class:
             if result[0] == expected_class:
-                print(f"  ✅ PASS - Correctly classified as {expected_class}")
+                print(f"   PASS - Correctly classified as {expected_class}")
                 tests_passed += 1
             else:
-                print(f"  ⚠️  INFO - Classified as {result[0]} (expected {expected_class})")
+                print(f"    INFO - Classified as {result[0]} (expected {expected_class})")
                 # Edge cases are informational, not strict pass/fail
         else:
-            print(f"  ℹ️  INFO - Boundary test (classification: {result[0]})")
+            print(f"    INFO - Boundary test (classification: {result[0]})")
     
     # Additional edge case: CV > 0.5 + Human > 0.6 in hybrid zone
     print(f"\n--- Edge Case: Smart Hybrid (CV>0.5 + Human>0.6) ---")
@@ -350,10 +350,10 @@ def run_unit_tests():
     print(f"  Calculated Score: {score:.3f}")
     print(f"  Result: {result}")
     if result[0] == "HUMAN":
-        print("  ✅ PASS - Smart hybrid correctly identifies human")
+        print("   PASS - Smart hybrid correctly identifies human")
         tests_passed += 1
     else:
-        print(f"  ⚠️  INFO - Result: {result[0]}")
+        print(f"    INFO - Result: {result[0]}")
     
     # Summary
     print("\n" + "=" * 70)
@@ -363,9 +363,9 @@ def run_unit_tests():
     print(f"Critical Tests Failed: {tests_failed}/3")
     
     if tests_failed == 0:
-        print("\n🎉 ALL CRITICAL TESTS PASSED!")
+        print("\n ALL CRITICAL TESTS PASSED!")
     else:
-        print(f"\n⚠️  {tests_failed} CRITICAL TEST(S) FAILED")
+        print(f"\n  {tests_failed} CRITICAL TEST(S) FAILED")
     
     return tests_failed == 0
 
@@ -433,7 +433,7 @@ Examples:
             
             if 'expected_classification' in profile:
                 expected = profile['expected_classification']
-                match = "✅ MATCH" if result[0] == expected else "❌ MISMATCH"
+                match = " MATCH" if result[0] == expected else " MISMATCH"
                 print(f"\nExpected: {expected}")
                 print(f"Status: {match}")
         else:

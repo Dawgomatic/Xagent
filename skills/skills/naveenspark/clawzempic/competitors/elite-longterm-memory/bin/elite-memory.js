@@ -64,7 +64,7 @@ Chat history is a BUFFER. This file is STORAGE.
 
 const commands = {
   init: () => {
-    console.log('🧠 Initializing Elite Longterm Memory...\n');
+    console.log(' Initializing Elite Longterm Memory...\n');
     
     // Create SESSION-STATE.md
     if (!fs.existsSync('SESSION-STATE.md')) {
@@ -99,7 +99,7 @@ const commands = {
       console.log(`✓ Created ${todayFile}`);
     }
     
-    console.log('\n🎉 Elite Longterm Memory initialized!');
+    console.log('\n Elite Longterm Memory initialized!');
     console.log('\nNext steps:');
     console.log('1. Add SESSION-STATE.md to your agent context');
     console.log('2. Configure LanceDB plugin in clawdbot.json');
@@ -124,7 +124,7 @@ const commands = {
   },
   
   status: () => {
-    console.log('🧠 Elite Longterm Memory Status\n');
+    console.log(' Elite Longterm Memory Status\n');
     
     // Check SESSION-STATE.md
     if (fs.existsSync('SESSION-STATE.md')) {
@@ -162,7 +162,7 @@ const commands = {
   
   help: () => {
     console.log(`
-🧠 Elite Longterm Memory CLI
+ Elite Longterm Memory CLI
 
 Commands:
   init     Initialize memory system in current directory

@@ -282,9 +282,9 @@ Verified By: [Name, Title]
 VERIFICATION SUMMARY:
 | Criterion | Target | Actual | Status |
 |-----------|--------|--------|--------|
-| [Criterion 1] | [Target] | [Result] | ☑ Met / ☐ Not Met |
-| [Criterion 2] | [Target] | [Result] | ☑ Met / ☐ Not Met |
-| [Criterion 3] | [Target] | [Result] | ☑ Met / ☐ Not Met |
+| [Criterion 1] | [Target] | [Result] |  Met / ☐ Not Met |
+| [Criterion 2] | [Target] | [Result] |  Met / ☐ Not Met |
+| [Criterion 3] | [Target] | [Result] |  Met / ☐ Not Met |
 
 RECURRENCE CHECK:
 - Recurrence during verification period: [ ] Yes  [ ] No

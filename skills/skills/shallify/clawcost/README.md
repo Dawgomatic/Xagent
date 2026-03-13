@@ -43,20 +43,20 @@ python3 scripts/clawcost.py --budget 10
 ## Output Example
 
 ```
-💰 username
+ username
 ├ Balance $42.98 / $50 remaining
-├ Today   $1.36 / $10 (14%) ✅
+├ Today   $1.36 / $10 (14%) 
 ├ Week    $7.02
 └ Total   $7.02 (15.5M tok)
 
-📈 Sonnet $3.99 (57%) • Haiku $2.06 (29%) • Opus $0.97 (14%)
+ Sonnet $3.99 (57%) • Haiku $2.06 (29%) • Opus $0.97 (14%)
 ```
 
 ## Alerts
 
-- ⚠️ Warning when >80% of daily budget used
-- 🚨 Alert when over budget
-- 💸 Low balance warning when <$5 remaining
+-  Warning when >80% of daily budget used
+-  Alert when over budget
+-  Low balance warning when <$5 remaining
 
 ## How It Works
 

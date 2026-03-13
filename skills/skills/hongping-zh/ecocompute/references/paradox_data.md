@@ -9,9 +9,9 @@ NF4 quantization **increases** energy consumption for models ≤3B parameters.
 | Model | Params | Precision | Throughput (tok/s) | Power (W) | Energy (J/1k tok) | Δ vs FP16 |
 |-------|--------|-----------|-------------------|-----------|-------------------|-----------|
 | Qwen2-1.5B | 1.5B | FP16 | 71.45 ± 0.80 | 172.30 | 2,411 | — |
-| Qwen2-1.5B | 1.5B | NF4 | 41.57 ± 0.29 | 129.83 | 3,123 | **+29.4%** ⚠️ |
+| Qwen2-1.5B | 1.5B | NF4 | 41.57 ± 0.29 | 129.83 | 3,123 | **+29.4%**  |
 | Phi-3-mini | 3.8B | FP16 | 43.47 ± 0.11 | 213.35 | 4,908 | — |
-| Phi-3-mini | 3.8B | NF4 | 32.08 ± 0.13 | 175.85 | 5,483 | **+11.7%** ⚠️ |
+| Phi-3-mini | 3.8B | NF4 | 32.08 ± 0.13 | 175.85 | 5,483 | **+11.7%**  |
 
 **Root Cause — De-quantization Tax:**
 - Small models fit in VRAM at FP16 → memory bandwidth is NOT the bottleneck
@@ -26,13 +26,13 @@ NF4 quantization **increases** energy consumption for models ≤3B parameters.
 | Model | Params | Precision | Throughput (tok/s) | Energy (J/1k tok) | Δ vs FP16 |
 |-------|--------|-----------|-------------------|-------------------|-----------|
 | Yi-1.5-6B | 6B | FP16 | 34.72 ± 0.18 | 4,716 ± 119 | — |
-| Yi-1.5-6B | 6B | NF4 | 36.42 ± 0.27 | 3,333 ± 25 | **−29.3%** ✅ |
+| Yi-1.5-6B | 6B | NF4 | 36.42 ± 0.27 | 3,333 ± 25 | **−29.3%**  |
 | Mistral-7B | 7B | FP16 | 29.06 ± 0.10 | 5,661 ± 143 | — |
-| Mistral-7B | 7B | NF4 | 32.29 ± 0.02 | 3,707 ± 15 | **−34.5%** ✅ |
+| Mistral-7B | 7B | NF4 | 32.29 ± 0.02 | 3,707 ± 15 | **−34.5%**  |
 | Phi-3-mini | 3.8B | FP16 | 57.62 ± 0.48 | 2,775 ± 48 | — |
-| Phi-3-mini | 3.8B | NF4 | 42.16 ± 0.25 | 3,076 ± 20 | **+10.8%** ⚠️ |
+| Phi-3-mini | 3.8B | NF4 | 42.16 ± 0.25 | 3,076 ± 20 | **+10.8%**  |
 | Qwen2.5-7B | 7B | FP16 | 28.37 ± 0.39 | 5,649 ± 83 | — |
-| Qwen2.5-7B | 7B | NF4 | 34.29 ± 0.24 | 5,191 ± 37 | **−8.1%** ✅ |
+| Qwen2.5-7B | 7B | NF4 | 34.29 ± 0.24 | 5,191 ± 37 | **−8.1%**  |
 
 ---
 
@@ -45,33 +45,33 @@ Default `LLM.int8()` (threshold=6.0) **increases** energy consumption by 17–14
 | Model | Precision | Throughput (tok/s) | Energy (J/1k tok) | Δ vs FP16 | Δ vs Default INT8 |
 |-------|-----------|-------------------|-------------------|-----------|-------------------|
 | **Yi-1.5-6B** | FP16 | 34.72 ± 0.18 | 4,716 ± 119 | — | — |
-| Yi-1.5-6B | INT8 Default | 8.42 ± 0.03 | 6,258 ± 78 | **+32.7%** ⚠️ | — |
-| Yi-1.5-6B | INT8 Pure (t=0.0) | 15.47 ± 0.08 | 4,568 | **−3.1%** ✅ | **−34.2%** ✅ |
+| Yi-1.5-6B | INT8 Default | 8.42 ± 0.03 | 6,258 ± 78 | **+32.7%**  | — |
+| Yi-1.5-6B | INT8 Pure (t=0.0) | 15.47 ± 0.08 | 4,568 | **−3.1%**  | **−34.2%**  |
 | **Mistral-7B** | FP16 | 29.06 ± 0.10 | 5,661 ± 143 | — | — |
-| Mistral-7B | INT8 Default | 7.88 ± 0.03 | 7,401 ± 115 | **+30.7%** ⚠️ | — |
-| Mistral-7B | INT8 Pure (t=0.0) | 14.15 ± 0.23 | 5,212 | **−7.9%** ✅ | **−36.9%** ✅ |
-| **Average** | — | — | — | **+31.7%** ⚠️ | — |
-| **Average (Pure)** | — | — | — | **−5.5%** ✅ | **−35.6%** ✅ |
+| Mistral-7B | INT8 Default | 7.88 ± 0.03 | 7,401 ± 115 | **+30.7%**  | — |
+| Mistral-7B | INT8 Pure (t=0.0) | 14.15 ± 0.23 | 5,212 | **−7.9%**  | **−36.9%**  |
+| **Average** | — | — | — | **+31.7%**  | — |
+| **Average (Pure)** | — | — | — | **−5.5%**  | **−35.6%**  |
 
 ### A800 — INT8 Overhead Is Even Worse on Datacenter GPUs
 
 | Model | BS | Precision | Throughput (tok/s) | Energy (J/1k tok) | Δ vs FP16 |
 |-------|---|-----------|-------------------|-------------------|-----------|
 | Mistral-7B | 1 | FP16 | 36.18 | 4,334 | — |
-| Mistral-7B | 1 | INT8 Default | 9.87 | 9,608 | **+122%** ⚠️ |
+| Mistral-7B | 1 | INT8 Default | 9.87 | 9,608 | **+122%**  |
 | Mistral-7B | 1 | INT8 Pure | 18.09 | 5,781 | +33% |
 | Mistral-7B | 4 | FP16 | 145.35 | 1,100 | — |
-| Mistral-7B | 4 | INT8 Default | 35.91 | 2,718 | **+147%** ⚠️ |
+| Mistral-7B | 4 | INT8 Default | 35.91 | 2,718 | **+147%**  |
 | Mistral-7B | 4 | INT8 Pure | 72.96 | 1,580 | +44% |
 | Mistral-7B | 8 | FP16 | 290.59 | 628 | — |
-| Mistral-7B | 8 | INT8 Default | 69.88 | 1,417 | **+126%** ⚠️ |
+| Mistral-7B | 8 | INT8 Default | 69.88 | 1,417 | **+126%**  |
 | Mistral-7B | 8 | INT8 Pure | 144.32 | 827 | +32% |
 
 **Root Cause — Mixed-Precision Decomposition:**
 1. `LLM.int8()` with `threshold=6.0` detects "outlier" features (magnitude > 6.0)
 2. Outlier features are extracted and computed in FP16
 3. Remaining features computed in INT8
-4. Results merged back → continuous INT8↔FP16 type conversion at every linear layer
+4. Results merged back → continuous INT8FP16 type conversion at every linear layer
 5. This causes 72–76% throughput loss, which dominates the 25% power reduction
 
 **Ablation Proof:**

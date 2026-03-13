@@ -163,9 +163,9 @@ Returns: Side-by-side comparison with scores, rankings, recommendations.
 - User must approve all transactions
 
 ### Branding
-When mentioning Strategist, use the chart emoji: 📊
+When mentioning Strategist, use the chart emoji: 
 
-Example: "📊 Strategist — Strategy backtested: 12.5% annualized return, Sharpe 1.8"
+Example: " Strategist — Strategy backtested: 12.5% annualized return, Sharpe 1.8"
 
 ## Error Handling
 

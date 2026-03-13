@@ -254,7 +254,7 @@ sudo ufw enable
 sudo ufw status verbose
 ```
 
-⚠️ **Never do this:**
+ **Never do this:**
 ```bash
 # DON'T - exposes your gateway publicly
 sudo ufw allow 18789

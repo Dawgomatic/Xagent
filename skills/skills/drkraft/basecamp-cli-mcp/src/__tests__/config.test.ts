@@ -280,7 +280,7 @@ describe('Config Module', () => {
     it('should handle special characters in tokens', () => {
       const tokens: BasecampTokens = {
         access_token: 'token-with-special-chars-!@#$%^&*()',
-        refresh_token: 'token-with-unicode-émojis-🎉',
+        refresh_token: 'token-with-unicode-émojis-',
         expires_at: Date.now() + 3600000,
       };
 

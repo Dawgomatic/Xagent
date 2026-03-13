@@ -1,6 +1,6 @@
 # Clawdbot Workspace
 
-Personal workspace for Clawdbot — a space lobster AI assistant 🦞
+Personal workspace for Clawdbot — a space lobster AI assistant 
 
 ## Structure
 

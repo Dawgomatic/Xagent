@@ -72,10 +72,10 @@ def format_alert_message(alerts):
     if not alerts:
         return None
     
-    msg = "⚠️ *Oura Alerts*\n\n"
+    msg = " *Oura Alerts*\n\n"
     
     for alert in alerts[-5:]:  # Last 5 alerts
-        msg += f"📅 *{alert['date']}*\n"
+        msg += f" *{alert['date']}*\n"
         for a in alert["alerts"]:
             msg += f"   • {a}\n"
         msg += "\n"
@@ -146,7 +146,7 @@ def main():
 
         if alerts:
             mode = "Quality Mode" if args.config else "Legacy Mode"
-            print(f"\n⚠️  {mode}: {len(alerts)} Alert Days Found:\n")
+            print(f"\n  {mode}: {len(alerts)} Alert Days Found:\n")
             for alert in alerts:
                 consecutive = alert.get("consecutive_days", "")
                 if consecutive:
@@ -157,12 +157,12 @@ def main():
             if args.telegram:
                 msg = format_alert_message(alerts)
                 if msg and send_telegram(msg):
-                    print("\n✅ Alerts sent to Telegram!")
+                    print("\n Alerts sent to Telegram!")
                 else:
-                    print("\n❌ Telegram failed")
+                    print("\n Telegram failed")
         else:
             mode = "Quality Mode" if args.config else "Legacy Mode"
-            print(f"\n✅ {mode}: All metrics above thresholds!")
+            print(f"\n {mode}: All metrics above thresholds!")
 
         # Save to file (portable path)
         output_dir = os.environ.get("OURA_OUTPUT_DIR", str(Path.home() / ".oura-analytics" / "reports"))
@@ -170,7 +170,7 @@ def main():
         os.makedirs(output_dir, exist_ok=True)
         with open(alert_file, "w") as f:
             json.dump({"period": f"{start_date} to {end_date}", "alerts": alerts}, f, indent=2)
-        print(f"\n💾 Saved to {alert_file}")
+        print(f"\n Saved to {alert_file}")
     
     except Exception as e:
         print(f"Error: {e}")

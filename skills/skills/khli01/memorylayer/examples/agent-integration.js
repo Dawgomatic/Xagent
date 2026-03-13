@@ -18,7 +18,7 @@ class AIAgent {
   }
   
   async processUserMessage(message) {
-    console.log(`\n👤 User: ${message}`);
+    console.log(`\n User: ${message}`);
     
     // 1. Get relevant context from MemoryLayer
     const context = await memory.get_context(message, 5);
@@ -30,7 +30,7 @@ User message: ${message}
 
 Based on the relevant memories above, provide a helpful response.`;
     
-    console.log('\n🧠 Agent thinking...');
+    console.log('\n Agent thinking...');
     console.log('Context retrieved:');
     console.log(context);
     
@@ -52,7 +52,7 @@ Based on the relevant memories above, provide a helpful response.`;
       response = "I'm here to help! What would you like to know?";
     }
     
-    console.log(`\n🤖 ${this.name}: ${response}`);
+    console.log(`\n ${this.name}: ${response}`);
     
     return response;
   }
@@ -68,19 +68,19 @@ Based on the relevant memories above, provide a helpful response.`;
       }
     });
     
-    console.log(`\n📚 Learned: ${feedback}`);
+    console.log(`\n Learned: ${feedback}`);
   }
 }
 
 async function main() {
-  console.log('🤖 MemoryLayer Agent Integration Example\n');
+  console.log(' MemoryLayer Agent Integration Example\n');
   console.log('=' .repeat(50));
   
   try {
     const agent = new AIAgent();
     
     // Store some initial preferences
-    console.log('\n📝 Setting up agent knowledge...');
+    console.log('\n Setting up agent knowledge...');
     await memory.remember(
       'User prefers dark mode UI with blue accent colors',
       { type: 'semantic', importance: 0.8 }
@@ -96,11 +96,11 @@ async function main() {
       { type: 'procedural', importance: 0.7 }
     );
     
-    console.log('✅ Initial knowledge stored');
+    console.log(' Initial knowledge stored');
     
     // Simulate conversation
     console.log('\n' + '='.repeat(50));
-    console.log('💬 Starting conversation...');
+    console.log(' Starting conversation...');
     console.log('='.repeat(50));
     
     await agent.processUserMessage("What are my UI preferences?");
@@ -116,24 +116,24 @@ async function main() {
     
     // Show how memory grows
     console.log('\n' + '='.repeat(50));
-    console.log('\n📊 Memory Status:');
+    console.log('\n Memory Status:');
     const stats = await memory.stats();
     console.log(`Total memories stored: ${stats.total_memories || 'N/A'}`);
     console.log(`Operations used: ${stats.operations_this_month || 'N/A'}`);
     
-    console.log('\n💡 Key Benefits:');
-    console.log('✅ Only relevant memories loaded (not entire history)');
-    console.log('✅ Memory grows over time without token bloat');
-    console.log('✅ 95% token savings vs. loading full context');
-    console.log('✅ Sub-200ms retrieval speed');
+    console.log('\n Key Benefits:');
+    console.log(' Only relevant memories loaded (not entire history)');
+    console.log(' Memory grows over time without token bloat');
+    console.log(' 95% token savings vs. loading full context');
+    console.log(' Sub-200ms retrieval speed');
     
-    console.log('\n✅ Example complete!');
+    console.log('\n Example complete!');
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.message.includes('Missing credentials')) {
-      console.log('\n💡 Set credentials first:');
+      console.log('\n Set credentials first:');
       console.log('export MEMORYLAYER_EMAIL=your@email.com');
       console.log('export MEMORYLAYER_PASSWORD=your_password');
     }

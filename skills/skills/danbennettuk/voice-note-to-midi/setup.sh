@@ -18,7 +18,7 @@ echo ""
 
 # Check Python version
 if ! command -v python3 &> /dev/null; then
-    echo "❌ Error: Python 3 is required but not installed."
+    echo " Error: Python 3 is required but not installed."
     exit 1
 fi
 
@@ -26,7 +26,7 @@ PYTHON_VERSION=$(python3 --version 2>&1 | grep -oP '\d+\.\d+')
 REQUIRED_VERSION="3.11"
 
 if [ "$(printf '%s\n' "$REQUIRED_VERSION" "$PYTHON_VERSION" | sort -V | head -n1)" != "$REQUIRED_VERSION" ]; then 
-    echo "❌ Error: Python 3.11+ is required (found $PYTHON_VERSION)"
+    echo " Error: Python 3.11+ is required (found $PYTHON_VERSION)"
     exit 1
 fi
 
@@ -34,7 +34,7 @@ echo "✓ Python version: $PYTHON_VERSION"
 
 # Check for pip
 if ! command -v pip3 &> /dev/null; then
-    echo "❌ Error: pip3 is required but not installed."
+    echo " Error: pip3 is required but not installed."
     exit 1
 fi
 
@@ -44,7 +44,7 @@ echo "✓ pip3 available"
 if command -v ffmpeg &> /dev/null; then
     echo "✓ FFmpeg available (for extended audio format support)"
 else
-    echo "⚠ FFmpeg not found. Install for broader audio format support."
+    echo " FFmpeg not found. Install for broader audio format support."
 fi
 
 echo ""
@@ -97,7 +97,7 @@ if [ -f "$SCRIPT_DIR/hum2midi" ]; then
 elif [ -f "$INSTALL_DIR/hum2midi" ]; then
     echo "✓ hum2midi script already exists"
 else
-    echo "⚠ Please download the hum2midi script manually:"
+    echo " Please download the hum2midi script manually:"
     echo "  wget https://raw.githubusercontent.com/basic-pitch/basic-pitch/main/hum2midi -O $INSTALL_DIR/hum2midi"
     echo "  chmod +x $INSTALL_DIR/hum2midi"
 fi

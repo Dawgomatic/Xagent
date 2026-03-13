@@ -11,7 +11,7 @@ This folder contains detailed documentation for the Stock Analysis skill.
 | [CONCEPT.md](./CONCEPT.md) | Philosophy, ideas, and design rationale |
 | [USAGE.md](./USAGE.md) | Practical usage guide with examples |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | Technical implementation details |
-| [HOT_SCANNER.md](./HOT_SCANNER.md) | 🔥 Viral trend detection (NEW) |
+| [HOT_SCANNER.md](./HOT_SCANNER.md) |  Viral trend detection (NEW) |
 
 ## Quick Links
 
@@ -83,13 +83,13 @@ uv run scripts/watchlist.py check
 
 ### Risk Flags
 
-- ⚠️ Pre-earnings (< 14 days)
-- ⚠️ Post-spike (> 15% in 5 days)
-- ⚠️ Overbought (RSI > 70 + near 52w high)
-- ⚠️ Risk-off mode (GLD/TLT/UUP rising)
-- ⚠️ Geopolitical keywords
-- ⚠️ Breaking news alerts
+-  Pre-earnings (< 14 days)
+-  Post-spike (> 15% in 5 days)
+-  Overbought (RSI > 70 + near 52w high)
+-  Risk-off mode (GLD/TLT/UUP rising)
+-  Geopolitical keywords
+-  Breaking news alerts
 
 ## Disclaimer
 
-⚠️ **NOT FINANCIAL ADVICE.** For informational purposes only. Always do your own research and consult a licensed financial advisor.
+ **NOT FINANCIAL ADVICE.** For informational purposes only. Always do your own research and consult a licensed financial advisor.

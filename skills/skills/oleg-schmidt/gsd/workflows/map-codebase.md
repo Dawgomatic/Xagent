@@ -208,7 +208,7 @@ Created 7 codebase documents:
 | TESTING.md | {N} | Test setup, patterns |
 | CONCERNS.md | {N} | Tech debt, issues |
 
-**▶ Next Up**
+** Next Up**
 
 `/gsd new-project` — initialize project with codebase context
 

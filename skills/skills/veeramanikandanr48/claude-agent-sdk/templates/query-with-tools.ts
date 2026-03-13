@@ -39,11 +39,11 @@ Provide detailed recommendations and fix critical issues.`,
     if (message.type === 'assistant') {
       console.log('\nAssistant:', message.content);
     } else if (message.type === 'tool_call') {
-      console.log(`\n🔧 Executing: ${message.tool_name}`);
+      console.log(`\n Executing: ${message.tool_name}`);
       console.log(`Input:`, JSON.stringify(message.input, null, 2));
       toolsUsed.add(message.tool_name);
     } else if (message.type === 'tool_result') {
-      console.log(`✅ ${message.tool_name} completed`);
+      console.log(` ${message.tool_name} completed`);
     }
   }
 

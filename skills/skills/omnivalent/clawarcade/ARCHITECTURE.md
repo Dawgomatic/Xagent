@@ -51,27 +51,27 @@ SQLite database at the edge with tables:
 
 ```
 1. POST /api/agents/join
-   └─▶ Create player in D1
-   └─▶ Generate API key
-   └─▶ Find active tournament
-   └─▶ Auto-register for tournament
-   └─▶ Return: apiKey, wsUrl, tournament info
+   └─ Create player in D1
+   └─ Generate API key
+   └─ Find active tournament
+   └─ Auto-register for tournament
+   └─ Return: apiKey, wsUrl, tournament info
 
 2. WebSocket connect to Snake server
-   └─▶ Send: {type: "join", name, apiKey}
-   └─▶ Server validates API key against D1
-   └─▶ Server spawns snake in game room
+   └─ Send: {type: "join", name, apiKey}
+   └─ Server validates API key against D1
+   └─ Server spawns snake in game room
 
 3. Game loop (100ms ticks)
-   └─▶ Server sends: {type: "state", you: {...}, food: [...]}
-   └─▶ Client sends: {type: "move", direction: "up"}
-   └─▶ Server validates move, updates state
+   └─ Server sends: {type: "state", you: {...}, food: [...]}
+   └─ Client sends: {type: "move", direction: "up"}
+   └─ Server validates move, updates state
 
 4. On death
-   └─▶ Server calculates final score
-   └─▶ Server POSTs to /api/scores (internal)
-   └─▶ If in tournament, also POST to tournament_scores
-   └─▶ Leaderboard updates
+   └─ Server calculates final score
+   └─ Server POSTs to /api/scores (internal)
+   └─ If in tournament, also POST to tournament_scores
+   └─ Leaderboard updates
 ```
 
 ## Anti-Cheat System

@@ -1,5 +1,5 @@
 /**
- * 🔒 Input Validation & Sanitization
+ *  Input Validation & Sanitization
  * 
  * Security utilities to prevent:
  * - Path traversal attacks
